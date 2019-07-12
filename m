@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD52JJ7JXILRBIWEUPUQKGQED5DS6GI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD52JJ7JXILRBLOEUPUQKGQEZUHAP3Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id 39ADD6756E
-	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Jul 2019 21:40:20 +0200 (CEST)
-Received: by mail-pl1-x638.google.com with SMTP id g18sf5693675plj.19
-        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Jul 2019 12:40:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1562960418; cv=pass;
+Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 83D6B6756F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 12 Jul 2019 21:40:30 +0200 (CEST)
+Received: by mail-qt1-x83f.google.com with SMTP id e32sf7959949qtc.7
+        for <lists+clang-built-linux@lfdr.de>; Fri, 12 Jul 2019 12:40:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1562960429; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nYipAt11Pli4KRGq78bBGUK/xaq44b+y9hQu4BJJQjmS2AACP5qETtEi75T6JnwAuW
-         kb0bnsiD8XF886EBomaKhTLihYbqUfBc5JOOcWEzxqaZ7J9Xjqd5mkFUAC+wyCtnX0dk
-         bKltNdsuuuhGVW4RLwBCsV0CpLALbMk48cVqwK9/hjsk+xc21/KVzfUGlFC5ewExuVht
-         Yx7Nuf3awBcbrVQX2HglW14XG3yumPoo7iY7WFsnPfoiMwI6R84whUk3sagnElfTuvaF
-         IPInXJE9aIeF/ypnhD4Gb93TgIPNZKSZUQZyLNdkoL5+egcASX37brM2SO1ZKNHSuZ1U
-         2AVw==
+        b=WBkYgDyxfESVK7yI9Ji72KGk5dneaQ1vR3Z21aLWygxLw/ovP6IapajKASQT53eTuc
+         wglAZjwvQ7/uQ9cO73r4YdP3z61JKi2Zh73nyCtPVJBoxbf2dTvpQWQbwXp1rbhfTpbl
+         qAixvwrmFqVowT+Y3u5NuydSYc3upHwsUWOOdN4d4hzD1UPqGWKqsGPYxyGA7OxTOYWd
+         9tjlaL7NWq3/VMsTPBg6TXKw7XUslAgaeqeW1lx0NfyS+Mll7qCf4BCzmjYQWyoyqDjc
+         PIXKN8OCzUTdY8bZv8d0TYe/GRBKJ587JTZsu0YFSuCfjkW7IkZqeoRD482HtEB3UEsb
+         vdrg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=wAQEPe1f8Pi18cBhRG1lro2kld5NXnNZ7MGLFo0MZ5M=;
-        b=TUuyCsAdzvblzOy405EuY//ZK86DW4NDT8WMw8V5bLrDpIjx45TPVSLtr4oUh+Q+y9
-         oVgLAZxu3Y+5MRNalIItAJGfCGuP79UurFQuNTSfuqvSqWK6Dur2/NlaVwdetlM2ReOp
-         4RmI4SnPxNjH91Y68SfZXNybOjNPNcNYoN3Xacyvwse0tpWl+Mmm15iQuvO7iEiZNkQK
-         n+mEa2+xc60sqU1RnD05XcrosllZ8hJLjkYBe3CEJUWyuUWxuK/AARxCYWmuCUOD4pWe
-         nF/HsA0Qpu6HwbckQ9yy3ztcrnhKuacJRq+gQLfMgkKg3+2PPoySzcyTMVmAzxFItQyW
-         wGkA==
+        bh=MUwdQ1MkJOzHRYjdCqPBybrryJcrod2pkwYgcP6HlIg=;
+        b=vetWDyjOAkymUFMIiUDKe5RhShLzuvW0GYz9nPG+qUyBg/MdP6ekxd6LYgVTtbNfeY
+         xOcJMWNpszTjV0CC13uYv38QAJjz/PK8YcOhmvloYxJlZDIDVS/VTEX9Eny6ZHPSvTaZ
+         kmG2lhhxjhsqFnMxCuHw+vidCv71DL4nwK5t3eWlqbjuRZ82fVfktlccsJFvK1MkekMW
+         PLy0ZOa8LRV5gakxfZG52Jk52cXFcdwq2q7aspudj5q4pkxKYf+6CMpYNSob88ntEVm8
+         MO8rm1GcnVM5Xl8OZxlsOTKN7nf27R0wsre+4qTyY4LLkbHudsmuaKmFRBsOlqMyjtnd
+         xuoA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=k1+42Pt5;
-       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a44 as permitted sender) smtp.mailfrom=pcc@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=fjjna3A9;
+       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a43 as permitted sender) smtp.mailfrom=pcc@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wAQEPe1f8Pi18cBhRG1lro2kld5NXnNZ7MGLFo0MZ5M=;
-        b=ANGiBe7OYl8MX9VApBj9iXZi6nNg71bVYfDPqRXRUnp1Wx26jxw7j0B2uUgFmleAIA
-         O2nEFf07tz0s1WY+yKco5lCeDhejfrXiNgyKfI3beR9KV3IMJOllEkeCFu8ZE0qe+pNx
-         6xEdI9Kmu0Ow/KfuP6T2zTD0eZGI/u7rvpa7GmsaCpFNTQxVjHE0jZsfx+e+dZgacPmS
-         EdJyhkWYb+gejOT0aucuaFBIO92XsnjJZmuDin7glrDb7Hdwo0n/urXD3CGrjDmsHNEc
-         9arGJr9eXeSncQmRzMPj/iyAbVLePAVnF1BGhc/DPLIKqMTXzDhkVLspsIt6hZpZqPE/
-         FQ0Q==
+        bh=MUwdQ1MkJOzHRYjdCqPBybrryJcrod2pkwYgcP6HlIg=;
+        b=KQdr8P3hofVqlgB7Fob8vKEWQ/lD6ZCSXVvFRdOE/ku9fDHmxRtC30qEP6PTzzFAqI
+         F1MrO2UMPlXcODD9waKCEepCMJRmy1Jhkrti9j/hZZFFzblPIQ4QXO18TKdVWzdrDEUf
+         3Rcz6he/AFDYA4d44d7soi95Ef2F6owAQfqGs+MaQbHrXv7A/3Y6gpDfBq/wen1djVZB
+         fXMPswcotZCs/Kxy++EhD8wkd0zrL/o7+5WG5RqNESYI1N4G4uDr1alMUEegZP7LeWyj
+         8rInbCQiedaec8DhMcMFKsllBoIw9crqtwCRAsUAqpwoasJgnGz+8f4vs0pIqoazYrsb
+         X/rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,74 +49,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wAQEPe1f8Pi18cBhRG1lro2kld5NXnNZ7MGLFo0MZ5M=;
-        b=reQ6RPSutBkgwBFwEQNlwv7nMam1tq+nabK4YV81WBu2X7E1Thy2JQcp8PFm0K6VGe
-         fXes9HDt14/2FmPS0hIBYjor3YrvI968MKeKH5hta/a73JrZXzDOfxIhrrxMQz+4wdEr
-         qcB4kidevcRXSJdy2Shj1Ke03Spj9KxnKRbTpjs3RTpo0LSwkg3QWPboVFsiU/V+A0Ic
-         sEwVmYu/qAvBmX9zfb31LxJ3wv2eE6sI0/cvmKZvtp67ZD4oRpAJOnj5yCYA4gQrjid+
-         xYjwPQQPHgRJfiI/M8afybnlm9si6RY8xFSLe36iHE25tsJslu0DRa122H802KjtIT5c
-         qFwA==
-X-Gm-Message-State: APjAAAVErX9zukvkIubmnxnl7MIW4BTnHSsYcSdfN9TG7ar25UuvDV7O
-	ZwkpKRiPb/mbh0X5TOecuD0=
-X-Google-Smtp-Source: APXvYqz+DwUhWcMuc6aHnIk14OjX336RCT2gto+YSLYMjO+DRfiHMizrUMy1UmCCbScTsN8HFJP2+g==
-X-Received: by 2002:a17:90a:a489:: with SMTP id z9mr13578211pjp.24.1562960418595;
-        Fri, 12 Jul 2019 12:40:18 -0700 (PDT)
+        bh=MUwdQ1MkJOzHRYjdCqPBybrryJcrod2pkwYgcP6HlIg=;
+        b=ElFbr6XuO+c+sz5OlK9ebd/oXbDEIyhJGmIeX+6lMQlzIsyVnTuGF834ODOalbdZ0n
+         q+PwhtowwKuX5MAxMKjjngqq8bmveaTlbLnm8FFLDwomDTrxgsjdX0/lIKkoZtXN9gB2
+         xeAh7Qqtqg5uViSEoR10CXjYHONkhQ0s6ECx2cFOYm1AQMpMB3ZPJKfP27Ooo9zJ0TU6
+         8Rs9sG2u5LoyWIxOXJwFLYZmto0a0IKbEOc8oGqaTRgFM1SEY7KIgJBCVeQxJePAR9V2
+         UZaz21JpZwd7XSVFzi/4LAbGNoAj/jQhNc8pBg0G4xNvHLb6eIRg73N0+H1EiKfdHljb
+         roiw==
+X-Gm-Message-State: APjAAAUxXk69W6K5YXbn7pduyRLt81na9BjqIX5Ln0V3owBAb3faIy4H
+	7gNd6qJSsO40Tg48PkOQ/H4=
+X-Google-Smtp-Source: APXvYqwaqBPFzf5yabgzeGiqkpIxmyn/gmjN4PbqLb5zb0nUgMGh7ImpZOQbJz/nJOK661j0V91AQw==
+X-Received: by 2002:aed:3f47:: with SMTP id q7mr8004704qtf.209.1562960429630;
+        Fri, 12 Jul 2019 12:40:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:92d0:: with SMTP id k16ls1708254pfa.6.gmail; Fri, 12 Jul
- 2019 12:40:18 -0700 (PDT)
-X-Received: by 2002:a63:d950:: with SMTP id e16mr13537400pgj.271.1562960418177;
-        Fri, 12 Jul 2019 12:40:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1562960418; cv=none;
+Received: by 2002:a05:620a:129b:: with SMTP id w27ls3131082qki.1.gmail; Fri,
+ 12 Jul 2019 12:40:29 -0700 (PDT)
+X-Received: by 2002:a05:620a:632:: with SMTP id 18mr8129042qkv.205.1562960429387;
+        Fri, 12 Jul 2019 12:40:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1562960429; cv=none;
         d=google.com; s=arc-20160816;
-        b=ipjSuTCiAsWVIcuIgshQzO95Qbx1Fv3KSYEHue80OaFOJu3AkA6hxjWiEWSdTViCMm
-         FLeVYNKhx16DWNn8+gpiWfW8EdzaIS+K3ZGDjDOMNPUQT/w+XjwDYBDnDsukwjsWUErz
-         DYu4S6w5PdBAtKJ+x2+8FTu16C709gdI9djrsfUcVPzwzObETI70UL9gJXsYBlq5bpL2
-         WCLd1lAds/LHNwchLwbGBbM11dbiBtUlClx3M13Nk5cQJcPpDn4JTKHii5Xvvgx79jfk
-         Yka0br5NsqWsFe3ylCAy4xHJ9Dn4HPX+csJukxsUPXYYM81wpe6slpyIENYlJBEbzjFh
-         5SFQ==
+        b=l2+JMtQuGnqkR9jZbWETIwHVakTEVU7I1oier+QaAlqbH8d1RJjXlh5/psM2jcmNVm
+         PJtVbjzXsvQ2rnsbMWfeSqdV4wu6AJ3TSZ7jwWwyuVJHshF9688I745UQ8fjSiEn2xCE
+         oxn6mg4FgQTwzqd18zyG8UH9MXGVs38DIoVW6hv0LHxZwLzroh87PRu/uF+CAhKOIYmU
+         ayErh+eU8wq5HIGUJGvCAP7oHk7b3LDr/B2OQmSOC0nHWAC8T+DgcYRF1+ZF39QF/Yac
+         c27VRwWJkhCaMq2G+cTqk65dmX1MI6ARCcijQ149ri+Lmbl00UMAng2DWt4xxdvweXcF
+         lHUg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=jf3a2VPz2kRH2FuR+a8ySEHrky73zbT5tznEgM5MSEo=;
-        b=iNeEC+PWZX4RTXnnma2BhK25jCS/5YASpHCruFqdjaQHXqJDhYH+yKRJORL2oGNl/5
-         J4aqFjw+qYzhQVHHu8mEKhxmoAzid9BRLT9xsqKLpHMXaLfKPrzLRB0pmtXIB8CxFzqH
-         euK607YdbV1hL21AUb8TMNpx/sGKCMZXirjjFDVknMq9ihQLJyjc+NhP8fqayKbesGaC
-         Ls24Zoah4VXOkuzlUS5IsqGpw0y7KMUQN0cDN9igGCbTkeyR62eLuRLweggZKqrUI2Ft
-         qBTgbsaQ0Aqo1oN9Sy6h0zp7gpVeXkaFO62/xeXztI2Cxq+/htGMTKvYskfOCrIJgaOH
-         AJYQ==
+        bh=QmYsG2c9gdLtpTtADUB+0AnVVhFJh3Pqj6815V6+Oa8=;
+        b=DuIdt2o2n0O3SAz9sBqjvo1F1ERwmafePAMGNZ2/Iiyxqin5gsIOzgq1rDXROsfWEd
+         Qtq+gHVyIzeNZBnL0EY7F+zKn28jKEkSj7i+580nzNcF6gTFzUls8bokLw8pfZp5CRnD
+         MXzB1nl8uYv6KWgZchmxkQBBRkgX6zHIPZblhqQCIGY9pEsgaAVNzbEeI5SGdQGSpF9C
+         4+6ifoQNQMEF21iaF3UgNKDSKH/1HCoWIdvrNRAo/c0G+W6cDTCcrYvCt9O4CE4lyCWt
+         3Y2NyOTinRj271/LXxCZKZv49k6YJsatkAGkGL/zds74lTizdvQ7R9+7/It59izCaF9o
+         pByA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=k1+42Pt5;
-       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a44 as permitted sender) smtp.mailfrom=pcc@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=fjjna3A9;
+       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a43 as permitted sender) smtp.mailfrom=pcc@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-vk1-xa44.google.com (mail-vk1-xa44.google.com. [2607:f8b0:4864:20::a44])
-        by gmr-mx.google.com with ESMTPS id j6si549457pjt.0.2019.07.12.12.40.18
+Received: from mail-vk1-xa43.google.com (mail-vk1-xa43.google.com. [2607:f8b0:4864:20::a43])
+        by gmr-mx.google.com with ESMTPS id l17si380251qkg.0.2019.07.12.12.40.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Fri, 12 Jul 2019 12:40:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a44 as permitted sender) client-ip=2607:f8b0:4864:20::a44;
-Received: by mail-vk1-xa44.google.com with SMTP id m17so2314247vkl.2
-        for <clang-built-linux@googlegroups.com>; Fri, 12 Jul 2019 12:40:18 -0700 (PDT)
-X-Received: by 2002:a1f:2d50:: with SMTP id t77mr6779299vkt.46.1562960416867;
- Fri, 12 Jul 2019 12:40:16 -0700 (PDT)
+        Fri, 12 Jul 2019 12:40:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a43 as permitted sender) client-ip=2607:f8b0:4864:20::a43;
+Received: by mail-vk1-xa43.google.com with SMTP id 130so2310133vkn.9
+        for <clang-built-linux@googlegroups.com>; Fri, 12 Jul 2019 12:40:29 -0700 (PDT)
+X-Received: by 2002:a1f:9ad7:: with SMTP id c206mr6561639vke.31.1562960428682;
+ Fri, 12 Jul 2019 12:40:28 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190705080231.123522-1-pcc@google.com> <CAKwvOd=q8-zZJ443YYQbzQrtvVX1Z70o6sT3Zft+vYOuCjAhxA@mail.gmail.com>
- <CAMn1gO5RR7mbOb3ZgkpN=fbP4tfYYZJLXeX6xyvT6xtqxZwpVw@mail.gmail.com> <CAKwvOdmU0y=pu1+QfThMb+d9hZeydtHSBmdYPV1rJnr6Lx6sGQ@mail.gmail.com>
-In-Reply-To: <CAKwvOdmU0y=pu1+QfThMb+d9hZeydtHSBmdYPV1rJnr6Lx6sGQ@mail.gmail.com>
+References: <20190705080231.123522-1-pcc@google.com> <20190710162114.rucn5wyrlwhkifti@willie-the-truck>
+In-Reply-To: <20190710162114.rucn5wyrlwhkifti@willie-the-truck>
 From: "'Peter Collingbourne' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 12 Jul 2019 12:40:04 -0700
-Message-ID: <CAMn1gO6WzRjXTFpHJ4n2+s2rmK4Kd7R9cPeof2geSNrgk9yOXA@mail.gmail.com>
+Date: Fri, 12 Jul 2019 12:40:16 -0700
+Message-ID: <CAMn1gO5FyAUy7VSO4YBNniwjPqEoJVpm+_fEiaF=cp_Du991vw@mail.gmail.com>
 Subject: Re: [PATCH] arm64: Add support for relocating the kernel with RELR relocations
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ard.biesheuvel@linaro.org>, 
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, 
 	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: pcc@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=k1+42Pt5;       spf=pass
- (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a44 as
+ header.i=@google.com header.s=20161025 header.b=fjjna3A9;       spf=pass
+ (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::a43 as
  permitted sender) smtp.mailfrom=pcc@google.com;       dmarc=pass (p=REJECT
  sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Peter Collingbourne <pcc@google.com>
@@ -133,114 +131,190 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 9, 2019 at 4:13 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
+On Wed, Jul 10, 2019 at 9:21 AM Will Deacon <will@kernel.org> wrote:
 >
-> On Tue, Jul 9, 2019 at 3:04 PM Peter Collingbourne <pcc@google.com> wrote:
+> On Fri, Jul 05, 2019 at 01:02:31AM -0700, Peter Collingbourne wrote:
+> > RELR is a relocation packing format for relative relocations.
+> > The format is described in a generic-abi proposal:
+> > https://groups.google.com/d/topic/generic-abi/bX460iggiKg/discussion
 > >
-> > On Mon, Jul 8, 2019 at 11:02 AM Nick Desaulniers
-> > <ndesaulniers@google.com> wrote:
-> > >
-> > > On Fri, Jul 5, 2019 at 1:03 AM 'Peter Collingbourne' via Clang Built
-> > > Linux <clang-built-linux@googlegroups.com> wrote:
-> > > > +config RELR
-> > > > +       bool "Use RELR relocation packing"
-> > > > +       depends on RELOCATABLE && $(ld-option,--pack-dyn-relocs=relr)
-> > >
-> > > Oh, ld-option in Kconfig? +Masahiro
-> > >
-> > > > +       help
-> > > > +         Store the kernel's dynamic relocations in the RELR relocation packing
-> > > > +         format. Requires a compatible linker (currently only LLD supports
-> > > > +         this feature), as well as compatible NM and OBJCOPY utilities
-> > > > +         (llvm-nm and llvm-objcopy are compatible).
-> > >
-> > > So sounds like `make LD=ld.lld NM=llvm-nm OBJCOPY=llvm-objcopy` will
-> > > be needed to test.  The ld-option check above doesn't seem strong
-> > > enough, but maybe it's not easy to feature test NM or OBJCOPY?
+> > The LLD linker can be instructed to pack relocations in the RELR
+> > format by passing the flag --pack-dyn-relocs=relr.
 > >
-> > Right. Ideally we want to test the property that the tool accepts an
-> > input file with a .relr.dyn section, and this isn't easy without
-> > actually creating such a file. We could test that the tools are
-> > actually the LLVM versions (e.g. by testing the output of $TOOL
-> > --version), but I'm not sure if we want to exclude the possibility
-> > that GNU or other toolchains will add support for this section in the
-> > future.
+> > This patch adds a new config option, CONFIG_RELR. Enabling this option
+> > instructs the linker to pack vmlinux's relative relocations in the RELR
+> > format, and causes the kernel to apply the relocations at startup along
+> > with the RELA relocations. RELA relocations still need to be applied
+> > because the linker will emit RELA relative relocations if they are
+> > unrepresentable in the RELR format (i.e. address not a multiple of 2).
+> >
+> > Enabling CONFIG_RELR reduces the size of a defconfig kernel image
+> > with CONFIG_RANDOMIZE_BASE by 3.5MB/16% uncompressed, or 550KB/5%
+> > compressed (lz4).
+> >
+> > Signed-off-by: Peter Collingbourne <pcc@google.com>
+> > ---
+> >  arch/arm64/Kconfig              |  9 +++++
+> >  arch/arm64/Makefile             |  4 ++
+> >  arch/arm64/kernel/head.S        | 70 ++++++++++++++++++++++++++++-----
+> >  arch/arm64/kernel/vmlinux.lds.S |  9 +++++
+> >  4 files changed, 83 insertions(+), 9 deletions(-)
+> >
+> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> > index 697ea05107298..f0cd0d2607e70 100644
+> > --- a/arch/arm64/Kconfig
+> > +++ b/arch/arm64/Kconfig
+> > @@ -1447,6 +1447,15 @@ config RELOCATABLE
+> >         relocation pass at runtime even if the kernel is loaded at the
+> >         same address it was linked at.
+> >
+> > +config RELR
+> > +     bool "Use RELR relocation packing"
+> > +     depends on RELOCATABLE && $(ld-option,--pack-dyn-relocs=relr)
 >
-> eh, I strongly dislike version checks due to their brittleness.
-> https://lkml.org/lkml/2019/6/25/1253
-> Maybe a script like `scripts/cc-can-link.sh` ?
+> Do you know if this will also be supported by binutils and, if so, whether
+> they've agreed to use the same name for the option?
 
-Okay, in v2 I've added a feature test for LD, NM and OBJCOPY.
+A number of binutils developers (Cary Coutant, Alan Modra) expressed
+support for the format on the generic-abi thread, but I don't know
+what the plans of the binutils developers are in terms of
+implementation.
 
-Now that we can accurately test whether all of the provided tools
-support RELR, I propose that we make it the default if the tools
-support it, which is what I've done in v2.
+> > +     help
+> > +       Store the kernel's dynamic relocations in the RELR relocation packing
+> > +       format. Requires a compatible linker (currently only LLD supports
+> > +       this feature), as well as compatible NM and OBJCOPY utilities
+> > +       (llvm-nm and llvm-objcopy are compatible).
+> > +
+> >  config RANDOMIZE_BASE
+> >       bool "Randomize the address of the kernel image"
+> >       select ARM64_MODULE_PLTS if MODULES
+> > diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+> > index e9d2e578cbe67..16a8636f815c9 100644
+> > --- a/arch/arm64/Makefile
+> > +++ b/arch/arm64/Makefile
+> > @@ -22,6 +22,10 @@ LDFLAGS_vmlinux            += -shared -Bsymbolic -z notext -z norelro \
+> >                       $(call ld-option, --no-apply-dynamic-relocs)
+> >  endif
+> >
+> > +ifeq ($(CONFIG_RELR),y)
+> > +  LDFLAGS_vmlinux += --pack-dyn-relocs=relr
+> > +endif
+> > +
+> >  ifeq ($(CONFIG_ARM64_ERRATUM_843419),y)
+> >    ifeq ($(call ld-option, --fix-cortex-a53-843419),)
+> >  $(warning ld does not support --fix-cortex-a53-843419; kernel may be susceptible to erratum)
+> > diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> > index 2cdacd1c141b9..9b27d5e7d8f70 100644
+> > --- a/arch/arm64/kernel/head.S
+> > +++ b/arch/arm64/kernel/head.S
+> > @@ -102,6 +102,7 @@ pe_header:
+> >        *  x23        stext() .. start_kernel()  physical misalignment/KASLR offset
+> >        *  x28        __create_page_tables()     callee preserved temp register
+> >        *  x19/x20    __primary_switch()         callee preserved temp registers
+> > +      *  x24        __primary_switch()         current RELR displacement
+>
+> I think the comment is a bit misleading here, since x24 is used by
+> __relocate_kernel(). Maybe make the middle column say:
+>
+>         __primary_switch() .. __relocate_kernel()
+>
+> it's still not ideal, since the latter can be invoked twice, but oh well.
 
-> > > >         add     x9, x9, x11                     // __va(.rela)
-> > > >         add     x10, x9, x10                    // __va(.rela) + sizeof(.rela)
-> > > >
-> > > >  0:     cmp     x9, x10
-> > > >         b.hs    1f
-> > > > -       ldp     x11, x12, [x9], #24
-> > > > -       ldr     x13, [x9, #-8]
-> > > > -       cmp     w12, #R_AARCH64_RELATIVE
-> > > > +       ldp     x12, x13, [x9], #24
-> > > > +       ldr     x14, [x9, #-8]
-> > > > +       cmp     w13, #R_AARCH64_RELATIVE
-> > >
-> > > Can you help me understand this renaming?
-> > > x11 -> x12
-> > > x13 -> x14
-> > > x12 -> x13
-> > > but they all get clobbered before use in your added ifdef hunk?
-> >
-> > I use the value of x11 before it is clobbered in the instruction with
-> > the comment "// __va(.relr)".
-> >
-> > > >         b.ne    0b
-> > > > -       add     x13, x13, x23                   // relocate
-> > > > -       str     x13, [x11, x23]
-> > > > +       add     x14, x14, x23                   // relocate
-> > > > +       str     x14, [x12, x23]
-> > > >         b       0b
-> > > > -1:     ret
-> > > > +
-> > > > +1:
-> > > > +#ifdef CONFIG_RELR
-> > > > +       ldr     w9, =__relr_offset              // offset to reloc table
-> > > > +       ldr     w10, =__relr_size               // size of reloc table
-> > >
-> > > Were these modified since first loaded in the above hunk?  I see the
-> > > offsets applied below, but I don't spot any loops back up to `1:` (but
-> > > could be missing it).  It also doesn't look like x11 or x10 are
-> > > modified below (or above), so this looks like we're rematerializing
-> > > values that already exist in those registers, IIUC?  Maybe I'm missing
-> > > some side effect of one of the instructions?
-> >
-> > These instructions refer to __relr_{offset,size} which are different
-> > from __rela_{offset,size} loaded above. They are only loaded once per
-> > function call; the main loop is between labels 2 and 7 below.
+Done in v2.
+
+> >        */
+> >  ENTRY(stext)
+> >       bl      preserve_boot_args
+> > @@ -824,24 +825,63 @@ __relocate_kernel:
+> >        * Iterate over each entry in the relocation table, and apply the
+> >        * relocations in place.
+> >        */
+> > -     ldr     w9, =__rela_offset              // offset to reloc table
+> > -     ldr     w10, =__rela_size               // size of reloc table
+> > -
+> >       mov_q   x11, KIMAGE_VADDR               // default virtual offset
+> >       add     x11, x11, x23                   // actual virtual offset
+> > +
+> > +     ldr     w9, =__rela_offset              // offset to reloc table
+> > +     ldr     w10, =__rela_size               // size of reloc table
 >
-> oh, sorry, yes I missed __relr_ vs __rela__.  Thanks for the clarification.
->
+> I agree with Nick that I'd prefer to leave these lines alone.
+
+Okay, I've reverted this part in v2.
+
+> >       add     x9, x9, x11                     // __va(.rela)
+> >       add     x10, x9, x10                    // __va(.rela) + sizeof(.rela)
 > >
-> > You might have missed the implicit increment of x9 by 8 in the "ldr
-> > x11, [x9], #8" instruction below (see also similar instructions
-> > above), which is how we move to the next relocation table entry in the
-> > main loop.
+> >  0:   cmp     x9, x10
+> >       b.hs    1f
+> > -     ldp     x11, x12, [x9], #24
+> > -     ldr     x13, [x9, #-8]
+> > -     cmp     w12, #R_AARCH64_RELATIVE
+> > +     ldp     x12, x13, [x9], #24
+> > +     ldr     x14, [x9, #-8]
+> > +     cmp     w13, #R_AARCH64_RELATIVE
+> >       b.ne    0b
+> > -     add     x13, x13, x23                   // relocate
+> > -     str     x13, [x11, x23]
+> > +     add     x14, x14, x23                   // relocate
+> > +     str     x14, [x12, x23]
+> >       b       0b
+> > -1:   ret
 >
-> Yep, I forgot about the pre vs post increment syntax:
-> http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.kui0100a/armasm_cihgjhed.htm
-> https://azeria-labs.com/memory-instructions-load-and-store-part-4/
+> So the reason you're removing this ret is because we'll end up with both a
+> .relr section *and* .rela section, correct?
+
+Right. It's likely that the rela section will be empty when
+CONFIG_RELR is enabled, but it isn't guaranteed. There are currently
+no relocations at odd addresses in arm64 defconfig, but I've seen a
+few in at least one of our Android device kernels.
+
+> > +1:
+> > +#ifdef CONFIG_RELR
+> > +     ldr     w9, =__relr_offset              // offset to reloc table
+> > +     ldr     w10, =__relr_size               // size of reloc table
+> > +     add     x9, x9, x11                     // __va(.relr)
+> > +     add     x10, x9, x10                    // __va(.relr) + sizeof(.relr)
+> > +
+> > +     sub     x15, x23, x24                   // delta from previous offset
+> > +     cbz     x15, 7f                         // nothing to do if unchanged
+> > +     mov     x24, x23                        // save new offset
+> > +
+> > +2:   cmp     x9, x10
+> > +     b.hs    7f
+> > +     ldr     x11, [x9], #8
+> > +     tbnz    x11, #0, 3f                     // branch to handle bitmaps
 >
-> > > > +6:     add     x13, x13, #(8 * 63)             // move to next bitmap's address
-> > >
-> > > Sorry, what's this constant `#(8 * 63)`?
-> >
-> > It is the number of bytes covered by a bitmap entry. 8 is the word
-> > size, and 63 is the number of significant bits in a bitmap entry.
+> Can we guarantee that x13 has been initialised at this point?
+
+Yes. x13 will be initialized while processing an address entry, and
+the format guarantees that each sequence of bitmap entries will be
+preceded with an address entry.
+
+> > +     add     x13, x11, x23
+> > +     ldr     x12, [x13]                      // relocate address entry
+> > +     add     x12, x12, x15
+> > +     str     x12, [x13], #8                  // adjust to start of bitmap
+> > +     b       2b
+> > +
+> > +3:   mov     x14, x13
+> > +4:   lsr     x11, x11, #1
+> > +     cbz     x11, 6f
+> > +     tbz     x11, #0, 5f                     // skip bit if not set
+> > +     ldr     x12, [x14]                      // relocate bit
+> > +     add     x12, x12, x15
+> > +     str     x12, [x14]
+> > +
+> > +5:   add     x14, x14, #8                    // move to next bit's address
+> > +     b       4b
+> > +
+> > +6:   add     x13, x13, #(8 * 63)             // move to next bitmap's address
+> > +     b       2b
 >
-> Might be good to add that as a comment inline w/ the code?
+> This desparately needs a block comment at the top (immediately after the
+> #ifdef CONFIG_RELR) describing the algorithm and the layout of the .relr
+> section, please.
 
 Done in v2.
 
@@ -251,4 +325,4 @@ Peter
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMn1gO6WzRjXTFpHJ4n2%2Bs2rmK4Kd7R9cPeof2geSNrgk9yOXA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMn1gO5FyAUy7VSO4YBNniwjPqEoJVpm%2B_fEiaF%3Dcp_Du991vw%40mail.gmail.com.
