@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBIUVWLUQKGQE7Q7I6HY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB3MWWLUQKGQE43SZB7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 45CFB68F97
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 16:16:04 +0200 (CEST)
-Received: by mail-pg1-x53b.google.com with SMTP id n9sf7151286pgq.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 07:16:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563200163; cv=pass;
+Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id 630D669024
+	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 16:19:26 +0200 (CEST)
+Received: by mail-oi1-x238.google.com with SMTP id 186sf6229900oid.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 07:19:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563200365; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HZ7iV63ibQqAQOckd5sdRsRhMlryDad7EGcQU5jTfbO6VbvDEEn0WeFzROTJyxNqoX
-         0bqINDdxVRGSlAr8gccgeSZVnGn1RStS0o79UcfjZ9tP8GENzBhuPOBBJlA7w7/0YEDP
-         tC2SiwrMaE58WokzTt6rzxG3juWjDM0vcB6mfp96v0FYKrzlnxpPmyabekHsiJmtaZ+G
-         oFZQKFNRhQ51QjOyfg4wruosdwJoydiKgwWoQX7E5mJx6fR5ARasTZGd3dxV+AZufUPU
-         exY+ZsQmbRUEyWsqTyW0LHdp5IlnVy3MkZ+n1XGeF2calMebNoakP8hDFV4ypKCCCvMX
-         7zuw==
+        b=VcrvnSfu9KqFHhIAc+VTOcsWbycnq08RqOEIOQ4lbe1rdr6JHt7yNtR+QS3xjFiEJA
+         tZgiSytXtu+p6xzvkPS32UdoHzZvT2hPbZfjCCpxvVN9/P7VrCeiLQ5gTWObIwGgccA2
+         IzN02eSpCoHDjJUD9EUISzI/e6T8dYZ5I3cy2D6foIRnKMrGgw6RwhrLePYdjrx3Xr8v
+         rOjeMdL+Km90IJvQkmguz309XW1/vpJsJMuDiPPFG6AH5hGNSkOZu6ek9rghNQlWLSvH
+         WG4viS/4ovflPFprT0Qqif/TVdf34wldeYWHEqpL3cELiBb4v8KkIoxcxaoYk0hXs/i9
+         H8dw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=GWWj10/w47PRVB3XtgQL51AzPD4p90VirJIXEtGvtyM=;
-        b=MVDZ8sHHn4K1VXtQ/84UqMo3evCuFudjydT44+Q5oqNSG7hTK4XJI3ibMDGQ2f2wvi
-         yQnxghu4mhRLu/7n0cM4i46iAi6mN2jUCD6JGFBft/866MBLgOKMZouEC6EZr7s3D9lX
-         UYTTxQW9tVXyuVFIiQYUTmAyD7wvWXUvBCwcvGldd45x8c78lTM7IW74WpLmIkslgwtf
-         Tamy5J1laBBnVBUf9gopYhhEa7lo6ypheqXfurPhd9z+aHA0RSwIIUwggMYgQ+J87rZR
-         kxheuvkqrrK3mJb4MAKnxsQl7k24500nOTG3laKi83Vm2/T+MiR0r+I2bKWhsnUXdJfQ
-         bilA==
+        bh=mxihxGZVNyEHoQM27w6blVKlhpdB3fCmfFre3usi/IA=;
+        b=e2YWkiXJ7RXPjRYwcQ1e6+cF4wPtSiUOKw0oacMCfUoBWhWAMWpIYRfnifhGNtT1ep
+         AKJ/ReV/vJAD15J6ngMokgbEF5a2IInxGrOy40KlqY03xvTQfcU8u3h9vmB3USYrdkkJ
+         JepEHKO0PgFo/q3w0unkRmqp+nlmxpRhAd4DEciWIeUTFICOJLEY0rQi/08yrI5ZcLY3
+         SiqZQPkMMT71HE9vB198JXc+VxruN/YTndo7BR+Zsw5JNCLzAdN5+FvSa6Dt1YaENzLc
+         g0eH7GYq60fNeftqYuOTYOAg5xvJqh3XunBM9qXxbzWJAwCic2946bpmHJik5NDc3y3Y
+         ufug==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ByKSyNMJ;
+       dkim=pass header.i=@kernel.org header.s=default header.b=nbr8u71g;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GWWj10/w47PRVB3XtgQL51AzPD4p90VirJIXEtGvtyM=;
-        b=Aej7FPSOEU07tHvZ1Gip6lLxwsRKPPHvGL103Lw1ltGsvh1MkPriKleZUNMWi2IQU3
-         6JmXYpGJ1Z/gUPhOsa8tU5Y+ehVAZsYkQTA8LAPrai+KpxPZlTDhrvqcwFoIQmw45PHz
-         +ZmLSdBS5qesv50zh37me4nnNZ074YkxMCcXsQNhqVifXwdVTRVhhLTx3fWJi8dXmrLa
-         MRgafhZAAXDx7SJ9/iRg7Zwg+656eCDY1QEG/MfgO1eBfcEWwQ/THyyliIxHXiCgqznV
-         BkscHjr7bU/8uFvsb8AJKfp4rAWgeh4381fCSGq2DIAp9wXZw4e55rrE8eLblPxRiHaS
-         SRYg==
+        bh=mxihxGZVNyEHoQM27w6blVKlhpdB3fCmfFre3usi/IA=;
+        b=b2EnKVdjsmbry7HXNMfiz4lcYBjqaHwCUADu6VVkoWWqWlfbZ8xu7H6GE1fCf3DNSb
+         PSApga+CCmA1NxlP/4uyHs2oUjs/FViGbmaROOUg+fPjbuA4I1nfVLnFjltWx9q6HKfi
+         rSdhOMv3FfB0rJWMNwq8N1qqWkjRRomkiqHlIzSBM+sA+D2GXsfQGsL64ZWWdtB6MFYq
+         kQK+nQ3uvsoYPhyvo1KgxfANy6T+eRFzmLPN5W6PZUdniS84dMfMtKzNo7FroKRUvyvV
+         AlawdiH0XKHBv0mHI7nRKi5JxGVwUkYgcKVPQ/CD1q54Qrqlyl18945gpVJv+zd/9/Bg
+         CEkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,80 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GWWj10/w47PRVB3XtgQL51AzPD4p90VirJIXEtGvtyM=;
-        b=mg/6Byyl25LCBhJgDNWl186j2jX+NU9xeGVZijx86lamj7R8T2cg/KgCAiiMhMwkVr
-         lA6UlYecxJjeExcMsNsh0uoPd+RgUGKDsXpVYfQTXLy2jrvGYgVjTZ6DAe8XrGzsjiGB
-         +rXSwkA8lcN/rtMVv8IrhXO+jSAlgXZLh24SypoAFLj9om+0RrhmMl3u/46B7vvgL2cs
-         bpXmFyR926DsAAPQ3HbLnfbm8JCRuQsPLtXow0zlcnAe3u1Pqui1ovM84VZedaTadsOu
-         uZqE8sBsNv0vMSHi1BYTXr1F4l4jcR6TAApxsVhYAVO/lqjdjoEwjgBJMYCeY6mlRXBM
-         inKw==
+        bh=mxihxGZVNyEHoQM27w6blVKlhpdB3fCmfFre3usi/IA=;
+        b=NgN0kPZyketJZ6BK7etvqsROTffYmRyy2vgDx3xMDxGZWY/y3s0SNEO4gDYrYgyY1C
+         HuTI8o5nSCupGjZbIaina5KN6zBneVgCkydPHA1cAN7viKO5b5L8m3EYTMslI0Lr9akd
+         zQEqHD/vXffYJsZeWtlqxeEJJFOPQTAH79Gt//gd4LfR+PMDJyhTx7U3vtWUThJ+YB2z
+         fEUenB1ES2DlA67R6kOI4x7A9lXumZRCgyfusVAX6LXOVmJ4Th9cYZxfSPrMc5pjImXL
+         BxEgeW7L4oVgqD5k+yWGxuba2g4txlBbJmJQbfefdY/dzVyiB4+DrwFQ6EZRr2SbDUER
+         SL/g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWh1W+Fx63fKQZmbyE8IlUY6Wvu3242BVVT/sTzW60ecUYC28ea
-	sD4yktLepr4BwC3ppcEF0hc=
-X-Google-Smtp-Source: APXvYqxNq1c89PLtWZZduwssgs2ccjArIahsyLGlVH7A2bXDMlKPfKmwYwzoL7eCI1QptnqaPMyyfQ==
-X-Received: by 2002:a63:5b1d:: with SMTP id p29mr26179297pgb.297.1563200162817;
-        Mon, 15 Jul 2019 07:16:02 -0700 (PDT)
+X-Gm-Message-State: APjAAAV95Ani6wPwouvvV1kHnTcWx5KLAmBNCAQRml65eRKPl+MXRZma
+	c9vkhNj8pjqOnSSH/jh4zgI=
+X-Google-Smtp-Source: APXvYqyo9E4O/g5R4QBWsOQWRNvRtCgCG71nBcUDxdYGRDjfumuICVOR19htqoZcrJ3+Z944phx8qQ==
+X-Received: by 2002:a9d:3f62:: with SMTP id m89mr20867478otc.44.1563200365340;
+        Mon, 15 Jul 2019 07:19:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:2acb:: with SMTP id j69ls4545989plb.9.gmail; Mon, 15
- Jul 2019 07:16:02 -0700 (PDT)
-X-Received: by 2002:a17:90a:ba94:: with SMTP id t20mr30737203pjr.116.1563200162537;
-        Mon, 15 Jul 2019 07:16:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563200162; cv=none;
+Received: by 2002:a9d:3f62:: with SMTP id m89ls3163262otc.1.gmail; Mon, 15 Jul
+ 2019 07:19:25 -0700 (PDT)
+X-Received: by 2002:a9d:404b:: with SMTP id o11mr21289388oti.155.1563200365019;
+        Mon, 15 Jul 2019 07:19:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563200365; cv=none;
         d=google.com; s=arc-20160816;
-        b=IPEyRGDLMTqVLruOaYPH0QPH9qvEs4cFzTFy9ar9XqIGy5wdshkhu3gl5JIGD77y4D
-         iQ9sSWDSKK9mUtex49lp72XJDdTNcXCuHyAnhMs5jBnMH0XxPyj6M+wJSSm7zs0vL3VW
-         UTWvAjsT6uHKxcwo9fLJsZvYZeo362kwpu0aOmR7RA9AZiTv434Z5CZWwGn8nZfp98HK
-         pcygwHtbbdYYB96yb7fnegXrYTaixX1c4E6TxA/Ti30fUtkTtzrffkuwSgspq9hg2YAl
-         0EFMpzmfkRyCLoXr37rUs4fPtyBo01PLWYYSjlt8WnF6xf54VgGMdrTbRA8QoX6xUEZr
-         ihUA==
+        b=C7hKsrwLe9qhaxyG2Z8HGJGaSrFUlfqNT/hvWdDtoHaA2Cx5Vtk11M1xZRYjJnCWpY
+         rDNivIf/RC5Lt3g7LtF2dXS7uWWq1k+f8OEEIQt3gLdocFtxdxopoLYu6qopNb7DvU1K
+         xVE0eNAPsgeGIJij5w2GCqmSoSCg3VG/tiqXU3xLXrIgfAO1Cahr+Sofy3w+P14ENEvO
+         bo3lOtt2RK6kQI7U+QVBeaRknkO0Ya4fue7fRAE4h6WubHlz2JQqlUTi8O2RzqiKmkSo
+         M2v4cpYywQhEXbkd6qc8Q1YsktxD4N2kfnUj3YbuWGILDJAA+PRrTZNbDrzfloLIe6bx
+         pMIA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=6HHEGa2249qB8LUDHg+7V6s7X3O7Y0jqWyhwQJ2jr4g=;
-        b=uu8yCqIaRk2HiaqLTgFVJjl23i96C+Cf0kOvvAYhq2WxpSFXopBjbK68MoOxoY7IxL
-         1FStkjMs282AdvcmuGU0U/hYNOA/uPkzz/GBn4YnKJG1QdhiORVPbdXTUKXqe3OGAYPb
-         kaq8KLNIksPvlmjeMTIOEM3BTDZgZNQIWHCG1rAqd2rE+giZs+E+aoxRJGZ6Ki6uXKsa
-         0yLkzH/AXQesUi9F8QZCQh46uUY1oHIDZYaCoRzVNNwvfMxk3t/aBLYUkWPc8QkOtdi1
-         1hlcxzu1gtpT9igrhdluOqHSPYBTZ6n/Bm/Tkz0BTu6PJbxB3BnRxQVIjDquqwDo18R8
-         tUug==
+        bh=WpOXQU/lBRLDFk7yjRAhHghRotq7hDTVMQ/OAjK1J6o=;
+        b=cdIEUZkFFEBY/jCkXZUzCKAoTnVEirr81fqBmx3iUGLG6lZ86gK2Vt3Bu4M6/sieNQ
+         EsNvXXQNeAJBkKIh3HguU0Df5cZGPNLpWaN12SFbL1aLYfv6L2ndiiagq6tz52wwfiak
+         xlu2UmHrPSZAcFMx8/5CpPc4M076cmGd8Ij65lbF/B+D0IaZJxHBW2Vl144NGdQYYy3J
+         b1RW0nZwMiatMce6H0QM1bK3/WOhN35QSfyQ2JLlnYoSbf+na3MtKGhWarY1+vtNhSl1
+         BLx9whFKFy/xW+wl+g+HeziQq4X4qkaJ02/kxNti4QZK/ewClYBB0Pzp5n2xy2xkcdEy
+         tJxA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ByKSyNMJ;
+       dkim=pass header.i=@kernel.org header.s=default header.b=nbr8u71g;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j6si874389pjt.0.2019.07.15.07.16.02
+        by gmr-mx.google.com with ESMTPS id 21si891148oip.2.2019.07.15.07.19.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 15 Jul 2019 07:16:02 -0700 (PDT)
+        Mon, 15 Jul 2019 07:19:25 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (unknown [73.61.17.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 5E033212F5;
-	Mon, 15 Jul 2019 14:15:58 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 2254F20651;
+	Mon, 15 Jul 2019 14:19:22 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Jiri Benc <jbenc@redhat.com>,
-	Yonghong Song <yhs@fb.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.1 198/219] selftests: bpf: fix inlines in test_lwt_seg6local
-Date: Mon, 15 Jul 2019 10:03:19 -0400
-Message-Id: <20190715140341.6443-198-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 026/158] perf annotate TUI browser: Do not use member from variable within its own initialization
+Date: Mon, 15 Jul 2019 10:15:57 -0400
+Message-Id: <20190715141809.8445-26-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190715140341.6443-1-sashal@kernel.org>
-References: <20190715140341.6443-1-sashal@kernel.org>
+In-Reply-To: <20190715141809.8445-1-sashal@kernel.org>
+References: <20190715141809.8445-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=ByKSyNMJ;       spf=pass
+ header.i=@kernel.org header.s=default header.b=nbr8u71g;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,106 +137,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Jiri Benc <jbenc@redhat.com>
+From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-[ Upstream commit 11aca65ec4db09527d3e9b6b41a0615b7da4386b ]
+[ Upstream commit da2019633f0b5c105ce658aada333422d8cb28fe ]
 
-Selftests are reporting this failure in test_lwt_seg6local.sh:
+Some compilers will complain when using a member of a struct to
+initialize another member, in the same struct initialization.
 
-+ ip netns exec ns2 ip -6 route add fb00::6 encap bpf in obj test_lwt_seg6local.o sec encap_srh dev veth2
-Error fetching program/map!
-Failed to parse eBPF program: Operation not permitted
+For instance:
 
-The problem is __attribute__((always_inline)) alone is not enough to prevent
-clang from inserting those functions in .text. In that case, .text is not
-marked as relocateable.
+  debian:8      Debian clang version 3.5.0-10 (tags/RELEASE_350/final) (based on LLVM 3.5.0)
+  oraclelinux:7 clang version 3.4.2 (tags/RELEASE_34/dot2-final)
 
-See the output of objdump -h test_lwt_seg6local.o:
+Produce:
 
-Idx Name          Size      VMA               LMA               File off  Algn
-  0 .text         00003530  0000000000000000  0000000000000000  00000040  2**3
-                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  ui/browsers/annotate.c:104:12: error: variable 'ops' is uninitialized when used within its own initialization [-Werror,-Wuninitialized]
+                                              (!ops.current_entry ||
+                                                ^~~
+  1 error generated.
 
-This causes the iproute bpf loader to fail in bpf_fetch_prog_sec:
-bpf_has_call_data returns true but bpf_fetch_prog_relo fails as there's no
-relocateable .text section in the file.
+So use an extra variable, initialized just before that struct, to have
+the value used in the expressions used to init two of the struct
+members.
 
-To fix this, convert to 'static __always_inline'.
-
-v2: Use 'static __always_inline' instead of 'static inline
-    __attribute__((always_inline))'
-
-Fixes: c99a84eac026 ("selftests/bpf: test for seg6local End.BPF action")
-Signed-off-by: Jiri Benc <jbenc@redhat.com>
-Acked-by: Yonghong Song <yhs@fb.com>
-Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Jiri Olsa <jolsa@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Fixes: c298304bd747 ("perf annotate: Use a ops table for annotation_line__write()")
+Link: https://lkml.kernel.org/n/tip-f9nexro58q62l3o9hez8hr0i@git.kernel.org
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../testing/selftests/bpf/progs/test_lwt_seg6local.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ tools/perf/ui/browsers/annotate.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c b/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c
-index 0575751bc1bc..e2f6ed0a583d 100644
---- a/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c
-+++ b/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c
-@@ -61,7 +61,7 @@ struct sr6_tlv_t {
- 	unsigned char value[0];
- } BPF_PACKET_HEADER;
- 
--__attribute__((always_inline)) struct ip6_srh_t *get_srh(struct __sk_buff *skb)
-+static __always_inline struct ip6_srh_t *get_srh(struct __sk_buff *skb)
- {
- 	void *cursor, *data_end;
- 	struct ip6_srh_t *srh;
-@@ -95,7 +95,7 @@ __attribute__((always_inline)) struct ip6_srh_t *get_srh(struct __sk_buff *skb)
- 	return srh;
- }
- 
--__attribute__((always_inline))
-+static __always_inline
- int update_tlv_pad(struct __sk_buff *skb, uint32_t new_pad,
- 		   uint32_t old_pad, uint32_t pad_off)
- {
-@@ -125,7 +125,7 @@ int update_tlv_pad(struct __sk_buff *skb, uint32_t new_pad,
- 	return 0;
- }
- 
--__attribute__((always_inline))
-+static __always_inline
- int is_valid_tlv_boundary(struct __sk_buff *skb, struct ip6_srh_t *srh,
- 			  uint32_t *tlv_off, uint32_t *pad_size,
- 			  uint32_t *pad_off)
-@@ -184,7 +184,7 @@ int is_valid_tlv_boundary(struct __sk_buff *skb, struct ip6_srh_t *srh,
- 	return 0;
- }
- 
--__attribute__((always_inline))
-+static __always_inline
- int add_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh, uint32_t tlv_off,
- 	    struct sr6_tlv_t *itlv, uint8_t tlv_size)
- {
-@@ -228,7 +228,7 @@ int add_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh, uint32_t tlv_off,
- 	return update_tlv_pad(skb, new_pad, pad_size, pad_off);
- }
- 
--__attribute__((always_inline))
-+static __always_inline
- int delete_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh,
- 	       uint32_t tlv_off)
- {
-@@ -266,7 +266,7 @@ int delete_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh,
- 	return update_tlv_pad(skb, new_pad, pad_size, pad_off);
- }
- 
--__attribute__((always_inline))
-+static __always_inline
- int has_egr_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh)
- {
- 	int tlv_offset = sizeof(struct ip6_t) + sizeof(struct ip6_srh_t) +
+diff --git a/tools/perf/ui/browsers/annotate.c b/tools/perf/ui/browsers/annotate.c
+index 1d00e5ec7906..a3c255228d62 100644
+--- a/tools/perf/ui/browsers/annotate.c
++++ b/tools/perf/ui/browsers/annotate.c
+@@ -96,11 +96,12 @@ static void annotate_browser__write(struct ui_browser *browser, void *entry, int
+ 	struct annotate_browser *ab = container_of(browser, struct annotate_browser, b);
+ 	struct annotation *notes = browser__annotation(browser);
+ 	struct annotation_line *al = list_entry(entry, struct annotation_line, node);
++	const bool is_current_entry = ui_browser__is_current_entry(browser, row);
+ 	struct annotation_write_ops ops = {
+ 		.first_line		 = row == 0,
+-		.current_entry		 = ui_browser__is_current_entry(browser, row),
++		.current_entry		 = is_current_entry,
+ 		.change_color		 = (!notes->options->hide_src_code &&
+-					    (!ops.current_entry ||
++					    (!is_current_entry ||
+ 					     (browser->use_navkeypressed &&
+ 					      !browser->navkeypressed))),
+ 		.width			 = browser->width,
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190715140341.6443-198-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190715141809.8445-26-sashal%40kernel.org.
