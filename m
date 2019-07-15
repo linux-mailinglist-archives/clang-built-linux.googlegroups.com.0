@@ -1,129 +1,139 @@
-Return-Path: <clang-built-linux+bncBDTI55WH24IRBKHDWHUQKGQEAJJANKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBFHGWHUQKGQE5MY2AGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 633B4688DF
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 14:29:29 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id l9sf14600999qtu.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 05:29:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563193768; cv=pass;
+Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id B2595688F0
+	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 14:35:32 +0200 (CEST)
+Received: by mail-wr1-x438.google.com with SMTP id g8sf8837231wrw.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 05:35:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563194132; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Cu3+y7DDHtd4ghYR8AWo+MRWq5IcbKtKEf2UxnqXgS8bL4E9SBR3h5kNG1KZOT5YA5
-         1nD0p0VywlPFnaNVFjuUEaLnuI/QIlJY24Xlo3voJcJ14f13vsE2fNG1iYsiXKffA8nb
-         I5JmjFRph8Qk20tTwz9ASUb9053y8znpMdmIZZnrcSEgjVo3EusF99AGnW7UMXlMfYyR
-         +3tp0ezHQwfqMblGcMuxoEw7ax4jvrnf2iQ1TbtK4AhJhI9b4hVEkykJBXe8bq3Jx8/7
-         P3fpUuRDrQmfoFAdt4QCIcDgWOMNNSyCfe0Hm99sgNhKfgrivSS6+/LH9mgvaj4ohZ5r
-         slLA==
+        b=ZlRFWtVaeZn1kwkPbrhjPgtv7xVLP2fBc7bVHPjF4F1GNBlRgQE6GajR1PFi1KiA6/
+         BOUYKUwLrHXjdFKQxdtryCpv5F73BvOng/GvUeKffjC2teDzJP9FfkNXcRFTVb82b2pM
+         2QDMiPJDEgnMzOSWJZJ8/cKK011NiMPQ6eDLcFM/N3SQjp1Fg3tH4EczwtJDhMz6xUve
+         Gdv84Hu+325Lymt1Gv5D2iqEAyY5aXDDKtffLH6Ub0dtHRyZd8THzxqhJ0eB80T3NKWe
+         jH+DMkM0uwRKB8u9aX3O4qf//OjDCv4tuGrOHmFXPLA26ctZ1cN+7CIoROkC9yPSL98q
+         Qy8A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=49SYmKF2AzLrNctoREyn2OkI/mazc6Pvccvtvs0GFNs=;
-        b=lsQmgg+y/Hw96P3O0HdVwCS/XJ2F1JPujyjbLB/YkC7r4CNicMT5Mt2aN41V+0WgJz
-         n3reQ6Q+pxoCL9WwmCB5OlofSYeGPtRQ/GddTPxXhkq0NDaoTGT69LxFsSUB2BTx+deo
-         t67r5H+D1eRcE/x/Vov/7DwnVP8coaEUfCOTTyHEzSqMVRG0T1LWCLCypGxVo2GYQkeO
-         OrLBsGvuE+27HBAH+4z++Qv7TQgCw2GhR6MuJk3H5e8vGGo/IgsYKa3FyTz7C7zTS6m7
-         +ARuKMbOjO4/sSpBzrmnxRzVhkrz2XFkve8+b/aVRxrPcoAG5InaNsLo3AyGQYA1bg8h
-         Nylg==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=8u+k7Z6juBgxHXDaaYA4q87dpxpO3hoO8U7pc7yMkPQ=;
+        b=09SloEoVUH2ndhuF5je6nVaMcvDbdQjV6PxUg6OKEHO/h50WdOUMa+6G9jDU0sfwbA
+         d0g0m6qvZWns9Gok7NrggxltFA++0gXk2cQbRwo0Uy9Ule6ME0HY16QwxfuVRJaoAzPS
+         tJxxAyLMOqQsy+hJq907Zez+7yGEsH5xJ0K/ls2aixNeWnY2vbQQ7sNLsr5HATWaeG6n
+         ZSKOmNenS63KmKC1AlnFRtgAB+Oh+3m6weJOx2vQ2bfc+FY0K0FX/8IO6pObSTFaBxI+
+         QKze6CuaLmtHRH1rUXIqOtRC2LETeZaD09xtHVQae/2VhuDadHui6EkcvzCqMamXJBUN
+         rUEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=epIJpluQ;
-       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=49SYmKF2AzLrNctoREyn2OkI/mazc6Pvccvtvs0GFNs=;
-        b=Zz82VDYttJV/GbV1K2e8s+FV0YGcKbPRTtO9YqFjlJSIEA7+M+svpBQnL8gSnqdTwn
-         ca5j/CAX1NLkXRY/4p7vkEdvkj8wafiDghXLBiGa89dOkBe3V+OdFBXziNzsaMzsn6hH
-         Lg8Qfnj16ZgPQPQxaXATGtO1AVO3G78hOJwLHQbLmpDiqejSngAhaz8EGEbrSpm9n/Mf
-         +KoMTOSB261L4rWpUilMOm/8Sc//Ij5X/MLmMhdRXMYCOMXEp6vs79eqSQDABWwVHGff
-         V3ldHTx1Lydi4its0qcPaeX1Cf8/ed0HMzZngWIFCTw4SvDEsPpnqnCag/4lWqHs4yP4
-         XPlA==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8u+k7Z6juBgxHXDaaYA4q87dpxpO3hoO8U7pc7yMkPQ=;
+        b=TykU0Ti5bpbEAIsW8BZhDGJ6Ir+d3CMeqPpIv4F6OBsOlylwlVPHF8j7sIgtnwb+Cj
+         UefLZCPUFh90mks2KPdAcvOTzSc5tXuWMMWd4t7SII4q76FiryuJWa4mlVx0LBAeRHZu
+         gu3I2IZIbj7RV9IdVSMOluLDLzppbHvftbyf3payeD9YQeAmI6toeGjPjjlfc2egaQKl
+         MNUqWscPWOGuX+FvyzlqzpJ37P5N0d1lVorl74hHRpsvEGQ/HQyba4bu4KRxi9R4j6Zq
+         /4TsM0SjwdvUKc2wSM1kgOvbXDQW9k1wplY9Ds5v7mN2sMJY7+UWm3xJL1bRVPHMdayp
+         5sbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=49SYmKF2AzLrNctoREyn2OkI/mazc6Pvccvtvs0GFNs=;
-        b=ifBWnCklqf2r3lDPnyM3g6JXkwPSj46+iBzo7T+2o9z5Sma2RvtNWBs622/upX3V2N
-         KRZ2+v6/8sVfCeyE8RZMvA20VC09rIgtW5Ewo5n2jJ7XY+52/jOkDxDtzq6v6PY6oOAh
-         Sem6OJGq3i/Qww5D/KkDBoO/OFBjk5V9T/VuIfs1gsZUT0fdR/WSPHqvhzZ9B1EczFW1
-         2jLEWjOcXmwVAOV9Jbf2nerXWiXVsOfgFfWn5c1/tk/cbhD3AVVxYXdqBUfd+qKSSprx
-         QxJHYryRa2+PcMH3bDmOzm+y66eB3/9lJjAQKlS/Y8bElj1529xGLWttTlUggOSJcBaC
-         3OQQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=8u+k7Z6juBgxHXDaaYA4q87dpxpO3hoO8U7pc7yMkPQ=;
+        b=TTVMe+KDRgLJdB1ucBGAscEr4J1wQPRXSZMCyQcQCh850vVIGAD4RuED8UP8j8Lctt
+         c2vQzV6DfulF5L7KI/E6lkdieSXTPc+WVkvxMPYQ7Hc4eKyuqjuCdO1WhlLrf0F5oNjP
+         XSvIsKM1WUQg/fO/viFqF9x0sbe5WqnUEozsgR/3M4gxtEQX/bjnsG6B/UiprgU7djlp
+         mjzMQl3mmiAiF6FOKpBdLL1r9RvNXdy4bmomS9WG92dcRrBfjVL8EEBw/pFl2r+mp52n
+         VIfv1Sn2BcwK/775Z6l2pcf6Ovr+kkSqy3rViGpbbx66F4m3rJow6IHcjx5pvie8w3RL
+         HqfA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWCrwgW4T+VerCWThXB3km/QII74eAA6C2zwXr+F2urHDzscVM4
-	puigtznupXARJ9lHYX9JlJI=
-X-Google-Smtp-Source: APXvYqyMStp3xq400pPl95cxUr85lDLCz3OqYM6HAMsWORiOK+m5TKYAxhyZUc9khy2z0aujicFYLw==
-X-Received: by 2002:aed:2a43:: with SMTP id k3mr17992602qtf.301.1563193768187;
-        Mon, 15 Jul 2019 05:29:28 -0700 (PDT)
+X-Gm-Message-State: APjAAAWgO80OihvxywfFly9AQ5oyvWac71u/cKzBPnIl0ABUcsZ5ow/f
+	Mig8xe1mHhz7Iubw8Yof7to=
+X-Google-Smtp-Source: APXvYqw5+DSE3QFi5o5oaa7FPeKf5VbJnBgsVelA5bGtRSI1ph5UVWTFfrf2cHAFnuvHeMLvt9OE0w==
+X-Received: by 2002:adf:e705:: with SMTP id c5mr29919733wrm.270.1563194132410;
+        Mon, 15 Jul 2019 05:35:32 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:32a4:: with SMTP id z33ls4307070qtd.13.gmail; Mon, 15
- Jul 2019 05:29:27 -0700 (PDT)
-X-Received: by 2002:aed:2063:: with SMTP id 90mr17492984qta.307.1563193767960;
-        Mon, 15 Jul 2019 05:29:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563193767; cv=none;
+Received: by 2002:a5d:5144:: with SMTP id u4ls5568273wrt.4.gmail; Mon, 15 Jul
+ 2019 05:35:32 -0700 (PDT)
+X-Received: by 2002:adf:f646:: with SMTP id x6mr30893568wrp.18.1563194131994;
+        Mon, 15 Jul 2019 05:35:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563194131; cv=none;
         d=google.com; s=arc-20160816;
-        b=b8np9OCM/yzGHQI5C4E3nbBZ8D+yqu6myM8DzvXh53uscllniU27JwW7sndKXd1ReB
-         1Hq6uJ+1iXpaQWYrpiZyr83pXs+qP+2PpSSJxFKpWMvdLmfSLp8IjOArlULTeWFvXIUY
-         fsELRPNoBtICPEmTrycZ+vYoaSyFDSchyiKBg2kSZU9SVvpSY/BgNmz49LxXbbQ9BK+i
-         gGeZ+GWLtkb55RvXUdrHdaX5qWgjXEsv0dJA5R/F4B7PB6tdwzlGWPCo03wUmSAHXaEP
-         nkdQthiIaj9rlWaBdEQEDf6w621eHf0MK1tO5ola+YkXohGNBdCiBizVlyRUBReLV0XB
-         /4wg==
+        b=O0jEzwktv/6vAJ/rslJjR9+PzxBO4K4CAYrZy5fNVmn2Libr8DXkokUhqcWaKdnvUp
+         FQPVZpX7bfpZ5IeEhWYJWgNsfMf44xIhsxFG0NFyVALPHGoNl7tBbI0Y4wS/rgyB9LKS
+         meZ1VkAKO9zrh+6dCHBvileki//AsoL1oQ3H0QMc2N/0TO2TBXzcEpiIzea77ZML7siX
+         EoOlcM+8xxlraCJMVLqI2RUm1cltG5FdD6IDvQNUEVDQmEAnIvT3jEZ0wJPJkf6oZgjH
+         c4kOXUO+3iFeI8blpHxoKDqm9tB1Tg5gUaFfcy+nb66kIExtasalWxmkjF8dSR+H6vZg
+         fMTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=yAufAdrjbVZeLo2XKE8YwT7x8b4qwlGxGHKZaKC8OiE=;
-        b=wl945xMVs+b0ZWJe0moFjulpBDs5cdqUShC55eiYauv85xoGpXQ3boyb03/imffsEp
-         dGO80P01mVyp6kOzneWWaMuiTzNSK9nTHvkjE0UYrA4a6ivjd+z+LKKDvR3sZOtI4jaz
-         EInO5X6h7AKRK9hBhVXU0K77eH5sejZMJeAfG0WGjeYyem3l39Dsy6dsxfyblTWtOJKQ
-         h2eNV5hIVKBhnbXzOA2p3QnPoviRDw/9hFRlu9lnqxxXYn11T471rREeRPiHQJbJJtzT
-         Xr1SKTdxHnveItVtkNji8kPKwHVTN6ekMIiYTTgMctZFIYt5XtBCuRwCBQjpuy9dFnV/
-         wHAA==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from;
+        bh=Dm3w+YWzbJ3o5FACcsM9u6PjPNhcnoqMdG5UCV30RJw=;
+        b=MaRW3PWSvxUc6W7f4VEanDAeuI62F2w98+L0EOK8ovoCwroz9t6ybZGdLR8h/cUIjM
+         bID6iHl8nbLXkO2x0tP+/PrYZ2YnophGZJj7rYMzTaGU0cKIQwFzZL9kc0cLRBu6rn3j
+         YoaHm69v64yOUSLzQWN7iNpF4B2KokXMuqJDkuhDZVpcoBzEuaB3tf9MnfvJkqYFCQEG
+         ouug/sL2lFEo77CjvqZ2SezQ42eaIXr3Ki10NKgrlpQRfpnF3Mbo3dYVJZNPcDcT/dh4
+         g/D7IIfC4oLSJgzAESdNp8g7ggFRiVVNxttvKhMFbAMVki5JY21rSnrg4GwKsvqKi0T5
+         u4QA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=epIJpluQ;
-       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
-Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
-        by gmr-mx.google.com with ESMTPS id 34si819175qtz.2.2019.07.15.05.29.27
+       spf=neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.10])
+        by gmr-mx.google.com with ESMTPS id f13si1139723wmc.3.2019.07.15.05.35.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 15 Jul 2019 05:29:27 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
-Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com [209.85.222.53]) (authenticated)
-	by conssluserg-03.nifty.com with ESMTP id x6FCT6ac030511
-	for <clang-built-linux@googlegroups.com>; Mon, 15 Jul 2019 21:29:07 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com x6FCT6ac030511
-X-Nifty-SrcIP: [209.85.222.53]
-Received: by mail-ua1-f53.google.com with SMTP id z13so6653837uaa.4
-        for <clang-built-linux@googlegroups.com>; Mon, 15 Jul 2019 05:29:07 -0700 (PDT)
-X-Received: by 2002:ab0:70d9:: with SMTP id r25mr400188ual.109.1563193746045;
- Mon, 15 Jul 2019 05:29:06 -0700 (PDT)
+        Mon, 15 Jul 2019 05:35:31 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.17.10 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.10;
+Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
+ (mreue107 [212.227.15.145]) with ESMTPA (Nemesis) id
+ 1Mw8gc-1iclyK33WG-00s2DM; Mon, 15 Jul 2019 14:35:24 +0200
+From: Arnd Bergmann <arnd@arndb.de>
+To: Jeff Kirsher <jeffrey.t.kirsher@intel.com>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Catherine Sullivan <catherine.sullivan@intel.com>,
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
+	Doug Dziggel <douglas.a.dziggel@intel.com>,
+	=?UTF-8?q?Patryk=20Ma=C5=82ek?= <patryk.malek@intel.com>,
+	Piotr Azarewicz <piotr.azarewicz@intel.com>,
+	Piotr Marczak <piotr.marczak@intel.com>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] i40e: reduce stack usage in i40e_set_fc
+Date: Mon, 15 Jul 2019 14:35:07 +0200
+Message-Id: <20190715123518.3510791-1-arnd@arndb.de>
+X-Mailer: git-send-email 2.20.0
 MIME-Version: 1.0
-References: <1562664759-16009-1-git-send-email-info@metux.net> <1562664759-16009-4-git-send-email-info@metux.net>
-In-Reply-To: <1562664759-16009-4-git-send-email-info@metux.net>
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-Date: Mon, 15 Jul 2019 21:28:30 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAR1N-bwVWm0LXky2-d2GfvRuRrEWeo5CGm3Z2Lp_s0WEw@mail.gmail.com>
-Message-ID: <CAK7LNAR1N-bwVWm0LXky2-d2GfvRuRrEWeo5CGm3Z2Lp_s0WEw@mail.gmail.com>
-Subject: Re: [PATCH 4/4] debian: add generic rule file
-To: "Enrico Weigelt, metux IT consult" <info@metux.net>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Michal Marek <michal.lkml@markovi.net>, Robo Bot <apw@canonical.com>,
-        Joe Perches <joe@perches.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        linux-riscv@lists.infradead.org,
-        clang-built-linux <clang-built-linux@googlegroups.com>
+X-Provags-ID: V03:K1:51h6XA6Bl7Ot/Uvt6DUGZkDIrFXg806s4a58fRPDph6XbOA1o/L
+ WbrLnPSeHtrhEkUKGOVrm5zUllrmDXlbf9sY1i7UrNwWXggoPcaEA5UD4UGKnUoTTFo4dpm
+ 0TRgYhqp7cK6Ie2JTDQgnYJaHFmkPGATyMsIU6zlwwf+XYBlKpTln4rDUhPPfmMznJ5h5ld
+ c4g9OyyEza1nG+nfJfpDg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:w3445uxjZ9Q=:IVjWnMlU8v6q1ppXkoEDOr
+ TcwYXO5MhadeyYS0gcqKDbQzsIE7gvrpPKyLCD/n7BdFt1BF/1gJJeX55JuLAZFzqLCx14P4S
+ KyME68RN9pQFkXfD20FJ8UdFfcd4BHXwAXpoqEsBuZlVOzCFLmy+Vp842jwKVKFYvjBrOg/Xa
+ sMlCPyZBlMEgVVO6egSgygkv1fwdKXOJARUAT8Ry1ejRBzPQbvpjuev73yHSzESmEjlYT9mwU
+ qCmmawfcrTGFGKUuCrDxDe37+9KJmClLRO1TOeh8L5wsUkmid/ot2n3hArbTuyk914HUJvwbf
+ +ealJyZMF57ToycZtuxBwt+KlDoEFM/i9M2yXInOiBbx5qHnUeuu9A7V9kb3SfiO2ogD83C0y
+ vo+GXtQxGzVXRRRxF0+89+goT5Vl2oaMVygnBZAhr4JH5q2N40Fxn9XBNymFt3lwdP0vHVVXn
+ DndWovInEB2xr7t9Pt1qu4pu/pNli0KVkzRQWIJUjuxYIuMNdTU9Su1kkmpast8RPUbQOh+75
+ sXpvevqf7VFXOQX9z2cE1sJVoS8i3RMCAxTGV2Z27eoI9bVIarF8KciTm+ugaZWHCaot8JjAI
+ Gdwo6uf0ZUOe6tLfIK1dQ74gjtNywzvLW2Py1tmx6TrgazEA3ZxxfPGClKihSv9qgbgODVY8J
+ wfg+piibOONRRTt1OqC4aVuj/lGoUZYBWPucGB+kB06SgwL+HQDShpWn6p6BsiRxisRHw8He+
+ UH2n4lg37ZTxT7uNUIe7hFtppe2/G7B+q8lCjw==
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 212.227.17.10 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: yamada.masahiro@socionext.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=epIJpluQ;       spf=softfail
- (google.com: domain of transitioning yamada.masahiro@socionext.com does not
- designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,105 +146,161 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jul 9, 2019 at 6:33 PM Enrico Weigelt, metux IT consult
-<info@metux.net> wrote:
->
-> Adding a generic debian rule file, so we can build the directly
-> via usual Debian package build tools (eg. git-buildpackage,
-> dck-buildpackage, etc). It expects the .config file already
-> placed in the source tree.
->
-> The rule file contains a rule for creating debian/control and
-> other metadata - this is done similar to the 'deb-pkg' make rule,
-> scripts/packaging/mkdebian.
+The functions i40e_aq_get_phy_abilities_resp() and i40e_set_fc() both
+have giant structure on the stack, which makes each one use stack frames
+larger than 500 bytes.
 
-I saw a similar patch submission before, and negative feedback about it.
+As clang decides one function into the other, we get a warning for
+exceeding the frame size limit on 32-bit architectures:
 
-Debian maintains its own debian/rules, and it is fine.
-I do not like to check-in the one in the kernel tree.
+drivers/net/ethernet/intel/i40e/i40e_common.c:1654:23: error: stack frame size of 1116 bytes in function 'i40e_set_fc' [-Werror,-Wframe-larger-than=]
 
+When building with gcc, the inlining does not happen, but i40e_set_fc()
+calls i40e_aq_get_phy_abilities_resp() anyway, so they add up on the
+kernel stack just as much.
 
+The parts that actually use large stacks don't overlap, so make sure
+each one is a separate function, and mark them as noinline_for_stack to
+prevent the compilers from combining them again.
 
-> Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
-> ---
->  .gitignore   |  1 +
->  MAINTAINERS  |  6 ++++++
->  debian/rules | 27 +++++++++++++++++++++++++++
->  3 files changed, 34 insertions(+)
->  create mode 100755 debian/rules
->
-> diff --git a/.gitignore b/.gitignore
-> index 7587ef56..01d742c 100644
-> --- a/.gitignore
-> +++ b/.gitignore
-> @@ -69,6 +69,7 @@ modules.builtin
->  # Debian directory (make deb-pkg)
->  #
->  /debian/
-> +!/debian/rules
->
->  #
->  # Snap directory (make snap-pkg)
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 558acf2..56e034c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -4516,6 +4516,12 @@ F:       include/uapi/linux/dccp.h
->  F:     include/linux/tfrc.h
->  F:     net/dccp/
->
-> +DEBIAN PACKAGING FILES
-> +M:     Enrico Weigelt <info@metux.net>
-> +L:     linux-kbuild@vger.kernel.org
-> +S:     Maintained
-> +F:     debian/
-> +
->  DECnet NETWORK LAYER
->  W:     http://linux-decnet.sourceforge.net
->  L:     linux-decnet-user@lists.sourceforge.net
-> diff --git a/debian/rules b/debian/rules
-> new file mode 100755
-> index 0000000..c2f0319
-> --- /dev/null
-> +++ b/debian/rules
-> @@ -0,0 +1,27 @@
-> +#!/usr/bin/make -f
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +export MAKE
-> +export KERNELARCH           = $(shell $(MAKE) kernelarch)
-> +export KERNELRELEASE        = $(shell $(MAKE) kernelrelease)
-> +export KBUILD_DEBARCH       = $(shell dpkg-architecture -qDEB_HOST_ARCH)
-> +export KBUILD_BUILD_VERSION = $(shell $(MAKE) kernellocalversion)
-> +export KDEB_RULES           = debian/rules.auto
-> +export KDEB_SOURCENAME      = linux-source
-> +export ARCH                 = $(KERNELARCH)
-> +
-> +debian/control debian/changelong debian/arch debian/copyright:
-> +debian/control:
-> +       ./scripts/package/mkdebian
-> +
-> +build: debian/control
-> +       $(MAKE) KERNELRELEASE=$(KERNELRELEASE) ARCH=$(KERNELARCH) KBUILD_BUILD_VERSION=$(KBUILD_BUILD_VERSION) KBUILD_SRC=
-> +
-> +binary-arch:   debian/control
-> +       $(MAKE) KERNELRELEASE=$(KERNELRELEASE) ARCH=$(KERNELARCH) KBUILD_BUILD_VERSION=$(KBUILD_BUILD_VERSION) KBUILD_SRC= intdeb-pkg
-> +
-> +clean:
-> +       rm -rf debian/*tmp debian/files debian/changelog debian/control debian/copyright debian/rules.auto debian/arch
-> +       $(MAKE) clean
-> +
-> +binary: binary-arch
-> --
-> 1.9.1
->
+Fixes: 0a862b43acc6 ("i40e/i40evf: Add module_types and update_link_info")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/net/ethernet/intel/i40e/i40e_common.c | 91 +++++++++++--------
+ 1 file changed, 51 insertions(+), 40 deletions(-)
 
-
+diff --git a/drivers/net/ethernet/intel/i40e/i40e_common.c b/drivers/net/ethernet/intel/i40e/i40e_common.c
+index 906cf68d3453..7af1b7477140 100644
+--- a/drivers/net/ethernet/intel/i40e/i40e_common.c
++++ b/drivers/net/ethernet/intel/i40e/i40e_common.c
+@@ -1643,25 +1643,15 @@ enum i40e_status_code i40e_aq_set_phy_config(struct i40e_hw *hw,
+ 	return status;
+ }
+ 
+-/**
+- * i40e_set_fc
+- * @hw: pointer to the hw struct
+- * @aq_failures: buffer to return AdminQ failure information
+- * @atomic_restart: whether to enable atomic link restart
+- *
+- * Set the requested flow control mode using set_phy_config.
+- **/
+-enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
+-				  bool atomic_restart)
++static noinline_for_stack enum i40e_status_code
++i40e_set_fc_status(struct i40e_hw *hw,
++		   struct i40e_aq_get_phy_abilities_resp *abilities,
++		   bool atomic_restart)
+ {
+-	enum i40e_fc_mode fc_mode = hw->fc.requested_mode;
+-	struct i40e_aq_get_phy_abilities_resp abilities;
+ 	struct i40e_aq_set_phy_config config;
+-	enum i40e_status_code status;
++	enum i40e_fc_mode fc_mode = hw->fc.requested_mode;
+ 	u8 pause_mask = 0x0;
+ 
+-	*aq_failures = 0x0;
+-
+ 	switch (fc_mode) {
+ 	case I40E_FC_FULL:
+ 		pause_mask |= I40E_AQ_PHY_FLAG_PAUSE_TX;
+@@ -1677,6 +1667,48 @@ enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
+ 		break;
+ 	}
+ 
++	memset(&config, 0, sizeof(struct i40e_aq_set_phy_config));
++	/* clear the old pause settings */
++	config.abilities = abilities->abilities & ~(I40E_AQ_PHY_FLAG_PAUSE_TX) &
++			   ~(I40E_AQ_PHY_FLAG_PAUSE_RX);
++	/* set the new abilities */
++	config.abilities |= pause_mask;
++	/* If the abilities have changed, then set the new config */
++	if (config.abilities == abilities->abilities)
++		return 0;
++
++	/* Auto restart link so settings take effect */
++	if (atomic_restart)
++		config.abilities |= I40E_AQ_PHY_ENABLE_ATOMIC_LINK;
++	/* Copy over all the old settings */
++	config.phy_type = abilities->phy_type;
++	config.phy_type_ext = abilities->phy_type_ext;
++	config.link_speed = abilities->link_speed;
++	config.eee_capability = abilities->eee_capability;
++	config.eeer = abilities->eeer_val;
++	config.low_power_ctrl = abilities->d3_lpan;
++	config.fec_config = abilities->fec_cfg_curr_mod_ext_info &
++			    I40E_AQ_PHY_FEC_CONFIG_MASK;
++
++	return i40e_aq_set_phy_config(hw, &config, NULL);
++}
++
++/**
++ * i40e_set_fc
++ * @hw: pointer to the hw struct
++ * @aq_failures: buffer to return AdminQ failure information
++ * @atomic_restart: whether to enable atomic link restart
++ *
++ * Set the requested flow control mode using set_phy_config.
++ **/
++enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
++				  bool atomic_restart)
++{
++	struct i40e_aq_get_phy_abilities_resp abilities;
++	enum i40e_status_code status;
++
++	*aq_failures = 0x0;
++
+ 	/* Get the current phy config */
+ 	status = i40e_aq_get_phy_capabilities(hw, false, false, &abilities,
+ 					      NULL);
+@@ -1685,31 +1717,10 @@ enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
+ 		return status;
+ 	}
+ 
+-	memset(&config, 0, sizeof(struct i40e_aq_set_phy_config));
+-	/* clear the old pause settings */
+-	config.abilities = abilities.abilities & ~(I40E_AQ_PHY_FLAG_PAUSE_TX) &
+-			   ~(I40E_AQ_PHY_FLAG_PAUSE_RX);
+-	/* set the new abilities */
+-	config.abilities |= pause_mask;
+-	/* If the abilities have changed, then set the new config */
+-	if (config.abilities != abilities.abilities) {
+-		/* Auto restart link so settings take effect */
+-		if (atomic_restart)
+-			config.abilities |= I40E_AQ_PHY_ENABLE_ATOMIC_LINK;
+-		/* Copy over all the old settings */
+-		config.phy_type = abilities.phy_type;
+-		config.phy_type_ext = abilities.phy_type_ext;
+-		config.link_speed = abilities.link_speed;
+-		config.eee_capability = abilities.eee_capability;
+-		config.eeer = abilities.eeer_val;
+-		config.low_power_ctrl = abilities.d3_lpan;
+-		config.fec_config = abilities.fec_cfg_curr_mod_ext_info &
+-				    I40E_AQ_PHY_FEC_CONFIG_MASK;
+-		status = i40e_aq_set_phy_config(hw, &config, NULL);
++	status = i40e_set_fc_status(hw, &abilities, atomic_restart);
++	if (status)
++		*aq_failures |= I40E_SET_FC_AQ_FAIL_SET;
+ 
+-		if (status)
+-			*aq_failures |= I40E_SET_FC_AQ_FAIL_SET;
+-	}
+ 	/* Update the link info */
+ 	status = i40e_update_link_info(hw);
+ 	if (status) {
+@@ -2537,7 +2548,7 @@ i40e_status i40e_get_link_status(struct i40e_hw *hw, bool *link_up)
+  * i40e_updatelink_status - update status of the HW network link
+  * @hw: pointer to the hw struct
+  **/
+-i40e_status i40e_update_link_info(struct i40e_hw *hw)
++noinline_for_stack i40e_status i40e_update_link_info(struct i40e_hw *hw)
+ {
+ 	struct i40e_aq_get_phy_abilities_resp abilities;
+ 	i40e_status status = 0;
 -- 
-Best Regards
-Masahiro Yamada
+2.20.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAR1N-bwVWm0LXky2-d2GfvRuRrEWeo5CGm3Z2Lp_s0WEw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190715123518.3510791-1-arnd%40arndb.de.
