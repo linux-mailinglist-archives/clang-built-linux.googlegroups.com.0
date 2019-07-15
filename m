@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBGUOWLUQKGQEP3KZAMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBN4OWLUQKGQE44C6WOY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F95768DB4
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 16:00:59 +0200 (CEST)
-Received: by mail-vk1-xa3e.google.com with SMTP id j140sf8438718vke.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 07:00:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563199258; cv=pass;
+Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id D43BA68DC4
+	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 16:01:28 +0200 (CEST)
+Received: by mail-pf1-x43e.google.com with SMTP id 145sf10290396pfv.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 07:01:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563199287; cv=pass;
         d=google.com; s=arc-20160816;
-        b=z9b9upP18ZlMKFHXcTn9bscKDyiC8GjcAot6Lisr/KO5jvg3L/pvB1ljjQIuE3ykDr
-         BqZQqbQ88baszxC//NzB2Jv2k54gq+tcBcOlTP87jLntqAtz0f77GTebCaFfxgRxpvI0
-         fwYk47wUN+OyW1+uWE8G+e3IdAireFm/IRNxSQomt+bh1mrhpOfhV5r/SQie1TZrTAsa
-         BBRr9iLZbPnkHkZNCYwsUYJ9NGMbp4lcrfR+TChh+w7ixS+2rBeo2gt1ca/adINACvuV
-         4cDvMKY5KdHGkMbCj3wFxDdUxcS/jIByBNTtnAqEX4ia9WIM7MkCFoh4aoSF2+kzYmiX
-         tIrQ==
+        b=XIpRZC5Kr9gZdY5WHwRLfTH+Q7gCXbSOmSx56TWVraw9UcNzA0bIcKCj21IxOLlwxu
+         rLDnAt00oXdqS7hTwdMcsPo2sBNgDAnDg/V2rxtK01Ar5qzfqzHhvfO2YNDX5W9CIWS9
+         99E/WypWxnhj4DI817O/zrgYw6lqquH83ua0mjufkth1i5+IRJUNawC9FUGz+W2kk15r
+         ar3zknVR5xBSD2z3KTuW7S/RKbnkOisGCHNVawr6f1ZzuGS2BYJdSJjXtf74kioZXYVD
+         41DwGGxkSG7SJtg9jP1y6Bk/kBRCtFo13HY7JzhLTCubAWNJpr7sn2bENVacMe5K9Bqs
+         J/Tw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=CD8O6b5zsHKqtwsQvs+pO6zbaYiDZ7lhEwn/O48BgJ4=;
-        b=p6nYdFYgWous/ebLNRRNAMM4BrpgtGCsIdSI/j5Dd0g7dH8mtvHutHtjCOhQfhxiie
-         Bn2OIIypVyHuVuh6ZQoZPvm/neizCtsPjReco6PNLigRH+yyYg+24Pz96zp5YJvOuUwr
-         D+UY54MxL3X5WHL3+lrTUnZRqYeW8mxRBBpsH8ji5fGt13ZWziRWPKH7JPSbpMtNiyFX
-         6NOyPE+vnORyvYFUQZs02VyZmIF7A3PSFpoOQDUWQyyFMHI1y1yTYre0Ilu28rO5iPPN
-         cevJguz9EbBe+HO7CYaZfgngCnT5ztluxLtaPavfyIxiZIUON1Bo45xWLiUWh0IflS0x
-         TX2A==
+        bh=PG+Usyq5HJleIZ59AGLXygzicrGYZwIVZ8tyhXR3b7g=;
+        b=RJhBh9wvp30G3CbDsFfKuvjtq+/yiDb7kHC3mpxodscFWxqg/tJzutOIOYaMoUzgh+
+         NBK4IAMV7TPeOwtUFVI/ggUEg5lonPFounWONo6sdazZEcljZNugAwcKvHXFooiN4AbX
+         AGsDbu3F/sv8ta/dEw6qUDyjESq15MBRybKFPUzv6W4AG+6eXEcrkvbx9NKgOGD2PL3H
+         I7gkSTbKy4ZuxCQgHk1HHBPQfrpDeqVdRUFU2cMS+HLOzcRJyaj2E9Y8GTodNkKW+V9t
+         OsiKvepNDxW+vVNoYdgYrIeLn6bgK5zfP1lWbu68nDIcx7ze0c+QvmDhssg8VpX/Nrn7
+         q/sA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=YGvy55Si;
+       dkim=pass header.i=@kernel.org header.s=default header.b=VoPtOeOS;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CD8O6b5zsHKqtwsQvs+pO6zbaYiDZ7lhEwn/O48BgJ4=;
-        b=CqAbQ17n+u13QpXn78xcXRtlCkskx1SLbdGpq1ZogmQEfptmX/fhRFNKYdXc9CElZn
-         X/jmN1UrVhTZv/bn1TK/bgdpqsDeakfWxvbLafovQrfO1etrk7Nnfj5hMWWXnWyTDYLE
-         icIPmzhM1fzXoMTNpRySY6eFsz2CThzWcYU1zJgoIgOj9M6nmU/BEm4hl3ReOtbUl+K2
-         IFGEdOpx1WMpkZgkpXtNmNSzA3Z/x7Eb2rl81UmqfVPAFfV8yuVeioZ9CF3xnQfRLc8H
-         2fYaCKo5ND687Wi5jF1QwyDzrtkqnka8AZ94J3evcuRWbjY+jknmgiFanDf/gupx+aZu
-         zNWQ==
+        bh=PG+Usyq5HJleIZ59AGLXygzicrGYZwIVZ8tyhXR3b7g=;
+        b=qf1sG84+iB4jdT8a94B8iqlHKPIxSV63RepFZEMD1VS0q8gf0J9Y/8eLeQne1ex7kM
+         yi3OugkR/QGXWMNFu7Q+YlNQGiy3pRyw2KzwDgenDEYzJTBcEfI4X2XIzjYqCKGADbOy
+         OoGXzS8Kk6TrshCKolqIVLzCIz0NgUeJ9Z9CPBIjSf+eq0qKqTnvVbqbX9BYcwgljIfF
+         ZDsJ8xMtxBadtCwKxkLesQnxZMiKDcBVsiJht/LkCLSVqs5qECqyT/CMlWFybQr4Twco
+         oKnMUcicx+hzgZCqukY8/TiQ/OEiSOOxQ276SGUTEVRtI6niPP3Au6BNqvw/MhYsnywD
+         52bA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CD8O6b5zsHKqtwsQvs+pO6zbaYiDZ7lhEwn/O48BgJ4=;
-        b=hh5mpAKjLtvufrsCL3ePnVfTqe9DKkPnjo+wCrpkt5S+ZBIWxEAfwN38X6dXcCC6d+
-         71qwdRZUpmrBQU82obSmj9XX7dlAoJdU/GtPBWcqIDpGeui7EugeJoQ0W5Wqaonr14Mu
-         kJ80aV7r3F0ya9EIct/2sodoMijfl4J2/0cvaRA7vjChqzf2lF7m28QzQy11DqJOyhbh
-         lxwrF4OmPghkhee0IiqccXPqwznXz3R2iW7IdiDOmx1SFgmOEHOKoG/9w2SpjHrbJ3Xl
-         QKXOU7N7NoM009OfDOErcMKiU8eW4h7ybXp493vEuOYX7qIfA+UwYcXb858+8v3oSTHr
-         28qA==
+        bh=PG+Usyq5HJleIZ59AGLXygzicrGYZwIVZ8tyhXR3b7g=;
+        b=O7l4PP4IaSI8DleOOel+IEi7xPtZ51SrBATBSW6QCTlyaL4LrsdVZd36kgoLImqhdn
+         lGRl8By4QEO7nUsGBYUA4UuuK6Zs9GA6opXVOKJLPKUjIqIsn8UJCNcnFVDK2EwQujmh
+         4YH7es96reGe8QG66eT99DiMv9wXsmnTTA39VkC41RIVxYOgcTG65NMm5VBtL+fqfy/w
+         6c57sR3i7IdJDi+8flRI6qsGEYmAorbFD8IK57gJ8M2AVaL1ieHuEWXGErITtj6UoBFr
+         5vSOL9jSbIt2WQl3ZnMwDQdVqE9AREAMSTpIZ5CE2bzJ8I+yljvk0ERcyLi5gLxVmbv+
+         uJLA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVrj4WBHhkJsGMvfGCzF9IJRay4qLn8glpqbPz3Qu1kbFXHeJyb
-	PvIbTAkdlrDhT5O01aT9SqY=
-X-Google-Smtp-Source: APXvYqyI60Hbto/GTjrSSFLofeNUj9nA4GGJP0uCsmiGc+Hozh5HXfuA8o2ourM+8AunVHtzV5upXw==
-X-Received: by 2002:a1f:9b83:: with SMTP id d125mr9889141vke.76.1563199258272;
-        Mon, 15 Jul 2019 07:00:58 -0700 (PDT)
+X-Gm-Message-State: APjAAAXiQ4f/kCGvquyLK+5vfqQTqbXTUKlWy1Of310hX07FVQ/BiyPo
+	ybqvnNNRJ9yNxcdoSJljTNU=
+X-Google-Smtp-Source: APXvYqx9bdbtBNwI1J24xlWt+3Ra8+b9PWwKrLkWse6iBnCjoWULVvJlQAYF2ioKY0XYB5n+F8ocHQ==
+X-Received: by 2002:a17:902:f216:: with SMTP id gn22mr28013657plb.118.1563199287552;
+        Mon, 15 Jul 2019 07:01:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:31f3:: with SMTP id w48ls1238348uad.12.gmail; Mon, 15
- Jul 2019 07:00:57 -0700 (PDT)
-X-Received: by 2002:a9f:3871:: with SMTP id q46mr16872157uad.50.1563199257941;
-        Mon, 15 Jul 2019 07:00:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563199257; cv=none;
+Received: by 2002:a17:90b:905:: with SMTP id bo5ls5993795pjb.0.canary-gmail;
+ Mon, 15 Jul 2019 07:01:27 -0700 (PDT)
+X-Received: by 2002:a17:902:e210:: with SMTP id ce16mr28893707plb.335.1563199287255;
+        Mon, 15 Jul 2019 07:01:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563199287; cv=none;
         d=google.com; s=arc-20160816;
-        b=SUAt/TGB25gYe6cuZbf6ZDGEtrI0frf8AEcDLscxvQTKhS7JUM/1B2muUi3//ygBHU
-         CjFzNZo1vnY/VYkUN8aDIpbaWH+jhTwi+L2AgDItQXhtUtaBV43X9dKlmdjqesdtGvjL
-         R1OagyLD97orIMXCVfCqwAZXWBDP9FyDypc2yVqWQWChZPGp5RAN/9eQN3u/tzVM7AVn
-         k0JvavziFStXj3cNoI/dkE9DmfvEFeFC39ICPGwOLvBg7O2BveGANz4HJhZOOoguRdic
-         SCfDtoEGG7eundsOO/J3dZOe2zU3D5yK4SboqyvP7CK01wEwVPFNZys/euddF+quGptz
-         pj1g==
+        b=OpNm6PutHdH0lm4Nnw/e7K7Ux5jPJEUA/DL1E9i8r1Lh5PesRP6KbX9y4vqBXNspvp
+         +BQdvIYnu5y71fciXMtsMlK2Bo0k+ttgJ1DgGRdv9W6k2Wuo8SJVZlITlL8tfU0h+fKf
+         SLPxfga9aFAzAg581OjZD1yed7l7AmxodZSG9TDuGgx6EpQ0bn7NjODekOxzYxtIoFcL
+         LqWaTGMM9yiP/nOojsmbuu/XjfY/wcunimmsQzWydXxrehbeeGFqUCHPv3fjrS953TlC
+         TlcA5TOhfUVjBCPMbTutWg7a8Tdtt+deXicJnydU7R6nb4/3QbNAdqJzxecu5mEReoK8
+         csBw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=hWb/KRodEe3v/FCII9chxl0ue2BqJYib0aSuo6GWeuA=;
-        b=qDfN5b0NxlrtVrt/Be2eFyJdow8zq+qKhVOZ33DZ7pJ78ZWpGDZZFnYRWjSBIFJ8XD
-         pGg+PyDB9VAewwayG56jwTd9d6e8K9GsOjSExsojM+kE6+/xxXic6vcBj3BX6E0hOmRH
-         9hUJBAISni5oyfqjWS/H9NqCySVCY6JgAKOl7MEOq7143/IpVKsAdPaUZo3GCKBZXcmq
-         /6AJ5qGOEyU2c/vI/XuhyVdi1heKPC+D+KHeZnK8F5JIBJtWuGHIdKdrVKI7+44Jr2NK
-         fxjfXfXANiAOIlMR+87UzXqiWbXMwBtcucQ8NPtUVHUdrjeVAcefQbmbZtBp+LZ1KxZo
-         EzjA==
+        bh=6HHEGa2249qB8LUDHg+7V6s7X3O7Y0jqWyhwQJ2jr4g=;
+        b=HqRBKkXoggVLKpAE4W3YP+60umMKXfs7RQjai6Bz3rvcWwlG/52P0M8WMZezGLrryB
+         wL/NZ8iowzy2ZM/PJ1N1V/C67aFUtt+OtYmCOZ2NOrlS03PuYYN7xiixhP9egnyYs991
+         yIsASdTCk+/1b0QbrwKoXQIa2ZPIVOn+zosb0kGAyZoA5GW26lZsYfl7H4qMd37ddLsS
+         8/p/OgYwGRP2SsH3UmQRtO3UzsLif5dEQxpFxGPpLy+u3ZotlPF0f8zPj8Ta4XsPqkaq
+         OjrHZoFxXxD/5L16YIKJ0yb2lc6PDkWkRkIdmP8gaICoz6e4tq9BbkONjunNMk2YpnzV
+         SyDg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=YGvy55Si;
+       dkim=pass header.i=@kernel.org header.s=default header.b=VoPtOeOS;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id i9si1109137vsj.0.2019.07.15.07.00.57
+        by gmr-mx.google.com with ESMTPS id w190si537183pgd.2.2019.07.15.07.01.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 15 Jul 2019 07:00:57 -0700 (PDT)
+        Mon, 15 Jul 2019 07:01:27 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (unknown [73.61.17.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id EB93E212F5;
-	Mon, 15 Jul 2019 14:00:53 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id ED4F6217D8;
+	Mon, 15 Jul 2019 14:01:24 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Phong Tran <tranmanphong@gmail.com>,
-	syzbot+8a3fc6674bbc3978ed4e@syzkaller.appspotmail.com,
-	"David S . Miller" <davem@davemloft.net>,
+Cc: Jiri Benc <jbenc@redhat.com>,
+	Yonghong Song <yhs@fb.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-usb@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
 	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.2 222/249] net: usb: asix: init MAC address buffers
-Date: Mon, 15 Jul 2019 09:46:27 -0400
-Message-Id: <20190715134655.4076-222-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.2 226/249] selftests: bpf: fix inlines in test_lwt_seg6local
+Date: Mon, 15 Jul 2019 09:46:31 -0400
+Message-Id: <20190715134655.4076-226-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190715134655.4076-1-sashal@kernel.org>
 References: <20190715134655.4076-1-sashal@kernel.org>
@@ -121,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=YGvy55Si;       spf=pass
+ header.i=@kernel.org header.s=default header.b=VoPtOeOS;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,125 +139,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Phong Tran <tranmanphong@gmail.com>
+From: Jiri Benc <jbenc@redhat.com>
 
-[ Upstream commit 78226f6eaac80bf30256a33a4926c194ceefdf36 ]
+[ Upstream commit 11aca65ec4db09527d3e9b6b41a0615b7da4386b ]
 
-This is for fixing bug KMSAN: uninit-value in ax88772_bind
+Selftests are reporting this failure in test_lwt_seg6local.sh:
 
-Tested by
-https://groups.google.com/d/msg/syzkaller-bugs/aFQurGotng4/eB_HlNhhCwAJ
++ ip netns exec ns2 ip -6 route add fb00::6 encap bpf in obj test_lwt_seg6local.o sec encap_srh dev veth2
+Error fetching program/map!
+Failed to parse eBPF program: Operation not permitted
 
-Reported-by: syzbot+8a3fc6674bbc3978ed4e@syzkaller.appspotmail.com
+The problem is __attribute__((always_inline)) alone is not enough to prevent
+clang from inserting those functions in .text. In that case, .text is not
+marked as relocateable.
 
-syzbot found the following crash on:
+See the output of objdump -h test_lwt_seg6local.o:
 
-HEAD commit:    f75e4cfe kmsan: use kmsan_handle_urb() in urb.c
-git tree:       kmsan
-console output: https://syzkaller.appspot.com/x/log.txt?x=136d720ea00000
-kernel config:
-https://syzkaller.appspot.com/x/.config?x=602468164ccdc30a
-dashboard link:
-https://syzkaller.appspot.com/bug?extid=8a3fc6674bbc3978ed4e
-compiler:       clang version 9.0.0 (/home/glider/llvm/clang
-06d00afa61eef8f7f501ebdb4e8612ea43ec2d78)
-syz repro:
-https://syzkaller.appspot.com/x/repro.syz?x=12788316a00000
-C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=120359aaa00000
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00003530  0000000000000000  0000000000000000  00000040  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
 
-==================================================================
-BUG: KMSAN: uninit-value in is_valid_ether_addr
-include/linux/etherdevice.h:200 [inline]
-BUG: KMSAN: uninit-value in asix_set_netdev_dev_addr
-drivers/net/usb/asix_devices.c:73 [inline]
-BUG: KMSAN: uninit-value in ax88772_bind+0x93d/0x11e0
-drivers/net/usb/asix_devices.c:724
-CPU: 0 PID: 3348 Comm: kworker/0:2 Not tainted 5.1.0+ #1
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS
-Google 01/01/2011
-Workqueue: usb_hub_wq hub_event
-Call Trace:
-  __dump_stack lib/dump_stack.c:77 [inline]
-  dump_stack+0x191/0x1f0 lib/dump_stack.c:113
-  kmsan_report+0x130/0x2a0 mm/kmsan/kmsan.c:622
-  __msan_warning+0x75/0xe0 mm/kmsan/kmsan_instr.c:310
-  is_valid_ether_addr include/linux/etherdevice.h:200 [inline]
-  asix_set_netdev_dev_addr drivers/net/usb/asix_devices.c:73 [inline]
-  ax88772_bind+0x93d/0x11e0 drivers/net/usb/asix_devices.c:724
-  usbnet_probe+0x10f5/0x3940 drivers/net/usb/usbnet.c:1728
-  usb_probe_interface+0xd66/0x1320 drivers/usb/core/driver.c:361
-  really_probe+0xdae/0x1d80 drivers/base/dd.c:513
-  driver_probe_device+0x1b3/0x4f0 drivers/base/dd.c:671
-  __device_attach_driver+0x5b8/0x790 drivers/base/dd.c:778
-  bus_for_each_drv+0x28e/0x3b0 drivers/base/bus.c:454
-  __device_attach+0x454/0x730 drivers/base/dd.c:844
-  device_initial_probe+0x4a/0x60 drivers/base/dd.c:891
-  bus_probe_device+0x137/0x390 drivers/base/bus.c:514
-  device_add+0x288d/0x30e0 drivers/base/core.c:2106
-  usb_set_configuration+0x30dc/0x3750 drivers/usb/core/message.c:2027
-  generic_probe+0xe7/0x280 drivers/usb/core/generic.c:210
-  usb_probe_device+0x14c/0x200 drivers/usb/core/driver.c:266
-  really_probe+0xdae/0x1d80 drivers/base/dd.c:513
-  driver_probe_device+0x1b3/0x4f0 drivers/base/dd.c:671
-  __device_attach_driver+0x5b8/0x790 drivers/base/dd.c:778
-  bus_for_each_drv+0x28e/0x3b0 drivers/base/bus.c:454
-  __device_attach+0x454/0x730 drivers/base/dd.c:844
-  device_initial_probe+0x4a/0x60 drivers/base/dd.c:891
-  bus_probe_device+0x137/0x390 drivers/base/bus.c:514
-  device_add+0x288d/0x30e0 drivers/base/core.c:2106
-  usb_new_device+0x23e5/0x2ff0 drivers/usb/core/hub.c:2534
-  hub_port_connect drivers/usb/core/hub.c:5089 [inline]
-  hub_port_connect_change drivers/usb/core/hub.c:5204 [inline]
-  port_event drivers/usb/core/hub.c:5350 [inline]
-  hub_event+0x48d1/0x7290 drivers/usb/core/hub.c:5432
-  process_one_work+0x1572/0x1f00 kernel/workqueue.c:2269
-  process_scheduled_works kernel/workqueue.c:2331 [inline]
-  worker_thread+0x189c/0x2460 kernel/workqueue.c:2417
-  kthread+0x4b5/0x4f0 kernel/kthread.c:254
-  ret_from_fork+0x35/0x40 arch/x86/entry/entry_64.S:355
+This causes the iproute bpf loader to fail in bpf_fetch_prog_sec:
+bpf_has_call_data returns true but bpf_fetch_prog_relo fails as there's no
+relocateable .text section in the file.
 
-Signed-off-by: Phong Tran <tranmanphong@gmail.com>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+To fix this, convert to 'static __always_inline'.
+
+v2: Use 'static __always_inline' instead of 'static inline
+    __attribute__((always_inline))'
+
+Fixes: c99a84eac026 ("selftests/bpf: test for seg6local End.BPF action")
+Signed-off-by: Jiri Benc <jbenc@redhat.com>
+Acked-by: Yonghong Song <yhs@fb.com>
+Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/usb/asix_devices.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../testing/selftests/bpf/progs/test_lwt_seg6local.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/usb/asix_devices.c b/drivers/net/usb/asix_devices.c
-index c9bc96310ed4..ef548beba684 100644
---- a/drivers/net/usb/asix_devices.c
-+++ b/drivers/net/usb/asix_devices.c
-@@ -226,7 +226,7 @@ static void asix_phy_reset(struct usbnet *dev, unsigned int reset_bits)
- static int ax88172_bind(struct usbnet *dev, struct usb_interface *intf)
+diff --git a/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c b/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c
+index 0575751bc1bc..e2f6ed0a583d 100644
+--- a/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c
++++ b/tools/testing/selftests/bpf/progs/test_lwt_seg6local.c
+@@ -61,7 +61,7 @@ struct sr6_tlv_t {
+ 	unsigned char value[0];
+ } BPF_PACKET_HEADER;
+ 
+-__attribute__((always_inline)) struct ip6_srh_t *get_srh(struct __sk_buff *skb)
++static __always_inline struct ip6_srh_t *get_srh(struct __sk_buff *skb)
  {
- 	int ret = 0;
--	u8 buf[ETH_ALEN];
-+	u8 buf[ETH_ALEN] = {0};
- 	int i;
- 	unsigned long gpio_bits = dev->driver_info->data;
+ 	void *cursor, *data_end;
+ 	struct ip6_srh_t *srh;
+@@ -95,7 +95,7 @@ __attribute__((always_inline)) struct ip6_srh_t *get_srh(struct __sk_buff *skb)
+ 	return srh;
+ }
  
-@@ -677,7 +677,7 @@ static int asix_resume(struct usb_interface *intf)
- static int ax88772_bind(struct usbnet *dev, struct usb_interface *intf)
+-__attribute__((always_inline))
++static __always_inline
+ int update_tlv_pad(struct __sk_buff *skb, uint32_t new_pad,
+ 		   uint32_t old_pad, uint32_t pad_off)
  {
- 	int ret, i;
--	u8 buf[ETH_ALEN], chipcode = 0;
-+	u8 buf[ETH_ALEN] = {0}, chipcode = 0;
- 	u32 phyid;
- 	struct asix_common_private *priv;
+@@ -125,7 +125,7 @@ int update_tlv_pad(struct __sk_buff *skb, uint32_t new_pad,
+ 	return 0;
+ }
  
-@@ -1061,7 +1061,7 @@ static const struct net_device_ops ax88178_netdev_ops = {
- static int ax88178_bind(struct usbnet *dev, struct usb_interface *intf)
+-__attribute__((always_inline))
++static __always_inline
+ int is_valid_tlv_boundary(struct __sk_buff *skb, struct ip6_srh_t *srh,
+ 			  uint32_t *tlv_off, uint32_t *pad_size,
+ 			  uint32_t *pad_off)
+@@ -184,7 +184,7 @@ int is_valid_tlv_boundary(struct __sk_buff *skb, struct ip6_srh_t *srh,
+ 	return 0;
+ }
+ 
+-__attribute__((always_inline))
++static __always_inline
+ int add_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh, uint32_t tlv_off,
+ 	    struct sr6_tlv_t *itlv, uint8_t tlv_size)
  {
- 	int ret;
--	u8 buf[ETH_ALEN];
-+	u8 buf[ETH_ALEN] = {0};
+@@ -228,7 +228,7 @@ int add_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh, uint32_t tlv_off,
+ 	return update_tlv_pad(skb, new_pad, pad_size, pad_off);
+ }
  
- 	usbnet_get_endpoints(dev,intf);
+-__attribute__((always_inline))
++static __always_inline
+ int delete_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh,
+ 	       uint32_t tlv_off)
+ {
+@@ -266,7 +266,7 @@ int delete_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh,
+ 	return update_tlv_pad(skb, new_pad, pad_size, pad_off);
+ }
  
+-__attribute__((always_inline))
++static __always_inline
+ int has_egr_tlv(struct __sk_buff *skb, struct ip6_srh_t *srh)
+ {
+ 	int tlv_offset = sizeof(struct ip6_t) + sizeof(struct ip6_srh_t) +
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190715134655.4076-222-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190715134655.4076-226-sashal%40kernel.org.
