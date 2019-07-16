@@ -1,143 +1,183 @@
-Return-Path: <clang-built-linux+bncBCYYJNMLYYMRBNFAWPUQKGQEY7DB4MA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBFODWTUQKGQEEBNMUNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc40.google.com (mail-yw1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 32D4B69B39
-	for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 21:12:53 +0200 (CEST)
-Received: by mail-yw1-xc40.google.com with SMTP id i73sf14317780ywa.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 12:12:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563217972; cv=pass;
+Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
+	by mail.lfdr.de (Postfix) with ESMTPS id B4EFB6A020
+	for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jul 2019 03:00:06 +0200 (CEST)
+Received: by mail-qk1-x73d.google.com with SMTP id r200sf15414949qke.19
+        for <lists+clang-built-linux@lfdr.de>; Mon, 15 Jul 2019 18:00:06 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1563238805; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SPnT0tF3fR7Eawst45j9NyuDL9Gbie/MM6o5YZhTnoSayYG7qIQ+p2/Gxwk+HMtp2p
-         D5A05IS8yLXac/6BD9c/zkZ2AtEqX5BqDzqWDg6lPyaaQ9hxIGlnBsMQ6fdc2KuAFPN8
-         WueiWxjRHfRy6Tc/h3wXewCMj4e995caHtoyWjFNBqsG+EIh7UNY+QdghuUpfNr1HkCj
-         bRLum0VmBcVYOR/LqrRE8jwlxvua7DXOjWbCMHGnJS0K/SD9gvN4+fJN7z4YeVVvSKf3
-         lq8FPt9Kqda1huSrL30xPqhYouWDob8VLFD76YBKmPsuvV8lfwkFWiomdFIeaUZcu+7j
-         WtsA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=yIqu50MoWSxEBEoW41Bjq/5ONKM6yc0/Yk61UOti2HCak8u0tC0StxNx4um9eUBcoe
+         KFrGra2bUxUpa011FUH4DBziee2rtw4NG5ztQYNf+rUFk9liFMaZ0YQo1DlDV9swvq5F
+         fR7G4nu3xxv6VaselAP3VUdyb+CWBNysQgPYlHyM1JbjINOXGkEflQi3FURXta/rI3Su
+         bf2fb5IRHYaOdT+uStDWSTLz64+S4sIGn9w8UYVyQPnX+UvxaBu+Ypr5onaWBZDPInkd
+         r/H1FDC4b4tNpY1r4D95UYAg8R7UNNZTsZwOjI7M6Fq7kqfPTD2uM7FlGrXiwZxCUlh7
+         +tVQ==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:mail-followup-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=DEItwckFJww9BZAIoqqCW69MVWILvg5XF0BaqRPkfEI=;
-        b=f8+NbLhsU0ZuNzR3HMqXix7dJz0tzVfsjSJo4uKIdHrOIPhyIW6I4dn+PtU2kVUcCN
-         b2ghXU9AL+RaOStWuaG9HIfZE6pD0cp0uYRTl5C82j+wP+gAViKzVhtGY5NRZehbmjek
-         uV6ChA4D6g35nb5ixsxth2lrk6oaZpwvEwU+EyHht4ucYfUnBrEmLp+w9DbBxnWQH6zo
-         6eYM62ebH3pvzS+IHdOudLb2AffzjGJbvmgJbZ4Um7BxoeDAVSEFCyWtFPDdtOf/HDtz
-         k0v+kZx3r6N1kt8gAO1QQn0AWVJzqQrTQF2Wrv585gG/AOZNu9tp2bws55VvALzyJsTw
-         /2JQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=jQGDzOLZiQVSWp6cluQCz5VmJC669dcLjwK/y0wVyUw=;
+        b=h7IVMGQx/3tWljaE9AL/nQ4Rid2YNdsQUPx46pIDJ3oJs4U97QYkfAIyF32gy1gaYf
+         OMsrnUzEpPhhfhLKL+rliNtEyHHMeghP4tJk2IQ/Z75A7wvG/oyEZiayEGaJLjrFsAYF
+         NOOqBBTIjV6hXb4nDCfThLI2F6jRTsfvAtlF5MFvYiW0DDRebSZnfg6CfjaojQqvWPyd
+         eiresM3Dj0x6DXW+/gFUqNiM+INxdbIFK/02nAuAcqhKVVZc6MvYsvIrEjmeBsUDYKAV
+         SPVaN8F0ymcWv+jc1ey2PbHzjBW1xkn6nMTVMmUpcHgTxfPd5Js09qtTZzbWAt8dKrXM
+         z95A==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=lh8huOGO;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 2a01:111:f400:fe40::60f is neither permitted nor denied by best guess record for domain of evan.quan@amd.com) smtp.mailfrom=Evan.Quan@amd.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mail-followup-to
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DEItwckFJww9BZAIoqqCW69MVWILvg5XF0BaqRPkfEI=;
-        b=R36aZ8bllWm7P6ZqUomS9pxX94Fior2CRVqGolbNUkYnEwugn11s0Wr+EXcfwEsteK
-         6w9TSyKjkSAZCq5TopWuRG2M28Zd0Cq/1AZewqT+T9+vOJld0QAa9MK7ROMPWsNa3njA
-         jj8YNvEYhV04rhxn66D/20VsVw8Fy+svc5NurndvIT/cD20VZ+Ib25kmxSbniwZ4SkDd
-         +OonPLRKd3nfWP8huK57Pod6U/+81BES46h6CAuFu16f9uFvGzlZjw/TiE6E9zQf8tWg
-         4SFUqJ0Gt88fMWFbhIamw5pJxUPhXWENrGJGBR/mWNAgC2xf+dvHz2f1Gp58tIblS/PI
-         zPUg==
+        bh=jQGDzOLZiQVSWp6cluQCz5VmJC669dcLjwK/y0wVyUw=;
+        b=EVezI/5FtkoHMLQpXdq5p5qMdbEwELKM2RjIjIR3ktCwf/IuGy2qaTNaM/xgfX8n++
+         xU+oenE5mmffAGhE+6k5tcL4Tcoxv+TLrHcR4trUQ4ADD0wql1eGf5jLU+SPNVvHh/rc
+         UZSkRA0gb3X7D9AcWAcj2jM1jFvik2Cuz3fmgmYd9nRWaFGSXO0M3MqINDZ/eMSeqHp8
+         ZP5Ai4JMs+Uq+go0oQkn7bZYEU99RgmQIJNuy372Pg/ucdmNKMeEaDpQ+B+BHm3p9w4j
+         FsA8fvtehUq5jbyHvgUfvupTgpj2rrSqBmeW0/iv0ZcN0zk2SZOcZvNzYksghY37V1Kn
+         RfVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mail-followup-to:references:mime-version:content-disposition
-         :in-reply-to:user-agent:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DEItwckFJww9BZAIoqqCW69MVWILvg5XF0BaqRPkfEI=;
-        b=etp9l+pGB4/vA8CUMN1dv22546knMhOUpGRHY2UXYBtfFkfU7cbFcEB5UJTGaHANbW
-         Ae5aBGT9dCUJIM4z+M143nKDbvNddMYBRfsoLeReoJTlaKvrBa1/fpan6IxFgodfcZ3q
-         4e5YiLmqpeNwh9FWPKxEPMnFeeZNugxGeLT+9eDThVx4FbJ/npyi2hTcMGZetYTUXY3k
-         XOlGBBltWzLI+73mmEAY6NWBMioGNNHsELI5R3ft/pbXZYiCwB4SL2U2VuxQVVTs+L1/
-         0aeREXukOzQR4ddrfkDuV1F9Fo4eq2whGJjie7XM4qryUhqYvMHJnZUkiXORjC3AAIbq
-         TM3w==
+        bh=jQGDzOLZiQVSWp6cluQCz5VmJC669dcLjwK/y0wVyUw=;
+        b=gUcHbC96OXhBDvMYDy055oCpKmUvNco9QHARZkQ6TQMHjx7Jq7I23QjTUOlrhXUuZ/
+         DpO1RqCCh4SBnu1xdibX6jFl75ARTOuelNhJ02V9sYrQHIj557QAh4t/yjCJcmpaNWpk
+         0CVUJCV+gvUmJKyI2kDCNsCH+eNxl9Ymj6kSsqSobZvtVpQFqqR/gwsdl1jB/Bw28oJ6
+         KTh+SkDjeue2k4bVnU7IXD84W722aPJ3WJPWk5V7371eKLbrLgaGTLkUBLxEYH8yqooW
+         w6kX7mb7T9vi50jKm1s+hjg5Y9qmHB8BDi5iQYsc1cESmX4hlY6e1BtM+rYtDpXmTors
+         /EvA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXQN+QPbLqoT30WL/oocU9mqO9B6DEqUw8RhN/iPxPOJGJY8bxl
-	pGF7Qf/vqT6h7yrTMXDdxS4=
-X-Google-Smtp-Source: APXvYqzTE1Z1IVP+qCil08buJku4Slr04jiO65isxujRIpJRegum0s29EKc1St54UJMX635nLrwjEA==
-X-Received: by 2002:a25:678b:: with SMTP id b133mr16776917ybc.157.1563217972285;
-        Mon, 15 Jul 2019 12:12:52 -0700 (PDT)
+X-Gm-Message-State: APjAAAWEjYveD1vLOV5hFAYC7kTy7rpa85XELeEpyvkwZZ2Jc3V+QyJC
+	BIKuLEowuRAf47Bl7hsV2so=
+X-Google-Smtp-Source: APXvYqz2U065AaIcnHQOLqFx8iDp1y7g9le33vbEDzwdgdTc4wIT8gI0Rna2I4Fs50GDhXXy3xJ58w==
+X-Received: by 2002:ac8:37b9:: with SMTP id d54mr20923022qtc.189.1563238805677;
+        Mon, 15 Jul 2019 18:00:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:9d12:: with SMTP id i18ls2413938ybp.8.gmail; Mon, 15 Jul
- 2019 12:12:52 -0700 (PDT)
-X-Received: by 2002:a25:392:: with SMTP id 140mr18095218ybd.34.1563217972045;
-        Mon, 15 Jul 2019 12:12:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563217972; cv=none;
+Received: by 2002:a37:4e4c:: with SMTP id c73ls299582qkb.3.gmail; Mon, 15 Jul
+ 2019 18:00:05 -0700 (PDT)
+X-Received: by 2002:a37:311:: with SMTP id 17mr17983235qkd.466.1563238805448;
+        Mon, 15 Jul 2019 18:00:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563238805; cv=pass;
         d=google.com; s=arc-20160816;
-        b=USj1ljf2kPrXeAUQq4UkL9B/icwyWbNH6Ifh8Ab8KfpCXQxHOmi1xgsxqLp4EIZx5w
-         deikIAf/Zv6+TFbYASGEC8+EdPp18hV2PNcSgpByUBsV071mqiIItnLo4mCMl7zqNAhI
-         s78IEKG9/ur2bmHT8iLgU45sRNWx7biIJA7T/lxoJ11ILopoMAuKuGlGxsCG4hjcbWoc
-         ADF1GTc++oQuXbGAYboH4nLax9feZLzdBvurAEb4qzvuVJkRB1nync8PvJGJRzST7WH3
-         R8JVFZP8uvbmwfVKZ/4U68pfrj66S8zNzg0ynq8kFlHMKc3KmAXqEqza6t8V7+v870ed
-         IN1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date;
-        bh=ptZsPpH++FhR9bPE6+AeIn2VOiv+mVOzuwgqVT6j7Xk=;
-        b=eIC2vTwtR58OnX/ZyUPVCfH+XfoH57JVjjGQH+mEqOedAWflgFq0myvB4UeV4/KE21
-         5Ur66Tj5qtZ45c2asR0+AKru/0Dnfj9C/r/8h61LgQ+4Q3Tqs4Fat56TBgA6OgrMpux0
-         weqhTP144ze6qiU3kjkMdBT8y+35wxle/jHBKp/CHY3LaHO3xFOXrPh0MUIqJtnw1fq7
-         om9JXAJ/dcvcZOLPT/+H1S8Ofp3UAqO18ok8tWjYm7AGqxu3jwBP55puVguyfiPbvS3p
-         +siVD/KRTF4Z5bX1j3NJpdYixL34DTHFAs688LDeWQUwFmYIQdT52PMZt5ydbhoX2IQS
-         yDNw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu. [18.9.28.11])
-        by gmr-mx.google.com with ESMTPS id b74si625490yba.4.2019.07.15.12.12.51
+        b=V0OybIQx1BleXwKhystVGz+K4GEQM+uFqcDVMIfFDEEXv/P3CH6w64i4tWbHRG4g1j
+         Il0Qs6K153zLcjEzHnHzSRKb3TKrfR6AI8L2t7ua8am7sEOY1bHOf/21B8RmrM4uV2x/
+         UFuDxBd0MZUWPOxdN53wF5a6fYJx5xkb6Z2BvkPpJKG5d2WGolQHczPMsCqlFtvI695u
+         I0rOs+Bm2BCxP46u7SuJCKJ7NSX1OAJ/PcwUgToeuui0V2SN/Copvzaj8eCDYHccOkkb
+         MsMRCo5VGiFyf5SRFWlbmTuVrdjRkGZQy6tR5qeUhBjL/FWaFrLNolZiIIv+zXoVx2Mc
+         RzoA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=ponYNR/SjVfpHOyAlaLaBWp3UZAlujOL61NwruHeF4Y=;
+        b=FAt9PymdFJ5xnlxybe/kOfzegLvxL66OOq1lYJA8sqCZuykipU2oVrm0PtyPdZaIum
+         ghN5zfJOtS86xz3+/zYPU9lfdwyOOzMxcaGRJ0p6BKVIRActXg758WuJjk8yKOsvL+Cy
+         2YnzYOSu5b0sHY6FrA9jxnBI1X2Q24OXI/8n/aZ2/NO09d0+u0uI7N3Ev8tkwaroZh4W
+         ZA3pIxx4CaZSic4uo0QWrr6eSzY5tU3+II4llXjh9cMOsJuRlTBdYgtv8E0KXCgbeGIs
+         53/mPVANG5Y5R65Zqb5Kx29EfFLyI1GUtaxrMZn4K5NjFbNbbbqW9SJOixagSQdkcf1U
+         uOVA==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=lh8huOGO;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 2a01:111:f400:fe40::60f is neither permitted nor denied by best guess record for domain of evan.quan@amd.com) smtp.mailfrom=Evan.Quan@amd.com
+Received: from NAM01-SN1-obe.outbound.protection.outlook.com (mail-sn1nam01on060f.outbound.protection.outlook.com. [2a01:111:f400:fe40::60f])
+        by gmr-mx.google.com with ESMTPS id u204si703342qka.6.2019.07.15.18.00.05
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 15 Jul 2019 12:12:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) client-ip=18.9.28.11;
-Received: from callcc.thunk.org (guestnat-104-133-0-99.corp.google.com [104.133.0.99] (may be forged))
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x6FJCkVS024453
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 15 Jul 2019 15:12:47 -0400
-Received: by callcc.thunk.org (Postfix, from userid 15806)
-	id DFA1E420054; Mon, 15 Jul 2019 15:12:45 -0400 (EDT)
-Date: Mon, 15 Jul 2019 15:12:45 -0400
-From: "Theodore Y. Ts'o" <tytso@mit.edu>
-To: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
-Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
-        "Enrico Weigelt, metux IT consult" <info@metux.net>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Michal Marek <michal.lkml@markovi.net>, Robo Bot <apw@canonical.com>,
-        Joe Perches <joe@perches.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        linux-riscv@lists.infradead.org,
-        clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH 4/4] debian: add generic rule file
-Message-ID: <20190715191245.GD3068@mit.edu>
-Mail-Followup-To: "Theodore Y. Ts'o" <tytso@mit.edu>,
-	"Enrico Weigelt, metux IT consult" <lkml@metux.net>,
-	Masahiro Yamada <yamada.masahiro@socionext.com>,
-	"Enrico Weigelt, metux IT consult" <info@metux.net>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Robo Bot <apw@canonical.com>, Joe Perches <joe@perches.com>,
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-	linux-riscv@lists.infradead.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-References: <1562664759-16009-1-git-send-email-info@metux.net>
- <1562664759-16009-4-git-send-email-info@metux.net>
- <CAK7LNAR1N-bwVWm0LXky2-d2GfvRuRrEWeo5CGm3Z2Lp_s0WEw@mail.gmail.com>
- <5af9db32-2cf5-10ba-261c-e08852d0814f@metux.net>
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Mon, 15 Jul 2019 18:00:05 -0700 (PDT)
+Received-SPF: neutral (google.com: 2a01:111:f400:fe40::60f is neither permitted nor denied by best guess record for domain of evan.quan@amd.com) client-ip=2a01:111:f400:fe40::60f;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=bdI6igq3l0lpcLKOFNVU7COigYP4MC6Q6cRiAA29sh1D5hPDf6HjxN9BeiXYEXj8oWPAsPqgI8XDi8fYaG6BMtQX0jYK8W0nuQKkRIrdO6ccrt8Ofb+yWTeIPIALwvJNvU98yOy83q7ppif3zPR4OlWtbkr12am1yrahUL9RLD9WZF6LyzC2zkSpOIshEBqK5p33y2yqAekBKB472Hv7Q2cGivIsd8FyWDb+sGvDQEpeJ7WpZE/BHO/x/A5ejd8C+WX4ql759Ykkz6U5Ht3KqMEJRT5FhMwPZ2ReCJ0p7mLU6c3QqOGYDHQqXYVEgbUDWikFkybvQJl1ARiJhuxtyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ponYNR/SjVfpHOyAlaLaBWp3UZAlujOL61NwruHeF4Y=;
+ b=jvmm8HOArWk2tYBgaF58Nf78bJYvUkk93uts8HfSKcsDtKQ2Ok669mY20gUGrPJuZmDEAgzg5jva7D2aosQosvryFcEXtLWtXob+ETyyqKKaLho8qWeJTZ8B//hwrOsdYIwRvLujH69GFLTUFj3DEFhbseXJhzB1JadcSIkiofkyo2er9rCji6IZqDpy8M8+rDBPPraaZKF7/4QLyHYv6PHRogtmBDm0SBwqMgmALbFK2NJCy8Vg3s93uMVVZwV1gztss3WnMkTFMTqT9TIvJ9s9JQzPJ2GwUJy0LarpLKNT90xwflaDyf+N04oOJbnSzB4mdJ4gLYJer3WHaJ62Fw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
+ smtp.mailfrom=amd.com;dmarc=pass action=none header.from=amd.com;dkim=pass
+ header.d=amd.com;arc=none
+Received: from MN2PR12MB3344.namprd12.prod.outlook.com (20.178.241.74) by
+ MN2PR12MB3726.namprd12.prod.outlook.com (10.255.236.79) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2073.14; Tue, 16 Jul 2019 01:00:02 +0000
+Received: from MN2PR12MB3344.namprd12.prod.outlook.com
+ ([fe80::9170:5b18:b195:24b1]) by MN2PR12MB3344.namprd12.prod.outlook.com
+ ([fe80::9170:5b18:b195:24b1%3]) with mapi id 15.20.2073.012; Tue, 16 Jul 2019
+ 01:00:02 +0000
+From: "Quan, Evan" <Evan.Quan@amd.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, Arnd Bergmann
+	<arnd@arndb.de>
+CC: "Deucher, Alexander" <Alexander.Deucher@amd.com>, "Koenig, Christian"
+	<Christian.Koenig@amd.com>, "Zhou, David(ChunMing)" <David1.Zhou@amd.com>,
+	"Wentland, Harry" <Harry.Wentland@amd.com>, "Li, Sun peng (Leo)"
+	<Sunpeng.Li@amd.com>, Rex Zhu <rex.zhu@amd.com>, David Airlie
+	<airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>, amd-gfx list
+	<amd-gfx@lists.freedesktop.org>, dri-devel <dri-devel@lists.freedesktop.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, clang-built-linux
+	<clang-built-linux@googlegroups.com>, "Wang, Kevin(Yang)"
+	<Kevin1.Wang@amd.com>
+Subject: RE: [PATCH 6/7] drm/amd/powerplay: Use proper enums in
+ vega20_print_clk_levels
+Thread-Topic: [PATCH 6/7] drm/amd/powerplay: Use proper enums in
+ vega20_print_clk_levels
+Thread-Index: AQHVMiy+c88EcKEMTUmwHunc6S+NV6bLeiKAgABoggCAAJxnMA==
+Date: Tue, 16 Jul 2019 01:00:02 +0000
+Message-ID: <MN2PR12MB3344EFEEA62F1FC0CE238F2CE4CE0@MN2PR12MB3344.namprd12.prod.outlook.com>
+References: <20190704055217.45860-1-natechancellor@gmail.com>
+ <20190704055217.45860-7-natechancellor@gmail.com>
+ <CAK8P3a1e4xKTZc1Fcd9KLwaGG_wpcAnSNu7mrB6zw+aBJ0e0CA@mail.gmail.com>
+ <20190715153932.GA41785@archlinux-threadripper>
+In-Reply-To: <20190715153932.GA41785@archlinux-threadripper>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [180.167.199.189]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 94e8122c-e187-4f62-40f1-08d70988eedf
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);SRVR:MN2PR12MB3726;
+x-ms-traffictypediagnostic: MN2PR12MB3726:
+x-ms-exchange-purlcount: 3
+x-microsoft-antispam-prvs: <MN2PR12MB37264272F71652FCB599E40FE4CE0@MN2PR12MB3726.namprd12.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:215;
+x-forefront-prvs: 0100732B76
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(366004)(39860400002)(136003)(346002)(396003)(376002)(199004)(189003)(13464003)(5660300002)(256004)(52536014)(33656002)(3846002)(14444005)(4326008)(6116002)(53936002)(76176011)(6436002)(55016002)(229853002)(9686003)(186003)(26005)(53546011)(446003)(11346002)(6506007)(6306002)(99286004)(476003)(6246003)(102836004)(2906002)(7696005)(71190400001)(305945005)(71200400001)(486006)(7736002)(74316002)(25786009)(81156014)(81166006)(966005)(86362001)(478600001)(54906003)(8676002)(110136005)(68736007)(66066001)(8936002)(316002)(14454004)(66476007)(66556008)(64756008)(66446008)(76116006)(66946007);DIR:OUT;SFP:1101;SCL:1;SRVR:MN2PR12MB3726;H:MN2PR12MB3344.namprd12.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
+received-spf: None (protection.outlook.com: amd.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: paO9GgWtdmuPV4MKvAqjo4zGI2CG8PHjvONcqO0S0Z9JDv9It+HWyBhgCJclbhPoSRNAKFd+fv6XVQB7kuaFRC1oHiDC9lDIXc5xOq70HEV5Z65IFkyBFcxKTRPSmSKeAuBUbE0LELJ10BXxpD98kdHsFSJY5iWUn8Df3C8SZV+uRRT9yaHvp3MDIV0Hnfk3xv+Lvs8ejSvwb9JitOuysMjZuCIkUUoPC5A/E9mvi2ydViI9y0xg4SZYZl7dL05iUmMSpIMfaut90nVHhs94bCD/FNlJLSSnhOcWl1/OmdLbDOjvZospQkg1Sr6eCg4TSMweqhory1zt+AILQtKu/4dkjQWCuNLtSFOL1XnlTBtp7gj6DVxk44lgNGDc2kodkUyrK7+C++fwHb1GDHDoqGBFe+mwkBVKBoV9RUErXyQ=
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <5af9db32-2cf5-10ba-261c-e08852d0814f@metux.net>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: tytso@mit.edu
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted
- sender) smtp.mailfrom=tytso@mit.edu
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 94e8122c-e187-4f62-40f1-08d70988eedf
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Jul 2019 01:00:02.1566
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: equan@amd.com
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB3726
+X-Original-Sender: evan.quan@amd.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com
+ header.b=lh8huOGO;       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass
+ dkdomain=amd.com dmarc=pass fromdomain=amd.com);       spf=neutral
+ (google.com: 2a01:111:f400:fe40::60f is neither permitted nor denied by best
+ guess record for domain of evan.quan@amd.com) smtp.mailfrom=Evan.Quan@amd.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,51 +190,123 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jul 15, 2019 at 08:56:25PM +0200, Enrico Weigelt, metux IT consult wrote:
-> On 15.07.19 14:28, Masahiro Yamada wrote:
+Thanks!  This is reviewed-by: Evan Quan <evan.quan@amd.com>
+
+Regards
+Evan
+> -----Original Message-----
+> From: Nathan Chancellor <natechancellor@gmail.com>
+> Sent: Monday, July 15, 2019 11:40 PM
+> To: Arnd Bergmann <arnd@arndb.de>
+> Cc: Deucher, Alexander <Alexander.Deucher@amd.com>; Koenig, Christian
+> <Christian.Koenig@amd.com>; Zhou, David(ChunMing)
+> <David1.Zhou@amd.com>; Wentland, Harry <Harry.Wentland@amd.com>;
+> Li, Sun peng (Leo) <Sunpeng.Li@amd.com>; Rex Zhu <rex.zhu@amd.com>;
+> Quan, Evan <Evan.Quan@amd.com>; David Airlie <airlied@linux.ie>; Daniel
+> Vetter <daniel@ffwll.ch>; amd-gfx list <amd-gfx@lists.freedesktop.org>; dri-
+> devel <dri-devel@lists.freedesktop.org>; Linux Kernel Mailing List <linux-
+> kernel@vger.kernel.org>; clang-built-linux <clang-built-
+> linux@googlegroups.com>; Wang, Kevin(Yang) <Kevin1.Wang@amd.com>
+> Subject: Re: [PATCH 6/7] drm/amd/powerplay: Use proper enums in
+> vega20_print_clk_levels
 > 
-> >> The rule file contains a rule for creating debian/control and
-> >> other metadata - this is done similar to the 'deb-pkg' make rule,
-> >> scripts/packaging/mkdebian.
-> > 
-> > I saw a similar patch submission before, and negative feedback about it.
+> On Mon, Jul 15, 2019 at 11:25:29AM +0200, Arnd Bergmann wrote:
+> > On Thu, Jul 4, 2019 at 7:52 AM Nathan Chancellor
+> > <natechancellor@gmail.com> wrote:
+> > >
+> > > clang warns:
+> > >
+> > > drivers/gpu/drm/amd/amdgpu/../powerplay/vega20_ppt.c:995:39:
+> warning:
+> > > implicit conversion from enumeration type 'PPCLK_e' to different
+> > > enumeration type 'enum smu_clk_type' [-Wenum-conversion]
+> > >                 ret = smu_get_current_clk_freq(smu, PPCLK_SOCCLK, &now);
+> > >
+> > > ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+> > > drivers/gpu/drm/amd/amdgpu/../powerplay/vega20_ppt.c:1016:39:
+> warning:
+> > > implicit conversion from enumeration type 'PPCLK_e' to different
+> > > enumeration type 'enum smu_clk_type' [-Wenum-conversion]
+> > >                 ret = smu_get_current_clk_freq(smu, PPCLK_FCLK, &now);
+> > >
+> > > ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+> > > drivers/gpu/drm/amd/amdgpu/../powerplay/vega20_ppt.c:1031:39:
+> warning:
+> > > implicit conversion from enumeration type 'PPCLK_e' to different
+> > > enumeration type 'enum smu_clk_type' [-Wenum-conversion]
+> > >                 ret = smu_get_current_clk_freq(smu, PPCLK_DCEFCLK, &now);
+> > >
+> > > ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+> > >
+> > > The values are mapped one to one in vega20_get_smu_clk_index so just
+> > > use the proper enums here.
+> > >
+> > > Fixes: 096761014227 ("drm/amd/powerplay: support sysfs to get
+> > > socclk, fclk, dcefclk")
+> > > Link: https://github.com/ClangBuiltLinux/linux/issues/587
+> > > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> > > ---
+> >
+> > Adding Kevin Wang for further review, as he sent a related patch in
+> > d36893362d22 ("drm/amd/powerplay: fix smu clock type change miss
+> > error")
+> >
+> > I assume this one is still required as it triggers the same warning.
+> > Kevin, can you have a look?
+> >
+> >       Arnd
 > 
-> Do you recall what negative feedback exactly ?
-
-It's possible I'm not remembering some of the feedback, but the only
-thing I recall was the comment I made that I'd really like this use
-case:
-
-make O=/build/linux-build bindeb-pkg
-
-to not break.  And as far as I can tell from the proposed patch series
-(I haven't had a chance to experimentally verify it yet), I don't
-think it should break anything --- I'm assuming that we will still
-have a way of creating the debian/rules file in
-/build/linux-build/debian/rules when doing a O= build, and that the
-intdeb-pkg rule remains the same.  At least, it appears to be the case
-from my doing a quick look at the patches.
-
-> > Debian maintains its own debian/rules, and it is fine.
+> Indeed, this one and https://github.com/ClangBuiltLinux/linux/issues/586
+> are still outstanding.
 > 
-> Not for me, I don't use it - given up trying to make anything useful
-> out of it. It's extremly complex, practically undebuggable and doesn't
-> even work w/o lots of external preparations.
-
-Yeah, the official Debian debian/rules is optimized for doing a
-distribution release, and in addition to the issues Enrico has raised,
-last time I tried it, it was S-L-O-W since it was building a fully
-generic kernel.  It's not at all useable for general developer use.
-
-It sounds like what Enrico is trying to do is to enable running
-"dpkg-buildpackage -us -uc -b" from the the top-level kernel package
-as being easier than running "make bindeb-pkg".  I suspect this might
-be because his goal is to integrate individual kernel builds from
-using Debian's hermetic build / chroot systems (e.g., sbuild, pbuilder)?
-
-     	       		      	       	       	      - Ted
+> https://patchwork.freedesktop.org/patch/315581/
+> 
+> Cheers,
+> Nathan
+> 
+> >
+> > >  drivers/gpu/drm/amd/powerplay/vega20_ppt.c | 6 +++---
+> > >  1 file changed, 3 insertions(+), 3 deletions(-)
+> > >
+> > > diff --git a/drivers/gpu/drm/amd/powerplay/vega20_ppt.c
+> > > b/drivers/gpu/drm/amd/powerplay/vega20_ppt.c
+> > > index 0f14fe14ecd8..e62dd6919b24 100644
+> > > --- a/drivers/gpu/drm/amd/powerplay/vega20_ppt.c
+> > > +++ b/drivers/gpu/drm/amd/powerplay/vega20_ppt.c
+> > > @@ -992,7 +992,7 @@ static int vega20_print_clk_levels(struct
+> smu_context *smu,
+> > >                 break;
+> > >
+> > >         case SMU_SOCCLK:
+> > > -               ret = smu_get_current_clk_freq(smu, PPCLK_SOCCLK, &now);
+> > > +               ret = smu_get_current_clk_freq(smu, SMU_SOCCLK,
+> > > + &now);
+> > >                 if (ret) {
+> > >                         pr_err("Attempt to get current socclk Failed!");
+> > >                         return ret;
+> > > @@ -1013,7 +1013,7 @@ static int vega20_print_clk_levels(struct
+> smu_context *smu,
+> > >                 break;
+> > >
+> > >         case SMU_FCLK:
+> > > -               ret = smu_get_current_clk_freq(smu, PPCLK_FCLK, &now);
+> > > +               ret = smu_get_current_clk_freq(smu, SMU_FCLK, &now);
+> > >                 if (ret) {
+> > >                         pr_err("Attempt to get current fclk Failed!");
+> > >                         return ret;
+> > > @@ -1028,7 +1028,7 @@ static int vega20_print_clk_levels(struct
+> smu_context *smu,
+> > >                 break;
+> > >
+> > >         case SMU_DCEFCLK:
+> > > -               ret = smu_get_current_clk_freq(smu, PPCLK_DCEFCLK, &now);
+> > > +               ret = smu_get_current_clk_freq(smu, SMU_DCEFCLK,
+> > > + &now);
+> > >                 if (ret) {
+> > >                         pr_err("Attempt to get current dcefclk Failed!");
+> > >                         return ret;
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190715191245.GD3068%40mit.edu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/MN2PR12MB3344EFEEA62F1FC0CE238F2CE4CE0%40MN2PR12MB3344.namprd12.prod.outlook.com.
