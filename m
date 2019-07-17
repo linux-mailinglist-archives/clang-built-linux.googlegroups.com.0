@@ -1,138 +1,126 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBTVPXHUQKGQE7IKYEAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBPNBXLUQKGQEFT3U26I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id B95746B22F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jul 2019 01:03:43 +0200 (CEST)
-Received: by mail-pg1-x53c.google.com with SMTP id n23sf1652053pgf.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jul 2019 16:03:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563318222; cv=pass;
+Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0A3E26B4DB
+	for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jul 2019 05:06:39 +0200 (CEST)
+Received: by mail-qk1-x738.google.com with SMTP id d9sf18806140qko.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 16 Jul 2019 20:06:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563332798; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HbXjlaw4RZfG9srfHC2fReBHoYKEfDoipxAYXziEKkHqn4KJKn709aK0gp29WHLCS3
-         7p86kypQ64vZtuwUZKL/olhvhV18U9oWS29E4spWjp4DRob9UB38sU0MVv2YaoV7QlJ6
-         BxUg447xcM8lcolGslMrBzBCBaCmXhX3DmwCTy5GO+syjGZGUUSkQLdyGVnqqZl0ngjD
-         xd9oFkiSKiU5OKAkB58lTeO5K1AN0Ih8JbaflYe59ItCVeswcbV0J40tNqXFd1NBfG25
-         6biI6Nq53a1v95WUjlPyPsvxpgJkt0BfFRw5E/XTtwTn5NmopZA+Df6wYr0fKgNvKX+7
-         jx0Q==
+        b=iUHEoU4zZPWb/ZympLdOl4IdeRJvSp9xzWxNoAwZRVDEQGIT0vbOSGvBDRNmvXsOAa
+         cVivOS/gObLa8xBL8fDmFRtpwy2E+jhBIPNcwbrkdpiAGZxUivfKvDTKRNDt8HdSXgiY
+         ZV5/Wyym1vtBqiq24X8rokXUstiljTMsMgyqCrhAA2XgoXSHECPtOwxZgS57wXhcoUOh
+         tVhUH2B8uBdi+cJy1bb07GToztNzZr6gx2o3UD4xhccsiP2LKOhWhn60nmnzxckio+vb
+         9/lxqjhgTehYBGZpt4vqynBFWnUvZxhtqTjnV/qCJyXkdsn6xzNLpLrujE5tD5KN1luh
+         Qaqw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=JZ6fP7MuxrOrwsR++/ylPCghaTB2CGyoYm0+pe8KcoA=;
-        b=tBIxoiBLKOJMAxye6J+aVpZ1vumrWpMQjFJZzsjlgVxW2CtRxe7ZiEmQCC+M7L50y2
-         VCCHKkSSxBeG+M2NVRQiM9ibewk5KnNt7VS5n239rcXreEFR34gFj4HirbYKMOEhE2xC
-         bFKWv8fEsaR31PLR88PkPeSa8+ylO4bWyoSWRspo+mY+RcR13KUgN0H+LYAi77utHF3M
-         ldawTL5G7EIR9cKEaYK3vrmwwB96AxCCpF0vE07hoDr5e+R8Vds1ZeX/cRzkoL1QQfjv
-         NEnwZyoVwp41bZiEdguOeTXSWTT/94p3rSpTi8JkqikaDWn8HIyfbx49vVzjz8Uteqnc
-         xb6Q==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=sj67+a+u3Rri3Lk3JurekBC8ZrkTDH1I3BjcoLpfelY=;
+        b=KN8T7BOAzOzMg92Qh6TyjYZukjmSdDXtwfpeKwrZoYnLEQO0wMUuPl8+OGNq3S99Sb
+         vOkMPxaoYz31t/8kAHyYdBEd9BFP3MXNF8IwKSV3R0kuxqET/qx4SFQAHk7t10k5LUBN
+         WumAR+j8Kxij7c6z/qG8W24d3qheKvg6VuuSqbngtEMDrSiCtcralOCY/f3MY/rvHEdV
+         QBB+r+ekP/UcvMsb72fDXDqw+3G9aalNFM+vKaZ4lT5o63EIF5S0agPdyJTg2CNSeIac
+         JNkyd4yq834lzXHpceO6rtLi+kxHb9qD59rfhOWyK8HdazSEO0moymQUY8faqx2SpwyW
+         xDJQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=neutral (google.com: 216.40.44.180 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JZ6fP7MuxrOrwsR++/ylPCghaTB2CGyoYm0+pe8KcoA=;
-        b=kRR5pdk7Wkf0YTDIiSRxvOQrMZXYGoxL4L7rQMYbbBHkMpMz6iqrJOr95LY7lKiyRr
-         U0V4bP+lys1hHksS08DjGff/IZduTzRgHXKqp79karb34NMqmADAB2UrPGnnh8/cpzYa
-         njz9a5ycj4jfSDQPQlb+ItR6Sj0VyszfQSDwJTlRmb84HRrfP5Crk7vD5iaNJxz+d2oH
-         JNU1NuLtfaycf4Ox3FOC6yyZ34vJboRX8OOMzUmWIu26H3YzSkroIt8eyJDOdyJfsjLe
-         jcd/SfcXN1Lqi651mKLjzk77pKM9a8RRMZ55Nl3I1V0+M2E4r6BpcSD83foyUPmS9kQe
-         1/WA==
+        bh=sj67+a+u3Rri3Lk3JurekBC8ZrkTDH1I3BjcoLpfelY=;
+        b=m/0XgzIdL42o8ZRzudgskTdbl8XEoipaKc1vkUCdY9lq0V/i/Gzz1o2zAblyb7Dm9n
+         uoVddv4w1FBgDPAb1k/WJc4lfAe7ZWsRHTKF8HqVxnXQA9sdNl4waFowdf6xnQ5gbS+R
+         sFA3QgWauYVgLqzBqA6jIhe3iLj+TnZU4wJV4SsFPVYnW82imv/xCR9fprqVR/8kT9/L
+         sBRtKzT9H6Wq+Q8N/LH1bl05HiDx7DSv6V9QRTTfhrtVAAlR9L2GhqJgCzOXTPB6/E8k
+         9KdcaL0LH5v47ImepMwoVDqByeSJsIWEXsc8+R5QhdykkZGOG/Q9Van+Io4k4IjSiwxQ
+         /Qgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=JZ6fP7MuxrOrwsR++/ylPCghaTB2CGyoYm0+pe8KcoA=;
-        b=tYv9tjLkbZlBDffM4IKQ7eInNyRYbUfVawLkagmlCZLwHthiZgFhJoOghw6WetFbei
-         NDqnYgk9T7Syjn/wbBtQ9WBqyi+rLIh6NGhkySo1zj77RBKEqZYbZdDe+SKYCwREQu6o
-         6BLgj9dakNH6pzcJ7T+IuLqsgGicr6hX2wudA2xB32upBwTdCj+ITLPwweIS6+XPbyjv
-         hJ1qtnUB8WYlh+04INJjeefDaDi1+BwL0P2nlKmh7MAJUHx1U6cc4S5enGsLxK+DngNk
-         SKtr2cDGvMvXfWM7tbCafBw8/A5Q0stbYxNaejpoPPDmRReoSbvqYP5DtRDujX6VBuJg
-         kPFQ==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=sj67+a+u3Rri3Lk3JurekBC8ZrkTDH1I3BjcoLpfelY=;
+        b=aEzEyYZ/623KzLM/Na/solNMx+3aOb7ysHZrrOL9MkeYyHyzbMCxJxUIQHZKygNyxL
+         RDg9hXVt9FWuB/e34izMcfn+2cBiUGxxUSvjdYedwi3YyDkJFxCqdiqp5EkeoE6jDJET
+         x4X7wvPTms4GrWZsAZ471y76iNmp+DJtWumRsXgmjMBT9tR641F/GpwiIiYENcmq0v34
+         4fsfv+2e0Tu6LuXop1bhq3QXbD9VlPDzdxfVoh46y4K9wfz/qPMipiG5ILZdWeGrIRqG
+         e7SrpHwedcMncIUNKSSRYd9JeRXwxKMxv2kGABQH9GQaZ5yRHqH/rBY0XnB/Ruv1cw70
+         CxrQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV/f/jWMtPqGLQwIQKbxy8hZtTHtY8L3S1u3LKrUcsVqUW1QAIS
-	95gwJdJAoJI3leYl1I3D6e0=
-X-Google-Smtp-Source: APXvYqx+A4swNl1wWqwvT3TH+zERjoBdK1IignaAogHp7Aa4Sc5LfI7xJDAwSyLe8GsGBFW4A7bqfQ==
-X-Received: by 2002:a63:66c5:: with SMTP id a188mr36771009pgc.127.1563318222172;
-        Tue, 16 Jul 2019 16:03:42 -0700 (PDT)
+X-Gm-Message-State: APjAAAXDWw0T6Pz1P/KRFVOPe4nCuW4rioxUciNq58U9MGOxwCcesJ4T
+	l7AyqmD/cU+XOnU6qHDnMJI=
+X-Google-Smtp-Source: APXvYqxjUpPKopyP+1ioBHHrFQ51OB9NNwLK7Ytu8f39heff5xHDkLVDHJ/db+RZtUIFMlLbsG1XXw==
+X-Received: by 2002:a37:9a8b:: with SMTP id c133mr22206714qke.261.1563332798004;
+        Tue, 16 Jul 2019 20:06:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:a70f:: with SMTP id w15ls5883407plq.7.gmail; Tue, 16
- Jul 2019 16:03:41 -0700 (PDT)
-X-Received: by 2002:a17:90a:2446:: with SMTP id h64mr41497478pje.0.1563318221888;
-        Tue, 16 Jul 2019 16:03:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563318221; cv=none;
+Received: by 2002:a0c:c13c:: with SMTP id f57ls3847596qvh.12.gmail; Tue, 16
+ Jul 2019 20:06:37 -0700 (PDT)
+X-Received: by 2002:a0c:b192:: with SMTP id v18mr26756212qvd.90.1563332797779;
+        Tue, 16 Jul 2019 20:06:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563332797; cv=none;
         d=google.com; s=arc-20160816;
-        b=hQKsqNGUxkCqOwJb2dNAQsXouBLgd3fof4cuPgGNgRw8UeLzPlL+iZPgW7kCGM7K3x
-         xceo8UfoNguXXj2F/aTV1/7uJaK4/y5oSC+L3v6nnKUtKRsImr9/oubh8DbnjMCZY0I6
-         Ib86Tkx/oz3OyQTjBTk+r8qUa1jgQNKmrz8If3RSmlcZjId91FPovKyDWT5bhnqyAmtg
-         QhO42MBQuxdwSqkqJI6dvCFOLEgJW40KpPh4p021j54U1nZbUF82Z9vX17KaynIlqluN
-         l+ZdoN9JnRmbvHf7j4fPpcM5yN0aoUMwt6sv4bCLLMloAy1QeTI4Iq3Yx9C82x9KgDBN
-         KayA==
+        b=pkj3ETM+ptXZpihJDA0esAvwHDz6KHOEY8Rb1cqVy2QFc1hMM1KPtxbeToc7/QOtLE
+         EQreY2gxbq+C2eaaodzzYnnhJrbNDcT7lGSgoedHDcFt7V7w8qdkUhwlXXhf+DWxGhE/
+         0r5a/jhToM4rAr4HGTSRPuGoLLjcEV3V9ATVmf3zOjCEfZ2BQ8oYymaPAXQt1ykWR9QV
+         5qzAMg/jzaIFf+Q+3ob8a5l/a39JXC2bINNSTMvpCi5IYQB31nAUsrq5shbALnMQMQVd
+         Ph4wfaNfeYT1TxL/mL1aum00Y9cexH2cCV62HziZbB8c+HOAoZBEotf4W8R9DoUe0Ur1
+         lBuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=4Ba97KVadVYPq1zQTGoIXe2H+1+BJ3LCyA65Bcv4j4Y=;
-        b=qRe74Erj4dxZyT+r1wiSGHILJF93AWSy25ufIJmSTl+A4Rn0ZPPz++5mgySsSB1fYq
-         eKTD0WPpt+9iOy4kL0zITpxcD2ieIGD/3eiBf68AgkpUx1JGHJutoPaDzo2lxjL1sojY
-         7dB2DZHm/03BiB0kTN1tTZ9j9PSqLumDwg0D7Xe0ascxSeduIVrgWuXfHMfgcMAXVxih
-         3G2nWe4bO/qHv8mTbd+THP45/DMV10kMx+e/Qt8XxbnUobGPoXEjpAGTIorMd4l0S13M
-         80Bujmlk+SogIuQ05lJPPMcUDxDSrYjLoeFSZzUf47O6WzyeO4QUqJrl/7p/q5l2egle
-         t5mw==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=JtRNFr9u3elCyjY5lSvekXxo2P/yhgpJWwRmkmZFdNE=;
+        b=dJMsYvxbpaeAfKY/oD0trZ1VUCesdneFzZNVU1cOKofA4uMpixIt5QsXQvbK8MxFpd
+         RK7xJMs1SWLrfw+W5LXTBZC2aB6xKClnJl7y1MbTI8CWeV0v8I/thOa8o3LSh73Q7h0F
+         2JEEjw5Xgjd41Xp1L/oSk0Vj+GioohTmGd2ZyfDifGvByirsZrfeVS8uMJiD+co38p/0
+         qiMH9FD/h94hdciKYGnoEUMBeZnZggL6MtSu4L+JNJejQHSGCmkkE/7QEbBfaYLUznf+
+         mjgvgzGKQ8cqjMykWJ58yhIKQ9Ow3v2+q4h45HAqZfrOkSD7Y3u4ncfBgIFQPPz4RPWg
+         jxiw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
-        by gmr-mx.google.com with ESMTPS id y13si868727pfl.3.2019.07.16.16.03.41
+       spf=neutral (google.com: 216.40.44.180 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0180.hostedemail.com. [216.40.44.180])
+        by gmr-mx.google.com with ESMTPS id y53si1283790qtj.1.2019.07.16.20.06.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Jul 2019 16:03:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) client-ip=209.132.183.28;
-Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 3E08B3082A8D;
-	Tue, 16 Jul 2019 23:03:40 +0000 (UTC)
-Received: from treble (ovpn-123-204.rdu2.redhat.com [10.10.123.204])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 28EA4100164A;
-	Tue, 16 Jul 2019 23:03:38 +0000 (UTC)
-Date: Tue, 16 Jul 2019 18:03:36 -0500
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Jann Horn <jannh@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: objtool crashes on clang output (drivers/hwmon/pmbus/adm1275.o)
-Message-ID: <20190716230336.y7nk24ybbwguio2s@treble>
-References: <CAG48ez3ipuPHLxbqqc50=Kn4QuoNczkd7VqEoLPVd3WWLk2s+Q@mail.gmail.com>
- <CAK8P3a2=SJQp7Jvyf+BX-7XsUr8bh6eBMo6ue2m8FW4aYf=PPw@mail.gmail.com>
- <CAK8P3a1_8kjzamn6_joBbZTO8NeGn0E3O+MZ+bcOQ0HkkRHXRQ@mail.gmail.com>
- <20190712135755.7qa4wxw3bfmwn5rp@treble>
- <CAK8P3a13QFN59o9xOMce6K64jGnz+Cf=o3R_ORMo7j-65F5i8A@mail.gmail.com>
- <20190712142928.gmt6gibikdjmkppm@treble>
- <CAKwvOdnOpgo9rEctZZR9Y9rEc60FCthbPtp62UsdMtkGDF5nUg@mail.gmail.com>
- <CAK8P3a0AGpvAOzSfER7iiaz=aLVMbxiVorTsh__yT4xxBOHSyw@mail.gmail.com>
- <CAKwvOd=o16rtGOVm9DWhhqxed0OEW5NKt4Vt3y_6KCcbdU-dhQ@mail.gmail.com>
- <CAK8P3a2Vq+ojOZSefwziMhzU2SG+Bq6HDz2Ssjz7_BpVnMUu=A@mail.gmail.com>
-MIME-Version: 1.0
+        Tue, 16 Jul 2019 20:06:36 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.180 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.180;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay02.hostedemail.com (Postfix) with ESMTP id 4A32B34A1;
+	Wed, 17 Jul 2019 03:06:36 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::,RULES_HIT:41:355:379:599:800:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1539:1593:1594:1711:1730:1747:1777:1792:2393:2553:2559:2562:2828:3138:3139:3140:3141:3142:3352:3622:3865:3867:3868:3871:3872:3874:4321:4605:5007:6119:7903:10004:10400:10848:11232:11658:11914:12296:12297:12740:12760:12895:13069:13161:13229:13311:13357:13439:14181:14659:14721:21080:21433:21451:21627:30054:30090:30091,0,RBL:23.242.196.136:@perches.com:.lbl8.mailshell.net-62.8.0.180 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:23,LUA_SUMMARY:none
+X-HE-Tag: cause64_738513b3fb42d
+X-Filterd-Recvd-Size: 1832
+Received: from XPS-9350.home (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
+	(Authenticated sender: joe@perches.com)
+	by omf11.hostedemail.com (Postfix) with ESMTPA;
+	Wed, 17 Jul 2019 03:06:33 +0000 (UTC)
+Message-ID: <fa656d2d8a1677a0a1fbea4b7f60dfca2661827b.camel@perches.com>
+Subject: Re: [PATCH] skbuff: fix compilation warnings in skb_dump()
+From: Joe Perches <joe@perches.com>
+To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>, Qian Cai <cai@lca.pw>
+Cc: David Miller <davem@davemloft.net>, Willem de Bruijn
+ <willemb@google.com>,  clang-built-linux@googlegroups.com, Network
+ Development <netdev@vger.kernel.org>,  LKML <linux-kernel@vger.kernel.org>
+Date: Tue, 16 Jul 2019 20:06:32 -0700
+In-Reply-To: <CAF=yD-KW-XnDvD0i8VbzrkLGNWEY6cPoaEcHy40hbghGXTo+kA@mail.gmail.com>
+References: <1563288840-1913-1-git-send-email-cai@lca.pw>
+	 <CAF=yD-KW-XnDvD0i8VbzrkLGNWEY6cPoaEcHy40hbghGXTo+kA@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAK8P3a2Vq+ojOZSefwziMhzU2SG+Bq6HDz2Ssjz7_BpVnMUu=A@mail.gmail.com>
-User-Agent: NeoMutt/20180716
-X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.45]); Tue, 16 Jul 2019 23:03:40 +0000 (UTC)
-X-Original-Sender: jpoimboe@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as
- permitted sender) smtp.mailfrom=jpoimboe@redhat.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=redhat.com
+User-Agent: Evolution 3.30.5-0ubuntu0.18.10.1
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.180 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,47 +133,28 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Jul 17, 2019 at 12:05:14AM +0200, Arnd Bergmann wrote:
-> On Tue, Jul 16, 2019 at 10:24 PM 'Nick Desaulniers' via Clang Built
-> Linux <clang-built-linux@googlegroups.com> wrote:
-> >
-> > On Fri, Jul 12, 2019 at 1:41 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > >
-> > > On Fri, Jul 12, 2019 at 6:59 PM 'Nick Desaulniers' via Clang Built
-> > > Linux <clang-built-linux@googlegroups.com> wrote:
-> > > > > The issue still needs to get fixed in clang regardless.  There are other
-> > > > > noreturn functions in the kernel and this problem could easily pop back
-> > > > > up.
-> > > >
-> > > > Sure, thanks for the report.  Arnd, can you help us get a more minimal
-> > > > test case to understand the issue better?
-> > >
-> > > I reduced it to this testcase:
-> > >
-> > > int a, b;
-> > > void __reiserfs_panic(int, ...) __attribute__((noreturn));
-> > > void balance_internal() {
-> > >   if (a)
-> > >     __reiserfs_panic(0, "", __func__, "", 2, __func__, a);
-> > >   if (b)
-> > >     __reiserfs_panic(0, "", __func__, "", 5, __func__, a, 0);
-> > > }
-> > >
-> > > https://godbolt.org/z/Byfvmx
-> >
-> > Is this the same issue as Josh pointed out?  IIUC, Josh pointed to a
-> > jump destination that was past a `push %rbp`, and I don't see it in
-> > your link.  (Or, did I miss it?)
+On Tue, 2019-07-16 at 17:04 +0200, Willem de Bruijn wrote:
+> On Tue, Jul 16, 2019 at 4:56 PM Qian Cai <cai@lca.pw> wrote:
+> > Fix them by using the proper types, and also fix some checkpatch
+> > warnings by using pr_info().
+> > 
+> > WARNING: printk() should include KERN_<LEVEL> facility level
+> > +               printk("%ssk family=%hu type=%u proto=%u\n",
 > 
-> I think it can be any push. The point is that the stack is different
-> between the two branches leading up to the noreturn call.
+> Converting printk to pr_info lowers all levels to KERN_INFO.
+> 
+> skb_dump takes an explicit parameter level to be able to log at
+> KERN_ERR or KERN_WARNING
+> 
+> I would like to avoid those checkpatch warnings, but this is not the
+> right approach.
 
-Right.
+Just ignore checkpatch when it doesn't know that
+the printk actually includes a KERN_<LEVEL> via
+"%s...", level
 
--- 
-Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190716230336.y7nk24ybbwguio2s%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/fa656d2d8a1677a0a1fbea4b7f60dfca2661827b.camel%40perches.com.
