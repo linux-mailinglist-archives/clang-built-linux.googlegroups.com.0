@@ -1,135 +1,154 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBR4HYXUQKGQELOEEUMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBZVHYXUQKGQED7SMLUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
-	by mail.lfdr.de (Postfix) with ESMTPS id C75156DC2C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 06:15:04 +0200 (CEST)
-Received: by mail-ua1-x93e.google.com with SMTP id c21sf2933288uao.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 21:15:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563509704; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C9356E08D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 07:23:51 +0200 (CEST)
+Received: by mail-qk1-x73b.google.com with SMTP id k125sf25312975qkc.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 22:23:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563513830; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AMPpXB7BxRol8695O1bgS6FlcJrf2fcYB5A8wXZabd0cqLTChZRpALMFg0EYbLiOAG
-         HGMUfYDNZeZ5niL4mM34W+fjWJKn/eFBLO8wRbrFTu9+XDEyccewuwtC6+LdhjuRWL/a
-         GTwANRVsOmb9npX+8rP6fMtd1nCMsnjaTplloRCkmE50gMgLmjiepSLCG2OGfJ+z41A7
-         WOgiOGnmFXdGgnvPH5+IbM7YKlAlLe0gdmd1pIoliBW9kBfsURTzR0ZoR0+KIHmSkN0f
-         /eZVM37KeViAsh03/roaAcdR1/M+evkI6EgBArFSgcq9NzAkI6OtdsyQuomtr/3b47Vg
-         fiCw==
+        b=U3/xQ4YYN23HqYqQHONK4owcfXt/eyXK3UveWovoPC+wrhDtNnMFOPllJiQDC4ctzm
+         AYDc5hD6e8VxtM4m2KBenOG31ZxXGezGDHiL6xZhOivlpDA0e2Sr0oo7vP7ed9yBu8/U
+         BN98YKk5mzOFrGrGiGMP27g4j7kt2qo2Xb0ZHGJvbrL3T6/TBTk386B5A1QrCKMr9P/5
+         YJ8JjX66UL4/xcvMYm7fz75vhR1ExnCLGV8NwszbleM3d13N223Cy7nLCkAp2ksdYpYC
+         jeZ7VcOTFAnzJ/Twk0su6zcKJVwF9+3kPx6ifxwCuiIIBvbqGKOMPLTmudQh31uRTL1U
+         vFpQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=pAg7qmv8hvKr6o7XFlx5sIk7wbI9FJOrEE2EywRyfZM=;
-        b=HRYZ8sIDjZZm0/nfptiHfWBvwdNUWpLMILXDvZyd9QQk7RedcNi7ymyAbVwex4iGuq
-         dPOtBQnja0rJydHjJR4coHijpBw3Ze5LHQbUSJ/9oI0dvN1fu8W12e3qTctBtI9EYBhv
-         SDm8G/lVx6rzKd2yhXq/0EOCgo7zKVcBSzNuFoKwz41JSGyQ0IAIYgFKeW7xIfL4qmDd
-         k0LxXrUMVTU7syF/1/qhH8uAan4UjmRWuaWWh5nq/2KzsxNz25GGEUYEA51EwG6FiSIO
-         kesDGAT1K86eUTc4DxT+CO3hIoZo+2cN9+Kx0FiLhtXIWW77mK1gPIfHb6vlvhbM0Vtn
-         DF3g==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:organization:from
+         :references:to:subject:sender:dkim-signature;
+        bh=w0v5xR9X5ptQ1fHuiVPm1pmn0/dcxgIDiZHfX+UHXgA=;
+        b=kjEj4HGkl5W9S+uUo4rF1gwuClCCTRSXDqOMIQurpfNCt69TtKwUVGerkjuGJCn4Af
+         Zk1TnsAl7EqpZKa3oTmfQvJPOWJ3zoDzzNRoPR2XSxjzb644pM71FDDWIOdv5wSZhQPo
+         ylYFK5ClMbTM6JlD71LFJYOALB7R4X9+3M09to+vcw8c/LtZxTNpcX6yb9pLsDkbirlT
+         +B/pw8ihnhKZvNa5D1DnSbgr/R7+YjLucdV5sP4C8bXWYJ1weD6DFxNmJSMBdq1ZBjvD
+         a7gjdpUEMJ8MZJ6zQqTTXah3UXOCBB/lGygYaJ6dRklLYE5OQJ1v8uqsevsQZ5kKiXFi
+         fyVQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kH8ykJEk;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of lkml@metux.net) smtp.mailfrom=lkml@metux.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:subject:to:references:from:organization:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pAg7qmv8hvKr6o7XFlx5sIk7wbI9FJOrEE2EywRyfZM=;
-        b=kof3BSJezInNcKR1nyhDFw3QkWva7GQKueUZ+XTv3yc6DS2Idptlov4NOTyG/iebpA
-         Fzb9Z7X5j3liUbJdKSV4jORdvRTkHmJEDkiiNACKAChhBrjB0VzqnkIiftzKHZZTld8E
-         2Uba7MMZpEM4HCGbBMDiDGiIlOxbc2bW+HNtURkB2smxKutQfu0MmI9UKHOeILH8V2s4
-         Fboi95l45+LSDhIGwtmb/95Oarw/uUDN27r2N53XVLZaAGLCVXsI8x/c0buOjd42P6M3
-         34wrFZZUJ6oN4A8LYY9MSIJm3BZ0t2tZ4rqIsdh8P1sTa5TAThtUeWQFRKyBnNTU8/sO
-         Cz0w==
+        bh=w0v5xR9X5ptQ1fHuiVPm1pmn0/dcxgIDiZHfX+UHXgA=;
+        b=efXM6Fv0JuiMWXX1lHnksB4q4UkRgXIT/4GnWloXj/gt6HZ0CRwe3xqlsX8UoyCbko
+         s6nAMChGL9JHfTcK4c/DFiVTVx0SqKsdoY6sw92CQSDzQDiuWnNx0GahT4G5MkZWX38w
+         UtDjgH/wWgA34d0E8vy73N4Uv3XmXkLllFxzKUb5SXlTKkDFV6bGoZAh6chEra3OohJV
+         U8pIac6bnXKNAk00zgOhjDCjqDzugrFLRyVIQxINQvL9teZQ2j8DPmIfW3bRzbinIYIX
+         musKrTLCTRO4bksy48aA8bOy3TzJ6q0RfjkbCMRUj3qoAIU02iQMauUcnwGWgjncEvVV
+         D2rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:subject:to:references:from:organization
+         :message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=pAg7qmv8hvKr6o7XFlx5sIk7wbI9FJOrEE2EywRyfZM=;
-        b=XuQortm6o57e7ShBgiQAn9jMVR2BHypi6rAhCj7RXxQ4OvZVeSAghCsL1bs1y+b51P
-         EApGcFyaswqf4kOusGTm+rdc/R/wI44KgICyRB6YM+yWqFWbPZNXspA9LCpTk5tXVtKf
-         DAtOowfNnJKToZw3TRyIdap3WYaEreBeWYkc38XO7h7wqoC0J05iX40kymB/5/Vt2G6K
-         vYHiVcATG9WBhLRf3ec17GJ6UkVEXnkiQ4nKPfJKfROefvn0ME/WO7do2QfBhU7vFIQh
-         q+rj3AhF3Wu8A6Il7WoucWfajzZgBuqHSBrJqepHlbPJCuLDqO99/oJ2ao8l8gRhZX6X
-         V+3A==
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=w0v5xR9X5ptQ1fHuiVPm1pmn0/dcxgIDiZHfX+UHXgA=;
+        b=jkM4XXJBlQiR+5wg7ROWYKqCyRU547+NDBxEAoqoy73NsI4yuupMY/i54OMrHkeHQ5
+         XQS1YDTyoY4fZ9cavZXNMlVAmcyk/YSPbjzwxXkYebF5oCAh45f66QX2sbb1pTEO7FYH
+         8/GnMDYyOwcRyx0xLPcx86fBK+gYfbKvhEYypdtVs0pT+gjtANtMjK4rn1gPaDJsEo7C
+         ieq+zbrXVh6WiVbYWLIlpWY9726r4towUMYmIR6ZO9kIOmXaDh/EgiPaGlvp1esdxw2j
+         An4ykMTZ8xs0OjUhxyo8kNbGBuxLiTheEN3ztBms7ddDKvQm/K11TNXvKzKAOpCTN8rB
+         MHpg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXgHjJKNU1beW6x2dWGs05ZS6+towGfWhM54H1lryDZIVTvuekh
-	tNWZhZ4xAnbVj1m+qmgUu2E=
-X-Google-Smtp-Source: APXvYqzPxyPOUGYPyPg26LkYzJPnsMcRCHFXCMUte0UbSZ2gASKTelyfv5SlfUQ5+kX7LwLwjeXHAg==
-X-Received: by 2002:a1f:7383:: with SMTP id o125mr20801423vkc.6.1563509703824;
-        Thu, 18 Jul 2019 21:15:03 -0700 (PDT)
+X-Gm-Message-State: APjAAAV4b2ll9IxAOnpBkv0aG7fh3YszB17ZzUFLuWYSJOCrxmHHWqr8
+	B0PsbcOLprj979oEEodZNjE=
+X-Google-Smtp-Source: APXvYqyj/OvOs79Lb7xMyN3GZXXIOEPvEjdlTMmmbr44zmkz4sDhFYBJmnMzrwso7E6ttPDelgUN6g==
+X-Received: by 2002:a37:4bd3:: with SMTP id y202mr34168880qka.253.1563513830551;
+        Thu, 18 Jul 2019 22:23:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:8944:: with SMTP id l65ls3856836vsd.0.gmail; Thu, 18 Jul
- 2019 21:15:03 -0700 (PDT)
-X-Received: by 2002:a67:e8c5:: with SMTP id y5mr31643020vsn.127.1563509703602;
-        Thu, 18 Jul 2019 21:15:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563509703; cv=none;
+Received: by 2002:ac8:294d:: with SMTP id z13ls7719729qtz.11.gmail; Thu, 18
+ Jul 2019 22:23:50 -0700 (PDT)
+X-Received: by 2002:ac8:27d4:: with SMTP id x20mr34507712qtx.138.1563513830386;
+        Thu, 18 Jul 2019 22:23:50 -0700 (PDT)
+Received: by 2002:a37:4bce:0:0:0:0:0 with SMTP id y197msqka;
+        Wed, 17 Jul 2019 04:08:25 -0700 (PDT)
+X-Received: by 2002:a7b:c4c1:: with SMTP id g1mr37299210wmk.14.1563361705131;
+        Wed, 17 Jul 2019 04:08:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563361705; cv=none;
         d=google.com; s=arc-20160816;
-        b=SQG9RREVr71ENgjmzPegshMYFkyaQx/JTg86FV7xynX6OWLgKyA9V/DJDnNIanmKfg
-         loTqjBXgShSuu2mOs0PpduVPfgYNw4ytAPWX8/KU0ZEMORYa8o7VvKhOybFPoTSqw5AQ
-         7kxAgAd7ZPfd7CqGKsyhxDk/3vPT5Z3coNMCpDkLqPm6rG/26R0GDq6lafeISasZpn67
-         GSo29lgRtmMxwB1elE+7tzox4qRdVvNZADg5q7ivKopE0+rQsA7nOlTD/if2mnPs90Jl
-         2d+Jx3MNHPjg91RmI5wt+dKHCzV25DixEenrgsTNxzGqCCL6kdXwdoKIu+kGkWKG+uTH
-         gfxg==
+        b=F+vFqG10zxH55c+WW0KRWfmL0/drsn3zM/Pv7AJIncYqwP/xAWM6kykc4tq7HA8BGI
+         vmjS4rt9I7aUE8uJswY4v/l35nHdb0q9xWoVJ0VPSXWIUO/duaqF3k39kxSqQomR1kKT
+         Spdz3bfviaw3MLH/sg3HtccM5vKOb9em6zVV1fW8RopQxMMTIl4um/ShzYdA9yKx5jrA
+         PPVtgU+omEA9BJh1RC2+FLrd7uW4KEYDGIFapM5WsMzEn7CEbtqieDy82zFoFnXt7HYt
+         kV96fxXfKrc2tRjCRmnYVP5N6IFik0VGRdy/PcToJ4kCFDYsjmGPI0w51K2R5xTGgpcz
+         Lf3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=pwx21oZqfNiFKJzzD/ElRLgJ68Rf2DzUdbZzY/GUHvk=;
-        b=IPvmPWw0GUhuiITuvk/NPLIEevdoirUapEVpiUcdP31y6ey4SzeTipUK2lrQP4gKyA
-         uEzxXThBvxGtW+EPPJlv4WM2mpqBCSXFgjgolPv19+9JjydmtFpJHrcHAiLFEHpxGPnH
-         d6LWDN8fU19Xik25R8vxQoqsD6c8UzqeXwES7r+V81ifDQHSpdGQvDi8ZTFXI/s9fVSr
-         U8y+rbxbYlddU4qvQmuOAcS5YrnLTb1T9AuKvt0QcL349IhtbrT/901BbfWXZJUhbROf
-         d7Fv+ZCfqmJ5/NC3WdPFX9YcPqidxCqizFwAbM7MDLElADodkV2gmKffVOyzX5PnBsSX
-         9ZYw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:organization:from:references:to:subject;
+        bh=OTCWnd1UB1KYNtHRdWiT4tx9CPYKGXCQxE73vPSB1qM=;
+        b=Keyb7nkrKHlizPWcCsMRbtzoSUUP0H006ETR/2M4f8dMFr4wwnG4nRaxhbSozyizTu
+         2B5XB5VotHUBTlOeqAnPLY3r4QBJlfPsh9teRROUVICBRH3t4bydlddDgdHC1AEYtHHi
+         298gon31E6J7vALc1XNdPCsmpLwYmetVGHP9MZFtgoELXhCSOE5aGIAsyVWxR4kc0umU
+         C1ScpHNaLUhkQ22wsENuQ/fcCs1FQWJEhW42KwCK5mtWRhz2/fHdQu1EBwvGeOWM/4yI
+         JwRsDhXC0I7zbWgfCO2JTqeupQ2s9rFoYLma6PhOFqeM2bs4xDIkySBWQDxt3e016xxD
+         i/vw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kH8ykJEk;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id u189si2107638vkb.2.2019.07.18.21.15.03
+       spf=neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of lkml@metux.net) smtp.mailfrom=lkml@metux.net
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.13])
+        by gmr-mx.google.com with ESMTPS id s13si1588099wra.1.2019.07.17.04.08.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Jul 2019 21:15:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id AF0BA218B6;
-	Fri, 19 Jul 2019 04:15:01 +0000 (UTC)
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Lee Jones <lee.jones@linaro.org>,
-	Sasha Levin <sashal@kernel.org>,
-	patches@opensource.cirrus.com,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.4 21/35] mfd: arizona: Fix undefined behavior
-Date: Fri, 19 Jul 2019 00:14:09 -0400
-Message-Id: <20190719041423.19322-21-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190719041423.19322-1-sashal@kernel.org>
-References: <20190719041423.19322-1-sashal@kernel.org>
+        Wed, 17 Jul 2019 04:08:25 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.17.13 is neither permitted nor denied by best guess record for domain of lkml@metux.net) client-ip=212.227.17.13;
+Received: from [192.168.1.110] ([77.7.13.186]) by mrelayeu.kundenserver.de
+ (mreue107 [212.227.15.183]) with ESMTPSA (Nemesis) id
+ 1MI4cT-1hhRC50gpr-00FFCN; Wed, 17 Jul 2019 13:08:22 +0200
+Subject: Re: [PATCH 4/4] debian: add generic rule file
+To: "Theodore Y. Ts'o" <tytso@mit.edu>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ "Enrico Weigelt, metux IT consult" <info@metux.net>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Michal Marek <michal.lkml@markovi.net>, Robo Bot <apw@canonical.com>,
+ Joe Perches <joe@perches.com>,
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+ linux-riscv@lists.infradead.org,
+ clang-built-linux <clang-built-linux@googlegroups.com>
+References: <1562664759-16009-1-git-send-email-info@metux.net>
+ <1562664759-16009-4-git-send-email-info@metux.net>
+ <CAK7LNAR1N-bwVWm0LXky2-d2GfvRuRrEWeo5CGm3Z2Lp_s0WEw@mail.gmail.com>
+ <5af9db32-2cf5-10ba-261c-e08852d0814f@metux.net>
+ <20190715191245.GD3068@mit.edu>
+From: "Enrico Weigelt, metux IT consult" <lkml@metux.net>
+Organization: metux IT consult
+Message-ID: <9dace139-ab0d-f1bd-436e-d95a4ff4a7f7@metux.net>
+Date: Wed, 17 Jul 2019 13:08:20 +0200
+User-Agent: Mozilla/5.0 (X11; Linux i686 on x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.2.1
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Original-Sender: sashal@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=kH8ykJEk;       spf=pass
- (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+In-Reply-To: <20190715191245.GD3068@mit.edu>
 Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Provags-ID: V03:K1:ls2KdKhlB/ERv7ImE0pEbdHSeZNUh2CLrbNdokQc4+7HDaSPFnH
+ NWof8UK9fZ70y9OOR7NqmnH49OthwYD4CJvEByZVBLedq6jKVFzDd8ZilQP6fvhLFS0CQgW
+ eOIitHgU3txoT5k3bK0BeMXSos96Hb+c25Z9OnrRJyeuMbvCiekhpq0yCMvt1P6fUDHFJzD
+ 9b1bZJa5geDEZScPMT+8g==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:l4VD3LhjbFs=:iBaZCq5t7ZNDjcoa1g/GHQ
+ hPi2gmZPgmxeWOzgGFmciK5msfjaPYzPmXvGMIEWDgP5baBPaJp90fjM3CMYAFN4GMFrNjZ4D
+ TXfZTKjxdLFSSY+ydeTHfW9Qbu4DhZr3Exrl6XjSn8RHFhx6CaW+EIc/+vjY/zXjMXNhJIoVZ
+ jD9rCK7W19mZWbpfi2I8fowg0d6VGS8qbJRyjGI9jLTocymBTg+MaOYQSGnzZY/RfeRikDK+S
+ EfM5Ti6J1MCMAKqaJMRWFY8ipIlxz1JXmrfhYN3SENTo1B6xG1+kBZ8Gr3tdjcpe7EGpALAP1
+ Xj2YpneaVZKUkvw3PXKQAnBTGSYKvkQeG0DFvdiPexSnwOpnQuRSiurgX61daSGvbnRm0vP/S
+ cVmNqlZpeUl+NdxnGpLyA37PAqX+SH3/Eejb6Xsme6DO8QUT72cnNXZt1stWcZk0nktWCTrMT
+ 8bMiF8rTH/a2Hfcyf1/8r3ldzkB0s4gb7uE137ENM2PdiQKrfOPoJiT3ya2uZkVI2wx1yjeao
+ 8lfI9xwe3MrusEOpwWz1E5ILm0B6SfEAQa7GVw8L0F80w7EqoTbRRv2UPezCVks49LIhyzOVL
+ JCZCHWEL4FjceHHkvwhxvSKR4Twvzvg8gBoPW2HlpUL+ekEQSRmHUQbDoovscttYY73YL+xko
+ m8d1CZ8dmbK7I83h/31GRJHJGkcNAzos1/tGfGJuseqUut94PR82A7/3EpOuR2BDKQ0P+44rS
+ 7c94uKgPuUWiIIL4mLwUmE6W+ZxR2McYZ2unEICCdVksL9oExYRrrD4fwGU=
+X-Original-Sender: lkml@metux.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 212.227.17.13 is neither permitted nor denied by best guess
+ record for domain of lkml@metux.net) smtp.mailfrom=lkml@metux.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
-X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -138,56 +157,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On 15.07.19 21:12, Theodore Y. Ts'o wrote:
 
-[ Upstream commit 5da6cbcd2f395981aa9bfc571ace99f1c786c985 ]
+Hi,
 
-When the driver is used with a subdevice that is disabled in the
-kernel configuration, clang gets a little confused about the
-control flow and fails to notice that n_subdevs is only
-uninitialized when subdevs is NULL, and we check for that,
-leading to a false-positive warning:
+> It's possible I'm not remembering some of the feedback, but the only> thing I recall was the comment I made that I'd really like this use>
+case:> > make O=/build/linux-build bindeb-pkg
+ah, I yet wanted to test that - thx for reminding me. > to not break.
+And as far as I can tell from the proposed patch series> (I haven't had
+a chance to experimentally verify it yet), I don't> think it should
+break anything --- I'm assuming that we will still> have a way of
+creating the debian/rules file in> /build/linux-build/debian/rules when
+doing a O= build, and that the> intdeb-pkg rule remains the same.  At
+least, it appears to be the case> from my doing a quick look at the patches.
+Yes (unless i've missed something), everything should remain as it is.
+One thing that could happen (not checked yet) is that running good old
+'make bindeb-pkg' without O=... could overwrite the now already existing
+debian/rules file.
 
-drivers/mfd/arizona-core.c:1423:19: error: variable 'n_subdevs' is uninitialized when used here
-      [-Werror,-Wuninitialized]
-                              subdevs, n_subdevs, NULL, 0, NULL);
-                                       ^~~~~~~~~
-drivers/mfd/arizona-core.c:999:15: note: initialize the variable 'n_subdevs' to silence this warning
-        int n_subdevs, ret, i;
-                     ^
-                      = 0
+If that's really a problem, we could tweak the machinery to use a
+different name for the rule file (for now, one the preceeding patch
+just allows giving a different name for just *generating* the rules
+file). Another idea could be rewriting the whole process so that no
+rules file needs to be generated at all.
 
-Ideally, we would rearrange the code to avoid all those early
-initializations and have an explicit exit in each disabled case,
-but it's much easier to chicken out and add one more initialization
-here to shut up the warning.
+> Yeah, the official Debian debian/rules is optimized for doing a
+> distribution release, and in addition to the issues Enrico has raised,
+> last time I tried it, it was S-L-O-W since it was building a fully
+> generic kernel.  It's not at all useable for general developer use.
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Charles Keepax <ckeepax@opensource.cirrus.com>
-Signed-off-by: Lee Jones <lee.jones@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/mfd/arizona-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I'm a bit reluctant calling this 'optimized' :p
 
-diff --git a/drivers/mfd/arizona-core.c b/drivers/mfd/arizona-core.c
-index d474732cc65c..fb54de5c1aba 100644
---- a/drivers/mfd/arizona-core.c
-+++ b/drivers/mfd/arizona-core.c
-@@ -967,7 +967,7 @@ int arizona_dev_init(struct arizona *arizona)
- 	unsigned int reg, val, mask;
- 	int (*apply_patch)(struct arizona *) = NULL;
- 	const struct mfd_cell *subdevs = NULL;
--	int n_subdevs, ret, i;
-+	int n_subdevs = 0, ret, i;
- 
- 	dev_set_drvdata(arizona->dev, arizona);
- 	mutex_init(&arizona->clk_lock);
+The strangest aspect (IMHO) is they're building several different trees
+(w/ different huge patch queues) from only one source package. Instead
+I'd rather:
+* try to get as much as possible in one tree
+* have separate source packages if there really need to be separate
+  patche queues (IMHO, these things, like RT stuff, just need proper
+  Kconfig's)
+* do all the patching in git and skip the text-based patches entirely
+
+Haven't found out, why they're actually doing it that complicated way
+(didn't get any useful answers from debian kernel folks)
+
+> It sounds like what Enrico is trying to do is to enable running
+> "dpkg-buildpackage -us -uc -b" from the the top-level kernel package
+> as being easier than running "make bindeb-pkg".  I suspect this might
+> be because his goal is to integrate individual kernel builds from
+> using Debian's hermetic build / chroot systems (e.g., sbuild, pbuilder)?
+
+Yes, I'm building all deb's by the same process / infrastructure.
+In my case it's dck-buildpackage (*1) which runs the build in a docker
+container (kinda pbuilder w/ docker). It always starts with a fresh
+(minimal) base image, calls debian/rules to create debian/control
+(if necessary) deploys the dependencies found in the control file
+and finally fire's up dpkg-buildpackage - the output is collected
+in an ready-to-use apt repo.
+
+The goal of this is having a canonical build process for all deb
+packages, not having to care of any special cases anymore. I also
+have another tool ontop of that, which runs the whole show for dozens
+of packages and targets (*2).
+
+My first approach was trying to use Debian source packages with new
+kernel trees, but had to give up after a few days. Then I've found out
+that the kernel already has *almost* what I needed. The difference
+between almost and fine is this patch queue (minus local .config files)
+
+
+--mtx
+
 -- 
-2.20.1
+Enrico Weigelt, metux IT consult
+Free software and Linux embedded engineering
+info@metux.net -- +49-151-27565287
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190719041423.19322-21-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/9dace139-ab0d-f1bd-436e-d95a4ff4a7f7%40metux.net.
