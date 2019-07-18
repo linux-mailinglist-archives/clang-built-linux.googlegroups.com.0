@@ -1,128 +1,119 @@
-Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBSE2YPUQKGQEECM4KNA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAMN6NI5EERBLVSYPUQKGQE474NYZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1FAA16D56C
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 21:49:29 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id v11sf31968217iop.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 12:49:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563479368; cv=pass;
+Received: from mail-wr1-x43b.google.com (mail-wr1-x43b.google.com [IPv6:2a00:1450:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C6256D5E8
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 22:40:14 +0200 (CEST)
+Received: by mail-wr1-x43b.google.com with SMTP id b14sf14179778wrn.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 13:40:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563482414; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bcWsQvaCXnpeX13hSdQ8eD5ZsOpNIKY8u68mL+Rxru4HZg2EgOkpPFi5cA2HooxXbL
-         cMqIJdAx3zPl+zug4tL5CQ7Cp2xyoJXPSqQ3ZSq9MUNNCf08vYdrg/I6/WS5Rb4h2nVL
-         mPJl3fV3NqVpKHIO6R2IRL7RQo8CqIxZM8Plpkr4a6oj2ajMuPRo1mP5cusepmi8IclA
-         99yUupmr0gqtWZANSGlgIpj/m55SU1WKN6VHKbdAfvCzDhbHKkZK58p6q7fS4r2VwfH2
-         jq7j47H84GwphnONulNaFQ6/8GeuRa12PmzrFN+BtK2lDLDPDZscUgQEd+SLL9yZHZCc
-         8UTA==
+        b=ujV1zCIhivJ5LktFnY1S8j3vyikTtxq1pFy/anMKjP5+ZA44hWH0xNep6nktkfNDYE
+         F6QxOJ3PYAezBncAn3Igehh1ZYJsgIkaMQX4z3xZX9XRwGN0KuFFtescu60VdTzkn4/w
+         9sWcdwonKQFqE7vHiPTsxrAiiU5tlYWIZptShA4TmD5Y4CXS3fgVsibtqsrOw7VU+6Jm
+         +Ct9vH/Psn9EfCZtKJniIVSe2iseS2a09Qryxpi0JYxgOod0exinGnIYMkCz6IeYtKV1
+         f64ITvdKckloRgbY47MB97kCv1jDJJh3u3oqeGB7MAP3dykpkARIxOpN/BGzZlH2ueBO
+         UevA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=0WHbQ5gVTpVUGFvvJLYY5t9mN7JrGscGFoGS3MH1DFM=;
-        b=yWKMffF7tQZrpiwqeh5Rmjh0+70BUTkq7FGjupjmCkHVZm5BhDrmDmW/g3OuAcmpZL
-         xX53IVSRxvCi1+ceAmKq9lshlnTHMz0zgfY7EyaDITf6HnkjPHXPMHg832ZZf7/IJDeH
-         3YCmuwgLrP1WMlId1e1ROXbUq7muJpgLDEa+47Za6xcLZiBwdSMx6brZg4MCw2lhePL+
-         fsKKhOTX/SNH3il0YmYtc5x39V6OUxt6m8csoGz5riWIRr5B0FtqFPZOj8CVDHfc1CvT
-         fPIOSVxQb5CAW5fZOgbRqrfKHhD7QeurqucuQqbfpdnAfDah21C2USyBvdK7yG2eIbAP
-         0enA==
+         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
+         :subject:cc:to:from:date:sender:dkim-signature;
+        bh=n6+3sbN0qRTgGcrOOUXSV8Mxv6bW9RYOAVOO1LSMtwo=;
+        b=VEvF98FRZsZH0uUFi4eCWJLuNdrxghDicMlNb+GKXj0vX3xAnVwyVNAYQqB2Orlh0X
+         Y47HQ0sge2z/6cxOTjpUENUIyiX0SZjMQHhVfPPKB9a6/3Sx9pN6pEh5xvkc1JcjSEK7
+         SF7yuPNmtezOZ/XCDrqaJ8Jc3eRCTklyyJHw12lJkN5ZUxD7AW9L3KEOw/3SbfP2cIpl
+         Cr17beQsCEitHADfopFriu5oinWh93y2ZgHSgw/6ecw7eWSwXFU9kjRHZHbWmOVZYrtk
+         BRK8ucsSi7tD8XMi4QV4lsT+DPBCQ1ZZu4HwEzXd1Pof3dWK5GdA3WnLivIGp/xcKvz7
+         jSzg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b="S/4klFkD";
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=cai@lca.pw
+       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
+        h=sender:date:from:to:cc:subject:message-id:user-agent:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0WHbQ5gVTpVUGFvvJLYY5t9mN7JrGscGFoGS3MH1DFM=;
-        b=ooaOHccAwINAfcLzjVToy2qtOIPEsPK91dofndPhVBucUxN1b+c10VD+iVIWgvvsQ2
-         qcKKjPHW9g5p3RVA7YUOdDrQxRQtyks7HXffFj8KuGqAdY6y38E8WKqU4vBe/EFfd4N4
-         e/mw1wUuHgHQZklL3V0IlcgMjlj8l4j2Nce36HD+v6AodgVsc3RGamy5Y5MH53d/lCDr
-         pZV48Wfa3ofqyFvWo8xSlN0f/6q8FRy7rz2+/A8vMSUvB5ssCpX41PL4O1BPgEzozyPO
-         ufeZJCX/02OC+vEPKX7CErME8BtGJGGfMpf6xUZo+0qRsVPZyaSXIasB7uGyTFo0VLVH
-         8HKA==
+        bh=n6+3sbN0qRTgGcrOOUXSV8Mxv6bW9RYOAVOO1LSMtwo=;
+        b=kjxqiMb+c/Nc9joBggCas5Wgkr6W+AHn7LD2ss4sa6r+fUJYnZ9Nk0P99MHgayvQWz
+         L8ArIOMPSQ/4JPoJq5V1vJnwXOpE73bxDrxagC0q8kmNCOUwNlL7YQnb6LxkBpeSxk9f
+         tKJLrxjMW+9+8UHMEebM7CLp+XZObJ+tzatH9dCZu9RRH6eLvPdQ6M4X2U4HaJV+EY17
+         4CacF5CN1XJoFJiP+VR1L3KoyjGHEWCy4vKmFi+j3p+hzoWu8SKpMcAdX1Rluvnap95+
+         g1SpxBaG9BcEYqNr7OKQSj4QjZCm90WAiLmwGbvmNqb6C8LsMMTOG+iHQ/aTyJZsI71U
+         YFOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0WHbQ5gVTpVUGFvvJLYY5t9mN7JrGscGFoGS3MH1DFM=;
-        b=M8PaZx5ytfwCYp0RS/0H3kQ0krA6Z4RouHeegIoANTIU6JSQzB3+GJYRPl5webl30U
-         67RyU8IfaXXGl7E9RCwSHhALt67KxZ+lBJWfbFkXxTGC7/8NPnY+DsVYu0ZMySstjES6
-         faaHhH2kDYjLIHOcHwewQxq0y/kaWz38F2O/0vg9DzUrkWVwH8CxQlGfLVHsiuQMfRI8
-         jaNj4XApqdXT4ph+tFLFs7iWy8HlvBg6jr+uSTa6Q3xFaJxiGsTQ9dwCCBcBdKRa2lBb
-         dPjA+0niZA+2sr+dA7x0JJ9wAInA6v9XOw+OixO4Dyo4mAuwEyx+39bDCeQ2lXbtuTRs
-         yZZg==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=n6+3sbN0qRTgGcrOOUXSV8Mxv6bW9RYOAVOO1LSMtwo=;
+        b=oIMd7NNbN5hhB9iPGANkmtrWc0GveydgTVgfxGbaWWWoQY2b+scy5bMPn7xTGNc8x1
+         yYoxMEv+hjJetyNZMpCccComfVN94FhN7mY9vcSGHO/YAi2MqBb2USflsGTI9h6TidXV
+         l+OTPTRuKA+e9xbAf27K/lLtC8wicAD8KGNe+sQyuFcpyPdRReMmcyOs7VvBtBmP9kqY
+         Y0jf37OXfGWpFgjj24ssv+EG6awPMLfjhqwB7IT9m8zxGOEwNF0tAYhkVGBi4UKblFIK
+         yeKwYOc7ppR3Yi2Iv56ZJUJxWjwLm1lQbKz1bGErg1UXLfwP1zUvc4SqjacdYLHHEgIX
+         dkTw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUQTkXJC905/evJ2tcuyuz+JqanvoiP+SWUaRvDS4L/tFBj1Noi
-	mRLHeJI2jh36HAFAF3XGDJI=
-X-Google-Smtp-Source: APXvYqzUD8VhndkHLjVTLh1QoU2lq6wdsyInoOsY55VR0v5n0ptxW418XNYCqM8iZkbeCqZnZSoNkw==
-X-Received: by 2002:a02:ad15:: with SMTP id s21mr52331403jan.47.1563479368171;
-        Thu, 18 Jul 2019 12:49:28 -0700 (PDT)
+X-Gm-Message-State: APjAAAVUz+DGNU6Rrm2tKX8vjN6MNTGgPHsDIL/+cZjExbUfFeyQ1Jt8
+	+nrFh3nPmfuPy9OANrZbhPE=
+X-Google-Smtp-Source: APXvYqxs79IbaMQexKeOmUC8MOGcWw7VQtDe75W6Mpv1OQGxjOeVybYyw9WqHKiCcUTd2wR55izLwQ==
+X-Received: by 2002:a5d:4085:: with SMTP id o5mr50881435wrp.101.1563482414129;
+        Thu, 18 Jul 2019 13:40:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6602:18d:: with SMTP id m13ls7790241ioo.7.gmail; Thu, 18
- Jul 2019 12:49:27 -0700 (PDT)
-X-Received: by 2002:a6b:ed02:: with SMTP id n2mr19157609iog.131.1563479367817;
-        Thu, 18 Jul 2019 12:49:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563479367; cv=none;
+Received: by 2002:a1c:96cf:: with SMTP id y198ls10876302wmd.5.canary-gmail;
+ Thu, 18 Jul 2019 13:40:13 -0700 (PDT)
+X-Received: by 2002:a1c:a584:: with SMTP id o126mr44856119wme.147.1563482413687;
+        Thu, 18 Jul 2019 13:40:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563482413; cv=none;
         d=google.com; s=arc-20160816;
-        b=wNhHx5B0cyxIGcZC3d4rz0L88nED1tQ3okQ8aSntbV4fd7dbHJGZMWiRhOhkegd3zj
-         DWJrmL1HHAKFjxkcLd5d3NB3KK8XrY78pQ4u/VTSAOCE7eVVgiwEqP1PHgHsot+VOBcn
-         EKDcgxzVHL3K+FKL32Nb6SIzddNUPLoVUiPk2PkMUMqZycSrvis5ex9PExpTARtzcAgU
-         1/j6pzjd67e5kCmaqkHJYUsW6n+idCv715ly/VRNiaNaLGz8Ve7AydSxgHJFBnCin231
-         +cM//E1Ia/g7gaPyCiLBeBreTNRhYlDZqTaVy3dFJDC1lSzublMOvNGPBlBYrPXKuv2A
-         iuzQ==
+        b=d+FLTXYxbkaX4uEu9DL8pa0QC6NO32Dy/Hrnbjw9mu2jc5C1OD4IhePldYKlsl8I8E
+         Lh/yqaCmPeGRA7FW1ibsaSkiUT7TbtejR/TsURhlrdCi4uKm0TmUoKGGWPSJ1dbmoNgQ
+         ePm0/94nEXUWe324Xnl879pkcmcKN1XmB8sBOTQNUYW2fKHxoclxPWZghQ2W7+sw7BzN
+         yPmm1XP0QMGKoY4m8kHpL+h9mZVxA3Ude7qimQHW3q3C8zcpHnOaPYU4Av1z07KPryal
+         cY/zKVs0QzJQTf1Q61KsWouarZIgp8f0piPwcnsyBCPMU6LY3PKw+zUGY8sAFy4zI6Dp
+         oFhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=LqBcHSVnlAllZiCdAIfktp/f17HTD3kFXRWdIGauFW4=;
-        b=Xoerw3Iv2ZUSDRGwLeI8BOGvXaFswJydyK5ZP3aidBdtJKVpHhK41eZBUR7R2F6vex
-         utmS3QcQ0AFCmjQ0N9N07F0sNgCUFdLjSWbx5cBlOglYVZyE0kh2NP+y7iJbT3aIBySV
-         A+lLlHF8e1wWRGpZDCKaTEBRQmqOCY2uznz3ikJ2LPVYRSDGndQnkhXpPRt8JRkARgyK
-         /RVrc7Rdxm+3XXyQoct6RnebEACTj9jsFVeaqc2LChCz9TpAcMgGph4t7Hx1ecQsfJTb
-         KUb6JPJS9jgLntWGKgjvyoX2K+RbMnEeRxe2RNlPXFY6P/fnEnkSroL2U0M9EiUJ+PhZ
-         orog==
+        h=mime-version:user-agent:message-id:subject:cc:to:from:date;
+        bh=L45gkTKAW1DF31waLjHyOhtg7bkgby63BIyLF08BIz8=;
+        b=cBSjuudwEaseYuYhcja2IpzIy/PrVl13T5Kqt4U6v+CnZXpHeX+gJjo1iiLg0BJfkY
+         ER+ALtQai9O1R8nmkbM05bCsfUwDxxWsuZOzaHC23LslCUIY9yOxRM2xVyFAP8iP+Zda
+         1O/Ae+t6aAZscZx7RvKPEibaHQ91VebG1JJ0N+VuvUYWSC+ta7tfbyoztIt2KfKAuuND
+         yN+MNhxfvgBdUV2wCK9AKZQ8yLo1p8sUibdkAqGR41PHjalcoHhicKEZ4qiL6krbj2y1
+         4vt+4JDTPBYom/0nYA6mfSlTNMjkyreH4ljnzwnrr9vixH9Ouf0PIuNzPf/ce6nod8E7
+         YFCQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b="S/4klFkD";
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=cai@lca.pw
-Received: from mail-qt1-x844.google.com (mail-qt1-x844.google.com. [2607:f8b0:4864:20::844])
-        by gmr-mx.google.com with ESMTPS id t12si1148596iol.0.2019.07.18.12.49.27
+       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
+Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
+        by gmr-mx.google.com with ESMTPS id p15si1159974wmb.0.2019.07.18.13.40.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Jul 2019 12:49:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::844 as permitted sender) client-ip=2607:f8b0:4864:20::844;
-Received: by mail-qt1-x844.google.com with SMTP id r6so24323211qtt.0
-        for <clang-built-linux@googlegroups.com>; Thu, 18 Jul 2019 12:49:27 -0700 (PDT)
-X-Received: by 2002:a0c:ecc9:: with SMTP id o9mr34822037qvq.100.1563479367148;
-        Thu, 18 Jul 2019 12:49:27 -0700 (PDT)
-Received: from localhost.localdomain (pool-71-184-117-43.bstnma.fios.verizon.net. [71.184.117.43])
-        by smtp.gmail.com with ESMTPSA id i62sm13548544qke.52.2019.07.18.12.49.25
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Thu, 18 Jul 2019 12:49:26 -0700 (PDT)
-From: Qian Cai <cai@lca.pw>
-To: rafael.j.wysocki@intel.com
-Cc: robert.moore@intel.com,
-	erik.schmauss@intel.com,
-	jkim@FreeBSD.org,
-	lenb@kernel.org,
-	ndesaulniers@google.com,
-	linux-acpi@vger.kernel.org,
-	devel@acpica.org,
-	clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	Qian Cai <cai@lca.pw>
-Subject: [PATCH v2] acpica: fix -Wnull-pointer-arithmetic warnings
-Date: Thu, 18 Jul 2019 15:48:46 -0400
-Message-Id: <20190718194846.1880-1-cai@lca.pw>
-X-Mailer: git-send-email 2.20.1 (Apple Git-117)
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Thu, 18 Jul 2019 13:40:13 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
+Received: from pd9ef1cb8.dip0.t-ipconnect.de ([217.239.28.184] helo=nanos)
+	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
+	(Exim 4.80)
+	(envelope-from <tglx@linutronix.de>)
+	id 1hoDCF-0003Zz-3o; Thu, 18 Jul 2019 22:40:11 +0200
+Date: Thu, 18 Jul 2019 22:40:09 +0200 (CEST)
+From: Thomas Gleixner <tglx@linutronix.de>
+To: LKML <linux-kernel@vger.kernel.org>
+cc: Nick Desaulniers <ndesaulniers@google.com>, 
+    Nathan Chancellor <natechancellor@gmail.com>, 
+    clang-built-linux <clang-built-linux@googlegroups.com>, 
+    Josh Poimboeuf <jpoimboe@redhat.com>, x86@kernel.org
+Subject: x86 - clang / objtool status
+Message-ID: <alpine.DEB.2.21.1907182223560.1785@nanos.tec.linutronix.de>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-X-Original-Sender: cai@lca.pw
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@lca.pw header.s=google header.b="S/4klFkD";       spf=pass
- (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::844 as
- permitted sender) smtp.mailfrom=cai@lca.pw
 Content-Type: text/plain; charset="UTF-8"
+X-Linutronix-Spam-Score: -1.0
+X-Linutronix-Spam-Level: -
+X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
+X-Original-Sender: tglx@linutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of tglx@linutronix.de designates
+ 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,68 +126,86 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang generate quite a few of those warnings.
+Folks,
 
-drivers/acpi/scan.c:759:28: warning: arithmetic on a null pointer
-treated as a cast from integer to pointer is a GNU extension
-[-Wnull-pointer-arithmetic]
-		status = acpi_get_handle(ACPI_ROOT_OBJECT,
-obj->string.pointer,
-                                         ^~~~~~~~~~~~~~~~
-./include/acpi/actypes.h:458:56: note: expanded from macro
-'ACPI_ROOT_OBJECT'
- #define ACPI_ROOT_OBJECT                ((acpi_handle) ACPI_TO_POINTER
-(ACPI_MAX_PTR))
-							^~~~~~~~~~~~~~~
-./include/acpi/actypes.h:509:41: note: expanded from macro
-'ACPI_TO_POINTER'
- #define ACPI_TO_POINTER(i)              ACPI_ADD_PTR (void, (void *) 0,
-(acpi_size) (i))
-                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-./include/acpi/actypes.h:503:84: note: expanded from macro
-'ACPI_ADD_PTR'
- #define ACPI_ADD_PTR(t, a, b)           ACPI_CAST_PTR (t,
-(ACPI_CAST_PTR (u8, (a)) + (acpi_size)(b)))
-                                         ^~~~~~~~~~~~~~~~~
-./include/acpi/actypes.h:501:66: note: expanded from macro
-'ACPI_CAST_PTR'
- #define ACPI_CAST_PTR(t, p)             ((t *) (acpi_uintptr_t) (p))
-                                                                 ^
-This is because pointer arithmetic on a pointer not pointing to an array
-is an undefined behavior (C11 6.5.6, constraint 8). Fix it by just
-casting the corresponding pointers using ACPI_CAST_PTR() and skip the
-arithmetic. Also, fix a checkpatch warning together.
+after picking up Josh's objtool updates I gave clang a test ride again.
 
-ERROR: Macros with complex values should be enclosed in parentheses
- #45: FILE: include/acpi/actypes.h:509:
-+#define ACPI_TO_POINTER(i)              ACPI_CAST_PTR (void, i)
+clan is built with https://github.com/ClangBuiltLinux/tc-build.git
 
-Signed-off-by: Qian Cai <cai@lca.pw>
----
+That's using the llvm master branch. top commit is:
 
-v2: Use ACPI_CAST_PTR() in ACPI_TO_POINTER() directly without
-    arithmetic.
+  0c99d19470b ("[OPENMP]Fix sharing of threadprivate variables with TLS support.")
 
- include/acpi/actypes.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I merged
 
-diff --git a/include/acpi/actypes.h b/include/acpi/actypes.h
-index ad6892a24015..163181e2d884 100644
---- a/include/acpi/actypes.h
-+++ b/include/acpi/actypes.h
-@@ -506,7 +506,7 @@ typedef u64 acpi_integer;
- 
- /* Pointer/Integer type conversions */
- 
--#define ACPI_TO_POINTER(i)              ACPI_ADD_PTR (void, (void *) 0, (acpi_size) (i))
-+#define ACPI_TO_POINTER(i)              (ACPI_CAST_PTR (void, i))
- #define ACPI_TO_INTEGER(p)              ACPI_PTR_DIFF (p, (void *) 0)
- #define ACPI_OFFSET(d, f)               ACPI_PTR_DIFF (&(((d *) 0)->f), (void *) 0)
- #define ACPI_PHYSADDR_TO_PTR(i)         ACPI_TO_POINTER(i)
--- 
-2.20.1 (Apple Git-117)
+  git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git core/urgent
+
+into the tip of Linus tree to pick up the latest objtool changes.
+
+Here are the results for different configs:
+
+1) defconfig
+
+ objtool warnings:
+
+  drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: .altinstr_replacement+0x88: redundant UACCESS disable
+
+
+2) debian distro config
+
+ objtool warnings:
+
+  drivers/gpu/drm/amd/amdgpu/atom.o: warning: objtool: atom_op_move() falls through to next function atom_op_and()
+  drivers/infiniband/hw/hfi1/platform.o: warning: objtool: tune_serdes() falls through to next function apply_tx_lanes()
+  drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: .altinstr_replacement+0x86: redundant UACCESS disable
+  drivers/gpu/drm/radeon/evergreen_cs.o: warning: objtool: evergreen_cs_parse() falls through to next function evergreen_dma_cs_parse()
+
+ Build fails with:
+
+  clang-10: error: unknown argument: '-mpreferred-stack-boundary=4'
+  make[5]: *** [linux/scripts/Makefile.build:279: drivers/gpu/drm/amd/amdgpu/../display/dc/dcn20/dcn20_resource.o] Error 1
+
+
+3) allmodconfig:
+
+ objtool warnings:
+
+  arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0x255: call to memset() with UACCESS enabled
+  arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x254: call to memset() with UACCESS enabled
+  arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame()+0x247: call to memset() with UACCESS enabled
+
+  mm/kasan/common.o: warning: objtool: kasan_report()+0x52: call to __stack_chk_fail() with UACCESS enabled
+  drivers/ata/sata_dwc_460ex.o: warning: objtool: sata_dwc_bmdma_start_by_tag()+0x3a0: can't find switch jump table
+
+  lib/ubsan.o: warning: objtool: __ubsan_handle_type_mismatch()+0x88: call to memset() with UACCESS enabled
+  lib/ubsan.o: warning: objtool: ubsan_type_mismatch_common()+0x610: call to __stack_chk_fail() with UACCESS enabled
+  lib/ubsan.o: warning: objtool: __ubsan_handle_type_mismatch_v1()+0x88: call to memset() with UACCESS enabled
+  drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: .altinstr_replacement+0x56: redundant UACCESS disable
+
+ Build fails with:
+
+  ERROR: "__compiletime_assert_2801" [drivers/net/wireless/intel/iwlwifi/iwlwifi.ko] undefined!
+  ERROR: "__compiletime_assert_2446" [drivers/net/wireless/intel/iwlwifi/iwlwifi.ko] undefined!
+  ERROR: "__compiletime_assert_2452" [drivers/net/wireless/intel/iwlwifi/iwlwifi.ko] undefined!
+  ERROR: "__compiletime_assert_2790" [drivers/net/wireless/intel/iwlwifi/iwlwifi.ko] undefined!
+
+ This also emits a boatload of warnings like this:
+
+  linux/fs/nfs/dir.c:451:34: warning: variable 'wq' is uninitialized when used within its own initialization
+      [-Wuninitialized]
+        DECLARE_WAIT_QUEUE_HEAD_ONSTACK(wq);
+                                        ^~
+  linux/include/linux/wait.h:74:63: note: expanded from macro 'DECLARE_WAIT_QUEUE_HEAD_ONSTACK'
+        struct wait_queue_head name = __WAIT_QUEUE_HEAD_INIT_ONSTACK(name)
+                               ~~~~                                  ^~~~
+  linux/include/linux/wait.h:72:33: note: expanded from macro '__WAIT_QUEUE_HEAD_INIT_ONSTACK'
+        ({ init_waitqueue_head(&name); name; })
+
+Thanks,
+
+	tglx
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190718194846.1880-1-cai%40lca.pw.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.1907182223560.1785%40nanos.tec.linutronix.de.
