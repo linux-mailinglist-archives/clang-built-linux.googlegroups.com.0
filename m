@@ -1,131 +1,130 @@
-Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBKUEX7UQKGQE2XWBTVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDSNHV7J5QDRBHWDYDUQKGQETGZGD3A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B03E6C3E2
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 02:49:48 +0200 (CEST)
-Received: by mail-vk1-xa3e.google.com with SMTP id s145sf11921861vke.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 17 Jul 2019 17:49:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563410987; cv=pass;
+Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id A570E6CA00
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 09:37:03 +0200 (CEST)
+Received: by mail-oi1-x240.google.com with SMTP id d12sf10659302oic.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 00:37:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563435422; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZR+OuAk4r6v4ltr0Z3U1j0/729g5MrKCtI3ptGrVj0Ctb+Qt5QnPScxl13Wm1ijE8y
-         ow6qLItE82UsAIoukQrDe0x/N+erVCaenLeeNAtu/8d1VkFxSfZl3qBlJEi+uPNAKhzA
-         yknRZE+apBqCojwmtPq58Lt1huuqu9hmhlw95KbEpxsZQ1ZnIO85eXrETa7ad5Iqpmc6
-         zTEFAfugHN6anRvACDn+K8u9S9n5z/CGfKc2d0YXpE+l/vqENyYC6CbG2rpEk8a4azzV
-         EInJE6K80oK2Tfm3Z+kCyD6Sylezk+8jBHcRzG6LdIAuIplL2KY+zR/Htto9++vr9pMh
-         K4uQ==
+        b=IHR4JXapTV3EUfuHUzL0wGfbcIbAmhpKOOqXLaYGniv9thdphDL73UvPVP8sOtVna5
+         33vt7LTOOgfVL1Ms8Ig+mRvC/5RARmfHvs9Li5ShwftHGyuNaMHfZ/QFIo+rC0VqG8R3
+         ix2u2VJx4Ju1MriTjgSobU3YELuPNC/KOFOG9YQ3UfvnS1Z6iy2Rrp5dMbpQLll6QnIG
+         +FPY/mhTzAXo/d4/XY0N29KqhnzOCnT90tTVGUURDcNNUPdPTM1w+uAajprZ1ZXoujHj
+         JIruGShhIKVgZNaILlQgEeASMs5/xdIFgek6Fp74N99tKzmA9z/7xdhOBXpSCKfR9GWO
+         qK0g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:to:references:message-id:cc:date
-         :in-reply-to:from:subject:mime-version:sender:dkim-signature;
-        bh=Hf4xaS24bQnM/cBkVn0kQFBDAd6hQy2FhkM799ysXgU=;
-        b=Pm7n14AP2UyEmmU4W7+sMPIqsVnQSRcem9a2hRJaDMe1715nKnoSvbJzK2EClSVXfh
-         xmRAwHgQoeDc0SWRuJvD+hI6Ju+WD6Rdg3aSZURXY1wAOmRf5eDVhDqimoxCqey9Eql2
-         iXak+yKdgaZeqZJufmbnOvrRM4D/hoclDOaibmONVkXjQL6J+l0uBUT1J0oqbvd7EmSh
-         yVf0e8ykzkdv4Y+mx/0ipnUeIzFaxu0oRVNMklOXcfU/UwzIk+Ttb9CMcPLGnHYVh4TH
-         DQafbM//NbUwBcCe4jQXLfUNxHW54IgCCo79XbEGHe+CTrDEpNAg34jitR2Uz/nO6CKL
-         RRkg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=Xq3qs9WILvcROKqLp1MKMOHZaOFwyLpH8s6/7MfHV0I=;
+        b=Vq/yOE2Ni39V18rdXCU0sGRmV3KyIcE3zJ9uAX01KJZR1FkoHWhe/1/7SXfKpMXu0O
+         q2cbfF2N5GuQAPUICCM9fddgXyQmuRsokNuaNUvC6FOXa6gAKLhMh2T8dcNvCK/opguP
+         lXEFuIl2iFe75YNwyEIJf8Z9nbuk/15HWfWMU9jcN7sAqDP+Cl7DixaQS0/Qyujfwuk0
+         0rf2kYfBkGaIZSUAaqjV8YuGc+riUZVqF//OLxe4JybUCxo14dhNjy5PWr+btf1mWkjZ
+         ojlQSdla9omrMwSmHzOYHl8EF2EW5FJTDgHoAHpUubJjyVYuo9mTG4V3hpg57Sap4zcN
+         OV4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=GZjJVzEi;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=cai@lca.pw
+       spf=pass (google.com: domain of jbenc@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jbenc@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:subject:from:in-reply-to:date:cc:message-id
-         :references:to:x-original-sender:x-original-authentication-results
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Hf4xaS24bQnM/cBkVn0kQFBDAd6hQy2FhkM799ysXgU=;
-        b=g6rGSpzSJx1g22IBP0U7qLIVunWwWzu0gQASgE8Wyp2OfHlPLiRkH6kLkhmkTPKnMc
-         KBZWGEPa98rf9V7uyAJ+8QFfJhOJV+pNv4ig6YkmTdwTzvsHP2SfXlxAZCnNvO8ifOEg
-         rTQrVmajLy0NNDNJmCeffZFYb40X+Q+jLy0PzXbBfEug5MiVXLO9wd6Bf4ejDzaa6pY/
-         3KVeJi0AlRwtfA7w2rCuuRYoiEwppVywAjhxWpiCp+w08V0Ea46H7C4EeZ1BB7PKzOeC
-         UGdU64GPzhlQGWKQlUtp2EhOFA5afW6IeMbIHi7Pz1Xpe5n3nBK+TiPKvZoUkfZrT5v1
-         FZ/Q==
+        bh=Xq3qs9WILvcROKqLp1MKMOHZaOFwyLpH8s6/7MfHV0I=;
+        b=pOmHHhayzmuj52SOOSEbv8QlzpHxeSutOXx2VeSPGtbcNL5gzwLOCCYMk3ml4XNw8E
+         15EYqKw0jA6I3r9FN9pqGxesvPn7u4StZ960WYhkWf7KVrLmyUzlq4zcU8eNgZk/jzgw
+         m/clJNVAjtZGjrCB5N77L3QjLwiBH0nz2ft25kNsYYbvi3DbyKBnx7XVtmATZsdgvxZn
+         jHZ8Re34a+6D06EO1BPr7IlK111+hf6joCR3iH48eb6hqMmY0OplLhB3pL1iqWn5zkKF
+         UDMnh6+TL3ZfvSkhRVEunJMO9Rh5qiAb/R9z4gmV6ajRPFGdnZerPsCBe1KySPFKGptA
+         ZIKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:subject:from:in-reply-to
-         :date:cc:message-id:references:to:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Hf4xaS24bQnM/cBkVn0kQFBDAd6hQy2FhkM799ysXgU=;
-        b=IVmd8s896Wvzdfj/fGlxl3ucstpODCQ/Ih1DRAyTCDwDHNgOLz/BjfkfgI2hLNCLrq
-         v8wyGHJDMnDADgB7jB4UEAjtEMdJI9eif1WQF6cDkl9/VMxM7JFMxftZq/ZE8uKwYm+F
-         fHEZ68alQ59I8ZghILpz4rgpbXiVsax4niXneMpHJ9+RXLYAjndSFRLMiEoSndN6/5WI
-         W1cxUbuyjtfdYk5whsuLdbazbdzhWCT9dx0IgFvqzcHhYNojBTZVfyzNh8E/SPB+HEyN
-         YDQO0ALxXc6K+1SpMH6wBwWU0/jzCqCQ1UWJKtliNHui+3yEbRXD7AheRZP7FVqKKeUX
-         hHVg==
+        bh=Xq3qs9WILvcROKqLp1MKMOHZaOFwyLpH8s6/7MfHV0I=;
+        b=sO+bu3h/WEv/D74+GZsrCfUdre4w4DXQQV1PrIqOBMyueXrr6HnL4W7/JTTD9XTe+2
+         iUXbO5iIyQt6BPG7uP98/Q68wOF9iDwjF0wWqw+hjQQj4SjQmZJd0I3bdDodgER2oKl+
+         Txls5TODFQYWMjbp20IkFrdw9BxcHA02k6ckRibFcS7vQYhQTOxxNQ+CJG9SLg0Gxn7N
+         hh7G7pTC3Dw8dN5U3JiZRpO92AKoBAK0fXfboudoT14rX00tlMWrO8Wi4ZprA/gl6yxJ
+         oa8FCh3W6aUXpcUHGjBlwQ5tl8HsoFGzjR9wR9fin4KFn5ig3FGNlJEOlrHuXs4Cccq4
+         1sOw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX92IQrqgk9SIQl/B797O/qFtILNMavrsZZLpRICf/q1cThW0fc
-	wUXeJm+ph1PmnITanqm5Xbc=
-X-Google-Smtp-Source: APXvYqz7M7FYR+SeriFxBH4/Eme9+z9SZAFwyE4c9bHYXK+qsJi9sTimcyai2mB5rcfBD7ESCu8Euw==
-X-Received: by 2002:ab0:142d:: with SMTP id b42mr13369433uae.124.1563410986833;
-        Wed, 17 Jul 2019 17:49:46 -0700 (PDT)
+X-Gm-Message-State: APjAAAWPjQoqKAhXpMUTL5GuPHUg213tN4oUjF+b1Bl+wl9/aSX291D3
+	J9Kgnz+zAYxHuvNJpO3hQ4U=
+X-Google-Smtp-Source: APXvYqw9N+RgpZBCymeLYXEry4wbX1CRhKmw7L66G+l1CHxOowBMxL5bnOGlM9OyKex7xuWhR1TxSg==
+X-Received: by 2002:a05:6830:120e:: with SMTP id r14mr33815087otp.4.1563435422245;
+        Thu, 18 Jul 2019 00:37:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:6844:: with SMTP id d65ls3359134vsc.9.gmail; Wed, 17 Jul
- 2019 17:49:46 -0700 (PDT)
-X-Received: by 2002:a05:6102:8c:: with SMTP id t12mr27823798vsp.143.1563410986562;
-        Wed, 17 Jul 2019 17:49:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563410986; cv=none;
+Received: by 2002:a9d:60d7:: with SMTP id b23ls5106932otk.14.gmail; Thu, 18
+ Jul 2019 00:37:01 -0700 (PDT)
+X-Received: by 2002:a9d:7259:: with SMTP id a25mr33365295otk.30.1563435421833;
+        Thu, 18 Jul 2019 00:37:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563435421; cv=none;
         d=google.com; s=arc-20160816;
-        b=NaD/Hr5AyvzE96z8cBcSTH3TxcdYvCpX98DIpMysx4Bz9zgoUf8qEhgeSwFY/BBVhq
-         /Wzi/nvDKDid/OQs+0sKX7v1QzvFlAhxrPEScE9/dKm6AuubkNlvRYB0n14VrWBDUuNt
-         1f9mp0OYH8UH07NYmIuyCIQCrSM7yICvx2xOM8gfzs/JKkS9IMbB2DqxUSWKl65YStZo
-         Dc7kOpLlFAwn5lu9SNZVThO4THZX4Ved5fbc+Cfgdp/Wpfgm1AsYgu7JFUa9qbFNnGVN
-         LTRpCsQmznjfFjkVBdK+S2Coj7CoDFuENz+JkR4GLGtm2SyTUO1bDaF26b0GtvKsn6GV
-         TrgQ==
+        b=winSvsuSY8631KyTuSmDLo0e5yNsy5xZ+whpePHVWq+ntRFklvIGvcpLsjREGqw8Wu
+         f1bSBW44J48iwB3nuTftu8UlmHIGC8+zPGE222OJW+gvZ/mpa57CntOcwgjPNBO4v+YU
+         zs7lgdhsXNvd0h0w6MmNOKDVbIX5D0a2HZPZU6aZz2sz7hnYkNlBkOajKwU2Y/EpcxN7
+         Mic/pvfrF+DsG/i9WW/9rYpFo7gGhSa9Pz1uXdVZTLuDbiODxPV3sjC4g4eow5eNaHGn
+         vSAzakLAdM1bVmqRvcdU73g5Lc3Pw9NvDLcUyBwlgIVDTRKEnGjryVVb8TdtioGu7pmf
+         sgvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:dkim-signature;
-        bh=7K9LFXNQszPVt9oolCuthJEpelngJlWY3awPIGBoIrc=;
-        b=u5BtlRzv654cjbE7gRLZAa678ala3zqk3wLm8GqxRvaUBGigYx5tT3BbnKU2Tf9rN8
-         d3PZhRjnNBy+QtPTGGKnY9YWV+JrobNUFR6JA6AaAZl5XRC/irIhj+xyK6fh+O1YxK+5
-         FNYBPubYsSsO7M46Okqdh9hYcotszreE2TLGa4r9cn38tymVGMc6DUWvhdIgOOoeh94Z
-         J2GthTx+axMbzYbO8BZLu+quCcnhdBILfpXSCsMgPUo2bGLRgUcGutURNG1qjBACtmPO
-         ScHlvweemCnhy5IN6PNuG2RG7rkByShcSLHgKi6LPdXVIbl3zZ71QTcwX3Txb32Nf6W9
-         6lew==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date;
+        bh=wr47P74qz1UzQ8lHS/rbJYiTyzCmfnaoVOGrxgTIpdM=;
+        b=0rvgPtw/us7XnBVXuz5TeYsSdeYeyMlXd52nOcXet748pHb9ZlG/LMK8op/1ncMSbn
+         ipWrdo9UAY4YpvMjmFVy+qaXpPmPp4m0Ty0+UrO8cVLLPEoKi5tM/MfKcHdPRc56fQG1
+         QRv4u6K+fVEa+Z6Z6mfpRVrVacKYEZWaSuGEoVaiTTVEtEWq2yoDYQNzIZDWR4+cEoyt
+         UT9m/ohTWb8BdHK9pk6F1gXsc0rF5Pjr20WUpweyay4TMEhiBvSWdipXfjBtIcxakbcn
+         egTD8Bmg3qjndhGmWidGXhl5MYL8oG3iW81kieTpyx01IUR1HhoWwHK5kj2cq+yWS48o
+         onsA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=GZjJVzEi;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=cai@lca.pw
-Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
-        by gmr-mx.google.com with ESMTPS id z67si1014971vsb.1.2019.07.17.17.49.46
+       spf=pass (google.com: domain of jbenc@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jbenc@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
+        by gmr-mx.google.com with ESMTPS id q82si1461925oic.1.2019.07.18.00.37.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Wed, 17 Jul 2019 17:49:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
-Received: by mail-qk1-x743.google.com with SMTP id r6so19087809qkc.0
-        for <clang-built-linux@googlegroups.com>; Wed, 17 Jul 2019 17:49:46 -0700 (PDT)
-X-Received: by 2002:ae9:f101:: with SMTP id k1mr28781291qkg.337.1563410986046;
-        Wed, 17 Jul 2019 17:49:46 -0700 (PDT)
-Received: from qians-mbp.fios-router.home (pool-71-184-117-43.bstnma.fios.verizon.net. [71.184.117.43])
-        by smtp.gmail.com with ESMTPSA id v84sm11985703qkb.0.2019.07.17.17.49.44
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 17 Jul 2019 17:49:45 -0700 (PDT)
+        Thu, 18 Jul 2019 00:37:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jbenc@redhat.com designates 209.132.183.28 as permitted sender) client-ip=209.132.183.28;
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.phx2.redhat.com [10.5.11.12])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mx1.redhat.com (Postfix) with ESMTPS id 7F92B300CB25;
+	Thu, 18 Jul 2019 07:37:00 +0000 (UTC)
+Received: from localhost (unknown [10.40.205.12])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 2822360C44;
+	Thu, 18 Jul 2019 07:36:55 +0000 (UTC)
+Date: Thu, 18 Jul 2019 09:36:54 +0200
+From: Jiri Benc <jbenc@redhat.com>
+To: Sasha Levin <sashal@kernel.org>
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, Yonghong Song
+ <yhs@fb.com>, Daniel Borkmann <daniel@iogearbox.net>,
+ linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH AUTOSEL 5.2 226/249] selftests: bpf: fix inlines in
+ test_lwt_seg6local
+Message-ID: <20190718093654.0a3426f5@redhat.com>
+In-Reply-To: <20190717234757.GD3079@sasha-vm>
+References: <20190715134655.4076-1-sashal@kernel.org>
+	<20190715134655.4076-226-sashal@kernel.org>
+	<20190717114334.5556a14e@redhat.com>
+	<20190717234757.GD3079@sasha-vm>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
-Subject: Re: [PATCH] acpica: fix -Wnull-pointer-arithmetic warnings
-From: Qian Cai <cai@lca.pw>
-In-Reply-To: <CAKwvOdmPX2DsUawcA0SzaFacjz==ACcfD8yDsbaS4eP4Es=Wzw@mail.gmail.com>
-Date: Wed, 17 Jul 2019 20:49:43 -0400
-Cc: rafael.j.wysocki@intel.com,
- robert.moore@intel.com,
- erik.schmauss@intel.com,
- jkim@freebsd.org,
- Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org,
- devel@acpica.org,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- LKML <linux-kernel@vger.kernel.org>
-Message-Id: <73A4565B-837B-4E13-8B72-63F69BF408E7@lca.pw>
-References: <20190717033807.1207-1-cai@lca.pw>
- <CAKwvOdmPX2DsUawcA0SzaFacjz==ACcfD8yDsbaS4eP4Es=Wzw@mail.gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-X-Mailer: Apple Mail (2.3445.104.11)
-X-Original-Sender: cai@lca.pw
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@lca.pw header.s=google header.b=GZjJVzEi;       spf=pass
- (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::743 as
- permitted sender) smtp.mailfrom=cai@lca.pw
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.12
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.46]); Thu, 18 Jul 2019 07:37:00 +0000 (UTC)
+X-Original-Sender: jbenc@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of jbenc@redhat.com designates 209.132.183.28 as
+ permitted sender) smtp.mailfrom=jbenc@redhat.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,102 +137,18 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Wed, 17 Jul 2019 19:47:57 -0400, Sasha Levin wrote:
+> It fixes a bug, right?
 
+A bug in selftests. And quite likely, it probably happens only with
+some compiler versions.
 
-> On Jul 17, 2019, at 6:01 PM, Nick Desaulniers <ndesaulniers@google.com> wrote:
-> 
-> On Tue, Jul 16, 2019 at 8:38 PM Qian Cai <cai@lca.pw> wrote:
->> 
->> Clang generate quite a few of those warnings.
->> 
->> drivers/acpi/scan.c:759:28: warning: arithmetic on a null pointer
->> treated as a cast from integer to pointer is a GNU extension
->> [-Wnull-pointer-arithmetic]
->>                status = acpi_get_handle(ACPI_ROOT_OBJECT,
->> obj->string.pointer,
->>                                         ^~~~~~~~~~~~~~~~
->> ./include/acpi/actypes.h:458:56: note: expanded from macro
->> 'ACPI_ROOT_OBJECT'
->> #define ACPI_ROOT_OBJECT                ((acpi_handle) ACPI_TO_POINTER
->> (ACPI_MAX_PTR))
->>                                                        ^~~~~~~~~~~~~~~
->> ./include/acpi/actypes.h:509:41: note: expanded from macro
->> 'ACPI_TO_POINTER'
->> #define ACPI_TO_POINTER(i)              ACPI_ADD_PTR (void, (void *) 0,
->> (acpi_size) (i))
->>                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> ./include/acpi/actypes.h:503:84: note: expanded from macro
->> 'ACPI_ADD_PTR'
->> #define ACPI_ADD_PTR(t, a, b)           ACPI_CAST_PTR (t,
->> (ACPI_CAST_PTR (u8, (a)) + (acpi_size)(b)))
->>                                         ^~~~~~~~~~~~~~~~~
->> ./include/acpi/actypes.h:501:66: note: expanded from macro
->> 'ACPI_CAST_PTR'
->> #define ACPI_CAST_PTR(t, p)             ((t *) (acpi_uintptr_t) (p))
->>                                                                  ^
->> This is because pointer arithmetic on a pointer not pointing to an array
->> is an undefined behavior. Fix it by doing an integer arithmetic
->> instead.
-> 
-> Hi Qian, thanks for the patch.  How do I reproduce this issue,
-> precisely?  I just tried:
-> $ make CC=clang -j71 drivers/acpi/scan.o
-> on linux-next today and don't observe the warning.  My clang is ToT
-> built sometime this week.  It looks like drivers/acpi/scan.o when
-> CONFIG_ACPI=y, which is set in the defconfig.  Is there another set of
-> configs to enable to observe the warning?
+I don't think patches only touching tools/testing/selftests/ qualify
+for stable in general. They don't affect the end users.
 
-# make W=1 -j 256
-
-With the config,
-
-https://raw.githubusercontent.com/cailca/linux-mm/master/arm64.config 
-
-> 
-> Also, the fix is curious.  Arithmetic on pointers to different
-> "objects" (with one element passed the end) may lead to provence
-> issues due to undefined behavior, but I would have expected some cases
-> to uintptr_t, then arithmetic on that type, as the solution (which is
-> what I suspect ACPI_CAST_PTR is doing).
-> 
-> Further, you seem to have modified ACPI_ADD_PTR but not ACPI_SUB_PTR;
-> I would have expected both to be afflicted together or not at all
-> based on their existing implementations.
-
-Yes, I thought about that, but ACPI_SUB_PTR does not seem used anywhere, so I thought maybe just start a new discussion to remove it all together later.
-
-
-> 
->> 
->> Signed-off-by: Qian Cai <cai@lca.pw>
->> ---
->> include/acpi/actypes.h | 4 ++--
->> 1 file changed, 2 insertions(+), 2 deletions(-)
->> 
->> diff --git a/include/acpi/actypes.h b/include/acpi/actypes.h
->> index ad6892a24015..25b4a32da177 100644
->> --- a/include/acpi/actypes.h
->> +++ b/include/acpi/actypes.h
->> @@ -500,13 +500,13 @@ typedef u64 acpi_integer;
->> 
->> #define ACPI_CAST_PTR(t, p)             ((t *) (acpi_uintptr_t) (p))
->> #define ACPI_CAST_INDIRECT_PTR(t, p)    ((t **) (acpi_uintptr_t) (p))
->> -#define ACPI_ADD_PTR(t, a, b)           ACPI_CAST_PTR (t, (ACPI_CAST_PTR (u8, (a)) + (acpi_size)(b)))
->> +#define ACPI_ADD_PTR(t, a, b)           ACPI_CAST_PTR (t, (a) + (acpi_size)(b))
->> #define ACPI_SUB_PTR(t, a, b)           ACPI_CAST_PTR (t, (ACPI_CAST_PTR (u8, (a)) - (acpi_size)(b)))
->> #define ACPI_PTR_DIFF(a, b)             ((acpi_size) (ACPI_CAST_PTR (u8, (a)) - ACPI_CAST_PTR (u8, (b))))
->> 
->> /* Pointer/Integer type conversions */
->> 
->> -#define ACPI_TO_POINTER(i)              ACPI_ADD_PTR (void, (void *) 0, (acpi_size) (i))
->> +#define ACPI_TO_POINTER(i)              ACPI_ADD_PTR (void, 0, (acpi_size) (i))
-> 
-> IIUC, these are adding `i` to NULL (or (void*)0)? X + 0 == X ?
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+ Jiri
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/73A4565B-837B-4E13-8B72-63F69BF408E7%40lca.pw.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190718093654.0a3426f5%40redhat.com.
