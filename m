@@ -1,132 +1,133 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBIXSYHUQKGQETSF7GPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB475YHUQKGQEGA24PGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 08E636CF1F
-	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 15:50:27 +0200 (CEST)
-Received: by mail-wr1-x43e.google.com with SMTP id b6sf13675676wrp.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 06:50:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563457826; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 49F4E6CF85
+	for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 16:15:16 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id v13sf2675711lfa.20
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 07:15:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563459315; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YrB1IYOKwwvUTg0EtvlOHhEh5uw1VrvBfakkcNJIS4p8D0uieqMgufGz2GkN7u1wye
-         0vSnsxpi93yXogIdG9BgZUAIm/jJGz57yCzSKWnGd9F2BG3a1PRPZDjFle5zFq3ppXTo
-         HrH6YH5Vexmfgz5QRC3MyCu6Trf40xIKhWwNx/YKQG+EQgbZ2XfRnxIaH2W3AkszjdxR
-         aYNuUOX3N/eo4xbPvRDpXQccEm2lZksutN6wazql0URgpIikUsFILXDrS7as+0mPerjz
-         W9PYo49tWpOul+NcmLqgOR6xLePRDeq/55NKtgZTM4kqrjvcUcj2Bj2UGSluEblGoUpC
-         xbpQ==
+        b=l9If4YLR3/mCribzG3mcc1oHoHWAIjLQEX2Rn4hT6ySN3f9n2DAxFqvO+ool+q+alO
+         ybnuU5w7hQ5gz9sAXkhQwfuIrFJLytY46KJAwj4eYCTsI2vr4qXBPpj1zwP+WsMhZhBX
+         CnMILg9X0Z+zrYrnMcgtImeBU+Uv+ci/IX7XIrsT2Hog415RYqzjBi4Mk/8kkTZoq0Sv
+         SQOmlEzgYA3kM/ufETJWFk4Ns9cjhXG/zKHhs4RUV8/j5hjP8HnIZUSNuFwPs9Nmjzu2
+         hbu5jeGVkYkc5wCnZpVFZ5tM9cMD9dfg4kh0NeDGq0vMCsWEMdYOTCMTukDI5pTBTXBQ
+         VTug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=mv2YmoROQ+D98tI71JPzlk9TfRyY/zSpMVoVCDdneeY=;
-        b=rTgXcd/ciso7vyQ59YHasj1eSNc2Pz31WIXg113RFKs93Yt5NXGg34U4BBBBpMvRiW
-         3lo+6SQh2fZY63Dhg1HoE1F8dXXvK7uyFZQvfB87m55jzoEjzF7CQGZMGdIRUlM4wLLp
-         umQ2ptZRfRg5QV8i4f3nVOLFG9NgMUMoUvv0BPCzyE/OSJPaAvlZRntg9MFq35bNkxko
-         sbi39s3lVxUEagmpl+SbjBWp0+Aqm7B1HZBJTXKFp8I29876pmSLfPg4VULgE0e1mdDt
-         n3IVchN+5wdypmcDRR6KWaG9V4z19GUcuRxlbqFADoLKd2/QEPLC5Ib3DhmxCnV89MWa
-         Wf3A==
+        bh=LJgNkD0yzYY0uaOwEfmsr1xyBSc8vGkNsS0Q9i7dBjQ=;
+        b=MRrmdsx/mXhI19NRT7CM2RTNpoZomgx0U9JwctHNs5MzArGAWW88QrOwU4997dAf1F
+         ViUN3xJEWeMozP48QGEvoNgC7MH/h+zyrui/soVMa8YkT733JKtJ84WCkwJyr/PnVXXl
+         X6eM4+4ilgNOsLRCz+OY2N+hgDZOHH6C/9qOzZuhmBhSk+zRcTl3hfzYMqwPQWd6ZpMu
+         HgqqrROrI/53CRUkReimEPaEc6tZmuWKYIS0uKegFGBmAbsEkPzyMaqJjfrnAUmgcK8Y
+         q2IyBwrpmDlnQEzSKJ5aqk2qyoD+MdEOT5LeTK8LduLWQFJvRRWFXYR5o0Jjplqdhmnm
+         aAMA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mv2YmoROQ+D98tI71JPzlk9TfRyY/zSpMVoVCDdneeY=;
-        b=c+45Iftq+NSPTNPLU0YwvGIy6VcVb8zzUNniNUt0l7q2dbqRZcViEf2oErlGMfTNF2
-         GlefmAHeQIAnDOoSg6QmjFIXG4fJrD513xGjSwXWaDX1s2bGOOlNqtLCNEVCBKYIvWZk
-         Oa7YDcm9YlqL6BUtzqgnxuQpYjeFUcMLa/w019GO49yRTH9ScmBMFQejhxkEawvPQmDW
-         P1jYWIM+m/3LJiA1O7pSUSnEXmW7nZRnRfDM4uFNysF7uH2F3S1S2cWJxyttabnLxFT4
-         i6U+yYeP5dDhXknaesqgq4kH9DrN3vfcJufyz1Onig+JazTWR9jaEqAMJCqUDbLLxxxK
-         Yf4A==
+        bh=LJgNkD0yzYY0uaOwEfmsr1xyBSc8vGkNsS0Q9i7dBjQ=;
+        b=nCIFiJzWsDjntx6Z0WVLU0zbd3cBMMNtQBugjRN4D1CMMmI9+Rgx/PaX9qbEpcLlRj
+         qUZI0Z1kf9XRwYqPpIlKKKYGLiWlOasV0z2rM8OSf4cd5JX56gXusC0jb05hjVXZdq78
+         W6ebKoRuoviYyDpkzH0KJ+cBfzpkTplHOGaRo5W89OoNLwLkmOZLNrvf4WkGLZ7eyRem
+         TEKjsSXJmhlHgMTyZYTax26/aopghWa/jclvC8cD1A2C6PdkcBTcJYbaRb2mSQ1qqK7m
+         8zGxoQRmvEJGn3VZ4Tgbp5kf/zPwXlInmhZSfgsOFy6XvKZkARaf9yoh7bhEzDhanWKg
+         0CTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mv2YmoROQ+D98tI71JPzlk9TfRyY/zSpMVoVCDdneeY=;
-        b=oQRck021RoBUzFLVaPY8C6vTMBh+a2hCb0AFLIA8J6AubhxnKGGKg7jQ4loGTYsvgX
-         QY4hfuGDCJpl+TVC01IqMHys7wov10bL+Uz4u36MHKKDAOLJ6oQwFU9nW4oN88AJ88yq
-         hH2GwRaX1FMwWOE65xewqqrc0Q8UdVL8wTolt5ruFRhBII3fbxEQnBg66xHsuWPDx9pH
-         VGErZMxvwYdB9ZYNXotHCjYTDP8sBcMxyyZR30aFdkR4rOI4ez8WEvy1WQfMfC6kz4yc
-         5d4PGjwHO75WXFDBQFlv3q3QB2f5Kn+QYR7Fwv9Uk3qKisSuR0FYWV7TcZVEuoV4A6gR
-         nYFA==
+        bh=LJgNkD0yzYY0uaOwEfmsr1xyBSc8vGkNsS0Q9i7dBjQ=;
+        b=KIJA9lr6aCgYR8L1d+U21K+PAuIVmi2tBhoremtubNQHVBDN4oV3STsNlra9nMB6Tv
+         W437Ic24IdnBaBCzfkMrS3YHJAQXcJMjpfE4hJkpYAqmmn9hjJjR1/MS6zzChrWK559m
+         AndBzIQwm5lwydjTfJu6vh55fdGPH96fKHM/3wTBqinSQo0/9sg/avCwKajLIU3pFzuZ
+         oPcFcxJ56JQKFmHxKohN/zML57hPQ/4JbGINf6qXEWWKIiiMgav3ta9TihgY2djm2oOF
+         pELHoRUTRYHtDazQvZNvVTiGk8Reqj2E56zXMudRpsglcboz8FxDo1r8zFYCo2EULzPg
+         uIiw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVYzLolMX3gkMRLNHis6fzO2mYQrI0nvDTlZCDC70F4/1MzoVOK
-	+yTEu8Hou2ezqS4kbbwCbdY=
-X-Google-Smtp-Source: APXvYqxxJ8IAyNtMk8fk0zV6iAJvNEZiHpWzPAM90tJBpKa+1o+WtdJVkDoc3TPM8ZvIckkrQWhFXg==
-X-Received: by 2002:adf:e343:: with SMTP id n3mr9377691wrj.103.1563457826771;
-        Thu, 18 Jul 2019 06:50:26 -0700 (PDT)
+X-Gm-Message-State: APjAAAWxfXx342ksQrKPHE0kaMc5hCm87XebvGo21xSgzoe0bonq/wCS
+	GC/L+vw7HSmHqkEh3g+j1NM=
+X-Google-Smtp-Source: APXvYqwPNQ2AIDn1HmFCxSP/ajQ8rXpGM9beVUreD5iysLSZJKKUWF6H9CWDk/oQiP+KJSkUB6LVUw==
+X-Received: by 2002:ac2:53a7:: with SMTP id j7mr22604122lfh.112.1563459315867;
+        Thu, 18 Jul 2019 07:15:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:4989:: with SMTP id w131ls10518388wma.5.gmail; Thu, 18
- Jul 2019 06:50:26 -0700 (PDT)
-X-Received: by 2002:a1c:c545:: with SMTP id v66mr43755592wmf.51.1563457826388;
-        Thu, 18 Jul 2019 06:50:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563457826; cv=none;
+Received: by 2002:a2e:65da:: with SMTP id e87ls3316025ljf.1.gmail; Thu, 18 Jul
+ 2019 07:15:15 -0700 (PDT)
+X-Received: by 2002:a2e:9758:: with SMTP id f24mr24679162ljj.58.1563459315379;
+        Thu, 18 Jul 2019 07:15:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563459315; cv=none;
         d=google.com; s=arc-20160816;
-        b=z5wClEvCFPj1m6FM4UHc6CltFGBDZqSPpbaYUThMaPW/6dYGABzU3SOhslpbWF2lf1
-         CokrQgjh+a4xqxmX+s9L/vsSvsWWoMWvRIRbVCRHB19ZkBNl9S/Ip+Yhvr3SNF3FgpWE
-         zotKZsUwKtsDZBc0sPlQyKZ5NIkzRlVHYNyaV/+OLpwpapyMJvVECG11ZuZXKMQ1xjuo
-         uQZjDsVhdFth5IUCNdXvdpZuqcJFX0own3Smp3wWYJXLztXS5RRZAMoPxeQV5vFwm/Ha
-         ENN1ufCB1Dey+jUdMsCpYv3m+/8oX1eFczDL5RfxBfktEuc0qkBTxXEqQx3lwmjOQo2h
-         zYUg==
+        b=p8sopxqQMFByjSMGrcE/OsIOsvuSI96d9dtproQxr6IxHhakSoO9nzwA+N6N67at68
+         g40yi9dmDMivatgPYKmnrZvbwsjp4k6oBdas1JxybKss8hDM3nhXMuihaULzowD7UYYY
+         zQTNsGc6sRouuLDHt1uVzOHrJFXyyamK5zAMjIXjUzePvRwvcksu4nO7s1to13485SgU
+         y6/CL8r357GN/blATM+2wweD+iGxqX8lEUvDVoX9o2h3fRnh0DNhnJJ6RrPPz/M93rpp
+         qr0FuwnWF6TlVtMTINX3RPVhQRm1Ztg0vLc0NPz4ce9RD1QfYCCtfM87jjTfuACGzCrb
+         hdKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from;
-        bh=0MPEuYUfwm77zpjIS5n8nGkY6EuDpKZuosx9HcU7sNo=;
-        b=ocGwAW6iWMwDHBw96jQm9Slo8kflE1IME3heT1Fx4P33QJ72Dny2jbyUuGxbB1C0Zb
-         PtNF2b42GloFylzil3FrQBJHreWSZDxYoGLcdGjmgsI7gY/9z8Rnz+YjxDB8aMq2O1Ve
-         hx+HBcYuWkfclsgwY2Bkp6O3Q51FxlP/SWZnlGV8KsVGGQzKRkuoucdFuITm7Di2wwOW
-         AJUDoCcklTQhBc4St09eQZ09oMMxYKcODrMW1/zrIQGOuXGqXLLXv4c8nwLCCfRXJzEo
-         vwM4Cknx865qV936k/ff30G1lpnJcDoMFQDVBXHyuvIwv7QtPAO6zbG76+QxI4UbR/Bs
-         etyQ==
+        bh=taAIq4OnrcIiZ3IXb4MmEzxZWMqmuGqGs2K35XuumAA=;
+        b=djLniYUWvtYvBT4D/mDawU8qfa0NKBNuNKGf2df00RKF6CzUKoWUg1XJiIawTBht1j
+         Ay/o1hwNj8koOor/kTdio5fV0wgHhCAHhLNf6PB7EHV0DMULhGDeBqzY0RwwtGlCLTGb
+         yn9NO8bRWXVjed18urSdcgoYoq8cn57BTuDpV4EvAiR+kRCJw/EFLlrPgtAmb/YNBj3j
+         S2ngEr5OpPtCunm/urA7Hj1tze9VBq+dl5b3zAUlCWpuiHIxq+GYTmvYIabzUD2Ul6Kk
+         p+QmiJZdgdXBEr6F5GW6Ds4hmC27F/mur1W2l+3HbSv4Q2ztVCOTryfoSIA6DL45sd6a
+         cibg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.17.24])
-        by gmr-mx.google.com with ESMTPS id s13si1821760wra.1.2019.07.18.06.50.26
+       spf=neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.75])
+        by gmr-mx.google.com with ESMTPS id s14si1613537ljg.4.2019.07.18.07.15.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Jul 2019 06:50:26 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.17.24 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.17.24;
+        Thu, 18 Jul 2019 07:15:15 -0700 (PDT)
+Received-SPF: neutral (google.com: 217.72.192.75 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.75;
 Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
- (mreue108 [212.227.15.145]) with ESMTPA (Nemesis) id
- 1MBlpC-1hiZQe46Xs-00C92P; Thu, 18 Jul 2019 15:50:21 +0200
+ (mreue107 [212.227.15.145]) with ESMTPA (Nemesis) id
+ 1Mgw7n-1iMazi13u9-00hP63; Thu, 18 Jul 2019 16:15:11 +0200
 From: Arnd Bergmann <arnd@arndb.de>
-To: Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Ondrej Mosnacek <omosnacek@gmail.com>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	linux-crypto@vger.kernel.org,
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Qian Cai <cai@lca.pw>,
+	Mark Brown <broonie@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Andrey Ryabinin <aryabinin@virtuozzo.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Andrey Konovalov <andreyknvl@google.com>,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] crypto: aegis: fix badly optimized clang output
-Date: Thu, 18 Jul 2019 15:50:04 +0200
-Message-Id: <20190718135017.2493006-1-arnd@arndb.de>
+Subject: [PATCH] kasan: push back KASAN_STACK detection to clang-10
+Date: Thu, 18 Jul 2019 16:14:48 +0200
+Message-Id: <20190718141503.3258299-1-arnd@arndb.de>
 X-Mailer: git-send-email 2.20.0
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:uwVqefWDs4o63p6iE6Irj25ryb6bdvtC7Hrf93yaHtWNB3UyaJp
- 4OkfB2kFOY5aXDuTVLHY0gjWaXZSUkd3hdU7IXfyQfGDuBfNtrAcmaozeItDwwk75ge58G1
- sBfVJ6df5mTpV5Y8kgpJ0tPbdf/YlMfhVkrn+9yxYQAHpRDwi5aDbittwSsgXq836kuLfO6
- atp6LgcOt/SEcndX4E/nQ==
+X-Provags-ID: V03:K1:7d7aH5pzgsLc0NYtyZMhGVmPmogcfXriE2+VCWn+jhEselAYSLW
+ z2O23ERO6FuNvsUNlGpP3CEjlXH+EQbVEzkmSZwSLgp12ZXVBBvzus7hMQ77cAd0y7y5JTT
+ SgfeGviIgrgv8tP58tKUYTziY06HOkMEhfAP8ySM9VlrSTzQYOCwyuXW6Swcz42Wb+cS12A
+ PN2bNXEknc0CMqdZa/lsA==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:aCIrsaK3jkM=:ZKGmbmo1TdnpLnjvQ7TKLR
- UK81lUNUbJPH6N3UzauZAmgjkh8XdIXJfHlA2yxaBZzaQbahE13aQU30plQa8EoM4NcHktAFu
- BUo1N5DZRWhcPq/pKVsolC5wrOu+Vknahoism+3/CG/QZEWno0G4XuiVW9G+2TL3erKB06AuV
- MIzkPjX1BEtl2PAg5AcrNJX76hAt9fcMTIdZweDC1+uxgEPYaRvAe8qCSRU+ODacG89bmlRgc
- urdUX2XmkHq9ZVppXO6zqwXsmJ4fMdqhTTf+mWJf/pgBP/oDacehSNQsQSVTlQVNgaYWbeJeZ
- NZrwJGaQ0PwcIwFcHoUpMMQvc0HQVtD1Ks5mybVvvNE454pggdn21V2drwBY/dWWKEKhOIOp2
- RXbyfy2JFwvjzyQ8a3s7gcvYcvrftA8rwk8MVtcNoMITl9+vHJpqARtMOuHduPjK8styPiOwP
- rzrfdqasn4dgnKvRD66DQgKxAN/dc9HJL0gyYl1RjAw2WIO6W16rERZu1pqnLrh3O4ifiAOl+
- /vWjCU54+pwusGnbn3yox0/vQwpOY8vHJ8zcmSOuTPIwv3I4Te0NnwpSiVZqXwu+EmzR2geNb
- mfcsvg2dhNFODniKVonHEPqOjwIGS2kTAD7VVIpi520lhplRTZbXOVLW/abWpyW/u9AtZBnKT
- LoyJ7SIEpUDk5tdJdw0k/STEE3V7OZVaAW3OnNSLyjehfTJt7elnuWaxP0uuy9cap+zntpV8P
- hM0gm+T/uxbOZLVE18lo0/HPejnoQkbgy0IMcw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:78tSFT/0HXw=:PkZ5nkOT4Y7P17Q0AWm6AJ
+ VzXKRJ+MNUAhZhrBRWhrg1TwyPvK51VDmYsMtf/UeTg61+KyJu1FRJN7DkPFPWk31Ucbt0/Po
+ DUE1ePuCLUGNIWpCy7m3PnDGzsv/t4UGvGckbwSOCEEWxRPAc/TLCSedC9rCGtIe2+DbCKjJ2
+ 5RSx1hCfLtbu3jJvFDNZwqC2sKqXACTyWvk2VyegaOPypD+3L3Kv4UdtUM7iD5zFrJVEbmsyE
+ IbDT5AACjHmlDPrftCYZ10yE0ZwuGJJaAryoNBVmav6/+VAgP+OasifKpoWkDi2/m8/HDzOZE
+ Ydv8zf6oRT8ZHZWCnmZtBK7nb1GoHteJz5E9O9zlwLW7hcLZX1+ZXn33kWKU9RV7jwhtBtt34
+ stlQRD2YCn1iUdXwfW6GfLXQtJTShPnsRZJg++lZGcDRnQdugFsxCkZggDL5rTqQ6IWWa9XtG
+ JJEIgJV86pJt11/2EdrQ43A3ddPrgo2YnhFOWwowWzo2wIkZycPAztQS5ks2UMkM/xTMnpJt9
+ bg5ArQaa6vUgeATrAaa+Nq3GHSdSI5ZzznvMUk2ygolEVmbasHbhlTcW8aY7n8oeJsnbZT23m
+ JafGDoiWefGU7ryH4TxgiEP0WR2CTeMzgrsQrEwz0YXUOn3cKAE59ni1sZI5oGQRqRk8MlglE
+ fv2pDVpHvjJKK3WucUFX8mbpwntAEpg2MqhrUAhReDONDwPJ2Ze310492rDUUMAVj9vk8JBct
+ M2B46iPZV9SEI8SCNu/OD4u9KGMgU543H/I5qg==
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.17.24 is neither permitted nor denied by best guess
+ (google.com: 217.72.192.75 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -141,66 +142,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang sometimes makes very different inlining decisions from gcc.
-In case of the aegis crypto algorithms, it decides to turn the innermost
-primitives (and, xor, ...) into separate functions but inline most of
-the rest.
+asan-stack mode still uses dangerously large kernel stacks of
+tens of kilobytes in some drivers, and it does not seem that anyone
+is working on the clang bug.
 
-This results in a huge amount of variables spilled on the stack, leading
-to rather slow execution as well as kernel stack usage beyond the 32-bit
-warning limit when CONFIG_KASAN is enabled:
+Let's push this back to clang-10 for now so users don't run into
+this by accident, and we can test-build allmodconfig kernels using
+clang-9 without drowning in warnings.
 
-crypto/aegis256.c:123:13: warning: stack frame size of 648 bytes in function 'crypto_aegis256_encrypt_chunk' [-Wframe-larger-than=]
-crypto/aegis256.c:366:13: warning: stack frame size of 1264 bytes in function 'crypto_aegis256_crypt' [-Wframe-larger-than=]
-crypto/aegis256.c:187:13: warning: stack frame size of 656 bytes in function 'crypto_aegis256_decrypt_chunk' [-Wframe-larger-than=]
-crypto/aegis128l.c:135:13: warning: stack frame size of 832 bytes in function 'crypto_aegis128l_encrypt_chunk' [-Wframe-larger-than=]
-crypto/aegis128l.c:415:13: warning: stack frame size of 1480 bytes in function 'crypto_aegis128l_crypt' [-Wframe-larger-than=]
-crypto/aegis128l.c:218:13: warning: stack frame size of 848 bytes in function 'crypto_aegis128l_decrypt_chunk' [-Wframe-larger-than=]
-crypto/aegis128.c:116:13: warning: stack frame size of 584 bytes in function 'crypto_aegis128_encrypt_chunk' [-Wframe-larger-than=]
-crypto/aegis128.c:351:13: warning: stack frame size of 1064 bytes in function 'crypto_aegis128_crypt' [-Wframe-larger-than=]
-crypto/aegis128.c:177:13: warning: stack frame size of 592 bytes in function 'crypto_aegis128_decrypt_chunk' [-Wframe-larger-than=]
-
-Forcing the primitives to all get inlined avoids the issue and the
-resulting code is similar to what gcc produces.
-
+Link: https://bugs.llvm.org/show_bug.cgi?id=38809
+Fixes: 6baec880d7a5 ("kasan: turn off asan-stack for clang-8 and earlier")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- crypto/aegis.h | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ lib/Kconfig.kasan | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/crypto/aegis.h b/crypto/aegis.h
-index 41a3090cda8e..efed7251c49d 100644
---- a/crypto/aegis.h
-+++ b/crypto/aegis.h
-@@ -34,21 +34,21 @@ static const union aegis_block crypto_aegis_const[2] = {
- 	} },
- };
+diff --git a/lib/Kconfig.kasan b/lib/Kconfig.kasan
+index 4fafba1a923b..2f260bb63d77 100644
+--- a/lib/Kconfig.kasan
++++ b/lib/Kconfig.kasan
+@@ -106,7 +106,7 @@ endchoice
  
--static void crypto_aegis_block_xor(union aegis_block *dst,
-+static __always_inline void crypto_aegis_block_xor(union aegis_block *dst,
- 				   const union aegis_block *src)
- {
- 	dst->words64[0] ^= src->words64[0];
- 	dst->words64[1] ^= src->words64[1];
- }
- 
--static void crypto_aegis_block_and(union aegis_block *dst,
-+static __always_inline void crypto_aegis_block_and(union aegis_block *dst,
- 				   const union aegis_block *src)
- {
- 	dst->words64[0] &= src->words64[0];
- 	dst->words64[1] &= src->words64[1];
- }
- 
--static void crypto_aegis_aesenc(union aegis_block *dst,
-+static __always_inline void crypto_aegis_aesenc(union aegis_block *dst,
- 				const union aegis_block *src,
- 				const union aegis_block *key)
- {
+ config KASAN_STACK_ENABLE
+ 	bool "Enable stack instrumentation (unsafe)" if CC_IS_CLANG && !COMPILE_TEST
+-	default !(CLANG_VERSION < 90000)
++	default !(CLANG_VERSION < 100000)
+ 	depends on KASAN
+ 	help
+ 	  The LLVM stack address sanitizer has a know problem that
 -- 
 2.20.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190718135017.2493006-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190718141503.3258299-1-arnd%40arndb.de.
