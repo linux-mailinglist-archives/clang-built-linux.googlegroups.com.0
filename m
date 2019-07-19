@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB6MCYXUQKGQEPGOLK2A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB4EDYXUQKGQEQTW3AHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4F2EC6DAD7
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 06:05:15 +0200 (CEST)
-Received: by mail-io1-xd3b.google.com with SMTP id r27sf33226965iob.14
-        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 21:05:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563509114; cv=pass;
+Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6478A6DB1C
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 06:07:13 +0200 (CEST)
+Received: by mail-qt1-x83f.google.com with SMTP id t5sf26321688qtd.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 21:07:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563509232; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pmxbQcuFayBUHEjm7x9YUWZ8SEgGI6PMTTwW45GJSnV5zyRK+bSPwSPlYLE9v9a6xq
-         /OHAtgTigaRdzyblu6d8kfJy43fyIMTDFKkedlM7bhFY0PdpjewyZBXUqPwJBO0PihFd
-         mlMNRnyjL9jumrVK54M35Txv5d69DDtu9cPF5deWEBPPRiUkXixQKDtI66K/ZGjF7TSC
-         4KgA4DwNKtu6P0g7l0k+UwwJ7Mg0yShd/9PtGkF++gGyusAqFYcJnHIbMvJtYcVLFLH0
-         U2mc39bYECe0fU36jzu8FekqNjGiPuI3i0wJUsIgvsHJvfwQjGIftDy//8we9G1C/pma
-         QW5w==
+        b=w0QcvVu90l5+ylbdvI8dLX+xffcGcCaVv7zQlBpUtblP901tcIYO2HHpPuZlyX7Kt5
+         /xjdQYQkAfo1BMKVlvucLn8pTCsNXoyPm1FCHFwKsQeJExuwVMc7m946wYrBI29JNvz/
+         NJc8k+drgm6cxtKVzPhn9FoXHSMyldqQGK9qhKMtxh8EQQn2xsHwXDSO1aLI5OPCLyoL
+         cQxoBK1whiRItfLZ+jahufYchlGaC+lKjU1zUneSkZg54vw/6kvt1gQYsXooggB61BU0
+         IrWQiyHzOjwuemSRCDWpg8hXePHsxXa4PXGdyiQc+ZZsNwSjd/kGPaE3JtZ6NduRgihZ
+         VKNg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=znWm6Zl9ipkrD2JsnffDyb/GVGuYB3bU2ElPrFearbs=;
-        b=NMwjE29U72e2fAXmlxowvRagPiBJqjPiiaEG04XyMrVzuvsdnyjHoiiUThtPKFwPC+
-         zLPETGesG5BtJ63b7aW0hr4xj2+F1DwZZcwwEDSPce9kptqBGkqZtdCy3kWO8yvtCG3U
-         ioP48qnKSndm1xMDe8Bx8/ayppkHiYgQ/TlzBKkwcwXqRFLz9P8QdtrU9uCDTYLpwSdl
-         tGrvWpvLUCvZDMduB3EcfJVx7Ye0RRVRRt/MsRc7cl4JrhgukHxgtASqG75Z++qxuYmZ
-         IMpC8pWbI//wocChR8T7+5yn7cg4ZBYtUwzokPwTDU/W7fHP0Dx90y/eH4oFvxiAe3LW
-         US4Q==
+        bh=lwDeDuTnZy/SYQe7hM6qMLtegMt22I39TDsc4Lf45O8=;
+        b=XnNtzxmKZO+pYHBM8TdMOpuzr/iojmcNCoIR4Vg8nPZR8adRUDlEd1dPIYZZsvp959
+         Vwp8bZHocnlIt5tKULpm3n2evcjxIv6X4i/8PMvfgSWdWNrDGr84ZIN6xg91XphWRAAv
+         EKVGdB759/UKQv92HSebLJ+2WB6m35swfmfqj1kuMw/JqCplx4BzVeGG9BfNLQSEenor
+         Kq7J3s2eNxD5FDyavm5WeOnePVtl76SN1pKvAmsy3ikYooFQBysEPestErJUlqHlsgsC
+         Ahr3VQ1/cHjSqAPjCIgQZr26k8V7mzR5azaZljldSP/DJB9SV301b5l545RtPHHExEKh
+         p2eA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xo1XOysI;
+       dkim=pass header.i=@kernel.org header.s=default header.b=s7zHFC+c;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=znWm6Zl9ipkrD2JsnffDyb/GVGuYB3bU2ElPrFearbs=;
-        b=mgEb/+LkMht0lhS03znaFN5bHvgG5kLqT5LeUsd5k39+YVmSqzEXjUq8IqNof1yJeD
-         DJ8KLKZgsgyPKmULtMh/e0ObwIlAif3av6v4TsM7+zoM5kIiR2SoN9KZWzPtkCI5irJW
-         0qaCQD/DAVuYpSbycpE9PK9wsxWUskGeThs10c5+gej2zWuJ9WjSbFq+dR7jqglqtHnJ
-         3Yg2aIWM9/nz+G5GDFTn68UtgdMTdnFqco790+LWsPhkqLKAn7I1eenAtuogriiUwK9g
-         OtEoHRsmBNlSL5l3Zw1E8e2bZ9Z5ZJeemG94gOgqZ4osz4Fj3pw+2AfN6Msdn5T3+N0L
-         T1OQ==
+        bh=lwDeDuTnZy/SYQe7hM6qMLtegMt22I39TDsc4Lf45O8=;
+        b=kETz3jU67unHpwUELYrTteR1BqA6PDI2n2iH4nSNJsJpgp9uY2XciuUpvxnFs/+7uc
+         nukGS+8BujsASHpCyh6WnHNrfQuDz3r35yCiy1Lm42B3vHpR0ip6H8Cu7F0F+sUCQtXd
+         8AwJU8qeIuYTZI8MVm+gNMZa4/vG2H8tWSre7YhTOR/LuHDO1NWT7+mMQkibVq9jkBfP
+         XxVa6855N71rzRsYiaNI3Iss66BGXvMmEyIThgGK+6xyUOix6GqtbNVGrHnp0lkzOQOU
+         mfPA6Sf2kR4bk1uVQY8CoMBLEyvtlLyuA28Koz1oj/G00yZk30JvETwqKvT6zxhUO32r
+         J66g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=znWm6Zl9ipkrD2JsnffDyb/GVGuYB3bU2ElPrFearbs=;
-        b=rCwFK4RhBn04V7kRTXqxMEJE2Xr82D2b7bFdbdRtUT/8Y2SQNs6E9CaIV5vFfPOBax
-         fMl6UAjj5D/N1dUMtHk4tcmaQp4N+8lUrDYFTmkXoKE60gnFamlXLhhxTxQAWpuLvy/I
-         /w0f4I9Hl0tamcKcNd9XEr3hbzTgwoK5jUXU1lAHXrfUAAwokZwL2u64qul1qvUZsZQS
-         5wUMOd8vePbMqwb6rAidzmSI+H7p9yap6iHtNGoZK6o5EaA8fDIYDb62u37eIPaiNkdb
-         gYjWAmx5gzi4nj8+iqNOb3LedtCWKMSTxCdP8pVi2eBPHLgWwagCO6o5LTy5ylDN2ziN
-         9cLw==
+        bh=lwDeDuTnZy/SYQe7hM6qMLtegMt22I39TDsc4Lf45O8=;
+        b=fpj0NMKODbYIn2XqdE+iRzG3F+1RK2HucvumcbFguZNL9/akUVtCeiFofyo38Hmwl2
+         6Hv0oQYtTPGja773bidNG/avo/VjYR2nZIUND6GrtvtZetYcnri7TZ2qITrQ8kvHbCnU
+         /HiJ29lTo+PNRWWEuc+ltGYnQfOnDM8fZLoKhYqF72L9rg0l8NMLKcKo61VpujUmTqbD
+         oXjvOtPCp+OwQzqMZjOhmgNHWPcS+RtaunmnMXWr00X8nBKRiifPCm2GWy49CLrcS8uH
+         8ozxuehMj+pgkp1Y77jXeD0bOr5RfI5+KQpUHiDUz2srHfgcreCJXmcP11iIDuytRQU4
+         r0tw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWxEuZCYt/QwrFOBJN3Fko6lk/Onq8g7GF77MNW3bTpvYpg/lId
-	Sde6i2yPoUZlwIZqfio8x54=
-X-Google-Smtp-Source: APXvYqxOvhuoWkVmcrPWojxz2Q9tPCBIeGJ/mECajHGiy5DCwcp1rChFN48CC5SUrvUpkaMlA5c80g==
-X-Received: by 2002:a02:9991:: with SMTP id a17mr25798790jal.1.1563509113825;
-        Thu, 18 Jul 2019 21:05:13 -0700 (PDT)
+X-Gm-Message-State: APjAAAWdmyMgc00XkLj3TIW0fCW1G6JUODU6uy98owVR0tdXmhKJ46Mf
+	G1OPQOYh29r/jOKQgNe81sw=
+X-Google-Smtp-Source: APXvYqwQZ9KLmRel6Y41OVzw2u5h1kljT31Z3OkEao7sOva9ubFnWPShVJn5mzj2EFSSP6KU8Hly1g==
+X-Received: by 2002:a05:6214:1274:: with SMTP id r20mr34418000qvv.127.1563509232530;
+        Thu, 18 Jul 2019 21:07:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:9852:: with SMTP id p18ls8056401ios.9.gmail; Thu, 18 Jul
- 2019 21:05:13 -0700 (PDT)
-X-Received: by 2002:a5e:820a:: with SMTP id l10mr539145iom.283.1563509113572;
-        Thu, 18 Jul 2019 21:05:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563509113; cv=none;
+Received: by 2002:ac8:664c:: with SMTP id j12ls7687378qtp.12.gmail; Thu, 18
+ Jul 2019 21:07:12 -0700 (PDT)
+X-Received: by 2002:aed:21c6:: with SMTP id m6mr35840984qtc.173.1563509232301;
+        Thu, 18 Jul 2019 21:07:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563509232; cv=none;
         d=google.com; s=arc-20160816;
-        b=StznKPw46VZ4VH3vV1kdLr3g54UDUEAGgd2omCPHQXSYKc0JGDe8+qKqNZuReklMks
-         10INkEpveDuu1sybUUmB6KjKGz4qmPqTGP5D6l2AmCzdTqQmTGGw7SvHTeI5l8iSbvgY
-         rLTcqMOLLeG17oPoY7EKTiutEfL9JVfaT0vhdfFR3r8YOSx3+0vvjV+W67d6blgelZMH
-         4gFQoP+h4/OXBlyiq4OcHYhNvfuZAN1+foTzM6bg2WuMSU7h5+9MuJtiLCMQAtjZsl7M
-         R0VN8lA5yhI+eL3mjJOlMsvDSSfdn0omULQYDm1Axvpu+WLgpo29oGerK/ofAf92YqNy
-         hhhg==
+        b=W2BYCBoTLJiBQOVaccWRsEPW6jWVwnpFC3pgxHKXfoBMbKUKTAbsNFGUjW3MCtTdMC
+         jqHKClG4V6ROMN3QLgl5rXMiOIIonoEp1jKqctDZ1V2my6njzY04bmYNPWJBW/KBDQVp
+         0rXEG48zq9Mw/zQaG6tJO6vQvGx2A8vv3J6ZB6hv+v5FQqtHAFE9ETeaWC37YwxFNlzU
+         +FJIUoV9AX59HKvCUnycIARBXHwms9Z5N+u2PRKr0v7FPeSxPILzs6g3O38EGwcBaWw1
+         19/PaVg8mXbZ83ZJx1UUXnII+EZzHlXi8BU48MYrZunjaRPKPztD87Qm27WkFckhSx/t
+         O3IA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=zzIW4AmHzUZPZ5eB53QG+u96U3LZxqyss4qZCslpLQo=;
-        b=owZ17GelXTSmfdjtt3twnk6jpMFBKbSh2rcu90HIXQq4JgjGlrFhhz5ie5WBsdawMl
-         d4tzeElkyuoNHdIaO3iz7OJIuROzPTkypQK1yQT0N/X/N4RK5Rz7wYif++XmKb9r0XFN
-         C4KaVGOq33sudOMW8IiyBTzwAyUUoV7iKuyytWfbFSD7q9a09Kz4/1GDCtw16vNxX9jo
-         6OfKYkEORSAjsryoK/Ouujr5tZLHE/GbD5KuylpSuMAIEmLmu3UgmA3uJy3Ga0UBgauk
-         ZozXsRGP7Qjb7uem1rWq1sKh/beiAH/uVeIWrut2HNldspq0XFEFaQ44A2TQIpUEtEqU
-         QwSg==
+        bh=7uWL+i7vfn1a0W9tVd/zenJ9uWf1rLml+3w8K7MqpfU=;
+        b=DDu0LU/74jxn3aS+pXrz9Dfe7XtC54CQemelVJ5occxiV4FYiBoAWvQjxRjW/VSg8x
+         QfRMUrHZu5hyxiykQNmuq28FQCFomeVDndvYCNSQURKY8XTk3pHuniE+uiVtzp5tMAMh
+         DRkt6/xCB+Pm9jxTp3Q4zmgkMxcovpi6g1nZEEcK2UPaqU6EJym6QmSMn2PQW4yYIV0F
+         UFV20NsE9BSYmwopxrlSZKvI9TmDHRtqIj0l/Wc8zyCqwPwnAvcZzhITxA2Ljq1iw7gA
+         sCqc4beBcczLY/0LIvhFD7nJPFHpIjPOZ21UF9+l+DTIUTrkRPbDxY24pVRAjScZDx7r
+         yfyg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xo1XOysI;
+       dkim=pass header.i=@kernel.org header.s=default header.b=s7zHFC+c;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id m3si1096181ioc.4.2019.07.18.21.05.13
+        by gmr-mx.google.com with ESMTPS id z145si1236992qka.3.2019.07.18.21.07.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Jul 2019 21:05:13 -0700 (PDT)
+        Thu, 18 Jul 2019 21:07:12 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id D71B4218BA;
-	Fri, 19 Jul 2019 04:05:11 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 7667521849;
+	Fri, 19 Jul 2019 04:07:10 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Lee Jones <lee.jones@linaro.org>,
+	"David S . Miller" <davem@davemloft.net>,
 	Sasha Levin <sashal@kernel.org>,
-	patches@opensource.cirrus.com,
+	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.1 076/141] mfd: arizona: Fix undefined behavior
-Date: Fri, 19 Jul 2019 00:01:41 -0400
-Message-Id: <20190719040246.15945-76-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.1 137/141] cxgb4: reduce kernel stack usage in cudbg_collect_mem_region()
+Date: Fri, 19 Jul 2019 00:02:42 -0400
+Message-Id: <20190719040246.15945-137-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190719040246.15945-1-sashal@kernel.org>
 References: <20190719040246.15945-1-sashal@kernel.org>
@@ -121,7 +119,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=xo1XOysI;       spf=pass
+ header.i=@kernel.org header.s=default header.b=s7zHFC+c;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -140,54 +138,74 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 5da6cbcd2f395981aa9bfc571ace99f1c786c985 ]
+[ Upstream commit 752c2ea2d8e7c23b0f64e2e7d4337f3604d44c9f ]
 
-When the driver is used with a subdevice that is disabled in the
-kernel configuration, clang gets a little confused about the
-control flow and fails to notice that n_subdevs is only
-uninitialized when subdevs is NULL, and we check for that,
-leading to a false-positive warning:
+The cudbg_collect_mem_region() and cudbg_read_fw_mem() both use several
+hundred kilobytes of kernel stack space. One gets inlined into the other,
+which causes the stack usage to be combined beyond the warning limit
+when building with clang:
 
-drivers/mfd/arizona-core.c:1423:19: error: variable 'n_subdevs' is uninitialized when used here
-      [-Werror,-Wuninitialized]
-                              subdevs, n_subdevs, NULL, 0, NULL);
-                                       ^~~~~~~~~
-drivers/mfd/arizona-core.c:999:15: note: initialize the variable 'n_subdevs' to silence this warning
-        int n_subdevs, ret, i;
-                     ^
-                      = 0
+drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c:1057:12: error: stack frame size of 1244 bytes in function 'cudbg_collect_mem_region' [-Werror,-Wframe-larger-than=]
 
-Ideally, we would rearrange the code to avoid all those early
-initializations and have an explicit exit in each disabled case,
-but it's much easier to chicken out and add one more initialization
-here to shut up the warning.
+Restructuring cudbg_collect_mem_region() lets clang do the same
+optimization that gcc does and reuse the stack slots as it can
+see that the large variables are never used together.
 
+A better fix might be to avoid using cudbg_meminfo on the stack
+altogether, but that requires a larger rewrite.
+
+Fixes: a1c69520f785 ("cxgb4: collect MC memory dump")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Charles Keepax <ckeepax@opensource.cirrus.com>
-Signed-off-by: Lee Jones <lee.jones@linaro.org>
+Signed-off-by: David S. Miller <davem@davemloft.net>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/mfd/arizona-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../net/ethernet/chelsio/cxgb4/cudbg_lib.c    | 19 +++++++++++++------
+ 1 file changed, 13 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/mfd/arizona-core.c b/drivers/mfd/arizona-core.c
-index 27b61639cdc7..0ca0fc9a67fd 100644
---- a/drivers/mfd/arizona-core.c
-+++ b/drivers/mfd/arizona-core.c
-@@ -996,7 +996,7 @@ int arizona_dev_init(struct arizona *arizona)
- 	unsigned int reg, val;
- 	int (*apply_patch)(struct arizona *) = NULL;
- 	const struct mfd_cell *subdevs = NULL;
--	int n_subdevs, ret, i;
-+	int n_subdevs = 0, ret, i;
+diff --git a/drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c b/drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c
+index 7c5bfc931128..f46202288837 100644
+--- a/drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c
++++ b/drivers/net/ethernet/chelsio/cxgb4/cudbg_lib.c
+@@ -1066,14 +1066,12 @@ static void cudbg_t4_fwcache(struct cudbg_init *pdbg_init,
+ 	}
+ }
  
- 	dev_set_drvdata(arizona->dev, arizona);
- 	mutex_init(&arizona->clk_lock);
+-static int cudbg_collect_mem_region(struct cudbg_init *pdbg_init,
+-				    struct cudbg_buffer *dbg_buff,
+-				    struct cudbg_error *cudbg_err,
+-				    u8 mem_type)
++static unsigned long cudbg_mem_region_size(struct cudbg_init *pdbg_init,
++					   struct cudbg_error *cudbg_err,
++					   u8 mem_type)
+ {
+ 	struct adapter *padap = pdbg_init->adap;
+ 	struct cudbg_meminfo mem_info;
+-	unsigned long size;
+ 	u8 mc_idx;
+ 	int rc;
+ 
+@@ -1087,7 +1085,16 @@ static int cudbg_collect_mem_region(struct cudbg_init *pdbg_init,
+ 	if (rc)
+ 		return rc;
+ 
+-	size = mem_info.avail[mc_idx].limit - mem_info.avail[mc_idx].base;
++	return mem_info.avail[mc_idx].limit - mem_info.avail[mc_idx].base;
++}
++
++static int cudbg_collect_mem_region(struct cudbg_init *pdbg_init,
++				    struct cudbg_buffer *dbg_buff,
++				    struct cudbg_error *cudbg_err,
++				    u8 mem_type)
++{
++	unsigned long size = cudbg_mem_region_size(pdbg_init, cudbg_err, mem_type);
++
+ 	return cudbg_read_fw_mem(pdbg_init, dbg_buff, mem_type, size,
+ 				 cudbg_err);
+ }
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190719040246.15945-76-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190719040246.15945-137-sashal%40kernel.org.
