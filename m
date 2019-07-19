@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBEUGYXUQKGQEUKAYNZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBG4GYXUQKGQEV3PZFMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 06A716DBDD
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 06:12:03 +0200 (CEST)
-Received: by mail-qt1-x83e.google.com with SMTP id t5sf26330806qtd.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 21:12:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563509522; cv=pass;
+Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id 07ED26DBE0
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 06:12:13 +0200 (CEST)
+Received: by mail-pg1-x540.google.com with SMTP id u1sf17947584pgr.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 18 Jul 2019 21:12:12 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563509531; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KXNSYAkRPfuptGKFrxd7Uu+JluJaG6Sww2iJuHqNXB9mFKuTszU/Wmlv01sajrG6J5
-         gDuYS/ipJvAPmXSfm+aYnAIfZ9iNxZfYvp/6VLkTzVPBEIvV2v4P+Ot0au1MS7tUKMse
-         JeVdSHSpeP/poSxun+lOHJMRwT9RrCbnmzJLxVoeXXB7NFHb8QQ2Npf7tQquk3i+i1GL
-         9kCcTln5CZiQMPjSh/Yv6c/AGExDcaWbF91kAflHRiTbe+DC2Qhqz0sSmZBXEXs5Un5T
-         LKNde00mk72Es5SyHGoRUGZ6aAAkg8USGiZ+1CB9Z5xxXy1xoVU0m6cdfcGDvpC2/i0x
-         y+1Q==
+        b=ZbPg7mEOZklbkHhOnFUV00OEJJ91AKaaLdkv1qXfxFMWE/GAJskdtVijJSx8eYfCQm
+         /715OUVxL2SAGlnB3bsS0UI85dGO+pusTDw8ieVj8d5+lf9xWWuqCg5efgOmdtpMxhqZ
+         dgZ9yZOU3ugMXVbZbKfSVuebxPO8vLLAQh/TVrZpoGT9BgxcJtZUSdZaZE8MlTLWAkuO
+         TYwYu6ubZ1dla7+UfpPppoZafUgXTDHkxpIQ1BBX0Bnu7BZxaml12ChUBa5syJTpznTk
+         X1ewQ81RkoRYlbff/4Mpf9+Lgxa1TrOgQwBMU1+EqXhxtnO9Vi0ouGsre0i8BmNEpChT
+         slUg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=ZZYfPEBQVwl6DIWdhnZcefQTDOAPKRNgo2sEwC8/eLk=;
-        b=NlTYmZeDk7dcT13gNksa8nBYj/QOL5rW55pZrR0p96KqT95dDAezpvxNjtkzKUD2Ot
-         Lb1JHzuu+xOk5jI0J/frYkKMK7XOIi1k5nH7LYYnUVtflwYhwVSwxiBqg6plQNqOguwK
-         AYFUlIM+tw/EhS1CtNTWDXh8gbQFrZeJquGK0T/EJ2tpsVa0zNQlZEPz7Wt0uRaogNup
-         r7IZ2CzNdhzBCELiSeCq5BkJFitpX5aZq2ShYkvjJ0xalGQQQLBa/HyasZKVvSYXns8q
-         VNBfPKSzZ5Sda8VAlOOMVSf5sT1tgAhxnIeOKxboFGeG20z76XRr7U5bR/8O1zI1/tI+
-         G/PQ==
+        bh=CNQqgYpAf+05nZzEzsh7DcYWY2GvY5VV7wbdZ2/FtHw=;
+        b=CTZkkCk9U8nYBTW16NipHLTg0ASczDF7nU8OvlAzfUfmJWQKmiOmf40an46cYX+S5N
+         fH3UrL2s1sGCQvsJqMeAQhiUMcgbtU6QQ/ay6s/P8BBd17251FEgB8B0eFNkcS8Shc2M
+         V3mjq1zqaKWh2s7MmAjIPRO9X/r5UiWHwhsOlTtjC4UXo/C8zLVsvey/IpiaaBV3/GvZ
+         5F8lR6nVg9bS+5AHBajshw9Vg7+oxlADl37hRHXL/67j0f33pCjMFpKSvOx5O2Hde3eJ
+         gGfJL9l5VsiSUlDJ+jU4JnhoJ2WoyWjzyBSyuIRPngtLVHaA6/V7W8t2EPNj3Z3CMDcj
+         v64w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=mPCY0YUc;
+       dkim=pass header.i=@kernel.org header.s=default header.b=SoYYt8OR;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZZYfPEBQVwl6DIWdhnZcefQTDOAPKRNgo2sEwC8/eLk=;
-        b=L6u9V3D0TtHMfohSq1kg0Con5Bq1dn9uFQrlgxj2IdkudKIaPtlakUIVflxx061xqd
-         vkHZQLPyvIgszM1jR/0CgOaRkSXu8boCANO9nly9PY5dXEvzo9EUnrgBKMJGb7LCDw17
-         cL+OE2bI/SEoVIppKqR3crKO4UavJNDKKt28qc4CswqGkjcqWYMxCdtfTHcwQU9jsBL/
-         Q7dozQXQL8TXI2zlpR236R9zcRE6V5DAM5BIc89qAaOYVI1jT6lFc5lQCXneYPs0U7Cs
-         r2fEuronyZE6LwPM5cctVJxT3HSAk5iCadbs/rDbAQYvSTD26LZr0in3OotdR2jOuc0q
-         j1mQ==
+        bh=CNQqgYpAf+05nZzEzsh7DcYWY2GvY5VV7wbdZ2/FtHw=;
+        b=VFpGVsDvcGOua0Y22rD40WRWhgD4qTeOR075F0DURAVDIGjTmHENgpvIe0+53VuneL
+         K8Ete6aSUzwU/PQ4U8oeOukoVp1DUUvP7loWhmuTgjocOYJ8q22PT18xwCV4zT5ummfG
+         a+IRdu+UDomqxCQDt8QTFUA42gCQwz1qBxM0rnTdR2nwhScM79lgGkbj/CAtYYBuomPa
+         AuSwDN0rwyTK/F19GjwYOxrDJfOR3W2x2pvMl2LqxA8sCTEs21i8uZ9hIqlUbXQPBHH5
+         yFMqCGetxsd43rRdXl8wZxaqIuDHCKm0130LaGjA3BHXyQMW5IgG21bs3/i22JPsRF0B
+         4BaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZZYfPEBQVwl6DIWdhnZcefQTDOAPKRNgo2sEwC8/eLk=;
-        b=YnnhDBeRXDPcQJ3hbWRKA+qrv9CqohTyRVwkyNJV98YPAnKXajBTgFb67ukKFS2NPR
-         EjNzgkhZICultbpfiQel+RYONWaB3hSAShQ5PCr1Am3w32opVryiCyOlaKZgeF1/LQe9
-         Lheitfh+B9fahVztNXn8Qqg/QwExlZ6cz1A+ovO7PJ3HH4xXgy0w6R9mvgE11/jVuQu8
-         XmB5UMbC7q/K2H5EYpPqNFh/BcfdS77Z2Qes0fgs9FY/1YWvTOqkjJ6Kc0IJtKsAUWCW
-         HcSpGxNS99rWxKv7PsD2aN7xwWsxGExd6ncJhgFVxhODjeaqfBLQTm46eT6CzC8vF9D/
-         hN0A==
+        bh=CNQqgYpAf+05nZzEzsh7DcYWY2GvY5VV7wbdZ2/FtHw=;
+        b=bbD6WnFKtVjpDhEH2USgmhgsVKoHf6w7ur8+yJIG21QdPSX7oxOamkQJdg3Wl2h1Mt
+         eTQ4D7veHPzKQVhUFZivJSm2YT7/7PwzhisT13SFGjJYTAUJBH4q8swEQGgJEfl2xWNm
+         cad11WIFdJijbCzPcCbT79v3faGtnMlsxhhjmMDte7flAyMH8RAnfU3G/dyhjaNr5/b6
+         Su6mojpcFvR9wpujHDkqYN4rzarw4Hd5SfiBuMivbDEuheEOrOd/rt5wdNW1YgSVOCD6
+         zEArE7FVz/bsldQfjHV8Tne/M8/P4tau31ODiii38C5w0pLEqcQ0opGDPxUXN/W9Cfzn
+         77RQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX58dvVMR+8HjUTxMzQuFlDnJ16B85mZ0qTJsvXskCDVQ5lfMvT
-	eqm8LYpbk5XUWoIE4RWu7C0=
-X-Google-Smtp-Source: APXvYqySQq0jDyT+cWmUHElWvwx9ernL2wWYrM69HJ/E7ChGQW58tm+jP2JY2LhzU07GOCFANoJIdg==
-X-Received: by 2002:a37:4bcc:: with SMTP id y195mr33161580qka.55.1563509522131;
-        Thu, 18 Jul 2019 21:12:02 -0700 (PDT)
+X-Gm-Message-State: APjAAAVncjhmdzgMw875SNwz3CoMh0EHLuALRwTdzP2hqHXKFs5+3BuV
+	Pa0P9+rp+5a54kCO7fUGkxA=
+X-Google-Smtp-Source: APXvYqyST3zYxZu9FCl4P2ck6MisDKUTC/szWQvvHnw0JHjlTQOIL9lWUn6U30guSYtwsKYRyVyxaA==
+X-Received: by 2002:a17:902:b206:: with SMTP id t6mr55157484plr.195.1563509531820;
+        Thu, 18 Jul 2019 21:12:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:10b:: with SMTP id e11ls7695197qtg.2.gmail; Thu, 18 Jul
- 2019 21:12:01 -0700 (PDT)
-X-Received: by 2002:ac8:2d19:: with SMTP id n25mr35173709qta.180.1563509521841;
-        Thu, 18 Jul 2019 21:12:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563509521; cv=none;
+Received: by 2002:a65:580d:: with SMTP id g13ls3913536pgr.5.gmail; Thu, 18 Jul
+ 2019 21:12:11 -0700 (PDT)
+X-Received: by 2002:a65:6081:: with SMTP id t1mr52348542pgu.9.1563509531485;
+        Thu, 18 Jul 2019 21:12:11 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563509531; cv=none;
         d=google.com; s=arc-20160816;
-        b=HeLHb6mzFFcvLij3G5V/6vlyB8wGN7K4pC28GknZsSekemFIp8aV2wIscHQQ3shRzG
-         JELuLTbP7/N7ZZBazxbshjbSGyBlGCcurk9/MEpacwsHys0dhRZR8QU6LQqdimPqVoJ2
-         yAhfOrWz522RGIDHxMs0kjvCu8lakHyn0id6xr7T802t8effsvIR1IPnmZZWYeUP9/eJ
-         R6CbI0luVaouVoCrEwEIPGExgcjQyT+P01hkTuSjxlU+G/pCG87AxZl1QBmLpq4iGwmA
-         LivSaVaQBnkpwLH923xna95f3k5TM0OEtMENwe1MwOMF4AOIYowqcxuWM9ja2c8nSFly
-         ABTg==
+        b=lu178yNQ0aFaV651oi9rjYVU7fv4q0B0h8A1L9crpT54XKZcZQrqk4y0H3Lk6cvyPL
+         knNFSwldGA4Qn86pSP9teMcXXjfQAWGxs4WE5XuvMzGe2qXRWLLYDPi5gAYY0mDmex3V
+         enXuQ1AmQfR7X5BuKVKsdU/15zSrRNqNVg1OWSLvOu8tI5OS8LOcI0JxBhIJo8ewLYXa
+         Jy3UMRTunEOSsX8KeGbBDQySd0zJznpUTjd22f4IKXSnnUvH/UrxkaGhOlLP3eaVXrsK
+         eLIOg86iceK4kcPs4eb5Gk9YEmzFpUVU9BcmC2J61eRf5HSlZws+2QPlMzPYU+1iFB0t
+         cv/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=f6SpaFxyfsQBGqoji5dHr66SwFErnNCZXrLtUos3dVc=;
-        b=k2M8c0qU0mMZqKmnWQ9THHnMj5gM5el6VyBte250PzRGDN8kCvBQ32JBjcUieGa0rQ
-         97oi39lPKUXNkH7xKn+MMHC+5jz0/+tadPRapQ1HDvk2jEnM3af6tFvhgYrlnnD5OyNq
-         xJpeq6BefXYJAsh7o4SIaG9TAECI2tis0Mnf7pWZKIHbGEh7SibN/hdlNSP12k10gpPl
-         zMmwtCmwl8B0vbA8Yn9kP7tTmLZu3y+QFHWfYmlj7n28CTVPnAeek+0vhwYJmazERuRS
-         /AvI0tsXmRkQsbmlKf0iv2y15xEQWhINvrbNqbg9iZbRzX+tGywZQ/ZC5/bvEiMy3w4+
-         WB6Q==
+        bh=n5aWtca6yBHzKp2Nw8CuQR5vNU4TsDITwAE1MUV3unE=;
+        b=CrhKyWYr62LLtL7bpernmmWBo5DWrmIPW35YcnWU0bQhaXjAHb77nVJ3+xtn1B4CVY
+         WR+pihSzpiFmwlHQ7C4Dr8L5h1PbaSwIZcas8WtK1SmGDlzlYb6+CgncSzUhzEMbqK8Q
+         IMtxHdQ5aCdfh1R4+YHkt483ILsUePQXlaMZasiuNFWPJyOIWB+ednBOJt/Y+UHmAxzX
+         EpVR902ijxvV4QxhBXkxbw5LYBZa7WoSTKE413s6XCUmLE9f0FWDZ8wR/6V9Ud4AlxVM
+         tX4yABFcXZ9fdaJsAjgPZmpO62TOBcE2Dr2Hc2Z52fpOJfl0PuQKnqjxiJcpMOmSNp4V
+         SFVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=mPCY0YUc;
+       dkim=pass header.i=@kernel.org header.s=default header.b=SoYYt8OR;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c188si1286517qkb.2.2019.07.18.21.12.01
+        by gmr-mx.google.com with ESMTPS id cl17si1095772plb.3.2019.07.18.21.12.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 18 Jul 2019 21:12:01 -0700 (PDT)
+        Thu, 18 Jul 2019 21:12:11 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id EBB7D2189E;
-	Fri, 19 Jul 2019 04:11:59 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 564C92189D;
+	Fri, 19 Jul 2019 04:12:10 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Peter Smith <peter.smith@linaro.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Masahiro Yamada <yamada.masahiro@socionext.com>,
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Lee Jones <lee.jones@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-kbuild@vger.kernel.org,
+	patches@opensource.cirrus.com,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.14 28/60] kbuild: Add -Werror=unknown-warning-option to CLANG_FLAGS
-Date: Fri, 19 Jul 2019 00:10:37 -0400
-Message-Id: <20190719041109.18262-28-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.14 34/60] mfd: arizona: Fix undefined behavior
+Date: Fri, 19 Jul 2019 00:10:43 -0400
+Message-Id: <20190719041109.18262-34-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190719041109.18262-1-sashal@kernel.org>
 References: <20190719041109.18262-1-sashal@kernel.org>
@@ -121,7 +121,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=mPCY0YUc;       spf=pass
+ header.i=@kernel.org header.s=default header.b=SoYYt8OR;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,67 +138,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 589834b3a0097a4908f4112eac0ca2feb486fa32 ]
+[ Upstream commit 5da6cbcd2f395981aa9bfc571ace99f1c786c985 ]
 
-In commit ebcc5928c5d9 ("arm64: Silence gcc warnings about arch ABI
-drift"), the arm64 Makefile added -Wno-psabi to KBUILD_CFLAGS, which is
-a GCC only option so clang rightfully complains:
+When the driver is used with a subdevice that is disabled in the
+kernel configuration, clang gets a little confused about the
+control flow and fails to notice that n_subdevs is only
+uninitialized when subdevs is NULL, and we check for that,
+leading to a false-positive warning:
 
-warning: unknown warning option '-Wno-psabi' [-Wunknown-warning-option]
+drivers/mfd/arizona-core.c:1423:19: error: variable 'n_subdevs' is uninitialized when used here
+      [-Werror,-Wuninitialized]
+                              subdevs, n_subdevs, NULL, 0, NULL);
+                                       ^~~~~~~~~
+drivers/mfd/arizona-core.c:999:15: note: initialize the variable 'n_subdevs' to silence this warning
+        int n_subdevs, ret, i;
+                     ^
+                      = 0
 
-https://clang.llvm.org/docs/DiagnosticsReference.html#wunknown-warning-option
+Ideally, we would rearrange the code to avoid all those early
+initializations and have an explicit exit in each disabled case,
+but it's much easier to chicken out and add one more initialization
+here to shut up the warning.
 
-However, by default, this is merely a warning so the build happily goes
-on with a slew of these warnings in the process.
-
-Commit c3f0d0bc5b01 ("kbuild, LLVMLinux: Add -Werror to cc-option to
-support clang") worked around this behavior in cc-option by adding
--Werror so that unknown flags cause an error. However, this all happens
-silently and when an unknown flag is added to the build unconditionally
-like -Wno-psabi, cc-option will always fail because there is always an
-unknown flag in the list of flags. This manifested as link time failures
-in the arm64 libstub because -fno-stack-protector didn't get added to
-KBUILD_CFLAGS.
-
-To avoid these weird cryptic failures in the future, make clang behave
-like gcc and immediately error when it encounters an unknown flag by
-adding -Werror=unknown-warning-option to CLANG_FLAGS. This can be added
-unconditionally for clang because it is supported by at least 3.0.0,
-according to godbolt [1] and 4.0.0, according to its documentation [2],
-which is far earlier than we typically support.
-
-[1]: https://godbolt.org/z/7F7rm3
-[2]: https://releases.llvm.org/4.0.0/tools/clang/docs/DiagnosticsReference.html#wunknown-warning-option
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/511
-Link: https://github.com/ClangBuiltLinux/linux/issues/517
-Suggested-by: Peter Smith <peter.smith@linaro.org>
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+Signed-off-by: Lee Jones <lee.jones@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- Makefile | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/mfd/arizona-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Makefile b/Makefile
-index c36e64bd9ae7..3d43f922953f 100644
---- a/Makefile
-+++ b/Makefile
-@@ -488,6 +488,7 @@ ifneq ($(GCC_TOOLCHAIN),)
- CLANG_FLAGS	+= --gcc-toolchain=$(GCC_TOOLCHAIN)
- endif
- CLANG_FLAGS	+= -no-integrated-as
-+CLANG_FLAGS	+= -Werror=unknown-warning-option
- KBUILD_CFLAGS	+= $(CLANG_FLAGS)
- KBUILD_AFLAGS	+= $(CLANG_FLAGS)
- export CLANG_FLAGS
+diff --git a/drivers/mfd/arizona-core.c b/drivers/mfd/arizona-core.c
+index 8d46e3ad9529..d8e3184bd27c 100644
+--- a/drivers/mfd/arizona-core.c
++++ b/drivers/mfd/arizona-core.c
+@@ -1029,7 +1029,7 @@ int arizona_dev_init(struct arizona *arizona)
+ 	unsigned int reg, val, mask;
+ 	int (*apply_patch)(struct arizona *) = NULL;
+ 	const struct mfd_cell *subdevs = NULL;
+-	int n_subdevs, ret, i;
++	int n_subdevs = 0, ret, i;
+ 
+ 	dev_set_drvdata(arizona->dev, arizona);
+ 	mutex_init(&arizona->clk_lock);
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190719041109.18262-28-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190719041109.18262-34-sashal%40kernel.org.
