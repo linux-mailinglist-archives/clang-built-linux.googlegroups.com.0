@@ -1,147 +1,130 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQGWYXUQKGQERAM26BA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBPPBYXUQKGQETNUVBKI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
-	by mail.lfdr.de (Postfix) with ESMTPS id E7D866E155
-	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 09:03:28 +0200 (CEST)
-Received: by mail-ed1-x537.google.com with SMTP id k22sf21469398ede.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 00:03:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563519808; cv=pass;
+Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 010026E1A8
+	for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 09:26:54 +0200 (CEST)
+Received: by mail-qt1-x83b.google.com with SMTP id e32sf26745583qtc.7
+        for <lists+clang-built-linux@lfdr.de>; Fri, 19 Jul 2019 00:26:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563521213; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XGD+Jk4dY0WqrW1LWhQnLFdKBIy/dMU7JRaD80m/fgwxN+ut6vy6t7peneWNmIHwYF
-         5fF4k+mT65Ifh9/YgK55dJ3Ptx8Be5vbDwYcBTr0cwrE1UyThHXCw00f5XUck4EfvOgp
-         U+0SdnKq6t7D0zd6neEKBpD79JCz4o38h08U+jSQnf/8uN1l8/DG3jRGxQXta90P4HKi
-         SaOab2Hf2x+EOajb6qkaKlRVmgEDaCO+n69QcH/fTmGwe0i5tusF0vAUyvH0MYAM82uv
-         s6Lr2urD8r6g3ybcZg7HL+k4UoRrn+MZ7XaklUTqnD3PvIj9D04+TwfqlzU2el1ooqRx
-         t6iQ==
+        b=bztHzXEdZMONKu09hSSg0FSnN34T3zNPzbEFZGqt9MCVGYBvKPGHlUDaNPHwATSdke
+         WnFnF1jmg/5afESZ79ObA5bynurPkXWVg4qKGYBLjyVV/pSAZtIZpIUVnaCHMFz7jVsB
+         IGBphG6pUsYA84nVDnYPYSrSlTrzilKJ9w8ogIwcTVKeXBDKGkfcgHvidMyp7uk1AheM
+         p5CmxP8MP0wsvHMHcWdJ5YihjfbyQhAvqTVnBG+y4KWZl71DNMzJhf1Uhii8P2yA1SCh
+         wlqFKr5GtN/MrYjOIx6wWrCHodXnD6Sed+VAOeKcAVhDp9lOxQCloFtrgaqkfJyJvTGJ
+         A/cg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=eZ0Lxb2oSXSnoG60NSPMJYpUqVL1MryjMfG8/fmYlk8=;
-        b=E/m/ra7sgjmAdvVz8hEJlXOLNN+z37lGXKn0qjkcbEJ3prYsZawIHdZCi7kiZxVgpk
-         I1cesJEeZFK/2oH5jShcPpKqPZ9g07uGLILtffwqb6jeFbSeFZPdB7M9OfobAwaEXecH
-         Ob8Mmc1N5rjo+mKZFfBXXQiiJvORogpp8XHd0R96getK1il25laJpUI1otA0fw+LvyfL
-         /Gzob2qGKdHHemHchmfXel2RpUZ04Q6bxHAImkhU2Obd56fu86hCyI0NDvTwd0Rclqd5
-         KPgrZv29e96lWMDY6dswFW5Uq2w4O2Ygfc3R4bIaxf71i2+FandW1RZYLq94jfhrO2xz
-         p3Vg==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=tGBYbcViP1a1uCIu0pWkWmnvqsKTvH9WMVN/0MKWeh0=;
+        b=lh0dxcImUjUJEgCayaXW9G4xtNMnwpuD7+Jx6C/SmfCLWcffRlg/xRE2KliPzKsODf
+         e1KltFw80gqFVZa+HxquUeMzuvSOKpP2Rf9dNioB9wQ8z21AEI/LCUMHe0KgHD0fmsLV
+         ZWuHkJx2k9y8BMI0/jHwwjQho5BtyRRrjsWr1ZTHXJ8isRlAR6OPlAMgFntQDeqtIGzZ
+         jSuv5x1owipxhlLjTOi6y2R07koQAndF8awF68tLvRqwvxzSvKvwUhMhAXhxqYYrkXj6
+         Q690JpGSqFe0XvFBttqMF8N+le8cJOPfir2az/jHvEtdQfSbNDochrIM1LrXPbgHjyVi
+         AfdA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V8oztfYx;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:mime-version
+         :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=eZ0Lxb2oSXSnoG60NSPMJYpUqVL1MryjMfG8/fmYlk8=;
-        b=tjGjvLAzlXTi3keDY/wxfTODestO6qgzl/ByrU8y3RplpazAhML7oZsrur2BD3/QQr
-         GBJpUSVasYNQhsObAGOigjKaqN4iaUAgsbIv3EPC2yhHc8xQxG6lZP7qGheQktmkpa5G
-         J+8MMuv1rzpqjX50cHVk8OvBVY+OjFxSVmJQAVoA9QNACv6ChNyDTHn2U5r2zNXlbEUN
-         uQ75TDpXkn6oPk4DQZLL4TuJEW3Et/RPeQ3Xrd6uXpbralh7mgLJCEPbrRtlekfukbeq
-         JfPk/mnGRY4IixPSbn5Q1kGGJKnzcZSIqMvns8lJoNeWzBXhA4zgZyA/vZoJ8WqZBvG2
-         DcQA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=eZ0Lxb2oSXSnoG60NSPMJYpUqVL1MryjMfG8/fmYlk8=;
-        b=JCeuCWikceamXKT6jF9sLZp6eoeMrokCkp+Ouxrbi6pHshWvmllSL/4DtJPD0HOJwt
-         lWNPTa4cJM49WS0qzYgqAlf31nvhhPj1C97Pd+s5VMEtSWC6gTZL410ClDGEceOcMngV
-         cEoJbqpZmq6nhv0VLNWKW76bajy9pOUEcXYmRJ8dCwmhFDW/OOmyoG34lN9KRJN9vN2Q
-         ZYo6ENRZ132m0NBAs1SUFUKIr2uiIaV0akmtzzvrxJEGyluEYFtrrx9U3rVMYXgzYaQz
-         GsLO1Nl1gh7rrt0bfsF39Bs0OSh96yQ5bRO3MMlmppPOeeACjehWh/7cP8/SPZlOFCgL
-         Xdqw==
+        bh=tGBYbcViP1a1uCIu0pWkWmnvqsKTvH9WMVN/0MKWeh0=;
+        b=cFGMVhZ7yldbji9JRQtqJlOQzhOydz1qfEMZtVbQL9uX8EBuEWsrTXRqgM4YbkxLJl
+         CcrIln6XoZN6wSx/+3ZPkV2beTUO4w+i1zfQsUIYpEmqVhvDHQaD0BLBYOZZD0/cDehJ
+         bNMUCyXGabcAVt5b3fNWIgC6VQJs5/pBYrj/Z9TJApKNyxyUpFEIFhiKFInOhpbOxB0X
+         pZVCAX+3S2JcqdWA8dTVGbG4zzDJJ4ExT8bfW7OsafeFRfOCwF4vND26d+CDT+03S105
+         3ZPp73svTQYCR/5GN7zDORkS+luNCkGo2kk/uSFF0xHrjlsffbzdDpNZVmbGcmHIEpFi
+         tsQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=eZ0Lxb2oSXSnoG60NSPMJYpUqVL1MryjMfG8/fmYlk8=;
-        b=XurdJulRSbKr1tuS4mWyLh6fUOrdMNE9/gnaaaXXIijohnPBi7C29ZaWgdc3NeoEx/
-         99U0nrpkh25DnU20YglqGtsFfET6iq/k+17Wg4gMTHnJ7Ic9f+bzPMdUv+3Bcaybfq7c
-         G/MA78j079Ga9sMRYCTszrny+JavR9ADBiPykmL0OCSP1zWx4yWdLIHVlZcNeoc1XYb8
-         P27W6c8DkviPjZEUZ1BDfUcOCubCYYa8EVoeYYvsARH8+xnShViTk9nNnyyLSZXSwppb
-         di3U1gIPEmavf8esjEVanJH6zqwZ2JZgNX7G15GK2a3OyZ7JRrdmx4eaHeslYJScSPtY
-         42PA==
+         :mime-version:content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=tGBYbcViP1a1uCIu0pWkWmnvqsKTvH9WMVN/0MKWeh0=;
+        b=QiWpldi5Njfy8S84su8Z64xcn5DCzsu2HG0NeU58NySc1NHBon8mnUyowKlUZsyYZp
+         jB2sFXNmm1ac7R58I2k3vlygYf63A6B1tswQeeT4yM4WiVynZa6YUnD8gZk3aK9mQKaO
+         ByttpQeLNS2YEmB3d6craQ0/yQIcXjaZMxQ8FFXc3o1Iyn815NuXgWeTBk5veHjwQEj/
+         E3Us6tw6zWvaHJT8QEoFIpdm/tGtaKjipOHA7IUv99YqHMl7gAYVudASHB99AiQafbjT
+         /9e+TqiIzGTWri2NFoyjUitGwGAeaSg22eep4whjzqm4K/waG4kDW8L3bVOAT15GM3yj
+         Qxtg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVkwbTmjAy+p6YcHOvC9VXIZ5L5I6h6w6Vmj5w919Z8QzQ4B/u8
-	vV1pencleeGzHX+jncLlYiw=
-X-Google-Smtp-Source: APXvYqwuy6XbnFq5ALsQlOBhsj0jB4aUJ31ynYRh4oAPQOvBbBDz/UP7v6pIKAycO5CNuviypnEA3w==
-X-Received: by 2002:a50:97ac:: with SMTP id e41mr44906045edb.27.1563519808731;
-        Fri, 19 Jul 2019 00:03:28 -0700 (PDT)
+X-Gm-Message-State: APjAAAVPFDn4N7tm4dAFBtMB0c2f2cSrCnJzilUVAtc8q1hTOEpTxgaO
+	eW7bOWashrumWLRzVr1MMSA=
+X-Google-Smtp-Source: APXvYqxYAlVwCdcj2IRyJhkoCEHsmH3GnKtM4LZxwuhvSFYG4lZ1sxdySFVr69/EUP40bU1oC51Ypw==
+X-Received: by 2002:a37:b0c6:: with SMTP id z189mr34084996qke.208.1563521213054;
+        Fri, 19 Jul 2019 00:26:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:aeee:: with SMTP id f43ls7237022edd.15.gmail; Fri, 19
- Jul 2019 00:03:28 -0700 (PDT)
-X-Received: by 2002:a50:aa14:: with SMTP id o20mr45064472edc.165.1563519808381;
-        Fri, 19 Jul 2019 00:03:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563519808; cv=none;
+Received: by 2002:a37:7743:: with SMTP id s64ls3939689qkc.15.gmail; Fri, 19
+ Jul 2019 00:26:52 -0700 (PDT)
+X-Received: by 2002:a05:620a:1447:: with SMTP id i7mr34612710qkl.254.1563521212817;
+        Fri, 19 Jul 2019 00:26:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563521212; cv=none;
         d=google.com; s=arc-20160816;
-        b=vaGt4pKwwD6XCcbzi5WpU+wrHMp/1VucFny0ujFo81H5jYgagPOHsAfcF6KUrV4k5Y
-         0u9yoyESA8W1iwgUcBFdkuswWHhQBKyNh2GN2FvXvEd7vgnW1HJuuwmVvptDmR6KfdAC
-         XOvGYmg6uBtiu+yL5zvcOKeAO4Vqqu86UasMUFlbSQxcUft81Ip4UB0cC77D3Da8aCPg
-         jTRnBcb0iVo6YnSWIJf1vsKMZzREs3bXOxcBMMM6zLy1pRsMOSwFUdgX5LPvf5ZAbQ4Y
-         6QdVAB2EGaGLseon/kMcXI4GYdKxm5sNUYtQ0Rq9jHWh80pyVB9DlCoCJDyaIZii8I15
-         LVYA==
+        b=rqvPCZLRJrpSxIQvjHGAHqXtOIvJ7gSax8Bwgfn5+ALRYpSyf4yodkwcAWfdCm7xzX
+         SfF29sZoI3N9BbdjER8DEDyKmHRMpVoAu7T2zyGOox2bF9hYE+8NhVBxU4qIWDc/vaoR
+         DmAI3DKTh2Neg2tCmhkvsjt3xOfxaJ/2QLt/IFpdma1fZAs43fs70vYfx2EkW7eQeqvg
+         er3t7br4s8PUutrVl9+6bWY0qLI5Ho35Uhrh+uZ8vdP9D/JU7iNQlJnoxhBQ0EcteHm1
+         dEulsbfeXE/eDz6EAbSdjP23sA673hf6N6l/5scpVHwLIJxcRBNsw78FMVFMA/kTwZNA
+         EDzA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=U80UZn01Ob0xepIcFiQIOV3+KsHca5AWbfBENdSAxxE=;
-        b=Kn0IzZ/kfe0HldUHsDdueOxsPEtqtxYWHY2I0BB4DtvThYUJqvLH/OaxDwC6wtcKEs
-         4cdQRT4lFcClaZbfl5U6BPcVDLn3mQ7ILsV9aYIKL5hXcDyZyJhDUTVOVG5bIOJ5G8X7
-         P2qKheB9e0BhoZU8+iJ3U8zth0iO4N3vd42CgflWpxG/o67Wuvp0k3OZD6j2uX2k2z7t
-         S9rkvItW8s8cXMp0jp31+bo3wCW0xSQ7sda6dKyimvWAeBVEZ5pneTk46R0ARh19EPLq
-         +YwDPrvF2Ftsq/ASS6H2xAO52F5VsHK1IcuzUVR9nGjmBYomZppo8WIYPisC/99s+LZW
-         AEdw==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date;
+        bh=d5e+5fnVdd6zxZ78s6/y4yratkWO29qtFXovqSuVSkg=;
+        b=ExzhvBJ1u1y7G8o4iBw1y3nUozJWUWPl367cZX9ICRpDuDh749RRPZiJbiS3ZAX7nn
+         R7xf859X7OOhgQzoIPvROGTwvdENRaPh98tQ/N5x9BOtwXh95tHQ1epBLI/K+9MBnS2s
+         18qSm4Y8kLLSNssSvvzyT2jYN4zjDlWd01vqP2EcjWtUIrgwpaNpOqjGlsv/dmKtfDcP
+         zEXEhSJVz3rv+ou75diyYP21+dAzBPWEPdRp8McKhBHQn/LSazahPAH0JnbtbVJMJFjK
+         i0tXu8UsvO3kuBQxK0lYqbEQ30pIUDYask5T7FWYR7jwxH/6jQ3loexv+M3DWaSYxq7g
+         MrUw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=V8oztfYx;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id jz14si1342985ejb.0.2019.07.19.00.03.28
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
+        by gmr-mx.google.com with ESMTPS id z145si1255951qka.3.2019.07.19.00.26.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Fri, 19 Jul 2019 00:03:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id n4so31169536wrs.3
-        for <clang-built-linux@googlegroups.com>; Fri, 19 Jul 2019 00:03:28 -0700 (PDT)
-X-Received: by 2002:a5d:53ca:: with SMTP id a10mr4012915wrw.131.1563519807754;
-        Fri, 19 Jul 2019 00:03:27 -0700 (PDT)
-Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id t6sm29535091wmb.29.2019.07.19.00.03.26
-        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Fri, 19 Jul 2019 00:03:27 -0700 (PDT)
-Date: Fri, 19 Jul 2019 00:03:25 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Josh Poimboeuf <jpoimboe@redhat.com>, x86@kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sami Tolvanen <samitolvanen@google.com>
-Subject: Re: x86 - clang / objtool status
-Message-ID: <20190719070325.GA29883@archlinux-threadripper>
-References: <alpine.DEB.2.21.1907182223560.1785@nanos.tec.linutronix.de>
- <20190718205839.GA40219@archlinux-threadripper>
- <alpine.DEB.2.21.1907190837350.1785@nanos.tec.linutronix.de>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 19 Jul 2019 00:26:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga001.jf.intel.com ([10.7.209.18])
+  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Jul 2019 00:26:50 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,281,1559545200"; 
+   d="gz'50?scan'50,208,50";a="252080713"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by orsmga001.jf.intel.com with ESMTP; 19 Jul 2019 00:26:49 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1hoNI0-000AeH-Un; Fri, 19 Jul 2019 15:26:48 +0800
+Date: Fri, 19 Jul 2019 15:26:48 +0800
+From: kbuild test robot <lkp@intel.com>
+To: kbuild@01.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com
+Subject: [linux-pb:lkml/utilclamp_v12 5/12] kernel/sched/sched_tp.c:77:22:
+ error: no member named 'cfs_rq' in 'struct sched_entity'
+Message-ID: <201907191546.RkiDZHmJ%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/mixed; boundary="auvv4nirqbkk3qya"
 Content-Disposition: inline
-In-Reply-To: <alpine.DEB.2.21.1907190837350.1785@nanos.tec.linutronix.de>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=V8oztfYx;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+X-Patchwork-Hint: ignore
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,57 +137,189 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jul 19, 2019 at 08:39:00AM +0200, Thomas Gleixner wrote:
-> On Thu, 18 Jul 2019, Nathan Chancellor wrote:
-> 
-> > Hi Thomas,
-> > 
-> > I can't comment on the objtool stuff as it is a bit outside of my area
-> > of expertise (probably going to be my next major learning project) but I
-> > can comment on the other errors.
-> > 
-> > On Thu, Jul 18, 2019 at 10:40:09PM +0200, Thomas Gleixner wrote:
-> > >  Build fails with:
-> > > 
-> > >   clang-10: error: unknown argument: '-mpreferred-stack-boundary=4'
-> > >   make[5]: *** [linux/scripts/Makefile.build:279: drivers/gpu/drm/amd/amdgpu/../display/dc/dcn20/dcn20_resource.o] Error 1
-> > 
-> > Arnd sent a patch for this which has been picked up:
-> > https://lore.kernel.org/lkml/CADnq5_Mm=Fj4AkFtuo+W_295q8r6DY3Sumo7gTG-McUYY=CeVg@mail.gmail.com/
-> 
-> Which I applied and now I get:
-> 
-> ERROR: "__fixdfsi" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__eqdf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__truncdfsf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__nedf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__floatsidf" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__divdf3" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__adddf3" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__ledf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__subdf3" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__muldf3" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__fixunsdfsi" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__floatunsidf" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__extendsfdf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__gedf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__ltdf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__gtdf2" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> ERROR: "__floatdidf" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
-> make[2]: *** [/home/tglx/work/kernel/linus/linux/scripts/Makefile.modpost:91: __modpost] Error 1
-> 
 
-Ah right, allmodconfig...
+--auvv4nirqbkk3qya
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-https://github.com/ClangBuiltLinux/linux/issues/327
+CC: kbuild-all@01.org
+TO: Qais Yousef <qais.yousef@arm.com>
+CC: Patrick Bellasi <patrick.bellasi@arm.com>
 
-https://github.com/samitolvanen/linux/commit/2fd53310b7d7e9234c4018c45aefe056a0784e2b
+tree:   git://linux-arm.org/linux-pb.git lkml/utilclamp_v12
+head:   21c6b9a7ee769de2dd305727e7fd1a72c27c9bb1
+commit: c1c1c88f3db60c64dbd5e4c87e92c2b73cdb577d [5/12] sched: add a module to convert tp into events
+config: x86_64-allnoconfig (attached as .config)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 6a6f28f7b72077708df4411acfefd7c0cfccc0fe)
+reproduce:
+        git checkout c1c1c88f3db60c64dbd5e4c87e92c2b73cdb577d
+        # save the attached .config to linux build tree
+        make ARCH=x86_64 
 
-This needs to find its way upstream again, I am not sure what's holding
-it back at this point (probably real world testing), maybe Sami or Nick
-will know.
+If you fix the issue, kindly add following tag
+Reported-by: kbuild test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+>> kernel/sched/sched_tp.c:77:22: error: no member named 'cfs_rq' in 'struct sched_entity'
+                   void *cfs_rq = se->cfs_rq;
+                                  ~~  ^
+>> kernel/sched/sched_tp.c:91:50: error: no member named 'avg' in 'struct sched_entity'
+                   trace_sched_pelt_se(cpu, path, comm, pid, &se->avg);
+                                                              ~~  ^
+   2 errors generated.
+
+vim +77 kernel/sched/sched_tp.c
+
+---
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190719070325.GA29883%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907191546.RkiDZHmJ%25lkp%40intel.com.
+
+--auvv4nirqbkk3qya
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+H4sICH1uMV0AAy5jb25maWcAlFxZc9vGk3/Pp0AlVVv2Q2xdlpX/lh6GwICYEJcxAx56QTEk
+JHMjkVqSSuxvv90DgBgAPbQ3pzXdc/d0//qAfvvlN4e9HXcvy+NmtXx+/u48ldtyvzyWa+dx
+81z+t+MlTpwoh3tCfQDmcLN9+/bx291tcXvjfPpw9eHCmZT7bfnsuLvt4+bpDfpudttffvsF
+/vkNGl9eYZj9f5zV83L75PxT7g9Adi4vPsDfzrunzfE/Hz/Cf182+/1u//H5+Z+X4nW/+59y
+dXRul7ePV3ePn//6fHXx+fPni7v1483N5eVy9Vg+rj+vLlaPq9Xq4rF8D1O5SeyLcTF23WLK
+MymS+P6iaYQ2IQs3ZPH4/vupEX888V5e4F9GB5fFRSjiidHBLQImCyajYpyopCWI7EsxSzKD
+dZSL0FMi4gWfKzYKeSGTTLV0FWSceYWI/QT+UygmsbM+sLE+/mfnUB7fXtt9jbJkwuMiiQsZ
+pcbUsVAFj6cFy8aw3Eio++srPPZ6yUmUCphdcamczcHZ7o44cMsQwDJ4NqDX1DBxWdic0K+/
+tt1MQsFylRCd9RkUkoUKuzbzsSkvJjyLeViMH4SxE5MyAsoVTQofIkZT5g+2HomNcNMSums6
+bdRcEHmAxrLO0ecP53sn58k3xPl63Gd5qIogkSpmEb//9d12ty3fG9ckF3IqUpcc280SKYuI
+R0m2KJhSzA1IvlzyUIyI+fVRsswNQABAN8BcIBNhI8bwJpzD21+H74dj+WI8Tx7zTLj6yaRZ
+MuLtDZgkGSSz7vvykoiJmGorAsEzXMeCHitiKhPzAtYGQquSjObKuOTZlCkU6CjxeHcmP8lc
+7tXPVphaRKYskxyZtNiU27Wze+ztvtU4iTuRSQ5jFTOm3MBLjJH0UZosHlPsDBmfvqnNWsqU
+hQI68yJkUhXuwg2JY9baadreWo+sx+NTHit5loiKiXkuTHSeLYKLYt6fOckXJbLIU1xyIz5q
+8wKGgpKg4KFIoVfiCdd8qHGCFOGFnJRiTaY1oBgHePv6QDLZ5amvc7CaZjFpxnmUKhg+5uZq
+mvZpEuaxYtmCnLrmMmmVzUzzj2p5+Ns5wrzOEtZwOC6PB2e5Wu3etsfN9qk9DiXcSQEdCua6
+CcxVCedpiqnIVI+Mx04uBwVdS0XLSy9bCvKUfmLZenuZmztyeLEw36IAmrl8+BEsKNw3ZZ1k
+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
+Ao9UzGgAAA==
+
+--auvv4nirqbkk3qya--
