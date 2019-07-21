@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBA6J2PUQKGQESS2DRCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBYG42PUQKGQEDYULYMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 26C3F6F657
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 00:17:40 +0200 (CEST)
-Received: by mail-vk1-xa39.google.com with SMTP id x71sf8383128vkd.15
-        for <lists+clang-built-linux@lfdr.de>; Sun, 21 Jul 2019 15:17:40 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563747459; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA6406F690
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 00:59:45 +0200 (CEST)
+Received: by mail-pg1-x537.google.com with SMTP id n3sf12604733pgh.12
+        for <lists+clang-built-linux@lfdr.de>; Sun, 21 Jul 2019 15:59:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563749984; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GTEIzoEDBCjHU+1DCHJG0aLnYUBomfTHwIyAsoB/EDcunKJEHk8ByuYeEhZNA6II7I
-         KZ8+B3Gzmj7RDnDkhaCHqfnKHTBf+zXQhhkCvfefLJwC1RckvkWCQbtzME7D9I2Mo/xC
-         frbsEb5dgbuBH+bUOt/3hlzceo1e5tXrl91EaiUAvExirj43/xy7pEG2604ue7F92Wem
-         aUlCqKXBZhboypOKvznNkxs9IGHFwXhIrlBz83JjXTjalG7o8U0qPDr/iE181mF83WH8
-         icvvPXDAXqn76CGpRifSxg5dWlLg96eqJvCLgATRcv3HJFPd7iZtnXRKDYn30dTtUyLb
-         O91Q==
+        b=C+B90Dt6bqOEmP9ii9l2vc7LYORBtziWm1mcZoZQtYmB2K4yJQS0LnjyOFVM3eSdyk
+         r7hoFVwUbeKn5axIBLRQkLzaYTZzz03byiZ7IB5HhKcZWZ6nNm51eDEChC+dU+AsNsOZ
+         khsFqBpMM8uMpNDZZX5av9GCpALmRjdA4LsXGKpUMQYAsYhHRYtGIWqeY8DvpjU+/5vz
+         ya+CcNteymA/sdBeW57cDleLaGEfcTCnFsx++Ly+ftYM4/qlexh5Q97fwaHI0Cc3tdaL
+         Bztk3lBX7JohTpgKegKBhN2jdGcU2ZtUnB0shlhrIoc4NNnZHEmInJ/JsR9V1Y7R/ag1
+         lCNg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=0GdA6w3gebtqkI99CfrsmOQt2VKcG8+UAMBIg6de7U8=;
-        b=oI4QRYDE9G8iJMdSz9LZclNGiY3jd2yJcNElSGCHHU47Jpuaj23FB2V+DRfwzaOaph
-         vmybZokjLeRNPKwoBOB8BpY5dyM3kNCTJMdD0vuguHmah1bi0rY70zmGZDPdsYn3Mz43
-         pzUbBj0I/W8wTkNpDOh+upUwWZe4lyCbcBH3dm9iiiL3e11csYGVP657jQyUpPJT9I+Y
-         3+/K9Fr0RjrY4wktlYrBABrmLb7G4fNnoESTMd1eiGywWNtN8tEJAVXmLfOkAH3SFuID
-         lUBzhDz4mOo3dNSUcsQZ5hcSlUIBpAI+OdNyukpzGCfNrp+fCmfwsDBiS4E9FIg66Anj
-         nf1w==
+        bh=7drx8lUtlh0gVDlk27mQr+NG4npFGCt1IBUyXTsYpfE=;
+        b=KxzGiB98UX6NDtjVolxXzbzJVXF6CWvxVE75sEk6DOxsJBPciqxZHwU+cirQjDU0rk
+         3YPMeC1mXpybDowSLhnh2cQDUtP6wpiaYr1bASrcaAtg/qyJxjjOk4Q8xCEhEQ+Ke9LL
+         codw46LEunU83W07hLFD2NtP6Z4haE320jLYkCd01g4QQDTafSidDMv9s11JanI86otj
+         9ljPaOVpsLQtlY8ydMXQHBODmCCNdapo8WNRa56RQwQeBiaF7VD/pIpj0xQ9Oi2br5BI
+         HGq4RlbKftlsqe4RJuQxW/3cj1KogPL5KDyU0ZZsR5EjhdkktC3BYjNpusUyv5BkrhfW
+         gcJA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0GdA6w3gebtqkI99CfrsmOQt2VKcG8+UAMBIg6de7U8=;
-        b=GgtH68GoYPRFS82ojhouwPBtBoKv6LuiMrgztFGQTngEqCsu8JJukeGCaYEpkf6XIH
-         WiE7Ah8GfDGGDcBoX9oyRh3pJNSmZVRNtykBIb8N8SE+Q3MZkAbV0VSVBgChipuwT9No
-         9CGEN+Aj9nirMSnmwn2BxNa5zK/w49twVV3LkEyr5W7itz8rcI6dAGTN+slp8SHlWXn0
-         CAqIJVppDbXD+PX9C+VF7VBuvm4bMHNBybpFtZR+u9fsE2vFX6izj3sarNVAtgYNmkmC
-         nzhL9u+P+wJrQdmC6Zq6j+s39ErQj0uH8qc5lskXQXc3xJd5GjGSvgkZpkkTK/SKhRnW
-         jMNw==
+        bh=7drx8lUtlh0gVDlk27mQr+NG4npFGCt1IBUyXTsYpfE=;
+        b=SwKICwntwgP6N4e4qlXk7mIZZu2jrdA0V4t7vB2vm1BiLFZbf198xzaDyK3PwjcC+Z
+         qEOcHPWfs2yfJDqesrluqv81xJkXo4dmZXhhZmnKwXx8+7Q6VvR3dSVIqUpKBVmigobO
+         H3UJE9p2TTvCx34wAov6AOtFjayi/pQbAsQCwldf7+Jt+KP/leUmo7aztOa7ZSmRJmKn
+         S5cGbgENYHu0DGXKB1FrsRwzZ63QTJzy7LLHx6/2MVtSfcDe27eDKRJoCBYV+hlx9J24
+         IATCNSv1JNEs/OG6ajLYcg7ulO+34fQz0LV2YZWG2+fIgw+HZoTmEHzojxbSrg9Yi82S
+         TO3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,74 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0GdA6w3gebtqkI99CfrsmOQt2VKcG8+UAMBIg6de7U8=;
-        b=U+w7RFmNNXOMmsdF2G8pYQialD2X04SG334XYDfpfLv9A7lb+JajD8DlUBKrPhRAEk
-         fS+BiPuMEGCaoo8Ldxz8Mtr5Ftm+vY5S7FY4s3Vgt+z5Q1lmm4FaR5b1BC+MaOQMtcI7
-         XAemj8Nj76tTCqH487n2ChxOFQwoGcTr9xyBkNkjPZx0gah5pJLP/xiEm+90IE0OiGxM
-         w4lUtRTR43/t/tkPLYtg55ASegJN+zxC9G7rQqQoC8C7IZYwz+/QlPDZ/Rdf+kBCGiLL
-         h2YVgOzrRyX94hLamaw9W874ETFaMKDL5PAJVoL8NFt5Ya+0U0b8zOIR0TTF13RSfFBQ
-         cAYA==
+        bh=7drx8lUtlh0gVDlk27mQr+NG4npFGCt1IBUyXTsYpfE=;
+        b=Xmr8v0etj2xkXoHxDfxAXi2S6BUXIrJ9JnPlX0OKtWJw0ZCKeO453XQpxVQlzgZrFv
+         OD0p7e0fv8HBNHr+7mMua3hModmNRfyRirEFj6Hpt3Zbp56ZTB6A2BW7dLwoKMOEuCyk
+         Mo8NgAJsIScuHv99usnI0ym7PhkWFXjIKMTRlY778CN1NiCkQsYX0T5QwTQWX1v0XDFT
+         BymqiEOJkfvAEVIQlzRlcVUu5CbQDxXTwbfz62qx/RlN+iTXbDRZcpjGo0G4q3vbK7fx
+         XAMlicjm0UXY+yyH0nk9GzfzW9UPTY5eQp0JVsEgan3eTjOeHLEGj67/BAniMnEytnku
+         JT0A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVRHSzRH5GrEBMbsMAQFq9t/myfRdKec7mZs1j2JS6hAuEDCKt9
-	KCOEY+v0EpwRnfJi857jBbc=
-X-Google-Smtp-Source: APXvYqx1ZzDCJtIhh1AIYPCR4s6nSjaISHNoK2EJUHsGk5BaN7Bq64jdnYrIfiK4caT3OzdOyRbl/A==
-X-Received: by 2002:ab0:1c2:: with SMTP id 60mr25516351ual.78.1563747459101;
-        Sun, 21 Jul 2019 15:17:39 -0700 (PDT)
+X-Gm-Message-State: APjAAAW56+NMepYwZZhsye6w+ng3akiz6tm+RAuqij7ASBh4w2Xham7Y
+	bx+zLbe9r9VlzYCYtiwrbbw=
+X-Google-Smtp-Source: APXvYqxzbjqYX8z8dp3Nh316gQRMUufBi6AbigHc+7ZW9LS19V3znhC8s7kHGsnfl+zBRFKPCYQFHg==
+X-Received: by 2002:a17:90a:f491:: with SMTP id bx17mr75269735pjb.118.1563749984323;
+        Sun, 21 Jul 2019 15:59:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:c886:: with SMTP id v6ls4500585vsk.1.gmail; Sun, 21 Jul
- 2019 15:17:38 -0700 (PDT)
-X-Received: by 2002:a67:7987:: with SMTP id u129mr41795101vsc.192.1563747458781;
-        Sun, 21 Jul 2019 15:17:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563747458; cv=none;
+Received: by 2002:a17:902:1021:: with SMTP id b30ls10082617pla.1.gmail; Sun,
+ 21 Jul 2019 15:59:44 -0700 (PDT)
+X-Received: by 2002:a17:90a:2767:: with SMTP id o94mr71120018pje.25.1563749983930;
+        Sun, 21 Jul 2019 15:59:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563749983; cv=none;
         d=google.com; s=arc-20160816;
-        b=ExOJ3BFHFZ/Y/Q6FQxFgzIkffSKQoJ15919lZVeu+wSd8Mv0EPqtcWT5+rcCyIMRzF
-         gCwF1vLGVUd8I6uz6NKEtqH1J/jzkDncZIappuKpXywicnjfqf+I6CY/vOtuR4Xb2OVc
-         //xRO6L9kpq1cjn6e1ZKHw+AK5dboONMiN4r/8Ts85t/lA9aEuYJzbnCSqO9dPVkIZ+Z
-         DwtNyY1y2mY8n4uTnvvKI+7iO591BhWA6XkLM4jZg8N/qBRt5o6bhiivEP3fhPbT0Mvy
-         c1xZv3CP8423iD+dfObFvV9IknC+46wkQTtJsMWKH2cv1jM2jHOFjt5Q/kYdcV6QTx7K
-         sgCQ==
+        b=CDhVaoBkJm/nyq7ntJWoJ9Udtyt3bSXVO/ysRKAFasciTRCgsTyC7QhFam8E6ZhCc6
+         HQeMYjhdRX5+N5PzRq5zEImQr1UbQY5E29U1gdk6YnNjZF/wncUqriEkzfpJA7INcVt9
+         tQPNIVatwJtw0Gx+8R4+lhO/XU35xBwTHfiIMRNlI4zmHW79hdchvsI3wknKTffHqare
+         e+ii4mzFCdEcHZllnNlOwJ19HNfBGpUj39EiWIyQz0QfT2Iq07rZL978/vcXj3lK+gU0
+         yf2ebIVmQEITwToE3ZiDsR1d+i4lVHc3e0rRGDHjrezZHWtZaxdWiNaGDu3FEVBI7gkW
+         geNQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=ASoJuMxjf58QskZYQ4RfOAtKYdK7ZBuPjoxduIDRiIw=;
-        b=AQOea4nkrywYjauSI6BQxU3/+zqJOjXSHo2HFOsNA+JkPh0wQq0GOBv1w7rkQM8616
-         Qnta+5OaURyAD1W2A3YX3s7svjma8A6dcY9Spb2IGv5DblxpE1wP5nnlhVTIm+yxyF0u
-         WbunhHxUPU2N9pa9d8QsXW/6TuL3/tjbbc8xcFWaeu/VjM3G4sDRC4vSEsFZIPS7H0+i
-         B2qAcPRHWOJfy+vGjsi5xnRJKVrPVxPl+xPREUd3XJLlUNxuCb77FR+mb87wtQrp12Un
-         SE0ylUdtMZd5J1Fuq2w/MYCt22RtOQQqjD7JKKFrqUKW692enrfHGlqil3o8/fc3AFB6
-         16iQ==
+        bh=muxcTxeLFv4MhADbfBb3G6imjA0l3ZIixG6aNqDgpgc=;
+        b=OW7pbFsjjDBfbvP8PtRc4FpydSOT8ZK7Rk0jeV7paTGPLMgqYVhp244lD6+YQWcLAr
+         CS8Hgi4hGKfkjczhVpJIlPgsIGcgmAZtE4CPmuPKTy4oLXQHTeIKXHAJ/WZoLb/6EO1Z
+         vegZtUMltlrJ5fJu0ysjhuzEQrTo9Ia8QSRks3Fswe7C1rijN8dku9JaQar4Lii5iPdt
+         FFc4MTbfwb1qVZsdMRw8ip/6GI7rrX4MhdbUyzR5gwXKkcdFKFYR9FU6XHGYDovtCm7X
+         bzEGiZmfm0hs9Jm4UYui+VUdORQjzW4hzS5z6ndUWaoR6wFAsnUo37RGtMugGbZ/8jRi
+         3G1w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id i9si2380419vsj.0.2019.07.21.15.17.37
+        by gmr-mx.google.com with ESMTPS id q2si810570pgq.3.2019.07.21.15.59.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 21 Jul 2019 15:17:38 -0700 (PDT)
+        Sun, 21 Jul 2019 15:59:43 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 21 Jul 2019 15:17:35 -0700
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 21 Jul 2019 15:59:43 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,292,1559545200"; 
-   d="gz'50?scan'50,208,50";a="367839460"
+   d="gz'50?scan'50,208,50";a="159712634"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 21 Jul 2019 15:17:34 -0700
+  by orsmga007.jf.intel.com with ESMTP; 21 Jul 2019 15:59:41 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hpK98-000HAk-Bz; Mon, 22 Jul 2019 06:17:34 +0800
-Date: Mon, 22 Jul 2019 06:16:54 +0800
+	id 1hpKns-0008sv-KO; Mon, 22 Jul 2019 06:59:40 +0800
+Date: Mon, 22 Jul 2019 06:59:22 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [brauner:pidfd_no_waitid 1/4] kernel/exit.c:1599:41: error: use of
- undeclared identifier 'info'
-Message-ID: <201907220646.w9R0d5BZ%lkp@intel.com>
+Subject: [brauner:pidfd_no_waitid 2/4] kernel/exit.c:1743:28: error:
+ incompatible pointer types passing 'struct rusage **' to parameter of type
+ 'const struct rusage *'; remove &
+Message-ID: <201907220617.SemPNbsG%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="27646rfi2lovmfwz"
+Content-Type: multipart/mixed; boundary="k66otesggaousw7b"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
@@ -138,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---27646rfi2lovmfwz
+--k66otesggaousw7b
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -147,13 +148,13 @@ TO: Christian Brauner <christian@brauner.io>
 
 tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/brauner/linux.git pidfd_no_waitid
 head:   a4bc5d777bc64625603ba8ddd03fcaa0a40f65ca
-commit: b75b692cd875fa2df4434d51d757379be82654e8 [1/4] signal: kill struct waitid_info
+commit: 90eafa3a122eef8aef5ff7fcf9e893baf5283bd1 [2/4] pidfd: add pidfd_wait()
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project ae4c30a4bed9813203280d876a552cc7ab5ffbeb)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout b75b692cd875fa2df4434d51d757379be82654e8
+        git checkout 90eafa3a122eef8aef5ff7fcf9e893baf5283bd1
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -162,167 +163,37 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> kernel/exit.c:1599:41: error: use of undeclared identifier 'info'
+   kernel/exit.c:1599:41: error: use of undeclared identifier 'info'
            long err = kernel_waitid(which, upid, &info, options, ru ? &r : NULL);
                                                   ^
    kernel/exit.c:1707:40: error: use of undeclared identifier 'info'
            long err = kernel_waitid(which, pid, &info, options, uru ? &ru : NULL);
                                                  ^
-   2 errors generated.
+>> kernel/exit.c:1743:28: error: incompatible pointer types passing 'struct rusage **' to parameter of type 'const struct rusage *'; remove & [-Werror,-Wincompatible-pointer-types]
+                   return put_compat_rusage(&r, (struct compat_rusage __user *)ru);
+                                            ^~
+   include/linux/compat.h:296:51: note: passing argument to parameter here
+   extern int put_compat_rusage(const struct rusage *,
+                                                     ^
+>> kernel/exit.c:1763:6: error: use of undeclared identifier 'flags'
+           if (flags & ~(WNOHANG | WUNTRACED | WCONTINUED | __WNOTHREAD |
+               ^
+>> kernel/exit.c:1777:2: error: indirection requires pointer operand ('struct wait_opts' invalid)
+           *wo = (struct wait_opts){
+           ^~~
+>> kernel/exit.c:1778:14: error: use of undeclared identifier 'type'; did you mean 'true'?
+                   .wo_type = type,
+                              ^~~~
+                              true
+   include/linux/stddef.h:12:2: note: 'true' declared here
+           true    = 1
+           ^
+>> kernel/exit.c:1780:15: error: use of undeclared identifier 'options'
+                   .wo_flags = options,
+                               ^
+   7 errors generated.
 
-vim +/info +1599 kernel/exit.c
-
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1593  
-ce72a16fa705f96 Al Viro           2017-05-14  1594  SYSCALL_DEFINE5(waitid, int, which, pid_t, upid, struct siginfo __user *,
-ce72a16fa705f96 Al Viro           2017-05-14  1595  		infop, int, options, struct rusage __user *, ru)
-ce72a16fa705f96 Al Viro           2017-05-14  1596  {
-ce72a16fa705f96 Al Viro           2017-05-14  1597  	struct rusage r;
-b75b692cd875fa2 Christian Brauner 2019-07-21  1598  	kernel_siginfo_t kinfo = { 0 };
-67d7ddded322db9 Al Viro           2017-05-14 @1599  	long err = kernel_waitid(which, upid, &info, options, ru ? &r : NULL);
-634a81609561f05 Al Viro           2017-07-08  1600  	int signo = 0;
-6c85501f2fabcfc Al Viro           2017-09-29  1601  
-634a81609561f05 Al Viro           2017-07-08  1602  	if (err > 0) {
-634a81609561f05 Al Viro           2017-07-08  1603  		signo = SIGCHLD;
-634a81609561f05 Al Viro           2017-07-08  1604  		err = 0;
-ce72a16fa705f96 Al Viro           2017-05-14  1605  		if (ru && copy_to_user(ru, &r, sizeof(struct rusage)))
-ce72a16fa705f96 Al Viro           2017-05-14  1606  			return -EFAULT;
-ce72a16fa705f96 Al Viro           2017-05-14  1607  	}
-67d7ddded322db9 Al Viro           2017-05-14  1608  
-b75b692cd875fa2 Christian Brauner 2019-07-21  1609  	if (infop && copy_siginfo_from_user(&kinfo, infop))
-1c9fec470b81ca5 Kees Cook         2017-10-20  1610  		return -EFAULT;
-96ca579a1ecc943 Kees Cook         2017-10-09  1611  
-ce72a16fa705f96 Al Viro           2017-05-14  1612  	return err ;
-ce72a16fa705f96 Al Viro           2017-05-14  1613  }
-ce72a16fa705f96 Al Viro           2017-05-14  1614  
-92ebce5ac55dba2 Al Viro           2017-05-14  1615  long kernel_wait4(pid_t upid, int __user *stat_addr, int options,
-92ebce5ac55dba2 Al Viro           2017-05-14  1616  		  struct rusage *ru)
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1617  {
-9e8ae01d1c86dca Oleg Nesterov     2009-06-17  1618  	struct wait_opts wo;
-161550d74c07303 Eric W. Biederman 2008-02-08  1619  	struct pid *pid = NULL;
-161550d74c07303 Eric W. Biederman 2008-02-08  1620  	enum pid_type type;
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1621  	long ret;
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1622  
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1623  	if (options & ~(WNOHANG|WUNTRACED|WCONTINUED|
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1624  			__WNOTHREAD|__WCLONE|__WALL))
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1625  		return -EINVAL;
-161550d74c07303 Eric W. Biederman 2008-02-08  1626  
-dd83c161fbcc5d8 zhongjiang        2017-07-10  1627  	/* -INT_MIN is not defined */
-dd83c161fbcc5d8 zhongjiang        2017-07-10  1628  	if (upid == INT_MIN)
-dd83c161fbcc5d8 zhongjiang        2017-07-10  1629  		return -ESRCH;
-dd83c161fbcc5d8 zhongjiang        2017-07-10  1630  
-161550d74c07303 Eric W. Biederman 2008-02-08  1631  	if (upid == -1)
-161550d74c07303 Eric W. Biederman 2008-02-08  1632  		type = PIDTYPE_MAX;
-161550d74c07303 Eric W. Biederman 2008-02-08  1633  	else if (upid < 0) {
-161550d74c07303 Eric W. Biederman 2008-02-08  1634  		type = PIDTYPE_PGID;
-161550d74c07303 Eric W. Biederman 2008-02-08  1635  		pid = find_get_pid(-upid);
-161550d74c07303 Eric W. Biederman 2008-02-08  1636  	} else if (upid == 0) {
-161550d74c07303 Eric W. Biederman 2008-02-08  1637  		type = PIDTYPE_PGID;
-2ae448efc87df6d Oleg Nesterov     2009-04-02  1638  		pid = get_task_pid(current, PIDTYPE_PGID);
-161550d74c07303 Eric W. Biederman 2008-02-08  1639  	} else /* upid > 0 */ {
-161550d74c07303 Eric W. Biederman 2008-02-08  1640  		type = PIDTYPE_PID;
-161550d74c07303 Eric W. Biederman 2008-02-08  1641  		pid = find_get_pid(upid);
-161550d74c07303 Eric W. Biederman 2008-02-08  1642  	}
-161550d74c07303 Eric W. Biederman 2008-02-08  1643  
-9e8ae01d1c86dca Oleg Nesterov     2009-06-17  1644  	wo.wo_type	= type;
-9e8ae01d1c86dca Oleg Nesterov     2009-06-17  1645  	wo.wo_pid	= pid;
-9e8ae01d1c86dca Oleg Nesterov     2009-06-17  1646  	wo.wo_flags	= options | WEXITED;
-9e8ae01d1c86dca Oleg Nesterov     2009-06-17  1647  	wo.wo_info	= NULL;
-359566faefa8505 Al Viro           2017-05-14  1648  	wo.wo_stat	= 0;
-9e8ae01d1c86dca Oleg Nesterov     2009-06-17  1649  	wo.wo_rusage	= ru;
-9e8ae01d1c86dca Oleg Nesterov     2009-06-17  1650  	ret = do_wait(&wo);
-161550d74c07303 Eric W. Biederman 2008-02-08  1651  	put_pid(pid);
-359566faefa8505 Al Viro           2017-05-14  1652  	if (ret > 0 && stat_addr && put_user(wo.wo_stat, stat_addr))
-359566faefa8505 Al Viro           2017-05-14  1653  		ret = -EFAULT;
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1654  
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1655  	return ret;
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1656  }
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1657  
-ce72a16fa705f96 Al Viro           2017-05-14  1658  SYSCALL_DEFINE4(wait4, pid_t, upid, int __user *, stat_addr,
-ce72a16fa705f96 Al Viro           2017-05-14  1659  		int, options, struct rusage __user *, ru)
-ce72a16fa705f96 Al Viro           2017-05-14  1660  {
-ce72a16fa705f96 Al Viro           2017-05-14  1661  	struct rusage r;
-ce72a16fa705f96 Al Viro           2017-05-14  1662  	long err = kernel_wait4(upid, stat_addr, options, ru ? &r : NULL);
-ce72a16fa705f96 Al Viro           2017-05-14  1663  
-ce72a16fa705f96 Al Viro           2017-05-14  1664  	if (err > 0) {
-ce72a16fa705f96 Al Viro           2017-05-14  1665  		if (ru && copy_to_user(ru, &r, sizeof(struct rusage)))
-ce72a16fa705f96 Al Viro           2017-05-14  1666  			return -EFAULT;
-ce72a16fa705f96 Al Viro           2017-05-14  1667  	}
-ce72a16fa705f96 Al Viro           2017-05-14  1668  	return err;
-ce72a16fa705f96 Al Viro           2017-05-14  1669  }
-ce72a16fa705f96 Al Viro           2017-05-14  1670  
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1671  #ifdef __ARCH_WANT_SYS_WAITPID
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1672  
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1673  /*
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1674   * sys_waitpid() remains for compatibility. waitpid() should be
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1675   * implemented by calling sys_wait4() from libc.a.
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1676   */
-17da2bd90abf428 Heiko Carstens    2009-01-14  1677  SYSCALL_DEFINE3(waitpid, pid_t, pid, int __user *, stat_addr, int, options)
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1678  {
-d300b610812f3c1 Dominik Brodowski 2018-03-11  1679  	return kernel_wait4(pid, stat_addr, options, NULL);
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1680  }
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1681  
-^1da177e4c3f415 Linus Torvalds    2005-04-16  1682  #endif
-7e95a225901a5d2 Al Viro           2017-05-14  1683  
-7e95a225901a5d2 Al Viro           2017-05-14  1684  #ifdef CONFIG_COMPAT
-7e95a225901a5d2 Al Viro           2017-05-14  1685  COMPAT_SYSCALL_DEFINE4(wait4,
-7e95a225901a5d2 Al Viro           2017-05-14  1686  	compat_pid_t, pid,
-7e95a225901a5d2 Al Viro           2017-05-14  1687  	compat_uint_t __user *, stat_addr,
-7e95a225901a5d2 Al Viro           2017-05-14  1688  	int, options,
-7e95a225901a5d2 Al Viro           2017-05-14  1689  	struct compat_rusage __user *, ru)
-7e95a225901a5d2 Al Viro           2017-05-14  1690  {
-7e95a225901a5d2 Al Viro           2017-05-14  1691  	struct rusage r;
-ce72a16fa705f96 Al Viro           2017-05-14  1692  	long err = kernel_wait4(pid, stat_addr, options, ru ? &r : NULL);
-ce72a16fa705f96 Al Viro           2017-05-14  1693  	if (err > 0) {
-ce72a16fa705f96 Al Viro           2017-05-14  1694  		if (ru && put_compat_rusage(&r, ru))
-7e95a225901a5d2 Al Viro           2017-05-14  1695  			return -EFAULT;
-7e95a225901a5d2 Al Viro           2017-05-14  1696  	}
-ce72a16fa705f96 Al Viro           2017-05-14  1697  	return err;
-7e95a225901a5d2 Al Viro           2017-05-14  1698  }
-7e95a225901a5d2 Al Viro           2017-05-14  1699  
-7e95a225901a5d2 Al Viro           2017-05-14  1700  COMPAT_SYSCALL_DEFINE5(waitid,
-7e95a225901a5d2 Al Viro           2017-05-14  1701  		int, which, compat_pid_t, pid,
-7e95a225901a5d2 Al Viro           2017-05-14  1702  		struct compat_siginfo __user *, infop, int, options,
-7e95a225901a5d2 Al Viro           2017-05-14  1703  		struct compat_rusage __user *, uru)
-7e95a225901a5d2 Al Viro           2017-05-14  1704  {
-7e95a225901a5d2 Al Viro           2017-05-14  1705  	struct rusage ru;
-b75b692cd875fa2 Christian Brauner 2019-07-21  1706  	kernel_siginfo_t kinfo = { 0 };
-67d7ddded322db9 Al Viro           2017-05-14  1707  	long err = kernel_waitid(which, pid, &info, options, uru ? &ru : NULL);
-634a81609561f05 Al Viro           2017-07-08  1708  	int signo = 0;
-634a81609561f05 Al Viro           2017-07-08  1709  	if (err > 0) {
-634a81609561f05 Al Viro           2017-07-08  1710  		signo = SIGCHLD;
-634a81609561f05 Al Viro           2017-07-08  1711  		err = 0;
-6c85501f2fabcfc Al Viro           2017-09-29  1712  		if (uru) {
-67d7ddded322db9 Al Viro           2017-05-14  1713  			/* kernel_waitid() overwrites everything in ru */
-7e95a225901a5d2 Al Viro           2017-05-14  1714  			if (COMPAT_USE_64BIT_TIME)
-67d7ddded322db9 Al Viro           2017-05-14  1715  				err = copy_to_user(uru, &ru, sizeof(ru));
-7e95a225901a5d2 Al Viro           2017-05-14  1716  			else
-67d7ddded322db9 Al Viro           2017-05-14  1717  				err = put_compat_rusage(&ru, uru);
-67d7ddded322db9 Al Viro           2017-05-14  1718  			if (err)
-7e95a225901a5d2 Al Viro           2017-05-14  1719  				return -EFAULT;
-7e95a225901a5d2 Al Viro           2017-05-14  1720  		}
-6c85501f2fabcfc Al Viro           2017-09-29  1721  	}
-7e95a225901a5d2 Al Viro           2017-05-14  1722  
-b75b692cd875fa2 Christian Brauner 2019-07-21  1723  	if (infop && copy_siginfo_from_user32(&kinfo, infop))
-1c9fec470b81ca5 Kees Cook         2017-10-20  1724  		return -EFAULT;
-96ca579a1ecc943 Kees Cook         2017-10-09  1725  
-67d7ddded322db9 Al Viro           2017-05-14  1726  	return err;
-7e95a225901a5d2 Al Viro           2017-05-14  1727  }
-7e95a225901a5d2 Al Viro           2017-05-14  1728  #endif
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1729  
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1730  __weak void abort(void)
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1731  {
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1732  	BUG();
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1733  
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1734  	/* if that doesn't kill us, halt */
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1735  	panic("Oops failed to kill thread");
-7c2c11b208be09c Sudip Mukherjee   2017-12-14  1736  }
-dc8635b78cd8669 Andrew Morton     2018-01-04  1737  EXPORT_SYMBOL(abort);
-
-:::::: The code at line 1599 was first introduced by commit
-:::::: 67d7ddded322db99f451a7959d56ed6c70a6c4aa waitid(2): leave copyout of siginfo to syscall itself
-
-:::::: TO: Al Viro <viro@zeniv.linux.org.uk>
-:::::: CC: Al Viro <viro@zeniv.linux.org.uk>
+vim +1743 kernel/exit.c
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -331,14 +202,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907220646.w9R0d5BZ%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907220617.SemPNbsG%25lkp%40intel.com.
 
---27646rfi2lovmfwz
+--k66otesggaousw7b
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICEnhNF0AAy5jb25maWcAnDzJduO2svt8hU6ySRa3W5OH3He8AElQQsTJACjZ3vCobbnj
+H4sICI3qNF0AAy5jb25maWcAnDzJduO2svt8hU6ySRa3W5OH3He8AElQQsTJACjZ3vCobbnj
 Fw99ZbmT/vtbBXAAQFD2exlbVYWpUKgJBf7y0y8j8nZ4edoeHm63j48/Rl93z7v99rC7G90/
 PO7+ZxTloyyXIxox+QmIk4fnt38+b/dPp/PRyafpp/Fotds/7x5H4cvz/cPXN2j68PL80y8/
 wT+/APDpG/Sy//fo9nH7/HX0fbd/BfRoMv4Ef49+/fpw+Pfnz/Dfp4f9/mX/+fHx+1P1bf/y
@@ -1182,4 +1053,4 @@ kJsOIhW/BxnSHSrBRg4fuJebzAo34++YT9yvyRHEFocYXEpKyzEmqOd2vmuOoHuOKAR3HlZk
 zO6FoWO43k9jmE+j7/0ZML+kaysQc02HMoy1fuhjAQU6R6TdwSAoMr9/yMOxMYkEQNxB5rkS
 MQtu7xdq2jpHsujIS+yZAuuwgrIaG48p/Nqz12ByQs3/AvlFC/nZEgMA
 
---27646rfi2lovmfwz--
+--k66otesggaousw7b--
