@@ -1,133 +1,130 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBUGT27UQKGQEBXDT3NQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBEHB27UQKGQE4TRDEEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3B9AA705C0
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 18:52:34 +0200 (CEST)
-Received: by mail-qt1-x838.google.com with SMTP id q26sf36185128qtr.3
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 09:52:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563814353; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC2B5706A4
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 19:21:21 +0200 (CEST)
+Received: by mail-io1-xd39.google.com with SMTP id z19sf44228149ioi.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 10:21:21 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563816080; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tV41E/47VNf0R2RjmR704mPUuCGsEukElZGcIwonR9iA7ROQf2kMVZCh32H/hzlskF
-         heGkbl9vwPp4QeiIx9kfgEFLVIsmjgV+kYIKpKjjdmQGHLQMQ5gFgRXrISdCCmaIe8I3
-         Fg5KHtRx2rzxf4W9ubRgRU6cQ6khfRD0eJdPvMMReS1WFBa2UTZPAoULVS9TpvOot9qo
-         R0l5nrFlgy/SBtitubStFyfMZsaF2jCC9pc6f/T6xLb4gv41jPL7IZ06fn9ZrTST/mZG
-         xeyVcA8tw28k4LstJGOXlJY7qUwDxgIRjGy2sPug8ilbAYCxJVS0fLZZo2FRI6feaCrZ
-         9XxQ==
+        b=rR4YI2cE5K2NDRP1mxSeesoVHkCIJF6xZ+uHV6kRazTN5TnWqXlz98Am/kq4mX0jSI
+         bJpom7rITg4scin3TGi4v+He2yeX6MwjsTxbQDVEm4nPNIUSplTeAKk2zzaliWPXKrKS
+         3sGiXqdyR3grF6v7bR9gRWUFs6jLFIRn6l0s/lgxXH+HqdHijygVl4uqkTAWqdon0Kja
+         +9b9++s8XB7/nu4r2Hvotqgs+iyMSyCdZZzaHNBUO5xKxqfEUyp8R1H6pv2kaGUF1iTk
+         4nnRzvs7kPo9Oj8uprvABBtwBw9YA6TjPWqzAHLeJnKosYvA7nySGkfc01+cCLUjlYMK
+         zBZQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=1Sv0zPTUR9Ff2hN9h6gi0Dgf1nqzPWxcgZUqnqdRlNc=;
-        b=yI8HH6BW1aq+WJHcjXJkuMlQaT3skwsZsxqN6UNfZDEjRo1TwdE+fLTCuuzVqgAPjQ
-         xsAeUw8CdopJKEBwsfJDdiRvo7SawS+KAL1qv1AQiB1tzrw7SMg4N6W4qEVYmDkqftAy
-         epZbNEl+qx9rxWBERo5TR3iW5xrHrzNG3rHt4IYdkkxYGooFkyFPGKEqBqZWgtEyNzRF
-         gsw3rSN0cHLgJjbHwdbIPDJHybk/MulHWDVexrnjYfEaPYA0NZISJxCQbl8LRvC++RvP
-         oXV9Hk/37KVxgCs1ovy+qhQ9++pLSmnvfEzHmyzfH1zu1aO3w75OpYi4027epkvdk4vb
-         EXcg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=uPVSjrUyt3LTWhXeNr/r/buv+iyUYotmp1v4NWo5L50=;
+        b=voxTqOIFSj5bF7hZuojys/KR8nvQULkxcrRRx33pXznDS34wNtz98MnVor7rJ1/IEU
+         2vHpZb9tH2HYrEYpjWKpWKkEF2t3lPSDjhILbJrTf83VyNYlKl2bTS6fhJiH8p7TpkMo
+         fynCtn/CoLlTRwIUgPM47/5TNgKKgmrMFQpCQx/dF2KC0df+0WYeh003KfjhI68GK/6M
+         CnBwmxg0l5cBt41poI9ygDhL/qsaZZdwe84Y7ESoewzz03ZJt4HtxtiDvAYfg99Uoem8
+         H0tviwZx/bJOS8i5IL8shsVJrNn3GIUWAQBeepdXKzTIVNqRil+Pqi//B1UQB1NwhSIA
+         unUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=lMVKoC32;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=FaSizBSw;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1Sv0zPTUR9Ff2hN9h6gi0Dgf1nqzPWxcgZUqnqdRlNc=;
-        b=DQHLAmCrF1EwcW9W+a4i2tMZ7iOyPV16xl9TcABns2mE2uLtA/+x/bXOLZ6qa3m3hZ
-         wlzPQLBPTKqHBRbT83CZ49DVADAsTfF+QJjtIg5UwQC5SYQbSQ3nHTFhiBTlUJ3+dQk9
-         TQH+VJ1tiJAPqD0Nfif6NngqOXH9vGdYiwUQKSOifucp5gFMBzXOd59ZC4X2nIw7Owf4
-         oCK60MY2XmfIREAvxvfJAYFz6kjByzKQtpRugZYbRqYNPJ+WXJXaG7MjR56I7pnw/mRU
-         dBHu4GkkScFOnACF59O+SoPnkGlQ+IZR5zaE0uXXmp8VHfWF5gKQI/GR/4woKwS6hZT2
-         ytlQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uPVSjrUyt3LTWhXeNr/r/buv+iyUYotmp1v4NWo5L50=;
+        b=G2ovwXE6XNTjN3fzgVSuEemebqwE8cSDqKHn9kCsHe+9fSMAwBRKAe8UsD8aOf+mkv
+         24goUJjudi1/UFR/nuTkmcsUFUl/fI7KAaZMDq0/9zSsjwkt2unLYGlGkkru9x7xCDir
+         IiLXDinQsXw65/pOndnXqy8Ki4s5K3cOaXQBJ7bPFvHdRNSwZhKMsHDc+qUSv+8jk290
+         Ek0bLJ3cKNi2dDpix8N5VS+iO3sJHRGRV/tKbVIRN6Ga3BN1p9c2sRoqbO1tf1SN4PGj
+         rA2uKBzkXObEkSh27kDJwSUHA9XLhN4jheRCAJqKoOCOOigRcLz1wlZ347ng1He1bUVZ
+         vQ/g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=1Sv0zPTUR9Ff2hN9h6gi0Dgf1nqzPWxcgZUqnqdRlNc=;
-        b=hpwrHpXpBBQsv+r/ZZCD6AicaBWb/Q2IZ/JgGMDouBtQYgE78BwYxwsve8iMPYZXDL
-         PkcP3hbVm9G7jfco0t0xKkkRBB2hBSuVAPE6Rii4J6to05T4qrxX5gkznpjyA60Mf+AD
-         TAggWjrkWwu+jKZQYxDYasZcIX5ZEk86EqZYAJ20k2ZZA90RyKiGSG2tGte+TXNW109A
-         +A3mWDD5Q9o0K7PMo+HkvAbSK4m6LETcPouzsIUf30HCks1Ct79oZ7i02F+mNyWNDZq9
-         XLDdZlfjDeXHL11dJMqKGO5s7oYhCAx4IqcGptDFcHWsiptdeHDt1+GhfFNlI3T+vIZE
-         JDBw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU/MNVszL7CxuD8vIzudDIkgK2fJErijXDedPZ5P4jdouaJggCD
-	7QVtgyRL8Wm001T8biUwiq8=
-X-Google-Smtp-Source: APXvYqzzoa8+vnRWNHJjwrhuMzlMdSxVu0g2kAvnTldEQ8VxJhZs2PpKA8Awl9RYJTqL0UBo6MEZtw==
-X-Received: by 2002:ae9:f702:: with SMTP id s2mr22605335qkg.28.1563814353098;
-        Mon, 22 Jul 2019 09:52:33 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uPVSjrUyt3LTWhXeNr/r/buv+iyUYotmp1v4NWo5L50=;
+        b=DSbe5fczNddBkpsKY/hHfPhPqTURuEDB1LcOpERKf0sg1mct1ycZpYaFv2F0MWyDRA
+         NfwoYCioMMQxvjtcm5MGUPWbb+aXg/8DXcOhLcI3/y/CCodpOHwqtoUCEApZucBkO/pD
+         8N/QyWpJlITmbSYOEkdOFlYl8N1EXInF69HQnI435MuHez880jya94DlDIjoH7ndywsb
+         af751hHmf4xgQyX4mPYa0jEOXp2VHiaeNtV0Im2I7l55l5PWyKWSaguAX443S3zaybYP
+         SC2ZCDGVys1rSvQ7Dv3oI9xHktau/AsRswjAiV/rLOT4hxvNcNv8QyELbT/QfuipPRks
+         y/8w==
+X-Gm-Message-State: APjAAAUyo5OFDp7/TVOhpXM8MXbWMQGljDbww2kxlI+xKA1/BHcfPlD5
+	iXux+iXbQ67r6BAN3tjLQBU=
+X-Google-Smtp-Source: APXvYqyDT9oYpArQ5tbkjECtQJ6n6tv4McZblV1DABK7oyDvf49lvyC/ULub8UToKwSt6Ddo8PFNPg==
+X-Received: by 2002:a02:13c3:: with SMTP id 186mr72694783jaz.30.1563816080545;
+        Mon, 22 Jul 2019 10:21:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:3d2:: with SMTP id 201ls6757833qkd.7.gmail; Mon, 22 Jul
- 2019 09:52:32 -0700 (PDT)
-X-Received: by 2002:a37:9506:: with SMTP id x6mr48447322qkd.107.1563814352779;
-        Mon, 22 Jul 2019 09:52:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563814352; cv=none;
+Received: by 2002:a6b:6303:: with SMTP id p3ls10353057iog.11.gmail; Mon, 22
+ Jul 2019 10:21:20 -0700 (PDT)
+X-Received: by 2002:a6b:ea0f:: with SMTP id m15mr68913505ioc.300.1563816080289;
+        Mon, 22 Jul 2019 10:21:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563816080; cv=none;
         d=google.com; s=arc-20160816;
-        b=RUVpu+uNrGFxYFqiyBo+XJp4zSCQWhAQI18JCy6BUjqylaAwdIHyIHmyL0HiIq3209
-         nsqeDCcaB57wp/vtMgLGUxA+9WMpKpz9PFggk93riage+oteS/Ep9jcz1s/khiB/7mta
-         G4dyQyq2+RtjJ0UJmiS2yJOiNMurLdZJHDMNgOEY/vMp0r+N5TNhvbKqpCpceY+48Wyo
-         7BdlaUYlukxwJaENzViN56Yk2iG2VV9UGNU69iNyIYXN0rwSVIKGPaffTYZklpppzdlg
-         ijijQOVgOnTkVxf3MnpXWiDHfhtX/9dAH4E5Ctp453/S6An1uSPNKI/lxhbqTOcWYjO0
-         oPZQ==
+        b=KIrQRV3llrOReyOXoW2TgM2wDThFl4Omb8lJxUKdqocx2hRyCE/TFLDeocjVU2bUZF
+         Erle0Plj2UhdRTzfWcK2uzOvX7QRpcBYeMR/oNErStOuGuD8mW4Y8M5lAvLtLXtaco8d
+         b1FAyvUxa/QACjUv1e87KbnAyDGkhcArY4EhBtv7obrVEXR4TRmmSifyzcrPZgZ/niMO
+         /0+tp3gFfoa45L0+Fct/TBPxYaE6JIsEH4Zacffz7fgVSRXwPwCu5uGIFXhcmdpU70Rw
+         G6MVaR9xUhUzZ7Ozl+Bj7psBJabdpj0gM55tM/FthBqq32Xje+CTSM5sNWMBtfsocgEM
+         63cg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=D5i5eeVRTyq7Qm2OPmoZkgOgQ/VLsd39M3tEbxvABCE=;
-        b=ynH3D+wyVVu+9BycNVhv2WH/pEea/1dtLpjafgF37GlTRUbC2KpP04lKFBB4eznRf8
-         V+LkBssD8r5rZXWrYyIiYlBBrgMRtgpJ9fm7w2KDqiWCYRDihCAYo+RCI/SDwnKyJeh/
-         2X+B20MJ7UcHoFelZ+h9VH9f3KjIZGnX2AESwD0AmkSfDzP/5jgzvEGRCF2+VE86BU63
-         S9WxnND/vrOWlEAleC+I7I4oF1+Vc0XRqkNDCzd5VP2NeOFxF18pLGphUkKCXAoufmfg
-         L8p47wJePrFtF2G263Vn5EXrIAV095ibYdOYm0Lt1UB3/JKpF6tYY0Jaegf6TB93g+hh
-         OFpg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=QHj3tGcPiL8tws64cl/tkaZMAUCPhqkGn8EZKKJS20U=;
+        b=fr3bgtNhYsev/vuLH1nJ2xHI9EZ/KCOaONC2bzNq6LtMSieM2J61A3GlddmScBxVRQ
+         BsXqW3s+6e6nBxJDfck8CG70Wbtj3FKabwC8IZuGCELBH6blL2wefZk+9DNdFhLsHe3O
+         5PhXTD8i1bgMbftUHP0vJrPvk6VZ8iQUpdg9zf+8AHY2N+Q7ebigm34uvc8M8867aGOj
+         4XP3NF5f16iaWhqnxfDaPYVH8y8FX5It/6baoXzzYGbdMBZmyPW3uY/Vw822qZb7sULF
+         3SaZYBDiwJDNNJOJqNDm6vAgvq77GGrv5HvBxJDWll1dBpIynjrS8pVwMRZh5qKfR+4M
+         j2EQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=lMVKoC32;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id c188si1766757qkb.2.2019.07.22.09.52.32
+       dkim=pass header.i=@google.com header.s=20161025 header.b=FaSizBSw;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id t12si1478040iol.0.2019.07.22.10.21.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Jul 2019 09:52:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id n9so11716982pgc.1
-        for <clang-built-linux@googlegroups.com>; Mon, 22 Jul 2019 09:52:32 -0700 (PDT)
-X-Received: by 2002:a63:7b4d:: with SMTP id k13mr70901703pgn.182.1563814351931;
-        Mon, 22 Jul 2019 09:52:31 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id d8sm36678029pgh.45.2019.07.22.09.52.30
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 22 Jul 2019 09:52:31 -0700 (PDT)
-Date: Mon, 22 Jul 2019 09:52:30 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Philipp Reisner <philipp.reisner@linbit.com>,
-	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Roland Kammerer <roland.kammerer@linbit.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Eric Biggers <ebiggers@google.com>, drbd-dev@lists.linbit.com,
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] [v2] drbd: dynamically allocate shash descriptor
-Message-ID: <201907220952.EA05EEE9FC@keescook>
-References: <20190722122647.351002-1-arnd@arndb.de>
+        Mon, 22 Jul 2019 10:21:20 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
+Received: by mail-pf1-x443.google.com with SMTP id t16so17670433pfe.11
+        for <clang-built-linux@googlegroups.com>; Mon, 22 Jul 2019 10:21:20 -0700 (PDT)
+X-Received: by 2002:a63:2cd1:: with SMTP id s200mr68567574pgs.10.1563816079099;
+ Mon, 22 Jul 2019 10:21:19 -0700 (PDT)
 MIME-Version: 1.0
+References: <45hnfp6SlLz9sP0@ozlabs.org> <20190708191416.GA21442@archlinux-threadripper>
+ <a5864549-40c3-badd-8c41-d5b7bf3c4f3c@c-s.fr> <20190709064952.GA40851@archlinux-threadripper>
+ <20190719032456.GA14108@archlinux-threadripper> <20190719152303.GA20882@gate.crashing.org>
+ <20190719160455.GA12420@archlinux-threadripper> <20190721075846.GA97701@archlinux-threadripper>
+ <20190721180150.GN20882@gate.crashing.org> <20190722024140.GA55142@archlinux-threadripper>
+ <20190722061940.GZ20882@gate.crashing.org>
+In-Reply-To: <20190722061940.GZ20882@gate.crashing.org>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 22 Jul 2019 10:21:07 -0700
+Message-ID: <CAKwvOd=KRVsFkT8dLFoitky9OF8tKmbn00-OPi6kBygyx4QwHg@mail.gmail.com>
+Subject: Re: [PATCH v2] powerpc: slightly improve cache helpers
+To: Segher Boessenkool <segher@kernel.crashing.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Christophe Leroy <christophe.leroy@c-s.fr>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20190722122647.351002-1-arnd@arndb.de>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=lMVKoC32;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20161025 header.b=FaSizBSw;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,79 +137,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jul 22, 2019 at 02:26:34PM +0200, Arnd Bergmann wrote:
-> Building with clang and KASAN, we get a warning about an overly large
-> stack frame on 32-bit architectures:
-> 
-> drivers/block/drbd/drbd_receiver.c:921:31: error: stack frame size of 1280 bytes in function 'conn_connect'
->       [-Werror,-Wframe-larger-than=]
-> 
-> We already allocate other data dynamically in this function, so
-> just do the same for the shash descriptor, which makes up most of
-> this memory.
-> 
-> Link: https://lore.kernel.org/lkml/20190617132440.2721536-1-arnd@arndb.de/
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On Sun, Jul 21, 2019 at 11:19 PM Segher Boessenkool
+<segher@kernel.crashing.org> wrote:
+>
+> On Sun, Jul 21, 2019 at 07:41:40PM -0700, Nathan Chancellor wrote:
+> > Hi Segher,
+> >
+> > On Sun, Jul 21, 2019 at 01:01:50PM -0500, Segher Boessenkool wrote:
+> > > On Sun, Jul 21, 2019 at 12:58:46AM -0700, Nathan Chancellor wrote:
+> > > > 0000017c clear_user_page:
+> > > >      17c: 94 21 ff f0                     stwu 1, -16(1)
+> > > >      180: 38 80 00 80                     li 4, 128
+> > > >      184: 38 63 ff e0                     addi 3, 3, -32
+> > > >      188: 7c 89 03 a6                     mtctr 4
+> > > >      18c: 38 81 00 0f                     addi 4, 1, 15
+> > > >      190: 8c c3 00 20                     lbzu 6, 32(3)
+> > > >      194: 98 c1 00 0f                     stb 6, 15(1)
+> > > >      198: 7c 00 27 ec                     dcbz 0, 4
+> > > >      19c: 42 00 ff f4                     bdnz .+65524
+> > >
+> > > Uh, yeah, well, I have no idea what clang tried here, but that won't
+> > > work.  It's copying a byte from each target cache line to the stack,
+> > > and then does clears the cache line containing that byte on the stack.
+> > >
+> > > I *guess* this is about "Z" and not about "%y", but you'll have to ask
+> > > the clang people.
+> > >
+> > > Or it may be that they do not treat inline asm operands as lvalues
+> > > properly?  That rings some bells.  Yeah that looks like it.
+>
+> The code is
+>   __asm__ __volatile__ ("dcbz %y0" : : "Z"(*(u8 *)addr) : "memory");
+>
+> so yeah it looks like clang took that  *(u8 *)addr  as rvalue, and
+> stored that in stack, and then used *that* as memory.
 
-Reviewed-by: Kees Cook <keescook@chromium.org>
+What's the %y modifier supposed to mean here?  addr is in the list of
+inputs, so what's wrong with using it as an rvalue?
 
--Kees
-
-> ---
-> v2:
-> - don't try to zero a NULL descriptor pointer,
->   based on review from Roland Kammerer.
-> ---
->  drivers/block/drbd/drbd_receiver.c | 14 ++++++++++++--
->  1 file changed, 12 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/block/drbd/drbd_receiver.c b/drivers/block/drbd/drbd_receiver.c
-> index 90ebfcae0ce6..2b3103c30857 100644
-> --- a/drivers/block/drbd/drbd_receiver.c
-> +++ b/drivers/block/drbd/drbd_receiver.c
-> @@ -5417,7 +5417,7 @@ static int drbd_do_auth(struct drbd_connection *connection)
->  	unsigned int key_len;
->  	char secret[SHARED_SECRET_MAX]; /* 64 byte */
->  	unsigned int resp_size;
-> -	SHASH_DESC_ON_STACK(desc, connection->cram_hmac_tfm);
-> +	struct shash_desc *desc;
->  	struct packet_info pi;
->  	struct net_conf *nc;
->  	int err, rv;
-> @@ -5430,6 +5430,13 @@ static int drbd_do_auth(struct drbd_connection *connection)
->  	memcpy(secret, nc->shared_secret, key_len);
->  	rcu_read_unlock();
->  
-> +	desc = kmalloc(sizeof(struct shash_desc) +
-> +		       crypto_shash_descsize(connection->cram_hmac_tfm),
-> +		       GFP_KERNEL);
-> +	if (!desc) {
-> +		rv = -1;
-> +		goto fail;
-> +	}
->  	desc->tfm = connection->cram_hmac_tfm;
->  
->  	rv = crypto_shash_setkey(connection->cram_hmac_tfm, (u8 *)secret, key_len);
-> @@ -5571,7 +5578,10 @@ static int drbd_do_auth(struct drbd_connection *connection)
->  	kfree(peers_ch);
->  	kfree(response);
->  	kfree(right_response);
-> -	shash_desc_zero(desc);
-> +	if (desc) {
-> +		shash_desc_zero(desc);
-> +		kfree(desc);
-> +	}
->  
->  	return rv;
->  }
-> -- 
-> 2.20.0
-> 
+>
+> Maybe clang simply does not not to treat "Z" the same as "m"?  (And "Y"
+> and "Q" and "es" and a whole bunch of "w*", what about those?)
 
 -- 
-Kees Cook
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907220952.EA05EEE9FC%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DKRVsFkT8dLFoitky9OF8tKmbn00-OPi6kBygyx4QwHg%40mail.gmail.com.
