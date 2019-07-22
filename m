@@ -1,134 +1,137 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBC4727UQKGQE23V4NCI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBUM727UQKGQEIA6KMGI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 65363702E4
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 17:00:28 +0200 (CEST)
-Received: by mail-lj1-x23e.google.com with SMTP id o9sf8626264ljg.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 08:00:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563807628; cv=pass;
+Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1FBE2702EE
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 17:01:38 +0200 (CEST)
+Received: by mail-lj1-x240.google.com with SMTP id o2sf8643504lji.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 08:01:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563807697; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xgFugSkpz50vCT+a7RdjushCCNXexqsHG4YCp2qt/sYGkB+4RhnW7GjDHE9EEJS2q/
-         u47347Z3Iq/rGwXFbNcpN46m7N5wj5L76H9rNDeTxTp0LsIOMhZ9I3JrnZvwQxPvWWlO
-         6OK2TTJ4G0IPnP5pWmEpMidXBfoXjv0cuQVzF37/PoTgiQHpxe+uLI7PO+XaHQM+zIjG
-         8LVuMZpryz+IqTxdNi5jlpNhwb+icIfO/T6yMAgb1kz21aF22S283V9UkjHrixqG4E3A
-         y9ij1K+VkqKa8i6SHBfn5NJLiIUk5JLv6jrCNuRF6hOOwBaN3kSQ3koa0Ppk+qPNiami
-         KX8g==
+        b=UXh3Ytv1K9B0ILBGJISaVV2m2qba5vVvwIp0+QL0Qv/u2/EmWWijdvtVpjuXe/lx+4
+         T08YmREE5APtOlUpLl/IVXCxmZzyUyAGhUJLuhrfbfANQDQ9URXY9QGFySbHB5Yz4AIp
+         5q4JPk597/Bzn0rwQkhJosn8SE9CKh0L42dQ0FwZibNLF1dLiDN9YzBiFaZcu3UxuD+N
+         2u60BbWsiU19p8OjJYn6oeR5+H8ADZbjsKuWt1VHkrwfcpSoqKcQ0QAGiIi3m5upK+0P
+         9j7r2lrNPfzApYgacUFSa5H7VrFozRjZsPKxc43MEI8CMmkr8YsUxStvbtTysMlgl7Ct
+         er2Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature;
-        bh=aX4RH6WTm0RICUDRt+aJ63QS1qD/tAfWJnGQFLkCr6w=;
-        b=G88eSrdiqgbtHqkI/sVrLUWGGTxNGKhT5U5TzmOeTBWmpABlpFsYOST/RPzUArFfzm
-         GW3qzswS3kEB6vnSPz9Jg3RRmKYDO/hwsA7VPLiwr5UZ4fbnE6ZZdaSdR2g1F5OzNBoE
-         SgftsZXK7vRkYN+wDAVHV4ZjlWgsHdfNENfhyGB1QdsHB0ca1gnJsQZQRK9rELxwyMGp
-         5VBcNuNqQNnMZ+20kFmaBBRIDvg2USRUexum8AvibYreIJvzFi/2HlpqeKFjoyCunb3A
-         miWmgcYRDCTnTgAjlf00gA9eHIBSLTzFpf6Bb3PvI7A9Ghj7jv6dWbralG1VvnBaatGy
-         5xig==
+        bh=LljIpZnDkp/E7DM5LJAXsitWtPFD8vohx0CJd03ww70=;
+        b=zKCp4pPwjhaEsUtozsiUwvn8EJPiYQqVHYGYPpg4MkizwP6RJCGRDO0TekmX1HjiU+
+         0gHAVcALf8JMLbOQ1UCoj8E4jXvfI4P98zc1noZf6XcZGXYn6W+owWJswjtxFIAPbdep
+         erHuI83XujjlhhHAgAC5TmvGFf3z5fSy+RU5se6VHnWE2XFRhi3dsptT5zSbZEQ+es6d
+         GHie5G91AhmxBPSDOfsXPPh4JfjYBM4pFerkhJg1KU/FytJS+WIGiq/b3UKtIgNFtrNx
+         7C38M9ZXsinyZp+LMjO4eSDdpSMuFkefrtzFYaeDsA9GlT4u/qK64kkC8TV1uahC2csV
+         tx0w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:mime-version
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aX4RH6WTm0RICUDRt+aJ63QS1qD/tAfWJnGQFLkCr6w=;
-        b=iXZjWmn/Zx4UquyZSv9WHe1fxRwCWgKx2Z1Wfac+cmfrxVC0wRkEAVo6FqEmtoNFHe
-         JfC25hmVZsmuNXAui2Unyz5trzn4krkMn1vr3ba8gdCFW9GNN8UI2pXRRhNcctYX4Opf
-         AFAiveL0s0aDluCyzZ0W2sCoD2Rh8DNvNMn5P+5sCYOpOK4U0UOkEYoEveDpm43/2LKJ
-         /rlL/RcSXGPcDhtGU73kVx4zRyA5SV3UihHfosAxOXrbjKjdR9dRbgzGmCreF6FfJ1Nd
-         9YS4Rl5HzWFN763c/ohmsOIweBIFWgnbLaVVxdixMIUblEDjp4hzDMwwPVMaK53hG83k
-         yh9Q==
+        bh=LljIpZnDkp/E7DM5LJAXsitWtPFD8vohx0CJd03ww70=;
+        b=oMMq5WTfCpFtTnfckwYEP8UquvUYQMqawmsI6z4sDMxQtkLuhr3/V1z4bEXWAKLVBE
+         L6jyyoghMn1hDCMRngheluoEOWgKeC2KvcdhohRr7kw51NuXkL4Dd/R5XodNe7c7wifI
+         JVVl4cyotugxeRMGee4sGHt4C13Lc2zkHElZ4lGgzGY0p8UB1b6NIHJUvNDvjuGKfVdP
+         XMSWtgdWGizOgQ64k+XKTsuezbKrBiXFzGySEiKnM/hjB8buw0/FTyNBZssZZdwGot+R
+         Re+hTnYSnUW5YuxqQZEJCQQLfrvoFbFAPYUT+rMMSZlC0JL5Q5TFQiqSAKZ7XXP6Am0G
+         nSSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=aX4RH6WTm0RICUDRt+aJ63QS1qD/tAfWJnGQFLkCr6w=;
-        b=mGghNWUIjwPaZXrVUV0qJnlLmrH87HY0GRFt+qEuHa/PUrgoLeVmH65A06PWYzGtTt
-         q9Eam1ZoF5ficefWOvk9lf7T3OghgerJEn1tQCfJb+hSkMlYOToUa8pWyEb2oDTy4kC6
-         1Is2t+rzdq7uNJU3umdbfLg4Fw/Ir7X9pUAN542Yk7GCsttwFJckZpz1UrFVjY1qprMF
-         vJeNqKwRraaHzWR4EKHzJ9T50CZ0eGXrvcNXxGNMBk+mXROIJ/GXiG3A3CELv/rU0IaV
-         j3uVXk7hGkC9kPIbKZ6y/gzsFR7yzNDHzWVJzruD0P9mToZiTp3jCP4Bwo+dsv4KqM1Q
-         eYWA==
+        bh=LljIpZnDkp/E7DM5LJAXsitWtPFD8vohx0CJd03ww70=;
+        b=FtTVB5mcGGvBbkZwRuc9I71Fzx0PXBspncuz+gM4O6Bkzh9euTPZMO/jBGi1uk0BKZ
+         ACKpxEpYWxZktLHZpKWli2AX0vc3S2dniVMnz8EamkRRAqe4nAIJGw1nARuijanQ4Wup
+         MpZgF0TC4rhtPUx9DFHr7DkiQOggzuduS59B1FDpDkpgXkMTFUEw5Rv0kurnazP8sefi
+         uUFjMrYni8w0x9wwsvvvMtlRSIPQrDdvAtebMH1zDmvX9+eeOd/dXl9sgxPvMkqmuZeq
+         00DwDkbpPVbJMhEejzo4ZCAYxs2WAMk52r4mH+92NjSc0haGoki0+CqcIt1CGIcjKeaD
+         F8sg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUJnsmDysAfvoTDYRzRgGhv5Jvf2eC+XHmfB2A7zFEdpSFo2ecd
-	XA0NbttOdsLwMR+7fbROVCo=
-X-Google-Smtp-Source: APXvYqwVUbrzzzm2CgvvFtWnvaPizy+nIZ6pJAYE+muRjrcyBe2Nwut7i/PLjiLBi0bA5HdvWx7rlA==
-X-Received: by 2002:a2e:2411:: with SMTP id k17mr37283393ljk.136.1563807627974;
-        Mon, 22 Jul 2019 08:00:27 -0700 (PDT)
+X-Gm-Message-State: APjAAAUac9teydFcK3mf5v6oGJbns1z3jR1JobiH0uG9mHTXPx3DsbSh
+	V9QtGF4nRxFx2IRC3kzuv54=
+X-Google-Smtp-Source: APXvYqypPHc+6DF3qOrA4tHvv3wzJhrBuOqw5E7aEjQkF3Lx9BSaU4tclYxXafrGfmAY1FCcW3AGjw==
+X-Received: by 2002:a2e:9003:: with SMTP id h3mr34708236ljg.194.1563807697731;
+        Mon, 22 Jul 2019 08:01:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:c317:: with SMTP id t23ls2258176lff.16.gmail; Mon, 22
- Jul 2019 08:00:27 -0700 (PDT)
-X-Received: by 2002:ac2:484f:: with SMTP id 15mr32194914lfy.51.1563807627460;
-        Mon, 22 Jul 2019 08:00:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563807627; cv=none;
+Received: by 2002:ac2:4c2e:: with SMTP id u14ls3188603lfq.15.gmail; Mon, 22
+ Jul 2019 08:01:37 -0700 (PDT)
+X-Received: by 2002:ac2:4901:: with SMTP id n1mr18899124lfi.153.1563807697317;
+        Mon, 22 Jul 2019 08:01:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563807697; cv=none;
         d=google.com; s=arc-20160816;
-        b=OpBMCGmHjvF3NTFO4tjjSlv96/xom0JPuddZZMxLMeNInWLpZoDbf5N1lEES4puq6G
-         Y4zzjzuDOV3zKgBg9cwtXLu4oP/U0RyzUGe+7VqasaHkMJwv4R2KMNDx+vI4+GKtpR4g
-         v2lMghq1qphpTp5k0DbESCNinGkGtE/PBTVW4O7uzuJW4N2OPUfioVGEVey5wlV1LxGg
-         P0g56jcCGnylSHvKKDKUwAKLOegbT9wtWO1YXs9fFiQ7j2mnu9qozrY4wFXi7BurbPcd
-         mb4GMvdgLnm+aV37UvZI054KHY6l0aggtfW2j74ajvbBDNzmL/FXR9R8D2ZZ5/hiGpRa
-         irUQ==
+        b=ZGwg4XXE++teME1GYjgFblkA0DwUeQjjGqM45gn0tpm3I7O49v+AkKeFYzPsz7Ipx/
+         kiHQWEQMM+b2OfzlwzRPJAwA5SBdvzqAssd8+X9FXxhJ2HrtVfIuFncAIseE0vkTHfPJ
+         MQ3CwSy4+0P/B/3xWC6N7B5PcOR9sl7RvCRQLyFi/IejbbQQ5S6AiEbsIm9vuvoxo6Cb
+         2PxSC7/hq4N/P6MdI6sr+HXYstD+MbwVzz5OIfDC4KEI6Fh6s8osyPYuo0vObKnPxk0F
+         UdhMhProoP7ss+zKohO3v5ZGDUXIJI83irOJSZ0mUalUaKbl5w+cgaydeHFb0Hdd2SlI
+         zhoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from;
-        bh=bkwBHNPXcXAFXH5pYbkdiByZR7O4O5XYv/RgINQz6jA=;
-        b=QzAhoyOx8HY0FwFgz8Czb7vBCLzw0vtDNiSZ6kXEtyezwhQfslJTnMuzLRgS9AtQ59
-         d4athcFaao5kusvBXBN29HRRErIsBj5uR60AdvRENSMYJehlneH3RfPBMLucg778HiNj
-         fNJlWl1AcjzxZpa+jKZPesu9fSMR4c8zKKmu9a8D/cK1v8IIyNiRkR2opy1NS9fxNq8u
-         jRfgrBcOWIcJ6+bTXi4coTpxn4x4bLMhwrOVH4T02cF69vhsADvjfNtXRPgqlLSB5/vw
-         ydLmToWUA69vDko7/RnWkdIUHcsu2AEE2mt69rg/9ht+bNY5c9WfGqxnOgUT0D5jIGEy
-         0s6Q==
+        bh=rjp3PAueoIDtBfPsUFJIY95eoC0VIFzQJJqsUHXcS+g=;
+        b=n539o5jo4qUuafBJpFdgb/kjxBbKXrxOlVdxRQKbKuoUGZjVRScSnueCuSr7Sh+3U9
+         yCI6ptZq+22XxSQIbf4mqidLnp0/poxaiuLpYu4OoCP1C+HoUUIe5YeUuO0NitTccchu
+         c6MLq1blCqmDLVN4qOhvN81StfD9UUXw5oWcPn3zg8KfSI3WHnuqFBbmhbHAUtMcOBlA
+         DVA2uLYQ3+k2A2QjTFMQNb0eF5jBb5Ono32hn/RLnThZ9/bdNXVfiU1afkJTij3w2XwX
+         Q2CNiicJDMmfa1vsapf6g07ZOZSrT/dw4LJKmT0CXDShxM57IQO76vE940JqBbkPy9+5
+         lX9A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.130])
-        by gmr-mx.google.com with ESMTPS id q11si1924115ljg.2.2019.07.22.08.00.27
+       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
+        by gmr-mx.google.com with ESMTPS id r27si1733202ljn.3.2019.07.22.08.01.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Jul 2019 08:00:27 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.126.130 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.130;
+        Mon, 22 Jul 2019 08:01:37 -0700 (PDT)
+Received-SPF: neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.74;
 Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
- (mreue010 [212.227.15.129]) with ESMTPA (Nemesis) id
- 1Mn2Jj-1iF2Sg2Z0h-00k8ux; Mon, 22 Jul 2019 17:00:21 +0200
+ (mreue107 [212.227.15.145]) with ESMTPA (Nemesis) id
+ 1M7KKA-1hmHUx1cEe-007niL; Mon, 22 Jul 2019 17:01:35 +0200
 From: Arnd Bergmann <arnd@arndb.de>
-To: Pravin B Shelar <pshelar@ovn.org>,
+To: Ariel Elior <aelior@marvell.com>,
+	GR-everest-linux-l2@marvell.com,
 	"David S. Miller" <davem@davemloft.net>
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Tonghao Zhang <xiangxia.m.yue@gmail.com>,
-	Johannes Berg <johannes.berg@intel.com>,
-	Kangjie Lu <kjlu@umn.edu>,
+	Yuval Mintz <Yuval.Mintz@qlogic.com>,
+	Manish Chopra <manishc@marvell.com>,
+	Michal Kalderon <michal.kalderon@marvell.com>,
+	Sudarsana Reddy Kalluru <skalluru@marvell.com>,
+	Denis Bolotin <denis.bolotin@cavium.com>,
+	Rahul Verma <rverma@marvell.com>,
 	netdev@vger.kernel.org,
-	dev@openvswitch.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] ovs: datapath: hide clang frame-overflow warnings
-Date: Mon, 22 Jul 2019 17:00:01 +0200
-Message-Id: <20190722150018.1156794-1-arnd@arndb.de>
+Subject: [PATCH net-next] qed: reduce maximum stack frame size
+Date: Mon, 22 Jul 2019 17:01:23 +0200
+Message-Id: <20190722150133.1157096-1-arnd@arndb.de>
 X-Mailer: git-send-email 2.20.0
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:n38BZKXQeU4NCOj2u3jNETtHaDR3crTUgKISheti+Q/vGZ4iOf9
- CEdgitQaFx19lylhbtU4GNob2+pIJoGxqHzfM/c0Y510k2PvKqagKwo4wxgp/wFzvEnZRAr
- 2qeqnFJWkAh9FMW6vYDyHXBJNcfl7PNO94jSWeEaAbMwbH+nN2KT/eYVXpX++zZrxMCIB6M
- 51tSASVvAUVMs9JjoCWzg==
+X-Provags-ID: V03:K1:+XcsDpkp6TN1nsOc+u8JZ0NBGgkbBC5mUSpZhfCcYijsitfVK32
+ cInYXMWZsdNXb7YVd3/rNUTpoAbMzdvYCkXTMlL7/xEKHXO3408xrDYg7hLMzgNvFbg/XAV
+ llAN93TIde3KdxfRUlgvykuSO6j58RpVCAZrW3XPSz9NR9oyXGDFVUwJwiTxJcMgm1GjxlI
+ pdr8jd0u3zZyUe3r5wK4g==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:BIxhja8daZY=:a3r2BQT8oflr6GgXt6Jes2
- W45PjZlPErn72wTTrP4kq3o2NkWZx3eYlFz/FqMAlX1sEvyBzuIWG6sZ7I79ivukuKeDqt1Av
- A86XaIJYB7L31S6LtCZVKbtFdi+PWSoyH+ZESd5Kmr5XYPBynuYAZM6xraW/LYqJvNtLWtwmg
- Rc6jbSFKK0dGq0cFDK+ep7eUzrdRSTiHNhhDXzYH+CEnRxxgAlEgV9rCUFXjNVuyjTkkVSheg
- c4/INjS1MBkLRutGKrPt0lAIqjUpMAQCk4Dpr0IGcCkEEQ7+JXlJanSpGiADdniVWM1NgEMrG
- xLvDGBpVJO8TSRVS0O5bZTeB+WmDYauLUKaLYh6S7IYg/xrdb/bLOdkdohsQA/yFc7iiQv2HO
- abpRQTVBawt6wp0uxxFjSmmUGwrQxeQ2QMg8SDDnZ1QbVLTavQTztwWawywRiwf20XEHNMIdv
- 2qLG6QrhmQ+XgbY1UZqgxWznoLOe4dIeRglEJcXBTWj0nU310DWAcsSGhIJZlUlmYBohJGer0
- HGRB8KD5gKnJEp0DAwUs0LmcD8SbfoKlWCswinBVQEUE3Fa81aVAaRY/r4BY62EG6zARO5OCO
- U90PkOFax25c9cZ6DjGbqVbx86vJRLD2r8Rpr0XyDwUHkD8UJzW1m5iBu5Xjb4VwrMsfH8Z7i
- M23qg4QUtWCPXitysMNbfZJV1LcBQ1s/KvA7UYDFJLxRZTEawnf+640BFZ59wprwt8OcDiKre
- Qj6/B5iDFVB8GZdhrAtwY8eWJWrJG2Qxng66jw==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:k7SCg1PLTRo=:c/bnJbYQG+S5jDADBRCfNO
+ iws3ofk8kglStWjPh6jowKeNxOW7MZR9WBlL2S8ODWYOi5qdtmunGsbuuUzVdzdbdE9ggbU7f
+ IH90bmn1ogpzegLCkZ8LK1LHI30lrs0NwokHd3SsuXOR3hA0uZ0SkC3LvJgR6cZkzjLljvy8v
+ mJk/TROBgY7F+2KDoIsxt8TGoZBNMUSZ1F/PIuqrAHU4GR/tuN4u/g36JgOqO8nRlFFioE7m0
+ H/SUlJJzVjCxNj7PZ4fuqZ3fS4EdIJJHKK1Nasp4XLVs3+Ey/ogxktD9cEkTQuE6a7EwZEeEx
+ df2Z39whjJneDqAxtUcC2EfPDr/hHarhs1H1Q6X5ioPnRpZfkZsGO9ZsXEd8vIW4I7GpVuC4w
+ 31VV7KL7BDUZB98zUKjTg9grPefIK3FC5n+v3WRT7UVNEyNLH2bETUPaewnnUDFGKV+cFORbN
+ eu0gTvZKGGt/lHO4IYHiI5CWCw7PCOFc0l7k22y+StDHcQqvGMM+pOlnY65M2kZUGl+vFhZYf
+ buPHREiuNozQ/xhCOWuoVnzVHij1MQBiI4/uYJBnFUxr+GDeOwCdEH0IYH7FYg8tnQpsFEfn4
+ o3Yit4XEMR1+54wXMPrIVpXFXoR7/aMA2XGcn9Lq/lpj3DAwBoykJSMqX2neF0ACAyQonHTQu
+ oumLzyze9CF7R033IpTHk3R8bSVJizE4Dmcw98nAdlND0tZTBNjdtimr82dtksGRAPy3hNgzG
+ mntup3wzRmE6KYQedLKTF57bZ+Mzh2HPgJ9IWQ==
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.126.130 is neither permitted nor denied by best guess
+ (google.com: 217.72.192.74 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -143,66 +146,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Some functions in the datapath code are factored out so that each
-one has a stack frame smaller than 1024 bytes with gcc. However,
-when compiling with clang, the functions are inlined more aggressively
-and combined again so we get
+clang warns about an overly large stack frame in one function
+when it decides to inline all __qed_get_vport_*() functions into
+__qed_get_vport_stats():
 
-net/openvswitch/datapath.c:1124:12: error: stack frame size of 1528 bytes in function 'ovs_flow_cmd_set' [-Werror,-Wframe-larger-than=]
+drivers/net/ethernet/qlogic/qed/qed_l2.c:1889:13: error: stack frame size of 1128 bytes in function '_qed_get_vport_stats' [-Werror,-Wframe-larger-than=]
 
-Marking both get_flow_actions() and ovs_nla_init_match_and_action()
-as 'noinline_for_stack' gives us the same behavior that we see with
-gcc, and no warning. Note that this does not mean we actually use
-less stack, as the functions call each other, and we still get
-three copies of the large 'struct sw_flow_key' type on the stack.
+Use a noinline_for_stack annotation to prevent clang from inlining
+these, which keeps the maximum stack usage at around half of that
+in the worst case, similar to what we get with gcc.
 
-The comment tells us that this was previously considered safe,
-presumably since the netlink parsing functions are called with
-a known backchain that does not also use a lot of stack space.
-
-Fixes: 9cc9a5cb176c ("datapath: Avoid using stack larger than 1024.")
+Fixes: 86622ee75312 ("qed: Move statistics to L2 code")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- net/openvswitch/datapath.c | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ drivers/net/ethernet/qlogic/qed/qed_l2.c | 34 +++++++++++-------------
+ 1 file changed, 15 insertions(+), 19 deletions(-)
 
-diff --git a/net/openvswitch/datapath.c b/net/openvswitch/datapath.c
-index 892287d06c17..d01410e52097 100644
---- a/net/openvswitch/datapath.c
-+++ b/net/openvswitch/datapath.c
-@@ -1047,7 +1047,7 @@ static int ovs_flow_cmd_new(struct sk_buff *skb, struct genl_info *info)
+diff --git a/drivers/net/ethernet/qlogic/qed/qed_l2.c b/drivers/net/ethernet/qlogic/qed/qed_l2.c
+index 9f36e7948222..1a5fc2ae351c 100644
+--- a/drivers/net/ethernet/qlogic/qed/qed_l2.c
++++ b/drivers/net/ethernet/qlogic/qed/qed_l2.c
+@@ -1631,10 +1631,9 @@ static void __qed_get_vport_pstats_addrlen(struct qed_hwfn *p_hwfn,
+ 	}
  }
  
- /* Factor out action copy to avoid "Wframe-larger-than=1024" warning. */
--static struct sw_flow_actions *get_flow_actions(struct net *net,
-+static noinline_for_stack struct sw_flow_actions *get_flow_actions(struct net *net,
- 						const struct nlattr *a,
- 						const struct sw_flow_key *key,
- 						const struct sw_flow_mask *mask,
-@@ -1081,12 +1081,13 @@ static struct sw_flow_actions *get_flow_actions(struct net *net,
-  * we should not to return match object with dangling reference
-  * to mask.
-  * */
--static int ovs_nla_init_match_and_action(struct net *net,
--					 struct sw_flow_match *match,
--					 struct sw_flow_key *key,
--					 struct nlattr **a,
--					 struct sw_flow_actions **acts,
--					 bool log)
-+static noinline_for_stack int
-+ovs_nla_init_match_and_action(struct net *net,
-+			      struct sw_flow_match *match,
-+			      struct sw_flow_key *key,
-+			      struct nlattr **a,
-+			      struct sw_flow_actions **acts,
-+			      bool log)
+-static void __qed_get_vport_pstats(struct qed_hwfn *p_hwfn,
+-				   struct qed_ptt *p_ptt,
+-				   struct qed_eth_stats *p_stats,
+-				   u16 statistics_bin)
++static noinline_for_stack void
++__qed_get_vport_pstats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
++		       struct qed_eth_stats *p_stats, u16 statistics_bin)
  {
- 	struct sw_flow_mask mask;
- 	int error = 0;
+ 	struct eth_pstorm_per_queue_stat pstats;
+ 	u32 pstats_addr = 0, pstats_len = 0;
+@@ -1661,10 +1660,9 @@ static void __qed_get_vport_pstats(struct qed_hwfn *p_hwfn,
+ 	    HILO_64_REGPAIR(pstats.error_drop_pkts);
+ }
+ 
+-static void __qed_get_vport_tstats(struct qed_hwfn *p_hwfn,
+-				   struct qed_ptt *p_ptt,
+-				   struct qed_eth_stats *p_stats,
+-				   u16 statistics_bin)
++static noinline_for_stack void
++__qed_get_vport_tstats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
++		       struct qed_eth_stats *p_stats, u16 statistics_bin)
+ {
+ 	struct tstorm_per_port_stat tstats;
+ 	u32 tstats_addr, tstats_len;
+@@ -1709,10 +1707,9 @@ static void __qed_get_vport_ustats_addrlen(struct qed_hwfn *p_hwfn,
+ 	}
+ }
+ 
+-static void __qed_get_vport_ustats(struct qed_hwfn *p_hwfn,
+-				   struct qed_ptt *p_ptt,
+-				   struct qed_eth_stats *p_stats,
+-				   u16 statistics_bin)
++static noinline_for_stack
++void __qed_get_vport_ustats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
++			    struct qed_eth_stats *p_stats, u16 statistics_bin)
+ {
+ 	struct eth_ustorm_per_queue_stat ustats;
+ 	u32 ustats_addr = 0, ustats_len = 0;
+@@ -1751,10 +1748,9 @@ static void __qed_get_vport_mstats_addrlen(struct qed_hwfn *p_hwfn,
+ 	}
+ }
+ 
+-static void __qed_get_vport_mstats(struct qed_hwfn *p_hwfn,
+-				   struct qed_ptt *p_ptt,
+-				   struct qed_eth_stats *p_stats,
+-				   u16 statistics_bin)
++static noinline_for_stack void
++__qed_get_vport_mstats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
++		       struct qed_eth_stats *p_stats, u16 statistics_bin)
+ {
+ 	struct eth_mstorm_per_queue_stat mstats;
+ 	u32 mstats_addr = 0, mstats_len = 0;
+@@ -1780,9 +1776,9 @@ static void __qed_get_vport_mstats(struct qed_hwfn *p_hwfn,
+ 	    HILO_64_REGPAIR(mstats.tpa_coalesced_bytes);
+ }
+ 
+-static void __qed_get_vport_port_stats(struct qed_hwfn *p_hwfn,
+-				       struct qed_ptt *p_ptt,
+-				       struct qed_eth_stats *p_stats)
++static noinline_for_stack void
++__qed_get_vport_port_stats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
++			   struct qed_eth_stats *p_stats)
+ {
+ 	struct qed_eth_stats_common *p_common = &p_stats->common;
+ 	struct port_stats port_stats;
 -- 
 2.20.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190722150018.1156794-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190722150133.1157096-1-arnd%40arndb.de.
