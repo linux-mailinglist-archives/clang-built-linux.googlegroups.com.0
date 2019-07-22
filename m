@@ -1,138 +1,124 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB44727UQKGQEFNWTDXQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBBN5H27UQKGQED6VNNKQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33d.google.com (mail-wm1-x33d.google.com [IPv6:2a00:1450:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 68FD9702F4
-	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 17:02:11 +0200 (CEST)
-Received: by mail-wm1-x33d.google.com with SMTP id p16sf8675981wmi.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 08:02:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563807731; cv=pass;
+Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8463770371
+	for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 17:18:16 +0200 (CEST)
+Received: by mail-qt1-x83f.google.com with SMTP id k31sf35945175qte.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 08:18:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563808695; cv=pass;
         d=google.com; s=arc-20160816;
-        b=S+Zw5BLxUPVfMNgQUaYOuQvNjankECv/9s2ooJM8Npyn3uDSJAEyMafdJX3Z3nuC+j
-         TGs0bf9Lo7BalRAjw2AWSMqeO9n5S0Zjve2eHWiBJd1vjfven7CiGE4puk9AfG3miI8z
-         xjrIjb1v9miU9xKCko3s0dIUbF0LqM4rEkKrai/rduRRiZZwyDyNGa4ms5uddaFwjmpS
-         KofKns+dZXO/xWeN9lk9ft957GnbrfuN+NC6DpgFreroO59oC1tyWy2kCd2MaSwhhhND
-         kyX8XLg8IofZVTuwc/DRblImR/IRSebsUw8Lucvh9KQXgxDbvath+cKRZMlBJ3xewNxM
-         ZQfQ==
+        b=tz569uLiWYG0YChq5WWR4S5xljLt5SBf3dBJ4PMwCliVWbEgcPuPGSwoYzcFHyYYix
+         l5lfmnF2ofhnRC78BYiNwGUSWJSTS02Qz+YUSsJNNn1NNVlwtLL6CdoKtcOms+2tP5wc
+         bM5IEFciVVotvK/AauX2yGfmEFinyEqoXJM81Vw6FDpO9d5nplr9RdFBIsMJMi0rbtpp
+         Ur5TPJroXpIf2A2NdiOD2SscDWUtReEBshdLZA5CtkbFP5n5uDEO2SItE+uzT+nMRZbZ
+         y8pFGQ5MT9wMz/eA2EDxSsorYbXrDYxN8tBhYLjlVaeBOxxwfS7LZAytYrBVDIIXIAGr
+         Q90w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=F+OECeIu46S86NpZYi0rGCNJ/Hba+r/djNzMTEPL1pw=;
-        b=ymWKZmAGNwrtnZ23d3ET0/r/8oonVFyr7ki/MkFJyjPVxngnfsWL5Nb7sFfd0aRreG
-         gwOk7Uq8G/XOn0wA3jHS+R0Ry/QLVNWVd8C61y+XZGrAY9VRwwvbE33oQbgxWdZwyQB0
-         Gkf/8SPtKQ8dxa3ldPE0/fFixrjDNRvfKpbZkM7nUSYzBE7oUeMouSoyPNUDi9lWPNAH
-         pI5mvvRxGuK3kp2iWmxV3HytpBaQ77iUWWaxyMzqwIeFxhLyIitWC0JHiunCZ5i6qUg2
-         upYeDOrzGCwr2gmvJ+nh95+jCAlNOc1omp2oWK0ENA2ZCP1d/ldflzyqG2Kv++9Dbf8t
-         wi8g==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=wDIKUI0br2dGvIsa8R2e2ZepxHQbPrEgPsFwHB3lS+4=;
+        b=DzV+PCT0KLzmyDpAQLY4VFg+dxPuHEV2wbq0ePp0G7EqBOyWU1Z5Qw/CIxg5CLSPIi
+         Yp9Ae2MvHyXX7JeNCfhffVdBIebqL6DBIoPTgIwBqWGgfN7qarsR2vapGnhnOL+M9iY5
+         jmg2biq/wPz7S0HkhqL6WngGa1S9ceUlernlWpVNCsbuwsG7Gj/adXqKojdvsMqor8kJ
+         i1JdKCvgeyYwQ6uSkcYpF7Vepa8H6tP3uM9447iGJtg1Wvil0d6quo/UxQNbtZAMc9nR
+         fQsCg2UEg65Qs9n7r1TK4zrHKiqlj8RIA8QlQiOA2AUYoLX9RGn9YF9KjcvFd5cS1WOK
+         8ZQQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=F+OECeIu46S86NpZYi0rGCNJ/Hba+r/djNzMTEPL1pw=;
-        b=QEtgoUcXdeANj3O8FyKFqzTYl+XEuLrgoJ9DmiKLBGXOBzd/pBbNKPc9EyYHTgolD8
-         pnwueBsaaU8JF2LXQ1TqfBrWe/mHmvIS21cEDn0AXUo9wHKJwnzee4ZFwAJNWNVHu3yI
-         09Y+hyPgH2liXlxM09+HiB3J1FLrK5CtJaXz8Y6oyEGtO6fSJ2NnSSGg5+TvU72uMgX3
-         HrFgFfGOO2UR6ZNqEpQqYOkUesl9Egc/f0ePI6wmkcA9tB+5E4BJn1jQPXFOGeJnbUG0
-         iPMFIyjmMp5GFzI0h7eCxz14XT3jVHmBtxTguHKAGyGl+7grMCduCCRMZOh0beoXxY1D
-         TG/g==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wDIKUI0br2dGvIsa8R2e2ZepxHQbPrEgPsFwHB3lS+4=;
+        b=IeArLcOhaQIZbX0X1+cctctYDT3Tf0+amZ3el8uAQzVBS3/h6xoiQFAtV9IIRo3MaB
+         mr1Y75vE1M+T0+/f5nQlnwB0OLGZdlSG3NASg8EkscAYgS6LZ7C8SKfzcaNMLWBfHOvU
+         4GBD49WYZOhEHCJCLsXQ6LPZTX+N8gsWotAB+Fg64RspybEXK4VcNeoJr2ig/Ty9YVBl
+         N9O8IWLtU+e2xUh1efUODEOVAWjNt63mJwJzHBYOebl7YqOc0p8IcWDy9AeOqlhXqipf
+         aJ+yGefcCcMQv+nO+q60X7pHZUyclVPFxPXdPxOOlm0XCqxToHfwORXzes3EKofXAwwA
+         rAzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=F+OECeIu46S86NpZYi0rGCNJ/Hba+r/djNzMTEPL1pw=;
-        b=IcWzgrWq0jDzWLn2AO3j/ldlkGjO6+J7a3q3vF6eOw8vKAOujJ83nAvN7YlfRPiIbW
-         VIBji3Zr/a5IV8qCg3vmk6KoH8WnonpeB0a7NlSdib9Ugy3L9W8Cl59em7a5L799tOD6
-         1pR1DvMs3UHDAYfjbk/L/uCiGrjwRAe+tzb/wu14LtH+DUHRWPqu/AZetKjaDF7u4GcB
-         EBFxMJtulPjtnSMEIWe1V4JM/vLbA4XsT+gW46PouR9KSHQCF6UAFKXXYqgRQ0tWx40T
-         7jQFVB8sh5PxgVC6V6kxumA5elCgb/PPSo2xDn/qFIqbGumFFslYTWuim4Hv7BfJjxFG
-         E+uw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=wDIKUI0br2dGvIsa8R2e2ZepxHQbPrEgPsFwHB3lS+4=;
+        b=oenrx/HIVNtkq+cnUGwE9xykz6z+d9L2CStG7vsVIv9ueai8Vi0MpZvEMGQKApXz/b
+         ETB6Q+eKgFGOcOLH/sUu4jS+fcr6XgTPZg6ELYnzDwxROj1YfTDkEETT5lfHTWspgNUT
+         K+YhmXHHrjX+SRbS/jVsXozFMvo91/BcRph6FNbzH6uNDJVDTvSlMtcKfd5O7Vhqu1wl
+         4Ey8PXbbfIcy949/xOSqQL+wojgY5vkWJmowZsb1cQ738dGmFabbrArtQuy7MnhRmtze
+         EGBXUNjkW/rzqglxyDUGh7gykh9qWtYjsDQFn0L+flUub90HcigwdgNwPZpNsOLKZ4mQ
+         J80w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXYwd/dlYZpW3QF8nEofxqdMA+5LvD5ljvuhilrI3a7deYuv9/v
-	jLBpZ3/cBhCuwm9D64bvqsQ=
-X-Google-Smtp-Source: APXvYqzknmK61lWq2iRs7v0BBJQ2Xu+IsPV08DpbO7iAEC4HO0gjeqQc3B6gp6z7y9wa6adrnJM5RA==
-X-Received: by 2002:adf:8364:: with SMTP id 91mr74944582wrd.13.1563807731147;
-        Mon, 22 Jul 2019 08:02:11 -0700 (PDT)
+X-Gm-Message-State: APjAAAXDPsIyY+mqRLZQioPOLLIrvOBYR1NMQrua+EtvGw4R8VM3ua5m
+	wUcsXuqdMYaepxAyOwFpstI=
+X-Google-Smtp-Source: APXvYqyThNh3FXc6gJzlt4jDvcaqoeqVot3BHIH8/r/pXlBydkFZh0AZsNTuQctNoDSrZTJJGc/84w==
+X-Received: by 2002:a37:9fd6:: with SMTP id i205mr48347235qke.130.1563808695546;
+        Mon, 22 Jul 2019 08:18:15 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:bac4:: with SMTP id w4ls11852330wrg.13.gmail; Mon, 22
- Jul 2019 08:02:10 -0700 (PDT)
-X-Received: by 2002:adf:f046:: with SMTP id t6mr79808353wro.307.1563807730550;
-        Mon, 22 Jul 2019 08:02:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563807730; cv=none;
+Received: by 2002:a37:4897:: with SMTP id v145ls12187475qka.5.gmail; Mon, 22
+ Jul 2019 08:18:15 -0700 (PDT)
+X-Received: by 2002:a37:48d0:: with SMTP id v199mr45974123qka.318.1563808695149;
+        Mon, 22 Jul 2019 08:18:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563808695; cv=none;
         d=google.com; s=arc-20160816;
-        b=pxeZeF92RRgYRI2aIKISlRUvQHgDTiMiI6XY+fST3580WwvupQlvoVESsRJpGmGEmd
-         b14UNdfIcTs3NW3Z3n9ENGzYLJsje4+lxf19OVxLH7T/TruHwxV12Z/jeQMYb2vajFZo
-         QV7NBzkFXY3amWWjvSir5tX9JyS2qBws3WVrtwfJlpQSs4idE7O55B20A13gGz3gxWDx
-         JxERm6ZfCNIJCa+1N0KfU0vhWOV336fbg0cHckbcSOwb/2aVYwTIUssFvGbsTOhmGc7o
-         K+SEJ3MiEDDYSTBfoMVuaDA2Y5aMOYDUhRfCB/dRh3JWkcyObvZ3nPCd1gES8S8e9lql
-         57Mw==
+        b=HvXLIChaZEnFGxbc/q96V6bHiDTFB+ZVVDt7+sCN8H3AT2UtSJAUiss/nKDk4oBp79
+         cO4XCA8aXyppMCI+IbjMTmPIRE4UnuvXfyCUHWr7TL4vng87ga/jlp/SiqEyfreiYAK6
+         A2QsLtvbZ/KaCxftLjPhJbYGQYMIPeWLSRFSGYqGEdf7LEqpgYA5eB73Zmshfrjd7Ky8
+         qAOrMlmFFdyjMZy4u/nZ+uRe9OiHflz8KmhohVFz7EUNKf8hQbOtxIeULslnP4z6GNzI
+         5yrllMcyE2smfB31bHZ7WAEzYPoCFso7WwYa5mjMhmuNvDj5oeCvBQuA/cRr5bmHqM2p
+         pXmA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=hXKqFaSVsAX7LAASe2aDwlWtu24Eu/mJX1ec4JEW48E=;
-        b=ynK1ZwpIzGrqXA1e2UPzNsOQH0FcsxHicHltEE0j2YlJTDaYMNE5PsBkzaglEyiCOC
-         9v61ktj7VEL2sVtLGt1NfHTf/L6t7+/ZLQ9IQqnF7Xo5lkSksY8tsxqsa6sLmSR07oZj
-         HqIDaBD0YNKr59TpAMU0SLU8+d5sf39vsJZwST0Tr1rw6xIdnmrAZDBG6Z7g/vQgatv+
-         R5g6etbDg1ZvEjmWm7HIh7mSO5nJ0RfgHBoemrsliN/yQZ53avSbyqyd491oYyYn232D
-         CHBwHt5Z5Z2sJdRFDFxasUWduZqPi9OKGTnr7W4RLk6RIl4N0wrMpoZdVThFVsSEVS52
-         x8vw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=G573lsFnZacwyfQY5xXmRH/Lgsfl27GNvvPVHyTS7mo=;
+        b=NSQxDFLeGDe5gDV1naWyEfr7iy7tzr53VbWpCORBOWZP+tsHg+w5S0YgZLBMtIg0Yj
+         XCMHcfrCPjn67G90fVcs8P6PJXTVve11Jk53x9WzuaWdWqYOe/xe5SVlrKl77WTD0DIp
+         18ICWf+Jh0MFLLCcpGLH73FmRNiYMK2oCWThYHjet7dxAYS/wzZZjlrOTsews6wg42rO
+         0NhBIoep5zfMt70VSDPL5+/ffkDq/dHEihEDeRD4QoFV9TUSTQgd3dUtX7jEz23in+ME
+         S21wlO6SapqGlShY7CwX8fN5p4fdwOsRlgqJsusx46jc+yPdbrDpG3j8Fu0NAiRUnzHN
+         HAsQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.134])
-        by gmr-mx.google.com with ESMTPS id b15si1327909wmg.1.2019.07.22.08.02.10
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
+Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
+        by gmr-mx.google.com with ESMTPS id g41si1875640qte.4.2019.07.22.08.18.14
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Jul 2019 08:02:10 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.126.134 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.134;
-Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
- (mreue012 [212.227.15.129]) with ESMTPA (Nemesis) id
- 1N62mG-1iVD5437Oa-016OS8; Mon, 22 Jul 2019 17:02:06 +0200
-From: Arnd Bergmann <arnd@arndb.de>
-To: Tariq Toukan <tariqt@mellanox.com>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Erez Alfasi <ereza@mellanox.com>,
-	Jack Morgenstein <jackm@dev.mellanox.co.il>,
-	Eli Cohen <eli@mellanox.co.il>,
-	Moshe Shemesh <moshe@mellanox.com>,
-	Jiri Pirko <jiri@mellanox.com>,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH net-next] [net-next] mlx4: avoid large stack usage in mlx4_init_hca()
-Date: Mon, 22 Jul 2019 17:01:55 +0200
-Message-Id: <20190722150204.1157315-1-arnd@arndb.de>
-X-Mailer: git-send-email 2.20.0
-MIME-Version: 1.0
-X-Provags-ID: V03:K1:6RlucjjmypJnt310jjgPEHPw68PZk7JE9z3FBrybaR+ep+3Cv2d
- TBKM7TP/YWkndjanU7YKLhR2TifdwV0foLbZ5UlTUO+hGYkMRh+C93ObXysjdI7QxSFPI2F
- pBJrTNZ7/Gm0SQFN5C4zfqhGJPUwg3M/RMwcAzAxb+UmuOcoA/EYDqk03djOZqCCEVHSmpX
- GFmCeJX+SdJ6/lH09y44g==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:QNMfdsxYVMU=:W+Eq/wKucjnDuLN9OlFSmC
- Cr6G9LVL6ma0mHIDCeKMSLOmtyhEJvZ0TLZ5vNuRgB/KwlCwWcxqNqEIGD1qgUSEv5xwWBD7Q
- kHRZmP3nZ/1zHDI2rHudA88kOuwoIJ6oGMsvhQf2mNZV4kimzFVvhGYhWyNVLL6hVGlduO/0b
- CFBl3ptJbN1h1ya5W3sLhi5O4Hhss0c5KUg/tETZRsET9SOCb54epamEHnIQT+Z7O2OdcN/Lb
- vbXZwqMLV7z8Z01+9Y17FSHs5fVr28upA4miQF+m7ccD+SQ3nIoX5DHusi1KyHsYL3Rvyk8ic
- gJSOppGWRwYjA96l3myhSAmRLhoUCjTY+vMzlA1yPtnYXwFJNiRmZxs0JXf8CmtVtM6vl0OjE
- g7vHpW/rfGWiayZXD9/YWIPgsr2Wtl72OrAtHrAGqeTctQIGYVlVSo/VB4hmzqjpPqoA/zyD+
- W4GdznEkaIYju5TeydC+hoDMzE277BoGkBZhKv08N3P/FN7VgfQFRQL8IX8fMQlRh92pC/C24
- QHhOx2uJFSvNLaLT1qBUlPs8xA3J9PideNF9lVbtCqqx+VAfzetGgirzxuEVcF+IQ6E3x2k5/
- C3AbsZT3jHSdFWLITSwbUO93WZbMtWhjUxKO4tPMtNqi1U2nbruv9l2azJDUA80xwGVMMqZ20
- mzfJDMvJd8UBG22Wp/htbIEzdtML913YzLPaOQVYk1F+A93zmLU1d/E35GI9xgZpriP1Tcfd6
- tQPwnb95MmkRSje2xZwCoujHY5E8Zem2gNcKOw==
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.126.134 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+        (version=TLS1 cipher=AES128-SHA bits=128/128);
+        Mon, 22 Jul 2019 08:18:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id x6MFI3ra026871;
+	Mon, 22 Jul 2019 10:18:03 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id x6MFI1aA026870;
+	Mon, 22 Jul 2019 10:18:01 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Mon, 22 Jul 2019 10:18:01 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+        Christophe Leroy <christophe.leroy@c-s.fr>,
+        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+        Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org,
+        linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH v2] powerpc: slightly improve cache helpers
+Message-ID: <20190722151801.GC20882@gate.crashing.org>
+References: <45hnfp6SlLz9sP0@ozlabs.org> <20190708191416.GA21442@archlinux-threadripper> <a5864549-40c3-badd-8c41-d5b7bf3c4f3c@c-s.fr> <20190709064952.GA40851@archlinux-threadripper> <20190719032456.GA14108@archlinux-threadripper> <20190719152303.GA20882@gate.crashing.org> <20190719160455.GA12420@archlinux-threadripper> <20190721075846.GA97701@archlinux-threadripper> <20190721180150.GN20882@gate.crashing.org> <87imru74ul.fsf@concordia.ellerman.id.au>
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <87imru74ul.fsf@concordia.ellerman.id.au>
+User-Agent: Mutt/1.4.2.3i
+X-Original-Sender: segher@kernel.crashing.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as
+ permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,173 +131,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The mlx4_dev_cap and mlx4_init_hca_param are really too large
-to be put on the kernel stack, as shown by this clang warning:
+On Mon, Jul 22, 2019 at 08:15:14PM +1000, Michael Ellerman wrote:
+> Segher Boessenkool <segher@kernel.crashing.org> writes:
+> > On Sun, Jul 21, 2019 at 12:58:46AM -0700, Nathan Chancellor wrote:
+> >> 0000017c clear_user_page:
+> >>      17c: 94 21 ff f0                  	stwu 1, -16(1)
+> >>      180: 38 80 00 80                  	li 4, 128
+> >>      184: 38 63 ff e0                  	addi 3, 3, -32
+> >>      188: 7c 89 03 a6                  	mtctr 4
+> >>      18c: 38 81 00 0f                  	addi 4, 1, 15
+> >>      190: 8c c3 00 20                  	lbzu 6, 32(3)
+> >>      194: 98 c1 00 0f                  	stb 6, 15(1)
+> >>      198: 7c 00 27 ec                  	dcbz 0, 4
+> >>      19c: 42 00 ff f4                  	bdnz .+65524
+> >
+> > Uh, yeah, well, I have no idea what clang tried here, but that won't
+> > work.  It's copying a byte from each target cache line to the stack,
+> > and then does clears the cache line containing that byte on the stack.
+> 
+> So it seems like this is a clang bug.
+> 
+> None of the distros we support use clang, but we would still like to
+> keep it working if we can.
 
-drivers/net/ethernet/mellanox/mlx4/main.c:3304:12: error: stack frame size of 1088 bytes in function 'mlx4_load_one' [-Werror,-Wframe-larger-than=]
+Which version?  Which versions *are* broken?
 
-With gcc, the problem is the same, but it does not warn because
-it does not inline this function, and therefore stays just below
-the warning limit, while clang is just above it.
+> Looking at the original patch, the only upside is that the compiler
+> can use both RA and RB to compute the address, rather than us forcing RA
+> to 0.
+> 
+> But at least with my compiler here (GCC 8 vintage) I don't actually see
+> GCC ever using both GPRs even with the patch. Or at least, there's no
+> difference before/after the patch as far as I can see.
 
-Use kzalloc for dynamic allocation instead of putting them
-on stack. This gets the combined stack frame down to 424 bytes.
+The benefit is small, certainly.
 
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- drivers/net/ethernet/mellanox/mlx4/main.c | 66 +++++++++++++----------
- 1 file changed, 39 insertions(+), 27 deletions(-)
+> So my inclination is to revert the original patch. We can try again in a
+> few years :D
+> 
+> Thoughts?
 
-diff --git a/drivers/net/ethernet/mellanox/mlx4/main.c b/drivers/net/ethernet/mellanox/mlx4/main.c
-index 1f6e16d5ea6b..07c204bd3fc4 100644
---- a/drivers/net/ethernet/mellanox/mlx4/main.c
-+++ b/drivers/net/ethernet/mellanox/mlx4/main.c
-@@ -2292,23 +2292,31 @@ static int mlx4_init_fw(struct mlx4_dev *dev)
- static int mlx4_init_hca(struct mlx4_dev *dev)
- {
- 	struct mlx4_priv	  *priv = mlx4_priv(dev);
-+	struct mlx4_init_hca_param *init_hca = NULL;
-+	struct mlx4_dev_cap	  *dev_cap = NULL;
- 	struct mlx4_adapter	   adapter;
--	struct mlx4_dev_cap	   dev_cap;
- 	struct mlx4_profile	   profile;
--	struct mlx4_init_hca_param init_hca;
- 	u64 icm_size;
- 	struct mlx4_config_dev_params params;
- 	int err;
- 
- 	if (!mlx4_is_slave(dev)) {
--		err = mlx4_dev_cap(dev, &dev_cap);
-+		dev_cap = kzalloc(sizeof(*dev_cap), GFP_KERNEL);
-+		init_hca = kzalloc(sizeof(*init_hca), GFP_KERNEL);
-+
-+		if (!dev_cap || !init_hca) {
-+			err = -ENOMEM;
-+			goto out_free;
-+		}
-+
-+		err = mlx4_dev_cap(dev, dev_cap);
- 		if (err) {
- 			mlx4_err(dev, "QUERY_DEV_CAP command failed, aborting\n");
--			return err;
-+			goto out_free;
- 		}
- 
--		choose_steering_mode(dev, &dev_cap);
--		choose_tunnel_offload_mode(dev, &dev_cap);
-+		choose_steering_mode(dev, dev_cap);
-+		choose_tunnel_offload_mode(dev, dev_cap);
- 
- 		if (dev->caps.dmfs_high_steer_mode == MLX4_STEERING_DMFS_A0_STATIC &&
- 		    mlx4_is_master(dev))
-@@ -2331,48 +2339,48 @@ static int mlx4_init_hca(struct mlx4_dev *dev)
- 		    MLX4_STEERING_MODE_DEVICE_MANAGED)
- 			profile.num_mcg = MLX4_FS_NUM_MCG;
- 
--		icm_size = mlx4_make_profile(dev, &profile, &dev_cap,
--					     &init_hca);
-+		icm_size = mlx4_make_profile(dev, &profile, dev_cap,
-+					     init_hca);
- 		if ((long long) icm_size < 0) {
- 			err = icm_size;
--			return err;
-+			goto out_free;
- 		}
- 
- 		dev->caps.max_fmr_maps = (1 << (32 - ilog2(dev->caps.num_mpts))) - 1;
- 
- 		if (enable_4k_uar || !dev->persist->num_vfs) {
--			init_hca.log_uar_sz = ilog2(dev->caps.num_uars) +
-+			init_hca->log_uar_sz = ilog2(dev->caps.num_uars) +
- 						    PAGE_SHIFT - DEFAULT_UAR_PAGE_SHIFT;
--			init_hca.uar_page_sz = DEFAULT_UAR_PAGE_SHIFT - 12;
-+			init_hca->uar_page_sz = DEFAULT_UAR_PAGE_SHIFT - 12;
- 		} else {
--			init_hca.log_uar_sz = ilog2(dev->caps.num_uars);
--			init_hca.uar_page_sz = PAGE_SHIFT - 12;
-+			init_hca->log_uar_sz = ilog2(dev->caps.num_uars);
-+			init_hca->uar_page_sz = PAGE_SHIFT - 12;
- 		}
- 
--		init_hca.mw_enabled = 0;
-+		init_hca->mw_enabled = 0;
- 		if (dev->caps.flags & MLX4_DEV_CAP_FLAG_MEM_WINDOW ||
- 		    dev->caps.bmme_flags & MLX4_BMME_FLAG_TYPE_2_WIN)
--			init_hca.mw_enabled = INIT_HCA_TPT_MW_ENABLE;
-+			init_hca->mw_enabled = INIT_HCA_TPT_MW_ENABLE;
- 
--		err = mlx4_init_icm(dev, &dev_cap, &init_hca, icm_size);
-+		err = mlx4_init_icm(dev, dev_cap, init_hca, icm_size);
- 		if (err)
--			return err;
-+			goto out_free;
- 
--		err = mlx4_INIT_HCA(dev, &init_hca);
-+		err = mlx4_INIT_HCA(dev, init_hca);
- 		if (err) {
- 			mlx4_err(dev, "INIT_HCA command failed, aborting\n");
- 			goto err_free_icm;
- 		}
- 
--		if (dev_cap.flags2 & MLX4_DEV_CAP_FLAG2_SYS_EQS) {
--			err = mlx4_query_func(dev, &dev_cap);
-+		if (dev_cap->flags2 & MLX4_DEV_CAP_FLAG2_SYS_EQS) {
-+			err = mlx4_query_func(dev, dev_cap);
- 			if (err < 0) {
- 				mlx4_err(dev, "QUERY_FUNC command failed, aborting.\n");
- 				goto err_close;
- 			} else if (err & MLX4_QUERY_FUNC_NUM_SYS_EQS) {
--				dev->caps.num_eqs = dev_cap.max_eqs;
--				dev->caps.reserved_eqs = dev_cap.reserved_eqs;
--				dev->caps.reserved_uars = dev_cap.reserved_uars;
-+				dev->caps.num_eqs = dev_cap->max_eqs;
-+				dev->caps.reserved_eqs = dev_cap->reserved_eqs;
-+				dev->caps.reserved_uars = dev_cap->reserved_uars;
- 			}
- 		}
- 
-@@ -2381,14 +2389,13 @@ static int mlx4_init_hca(struct mlx4_dev *dev)
- 		 * read HCA frequency by QUERY_HCA command
- 		 */
- 		if (dev->caps.flags2 & MLX4_DEV_CAP_FLAG2_TS) {
--			memset(&init_hca, 0, sizeof(init_hca));
--			err = mlx4_QUERY_HCA(dev, &init_hca);
-+			err = mlx4_QUERY_HCA(dev, init_hca);
- 			if (err) {
- 				mlx4_err(dev, "QUERY_HCA command failed, disable timestamp\n");
- 				dev->caps.flags2 &= ~MLX4_DEV_CAP_FLAG2_TS;
- 			} else {
- 				dev->caps.hca_core_clock =
--					init_hca.hca_core_clock;
-+					init_hca->hca_core_clock;
- 			}
- 
- 			/* In case we got HCA frequency 0 - disable timestamping
-@@ -2464,7 +2471,8 @@ static int mlx4_init_hca(struct mlx4_dev *dev)
- 	priv->eq_table.inta_pin = adapter.inta_pin;
- 	memcpy(dev->board_id, adapter.board_id, sizeof(dev->board_id));
- 
--	return 0;
-+	err = 0;
-+	goto out_free;
- 
- unmap_bf:
- 	unmap_internal_clock(dev);
-@@ -2483,6 +2491,10 @@ static int mlx4_init_hca(struct mlx4_dev *dev)
- 	if (!mlx4_is_slave(dev))
- 		mlx4_free_icms(dev);
- 
-+out_free:
-+	kfree(dev_cap);
-+	kfree(init_hca);
-+
- 	return err;
- }
- 
--- 
-2.20.0
+I think you should give the clang people time to figure out what is
+going on.
+
+
+Segher
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190722150204.1157315-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190722151801.GC20882%40gate.crashing.org.
