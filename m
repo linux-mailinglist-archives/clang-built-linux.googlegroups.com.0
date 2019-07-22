@@ -1,122 +1,126 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBSHI3DUQKGQEBORDZXQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBP7S3DUQKGQEFISQIDI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id BA21470C60
-	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jul 2019 00:10:17 +0200 (CEST)
-Received: by mail-yb1-xb40.google.com with SMTP id b78sf2658171ybg.20
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 15:10:17 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563833416; cv=pass;
+Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
+	by mail.lfdr.de (Postfix) with ESMTPS id BC0E470CAA
+	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jul 2019 00:31:28 +0200 (CEST)
+Received: by mail-oi1-x240.google.com with SMTP id f143sf15733859oig.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 15:31:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563834687; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xuGnrYPRla3r4rirSuJ2+E73Qs4StHGM1r+cEl88uzi3CMvzqZMpkher63HoH54KBe
-         AePm5qqnvz1eoL3yF+iftX0HSw+gbuUCqSv4mag18jnewsytcfttcHUMKc/gngL0r5Ob
-         /nNY4kGlKnzNVmjwbifgP2EEcs3Hy1eJvBR19Q6mq1n87GPWz78SkH0x2CgdP7txJLHp
-         ARi5JsWBLS3nyu6G2fOH0ca+hNHBC5lvP0TcbnP6/8oBgD2A4RhcOdxNYREs1UMY50Ih
-         A9gC96Joax45vd7u1baJUe78NPnMOTSvW8HYM0lqKTrdqbK0NKntR6xi3Yq9yHQXgl5c
-         2s6g==
+        b=L10tAjLmtttdr48P8DRiIMlup+cEL15JMp9M2UhoZ94Kq96dz1qEmJbLqtFY6Xkxo8
+         //mSRrXQB48T0wiAj9ensW7iLZZR6oHy8tdQS3/mZS2FGkzbUQiz44ghqcGcGic3naCG
+         0DBRUSHC/ZKntFxvSQImCVgAjQ/1IAHMV5omGrvoHZYQSGxd3lJF3Nzr6t4lx4PsKSvI
+         zFX71p00SfyhEppSnIV7qeAv437rvJEumCbkeEDHRcuIXJnIgNN5kCIDDCfcwTqCdW5s
+         aZE2nrIgz8JMpL2nCnOE39vDdPYWeJKCv9RVG9OBxQi0V+Yl2Po6XOPFmlTUGtH6JCW4
+         KmKQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=hpH5fEz33/zfwRG+jtypGJLYZKeg6F4sBYwc6uBg7l4=;
-        b=iUC4fj18Dh63YBhPIXNQfd82iur59dcOPtFQN/ZXWNwda3fLyy2KQLvyniMorHd6La
-         wOvyceAv3Hm/8d39GYmNo9M+tEo6MI6ZZqPp/N80WBk+KeHc7ZCxWJssE9KGE+Fqmzo0
-         v8j55VYQEFyJULxgUbBRO+PDrYseP84W0PSWFWcIL6McBZoQpDLpOwNwQY6CodBGGOk5
-         irVEMZsEWjkmtZ0mg1XpQdyYacAFQfziFxhNweA/RaX+rncHH0EHHCAeukK8seXOhe71
-         N9HWbU2qTnXpITk6nLB2IZK9Fe1lIuUPh7b8yf8SDNb5XtwlbneiFVlXUBEkX96nItlU
-         /aEg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:dkim-signature;
+        bh=khpmu7UbzpCWS7tZ56G17oYanPIpjcat3I3zavqO+s4=;
+        b=MEMJnVLf8yZ2cNV55D19biC2u6VH7Vt80MUFryJoptnt3XLsd/kp5pQfO3KIcNWyUs
+         vz0ScrR0WU3i9xhkzWOjvOVYkWWFeiJKIvheF4LH9/Z3Fc/PelA+Y1IB93Qq4YrasVy9
+         /yCWdKmGY+dPtouxnfifdJCWhXvu5lNLRpN4OKoon2LNe+fm8A3j0EywMAKPLyrnc5sY
+         6hi7vdLpDxFh5DHU80oBrvDoZJLAz2NzKlxQDNDwGJboi80evPqpmfEkV3VoKwvzaRHm
+         BnhznB+vxkx4NkCZ7eccwnySG2zxC5CVCZuXn0ELyZSAbBaKFTjGgVp8CckrqzmyfGuz
+         5sMg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dzmrcvvd;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=e9z1PXWs;
+       spf=pass (google.com: domain of 3pjk2xqwkahkkabpxrikfbopdlldib.zlj@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3Pjk2XQwKAHkkabpXrikfbopdlldib.Zlj@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=hpH5fEz33/zfwRG+jtypGJLYZKeg6F4sBYwc6uBg7l4=;
-        b=c+a9fEElw+fpKwXhi4V20lx2jSLdmjdZqLu31Sm0LcXqDpvmAnY88q3DVJYJZHTxSm
-         bwRcii0sKu4ZZDQ3GsU5qkebLEw/GDyYKcmXr3DUkR3qYF3RmsbBKcm6yl0o+kzSQvKi
-         srcyTKh80IomOULR6dL466k0O0X7PyopCs+s8qWSLlojA6+Y6L5zWyYsaTTokUp4IIsH
-         0QsAezPAO3vStbphWquNJ/GaWvuIt2UYadCzJvxt/vZwckWbctdnWiGt0Fu+tXEJj7TX
-         jg3TLO3v1IkmwCkPWJkFj3oDnUfsDxaJ4fALLBkBAyRT2ApszP8Yfy5Hza/CgJnLFVFq
-         HkRQ==
+        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=khpmu7UbzpCWS7tZ56G17oYanPIpjcat3I3zavqO+s4=;
+        b=NY0YomDxCQpK4a8KbLap3GJyZPPCECF7gWQHIRS1QPY0SNmd3t5X0WdO1KpsUeH4hu
+         30DCrOxlgs29Sw0gHrGB0uBHCbvVOYD0frrPth4h1n09BRp3NbhO9Bh4yI6QnIn4erwX
+         Pxosa0FD3z3/urEG7kLZyeGbwzcLe7+BgHlZZ2Jdqb9WHRPnNdSA0uMkD3GeYzIIdGhy
+         NBGqV8KUzBswlkRKy1K+DtFaunB4aZd9AuZ697cdGmV0WdXQvuzmNZa3khI7zD3QwJUj
+         lU9suBu+XW19DXfBRMfIewE5E96c91GgNhFbzzg+wZJeBrC5hOOpZd4Nv3nT583pUBnU
+         ePyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=hpH5fEz33/zfwRG+jtypGJLYZKeg6F4sBYwc6uBg7l4=;
-        b=JtXkrg+lKVebSr4U3AvPawoJ61V3IyT298NmMJKgGgeRoG4ngAFCKKHG+15vkV6p88
-         3u74MdUVEtYpM2YnnzkmSHqC1MhfCWJ/8J4T64JkjqRn/S15Gn179CWQWN64avndKrHB
-         2bzlSc97NDiXd/a21zUxwcNh96g+PN1fjveCmYnHcnxEitrgU/WcjoQDcICHXV5SZveu
-         hs2rJvSxOh0f3vqHoQKgGggQizgFhjgFqTuIiaBekKKJn2c/36XCcuG7IwFMZZdM2U+G
-         d1rx89s5WOumzAy3GOdDW+xQCPY8I3nqmS8uo5ue36irzeu4algI8iWdnrlhvHwYF4dD
-         Neag==
-X-Gm-Message-State: APjAAAUvJXHb1TrL1qwHCPRA6O58FC1Vvh9EjXBosj9N6P5/Y6RPuVjB
-	pCmtM/Zq4Pe95CAIja9NyQ0=
-X-Google-Smtp-Source: APXvYqzXkSerqQXfmYbyy/2tjt28DAvKQnATM7Yg/3/fNL3L1Uiztz5vc1k1FIY32crANpYt5prPDQ==
-X-Received: by 2002:a81:9844:: with SMTP id p65mr42350951ywg.127.1563833416655;
-        Mon, 22 Jul 2019 15:10:16 -0700 (PDT)
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=khpmu7UbzpCWS7tZ56G17oYanPIpjcat3I3zavqO+s4=;
+        b=aGZTy2F+emnP/9P7R1o4Atr2RYVpArwUwyhBCz1ATAR6XSy6g2TOzu4E6EtJZYJ4VO
+         TrDPrsmawqKVyJCWZJE3loiLD2aX1lSev3a+im1dwZB63qJV+1AdiRL82Vf/d3Ulg1cc
+         9Q6+M2ZtZQTuEYmMxkn0vpZOjSN7Ot0zm99MbOtMsC0npWyPVqCEVVRW0Ro16Eo/hVma
+         vAWVQ5pvldpXhWxARz+gRocXu08e6VzUcLCaNZ8Ng+uzaaa3i2We6aUaJylOQB3RRUhl
+         7Efmt9H7YPYKnZz2wCqhj2SN4HllBNuNMXd6q76SXFMwuI40161fnl4OV/o7lIsmsm5P
+         yRww==
+X-Gm-Message-State: APjAAAXx8A8QagcACPuShLZyv1CWd0W3c6+bljYDsYg44LHioeQ/94sR
+	EX6p++Rbu1JSrcEywzQwruM=
+X-Google-Smtp-Source: APXvYqxqci3Fsrol8ZSx4wPcS+X/xqNU5XLkN2sFNm8QmaJDC8kMdL12cOUgDbEYnEm15qpUHtKoDg==
+X-Received: by 2002:a9d:7ad9:: with SMTP id m25mr25092870otn.315.1563834687678;
+        Mon, 22 Jul 2019 15:31:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:a087:: with SMTP id x129ls4773160ywg.14.gmail; Mon, 22
- Jul 2019 15:10:16 -0700 (PDT)
-X-Received: by 2002:a81:54c2:: with SMTP id i185mr44031078ywb.155.1563833416441;
-        Mon, 22 Jul 2019 15:10:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563833416; cv=none;
+Received: by 2002:aca:4d14:: with SMTP id a20ls5267814oib.0.gmail; Mon, 22 Jul
+ 2019 15:31:27 -0700 (PDT)
+X-Received: by 2002:aca:cc49:: with SMTP id c70mr35005516oig.174.1563834687366;
+        Mon, 22 Jul 2019 15:31:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563834687; cv=none;
         d=google.com; s=arc-20160816;
-        b=BukMdATY7wlgeS0nDOEUUUqCANnZ57c7HYk1tow0gfyY0oN/d3O8QrJxkwS4wFAmvt
-         stX+fYN3gcSKG0jaeRhAmkpHK+brDz5LRqAXzj6Gco5uU7n6sv5H1GMhWk5M93FsqRWu
-         d6ZeM/I7sZrNZjkO+BO3C8wphztgX6k7RPZYcRH33XYxJtXlUsq/C3bkEcozFhXc7WZ1
-         1amNmc+AaqSfsT+uPiSF1KSNithBLMzC0isfWYb00PGHy9Vg21ke9CPnJoYuHcvbtvP7
-         IdhPfuv3VVRFRBTgn5rFj2SZlpKwR09GZlXoDKDj9VOZlp+bBXW194wXYXvwx+uGiGbI
-         sNnQ==
+        b=yYbvIf4JDSEW2S4Jjdblh9RgPG9h/pJR7nmphrBaaRFS8SNVUzPNJ02UQOy5DhR0mW
+         V/dnp0oUC2tBVjnXelP2TcH1rzW2d3oqhLIHxwGYyMOpB0uHYYgzGvR5aNWJzBPjRjbe
+         tEHKwDXyduAsrhRskjPiRXqMfPBRmsfZ1i9o/EBLy1Z/6Ksg4teuXvwPCJwoC1ZjhGEk
+         IKIzoQ6gwl6r2/V5j0xdhsglW5kRNrj5Kk7j6Yov/T3FfPK8GQl5jUxfw91LvPGNlSuW
+         jgLJ7jkn7VZNie8PUOAXPiFGzhBEMw2byQ67epuAD6y931yGHmGlDlzMNG6/aT0yTNAT
+         DhcQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=krTygS594B1FZs0zxHGIhwRvOWSOgPOCJ7d+lzUap1c=;
-        b=OFcxdYB3SB2UfuySGx+tZV6SpQDZoXaCiYWfz/tdl17UFXzUV9QIB7ei7rBFUB47On
-         VLooRz1naCvkTNxcstSd9uCZIJsHjrNnp87OAHMZvHdIk28X5jAnDMpdPhklwHNzNpyS
-         ALQ6TkzQTGJrNU3ejPd+XeB/957HeZ3lzHa/MV2BRooKtSxf0STmu2r8/s35bui0DtTc
-         0S7lURuej4MdDVvvQdJQAM7oal4kWIpGXjzlQAri5YRCoKAkJ7GkGGtGGjdtLsuobAmp
-         113rzkPqJBYbhhOsLfn+kRnEEfwS3SwmX1+QzXNClJZ+1sRyV412TAJbcJezjH/0sGaH
-         RP3g==
+        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
+        bh=oIv+GpT3Jmjvvs475a+O0pvmLeihB9t3PTRepY2uxPk=;
+        b=OaEZSCuFGgDL3oq8aiKnrB5Ye+Z9NY/Pb6TDeTMAV/DRZtY6m1tSsQ6C2jiVoA+OoO
+         JPFnGsDkFd06BUo2v1YQ+LUJzZEcSv9HygcwTtsMcCCUUqbbav4TR19QddxWDsEEt251
+         rwiMR/wsHO1FxTpCml/09POTyvnP5Lk/5/n4PV/zV7WfBP67lMiYCGNa4fJ9rp7igcOZ
+         bapk0dzqFWLwOkypmc7Y8FjaxiX0aSmKTpXR7BUm4g7QHrj+x9USSXifwnFs9pXDTqea
+         MDHP9e/hPnDS3fMjKO/ClUvTcSVDgbJ7OgAslN34YsdVtpQvbHc+HNSEsfGXga5hYks8
+         g+ZA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=dzmrcvvd;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=e9z1PXWs;
+       spf=pass (google.com: domain of 3pjk2xqwkahkkabpxrikfbopdlldib.zlj@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3Pjk2XQwKAHkkabpXrikfbopdlldib.Zlj@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id f131si1122662ybf.5.2019.07.22.15.10.16
+Received: from mail-pf1-x44a.google.com (mail-pf1-x44a.google.com. [2607:f8b0:4864:20::44a])
+        by gmr-mx.google.com with ESMTPS id i20si2268887otf.0.2019.07.22.15.31.27
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Jul 2019 15:10:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id l21so18315921pgm.3
-        for <clang-built-linux@googlegroups.com>; Mon, 22 Jul 2019 15:10:16 -0700 (PDT)
-X-Received: by 2002:a65:5687:: with SMTP id v7mr74903566pgs.263.1563833415147;
- Mon, 22 Jul 2019 15:10:15 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190722213250.238685-1-ndesaulniers@google.com> <20190722213250.238685-2-ndesaulniers@google.com>
-In-Reply-To: <20190722213250.238685-2-ndesaulniers@google.com>
+        Mon, 22 Jul 2019 15:31:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3pjk2xqwkahkkabpxrikfbopdlldib.zlj@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) client-ip=2607:f8b0:4864:20::44a;
+Received: by mail-pf1-x44a.google.com with SMTP id u21so24771378pfn.15
+        for <clang-built-linux@googlegroups.com>; Mon, 22 Jul 2019 15:31:27 -0700 (PDT)
+X-Received: by 2002:a65:47c1:: with SMTP id f1mr72262210pgs.169.1563834686245;
+ Mon, 22 Jul 2019 15:31:26 -0700 (PDT)
+Date: Mon, 22 Jul 2019 15:31:05 -0700
+Message-Id: <20190722223112.199769-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.22.0.657.g960e92d24f-goog
+Subject: [PATCH] drm/amd/display: readd -msse2 to prevent Clang from emitting
+ libcalls to undefined SW FP routines
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 22 Jul 2019 15:10:04 -0700
-Message-ID: <CAKwvOdm3iyeJfuivhQJqXB9FfC0zHgrfgoN_qW4poEyfcw3C9A@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] x86/purgatory: use CFLAGS_REMOVE rather than reset KBUILD_CFLAGS
-To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>
-Cc: Peter Zijlstra <peterz@infradead.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Vaibhav Rustagi <vaibhavrustagi@google.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>
+To: alexander.deucher@amd.com, harry.wentland@amd.com
+Cc: sedat.dilek@gmail.com, samitolvanen@google.com, Shirish.S@amd.com, 
+	mka@google.com, jyknight@google.com, natechancellor@gmail.com, 
+	linux@roeck-us.net, Nick Desaulniers <ndesaulniers@google.com>, Leo Li <sunpeng.li@amd.com>, 
+	"=?UTF-8?q?Christian=20K=C3=B6nig?=" <christian.koenig@amd.com>, "David (ChunMing) Zhou" <David1.Zhou@amd.com>, 
+	David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>, 
+	"=?UTF-8?q?Michel=20D=C3=A4nzer?=" <michel.daenzer@amd.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Charlene Liu <charlene.liu@amd.com>, Dmytro Laktyushkin <Dmytro.Laktyushkin@amd.com>, 
+	Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=dzmrcvvd;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+ header.i=@google.com header.s=20161025 header.b=e9z1PXWs;       spf=pass
+ (google.com: domain of 3pjk2xqwkahkkabpxrikfbopdlldib.zlj@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3Pjk2XQwKAHkkabpXrikfbopdlldib.Zlj@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
@@ -131,69 +135,95 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jul 22, 2019 at 2:33 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> KBUILD_CFLAGS is very carefully built up in the top level Makefile,
-> particularly when cross compiling or using different build tools.
-> Resetting KBUILD_CFLAGS via := assignment is an antipattern.
->
-> The comment above the reset mentions that -pg is problematic.  Other
-> Makefiles like arch/x86/xen/vdso/Makefile use
-> `CFLAGS_REMOVE_file.o = -pg` when CONFIG_FUNCTION_TRACER is set. Prefer
-> that pattern to wiping out all of the important KBUILD_CFLAGS then
-> manually having to re-add them.
->
-> Fixes: 8fc5b4d4121c ("purgatory: core purgatory functionality")
-> Reported-by: Vaibhav Rustagi <vaibhavrustagi@google.com>
-> Suggested-by: Peter Zijlstra <peterz@infradead.org>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> Rather than manually add -mno-sse, -mno-mmx, -mno-sse2, prefer to filter
-> -pg flags.
->
->  arch/x86/purgatory/Makefile | 12 +++++++-----
->  1 file changed, 7 insertions(+), 5 deletions(-)
->
-> diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-> index 91ef244026d2..56bcabca283f 100644
-> --- a/arch/x86/purgatory/Makefile
-> +++ b/arch/x86/purgatory/Makefile
-> @@ -20,11 +20,13 @@ KCOV_INSTRUMENT := n
->
->  # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
->  # in turn leaves some undefined symbols like __fentry__ in purgatory and not
-> -# sure how to relocate those. Like kexec-tools, use custom flags.
-> -
-> -KBUILD_CFLAGS := -fno-strict-aliasing -Wall -Wstrict-prototypes -fno-zero-initialized-in-bss -fno-builtin -ffreestanding -c -Os -mcmodel=large
-> -KBUILD_CFLAGS += -m$(BITS)
+arch/x86/Makefile disables SSE and SSE2 for the whole kernel.  The
+AMDGPU drivers modified in this patch re-enable SSE but not SSE2.  Turn
+on SSE2 to support emitting double precision floating point instructions
+rather than calls to non-existent (usually available from gcc_s or
+compiler_rt) floating point helper routines for Clang.
 
-Is purgatory/kexec supported for CONFIG_X86_32?  Should I be keeping
-`-m$(BITS)`?  arch/x86/purgatory/Makefile mentions
-`setup-x86_$(BITS).o` which I assume is broken as there is no
-arch/x86/purgatory/setup-x86_32.S?
+This was originally landed in:
+commit 10117450735c ("drm/amd/display: add -msse2 to prevent Clang from emitting libcalls to undefined SW FP routines")
+but reverted in:
+commit 193392ed9f69 ("Revert "drm/amd/display: add -msse2 to prevent Clang from emitting libcalls to undefined SW FP routines"")
+due to bugreports from GCC builds. Add guards to only do so for Clang.
 
-> -KBUILD_CFLAGS += $(call cc-option,-fno-PIE)
-> +# sure how to relocate those.
-> +ifdef CONFIG_FUNCTION_TRACER
-> +CFLAGS_REMOVE_sha256.o = -pg
-> +CFLAGS_REMOVE_purgatory.o = -pg
-> +CFLAGS_REMOVE_string.o = -pg
-> +CFLAGS_REMOVE_kexec-purgatory.o = -pg
-> +endif
->
->  $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
->                 $(call if_changed,ld)
-> --
-> 2.22.0.657.g960e92d24f-goog
->
+Link: https://bugs.freedesktop.org/show_bug.cgi?id=109487
+Link: https://github.com/ClangBuiltLinux/linux/issues/327
 
+Suggested-by: Sedat Dilek <sedat.dilek@gmail.com>
+Suggested-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+ drivers/gpu/drm/amd/display/dc/calcs/Makefile | 4 ++++
+ drivers/gpu/drm/amd/display/dc/dcn20/Makefile | 4 ++++
+ drivers/gpu/drm/amd/display/dc/dml/Makefile   | 4 ++++
+ drivers/gpu/drm/amd/display/dc/dsc/Makefile   | 4 ++++
+ 4 files changed, 16 insertions(+)
 
+diff --git a/drivers/gpu/drm/amd/display/dc/calcs/Makefile b/drivers/gpu/drm/amd/display/dc/calcs/Makefile
+index 95f332ee3e7e..16614d73a5fc 100644
+--- a/drivers/gpu/drm/amd/display/dc/calcs/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/calcs/Makefile
+@@ -32,6 +32,10 @@ endif
+ 
+ calcs_ccflags := -mhard-float -msse $(cc_stack_align)
+ 
++ifdef CONFIG_CC_IS_CLANG
++calcs_ccflags += -msse2
++endif
++
+ CFLAGS_dcn_calcs.o := $(calcs_ccflags)
+ CFLAGS_dcn_calc_auto.o := $(calcs_ccflags)
+ CFLAGS_dcn_calc_math.o := $(calcs_ccflags) -Wno-tautological-compare
+diff --git a/drivers/gpu/drm/amd/display/dc/dcn20/Makefile b/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
+index e9721a906592..f57a3b281408 100644
+--- a/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
+@@ -18,6 +18,10 @@ endif
+ 
+ CFLAGS_dcn20_resource.o := -mhard-float -msse $(cc_stack_align)
+ 
++ifdef CONFIG_CC_IS_CLANG
++CFLAGS_dcn20_resource.o += -msse2
++endif
++
+ AMD_DAL_DCN20 = $(addprefix $(AMDDALPATH)/dc/dcn20/,$(DCN20))
+ 
+ AMD_DISPLAY_FILES += $(AMD_DAL_DCN20)
+diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+index 0bb7a20675c4..132ade1a234e 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
+@@ -32,6 +32,10 @@ endif
+ 
+ dml_ccflags := -mhard-float -msse $(cc_stack_align)
+ 
++ifdef CONFIG_CC_IS_CLANG
++dml_ccflags += -msse2
++endif
++
+ CFLAGS_display_mode_lib.o := $(dml_ccflags)
+ 
+ ifdef CONFIG_DRM_AMD_DC_DCN2_0
+diff --git a/drivers/gpu/drm/amd/display/dc/dsc/Makefile b/drivers/gpu/drm/amd/display/dc/dsc/Makefile
+index e019cd9447e8..17db603f2d1f 100644
+--- a/drivers/gpu/drm/amd/display/dc/dsc/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dsc/Makefile
+@@ -9,6 +9,10 @@ endif
+ 
+ dsc_ccflags := -mhard-float -msse $(cc_stack_align)
+ 
++ifdef CONFIG_CC_IS_CLANG
++dsc_ccflags += -msse2
++endif
++
+ CFLAGS_rc_calc.o := $(dsc_ccflags)
+ CFLAGS_rc_calc_dpi.o := $(dsc_ccflags)
+ CFLAGS_codec_main_amd.o := $(dsc_ccflags)
 -- 
-Thanks,
-~Nick Desaulniers
+2.22.0.657.g960e92d24f-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm3iyeJfuivhQJqXB9FfC0zHgrfgoN_qW4poEyfcw3C9A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190722223112.199769-1-ndesaulniers%40google.com.
