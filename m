@@ -1,100 +1,126 @@
-Return-Path: <clang-built-linux+bncBCFPF2XH6UDBBX6G3HUQKGQEWSZWSHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBB6G53LUQKGQET74TKDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 11AC270EAC
-	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jul 2019 03:31:12 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id g13sf3000669lfb.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 18:31:12 -0700 (PDT)
+Received: from mail-yw1-xc3e.google.com (mail-yw1-xc3e.google.com [IPv6:2607:f8b0:4864:20::c3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 807A871223
+	for <lists+clang-built-linux@lfdr.de>; Tue, 23 Jul 2019 08:53:45 +0200 (CEST)
+Received: by mail-yw1-xc3e.google.com with SMTP id n139sf31325875ywd.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 22 Jul 2019 23:53:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563864824; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=dGUtAHFeIr0q6TcDB8p7gcEhd/aJ0/+SZrb/y3SaYQgbR739cSx3ssRsgZozdChcNd
+         fgs7dcuXBOYc6ObvhrwHe3Any0DKO6QsPvmgGOpm3cE94bKP3WdgPMEkzXATDVkOIxsK
+         JER87s2+WXsls3jBhtLsgwRqx6YXFo4APSztz2Vdva23l1JqIZunlktEQgdikNCyGlpH
+         L2hpgPri9UsWLwyzuv+4G74iny/tZw8NlNfHwKXc11sORCtMTW+V38xINf959OZQ1Udv
+         SAr7RHoiQRuSynxhfJ2OFl88OD7UcaICThHdW0vbpS1hxJf5hykMXTrbCAJpdeU4dAZm
+         AiNA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=OE1DsSLyB0+OuFmpKqoJUujH9K9LkCo31oIiiehQurk=;
+        b=Zs91kv9s4AFtGAy1BjChTktVf3M3N0LjT0QBGXCMfV7K4U9lVIKzD8TOZwCib/GRIi
+         84bR32wMAhTvA5rD5Hss8IGE1FtOKsAB69+pjT2ygSODXpgTCtbSv+GWCS1rRY566pEa
+         /ZTYa+l8gSPT6Z64khkMRL69TZdSKmGZ/K+BXQs1Qvf32hnIa1Drc6PK4ZFGxm+hXzDa
+         siZlKsUm1h+hNFH/SxFBMGbtEN7cUziP6tv5gB3tE3ZPhKeS8LHrYYP/LB7kHAtuLDuI
+         3LMFOuABJsHRshx8O6Zgoluee2Inx7XZU7EbzL1nwy6EavVCks0r7xl89rUMrAyG8Ey+
+         Yajw==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@kernel.org header.s=default header.b=OnYj3zTB;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:message-id:to:cc:subject:from:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bhmV4gHDNShQfgsNnThILElcDUdkxuuUuBkIWXzCWzg=;
-        b=p8XOgtHPJJ9WfO0O4nREcCkzLG8VVedY8BMpwCkr48moc5kAcPZDp4f0fpYMJPH1EK
-         VENNR1+IAhqPmkM+1C7KTBu0RwiB0giLufspZBORxDE/515fF6kPJrpSmXvm8eerAnp4
-         BgITDsfQRt/E//fUj0d1MvRGsL8462NfIF07xRk10rgFdlVMIsN5jFvu9aVDIbY1kR+7
-         k79ywyIHK2acHJvkSlm0mJF26hQBXCi7pYVAIWwxpHnhyP8PSoOCxSpqE8IW9jVHfbVG
-         dkq+VXR41CFZoI7h0InouCswqzZOWxqCRg3fsvlXoJuFalVCqinLVdJccfWZKCShIrKx
-         KJ2A==
+        bh=OE1DsSLyB0+OuFmpKqoJUujH9K9LkCo31oIiiehQurk=;
+        b=Ph9qsOUXvu/DUv72Js6+52Ebi9Tq1b4SXayd0ZFjYK3+TVqJPtpieAf8YI8zy8tNLc
+         v+G1dB/UgFqtmjQfSUAzVH8RMQuAKvNg2bP51MgBnWH0iZ/TbXSVEzYeh+X28FQ4YnBd
+         Djb+mjg2e3f0yRrQCVPdNuFBJr58ZJTaE+e6MKKah59kij0sqlig3U0dN5eKAk/+pkO4
+         jsDmUdhzgnEXn7nEZUrybOi6+h836jjvviDclmg7pdGbyBR1ZahXYI37uMbsrBNFpsLe
+         e3XCVWbu6TLkzot4mMbeXy4s0PTeIrycF3eJ98hRQfFSENomkqv+zfEkpero6+8nfe/I
+         rPYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:message-id:to:cc:subject:from
-         :in-reply-to:references:mime-version:content-transfer-encoding
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=bhmV4gHDNShQfgsNnThILElcDUdkxuuUuBkIWXzCWzg=;
-        b=Oqviv9HLKQgSiRxapQrR6YE+QaUeJepmHMgSq+piTfVwwEluiAzYRqjtNBUrCQiXlz
-         yZ7dI4OMl8rv4dUV2AMg9PjGRwXsfs9dqsRpUlstJcqUND2n8yESoLvbZYcjJoNeJtcW
-         hRamqrkzZQ0crx5YKXl1jiOJGF3314JPdievy7HljsmpLBsh678/ZTIKDb7VlOkOlO7o
-         ygF1SjoAJ73PguE6GdDR92clCvw4m0HoD1VLQSQdfdM4GW99Hf9BxZsnnsJ9njU6iUoD
-         FEbwftOhaePcK7X3Ss37COEIaiiLIuBKMDHYiUOs5/oUwsFB3Fm9ebt7A6gk/ZM89w2S
-         dK1A==
+        bh=OE1DsSLyB0+OuFmpKqoJUujH9K9LkCo31oIiiehQurk=;
+        b=pDj2GUTvv3Uyl4RsWF/yHd1kXpGwRvsz3DJfbky42J/qwI1pSioF5R6XZwqhv35lJr
+         omJ0QhbR60q3P1HqwVy05wHJX13E1hNYVYFfAeU+TBtbSwBBeRy63NAjANsqmW5Mn8d+
+         GKBzZhM+/sW6Jrn3mf8ZBIiHMGh9msTycBLBuCUTlnV9dVmlk4jh4gQ7mQefyrgFnD17
+         /KW7MAHybSc7sPnVDtImz8ObONyKft8i6o4TyVEUH3NPlKUX3HnnzVwFBRiZ4FXwH7CM
+         0MgYsRD3HNKn73ylUxEx7QGYD798WYUvLpgXv61uAWNQFs5jQGSlCpFBdOR0La+6G/Ke
+         tN6w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUteVNyueYbLSeVYsPA9tAQyuU2qRc38ktL8DuYJxZ5GRirYeTY
-	vdAs66i1FldpqcuAzELrF0M=
-X-Google-Smtp-Source: APXvYqwRoIe62sMpSiFaCSGgg+bLq67qk9+Ro01b+tVgKf2FphVbrHwZVPTZObl/dW0D/1ba9r/NmQ==
-X-Received: by 2002:a19:4aca:: with SMTP id x193mr29390210lfa.146.1563845471601;
-        Mon, 22 Jul 2019 18:31:11 -0700 (PDT)
+X-Gm-Message-State: APjAAAW32Ika1C+TdpG9sFNk27gfgOV3TTzD83Fm4LuOL15xmQmI7Uef
+	h8jzex/fvcq5Zbb5L/QopgI=
+X-Google-Smtp-Source: APXvYqy02cwEqhhPkOb2tH9gMvcq+BbFK3p4meq171AYYUWugSgYBQabNy3i6RbNDBRbvCASDxkocg==
+X-Received: by 2002:a25:d907:: with SMTP id q7mr3229890ybg.348.1563864824199;
+        Mon, 22 Jul 2019 23:53:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:5b91:: with SMTP id m17ls4649962lje.10.gmail; Mon, 22
- Jul 2019 18:31:10 -0700 (PDT)
-X-Received: by 2002:a2e:a0d6:: with SMTP id f22mr13341610ljm.182.1563845470831;
-        Mon, 22 Jul 2019 18:31:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563845470; cv=none;
+Received: by 2002:a81:a50a:: with SMTP id u10ls5542363ywg.1.gmail; Mon, 22 Jul
+ 2019 23:53:43 -0700 (PDT)
+X-Received: by 2002:a81:a18b:: with SMTP id y133mr44613382ywg.239.1563864823930;
+        Mon, 22 Jul 2019 23:53:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563864823; cv=none;
         d=google.com; s=arc-20160816;
-        b=RWmDOSPf/mbkU5ednZD9RX7iogirrjG7xtUB2Ao3WKtJ0iSVX8jMbOlJPA68K+uYlC
-         t5Qyrcw9H6RBxL2/t8Z/m+SziahWhIjwk8gzU4eOSqBbiHGxwZrFJbNMngekgVmpAwLU
-         bv2sbJj9HyLGC9Q70PTUsBsKaAUp0WRb+ZyLHOOvv3agNZlC8q39JTxdqCtiIjOZTQ2b
-         +vOtG4SHJOWXvHtlpcxetCYvsbVcUCwbZtz/odjk217ebUklTHk3xghpGjFC/yETCRQU
-         ptGU9GzotF5/bDfPS07aHw+2T4Ir8doH1SMvWchT3E/ZGX8GnXaYlKGysSkCf6RxIaKZ
-         1UDA==
+        b=QhUvf8dBml/+FkQm92R0n8kjSXiIvvgNMG9UghLkhEU+p7iFWnW+ltL0OJaeHYLA3o
+         M/x39fC7+z9H7uwf1frSbvlTuWLML84yl7gAszrJsoyouwCdpPDNmc5rYH5xm0mEWTlx
+         BERvbc40rwzDfiaqKfp7R4CpebvN0CHmVnfeoBtHXvKqQkHVKaTdk4fMy/C8y2NzUDda
+         MxsvQbGBeYlsY2Jferko+Lri3kOdgVvJ92//Xn0wWjRcyOAsujkmRs6SZCj6iLHRm7pG
+         xoX0rW+s1vdfIgVKtDKNxi9DuUQR162w+KEZrsShXQRqqmVaYg0PALgKqDLh90z5lFPN
+         fD3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date;
-        bh=bhmV4gHDNShQfgsNnThILElcDUdkxuuUuBkIWXzCWzg=;
-        b=gYDnxecYqX/fzlLXEWTbWmLsrDsSwxxrU0/jHLJQsCLF4InmSJab9o0jlJq2EZvbqn
-         RUIXOlF4MvhohvgT0eO3FXwn3Bi0k6xTS/I37yCz+Yde29Lkh3VXm1vExak/+S9FOPIq
-         Ur50pF2rTWWo2cAAsPg9e/NI4mXqn6mgJMc5tJEni5l61EpUagHI52OKbwf5jc2d8RhT
-         f/ti24QPSSwOfSu5NEISAzqP7kiUu0ym6LStFwC4OrTFKgG6PuOLbRKn4VxeTlx766Sz
-         bZed7+jgOMbE2kHnUje7Z8NS2sT+rjcZYREYSuCUvgg7Jqvp9M3CUQHA4+QynP2QUtRj
-         kEjg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=OCWXHYd0MZaOyCQ0quFgjxIBTkz7UEcAqcM4arvJkXk=;
+        b=RvY3LZfw5NojH46Jxq3PX3LSC3iuM7KeQk9bOl4FJUBiOtWsL7uBTc6Y8tSYKwCdbk
+         cyIhL5Aecw/iADRxapeMdcFYo5C51qPFHNnxu5+U6KrHMNPN1HnzMeShjKuv3sSUB84/
+         KEq3h8joj83YWhY5gfEdIT4WNMg+afc4qyrbv4twAHPDncU7k6fJEZgblsuHPtk6CaK/
+         TpdyDMJTgP94TbM+IPw0qFMKpDimDh5/BFmgVeGCJPbIOv3G94vkXar/P8e692rVyvns
+         A1X2wM71v7pKucwAhaQn0sGxi9P9HHS7D4v77QjMAk+oIw6F/g4ZsMLtNNCCVQjn1x4W
+         f1qg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
-Received: from shards.monkeyblade.net (shards.monkeyblade.net. [2620:137:e000::1:9])
-        by gmr-mx.google.com with ESMTPS id f26si1871537lfp.5.2019.07.22.18.31.10
+       dkim=pass header.i=@kernel.org header.s=default header.b=OnYj3zTB;
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id r1si2446075ywg.4.2019.07.22.23.53.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 22 Jul 2019 18:31:10 -0700 (PDT)
-Received-SPF: neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) client-ip=2620:137:e000::1:9;
-Received: from localhost (unknown [IPv6:2601:601:9f80:35cd::d71])
-	(using TLSv1 with cipher AES256-SHA (256/256 bits))
-	(Client did not present a certificate)
-	(Authenticated sender: davem-davemloft)
-	by shards.monkeyblade.net (Postfix) with ESMTPSA id EF0E115305EB4;
-	Mon, 22 Jul 2019 18:31:07 -0700 (PDT)
-Date: Mon, 22 Jul 2019 18:31:07 -0700 (PDT)
-Message-Id: <20190722.183107.298639131733640783.davem@davemloft.net>
-To: arnd@arndb.de
-Cc: dhowells@redhat.com, keescook@chromium.org,
- linux-afs@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH net-next] rxrpc: shut up -Wframe-larger-than= warnings
-From: David Miller <davem@davemloft.net>
-In-Reply-To: <20190722145828.1156135-1-arnd@arndb.de>
-References: <20190722145828.1156135-1-arnd@arndb.de>
-X-Mailer: Mew version 6.8 on Emacs 26.1
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
-X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.5.12 (shards.monkeyblade.net [149.20.54.216]); Mon, 22 Jul 2019 18:31:08 -0700 (PDT)
-X-Original-Sender: davem@davemloft.net
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess
- record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
+        Mon, 22 Jul 2019 23:53:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl [83.86.89.107])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 5773D2190F;
+	Tue, 23 Jul 2019 06:53:42 +0000 (UTC)
+Date: Tue, 23 Jul 2019 08:53:40 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: kbuild test robot <lkp@intel.com>, kbuild@01.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com
+Subject: Re: [driver-core:debugfs_cleanup 23/49]
+ fs/ocfs2/dlm/dlmdomain.c:2038:14: warning: variable 'ret' is used
+ uninitialized whenever 'for' loop exits because its condition is false
+Message-ID: <20190723065340.GB27629@kroah.com>
+References: <201907230730.0LT4uPHR%lkp@intel.com>
+ <20190722234341.GA111107@archlinux-threadripper>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20190722234341.GA111107@archlinux-threadripper>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=OnYj3zTB;       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -107,29 +133,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 22 Jul 2019 16:58:12 +0200
+On Mon, Jul 22, 2019 at 04:43:41PM -0700, Nathan Chancellor wrote:
+> On Tue, Jul 23, 2019 at 07:32:40AM +0800, kbuild test robot wrote:
+> > CC: kbuild-all@01.org
+> > CC: devel@driverdev.osuosl.org
+> > TO: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>
+> > 
+> > tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/gregkh/driver-core.git debugfs_cleanup
+> > head:   d3f8c6d526d1397e2953c7c3adfd2bb18daaf92d
+> > commit: d1b9fa51a7d2cbbfb7e52b3ae3c24959034d269c [23/49] ocfs: further debugfs cleanups
+> > config: x86_64-rhel-7.2 (attached as .config)
+> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 3d68adebc579720a3914d50e77a413773be34f16)
+> > reproduce:
+> >         git checkout d1b9fa51a7d2cbbfb7e52b3ae3c24959034d269c
+> >         # save the attached .config to linux build tree
+> >         make ARCH=x86_64 
+> > 
+> > If you fix the issue, kindly add following tag
+> > Reported-by: kbuild test robot <lkp@intel.com>
+> > 
+> > All warnings (new ones prefixed by >>):
+> > 
+> > >> fs/ocfs2/dlm/dlmdomain.c:2038:14: warning: variable 'ret' is used uninitialized whenever 'for' loop exits because its condition is false [-Wsometimes-uninitialized]
+> >            for (i = 0; i < DLM_MLE_NUM_TYPES; ++i) {
+> >                        ^~~~~~~~~~~~~~~~~~~~~
+> >    fs/ocfs2/dlm/dlmdomain.c:2056:6: note: uninitialized use occurs here
+> >            if (ret < 0 && dlm) {
+> >                ^~~
+> >    fs/ocfs2/dlm/dlmdomain.c:2038:14: note: remove the condition if it is always true
+> >            for (i = 0; i < DLM_MLE_NUM_TYPES; ++i) {
+> >                        ^~~~~~~~~~~~~~~~~~~~~
+> >    fs/ocfs2/dlm/dlmdomain.c:1952:9: note: initialize the variable 'ret' to silence this warning
+> >            int ret;
+> >                   ^
+> >                    = 0
+> >    1 warning generated.
+> 
+> Hi Greg,
+> 
+> 0day's clang builds spotted this. The warning is a little misleading
+> but it is legitimate; the removal of the dlm_create_debugfs_subroot ret
+> assignment causes this as ret is no longer guaranteed to be initialized
+> in the "regular" function flow. Initializing ret to 0 or adding a ret = 0
+> above dlm_create_debugfs_subroot should resolve this (everyone has their
+> various opinions on the proper one, I'll leave it up to you).
 
-> rxkad sometimes triggers a warning about oversized stack frames
-> when building with clang for a 32-bit architecture:
-> 
-> net/rxrpc/rxkad.c:243:12: error: stack frame size of 1088 bytes in function 'rxkad_secure_packet' [-Werror,-Wframe-larger-than=]
-> net/rxrpc/rxkad.c:501:12: error: stack frame size of 1088 bytes in function 'rxkad_verify_packet' [-Werror,-Wframe-larger-than=]
-> 
-> The problem is the combination of SYNC_SKCIPHER_REQUEST_ON_STACK()
-> in rxkad_verify_packet()/rxkad_secure_packet() with the relatively
-> large scatterlist in rxkad_verify_packet_1()/rxkad_secure_packet_encrypt().
-> 
-> The warning does not show up when using gcc, which does not inline
-> the functions as aggressively, but the problem is still the same.
-> 
-> Marking the inner functions as 'noinline_for_stack' makes clang
-> behave the same way as gcc and avoids the warning.
-> This may not be ideal as it leaves the underlying problem
-> unchanged. If we want to actually reduce the stack usage here,
-> the skcipher_request and scatterlist objects need to be moved
-> off the stack.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Thanks, I'll fix this up.  This branch is still a "work in progress" as
+the patches have not been submitted upstream for them, so I appreciate
+0-day telling me when I messed up :)
 
-David H., I assume you will take this into your tree.
+greg k-h
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190723065340.GB27629%40kroah.com.
