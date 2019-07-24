@@ -1,122 +1,135 @@
-Return-Path: <clang-built-linux+bncBDAMN6NI5EERBBXJ4DUQKGQEN47OQDI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBBVC4HUQKGQEVZFQUZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53e.google.com (mail-ed1-x53e.google.com [IPv6:2a00:1450:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2BDA972C61
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 12:35:51 +0200 (CEST)
-Received: by mail-ed1-x53e.google.com with SMTP id b12sf29904783ede.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 03:35:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563964551; cv=pass;
+Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id BB2F672EFB
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 14:37:27 +0200 (CEST)
+Received: by mail-oi1-x23f.google.com with SMTP id i132sf18001884oif.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 05:37:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563971846; cv=pass;
         d=google.com; s=arc-20160816;
-        b=uc3jHTGELIjATVSJ75ZaoiCV022/sKASjpKfhHJoi45ajxzuB9J8RP20upPGZ5TLVW
-         bAYrjTp17HsJ6n2dGHbNv0i8Vh6RHz4omUrLmJqQC7fy4hU1fevPrqP0lAHzRJSmAaSm
-         hSKtNQ+vguKA+MAWMPc4XO1kWxCLj9hA5F232Ci9BEvc5SRWApg8UKVOSUlpUcSMDzzq
-         T3sooGGEIwZl+n6Ix5fs/VcgJUpSjwa8nAx2yEfkKqciCPb+nlSK87N/VMQeP5gHTeDT
-         7iOW07teb+qTk9mgB9cFqNHmOpQcoZ6GEjC4NC3XzLDIJlFuJqF8l4A/ptnjOkYAJdOa
-         ZERg==
+        b=sldmoS6MYqvF/mMLOXSKg3FC+RPDITG7VmQ/AU7ruKKf8I33nzDT1mKHuh5JghWEXr
+         XeQU845TkH+rsgNrZecF3n1upQrf+3Yjy4TjJ3LkL3Lh7ZchGhHPNkn7EyXg/kP/I32X
+         gMlEwIv+bFtKcz7HgMh/xFy3tJUhFk1+B772NcPvtGzHAGlBUG1OV6/YYztOhB0tm6q2
+         Z3x19AGb9RrcLeEko5elri2Ajg/IMlmKoqYphd9U6jbzKDh9zlYCy7WTv52IsBj0YcWo
+         vEYsZ6IkVS4hHZbBMhZiDCNyqPJmJB23Dr5+qNlbkBDl4GF9YK74JzSe06Hs3HI08s6C
+         Nwpw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=oHlZ02aU5purLIQVfB7gzDIggPl+FyjgaHk8P0EhSJc=;
-        b=AkWJzPekU0uPUz08atyRlGFOu1XT6XGJCfkYC1O7qU4yRcqItPAHo7FNn46YfYxbts
-         RAsz+O+pZXt0uMVBPRrbNxSp8Q9q5X8motNg1ibLmg6oFA0xUMjNoWyW8KT3VwcPlIqm
-         l0TmS+9dbPl6Hcb5AahpcjYHQs4CaXG1oWsUMSFUji/ApMpuxHkS0D40eG9+Z2xIeffq
-         q3jy46ce9yPtsSGgrzO2lmrEg2N5kT1DYBu96PIXuPwQCtfRTOeFLgCKVCPqMvrk9ypl
-         xVPpl2TB6r8IEPimM36e5AEWfclwtnIL1lebPDr2lcsXU3pzPtoz8z9UMQvll2BAtU/D
-         OsPQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=sei9xn8jNR+0QlXiK9dHCiA6Kn2kId3gLUGBis//wJg=;
+        b=A44wb+IzL9Myi04SizlhQAZh+vXzzv5gKMtRm7rI9NWxbEtazCDeAQm3VQEkrcDhyr
+         reVeIyyl+ETSQRNkyEaykaFtIER7kW7014LNWIdHKxgmb2Nm/foaZo5QUMdMEYK0dJ+U
+         ScXdHfq6nRBxhyWqfH7/InnbBD6aCAon/9fyUjOFH0Tw1F+Ir7I1tQeHajUQRMH9l0AL
+         3EvgC9yhvXIIzdww9w4QvqcPJXF9Q+Q1pzpounf/9qzwlWlNSAd3PQfH3V95lU6rHans
+         Z9MdihueBNENGMk3IJgib1mcKY4cWBXEVI1tR0b/Ej01+M+q/IcPfgE8yiaDmA5v55L5
+         j+7w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=oHlZ02aU5purLIQVfB7gzDIggPl+FyjgaHk8P0EhSJc=;
-        b=aPdebKIMvUg3lMAFf2Tvd1lYXkqLf6lsF9BZ2zRI7SR5tFSQjPnl9FULsxkRNE28RN
-         56wxH7uWPVSF7DZYJx1PhWL6IsV+IwgCxLDHS3oNQEmwVlyVhRq5CmGHBXhNx5GboEeH
-         YMeo2DcCJ+S3SfhT9/E9ratpv5toBfWScXF9bgjBDvQtMD/NW3zHJYRZxRwwlElkMLtr
-         nVebpAQp+kLDOnOvFQ9PuKD1EQ5OeAHYzv+nqZ9GM7xoa+mFcOepLIhjMB1Pkg8fv30y
-         qsvLOp6ymfTXNgneKHXMysVz8ZCUe2hWsQBN7Ohi0FUH67E3pS36mNyI/o/CPTjcw9TX
-         smCQ==
+        bh=sei9xn8jNR+0QlXiK9dHCiA6Kn2kId3gLUGBis//wJg=;
+        b=Ti1dW/FiqFz1gRUcBbVntRWlU9HKrPZOVethw6Xv2MVgZv7wW9/j/DFipce2iti+ox
+         olRMA4oRke+8T40fG3SieLdKAQoTkil2BMNarvGJzEzxbHt9faY8UwWpq7x8kcvIJSxP
+         vhgFPjdChM6BXlzcIo4lSC4jy30CsFrBVU+E4HYjjzYQxZUfXydwF/shzXNk21OwPCH4
+         P0wUHa5l/97URxx/bfS4kAAJJXEQCmr147rkrjXuM5ghKlcgFnD5ndRuhWkXq0+O6CfH
+         Yd/PsYRKMScBHpbaPNI9GA2Oo6vZepAD9gXYswMF/7p6PQsYEsKz9L5dLv2R499a8vj+
+         F65A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
-         :message-id:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=oHlZ02aU5purLIQVfB7gzDIggPl+FyjgaHk8P0EhSJc=;
-        b=PxZ3o5NjfAjtkyG+pjldd5QuK6FGC2T6GC6MF4qDcKgGJuOSNn6lRnJ/+2Ir79+wOd
-         PPFYN4DIZvL9uakFwLKAamjNUDsbi3gT2ZNUktUhU3K71t9U/cP7//bVNQ1CKdAuQ9oS
-         l6pebO1Z/bwJuqqWzT/Fd79pbVoSnC/BF0K3cP7GPMXxWDUBmpjvyk5Isf0tpGCXpTU8
-         IdMv8eUCO2Am8rQavSm35AAXQxyzXDS5juaTRprrk8ARxMt7iXSKAXxqgqtyMVJxOZ78
-         PKQ7YorAla2ABirW/b9AXiWKIglBpNr3CgbrZphLoKF2ZE35kvihy7MmDjPD5xJFiTDj
-         nf5g==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=sei9xn8jNR+0QlXiK9dHCiA6Kn2kId3gLUGBis//wJg=;
+        b=ePCnnSxi9+5xYdbX6aQ7Z5CpMupldrKM9e7rzQ3o+yQcKypEHx0Oop2I98+n/r4809
+         W4xX+ipowm/CDh764o4RnqLSrMBO6JnBEDtXFNZ1RDW1GfdB5+N0kK+9b2AQw4U9L8Ke
+         i+HwdOW0EBdMuDNYopqxCn681ZSizaIgsEFlxz66xNlOgE9oHk+G3XV0RGf5YDYmXgzH
+         mCpLHoop70Ny0qaJwjv8+KqhMo9ZuUXVPVDeghB78Mar4XfV0vgmdHSmoD0ibQHR6qs/
+         Ay3Bc4rbtSkvYJ4dtfUTBucWm6kamezQthXGP6WzTb2kgRu2hQxyoK7wujjr7CFC6Sd2
+         8+dA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVx3vpItui2p5qUwrqXpfj5rQ5sKQ8ZhUaMY1YrjW5gwa+6g9e7
-	Yv84jOuSClu0BP2nTuCY9cM=
-X-Google-Smtp-Source: APXvYqyau0jO1S+Fmhy4SFmnkE6zkwwjSEUsND0wngrDa40JmfNGEJ+g4coXTQbYVQZtDLvm6rNi2A==
-X-Received: by 2002:aa7:c559:: with SMTP id s25mr69516126edr.117.1563964550953;
-        Wed, 24 Jul 2019 03:35:50 -0700 (PDT)
+X-Gm-Message-State: APjAAAUDMziszsmgKxaMYWCVJBQmzw2uf0l41IpX9sNADSMqLXDuZJTV
+	YiwB2XKbo8pZKxbKStCIc50=
+X-Google-Smtp-Source: APXvYqz4Rx0sk3bOJBn9jPOXHmQA/qldAY2rquHULZLYlbqITD2c/cnBvZwJOMCv3maXtXW0BjypSQ==
+X-Received: by 2002:a9d:6287:: with SMTP id x7mr20692023otk.359.1563971846459;
+        Wed, 24 Jul 2019 05:37:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:94ce:: with SMTP id t14ls10819149eda.7.gmail; Wed, 24
- Jul 2019 03:35:50 -0700 (PDT)
-X-Received: by 2002:a50:ba19:: with SMTP id g25mr70490905edc.123.1563964550574;
-        Wed, 24 Jul 2019 03:35:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563964550; cv=none;
+Received: by 2002:a54:4411:: with SMTP id k17ls6007381oiw.11.gmail; Wed, 24
+ Jul 2019 05:37:26 -0700 (PDT)
+X-Received: by 2002:aca:fd4e:: with SMTP id b75mr41626942oii.129.1563971846195;
+        Wed, 24 Jul 2019 05:37:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563971846; cv=none;
         d=google.com; s=arc-20160816;
-        b=La/ZCSL448ERVzeAZtWWaffeHtPDhbQdiILqn22Itb0tOTOIxsQUEqnxLfogwkrTqN
-         WSMxaAcJZii75hBljLNnKaLat0uvMGXSrbl4C3k/pAEGQWQN2eal780W5Nihlh0R1i6Y
-         KAxtoSJg0qBL6v0+POxrJq6CxRmJFxK2uzovyokZ6hwA88pH1Z++PoVCav5U4PuVQx8M
-         7mxib51sLNeFYpTNecCA8Px97wVh+09hLPWAAg7uKP/U/mJrJan5xWRZhpnp8zVBm3R+
-         Zzl6HTMLSmV3oFYjflpF0kMTWauRwvTPQkd/W15ahqGKk/gTsSXt2GTu1mJhoLkKiSmR
-         sFUQ==
+        b=JDh/8WjJb06uabuHdaYPvudQ5GEV+0xsPX1unG7NIBmr6xuOynCC15KgjD88fGQnKG
+         bshqm0w50dko26wolAvdKTFyMY3/oLV4u13R7c/gPSB9XGxpH62kckKL74cuZk7NF8k9
+         WGjZaHzll8jbsWnJaWQpYxrysNAG2XKj7+8INHfrnKP4Zs0SclQIKGj4A6WVceRbD0Fl
+         s9YZRbz60N/hmQvy2wBnUEX0zmeM8EeJt0fZrQa6OIskDZ1WjLi7rZV2hi0X2UVFGRaM
+         SWfXNECUVFaY0tYAhpDpfFYUXiTi0cnwUqROllgnBna6vEJNHPGqlroagcJ3o9gl1UJF
+         V4Hg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:from:date;
-        bh=JnTj3PXFMryDy8nni1CSnZHxz5qF7vkXeUEV82LNPZ4=;
-        b=Duh4kQKS+uu1spkfSPeakkzs68hsj9WGOaFADrwYEBWObSrHq2cUR11dIHeeo2duaE
-         0hubKJIDu12Z4sAtLVXCk1FNj+tN3WVZtwwd9sgShqzI2wcEnvREc+4PV19NF4hhXGT6
-         fTYQQQlyR8c+0m//VaPxrFDVS23uLnoQB6tI2XHLPuXiCxfajUceFnMkilq9vHBi7TBI
-         EnSgXWuE0B2HLr8oUS/RHfqKpnPr99fNqdXg1ma1wXRonrQCS6i7LYI0Fpnocj14T4T0
-         ZQIQp3+TZy2aHLcqXy6tTm6QNdEjZaEEkmoXV4eS8QraSh7BXNfl2wUMI1SZcURGRaa/
-         TAKg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=ztYe0ZOWcwXYrZFPC2kuJdfRykLtRyb64TOooc9bTgI=;
+        b=i+4YRrG8Ksaa7iNeE2cZ2K67nAZ011Da0Nd/LB/XiLOszKJHSxz7lApyaUnvieliWz
+         39IlD2oBxtg6e4GRO7qsK9XhPu2qz1OLHPvdQLkN9rn5AOQNOz9zwbv+fyDQbzRJmk37
+         a2VIrpVvl+5z9NF7/wXp1E2NWpNYuJXrSZYmA84AiTVdm62c24jbZz0fw2kh9Y9sPmDa
+         jVmJzcRh2G/88/XUoKqbhHSXrN2piEEtVHGCKholal5MOHTgb/wLCZdOp+KxzS6mIlqp
+         KcoAAzkurOve9Jm7ptFxnsgyO43q0fgWSNaAA/xuwKWrqZKZ9OeWdOiakEwOIyZFR83j
+         1PlQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
-Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id b39si2527505edb.1.2019.07.24.03.35.50
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
+        by gmr-mx.google.com with ESMTPS id n27si2266569otj.1.2019.07.24.05.37.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Wed, 24 Jul 2019 03:35:50 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of tglx@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
-Received: from [5.158.153.52] (helo=nanos.tec.linutronix.de)
-	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
-	(Exim 4.80)
-	(envelope-from <tglx@linutronix.de>)
-	id 1hqEcd-0004JD-FR; Wed, 24 Jul 2019 12:35:47 +0200
-Date: Wed, 24 Jul 2019 12:35:46 +0200 (CEST)
-From: Thomas Gleixner <tglx@linutronix.de>
-To: Nick Desaulniers <ndesaulniers@google.com>
-cc: mingo@redhat.com, bp@alien8.de, peterz@infradead.org, 
-    clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org, 
-    yamada.masahiro@socionext.com, stable@vger.kernel.org, 
-    Vaibhav Rustagi <vaibhavrustagi@google.com>, 
-    "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org
-Subject: Re: [PATCH v3 2/2] x86/purgatory: use CFLAGS_REMOVE rather than
- reset KBUILD_CFLAGS
-In-Reply-To: <20190723212418.36379-2-ndesaulniers@google.com>
-Message-ID: <alpine.DEB.2.21.1907241233240.1972@nanos.tec.linutronix.de>
-References: <20190723212418.36379-1-ndesaulniers@google.com> <20190723212418.36379-2-ndesaulniers@google.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 24 Jul 2019 05:37:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) client-ip=209.132.183.28;
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mx1.redhat.com (Postfix) with ESMTPS id DA66730832C8;
+	Wed, 24 Jul 2019 12:37:24 +0000 (UTC)
+Received: from treble (ovpn-122-90.rdu2.redhat.com [10.10.122.90])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id C6A901001281;
+	Wed, 24 Jul 2019 12:37:23 +0000 (UTC)
+Date: Wed, 24 Jul 2019 07:37:22 -0500
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	x86@kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: x86 - clang / objtool status
+Message-ID: <20190724123722.xtskgjigzr22qc52@treble>
+References: <alpine.DEB.2.21.1907182223560.1785@nanos.tec.linutronix.de>
+ <20190724023946.yxsz5im22fz4zxrn@treble>
+ <20190724074732.GJ3402@hirez.programming.kicks-ass.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: tglx@linutronix.de
+Content-Disposition: inline
+In-Reply-To: <20190724074732.GJ3402@hirez.programming.kicks-ass.net>
+User-Agent: NeoMutt/20180716
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.44]); Wed, 24 Jul 2019 12:37:25 +0000 (UTC)
+X-Original-Sender: jpoimboe@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of tglx@linutronix.de designates
- 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tglx@linutronix.de
+ (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as
+ permitted sender) smtp.mailfrom=jpoimboe@redhat.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,27 +142,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 23 Jul 2019, Nick Desaulniers wrote:
-> +ifdef CONFIG_FUNCTION_TRACER
-> +CFLAGS_REMOVE_sha256.o += $(CC_FLAGS_FTRACE)
-> +CFLAGS_REMOVE_purgatory.o += $(CC_FLAGS_FTRACE)
-> +CFLAGS_REMOVE_string.o += $(CC_FLAGS_FTRACE)
-> +CFLAGS_REMOVE_kexec-purgatory.o += $(CC_FLAGS_FTRACE)
+On Wed, Jul 24, 2019 at 09:47:32AM +0200, Peter Zijlstra wrote:
+> On Tue, Jul 23, 2019 at 09:43:24PM -0500, Josh Poimboeuf wrote:
+> > On Thu, Jul 18, 2019 at 10:40:09PM +0200, Thomas Gleixner wrote:
+> > 
+> > >   drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: .altinstr_replacement+0x86: redundant UACCESS disable
+> > 
+> > Looking at this one, I think I agree with objtool.
+> > 
+> > PeterZ, Linus, I know y'all discussed this code a few months ago.
+> > 
+> > __copy_from_user() already does a CLAC in its error path.  So isn't the
+> > user_access_end() redundant for the __copy_from_user() error path?
+> 
+> Hmm, is this a result of your c705cecc8431 ("objtool: Track original function across branches") ?
+> 
+> I'm thinking it might've 'overlooked' the CLAC in the error path before
+> (because it didn't have a related function) and now it sees it and
+> worries about it.
 
-Nit. Can you please make that tabular?
+Yeah, I think so.
 
-CFLAGS_REMOVE_sha256.o		+= $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_purgatory.o	+= $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_string.o		+= $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_kexec-purgatory.o	+= $(CC_FLAGS_FTRACE)
+> Then again, I'm not seeing this warning on my GCC builds; so what's
+> happening?
 
-The above confused my pattern recognition engine :)
+Good question...
 
-Thanks,
-
-	tglx
+-- 
+Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.DEB.2.21.1907241233240.1972%40nanos.tec.linutronix.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190724123722.xtskgjigzr22qc52%40treble.
