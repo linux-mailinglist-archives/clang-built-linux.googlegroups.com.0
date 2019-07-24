@@ -1,133 +1,137 @@
-Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBOF74HUQKGQEBDDLBII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBNWL4HUQKGQENEPDPBQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 33C147300F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 15:40:09 +0200 (CEST)
-Received: by mail-yb1-xb3f.google.com with SMTP id w6sf35758118ybe.23
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 06:40:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563975608; cv=pass;
+Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 17B8F73101
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 16:05:44 +0200 (CEST)
+Received: by mail-vk1-xa3e.google.com with SMTP id l186sf20440659vke.19
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 07:05:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563977143; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZKax9kq8aUljAz3+nQC4iqyF1lIDwghzwDmdrfeg/26XuupwStc3Qbp1UEMP6LoV0b
-         9fCXL8/b/etHtXRh0V5PLKg2QHWOokoOVr3J9bpjZjEhwq3CF7LvQRGBfF6KmNA+80iU
-         doQ6zS+/Ad/X5a2ydrsfDVG4Gn7ROSoP8UmWHrSwPlGgkIMXOzFW5SE3corcQNCXozsf
-         k1jCyw+HVQhrZzaMl2l0+JtJ0giDKqoCgBi5ClOnEAUsPb02dJTpDH9B5TBxWUCui1wy
-         RI/IjWMzJwCKtkBC9c0iVr/4YmoW/kidjhQr6kn0lr6cwBHPO9VxgJ2rB4onnmxslzpZ
-         +vqg==
+        b=P+kxqVTUXFYGmkvg0U7I7jo8GKOoPYRHuS6Hsbh0W/tvBk6eDCjWsGgsXks0Vx1PQz
+         9afJgRmIilbk5+QUmzhL981Wa8ZD5PEMnfkeJ3cwCqfQJ8J6lfVIVuvwddgEx33aZnyx
+         T/HVLwAJAPjOANwFing/xMxORAaCz9Zc/bo7WWnSl83gRclP/CvsTOXrJ2zJLgnThlLh
+         dGv2/7dZ/he9oTHsClyJPnC1o3KGYjN43rWlugDFk9SUvjht+LR5a8UqKFodShVD8FNF
+         RXCtPSvDIDZQ+gJxZLD1ZrUmriw28RpeCsiKb/JkjsGSqYP/LMbXRM+ZmthnN/0oPeuf
+         IWWA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:references:in-reply-to:date:cc:to:from:subject
-         :message-id:sender:dkim-signature;
-        bh=XNPckPi1wK5g3O6eYIvmCSNL7ouqYYBCnOJp/GlDaaY=;
-        b=BOGQ8nqpb8l2RZTxDqwTWsy44rVy7NroRV99CZhI9tQHxcHXVvsxCv3GcRAMPJF7pB
-         7M14Jq7iepJOQztOIXkshoLaXXLTs4A5uVVP0cIWu8xbEfS4FAIUZvhsrJs+TtvIBcoJ
-         wbH0CP9gyBvtIqxZFxnIM65cgoQ4gmB67bPrn5Dkp1F/Ky+tpnnrgrb6xhEc1uqx+2Hf
-         2aoRDA35x/sfRdP0jNVTCfgyJaCh2Kw5n5nyTnsZ3d9zafnNPKBM6Fqu1T62JRzhQTh1
-         ZwndK3WXvbSap9SJLJFZFXVUHZ4VOVPZqkDYlT+fpDKaa+Qek8HP/QOMki0pW1w8djFk
-         NOig==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=z89KmqlW1KA540gkN7zLaYQJxDv7ALhcu4qOqQ9OZ6w=;
+        b=ChzBgofauogfbnZWkIrwrhZT2MVo5pSkdvAmAwl6rxv4fNKSCbfnRExAyyRs8G4qw5
+         gcIatUyG3lwL7JT4++sOoGPbNQhxfgoqzgrq6bJyoz/GJXj+AYtjmTXFa1Ac2SI5MWRv
+         miveyniWpdCBU60tu6+j/el/d2vqgnJgoIQs12R2zNoohVUiJ+X+TvGmZAGqF0tT7EMD
+         Pc+sj8Viu8kd24zRmqDs7d5/2xR8lq0A5OPdlzB+BvFhrFLx2+yOFEpU3wK88pR29Lxv
+         chX+4JWRFYaNREIlClPCp9HFHLuD9dwyWof+cS42B6UkrVCe+70lBqfZXvQOCEEnLBUf
+         d4Gw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=GFq+S6tS;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=cai@lca.pw
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XNPckPi1wK5g3O6eYIvmCSNL7ouqYYBCnOJp/GlDaaY=;
-        b=O9uYgf/NCLCXqGt5LooVPR8VwXZXr1WBkJgazpEy4mlVAGZF3CZhadJIgPiZA3EYBq
-         30Wt+59257IMIoBuZ2GohMOU9e3oW6oLd/3Y7bbyyCwPQGoXZ3m3HWUlAuQdq0gGbY1H
-         eRbkPaWPJZOcxUpCXAV+26qhEWVIjw0nWPRIDSVCtJxdCYPx39ljW0S6MvDNxczLaKkv
-         Hk5qgAJAqiSBCf2VEa3l0nIsw8VGbp2ik3QLhpQS1aDVRnoWgYdy839HQ6vAHh3ZtR1V
-         kMRdutJ5rUzaVzH+D4zUT9jFDUvDk7smOGrLb9JkOm4p49kSLS8/gy1XkJBx7LIxDQ6j
-         g0hw==
+        bh=z89KmqlW1KA540gkN7zLaYQJxDv7ALhcu4qOqQ9OZ6w=;
+        b=d9JE1pz6eGN+woHlGWXBCHsi2amDeqNNwTswwNYso/7VgrTQEKYSxV2nEvmfZGSZzx
+         3p6Y5d7EgHRD6c0AwvQQAhY9oah2OW6rnXYBmzJjGqYQWd8i5lrmZdinepD76R2wJC3L
+         77EF9bIPgZzXQ7HI++EHvT+qiYHoV71m42WS53GBOdsut4Fc5NETBwyrnTwxaazt1o48
+         i1JG0Ql4vMhul6Ct2jkDA2D3SvdalZ4vPhOfP4UkDL8T6zSvYT17l7LALQ0ufXGpUhci
+         P9kEL7hrBvdmPn2ahgPcgHM3WMRd+cWh3FGED4eMKU0arsxK5NFn3g2nNYI3JNg1vfGD
+         Kj6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:mime-version:content-transfer-encoding
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=XNPckPi1wK5g3O6eYIvmCSNL7ouqYYBCnOJp/GlDaaY=;
-        b=BQ+5bLIfgZ+tSC22Esd+XfqnE2Cn9vieROek18GFbslWQnsi2tIUgPmXgTU/uIm9oh
-         xolFIgby7D6PYtMynW2WSEeAmOFTK4AU9mNiHrDLaKHvYRuUVrxNKVbyGh2Hr4FrvxlA
-         3Yj6teWK4hM5yfqsZFgG/C8BC4qaQwW5+FMel5RVrFrBLyKdQA/GVYoihmXuVOGdk8ti
-         +6jkKjCYWW1V8swA2uVw2X3judbmVyeNWgujYf2FFQTzoPqLoa2n/8eOgFueHDWjUwpU
-         x3nxHCb0os6EuC6rJW3qc2mPs3ioTky3A052mCqkueYwG+V9iRA1xrSTNZPAUrkhrZwU
-         T0/w==
+        bh=z89KmqlW1KA540gkN7zLaYQJxDv7ALhcu4qOqQ9OZ6w=;
+        b=lZnQy6BoxcA6d9FTpblcrAWSzMW/QqmHANKwz8jAfDt7Xx2Nfonwjsk/hBPL7vfERm
+         vCgHEQ+FWwLl51E5fizgr3/Ca7Gg/eF7lEUBNN045LuY5d0/Uz6/+5AcjbqyLJSZiI8z
+         /YRBiAo4+P4GywS0Njlrzk6sJfCYzFaT616zjZ3sbcNa7L0yrJ2jIhhlwdu03sMXmBu+
+         YIvSP6/nr2Y9e05SSRXeRIFUxgNj8sbjgagf9BJ4Qp/FyZaUnHaM64jwsz5CuY1ir0SZ
+         EoIQEbO0Zt3x0uRggIcn4AHeBCYFzzYYnM5Ez8ZMaBZCxIXZS4JyIsVRB7TEODV/iRuN
+         OcYQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW9srJztzz/3rUSF1YJfh4VyWgDPplkvVTD5BXFwkF0qYqF4a0n
-	cA6E+kj1qG6XIaEAXno9OUI=
-X-Google-Smtp-Source: APXvYqx35L1Hf4T0kx/t4iFeGxDii4bE2C5MPBB4bmyIzziozxqIJF+hQoAKjBHWNR8rlydsGu7eWw==
-X-Received: by 2002:a25:a43:: with SMTP id 64mr21136808ybk.86.1563975608244;
-        Wed, 24 Jul 2019 06:40:08 -0700 (PDT)
+X-Gm-Message-State: APjAAAWX7QQJIKSvNWzM3i+9/VZrBJl8mmaU13ucDCcXFbU+IJfSHNa0
+	GtNvS6QsUXug3ZWQqksf1oo=
+X-Google-Smtp-Source: APXvYqzEjP0T9Qs7az3B3HYGtXqwbvxQOLOT+iWTBX95L9MyiwxphfpNP0a6cr+hSz5cRR1sf3iL7Q==
+X-Received: by 2002:ab0:2556:: with SMTP id l22mr41279752uan.46.1563977143015;
+        Wed, 24 Jul 2019 07:05:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:3288:: with SMTP id y130ls4661797yby.5.gmail; Wed, 24
- Jul 2019 06:40:07 -0700 (PDT)
-X-Received: by 2002:a25:d10a:: with SMTP id i10mr53693257ybg.101.1563975607920;
-        Wed, 24 Jul 2019 06:40:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563975607; cv=none;
+Received: by 2002:a05:6102:3ca:: with SMTP id n10ls5971696vsq.4.gmail; Wed, 24
+ Jul 2019 07:05:42 -0700 (PDT)
+X-Received: by 2002:a67:ea49:: with SMTP id r9mr31665758vso.223.1563977142731;
+        Wed, 24 Jul 2019 07:05:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563977142; cv=none;
         d=google.com; s=arc-20160816;
-        b=kRvqT6fHsx18olCkdC1JazzUECl63CEL+W+zCgJyIh6c//kYVOdm6SpG6OLYkT4pMC
-         Mbk8JoJj/s3xTvGtjeEDcA2b8fbsilcTepSzXDX23pRi7C89gOcQ01DWrTZyzzxp0Id0
-         ouquZvypWgAZFD3rXVeHIGystsCGDoO14m33Pp6N0nmyfHeDLR/M9dk0JbMu8lu62onb
-         DqsW5aKE+STY9mJdQInFaTwiW4XFDz15zgkmiwTjB4xi+Xo02fTHkkmzOt8W69zotiMi
-         FMnpYNkoItJSZvn5eEGAI9bz1AYsXx90+iPVkOw90l2XskEeTBk5hbXhTYNbkOWbK32Y
-         Cy4w==
+        b=YXl4AQAuoafkKRDfnYj6UZcyXsXx5Rp9OrXS23IpSrHoghmTs+0KYoePnoPLV0PDo0
+         5dyHMi7cz0PKivPE1vX+7Hbzj1t6+d47a2vQMQ7tHpaKJwr5SWVNLdgs8qUgRdqrPje4
+         olxzw87hfMXMH1WKcOWDnLBMDa5MX8yzvuJ/Y/lRi8KWTgpdNWFCYxuU4w4KWnVriD/m
+         GKVSNvzrDoFab0Huy+IQFejXqOWrAOe5JJ3xxsnIuExLuN4p0B0uVTBMLtjDUpDW5BMO
+         qPCaS+qm0qQ8LYaV3/7lGwARgsVufT/+5kysiAmcnNecF+BXptyXwFyjREUqhLJYntQ6
+         gmvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:date
-         :cc:to:from:subject:message-id:dkim-signature;
-        bh=5XZ9K/SwxKdddKyC7k0SqQ29rr6lzsU+b9jBDeXxEMs=;
-        b=A6E/DZ19odVm3ycFYYDexpPdGF7S4XDNfCuzU2y4zWozSuW6FrpjajrtlgcWSU3kZo
-         ngWL/5+mJfsBsY5RbkBk7CWN3oKtBQEcOg4VErK2+LRrLM61SB8615BQhs8z7POGEk7/
-         64MsZrlJNaQdFijtAbEQPekegi4RgLifn50JoHBEN+FRnT26PIkXTdf7FDYdDCDFiq8Q
-         UsYBSVUEz5YVmF08Fk2npPrBVKBlKBa5pPcdp40EznhqkVj+6pm3sKWqVbmNOCQ8jQ/q
-         l/cRKSHP+IEbM8HnUcAwunJvhiklULwEF74mbvvB3XOuNItJWleyBf92tXeSBz39AVEJ
-         jL/g==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=VSU8LRMd4z+Mjm2rFL+HkbsJP1JxBHWskA2dkwiFRdg=;
+        b=dRN2tOZkuIlg8CKvt1WmaIloijz6Q32J6yvkoOZ5hmMu9VQ0EeIV4KSMDWAwG4XMlh
+         GvdpWwXpHQqJ72pVB/ipeyrbpbqnDJqu3B3RYmu/VQFNbCAJvF1KLaDLRTgRCOnUMudT
+         HFnRXDteJ7NrPRW/n7ZHBYZUFZ3OmEvIRYbFcU/grVdzFS1XqwktmM+gM7mx/wDBOuUT
+         s0j220PGe5Qt2homHDAaNssUIHc8/X53Xe75JlMNurLkHFbfZy0OWniFRprZ1twKAEbe
+         QCi7YsK0Ew0d+yt3uiYjYtv1Io3Ppv1Z9/Ma70iQC+hzavj3Wc5vNV6ycFP2deGEzkoG
+         OSOQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=GFq+S6tS;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=cai@lca.pw
-Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
-        by gmr-mx.google.com with ESMTPS id j15si2017750ywa.3.2019.07.24.06.40.07
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
+        by gmr-mx.google.com with ESMTPS id u189si3217929vkb.2.2019.07.24.07.05.42
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Wed, 24 Jul 2019 06:40:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
-Received: by mail-qk1-x744.google.com with SMTP id r6so33784625qkc.0
-        for <clang-built-linux@googlegroups.com>; Wed, 24 Jul 2019 06:40:07 -0700 (PDT)
-X-Received: by 2002:a37:484a:: with SMTP id v71mr53222506qka.29.1563975607570;
-        Wed, 24 Jul 2019 06:40:07 -0700 (PDT)
-Received: from dhcp-41-57.bos.redhat.com (nat-pool-bos-t.redhat.com. [66.187.233.206])
-        by smtp.gmail.com with ESMTPSA id f133sm22561094qke.62.2019.07.24.06.40.06
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 24 Jul 2019 06:40:06 -0700 (PDT)
-Message-ID: <1563975605.11067.8.camel@lca.pw>
-Subject: Re: [PATCH] acpica: fix -Wnull-pointer-arithmetic warnings
-From: Qian Cai <cai@lca.pw>
-To: "Moore, Robert" <robert.moore@intel.com>, Nick Desaulniers
-	 <ndesaulniers@google.com>
-Cc: "Wysocki, Rafael J" <rafael.j.wysocki@intel.com>, "Schmauss, Erik"
- <erik.schmauss@intel.com>, "jkim@freebsd.org" <jkim@freebsd.org>, Len Brown
- <lenb@kernel.org>, "linux-acpi@vger.kernel.org"
- <linux-acpi@vger.kernel.org>,  "devel@acpica.org" <devel@acpica.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>,  LKML
- <linux-kernel@vger.kernel.org>
-Date: Wed, 24 Jul 2019 09:40:05 -0400
-In-Reply-To: <94F2FBAB4432B54E8AACC7DFDE6C92E3B9661869@ORSMSX110.amr.corp.intel.com>
-References: <20190717033807.1207-1-cai@lca.pw>
-	 <CAKwvOdmPX2DsUawcA0SzaFacjz==ACcfD8yDsbaS4eP4Es=Wzw@mail.gmail.com>
-	 <73A4565B-837B-4E13-8B72-63F69BF408E7@lca.pw>
-	 <94F2FBAB4432B54E8AACC7DFDE6C92E3B9661869@ORSMSX110.amr.corp.intel.com>
+        Wed, 24 Jul 2019 07:05:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) client-ip=209.132.183.28;
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mx1.redhat.com (Postfix) with ESMTPS id 9B1A0308FBA6;
+	Wed, 24 Jul 2019 14:05:41 +0000 (UTC)
+Received: from treble (ovpn-122-90.rdu2.redhat.com [10.10.122.90])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6FE6B600C4;
+	Wed, 24 Jul 2019 14:05:40 +0000 (UTC)
+Date: Wed, 24 Jul 2019 09:05:33 -0500
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	x86@kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: x86 - clang / objtool status
+Message-ID: <20190724140533.yxwbq4mlqzrviaf5@treble>
+References: <alpine.DEB.2.21.1907182223560.1785@nanos.tec.linutronix.de>
+ <20190724023946.yxsz5im22fz4zxrn@treble>
+ <20190724074732.GJ3402@hirez.programming.kicks-ass.net>
+ <20190724125525.kgybu3nnpvwlcz2c@treble>
+ <20190724133516.GB31381@hirez.programming.kicks-ass.net>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Evolution 3.22.6 (3.22.6-10.el7)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: cai@lca.pw
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@lca.pw header.s=google header.b=GFq+S6tS;       spf=pass
- (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as
- permitted sender) smtp.mailfrom=cai@lca.pw
+Content-Disposition: inline
+In-Reply-To: <20190724133516.GB31381@hirez.programming.kicks-ass.net>
+User-Agent: NeoMutt/20180716
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]); Wed, 24 Jul 2019 14:05:41 +0000 (UTC)
+X-Original-Sender: jpoimboe@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as
+ permitted sender) smtp.mailfrom=jpoimboe@redhat.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,70 +144,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 2019-07-23 at 20:49 +0000, Moore, Robert wrote:
-> > > Signed-off-by: Qian Cai <cai@lca.pw>
-> > > ---
-> > > include/acpi/actypes.h | 4 ++--
-> > > 1 file changed, 2 insertions(+), 2 deletions(-)
-> > >=20
-> > > diff --git a/include/acpi/actypes.h b/include/acpi/actypes.h index=C2=
-=A0
-> > > ad6892a24015..25b4a32da177 100644
-> > > --- a/include/acpi/actypes.h
-> > > +++ b/include/acpi/actypes.h
-> > > @@ -500,13 +500,13 @@ typedef u64 acpi_integer;
-> > >=20
-> > > #define ACPI_CAST_PTR(t, p)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0((t *) (acpi_uintptr_t) (p))
-> > > #define ACPI_CAST_INDIRECT_PTR(t, p)=C2=A0=C2=A0=C2=A0=C2=A0((t **) (=
-acpi_uintptr_t) (p))
-> > > -#define ACPI_ADD_PTR(t, a, b)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_CAST_PTR (t, (ACPI_CAST_PTR
-> > > (u8, (a)) + (acpi_size)(b)))
-> > > +#define ACPI_ADD_PTR(t, a, b)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_CAST_PTR (t, (a) +
-> > > (acpi_size)(b))
->=20
-> We have some questions concerning this change. If (a) is not cast to a u8=
-, the
-> addition will be in whatever units are appropriate for (a) i.e., the type=
- of
-> (a). However, we want ACPI_ADD_PTR (And ACPI_SUB_PTR) to simply perform a=
- byte
-> addition or subtraction - thus the cast to u8. I believe that is the orig=
-inal
-> thinking behind the macros.
+On Wed, Jul 24, 2019 at 03:35:16PM +0200, Peter Zijlstra wrote:
+> On Wed, Jul 24, 2019 at 07:55:25AM -0500, Josh Poimboeuf wrote:
+> > On Wed, Jul 24, 2019 at 09:47:32AM +0200, Peter Zijlstra wrote:
+> > > On Tue, Jul 23, 2019 at 09:43:24PM -0500, Josh Poimboeuf wrote:
+> > > > On Thu, Jul 18, 2019 at 10:40:09PM +0200, Thomas Gleixner wrote:
+> > > > 
+> > > > >   drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: .altinstr_replacement+0x86: redundant UACCESS disable
+> > > > 
+> > > > Looking at this one, I think I agree with objtool.
+> > > > 
+> > > > PeterZ, Linus, I know y'all discussed this code a few months ago.
+> > > > 
+> > > > __copy_from_user() already does a CLAC in its error path.  So isn't the
+> > > > user_access_end() redundant for the __copy_from_user() error path?
+> > > 
+> > > Hmm, is this a result of your c705cecc8431 ("objtool: Track original function across branches") ?
+> > > 
+> > > I'm thinking it might've 'overlooked' the CLAC in the error path before
+> > > (because it didn't have a related function) and now it sees it and
+> > > worries about it.
+> > > 
+> > > Then again, I'm not seeing this warning on my GCC builds; so what's
+> > > happening?
+> > 
+> > According to the github issue[1] my patch doesn't fix the warning with
+> > Clang.  So questions remain:
+> 
+> I was thinking your patch resulted in the warning due to the exception
+> code gaining a ->func.
 
-I posted a v2 a while ago, and should clear this concern.
+I had the same thought.
 
->=20
-> > > #define ACPI_SUB_PTR(t, a, b)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_CAST_PTR (t, (ACPI_CAST_PTR
-> > > (u8, (a)) - (acpi_size)(b)))
-> > > #define ACPI_PTR_DIFF(a, b)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0((acpi_size) (ACPI_CAST_PTR (u8,
-> > > (a)) - ACPI_CAST_PTR (u8, (b))))
-> > >=20
-> > > /* Pointer/Integer type conversions */
-> > >=20
-> > > -#define ACPI_TO_POINTER(i)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_ADD_PTR (void, (void *) 0,
-> > > (acpi_size) (i))
-> > > +#define ACPI_TO_POINTER(i)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_ADD_PTR (void, 0,
-> > > (acpi_size) (i))
-> >=20
-> > IIUC, these are adding `i` to NULL (or (void*)0)? X + 0 =3D=3D X ?
-> > --
-> > Thanks,
-> > ~Nick Desaulniers
->=20
->=20
+> But then that doesn't make sense either, because all that lives in
+> copy_user_64.S which is a completely different translation unit.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/1563975605.11067.8.camel%40lca.pw.
+Hm?  __copy_from_user() uses raw_copy_from_user() to do the STAC/CLAC in
+a header file for the __builtin_constant_p() case.
+
+> > a) what is objtool actually warning about?
+> 
+> CLAC with AC already clear. Either we do double CLAC at the end, or we
+> do CLAC without having done STAC first.
+> 
+> The issue isn't BAD(tm), as AC clear is the safe state, but it typically
+> indicates confused code flow.
+
+But as I said my patch didn't fix the Clang warning.  Or is there
+another redundant UACCESS disable you know about?
+
+> > b) why doesn't objtool detect the case I found?
+> 
+> With GCC you mean? Yes, that is really really weird.
+
+With both compilers...
+
+> Let me go stare at objdump output for this file (which doesn't build
+> with:
+> 
+>    make O=defconfig-build/ drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o
+> )
+
+-- 
+Josh
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190724140533.yxwbq4mlqzrviaf5%40treble.
