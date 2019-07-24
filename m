@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBNWL4HUQKGQENEPDPBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBB26N4HUQKGQEZLEQXUA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 17B8F73101
-	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 16:05:44 +0200 (CEST)
-Received: by mail-vk1-xa3e.google.com with SMTP id l186sf20440659vke.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 07:05:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1563977143; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 092227313B
+	for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 16:10:53 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id o6sf24171772plk.23
+        for <lists+clang-built-linux@lfdr.de>; Wed, 24 Jul 2019 07:10:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1563977451; cv=pass;
         d=google.com; s=arc-20160816;
-        b=P+kxqVTUXFYGmkvg0U7I7jo8GKOoPYRHuS6Hsbh0W/tvBk6eDCjWsGgsXks0Vx1PQz
-         9afJgRmIilbk5+QUmzhL981Wa8ZD5PEMnfkeJ3cwCqfQJ8J6lfVIVuvwddgEx33aZnyx
-         T/HVLwAJAPjOANwFing/xMxORAaCz9Zc/bo7WWnSl83gRclP/CvsTOXrJ2zJLgnThlLh
-         dGv2/7dZ/he9oTHsClyJPnC1o3KGYjN43rWlugDFk9SUvjht+LR5a8UqKFodShVD8FNF
-         RXCtPSvDIDZQ+gJxZLD1ZrUmriw28RpeCsiKb/JkjsGSqYP/LMbXRM+ZmthnN/0oPeuf
-         IWWA==
+        b=pzwyZlUemkkRuU8zCnqCgnL9US7hzeg5v3pc8pEXa7XaMO1v/Xc8pw2HjDKD0JkJ/n
+         uybquvG/ajnbUBBI6lfrVtj0dAE+U7We+Fn+j2Gvasj9J4BbkydgyDYz8q93f9/KMa61
+         j2Uk16PY/1TVqpknwCC9AEvejuB2HYtR2Fve+KykZaJUg79mM1CGPTC0dhDYyKgbNLnR
+         TZ7fd2/TrA+pnSVJHC5InIuzAmPUpPMcd8vvcK8xMn41FmZdf0x05LIw8a5Gs30UTA5m
+         6SDP6YpszrzIRHUIxP2pObJLoMVGldnHnPXbqFFUVbtynmy/fO0mVVwCp+BtV6Bra8+a
+         PHFQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=z89KmqlW1KA540gkN7zLaYQJxDv7ALhcu4qOqQ9OZ6w=;
-        b=ChzBgofauogfbnZWkIrwrhZT2MVo5pSkdvAmAwl6rxv4fNKSCbfnRExAyyRs8G4qw5
-         gcIatUyG3lwL7JT4++sOoGPbNQhxfgoqzgrq6bJyoz/GJXj+AYtjmTXFa1Ac2SI5MWRv
-         miveyniWpdCBU60tu6+j/el/d2vqgnJgoIQs12R2zNoohVUiJ+X+TvGmZAGqF0tT7EMD
-         Pc+sj8Viu8kd24zRmqDs7d5/2xR8lq0A5OPdlzB+BvFhrFLx2+yOFEpU3wK88pR29Lxv
-         chX+4JWRFYaNREIlClPCp9HFHLuD9dwyWof+cS42B6UkrVCe+70lBqfZXvQOCEEnLBUf
-         d4Gw==
+        bh=uo6zF5o+7LCvUNyqbo4B2Z8FjP7qWRhcs5cUoA/mAl0=;
+        b=0tBxYM/kraRmXugAleGd6bmfWFumenjeG6msBuWuw0gyHHzrS45/3XyfdEYRCcjIYD
+         weVmAkGNk9CWDz+jIV5LbZUWIyUc2+SqgHup8mPgsZEDxoQtTzjoFd1/Wf6GZR3JFJXW
+         3i+1/4VfYylQLqRshnGcQaB/pWyB4wf4dAqRlzkJRYu3b8urMcmXMYcvZgkU3MgwkYnu
+         N7cs86uVPw5O3J1twDqD59QjEZrKcxC+sBaTinZGoWeOpxy2TD2+0L1bhgL+SQWcAUAd
+         AdzGDZ+HfpgrEJqcT51M394xipbFDHNkVVnJOnuXypdDtVjwXsasxotmNd7x2Hf2VGM7
+         o4Gg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=px+1KWzK;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=z89KmqlW1KA540gkN7zLaYQJxDv7ALhcu4qOqQ9OZ6w=;
-        b=d9JE1pz6eGN+woHlGWXBCHsi2amDeqNNwTswwNYso/7VgrTQEKYSxV2nEvmfZGSZzx
-         3p6Y5d7EgHRD6c0AwvQQAhY9oah2OW6rnXYBmzJjGqYQWd8i5lrmZdinepD76R2wJC3L
-         77EF9bIPgZzXQ7HI++EHvT+qiYHoV71m42WS53GBOdsut4Fc5NETBwyrnTwxaazt1o48
-         i1JG0Ql4vMhul6Ct2jkDA2D3SvdalZ4vPhOfP4UkDL8T6zSvYT17l7LALQ0ufXGpUhci
-         P9kEL7hrBvdmPn2ahgPcgHM3WMRd+cWh3FGED4eMKU0arsxK5NFn3g2nNYI3JNg1vfGD
-         Kj6g==
+        bh=uo6zF5o+7LCvUNyqbo4B2Z8FjP7qWRhcs5cUoA/mAl0=;
+        b=K0CAfd9M39oxxDE8KMk/qZWVU6NCED4Nqmdfah0cK/9Z5mLiaURNU+v84Zo8DYcppO
+         VeZb8hNglU4+WO3r/EPHzo+Ex+qHkRSevlya7tS3prTBESpJ2XQ25d+wyqDTxfPvMjXM
+         +MVBDMPbhS2jCirF4ZDoH5DQPMBZVCd+4nPTB8NdrqjEuPIQe5ucXdQvzh293H/qGac8
+         S7zFN64SE2YtgJMkCztpQXetpFSZNHzdnV2bZJA/wON2/obI4WuZiWE6c40hJKr8odwd
+         73aHrBsEZ4MLxAeLwj5nXgFNScjyn/IZVzeH3Q8luk/5EKkCXYDAO/VwvHC1EDifrL8o
+         Opkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,62 +49,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=z89KmqlW1KA540gkN7zLaYQJxDv7ALhcu4qOqQ9OZ6w=;
-        b=lZnQy6BoxcA6d9FTpblcrAWSzMW/QqmHANKwz8jAfDt7Xx2Nfonwjsk/hBPL7vfERm
-         vCgHEQ+FWwLl51E5fizgr3/Ca7Gg/eF7lEUBNN045LuY5d0/Uz6/+5AcjbqyLJSZiI8z
-         /YRBiAo4+P4GywS0Njlrzk6sJfCYzFaT616zjZ3sbcNa7L0yrJ2jIhhlwdu03sMXmBu+
-         YIvSP6/nr2Y9e05SSRXeRIFUxgNj8sbjgagf9BJ4Qp/FyZaUnHaM64jwsz5CuY1ir0SZ
-         EoIQEbO0Zt3x0uRggIcn4AHeBCYFzzYYnM5Ez8ZMaBZCxIXZS4JyIsVRB7TEODV/iRuN
-         OcYQ==
+        bh=uo6zF5o+7LCvUNyqbo4B2Z8FjP7qWRhcs5cUoA/mAl0=;
+        b=t5iZBdyPbcbAUrZTJcjM6fY0uwW3tuEXq5DgQGgiU7SsL/sAqF/03LKOqCC5tzpOsj
+         RQ5dhsdFH9qWvVplXdbxMy+unMQAvVI93j1uCYcqBXx71mwA5Qs+YhzEiP9z0k1iRMFd
+         ZA/tOJSjjEfoB9VDc05ut2mUIh5pRv5daJxNW4Fq8TDhM82dP1NFHc4KoCmQJrQHG6ZW
+         eT8RM9QPN+VJsMsgmatewlA3ilKtnKJi99WyuA1zaEgEnwQnXI527dA4tL/7o85IBql9
+         qCSwP0OkTY/z1tTNaNoqGYBa34sHVRap+OLpmvqlQihlMkqQtUpObQ2yp0WPfbt2JsAQ
+         T5fw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWX7QQJIKSvNWzM3i+9/VZrBJl8mmaU13ucDCcXFbU+IJfSHNa0
-	GtNvS6QsUXug3ZWQqksf1oo=
-X-Google-Smtp-Source: APXvYqzEjP0T9Qs7az3B3HYGtXqwbvxQOLOT+iWTBX95L9MyiwxphfpNP0a6cr+hSz5cRR1sf3iL7Q==
-X-Received: by 2002:ab0:2556:: with SMTP id l22mr41279752uan.46.1563977143015;
-        Wed, 24 Jul 2019 07:05:43 -0700 (PDT)
+X-Gm-Message-State: APjAAAXyFPB0gGO4l+vm8UwIQYq0K0gpf5MShiprPizt6Ow7ktoNNXNA
+	2W3iOz44C65nZYYNvzidEcg=
+X-Google-Smtp-Source: APXvYqxa9CXdc1OSPpHMJ7PX0R5X+duD+ZoM/11HpEfXEHxvG3N77o7M74jXj8IhrNzqIv0KFaF3+A==
+X-Received: by 2002:a63:3009:: with SMTP id w9mr6997180pgw.260.1563977451483;
+        Wed, 24 Jul 2019 07:10:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6102:3ca:: with SMTP id n10ls5971696vsq.4.gmail; Wed, 24
- Jul 2019 07:05:42 -0700 (PDT)
-X-Received: by 2002:a67:ea49:: with SMTP id r9mr31665758vso.223.1563977142731;
-        Wed, 24 Jul 2019 07:05:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1563977142; cv=none;
+Received: by 2002:a65:568d:: with SMTP id v13ls7935422pgs.4.gmail; Wed, 24 Jul
+ 2019 07:10:51 -0700 (PDT)
+X-Received: by 2002:a63:d555:: with SMTP id v21mr59302081pgi.179.1563977451047;
+        Wed, 24 Jul 2019 07:10:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1563977451; cv=none;
         d=google.com; s=arc-20160816;
-        b=YXl4AQAuoafkKRDfnYj6UZcyXsXx5Rp9OrXS23IpSrHoghmTs+0KYoePnoPLV0PDo0
-         5dyHMi7cz0PKivPE1vX+7Hbzj1t6+d47a2vQMQ7tHpaKJwr5SWVNLdgs8qUgRdqrPje4
-         olxzw87hfMXMH1WKcOWDnLBMDa5MX8yzvuJ/Y/lRi8KWTgpdNWFCYxuU4w4KWnVriD/m
-         GKVSNvzrDoFab0Huy+IQFejXqOWrAOe5JJ3xxsnIuExLuN4p0B0uVTBMLtjDUpDW5BMO
-         qPCaS+qm0qQ8LYaV3/7lGwARgsVufT/+5kysiAmcnNecF+BXptyXwFyjREUqhLJYntQ6
-         gmvA==
+        b=aJF9XbABRwabO8rjrwqIetT2kLySSykXdjhm0Yw8LYU77WD5HofDB5YnsHDzzs2Jhe
+         GK5cqkbo/0acBW9B0JjrclryB7yWIkwrMG/0hKrEMJ47Cft17uZcbt/8FGsSpHCwwkeE
+         1/+fEY9fqTk64VMeEvFz8hR42ltQI4AFVIQGeAH9Z0FCGr8XT1W5Xodr7YS015E1Wnge
+         HP6vJLm/qNnyCnJ5e0IaWID2xhKS2SB2skBccxCa7IBhFUne/rvQhzRlYZhCPeTyhqbl
+         r8HGUcxq32DJFzZJfnCECzp6P1fg1Nqc0veGvWQG9sL954uJax3lJwHBveTM5YF6jK8G
+         CDeg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=VSU8LRMd4z+Mjm2rFL+HkbsJP1JxBHWskA2dkwiFRdg=;
-        b=dRN2tOZkuIlg8CKvt1WmaIloijz6Q32J6yvkoOZ5hmMu9VQ0EeIV4KSMDWAwG4XMlh
-         GvdpWwXpHQqJ72pVB/ipeyrbpbqnDJqu3B3RYmu/VQFNbCAJvF1KLaDLRTgRCOnUMudT
-         HFnRXDteJ7NrPRW/n7ZHBYZUFZ3OmEvIRYbFcU/grVdzFS1XqwktmM+gM7mx/wDBOuUT
-         s0j220PGe5Qt2homHDAaNssUIHc8/X53Xe75JlMNurLkHFbfZy0OWniFRprZ1twKAEbe
-         QCi7YsK0Ew0d+yt3uiYjYtv1Io3Ppv1Z9/Ma70iQC+hzavj3Wc5vNV6ycFP2deGEzkoG
-         OSOQ==
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=peX7w0IHZmmNWGkQS7oFrjlTuMLY4e+Bl3q2bETnND4=;
+        b=YBsb9EIRmeWCEuWuW8salcIydZzTswUMYBe/9NXt4MEdhUqfjqHjwPn0Te52xGwTjp
+         +/P63/j5ZMRiAMLXl5n7rM7MdlXCs4UsHWSNd1ChzpRU9ReIBgMEvtstsQlFaSrweA98
+         35/yG3VcXMJ7sW5TTzGcLr4Ma0WhCXTEzNAqF+znYmSYPo0YpVNg+MNhyd8Kv7XkGpJg
+         Rzy55jEiTprZFYhTfVF+KgPMV+OXrxTOgDp0azsZ/LrAe0htqqFyAVJDD/CUYeEIyt3S
+         lQZtD4E2x2GOgq80+VD0UVblHpQzgmGYhWQ7guGAiYqVKY6fm/zrps64jKH8a7JIOCba
+         lMrA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
-        by gmr-mx.google.com with ESMTPS id u189si3217929vkb.2.2019.07.24.07.05.42
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=px+1KWzK;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
+        by gmr-mx.google.com with ESMTPS id w72si1772622pfd.2.2019.07.24.07.10.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 24 Jul 2019 07:05:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as permitted sender) client-ip=209.132.183.28;
-Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.phx2.redhat.com [10.5.11.11])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 9B1A0308FBA6;
-	Wed, 24 Jul 2019 14:05:41 +0000 (UTC)
-Received: from treble (ovpn-122-90.rdu2.redhat.com [10.10.122.90])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 6FE6B600C4;
-	Wed, 24 Jul 2019 14:05:40 +0000 (UTC)
-Date: Wed, 24 Jul 2019 09:05:33 -0500
-From: Josh Poimboeuf <jpoimboe@redhat.com>
-To: Peter Zijlstra <peterz@infradead.org>
+        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+        Wed, 24 Jul 2019 07:10:50 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=hirez.programming.kicks-ass.net)
+	by merlin.infradead.org with esmtpsa (Exim 4.92 #3 (Red Hat Linux))
+	id 1hqHye-0005Jv-5Q; Wed, 24 Jul 2019 14:10:44 +0000
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id DBE0E2026E809; Wed, 24 Jul 2019 16:10:40 +0200 (CEST)
+Date: Wed, 24 Jul 2019 16:10:40 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Josh Poimboeuf <jpoimboe@redhat.com>
 Cc: Thomas Gleixner <tglx@linutronix.de>,
 	LKML <linux-kernel@vger.kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
@@ -114,7 +111,7 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Sedat Dilek <sedat.dilek@gmail.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
 Subject: Re: x86 - clang / objtool status
-Message-ID: <20190724140533.yxwbq4mlqzrviaf5@treble>
+Message-ID: <20190724141040.GA31425@hirez.programming.kicks-ass.net>
 References: <alpine.DEB.2.21.1907182223560.1785@nanos.tec.linutronix.de>
  <20190724023946.yxsz5im22fz4zxrn@treble>
  <20190724074732.GJ3402@hirez.programming.kicks-ass.net>
@@ -124,14 +121,12 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 In-Reply-To: <20190724133516.GB31381@hirez.programming.kicks-ass.net>
-User-Agent: NeoMutt/20180716
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.11
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.43]); Wed, 24 Jul 2019 14:05:41 +0000 (UTC)
-X-Original-Sender: jpoimboe@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jpoimboe@redhat.com designates 209.132.183.28 as
- permitted sender) smtp.mailfrom=jpoimboe@redhat.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=redhat.com
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: peterz@infradead.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@infradead.org header.s=merlin.20170209 header.b=px+1KWzK;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,69 +141,112 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 On Wed, Jul 24, 2019 at 03:35:16PM +0200, Peter Zijlstra wrote:
 > On Wed, Jul 24, 2019 at 07:55:25AM -0500, Josh Poimboeuf wrote:
-> > On Wed, Jul 24, 2019 at 09:47:32AM +0200, Peter Zijlstra wrote:
-> > > On Tue, Jul 23, 2019 at 09:43:24PM -0500, Josh Poimboeuf wrote:
-> > > > On Thu, Jul 18, 2019 at 10:40:09PM +0200, Thomas Gleixner wrote:
-> > > > 
-> > > > >   drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o: warning: objtool: .altinstr_replacement+0x86: redundant UACCESS disable
-> > > > 
-> > > > Looking at this one, I think I agree with objtool.
-> > > > 
-> > > > PeterZ, Linus, I know y'all discussed this code a few months ago.
-> > > > 
-> > > > __copy_from_user() already does a CLAC in its error path.  So isn't the
-> > > > user_access_end() redundant for the __copy_from_user() error path?
-> > > 
-> > > Hmm, is this a result of your c705cecc8431 ("objtool: Track original function across branches") ?
-> > > 
-> > > I'm thinking it might've 'overlooked' the CLAC in the error path before
-> > > (because it didn't have a related function) and now it sees it and
-> > > worries about it.
-> > > 
-> > > Then again, I'm not seeing this warning on my GCC builds; so what's
-> > > happening?
-> > 
-> > According to the github issue[1] my patch doesn't fix the warning with
-> > Clang.  So questions remain:
-> 
-> I was thinking your patch resulted in the warning due to the exception
-> code gaining a ->func.
-
-I had the same thought.
-
-> But then that doesn't make sense either, because all that lives in
-> copy_user_64.S which is a completely different translation unit.
-
-Hm?  __copy_from_user() uses raw_copy_from_user() to do the STAC/CLAC in
-a header file for the __builtin_constant_p() case.
-
-> > a) what is objtool actually warning about?
-> 
-> CLAC with AC already clear. Either we do double CLAC at the end, or we
-> do CLAC without having done STAC first.
-> 
-> The issue isn't BAD(tm), as AC clear is the safe state, but it typically
-> indicates confused code flow.
-
-But as I said my patch didn't fix the Clang warning.  Or is there
-another redundant UACCESS disable you know about?
 
 > > b) why doesn't objtool detect the case I found?
 > 
 > With GCC you mean? Yes, that is really really weird.
-
-With both compilers...
-
+> 
 > Let me go stare at objdump output for this file (which doesn't build
 > with:
 > 
 >    make O=defconfig-build/ drivers/gpu/drm/i915/gem/i915_gem_execbuffer.o
 > )
 
--- 
-Josh
+0000 0000000000000240 <eb_copy_relocations.isra.34>:
+0000      240:	41 57                	push   %r15
+0002      242:	41 56                	push   %r14
+0004      244:	41 55                	push   %r13
+0006      246:	41 54                	push   %r12
+0008      248:	55                   	push   %rbp
+0009      249:	53                   	push   %rbx
+000a      24a:	48 83 ec 20          	sub    $0x20,%rsp
+000e      24e:	85 f6                	test   %esi,%esi
+0010      250:	74 39                	je     28b <eb_copy_relocations.isra.34+0x4b>
+0012      252:	89 74 24 14          	mov    %esi,0x14(%rsp)
+0016      256:	45 31 f6             	xor    %r14d,%r14d
+0019      259:	48 c7 04 24 00 00 00 	movq   $0x0,(%rsp)
+0020      260:	00 
+0021      261:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+0026      266:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+002b      26b:	48 8b 34 24          	mov    (%rsp),%rsi
+002f      26f:	48 03 30             	add    (%rax),%rsi
+0032      272:	44 8b 46 04          	mov    0x4(%rsi),%r8d
+0036      276:	45 85 c0             	test   %r8d,%r8d
+0039      279:	75 23                	jne    29e <eb_copy_relocations.isra.34+0x5e>
+003b      27b:	41 83 c6 01          	add    $0x1,%r14d
+003f      27f:	48 83 04 24 38       	addq   $0x38,(%rsp)
+0044      284:	44 3b 74 24 14       	cmp    0x14(%rsp),%r14d
+0049      289:	75 db                	jne    266 <eb_copy_relocations.isra.34+0x26>
+004b      28b:	31 db                	xor    %ebx,%ebx
+004d      28d:	48 83 c4 20          	add    $0x20,%rsp
+0051      291:	89 d8                	mov    %ebx,%eax
+0053      293:	5b                   	pop    %rbx
+0054      294:	5d                   	pop    %rbp
+0055      295:	41 5c                	pop    %r12
+0057      297:	41 5d                	pop    %r13
+0059      299:	41 5e                	pop    %r14
+005b      29b:	41 5f                	pop    %r15
+005d      29d:	c3                   	retq   
+
+(<- from +39)
+
+005e      29e:	48 83 c6 08          	add    $0x8,%rsi
+0062      2a2:	44 89 c7             	mov    %r8d,%edi
+0065      2a5:	e8 26 ff ff ff       	callq  1d0 <check_relocations.isra.32>
+006a      2aa:	85 c0                	test   %eax,%eax
+006c      2ac:	0f 85 35 01 00 00    	jne    3e7 <eb_copy_relocations.isra.34+0x1a7>
+0072      2b2:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+0077      2b7:	48 8b 0c 24          	mov    (%rsp),%rcx
+007b      2bb:	ba ff ff ff ff       	mov    $0xffffffff,%edx
+0080      2c0:	be c0 0c 00 00       	mov    $0xcc0,%esi
+0085      2c5:	48 8b 00             	mov    (%rax),%rax
+0088      2c8:	4c 8b 6c 08 08       	mov    0x8(%rax,%rcx,1),%r13
+008d      2cd:	44 89 c0             	mov    %r8d,%eax
+0090      2d0:	49 89 c4             	mov    %rax,%r12
+0093      2d3:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+0098      2d8:	49 c1 e4 05          	shl    $0x5,%r12
+009c      2dc:	4c 89 e7             	mov    %r12,%rdi
+009f      2df:	e8 00 00 00 00       	callq  2e4 <eb_copy_relocations.isra.34+0xa4>
+00a0 			2e0: R_X86_64_PLT32	kvmalloc_node-0x4
+00a4      2e4:	49 89 c7             	mov    %rax,%r15
+00a7      2e7:	48 85 c0             	test   %rax,%rax
+00aa      2ea:	0f 84 e8 00 00 00    	je     3d8 <eb_copy_relocations.isra.34+0x198>
+00b0      2f0:	31 ed                	xor    %ebp,%ebp
+00b2      2f2:	eb 08                	jmp    2fc <eb_copy_relocations.isra.34+0xbc>
+
+(<- from +e0)
+
+00b4      2f4:	48 01 dd             	add    %rbx,%rbp
+00b7      2f7:	49 39 ec             	cmp    %rbp,%r12
+00ba      2fa:	76 73                	jbe    36f <eb_copy_relocations.isra.34+0x12f>
+
+(<- from +b2)
+
+00bc      2fc:	4c 89 e3             	mov    %r12,%rbx
+00bf      2ff:	b8 00 00 00 80       	mov    $0x80000000,%eax
+00c4      304:	49 8d 3c 2f          	lea    (%r15,%rbp,1),%rdi
+00c8      308:	48 29 eb             	sub    %rbp,%rbx
+00cb      30b:	49 8d 74 2d 00       	lea    0x0(%r13,%rbp,1),%rsi
+00d0      310:	48 39 c3             	cmp    %rax,%rbx
+00d3      313:	48 0f 47 d8          	cmova  %rax,%rbx
+00d7      317:	89 da                	mov    %ebx,%edx
+00d9      319:	e8 00 00 00 00       	callq  31e <eb_copy_relocations.isra.34+0xde>
+00da 			31a: R_X86_64_PLT32	copy_user_generic_unrolled-0x4
+00de      31e:	85 c0                	test   %eax,%eax
+00e0      320:	74 d2                	je     2f4 <eb_copy_relocations.isra.34+0xb4>
+00e2      322:	4c 89 f8             	mov    %r15,%rax
+00e5      325:	4c 8b 7c 24 08       	mov    0x8(%rsp),%r15
+00ea      32a:	90                   	nop
+00eb      32b:	90                   	nop
+00ec      32c:	90                   	nop
+
+					^^^ CLAC
+
+And that most certainly should trigger...
+
+Let me gdb that objtool thing.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190724140533.yxwbq4mlqzrviaf5%40treble.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190724141040.GA31425%40hirez.programming.kicks-ass.net.
