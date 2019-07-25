@@ -1,129 +1,186 @@
-Return-Path: <clang-built-linux+bncBD2INDP3VMPBBFE647UQKGQEVF3METQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBENE47UQKGQEFDT4HXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD29E7531D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 17:47:33 +0200 (CEST)
-Received: by mail-pf1-x438.google.com with SMTP id g21sf31140124pfb.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 08:47:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564069652; cv=pass;
+Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id E54C175361
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 18:00:17 +0200 (CEST)
+Received: by mail-lf1-x13e.google.com with SMTP id v13sf5184987lfa.20
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 09:00:17 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1564070417; cv=pass;
         d=google.com; s=arc-20160816;
-        b=man9atJh43hQ2LKq2JWJFxtXK1ZzmlinEfpU+NGF3oVNUXLeYMA19czcR2mwSCvAIh
-         o9o4Fg0XBNEaHhW26FXxIcR2rL3ZBwEoKSzSEShiNlBtXtkZvTjKCPBRYDPpSW+12f+a
-         Hg1lXw9sw1K3SzpJgnYG7PRligh3saDbphRHx2ig3+GRGugREIeaSimEKFH5ZnDNpa4n
-         zeb8uGpA6lV1GwCaSuLwBoSxwN31yGWqkCd9nkj2EywXcPQ38PzGMrAijLbk/nj+jHty
-         qUZvoV0fOb4yGsTyLLItDB2JnN6OXfUgIAJo7yycRVPQt+MxCKr7JtIvMRzqXX7sQlrA
-         FKzg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=eqM2RPL0+PmtOLzSCOprCf9j+yJl2QVy6hrMlcNFhVAtWdczPyvWNF5Y2Er1LtWV6g
+         aPnQtUIBsYmpTUDEVL/e2OQhWYPl8na77FgcWVhtlsyzIhaSDAZus8oh2BzZyZc2299F
+         XiyxlVg2GLYbaZExvyy8BOS4yR7Bz2MepjF4hygkxNgZkpfMAQONFOVc/Xydct2KkMeu
+         fjPRrwU1sNZ/sNXCihjsbS2/73nc/pVWv+RdfqCXGzKvXdLrMIL7kdy5tl43a/3NrUnj
+         ZDiFGQghiNH1lyg45iFOvFA/SpKA7dJ8ZugWVSzmbhseMWgoSOhaHp7vqIau4Rl3bLgX
+         Hdpw==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=AwRMZIAbSdKzHE8KO1s6K3j5N1RG765HpD89YQplxbY=;
-        b=H8sC/jMjgDWv6X3qQmNOVFU35DcUeVaTweOuyzlBZA9YD1Un88MAlBPDwJ49UMx60J
-         1dyIhxFy24AF2zo4Dwf7aocUwIRV+vroakNFJcwluVPV6wU64xYZin+rB5typwPUkPFP
-         HvWEvn05u9DxfiR0Ggvw8LhWAMp4A4cMzdyB0WiglDKOwDap9WDwKQgIOUg9fda/EUTH
-         aaOfOrXXhAqw/kSBaZTJpWXP8vFRRrTFOk8nxAMeo8kxXJnCo9pydsLeg8imTBhxobEn
-         a1Fd9cKD9CpSAc7iubxwXsW5KmtJ8vWqto4XRhLIfLkxGLTZn8GKQxCancOnRnX8BRz+
-         mCIg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=ean5MHBi;
-       spf=pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=swboyd@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+         :list-id:mailing-list:precedence:mime-version:content-id
+         :content-language:accept-language:in-reply-to:references:message-id
+         :date:thread-index:thread-topic:subject:cc:to:from:sender
+         :dkim-signature;
+        bh=YWUwjTmf11s6KMm0YgHkFu+DPhtCdQo20rtq4ToxGuo=;
+        b=h+kD2g+Qf/9BiHzTgvy9EfxeTBLhKm/oJM56YbbHYkKK+ipqJZ7ItMJgHrr+4sQ0iO
+         tt+o4uHLMz03Kj7cEZWxTdQlqHGquZ/LM0yWKmpIw0X6jMoeU0tejRxzYAkTNKqCf/r6
+         HkccJvxlf8mKugPayIV/hWFBLmRXHGbGbswF2lF1ainVyuyr7np31Ma8UPOxHALkV51b
+         kACYRFR1xOv/X8Qxp6o0OXsazmt2uugAT4zitBQf3Cpo5PLB3w0B4tt8KmobTngMTM5y
+         0Es91fYT+1CbHxP6udf/L1NrbUjylDpNNbkTWeR52hPdKYQLMZsZvO2NjOxJEyb0bFYg
+         ncNw==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=Q4wed7lj;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.77.73 is neither permitted nor denied by best guess record for domain of sunpeng.li@amd.com) smtp.mailfrom=Sunpeng.Li@amd.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language:content-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AwRMZIAbSdKzHE8KO1s6K3j5N1RG765HpD89YQplxbY=;
-        b=AYSfshEemJ3KR5nNTnOP5EmdoeFuc2pgLmA/lgkg/MY47hWltQ1wzOKQ2NmB7x3SMH
-         qN7tkwQLw3aY2djcF8LcEVF4Ks3aCidNTJEoIxUCrBey8LqFkHczDCFPNjBuybkKVKNL
-         dPKz5Gap5i+adUTU8kzjDviF3IfUPiJg3tMrOtsnx9sThEgEtkFUWNAMU4TMNZQBQMCo
-         pyjgJE4jIPZ7R9R1RkIsWdcDTbKdrPRumhWPKssWhSj0bCWBcXljXfSnzoUpbKqCGpQ5
-         2WTcKcik3xBSRSbE9XrnC2rBNHrJ/SwxECJqF+nGAn5SuXtdCAKPeqMTnzz2ZUbD83Io
-         nx2A==
+        bh=YWUwjTmf11s6KMm0YgHkFu+DPhtCdQo20rtq4ToxGuo=;
+        b=g10cSfuxrdImub1VB2EN7RFytn65oltSRXyXMuA0FQGOMcSpIxtKtOTfVF1/lpRTYj
+         IwP+iunwyBCqeHiWmRzDfSbzSuR+AZIz1P5jVtQ8bnTJoNah+ZiLZV7ZKGWIhmXw6r/h
+         abgPxhB5ov8xz93rk4YpULpOpWmiqYqi3SRW0QxIzYF7B1/O/MMbbJLDKWdqPpeGedy3
+         mIw8dVMFBitM0VkpZCxR2d0Y2hdrEME6vmnX/PQ/+zzwJOXgzbAIdBrTrmwSDu20ZrMJ
+         ca3dcQ7Yr1QXnmNdF4XZ1y5cUi4Dhw1TJCzWWpQBzwvUItOPHfrewOMsODzfOi08N9DE
+         kj2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=AwRMZIAbSdKzHE8KO1s6K3j5N1RG765HpD89YQplxbY=;
-        b=VDzDmEOWHdmuMwdwURGpOsnH1GVynLSBH4AqCetgpjZnVlZIPLn/7XmuRQ6TN1mN2y
-         gxhdXEWazE0QUQ8hOPSRBEUXt9EO5aTkoxw5DDtqQ+W50C7VI464e5LRY7q2V6PxSs6n
-         tnw/6wAKLIDngWiPpTVVIHbjN07l4cXZp7HAWDs1dyXNl8xPoJm2DIclCzd4oA4Nl+R6
-         NALcNfu/146P9S8Au7Y1sRUZbleKDj+0k7smpSC12KPt7Wxp9RSZlQ0CsQ6hAgGGsLvM
-         /0gJ+OPGcsV8wujoRF1SJiJ/+F7tLRQ5tkbfPP+vKoAHeIARWPvYXtNnYE4k36JiUUF+
-         NDJg==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:content-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YWUwjTmf11s6KMm0YgHkFu+DPhtCdQo20rtq4ToxGuo=;
+        b=Gtlv/5h1hdMvrUqyV5gu96YwJFEnWpdG6RXnGrxCJawgY35Ik/O17FqWqEiwrVG2nH
+         Xq3/NLsBUivrgL2Pj+g/b+Dhx3FpxhbZ8vGWrtKS2xn4ScTuBmkfd27Db/LLWAyPY4nh
+         tVps3Bsp0ayDhc9RMSwHfPddR3WbBDrIy4LYbVklcwzKu2iGZJAE1dCC9PxWUHr7vMpO
+         AKy87YrqQogQo9xoCL2XX/Eb1lo8LrWCeSebmKMOfH5NUEGQPe2R2DFVwmlvf4TfzdNh
+         ps1AOr4xGgnfdY2ib4HqUWUKet8aySP0f9Wo4f8TaehXTFYYhhwEcGZyoh5UNY1zz6hB
+         xTUA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXpZBNVMjR5ZHRQ8WBhSC8fpIuzRFcByAw5eucqS2DtlIv0KNN8
-	qlV4dTZOCiKUQVJbJtKUexg=
-X-Google-Smtp-Source: APXvYqwZzViLSJG4uWQhKJlUijddn5gU+1L7Qgcafv7vjujEOt6gpdyvnjN4LEc6XXSWfzWffYDKig==
-X-Received: by 2002:a65:5b8e:: with SMTP id i14mr85675884pgr.188.1564069652435;
-        Thu, 25 Jul 2019 08:47:32 -0700 (PDT)
+X-Gm-Message-State: APjAAAVj02JmJN1b4j2RmF1PuMs90CJBC+FG7ngIjhp0xOls8PeCe9AK
+	2Azi6488lwxYBj2KUgUCYak=
+X-Google-Smtp-Source: APXvYqxz+VvWtU0c8Zqf5DlC+Z/iAzydpE8WaN1UVYacn16XFkFjz8gwC52gooBWnOeI4PuigJM+xg==
+X-Received: by 2002:a19:ed07:: with SMTP id y7mr2085182lfy.56.1564070417259;
+        Thu, 25 Jul 2019 09:00:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:3787:: with SMTP id v7ls16603785pjb.4.canary-gmail;
- Thu, 25 Jul 2019 08:47:32 -0700 (PDT)
-X-Received: by 2002:a17:902:20ec:: with SMTP id v41mr86557953plg.142.1564069652101;
-        Thu, 25 Jul 2019 08:47:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564069652; cv=none;
+Received: by 2002:ac2:4a67:: with SMTP id q7ls4169913lfp.2.gmail; Thu, 25 Jul
+ 2019 09:00:16 -0700 (PDT)
+X-Received: by 2002:a19:c80b:: with SMTP id y11mr40713454lff.81.1564070416951;
+        Thu, 25 Jul 2019 09:00:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564070416; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sqfpVNEWtYc/8bvJtTwPInabHZQb/iwrvyyeha0MCNTe1X1rcA12wLP+mXLqwLu1fv
-         W54xZKJaIOTQlQAhKgrm1Z8jcoBGSsnVT1Zx21KRYfCrPk9TpUcY+3aBFTPiynSCyEkf
-         bn2O1mSpxRZ007+rfIplcEN2rqyYgeGcf2gqEQpiRbsnrs8N3ojcPj3t6l+IZoCDni5C
-         yRfFZPQTLKgo+ne/LcceXX57D4ekrCwjLSRRIR4DoBSLr3Vn23xIsDndb8h/rTRrcqlv
-         oYivvtJKQko1KxgxfqcSCSf88txYKl0KtMNtZPGMt4wqGBNF0wOTuRsMEUwfMfboZRwm
-         RFSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=9YuwL0GVl7nYF4rNeboTYpwrDtxx+jHFRpSdYJwSITY=;
-        b=Zy2hmfeYLarRkoVl5eZON/RW0cm3qriM+ga4E2UDot3Zan/1ablbWlHFWd3SegVDgE
-         0tZ5XgmZa6/8G0/nCbPQJTXQEk1iP02FzBCAXxoL+syZPJPsy2tlhJXs/JecxHjp09Q0
-         tu+LMMER6piMzF/9BGydhHr/i3tOl4tZykbwBGm5+hv5VwXfZH3f4fGKlCAFZLLP6xKv
-         E/VvEKlNJwQsS9fYuj1nDM4JQkOEM8VfCQpST3QaQ0RrKbHYJALRlsbQuCl9yZ6vq/AT
-         G29WEhzwO4vSgy0ErFgcx6zPZWZN18njhqhGT54eDvPO8hd/y8Yo/W0Dq3u2qKUbSrHY
-         KlnQ==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=ean5MHBi;
-       spf=pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=swboyd@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
-        by gmr-mx.google.com with ESMTPS id i184si1668329pge.5.2019.07.25.08.47.32
+        b=AKUkJwzPGBveVVZH9hK4moJX8OfxBgjG0khYGgo8cUP4+pJMPaHxGS3Xn3NXoaMRpK
+         uq/ZlUXRzxrMcyMSPDP602q+zU0Zo6uGG52OohSgzCw4IrPGi1GDhpW93ij0lfJzwf8f
+         6bsL9gwUSIMWew6S8vc1pF6+LDeJQTBnX53bd9q5DUZqLeSEYJsA8FaggkemENAAT6D3
+         8DanIiY6fJn/9iT7zijpygTs+fCYTS6CfdU9Y/T/yYgZsMQMQkdCLbHKUgibuv62HhYU
+         RPKUW/nQGwggIVtyBYT1W5w2mSbW2SfZYFFrTl1YCR1h/kr+NCQwkpfwYdCFo80ccFcB
+         YtWw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-id:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=tRUWLM56PlUrnuq+fb7CL2nxlt0rTOFxee7IjUxeNb8=;
+        b=NYNqCOVJNlwdtHL7ZPhPvBRpCvmqKc2a0KrZAMgQwX8cRex8foRxOq41yFxAC/bMut
+         enIXmqZPjA/vQlHsupWxOTtI2FeBqNCF534IO2YWO96hJCUE+P3g6t6S6GMfQTtQuC29
+         7iLdp5vpLmqzqTHLgiEK2YrD53U3DA/pWfFTS41g0NRZumY/JoGksEP0jjLqPRWu3Rc3
+         eq0vskadF3FdSCDhy5Cyt/5nzL6C7SMBcl+Bt7L/EajSoSMWcyJNybYBsyVFphIKeze6
+         5VdC7ErtH5ASyILguE2wGEuBRDMw4UpkPT0D2K8a0nZsvsVgRbXrnTpgTWbC3DD9SB8J
+         8v3A==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=Q4wed7lj;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.77.73 is neither permitted nor denied by best guess record for domain of sunpeng.li@amd.com) smtp.mailfrom=Sunpeng.Li@amd.com
+Received: from NAM02-SN1-obe.outbound.protection.outlook.com (mail-eopbgr770073.outbound.protection.outlook.com. [40.107.77.73])
+        by gmr-mx.google.com with ESMTPS id q11si2421981ljg.2.2019.07.25.09.00.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Thu, 25 Jul 2019 08:47:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
-Received: by mail-pl1-x644.google.com with SMTP id i2so23599658plt.1
-        for <clang-built-linux@googlegroups.com>; Thu, 25 Jul 2019 08:47:32 -0700 (PDT)
-X-Received: by 2002:a17:902:f082:: with SMTP id go2mr95978482plb.25.1564069651837;
-        Thu, 25 Jul 2019 08:47:31 -0700 (PDT)
-Received: from smtp.gmail.com ([2620:15c:202:1:fa53:7765:582b:82b9])
-        by smtp.gmail.com with ESMTPSA id r1sm47083788pgv.70.2019.07.25.08.47.31
-        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Thu, 25 Jul 2019 08:47:31 -0700 (PDT)
-From: Stephen Boyd <swboyd@chromium.org>
-To: Masahiro Yamada <yamada.masahiro@socionext.com>,
-	Michal Marek <michal.lkml@markovi.net>
-Cc: linux-kernel@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Peter Smith <peter.smith@linaro.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Douglas Anderson <dianders@chromium.org>
-Subject: [PATCH v2] kbuild: Check for unknown options with cc-option usage in Kconfig and clang
-Date: Thu, 25 Jul 2019 08:47:30 -0700
-Message-Id: <20190725154730.80169-1-swboyd@chromium.org>
-X-Mailer: git-send-email 2.22.0.657.g960e92d24f-goog
-MIME-Version: 1.0
-X-Original-Sender: swboyd@chromium.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=ean5MHBi;       spf=pass
- (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::644
- as permitted sender) smtp.mailfrom=swboyd@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Thu, 25 Jul 2019 09:00:16 -0700 (PDT)
+Received-SPF: neutral (google.com: 40.107.77.73 is neither permitted nor denied by best guess record for domain of sunpeng.li@amd.com) client-ip=40.107.77.73;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=RPAPTLW3KsxCML8bJ/61+NI4uSolhxSEwoTb/+GQUZSicHBUcGia1DFGDGN4O9HZVmLBDI9ebhD5ASGs4aPzscbxSGjLF/ZNGi6HqBvjLVCRXQXjpGvFfr3hCBOYe3M40Cv86qCcdWvFEicSrCNNErvqmcvG0fz3e2XqV+RtSMYDzf2owma3K0LvFWNMD0FQwPUqTrap8J0QzgHAw3NeisKddC90sLCh02sh8Dmgn2Uf+s/h3YK2MXKY5BMzcYRv1QCT7CVCk+Rb9HyDtWYu9+643sJ6etNNBElGM7coJci47C9b5Lb2MPjRCvJI8nybEbQPD9aJpKklOFj5eeJ6KQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tRUWLM56PlUrnuq+fb7CL2nxlt0rTOFxee7IjUxeNb8=;
+ b=hgmB+K+lDG3v1QW3fE87b9pFsLHRHksBA+Ia6coG8TarsSCxdhTnRFdQQUfxwLhwDeuiQBehyyEybJfqawwqzaUWte4HZ5L7/5ylegRGlnSMj5nXu1YHA6W+45l1NDPVAJbTWoA0VQSlm+t6GF6Dl9JeFzjL1AeISIJhUBy2jJecR8oClf+ocE/LpAPs6wYowFSukjK2qq2qi4dSKpsTtkqXuGi1fetH+YEnyQ9IEYiiuCviDIRWF1xE09qpjLov2/Ta2bSs9IIrzPDq6+4lfQUe+RYnraeEHw1n2wS6tX6//LQ+iIG6kYcuI0xTfUbOS76oahUHv53A4And6Z9/Iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
+ smtp.mailfrom=amd.com;dmarc=pass action=none header.from=amd.com;dkim=pass
+ header.d=amd.com;arc=none
+Received: from BYAPR12MB2853.namprd12.prod.outlook.com (20.179.90.150) by
+ BYAPR12MB2790.namprd12.prod.outlook.com (20.177.126.79) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2115.13; Thu, 25 Jul 2019 16:00:10 +0000
+Received: from BYAPR12MB2853.namprd12.prod.outlook.com
+ ([fe80::dd9c:e1c8:face:eaa9]) by BYAPR12MB2853.namprd12.prod.outlook.com
+ ([fe80::dd9c:e1c8:face:eaa9%6]) with mapi id 15.20.2115.005; Thu, 25 Jul 2019
+ 16:00:10 +0000
+From: "Li, Sun peng (Leo)" <Sunpeng.Li@amd.com>
+To: "Deucher, Alexander" <Alexander.Deucher@amd.com>, "Koenig, Christian"
+	<Christian.Koenig@amd.com>, "Zhou, David(ChunMing)" <David1.Zhou@amd.com>,
+	"Wentland, Harry" <Harry.Wentland@amd.com>, Rex Zhu <rex.zhu@amd.com>, "Quan,
+ Evan" <Evan.Quan@amd.com>
+CC: Nathan Chancellor <natechancellor@gmail.com>, David Airlie
+	<airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
+	"amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH 5/7] drm/amd/display: Use proper enum conversion functions
+Thread-Topic: [PATCH 5/7] drm/amd/display: Use proper enum conversion
+ functions
+Thread-Index: AQHVMiy9/HNyhezL/UaoUkOqlvXBhabRXHKAgApDQ4A=
+Date: Thu, 25 Jul 2019 16:00:10 +0000
+Message-ID: <5f0e8332-50ae-cc9c-1a12-5a097c51297d@amd.com>
+References: <20190704055217.45860-1-natechancellor@gmail.com>
+ <20190704055217.45860-6-natechancellor@gmail.com>
+ <20190719031647.GA84028@archlinux-threadripper>
+In-Reply-To: <20190719031647.GA84028@archlinux-threadripper>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: YTOPR0101CA0063.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b00:14::40) To BYAPR12MB2853.namprd12.prod.outlook.com
+ (2603:10b6:a03:12c::22)
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [165.204.55.250]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 784c5283-70bb-4892-f97b-08d711192be3
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);SRVR:BYAPR12MB2790;
+x-ms-traffictypediagnostic: BYAPR12MB2790:
+x-ms-exchange-purlcount: 1
+x-microsoft-antispam-prvs: <BYAPR12MB279071942B712369CC870DA682C10@BYAPR12MB2790.namprd12.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:741;
+x-forefront-prvs: 0109D382B0
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(376002)(136003)(39860400002)(366004)(346002)(396003)(189003)(199004)(25786009)(6246003)(6512007)(2906002)(316002)(36756003)(6306002)(53936002)(71190400001)(52116002)(71200400001)(229853002)(4326008)(6486002)(31686004)(66946007)(66476007)(66556008)(64756008)(66446008)(6636002)(81156014)(81166006)(305945005)(6116002)(8676002)(76176011)(66066001)(7736002)(31696002)(53546011)(102836004)(8936002)(3846002)(99286004)(86362001)(6506007)(386003)(14444005)(68736007)(478600001)(54906003)(476003)(486006)(11346002)(446003)(5660300002)(14454004)(6436002)(966005)(186003)(110136005)(26005)(256004)(2616005)(921003)(1121003);DIR:OUT;SFP:1101;SCL:1;SRVR:BYAPR12MB2790;H:BYAPR12MB2853.namprd12.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;MX:1;A:1;
+received-spf: None (protection.outlook.com: amd.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: yRYj4CcKsZufXiKSZHSAI9XpmE+MXkJiVNm9eR1ySmR7zZQB8ObG1gRLtnBq9w9Zkt2PJcm6qH/ESue6sSkUr964Wj739yfP26CgxOsfsdTLuq6tWNuLq8BZkyga283E4fA2OQnC2/cyEwl6f0R5To+2G2kRbqwvbu3aqIOBL88giYB2npilHgSJH/F9zZ6+eM73rwjtbzSeOfZACfDjCB5B9XunGIvo77ykkmrZZl1t6MMkzWeEVOytgNNaQNKODqF4hKg9+x/vliyjetghlnn2F8PsefR0SkNsuFJTr0pXs002gNX8Pj5lX8n1XpjVplh+wXtYiU+3yrbQzLqTkcJN7JtF0rAWg1pK6EgA8AxO3Rod2s3Z3lXoDhYl5DKjmL9p6yzSI1myNEZ2u20mDd6bZ1pTzDp8tqZaaHELGSk=
 Content-Type: text/plain; charset="UTF-8"
+Content-ID: <3C344A9FB9ABC84D8EE0493DC20FF21F@namprd12.prod.outlook.com>
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 784c5283-70bb-4892-f97b-08d711192be3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jul 2019 16:00:10.7158
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: sunli1@amd.com
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR12MB2790
+X-Original-Sender: sunpeng.li@amd.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com
+ header.b=Q4wed7lj;       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass
+ dkdomain=amd.com dmarc=pass fromdomain=amd.com);       spf=neutral
+ (google.com: 40.107.77.73 is neither permitted nor denied by best guess
+ record for domain of sunpeng.li@amd.com) smtp.mailfrom=Sunpeng.Li@amd.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,98 +193,84 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-If the particular version of clang a user has doesn't enable
--Werror=unknown-warning-option by default, even though it is the
-default[1], then make sure to pass the option to the Kconfig cc-option
-command so that testing options from Kconfig files works properly.
-Otherwise, depending on the default values setup in the clang toolchain
-we will silently assume options such as -Wmaybe-uninitialized are
-supported by clang, when they really aren't.
 
-A compilation issue only started happening for me once commit
-589834b3a009 ("kbuild: Add -Werror=unknown-warning-option to
-CLANG_FLAGS") was applied on top of commit b303c6df80c9 ("kbuild:
-compute false-positive -Wmaybe-uninitialized cases in Kconfig"). This
-leads kbuild to try and test for the existence of the
--Wmaybe-uninitialized flag with the cc-option command in
-scripts/Kconfig.include, and it doesn't see an error returned from the
-option test so it sets the config value to Y. Then the Makefile tries to
-pass the unknown option on the command line and
--Werror=unknown-warning-option catches the invalid option and breaks the
-build. Before commit 589834b3a009 ("kbuild: Add
--Werror=unknown-warning-option to CLANG_FLAGS") the build works fine,
-but any cc-option test of a warning option in Kconfig files silently
-evaluates to true, even if the warning option flag isn't supported on
-clang.
 
-Note: This doesn't change cc-option usages in Makefiles because those
-use a different rule that includes KBUILD_CFLAGS by default (see the
-__cc-option command in scripts/Kbuild.incluide). The KBUILD_CFLAGS
-variable already has the -Werror=unknown-warning-option flag set. Thanks
-to Doug for pointing out the different rule.
+On 2019-07-18 11:16 p.m., Nathan Chancellor wrote:
+> On Wed, Jul 03, 2019 at 10:52:16PM -0700, Nathan Chancellor wrote:
+>> clang warns:
+>>
+>> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:336:8:
+>> warning: implicit conversion from enumeration type 'enum smu_clk_type'
+>> to different enumeration type 'enum amd_pp_clock_type'
+>> [-Wenum-conversion]
+>>                                         dc_to_smu_clock_type(clk_type),
+>>                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:421:14:
+>> warning: implicit conversion from enumeration type 'enum
+>> amd_pp_clock_type' to different enumeration type 'enum smu_clk_type'
+>> [-Wenum-conversion]
+>>                                         dc_to_pp_clock_type(clk_type),
+>>                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>
+>> There are functions to properly convert between all of these types, use
+>> them so there are no longer any warnings.
+>>
+>> Fixes: a43913ea50a5 ("drm/amd/powerplay: add function get_clock_by_type_with_latency for navi10")
+>> Fixes: e5e4e22391c2 ("drm/amd/powerplay: add interface to get clock by type with latency for display (v2)")
+>> Link: https://github.com/ClangBuiltLinux/linux/issues/586
+>> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+>> ---
+>>  drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
+>> index eac09bfe3be2..0f76cfff9d9b 100644
+>> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
+>> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
+>> @@ -333,7 +333,7 @@ bool dm_pp_get_clock_levels_by_type(
+>>  		}
+>>  	} else if (adev->smu.funcs && adev->smu.funcs->get_clock_by_type) {
+>>  		if (smu_get_clock_by_type(&adev->smu,
+>> -					  dc_to_smu_clock_type(clk_type),
+>> +					  dc_to_pp_clock_type(clk_type),
 
-[1] https://clang.llvm.org/docs/DiagnosticsReference.html#wunknown-warning-option
-Cc: Peter Smith <peter.smith@linaro.org>
-Cc: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Douglas Anderson <dianders@chromium.org>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Stephen Boyd <swboyd@chromium.org>
----
+smu_funcs->get_clock_by_type doesn't seem to be hooked up anywhere,
+so this looks to be the most correct.
 
-Changes from v1:
- * Reworded commit text a bit
- * Added Reviewed-by tag
+Although it makes more sense to use smu_clk_types here rather than
+amd_pp_clock_type - any reason why this isn't the case?
 
- Makefile                | 5 +++++
- scripts/Kconfig.include | 2 +-
- 2 files changed, 6 insertions(+), 1 deletion(-)
+>>  					  &pp_clks)) {
+>>  			get_default_clock_levels(clk_type, dc_clks);
+>>  			return true;
+>> @@ -418,7 +418,7 @@ bool dm_pp_get_clock_levels_by_type_with_latency(
+>>  			return false;
+>>  	} else if (adev->smu.ppt_funcs && adev->smu.ppt_funcs->get_clock_by_type_with_latency) {
+>>  		if (smu_get_clock_by_type_with_latency(&adev->smu,
+>> -						       dc_to_pp_clock_type(clk_type),
+>> +						       dc_to_smu_clock_type(clk_type),
 
-diff --git a/Makefile b/Makefile
-index 9be5834073f8..28177674178a 100644
---- a/Makefile
-+++ b/Makefile
-@@ -517,6 +517,8 @@ ifdef building_out_of_srctree
- 	{ echo "# this is build directory, ignore it"; echo "*"; } > .gitignore
- endif
- 
-+KCONFIG_CC_OPTION_FLAGS := -Werror
-+
- ifneq ($(shell $(CC) --version 2>&1 | head -n 1 | grep clang),)
- ifneq ($(CROSS_COMPILE),)
- CLANG_FLAGS	:= --target=$(notdir $(CROSS_COMPILE:%-=%))
-@@ -531,11 +533,14 @@ ifeq ($(shell $(AS) --version 2>&1 | head -n 1 | grep clang),)
- CLANG_FLAGS	+= -no-integrated-as
- endif
- CLANG_FLAGS	+= -Werror=unknown-warning-option
-+KCONFIG_CC_OPTION_FLAGS += -Werror=unknown-warning-option
- KBUILD_CFLAGS	+= $(CLANG_FLAGS)
- KBUILD_AFLAGS	+= $(CLANG_FLAGS)
- export CLANG_FLAGS
- endif
- 
-+export KCONFIG_CC_OPTION_FLAGS
-+
- # The expansion should be delayed until arch/$(SRCARCH)/Makefile is included.
- # Some architectures define CROSS_COMPILE in arch/$(SRCARCH)/Makefile.
- # CC_VERSION_TEXT is referenced from Kconfig (so it needs export),
-diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
-index 8a5c4d645eb1..144e83e7cb81 100644
---- a/scripts/Kconfig.include
-+++ b/scripts/Kconfig.include
-@@ -25,7 +25,7 @@ failure = $(if-success,$(1),n,y)
- 
- # $(cc-option,<flag>)
- # Return y if the compiler supports <flag>, n otherwise
--cc-option = $(success,$(CC) -Werror $(1) -E -x c /dev/null -o /dev/null)
-+cc-option = $(success,$(CC) $(KCONFIG_CC_OPTION_FLAGS) $(1) -E -x c /dev/null -o /dev/null)
- 
- # $(ld-option,<flag>)
- # Return y if the linker supports <flag>, n otherwise
--- 
-Sent by a computer through tubes
+This is slightly concerning. The functions are doing the right thing,
+but amd_pp_clock_type doesn't map 1-1 to smu_clk_type... In any case,
+this looks good to me.
+
+Reviewed-by: Leo Li <sunpeng.li@amd.com>
+
+>>  						       &pp_clks))
+>>  			return false;
+>>  	}
+>> -- 
+>> 2.22.0
+>>
+> 
+> Gentle ping for review, this is the last remaining warning that I see
+> from amdgpu on next-20190718.
+> 
+> Cheers,
+> Nathan
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190725154730.80169-1-swboyd%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5f0e8332-50ae-cc9c-1a12-5a097c51297d%40amd.com.
