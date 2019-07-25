@@ -1,36 +1,36 @@
-Return-Path: <clang-built-linux+bncBAABBENE47UQKGQEFDT4HXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS2ZOPPSEBBBZFK47UQKGQEEPPAPTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13e.google.com (mail-lf1-x13e.google.com [IPv6:2a00:1450:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id E54C175361
-	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 18:00:17 +0200 (CEST)
-Received: by mail-lf1-x13e.google.com with SMTP id v13sf5184987lfa.20
-        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 09:00:17 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1564070417; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F6D7753A5
+	for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 18:14:30 +0200 (CEST)
+Received: by mail-pg1-x537.google.com with SMTP id n3sf21161064pgh.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 25 Jul 2019 09:14:29 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1564071268; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eqM2RPL0+PmtOLzSCOprCf9j+yJl2QVy6hrMlcNFhVAtWdczPyvWNF5Y2Er1LtWV6g
-         aPnQtUIBsYmpTUDEVL/e2OQhWYPl8na77FgcWVhtlsyzIhaSDAZus8oh2BzZyZc2299F
-         XiyxlVg2GLYbaZExvyy8BOS4yR7Bz2MepjF4hygkxNgZkpfMAQONFOVc/Xydct2KkMeu
-         fjPRrwU1sNZ/sNXCihjsbS2/73nc/pVWv+RdfqCXGzKvXdLrMIL7kdy5tl43a/3NrUnj
-         ZDiFGQghiNH1lyg45iFOvFA/SpKA7dJ8ZugWVSzmbhseMWgoSOhaHp7vqIau4Rl3bLgX
-         Hdpw==
+        b=DiKPRXVtyGWp12etPvzDCKQ/T84R/si4EtqWCUW8K5zATYmpr0tznNs8YiRLEewJkj
+         pI4eRJtJibKeQ8tQLkzF/5/UJlJ6qKigKNS6uN6Nk4dmqz2odfH732JTzAjCT37UNwWa
+         ZxS0hnpUUk/bAFSAT3oA+RVoDESzUZj2YAQf4NlYaLzaYCsfmLzYkWphd9UeVCAWb6ra
+         6JnzBUziVgmEgayfXu90ycxtCejBtzpju9c318pMZuhErXbGzeXNhT9BfeXY6MWaHmsJ
+         U54XxyowpvQ7Q+Uk9gQ2MR/fYj1jfb5a39pUpcAihR6+K2cyCbFu2zz/KbNf9F0B2xZm
+         u2NA==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:content-id
          :content-language:accept-language:in-reply-to:references:message-id
          :date:thread-index:thread-topic:subject:cc:to:from:sender
          :dkim-signature;
-        bh=YWUwjTmf11s6KMm0YgHkFu+DPhtCdQo20rtq4ToxGuo=;
-        b=h+kD2g+Qf/9BiHzTgvy9EfxeTBLhKm/oJM56YbbHYkKK+ipqJZ7ItMJgHrr+4sQ0iO
-         tt+o4uHLMz03Kj7cEZWxTdQlqHGquZ/LM0yWKmpIw0X6jMoeU0tejRxzYAkTNKqCf/r6
-         HkccJvxlf8mKugPayIV/hWFBLmRXHGbGbswF2lF1ainVyuyr7np31Ma8UPOxHALkV51b
-         kACYRFR1xOv/X8Qxp6o0OXsazmt2uugAT4zitBQf3Cpo5PLB3w0B4tt8KmobTngMTM5y
-         0Es91fYT+1CbHxP6udf/L1NrbUjylDpNNbkTWeR52hPdKYQLMZsZvO2NjOxJEyb0bFYg
-         ncNw==
+        bh=56mGRYOme1jvv79wKiLt9yWKQDlaE/hohIp1/RextyM=;
+        b=rUvpgAegRyObGnrO84YgY3XkmC2QjxkaGVZS5OiHgfE3YXDnZbLTVNNXtH7O3DGfTW
+         XunePivh9BrlmY8z6G5/91ua1Rz8ONcaqIEqLWvVye3o+Ya4IaU7jDokhXnw2WmnwnoT
+         D1qDJHzFZurhtQ4W0OUPccvEaJ0opwBu2uBgMW9bvbzX+VXF6qnPkYtxB5E+RBtubToF
+         l7pGOngDhfrKI1cLR4rb2H/i9BbMI7ZFc+c3nfge70hZjpi70kvji4vxkzALx6bMU5Bv
+         KW+oJQ2n8q0wkQySd0N0yT7jf1RyzcsYB7HuCRcVfg9k7mzF63BR81GN8+efxTGytcQb
+         GoWA==
 ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=Q4wed7lj;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=ZZmLSdpq;
        arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
-       spf=neutral (google.com: 40.107.77.73 is neither permitted nor denied by best guess record for domain of sunpeng.li@amd.com) smtp.mailfrom=Sunpeng.Li@amd.com
+       spf=neutral (google.com: 40.107.68.89 is neither permitted nor denied by best guess record for domain of nicholas.kazlauskas@amd.com) smtp.mailfrom=Nicholas.Kazlauskas@amd.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
@@ -38,13 +38,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YWUwjTmf11s6KMm0YgHkFu+DPhtCdQo20rtq4ToxGuo=;
-        b=g10cSfuxrdImub1VB2EN7RFytn65oltSRXyXMuA0FQGOMcSpIxtKtOTfVF1/lpRTYj
-         IwP+iunwyBCqeHiWmRzDfSbzSuR+AZIz1P5jVtQ8bnTJoNah+ZiLZV7ZKGWIhmXw6r/h
-         abgPxhB5ov8xz93rk4YpULpOpWmiqYqi3SRW0QxIzYF7B1/O/MMbbJLDKWdqPpeGedy3
-         mIw8dVMFBitM0VkpZCxR2d0Y2hdrEME6vmnX/PQ/+zzwJOXgzbAIdBrTrmwSDu20ZrMJ
-         ca3dcQ7Yr1QXnmNdF4XZ1y5cUi4Dhw1TJCzWWpQBzwvUItOPHfrewOMsODzfOi08N9DE
-         kj2g==
+        bh=56mGRYOme1jvv79wKiLt9yWKQDlaE/hohIp1/RextyM=;
+        b=J568ZYy/rUjPvfB2USHIEKJu/QSWXx8hrsl8SP8bX6sa6smIuUrsNxnlGe2crp2yEn
+         rVNUKGWWa/BCfow0uH+rllvy/ZGdZf0hqXiqw/EFEJPAOT+ZpcfOro1AM6R9qm3B0giY
+         dYKHFXRDkbvothczNAB59IUOhfFuKcCzp9py8BpBBaHJ+I1isaJE4jIhu9L6wFZkdCuh
+         fCbDATlYPZDZom2tk8eOHC29JWWw+JkQqazNi4dN8IBVSSaSvMXx/oY4METK2gvpAthn
+         W1ut7kxTt8kjM9MmxaEz3RfLDaUbHW9LVlWoqGPdmJ0IGFynnpFuzXVL0idV0QdWGpPw
+         S+2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
@@ -53,134 +53,135 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YWUwjTmf11s6KMm0YgHkFu+DPhtCdQo20rtq4ToxGuo=;
-        b=Gtlv/5h1hdMvrUqyV5gu96YwJFEnWpdG6RXnGrxCJawgY35Ik/O17FqWqEiwrVG2nH
-         Xq3/NLsBUivrgL2Pj+g/b+Dhx3FpxhbZ8vGWrtKS2xn4ScTuBmkfd27Db/LLWAyPY4nh
-         tVps3Bsp0ayDhc9RMSwHfPddR3WbBDrIy4LYbVklcwzKu2iGZJAE1dCC9PxWUHr7vMpO
-         AKy87YrqQogQo9xoCL2XX/Eb1lo8LrWCeSebmKMOfH5NUEGQPe2R2DFVwmlvf4TfzdNh
-         ps1AOr4xGgnfdY2ib4HqUWUKet8aySP0f9Wo4f8TaehXTFYYhhwEcGZyoh5UNY1zz6hB
-         xTUA==
+        bh=56mGRYOme1jvv79wKiLt9yWKQDlaE/hohIp1/RextyM=;
+        b=MMUdBnA/PBR4kQb+jB5qFgQzQwCgxTGID5EA90Y9BCaNyEqK/Pq2zKPEk/fr+nAqf+
+         l/kHsy1qYOV0utMIXZ8dVMfvKTr+kBeo1fxy0s6b/7nxllxOINBSK0Rx/KwsS6FsgQy1
+         ATVP2Q3Q/IJUsnWNWoXNkQXBExYpdH0OlaK+NtnGfL4qQDYkeypBMppWIQoaFFWCRggy
+         gX3GMlUGmtmrG3ZvlALQJP6ZhBMYKmleGEyR4lR5Ayur6c/0UVoem6bJdrOAPqD6qZK0
+         uEyO77DdQT9MeAm8cQB4CaAyxkETcTB9xn/Hq/uoieFCCYmX18fqzo9N4VS8h1r30sxX
+         hjLg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVj02JmJN1b4j2RmF1PuMs90CJBC+FG7ngIjhp0xOls8PeCe9AK
-	2Azi6488lwxYBj2KUgUCYak=
-X-Google-Smtp-Source: APXvYqxz+VvWtU0c8Zqf5DlC+Z/iAzydpE8WaN1UVYacn16XFkFjz8gwC52gooBWnOeI4PuigJM+xg==
-X-Received: by 2002:a19:ed07:: with SMTP id y7mr2085182lfy.56.1564070417259;
-        Thu, 25 Jul 2019 09:00:17 -0700 (PDT)
+X-Gm-Message-State: APjAAAVSlPJDddC+aOPnnPAUl/P7cTPyQUPtw4Uh/El4u1H/UzSVt5R3
+	eLdQxAYMEW6N5WVFzMDWG5w=
+X-Google-Smtp-Source: APXvYqz7yty3OenxA02Gxcwu48UmDtNYIFTo/t3Lu7iS/htFDMo3a7vq1D3+YYBZGXN9RJhWpvCxXQ==
+X-Received: by 2002:a63:2252:: with SMTP id t18mr87290570pgm.5.1564071268637;
+        Thu, 25 Jul 2019 09:14:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:4a67:: with SMTP id q7ls4169913lfp.2.gmail; Thu, 25 Jul
- 2019 09:00:16 -0700 (PDT)
-X-Received: by 2002:a19:c80b:: with SMTP id y11mr40713454lff.81.1564070416951;
-        Thu, 25 Jul 2019 09:00:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564070416; cv=pass;
+Received: by 2002:a17:90a:3787:: with SMTP id v7ls16622743pjb.4.canary-gmail;
+ Thu, 25 Jul 2019 09:14:28 -0700 (PDT)
+X-Received: by 2002:a17:902:7c05:: with SMTP id x5mr92559506pll.321.1564071268296;
+        Thu, 25 Jul 2019 09:14:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564071268; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AKUkJwzPGBveVVZH9hK4moJX8OfxBgjG0khYGgo8cUP4+pJMPaHxGS3Xn3NXoaMRpK
-         uq/ZlUXRzxrMcyMSPDP602q+zU0Zo6uGG52OohSgzCw4IrPGi1GDhpW93ij0lfJzwf8f
-         6bsL9gwUSIMWew6S8vc1pF6+LDeJQTBnX53bd9q5DUZqLeSEYJsA8FaggkemENAAT6D3
-         8DanIiY6fJn/9iT7zijpygTs+fCYTS6CfdU9Y/T/yYgZsMQMQkdCLbHKUgibuv62HhYU
-         RPKUW/nQGwggIVtyBYT1W5w2mSbW2SfZYFFrTl1YCR1h/kr+NCQwkpfwYdCFo80ccFcB
-         YtWw==
+        b=h656EYGZyckJfAgswjoXRM9H4GxzlCteF4pTSWJac+/AajjQ+qEcQG+pe2MYExhaMn
+         9WSLcwj799VjlA0OLufofnZ2Jnzx9v1oghw2g8c4LvQGvaB5paZRnfjNBw8srqNw0W3a
+         /UaEmntUAmaZsUl8fmVya9mMYosz/c6dKsgfPGV+9dL6zOtnG5PzEC113iyiF7n114eq
+         oel5cLo5bx7voP8pwDySS7xNqkFOHeBHZZR87Vw2FDEpyqrZK79aSVfTzxR9maeMUSTz
+         59hgWvnTyXuaLNcQGBVW/gF1zKCCMp7U65m4Nhwb/n/wRsvXwBHYBnnjHnpBGUx4rc/+
+         Le/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:content-transfer-encoding:content-id:content-language
          :accept-language:in-reply-to:references:message-id:date:thread-index
          :thread-topic:subject:cc:to:from:dkim-signature;
-        bh=tRUWLM56PlUrnuq+fb7CL2nxlt0rTOFxee7IjUxeNb8=;
-        b=NYNqCOVJNlwdtHL7ZPhPvBRpCvmqKc2a0KrZAMgQwX8cRex8foRxOq41yFxAC/bMut
-         enIXmqZPjA/vQlHsupWxOTtI2FeBqNCF534IO2YWO96hJCUE+P3g6t6S6GMfQTtQuC29
-         7iLdp5vpLmqzqTHLgiEK2YrD53U3DA/pWfFTS41g0NRZumY/JoGksEP0jjLqPRWu3Rc3
-         eq0vskadF3FdSCDhy5Cyt/5nzL6C7SMBcl+Bt7L/EajSoSMWcyJNybYBsyVFphIKeze6
-         5VdC7ErtH5ASyILguE2wGEuBRDMw4UpkPT0D2K8a0nZsvsVgRbXrnTpgTWbC3DD9SB8J
-         8v3A==
+        bh=k/hasSJXrSl4WPd8vYfEjO2Oa8pS5LzLaSVVc7ykuFk=;
+        b=AXdSgOjIfKAXJ6mOiopuyv8je4DFCvlv0IeA2wsf/0NwPftNo/VJCPcRlxsBkR0aUE
+         EQkSNqf1ChRwqaoVywLYV2VkcbV2u4632sGJaUB2do2+0mYyVsPGyO8Tk0u+sRJ/R1sU
+         c50DPp3fkSRKVXiddhKVUBoQuM8F8uoLaR1KTzs+6S5ohl4iqWG1RvyOklpMSQb4Exzk
+         A/3iH4SAp/yQp0qcuopZkTOXwQWM2mp7eUc+41pFeGZyLhISrkqZlhjlAXCCB0ZQhXG/
+         Ltr/rAbg9IdcTkstFwSw9ik7ozTyl8703cbBDp/vtSeUgMHO+TyuTVzXjwlTDwus7uyV
+         /P/w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=Q4wed7lj;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=ZZmLSdpq;
        arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
-       spf=neutral (google.com: 40.107.77.73 is neither permitted nor denied by best guess record for domain of sunpeng.li@amd.com) smtp.mailfrom=Sunpeng.Li@amd.com
-Received: from NAM02-SN1-obe.outbound.protection.outlook.com (mail-eopbgr770073.outbound.protection.outlook.com. [40.107.77.73])
-        by gmr-mx.google.com with ESMTPS id q11si2421981ljg.2.2019.07.25.09.00.16
+       spf=neutral (google.com: 40.107.68.89 is neither permitted nor denied by best guess record for domain of nicholas.kazlauskas@amd.com) smtp.mailfrom=Nicholas.Kazlauskas@amd.com
+Received: from NAM04-BN3-obe.outbound.protection.outlook.com (mail-eopbgr680089.outbound.protection.outlook.com. [40.107.68.89])
+        by gmr-mx.google.com with ESMTPS id q2si1300085pgq.3.2019.07.25.09.14.28
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Thu, 25 Jul 2019 09:00:16 -0700 (PDT)
-Received-SPF: neutral (google.com: 40.107.77.73 is neither permitted nor denied by best guess record for domain of sunpeng.li@amd.com) client-ip=40.107.77.73;
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 25 Jul 2019 09:14:28 -0700 (PDT)
+Received-SPF: neutral (google.com: 40.107.68.89 is neither permitted nor denied by best guess record for domain of nicholas.kazlauskas@amd.com) client-ip=40.107.68.89;
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=RPAPTLW3KsxCML8bJ/61+NI4uSolhxSEwoTb/+GQUZSicHBUcGia1DFGDGN4O9HZVmLBDI9ebhD5ASGs4aPzscbxSGjLF/ZNGi6HqBvjLVCRXQXjpGvFfr3hCBOYe3M40Cv86qCcdWvFEicSrCNNErvqmcvG0fz3e2XqV+RtSMYDzf2owma3K0LvFWNMD0FQwPUqTrap8J0QzgHAw3NeisKddC90sLCh02sh8Dmgn2Uf+s/h3YK2MXKY5BMzcYRv1QCT7CVCk+Rb9HyDtWYu9+643sJ6etNNBElGM7coJci47C9b5Lb2MPjRCvJI8nybEbQPD9aJpKklOFj5eeJ6KQ==
+ b=b9d8YQLc9UIALoYX8xzvM5TFDq4BP5wP7Rmv8rcntAFdZ1M5NUFs/sS3Sgk8GXZ12CVQdMLSrGeIhhl+HiONuUI/Uo0ytz3VpqgkgTzavBeFp/wtt0H4LhBPglFgyVZHA4Crqgm2CKGCx0FpDZpcs50+BTFOAhSFitYM1eKOGNLU/vAlES4iTh0s/lIITEhFmDK/HBnEiXdDcHK89DSUZCrg4RcYyLtvIxBTSXuWSVP4gwTAkOgURGT9oSGEratlOSS/WHYi8lHyIT3VQquRLqCrFyuD/ti7flxf4Pdt1cDBkrS9Kkiww6roolSpgr6GdOkS4aC3K+VUE16SsMnMTg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tRUWLM56PlUrnuq+fb7CL2nxlt0rTOFxee7IjUxeNb8=;
- b=hgmB+K+lDG3v1QW3fE87b9pFsLHRHksBA+Ia6coG8TarsSCxdhTnRFdQQUfxwLhwDeuiQBehyyEybJfqawwqzaUWte4HZ5L7/5ylegRGlnSMj5nXu1YHA6W+45l1NDPVAJbTWoA0VQSlm+t6GF6Dl9JeFzjL1AeISIJhUBy2jJecR8oClf+ocE/LpAPs6wYowFSukjK2qq2qi4dSKpsTtkqXuGi1fetH+YEnyQ9IEYiiuCviDIRWF1xE09qpjLov2/Ta2bSs9IIrzPDq6+4lfQUe+RYnraeEHw1n2wS6tX6//LQ+iIG6kYcuI0xTfUbOS76oahUHv53A4And6Z9/Iw==
+ bh=k/hasSJXrSl4WPd8vYfEjO2Oa8pS5LzLaSVVc7ykuFk=;
+ b=DZBPnNfKd3ERKkQ5bYwG3smS41bl0segDnqBozHL78e8/fOWBrg/PdstKisHJ/orgk88eZP1oPitaOgXs4HEcOiAaDJ2KIgYzY7K+JjwQru9zG8VfOLGd2huCollCvHcycFBVY2JsuQcyGP/8Wxa1XNWGWJ0usvzjQq15Sh4FDMMsO22WdrJ56QpSpopGLhIuFWcmVDI6MF2LyVdU1kM4ksvkHG/g3GVynhP32F+OC3nX6GcMZ+LygYOL8uyR0atiEGDGFf/RT5+nsuBA2mm6ErOgaS7cszlnZ2fbJ6TWYN8kchHaJvdCcvZqPq9EVM8kZsUHeCcvaLK4jtT2TVWAg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
  smtp.mailfrom=amd.com;dmarc=pass action=none header.from=amd.com;dkim=pass
  header.d=amd.com;arc=none
-Received: from BYAPR12MB2853.namprd12.prod.outlook.com (20.179.90.150) by
- BYAPR12MB2790.namprd12.prod.outlook.com (20.177.126.79) with Microsoft SMTP
+Received: from BYAPR12MB3560.namprd12.prod.outlook.com (20.178.197.10) by
+ BYAPR12MB3207.namprd12.prod.outlook.com (20.179.92.202) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2115.13; Thu, 25 Jul 2019 16:00:10 +0000
-Received: from BYAPR12MB2853.namprd12.prod.outlook.com
- ([fe80::dd9c:e1c8:face:eaa9]) by BYAPR12MB2853.namprd12.prod.outlook.com
- ([fe80::dd9c:e1c8:face:eaa9%6]) with mapi id 15.20.2115.005; Thu, 25 Jul 2019
- 16:00:10 +0000
-From: "Li, Sun peng (Leo)" <Sunpeng.Li@amd.com>
-To: "Deucher, Alexander" <Alexander.Deucher@amd.com>, "Koenig, Christian"
-	<Christian.Koenig@amd.com>, "Zhou, David(ChunMing)" <David1.Zhou@amd.com>,
-	"Wentland, Harry" <Harry.Wentland@amd.com>, Rex Zhu <rex.zhu@amd.com>, "Quan,
- Evan" <Evan.Quan@amd.com>
-CC: Nathan Chancellor <natechancellor@gmail.com>, David Airlie
-	<airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
-	"amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+ 15.20.2094.17; Thu, 25 Jul 2019 16:14:26 +0000
+Received: from BYAPR12MB3560.namprd12.prod.outlook.com
+ ([fe80::8581:1f0c:2002:db97]) by BYAPR12MB3560.namprd12.prod.outlook.com
+ ([fe80::8581:1f0c:2002:db97%7]) with mapi id 15.20.2115.005; Thu, 25 Jul 2019
+ 16:14:26 +0000
+From: "Kazlauskas, Nicholas" <Nicholas.Kazlauskas@amd.com>
+To: "Li, Sun peng (Leo)" <Sunpeng.Li@amd.com>, "Deucher, Alexander"
+	<Alexander.Deucher@amd.com>, "Koenig, Christian" <Christian.Koenig@amd.com>,
+	"Zhou, David(ChunMing)" <David1.Zhou@amd.com>, "Wentland, Harry"
+	<Harry.Wentland@amd.com>, Rex Zhu <rex.zhu@amd.com>, "Quan, Evan"
+	<Evan.Quan@amd.com>
+CC: David Airlie <airlied@linux.ie>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "clang-built-linux@googlegroups.com"
+	<clang-built-linux@googlegroups.com>, "amd-gfx@lists.freedesktop.org"
+	<amd-gfx@lists.freedesktop.org>, Nathan Chancellor <natechancellor@gmail.com>
 Subject: Re: [PATCH 5/7] drm/amd/display: Use proper enum conversion functions
 Thread-Topic: [PATCH 5/7] drm/amd/display: Use proper enum conversion
  functions
-Thread-Index: AQHVMiy9/HNyhezL/UaoUkOqlvXBhabRXHKAgApDQ4A=
-Date: Thu, 25 Jul 2019 16:00:10 +0000
-Message-ID: <5f0e8332-50ae-cc9c-1a12-5a097c51297d@amd.com>
+Thread-Index: AQHVMjm3BBZjBABNkkubYh2hnztXdKbRXFiAgApDRgCAAAP4AA==
+Date: Thu, 25 Jul 2019 16:14:25 +0000
+Message-ID: <18b343ab-8834-ea86-1bca-974f23b60b16@amd.com>
 References: <20190704055217.45860-1-natechancellor@gmail.com>
  <20190704055217.45860-6-natechancellor@gmail.com>
  <20190719031647.GA84028@archlinux-threadripper>
-In-Reply-To: <20190719031647.GA84028@archlinux-threadripper>
+ <5f0e8332-50ae-cc9c-1a12-5a097c51297d@amd.com>
+In-Reply-To: <5f0e8332-50ae-cc9c-1a12-5a097c51297d@amd.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-x-clientproxiedby: YTOPR0101CA0063.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b00:14::40) To BYAPR12MB2853.namprd12.prod.outlook.com
- (2603:10b6:a03:12c::22)
+x-clientproxiedby: YTOPR0101CA0024.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b00:15::37) To BYAPR12MB3560.namprd12.prod.outlook.com
+ (2603:10b6:a03:ae::10)
 x-ms-exchange-messagesentrepresentingtype: 1
 x-originating-ip: [165.204.55.250]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 784c5283-70bb-4892-f97b-08d711192be3
+x-ms-office365-filtering-correlation-id: eaec22b3-ad22-4fb7-9457-08d7111b299a
 x-ms-office365-filtering-ht: Tenant
-x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);SRVR:BYAPR12MB2790;
-x-ms-traffictypediagnostic: BYAPR12MB2790:
-x-ms-exchange-purlcount: 1
-x-microsoft-antispam-prvs: <BYAPR12MB279071942B712369CC870DA682C10@BYAPR12MB2790.namprd12.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:741;
+x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);SRVR:BYAPR12MB3207;
+x-ms-traffictypediagnostic: BYAPR12MB3207:
+x-ms-exchange-purlcount: 2
+x-microsoft-antispam-prvs: <BYAPR12MB3207442691525AC17D550051ECC10@BYAPR12MB3207.namprd12.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:1122;
 x-forefront-prvs: 0109D382B0
-x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(376002)(136003)(39860400002)(366004)(346002)(396003)(189003)(199004)(25786009)(6246003)(6512007)(2906002)(316002)(36756003)(6306002)(53936002)(71190400001)(52116002)(71200400001)(229853002)(4326008)(6486002)(31686004)(66946007)(66476007)(66556008)(64756008)(66446008)(6636002)(81156014)(81166006)(305945005)(6116002)(8676002)(76176011)(66066001)(7736002)(31696002)(53546011)(102836004)(8936002)(3846002)(99286004)(86362001)(6506007)(386003)(14444005)(68736007)(478600001)(54906003)(476003)(486006)(11346002)(446003)(5660300002)(14454004)(6436002)(966005)(186003)(110136005)(26005)(256004)(2616005)(921003)(1121003);DIR:OUT;SFP:1101;SCL:1;SRVR:BYAPR12MB2790;H:BYAPR12MB2853.namprd12.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;MX:1;A:1;
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(346002)(366004)(376002)(39860400002)(396003)(136003)(199004)(189003)(36756003)(486006)(99286004)(6436002)(6512007)(6306002)(71200400001)(71190400001)(256004)(305945005)(31696002)(110136005)(54906003)(2906002)(316002)(14454004)(86362001)(7736002)(3846002)(6116002)(66066001)(6486002)(53936002)(6246003)(31686004)(14444005)(4326008)(66476007)(25786009)(66946007)(66556008)(26005)(68736007)(66446008)(64756008)(186003)(966005)(229853002)(478600001)(81156014)(81166006)(8676002)(8936002)(5660300002)(2616005)(11346002)(446003)(386003)(6506007)(52116002)(102836004)(53546011)(476003)(6636002)(76176011)(921003)(1121003);DIR:OUT;SFP:1101;SCL:1;SRVR:BYAPR12MB3207;H:BYAPR12MB3560.namprd12.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
 received-spf: None (protection.outlook.com: amd.com does not designate
  permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: yRYj4CcKsZufXiKSZHSAI9XpmE+MXkJiVNm9eR1ySmR7zZQB8ObG1gRLtnBq9w9Zkt2PJcm6qH/ESue6sSkUr964Wj739yfP26CgxOsfsdTLuq6tWNuLq8BZkyga283E4fA2OQnC2/cyEwl6f0R5To+2G2kRbqwvbu3aqIOBL88giYB2npilHgSJH/F9zZ6+eM73rwjtbzSeOfZACfDjCB5B9XunGIvo77ykkmrZZl1t6MMkzWeEVOytgNNaQNKODqF4hKg9+x/vliyjetghlnn2F8PsefR0SkNsuFJTr0pXs002gNX8Pj5lX8n1XpjVplh+wXtYiU+3yrbQzLqTkcJN7JtF0rAWg1pK6EgA8AxO3Rod2s3Z3lXoDhYl5DKjmL9p6yzSI1myNEZ2u20mDd6bZ1pTzDp8tqZaaHELGSk=
+x-microsoft-antispam-message-info: KIMkqZy5eM/n5rgoJcDmcDfOE8R0U3EKd+gyoWmWbpQxr81vaT+6rOc8ri1YG6XVgPtLyz0bWb2eOAwVk5TuXFK2hgQ3qprKd7TD0oFScRIVaH4e5MoqjAttN5S1I/4PN6GILEOI0kQS4sKz3A3zqok/CIPt/R6/2uNktt+6l6rxvY13fKuyHBjrqblY7cQyesuG9KuAxKiHOLmnAxvcNcCdbvkLkuHRsAqO13GDi9ep1sXwK+aeP2G6YxmCIk9dOnKzXb2ZcaHS4Etqn4O3CqzZC2F6sfljzL2zW1HWxeTcuvtt0uiMEcC2+niGcOUzGTRaRNd/exhbbG4bzvJ2X1crjodzUEtCepSC9EFmexOi9TACm0Cgq63kHfBy9EpKdCk+1AYn/ljyDGoLxs56PYH/gOsVNv/DUK/dfscjczg=
 Content-Type: text/plain; charset="UTF-8"
-Content-ID: <3C344A9FB9ABC84D8EE0493DC20FF21F@namprd12.prod.outlook.com>
+Content-ID: <ACB2C3C9055D6F4C88F9A0B2C09CF89F@namprd12.prod.outlook.com>
 MIME-Version: 1.0
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 784c5283-70bb-4892-f97b-08d711192be3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jul 2019 16:00:10.7158
+X-MS-Exchange-CrossTenant-Network-Message-Id: eaec22b3-ad22-4fb7-9457-08d7111b299a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jul 2019 16:14:25.9168
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sunli1@amd.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR12MB2790
-X-Original-Sender: sunpeng.li@amd.com
+X-MS-Exchange-CrossTenant-userprincipalname: nkazlaus@amd.com
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR12MB3207
+X-Original-Sender: nicholas.kazlauskas@amd.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com
- header.b=Q4wed7lj;       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass
+ header.b=ZZmLSdpq;       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass
  dkdomain=amd.com dmarc=pass fromdomain=amd.com);       spf=neutral
- (google.com: 40.107.77.73 is neither permitted nor denied by best guess
- record for domain of sunpeng.li@amd.com) smtp.mailfrom=Sunpeng.Li@amd.com
+ (google.com: 40.107.68.89 is neither permitted nor denied by best guess
+ record for domain of nicholas.kazlauskas@amd.com) smtp.mailfrom=Nicholas.Kazlauskas@amd.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -193,84 +194,104 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
-
-On 2019-07-18 11:16 p.m., Nathan Chancellor wrote:
-> On Wed, Jul 03, 2019 at 10:52:16PM -0700, Nathan Chancellor wrote:
->> clang warns:
->>
->> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:336:8:
->> warning: implicit conversion from enumeration type 'enum smu_clk_type'
->> to different enumeration type 'enum amd_pp_clock_type'
->> [-Wenum-conversion]
->>                                         dc_to_smu_clock_type(clk_type),
->>                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:421:14:
->> warning: implicit conversion from enumeration type 'enum
->> amd_pp_clock_type' to different enumeration type 'enum smu_clk_type'
->> [-Wenum-conversion]
->>                                         dc_to_pp_clock_type(clk_type),
->>                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>
->> There are functions to properly convert between all of these types, use
->> them so there are no longer any warnings.
->>
->> Fixes: a43913ea50a5 ("drm/amd/powerplay: add function get_clock_by_type_with_latency for navi10")
->> Fixes: e5e4e22391c2 ("drm/amd/powerplay: add interface to get clock by type with latency for display (v2)")
->> Link: https://github.com/ClangBuiltLinux/linux/issues/586
->> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
->> ---
->>  drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c | 4 ++--
->>  1 file changed, 2 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
->> index eac09bfe3be2..0f76cfff9d9b 100644
->> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
->> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
->> @@ -333,7 +333,7 @@ bool dm_pp_get_clock_levels_by_type(
->>  		}
->>  	} else if (adev->smu.funcs && adev->smu.funcs->get_clock_by_type) {
->>  		if (smu_get_clock_by_type(&adev->smu,
->> -					  dc_to_smu_clock_type(clk_type),
->> +					  dc_to_pp_clock_type(clk_type),
-
-smu_funcs->get_clock_by_type doesn't seem to be hooked up anywhere,
-so this looks to be the most correct.
-
-Although it makes more sense to use smu_clk_types here rather than
-amd_pp_clock_type - any reason why this isn't the case?
-
->>  					  &pp_clks)) {
->>  			get_default_clock_levels(clk_type, dc_clks);
->>  			return true;
->> @@ -418,7 +418,7 @@ bool dm_pp_get_clock_levels_by_type_with_latency(
->>  			return false;
->>  	} else if (adev->smu.ppt_funcs && adev->smu.ppt_funcs->get_clock_by_type_with_latency) {
->>  		if (smu_get_clock_by_type_with_latency(&adev->smu,
->> -						       dc_to_pp_clock_type(clk_type),
->> +						       dc_to_smu_clock_type(clk_type),
-
-This is slightly concerning. The functions are doing the right thing,
-but amd_pp_clock_type doesn't map 1-1 to smu_clk_type... In any case,
-this looks good to me.
-
-Reviewed-by: Leo Li <sunpeng.li@amd.com>
-
->>  						       &pp_clks))
->>  			return false;
->>  	}
->> -- 
->> 2.22.0
->>
+On 7/25/19 12:00 PM, Li, Sun peng (Leo) wrote:
 > 
-> Gentle ping for review, this is the last remaining warning that I see
-> from amdgpu on next-20190718.
 > 
-> Cheers,
-> Nathan
+> On 2019-07-18 11:16 p.m., Nathan Chancellor wrote:
+>> On Wed, Jul 03, 2019 at 10:52:16PM -0700, Nathan Chancellor wrote:
+>>> clang warns:
+>>>
+>>> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:336:8:
+>>> warning: implicit conversion from enumeration type 'enum smu_clk_type'
+>>> to different enumeration type 'enum amd_pp_clock_type'
+>>> [-Wenum-conversion]
+>>>                                          dc_to_smu_clock_type(clk_type),
+>>>                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>> drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:421:14:
+>>> warning: implicit conversion from enumeration type 'enum
+>>> amd_pp_clock_type' to different enumeration type 'enum smu_clk_type'
+>>> [-Wenum-conversion]
+>>>                                          dc_to_pp_clock_type(clk_type),
+>>>                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>
+>>> There are functions to properly convert between all of these types, use
+>>> them so there are no longer any warnings.
+>>>
+>>> Fixes: a43913ea50a5 ("drm/amd/powerplay: add function get_clock_by_type_with_latency for navi10")
+>>> Fixes: e5e4e22391c2 ("drm/amd/powerplay: add interface to get clock by type with latency for display (v2)")
+>>> Link: https://github.com/ClangBuiltLinux/linux/issues/586
+>>> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+>>> ---
+>>>   drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c | 4 ++--
+>>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
+>>> index eac09bfe3be2..0f76cfff9d9b 100644
+>>> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
+>>> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
+>>> @@ -333,7 +333,7 @@ bool dm_pp_get_clock_levels_by_type(
+>>>   		}
+>>>   	} else if (adev->smu.funcs && adev->smu.funcs->get_clock_by_type) {
+>>>   		if (smu_get_clock_by_type(&adev->smu,
+>>> -					  dc_to_smu_clock_type(clk_type),
+>>> +					  dc_to_pp_clock_type(clk_type),
+> 
+> smu_funcs->get_clock_by_type doesn't seem to be hooked up anywhere,
+> so this looks to be the most correct.
+> 
+> Although it makes more sense to use smu_clk_types here rather than
+> amd_pp_clock_type - any reason why this isn't the case?
+> 
+>>>   					  &pp_clks)) {
+>>>   			get_default_clock_levels(clk_type, dc_clks);
+>>>   			return true;
+>>> @@ -418,7 +418,7 @@ bool dm_pp_get_clock_levels_by_type_with_latency(
+>>>   			return false;
+>>>   	} else if (adev->smu.ppt_funcs && adev->smu.ppt_funcs->get_clock_by_type_with_latency) {
+>>>   		if (smu_get_clock_by_type_with_latency(&adev->smu,
+>>> -						       dc_to_pp_clock_type(clk_type),
+>>> +						       dc_to_smu_clock_type(clk_type),
+> 
+> This is slightly concerning. The functions are doing the right thing,
+> but amd_pp_clock_type doesn't map 1-1 to smu_clk_type... In any case,
+> this looks good to me.
+> 
+> Reviewed-by: Leo Li <sunpeng.li@amd.com>
+
+Looks mostly like the table just needs to be sized properly:
+
+	static int dc_clk_type_map[] = {
+->
+	static int dc_clk_type_map[DM_PP_CLOCK_TYPE_NUM_TYPES] = {
+
+where DM_PP_CLOCK_TYPE_NUM_TYPES would be added to enum dm_pp_clock_type.
+
+Or it could just use a switch table instead, like the other function does.
+
+Nicholas Kazlauskas
+
+
+> 
+>>>   						       &pp_clks))
+>>>   			return false;
+>>>   	}
+>>> -- 
+>>> 2.22.0
+>>>
+>>
+>> Gentle ping for review, this is the last remaining warning that I see
+>> from amdgpu on next-20190718.
+>>
+>> Cheers,
+>> Nathan
+>>
+> _______________________________________________
+> dri-devel mailing list
+> dri-devel@lists.freedesktop.org
+> https://lists.freedesktop.org/mailman/listinfo/dri-devel
 > 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5f0e8332-50ae-cc9c-1a12-5a097c51297d%40amd.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/18b343ab-8834-ea86-1bca-974f23b60b16%40amd.com.
