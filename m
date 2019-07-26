@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB24F5TUQKGQELFW2EUQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB44F5TUQKGQEJXJC55Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 66FB8767E9
-	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jul 2019 15:41:00 +0200 (CEST)
-Received: by mail-vs1-xe3d.google.com with SMTP id h3sf14141845vsr.15
-        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jul 2019 06:41:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564148459; cv=pass;
+Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8274B767EA
+	for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jul 2019 15:41:08 +0200 (CEST)
+Received: by mail-pf1-x439.google.com with SMTP id x10sf33230935pfa.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 26 Jul 2019 06:41:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564148467; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GlJ44Z56Y0YhFGxxEcVdgZNbJA7s3AET8MQyKWOXgG4QgSwuNCfs8Cnu0A11WTefme
-         CBRT/0cxFQ4PfksXlpYzoI4mGyccnM0vuzHKCB5Sm0ZRm6zLVkK5anN8A1z2f/3z8QPF
-         bVxvIchJXI+UB06uC8DYls5QRVePW579n2ZcqrnaIqmIfz5T31OGQNv0Cp8Aj/sUmds+
-         6LL83AwjTD2KtUDDjAZPna/N6e28T77nipecMvgi/j8d24pat0R+QmmIBwK2MilRVwpF
-         FNtF+XeGO5abmGBqeHUW1Jr+//XXkLt3SJodNvP2zDZe48GTb7ywEYLCFdC+FOMbT+K+
-         d7tw==
+        b=foEDSfoCQZt05wp9tZjErdaj7H7ClkpOpnnHVCL9B8F+ThzsGpplqPMXpFhVuKriWc
+         BJaMMRpdbz79ur9NL+WrowetZ2Sc+0NKjEBhjSpOm7tPno7HbrY9ZtQXj2sSWPF/UN2d
+         k+TBkqn1RSpNpxPokv8btBUJSk6yWAuzgc85qrQ/e62qNF9noPmkjAz/ZjH/t077QYOG
+         eZxZujICT1F5ytHuaZUkoGu+lz5e1Qo+mS5vxLgrvOOaHg9BkwFOaXyoNWAyMIVDYR65
+         omM2KZzxDbwWxu6vu/AbVvwHzxiGHGmwbEKk6Hy8iS+MjJesrdwpdaSOVjixHZWCmtmT
+         hrYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=S29UxbUAalYqg8Yr3bp774zgjSudlOOB9I8wvJxWEAY=;
-        b=eJ8+s7xoQMoVdeitTI8P3a5hwx+umvbW/3Bh9KqEWFYYUTh7BxTOygZG//Y1Vy7ybq
-         4gU4VKOOAiQqh5mJKb19iuUW9kbtgkuxt3eH9RnWzfhotqwPOqkkpR5RSQzTIxbu99G1
-         mG2pqKb0Gj0vxGgUs6QHeCeoeFv6Se4ZcHrNxtWlz1W+4ioGZZym3d+wU5sEy1Rhw7fb
-         k+1SbQ21xoz/PO5CykS1Bs+xr7V6hByyAMwJVQT8ceg9XCwVrjp+0JNc+3Wx26JaRBII
-         Ii6tmkZ4SJCCOmGiUq6601aef6uMGC3Z+qSgOa9MGIaP7sXF++Mj86DaA3dPJPQJqmEx
-         1cbA==
+        bh=AUpdFA5YtMYTsx3aqd3yQ/8gCyTV/bePkQTEO1CUULU=;
+        b=MKttnttI8ynfS/JxkUjihfcEyJHKcTZNaIzcm74oc4rKf2nGA4zCGfML5R7+xQhQLf
+         fsFcpx5/4Y408IqrDL/uBddjyxrsMP0RG9QcBGanAZ2y6TdjCKEU3B6ylnpkSb7Xre9J
+         Qe+WKmpDyKHlj13aYK/CCartABdQGr4UoIwTLQ9shZzocGcjw8Vb3Z7v6civSFc/ysGH
+         jnQrMe9W5LN483C1i+jJhIvA1R4dnppD1zoh7QW1kVvkfLx5OaDnF0VKleu6pBxk0W4w
+         TIOpNzqjVOfWf//yRIeX0xwWqGpeDWQbDo4mBAGPs8s7am5MKTa2V6rmP/K11QLhVo0j
+         WCqQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ELrxyKFQ;
+       dkim=pass header.i=@kernel.org header.s=default header.b=JDwczTeD;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S29UxbUAalYqg8Yr3bp774zgjSudlOOB9I8wvJxWEAY=;
-        b=AOI2pea+ZElRCl8Z7z8/nBb4Jny2FfElFpgtdTsnahSxVEtfmb2/pZjBNudtvupGCV
-         jQhFfQOb8arQ9gc8TGZ19Mp2ub5+WR3T5xN0gYstn4esainNnpqdH2X5soHnbrV9wgm0
-         3xCH8q+7EQb16iXl/6Z8KbuMGGx8T59N7EvBazhbjs5PIH2CTAUlT8MMFYwkKhgTUuhW
-         ub0ltBMTRHkf3r8Y4vnYfWMed9RtJSg/EVc2pW4EdPI8L03tAQScfjwmnxnWkuCLNvK2
-         NUrjiJsjYFgsOhYiCBoRHyfS+eF7zhH4xL0c1OUaJ29kD/eDsZN2hp+m46P5RzclN1o6
-         Gh5w==
+        bh=AUpdFA5YtMYTsx3aqd3yQ/8gCyTV/bePkQTEO1CUULU=;
+        b=iKFNd3oQTzbSvAvIfDp8TlwozT2P8/Z672ZEZ+tr1IyCulZJxBso8zEo3Y3FCgctPR
+         8qkj44KL1PRjaO9EEil/6j9JFw0Oykpr34O5VTiJZHo3HD6KY4wzE7p5NonjnbfvBopE
+         GsEo/c7yZFTgrMRtrXZ1fgonPzqge+oljJHS/TWOE7hQZcunyGVWbhGlTpIA4Bsqhc32
+         A/VNuw6nD1oA6j8HQl4E+RkoFaDlAvnjcgeDu1m8H5nMCwseGT6qyXX7zhRpS6ySgF4U
+         EMJpm5TuyQxKm5FTOq9jNoWgxecKoyGJYDa4fDuZ4hIUtSJqzupHBt+z5Cl47Ch+f3Ha
+         nOGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,78 +49,67 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S29UxbUAalYqg8Yr3bp774zgjSudlOOB9I8wvJxWEAY=;
-        b=RzTjeSMWQc4udtgWTbTSdwHss8HYjJuQj1my3xhPxTd6ZhsCnSKoPSfE/oRs7AAqek
-         fyA7poH3bEtGaPI+254wTwVZqR99cug+ZwZjwD/rMn+4ielCVzgxyGcffEA6SMwFD2/U
-         LOzA/ep1LSQum88gh0Ok392irnnQr2GYjocnsfTan2zOt9SPdT/r/ovF1HgbTvmvaHGb
-         u7rjVwaFfBGZar0wftzGgV55iPjJ9ZrdPIZsHwBLfBh+AVQ/wKCDEeYvCyTPUMjF5Qx/
-         F+Uo/0T/zogCkfL+gYBvPDWdeuwwUBUBB282ysBJflZX6DJUGPPjRI3xE8MyFb6nA+pG
-         YDAw==
+        bh=AUpdFA5YtMYTsx3aqd3yQ/8gCyTV/bePkQTEO1CUULU=;
+        b=UxeMInIESotZ8XSvr4JrHcabHQT/fL6qxaDTW0+l/XwxqI8VHQY728rCmlh/UwwNNQ
+         Jwi1yzM5eYNDjDnUOyCkIsraS5/9KUuL+sfkYQrbnfi/0aAk1X05m7BS2azqYV8l7yaF
+         8dgMpRDM99CA1T6AiGJC2UNlJRQCRS2/dJhkSQFYXHWIwcIV7Eoz1bjTEgUM5mn5RIkf
+         e5CUAlof5cvu6CMb1+ya3ArnGOgI+zpIu+AtcLAX8Kl4uzmsjbAOczN7qT8Fw4mqjRZW
+         EaVplFS27kE8wc+/VgZIZyYWMJkVhGPydyt+cxVL9h36uEpZif4KDbWsArvscIVEzpmh
+         dL2A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWoM2SUnDHPvZQ1qnXItffM3tMJhiml7TPhhql9lLM1oLAQ8LV2
-	SwMrYy3uHgpLPDritXD7sFo=
-X-Google-Smtp-Source: APXvYqyRm9m0ChgRJVFiI1wTID9jA8P2peU0aRW3pkE9bmtneJKuVI8ZV6uNeedXga8tidm34xNxbg==
-X-Received: by 2002:ab0:64cc:: with SMTP id j12mr11619030uaq.110.1564148459474;
-        Fri, 26 Jul 2019 06:40:59 -0700 (PDT)
+X-Gm-Message-State: APjAAAX/PXfnqdRolKlA+U0SIiZhLLkswCJm/Y9g3+bIWyM2IzLBemLk
+	9gRAKZiyaiRkfk7aVcnAe98=
+X-Google-Smtp-Source: APXvYqyYC55K4m8cGuVb0PaMEoHnBTLtIqgAs9HiUFm6UOmWvKJlJ/urBgz620Rfun8rhffDGXU02Q==
+X-Received: by 2002:a63:89c7:: with SMTP id v190mr88247656pgd.299.1564148467164;
+        Fri, 26 Jul 2019 06:41:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:f795:: with SMTP id j21ls6926984vso.7.gmail; Fri, 26 Jul
- 2019 06:40:59 -0700 (PDT)
-X-Received: by 2002:a67:fb18:: with SMTP id d24mr25333660vsr.59.1564148459225;
-        Fri, 26 Jul 2019 06:40:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564148459; cv=none;
+Received: by 2002:a63:e444:: with SMTP id i4ls10180564pgk.13.gmail; Fri, 26
+ Jul 2019 06:41:06 -0700 (PDT)
+X-Received: by 2002:a62:cd45:: with SMTP id o66mr22696194pfg.112.1564148466840;
+        Fri, 26 Jul 2019 06:41:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564148466; cv=none;
         d=google.com; s=arc-20160816;
-        b=cZ2o0BiBw2C5Udm+nBq0nGCWk0LKUwO7mqpfgEbKdApEE0vxSzr5gbft2TybdYhQIb
-         L2Hqus99t9XmeFiPdnSAZcns8U4+WeYfDhO4amlc3/R9eKpyhCtEY4lpwzA1+xnL0YTB
-         VXHZ3wLFWwOqfeMe7mefl5pYWFQM4+9ae55xjVK6iKg/zYiPI+OmPUDPcRu8kQbaM0fs
-         zn+96RednLGFU/JmXYcw48bwOJJ88koVSkfphhjIUmCI5xjk+9dXpl9Udtp3B3zoNTXD
-         NbHaC1+jWkdrFVo8wNY1r70RJrZ1PPr3QhG/Q0wDd5B/A8Fr6cyZNjqVAly3XrHYkVQL
-         U+eA==
+        b=q+1cUcGtFxOaqrEn2rXfMKg6K0yD/mcnbAj0lASUm5AEbp3pyy1o26D8TvAX011oZ7
+         krzmUf5nRm/4xUGI7HAeHk3ENVCKD6V6QiFIGo2a16aR9HxWVqtlkqxPFtJje//q5cVt
+         tllMeAE955hyjbgzoxkVbMThoBZZlkXTVwdkjDwkYMyR63jthNaccv+Oy2vrSsF7g8Gn
+         VS7MP/LPbft0To/SKiV3O6xnU329IG6CjApl8Jz4fvnspkrrw0+Kv/a0Bkt5/P4JXXna
+         RF2FArxLB7OMXKaGu6iHAU4mtlbgsFU2eRxnYe3PL4ONISk8gbOIkbgb+LROwjCyWRso
+         uPaA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=usjVSK9mfiQuFZBFwSBuMP/3nAEHHdyUsL0h8BamR0Y=;
-        b=REQnzzAoAwVoVPgAgwElVfN1xAnQBYvB21NUwrVuZ43L128VOgpjM0t1OCJh2sgZSN
-         kRB3SLW7LfGAoZPLGPL6nOXoToyYB/Pcoi7NGl/IeJQ4HHhqLHrAckZudcJVY1t+NqtL
-         VgYo5kv22qHKQTDa6Ju6vJnq24Dk6CBz/uQ3usngeK9vXrKQx5SS78BbhLPN919w2qFQ
-         KtXzBAz6ZrOEdHIJKh6lHLp65Jiwf+mqawerLN9Zfr1KXLRDLfIkT2pL9jV/R2xINYBW
-         kaoIrALT469aLNQ2vxZFrGLrnWw2rBjAd3juLKdsNb8SdyMV6Ba0ea0LInCdtjhlpQBC
-         xZXg==
+        bh=7GjzGpLikKKG+uNBNxDlnKwwYW+AtyJLvnl8HsIpDfQ=;
+        b=TmIX2S0YS6C3tiaaDVHdu6nBAhZuqRCDZJuNUgo90/7SOCS4Oodp8JxCQmI8QjNPJS
+         UlzqvS8d3i0m4TTc1uhawSB47h3zjZ4cD+PzCYpzW8XFufI9UcEjCuSx9IwqgUG/V/fJ
+         J9psCoKl83YwwG+lkLxNu+yoz4nriFtTUOaLR+4AroZb2w/6UyxOtuh5j6MW3rTUlY3g
+         Cz/7HJbW0CBBW+p/qvfLdJgNVWSsEOdOv+lmlMgeSxbUxrb2peYPJ+VeOdDdAVPV4uq1
+         abEOXS7hywYptO2s0GS2lYFU8aUqpdCsPkCKt6pJBTOv+DVaC37t5xNkMZV9QFzdhwnt
+         roVg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ELrxyKFQ;
+       dkim=pass header.i=@kernel.org header.s=default header.b=JDwczTeD;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id a128si2403845vkh.1.2019.07.26.06.40.59
+        by gmr-mx.google.com with ESMTPS id d67si1786946pgc.1.2019.07.26.06.41.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 26 Jul 2019 06:40:59 -0700 (PDT)
+        Fri, 26 Jul 2019 06:41:06 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 9EA4E22CB8;
-	Fri, 26 Jul 2019 13:40:56 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id E7D9922BE8;
+	Fri, 26 Jul 2019 13:41:05 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	David Rientjes <rientjes@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Christoph Lameter <cl@linux.com>,
-	Pekka Enberg <penberg@kernel.org>,
-	Joonsoo Kim <iamjoonsoo.kim@lge.com>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	Roman Gushchin <guro@fb.com>,
-	Shakeel Butt <shakeelb@google.com>,
-	Vladimir Davydov <vdavydov.dev@gmail.com>,
-	Andrey Konovalov <andreyknvl@google.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-mm@kvack.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.2 51/85] mm/slab_common.c: work around clang bug #42570
-Date: Fri, 26 Jul 2019 09:39:01 -0400
-Message-Id: <20190726133936.11177-51-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.2 55/85] x86: math-emu: Hide clang warnings for 16-bit overflow
+Date: Fri, 26 Jul 2019 09:39:05 -0400
+Message-Id: <20190726133936.11177-55-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190726133936.11177-1-sashal@kernel.org>
 References: <20190726133936.11177-1-sashal@kernel.org>
@@ -129,7 +118,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=ELrxyKFQ;       spf=pass
+ header.i=@kernel.org header.s=default header.b=JDwczTeD;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -148,56 +137,71 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit a07057dce2823e10d64a2b73cefbf09d8645efe9 ]
+[ Upstream commit 29e7e9664aec17b94a9c8c5a75f8d216a206aa3a ]
 
-Clang gets rather confused about two variables in the same special
-section when one of them is not initialized, leading to an assembler
-warning later:
+clang warns about a few parts of the math-emu implementation
+where a 16-bit integer becomes negative during assignment:
 
-  /tmp/slab_common-18f869.s: Assembler messages:
-  /tmp/slab_common-18f869.s:7526: Warning: ignoring changed section attributes for .data..ro_after_init
+arch/x86/math-emu/poly_tan.c:88:35: error: implicit conversion from 'int' to 'short' changes value from 49216 to -16320 [-Werror,-Wconstant-conversion]
+                                      (0x41 + EXTENDED_Ebias) | SIGN_Negative);
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+arch/x86/math-emu/fpu_emu.h:180:58: note: expanded from macro 'setexponent16'
+ #define setexponent16(x,y)  { (*(short *)&((x)->exp)) = (y); }
+                                                      ~  ^
+arch/x86/math-emu/reg_constant.c:37:32: error: implicit conversion from 'int' to 'short' changes value from 49085 to -16451 [-Werror,-Wconstant-conversion]
+FPU_REG const CONST_PI2extra = MAKE_REG(NEG, -66,
+                               ^~~~~~~~~~~~~~~~~~
+arch/x86/math-emu/reg_constant.c:21:25: note: expanded from macro 'MAKE_REG'
+                ((EXTENDED_Ebias+(e)) | ((SIGN_##s != 0)*0x8000)) }
+                 ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+arch/x86/math-emu/reg_constant.c:48:28: error: implicit conversion from 'int' to 'short' changes value from 65535 to -1 [-Werror,-Wconstant-conversion]
+FPU_REG const CONST_QNaN = MAKE_REG(NEG, EXP_OVER, 0x00000000, 0xC0000000);
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arch/x86/math-emu/reg_constant.c:21:25: note: expanded from macro 'MAKE_REG'
+                ((EXTENDED_Ebias+(e)) | ((SIGN_##s != 0)*0x8000)) }
+                 ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Adding an initialization to kmalloc_caches is rather silly here
-but does avoid the issue.
+The code is correct as is, so add a typecast to shut up the warnings.
 
-Link: https://bugs.llvm.org/show_bug.cgi?id=42570
-Link: http://lkml.kernel.org/r/20190712090455.266021-1-arnd@arndb.de
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: David Rientjes <rientjes@google.com>
-Reviewed-by: Andrew Morton <akpm@linux-foundation.org>
-Cc: Christoph Lameter <cl@linux.com>
-Cc: Pekka Enberg <penberg@kernel.org>
-Cc: Joonsoo Kim <iamjoonsoo.kim@lge.com>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>
-Cc: Roman Gushchin <guro@fb.com>
-Cc: Shakeel Butt <shakeelb@google.com>
-Cc: Vladimir Davydov <vdavydov.dev@gmail.com>
-Cc: Andrey Konovalov <andreyknvl@google.com>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Link: https://lkml.kernel.org/r/20190712090816.350668-1-arnd@arndb.de
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- mm/slab_common.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/x86/math-emu/fpu_emu.h      | 2 +-
+ arch/x86/math-emu/reg_constant.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/mm/slab_common.c b/mm/slab_common.c
-index 58251ba63e4a..cbd3411f644e 100644
---- a/mm/slab_common.c
-+++ b/mm/slab_common.c
-@@ -1003,7 +1003,8 @@ struct kmem_cache *__init create_kmalloc_cache(const char *name,
- }
+diff --git a/arch/x86/math-emu/fpu_emu.h b/arch/x86/math-emu/fpu_emu.h
+index a5a41ec58072..0c122226ca56 100644
+--- a/arch/x86/math-emu/fpu_emu.h
++++ b/arch/x86/math-emu/fpu_emu.h
+@@ -177,7 +177,7 @@ static inline void reg_copy(FPU_REG const *x, FPU_REG *y)
+ #define setexponentpos(x,y) { (*(short *)&((x)->exp)) = \
+   ((y) + EXTENDED_Ebias) & 0x7fff; }
+ #define exponent16(x)         (*(short *)&((x)->exp))
+-#define setexponent16(x,y)  { (*(short *)&((x)->exp)) = (y); }
++#define setexponent16(x,y)  { (*(short *)&((x)->exp)) = (u16)(y); }
+ #define addexponent(x,y)    { (*(short *)&((x)->exp)) += (y); }
+ #define stdexp(x)           { (*(short *)&((x)->exp)) += EXTENDED_Ebias; }
  
- struct kmem_cache *
--kmalloc_caches[NR_KMALLOC_TYPES][KMALLOC_SHIFT_HIGH + 1] __ro_after_init;
-+kmalloc_caches[NR_KMALLOC_TYPES][KMALLOC_SHIFT_HIGH + 1] __ro_after_init =
-+{ /* initialization for https://bugs.llvm.org/show_bug.cgi?id=42570 */ };
- EXPORT_SYMBOL(kmalloc_caches);
+diff --git a/arch/x86/math-emu/reg_constant.c b/arch/x86/math-emu/reg_constant.c
+index 8dc9095bab22..742619e94bdf 100644
+--- a/arch/x86/math-emu/reg_constant.c
++++ b/arch/x86/math-emu/reg_constant.c
+@@ -18,7 +18,7 @@
+ #include "control_w.h"
  
- /*
+ #define MAKE_REG(s, e, l, h) { l, h, \
+-		((EXTENDED_Ebias+(e)) | ((SIGN_##s != 0)*0x8000)) }
++		(u16)((EXTENDED_Ebias+(e)) | ((SIGN_##s != 0)*0x8000)) }
+ 
+ FPU_REG const CONST_1 = MAKE_REG(POS, 0, 0x00000000, 0x80000000);
+ #if 0
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190726133936.11177-51-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190726133936.11177-55-sashal%40kernel.org.
