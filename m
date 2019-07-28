@@ -1,224 +1,130 @@
-Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBPEL6LUQKGQED74JLRA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIHK6TUQKGQEYBYF2SQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D75F77AB2
-	for <lists+clang-built-linux@lfdr.de>; Sat, 27 Jul 2019 19:11:26 +0200 (CEST)
-Received: by mail-pg1-x53f.google.com with SMTP id 30sf35067205pgk.16
-        for <lists+clang-built-linux@lfdr.de>; Sat, 27 Jul 2019 10:11:26 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1564247485; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1AD1777E26
+	for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 07:39:46 +0200 (CEST)
+Received: by mail-qt1-x837.google.com with SMTP id q26sf51785442qtr.3
+        for <lists+clang-built-linux@lfdr.de>; Sat, 27 Jul 2019 22:39:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564292385; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QRLIDjDauQknIbhONcHtOQsxpu92qYmbWCOfi/ytktTUKhuwV8q1H7ZnYZCQlHMCal
-         PZDGA8CQepLj67Py6RVJcH0AqJE+VsOid/NaxTAC0ftFYp/RT52Gzicu8UE7FowPrKfz
-         M9Xxs/tYp9UwEWoG+6HfYaxRBg/csXetxLEl5L/+g22e6SdrVGk41ox6ZnuVrF6sm4jO
-         IQge8ieoNjR2aIB0FC3OA3GgvoeZ53lFLmkjfdk8YNJWz5uS4PR7VjYhcfaxdnXIvAez
-         UDu9USUCwDDZrJBkoV00z+S/3Z1L8x03bj+RWckidcvYIlkhfPXUGAYp9C6nE7YR9E1+
-         H0dg==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=S0dU0d89iUYLKh85XFHKrtMFqgCL4+vfDYSNNPTm+GgLioT8YOr9QuMeHjXi8Zu3Tn
+         Dh5jNx+IABWLWTwE8+s/sgXTEarD6/BaY/1YcyfSG7iS/I5SkCPD4+01b5CG6puYT2Zq
+         i9FMiFW6Eb7FdC46NQU3QesMT0nOWJso0Zb1xo/KBjhLYUH7Btw/PU0tZUd9gFQcPZgQ
+         QolUKM0zF0qOECofXN3SbKvxhfpHGTy7AkyB4FaLdPqGpxsOC1dQDvSKVis3sLL8JuZB
+         21HtqMuNPYW6YmhDfKb4luQgPOZB8jXgyM4cXsoyrbgDujOUE1+jXj2uaX2REqAWiAot
+         Xclw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-id
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:sender
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=iUY8zbDc0W7MI75S/DyHeJ+xjuEub1BpRwtNmtc/mas=;
-        b=0U0kPDv8VocahrAmAS3dt/xKfcC2VCXjhZaJuHU4hOEuHNAPBim1lEQqZDftHGBCpk
-         wUAMkw9bEYv/bitEN7HDxUK9GN0P3++PcYO5HaxyaPtluE2Mjm9woL3YrSOsa+pmib8t
-         i/y627Y4WyEkx31ceah/IOjPEUFX3540I3SS2MyiT70z1jyp+gghC/qnXs+BYTvU7nXG
-         gHHUo1Rr17nEFE5KS6zU3DGw6XfSUTneLuYFvT/lX1X2XZRYS1sSLoCRK4gUAP3THk7a
-         zwDvtSjTkDCGA7fyH0FPHJjXTOYAL3gpa5lMAhr700wu233iMJ9oYfNxnrd6YK3wPVCI
-         Gdcw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@fb.com header.s=facebook header.b="U7I/gVIc";
-       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=MTXvHVEb;
-       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
-       spf=pass (google.com: domain of prvs=2111fa7ddd=yhs@fb.com designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=2111fa7ddd=yhs@fb.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fb.com
+        bh=cPPKAgKG4mPZEa0mbTuCtVclvspoAXi6+24pOl+/TSg=;
+        b=L1LaI8iEUwM7TUmBCGsa1PzYsEGW74Pgps6EEBUoYhn67ZXj3oJrnohK+TITB3pEOz
+         jkCsYrBABcBmJgkH+5oBWkGuYioOnWPqBkVHdHjOauCYHuUuMURfQ6vrpQ9U+S0Unbyz
+         Og5OOAPzYgMAqWmReZvxGZod9sOW0+W20njboApx+EAdl2FGKNSWJRKA1e3hFZm9+EHN
+         5vKeuLpf5GO1pB50a4nxdGSai9MjmHZrSeHprQyvZRFZ1TkqX+kMp6gB3pDUHYl6Jms2
+         YihxKUm9ABClxRYSvRaP1B/q5rZg+++Nmd66FppTCoLkOO4n6sutweJ0wVWdKti5znYd
+         UFGQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:content-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iUY8zbDc0W7MI75S/DyHeJ+xjuEub1BpRwtNmtc/mas=;
-        b=efdAinsvrpZYEjGNiJgMpb2F3uroJJbIyLdHTdxxRKZxxQfnCy3LtxUUuxYPQ99CAN
-         KNWoy8U5rajUASTnu6hmLe363tFQOh7OJBOkFUoekxPJNKSL9i4etdT+YksQYRIvRCUs
-         3nyapQ01dvtc5jZcmq9DyHYjVKDglkunAG5pHgkzV/SGjSRqm/qAeScbRhi7L7KrWpF+
-         54YkGSFtPC+WlOOw3p5hh9oqV74ackxXxVK8QLVesjPjbkSwTvOssFRJkprPZevT1xau
-         wJgeAbYrwxz5dfm8he7yZPju/KgFYJ+jjJI6ClpDHTCA8yPx31TgC8+W+EI8y5ZjmsA6
-         7G6g==
+        h=sender:date:from:to:cc:subject:message-id:mime-version
+         :content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=cPPKAgKG4mPZEa0mbTuCtVclvspoAXi6+24pOl+/TSg=;
+        b=aC2y787AvB/hJZWbZ6wjhFCMN6OFDDXw24HT8LnEB7bWmcsI5/hO7UZTaiO4u8z5k9
+         hFgzLSTNW43jbVkwokHsfTlX2e6eXysUrw+IgIVabjHU6cK+VyRVcWPb1aJvuBhzxEYz
+         TD/VhZpfJs3T0Kwyz0qhvfHeMnbjfXDeVAVB/bI8JLZyw+MrCoBcKiOZm2ifaZI4LkeB
+         FDJgPoXdI866oNIfOPti+kr1cPkIAzsjVEDa1gPP1RLoXTXq9UNU6JCVKtJuhJ8EUtIa
+         20FSyTsxDmvQt9L0lgof+eDRqbYx0lAQIOs7yXuM505vEEWqNABUSpAeMTCT/upmmEnF
+         6hdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:content-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iUY8zbDc0W7MI75S/DyHeJ+xjuEub1BpRwtNmtc/mas=;
-        b=t6ZhBm4KLKCelsuhhFTE6Q2Wwk6KdEK9QnM1P6cZt98N56Gmh8P17ecYAArS0TAkH1
-         hQB8yRQLbFsobb4pkQarDujRfgmaqBmTXY+GwlwUkW9Pv5YRuHZLlJh/kGHW4qdnJNkJ
-         aTbvqiS6V3GYNeZMT4oiFAmYbA0FyqojVV/U7ybnDP/LgTrgpjpg9bm4wt2a0pvOFgFR
-         n/NCkvU/h+UdX3VrcbVGRArdDbmHdO+shK7P2wzvb5KARBLjbUpVxTwPvMmDbUmrj/zo
-         djzZHeXA8SNmqXvUeK/kh+ziYIfadhDEhsjqL/saiGFL61qj62aV9AM2/Bw1YRTdo3PT
-         PjOw==
+        bh=cPPKAgKG4mPZEa0mbTuCtVclvspoAXi6+24pOl+/TSg=;
+        b=imwJgov21tqCaELUkOEuZLJk3W8AZpaTCXMg0sv2waTiyJ1TTHfTEbFvwVzojv0KB7
+         VKTEkZ+ca8/y5GH8egCM2J7DF6AIqbKHXqzduhRgDSHHYToS/Xmtd06el8O+s5W+CP/Z
+         whzIoBCDFR1wXaXhJusmVpUSBThbI5brtur5obs6jFRxJYYRnmaRO3m/9A8ZU0ilTdrL
+         p5p2bTEe0W7UqT8sW6jGQQM9N1RtTPHJpedtZM8qrpcC0ZoOfwwaKJq+qSXqIjMTgse+
+         X5GPJjk6lN/TIcLdbRwBzKLu2PraKfWJ3P8LOEacZn/6lTHTO8U6BHlYi6rXZsysY6Oe
+         lxuQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXvQPXIEP9gXV8i8gp+ddhAMV2p+Lp1KmuZYz3AOHxHYZySTQOB
-	GQawyTIGkK0KgGhACCDlN7M=
-X-Google-Smtp-Source: APXvYqzUAE+6EhxdE79NkQxXiGsRJjcn0rTtSCFCqywWhiExWx4pNOzO4Em4lBI0XeHYfpffgeiXcw==
-X-Received: by 2002:a65:68c8:: with SMTP id k8mr12326617pgt.192.1564247484692;
-        Sat, 27 Jul 2019 10:11:24 -0700 (PDT)
+X-Gm-Message-State: APjAAAXsU+zuk/YkqIviOXLV2rGSOxiyxpv0DWFi7dR79BX7aCVUv1fD
+	XKkgTGuz61Y1sZZC6l7VAjw=
+X-Google-Smtp-Source: APXvYqzn3mlm/F+psWMV9yr9DzY8yE7sMUIhSW9JtHxiuIiZ0ls8ps8BnZTch5qFFrPkA/Pfq0olTA==
+X-Received: by 2002:a37:afc3:: with SMTP id y186mr68219853qke.115.1564292384804;
+        Sat, 27 Jul 2019 22:39:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:5045:: with SMTP id q5ls10858850pgl.16.gmail; Sat, 27
- Jul 2019 10:11:24 -0700 (PDT)
-X-Received: by 2002:aa7:9481:: with SMTP id z1mr28418864pfk.92.1564247484399;
-        Sat, 27 Jul 2019 10:11:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564247484; cv=pass;
+Received: by 2002:a0c:b712:: with SMTP id t18ls9372547qvd.6.gmail; Sat, 27 Jul
+ 2019 22:39:44 -0700 (PDT)
+X-Received: by 2002:a05:6214:3a5:: with SMTP id m5mr74095102qvy.7.1564292384509;
+        Sat, 27 Jul 2019 22:39:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564292384; cv=none;
         d=google.com; s=arc-20160816;
-        b=xaikuu5VfyTPkZFQ+bUGkft3cEc6jiVaR3RRc57lrFdkGdi5cq7cQUaxKsv7W4KTF5
-         iCEaGebTq0B2fa1F7iDQ6SkbjjnSCNwVPIOwKvNyuyVIjJZ9riTA6PCSwejr3dqD0JvW
-         jBrL6hgZLsghoTdQ3MWFhje2BGeqKi/4eq5K0/vqJnw6NqQ18cFiVWuJ0on+flBp8LXu
-         rO4Azx6FgcaIDtvL+qCz0HVdV4AjT8r9+Z9F+/dcuRpJCZ9T1NIkY9OkbsIgNof99vVl
-         bQVS7UQrioA6L8WbS5WLbgUcINl+q8ewxJaTTRSBnb5sZyTN5e310Pm2ebi7CmImKsyl
-         OEtg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature:dkim-signature;
-        bh=XbJgiJySARGR6gg8Sucm+3v/aiQE8xbVfI3YzTQzd1I=;
-        b=fk58AMWm7piw+J5qgBtQRZ+x2di4KBTXrLUh2jworg+2JXt9KJwJQ9eRFMZzvwLAbr
-         nD+8Y5zGDIaR1NR2i+ALXkNHkplOtpvja0a/RE1+JHx/2VRLZCbUhoHbc6zFqyOy3pKB
-         FqGdQOT2KK1otvEwRfTjUqEcdSH819e05P5+WXhVUKMMEXoMlSleTC0PntX5gVEEgF6p
-         MOqz3AAKYff0TQ55M6p+JQfpaCa7+QqwbOpN7T9h6qubYDit2OR7J+Xhchgymaxe6xbV
-         mj/y+bfofkn6wNUwjXQGQ6iz//Ti06dUckiHd8CnWePQZuF2/1yK9PvIyoe4JC68qcwB
-         YPsg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@fb.com header.s=facebook header.b="U7I/gVIc";
-       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=MTXvHVEb;
-       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
-       spf=pass (google.com: domain of prvs=2111fa7ddd=yhs@fb.com designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=2111fa7ddd=yhs@fb.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fb.com
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
-        by gmr-mx.google.com with ESMTPS id q207si1757687pfq.5.2019.07.27.10.11.24
+        b=IkKI6HahR5t4z0VTLGkghXF5qh3GhbvDhpsVCwP0BIhuEAWAt6aglDuC8JssgXn2vW
+         xNwWK047mYbeI5wrI5rMOmYmX+lbQCatBrEkaG04Wtr/CaPDB+rwpV4PL1Nc49IhRUVP
+         ChV6oOLLAPTXDP6jDFVSK2dMYBGbbTUmq/HjSSSO/2x3XO17pu1N2/uk53CnjISoQzGQ
+         JClktAmROUK9hbiY2lRd1SDiwjIr4L911oCZyT3xy99iYttN0qWakS/MGSY///OYgEIw
+         QTtcSr05nSLzH1yy/B/vlLH3X+LtLIbTV2AKC3UC5HyeDlnTHgmUYP/lmCTJDMrYz8Fs
+         lXPg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date;
+        bh=f29dn/hP4IW0M67yaHT3GWE3C8VDlApDQgAKwNvCJeM=;
+        b=XLc0gMasO5mMpWvR52f6OcX4wKJtX0BtmUnqa9vOrKLPCKM4oRuu5fyxMmV/SwkILp
+         aKm5FTKLuK82ivcgn2bfIa3fjJL4ZO5e4QVLIXk+CltBd+GTal5dc3G86Ir9td7bDUPq
+         umUtpIt9OrkkU1ozT1vA+nV2oyySQG6Hq9EdgJ7iYl1g4W7C5NNbLXBpEnSVNQWdSLSO
+         UULINpfquvBTE/aX4rm+7ZbnlejeGoXy0T7OfBLTA7YExSfkL6Xx7x3mP1en+HwBQ7HU
+         ziaO8wqcrbmUgKBgavg6pKfa7ddp1V2QAlpRj6B/LX4SOutXmpZSV6zubD8koWhiNn0F
+         VLtA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id c39si2638326qta.5.2019.07.27.22.39.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 27 Jul 2019 10:11:24 -0700 (PDT)
-Received-SPF: pass (google.com: domain of prvs=2111fa7ddd=yhs@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
-Received: from pps.filterd (m0044008.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id x6RH91FN001722;
-	Sat, 27 Jul 2019 10:11:20 -0700
-Received: from mail.thefacebook.com (mailout.thefacebook.com [199.201.64.23])
-	by mx0a-00082601.pphosted.com with ESMTP id 2u0hwm988f-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-SHA384 bits=256 verify=NOT);
-	Sat, 27 Jul 2019 10:11:20 -0700
-Received: from prn-hub03.TheFacebook.com (2620:10d:c081:35::127) by
- prn-hub01.TheFacebook.com (2620:10d:c081:35::125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- 15.1.1713.5; Sat, 27 Jul 2019 10:11:19 -0700
-Received: from NAM01-BN3-obe.outbound.protection.outlook.com (192.168.54.28)
- by o365-in.thefacebook.com (192.168.16.27) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.1.1713.5
- via Frontend Transport; Sat, 27 Jul 2019 10:11:19 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=LtzLPy81qd5nUo/rgv4qX93cD5nl18+yvgaaIYNVyn5Qvea+9DA3ubKEwHTomaJzbPIxiJpkQ0xfFYGzhjyOI7QQZqoColXxMtA8VQp1VbKkoLZniD2WVOWF+83nO9S8IwzYTm5GbZ7W0z0awZ16yFGeQ/fz79qRZ0a1KdB+kaGyjhIygLQZ4o98SpEEZQQw5r99Vntj3Wrhb8ax2+AN0jR4uXy4lRUuyBkDUChPNKZ51EbYZQZQ9n3p06DwiowsgbCI3tgaprg3UWcCZy3DyPt61DsYOwU6w8PEBRHY3le6KLoTadGYhXblF9RIySOWgOo1xi9QwqEJa90hhZfhQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XbJgiJySARGR6gg8Sucm+3v/aiQE8xbVfI3YzTQzd1I=;
- b=Fa7rkdQ7WmBBhzqcTy4z82sG42li9KMuY+VGGaCzRsz4o4dhCrWLe7bxjjqmUW05eHZfqkGIiMPi61a2sm75VTx6pj+VgU90AB2zFBW4hOQ8ErS1cJvHqFPlCKmzFD7V0TmTVT4wwCScOa+jyER4/CnxL3thWusBRnTGYXfwCPeXVULsS+C9lCNq7fP+hVfhsFMxaaNJhAqpWS67EGp2YsMDeSlC+jb8f06UzjddvxndoGXoObH2lnJfo37jnB4AQoIyF1+S0SsrYziaJaqCZ22iW8lyIzaNq3r+cGGNcq6woYp+kgFZYW4lQ5iAGgqEs32Rf9iJcTxA5SOe0BqYiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
- smtp.mailfrom=fb.com;dmarc=pass action=none header.from=fb.com;dkim=pass
- header.d=fb.com;arc=none
-Received: from BYAPR15MB3384.namprd15.prod.outlook.com (20.179.59.17) by
- BYAPR15MB2278.namprd15.prod.outlook.com (52.135.197.26) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2115.13; Sat, 27 Jul 2019 17:11:00 +0000
-Received: from BYAPR15MB3384.namprd15.prod.outlook.com
- ([fe80::e499:ecba:ec04:abac]) by BYAPR15MB3384.namprd15.prod.outlook.com
- ([fe80::e499:ecba:ec04:abac%5]) with mapi id 15.20.2115.005; Sat, 27 Jul 2019
- 17:11:00 +0000
-From: Yonghong Song <yhs@fb.com>
-To: "sedat.dilek@gmail.com" <sedat.dilek@gmail.com>,
-        Alexei Starovoitov
-	<alexei.starovoitov@gmail.com>
-CC: Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann
-	<daniel@iogearbox.net>, Martin Lau <kafai@fb.com>,
-        Song Liu
-	<songliubraving@fb.com>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-        Clang-Built-Linux ML
-	<clang-built-linux@googlegroups.com>,
-        Kees Cook <keescook@chromium.org>,
-        "Nick Desaulniers" <ndesaulniers@google.com>,
-        Nathan Chancellor
-	<natechancellor@gmail.com>
-Subject: Re: next-20190723: bpf/seccomp - systemd/journald issue?
-Thread-Topic: next-20190723: bpf/seccomp - systemd/journald issue?
-Thread-Index: AQHVQ4xS9PP3XA7/nkqulb+RBeHJq6bcleMAgADHHgCAAAbMgP//jN8AgAEkTwyAAAsRgIAAlVuA
-Date: Sat, 27 Jul 2019 17:11:00 +0000
-Message-ID: <57169960-35c2-d9d3-94e4-3b5a43d5aca7@fb.com>
-References: <CA+icZUWF=B_phP8eGD3v2d9jSSK6Y-N65y-T6xewZnY91vc2_Q@mail.gmail.com>
- <c2524c96-d71c-d7db-22ec-12da905dc180@fb.com>
- <CA+icZUXYp=Jx+8aGrZmkCbSFp-cSPcoRzRdRJsPj4yYNs_mJQw@mail.gmail.com>
- <CA+icZUXsPRWmH3i-9=TK-=2HviubRqpAeDJGriWHgK1fkFhgUg@mail.gmail.com>
- <295d2acd-0844-9a40-3f94-5bcbb13871d2@fb.com>
- <CA+icZUUe0QE9QGMom1iQwuG8nM7Oi4Mq0GKqrLvebyxfUmj6RQ@mail.gmail.com>
- <CAADnVQLhymu8YqtfM1NHD5LMgO6a=FZYaeaYS1oCyfGoBDE_BQ@mail.gmail.com>
- <CA+icZUXGPCgdJzxTO+8W0EzNLZEQ88J_wusp7fPfEkNE2RoXJA@mail.gmail.com>
- <CA+icZUWVf6AK3bxfWBZ7iM1QTyk_G-4+1_LyK0jkoBDkDzvx4Q@mail.gmail.com>
-In-Reply-To: <CA+icZUWVf6AK3bxfWBZ7iM1QTyk_G-4+1_LyK0jkoBDkDzvx4Q@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: MWHPR21CA0043.namprd21.prod.outlook.com
- (2603:10b6:300:129::29) To BYAPR15MB3384.namprd15.prod.outlook.com
- (2603:10b6:a03:10e::17)
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [2620:10d:c090:180::1:16cd]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 671d14e5-a896-4a13-6902-08d712b565a5
-x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(2017052603328)(7193020);SRVR:BYAPR15MB2278;
-x-ms-traffictypediagnostic: BYAPR15MB2278:
-x-microsoft-antispam-prvs: <BYAPR15MB2278F52C2719FE879F0FF004D3C30@BYAPR15MB2278.namprd15.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:8882;
-x-forefront-prvs: 01110342A5
-x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(396003)(136003)(366004)(376002)(346002)(39860400002)(45914002)(189003)(31014005)(199004)(40764003)(11346002)(316002)(76176011)(386003)(2906002)(6246003)(486006)(7416002)(102836004)(2501003)(68736007)(8936002)(46003)(476003)(446003)(6506007)(53546011)(36756003)(71200400001)(86362001)(31696002)(81156014)(5660300002)(81166006)(8676002)(14454004)(256004)(66946007)(66476007)(64756008)(66556008)(66446008)(6486002)(229853002)(6436002)(14444005)(6512007)(110136005)(478600001)(25786009)(186003)(4326008)(99286004)(7736002)(31686004)(2616005)(71190400001)(52116002)(53936002)(305945005)(54906003)(6116002);DIR:OUT;SFP:1102;SCL:1;SRVR:BYAPR15MB2278;H:BYAPR15MB3384.namprd15.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;MX:1;A:1;
-received-spf: None (protection.outlook.com: fb.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: TpDyj4QiToJBf8Df892InJqmC9JhVx/E6NxKLfueYtEfd9xnOF3OQMfts5+XOuzaAY5w+FH2sJpggtJw9J+SELjTEfKKPix4nwmJrB3xF2FxUpwEry+CUMCDTbfsNMVLBqR/1u4m6qWSWCYEBwff4bK1/VuZAEVwhwxuj1a5WG8GV02X2RLUkXCh0rm9/1fYzQSOpCr+Sal0X3mrZ2J8OKzNLFg7uMYZ206yrwZgfTVuDEL4jq9Pj7Sua91JrsKr8/R4b7FS+Z3RfnghwXN4bR2GoUeOf77zHktm4vERNibz9TfJfrs7W/4qHhTv+sBTpwN0ENiM1vrodnzHdiye6qoAaSbXd5t7DIsGKmMV24It/UuYsT5suD2m+DynxUm/JKZmZLyX8MwhDRcf3edmk2CoOO79vgpqFqlUyNEf3As=
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <5FD579B668FC6A41A7DC1FA6A4E5E21E@namprd15.prod.outlook.com>
+        Sat, 27 Jul 2019 22:39:44 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 27 Jul 2019 22:39:42 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,317,1559545200"; 
+   d="gz'50?scan'50,208,50";a="172814183"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by fmsmga007.fm.intel.com with ESMTP; 27 Jul 2019 22:39:41 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1hrbuH-000GqU-24; Sun, 28 Jul 2019 13:39:41 +0800
+Date: Sun, 28 Jul 2019 13:39:26 +0800
+From: kbuild test robot <lkp@intel.com>
+To: kbuild@01.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] sched/core: Don't use dying mm as active_mm for kernel
+ threads
+Message-ID: <201907281344.Pa8w8dwJ%lkp@intel.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: 671d14e5-a896-4a13-6902-08d712b565a5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Jul 2019 17:11:00.2402
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yhs@fb.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB2278
-X-OriginatorOrg: fb.com
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,, definitions=2019-07-27_13:,,
- signatures=0
-X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1906280000 definitions=main-1907270216
-X-FB-Internal: deliver
-X-Original-Sender: yhs@fb.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@fb.com header.s=facebook header.b="U7I/gVIc";       dkim=pass
- header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com
- header.b=MTXvHVEb;       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass
- dkdomain=fb.com dmarc=pass fromdomain=fb.com);       spf=pass (google.com:
- domain of prvs=2111fa7ddd=yhs@fb.com designates 67.231.145.42 as permitted
- sender) smtp.mailfrom="prvs=2111fa7ddd=yhs@fb.com";       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=fb.com
+Content-Type: multipart/mixed; boundary="c37uorbgyrmz3xmw"
+Content-Disposition: inline
+X-Patchwork-Hint: ignore
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -232,150 +138,193 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
+--c37uorbgyrmz3xmw
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-On 7/27/19 1:16 AM, Sedat Dilek wrote:
-> On Sat, Jul 27, 2019 at 9:36 AM Sedat Dilek <sedat.dilek@gmail.com> wrote:
->>
->> On Sat, Jul 27, 2019 at 4:24 AM Alexei Starovoitov
->> <alexei.starovoitov@gmail.com> wrote:
->>>
->>> On Fri, Jul 26, 2019 at 2:19 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
->>>>
->>>> On Fri, Jul 26, 2019 at 11:10 PM Yonghong Song <yhs@fb.com> wrote:
->>>>>
->>>>>
->>>>>
->>>>> On 7/26/19 2:02 PM, Sedat Dilek wrote:
->>>>>> On Fri, Jul 26, 2019 at 10:38 PM Sedat Dilek <sedat.dilek@gmail.com> wrote:
->>>>>>>
->>>>>>> Hi Yonghong Song,
->>>>>>>
->>>>>>> On Fri, Jul 26, 2019 at 5:45 PM Yonghong Song <yhs@fb.com> wrote:
->>>>>>>>
->>>>>>>>
->>>>>>>>
->>>>>>>> On 7/26/19 1:26 AM, Sedat Dilek wrote:
->>>>>>>>> Hi,
->>>>>>>>>
->>>>>>>>> I have opened a new issue in the ClangBuiltLinux issue tracker.
->>>>>>>>
->>>>>>>> Glad to know clang 9 has asm goto support and now It can compile
->>>>>>>> kernel again.
->>>>>>>>
->>>>>>>
->>>>>>> Yupp.
->>>>>>>
->>>>>>>>>
->>>>>>>>> I am seeing a problem in the area bpf/seccomp causing
->>>>>>>>> systemd/journald/udevd services to fail.
->>>>>>>>>
->>>>>>>>> [Fri Jul 26 08:08:43 2019] systemd[453]: systemd-udevd.service: Failed
->>>>>>>>> to connect stdout to the journal socket, ignoring: Connection refused
->>>>>>>>>
->>>>>>>>> This happens when I use the (LLVM) LLD ld.lld-9 linker but not with
->>>>>>>>> BFD linker ld.bfd on Debian/buster AMD64.
->>>>>>>>> In both cases I use clang-9 (prerelease).
->>>>>>>>
->>>>>>>> Looks like it is a lld bug.
->>>>>>>>
->>>>>>>> I see the stack trace has __bpf_prog_run32() which is used by
->>>>>>>> kernel bpf interpreter. Could you try to enable bpf jit
->>>>>>>>      sysctl net.core.bpf_jit_enable = 1
->>>>>>>> If this passed, it will prove it is interpreter related.
->>>>>>>>
->>>>>>>
->>>>>>> After...
->>>>>>>
->>>>>>> sysctl -w net.core.bpf_jit_enable=1
->>>>>>>
->>>>>>> I can start all failed systemd services.
->>>>>>>
->>>>>>> systemd-journald.service
->>>>>>> systemd-udevd.service
->>>>>>> haveged.service
->>>>>>>
->>>>>>> This is in maintenance mode.
->>>>>>>
->>>>>>> What is next: Do set a permanent sysctl setting for net.core.bpf_jit_enable?
->>>>>>>
->>>>>>
->>>>>> This is what I did:
->>>>>
->>>>> I probably won't have cycles to debug this potential lld issue.
->>>>> Maybe you already did, I suggest you put enough reproducible
->>>>> details in the bug you filed against lld so they can take a look.
->>>>>
->>>>
->>>> I understand and will put the journalctl-log into the CBL issue
->>>> tracker and update informations.
->>>>
->>>> Thanks for your help understanding the BPF correlations.
->>>>
->>>> Is setting 'net.core.bpf_jit_enable = 2' helpful here?
->>>
->>> jit_enable=1 is enough.
->>> Or use CONFIG_BPF_JIT_ALWAYS_ON to workaround.
->>>
->>> It sounds like clang miscompiles interpreter.
-> 
-> Just to clarify:
-> This does not happen with clang-9 + ld.bfd (GNU/ld linker).
-> 
->>> modprobe test_bpf
->>> should be able to point out which part of interpreter is broken.
->>
->> Maybe we need something like...
->>
->> "bpf: Disable GCC -fgcse optimization for ___bpf_prog_run()"
->>
->> ...for clang?
->>
-> 
-> Not sure if something like GCC's...
-> 
-> -fgcse
-> 
-> Perform a global common subexpression elimination pass. This pass also
-> performs global constant and copy propagation.
-> 
-> Note: When compiling a program using computed gotos, a GCC extension,
-> you may get better run-time performance if you disable the global
-> common subexpression elimination pass by adding -fno-gcse to the
-> command line.
-> 
-> Enabled at levels -O2, -O3, -Os.
-> 
-> ...is available for clang.
-> 
-> I tried with hopping to turn off "global common subexpression elimination":
-> 
-> diff --git a/arch/x86/net/Makefile b/arch/x86/net/Makefile
-> index 383c87300b0d..92f934a1e9ff 100644
-> --- a/arch/x86/net/Makefile
-> +++ b/arch/x86/net/Makefile
-> @@ -3,6 +3,8 @@
->   # Arch-specific network modules
->   #
-> 
-> +KBUILD_CFLAGS += -O0
+CC: kbuild-all@01.org
+In-Reply-To: <20190726234541.3771-1-longman@redhat.com>
+References: <20190726234541.3771-1-longman@redhat.com>
+TO: Waiman Long <longman@redhat.com>
+CC: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, Phil Auld <pauld@redhat.com>, Waiman Long <longman@redhat.com>
+CC: linux-kernel@vger.kernel.org, linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>, Phil Auld <pauld@redhat.com>, Waiman Long <longman@redhat.com>
 
-This won't work. First, you added to the wrong file. The interpreter
-is at kernel/bpf/core.c.
+Hi Waiman,
 
-Second, kernel may have compilation issues with -O0.
+Thank you for the patch! Yet something to improve:
 
-> +
->   ifeq ($(CONFIG_X86_32),y)
->           obj-$(CONFIG_BPF_JIT) += bpf_jit_comp32.o
->   else
-> 
-> Still see...
-> BROKEN: test_bpf: #294 BPF_MAXINSNS: Jump, gap, jump, ... jited:0
-> 
-> - Sedat -
-> 
+[auto build test ERROR on linus/master]
+[cannot apply to v5.3-rc1 next-20190726]
+[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+
+url:    https://github.com/0day-ci/linux/commits/Waiman-Long/sched-core-Don-t-use-dying-mm-as-active_mm-for-kernel-threads/20190728-101948
+config: x86_64-allnoconfig (attached as .config)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+reproduce:
+        # save the attached .config to linux build tree
+        make ARCH=x86_64 
+
+If you fix the issue, kindly add following tag
+Reported-by: kbuild test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+>> kernel/sched/core.c:3240:20: error: no member named 'owner' in 'struct mm_struct'
+           if (!mm && oldmm->owner) {
+                      ~~~~~  ^
+   1 error generated.
+
+vim +3240 kernel/sched/core.c
+
+---
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/57169960-35c2-d9d3-94e4-3b5a43d5aca7%40fb.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907281344.Pa8w8dwJ%25lkp%40intel.com.
+
+--c37uorbgyrmz3xmw
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+Q/4DgC49TLhoAAA=
+
+--c37uorbgyrmz3xmw--
