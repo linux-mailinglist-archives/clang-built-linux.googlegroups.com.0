@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBG6763UQKGQEP4PP6MY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBYX563UQKGQEEVPI2ZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x439.google.com (mail-pf1-x439.google.com [IPv6:2607:f8b0:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7EEE077FD7
-	for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 16:22:21 +0200 (CEST)
-Received: by mail-pf1-x439.google.com with SMTP id e20sf36610413pfd.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 07:22:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564323739; cv=pass;
+Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 95E6878028
+	for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 17:27:31 +0200 (CEST)
+Received: by mail-vk1-xa40.google.com with SMTP id r4sf25281137vkr.8
+        for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 08:27:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564327650; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xKCgqhpydwkNFWMyCDUw6awfzm74DfNqYXc4JQPm4tIBsEQNGlamAuHRkRUEJm1fwX
-         tl3KyUp3/lmLvKViu4Nh2d+YedFLfiXVGwq0VMl6IEVnGsGGdwcGhznQo+VfvkGOGDx0
-         j5W3kUcItBGXK0BkwMLNUNk0FSCvqkNQeQBmjXDUGF0vzd/ikLnz35Lx+XjrAUZhWIwo
-         w8TJQPE2kzJWI+9vEbpEvmP96zblW9dPwLrURYRMuDPw47f3TR5WMxtIifCBeIlSK7PV
-         iLNwfM8JkKvzoyz9E/3ZTEDONjZ+QFmbPJ2Lyrav7PDTYteDvIeyjIyVBGrp/kTHvXxS
-         7JRQ==
+        b=GkNWDrXvMuiO8Y+TI1CmiIBFXfDvDyqaC1FQwXSuhdRYiTxTQh+vSRqvM2+DXrAU20
+         p9RN5BsTHSkQO/aS47f4GxhTO/q293kHzUtdAYXtRwKUx0LvDHNJFxGRzO9LkkJjKAJo
+         krd+kEExu1G3FcRLGmbIIc03aYdNU+Q8uADHtWbIKlVDyrXAq0phdp27dhIHFC3QOH4G
+         zO3BHRsXNAEHbF5ru3gG52UFsfsBQBalODdTAnEPuplqUWLpp6HZlxsxdfnoUsI85a2o
+         VoZ1UAsjjC/uKNM9nEIdKhjr5AD4JrQm+NIYtzTtaUY6+JArYLeGioqpA19wuM1J5V6E
+         VBmw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=iPdw8CBGPUNou99MvgUziHkWmcHsfgpoGEZSoMIbWWc=;
-        b=ZFc/4KkasXBD2gdOf/znAvN+gS45wfML/XzPwJLXP6Z88l5KtV5Yy7ibMH2Nngbq84
-         DRq9Z0wckFa8/jE3HUi63LmbFdMMelUwurDTntpS2cGnHhXxRX8C7iHp/qjNHAeK2XFq
-         tm9OB9Mx9wJcIu6bevFIdR53Jx0DxEjHu5E6tTbIwr2O82vyQW/glMPeQlQyLik3SLWv
-         4VU74aTqcQNwWvmnZZHHtWlSjQzsLQo4/NPAqztCWlrTSdUbodKHJAgTGaGlf50+o5Tv
-         oiBXyB7WyH95zu2nHnmEVxZLmE7SvUTTVdwvi+jcZ27bHZ/TnTvmZjCffuBUACf3FfPl
-         U2vQ==
+        bh=L2/xgrPCGCw4+Nb432liB/wfVdPbkNpqGEt6i9vJrkM=;
+        b=OEwCayZDIvzCfChEqYgYLBBrvu/MNri72XDv2gxTmPNF2jpZ6nSH5uRE6fZGnzdHcG
+         eLy5MSDwqKerJH2fD+eD9cE7D6FQM74sXhEM811cJ2mgu8V8Oc7fp2t6wxlvqhjPD0SX
+         rfYpHkIqxSHPw0ppL4sCfCk2e4vR8yG8/fSp8ZTiX4l+63UzwFOpaSqJ3R1QfwjT6/TN
+         wAfqCv7IDbcVRPl2tz3dK6wEwXWM8sqNEQW/fygx5Q8HcXGGVXAtPtUgo1yzdi6/jtyh
+         zSlgWf+pzs4Jl3qzglFtCUFAT3aQkzZX/Vq68ypGXt/z6WJnOjKEP3oSsx5Vtgb08874
+         nmmg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=iPdw8CBGPUNou99MvgUziHkWmcHsfgpoGEZSoMIbWWc=;
-        b=p9aZfhPV+fSxA6G0apQLldi+HVDuIS+MJRX7KT/xyj3nrEvCvmE9/KXxvaXJBwOoaV
-         3A+UyEMr/K0dHmOjUi5tvMTGNyRiNWYE54dqb3aethmS+NgZrJlbN9IbvAf8kI8XYsNQ
-         1pQFsDDB0WiTh5PnI6Ma2wW3ZAmKMELUv32i9L/2V6mjhULUVBMQ6iNqV/iApMPFgVWJ
-         LG3N+XRCpaWXBrCiFwTYqSKIX+sc5PCU1oZrOBM6Kob7Q6rvJsfkWImCg1Nu3UB7m/fz
-         D4w1cOt93Dj+mzHGkW87v5o3tOkzYRSILIvXtKhTT9GMd9Dk4wqRrDPT/yDisq4A3uHv
-         WBog==
+        bh=L2/xgrPCGCw4+Nb432liB/wfVdPbkNpqGEt6i9vJrkM=;
+        b=Rj1ghEvW7W6s5H0iBpmBWOCGMycNmrFUbp6oLyk7J9KMw5k7PMgYl2F31LNHUCV6UN
+         j58BS640L/sH2brqWot5SGpl3Hg/i8Tn1E4Y1RV0eL3/Yo9Gt6SPXveT10kmiaeE321Y
+         OCpseo2ZWuhnZ5S/pHATwO5UClpHvVD5/6RTUAIrO4/XM5wI8bRX7xx+mdx8BZGDElq1
+         ceo80tTPZJNjMlfaHdQFYrgyMEQXIat6l2Oy3mznD9iCV6j/trn5QcWkQB4R/kwTpPzx
+         9O6aDDNo9xqkSvuKTCmvU8A0MONpup8DSkmqOGZOzEkTYVKfxQdmJQPAs9b1ajOUzsSo
+         mYGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iPdw8CBGPUNou99MvgUziHkWmcHsfgpoGEZSoMIbWWc=;
-        b=iOVenab7EzTlS6PdQYDRXQ0KrBfIsmqt0rZ/NrqzvJjTWJT7tQKDLZtbyyW3CD5lyq
-         ey2kTkBSwsegF6PARqb5kPZjUP30h+ME5mNy+j33R626Z2qvfeJ2s+BKxOjHTMRpnD6t
-         WuaTFL9YSjD2RiY4kLWUlDTFzU+ppJgr8A31YWM87PBRSWNvVAwzRwoMN7Hvt7Jk4M/t
-         6aDyZQWpEAGLQc/5QZFTbRR6fyXPZl+6Jumc4I2CztMs0Qk/wIT6CASsS6X2hMZUgnab
-         28R/mZ4qbbmRFXs5pumAAHQ608JI52pWa80F06xEBeT5jb24VCt2yK0I0YnP5DugZbvR
-         jMEQ==
+        bh=L2/xgrPCGCw4+Nb432liB/wfVdPbkNpqGEt6i9vJrkM=;
+        b=oFjbZagm6ikZPAigyNJs9H47Bw1ZILT8oIEKEWd1+gdfmJG47GYmGkJK/VQkD2OZAZ
+         mC7dKeGL5BzqVDhIz2aafuMq0yLGW8eE2ph07djsBnvwETPPSgIt8MkN/7Gz7krfQpV2
+         zXrlqu6uS7kjtLhV2I12g8+DuT51dA31daDbvYPwOVBNK7ta/POJDDNfiBhLLh3QblQ0
+         UwaGRN8XHihG1v/DaPw9XdU7xJjZS/APtonmDmWg5kSixg2eKtCDEWH9Rmfesqs/mFVH
+         ds3g5gYxP88ZCNchw7UhJTKPTRx7x4BSsxXblk97+5fvVMWpymJd9Ihs2ecRZeocWZlS
+         c14Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXA44RUBy4Yn+Yo9fWzNTDVyr4TFaxfGS3bIF4xtBBylkcadD4N
-	Bd7Xm6Xy1y3bEF06Iny1ICo=
-X-Google-Smtp-Source: APXvYqwvR/TciCOPxQtavpNkVLyO1ErrbAwhOQTrxwhJnzTXRnwJidLu9v+QBhQS/XyNuPsAbg3yEw==
-X-Received: by 2002:a17:90a:ad41:: with SMTP id w1mr106171208pjv.52.1564323739496;
-        Sun, 28 Jul 2019 07:22:19 -0700 (PDT)
+X-Gm-Message-State: APjAAAWEs53/S3J//9JU1wC6q9DVI7HLeR8ZdHOArMeqdKexxdRwEOvo
+	RCVYJTq0LgSUp/BtIcQvNFg=
+X-Google-Smtp-Source: APXvYqyqGjERvn0VW8ADvZB0xgaTqh6b4SOqzo3oTUKdfUyQxWMpFnhzlZqoR1r57y+DRzkmFGFKAQ==
+X-Received: by 2002:ab0:6e2:: with SMTP id g89mr21073401uag.56.1564327650350;
+        Sun, 28 Jul 2019 08:27:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:75ce:: with SMTP id q197ls11704154pfc.3.gmail; Sun, 28
- Jul 2019 07:22:19 -0700 (PDT)
-X-Received: by 2002:aa7:86cc:: with SMTP id h12mr24280666pfo.2.1564323739023;
-        Sun, 28 Jul 2019 07:22:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564323739; cv=none;
+Received: by 2002:ab0:6195:: with SMTP id h21ls4281490uan.10.gmail; Sun, 28
+ Jul 2019 08:27:30 -0700 (PDT)
+X-Received: by 2002:ab0:6390:: with SMTP id y16mr65361408uao.62.1564327649923;
+        Sun, 28 Jul 2019 08:27:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564327649; cv=none;
         d=google.com; s=arc-20160816;
-        b=NQ+9ViGzSLkeZX6+1vyRBNE63Sv+R25lTxNFUp/WtliFcJtjrnt4WqQM6X6kUlJkCj
-         j6K3ctts1xvBFgnzXoKFCg6PV8kO/+gmJPfBoPcT53wQTOujGmIlTpES9YSB2J68HQfK
-         8E2iZY4eJ8vuvQ643PhAC85sKgtZ6uurmmdzGM/pI/ywBLwlS0D5Mxqq5yqQXVXPINuD
-         ky9wWe/0mtn9DtuciL8biFtU4jmgTknBmKUte1GhAHEA+r5h8r2tSrOJrxPzEEQdj/Qd
-         29hvD6iJFIzsWi4UTe5sGLnH7iVARefvOZTO4pN+/0/eShodLzS7W9BptxdstF9ROLz/
-         /MIQ==
+        b=LvyEUT4QtSf02SJu1pMCzCzY4u6NyIrNjBS2KskIMf/IwuL/4zpkvXR3SsHs+s/+y4
+         urJjW/JbGKsLc754Hnop/TYx2ccmWcRl/v/90VEhMJO9DxlYZNzg9WnytWJ+Zbps0o/z
+         Jf0+OzQOwNd1kgwBX5Bi8bOwgIXDBY59rFRUh1TIHC3Kb+DvRsnuKOxGipa1PeLwrsCy
+         LmZGsyUHejMmc0EjZEoh98ld873lP61d/rbI3m4/jDGPfiFWaiIeNQxKg+/AXAWR7iTK
+         gS8NJM9C221B8BUwgUFFvpHdFISIzjLb9AoZvNogzx2CCCknCs/pfN9o2feASnoRnisy
+         Y7hQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=w78Rumnsi69d5gqR35IM//hIMFVUz6KDyFhV5G8QKqE=;
-        b=nQ3M9Gez8dqWWnygWC29NDVOJXQzVFBgcL6uLWiZ7jk4Iqj1405VBJ3VR7dSL9pqki
-         x2ZNLk7McKUi6F5hYFTtySSLU9lfQQrkSEg7pDvGxKyeJ2TXpdWrAd9n9fbiqlygLhJa
-         nSb22mtv8qji+a6Wv6smnVYy0WHqeH36AHYebkZcRUt71O6u55/NWN04ix0CO9UNda1a
-         1SRbg9YmY2+MLaKyLfW9RSFvVoiSFObRp3QpC784xMegxe35FrFZqSxXuyihJUekd3wc
-         iX+nLATVNeptdXDbJxAIzr9sZNHXcduDrdRWPqbtk65mjSGhrRlBR+ef57usd6H0CUCd
-         OYwQ==
+        bh=IyfZa6PFV0XASLv6dpdmWoykgzffkCKvPuqI6G4Qwgs=;
+        b=DAUW8fU0DKPcx+AwZY3a9R8okhDVPYqUxUuUl2hxek5JHL53uokqOC8IAql3DPZJFO
+         cABEkUxQpGPWi/x9MxLC1GYW+zmHhJLEPx0ap5d/fxB4qsJ/XJxO4e1hdCB0vyPW94Lf
+         Ts/qD+ZK7bHKUHROcorwTskgk+aa3GDLqFq+U6Bxm92Wl1YDcCKleXOt/or2mP4vPhbg
+         nVF67+jkiVCVqeuo6CmbnP6yNvDrksUPvIaJia4P8aQbcNWdsH3ktIyGm1dwuoRUwctG
+         MSEWihgw2YD6cgH5qLvmpU8+DEvBgX/J4n+duHXZ7B4is+5OV6iF339fxN5s+kOjSj7+
+         QWqA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id w72si2354549pfd.2.2019.07.28.07.22.18
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id b5si2616014vsd.2.2019.07.28.08.27.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 28 Jul 2019 07:22:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+        Sun, 28 Jul 2019 08:27:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 28 Jul 2019 07:21:53 -0700
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 28 Jul 2019 08:27:02 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,319,1559545200"; 
-   d="gz'50?scan'50,208,50";a="190264662"
+   d="gz'50?scan'50,208,50";a="172930189"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga001.fm.intel.com with ESMTP; 28 Jul 2019 07:21:50 -0700
+  by fmsmga007.fm.intel.com with ESMTP; 28 Jul 2019 08:27:00 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hrk3a-000DYK-EN; Sun, 28 Jul 2019 22:21:50 +0800
-Date: Sun, 28 Jul 2019 22:21:40 +0800
+	id 1hrl4e-000DHP-Fu; Sun, 28 Jul 2019 23:27:00 +0800
+Date: Sun, 28 Jul 2019 23:26:31 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [arm-integrator:apq8060-dragonboard-wm8903 10/10]
- drivers/clk/qcom/clk-rcg.c:77:6: warning: variable 'ns' is used
- uninitialized whenever 'if' condition is true
-Message-ID: <201907282236.8BVFJxC8%lkp@intel.com>
+Subject: [arm-integrator:apq8060-dragonboard-sdc5 1/1]
+ drivers/mmc/host/mmci.c:1851:14: error: implicit declaration of function
+ 'devm_gpiod_get'
+Message-ID: <201907282327.rZS3rg8r%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="cphll2k3r7nhwlyp"
+Content-Type: multipart/mixed; boundary="qksdh4turw2hc4rr"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,885 +139,42 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---cphll2k3r7nhwlyp
+--qksdh4turw2hc4rr
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
 TO: Linus Walleij <linus.walleij@linaro.org>
 
-tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/linusw/linux-integrator.git apq8060-dragonboard-wm8903
-head:   41c3ab26cdfb8d6ab3da2d7b2ae0b462a06b8c42
-commit: 41c3ab26cdfb8d6ab3da2d7b2ae0b462a06b8c42 [10/10] stab
+tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/linusw/linux-integrator.git apq8060-dragonboard-sdc5
+head:   9d99c3283faf518e6c7dfb624aaaac882fadf88d
+commit: 9d99c3283faf518e6c7dfb624aaaac882fadf88d [1/1] slask
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 41c3ab26cdfb8d6ab3da2d7b2ae0b462a06b8c42
+        git checkout 9d99c3283faf518e6c7dfb624aaaac882fadf88d
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> drivers/clk/qcom/clk-rcg.c:77:6: warning: variable 'ns' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-           if (ret)
-               ^~~
-   drivers/clk/qcom/clk-rcg.c:96:34: note: uninitialized use occurs here
-                   __func__, clk_hw_get_name(hw), ns);
-                                                  ^~
-   include/linux/printk.h:311:34: note: expanded from macro 'pr_info'
-           printk(KERN_INFO pr_fmt(fmt), ##__VA_ARGS__)
-                                           ^~~~~~~~~~~
-   drivers/clk/qcom/clk-rcg.c:77:2: note: remove the 'if' if its condition is always false
-           if (ret)
-           ^~~~~~~~
-   drivers/clk/qcom/clk-rcg.c:71:8: note: initialize the variable 'ns' to silence this warning
-           u32 ns, reg;
-                 ^
-                  = 0
-   1 warning generated.
+>> drivers/mmc/host/mmci.c:1851:14: error: implicit declaration of function 'devm_gpiod_get' [-Werror,-Wimplicit-function-declaration]
+           ubm2_pwdn = devm_gpiod_get(&dev->dev, "ubm2", GPIOD_OUT_HIGH);
+                       ^
+>> drivers/mmc/host/mmci.c:1851:48: error: use of undeclared identifier 'GPIOD_OUT_HIGH'
+           ubm2_pwdn = devm_gpiod_get(&dev->dev, "ubm2", GPIOD_OUT_HIGH);
+                                                         ^
+>> drivers/mmc/host/mmci.c:1855:3: error: implicit declaration of function 'gpiod_set_value_cansleep' [-Werror,-Wimplicit-function-declaration]
+                   gpiod_set_value_cansleep(ubm2_pwdn, 1);
+                   ^
+   3 errors generated.
 
-vim +77 drivers/clk/qcom/clk-rcg.c
-
-bcd61c0f535a04a Stephen Boyd    2014-01-15   66  
-bcd61c0f535a04a Stephen Boyd    2014-01-15   67  static u8 clk_dyn_rcg_get_parent(struct clk_hw *hw)
-bcd61c0f535a04a Stephen Boyd    2014-01-15   68  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15   69  	struct clk_dyn_rcg *rcg = to_clk_dyn_rcg(hw);
-497295afb5ab070 Stephen Boyd    2015-06-25   70  	int num_parents = clk_hw_get_num_parents(hw);
-229fd4a505553c3 Stephen Boyd    2014-04-28   71  	u32 ns, reg;
-bcd61c0f535a04a Stephen Boyd    2014-01-15   72  	int bank;
-7f218978f10693f Georgi Djakov   2015-03-20   73  	int i, ret;
-bcd61c0f535a04a Stephen Boyd    2014-01-15   74  	struct src_sel *s;
-bcd61c0f535a04a Stephen Boyd    2014-01-15   75  
-7f218978f10693f Georgi Djakov   2015-03-20   76  	ret = regmap_read(rcg->clkr.regmap, rcg->bank_reg, &reg);
-7f218978f10693f Georgi Djakov   2015-03-20  @77  	if (ret)
-7f218978f10693f Georgi Djakov   2015-03-20   78  		goto err;
-229fd4a505553c3 Stephen Boyd    2014-04-28   79  	bank = reg_to_bank(rcg, reg);
-bcd61c0f535a04a Stephen Boyd    2014-01-15   80  	s = &rcg->s[bank];
-bcd61c0f535a04a Stephen Boyd    2014-01-15   81  
-7f218978f10693f Georgi Djakov   2015-03-20   82  	ret = regmap_read(rcg->clkr.regmap, rcg->ns_reg[bank], &ns);
-7f218978f10693f Georgi Djakov   2015-03-20   83  	if (ret)
-7f218978f10693f Georgi Djakov   2015-03-20   84  		goto err;
-bcd61c0f535a04a Stephen Boyd    2014-01-15   85  	ns = ns_to_src(s, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15   86  
-bcd61c0f535a04a Stephen Boyd    2014-01-15   87  	for (i = 0; i < num_parents; i++)
-41c3ab26cdfb8d6 Linus Walleij   2017-04-07   88  		if (ns == s->parent_map[i].cfg) {
-41c3ab26cdfb8d6 Linus Walleij   2017-04-07   89  			pr_info("%s: Clock %s has parent %d\n",
-41c3ab26cdfb8d6 Linus Walleij   2017-04-07   90  				__func__, clk_hw_get_name(hw), i);
-bcd61c0f535a04a Stephen Boyd    2014-01-15   91  			return i;
-41c3ab26cdfb8d6 Linus Walleij   2017-04-07   92  		}
-bcd61c0f535a04a Stephen Boyd    2014-01-15   93  
-7f218978f10693f Georgi Djakov   2015-03-20   94  err:
-41c3ab26cdfb8d6 Linus Walleij   2017-04-07   95  	pr_info("%s: Clock %s has invalid parent %d, using default.\n",
-41c3ab26cdfb8d6 Linus Walleij   2017-04-07   96  		__func__, clk_hw_get_name(hw), ns);
-7f218978f10693f Georgi Djakov   2015-03-20   97  	return 0;
-bcd61c0f535a04a Stephen Boyd    2014-01-15   98  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15   99  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  100  static int clk_rcg_set_parent(struct clk_hw *hw, u8 index)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  101  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  102  	struct clk_rcg *rcg = to_clk_rcg(hw);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  103  	u32 ns;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  104  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  105  	regmap_read(rcg->clkr.regmap, rcg->ns_reg, &ns);
-293d2e97b37f545 Georgi Djakov   2015-03-20  106  	ns = src_to_ns(&rcg->s, rcg->s.parent_map[index].cfg, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  107  	regmap_write(rcg->clkr.regmap, rcg->ns_reg, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  108  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  109  	return 0;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  110  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  111  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  112  static u32 md_to_m(struct mn *mn, u32 md)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  113  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  114  	md >>= mn->m_val_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  115  	md &= BIT(mn->width) - 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  116  	return md;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  117  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  118  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  119  static u32 ns_to_pre_div(struct pre_div *p, u32 ns)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  120  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  121  	ns >>= p->pre_div_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  122  	ns &= BIT(p->pre_div_width) - 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  123  	return ns;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  124  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  125  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  126  static u32 pre_div_to_ns(struct pre_div *p, u8 pre_div, u32 ns)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  127  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  128  	u32 mask;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  129  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  130  	mask = BIT(p->pre_div_width) - 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  131  	mask <<= p->pre_div_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  132  	ns &= ~mask;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  133  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  134  	ns |= pre_div << p->pre_div_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  135  	return ns;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  136  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  137  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  138  static u32 mn_to_md(struct mn *mn, u32 m, u32 n, u32 md)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  139  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  140  	u32 mask, mask_w;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  141  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  142  	mask_w = BIT(mn->width) - 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  143  	mask = (mask_w << mn->m_val_shift) | mask_w;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  144  	md &= ~mask;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  145  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  146  	if (n) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  147  		m <<= mn->m_val_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  148  		md |= m;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  149  		md |= ~n & mask_w;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  150  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  151  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  152  	return md;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  153  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  154  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  155  static u32 ns_m_to_n(struct mn *mn, u32 ns, u32 m)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  156  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  157  	ns = ~ns >> mn->n_val_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  158  	ns &= BIT(mn->width) - 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  159  	return ns + m;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  160  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  161  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  162  static u32 reg_to_mnctr_mode(struct mn *mn, u32 val)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  163  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  164  	val >>= mn->mnctr_mode_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  165  	val &= MNCTR_MODE_MASK;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  166  	return val;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  167  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  168  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  169  static u32 mn_to_ns(struct mn *mn, u32 m, u32 n, u32 ns)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  170  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  171  	u32 mask;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  172  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  173  	mask = BIT(mn->width) - 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  174  	mask <<= mn->n_val_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  175  	ns &= ~mask;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  176  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  177  	if (n) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  178  		n = n - m;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  179  		n = ~n;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  180  		n &= BIT(mn->width) - 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  181  		n <<= mn->n_val_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  182  		ns |= n;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  183  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  184  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  185  	return ns;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  186  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  187  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  188  static u32 mn_to_reg(struct mn *mn, u32 m, u32 n, u32 val)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  189  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  190  	u32 mask;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  191  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  192  	mask = MNCTR_MODE_MASK << mn->mnctr_mode_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  193  	mask |= BIT(mn->mnctr_en_bit);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  194  	val &= ~mask;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  195  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  196  	if (n) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  197  		val |= BIT(mn->mnctr_en_bit);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  198  		val |= MNCTR_MODE_DUAL << mn->mnctr_mode_shift;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  199  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  200  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  201  	return val;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  202  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  203  
-fae507afbdf3384 Georgi Djakov   2015-03-20  204  static int configure_bank(struct clk_dyn_rcg *rcg, const struct freq_tbl *f)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  205  {
-229fd4a505553c3 Stephen Boyd    2014-04-28  206  	u32 ns, md, reg;
-293d2e97b37f545 Georgi Djakov   2015-03-20  207  	int bank, new_bank, ret, index;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  208  	struct mn *mn;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  209  	struct pre_div *p;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  210  	struct src_sel *s;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  211  	bool enabled;
-229fd4a505553c3 Stephen Boyd    2014-04-28  212  	u32 md_reg, ns_reg;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  213  	bool banked_mn = !!rcg->mn[1].width;
-229fd4a505553c3 Stephen Boyd    2014-04-28  214  	bool banked_p = !!rcg->p[1].pre_div_width;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  215  	struct clk_hw *hw = &rcg->clkr.hw;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  216  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  217  	enabled = __clk_is_enabled(hw->clk);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  218  
-fae507afbdf3384 Georgi Djakov   2015-03-20  219  	ret = regmap_read(rcg->clkr.regmap, rcg->bank_reg, &reg);
-fae507afbdf3384 Georgi Djakov   2015-03-20  220  	if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  221  		return ret;
-229fd4a505553c3 Stephen Boyd    2014-04-28  222  	bank = reg_to_bank(rcg, reg);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  223  	new_bank = enabled ? !bank : bank;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  224  
-229fd4a505553c3 Stephen Boyd    2014-04-28  225  	ns_reg = rcg->ns_reg[new_bank];
-fae507afbdf3384 Georgi Djakov   2015-03-20  226  	ret = regmap_read(rcg->clkr.regmap, ns_reg, &ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  227  	if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  228  		return ret;
-229fd4a505553c3 Stephen Boyd    2014-04-28  229  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  230  	if (banked_mn) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  231  		mn = &rcg->mn[new_bank];
-bcd61c0f535a04a Stephen Boyd    2014-01-15  232  		md_reg = rcg->md_reg[new_bank];
-bcd61c0f535a04a Stephen Boyd    2014-01-15  233  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  234  		ns |= BIT(mn->mnctr_reset_bit);
-fae507afbdf3384 Georgi Djakov   2015-03-20  235  		ret = regmap_write(rcg->clkr.regmap, ns_reg, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  236  		if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  237  			return ret;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  238  
-fae507afbdf3384 Georgi Djakov   2015-03-20  239  		ret = regmap_read(rcg->clkr.regmap, md_reg, &md);
-fae507afbdf3384 Georgi Djakov   2015-03-20  240  		if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  241  			return ret;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  242  		md = mn_to_md(mn, f->m, f->n, md);
-fae507afbdf3384 Georgi Djakov   2015-03-20  243  		ret = regmap_write(rcg->clkr.regmap, md_reg, md);
-fae507afbdf3384 Georgi Djakov   2015-03-20  244  		if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  245  			return ret;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  246  		ns = mn_to_ns(mn, f->m, f->n, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  247  		ret = regmap_write(rcg->clkr.regmap, ns_reg, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  248  		if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  249  			return ret;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  250  
-229fd4a505553c3 Stephen Boyd    2014-04-28  251  		/* Two NS registers means mode control is in NS register */
-229fd4a505553c3 Stephen Boyd    2014-04-28  252  		if (rcg->ns_reg[0] != rcg->ns_reg[1]) {
-229fd4a505553c3 Stephen Boyd    2014-04-28  253  			ns = mn_to_reg(mn, f->m, f->n, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  254  			ret = regmap_write(rcg->clkr.regmap, ns_reg, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  255  			if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  256  				return ret;
-229fd4a505553c3 Stephen Boyd    2014-04-28  257  		} else {
-229fd4a505553c3 Stephen Boyd    2014-04-28  258  			reg = mn_to_reg(mn, f->m, f->n, reg);
-fae507afbdf3384 Georgi Djakov   2015-03-20  259  			ret = regmap_write(rcg->clkr.regmap, rcg->bank_reg,
-fae507afbdf3384 Georgi Djakov   2015-03-20  260  					   reg);
-fae507afbdf3384 Georgi Djakov   2015-03-20  261  			if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  262  				return ret;
-229fd4a505553c3 Stephen Boyd    2014-04-28  263  		}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  264  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  265  		ns &= ~BIT(mn->mnctr_reset_bit);
-fae507afbdf3384 Georgi Djakov   2015-03-20  266  		ret = regmap_write(rcg->clkr.regmap, ns_reg, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  267  		if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  268  			return ret;
-229fd4a505553c3 Stephen Boyd    2014-04-28  269  	}
-229fd4a505553c3 Stephen Boyd    2014-04-28  270  
-229fd4a505553c3 Stephen Boyd    2014-04-28  271  	if (banked_p) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  272  		p = &rcg->p[new_bank];
-bcd61c0f535a04a Stephen Boyd    2014-01-15  273  		ns = pre_div_to_ns(p, f->pre_div - 1, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  274  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  275  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  276  	s = &rcg->s[new_bank];
-293d2e97b37f545 Georgi Djakov   2015-03-20  277  	index = qcom_find_src_index(hw, s->parent_map, f->src);
-293d2e97b37f545 Georgi Djakov   2015-03-20  278  	if (index < 0)
-293d2e97b37f545 Georgi Djakov   2015-03-20  279  		return index;
-293d2e97b37f545 Georgi Djakov   2015-03-20  280  	ns = src_to_ns(s, s->parent_map[index].cfg, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  281  	ret = regmap_write(rcg->clkr.regmap, ns_reg, ns);
-fae507afbdf3384 Georgi Djakov   2015-03-20  282  	if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  283  		return ret;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  284  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  285  	if (enabled) {
-fae507afbdf3384 Georgi Djakov   2015-03-20  286  		ret = regmap_read(rcg->clkr.regmap, rcg->bank_reg, &reg);
-fae507afbdf3384 Georgi Djakov   2015-03-20  287  		if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  288  			return ret;
-229fd4a505553c3 Stephen Boyd    2014-04-28  289  		reg ^= BIT(rcg->mux_sel_bit);
-fae507afbdf3384 Georgi Djakov   2015-03-20  290  		ret = regmap_write(rcg->clkr.regmap, rcg->bank_reg, reg);
-fae507afbdf3384 Georgi Djakov   2015-03-20  291  		if (ret)
-fae507afbdf3384 Georgi Djakov   2015-03-20  292  			return ret;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  293  	}
-fae507afbdf3384 Georgi Djakov   2015-03-20  294  	return 0;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  295  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  296  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  297  static int clk_dyn_rcg_set_parent(struct clk_hw *hw, u8 index)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  298  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  299  	struct clk_dyn_rcg *rcg = to_clk_dyn_rcg(hw);
-229fd4a505553c3 Stephen Boyd    2014-04-28  300  	u32 ns, md, reg;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  301  	int bank;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  302  	struct freq_tbl f = { 0 };
-bcd61c0f535a04a Stephen Boyd    2014-01-15  303  	bool banked_mn = !!rcg->mn[1].width;
-229fd4a505553c3 Stephen Boyd    2014-04-28  304  	bool banked_p = !!rcg->p[1].pre_div_width;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  305  
-229fd4a505553c3 Stephen Boyd    2014-04-28  306  	regmap_read(rcg->clkr.regmap, rcg->bank_reg, &reg);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  307  	bank = reg_to_bank(rcg, reg);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  308  
-229fd4a505553c3 Stephen Boyd    2014-04-28  309  	regmap_read(rcg->clkr.regmap, rcg->ns_reg[bank], &ns);
-229fd4a505553c3 Stephen Boyd    2014-04-28  310  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  311  	if (banked_mn) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  312  		regmap_read(rcg->clkr.regmap, rcg->md_reg[bank], &md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  313  		f.m = md_to_m(&rcg->mn[bank], md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  314  		f.n = ns_m_to_n(&rcg->mn[bank], ns, f.m);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  315  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  316  
-229fd4a505553c3 Stephen Boyd    2014-04-28  317  	if (banked_p)
-229fd4a505553c3 Stephen Boyd    2014-04-28  318  		f.pre_div = ns_to_pre_div(&rcg->p[bank], ns) + 1;
-229fd4a505553c3 Stephen Boyd    2014-04-28  319  
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  320  	f.src = qcom_find_src_index(hw, rcg->s[bank].parent_map, index);
-fae507afbdf3384 Georgi Djakov   2015-03-20  321  	return configure_bank(rcg, &f);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  322  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  323  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  324  /*
-bcd61c0f535a04a Stephen Boyd    2014-01-15  325   * Calculate m/n:d rate
-bcd61c0f535a04a Stephen Boyd    2014-01-15  326   *
-bcd61c0f535a04a Stephen Boyd    2014-01-15  327   *          parent_rate     m
-bcd61c0f535a04a Stephen Boyd    2014-01-15  328   *   rate = ----------- x  ---
-bcd61c0f535a04a Stephen Boyd    2014-01-15  329   *            pre_div       n
-bcd61c0f535a04a Stephen Boyd    2014-01-15  330   */
-bcd61c0f535a04a Stephen Boyd    2014-01-15  331  static unsigned long
-bcd61c0f535a04a Stephen Boyd    2014-01-15  332  calc_rate(unsigned long rate, u32 m, u32 n, u32 mode, u32 pre_div)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  333  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  334  	if (pre_div)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  335  		rate /= pre_div + 1;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  336  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  337  	if (mode) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  338  		u64 tmp = rate;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  339  		tmp *= m;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  340  		do_div(tmp, n);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  341  		rate = tmp;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  342  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  343  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  344  	return rate;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  345  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  346  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  347  static unsigned long
-bcd61c0f535a04a Stephen Boyd    2014-01-15  348  clk_rcg_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  349  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  350  	struct clk_rcg *rcg = to_clk_rcg(hw);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  351  	u32 pre_div, m = 0, n = 0, ns, md, mode = 0;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  352  	struct mn *mn = &rcg->mn;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  353  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  354  	regmap_read(rcg->clkr.regmap, rcg->ns_reg, &ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  355  	pre_div = ns_to_pre_div(&rcg->p, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  356  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  357  	if (rcg->mn.width) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  358  		regmap_read(rcg->clkr.regmap, rcg->md_reg, &md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  359  		m = md_to_m(mn, md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  360  		n = ns_m_to_n(mn, ns, m);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  361  		/* MN counter mode is in hw.enable_reg sometimes */
-bcd61c0f535a04a Stephen Boyd    2014-01-15  362  		if (rcg->clkr.enable_reg != rcg->ns_reg)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  363  			regmap_read(rcg->clkr.regmap, rcg->clkr.enable_reg, &mode);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  364  		else
-bcd61c0f535a04a Stephen Boyd    2014-01-15  365  			mode = ns;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  366  		mode = reg_to_mnctr_mode(mn, mode);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  367  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  368  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  369  	return calc_rate(parent_rate, m, n, mode, pre_div);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  370  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  371  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  372  static unsigned long
-bcd61c0f535a04a Stephen Boyd    2014-01-15  373  clk_dyn_rcg_recalc_rate(struct clk_hw *hw, unsigned long parent_rate)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  374  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  375  	struct clk_dyn_rcg *rcg = to_clk_dyn_rcg(hw);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  376  	u32 m, n, pre_div, ns, md, mode, reg;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  377  	int bank;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  378  	struct mn *mn;
-229fd4a505553c3 Stephen Boyd    2014-04-28  379  	bool banked_p = !!rcg->p[1].pre_div_width;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  380  	bool banked_mn = !!rcg->mn[1].width;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  381  
-229fd4a505553c3 Stephen Boyd    2014-04-28  382  	regmap_read(rcg->clkr.regmap, rcg->bank_reg, &reg);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  383  	bank = reg_to_bank(rcg, reg);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  384  
-229fd4a505553c3 Stephen Boyd    2014-04-28  385  	regmap_read(rcg->clkr.regmap, rcg->ns_reg[bank], &ns);
-229fd4a505553c3 Stephen Boyd    2014-04-28  386  	m = n = pre_div = mode = 0;
-229fd4a505553c3 Stephen Boyd    2014-04-28  387  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  388  	if (banked_mn) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  389  		mn = &rcg->mn[bank];
-bcd61c0f535a04a Stephen Boyd    2014-01-15  390  		regmap_read(rcg->clkr.regmap, rcg->md_reg[bank], &md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  391  		m = md_to_m(mn, md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  392  		n = ns_m_to_n(mn, ns, m);
-229fd4a505553c3 Stephen Boyd    2014-04-28  393  		/* Two NS registers means mode control is in NS register */
-229fd4a505553c3 Stephen Boyd    2014-04-28  394  		if (rcg->ns_reg[0] != rcg->ns_reg[1])
-229fd4a505553c3 Stephen Boyd    2014-04-28  395  			reg = ns;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  396  		mode = reg_to_mnctr_mode(mn, reg);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  397  	}
-229fd4a505553c3 Stephen Boyd    2014-04-28  398  
-229fd4a505553c3 Stephen Boyd    2014-04-28  399  	if (banked_p)
-229fd4a505553c3 Stephen Boyd    2014-04-28  400  		pre_div = ns_to_pre_div(&rcg->p[bank], ns);
-229fd4a505553c3 Stephen Boyd    2014-04-28  401  
-229fd4a505553c3 Stephen Boyd    2014-04-28  402  	return calc_rate(parent_rate, m, n, mode, pre_div);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  403  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  404  
-0817b62cc037a56 Boris Brezillon 2015-07-07  405  static int _freq_tbl_determine_rate(struct clk_hw *hw, const struct freq_tbl *f,
-0817b62cc037a56 Boris Brezillon 2015-07-07  406  		struct clk_rate_request *req,
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  407  		const struct parent_map *parent_map)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  408  {
-0817b62cc037a56 Boris Brezillon 2015-07-07  409  	unsigned long clk_flags, rate = req->rate;
-ac269395cdd80b9 Stephen Boyd    2015-07-30  410  	struct clk_hw *p;
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  411  	int index;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  412  
-50c6a50344c58f7 Stephen Boyd    2014-09-04  413  	f = qcom_find_freq(f, rate);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  414  	if (!f)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  415  		return -EINVAL;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  416  
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  417  	index = qcom_find_src_index(hw, parent_map, f->src);
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  418  	if (index < 0)
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  419  		return index;
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  420  
-98d8a60eccee741 Stephen Boyd    2015-06-29  421  	clk_flags = clk_hw_get_flags(hw);
-ac269395cdd80b9 Stephen Boyd    2015-07-30  422  	p = clk_hw_get_parent_by_index(hw, index);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  423  	if (clk_flags & CLK_SET_RATE_PARENT) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  424  		rate = rate * f->pre_div;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  425  		if (f->n) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  426  			u64 tmp = rate;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  427  			tmp = tmp * f->n;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  428  			do_div(tmp, f->m);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  429  			rate = tmp;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  430  		}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  431  	} else {
-ac269395cdd80b9 Stephen Boyd    2015-07-30  432  		rate =  clk_hw_get_rate(p);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  433  	}
-ac269395cdd80b9 Stephen Boyd    2015-07-30  434  	req->best_parent_hw = p;
-0817b62cc037a56 Boris Brezillon 2015-07-07  435  	req->best_parent_rate = rate;
-0817b62cc037a56 Boris Brezillon 2015-07-07  436  	req->rate = f->freq;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  437  
-0817b62cc037a56 Boris Brezillon 2015-07-07  438  	return 0;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  439  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  440  
-0817b62cc037a56 Boris Brezillon 2015-07-07  441  static int clk_rcg_determine_rate(struct clk_hw *hw,
-0817b62cc037a56 Boris Brezillon 2015-07-07  442  				  struct clk_rate_request *req)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  443  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  444  	struct clk_rcg *rcg = to_clk_rcg(hw);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  445  
-0817b62cc037a56 Boris Brezillon 2015-07-07  446  	return _freq_tbl_determine_rate(hw, rcg->freq_tbl, req,
-0817b62cc037a56 Boris Brezillon 2015-07-07  447  					rcg->s.parent_map);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  448  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  449  
-0817b62cc037a56 Boris Brezillon 2015-07-07  450  static int clk_dyn_rcg_determine_rate(struct clk_hw *hw,
-0817b62cc037a56 Boris Brezillon 2015-07-07  451  				      struct clk_rate_request *req)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  452  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  453  	struct clk_dyn_rcg *rcg = to_clk_dyn_rcg(hw);
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  454  	u32 reg;
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  455  	int bank;
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  456  	struct src_sel *s;
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  457  
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  458  	regmap_read(rcg->clkr.regmap, rcg->bank_reg, &reg);
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  459  	bank = reg_to_bank(rcg, reg);
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  460  	s = &rcg->s[bank];
-bcd61c0f535a04a Stephen Boyd    2014-01-15  461  
-0817b62cc037a56 Boris Brezillon 2015-07-07  462  	return _freq_tbl_determine_rate(hw, rcg->freq_tbl, req, s->parent_map);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  463  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  464  
-0817b62cc037a56 Boris Brezillon 2015-07-07  465  static int clk_rcg_bypass_determine_rate(struct clk_hw *hw,
-0817b62cc037a56 Boris Brezillon 2015-07-07  466  					 struct clk_rate_request *req)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  467  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  468  	struct clk_rcg *rcg = to_clk_rcg(hw);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  469  	const struct freq_tbl *f = rcg->freq_tbl;
-ac269395cdd80b9 Stephen Boyd    2015-07-30  470  	struct clk_hw *p;
-2f272e7b015c6d0 Georgi Djakov   2015-04-07  471  	int index = qcom_find_src_index(hw, rcg->s.parent_map, f->src);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  472  
-ac269395cdd80b9 Stephen Boyd    2015-07-30  473  	req->best_parent_hw = p = clk_hw_get_parent_by_index(hw, index);
-ac269395cdd80b9 Stephen Boyd    2015-07-30  474  	req->best_parent_rate = clk_hw_round_rate(p, req->rate);
-0817b62cc037a56 Boris Brezillon 2015-07-07  475  	req->rate = req->best_parent_rate;
-404c1ff67d241e8 Stephen Boyd    2014-07-11  476  
-0817b62cc037a56 Boris Brezillon 2015-07-07  477  	return 0;
-404c1ff67d241e8 Stephen Boyd    2014-07-11  478  }
-404c1ff67d241e8 Stephen Boyd    2014-07-11  479  
-404c1ff67d241e8 Stephen Boyd    2014-07-11  480  static int __clk_rcg_set_rate(struct clk_rcg *rcg, const struct freq_tbl *f)
-404c1ff67d241e8 Stephen Boyd    2014-07-11  481  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  482  	u32 ns, md, ctl;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  483  	struct mn *mn = &rcg->mn;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  484  	u32 mask = 0;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  485  	unsigned int reset_reg;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  486  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  487  	if (rcg->mn.reset_in_cc)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  488  		reset_reg = rcg->clkr.enable_reg;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  489  	else
-bcd61c0f535a04a Stephen Boyd    2014-01-15  490  		reset_reg = rcg->ns_reg;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  491  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  492  	if (rcg->mn.width) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  493  		mask = BIT(mn->mnctr_reset_bit);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  494  		regmap_update_bits(rcg->clkr.regmap, reset_reg, mask, mask);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  495  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  496  		regmap_read(rcg->clkr.regmap, rcg->md_reg, &md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  497  		md = mn_to_md(mn, f->m, f->n, md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  498  		regmap_write(rcg->clkr.regmap, rcg->md_reg, md);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  499  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  500  		regmap_read(rcg->clkr.regmap, rcg->ns_reg, &ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  501  		/* MN counter mode is in hw.enable_reg sometimes */
-bcd61c0f535a04a Stephen Boyd    2014-01-15  502  		if (rcg->clkr.enable_reg != rcg->ns_reg) {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  503  			regmap_read(rcg->clkr.regmap, rcg->clkr.enable_reg, &ctl);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  504  			ctl = mn_to_reg(mn, f->m, f->n, ctl);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  505  			regmap_write(rcg->clkr.regmap, rcg->clkr.enable_reg, ctl);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  506  		} else {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  507  			ns = mn_to_reg(mn, f->m, f->n, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  508  		}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  509  		ns = mn_to_ns(mn, f->m, f->n, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  510  	} else {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  511  		regmap_read(rcg->clkr.regmap, rcg->ns_reg, &ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  512  	}
-bcd61c0f535a04a Stephen Boyd    2014-01-15  513  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  514  	ns = pre_div_to_ns(&rcg->p, f->pre_div - 1, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  515  	regmap_write(rcg->clkr.regmap, rcg->ns_reg, ns);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  516  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  517  	regmap_update_bits(rcg->clkr.regmap, reset_reg, mask, 0);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  518  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  519  	return 0;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  520  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  521  
-404c1ff67d241e8 Stephen Boyd    2014-07-11  522  static int clk_rcg_set_rate(struct clk_hw *hw, unsigned long rate,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  523  			    unsigned long parent_rate)
-404c1ff67d241e8 Stephen Boyd    2014-07-11  524  {
-404c1ff67d241e8 Stephen Boyd    2014-07-11  525  	struct clk_rcg *rcg = to_clk_rcg(hw);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  526  	const struct freq_tbl *f;
-404c1ff67d241e8 Stephen Boyd    2014-07-11  527  
-50c6a50344c58f7 Stephen Boyd    2014-09-04  528  	f = qcom_find_freq(rcg->freq_tbl, rate);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  529  	if (!f)
-404c1ff67d241e8 Stephen Boyd    2014-07-11  530  		return -EINVAL;
-404c1ff67d241e8 Stephen Boyd    2014-07-11  531  
-404c1ff67d241e8 Stephen Boyd    2014-07-11  532  	return __clk_rcg_set_rate(rcg, f);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  533  }
-404c1ff67d241e8 Stephen Boyd    2014-07-11  534  
-404c1ff67d241e8 Stephen Boyd    2014-07-11  535  static int clk_rcg_bypass_set_rate(struct clk_hw *hw, unsigned long rate,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  536  				unsigned long parent_rate)
-404c1ff67d241e8 Stephen Boyd    2014-07-11  537  {
-404c1ff67d241e8 Stephen Boyd    2014-07-11  538  	struct clk_rcg *rcg = to_clk_rcg(hw);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  539  
-404c1ff67d241e8 Stephen Boyd    2014-07-11  540  	return __clk_rcg_set_rate(rcg, rcg->freq_tbl);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  541  }
-404c1ff67d241e8 Stephen Boyd    2014-07-11  542  
-d8aa2beed870f08 Archit Taneja   2015-10-14  543  static int clk_rcg_bypass2_determine_rate(struct clk_hw *hw,
-d8aa2beed870f08 Archit Taneja   2015-10-14  544  				struct clk_rate_request *req)
-d8aa2beed870f08 Archit Taneja   2015-10-14  545  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  546  	struct clk_hw *p;
-d8aa2beed870f08 Archit Taneja   2015-10-14  547  
-d8aa2beed870f08 Archit Taneja   2015-10-14  548  	p = req->best_parent_hw;
-d8aa2beed870f08 Archit Taneja   2015-10-14  549  	req->best_parent_rate = clk_hw_round_rate(p, req->rate);
-d8aa2beed870f08 Archit Taneja   2015-10-14  550  	req->rate = req->best_parent_rate;
-d8aa2beed870f08 Archit Taneja   2015-10-14  551  
-d8aa2beed870f08 Archit Taneja   2015-10-14  552  	return 0;
-d8aa2beed870f08 Archit Taneja   2015-10-14  553  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  554  
-d8aa2beed870f08 Archit Taneja   2015-10-14  555  static int clk_rcg_bypass2_set_rate(struct clk_hw *hw, unsigned long rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  556  				unsigned long parent_rate)
-d8aa2beed870f08 Archit Taneja   2015-10-14  557  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  558  	struct clk_rcg *rcg = to_clk_rcg(hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  559  	struct freq_tbl f = { 0 };
-d8aa2beed870f08 Archit Taneja   2015-10-14  560  	u32 ns, src;
-d8aa2beed870f08 Archit Taneja   2015-10-14  561  	int i, ret, num_parents = clk_hw_get_num_parents(hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  562  
-d8aa2beed870f08 Archit Taneja   2015-10-14  563  	ret = regmap_read(rcg->clkr.regmap, rcg->ns_reg, &ns);
-d8aa2beed870f08 Archit Taneja   2015-10-14  564  	if (ret)
-d8aa2beed870f08 Archit Taneja   2015-10-14  565  		return ret;
-d8aa2beed870f08 Archit Taneja   2015-10-14  566  
-d8aa2beed870f08 Archit Taneja   2015-10-14  567  	src = ns_to_src(&rcg->s, ns);
-d8aa2beed870f08 Archit Taneja   2015-10-14  568  	f.pre_div = ns_to_pre_div(&rcg->p, ns) + 1;
-d8aa2beed870f08 Archit Taneja   2015-10-14  569  
-d8aa2beed870f08 Archit Taneja   2015-10-14  570  	for (i = 0; i < num_parents; i++) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  571  		if (src == rcg->s.parent_map[i].cfg) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  572  			f.src = rcg->s.parent_map[i].src;
-d8aa2beed870f08 Archit Taneja   2015-10-14  573  			return __clk_rcg_set_rate(rcg, &f);
-d8aa2beed870f08 Archit Taneja   2015-10-14  574  		}
-d8aa2beed870f08 Archit Taneja   2015-10-14  575  	}
-d8aa2beed870f08 Archit Taneja   2015-10-14  576  
-d8aa2beed870f08 Archit Taneja   2015-10-14  577  	return -EINVAL;
-d8aa2beed870f08 Archit Taneja   2015-10-14  578  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  579  
-d8aa2beed870f08 Archit Taneja   2015-10-14  580  static int clk_rcg_bypass2_set_rate_and_parent(struct clk_hw *hw,
-d8aa2beed870f08 Archit Taneja   2015-10-14  581  		unsigned long rate, unsigned long parent_rate, u8 index)
-d8aa2beed870f08 Archit Taneja   2015-10-14  582  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  583  	/* Read the hardware to determine parent during set_rate */
-d8aa2beed870f08 Archit Taneja   2015-10-14  584  	return clk_rcg_bypass2_set_rate(hw, rate, parent_rate);
-d8aa2beed870f08 Archit Taneja   2015-10-14  585  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  586  
-d8aa2beed870f08 Archit Taneja   2015-10-14  587  struct frac_entry {
-d8aa2beed870f08 Archit Taneja   2015-10-14  588  	int num;
-d8aa2beed870f08 Archit Taneja   2015-10-14  589  	int den;
-d8aa2beed870f08 Archit Taneja   2015-10-14  590  };
-d8aa2beed870f08 Archit Taneja   2015-10-14  591  
-d8aa2beed870f08 Archit Taneja   2015-10-14  592  static const struct frac_entry pixel_table[] = {
-d8aa2beed870f08 Archit Taneja   2015-10-14  593  	{ 1, 2 },
-d8aa2beed870f08 Archit Taneja   2015-10-14  594  	{ 1, 3 },
-d8aa2beed870f08 Archit Taneja   2015-10-14  595  	{ 3, 16 },
-d8aa2beed870f08 Archit Taneja   2015-10-14  596  	{ }
-d8aa2beed870f08 Archit Taneja   2015-10-14  597  };
-d8aa2beed870f08 Archit Taneja   2015-10-14  598  
-d8aa2beed870f08 Archit Taneja   2015-10-14  599  static int clk_rcg_pixel_determine_rate(struct clk_hw *hw,
-d8aa2beed870f08 Archit Taneja   2015-10-14  600  		struct clk_rate_request *req)
-d8aa2beed870f08 Archit Taneja   2015-10-14  601  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  602  	int delta = 100000;
-d8aa2beed870f08 Archit Taneja   2015-10-14  603  	const struct frac_entry *frac = pixel_table;
-d8aa2beed870f08 Archit Taneja   2015-10-14  604  	unsigned long request, src_rate;
-d8aa2beed870f08 Archit Taneja   2015-10-14  605  
-d8aa2beed870f08 Archit Taneja   2015-10-14  606  	for (; frac->num; frac++) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  607  		request = (req->rate * frac->den) / frac->num;
-d8aa2beed870f08 Archit Taneja   2015-10-14  608  
-d8aa2beed870f08 Archit Taneja   2015-10-14  609  		src_rate = clk_hw_round_rate(req->best_parent_hw, request);
-d8aa2beed870f08 Archit Taneja   2015-10-14  610  
-d8aa2beed870f08 Archit Taneja   2015-10-14  611  		if ((src_rate < (request - delta)) ||
-d8aa2beed870f08 Archit Taneja   2015-10-14  612  			(src_rate > (request + delta)))
-d8aa2beed870f08 Archit Taneja   2015-10-14  613  			continue;
-d8aa2beed870f08 Archit Taneja   2015-10-14  614  
-d8aa2beed870f08 Archit Taneja   2015-10-14  615  		req->best_parent_rate = src_rate;
-d8aa2beed870f08 Archit Taneja   2015-10-14  616  		req->rate = (src_rate * frac->num) / frac->den;
-d8aa2beed870f08 Archit Taneja   2015-10-14  617  		return 0;
-d8aa2beed870f08 Archit Taneja   2015-10-14  618  	}
-d8aa2beed870f08 Archit Taneja   2015-10-14  619  
-d8aa2beed870f08 Archit Taneja   2015-10-14  620  	return -EINVAL;
-d8aa2beed870f08 Archit Taneja   2015-10-14  621  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  622  
-d8aa2beed870f08 Archit Taneja   2015-10-14  623  static int clk_rcg_pixel_set_rate(struct clk_hw *hw, unsigned long rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  624  				unsigned long parent_rate)
-d8aa2beed870f08 Archit Taneja   2015-10-14  625  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  626  	struct clk_rcg *rcg = to_clk_rcg(hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  627  	int delta = 100000;
-d8aa2beed870f08 Archit Taneja   2015-10-14  628  	const struct frac_entry *frac = pixel_table;
-d8aa2beed870f08 Archit Taneja   2015-10-14  629  	unsigned long request;
-d8aa2beed870f08 Archit Taneja   2015-10-14  630  	struct freq_tbl f = { 0 };
-d8aa2beed870f08 Archit Taneja   2015-10-14  631  	u32 ns, src;
-d8aa2beed870f08 Archit Taneja   2015-10-14  632  	int i, ret, num_parents = clk_hw_get_num_parents(hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  633  
-d8aa2beed870f08 Archit Taneja   2015-10-14  634  	ret = regmap_read(rcg->clkr.regmap, rcg->ns_reg, &ns);
-d8aa2beed870f08 Archit Taneja   2015-10-14  635  	if (ret)
-d8aa2beed870f08 Archit Taneja   2015-10-14  636  		return ret;
-d8aa2beed870f08 Archit Taneja   2015-10-14  637  
-d8aa2beed870f08 Archit Taneja   2015-10-14  638  	src = ns_to_src(&rcg->s, ns);
-d8aa2beed870f08 Archit Taneja   2015-10-14  639  
-d8aa2beed870f08 Archit Taneja   2015-10-14  640  	for (i = 0; i < num_parents; i++) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  641  		if (src == rcg->s.parent_map[i].cfg) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  642  			f.src = rcg->s.parent_map[i].src;
-d8aa2beed870f08 Archit Taneja   2015-10-14  643  			break;
-d8aa2beed870f08 Archit Taneja   2015-10-14  644  		}
-d8aa2beed870f08 Archit Taneja   2015-10-14  645  	}
-d8aa2beed870f08 Archit Taneja   2015-10-14  646  
-811a498e5e9ab80 Archit Taneja   2016-02-28  647  	/* bypass the pre divider */
-811a498e5e9ab80 Archit Taneja   2016-02-28  648  	f.pre_div = 1;
-811a498e5e9ab80 Archit Taneja   2016-02-28  649  
-d8aa2beed870f08 Archit Taneja   2015-10-14  650  	/* let us find appropriate m/n values for this */
-d8aa2beed870f08 Archit Taneja   2015-10-14  651  	for (; frac->num; frac++) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  652  		request = (rate * frac->den) / frac->num;
-d8aa2beed870f08 Archit Taneja   2015-10-14  653  
-d8aa2beed870f08 Archit Taneja   2015-10-14  654  		if ((parent_rate < (request - delta)) ||
-d8aa2beed870f08 Archit Taneja   2015-10-14  655  			(parent_rate > (request + delta)))
-d8aa2beed870f08 Archit Taneja   2015-10-14  656  			continue;
-d8aa2beed870f08 Archit Taneja   2015-10-14  657  
-d8aa2beed870f08 Archit Taneja   2015-10-14  658  		f.m = frac->num;
-d8aa2beed870f08 Archit Taneja   2015-10-14  659  		f.n = frac->den;
-d8aa2beed870f08 Archit Taneja   2015-10-14  660  
-d8aa2beed870f08 Archit Taneja   2015-10-14  661  		return __clk_rcg_set_rate(rcg, &f);
-d8aa2beed870f08 Archit Taneja   2015-10-14  662  	}
-d8aa2beed870f08 Archit Taneja   2015-10-14  663  
-d8aa2beed870f08 Archit Taneja   2015-10-14  664  	return -EINVAL;
-d8aa2beed870f08 Archit Taneja   2015-10-14  665  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  666  
-d8aa2beed870f08 Archit Taneja   2015-10-14  667  static int clk_rcg_pixel_set_rate_and_parent(struct clk_hw *hw,
-d8aa2beed870f08 Archit Taneja   2015-10-14  668  		unsigned long rate, unsigned long parent_rate, u8 index)
-d8aa2beed870f08 Archit Taneja   2015-10-14  669  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  670  	return clk_rcg_pixel_set_rate(hw, rate, parent_rate);
-d8aa2beed870f08 Archit Taneja   2015-10-14  671  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  672  
-d8aa2beed870f08 Archit Taneja   2015-10-14  673  static int clk_rcg_esc_determine_rate(struct clk_hw *hw,
-d8aa2beed870f08 Archit Taneja   2015-10-14  674  		struct clk_rate_request *req)
-d8aa2beed870f08 Archit Taneja   2015-10-14  675  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  676  	struct clk_rcg *rcg = to_clk_rcg(hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  677  	int pre_div_max = BIT(rcg->p.pre_div_width);
-d8aa2beed870f08 Archit Taneja   2015-10-14  678  	int div;
-d8aa2beed870f08 Archit Taneja   2015-10-14  679  	unsigned long src_rate;
-d8aa2beed870f08 Archit Taneja   2015-10-14  680  
-d8aa2beed870f08 Archit Taneja   2015-10-14  681  	if (req->rate == 0)
-d8aa2beed870f08 Archit Taneja   2015-10-14  682  		return -EINVAL;
-d8aa2beed870f08 Archit Taneja   2015-10-14  683  
-d8aa2beed870f08 Archit Taneja   2015-10-14  684  	src_rate = clk_hw_get_rate(req->best_parent_hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  685  
-d8aa2beed870f08 Archit Taneja   2015-10-14  686  	div = src_rate / req->rate;
-d8aa2beed870f08 Archit Taneja   2015-10-14  687  
-d8aa2beed870f08 Archit Taneja   2015-10-14  688  	if (div >= 1 && div <= pre_div_max) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  689  		req->best_parent_rate = src_rate;
-d8aa2beed870f08 Archit Taneja   2015-10-14  690  		req->rate = src_rate / div;
-d8aa2beed870f08 Archit Taneja   2015-10-14  691  		return 0;
-d8aa2beed870f08 Archit Taneja   2015-10-14  692  	}
-d8aa2beed870f08 Archit Taneja   2015-10-14  693  
-d8aa2beed870f08 Archit Taneja   2015-10-14  694  	return -EINVAL;
-d8aa2beed870f08 Archit Taneja   2015-10-14  695  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  696  
-d8aa2beed870f08 Archit Taneja   2015-10-14  697  static int clk_rcg_esc_set_rate(struct clk_hw *hw, unsigned long rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  698  				unsigned long parent_rate)
-d8aa2beed870f08 Archit Taneja   2015-10-14  699  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  700  	struct clk_rcg *rcg = to_clk_rcg(hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  701  	struct freq_tbl f = { 0 };
-d8aa2beed870f08 Archit Taneja   2015-10-14  702  	int pre_div_max = BIT(rcg->p.pre_div_width);
-d8aa2beed870f08 Archit Taneja   2015-10-14  703  	int div;
-d8aa2beed870f08 Archit Taneja   2015-10-14  704  	u32 ns;
-d8aa2beed870f08 Archit Taneja   2015-10-14  705  	int i, ret, num_parents = clk_hw_get_num_parents(hw);
-d8aa2beed870f08 Archit Taneja   2015-10-14  706  
-d8aa2beed870f08 Archit Taneja   2015-10-14  707  	if (rate == 0)
-d8aa2beed870f08 Archit Taneja   2015-10-14  708  		return -EINVAL;
-d8aa2beed870f08 Archit Taneja   2015-10-14  709  
-d8aa2beed870f08 Archit Taneja   2015-10-14  710  	ret = regmap_read(rcg->clkr.regmap, rcg->ns_reg, &ns);
-d8aa2beed870f08 Archit Taneja   2015-10-14  711  	if (ret)
-d8aa2beed870f08 Archit Taneja   2015-10-14  712  		return ret;
-d8aa2beed870f08 Archit Taneja   2015-10-14  713  
-d8aa2beed870f08 Archit Taneja   2015-10-14  714  	ns = ns_to_src(&rcg->s, ns);
-d8aa2beed870f08 Archit Taneja   2015-10-14  715  
-d8aa2beed870f08 Archit Taneja   2015-10-14  716  	for (i = 0; i < num_parents; i++) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  717  		if (ns == rcg->s.parent_map[i].cfg) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  718  			f.src = rcg->s.parent_map[i].src;
-d8aa2beed870f08 Archit Taneja   2015-10-14  719  			break;
-d8aa2beed870f08 Archit Taneja   2015-10-14  720  		}
-d8aa2beed870f08 Archit Taneja   2015-10-14  721  	}
-d8aa2beed870f08 Archit Taneja   2015-10-14  722  
-d8aa2beed870f08 Archit Taneja   2015-10-14  723  	div = parent_rate / rate;
-d8aa2beed870f08 Archit Taneja   2015-10-14  724  
-d8aa2beed870f08 Archit Taneja   2015-10-14  725  	if (div >= 1 && div <= pre_div_max) {
-d8aa2beed870f08 Archit Taneja   2015-10-14  726  		f.pre_div = div;
-d8aa2beed870f08 Archit Taneja   2015-10-14  727  		return __clk_rcg_set_rate(rcg, &f);
-d8aa2beed870f08 Archit Taneja   2015-10-14  728  	}
-d8aa2beed870f08 Archit Taneja   2015-10-14  729  
-d8aa2beed870f08 Archit Taneja   2015-10-14  730  	return -EINVAL;
-d8aa2beed870f08 Archit Taneja   2015-10-14  731  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  732  
-d8aa2beed870f08 Archit Taneja   2015-10-14  733  static int clk_rcg_esc_set_rate_and_parent(struct clk_hw *hw,
-d8aa2beed870f08 Archit Taneja   2015-10-14  734  		unsigned long rate, unsigned long parent_rate, u8 index)
-d8aa2beed870f08 Archit Taneja   2015-10-14  735  {
-d8aa2beed870f08 Archit Taneja   2015-10-14  736  	return clk_rcg_esc_set_rate(hw, rate, parent_rate);
-d8aa2beed870f08 Archit Taneja   2015-10-14  737  }
-d8aa2beed870f08 Archit Taneja   2015-10-14  738  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  739  /*
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  740   * This type of clock has a glitch-free mux that switches between the output of
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  741   * the M/N counter and an always on clock source (XO). When clk_set_rate() is
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  742   * called we need to make sure that we don't switch to the M/N counter if it
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  743   * isn't clocking because the mux will get stuck and the clock will stop
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  744   * outputting a clock. This can happen if the framework isn't aware that this
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  745   * clock is on and so clk_set_rate() doesn't turn on the new parent. To fix
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  746   * this we switch the mux in the enable/disable ops and reprogram the M/N
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  747   * counter in the set_rate op. We also make sure to switch away from the M/N
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  748   * counter in set_rate if software thinks the clock is off.
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  749   */
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  750  static int clk_rcg_lcc_set_rate(struct clk_hw *hw, unsigned long rate,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  751  				unsigned long parent_rate)
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  752  {
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  753  	struct clk_rcg *rcg = to_clk_rcg(hw);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  754  	const struct freq_tbl *f;
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  755  	int ret;
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  756  	u32 gfm = BIT(10);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  757  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  758  	f = qcom_find_freq(rcg->freq_tbl, rate);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  759  	if (!f)
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  760  		return -EINVAL;
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  761  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  762  	/* Switch to XO to avoid glitches */
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  763  	regmap_update_bits(rcg->clkr.regmap, rcg->ns_reg, gfm, 0);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  764  	ret = __clk_rcg_set_rate(rcg, f);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  765  	/* Switch back to M/N if it's clocking */
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  766  	if (__clk_is_enabled(hw->clk))
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  767  		regmap_update_bits(rcg->clkr.regmap, rcg->ns_reg, gfm, gfm);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  768  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  769  	return ret;
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  770  }
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  771  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  772  static int clk_rcg_lcc_enable(struct clk_hw *hw)
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  773  {
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  774  	struct clk_rcg *rcg = to_clk_rcg(hw);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  775  	u32 gfm = BIT(10);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  776  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  777  	/* Use M/N */
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  778  	return regmap_update_bits(rcg->clkr.regmap, rcg->ns_reg, gfm, gfm);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  779  }
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  780  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  781  static void clk_rcg_lcc_disable(struct clk_hw *hw)
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  782  {
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  783  	struct clk_rcg *rcg = to_clk_rcg(hw);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  784  	u32 gfm = BIT(10);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  785  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  786  	/* Use XO */
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  787  	regmap_update_bits(rcg->clkr.regmap, rcg->ns_reg, gfm, 0);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  788  }
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  789  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  790  static int __clk_dyn_rcg_set_rate(struct clk_hw *hw, unsigned long rate)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  791  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  792  	struct clk_dyn_rcg *rcg = to_clk_dyn_rcg(hw);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  793  	const struct freq_tbl *f;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  794  
-50c6a50344c58f7 Stephen Boyd    2014-09-04  795  	f = qcom_find_freq(rcg->freq_tbl, rate);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  796  	if (!f)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  797  		return -EINVAL;
-bcd61c0f535a04a Stephen Boyd    2014-01-15  798  
-fae507afbdf3384 Georgi Djakov   2015-03-20  799  	return configure_bank(rcg, f);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  800  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  801  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  802  static int clk_dyn_rcg_set_rate(struct clk_hw *hw, unsigned long rate,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  803  			    unsigned long parent_rate)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  804  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  805  	return __clk_dyn_rcg_set_rate(hw, rate);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  806  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  807  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  808  static int clk_dyn_rcg_set_rate_and_parent(struct clk_hw *hw,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  809  		unsigned long rate, unsigned long parent_rate, u8 index)
-bcd61c0f535a04a Stephen Boyd    2014-01-15  810  {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  811  	return __clk_dyn_rcg_set_rate(hw, rate);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  812  }
-bcd61c0f535a04a Stephen Boyd    2014-01-15  813  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  814  const struct clk_ops clk_rcg_ops = {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  815  	.enable = clk_enable_regmap,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  816  	.disable = clk_disable_regmap,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  817  	.get_parent = clk_rcg_get_parent,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  818  	.set_parent = clk_rcg_set_parent,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  819  	.recalc_rate = clk_rcg_recalc_rate,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  820  	.determine_rate = clk_rcg_determine_rate,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  821  	.set_rate = clk_rcg_set_rate,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  822  };
-bcd61c0f535a04a Stephen Boyd    2014-01-15  823  EXPORT_SYMBOL_GPL(clk_rcg_ops);
-bcd61c0f535a04a Stephen Boyd    2014-01-15  824  
-404c1ff67d241e8 Stephen Boyd    2014-07-11  825  const struct clk_ops clk_rcg_bypass_ops = {
-404c1ff67d241e8 Stephen Boyd    2014-07-11  826  	.enable = clk_enable_regmap,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  827  	.disable = clk_disable_regmap,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  828  	.get_parent = clk_rcg_get_parent,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  829  	.set_parent = clk_rcg_set_parent,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  830  	.recalc_rate = clk_rcg_recalc_rate,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  831  	.determine_rate = clk_rcg_bypass_determine_rate,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  832  	.set_rate = clk_rcg_bypass_set_rate,
-404c1ff67d241e8 Stephen Boyd    2014-07-11  833  };
-404c1ff67d241e8 Stephen Boyd    2014-07-11  834  EXPORT_SYMBOL_GPL(clk_rcg_bypass_ops);
-404c1ff67d241e8 Stephen Boyd    2014-07-11  835  
-d8aa2beed870f08 Archit Taneja   2015-10-14  836  const struct clk_ops clk_rcg_bypass2_ops = {
-d8aa2beed870f08 Archit Taneja   2015-10-14  837  	.enable = clk_enable_regmap,
-d8aa2beed870f08 Archit Taneja   2015-10-14  838  	.disable = clk_disable_regmap,
-d8aa2beed870f08 Archit Taneja   2015-10-14  839  	.get_parent = clk_rcg_get_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  840  	.set_parent = clk_rcg_set_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  841  	.recalc_rate = clk_rcg_recalc_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  842  	.determine_rate = clk_rcg_bypass2_determine_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  843  	.set_rate = clk_rcg_bypass2_set_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  844  	.set_rate_and_parent = clk_rcg_bypass2_set_rate_and_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  845  };
-d8aa2beed870f08 Archit Taneja   2015-10-14  846  EXPORT_SYMBOL_GPL(clk_rcg_bypass2_ops);
-d8aa2beed870f08 Archit Taneja   2015-10-14  847  
-d8aa2beed870f08 Archit Taneja   2015-10-14  848  const struct clk_ops clk_rcg_pixel_ops = {
-d8aa2beed870f08 Archit Taneja   2015-10-14  849  	.enable = clk_enable_regmap,
-d8aa2beed870f08 Archit Taneja   2015-10-14  850  	.disable = clk_disable_regmap,
-d8aa2beed870f08 Archit Taneja   2015-10-14  851  	.get_parent = clk_rcg_get_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  852  	.set_parent = clk_rcg_set_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  853  	.recalc_rate = clk_rcg_recalc_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  854  	.determine_rate = clk_rcg_pixel_determine_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  855  	.set_rate = clk_rcg_pixel_set_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  856  	.set_rate_and_parent = clk_rcg_pixel_set_rate_and_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  857  };
-d8aa2beed870f08 Archit Taneja   2015-10-14  858  EXPORT_SYMBOL_GPL(clk_rcg_pixel_ops);
-d8aa2beed870f08 Archit Taneja   2015-10-14  859  
-d8aa2beed870f08 Archit Taneja   2015-10-14  860  const struct clk_ops clk_rcg_esc_ops = {
-d8aa2beed870f08 Archit Taneja   2015-10-14  861  	.enable = clk_enable_regmap,
-d8aa2beed870f08 Archit Taneja   2015-10-14  862  	.disable = clk_disable_regmap,
-d8aa2beed870f08 Archit Taneja   2015-10-14  863  	.get_parent = clk_rcg_get_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  864  	.set_parent = clk_rcg_set_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  865  	.recalc_rate = clk_rcg_recalc_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  866  	.determine_rate = clk_rcg_esc_determine_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  867  	.set_rate = clk_rcg_esc_set_rate,
-d8aa2beed870f08 Archit Taneja   2015-10-14  868  	.set_rate_and_parent = clk_rcg_esc_set_rate_and_parent,
-d8aa2beed870f08 Archit Taneja   2015-10-14  869  };
-d8aa2beed870f08 Archit Taneja   2015-10-14  870  EXPORT_SYMBOL_GPL(clk_rcg_esc_ops);
-d8aa2beed870f08 Archit Taneja   2015-10-14  871  
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  872  const struct clk_ops clk_rcg_lcc_ops = {
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  873  	.enable = clk_rcg_lcc_enable,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  874  	.disable = clk_rcg_lcc_disable,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  875  	.get_parent = clk_rcg_get_parent,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  876  	.set_parent = clk_rcg_set_parent,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  877  	.recalc_rate = clk_rcg_recalc_rate,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  878  	.determine_rate = clk_rcg_determine_rate,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  879  	.set_rate = clk_rcg_lcc_set_rate,
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  880  };
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  881  EXPORT_SYMBOL_GPL(clk_rcg_lcc_ops);
-9d3745d44a7faa7 Stephen Boyd    2015-03-06  882  
-bcd61c0f535a04a Stephen Boyd    2014-01-15  883  const struct clk_ops clk_dyn_rcg_ops = {
-bcd61c0f535a04a Stephen Boyd    2014-01-15  884  	.enable = clk_enable_regmap,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  885  	.is_enabled = clk_is_enabled_regmap,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  886  	.disable = clk_disable_regmap,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  887  	.get_parent = clk_dyn_rcg_get_parent,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  888  	.set_parent = clk_dyn_rcg_set_parent,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  889  	.recalc_rate = clk_dyn_rcg_recalc_rate,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  890  	.determine_rate = clk_dyn_rcg_determine_rate,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  891  	.set_rate = clk_dyn_rcg_set_rate,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  892  	.set_rate_and_parent = clk_dyn_rcg_set_rate_and_parent,
-bcd61c0f535a04a Stephen Boyd    2014-01-15  893  };
-bcd61c0f535a04a Stephen Boyd    2014-01-15  894  EXPORT_SYMBOL_GPL(clk_dyn_rcg_ops);
-
-:::::: The code at line 77 was first introduced by commit
-:::::: 7f218978f10693f65e35b0bbcdcd539fbe78221a clk: qcom: Fix clk_get_parent function return value
-
-:::::: TO: Georgi Djakov <georgi.djakov@linaro.org>
-:::::: CC: Stephen Boyd <sboyd@codeaurora.org>
+vim +/devm_gpiod_get +1851 drivers/mmc/host/mmci.c
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -1026,14 +183,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907282236.8BVFJxC8%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907282327.rZS3rg8r%25lkp%40intel.com.
 
---cphll2k3r7nhwlyp
+--qksdh4turw2hc4rr
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICFmsPV0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhzS0eal53s+gCQoIeJmAJRsX/gUW+54
+H4sICIi9PV0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhzS0eal53s+gCQoIeJmAJRsX/gUW+54
 4qVHljvpfz9VABcABGV/k7VVVdgKhdpQ4E8//DQib4eXp+3h4Xb7+Ph99GX3vNtvD7u70f3D
 4+7/RlE+ynI5ohGTn4A4eXh+++e37f7pdD46+TT7NP51fzsZrXb7593jKHx5vn/48gbNH16e
 f/jpB/jnJwA+fYWe9v8a3T5un7+Mvu32r4AeTcaf4O/Rz18eDv/67Tf479PDfv+y/+3x8dtT
@@ -1675,206 +832,206 @@ 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
-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
+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
 
---cphll2k3r7nhwlyp--
+--qksdh4turw2hc4rr--
