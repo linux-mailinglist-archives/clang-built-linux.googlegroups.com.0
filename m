@@ -1,132 +1,144 @@
-Return-Path: <clang-built-linux+bncBAABBJEO7TUQKGQEPXPBAYY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB75R7TUQKGQEVBDCRHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id B9EB878E58
-	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 16:48:04 +0200 (CEST)
-Received: by mail-lj1-x237.google.com with SMTP id a19sf13421508ljk.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 07:48:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564411684; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4A73E7903E
+	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 18:04:16 +0200 (CEST)
+Received: by mail-wr1-x439.google.com with SMTP id e8sf30183476wrw.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 09:04:16 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564416256; cv=pass;
         d=google.com; s=arc-20160816;
-        b=IUVKMnkZjky/CAdOLWOrlwx0xNB6qKsLNPSGSg3upQxFuSsHsdijxFEXzZ4BRuAvLf
-         kuFdICr3xfi+ckM4+dTKDUi2wAVF+eMsoI/vhZAm4a3XF8pI3xtLPzNF1MuEVSng5t1S
-         27usdj/n9uro3BrP6eDYwUMX1KwoqDxtPPJb3ytNFJOBRysTE+iBCjKTcOJcXvCpzs0p
-         FhduyhWbD4ZELUnUggfsioojHZooPWBwQZRomkCFTHs2ZWaXxiAhKcjfni1FFnJHinuq
-         TgpjW472+f4O6Ct7LnzHcEW8n/5ZU5Z6oC7Y8H3Q09wHGCIMinr4bC3QIRK7xVqwFFw+
-         G/pQ==
+        b=1EDNjKKMOl1Taab36y49/DIHvUJkkyaynArZHzy1ZosDKpYUZJ1MRAaa5A8WxnVWpJ
+         yh10PYiWjVI7+OcG0Yk3p62MzjVj9dV6NjsVw9dC/Q0YtrLd6k8l5K/xYEXAE/fJUKer
+         NwlmKyqRnMFloutfuiyxmuwYe2YX8bnGXzD6R+RCgX6TWaQCvcg8hLKS03baSXGr73In
+         Bi46fYlgr3kdqYb3gusTZKQY7Oa/NYm3TEwlTSSsHsv8jo8oy/j/KptAdcHsBfHaRiyq
+         A34tBNJv6QpjKLMciof5iB8Eq5n/2qRm/nqx20A4bAvmNv39gGfbyblFY+3qY6XBEw80
+         KjyQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=/XwJoBRS/ydbP1rotXTZKHlSMhbFc9kOgnZ7FAUZ/KU=;
-        b=Om8UYaNbk9IDMHNLkMieDSOnOhwUTzvUBgFKPI+pOaYgk+yATSZ7FQut6Lq5YA3WiD
-         I+3sABalhrF/uIUOaDOVXem4YQh+pclp8MyLYtpOA+lxN0U6Wi+QKi8cFfDSUHobAg/B
-         HEBj4GmlhyHmltCda9BWCDyfGoUH05F9TzCwLc+4UOErzLTQd/VYAFx8MYVzyns5lQw+
-         ZJZDPs12LF0DVrOdoRVs7BHahhS3Jbv58t2DxmA6W9EbqL4DjFkcNifONbgibhX4ddlH
-         OCzMpa9njX+ZZY7rzXo6SYJf8LFple6t5cg6Rl0OuY7ZNnq8f5CcBwJoftMtLtmce16F
-         021Q==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=ZNdpZ8odmO+FQW9tqgQf1c+AnpmSmkZjViVpGvsh2sg=;
+        b=FqFkkJ5dMfT1mMOzvMIRuRab7yrlNM2GuBhz+PJANd7tBdLgYY+3UF1K0vXrdPtw6m
+         D9/bqJNXhSunYlptzJzSm0N9Px3PKpMttkWHM5ZRDsm2hpJoj3XIBZgdGuuArP6PUg7T
+         7InQPnBhYqbonoLSd6Vr2T/cI2A4MXq0lLYKoYRVdxXmf0egHKL7Z1dV1FJLChZ1Q0Nc
+         YwBZ6Cm+FlYk199UtZAR8szBpzTBTuL6ZCXGrYbeo/sRQGwfW1U6KjNz+86nFYrXGh11
+         vTt5ByroeedKjixhtl7yBeC4VVVtkz54fP1tCUAXr1drn3E/Rta+dKJIibIv9ryR/1IC
+         uvJw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of info@metux.net) smtp.mailfrom=info@metux.net
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=so0RkHbQ;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=/XwJoBRS/ydbP1rotXTZKHlSMhbFc9kOgnZ7FAUZ/KU=;
-        b=tEAnFEalA7GPC67/hW75bhvStm8iyDBHDXVcxZMr+5YMt2P6DoSuGUlfJ2J7KIVnU4
-         Y2P3Bk6ZNcCFPnpuy0ah+wWhMTDRmA0h7nuNIkIqLK22Dxvx7MVHLKbvACf/pfxXuOa9
-         BYsGYelO/twvnXxBDKa6iewBdVvPiqsEFC5oVxWSadrrhEUwPeCS3keRuC3qAVNNcdjC
-         6ZAAlDZstvnLUsUHAlwg+yrfE0sR2xoIS5bvCvYgz44zsSBW8Dn1anmsO0Mliew0Q2xD
-         W8mv87D9eWABykS0QQb1hkcfZV4H5fUUTWcE4qcH2RiVHNH9J4QQUQTwisagAH6CSN8l
-         YxnA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZNdpZ8odmO+FQW9tqgQf1c+AnpmSmkZjViVpGvsh2sg=;
+        b=ZhsHlrmkcLj9mI+L69opvZTuUzCQuTDGfcGAgRuNI8HkXtlIX+nwMZ5l/TnmELUMh5
+         zUr08FQWZLzjQcNIQ3FVkaBAB3iqcZW/fco5TEfkIRkUFfTSKIFdIMux+zKDWhdTl2l7
+         hS/1muqmdrTBeyDfmr1a/r9YxmGUUVP1I0l/Q7+lK1wDcy88i7A0ol4XYb9CnxPAgDil
+         xIkcHKW3h/e76/YQPyb8yYJLm1y0toIuZtdXgFtqfVFLoFtUKo2zm9gmYQenEFVaMCeo
+         wZQWdapPgYLsDa7zOs6imOsyoh4eIneN2qWIHk53ijUni0r4IvvMFZ3fT58l3HdxGxV+
+         crcw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ZNdpZ8odmO+FQW9tqgQf1c+AnpmSmkZjViVpGvsh2sg=;
+        b=juM4fr2jInWkni/XLpkoSLZWo/s6ficGA7LXCf1N141SiSuL/ZlzKKdY/CI6vIRBMJ
+         SHndwsysuJ0LpXo2YxO9S7rrgt354/mmQx6l0BXJJaGYC0LdfquSf/Mz7MsltJFR5LNM
+         vkg0aQ4IzrXg1NIJ7NLq0vdXyD3eu6vuvJg79G3wkj0ulrdx8FMNDU84N3X0bAxJTO6e
+         RXCDEc5IEcam8jJ8KirhIFUFfCkWuNl2TrExN0wbkMu5jGYwx4S4H1OzSAMAQyAYi7rt
+         82oDe8722mI6jsvlllUwwlrZ4EoqXfU+HrGmprsRPgvL1rU1bNL4mlK1MY1lKacnkLC3
+         QKPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/XwJoBRS/ydbP1rotXTZKHlSMhbFc9kOgnZ7FAUZ/KU=;
-        b=bumfTvYu2CfqFcBCqVfwdQvzmg4H/5x6AMGs+YaFM9ASN4G8vPt8HYnNWerORiqgcb
-         3IMEEw9hAwKlj/H5xe/TL9M5KtaYLb/8TBPSIsL/tLf6CE0oNiW7eSaVx6DKBDxw9FxL
-         IJV5Mz7Aay0oUjwJJhDC+Ko/jaWugzVy04ahJsDVniSGpl/JEtTAJ8I+gXQfXbIRhGDQ
-         Bab18S6onhqlmtc9MSX4iMdLXLNHZvTmKZI2ngSg+gnNKA2IRqjDIOtDf09iqMq6ztWG
-         7FKgHA0LvTxQ+7htEc4WL4nPbfuLU/4jCVHMPmlpVHHn9sRr5tgNub9Htsdf28atEJpv
-         EUhw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ZNdpZ8odmO+FQW9tqgQf1c+AnpmSmkZjViVpGvsh2sg=;
+        b=sKHZSq1ZuiIbWBGGsLkkeCML1XBSAlulLl5aeG6wh1RoB1YTozkbdM1tkmgUEtTOe2
+         Xq2oYXQXo7K6SMqBIHL5QQ9QMN37VCxF4ezyfMA8BmOa/a9MRqik/XLZ/qCjpZj42SnZ
+         hrRBxljBtc4ezZgGHQoDqbTvtVO903xSvZhNTwLS7SdbPBkCcnM0o+SgKiyA8ynnkbXk
+         Iog+3P2apyA6tY2NhastKjm684RBm7ajmpTcevdrDuGXm0lbOHph7VFeCBEAQclia3pV
+         o4NHG2PufuE4G2WsJeDkhLuJ1YCa7Vt2Kwt4nt67ndTboZzYqGJHgj9aqbSRPLYTjpAy
+         QOxw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWZHCA8alxBS2rkrkohQCOfb92t2mnI5oW7NrZirDd77fHVIaCa
-	3Uyqjblpcv8tneRAQhm5TSY=
-X-Google-Smtp-Source: APXvYqw6cEFE6KKb1Q+JWuGM4YVwAslWOru0StE22skjj0atjtP4YzJLo5WycGL9bQGZw/Jijtqt4A==
-X-Received: by 2002:ac2:4c3c:: with SMTP id u28mr33474169lfq.136.1564411684275;
-        Mon, 29 Jul 2019 07:48:04 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: APjAAAV9EOC8zxmjAiQ6rIyd9qjNemU/5JgsNIb3rxZ6W02xhdlRsXRn
+	hfkbr6WRfxhaSrq45Z3xpqc=
+X-Google-Smtp-Source: APXvYqwefzDs6VtymYzrB2LfZm9ZdwNRd2+sVO9vP0EgMPmKMLpuuLCvrduhfwmxbWk8Es8ne6PZ5w==
+X-Received: by 2002:a5d:5692:: with SMTP id f18mr75847591wrv.104.1564416256030;
+        Mon, 29 Jul 2019 09:04:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5605:: with SMTP id v5ls5011448lfd.6.gmail; Mon, 29 Jul
- 2019 07:48:03 -0700 (PDT)
-X-Received: by 2002:ac2:4d1c:: with SMTP id r28mr50182204lfi.159.1564411683801;
-        Mon, 29 Jul 2019 07:48:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564411683; cv=none;
+Received: by 2002:adf:a2cd:: with SMTP id t13ls18465950wra.8.gmail; Mon, 29
+ Jul 2019 09:04:15 -0700 (PDT)
+X-Received: by 2002:a5d:4041:: with SMTP id w1mr110240402wrp.199.1564416255646;
+        Mon, 29 Jul 2019 09:04:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564416255; cv=none;
         d=google.com; s=arc-20160816;
-        b=KCy+Vzll7oF86Gk5ttsRXqCHSRfVHSGFzeb5FbgD1eUw6BzmRUe0qF3jb0o4UAFw4f
-         mHiv4DhaSzt1JeGCa9NHqMybT0gFfOQUTx/FQxPY4L+IG48brtoT1C59tQBoGW+yB7OO
-         AGoXlaHOgtugxqFvc8H1IZ/DYIPfXTFlgctb9zspq+8B+BntonZgOrtWmY/TK4yh3dUp
-         +1/PLcEnqEJ20uN5v6WDV2K8OA8SZeNkjMcMwC5YoN0pmsfl4ETdfeDoFuy3n5js/9CU
-         LwdPRpP9v0K0u/nslYQ9MiFLTq8vs3HySwjCoImYfsTp3HDZIcLcE0xgr3Hrfp85y5/y
-         vRkQ==
+        b=RoNs8NHgW8V7F8qzGQrLCvvpPGN25G1U7OsyD7dheOdodI0w1UhlO/sThxrHJ0my4R
+         moDxXXJvhPTgWPxg9Cmt0nCk4x+/pGUOzKI+e2iihMUHpz5zVgkW5j+A4APaJKkt8FgX
+         JRjEKhCQD6ancx6M1pFSBc8M7f9l3luN4sVFmwzRpoDT5LbprNx8x4ImZ3sBdpdnRuAL
+         qnkf+TV7yKv4jfsKxN8AwZ1SE49RXYA2j2Oj8ry6OM9f6yB1iPn1dTLJbheLwbNoAjvD
+         gem1o6myhCSg9Szlzd8dEastI5ixCrOvwIMJGZUbOwUmc9I1t1o4cK+OOzQpQ+2hvYus
+         B47Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from;
-        bh=eXQhnMj/9Do0yyeekoEEiFSLQnPUkOSysiTLLUCQ4Kk=;
-        b=Gar41zlkF4ZfD6I2ZlMDHBf3RZMLvG/CRk9hSA7Sv36Q8YO/15Ma/qzkJJA9gCgaD0
-         KjK/TxnTCxH+m532JytYJCJ18VnGuMbEHXqjmKiLYyWLoo5eTN7whDNYyURCZ2JlB9V8
-         Usa6IQ99nbuC48jFrCb5+7xq3a0nrtQui+Fq6vkTvFlaBS5LLQM/fBwJoV/50G4dkTty
-         nYnxzXJsSUutMmHFlYQ0Zt+GHPBev896QI+ZvGXFqeNLTzg7bjl/3KGtg+lfHvfJUETf
-         MBiEs5I5oPLYmOdfTPlrGgogH2oZpyuOl6NsfqLU0tPLDh4kHQCUqX1+cTu8Kvzy4oZ6
-         0YoQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=ZxCoxZNZqZ7BaNpp6YlaSGJX4F8d+cKr8ODCDAIBeo0=;
+        b=yuUtvllRy8de7tfRWEe+BIjSjH25yNYOz6UaNVNYzO8O9cjaTdUXZUtsYXmCMxXjLr
+         pDg7ui4Lm4glDgFhA9SQfBSU/F5rLZV2YFJ0JU2MLuJT2Hi9+GGN+OOMW1szhTOJnUj6
+         33rF9bY1CF2S4Iz1VO6mXVShfMLRsSRnItkZ8ZzwlDOT44GBnmg/aWvaNXn7mB1/FxFF
+         J1qfiHe8YHmMtviwYmm+QZa3cHkp1SIzNj3PckhpE/A+JOdMyRu01ZEqJbgUDHDkOYgP
+         UYHH18sv8T3Lmp24d6alywbSKYDwEc5Ls/UhKzR5eMwQFP5d9AvHJpZ5FE3Sto5qygob
+         OdOQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of info@metux.net) smtp.mailfrom=info@metux.net
-Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
-        by gmr-mx.google.com with ESMTPS id b8si2706010lfp.3.2019.07.29.07.48.03
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=so0RkHbQ;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id j18si2333046wmk.0.2019.07.29.09.04.15
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 29 Jul 2019 07:48:03 -0700 (PDT)
-Received-SPF: neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of info@metux.net) client-ip=217.72.192.74;
-Received: from orion.localdomain ([77.4.29.213]) by mrelayeu.kundenserver.de
- (mreue108 [212.227.15.183]) with ESMTPSA (Nemesis) id
- 1MbRbr-1iOymx226T-00boKg; Mon, 29 Jul 2019 16:48:02 +0200
-From: "Enrico Weigelt, metux IT consult" <info@metux.net>
-To: linux-kernel@vger.kernel.org
-Cc: kafai@fb.com,
-	songliubraving@fb.com,
-	yhs@fb.com,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] init: Kconfig: consistent indentions
-Date: Mon, 29 Jul 2019 16:48:01 +0200
-Message-Id: <1564411681-28013-1-git-send-email-info@metux.net>
-X-Mailer: git-send-email 1.9.1
-X-Provags-ID: V03:K1:dW4jkDPZBxuRMIXPJtCRf30d71VoDDYo7pJonzBRhds3XJ3NQ0/
- MdKDkaU7Cb3UKfQvVQb+GrdO8G2227MyJ/hxfLUVoBBn+oljMAf3P+z4SJvy5/tYIb81HP6
- T3IY4/soZHeeP3NuiPoeObx8S3Ua5+lCjfqCdEgR7P1hdHcjweVX/kmcv7ki8fqqgH2B7nh
- p8hqtdGj2GrFflSMRI+5A==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:dEwgoYK4RAk=:hU3b8BNd54os3Dqti7kG53
- gdOmeypCBkqVc2/6sVBYX8zVIXtPVyWZzaHvwn6vcb/zDxxuTxTB9sTHhWfmnTqyVR2MLacBY
- W48c8Axh99S7YVgklvkMddulPFdZ4nZ6UG03cNZLjxcjOtuulWx1X/s6rW/aEvZsCVYiuQU3W
- 5sp0Io4MEFdq+rGoUXJcbvhi/o3hdokHLOfijA30syNoomUZnjZSMVrnXFaW4LQ6pjwJp9vda
- it7AQ2eRI+5wD+npitNjdD2aw0loTwPJx/6TltpcC3E4xL4m9GKfBnlU401Kq6N2nFkWa/1xt
- EdsQyvNiUMl5uDvfiUZZWpf6z8dKkvWey9DlXW6jAk/SPZroLzbJm7m4KLvvrANC0PX7lNeCO
- +QhoBz/j0dT3Y5sNrvf8s7DTsqgrbJ+Db026XJNqFuIXp7wM0RnzpBMt7GykoiN6jcQi4cHux
- gmgXBp/PaqBEZn+LpLBjQjplM9JJl/MAcsUbBV3zopNoIco1q+WVH3AuHWGsI0ZuZa0uewhGf
- nkC+WiZv91W9CNIJTHtTHrouB1Jvo0fUenDx/V98TC0W82usJalGKDH5zWK91FRDplaGIG8mg
- l0Ypy7lqnzJzT/l+6hg2Jik3EtxtiR1eQCGNF4+FxJZ3xxS+TsKuoo1pwVeIT/El+19Izow33
- Xy0YsPwK5ZHKk0NzUYSh9GIfqfgMlD9emvTR3ky9u79KA3Zx9aofaiz76XlsTidX1WSme6ovw
- +vLrF6iqOMV1EUUg9CuruA1jM9hsWQYccy27ZA==
-X-Original-Sender: info@metux.net
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 217.72.192.74 is neither permitted nor denied by best guess
- record for domain of info@metux.net) smtp.mailfrom=info@metux.net
+        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+        Mon, 29 Jul 2019 09:04:15 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id s3so54348596wms.2
+        for <clang-built-linux@googlegroups.com>; Mon, 29 Jul 2019 09:04:15 -0700 (PDT)
+X-Received: by 2002:a7b:c144:: with SMTP id z4mr104465393wmi.50.1564416255100;
+        Mon, 29 Jul 2019 09:04:15 -0700 (PDT)
+Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
+        by smtp.gmail.com with ESMTPSA id a81sm63363187wmh.3.2019.07.29.09.04.14
+        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+        Mon, 29 Jul 2019 09:04:14 -0700 (PDT)
+Date: Mon, 29 Jul 2019 09:04:12 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+Cc: linux-kbuild@vger.kernel.org, Stephen Boyd <swboyd@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>, stable@vger.kernel.org,
+	Michal Marek <michal.lkml@markovi.net>,
+	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] kbuild: initialize CLANG_FLAGS correctly in the top
+ Makefile
+Message-ID: <20190729160412.GA100132@archlinux-threadripper>
+References: <20190729091517.5334-1-yamada.masahiro@socionext.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20190729091517.5334-1-yamada.masahiro@socionext.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: natechancellor@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=so0RkHbQ;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,115 +151,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Enrico Weigelt <info@metux.net>
+On Mon, Jul 29, 2019 at 06:15:17PM +0900, Masahiro Yamada wrote:
+> CLANG_FLAGS is initialized by the following line:
+> 
+>   CLANG_FLAGS     := --target=$(notdir $(CROSS_COMPILE:%-=%))
+> 
+> ..., which is run only when CROSS_COMPILE is set.
+> 
+> Some build targets (bindeb-pkg etc.) recurse to the top Makefile.
+> 
+> When you build the kernel with Clang but without CROSS_COMPILE,
+> the same compiler flags such as -no-integrated-as are accumulated
+> into CLANG_FLAGS.
+> 
+> If you run 'make CC=clang' and then 'make CC=clang bindeb-pkg',
+> Kbuild will recompile everything needlessly due to the build command
+> change.
+> 
+> Fix this by correctly initializing CLANG_FLAGS.
+> 
+> Fixes: 238bcbc4e07f ("kbuild: consolidate Clang compiler flags")
+> Cc: <stable@vger.kernel.org> # v4.20+
+> Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
 
-Just make the indentions consistent with the rest of the file,
-as well as most other Kconfig files.
-
-Signed-off-by: Enrico Weigelt, metux IT consult <info@metux.net>
----
- init/Kconfig | 54 +++++++++++++++++++++++++++---------------------------
- 1 file changed, 27 insertions(+), 27 deletions(-)
-
-diff --git a/init/Kconfig b/init/Kconfig
-index bd7d650..1a589c6 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -161,13 +161,13 @@ config LOCALVERSION_AUTO
- 	  which is done within the script "scripts/setlocalversion".)
- 
- config BUILD_SALT
--       string "Build ID Salt"
--       default ""
--       help
--          The build ID is used to link binaries and their debug info. Setting
--          this option will use the value in the calculation of the build id.
--          This is mostly useful for distributions which want to ensure the
--          build is unique between builds. It's safe to leave the default.
-+	string "Build ID Salt"
-+	default ""
-+	help
-+	  The build ID is used to link binaries and their debug info. Setting
-+	  this option will use the value in the calculation of the build id.
-+	  This is mostly useful for distributions which want to ensure the
-+	  build is unique between builds. It's safe to leave the default.
- 
- config HAVE_KERNEL_GZIP
- 	bool
-@@ -1294,9 +1294,9 @@ menuconfig EXPERT
- 	select DEBUG_KERNEL
- 	help
- 	  This option allows certain base kernel options and settings
--          to be disabled or tweaked. This is for specialized
--          environments which can tolerate a "non-standard" kernel.
--          Only use this if you really know what you are doing.
-+	  to be disabled or tweaked. This is for specialized
-+	  environments which can tolerate a "non-standard" kernel.
-+	  Only use this if you really know what you are doing.
- 
- config UID16
- 	bool "Enable 16-bit UID system calls" if EXPERT
-@@ -1406,11 +1406,11 @@ config BUG
- 	bool "BUG() support" if EXPERT
- 	default y
- 	help
--          Disabling this option eliminates support for BUG and WARN, reducing
--          the size of your kernel image and potentially quietly ignoring
--          numerous fatal conditions. You should only consider disabling this
--          option for embedded systems with no facilities for reporting errors.
--          Just say Y.
-+	  Disabling this option eliminates support for BUG and WARN, reducing
-+	  the size of your kernel image and potentially quietly ignoring
-+	  numerous fatal conditions. You should only consider disabling this
-+	  option for embedded systems with no facilities for reporting errors.
-+	  Just say Y.
- 
- config ELF_CORE
- 	depends on COREDUMP
-@@ -1426,8 +1426,8 @@ config PCSPKR_PLATFORM
- 	select I8253_LOCK
- 	default y
- 	help
--          This option allows to disable the internal PC-Speaker
--          support, saving some memory.
-+	  This option allows to disable the internal PC-Speaker
-+	  support, saving some memory.
- 
- config BASE_FULL
- 	default y
-@@ -1555,18 +1555,18 @@ config KALLSYMS_ALL
- 	bool "Include all symbols in kallsyms"
- 	depends on DEBUG_KERNEL && KALLSYMS
- 	help
--	   Normally kallsyms only contains the symbols of functions for nicer
--	   OOPS messages and backtraces (i.e., symbols from the text and inittext
--	   sections). This is sufficient for most cases. And only in very rare
--	   cases (e.g., when a debugger is used) all symbols are required (e.g.,
--	   names of variables from the data sections, etc).
-+	  Normally kallsyms only contains the symbols of functions for nicer
-+	  OOPS messages and backtraces (i.e., symbols from the text and inittext
-+	  sections). This is sufficient for most cases. And only in very rare
-+	  cases (e.g., when a debugger is used) all symbols are required (e.g.,
-+	  names of variables from the data sections, etc).
- 
--	   This option makes sure that all symbols are loaded into the kernel
--	   image (i.e., symbols from all sections) in cost of increased kernel
--	   size (depending on the kernel configuration, it may be 300KiB or
--	   something like this).
-+	  This option makes sure that all symbols are loaded into the kernel
-+	  image (i.e., symbols from all sections) in cost of increased kernel
-+	  size (depending on the kernel configuration, it may be 300KiB or
-+	  something like this).
- 
--	   Say N unless you really need all symbols.
-+	  Say N unless you really need all symbols.
- 
- config KALLSYMS_ABSOLUTE_PERCPU
- 	bool
--- 
-1.9.1
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1564411681-28013-1-git-send-email-info%40metux.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190729160412.GA100132%40archlinux-threadripper.
