@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBSVK7DUQKGQEIFZKS2Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBX4B7LUQKGQEOHPIHIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 55B90781DE
-	for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 23:36:11 +0200 (CEST)
-Received: by mail-vk1-xa3b.google.com with SMTP id n185sf25782856vkf.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 14:36:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564349770; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 42B3278458
+	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 07:15:13 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id z1sf37685066pfb.7
+        for <lists+clang-built-linux@lfdr.de>; Sun, 28 Jul 2019 22:15:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564377311; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NcmRkhYk8LT35mfQjcVArkJBB0ZXZ7K/6MpjE017fvkI0Bqm/rkQEB1iqX/7GVV11P
-         aDnhUJk6grZmRopD2Z9pfWg68S7nfxcw3y9FffLx4rJ2kAh0qj8ilaAUKtHYJtNd6UIC
-         s+y4fbytqjjm8ejPuD4pbi/1M2KZMH6acRHtljPuIMDZxdlXOx3hz3VBAXZ6UC2bpT+v
-         UmvBRiWMfDdnccuk4zYoVbNoj3zOgV9AzVj0wqZiRwLjBBX08KRvZTAvEoBTB9R0N0E9
-         DXAraUeiDPe6MisCktcV1IY/atJ7w0DyFrBFRipCoJjDA2VsmHFjvtbHypQsnnk2iSDB
-         WrTA==
+        b=GTjxEfZ4rHtCbhKInirSpkTSMIMhyKzBb8krb1HlpP95jct/JrLbX8BdDoMeWYLJn9
+         A/F3Q7VzlDZjjL53ylhlJlpLKafP6FwGN3Ql8MDgsbGjPTxan40E+PCpv2ojbbPvSXE2
+         /5TP6N1ocs1fd9mdfpGgRmSfO37cymaOKXd6uWHGzTvJqJFPQFMI2OBcU2BdBZB+wXIj
+         drV+MxEr4G0HFBzguheyejTDtRToN7tVY986aOnhLO/Eq2KSOQ+jUyaTdOmW0rJYIt24
+         rNwjM7OCn2yo79mKtSP+bLPYLzgu5GrRWxVw7N49W0TDVC7JviHBqq+9BPTDIRkGEzQ/
+         jUTw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=s/we9mwRGcLN11bV1Xg1Eqyhg44BWh3iNpCmFnSjJAw=;
-        b=n9dP4g6ZQj15O9Y9UzNWbs9f7gqTsjtENHipRkhhkvGGLCN8LlkU/R9B81dSOJQLbE
-         FJfJ7I8lNdkBz+LveEs16Cv1BntecbK3zUQGc/2QbSaUGyHGozbyh0xsWSIBcuPK5/Ke
-         VCuFSle5dOiEmXGOeCVzM2aD6cBFdTl7Z5DKkefiifkH9t4sPGV5CXYNWS7C4asefhzk
-         OLg+4B3O+8JcuhUuYH3bHPGK1yb6dXMxTPuZ3pdJnA5Ask2uoUc8xAs3HhewHkZu5lSK
-         il1/aaS83AYM9NaepAbec2S9l5SU9pDVtrhtTq2s2P/HEdz2SSjpJa8Q4oOPSPhlkGsq
-         wnXA==
+        bh=4NYNla35GSxVlYFVmUd/BUWdov4kdzycACKLX39IgZI=;
+        b=Ww7V5AgO5dFJiFzZl5rfAcQQ8EsnFc/9CHOw1X+LHEW6D1Z53Veg/xdUXGsg/FiXgk
+         P8WNiH89ZxBjNsJn98N65fL54+2dZpcICFnL/CuHHlQcHC0Xbxl4IX63PcpG/Es91Kol
+         KTUvspUVhJqcQS42tpsdWq002sVQIq8zLWZHm4cJ6VSGksX9u/O5Om3/6iRctLeg2dbY
+         DVmI+dz20NwHKgRWarTh3RbDqZ85vgrf+RuHS9DmfpnHTXqACLQ/mZhMH+J5O3ox+mKe
+         SooBGUyuqG3hxdt+XxAWd72rK0NuhnYc0E4FZpIB0pa2bcb5GybHx9GUNVo7c/dPSB4K
+         XjMQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=s/we9mwRGcLN11bV1Xg1Eqyhg44BWh3iNpCmFnSjJAw=;
-        b=IVZ0LlNZBe1D3zi1LMRj89z7Geaob4nOyqTcWCsXKFhG7ua30Y1qOZghwvYd0mo7NF
-         X0Hom7va/kNkinDvWMAFxGbwDi/J7IA6b2VRjgpm+jxbUW0pk7G3UozJN0q2UOC240Js
-         rl8LcbnrzAOQGBZh3yAZV8DZtPJhJGNUuVYanlgFfXEALLfJGRAZxSfry3IAlBw66BMI
-         00NnGtGKe2EsRoi3KpVKc4KPyuOvGjoGMHmXCYbK3RazbFk6qneHBzUnjzep9oSCTzO9
-         anXfrQOJl7oGvIoxox2I0sPE7jcXPDz1qPw5Jh7eBbb4A+dsUGghnIAoEGg/Sm9P0pUp
-         bovA==
+        bh=4NYNla35GSxVlYFVmUd/BUWdov4kdzycACKLX39IgZI=;
+        b=Qqc5eFzgtYsGYxw3U3XFZ6VTKee5GKjGRpDJ0atov6biDayA69chJZ7rNSQtKApP2P
+         6DO+7r3tIKELFjJSkr0iI4SpOw7usyl52VNuFC1MZs+hdBV3DRi9uBTQT5/wg8bgRpUQ
+         0Qvo8rboEACx/NYFtIyEOKKaIH8AUb53bgZHO2f9RgCHIHpCOz6avgulFIe1HoNM13H/
+         xeQ6Ukr7KucibkLsjMEWOKUq2NM2/kOhw9MsACLRWgBAsUZMAbhlTfBe4IFoxAamgvR7
+         2XDJFcI6Jtv4U8TMZp0eckEIKDobRlWoBMEvtv8mqZM3FEVs7QNvfl9T8dZd8/hpiET1
+         jacA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=s/we9mwRGcLN11bV1Xg1Eqyhg44BWh3iNpCmFnSjJAw=;
-        b=ZEcUb9cPv6niJzVezXPeQD2fsNZ4zkKdcJi0KnIaAmQvt2ukRWpLZFEFBkYiPhx9Dc
-         czokKD7cjadc5LfiEBZRZx+/WK6PyonG7+spf5w/ulooNTKaJY1dU9oy2vP6uFCLyBBB
-         5wMgSv+mgWVwIIcF/CH8Q0HDvoBMQ3DchEyy5PzALq6o2q8DdObEKW3rFCZ+557jCgv9
-         w39rWvlLiacbt06JysyzFLIGcnpTzRfMvFBuKUHbqRh7K2YrIvgfqiEDGoRdyraDutYl
-         t3xvckX5EisYS4fFoaC9UPwyX/9JPfjCbcjN0VxiMetjYeVJIFIDy+zKwpP1jynihOp2
-         niOA==
+        bh=4NYNla35GSxVlYFVmUd/BUWdov4kdzycACKLX39IgZI=;
+        b=YkxMo5+s1GYbh8bbVviDlthKVN6xrUaCHKMYSmr93aR7Ye1enK2ukXlZsmp8hpYSQh
+         uYsw2YVczkagbm6q63kofSuOn/ybroKjtfoIG6qri6JwjjVP4WJenZuohKqOfoHltZbX
+         XQykPqYmflGwMD9CvBicx3WSVdAyrQZtX5Ve0Ewof84Jqd7wISYLPBHECyPfh1gw+zwm
+         vJvlhJZtXKuHTxdVh9WwsCkf8poHS55kVCv9Eu7AjKAO1MibnX0mrPXarlvF9z63hqCT
+         xHLttVILHBtlZPvGSa8uwvAPEE4RzuGaz0Dc0/t38MFszcQRQjsiobtu8JVZ4d7c0fob
+         Aj7Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVwFgRORnjvZ9A6hzOl3kwx0KqskXd9+LXn5JDUpmTJppvhgonD
-	Gd0Kw/lahSkEdbp2M3DEb84=
-X-Google-Smtp-Source: APXvYqyStgyDkt4ZBF8DnrPsnlnUeW0f8EPeoMPN+iYIqqetbtOAHaascRZKXYiEbSLVfkbIZijkuA==
-X-Received: by 2002:ab0:6198:: with SMTP id h24mr2542356uan.41.1564349770161;
-        Sun, 28 Jul 2019 14:36:10 -0700 (PDT)
+X-Gm-Message-State: APjAAAWVBd5CpJPyv6EsbgCiLmAEyIxLgsXI3yMaw4zCTyzRMD9mCKwz
+	OqssIJyVvjPQRanr6QtknjI=
+X-Google-Smtp-Source: APXvYqyGkm6TIFCQq371PhuH2CYXZGx82OBYak3AkIBWh3pSroufN+yAXbmSoHx9WTfmQXXqoXx5OQ==
+X-Received: by 2002:a62:b408:: with SMTP id h8mr33866132pfn.46.1564377311477;
+        Sun, 28 Jul 2019 22:15:11 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:c405:: with SMTP id c5ls7449917vsk.5.gmail; Sun, 28 Jul
- 2019 14:36:09 -0700 (PDT)
-X-Received: by 2002:a67:fa08:: with SMTP id i8mr66324312vsq.140.1564349769837;
-        Sun, 28 Jul 2019 14:36:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564349769; cv=none;
+Received: by 2002:a62:1d91:: with SMTP id d139ls9933474pfd.6.gmail; Sun, 28
+ Jul 2019 22:15:11 -0700 (PDT)
+X-Received: by 2002:a63:de4f:: with SMTP id y15mr106256433pgi.239.1564377310985;
+        Sun, 28 Jul 2019 22:15:10 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564377310; cv=none;
         d=google.com; s=arc-20160816;
-        b=f+/g5Xtjr5Y3rp3ETH74r8zD/tTAcPp/c+JiERs7W+se9GstsFoh4JsQ5udmCotbc1
-         QALxMyelFXctpy1vX46EgKKEbxbtGTjGl/Mm4yYghqA6j3flDR4G3Lb9RIIK13a10YgY
-         X8jA3A2trVA6iTLzgU9LTWXQPPyno7AX7j3npXniL8q7/ns/NTjiea9le2B34eM2IIoe
-         2fQIbfJtbCQnxAY3BuSUDUYUFZkmG0tz3xbWiP1T5Qb7yOquGgDEif55NyS2PKICDPOK
-         tdwOly1OLp6HxpLq3kXmSEc2Gn8DiOvuT1kDh1oTOMEtctgPFpgdUrXb2udwpiHaGCVz
-         JRhQ==
+        b=w8DiGrPYFLh7BO7ZZONU7NUtvreQOCpMFVd3ma0c3c5GqNAVXKLnfgxEWe9cPbuYb9
+         qnpIIM3rnpX07GonTpmmcPVHy3mbu2QbbUnSyb1zJBxHP0oZZY4ct136C4hgvacCu75T
+         JF2xPcFeEFwuYgZXg3fu87UqQp59OGoanHW1GvBi1bnnmuj73VQveyYz7UPJbTBXzLnw
+         it+2GaJkHpAp/NgDVtMlz6UhVDlrYHu4iSSorMj64xvh+LtW+3ageo/g6Pe1GAeYVpv0
+         2dljY2GhTarDYjt/Ps27vMlOvep1goK2FhbeCEcPB2O1VyHbQJkvvPDsJQI2CrTmX6N7
+         OaJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=NNSbyaepa8ZBEj/LKNFcTuYRpovXaT5L5u/hLiCcCKo=;
-        b=KOcve2qfcP7tBNbJmRWN/O1eCYQISvmMGYpiEg4/bbRPhwpO41bBrFvpEylxi4oVBV
-         DkcdZYjpNpunMpfzkfvRukCCj7LRg8Lb88PdX2F7pPIhdmZvcMsocf34+fv4nlcfgdqV
-         n3ybuze69uxV3YwnzOcALfjCIFvR0+OYbdiBNWTJQvJJBmMn7LwRKXxJq/YBoZqWZVCc
-         CWUJURWMP1JL1kV2nTZHRQ4uueBXWlT8gdNHWW7EbNo9NHx1cgHy9IEFfVaYVS0NE+CQ
-         NuUM7LHleUOilee7mJ38Iky6xBxU6+Zp92+DSyHzkvf/Pq6nmsd15/SkRYRr4OSvs5B8
-         stkA==
+        bh=rT8GDWn9QMCb7Vpzv+WvIUcfdT2VPxVTq0YAX+dooiE=;
+        b=sldGvb3pTaO8QDjcV3kyZ6YTsdKb4XsKYPnDbxPSSjeihox1ajm6+1F/phUfPfckvJ
+         hKXkO0FFh/x9ru8J93g7djJ+/yYoITIWFGqjvmM8c8Oa87l0TsEjlrdgendaxpLvIHrC
+         nWfEPlGvFHZG85aqbSlA1kN0rxgQU3Cdev3ptQD/UHmmtq6kjcIPn7ywhmr3u1ZtCIB2
+         l7mK079lVAfVAWJXCsLymGdM2RhuHmqkk8YHb0dwF0LdnZX7B3h+yQOVwCM4xnklZ5/A
+         H/l4TLsWaTw7QzgQqRqKsW+lPJx44iUJq/AoV5XXI3Z9CgMcTtpOQyZT9INzPP0pZBfW
+         Kx6w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id a128si2660658vkh.1.2019.07.28.14.36.09
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id d67si2056262pgc.1.2019.07.28.22.15.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 28 Jul 2019 14:36:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-X-Amp-Result: UNSCANNABLE
+        Sun, 28 Jul 2019 22:15:10 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 28 Jul 2019 14:36:08 -0700
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 28 Jul 2019 22:15:10 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,320,1559545200"; 
-   d="scan'208";a="195090112"
+X-IronPort-AV: E=Sophos;i="5.64,321,1559545200"; 
+   d="gz'50?scan'50,208,50";a="179196483"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 28 Jul 2019 14:36:06 -0700
+  by FMSMGA003.fm.intel.com with ESMTP; 28 Jul 2019 22:15:09 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hrqpq-000FsF-AN; Mon, 29 Jul 2019 05:36:06 +0800
-Date: Mon, 29 Jul 2019 05:35:16 +0800
+	id 1hry04-0000Ft-Md; Mon, 29 Jul 2019 13:15:08 +0800
+Date: Mon, 29 Jul 2019 13:14:19 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [linux-review:UPDATE-20190724-183537/YueHaibing/RDMA-hns-Fix-build-error-for-hip06/20190723-181047
- 1/1] drivers/net/ethernet/hisilicon/Kconfig:73: symbol HNS_DSAF is selected
- by INFINIBAND_HNS_HIP06
-Message-ID: <201907290511.vgjTUyHr%lkp@intel.com>
+Subject: [peterz-queue:sched/core 23/24] amd.c:undefined reference to
+ `node_reclaim_distance'
+Message-ID: <201907291313.eKyR6MGj%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/mixed; boundary="6z4ubcp5mwvblr7k"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,163 +137,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-CC: kbuild-all@01.org
-TO: YueHaibing <yuehaibing@huawei.com>
-CC: 0day robot <lkp@intel.com>
 
-tree:   https://github.com/0day-ci/linux/commits/UPDATE-20190724-183537/YueHaibing/RDMA-hns-Fix-build-error-for-hip06/20190723-181047
-head:   b2164fbe951873cc0d4dfbb074e11e9e4b5bc895
-commit: b2164fbe951873cc0d4dfbb074e11e9e4b5bc895 [1/1] RDMA/hns: Fix build error for hip06
-config: powerpc-defconfig
+--6z4ubcp5mwvblr7k
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+
+CC: kbuild-all@01.org
+TO: Matt Fleming <matt@codeblueprint.co.uk>
+CC: Peter Zijlstra <peterz@infradead.org>
+
+tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/peterz/queue.git sched/core
+head:   bcd616774260bedb5d0d3a2af1c080190d0d281c
+commit: e748c9698b5999816015acdc1ea2cc65c8475bda [23/24] sched/topology: Improve load balancing on AMD EPYC
+config: x86_64-allnoconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        git checkout b2164fbe951873cc0d4dfbb074e11e9e4b5bc895
-        make.cross ARCH=powerpc  defconfig
-        make.cross ARCH=powerpc 
+        git checkout e748c9698b5999816015acdc1ea2cc65c8475bda
+        # save the attached .config to linux build tree
+        make ARCH=x86_64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/net/ethernet/hisilicon/Kconfig:73:error: recursive dependency detected!
->> drivers/net/ethernet/hisilicon/Kconfig:73: symbol HNS_DSAF is selected by INFINIBAND_HNS_HIP06
->> drivers/infiniband/hw/hns/Kconfig:13: symbol INFINIBAND_HNS_HIP06 depends on HNS
->> drivers/net/ethernet/hisilicon/Kconfig:66: symbol HNS is selected by HNS_DSAF
-   For a resolution refer to Documentation/kbuild/kconfig-language.rst
-   subsection "Kconfig recursive dependency limitations"
-
-vim +73 drivers/net/ethernet/hisilicon/Kconfig
-
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03   20  
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03   21  config HIX5HD2_GMAC
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03   22  	tristate "Hisilicon HIX5HD2 Family Network Device Support"
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03   23  	select PHYLIB
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03   24  	help
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03   25  	  This selects the hix5hd2 mac family network device.
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03   26  
-542ae60af24f02e Dongpo Li           2016-07-15   27  config HISI_FEMAC
-542ae60af24f02e Dongpo Li           2016-07-15   28  	tristate "Hisilicon Fast Ethernet MAC device support"
-542ae60af24f02e Dongpo Li           2016-07-15   29  	depends on HAS_IOMEM
-542ae60af24f02e Dongpo Li           2016-07-15   30  	select PHYLIB
-542ae60af24f02e Dongpo Li           2016-07-15   31  	select RESET_CONTROLLER
-542ae60af24f02e Dongpo Li           2016-07-15   32  	help
-542ae60af24f02e Dongpo Li           2016-07-15   33  	  This selects the Hisilicon Fast Ethernet MAC device(FEMAC).
-542ae60af24f02e Dongpo Li           2016-07-15   34  	  The FEMAC receives and transmits data over Ethernet
-542ae60af24f02e Dongpo Li           2016-07-15   35  	  ports at 10/100 Mbps in full-duplex or half-duplex mode.
-542ae60af24f02e Dongpo Li           2016-07-15   36  	  The FEMAC exchanges data with the CPU, and supports
-542ae60af24f02e Dongpo Li           2016-07-15   37  	  the energy efficient Ethernet (EEE).
-542ae60af24f02e Dongpo Li           2016-07-15   38  
-4a841ee928f430e Zhangfei Gao        2015-01-14   39  config HIP04_ETH
-4a841ee928f430e Zhangfei Gao        2015-01-14   40  	tristate "HISILICON P04 Ethernet support"
-979d804e5bc926f Krzysztof Kozlowski 2016-03-04   41  	depends on HAS_IOMEM	# For MFD_SYSCON
-4a841ee928f430e Zhangfei Gao        2015-01-14   42  	select MARVELL_PHY
-4a841ee928f430e Zhangfei Gao        2015-01-14   43  	select MFD_SYSCON
-5b904d39406a61c huangdaode          2015-09-17   44  	select HNS_MDIO
-4a841ee928f430e Zhangfei Gao        2015-01-14   45  	---help---
-4a841ee928f430e Zhangfei Gao        2015-01-14   46  	  If you wish to compile a kernel for a hardware with hisilicon p04 SoC and
-4a841ee928f430e Zhangfei Gao        2015-01-14   47  	  want to use the internal ethernet then you should answer Y to this.
-4a841ee928f430e Zhangfei Gao        2015-01-14   48  
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   49  config HI13X1_GMAC
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   50  	bool "Hisilicon HI13X1 Network Device Support"
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   51  	depends on HIP04_ETH
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   52  	help
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   53  	  If you wish to compile a kernel for a hardware with hisilicon hi13x1_gamc
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   54  	  then you should answer Y to this. This makes this driver suitable for use
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   55  	  on certain boards such as the HI13X1.
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   56  
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   57  	  If you are unsure, say N.
-2ede8489c1a9a29 Jiangfeng Xiao      2019-07-09   58  
-5b904d39406a61c huangdaode          2015-09-17   59  config HNS_MDIO
-0fa28877b26641c Arnd Bergmann       2015-10-09   60  	tristate
-0fa28877b26641c Arnd Bergmann       2015-10-09   61  	select PHYLIB
-5b904d39406a61c huangdaode          2015-09-17   62  	---help---
-5b904d39406a61c huangdaode          2015-09-17   63  	  This selects the HNS MDIO support. It is needed by HNS_DSAF to access
-5b904d39406a61c huangdaode          2015-09-17   64  	  the PHY
-5b904d39406a61c huangdaode          2015-09-17   65  
-6fe6611ff275522 huangdaode          2015-09-17  @66  config HNS
-6fe6611ff275522 huangdaode          2015-09-17   67  	tristate "Hisilicon Network Subsystem Support (Framework)"
-6fe6611ff275522 huangdaode          2015-09-17   68  	---help---
-6fe6611ff275522 huangdaode          2015-09-17   69  	  This selects the framework support for Hisilicon Network Subsystem. It
-6fe6611ff275522 huangdaode          2015-09-17   70  	  is needed by any driver which provides HNS acceleration engine or make
-6fe6611ff275522 huangdaode          2015-09-17   71  	  use of the engine
-6fe6611ff275522 huangdaode          2015-09-17   72  
-511e6bc071db148 huangdaode          2015-09-17  @73  config HNS_DSAF
-511e6bc071db148 huangdaode          2015-09-17   74  	tristate "Hisilicon HNS DSAF device Support"
-511e6bc071db148 huangdaode          2015-09-17   75  	select HNS
-511e6bc071db148 huangdaode          2015-09-17   76  	select HNS_MDIO
-511e6bc071db148 huangdaode          2015-09-17   77  	---help---
-511e6bc071db148 huangdaode          2015-09-17   78  	  This selects the DSAF (Distributed System Area Frabric) network
-511e6bc071db148 huangdaode          2015-09-17   79  	  acceleration engine support. The engine is used in Hisilicon hip05,
-511e6bc071db148 huangdaode          2015-09-17   80  	  Hi1610 and further ICT SoC
-511e6bc071db148 huangdaode          2015-09-17   81  
-b5996f11ea5496d huangdaode          2015-09-17   82  config HNS_ENET
-b5996f11ea5496d huangdaode          2015-09-17   83  	tristate "Hisilicon HNS Ethernet Device Support"
-b5996f11ea5496d huangdaode          2015-09-17   84  	select PHYLIB
-b5996f11ea5496d huangdaode          2015-09-17   85  	select HNS
-b5996f11ea5496d huangdaode          2015-09-17   86  	---help---
-b5996f11ea5496d huangdaode          2015-09-17   87  	  This selects the general ethernet driver for HNS.  This module make
-b5996f11ea5496d huangdaode          2015-09-17   88  	  use of any HNS AE driver, such as HNS_DSAF
-b5996f11ea5496d huangdaode          2015-09-17   89  
-15e8e5ffd624702 Salil               2017-08-02   90  config HNS3
-15e8e5ffd624702 Salil               2017-08-02   91  	tristate "Hisilicon Network Subsystem Support HNS3 (Framework)"
-15e8e5ffd624702 Salil               2017-08-02   92  	depends on PCI
-15e8e5ffd624702 Salil               2017-08-02   93  	---help---
-15e8e5ffd624702 Salil               2017-08-02   94  	  This selects the framework support for Hisilicon Network Subsystem 3.
-15e8e5ffd624702 Salil               2017-08-02   95  	  This layer facilitates clients like ENET, RoCE and user-space ethernet
-15e8e5ffd624702 Salil               2017-08-02   96  	  drivers(like ODP)to register with HNAE devices and their associated
-15e8e5ffd624702 Salil               2017-08-02   97  	  operations.
-15e8e5ffd624702 Salil               2017-08-02   98  
-7a7056e3dfa6636 Huazhong Tan        2018-07-02   99  if HNS3
-7a7056e3dfa6636 Huazhong Tan        2018-07-02  100  
-15e8e5ffd624702 Salil               2017-08-02  101  config HNS3_HCLGE
-15e8e5ffd624702 Salil               2017-08-02  102  	tristate "Hisilicon HNS3 HCLGE Acceleration Engine & Compatibility Layer Support"
-7a7056e3dfa6636 Huazhong Tan        2018-07-02  103  	default m
-15e8e5ffd624702 Salil               2017-08-02  104  	depends on PCI_MSI
-15e8e5ffd624702 Salil               2017-08-02  105  	---help---
-15e8e5ffd624702 Salil               2017-08-02  106  	  This selects the HNS3_HCLGE network acceleration engine & its hardware
-15e8e5ffd624702 Salil               2017-08-02  107  	  compatibility layer. The engine would be used in Hisilicon hip08 family of
-15e8e5ffd624702 Salil               2017-08-02  108  	  SoCs and further upcoming SoCs.
-15e8e5ffd624702 Salil               2017-08-02  109  
-cacde272dd00496 Yunsheng Lin        2017-09-27  110  config HNS3_DCB
-cacde272dd00496 Yunsheng Lin        2017-09-27  111  	bool "Hisilicon HNS3 Data Center Bridge Support"
-cacde272dd00496 Yunsheng Lin        2017-09-27  112  	default n
-7a7056e3dfa6636 Huazhong Tan        2018-07-02  113  	depends on HNS3_HCLGE && DCB
-cacde272dd00496 Yunsheng Lin        2017-09-27  114  	---help---
-cacde272dd00496 Yunsheng Lin        2017-09-27  115  	  Say Y here if you want to use Data Center Bridging (DCB) in the HNS3 driver.
-cacde272dd00496 Yunsheng Lin        2017-09-27  116  
-cacde272dd00496 Yunsheng Lin        2017-09-27  117  	  If unsure, say N.
-cacde272dd00496 Yunsheng Lin        2017-09-27  118  
-e963cb789a29b89 Salil Mehta         2017-12-14  119  config HNS3_HCLGEVF
-e963cb789a29b89 Salil Mehta         2017-12-14  120  	tristate "Hisilicon HNS3VF Acceleration Engine & Compatibility Layer Support"
-e963cb789a29b89 Salil Mehta         2017-12-14  121  	depends on PCI_MSI
-e963cb789a29b89 Salil Mehta         2017-12-14  122  	depends on HNS3_HCLGE
-e963cb789a29b89 Salil Mehta         2017-12-14  123      ---help---
-e963cb789a29b89 Salil Mehta         2017-12-14  124  	  This selects the HNS3 VF drivers network acceleration engine & its hardware
-e963cb789a29b89 Salil Mehta         2017-12-14  125  	  compatibility layer. The engine would be used in Hisilicon hip08 family of
-e963cb789a29b89 Salil Mehta         2017-12-14  126  	  SoCs and further upcoming SoCs.
-e963cb789a29b89 Salil Mehta         2017-12-14  127  
-e963cb789a29b89 Salil Mehta         2017-12-14  128  config HNS3_ENET
-e963cb789a29b89 Salil Mehta         2017-12-14  129  	tristate "Hisilicon HNS3 Ethernet Device Support"
-7a7056e3dfa6636 Huazhong Tan        2018-07-02  130  	default m
-e963cb789a29b89 Salil Mehta         2017-12-14  131  	depends on 64BIT && PCI
-2aa55dccf83d7ca Arnd Bergmann       2018-12-10  132  	depends on INET
-e963cb789a29b89 Salil Mehta         2017-12-14  133  	---help---
-e963cb789a29b89 Salil Mehta         2017-12-14  134  	  This selects the Ethernet Driver for Hisilicon Network Subsystem 3 for hip08
-e963cb789a29b89 Salil Mehta         2017-12-14  135  	  family of SoCs. This module depends upon HNAE3 driver to access the HNAE3
-e963cb789a29b89 Salil Mehta         2017-12-14  136  	  devices and their associated operations.
-e963cb789a29b89 Salil Mehta         2017-12-14  137  
-7a7056e3dfa6636 Huazhong Tan        2018-07-02  138  endif #HNS3
-7a7056e3dfa6636 Huazhong Tan        2018-07-02  139  
-57c5bc9ad7d799e Zhangfei Gao        2014-06-03  140  endif # NET_VENDOR_HISILICON
-
-:::::: The code at line 73 was first introduced by commit
-:::::: 511e6bc071db1484d1a3d1d0bd4c244cf33910ff net: add Hisilicon Network Subsystem DSAF support
-
-:::::: TO: huangdaode <huangdaode@hisilicon.com>
-:::::: CC: David S. Miller <davem@davemloft.net>
+   ld: arch/x86/kernel/cpu/amd.o: in function `init_amd':
+>> amd.c:(.text+0x56f): undefined reference to `node_reclaim_distance'
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -302,4 +171,148 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907290511.vgjTUyHr%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201907291313.eKyR6MGj%25lkp%40intel.com.
+
+--6z4ubcp5mwvblr7k
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+Q/4DgC49TLhoAAA=
+
+--6z4ubcp5mwvblr7k--
