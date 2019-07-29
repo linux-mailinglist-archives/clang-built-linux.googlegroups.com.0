@@ -1,125 +1,122 @@
-Return-Path: <clang-built-linux+bncBD52JJ7JXILRBAFB7XUQKGQEK3PY2PQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBZFM7XUQKGQE733R6XQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id F1C2679763
-	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 22:01:05 +0200 (CEST)
-Received: by mail-pf1-x43e.google.com with SMTP id x18sf39134747pfj.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 13:01:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564430464; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id B02EB799E4
+	for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 22:26:13 +0200 (CEST)
+Received: by mail-io1-xd3f.google.com with SMTP id r27sf68764693iob.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 29 Jul 2019 13:26:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564431972; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aOaOaWdoaql085Gb6yWT+JdBLkggojALCN+wGJh2A9dFTParm6d+QPZDWTEYTvm3ZZ
-         LTq866Foe7fIThOEq6Ghwlqbs/UKDnINaku40nONKmKzUHpXfbhNrC4KhvZmYOpnSom/
-         JrQrdp1dl2X25fwV7LlAlv/7I8i3DgqTDA3rJRL0SAnY3QTKDnq4t8g17crBwZd8NIk7
-         RmLU3GEh4/2fM61dg+MrfLN1fgu3lIe2PgXmtyTUooj2TnJTddIqicKavrPlH9S52tU9
-         IMyGYJWiV3MUey66UxpbrJpJ64CnfWzIsu0ImACcrPlOT+JPs+n4DIp3Lj1qgJn8mwss
-         0/tA==
+        b=Dx4QqgpuU6HJplJ6gjdoHH9P0O4k+HV/sFlEdInxnrRymbqUKSGhT+vb/7zo51NlLQ
+         Yav6I4Y+khe21S9DGL15UaRRKao/qg/6c03UUWJNdF1dRB8iEfo+XndCCiYkAIJROLGJ
+         cdzDgNPcHiDIrQ3k0SBVmyDMggvyRjtXpXW2zQ2Sr69Vh2BDhJM/UyzjzI49pUak8S5c
+         XFPMKAa4ASA0uXpK3OU+bC8t/2d3xzI4qjssvyOSleRiipMZIURUVf0P/To9iX/qkx9l
+         PUwBCRwUlIsdhhkUOyFPohsDf+TrhGEaz/GJmTeLEyByvb2FEGH/zubI6YDETpQjvI0S
+         neoA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=xOXua1k6/2SlFzfZiIQI9B7zhhob3qGfYmMUBz8ywYw=;
-        b=1Gij8xPLJWLN0ZqXMBn4vYiw5+nRbwvXI0fd/C3r1VvHQXd+NH1dC5dYEBvLgjZPOK
-         /fDqXgdRTMtvtnBde/GZTcgREqfHLKWyDsQoeF+CKou3SMaXkvISj/zUUwkVOJPSR61V
-         U8YUFp/y4AVOLXjGueduhM8R7pYPhP6Bci321qUBvL4JppdhGc8EqSNQwrEMGunbSdYh
-         NnJd5teiF23KdrbDw+VwCpxffs0tbHUdfvIwSVsyzZwHCtjQX2wwq1BnEqD399d3tO3h
-         boIN6dFBLAzToJuCqcv7QQIEhclz/aKZBrfvOkao6+qwggDlH6lapdjlMKozaIKWyUKR
-         Ke8A==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :mime-version:message-id:date:dkim-signature;
+        bh=WyMn6x6WMEJbuDrnIQ9gR7MSJw/OEMRWv/UBqO5jcFg=;
+        b=LAKNA62qrfCW+mC+ZteYW1UQ6CgvL+pT5RPOsH6GYtCxp6ayIdi4m+JZh4NlAb9iML
+         7oL78jpWmeCU6/fZAO5g24Zu66DxWVpBzD/jpqYCIMuey2MxueLX3U4a7FfpfBcYiMVG
+         ZFs+IJAYKYeTC6Z8KN7/ydI4TNrLn1p99XP3NQyvpGZJAAaXsyGO22B0NmlfebeY8v3c
+         3RufZ/1FrMqUJlib9NNkvlm0vfIjY/D/U3+CDGAPVCdwUWwJ1DuapMeI4A1Yk2UrF1Au
+         PZqzJyT9jWoQOWyh6yhMSYnZXFEKxWfZ0XRe2JwEGllgv3wh/8P17wh5IWGzlyeTdrP2
+         qv6g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=KTuQ2tCC;
-       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::942 as permitted sender) smtp.mailfrom=pcc@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=NrH9CP3j;
+       spf=pass (google.com: domain of 3y1y_xqwkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3Y1Y_XQwKAPwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xOXua1k6/2SlFzfZiIQI9B7zhhob3qGfYmMUBz8ywYw=;
-        b=Go/z7ops8+woJFXsg/66KHN8oz0EQBxr+GGl/kP6HxMbi5ALWFUFexBXykeKgxaDEw
-         Na1YPQw3FKZmaEbKt03SaK0hsYZWWOBUyfhAU4IrzC1E8bw89/MQHdruWOzqUROoC4AK
-         nPb/WDpHQPASJbQjOVXAYKXoS+pJPJMuwCF7mppKp+xxH8fnfd3Iq3VwsQJgCPh7Zy2G
-         9XuXOBcOPs2qQCRgSD2l2zRFNjsecDX1qGtQ5n2mRf6scRxmDHtvtqZXpiNhXwWMRt2O
-         ggzfCAXZyTQzcMCrsajsD+xKaqvw0BWzAhEHmMHCew0IHExU98KDZXoAQGup3hYaXXyO
-         6YXw==
+        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=WyMn6x6WMEJbuDrnIQ9gR7MSJw/OEMRWv/UBqO5jcFg=;
+        b=Zk60YVjfp/wlzDwMrYLBzcoye/uLlLZNVcI540KqIOUtu0Yw2gpPlMR61WCulQhP4q
+         2H6+ngG76LDCKfxgfsXp6rTkkkGgL7LBmUmzW4otqanbbzT8D04ql0lCEw8BkxdNAoex
+         4HLtR5xpVZMZ1YRHMj5200DstnHKFCK0T4xRY3lKFH2Zb5ecZnwZymekUYLhkduyMKFG
+         2D8YJXJS5s45uWekNq73c0byBRImU7vaoBjThc3l5n7CKq3XFJcTkv2Q3nlTpFnSkgzI
+         +B+yV+MX7pOTcxnyq12orwLmzi8HI7geHxUvt2FYqSfDvB5fuKc0JTIuTzoOAD0+I2/Z
+         0bBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=xOXua1k6/2SlFzfZiIQI9B7zhhob3qGfYmMUBz8ywYw=;
-        b=Iwi2dfZ7LTQaq38sxPcCzOpXMgSYk+AirerS4zaw6CgAbT/aISUNZ5QaSWKMFw6eSx
-         1dUCiALzi9bUHQfpA8EaHHTY75hF7b+JC6zBZ4zIRvK9/jxe2UtfGqmoR3uuVpzSL6iS
-         1PlurgkYHiCf62bpF6vzrjGthg2djxKED+LOrUhlGwqGj+onRzYfcZ2BU39ef4R906yR
-         YUC9oP1OqxwzsbxFaTSy0rthN/Wj/F/b3gyJCw5qxMlpwtLR/zWZCi18rFCJZrHk3Com
-         j6NPusvZUCtOWauF9Od4UenG6Ofm2aLEVDSBPuXZQytEtuPCrTgybA6uPDc6MeQBERsR
-         FtVQ==
-X-Gm-Message-State: APjAAAW4hbrao9p9xKknJf8eVvNW2Dg9lciHjDrLF3JHANRMdVI3YK8X
-	xqR1dS+hiOLrKwL/ECMFmJI=
-X-Google-Smtp-Source: APXvYqwICO/Hs9Zm8jqY7DOvsms0xw7wvUITS4v6hvdK5RZnKjhLnQ5nMmauNxjQq8RfuNKufjkI3g==
-X-Received: by 2002:a17:90a:26e4:: with SMTP id m91mr113900733pje.93.1564430464485;
-        Mon, 29 Jul 2019 13:01:04 -0700 (PDT)
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=WyMn6x6WMEJbuDrnIQ9gR7MSJw/OEMRWv/UBqO5jcFg=;
+        b=h83ZgT0LR3L1TGnQF0u37v1AM5CxxN1Fg7LjDCxpB0/eCEo8JWYl8SEIraIjNFWH+l
+         3ElsbHBSHdEsjP4Nkjt+QgMFhkbWKu7pIH1rBOrHW9f2jYmMvpiX/I8Laj1yQAl8ur2P
+         lp2YlRg4OA0gelOTidEjWjIvHXv2H04+LyEBxelFI7e8pU7eMRWpNcg5jnhO17+AKt/K
+         RC6TdUKUr88NiQ7NmrN3YDsY+7CTfd5qpcHyD0IVDi3vqHu5nn8yjLy6Tk+PVDVEw2qu
+         vIZLY/RDDdKoIzvgkiZXDg8RXHG1raalxHmUPcWdaKKaGA1+YW6R3rqi6RqU9JgjJaXC
+         8oPg==
+X-Gm-Message-State: APjAAAWZVPNCptJWrM5JV1hJsRQzIcLbybPYEdkgy+ww16y75bXtBtzM
+	SM/j3p9E2A1M88tiMvK6TEk=
+X-Google-Smtp-Source: APXvYqxBpzD3+IZttm3kwmDcMQq7GqLFAWIfl5AO1hu95tQUE+EHw8ilTfB85dWCB1BaIw7R5Bs6Bw==
+X-Received: by 2002:a5d:8252:: with SMTP id n18mr35660970ioo.230.1564431972438;
+        Mon, 29 Jul 2019 13:26:12 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:3fcf:: with SMTP id m198ls9264504pga.10.gmail; Mon, 29
- Jul 2019 13:01:04 -0700 (PDT)
-X-Received: by 2002:a62:3883:: with SMTP id f125mr38557411pfa.258.1564430464188;
-        Mon, 29 Jul 2019 13:01:04 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564430464; cv=none;
+Received: by 2002:a05:6638:81:: with SMTP id v1ls8411579jao.14.gmail; Mon, 29
+ Jul 2019 13:26:12 -0700 (PDT)
+X-Received: by 2002:a02:7303:: with SMTP id y3mr6170706jab.97.1564431972127;
+        Mon, 29 Jul 2019 13:26:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564431972; cv=none;
         d=google.com; s=arc-20160816;
-        b=rwInGWZmFT8qPJTArHb9V2L2DrjIkvSudkmPX8PVtJyr0ZkubJBbqzS5S0bfftsYV+
-         M+9hCG/hahgY8TwKpK8a06vyKQ9JmYAFnV0QBhx3pm0aGBR0BfbYwz4wwrzV4zdV+jLd
-         RD2hhk7cQgJDP7NhH6VvMxRSvVP3K+BWQP8GsebIPXPAYIdyhEeq6ia91XbgvAxMGEK8
-         MhYMSCECgjGB+PWpJsuQTWZgZcRN6V5a6cSUyJUsRj//CZoFmjnW5c3+WZ8rH7NqIbtD
-         F5PR4K+zhZ5W/elBXNBlGiRq9vRi/6i+E/SGKcuXVpgHh46IIihs0BorHJL4YeqEi6bH
-         +B/g==
+        b=BjYVeOKAEn+Qq/G/35Ozz4VZyB2lKfbodDuHAq+KcoNo2jdX07ooav+dqYjXirMYjk
+         vmRibUB1xZzgnjNYvTzdzR/lmt8a8atPLAHSoKI+hFgEpX5Qz17orDEzeFJfj5ZGHRjR
+         MkceZK8yhpAZ3/8RGuvuO25thQ8Dvkl0PH6lpq2/Tm/n9CsgNIHkZ0aAn6urwGq8bbL1
+         px5XIC329dQtQ9AUW4rLUHXELw26yP1w3n/XR0A07MVnTf+LOYsztkuc/ZaMgKgFRjmR
+         8Qk06OMqNtNSNVU/FVJTBaqavml9U2UpQKscAaM8N396zKmVUjbxnFPTX8xxxNAdIWR6
+         M1Xg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=nrAa1Owq+7NF6kk+ji/D7dPA87Icvc1pwfZh0czgUOU=;
-        b=NYpyUiR5rIbstc/1XX9QZddmUe29Ryjil0XurnMcmIJm690BVFcaPkY0hoJOHVf6jf
-         H8MF0asHOCN8tYikAOy1OZDJ3FlpxHhhJmC6dn8PDwx6/Pk8gWitqbSQGVFbxnhq3UCW
-         LGQd2ViJFDh37f2LjRsf6U+LqH/8oWS5YNH/BgIysuf72t9my4rwgGgjkJLVAoMJ2mco
-         rN3J6tnRtMjIsbd30pMLBpkskRPl7iZZQbpoJXjRZb3DHuOxCX6+JLv8FxRHazCw/5hB
-         yHtewhzCqP41Uex/MOZPWMqsDzg93lcuhG4eRiSY5B/fixw8eOpctZAmdIOSRljHv/eq
-         QIqg==
+        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
+        bh=InkWYbyakoin4kW7joWmSnOT6nnJvOIEoZKfiSX6FXM=;
+        b=S6Heu6f3wtzqQOIcNUO02LPNKsjbk5n4IlBC+I+xbN42UH3E0n9VeAux3KquwtCj0c
+         DIHNO3Fq66Y5BrMxDuRo4zbgocvj/cyuhpfQ9Df+a4wM6gpobDk/nbQFiarpARqMGyTZ
+         eJqV3ksw136f7rLKFz08nGrCAi7sZx5UaiHMmvxAYyEVrj3wDZLv7dVJxXJO1bjSUacJ
+         Zy96t3cwLwBMZAqxSO+wSWv2sbhyiNBnotHVrOIKLSUf2A51QKUTnEGPNYIkQzY+aLT1
+         D+BudGoeBRJu8jNsPeyrbOVE6hp6QoPjxNmjhMMzI4TYOWhk4ogKWXWB3vaADxzR9Cr2
+         fYYg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=KTuQ2tCC;
-       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::942 as permitted sender) smtp.mailfrom=pcc@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=NrH9CP3j;
+       spf=pass (google.com: domain of 3y1y_xqwkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3Y1Y_XQwKAPwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ua1-x942.google.com (mail-ua1-x942.google.com. [2607:f8b0:4864:20::942])
-        by gmr-mx.google.com with ESMTPS id o30si2028413pjb.0.2019.07.29.13.01.04
+Received: from mail-pf1-x44a.google.com (mail-pf1-x44a.google.com. [2607:f8b0:4864:20::44a])
+        by gmr-mx.google.com with ESMTPS id h25si2263899iol.2.2019.07.29.13.26.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Mon, 29 Jul 2019 13:01:04 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::942 as permitted sender) client-ip=2607:f8b0:4864:20::942;
-Received: by mail-ua1-x942.google.com with SMTP id o2so24537999uae.10
-        for <clang-built-linux@googlegroups.com>; Mon, 29 Jul 2019 13:01:04 -0700 (PDT)
-X-Received: by 2002:ab0:5922:: with SMTP id n31mr1842306uad.103.1564430462959;
- Mon, 29 Jul 2019 13:01:02 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190705080231.123522-1-pcc@google.com> <20190712193846.174893-1-pcc@google.com>
-In-Reply-To: <20190712193846.174893-1-pcc@google.com>
-From: "'Peter Collingbourne' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 29 Jul 2019 13:00:51 -0700
-Message-ID: <CAMn1gO4KUq_Q39Rj3FWs6bG8BkCpGhS7gqYtBxi9EtrX=J9uTg@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: Add support for relocating the kernel with RELR relocations
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ard.biesheuvel@linaro.org>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>
-Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>
+        Mon, 29 Jul 2019 13:26:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3y1y_xqwkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) client-ip=2607:f8b0:4864:20::44a;
+Received: by mail-pf1-x44a.google.com with SMTP id q14so39230153pff.8
+        for <clang-built-linux@googlegroups.com>; Mon, 29 Jul 2019 13:26:12 -0700 (PDT)
+X-Received: by 2002:a63:5b52:: with SMTP id l18mr106138942pgm.21.1564431971070;
+ Mon, 29 Jul 2019 13:26:11 -0700 (PDT)
+Date: Mon, 29 Jul 2019 13:25:41 -0700
+Message-Id: <20190729202542.205309-1-ndesaulniers@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.22.0.709.g102302147b-goog
+Subject: [PATCH] powerpc: workaround clang codegen bug in dcbz
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: mpe@ellerman.id.au
+Cc: christophe.leroy@c-s.fr, segher@kernel.crashing.org, arnd@arndb.de, 
+	Nick Desaulniers <ndesaulniers@google.com>, Nathan Chancellor <natechancellor@gmail.com>, 
+	kbuild test robot <lkp@intel.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: pcc@google.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=KTuQ2tCC;       spf=pass
- (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::942 as
- permitted sender) smtp.mailfrom=pcc@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Peter Collingbourne <pcc@google.com>
-Reply-To: Peter Collingbourne <pcc@google.com>
+ header.i=@google.com header.s=20161025 header.b=NrH9CP3j;       spf=pass
+ (google.com: domain of 3y1y_xqwkapwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3Y1Y_XQwKAPwrhiweyprmivwksskpi.gsq@flex--ndesaulniers.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,41 +129,82 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Jul 12, 2019 at 12:39 PM Peter Collingbourne <pcc@google.com> wrote:
->
-> RELR is a relocation packing format for relative relocations.
-> The format is described in a generic-abi proposal:
-> https://groups.google.com/d/topic/generic-abi/bX460iggiKg/discussion
->
-> The LLD linker can be instructed to pack relocations in the RELR
-> format by passing the flag --pack-dyn-relocs=relr.
->
-> This patch adds a new config option, CONFIG_RELR. Enabling this option
-> instructs the linker to pack vmlinux's relative relocations in the RELR
-> format, and causes the kernel to apply the relocations at startup along
-> with the RELA relocations. RELA relocations still need to be applied
-> because the linker will emit RELA relative relocations if they are
-> unrepresentable in the RELR format (i.e. address not a multiple of 2).
->
-> Enabling CONFIG_RELR reduces the size of a defconfig kernel image
-> with CONFIG_RANDOMIZE_BASE by 3.5MB/16% uncompressed, or 550KB/5%
-> compressed (lz4).
->
-> Signed-off-by: Peter Collingbourne <pcc@google.com>
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> Changes in v2:
-> - Reverted change to RELA processing
-> - Added more comments, as requested by Nick and Will
-> - Added a feature test for NM and OBJCOPY
-> - Made CONFIG_RELR=y the default if the tools support it
+Commit 6c5875843b87 ("powerpc: slightly improve cache helpers") exposed
+what looks like a codegen bug in Clang's handling of `%y` output
+template with `Z` constraint. This is resulting in panics during boot
+for 32b powerpc builds w/ Clang, as reported by our CI.
 
-Ping.
+Add back the original code that worked behind a preprocessor check for
+__clang__ until we can fix LLVM.
 
-Peter
+Further, it seems that clang allnoconfig builds are unhappy with `Z`, as
+reported by 0day bot. This is likely because Clang warns about inline
+asm constraints when the constraint requires inlining to be semantically
+valid.
+
+Link: https://bugs.llvm.org/show_bug.cgi?id=42762
+Link: https://github.com/ClangBuiltLinux/linux/issues/593
+Link: https://lore.kernel.org/lkml/20190721075846.GA97701@archlinux-threadripper/
+Debugged-by: Nathan Chancellor <natechancellor@gmail.com>
+Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+Reported-by: kbuild test robot <lkp@intel.com>
+Suggested-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+---
+Alternatively, we could just revert 6c5875843b87. It seems that GCC
+generates the same code for these functions for out of line versions.
+But I'm not sure how the inlined code generated would be affected.
+
+ arch/powerpc/include/asm/cache.h | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+
+diff --git a/arch/powerpc/include/asm/cache.h b/arch/powerpc/include/asm/cache.h
+index b3388d95f451..72983da94dce 100644
+--- a/arch/powerpc/include/asm/cache.h
++++ b/arch/powerpc/include/asm/cache.h
+@@ -105,6 +105,30 @@ extern void _set_L3CR(unsigned long);
+ #define _set_L3CR(val)	do { } while(0)
+ #endif
+ 
++/*
++ * Workaround for https://bugs.llvm.org/show_bug.cgi?id=42762.
++ */
++#ifdef __clang__
++static inline void dcbz(void *addr)
++{
++	__asm__ __volatile__ ("dcbz 0, %0" : : "r"(addr) : "memory");
++}
++
++static inline void dcbi(void *addr)
++{
++	__asm__ __volatile__ ("dcbi 0, %0" : : "r"(addr) : "memory");
++}
++
++static inline void dcbf(void *addr)
++{
++	__asm__ __volatile__ ("dcbf 0, %0" : : "r"(addr) : "memory");
++}
++
++static inline void dcbst(void *addr)
++{
++	__asm__ __volatile__ ("dcbst 0, %0" : : "r"(addr) : "memory");
++}
++#else
+ static inline void dcbz(void *addr)
+ {
+ 	__asm__ __volatile__ ("dcbz %y0" : : "Z"(*(u8 *)addr) : "memory");
+@@ -124,6 +148,7 @@ static inline void dcbst(void *addr)
+ {
+ 	__asm__ __volatile__ ("dcbst %y0" : : "Z"(*(u8 *)addr) : "memory");
+ }
++#endif /* __clang__ */
+ #endif /* !__ASSEMBLY__ */
+ #endif /* __KERNEL__ */
+ #endif /* _ASM_POWERPC_CACHE_H */
+-- 
+2.22.0.709.g102302147b-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMn1gO4KUq_Q39Rj3FWs6bG8BkCpGhS7gqYtBxi9EtrX%3DJ9uTg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190729202542.205309-1-ndesaulniers%40google.com.
