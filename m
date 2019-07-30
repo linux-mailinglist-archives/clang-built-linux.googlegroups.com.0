@@ -1,130 +1,129 @@
-Return-Path: <clang-built-linux+bncBDTI55WH24IRB6HIQHVAKGQEIBBPEVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD2INDP3VMPBBRPJQHVAKGQE23IRCHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A63597AE51
-	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 18:46:49 +0200 (CEST)
-Received: by mail-pg1-x53f.google.com with SMTP id 8sf35586324pgl.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 09:46:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564505208; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5B9CB7AE59
+	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 18:48:06 +0200 (CEST)
+Received: by mail-io1-xd38.google.com with SMTP id x17sf71594710iog.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 09:48:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564505285; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y/58Pe7Kh54CWGfSVbpk608B2kIuYOciBLRjQDewPjhcfaA1njVGtqshObZP36Ejig
-         ajvcU6OyQ0eftvj9fqDQHzwvBfIMtrWhP63jx8GA9tBfkWHEvI0SzD9XJEZEfBxKQBgI
-         TNOYK+QAl2LJ4gXduL/AotlVpGQW5Xtc1QqbYd5NlIxV5pvR9k5GG77JQC9b9SgM8ya4
-         BPPkIZ9E/hXpNjtPEi4VxAtryCZsNSOWd78Q+DwZw/fy7aOwpsF2qEA+CTK9mu8CrE6/
-         O+viP3asfaT9/muG6QA9VPNfgmUIMCbtzO8+dKnoAdzBFhb+TLcHrCOe+8QRzfxR6RSz
-         75RA==
+        b=c7PXx93+3KitmEyz0Ca09o/fQghyAa3ZA2/ceq73pOVbhkBnvCQi9mU1cGkre32Pbq
+         pZUK5GNWKeIkggLmcEdppTV7ewtkROcRhuaeWNBzHLQ9NldAe7e4aSSa8ixmQtvgRRlS
+         eazTE6RexjzxVquYT+BuO57wIiivSWOOrMzhUttmKbhLW+fPi+oTzzVyLxWIrsBBxMXp
+         WaYz0bj89pM2p6JC/3WP1DwhGszum2qvHQigpHxbwb+gM+Wi1ww8YPW/1px7P2UYAxkL
+         XS5zmN+guQUoUdsCHjA4o+pzZVFabqktT9ywtT9igkcpY++NbcBKoOxJw55JzFDOFlwZ
+         a4fw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=SYzgnlIBSmFgHC0fwM6fjhksRHC9xtOxzxrAH8RwOOI=;
-        b=BuVqjqy2oQ1aKCj5W290G17h4gnk8fjMenWXM1BdGNfd6XbodkEW8oi42lI1ly7JBM
-         12C0LFQEgDqmn9/xY761GF6GQvR433HMJ1cIPZWW8AsAR2bwHGdzsDOB4UP3SQcyHzwK
-         XTss9wGjq3tGRqJWxD8dtClQl7TTHex6cO9EKs33mLvSzKBH1FzAAGWekJ7GDSk/8Wx3
-         QbR1QrWRLaPi5sAQUcTARL5599kZz+mdppEaqJ6wnEvsk31unKw+VXHh1ADNj9jDVdCJ
-         R8cP0egabSOGd/xKbn2MwiUTMK2zvIem3SDtITpMl/eAXohQ9nHylDIqvwIbScDy9hzu
-         HujQ==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=V91XfIQ1w2i/qztul4zrVabcius6sXkcUKI/N7mPD5g=;
+        b=l9wNk5GfX/soFRShPOmoP0pffKIT6bUdR5Yv9NatJH0NIvGnJT4hRNCQSZXGV/+6eS
+         CtlZiwhEL6eiJegVfft1ZHmzPGbFFnGmRh+sgukVi7lJbrFT355lmHU0wOTg6yxzOAyj
+         V1lI5sxOn9PEyZxwUnLxViotUopkjt7cSFTj+5p2ftLdfbS/OavLpO5UAlJtEszg3m1T
+         YExD2E2UX2qa0Kvmg+9VSMRH8AF6PR3ZkpTPlf0Xcba1qrTnMSyulVq2FbsfMvs7hxKq
+         J0GHOwUXf0hCe74tars/Y5+FSd8BiRn0HkteDal0Wwp3oMX4UVlPryjPV5BHeHxSr4XK
+         pxtQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=jJkn+qz4;
-       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+       dkim=pass header.i=@chromium.org header.s=google header.b=EZBWItEE;
+       spf=pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=swboyd@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SYzgnlIBSmFgHC0fwM6fjhksRHC9xtOxzxrAH8RwOOI=;
-        b=pAwtaesrKJ34k4rHMmh0Kaa6KZ0N8vPsjgu4m0Ed1V/J2rpF3QcuZSNKfSxPERIx8b
-         bkDS1lJwyJ8sv7RuST1q8gwF3mNdY6lPQA4t/Mp1geruxR5tZltbjJ0YO86MZjtklwP7
-         FQ7Crv83aUylN9PkFZUdX2OaaPz5aL+FTCJinUGzDQRPv8IUcQwqfg8X7miKy59fhQLx
-         434vKwvNhN9SqcSGpugwsd+TIrnAlPaOqX2qaCqx+VGvko2+sHmytgrPx0GP/9wsDn88
-         pDSmERIsm0JqXRKU02ohsdumQJciNIZCgBeQhO2yvKu0J7n9J863yD+hrDMQZV0BwIcj
-         YxVg==
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=V91XfIQ1w2i/qztul4zrVabcius6sXkcUKI/N7mPD5g=;
+        b=WBVyUVwKTh4KY4LwmoyrxQq0746kURc0rL677+rPp2vC/JCvVRSxBd2S8RgioR4czb
+         CiskS2e6g2Verz1z/060Y9EiPNPDT9O3d3IICGkPZpqUByLZu6W5R3L9/DIyxBnFOnjV
+         KlrIy8qAWpmsGvjZxL/mXUF7Z27uzLW8DfBrWzmTgJaJhYcdiSfZiE3K/AB8Y9OBwUAM
+         MJfZx4x+WowmXyKn2OZ6t7Gw/JdibZ/HTfkQlovumvICf4VdiDh5hoxsu5rp6VwQ+xKH
+         iLA5WLcLM2YPEc0BgitUz0DjfcWkh+fyKz7O1nN8MloE9gZ5DFWouv7/7IHpC0yYm3el
+         xHkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SYzgnlIBSmFgHC0fwM6fjhksRHC9xtOxzxrAH8RwOOI=;
-        b=ekX6LBJoXSU6zz94fmHKkFUQFFLcxUQwKG0GiNKnIGCLwtIYpb8n3PyS0FbHVPlS6/
-         NwhCuany7xfLeTlEXAxRw/j+tj9Fn2KZlx8kUKowt4CnfeveKQ2rqNZVPoxVwU7kaqqw
-         4AK+j14ERBVHxbgQrpJZAnQNCFngSnADojBC23xhtfeMUeY2kbiKsusiQHraaj0cjcUz
-         fmOyDSU9vd99+kP1dcrwY+NHnSxiQU95JxQUOjg4h3fJg2GxL9QeokdFGz0Q9OhZ3Rrk
-         k3M/jBcTPVZrE9z+JwHeRz84+GCYqwLbHUUgkg4z5ww7ZDXb23Giq7A8kLjpnFguOvUn
-         eiRw==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=V91XfIQ1w2i/qztul4zrVabcius6sXkcUKI/N7mPD5g=;
+        b=kvCEygeN4lqh8IaHcZCzFmf4ybByorsVuW+2sSWcGJQs3BSegcmkTbXMF1p/z5FheH
+         Tr37TIygDlAbeBxLSUuONHCoLwYiYOeLG6SjUt13/KLZ30jxmZglbxd7XNGePJvglZjr
+         DxE0PsX8Bb8eDftHSl4ke2QBqv/HY49TPxZenKRmW3abfj2DhgsuHCATlI3aTPMEf+Mq
+         nS8FZfz6wRR2lm6j6C/KEXExY2rcySD6rLdl41puEPpIoZK3zyqvd3G21Wi8/yNnz8/P
+         ynHWQVs+S1+zb4hj5AE02g56KfsMh+zbv4YeX+QX0ocaw5zpwS7Ue+8qpY4GgiJflWFk
+         PS7Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXgHnuGFXayoSsWfPlGoN7tSzQg6BpI76LOot265/y/KhL1LfLL
-	GABcBVf+VIjJ82nQppsRTJ4=
-X-Google-Smtp-Source: APXvYqxCnrb5ti3ED8DB96G+KGIlnV94E7aqpkGGUnuWwyc1mMpXQXpJoUJVkyTFDLlQu0QgaKD3Dg==
-X-Received: by 2002:a17:902:6a87:: with SMTP id n7mr114170889plk.336.1564505208363;
-        Tue, 30 Jul 2019 09:46:48 -0700 (PDT)
+X-Gm-Message-State: APjAAAVIOH/LFGtwm18anIlc16bmAH5kka08XDQi+jnLdpAaeDlO20VS
+	hjC7SH1R0tFDjJRqslAApLE=
+X-Google-Smtp-Source: APXvYqyuX7HJRFzcAiaPjANZKGGKy+9WTm6JMkjwTHSkWlujbgMlq9UuW/fyZiCHKdfg9ichdyEklg==
+X-Received: by 2002:a02:a183:: with SMTP id n3mr124731686jah.74.1564505285298;
+        Tue, 30 Jul 2019 09:48:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:a60b:: with SMTP id u11ls18192703plq.8.gmail; Tue,
- 30 Jul 2019 09:46:48 -0700 (PDT)
-X-Received: by 2002:a17:90a:ac14:: with SMTP id o20mr119416285pjq.114.1564505208111;
-        Tue, 30 Jul 2019 09:46:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564505208; cv=none;
+Received: by 2002:a02:7124:: with SMTP id n36ls8808371jac.3.gmail; Tue, 30 Jul
+ 2019 09:48:05 -0700 (PDT)
+X-Received: by 2002:a02:85c7:: with SMTP id d65mr7023343jai.8.1564505284989;
+        Tue, 30 Jul 2019 09:48:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564505284; cv=none;
         d=google.com; s=arc-20160816;
-        b=WDMzTtgkYVu8rmlxtiaqylnbXKK4tbhD/rbjUdWPD1dt8BrfPvPweDT1QjTLa3DMBp
-         u80pAy2+x8pRxc0YSiWcMir3NRJOgGTbdUM/61vQDTUEZelQ0BrY3SzOLIxi0JmpE3R4
-         Aes8s/3C+3fljQlrWGw6kOF6pYRmZhs0e2bSnV5uLrxQqSfc1Xkn5QKPI5gmuK8nbnHo
-         R4PAadeykobYm35I8CTYGUxVWqeKvWokyUlWboNTEn6WLRe0ZtAedOSYXFESYYcaB6h3
-         GzDg3YU26D2pMlnebmA3lR9QYFWu7eXh9u4xHgvF3wUFifn6IcSolN2hkRpFZ5ai84zB
-         v2nA==
+        b=a01WWZX8HkUFr+dqdQhF+p527vUZ5w8LiidwN+Wp7F4C/6tmvpQ6+JmFbiV9MRiB9P
+         EZdSqcLR6T9WYIJ3vWwrbUSPRXDKCUM7RVAfx1X5ViRdRz0baPWTbEwf/qmqyMi1svQU
+         O0WmGuo0X//aWGmgN4enmsKfk+48kahKFhtdIR8iw0VVxG5jPNz5JkWk4aq29d3sXc0w
+         adJJ9mWx9jb7HErJOx1gCNkoboKRtT3V6DRIHWvVJN/kpf9dfD+2RKi95/64WzvkW54n
+         JUCl0T5sregfL/IvrqPRY6DVZTz6Nu8268/CsRGol9JUFuz5AwwJA8d5yLZH2kFTNL/6
+         pCyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=Ok/KGDQSrCYrPibwFAYS5ZsFlsGiUOUaXlIYe533dXI=;
-        b=kd0i+hOv6MwgdVhpwBcigGcCv+I8HynlIkmRg/MXJV5eThwO3Nfkve53MTyc0nSIek
-         EQfKsPRw9plbsIDs/YP0wbVd+zaAqEa1k7vBz9JxtjOui7grmsKu0+euIrRnKl0IUtWH
-         ZIla723aI1iPkPTLaNpWqeC4Ka5EYvB0oCs61kI+62xRku4Pt3rfdImsBti7A61Pwukr
-         xJE2MLylPeZKYjdfClr3mus+vpcXznhCm0goMJoumAeVlvUYzlpGVNHLao6h0h6CzHk9
-         1NodK9rwBRinrooLRm0qeurQTHD+hYNPKA4udqj3W043/OX4ItzdkK3ygKrw0X2exIJ7
-         X6Gw==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=LJPOL/2PE+PC/AElqmQU6HOXbiWhS4dMp+5yI3ZLajU=;
+        b=mMOVF/XlmzQpyyDUFLfynmto71bnWRp1oy17V3B12djeynkn2WTdjufxPn08Rk59sA
+         OWzd/PtYzyYmTI8TkVBgASMaEx6YVaBwlcue/rat7UqWSX9hYt3DDpH8Ab/goIvUUGI9
+         Pwy39szVHHND1uMwcKDnTwclaSK/tucvGA+ZbDoaS0Z1OvaZGllB1u6Y2aukdLIZufqE
+         htc03wOfAPd8RWjSmxwZdrxfJ9awOnwDQo6Sq9mc8+x3IubtSHaLovekrL7vgmNbIr6r
+         wsSwP2b/Wv+slaHi1SQo6b6C9rjPVhI2dHEJXzjYNbn80XS4D0OXCF1OgowyjXH3L4G/
+         ZXxg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=jJkn+qz4;
-       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.83 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
-Received: from conssluserg-04.nifty.com (conssluserg-04.nifty.com. [210.131.2.83])
-        by gmr-mx.google.com with ESMTPS id ck6si2109270plb.4.2019.07.30.09.46.47
+       dkim=pass header.i=@chromium.org header.s=google header.b=EZBWItEE;
+       spf=pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=swboyd@chromium.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id t12si2379707iol.0.2019.07.30.09.48.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 30 Jul 2019 09:46:48 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.83 as permitted sender) client-ip=210.131.2.83;
-Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com [209.85.221.174]) (authenticated)
-	by conssluserg-04.nifty.com with ESMTP id x6UGkXAo027798
-	for <clang-built-linux@googlegroups.com>; Wed, 31 Jul 2019 01:46:33 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com x6UGkXAo027798
-X-Nifty-SrcIP: [209.85.221.174]
-Received: by mail-vk1-f174.google.com with SMTP id o19so12937967vkb.6
-        for <clang-built-linux@googlegroups.com>; Tue, 30 Jul 2019 09:46:33 -0700 (PDT)
-X-Received: by 2002:a1f:ac1:: with SMTP id 184mr45919137vkk.0.1564505192554;
- Tue, 30 Jul 2019 09:46:32 -0700 (PDT)
+        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+        Tue, 30 Jul 2019 09:48:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id p184so30133969pfp.7
+        for <clang-built-linux@googlegroups.com>; Tue, 30 Jul 2019 09:48:04 -0700 (PDT)
+X-Received: by 2002:a17:90a:ca11:: with SMTP id x17mr118881270pjt.107.1564505284405;
+        Tue, 30 Jul 2019 09:48:04 -0700 (PDT)
+Received: from smtp.gmail.com ([2620:15c:202:1:fa53:7765:582b:82b9])
+        by smtp.gmail.com with ESMTPSA id 30sm154516103pjk.17.2019.07.30.09.48.03
+        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+        Tue, 30 Jul 2019 09:48:03 -0700 (PDT)
+From: Stephen Boyd <swboyd@chromium.org>
+To: Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Michal Marek <michal.lkml@markovi.net>
+Cc: linux-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Peter Smith <peter.smith@linaro.org>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Douglas Anderson <dianders@chromium.org>
+Subject: [PATCH v3] kbuild: Check for unknown options with cc-option usage in Kconfig and clang
+Date: Tue, 30 Jul 2019 09:48:03 -0700
+Message-Id: <20190730164803.45080-1-swboyd@chromium.org>
+X-Mailer: git-send-email 2.22.0.709.g102302147b-goog
 MIME-Version: 1.0
-References: <20190729091517.5334-1-yamada.masahiro@socionext.com>
-In-Reply-To: <20190729091517.5334-1-yamada.masahiro@socionext.com>
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-Date: Wed, 31 Jul 2019 01:45:56 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASyjUbM1ij8E1tO3uD3Rpi_qC6-X4=LKR+ZKh5g6vvBnQ@mail.gmail.com>
-Message-ID: <CAK7LNASyjUbM1ij8E1tO3uD3Rpi_qC6-X4=LKR+ZKh5g6vvBnQ@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: initialize CLANG_FLAGS correctly in the top Makefile
-To: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>
-Cc: Stephen Boyd <swboyd@chromium.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        stable <stable@vger.kernel.org>,
-        Michal Marek <michal.lkml@markovi.net>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: yamada.masahiro@socionext.com
+X-Original-Sender: swboyd@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=jJkn+qz4;       spf=softfail
- (google.com: domain of transitioning yamada.masahiro@socionext.com does not
- designate 210.131.2.83 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+ header.i=@chromium.org header.s=google header.b=EZBWItEE;       spf=pass
+ (google.com: domain of swboyd@chromium.org designates 2607:f8b0:4864:20::441
+ as permitted sender) smtp.mailfrom=swboyd@chromium.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,71 +136,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jul 29, 2019 at 6:16 PM Masahiro Yamada
-<yamada.masahiro@socionext.com> wrote:
->
-> CLANG_FLAGS is initialized by the following line:
->
->   CLANG_FLAGS     := --target=$(notdir $(CROSS_COMPILE:%-=%))
->
-> ..., which is run only when CROSS_COMPILE is set.
->
-> Some build targets (bindeb-pkg etc.) recurse to the top Makefile.
->
-> When you build the kernel with Clang but without CROSS_COMPILE,
-> the same compiler flags such as -no-integrated-as are accumulated
-> into CLANG_FLAGS.
->
-> If you run 'make CC=clang' and then 'make CC=clang bindeb-pkg',
-> Kbuild will recompile everything needlessly due to the build command
-> change.
->
-> Fix this by correctly initializing CLANG_FLAGS.
->
-> Fixes: 238bcbc4e07f ("kbuild: consolidate Clang compiler flags")
-> Cc: <stable@vger.kernel.org> # v4.20+
-> Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
-> ---
+If the particular version of clang a user has doesn't enable
+-Werror=unknown-warning-option by default, even though it is the
+default[1], then make sure to pass the option to the Kconfig cc-option
+command so that testing options from Kconfig files works properly.
+Otherwise, depending on the default values setup in the clang toolchain
+we will silently assume options such as -Wmaybe-uninitialized are
+supported by clang, when they really aren't.
 
-Applied to linux-kbuild.
+A compilation issue only started happening for me once commit
+589834b3a009 ("kbuild: Add -Werror=unknown-warning-option to
+CLANG_FLAGS") was applied on top of commit b303c6df80c9 ("kbuild:
+compute false-positive -Wmaybe-uninitialized cases in Kconfig"). This
+leads kbuild to try and test for the existence of the
+-Wmaybe-uninitialized flag with the cc-option command in
+scripts/Kconfig.include, and it doesn't see an error returned from the
+option test so it sets the config value to Y. Then the Makefile tries to
+pass the unknown option on the command line and
+-Werror=unknown-warning-option catches the invalid option and breaks the
+build. Before commit 589834b3a009 ("kbuild: Add
+-Werror=unknown-warning-option to CLANG_FLAGS") the build works fine,
+but any cc-option test of a warning option in Kconfig files silently
+evaluates to true, even if the warning option flag isn't supported on
+clang.
 
+Note: This doesn't change cc-option usages in Makefiles because those
+use a different rule that includes KBUILD_CFLAGS by default (see the
+__cc-option command in scripts/Kbuild.incluide). The KBUILD_CFLAGS
+variable already has the -Werror=unknown-warning-option flag set. Thanks
+to Doug for pointing out the different rule.
 
+[1] https://clang.llvm.org/docs/DiagnosticsReference.html#wunknown-warning-option
+Cc: Peter Smith <peter.smith@linaro.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Douglas Anderson <dianders@chromium.org>
+Signed-off-by: Stephen Boyd <swboyd@chromium.org>
+---
+ Makefile                | 1 +
+ scripts/Kconfig.include | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
->
->  Makefile | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/Makefile b/Makefile
-> index fa0fbe7851ea..5ee6f6889869 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -472,6 +472,7 @@ KBUILD_CFLAGS_MODULE  := -DMODULE
->  KBUILD_LDFLAGS_MODULE := -T $(srctree)/scripts/module-common.lds
->  KBUILD_LDFLAGS :=
->  GCC_PLUGINS_CFLAGS :=
-> +CLANG_FLAGS :=
->
->  export ARCH SRCARCH CONFIG_SHELL HOSTCC KBUILD_HOSTCFLAGS CROSS_COMPILE AS LD CC
->  export CPP AR NM STRIP OBJCOPY OBJDUMP PAHOLE KBUILD_HOSTLDFLAGS KBUILD_HOSTLDLIBS
-> @@ -519,7 +520,7 @@ endif
->
->  ifneq ($(shell $(CC) --version 2>&1 | head -n 1 | grep clang),)
->  ifneq ($(CROSS_COMPILE),)
-> -CLANG_FLAGS    := --target=$(notdir $(CROSS_COMPILE:%-=%))
-> +CLANG_FLAGS    += --target=$(notdir $(CROSS_COMPILE:%-=%))
->  GCC_TOOLCHAIN_DIR := $(dir $(shell which $(CROSS_COMPILE)elfedit))
->  CLANG_FLAGS    += --prefix=$(GCC_TOOLCHAIN_DIR)
->  GCC_TOOLCHAIN  := $(realpath $(GCC_TOOLCHAIN_DIR)/..)
-> --
-> 2.17.1
->
-
-
+diff --git a/Makefile b/Makefile
+index 9be5834073f8..517d0a3f6539 100644
+--- a/Makefile
++++ b/Makefile
+@@ -536,6 +536,7 @@ KBUILD_AFLAGS	+= $(CLANG_FLAGS)
+ export CLANG_FLAGS
+ endif
+ 
++
+ # The expansion should be delayed until arch/$(SRCARCH)/Makefile is included.
+ # Some architectures define CROSS_COMPILE in arch/$(SRCARCH)/Makefile.
+ # CC_VERSION_TEXT is referenced from Kconfig (so it needs export),
+diff --git a/scripts/Kconfig.include b/scripts/Kconfig.include
+index 8a5c4d645eb1..4bbf4fc163a2 100644
+--- a/scripts/Kconfig.include
++++ b/scripts/Kconfig.include
+@@ -25,7 +25,7 @@ failure = $(if-success,$(1),n,y)
+ 
+ # $(cc-option,<flag>)
+ # Return y if the compiler supports <flag>, n otherwise
+-cc-option = $(success,$(CC) -Werror $(1) -E -x c /dev/null -o /dev/null)
++cc-option = $(success,$(CC) -Werror $(CLANG_FLAGS) $(1) -E -x c /dev/null -o /dev/null)
+ 
+ # $(ld-option,<flag>)
+ # Return y if the linker supports <flag>, n otherwise
 -- 
-Best Regards
-Masahiro Yamada
+Sent by a computer through tubes
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNASyjUbM1ij8E1tO3uD3Rpi_qC6-X4%3DLKR%2BZKh5g6vvBnQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190730164803.45080-1-swboyd%40chromium.org.
