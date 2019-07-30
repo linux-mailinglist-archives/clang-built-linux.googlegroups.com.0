@@ -1,129 +1,129 @@
-Return-Path: <clang-built-linux+bncBDLIXLMFVAERBPNVQHVAKGQEWEDWEHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBBAG3QHVAKGQEFYC5NMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2BB027AB86
-	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 16:57:03 +0200 (CEST)
-Received: by mail-pg1-x53d.google.com with SMTP id t19sf40710934pgh.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 07:57:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564498622; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8B9357AD61
+	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 18:17:06 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id f22sf71944595ioj.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 09:17:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564503425; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XgiJ6fnTw/GDqErV7x2PiK1rV4f9rHsG48k7EEyeWgx9QIhKVLoDTXVuBoDI2nM1ZB
-         l92B6gMlaSYP0W8wxHqit6RijKHwrBxdFHMe7JBEfsoch1BRokEL1SwH8VOBj2zqu91w
-         aa92WDstKuzqp5zVxWGRI6AwbO96mcYQ79oFsrMQVYBh4kwwtujMJNDxsRrIDbxVjPNa
-         4Ob5x1bI5SskuLOv/03nmRwWom2suFler5LhbArmzK7wW2mkLiIjX91SNjmM2pL1Rln+
-         Fw/gBZOai+LFY/FieL97PMgWUjkRxcA5Ff3VlOvFQyxkQ5bf14h7DRcKZ/NfbsPluNpq
-         wKBA==
+        b=WFZj2AQNClvrQQKNxHl3cyHbLg7y3xqWJkZbZ+kYYBo6l3ZWscayWCYy3mlNOJ0Z82
+         pI4GWJfiwMNhH9mDfIWwHT6Q7FDC5b3bepGCAuiR02RaJb2pF1vuWK4BctQCbCUcjIhH
+         IUdEcbBvXor7n+oAH/MG/TubytL4nQkZGo+En4q2r8jPbwf5q86gtXGa5fvOd0pbkyUe
+         Vwl/+j9I3iuotufhs09ROp8H3mis4DO1Jje28QkwA2kq8PKAgmoqtUu9OQhvcS9vT5+F
+         gDRknhYQu+XenXhTi7rlrsC5Y5uDeo/6OdTBvE/6Fds++2WX9/OfHCeI+FQRtUbmTZEd
+         qoFQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
-         :date:cc:to:from:subject:organization:sender:dkim-signature;
-        bh=zRt+++MczUfLyCpcVJ0j/cSVtdKgCDO4sypaz2lPfQ4=;
-        b=S70oYEgqkwi17EBWzPThHWiaVB8QhkZi0/5pJP4eRSAEKgv+eBNj6/xb9MzacWJGCh
-         2NYC5+PI4X1RjsOaF9KC2O27xmZzdoCY7VCL+jInsuZ92Gsuv7Uy8L9VKcvIjlvs8PoQ
-         wAK8VnsVYR4iLxPhnbEET0+Wlm1qcbG2x4jY74j/WGFjAIg6DlQ6uDKNVcgOgEvPyEXI
-         nlz5BkAJ4YZk0RvjtmvEXqnYz6vlM+iUcCL+0om5W4DUUZeOgxq6xIW26P910Xx73vqv
-         Zr3wZaWmQq5yc4AtQ15LkTXj/W8GSAMfsTMZT17AUio616/4TU/rHquxTcJDRXxsB35Q
-         fZlg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=BI/oLgSxzgbNr6zSn5KWE7pclIzs1L3ZxCCll61C1TQ=;
+        b=HA4Y1gQFzzh7MeBHO/AcE5dOpedtJnwaNt993GB5EP4o64Kz2fgUqunW8v1giiACbX
+         rt+W6jgInzGfJJxpcYFrspss70CVuc0YMir54gRtTIxXWSbrVN4wRZHF0zq2Xc+epv6c
+         IQzsbDQPeLZtHDjIbMFC6r0HOLd9aYMDEyi/SyznVoaOMWZpznGEreRHmHsvYaEFAfW8
+         olBab3am+Yjn3cMgCviXnrCAyTUo6qBeEJ18gQbHUkQp4kKpPVcdZqo1cuivbO8WGsG2
+         30A4+lPJyW3wWD7ELc6YnFRlxQKpmA05WJa0O0493QsHonc7oWU9EWi0tuee83lpChbJ
+         3IjQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of dhowells@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:organization:subject:from:to:cc:date:message-id:user-agent
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=zRt+++MczUfLyCpcVJ0j/cSVtdKgCDO4sypaz2lPfQ4=;
-        b=AMjQuSBC+Ga0HDxFotBmTL6LRLiwpoz8b+mxK/3nsGKC0aVI5i2KIP6Rx3s1gZmRjt
-         0LQ9VJZqcj+BHGB2i3lihRrW0fK7G1RShI+N4UUTSPB2y5xZy7LoZBmWqvRIrV++0lAN
-         jjOXn6PHhUnWkTdIDLvHcMQt4mpWH5t75gcNg2qUBKJUPJKCdDRGDaavsUC/lv+uvXZF
-         ceF7skOGH5krjHnXYABMRYS56t0c/p4LNIxVLs+a6qMxR2eta+0/AH7i4ak4AvpcbUNL
-         XDzo+SQjaprG7pyuAINNtv9CtLQAkMt3wOBrT7MJp0E6OSGE2YkSTFyJiUzorZlMlvOR
-         59Mw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=BI/oLgSxzgbNr6zSn5KWE7pclIzs1L3ZxCCll61C1TQ=;
+        b=TOcqunKdzoV2v+hEuXHKeqlJTwreAqDHwVfBmaKIsPRkdCmSHmpSJgOw3ZR2Hji+fZ
+         H6EhpNBMXCor+PhgET90W7GCTvSJ0MV2AkfHtRE74Mo6hlD2KbLXngPMZQVKOnAcHEVQ
+         W579oK+MfBdsPDOWM6Go/Izm3IFhkc+SMqR7io0EgU5VKX04qM81aJMoYwD5YvoGiOiu
+         h03roxOGGgYtHi/ZQfFTCo1QFSVU3SHqgq2KUkxLCphvbopChMejHUc1URTIX2SXQAAY
+         SWuSaOwew5+dXAFcopscVMFZ63NJDXAnq1q0ldv7GRpuDwdmiTc/4vagHG1q0RD3957C
+         CGUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:organization:subject:from:to:cc:date
-         :message-id:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=zRt+++MczUfLyCpcVJ0j/cSVtdKgCDO4sypaz2lPfQ4=;
-        b=uKZz+qByw2ihUNy2ZFTruRJYvsEt/0TtGA4/G/4b7RA+X1Kn4a9+qQ/ml9VST1Wv1G
-         DfeSW48gx8Waa4gE9i7xfZwrEMfPCVMXNjwEN7jJrxhWBWQrsqalbqxv+gfD0ZJc0cgT
-         qRdQDbFOBDGyOS/veI/2TeVEIMEM7R1By4SnTMkkXsje4fYn/X9ia5xxDKHUL46fLiWu
-         1vWmVkbVAHthy7WER6U7f/urQp9+DauAoUmLDg6vqeg3G4gNazUfR2f25Y3RXFPBR4+d
-         secjzi/W9j9KPOjA2QvI+mwrqaA8vju7hwewhWbyW7kukj7ZEYU+IfCAYp1qV4w3eHMu
-         YM4Q==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=BI/oLgSxzgbNr6zSn5KWE7pclIzs1L3ZxCCll61C1TQ=;
+        b=J95W81ICTxESPAeA3qKfO7rIEbaq1VL6kdKst29/NkVOiSaCc9EOPRnLMCiOJC648J
+         Iekf8wpZZGV85jZtYUyM3nYhrS2FLNmZbZQG+m5GXq9wt5NlIWJxCGK5oEYXxnhPzN6z
+         VeyYhTALX01MKyef5Ejtt/8n5WagZf5g/HMtMZ6xN9LgCncu4avPRulKts/0t2eZjQG4
+         sjlunLnAsgZO+eGuRFVLmAKpvUrPb2EsEOgewwxb6BzwcsOjLD96iRZB3NqMI+T1XVCC
+         9d2Y+Cl+7UfwUu/6zK8E5sz/DhmUvZrL6d7SYdBv0b3cOFmUaH4Td1URQs4ff6kS+kGp
+         Ww/Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUnCKOvi/CgDK3bBcqtUFs/7N7bB+h74N3s+wdB3yKaoiJasoL7
-	Hh38OaAxtO0tyEgk1fZvpc8=
-X-Google-Smtp-Source: APXvYqyERKP7+22ISzMh1GWdwLSQSC6j4ddQ9GoF/twrHnIYA6qNlQ6QOj/SWfWFqTiNqtTojyIp8A==
-X-Received: by 2002:a62:7d96:: with SMTP id y144mr42370444pfc.156.1564498621485;
-        Tue, 30 Jul 2019 07:57:01 -0700 (PDT)
+X-Gm-Message-State: APjAAAU/iyKt8NYJwuz0P20GAPBVct9XcOWZBOx7jPCKnDg3hB/qzgP4
+	XmHrBbTKd4nKz+oe6zGzObg=
+X-Google-Smtp-Source: APXvYqzTXk+GLdU21cVh7zxK9ncPuSfnV+lyI/hO1v21zDGpzjdE6WB03nrp6JRPVJibDMPVytGukA==
+X-Received: by 2002:a05:6638:38a:: with SMTP id y10mr4705166jap.104.1564503425133;
+        Tue, 30 Jul 2019 09:17:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:ce4e:: with SMTP id y75ls13558343pfg.11.gmail; Tue, 30
- Jul 2019 07:57:01 -0700 (PDT)
-X-Received: by 2002:aa7:84d4:: with SMTP id x20mr41796881pfn.60.1564498621147;
-        Tue, 30 Jul 2019 07:57:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564498621; cv=none;
+Received: by 2002:a6b:da12:: with SMTP id x18ls16768917iob.5.gmail; Tue, 30
+ Jul 2019 09:17:04 -0700 (PDT)
+X-Received: by 2002:a6b:f607:: with SMTP id n7mr71317934ioh.263.1564503424798;
+        Tue, 30 Jul 2019 09:17:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564503424; cv=none;
         d=google.com; s=arc-20160816;
-        b=qIOzdx3DcMEVYWWiuNMG5EUj6aci/jxapP57f1qAj18c6KhzVhynJLQs9720wFo+yA
-         o18dNYuvaLg5tQFCj2sNVXDyoiYgdV2RsLHF4HIHmqouglISGnnOS1pY6sttAGPWJWeP
-         E4+S+rMaQbWvcFur3OKHeRwJi/aQywTSymXwcYj3Jwo4kGtm+Qbwb6zIdNlcgJlkSww3
-         Ddx/PTgXL7LwUe5oPDD3R8GwLOf08nWZtocTu55AqJbSi67bqDfwqnMSMsLZMV8PawYQ
-         oICYAhdQDpTvWt6EUInRX4JMb/oo0WBkpA9vf4MjcJBb1GArLJHIib1FMlwBZhI10nzf
-         btlA==
+        b=XXXuB2VGfdmg44ebnGHtGS//y7YmV8bGCeDura9Fdh9CB8Ia7oPIAg6gJiH1G9vUZL
+         9+xi3qjdbuSQyYyjzzPrRfYV9BP9p76rEkKBLDEbNCezl6U2j1Hq5rJS0yxT/E6O9oPR
+         x3/CbF8LHonBQBoWoL5SC6Kpxrj9F+MjFqs035MhKlCyt/ur89EAhx3g8FbqDGB7hp3y
+         1TBSUr2AxupgeYceWjDAuCCVit4lMQOh0SsIIidQO7FhvB8jUMTpnt7EekOVhd8UmBeb
+         S/nEK6VdOpnM6m+EQRoZ5cHDUO2ZARCf3hMDKDcGX4SVWysUoPaM2muJforH7xSo8Dbn
+         qp6w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:message-id:date
-         :cc:to:from:subject:organization;
-        bh=R4HI5PWe0GBeO7yICKUFp5u8pmBXByu2z6F/XudH/Oc=;
-        b=BtVcZrQvFIC1ylLnBgvb5S8i6rt8sMJG1SRa7sM3PJSsAXp3yQiDf4yxYPdSITiYmU
-         XTP1Pue07ijGMyE1muMOQK3QIM2uPKizqxQw8ZQqlixEIQVez+K8A6ClzgnS0z2aP6Ce
-         wyRUh7nlNPO6Lkcq4J5fENBmKVXGYanYEpJ8j2Cy+dNMDMXTbTOCauqgJGqdJsBRaGHA
-         BvoYlmqKllrHq06/KjzjYUhi2nknjIqg2CuIQ+q7uAiNJSTkWKDJ+Zl6UkARjU9/j4wd
-         VGT70g6ORQknKusqIfL3YmXbBbgMNoaz5J2RGPrvjeTPH96aF5u/m8SeDyNlWAr9jIY4
-         siew==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=as83riG3VoxBEAT4z4xMjCDgim1uEwNqZ6UL/GKCLDo=;
+        b=b01S9EkS+K0ztH5QuRlpiJjO9oPEQcoT4rjph357c3T+HSA1GeOf58bRCyd4/GzWs5
+         nN5pScDDh8+CHohKrSevnuG2TOJgANoqYNRaiDrLwlbXI8BRReNVhln8MxvPtALQkGi0
+         yX+uxcNLrB9RqsLZMtcLShWfO0UjPwgXM9u8Srbuai/GNzSCj6OzHed2ufapy9rPTQal
+         F8wm1j6L67A2J878bNYaltfBjiwC+Ya9Jx9+xUXOkuaFgFhCuOzrzWCJD/AGsbAfpvNV
+         L57rFdcY32o0L/Q2aL7UXZs8VcoWh15TsS8fkE8sPUeRYHVCpCOk5j/30v3Ufnuxo1ig
+         QHYg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of dhowells@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=dhowells@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
-        by gmr-mx.google.com with ESMTPS id i184si2198677pge.5.2019.07.30.07.57.00
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
+Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
+        by gmr-mx.google.com with ESMTPS id m190si2578881iof.3.2019.07.30.09.17.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 30 Jul 2019 07:57:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of dhowells@redhat.com designates 209.132.183.28 as permitted sender) client-ip=209.132.183.28;
-Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mx1.redhat.com (Postfix) with ESMTPS id 55A9481DF1;
-	Tue, 30 Jul 2019 14:56:59 +0000 (UTC)
-Received: from warthog.procyon.org.uk (ovpn-120-255.rdu2.redhat.com [10.10.120.255])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id CD5CE60856;
-	Tue, 30 Jul 2019 14:56:57 +0000 (UTC)
-Organization: Red Hat UK Ltd. Registered Address: Red Hat UK Ltd, Amberley
- Place, 107-111 Peascod Street, Windsor, Berkshire, SI4 1TE, United
- Kingdom.
- Registered in England and Wales under Company Registration No. 3798903
-Subject: [PATCH net-next] rxrpc: Fix -Wframe-larger-than= warnings from
- on-stack crypto
-From: David Howells <dhowells@redhat.com>
-To: netdev@vger.kernel.org
-Cc: dhowells@redhat.com, linux-afs@lists.infradead.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
- arnd@arndb.de, keescook@chromium.org
-Date: Tue, 30 Jul 2019 15:56:57 +0100
-Message-ID: <156449861697.10315.4666924841804740487.stgit@warthog.procyon.org.uk>
-User-Agent: StGit/unknown-version
-MIME-Version: 1.0
+        (version=TLS1 cipher=AES128-SHA bits=128/128);
+        Tue, 30 Jul 2019 09:17:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id x6UGGckN014602;
+	Tue, 30 Jul 2019 11:16:39 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id x6UGGbk5014600;
+	Tue, 30 Jul 2019 11:16:37 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Tue, 30 Jul 2019 11:16:37 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        christophe leroy <christophe.leroy@c-s.fr>,
+        kbuild test robot <lkp@intel.com>,
+        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+        Paul Mackerras <paulus@samba.org>,
+        linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] powerpc: workaround clang codegen bug in dcbz
+Message-ID: <20190730161637.GP31406@gate.crashing.org>
+References: <20190729202542.205309-1-ndesaulniers@google.com> <20190729203246.GA117371@archlinux-threadripper> <20190729215200.GN31406@gate.crashing.org> <CAK8P3a1GQSyCj1L8fFG4Pah8dr5Lanw=1yuimX1o+53ARzOX+Q@mail.gmail.com> <20190730134856.GO31406@gate.crashing.org> <CAK8P3a2755_6xq453C2AePLW8BeQk_Jg=HfjB_F-zyVMnQDfdg@mail.gmail.com>
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
-X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.25]); Tue, 30 Jul 2019 14:56:59 +0000 (UTC)
-X-Original-Sender: dhowells@redhat.com
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a2755_6xq453C2AePLW8BeQk_Jg=HfjB_F-zyVMnQDfdg@mail.gmail.com>
+User-Agent: Mutt/1.4.2.3i
+X-Original-Sender: segher@kernel.crashing.org
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of dhowells@redhat.com designates 209.132.183.28 as
- permitted sender) smtp.mailfrom=dhowells@redhat.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=redhat.com
+ (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as
+ permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,333 +136,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-rxkad sometimes triggers a warning about oversized stack frames when
-building with clang for a 32-bit architecture:
+On Tue, Jul 30, 2019 at 04:30:29PM +0200, Arnd Bergmann wrote:
+> On Tue, Jul 30, 2019 at 3:49 PM Segher Boessenkool
+> <segher@kernel.crashing.org> wrote:
+> >
+> > On Tue, Jul 30, 2019 at 09:34:28AM +0200, Arnd Bergmann wrote:
+> > > Upon a second look, I think the issue is that the "Z" is an input argument
+> > > when it should be an output. clang decides that it can make a copy of the
+> > > input and pass that into the inline asm. This is not the most efficient
+> > > way, but it seems entirely correct according to the constraints.
+> >
+> > Most dcb* (and all icb*) do not change the memory pointed to.  The
+> > memory is an input here, logically as well, and that is obvious.
+> 
+> Ah, right. I had only thought of dcbz here, but you are right that using
+> an output makes little sense for the others.
+> 
+> readl() is another example where powerpc currently uses "Z" for an
+> input, which illustrates this even better.
 
-net/rxrpc/rxkad.c:243:12: error: stack frame size of 1088 bytes in function 'rxkad_secure_packet' [-Werror,-Wframe-larger-than=]
-net/rxrpc/rxkad.c:501:12: error: stack frame size of 1088 bytes in function 'rxkad_verify_packet' [-Werror,-Wframe-larger-than=]
+in_le32 and friends?  Yeah, huh.  If LLVM copies that to the stack as
+well, its (not byte reversing) read will be atomic just fine, so things
+will still work correctly.
 
-The problem is the combination of SYNC_SKCIPHER_REQUEST_ON_STACK() in
-rxkad_verify_packet()/rxkad_secure_packet() with the relatively large
-scatterlist in rxkad_verify_packet_1()/rxkad_secure_packet_encrypt().
+The things defined with DEF_MMIO_IN_D (instead of DEF_MMIO_IN_X) do not
+look like they will work correctly if an update form address is chosen,
+but that won't happen because the constraint is "m" instead of "m<>",
+making the %Un pretty useless (it will always be the empty string).
 
-The warning does not show up when using gcc, which does not inline the
-functions as aggressively, but the problem is still the same.
+> > As I said many times already, LLVM does not seem to treat all asm
+> > operands as lvalues.  That is a bug.  And it is critical for memory
+> > operands for example, as should be obvious if you look at at for a few
+> > seconds (you pass *that* memory, not a copy of it).  The thing you pass
+> > has an identity.  It's an lvalue.  This is true for *all* inline asm
+> > operands, not just output operands and memory operands, but it is most
+> > obvious there.
+> 
+> >From experimentation, I would guess that llvm handles "m" correctly, but
+> not "Z". See https://godbolt.org/z/uqfDx_ for another example.
 
-Allocate the cipher buffers from the slab instead, caching the allocated
-packet crypto request memory used for DATA packet crypto in the rxrpc_call
-struct.
+Yeah, it does not treat "Z" as a memory constraint apparently, and it
+special cases output operands and memory operands to be lvalues, but
+does not do that for everything else as it should.
 
-Fixes: 17926a79320a ("[AF_RXRPC]: Provide secure RxRPC sockets for use by userspace and kernel both")
-Reported-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: David Howells <dhowells@redhat.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-cc: Herbert Xu <herbert@gondor.apana.org.au>
----
+> > Or, LLVM might have a bug elsewhere.
+> >
+> > Either way, the asm is fine, and it has worked fine in GCC since
+> > forever.  Changing this constraint to be an output constraint would
+> > just be obfuscation (we could change *all* operands to *everything* to
+> > be inout ("+") constraints, and it won't affect correctness, just the
+> > reader's sanity).
+> 
+> I would still argue that for dcbz specifically, an output makes more
+> sense than an input, but as you say that does not solve the others.
 
- net/rxrpc/ar-internal.h |    4 ++
- net/rxrpc/call_object.c |    4 +-
- net/rxrpc/insecure.c    |    5 ++
- net/rxrpc/rxkad.c       |  103 ++++++++++++++++++++++++++++++++++++++---------
- 4 files changed, 96 insertions(+), 20 deletions(-)
+An output would be somewhat misleading.  dcbz zeroes the whole aligned
+cache block sized region of memory its operand points into.  The kernel
+dcbz functions do not easily know the cache block size I think, and
+besides, you want a "memory" clobber anyway, also for the other dcb*,
+so it won't help anything.  Also, the compiler can almost never use the
+extra info ("affects the aligned 32B or 128B block this points into")
+usefully anyway; it will usually see it as "can alias pretty much
+anything".  Just use a "memory" clobber :-/
 
-diff --git a/net/rxrpc/ar-internal.h b/net/rxrpc/ar-internal.h
-index 80335b4ee4fd..bea2a02850af 100644
---- a/net/rxrpc/ar-internal.h
-+++ b/net/rxrpc/ar-internal.h
-@@ -226,6 +226,9 @@ struct rxrpc_security {
- 	int (*verify_packet)(struct rxrpc_call *, struct sk_buff *,
- 			     unsigned int, unsigned int, rxrpc_seq_t, u16);
- 
-+	/* Free crypto request on a call */
-+	void (*free_call_crypto)(struct rxrpc_call *);
-+
- 	/* Locate the data in a received packet that has been verified. */
- 	void (*locate_data)(struct rxrpc_call *, struct sk_buff *,
- 			    unsigned int *, unsigned int *);
-@@ -557,6 +560,7 @@ struct rxrpc_call {
- 	unsigned long		expect_term_by;	/* When we expect call termination by */
- 	u32			next_rx_timo;	/* Timeout for next Rx packet (jif) */
- 	u32			next_req_timo;	/* Timeout for next Rx request packet (jif) */
-+	struct skcipher_request	*cipher_req;	/* Packet cipher request buffer */
- 	struct timer_list	timer;		/* Combined event timer */
- 	struct work_struct	processor;	/* Event processor */
- 	rxrpc_notify_rx_t	notify_rx;	/* kernel service Rx notification function */
-diff --git a/net/rxrpc/call_object.c b/net/rxrpc/call_object.c
-index 217b12be9e08..60cbc81dc461 100644
---- a/net/rxrpc/call_object.c
-+++ b/net/rxrpc/call_object.c
-@@ -476,8 +476,10 @@ void rxrpc_release_call(struct rxrpc_sock *rx, struct rxrpc_call *call)
- 
- 	_debug("RELEASE CALL %p (%d CONN %p)", call, call->debug_id, conn);
- 
--	if (conn)
-+	if (conn) {
- 		rxrpc_disconnect_call(call);
-+		conn->security->free_call_crypto(call);
-+	}
- 
- 	for (i = 0; i < RXRPC_RXTX_BUFF_SIZE; i++) {
- 		rxrpc_free_skb(call->rxtx_buffer[i],
-diff --git a/net/rxrpc/insecure.c b/net/rxrpc/insecure.c
-index a29d26c273b5..f6c59f5fae9d 100644
---- a/net/rxrpc/insecure.c
-+++ b/net/rxrpc/insecure.c
-@@ -33,6 +33,10 @@ static int none_verify_packet(struct rxrpc_call *call, struct sk_buff *skb,
- 	return 0;
- }
- 
-+static void none_free_call_crypto(struct rxrpc_call *call)
-+{
-+}
-+
- static void none_locate_data(struct rxrpc_call *call, struct sk_buff *skb,
- 			     unsigned int *_offset, unsigned int *_len)
- {
-@@ -83,6 +87,7 @@ const struct rxrpc_security rxrpc_no_security = {
- 	.exit				= none_exit,
- 	.init_connection_security	= none_init_connection_security,
- 	.prime_packet_security		= none_prime_packet_security,
-+	.free_call_crypto		= none_free_call_crypto,
- 	.secure_packet			= none_secure_packet,
- 	.verify_packet			= none_verify_packet,
- 	.locate_data			= none_locate_data,
-diff --git a/net/rxrpc/rxkad.c b/net/rxrpc/rxkad.c
-index ae8cd8926456..dbb109da1835 100644
---- a/net/rxrpc/rxkad.c
-+++ b/net/rxrpc/rxkad.c
-@@ -43,6 +43,7 @@ struct rxkad_level2_hdr {
-  * packets
-  */
- static struct crypto_sync_skcipher *rxkad_ci;
-+static struct skcipher_request *rxkad_ci_req;
- static DEFINE_MUTEX(rxkad_ci_mutex);
- 
- /*
-@@ -99,8 +100,8 @@ static int rxkad_init_connection_security(struct rxrpc_connection *conn)
-  */
- static int rxkad_prime_packet_security(struct rxrpc_connection *conn)
- {
-+	struct skcipher_request *req;
- 	struct rxrpc_key_token *token;
--	SYNC_SKCIPHER_REQUEST_ON_STACK(req, conn->cipher);
- 	struct scatterlist sg;
- 	struct rxrpc_crypt iv;
- 	__be32 *tmpbuf;
-@@ -115,6 +116,12 @@ static int rxkad_prime_packet_security(struct rxrpc_connection *conn)
- 	if (!tmpbuf)
- 		return -ENOMEM;
- 
-+	req = skcipher_request_alloc(&conn->cipher->base, GFP_NOFS);
-+	if (!req) {
-+		kfree(tmpbuf);
-+		return -ENOMEM;
-+	}
-+
- 	token = conn->params.key->payload.data[0];
- 	memcpy(&iv, token->kad->session_key, sizeof(iv));
- 
-@@ -128,7 +135,7 @@ static int rxkad_prime_packet_security(struct rxrpc_connection *conn)
- 	skcipher_request_set_callback(req, 0, NULL, NULL);
- 	skcipher_request_set_crypt(req, &sg, &sg, tmpsize, iv.x);
- 	crypto_skcipher_encrypt(req);
--	skcipher_request_zero(req);
-+	skcipher_request_free(req);
- 
- 	memcpy(&conn->csum_iv, tmpbuf + 2, sizeof(conn->csum_iv));
- 	kfree(tmpbuf);
-@@ -136,6 +143,35 @@ static int rxkad_prime_packet_security(struct rxrpc_connection *conn)
- 	return 0;
- }
- 
-+/*
-+ * Allocate and prepare the crypto request on a call.  For any particular call,
-+ * this is called serially for the packets, so no lock should be necessary.
-+ */
-+static struct skcipher_request *rxkad_get_call_crypto(struct rxrpc_call *call)
-+{
-+	struct crypto_skcipher *tfm = &call->conn->cipher->base;
-+	struct skcipher_request	*cipher_req = call->cipher_req;
-+
-+	if (!cipher_req) {
-+		cipher_req = skcipher_request_alloc(tfm, GFP_NOFS);
-+		if (!cipher_req)
-+			return NULL;
-+		call->cipher_req = cipher_req;
-+	}
-+
-+	return cipher_req;
-+}
-+
-+/*
-+ * Clean up the crypto on a call.
-+ */
-+static void rxkad_free_call_crypto(struct rxrpc_call *call)
-+{
-+	if (call->cipher_req)
-+		skcipher_request_free(call->cipher_req);
-+	call->cipher_req = NULL;
-+}
-+
- /*
-  * partially encrypt a packet (level 1 security)
-  */
-@@ -246,7 +282,7 @@ static int rxkad_secure_packet(struct rxrpc_call *call,
- 			       void *sechdr)
- {
- 	struct rxrpc_skb_priv *sp;
--	SYNC_SKCIPHER_REQUEST_ON_STACK(req, call->conn->cipher);
-+	struct skcipher_request	*req;
- 	struct rxrpc_crypt iv;
- 	struct scatterlist sg;
- 	u32 x, y;
-@@ -265,6 +301,10 @@ static int rxkad_secure_packet(struct rxrpc_call *call,
- 	if (ret < 0)
- 		return ret;
- 
-+	req = rxkad_get_call_crypto(call);
-+	if (!req)
-+		return -ENOMEM;
-+
- 	/* continue encrypting from where we left off */
- 	memcpy(&iv, call->conn->csum_iv.x, sizeof(iv));
- 
-@@ -502,7 +542,7 @@ static int rxkad_verify_packet(struct rxrpc_call *call, struct sk_buff *skb,
- 			       unsigned int offset, unsigned int len,
- 			       rxrpc_seq_t seq, u16 expected_cksum)
- {
--	SYNC_SKCIPHER_REQUEST_ON_STACK(req, call->conn->cipher);
-+	struct skcipher_request	*req;
- 	struct rxrpc_crypt iv;
- 	struct scatterlist sg;
- 	bool aborted;
-@@ -515,6 +555,10 @@ static int rxkad_verify_packet(struct rxrpc_call *call, struct sk_buff *skb,
- 	if (!call->conn->cipher)
- 		return 0;
- 
-+	req = rxkad_get_call_crypto(call);
-+	if (!req)
-+		return -ENOMEM;
-+
- 	/* continue encrypting from where we left off */
- 	memcpy(&iv, call->conn->csum_iv.x, sizeof(iv));
- 
-@@ -747,14 +791,18 @@ static void rxkad_calc_response_checksum(struct rxkad_response *response)
- /*
-  * encrypt the response packet
-  */
--static void rxkad_encrypt_response(struct rxrpc_connection *conn,
--				   struct rxkad_response *resp,
--				   const struct rxkad_key *s2)
-+static int rxkad_encrypt_response(struct rxrpc_connection *conn,
-+				  struct rxkad_response *resp,
-+				  const struct rxkad_key *s2)
- {
--	SYNC_SKCIPHER_REQUEST_ON_STACK(req, conn->cipher);
-+	struct skcipher_request *req;
- 	struct rxrpc_crypt iv;
- 	struct scatterlist sg[1];
- 
-+	req = skcipher_request_alloc(&conn->cipher->base, GFP_NOFS);
-+	if (!req)
-+		return -ENOMEM;
-+
- 	/* continue encrypting from where we left off */
- 	memcpy(&iv, s2->session_key, sizeof(iv));
- 
-@@ -764,7 +812,8 @@ static void rxkad_encrypt_response(struct rxrpc_connection *conn,
- 	skcipher_request_set_callback(req, 0, NULL, NULL);
- 	skcipher_request_set_crypt(req, sg, sg, sizeof(resp->encrypted), iv.x);
- 	crypto_skcipher_encrypt(req);
--	skcipher_request_zero(req);
-+	skcipher_request_free(req);
-+	return 0;
- }
- 
- /*
-@@ -839,8 +888,9 @@ static int rxkad_respond_to_challenge(struct rxrpc_connection *conn,
- 
- 	/* calculate the response checksum and then do the encryption */
- 	rxkad_calc_response_checksum(resp);
--	rxkad_encrypt_response(conn, resp, token->kad);
--	ret = rxkad_send_response(conn, &sp->hdr, resp, token->kad);
-+	ret = rxkad_encrypt_response(conn, resp, token->kad);
-+	if (ret == 0)
-+		ret = rxkad_send_response(conn, &sp->hdr, resp, token->kad);
- 	kfree(resp);
- 	return ret;
- 
-@@ -1017,18 +1067,16 @@ static void rxkad_decrypt_response(struct rxrpc_connection *conn,
- 				   struct rxkad_response *resp,
- 				   const struct rxrpc_crypt *session_key)
- {
--	SYNC_SKCIPHER_REQUEST_ON_STACK(req, rxkad_ci);
-+	struct skcipher_request *req = rxkad_ci_req;
- 	struct scatterlist sg[1];
- 	struct rxrpc_crypt iv;
- 
- 	_enter(",,%08x%08x",
- 	       ntohl(session_key->n[0]), ntohl(session_key->n[1]));
- 
--	ASSERT(rxkad_ci != NULL);
--
- 	mutex_lock(&rxkad_ci_mutex);
- 	if (crypto_sync_skcipher_setkey(rxkad_ci, session_key->x,
--				   sizeof(*session_key)) < 0)
-+					sizeof(*session_key)) < 0)
- 		BUG();
- 
- 	memcpy(&iv, session_key, sizeof(iv));
-@@ -1222,10 +1270,26 @@ static void rxkad_clear(struct rxrpc_connection *conn)
-  */
- static int rxkad_init(void)
- {
-+	struct crypto_sync_skcipher *tfm;
-+	struct skcipher_request *req;
-+
- 	/* pin the cipher we need so that the crypto layer doesn't invoke
- 	 * keventd to go get it */
--	rxkad_ci = crypto_alloc_sync_skcipher("pcbc(fcrypt)", 0, 0);
--	return PTR_ERR_OR_ZERO(rxkad_ci);
-+	tfm = crypto_alloc_sync_skcipher("pcbc(fcrypt)", 0, 0);
-+	if (IS_ERR(tfm))
-+		return PTR_ERR(tfm);
-+
-+	req = skcipher_request_alloc(&tfm->base, GFP_KERNEL);
-+	if (!req)
-+		goto nomem_tfm;
-+
-+	rxkad_ci_req = req;
-+	rxkad_ci = tfm;
-+	return 0;
-+
-+nomem_tfm:
-+	crypto_free_sync_skcipher(tfm);
-+	return -ENOMEM;
- }
- 
- /*
-@@ -1233,8 +1297,8 @@ static int rxkad_init(void)
-  */
- static void rxkad_exit(void)
- {
--	if (rxkad_ci)
--		crypto_free_sync_skcipher(rxkad_ci);
-+	crypto_free_sync_skcipher(rxkad_ci);
-+	skcipher_request_free(rxkad_ci_req);
- }
- 
- /*
-@@ -1249,6 +1313,7 @@ const struct rxrpc_security rxkad = {
- 	.prime_packet_security		= rxkad_prime_packet_security,
- 	.secure_packet			= rxkad_secure_packet,
- 	.verify_packet			= rxkad_verify_packet,
-+	.free_call_crypto		= rxkad_free_call_crypto,
- 	.locate_data			= rxkad_locate_data,
- 	.issue_challenge		= rxkad_issue_challenge,
- 	.respond_to_challenge		= rxkad_respond_to_challenge,
+
+Segher
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/156449861697.10315.4666924841804740487.stgit%40warthog.procyon.org.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190730161637.GP31406%40gate.crashing.org.
