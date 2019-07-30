@@ -1,184 +1,101 @@
-Return-Path: <clang-built-linux+bncBAABBLHZQHVAKGQETA6XIKY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCFPF2XH6UDBBRP6QHVAKGQEAOP277Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 445977AFAF
-	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 19:21:49 +0200 (CEST)
-Received: by mail-io1-xd3d.google.com with SMTP id h4sf72309202iol.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 10:21:49 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1564507308; cv=pass;
-        d=google.com; s=arc-20160816;
-        b=dx+p4Kk+13VtQ3YqdFJ0QyQQYppE9Dj3PMMB/0JOJuS6zXmTPCi3JUiPqUVd9odOrT
-         /rhNiWIcs2jNpIlpsUHulgCc+ECwnrkpkL9RsMi33XLz5NIdBbiLDk5ALB+5qodvUUNa
-         So3ZpgIGwQvhtA6HQs5vqkmLDHKsT42hu6U/NjvszWYx9DU1DGPPpEr1uT30V7XWSSDE
-         UPz5P4N3XC6ZUOMBoFjwyBfwWQ/5Hf43PIx6N36kvlqFAazbPtgHXVNYy6h8KuAbc6lA
-         4pATJ4aUgqNmA65S2lTkMyowQkCnDGG9srjQVZEd97D/HqnwAt1Y+ZlpKUwgXOtSUkER
-         CQ6A==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-id:user-agent
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=QHQo3XDPMaqut8PX9i6pR6zjXvIDufIDhKjbono94UQ=;
-        b=n66qkUcc8ZKtBFD40mFGgVH7RpeOfSdhzdTKj48QvCoH9WXFJaeOLMrh/X7J+2Z+kW
-         mzCvtah3vpt3EM1458lyMSiH2U2Q+p9O1lrivS89JRzHqeTaAo8n+FwY05JKW7xEMFv8
-         OaheNs2uBSarCxrlwiQnRGt/4IB0r+MuEiOlDof74iLZ6cJht0+8WDqiUE+29uPNDRov
-         UBK/iv/hEW+fdisQY0jcnkmq0+fjDvheNMG3BeRuzUu2T7RL+jwmdwh6rvKYkNHSqKod
-         s5+NI7v0R26vkqiLEijRUb8ZaeeShRLhwMK2TeUlKkzir3fbGYjPyOl1W/31uCza8JPM
-         AalA==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@wavecomp.com header.s=selector1 header.b=TMkvseJs;
-       arc=pass (i=1 spf=pass spfdomain=wavecomp.com dkim=pass dkdomain=mips.com dmarc=pass fromdomain=mips.com);
-       spf=pass (google.com: domain of pburton@wavecomp.com designates 40.107.79.137 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id C18A77B014
+	for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 19:32:53 +0200 (CEST)
+Received: by mail-wr1-x439.google.com with SMTP id b14sf32171573wrn.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 30 Jul 2019 10:32:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:user-agent
-         :content-id:mime-version:x-original-sender
+        h=sender:date:message-id:to:cc:subject:from:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QHQo3XDPMaqut8PX9i6pR6zjXvIDufIDhKjbono94UQ=;
-        b=IKGdsZ5ehOS/6HvAva1+K5vz9raAhH4zwZhJcO67iSTxAK6Gjqxh5/sa6ouVD5vxUb
-         b1HIie+DS/75dp+5yBXQmArp2E9oK7U5yaFDw2anf+tQKqkpTRIY0In3Rs/X6Vx+aHPK
-         rq2eWAT2Pyi9c6nsPraKr072xOGUSwRgKmzpPynCKuv29ZgUB5SUxvG7gTW1GJ9grVL6
-         O7Ai6hYkVvz/2lJeG0zhobAy73lLJ7so+mzeuoOoanAkTZB0gsuqQF6w0bUnJ+4jUcW0
-         6JuhO2ctiPqIfnuBIZ/34/54kGe/FI2JL34fH0PQCdFpwV6lruUYYeIAsXE/W6WMkC4r
-         2IYg==
+        bh=jrmt00zvt/1mgdP6FiaLGOHScBNWYvSxkpB4+L1qzd0=;
+        b=Qt7qRs9nLcm/XPvur6g7vsmYhS2PsIFyWTegl9bRHjfKZch4j2UKfDeSeyVoBAGJyC
+         Hn7XSpUDOC1GjW+BsTsDMZOQ4RyBrDbtZxUBkqlY7AXarh+flH0lISYjdUB748CGbE3k
+         gxBAsFKoX4Kt7JiF2UWNift+Kr5k+2JwQLGpFhipMfKc1DuHAY30LE7IzD83BJN+hg7D
+         LGQbjCNWfx138YikwsRzdss2GlsOmpxA9HVbdge27cOu4Zj/oQQbBPmh5XU9FR9edWYB
+         QHG1rbzQ8D3momvUJZOI86X3epH8+G8CEl4v+q2MpPAxuansMsBxEoWemkdwgri8oMpm
+         Kqbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:user-agent:content-id:mime-version
+        h=sender:x-gm-message-state:date:message-id:to:cc:subject:from
+         :in-reply-to:references:mime-version:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=QHQo3XDPMaqut8PX9i6pR6zjXvIDufIDhKjbono94UQ=;
-        b=CieGJBPv4Xjid5o8uwRuP0LDkQmufAhT89LIktzuMy8WOG0QIYnfZ218yAKdoEkU3g
-         j1h0knrMr8c8E1QlkWN7TEgqwywzXno99zqhD1z4AOAU7r8/cwBJdEkIEdB1Ar+aIUUM
-         ugCg577jDyv/eW1y6J6y7yC237JJjKzT1oy6UEAq7xHnUbIrd9a0ied6o7IcDbbdYhca
-         kwRk9eailz8Xq/SnaKgWyqHuUxuwxheP0vP8IGV44RP4vuL0BkKLhSsqYNVJ3SlmR5gg
-         CQg7B7B6Bh1d2VbxdvQzRpECZ0TKfICchQd110k8eMlrXweN6YkdxXwpZneXMOxcN7pq
-         B9gQ==
+        bh=jrmt00zvt/1mgdP6FiaLGOHScBNWYvSxkpB4+L1qzd0=;
+        b=rccyf5msPwJi3WAtzIgN0f1Z6XG1wLnitSLKpq/+2+WM4Jnl5Cokxb1RFSaYbyFSFy
+         40Lwx+yE3x+pSZTWkQnn153JqyYvwUVnQ8eYmqi7vVrK/amWtpWf1MTB+NtuvRqjrrVy
+         eodVAEn1dj99wqO1fwwQiYIFZjwA+YCFz+dW/Smw9sGsLaFQ1ZPAzmliy7bXDqRjWP83
+         sf7zNe5WAkqII9V0AUQpW+UsbJSGfv2/TWVSBHgHKoMdZ+9Syq5mq+4KwROQCC55ES6X
+         0wLA2bA3nMID36MpI4TYGYv7uP45iu5gSzYMhF8c1KIrEWs2yvZPMFnGfaWoKyqkHHqt
+         lt/w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUw85O0gl8nIi/AzxU2Slt5xUqe+nYsM4kfNa6iPPWvomGE8M9U
-	ZIkWIByiWknUqH4rRWelckI=
-X-Google-Smtp-Source: APXvYqzuTlOBAXsRcdnxpy+YjrgL99/o+XwVljGy3vkKU6uD5MuS4jZPPTR2z6RA/wGio6D0adzz/Q==
-X-Received: by 2002:a02:716e:: with SMTP id n46mr123300984jaf.137.1564507308258;
-        Tue, 30 Jul 2019 10:21:48 -0700 (PDT)
+X-Gm-Message-State: APjAAAX4xM5DOQhHyCt8vZ6XMCBUifzT6+SHHbpcbi1j6i4oC4ndgoVD
+	cNvMRTIhG8Ykhhuz/9y5GSo=
+X-Google-Smtp-Source: APXvYqw5IqS185jQlKVsrwI7klVGDw0BitELmagiEzQfFfqF7dSNuyPkJqsTXCn/aD1rqKU7ootW0w==
+X-Received: by 2002:adf:f812:: with SMTP id s18mr58868917wrp.32.1564507973549;
+        Tue, 30 Jul 2019 10:32:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:878a:: with SMTP id t10ls8822574jai.12.gmail; Tue, 30
- Jul 2019 10:21:47 -0700 (PDT)
-X-Received: by 2002:a02:3342:: with SMTP id k2mr6714676jak.89.1564507307887;
-        Tue, 30 Jul 2019 10:21:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564507307; cv=pass;
+Received: by 2002:adf:9321:: with SMTP id 30ls19651587wro.1.gmail; Tue, 30 Jul
+ 2019 10:32:53 -0700 (PDT)
+X-Received: by 2002:a5d:4f01:: with SMTP id c1mr47718916wru.43.1564507973019;
+        Tue, 30 Jul 2019 10:32:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564507973; cv=none;
         d=google.com; s=arc-20160816;
-        b=ixsbaCWeDxKt6NJaESZGV9l9ZKycZfGfQ/3NzttwD9Aq+fTbGlVxnG2TBqNxvc7jOO
-         q69BN9pMuzMV1+Nk0AAoh9VKWGFabIE7Qbw5MXK+/iv6/emWMdsmHU61gkuZMK25oKBD
-         e+PKYJsX6nSbemZTRJFVEBQqIJLUBDsOTm5InduWQlKPTtWMxGWzHh5s/neVR38eRxBl
-         U/BcswupXiwTYySxTp5vTWaIM+tgD0pEYmlPu3sMzV2ruDxMQaejb0qdiK9E68v7kzWO
-         aCFJu8NpARyyB6g/xEdTwnNfTIsYvn2TmQHLaFeB3ioWTz4TFrA68atWuTAYHyvbhKv8
-         DjXw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:user-agent
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:dkim-signature;
-        bh=TQK/3QnaEpmGibszKj6jWvQpvjVsgdtuDl+tH/rasng=;
-        b=zsQnOCvlkH4UGmeo4t8yKf4y+pHs8fExN6C9g5YzzmB/sh4/pYNg3ncjQAtREJqPot
-         FJdhpYhtTpU6j+NVoV+cDkWlxja4omvTnw8TUTb4hR///3Wq3Rm+pDCluoaegKrR77Eg
-         /YfCu1lBRY2tsU71/q5P7FC9HW30wt+fDJEZ0Vxs4Pcoi3x8qD7fzWACm3X/rlw0ElVC
-         E6k1vY8cGgrF7M71OF7jQAKgNnmT0w2OF+lgWgGk7TG7I+PfyTPtF155Bu5OhjtGSIv7
-         baYL/3zDDRJpQ49ey9a/8E60TMnrme5WQ9bUxNssXuhqvUWvzHGQNTiAb9JTeETzNmPi
-         bO4Q==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@wavecomp.com header.s=selector1 header.b=TMkvseJs;
-       arc=pass (i=1 spf=pass spfdomain=wavecomp.com dkim=pass dkdomain=mips.com dmarc=pass fromdomain=mips.com);
-       spf=pass (google.com: domain of pburton@wavecomp.com designates 40.107.79.137 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
-Received: from NAM03-CO1-obe.outbound.protection.outlook.com (mail-eopbgr790137.outbound.protection.outlook.com. [40.107.79.137])
-        by gmr-mx.google.com with ESMTPS id m3si2263043ioc.4.2019.07.30.10.21.47
+        b=t+hyZOjAEQUo3RScbcGnGW30fNN4ZRM9tfMEKDp8Bk44vYXGPZq3oWJXUaqzY2+M2M
+         fkQdNA4+1wf7k8k4Ixm2DPvRF11xT6m5LzSyBRUICbTvqewSjI0cu5iPQwbfcvIdJYT2
+         Vou0+2r7x7FjpEeqhN/CCNXC1iPMWAzS3gv5wUHnRDL1OiyFQ7W9cZsWfEsXsEebgL/y
+         HhoBRGwFoPmLgfBPUJay+K9cheRra11y1U/k1NDl2HHS8oc3iIs9r8CiyUd2fvC5u2pv
+         UqCbp8y88syW1aFcOLm0elu8iMEYDjx2HFY2sY5sh+uUD37ZVi/Z8o1uF+6Bd//9fUfR
+         coLA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date;
+        bh=jrmt00zvt/1mgdP6FiaLGOHScBNWYvSxkpB4+L1qzd0=;
+        b=s5Ftxufm2mQdiXXofZDu10RHtgsZ597YS5WeXEvX9KXILKeiszkVNfBhfPqortGdz+
+         FyDU9CQ8elhFxx8U/kO/mHoSG2gtipvE61pJ/gsnQT/xJsgfqzwcQQluk3vqmbqDtGDA
+         aGK9S8ab4NLQXOYXb26AkH9UvbQWOQqVHb5MdSxGUxl/sZU7OW3sL714Q0/e0GFEIK6U
+         u4/ERJhePn1nBOQ/OUzNBahRV72+nlQIlUg18sdHo+Eb6LuyrrGh9fUSDRdq4y3QUj9m
+         vGCn9pYDzY9cLmc6kOrIrpUNGQ89/1KCCJjViLnZYHpdB9QBzJTg2kgjJv+Fa/wdOTfn
+         8WAA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
+Received: from shards.monkeyblade.net (shards.monkeyblade.net. [2620:137:e000::1:9])
+        by gmr-mx.google.com with ESMTPS id u18si3722298wri.5.2019.07.30.10.32.52
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Tue, 30 Jul 2019 10:21:47 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pburton@wavecomp.com designates 40.107.79.137 as permitted sender) client-ip=40.107.79.137;
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Ntv7f13NbRh4JLVhHiELDxUK670ctyKoGfYdzLdTS0iruLsOBSJoWHEp3sFqiqa/A/x9iahzsfGYKBJ1HoZMu9s1BIsp07YJF9FulXd9KSJz0OW5c3vzRFx0Zk7GWNzFzcdT36Q6I9GrvlfBnm4Yv/NKGtLqx/nVhx8188OGb7Jx57OwF3cc8+3MDloy+dEhhlarsZS7+hNm6XfWDhqhoWfBfLcXlRIdrIEewLvQfcx3+pql2i2SBJbUX35QwkGfZlSwEaVJgiIBN4suBI9gTXqDW3e6Fw269f8sgFVIIi8fBU8fTmYzMsFaLL+az608IsHIxSQXHwyjpJ+SB/r9Bg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TQK/3QnaEpmGibszKj6jWvQpvjVsgdtuDl+tH/rasng=;
- b=eTspyQGch5zu9rYLXS7vXd80r5gXLRoKw2OQWDH8c1Xte4ZrLeAsmRNzFqW3IkXMQH8E5+RNBB2HCLNEC5+SSUm922r9dTgWvzqhXNdFOa7l5ZZuaCIVP6KRpGHsRaG/rPKk2lyf1f+fPR+tPJ0uxIl1GOEym4y9jXF6fGMvfOewag2xcLVj9YL3maAL6EzrKepjphQ7YssQUzQm6qdswfEy6I53ctgf/dwSynddkdluyAVMe/IiMsAdDrX89OWcXCbbYl0ZXLytUPJITmjKXIOgH46sAuhoVfOzK9BDSSol0HLzokVtKMquhynDPAOY4pmDqamoISzo/9R/1zqArQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
- smtp.mailfrom=wavecomp.com;dmarc=pass action=none
- header.from=mips.com;dkim=pass header.d=mips.com;arc=none
-Received: from MWHPR2201MB1277.namprd22.prod.outlook.com (10.172.60.12) by
- MWHPR2201MB1565.namprd22.prod.outlook.com (10.174.160.143) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2115.14; Tue, 30 Jul 2019 17:21:43 +0000
-Received: from MWHPR2201MB1277.namprd22.prod.outlook.com
- ([fe80::105a:1595:b6ef:cbdf]) by MWHPR2201MB1277.namprd22.prod.outlook.com
- ([fe80::105a:1595:b6ef:cbdf%4]) with mapi id 15.20.2115.005; Tue, 30 Jul 2019
- 17:21:43 +0000
-From: Paul Burton <paul.burton@mips.com>
-To: "Maciej W. Rozycki" <macro@linux-mips.org>
-CC: Nick Desaulniers <ndesaulniers@google.com>, Ralf Baechle
-	<ralf@linux-mips.org>, James Hogan <jhogan@kernel.org>, Nathan Chancellor
-	<natechancellor@gmail.com>, Eli Friedman <efriedma@quicinc.com>, Hassan
- Naveed <hnaveed@wavecomp.com>, Stephen Kitt <steve@sk2.org>, Serge Semin
-	<fancer.lancer@gmail.com>, Mike Rapoport <rppt@linux.ibm.com>, Andrew Morton
-	<akpm@linux-foundation.org>, Michal Hocko <mhocko@suse.com>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] mips: avoid explicit UB in assignment of
- mips_io_port_base
-Thread-Topic: [PATCH] mips: avoid explicit UB in assignment of
- mips_io_port_base
-Thread-Index: AQHVRvtBHPSEeFogTEW9DwXoOEX0HA==
-Date: Tue, 30 Jul 2019 17:21:43 +0000
-Message-ID: <20190730172141.addbdma5dnihdwoc@pburton-laptop>
-References: <20190729211014.39333-1-ndesaulniers@google.com>
- <alpine.LFD.2.21.1907292302451.16059@eddie.linux-mips.org>
-In-Reply-To: <alpine.LFD.2.21.1907292302451.16059@eddie.linux-mips.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: BYAPR01CA0071.prod.exchangelabs.com (2603:10b6:a03:94::48)
- To MWHPR2201MB1277.namprd22.prod.outlook.com (2603:10b6:301:18::12)
-user-agent: NeoMutt/20180716
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [12.94.197.246]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: b162f964-f5b9-4393-ab66-08d71512642e
-x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(2017052603328)(7193020);SRVR:MWHPR2201MB1565;
-x-ms-traffictypediagnostic: MWHPR2201MB1565:
-x-ms-exchange-purlcount: 1
-x-microsoft-antispam-prvs: <MWHPR2201MB156564025C9D2A039315989DC1DC0@MWHPR2201MB1565.namprd22.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-forefront-prvs: 0114FF88F6
-x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(7916004)(376002)(346002)(136003)(396003)(39850400004)(366004)(189003)(199004)(66476007)(66446008)(68736007)(11346002)(6306002)(81166006)(71190400001)(81156014)(8676002)(7736002)(71200400001)(3846002)(966005)(7416002)(14454004)(6436002)(2906002)(25786009)(478600001)(9686003)(6916009)(6116002)(8936002)(6512007)(58126008)(5660300002)(53936002)(1076003)(6246003)(446003)(102836004)(52116002)(33716001)(66066001)(42882007)(186003)(26005)(54906003)(476003)(6486002)(256004)(44832011)(229853002)(305945005)(486006)(76176011)(99286004)(6506007)(386003)(66946007)(316002)(4326008)(64756008)(66556008);DIR:OUT;SFP:1102;SCL:1;SRVR:MWHPR2201MB1565;H:MWHPR2201MB1277.namprd22.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;MX:1;A:1;
-received-spf: None (protection.outlook.com: wavecomp.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: gZiYHDEiDFjypR5pnlBy19xkU0z4cDTtiEjum/3BRW/0WEwajRI5iafCVADQnaVQmiO7znJvcwMBMwPBe5ZKfKe/IDrsCIPBZoizMZjH2+YoxEHJF6Vawa/iAmvxwbu1jEGhx6RKiXuIvbH9npldKeEQ8W9u3cxuq/CRjw1n6UO7+aIWQNnPk70w+tvhe+JPPEfUPDeP9MFbaPV8IYR1Zq3CBsEBw9sAIr3X4FoPrjtkz0d6kNQ3i/AZqGLYUV6Osl5/5kv81Tff5c0KHqOdIK5iejJhr8uJH0j5BIz6d+N6PNSoimbi/+vdhVztapHLB2bbdv/31vRlzbKCKds4Gb5rLQ5tnP9XcfZYEGb4FxZ6ua7/l6tuQHd0FqeOogiuQLzCeObQMXVVzWXqfmaW3/e3Fpi8RO5vKVS+LjhiygE=
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <6616E1CE16706A419E23980E4D8E25FE@namprd22.prod.outlook.com>
-MIME-Version: 1.0
-X-OriginatorOrg: mips.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b162f964-f5b9-4393-ab66-08d71512642e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jul 2019 17:21:43.3101
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 463607d3-1db3-40a0-8a29-970c56230104
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pburton@wavecomp.com
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR2201MB1565
-X-Original-Sender: paul.burton@mips.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@wavecomp.com header.s=selector1 header.b=TMkvseJs;       arc=pass
- (i=1 spf=pass spfdomain=wavecomp.com dkim=pass dkdomain=mips.com dmarc=pass
- fromdomain=mips.com);       spf=pass (google.com: domain of
- pburton@wavecomp.com designates 40.107.79.137 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 30 Jul 2019 10:32:52 -0700 (PDT)
+Received-SPF: neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) client-ip=2620:137:e000::1:9;
+Received: from localhost (unknown [IPv6:2601:601:9f80:35cd::d71])
+	(using TLSv1 with cipher AES256-SHA (256/256 bits))
+	(Client did not present a certificate)
+	(Authenticated sender: davem-davemloft)
+	by shards.monkeyblade.net (Postfix) with ESMTPSA id A7ACA126598EE;
+	Tue, 30 Jul 2019 10:32:47 -0700 (PDT)
+Date: Tue, 30 Jul 2019 10:32:45 -0700 (PDT)
+Message-Id: <20190730.103245.831770564486791326.davem@davemloft.net>
+To: dhowells@redhat.com
+Cc: netdev@vger.kernel.org, linux-afs@lists.infradead.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+ arnd@arndb.de, keescook@chromium.org
+Subject: Re: [PATCH net-next] rxrpc: Fix -Wframe-larger-than= warnings from
+ on-stack crypto
+From: David Miller <davem@davemloft.net>
+In-Reply-To: <156449861697.10315.4666924841804740487.stgit@warthog.procyon.org.uk>
+References: <156449861697.10315.4666924841804740487.stgit@warthog.procyon.org.uk>
+X-Mailer: Mew version 6.8 on Emacs 26.1
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.5.12 (shards.monkeyblade.net [149.20.54.216]); Tue, 30 Jul 2019 10:32:48 -0700 (PDT)
+X-Original-Sender: davem@davemloft.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess
+ record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -191,79 +108,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello,
+From: David Howells <dhowells@redhat.com>
+Date: Tue, 30 Jul 2019 15:56:57 +0100
 
-On Mon, Jul 29, 2019 at 11:16:45PM +0100, Maciej W. Rozycki wrote:
-> On Mon, 29 Jul 2019, Nick Desaulniers wrote:
-> > The code in question is modifying a variable declared const through
-> > pointer manipulation.  Such code is explicitly undefined behavior, and
-> > is the lone issue preventing malta_defconfig from booting when built
-> > with Clang:
-> > 
-> > If an attempt is made to modify an object defined with a const-qualified
-> > type through use of an lvalue with non-const-qualified type, the
-> > behavior is undefined.
-> > 
-> > LLVM is removing such assignments. A simple fix is to not declare
-> > variables const that you plan on modifying.  Limiting the scope would be
-> > a better method of preventing unwanted writes to such a variable.
-> > 
-> > Further, the code in question mentions "compiler bugs" without any links
-> > to bug reports, so it is difficult to know if the issue is resolved in
-> > GCC. The patch was authored in 2006, which would have been GCC 4.0.3 or
-> > 4.1.1. The minimal supported version of GCC in the Linux kernel is
-> > currently 4.6.
+> rxkad sometimes triggers a warning about oversized stack frames when
+> building with clang for a 32-bit architecture:
 > 
->  It's somewhat older than that.  My investigation points to:
+> net/rxrpc/rxkad.c:243:12: error: stack frame size of 1088 bytes in function 'rxkad_secure_packet' [-Werror,-Wframe-larger-than=]
+> net/rxrpc/rxkad.c:501:12: error: stack frame size of 1088 bytes in function 'rxkad_verify_packet' [-Werror,-Wframe-larger-than=]
 > 
-> commit c94e57dcd61d661749d53ee876ab265883b0a103
-> Author: Ralf Baechle <ralf@linux-mips.org>
-> Date:   Sun Nov 25 09:25:53 2001 +0000
+> The problem is the combination of SYNC_SKCIPHER_REQUEST_ON_STACK() in
+> rxkad_verify_packet()/rxkad_secure_packet() with the relatively large
+> scatterlist in rxkad_verify_packet_1()/rxkad_secure_packet_encrypt().
 > 
->     Cleanup of include/asm-mips/io.h.  Now looks neat and harmless.
+> The warning does not show up when using gcc, which does not inline the
+> functions as aggressively, but the problem is still the same.
 > 
-> However the purpose of the arrangement does not appear to me to be 
-> particularly specific to a compiler version.
-
-Agreed - I don't think the code here talks about compiler bugs at all,
-it talks about emitting extra unnecessary loads & says there's a codegen
-"issue" which I interpret in this context to simply mean that the
-generated code is suboptimal.
-
-See also this previous patch which aimed to remove the const too, though
-for other reasons; namely LTO:
-
-https://lore.kernel.org/linux-mips/20180616154745.28230-1-hauke@hauke-m.de/T/#u
-
-As I measured there this does indeed have an impact on code size, though
-it's not infeasibly large or anything.
-
-> > For what its worth, there was UB before the commit in question, it just
-> > added a barrier and got lucky IRT codegen. I don't think there's any
-> > actual compiler bugs related, just runtime bugs due to UB.
+> Allocate the cipher buffers from the slab instead, caching the allocated
+> packet crypto request memory used for DATA packet crypto in the rxrpc_call
+> struct.
 > 
->  Does your solution preserves the original purpose of the hack though as 
-> documented in the comment you propose to be removed?
-> 
->  Clearly it was defined enough to work for almost 18 years, so it would be 
-> good to keep the optimisation functionally by using different means that 
-> do not rely on UB.  This variable is assigned at most once throughout the 
-> life of the kernel and then early on, so considering it r/w with all the 
-> consequences for all accesses does not appear to me to be a good use of 
-> it.
-> 
->  Maybe a piece of inline asm to hide the initialisation or suchlike then?
+> Fixes: 17926a79320a ("[AF_RXRPC]: Provide secure RxRPC sockets for use by userspace and kernel both")
+> Reported-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: David Howells <dhowells@redhat.com>
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> cc: Herbert Xu <herbert@gondor.apana.org.au>
 
-That could work as a replacement hack. As I mentioned in the thread
-linked above a less hacky, though more extensive & invasive change might
-be to move our I/O area to a fixmap which ought to produce even better
-code since the addresses would become compile-time constant. I'd settle
-for either approach for now though.
-
-Thanks,
-    Paul
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190730172141.addbdma5dnihdwoc%40pburton-laptop.
+Applied.
