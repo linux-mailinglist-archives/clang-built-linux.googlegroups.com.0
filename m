@@ -1,126 +1,133 @@
-Return-Path: <clang-built-linux+bncBD52JJ7JXILRBLWNRTVAKGQETQT6BBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBB7VRTVAKGQEBNE2MJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
-	by mail.lfdr.de (Postfix) with ESMTPS id E44817E163
-	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Aug 2019 19:51:43 +0200 (CEST)
-Received: by mail-qt1-x83e.google.com with SMTP id m25sf65222333qtn.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Aug 2019 10:51:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564681902; cv=pass;
+Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1D9F57E32E
+	for <lists+clang-built-linux@lfdr.de>; Thu,  1 Aug 2019 21:16:25 +0200 (CEST)
+Received: by mail-vk1-xa37.google.com with SMTP id x83sf31148540vkx.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Aug 2019 12:16:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564686983; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AdN7voFUdQxCrbXyzmpaWn7hcYIUYKk4G6ny5yvNnZ8Jg4NFXxJzR/rifbK/oVbjBi
-         FFMMQFzwyG4XBr2lRRPFwAohxvD5SVoqEy1MBZpxGX/lTeNnsVKcA+qLk4YgeralkTlz
-         r7wvB8F9uqgztj9mBsAGSID9UNiMW0EesE7R76jQhTZdvL8xmT07Lj8yqE2o8juHXRiv
-         ThPaXFNN1yFLPuDlaFRsAATU1JdNoTlNg2DqMmLvSFV3W6R3uRPEMa0VyYjUNnZr8Y/a
-         XcMfN/ztZ+wxhX5E+F6xWEABUTbcZPqLoJ3Cosl75CDLACNSvFWH1rnMHqmP/h6tUkLk
-         cMEA==
+        b=ky+yaJD8lxBIt2+XUC480852dRVc0AcujXAjsTwoNPa9W2Jukjp4S42FZBAF+vlea7
+         u+F828G5wTlbE7zqwE6ZYAdLRgiWb5jYVzyvF7E6kKZt1NHlxHAaFU1eKKmqinm6jy+P
+         7EUkBVhZOQegS0yrs0w1ARxkDw5+mm/TYQpA98o3OJfOreThTGp9d2k7ewPeLuZ4lKrJ
+         rLBxp8aAaMtgdrCOGQ4PkaIunNCRf5xPcb9o0NbR/AR7y6aF/tjlTIT+rrVe2iNCw1wc
+         V5yLcKL3xCi4IupG2m3xclI83Kdx/uO5lhN+aQ01CDShNsLm0DiWVNApQHbDVTn0g087
+         2r0g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=jJjXwdSuNLO1QsZ/h+2e8UQRyVyUCb9shVeH/4UKjqw=;
-        b=NvZa5sgStO9/l0CwCeyHwFkLXkRnu0tw3Ic9jSGL4z2ns22Co30OxG031+txFawZyp
-         VS93ZNETER/KpvUYLbdSxc9G/2ZCRz9AqIh8ViCvxs2PkY5UCzMWJyCjUxtDVY+WKTaF
-         jXK53tSlFovW5FCc9jnNEUF3eZ2KLzmYjdyqjS669P9/39BH3V2EqMu9kQ3UUf5orvyv
-         J915DadcTJIWgbnE8SB5GkLqmC7d3fo67/cXJjAe4CdRKX/eJbbs+po1bTHtW9cqxXAl
-         lMvYaQrxqhvjklhc87h7ekTBNB27ZFxeXKxQtoPIaiTIKEkAwk8R0LM3voNmpf1DL6at
-         FnaQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:date:cc:to:from:subject
+         :message-id:sender:dkim-signature;
+        bh=PiiK6beSxrrh3N2RDx7E4D3+zE/m84olWNfMn3Vaebw=;
+        b=CokX+kVYVtOJ1C6WJqkMu2cUS4O9zo7YqVghO0xSC4JSqaemksMIq7t56sPuNChRzx
+         UIErbwg7pq0K9WqhVAvjyvIbTSVAOIM1qdvvR2RoYhdXek+JnC+RUSgfoDOIeK04pMaq
+         EAPUpFj2II6fnNzb/lyjoVENf/Rt+Xq7HK2x6BvA3M6aSwlBkYDNkZ2PHvNOf2g8Mo6y
+         0QiwFma4Y/CnKNaQ2kcuL+QM7iO1/8mqwrtnRvCnq8okkUbXCY0FcahjfjyxUyWljWpZ
+         ed8YpyqBts80mCfmyfGbNkh+6+NZF7eFDSKVllaoK9M8td9q85sKtVV4pLNl/TQ3qs3p
+         Z19w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=QGm304Su;
-       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::941 as permitted sender) smtp.mailfrom=pcc@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@lca.pw header.s=google header.b="A8/G7jLp";
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=cai@lca.pw
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=jJjXwdSuNLO1QsZ/h+2e8UQRyVyUCb9shVeH/4UKjqw=;
-        b=OY/CSa2zrXOkthRqy5poLASKHiEzRUp+hnwi/5aq5NNsvOqQcuSU31IRTAszn3L+Q/
-         zLB7PLfKKGdjy6Umbq7qG3dVWOSDcyAlPQeEEOgM58m9te3wVQYqc7Sfu8r9V2XHdy5g
-         BWxlffthi/RAUuIDGsuD2rH6w7i5mpf+RWVu5rTpCRtaezSVK6wAB7R3woLkozRFa/v/
-         TN7/m3KHTX6IJRK3vRxtndCSwDB8CbzUswrUiqIh2MnYxaRjn6Jr+cnC78rKzTJFeyTX
-         HNG/vXg6qrxQd5BbEssYPwkiyAbksqF4sBRw+iODPQ20zeghCCyFlUQJ7GLTLKrS8OnG
-         IPxg==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=PiiK6beSxrrh3N2RDx7E4D3+zE/m84olWNfMn3Vaebw=;
+        b=HpNCeXza2qXpXJNHAdkPlDcXgu46nDymLlaxsvgnW9+oXiOfG57OHm1YTIoXOAeT4I
+         uYy7adglzpK8SOOPguSrv4PlIvjl6TYpE0xbnjf0dOB+hlWmxpMc7IePrRJOJ6uTKlNP
+         8UT6HbYPkev1rLGeHSVzU7rNA3nAn81jA1OPFGEwGJ6lYfv64j9WA1jFAh8Ak9wChbx/
+         rFPsDXu/usfOeuahVw6aXkWoIFji949g9iwjE/euY39ISKpvN7Y63Jk31lLg45xr/eyZ
+         DyYBapIGOQnmp3wPvkH8nhowAl1CGMPUzT8FYxCbMvIlArIDgUaDFjA/y10pZjE2h/uy
+         HrOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=jJjXwdSuNLO1QsZ/h+2e8UQRyVyUCb9shVeH/4UKjqw=;
-        b=qmqRXIY5I2FQRWSzjDUOrGrUM04JX5DxMDWbeu4pufvDLK3O0izOpefx6BqJ4ZaBAd
-         pp2jEDJTl3mFdPTbONnguGrKpfMUpG1frFOYaTS5g7qnlvIM9MG1WQt/7de97WhSv54H
-         kNXMHchX3wLSZ6Jd3eoT2Wf2L2jRDlcO4ABjSrgfIs3J7PFdv1PLLw0PLf+mxrToohDi
-         +sCb3g+kgjXw3jT4i7AxPs401bCPqk9IKbEdGiZNRqLJGjq0P05JDkLyUDmgI3N4M50T
-         EZ9uq9IIcHVoHKrN9SrYLlcz5UEzHM49LhmcvW+6QO39U15EwzsqFOmydSTmKx9w1H0f
-         UmBg==
-X-Gm-Message-State: APjAAAWgs2NztP8dl+tJMrMXyeqY/yY5Dh/PBZdWBvDXQS1Nwg4FrRTZ
-	n9fIiWJ2k6DMskgnrU9TpBk=
-X-Google-Smtp-Source: APXvYqylimtaGV8ZvhIpdDyKP6rnN1LCzC3XRBwmwboo/ADQ4EqCWhWr6BdKiRds9E7g50lJ9HYfyQ==
-X-Received: by 2002:a37:8145:: with SMTP id c66mr83029425qkd.459.1564681902858;
-        Thu, 01 Aug 2019 10:51:42 -0700 (PDT)
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:mime-version:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=PiiK6beSxrrh3N2RDx7E4D3+zE/m84olWNfMn3Vaebw=;
+        b=loX4cbLGgMQU8yOL9iQBEOmMHIwavUMCQ2qDESHIb319uenKAiCXKqqVp5B/b3fmk8
+         oko1cxGMcdxTfVB01T91qnvqN+tnWSeSVr2AVcmUXYKyOcVX63FRHj448e1/tDYwIwGx
+         BW/OXTQQRW5p2wHVjwSf7cBHfivIXiv15USNoMM6XCRKYAQLVisx8NGj3w/jGLFZxXWk
+         ky5F53gbn0gdzHI1+GZLVr/Pn+BEPfc7kG16na7bxTDxO38X/CXJHZ21W9QR58miT6Tn
+         UxKQuAxgL6ddHn3pc+DmV0LehuEofJ3oCzxGJohRrnHmG/lhrhamju3A5ctfpmQuggeT
+         DgvA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAXFadpZoFxom/tkRC8j0PeoJHUHp6zwWzkI77lO5GEwevsguJ7c
+	LqmKJUrYP7upRgq8nY8CYJo=
+X-Google-Smtp-Source: APXvYqwy8/Iu2dsSAJMdLxL70bHw6TVN1RRqKqkXbmjYT0T1ispx4Bct3Tbh1ISKiHzOVluLB6GbPQ==
+X-Received: by 2002:a67:6282:: with SMTP id w124mr85913609vsb.4.1564686983792;
+        Thu, 01 Aug 2019 12:16:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:7906:: with SMTP id u6ls675113qkc.11.gmail; Thu, 01 Aug
- 2019 10:51:42 -0700 (PDT)
-X-Received: by 2002:a37:660b:: with SMTP id a11mr83882470qkc.342.1564681902655;
-        Thu, 01 Aug 2019 10:51:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564681902; cv=none;
+Received: by 2002:a67:8bc3:: with SMTP id n186ls9657155vsd.12.gmail; Thu, 01
+ Aug 2019 12:16:23 -0700 (PDT)
+X-Received: by 2002:a67:e3da:: with SMTP id k26mr85391104vsm.131.1564686983519;
+        Thu, 01 Aug 2019 12:16:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564686983; cv=none;
         d=google.com; s=arc-20160816;
-        b=FuYp5EwY3iIV6DOa4ABVeRbDgvi/ZonrDsKRKkb2p/OJZlp60p5AD6g4JcCPYYHpXp
-         tepCtyCEMFLDgVsFjeDGkLfljWJC7lVsH1/+TpRAT+Bb/GCTqQsY73oWUA6YeNO4egzh
-         sKLxgpmAOEM9n57wOY7VMk5GxMq2ZGkPGwVtLARaMZk/H6KY4uVwQygSYddtymDagp9h
-         6fzTE7c2UgLfIDBnYU76KW56yibZSe4QO9uSCWfAU0KnH5tioBYvqGtK2ozxVIex/ul+
-         dlwE8iwS8wGrOmbmqsfDS/yBCwUWnto4y4HByhKcoFT+vyK8ddbd8+epsUirRM+zSm+s
-         H79g==
+        b=sCyYYpN/Z18U7T3pjMZxHKMrhMDCI05Z4yfUVDxb+UKYh8NNo9G8zZFX4pzMhFdsld
+         oJq6gK2Ld5OzJCZ/Gqzl6VgJD6fZ6xWKus8yP9rQa43eteHfgQRadeF97sjW9P6X7XPJ
+         8iDT+7nnzrzl2nk6tuJMz5inIdzFHVSXi7074OAWLox42Q9upOjU/u076Az9yIkt9VIt
+         pFHq8w2AzSRynzsaZ16H7IQmXhAxEGx9BaWe4bZHz6ZSWJnxnSgxnwXHCoewUAoMWs0M
+         IGr74Ku1700NwRqwxxGHgLlmgqRTFJlbz0vwNKz+YO8aTHfCJ1EZpp2OuLxHEv7eR1BO
+         fNFQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=TZhU7oDbGIucTFa2/0PHRnSvNzjHQYp3wll5K+i26zA=;
-        b=jML2h3kNIKKHPB6GsNhJI86oyBHcJBcNBQw6aF7+yV+8piuXGBGaUIHa/Zj33ZEF8c
-         Sji0lwfxMiySro5IY1yxGsRVqg6xlEuc2H5apR/NFh8feQRvUwVjukHZX3ypm0Ebv+1R
-         8BMb3YSrlwz/KXmbt9ko9ImQ3m0exmMSbT0xubaJmKL6FJXxsV964xEnzy0zGrogonw3
-         2S/awCqUNCB+p7BshP9P7MZItkN2vhA0we8mAGdCmfCXXJtRd2tU875jfei1ZjxjAG6U
-         9UGNNLKtXb+iP29s0e6aULiLu0yz3DFDqGl7kPlieqWlQPQuFL5YYgVlkxsBU04q5Qnl
-         ZXXg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :cc:to:from:subject:message-id:dkim-signature;
+        bh=5t3tzqXqpNbdKtPEsmdz9Dwf6r6pNTpWJhNvYjQG3h4=;
+        b=dPn7arL/Fh0mq4om5/cyOAtETKMAKObGQPfkZY9FjCevafDA3Bu73cFsZL7trb0YRK
+         9fTXVa5CcR8c3YW/6mnNsqodnYlbfKwYQ6eOeWCkBidZz68G+5VEm+yTnK/bjpnvKs78
+         cl5pq/5r+ort/S/U1lGss9xzu6WRs60Z5cv3CkL7sGw8cT6vmTtY/dkWjTJWomd+wmKf
+         DJ5vh/Q9KEfPzrT6AZneIePQ8cCl4UoOLd41ve8ZQEXDAgu8En+YZcf7HvqxZuQxIR3B
+         MwDviF5wu4D05VmETF01UiMFTmE2YQ/wlVkw78uxllkLb+ZV8lwZK14/fYx2nPwUjkzG
+         TP9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=QGm304Su;
-       spf=pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::941 as permitted sender) smtp.mailfrom=pcc@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ua1-x941.google.com (mail-ua1-x941.google.com. [2607:f8b0:4864:20::941])
-        by gmr-mx.google.com with ESMTPS id c23si2380252qkl.5.2019.08.01.10.51.42
+       dkim=pass header.i=@lca.pw header.s=google header.b="A8/G7jLp";
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=cai@lca.pw
+Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
+        by gmr-mx.google.com with ESMTPS id u189si4918530vkb.2.2019.08.01.12.16.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Thu, 01 Aug 2019 10:51:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::941 as permitted sender) client-ip=2607:f8b0:4864:20::941;
-Received: by mail-ua1-x941.google.com with SMTP id j2so1867862uaq.5
-        for <clang-built-linux@googlegroups.com>; Thu, 01 Aug 2019 10:51:42 -0700 (PDT)
-X-Received: by 2002:ab0:6198:: with SMTP id h24mr18873126uan.41.1564681901893;
- Thu, 01 Aug 2019 10:51:41 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190712193846.174893-1-pcc@google.com> <20190801011842.199786-1-pcc@google.com>
- <20190801120516.pe6vzl2bmko6hhk6@willie-the-truck>
-In-Reply-To: <20190801120516.pe6vzl2bmko6hhk6@willie-the-truck>
-From: "'Peter Collingbourne' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 1 Aug 2019 10:51:30 -0700
-Message-ID: <CAMn1gO5nMo5973kn12Cotq3B54dEz7NoFo9tU_xJBb+NUd8dOA@mail.gmail.com>
-Subject: Re: [PATCH v3] arm64: Add support for relocating the kernel with RELR relocations
-To: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Masahiro Yamada <yamada.masahiro@socionext.com>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>
+        Thu, 01 Aug 2019 12:16:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
+Received: by mail-qk1-x744.google.com with SMTP id m14so27228951qka.10
+        for <clang-built-linux@googlegroups.com>; Thu, 01 Aug 2019 12:16:23 -0700 (PDT)
+X-Received: by 2002:a05:620a:1404:: with SMTP id d4mr87089021qkj.228.1564686983047;
+        Thu, 01 Aug 2019 12:16:23 -0700 (PDT)
+Received: from dhcp-41-57.bos.redhat.com (nat-pool-bos-t.redhat.com. [66.187.233.206])
+        by smtp.gmail.com with ESMTPSA id c5sm33070187qkb.41.2019.08.01.12.16.20
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 01 Aug 2019 12:16:22 -0700 (PDT)
+Message-ID: <1564686979.11067.48.camel@lca.pw>
+Subject: Re: [PATCH v2] acpica: fix -Wnull-pointer-arithmetic warnings
+From: Qian Cai <cai@lca.pw>
+To: "Moore, Robert" <robert.moore@intel.com>, "Wysocki, Rafael J"
+	 <rafael.j.wysocki@intel.com>
+Cc: "Schmauss, Erik" <erik.schmauss@intel.com>, "jkim@FreeBSD.org"
+	 <jkim@FreeBSD.org>, "lenb@kernel.org" <lenb@kernel.org>, 
+	"ndesaulniers@google.com"
+	 <ndesaulniers@google.com>, "linux-acpi@vger.kernel.org"
+	 <linux-acpi@vger.kernel.org>, "devel@acpica.org" <devel@acpica.org>, 
+	"clang-built-linux@googlegroups.com"
+	 <clang-built-linux@googlegroups.com>, "linux-kernel@vger.kernel.org"
+	 <linux-kernel@vger.kernel.org>
+Date: Thu, 01 Aug 2019 15:16:19 -0400
+In-Reply-To: <94F2FBAB4432B54E8AACC7DFDE6C92E3B9661CBD@ORSMSX110.amr.corp.intel.com>
+References: <20190718194846.1880-1-cai@lca.pw>
+	 <94F2FBAB4432B54E8AACC7DFDE6C92E3B9661CBD@ORSMSX110.amr.corp.intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: pcc@google.com
+X-Mailer: Evolution 3.22.6 (3.22.6-10.el7)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: cai@lca.pw
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=QGm304Su;       spf=pass
- (google.com: domain of pcc@google.com designates 2607:f8b0:4864:20::941 as
- permitted sender) smtp.mailfrom=pcc@google.com;       dmarc=pass (p=REJECT
- sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Peter Collingbourne <pcc@google.com>
-Reply-To: Peter Collingbourne <pcc@google.com>
+ header.i=@lca.pw header.s=google header.b="A8/G7jLp";       spf=pass
+ (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as
+ permitted sender) smtp.mailfrom=cai@lca.pw
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,97 +140,129 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 1, 2019 at 5:05 AM Will Deacon <will@kernel.org> wrote:
->
-> On Wed, Jul 31, 2019 at 06:18:42PM -0700, Peter Collingbourne wrote:
-> > RELR is a relocation packing format for relative relocations.
-> > The format is described in a generic-abi proposal:
-> > https://groups.google.com/d/topic/generic-abi/bX460iggiKg/discussion
-> >
-> > The LLD linker can be instructed to pack relocations in the RELR
-> > format by passing the flag --pack-dyn-relocs=relr.
-> >
-> > This patch adds a new config option, CONFIG_RELR. Enabling this option
-> > instructs the linker to pack vmlinux's relative relocations in the RELR
-> > format, and causes the kernel to apply the relocations at startup along
-> > with the RELA relocations. RELA relocations still need to be applied
-> > because the linker will emit RELA relative relocations if they are
-> > unrepresentable in the RELR format (i.e. address not a multiple of 2).
-> >
-> > Enabling CONFIG_RELR reduces the size of a defconfig kernel image
-> > with CONFIG_RANDOMIZE_BASE by 3.5MB/16% uncompressed, or 550KB/5%
-> > compressed (lz4).
-> >
-> > Signed-off-by: Peter Collingbourne <pcc@google.com>
-> > Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> > Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> > ---
-> >
-> > Notes:
-> >     Changes in v3:
-> >     - Move Kconfig/Makefile logic to arch-independent location
-> >     - Tweak CONFIG_RELR documentation to remove "currently"
->
-> Excellent, thanks. Queued for 5.4.
+On Fri, 2019-07-26 at 19:35 +0000, Moore, Robert wrote:
+> We've taken the change to ACPI_TO_POINTER.
 
-Thanks.
+I am a bit confused here. I saw the commit in the acpia repo.
 
-> One more question: is there any benefit to supporting this for loadable
-> modules as well?
+https://github.com/acpica/acpica/commit/02bbca5070e42d298c9b824300aa0eb8a08=
+2d797
 
-It looks like there would be, but it would be much smaller than the
-kernel itself, as well as being smaller than the benefit of building
-modules as shared objects instead of object files, which as I
-mentioned to Nick is a prerequisite for the linker to be able to emit
-RELR relocations. The kernel appears to proportionally contain many
-more RELATIVE relocations than the modules, probably because of
-__ksymtab which is almost entirely RELATIVE relocations. Shared
-objects should help significantly with binary size because the linker
-would then be able to statically resolve relocations between sections,
-avoiding the need to store them explicitly in the module, but they
-have the downside of requiring PIC which could hurt performance.
+but how does that change will go into the linux kernel? Suppose Rafael will=
+ need
+to pick it up manually?
 
-As a quick experiment I did:
+>=20
+>=20
+> -----Original Message-----
+> From: Qian Cai [mailto:cai@lca.pw]=C2=A0
+> Sent: Thursday, July 18, 2019 12:49 PM
+> To: Wysocki, Rafael J <rafael.j.wysocki@intel.com>
+> Cc: Moore, Robert <robert.moore@intel.com>; Schmauss, Erik <erik.schmauss=
+@inte
+> l.com>; jkim@FreeBSD.org; lenb@kernel.org; ndesaulniers@google.com; linux=
+-acpi
+> @vger.kernel.org; devel@acpica.org; clang-built-linux@googlegroups.com; l=
+inux-
+> kernel@vger.kernel.org; Qian Cai <cai@lca.pw>
+> Subject: [PATCH v2] acpica: fix -Wnull-pointer-arithmetic warnings
+>=20
+> Clang generate quite a few of those warnings.
+>=20
+> drivers/acpi/scan.c:759:28: warning: arithmetic on a null pointer treated=
+ as a
+> cast from integer to pointer is a GNU extension [-Wnull-pointer-arithmeti=
+c]
+> 		status =3D acpi_get_handle(ACPI_ROOT_OBJECT,
+> obj->string.pointer,
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0^~~~~~~~~~~~~~~~
+> ./include/acpi/actypes.h:458:56: note: expanded from macro 'ACPI_ROOT_OBJ=
+ECT'
+> =C2=A0#define ACPI_ROOT_OBJECT=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0((acpi_handle) ACPI_T=
+O_POINTER
+> (ACPI_MAX_PTR))
+> 							^~~~~~~~~~~~~~~
+> ./include/acpi/actypes.h:509:41: note: expanded from macro 'ACPI_TO_POINT=
+ER'
+> =C2=A0#define ACPI_TO_POINTER(i)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_ADD_PTR (void, (void *) 0=
+,
+> (acpi_size) (i))
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> ./include/acpi/actypes.h:503:84: note: expanded from macro 'ACPI_ADD_PTR'
+> =C2=A0#define ACPI_ADD_PTR(t, a, b)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_CAST_PTR (t,
+> (ACPI_CAST_PTR (u8, (a)) + (acpi_size)(b)))
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0^~~~~~~~~~~~~~~~~
+> ./include/acpi/actypes.h:501:66: note: expanded from macro 'ACPI_CAST_PTR=
+'
+> =C2=A0#define ACPI_CAST_PTR(t, p)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0((t *) (acpi_uintptr_t) (p))
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0^ This is
+> because pointer arithmetic on a pointer not pointing to an array is an
+> undefined behavior (C11 6.5.6, constraint 8). Fix it by just casting the
+> corresponding pointers using ACPI_CAST_PTR() and skip the arithmetic. Als=
+o,
+> fix a checkpatch warning together.
+>=20
+> ERROR: Macros with complex values should be enclosed in parentheses
+> =C2=A0#45: FILE: include/acpi/actypes.h:509:
+> +#define ACPI_TO_POINTER(i)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_CAST_PTR (void, i)
+>=20
+> Signed-off-by: Qian Cai <cai@lca.pw>
+> ---
+>=20
+> v2: Use ACPI_CAST_PTR() in ACPI_TO_POINTER() directly without
+> =C2=A0=C2=A0=C2=A0=C2=A0arithmetic.
+>=20
+> =C2=A0include/acpi/actypes.h | 2 +-
+> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/include/acpi/actypes.h b/include/acpi/actypes.h index
+> ad6892a24015..163181e2d884 100644
+> --- a/include/acpi/actypes.h
+> +++ b/include/acpi/actypes.h
+> @@ -506,7 +506,7 @@ typedef u64 acpi_integer;
+> =C2=A0
+> =C2=A0/* Pointer/Integer type conversions */
+> =C2=A0
+> -#define ACPI_TO_POINTER(i)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_ADD_PTR (void, (void *) 0,
+> (acpi_size) (i))
+> +#define ACPI_TO_POINTER(i)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0(ACPI_CAST_PTR (void, i))
+> =C2=A0#define ACPI_TO_INTEGER(p)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_PTR_DIFF (p, (void *) 0)
+> =C2=A0#define ACPI_OFFSET(d, f)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0ACPI_PTR_DIFF (&(((d *) 0)-=
+>f), (void
+> *) 0)
+> =C2=A0#define ACPI_PHYSADDR_TO_PTR(i)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0ACPI_TO_POINTER(i)
+> --
+> 2.20.1 (Apple Git-117)
+>=20
 
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index d3776c945a173..015898faba590 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -65,7 +65,7 @@ endif
-
- KBUILD_CFLAGS  += -mgeneral-regs-only $(lseinstr) $(brokengasinst)
-$(compat_vdso)
- KBUILD_CFLAGS  += -fno-asynchronous-unwind-tables
--KBUILD_CFLAGS  += $(call cc-disable-warning, psabi)
-+KBUILD_CFLAGS  += $(call cc-disable-warning, psabi) -fPIC
- KBUILD_AFLAGS  += $(lseinstr) $(brokengasinst) $(compat_vdso)
-
- KBUILD_CFLAGS  += $(call cc-option,-mabi=lp64)
-
-and built a defconfig kernel. I then did:
-
-$ for i in **/*.ko ; do ld.lld -shared -o ${i}.so $i -Bsymbolic  -N
-2>/dev/null ; done
-$ for i in **/*.ko ; do ld.lld -shared -o ${i}.relr.so $i -Bsymbolic
--N --pack-dyn-relocs=relr 2>/dev/null ; done
-
-That gave me 494 out of 525 modules that can currently be linked as
-shared objects, and 491 that can be linked with RELR (looks like
-there's an LLD bug preventing linking the other 3). The binary sizes
-are:
-
-$ cat `ls  **/*.ko.relr.so | sed -e 's/\.ko\.relr\.so$/.ko/g'` | wc -c
-279730136
-$ cat `ls  **/*.ko.relr.so | sed -e 's/\.ko\.relr\.so$/.ko.so/g'` | wc -c
-134944384
-$ cat **/*.ko.relr.so | wc -c
-134617216
-
-So that's roughly >50% size improvement from shared objects and 0.3% from RELR.
-
-Peter
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMn1gO5nMo5973kn12Cotq3B54dEz7NoFo9tU_xJBb%2BNUd8dOA%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/1564686979.11067.48.camel%40lca.pw.
