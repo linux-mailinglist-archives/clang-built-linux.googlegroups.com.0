@@ -1,120 +1,133 @@
-Return-Path: <clang-built-linux+bncBC7JPD5NQEBBBAXDRXVAKGQEKE36PBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDXJDZXNUMORBGX7RXVAKGQEPOR7GRA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5FD207E641
-	for <lists+clang-built-linux@lfdr.de>; Fri,  2 Aug 2019 01:10:59 +0200 (CEST)
-Received: by mail-ot1-x33d.google.com with SMTP id b25sf40046291otp.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Aug 2019 16:10:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564701058; cv=pass;
+Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 92DF07E714
+	for <lists+clang-built-linux@lfdr.de>; Fri,  2 Aug 2019 02:11:07 +0200 (CEST)
+Received: by mail-ua1-x93a.google.com with SMTP id p22sf7438693uaq.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 01 Aug 2019 17:11:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564704666; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rqC5hdjJHFuElf2D1RhxcZDB02oDQjbBXbkZC3uKlXVuxDRYX4MdogkD+5AVlzh7WY
-         kp+N+1nZSJM3IVeGgg18GQ1f/Xu+7mn7sxC6YIoDd2XYFf5ypo36lDScKWFXFVmNq4/b
-         rI5U4avv/kjdvJPj2buJs6CjdHtib2BimbZ6bDEm916R86ca2KhJbakxFNRT0sYterPj
-         MkWdAu4nfWbtHZwYA1Id9LPcRHZ8qTBBUsgjzXgEqNL0FfiE4EpBWkt1IL4iM+RjEVXn
-         7wd209J/pWy9hdljyvfc8TMqQpyAHwUCy1dWLbr9M1Lcxvoa/5Qh4ePjJNSSCkOQ5VWs
-         5+Xw==
+        b=D1YCdSG17fDO9RMWjGLExvJdyBlcwaKZAqgrUA9B/VpfaHfR71eYh+hW+wNT+aIF6c
+         4lb7rYz9g5NcNNqzFTELH+XvQfPiJsxX6LZBmjnCYwbILU6cFML39ZbMknnF0h0iR16U
+         tiNXPm5hu+t2TjXfsAxzM0dg/fxMa2NYRyF9xir4NpC2LT7JdHTX5XS9boTmhSHImK9X
+         TB80BRK6BBgOSZWE8VPG0hbPR5J8L1gOaN02ngKgAlnRtY+7XBZl18TKSmC9k59GOaws
+         AhoMZ2NJQ76nRAs6Bc9FLU1ni6RXsTjEi0afJvbfYrzgmMPkk6XVaN+EApYaayxurnFN
+         ibJg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=SPxSiwogAWW7ANlNXztTo2TVBjGP+WPoojegxtqpLOo=;
-        b=iEJ/s/lCDvA6m0+MmjTgJhKUuADp+SjNuEETWnObJLmEmNPne/VM/56zaNYWiEFyCF
-         HyppF7JPvEJnKycZ4drJeiDKzERX6udmT9FmdkIIZx0v9LIGrOLFbludn3d/UOqFJXsZ
-         M7DDhRMmRbkFyOgJtGYATup/7y24QV3Oc88HJrpcaxrB5fikUo3QfkGleZW0P08n9ZRT
-         8wRhZT+q3ZtiXul3FjZVDhYxLRC7spzAx+csm41p3wL8bB4fUjqdBp4w9jyHfRmmSB7J
-         j3kLk15z9yXAUst9BMZg2aoDPZPGbRjxEU4h1G+0Pg/+tnrMa/699nUu86ripuqZHrP8
-         5BcA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=wZbYaJWc21OI+gPFf2oHxAzwAiUudSsMb4ZBh+sqcpE=;
+        b=xZsByqPRk0pW2ucrXLbfJGXU3lETxWDNrCDqw5NL57HUqjKv8zUQLojgCpz7ThWRSK
+         gjK80zOq2/dLBJvrNQzgpqkA8RSOuFJbaTNBDZ7Co5YYA6bm+ehJ/vxJUIupLDMWIEbG
+         /yD1VW+cHtDHDtzQvZTe15OGtbL1b4LhIS6ERllJJwZq799oxJBD5U+/9UeyO8oj3eoa
+         xKaTN7/SSCgxdQpbkoiQy2sUr3/suvteEF27QNwSh8SBEI2hfrz2aGc3zxCCs4Si44/i
+         QFOnbFxyrrnkIxMAjvHlei9Zqpr+WI3mA+ldRl5/KQsmxI6npTt1kSOw10C3NkOoSBgA
+         WkEQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mNeODb68;
-       spf=pass (google.com: domain of 3gxfdxqukewinhuckgoogle.comclang-built-linuxgooglegroups.com@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3gXFDXQUKEWINHUCKGOOGLE.COMCLANG-BUILT-LINUXGOOGLEGROUPS.COM@flex--nhuck.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=fnX7M40a;
+       spf=pass (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=helgaas@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=SPxSiwogAWW7ANlNXztTo2TVBjGP+WPoojegxtqpLOo=;
-        b=HApiGSU99haILnUitirfvAvhIpZp9suAwgLPJGWHEwJ1vkBq1xm3Br0jsAzhUhwyuK
-         WyvVNTMyrdfDI4K0+aLUctdBXoyyNMoCcjJdNVbK22pNuMV3v2fe+XEuoNN4Yw7Ltoag
-         2XBwKhzZnuhPgrI2ps7MEYvoqCEkNZjSKsXK1jWd2sPaZrVK6XifmmydO8tuynSociWY
-         /BD7s+Dw6MDLk95v3ZRvjVfmWjYl98WvWh25H0BZQCU8pBTuO8i88tqQl7Gk4P9DSpJf
-         sTqZL32yOc/SyV/dRAywAt2hiG5KsYTRjTDuW8J43lL3nhsaZN3qcby90ZIICSKPHEYB
-         dihQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=wZbYaJWc21OI+gPFf2oHxAzwAiUudSsMb4ZBh+sqcpE=;
+        b=Rk0CDvZYiW4gXMdqCrWwQ4oewXXi7L0EBgphlmituwpWVbdaHKybduWbhyefvwASQz
+         ike1yDv5EXxS7HZXLswr7p/CgJeHvB4oq1f3Qi4YB5NrbwVJnwIPmpZvy4awcR1pGuR3
+         isVqHBz1KI01AyTdX+PsouunA/zfLX6Ig09eOnuDJkjUb8kIi3r8nx7H5NRpg66iW5SB
+         LnRa0jSg4TiUZTze1Ij0dJ2jf0Mtfpb7hBO8A+thxGJjGpV7ApTvY4LztTDxZLypie01
+         B9k+zGzEI1f3dOpxSmzBSUsYxqZGZp7G9Wl2j8u5kafc+ZieYoYRIUpPy3G3Xbf/y8w+
+         NRvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SPxSiwogAWW7ANlNXztTo2TVBjGP+WPoojegxtqpLOo=;
-        b=W4hSIt1kaUqNDqprw+OrJgzgP91e0igkyQU178IZ3vPGQrVZ9/5b0LlX8/RvCYEznC
-         3sIsi1rV/lbA9NoO72U1ryA60jd+tNXwfLnwNcwL6UqUb+UHEvgipalZVGBgW83eeYeQ
-         kmmtjsqumycG+j5RW2nVqjsvNIYmqnIBBbbeGnwoCIcZjsMHJrOcHaR8CL8dRuNZImnR
-         lWZM951HWwhZMv+sha1P2hkqJ5p1vIaxnODxQBTQGJy0n4GwVNIAIMBy3JDPZunqnuIe
-         D0w/Ty+nAI15HPdwQmxov9nFAusZLTVy/8ACcbY3yXRYvqM/BarJ8QD9pXBuYYbYt0Hr
-         qvGA==
-X-Gm-Message-State: APjAAAVmGT8FBxOh2P2Uj33hjj7wFV/cTiHj55oFGm03v9HxgvPfrB0n
-	F/kqVf+8eSqeQvKMurji5fw=
-X-Google-Smtp-Source: APXvYqyO4zqT+oLywAMqoRXBZd5FjtSLSXpH3fx+KsCP65E1hmUz90WktSKkSlABgTDOMvLaCqgZMw==
-X-Received: by 2002:a9d:73c4:: with SMTP id m4mr4568648otk.369.1564701058057;
-        Thu, 01 Aug 2019 16:10:58 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=wZbYaJWc21OI+gPFf2oHxAzwAiUudSsMb4ZBh+sqcpE=;
+        b=f5ehpjVtKOm25Ukfoa9qfwc18YF4Ob8W8G9IOAjCjTZcl38KkeyTfw55OTk4n6VlIG
+         S8bvmE5AJFKIoPnpyJf8CnI9JMcJopIscZXWW7RSjRA1byqsra+zPD4RknrVjlpu9mim
+         RY0rOvg9VrOYJY/exYkCZeFJeKS494/p1KV9EOjSBhBcfPCyT3/esICV7hYnRxTN/SNJ
+         HEk9YKEDYVLcFe21a/BtWeLC03KzgEXkQU7fdH9O0cwZJdSWGuOomTMdOnbDCGnXVwD7
+         MKyiGkoohTLMtyWcJqKI4Aol2Alqtl6BhFAgLMZG/5hBj8dyv5ndCMOjwLsO5FfaqH0w
+         ViQw==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAX0WTsQj8B+1gbw7IJJaKHxEzCULEwwpff3eIaAaJ+94ha6WaZ2
+	9AN8f1mnQ/ryAWyKE/+EhBw=
+X-Google-Smtp-Source: APXvYqzRZJEIMQm+Dtla7hG2oVc4gf1Z0A6BDVOuX7EaTw3aKqyhO9FHrocL44zo+/7ntO+s33z0Ww==
+X-Received: by 2002:a67:e8c3:: with SMTP id y3mr81681633vsn.94.1564704666535;
+        Thu, 01 Aug 2019 17:11:06 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:2083:: with SMTP id y3ls13363848otq.3.gmail; Thu,
- 01 Aug 2019 16:10:57 -0700 (PDT)
-X-Received: by 2002:a9d:6644:: with SMTP id q4mr92833875otm.308.1564701057795;
-        Thu, 01 Aug 2019 16:10:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564701057; cv=none;
+Received: by 2002:ab0:986:: with SMTP id x6ls5638265uag.5.gmail; Thu, 01 Aug
+ 2019 17:11:06 -0700 (PDT)
+X-Received: by 2002:ab0:3003:: with SMTP id f3mr2433110ual.86.1564704666255;
+        Thu, 01 Aug 2019 17:11:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1564704666; cv=none;
         d=google.com; s=arc-20160816;
-        b=tmaGT/M73ncH2Q37V08WkhuNJsLS/JXhYZoOGqkTQK9fbR1e7lfezblhGmcL4M2nBV
-         /JJt1tRfkUlqhXMVeGnGSyI2g0GNN758Uk7bC0k5fo5R8lHp3yNYoQYz+LN7FQ65zyUz
-         YkL0kbImnXd/+JCk7pTDAhJWQW9Scih0aQ0KHdt1JGcfjAEw5Wi0O/KLxFXJ3XJLxl6+
-         zpok+iKiba8EIGvvlyEy39nI73OaUrLSC7Q6G+SN8elU88oANtmeFzOSpDSCYd4WMfQI
-         qljBBkkScsBp0WDbqFNlYEXgfMEaFmfw3uy+Ljsp23N/gtzdnutEs2vziZJPLSm0+4gR
-         f9lA==
+        b=Owu+0fMKhZzdEva3Eu449KGWJQgBYlooLy1zwUIqGbFpALd/iX6FAz7/EkEiaG3/9t
+         4l9FTI6rfcFLg6ZIrwlGUhJ/x9ZiIqqgnIMClbV1m9bBiSJO89BqIh+eJ3jaCqs5exxq
+         eQbbd+4GvM9AZoNRE99jy0Gliql7QmuWKSbT1/qXNaKL45wgyrV7M3qG0rqv1DfUbOoz
+         q5k1TiKxZF5bYP3bZxd+Ns+keUw+zrzvnu+5ySE/3iKNR87NrvgrphspYYCtgl45EEjr
+         jnQpAtyM6HW6IeNAngt+WTamqPXbBIOWVw6U5Hv194nlOJ2u+efSvE2OF9TX71Qf6qQS
+         rwIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=ffo0BEX4jn42Yj5bUFNrkZDBWd6yUTSShv6ZHrslX3E=;
-        b=reGgLuxIh/SVLuHpAqoq5CViHv1I+PWwzt2isDtSD+wwF0tMgLQdjfvRH2V8+9pHwz
-         40Z+nRcEZ3w+OW9meoz0wkO/7woDB+9EvN9Wes36zYXBBDQiZ3WuyTUsedCz0CXZivEV
-         4F88wPUnbU1310s35TFHnapv91D8fIB/DiWMFfuTQW2Wq1QEkWAgaZdMtEfrWKTE4YMG
-         dGLYUGZgRNqXVLRYGbWjVg9lA3hBShv1cx+MZknpFkjl4Evm05Goy9trkGzUnIIm78MO
-         fo7fwfIr/iZMyBxIrJ9sSvPwXEfPiSrAwBFW4+euWmzJxARrdTd0bfhJcqLp8MUyVZEI
-         fa9A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=QaS2E44QyIeJ5MgCE5ZuHxIPF3uDNwYQ6P5hgSt/9/Q=;
+        b=freh/38xVg73eOseAlbUDweyxwqvkXbFWBs6elwtvhNlrC/eKWGd8AFP/xBjnzcdtO
+         wMGd2JH6+H3oZo1Bn9WNeXR6c9JCd2wq1JLMSKVZ3ahJRMbun3biFdePnRPyTz0CTlqn
+         E6d/fuWw3LYTAPzP9GtIGGUpQTqpYlKKbtW8gSDtaNtGTMs4yptrmIbDnLVFo5d/AhZC
+         5LT5mOdGmaQyLke8HZiMp/1xRa6HmMcGziuB4xJ3ymRnZujLbtxKsvgT5DGhjG9QrVYP
+         FcSm2pi9ZXJbpomQR6Fm9rYONr4OHiRMcKh/4SqZdWRUmQkkmE3ZchEVSr87SAYk+JEb
+         OwSQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=mNeODb68;
-       spf=pass (google.com: domain of 3gxfdxqukewinhuckgoogle.comclang-built-linuxgooglegroups.com@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3gXFDXQUKEWINHUCKGOOGLE.COMCLANG-BUILT-LINUXGOOGLEGROUPS.COM@flex--nhuck.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
-        by gmr-mx.google.com with ESMTPS id d8si3104934oth.2.2019.08.01.16.10.57
+       dkim=pass header.i=@kernel.org header.s=default header.b=fnX7M40a;
+       spf=pass (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=helgaas@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id d8si3531667uam.0.2019.08.01.17.11.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Thu, 01 Aug 2019 16:10:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3gxfdxqukewinhuckgoogle.comclang-built-linuxgooglegroups.com@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
-Received: by mail-qt1-x849.google.com with SMTP id e22so510328qtp.9
-        for <clang-built-linux@googlegroups.com>; Thu, 01 Aug 2019 16:10:57 -0700 (PDT)
-X-Received: by 2002:ac8:524a:: with SMTP id y10mr94383841qtn.100.1564701057204;
- Thu, 01 Aug 2019 16:10:57 -0700 (PDT)
-Date: Thu,  1 Aug 2019 16:10:46 -0700
-Message-Id: <20190801231046.105022-1-nhuck@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.22.0.770.g0f2c4a37fd-goog
-Subject: [RFC PATCH] ARM: UNWINDER_FRAME_POINTER implementation for Clang
-From: "'Nathan Huckleberry' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: linux@armlinux.org.uk
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Nathan Huckleberry <nhuck@google.com>, clang-built-linux@googlegroups.com, 
-	Tri Vo <trong@google.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 01 Aug 2019 17:11:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (unknown [69.71.4.100])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 1394A2080C;
+	Fri,  2 Aug 2019 00:11:03 +0000 (UTC)
+Date: Thu, 1 Aug 2019 19:11:02 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Michael Ellerman <mpe@ellerman.id.au>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Tyrel Datwyler <tyreld@linux.ibm.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>, linux-pci@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nick Desaulniers <ndesaulniers@google.com>
+Subject: Re: [PATCH v2] PCI: rpaphp: Avoid a sometimes-uninitialized warning
+Message-ID: <20190802001102.GG151852@google.com>
+References: <20190603174323.48251-1-natechancellor@gmail.com>
+ <20190603221157.58502-1-natechancellor@gmail.com>
+ <20190722024313.GB55142@archlinux-threadripper>
+ <87lfwq7lzb.fsf@concordia.ellerman.id.au>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: nhuck@google.com
+Content-Disposition: inline
+In-Reply-To: <87lfwq7lzb.fsf@concordia.ellerman.id.au>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: helgaas@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=mNeODb68;       spf=pass
- (google.com: domain of 3gxfdxqukewinhuckgoogle.comclang-built-linuxgooglegroups.com@flex--nhuck.bounces.google.com
- designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3gXFDXQUKEWINHUCKGOOGLE.COMCLANG-BUILT-LINUXGOOGLEGROUPS.COM@flex--nhuck.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nathan Huckleberry <nhuck@google.com>
-Reply-To: Nathan Huckleberry <nhuck@google.com>
+ header.i=@kernel.org header.s=default header.b=fnX7M40a;       spf=pass
+ (google.com: domain of helgaas@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=helgaas@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,238 +140,108 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The stackframe setup when compiled with clang is different.
-Since the stack unwinder expects the gcc stackframe setup it
-fails to print backtraces. This patch adds support for the
-clang stackframe setup.
+On Mon, Jul 22, 2019 at 02:05:12PM +1000, Michael Ellerman wrote:
+> Nathan Chancellor <natechancellor@gmail.com> writes:
+> > On Mon, Jun 03, 2019 at 03:11:58PM -0700, Nathan Chancellor wrote:
+> >> When building with -Wsometimes-uninitialized, clang warns:
+> >> 
+> >> drivers/pci/hotplug/rpaphp_core.c:243:14: warning: variable 'fndit' is
+> >> used uninitialized whenever 'for' loop exits because its condition is
+> >> false [-Wsometimes-uninitialized]
+> >>         for (j = 0; j < entries; j++) {
+> >>                     ^~~~~~~~~~~
+> >> drivers/pci/hotplug/rpaphp_core.c:256:6: note: uninitialized use occurs
+> >> here
+> >>         if (fndit)
+> >>             ^~~~~
+> >> drivers/pci/hotplug/rpaphp_core.c:243:14: note: remove the condition if
+> >> it is always true
+> >>         for (j = 0; j < entries; j++) {
+> >>                     ^~~~~~~~~~~
+> >> drivers/pci/hotplug/rpaphp_core.c:233:14: note: initialize the variable
+> >> 'fndit' to silence this warning
+> >>         int j, fndit;
+> >>                     ^
+> >>                      = 0
+> >> 
+> >> fndit is only used to gate a sprintf call, which can be moved into the
+> >> loop to simplify the code and eliminate the local variable, which will
+> >> fix this warning.
+> >> 
+> >> Link: https://github.com/ClangBuiltLinux/linux/issues/504
+> >> Fixes: 2fcf3ae508c2 ("hotplug/drc-info: Add code to search ibm,drc-info property")
+> >> Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
+> >> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> >> ---
+> >> 
+> >> v1 -> v2:
+> >> 
+> >> * Eliminate fndit altogether by shuffling the sprintf call into the for
+> >>   loop and changing the if conditional, as suggested by Nick.
+> >> 
+> >>  drivers/pci/hotplug/rpaphp_core.c | 18 +++++++-----------
+> >>  1 file changed, 7 insertions(+), 11 deletions(-)
+> >> 
+> >> diff --git a/drivers/pci/hotplug/rpaphp_core.c b/drivers/pci/hotplug/rpaphp_core.c
+> >> index bcd5d357ca23..c3899ee1db99 100644
+> >> --- a/drivers/pci/hotplug/rpaphp_core.c
+> >> +++ b/drivers/pci/hotplug/rpaphp_core.c
+> >> @@ -230,7 +230,7 @@ static int rpaphp_check_drc_props_v2(struct device_node *dn, char *drc_name,
+> >>  	struct of_drc_info drc;
+> >>  	const __be32 *value;
+> >>  	char cell_drc_name[MAX_DRC_NAME_LEN];
+> >> -	int j, fndit;
+> >> +	int j;
+> >>  
+> >>  	info = of_find_property(dn->parent, "ibm,drc-info", NULL);
+> >>  	if (info == NULL)
+> >> @@ -245,17 +245,13 @@ static int rpaphp_check_drc_props_v2(struct device_node *dn, char *drc_name,
+> >>  
+> >>  		/* Should now know end of current entry */
+> >>  
+> >> -		if (my_index > drc.last_drc_index)
+> >> -			continue;
+> >> -
+> >> -		fndit = 1;
+> >> -		break;
+> >> +		/* Found it */
+> >> +		if (my_index <= drc.last_drc_index) {
+> >> +			sprintf(cell_drc_name, "%s%d", drc.drc_name_prefix,
+> >> +				my_index);
+> >> +			break;
+> >> +		}
+> >>  	}
+> >> -	/* Found it */
+> >> -
+> >> -	if (fndit)
+> >> -		sprintf(cell_drc_name, "%s%d", drc.drc_name_prefix, 
+> >> -			my_index);
+> >>  
+> >>  	if (((drc_name == NULL) ||
+> >>  	     (drc_name && !strcmp(drc_name, cell_drc_name))) &&
+> >> -- 
+> >> 2.22.0.rc3
+> >> 
+> >
+> > Hi all,
+> >
+> > Could someone please pick this up?
+> 
+> I'll take it.
+> 
+> I was expecting Bjorn to take it as a PCI patch, but I realise now that
+> I merged that code in the first place so may as well take this too.
+> 
+> I'll put it in my next branch once that opens next week.
 
-Cc: clang-built-linux@googlegroups.com
-Suggested-by: Tri Vo <trong@google.com>
-Signed-off-by: Nathan Huckleberry <nhuck@google.com>
----
- arch/arm/Kconfig.debug   |   4 +-
- arch/arm/Makefile        |   2 +-
- arch/arm/lib/backtrace.S | 134 ++++++++++++++++++++++++++++++++++++---
- 3 files changed, 128 insertions(+), 12 deletions(-)
+Sorry, I should have done something with this.  Did you take it,
+Michael?  I don't see it in -next and haven't figured out where to
+look in your git tree, so I can't tell.  Just let me know either way
+so I know whether to drop this or apply it.
 
-diff --git a/arch/arm/Kconfig.debug b/arch/arm/Kconfig.debug
-index 85710e078afb..92fca7463e21 100644
---- a/arch/arm/Kconfig.debug
-+++ b/arch/arm/Kconfig.debug
-@@ -56,7 +56,7 @@ choice
- 
- config UNWINDER_FRAME_POINTER
- 	bool "Frame pointer unwinder"
--	depends on !THUMB2_KERNEL && !CC_IS_CLANG
-+	depends on !THUMB2_KERNEL
- 	select ARCH_WANT_FRAME_POINTERS
- 	select FRAME_POINTER
- 	help
-@@ -1872,7 +1872,7 @@ config DEBUG_UNCOMPRESS
- 	  When this option is set, the selected DEBUG_LL output method
- 	  will be re-used for normal decompressor output on multiplatform
- 	  kernels.
--	  
-+
- 
- config UNCOMPRESS_INCLUDE
- 	string
-diff --git a/arch/arm/Makefile b/arch/arm/Makefile
-index c3624ca6c0bc..a593d9c4e18a 100644
---- a/arch/arm/Makefile
-+++ b/arch/arm/Makefile
-@@ -36,7 +36,7 @@ KBUILD_CFLAGS	+= $(call cc-option,-mno-unaligned-access)
- endif
- 
- ifeq ($(CONFIG_FRAME_POINTER),y)
--KBUILD_CFLAGS	+=-fno-omit-frame-pointer -mapcs -mno-sched-prolog
-+KBUILD_CFLAGS	+=-fno-omit-frame-pointer $(call cc-option,-mapcs,) $(call cc-option,-mno-sched-prolog,)
- endif
- 
- ifeq ($(CONFIG_CPU_BIG_ENDIAN),y)
-diff --git a/arch/arm/lib/backtrace.S b/arch/arm/lib/backtrace.S
-index 1d5210eb4776..fd64eec9f6ae 100644
---- a/arch/arm/lib/backtrace.S
-+++ b/arch/arm/lib/backtrace.S
-@@ -14,10 +14,7 @@
- @ fp is 0 or stack frame
- 
- #define frame	r4
--#define sv_fp	r5
--#define sv_pc	r6
- #define mask	r7
--#define offset	r8
- 
- ENTRY(c_backtrace)
- 
-@@ -25,7 +22,8 @@ ENTRY(c_backtrace)
- 		ret	lr
- ENDPROC(c_backtrace)
- #else
--		stmfd	sp!, {r4 - r8, lr}	@ Save an extra register so we have a location...
-+		stmfd   sp!, {r4 - r8, fp, lr}	@ Save an extra register
-+						@ so we have a location..
- 		movs	frame, r0		@ if frame pointer is zero
- 		beq	no_frame		@ we have no stack frames
- 
-@@ -35,11 +33,119 @@ ENDPROC(c_backtrace)
-  THUMB(		orreq	mask, #0x03		)
- 		movne	mask, #0		@ mask for 32-bit
- 
--1:		stmfd	sp!, {pc}		@ calculate offset of PC stored
--		ldr	r0, [sp], #4		@ by stmfd for this CPU
--		adr	r1, 1b
--		sub	offset, r0, r1
- 
-+#if defined(CONFIG_CC_IS_CLANG)
-+/*
-+ * Clang does not store pc or sp in function prologues
-+ * 		so we don't know exactly where the function
-+ * 		starts.
-+ * We can treat the current frame's lr as the saved pc and the
-+ * 		preceding frame's lr as the lr, but we can't
-+ * 		trace the most recent call.
-+ * Inserting a false stack frame allows us to reference the
-+ * 		function called last in the stacktrace.
-+ * If the call instruction was a bl we can look at the callers
-+ * 		branch instruction to calculate the saved pc.
-+ * We can recover the pc in most cases, but in cases such as
-+ * 		calling function pointers we cannot. In this
-+ * 		case, default to using the lr. This will be
-+ * 		some address in the function, but will not
-+ * 		be the function start.
-+ * Unfortunately due to the stack frame layout we can't dump
-+ *              r0 - r3, but these are less frequently saved.
-+ *
-+ * Stack frame layout:
-+ *             <larger addresses>
-+ *             saved lr
-+ *    frame => saved fp
-+ *             optionally saved caller registers (r4 - r10)
-+ *             optionally saved arguments (r0 - r3)
-+ *             <top of stack frame>
-+ *             <smaller addressses>
-+ *
-+ * Functions start with the following code sequence:
-+ * corrected pc =>  stmfd sp!, {..., fp, lr}
-+ *		    add fp, sp, #x
-+ *		    stmfd sp!, {r0 - r3} (optional)
-+ */
-+#define sv_fp	r5
-+#define sv_pc	r6
-+#define sv_lr   r8
-+		add     frame, sp, #20          @ switch to false frame
-+for_each_frame:	tst	frame, mask		@ Check for address exceptions
-+		bne	no_frame
-+
-+1001:		ldr	sv_pc, [frame, #4]	@ get saved 'pc'
-+1002:		ldr	sv_fp, [frame, #0]	@ get saved fp
-+
-+		teq     sv_fp, #0               @ make sure next frame exists
-+		beq     no_frame
-+
-+1003:		ldr     sv_lr, [sv_fp, #4]      @ get saved lr from next frame
-+
-+		//try to find function start
-+		ldr     r0, [sv_lr, #-4]        @ get call instruction
-+		ldr     r3, .Ldsi+8
-+		and     r2, r3, r0              @ is this a bl call
-+		teq     r2, r3
-+		bne     finished_setup          @ give up if it's not
-+		and     r0, #0xffffff           @ get call offset 24-bit int
-+		lsl     r0, r0, #8              @ sign extend offset
-+		asr     r0, r0, #8
-+		ldr     sv_pc, [sv_fp, #4]      @ get lr address
-+		add     sv_pc, sv_pc, #-4	@ get call instruction address
-+		add     sv_pc, sv_pc, #8        @ take care of prefetch
-+		add     sv_pc, sv_pc, r0, lsl #2 @ find function start
-+		b       finished_setup
-+
-+finished_setup:
-+
-+		bic	sv_pc, sv_pc, mask	@ mask PC/LR for the mode
-+
-+1004:		mov     r0, sv_pc
-+
-+		mov     r1, sv_lr
-+		mov	r2, frame
-+		bic	r1, r1, mask		@ mask PC/LR for the mode
-+		bl	dump_backtrace_entry
-+
-+1005:		ldr	r1, [sv_pc, #0]		@ if stmfd sp!, {..., fp, lr}
-+		ldr	r3, .Ldsi		@ instruction exists,
-+		teq	r3, r1, lsr #11
-+		ldr     r0, [frame]             @ locals are stored in
-+						@ the preceding frame
-+		subeq	r0, r0, #4
-+		bleq	dump_backtrace_stm	@ dump saved registers
-+
-+		teq	sv_fp, #0		@ zero saved fp means
-+		beq	no_frame		@ no further frames
-+
-+		cmp	sv_fp, frame		@ next frame must be
-+		mov	frame, sv_fp		@ above the current frame
-+		bhi	for_each_frame
-+
-+1006:		adr	r0, .Lbad
-+		mov	r1, frame
-+		bl	printk
-+no_frame:	ldmfd	sp!, {r4 - r8, fp, pc}
-+ENDPROC(c_backtrace)
-+		.pushsection __ex_table,"a"
-+		.align	3
-+		.long	1001b, 1006b
-+		.long	1002b, 1006b
-+		.long	1003b, 1006b
-+		.long	1004b, 1006b
-+		.popsection
-+
-+.Lbad:		.asciz	"Backtrace aborted due to bad frame pointer <%p>\n"
-+		.align
-+.Ldsi:		.word	0xe92d4800 >> 11	@ stmfd sp!, {... fp, lr}
-+		.word	0xe92d0000 >> 11	@ stmfd sp!, {}
-+		.word   0x0b000000              @ bl if these bits are set
-+
-+ENDPROC(c_backtrace)
-+
-+#else
- /*
-  * Stack frame layout:
-  *             optionally saved caller registers (r4 - r10)
-@@ -55,6 +161,15 @@ ENDPROC(c_backtrace)
-  *                  stmfd sp!, {r0 - r3} (optional)
-  * corrected pc =>  stmfd sp!, {..., fp, ip, lr, pc}
-  */
-+#define sv_fp	r5
-+#define sv_pc	r6
-+#define offset	r8
-+
-+1:		stmfd	sp!, {pc}		@ calculate offset of PC stored
-+		ldr	r0, [sp], #4		@ by stmfd for this CPU
-+		adr	r1, 1b
-+		sub	offset, r0, r1
-+
- for_each_frame:	tst	frame, mask		@ Check for address exceptions
- 		bne	no_frame
- 
-@@ -98,7 +213,7 @@ for_each_frame:	tst	frame, mask		@ Check for address exceptions
- 1006:		adr	r0, .Lbad
- 		mov	r1, frame
- 		bl	printk
--no_frame:	ldmfd	sp!, {r4 - r8, pc}
-+no_frame:	ldmfd	sp!, {r4 - r8, fp, pc}
- ENDPROC(c_backtrace)
- 		
- 		.pushsection __ex_table,"a"
-@@ -115,3 +230,4 @@ ENDPROC(c_backtrace)
- 		.word	0xe92d0000 >> 11	@ stmfd sp!, {}
- 
- #endif
-+#endif
--- 
-2.22.0.770.g0f2c4a37fd-goog
+Bjorn
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190801231046.105022-1-nhuck%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190802001102.GG151852%40google.com.
