@@ -1,163 +1,174 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBW4HT3VAKGQEAX3GSRA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBBMJT3VAKGQENPINAMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 88DE880FF1
-	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Aug 2019 03:18:19 +0200 (CEST)
-Received: by mail-wr1-x43d.google.com with SMTP id h8sf40041580wrb.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Aug 2019 18:18:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1564967899; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id F0A5E80FFB
+	for <lists+clang-built-linux@lfdr.de>; Mon,  5 Aug 2019 03:21:09 +0200 (CEST)
+Received: by mail-wr1-x43a.google.com with SMTP id j10sf37054564wre.18
+        for <lists+clang-built-linux@lfdr.de>; Sun, 04 Aug 2019 18:21:09 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1564968069; cv=pass;
         d=google.com; s=arc-20160816;
-        b=v+rhWdBlZ9WtjXn2o75Q8gW3hQtmuuCsHNI2sqL7l4WI1vbgI4C1fASSrxy/mmhOe5
-         /8Cpp1FVsxVEanKzgu19bk5FnXaQSxK8F6/Nlb6HoVeOS6stQt5W//NL4WMNsNch8giK
-         qbihq7Q36+pxluVPpa27zm/EzmftC1g6E5czhVi52qs64usin6ED01XUWoJiF3cyk1Ip
-         bYbnfVU5tJL/eWv2gZk6zLaHZwS6ftfKnyxd15VDhorHpLQVcXg0+wme7AcI4ubDlxvS
-         6hVDxm3TbN0WQggZp4OKmk+XgLikH00rOgQXt0l+zaiYxay5pbCKVxqlcVaokonMgl2m
-         igEQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=XCt7rMj7msyUWK9eaNLoOn+yzxJJE6hwV55Ck5xTpKsPO+WhMB4lXVQD5mMPEfOlYQ
+         yZTNO3xmowJoB2cWU9pJiFDEBdOH5/hs6tBWI1/tzJX5RwhzRrY0+YdIyX9L6mE8x7As
+         qQueaVVVWrnREofXB5M+GN67q0XLzvxZ2U4Kpbu3MZIPNeAOPjGlKDdc+CFFxdQXxrjo
+         wpwKZagWd0j5RPQ4tgd4xVJ/1DQFI3VKNAD9TJK2oAPcWeIf7zYrYGLvRiI8Q3inlre2
+         tXnHL+OAyL6HvWRsd+YnbZnf4m7N8M6T5xkSUYJlr1xnd6G2RDlyFN+Jqw3wsbtlodHr
+         bTUQ==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=S4fBDU3hP3Y5mMcBhDp4Jdv9MzX+Q1x44FDLoGIxJSA=;
-        b=Vp+mBGNGvJgStLOSZum6odxXsJ8hrvmG+XD4SGrsxYo2kl1COTYfq+XJs19I4TT3vc
-         zsmtv/ckZKdFLiPCxqUWot3epzqu5Q1T1BAHybGRmppcAQmQLbLAEB02AB/C/R7HgWcQ
-         0bQiIU/CjHDktHjtd5DE1Xdc40Yv1fTAiXgRmtK0WSeCOrgzJGokjt2c0y+xxEvKx3z0
-         VK+4FBrmIgolBesa/OVncKQVdbLCWOTQnQ2/HIN4EW5OmnLWX3ayW+a14HO+TXUiD57/
-         8q1UVQh7ZKkBlMNsKDp6fi09bEyCaNzFQjt9lnEjtqorMkzCXmItqhJ/0O/ucvAynT/p
-         mdTA==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nxT5g4Xt;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=4HkS2czSPPdI3r32FAUn2hRaxtcPptfV4qCCJAqJkR8=;
+        b=OqM539cD92BG2icGC6Rmm2qWqq1vN/bYt0H7iYSo18x+xrP8vaATRMJ2MY57l68XCk
+         DKqnvaWlSobNWqQ5s1C24EMnM0BR0teixtcRZCyG5reZlBlRLAr5Yi8B/R/EtKmVGQ7X
+         d+7w0fY0Z6TNilNdeMgGZvyjKu3rR+v/VXrFl8PLWmSgyWUn7zEyA0dgLBzzwfHJK1iN
+         jsQFCdh+T5Mc9WEbQwoqbru5UZ6RVw2WFUxxrkiL0S/wlaAHvyerHavceA5wIBGZYXGe
+         oWPBJssc3SVRlQOS5U4HYGs5Ag1e/fkj3Aj4+QBioVWEEAF5u2kJSMSOq5gjrIWkWwZY
+         zvxA==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=K4A4n8xh;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.82.58 is neither permitted nor denied by best guess record for domain of evan.quan@amd.com) smtp.mailfrom=Evan.Quan@amd.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=S4fBDU3hP3Y5mMcBhDp4Jdv9MzX+Q1x44FDLoGIxJSA=;
-        b=IQXfzBVcuMQy8Nf+5fjmQgGdt6KTPPb1zrqoDTNCXho3bpnPQcQRCcr8q0ZhK9Y6E9
-         ey8jeX4XxunGIDvnXEefU4v1f5rcs9b94GED2uyvjtbypTwc1s1Jr2YDx+N2p508smTX
-         vQWZRo2PrM8i1Qe0REzQyvqQ1c4ChHRzPSuANuMzgG49cPYwhJtDXbwBA8i+wk+Dxqxb
-         DJhMOrrrW16Ux3ItafGlv3oupfRxHvU4mQ1EesC+fOyy2K5hPa+e78PF9dQPYpG+mOo1
-         L+5BdoEsgu6362Xtfl9yHUpDvj2sbbselT3Q0ox5KDqMWrevAdob8pH3DL9wvkddynZH
-         76Bg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=S4fBDU3hP3Y5mMcBhDp4Jdv9MzX+Q1x44FDLoGIxJSA=;
-        b=Zkf7wTuFz4HRwtDhSLdRutcw78PNYWlAbi25g2yihlCWsXhFQHeslv7rXE0ugWaJ0j
-         /XOfGvYRbHCIAg0M3OEC2wWWqExe/2BLXOn0FeiRjqicH0viQiroDl/slOFm4ydDk3b4
-         jgI0iOVDZGHuCkbHgKoE3Vs6D1YJjBTa1BrijbD027+Z1werZa64j8XAY4QEExQeHLuu
-         /zPJT2Q+bq5vtLPZzBGlCL3sNlCilUaAtdH1Oe6+x1YMoFlItIcDDEh7h22DMRd7ZN5g
-         Xm9xzOi24hhOUW6UgQB3ff2fSpdecGkYji0fZtsHN5xdaJOLIiEXnurDLTXpxa1IUJNZ
-         Jq7w==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=4HkS2czSPPdI3r32FAUn2hRaxtcPptfV4qCCJAqJkR8=;
+        b=h6toQg+A+qwVVzFf2s6qtjQlFN+5Fr59N+3SI1sPmryz44ODAH5AYXON0yH9slbOk/
+         ZsvcNlrOsnRZea69mNNUFr9AyZ1S5RHzhy7WdG3uYky2yHKyenGRkniXLRLWRqXdX4rT
+         lyLNOR9w3RUcrlQ4vbadOuKaiEdHInvYq+H3t3ESA/RVH6sWfAFwfYYEMnLWrINc5ikK
+         Fn48WBzKs/5Kr0SVqZ5VrhRo6mr8EedPhlqoJXXZEOeo+nLx9GOb9WZvE7dHsoba071F
+         Sg8XXjMQI34X8iIQMBEausbrBrpDN2k0ffwxnT2i8K7A6DK6/mTTMJ6qWWPZDia9iED7
+         OIvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=S4fBDU3hP3Y5mMcBhDp4Jdv9MzX+Q1x44FDLoGIxJSA=;
-        b=uV9CU7af8SPWVwVAsye1ieVHaleRhsJB/UxHp0ntL+WETp2WSDaqhgrM57eJL22zVb
-         C+Aq1NewNGc7tD4+Y9caE5EMmUgUKSUmbYGUDR9W6Bmt3er0HoRw9U54ObIPz4MycET2
-         KxnJqI+Sk19QWZ0BllJOvJTa38DzRwwkarxKMPMNhS+uGGxyyw7YyWpCpOv2EbVGqKzi
-         lYZ+D7m4JJHnBSvjTJSZCK/2GWOl5nbPP4f6dJs0SpjsClauqLb+4hD5mVJyYu62wuQ5
-         Y9D0uCIwtyUGf5sXJX5vOA8MYGpLgoMrj8oqQIPvPED4niMJ19GfAtjgcj0Vee+Tf1EC
-         h+qQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=4HkS2czSPPdI3r32FAUn2hRaxtcPptfV4qCCJAqJkR8=;
+        b=eiyega1REuitmyw4zeIt8kKKjemdqvpXHB6OOZC2eQ/QO3HGc0E4MwkOsJw5t0Yqg9
+         6x4f+ev27IXtBnCmbug72OM6LvZAAYlie+ewzhGFb3Pr3CxqN1AyJ0RDJvYxBZp0zCwV
+         YrEkqT+mQ9LyQFc2WKqm5mwK7v+Om8bxkvkhRMI/Pjccs9WMpdad75UAYvB7KTO+68K+
+         ezIJoFagRCYafVfgYX9gurcEw5trbiDpMY2DtQUYZHsjQniJS3fT3Czix0GvBG3+w/Zg
+         w5dyloaqU3RofNfMZI7BFKmAZIivSWmP55QpM73mHVWouZ+0LbSlhqvGU6yjiVKicRjU
+         S7hw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXFglHuQUe81X1req/714w0+IpaGMb+bLfLMUGtPnLVRHQ6eeu8
-	XblterkL4UaBhyAkhu7x1tc=
-X-Google-Smtp-Source: APXvYqyLAFPBUwZ17z32FmAG+Hh12RmJbBRKkXWaGrjhfFD1fPbFwVj8LB0Cvh306/jLPXvBTkr8UQ==
-X-Received: by 2002:adf:e8cb:: with SMTP id k11mr73615154wrn.244.1564967899265;
-        Sun, 04 Aug 2019 18:18:19 -0700 (PDT)
+X-Gm-Message-State: APjAAAVQ/rkYocZZaNUfFqK+haQVdRAoefpdQvMFcFRvb3l8Gvs8AJoS
+	FmtCgoFM5Q/I9YFkbbMekSI=
+X-Google-Smtp-Source: APXvYqwQp/8AX575L6M4KNm20TicClkChJ9A9eyxpkmQciK9iXz24bCLiUP8u0YhH4HraEnEC66cuw==
+X-Received: by 2002:a7b:c148:: with SMTP id z8mr13174669wmi.142.1564968069709;
+        Sun, 04 Aug 2019 18:21:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:5709:: with SMTP id a9ls24123326wrv.12.gmail; Sun, 04
- Aug 2019 18:18:18 -0700 (PDT)
-X-Received: by 2002:a5d:4602:: with SMTP id t2mr11666568wrq.340.1564967898880;
-        Sun, 04 Aug 2019 18:18:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1564967898; cv=none;
+Received: by 2002:a7b:cc10:: with SMTP id f16ls28424513wmh.2.gmail; Sun, 04
+ Aug 2019 18:21:09 -0700 (PDT)
+X-Received: by 2002:a1c:407:: with SMTP id 7mr16095222wme.113.1564968069231;
+        Sun, 04 Aug 2019 18:21:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1564968069; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tI1uYqZS0T8zMUeO+G9phIpjISbmKNzNo7F4RfonnSrROG3xxzBYp+5sHf9AhpTyt8
-         tmz6s09IX01AUJ5AFkik6AXNF9HcrFsZDzCMocgdXWvkqWsFNWeOdq+nUjiYKcOk1oKM
-         atqyLAZfdtJ5xaMsMg+4Y3hYWfWew2MhI6a4M90zEkggAbRVvOW9wm80KrDFBZx+0666
-         +g9Tnloy1oNE5uG2FOvyZAO5bMiNsf4bRhP/hKpzHCpNK73fnT47Xx9Ks8slu68QP50X
-         aJ0GGU0aFpZDGrHckHA6co4zUUm3aLGl3MiUwqzf5Un0rnI9qQvUplW50EX9e5bRTRYA
-         F+eg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=OuVA76lIPJxgsPabWbHp8eFg+xI+TfW22xDF1fY+ibo=;
-        b=S77+cWucYWiyWBTJ5jwbcM6kWrqOwDR1pB9gZUlRzsCMJOAB9xgWC+kAb4uPx70r7X
-         11+raivb/CYRx+FWCMH9NY1lWE68vdT0NKKMEIHuNTjXrvK7wDDpCx2XgWbxI7ipvxbm
-         T6VIGlZFK31wkNa2fa8qnh30Wa3pbSJNQzN/AU6LJjcKV6NDMdF5vswb74EOE2qMZQn7
-         /swurkjddIPthteMtigXCOaxIQWGq3PWQXzWTyacFSJ5rg4ITGmq4t1Q1RLeDO+cIVlr
-         C70jsHPNpnyf9I1nf2KrefwEfEDboWpkWFzxNsViaSnWpUA8rfo+C+YjOIOxwQTcOMQf
-         MVBw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=nxT5g4Xt;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id z24si341725wml.0.2019.08.04.18.18.18
+        b=V3wojHtywaV+e5ai9XqNp7ACuYS69FK+nSuxxf0bF8JmQIwSApAH24w5cB+EUaup+Y
+         ZGmUd8BUYRcrEswKWur0aoIaf9QIkg3zMhfyS5aBeYnZaQ3HFL+nzQxqQuBFW5V3qSVI
+         grkbxPVRqzQMuSxmmNmiz/eHly5YjuG7I/j/fc/cqfDW1w9B15ahnf2gmgLDYH8duPGZ
+         1yE9iFuJImXc7MwtoKd0J/KHqpSRKK9iC+jabY9HLQnJponD8DjYpH/UzMjhUPAn8dJt
+         LcY5tjTKIRZ5ogUwumysJwf720eqDkyeNyoGY0PCw9tYL2554Ecyz30VAXzmvZ/tNMul
+         GcrA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=//eIfGumUqGY4eS+WJUNWHG4yIQcggsiHZv79Ti0IXA=;
+        b=OoyZI1ZbOle6HYiT3jZGylseCSQoXrEJRp1pN6VaXL5jX20BZ3+rcOVPF+//h4UrIk
+         McK2odL1w5S5jBPsvRVJK3JewqEvFQRx7RNkHPSttEIqnEmiLJusm5ChSLGzCew6VtKW
+         V9ma9fldlZiT2kIr8pHyJSEL+WvvSMmC+btmNhhYWw7UPgHZF3UXVilkD0xCBUiYBbST
+         LoeHIoUaObB1vCMrxYwwrBqaR2hduhRAjIjONlTZk6j4a1XTROrSg+hw446OYXyz6Ur4
+         /0lruJHUYAnjV5XY65Z0q+kznV+xJejnxsjOgXBUKavFcxb7fQfCsZrDEy5dreGbQm1Z
+         qo7w==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com header.b=K4A4n8xh;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.82.58 is neither permitted nor denied by best guess record for domain of evan.quan@amd.com) smtp.mailfrom=Evan.Quan@amd.com
+Received: from NAM01-SN1-obe.outbound.protection.outlook.com (mail-eopbgr820058.outbound.protection.outlook.com. [40.107.82.58])
+        by gmr-mx.google.com with ESMTPS id a10si4391799wmm.2.2019.08.04.18.21.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Sun, 04 Aug 2019 18:18:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
-Received: by mail-wr1-x444.google.com with SMTP id f9so3747534wre.12
-        for <clang-built-linux@googlegroups.com>; Sun, 04 Aug 2019 18:18:18 -0700 (PDT)
-X-Received: by 2002:a5d:62c9:: with SMTP id o9mr31637468wrv.186.1564967898243;
-        Sun, 04 Aug 2019 18:18:18 -0700 (PDT)
-Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id x20sm186678895wrg.10.2019.08.04.18.18.17
-        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Sun, 04 Aug 2019 18:18:17 -0700 (PDT)
-Date: Sun, 4 Aug 2019 18:18:15 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Joe Perches <joe@perches.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Borislav Petkov <bp@alien8.de>, "H . Peter Anvin" <hpa@zytor.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Pavel Machek <pavel@ucw.cz>,
-	"Gustavo A . R . Silva" <gustavo@embeddedor.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Shawn Landden <shawn@git.icu>,
-	the arch/x86 maintainers <x86@kernel.org>,
-	Linux List Kernel Mailing <linux-kernel@vger.kernel.org>,
-	Neil Horman <nhorman@tuxdriver.com>,
-	David Miller <davem@davemloft.net>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com
-Subject: Re: [RFC PATCH] compiler_attributes.h: Add 'fallthrough' pseudo
- keyword for switch/case use
-Message-ID: <20190805011815.GA110280@archlinux-threadripper>
-References: <e0dd3af448e38e342c1ac6e7c0c802696eb77fd6.1564549413.git.joe@perches.com>
- <1d2830aadbe9d8151728a7df5b88528fc72a0095.1564549413.git.joe@perches.com>
- <c0669a7130645a20e99915385b7e712360c31ed9.camel@perches.com>
- <CAHk-=wg1PAJR6ChVXE7O_H2wEG=1mWxi2uc0fH5bthOC_81uTA@mail.gmail.com>
- <49b659d8f88f67c736881224203418f59a5d29ac.camel@perches.com>
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 04 Aug 2019 18:21:08 -0700 (PDT)
+Received-SPF: neutral (google.com: 40.107.82.58 is neither permitted nor denied by best guess record for domain of evan.quan@amd.com) client-ip=40.107.82.58;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=nMQytuQC8j4YORt9KpjAlt58kZDdFJL9BVnAqsLWTpCcxEI1iE9jh4WLsZq+WG3+BAkVUM+Zfp9k1AAwhk9JPx+PWQ1yQHlrb2n5p9rbi02lpIThCuYSq9G4sVaA0C4RokfyiddnPcuFhizt1xUb4ZFQYKSdkfiY93wuRQulPOFBCc3qwjjR4GNXU2ckiIlppjT6ezX3cSok49zvHzF5cLt53VqlkjGX2k4mJ3KOvfDytmu+8WrURUNViBmDg+CuH515DV3IEaJjObl0r3Kz7KrJHjQYnDaEoaQmP1FAq2jqTcf+6klTnqzRbYqn2Kol8fN5t/CKZgtDb77qSDOzaw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=//eIfGumUqGY4eS+WJUNWHG4yIQcggsiHZv79Ti0IXA=;
+ b=ngYlFbC2wcl91dztVKfMieO3Rmm42B4eBMziJU2uiGhJJLy2Lu+PW9A2X0tfu+tRqVkTQuP3bldtj3SI807eE8qVnVPkQsGbUuezYonP8bfh13rAd4zl6nXVZwW7Fqigpkyd7QQ2fnLVmHoWOEVzwV583LYcX1M17WQQqm1v85v5YJt+XlffQewgej67q3mu5+wBoY8y93/njmEbddQNMjPo4ZodH8IgCodDBJHfTa+7cS/jJlq3Omd2Wc1pAuhUTx5mT/X1DODyL93DcF/f/WHqg32sg2Y1/NIY0WvysaorGUA55i5spRf4pxDN6A/ckGmJTVGlFiZmOqTr2r4NKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1;spf=pass
+ smtp.mailfrom=amd.com;dmarc=pass action=none header.from=amd.com;dkim=pass
+ header.d=amd.com;arc=none
+Received: from MN2PR12MB3344.namprd12.prod.outlook.com (20.178.241.74) by
+ MN2PR12MB4208.namprd12.prod.outlook.com (10.255.224.210) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2136.16; Mon, 5 Aug 2019 01:21:06 +0000
+Received: from MN2PR12MB3344.namprd12.prod.outlook.com
+ ([fe80::bd9b:19ce:ef42:ab26]) by MN2PR12MB3344.namprd12.prod.outlook.com
+ ([fe80::bd9b:19ce:ef42:ab26%7]) with mapi id 15.20.2136.018; Mon, 5 Aug 2019
+ 01:21:06 +0000
+From: "Quan, Evan" <Evan.Quan@amd.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, "Deucher, Alexander"
+	<Alexander.Deucher@amd.com>, "Koenig, Christian" <Christian.Koenig@amd.com>,
+	"Zhou, David(ChunMing)" <David1.Zhou@amd.com>
+CC: "amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: RE: [PATCH] drm/amd/powerplay: Zero initialize some variables
+Thread-Topic: [PATCH] drm/amd/powerplay: Zero initialize some variables
+Thread-Index: AQHVSwR3BVBtbsqdn0qOQ80AgffoNqbrwc9Q
+Date: Mon, 5 Aug 2019 01:21:06 +0000
+Message-ID: <MN2PR12MB3344B936DC2DBD85443C6AC7E4DA0@MN2PR12MB3344.namprd12.prod.outlook.com>
+References: <20190804203713.13724-1-natechancellor@gmail.com>
+In-Reply-To: <20190804203713.13724-1-natechancellor@gmail.com>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [180.167.199.189]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: d641ff65-0108-4a77-f91b-08d7194330b1
+x-ms-office365-filtering-ht: Tenant
+x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600148)(711020)(4605104)(1401327)(4618075)(2017052603328)(7193020);SRVR:MN2PR12MB4208;
+x-ms-traffictypediagnostic: MN2PR12MB4208:
+x-ms-exchange-purlcount: 1
+x-microsoft-antispam-prvs: <MN2PR12MB420862FCBC030A25B98CF4F0E4DA0@MN2PR12MB4208.namprd12.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:390;
+x-forefront-prvs: 01208B1E18
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(39860400002)(346002)(136003)(376002)(396003)(366004)(199004)(189003)(13464003)(6636002)(305945005)(68736007)(6506007)(102836004)(53546011)(76176011)(186003)(26005)(33656002)(8936002)(81166006)(81156014)(8676002)(486006)(446003)(11346002)(476003)(14444005)(110136005)(54906003)(7696005)(5660300002)(99286004)(14454004)(966005)(256004)(3846002)(6116002)(7736002)(316002)(71200400001)(71190400001)(2906002)(52536014)(74316002)(66476007)(66556008)(64756008)(66446008)(66946007)(76116006)(478600001)(6246003)(25786009)(4326008)(86362001)(229853002)(6306002)(9686003)(6436002)(55016002)(53936002)(66066001);DIR:OUT;SFP:1101;SCL:1;SRVR:MN2PR12MB4208;H:MN2PR12MB3344.namprd12.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
+received-spf: None (protection.outlook.com: amd.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam-message-info: PCxYWwZaQcgzMm1pp9eEwQJd8E+IQUOx54dc8fvHOAT4SoxPoZuYt1yLeGxaeRZVgquq87+43HCxRU7hwqEHpNVwldIR163u68cWF170ey7zMWFsL2lrGh2ygwrkuLmVwP42O1GAy7ox3lc4Hl64L8P+mDAwZkbALhXsaSRcacilCSud6PvtWvBEGGmlI+75r1vgCJgPNqOG0L5dGXfVPCRrrc9xCbhkiE98fULEDMoeQ4duJF0D/RA9RUr+lUBqWIfxIKqoL8LepB1rXScTaCzVrSnttwSR67jY0arjKdbediuczH0Nec9t6mvS5pyuOqon1fbbrwtORH6Rtpt3OPiijfnv15CPhplMFyPP7CLJKMguZHND1gaNkSCP5Huig984WrvokNEKRYX8PoKmyu/FJJ/uJMafHOK/UN+vqR4=
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <49b659d8f88f67c736881224203418f59a5d29ac.camel@perches.com>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Original-Sender: natechancellor@gmail.com
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d641ff65-0108-4a77-f91b-08d7194330b1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Aug 2019 01:21:06.4738
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: equan@amd.com
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4208
+X-Original-Sender: evan.quan@amd.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=nxT5g4Xt;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@amdcloud.onmicrosoft.com header.s=selector1-amdcloud-onmicrosoft-com
+ header.b=K4A4n8xh;       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass
+ dkdomain=amd.com dmarc=pass fromdomain=amd.com);       spf=neutral
+ (google.com: 40.107.82.58 is neither permitted nor denied by best guess
+ record for domain of evan.quan@amd.com) smtp.mailfrom=Evan.Quan@amd.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -170,105 +181,120 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Joe,
+Thanks Nathan. The patch is reviewed-by: Evan Quan <evan.quan@amd.com>
 
-On Sun, Aug 04, 2019 at 05:39:28PM -0700, Joe Perches wrote:
-> On Sun, 2019-08-04 at 11:09 -0700, Linus Torvalds wrote:
-> > On Sun, Aug 4, 2019 at 11:01 AM Joe Perches <joe@perches.com> wrote:
-> > > Linus?  Do you have an opinion about this RFC/patch?
-> > 
-> > So my only real concern is that the comment approach has always been
-> > the really traditional one, going back all the way to 'lint' days.
-> > 
-> > And you obviously cannot use a #define to create a comment, so this
-> > whole keyword model will never be able to do that.
-> > 
-> > At the same time, all the modern tools we care about do seem to be
-> > happy with it, either through the gcc attribute, the clang
-> > [[clang:fallthrough]] or the (eventual) standard C [[fallthrough]]
-> > model.
+> -----Original Message-----
+> From: Nathan Chancellor <natechancellor@gmail.com>
+> Sent: Monday, August 05, 2019 4:37 AM
+> To: Quan, Evan <Evan.Quan@amd.com>; Deucher, Alexander
+> <Alexander.Deucher@amd.com>; Koenig, Christian
+> <Christian.Koenig@amd.com>; Zhou, David(ChunMing)
+> <David1.Zhou@amd.com>
+> Cc: amd-gfx@lists.freedesktop.org; dri-devel@lists.freedesktop.org; linux-
+> kernel@vger.kernel.org; clang-built-linux@googlegroups.com; Nathan
+> Chancellor <natechancellor@gmail.com>
+> Subject: [PATCH] drm/amd/powerplay: Zero initialize some variables
 > 
-> (adding Nick Desaulniers and clang-built-linux to cc's)
-
-Thanks for adding us.
-
-> As far as I can tell, clang 10 (and it took hours to compile
-> and link the most current version here) does not support
-
-Just a heads up in case you want to mess around with clang in the
-future, I wrote a toolchain build script for ClangBuiltLinux to help
-with the long compile times by cutting as much cruft as possible (and
-it is self contained by default, won't install anything outside of the
-repository).
-
-https://github.com/ClangBuiltLinux/tc-build
-
-The slimmest working configuration for testing what you did would probably
-be from the following command:
-
-./build-llvm.py --build-stage1-only --projects clang --targets X86
-
-> 	-Wimplicit-fallthrough=3
-> and using just -Wimplicit-fallthrough with clang 10 does not emit
-> a fallthrough warning even with -Wextra and -Wimplicit-fallthrough
-> using switch / case code blocks like:
-
-Unfortunately, -Wimplicit-fallthrough does not work for C right now
-(only C++), as pointed out by Nick on LLVM's bug tracker.
-
-https://bugs.llvm.org/show_bug.cgi?id=39382
-
-This patch resolves that while adding support for the attribute.
-
-https://reviews.llvm.org/D64838
-
-Your example properly works when that patch is applied and
--Wimplicit-fallthrough is added to the list of flags.
-
-../lib/test_module.c:24:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
-        case 2:
-        ^
-../lib/test_module.c:24:2: note: insert '__attribute__((fallthrough));' to silence this warning
-        case 2:
-        ^
-        __attribute__((fallthrough)); 
-../lib/test_module.c:24:2: note: insert 'break;' to avoid fall-through
-        case 2:
-        ^
-        break; 
-
-Hopefully it can get merged soon. I am sure Nathan or Nick can speak
-to further progress on that.
-
-> The __has_attribute use is at least clang compatible.
-> https://releases.llvm.org/3.7.0/tools/clang/docs/LanguageExtensions.html
-> even if it doesn't (seem to?) work.
-
-I was trying to follow along with this thread through the web interface
-and kind of got lost, how does it not work? If I apply your compiler
-attributes patch with D64838, I see fallthrough get expanded to
-__attribute__((__fallthrough__)) by the preprocessor.
-
-> >  - we'd need to make -Wimplicit-fallthrough be dependent on the
-> > compiler actually supporting the attribute, not just on supporting the
-> > flag.
+> Clang warns (only Navi warning shown but Arcturus warns as well):
 > 
-> I believe that also needs work if ever clang works,
+> drivers/gpu/drm/amd/amdgpu/../powerplay/navi10_ppt.c:1534:4: warning:
+> variable 'asic_default_power_limit' is used uninitialized whenever '?:'
+> condition is false [-Wsometimes-uninitialized]
+>                         smu_read_smc_arg(smu, &asic_default_power_limit);
+>                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/gpu/drm/amd/amdgpu/../powerplay/inc/amdgpu_smu.h:588:3:
+> note:
+> expanded from macro 'smu_read_smc_arg'
+>         ((smu)->funcs->read_smc_arg? (smu)->funcs->read_smc_arg((smu),
+> (arg)) : 0)
+>          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/gpu/drm/amd/amdgpu/../powerplay/navi10_ppt.c:1550:30: note:
+> uninitialized use occurs here
+>                 smu->default_power_limit = asic_default_power_limit;
+>                                            ^~~~~~~~~~~~~~~~~~~~~~~~
+> drivers/gpu/drm/amd/amdgpu/../powerplay/navi10_ppt.c:1534:4: note:
+> remove the '?:' if its condition is always true
+>                         smu_read_smc_arg(smu, &asic_default_power_limit);
+>                         ^
+> drivers/gpu/drm/amd/amdgpu/../powerplay/inc/amdgpu_smu.h:588:3:
+> note:
+> expanded from macro 'smu_read_smc_arg'
+>         ((smu)->funcs->read_smc_arg? (smu)->funcs->read_smc_arg((smu),
+> (arg)) : 0)
+>          ^
+> drivers/gpu/drm/amd/amdgpu/../powerplay/navi10_ppt.c:1517:35: note:
+> initialize the variable 'asic_default_power_limit' to silence this warning
+>         uint32_t asic_default_power_limit;
+>                                          ^
+>                                           = 0
+> 1 warning generated.
 > 
-> Makefile:KBUILD_CFLAGS += $(call cc-option,-Wimplicit-fallthrough=3,)
+> As the code is currently written, if read_smc_arg were ever NULL, arg would
+> fail to be initialized but the code would continue executing as normal
+> because the return value would just be zero.
 > 
-> this will have to be changed for clang as the =<val> isn't (yet?) supported.
-
-GCC's documentation says that -Wimplicit-fallthrough is equivalent to
--Wimplicit-fallthrough=3 so it seems like just making that change would
-be all that is needed to support Clang:
-
-https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-fallthrough
-
-Cheers,
-Nathan
+> There are a few different possible solutions to resolve this class of warnings
+> which have appeared in these drivers before:
+> 
+> 1. Assume the function pointer will never be NULL and eliminate the
+>    wrapper macros.
+> 
+> 2. Have the wrapper macros initialize arg when the function pointer is
+>    NULL.
+> 
+> 3. Have the wrapper macros return an error code instead of 0 when the
+>    function pointer is NULL so that the callsites can properly bail out
+>    before arg can be used.
+> 
+> 4. Initialize arg at the top of its function.
+> 
+> Number four is the path of least resistance right now as every other change
+> will be driver wide so do that here. I only make the comment now as food for
+> thought.
+> 
+> Fixes: b4af964e75c4 ("drm/amd/powerplay: make power limit retrieval as
+> asic specific")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/627
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  drivers/gpu/drm/amd/powerplay/arcturus_ppt.c | 2 +-
+>  drivers/gpu/drm/amd/powerplay/navi10_ppt.c   | 2 +-
+>  2 files changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/amd/powerplay/arcturus_ppt.c
+> b/drivers/gpu/drm/amd/powerplay/arcturus_ppt.c
+> index 215f7173fca8..b92eded7374f 100644
+> --- a/drivers/gpu/drm/amd/powerplay/arcturus_ppt.c
+> +++ b/drivers/gpu/drm/amd/powerplay/arcturus_ppt.c
+> @@ -1326,7 +1326,7 @@ static int arcturus_get_power_limit(struct
+> smu_context *smu,
+>  				     bool asic_default)
+>  {
+>  	PPTable_t *pptable = smu->smu_table.driver_pptable;
+> -	uint32_t asic_default_power_limit;
+> +	uint32_t asic_default_power_limit = 0;
+>  	int ret = 0;
+>  	int power_src;
+> 
+> diff --git a/drivers/gpu/drm/amd/powerplay/navi10_ppt.c
+> b/drivers/gpu/drm/amd/powerplay/navi10_ppt.c
+> index 106352a4fb82..d844bc8411aa 100644
+> --- a/drivers/gpu/drm/amd/powerplay/navi10_ppt.c
+> +++ b/drivers/gpu/drm/amd/powerplay/navi10_ppt.c
+> @@ -1514,7 +1514,7 @@ static int navi10_get_power_limit(struct
+> smu_context *smu,
+>  				     bool asic_default)
+>  {
+>  	PPTable_t *pptable = smu->smu_table.driver_pptable;
+> -	uint32_t asic_default_power_limit;
+> +	uint32_t asic_default_power_limit = 0;
+>  	int ret = 0;
+>  	int power_src;
+> 
+> --
+> 2.23.0.rc1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190805011815.GA110280%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/MN2PR12MB3344B936DC2DBD85443C6AC7E4DA0%40MN2PR12MB3344.namprd12.prod.outlook.com.
