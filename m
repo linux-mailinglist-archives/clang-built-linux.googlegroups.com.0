@@ -1,107 +1,109 @@
-Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBVU7UXVAKGQEQMYVGQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBXU7UXVAKGQEZ5INO4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3a.google.com (mail-vk1-xa3a.google.com [IPv6:2607:f8b0:4864:20::a3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4407F82F2A
-	for <lists+clang-built-linux@lfdr.de>; Tue,  6 Aug 2019 12:00:55 +0200 (CEST)
-Received: by mail-vk1-xa3a.google.com with SMTP id p196sf37580751vke.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Aug 2019 03:00:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565085654; cv=pass;
+Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 68D7582F31
+	for <lists+clang-built-linux@lfdr.de>; Tue,  6 Aug 2019 12:01:04 +0200 (CEST)
+Received: by mail-oi1-x23d.google.com with SMTP id i6sf34290194oib.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 06 Aug 2019 03:01:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565085663; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EnotIUTyf6tySO36mEp0d9xEbF4rIZ0mT/lSBXmm11oQLH5Ozhuq76Pj13OAoT5u4p
-         ppHvopFwlbdBEKq8I1OAaKHriwOO0ecHqt728QY4/p9GUwv7v93q3CHlT2G0uFYPc/U+
-         ggkFuP5pg4lY34RjukDSev5RtQb9eWL3abA02HIINulQEOuAjGKtoAgot0dymQV/s6fZ
-         zsQstO3CRToAt/o5GqA5VeYXJ27uds8GcC/nBbcd7kav4ZjFM07TMYj740/wsFAtFjHX
-         gMM/+/QLQYN9gK9qFHOJN0VcCVGC1M59Vu8b4tDKyNxfr8iqCJW7c4G/t8pkcRNQT/c4
-         Ifew==
+        b=B0OhlNpMryjszjMerzJbHxcqwmGNTPCHHulW4D1+45f66eeWYUk8GN8SYGxiSULKhb
+         3TipOKcPKtTvTmEUlfgFxcJJGf3g070RorELnOotOBWMBnVkbp8WlSXX7D/BRx7Y33tZ
+         gyMmJoUnXMYPhpfZI99ZlLvDxyn0PAQTkbiHarEp/0TUwRPcaR9WGvGqPP2jKoo28u+z
+         /rVeFw6Wi9lCFjQ4Q5DJgO2Mfay5pi4jGTLUNigWlsqFWi0n0NmKI7RSMFkh+n4MEn8h
+         fLVAEvOu4ALD6bvmCALmPTh+Snn3a7OlMoBs0kwSZC6hUGCjY9b4EezfmNDBhkuJGAv0
+         6cLg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=FL43eiIvw88EvU+AS3UPio54h6vi+rkFCGrywTBT8Ac=;
-        b=OtuEnMSbfr6L4osKliHEqYm40/AnursW90e9BQAR9YYdPvezXOGLVehjldE3MEUHjf
-         ZeMwxhqyoA3oJlTqaRpcvb44uX3LvPHU5R1lwf2NU/CCLHx2P2OVARVmTv5FAus0wKCt
-         EdV6ALAwFRgzIxQOrdE0MNDrwwJaDlHqE1PJ6wYvbWY2foLGYHoqoxFTGsvYJRjZAE6F
-         T351Tzw7FfF4dYiSNN5BCfAr5RM2qtio0o4B9yPjPvYURGiajppvW1inrt3UnbVSw2L3
-         meFB0Tms5hgUpAZqZ8vwP8QkI5yM2BTrubfTd2yFeeu+Ad5ZenYrf+cQv9EedYlgPtwF
-         QRIA==
+         :list-id:mailing-list:precedence:references:in-reply-to:message-id
+         :date:subject:cc:to:from:mime-version:sender:dkim-signature;
+        bh=Sl8h5UVJ4Tq67iiicKe5oYIYJ6IJUlSxwlkhevzw6HE=;
+        b=o9MHU5TgqEIFANTBqTRi8iQfb59wDEjK0ngI3H1zagcoojszTJFS8jabA3m2wCjJnr
+         rVS8xcIg+C07gI/TFCD2tcgQZm1iihjJsUGH/4mF407zUDzABU51blCBVf5WYAbk9VEM
+         5nb1Btx27m6I0PuF1SAxD2XrhnN187vKOEsjoTkiDVMGS0rmzHIG/mGrB2pd/cHDnyG/
+         b3s0YV86HMZqLMTqXrbtGMWKtErtk1AKrA6tvocgd8KJQXKHMBfpRdlHam8bWyO3GwsN
+         0cRG2U8/96M5e649Dr4SgoLe8aqHiLJcuVvgw93RL2U8rxFgy34Xt7y6KA9H15MTtmfh
+         +5NA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=llzpCKvf;
+       dkim=pass header.i=@linaro.org header.s=google header.b=Un6oFivG;
        spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::b42 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:from:to:cc:subject:date:message-id:in-reply-to
+         :references:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=FL43eiIvw88EvU+AS3UPio54h6vi+rkFCGrywTBT8Ac=;
-        b=nqt7GEY6yTIJ7+dD1biLjwkMJBDWrxzmg/uanpIftC7NeIKuqcb3wPSqi9YU2bhE7l
-         4hanJk965fG0Fhc8pgYbovbHYxnQMQkX6LA0wwiLJZzIm1HUzbDuYjrhSq7TkZQHTDu5
-         r9XVeIc7pxFUTjQZcyPA01nKmXaGd/mDgqiCbo3K8SdJzCM2l94C4UqzNTAAU/rOY5F3
-         2ppr+XoNq8YbCaA9tmsejOuqIoDD8/KnrVY5jFO86vvjdxzos2poKtwkwQzcKdoyGw/p
-         cObNXGlQDKXK+d5lZrIurIkhlOPu4pMUCxkprj0eoYSqJfZ29SutQVNG+1aUBQP9ilzI
-         W0zA==
+        bh=Sl8h5UVJ4Tq67iiicKe5oYIYJ6IJUlSxwlkhevzw6HE=;
+        b=Y3zN0Pm1MzgkQVHC53LZaN76ELoOF52dGXxQMzcDx3SQ28cPicMHndIOXNxsrFu22H
+         iro/qg7wmqnyNpJf9pSu/sRlakEEy4aCeQsKGMKD1T/7/xR0HBrhDg7UIF25328jRjFG
+         +pjqB4gwbR4QOyXnYkJkqlUAc9Ny7rlf05smF1vwJggzT2YEvBvbM0I1Aqt/bp/ZS1UR
+         YAQ3sGULclzZy2F0voHHejwtF+ReJRyyyVNsJpgrctWnMTdSMCBjFav9ALI7g3gKSlHc
+         iVlCYEKu0ExwiFLU1gNH/Z7jh9JaONRswPwpeicGmqbbwHwpOyx6kH96mITJYrLdvQy7
+         PkyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FL43eiIvw88EvU+AS3UPio54h6vi+rkFCGrywTBT8Ac=;
-        b=KU2kQ+WGDFKfX2wnkefx0VSmqco/6WKW12EBE7d0rX2pO/NKyDi+jxbeVr5G4wMbFY
-         cmmlVg97of6+keFs308or3fzpS5C2jBg3rQjWcVW2FnvzB8FfJVtxA/X3hG8AXymCYF0
-         4BHeCW1UFNbPayfkoBAGQ/hMqC+kq6nsuDUMYVuVbnKiCIYX716mN7ZSJK28LqD7OL3i
-         XtOyCB6WkwJXLPUhc/xRHBHbMrzuTSr3PceuW7B5VtStOaJ6WJ5xqEHdqz8leMrxkl3m
-         bXtnYOlR0aeM4YyW/QVHqdXudXJ5bteSrLaSzbY0XoidUeJdZVtLA/utw70vc3K/uKnH
-         iDZQ==
+         :message-id:in-reply-to:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Sl8h5UVJ4Tq67iiicKe5oYIYJ6IJUlSxwlkhevzw6HE=;
+        b=aBGwtnynBr0YOYkT08CsPR7+hQBfVGrptsXTUrqYgrZO74jeU03HiX9mleWQyaeWeD
+         fMQ8fZgKLDG7hxCrOPRH53s1VsJpYIhAREGv+gYzejz9C2VVwPngK20QsOqKBHZLikqG
+         JxqGQ1wp1msDnGdGRSqwhw1blVm18cKOrqHCXOcH4eWZgg3Qv1+g0wA8t+DeixTOZDWX
+         z0fWv+4PAdxEHaRqw9KOcyIYEl8jiNlYol54HBTB0Lr8GV/tYN5/51F3JvjUqQpPTlIU
+         xj5W7sdN4X/5KEBAdTlDv8MQ31hFw2YadhNi8wcrZoo5Mr3Sm7iTJzmOZI8hu+t9q6BZ
+         qdOw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWK6escnHFr27Pimn3a1gpnEzAQaAc39v8M2V/j7GxwZqUctTBr
-	8lpVT2zFLTUvI//nmJJhbxc=
-X-Google-Smtp-Source: APXvYqxsx7DCgviP1oHFrG/JQ9aHVc64sb0VT4Qzl9GnZimVS2/SBfhOzsAQjQ80Gpc7Q8fCK7vPkA==
-X-Received: by 2002:a1f:7383:: with SMTP id o125mr824564vkc.6.1565085654069;
-        Tue, 06 Aug 2019 03:00:54 -0700 (PDT)
+X-Gm-Message-State: APjAAAWbm5dr9Igh9dVUvQZkfzSiTOpVchs5nxrc4zI5rF3TuKE9ymCR
+	6slcqDJLqTGbLmRx5m3dQTo=
+X-Google-Smtp-Source: APXvYqzKzra/6z98cfWALZQA6kZfhtED5545dZFKSztbv9MatLBdDjO6ddN4bKftumojssO1F128gg==
+X-Received: by 2002:a9d:6042:: with SMTP id v2mr2093264otj.73.1565085662879;
+        Tue, 06 Aug 2019 03:01:02 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:7a41:: with SMTP id v62ls10992988vsc.6.gmail; Tue, 06
- Aug 2019 03:00:53 -0700 (PDT)
-X-Received: by 2002:a05:6102:10da:: with SMTP id t26mr1853273vsr.101.1565085653618;
-        Tue, 06 Aug 2019 03:00:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565085653; cv=none;
+Received: by 2002:a9d:12c3:: with SMTP id g61ls988562otg.16.gmail; Tue, 06 Aug
+ 2019 03:01:02 -0700 (PDT)
+X-Received: by 2002:a9d:7a4e:: with SMTP id z14mr2566747otm.258.1565085662574;
+        Tue, 06 Aug 2019 03:01:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565085662; cv=none;
         d=google.com; s=arc-20160816;
-        b=CTwLHK41TxPpW++eToDOlnq3T5PW87Z1AZ11B/sF3TpWISv6H6iV0wPytbTJ/Y/kLC
-         3tyDKzoPINK0jGvq6jemJTVA5rOv/Q6FQ265udLDXcl9mfnZZOcpxnVhZuJbzisNwvz/
-         VtnWvqTn2r3UGhZO2/K17Lg853PSbamNjS9Q08+x6EoO1FV9dROIrA/v+t5gW5PX77JJ
-         RNzCHA0HGBfukjLXyJPfEGhFjOJjP7yn455r/axkipvG+N2nUKXAMs2vF9BMFjmPwDCj
-         FLdtbYHBzIGvuP3GfjC75oprlO0FGd63pMDAcW8lYAXzc666OXv/mNvUcPCRLLDXYHDR
-         epOA==
+        b=BmWP7KL7QZnx3TeAi3DyVt7GdbUlZsPLud/APKM2PaJp4Sumxpj+TOv5ylPiSYe134
+         DaFxv7ZXSnxXP8cHCRPqOChw0NL5CjKU929WAs8RnLZ+ktug6ntrFfx9uTK3mJDg8fzD
+         yj0tqJtnFq8pcEPjyt8LCRuNKW82C8XHByLfvLeT+1sMoKLOE9/iytYTbrcQCw9Qac2A
+         hTeVSUDkieu+L8UarhfI54V4FQzodZ5GCmrgbwfGHGTtxNFOa3/F0C7ENFouWT4MsYJy
+         X+6Wm5AxuvTuiADs0lfPIKByo7vny3y5Om86CnYrnpHmb0oXxyA2tO/9190pomZw7CsT
+         BW6Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=ss7tfuNN9gph1p4XOsDIlLKrMAe3sezcu2lcCyG5PrA=;
-        b=0Hd7HhXLBN3+uu2TpYtrHQ0paB2qSnh4vpiOxYxRLLlxfVXJ8jJ1gr9u42zA+Pn3Zl
-         tXiZn3PLKs/yl3ZKm4npUw9rODvBD6ZBMOZPWvfhHKB5J7Kd8hpH+L6IfkNlqltExoUE
-         0EwMoeB6EMuQkYx4TfQRzY6IYhKO2UHGlWTpPwNMmXJsbh4+LqJB1sz2LhPziY1n92gA
-         MpRHJ1kvfB3lLFylwQlWq0IqOe2p5SHVzLgGMfaKdTzHgUMPxlE9ymbRQ/Re5OeZZvcW
-         sdBahrFhZKkC1MC9RUPvHuk+m3PnRjr66fj0cWsHhcxaf4VnP/B/4XPLaA+TB5JsR+Aw
-         5suA==
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :dkim-signature;
+        bh=BrBBFjqsIPWSTPOwNEcUeajfoMogUhxNa7dexawAwRQ=;
+        b=AL+NCbP4CfzsNQq4cHEUUB333mcaQYzxYLTiI82EqyAxSepzrqitwmD1qMbrS+G56M
+         N+uo/hgUhqpgSoj3F/9VknIsaZG2BZkXZLqSU19CXuInS7pjo/1CFrVvGmgEYAJgaxXN
+         Z9wURGZhrDTS4it1wdJcz3wJUuNdSo+L17VpQn0+rNi6t4OL02KjiOd0PnWfni5qiJxZ
+         1wA9m5fa7n3HV5VwQq81wDXzxQklvVdQ1fRMFYFEUe4bSERDESmEXau78pHuNKCuwR9T
+         3EunUSAOThA9GeQto/WmGyUwy3xR+EIunS8gcJXhUWfPOKP6+sOh0Qp/ir8oPBsKVLWF
+         lU9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=llzpCKvf;
+       dkim=pass header.i=@linaro.org header.s=google header.b=Un6oFivG;
        spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::b42 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Received: from mail-yb1-xb42.google.com (mail-yb1-xb42.google.com. [2607:f8b0:4864:20::b42])
-        by gmr-mx.google.com with ESMTPS id s72si4046632vkd.3.2019.08.06.03.00.53
+        by gmr-mx.google.com with ESMTPS id p6si4815049otk.5.2019.08.06.03.01.02
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Tue, 06 Aug 2019 03:00:53 -0700 (PDT)
+        Tue, 06 Aug 2019 03:01:02 -0700 (PDT)
 Received-SPF: pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::b42 as permitted sender) client-ip=2607:f8b0:4864:20::b42;
-Received: by mail-yb1-xb42.google.com with SMTP id j199so30426407ybg.5
-        for <clang-built-linux@googlegroups.com>; Tue, 06 Aug 2019 03:00:53 -0700 (PDT)
-X-Received: by 2002:a25:2005:: with SMTP id g5mr1786698ybg.410.1565085653130;
-        Tue, 06 Aug 2019 03:00:53 -0700 (PDT)
+Received: by mail-yb1-xb42.google.com with SMTP id i1so23097526ybo.4
+        for <clang-built-linux@googlegroups.com>; Tue, 06 Aug 2019 03:01:02 -0700 (PDT)
+X-Received: by 2002:a25:8410:: with SMTP id u16mr1788923ybk.466.1565085662057;
+        Tue, 06 Aug 2019 03:01:02 -0700 (PDT)
 Received: from localhost.localdomain (li1322-146.members.linode.com. [45.79.223.146])
-        by smtp.gmail.com with ESMTPSA id h12sm18316685ywm.91.2019.08.06.03.00.42
+        by smtp.gmail.com with ESMTPSA id h12sm18316685ywm.91.2019.08.06.03.00.53
         (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Tue, 06 Aug 2019 03:00:51 -0700 (PDT)
+        Tue, 06 Aug 2019 03:01:01 -0700 (PDT)
 From: Leo Yan <leo.yan@linaro.org>
 To: Russell King <linux@armlinux.org.uk>,
 	Oleg Nesterov <oleg@redhat.com>,
@@ -131,13 +133,15 @@ To: Russell King <linux@armlinux.org.uk>,
 	clang-built-linux@googlegroups.com,
 	Masami Hiramatsu <mhiramat@kernel.org>
 Cc: Leo Yan <leo.yan@linaro.org>
-Subject: [PATCH v2 0/3] arm/arm64: Add support for function error injection
-Date: Tue,  6 Aug 2019 18:00:12 +0800
-Message-Id: <20190806100015.11256-1-leo.yan@linaro.org>
+Subject: [PATCH v2 1/3] error-injection: Consolidate override function definition
+Date: Tue,  6 Aug 2019 18:00:13 +0800
+Message-Id: <20190806100015.11256-2-leo.yan@linaro.org>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20190806100015.11256-1-leo.yan@linaro.org>
+References: <20190806100015.11256-1-leo.yan@linaro.org>
 X-Original-Sender: leo.yan@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=llzpCKvf;       spf=pass
+ header.i=@linaro.org header.s=google header.b=Un6oFivG;       spf=pass
  (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::b42
  as permitted sender) smtp.mailfrom=leo.yan@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
@@ -154,72 +158,125 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This small patch set is to add support for function error injection;
-this can be used to eanble more advanced debugging feature, e.g.
-CONFIG_BPF_KPROBE_OVERRIDE.
+The function override_function_with_return() is defined separately for
+each architecture and every architecture's definition is almost same
+with each other.  E.g. x86 and powerpc both define function in its own
+asm/error-injection.h header and override_function_with_return() has
+the same definition, the only difference is that x86 defines an extra
+function just_return_func() but it is specific for x86 and is only used
+by x86's override_function_with_return(), so don't need to export this
+function.
 
-The patch 01/03 is to consolidate the function definition which can be
-suared cross architectures, patches 02,03/03 are used for enabling
-function error injection on arm64 and arm architecture respectively.
+This patch consolidates override_function_with_return() definition into
+asm-generic/error-injection.h header, thus all architectures can use the
+common definition.  As result, the architecture specific headers are
+removed; the include/linux/error-injection.h header also changes to
+include asm-generic/error-injection.h header rather than architecture
+header, furthermore, it includes linux/compiler.h for successful
+compilation.
 
-I tested on arm64 platform Juno-r2 and one of my laptop with x86
-architecture with below steps; I don't test for Arm architecture so
-only pass compilation.
-
-- Enable kernel configuration:
-  CONFIG_BPF_KPROBE_OVERRIDE
-  CONFIG_BTRFS_FS
-  CONFIG_BPF_EVENTS=y
-  CONFIG_KPROBES=y
-  CONFIG_KPROBE_EVENTS=y
-  CONFIG_BPF_KPROBE_OVERRIDE=y
-
-- Build samples/bpf on with Debian rootFS:
-  # cd $kernel
-  # make headers_install
-  # make samples/bpf/ LLC=llc-7 CLANG=clang-7
-
-- Run the sample tracex7:
-  # dd if=/dev/zero of=testfile.img bs=1M seek=1000 count=1
-  # DEVICE=$(losetup --show -f testfile.img)
-  # mkfs.btrfs -f $DEVICE
-  # ./tracex7 testfile.img
-  [ 1975.211781] BTRFS error (device (efault)): open_ctree failed
-  mount: /mnt/linux-kernel/linux-cs-dev/samples/bpf/tmpmnt: mount(2) system call failed: Cannot allocate memory.
-
-Changes from v1:
-* Consolidated the function definition into asm-generic header (Will);
-* Used APIs to access pt_regs elements (Will);
-* Fixed typos in the comments (Will).
-
-
-Leo Yan (3):
-  error-injection: Consolidate override function definition
-  arm64: Add support for function error injection
-  arm: Add support for function error injection
-
- arch/arm/Kconfig                           |  1 +
- arch/arm/include/asm/ptrace.h              |  5 +++++
- arch/arm/lib/Makefile                      |  2 ++
- arch/arm/lib/error-inject.c                | 19 +++++++++++++++++++
- arch/arm64/Kconfig                         |  1 +
- arch/arm64/include/asm/ptrace.h            |  5 +++++
- arch/arm64/lib/Makefile                    |  2 ++
- arch/arm64/lib/error-inject.c              | 18 ++++++++++++++++++
+Signed-off-by: Leo Yan <leo.yan@linaro.org>
+---
  arch/powerpc/include/asm/error-injection.h | 13 -------------
  arch/x86/include/asm/error-injection.h     | 13 -------------
  include/asm-generic/error-injection.h      |  6 ++++++
  include/linux/error-injection.h            |  6 +++---
- 12 files changed, 62 insertions(+), 29 deletions(-)
- create mode 100644 arch/arm/lib/error-inject.c
- create mode 100644 arch/arm64/lib/error-inject.c
+ 4 files changed, 9 insertions(+), 29 deletions(-)
  delete mode 100644 arch/powerpc/include/asm/error-injection.h
  delete mode 100644 arch/x86/include/asm/error-injection.h
 
+diff --git a/arch/powerpc/include/asm/error-injection.h b/arch/powerpc/include/asm/error-injection.h
+deleted file mode 100644
+index 62fd24739852..000000000000
+--- a/arch/powerpc/include/asm/error-injection.h
++++ /dev/null
+@@ -1,13 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0+ */
+-
+-#ifndef _ASM_ERROR_INJECTION_H
+-#define _ASM_ERROR_INJECTION_H
+-
+-#include <linux/compiler.h>
+-#include <linux/linkage.h>
+-#include <asm/ptrace.h>
+-#include <asm-generic/error-injection.h>
+-
+-void override_function_with_return(struct pt_regs *regs);
+-
+-#endif /* _ASM_ERROR_INJECTION_H */
+diff --git a/arch/x86/include/asm/error-injection.h b/arch/x86/include/asm/error-injection.h
+deleted file mode 100644
+index 47b7a1296245..000000000000
+--- a/arch/x86/include/asm/error-injection.h
++++ /dev/null
+@@ -1,13 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _ASM_ERROR_INJECTION_H
+-#define _ASM_ERROR_INJECTION_H
+-
+-#include <linux/compiler.h>
+-#include <linux/linkage.h>
+-#include <asm/ptrace.h>
+-#include <asm-generic/error-injection.h>
+-
+-asmlinkage void just_return_func(void);
+-void override_function_with_return(struct pt_regs *regs);
+-
+-#endif /* _ASM_ERROR_INJECTION_H */
+diff --git a/include/asm-generic/error-injection.h b/include/asm-generic/error-injection.h
+index 95a159a4137f..80ca61058dd2 100644
+--- a/include/asm-generic/error-injection.h
++++ b/include/asm-generic/error-injection.h
+@@ -16,6 +16,8 @@ struct error_injection_entry {
+ 	int		etype;
+ };
+ 
++struct pt_regs;
++
+ #ifdef CONFIG_FUNCTION_ERROR_INJECTION
+ /*
+  * Whitelist ganerating macro. Specify functions which can be
+@@ -28,8 +30,12 @@ static struct error_injection_entry __used				\
+ 		.addr = (unsigned long)fname,				\
+ 		.etype = EI_ETYPE_##_etype,				\
+ 	};
++
++void override_function_with_return(struct pt_regs *regs);
+ #else
+ #define ALLOW_ERROR_INJECTION(fname, _etype)
++
++static inline void override_function_with_return(struct pt_regs *regs) { }
+ #endif
+ #endif
+ 
+diff --git a/include/linux/error-injection.h b/include/linux/error-injection.h
+index 280c61ecbf20..635a95caf29f 100644
+--- a/include/linux/error-injection.h
++++ b/include/linux/error-injection.h
+@@ -2,16 +2,16 @@
+ #ifndef _LINUX_ERROR_INJECTION_H
+ #define _LINUX_ERROR_INJECTION_H
+ 
+-#ifdef CONFIG_FUNCTION_ERROR_INJECTION
++#include <linux/compiler.h>
++#include <asm-generic/error-injection.h>
+ 
+-#include <asm/error-injection.h>
++#ifdef CONFIG_FUNCTION_ERROR_INJECTION
+ 
+ extern bool within_error_injection_list(unsigned long addr);
+ extern int get_injectable_error_type(unsigned long addr);
+ 
+ #else /* !CONFIG_FUNCTION_ERROR_INJECTION */
+ 
+-#include <asm-generic/error-injection.h>
+ static inline bool within_error_injection_list(unsigned long addr)
+ {
+ 	return false;
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190806100015.11256-1-leo.yan%40linaro.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190806100015.11256-2-leo.yan%40linaro.org.
