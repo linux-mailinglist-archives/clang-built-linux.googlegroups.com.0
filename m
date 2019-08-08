@@ -1,143 +1,130 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBQFOWHVAKGQE4NN5KNY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBREQWLVAKGQEPR62DGY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A720867B2
-	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Aug 2019 19:09:20 +0200 (CEST)
-Received: by mail-wr1-x439.google.com with SMTP id b1sf45429347wru.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Aug 2019 10:09:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565284160; cv=pass;
+Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
+	by mail.lfdr.de (Postfix) with ESMTPS id 40CB186BAB
+	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Aug 2019 22:38:29 +0200 (CEST)
+Received: by mail-qk1-x738.google.com with SMTP id g4sf10299753qkk.1
+        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Aug 2019 13:38:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565296708; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QPdWz9APl7HtEG83lN4fP7VZrSFeZpcusO8un7GAbtcnV0d8sQ4kr9NjvlLTqkGehW
-         Gt1/ySu4nD1sxPlynasTZiz4gz8RjhfHZItsGDmNNwg8iw4TONfMtWwFKxT8LKZjXe27
-         jD7C6ZsjiHx4C5fonzqe8ETgXnM2nCyeuPKl0wPQgiF+VrYf9S0QPN/1SZ5krSL+v3g7
-         M7r+6XvWrQM3f8rKG9/b3RAYOn1z2NeCH422g0f1Rp40+7bRdkt4ksMGsNIS28ZynGZX
-         vuJbcHXCt/CqpW5cBz0OPT/ijgxRqOkJdtbwtp5FBRxg3h8LpZ2/INgljNBkKDhS6hUt
-         N8tw==
+        b=z7NYovCwk0GdM4XaYuvLG6/n0YdNzt+7UCWkRVSS1QrLTambKlGJoWDBLj5eL8iX3P
+         /rIdAcT9FilGN6VZ5N9fa1eW2P7G+I3CfPWrsJfBs/TzeIF/hUglOphcPt94jEmBWEdu
+         8MnkY0s/rnKRM8LV+fOm+Z6okDIIcvE2xgBAdJtXJiXp/5gZrZUjfSKkIp+nPSBw/Hs9
+         WLar4wMWEsyx8VMaTwxu5jRVzvve49V31+PZ7p2zCE9aJWhj2Wc2XX07xzIauLtAwfM+
+         YhMYibE2GlKxMBkth7ruX9M4zHpwd1rrc6WuHlQD4EJU1xKsGyjgFWIiFRBrefClrYIG
+         uKrw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=ItLDD2kTVVovZEx11ltacLEHLhcJa/XbWz1oNhpCgns=;
-        b=nMKRcVGExUCljtjAuGp0vPrfg0YtCdCKhphSlp4/uMKgPG5Cy4aTfkL88s9pHL6GxX
-         a1bi3w6Rt16Cfnbh5omISUtanZ9rMqU49sF4RVp8D+uNSp1+zPnHdQ+kR/N7pIX2CB1B
-         5lah0rTvqEXTPYdwOgkoe/PFE5tJ0OVRiLOqiNGMuGmLXsjObykgKQI5kIVHdnBYSEwH
-         pXiadr+UxqT1NiTLB3JtM03Rifnsrm1qcCLL94cEqiaxFIgDZpu1GvButJz4nvfqDuY7
-         qPTEgy+L7/Nm0r1dzgCeqXmeJICRTaifEDhF7Nn+BqZFbqyFI36wXE355YRNfTcAW1Av
-         hlfg==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=OmNzw8bmhbzwlIerX1A5gennc2TPzADo7a6YBQGnaOA=;
+        b=yxKjupMGjT8LDDRBxtB4IQ34Xw2orjSqy3S0NvmK4LA6Db7ScYmCrmEYnPQUpwhY84
+         QEZjFvco27/tpR8YF/skBQ8BqYPBWRlkcCgArZVxLtmKdcQgSG6RXZY7yFRbz1eTxoFI
+         hKNZ4UKxQ4QdIsjenF3vc/P+QC+xQ+tDlmx6obff/lOnGO/609tZFrj3Qw4TvREdmfP1
+         7DbEuNDQ1DzNsLHpmbnjtfpyx6W0cNcy9hDCpHDZV/VLMorIsrMuaBngDXdNg6V0zFBe
+         3FhYEQKI+5mjXSkmbZ/TPRKpP3zCPETQQ2Dku6qcGgwGGRqkAx9HiD/JkalA7yTfY/IO
+         7zNw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="mYI6ER/m";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:mime-version
+         :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ItLDD2kTVVovZEx11ltacLEHLhcJa/XbWz1oNhpCgns=;
-        b=e7UWQ+9PLCmkubZy/9CG+vyGdpCscc99zxecXR4syiZ4WJMwgVepL29B1t0p1lmVb1
-         uPwXnXJ8QbCzaDtm47jHF4avpzaPfAeI3vRIb7HURU0PJBhWnA4bCfIH43vk1dPiTNoV
-         rbplJYfTtOBZVarCCBekwxxuI8VK9CrEghnNIDdHV5yGpMA9Kp5SvNg33EHafyMqtCx4
-         SlCDc3RHhr3UQx7ikoiVrP8qI2YsjCuEBQHXTQFADL3aPyIpzCdRvTgR2c4E8lR1BhGH
-         uWtYSY2k2FTxhSq4hAOg1AKe+UZurwPMBK6ReZx2ZiFJeQ8ZhR8SXO5ZSIk/cXL/GPx7
-         Yrww==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ItLDD2kTVVovZEx11ltacLEHLhcJa/XbWz1oNhpCgns=;
-        b=RRPE3obCgCi7lpitFPwAfiukUTDl+lDTBpH9rhiFe7JEmBT0YlbkiaA0G8FSIYM7nh
-         78h8CcYLMLVdvEBJkQQ5pJAmTffZvdKPttnwEpoi+2Mzo/DKFNvBDXIQwKX9+xJ/4wUE
-         /8WwUym7OfS9nP8A3ZIX9NNIXO90WdXlmt2Cm0QTGzL9AHLr1hBNhu1KsrWopav7u3du
-         e+uStfPlg3J585Qd4TtoVX18HEXIpvJfWtg39jh272A5UkIKNbgt2bv6hCHZLLJHoWp9
-         9V2sDM++hQnO6D0CRFmrBUjKCu7zsQnXN5EcvxBrA+du+TjTh7pmurtqQcRxxeF46agq
-         V8hQ==
+        bh=OmNzw8bmhbzwlIerX1A5gennc2TPzADo7a6YBQGnaOA=;
+        b=Rg7pwz81iCRMuIt6TChF25nrBCQOpC4NSLp4ifUJi2yT6I627ET4w909loeOLEyl5m
+         sTF1Afcw/yJ7wAIPbO+lziPk1BwapaqyXoK5p1MBOdk80aBXECXORuCxwkXFeATgc8LM
+         NVU8FV73LXz4BaBd5accFQPau6Yb2QlmtzNY6YiKSSxRdqf/yxGlRinhyHCZDE31/W76
+         o6Sbph0Yntak7GlE0dOJRBnmDQWOXikHMGoBW8Oq4GfkiDATdXHbxqcRS9i/OSVa+XkG
+         bB7Liyu3AbTWx7bdY0SiumLMVtjrrqPMz2B6AHPkpyqrnCrL5fv0zOPY+6lEjcwPSuLh
+         L3Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ItLDD2kTVVovZEx11ltacLEHLhcJa/XbWz1oNhpCgns=;
-        b=cuNqNH3JDF+9bNjEOk5BCBe2NWk+b4oNJOMIQrYAbM8ZUFq/hxAueDns2rV3wZZpZB
-         GJCH06norfJRByxkl//nJYx0Io+7Xmm/rq7MnTOjUx3pV+VVkmjK+uIe/TCD9E1haXJO
-         RXSLc5TUChc8HkXlU0qluPdc7Tm0Z7zR9rcDiDVvSJSITd7MbVVsDyFfA6mKvYX9zP1L
-         uzlNgREGPoi/xdbA7CMKrBZyOY7RAcmMEmnBGHm1dB6HxGuWSxQeFXRYPDmGqCMI/0H7
-         vuT92nwfrJAKEybfpDZ5uIc8rJ8bv72+pXVhVCmzWSzBj4IfDVhgzTTtX4wA2n1Niew5
-         RgeQ==
+         :mime-version:content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=OmNzw8bmhbzwlIerX1A5gennc2TPzADo7a6YBQGnaOA=;
+        b=rbIvOax6dI1SNBcbpAVNof6AveqF0mrThdjcOzH3HTUmwHMOK6WJAXRGJoR7tNtfZ/
+         V3OkrDiWu+Vk8iWda/hb9zVn1ppfWZ6gkit+i10OWD32aVjrwV9DxqufuKkFSIk2Vusa
+         k2bcGrMARo7qpTaQcrcYfHbWZw1/PRhZI1AxQB/yts40/SvbdS9InYY08j3rGzgJ6rmb
+         JG1tI7NEvErIgwLpPvc79UmmSmiBc/II+WV5ExXp+eU+kK+SnFV+KrViUveFQTETRFYE
+         tOyhS6sHhRQI56AF1nd5dFq1oI2Na/oh1ToLnm7LMHYsUHzgv6n5/F6Q59y5woKuhsNV
+         EyEg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUpUcGjiEnKg2lv08FkPZaHFVhwXMLcUaWfr4vnsGq7txbhR/T5
-	6lHBCqOBcruVyViNxayiW1o=
-X-Google-Smtp-Source: APXvYqxDVbg/wOUqCc5AykTXoepDf568IPdJWKr0ZuIEGmbgfawqXg42WHHqzCvc27XxnLX+AZ1tNA==
-X-Received: by 2002:adf:f591:: with SMTP id f17mr18821084wro.119.1565284160301;
-        Thu, 08 Aug 2019 10:09:20 -0700 (PDT)
+X-Gm-Message-State: APjAAAUWi7e9RXFAG9jABv1fGalhNNAj63DjL12Ezhk9p/vOQOpFupfl
+	g6qCulgiPaishl6AeSUhdaU=
+X-Google-Smtp-Source: APXvYqxokoSI+n7DLPFaI8Elb4vWcEzJHWYRRYsgqIwPY+fXBoP6XMe50Iy8J7EJknGk0/xSF7bzJA==
+X-Received: by 2002:a37:9c0c:: with SMTP id f12mr15292418qke.442.1565296708127;
+        Thu, 08 Aug 2019 13:38:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:4982:: with SMTP id r2ls2656417wrq.15.gmail; Thu, 08 Aug
- 2019 10:09:19 -0700 (PDT)
-X-Received: by 2002:a05:6000:14b:: with SMTP id r11mr18443580wrx.196.1565284159947;
-        Thu, 08 Aug 2019 10:09:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565284159; cv=none;
+Received: by 2002:a37:4f85:: with SMTP id d127ls2770160qkb.4.gmail; Thu, 08
+ Aug 2019 13:38:27 -0700 (PDT)
+X-Received: by 2002:a37:ef1a:: with SMTP id j26mr5506596qkk.474.1565296707856;
+        Thu, 08 Aug 2019 13:38:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565296707; cv=none;
         d=google.com; s=arc-20160816;
-        b=Xyzt5fcskkkEF/tlBUIH82kDSX1Gzt3hNquLhXl+rxNSYDFl0Y2FeJigqIktLOFqgV
-         qAg2o074XCC7dRuUWMb4jYqlTws9YzbWPLwLv9ts1VOesnA6VIJx1ASIyUMUz3fDiCJ2
-         m1uMaMWykDON2DTTobHdssi6xVKVRS6ITEhCZDPXaFJ4kR+6muUiPfsuUjVscwdHTe+a
-         AZ6/kX6inFiHGKJUKMzT2tx9UzlZRXlLL7GIB3/mILiGJtQmFIdUH3plwvnGPtRpI2Bb
-         0WY0yObqktFgZJioC32ntc0EGGnpBN1XZcCFwwIL8FYtsCGwdVGPWj0N8QkcGELMeqcf
-         JfPw==
+        b=PTfjMGXfCEy7smVjX5kkpR3v3MGnlMQXcSIuwhgKWmiwbxDAsoohVYkxgsICZwqbRk
+         JTkeJlPxY1SLfJYzbXzzJK4wIbDyd/UNXx5ijkbfshALxqMVld9TwEriX4orZQyHqbEi
+         3kIJhOwVgmEFXKxgIpzwyOTMBU7Bg1Wpo2ojEIW325F7jOjt1V7NzAAzj9ca/5ivc/ny
+         vCeQ6jwlIi9nANnyzZUgZHJG+0Es86+ySnaqjk629W47xnJ/ReJ3uvowRPJLjcVcwcQi
+         g46zntPpUXk6y3CHDPbv1vvZkotk/GGOoAeyMFaxHZPBGx5Tfp8wXo6AW74R3qbD9Q+Y
+         OH1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=/RMqWJBZb+n91pADuicj3MI1Qevek2uTYFVfpzwwQYk=;
-        b=Ndjvv6X73XGyQOn7pnSweOTG9G81HiIsT7DyrgFNQQn0wOqWVkMx7UuFRdHh4QuDBE
-         Y1ROtV/pmlusQUu5T5yWqDSuFViermj3/k65eEVTBDMe2PsXdnl8yP05FcG088g3kBjx
-         /C8bcvptwrgqYOmlFY0ppU6khnPpP0nvqny4xf7EC2areO2ZAXf39cKGDnbFIr3Gx3lj
-         Bkd+lcb3KlRvg2KTLDemAkaEVTaTyO5FiIMpLD/uTExGgkb0SVceTnoAHnoVDhM9NpM6
-         VvG6Fj+TCkkclEPm5sWo1cngPBOFkTA8DD+teHx91KfHY7ujCOcqy9yymBygytNcFHMk
-         srDg==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date;
+        bh=30PGpnQhL+cuOdNTQNbueParuWEfGku7XmSJ1QCNvr4=;
+        b=u5FdH8/3JHXvxR7L6YIjst/YVyUKBpLBfXwIlLKhc9Oqnhtj2MS1wuoEnAvIWgO8He
+         pwThwxlQ8yrxN6CjsgmpjCOd96zDU/lTkVOhZ3oTHKr4xRfHGddMJTgvoa8LE49av2Ra
+         9U72Z2w2QTukaloCBQslHX1DbvdeyLLK8/GE8yPnWMmASqgHt4sPEcMLC7RRxUSoA0FW
+         HkjEsliFfzUph3H327vT4m/jr4YrHsejOgai5osWf9kDXV+vJPSxPjOIx5S/H+iYQp3d
+         vKwNfY6ISFjjT3PNE66Ubj87GA/MuzrKpVOKwZaJzrpuK+6+cxMIJ4JKyILTGhDaMbjE
+         ufoA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="mYI6ER/m";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id f13si302384wmc.3.2019.08.08.10.09.19
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id r4si4194108qkb.1.2019.08.08.13.38.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Thu, 08 Aug 2019 10:09:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id f72so3104659wmf.5
-        for <clang-built-linux@googlegroups.com>; Thu, 08 Aug 2019 10:09:19 -0700 (PDT)
-X-Received: by 2002:a1c:f116:: with SMTP id p22mr5413792wmh.70.1565284159335;
-        Thu, 08 Aug 2019 10:09:19 -0700 (PDT)
-Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id c15sm22423803wrb.80.2019.08.08.10.09.18
-        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Thu, 08 Aug 2019 10:09:18 -0700 (PDT)
-Date: Thu, 8 Aug 2019 10:09:16 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Qian Cai <cai@lca.pw>, will@kernel.org, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/cache: silence -Woverride-init warnings
-Message-ID: <20190808170916.GA32668@archlinux-threadripper>
-References: <20190808032916.879-1-cai@lca.pw>
- <20190808103808.GC46901@lakrids.cambridge.arm.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 08 Aug 2019 13:38:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 08 Aug 2019 13:38:26 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,362,1559545200"; 
+   d="gz'50?scan'50,208,50";a="350295038"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by orsmga005.jf.intel.com with ESMTP; 08 Aug 2019 13:38:25 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1hvpB2-000IyS-Ju; Fri, 09 Aug 2019 04:38:24 +0800
+Date: Fri, 9 Aug 2019 04:37:49 +0800
+From: kbuild test robot <lkp@intel.com>
+To: kbuild@01.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 4/9] fibmap: Use bmap instead of ->bmap method in
+ ioctl_fibmap
+Message-ID: <201908090446.wojb4c0t%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/mixed; boundary="rtenyua2uklgw32t"
 Content-Disposition: inline
-In-Reply-To: <20190808103808.GC46901@lakrids.cambridge.arm.com>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="mYI6ER/m";       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+X-Patchwork-Hint: ignore
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,68 +137,222 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 08, 2019 at 11:38:08AM +0100, Mark Rutland wrote:
-> On Wed, Aug 07, 2019 at 11:29:16PM -0400, Qian Cai wrote:
-> > The commit 155433cb365e ("arm64: cache: Remove support for ASID-tagged
-> > VIVT I-caches") introduced some compiation warnings from GCC (and
-> > Clang) with -Winitializer-overrides),
-> > 
-> > arch/arm64/kernel/cpuinfo.c:38:26: warning: initialized field
-> > overwritten [-Woverride-init]
-> > [ICACHE_POLICY_VIPT]  = "VIPT",
-> >                         ^~~~~~
-> > arch/arm64/kernel/cpuinfo.c:38:26: note: (near initialization for
-> > 'icache_policy_str[2]')
-> > arch/arm64/kernel/cpuinfo.c:39:26: warning: initialized field
-> > overwritten [-Woverride-init]
-> > [ICACHE_POLICY_PIPT]  = "PIPT",
-> >                         ^~~~~~
-> > arch/arm64/kernel/cpuinfo.c:39:26: note: (near initialization for
-> > 'icache_policy_str[3]')
-> > arch/arm64/kernel/cpuinfo.c:40:27: warning: initialized field
-> > overwritten [-Woverride-init]
-> > [ICACHE_POLICY_VPIPT]  = "VPIPT",
-> >                          ^~~~~~~
-> > arch/arm64/kernel/cpuinfo.c:40:27: note: (near initialization for
-> > 'icache_policy_str[0]')
-> > 
-> > because it initializes icache_policy_str[0 ... 3] twice. Since
-> > arm64 developers are keen to keep the style of initializing a static
-> > array with a non-zero pattern first, just disable those warnings for
-> > both GCC and Clang of this file.
-> > 
-> > Fixes: 155433cb365e ("arm64: cache: Remove support for ASID-tagged VIVT I-caches")
-> > Signed-off-by: Qian Cai <cai@lca.pw>
-> 
-> This is _not_ a fix, and should not require backporting to stable trees.
-> 
-> What about all the other instances that we have in mainline?
-> 
-> I really don't think that we need to go down this road; we're just going
-> to end up adding this to every file that happens to include a header
-> using this scheme...
-> 
-> Please just turn this off by default for clang.
-> 
-> If we want to enable this, we need a mechanism to permit overridable
-> assignments as we use range initializers for.
-> 
-> Thanks,
-> Mark.
-> 
 
-For what it's worth, this is disabled by default for clang in the
-kernel:
+--rtenyua2uklgw32t
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/scripts/Makefile.extrawarn?h=v5.3-rc3#n69
+CC: kbuild-all@01.org
+In-Reply-To: <20190808082744.31405-5-cmaiolino@redhat.com>
+References: <20190808082744.31405-5-cmaiolino@redhat.com>
+TO: Carlos Maiolino <cmaiolino@redhat.com>
+CC: linux-fsdevel@vger.kernel.org
+CC: hch@lst.de, adilger@dilger.ca, jaegeuk@kernel.org, darrick.wong@oracle.com, miklos@szeredi.hu, rpeterso@redhat.com, linux-xfs@vger.kernel.org
 
-It only becomes visible with clang at W=1 because that section doesn't
-get applied. It becomes visible with GCC at W=1 because of -Wextra.
+Hi Carlos,
 
-Cheers,
-Nathan
+Thank you for the patch! Yet something to improve:
+
+[auto build test ERROR on linus/master]
+[cannot apply to v5.3-rc3 next-20190808]
+[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+
+url:    https://github.com/0day-ci/linux/commits/Carlos-Maiolino/New-fiemap-infrastructure-and-bmap-removal/20190808-221354
+config: x86_64-allnoconfig (attached as .config)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+reproduce:
+        # save the attached .config to linux build tree
+        make ARCH=x86_64 
+
+If you fix the issue, kindly add following tag
+Reported-by: kbuild test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+>> fs/ioctl.c:68:10: error: implicit declaration of function 'bmap' [-Werror,-Wimplicit-function-declaration]
+           error = bmap(inode, &block);
+                   ^
+   1 error generated.
+
+vim +/bmap +68 fs/ioctl.c
+
+    53	
+    54	static int ioctl_fibmap(struct file *filp, int __user *p)
+    55	{
+    56		struct inode *inode = file_inode(filp);
+    57		int error, ur_block;
+    58		sector_t block;
+    59	
+    60		if (!capable(CAP_SYS_RAWIO))
+    61			return -EPERM;
+    62	
+    63		error = get_user(ur_block, p);
+    64		if (error)
+    65			return error;
+    66	
+    67		block = ur_block;
+  > 68		error = bmap(inode, &block);
+    69	
+    70		if (error)
+    71			ur_block = 0;
+    72		else
+    73			ur_block = block;
+    74	
+    75		error = put_user(ur_block, p);
+    76	
+    77		return error;
+    78	}
+    79	
+
+---
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190808170916.GA32668%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908090446.wojb4c0t%25lkp%40intel.com.
+
+--rtenyua2uklgw32t
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+Q/4DwFBhG7hoAAA=
+
+--rtenyua2uklgw32t--
