@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBAABB54EWTVAKGQENDONTKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
-	by mail.lfdr.de (Postfix) with ESMTPS id BE7EC8715C
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id C21588715D
 	for <lists+clang-built-linux@lfdr.de>; Fri,  9 Aug 2019 07:19:52 +0200 (CEST)
-Received: by mail-qk1-x739.google.com with SMTP id d11sf84687968qkb.20
+Received: by mail-qk1-x73e.google.com with SMTP id d203sf6456438qke.4
         for <lists+clang-built-linux@lfdr.de>; Thu, 08 Aug 2019 22:19:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565327991; cv=pass;
+ARC-Seal: i=2; a=rsa-sha256; t=1565327992; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BdbBos6B30zalZ+mz6SOtbIEI9s0gtHAo1jFoyHYlBgwntRdyMMb3Hzz40z6BOkYzQ
-         SZolUnjP2OJ6B27qLUn7I0Iw20hZndOBWLxXeCzQJIkGILTTBWctr6BIDxrOnLNcOqNI
-         1ozEBz/cuvnhrrcNCncGnCpQOWmWhD0IbGPFkOziELh4kVbBYvH+8aZ/1VQAh57pTuBT
-         QRK3MxFL6dfg5QO0SxRDaqfPjYft5Ihs7VUeTFPzO3tKhE/bf1Ojo1Us0dbfY8hbGbS9
-         5yegNfb457TgnWTmxaNlk2rWyJEsk1P6+10q1lJ6dn6u7kr3pFsuGigxzzLzaZAoD7zH
-         bZiQ==
+        b=ynsZW4rmgDrBxeHQ55LguhAA+8GprNk1vnHZcohQkI7x8wl0kBUJ/ublNgxDOUmTkR
+         kECX8di6/krmCgsjwFLF8gLTU56xboJw5ad9KtaMUs9S7CDR8nwRBr0HDMGzhyb5C71s
+         GQhWK2dXW46/+2QypYvmz8b0/Q2MvP1HMUIi0x/5s0zDHGjiqWjR0wlZGyl9/5HMpEvB
+         iu3uGJUB40fKidqsARvkFiAnMv1JpenSsDImbENjD5fHPZGpxop4nsG8TJPbJB1wo40P
+         9Ii/amkDLVtcPO8X0Vl/6zfOcVi5Feg3jFVRtBsrFUNii18ahdrf5JTbaBf6p8aSg5RR
+         +VwA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=jXTsBL7ceMm9SoAC7k87OY8+S2Ip+9dJL17yPSKkB2c=;
-        b=NhfWLvjtwaMiae6VIMFAwtzOdb5KbFbA7HZYTNiXAUQsyiC3LLPPmH/qlkj56vdMAk
-         Pr8Vf4FI/V8SwdtWLHCDXuFIw3RLtDOwWfdj033WUmwsG2z2uVrNUBbggxnYxPD3BMbN
-         7uYLwnD9cjF8xu6D30ASdASAUWS0iPkwTk3lSMI2Ab9EOENJUynoO0Vmu58plJAEMKAC
-         pJn5hTfP8MUY0SAYQAhivCQn4twaktm6cffzAaBHKznrDDyGMAAl6zCozu0Nfh2DdUzq
-         JG3v05ht3lITCLuZGbGoytI/tY071BAcgFNVa6N7bGfrNTBg24G+ND3h/t3Sfvwj/L6k
-         hzpQ==
+        bh=bhJpj+tBQvQEyyUpRM0V7EFldcjBrILQCzWHBid1Ck0=;
+        b=p8W8z/SmSFwC9sJzRuOecJNXQqe/k7ctkZ25Tq+2jhNUVgLa79+CR6CKl8QWVSMoJy
+         iNY/66kwtLIgp1zg7oVgroH5O7pw1mmAyaiGBj3mFr8a7dmC062sAo8Kw96SjDCRik+k
+         gRZrkx346z4dRTUgMHVJpyF7n93DCTjeUKA5jg35++SoEKrRb9zOdJW+61VXtDX435jC
+         QYQ+c4HtLPjuha6Oelc16ojYMXwUKDALZBmGoGF4gaJcesjqtKj68rA7apVDhkV+nxh8
+         BPYxUiWUhletDqncBMdUxGRymAYkfJBeEi2QWXTFnkgSMGzM/Z2As1AiVggtLERX/h3d
+         80AQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=WhExpzoV;
+       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=E69UrCDu;
        spf=pass (google.com: domain of broonie@sirena.co.uk designates 2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jXTsBL7ceMm9SoAC7k87OY8+S2Ip+9dJL17yPSKkB2c=;
-        b=iH9IoEBa3pd3dvTmsje6LSD0rLtiWjLsI9IgsE95Brzn7GckiAqF4NREGnzEyao30g
-         UdqVbCz7eNtOSQsD4dOzaVI/KcyQFLfW1h8ZLa5rN3isXDMpig9CDiy1ANQjeRCp2Ssf
-         O5PWKKCniSfvtqpSOsv1inyyKyQ2Z0YrPkRIl74v1FvuwC6Kwzeh8limGHTYdFq0rjVC
-         dzS6IAVL6jUsKCaC/QGvoG2/DEj1e4Evog06fpwxRQwphRQ3C3KFUY2Mwv9/Cwd1hDy8
-         8RqFWLEXVgtt2t3UtDCQcNsu+L9+zequrKWQPBGoWk+4n38dWiRMorvi9WuOLbkMQMca
-         akfg==
+        bh=bhJpj+tBQvQEyyUpRM0V7EFldcjBrILQCzWHBid1Ck0=;
+        b=tciXE4tRtwoKplh78c0iaXBWUtdP3j5N4p6+gzP1PPnM9v0VBb6JEGrPPzP7w4lGeN
+         KQdu3hF0ImF/usE2FFeu0XpKZZcJVSIUkTnGVhx/epvymaZQhgpKXEe6vgIWcy5eZ0NX
+         7ZHqbpMfyqiGAIZEHfeByXNyJJmGipZYbQ4pUCz0q0usurW4OXqpV+A4Awv9fFXORDeW
+         +UfKtOJBgvwVSCxqGHGFqw7MhfAdfUoWDarUJ94YplWMxfbfFYy1ZhcX2R+niGOeJxTN
+         RtwzU+BSM9KhU9fzXDPoFM22u0MNkVx/+GCxLbbHcgpFjqTCdp7b7zRasOrZP/HDXpa7
+         RRng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,91 +50,86 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jXTsBL7ceMm9SoAC7k87OY8+S2Ip+9dJL17yPSKkB2c=;
-        b=QGIFSwltVaRTr0NbpyZyPq2jbkN+ST+aWBuXE2PcSv8LCcBEQI0mR8BFajrjNdSv8x
-         JZxZ6crKe1lxCNhXElnB3ZB7J67i+jmbcmocPOuZf2BtVv5K9cNats6Ecp1U2dT4Tk88
-         OCG4DrTdI09S6wwGBNu0Qwi+wRuP4/LoZlIXf/2ITMwH74HBbsEbL08oHZTMSSLMe9vd
-         e0s3ITIqAaKNADwKtw5YQ0BeJs/fYou7VlkVWoAQlIXw8MyhGdSVce+ijAZJO3lNgxtp
-         gPzdMedYi1hpwAhGGOAAbB7Wm9CYYWWG4kDWNVd3ruzyCFo/5FNidi5XVe+miV0TDXAE
-         CCDQ==
+        bh=bhJpj+tBQvQEyyUpRM0V7EFldcjBrILQCzWHBid1Ck0=;
+        b=dFgmqgbbYeVGb8Zzk/1Pp77wqbHxGEW6/z45Spz1VAUHBidvY/UgGEECiQugKlcObs
+         htm7ZIJ/yzRcE7rDLOiXYD6hThVyFDckO5nlKYhRmwWwwoshtwQtCQEsqFUCwBKcaMF8
+         f4lMKML05LKU48L7dYBhTGCIn2EqHxKBrfhBg/W9mjE3p/ZCDA75CmO4BHnpZnYE15XI
+         H8/qZ/ONdZ07jwojMTLpVT628bmqXCldsrLYi2r+aVzbXCAP1PvjDa1bC2WlvsWo4JIz
+         llzh1EtkC+HHO6WCyrSDlwMnv1xn3qG6a9rz8/mPhb9r8VAguxeX4pPuH8+y4kx+ezn6
+         lqfA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUbF1iBka29tR6zN93wPHxQ6N1co+BXasVym8Hq9cQ6NERa0eU4
-	GVGxwLxTNW4iFlMA7xYHpsA=
-X-Google-Smtp-Source: APXvYqzEaK7ao5IZ9zSG/X5WBhY6dbaX3V1L+cnjBvfvL7/LkxQCMLRc7Ty99smkd+tnyOoTOhTc7g==
-X-Received: by 2002:a37:7ec1:: with SMTP id z184mr16737888qkc.491.1565327991690;
+X-Gm-Message-State: APjAAAWqDCVblyEG5ULU11OSsJX/4gQZfus6kCP/cbtxAFvGbKxN5Fjm
+	T1oQqJZ99IssgVw7JRbdIlk=
+X-Google-Smtp-Source: APXvYqwoUO7X1p0VnMO/agvK2QWj2YgoMAQA6PPnSUt6tYyYYEnK6t+qhxMl/v6kteYlBEl/HpPP1A==
+X-Received: by 2002:ad4:45b2:: with SMTP id y18mr15860527qvu.224.1565327991695;
         Thu, 08 Aug 2019 22:19:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:4c97:: with SMTP id z145ls516040qka.2.gmail; Thu, 08 Aug
+Received: by 2002:a0c:d1c1:: with SMTP id k1ls4508126qvh.5.gmail; Thu, 08 Aug
  2019 22:19:51 -0700 (PDT)
-X-Received: by 2002:ae9:d606:: with SMTP id r6mr16283064qkk.364.1565327991571;
+X-Received: by 2002:a0c:fb01:: with SMTP id c1mr16149605qvp.122.1565327991580;
         Thu, 08 Aug 2019 22:19:51 -0700 (PDT)
-Received: by 2002:a37:4bce:0:0:0:0:0 with SMTP id y197msqka;
-        Wed, 7 Aug 2019 09:19:53 -0700 (PDT)
-X-Received: by 2002:a19:4f4a:: with SMTP id a10mr6387138lfk.30.1565194792798;
-        Wed, 07 Aug 2019 09:19:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565194792; cv=none;
+Received: by 2002:ae9:e016:0:0:0:0:0 with SMTP id m22msqkk;
+        Thu, 8 Aug 2019 15:17:58 -0700 (PDT)
+X-Received: by 2002:adf:aac8:: with SMTP id i8mr20914530wrc.56.1565302678027;
+        Thu, 08 Aug 2019 15:17:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565302678; cv=none;
         d=google.com; s=arc-20160816;
-        b=t2eZS7R/jUs6CuDlg5AG6p9lArv60D+yQzyJxtjVwXqWDTTwC52dqONX83ct0fxbAO
-         SqN5FTy7f4dNMwSktfqtgVxANrXUFWj323eK2fiCq0z0Pbcll/hiXNwdYRmYGLdYM4yV
-         vVx5tb2mc74UKNhfYoMaxAORgFohioDTJNFsE3wKQv2EIVrExb4Q4sXQiwSDTV60ZJlf
-         ceQswN7D41h15w81IovFxZs4acDRZAdARxfsseV6tBJ/oPxtgLQ/0f2IracsC36yP4cq
-         He0SJamaSIbJvnCPzPDX2xhSYQRL6u1YS/Cn8CE4SGrQ9bl3yxKqBhwB5i6DZ+xQdUHf
-         Uy5A==
+        b=aNZC2G0uGQ8Lc2r1buOnkxU7sFuAlonP6yAiqHoIqx+J+JMxNE4JTXjL3wAOYdFN+m
+         riAKv7twrvMWazu6WTGe04aW5Mqe8QqUPwGadx+n/Lt4I/SnBW0cW2jrIMHkfioyIPkG
+         KedbcNGfKCUOlahynRk5iAe3ggGMXwY958768rlZtGj/jlHS4Xcohyb00efq5hYRU8eU
+         9wzM3gTBtPPYYnXBeg9drnl30d7mM5HSOqn45S0vb25aBCuvThCVmODDUn0Xke/KOmTw
+         tvBZ0++X48BH9T3hsD+8O/Fu/ZfvX7XF1DKb5GCAx2B5idcuh9/thKfFWIBCUG8voiNc
+         dzzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=0wVTUg6H7YDjXRewiulRUWBWXskse+mkWQnGN0LLKAg=;
-        b=YJct/ADroGIl1YGDg9uYNmD8jKewjBsHMJnElxF1ZOo3y43TyBQryVMDmQiIYWT4/6
-         52pQY9p9ecSGBKr3FW/xdy7K972wSvHzpy/J2nadlNrojzlQQEyQDn8+FwUKM9OurxPv
-         OfWmldvqYLfVGgRUL8zLiLX5fQiekzlM9if/Mkav6eKbifZ6iPzmgWDxMK7LUR+CiPiY
-         MKunv0mQVpK3tKKgUiq9xkqm/EjqJ6GPbNl5OWtzVY0uvYXo3STXmkngwaJvbsK3quBS
-         YMo7CQE+sVo4PIFdHUtcFO42yY/9SkmxJ+JftxbPX4smkX20sC8pbaHcaguCULOmmSXt
-         aMLg==
+        bh=WA+5wwyO0cQ66cmRNLflj37G+/VcsFFok4xItrxFjec=;
+        b=Z+YZAZeNQhgw6oD+wNc9nJ4hX9mSBOsjO1bIi5ZFDIKu6NkN1mH5gI3AXwiLZrMJmk
+         tzH1rlhhZTLJPe8eM9ZQCZDgxLiwwlchAgo0FFXyp5b19hkH1PhuCx0ah2mUrkuJwhRG
+         pj+59sMwdd9XeTzyr7HngAEaRccFKoz/a4ZTMz/nYNUJf9sdX8wuxkSJ6N7F2kprdo6Z
+         mVu7lduXIyqd7XDLqv+e9QC+iIz3K1bjDQRheANPPdX8g5Y3cVegbghz670NZliHVXQA
+         yaIuA8muqyHIjuqkCUj7pFH+lFz++YY8bTME1VLH6BWJK3Us0JgfTC3YhjRqEkVy6Vjr
+         kzvw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=WhExpzoV;
+       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=E69UrCDu;
        spf=pass (google.com: domain of broonie@sirena.co.uk designates 2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk. [2a01:7e01::f03c:91ff:fed4:a3b6])
-        by gmr-mx.google.com with ESMTPS id b8si1641074lfp.3.2019.08.07.09.19.52
+        by gmr-mx.google.com with ESMTPS id b15si258915wmg.1.2019.08.08.15.17.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Wed, 07 Aug 2019 09:19:52 -0700 (PDT)
+        Thu, 08 Aug 2019 15:17:57 -0700 (PDT)
 Received-SPF: pass (google.com: domain of broonie@sirena.co.uk designates 2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) client-ip=2a01:7e01::f03c:91ff:fed4:a3b6;
-Received: from cpc102320-sgyl38-2-0-cust46.18-2.cable.virginm.net ([82.37.168.47] helo=ypsilon.sirena.org.uk)
+Received: from ypsilon.sirena.org.uk ([2001:470:1f1d:6b5::7])
 	by heliosphere.sirena.org.uk with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <broonie@sirena.co.uk>)
-	id 1hvOfG-0008EZ-JD; Wed, 07 Aug 2019 16:19:50 +0000
+	id 1hvqjL-0004D6-OV; Thu, 08 Aug 2019 22:17:55 +0000
 Received: by ypsilon.sirena.org.uk (Postfix, from userid 1000)
-	id A76942742B9E; Wed,  7 Aug 2019 17:19:49 +0100 (BST)
-Date: Wed, 7 Aug 2019 17:19:49 +0100
+	id D15F72742BDD; Thu,  8 Aug 2019 23:17:54 +0100 (BST)
+Date: Thu, 8 Aug 2019 23:17:54 +0100
 From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
+To: Guillaume Tucker <guillaume.tucker@collabora.com>
+Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Guenter Roeck <linux@roeck-us.net>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Tri Vo <trong@google.com>, clang-built-linux@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org,
-	Matt Hart <matthew.hart@linaro.org>
-Subject: Re: [PATCH] arm64: Disable big endian builds with clang
-Message-ID: <20190807161949.GH4048@sirena.co.uk>
-References: <20190806183918.41078-1-broonie@kernel.org>
- <20190807130111.GE54191@lakrids.cambridge.arm.com>
- <20190807130527.GD4048@sirena.co.uk>
- <20190807135618.GF54191@lakrids.cambridge.arm.com>
- <20190807152934.GF4048@sirena.co.uk>
- <20190807154314.GH54191@lakrids.cambridge.arm.com>
+	clang-built-linux@googlegroups.com, linux-kbuild@vger.kernel.org,
+	kernel@collabora.com
+Subject: Re: [PATCH RFC 0/1] kbuild: enable overriding the compiler using the
+ environment
+Message-ID: <20190808221754.GP3795@sirena.co.uk>
+References: <cover.1565297255.git.guillaume.tucker@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="l06SQqiZYCi8rTKz"
+	protocol="application/pgp-signature"; boundary="iq/fWD14IMVFWBCD"
 Content-Disposition: inline
-In-Reply-To: <20190807154314.GH54191@lakrids.cambridge.arm.com>
-X-Cookie: Dammit Jim, I'm an actor, not a doctor.
+In-Reply-To: <cover.1565297255.git.guillaume.tucker@collabora.com>
+X-Cookie: I think we're in trouble.
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: broonie@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=WhExpzoV;
+ header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=E69UrCDu;
        spf=pass (google.com: domain of broonie@sirena.co.uk designates
  2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -150,38 +145,38 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---l06SQqiZYCi8rTKz
+--iq/fWD14IMVFWBCD
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
-On Wed, Aug 07, 2019 at 04:43:14PM +0100, Mark Rutland wrote:
+On Thu, Aug 08, 2019 at 11:06:51PM +0200, Guillaume Tucker wrote:
 
-> That confirms what Robin suggested [1] from looking at the config: this
-> is a little-endian kernel.
+> While this fix seems like a very obvious thing to do, it's equally
+> surprising that it hasn't been done before.  This is why I'm sending this
+> as an RFC; there may be a very good reason why the compiler variables
+> still need to be hard-coded with gcc in the top-level Makefile.
 
-> The Image header flags the big-endian bit is 0, and it succcessfully
-> boots with a little-endian rootfs; log below.
-
-Right, I've confirmed this myself.  Sorry about the noise here.
+Probably the few people building kernels who didn't have GCC installed
+and ran into this just went and installed it when they saw the error.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190807161949.GH4048%40sirena.co.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190808221754.GP3795%40sirena.co.uk.
 
---l06SQqiZYCi8rTKz
+--iq/fWD14IMVFWBCD
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl1K+iQACgkQJNaLcl1U
-h9Dphgf+Jy/t08k4PZGWSDE2uhIqTS8swN/D016mL3yLe1F1+cci9o5fzoI02ebB
-Ri6rFj0P0B8zNruY926v0LH0L5GBnMlnkU+yDpkcvEtnQvjpYM1t/hHrTEzKaKFp
-lr2lARWMiO0oNz+JiQUB9PzVOVFyWubF2DONld9xOaanbnbZg1uRIgvh3G81iOHj
-my5X2cbjUtaYf+WoiAy/1p0rwG89e5m+CDcbWjp3BRL6VSSO0Oci13wacA6niQKI
-P941O5NsurLeq9DDLeqAL/sM+SWpY5MqIu019aPBMbXPlzAnfgEXP/x+EC2hLll1
-J+34aHaFO9Kf2izyLyJuqTrX3I5Rvw==
-=+blA
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl1Mn5IACgkQJNaLcl1U
+h9DY1Af+NqU3cOOFQVhT9tHvETuiNHGUGmHdw+yNH2FL0oD+g/TnIDUwt/LzUXv5
+f1ZbtgZjdjQWsKzmhZCrPC5im8DngacGB1SUF3gZP09voM6xJ6GcaD/kpGk3+jDW
+Xqlfc7Z2s1t73CAAJ1E8+vh20kRVnzZD326f2XBIP7i72gVjB2NbwMJidkvLEANO
+1G7YgkXtxG8C7jfyif+3HIbq65G9sgcHj0WBhCoEn/Vh1kPgYIiGf7E7ebdwlYIW
+aoWBYxAiMDLoPq2QxC2Kw6P2tQMdUgOimmrkPbRCX+JhCfKeJw4EySGbcCedt0vL
+uVbmpSx17MVaxjRzQEsWapcMATznGA==
+=1asF
 -----END PGP SIGNATURE-----
 
---l06SQqiZYCi8rTKz--
+--iq/fWD14IMVFWBCD--
