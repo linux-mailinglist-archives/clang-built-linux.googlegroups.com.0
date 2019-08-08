@@ -1,61 +1,48 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBFWUV3VAKGQEHX25LAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBRWNV7VAKGQEM5J3FFQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 629008597C
-	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Aug 2019 06:50:31 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id w17sf11173064lff.15
-        for <lists+clang-built-linux@lfdr.de>; Wed, 07 Aug 2019 21:50:31 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565239831; cv=pass;
+Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 491AF85DDA
+	for <lists+clang-built-linux@lfdr.de>; Thu,  8 Aug 2019 11:09:28 +0200 (CEST)
+Received: by mail-ot1-x338.google.com with SMTP id a8sf60426513oti.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 08 Aug 2019 02:09:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565255367; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RLy7t5gWf43AFGbWGecusHpVbq7Hq9PBk9EQx0Imr+US5zogR4j0XfkGbpjvjgc1Pg
-         k1uvWRTmscrLmqzba817XhnUXaw+vLnSSPtyuBQfQiJnTnR6vevX4mRbUYfQmnUmrfPP
-         6/Un02EjjUmT1k8cmfn7UaafhJ9okfGYe+aOpdMJ0H1zAubIx11L2VP3jTVUghWVpFhy
-         jQAE7srgQRCxVjSg/F5aOVf9I4wY7fqUZbkmGoul52PVmOfaLY/J+iLVvjlMGP8uvgmD
-         IkJ9EM5058vlbOBZzxvxveip81kbk5LnFetAB9YwoDO2DBjaapkjFI6ZDvxOU5KiN5h4
-         Gx7g==
+        b=yIB0S1AgoNnSaEWCkdK/TGktSKUYtw2Hh203N1Q8f3HOAtLtYp1UgPePlWvjs/IeeE
+         5zB7BDiSk5tN+4q8zogiC3haUKsJkSI7IaJ4Ygi+kQrDjJwHyg0DKrCGzWvtZTT+jRRP
+         2xiUsQPZgyLSyjQkh3IvKXPZSRnFUBblLYcr+1lX6iym9++c0Zg1xS19VRthZ7jMXnP3
+         EypHvp+l8I6P3FHnLhNT8Efg8EvW2IzGnVGusuH6UdHiyb8ORCTrOpiV3YdmqC9ZkUO8
+         3qTj1+zlGV8v5Jb22L8qhYQ+oTk2smvF3mu9NDnFgwsUlHAv+VAlBa/sijskBuknnJ9y
+         3nEg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=n9JsY3EYcmQZ2MjaUp+acN+UeZ7eAF2IqWm56qglHeU=;
-        b=csf87npeqTglDwlG9HqoWK+/wvii7u4gVxJsZ115J3qe5nuukghIIL/KTdBVzD1Cau
-         3kOhghyAMQzazVNVP/Z0611M4Gl6P/HROk2Nt45IchaBa0wS/s+FdZJ/DbImP/YEeXPY
-         CR7aBROp6DlJF2//D2Q/aGY1S7m4MeGIWMguECkVk3Kiu2BymxrxYsaS7TfVmsFBlQsE
-         VvQKYqbvYBCq4K6vmAK6E1e0jm1KInV0OfRDBX8eX+szzwaYFRsS6DcnzrzZR7HmCt9N
-         Iq10DqEdvsDFAsNIJ+PhEhFSCTBjpuy2Kg0PXCwDLVuxIy1F5e+bsE8bFYYzbKof2PNX
-         RyYg==
+         :to:from:date:sender:dkim-signature;
+        bh=5Fjjb+M2APJvOL6vId6y/9zmiROW8RHL45yQ4acgwQA=;
+        b=mOFhqNfnOK7nkcTmji215NMDwSrOY9Vz82k8bFn7Tv8GhZNz57/LUTy0aptLZPllkc
+         Ad5inz5A688i65QRZr5Rk7O9ppklR4RRiax6Yo1spmaZ3QzUGi4sfZHFHGyu3bvwMUou
+         21z2gC6Qw0Klm9DUEn3zksoeE++/tKU96ZcdXCxiU/F1NfSXZAKTN+EBmrXBlVYwXR5/
+         nY9SHXO/0i6/0dj37YfCzdImkpnxx0a0dtRExNRTGBjxR/q4b8KM2DO7Nww4Lmt3uOHR
+         ux1q2GbfotyFcSvge8CE2p5SF0pjeB+WywhqxNraIrl+Sxi0ZD6k+Ey22szvOej6dVXu
+         hIpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=EnK2WRFC;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=QoAMv3De;
+       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::c43 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=n9JsY3EYcmQZ2MjaUp+acN+UeZ7eAF2IqWm56qglHeU=;
-        b=ln+IEEBkHaPljZta2fgVy1j4+CaclhxqaJyTR4+OyzClspMFaaAwY5U51Ff8jyGDUj
-         HgxQqRMdv5N50uxkoNOvr8n5vxNFSm+DssjT2Nrii3Z151Ouhwad/v/chDymxq/5BzyG
-         eFwiykTUD82ujNPX1VCUcZMyyHnPLdLriHfdurNI5CbEqs9/KCk8dRxWeu/IjszOnhEh
-         m+DJSxDo2WUJd3ciIcsoBsvNh2baXyHwTvnSngtNC5EJbq4uzEyD7GglM0TYo+6bj2LZ
-         ycEuThC5Sitat8a4WI2yu9RSNYF+SWdj2WAmNfN7QmL9fP78owF09HRrgPYh2aAlb4d/
-         OhZw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=n9JsY3EYcmQZ2MjaUp+acN+UeZ7eAF2IqWm56qglHeU=;
-        b=SERKOcGPaH8E9lLiacwnJ10nm3pdjL/iMG3AYjwPYi361+lw9s4rTyP1aroRCW3hSl
-         neNyi/LnjOhpkeyOIyL3wmKzmjpa5hgXPIsprWQmGSJveWqKWxPw+k9r6R1+R3o0WQNQ
-         CWJoMKwoLNDvaLPWDIRRDoM2qwMwXnA70gxeR7WBQ84SSM4ZprLc6WGCorHF4WTTWBGx
-         pEsB5lCAFn6lr6TUaZLAuUdIh17i+ZFbiYsXwLo1O3+GTkOkh/MWCQ0aC+tGugAKm+eh
-         +H3hbPLBxPtjmyPilICJSouq5U4Ny/PFym038Inlkcal1H2IvtvxT6dSY4HcQKvQ2wRV
-         mcIQ==
+        bh=5Fjjb+M2APJvOL6vId6y/9zmiROW8RHL45yQ4acgwQA=;
+        b=kGDViPX9wVMU7kPqMoAaZCN/lkK2Pf06zzMDZpfAAY94ltErL3QZkT4QahMMGKvsZN
+         hlS8HIlCoaxyms91hZ7/IaJVXMhh+0SWpPOFaQlcUWQlK1NULbmOHRf/p0KCg4Paoidh
+         Wxel3riWKMdoYcABJkh/juJAZ8hcnsLKcjOnzTqk39HIBOvB1QDhWu4FekkY00oRMyAq
+         7MV1xst6H4nRXsd2ZAYKDOV8IYyCTQUzZxKKNDAFQqFcZtRZYVKl466pIYRchScV+TbJ
+         tNk+BYMerzhiFzBJnZ7XQiX6JVjhZVrqjwimbx/sCnmRdZ5oypnlsSoynAnNznClmPzo
+         5ZPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,80 +50,97 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=n9JsY3EYcmQZ2MjaUp+acN+UeZ7eAF2IqWm56qglHeU=;
-        b=QvTftvWB/t+OFHmahPb8Sjy4r5XxDwRTYjwZZrw4W0qKIWcL8cHb0u9+CSQkGtzKRS
-         TzdBoPteIJzJdAo0a6NI22CZ5FfVin6i0LPbsyMD4umTcWt831EftXil4gchcNbAEsyJ
-         WXAi8U3aIV2zwaQ3UZmj8sYCz/icm/xLqZs3jGdej4uwHJOclTnQ/Yp+CduyEqH3okGW
-         qXE98PQdHUoP/B6I4hZpx9JX1E4AQpZMqyBAYIFDECKMwKiYi21YwQLvznPHThEGKH3k
-         vBb8cWcm0ZT2kYm66B/O2/qZiV2xhK6l/eT7RCk39kww2UARzFx6mfelJWyPBwMudZv3
-         X7Qw==
+        bh=5Fjjb+M2APJvOL6vId6y/9zmiROW8RHL45yQ4acgwQA=;
+        b=WhyLoSCn5ThWJ+ZatukmNygtcEFnvDAoOE9AriJxKh6bSskm7WnS1jTTANzfvODJvQ
+         zAwMNk9hPFaj09urAgYnzHcVJ7hVgK4OPbiNG0PVjJHDbVKPmvcXZ2BTAQsKMZ6S8KgT
+         7NggS+qMCvXsesiNv9+kLosLC9uNoH5l3k22Mvg6bB2hS7j2THiZHFSHQb/LqyvWh3y9
+         agf3THnr446qx9w9TJkTOBjsJBJlspc8IBL6w9ucQY67PIJDy5G5CvOdUREE09EWLLY/
+         7yagdlkWHEWJRHgd/Gc5DDrDvYOjOBZwPFAzz5Yf6oeh8p2mtcGSmLAz99atq6gKu3ae
+         iuqA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVL87GR7fKzEdv6YnN3Adcnc7WUBWvYEeqi3gwWt9PQatfqjFlI
-	yOOrpTJ7fr3f2lyCBYYgESs=
-X-Google-Smtp-Source: APXvYqziZZrepBnBbiSzlUaZf7//cm+3t2yRCn6Yb8vKssdYq7L/ghS2IdzPsxsxreyw8bhFWP/AWA==
-X-Received: by 2002:ac2:5596:: with SMTP id v22mr7689259lfg.132.1565239830956;
-        Wed, 07 Aug 2019 21:50:30 -0700 (PDT)
+X-Gm-Message-State: APjAAAXaH37pIixSFYJWlOW6mBYdpvUQGluothEVwjBeICIP7jPaYRsn
+	NDJPj6HYfHuDZKPjpr0bHM4=
+X-Google-Smtp-Source: APXvYqylAtWhVBP0JrqQ2FJpxI8T8TUaHyAqiek6b+vh+ZZjlaiZNZI7HtG5yU8XdEaC+Ss7TIqecg==
+X-Received: by 2002:a9d:19cc:: with SMTP id k70mr12264184otk.304.1565255366948;
+        Thu, 08 Aug 2019 02:09:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5213:: with SMTP id a19ls7891130lfl.8.gmail; Wed, 07 Aug
- 2019 21:50:30 -0700 (PDT)
-X-Received: by 2002:ac2:4351:: with SMTP id o17mr1520558lfl.21.1565239830514;
-        Wed, 07 Aug 2019 21:50:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565239830; cv=none;
+Received: by 2002:a9d:71d0:: with SMTP id z16ls2399565otj.2.gmail; Thu, 08 Aug
+ 2019 02:09:26 -0700 (PDT)
+X-Received: by 2002:a9d:6c46:: with SMTP id g6mr12721470otq.104.1565255366676;
+        Thu, 08 Aug 2019 02:09:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565255366; cv=none;
         d=google.com; s=arc-20160816;
-        b=qcgUlL3jtcL025uo91ApAxuQLqrE7P7jlzz+s59wiXbwQX2BsEwRx1fRKcOwecDHLN
-         5aG+tjhaWGX985hEsJ5fnC7G1xx2yW6WsoNHhgBZORTH6fNUYb5R+jxH/GJdIyuOzHWR
-         Lg5GoptaW9OGsJyHy8wVVk3wMJsAXvgLeIWppQIRDNSl/nKtgCsgNisi4yuDtRdbqVOG
-         kUcsMH9hy8mOgYm7jR3O8vM3QUPpzx1XmlCKp0OqBNh2foL9ulyS2rW8r2W7tVZUwlzr
-         t3RYL3zxqpngQ732Avq5WFE9nZ0YTfwn8uzyQH7gyiGHCHhowPsscWDrWzN8VfIEHSh1
-         KOBA==
+        b=qWxbZBr2Lj34R2fBqt+kV2IfA9qGcJAupWiEpR5PAwY6ArW9o0ygESUF1CO+uZhEir
+         OlajRrlGaguTqgBf5M8cmy3kxCDXl+YDj2InRDLYGe8RI4TVg1BrP6GtBpvzc7Ia+DLW
+         K8eCSM9Dv9SPzIldr718jAWX3e3LHnh7VrdVF178/cgkAPw5u6f2eWp4GPdpWCNCr1aj
+         zgM9KNYFiqldreY1/dFIgBN0cPZFnd6ADAJzh11YRXDOg9Us87ninKqeb5wU2VCstbgV
+         IU5gVSCYu3MPR1AAgiMpbYWTVe/V8qPbfMvRRT2JTSHBAo1l/wvmlG1TIeuY4aqmhvtq
+         6onA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=c2ctl4XAji46HwbaOhdkmf4zUAn2rV12GD6HMJfhhu0=;
-        b=h3j+iRfi1Rf5oS9X6hUp7l9Qqu+cPA0jQCt+jhn8g3c0BnmJGY1DLYxvdPyvMq9Z+2
-         YjEIQmGI9s4jiSGKLXA1bLvWqfH9kZD2Atvk8ouWPfyrMfLpaIOLbPHwLX+nBaz/gdlL
-         CwDQKs2YRrIiCl4sSKeCjUZPTozUd1/sYueFM0cAwpNZYz3dzKZFcZM/XSyAFo9m7Dh3
-         Gc6VHT+qiNR1sKCyCIUtMpvk91Ure5+oi8dCi9wru60JvHLnd2yIKT8lyBh3aUsLdAQv
-         18sSQgE04GkZzBG51sAX3WVnpDN5597wW27YtI9W72ulUD+NhaBLw7bpOpHdyoAe+vhr
-         BJPA==
+        bh=30SazUA7Tq8vOLew/Q0ozPIJ6UITJfx6OSiQFokXt+o=;
+        b=ZD6018Qoepu+YUrV6I3ujIleBaEz8NCBr3FxtalhpD1hCKGpLgoJNj0DJIyTAkH/rx
+         v6tK6z8yfLlLyo57+GQgcFGOkLTevt/40FsXsOSAEM9yvVkST951W/6AKbHd9aPiZODI
+         88xQB1BRTKXdGYYCR8AWSlXBfp6Zt8PQVLMkedetLlpTy+vHZfzQ/THfl60fM7jpMcxf
+         b/lfxIlnnq55MB6zcH4SGX9kQHr1hY4HkQqag5bPuY8/ZDSCe1UGkKcIjwn1d2A1I4rZ
+         FFwuHo+XMW31Zl4GSvvPj1pbmmfknxReBqBPcQJkGnruJu6089XVzmkIgZmjlFn7YowD
+         gkgw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=EnK2WRFC;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id r27si1236033ljn.3.2019.08.07.21.50.30
+       dkim=pass header.i=@linaro.org header.s=google header.b=QoAMv3De;
+       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::c43 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-yw1-xc43.google.com (mail-yw1-xc43.google.com. [2607:f8b0:4864:20::c43])
+        by gmr-mx.google.com with ESMTPS id p6si5222739otk.5.2019.08.08.02.09.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Wed, 07 Aug 2019 21:50:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
-Received: by mail-wm1-x341.google.com with SMTP id u25so987128wmc.4
-        for <clang-built-linux@googlegroups.com>; Wed, 07 Aug 2019 21:50:30 -0700 (PDT)
-X-Received: by 2002:a7b:c8c3:: with SMTP id f3mr1823749wml.124.1565239829705;
-        Wed, 07 Aug 2019 21:50:29 -0700 (PDT)
-Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id 2sm136472106wrn.29.2019.08.07.21.50.28
-        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Wed, 07 Aug 2019 21:50:29 -0700 (PDT)
-Date: Wed, 7 Aug 2019 21:50:27 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Qian Cai <cai@lca.pw>
-Cc: will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64/cache: silence -Woverride-init warnings
-Message-ID: <20190808045027.GA34150@archlinux-threadripper>
-References: <20190808032916.879-1-cai@lca.pw>
+        Thu, 08 Aug 2019 02:09:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::c43 as permitted sender) client-ip=2607:f8b0:4864:20::c43;
+Received: by mail-yw1-xc43.google.com with SMTP id g19so33089936ywe.2
+        for <clang-built-linux@googlegroups.com>; Thu, 08 Aug 2019 02:09:26 -0700 (PDT)
+X-Received: by 2002:a81:3646:: with SMTP id d67mr9291114ywa.77.1565255366232;
+        Thu, 08 Aug 2019 02:09:26 -0700 (PDT)
+Received: from leoy-ThinkPad-X240s (li1322-146.members.linode.com. [45.79.223.146])
+        by smtp.gmail.com with ESMTPSA id z9sm21277603ywj.84.2019.08.08.02.09.16
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 08 Aug 2019 02:09:25 -0700 (PDT)
+Date: Thu, 8 Aug 2019 17:09:13 +0800
+From: Leo Yan <leo.yan@linaro.org>
+To: Will Deacon <will@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, Oleg Nesterov <oleg@redhat.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.vnet.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-arch@vger.kernel.org,
+	netdev@vger.kernel.org, bpf@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Masami Hiramatsu <mhiramat@kernel.org>
+Subject: Re: [PATCH v2 0/3] arm/arm64: Add support for function error
+ injection
+Message-ID: <20190808090913.GD8313@leoy-ThinkPad-X240s>
+References: <20190806100015.11256-1-leo.yan@linaro.org>
+ <20190807160703.pe4jxak7hs7ptvde@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20190808032916.879-1-cai@lca.pw>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Original-Sender: natechancellor@gmail.com
+In-Reply-To: <20190807160703.pe4jxak7hs7ptvde@willie-the-truck>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: leo.yan@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=EnK2WRFC;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linaro.org header.s=google header.b=QoAMv3De;       spf=pass
+ (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::c43
+ as permitted sender) smtp.mailfrom=leo.yan@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,52 +153,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 07, 2019 at 11:29:16PM -0400, Qian Cai wrote:
-> The commit 155433cb365e ("arm64: cache: Remove support for ASID-tagged
-> VIVT I-caches") introduced some compiation warnings from GCC (and
-> Clang) with -Winitializer-overrides),
+On Wed, Aug 07, 2019 at 05:07:03PM +0100, Will Deacon wrote:
+> On Tue, Aug 06, 2019 at 06:00:12PM +0800, Leo Yan wrote:
+> > This small patch set is to add support for function error injection;
+> > this can be used to eanble more advanced debugging feature, e.g.
+> > CONFIG_BPF_KPROBE_OVERRIDE.
+> > 
+> > The patch 01/03 is to consolidate the function definition which can be
+> > suared cross architectures, patches 02,03/03 are used for enabling
+> > function error injection on arm64 and arm architecture respectively.
+> > 
+> > I tested on arm64 platform Juno-r2 and one of my laptop with x86
+> > architecture with below steps; I don't test for Arm architecture so
+> > only pass compilation.
 > 
-> arch/arm64/kernel/cpuinfo.c:38:26: warning: initialized field
-> overwritten [-Woverride-init]
-> [ICACHE_POLICY_VIPT]  = "VIPT",
->                         ^~~~~~
-> arch/arm64/kernel/cpuinfo.c:38:26: note: (near initialization for
-> 'icache_policy_str[2]')
-> arch/arm64/kernel/cpuinfo.c:39:26: warning: initialized field
-> overwritten [-Woverride-init]
-> [ICACHE_POLICY_PIPT]  = "PIPT",
->                         ^~~~~~
-> arch/arm64/kernel/cpuinfo.c:39:26: note: (near initialization for
-> 'icache_policy_str[3]')
-> arch/arm64/kernel/cpuinfo.c:40:27: warning: initialized field
-> overwritten [-Woverride-init]
-> [ICACHE_POLICY_VPIPT]  = "VPIPT",
->                          ^~~~~~~
-> arch/arm64/kernel/cpuinfo.c:40:27: note: (near initialization for
-> 'icache_policy_str[0]')
+> Thanks. I've queued the first two patches up here:
 > 
-> because it initializes icache_policy_str[0 ... 3] twice. Since
-> arm64 developers are keen to keep the style of initializing a static
-> array with a non-zero pattern first, just disable those warnings for
-> both GCC and Clang of this file.
-> 
-> Fixes: 155433cb365e ("arm64: cache: Remove support for ASID-tagged VIVT I-caches")
-> Signed-off-by: Qian Cai <cai@lca.pw>
+> https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/log/?h=for-next/error-injection
 
-It's a shame we can't just use one cc-disable-warning statement but
--Woverride-init wasn't added for GCC compatibility until clang 8.0.0
-and we don't have an established minimum clang version.
+Thank you, Will.
 
-With that said, I applied your patch and I don't see with warning with
-W=1 anymore and I see both options get added to the clang command line
-with V=1.
-
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-
-Cheers!
+Leo.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190808045027.GA34150%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190808090913.GD8313%40leoy-ThinkPad-X240s.
