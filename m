@@ -1,137 +1,141 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBUUZXHVAKGQEPLNLREQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBIHBXHVAKGQEVWIAWEA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8771788840
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 06:49:23 +0200 (CEST)
-Received: by mail-lj1-x239.google.com with SMTP id 9sf19536752ljp.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 09 Aug 2019 21:49:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565412563; cv=pass;
+Received: from mail-yw1-xc3b.google.com (mail-yw1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 588BB88911
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 09:22:09 +0200 (CEST)
+Received: by mail-yw1-xc3b.google.com with SMTP id k63sf8672503ywg.7
+        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 00:22:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565421728; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eiJLxJROROrFl5Xg8HfALVPXd4j6SE38qOzOVpdYdo7K7Pi8xXsk2l+OAZ2k4e9Lg3
-         hqUhZlwU4f2x/jXrMg4Rza+SxJrGiPqbZUMUgy12NtDGZDOTHoY0QxEiCcnWsbaJxE4u
-         4Z2NfzEmNIm4AQnuSemwQKC4F7e53STGNnWpL9smgdQ6quISvpN22Vox5NtDmkIgJooE
-         FPbnVuLoVRgUdCSfSDNlTCtaDs/ThyH+64WSfK1u9MkoKGzprPUcy5OSkTUW8N42Xz4N
-         NXDFNUP9I24cFZBd+PcXPA8LNjbysOjq8za/1mimDJ1mrLYHP5z1rNl3TlxYKnMFd455
-         718A==
+        b=XdZyhU1oiuNUV8VBrtbDSwEVtIS1L1Kbo/jv44icyzHV3obGrIwSZKpAy42YheFCZl
+         PwtIRuGbbrJ4UkrLajEhDxAc5kxbq/Gh9EsORrg7Kr/dPaB8Ayp6t5dS2WB1BpY1rxG1
+         XxSSGaIFkB14kiPXuw1idzzfMuYLbRTt7nAD7PfZFc/TKllVUc18Lsrma2TwCae/WRRd
+         F4W4AkLk84PANsMFmIsiLm3WHQBopt4IfTwzRP2vQx/Iq7MdOMI5yfW2h0VzxLA0BL1L
+         f5oYJL4jpo/jnKFnV2u4WR4alGogZ1PblnhhX6QLuxUdnb8WV9EH4tecm5Qh9uNTF39S
+         KQdw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=u9tlLrWf565gN2vTpeojKVOETVko8MbaiqbeNKx+BkI=;
-        b=h+YhXFNJdaatEhNHAdh8L9k0M7jRhYyPNXBtKnmmJh0agoilhb+N/3nAXAx6SS6+UG
-         yR/dWsXYEqXsEOGYjf0myPryD30Ak7aru6aAaoBQsEJ+j8bxfYmi3pD9MFYbBSGtfabl
-         WAzBKOm5L8jBfZzfyXLbnGiLndP+YkP8FROTsyBeMJYd/clpjdtLZWkFWO/hCs+Hs74P
-         L4eRxekRtcAPjkcxpKq7ngzzBHmYOjmrWgmWo/mEc2794DEaX+nhsYJ96us/wU7QZaIz
-         /INgxyFiHL+4rEhK46Ddlo596H98jd0DB4KEhyX8skaEY4Jg7tEAwpRjIgUsvSbv8tfA
-         d8tQ==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature;
+        bh=6GgEWGoZMhD6EQ3ogCRO0YGxd4pBEag3nMnxqE8LHXw=;
+        b=BWNhWLT+lII86pRjgzf7VvLOGquGCuKcU+9BDUNtHfMe9gKedyQra+MIZ6afPG/zZS
+         RmxvU2BM8jizJdH5gRXlSL6hnl+c1Scs++AaHXqlMwd7vBmeukcPFUL8mCy/UdUg1y/k
+         aiAYb2tHz0cOp9jqTUs59TDfD1R8YCm5ME5z1aizKyej8aVmrzmxcLzPbMCzkvBtizJb
+         R3+mGtcru6YZP2Gv0pp9ZsA6DJgiN+0plR12SZBRdZivPHv2PpFNCqc8lUfwzuMMUK34
+         jxmrbreQFlPugfWKY+8TLWE9mmZH/ptLgZByna39orDxCke74XmWKKE/VWsdGau1VZ66
+         3cow==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NGDK21aD;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b="pN/qlGpA";
+       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
+        h=sender:mime-version:from:to:cc:subject:date:message-id
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=u9tlLrWf565gN2vTpeojKVOETVko8MbaiqbeNKx+BkI=;
-        b=I+c+byDyvOZYuJYzIqfVkJoVHBdDemHRm884ukP9VbIYZCG+FWIVk0n+0Q87UA3Ad2
-         5IazzXhiXvHidtVLLySkSXNRREgFbtfNYHa2AiNEwsZ59kzh5hd3I/8wQdsqQ981o9Gc
-         bYBEeeqz2myHKoEca25p7WUW0foFBgYsPHivyCyb3+D04PMBAfTwXHLQoUDX7tYwg+XW
-         j9WXTdv6hqIrUcBZFN9QNDFHTgYbbp7/a3xQIJQFB9lzrA15rmKL3d6zsmNvyk9Gacml
-         Qc0U0zR+1DV3wSDgiyjIMl0y4N5dqLyRRTxqiP4s8BYP20cB9aksaZaBPw+5MuAuIyjm
-         T9mw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=u9tlLrWf565gN2vTpeojKVOETVko8MbaiqbeNKx+BkI=;
-        b=Grg6L3rCnXJYXTKRAA0zQunN090ya64oiir25wkqKsMqiqyKQ3czMKzzXs2/YmB/Fe
-         kDEhYRl+xpbse1GSMu1c0Qmcsw3VJLS6EM7UpHedt/kKIGt6g2esDre495gqGNdKFP2S
-         qKX5+cQuV4WBACOrRzDImmEbHMzdsmCwmGbgHvpG2m1czjqx5UzAr5bSUmCmsoOu98Kw
-         jd8F7w99DVGHKVUCwFELRipY5u7z15G6xbrF/nva/eCEK0Gvc2YxytcIB7D8oGn00MUg
-         qCsZIebY8Lknkik7QWOLIe/hPIJfinCM+xqx5xpFHqYA7bqtHQYVVhWa94P2LVjPsgQ3
-         NSjw==
+        bh=6GgEWGoZMhD6EQ3ogCRO0YGxd4pBEag3nMnxqE8LHXw=;
+        b=fOY306cCJAKQsacl1OGQFzXOTzXcoi88BNPQm5AXAuyBrmRAosyeZ5/6MCszLOCsdQ
+         LYgYLIYlRk47W8tNSzffUSusmtd1A0mPiQ4MaYwUG7NfQrxdfY/TYwCrl1c5NCzEvATA
+         L+S4rQHRxsCHSp1Tezn55VrtR5KCWBG4Uki/9qUwUsW2fJjtGv7rhPZyb4KML53orVEb
+         jB+1Hki6lqwD9DUUObhGsRvKvYJ+TuoEJX58neOKjXi9jTrrDimrHm8PGI3DMPDKwvu2
+         IJKVzHINMarHMo38a1qmDaTJe8FURtLsbUmbfepLlmOVB/SFfsIAFMdiGBbwMggHNedF
+         6pEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=u9tlLrWf565gN2vTpeojKVOETVko8MbaiqbeNKx+BkI=;
-        b=MXeLySWYD9o3emqlasrmOCr2kE/FbbIhetsLGYEnvSaQLG3ei8p9+rn1yMLmR0+DvB
-         X+V18SB16xuyUCJswoFC3nLg4xa8HK6tPSW+7iaU2UKW5EKGaA/zQ2TYI0TfZ4ML29mg
-         L9mt1YV3AlyBugiHb8i6QCAavtJ4Hqo8XXcbJnbfxF7s8rhsfkcw1dKmbPFClZE5kfQl
-         yTe7Dk5lc4eMyRtmhpdQqMExXRrJjxByR1zd8To8w51Molq53yqxYC0PDf2g1L+ZRB9v
-         Bmq0itdyN5iQmA4/rasYOnzSbPCIBS/slkUyAiE92goL/b0VCQmRLJ4PntfZd0SbMh1d
-         nF8Q==
+        bh=6GgEWGoZMhD6EQ3ogCRO0YGxd4pBEag3nMnxqE8LHXw=;
+        b=nNMkrCv9WMhweYNHn6pYEvx5TgCMuMBNwwLGMe/jQN+L7PWHgD2SjVIEzAVl/H/dQk
+         2tLd8bAMRDTdYMvpcMIx+txpy6+n7aOjrpTOslDBsgGCMZe57JM3rUnyY0Ryh543HCyR
+         sNMAyQ4xYzfR4WLu5b3Vyy7Nu8Ov3WJohF5EWWO8njV8WZ8Safr848wDcQPN+2YAxCV3
+         AZTmA4bgMVZSonMdGjHv7o59BV3socSOtXJtQ1dRR5X+VEYTmrh7D2ZeHLnw0tlNSAbf
+         L0kNNPvQzmZgKa/PYR6Ptk3kFnWMSRprHW8fgDDex4ee/OPENQrd9Wl2t/ZvWIu4yfYq
+         YUQQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVsBVCQ4cdrrhXW2USY93/elRr/0UQFbW7NR83HLHMnrK0z7jBk
-	Yo7/rQ2g4aNxSXB3Xhv4BiU=
-X-Google-Smtp-Source: APXvYqwPHHq7kqK308O1o63FuvsyQnYDMfCq1p0HDka99b6Ea5u3JSW0LJy60gohA05O23uixlsZ/g==
-X-Received: by 2002:a2e:834e:: with SMTP id l14mr8806635ljh.158.1565412563026;
-        Fri, 09 Aug 2019 21:49:23 -0700 (PDT)
+X-Gm-Message-State: APjAAAWyqp4gJ7xb8i/hhrXjz9l4UDeAYdojLejeam6gCnv6bUCHgc+t
+	KKxwPieLUlgfRe2JEWbudrk=
+X-Google-Smtp-Source: APXvYqwTsv45cz0Dz2AKmsGTPL6fAwsrm1bCS+UtJJFRM9UVxuY3hpor4PSV9Qc7B9fnXpo3kTesFw==
+X-Received: by 2002:a81:352:: with SMTP id 79mr17101612ywd.149.1565421728179;
+        Sat, 10 Aug 2019 00:22:08 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:8c0c:: with SMTP id o12ls8531829lfd.12.gmail; Fri, 09
- Aug 2019 21:49:22 -0700 (PDT)
-X-Received: by 2002:a19:cbd3:: with SMTP id b202mr14543804lfg.185.1565412562582;
-        Fri, 09 Aug 2019 21:49:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565412562; cv=none;
+Received: by 2002:a25:bd89:: with SMTP id f9ls125062ybh.2.gmail; Sat, 10 Aug
+ 2019 00:22:07 -0700 (PDT)
+X-Received: by 2002:a25:ad54:: with SMTP id l20mr12759820ybe.125.1565421727919;
+        Sat, 10 Aug 2019 00:22:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565421727; cv=none;
         d=google.com; s=arc-20160816;
-        b=aV43UtgfUgkcC8Vxmrru3CBlXsmLBRnl+FSYudAOWsZ+YLfmDZa7O3+efXTx6WT7e5
-         w9tIv5x4SH15rnKe7ATdWBBIBVtV+FSLoKsWyBh++rPdwyebM9/i607CHRyQYVLnmoVv
-         hZXCHDjuAsE5Q0QF9WH/KSHoLunwWQc4ZVdDaqq5A8Bf4r6GOPz5SdK5mX7fI5x2ykDW
-         01N2/qQiFs02xQS9BkThxXk/1ENA9R7xMGt86ygE8T1/LNd2J2KKir6+nnMPPYk68ZmZ
-         dTKkEMmsKDA7lkswzcYnb5IKfDKs9JSJhZvYZMTRKVWw41uYMcpikaLOB7gg0ypkeqH1
-         c/bQ==
+        b=ze2j/7LktmIswMrHwp7wktLlGH6tFVUo15v+RFXfP/IxIKdt44kVMltd51o3/gNkhS
+         cjSfKe9CaDS8DFJx9x+OJI759TUISCAeg8qITY1pQm9JcA7nj8RrzcFJRqHcNqBBpfaI
+         J8MozMhe0RCMwLO/RjKn2TPhND3zYvxFU2BDAwhd+8svbhn9jcSJXJB6Ybb06vMBXJ/Y
+         069og7nOm5XQPQ7HJmiiwXBQ9WN98MdV9iS4n4Txn8ksgjrWLRZNvOIIyOUU3MZYIkl/
+         7TNIKOCJzuwdv8ezJVePIGYZ0yVQxWZRNvBbYBvFy3R/8qO+fdLHk2+N6FfmOKvlSCu4
+         dOOg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=ulCsjp9diZ2qriE+4Cg5mruQzjkUXFDOkC4POtPmsWA=;
-        b=cZp2it28DXk/SPuxa+Dm4thuc1B3DQ/B4W+cDMvKhZthVzym1LpRFHHLPzsGVAchYT
-         d5BGSnHXaYjE2sEMStPh+VTNZYRb60UaxWo8/+BkXnN7MxzHfGWb7+QpPqLmSSTOKSGm
-         J7D6l4oPTJxHAEuH6Slyb8LrHf0exi7q5aYei1BlMk6WrvzV3VkHhq2m7GlicKdn9X8l
-         TfVcqd3A6HkXM/EtwgHahb4rI8jnLFAx+GCMECli2NDPvE9wgRu/Fx5FkTiRfeSCtZW6
-         XJPWt7nDEbnJtAglsg3uY4goqIkRl9kg+jK59R1pH1zH72HdckTxSNJQvXAEYZ79Im/Y
-         c4oA==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=Kqvj5qJEEnuY9tHLIsHKAJCMxbCgSGhB0GQjUNBVzjU=;
+        b=o48ygKvoRJkLMJtoMI9ihM5iZ5mTUMG7yNJs9sNBntkmrRUDILbmunj1X0VrBq5bCm
+         kR+iadd/1YJo/e928WsHroJW/K3Lrh3bgM47kXU8+UdO8oLL1bMr1Vh3DDwf+kAt42b6
+         +m0eIyqknSmkp0F2Hy0oT9GUItqBz0QMp+LjR7P7rRnNCwQx339pTeUYqb5PoYKibDQJ
+         /uiLqj+KLVu3p0QsYPGGQ4Ep3HPoc7E4Vg5kQh+egzruLJ4eMFz81eCwuUpSeeLdvKM/
+         5la2x5q7qIkCGJ5umSPDfonmSQaW8c5DqglAyw+1A27rVgVr1mx28pINZJ/ma7g74KYC
+         p2gg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NGDK21aD;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id u10si1117339lfk.0.2019.08.09.21.49.22
+       dkim=pass header.i=@linaro.org header.s=google header.b="pN/qlGpA";
+       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id x65si1089237ybg.3.2019.08.10.00.22.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Fri, 09 Aug 2019 21:49:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
-Received: by mail-wm1-x342.google.com with SMTP id p74so7513906wme.4
-        for <clang-built-linux@googlegroups.com>; Fri, 09 Aug 2019 21:49:22 -0700 (PDT)
-X-Received: by 2002:a7b:c310:: with SMTP id k16mr13781272wmj.133.1565412561667;
-        Fri, 09 Aug 2019 21:49:21 -0700 (PDT)
-Received: from localhost.localdomain ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id x20sm218826181wrg.10.2019.08.09.21.49.20
+        Sat, 10 Aug 2019 00:22:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
+Received: by mail-pg1-x544.google.com with SMTP id w3so9734696pgt.13
+        for <clang-built-linux@googlegroups.com>; Sat, 10 Aug 2019 00:22:07 -0700 (PDT)
+X-Received: by 2002:a17:90a:9f0b:: with SMTP id n11mr12981206pjp.98.1565421726801;
+        Sat, 10 Aug 2019 00:22:06 -0700 (PDT)
+Received: from localhost.localdomain (li456-16.members.linode.com. [50.116.10.16])
+        by smtp.gmail.com with ESMTPSA id l17sm24872660pgj.44.2019.08.10.00.22.00
         (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Fri, 09 Aug 2019 21:49:20 -0700 (PDT)
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
+        Sat, 10 Aug 2019 00:22:05 -0700 (PDT)
+From: Leo Yan <leo.yan@linaro.org>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <kafai@fb.com>,
+	Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	David Miller <davem@davemloft.net>,
+	Milian Wolff <milian.wolff@kdab.com>,
+	Donald Yandt <donald.yandt@gmail.com>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	Wei Li <liwei391@huawei.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Mark Drayton <mbd@fb.com>,
+	"Tzvetomir Stoyanov (VMware)" <tz.stoyanov@gmail.com>,
 	linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH] firmware: arm_scmi: Eliminate local db variable in SCMI_PERF_FC_RING_DB
-Date: Fri,  9 Aug 2019 21:49:10 -0700
-Message-Id: <20190810044910.114015-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.23.0.rc2
-MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: natechancellor@gmail.com
+	Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Leo Yan <leo.yan@linaro.org>
+Subject: [PATCH v4 0/2] perf: arm/arm64: Improve completeness for kernel address space
+Date: Sat, 10 Aug 2019 15:21:33 +0800
+Message-Id: <20190810072135.27072-1-leo.yan@linaro.org>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: leo.yan@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=NGDK21aD;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linaro.org header.s=google header.b="pN/qlGpA";       spf=pass
+ (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544
+ as permitted sender) smtp.mailfrom=leo.yan@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -145,61 +149,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-clang warns four times:
+This patch set is to improve completeness for kernel address space for
+arm/arm64; it adds architecture specific tweaking for the kernel start
+address, thus can include the memory regions which are prior to '_stext'
+symbol.  With this change, we can see the eBPF program can be parsed
+properly on arm64.
 
-drivers/firmware/arm_scmi/perf.c:320:24: warning: variable 'db' is
-uninitialized when used within its own initialization [-Wuninitialized]
-                SCMI_PERF_FC_RING_DB(db, 64);
-                ~~~~~~~~~~~~~~~~~~~~~^~~~~~~
-drivers/firmware/arm_scmi/perf.c:300:31: note: expanded from macro
-'SCMI_PERF_FC_RING_DB'
-        struct scmi_fc_db_info *db = doorbell;          \
-                                ~~   ^~~~~~~~
+This patch set is a following up version for the old patch "perf cs-etm:
+Improve completeness for kernel address space" [1]; the old patch was
+only to fix the issue for CoreSight ETM event; but the kernel address space
+issue is not only limited to CoreSight event, it should be a common issue
+for other events (e.g. PMU events), clock events for profiling eBPF
+program.  So this patch set tries to resolve it as a common issue for
+arm/arm64 archs.
 
-This happens because the doorbell identifier becomes db after
-preprocessing:
+When implemented related code, I tried to use the API
+machine__create_extra_kernel_maps(); but I found the 'perf script' tool
+directly calls machine__get_kernel_start() instead of running into
+the flow for machine__create_extra_kernel_maps(); this is the reason I
+don't use machine__create_extra_kernel_maps() for tweaking kernel start
+address and refactor machine__get_kernel_start() alternatively.
 
-        if (db->width == 1)
-                do {
-                        u8 val = 0;
-                        struct scmi_fc_db_info *db = db;
-                        if (db->mask)
-                                val = ioread8(db->addr) & db->mask;
-                        iowrite8((u8)db->set | val, db->addr);
-                } while (0);
+If there have better method to resolve this issue, any suggestions and
+comments are very welcome!
 
-We could swap the doorbell and db identifiers within the macro and that
-would resolve the issue; however, there doesn't appear to be a good
-reason for having two copies of the same variable. Eliminate the one in
-the do while loop to prevent this warning and make the code clearer.
+[1] https://lkml.org/lkml/2019/6/19/1057
 
-Fixes: 8f12cbcb6abc ("firmware: arm_scmi: Make use SCMI v2.0 fastchannel for performance protocol")
-Link: https://github.com/ClangBuiltLinux/linux/issues/635
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
- drivers/firmware/arm_scmi/perf.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
-index 2c5201c8354c..ab946ef6b914 100644
---- a/drivers/firmware/arm_scmi/perf.c
-+++ b/drivers/firmware/arm_scmi/perf.c
-@@ -294,10 +294,9 @@ scmi_perf_describe_levels_get(const struct scmi_handle *handle, u32 domain,
- 	return ret;
- }
- 
--#define SCMI_PERF_FC_RING_DB(doorbell, w)		\
-+#define SCMI_PERF_FC_RING_DB(db, w)			\
- do {							\
- 	u##w val = 0;					\
--	struct scmi_fc_db_info *db = doorbell;		\
- 							\
- 	if (db->mask)					\
- 		val = ioread##w(db->addr) & db->mask;	\
+Leo Yan (2):
+  perf machine: Support arch's specific kernel start address
+  perf machine: arm/arm64: Improve completeness for kernel address space
+
+ tools/perf/Makefile.config           | 22 ++++++++++++++++++++++
+ tools/perf/arch/arm/util/Build       |  2 ++
+ tools/perf/arch/arm/util/machine.c   | 17 +++++++++++++++++
+ tools/perf/arch/arm64/util/Build     |  1 +
+ tools/perf/arch/arm64/util/machine.c | 17 +++++++++++++++++
+ tools/perf/arch/x86/util/machine.c   | 10 ++++++++++
+ tools/perf/util/machine.c            | 13 +++++++------
+ tools/perf/util/machine.h            |  2 ++
+ 8 files changed, 78 insertions(+), 6 deletions(-)
+ create mode 100644 tools/perf/arch/arm/util/machine.c
+ create mode 100644 tools/perf/arch/arm64/util/machine.c
+
 -- 
-2.23.0.rc2
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190810044910.114015-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190810072135.27072-1-leo.yan%40linaro.org.
