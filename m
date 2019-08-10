@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBJHBXHVAKGQEDDGHH3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBK7BXHVAKGQELXMHFXY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8C93C88915
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 09:22:14 +0200 (CEST)
-Received: by mail-pl1-x637.google.com with SMTP id y22sf58630291plr.20
-        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 00:22:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565421733; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id DA47C88919
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 09:22:20 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id q12sf2885342pfl.14
+        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 00:22:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565421739; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BnjukFd4B7HDeMaDZnEpoe2yqVtrywDMaIPCJzrrxXVK0u8oc6TlEzQhnKocwC81aR
-         f9pn+3RQwbck3HHkEMqPv0u/JVka449ToRACIwFPukDxx7KSTsuzZyVKT5vG3AL3x7jN
-         ARH+m6ekersbH5PhbThyeQqzlWOtECqhxXOmNxyr4PUimaYnoFmrnpPskEpxH9PQzDbK
-         yC+yrp1eCGfXOg92hisGh2GIO+dVGs7T7NxRpPBW42L5QXAXRiFGyqEXxoX1zGyp2v6q
-         PXf4PSGt74OD5YVg5d8/J9JpgPuztOlrr5shTN3Jt/yV7B7HcGJX1KCOuGMXfDSfFw16
-         tXLA==
+        b=ShXZiiTvaVhN5sqB4TtfDE1QZWjmUXLyFN4wGUrsO5STRHLc9RwgU+sx9IJqDZQH0U
+         abKJJugTsGnx/0Af/8Bo1V13htd8nFlJEZLAmNRJZjRxYY4ttAsv6IQEr52eJR8nZStx
+         o+qKBd1jg2pMlX2Bp6oGtwXRnJ6yQWB2f1e2I4RyqIEBHOxyfMDCuQbFHL5BS8HA8hcn
+         59rcx7h4UynBmhgpxBSL1dlURUH36X9Ii5ykNcS58PNPIBtyMdYg5d7fL1rm6+JP3Es4
+         uigQIeWujyWOII2m/3CNjdpCmVns9R2jaa3O+OFR2LAT9oDAppj210Rv3oM+rBxKKOTr
+         Djdw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=o/PwhMs4jSq5DSWv/THDE9aNUVNeWgityi2P6dFzr1g=;
-        b=jA2ruaP2bjqrZLbIF51HnRiouCU6Jz3GozY46dhIfxX3wnBEO+szxbZlWME9JBIGzL
-         17m0089LuEdmIHHpBwRzPF6Vvjh4Emi8XzGtkB/CglrfI61aDD0SEOKZAz4lMY4LIWvr
-         9YgKpRcoTB0tqV//qv4ajhVjrGZYqUkYYPODlnCScla/+8XuHOop5N9tOMWLvnAkOUap
-         x3m/faN35q36XB335KJC9iTbe3DkdU5UKgjQW9AWjYcRWSau8UGt3qgFysU1UwDg0kuR
-         y594N2wP6ZWFGwtf5b9ecInMRQtcl/hMM6y71I+lcLBU/irqCT3SxWCcpj87lBZLv89M
-         4Qdg==
+        bh=6IweqFLIhr3cMyxjkCKhIgS1KnBj/yxiEsn1VhQe+8U=;
+        b=LFDPgkjs6oOIbO0f+FvewUmNfIkNP6bIWmkuZhTIytwhcbqKnUhrVQijXxzcBa7ysU
+         QiPhleWlIlzlrlqlGu50o4g3LRBGkf84BzmX5qwYdAlMWKWX+Ew+PgCFkrXHWsWD1T/2
+         6j7+mfFbejrqNnXTjowAT8D7e3fMaWPpJCDjQFGwjIHlda8lrPwePttPbUA3ChAGJghD
+         SNo0xJ1WsfaqLvFf64n3HGErm3PN7UoSa6riDMDzyh44vpD7JLAIIQgeC319P0/tRJXC
+         YTE85kcuUoh3xtb6Ns/dGYwUwfuFrQgWK17e7gcvLSERXkQ+Iusl9dC5EGC5Z7xYbisV
+         ijoA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=wQJH7ETU;
+       dkim=pass header.i=@linaro.org header.s=google header.b=JUllOmye;
        spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o/PwhMs4jSq5DSWv/THDE9aNUVNeWgityi2P6dFzr1g=;
-        b=JdBOukX8R3T83lJcJ4YWuJeqyx6p8WSHRMHCxTeWTLjk3zJVz4bIZL2scrjr94yfhU
-         r6RpDK80hd6Sc33zMRslQu4aeTMdXoRCFSJ0opdkCeZtsaeWGev6W20rVjWcpRjJX5LE
-         QYLy24Ybw198IJG3CLUXt2kFvf74nWOY8eF1FWIKajuGKNT7ujmCl3nhgVDmFCkxda8h
-         OxFnRq2coSvuthXn7EowWRZv1Ez0FQdcbHZ5z0KSBs4+YFQHmK5LAyONakE84hm6F1l6
-         ijkfNzK8YuRNTVBzEVqObhb0GvAJ8G+YElr/zh7euOSPv1vk+aRrI1VVMsH/0Sxl0RMc
-         vAog==
+        bh=6IweqFLIhr3cMyxjkCKhIgS1KnBj/yxiEsn1VhQe+8U=;
+        b=khLLKzky2NdYDqqgCgpp7JMraGbmwdEYN6kvpDbY8HaBUyYH4Ry6KStw6FJHJOIImt
+         siWjq/qlhhCoOudZQLzD33UkWmK5Ka0dcA9hadc1VqSOSA5ZsDEPEKsz6QEkQmBcZt2T
+         QPBYBFNSOYQlCS+b/ubNi27zfTDu91uwtj9JVmkPWUjWqkwjozgukkJmTFyboCg2JM8G
+         0plT1JxRA3fW/e6tj5c3VySZAb/KzW+yvKoKSr+Ak0X4AZ1legEM+cwNWI4xGxJD20BC
+         V6CCxQ+lfhsZaNKSIJp+UkcrHdfiJ0SkL3B3ubMNQUTpWyYj5Gg3a/rs/CcmvXrbWGoI
+         T74A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
@@ -49,61 +49,61 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o/PwhMs4jSq5DSWv/THDE9aNUVNeWgityi2P6dFzr1g=;
-        b=GM9bOQg1xcMiMKDGL3Ee5Eu045e4VoePlGg6oOQmga8Ne3JAH/aJgi/a5Kmz7g8Num
-         RaYcUUY+3LEFfKDEJ/LYnjBIKb0fy/d2nTe9HbciRiEkgzm8DRgZlK13g+qRvjM72AnG
-         kio8RkE/Zp7VMDYpIoSmN3RNRvD3ngIZgxV8OA5wQoXSAZghgEEyoaH8TItwYFTGLDuZ
-         R2C+trA9X9AYTMzLPmlUc5sDLa8QlqDuv4sMHIIsYnQCVMHStww1oFHf88tN+fI974i7
-         ty4D2u/wnt7y4AtFV9+U8evYSVvf0R3Mpc/wizTvVOgAvDU4zySMAovDcjdcTxbikOg9
-         xYlQ==
+        bh=6IweqFLIhr3cMyxjkCKhIgS1KnBj/yxiEsn1VhQe+8U=;
+        b=ZebHaNiT7eCMpkqbW04Qp2vHbvidbPYW/3kywAxxj9gmyXnVUO5Cy0qqGcswxFJUIz
+         nD04J4G0s8Tb1siRiEXDpx5Pou0IOmpTY4l9jjzRHjS73GN0VD72sbxBqjnABlYADlX7
+         mY3e2aFMG69LY/K5YS8c+hzolA2ZiaZyVfGeTs7Y8uTZD/lNyKjmQ/bID1tBkk8yO/1H
+         HnjJ270Dd+14srf89lpZuUDoiTJ4gYOyIpU7E79CbOFL7vAhJKYBAbEikWgiq9y2EwNU
+         1N3YLYatfdLxVZkdrdU1pL+klwbZjIDxpixtN/MfM+dE2+D2eCq1pnhbkbVqOtSd93Xt
+         xSig==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX/d9WfBOIUgMGLZ2QzObyUjUaIaL67xq3iMb16Q/JmBp+rgBXS
-	ogDrvpaVOMt2jZbKkP1l/g8=
-X-Google-Smtp-Source: APXvYqy+KLjq57NlC/zXgnO1p1ftyIHyOVmvu7EsuK5OiAJJkfr6ACSGeTbeMqZE0yjLRB3GEkdoSA==
-X-Received: by 2002:a62:ac11:: with SMTP id v17mr25783846pfe.236.1565421732925;
-        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
+X-Gm-Message-State: APjAAAXkUIYuqVmYuaaYCgFSF0DHNJK0b1indpCt6i+l6exTBzIlMEJU
+	m4pIu/6w3p+i2Ebl56Kh7HQ=
+X-Google-Smtp-Source: APXvYqzowwjwJBm7RGEogrk0RxuFCCf+ogel/DfqM1+FpSP6jxBcvJ6WGhWbKxP5+N6GgDQiaHGX8A==
+X-Received: by 2002:a63:3387:: with SMTP id z129mr20793195pgz.177.1565421739440;
+        Sat, 10 Aug 2019 00:22:19 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:34e:: with SMTP id 75ls20264703pgd.11.gmail; Sat, 10 Aug
- 2019 00:22:12 -0700 (PDT)
-X-Received: by 2002:aa7:8c03:: with SMTP id c3mr2830467pfd.139.1565421732656;
-        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565421732; cv=none;
+Received: by 2002:a63:954c:: with SMTP id t12ls21800918pgn.12.gmail; Sat, 10
+ Aug 2019 00:22:19 -0700 (PDT)
+X-Received: by 2002:a62:5c3:: with SMTP id 186mr25799454pff.144.1565421739106;
+        Sat, 10 Aug 2019 00:22:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565421739; cv=none;
         d=google.com; s=arc-20160816;
-        b=iSPyvXh94lSruEzzIvimtxQs2pVQmJ9onTlTOv9TgvDLYHRR5sbspP84p2Pp4tlXKX
-         N1NctJNcamr2+gguToy3iHROztzFVwM7ow7jwZozHoZznb1QlyIIiriyU2qCwPCxAj+L
-         rn1VX2bva2oX/6lyh7tGdqzbm7KZ5E6Rt18fvDPKc9EiBL9CAI35Og5sDsPFoRcuKLxF
-         ez+2fWPX3Dww4CxH86NiFxL5c5CXHbzuYIZ+hZjlkOwEZcLNzhS8S9DdzYIrJYshHCvK
-         eejjpoq2CqI+Z98rsVw2IMkekcMjA6kG3MmDSKS2DsTPxplHAw3F7T6M5UiMtxGkhmfI
-         L/mA==
+        b=xutf+maUf1Jd0++tCXoFYKk8NnOYMyjEzXtA9zOi49L1lQQ4hVMv/Wd6N8MM5JGKQV
+         Hh9sIXRDafas5L8bp9g/39IuOy5ovaoGI/Wzj5xLbNcVhLu+Cu4+Exp2egXeFnIjbrT9
+         UTsrH0p7WVRJkgN1fg5qopFUZ0FC0e2H6CB+vT2UqHmv3h1SrnZcIX6Xd4BMc2UqNJPp
+         5caeWQjnKcB7FHx2GD7PTs80gxlvz0xkKfAhkr/ZVPrl66AKCpVT5O26hO1/XfFNNQTS
+         bi1YM+kIXr/E4TghKBaqPPqNLyoF4chO3cnJZL571YonDEATXzrf/2pLWYY9wQ+F4Dxu
+         j3fw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature;
-        bh=SUoVe7v3rT/MuQ/nwpXN/VHHe+ExuqKtoNBajOsMZ6w=;
-        b=ULLVtIVo21GZgmmDrz250bmWy+hS2P9zt1ZvZcMWXE7uir6AH4MF5jj6uNoPGwvOL0
-         1kt9gSjMDqqtw+qtk3iAsa/+8n1FPqCyGXZ0RqT/PH3fg4wMtQ9SM1nlxMbWxTRDZkHT
-         lAniwB9xw0sxm37F9tE52fyGoFmvLUZVV99NL0AJVHwdRnGTnpDvuY7PaQl7L8gkcviH
-         +Q3yw8puUupMKx6uV+IB+zONGF1DjBrF1vYYNYmcGIMtqeAdpBGkWLbSJVG/JQ4ZKfjf
-         CPcKBTD+OmAh0j2f8p3Ly3F8FXAUlQbggJlE5KStyn2mhQlnhr7s5eDfvxvWkMejk4Bt
-         5amg==
+        bh=910+jA2CCo8T9/juoYypHUZPc1nu2oE10wZ3w1PIFww=;
+        b=s2OsHBKaYdscWGTzrhSMUTN+bQefCHDfs2y63aqiXkWEs8y5/LlgtE82Jf8cLkivMX
+         kjwLFaJga6Zo20vREmIO8b7pbkkCPgBNuGNwzsxPB/UxH9hIwbheEfrPbOqJfvkwR8Na
+         RnGW0NlMHUUTzzs9svaEXI4PLlZISInLIcHdTaRbUbQzTVjfiZQ5g+o4TMFm7cCJIAlL
+         /5qPlOFNdXYhKpBPcb3VbqXtxtzwvGTtKPTa/nZW9uSru4aC3uiUewV7GitEHErI+aOx
+         3+UBEqqYoWhGg+QRN1NOOrrBv9PeOmp9VOQdJXRsOaSLJ97cMZ45HnWGt5o2fTN+6iP2
+         3cmA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=wQJH7ETU;
+       dkim=pass header.i=@linaro.org header.s=google header.b=JUllOmye;
        spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id cm10si4350001plb.0.2019.08.10.00.22.12
+        by gmr-mx.google.com with ESMTPS id b8si32737pjp.2.2019.08.10.00.22.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
+        Sat, 10 Aug 2019 00:22:19 -0700 (PDT)
 Received-SPF: pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id n190so6130070pgn.0
-        for <clang-built-linux@googlegroups.com>; Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
-X-Received: by 2002:a63:124a:: with SMTP id 10mr20982007pgs.254.1565421732167;
-        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
+Received: by mail-pg1-x542.google.com with SMTP id d1so14122910pgp.4
+        for <clang-built-linux@googlegroups.com>; Sat, 10 Aug 2019 00:22:19 -0700 (PDT)
+X-Received: by 2002:a62:174a:: with SMTP id 71mr26588503pfx.140.1565421738783;
+        Sat, 10 Aug 2019 00:22:18 -0700 (PDT)
 Received: from localhost.localdomain (li456-16.members.linode.com. [50.116.10.16])
-        by smtp.gmail.com with ESMTPSA id l17sm24872660pgj.44.2019.08.10.00.22.07
+        by smtp.gmail.com with ESMTPSA id l17sm24872660pgj.44.2019.08.10.00.22.12
         (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Sat, 10 Aug 2019 00:22:11 -0700 (PDT)
+        Sat, 10 Aug 2019 00:22:18 -0700 (PDT)
 From: Leo Yan <leo.yan@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
@@ -127,16 +127,20 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Leo Yan <leo.yan@linaro.org>
-Subject: [PATCH v4 1/2] perf machine: Support arch's specific kernel start address
-Date: Sat, 10 Aug 2019 15:21:34 +0800
-Message-Id: <20190810072135.27072-2-leo.yan@linaro.org>
+Cc: Leo Yan <leo.yan@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Suzuki Poulouse <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 2/2] perf machine: arm/arm64: Improve completeness for kernel address space
+Date: Sat, 10 Aug 2019 15:21:35 +0800
+Message-Id: <20190810072135.27072-3-leo.yan@linaro.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20190810072135.27072-1-leo.yan@linaro.org>
 References: <20190810072135.27072-1-leo.yan@linaro.org>
 X-Original-Sender: leo.yan@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=wQJH7ETU;       spf=pass
+ header.i=@linaro.org header.s=google header.b=JUllOmye;       spf=pass
  (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542
  as permitted sender) smtp.mailfrom=leo.yan@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
@@ -153,94 +157,230 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-machine__get_kernel_start() gives out the kernel start address; some
-architectures need to tweak the start address so that can reflect the
-kernel start address correctly.  This is not only for x86_64 arch, but
-it is also required by other architectures, e.g. arm/arm64 needs to
-tweak the kernel start address so can include the kernel memory regions
-which are used before the '_stext' symbol.
+Arm and arm64 architecture reserve some memory regions prior to the
+symbol '_stext' and these memory regions later will be used by device
+module and BPF jit.  The current code misses to consider these memory
+regions thus any address in the regions will be taken as user space
+mode, but perf cannot find the corresponding dso with the wrong CPU
+mode so we misses to generate samples for device module and BPF
+related trace data.
 
-This patch refactors machine__get_kernel_start() by adding a weak
-arch__fix_kernel_text_start(), any architecture can implement it to
-tweak its specific start address; this also allows the arch specific
-code to be placed into 'arch' folder.
+This patch parse the link scripts to get the memory size prior to start
+address and reduce this size from 'machine>->kernel_start', then can
+get a fixed up kernel start address which contain memory regions for
+device module and BPF.  Finally, machine__get_kernel_start() can reflect
+more complete kernel memory regions and perf can successfully generate
+samples.
 
+The reason for parsing the link scripts is Arm architecture changes text
+offset dependent on different platforms, which define multiple text
+offsets in $kernel/arch/arm/Makefile.  This offset is decided when build
+kernel and the final value is extended in the link script, so we can
+extract the used value from the link script.  We use the same way to
+parse arm64 link script as well.  If fail to find the link script, the
+pre start memory size is assumed as zero, in this case it has no any
+change caused with this patch.
+
+Below is detailed info for testing this patch:
+
+- Install or build LLVM/Clang;
+
+- Configure perf with ~/.perfconfig:
+
+  root@debian:~# cat ~/.perfconfig
+  # this file is auto-generated.
+  [llvm]
+          clang-path = /mnt/build/llvm-build/build/install/bin/clang
+          kbuild-dir = /mnt/linux-kernel/linux-cs-dev/
+          clang-opt = "-g"
+          dump-obj = true
+
+  [trace]
+          show_zeros = yes
+          show_duration = no
+          no_inherit = yes
+          show_timestamp = no
+          show_arg_names = no
+          args_alignment = 40
+          show_prefix = yes
+
+- Run 'perf trace' command with eBPF event:
+
+  root@debian:~# perf trace -e string \
+      -e $kernel/tools/perf/examples/bpf/augmented_raw_syscalls.c
+
+- Read eBPF program memory mapping in kernel:
+
+  root@debian:~# echo 1 > /proc/sys/net/core/bpf_jit_kallsyms
+  root@debian:~# cat /proc/kallsyms | grep -E "bpf_prog_.+_sys_[enter|exit]"
+  ffff00000008a0d0 t bpf_prog_e470211b846088d5_sys_enter  [bpf]
+  ffff00000008c6a4 t bpf_prog_29c7ae234d79bd5c_sys_exit   [bpf]
+
+- Launch any program which accesses file system frequently so can hit
+  the system calls trace flow with eBPF event;
+
+- Capture CoreSight trace data with filtering eBPF program:
+
+  root@debian:~# perf record -e cs_etm/@tmc_etr0/ \
+	--filter 'filter 0xffff00000008a0d0/0x800' -a sleep 5s
+
+- Decode the eBPF program symbol 'bpf_prog_f173133dc38ccf87_sys_enter':
+
+  root@debian:~# perf script -F,ip,sym
+  Frame deformatter: Found 4 FSYNCS
+                  0 [unknown]
+   ffff00000008a1ac bpf_prog_e470211b846088d5_sys_enter
+   ffff00000008a250 bpf_prog_e470211b846088d5_sys_enter
+                  0 [unknown]
+   ffff00000008a124 bpf_prog_e470211b846088d5_sys_enter
+                  0 [unknown]
+   ffff00000008a14c bpf_prog_e470211b846088d5_sys_enter
+   ffff00000008a13c bpf_prog_e470211b846088d5_sys_enter
+   ffff00000008a14c bpf_prog_e470211b846088d5_sys_enter
+                  0 [unknown]
+   ffff00000008a180 bpf_prog_e470211b846088d5_sys_enter
+                  0 [unknown]
+   ffff00000008a1ac bpf_prog_e470211b846088d5_sys_enter
+   ffff00000008a190 bpf_prog_e470211b846088d5_sys_enter
+   ffff00000008a1ac bpf_prog_e470211b846088d5_sys_enter
+   ffff00000008a250 bpf_prog_e470211b846088d5_sys_enter
+                  0 [unknown]
+   ffff00000008a124 bpf_prog_e470211b846088d5_sys_enter
+                  0 [unknown]
+   ffff00000008a14c bpf_prog_e470211b846088d5_sys_enter
+                  0 [unknown]
+   ffff00000008a180 bpf_prog_e470211b846088d5_sys_enter
+   [...]
+
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Jiri Olsa <jolsa@redhat.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Suzuki Poulouse <suzuki.poulose@arm.com>
+Cc: coresight@lists.linaro.org
+Cc: linux-arm-kernel@lists.infradead.org
 Signed-off-by: Leo Yan <leo.yan@linaro.org>
 ---
- tools/perf/arch/x86/util/machine.c | 10 ++++++++++
- tools/perf/util/machine.c          | 13 +++++++------
- tools/perf/util/machine.h          |  2 ++
- 3 files changed, 19 insertions(+), 6 deletions(-)
+ tools/perf/Makefile.config           | 22 ++++++++++++++++++++++
+ tools/perf/arch/arm/util/Build       |  2 ++
+ tools/perf/arch/arm/util/machine.c   | 17 +++++++++++++++++
+ tools/perf/arch/arm64/util/Build     |  1 +
+ tools/perf/arch/arm64/util/machine.c | 17 +++++++++++++++++
+ 5 files changed, 59 insertions(+)
+ create mode 100644 tools/perf/arch/arm/util/machine.c
+ create mode 100644 tools/perf/arch/arm64/util/machine.c
 
-diff --git a/tools/perf/arch/x86/util/machine.c b/tools/perf/arch/x86/util/machine.c
-index 1e9ec783b9a1..9f012131534a 100644
---- a/tools/perf/arch/x86/util/machine.c
-+++ b/tools/perf/arch/x86/util/machine.c
-@@ -101,4 +101,14 @@ int machine__create_extra_kernel_maps(struct machine *machine,
- 	return ret;
- }
+diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
+index e4988f49ea79..76e0ad0b4fd2 100644
+--- a/tools/perf/Makefile.config
++++ b/tools/perf/Makefile.config
+@@ -51,6 +51,17 @@ endif
+ ifeq ($(SRCARCH),arm)
+   NO_PERF_REGS := 0
+   LIBUNWIND_LIBS = -lunwind -lunwind-arm
++  PRE_START_SIZE := 0
++  ifneq ($(wildcard $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds),)
++    # Extract info from lds:
++    #   . = ((0xC0000000)) + 0x00208000;
++    # PRE_START_SIZE := 0x00208000
++    PRE_START_SIZE := $(shell egrep ' \. \= \({2}0x[0-9a-fA-F]+\){2}' \
++      $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds | \
++      sed -e 's/[(|)|.|=|+|<|;|-]//g' -e 's/ \+/ /g' -e 's/^[ \t]*//' | \
++      awk -F' ' '{printf "0x%x", $$2}' 2>/dev/null)
++  endif
++  CFLAGS += -DARM_PRE_START_SIZE=$(PRE_START_SIZE)
+ endif
  
+ ifeq ($(SRCARCH),arm64)
+@@ -58,6 +69,17 @@ ifeq ($(SRCARCH),arm64)
+   NO_SYSCALL_TABLE := 0
+   CFLAGS += -I$(OUTPUT)arch/arm64/include/generated
+   LIBUNWIND_LIBS = -lunwind -lunwind-aarch64
++  PRE_START_SIZE := 0
++  ifneq ($(wildcard $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds),)
++    # Extract info from lds:
++    #  . = ((((((((0xffffffffffffffff)) - (((1)) << (48)) + 1) + (0)) + (0x08000000))) + (0x08000000))) + 0x00080000;
++    # PRE_START_SIZE := (0x08000000 + 0x08000000 + 0x00080000) = 0x10080000
++    PRE_START_SIZE := $(shell egrep ' \. \= \({8}0x[0-9a-fA-F]+\){2}' \
++      $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds | \
++      sed -e 's/[(|)|.|=|+|<|;|-]//g' -e 's/ \+/ /g' -e 's/^[ \t]*//' | \
++      awk -F' ' '{printf "0x%x", $$6+$$7+$$8}' 2>/dev/null)
++  endif
++  CFLAGS += -DARM_PRE_START_SIZE=$(PRE_START_SIZE)
+ endif
+ 
+ ifeq ($(SRCARCH),csky)
+diff --git a/tools/perf/arch/arm/util/Build b/tools/perf/arch/arm/util/Build
+index 296f0eac5e18..efa6b768218a 100644
+--- a/tools/perf/arch/arm/util/Build
++++ b/tools/perf/arch/arm/util/Build
+@@ -1,3 +1,5 @@
++perf-y += machine.o
++
+ perf-$(CONFIG_DWARF) += dwarf-regs.o
+ 
+ perf-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
+diff --git a/tools/perf/arch/arm/util/machine.c b/tools/perf/arch/arm/util/machine.c
+new file mode 100644
+index 000000000000..db172894e4ea
+--- /dev/null
++++ b/tools/perf/arch/arm/util/machine.c
+@@ -0,0 +1,17 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/types.h>
++#include <linux/string.h>
++#include <stdlib.h>
++
++#include "../../util/machine.h"
++
 +void arch__fix_kernel_text_start(u64 *start)
 +{
 +	/*
-+	 * On x86_64, PTI entry trampolines are less than the
-+	 * start of kernel text, but still above 2^63. So leave
-+	 * kernel_start = 1ULL << 63 for x86_64.
++	 * On arm, the 16MB virtual memory space prior to 'kernel_start' is
++	 * allocated to device modules, a PMD table if CONFIG_HIGHMEM is
++	 * enabled and a PGD table.  To reflect the complete kernel address
++	 * space, compensate the pre-defined regions for kernel start address.
 +	 */
-+	*start = 1ULL << 63;
++	*start = *start - ARM_PRE_START_SIZE;
 +}
+diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
+index 3cde540d2fcf..8081fb8a7b3d 100644
+--- a/tools/perf/arch/arm64/util/Build
++++ b/tools/perf/arch/arm64/util/Build
+@@ -1,4 +1,5 @@
+ perf-y += header.o
++perf-y += machine.o
+ perf-y += sym-handling.o
+ perf-$(CONFIG_DWARF)     += dwarf-regs.o
+ perf-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
+diff --git a/tools/perf/arch/arm64/util/machine.c b/tools/perf/arch/arm64/util/machine.c
+new file mode 100644
+index 000000000000..61058dca8c5a
+--- /dev/null
++++ b/tools/perf/arch/arm64/util/machine.c
+@@ -0,0 +1,17 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/types.h>
++#include <linux/string.h>
++#include <stdlib.h>
 +
- #endif
-diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-index f6ee7fbad3e4..603518835692 100644
---- a/tools/perf/util/machine.c
-+++ b/tools/perf/util/machine.c
-@@ -2671,6 +2671,10 @@ int machine__nr_cpus_avail(struct machine *machine)
- 	return machine ? perf_env__nr_cpus_avail(machine->env) : 0;
- }
- 
-+void __weak arch__fix_kernel_text_start(u64 *start __maybe_unused)
++#include "../../util/machine.h"
++
++void arch__fix_kernel_text_start(u64 *start)
 +{
++	/*
++	 * On arm64, the root PGD table, device module memory region and
++	 * BPF jit region are prior to 'kernel_start'.  To reflect the
++	 * complete kernel address space, compensate these pre-defined
++	 * regions for kernel start address.
++	 */
++	*start = *start - ARM_PRE_START_SIZE;
 +}
-+
- int machine__get_kernel_start(struct machine *machine)
- {
- 	struct map *map = machine__kernel_map(machine);
-@@ -2687,14 +2691,11 @@ int machine__get_kernel_start(struct machine *machine)
- 	machine->kernel_start = 1ULL << 63;
- 	if (map) {
- 		err = map__load(map);
--		/*
--		 * On x86_64, PTI entry trampolines are less than the
--		 * start of kernel text, but still above 2^63. So leave
--		 * kernel_start = 1ULL << 63 for x86_64.
--		 */
--		if (!err && !machine__is(machine, "x86_64"))
-+		if (!err)
- 			machine->kernel_start = map->start;
- 	}
-+
-+	arch__fix_kernel_text_start(&machine->kernel_start);
- 	return err;
- }
- 
-diff --git a/tools/perf/util/machine.h b/tools/perf/util/machine.h
-index ef803f08ae12..9cb459f4bfbc 100644
---- a/tools/perf/util/machine.h
-+++ b/tools/perf/util/machine.h
-@@ -278,6 +278,8 @@ void machine__get_kallsyms_filename(struct machine *machine, char *buf,
- int machine__create_extra_kernel_maps(struct machine *machine,
- 				      struct dso *kernel);
- 
-+void arch__fix_kernel_text_start(u64 *start);
-+
- /* Kernel-space maps for symbols that are outside the main kernel map and module maps */
- struct extra_kernel_map {
- 	u64 start;
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190810072135.27072-2-leo.yan%40linaro.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190810072135.27072-3-leo.yan%40linaro.org.
