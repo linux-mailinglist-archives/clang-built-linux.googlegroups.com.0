@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBCVFXLVAKGQEOM7Z4JQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBFNTXLVAKGQEQ6E2AII@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 12B7F88A68
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 11:46:52 +0200 (CEST)
-Received: by mail-pf1-x438.google.com with SMTP id i26sf62951744pfo.22
-        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 02:46:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565430410; cv=pass;
+Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D44A988A91
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 12:16:54 +0200 (CEST)
+Received: by mail-ot1-x33a.google.com with SMTP id 20sf30609804oty.1
+        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 03:16:54 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565432213; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sAfRyBC3CLhkJnMB7yZ5or7vOgsE83ptuKwoKR8SeM9J7EU4QTHlZNjjQp8B0gSxqv
-         rabmzncJTCC7ipYxrn72g+RoCe2LKgyw2dIzwagppXnu+HEGnzFs6D2Tiqv6DKPlRZ53
-         2M5qqTPdcn5ak56iQ/sKCC8Z/N+vVP12ejrwgYR5XTj8oyQ7RklzBiqCYtUQWx7Tttoe
-         w7j2bUr+5YdNisyI7AIUZuuczHExgbC5Q24+ctAeHQOby3C16+UYPhqvgzFl8Pdoqbny
-         HenTb4PHpu/4UsG5FMkAZQDUfuN1iy4YQkXcXbWaUvK8MVsCMfM/0MxVdhjo4/bsTQ98
-         T6zQ==
+        b=nNrzbNeksw01QvEHI4Qs+r6JFK3FSA0OB7h0QVHLpB/JhUBK5FSwiHshf9m1Abgwlb
+         sOjLD29HMPULtCOP4IxC7XPKR4BJFmAiGo21lf3xIqIqm8BEaI56U8U4jFaF4e6Hfb54
+         7pwYe9kUwj+XSGc6Ylxk67XuQ5EKZ93JC1XBbZvfoq8xjyY0sfy2CmnuvKFrbK/AAV1z
+         +jPedhDEkXAWqJMk7rr/Ef3QxlY4ndjyS8F18STJpAkjmrB69SLS/KDS/XYdC6ZxBz59
+         bYtNSujIJdUkIi1PYxgEv89vdcXV6KgMjV2zLPvkFd4BLxBLwrGQTUJhInoJ6O4+joEz
+         BGag==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=tgcmGVdEsPk7FsBTqqahKZZpo6VHdYfwd7M3/HNOphE=;
-        b=NhVztuy4aJpUFEuiS8zC/ria+XJtvLm7Vn+3G5E6jSDp1AI2d4S6pMqdcDaWMJIKWf
-         29OuYn46pHZYTTn7yC5s+e95ikuoUFjPGZCK4x/PzpJfUlG9BnmkrU4m5PMefHc3jjEH
-         kBQOjMPKOH1skHCCl7sm2gRk9pc2VmnNDNyx0LF5zUW+4k9KO3ipJeD++9F+mK6nowDn
-         eACcQTDsB+MDijkrmHuA6svVffyMkKVxGkpUbdiuvctht7RnAw5acKKvNM9PmVLchNd5
-         ykkccPAibpYrJHGeC8GHstmsBESh+jkV/vCLYypJcxpnOJqrUuwLe073dkoo8M4qv2gZ
-         mDPg==
+        bh=ZjsoVCs1gudjC2TmrTul3+b/Wmp5Ve6IsRVlo0BeFaU=;
+        b=XpwNq95hrkQFByPqRn/orMpbBTEIX3dAPQHpy5fHczMEyIKTlq6XDric1cpfkw1D6l
+         8VJRr/tjjJj1J3UKy0Hj5LT8gNl3/9qOiQ4OiqPwluHfZ26oNtKv+YqsWWZwfwAj1kK3
+         Ml1YXmDxnMsq47+q4AdLEjWGKoq/Y/4hFk1XvaJbYhXcTrMJnAySbJPqpgLUngE+YyVN
+         G+oK8wUkr8gA9XBbinIEChbzcdKEvoJkj1Faifs9GP+iMvrOt3JYHq+mPjsorptj20cf
+         Z6X966aFJ8X+opFpfKm4l+cMSCDNW9gKhbEASbqxQrTOIGws2DzM57gvtGtT9hy3Cfeo
+         d7UQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tgcmGVdEsPk7FsBTqqahKZZpo6VHdYfwd7M3/HNOphE=;
-        b=KvCflxv5YHIkJERhy/ztR6wCaYqo3zoRRqkuRJHgQ2+kZQ896TrsWGI992S46fr13/
-         fral8RFBSFNfC0WH2KoPIyZ+bl2M/twyPlR9pw8vEgq37jF3DyORtwybVIxk5q3IRrkL
-         Lgq6yGTJ4SeTKhkGYB9KVlMOkOQ878g4Fm8uYS4FMEz3J2N62dSxepPChEoi8mgLCdLX
-         blb1SKuR38Hv+yMbEpJUy5KKkd/k+yolnVivnPWpc4RTEqH0Ny0++/pB2qz8kfskfbLY
-         91e3hVwkJbzKwZg9H13dN+67AxKVPyHu2vjXFUfA41xfKH1uLJ069xeyVa6J37qxb45l
-         fxow==
+        bh=ZjsoVCs1gudjC2TmrTul3+b/Wmp5Ve6IsRVlo0BeFaU=;
+        b=fkqZH6VeXaADk5I8XIf8+vGOJkHwdWbazRXOiJWxRFSn2YSB0oCXRmi9DZvrJAQ87v
+         v3bKvvLWjSxke5sLByX2K6RqHAfsx9+A2eZd7mYyIwx93AIQ6XR09pFpKLuRHvbagKze
+         pYuTBBmnOaTOVeCUbQmxVMPWDI6kTv2QCcJ4rhPvkr+3bku8wTSGS37sMhZ1gFdvbDXE
+         gSBU6X5tEi0ePHPqn/78do5FGrhXyYg/Qn5QKjxzM8ZtSlYw8Mo2pobtEp6IaBT4eDtH
+         LJ3u7qy6nv8QntRNBf9EbNwHW77+fL2kNP+Fksny+OCG+vfmKKgp0v+pITniccF773Os
+         pnTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tgcmGVdEsPk7FsBTqqahKZZpo6VHdYfwd7M3/HNOphE=;
-        b=dk777gZd67V7c33gDM8lPvN0pcqYROOkehOhzfsVSV2aq0pY4KjZszwUc66qzvluHy
-         AHIEi9UuWgMrRN4/9EXvgmN7IHvkqDEvmmONxLoAS1Tobee1ZuOql9HZnI+RD5KF0hb8
-         bGyOKeywX5T71yXFuSonSky+SpZBfIlOhBfuQ453BiEYg4eAK0KLkrbLLT9isB1emlCe
-         +dqZ86Idf8+T6JE5Ncktip66B1RBzA66W5pDbfPrHQ3Ey6ZPCef3qftsYiSThtZKF8r/
-         s5z4nRecHppXSWAirXyjFZC7xZi0tbFf7YwyHFseOXSl6qnEDiWcAtIcTrt64lBikusv
-         8fpg==
+        bh=ZjsoVCs1gudjC2TmrTul3+b/Wmp5Ve6IsRVlo0BeFaU=;
+        b=iTcOHc5NpknWPGRbOzmgOrCL/NzEAseYh8/0GMN9nwpwRWeLO3p7xsSeDIklC/Tgey
+         ekmpNhgR9x7xR4W8xa9ps9EgLoLty0pjly54S7Aui2QZ9ybPGvGwWTY3zpXVgQaNvIUL
+         xgikX1gchI86CjJf6nZqLuzwVopME8dqLqOZc3Cum0BB4sLA6IyBWcIT77iKZHYG7MqG
+         9aJKbJDXcONNimS5h3NeJGY8inamWIrIVUCl4sa7aTuXpiYozxZ8BMBn+D6vcHCvlXAs
+         XTC9YTIyxkiPcHiR7hQbRL93aN8rhnt+f+cSqRHyNChRVwMu/EtSpeMwRc0NknXt8fmL
+         AnJg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU++s/V1CivRjgkwSDTMtv3GehaXv2K45bNlAgRYklWcUDipyFc
-	Chy2fryPwWNlb1kThuFI7O4=
-X-Google-Smtp-Source: APXvYqwbEql2kjyTbPe6haZWHY6lz52QHynORmSMFIVVFNxgLObhaTwcvpprwA44WG1UyGZf+onLaA==
-X-Received: by 2002:a17:90a:3542:: with SMTP id q60mr1780868pjb.0.1565430410568;
-        Sat, 10 Aug 2019 02:46:50 -0700 (PDT)
+X-Gm-Message-State: APjAAAVm3SK6wktODlP14wnULjacGcyXJKEvtvu55ClprhmyDRrm6X9q
+	tCn5CKDK2rgeez5CJNJmj0I=
+X-Google-Smtp-Source: APXvYqww7+ohOx6sEnFEPaFsQkKe7SgG03fAGwbBv7mpchKn5NQpBUnTcEK+kDV0CNOKgRXBZMMxow==
+X-Received: by 2002:a05:6830:1492:: with SMTP id s18mr8324594otq.6.1565432213688;
+        Sat, 10 Aug 2019 03:16:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:905:: with SMTP id bo5ls2259268pjb.0.canary-gmail;
- Sat, 10 Aug 2019 02:46:50 -0700 (PDT)
-X-Received: by 2002:a17:90a:8b98:: with SMTP id z24mr13801353pjn.77.1565430410167;
-        Sat, 10 Aug 2019 02:46:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565430410; cv=none;
+Received: by 2002:a9d:4585:: with SMTP id x5ls342773ote.10.gmail; Sat, 10 Aug
+ 2019 03:16:53 -0700 (PDT)
+X-Received: by 2002:a9d:65ca:: with SMTP id z10mr9923766oth.334.1565432213389;
+        Sat, 10 Aug 2019 03:16:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565432213; cv=none;
         d=google.com; s=arc-20160816;
-        b=sjUcOGxDvvu8ZS8dUR5Bvp8wla4em4D7y25DHM75oS47ipPOgmkvrokyHxULC5rWuf
-         8AnVyAf6eVhlr8Vdf6yVomlUGk0WNZppChtdbQORNcwZVKqHTehX8F8p+0w8Un34UXW2
-         sTt1aalYsT3lkLasNsc1peENwOifcCcsAJXhK3eNovPty0D+eQCnjNqCYokYXS1L2b2S
-         KmiS2kxO2z8UqLggKHlVaw2NmTngU2UYP7IHIlKPg21I/b3uBQ0rnuhmgOOM4fKvZFbr
-         fdjcKPWTX0mVQdUuSCgbLeE3MipmepOhFDRdR4oGzS9f9ekeYYhpNYa5m01PWProm2wI
-         vIDA==
+        b=dC70mhm13upWLby28RDemuNVm5J5A3H3NNAYx/dyH7qUYJaVtHG6PNKMYHVC+qQ28i
+         B+hMs6Lfu4qEZVbW5XDDSbEM4c/bihczzGUSWY0QgAAmhUX1G5iQAiY1bC4Rmn2DMVeo
+         ApCKbVjcluQzU17+psZvbNxQUv3K7npUwzkCVUdHDN3X03NPXO7PSDg6s3Ftvo5f/LPa
+         37QYEl4W0G+9bICa9WDGr2JL0q9WKLvyFEZfQ4Fwt6e3iixaSjdBmGnSTnolamD/vUlr
+         yVoYru4XJtXSjKs3IP12xWqQBXzSNuK9/1uI7uhhPNA+bVds78n1t1MxgEPB7NODscv1
+         SUtQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=zRf67PSNpnkmzq+SohdNpA09OjpHKantX7Iq13weHNo=;
-        b=HjcVh3iVmoYig/9OWStMjYNl8W2CMlccl1Eax4/4k/JCeM8k2+FVUnb7vPt0X90Cq2
-         1epdMju8sy+V0O19YRe0ZN1DSIRb8bZgrj6wQJU05Lkky/xk2i3yM/GTw8qVwhG9Cemz
-         86n0oGizdN08Dbh0PyYt/0ONW1frNPNKlzD45Ji8geIPlXclUzh6Kbb2KoLi7PGdcbnQ
-         uwLEnv7R0A07/WVyc69hQd5278/j3PXsbXBRsW9yYXUvZ5v3fk60p6nFHg03TGvnBsXK
-         cC6cUZdEDruxPoRRiIv8986HG9MGJvpkNlYwX9W9fnvzPtXLbmSF1az44NfB5B0VFMgV
-         CIXg==
+        bh=9xIGOxtsfk+3+SKF1xgeGBr9JMSEL88+443TdRYAz7o=;
+        b=dSPiy1MsrGvma8sIFvkcZoKDJ7zHbvAQx69uzlbLUPCZt3anYUrVBMep5xhxFMKIxr
+         xXPfWSJA/zFyLHym6+J9NxV/TpIlUY7acwWBB2YeNnlGaObkw8+09rCo8BaYLBP2ZqWh
+         NP1REG8Ga9o7ee8pc9wDXInOIpfcT/2Uox4a0mIdRLSdA58oClriSm0tDYKemCqUptei
+         VydpRfs3jvCOLD7hg44w4Q+zNuRbCmnGKrZUlIbpqSqyrJEfZVD+ALSPr7RZaNYSwZMf
+         zeDQ/wYyZENvbECSUmHGTd74X+m7ryrCSM+QT1lX/lmhQoUMujfiyqrW8mZEMFMLlTrw
+         GtJw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id j6si239698pjt.0.2019.08.10.02.46.49
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id 21si4519870oip.2.2019.08.10.03.16.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 10 Aug 2019 02:46:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+        Sat, 10 Aug 2019 03:16:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Aug 2019 02:46:49 -0700
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Aug 2019 03:16:51 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,368,1559545200"; 
-   d="gz'50?scan'50,208,50";a="169544744"
+X-IronPort-AV: E=Sophos;i="5.64,369,1559545200"; 
+   d="gz'50?scan'50,208,50";a="326862446"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 10 Aug 2019 02:46:47 -0700
+  by orsmga004.jf.intel.com with ESMTP; 10 Aug 2019 03:16:49 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hwNxX-000CvB-2E; Sat, 10 Aug 2019 17:46:47 +0800
-Date: Sat, 10 Aug 2019 17:46:13 +0800
+	id 1hwOQa-000Gfr-M1; Sat, 10 Aug 2019 18:16:48 +0800
+Date: Sat, 10 Aug 2019 18:15:47 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [djwong-xfs:rough-fixes 41/119] fs/xfs/xfs_iomap.c:284:19: error:
- implicit declaration of function 'xfs_inode_free_quota_blocks'
-Message-ID: <201908101712.Pbo5yI9B%lkp@intel.com>
+Subject: [djwong-xfs:rough-fixes 42/119] fs/xfs/xfs_iomap.c:274:3: error:
+ implicit declaration of function 'xfs_inode_free_blocks'
+Message-ID: <201908101843.bVz3dJUa%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="je7ted2nexmsl3n6"
+Content-Type: multipart/mixed; boundary="hlzvtpbtnokpx4ss"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +138,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---je7ted2nexmsl3n6
+--hlzvtpbtnokpx4ss
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -148,11 +148,11 @@ TO: "Darrick J. Wong" <darrick.wong@oracle.com>
 
 tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/djwong/xfs-linux.git rough-fixes
 head:   39149a11705ccdcbcc9154a79100786554f71bdb
-commit: 5161c10d42491f0bc5074523e91a28d5528ff731 [41/119] xfs: flush speculative space allocations when we run out of quota
+commit: bcdee7b11601c8e48d9ee187901b53604d71dd85 [42/119] xfs: flush speculative space allocations when we run out of space
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        git checkout 5161c10d42491f0bc5074523e91a28d5528ff731
+        git checkout bcdee7b11601c8e48d9ee187901b53604d71dd85
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
@@ -164,12 +164,15 @@ Note: the djwong-xfs/rough-fixes HEAD 39149a11705ccdcbcc9154a79100786554f71bdb b
 
 All errors (new ones prefixed by >>):
 
->> fs/xfs/xfs_iomap.c:284:19: error: implicit declaration of function 'xfs_inode_free_quota_blocks' [-Werror,-Wimplicit-function-declaration]
+>> fs/xfs/xfs_iomap.c:274:3: error: implicit declaration of function 'xfs_inode_free_blocks' [-Werror,-Wimplicit-function-declaration]
+                   xfs_inode_free_blocks(ip->i_mount, false);
+                   ^
+   fs/xfs/xfs_iomap.c:296:19: error: implicit declaration of function 'xfs_inode_free_quota_blocks' [-Werror,-Wimplicit-function-declaration]
                    cleared_space = xfs_inode_free_quota_blocks(ip, false);
                                    ^
-   1 error generated.
+   2 errors generated.
 
-vim +/xfs_inode_free_quota_blocks +284 fs/xfs/xfs_iomap.c
+vim +/xfs_inode_free_blocks +274 fs/xfs/xfs_iomap.c
 
    166	
    167	int
@@ -270,74 +273,86 @@ vim +/xfs_inode_free_quota_blocks +284 fs/xfs/xfs_iomap.c
    262	retry:
    263		error = xfs_trans_alloc(mp, &M_RES(mp)->tr_write, resblks, resrtextents,
    264				tflags, &tp);
-   265		if (error)
-   266			return error;
-   267	
-   268		lockmode = XFS_ILOCK_EXCL;
-   269		xfs_ilock(ip, lockmode);
-   270	
-   271		error = xfs_trans_reserve_quota_nblks(tp, ip, qblocks, 0, quota_flag);
-   272		/*
-   273		 * We weren't able to reserve enough quota for the direct write.
-   274		 * Flush any disk space that was being held in the hopes of speeding up
-   275		 * the filesystem.  Historically, we expected callers to have
-   276		 * preallocated all the space before a direct write, but this is not an
-   277		 * absolute requirement.  We still hold the IOLOCK so we cannot do a
-   278		 * sync scan.
-   279		 */
-   280		if ((error == -ENOSPC || error == -EDQUOT) && !cleared_space) {
-   281			xfs_trans_cancel(tp);
-   282			xfs_iunlock(ip, lockmode);
-   283			lockmode = 0;
- > 284			cleared_space = xfs_inode_free_quota_blocks(ip, false);
-   285			if (cleared_space)
-   286				goto retry;
-   287			goto out_unlock;
-   288		}
-   289		if (error)
-   290			goto out_trans_cancel;
-   291	
-   292		xfs_trans_ijoin(tp, ip, 0);
-   293	
-   294		/*
-   295		 * From this point onwards we overwrite the imap pointer that the
-   296		 * caller gave to us.
-   297		 */
-   298		nimaps = 1;
-   299		error = xfs_bmapi_write(tp, ip, offset_fsb, count_fsb,
-   300					bmapi_flags, resblks, imap, &nimaps);
+   265		/*
+   266		 * We weren't able to reserve enough space for the direct write.  Flush
+   267		 * any disk space that was being held in the hopes of speeding up the
+   268		 * filesystem.  Historically, we expected callers to have preallocated
+   269		 * all the space before a direct write, but this is not an absolute
+   270		 * requirement.  We still hold the IOLOCK so we cannot do a sync scan.
+   271		 */
+   272		if (error == -ENOSPC && !cleared_space) {
+   273			cleared_space = true;
+ > 274			xfs_inode_free_blocks(ip->i_mount, false);
+   275			goto retry;
+   276		}
+   277		if (error)
+   278			return error;
+   279	
+   280		lockmode = XFS_ILOCK_EXCL;
+   281		xfs_ilock(ip, lockmode);
+   282	
+   283		error = xfs_trans_reserve_quota_nblks(tp, ip, qblocks, 0, quota_flag);
+   284		/*
+   285		 * We weren't able to reserve enough quota for the direct write.
+   286		 * Flush any disk space that was being held in the hopes of speeding up
+   287		 * the filesystem.  Historically, we expected callers to have
+   288		 * preallocated all the space before a direct write, but this is not an
+   289		 * absolute requirement.  We still hold the IOLOCK so we cannot do a
+   290		 * sync scan.
+   291		 */
+   292		if ((error == -ENOSPC || error == -EDQUOT) && !cleared_space) {
+   293			xfs_trans_cancel(tp);
+   294			xfs_iunlock(ip, lockmode);
+   295			lockmode = 0;
+   296			cleared_space = xfs_inode_free_quota_blocks(ip, false);
+   297			if (cleared_space)
+   298				goto retry;
+   299			goto out_unlock;
+   300		}
    301		if (error)
-   302			goto out_res_cancel;
+   302			goto out_trans_cancel;
    303	
-   304		/*
-   305		 * Complete the transaction
-   306		 */
-   307		error = xfs_trans_commit(tp);
-   308		if (error)
-   309			goto out_unlock;
-   310	
-   311		/*
-   312		 * Copy any maps to caller's array and return any error.
-   313		 */
-   314		if (nimaps == 0) {
-   315			error = -ENOSPC;
-   316			goto out_unlock;
-   317		}
-   318	
-   319		if (!(imap->br_startblock || XFS_IS_REALTIME_INODE(ip)))
-   320			error = xfs_alert_fsblock_zero(ip, imap);
-   321	
-   322	out_unlock:
-   323		xfs_iunlock(ip, lockmode);
-   324		return error;
-   325	
-   326	out_res_cancel:
-   327		xfs_trans_unreserve_quota_nblks(tp, ip, (long)qblocks, 0, quota_flag);
-   328	out_trans_cancel:
-   329		xfs_trans_cancel(tp);
-   330		goto out_unlock;
-   331	}
-   332	
+   304		xfs_trans_ijoin(tp, ip, 0);
+   305	
+   306		/*
+   307		 * From this point onwards we overwrite the imap pointer that the
+   308		 * caller gave to us.
+   309		 */
+   310		nimaps = 1;
+   311		error = xfs_bmapi_write(tp, ip, offset_fsb, count_fsb,
+   312					bmapi_flags, resblks, imap, &nimaps);
+   313		if (error)
+   314			goto out_res_cancel;
+   315	
+   316		/*
+   317		 * Complete the transaction
+   318		 */
+   319		error = xfs_trans_commit(tp);
+   320		if (error)
+   321			goto out_unlock;
+   322	
+   323		/*
+   324		 * Copy any maps to caller's array and return any error.
+   325		 */
+   326		if (nimaps == 0) {
+   327			error = -ENOSPC;
+   328			goto out_unlock;
+   329		}
+   330	
+   331		if (!(imap->br_startblock || XFS_IS_REALTIME_INODE(ip)))
+   332			error = xfs_alert_fsblock_zero(ip, imap);
+   333	
+   334	out_unlock:
+   335		xfs_iunlock(ip, lockmode);
+   336		return error;
+   337	
+   338	out_res_cancel:
+   339		xfs_trans_unreserve_quota_nblks(tp, ip, (long)qblocks, 0, quota_flag);
+   340	out_trans_cancel:
+   341		xfs_trans_cancel(tp);
+   342		goto out_unlock;
+   343	}
+   344	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -346,14 +361,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908101712.Pbo5yI9B%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908101843.bVz3dJUa%25lkp%40intel.com.
 
---je7ted2nexmsl3n6
+--hlzvtpbtnokpx4ss
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDOPTl0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
+H4sICMeVTl0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
 cuqzvuTIdjf592cG4GUAgm7a3TbhzOA+mDv0w79+mLHXl6eH3cvd9e7+/tvs8/5xf9i97G9m
 t3f3+/+ZpXJWSjPjqTC/AHF+9/j69f3X87Pm7MPs4y+nvxz9fLg+ma32h8f9/Sx5ery9+/wK
 7e+eHv/1w7/g/z8A8OELdHX49+z6fvf4efbX/vAM6Nnx0S/wv9mPn+9e/v3+Pfz34e5weDq8
@@ -1221,4 +1236,4 @@ RJvOl+SzqC2uJ1ve0Fn2bPQy16oImpxBEnXNCgLVpvHGflnFaXM8pLHMlrAHTR88frJcjc2m
 jpypngCZzI9mjBW2N+PgjSSsgSLzLiqn7XClRngxwiEcXZDX9E2lWvOQYOKQ6bGxJMBmwEQN
 KNEECT9Ue3yCoR3r1jJlzOVs9yVxOvDmkGOq/xv2HT2kLvcCAA==
 
---je7ted2nexmsl3n6--
+--hlzvtpbtnokpx4ss--
