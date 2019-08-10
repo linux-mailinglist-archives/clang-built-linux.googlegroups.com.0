@@ -1,107 +1,109 @@
-Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBIHBXHVAKGQEVWIAWEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4IFTUFXEFBBJHBXHVAKGQEDDGHH3Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3b.google.com (mail-yw1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 588BB88911
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 09:22:09 +0200 (CEST)
-Received: by mail-yw1-xc3b.google.com with SMTP id k63sf8672503ywg.7
-        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 00:22:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565421728; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C93C88915
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 09:22:14 +0200 (CEST)
+Received: by mail-pl1-x637.google.com with SMTP id y22sf58630291plr.20
+        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 00:22:14 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565421733; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XdZyhU1oiuNUV8VBrtbDSwEVtIS1L1Kbo/jv44icyzHV3obGrIwSZKpAy42YheFCZl
-         PwtIRuGbbrJ4UkrLajEhDxAc5kxbq/Gh9EsORrg7Kr/dPaB8Ayp6t5dS2WB1BpY1rxG1
-         XxSSGaIFkB14kiPXuw1idzzfMuYLbRTt7nAD7PfZFc/TKllVUc18Lsrma2TwCae/WRRd
-         F4W4AkLk84PANsMFmIsiLm3WHQBopt4IfTwzRP2vQx/Iq7MdOMI5yfW2h0VzxLA0BL1L
-         f5oYJL4jpo/jnKFnV2u4WR4alGogZ1PblnhhX6QLuxUdnb8WV9EH4tecm5Qh9uNTF39S
-         KQdw==
+        b=BnjukFd4B7HDeMaDZnEpoe2yqVtrywDMaIPCJzrrxXVK0u8oc6TlEzQhnKocwC81aR
+         f9pn+3RQwbck3HHkEMqPv0u/JVka449ToRACIwFPukDxx7KSTsuzZyVKT5vG3AL3x7jN
+         ARH+m6ekersbH5PhbThyeQqzlWOtECqhxXOmNxyr4PUimaYnoFmrnpPskEpxH9PQzDbK
+         yC+yrp1eCGfXOg92hisGh2GIO+dVGs7T7NxRpPBW42L5QXAXRiFGyqEXxoX1zGyp2v6q
+         PXf4PSGt74OD5YVg5d8/J9JpgPuztOlrr5shTN3Jt/yV7B7HcGJX1KCOuGMXfDSfFw16
+         tXLA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=6GgEWGoZMhD6EQ3ogCRO0YGxd4pBEag3nMnxqE8LHXw=;
-        b=BWNhWLT+lII86pRjgzf7VvLOGquGCuKcU+9BDUNtHfMe9gKedyQra+MIZ6afPG/zZS
-         RmxvU2BM8jizJdH5gRXlSL6hnl+c1Scs++AaHXqlMwd7vBmeukcPFUL8mCy/UdUg1y/k
-         aiAYb2tHz0cOp9jqTUs59TDfD1R8YCm5ME5z1aizKyej8aVmrzmxcLzPbMCzkvBtizJb
-         R3+mGtcru6YZP2Gv0pp9ZsA6DJgiN+0plR12SZBRdZivPHv2PpFNCqc8lUfwzuMMUK34
-         jxmrbreQFlPugfWKY+8TLWE9mmZH/ptLgZByna39orDxCke74XmWKKE/VWsdGau1VZ66
-         3cow==
+         :list-id:mailing-list:precedence:references:in-reply-to:message-id
+         :date:subject:cc:to:from:mime-version:sender:dkim-signature;
+        bh=o/PwhMs4jSq5DSWv/THDE9aNUVNeWgityi2P6dFzr1g=;
+        b=jA2ruaP2bjqrZLbIF51HnRiouCU6Jz3GozY46dhIfxX3wnBEO+szxbZlWME9JBIGzL
+         17m0089LuEdmIHHpBwRzPF6Vvjh4Emi8XzGtkB/CglrfI61aDD0SEOKZAz4lMY4LIWvr
+         9YgKpRcoTB0tqV//qv4ajhVjrGZYqUkYYPODlnCScla/+8XuHOop5N9tOMWLvnAkOUap
+         x3m/faN35q36XB335KJC9iTbe3DkdU5UKgjQW9AWjYcRWSau8UGt3qgFysU1UwDg0kuR
+         y594N2wP6ZWFGwtf5b9ecInMRQtcl/hMM6y71I+lcLBU/irqCT3SxWCcpj87lBZLv89M
+         4Qdg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="pN/qlGpA";
-       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=wQJH7ETU;
+       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:from:to:cc:subject:date:message-id:in-reply-to
+         :references:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6GgEWGoZMhD6EQ3ogCRO0YGxd4pBEag3nMnxqE8LHXw=;
-        b=fOY306cCJAKQsacl1OGQFzXOTzXcoi88BNPQm5AXAuyBrmRAosyeZ5/6MCszLOCsdQ
-         LYgYLIYlRk47W8tNSzffUSusmtd1A0mPiQ4MaYwUG7NfQrxdfY/TYwCrl1c5NCzEvATA
-         L+S4rQHRxsCHSp1Tezn55VrtR5KCWBG4Uki/9qUwUsW2fJjtGv7rhPZyb4KML53orVEb
-         jB+1Hki6lqwD9DUUObhGsRvKvYJ+TuoEJX58neOKjXi9jTrrDimrHm8PGI3DMPDKwvu2
-         IJKVzHINMarHMo38a1qmDaTJe8FURtLsbUmbfepLlmOVB/SFfsIAFMdiGBbwMggHNedF
-         6pEg==
+        bh=o/PwhMs4jSq5DSWv/THDE9aNUVNeWgityi2P6dFzr1g=;
+        b=JdBOukX8R3T83lJcJ4YWuJeqyx6p8WSHRMHCxTeWTLjk3zJVz4bIZL2scrjr94yfhU
+         r6RpDK80hd6Sc33zMRslQu4aeTMdXoRCFSJ0opdkCeZtsaeWGev6W20rVjWcpRjJX5LE
+         QYLy24Ybw198IJG3CLUXt2kFvf74nWOY8eF1FWIKajuGKNT7ujmCl3nhgVDmFCkxda8h
+         OxFnRq2coSvuthXn7EowWRZv1Ez0FQdcbHZ5z0KSBs4+YFQHmK5LAyONakE84hm6F1l6
+         ijkfNzK8YuRNTVBzEVqObhb0GvAJ8G+YElr/zh7euOSPv1vk+aRrI1VVMsH/0Sxl0RMc
+         vAog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6GgEWGoZMhD6EQ3ogCRO0YGxd4pBEag3nMnxqE8LHXw=;
-        b=nNMkrCv9WMhweYNHn6pYEvx5TgCMuMBNwwLGMe/jQN+L7PWHgD2SjVIEzAVl/H/dQk
-         2tLd8bAMRDTdYMvpcMIx+txpy6+n7aOjrpTOslDBsgGCMZe57JM3rUnyY0Ryh543HCyR
-         sNMAyQ4xYzfR4WLu5b3Vyy7Nu8Ov3WJohF5EWWO8njV8WZ8Safr848wDcQPN+2YAxCV3
-         AZTmA4bgMVZSonMdGjHv7o59BV3socSOtXJtQ1dRR5X+VEYTmrh7D2ZeHLnw0tlNSAbf
-         L0kNNPvQzmZgKa/PYR6Ptk3kFnWMSRprHW8fgDDex4ee/OPENQrd9Wl2t/ZvWIu4yfYq
-         YUQQ==
+         :message-id:in-reply-to:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=o/PwhMs4jSq5DSWv/THDE9aNUVNeWgityi2P6dFzr1g=;
+        b=GM9bOQg1xcMiMKDGL3Ee5Eu045e4VoePlGg6oOQmga8Ne3JAH/aJgi/a5Kmz7g8Num
+         RaYcUUY+3LEFfKDEJ/LYnjBIKb0fy/d2nTe9HbciRiEkgzm8DRgZlK13g+qRvjM72AnG
+         kio8RkE/Zp7VMDYpIoSmN3RNRvD3ngIZgxV8OA5wQoXSAZghgEEyoaH8TItwYFTGLDuZ
+         R2C+trA9X9AYTMzLPmlUc5sDLa8QlqDuv4sMHIIsYnQCVMHStww1oFHf88tN+fI974i7
+         ty4D2u/wnt7y4AtFV9+U8evYSVvf0R3Mpc/wizTvVOgAvDU4zySMAovDcjdcTxbikOg9
+         xYlQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWyqp4gJ7xb8i/hhrXjz9l4UDeAYdojLejeam6gCnv6bUCHgc+t
-	KKxwPieLUlgfRe2JEWbudrk=
-X-Google-Smtp-Source: APXvYqwTsv45cz0Dz2AKmsGTPL6fAwsrm1bCS+UtJJFRM9UVxuY3hpor4PSV9Qc7B9fnXpo3kTesFw==
-X-Received: by 2002:a81:352:: with SMTP id 79mr17101612ywd.149.1565421728179;
-        Sat, 10 Aug 2019 00:22:08 -0700 (PDT)
+X-Gm-Message-State: APjAAAX/d9WfBOIUgMGLZ2QzObyUjUaIaL67xq3iMb16Q/JmBp+rgBXS
+	ogDrvpaVOMt2jZbKkP1l/g8=
+X-Google-Smtp-Source: APXvYqy+KLjq57NlC/zXgnO1p1ftyIHyOVmvu7EsuK5OiAJJkfr6ACSGeTbeMqZE0yjLRB3GEkdoSA==
+X-Received: by 2002:a62:ac11:: with SMTP id v17mr25783846pfe.236.1565421732925;
+        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:bd89:: with SMTP id f9ls125062ybh.2.gmail; Sat, 10 Aug
- 2019 00:22:07 -0700 (PDT)
-X-Received: by 2002:a25:ad54:: with SMTP id l20mr12759820ybe.125.1565421727919;
-        Sat, 10 Aug 2019 00:22:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565421727; cv=none;
+Received: by 2002:a63:34e:: with SMTP id 75ls20264703pgd.11.gmail; Sat, 10 Aug
+ 2019 00:22:12 -0700 (PDT)
+X-Received: by 2002:aa7:8c03:: with SMTP id c3mr2830467pfd.139.1565421732656;
+        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565421732; cv=none;
         d=google.com; s=arc-20160816;
-        b=ze2j/7LktmIswMrHwp7wktLlGH6tFVUo15v+RFXfP/IxIKdt44kVMltd51o3/gNkhS
-         cjSfKe9CaDS8DFJx9x+OJI759TUISCAeg8qITY1pQm9JcA7nj8RrzcFJRqHcNqBBpfaI
-         J8MozMhe0RCMwLO/RjKn2TPhND3zYvxFU2BDAwhd+8svbhn9jcSJXJB6Ybb06vMBXJ/Y
-         069og7nOm5XQPQ7HJmiiwXBQ9WN98MdV9iS4n4Txn8ksgjrWLRZNvOIIyOUU3MZYIkl/
-         7TNIKOCJzuwdv8ezJVePIGYZ0yVQxWZRNvBbYBvFy3R/8qO+fdLHk2+N6FfmOKvlSCu4
-         dOOg==
+        b=iSPyvXh94lSruEzzIvimtxQs2pVQmJ9onTlTOv9TgvDLYHRR5sbspP84p2Pp4tlXKX
+         N1NctJNcamr2+gguToy3iHROztzFVwM7ow7jwZozHoZznb1QlyIIiriyU2qCwPCxAj+L
+         rn1VX2bva2oX/6lyh7tGdqzbm7KZ5E6Rt18fvDPKc9EiBL9CAI35Og5sDsPFoRcuKLxF
+         ez+2fWPX3Dww4CxH86NiFxL5c5CXHbzuYIZ+hZjlkOwEZcLNzhS8S9DdzYIrJYshHCvK
+         eejjpoq2CqI+Z98rsVw2IMkekcMjA6kG3MmDSKS2DsTPxplHAw3F7T6M5UiMtxGkhmfI
+         L/mA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Kqvj5qJEEnuY9tHLIsHKAJCMxbCgSGhB0GQjUNBVzjU=;
-        b=o48ygKvoRJkLMJtoMI9ihM5iZ5mTUMG7yNJs9sNBntkmrRUDILbmunj1X0VrBq5bCm
-         kR+iadd/1YJo/e928WsHroJW/K3Lrh3bgM47kXU8+UdO8oLL1bMr1Vh3DDwf+kAt42b6
-         +m0eIyqknSmkp0F2Hy0oT9GUItqBz0QMp+LjR7P7rRnNCwQx339pTeUYqb5PoYKibDQJ
-         /uiLqj+KLVu3p0QsYPGGQ4Ep3HPoc7E4Vg5kQh+egzruLJ4eMFz81eCwuUpSeeLdvKM/
-         5la2x5q7qIkCGJ5umSPDfonmSQaW8c5DqglAyw+1A27rVgVr1mx28pINZJ/ma7g74KYC
-         p2gg==
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :dkim-signature;
+        bh=SUoVe7v3rT/MuQ/nwpXN/VHHe+ExuqKtoNBajOsMZ6w=;
+        b=ULLVtIVo21GZgmmDrz250bmWy+hS2P9zt1ZvZcMWXE7uir6AH4MF5jj6uNoPGwvOL0
+         1kt9gSjMDqqtw+qtk3iAsa/+8n1FPqCyGXZ0RqT/PH3fg4wMtQ9SM1nlxMbWxTRDZkHT
+         lAniwB9xw0sxm37F9tE52fyGoFmvLUZVV99NL0AJVHwdRnGTnpDvuY7PaQl7L8gkcviH
+         +Q3yw8puUupMKx6uV+IB+zONGF1DjBrF1vYYNYmcGIMtqeAdpBGkWLbSJVG/JQ4ZKfjf
+         CPcKBTD+OmAh0j2f8p3Ly3F8FXAUlQbggJlE5KStyn2mhQlnhr7s5eDfvxvWkMejk4Bt
+         5amg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="pN/qlGpA";
-       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=wQJH7ETU;
+       spf=pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=leo.yan@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id x65si1089237ybg.3.2019.08.10.00.22.07
+Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
+        by gmr-mx.google.com with ESMTPS id cm10si4350001plb.0.2019.08.10.00.22.12
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Sat, 10 Aug 2019 00:22:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id w3so9734696pgt.13
-        for <clang-built-linux@googlegroups.com>; Sat, 10 Aug 2019 00:22:07 -0700 (PDT)
-X-Received: by 2002:a17:90a:9f0b:: with SMTP id n11mr12981206pjp.98.1565421726801;
-        Sat, 10 Aug 2019 00:22:06 -0700 (PDT)
+        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
+Received: by mail-pg1-x542.google.com with SMTP id n190so6130070pgn.0
+        for <clang-built-linux@googlegroups.com>; Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
+X-Received: by 2002:a63:124a:: with SMTP id 10mr20982007pgs.254.1565421732167;
+        Sat, 10 Aug 2019 00:22:12 -0700 (PDT)
 Received: from localhost.localdomain (li456-16.members.linode.com. [50.116.10.16])
-        by smtp.gmail.com with ESMTPSA id l17sm24872660pgj.44.2019.08.10.00.22.00
+        by smtp.gmail.com with ESMTPSA id l17sm24872660pgj.44.2019.08.10.00.22.07
         (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Sat, 10 Aug 2019 00:22:05 -0700 (PDT)
+        Sat, 10 Aug 2019 00:22:11 -0700 (PDT)
 From: Leo Yan <leo.yan@linaro.org>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
@@ -126,14 +128,16 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	clang-built-linux@googlegroups.com,
 	Mathieu Poirier <mathieu.poirier@linaro.org>
 Cc: Leo Yan <leo.yan@linaro.org>
-Subject: [PATCH v4 0/2] perf: arm/arm64: Improve completeness for kernel address space
-Date: Sat, 10 Aug 2019 15:21:33 +0800
-Message-Id: <20190810072135.27072-1-leo.yan@linaro.org>
+Subject: [PATCH v4 1/2] perf machine: Support arch's specific kernel start address
+Date: Sat, 10 Aug 2019 15:21:34 +0800
+Message-Id: <20190810072135.27072-2-leo.yan@linaro.org>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20190810072135.27072-1-leo.yan@linaro.org>
+References: <20190810072135.27072-1-leo.yan@linaro.org>
 X-Original-Sender: leo.yan@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b="pN/qlGpA";       spf=pass
- (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::544
+ header.i=@linaro.org header.s=google header.b=wQJH7ETU;       spf=pass
+ (google.com: domain of leo.yan@linaro.org designates 2607:f8b0:4864:20::542
  as permitted sender) smtp.mailfrom=leo.yan@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Content-Type: text/plain; charset="UTF-8"
@@ -149,53 +153,94 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This patch set is to improve completeness for kernel address space for
-arm/arm64; it adds architecture specific tweaking for the kernel start
-address, thus can include the memory regions which are prior to '_stext'
-symbol.  With this change, we can see the eBPF program can be parsed
-properly on arm64.
+machine__get_kernel_start() gives out the kernel start address; some
+architectures need to tweak the start address so that can reflect the
+kernel start address correctly.  This is not only for x86_64 arch, but
+it is also required by other architectures, e.g. arm/arm64 needs to
+tweak the kernel start address so can include the kernel memory regions
+which are used before the '_stext' symbol.
 
-This patch set is a following up version for the old patch "perf cs-etm:
-Improve completeness for kernel address space" [1]; the old patch was
-only to fix the issue for CoreSight ETM event; but the kernel address space
-issue is not only limited to CoreSight event, it should be a common issue
-for other events (e.g. PMU events), clock events for profiling eBPF
-program.  So this patch set tries to resolve it as a common issue for
-arm/arm64 archs.
+This patch refactors machine__get_kernel_start() by adding a weak
+arch__fix_kernel_text_start(), any architecture can implement it to
+tweak its specific start address; this also allows the arch specific
+code to be placed into 'arch' folder.
 
-When implemented related code, I tried to use the API
-machine__create_extra_kernel_maps(); but I found the 'perf script' tool
-directly calls machine__get_kernel_start() instead of running into
-the flow for machine__create_extra_kernel_maps(); this is the reason I
-don't use machine__create_extra_kernel_maps() for tweaking kernel start
-address and refactor machine__get_kernel_start() alternatively.
+Signed-off-by: Leo Yan <leo.yan@linaro.org>
+---
+ tools/perf/arch/x86/util/machine.c | 10 ++++++++++
+ tools/perf/util/machine.c          | 13 +++++++------
+ tools/perf/util/machine.h          |  2 ++
+ 3 files changed, 19 insertions(+), 6 deletions(-)
 
-If there have better method to resolve this issue, any suggestions and
-comments are very welcome!
-
-[1] https://lkml.org/lkml/2019/6/19/1057
-
-
-Leo Yan (2):
-  perf machine: Support arch's specific kernel start address
-  perf machine: arm/arm64: Improve completeness for kernel address space
-
- tools/perf/Makefile.config           | 22 ++++++++++++++++++++++
- tools/perf/arch/arm/util/Build       |  2 ++
- tools/perf/arch/arm/util/machine.c   | 17 +++++++++++++++++
- tools/perf/arch/arm64/util/Build     |  1 +
- tools/perf/arch/arm64/util/machine.c | 17 +++++++++++++++++
- tools/perf/arch/x86/util/machine.c   | 10 ++++++++++
- tools/perf/util/machine.c            | 13 +++++++------
- tools/perf/util/machine.h            |  2 ++
- 8 files changed, 78 insertions(+), 6 deletions(-)
- create mode 100644 tools/perf/arch/arm/util/machine.c
- create mode 100644 tools/perf/arch/arm64/util/machine.c
-
+diff --git a/tools/perf/arch/x86/util/machine.c b/tools/perf/arch/x86/util/machine.c
+index 1e9ec783b9a1..9f012131534a 100644
+--- a/tools/perf/arch/x86/util/machine.c
++++ b/tools/perf/arch/x86/util/machine.c
+@@ -101,4 +101,14 @@ int machine__create_extra_kernel_maps(struct machine *machine,
+ 	return ret;
+ }
+ 
++void arch__fix_kernel_text_start(u64 *start)
++{
++	/*
++	 * On x86_64, PTI entry trampolines are less than the
++	 * start of kernel text, but still above 2^63. So leave
++	 * kernel_start = 1ULL << 63 for x86_64.
++	 */
++	*start = 1ULL << 63;
++}
++
+ #endif
+diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
+index f6ee7fbad3e4..603518835692 100644
+--- a/tools/perf/util/machine.c
++++ b/tools/perf/util/machine.c
+@@ -2671,6 +2671,10 @@ int machine__nr_cpus_avail(struct machine *machine)
+ 	return machine ? perf_env__nr_cpus_avail(machine->env) : 0;
+ }
+ 
++void __weak arch__fix_kernel_text_start(u64 *start __maybe_unused)
++{
++}
++
+ int machine__get_kernel_start(struct machine *machine)
+ {
+ 	struct map *map = machine__kernel_map(machine);
+@@ -2687,14 +2691,11 @@ int machine__get_kernel_start(struct machine *machine)
+ 	machine->kernel_start = 1ULL << 63;
+ 	if (map) {
+ 		err = map__load(map);
+-		/*
+-		 * On x86_64, PTI entry trampolines are less than the
+-		 * start of kernel text, but still above 2^63. So leave
+-		 * kernel_start = 1ULL << 63 for x86_64.
+-		 */
+-		if (!err && !machine__is(machine, "x86_64"))
++		if (!err)
+ 			machine->kernel_start = map->start;
+ 	}
++
++	arch__fix_kernel_text_start(&machine->kernel_start);
+ 	return err;
+ }
+ 
+diff --git a/tools/perf/util/machine.h b/tools/perf/util/machine.h
+index ef803f08ae12..9cb459f4bfbc 100644
+--- a/tools/perf/util/machine.h
++++ b/tools/perf/util/machine.h
+@@ -278,6 +278,8 @@ void machine__get_kallsyms_filename(struct machine *machine, char *buf,
+ int machine__create_extra_kernel_maps(struct machine *machine,
+ 				      struct dso *kernel);
+ 
++void arch__fix_kernel_text_start(u64 *start);
++
+ /* Kernel-space maps for symbols that are outside the main kernel map and module maps */
+ struct extra_kernel_map {
+ 	u64 start;
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190810072135.27072-1-leo.yan%40linaro.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190810072135.27072-2-leo.yan%40linaro.org.
