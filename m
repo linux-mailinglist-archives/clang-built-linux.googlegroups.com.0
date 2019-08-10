@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBWU4XDVAKGQEH57IT6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBP4UXHVAKGQE4UDDTKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
-	by mail.lfdr.de (Postfix) with ESMTPS id D26088874F
-	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 02:22:52 +0200 (CEST)
-Received: by mail-pl1-x637.google.com with SMTP id f5sf8451273plr.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 09 Aug 2019 17:22:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565396571; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 971A788833
+	for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 06:38:25 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id m17sf51918928pgh.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 09 Aug 2019 21:38:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565411904; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GkE3lAiPZPktQnWZX6ENHQbN/vydNAAMK+Wt7l5CuR8c6t7frlTD0TfgSbjMEDc0Up
-         VGK+YGVWwQf0m/VakDWRAvYIUSdKZlIA+dTiET7sBbZJtwt/lKTSMLtK5r82uDAlrJ30
-         3b8WGEtPb2VY9ig6uRNG/xnmnqQmQCccj13EIAWP7mQxHzgXY7mH/1xisIsSDIXxWDPJ
-         FpgW72WvfEI1rnWxhMjdd57wjsoz2ezVN/eNHu6SqVYtVbI8iqZMH2ekt1a7K2J/X+p4
-         KSPf2tuMSH+klHhw1iASSNtfFO1/RQtqBviQf5sIiAq/EtDm4xRld4htSl0WSb1OxTl4
-         z3Ow==
+        b=bL0rG8+IDvdDZYec3Kz9h48XpDVtSEwEborXXzah4lRt4+j+dCUZr9yYvD4W1qzkAY
+         g+BiyWwU/APGuzAb0+PaEMr4nUMNj6mnvWb/MCtp1lApZYm+9DjQ7pQL7GYsk1GqCsU3
+         TsY2OK0rMo/T9fsp7kDL81MpWaOqAMXoMJC7CWTBW0Dq9yDXSUHyQ6Utw0FPQqvHkA4N
+         O6VIeER1K6PptiLV0Lwt4tmXFsO9ivWioVtsGxMYJ6tMWqQosm4yMduayGw2u+iMBe+h
+         Umo/ELmaJI6UtQoCNgiCDk8Ddm2KF68bjEEpLIQvKSdZxY5wxYIlL5Ui61z/PkTFTcLR
+         LyGw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=4IDdq6wc4ugojx69cZOifAJ3aHLF6MtFz8oCEnmYE3w=;
-        b=rn18qlKuc/ci7F0+ZGDeXUop6pInZecz/kd/PT2RYd/eBFlN8I+KDKQ8/7TnKdhjjF
-         6xE2BqjDTJqheFJJ51fPjUw3XqL+5g1+fZMkSxMD3ANnOQBj2SclyRuEBgEZ3ok/BYuo
-         aAx4V8P2081LnhlKmYo2iiUnV6gvEgC6tvNJ6FsW/frbNgZk5Y2x1PO+q6uFtsDeqQJr
-         un36NDkZlBJ+IGTqh14/GKZa9qRR1ZYm7IiCrd2KVRGhhfCGal2VLpNqRAkahtKFBb16
-         kTC6kimmMo0u5vZ6SoHvcjXJteHT5zbqgOhHCtYmMqIbpNQxnRJulCaG2EuVmVOANO1K
-         5ssA==
+        bh=KktkJQsFAYSB4f5ygrPcTyblnTckbljIvFjt2FI0JzY=;
+        b=Yydl2/nwrzC9JmoFBwhwOgTB+TKm+kOoAOHzBzW2FGIsLacEuUJsjRU+KaSw32BNPe
+         0+5+qCaQwLe4V/5iAs8q1sbheL9UkR95b2lOVWClxEBQG3d1nsEtrj1IWS6qbocZXe7T
+         u75CmgHziFcGnKfAVpFHN3PRrAKitY4E2Fd9ugH7JXdOEsZ7vUv4oJzqI/x7+PG4oStF
+         nV5qCTq/+fKOlGcyJRfQ1N/CGPCK/vl90Eavy1/8q0rfc5czQddFII+r4hy6ZbbMolnz
+         aAnATzzEWlIStfLEtXYrBwDGXwjHK5oqw4M/hfCJglTCB8gx756iipGw2AsZYj2fPI67
+         CTZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4IDdq6wc4ugojx69cZOifAJ3aHLF6MtFz8oCEnmYE3w=;
-        b=MhuxVyBCV673wvje49UB5Q0dGUkxDVAevs+u1LYo6sPAfiZF163VsM9P+fi2aRneEY
-         Znl1r/JLJiTIzU4TacRQUBPpt9E61c4rJd43INbE+vkGiES9l+4L5rK85BhsKbjov+3/
-         LnsQaXFjJ/2lJTTWMdcoVktBiAZRv0uSCQ3Ymi0w6ySm01Ncgq/c52sJMKUACbi1U7H0
-         tUy/j//KMercbqovFxj4h06OnAQgy8+PojroVDjZ3jDf1z4CggCkk69ug3ULyGtSTWzR
-         zKdKDvdUK+eES8MwqiZPjcUf91rgNDHZ4lKuxZIAbpaGNMNM0g7vuPLhsflkVb1dGut7
-         ccOQ==
+        bh=KktkJQsFAYSB4f5ygrPcTyblnTckbljIvFjt2FI0JzY=;
+        b=bYhT3c2CjB3wx3zEKWqcHazxCu0cA9iGsuh7t5XjU1DYd93UGisVX6vLxsYigqT65Z
+         keo8FrG7SBsbWZnltvUfiGFCdvyx1Kj+vsTOaSWwdS3Rw6NOU28X1LEsHeiQYWyvZ08y
+         KTmI941hsbJv36m7gz67aasHrsyMeNdwHgcfgYp3NUL/BivdKgz7EcT33jEOx/d88uQw
+         Vt88g2jeoZgzfKkXXq+NJj8s/quCkBKYRJYz+OtJBdesioisZIMIlk4beHCJqtMFV6eC
+         J2OMYSJum0bYg8q6KBG2hN3iQMpC/MrQH5UxSiZrlM8jZ54G7LjBKrFuJHDTFzth+p9I
+         DBzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4IDdq6wc4ugojx69cZOifAJ3aHLF6MtFz8oCEnmYE3w=;
-        b=jAONo1rxb5bukmWFTo+1G2ixT6QFw6MuiMthQpQdAkPoGfv9q4QWTKHojVI3A1oR4E
-         YyY+50GeUjJaMTvvgLzK5qknH6eYBsuq4v0mwoYvyriAQMcdWOUSmUSgd1FU2LW7ugJS
-         h8B8RmJ3ROIbWhrO12hZ0gSl80X7Obn7DGlc6bAHvZL2MaCh0qmwlLUoJxzw2HsBytWR
-         VkIae+fNlXXnjZDdqzaUVey5B0fpxYydvKy5Ga5OLR6/YBBCndJGUVr/ft7TAWZirmWO
-         Y6J/UjssTD1aToP7V6booc41UpD0/h/W3enkgtMRIDJIfLWy/7fWxfpTg7fX2l4yuekw
-         ifKQ==
+        bh=KktkJQsFAYSB4f5ygrPcTyblnTckbljIvFjt2FI0JzY=;
+        b=lvaIs2b0LGP8gRzVF++18FundY+rewO14FkJ+BPYZUHYbN0XEWZmoAsKDF+5bhMi1n
+         N2Q41dBBjMXPvp0Dg1qKbjt2xkKuxg9CTqdRot4Ckk2c/dc98pFhKjvCQHK41+LIYcMK
+         rDW4hudWztYpoUn9yv7C1mwDXA6m+yk8Vxm7AuzW65ddDn1Z9pxbLZh92eLYOU1Gw8ok
+         7JgU1l0TRiKbnqD9/26mqupnYlAvaVIraFYYcVJeLRt8/dA4eb8z+avp+9sPqOZpEe1O
+         pYbMhQaaJ3NcG6BC6ONxTn3NUY6H70ei1L3SfitYGjiNUlRI8AB4rxg1uItwZnqmhni2
+         Sbug==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX6I9Uu7F7JhjNm/bAKYtYeONj1IVtNiQG0nMx5BNEwonAqr1qo
-	Ryiaun5ps8W7fQBg9/V1B9g=
-X-Google-Smtp-Source: APXvYqz22bXX4t6mJGDhEWlbUWkczew6DISWqqgpsU4LrUv5u0dB+W/lY/AT2fYEt0j9eEpwcl7Rhg==
-X-Received: by 2002:a63:593:: with SMTP id 141mr19450700pgf.78.1565396570763;
-        Fri, 09 Aug 2019 17:22:50 -0700 (PDT)
+X-Gm-Message-State: APjAAAXpOEDs2WoS1vQAUC2Rq0ugZnt7pmgMNVb3jpxVofdbOM3bke+d
+	eb+InQSbUhHhUn14pFwqiS8=
+X-Google-Smtp-Source: APXvYqxXFEJfS8hhvzYAouy+eQYn3w61LpTt4zggY7MmenHORQGRnAjAw71p5S96CwE4sguj9K49Rw==
+X-Received: by 2002:a17:902:740a:: with SMTP id g10mr22800482pll.82.1565411903864;
+        Fri, 09 Aug 2019 21:38:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:b402:: with SMTP id x2ls27484958plr.14.gmail; Fri,
- 09 Aug 2019 17:22:50 -0700 (PDT)
-X-Received: by 2002:a17:902:d890:: with SMTP id b16mr21239416plz.315.1565396570380;
-        Fri, 09 Aug 2019 17:22:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565396570; cv=none;
+Received: by 2002:a17:90a:e2d2:: with SMTP id fr18ls1302329pjb.5.gmail; Fri,
+ 09 Aug 2019 21:38:23 -0700 (PDT)
+X-Received: by 2002:a17:902:830c:: with SMTP id bd12mr22867897plb.237.1565411903422;
+        Fri, 09 Aug 2019 21:38:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565411903; cv=none;
         d=google.com; s=arc-20160816;
-        b=Im4f0ljh/7fk3DL93jwMa2q0YnNAKCfhHUWYT1w/sLDeebFV52hu18EfAjYW7TyJIq
-         KL20Id32ShiIwCB/iMERfPRzV2LVyHTZuTk7rDgR13c3N5ECWuv4Nh6vLLYYgPKzKRMi
-         2FSQPWPYsqQqzeiB420mq7YpqWzclyn5mUTffEiInFg9HuNDKFbB+o4YgPd9g9R5cczn
-         k5DyWn/9u02wMsIo8rFuK6QkekUhcEiik7OL0qLqljiG0SqdiQt1YlWdIWCXCa7tBdp1
-         p5VCn6DxSkGb7OE8WguOtgqctwbHMA6GXkWMyfjoNGgieGRhvA/5/8PKuxIyiattl7ox
-         T/kw==
+        b=l3AHDEOlrHpy4KAYCPp0hzXuMsRpswVsA5FgfpGa8mQ6W+Gvyqr5BeQAXBjSJuKuUy
+         9R3ZeYDo/pOprwbTHrzjnxpCMpnvIlOj9RDh0YpAtUI3lrGYeDV1kJbwR0wIxtT3A4tu
+         WWRWAsphOvUtXDmNexXB4Znss7h5Y+e2EwVDdPeVbkgqHYQvsx53iUz+uGiOoPt38/wd
+         QpCEiCOpkmI11OdM8gxOHQyLCuPzPE+GJfMQEtHDqoRH0USfIfQW+3+jwxkJXfwmhFmC
+         +b707BZHD/LDyouanaT1GTidN/uCCwjwXPWnZYgmBS1d0wVvQvzp+qTJc6jpXBS3R3Cv
+         8ZPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=2YLtl1WbncXvNBKR5ocI/1xaaG/sadhCOzIfuaiWwOY=;
-        b=yL46pAFrpiibA2nGZfffcNNDA1CyDIbjNT0WA59jlnDYlgYKwFhWFrAxqLnMnlzTf4
-         a+F2MhTxDukgyFpVsZGzcTdG36PiNtecxlGxTqd2c/0gSsNQzXNDEmMSF7mxzo66LF2H
-         lZPrYl3aNgH6jqsaTLXEUZ2ys5r3mfIaCQLnr/oLWNQ/dzi7QtoDiCEE8T40fqgVZ6jm
-         vhPAOzwnZLliQlqs2inTr6OxPG/WiI1xZ3InMficb0MqmwGuuQ8dReQQlZ5LB/OFR+Qc
-         8QZI/YpEesfmiCGpkaDqEan4PMIhzWorY/+GF+T24wgw9d75+HLH8ZvPi1o63Mr+xwud
-         HmtQ==
+        bh=nKlUEt5gP+IlKWUCAG+hauQqqaaekeaiv8NKJ7wAvQU=;
+        b=QMzxL6zztQ2B1y7GKMBzClrGU0oxgkleHMPQKAdlHdQQB0q/9v/st/b7f2towUu+Yo
+         N61a1ZOJZ4fG68p3vo/S+ioKt4j+1EippNPvowCpLXpobp7BKgjCCumF5SzsTdO+NHBX
+         TWCVicj6fV9uvzsjhYJTBIAeN2DnrET5C44v1O81Qrn3ULppp5vqSb+KGMhXQgMuYlsB
+         B6UXqg9/mOk2KJeCj7ZPpaimCAKzjbvvBZelcQa/n6Tq4S9TtufeMfS7BtHV4eoRreIi
+         GtN0ubK3YTz3lIvsoHwu9Q1P/Fx86WMf/oyMGbrn0VfOrHYSKCxXvWNteMstlGH5Kg9A
+         9gwg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id r10si104240pjq.0.2019.08.09.17.22.50
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id d9si62541plj.5.2019.08.09.21.38.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 09 Aug 2019 17:22:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+        Fri, 09 Aug 2019 21:38:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 09 Aug 2019 17:22:49 -0700
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 09 Aug 2019 21:38:22 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,367,1559545200"; 
-   d="gz'50?scan'50,208,50";a="374648470"
+X-IronPort-AV: E=Sophos;i="5.64,368,1559545200"; 
+   d="gz'50?scan'50,208,50";a="175332889"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 09 Aug 2019 17:22:47 -0700
+  by fmsmga008.fm.intel.com with ESMTP; 09 Aug 2019 21:38:01 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hwF9j-000CT0-FK; Sat, 10 Aug 2019 08:22:47 +0800
-Date: Sat, 10 Aug 2019 08:22:21 +0800
+	id 1hwJ8i-00098M-MM; Sat, 10 Aug 2019 12:38:00 +0800
+Date: Sat, 10 Aug 2019 12:37:09 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [Intel-gfx] [PATCH] drm/i915: Flush any deferred RCU cleanup
- before switching off GEM
-Message-ID: <201908100821.qr2uA7kD%lkp@intel.com>
+Subject: Re: [Intel-gfx] [PATCH v7 1/6] drm/i915: Add i915 to
+ i915_inject_probe_failure
+Message-ID: <201908101255.oKSoDG3z%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="hq5d7yu5xppwhelh"
+Content-Type: multipart/mixed; boundary="56asjvw2zlkzjliy"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,18 +138,16 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---hq5d7yu5xppwhelh
+--56asjvw2zlkzjliy
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190802132836.6787-1-chris@chris-wilson.co.uk>
-References: <20190802132836.6787-1-chris@chris-wilson.co.uk>
-TO: Chris Wilson <chris@chris-wilson.co.uk>
-CC: intel-gfx@lists.freedesktop.org
-CC: 
+In-Reply-To: <20190802184055.31988-2-michal.wajdeczko@intel.com>
+References: <20190802184055.31988-2-michal.wajdeczko@intel.com>
+TO: Michal Wajdeczko <michal.wajdeczko@intel.com>
 
-Hi Chris,
+Hi Michal,
 
 Thank you for the patch! Yet something to improve:
 
@@ -157,7 +155,7 @@ Thank you for the patch! Yet something to improve:
 [cannot apply to v5.3-rc3 next-20190809]
 [if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
 
-url:    https://github.com/0day-ci/linux/commits/Chris-Wilson/drm-i915-Flush-any-deferred-RCU-cleanup-before-switching-off-GEM/20190802-232023
+url:    https://github.com/0day-ci/linux/commits/Michal-Wajdeczko/add-more-probe-failures/20190803-124724
 base:   git://anongit.freedesktop.org/drm-intel for-linux-next
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
@@ -170,200 +168,286 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/gpu/drm/i915/i915_gem.c:1606:28: error: no member named 'rq' in 'struct drm_i915_private'
-           flush_workqueue(dev_priv->rq);
-                           ~~~~~~~~  ^
-   1 error generated.
+>> drivers/gpu/drm/i915/i915_drv.c:691:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/i915_drv.c:691:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   drivers/gpu/drm/i915/i915_drv.c:898:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+   drivers/gpu/drm/i915/i915_drv.c:898:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   drivers/gpu/drm/i915/i915_drv.c:989:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+   drivers/gpu/drm/i915/i915_drv.c:989:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   drivers/gpu/drm/i915/i915_drv.c:1534:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+   drivers/gpu/drm/i915/i915_drv.c:1534:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   8 errors generated.
+--
+>> drivers/gpu/drm/i915/i915_pci.c:962:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(to_i915(pci_get_drvdata(pdev)))) {
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/i915_pci.c:962:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(to_i915(pci_get_drvdata(pdev)))) {
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   2 errors generated.
+--
+>> drivers/gpu/drm/i915/intel_uncore.c:1334:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(uncore->i915))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/intel_uncore.c:1334:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(uncore->i915))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   2 errors generated.
+--
+>> drivers/gpu/drm/i915/gt/intel_engine_cs.c:429:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(i915))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/gt/intel_engine_cs.c:429:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(i915))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   2 errors generated.
+--
+>> drivers/gpu/drm/i915/i915_gem.c:1523:41: error: too many arguments provided to function-like macro invocation
+           ret = i915_inject_load_error(dev_priv, -ENODEV);
+                                                  ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/i915_gem.c:1523:8: error: use of undeclared identifier 'i915_inject_load_error'
+           ret = i915_inject_load_error(dev_priv, -ENODEV);
+                 ^
+   drivers/gpu/drm/i915/i915_gem.c:1527:41: error: too many arguments provided to function-like macro invocation
+           ret = i915_inject_load_error(dev_priv, -EIO);
+                                                  ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+   drivers/gpu/drm/i915/i915_gem.c:1527:8: error: use of undeclared identifier 'i915_inject_load_error'
+           ret = i915_inject_load_error(dev_priv, -EIO);
+                 ^
+   4 errors generated.
+--
+>> drivers/gpu/drm/i915/intel_wopcm.c:180:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(i915))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/intel_wopcm.c:180:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(i915))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   2 errors generated.
+--
+>> drivers/gpu/drm/i915/display/intel_connector.c:121:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(to_i915(connector->dev))) {
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/display/intel_connector.c:121:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(to_i915(connector->dev))) {
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   2 errors generated.
+--
+>> drivers/gpu/drm/i915/intel_gvt.c:98:6: error: too many arguments provided to function-like macro invocation
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:72: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                                                          ^
+   drivers/gpu/drm/i915/i915_drv.h:133:9: note: macro 'i915_inject_load_error' defined here
+   #define i915_inject_load_error(_err) 0
+           ^
+>> drivers/gpu/drm/i915/intel_gvt.c:98:6: error: use of undeclared identifier 'i915_inject_load_error'
+           if (i915_inject_probe_failure(dev_priv))
+               ^
+   drivers/gpu/drm/i915/i915_drv.h:138:41: note: expanded from macro 'i915_inject_probe_failure'
+   #define i915_inject_probe_failure(i915) i915_inject_load_error((i915), -ENODEV)
+                                           ^
+   2 errors generated.
 
-vim +1606 drivers/gpu/drm/i915/i915_gem.c
+vim +691 drivers/gpu/drm/i915/i915_drv.c
 
-  1425	
-  1426	int i915_gem_init(struct drm_i915_private *dev_priv)
-  1427	{
-  1428		int ret;
-  1429	
-  1430		/* We need to fallback to 4K pages if host doesn't support huge gtt. */
-  1431		if (intel_vgpu_active(dev_priv) && !intel_vgpu_has_huge_gtt(dev_priv))
-  1432			mkwrite_device_info(dev_priv)->page_sizes =
-  1433				I915_GTT_PAGE_SIZE_4K;
-  1434	
-  1435		dev_priv->mm.unordered_timeline = dma_fence_context_alloc(1);
-  1436	
-  1437		intel_timelines_init(dev_priv);
-  1438	
-  1439		ret = i915_gem_init_userptr(dev_priv);
-  1440		if (ret)
-  1441			return ret;
-  1442	
-  1443		intel_uc_fetch_firmwares(&dev_priv->gt.uc);
-  1444	
-  1445		ret = intel_wopcm_init(&dev_priv->wopcm);
-  1446		if (ret)
-  1447			goto err_uc_fw;
-  1448	
-  1449		/* This is just a security blanket to placate dragons.
-  1450		 * On some systems, we very sporadically observe that the first TLBs
-  1451		 * used by the CS may be stale, despite us poking the TLB reset. If
-  1452		 * we hold the forcewake during initialisation these problems
-  1453		 * just magically go away.
-  1454		 */
-  1455		mutex_lock(&dev_priv->drm.struct_mutex);
-  1456		intel_uncore_forcewake_get(&dev_priv->uncore, FORCEWAKE_ALL);
-  1457	
-  1458		ret = i915_init_ggtt(dev_priv);
-  1459		if (ret) {
-  1460			GEM_BUG_ON(ret == -EIO);
-  1461			goto err_unlock;
-  1462		}
-  1463	
-  1464		ret = i915_gem_init_scratch(dev_priv,
-  1465					    IS_GEN(dev_priv, 2) ? SZ_256K : PAGE_SIZE);
-  1466		if (ret) {
-  1467			GEM_BUG_ON(ret == -EIO);
-  1468			goto err_ggtt;
-  1469		}
-  1470	
-  1471		ret = intel_engines_setup(dev_priv);
-  1472		if (ret) {
-  1473			GEM_BUG_ON(ret == -EIO);
-  1474			goto err_unlock;
-  1475		}
-  1476	
-  1477		ret = i915_gem_contexts_init(dev_priv);
-  1478		if (ret) {
-  1479			GEM_BUG_ON(ret == -EIO);
-  1480			goto err_scratch;
-  1481		}
-  1482	
-  1483		ret = intel_engines_init(dev_priv);
-  1484		if (ret) {
-  1485			GEM_BUG_ON(ret == -EIO);
-  1486			goto err_context;
-  1487		}
-  1488	
-  1489		intel_init_gt_powersave(dev_priv);
-  1490	
-  1491		ret = intel_uc_init(&dev_priv->gt.uc);
-  1492		if (ret)
-  1493			goto err_pm;
-  1494	
-  1495		ret = i915_gem_init_hw(dev_priv);
-  1496		if (ret)
-  1497			goto err_uc_init;
-  1498	
-  1499		/* Only when the HW is re-initialised, can we replay the requests */
-  1500		ret = intel_gt_resume(&dev_priv->gt);
-  1501		if (ret)
-  1502			goto err_init_hw;
-  1503	
-  1504		/*
-  1505		 * Despite its name intel_init_clock_gating applies both display
-  1506		 * clock gating workarounds; GT mmio workarounds and the occasional
-  1507		 * GT power context workaround. Worse, sometimes it includes a context
-  1508		 * register workaround which we need to apply before we record the
-  1509		 * default HW state for all contexts.
-  1510		 *
-  1511		 * FIXME: break up the workarounds and apply them at the right time!
-  1512		 */
-  1513		intel_init_clock_gating(dev_priv);
-  1514	
-  1515		ret = intel_engines_verify_workarounds(dev_priv);
-  1516		if (ret)
-  1517			goto err_gt;
-  1518	
-  1519		ret = __intel_engines_record_defaults(dev_priv);
-  1520		if (ret)
-  1521			goto err_gt;
-  1522	
-  1523		if (i915_inject_probe_failure()) {
-  1524			ret = -ENODEV;
-  1525			goto err_gt;
-  1526		}
-  1527	
-  1528		if (i915_inject_probe_failure()) {
-  1529			ret = -EIO;
-  1530			goto err_gt;
-  1531		}
-  1532	
-  1533		intel_uncore_forcewake_put(&dev_priv->uncore, FORCEWAKE_ALL);
-  1534		mutex_unlock(&dev_priv->drm.struct_mutex);
-  1535	
-  1536		return 0;
-  1537	
-  1538		/*
-  1539		 * Unwinding is complicated by that we want to handle -EIO to mean
-  1540		 * disable GPU submission but keep KMS alive. We want to mark the
-  1541		 * HW as irrevisibly wedged, but keep enough state around that the
-  1542		 * driver doesn't explode during runtime.
-  1543		 */
-  1544	err_gt:
-  1545		mutex_unlock(&dev_priv->drm.struct_mutex);
-  1546	
-  1547		intel_gt_set_wedged(&dev_priv->gt);
-  1548		i915_gem_suspend(dev_priv);
-  1549		i915_gem_suspend_late(dev_priv);
-  1550	
-  1551		i915_gem_drain_workqueue(dev_priv);
-  1552	
-  1553		mutex_lock(&dev_priv->drm.struct_mutex);
-  1554	err_init_hw:
-  1555		intel_uc_fini_hw(&dev_priv->gt.uc);
-  1556	err_uc_init:
-  1557		intel_uc_fini(&dev_priv->gt.uc);
-  1558	err_pm:
-  1559		if (ret != -EIO) {
-  1560			intel_cleanup_gt_powersave(dev_priv);
-  1561			intel_engines_cleanup(dev_priv);
-  1562		}
-  1563	err_context:
-  1564		if (ret != -EIO)
-  1565			i915_gem_contexts_fini(dev_priv);
-  1566	err_scratch:
-  1567		i915_gem_fini_scratch(dev_priv);
-  1568	err_ggtt:
-  1569	err_unlock:
-  1570		intel_uncore_forcewake_put(&dev_priv->uncore, FORCEWAKE_ALL);
-  1571		mutex_unlock(&dev_priv->drm.struct_mutex);
-  1572	
-  1573	err_uc_fw:
-  1574		intel_uc_cleanup_firmwares(&dev_priv->gt.uc);
-  1575	
-  1576		if (ret != -EIO) {
-  1577			i915_gem_cleanup_userptr(dev_priv);
-  1578			intel_timelines_fini(dev_priv);
-  1579		}
-  1580	
-  1581		if (ret == -EIO) {
-  1582			mutex_lock(&dev_priv->drm.struct_mutex);
-  1583	
-  1584			/*
-  1585			 * Allow engine initialisation to fail by marking the GPU as
-  1586			 * wedged. But we only want to do this where the GPU is angry,
-  1587			 * for all other failure, such as an allocation failure, bail.
-  1588			 */
-  1589			if (!intel_gt_is_wedged(&dev_priv->gt)) {
-  1590				i915_probe_error(dev_priv,
-  1591						 "Failed to initialize GPU, declaring it wedged!\n");
-  1592				intel_gt_set_wedged(&dev_priv->gt);
-  1593			}
-  1594	
-  1595			/* Minimal basic recovery for KMS */
-  1596			ret = i915_ggtt_enable_hw(dev_priv);
-  1597			i915_gem_restore_gtt_mappings(dev_priv);
-  1598			i915_gem_restore_fences(dev_priv);
-  1599			intel_init_clock_gating(dev_priv);
-  1600	
-  1601			mutex_unlock(&dev_priv->drm.struct_mutex);
-  1602		}
-  1603	
-  1604		/* Flush any deferred RCU cleanup */
-  1605		rcu_barrier();
-> 1606		flush_workqueue(dev_priv->rq);
-  1607	
-  1608		i915_gem_drain_freed_objects(dev_priv);
-  1609		return ret;
-  1610	}
-  1611	
+   684	
+   685	static int i915_driver_modeset_probe(struct drm_device *dev)
+   686	{
+   687		struct drm_i915_private *dev_priv = to_i915(dev);
+   688		struct pci_dev *pdev = dev_priv->drm.pdev;
+   689		int ret;
+   690	
+ > 691		if (i915_inject_probe_failure(dev_priv))
+   692			return -ENODEV;
+   693	
+   694		if (HAS_DISPLAY(dev_priv)) {
+   695			ret = drm_vblank_init(&dev_priv->drm,
+   696					      INTEL_INFO(dev_priv)->num_pipes);
+   697			if (ret)
+   698				goto out;
+   699		}
+   700	
+   701		intel_bios_init(dev_priv);
+   702	
+   703		/* If we have > 1 VGA cards, then we need to arbitrate access
+   704		 * to the common VGA resources.
+   705		 *
+   706		 * If we are a secondary display controller (!PCI_DISPLAY_CLASS_VGA),
+   707		 * then we do not take part in VGA arbitration and the
+   708		 * vga_client_register() fails with -ENODEV.
+   709		 */
+   710		ret = vga_client_register(pdev, dev_priv, NULL, i915_vga_set_decode);
+   711		if (ret && ret != -ENODEV)
+   712			goto out;
+   713	
+   714		intel_register_dsm_handler();
+   715	
+   716		ret = vga_switcheroo_register_client(pdev, &i915_switcheroo_ops, false);
+   717		if (ret)
+   718			goto cleanup_vga_client;
+   719	
+   720		/* must happen before intel_power_domains_init_hw() on VLV/CHV */
+   721		intel_update_rawclk(dev_priv);
+   722	
+   723		intel_power_domains_init_hw(dev_priv, false);
+   724	
+   725		intel_csr_ucode_init(dev_priv);
+   726	
+   727		ret = intel_irq_install(dev_priv);
+   728		if (ret)
+   729			goto cleanup_csr;
+   730	
+   731		intel_gmbus_setup(dev_priv);
+   732	
+   733		/* Important: The output setup functions called by modeset_init need
+   734		 * working irqs for e.g. gmbus and dp aux transfers. */
+   735		ret = intel_modeset_init(dev);
+   736		if (ret)
+   737			goto cleanup_irq;
+   738	
+   739		ret = i915_gem_init(dev_priv);
+   740		if (ret)
+   741			goto cleanup_modeset;
+   742	
+   743		intel_overlay_setup(dev_priv);
+   744	
+   745		if (!HAS_DISPLAY(dev_priv))
+   746			return 0;
+   747	
+   748		ret = intel_fbdev_init(dev);
+   749		if (ret)
+   750			goto cleanup_gem;
+   751	
+   752		/* Only enable hotplug handling once the fbdev is fully set up. */
+   753		intel_hpd_init(dev_priv);
+   754	
+   755		intel_init_ipc(dev_priv);
+   756	
+   757		return 0;
+   758	
+   759	cleanup_gem:
+   760		i915_gem_suspend(dev_priv);
+   761		i915_gem_driver_remove(dev_priv);
+   762		i915_gem_driver_release(dev_priv);
+   763	cleanup_modeset:
+   764		intel_modeset_driver_remove(dev);
+   765	cleanup_irq:
+   766		intel_irq_uninstall(dev_priv);
+   767		intel_gmbus_teardown(dev_priv);
+   768	cleanup_csr:
+   769		intel_csr_ucode_fini(dev_priv);
+   770		intel_power_domains_driver_remove(dev_priv);
+   771		vga_switcheroo_unregister_client(pdev);
+   772	cleanup_vga_client:
+   773		vga_client_register(pdev, NULL, NULL, NULL);
+   774	out:
+   775		return ret;
+   776	}
+   777	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -372,14 +456,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908100821.qr2uA7kD%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908101255.oKSoDG3z%25lkp%40intel.com.
 
---hq5d7yu5xppwhelh
+--56asjvw2zlkzjliy
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICCQLTl0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
+H4sICGpHTl0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
 cuqzvuTIdjf592cG4GUAgm7a3TbhzOA+mDv0w79+mLHXl6eH3cvd9e7+/tvs8/5xf9i97G9m
 t3f3+/+ZpXJWSjPjqTC/AHF+9/j69f3X87Pm7MPs4y+nvxz9fLg+nq32h8f9/Sx5ery9+/wK
 7e+eHv/1w7/g/z8A8OELdHX49+z6fvf4efbX/vAM6Nnx0S/wv9mPn+9e/v3+Pfz34e5weDq8
@@ -1247,4 +1331,4 @@ vcZLQadp3QNvTJncrkmxiMmhLB/OFF4QikegzTIrfj7BcUoYDJOiLrYczMuKstJ1dDg/cpZ6
 AmSyPJoxVsTejIM3krAFity7aJy205Ua4cUIh3B0QV6zN5VqLUKCiUOux8bSAJseCzWgRhMk
 fF/t8QmGdqhby5Uxt7Pfl9TpwJtDjqv+f7aB8kkJ9wIA
 
---hq5d7yu5xppwhelh--
+--56asjvw2zlkzjliy--
