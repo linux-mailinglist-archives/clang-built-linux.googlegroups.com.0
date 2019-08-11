@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZVIX7VAKGQEH3SDOBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBT5FYDVAKGQE5CQW63I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 47F01890B1
-	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 10:40:10 +0200 (CEST)
-Received: by mail-ot1-x33c.google.com with SMTP id g76sf2427383otg.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 01:40:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565512809; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id D604E891BD
+	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 15:06:24 +0200 (CEST)
+Received: by mail-pg1-x53c.google.com with SMTP id m19sf48463672pgv.7
+        for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 06:06:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565528783; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X4jPpwHFGn9dN2UZdrE9Heyjx6aXv5M8IliDL4jshcRruV40dV9MS2CAZWzAKKcu2H
-         SB136ZL3RRutJFeHsIJfov9GLsYoMyvWHApyTXFbAZ0wVMAHBFiaU8bGS5MmkDq9a3sy
-         5T4K2btXFt/QNz8AUCaVJyrxBhAuLiRFK1GG2FhhUyU+2R+vxeML6sJ4GVZPWIYdpmh+
-         f5HES9IqahZeBIOITe870nBeb7G9kVY9+LfhYhcCkbS2gXBAeO/XWL8zbaa1Nbu3ut/h
-         hNTZrpKmKuVrcaaSEe9D2hEJwvAKeBkJzVMNI7CTnrnBU5AeloVS6OKUh9RobeETHWSh
-         cIjw==
+        b=gdgpJfozLd5djDU15k5ei+sx0SRZO2iYinl9sxni8FJVyHNPSdwyxQLmGcqzRsike4
+         i+PyceZsgHGDOQufmFWJL2A12k/fZeRMFgczZWyo8/qOvGTtJKqtb7OD7BjpZ+SWZGMh
+         X/Q6Nl47UTfxrwgRdXdfVqcE5CFFaF7M1YEhHzYk0msPiGEYKi7uFnaUkqx7ZDQKG8qQ
+         xj8fGCbFrQk69Pmazm2YQJp+rfzVZGs/clItkZ3gT8RFyNFg/1HAOPnsR+oiHAzSAqGf
+         1uaNB6V+MRjTsGQEp6eLqf3pJTP64DKpk8Lf19cs2vAP956wdlDsLq87Lzi1kS98HpSp
+         d0+A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=X4SejxkuDWiaxDVmYymjnuHPucw86gyLcMa7jgHPBEg=;
-        b=hxiNowXdm3bUJljjmorDYmRYTR78ra6s0Q0dzxV4SFbbKgD4q3YMvzlWgb4h2rb3If
-         7MNaFb54mv2dafrOrtZsIV8hA9nX84JY0Jvauxgzx+PpKUWkw4uYW41XNkZAQiHXFZ9o
-         fW+2FOpqaVyap3RABtRANBqslieb1HcrVwDst0CbaYUWleRXzH4sXbOg2qXpwwqU+RQV
-         B8BakH9SCq5Ds8ubrUxWOMtSfA0zHtpvz1EfCSF3YMR+AWqtRyzuvxJcHaVPLYWcAGX9
-         0j8dZ5MaTp/HDKDJOtVVKhKtDr9b8SBPxHemxMj0SlcJyeSpn4G66l1+0TUZFNF6210F
-         jMuw==
+        bh=Dz733mVUVKZeCH6PcA9kgAg8VeFP1l3OrR+EQvKbjyU=;
+        b=swghvSEX1p3KVwvl9AO5fIYYMfReMV33lPc/JamrbnYGIZo1aBZucyCSIBvXixGOi+
+         k5l/35vwKnl2ARGUbdpD58hWreFLfW4SMnG6HWzHcRYSB8VorlHQdssaFjoodmt/8tkF
+         4Cp9DGlxij9HSc0lV0aqXdnfUSW5uYpKNW62EN7KJeElqlTbbq+Wy69eTFUB9ZrlIZds
+         CZrBhmtTouP3i2tEv0wHRcVYLWMvcIAwIt99Rsg+FX2kUcAF6P9BPgWsMHTxqi40QfS7
+         mPsStJyTY31Xd/kcVXgZt4W7OyCmdMBA20VtLI744Hfbj/H0dUukr0MdgRaUYmFpQkC0
+         YdxA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=X4SejxkuDWiaxDVmYymjnuHPucw86gyLcMa7jgHPBEg=;
-        b=BvpCP4a6rGh3zNSt8drW61Zql67/JpLlHevdOSJuCC3Ft+OzHmcz8s1QOEZjt5PJaS
-         sDbdhm5KB13Oa8PIMGyDkjWee6fjwdnBE3IRf5U/94r2rFmBiWqniTmN0EJFIjglEcft
-         j9FhWdkcC7RVuTix332oDV6dArbpmKmCsJxP3NWDZeXvuFwDk6oR1nGpjq0vr37qE9VR
-         LEuQ4FaboUkzwdce/UntCnNl5JdOrbQBQZC0HhcodQqkQ6nJKly7Z6U9pNe2pAw6tqyB
-         ZTzj/hltHATf1IAhnbpDCZX0D3c8xT4DjE6QxTRoHd7X5Q7bynvjrqxxRal5F+j+eRjS
-         EjGQ==
+        bh=Dz733mVUVKZeCH6PcA9kgAg8VeFP1l3OrR+EQvKbjyU=;
+        b=Kk9eMdAjXuaaFeY+w8MPuZ5q2G15prIL7Q3lgXPuMCqtSmKyvgx9DWzd4Tqe+RMvJl
+         Vkfo7hRjxbrDQVH86hKcx31+tKyFQU0opU92agoYw2bIrQQUrl4lrorI9tMH3DolC0rG
+         K1+6Osav34zvIX12ePuB7dTokW2jSJ5m8BXJfrv8TW6eeaCQWkpQMDIBgSGU6Z2FwImH
+         4du8k0gzuFqY0LNqmgGg/QwwQ1gjBPAvom77ZNCBmWpRJwkn1Mn3IkktvYSNhI0w4dke
+         gCJ05yMInbm0upl85okEXOmatp9UHOc+47pQaiOzgHp+uEAIRW229BvYsvesgoZW4iUR
+         XdWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=X4SejxkuDWiaxDVmYymjnuHPucw86gyLcMa7jgHPBEg=;
-        b=cTwQP1nZag463tY74c4XMNu0/Ye8Tzc0e8jByx2AxxqGeli+0SKN/39EoIYpIcYd9H
-         1ZJVHJvbaAzjJ8VLVTVvcPOgTCD4dfMZbdfzjBaxSJRGM6Zjh524Y7Y4/fCWQLzVylth
-         9uJWGE7TloZFagZWohEHlo+7gqCNTIDBr0zZ4Sdva8OYrvayzSgzTPHyz+FmStKYYAWw
-         3zVG9BtCoGkGudq0oUdKbq3StuYrNg6rwGzKVcMAmfPNA7R8n8X/GacNnJmXFvBLjJJl
-         rhdSrK0b8XqBmusaKu4AP55V1ESlCY71DyQzTJPs2bcfMHnyTfqSa5W65El3fPx9EXvl
-         mIFQ==
+        bh=Dz733mVUVKZeCH6PcA9kgAg8VeFP1l3OrR+EQvKbjyU=;
+        b=HRHTkwbHY2n5IcIDsp551omoRD+JNlrJt1uiSX9hS+ulzuQZeR1bY05nhqKkl+caPO
+         PBIbwK/CeVL3aSFe2WuiflgbJNflpzs3j4f/xTqHIGsoe64gsi8osrLJ4zvp5gVwzqrI
+         GAgvq0DhZ/SYDayMxwKDheBe1zv88fZadwx7rQQ+liXuHlUG1B/pBdQ+A6vHRJvEMjeI
+         gfVDzRL1IU3h1asJT/mc/phJVIb+54AOP9Hrmd7XClrPRdtJaTK+9SfKC3TpKx/IlFQ9
+         eJEvtnA9Tn3xxEyIPDtj+1EOC4dkITZfaCVm5YQ4esxJl4QFTcluMKhWG0uDpAS+t/hE
+         GM3g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUCaNBL3GGZKPu3xXGxX66lEeR+MDkkN26O4NE1achn6IcUnE12
-	eCSob/PqUA9ytIaO9rVCal0=
-X-Google-Smtp-Source: APXvYqxfwIfeoe4Zz1WEAN7bOXpGkYvN36zg15HzI60/cF2kL90qt7HPFaX5/tLRPqyi1tgLKAn41w==
-X-Received: by 2002:a5d:8049:: with SMTP id b9mr541829ior.199.1565512806743;
-        Sun, 11 Aug 2019 01:40:06 -0700 (PDT)
+X-Gm-Message-State: APjAAAV0s+T070UWsE5bVMf7o5FRGOUsjZ17Eqbw/wUOHwpo0zmh7/aU
+	oeqfl7xm8IyFuWPFCKXKkxE=
+X-Google-Smtp-Source: APXvYqy1flOHDZfWjJalXpRR2vmxnVnyuITdxB9RfAY4l/P24CclJm4Jv4LxUiGDYbw9391Yyid67g==
+X-Received: by 2002:a65:4844:: with SMTP id i4mr26303440pgs.113.1565528783174;
+        Sun, 11 Aug 2019 06:06:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:ec8:: with SMTP id 191ls13464430jae.8.gmail; Sun, 11 Aug
- 2019 01:40:06 -0700 (PDT)
-X-Received: by 2002:a02:5a02:: with SMTP id v2mr30951918jaa.124.1565512806422;
-        Sun, 11 Aug 2019 01:40:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565512806; cv=none;
+Received: by 2002:a17:90a:db53:: with SMTP id u19ls2885461pjx.3.gmail; Sun, 11
+ Aug 2019 06:06:22 -0700 (PDT)
+X-Received: by 2002:a17:90a:c714:: with SMTP id o20mr7722885pjt.50.1565528782782;
+        Sun, 11 Aug 2019 06:06:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565528782; cv=none;
         d=google.com; s=arc-20160816;
-        b=RMZns2OX7sOA0PBcQE1UY9NW5two2K6pwer9mBDje+MtpyUcR7EmCgAdjmE/Bq7E6+
-         rs00SnU1oakc5I6lyjwZKUcUE8BBQVujVUQtiTkH0y4vxsxnt4atnfNMdUzxcRmIYbDL
-         Pkbyf3tg5L3Dm7o+Rd7XdnTOBTB4lDiJRHRC1UiClYrfuXvmk+mk4RANWh3jL/NOuhG/
-         frr9ogrihwWSaFyPg0PU985EGt/LG7kEqYdIwvt8fWZZ92M7gAYRBUdQ0Rm5iu5/R+CH
-         s57hvKYP1FDwCAi5PZKAV5EO3yYAHaXiCte411xdgRAYH9B9XFgd0J1oScupPMhJyf2m
-         IbDw==
+        b=M4vsmDXJxv+RgNBU5lGZ+ukVsT+qSSV1iW0QvdDuBL07TcVQphLbcY/virbVspXoIt
+         kGMuzUV6/UO8LySFY/HF/IQg5FUrew4cvZxtxIXbqkIghzXfKQkb8De4yBh8cP1KFJJG
+         RRxI2IXnD87mcVzW9UU/bsNsxAoNlEok4jiTaYVOuT94OYRch6W8Ze/ZIfiKkOqF/ZQK
+         FhSTToIknr5mD8Ksd9Ls6ErZs2Es2+HSoFszsnGwW/iECi3c7qzZUWaX88bj4KL3ZtRL
+         ywDueZ2xaAHfGnWB5VGpFKw73gr3vFlAJY+/g8NvrULSfYC6q7mjZZ99fSd6cD4atCCi
+         1z/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=6oJfLzOBWoKs/PyQSVCQIo6/XwXjq5B3OE+mYm5TqTA=;
-        b=HVob6LLpyMQLkJaSr8yUTTeo82tFSRyPftpnu+/G/9FpGsbGZoiklmKk3GWufZkCsC
-         lQfRMt9rqF+3mx8dgKYCtzgTzB8VMAF5SC+Gl58lmL6NGYKvDADB7po75/Scazz2bQiN
-         udLtBa/u/p36h5Mg91b1iaisI+OJ10l3YiiUFnNJ3ptT76kWErtrVShacBDKtgeb5yqU
-         ror0MiiTb5aCNpMbnAixNndE6/zfHQ9W47xN4+PpmPQwQhGkt7O/kd6xmS1Kv/dc1kZa
-         o9+g3kvndXpX6OSYJYx+0ZZIlQK6L00AeR3a+dJ2Ju4vGsG4WsbS7RnV6YXhJRVovggs
-         MFww==
+        bh=1Ad1d+pDupErZKli4rnsdhxUWPw3MY0aOwHsdlagsMQ=;
+        b=tbv9dnJgKGpxxQQgmK1Vi4OYxSN2s9Kfd8OR6t3ykdOBdJHlVyG5aqZrGwp+MBVa+U
+         FCmFyBekaqeLLGK4a0KeZWSFq3h6xJC3fIwQjCBiFPAQJ43Ro0pF8xWjULD7PK14o40p
+         2Iqfn1yZPEDfKEUcrFnZQnvACyAYzlRiowI3ju2YpZIfIIWDNsBR0MfazZ3hayQJm0ru
+         Fq1u9TjEPNGQaonxrATi426PaSuIbsU6ODkP2+V0CQh3o0BV62vlIM6jjIiNEwW84k4q
+         suzvmTPPKN2iOOZTtzdf+nKw2budiXapgAeS+mcwQmFvXjn7LLymUZpPV9AbDyXmQopB
+         gizA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id e23si437631ioe.5.2019.08.11.01.40.05
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id 85si3240782pgb.2.2019.08.11.06.06.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 11 Aug 2019 01:40:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+        Sun, 11 Aug 2019 06:06:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 11 Aug 2019 01:40:04 -0700
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 11 Aug 2019 06:06:19 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,372,1559545200"; 
-   d="gz'50?scan'50,208,50";a="166426745"
+X-IronPort-AV: E=Sophos;i="5.64,373,1559545200"; 
+   d="gz'50?scan'50,208,50";a="193739043"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 11 Aug 2019 01:40:02 -0700
+  by fmsmga001.fm.intel.com with ESMTP; 11 Aug 2019 06:06:20 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hwjOT-0005Uc-GE; Sun, 11 Aug 2019 16:40:01 +0800
-Date: Sun, 11 Aug 2019 16:39:56 +0800
+	id 1hwnY5-000FEF-JW; Sun, 11 Aug 2019 21:06:13 +0800
+Date: Sun, 11 Aug 2019 21:04:56 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 01/12] USB: add support for dev_groups to struct
- usb_driver
-Message-ID: <201908111625.uTAWD9Ve%lkp@intel.com>
+Subject: [pm:xps13-9380-20190807 9/11] ERROR: "pcie_aspm_enabled"
+ [drivers/nvme/host/nvme.ko] undefined!
+Message-ID: <201908112153.rYSTkN61%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="4yldik75d4xaqhc6"
+Content-Type: multipart/mixed; boundary="etcg2b2lyegspdth"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,29 +138,25 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---4yldik75d4xaqhc6
+--etcg2b2lyegspdth
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190806144502.17792-2-gregkh@linuxfoundation.org>
-References: <20190806144502.17792-2-gregkh@linuxfoundation.org>
-TO: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+CC: linux-acpi@vger.kernel.org
+CC: devel@acpica.org
+CC: linux-pm@vger.kernel.org
+TO: "Rafael J. Wysocki" <rjw@rjwysocki.net>
 
-Hi Greg,
-
-I love your patch! Yet something to improve:
-
-[auto build test ERROR on linus/master]
-[cannot apply to v5.3-rc3 next-20190809]
-[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
-
-url:    https://github.com/0day-ci/linux/commits/Greg-Kroah-Hartman/USB-dev_groups-support-for-usb-drivers/20190807-124804
+tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/rafael/linux-pm.git xps13-9380-20190807
+head:   23cd54587772e6ff6d98914fd0905c8e925494fd
+commit: 7c89bd8eda40bd6d94958956e0228dfcf9fe60c6 [9/11] nvme-pci: Use PCI bus-level PM if ASPM is disabled
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
+        git checkout 7c89bd8eda40bd6d94958956e0228dfcf9fe60c6
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -169,73 +165,7 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/usb/core/driver.c:957:29: error: no member named 'dev_groups' in 'struct device_driver'
-           new_driver->drvwrap.driver.dev_groups = new_driver->dev_groups;
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
-   1 error generated.
-
-vim +957 drivers/usb/core/driver.c
-
-   925	
-   926	/**
-   927	 * usb_register_driver - register a USB interface driver
-   928	 * @new_driver: USB operations for the interface driver
-   929	 * @owner: module owner of this driver.
-   930	 * @mod_name: module name string
-   931	 *
-   932	 * Registers a USB interface driver with the USB core.  The list of
-   933	 * unattached interfaces will be rescanned whenever a new driver is
-   934	 * added, allowing the new driver to attach to any recognized interfaces.
-   935	 *
-   936	 * Return: A negative error code on failure and 0 on success.
-   937	 *
-   938	 * NOTE: if you want your driver to use the USB major number, you must call
-   939	 * usb_register_dev() to enable that functionality.  This function no longer
-   940	 * takes care of that.
-   941	 */
-   942	int usb_register_driver(struct usb_driver *new_driver, struct module *owner,
-   943				const char *mod_name)
-   944	{
-   945		int retval = 0;
-   946	
-   947		if (usb_disabled())
-   948			return -ENODEV;
-   949	
-   950		new_driver->drvwrap.for_devices = 0;
-   951		new_driver->drvwrap.driver.name = new_driver->name;
-   952		new_driver->drvwrap.driver.bus = &usb_bus_type;
-   953		new_driver->drvwrap.driver.probe = usb_probe_interface;
-   954		new_driver->drvwrap.driver.remove = usb_unbind_interface;
-   955		new_driver->drvwrap.driver.owner = owner;
-   956		new_driver->drvwrap.driver.mod_name = mod_name;
- > 957		new_driver->drvwrap.driver.dev_groups = new_driver->dev_groups;
-   958		spin_lock_init(&new_driver->dynids.lock);
-   959		INIT_LIST_HEAD(&new_driver->dynids.list);
-   960	
-   961		retval = driver_register(&new_driver->drvwrap.driver);
-   962		if (retval)
-   963			goto out;
-   964	
-   965		retval = usb_create_newid_files(new_driver);
-   966		if (retval)
-   967			goto out_newid;
-   968	
-   969		pr_info("%s: registered new interface driver %s\n",
-   970				usbcore_name, new_driver->name);
-   971	
-   972	out:
-   973		return retval;
-   974	
-   975	out_newid:
-   976		driver_unregister(&new_driver->drvwrap.driver);
-   977	
-   978		printk(KERN_ERR "%s: error %d registering interface "
-   979				"	driver %s\n",
-   980				usbcore_name, retval, new_driver->name);
-   981		goto out;
-   982	}
-   983	EXPORT_SYMBOL_GPL(usb_register_driver);
-   984	
+>> ERROR: "pcie_aspm_enabled" [drivers/nvme/host/nvme.ko] undefined!
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -244,14 +174,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908111625.uTAWD9Ve%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908112153.rYSTkN61%25lkp%40intel.com.
 
---4yldik75d4xaqhc6
+--etcg2b2lyegspdth
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICOnST10AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICMMNUF0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYC7VDP/3wU0Deji9Pu+PD7e7x8Vvwef+8P+yO+7vg/uFx
 /39BXAR5IQMaM/kBiNOH57e/P+4OT6eL4OTD/MPk18PtPFjvD8/7xyB6eb5/+PwGzR9enn/4
 6Qf45ycAPn2Bng7/Cm4fd8+fg6/7wyugg+nkA/wd/Pz54fivjx/hz6eHw+Hl8PHx8etT/eXw
@@ -1092,4 +1022,4 @@ iS5BgYdP3M5ttghD43fMVx427CCi9CGCTkm5cJgZ6nld3poj656jCyUViTs2YQ/KUidyD9Bg
 2L3xdwAtmF/StRWJuaaHDBMFH/qIQAGniRU56f4i8/uN0pyYkCAAcI86zzsVs9sOfqFmbHKQ
 xURkYn0q3M8KymoUJOvwFWivbeSEoP8FBdttX9IMAwA=
 
---4yldik75d4xaqhc6--
+--etcg2b2lyegspdth--
