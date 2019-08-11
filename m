@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBI5UX3VAKGQE3IRQ3TI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBT65X3VAKGQE2KM4PTY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9B03188F86
-	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 06:31:32 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id q26sf93324264qtr.3
-        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 21:31:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565497891; cv=pass;
+Received: from mail-ot1-x33d.google.com (mail-ot1-x33d.google.com [IPv6:2607:f8b0:4864:20::33d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C13BB88FE6
+	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 07:59:44 +0200 (CEST)
+Received: by mail-ot1-x33d.google.com with SMTP id b25sf77900133otp.12
+        for <lists+clang-built-linux@lfdr.de>; Sat, 10 Aug 2019 22:59:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565503183; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qr8c4ctlNYKbjohU2qTGNSmYsJZA7X2KJji4U3vMLGo0KNXw0J+6rHS6wPhxY6COUE
-         qb4U4yliotu8SFWCDf7qTQWd7ABp0qKvIfPQKIN71FIFL6sVYXNmljuD6T9YTvxUIfX4
-         mALusqSLqf6EPYIHGrvXAHOeEiRME7/+L0qAbHUjyketyiV2ZTDZe2vrvrrXZ3aC7MnJ
-         uXh2awIiUiisnZyVq54OmWsvbi5blXIsYYiZEMSXZfY8H3J5a6dcHhIhygt1/+vtbDFJ
-         1XB+Psb21/HlhpeTyQHAsLTSvX0UlYcP/71IbYj+v2iELw8VYU/OYtTvhnW/+QRX7Y31
-         mO6A==
+        b=MXP7uFU7c+sHUEgNHpviXCCXBkL4WrPvHmn0QhLsxfUJGBu52Llp0BRmICOVTWCvKr
+         hHqXHJ4NSI4+2YaPx1tL3v/f5OQDG3a4sTRhMvjyWpGQb1mL+A3zVQ2C3LD30klGy2ss
+         n64yYLAnZ0y2UK/dzg0tIj1B7kgC4nOd7jp9e1AflX1/5dy/j5SDuBjkgYffCfeg6Ye6
+         VpqlLCJuKgz8A5c+0zQzsZ1qfPsDipaMy8qjGFOld5z5UWCEV+s+Xwax61ztrRb3B0oO
+         QcMUfGWQstiG02gsT4CY+JlGSGTMytkksAeMTYx4UHOjjllYu0PspIU+ZgyDJnvvlL8m
+         Uprw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=0iBH10tOyv/TmGMUIHkeMCR6q4drkOEIhYBXRoCGAtY=;
-        b=loOER8lKonbhCJiMvliV6beZXDJ5CYi8Uw00m/2INYUn1yRSGK0LpIUsMxzbUuajmW
-         cEcpA4Z+xTvmx62x3FBiaSr6hkyYYGZSWCVlEyGroNPHl5nYccvwKgmNLwvc5wyK3m1G
-         2W4NzHiWi3o9HfIuFFbwChHeyNW31+MUOh9Tz9ezrfDjgXbq3XoS73Sokkhod0wlyoat
-         KGECuGowjfpirHztHK+RaWD36a116hRaj2gCBs4vHGZ5IqlRTYopCTTERI16RAshwgp/
-         8ulduuw3YGbxWh5sRESzfUG+0SbVAhu3Omml4cwtz8gHWYxzocZ5/zRJQiP6s3nMGdFu
-         fyag==
+        bh=T0U/Sb7XCMJj75OpsqrBXfVDn5ImPuSyt2VuDej9y54=;
+        b=GqLwEp1yGh5Td9d3ucufv1exjQqD9JLwe/suSfTAK45GPE0BdIsEsnrKygcRItOyJw
+         mziCTbUWKycuiKqf8BdJpa2sxVcRqyQ5UKLa3ZrhP1XNPs6Y2/MgzO09XWeKhkfJ/kAK
+         FvxQGn1rvF2W4h7WiVR+50zvspYixQqjJt5TLAXs0sP5CToCG9JyR1GGx3v/cXnxxhb5
+         mqg+wjIy29b67a23EnIa9hLoEE4ALF5TgGtFZa18EPTt4vaeisOFJe1N9c4S9RsALYqM
+         gd79V3C3s6QOTIsYRxNeb9ppnyzlC9ZtrfZ/WL6SjOa+CgTVKbqsL24ldhK3TYYZfgZW
+         CkZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0iBH10tOyv/TmGMUIHkeMCR6q4drkOEIhYBXRoCGAtY=;
-        b=UdtcPZz514Fm4NQ27zMXoTpZK2EDWUxr8EXIqqlqYLO9PLdVBby1Sv9tvE8/vB2xvR
-         PmdwhridgxlUBNVr6kCM/B3sA2BponqTjhu0s+qppq3g87BFiMRw26OEiRDoRHioms4Z
-         q+3ijkPMx4/uDRnY8vkvvJj7/G6xhAxw47qiXiO0+uVvv7roxuPz4BL0793C8+geQydd
-         A73utNJJQ1eKxyHx7KlOYfW1TNuhYumq6XdNWPTknNZI6mTF7BlEEXCZ2uCB9IZArp3A
-         9S2d2i+WBTc5B1PYmf4G4He6VJZ3KzUTDns9mVaRGZvWh6i9CCW3fsmn9xTxxOiks5X1
-         +hfw==
+        bh=T0U/Sb7XCMJj75OpsqrBXfVDn5ImPuSyt2VuDej9y54=;
+        b=gNiNLt9Pl7DBFYlaYlQZoHTeWLr3EmEhp7osQQznsk2sYLcW3/CPCP7mtZzcwJRmI7
+         AzTae9Torhlj+XnWNDJSoTFj1l8CPeO4yjiIXdqmJ/B6tzLSK5m+adFzhXtT1IhSGlSb
+         JB+8wki4rvlZ68nUTylcrWqgKmqlWwdheUQmJu9HrpMSnKin1ns6A87WfSv+fAZqwT6a
+         ZMxa5+ZR5mLwr6moMiM+/aBc8EjYxcKJBaEpnwyCa/GyWbnFAEOQWH8ryFF4YREkx1jC
+         HPz3ORgjwSQfnkvf5Gk6+0+HUunr7gtq3Gg5si5szT9p4nUrJ2xKWIbP99QsvU1S+eAv
+         SVrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0iBH10tOyv/TmGMUIHkeMCR6q4drkOEIhYBXRoCGAtY=;
-        b=VWGwbeo8GxJeHWWqQ0vIBYWz0eoZ2LUSavM60h1fjCKvK8KHVIMvehlHWg54/g8Jw6
-         JWdpTGQzsaMTqIFNfFVfrIuShIN+Q3y2pebqRw8lNoTx2RnIQn1L978EOd2T0w9c3+Yx
-         S39vDDC4evmnLg6bL2KUh8UFfYBV40OgFa/+UwwKivSR2r9yyje8fxAbe3E/2FWV5/N6
-         0WC6ljJQ6MjtUzvfdeCCRWzCM+qI3UJVQXusiPx6k8EPxByN28eQF0ZxTEabEYRKdBMu
-         OeADJ65vXOP54v606zOgV4uE2fyZ8t4L4A+9SpE8VeWK1pUmnMz5w0eB7/OkpdfefgRe
-         XpCA==
+        bh=T0U/Sb7XCMJj75OpsqrBXfVDn5ImPuSyt2VuDej9y54=;
+        b=WLzlw9adqBzAd/vDQRNKeilcc6dzfx8KLizTZ4H1jxAbvs70Y05gaeY9HVUtB1mZoi
+         1zaKeaaizQahOtdK09GyTNRwtvBj+JwTXaWLLON0293cuAAgGoLLxvxciljhUs/Xcjys
+         zqvegggwqX5zGnKSp1lHL2IAOvoHrV9ltU2q3ey868Vansq/h+NTl96WG5W1fCjcHXxe
+         hUQNduJL7kI+I14MoPHpSxDv7V49aJXQRjIHGx9fAqzsvyKU9tyFp9NDLMiX9thMFBiC
+         gi3WJBDD9oZBJH42Om4nBNRwlpjtbng7sD4t+BJ+gCMTX5qyqfsyGKddDWZ5Y34hlpgR
+         uDxg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVi7TyCQjVqfACCiZgL5bNFMW6bGemFHysm0bkkWvj6bBwt/miW
-	fa+CzBaUpdGdqxRGwp8sOwo=
-X-Google-Smtp-Source: APXvYqzh6fnpXU/RZkmYMJRBtPNbLXtLhuRQE66TTQgyYJSMnP2icYsg5Ng4uJxEehQIucR0GcwNpQ==
-X-Received: by 2002:aed:33c5:: with SMTP id v63mr4647114qtd.360.1565497891339;
-        Sat, 10 Aug 2019 21:31:31 -0700 (PDT)
+X-Gm-Message-State: APjAAAXP1elzMI6Ds+IxmLJtDf+QHw2P+wabo0Frcjwge5nFPPlpBBm0
+	/OE+aGQxNuC2KFl46dVDRwk=
+X-Google-Smtp-Source: APXvYqwV8KltCqeN46UFJrHxl1ss7/TlS6HAQ29uYXbsBwu2GzljAgd747vnpHkFP06bQOmufWHZMw==
+X-Received: by 2002:a9d:7088:: with SMTP id l8mr11332096otj.230.1565503183375;
+        Sat, 10 Aug 2019 22:59:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:32a4:: with SMTP id z33ls1929551qtd.13.gmail; Sat, 10
- Aug 2019 21:31:31 -0700 (PDT)
-X-Received: by 2002:ac8:e45:: with SMTP id j5mr12283501qti.149.1565497891055;
-        Sat, 10 Aug 2019 21:31:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565497891; cv=none;
+Received: by 2002:a54:4705:: with SMTP id k5ls2859486oik.13.gmail; Sat, 10 Aug
+ 2019 22:59:43 -0700 (PDT)
+X-Received: by 2002:aca:4383:: with SMTP id q125mr11918885oia.29.1565503182929;
+        Sat, 10 Aug 2019 22:59:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565503182; cv=none;
         d=google.com; s=arc-20160816;
-        b=iC/19qw7nMafhaBMPvA4ckgP/mALucplGcu9+q/VgmQraDN/CRUMMjI+QNTITgJZXz
-         UKQ90XQguMeWBRAMnHR6MjD6gEv27Af9lslgZTYuT1YTgLTdyNzDRo9QnC2aXniEIS1x
-         rGRZTyiyHkq3OUmuXTc8+yF3YrR8YdMz/ZVkPcJxL9QdAYIQP+WuaRUEJmj6s9ekp63g
-         YtH557vyMTbVHgR8QROTIKQhx0WEfh5EQTgJh7FoAgAX7EWNHldYFSGinsK81pu8T7iy
-         tYd7Jn9w+jSwgyqGaKRoM/9SHLuQGvsvW9JMx1bQ0N79wP1bcg7abNo43d4AKbjvCmA1
-         44Qw==
+        b=ldyJHAY3oBWvvmcPJAcJJ505KKjO2KV0+ogAG1caid90QKca8kiPlfVg1yiBGGV/ye
+         rlwubFALuAz7g1VQNT/SUoM8tH0MBiTjWgVmzO4R2dNNl0i2ODDD1x2/Y3bNCmnPI/dM
+         YTmLCssGdGjvOMSbkLwcX/dVE58pq8SGT54uQmdtF4UqT3gA+MzmK088+Q8pFQ0CR3px
+         0tgtZHWHlyE0EGBchKwU4tpdSYROuZlyk+xD2l7xWmDSQh0ka2zUVhBP5janVHko9cMb
+         XwP/GJ+E76YU3Nip13eGBS1M1rdwDI8sPB14bvXjA9gCckIGTp2TVxuqra+r/ZyuxBNb
+         8aLA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=ewglxIzk7PZiupj6OPNPMv2/INDMBCFr70XxULxfVSE=;
-        b=UadX7CbY+ouWByY6h1Gfq1K7VLNCMAX9DCX+/HtjmwlnCZgXkOg3RnoeADq8dSBJJq
-         xSgt5NGOk9QZBBsT9WC57mBcuVZ41OnLzOWF/+fb5TaBxp6jA4rpbuJl/LR/iM8S/hp0
-         SIL2EpdohH+4Tes5jyZt3iOKtdknD55OgqVdZ5fInbxy6btJUWbcSFXW8X60QZ2EROhO
-         M+zpQp4AzTljO+SjHOKtPv87EANExsVIhbAdVx0YFJjc229YwPR73sfeDwp4qASXDwD/
-         BZg7dQeUKoR4U843nXEBqSR8mMxwXryl/fJDLdkCuh+hmY9UlMug7F5f1oHpWleoXQSh
-         0xsg==
+        bh=hSXmtJpKepxn1aNms9biEv4uGFVqFNc6i0YsDSNPgPY=;
+        b=SvNcopGzK4eHbe7bv/jSsrk3GMehcfubqJEYVHk7oAsTpUJZOqyL6vKgGvwjiyhuiQ
+         oCmBr63u6cz5v3GgejuT9WzM/e66u8vTCBqdXDr6VfKAJAQGb87NEmXi+J5iL3b0cTT/
+         Kc02o3681ekS23I7We8wBEdqNTa2U3USpA686fS4uOxxiHROjjpSBXRfnav/hNTN7Oiu
+         8tpK/AcZiN9/yIHzb+MjffhdZQQI8jgRFQWplv9LT3DUa4NEivSiDsPtLZSKQnALKvCO
+         ECj3/BUppQRoK3slmcsHvkpYf+V5/oC9CnPif6Qel7T51zozJkp+JM0p0mGIkEUL+3di
+         cdsA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id r4si4516838qkb.1.2019.08.10.21.31.30
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id d123si3812419oig.5.2019.08.10.22.59.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 10 Aug 2019 21:31:30 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+        Sat, 10 Aug 2019 22:59:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Aug 2019 21:31:03 -0700
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Aug 2019 22:59:15 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,372,1559545200"; 
-   d="gz'50?scan'50,208,50";a="177167324"
+   d="gz'50?scan'50,208,50";a="204345804"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga007.fm.intel.com with ESMTP; 10 Aug 2019 21:31:02 -0700
+  by fmsmga002.fm.intel.com with ESMTP; 10 Aug 2019 22:59:13 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hwfVV-0003kh-Ga; Sun, 11 Aug 2019 12:31:01 +0800
-Date: Sun, 11 Aug 2019 12:30:34 +0800
+	id 1hwgsr-0003WO-AH; Sun, 11 Aug 2019 13:59:13 +0800
+Date: Sun, 11 Aug 2019 13:58:36 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [hch-misc:arm-xen-swiotlb 11/11] arch/arm64/mm/dma-mapping.c:69:6:
- error: implicit declaration of function 'xen_initial_domain'
-Message-ID: <201908111232.ixR68OTE%lkp@intel.com>
+Subject: Re: [PATCH v2] kbuild: re-implement detection of CONFIG options
+ leaked to user-space
+Message-ID: <201908111325.Tez2EdDm%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="26ouxwpmshevudrr"
+Content-Type: multipart/mixed; boundary="7u2udo4eq5gzx5x5"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,79 +138,93 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---26ouxwpmshevudrr
+--7u2udo4eq5gzx5x5
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
-TO: Christoph Hellwig <hch@lst.de>
+In-Reply-To: <20190810170135.31183-1-yamada.masahiro@socionext.com>
+References: <20190810170135.31183-1-yamada.masahiro@socionext.com>
+TO: Masahiro Yamada <yamada.masahiro@socionext.com>
+CC: linux-kbuild@vger.kernel.org, Christoph Hellwig <hch@lst.de>, Arnd Berg=
+mann <arnd@arndb.de>, Sam Ravnborg <sam@ravnborg.org>, Masahiro Yamada <yam=
+ada.masahiro@socionext.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Bo=
+rkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, Song Liu <s=
+ongliubraving@fb.com>, Yonghong Song <yhs@fb.com>, bpf@vger.kernel.org, lin=
+ux-kernel@vger.kernel.org, netdev@vger.kernel.org
+CC: Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>, Sam Ravn=
+borg <sam@ravnborg.org>, Masahiro Yamada <yamada.masahiro@socionext.com>, A=
+lexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,=
+ Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghon=
+g Song <yhs@fb.com>, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, net=
+dev@vger.kernel.org
 
-tree:   git://git.infradead.org/users/hch/misc.git arm-xen-swiotlb
-head:   f76e5720a221b7b413ec2e23be1f328fec91a05e
-commit: f76e5720a221b7b413ec2e23be1f328fec91a05e [11/11] arm64: use asm-generic/dma-mapping.h
+Hi Masahiro,
+
+I love your patch! Perhaps something to improve:
+
+[auto build test WARNING on linus/master]
+[cannot apply to v5.3-rc3 next-20190809]
+[if your patch is applied to the wrong git tree, please drop us a note to h=
+elp improve the system]
+
+url:    https://github.com/0day-ci/linux/commits/Masahiro-Yamada/kbuild-re-=
+implement-detection-of-CONFIG-options-leaked-to-user-space/20190811-085800
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f=
+77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
+make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout f76e5720a221b7b413ec2e23be1f328fec91a05e
         # save the attached .config to linux build tree
-        make.cross ARCH=arm64 
+        make.cross ARCH=3Darm64=20
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> arch/arm64/mm/dma-mapping.c:69:6: error: implicit declaration of function 'xen_initial_domain' [-Werror,-Wimplicit-function-declaration]
-           if (xen_initial_domain())
-               ^
-   1 error generated.
-
-vim +/xen_initial_domain +69 arch/arm64/mm/dma-mapping.c
-
-13b8629f651164 Robin Murphy       2015-10-01  52  
-876945dbf6497c Robin Murphy       2015-10-01  53  void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
-53c92d793395fd Robin Murphy       2016-04-07  54  			const struct iommu_ops *iommu, bool coherent)
-876945dbf6497c Robin Murphy       2015-10-01  55  {
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  56  	int cls = cache_line_size_of_cpu();
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  57  
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  58  	WARN_TAINT(!coherent && cls > ARCH_DMA_MINALIGN,
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  59  		   TAINT_CPU_OUT_OF_SPEC,
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  60  		   "%s %s: ARCH_DMA_MINALIGN smaller than CTR_EL0.CWG (%d < %d)",
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  61  		   dev_driver_string(dev), dev_name(dev),
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  62  		   ARCH_DMA_MINALIGN, cls);
-8f5c9037a55b22 Masayoshi Mizuma   2019-06-14  63  
-886643b766321f Christoph Hellwig  2018-10-08  64  	dev->dma_coherent = coherent;
-06d60728ff5c01 Christoph Hellwig  2019-05-20  65  	if (iommu)
-06d60728ff5c01 Christoph Hellwig  2019-05-20  66  		iommu_setup_dma_ops(dev, dma_base, size);
-e058632670b709 Stefano Stabellini 2017-04-13  67  
-e058632670b709 Stefano Stabellini 2017-04-13  68  #ifdef CONFIG_XEN
-60d8cd572f655a Christoph Hellwig  2019-01-16 @69  	if (xen_initial_domain())
-
-:::::: The code at line 69 was first introduced by commit
-:::::: 60d8cd572f655aac6107a2330dced004ad1fe3d7 arm64/xen: fix xen-swiotlb cache flushing
-
-:::::: TO: Christoph Hellwig <hch@lst.de>
-:::::: CC: Christoph Hellwig <hch@lst.de>
+>> warning: include/uapi/asm-generic/fcntl.h: leak CONFIG_64BIT to user-spa=
+ce
+>> warning: include/uapi/linux/raw.h: leak CONFIG_MAX_RAW_DEVS to user-spac=
+e
+>> warning: include/uapi/linux/pktcdvd.h: leak CONFIG_CDROM_PKTCDVD_WCACHE =
+to user-space
+>> warning: include/uapi/linux/hw_breakpoint.h: leak CONFIG_HAVE_MIXED_BREA=
+KPOINTS_REGS to user-space
+>> warning: include/uapi/linux/elfcore.h: leak CONFIG_BINFMT_ELF_FDPIC to u=
+ser-space
+>> warning: include/uapi/linux/eventpoll.h: leak CONFIG_PM_SLEEP to user-sp=
+ace
+>> warning: include/uapi/linux/atmdev.h: leak CONFIG_COMPAT to user-space
+   5 real  13 user  5 sys  328.83% cpu 	make INSTALL_HDR_PATH=3D/tmp/usr/sr=
+c/linux-headers-arm64-defconfig-723c8e514c09af9516a181307cdaa1ee6a874ffd he=
+aders_install
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+0-DAY kernel test infrastructure                Open Source Technology Cent=
+er
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporati=
+on
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908111232.ixR68OTE%25lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/201908111325.Tez2EdDm%25lkp%40intel.com.
 
---26ouxwpmshevudrr
+--7u2udo4eq5gzx5x5
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICMiUT10AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICDGnT10AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYCoXaUNBPP/wUkLfjy9Pu+HC7e3z8FnzeP+8Pu+P+Lrh/
-eNz/XxAXQV7IgMZMfgDi9OH57e+Pu8PT6SI4+TD/MPn1cDsL1vvD8/4xiF6e7x8+v0Hzh5fn
+eNz/XxAXQV7IgMZMfgDi9OH57e+Pu8PT6SI4+TD/MPn1cDsP1vvD8/4xiF6e7x8+v0Hzh5fn
 H376Af75CYBPX6Cnw7+C28fd8+fg6/7wCuhgOvkAfwc/f344/uvjR/jz6eFweDl8fHz8+lR/
 Obz8e397DBYnu/n93Wxyev87/Ht2tpucfzo9v/30aXc+PZvd/n4/u729u5vc/wJDRUWesGW9
 jKJ6Q7lgRX4xaYEAY6KOUpIvL751QPzsaKcT/MtoEJG8Tlm+NhpE9YqImoisXhay6BGMX9bb
@@ -1047,6 +1061,6 @@ zoF6OJ8RgoeSYRhaZP4MC+HjfYTJb6uwdSCTR0JM8NqSULCJkR/HxjsElkhw+oVbQaYlrcJ8
 uhtuLS/aipR3hFBSWykyn3BcyjAk37IK331jpqx0hCPI90sTYsxoJ7ClAmeQYyMuwhiVUBUw
 bEkmDveR3XeSnvhOZEhNdAkKPHzgdm6zRRgav2O+8rBhBxGlDxF0SsqFw8xQz+vy1hxZ9xxd
 KKlI3LEJe1CWOpF7gAbD7o2/A2jB/JKurUjMNT1kmCj40EcECjhNrMhJ9xeZ32+U5sSEBAGA
-e9R53qmY3XbwCzVjk4MsJiIT61PhflZQVqMgWYevQHttIycE/R/OQB3O/gwDAA==
+e9R53qmY3XbwCzVjk4MsJiIT61PhflZQVqMgWYevQHttIycE/R9/kHxe/gwDAA==
 
---26ouxwpmshevudrr--
+--7u2udo4eq5gzx5x5--
