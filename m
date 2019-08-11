@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBGM7YLVAKGQEOZENEIA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBV5SYLVAKGQEP4DSXBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 992A389495
-	for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 23:58:51 +0200 (CEST)
-Received: by mail-pg1-x53b.google.com with SMTP id m17sf54627410pgh.21
-        for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 14:58:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565560730; cv=pass;
+Received: from mail-yw1-xc37.google.com (mail-yw1-xc37.google.com [IPv6:2607:f8b0:4864:20::c37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 412DC894B3
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 00:40:24 +0200 (CEST)
+Received: by mail-yw1-xc37.google.com with SMTP id e7sf11951291ywh.20
+        for <lists+clang-built-linux@lfdr.de>; Sun, 11 Aug 2019 15:40:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565563223; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rRN1HPSEL8XjtzVmczrAa2LpvOlVnA6VVhVk4AeEZrZjFn2ybNqcq8BHyDbQEDewSr
-         4gR482kcK9QLxwt9uCEG+i+J6MOLE3FWRo0LX16vOSkcmNf/dRIB1UIOUPnoyTlvQ4Hk
-         Stgn2ei/WVfkkjveVzrxxyCaw4hvb7J8J3lDR7I7kNP2++ipLhJ5Y/NPpFOT0yAi5LKF
-         kUjGddH2PxxCO/vJREnGD/zFfO73pCdGMKnvARqkonRLdhijRKIqBBymwwzAFZGj2iNe
-         J6NVD3ixZEANO4CGLbAC6vin8chHeMlAlTWhFyNqZ2VRZTjtTW9NtKu66hfeBtsrbZut
-         lBxw==
+        b=S4G2X49I+ReegFxZYjPt7+rPhjyB38czL+6/CWE7c+kmMY0FLQt7huuVZrz8i8OzdF
+         Eqy+gAxaB1LYMR5PDhe2p7yZqMQW/hdZ68hvmdEIu5l0zNXfWqNnIebTtFW5PNV1N/RJ
+         LvLVCHzW3ElDPYpWz1zmKCsFpacvgteGfscn0QoUR+maBUJ27B4HTva1d9qa/rOM25y0
+         BwRhgX7Krm1UPOojRNf1j8T3v8jVYdj+fi3TCv/N/5YNI4Wrww0AX1PEvxUSz32jXHPZ
+         ygsg6eyavi+mTA6fqXeE+UMtvFqbEF1c2EJ2knNwvmb8KVDCbvBna5gveCUThWafTIkF
+         stFw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=R43w0gW3tPMltV1g3si095OghRpRoQyTq+v4XlFbpg8=;
-        b=kECsw1p6ArhoE18fRog/R6mcBi8WnbstyRTrlPIVin7cvK2GmxXUeCYrcKs/H/eyIq
-         B0su1kgwnQprT1+YC9BcMFoYU7QWkwCMuAFM6hTATrtIo9SlidnaqIL3BJTHB1XTvu5n
-         3TjXbeeY2q4HBzywlPgBF/+fHXNauXmRrw4AEeb+I0Dl3UBCAVMMh/nGJqFFeG+EpIqY
-         zfcTIdTi8w3voBrYo/7ABYbFYBKf4vy9BioPT9s7msjBZ/8x+Buv1cGZAPH3TLIgx2JG
-         w4IZSHPGrQ/4AWnCzHx/IlLaRX1+c7qSkshwW+zn2X9QITTCiKAuSvoSllze0n7VgMRj
-         5OOw==
+        bh=yQpXyqSjYJblo1n8orIptbdgVyeo+Lq0MLMmEEoQESI=;
+        b=YOK15gJv4FFC823CnowXzqzUCLRxNhWyCqDACSI761pd9N9SGM8Y/jVKsQjtohh5HW
+         dWxFpy63S8oLsTn8Q89gMZ92BHpb/w925GunMG4jTjo5sJbGj8gOtEMCjkEMB1/63Osq
+         +4eyG5bzFTfmtjP/5sAIA2gZKZ4AlkAtJZMy/23/Dwyi0bGKBOrpcTPgZkFgur0QV2fw
+         NJAtZpuxRWwzSCwBDI+b+b0wWtgUuOFJ5P/HtSyVYEcuBHZiLg2fFFZ8vR7diKDpRo/N
+         BW1uyRmErMunubHrV4L/ZTQ5syVIj3SlevsXrbLxawzCA0EbJzcpVwCPgAe6aMDQjQMZ
+         +hmQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=R43w0gW3tPMltV1g3si095OghRpRoQyTq+v4XlFbpg8=;
-        b=PToysWLF4IdnyNob6TpfUul24fIAgzOD0ppWbpszlg2mPDK9Jlruz0+nc0E55Ahk83
-         NoBwgdZkSAAeb5zuLUsObydk+Rg9tScquFEz6YLI5dPT8UHtNNGCcuicZfrskSpluoFs
-         5rNWFsERO6DTKFSpBxn/qhpX8kCXnBuZ/7+ROJNzSgL0V4llehZQbV9EKJkRdNe6r+dt
-         pBk2g7VD1OGfLBTClfp9cnTv1lnfPQBmBaeZZFLEcA0Yr3TWx/JTn8INrdP9GKD5hAdF
-         KKQF1ka0knI0VIwXimhYJGO7q+JlZ+uv0pE+nYDrMITxdMwVHDOP53V7hX+fv8jfujXl
-         g/4w==
+        bh=yQpXyqSjYJblo1n8orIptbdgVyeo+Lq0MLMmEEoQESI=;
+        b=SJIjrIRYfbN95DrLzGaenRAQ3EwyJ6dSflRsIC+PC4ZoVEnpWqsoaDQ9taGAFovnJw
+         dxOxK+JO10XCSntB6Hw8n1vEkvkVUpQ2UjEBLgL16n00t3a0L2BO1YAL9g+OTKr94r6W
+         R0KArrxghnfVEgn2Su84nmnvm+7O6KxBA3iMV419CYf++RmCbKK/gG1vDoKZE0nT3wsx
+         DSnyvjOdxFqGh9XOd8VDZWMvTNWnRpBFYnvg6WnrbZ2hpfc3luUvvXW2X+4MPl3Nmk53
+         DbGmVFxQqwdJW0sA+R9tt5H19A/0VUwkhmnwC5m7omAg2ak8hzeJbuG2E6+cmgt7lku5
+         yWEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=R43w0gW3tPMltV1g3si095OghRpRoQyTq+v4XlFbpg8=;
-        b=VMDYXupZR/USb2f0Jai2kOLsIcusGfisnoMgF7cNtmPad28ClxuOPII9206dXk89UV
-         s4edEi2zxBcTJP6MfakvxYBapvwGEgxdrwsnt93lxInGOGBatAxP/tkqMvLnPNod/iU2
-         4nj3xQYiYfPpNygN0Dor7+8qH68cWvar45eaTtZrr2flr7qap0tjhgWGz8Vzs+ECYZ9c
-         Hb4G27PzEkkoGtK9KeUYlO4zNFQ+gifjM/p6pwlO1wiq3Lnd9zXndgeiBsQRszH0AKPT
-         D+rAjvc716ty10QNSLw9Tf3WyYqfEHa5nUu0nMXInxjtLxwQlTsAFy4YYLZldICVDUsg
-         obpg==
+        bh=yQpXyqSjYJblo1n8orIptbdgVyeo+Lq0MLMmEEoQESI=;
+        b=nYh0G7R92X2Fi4w8GBFqUZOjjWIZgonSa55elQSrsrjUJJN2ZAAfW6muEn8RGSr7c/
+         tDt223GpW2B5jNk90znwadhZFPJSmSLw/eRrVRh11i0D2wh8+Kx+pX6VQ7tX2uLR/JMR
+         r3SHmt0wjzm0rfuVn8wjtITJK6DzuIom/PNCEUBHTazh6BeE+p2uk3SleycUuKgl9Zi8
+         iVklrhLy84Kb3FhK8z/Wb77bEXUS1HH7avkbxA6z+o/OFM78fmcUv1i5zW3bmNObSJYO
+         c3AfyRkMopyM4td7Gqu2L9BCAZ/OO6lZKHEaXNwWcYWp9vuGXBQ1nPPQsnpsjka0F1eZ
+         NgCg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVsfBEhChplnP680PH9ZuV1XsXlaJR1MtY8vMRKh1J8wDGeUnsR
-	cKufRd3hME4aSdhFrZzFM8s=
-X-Google-Smtp-Source: APXvYqzKmvznu1qeKR8z+ObqGigeN0zOuDBZoDTdnczq0gWj5ISaRUSt5g+VeeOsRUwcW4Jm1nQnwg==
-X-Received: by 2002:a17:902:968c:: with SMTP id n12mr31383687plp.59.1565560729711;
-        Sun, 11 Aug 2019 14:58:49 -0700 (PDT)
+X-Gm-Message-State: APjAAAW4h777HuILNPN7S2KMAXW9qyjJrBF9y2UmSzuKafl6/aCVY5Rm
+	nszsryZ7e+mmiFh1r6nFl6Y=
+X-Google-Smtp-Source: APXvYqzEM2yKT8GWmXZ9dYWguB3gyzsSQDCuS7Fdp2/uq1FNqR0P+BuPEmElw6cukgebJuXe27i5Tg==
+X-Received: by 2002:a5b:5ca:: with SMTP id w10mr22198245ybp.226.1565563223211;
+        Sun, 11 Aug 2019 15:40:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:17eb:: with SMTP id q98ls1827249pja.1.gmail; Sun, 11
- Aug 2019 14:58:49 -0700 (PDT)
-X-Received: by 2002:a17:902:8d91:: with SMTP id v17mr12205267plo.88.1565560729319;
-        Sun, 11 Aug 2019 14:58:49 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565560729; cv=none;
+Received: by 2002:a25:700a:: with SMTP id l10ls21672444ybc.3.gmail; Sun, 11
+ Aug 2019 15:40:22 -0700 (PDT)
+X-Received: by 2002:a25:c3c2:: with SMTP id t185mr4156980ybf.67.1565563222802;
+        Sun, 11 Aug 2019 15:40:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565563222; cv=none;
         d=google.com; s=arc-20160816;
-        b=0xT5eGvkj5D448AQXXVArraKzpzHNwq8aebQ54+MUbsFoa7qfXn5/xU9B5G7EOuTol
-         7YlkeCwVA9tbcfCydx2bZ+AyJiKOoLrkoHmoPfCYYiAF+hNndZDmfcevTylVheoT+nhf
-         8XnRhenfeRohqdgV4kgwqILShX1Ap9cwjPHGcATvAQHfsUVDjGKtQiwK8GBruX+E65T0
-         nDtCbQ4a3e/136qRJNv9V/KlhDScD0oFCMNPtAjb7eEF9q0m8QIstxhI9Gvnt1lY+XBa
-         OclUsvEQIJ+0nw8G5d9JRXV79Y4nLF6qZa3Rac3U+SILV8Er6wB/VA6IzFjVYBPJHjjy
-         wqBA==
+        b=gF7ulFkjzU2oE4Om9PkipAuVo4d7vpMgly7L8S8psmBIpDjS+YTlvdPWpKWxg1xDLz
+         zOubzuFvn710mxGV2iFMxjY2IOr3GGO6UQzxI42m1jQuZv4hAbDtifj5qe8ET72zPKAu
+         v+UVDMM8C5qbGxUt03fgQbQXmIgOvgOAyoklBkv/8UqV4EJYjUrRJf5hJty7OgNjGH1y
+         0ucz3EJS9U3a8FU21QXewCdqEtX1VgSsp7tAAkuMQwGk4sAEZiqcxYq9EjgIosqaR7+Q
+         mU8GiT3+oOVUqJ+NsoQtO3rTkhWC70Hg8oGG6oT+dMfL/IpoAieCWREEwSrcWiD/QUZ2
+         wBtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=PB88QUSfnGJVldedoD2PQjauYLSko3M1dNrxfZy+0zo=;
-        b=OZq2Ds0cEgw+5hl4RnPrVKTIUsgiZ4ceeZmVa/rJf+gBZBBOa0mN2UpwNd+kCHxIFt
-         shLoIOzntSMdqnyDo6XD6KASbYDCB3xJnH0wCYGSF4AQZgsDt67OwsI8PC9YQYvXC9zd
-         4gqbjsisVoEU5aZENGn47kc+LG5TEIo57JIvVzpF8AuD1oAcEvVF/Ta+tg1zCipX9ka7
-         qD5vvLkvBMGSaieYWNCcq4XVKHqq/YBgit/U2qjWdcI037sL2ps5+gNBn83lC402Eqmy
-         ZRbpIGThP7c+jT8GO8l3/9j/yyVU/WjtPGNtQSXfWAVjPSpVLHRSpwY+VawmR3otq9CJ
-         zO6w==
+        bh=/TLCqNs6iGm91CZ0LWTUXEO4qCq585qW7iH+x6vd3a8=;
+        b=EZUg0G/VWLdCAXytHpohGPT0dWm70Uio2/4H34YbRezp9ZPJjEcT7AQ1DjxLeqDfwI
+         DmcMxnOaX/uI8zckxILGeIQx/vzQzyuDIz3h0ISYxCfrKyS6kb+Aj+umk1SWLns8qizp
+         sXzoUOWKsJhWWmR7PNlyDU70tH7m66VJitdjJHAbfrcYoMx9VNJV2a4jcSIDumcawF9J
+         I3UASVKKytwGhgNqMEPV3R8eofcQsYZvUbckkM3Q41iiblYNNQS6is5tk35x64lcvb1p
+         QEDqKbsgJ7Fj+GJhnnRFc1hY4bDQnDQJ2UPoFCOXsouCW+8iYz1mXG7x0sFB4pT4c3bD
+         h1aw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id r202si381508pfc.0.2019.08.11.14.58.49
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id n40si71786ywh.3.2019.08.11.15.40.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 11 Aug 2019 14:58:49 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
+        Sun, 11 Aug 2019 15:40:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 11 Aug 2019 14:58:48 -0700
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 11 Aug 2019 15:39:55 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,375,1559545200"; 
-   d="gz'50?scan'50,208,50";a="177313937"
+   d="gz'50?scan'50,208,50";a="199945921"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga007.fm.intel.com with ESMTP; 11 Aug 2019 14:58:47 -0700
+  by fmsmga004.fm.intel.com with ESMTP; 11 Aug 2019 15:39:53 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hwvrS-000Azr-Is; Mon, 12 Aug 2019 05:58:46 +0800
-Date: Mon, 12 Aug 2019 05:57:55 +0800
+	id 1hwwVF-0006Oz-88; Mon, 12 Aug 2019 06:39:53 +0800
+Date: Mon, 12 Aug 2019 06:39:33 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 1/2] scsi: core: fix missing .cleanup_rq for SCSI hosts
+Subject: Re: [PATCH 2/2] scsi: core: fix dh and multipathing for SCSI hosts
  without request batching
-Message-ID: <201908120547.N2Rr4R0N%lkp@intel.com>
+Message-ID: <201908120646.7tQ8YZHx%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="j6yytk4k673l7tle"
+Content-Type: multipart/mixed; boundary="rnk2i623gvqkgmix"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,24 +138,18 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---j6yytk4k673l7tle
+--rnk2i623gvqkgmix
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190807144948.28265-2-maier@linux.ibm.com>
-References: <20190807144948.28265-2-maier@linux.ibm.com>
+In-Reply-To: <20190807144948.28265-3-maier@linux.ibm.com>
+References: <20190807144948.28265-3-maier@linux.ibm.com>
 TO: Steffen Maier <maier@linux.ibm.com>
 CC: "James E . J . Bottomley" <jejb@linux.ibm.com>, "Martin K . Petersen" <=
 martin.petersen@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, Ming Lei =
-<ming.lei@redhat.com>, linux-next@vger.kernel.org, linux-scsi@vger.kernel.o=
-rg, linux-block@vger.kernel.org, dm-devel@redhat.com, linux-s390@vger.kerne=
-l.org, Benjamin Block <bblock@linux.ibm.com>, Heiko Carstens <heiko.carsten=
-s@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Steffen Maier <maier@linu=
-x.ibm.com>, Bart Van Assche <bvanassche@acm.org>, Hannes Reinecke <hare@sus=
-e.com>, Jens Axboe <axboe@kernel.dk>, "Ewan D . Milne" <emilne@redhat.com>,=
- Christoph Hellwig <hch@lst.de>, Mike Snitzer <snitzer@redhat.com>
+<ming.lei@redhat.com>
 CC: linux-next@vger.kernel.org, linux-scsi@vger.kernel.org, linux-block@vge=
 r.kernel.org, dm-devel@redhat.com, linux-s390@vger.kernel.org, Benjamin Blo=
 ck <bblock@linux.ibm.com>, Heiko Carstens <heiko.carstens@de.ibm.com>, Vasi=
@@ -191,7 +185,7 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers//scsi/scsi_lib.c:1824:16: error: use of undeclared identifier 's=
+   drivers//scsi/scsi_lib.c:1824:16: error: use of undeclared identifier 's=
 csi_cleanup_rq'; did you mean 'scsi_queue_rq'?
            .cleanup_rq     =3D scsi_cleanup_rq,
                              ^~~~~~~~~~~~~~~
@@ -199,32 +193,41 @@ csi_cleanup_rq'; did you mean 'scsi_queue_rq'?
    drivers//scsi/scsi_lib.c:1632:21: note: 'scsi_queue_rq' declared here
    static blk_status_t scsi_queue_rq(struct blk_mq_hw_ctx *hctx,
                        ^
->> drivers//scsi/scsi_lib.c:1824:3: error: field designator 'cleanup_rq' do=
+   drivers//scsi/scsi_lib.c:1824:3: error: field designator 'cleanup_rq' do=
 es not refer to any field in type 'const struct blk_mq_ops'
            .cleanup_rq     =3D scsi_cleanup_rq,
             ^
-   2 errors generated.
+>> drivers//scsi/scsi_lib.c:1881:20: error: use of undeclared identifier 's=
+csi_mq_ops_no_commit'
+           if (q->mq_ops =3D=3D &scsi_mq_ops_no_commit ||
+                             ^
+   3 errors generated.
 
-vim +1824 drivers//scsi/scsi_lib.c
+vim +/scsi_mq_ops_no_commit +1881 drivers//scsi/scsi_lib.c
 
-  1811=09
-  1812	static const struct blk_mq_ops scsi_mq_ops =3D {
-  1813		.get_budget	=3D scsi_mq_get_budget,
-  1814		.put_budget	=3D scsi_mq_put_budget,
-  1815		.queue_rq	=3D scsi_queue_rq,
-  1816		.complete	=3D scsi_softirq_done,
-  1817		.timeout	=3D scsi_timeout,
-  1818	#ifdef CONFIG_BLK_DEBUG_FS
-  1819		.show_rq	=3D scsi_show_rq,
-  1820	#endif
-  1821		.init_request	=3D scsi_mq_init_request,
-  1822		.exit_request	=3D scsi_mq_exit_request,
-  1823		.initialize_rq_fn =3D scsi_initialize_rq,
-> 1824		.cleanup_rq	=3D scsi_cleanup_rq,
-  1825		.busy		=3D scsi_mq_lld_busy,
-  1826		.map_queues	=3D scsi_map_queues,
-  1827	};
-  1828=09
+  1869=09
+  1870	/**
+  1871	 * scsi_device_from_queue - return sdev associated with a request_qu=
+eue
+  1872	 * @q: The request queue to return the sdev from
+  1873	 *
+  1874	 * Return the sdev associated with a request queue or NULL if the
+  1875	 * request_queue does not reference a SCSI device.
+  1876	 */
+  1877	struct scsi_device *scsi_device_from_queue(struct request_queue *q)
+  1878	{
+  1879		struct scsi_device *sdev =3D NULL;
+  1880=09
+> 1881		if (q->mq_ops =3D=3D &scsi_mq_ops_no_commit ||
+  1882		    q->mq_ops =3D=3D &scsi_mq_ops)
+  1883			sdev =3D q->queuedata;
+  1884		if (!sdev || !get_device(&sdev->sdev_gendev))
+  1885			sdev =3D NULL;
+  1886=09
+  1887		return sdev;
+  1888	}
+  1889	EXPORT_SYMBOL_GPL(scsi_device_from_queue);
+  1890=09
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Cent=
@@ -238,14 +241,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201908120547.N2Rr4R0N%25lkp%40intel.com.
+clang-built-linux/201908120646.7tQ8YZHx%25lkp%40intel.com.
 
---j6yytk4k673l7tle
+--rnk2i623gvqkgmix
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICCeKUF0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICDCUUF0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYC7VDP/3wU0Deji9Pu+PD7e7x8Vvwef+8P+yO+7vg/uFx
 /39BXAR5IQMaM/kBiNOH57e/P+4OT6eL4OTD/MPk18PtPFjvD8/7xyB6eb5/+PwGzR9enn/4
 6Qf45ycAPn2Bng7/Cm4fd8+fg6/7wyugg+nkA/wd/Pz54fivjx/hz6eHw+Hl8PHx8etT/eXw
@@ -1086,4 +1089,4 @@ iS5BgYdP3M5ttghD43fMVx427CCi9CGCTkm5cJgZ6nld3poj656jCyUViTs2YQ/KUidyD9Bg
 2L3xdwAtmF/StRWJuaaHDBMFH/qIQAGniRU56f4i8/uN0pyYkCAAcI86zzsVs9sOfqFmbHKQ
 xURkYn0q3M8KymoUJOvwFWivbeSEoP8FBdttX9IMAwA=
 
---j6yytk4k673l7tle--
+--rnk2i623gvqkgmix--
