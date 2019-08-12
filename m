@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC7JPD5NQEBBBD55Y7VAKGQEUYCRFHY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBW56Y7VAKGQEFIGDYLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
-	by mail.lfdr.de (Postfix) with ESMTPS id 26AB38A99C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 23:48:00 +0200 (CEST)
-Received: by mail-qk1-x737.google.com with SMTP id y67sf2481013qkc.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 14:48:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565646479; cv=pass;
+Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B3CA8A9B8
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 23:51:25 +0200 (CEST)
+Received: by mail-pg1-x540.google.com with SMTP id l11sf43955113pgc.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 14:51:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565646683; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OTB2GxNWSQ7teAE9iB8kAKNcjCBqebgYTg44veCv+5IB7XNU/5eF/VI5X35e4yUtyi
-         dgnzbboZLgMFGdE7v8qFhboy3bBxd0e7QkfOHzuQEX82HAUEO4JqFBnEreoNa6f399So
-         ozUtUnbRT97p8pkTdkI6Aqved3yeX2ICMdjPxj8rqLy6OyWn7BDkOuKV1dBahRoouOpl
-         aDO3TMbYAE0+m3T8j653ACrloLH+j+diewjhNx1kR3RN7Lz+K0dLl/AYQym01RpcmhOH
-         4oaRaAskJTpOMyjlNC5eKd9dRE//WFxNIxvgirOLDdl3rwoN+x1ZRyffyf9b1XDMc3s4
-         c/pg==
+        b=HfXJb1pidB0fZ9q2EhBXID7HOCcT5lTqnsXgcsTv4wJ/LHGDhoQnCYPbkuPlbX3Zw6
+         F4Hdjt6iKlkWuRxv7oBnBcYYPNl1PwrLmRD7BaS1uy+epB5Ee9EoELmorJB7MQcXasI4
+         GZjBOOQ+IssTYGabuUeait8o/NqoQgDbpZA5zwIpUX8XvM7oS5t8NOWxI+CvlD9Iw07i
+         A1IkXxWXFnjWp6swDMZx1soLZvAZ5y0UuJ3+H4hXolirgu4sb4PskwjkUmukxT6pkGak
+         82Nex4MjHYLv+yPKUwQLjTJLJpink4Aie7ek7nj8pXnEE1zfOpt5d1XzpBG0N/jJsORi
+         GKfw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :mime-version:message-id:date:dkim-signature;
-        bh=DMQWgELp1v2FmLSIWqVT2ED9mPJSVuoHHD/QKJGJljI=;
-        b=NekGDePPcv03C5tnuKh7xw94wAJRlw8ZfuDstWWXvIUpw9fhIiKKXcgCHYOJCqkuNS
-         U3sz8Z53hBwj2yAD1XIarT3v/EhaWpmVr9RTA5fLZv45tz/pDRbub6ww362oYq6jw8zw
-         +sD1pk+ubLjFKDMe9BRTASuA1YYJk9JHRxcqB80pct6/RmWUhrvHvmEjtw7106IbDTTj
-         SXMmWUVvVRe0uYyj6eoo/kMB8Cbq/jiWHu6phLHKerIUUJoK1XrLiZbdjhlYTsJri6H7
-         FMT4nWi0diK3bhOUdEtZ3K/p2Lnn1sVI6X8at3IzyaxUpxsiec+MX85BltxWoGoXNiOa
-         N3Iw==
+        bh=R/6rufnJ8tsid3VvQyjVsPbt5Ifu+jFTVnhJqfQM7p4=;
+        b=EB53apUj94doJoIa+grE6sId62PukR6eH+AKcHPbG9DRieWTBikdEBBct1c+DTIfBP
+         QELjJ4FMyc7YQsFx7ik0RvHU0k7g/IGnGWmgYsWLDMHwE/lJD5ObP0FN52+nRFfovTHl
+         vWUHV2gHyZ12qpM/5fkwM+EBoWoEVsBDuxbVFUM9N0HohCReIcRZm0r70RD7q2Bk4o/s
+         NLOcikgBiGX23l5NcWxcrjCHYAfyNItuVxoIkAPoLYKgYtfzt/0pabUS2eQriq17CMOX
+         BOne01wifyvuyXyLMM2MjPl8fKfSg990gt5+10twhE99kVgfySxjVkhwJlyl/0VbIaHa
+         c5qQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=M2Hk8avN;
-       spf=pass (google.com: domain of 3jd5rxqukeyitn0iqmuumrk.iusirgtm-h0orz-rot03muumrkmxu0vy.ius@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3jd5RXQUKEYItn0iqmuumrk.iusirgtm-h0orz-rot03muumrkmxu0vy.ius@flex--nhuck.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=fAfaiSlH;
+       spf=pass (google.com: domain of 3wt9rxqwkafe6wxbtd461xabz77z4x.v75@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3Wt9RXQwKAFE6wxBtD461xABz77z4x.v75@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,86 +35,92 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=DMQWgELp1v2FmLSIWqVT2ED9mPJSVuoHHD/QKJGJljI=;
-        b=h8grlQAkf9q+Bf+pp/SpEiHuvFC8iHS2u/r2BIGnjFiH3PoGx76GIiVx2IN0XMQYoM
-         K/k2Mihuk/ksVesJil+9KFW2EwzvYlgEmNJyyIdTQ+YkimpzY4asB0/hohyUR+nlLPnO
-         TQnQQB1DpfONPdEgDgRybN/hzzUwlk0t63E4fk8idAkeUQWRQn7TCjfwXKNCxzV3vkBG
-         BHvrnm4BOs/q2jcK+GmKGupNnOE0Brhsu9+sBEVyAU5HVpOEnAeCB8xd7dTjp6AubMD0
-         h2FO+nuYDdOwUM2uS1BeItvZmfeBis+CuiBxa+ePzi7DU+NElOHUNXEmVJiSoHoPoyc2
-         DY/w==
+        bh=R/6rufnJ8tsid3VvQyjVsPbt5Ifu+jFTVnhJqfQM7p4=;
+        b=k3A4U/JL3r4EVNqmPXbVNSG2JArvOQEn+Lsr1pi2E16mfpHQm3fmyKHUMP+DruulRi
+         2wjs6v6M/NwMdTTQ7WtQ23jYm9MpJI7vKpuWqiKp3eQ7PivQsgXkfw9Uz0SvS5J3rjdc
+         vZ77XQXJCQqrs0FBBYygKSaXe2tW5AT3m9jlXBmOsy43OgmAB7FTYMa+GnaQIWpQmh6z
+         NcW1SWmflNC1RlokiQOsq82wiskWjEJMIOkc2aq0ExDSLs81OT4nMoS2HgggkmH+4Acd
+         8TsVl2fUQ9lcTpV4X9oJ4P4xjgF6fIb/c0qqcwUU3jorNEsQtUkvL1vq11uw/9DkQoxH
+         9zqg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
          :x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DMQWgELp1v2FmLSIWqVT2ED9mPJSVuoHHD/QKJGJljI=;
-        b=Gy3yxqL8ie9lpYVRp/4Dvyx6fZfJN0spOToQx5rKlSq6RGWpsGBbLD9aWoGYa2dPbe
-         TTfJhneUVpwjQgcWjierR7mYFWXhZH2hL8hkUjhKP9pQ2vJbDf4GgBZsYkRZq4Er+TKN
-         njCfR9vdhLrtE//qS4qa7HID2TImlVdQ9v4D8MZ9AsvKd8K9vvqKYWE+irgBEaVk5XM6
-         ntStJvCFUXhANRdF1ED/O+o4FEf0LlowYjj9P+ONKpCc3pPOlzE16padSYhtPo7IebpM
-         d2i3LoHPw+lIau3azyNg5qycy0AOLtjdFC/WMJkrObupSqW12DhW8CFrk980CH9TW50T
-         PpDQ==
-X-Gm-Message-State: APjAAAXvj8rOfkC8ebKEJlGadwOlqk+4xcgiGqeu1jls+NZH/OyUaOkk
-	K/84H38vKFtsnNwPxNaqiqM=
-X-Google-Smtp-Source: APXvYqyQGr6f/klBrwwVcl/ewJ2DrIiCvhLn09K8kF4LT1yCSLptb3bsQd6uvscQEcCY/fOQhTKg1w==
-X-Received: by 2002:a05:620a:12c3:: with SMTP id e3mr22584402qkl.165.1565646479239;
-        Mon, 12 Aug 2019 14:47:59 -0700 (PDT)
+        bh=R/6rufnJ8tsid3VvQyjVsPbt5Ifu+jFTVnhJqfQM7p4=;
+        b=ENX/76CpnVg2WxVJFSX+64AJzpzk09lmj4XAH7p+n4uPZbUXc8egTflFizjAmWdKEu
+         XDRBsQKjbj7Z7FT1xZjXej1a5zTC0ilO+kbL0rbI61q4319kHka/DF7Yowx6HBJk70Rr
+         7yiQ3ZH7nDpMdgdOArz7Yi5Y0bjk9NZeVIJ95Kuemcz5C77djImTMyRLm3WYSFBWYje2
+         XgNNS/I58u+1G//77cAAs6+aft7vD+ogQVLJDP0UH3CmpzNo9KfDdlC8WurmQIfCb80q
+         Jo2zcxwlSjwdaedVQPWN1catpF+rckwkkZn2ZrUe+wmW0RUYAPZ7Vla0apZZjGCahvQh
+         ypdQ==
+X-Gm-Message-State: APjAAAXpm/Nl3vN76fF5mziZ9nE38aLYtoOWJdpu3oC9JgwRFvjoish4
+	RC1QUPmll7zkm2Y+velEQDc=
+X-Google-Smtp-Source: APXvYqz0ykzyRNVSMZvrQiTlLz18G6tR7iZM8E8DDqNBgY0JiKVdOvzzsfdMELKCxAUe0aB+e+B9VQ==
+X-Received: by 2002:a63:9d43:: with SMTP id i64mr32073266pgd.306.1565646683456;
+        Mon, 12 Aug 2019 14:51:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:81f6:: with SMTP id 51ls792874qve.2.gmail; Mon, 12 Aug
- 2019 14:47:59 -0700 (PDT)
-X-Received: by 2002:a0c:d1d3:: with SMTP id k19mr3060666qvh.6.1565646479015;
-        Mon, 12 Aug 2019 14:47:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565646479; cv=none;
+Received: by 2002:a17:902:20c8:: with SMTP id v8ls3475310plg.11.gmail; Mon, 12
+ Aug 2019 14:51:23 -0700 (PDT)
+X-Received: by 2002:a17:90a:23c8:: with SMTP id g66mr1205181pje.123.1565646683168;
+        Mon, 12 Aug 2019 14:51:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565646683; cv=none;
         d=google.com; s=arc-20160816;
-        b=FPX/bB2CEm0Kmr3N4zKBuoFjKy2KeVqdHPEo20AdupWZF6nI6UFrYbWibhBbxr2yC4
-         rUdBt7yRfCLNqCji7h/3kPFesp7wYgx1guyTThdaRKZ8ukEYw4XwG796Itb9VIvPYtwr
-         c8AWCkjoE+yy2E/Th8owO25CjePmqmBPKadPJ3UyCvu7b+jdkEA6O26j1DNh6wgKUTBP
-         gnBXwT6Qsv8oRM1Y6BFx+1/uX3HJm7ZWY9pB6I2T0klkC9imz0bujVO8JLYVoIl9+K7a
-         vvCZxxA+Bh/NE177ws+nJOZOcLd5fNFE4A6zvyK+KrZPt3Mnf54B69j1UPDmSqBygUHc
-         gPNw==
+        b=NFiouzrWKrKChJAFksABux32ZWIW8yYHUtKcf3oNNOUNAn66uxNwRHdx3Ycr4CWbvf
+         syTsaUavP7arLdgY+rBRIaQgEvZyr2xaXwpZ05Q9dOgZRHjLtUp6/8ModKhTF4b2Hu6K
+         2fw/MCxlQVRnzCIkXuPp8nrpcorKQROAraKC4WrUA/yUqPBXDtrgJmNeztudckfVknSY
+         HFpNceKBGTZnO3/rzG1G23anMWPy7P8N/JJdnVbcYGujflqyVW8m0AntHkYOODoy5P1S
+         Xzo+hUkB2wSwlidrgRpLMp6RrlaIddh2Ic2s1FGMWMrUSI6gF8Fwb3Ih+iK5gV3Qpe2f
+         n+jQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=+RjtCqVpVQHEQV5UWqwn329eqcVzZZeuadC4ZfZTt8A=;
-        b=eU/SEDnTSVoRenlrCbcSH46lUwtzL3+dnGIRSk8EWNiJmb7MpNDiuX/J3EdU3UdQ/e
-         o3rSH0PmQcOJBbVI5yaYWoBPXIfwnNzPF8AsmhY98KFrxGzpe5uf1LZZQ8qfCQ9cXz4/
-         udtSrUoqvSH3iA/piMEdAUOXiggqBevJ9VqUcWKZYLxuokJlS7uebjvCYYXxQ011rqF6
-         JI3D5ow9F04VXoz28XMrhOk7dd69RRFyIxhZ2PFMIYqdKMKPP52USGmgs2PRENqQvDBS
-         Uqy8R5ArHLMZNiO5Ue1+B3+RXOfxWA//xgXnESt7Mdyb2AzaYk40u2OPk9tF3qmCL3H3
-         cMOQ==
+        bh=VzbGHvSiySq50YMMXV5wIRss5YK1rFgm4/UGnmN70Bc=;
+        b=ZSBtyr8cBSIvmkYfXGRnw+mPolJUigHP91+4q6NBNRzbuADEc17D2z/RChQshFSHuM
+         4VBz3GmXOW9p3DlMQUiA75HjetsRU5lvEqEumoBI96Mu5/cTWc3xD/oewpv7dxkkPNRM
+         0MuGfuBFjxNN2/UPGIYVNeZEsRMwEcmYf/RKaE908Unj7fLlcSd9uB/1h255Adg5s0IO
+         jTs7/fGWmHx32idaTW0EEFtYZgZ41zI6ks4pWuMNShYJk3JDs8luHFBtcI9qkXfxkhhB
+         3Yo0oCsNn6AKJoa/jPxCF47XVI0SIeQ0iZPsOx0c9vP0IBuwfbPb/wVhzmrg1gQSPtpv
+         FFdA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=M2Hk8avN;
-       spf=pass (google.com: domain of 3jd5rxqukeyitn0iqmuumrk.iusirgtm-h0orz-rot03muumrkmxu0vy.ius@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3jd5RXQUKEYItn0iqmuumrk.iusirgtm-h0orz-rot03muumrkmxu0vy.ius@flex--nhuck.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=fAfaiSlH;
+       spf=pass (google.com: domain of 3wt9rxqwkafe6wxbtd461xabz77z4x.v75@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3Wt9RXQwKAFE6wxBtD461xABz77z4x.v75@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x64a.google.com (mail-pl1-x64a.google.com. [2607:f8b0:4864:20::64a])
-        by gmr-mx.google.com with ESMTPS id o56si1984031qtf.0.2019.08.12.14.47.58
+Received: from mail-pg1-x549.google.com (mail-pg1-x549.google.com. [2607:f8b0:4864:20::549])
+        by gmr-mx.google.com with ESMTPS id z9si13609pjp.0.2019.08.12.14.51.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Mon, 12 Aug 2019 14:47:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3jd5rxqukeyitn0iqmuumrk.iusirgtm-h0orz-rot03muumrkmxu0vy.ius@flex--nhuck.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) client-ip=2607:f8b0:4864:20::64a;
-Received: by mail-pl1-x64a.google.com with SMTP id i33so61856304pld.15
-        for <clang-built-linux@googlegroups.com>; Mon, 12 Aug 2019 14:47:58 -0700 (PDT)
-X-Received: by 2002:a63:ee08:: with SMTP id e8mr32361203pgi.70.1565646477641;
- Mon, 12 Aug 2019 14:47:57 -0700 (PDT)
-Date: Mon, 12 Aug 2019 14:47:11 -0700
-Message-Id: <20190812214711.83710-1-nhuck@google.com>
+        Mon, 12 Aug 2019 14:51:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3wt9rxqwkafe6wxbtd461xabz77z4x.v75@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) client-ip=2607:f8b0:4864:20::549;
+Received: by mail-pg1-x549.google.com with SMTP id q9so65316113pgv.17
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Aug 2019 14:51:23 -0700 (PDT)
+X-Received: by 2002:a63:2685:: with SMTP id m127mr31628780pgm.6.1565646682512;
+ Mon, 12 Aug 2019 14:51:22 -0700 (PDT)
+Date: Mon, 12 Aug 2019 14:50:34 -0700
+Message-Id: <20190812215052.71840-1-ndesaulniers@google.com>
 Mime-Version: 1.0
 X-Mailer: git-send-email 2.23.0.rc1.153.gdeed80330f-goog
-Subject: [PATCH] kbuild: Change fallthrough comments to attributes
-From: "'Nathan Huckleberry' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: yamada.masahiro@socionext.com, michal.lkml@markovi.net
-Cc: linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, clang-built-linux@googlegroups.com, 
-	Nathan Huckleberry <nhuck@google.com>
+Subject: [PATCH 01/16] s390/boot: fix section name escaping
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: akpm@linux-foundation.org
+Cc: sedat.dilek@gmail.com, jpoimboe@redhat.com, yhs@fb.com, 
+	miguel.ojeda.sandonis@gmail.com, clang-built-linux@googlegroups.com, 
+	Nick Desaulniers <ndesaulniers@google.com>, Heiko Carstens <heiko.carstens@de.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Christian Borntraeger <borntraeger@de.ibm.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, 
+	Song Liu <songliubraving@fb.com>, Martin Schwidefsky <schwidefsky@de.ibm.com>, 
+	Gerald Schaefer <gerald.schaefer@de.ibm.com>, Philipp Rudo <prudo@linux.ibm.com>, 
+	linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	netdev@vger.kernel.org, bpf@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: nhuck@google.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=M2Hk8avN;       spf=pass
- (google.com: domain of 3jd5rxqukeyitn0iqmuumrk.iusirgtm-h0orz-rot03muumrkmxu0vy.ius@flex--nhuck.bounces.google.com
- designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3jd5RXQUKEYItn0iqmuumrk.iusirgtm-h0orz-rot03muumrkmxu0vy.ius@flex--nhuck.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=fAfaiSlH;       spf=pass
+ (google.com: domain of 3wt9rxqwkafe6wxbtd461xabz77z4x.v75@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3Wt9RXQwKAFE6wxBtD461xABz77z4x.v75@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nathan Huckleberry <nhuck@google.com>
-Reply-To: Nathan Huckleberry <nhuck@google.com>
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,283 +133,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang does not support the use of comments to label
-intentional fallthrough. This patch replaces some uses
-of comments to attributesto cut down a significant number
-of warnings on clang (from ~50000 to ~200). Only comments
-in commonly used header files have been replaced.
+GCC unescapes escaped string section names while Clang does not. Because
+__section uses the `#` stringification operator for the section name, it
+doesn't need to be escaped.
 
-Since there is still quite a bit of noise, this
-patch moves -Wimplicit-fallthrough to
-Makefile.extrawarn if you are compiling with
-clang.
+This antipattern was found with:
+$ grep -e __section\(\" -e __section__\(\" -r
 
-Signed-off-by: Nathan Huckleberry <nhuck@google.com>
+Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
+Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- Makefile                   |  4 +++
- include/linux/jhash.h      | 60 ++++++++++++++++++++++++++++----------
- include/linux/mm.h         |  9 ++++--
- include/linux/signal.h     | 14 +++++----
- include/linux/skbuff.h     | 12 ++++----
- lib/zstd/bitstream.h       | 10 +++----
- scripts/Makefile.extrawarn |  3 ++
- 7 files changed, 77 insertions(+), 35 deletions(-)
+ arch/s390/boot/startup.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Makefile b/Makefile
-index c391fbb07195..875930c19619 100644
---- a/Makefile
-+++ b/Makefile
-@@ -847,7 +847,11 @@ NOSTDINC_FLAGS += -nostdinc -isystem $(shell $(CC) -print-file-name=include)
- KBUILD_CFLAGS += -Wdeclaration-after-statement
- 
- # Warn about unmarked fall-throughs in switch statement.
-+# If the compiler is clang, this warning is only enabled if W=1 in
-+# Makefile.extrawarn
-+ifndef CONFIG_CC_IS_CLANG
- KBUILD_CFLAGS += $(call cc-option,-Wimplicit-fallthrough,)
-+endif
- 
- # Variable Length Arrays (VLAs) should not be used anywhere in the kernel
- KBUILD_CFLAGS += -Wvla
-diff --git a/include/linux/jhash.h b/include/linux/jhash.h
-index ba2f6a9776b6..6cb2381501d1 100644
---- a/include/linux/jhash.h
-+++ b/include/linux/jhash.h
-@@ -86,19 +86,43 @@ static inline u32 jhash(const void *key, u32 length, u32 initval)
- 	}
- 	/* Last block: affect all 32 bits of (c) */
- 	switch (length) {
--	case 12: c += (u32)k[11]<<24;	/* fall through */
--	case 11: c += (u32)k[10]<<16;	/* fall through */
--	case 10: c += (u32)k[9]<<8;	/* fall through */
--	case 9:  c += k[8];		/* fall through */
--	case 8:  b += (u32)k[7]<<24;	/* fall through */
--	case 7:  b += (u32)k[6]<<16;	/* fall through */
--	case 6:  b += (u32)k[5]<<8;	/* fall through */
--	case 5:  b += k[4];		/* fall through */
--	case 4:  a += (u32)k[3]<<24;	/* fall through */
--	case 3:  a += (u32)k[2]<<16;	/* fall through */
--	case 2:  a += (u32)k[1]<<8;	/* fall through */
--	case 1:  a += k[0];
-+	case 12:
-+		c += (u32)k[11]<<24;
-+		__attribute__((fallthrough));
-+	case 11:
-+		c += (u32)k[10]<<16;
-+		__attribute__((fallthrough));
-+	case 10:
-+		c += (u32)k[9]<<8;
-+		__attribute__((fallthrough));
-+	case 9:
-+		c += k[8];
-+		__attribute__((fallthrough));
-+	case 8:
-+		b += (u32)k[7]<<24;
-+		__attribute__((fallthrough));
-+	case 7:
-+		b += (u32)k[6]<<16;
-+		__attribute__((fallthrough));
-+	case 6:
-+		b += (u32)k[5]<<8;
-+		__attribute__((fallthrough));
-+	case 5:
-+		b += k[4];
-+		__attribute__((fallthrough));
-+	case 4:
-+		a += (u32)k[3]<<24;
-+		__attribute__((fallthrough));
-+	case 3:
-+		a += (u32)k[2]<<16;
-+		__attribute__((fallthrough));
-+	case 2:
-+		a += (u32)k[1]<<8;
-+		__attribute__((fallthrough));
-+	case 1:
-+		a += k[0];
- 		 __jhash_final(a, b, c);
-+		break;
- 	case 0: /* Nothing left to add */
- 		break;
- 	}
-@@ -132,10 +156,16 @@ static inline u32 jhash2(const u32 *k, u32 length, u32 initval)
- 
- 	/* Handle the last 3 u32's */
- 	switch (length) {
--	case 3: c += k[2];	/* fall through */
--	case 2: b += k[1];	/* fall through */
--	case 1: a += k[0];
-+	case 3:
-+		c += k[2];
-+		__attribute__((fallthrough));
-+	case 2:
-+		b += k[1];
-+		__attribute__((fallthrough));
-+	case 1:
-+		a += k[0];
- 		__jhash_final(a, b, c);
-+		break;
- 	case 0:	/* Nothing left to add */
- 		break;
- 	}
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 0334ca97c584..52d99f263ca3 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -158,11 +158,14 @@ static inline void __mm_zero_struct_page(struct page *page)
- 
- 	switch (sizeof(struct page)) {
- 	case 80:
--		_pp[9] = 0;	/* fallthrough */
-+		_pp[9] = 0;
-+		__attribute__((fallthrough));
- 	case 72:
--		_pp[8] = 0;	/* fallthrough */
-+		_pp[8] = 0;
-+		__attribute__((fallthrough));
- 	case 64:
--		_pp[7] = 0;	/* fallthrough */
-+		_pp[7] = 0;
-+		__attribute__((fallthrough));
- 	case 56:
- 		_pp[6] = 0;
- 		_pp[5] = 0;
-diff --git a/include/linux/signal.h b/include/linux/signal.h
-index b5d99482d3fe..4fb0a0041a37 100644
---- a/include/linux/signal.h
-+++ b/include/linux/signal.h
-@@ -129,11 +129,11 @@ static inline void name(sigset_t *r, const sigset_t *a, const sigset_t *b) \
- 		b3 = b->sig[3]; b2 = b->sig[2];				\
- 		r->sig[3] = op(a3, b3);					\
- 		r->sig[2] = op(a2, b2);					\
--		/* fall through */					\
-+		__attribute__((fallthrough));				\
- 	case 2:								\
- 		a1 = a->sig[1]; b1 = b->sig[1];				\
- 		r->sig[1] = op(a1, b1);					\
--		/* fall through */					\
-+		__attribute__((fallthrough));				\
- 	case 1:								\
- 		a0 = a->sig[0]; b0 = b->sig[0];				\
- 		r->sig[0] = op(a0, b0);					\
-@@ -163,9 +163,9 @@ static inline void name(sigset_t *set)					\
- 	switch (_NSIG_WORDS) {						\
- 	case 4:	set->sig[3] = op(set->sig[3]);				\
- 		set->sig[2] = op(set->sig[2]);				\
--		/* fall through */					\
-+		__attribute__((fallthrough));				\
- 	case 2:	set->sig[1] = op(set->sig[1]);				\
--		/* fall through */					\
-+		__attribute__((fallthrough));				\
- 	case 1:	set->sig[0] = op(set->sig[0]);				\
- 		    break;						\
- 	default:							\
-@@ -186,7 +186,7 @@ static inline void sigemptyset(sigset_t *set)
- 		memset(set, 0, sizeof(sigset_t));
- 		break;
- 	case 2: set->sig[1] = 0;
--		/* fall through */
-+		__attribute__((fallthrough));
- 	case 1:	set->sig[0] = 0;
- 		break;
- 	}
-@@ -199,7 +199,7 @@ static inline void sigfillset(sigset_t *set)
- 		memset(set, -1, sizeof(sigset_t));
- 		break;
- 	case 2: set->sig[1] = -1;
--		/* fall through */
-+		__attribute__((fallthrough));
- 	case 1:	set->sig[0] = -1;
- 		break;
- 	}
-@@ -230,6 +230,7 @@ static inline void siginitset(sigset_t *set, unsigned long mask)
- 		memset(&set->sig[1], 0, sizeof(long)*(_NSIG_WORDS-1));
- 		break;
- 	case 2: set->sig[1] = 0;
-+		__attribute__((fallthrough));
- 	case 1: ;
- 	}
- }
-@@ -242,6 +243,7 @@ static inline void siginitsetinv(sigset_t *set, unsigned long mask)
- 		memset(&set->sig[1], -1, sizeof(long)*(_NSIG_WORDS-1));
- 		break;
- 	case 2: set->sig[1] = -1;
-+		__attribute__((fallthrough));
- 	case 1: ;
- 	}
- }
-diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
-index d8af86d995d6..4a1df6714dfe 100644
---- a/include/linux/skbuff.h
-+++ b/include/linux/skbuff.h
-@@ -3639,19 +3639,19 @@ static inline bool __skb_metadata_differs(const struct sk_buff *skb_a,
- #define __it(x, op) (x -= sizeof(u##op))
- #define __it_diff(a, b, op) (*(u##op *)__it(a, op)) ^ (*(u##op *)__it(b, op))
- 	case 32: diffs |= __it_diff(a, b, 64);
--		 /* fall through */
-+		__attribute__((fallthrough));
- 	case 24: diffs |= __it_diff(a, b, 64);
--		 /* fall through */
-+		__attribute__((fallthrough));
- 	case 16: diffs |= __it_diff(a, b, 64);
--		 /* fall through */
-+		__attribute__((fallthrough));
- 	case  8: diffs |= __it_diff(a, b, 64);
- 		break;
- 	case 28: diffs |= __it_diff(a, b, 64);
--		 /* fall through */
-+		__attribute__((fallthrough));
- 	case 20: diffs |= __it_diff(a, b, 64);
--		 /* fall through */
-+		__attribute__((fallthrough));
- 	case 12: diffs |= __it_diff(a, b, 64);
--		 /* fall through */
-+		__attribute__((fallthrough));
- 	case  4: diffs |= __it_diff(a, b, 32);
- 		break;
- 	}
-diff --git a/lib/zstd/bitstream.h b/lib/zstd/bitstream.h
-index 3a49784d5c61..cc311bae44da 100644
---- a/lib/zstd/bitstream.h
-+++ b/lib/zstd/bitstream.h
-@@ -259,15 +259,15 @@ ZSTD_STATIC size_t BIT_initDStream(BIT_DStream_t *bitD, const void *srcBuffer, s
- 		bitD->bitContainer = *(const BYTE *)(bitD->start);
- 		switch (srcSize) {
- 		case 7: bitD->bitContainer += (size_t)(((const BYTE *)(srcBuffer))[6]) << (sizeof(bitD->bitContainer) * 8 - 16);
--			/* fall through */
-+			__attribute__((fallthrough));
- 		case 6: bitD->bitContainer += (size_t)(((const BYTE *)(srcBuffer))[5]) << (sizeof(bitD->bitContainer) * 8 - 24);
--			/* fall through */
-+			__attribute__((fallthrough));
- 		case 5: bitD->bitContainer += (size_t)(((const BYTE *)(srcBuffer))[4]) << (sizeof(bitD->bitContainer) * 8 - 32);
--			/* fall through */
-+			__attribute__((fallthrough));
- 		case 4: bitD->bitContainer += (size_t)(((const BYTE *)(srcBuffer))[3]) << 24;
--			/* fall through */
-+			__attribute__((fallthrough));
- 		case 3: bitD->bitContainer += (size_t)(((const BYTE *)(srcBuffer))[2]) << 16;
--			/* fall through */
-+			__attribute__((fallthrough));
- 		case 2: bitD->bitContainer += (size_t)(((const BYTE *)(srcBuffer))[1]) << 8;
- 		default:;
- 		}
-diff --git a/scripts/Makefile.extrawarn b/scripts/Makefile.extrawarn
-index a74ce2e3c33e..e12359d69bb7 100644
---- a/scripts/Makefile.extrawarn
-+++ b/scripts/Makefile.extrawarn
-@@ -30,6 +30,9 @@ warning-1 += $(call cc-option, -Wunused-but-set-variable)
- warning-1 += $(call cc-option, -Wunused-const-variable)
- warning-1 += $(call cc-option, -Wpacked-not-aligned)
- warning-1 += $(call cc-option, -Wstringop-truncation)
-+ifdef CONFIG_CC_IS_CLANG
-+KBUILD_CFLAGS += $(call cc-option,-Wimplicit-fallthrough,)
-+endif
- # The following turn off the warnings enabled by -Wextra
- warning-1 += -Wno-missing-field-initializers
- warning-1 += -Wno-sign-compare
+diff --git a/arch/s390/boot/startup.c b/arch/s390/boot/startup.c
+index 7b0d05414618..26493c4ff04b 100644
+--- a/arch/s390/boot/startup.c
++++ b/arch/s390/boot/startup.c
+@@ -46,7 +46,7 @@ struct diag_ops __bootdata_preserved(diag_dma_ops) = {
+ 	.diag0c = _diag0c_dma,
+ 	.diag308_reset = _diag308_reset_dma
+ };
+-static struct diag210 _diag210_tmp_dma __section(".dma.data");
++static struct diag210 _diag210_tmp_dma __section(.dma.data);
+ struct diag210 *__bootdata_preserved(__diag210_tmp_dma) = &_diag210_tmp_dma;
+ void _swsusp_reset_dma(void);
+ unsigned long __bootdata_preserved(__swsusp_reset_dma) = __pa(_swsusp_reset_dma);
 -- 
 2.23.0.rc1.153.gdeed80330f-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190812214711.83710-1-nhuck%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190812215052.71840-1-ndesaulniers%40google.com.
