@@ -1,130 +1,129 @@
-Return-Path: <clang-built-linux+bncBC5KPPH4YUKRBH6VYXVAKGQENWPXM3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBK5HY3VAKGQEJU52JBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id C3B4589FC2
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 15:33:19 +0200 (CEST)
-Received: by mail-wr1-x43e.google.com with SMTP id x2sf50278407wru.22
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 06:33:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565616799; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8DD778A348
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 18:28:28 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id j4sf85440886otc.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 09:28:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565627307; cv=pass;
         d=google.com; s=arc-20160816;
-        b=R9xFv+mXrD/VG9Uu7C1Bjb9G+84bqmNAzf8Q2Bj0PReJSwDsrUiND4zztCgkWfWYKM
-         d14ZpAzvqI8F1i7jzfb/JJt7PuPs9zqsk2xksW7Sff8bcaoGBziRl3g2oSqClpGCLi74
-         zteIkRNemLT/lbwYjRb8uT9mj+UnRgCrD4hSprIpJolgLRzLDqEY+zW9tbrOS9qtXmRj
-         ilOZNwBeHB1+rQb2+fxHFkOQIiWaCUHeRUC6kppK7pwj6S3pOkOFbfaPxj/NNJB2kM/f
-         VD++bfczOgzLlTaC/Ji0dT/Kcu9WvCawSiqLyAPoYXnoUtMYMMjKwCPRkASSCC5GGthj
-         TvpQ==
+        b=PvHw71IAZ828bLDg7FGhSFYqxrgyVDOR2p0LqjKxiudKzGqCTSnad+OmZhR8v20SUa
+         NnxUBBxOXfy++euaKnZocKKKd8Fcs+b6C5t6vAH8srPpyp9AxoHUVDLgDkRpZsy/M2uG
+         rUXQ8OrMr3oJYXF2xX0WpP6dV6yynxfKjkGsBDTPeHs8YZAX14lF6OV5JS7/x/j7762Z
+         P+/yMES/DfWj7Xp4Vp8DuMNfe4gLou6LkvPwjJBypwIIEBKQKkDni0I8G3suAAWe7pSs
+         gGLyp70HVds/Ujkknoob72Nhx6DDxUFC0x4wH06redSn9lTeVL4YO0gaFlX/ttTd97Lh
+         agjw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=h3D6m31hRFIoKh+DxOECxd2rhlsTYxtO7Q1gPdycUsk=;
-        b=Y4aLpNP8qAu9kpAhga+7O/7xzaKjaEt/J6LYsC3uQpugWfYzBYKzRhWxUUyxnCaMlg
-         4BgiD7Rb4+vFhc8G9t7RF/hxjaOmmhJM2Lv0R9zZrmvqFdirzwJjSIbWkKsPkbq/udQG
-         l+XAGezouNDyQdJBzeJLEq+3LQuzy7eTLlPLRUmYea72oNeoL1fEvawTmLEH5o3kuRSt
-         9QawUnKw1BLL2YVQbi/RfXb7gxA6i1/tGPTLSBnH9U6hUuMb9yaurfPaBJBTKgcuRG0M
-         4ooV6A7IFWg/UzNsUPIJOXV8Nd4waNdK18qqtkKorVVFd6Sj0aaAyzhKV1L2Hx3f1Lja
-         IpBw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=mivb5+pKg1BSInWFmb6kii1xoVzr1MSviYlYG3OQyG4=;
+        b=H5hwKWbOD+2TSAjwmN8/j26e8lPOZ0a1+JR2gBUP0sBxRfpGpeN6mHfwZ0P0pPxnLv
+         HfAfd/mKb5oc7ecVJ6Vya+azI3c0Tanv2DF6P9qT2X2GloI3GfPDk2hE6Wxhf5/tBcIA
+         St3yUgGNoOvdY3wksihvXNjwzrlABhGMoL2HGFWBWsw3280zCkXFzReQ14xDztlSdXat
+         b9My13DCkBfBiwTqhUjSVv+0oPqk83P7ShUaJkpMaMdig4KX6QVpjP8FJ/pYmsg+bmBC
+         I1DSG6GgWs89ME0+CSffJTlzJ2l3du54iToWat3A+E17xGd+EroOrt7xIUPkRg6hdb9Z
+         c4oA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=q9YeUqrO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=h3D6m31hRFIoKh+DxOECxd2rhlsTYxtO7Q1gPdycUsk=;
-        b=rlFFup93nY6JC3RYQxrjSKnsvYniWJ9tED1p00Wp1yZT8SL0JZZWBH/01ebJrPYonb
-         SfIjnZVdP77qNk+Fmd7i0xelQhF4q6n09XmrDiOF3qH7NL1CIxAJpeWSm52V+ITgyzuR
-         Tj+q97CRacR2KttWKJ0uK6IY5HDSkvdlzR7Nt18PV4wNp/+VoUvCpIxwgK/APJsfiviG
-         o9ScavIBJi+pNT9qoicrDBr2VfXZVkm1HNk9Lwx8Sy8VrughhrziPrXohtnwz7Vy7xoE
-         vJvRZpuf0RQX4y2IE266KTMBmSkOmxc58cXCPtkYNqdaNNVmjUWDNzrb1C99KcpOxYjx
-         1AWw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mivb5+pKg1BSInWFmb6kii1xoVzr1MSviYlYG3OQyG4=;
+        b=gSnKppLqR2yHFfLefcBnxB2iZYt2grmCj+mry3k3/txvZwHzpl96u4LUCZvIFjJzcZ
+         vuou7pKb3akJyzuJd4rh7aOcxaB0DweZcoiXzavArDRxmHFq7A+PlsNohmd5cnZIPQ8s
+         aALkyZXBFn85YRBcvYQEzKNoSHPM55NkjOuvEc2EsznGtxCaRinTIdXL3W9mZFFqe2tH
+         WAYgSRmXhObynhsRKE6i5alum2mYPaPE8LvXAzCWoPmL6VXen7UsClhkAOhYg6rLlWnV
+         k32J9e5kdtBcnpaL0s0LO+q/wCQw/39y5GxiPacm+TSdyXSkMP90omDvLdZJQW+oNRQG
+         knmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=h3D6m31hRFIoKh+DxOECxd2rhlsTYxtO7Q1gPdycUsk=;
-        b=ONdzlidB1ahd0jb0Mm1cwobylT6e8ueaO2KfqjeC8lstxUEmpusSkHWjEktEN1V8Ol
-         RfvPDyR7rOVKW0XFPcHrYga1YvyMy8z0FaN8heb/DsXV8hy8zt+XfOuOanHv297ZYXbD
-         p4tr6CVbBRze2xVoeiZ/SNvtTg9LyUtN9GVMO3IJfBdY69yUYr8ndkYW/QzffOGaX34R
-         oFHIT+xjcc8u9Rt8gdm14NMR6QQZMpsUbTqIebvXXK0hsTxFcN/5aMiyLbq1Yyp7Pm8K
-         1h4LA1aK1JmjIL+x3BFJJhHHu7OGXUiGwmbbZEDD9d9SFRHWSBjq3mRFV6pra+YBxu2N
-         0KSQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVm/XxU6KdWHwdyp/nQ2QHwFTpceLcxHXcwHLIYRc9TprRfnKUO
-	KNk9i6Ii7MfqFbzCLlNFFio=
-X-Google-Smtp-Source: APXvYqwEA4KNTWnlnPDJw9J5mUIC6O7lxPOHAlwERTcPyYlaKPoat4kz0sIFhLlXiWR19njW/z84mA==
-X-Received: by 2002:a05:600c:225a:: with SMTP id a26mr29281673wmm.81.1565616799423;
-        Mon, 12 Aug 2019 06:33:19 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mivb5+pKg1BSInWFmb6kii1xoVzr1MSviYlYG3OQyG4=;
+        b=HtSZ6RfrPS0EK6yQMk/rrv3rEN0vwMP6oHJP5rNGU8PSJmbc5zbY/cpPpgh3cvU2UQ
+         ox759hksYGHZq8CPfD2A3sS5snbetNNEaixT1aLKfqAkw1m5W75dSrqSqlVOlvOfQawI
+         4ibYQyKB1pDBpxxN9x3eZsqn2sU8FD7gJni+zsyZZk9z7/Kn2LW5r8V7TST8PxqvMU7i
+         QpX8/wLH56US2aTzBfIadDQQFR4+Fumi7LeYQf+ImATGq8SJvSPGXkFZqkI5y+Dsmp+T
+         h0bq34bEdEsYsWMyheTmUwsYsR2q72gXlL2fXKp0xu2i1FnoT8HxJsEJOO6djVKkuMBA
+         3JZg==
+X-Gm-Message-State: APjAAAWxxT7+0jEyXeXtsfSiDDQSs8xINh8KZ+Lsd1Ti4I0JJqTgw0TY
+	AlmtaF+855CtX9U/QaobPRI=
+X-Google-Smtp-Source: APXvYqzJpM8RkIOzzIKW0VlPDNgNtm8PG2YG1NTthpVjXmGwycYtJ+JZ7SRG4moDU7R44czJyx5q5g==
+X-Received: by 2002:a9d:590d:: with SMTP id t13mr20498605oth.281.1565627307538;
+        Mon, 12 Aug 2019 09:28:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:5411:: with SMTP id i17ls4675556wmb.2.canary-gmail; Mon,
- 12 Aug 2019 06:33:18 -0700 (PDT)
-X-Received: by 2002:a1c:7c06:: with SMTP id x6mr5204531wmc.133.1565616798837;
-        Mon, 12 Aug 2019 06:33:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565616798; cv=none;
+Received: by 2002:a9d:187:: with SMTP id e7ls750930ote.0.gmail; Mon, 12 Aug
+ 2019 09:28:27 -0700 (PDT)
+X-Received: by 2002:a9d:7383:: with SMTP id j3mr19483368otk.74.1565627307306;
+        Mon, 12 Aug 2019 09:28:27 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565627307; cv=none;
         d=google.com; s=arc-20160816;
-        b=dUFvuZxjAsKrPj4lcrSCkaPaIPbm7pi6/W5U8u2gUTJHLijytghmHZnKCI5BNI5YHi
-         BLYAQ9xT5l84td4VhHtb+zs7NWVvdKIBvJ0YsEw5GwIIJ3p06/EZ8A0T223WUT7I1+i3
-         AYy96s8HTLBwVZd8F1cvNBoA1ELiJwQQRDoXUPc9LqkZrJoxb7N01MqnTC+gik7/LPAV
-         oF1Hr9H5UklOTsP4yRfE7TXV+Fx8j5gGZ8tgXZOVDTdzZqZsgtxIp8NgTJd570tvV7aj
-         FzboaJPqslZnNdL1zJTvMiz+7V8EvXo72NNErxpGmNTNz/XpEz9d848qiIL5gI1EqzyH
-         p6tQ==
+        b=EAS2TYFvkL5+tTWWqL46eWVb4qq0Nh3iHAwHH2CLU8No9BdiEaNTt5OrcUUeSVhxAn
+         4Hp2+rQQsoadGkJ+gJMBzl/Gu9pNB/ePpEYSUcAUx+sU2/blQTf5Tpb02T88mUGjusCa
+         2McBJb6MPDGrXJTBitv5PRgp8/mlyEHU2O9mCylgqyAQpGWt64CQADYHp/v8/OYISRvX
+         zCOMf8nrPKdk1jwmsvDhRHdGMmrxM+WFHMqMcAXLBw1TtkVRs2EK44CPzdXaral5dpnB
+         9GAePCTNV44O/NqqjNA3L200KaZjSS953clSzcjvmVnnja4PCKiu6UATdbRHZ/FN8JpK
+         yPhw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=cK7uoL/jkhHUdo2N2s/IZmD40lX+YPwCJLQddRCfwqI=;
-        b=oZrygK/I3ENiBoJ3tPzu6k90fDbBX3zn2Bn9xJ18Id03hFjdXURWwJemh/pYbU2vL+
-         s1TdSzwDPtc1oz8jAOS1ThYWPw50AFsaqRTaLIQX2dNiEqL9WahBgF/HFcX/iQcA1S2j
-         Uo+sIT9fEuLvv2LhIL+a5qdVW0zzqdUTNCYd1tmaMRw+hjSqdBy/t3BNUsiQ31Bxu3Lf
-         2Oix0cCITpzlfvIcffEcV/0myeHsyK7nSpxuW/d8HXAw/wlAO67RjMcPyk6slnUoJEsO
-         EN5DJLC85a3rPRF/GeLN2l6NsEl0l0ubFikpveRNL1Rr2bO/ZGp6HCXAU/vRB27XQ18N
-         TKiQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=nqNpCGFtDsa8a+HaBObToOYnGgLCkK9gOXb9jSunYpg=;
+        b=puF36v2V+jIguhlBjhbCdsKMQdpBGvZNFCyhSylC5AOQQ3acw/wCP2I/T14q5I0czo
+         4nx+nMoCtW9ryHkIkSvypRYolWrzhFLAe3/zCBLIetYv1DwGuGivT/t+W9/6wrELhv3c
+         svxlGVp3FuLr90r+w0h6nsOUVq9+gptYILRycV4903LvJ6scApdC5/6QbGh7AhS9srzc
+         2CFeE3OcY/0pdj8zmpRkEB4tP0+CUvVy1lbBvjq9UhfsZE55W2i8pKWj+k25ARDxrAg+
+         GKxal3C0/dBK0VRj3axIcv5k6+2AaYz3rI1HgkaxgGx2dN9JGaBK3/w+zG2Yc5uwC8Mr
+         PbVQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of guillaume.tucker@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
-Received: from bhuna.collabora.co.uk (bhuna.collabora.co.uk. [2a00:1098:0:82:1000:25:2eeb:e3e3])
-        by gmr-mx.google.com with ESMTPS id g7si2223wmk.0.2019.08.12.06.33.18
+       dkim=pass header.i=@google.com header.s=20161025 header.b=q9YeUqrO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
+        by gmr-mx.google.com with ESMTPS id q3si3514685ota.4.2019.08.12.09.28.27
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 12 Aug 2019 06:33:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of guillaume.tucker@collabora.com designates 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) client-ip=2a00:1098:0:82:1000:25:2eeb:e3e3;
-Received: from [127.0.0.1] (localhost [127.0.0.1])
-	(Authenticated sender: gtucker)
-	with ESMTPSA id A91A628A2F1
-Subject: Re: [PATCH RFC 1/1] kbuild: enable overriding the compiler using the
- environment
-To: Nathan Chancellor <natechancellor@gmail.com>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
- Michal Marek <michal.lkml@markovi.net>, Mark Brown <broonie@kernel.org>,
- Guenter Roeck <linux@roeck-us.net>,
- clang-built-linux <clang-built-linux@googlegroups.com>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- kernel@collabora.com
-References: <cover.1565297255.git.guillaume.tucker@collabora.com>
- <3885ccdcbdbe83eb367e8344584df944adc76e34.1565297255.git.guillaume.tucker@collabora.com>
- <CAKwvOdmOdJspcO8jqUhqR63-MOWkV3ZrVcCO6u=HG6peov8Htw@mail.gmail.com>
- <20190809051552.GA44466@archlinux-threadripper>
-From: Guillaume Tucker <guillaume.tucker@collabora.com>
-Message-ID: <b2ac60fb-94f7-1273-e1a3-825172c3cc00@collabora.com>
-Date: Mon, 12 Aug 2019 15:33:08 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+        Mon, 12 Aug 2019 09:28:27 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
+Received: by mail-pg1-x543.google.com with SMTP id r26so13793589pgl.10
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Aug 2019 09:28:27 -0700 (PDT)
+X-Received: by 2002:a63:f94c:: with SMTP id q12mr30500912pgk.10.1565627306188;
+ Mon, 12 Aug 2019 09:28:26 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20190809051552.GA44466@archlinux-threadripper>
+References: <c0005a09c89c20093ac699c97e7420331ec46b01.camel@perches.com>
+ <9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
+ <CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
+ <6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
+ <20190811020442.GA22736@archlinux-threadripper> <871efd6113ee2f6491410409511b871b7637f9e3.camel@perches.com>
+In-Reply-To: <871efd6113ee2f6491410409511b871b7637f9e3.camel@perches.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 12 Aug 2019 09:28:15 -0700
+Message-ID: <CAKwvOdmAj34xDcMUn7Fu_aXdtD-7xHjHuU20qY=rFcr_Kz7gpg@mail.gmail.com>
+Subject: Re: [PATCH] Makefile: Convert -Wimplicit-fallthrough=3 to just
+ -Wimplicit-fallthrough for clang
+To: Joe Perches <joe@perches.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, 
+	"Gustavo A. R. Silva" <gustavo@embeddedor.com>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: guillaume.tucker@collabora.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of guillaume.tucker@collabora.com designates
- 2a00:1098:0:82:1000:25:2eeb:e3e3 as permitted sender) smtp.mailfrom=guillaume.tucker@collabora.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=collabora.com
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=q9YeUqrO;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::543
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,95 +136,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 09/08/2019 07:15, Nathan Chancellor wrote:
-> On Thu, Aug 08, 2019 at 03:42:32PM -0700, 'Nick Desaulniers' via Clang Built Linux wrote:
->> On Thu, Aug 8, 2019 at 2:07 PM Guillaume Tucker
->> <guillaume.tucker@collabora.com> wrote:
->>>
->>> Only use gcc/g++ for HOSTCC, HOSTCXX and CC by default if they are not
->>> already defined in the environment.  This fixes cases such as building
->>> host tools with clang without having gcc installed.
->>>
->>> The issue was initially hit when running merge_config.sh with clang
->>> only as it failed to build "HOSTCC scripts/basic/fixdep".
->>
->> Thanks for the patch.  I don't quite follow the exact error.
->>
->> When building with Clang, I usually do:
->>
->> $ make CC=clang HOSTCC=clang ...
->>
->> are you trying to fix the case where you do:
->>
->> $ make CC=clang ...
->> <no HOSTCC set>
->> when GCC is not installed?  Because if so, I think it would be easier
->> to just specify HOSTCC=clang, but maybe I'm misunderstanding the
->> issue?
-> 
-> As I understand it,
-> 
-> $ make CC=clang HOSTCC=clang
-> 
-> works fine. What doesn't currently work is:
-> 
-> $ export CC=clang
-> $ export HOSTCC=clang
-> $ make
-> 
-> This is problematic because there is no way for CC, HOSTCC, and HOSTCXX
-> to be passed to make within scripts/kconfig/merge_config.sh.
-> 
-> A quick test before and after the patch:
-> 
-> $ ( export HOSTCC=clang; make -j$(nproc) O=out defconfig V=1 )
-> ...
->   gcc -Wp,-MD,scripts/kconfig/.conf.o.d -Wall -Wmissing-prototypes...
->   gcc -Wp,-MD,scripts/kconfig/.confdata.o.d -Wall -Wmissing-prototypes...
-> ...
-> $ ( export HOSTCC=clang; make -j$(nproc) O=out defconfig V=1 )
-> ...
->   clang -Wp,-MD,scripts/kconfig/.conf.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes...
->   clang -Wp,-MD,scripts/kconfig/.confdata.o.d -Wall -Wmissing-prototypes -Wstrict-prototypes...
-> ...
-> 
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> Tested-by: Nathan Chancellor <natechancellor@gmail.com>
+On Sat, Aug 10, 2019 at 8:06 PM Joe Perches <joe@perches.com> wrote:
+>
+> On Sat, 2019-08-10 at 19:04 -0700, Nathan Chancellor wrote:
+> > On a tangential note, how are you planning on doing the fallthrough
+> > comment to attribute conversion? The reason I ask is clang does not
+> > support the comment annotations, meaning that when Nathan Huckleberry's
+> > patch is applied to clang (which has been accepted [1]), we are going
+> > to get slammed by the warnings. I just ran an x86 defconfig build at
+> > 296d05cb0d3c with his patch applied and I see 27673 instances of this
+> > warning... (mostly coming from some header files so nothing crazy but it
+> > will be super noisy).
+> >
+> > If you have something to share like a script or patch, I'd be happy to
+> > test it locally.
+> >
+> > [1]: https://reviews.llvm.org/D64838
+>
+> Something like this patch:
+>
+> https://lore.kernel.org/patchwork/patch/1108577/
+>
+> Maybe use:
+>
+> #define fallthrough [[fallthrough]]
 
-Thanks for the review.
-
-> I wonder if all variable should be converted to that scheme or just the
-> ones that are needed in this instance. I also wonder if this will cause
-
-This is what Mark also asked.  If we want to use ?= then I can
-send another patch to cover all the other variables.  It also
-makes sense to be able to choose an alternative linker, in
-particular LLVM's ld.lld was brought up recently in some KernelCI
-discussions.
-
-> any issues with people who define these variables in their environment
-> already; if so, maybe merge_config.sh should be updated to support
-> passing CC, HOSTCC, and HOSTCXX to make.
-
-I think the reason for the RFC essentially boils down to this.
-On the other hand, if someone exports HOSTCC or CC to use some
-specific compiler, they would expect it to be used.  It would
-seem like a bit strange to export one value for a variable and
-then pass another one to make (i.e. "export CC=gcc; make
-CC=clang").  Also, passing all the variables to make in
-merge_config.sh as well as any other place where this may happen
-is likely to be rather error-prone and hard to maintain, say if
-new variables get introduced in the Makefile or if some new
-scripts start calling make.
-
-So I'll prepare a new patch using the ?= approach.  Meanwhile
-we'll see if someone can find a good reason why this can actually
-be problematic.
-
-Best wishes,
-Guillaume
+Isn't [[fallthrough]] the C++ style attribute?  **eek** Seems to be a
+waste for Clang to implement __attribute__((fallthrough)) just as we
+switch the kernel to not use it.  Also, I'd recommend making the
+preprocessor define all caps to help folks recognize it's a
+preprocessor define.
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b2ac60fb-94f7-1273-e1a3-825172c3cc00%40collabora.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmAj34xDcMUn7Fu_aXdtD-7xHjHuU20qY%3DrFcr_Kz7gpg%40mail.gmail.com.
