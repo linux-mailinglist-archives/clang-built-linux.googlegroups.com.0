@@ -1,129 +1,120 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBXOCYTVAKGQELPQKHTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD7ZDTFR7QFRBV4AYXVAKGQE3ZRIPZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3093D8989F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 10:20:46 +0200 (CEST)
-Received: by mail-qt1-x837.google.com with SMTP id i13sf247813qtq.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 01:20:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565598045; cv=pass;
+Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id DF54B89B87
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 12:32:55 +0200 (CEST)
+Received: by mail-wr1-x43f.google.com with SMTP id q9sf8793201wrc.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 03:32:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565605975; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jPaAOrDfBg38utW752Sx/XmOZUaXi7MWg1fHYxYAepOyHIMWSomwvxyB/7v6JDk7N2
-         dRBWdckW/G+qq/KDumOFTgomoIrODMTmqeUNT7Zk22cl0tsK6vd1m1y1NHUv5JvOD0BH
-         F2C6DzLWafNroyqHMd47Zv8dTVj92pvkHihIBqcmNsQjRRYJkP85alFrUg/w/hErrg/w
-         xwr+WhqBbNBKVd5t9DX9H/PIQeZj3GGrTsSirfXTlyAM3GvYCpTnbkkl1rftAkmKN78b
-         h5TLHLsjQaffq+kIOndkyY5RkRW6+SO0SVwMYstxG8vd/fRHhVtgmTct4P7DYVnjEmwa
-         C6Kw==
+        b=S4+4Z83JE9RctN75/mpmpi4qmGI3QU+FlVTPLmsvvZrGDk0i9YQHCcAVyoKF+COmbf
+         ZWBy8dwPj1WQj5nSGkVhSewtuNiJqGjSdeCdTjH448iVL2PtM/GmBNQh98rQm3kaHRtu
+         QYRCnE6++2d2sQtp/Rttkyu4nHFiKcBAMTGtwWDojjC5BEBbsQZV+mSiSzSZ8IKgnoyC
+         LfnY/GVnRUIY0ltBL8Aq6lSUtcvF1J7TXUSYRxNdZiL6nghC4LYCLeO8GpOZTOzr1aJF
+         Flsakt+A+02MzLtVFAjFFQWUl0zXgmelp4pAb7bwdNXIZKlEBGtLA5nyhqN49xuhA1a0
+         QVSw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=GsKI2i6TFpQb/sutakPj6q8J2C74HplmuXl5D4medyY=;
-        b=ak1D0Z0jrzjKGZvZpx54Rbvj0evCguTXtEg02+DpCZslWsoKpqd2XJWYpZeU1ig4XO
-         XjPZrbBhbC+BX1ZLqiQAr6zUfnXj3ownMfevietqLIpiHlGpjOQOGdRWqiryPUq9I8l/
-         iSpnGFcWQypZXjdqYcA4yLinjFtJpV7PJ2eZFtShWigyuyT6g79i19AvBHghe2/GJXg3
-         4l8YMk7Dr+vRDienLMAbEcmV/j5NjUq24aAr7Ixhr5y9dVFspn1w50crVQWnqFk/TSRH
-         X4pw5tkEgJcTOX5ZJUsUEfW5Mr7qraemRTz/oUenR/HU3gK1WVUZwXquiqmr50z4YPiv
-         ooCQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=JEqDtYLMGQETwhPplpMnma+c0iVbVbXHggX8V1uv6Xk=;
+        b=T3BRS8eiHLVGC0+vJVvk09lJ1ObFVb+0DC80ZiZrVR5QF1Pe36aKC8OjwOto5l5SfT
+         6/PX7E6X7d20HVvqkn//klWzMX6Usv4Nb618oMSncl3ANR6tgWQ87zU/yliuivOo/UGE
+         h8J2gV0HST808ZsKpSdlJSDvvYs1sWm/o/spe8MXlfsnQzHCZpAa/F0x3JQyIS8yKvRc
+         BmktB64fAMcohuE1qlEKGiO/Z9aEGnpGnfr+PeqpQkIpe5qjdeSC/cy8O2JygI9Ag6bq
+         2gdr543EVGBMO2KTS6hH9v+8Uw0LG+PaU36DotnEvnB4gYUhMeIsU6cWPp6RitgZkhhN
+         vZ9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=pass (google.com: domain of sudeep.holla@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=sudeep.holla@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GsKI2i6TFpQb/sutakPj6q8J2C74HplmuXl5D4medyY=;
-        b=kR7CTssC0BKvstGSK2FMP+mEDRydTQuCuLwhaEmfobp4SjMIfiDPcRy0Gszi2U7ZY3
-         ICOfA8CMHR9yRRrC/XgrOfUA6PS24ieXcBAuMxhHZn+PIe765AdjLi0fWwx2u1xkHm5K
-         edeE+7PH33chfyf+B/Ogsqd7CGFxdw5GT2/QpTI4Y4zwqL+mVefkZKcHtrRkNQ9d7owa
-         JHWVcvplT3C6j+5Au0bQu1wdWHvoty5WxGQ9Fq3r/rmJstnMkTc3ueka7wqsgmOsyMaf
-         rlKVvp3bgtF4qcntWLzYppITN6UnKq8bAHPdrTlJw7r1uZ3Opk+goijCs3fnw1wkBmnV
-         yU0A==
+        bh=JEqDtYLMGQETwhPplpMnma+c0iVbVbXHggX8V1uv6Xk=;
+        b=czFRkKLyRrXycOzQK27WDPOtog1ROEShK47kOHml3+KSlVS9yYxmgeeiasjUJrv0bS
+         3LTbppqiGaOa7wfeSurXG0N5mfRrVGn29PCgTigiBDlt8VS1w68jTTJx9cYsjiQiuwUq
+         oPMd8rL+5+kgaE/j/rVN6gk0BFkQI+ZamXqEforTjc7h+HC87NJFK9loXdvKfNGJrhWg
+         rh09E3fcJ/sCPqmNbh6RMZ9gTNP2cir4elGQNYKPTPJ6LqJSldvKI3vEeJX0c3MhP2kt
+         fJCea8ChWOm4JJNPFl0aStaU+wd1ztZPtOdS07htgJDv/gdqrceX7bgwOeMNDbOoJ+kj
+         5BXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=GsKI2i6TFpQb/sutakPj6q8J2C74HplmuXl5D4medyY=;
-        b=R1CKRAmSmrJZUJ2N9w66IG7PojVM1QuGMZpClmpS6FoZrdfvGY82y9Lhngd39C8jrU
-         19EKVtMUCqEZ6aLcA4nqgKLDTJJxRyvey9Jx7pYWgPG4kX+8wNgv2Q98v8QedRdoBcUc
-         DYvCvkE5MrA5AXl9tznT7NIGZ2zhqvBhQ2egzuyFv2I0lqLeU1HnhPKuGxj9QDhL5TUw
-         Y3v93Gzy3tLqUjrmDcHGelq+ZKPJsUfM8wlWEIIAMQvQZ+8OOOcLE5bgMJcZzafsDUjv
-         zlBAMAxQDtZgoFy+biwpSsf7d+pX6XE6foYyqMyiXbU7DD7DmH+7VbeogFwv4L9bh5u6
-         jSGQ==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=JEqDtYLMGQETwhPplpMnma+c0iVbVbXHggX8V1uv6Xk=;
+        b=duEvRUZhbwgCTcJG77iSUmz5HhtEi3I3KUSU1whl1srG58X1aMpCrNSwPvpgKhgh9d
+         netqyTAMlYolKdY0NVh8F9bGVSXZF6oEHy59jECIaS45HeKMvD2raU/bUNX8onJnvDql
+         t12Jnn1f+ewK01zmPg243MYdOYpWBoE8/+GlLbeSnro0ySysi9uiQnHqfgRzAHd60vdA
+         2zm2aSQAn19tL6qKgGtAz6mCHOL0CPdq8TfoxvCbrxgXCdqiOrqi5qnhi/84pU/9bQRX
+         4fen4xq/aWE6/EGeTL6JzJXr4zS1bPib0xqGfWHEwq9zUtzxkpGN04qJ/KtNys6xXsbz
+         A5gQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUBJkOEKsTk4IHw8MqCdrU1QTH+RuWxwm1CEv2oEeiNDIyDxwin
-	x48L8J1GoFi+mRC7ETEyH2o=
-X-Google-Smtp-Source: APXvYqzVu/WtBHOTa2Br30g5Xr1soLQo878Ka7DPo8ge5P2/uslr5+aLLltqN1Q9wDgM4mbxAz7k4g==
-X-Received: by 2002:aed:3aa1:: with SMTP id o30mr6231115qte.198.1565598045331;
-        Mon, 12 Aug 2019 01:20:45 -0700 (PDT)
+X-Gm-Message-State: APjAAAUEMTHsa6sP4Q0VHaSk4y/RdOW+leCqj84IHDAEfCg9nxeMop1K
+	mQUDS3t9CA4KfUozlYKBGWQ=
+X-Google-Smtp-Source: APXvYqx/ZLb60soTLOrb9j7g0RwabulRNfcHqVe3oq+geTKMYLRbs/DVv9XRxh7A36opEM4PLpvHQw==
+X-Received: by 2002:a1c:d108:: with SMTP id i8mr28308201wmg.28.1565605975655;
+        Mon, 12 Aug 2019 03:32:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:6b87:: with SMTP id z7ls4459415qts.5.gmail; Mon, 12 Aug
- 2019 01:20:45 -0700 (PDT)
-X-Received: by 2002:ac8:7cd:: with SMTP id m13mr29119828qth.341.1565598045083;
-        Mon, 12 Aug 2019 01:20:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565598045; cv=none;
+Received: by 2002:adf:9321:: with SMTP id 30ls30143232wro.1.gmail; Mon, 12 Aug
+ 2019 03:32:55 -0700 (PDT)
+X-Received: by 2002:adf:fe0b:: with SMTP id n11mr20862076wrr.243.1565605975258;
+        Mon, 12 Aug 2019 03:32:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565605975; cv=none;
         d=google.com; s=arc-20160816;
-        b=BfQVs47YHYI/slUoJaVtYtkVx6m5evhLcuGVhM5ZdmjuXomZ6a8FDbCVSqjF6xaWX0
-         BL3k0RcvTTobPdwu18HLzgSfjgtURI9XIV6f54I8F4uh3/tqxP7qd4RP3IVAd67v4kMP
-         WtUEZ2Y3RABUrRILZYwwoBs7b04PAxHWdljV9BcNDwF1BB/jhG+vG53q4wR+OywGnMxE
-         4JrCzQSdlRF+wgqkajCxF5W8FNshlDZXUTGLOsbAAt6vTiqDQxnX05pBjsoJ6RFfZX5v
-         mVwDtnda7nllZu0PdH1kEZKQIbopPiZqm21cng4dMDdXp7q9U9PIUpCc0sysTtyJ8BJi
-         7Nlg==
+        b=Kpakzz27+h5Rkdo7PAeEfStgbJ8WeSOK/PO1UcZrPk4sGDBOnavvLTCiVVO2j+jxru
+         ZOmu9rDGp74GDfKSZvnwFz1fM+cs4tk1coFmE1uDzScI22RIwoL9OTEQzGpOfAP0Xpop
+         dTTTEBC5HoziQsMK6bXUx5NUW/vdvR3nLDwYEWg+kEHP4uI3xoyOm1To9K5NlB3KIN+Y
+         WVIP8pezOaPJ097IVyNbpWibzbuf5vzKF4d2RYeLfjHhZF/M4w1PURkXxabNuyQA+9jZ
+         ATdCujTsqavZUyKPPoRG16UJ47A5cOqA1p2sN4tsY3xctXwyR71yklt1ZPfiZH+QqYSJ
+         0iEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date;
-        bh=zYKF7Hghb2ywJgh0IICJtUoI5kIyir6s7ruDvhGvrY0=;
-        b=KqRquxOJ9zdbw69nxkzmBX+QZY8NlxFV3Qx8/6PR6Eh4Qc8+Vt//E2uRFTAen5uHfs
-         uM4maz/dG6Gd9lSIaoT9YyCT//obw4mDay1iDgRIzhA61lPCClOZNlAB/vgQV/n6+jjo
-         iP8n/taAAnI4x+doWyercWoiPr7ergiXtTf9DvnKb6CPBiUAiwVBIdiW4/Wo8yXPrRcD
-         57GwcGpIsSdsscQ8WLS5PwXDeE5gEn5GH3e0iHpYLgVuYj4+r+AAXskLWdj8jEvTyqlM
-         SoVP0bS2h3OXR4hjj4O8vxuQJm1cDO5QB3PtV3rSoFfpFJ98ZOGF5VZq1ds1J9Q5zYhT
-         Lwmg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=YS04/o37ZfcdzaqlfioLF9nz4WiLLD2csugz4P3/N00=;
+        b=uj1Df/0GKq7tyfyq/TpZdVb1/NYLoITmWC4QRjLtipBytr6eAEgAvPpIoFk1lJ44HG
+         j0Pt514+xfdW0doYgk4L14CxBuUPGpEQaKrzBj+qAa9+Ji5FpyZD5rgkdv4UdAcKcVid
+         VrimT6UBZv2da6E0pD9uqCcqTlrp30uihuOAtEx8gUKYgLmSgrYiKmhaHNyXguiL+kJ/
+         hDamV0vKsxT6Baiv4pFHHGGcbGH4qojo1/G0zRY2DAmI5AL9ofUy7ecypgyXRj8Yb3cC
+         kglstAlNdIi19FyqJyCM3714MhJG4Oyb6fHFgX4IIRMA3Sbscqgw/DzA0UQR9RmHxQ2h
+         8VEQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id u47si738817qte.3.2019.08.12.01.20.44
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 12 Aug 2019 01:20:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Aug 2019 01:20:41 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,376,1559545200"; 
-   d="scan'208";a="259710494"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga001.jf.intel.com with ESMTP; 12 Aug 2019 01:20:42 -0700
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
-	(envelope-from <lkp@intel.com>)
-	id 1hx5ZJ-000BbY-H1; Mon, 12 Aug 2019 16:20:41 +0800
-Date: Mon, 12 Aug 2019 16:20:16 +0800
-From: kbuild test robot <lkp@intel.com>
-To: kbuild@01.org
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
+       spf=pass (google.com: domain of sudeep.holla@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=sudeep.holla@arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id e7si569296wru.1.2019.08.12.03.32.55
+        for <clang-built-linux@googlegroups.com>;
+        Mon, 12 Aug 2019 03:32:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sudeep.holla@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53F7315AB;
+	Mon, 12 Aug 2019 03:32:54 -0700 (PDT)
+Received: from e107155-lin (e107155-lin.cambridge.arm.com [10.1.196.42])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A1D193F706;
+	Mon, 12 Aug 2019 03:32:53 -0700 (PDT)
+Date: Mon, 12 Aug 2019 11:32:48 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 01/16] ARM: remove ks8695 platform
-Message-ID: <201908121610.iJ1R4RJd%lkp@intel.com>
+Subject: Re: [PATCH] firmware: arm_scmi: Eliminate local db variable in
+ SCMI_PERF_FC_RING_DB
+Message-ID: <20190812103246.GA28585@e107155-lin>
+References: <20190810044910.114015-1-natechancellor@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-X-Patchwork-Hint: ignore
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Original-Sender: lkp@intel.com
+In-Reply-To: <20190810044910.114015-1-natechancellor@gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: sudeep.holla@arm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+ (google.com: domain of sudeep.holla@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=sudeep.holla@arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,78 +127,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-CC: kbuild-all@01.org
-In-Reply-To: <20190809202749.742267-2-arnd@arndb.de>
-References: <20190809202749.742267-2-arnd@arndb.de>
-TO: Arnd Bergmann <arnd@arndb.de>
+On Fri, Aug 09, 2019 at 09:49:10PM -0700, Nathan Chancellor wrote:
+> clang warns four times:
+>
+> drivers/firmware/arm_scmi/perf.c:320:24: warning: variable 'db' is
+> uninitialized when used within its own initialization [-Wuninitialized]
+>                 SCMI_PERF_FC_RING_DB(db, 64);
+>                 ~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+> drivers/firmware/arm_scmi/perf.c:300:31: note: expanded from macro
+> 'SCMI_PERF_FC_RING_DB'
+>         struct scmi_fc_db_info *db = doorbell;          \
+>                                 ~~   ^~~~~~~~
+>
+> This happens because the doorbell identifier becomes db after
+> preprocessing:
+>
+>         if (db->width == 1)
+>                 do {
+>                         u8 val = 0;
+>                         struct scmi_fc_db_info *db = db;
+>                         if (db->mask)
+>                                 val = ioread8(db->addr) & db->mask;
+>                         iowrite8((u8)db->set | val, db->addr);
+>                 } while (0);
+>
+> We could swap the doorbell and db identifiers within the macro and that
+> would resolve the issue; however, there doesn't appear to be a good
+> reason for having two copies of the same variable. Eliminate the one in
+> the do while loop to prevent this warning and make the code clearer.
+>
 
-Hi Arnd,
+I originally had exactly what we will after this patch applied. I think
+one of the tool complained about argument 'db' reused in the macro
+might have possible side-effects. That's the reason I moved it. I will
+dig it up and fold this in the original patch as before.
 
-I love your patch! Yet something to improve:
-
-[auto build test ERROR on linus/master]
-[cannot apply to v5.3-rc4 next-20190809]
-[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
-
-url:    https://github.com/0day-ci/linux/commits/Arnd-Bergmann/ARM-remove-ks8695-platform/20190812-092409
-config: arm-allnoconfig
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        make.cross ARCH=arm  allnoconfig
-        make.cross ARCH=arm 
-
-If you fix the issue, kindly add following tag
-Reported-by: kbuild test robot <lkp@intel.com>
-
-All errors (new ones prefixed by >>):
-
->> arch/arm/Kconfig:736: syntax error
->> arch/arm/Kconfig:735: invalid statement
->> arch/arm/Kconfig:736: can't open file "arch/arm/mach-ks8695/Kconfig"
-   make[2]: *** [allnoconfig] Error 1
-   make[1]: *** [allnoconfig] Error 2
-   make: *** [sub-make] Error 2
-   1 real  0 user  0 sys  70.07% cpu 	make allnoconfig
 --
->> arch/arm/Kconfig:736: syntax error
->> arch/arm/Kconfig:735: invalid statement
->> arch/arm/Kconfig:736: can't open file "arch/arm/mach-ks8695/Kconfig"
-   make[2]: *** [oldconfig] Error 1
-   make[1]: *** [oldconfig] Error 2
-   make: *** [sub-make] Error 2
-   1 real  0 user  0 sys  73.31% cpu 	make oldconfig
---
->> arch/arm/Kconfig:736: syntax error
->> arch/arm/Kconfig:735: invalid statement
->> arch/arm/Kconfig:736: can't open file "arch/arm/mach-ks8695/Kconfig"
-   make[2]: *** [olddefconfig] Error 1
-   make[1]: *** [olddefconfig] Error 2
-   make: *** [sub-make] Error 2
-   1 real  0 user  0 sys  75.17% cpu 	make olddefconfig
-
-vim +736 arch/arm/Kconfig
-
-828989ad87af15 Santosh Shilimkar 2013-06-10  734  
-ffa8f76f1d8470 Arnd Bergmann     2019-08-09 @735  <<<<<<< HEAD
-95b8f20fd6a269 Russell King      2010-01-14 @736  source "arch/arm/mach-ks8695/Kconfig"
-ffa8f76f1d8470 Arnd Bergmann     2019-08-09  737  =======
-ffa8f76f1d8470 Arnd Bergmann     2019-08-09  738  source "arch/arm/mach-lpc32xx/Kconfig"
-ffa8f76f1d8470 Arnd Bergmann     2019-08-09  739  >>>>>>> ARM: remove ks8695 platform
-95b8f20fd6a269 Russell King      2010-01-14  740  
-
-:::::: The code at line 736 was first introduced by commit
-:::::: 95b8f20fd6a2694a16b8addb190b942bfb670c88 ARM: fix badly placed mach/plat entries in Kconfig & Makefile
-
-:::::: TO: Russell King <rmk+kernel@arm.linux.org.uk>
-:::::: CC: Russell King <rmk+kernel@arm.linux.org.uk>
-
----
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+Regards,
+Sudeep
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908121610.iJ1R4RJd%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190812103246.GA28585%40e107155-lin.
