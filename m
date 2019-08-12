@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBW7BY3VAKGQEU5S5KDQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBUXHY3VAKGQEJITF3NY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D95008A65A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 20:33:00 +0200 (CEST)
-Received: by mail-vk1-xa3b.google.com with SMTP id j140sf44725090vke.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 11:33:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565634780; cv=pass;
+Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id DE8B28A676
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 20:45:39 +0200 (CEST)
+Received: by mail-pl1-x63f.google.com with SMTP id j96sf15725841plb.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 11:45:39 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565635538; cv=pass;
         d=google.com; s=arc-20160816;
-        b=N7s9aPRZ1lNr7SvPhCD77eOw9/tMMm3ub6fZ+dZ53Rp6wTEMkxol9AbO+/9LbsXbC9
-         j3OZnT2xurL7/cfrFnuxWRJsz1H8blTjClEwjotfmqbS+3q38vZiLZtfVtasAkfpH8eE
-         iPezXVqSTDt08NPAtcTLObvciZaq5+ZVWmb5H872srxi2nbapze+LixStZNJ/aB920RO
-         JKZBLy+iP0p1uRuIAvQTFNsrH6+p4jp4yHXYJOJCT+ug7NTNxm5OCsvEDh0g4vK001rW
-         FTmsn1tZRe60QCHdMsDCM73rR98oTopAzAsc0rhbvZzYDR2hzr/a1eQIAfTQApU9yfKW
-         a4qQ==
+        b=pwOFa/vu+l1gqzJjluAM+5JK1lmytC97hGtgZsE034WfWfpFt+y1wXZFve4kRdklE4
+         ew0Umtxa/tn+FSWAEm1KQ8ttfo2AnVC423+rzurs4ac/qoHK+MgpVncNwhPijr+iV/4b
+         GYRmWcT5KOp0JBj7AGUOuXZuN2MC6ndRekQxBwbhB9byF77ZwN+nEsowyLmw2H68kOi8
+         XcUd2v5Z41sOSwrE2Dv5iopR51cLaRWGGJXYfD8rIW33whYbJ0NPBA4Ng7LKjqrrl1en
+         M8aNoZozhtXfJjfWxzV45lZxw2iv7XqOtlnNixBU3iu5vLZHx7Qcx30/9bB6L9O5DW5s
+         F04Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=E6cpKXQWjI0pae7eWm9iKG6wXj+Z8POgTPjy62p3Srg=;
-        b=QZyy2d4Cg0igMjHwp/RyqmFNUTmrw9M2gwVqeIkkVSgzEu+mSNnLrK64H4lWLgFyvt
-         KHK3LzEgynBzKuIYnz6CsW1JS2mT8D+cvrLkpEXjGTOsqnBg9ZD+k/IB6yPXgtjyLbCq
-         QkmjWARwV4aFURurNeZIqct7bQtA18nFdSp1UcbIHuhvNNeqwXaixL1jH3wM0+qbK50c
-         fI6XhwU8Y0glYv0b/Ubhwzy5KwDMwxWuws9xh9DnehjvHl6knQlaTAQHfUCg04sQh28L
-         v3YsVtjf5MS5bKUCcK3veGEwTsV72PuUEtiY56OOsvzkemewJwmZDnKmD0+t4LICn/Uh
-         3SXA==
+        bh=/kMZ0cWamYcFNK7aSHQU7uibuW76B8ecQUJQzrhPb6U=;
+        b=lnWbrg5aG9X/ELZDLYbIEgenFpfgypUHWo1C46MZC9E5RT6fXeH5Z9qAapieeyi9t2
+         6IJsCcInp5nXRxpFYlcBFhBvk8wMglUVt2OqxDal78AKG9YxhXoK/9mOfOJmtBrxii/G
+         jCH4iNaycKWh0glQDeQVj85ZgyfFU2sFTEZG1DfQpZ/DqQ1H9GQYBkjKAysVO2U8CFsR
+         eCjf95QuHt/eJQ/M6QcfzXjj3KkUZyWxNgtLiotfBM33OYb51RO0trQyCf2R9SjcM49J
+         +xhNNXlY+ZQdGdaEfiyjtDXoTkWfwJoKOYIJm+Cam2asgyXCdz9Xfr2BBziI6FmvUd+E
+         56Jw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=E6cpKXQWjI0pae7eWm9iKG6wXj+Z8POgTPjy62p3Srg=;
-        b=atW7iIcLS90uX1FtoU8kFBHymytNA1vvNMp+K/6AorrES7qWhl/H/Y6UfN4z3Ek37S
-         tUaD7XxPKsYR/9PQQkd5ZpwHnWS+4hrAFOALYFsTzrSxI/5ICUD1yP4y8okh2XutonxO
-         zCwPztVNi6QT94FGMRr1mMXUtUUD27E2jKuvRCcOpkQxhmg7hZ7a1fyNeplpbAob8n+R
-         7ttRauVHF1KruOGYHuUI+W7dOISWKdPKg3cAJKdB4yCDJx/pOObPt7HO+OhbjK5SPg3C
-         e6yKXkTjZJB027+z1r/QGWy351PoyTsMXMDs6PdgpVH4HayxfvMrADI+BDhh/lBB8a+P
-         McHQ==
+        bh=/kMZ0cWamYcFNK7aSHQU7uibuW76B8ecQUJQzrhPb6U=;
+        b=alyd/hGYpLGqI3HNffZ7b0mNYlMy5wc21Y00eQgNsdAC4+xzRxzvcJhTbmnrTA+rHl
+         4vU8hNJz7g0Zli/JDDK5NErrzAnyykZNSuCCjdvaE0rn3FB5LwgpIwgwAbh+lwUJhX7u
+         5AhQz9oosfNbcK3xH6j3lL5YI6q38A/9c03cYSdHW8PJhagjO2BHIS2w4usZPzlElJFr
+         Mk3dl82k0bXfaZulDVHeSNy/X/Ey46ENUyG/oTjroMO5UdC1zI7iP9Z+CDGeev+3cldm
+         glGxlr4XAohs2eUr/HdXtbFZrCwmI7b3GpoO+ueKvUXlFxjJREG7Obebw5na+NxtTS7K
+         K8uQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=E6cpKXQWjI0pae7eWm9iKG6wXj+Z8POgTPjy62p3Srg=;
-        b=TO6z41EBlA6quFYnns8oOyUe7AZk111KMDW3ZNALVwTOLmj06NLsN7uMbCGtFxZgVQ
-         TICSddIqsajmmN8yjmXgis8oAhK1YM1dEpb+PGSdy4+ihBHCfk1GlWXeBnyVBQXnpiQo
-         lLoGwjtGwJc7o5EoRAD4ySmQOv7Rc+saCKDmBMvdBhOrlZlezuSCLzpDmgyLvvD7T8CM
-         fwAhpQVZW/FXd2uk3LP9ZJZz/kiZUnAMWhreFn7kTebxL+WtLuR2cHKU4tMYfQXiGBcv
-         MF0XIwmy9s164zClcrfeK1s6cwlRzOf7t/kKadf3V6jAEAhRSAar8RMd6n8zyRGPWF6y
-         WGeA==
+        bh=/kMZ0cWamYcFNK7aSHQU7uibuW76B8ecQUJQzrhPb6U=;
+        b=Vb55pPAjfw2aQHLX4xrrDqIn+4raebVCiSscTriN7QKyDR9+XX2jQYKK4Pjs2TJU52
+         bKhwL0wiAQm2v84rjJ9CJU5nxZ30qTV01N8gTzWWA1UbXd1rYR1ss452rLtq6ozYW2tL
+         M+L323U6UQe2JwNgzvX+xt5K0pN9cn8MPRjexby+ADXLRaO2GNniZkQf68mHiZs282kc
+         q1/07u15sCc48x2Bey8xZqC23IqBqURqnknO7+Z6wG6/bSgRh4dWNy5oS7G1/5aSSppI
+         I0zpS5/TRrIOB11JUZ3+MuT4DIDGOeCzRJNSeEmalVImIjFLkors40fgK5GzmZ5bcKVf
+         WydQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX1ppa1BRn3xdohHpAi1X8RQGhVNMzbyD0TPYTFusMaczhcHoEP
-	ZpU+TwzWNeO46xqFZ6Xdz8M=
-X-Google-Smtp-Source: APXvYqxMY7zGaRSb2aeeeB5YYXOtuJCYYZkLc45e4c7e1T58VOlQsrqkWJUr0nj4I2hQD0F+d2VXwQ==
-X-Received: by 2002:a1f:9456:: with SMTP id w83mr13441807vkd.67.1565634779594;
-        Mon, 12 Aug 2019 11:32:59 -0700 (PDT)
+X-Gm-Message-State: APjAAAUuPIxW+uc7IU8PVbODz47NuCnBf/PpOY62yx6NBhQap3MJXTki
+	njxUyEUog5wt9FegQRyjWPw=
+X-Google-Smtp-Source: APXvYqw4iDKdamL/aJUU42m2K754+umqpS/tK0tHwj6T96cZ+9TcXKms/UQq+chtYFsJt6hI4xl+Fw==
+X-Received: by 2002:a17:902:a607:: with SMTP id u7mr34423950plq.43.1565635538570;
+        Mon, 12 Aug 2019 11:45:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:2a09:: with SMTP id o9ls7537460uar.11.gmail; Mon, 12 Aug
- 2019 11:32:59 -0700 (PDT)
-X-Received: by 2002:a9f:2d83:: with SMTP id v3mr2414972uaj.7.1565634779276;
-        Mon, 12 Aug 2019 11:32:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565634779; cv=none;
+Received: by 2002:a17:902:ab8f:: with SMTP id f15ls29038140plr.15.gmail; Mon,
+ 12 Aug 2019 11:45:38 -0700 (PDT)
+X-Received: by 2002:a17:90a:a896:: with SMTP id h22mr643575pjq.1.1565635538044;
+        Mon, 12 Aug 2019 11:45:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565635538; cv=none;
         d=google.com; s=arc-20160816;
-        b=SRJJ4QSSJ9p9gsw2KI2SrzczZdHx8KLXZQvy9+zw5oHP7OsYeEQrIoc3d6MENTiwgz
-         3xPoAVSlpkYnZ9Md03DFnrXcTHumm0gS1XXaZCJSipVD9DxRMW04Fm6HNIRxpWUm6HG3
-         P09MpfFH++Cb2PZSp0QVhPxtUtmxL+xk2bmd7DTLk5vm9RloTRBf8y46mHEK6TuAWYvB
-         odCDSxRpB6lzDZWbJA27LMxfOyb7fbSVDHuf5ZeDhhLfeJUMZgoRHLNT39Dx1IYls4Yt
-         kKi39aJovMaqLu9Ma1LO7qWtJUgHseTjaJtob9TtlDIot790PRX/yH3KSLidAnDpq550
-         Q0qQ==
+        b=rzQgV9U41Y9hTwEfhvkLmORvmQIIdvkBD/r3buhR59jUI7mEzzhyoKbcW6Fh83uV4j
+         oBl5KuialAxR3hzOLRALnFRwZ8Y2yI/oUq/W7qJfTdFulKnh6jYEh5G1WwX288EgF9a0
+         jda75yMgZHwZ0UlSgV6878sdQw1wtjmwuH3N22hTcYFRYKG7vj+g/9NkpRcRuGD4Owjl
+         GkCTgxg+0Aa8329mJeA+n0ahNr3i6JcHXqR/2BXtejgJtFc7BL2TdryXfTYvl/fKSGkV
+         MsHei5PAd8OB0+0HUuw7meeLX51PTHjcYnwkZEIvtintqhW/BQcqbaOtVvTrUAnT4cvn
+         LPOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=o4pLZdY2R0H9Ywge2jEd8JK3T2WnCz3CvvUJaBVBj24=;
-        b=mtsz5TMwpOgA7gfC9wDfu5mu+4KDIPhBT065njSxF6KhktL7DPYvojpaf7JOUy9EUU
-         7MS9DGnYMNEHl1QSv9PP4IdPp31pkm53umZ83reMstg+gNumsTRz2Cvqk0GDq+PlFWBX
-         JLF0PyovQx3x7BPjul4+ERIdzqiVL1KWGEdNroON0O0Swuv5q+aH9KuTsRiCSZw1VhEd
-         wOtqkW9OrQ/FHreWB5oTT7HeuaKSOVfyeAOZBBqSnJsbWk+i+g3Kl2am+UHBbHq/WTRG
-         oHHQ6NNu7qzFaDj0IrzwifyXGFVwDrsCxiPc8z2L+l0j/hjwI7a1IMbfFgo1BJKB6rvd
-         yD2Q==
+        bh=NJ4OTlNzz4C5Uk1xAA5WjVEumWga2qZVufhpEsXGp14=;
+        b=k0SdAW7sRtd9i5CMDYwuneVxy6ajrOkRbh5EifPnGVbt6EQPIs5opsPuqeTtTTYtfg
+         zfJ4BzghLWlr+xUxoK/6u32Dt0ZTLSZBxsFl5M9B8SV2BNLUa1Ac3nOEoMr67gEL4uL5
+         BkDh9sRjhrFxS972D+DsXMd6eLswl2IPkrbLLn0rhdlB0a7r/5G2OLT54mKfsxSy3pPb
+         6QdiZoU13kN6kn/gutHgHNYLHF09hyUFZ0uzV+nnKpc3gD4Dyk+OkPtfDrtMZoMOhvar
+         uLwTE4oCfsK84cf3qQ88B6fqCKWpsjlcbuUuDjIcQbcRSOUkUQjdEBI629ej7KUZA0kd
+         oF+A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id b5si5325570vsd.2.2019.08.12.11.32.58
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id w72si4712628pfd.2.2019.08.12.11.45.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 12 Aug 2019 11:32:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+        Mon, 12 Aug 2019 11:45:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga004.jf.intel.com ([10.7.209.38])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Aug 2019 11:32:57 -0700
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Aug 2019 11:45:37 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,378,1559545200"; 
-   d="gz'50?scan'50,208,50";a="327441141"
+   d="gz'50?scan'50,208,50";a="170147236"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga004.jf.intel.com with ESMTP; 12 Aug 2019 11:32:54 -0700
+  by orsmga008.jf.intel.com with ESMTP; 12 Aug 2019 11:45:35 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hxF7m-0005fZ-8U; Tue, 13 Aug 2019 02:32:54 +0800
-Date: Tue, 13 Aug 2019 02:32:52 +0800
+	id 1hxFK2-000I8e-PP; Tue, 13 Aug 2019 02:45:34 +0800
+Date: Tue, 13 Aug 2019 02:44:50 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v5 2/9] NFSD add ca_source_server<> to COPY
-Message-ID: <201908130241.6QsO6v5n%lkp@intel.com>
+Subject: Re: [PATCH v5 5/9] NFSD add COPY_NOTIFY operation
+Message-ID: <201908130231.d2e9Va8F%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="74iwmknpl4qasszd"
+Content-Type: multipart/mixed; boundary="u75lqw5ohe3rvw7e"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,13 +137,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---74iwmknpl4qasszd
+--u75lqw5ohe3rvw7e
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190808201848.36640-3-olga.kornievskaia@gmail.com>
-References: <20190808201848.36640-3-olga.kornievskaia@gmail.com>
+In-Reply-To: <20190808201848.36640-6-olga.kornievskaia@gmail.com>
+References: <20190808201848.36640-6-olga.kornievskaia@gmail.com>
 TO: Olga Kornievskaia <olga.kornievskaia@gmail.com>
 CC: bfields@redhat.com
 CC: linux-nfs@vger.kernel.org
@@ -169,69 +169,7 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   In file included from fs/nfsd/nfsctl.c:23:
-   fs/nfsd/nfsd.h:391:16: warning: declaration of 'struct nfs42_netaddr' will not be visible outside of this function [-Wvisibility]
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:401:18: error: incomplete definition of type 'struct nfs42_netaddr'
-                   sprintf(netaddr->netid, "tcp");
-                           ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:402:10: error: incomplete definition of type 'struct nfs42_netaddr'
-                   netaddr->netid_len = 3;
-                   ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:406:18: error: incomplete definition of type 'struct nfs42_netaddr'
-                   sprintf(netaddr->netid, "tcp6");
-                           ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:407:10: error: incomplete definition of type 'struct nfs42_netaddr'
-                   netaddr->netid_len = 4;
-                   ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:412:35: error: incomplete definition of type 'struct nfs42_netaddr'
-           ret_addr = rpc_ntop(addr, netaddr->addr, sizeof(netaddr->addr));
-                                     ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:412:57: error: incomplete definition of type 'struct nfs42_netaddr'
-           ret_addr = rpc_ntop(addr, netaddr->addr, sizeof(netaddr->addr));
-                                                           ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:413:29: error: incomplete definition of type 'struct nfs42_netaddr'
-           ret_port = snprintf(netaddr->addr + ret_addr,
-                               ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   fs/nfsd/nfsd.h:417:9: error: incomplete definition of type 'struct nfs42_netaddr'
-           netaddr->addr_len = ret_addr + ret_port;
-           ~~~~~~~^
-   fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
-                                       struct nfs42_netaddr *netaddr)
-                                              ^
-   In file included from fs/nfsd/nfsctl.c:27:
-   In file included from fs/nfsd/pnfs.h:10:
->> fs/nfsd/xdr4.h:527:20: error: field has incomplete type 'struct nl4_server'
-           struct nl4_server       cp_src;
-                                   ^
-   fs/nfsd/xdr4.h:527:9: note: forward declaration of 'struct nl4_server'
-           struct nl4_server       cp_src;
-                  ^
-   1 warning and 9 errors generated.
---
-   In file included from fs/nfsd/nfs4xdr.c:47:
+   In file included from fs/nfsd/nfs4proc.c:44:
    In file included from fs/nfsd/xdr4.h:40:
    In file included from fs/nfsd/state.h:42:
    fs/nfsd/nfsd.h:391:16: warning: declaration of 'struct nfs42_netaddr' will not be visible outside of this function [-Wvisibility]
@@ -285,131 +223,80 @@ All errors (new ones prefixed by >>):
    fs/nfsd/nfsd.h:391:16: note: forward declaration of 'struct nfs42_netaddr'
                                        struct nfs42_netaddr *netaddr)
                                               ^
-   In file included from fs/nfsd/nfs4xdr.c:47:
->> fs/nfsd/xdr4.h:527:20: error: field has incomplete type 'struct nl4_server'
+   In file included from fs/nfsd/nfs4proc.c:44:
+   fs/nfsd/xdr4.h:527:20: error: field has incomplete type 'struct nl4_server'
            struct nl4_server       cp_src;
                                    ^
    fs/nfsd/xdr4.h:527:9: note: forward declaration of 'struct nl4_server'
            struct nl4_server       cp_src;
                   ^
->> fs/nfsd/nfs4xdr.c:1743:4: error: incomplete definition of type 'struct nl4_server'
-           ns->nl4_type = be32_to_cpup(p++);
-           ~~^
+   fs/nfsd/xdr4.h:577:20: error: field has incomplete type 'struct nl4_server'
+           struct nl4_server       cpn_dst;
+                                   ^
    fs/nfsd/xdr4.h:527:9: note: forward declaration of 'struct nl4_server'
            struct nl4_server       cp_src;
                   ^
-   fs/nfsd/nfs4xdr.c:1746:12: error: incomplete definition of type 'struct nl4_server'
-           switch (ns->nl4_type) {
-                   ~~^
+   fs/nfsd/xdr4.h:583:20: error: field has incomplete type 'struct nl4_server'
+           struct nl4_server       cpn_src;
+                                   ^
    fs/nfsd/xdr4.h:527:9: note: forward declaration of 'struct nl4_server'
            struct nl4_server       cp_src;
                   ^
-   fs/nfsd/nfs4xdr.c:1748:14: error: incomplete definition of type 'struct nl4_server'
-                   naddr = &ns->u.nl4_addr;
-                            ~~^
-   fs/nfsd/xdr4.h:527:9: note: forward declaration of 'struct nl4_server'
-           struct nl4_server       cp_src;
-                  ^
->> fs/nfsd/nfs4xdr.c:1751:8: error: incomplete definition of type 'struct nfs42_netaddr'
-                   naddr->netid_len = be32_to_cpup(p++);
-                   ~~~~~^
-   fs/nfsd/nfs4xdr.c:1740:9: note: forward declaration of 'struct nfs42_netaddr'
-           struct nfs42_netaddr *naddr;
-                  ^
-   fs/nfsd/nfs4xdr.c:1752:12: error: incomplete definition of type 'struct nfs42_netaddr'
-                   if (naddr->netid_len > RPCBIND_MAXNETIDLEN)
-                       ~~~~~^
-   fs/nfsd/nfs4xdr.c:1740:9: note: forward declaration of 'struct nfs42_netaddr'
-           struct nfs42_netaddr *naddr;
-                  ^
-   fs/nfsd/nfs4xdr.c:1755:17: error: incomplete definition of type 'struct nfs42_netaddr'
-                   READ_BUF(naddr->netid_len + 4); /* 4 for uaddr len */
-                            ~~~~~^
-   fs/nfsd/nfs4xdr.c:132:6: note: expanded from macro 'READ_BUF'
-           if (nbytes <= (u32)((char *)argp->end - (char *)argp->p)) {     \
-               ^~~~~~
-   fs/nfsd/nfs4xdr.c:1740:9: note: forward declaration of 'struct nfs42_netaddr'
-           struct nfs42_netaddr *naddr;
-                  ^
-   fs/nfsd/nfs4xdr.c:1755:17: error: incomplete definition of type 'struct nfs42_netaddr'
-                   READ_BUF(naddr->netid_len + 4); /* 4 for uaddr len */
-                            ~~~~~^
-   fs/nfsd/nfs4xdr.c:134:26: note: expanded from macro 'READ_BUF'
-                   argp->p += XDR_QUADLEN(nbytes); \
-                                          ^~~~~~
-   include/linux/sunrpc/xdr.h:27:28: note: expanded from macro 'XDR_QUADLEN'
-   #define XDR_QUADLEN(l)          (((l) + 3) >> 2)
-                                      ^
-   fs/nfsd/nfs4xdr.c:1740:9: note: forward declaration of 'struct nfs42_netaddr'
-           struct nfs42_netaddr *naddr;
-                  ^
-   fs/nfsd/nfs4xdr.c:1755:17: error: incomplete definition of type 'struct nfs42_netaddr'
-                   READ_BUF(naddr->netid_len + 4); /* 4 for uaddr len */
-                            ~~~~~^
-   fs/nfsd/nfs4xdr.c:135:34: note: expanded from macro 'READ_BUF'
-           } else if (!(p = read_buf(argp, nbytes))) { \
-                                           ^~~~~~
-   fs/nfsd/nfs4xdr.c:1740:9: note: forward declaration of 'struct nfs42_netaddr'
-           struct nfs42_netaddr *naddr;
-                  ^
-   fs/nfsd/nfs4xdr.c:1756:16: error: incomplete definition of type 'struct nfs42_netaddr'
-                   COPYMEM(naddr->netid, naddr->netid_len);
-                           ~~~~~^
-   fs/nfsd/nfs4xdr.c:126:10: note: expanded from macro 'COPYMEM'
-           memcpy((x), p, nbytes);                 \
-                   ^
-   fs/nfsd/nfs4xdr.c:1740:9: note: forward declaration of 'struct nfs42_netaddr'
-           struct nfs42_netaddr *naddr;
-                  ^
-   fs/nfsd/nfs4xdr.c:1756:30: error: incomplete definition of type 'struct nfs42_netaddr'
-                   COPYMEM(naddr->netid, naddr->netid_len);
-                                         ~~~~~^
-   fs/nfsd/nfs4xdr.c:126:17: note: expanded from macro 'COPYMEM'
-           memcpy((x), p, nbytes);                 \
-                          ^~~~~~
-   fs/nfsd/nfs4xdr.c:1740:9: note: forward declaration of 'struct nfs42_netaddr'
-           struct nfs42_netaddr *naddr;
-                  ^
-   fatal error: too many errors emitted, stopping now [-ferror-limit=]
-   1 warning and 20 errors generated.
+>> fs/nfsd/nfs4proc.c:1379:25: error: use of undeclared identifier 'NL4_NETADDR'
+           cn->cpn_src.nl4_type = NL4_NETADDR;
+                                  ^
+   1 warning and 12 errors generated.
 
-vim +527 fs/nfsd/xdr4.h
+vim +/NL4_NETADDR +1379 fs/nfsd/nfs4proc.c
 
-   519	
-   520	struct nfsd4_copy {
-   521		/* request */
-   522		stateid_t		cp_src_stateid;
-   523		stateid_t		cp_dst_stateid;
-   524		u64			cp_src_pos;
-   525		u64			cp_dst_pos;
-   526		u64			cp_count;
- > 527		struct nl4_server	cp_src;
-   528		bool			cp_intra;
-   529	
-   530		/* both */
-   531		bool		cp_synchronous;
-   532	
-   533		/* response */
-   534		struct nfsd42_write_res	cp_res;
-   535	
-   536		/* for cb_offload */
-   537		struct nfsd4_callback	cp_cb;
-   538		__be32			nfserr;
-   539		struct knfsd_fh		fh;
-   540	
-   541		struct nfs4_client      *cp_clp;
-   542	
-   543		struct file             *file_src;
-   544		struct file             *file_dst;
-   545	
-   546		stateid_t		cp_stateid;
-   547	
-   548		struct list_head	copies;
-   549		struct task_struct	*copy_task;
-   550		refcount_t		refcount;
-   551		bool			stopped;
-   552	};
-   553	
+  1349	
+  1350	static __be32
+  1351	nfsd4_copy_notify(struct svc_rqst *rqstp, struct nfsd4_compound_state *cstate,
+  1352			  union nfsd4_op_u *u)
+  1353	{
+  1354		struct nfsd4_copy_notify *cn = &u->copy_notify;
+  1355		__be32 status;
+  1356		struct nfsd_net *nn = net_generic(SVC_NET(rqstp), nfsd_net_id);
+  1357		struct nfs4_stid *stid;
+  1358		struct nfs4_cpntf_state *cps;
+  1359		struct nfs4_client *clp = cstate->clp;
+  1360	
+  1361		status = nfs4_preprocess_stateid_op(rqstp, cstate, &cstate->current_fh,
+  1362						&cn->cpn_src_stateid, RD_STATE, NULL,
+  1363						NULL, &stid);
+  1364		if (status)
+  1365			return status;
+  1366	
+  1367		cn->cpn_sec = nn->nfsd4_lease;
+  1368		cn->cpn_nsec = 0;
+  1369	
+  1370		status = nfserrno(-ENOMEM);
+  1371		cps = nfs4_alloc_init_cpntf_state(nn, stid);
+  1372		if (!cps)
+  1373			goto out_err;
+  1374		memcpy(&cn->cpn_cnr_stateid, &cps->cp_stateid.stid, sizeof(stateid_t));
+  1375	
+  1376		/* For now, only return one server address in cpn_src, the
+  1377		 * address used by the client to connect to this server.
+  1378		 */
+> 1379		cn->cpn_src.nl4_type = NL4_NETADDR;
+  1380		status = nfsd4_set_netaddr((struct sockaddr *)&rqstp->rq_daddr,
+  1381					 &cn->cpn_src.u.nl4_addr);
+  1382		WARN_ON_ONCE(status);
+  1383		if (status) {
+  1384			free_cpntf_state(nn, cps);
+  1385			goto out;
+  1386		}
+  1387		spin_lock(&clp->cpntf_lock);
+  1388		list_add(&cps->cpntf, &clp->copy_notifies);
+  1389		spin_unlock(&clp->cpntf_lock);
+  1390	out:
+  1391		return status;
+  1392	out_err:
+  1393		nfs4_put_stid(stid);
+  1394		goto out;
+  1395	}
+  1396	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -418,14 +305,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908130241.6QsO6v5n%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908130231.d2e9Va8F%25lkp%40intel.com.
 
---74iwmknpl4qasszd
+--u75lqw5ohe3rvw7e
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICGOnUV0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
+H4sICMWyUV0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
 cuqzvuTIdjf592cG4GUAgm7a3TbhzOA+mDv0w79+mLHXl6eH3cvd9e7+/tvs8/5xf9i97G9m
 t3f3+/+ZpXJWSjPjqTC/AHF+9/j69f3X87Pm7MPs4y+nvxz9fLg+ma32h8f9/Sx5ery9+/wK
 7e+eHv/1w7/g/z8A8OELdHX49+z6fvf4efbX/vAM6Nnx0S/wv9mPn+9e/v3+Pfz34e5weDq8
@@ -1293,4 +1180,4 @@ RJvOl+SzqC2uJ1ve0Fn2bPQy16oImpxBEnXNCgLVpvHGflnFaXM8pLHMlrAHTR88frJcjc2m
 jpypngCZzI9mjBW2N+PgjSSsgSLzLiqn7XClRngxwiEcXZDX9E2lWvOQYOKQ6bGxJMBmwEQN
 KNEECT9Ue3yCoR3r1jJlzOVs9yVxOvDmkGOq/xv2HT2kLvcCAA==
 
---74iwmknpl4qasszd--
+--u75lqw5ohe3rvw7e--
