@@ -1,197 +1,144 @@
-Return-Path: <clang-built-linux+bncBCIZXNVJQEIBBAOYY3VAKGQESVE7HLY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBAOYY3VAKGQEW42UE6I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
-	by mail.lfdr.de (Postfix) with ESMTPS id 03AD88A56D
+Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
+	by mail.lfdr.de (Postfix) with ESMTPS id 05AF78A56E
 	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 20:12:18 +0200 (CEST)
-Received: by mail-qt1-x837.google.com with SMTP id f28sf97541169qtg.2
+Received: by mail-qt1-x840.google.com with SMTP id p56sf3266039qtb.10
         for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 11:12:17 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1565633537; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZDovwoOfvRbIyIy15gR2qSEt7L9ubJ+dJgVI0GJR8rg/XfEm1AFX4CICGWe+E5IhaL
-         tQBkdRqxWr9CFJQMBEAT1eerjOO+Dyauq6euIvUF17rHFpleyLgWgMOXbVHJZt3p4Knk
-         7fMUPfrlYM2ezroW5bY36wAVVfud1A7oqC0e8R0QBrSBe2k+gHWbL2QfYmTD9wkjPbsZ
-         RORxRZTgv9Cp1enAc+6virChynW8E3qZX9d8rWGDXiNS7k2bN2QmERZ4ytMcpJK0459R
-         Emq8OAomHV/atQU8Ld77AASQqWxyhY9eQHvsfmCLhLsZeMNYAfKItrdl2cAyvxheiujV
-         y/bA==
+        b=RJvyO0t6ccGQT2UF42R9E1N0gm0hWVPh+UepMUTYKsTUK4F0ev6dVM0c0ZR/pLohaQ
+         Ayde6AGUDRU4+uVxg7FDYKVto1zb8Qz+Y0SkzAsmQYrethHlqYvbY7m9pF4XsxHJXfme
+         sCs66OsFpZN4/qQb3yvpmXqF8J6NOd5iWXO8b0PCHjti4VNsk3bJaItpE4TkuTpz56sJ
+         cLfwiYsUAlJNYXY5G5bnhWmHI0b1K22Mbwewd75bS5QsqJskIOkfuCvBHvUbtb73VUYq
+         NRPteuAdVsXah5QPOwuUwPZ2OMQxtPNQupsiMFnE9vobsGnCwlgblLt+ZJyDKLCBO9ot
+         Q08A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:autocrypt:openpgp:from
-         :references:cc:to:subject:sender:dkim-signature;
-        bh=lYmJHG5Vrgsf5amFi/c0ERZqKiPlPYBWya5tUzlEbA0=;
-        b=bHe5EYscm0bYHMxJgKteMTrBYqSfkT1V98yAPvfwNHI7q2QyshzvLmnvq6Dgb5dwLO
-         5xUUsVQIV2qsGar7PtxHhtJ7i3gVm8GK3FPS82L/cP4qBxbubK66FkMBsk4QAExv53Ep
-         l23RaYZ+EYCndtnURRD4aEyzH8WNVjVdCUTG9pi6ImlYGBtpozoF81ulcuiF7Q+waVR/
-         JzlxiwNlewzstsGr+jMxhTzaM+v1VcpLPA1g0ekeG7NQUhKFEjPCDBKRbFK8oMxsRwWg
-         tPfF277jzegFMBSjs/+C8mtaA7HLS9wSvvxT1IgZfG/W+g5+Jzpsa3+oXT593QaeWu5L
-         G0vg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=1alXIaLjAAzXRz9lucTJXMp3fo5GAJKFOVsPhPUHndU=;
+        b=b2EK1m0ZgWIDSjW/YmueC8StoJ8GVVRCSBHOcYoje36kYMPdFBL0C153m9Ofhe8FbS
+         qO0XBRBNbB6YvVDWvfN7QmvlU6vj+jzxgpw604vM/Jl25f9PwTeN7ZWkbkRLpYsPTHP2
+         KW6Bv8Zugi0CD8M3WUEgd9Rk9Ai72vhIdNu3zcesOMEJp6IxRVqwVWguhzb9J1NLFWrk
+         8fJ+OYlXQyl69mkbx164YtdB6iFSWB6vcJeDvono9C5cB7qXrUH41rG5bZHN1iKPHXOG
+         xCvYq2UG0mj7JacBJbprYx0FwmERjFEmZyTfarGBor5pKec/29VCSvnBZFm2Mly5afmW
+         phuA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kapsi.fi header.s=20161220 header.b=fUXVnl85;
-       spf=pass (google.com: domain of jukivili@kapsi.fi designates 2001:67c:1be8::25 as permitted sender) smtp.mailfrom=jukivili@kapsi.fi;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=iki.fi
+       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=T44Mwg8L;
+       spf=pass (google.com: domain of broonie@sirena.co.uk designates 2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:openpgp:autocrypt:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=1alXIaLjAAzXRz9lucTJXMp3fo5GAJKFOVsPhPUHndU=;
+        b=P4DCDy084k2g2+CMo7BMAonKM5dwAErykFXl133Z1pdZZgh20PwMuFL9szer7Hv7x9
+         CYBNkYTGYACekCF4F24fg9w8fCBEimR7DdhF+pK1XwuD9yuqboah8ydvXcYXVwCTds7v
+         phP/eFOmljv9UiUCbeNe/AQH6mGJYZhJAI7ig74qVh/zVZa4j+I3jpClNWAA0jSLtVry
+         NSzpUoxTcNZQvCTQy263YKJrLugncLC/N327Ggno0fuuOeKxwCVKzRtVYghIIa3JenRJ
+         CJ0+v5xnMNiCWDuHZITKw/iFohYSrrn0PDNAjHRNZD0ecANVV22Q6vrQ+5l5cbInS2d1
+         Jtsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lYmJHG5Vrgsf5amFi/c0ERZqKiPlPYBWya5tUzlEbA0=;
-        b=f7/Dj9CGiC87/ibyZXqtTLwzN8kzLEB9gN1uPvvx5fa5zAld1tYFNr3BbEBCgYkiRn
-         u+J0u/Y40yPKLeAGrGe5CaOEPLGwS6sEkAIV239OJ4FQt8ns9Qg6+LQk21GaDToYB2po
-         pjvLWPG+QuC2E5YCp7Zm5UugS+vq0A7roPl2q9QGaT7wjrIb873z0B8GT9I/FMbkgfJE
-         a89yfUOp2O5jLPSGKq72YHIuRq+8+ReVMd70SN4dsTcO1Ils/wjIQHnlXD498Y57fY7P
-         F10VI8c6rVnBZcxmsGgjEVoQSB9RFSzGA6OvEN2iRf+wdkRQ8qJhANpfJsfZOVBwvB5C
-         1nNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:openpgp
-         :autocrypt:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lYmJHG5Vrgsf5amFi/c0ERZqKiPlPYBWya5tUzlEbA0=;
-        b=BSvB9QXeq0vBQTQp0In17uQuwWfX2D7RANLE9CLi7Ab/CI4DTzOJKRr4F8/AQioZI+
-         jO+kkcdusu5dP+zqBU7vvpRmKd+Mj/1VCEvi+8pYSbkxB90sm22BD65xZcoXZhTFELfl
-         hqBnQOxI9Sxc7O5TzZcdjH+OHKsAS5pglbKYZlf8tRPQRtGnq63boZJaPhbVpGaYGf2f
-         dDxysk+ZTxGRJYGp5TTqQI7NNopI+SFSZ8Nd4G5pVKXw3GjFDVoM9TlIkbXc6tjL2LQo
-         AjgpqfII1QOe1bs+3UYJvxxucjZ/lNnQWbJW2Ba1ZLcugTBP7zT6rvnz5Limxkp9QKz2
-         iYYw==
+        bh=1alXIaLjAAzXRz9lucTJXMp3fo5GAJKFOVsPhPUHndU=;
+        b=ClRWWUeKjgKWHXbCSpSbDR0E3tHL5TXgmPJXX2XS/sBaynx9ILLQzVhbpO635AqL5m
+         pMucyLGf2t8alok2M5PJBoqeRqVsnlfaeOkPDYQphYt2/yQuKBolQRQ6026IfL4UVsLq
+         oGZpOb3VRmaFmvyuQsRJ7zcpSYFApqDH50bNqRwSww4349q/qPnGm4GSLsctjYG2FvtD
+         IoxmxNLXctu+3/TbMBsz7h8Dw6RF+7CkgS5wmbDO4rOvuWDPfZuEWi87ELR/S3ETCPDE
+         /ac52D593V7dqJGjhngHj6tD25aVeajYsWgJL9iVNvwNzlIRRSLoNwWlsCNH5Zp6rC20
+         BrYQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVDhn46an/FR2IXQT+7e8JPWJ7/iIhERXDxD87nBtlL8VsJUj1+
-	5uj4BmB88O9TAhYU3clkVxw=
-X-Google-Smtp-Source: APXvYqxwNMTZCv1ud2Nq5CN7RBFMIaYhZaIvjNQye8jTFEttrLGvzSx9w/oMxikx8TOFq11Qh37+WA==
-X-Received: by 2002:a05:620a:41:: with SMTP id t1mr30527268qkt.423.1565633537166;
+X-Gm-Message-State: APjAAAVENaitYxtot1TgX96Jk9R+RqJGaCapn1HPFuoT7YGM7Nc3nkPZ
+	0k0VS5hOGKOjpFmDceEXT6s=
+X-Google-Smtp-Source: APXvYqybLj5TMVnKws8pALakzt/Cbgpn9/MWS3TtFB5fyFVXbH5eIuntOC7qcVC1BdG2njHthhfAFw==
+X-Received: by 2002:aed:3a03:: with SMTP id n3mr30044959qte.85.1565633537174;
         Mon, 12 Aug 2019 11:12:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:9d4f:: with SMTP id g76ls3704190qke.0.gmail; Mon, 12 Aug
- 2019 11:12:17 -0700 (PDT)
-X-Received: by 2002:a37:6844:: with SMTP id d65mr30438607qkc.398.1565633537076;
+Received: by 2002:a37:a297:: with SMTP id l145ls6299174qke.12.gmail; Mon, 12
+ Aug 2019 11:12:17 -0700 (PDT)
+X-Received: by 2002:a37:a142:: with SMTP id k63mr28336613qke.487.1565633537109;
         Mon, 12 Aug 2019 11:12:17 -0700 (PDT)
-Received: by 2002:a05:620a:1410:0:0:0:0 with SMTP id d16msqkj;
-        Mon, 12 Aug 2019 00:35:55 -0700 (PDT)
-X-Received: by 2002:a1c:a6cd:: with SMTP id p196mr25687717wme.111.1565595354970;
-        Mon, 12 Aug 2019 00:35:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565595354; cv=none;
+Received: by 2002:ae9:e406:0:0:0:0:0 with SMTP id q6msqkc;
+        Mon, 12 Aug 2019 10:14:49 -0700 (PDT)
+X-Received: by 2002:a1c:2d4:: with SMTP id 203mr322060wmc.105.1565630089381;
+        Mon, 12 Aug 2019 10:14:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565630089; cv=none;
         d=google.com; s=arc-20160816;
-        b=KX8bup1ixoQgvnYrILEuMFgb2U0PAk8HOt0IWjY/v3PXZqW0FDDDE+H4lYCqzSyz3r
-         Er/mKNJ8+ldE40huxVEWNWfTlYlHmjPwCYouwC18sVRCrZuEqaqO97wliNlrixFJhCbH
-         9QgkN3z9XrhkbO7dJ/jCMdLqd7Ky9OOYFDk+UaZpe11WmOlsJnM4VBP6vTARShZwDL42
-         MvQKrt1Ys8mdvpkYuzk5Uph6agmBwpr8lFdcAgWe1R30gUzGgxBxavClOshvzxX/KzUI
-         v3okreKDuYueq/y25nbUsQNLTM44XKBoP0uZeonHtm3vhN0+mi5rx+cX7+2VfTBY5JdL
-         0tQA==
+        b=CPaKGMmK+yMTK8w9uz6TdGl08EyfEzHSHqdAqW0eoK7eTq1sRK3P65WJHC1anfXOXR
+         KASWbLZpVsc3rvmofwVl1ooZBiwSkZZeQyWdmHzfvBExbr2MYP5CQ/HXzm/tTSHE3rNG
+         jZA37tri44IzCzHPi5YFual3A6pssppcoMnd5iGwQMiM8ZjQUPr4W8iljPYNvMrl7xLu
+         zlERtGEcVVkyfqVzX6iGgF7nfTu3m+vqsxLaN7hL3HU5/KA14C6WBLLIl/ZqsupqSAY5
+         4f5L+NE9fcXpNe6P2LMbRO2fzW73l50nQq21LmW/nUVqO5CjygfNJS4fThFSl75bynKG
+         w0Eg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:autocrypt:openpgp:from:references:cc:to
-         :subject:dkim-signature;
-        bh=fC1flKDqE8eSYHtB5rn/dx/72WFNGY6fL6pr1iNPkpM=;
-        b=dgNB/QEG9kXx1J6sVb1nhiAcdv0SXg854us6VrWU/wo8PMAvd1F3vI8I4cAzWiI41M
-         gc4U55YDx+jgljZANb5WhLoPebfmYOqYgsBngyPLWTR0zElpVTL30QCdRVTMrpvRVtf7
-         GEx/F/kQ1F5pbYQ9QL4if9KFDtxerTIB5tpOCc3DVuVxojJjSUI9zFN1Bz6QdqbuFTcN
-         X10UmtKG8MUYUsFaLajM54wOYPIl/Iv2Un9D/ODJqPKhDnWDdKNS66tcc4jl/xJZCfiv
-         uO00e4Joqqy76/teTp4Fpw/fpv0fb4uz9J1th25UkfOGO+qNs1mNTMaZSqzxGAEbgyn7
-         bsKQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=62DNhgY92I/xYxIIyuwUy6NI8Aqx9n6XDl+BIi0xY/E=;
+        b=S7oBiwCtKz0XCxGwgazIpz4ptcnk20BPqZouQxYTQcuRCX2f8TZKsMM0c3HaiBH32V
+         vKxkCWz10ai8blR7VbjxRycgayq8vfukDLXi+hLrjY0TIAaRzEZNDjwX0aLSBNciKMVP
+         izzyAMl4+DKir4951zj5nkNs53AcSGjBWvF6dmLkPSKRAQ8FLH+tmuwuLPNMc8c+TQkz
+         EZ6rb6E0JFIZbwAPYLhnFsHlRxzUAmA8/JnG5mWdigUMFMkWewfpI0z0iSSGGaROqxLB
+         4RkIeE5+rDyqSt2+v1jYLdNEQorYdm7Ob5676UV+Ha0IBttozVqTjzxjXkjFR26RP1wD
+         SUtA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kapsi.fi header.s=20161220 header.b=fUXVnl85;
-       spf=pass (google.com: domain of jukivili@kapsi.fi designates 2001:67c:1be8::25 as permitted sender) smtp.mailfrom=jukivili@kapsi.fi;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=iki.fi
-Received: from mail.kapsi.fi (mail.kapsi.fi. [2001:67c:1be8::25])
-        by gmr-mx.google.com with ESMTPS id o4si1949168wrp.4.2019.08.12.00.35.54
+       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=T44Mwg8L;
+       spf=pass (google.com: domain of broonie@sirena.co.uk designates 2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk. [2a01:7e01::f03c:91ff:fed4:a3b6])
+        by gmr-mx.google.com with ESMTPS id o4si2038280wrp.4.2019.08.12.10.14.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 12 Aug 2019 00:35:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jukivili@kapsi.fi designates 2001:67c:1be8::25 as permitted sender) client-ip=2001:67c:1be8::25;
-Received: from oul114-218.netplaza.fi ([80.75.107.218] helo=[10.0.1.247])
-	by mail.kapsi.fi with esmtpsa (TLS1.2:ECDHE_RSA_AES_128_GCM_SHA256:128)
-	(Exim 4.89)
-	(envelope-from <jussi.kivilinna@iki.fi>)
-	id 1hx4rx-0001lt-Uf; Mon, 12 Aug 2019 10:35:53 +0300
-Subject: Re: [PATCH 3/5] lib/mpi: Fix for building for MIPS32 with Clang
-To: Nathan Chancellor <natechancellor@gmail.com>,
- Ralf Baechle <ralf@linux-mips.org>, Paul Burton <paul.burton@mips.com>,
- James Hogan <jhogan@kernel.org>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, linux-mips@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
- Vladimir Serbinenko <phcoder@gmail.com>
-References: <20190812033120.43013-1-natechancellor@gmail.com>
- <20190812033120.43013-4-natechancellor@gmail.com>
-From: Jussi Kivilinna <jussi.kivilinna@iki.fi>
-Openpgp: preference=signencrypt
-Autocrypt: addr=jussi.kivilinna@iki.fi; prefer-encrypt=mutual; keydata=
- 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
-Message-ID: <ec4666a6-c7db-247b-de81-bb784bb9d649@iki.fi>
-Date: Mon, 12 Aug 2019 10:35:53 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
+        Mon, 12 Aug 2019 10:14:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of broonie@sirena.co.uk designates 2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) client-ip=2a01:7e01::f03c:91ff:fed4:a3b6;
+Received: from cpc102320-sgyl38-2-0-cust46.18-2.cable.virginm.net ([82.37.168.47] helo=ypsilon.sirena.org.uk)
+	by heliosphere.sirena.org.uk with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <broonie@sirena.co.uk>)
+	id 1hxDu9-0002MN-V2; Mon, 12 Aug 2019 17:14:46 +0000
+Received: by ypsilon.sirena.org.uk (Postfix, from userid 1000)
+	id 086D62740CBD; Mon, 12 Aug 2019 18:14:44 +0100 (BST)
+Date: Mon, 12 Aug 2019 18:14:44 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Guillaume Tucker <guillaume.tucker@collabora.com>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Guenter Roeck <linux@roeck-us.net>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	kernel@collabora.com
+Subject: Re: [PATCH RFC 1/1] kbuild: enable overriding the compiler using the
+ environment
+Message-ID: <20190812171444.GL4592@sirena.co.uk>
+References: <cover.1565297255.git.guillaume.tucker@collabora.com>
+ <3885ccdcbdbe83eb367e8344584df944adc76e34.1565297255.git.guillaume.tucker@collabora.com>
+ <CAKwvOdmOdJspcO8jqUhqR63-MOWkV3ZrVcCO6u=HG6peov8Htw@mail.gmail.com>
+ <20190809051552.GA44466@archlinux-threadripper>
+ <CAK7LNAT6Yp3oemUxSst+htnmM-St8WmSv+UZ2x2XF23cw-kU-Q@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20190812033120.43013-4-natechancellor@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-GB
-X-SA-Exim-Connect-IP: 80.75.107.218
-X-SA-Exim-Mail-From: jussi.kivilinna@iki.fi
-X-SA-Exim-Scanned: No (on mail.kapsi.fi); SAEximRunCond expanded to false
-X-Original-Sender: jukivili@kapsi.fi
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TnYVF1hk1c8rpHiF"
+Content-Disposition: inline
+In-Reply-To: <CAK7LNAT6Yp3oemUxSst+htnmM-St8WmSv+UZ2x2XF23cw-kU-Q@mail.gmail.com>
+X-Cookie: Decaffeinated coffee?  Just Say No.
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: broonie@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kapsi.fi header.s=20161220 header.b=fUXVnl85;       spf=pass
- (google.com: domain of jukivili@kapsi.fi designates 2001:67c:1be8::25 as
- permitted sender) smtp.mailfrom=jukivili@kapsi.fi;       dmarc=fail (p=NONE
- sp=NONE dis=NONE) header.from=iki.fi
+ header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=T44Mwg8L;
+       spf=pass (google.com: domain of broonie@sirena.co.uk designates
+ 2a01:7e01::f03c:91ff:fed4:a3b6 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -203,71 +150,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello,
 
-On 12.8.2019 6.31, Nathan Chancellor wrote:
-> From: Vladimir Serbinenko <phcoder@gmail.com>
-> 
-> clang doesn't recognise =l / =h assembly operand specifiers but apparently
-> handles C version well.
-> 
-> lib/mpi/generic_mpih-mul1.c:37:24: error: invalid use of a cast in a
-> inline asm context requiring an l-value: remove the cast or build with
-> -fheinous-gnu-extensions
->                 umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                 ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> lib/mpi/longlong.h:652:20: note: expanded from macro 'umul_ppmm'
->         : "=l" ((USItype)(w0)), \
->                 ~~~~~~~~~~^~~
-> lib/mpi/generic_mpih-mul1.c:37:3: error: invalid output constraint '=h'
-> in asm
->                 umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
->                 ^
-> lib/mpi/longlong.h:653:7: note: expanded from macro 'umul_ppmm'
->              "=h" ((USItype)(w1)) \
->              ^
-> 2 errors generated.
-> 
-> Fixes: 5ce3e312ec5c ("crypto: GnuPG based MPI lib - header files (part 2)")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/605
-> Link: https://github.com/gpg/libgcrypt/commit/1ecbd0bca31d462719a2a6590c1d03244e76ef89
-> Signed-off-by: Vladimir Serbinenko <phcoder@gmail.com>
-> [jk: add changelog, rebase on libgcrypt repository, reformat changed
->  line so it does not go over 80 characters]
-> Signed-off-by: Jussi Kivilinna <jussi.kivilinna@iki.fi>
+--TnYVF1hk1c8rpHiF
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-This is my signed-off-by for libgcrypt project, not kernel. I do not think
-signed-offs can be passed from other projects in this way.
+On Tue, Aug 13, 2019 at 01:37:14AM +0900, Masahiro Yamada wrote:
+> On Fri, Aug 9, 2019 at 2:15 PM Nathan Chancellor
 
--Jussi
+> > This is problematic because there is no way for CC, HOSTCC, and HOSTCXX
+> > to be passed to make within scripts/kconfig/merge_config.sh.
 
-> [nc: Added build error and tags to commit message
->      Added Vladimir's signoff with his permission
->      Adjusted Jussi's comment to wrap at 73 characters
->      Modified commit subject to mirror MIPS64 commit
->      Removed space between defined and (__clang__)]
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  lib/mpi/longlong.h | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/lib/mpi/longlong.h b/lib/mpi/longlong.h
-> index 3bb6260d8f42..8a1507fc94dd 100644
-> --- a/lib/mpi/longlong.h
-> +++ b/lib/mpi/longlong.h
-> @@ -639,7 +639,8 @@ do { \
->  	**************  MIPS  *****************
->  	***************************************/
->  #if defined(__mips__) && W_TYPE_SIZE == 32
-> -#if (__GNUC__ >= 5) || (__GNUC__ >= 4 && __GNUC_MINOR__ >= 4)
-> +#if defined(__clang__) || (__GNUC__ >= 5) || (__GNUC__ == 4 && \
-> +					      __GNUC_MINOR__ >= 4)
->  #define umul_ppmm(w1, w0, u, v)			\
->  do {						\
->  	UDItype __ll = (UDItype)(u) * (v);	\
-> 
+> Is it so problematic?
+
+> If you start from make, CC=clang and HOSTCC=clang are propagated to sub-make
+> even via shell scripts such as merge_config.sh
+
+> Only the problem I see is the situation where
+> a user directly runs scripts/kconfig/merge_config.sh
+> without using make as a start-point.
+
+This is really a very common thing for testing infrastructure to do,
+it'll combine a base defconfig with a fragment enabling extra stuff
+either to directly cover that extra stuff or to ensure that
+configuration options needed for testsuites get turned on.  
+
+> A user can wrap merge_config.sh with a simple Makefile
+> if they want to override CC, HOSTCC, etc.
+
+If we want to do that it seems sensible to provide that Makefile
+upstream so there's a standard thing, it might also help people notice
+that they need to do this and avoid getting surprised.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ec4666a6-c7db-247b-de81-bb784bb9d649%40iki.fi.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190812171444.GL4592%40sirena.co.uk.
+
+--TnYVF1hk1c8rpHiF
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl1RnoQACgkQJNaLcl1U
+h9AI0gf9HZ4+J2ZsyQX3ztFSIxR8D3kUiBnX52C6bGhvl4wjFmpM1b98dE4n5Ks2
+a3gxDjMkFwBQX44p8he+xeV/UTqLgmOAJ9d3FuIpd+x1q3m8w6z95c5Icrgzc4Wh
+ubsv3kqC34c70HZ1tuQIusrUyHNLBIsgp8dlvfDQdrOY7qS+VLaPPiFCdVYQI0g6
+UEChNPLMspP/rlEvshD0x34SnTMGYNdrLK2hXNhoOlgtgu5+KEy4rFUb6mALWL2x
+1LWKLnY1lZlxMs1lfLmcFzGHvZoCmfAX+/F7YtpclnovOTk1euRw0BmzCYt7S5Wv
+8O51Orz7UWvcpyQDPMiiUXjcT5kLrQ==
+=6R2x
+-----END PGP SIGNATURE-----
+
+--TnYVF1hk1c8rpHiF--
