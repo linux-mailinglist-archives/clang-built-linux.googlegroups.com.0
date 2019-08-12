@@ -1,133 +1,124 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBCGKY3VAKGQEVF6BANI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBE6KY3VAKGQE6ZRTEAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 90D408A4CC
-	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 19:42:33 +0200 (CEST)
-Received: by mail-qk1-x73d.google.com with SMTP id k125sf93761783qkc.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 10:42:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565631752; cv=pass;
+Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id DB9B48A4CD
+	for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 19:42:44 +0200 (CEST)
+Received: by mail-yb1-xb3c.google.com with SMTP id c133sf5992848ybf.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 10:42:44 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565631764; cv=pass;
         d=google.com; s=arc-20160816;
-        b=h7x/wNaFs6TJaZcj3LL00J3KfinMkY9q2yKaYqAYVsBuZPxefq76mXjIg7VKDQI2ca
-         LjoaDOT9NBe128sOCOWTJRHmv7tlhbeS869pXj4nxStDwVe1cOqcMwQNoEBXG1+ckTGB
-         783QujA4WxrLQreMtp98NQnVP44fc/WV1NMSZ/ZGK+OJms9VlC06c9IkDnFqcxEa/5tR
-         RTYDRU3iQjB3oXDiq0scRd7sIeIBiWGDRGjhocEzRy4LJv271ei/9/oOgD5tYLDn8E13
-         aGvf//H9GuRWqfKkfki6pBDqnu6OzjpGeF9QJSWdk0Jfu9L4R9YBY0vbqaApXROpjh6A
-         AYRQ==
+        b=vHE3JE/xacRZ3sDdcEzGjAHnqR0RcitNqIgLa+xdBlzH6aDDa2ZVZSrD/ghHGmgsiW
+         4Yhi0GqDslUbCZia4ofIqsi2CxGPUaL98isuPZqef/fMk0ORin/ZEscxRZDgc0o9OLir
+         VJvj87h0smz0z/voZIH6JGkCUoYeUQtqpkcj/BeaEotd0tgDZ5Q+Est4sPqVsFOTXGE3
+         xh0PJxyz+P2jTGjovzOq14265eXXmTdSFQxaYbgGJe5jq0FUpbhWYEDc0JQKcwL/3WZX
+         tBO9yI6mOUiy2AHYwCt0dFxT3CFbyg541thrbbMy+LoIedWZAcJsgch9+WfBAJXAp2ap
+         6kKw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=tzSRHXXE21EMW7eIoZEOHdUBjVo2X5DL+a/XYH11xy4=;
-        b=A+v2ZksrnguZZbpUcF7YOCvh1AL3Dd29AgUW4ppvg7xMviujnSnkH8+WPFpIFLXXka
-         ZQ1K0dRZOjQPSvQ4iEVh2m/YRb86K6n3TI+Z6zG2TRd/piJrRu6HqaFVsJVlfisNqPVE
-         tFOEZR+4XOTbYoc5TU6h7RCrSi2pNevlxUaTzYB1wuX4V3KwYJxoa1X33KpEV5IQ6W/d
-         E+tqXz+IEBnHLIPzM7xEA/TXWnOgRHxsGOyjXbMWeaw13ZwgQLbPQhswy7hmmLARYIZ6
-         KlfuQ2eyFfH1LLNfjqZc34PpR4gOq9CXClqk8xFSJhjRGPofCGZVqatp/bRMUzmQzOrG
-         G0Kg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=SbS06Ds9wW0aanfQcrbMSxqN154LP4G6msjCwk77+w0=;
+        b=ZR8c7QyVposGvs6NI0AsxboPimFaM1RVoNc+liVxjPiMSvT3pKTLwaC4DRRSvlLtzy
+         7PSNhXF6YZZJ6qD6rdtlQotM6IVSP8ghl7NB6b8LxoyFmHVVnDEj2hDPVshnvYJyTiVW
+         xrhcfIjcrEuugMcHyZrmKI1Bly7z4EP843YUMF37RzMxba4ASUC1OIABBRv1AL8o0hOi
+         6NMj2XN3GgkFmEZmXVN+ZKR6fEefZHFoKFtRdGgzaWKrLs0d5dZ1pvf04d2HtmJ0TE9I
+         CpMrbEIUw61DMVezXk66bDuIVBrGbnn7hFxKiPWsxf58WfU5i06ze9/rDCWkpAXUJYIs
+         3gbg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.5 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=SokAhW9T;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tzSRHXXE21EMW7eIoZEOHdUBjVo2X5DL+a/XYH11xy4=;
-        b=qp45XyYhRG64id+AAtNbAUdlxSWZ+d7vXK2WvZLREe8KORfpbDTPVwoi4bGzoZqo/d
-         icvqjmID9e3VG1jc3tPas0I9ZNyb8lKpRrAjq8rsM9O86UnkFIYe9bOoDa5PurlIMV9O
-         opJGKzTk++ScZg72uNknbK4OiQb7/h9rACTEJwqldRNpC9vp59wJ7ZfrOGbw4u6Iv16F
-         YEj0x5xr0+r/BhuHuklDeESZeuKQWwvDPMoN8rpHDGuof3I0+vXi4qqj8XZER4pgOWFE
-         hLgwaQjOvnTUIILR0YCBrtI0MCTZHlz9mdLYjgtVQkddkeuW72+rb/O/vadRDRypoY+8
-         tVYw==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=SbS06Ds9wW0aanfQcrbMSxqN154LP4G6msjCwk77+w0=;
+        b=ZCXhHMWU/ZCeKP2VMg7Mquo0aIM0Q6KydbRiPa6DifX7JYcL9CqT42ShV62hHSebGl
+         1P7jCR9ky4aPq6PUz7/UpcvobyAzjvfpITgO7XrudhsQMVITc83bYp4aCPTsxgH0ebq5
+         /UdN4cDg0E2vGeeonEEpaJetb2CRndgUARmybhz8bevzicJ8Aq141jY1UM0AhYjCfR3N
+         uv87RoTmawC/LZcI8syJi3pjXOUt3T2RqoCQ3aLWyRJkMQZahyn+l0xP9kx6/sQRRZpY
+         ll66h/7U3tnaY0LAdW1i19cVMs2MXlEGN+IOpt9fCufsTzpbNPQqAXAhG89Oei7Pnbuy
+         fXaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tzSRHXXE21EMW7eIoZEOHdUBjVo2X5DL+a/XYH11xy4=;
-        b=mKyCIrOeKQY6VdA6NkrkAu5MgNh3176rduzg5hDZmW4Vbpf3dfayHJHjTHasRWD2GZ
-         tXQusp0xHRmbryydWQ0mAGfzVrqtKCRsdEHWnreKvMX9OIaQEWf1PorGwrx8+68khY4F
-         7D7+vjWpLIOf9a+F7NbI1YBtbOgLd1CCLSqYsY+nIGCYDpEugC/LvShM2MiMu7Bg92o1
-         csLbZ8cWYyXcWaHtAjqWSqDRtrljASby32F6Y/EM0+DH4DAOnNXcbqQBHZ/jaARMA04E
-         V6OWwQ/+b3H+qgRAuLIxGqquJa98Ui+DZy1xf6msrIJK8MFe9YNpn+bFtqTZX1uDp6X1
-         GGBA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWXxWo5LonSh+fOngcNrjETrX9ztL3HUlSkSXmham/inwL6Pnsk
-	6yiiErVKQIuA33QNleSLXKI=
-X-Google-Smtp-Source: APXvYqznF0An1Tm+7i4/QN+S5SfR4FYSgYpa1R0nrlENepKgxaLZ4P8co8hqb0cmTQVTFh75zXxBgg==
-X-Received: by 2002:ad4:450c:: with SMTP id k12mr6349112qvu.1.1565631752490;
-        Mon, 12 Aug 2019 10:42:32 -0700 (PDT)
+        bh=SbS06Ds9wW0aanfQcrbMSxqN154LP4G6msjCwk77+w0=;
+        b=K6uIdqT3iWvrMsjuEDXzTfMOBxR0JBAiyyMyQAZhxR2uV+/XSr9S+qgwiK7+vh6UN5
+         Xg2cwIRXfKVC5d18AgdFTw0QqsslMUc6aw3AXvxX+o1KFgkE06e5KAR4fKy437dbtitl
+         XjVlweKofGefeTHSlo6IDe3wwutFg8E4b/c82PhFXRBZNUWMYU1B5mHZp8yq4a6SjAX6
+         S9mxK34Owf3kZfKE1VJjIQHEWQ3g+z6UhPaqLWB7cHss3SBF4oVLdD8zQmgyMrN+SDBa
+         Ck8DT+UZpUEylvvhvzPF0k5EaFvirQxJUHBA7UsuDHGD82vi+0Sj/grrvkgP7CMsEFja
+         azkw==
+X-Gm-Message-State: APjAAAUduu95DuVKSZcERNXzXj/cCauTo/IR3sBxUcI/alGTNWTa5Irn
+	muBAy6anhvCTaxLg7DAZNY8=
+X-Google-Smtp-Source: APXvYqxniNCVs/LnC5WvgB3m8lSmP0u+5xumSG/U/bm1Ge4ueLQRptMxKsopjMJIsBRP2D0W0vLgeQ==
+X-Received: by 2002:a25:810d:: with SMTP id o13mr25240673ybk.422.1565631763927;
+        Mon, 12 Aug 2019 10:42:43 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:51d9:: with SMTP id d25ls5006754qtn.3.gmail; Mon, 12 Aug
- 2019 10:42:32 -0700 (PDT)
-X-Received: by 2002:ac8:4a83:: with SMTP id l3mr15484661qtq.46.1565631752228;
-        Mon, 12 Aug 2019 10:42:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565631752; cv=none;
+Received: by 2002:a25:7105:: with SMTP id m5ls518826ybc.8.gmail; Mon, 12 Aug
+ 2019 10:42:43 -0700 (PDT)
+X-Received: by 2002:a25:7d05:: with SMTP id y5mr25754164ybc.472.1565631763655;
+        Mon, 12 Aug 2019 10:42:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565631763; cv=none;
         d=google.com; s=arc-20160816;
-        b=xeoszN8gu9MjO0S2pYmI8eQWzf8BHvWwoS2cGq5o2kTCciLd0ve7FI1T7OlUtj8Vfe
-         SmYbXYZn6JxWUKzzGt+FokM0/SCD3xaNAidPVo28Kc8ajRR5Ju4+xr0AvBAr58Wcf62N
-         EUfI03+OTMZmP5UsjuyOyrx6TsSix+sgAfxwYc8GkOfCy8HGiomyI05uc4NwoIoQUUrr
-         RsEzGSMTBjV15doJflp0IGN0XvQ7nqfgtoXqPPvQ5wjppmPoLOAqaP7mU49xAXxT4+Ed
-         x1O/MrRQyrqA5HK4w8TNxSrZRxvveitZq/Ui27NrQWrm1k2iBhh2nnRglmT9xhdbx4o/
-         KMGA==
+        b=RyoWKR02gZIR+DOeDaQiXwBVG4HQZwWVt4Xs0uYL2dp1lVjvqLR1BT2IKqrli+csip
+         3zEtdLI4QCqaXuZpUFPIzyIU/bD5SLAxY+9L2BKYDQZUx+FxnM8XEHPog+GkO2vjNOdV
+         qsSbCHtvgfE5tQFneUpSg/TKcenKYH/w0QjWXEoggTALO1oRbJiDkswk5++XEdIHUIlN
+         Dq+BW8dc0OTp2zTY7o547J+aKLcY2hQUDH5tY2+MJi7lKuPLJO2GmsbX0zZUpPx4VGvI
+         N8e73uLtt2hbuXNFd+2qjtvNW2q5YxXa3cCsY4+MWOwdCsoE54SZFe2cMlsQIQPeRPTy
+         HDZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=9n3rD3aC8e+Tu9JHIraTpdDNaNf7InJBqszmdj/65Oo=;
-        b=Lkg2BSHGBgFo5RGtQj6UWlMzvCcxOlKpbf4DfySCftoD46RRrzgOYslKjdOGv5DAU4
-         RskuIZu8ln3XZLYMaCZiD2mwtRmjkEMiPGk66SLi6ZGFu29+1qvELEqJz9NM5Ul815X8
-         rNKL/x/qHV5GDSHADG5m4s3TqoY8gbpKY9cRHQKtaFnSjjZWH4me8hOR6nol8aYQonoo
-         SjsbpEn44BQnEfkpgv2cjU0wcCofL7cDGijQ/TYNp1swPlJio78RjG17366r9+8+OQmE
-         iY06Fqx12z+Z0cD7mXyw/pBQX/kwNy5rEnWX2aVKtGkTqrtfg/qmxlQNpX8ZNT3T+9si
-         rhWA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=lh/TAVkIHkjw7wbFiAXoulegggwXhgu3dpeEPlXbbTY=;
+        b=HbQ7ppVTHkltNVLqYxpxaZEgqK/QAJvVbZRyr7ffraEWWtYrRIgjmqAD4S81A00Jl9
+         U6aL1sOc3bUOOoZdBBJUKlHV2/RTfOUnfWTTqrtL++d+QyGewsvM1hz3B+WfEtO4jBHY
+         JCsxQgVpcQ1AWmFjX97Z3nPlIOMNyab3I7T14IDrRVcCmvSSdCarlEXMluKFZ13VWxVQ
+         8YKruWdfOBu26c1P2/gv8OKXe8R+Q2NzIC0IJEyOP7/6jJ+XCZiR2dfTLSJsfRbfxFsS
+         hydNBdzbn7xsY+Lf03L/6mK72U+wDZdMPb2lqHnQnSfoAYND8A9HycH0npT+7XoXxnXo
+         EbCQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.5 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0005.hostedemail.com. [216.40.44.5])
-        by gmr-mx.google.com with ESMTPS id u204si4737987qka.6.2019.08.12.10.42.32
+       dkim=pass header.i=@google.com header.s=20161025 header.b=SokAhW9T;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id v127si4571459ywv.2.2019.08.12.10.42.43
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 12 Aug 2019 10:42:32 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.5 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.5;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay08.hostedemail.com (Postfix) with ESMTP id 83FA9182CF666;
-	Mon, 12 Aug 2019 17:42:31 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::,RULES_HIT:41:69:355:379:599:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1431:1437:1515:1516:1518:1534:1542:1593:1594:1711:1730:1747:1777:1792:1981:2194:2199:2393:2559:2562:2693:2828:2898:3138:3139:3140:3141:3142:3354:3622:3865:3866:3867:3868:3870:3871:3872:3874:4321:5007:6119:7264:7903:7904:9108:10004:10400:10450:10455:10848:11232:11658:11914:12043:12114:12297:12683:12740:12760:12895:13141:13161:13211:13229:13230:13255:13439:14095:14096:14659:14877:19904:19999:21080:21324:21627:30012:30054:30062:30070:30091,0,RBL:23.242.196.136:@perches.com:.lbl8.mailshell.net-62.8.0.180 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:37,LUA_SUMMARY:none
-X-HE-Tag: truck80_6d27145108e3b
-X-Filterd-Recvd-Size: 3646
-Received: from XPS-9350 (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
-	(Authenticated sender: joe@perches.com)
-	by omf20.hostedemail.com (Postfix) with ESMTPA;
-	Mon, 12 Aug 2019 17:42:29 +0000 (UTC)
-Message-ID: <b27facb8d794c58353736f88a60c24f7b2c001d7.camel@perches.com>
-Subject: Re: [PATCH] Makefile: Convert -Wimplicit-fallthrough=3 to just
- -Wimplicit-fallthrough for clang
-From: Joe Perches <joe@perches.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Linus Torvalds
- <torvalds@linux-foundation.org>, "Gustavo A. R. Silva"
- <gustavo@embeddedor.com>,  LKML <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>
-Date: Mon, 12 Aug 2019 10:42:28 -0700
-In-Reply-To: <CAKwvOdmAj34xDcMUn7Fu_aXdtD-7xHjHuU20qY=rFcr_Kz7gpg@mail.gmail.com>
-References: <c0005a09c89c20093ac699c97e7420331ec46b01.camel@perches.com>
-	 <9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
-	 <CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
-	 <6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
-	 <20190811020442.GA22736@archlinux-threadripper>
-	 <871efd6113ee2f6491410409511b871b7637f9e3.camel@perches.com>
-	 <CAKwvOdmAj34xDcMUn7Fu_aXdtD-7xHjHuU20qY=rFcr_Kz7gpg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.30.5-0ubuntu0.18.10.1
+        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+        Mon, 12 Aug 2019 10:42:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
+Received: by mail-pf1-x443.google.com with SMTP id 196so2875931pfz.8
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Aug 2019 10:42:43 -0700 (PDT)
+X-Received: by 2002:a63:f94c:: with SMTP id q12mr30756736pgk.10.1565631762244;
+ Mon, 12 Aug 2019 10:42:42 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.5 is neither permitted nor denied by best guess record
- for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+References: <20190812033120.43013-1-natechancellor@gmail.com> <20190812033120.43013-5-natechancellor@gmail.com>
+In-Reply-To: <20190812033120.43013-5-natechancellor@gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 12 Aug 2019 10:42:31 -0700
+Message-ID: <CAKwvOd=BYmsExYeOQmuEJ-Yybgqd_22vQ_WwU0jEXTXAaKpQVw@mail.gmail.com>
+Subject: Re: [PATCH 4/5] lib/mpi: Fix for building for MIPS64 with Clang
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Ralf Baechle <ralf@linux-mips.org>, Paul Burton <paul.burton@mips.com>, 
+	James Hogan <jhogan@kernel.org>, linux-mips@vger.kernel.org, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Werner Koch <wk@gnupg.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=SokAhW9T;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,71 +131,79 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 2019-08-12 at 09:28 -0700, Nick Desaulniers wrote:
-> Isn't [[fallthrough]] the C++ style attribute?
+On Sun, Aug 11, 2019 at 8:31 PM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> From: Werner Koch <wk@gnupg.org>
+>
+> * mpi/longlong.h [MIPS64][__clang__]: Use the C version like we
+> already do for 32 bit MIPS
+>
+> clang errors:
+>
+> lib/mpi/generic_mpih-mul1.c:37:24: error: invalid use of a cast in a
+> inline asm context requiring an l-value: remove the cast or build with
+> -fheinous-gnu-extensions
 
-double brackets will likely at some point become the default
-attribute style for c as well.  It is not now though and
-linux will continue to support gcc 7+ and the __attribute__
-style for quite a while.
+Reminds me of:
+https://github.com/ClangBuiltLinux/linux/commit/7b7c1df2883dd4393592859758c3e76207da8b1d
 
-The minimum gcc version just moved to 4.6 which was
-released in 2013 so likely linux won't move to something
-that requires [[<attribute>]] for a decade or more.
+>                 umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
+>                 ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> lib/mpi/longlong.h:652:20: note: expanded from macro 'umul_ppmm'
+>         : "=l" ((USItype)(w0)), \
+>                 ~~~~~~~~~~^~~
+> lib/mpi/generic_mpih-mul1.c:37:3: error: invalid output constraint '=h'
+> in asm
+>                 umul_ppmm(prod_high, prod_low, s1_ptr[j], s2_limb);
+>                 ^
+> lib/mpi/longlong.h:653:7: note: expanded from macro 'umul_ppmm'
+>              "=h" ((USItype)(w1)) \
+>              ^
+> 2 errors generated.
+>
+> Fixes: 5ce3e312ec5c ("crypto: GnuPG based MPI lib - header files (part 2)")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/605
+> Link: https://github.com/gpg/libgcrypt/commit/e7ae0ae243c8978a67c802169183187d88557be8
+> Signed-off-by: Werner Koch <wk@gnupg.org>
+> [nc: Added build error and tags to commit message
+>      Modified subject line
+>      Removed GnuPG-bug-id
+>      Removed space between defined and (__clang__)]
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  lib/mpi/longlong.h | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/lib/mpi/longlong.h b/lib/mpi/longlong.h
+> index 8a1507fc94dd..5636e6a09f7a 100644
+> --- a/lib/mpi/longlong.h
+> +++ b/lib/mpi/longlong.h
+> @@ -688,7 +688,8 @@ do {                                                                        \
+>                  : "d" ((UDItype)(u)),                                  \
+>                    "d" ((UDItype)(v)));                                 \
+>  } while (0)
+> -#elif (__GNUC__ >= 5) || (__GNUC__ >= 4 && __GNUC_MINOR__ >= 4)
+> +#elif defined(__clang__) || (__GNUC__ >= 5) || (__GNUC__ == 4 && \
+> +                                               __GNUC_MINOR__ >= 4)
 
-> **eek** Seems to be a
-> waste for Clang to implement __attribute__((fallthrough)) just as we
-> switch the kernel to not use it.
+So the minimum supported version of GCC to build the kernel is
+currently 4.6, so we can clean up a lot more here.  I'd remove the
+check, and delete the #elif and #else implementations.
 
-clang already supports the __attribute__((<foo>)) style for
-gcc compatibility.
-
-This is just clang supporting a new <foo> type which would
-nominally be required for gcc compatibility anyway.
-
-> Also, I'd recommend making the
-> preprocessor define all caps to help folks recognize it's a
-> preprocessor define.
-
-It's more a matching styles thing.
-
-I rather suspect that the c committees would choose to add
-fallthrough as a keyword if it was possible, but it is not
-possible without risking breaking existing code.
-
-linux source code is not constrained by this requirement.
-
-In my opinion, case statement blocks should always use a
-terminating keyword.  I think the best option is to add
-fallthrough as a keyword, but there are other options:
-
-IMO the best option is:
-	break;; goto; return; fallthrough;
-or (slightly worse)
-	break; goto; return; __fallthrough;
-or (even worse)
-	break; goto; return; FALLTHROUGH;
+>  #define umul_ppmm(w1, w0, u, v) \
+>  do {                                                                   \
+>         typedef unsigned int __ll_UTItype __attribute__((mode(TI)));    \
+> --
+> 2.23.0.rc2
+>
 
 
-Generic arguments pro/con for each style:
-----------------------------------------
-fallthrough looks like normal code but could not be
-used in uapi headers.
-
-__fallthrough is underscore prefixed, so reserved and
-generic, and could be used in uapi headers.  __fallthrough
-is rather unnatural looking when used to terminate a case
-statement block.
-
-FALLTHROUGH looks like a macro, but could not be used in
-uapi headers.  It is also rather unnatural looking when
-used to terminate a case statement block.
-----------------------------------------
-
-There are no existing uses of fallthrough in uapi headers.
-
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b27facb8d794c58353736f88a60c24f7b2c001d7.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DBYmsExYeOQmuEJ-Yybgqd_22vQ_WwU0jEXTXAaKpQVw%40mail.gmail.com.
