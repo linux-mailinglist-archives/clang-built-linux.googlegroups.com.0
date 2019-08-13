@@ -1,123 +1,127 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBIVOZTVAKGQECM2WXHI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC7JPD5NQEBBBR5TZTVAKGQEFPOJQ4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C0E08C1C8
-	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 22:01:49 +0200 (CEST)
-Received: by mail-qk1-x739.google.com with SMTP id e18sf97267982qkl.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 13:01:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565726498; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3AF2E8C1F1
+	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 22:12:56 +0200 (CEST)
+Received: by mail-yb1-xb3a.google.com with SMTP id t18sf81853914ybp.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 13:12:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565727175; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nM62B16il7bUoCQusZF10zr05ypdQp1bZSgLNoaN5vP0kz8gdsbxF5uZT82gSNKiE4
-         f+PGPzF8Sz19sZrq6NhnI3YQu0MvarGFzYdZtYYw2GwT2MxxCmXXaUbTEwKtyHbP8/wI
-         ArzB/zG5MDLAYzShFGIeXHOSa79pOfJ3h7/e/5vQ1xu7Ed9MUFjyJnODjCCkeWTMQ+xC
-         P5gFWDxs5N3xvT8Zk1fdWsfgAtZ/b0M5yPt/L4YNNxzYE4ot8OW8xMdhVHiSLiIh2m1a
-         r7UuqGb2PkfvpPzRblczpG3GIoEzI1j6oOaKVnGF0kzkEbby2uDwNHaOlWAJ8Iy4OhzD
-         iBlg==
+        b=JRoLSSvswgfojFjRSMkzvGCvx3VCSpV5684d6hErPNbhpLuQcLofhhFbJhsUBZjUKT
+         wVfLqooTdwDX3tAN3UNdriV/i/yPTncHtOQgTyJZ7HCW8tvmw+Lkn/ATHWb2xx8uZSRf
+         yT/oD5KMKQ9rKm722XikjNxQ5pb1gjLgulPjIR+5lsUYeJVX7FC7vJPHVA41XwzwiaS2
+         aMCmbhql+A4Knmq9aizfXtKKLTtbpzYH/87Mi3RlviqpvkmcRMhTjtWKsX6o8Rz9/lT4
+         G02zrTykkIUtl22tMrqe9+ccsfp8/PyCixBoebBTvrfYXOFCJCU8XnrnichBn3XQ7t7/
+         wrHw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=vARcLTjIQl3jzKV4VcwwoEO7gBYgkx9XYkifXHuIui4=;
-        b=r05rZRMpVegQ4ljpcgYScpEB9czNnt8U6Xt8xCpqtvktJFwWjj4Zf6zm+PpSjHbV6t
-         xlS6j1XnttsqzS3HaRTSMYJAmiKQ0Y5IQ6BzND5zVX0BXn1y8BSECHN9sTaDFSt1H/hw
-         QbIo2Zme+iIRWxL/sO/xi1lamEltyBn/5EYDTHodGYjD620T+tZJEIDlC+Nhg5+uKZ5L
-         xs7byq99j6v9GI+hXG+4eEUgtxfm0oKZKfii+qRAUhHg2LA4djKaKDKcxH+e3F3MP11P
-         BX6uXOhPyDEFcz+Qmpkfp+qSuAGWbww5DCf1gN2AIVUa+O92tq8fat4/8ZBn2M8k/NDp
-         yjeQ==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=+GuKsINeCax4HSo7BS0eyEbgMXDCPYzw2b4Ja99SgqY=;
+        b=HQHa/lP4Q8DExCdnoBTcJ+7FTz3xXzc5ZrgfgxfnXU+KAWMPSY7Yh704A3TtqvO3By
+         9KyiG9IBZdIr2mMDBaAjPDulWqGl0Zz9PdsyHfZLgItOXMVEg7gH3/Sr+U+/76dSo2CE
+         YRBNfdKwwN0Is1QBwB/5edqdUOppCZcph/OmDVa2RMVCDm9RT0HTOs1E5z386LJG5AZx
+         5UYUSQRLl++SGcvOB35pwa/x+1ZNou9Xqomjy1cifGOlHOf2oSjWMRV+70do9Bm/OC14
+         ayMEhkvT+S/lxGeJELF4T73z5m4sCF3LgK6Tx6JNlZKXSUg5inskW/yKwDkm8B+FBytu
+         1CYw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=h24OF7fP;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PaRWVR3e;
+       spf=pass (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=nhuck@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=vARcLTjIQl3jzKV4VcwwoEO7gBYgkx9XYkifXHuIui4=;
-        b=cmb+ci50dLPW8IlyMxUGXE6x76ym2JPXtLQQfZcj3zXVL6Qg2YtYdywLEFG1JafWyi
-         3IwGw3/+NEot06P4zo9Vil8f7eMb2tVzv9XyiH/FF3jcjP0xJ6Kwxfi1LMlIBKEl5CIs
-         vGc3FD4QiWn6FT/I66Whe/pN8rEBLYmi+xrMJM7iMnQw1YJrSZ7rqN/2fxW9dsJrRrD/
-         62Sbtf1k/XheS1xjeU51W3UdFfftuT+pTpiM9AEXP2iyQBrQtsIxcAaNIA/y9F8XLOTw
-         QrJnCF/PpW2Jqj9kiRksO0lgn14ddPx3oQbXTovAYunLzbtsCI25EiKqoJ1cfRjqoM72
-         refQ==
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=+GuKsINeCax4HSo7BS0eyEbgMXDCPYzw2b4Ja99SgqY=;
+        b=QkzHJ+nv1ACXCgw00ijYprhhq/hpfUmNpOJI0hO9V8T+ooRnj/ffkcq6Drg4UHhS8M
+         mIAsBnP3sOr8Kdm/qyaz7kRTkV+ysvd0saAuft1o9i3QEOXOrRzP0NyT+28b7KvK/nFn
+         rcFi5+A00CqziTkBx5CdwX9oTa3jsfIhS9yQ/jfymdJpMQT2i1kPzQa9Iof3JYFtP3No
+         Kg9jqJyw+fNvXLWfFZAuVhQg8zC64j6irSKIbqi7xVCo9ACF/IbcUa62Rr6J9PVNls70
+         y/7HV48odQPNjabmPjCmRQAcgkNi6w/W4vO/l58KTGki21cU3UIDoEmVjgvkG8ut4Op0
+         T8ng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=vARcLTjIQl3jzKV4VcwwoEO7gBYgkx9XYkifXHuIui4=;
-        b=Mn8YIpoOBeFqVPeY9mFYS2SwVy/d0L0uTxa/iStEDSrEs285N98Mjsl1Pw5W8R4cPv
-         OAImcGtnp3Jy18cNM3tbihcTY2NnukZ6MY0nMq9MDfJrDopS+uUxYU376tdaUAglQ0Qq
-         4m1BHE+aXhhYNg221KzJV3qFJWD+ftUMqlDFlsyJmdRnybQxPl9HDVmEi9gHZF9rXBw5
-         CEGDQJwX6BmOpSiV+mnEFgR4UiZziNWc9uRL1SOyRpfLkBD+0/fu3tR00G4xvvXmQo+v
-         thbXhHeozMCzpOGpRMlARKZpbmjjE1QdJxKh8T3nycJDNiZgUDjl9+A1mtW3arujyK+b
-         /bog==
-X-Gm-Message-State: APjAAAUYkOORg3ZJ0PuvBx1KrBK+dlaGADD+0gXoGbOyR2UrWArVm4EI
-	xLcQPt+3YoNPK1CX9BqbxhE=
-X-Google-Smtp-Source: APXvYqwGKCHO8x+3BWEw2ROR3EF0n1oxjSo7tsw+7TGijutFGfdKCfYTlaFBlD9fwXR2cRVR3IVaTw==
-X-Received: by 2002:aed:3223:: with SMTP id y32mr19678441qtd.176.1565726498283;
-        Tue, 13 Aug 2019 13:01:38 -0700 (PDT)
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+GuKsINeCax4HSo7BS0eyEbgMXDCPYzw2b4Ja99SgqY=;
+        b=ONlNZDQHXDn3pMb4M9YdbePGvCMVmtgljMGUPHlQLfDNDTowrPH6JpCaGNMok8fjdc
+         k4qdSAtdq3luFRqaN4Qp5SLd6l1ZuQz+2rLRfEAsvOZ6/K58m8XSdo/2hMqwgYmb9Rt9
+         pc2BVLpHAJl4xFb9+X+t6qjOKphsaQf+HC1GQVisXgiVqI0NptX1VAJvlzqKK8o5sHPi
+         5JbREVpOuawv2dH6MFEtmw2iPoAgP7NQOcJugy775Am903qFiZG2WLUhIBKYBKO5VJWT
+         OLkfD319fAzkZKDfd+AF5FZxmhpR652G9EBFNJ20eDgaI4qEQvrM2bSPxdSfz1ZgOkTI
+         N3uw==
+X-Gm-Message-State: APjAAAVpk5tPUZxIVbKu2qvzHSZvUUfcChToPcmvDsROQEOEvvG4HC2x
+	Z3UnRCPGly/2mSwnZ95s1wQ=
+X-Google-Smtp-Source: APXvYqyfInwMT/bDbSS0eaK+t7Tbj/TDTXS9XbXW3rI3Bt8RY98C+90KyEbN8WZMl8e5RLc91aKrDg==
+X-Received: by 2002:a5b:5ce:: with SMTP id w14mr8415159ybp.25.1565727175301;
+        Tue, 13 Aug 2019 13:12:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:51d9:: with SMTP id d25ls5859054qtn.3.gmail; Tue, 13 Aug
- 2019 13:01:37 -0700 (PDT)
-X-Received: by 2002:aed:359d:: with SMTP id c29mr30011438qte.4.1565726497883;
-        Tue, 13 Aug 2019 13:01:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565726497; cv=none;
+Received: by 2002:a81:8544:: with SMTP id v65ls6699485ywf.16.gmail; Tue, 13
+ Aug 2019 13:12:54 -0700 (PDT)
+X-Received: by 2002:a81:7383:: with SMTP id o125mr17467984ywc.378.1565727174949;
+        Tue, 13 Aug 2019 13:12:54 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565727174; cv=none;
         d=google.com; s=arc-20160816;
-        b=bu6knk/8u+YvdO2X8SAa0QNVLNd3doAd2ORb9k/lxOujVce0QPfsNEG3U6Y7G7BUh7
-         p0zsDPyw4NG5+K6wbuUsZUofT7Z9+eNDRFEerXohQuzM/j4mVrwITrqMYHCwC0UnbJ2R
-         /oprDyXfUJHS12MN8ItGdqd8XfXc/8OJiklxNN5CchXbbuKiGeNJUC3t7Z8UbzSu4QIF
-         MrRuomKXYZrXC7FN/tGZjmUGepgYhaR+ptN1H9EecYV95bxWnF5geXfdBXt0c/ja/z08
-         4e9BqKdyDbYFZvcJAJEik1BO3dTZi06VtEKS0CpZqoiGxn6cP8sdwNrhhzvsRqixKpLJ
-         YF8A==
+        b=Y+xUEk93Q9KSp58tuQWePShDpNswFikG+ossZfY45iu6p4eLtvkwUICEfzUUbfodwy
+         +4tHCi8XJMYJVfKdjxuvZF8NnoF7sDv9HzcLk58S9u66p4WGFGkrIjlDVx+7Fac3XfcZ
+         kslXTTQ4IuuHXaBR68/vNdrXG/PbQtnp7bvt5vs7E0Cq+6zsabUTEi/Q6NEgpsTlz2eR
+         ydj/icgWBMoixYL8WVVh2Asxwvk380HmF15ridkeVmorbn47AkfObsu7EcmK6fSMQvgI
+         nVS/csXhJh6TThcp308uBY5Nuz4tBmx3Ue1qwvRfg35efthAlbfdfnODjF4Ep7N1UBxK
+         eEFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=g5nPc1W/N98xXzSNDQkNTDsAdPrCAi2NWn4AyoXeSj0=;
-        b=uvXLy/D0rUsC7qR5VcU33ei8e1g+wpMxLO1crP//EFQsc16ZaL/cnevN4fMuGcaZY+
-         sukUEU9hOfzOJKac+D2qU/+wyxJlEk1YlgP5Axu4ivZrxaK2Xmpsewh80OwkFHMib2t5
-         OygN9PoNQW62CMFKGqM1yCT0bpRcQ7/YUE8U0PRYtxVIJAf78slmCMkQyojcpJxU/gpB
-         HJSg17/8C0a2P0BZFNjQ48sk+VGfKDwYCp8FB7HlhQljB9UiRhKCQp2BA9IfkcjBypKL
-         7McMWDPe5UeZXUstjBOfVhxbM9236EMiKnIjUT4lseEp4lhLL9QuzoKq4pF/GrFVamjj
-         +ZRA==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=3lqf1BvRkrT0zFoMbdtExl8EI7GsnY3Mh1uu1vtSvfE=;
+        b=AGMMe0Trd7nbNTVLQ0WIXzFfcyl5Q68qVP1akZaexmDQbUeiZA6MEc7eMY025qpfgA
+         u4zqvCQq27zKW48VWIIx84FIxFlan8tCuJKiGsl7mR+9y9Pg5n6avQ5N+RpsFSS/WdXi
+         7+qzdStjmesQC8aMK4PS0ksLhBVa23YiX16TvKPY1fZ+QG4Xxk+D9RnDNzCvAwoQewpJ
+         4LVFtf5kplA1/CBcGjRC5gaTor+yX3GMY7Qt1mg6vyJxDmnAuBwMGxUGqV/h1IeX/80w
+         iNPSk3754KP268rHXUognAmh5Dy49U+W2ZsR9qD81pP7hi9BzO/9sApy0wGjm/nSVUrf
+         0OUw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=h24OF7fP;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PaRWVR3e;
+       spf=pass (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=nhuck@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id 37si1108350qtv.2.2019.08.13.13.01.37
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id r6si1222967ybb.1.2019.08.13.13.12.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Tue, 13 Aug 2019 13:01:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id p3so1503359pgb.9
-        for <clang-built-linux@googlegroups.com>; Tue, 13 Aug 2019 13:01:37 -0700 (PDT)
-X-Received: by 2002:a17:90a:7304:: with SMTP id m4mr3817384pjk.73.1565726496495;
- Tue, 13 Aug 2019 13:01:36 -0700 (PDT)
+        Tue, 13 Aug 2019 13:12:54 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id g17so10049676qkk.8
+        for <clang-built-linux@googlegroups.com>; Tue, 13 Aug 2019 13:12:54 -0700 (PDT)
+X-Received: by 2002:ae9:ec06:: with SMTP id h6mr12020396qkg.221.1565727174451;
+ Tue, 13 Aug 2019 13:12:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <201908140300.REaRIkQ8%lkp@intel.com>
-In-Reply-To: <201908140300.REaRIkQ8%lkp@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 13 Aug 2019 13:01:25 -0700
-Message-ID: <CAKwvOdkHTfFzypb04LvKKx5h6QzcSueZeoHaG-RUE=x1jN=Bpg@mail.gmail.com>
-Subject: Re: [nf-next:master 5/17] net/netfilter/nft_bitwise.c:138:50:
- warning: size argument in 'memcmp' call is a comparison
-To: Pablo Neira Ayuso <pablo@netfilter.org>
-Cc: kbuild@01.org, clang-built-linux <clang-built-linux@googlegroups.com>, 
-	kbuild test robot <lkp@intel.com>, netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+References: <20190613211228.34092-1-nhuck@google.com> <fd8b8a48-dfb7-1478-2d8d-0953acee39d3@linaro.org>
+In-Reply-To: <fd8b8a48-dfb7-1478-2d8d-0953acee39d3@linaro.org>
+From: "'Nathan Huckleberry' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 13 Aug 2019 13:12:43 -0700
+Message-ID: <CAJkfWY6U3RF=2X4geFsUhFADf9x0GO8s28KQmR7TvnVgo_WTig@mail.gmail.com>
+Subject: Re: [PATCH] thermal: rcar_gen3_thermal: Fix Wshift-negative-value
+To: Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: rui.zhang@intel.com, edubezval@gmail.com, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Yoshihiro Kaneko <ykaneko0929@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: nhuck@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=h24OF7fP;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@google.com header.s=20161025 header.b=PaRWVR3e;       spf=pass
+ (google.com: domain of nhuck@google.com designates 2607:f8b0:4864:20::741 as
+ permitted sender) smtp.mailfrom=nhuck@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nathan Huckleberry <nhuck@google.com>
+Reply-To: Nathan Huckleberry <nhuck@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,73 +134,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-+ Pablo, looks like the closing parens need to be adjusted.
+I'm not familiar enough with the code to rewrite these parts of the
+driver. Silencing the warnings while maintaining the same
+functionality was the goal of this patch.
 
-On Tue, Aug 13, 2019 at 12:12 PM kbuild test robot <lkp@intel.com> wrote:
+On Fri, Jun 14, 2019 at 3:52 AM Daniel Lezcano
+<daniel.lezcano@linaro.org> wrote:
 >
-> CC: kbuild-all@01.org
-> CC: netfilter-devel@vger.kernel.org
-> CC: coreteam@netfilter.org
-> TO: Pablo Neira Ayuso <pablo@netfilter.org>
 >
-> tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/pablo/nf-next.git master
-> head:   105333435b4f3b21ffc325f32fae17719310db64
-> commit: bd8699e9e29287b5571b32b68c3dcd05985fa9b1 [5/17] netfilter: nft_bitwise: add offload support
-> config: x86_64-rhel-7.6 (attached as .config)
-> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
-> reproduce:
->         git checkout bd8699e9e29287b5571b32b68c3dcd05985fa9b1
->         # save the attached .config to linux build tree
->         make ARCH=x86_64
+> Hi Nathan,
 >
-> If you fix the issue, kindly add following tag
-> Reported-by: kbuild test robot <lkp@intel.com>
+> On 13/06/2019 23:12, Nathan Huckleberry wrote:
+> > Clang produces the following warning
+> >
+> > vers/thermal/rcar_gen3_thermal.c:147:33: warning: shifting a negative
+> > signed value is undefined [-Wshift-negative-value] / (ptat[0] - ptat[2]=
+)) +
+> > FIXPT_INT(TJ_3); ^~~~~~~~~~~~~~~ drivers/thermal/rcar_gen3_thermal.c:12=
+6:29
+> > note: expanded from macro 'FIXPT_INT' #define FIXPT_INT(_x) ((_x) <<
+> > FIXPT_SHIFT) ~~~~ ^ drivers/thermal/rcar_gen3_thermal.c:150:18: warning=
+:
+> > shifting a negative signed value is undefined [-Wshift-negative-value]
+> > tsc->tj_t - FIXPT_INT(TJ_3)); ~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+> >
+> > Upon further investigating it looks like there is no real reason for
+> > TJ_3 to be -41. Usages subtract -41, code would be cleaner to just add.
 >
-> All warnings (new ones prefixed by >>):
+> All the code seems broken regarding the negative value shifting as the
+> macros pass an integer:
 >
-> >> net/netfilter/nft_bitwise.c:138:50: warning: size argument in 'memcmp' call is a comparison [-Wmemsize-comparison]
->            if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
->                                          ~~~~~~~~~~~~~~~~~~^~
->    net/netfilter/nft_bitwise.c:138:6: note: did you mean to compare the result of 'memcmp' instead?
->            if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
->                ^
->                                                           )
->    net/netfilter/nft_bitwise.c:138:32: note: explicitly cast the argument to size_t to silence this warning
->            if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
->                                          ^
->                                          (size_t)(
->    1 warning generated.
+> eg.
+>         tsc->coef.a2 =3D FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]),
+>                                  tsc->tj_t - FIXPT_INT(ths_tj_1));
 >
-> vim +/memcmp +138 net/netfilter/nft_bitwise.c
+> thcode[1] is always < than thcode[0],
 >
->    131
->    132  static int nft_bitwise_offload(struct nft_offload_ctx *ctx,
->    133                                 struct nft_flow_rule *flow,
->    134                                 const struct nft_expr *expr)
->    135  {
->    136          const struct nft_bitwise *priv = nft_expr_priv(expr);
->    137
->  > 138          if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
->    139              priv->sreg != priv->dreg))
->    140                  return -EOPNOTSUPP;
->    141
->    142          memcpy(&ctx->regs[priv->dreg].mask, &priv->mask, sizeof(priv->mask));
->    143
->    144          return 0;
->    145  }
->    146
+> thcode[1] - thcode[0] < 0
 >
-> ---
-> 0-DAY kernel test infrastructure                Open Source Technology Center
-> https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+> FIXPT_INT(thcode[1] - thcode[0]) is undefined
+>
+>
+> Is it done on purpose FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]) ?
+>
+> Try developing the macro with the coef.a2 computation ...
+>
+> The code quality of this driver could be better, it deserves a rework
+> IMHO ...
+>
+> I suggest to revert:
+>
+> 4eb39f79ef443fa566d36bd43f1f578d5c140305
+> bdc4480a669d476814061b4da6bb006f7048c8e5
+> 6a310f8f97bb8bc2e2bb9db6f49a1b8678c8d144
+>
+> Rework the coefficient computation and re-introduce what was reverted in
+> a nicer way.
+>
+>
+> > Fixes: 4eb39f79ef44 ("thermal: rcar_gen3_thermal: Update value of Tj_1"=
+)
+> > Cc: clang-built-linux@googlegroups.com
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/531
+> > Signed-off-by: Nathan Huckleberry <nhuck@google.com>
+> > ---
+> >  drivers/thermal/rcar_gen3_thermal.c | 8 ++++----
+> >  1 file changed, 4 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/thermal/rcar_gen3_thermal.c b/drivers/thermal/rcar=
+_gen3_thermal.c
+> > index a56463308694..f4b4558c08e9 100644
+> > --- a/drivers/thermal/rcar_gen3_thermal.c
+> > +++ b/drivers/thermal/rcar_gen3_thermal.c
+> > @@ -131,7 +131,7 @@ static inline void rcar_gen3_thermal_write(struct r=
+car_gen3_thermal_tsc *tsc,
+> >  #define RCAR3_THERMAL_GRAN 500 /* mili Celsius */
+> >
+> >  /* no idea where these constants come from */
+> > -#define TJ_3 -41
+> > +#define TJ_3 41
+> >
+> >  static void rcar_gen3_thermal_calc_coefs(struct rcar_gen3_thermal_tsc =
+*tsc,
+> >                                        int *ptat, const int *thcode,
+> > @@ -144,11 +144,11 @@ static void rcar_gen3_thermal_calc_coefs(struct r=
+car_gen3_thermal_tsc *tsc,
+> >        * the dividend (4095 * 4095 << 14 > INT_MAX) so keep it unscaled
+> >        */
+> >       tsc->tj_t =3D (FIXPT_INT((ptat[1] - ptat[2]) * 157)
+> > -                  / (ptat[0] - ptat[2])) + FIXPT_INT(TJ_3);
+> > +                  / (ptat[0] - ptat[2])) - FIXPT_INT(TJ_3);
+> >
+> >       tsc->coef.a1 =3D FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[2]),
+> > -                              tsc->tj_t - FIXPT_INT(TJ_3));
+> > -     tsc->coef.b1 =3D FIXPT_INT(thcode[2]) - tsc->coef.a1 * TJ_3;
+> > +                              tsc->tj_t + FIXPT_INT(TJ_3));
+> > +     tsc->coef.b1 =3D FIXPT_INT(thcode[2]) + tsc->coef.a1 * TJ_3;
+> >
+> >       tsc->coef.a2 =3D FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]),
+> >                                tsc->tj_t - FIXPT_INT(ths_tj_1));
+> >
+>
+>
+> --
+>  <http://www.linaro.org/> Linaro.org =E2=94=82 Open source software for A=
+RM SoCs
+>
+> Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
+> <http://twitter.com/#!/linaroorg> Twitter |
+> <http://www.linaro.org/linaro-blog/> Blog
+>
 
-
-
--- 
-Thanks,
-~Nick Desaulniers
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkHTfFzypb04LvKKx5h6QzcSueZeoHaG-RUE%3Dx1jN%3DBpg%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAJkfWY6U3RF%3D2X4geFsUhFADf9x0GO8s28KQmR7TvnVgo_WTig%40m=
+ail.gmail.com.
