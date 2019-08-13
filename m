@@ -1,122 +1,135 @@
-Return-Path: <clang-built-linux+bncBCK2XL5R4APRBFGHZHVAKGQEWAGRO7Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBFOUZHVAKGQE63PSXYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 59F788B086
-	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 09:15:34 +0200 (CEST)
-Received: by mail-pg1-x53a.google.com with SMTP id q1sf10346663pgt.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 00:15:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565680533; cv=pass;
+Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id BCF588B155
+	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 09:43:18 +0200 (CEST)
+Received: by mail-yb1-xb3e.google.com with SMTP id d33sf465174yba.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 00:43:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565682197; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YUqd/AthIgzpcqcpt0Zhma4up0v0rn2MvBZ7wWF13OJ3J7mB52XAYTDu0gnnVZEKtF
-         wtlu5rwYZCqu90lQ46+0JYIOR8kmcSJPUYuHYS3MP7Y667uRKRZljhECTu1iYpKpcLef
-         4eJQovkJrrNXwwDb0dtrmt0OaMBAPcslSbIPEjl5PSflENVIFkN3Ey15I4rMxqs8KG23
-         TRgbhWt74KnoMfA1/8RxKbTQQE8dT80NKO8M57uNZTQAHAtkOpKNxJuNtWuQIndDx4U9
-         RU9dw/LptJM8jeORHQTEkP9d30SiM7wH4J8wD9JEDrxnjzizWzQVQM98igstWEvIRrnW
-         3GPQ==
+        b=nYGytDYvbeh/81neExnhHEGCYIU44u0FHW/x6VBSE0dvf0q535syzMtGhqLFXCJJLg
+         XwCHpWUuDMbErbJylVRkahLMHTN5SAw2+7a5NJd0POK/XffA7MscVzLW64/sdMcpc4d1
+         kgWjWeFDWZnDQKamudnEOhFy+LIjffFy7O0j7FMvnsIi2Nb+Ioy6sfVQfyNXpno1a73t
+         VAk1Dh6EBWAZNxtDXPAO2qFsstCAea+Hg2FdILxXTUjh9XZzGOjkjZSLONFBZ/agwHVR
+         onYF0EOCxEvYW0Zw568wZhzBTCE/9coVlL0rgOm3elzJxipLnKv48uWTZIDjdHmJnhRp
+         stZA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=uxzDGemOxTBkoHCzetuOxdkIMOckAsr0SbIUfrCR880=;
-        b=ypcwAc2Hd3STNpkt7xFd4A5gm8SmOrNhtRlnVp0tgQBS00qMZFDj0YoXY/q+pfcTwq
-         BMj/tWvR+2eQgTgomFsnTFHnNI4CK4FGjc3AvTbWQ0UTdIUvlfdd9iJFnmqmXiX3p16f
-         Hd5NAeMvV8/u8B0Qn2chQBY1y+JyiC8l6I5HUaaCWg7ldF3S3hiTdBtrEWViLitv8DAQ
-         rLnYqyO+i1elghFGuQyeqGajccP4RlSx+kSKDGVeezXXRmBP2BpPRcWvWVM5eFWLpBqp
-         yjpePOubvXtN/SIG9UOgoXUHfejm9WdnIDqvrCxh/2VWy3eP7wo+bJTlQF5+cECEyqBc
-         KSLQ==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=skPVP8WLnx7wHnPiIShQYZZMV/AAVkbiFIibUkIVSnM=;
+        b=GPxjfS1cUzOnJ1xe20d49VXSCniJrLIbqg5Xo2u+9q0CrbfPRk1UFIvmKVwUHssS3l
+         XUaxUeIvbE8CWvMaoSBAbUyJK223sPbpTbl05mZDNZiGolqaRP23SlHliEpRTrA4BC4j
+         +GphxM3wjYA+UzihFa7HGsP2AaltQuCtoaonia0SszajCX2N3mp1WcEqki0Z0iqv3tYE
+         7X7DFBh2csUluSRumFsd1VBqwWs3XWQar7uhErq1KaWHmMi9a3S4ZrEWAR2xx7FQc1KL
+         ZaTa0Gf+WMmZOb6nuY1qKZDG+TxZXPtKyCEKF7fIZZVNO3tkRAo5V0t8l12XrmPc2M3I
+         kiUw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=HTz9MlS4;
-       spf=pass (google.com: best guess record for domain of batv+500419ec2d16c94644ee+5833+infradead.org+hch@bombadil.srs.infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=BATV+500419ec2d16c94644ee+5833+infradead.org+hch@bombadil.srs.infradead.org
+       spf=neutral (google.com: 216.40.44.208 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=uxzDGemOxTBkoHCzetuOxdkIMOckAsr0SbIUfrCR880=;
-        b=opmE3YudEvnbM1X8hFDW32JpLhNtueO3UZ0Tbrqdz1OVZTccbQ9MbGh+Pj0ens3cBz
-         iqU8jADJWSnyjPTUXwAnlpiLkIjG0Q02D6e0rU83JbEBm+7NzPCshCuDCt8D4I5azXed
-         1o03ES4S2BYWqNFpeJD/y6k9GdGGHk+2LsxNGOYKT4zQxG3l7BI1+tiUcTHSWTuL7mnl
-         9RKDplVq/mNriAnRhYJmpmDq8HCp12EA+vNlQuRRWVoIWK2QkG85/wjOPk4tv+pfQyoC
-         GGYOlC3EM7EapWQqkDm3+28xaz6HZ8V9PosIXQy/65iKd7lWSQDt0Mi7QailK/j2Pkqz
-         S7oQ==
+        bh=skPVP8WLnx7wHnPiIShQYZZMV/AAVkbiFIibUkIVSnM=;
+        b=Cl7He6nEp/jFfkjOzgSTegsQYGSl9HYPctgm4W8sub+Xq+BcIwnSDGED9NemHK6WCX
+         DcxXp1/AxGBf6p9cAiGcVfkp8Np7RgehOKUpuBjYMVA79JgbqIcufO8q6tssrV6t+CmE
+         le5oXI28mHwkC6OBoEHRnb3Jsh2y+pqNBhHkh1x8DmSJKo/Z6Dn6V6hLKdqmZKfggpXK
+         DG0WIsjDHWycbWmC+v0JA88J1hK1YJLt8GyBc0vmJHcl/wqgd4pO+RdYIQi3DdBKPxWb
+         tqbrh2rtMzEFyYy1l9sDqml65/EOTI0z8iMtTIrVpSwWRS5Dbr44Va/vFfbolZHO+I4p
+         AzGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=uxzDGemOxTBkoHCzetuOxdkIMOckAsr0SbIUfrCR880=;
-        b=ZZBAQ2OyW9Iic6348XnT4IjAY2/MUi8bdnWiht/8lQHIH5iTGA9adBg5oI3pZCavml
-         JQUZuBIaicTUgYVUy2xFZccklYhHJkKvmo3pfVb7vpuH4v9SaMXG30C34rTaCfYjoOe0
-         zeW+JF3mKKAUhAArIPhonbLDIbFXzqXhU9C0v/owwH2vhwPi6alfksn7J6/OpBBtzWhT
-         Cq/8nJmVJuMueSEvKk6CeHuHURCe7G7NW2ukbKdkfdmM/DLo5Otwo5fot28vnE1iXtGZ
-         Mgk2lGStOENx1m1afSKOQEVgYPH1kscorHqTREQsnms6O3i2RLynZ3Mw17lRiOwht6r6
-         N7Rw==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=skPVP8WLnx7wHnPiIShQYZZMV/AAVkbiFIibUkIVSnM=;
+        b=ieFoHZD5w+3d0wVBHGBXzwOZe3D2ZdjIk7Y+D+1G7pUSVbKwSXdogv/CfbOYTITgHd
+         7aWtWzBx2pfi/tjhREJBXLrWG13GvoLy+Y9H6cL4+DtWdc1yTuWyNrfdxMbIHvUqnzm7
+         g0HbfTFwoSoOCjJRIKEVnoFFH5kr66ReYPbqE3sZk+ecgq8iGFJ/SDf527KNWNoVdWcB
+         OZwssHSxQTEQQsYWUY6k48xAHEHcSX2esPprO8S0449oI6+DrVf1Rsd5rDxASWfzM/qH
+         4h0VBCHFx163BwIPGsRaYxl1tmS6aOnZg4UbnQOL/OqvtdsBJ8fTNpnPOBfE018QV4pY
+         sTRA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXeW14C1Up9/nmNDWJAvGUu58PTUaQi069jIR5sKu1C/ofwzq4a
-	lKGhNK53hNCKIczg2IB4JfI=
-X-Google-Smtp-Source: APXvYqw63AlDsGOeCveFwKYwKlvLgR7YG4krqurwsLO4DhY9cfOHwZF2EEd97k0vucuR1t/Zs5LpOA==
-X-Received: by 2002:a63:755e:: with SMTP id f30mr33383590pgn.246.1565680533060;
-        Tue, 13 Aug 2019 00:15:33 -0700 (PDT)
+X-Gm-Message-State: APjAAAVcvdz5ijlgLecl8pZIidSeNerUBWRDJm5o8K0SvARo1uUauIow
+	sezmbmBgb0f9w0UYNB17FZs=
+X-Google-Smtp-Source: APXvYqxNwDAVA65w+be2S64qxAxjL2dMs/EoX812w7DXpJ2iTO3qpRUvXd0/90CSnnFH/4eK/w/PRQ==
+X-Received: by 2002:a25:d143:: with SMTP id i64mr6336685ybg.111.1565682197509;
+        Tue, 13 Aug 2019 00:43:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:354:: with SMTP id fh20ls189709pjb.2.gmail; Tue, 13
- Aug 2019 00:15:32 -0700 (PDT)
-X-Received: by 2002:a17:902:bb8e:: with SMTP id m14mr15597612pls.107.1565680532652;
-        Tue, 13 Aug 2019 00:15:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565680532; cv=none;
+Received: by 2002:a81:5255:: with SMTP id g82ls4139237ywb.9.gmail; Tue, 13 Aug
+ 2019 00:43:17 -0700 (PDT)
+X-Received: by 2002:a0d:fe83:: with SMTP id o125mr7702648ywf.401.1565682197243;
+        Tue, 13 Aug 2019 00:43:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565682197; cv=none;
         d=google.com; s=arc-20160816;
-        b=iLJtAk+1L1+aRKdkB4lf8g4QvMXu5c0lvMjR+qbJNpq5a3RP6NEf2enHntZxxHrx/4
-         QyqyqoNS5jvQcVGNWKDH1aSu0orZrjQ5/axPE40UKutPgqg3uz9EDVYMGq0AetIMZn8N
-         qXTEj2ltLophzjWcgppPx+ZAscZutghR+GmtCgVZm+F+uA9CnOFh06aT1Wn8YiwKqauk
-         SLQKpEWHcgcYqwWUtoBA/I+h3tQqw7UOWHCaDEL9yaMtPgF0WqDk3ItJZhaDdgndwWVZ
-         4Zh6rlaaig2Yw8YKw1IjWfqDzqmyS7mYOSHkq5eVQjNuYTbI3SKjBKrqsgEIzX+EjqNK
-         LQmg==
+        b=Y4AT+5kQ80/FUl1A/p6GXsPiynSlIsTJMw/jBei16yC8K7cbxkRP1FSrMi6OG+7PF4
+         /zUrUptDJSaylde4SMSVd69jnppaq27Kw+FWl0x1f4yhjD2dtWn5DsjSSx8E5gAazIqn
+         fEqpDGiNSgdakSMxkZFAKUfUuKDtUlT31uAP5PU9mo0kQRjGihiyjFkmn0YbCcldQs2d
+         pmRULUtYnYE44EDfZ/9R0o9VKWkIiBNfIXT/mzvJsXjh5b89z4OL12fWGkcqfhsdT5NE
+         Vfpg/td5sG1hLzkq8aZU8L7iMO4mglsgzTugUAR7irdtCwLTpHzuUh9NX463Ut6L3u0g
+         zdLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=jQna6PHWwWISAI9eb8f5G01BTeDr0I8GheF/Eo+K8/4=;
-        b=OjhFMtWs3j0xj9SvHOh5DLGSdlUF9NqovMRQavN53kZEENhtm1TQR6pEq/h+igWuMM
-         zteMKWhJaSU4p9Nbtq9jPw5cnXFFYnndnUUF7pD71aYM9i5GK3321q4XB/04OuIa9x6c
-         I6E/86FoMdma0fm+4lk1tzYee/JkUQMjZnzkJTJD0u8PdINEgU3CPtuSpuCpNQBh+9w/
-         UAPkD0r4Wn2GvV00jr18gGwizrBDsJEwueTaIlAmLGBjWUXaAiO0scxd+9R1qAbPJkX0
-         hkq1949oDKGJEnwdFBs78dVJ/KBWHlMBGw68sxrTE9MH/dne/7mA+YzZAaJ4GOgpeDQ0
-         BoKQ==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=msZq8Y1zrvwSdmlTQfxCiTMdkbgOtYrcYO9PByg5t/4=;
+        b=jD8L59lSy/9QjKurJNIOmkvsd4/cl+mYWiXlBUbU0iGcHg6gJA15NmmChzJvS8DohD
+         25WTBLrt6qu++nHI1UtybNmabaRBMu4dFJmhMGKv5VMYvHS5KinQA3CqGNfNj1H+tdPc
+         wJbO+3XbTX2MdfUZeFzFTvI+RpD/0keprh9dSLIsfXes7enIAg0SLeBKDdUL+KzKVCdE
+         UrJQrSEQVuaLqD65xOasIEubXxwvhqjT549gLIu+ph9yLf1Vq7ndCm3td4L6cWdSX7hc
+         glAnZzXq6ZonI2Z5UMtpLvYpHMIJUVgy5ilTuVv8YGyXFfHzXDCT1rCB+JM/qSsOTqvP
+         U8bQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=HTz9MlS4;
-       spf=pass (google.com: best guess record for domain of batv+500419ec2d16c94644ee+5833+infradead.org+hch@bombadil.srs.infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=BATV+500419ec2d16c94644ee+5833+infradead.org+hch@bombadil.srs.infradead.org
-Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
-        by gmr-mx.google.com with ESMTPS id f125si5375679pgc.4.2019.08.13.00.15.28
+       spf=neutral (google.com: 216.40.44.208 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0208.hostedemail.com. [216.40.44.208])
+        by gmr-mx.google.com with ESMTPS id g15si1964917ybq.0.2019.08.13.00.43.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Tue, 13 Aug 2019 00:15:28 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of batv+500419ec2d16c94644ee+5833+infradead.org+hch@bombadil.srs.infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
-Received: from hch by bombadil.infradead.org with local (Exim 4.92 #3 (Red Hat Linux))
-	id 1hxR1c-0002g8-RL; Tue, 13 Aug 2019 07:15:20 +0000
-Date: Tue, 13 Aug 2019 00:15:20 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Nathan Huckleberry <nhuck@google.com>
-Cc: yamada.masahiro@socionext.com, michal.lkml@markovi.net,
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] kbuild: Change fallthrough comments to attributes
-Message-ID: <20190813071520.GA5075@infradead.org>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 13 Aug 2019 00:43:17 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.208 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.208;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay02.hostedemail.com (Postfix) with ESMTP id BBDD75009;
+	Tue, 13 Aug 2019 07:43:16 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::::::::,RULES_HIT:41:355:379:599:967:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1539:1593:1594:1711:1730:1747:1777:1792:2198:2199:2393:2525:2559:2563:2682:2685:2828:2859:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3352:3622:3865:3867:3868:3871:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4250:4321:5007:6119:7903:9025:10004:10400:10848:11232:11658:11914:12043:12297:12555:12679:12698:12737:12740:12760:12895:13069:13311:13357:13439:14181:14659:14721:21080:21627:30012:30054:30060:30070:30091,0,RBL:23.242.196.136:@perches.com:.lbl8.mailshell.net-62.8.0.180 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:26,LUA_SUMMARY:none
+X-HE-Tag: van78_1c3a8abe7f93e
+X-Filterd-Recvd-Size: 2204
+Received: from XPS-9350.home (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
+	(Authenticated sender: joe@perches.com)
+	by omf17.hostedemail.com (Postfix) with ESMTPA;
+	Tue, 13 Aug 2019 07:43:13 +0000 (UTC)
+Message-ID: <2a6c7952793a7973c7edc6b2c44ac3c2587562fd.camel@perches.com>
+Subject: Re: [PATCH v2] kbuild: Change fallthrough comments to attributes
+From: Joe Perches <joe@perches.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers
+	 <ndesaulniers@google.com>
+Cc: Nathan Huckleberry <nhuck@google.com>, Masahiro Yamada
+ <yamada.masahiro@socionext.com>, Michal Marek <michal.lkml@markovi.net>, 
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML
+ <linux-kernel@vger.kernel.org>, Linux Memory Management List
+ <linux-mm@kvack.org>, clang-built-linux
+ <clang-built-linux@googlegroups.com>,  "Gustavo A. R. Silva"
+ <gustavo@embeddedor.com>
+Date: Tue, 13 Aug 2019 00:43:12 -0700
+In-Reply-To: <3078e553a777976655f72718d088791363544caa.camel@perches.com>
 References: <20190812214711.83710-1-nhuck@google.com>
-MIME-Version: 1.0
+	 <20190812221416.139678-1-nhuck@google.com>
+	 <814c1b19141022946d3e0f7e24d69658d7a512e4.camel@perches.com>
+	 <CAKwvOdnpXqoQDmHVRCh0qX=Yh-8UpEWJ0C3S=syn1KN8rB3OGQ@mail.gmail.com>
+	 <20190813063327.GA46858@archlinux-threadripper>
+	 <3078e553a777976655f72718d088791363544caa.camel@perches.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20190812214711.83710-1-nhuck@google.com>
-User-Agent: Mutt/1.11.4 (2019-03-13)
-X-SRS-Rewrite: SMTP reverse-path rewritten from <hch@infradead.org> by bombadil.infradead.org. See http://www.infradead.org/rpr.html
-X-Original-Sender: hch@infradead.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=bombadil.20170209 header.b=HTz9MlS4;
-       spf=pass (google.com: best guess record for domain of
- batv+500419ec2d16c94644ee+5833+infradead.org+hch@bombadil.srs.infradead.org
- designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=BATV+500419ec2d16c94644ee+5833+infradead.org+hch@bombadil.srs.infradead.org
+User-Agent: Evolution 3.30.5-0ubuntu0.18.10.1
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.208 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,23 +142,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 12, 2019 at 02:47:11PM -0700, Nathan Huckleberry wrote:
-> Clang does not support the use of comments to label
-> intentional fallthrough. This patch replaces some uses
-> of comments to attributesto cut down a significant number
-> of warnings on clang (from ~50000 to ~200). Only comments
-> in commonly used header files have been replaced.
+On Tue, 2019-08-13 at 00:04 -0700, Joe Perches wrote:
+> On Mon, 2019-08-12 at 23:33 -0700, Nathan Chancellor wrote:
+[]
+> > a disagreement between GCC and Clang on
+> > emitting a warning when falling through to a case statement that is
+> > either the last one and empty or simply breaks..
+[]
+> > I personally think that GCC is right and Clang should adapt but I don't
+> > know enough about the Clang codebase to know how feasible this is.
 > 
-> Since there is still quite a bit of noise, this
-> patch moves -Wimplicit-fallthrough to
-> Makefile.extrawarn if you are compiling with
-> clang.
+> I think gcc is wrong here and code like
+> 
+> 	switch (foo) {
+> 	case 1:
+> 		bar = 1;
+> 	default:
+> 		break;
+> 	}
+> 
+> should emit a fallthrough warning.
 
-That __attribute__ crap looks like a cat barfed over the keyboard.
+btw: I just filed https://gcc.gnu.org/bugzilla/show_bug.cgi?id=91432
 
-Please fix up clang and keep the kernel source sane.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190813071520.GA5075%40infradead.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2a6c7952793a7973c7edc6b2c44ac3c2587562fd.camel%40perches.com.
