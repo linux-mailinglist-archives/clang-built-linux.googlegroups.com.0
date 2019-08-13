@@ -1,143 +1,126 @@
-Return-Path: <clang-built-linux+bncBDRZHGH43YJRBUXBZLVAKGQEGMC4POA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBX7JZLVAKGQEHBYGCUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id B08718B8EE
-	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 14:45:06 +0200 (CEST)
-Received: by mail-wr1-x43e.google.com with SMTP id r4sf52001828wrt.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 05:45:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565700306; cv=pass;
+Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9DD988B962
+	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 15:02:24 +0200 (CEST)
+Received: by mail-lj1-x23c.google.com with SMTP id w21sf1288857ljh.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 06:02:24 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565701343; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eJzJu96rjs39+SUOFty30md2UDOqR0l97H/Kbw0AiEIt018AvcO0n6ZOLXZey6yP1r
-         uko0H8kdGrRFp6kewOEjzZAUF4ZfW7F8gd1B2Wlqi75UFNffsO+aw9dUcC7EYCLwB0Ka
-         eCjRdlbSdfgsaKvZ5IS22BFs5oCmf1gWDTSl7clRCkas53JOy88DIUKe6NbXe4EdrpJz
-         yN88saceef6gBMXVJDyMogz4jsf2vaNiH64e1yIv4FX74AqjXff7jFYvjHAD9epTNe+V
-         D3q0NcXMsZAvgDNSl3guEqfFtDW85O73rmGiOkYiLr23bp0cxaFaExAZi87r1S9GTskN
-         Lsmw==
+        b=of6uT59o2LUf0dDFK4skjHUxtCmr2GxjUUNiAby1r67ZEli9vudPq4xLcseIVVCUNR
+         egQzpaJueRxPET/Q8as3n8tY2Qj2CdbhJp6DAIlnw2Re6zm43Jr3awDmiUWKFKoPClt0
+         xiKG6rH1gZuT+aiRlYMWJeRGKumMqns5a7SOwHRv1NBpEvZ+WBAmRRUEvns01ZmcE9It
+         zb4PvVtp3GaBIT30tR/JV4Idt54Sto7L/uw2HGlCfl14L7eGBeDUdmBPyDj34UuVtQji
+         8ZB0QY0/ubW1+ylSzYvU+fnZ0VujtNKfaBtC43xQirpTNEPtnzFqSm5/kfDlBpflxWra
+         1pJg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
          :dkim-signature;
-        bh=mWqiX06dG8Av+I4zR5hRLXwCKwDfRdUXs6WzPHTbIlQ=;
-        b=ItbXQxn/5R8TgMeebxzaFkc7aySCZ0AzVQ6pKhYB9k7axHrF92HixlQI3d3Huxu/5E
-         ddNhuy9EeXLP5WOMDrcASAiefA/XJsb2PKx3lmaRUccM9/k0fRlnRz0acQlxOifsEuRv
-         XAIvoeYhq9pJtK+tbZTdXbgG+zjYsdPZ+bDU+SQuDqxzHa0lkNifPN3Q+plwouFZBNZa
-         bZCTVL10r1Pmkctzwq+6Esx10jyvMclMv86eFTjunRd8KiAnfoC4X/5o4LHUcLAaxpqM
-         X0R6lQ6n/zXjkNayU1qnHtn8iHUD7jkP3zsjoWNbvFWeucfbMOQx4E/4MvabmhVbDVo8
-         P9qg==
+        bh=fRtcTfb0uIiw0+/4VVPAEBSPNyufawn6i6fQPNCpD/0=;
+        b=B9kOYXtitl7uWXxml1pU2PWOPxp0pjWQ0gXnwprq70wqLqtB9Ca840JezoRdIXJcuD
+         FyV6rV+xB6SslwqT0Jb1DqWPd4Pw1ERhS4uDi1erk61YvjmroQ9YbCARX+Td4PwfBCAP
+         RA6LyFO0ZtJZvh4Ls1PVEFIQ+/RU+P710gCIDCRq8Vu1+qZ43VFRIR0KChYPujGyCYxZ
+         2NCtqFlWvuVXjA7H6Xx1rNe+XYy+84OG3FTd8uT6OkL5Tts8xgOklIrG6LAQmsUCSnAt
+         XoSWXlXeaAqV5JBhYzuRHC9qualjGnMXhmo+omDpaJ+LfLuoAYWZUnn+mhfvqQlnq4tV
+         A4CQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gCbDyLGs;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=KuHpHQs7;
+       spf=pass (google.com: domain of bot@kernelci.org designates 2a00:1450:4864:20::336 as permitted sender) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mWqiX06dG8Av+I4zR5hRLXwCKwDfRdUXs6WzPHTbIlQ=;
-        b=dsHZbAUTaJZzunMjLV5j4XlDl6ribscYLlqleY7IeWGBWyQ0K1WpO16KcOxZSVtGbv
-         gyV6iLUZXVOW9AukFxCNlX24IAjCz/mgXGGumv9wMklgdu2t7Lcgx3KUOvRP4MZl3N2e
-         2SeqY2gNd+5yzLntFEBBrFaZI/wkXyqg1gyiPWcaHyswkFvJdLrZA/HtZL61yNQErOC+
-         BpraDG1xe0fCJsmgi3oNDGMYEz5kFU3o6IMskbMxUoCbyF4jcPZwQsH0sH8/f6xq7W8W
-         /640wo/I5RuXrIzg17J6+zoeQNNx1JaF/UrPpaJh+ik9t9Bvom3HTEg1GXCi531N4as1
-         GAYg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=mWqiX06dG8Av+I4zR5hRLXwCKwDfRdUXs6WzPHTbIlQ=;
-        b=RLFkWGRxNuVnls9DKcw1Q0ZeEuCckoL8w+dG85NKEgwi22Mor1dpQkpGafYZ4Jw16H
-         2dWG3/NxjOvOX46qPp2OxGoyndtnsJ7wTEvjA2VqB6lXdGjCWKddo39vMMXA9vw4F7q+
-         M2hcIJ00rPeBYK1Q6DKr2yfmwCxdy4LVc3kJpqMea4EjC3Bf6Damz2MVK9fkd4/gP1t3
-         ofWcIS6GnJ/ppzBRBoSq7g4qkzbyb3GEq61tVKIopwHveRS301jG9Apno0B1nQQaZzhP
-         ISaoEw/CoBipqRYdZ9pz0AxWqxk0+KhDnbG2AsNqaRUF1jEqy+Qn7MTxaQYed/e4FCB4
-         tWZw==
+        bh=fRtcTfb0uIiw0+/4VVPAEBSPNyufawn6i6fQPNCpD/0=;
+        b=gGAk5vvNYHF6z8OXePPAjOi2IU+u+W1YbquUhYs3uJJGSyFCvN1hRR1xCVQNrD3f9v
+         VlS65iKqKyQkQx/1ybJcFLaJX+fK82cFjCyiVcSadU3l1YiXetvdDJLHUzaA5/xdSR01
+         UiXJJvb8Ym37wkAHOM3Vyy6+N1s2xiU4eniZOyxlczlZaVS4TmTv2KjCVphEtp+WLTX4
+         nlBvBGHGERUZ68JCNEMpqv0zs2WWMEA34nnZBgtwjnR1foResKKIEELPNwpH1KEgypYK
+         gFreAqTLWQlLBqxaRxzAj1glQPhXMuSLaHHCWc2ELeQWVAo9ujJOl359OlTvgR5bksJ+
+         97Dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mWqiX06dG8Av+I4zR5hRLXwCKwDfRdUXs6WzPHTbIlQ=;
-        b=XuU/Lo2THhWoJkyRzIxmVP8q+Zu9fowg4Ul2TA/asY9lplLTef1eP9YxlOQ5MysMLo
-         i9220z1BsI2Iqu7tEGen+WOnG75GyrhMG46qUHQW34wsWWujiI+C23yi4IHnaU1l1HyX
-         IP+EFct43YkycTHaSLSRhvNXu6ObYk6KExsllA7meIS2LvlfL58ha7YnfclKn5kAvJSX
-         1h722miuxwLbihfs1E/Gg8lB410NW9S5N25/fNmw4KrZT3ifmd9XiaeYkiV2dy9Z8dvO
-         FZeTjCCb2OdS58H3sNHKOXnfzHb7uqzKaYWHmMLcBD6CbsFTMgPueCrGo+a0RsIMPqW+
-         pnQw==
+        bh=fRtcTfb0uIiw0+/4VVPAEBSPNyufawn6i6fQPNCpD/0=;
+        b=BgRusPB/T1+Kei9gAiy3IQYVaczgqPzcv9mPs26eI4mU3+WM+u7wsWllyBFQg1u7Mp
+         mbRx6fM3MSdQ7iE3V2YG4Zh5h8YwT/L7RY+U3wo91Rm0RIYKRuzSvemQ8RSoos07ZfBJ
+         Q7YGq+GiBgggxRAuzVe91CCrgTv80d87StvO6g1PzlWcfokJ6x3uK/IzoE8Bb/7mRdCp
+         fk9KYcgn44KF+5z/ui/NmlU2+5hZYYIqLVZesYdp8MQtVZJVccVRS3wGJMKRL+2RKVCo
+         C8OO0pclCvnSMIJhvef8BRwwRTQvfgSdX6Wuc48puD4OMsuiS+lBS7pI468jPjJsjjev
+         SK+A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV2gZSP/a0PidiCKVGMjoqez8eOvvuiWhZv0U8Z5T6G2AOGuWPd
-	Rul0qvU6B3AnjR86019LAgk=
-X-Google-Smtp-Source: APXvYqwWhsOj2bCkivz5h6gxSgcRkHSlaSj0Z1+ARxKFu1+BomXOjfBu8u1hPnTSibxSVC+kGQol4w==
-X-Received: by 2002:a1c:f914:: with SMTP id x20mr3102699wmh.142.1565700306385;
-        Tue, 13 Aug 2019 05:45:06 -0700 (PDT)
+X-Gm-Message-State: APjAAAVX3YZ6Es9aB9E84h4vmFIAWUVTesbEkjGt2gF+El4mjTfUA5vb
+	T07z70+igSUya1s/TOm1fkc=
+X-Google-Smtp-Source: APXvYqwn0T2X+ehSH+6Gid2tl2xrvgD/+0JQffba3NID+V29CCjdoP+cniAs7mxO4ABEYzO3PVLFpw==
+X-Received: by 2002:a2e:81ca:: with SMTP id s10mr2649622ljg.181.1565701343341;
+        Tue, 13 Aug 2019 06:02:23 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:6484:: with SMTP id y126ls552993wmb.1.canary-gmail; Tue,
- 13 Aug 2019 05:45:05 -0700 (PDT)
-X-Received: by 2002:a1c:64c5:: with SMTP id y188mr3074293wmb.154.1565700305782;
-        Tue, 13 Aug 2019 05:45:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565700305; cv=none;
+Received: by 2002:a2e:9153:: with SMTP id q19ls12151049ljg.13.gmail; Tue, 13
+ Aug 2019 06:02:22 -0700 (PDT)
+X-Received: by 2002:a2e:8ed5:: with SMTP id e21mr1950322ljl.156.1565701342597;
+        Tue, 13 Aug 2019 06:02:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565701342; cv=none;
         d=google.com; s=arc-20160816;
-        b=GUZAWz9r9nK9CH5geGnYtMYnNlWMHVLpAnR6x2pWBSnd+6kRNpc6wu8SXzdKi/YZdi
-         nMKLl+dvwcm+K6NvFePQNgmZtCZ8ZXVqNbJb8xmhzOUmjtHgI6WjNBJKPoIZrDeD3sNF
-         tNdGTjzuSt1hAbTIwU2tqoXgX7cIdWVcKJ2aBD7pI/Gh+KGSZWo0QkVw22yhycZ3/wXN
-         4/h5Avxv6uIJhBtfr7O/zL1+eUXg15y2REadflO+E+xr7SL8GrfhvGVKx+NRwxVCYOGn
-         C7nkXGBGxQG/bxgrn5RMEGeQjuvJ68ayUDld+QW7H8ecbuLE0rFtCBXG4lA0bsYCp+sJ
-         fz0w==
+        b=FctKosFIFUGUmAxjRAtELc9qnHDen5pxu7JAmz+0pgiusjcQykGrIv0cbU7utxh/fp
+         u2/AEl8VZv3P/VCJu6wMvEiar+h+bpZ2BcKIsyDjvJg7f5YTWqFtVZ+OUN3jghRhEgbe
+         0CEH7Fs0ilex9lEVADVUd2Vq9HO/KGHSMlbWH28CR5bk397C357MvPprbidgXDtFLG7t
+         7Td+/dY33kkejGCzR2uEb2XFej+48ZYaFpWn0HzMGrxnFYrUKd792/MG3Z5t7BAFe0kI
+         5n0sRUzZ1EbvwYnzMSXs3ffFJVjz9xzQ3jeP+/7SjyVVU9tK+MWbrP/cEOqUGmZIRwv3
+         YTsw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=Nkts4LtZcrW5Ro8T3DBoeBEvb4PQKRLGam7T/wDj6kM=;
-        b=n0aNIh/hw4Fiiwl0ERnNJkDudhwc2X55m5gti52lUK2GSd2vxeXLSOrMwIi9Xzzur0
-         oqWvxM9FbnRZazEHd6Ej5HylvBmfC5l8NKza6vyfrgpnHySQNR5OweSjdrHEQSOJ/HWY
-         Gi1OVaJ04CjwAlbW7U/AVU1xYeoXajjxurgtWfM7kdopdVPtU9kATjqVN00knasomNWI
-         Fh0hnHLEUMtjCo1/KQk6QsHjk2XSVRsir2nCk1HRGePXvnCwHUQiwCAyk1B4Nwln1dJh
-         dg6A8UlpJpiuSMLZ3Evv2eQtRZ020BwE52JHIgLJjfbel1cksv6BsiqZ75ReI2ge0p5Y
-         teVQ==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=b94hFSp1w9wIDsBmUJkuSFOLCa0vlYRnpxxsk9ABgzc=;
+        b=PRjM7jKTxdIOChGro1f29JpNS2lT1GfR3TKdFI3fbc/IYhjGHMTNC4PvIn7zvd9m4h
+         K5w6+e06G50h1kMg+E4pl5CcNTdJj1iTmRVm5R14oO5WMcY/eOmlivrQiUvVOTLfF/lj
+         /EzBTFl5Z1YxlfHWG6r2ALUTyBFdOV0tVY4LKb9bcRP427dYTkQv1Y9E59v5s/WsQHfG
+         /nw0dgAaT97hUg1HoW+GLeAhEAiIk75562eq/p9tVS9EazHaJKEsMxVY+bKh0n43CBOH
+         Sfs01HVXPW6vQcjLaEnV2i6GRacBJCG89W0mcj2D/TzakyT4x8D7eZj34bzr+1XHYeZ6
+         pSJQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gCbDyLGs;
-       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-lf1-x143.google.com (mail-lf1-x143.google.com. [2a00:1450:4864:20::143])
-        by gmr-mx.google.com with ESMTPS id q14si39855wmc.1.2019.08.13.05.45.05
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=KuHpHQs7;
+       spf=pass (google.com: domain of bot@kernelci.org designates 2a00:1450:4864:20::336 as permitted sender) smtp.mailfrom=bot@kernelci.org
+Received: from mail-wm1-x336.google.com (mail-wm1-x336.google.com. [2a00:1450:4864:20::336])
+        by gmr-mx.google.com with ESMTPS id q25si1420194lfm.4.2019.08.13.06.02.22
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Tue, 13 Aug 2019 05:45:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) client-ip=2a00:1450:4864:20::143;
-Received: by mail-lf1-x143.google.com with SMTP id b29so69417401lfq.1
-        for <clang-built-linux@googlegroups.com>; Tue, 13 Aug 2019 05:45:05 -0700 (PDT)
-X-Received: by 2002:a19:e006:: with SMTP id x6mr22095212lfg.165.1565700305317;
- Tue, 13 Aug 2019 05:45:05 -0700 (PDT)
-MIME-Version: 1.0
-References: <c0005a09c89c20093ac699c97e7420331ec46b01.camel@perches.com>
- <9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
- <CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
- <6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
- <20190811020442.GA22736@archlinux-threadripper> <871efd6113ee2f6491410409511b871b7637f9e3.camel@perches.com>
- <CAKwvOdmAj34xDcMUn7Fu_aXdtD-7xHjHuU20qY=rFcr_Kz7gpg@mail.gmail.com>
-In-Reply-To: <CAKwvOdmAj34xDcMUn7Fu_aXdtD-7xHjHuU20qY=rFcr_Kz7gpg@mail.gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 13 Aug 2019 14:44:53 +0200
-Message-ID: <CANiq72m5=pqHaNi3P5VAMviaoX6yxT7OPg6sys1uMDki0g2bOw@mail.gmail.com>
-Subject: Re: [PATCH] Makefile: Convert -Wimplicit-fallthrough=3 to just
- -Wimplicit-fallthrough for clang
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Joe Perches <joe@perches.com>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, 
-	"Gustavo A. R. Silva" <gustavo@embeddedor.com>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 13 Aug 2019 06:02:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bot@kernelci.org designates 2a00:1450:4864:20::336 as permitted sender) client-ip=2a00:1450:4864:20::336;
+Received: by mail-wm1-x336.google.com with SMTP id 10so1429582wmp.3
+        for <clang-built-linux@googlegroups.com>; Tue, 13 Aug 2019 06:02:22 -0700 (PDT)
+X-Received: by 2002:a1c:c542:: with SMTP id v63mr2964059wmf.97.1565701340093;
+        Tue, 13 Aug 2019 06:02:20 -0700 (PDT)
+Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
+        by smtp.gmail.com with ESMTPSA id x6sm116976224wrt.63.2019.08.13.06.02.19
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 13 Aug 2019 06:02:19 -0700 (PDT)
+Message-ID: <5d52b4db.1c69fb81.2f7f9.bb9a@mx.google.com>
+Date: Tue, 13 Aug 2019 06:02:19 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Kernel: next-20190813
+X-Kernelci-Tree: next
+X-Kernelci-Report-Type: build
+X-Kernelci-Branch: master
+Subject: next/master build: 230 builds: 7 failed, 223 passed, 8 errors,
+ 752 warnings (next-20190813)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=gCbDyLGs;       spf=pass
- (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
- 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=KuHpHQs7;       spf=pass (google.com: domain of bot@kernelci.org
+ designates 2a00:1450:4864:20::336 as permitted sender) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,55 +133,3166 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 12, 2019 at 6:29 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> On Sat, Aug 10, 2019 at 8:06 PM Joe Perches <joe@perches.com> wrote:
-> >
-> > On Sat, 2019-08-10 at 19:04 -0700, Nathan Chancellor wrote:
-> > > On a tangential note, how are you planning on doing the fallthrough
-> > > comment to attribute conversion? The reason I ask is clang does not
-> > > support the comment annotations, meaning that when Nathan Huckleberry's
-> > > patch is applied to clang (which has been accepted [1]), we are going
-> > > to get slammed by the warnings. I just ran an x86 defconfig build at
-> > > 296d05cb0d3c with his patch applied and I see 27673 instances of this
-> > > warning... (mostly coming from some header files so nothing crazy but it
-> > > will be super noisy).
-> > >
-> > > If you have something to share like a script or patch, I'd be happy to
-> > > test it locally.
-> > >
-> > > [1]: https://reviews.llvm.org/D64838
-> >
-> > Something like this patch:
-> >
-> > https://lore.kernel.org/patchwork/patch/1108577/
-> >
-> > Maybe use:
-> >
-> > #define fallthrough [[fallthrough]]
->
-> Isn't [[fallthrough]] the C++ style attribute?  **eek** Seems to be a
+next/master build: 230 builds: 7 failed, 223 passed, 8 errors, 752 warnings=
+ (next-20190813)
 
-It is going to be very likely also the C spelling too, i.e. C2x will
-likely be released with attributes. [[fallthrough]] in particular is
-still on discussion but it may be included too (thanks Aaron!).
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20190813/
 
-> waste for Clang to implement __attribute__((fallthrough)) just as we
-> switch the kernel to not use it.  Also, I'd recommend making the
-> preprocessor define all caps to help folks recognize it's a
-> preprocessor define.
+Tree: next
+Branch: master
+Git Describe: next-20190813
+Git Commit: 0b821f0a8339ffe55411857de6bb1d3480a034fd
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-Hm... I would go for either __fallthrough as the rest of attributes,
-or simply fallthrough -- FALLTHROUGH seems wrong. If you want it that
-way for visibility, then I would choose __fallthrough, since the
-underscores are quite prominent and anyway IDEs typically highlight
-macros in a different color than keywords (return etc.).
+Build Failures Detected:
 
-Cheers,
-Miguel
+arm:
+    axm55xx_defconfig: (gcc-8) FAIL
+    keystone_defconfig: (gcc-8) FAIL
+    multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy: (gcc-8) FAIL
+    nuc910_defconfig: (gcc-8) FAIL
+    nuc950_defconfig: (gcc-8) FAIL
+    nuc960_defconfig: (gcc-8) FAIL
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72m5%3DpqHaNi3P5VAMviaoX6yxT7OPg6sys1uMDki0g2bOw%40mail.gmail.com.
+mips:
+    cavium_octeon_defconfig: (gcc-8) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 3 warnings
+    axs103_smp_defconfig (gcc-8): 3 warnings
+    haps_hs_defconfig (gcc-8): 3 warnings
+    haps_hs_smp_defconfig (gcc-8): 3 warnings
+    hsdk_defconfig (gcc-8): 3 warnings
+    nsim_hs_defconfig (gcc-8): 3 warnings
+    nsim_hs_defconfig (gcc-8): 13 warnings
+    nsim_hs_smp_defconfig (gcc-8): 3 warnings
+    nsimosci_hs_defconfig (gcc-8): 3 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 3 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 2 warnings
+    vdk_hs38_smp_defconfig (gcc-8): 2 warnings
+
+arm64:
+    allmodconfig (gcc-8): 13 warnings
+    allmodconfig (clang-8): 54 warnings
+    defconfig (clang-8): 4 warnings
+    defconfig (gcc-8): 5 warnings
+    defconfig (gcc-8): 5 warnings
+    defconfig (clang-8): 4 warnings
+    defconfig (gcc-8): 5 warnings
+    defconfig (clang-8): 4 warnings
+    defconfig (clang-8): 4 warnings
+    defconfig (gcc-8): 7 warnings
+
+arm:
+    acs5k_defconfig (gcc-8): 2 warnings
+    acs5k_tiny_defconfig (gcc-8): 2 warnings
+    allmodconfig (gcc-8): 48 warnings
+    am200epdkit_defconfig (gcc-8): 2 warnings
+    assabet_defconfig (gcc-8): 2 warnings
+    at91_dt_defconfig (gcc-8): 2 warnings
+    axm55xx_defconfig (gcc-8): 1 error, 1 warning
+    badge4_defconfig (gcc-8): 2 warnings
+    bcm2835_defconfig (gcc-8): 2 warnings
+    cerfcube_defconfig (gcc-8): 2 warnings
+    cm_x2xx_defconfig (gcc-8): 2 warnings
+    cm_x300_defconfig (gcc-8): 2 warnings
+    cns3420vb_defconfig (gcc-8): 2 warnings
+    colibri_pxa270_defconfig (gcc-8): 2 warnings
+    colibri_pxa300_defconfig (gcc-8): 1 warning
+    collie_defconfig (gcc-8): 2 warnings
+    davinci_all_defconfig (gcc-8): 3 warnings
+    dove_defconfig (gcc-8): 2 warnings
+    em_x270_defconfig (gcc-8): 2 warnings
+    ep93xx_defconfig (gcc-8): 2 warnings
+    eseries_pxa_defconfig (gcc-8): 2 warnings
+    exynos_defconfig (gcc-8): 6 warnings
+    ezx_defconfig (gcc-8): 4 warnings
+    footbridge_defconfig (gcc-8): 1 warning
+    h3600_defconfig (gcc-8): 2 warnings
+    h5000_defconfig (gcc-8): 2 warnings
+    imote2_defconfig (gcc-8): 4 warnings
+    imx_v4_v5_defconfig (gcc-8): 4 warnings
+    imx_v6_v7_defconfig (gcc-8): 6 warnings
+    integrator_defconfig (gcc-8): 2 warnings
+    ixp4xx_defconfig (gcc-8): 2 warnings
+    keystone_defconfig (gcc-8): 1 error, 2 warnings
+    ks8695_defconfig (gcc-8): 2 warnings
+    lpc32xx_defconfig (gcc-8): 3 warnings
+    magician_defconfig (gcc-8): 2 warnings
+    milbeaut_m10v_defconfig (gcc-8): 4 warnings
+    mini2440_defconfig (gcc-8): 2 warnings
+    mmp2_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 10 warnings
+    multi_v7_defconfig (gcc-8): 10 warnings
+    multi_v7_defconfig (gcc-8): 1 error, 5 warnings
+    multi_v7_defconfig (gcc-8): 10 warnings
+    multi_v7_defconfig (gcc-8): 16 warnings
+    mv78xx0_defconfig (gcc-8): 4 warnings
+    mvebu_v5_defconfig (gcc-8): 4 warnings
+    mvebu_v7_defconfig (gcc-8): 6 warnings
+    mxs_defconfig (gcc-8): 4 warnings
+    neponset_defconfig (gcc-8): 2 warnings
+    nhk8815_defconfig (gcc-8): 2 warnings
+    nuc910_defconfig (gcc-8): 1 error
+    nuc950_defconfig (gcc-8): 1 error
+    nuc960_defconfig (gcc-8): 1 error
+    omap1_defconfig (gcc-8): 4 warnings
+    omap2plus_defconfig (gcc-8): 7 warnings
+    orion5x_defconfig (gcc-8): 2 warnings
+    oxnas_v6_defconfig (gcc-8): 4 warnings
+    palmz72_defconfig (gcc-8): 1 warning
+    pcm027_defconfig (gcc-8): 2 warnings
+    pleb_defconfig (gcc-8): 2 warnings
+    prima2_defconfig (gcc-8): 2 warnings
+    pxa168_defconfig (gcc-8): 2 warnings
+    pxa3xx_defconfig (gcc-8): 2 warnings
+    pxa910_defconfig (gcc-8): 2 warnings
+    pxa_defconfig (gcc-8): 3 warnings
+    qcom_defconfig (gcc-8): 6 warnings
+    realview_defconfig (gcc-8): 2 warnings
+    rpc_defconfig (gcc-8): 2 warnings
+    s3c6400_defconfig (gcc-8): 2 warnings
+    s5pv210_defconfig (gcc-8): 2 warnings
+    sama5_defconfig (gcc-8): 2 warnings
+    shannon_defconfig (gcc-8): 2 warnings
+    shmobile_defconfig (gcc-8): 2 warnings
+    simpad_defconfig (gcc-8): 2 warnings
+    socfpga_defconfig (gcc-8): 2 warnings
+    spear13xx_defconfig (gcc-8): 4 warnings
+    sunxi_defconfig (gcc-8): 6 warnings
+    tango4_defconfig (gcc-8): 2 warnings
+    tegra_defconfig (gcc-8): 6 warnings
+    trizeps4_defconfig (gcc-8): 2 warnings
+    u300_defconfig (gcc-8): 1 warning
+    u8500_defconfig (gcc-8): 2 warnings
+    versatile_defconfig (gcc-8): 2 warnings
+    vexpress_defconfig (gcc-8): 4 warnings
+    viper_defconfig (gcc-8): 2 warnings
+    xcep_defconfig (gcc-8): 2 warnings
+    zeus_defconfig (gcc-8): 2 warnings
+
+i386:
+    i386_defconfig (gcc-8): 7 warnings
+    i386_defconfig (gcc-8): 15 warnings
+
+mips:
+    32r2el_defconfig (gcc-8): 3 warnings
+    32r2el_defconfig (gcc-8): 11 warnings
+    allnoconfig (gcc-8): 1 warning
+    ar7_defconfig (gcc-8): 2 warnings
+    ath25_defconfig (gcc-8): 2 warnings
+    ath79_defconfig (gcc-8): 2 warnings
+    bcm47xx_defconfig (gcc-8): 2 warnings
+    bcm63xx_defconfig (gcc-8): 1 warning
+    bigsur_defconfig (gcc-8): 6 warnings
+    bmips_be_defconfig (gcc-8): 1 warning
+    bmips_stb_defconfig (gcc-8): 1 warning
+    capcella_defconfig (gcc-8): 2 warnings
+    cavium_octeon_defconfig (gcc-8): 2 errors, 5 warnings
+    ci20_defconfig (gcc-8): 1 warning
+    cobalt_defconfig (gcc-8): 2 warnings
+    db1xxx_defconfig (gcc-8): 2 warnings
+    decstation_64_defconfig (gcc-8): 8 warnings
+    decstation_defconfig (gcc-8): 4 warnings
+    decstation_r4k_defconfig (gcc-8): 4 warnings
+    e55_defconfig (gcc-8): 2 warnings
+    fuloong2e_defconfig (gcc-8): 9 warnings
+    gcw0_defconfig (gcc-8): 1 warning
+    gpr_defconfig (gcc-8): 6 warnings
+    ip22_defconfig (gcc-8): 2 warnings
+    ip27_defconfig (gcc-8): 7 warnings
+    ip28_defconfig (gcc-8): 6 warnings
+    ip32_defconfig (gcc-8): 10 warnings
+    jazz_defconfig (gcc-8): 2 warnings
+    jmr3927_defconfig (gcc-8): 1 warning
+    lasat_defconfig (gcc-8): 1 warning
+    lemote2f_defconfig (gcc-8): 9 warnings
+    loongson1b_defconfig (gcc-8): 2 warnings
+    loongson1c_defconfig (gcc-8): 2 warnings
+    loongson3_defconfig (gcc-8): 9 warnings
+    malta_defconfig (gcc-8): 2 warnings
+    malta_kvm_defconfig (gcc-8): 5 warnings
+    malta_kvm_guest_defconfig (gcc-8): 2 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 3 warnings
+    maltaaprp_defconfig (gcc-8): 2 warnings
+    maltasmvp_defconfig (gcc-8): 2 warnings
+    maltasmvp_eva_defconfig (gcc-8): 2 warnings
+    maltaup_defconfig (gcc-8): 2 warnings
+    maltaup_xpa_defconfig (gcc-8): 2 warnings
+    markeins_defconfig (gcc-8): 3 warnings
+    mips_paravirt_defconfig (gcc-8): 6 warnings
+    mpc30x_defconfig (gcc-8): 2 warnings
+    msp71xx_defconfig (gcc-8): 2 warnings
+    mtx1_defconfig (gcc-8): 6 warnings
+    nlm_xlp_defconfig (gcc-8): 13 warnings
+    nlm_xlr_defconfig (gcc-8): 14 warnings
+    omega2p_defconfig (gcc-8): 1 warning
+    pic32mzda_defconfig (gcc-8): 2 warnings
+    pistachio_defconfig (gcc-8): 5 warnings
+    pnx8335_stb225_defconfig (gcc-8): 2 warnings
+    qi_lb60_defconfig (gcc-8): 2 warnings
+    rb532_defconfig (gcc-8): 2 warnings
+    rbtx49xx_defconfig (gcc-8): 2 warnings
+    rm200_defconfig (gcc-8): 3 warnings
+    rt305x_defconfig (gcc-8): 2 warnings
+    sb1250_swarm_defconfig (gcc-8): 4 warnings
+    tb0219_defconfig (gcc-8): 2 warnings
+    tb0226_defconfig (gcc-8): 3 warnings
+    tb0287_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vocore2_defconfig (gcc-8): 1 warning
+    workpad_defconfig (gcc-8): 2 warnings
+    xway_defconfig (gcc-8): 2 warnings
+
+riscv:
+    defconfig (gcc-8): 3 warnings
+    defconfig (gcc-8): 6 warnings
+    rv32_defconfig (gcc-8): 9 warnings
+
+x86_64:
+    allmodconfig (gcc-8): 8 warnings
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (gcc-8): 6 warnings
+    x86_64_defconfig (gcc-8): 6 warnings
+
+Errors summary:
+
+    3    arch/arm/mach-w90x900/dev.c:38:10: fatal error: linux/platform_dat=
+a/keypad-w90p910.h: No such file or directory
+    1    dma-mapping.c:(.init.text+0x18): undefined reference to `dma_atomi=
+c_pool_init'
+    1    arch/mips/include/asm/octeon/cvmx-ipd.h:331:36: error: 'CVMX_PIP_S=
+FT_RST' undeclared (first use in this function); did you mean 'CVMX_CIU_SOF=
+T_RST'?
+    1    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: error: storage siz=
+e of 'pip_sft_rst' isn't known
+    1    /home/buildslave/workspace/workspace/kernel-build@4/linux/build/..=
+/arch/arm/mm/dma-mapping.c:2427: undefined reference to `dma_atomic_pool_in=
+it'
+    1    /home/buildslave/workspace/workspace/kernel-build@2/linux/build/..=
+/arch/arm/mm/dma-mapping.c:2427: undefined reference to `dma_atomic_pool_in=
+it'
+
+Warnings summary:
+
+    193  <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    127  WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    101  WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBO=
+L_GPL
+    72   WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GP=
+L
+    20   WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYM=
+BOL_GPL
+    17   1 warning generated.
+    12   include/linux/compiler.h:328:5: warning: this statement may fall t=
+hrough [-Wimplicit-fallthrough=3D]
+    11   drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement =
+may fall through [-Wimplicit-fallthrough=3D]
+    11   WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a sta=
+tic EXPORT_SYMBOL
+    9    printk(KERN_WARNING "SA1100 flash: unknown base address "
+    9    include/linux/printk.h:309:2: warning: this statement may fall thr=
+ough [-Wimplicit-fallthrough=3D]
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    9    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may =
+fall through [-Wimplicit-fallthrough=3D]
+    8    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this stat=
+ement may fall through [-Wimplicit-fallthrough=3D]
+    8    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this stat=
+ement may fall through [-Wimplicit-fallthrough=3D]
+    8    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to poi=
+nter from integer of different size [-Wint-to-pointer-cast]
+    7    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statem=
+ent may fall through [-Wimplicit-fallthrough=3D]
+    7    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPO=
+RT_SYMBOL_GPL
+    6    include/linux/kern_levels.h:5:18: warning: format '%lu' expects ar=
+gument of type 'long unsigned int', but argument 8 has type 'unsigned int' =
+[-Wformat=3D]
+    6    fs/btrfs/tree-checker.c:1216:10: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    6    fs/btrfs/tree-checker.c:1200:50: warning: format '%lu' expects arg=
+ument of type 'long unsigned int', but argument 5 has type 'unsigned int' [=
+-Wformat=3D]
+    6    fs/btrfs/tree-checker.c:1083:10: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    6    fs/btrfs/tree-checker.c:1065:9: warning: cast from pointer to inte=
+ger of different size [-Wpointer-to-int-cast]
+    6    fs/btrfs/tree-checker.c:1057:10: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    6    fs/btrfs/tree-checker.c:1051:8: warning: cast from pointer to inte=
+ger of different size [-Wpointer-to-int-cast]
+    6    fs/btrfs/tree-checker.c:1003:47: warning: format '%lu' expects arg=
+ument of type 'long unsigned int', but argument 5 has type 'unsigned int' [=
+-Wformat=3D]
+    4    net/rxrpc/rxkad.c:269:9: warning: 'err' may be used uninitialized =
+in this function [-Wmaybe-uninitialized]
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    4    2 warnings generated.
+    2    kernel/kexec_file.c:189:14: warning: unused variable 'reason' [-Wu=
+nused-variable]
+    2    drivers/soundwire/slave.c:16:12: warning: 'sdw_slave_add' defined =
+but not used [-Wunused-function]
+    2    arch/x86/kernel/apic/probe_32.c:146:7: warning: this statement may=
+ fall through [-Wimplicit-fallthrough=3D]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:134: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    warning: same module names found:
+    1    net/rxrpc/rxkad.c:251:6: warning: variable 'err' is used uninitial=
+ized whenever 'if' condition is true [-Wsometimes-uninitialized]
+    1    net/rxrpc/rxkad.c:228:9: note: initialize the variable 'err' to si=
+lence this warning
+    1    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitia=
+lized when used within its own initialization [-Wuninitialized]
+    1    mm/shmem.c:2734:35: warning: variable 'shmem_falloc_waitq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    1    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized wh=
+en used within its own initialization [-Wuninitialized]
+    1    fs/ocfs2/dlm/dlmdomain.c:2038:14: warning: variable 'ret' is used =
+uninitialized whenever 'for' loop exits because its condition is false [-Ws=
+ometimes-uninitialized]
+    1    fs/ocfs2/dlm/dlmdomain.c:1952:9: note: initialize the variable 're=
+t' to silence this warning
+    1    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1    fs/namei.c:3136:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/namei.c:1646:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized =
+when used within its own initialization [-Wuninitialized]
+    1    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1    drivers/watchdog/wdt285.c:170:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    1    drivers/video/fbdev/acornfb.c:860:9: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    1    drivers/usb/gadget/udc/lpc32xx_udc.c:2231:3: warning: this stateme=
+nt may fall through [-Wimplicit-fallthrough=3D]
+    1    drivers/staging/octeon/ethernet-tx.c:280:37: warning: cast from po=
+inter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/staging/octeon/ethernet-tx.c:276:20: warning: cast from po=
+inter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/staging/octeon/ethernet-tx.c:268:37: warning: cast from po=
+inter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/staging/octeon/ethernet-tx.c:264:37: warning: cast from po=
+inter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/soundwire/slave.c:16:12: warning: unused function 'sdw_sla=
+ve_add' [-Wunused-function]
+    1    drivers/scsi/lpfc/lpfc_sli.c:11850:34: warning: variable 'done_q' =
+is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/lpfc/lpfc_scsi.c:4559:34: warning: variable 'waitq' i=
+s uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/power/supply/ab8500_charger.c:738:6: warning: this stateme=
+nt may fall through [-Wimplicit-fallthrough=3D]
+    1    drivers/net/usb/lan78xx.c:2662:34: warning: variable 'unlink_wakeu=
+p' is uninitialized when used within its own initialization [-Wuninitialize=
+d]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    drivers/mtd/nand/raw/au1550nd.c:443:57: warning: pointer type mism=
+atch in conditional expression
+    1    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    arch/mips/include/asm/octeon/cvmx-sli-defs.h:47:6: warning: this s=
+tatement may fall through [-Wimplicit-fallthrough=3D]
+    1    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: warning: unused va=
+riable 'pip_sft_rst' [-Wunused-variable]
+    1    arch/arm/mach-rpc/riscpc.c:48:13: warning: this statement may fall=
+ through [-Wimplicit-fallthrough=3D]
+    1    /tmp/cc2X7ulr.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/cc2X7ulr.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1175:warning: override: UNWINDER_GUESS changes choice stat=
+e
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 11 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:1003:47: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1051:8: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1057:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1065:9: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1083:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1200:50: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1216:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+acs5k_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+acs5k_tiny_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    net/rxrpc/rxkad.c:269:9: warning: 'err' may be used uninitialized in th=
+is function [-Wmaybe-uninitialized]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPORT_SY=
+MBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPORT_SY=
+MBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 48 warnings, 0 section =
+mismatches
+
+Warnings:
+    drivers/power/supply/ab8500_charger.c:738:6: warning: this statement ma=
+y fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    /tmp/cc2X7ulr.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/cc2X7ulr.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:1003:47: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1051:8: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1057:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1065:9: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1083:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1200:50: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1216:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statement m=
+ay fall through [-Wimplicit-fallthrough=3D]
+    net/rxrpc/rxkad.c:269:9: warning: 'err' may be used uninitialized in th=
+is function [-Wmaybe-uninitialized]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/soundwire/slave.c:16:12: warning: 'sdw_slave_add' defined but n=
+ot used [-Wunused-function]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/octeon-stubs.h:1205:9: warning: cast to pointer =
+from integer of different size [-Wint-to-pointer-cast]
+    drivers/staging/octeon/ethernet-tx.c:264:37: warning: cast from pointer=
+ to integer of different size [-Wpointer-to-int-cast]
+    drivers/staging/octeon/ethernet-tx.c:268:37: warning: cast from pointer=
+ to integer of different size [-Wpointer-to-int-cast]
+    drivers/staging/octeon/ethernet-tx.c:276:20: warning: cast from pointer=
+ to integer of different size [-Wpointer-to-int-cast]
+    drivers/staging/octeon/ethernet-tx.c:280:37: warning: cast from pointer=
+ to integer of different size [-Wpointer-to-int-cast]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPORT_SY=
+MBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    warning: same module names found:
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 13 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    kernel/kexec_file.c:189:14: warning: unused variable 'reason' [-Wunused=
+-variable]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    net/rxrpc/rxkad.c:269:9: warning: 'err' may be used uninitialized in th=
+is function [-Wmaybe-uninitialized]
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statement m=
+ay fall through [-Wimplicit-fallthrough=3D]
+    drivers/soundwire/slave.c:16:12: warning: 'sdw_slave_add' defined but n=
+ot used [-Wunused-function]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPORT_SY=
+MBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 54 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/shmem.c:2734:35: warning: variable 'shmem_falloc_waitq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized when us=
+ed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/namei.c:1646:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    fs/namei.c:3136:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    2 warnings generated.
+    kernel/kexec_file.c:189:14: warning: unused variable 'reason' [-Wunused=
+-variable]
+    1 warning generated.
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when used =
+within its own initialization [-Wuninitialized]
+    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when used=
+ within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    fs/ocfs2/dlm/dlmdomain.c:2038:14: warning: variable 'ret' is used unini=
+tialized whenever 'for' loop exits because its condition is false [-Wsometi=
+mes-uninitialized]
+    fs/ocfs2/dlm/dlmdomain.c:1952:9: note: initialize the variable 'ret' to=
+ silence this warning
+    1 warning generated.
+    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/rxrpc/rxkad.c:251:6: warning: variable 'err' is used uninitialized =
+whenever 'if' condition is true [-Wsometimes-uninitialized]
+    net/rxrpc/rxkad.c:228:9: note: initialize the variable 'err' to silence=
+ this warning
+    1 warning generated.
+    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/net/usb/lan78xx.c:2662:34: warning: variable 'unlink_wakeup' is=
+ uninitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/soundwire/slave.c:16:12: warning: unused function 'sdw_slave_ad=
+d' [-Wunused-function]
+    1 warning generated.
+    drivers/scsi/lpfc/lpfc_sli.c:11850:34: warning: variable 'done_q' is un=
+initialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/scsi/lpfc/lpfc_scsi.c:4559:34: warning: variable 'waitq' is uni=
+nitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPORT_SY=
+MBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
+n mismatches
+
+Errors:
+    /home/buildslave/workspace/workspace/kernel-build@4/linux/build/../arch=
+/arm/mm/dma-mapping.c:2427: undefined reference to `dma_atomic_pool_init'
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 5 warnings,=
+ 0 section mismatches
+
+Errors:
+    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: error: storage size of =
+'pip_sft_rst' isn't known
+    arch/mips/include/asm/octeon/cvmx-ipd.h:331:36: error: 'CVMX_PIP_SFT_RS=
+T' undeclared (first use in this function); did you mean 'CVMX_CIU_SOFT_RST=
+'?
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    arch/mips/include/asm/octeon/cvmx-sli-defs.h:47:6: warning: this statem=
+ent may fall through [-Wimplicit-fallthrough=3D]
+    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: warning: unused variabl=
+e 'pip_sft_rst' [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPORT_SY=
+MBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    drivers/mtd/nand/raw/au1550nd.c:443:57: warning: pointer type mismatch =
+in conditional expression
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
+XPORT_SYMBOL
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section mi=
+smatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section mi=
+smatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 5 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, clang-8) =E2=80=94 PASS, 0 erro=
+rs, 4 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 5 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, clang-8) =E2=80=94 PASS, 0 erro=
+rs, 4 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, clang-8) =E2=80=94 PASS, 0 errors, 4 warnings, =
+0 section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
+PL
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/watchdog/wdt285.c:170:3: warning: this statement may fall throu=
+gh [-Wimplicit-fallthrough=3D]
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    arch/x86/kernel/apic/probe_32.c:146:7: warning: this statement may fall=
+ through [-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 15 warning=
+s, 0 section mismatches
+
+Warnings:
+    arch/x86/kernel/apic/probe_32.c:146:7: warning: this statement may fall=
+ through [-Wimplicit-fallthrough=3D]
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:1003:47: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1051:8: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1057:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1065:9: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1083:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1200:50: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1216:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+iop13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop33x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 10 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 2 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    /home/buildslave/workspace/workspace/kernel-build@2/linux/build/../arch=
+/arm/mm/dma-mapping.c:2427: undefined reference to `dma_atomic_pool_init'
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ks8695_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/usb/gadget/udc/lpc32xx_udc.c:2231:3: warning: this statement ma=
+y fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    {standard input}:134: Warning: macro instruction expanded into multiple=
+ instructions
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, =
+0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 10 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statement m=
+ay fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 10 warnings, 0 section mismatches
+
+Warnings:
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statement m=
+ay fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 FAIL, 1 error, 5 warnings, 0 section mismatches
+
+Errors:
+    dma-mapping.c:(.init.text+0x18): undefined reference to `dma_atomic_poo=
+l_init'
+
+Warnings:
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 10=
+ warnings, 0 section mismatches
+
+Warnings:
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statement m=
+ay fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 16 warn=
+ings, 0 section mismatches
+
+Warnings:
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:1003:47: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1051:8: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1057:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1065:9: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1083:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1200:50: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1216:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statement m=
+ay fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 13 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 14 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:1003:47: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1051:8: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1057:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1065:9: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1083:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1200:50: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1216:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+nsim_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsim_hs_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 13 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:1003:47: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1051:8: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1057:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1065:9: warning: cast from pointer to integer o=
+f different size [-Wpointer-to-int-cast]
+    fs/btrfs/tree-checker.c:1083:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    fs/btrfs/tree-checker.c:1200:50: warning: format '%lu' expects argument=
+ of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wfor=
+mat=3D]
+    fs/btrfs/tree-checker.c:1216:10: warning: cast to pointer from integer =
+of different size [-Wint-to-pointer-cast]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+nsim_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nuc910_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    arch/arm/mach-w90x900/dev.c:38:10: fatal error: linux/platform_data/key=
+pad-w90p910.h: No such file or directory
+
+---------------------------------------------------------------------------=
+-----
+nuc950_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    arch/arm/mach-w90x900/dev.c:38:10: fatal error: linux/platform_data/key=
+pad-w90p910.h: No such file or directory
+
+---------------------------------------------------------------------------=
+-----
+nuc960_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    arch/arm/mach-w90x900/dev.c:38:10: fatal error: linux/platform_data/key=
+pad-w90p910.h: No such file or directory
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    net/rxrpc/rxkad.c:269:9: warning: 'err' may be used uninitialized in th=
+is function [-Wmaybe-uninitialized]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [drivers/ata/libahci] is a static EXPORT_SY=
+MBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    arch/arm/mach-rpc/riscpc.c:48:13: warning: this statement may fall thro=
+ugh [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/acornfb.c:860:9: warning: this statement may fall t=
+hrough [-Wimplicit-fallthrough=3D]
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, =
+0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:2086:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+    drivers/video/fbdev/sh_mobile_lcdcfb.c:1596:22: warning: this statement=
+ may fall through [-Wimplicit-fallthrough=3D]
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/mtd/maps/sa1100-flash.c:82:3: warning: this statement may fall =
+through [-Wimplicit-fallthrough=3D]
+    printk(KERN_WARNING "SA1100 flash: unknown base address "
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/gpu/drm/sun4i/sun4i_tcon.c:318:7: warning: this statement may f=
+all through [-Wimplicit-fallthrough=3D]
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:993:6: warning: this statement m=
+ay fall through [-Wimplicit-fallthrough=3D]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/printk.h:309:2: warning: this statement may fall through =
+[-Wimplicit-fallthrough=3D]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1175:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/compiler.h:328:5: warning: this statement may fall throug=
+h [-Wimplicit-fallthrough=3D]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 6 warn=
+ings, 0 section mismatches
+
+Warnings:
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ahci_em_messages" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "ftrace_set_clr_event" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5d52b4db.1c69fb81.2f7f9.bb9a%40mx.google.com.
