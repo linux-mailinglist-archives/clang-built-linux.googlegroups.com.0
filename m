@@ -1,140 +1,150 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBYVIZHVAKGQE4E5OT5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBO5TZHVAKGQEEXOSF7I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2D0038AF48
-	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 08:10:43 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id r4sf51600027wrt.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 23:10:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565676643; cv=pass;
+Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C2408AFF5
+	for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 08:33:31 +0200 (CEST)
+Received: by mail-wm1-x338.google.com with SMTP id d65sf215393wmd.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 12 Aug 2019 23:33:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565678011; cv=pass;
         d=google.com; s=arc-20160816;
-        b=H5dPVhNBq9z1becUrOts/RkPCrvqpR9pn9N059WMttXbZl6hF+r4ofhRBZgzZk4QLN
-         aN/GiQfATC10uMQXDCthSUsYkc1FdoHOIFcXg0D8Ll/MMboe7Ml21XFYV83Y7klQIzjC
-         e3/IVOlOHCEqj8toLOdKXeHQPtWaOMYOM0BtptnjBiJIOQ7vdnmaE2M6Ly0hPVjjB87g
-         3+CdLvPxIia5f8aRppOlS0lEvOGfyQYv/LELzrZ7B7X8oYhddeexpQtAg3AuDGFF1TL6
-         20sD1lsMEhQ6myXOK66+lBBT2z84DX+X2bpr9rgndSG8GNMSBR/DtTR/XfsZro6IZLfp
-         OiJw==
+        b=yLd0RxMzaJ+gVvF/QBkC7kqXNQpkYIwEZA4fIzqzHQnLJlEXuxD17ua40xroP6dJj2
+         AtFUYPwLTnP+2wTP/yhb9LKNx3Rdm4faozDX1KnjMiLZfztA++C4CgYE0NsrBP/SWGF2
+         UcLHtCuyiO8cP8cbn/XFdTogzFm2BguJ5qRGjDqK6kmdMVGxeOfCEJ+EELtExfQaYzK0
+         C7zW4weI8Rl3kj5BwT4eaAs5mdPrnB0MNdPAnJlDg/9Zm04UZDzsjVRJ30atyb7SffcV
+         h6cQ69Z2693VJlPSTleok70j2IkKuYQ9ZpAOqQMiSHyBwouJBTQLO3f4YSgh4LtVCuC8
+         znhQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=gGcVTXyMffE1vVWgGCHS+aHIFuSb6gNQKOlwimiolrk=;
-        b=iVo02v7n1HA/CBy6yNCKfa4vivE5qtIxNkWTgnkSO25sXmNuViFhVSIxlKsWNDh+ow
-         G9lEfW0EdWtIK1X/OIT5RonJqA5YSR81jq7hFXf4jeNCIVc3D/auI+VkOFssjk6QWavR
-         607MUv6P+QTh7PU5ETDhpKVH6OSNu+q/NlrFqnondipLRn+aKkuY8ZZbyM0xEMlRs6FP
-         cSU1+4cuJ2L1rvPLnKfgx+1mWGI2X6hedJ6B4k+uubAem5KnfcaDrhBJGRBtaAFmARkp
-         kvlbkC9LKpd+Js7y7qW3ilKfituN6jeJVZAwzgS2ICtY2PGKLoP/yAIMfnEmp4mHyb7W
-         GdRQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=Mq3zpwDdofxHACHhJHsiHTupYLXLlWaScURJzN0+qWk=;
+        b=UESuPAI9tkPHQiD46X5bGJySwt0Pb78VpyqbQowi0X3601OwH2KLj5cgxhHh/LEQgr
+         acVBKWr09Cna+H+fRxlj5Tm/A6pbpht7WHqpzHcWn8K67NOKFMV2Ge6JDXWKDrq6N8Of
+         anwzAegt7Kg0S7Cxx8AXtYd9SG1X7rlWjIpadm5VHoipenDlBnYCaWOObRJ3jENEw9Kt
+         j8+iQL0sz0AxQwHvN+64ifHgOy5jjbhixKXSRqHUD82OyQ8JvmsGz83jgFsV+vndqJTn
+         v8471GXjMICnjCk1VwhZ0ZVc4wOq2uv8DGSxb4GfgbZWHo1lHExapZ8tsLebegYjmq5J
+         X7Zg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=EFNBrpf4;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qpq6Ugps;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=gGcVTXyMffE1vVWgGCHS+aHIFuSb6gNQKOlwimiolrk=;
-        b=OmflIDhA0B2cD9SbRCdLZlEk139/F0jt7YoLHAKEqNopufBYZ6FUxfkIrmQyFgQZrY
-         HzNlsHjUWrpVeTjV81uIhy9DWTqxMwUAblJ8j+PAtVlh4V7CB7GgHRldVo3f0AjGqQPX
-         fkLkXOIq91h4rWsMaJH/IY5SYIprYj7JLmMrsv9kuH/2GCTDoVIKjhZm4FOovPZcdKj3
-         9Ip3CdP2GaGgqwmwBlNmHeH9bl8XQiV478PgbKAFFEl8c90UhrE13MVGHu26mgTUfDrK
-         c2Y0ce39YItQMHleeNqLLtxZoZ/8TAU76x9E3uGxFoa0sSJ4vG8HNz5xcsRfuSe1Zc7d
-         zPZQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gGcVTXyMffE1vVWgGCHS+aHIFuSb6gNQKOlwimiolrk=;
-        b=i60ikIOS7SqKeqGjaudSxQGWb5pqI4jZ4M6kSpmjAZZQAzxhM3oj0VKUa1+l2yeCi3
-         8A1R/0mFBgHSu5eZnwKcLXEfhfBufigaH7BfSjldabT1SzfU0nPGjO1jSvce+5TfnJZ+
-         eNvYjIcI/6cCvYoOhzOC0f+4iAQbCXqz3hjx4w/BVpotYyW+ezycXbubjD9pbEnwcROD
-         SnAnx530G9RYTMFEA5kKVD6oYAiHgTO7nwz+iLSyk7SdH1yLiepGpf6UagpeAIUVXcFq
-         HhUw8eVKfUC8XTa1ATu47WOMn5GETrp5XkXz+t9kAY5dli7Xm3RcMEPVAdqs3wEj7K0C
-         7BSQ==
+        bh=Mq3zpwDdofxHACHhJHsiHTupYLXLlWaScURJzN0+qWk=;
+        b=Hzex/5bSvXEXZMQ9gVfTslaoUZG7PkJdJg98tbuAlz9JKp3ist9b23YAdNj8LKgwar
+         oHOEb1/Fh2p5/2BSGjVgkuyhlqhAHOomk1SKbs3pNgMH08AWFVDVjL2wuoa61apK0Gg+
+         BumSzekromg3q7HRG088aoMDn1dCz1uaC6SSRkAqyjGTVI43C29lXsfZr+6pVVscPa79
+         WRQxrzi6UdMZRJ3phoXZ59RpSqiFTCkg3COZHBLy4w1Cazq+5qrPaYhAo1brcRSABDLY
+         2cpWyuua+ybP18jtyViBApcLMfEjojEcpEKJ2iC7asFHPU+HWO6bQKCI1oNhhhoeT6tY
+         N9wA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Mq3zpwDdofxHACHhJHsiHTupYLXLlWaScURJzN0+qWk=;
+        b=Gp1kis3Pe3KHpToeYPXjeeuNaYCxZDIiKVgb0f4GSvOQVTdg0dtI97Ze203oPbTEfC
+         iwgj7mNhkrtIqW2DGSyp8Ux7DL0OKvllPeuCqIL3on7qp4JcxMKyfcBi5wdYV8WKK8tZ
+         8dubcL6WvWCgh2uICRLj7MYhSknlG5BAUnZHqFryeGZKQ1lk7kCwfizDcY0r1DdmvOIh
+         Wn8ei4Y9odQSz59mfSL45chySlrWuV27JxyqsA0NdEHBX0njdOWshq5WhF6ONu/1MGJa
+         /RyNPu1A43CYKuml1y/yOI1xUQ31+vn/9T1T3QuhMdHpwjGD+xUlCf7y0srkGC2xVNTh
+         Q9AQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gGcVTXyMffE1vVWgGCHS+aHIFuSb6gNQKOlwimiolrk=;
-        b=SgVe460ycw7/Thqn2EktRYEj42MIezkuADZNmXBH3sdsveP2e1MZ0/Z3ERIqds4TGN
-         +xYyTPzRNoGBMp8filtGbL898lVu166xkLxEKiVbbzx40UMZVWyc9TcUs6n0myxTbb1X
-         FDNtYzcC+IntrQfJyTXmIFnTxF513G2OGj3JmEIJDOACxNbZpDmUMfRXsCBfDU/8MYnY
-         FwROAarz1pzx3pUmMhX8U36M6bcrWviSdAf3bxTCOXw8xINzfc0ewyNE7u+LolxmET+e
-         BoBk1BEcI58dYmdcAo3kMNPiYik4mivjXX0S8mIhMzhn2vPeoir/7nEKmEQh3/EXMr/J
-         MC3w==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=Mq3zpwDdofxHACHhJHsiHTupYLXLlWaScURJzN0+qWk=;
+        b=Dj9ekeUQxkPbxPTkvKnwnRwJ/6ipQxJyRTEvd2BATsvQ7MkYupjGeZ8o1JRmOAnxw3
+         31gH3L4aY7Sg047tgtlrC7f97a29Bra3JWLcn6ie1XhFivcW6zzTKHZF1sYLH5Djuk/z
+         1BLrUTGmcxv1YPxGWPyZKaxLOGM+q8wghyjY3+CqRSRap9DW7ulCVGuz+hClJ4qWl/Zi
+         1kUvd4+u45cEXe1sOUQk0I7PcAI1TrhcA1kSbixxTrxQarxEKPWcPLqot4GtpFD29vIQ
+         LjNN69L5kXKLa69aceDcEBH06Y9g9Ol5jLGCv6W9USRHzp+ZKlS3w+KJhM6Ym2lW1xhL
+         a7ug==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXcWC4Yd2OYUvmMmhZxaf/IMJIRDTP3vzw89feD5QzGRlUrVLFt
-	qpm7qM6x0CO6MUkSLcYzXKg=
-X-Google-Smtp-Source: APXvYqxVQT7mLa9tY2BKooezpqnOwxbWY/StqntSSZCTOBrc15W/GSW9s2AAPJ17BWk22RxROqy9wg==
-X-Received: by 2002:a7b:ca54:: with SMTP id m20mr1083999wml.102.1565676642929;
-        Mon, 12 Aug 2019 23:10:42 -0700 (PDT)
+X-Gm-Message-State: APjAAAXn6TxQ0MymRR667jXIIbPOankUeZAThWeadcE35C6BenccJRjT
+	jXzjM7CDFGl420cEZCwAfsw=
+X-Google-Smtp-Source: APXvYqy/AbUHJBSc/aShcaMzQuCZw5eda9UWUDez0AuYBT+yPxoaoMmsQIB+cJGSzXCHmskw9vTibw==
+X-Received: by 2002:a05:6000:128d:: with SMTP id f13mr9439142wrx.241.1565678011101;
+        Mon, 12 Aug 2019 23:33:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:4aca:: with SMTP id y10ls2825954wrs.10.gmail; Mon, 12
- Aug 2019 23:10:42 -0700 (PDT)
-X-Received: by 2002:adf:dd88:: with SMTP id x8mr36274836wrl.331.1565676642383;
-        Mon, 12 Aug 2019 23:10:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565676642; cv=none;
+Received: by 2002:adf:ec43:: with SMTP id w3ls4084412wrn.14.gmail; Mon, 12 Aug
+ 2019 23:33:30 -0700 (PDT)
+X-Received: by 2002:a05:6000:128d:: with SMTP id f13mr9439109wrx.241.1565678010702;
+        Mon, 12 Aug 2019 23:33:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565678010; cv=none;
         d=google.com; s=arc-20160816;
-        b=xzHqXDVrSQuCFz9CMkqnsFlpA4KptVKh3WnEkGPvejTrVpPAlSsi7uafx7Q5twzZOM
-         Ff1NgC8jA5Yt62m1S1oTL14dBlF6tCqF3qPhL/BiA4ZK03pGaP8RacN6LUVqFVwlM+JV
-         e/UGPEQeEKV6QZ6N8TekbR0GZSWjlPmA0zhe3JbYM3i2oKf7Y0p/h0ISPxLujenQnE+w
-         YsOxKvynpQlLGmfZdiN/n2un30d5rHBOOufGQkruK/SjPHEYEhc3jDgM5pUGnpVsyPrL
-         aKn1/GMGQseylsgI/4z8edYfO8M8POUCGrnwFrk0qe/NDJrE6ddbt2pTkva+lg8iM2xN
-         uvUQ==
+        b=0MRQYeeQT3ZZ83VigTC9OgvgEnmVWKK0wqwOKVJtELRAj2poOx1IM219nudIjKO5Il
+         CCXvzQxuK9KFt1S7ERoh96e8v3e0vTKUmZ6AKNWASO1PhAh5NnOA+MMvQrw/KtamaRHs
+         ykv1hORns1+Kc5LyZ0OcCE3COpV9P6gjAmu7f3R1/yglarMlnfpJGfkfRWJ8CFubbsIB
+         SZFqJY7Bcy4WjhCqGzq0Og941sSBu3GBclQXkjZ8CXxRqWxEOrzZcKqEJcDosqUdn8Ld
+         TsfUrd+7y8Bjbjk6vTmQcs3Lel0xVvm1s4pGLaIRzjOqexpn0IMFm8WzisFh37aWb9TH
+         iVtg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=kBSt0AC9Wj3a2Ydwo1maYp10w7mbRorMD87B4HpPB2I=;
-        b=eTBJj6NNCizHpc1C9NpOT0v/3TwONqHMW2Z2ofR4RRylTqThv2FtttUAIMroJtdXw4
-         PoXVFRHAZZ059Rg92LZoitjM37/R84j8j+8wzY8AdM7VFjtMWLaUaxZseeD7X+DRmW8W
-         VKncnnchGrAG8sIxKLBvPl0Fm+yH2F4x7ru5XKU5+ihtlvdNOtYaJ3BWW6+CqaAXEFPH
-         6cPm+M4z+0lBgofX+30DhVtvHaQh6tKDpRakkzsAcyiOcDXOvquiQb5ALBBRYaML+jWk
-         rKpItsu3eXJB39KBHPsc4cGaM4lwiHfXfaG7nGAiL9oRghKKOLldFaXhfYgZJx4/cL8a
-         SYbQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=VVsvYDt3mj7dX8a/EvxPE6boAbpFyIkBqrJQ4zdNVaA=;
+        b=srn21p3Rkf6NcQDmPKZ9cmMda6a0FRqXF5cr8bENiIIyGTIGu5+/ySdYL5/vDYmJf+
+         CjRSfUMggsy/ajMOU8ZzRP4bk+xYJLTzLIkC0zsYGXHEu9xLVlM4b3sKrzrJ3b9VLhLv
+         9xjuSjLhvmswUSP28DFVJHjN7GXQoZxWAxp/fYW1il/4Jvxb5mJCGkiKXGO6BE9Sz6bu
+         YCuSpz9V/sJXVtK1E25z6RBdF9cPXkIZ1kb19j0j71seZxU1VEYb3KGRYZUeAXwLADxU
+         pvLGSAL91fLXkwsBmosDItqBV63jdqKL4cuG7rFcc+cdomgnNZUEOsRSz4rOgpzYDJpC
+         6TbA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=EFNBrpf4;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qpq6Ugps;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id g7si31853wmk.0.2019.08.12.23.10.42
+Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id p67si16386wme.2.2019.08.12.23.33.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
-        Mon, 12 Aug 2019 23:10:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
-Received: by mail-wr1-x443.google.com with SMTP id t16so16492237wra.6
-        for <clang-built-linux@googlegroups.com>; Mon, 12 Aug 2019 23:10:42 -0700 (PDT)
-X-Received: by 2002:a5d:424d:: with SMTP id s13mr25409745wrr.178.1565676641744;
-        Mon, 12 Aug 2019 23:10:41 -0700 (PDT)
-Received: from localhost.localdomain ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id c1sm416096wmc.40.2019.08.12.23.10.40
+        Mon, 12 Aug 2019 23:33:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
+Received: by mail-wr1-x442.google.com with SMTP id q12so16386368wrj.12
+        for <clang-built-linux@googlegroups.com>; Mon, 12 Aug 2019 23:33:30 -0700 (PDT)
+X-Received: by 2002:adf:f18c:: with SMTP id h12mr17703846wro.47.1565678010135;
+        Mon, 12 Aug 2019 23:33:30 -0700 (PDT)
+Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
+        by smtp.gmail.com with ESMTPSA id o20sm269315559wrh.8.2019.08.12.23.33.28
         (version=TLS1_3 cipher=AEAD-AES256-GCM-SHA384 bits=256/256);
-        Mon, 12 Aug 2019 23:10:41 -0700 (PDT)
+        Mon, 12 Aug 2019 23:33:29 -0700 (PDT)
+Date: Mon, 12 Aug 2019 23:33:27 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Sanyog Kale <sanyog.r.kale@intel.com>,
-	Pierre-Louis Bossart <pierre-louis.bossart@linux.intel.com>
-Cc: alsa-devel@alsa-project.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH] soundwire: Don't build sound.o without CONFIG_ACPI
-Date: Mon, 12 Aug 2019 23:10:14 -0700
-Message-Id: <20190813061014.45015-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.23.0.rc2
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Joe Perches <joe@perches.com>, Nathan Huckleberry <nhuck@google.com>,
+	Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Subject: Re: [PATCH v2] kbuild: Change fallthrough comments to attributes
+Message-ID: <20190813063327.GA46858@archlinux-threadripper>
+References: <20190812214711.83710-1-nhuck@google.com>
+ <20190812221416.139678-1-nhuck@google.com>
+ <814c1b19141022946d3e0f7e24d69658d7a512e4.camel@perches.com>
+ <CAKwvOdnpXqoQDmHVRCh0qX=Yh-8UpEWJ0C3S=syn1KN8rB3OGQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnpXqoQDmHVRCh0qX=Yh-8UpEWJ0C3S=syn1KN8rB3OGQ@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=EFNBrpf4;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=Qpq6Ugps;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,79 +157,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-clang warns when CONFIG_ACPI is unset:
+On Mon, Aug 12, 2019 at 04:11:26PM -0700, Nick Desaulniers wrote:
+> Correct, Nathan is currently implementing support for attribute
+> fallthrough in Clang in:
+> https://reviews.llvm.org/D64838
+> 
+> I asked him in person to evaluate how many warnings we'd see in an
+> arm64 defconfig with his patch applied.  There were on the order of
+> 50k warnings, mostly from these headers.  I asked him to send these
+> patches, then land support in the compiler, that way should our CI
+> catch fire overnight, we can carry out of tree fixes until they land.
+> With the changes here to Makefile.extrawarn, we should not need to
+> carry any out of tree patches.
 
-../drivers/soundwire/slave.c:16:12: warning: unused function
-'sdw_slave_add' [-Wunused-function]
-static int sdw_slave_add(struct sdw_bus *bus,
-           ^
-1 warning generated.
+I think that if we are modifying this callsite to be favorable to clang,
+we should consider a straight revert of commit bfd77145f35c ("Makefile:
+Convert -Wimplicit-fallthrough=3 to just -Wimplicit-fallthrough for
+clang"). It would save us a change in scripts/Makefile.extrawarn and
+tying testing of this warning to W=1 will make the build noisy from
+all of the other warnings that we don't care about plus we will need to
+revert that change once we have finished the conversion process anyways.
+I think it is cleaner to just pass KCFLAGS=-Wimplicit-fallthrough to
+make when testing so that just that additional warning appears but
+that is obviously subjective.
 
-Before commit 8676b3ca4673 ("soundwire: fix regmap dependencies and
-align with other serial links"), this code would only be compiled when
-ACPI was set because it was only selected by SOUNDWIRE_INTEL, which
-depends on ACPI.
+> > You might consider trying out the scripted conversion tool
+> > attached to this email:
+> >
+> > https://lore.kernel.org/lkml/61ddbb86d5e68a15e24ccb06d9b399bbf5ce2da7.camel@perches.com/
 
-Now, this code can be compiled without CONFIG_ACPI, which causes the
-above warning. The IS_ENABLED(CONFIG_ACPI) guard could be moved to avoid
-compiling the function; however, slave.c only contains three functions,
-two of which are static. Only compile slave.o when CONFIG_ACPI is set,
-where it will actually be used. bus.h contains a stub for
-sdw_acpi_find_slaves so there will be no issues with an undefined
-function.
+I gave the script a go earlier today and it does a reasonable job at
+convering the comments to the fallthrough keyword. Here is a list of
+the warnings I still see in an x86 allyesconfig build with D64838 on
+next-20190812:
 
-This has been build tested with CONFIG_ACPI set and unset in combination
-with CONFIG_SOUNDWIRE unset, built in, and a module.
+https://gist.github.com/ffbd71b48ba197837e1bdd9bb863b85f
 
-Fixes: 8676b3ca4673 ("soundwire: fix regmap dependencies and align with other serial links")
-Link: https://github.com/ClangBuiltLinux/linux/issues/637
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
- drivers/soundwire/Makefile | 6 +++++-
- drivers/soundwire/slave.c  | 3 ---
- 2 files changed, 5 insertions(+), 4 deletions(-)
+I have gone through about 20-30 of them and while there are a few missed
+conversion spots (which is obviously fine for a treewide conversion),
+the majority of them come from a disagreement between GCC and Clang on
+emitting a warning when falling through to a case statement that is
+either the last one and empty or simply breaks..
 
-diff --git a/drivers/soundwire/Makefile b/drivers/soundwire/Makefile
-index 45b7e5001653..226090902716 100644
---- a/drivers/soundwire/Makefile
-+++ b/drivers/soundwire/Makefile
-@@ -4,9 +4,13 @@
- #
- 
- #Bus Objs
--soundwire-bus-objs := bus_type.o bus.o slave.o mipi_disco.o stream.o
-+soundwire-bus-objs := bus_type.o bus.o mipi_disco.o stream.o
- obj-$(CONFIG_SOUNDWIRE) += soundwire-bus.o
- 
-+ifdef CONFIG_ACPI
-+soundwire-bus-objs += slave.o
-+endif
-+
- #Cadence Objs
- soundwire-cadence-objs := cadence_master.o
- obj-$(CONFIG_SOUNDWIRE_CADENCE) += soundwire-cadence.o
-diff --git a/drivers/soundwire/slave.c b/drivers/soundwire/slave.c
-index f39a5815e25d..0dc188e6873b 100644
---- a/drivers/soundwire/slave.c
-+++ b/drivers/soundwire/slave.c
-@@ -60,7 +60,6 @@ static int sdw_slave_add(struct sdw_bus *bus,
- 	return ret;
- }
- 
--#if IS_ENABLED(CONFIG_ACPI)
- /*
-  * sdw_acpi_find_slaves() - Find Slave devices in Master ACPI node
-  * @bus: SDW bus instance
-@@ -110,5 +109,3 @@ int sdw_acpi_find_slaves(struct sdw_bus *bus)
- 
- 	return 0;
- }
--
--#endif
--- 
-2.23.0.rc2
+Example: https://godbolt.org/z/xgkvIh
+
+I have more information on our issue tracker if anyone else wants to
+take a look: https://github.com/ClangBuiltLinux/linux/issues/636
+
+I personally think that GCC is right and Clang should adapt but I don't
+know enough about the Clang codebase to know how feasible this is. I
+just know there will be even more churn than necessary if we have to
+annotate all of those places, taking the conversion process from maybe a
+release cycle to several.
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190813061014.45015-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190813063327.GA46858%40archlinux-threadripper.
