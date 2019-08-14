@@ -1,124 +1,125 @@
-Return-Path: <clang-built-linux+bncBDX4HWEMTEBRBP5D2DVAKGQED6YAMSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYNJBOFRECBB77G2DVAKGQEC3RQ4JY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3C90C8D563
-	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 15:50:58 +0200 (CEST)
-Received: by mail-vk1-xa38.google.com with SMTP id v63sf171196vkb.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 06:50:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565790656; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B4B98D7C6
+	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 18:14:56 +0200 (CEST)
+Received: by mail-lj1-x23e.google.com with SMTP id q64sf1441683ljq.22
+        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 09:14:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565799295; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XF7zywxK7Nk99Ai7ouH4rThPukz6g54o9lZwyOOlWVt6nF48Tr482lirTB4O5VElNK
-         ucWcLBdu5tLN+90u7ovLtun+24s7Co1U/fLP4e0lElPX19UvgE8bZHMv5fbGsdV++Fdv
-         Wq6Ksbfb/UXYbUNR/chD3rf1ZFicjnmiW+0v2f/2OLnjv+2Gubwauj49Enx9Sgmma5zb
-         Tto0EmnxdnZKN2iORTbHm9Qc73SSoZtNoYbzRxAuWRWsf+8FRETU6VXQ0n6TQ2j4z10n
-         Zsshd4FwTH3g0tKzOJ97h+3WY8LsqlVJEcQm7oR1QuHnjyRy3u8hrhIn6mkYbky38mMO
-         j15w==
+        b=WgzRlvQq4jZ2yZfgp7lSInVhlYIi/eYWnO99QlRoBqVqP2Lrqqx/Ikl0/mW54hD6lM
+         gxqr92heUSk0y8Qq18JLMwZjnQgJCRw7Hc5W6yto3GgKA/E/PkAQK15S9J6wn2keD2EV
+         I2SVDdy0FDAV58ff+TrwvQj+LuYoJlFes6sKHj8q/KZViXiGdWHVme47z/lRlMnJaOkI
+         6rIl9Ljk7lymv45Ue+1gl9K3Hw18bDktuqgLhW5gAK/ovCDTjpWxIKXOCkXJkD3DmIWQ
+         8u5kckWjGlmM2TaNQJrtAPEo70aQg9oJWqpdbubZ1N140FGf68mRb4XaZtRBBs6GUJKj
+         SygQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=Rvf/wS8D1ky+/PvwROFvG5qZzewbwcpZyntdG3wP0ok=;
-        b=TU4WopkrSzoxc9KDUFBeI1DmyT/ZhyIDB/j7No6MlEzwgLTsJ4eSjOI8u9SZIMH4Gn
-         6MNq1GOAMAUucfCzz601vNycx4d5w1GamSccfX9UKwlyNvG4+Zih8RDeofbfQ9FVIRZM
-         1oXCu+8HwEuXQ9m3rO7R7Z15u7gruwlzJnPcy++RJfcg2h562qldh61t2XuQUYKqTXU1
-         MkyCx++Apqi3WnKEfvPM/oj64cJFvSi9kUb1gMR9kkZE2MARrjm2yrsyZ5kMYIRYgEma
-         iOol53G3HaeSkoJCIlvy3gBed9OoPoHL9kJm0iJVUXda6iv/gn923ZJH1k3ZVuBuFf24
-         njTA==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=8QGPRqSptHtbCwuKBeXrFtgcHemE6zE+A017i823Hro=;
+        b=BL8s4OcjQVR4RD+1p6UOSkn79jLqHlQrokvNF+N4V8sU9gfJJe+YgL7RfN4BPuILBT
+         1zK+78Js/nZUykhDernJ4oq9r24jFoshK9hScmMtvsPbKZmLvv0cZeitKQ0KB4tsAqD7
+         p35k/q9Mj+s/apLf/+k7dnTza8tJDsvt2Gjq4XYoYlQ93S16MhZBi15HyHKLnWZ+yp3k
+         9r0Fp6OXiRdYsrrQcRivtijzhEbRbh3uG9/7q3YEC4enu1gQ+upedlFjuSmR9AXktQ32
+         u1HEgxa/o/zeH5MMLG7gB3hFT2OHeIx4kf92gS2ul1l4XJ3nXwAJAh8agXLwzC2y1auN
+         udtQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=EJzVJHQT;
-       spf=pass (google.com: domain of andreyknvl@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=andreyknvl@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@linaro.org header.s=google header.b="hP6kX/FV";
+       spf=pass (google.com: domain of ard.biesheuvel@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ard.biesheuvel@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Rvf/wS8D1ky+/PvwROFvG5qZzewbwcpZyntdG3wP0ok=;
-        b=St8jyFRuSjeLw/7moif/+4Hcu55ljGvJotEMIyghWSQWP71C9/gRMQ6vyenSEe74uc
-         TD0+4AQqz++z0kKbFxZCs6Oox4uisdnuP2h2ndzl4Bv2fbdYW+ddhbOacN5fqhg6D8cY
-         NpZXSie9mc+QEpYkcL+wWC4mAgQ9YZTfsStXK+//2Fwpn+Vd6FynKbT9uCzd9fHF75ev
-         ys/4UtWkB4rg/76w5F2eiHIezQEOVniMzwpQ1RR8QAddqHxOFaBR1Kf7nQNgBlDw/4wF
-         f3I1nX1K6U81E9EWx9t9xXHLzGkXQZAQoUulT5uHXnekpCA1KkpOsX0IdfQ/KhGeQlpj
-         sDGw==
+        bh=8QGPRqSptHtbCwuKBeXrFtgcHemE6zE+A017i823Hro=;
+        b=mHPdxKaVKkbFaARIsn0b4Dtj+IDT68MP98l1+7ZpG40FCUjQ/Yr9+beL9uMBcTu+cX
+         1hLoBog+0YVpTRbS0dfsLtHidpVp5Te0d59c7JRrWob4JTqdHHn1vQsCVyC9mgfgSrUz
+         +Hu/YevTjCwtRUSkoRwgzfi9zw16j8naKJkjKEBG8fv4ynIeZajbHyoANcGHs+8i6XfK
+         0PMZtlQCVX1n+2yJ3DSpkBOC0G2n0xR39nKgVgm+atVUo2RQHjXeH8NIYFnMokJnltW9
+         yZ5hvD3iKdy4jZ4I2RF3aRqPN328ldatoPJkp0B5ao/f2eQuKeUJUeiGJs5po4aqH7HT
+         DgEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Rvf/wS8D1ky+/PvwROFvG5qZzewbwcpZyntdG3wP0ok=;
-        b=SSX7iO5Ahm7P1omn80KbL2ijCxp83SRrPYHhS6XAR+ATkK/ZCtXV7asdGdLh2Sw//H
-         nkn+Zvpza4KtTaiZpIGj9ftFqIiqww1BkAucDGCvWdzz/bq4SqGnU5pVZr1QewhP7m1M
-         Tl/v1gpKxp5xO2UMvv1fpLV8NAHgB4rk0NwHtjhJNw5gm5Nr2x+rTnrbjN8R6ZGdirmS
-         7O7o6ZrCrYRhQj2s+UY56Wq2ge7PbfKw/6hAVy1UKGvhBGKYTUBBr9nrKuYS7OYSngLe
-         6Mq6ZGrd10asRUyPQTrIyy3qWLsKkx1pW8vUqVFakNGAwQZf+L77h3nQarrbYp6lub7/
-         zePQ==
-X-Gm-Message-State: APjAAAXW2Uf84v2AI8UOXa+nBXTPe2uh7U3U4LRe7wMVBe1wlf/31y/f
-	8zV1iQxhXnmruRWGFtb4zwk=
-X-Google-Smtp-Source: APXvYqwT46+cwXSFai5zy8K0WzH/zF2aKQnzDD1OS9GUmy8OvBD3JkrkUCWqiqqilash+3lG5lK5UQ==
-X-Received: by 2002:ab0:c16:: with SMTP id a22mr1740198uak.73.1565790655949;
-        Wed, 14 Aug 2019 06:50:55 -0700 (PDT)
+        bh=8QGPRqSptHtbCwuKBeXrFtgcHemE6zE+A017i823Hro=;
+        b=HhK7jw+2PeP1kqTiWzp4mX/Gtuak12y1FhDyWu4NwtNa8Ws93JqdqxlxbZbauf2Uua
+         jxWttIHWB+ZadlRfjoeOzQuGcwW2lYanNWzXdqfN8bD8baBmJORq8XTvicpleRMQg3lE
+         lxseRA+OdUHYRkBo0lrnYPEpNaf9PsqY8WGeb0oT6r6zNJB/E7NWM5MTyvVw4IM177Dl
+         2GpcBOU7A6rIt3KSWNclZhYw22Ft1xsiqxDbKCzp178oADQ0fHMGhxyEU4Fv2CfzA/U8
+         GaqV03VK7NwnmVarDG42p/pRqbeBLOk60vmlYNzUDPtrqD6IvU5RT8GjpGWs6Z7jCIDV
+         ocLg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAV+mKUFCjr+GCccY3u4PvjonLw4MaSuvvIsX34ZlO6pM7zaj01M
+	chtWAlFBQKffq9A9qfU0sPQ=
+X-Google-Smtp-Source: APXvYqzaEOr4aN16fWeGmzl9b8PqfIH6KTZHCV0PywycPClhQIfAGIjZd0ZnK6TqkkMN8DnUBV8fcQ==
+X-Received: by 2002:a2e:70a:: with SMTP id 10mr291834ljh.3.1565799295751;
+        Wed, 14 Aug 2019 09:14:55 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:c4c1:: with SMTP id u184ls62569vkf.14.gmail; Wed, 14 Aug
- 2019 06:50:55 -0700 (PDT)
-X-Received: by 2002:a1f:d846:: with SMTP id p67mr11784872vkg.73.1565790655109;
-        Wed, 14 Aug 2019 06:50:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565790655; cv=none;
+Received: by 2002:a05:651c:157:: with SMTP id c23ls325899ljd.8.gmail; Wed, 14
+ Aug 2019 09:14:55 -0700 (PDT)
+X-Received: by 2002:a2e:98c9:: with SMTP id s9mr314025ljj.176.1565799295264;
+        Wed, 14 Aug 2019 09:14:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565799295; cv=none;
         d=google.com; s=arc-20160816;
-        b=DeqbjBbWWVjFpXhexuZyrtdKbXpbintOwFQtL2MNJH/6CEznzaAnTyK72rD7VtYPZg
-         pVhav1xKyttMF0Xf6Yq54WtIQjZloU4ZMREWG1lrPcbzZJqnnayNXDVfTbEam1gbwjXj
-         bwSu7+UBUEmLQLiZ42m1BkULGXVcoVkR+cB1jRkASV+RjoKM8g6v5w9Ag4O/t246v12T
-         M8g/1Nwrhoaj6QmWmqdmKd8TtWJaUCfY11VxtsbD+hWD5sfcXJcvTvXLpivedQDuPnDT
-         s6RpjdFnvQLTzzBqO3T5rzpBAx0OXIKXF7lpXpmTECe4FD2rvxbSO3Z8Yh64oNhX7JGF
-         ++bw==
+        b=trRSjSnzBngBtAwr6JU0yQ2fLeuQBITVu4WrjZyps0cE2iLq6BZxIKEfUjH+xsLILW
+         PWErQhAIlFrdsak/7S6L95qh5kYcUChyAioqFRR1nKHJ31Kl32sKUcRAF+v4cxV5eQ+R
+         y5lnp4ZKrwAkQtffWv/veUGRcgDBqV9+9nyEBCU0pfXjS+71u7zoFI741PAybZTN/JCz
+         iaQPAuu0PhkjMgSBF8CrCPBNVl71DairPcXzGOewS5kteEG+PPNmo0oG9ozNcPpjRKzJ
+         n1kgt87PEOUdTGEy6cY3HumR5vIJ4ek2MQe0uop61B1KcQh/MvFYRFlU01Iyl+KEDcFJ
+         et9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=EMmulc8SxwF3U16hQ2/STe0ftcasLODptw9jeJcigmU=;
-        b=qeCT5ou7+C5KfsbDgPt9fa6PUmiyBqE8/9xki7FO9RGmLPCMoLzgqXVUjJvpWrJvRj
-         lIPnwBqVfQkyO2WjHgvOZsGMAXdJD0lxzBgKXZ472XZFc05suNhyY/yM2hwgtRuFHSMQ
-         GR3mref7nkwOrXec9FFArcA/QzlXb5Vr5YvcNaIOTvi2ShguDZx4UH/i9VDgsC4CDI6V
-         YNeHPYhFh0sFWctWItB4SK2yn5DBPCjtU4RzriomOWbLscynDJ/fKVRcrnq9oX2eM+YY
-         MEWRU1iwjrNQjFioHVY4dIN+s6ZdRcBbwa+g/ybUIUdxUp9CT6lra9s3OgkkXzEIlOau
-         1OlA==
+        bh=g2Vb9pRuewyB7X8dmpxJboh/540awqzNX/YAPeizCG8=;
+        b=SGuKt3l7lGrInQDMvn15KF/uwy6/1+9Jn+dycGJLpnDOxJRRwdS7YX39GbuLgWPfOp
+         eIBCgDkmkPvzzZ7Nan2SrXwAvD0qAmGgUrc9lfkNqv/AE1VBkJWyd4eGcATscij/RSlH
+         BhdHX6EWHdW9o9Rnr2f39AmXnXnyhoekL47achFL64GK2N98UmvoB2YalULex6BWiCBf
+         qeRPW1G3I3aUweaO0wjZ8jwTd0Z9Y7Hpsykpo2embRgRygFX9/flLwtr9VHacR0rwGnM
+         j32qfRu3elQiZdtKrNAEBqYKxcSEVYxb8H9tA8DclVK7JOJ3WZQc0rUzRIWEnIjiW9jE
+         kmAw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=EJzVJHQT;
-       spf=pass (google.com: domain of andreyknvl@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=andreyknvl@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id u189si7491547vkb.2.2019.08.14.06.50.55
+       dkim=pass header.i=@linaro.org header.s=google header.b="hP6kX/FV";
+       spf=pass (google.com: domain of ard.biesheuvel@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ard.biesheuvel@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id q11si17942ljg.2.2019.08.14.09.14.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 14 Aug 2019 06:50:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of andreyknvl@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id g2so53622102pfq.0
-        for <clang-built-linux@googlegroups.com>; Wed, 14 Aug 2019 06:50:55 -0700 (PDT)
-X-Received: by 2002:a63:3006:: with SMTP id w6mr39442587pgw.440.1565790653655;
- Wed, 14 Aug 2019 06:50:53 -0700 (PDT)
+        (version=TLS1_3 cipher=AEAD-AES128-GCM-SHA256 bits=128/128);
+        Wed, 14 Aug 2019 09:14:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ard.biesheuvel@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
+Received: by mail-wr1-x444.google.com with SMTP id q12so21364865wrj.12
+        for <clang-built-linux@googlegroups.com>; Wed, 14 Aug 2019 09:14:55 -0700 (PDT)
+X-Received: by 2002:adf:eb52:: with SMTP id u18mr519212wrn.174.1565799294784;
+ Wed, 14 Aug 2019 09:14:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <201908140530.i8rXFzLC%lkp@intel.com> <CAKwvOdkCKhCHjteLwDZMon1zo+DAn=M2PGGsrpvs6e=jgXV4=g@mail.gmail.com>
- <CAL=UVf7GjkROhqHymay_QCE_8oR9JpB_OtG6_PF6ePqgNXeArw@mail.gmail.com>
-In-Reply-To: <CAL=UVf7GjkROhqHymay_QCE_8oR9JpB_OtG6_PF6ePqgNXeArw@mail.gmail.com>
-From: "'Andrey Konovalov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 14 Aug 2019 15:50:41 +0200
-Message-ID: <CAAeHK+zz5+eKXEafomMHbVVc+a9q6wg-FT9Ufuy2xebn__zPLw@mail.gmail.com>
-Subject: Re: [android-goldfish:b120914098 38/99] kernel/memremap.c:312:2:
- error: implicit declaration of function 'kasan_remove_zero_shadow'
-To: Paul Lawrence <paullawrence@google.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, kbuild@01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>
+References: <201908131602.6E858DEC@keescook>
+In-Reply-To: <201908131602.6E858DEC@keescook>
+From: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+Date: Wed, 14 Aug 2019 19:14:42 +0300
+Message-ID: <CAKv+Gu9fEAG3CqmORyO2X_Uqse09nnXEQiB1kTL-xBqLWsy8Xg@mail.gmail.com>
+Subject: Re: [PATCH] arm64/efi: Move variable assignments after SECTIONS
+To: Kees Cook <keescook@chromium.org>
+Cc: Will Deacon <will@kernel.org>, Nathan Chancellor <natechancellor@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Fangrui Song <maskray@google.com>, 
+	Peter Smith <peter.smith@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: andreyknvl@google.com
+X-Original-Sender: ard.biesheuvel@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=EJzVJHQT;       spf=pass
- (google.com: domain of andreyknvl@google.com designates 2607:f8b0:4864:20::443
- as permitted sender) smtp.mailfrom=andreyknvl@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Andrey Konovalov <andreyknvl@google.com>
-Reply-To: Andrey Konovalov <andreyknvl@google.com>
+ header.i=@linaro.org header.s=google header.b="hP6kX/FV";       spf=pass
+ (google.com: domain of ard.biesheuvel@linaro.org designates
+ 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ard.biesheuvel@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,283 +132,184 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 13, 2019 at 11:27 PM Paul Lawrence <paullawrence@google.com> wrote:
+On Wed, 14 Aug 2019 at 02:04, Kees Cook <keescook@chromium.org> wrote:
 >
-> It wasn't me officer, I was just carrying this for someone else.
+> It seems that LLVM's linker does not correctly handle variable assignments
+> involving section positions that are updated during the SECTIONS
+> parsing. Commit aa69fb62bea1 ("arm64/efi: Mark __efistub_stext_offset as
+> an absolute symbol explicitly") ran into this too, but found a different
+> workaround.
 >
-> See https://android-review.googlesource.com/c/kernel/common/+/989989
+> However, this was not enough, as other variables were also miscalculated
+> which manifested as boot failures under UEFI where __efistub__end was
+> not taking the correct _end value (they should be the same):
 >
-> Note the real culprit is Andrey Konovalov, now cc'd on this thread.
+> $ ld.lld -EL -maarch64elf --no-undefined -X -shared \
+>         -Bsymbolic -z notext -z norelro --no-apply-dynamic-relocs \
+>         -o vmlinux.lld -T poc.lds --whole-archive vmlinux.o && \
+>   readelf -Ws vmlinux.lld | egrep '\b(__efistub_|)_end\b'
+> 368272: ffff000002218000     0 NOTYPE  LOCAL  HIDDEN    38 __efistub__end
+> 368322: ffff000012318000     0 NOTYPE  GLOBAL DEFAULT   38 _end
 >
-> Paul
+> $ aarch64-linux-gnu-ld.bfd -EL -maarch64elf --no-undefined -X -shared \
+>         -Bsymbolic -z notext -z norelro --no-apply-dynamic-relocs \
+>         -o vmlinux.bfd -T poc.lds --whole-archive vmlinux.o && \
+>   readelf -Ws vmlinux.bfd | egrep '\b(__efistub_|)_end\b'
+> 338124: ffff000012318000     0 NOTYPE  LOCAL  DEFAULT  ABS __efistub__end
+> 383812: ffff000012318000     0 NOTYPE  GLOBAL DEFAULT 15325 _end
 >
-> On Tue, Aug 13, 2019 at 2:21 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
->>
->> Here he is officer, guilty as charged. ;)
->>
->> On Tue, Aug 13, 2019 at 2:14 PM kbuild test robot <lkp@intel.com> wrote:
->> >
->> > CC: kbuild-all@01.org
->> > BCC: philip.li@intel.com
->> > TO: Paul Lawrence <paullawrence@google.com>
->> >
->> > tree:   https://android.googlesource.com/kernel/goldfish b120914098
->> > head:   88590f0a97d55a7156cdb09e9d5ecb8d829826e0
->> > commit: 69c0f72d6ca84158e4cd691fe31db5d0170d38b9 [38/99] BACKPORT: kernel/memremap, kasan: make ZONE_DEVICE with work with KASAN
->> > config: x86_64-rhel-7.6 (attached as .config)
+> To work around this, all of the __efistub_-prefixed variable assignments
+> need to be moved after the linker script's SECTIONS entry. As it turns
+> out, this also solves the problem fixed in commit aa69fb62bea1, so those
+> changes are reverted here.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/634
+> Link: https://bugs.llvm.org/show_bug.cgi?id=42990
+> Signed-off-by: Kees Cook <keescook@chromium.org>
 
-Could you forward this attachment as well?
+Although it is slightly disappointing that we need to work around this
+kind of bugs when adding support for a new toolchain, I don't see
+anything wrong with this patch, so
 
->> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
->> > reproduce:
->> >         git checkout 69c0f72d6ca84158e4cd691fe31db5d0170d38b9
->> >         # save the attached .config to linux build tree
->> >         make ARCH=x86_64
->> >
->> > If you fix the issue, kindly add following tag
->> > Reported-by: kbuild test robot <lkp@intel.com>
->> >
->> > All errors (new ones prefixed by >>):
->> >
->> >    In file included from kernel/memremap.c:21:
->> >    include/linux/swapops.h:327:22: warning: section attribute is specified on redeclared variable [-Wsection]
->> >    extern atomic_long_t num_poisoned_pages __read_mostly;
->> >                         ^
->> >    include/linux/mm.h:2551:22: note: previous declaration is here
->> >    extern atomic_long_t num_poisoned_pages;
->> >                         ^
->> > >> kernel/memremap.c:312:2: error: implicit declaration of function 'kasan_remove_zero_shadow' [-Werror,-Wimplicit-function-declaration]
->> >            kasan_remove_zero_shadow(__va(align_start), align_size);
->> >            ^
->> > >> kernel/memremap.c:448:10: error: implicit declaration of function 'kasan_add_zero_shadow' [-Werror,-Wimplicit-function-declaration]
->> >            error = kasan_add_zero_shadow(__va(align_start), align_size);
->> >                    ^
->> >    kernel/memremap.c:481:2: error: implicit declaration of function 'kasan_remove_zero_shadow' [-Werror,-Wimplicit-function-declaration]
->> >            kasan_remove_zero_shadow(__va(align_start), align_size);
->> >            ^
->> >    1 warning and 3 errors generated.
->> >
->> > vim +/kasan_remove_zero_shadow +312 kernel/memremap.c
->> >
->> >    285
->> >    286  #define for_each_device_pfn(pfn, map) \
->> >    287          for (pfn = pfn_first(map); pfn < pfn_end(map); pfn++)
->> >    288
->> >    289  static void devm_memremap_pages_release(struct device *dev, void *data)
->> >    290  {
->> >    291          struct page_map *page_map = data;
->> >    292          struct resource *res = &page_map->res;
->> >    293          resource_size_t align_start, align_size;
->> >    294          struct dev_pagemap *pgmap = &page_map->pgmap;
->> >    295          unsigned long pfn;
->> >    296
->> >    297          for_each_device_pfn(pfn, page_map)
->> >    298                  put_page(pfn_to_page(pfn));
->> >    299
->> >    300          if (percpu_ref_tryget_live(pgmap->ref)) {
->> >    301                  dev_WARN(dev, "%s: page mapping is still live!\n", __func__);
->> >    302                  percpu_ref_put(pgmap->ref);
->> >    303          }
->> >    304
->> >    305          /* pages are dead and unused, undo the arch mapping */
->> >    306          align_start = res->start & ~(SECTION_SIZE - 1);
->> >    307          align_size = ALIGN(res->start + resource_size(res), SECTION_SIZE)
->> >    308                  - align_start;
->> >    309
->> >    310          mem_hotplug_begin();
->> >    311          arch_remove_memory(align_start, align_size);
->> >  > 312          kasan_remove_zero_shadow(__va(align_start), align_size);
->> >    313          mem_hotplug_done();
->> >    314
->> >    315          untrack_pfn(NULL, PHYS_PFN(align_start), align_size);
->> >    316          pgmap_radix_release(res, -1);
->> >    317          dev_WARN_ONCE(dev, pgmap->altmap && pgmap->altmap->alloc,
->> >    318                          "%s: failed to free all reserved pages\n", __func__);
->> >    319  }
->> >    320
->> >    321  /* assumes rcu_read_lock() held at entry */
->> >    322  struct dev_pagemap *find_dev_pagemap(resource_size_t phys)
->> >    323  {
->> >    324          struct page_map *page_map;
->> >    325
->> >    326          WARN_ON_ONCE(!rcu_read_lock_held());
->> >    327
->> >    328          page_map = radix_tree_lookup(&pgmap_radix, PHYS_PFN(phys));
->> >    329          return page_map ? &page_map->pgmap : NULL;
->> >    330  }
->> >    331
->> >    332  /**
->> >    333   * devm_memremap_pages - remap and provide memmap backing for the given resource
->> >    334   * @dev: hosting device for @res
->> >    335   * @res: "host memory" address range
->> >    336   * @ref: a live per-cpu reference count
->> >    337   * @altmap: optional descriptor for allocating the memmap from @res
->> >    338   *
->> >    339   * Notes:
->> >    340   * 1/ @ref must be 'live' on entry and 'dead' before devm_memunmap_pages() time
->> >    341   *    (or devm release event). The expected order of events is that @ref has
->> >    342   *    been through percpu_ref_kill() before devm_memremap_pages_release(). The
->> >    343   *    wait for the completion of all references being dropped and
->> >    344   *    percpu_ref_exit() must occur after devm_memremap_pages_release().
->> >    345   *
->> >    346   * 2/ @res is expected to be a host memory range that could feasibly be
->> >    347   *    treated as a "System RAM" range, i.e. not a device mmio range, but
->> >    348   *    this is not enforced.
->> >    349   */
->> >    350  void *devm_memremap_pages(struct device *dev, struct resource *res,
->> >    351                  struct percpu_ref *ref, struct vmem_altmap *altmap)
->> >    352  {
->> >    353          resource_size_t align_start, align_size, align_end;
->> >    354          unsigned long pfn, pgoff, order;
->> >    355          pgprot_t pgprot = PAGE_KERNEL;
->> >    356          struct dev_pagemap *pgmap;
->> >    357          struct page_map *page_map;
->> >    358          int error, nid, is_ram, i = 0;
->> >    359          struct dev_pagemap *conflict_pgmap;
->> >    360
->> >    361          align_start = res->start & ~(SECTION_SIZE - 1);
->> >    362          align_size = ALIGN(res->start + resource_size(res), SECTION_SIZE)
->> >    363                  - align_start;
->> >    364          align_end = align_start + align_size - 1;
->> >    365
->> >    366          conflict_pgmap = get_dev_pagemap(PHYS_PFN(align_start), NULL);
->> >    367          if (conflict_pgmap) {
->> >    368                  dev_WARN(dev, "Conflicting mapping in same section\n");
->> >    369                  put_dev_pagemap(conflict_pgmap);
->> >    370                  return ERR_PTR(-ENOMEM);
->> >    371          }
->> >    372
->> >    373          conflict_pgmap = get_dev_pagemap(PHYS_PFN(align_end), NULL);
->> >    374          if (conflict_pgmap) {
->> >    375                  dev_WARN(dev, "Conflicting mapping in same section\n");
->> >    376                  put_dev_pagemap(conflict_pgmap);
->> >    377                  return ERR_PTR(-ENOMEM);
->> >    378          }
->> >    379
->> >    380          is_ram = region_intersects(align_start, align_size,
->> >    381                  IORESOURCE_SYSTEM_RAM, IORES_DESC_NONE);
->> >    382
->> >    383          if (is_ram != REGION_DISJOINT) {
->> >    384                  WARN_ONCE(1, "%s attempted on %s region %pr\n", __func__,
->> >    385                                  is_ram == REGION_MIXED ? "mixed" : "ram", res);
->> >    386                  return ERR_PTR(-ENXIO);
->> >    387          }
->> >    388
->> >    389          if (!ref)
->> >    390                  return ERR_PTR(-EINVAL);
->> >    391
->> >    392          page_map = devres_alloc_node(devm_memremap_pages_release,
->> >    393                          sizeof(*page_map), GFP_KERNEL, dev_to_node(dev));
->> >    394          if (!page_map)
->> >    395                  return ERR_PTR(-ENOMEM);
->> >    396          pgmap = &page_map->pgmap;
->> >    397
->> >    398          memcpy(&page_map->res, res, sizeof(*res));
->> >    399
->> >    400          pgmap->dev = dev;
->> >    401          if (altmap) {
->> >    402                  memcpy(&page_map->altmap, altmap, sizeof(*altmap));
->> >    403                  pgmap->altmap = &page_map->altmap;
->> >    404          }
->> >    405          pgmap->ref = ref;
->> >    406          pgmap->res = &page_map->res;
->> >    407          pgmap->type = MEMORY_DEVICE_HOST;
->> >    408          pgmap->page_fault = NULL;
->> >    409          pgmap->page_free = NULL;
->> >    410          pgmap->data = NULL;
->> >    411
->> >    412          mutex_lock(&pgmap_lock);
->> >    413          error = 0;
->> >    414
->> >    415          foreach_order_pgoff(res, order, pgoff) {
->> >    416                  struct dev_pagemap *dup;
->> >    417
->> >    418                  rcu_read_lock();
->> >    419                  dup = find_dev_pagemap(res->start + PFN_PHYS(pgoff));
->> >    420                  rcu_read_unlock();
->> >    421                  if (dup) {
->> >    422                          dev_err(dev, "%s: %pr collides with mapping for %s\n",
->> >    423                                          __func__, res, dev_name(dup->dev));
->> >    424                          error = -EBUSY;
->> >    425                          break;
->> >    426                  }
->> >    427                  error = __radix_tree_insert(&pgmap_radix,
->> >    428                                  PHYS_PFN(res->start) + pgoff, order, page_map);
->> >    429                  if (error) {
->> >    430                          dev_err(dev, "%s: failed: %d\n", __func__, error);
->> >    431                          break;
->> >    432                  }
->> >    433          }
->> >    434          mutex_unlock(&pgmap_lock);
->> >    435          if (error)
->> >    436                  goto err_radix;
->> >    437
->> >    438          nid = dev_to_node(dev);
->> >    439          if (nid < 0)
->> >    440                  nid = numa_mem_id();
->> >    441
->> >    442          error = track_pfn_remap(NULL, &pgprot, PHYS_PFN(align_start), 0,
->> >    443                          align_size);
->> >    444          if (error)
->> >    445                  goto err_pfn_remap;
->> >    446
->> >    447          mem_hotplug_begin();
->> >  > 448          error = kasan_add_zero_shadow(__va(align_start), align_size);
->> >    449          if (error) {
->> >    450                  mem_hotplug_done();
->> >    451                  goto err_kasan;
->> >    452          }
->> >    453          error = arch_add_memory(nid, align_start, align_size, false);
->> >    454          if (!error)
->> >    455                  move_pfn_range_to_zone(&NODE_DATA(nid)->node_zones[ZONE_DEVICE],
->> >    456                                          align_start >> PAGE_SHIFT,
->> >    457                                          align_size >> PAGE_SHIFT);
->> >    458          mem_hotplug_done();
->> >    459          if (error)
->> >    460                  goto err_add_memory;
->> >    461
->> >    462          for_each_device_pfn(pfn, page_map) {
->> >    463                  struct page *page = pfn_to_page(pfn);
->> >    464
->> >    465                  /*
->> >    466                   * ZONE_DEVICE pages union ->lru with a ->pgmap back
->> >    467                   * pointer.  It is a bug if a ZONE_DEVICE page is ever
->> >    468                   * freed or placed on a driver-private list.  Seed the
->> >    469                   * storage with LIST_POISON* values.
->> >    470                   */
->> >    471                  list_del(&page->lru);
->> >    472                  page->pgmap = pgmap;
->> >    473                  percpu_ref_get(ref);
->> >    474                  if (!(++i % 1024))
->> >    475                          cond_resched();
->> >    476          }
->> >    477          devres_add(dev, page_map);
->> >    478          return __va(res->start);
->> >    479
->> >    480   err_add_memory:
->> >    481          kasan_remove_zero_shadow(__va(align_start), align_size);
->> >    482   err_kasan:
->> >    483          untrack_pfn(NULL, PHYS_PFN(align_start), align_size);
->> >    484   err_pfn_remap:
->> >    485   err_radix:
->> >    486          pgmap_radix_release(res, pgoff);
->> >    487          devres_free(page_map);
->> >    488          return ERR_PTR(error);
->> >    489  }
->> >    490  EXPORT_SYMBOL_GPL(devm_memremap_pages);
->> >    491
->> >
->> > ---
->> > 0-DAY kernel test infrastructure                Open Source Technology Center
->> > https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
->>
->>
->>
->> --
->> Thanks,
->> ~Nick Desaulniers
+Acked-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+
+
+> ---
+>  arch/arm64/kernel/image-vars.h  | 51 +++++++++++++++++++++++++++++++++
+>  arch/arm64/kernel/image.h       | 42 ---------------------------
+>  arch/arm64/kernel/vmlinux.lds.S |  2 ++
+>  3 files changed, 53 insertions(+), 42 deletions(-)
+>  create mode 100644 arch/arm64/kernel/image-vars.h
+>
+> diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+> new file mode 100644
+> index 000000000000..25a2a9b479c2
+> --- /dev/null
+> +++ b/arch/arm64/kernel/image-vars.h
+> @@ -0,0 +1,51 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Linker script variables to be set after section resolution, as
+> + * ld.lld does not like variables assigned before SECTIONS is processed.
+> + */
+> +#ifndef __ARM64_KERNEL_IMAGE_VARS_H
+> +#define __ARM64_KERNEL_IMAGE_VARS_H
+> +
+> +#ifndef LINKER_SCRIPT
+> +#error This file should only be included in vmlinux.lds.S
+> +#endif
+> +
+> +#ifdef CONFIG_EFI
+> +
+> +__efistub_stext_offset = stext - _text;
+> +
+> +/*
+> + * The EFI stub has its own symbol namespace prefixed by __efistub_, to
+> + * isolate it from the kernel proper. The following symbols are legally
+> + * accessed by the stub, so provide some aliases to make them accessible.
+> + * Only include data symbols here, or text symbols of functions that are
+> + * guaranteed to be safe when executed at another offset than they were
+> + * linked at. The routines below are all implemented in assembler in a
+> + * position independent manner
+> + */
+> +__efistub_memcmp               = __pi_memcmp;
+> +__efistub_memchr               = __pi_memchr;
+> +__efistub_memcpy               = __pi_memcpy;
+> +__efistub_memmove              = __pi_memmove;
+> +__efistub_memset               = __pi_memset;
+> +__efistub_strlen               = __pi_strlen;
+> +__efistub_strnlen              = __pi_strnlen;
+> +__efistub_strcmp               = __pi_strcmp;
+> +__efistub_strncmp              = __pi_strncmp;
+> +__efistub_strrchr              = __pi_strrchr;
+> +__efistub___flush_dcache_area  = __pi___flush_dcache_area;
+> +
+> +#ifdef CONFIG_KASAN
+> +__efistub___memcpy             = __pi_memcpy;
+> +__efistub___memmove            = __pi_memmove;
+> +__efistub___memset             = __pi_memset;
+> +#endif
+> +
+> +__efistub__text                        = _text;
+> +__efistub__end                 = _end;
+> +__efistub__edata               = _edata;
+> +__efistub_screen_info          = screen_info;
+> +
+> +#endif
+> +
+> +#endif /* __ARM64_KERNEL_IMAGE_VARS_H */
+> diff --git a/arch/arm64/kernel/image.h b/arch/arm64/kernel/image.h
+> index 2b85c0d6fa3d..c7d38c660372 100644
+> --- a/arch/arm64/kernel/image.h
+> +++ b/arch/arm64/kernel/image.h
+> @@ -65,46 +65,4 @@
+>         DEFINE_IMAGE_LE64(_kernel_offset_le, TEXT_OFFSET);      \
+>         DEFINE_IMAGE_LE64(_kernel_flags_le, __HEAD_FLAGS);
+>
+> -#ifdef CONFIG_EFI
+> -
+> -/*
+> - * Use ABSOLUTE() to avoid ld.lld treating this as a relative symbol:
+> - * https://github.com/ClangBuiltLinux/linux/issues/561
+> - */
+> -__efistub_stext_offset = ABSOLUTE(stext - _text);
+> -
+> -/*
+> - * The EFI stub has its own symbol namespace prefixed by __efistub_, to
+> - * isolate it from the kernel proper. The following symbols are legally
+> - * accessed by the stub, so provide some aliases to make them accessible.
+> - * Only include data symbols here, or text symbols of functions that are
+> - * guaranteed to be safe when executed at another offset than they were
+> - * linked at. The routines below are all implemented in assembler in a
+> - * position independent manner
+> - */
+> -__efistub_memcmp               = __pi_memcmp;
+> -__efistub_memchr               = __pi_memchr;
+> -__efistub_memcpy               = __pi_memcpy;
+> -__efistub_memmove              = __pi_memmove;
+> -__efistub_memset               = __pi_memset;
+> -__efistub_strlen               = __pi_strlen;
+> -__efistub_strnlen              = __pi_strnlen;
+> -__efistub_strcmp               = __pi_strcmp;
+> -__efistub_strncmp              = __pi_strncmp;
+> -__efistub_strrchr              = __pi_strrchr;
+> -__efistub___flush_dcache_area  = __pi___flush_dcache_area;
+> -
+> -#ifdef CONFIG_KASAN
+> -__efistub___memcpy             = __pi_memcpy;
+> -__efistub___memmove            = __pi_memmove;
+> -__efistub___memset             = __pi_memset;
+> -#endif
+> -
+> -__efistub__text                        = _text;
+> -__efistub__end                 = _end;
+> -__efistub__edata               = _edata;
+> -__efistub_screen_info          = screen_info;
+> -
+> -#endif
+> -
+>  #endif /* __ARM64_KERNEL_IMAGE_H */
+> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
+> index 7fa008374907..803b24d2464a 100644
+> --- a/arch/arm64/kernel/vmlinux.lds.S
+> +++ b/arch/arm64/kernel/vmlinux.lds.S
+> @@ -245,6 +245,8 @@ SECTIONS
+>         HEAD_SYMBOLS
+>  }
+>
+> +#include "image-vars.h"
+> +
+>  /*
+>   * The HYP init code and ID map text can't be longer than a page each,
+>   * and should not cross a page boundary.
+> --
+> 2.17.1
+>
+>
+> --
+> Kees Cook
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAAeHK%2Bzz5%2BeKXEafomMHbVVc%2Ba9q6wg-FT9Ufuy2xebn__zPLw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKv%2BGu9fEAG3CqmORyO2X_Uqse09nnXEQiB1kTL-xBqLWsy8Xg%40mail.gmail.com.
