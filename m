@@ -1,129 +1,129 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBFEEZXVAKGQERR7IEOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQMFSVRS4ORBA4PZ3VAKGQEOMFBWVA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
-	by mail.lfdr.de (Postfix) with ESMTPS id EE5288C49C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 01:04:53 +0200 (CEST)
-Received: by mail-pl1-x640.google.com with SMTP id g9sf3709041plo.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 16:04:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565737492; cv=pass;
+Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E66F8CA00
+	for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 06:01:08 +0200 (CEST)
+Received: by mail-yb1-xb3d.google.com with SMTP id 137sf6523722ybd.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 13 Aug 2019 21:01:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565755267; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Gv7I5jJwP0EWRdhgGyK6iepgJWrjmqH3dV0AjEOIB0em1RUhgTb5M4ipDN9Z5oFEHx
-         jlxm+JqlyrLAwkdZVVELOZlH4MKYUMLvXJjy34FFCPDAJnCnKkko2qpDSL35eu8Uz6SO
-         wOnXeQqUHNi1G6j97RvWYe0uwbdgq2yH2557d62qVLcL6sPGqxZ87pP9qSeJCGHgcEcX
-         kzPmpjcPgSPgKm9wUAn9bwGMtoUIa4/3loDeZR/k5dxxRpsTO90lbcVXwtxM8CZFKF5N
-         du4bPrcbzbQBLzBNKBpOu7JF6DjfUXCCfiv4gJ8GLAggQ9uDZlw2nSqjyPRBEooAs2lu
-         a/Rw==
+        b=Bi6INAs1u17LsYRXmxU/UVNrEdKCruoa7EkF5wxdBgpB3CCxAJdHZeUFQu1z1FZEnW
+         Cl6+f7M73vq0CZbwjDELoC854U42keVns7lTIdwlk7axMs9ATSBzi28bKZeXWGCrvqLC
+         akWjg8x6myraN+rlDsmfYyKE1YXceiV02vclMswOeQac04IzkJRKvEddS9eTa98/2zXY
+         EQtSKJ8NnqN8GTTP1ftn9QiCkh2hulb+3V9vpOTe6RPTZydL2jXmksg+J0R9NWvugjL8
+         fXTVKxGU5aYlxaBWUPDZ/nsTnzgGG49ssdz4SOQteSGq3dkS1ngrNUdXGOCapY7/89T5
+         fyNQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=oxsJyb0ypyL7YqckGR650/puXCEp4Nfy6m7DgdTA/AY=;
-        b=a6NX20qCCgYafXBxeUf30OcskKLjCNlw6coW1qgMTyoEAiEFPJv3neefGgq1VwWXtv
-         FfP80gGyt34IXtPXCLQjFU4kC/VsNHKrmSgwPb2EkYSfGk0Lc0i0tGTe3Pw94vUAb5BN
-         eLTRvrJGo7RrxNiR/u4+MXv8xKF0OZvMx2/KO0SVABJwwKBeQM3IFRcxW8cJ/KZPuMHb
-         39JMOvf8LhAeVW6RyCSHJ7kLsZsTZfGK1LWqXyQqsYhhQOxgZf1IFUxpq3E3q+jjLaJZ
-         OwhY1MahnNb4uN3S7TgyQ8WK5mYdhQpxzFy4kUUSZhmWJ3vAqlysM2jQx9qCM/a9DEnn
-         z/wg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=PuJCjOkQZt4nKPbOtszaigYra0R67M5XNHNsgHABq8E=;
+        b=pgE9PKBcnYhG4CAlE9uRvi3SZlrehl4MrfteGrSjVPk3JuxDdHNiUxsVd13o1G1VGb
+         H1fiyu8WaaO9ZFaK3lBZMaxnIsDner9XSoTjLe6n/faiZqgGZ/H/89zoqnnbR2rIs64D
+         AgTQKg2lsI9pPecxUsQYJo/OqugukjLg2asv7ChTk8PmSutXKbOtHi1lUTFt7Q7zbMRa
+         +3b8C+zZkubiaMTy8EfIdONyzLiG08PViAxt+lDwcyJAhBAsCrIooaf4gCb4nSR+0L8s
+         huWX6DY8KOGxywq74tvEKWX0Yc+OATjOj9HOcN9ozrspjsPYSZ5ORk6vLGRreh14aCKY
+         kMIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=jTb0CaVw;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@kernel.org header.s=default header.b=ONnlQGzs;
+       spf=pass (google.com: domain of vkoul@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=vkoul@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=oxsJyb0ypyL7YqckGR650/puXCEp4Nfy6m7DgdTA/AY=;
-        b=OQG0QaVA9f/vzJgIvuGT6rRdHRgfozWlJjKIvyqGr4DlxoIS4QEdNIBj5kH9XBfTX2
-         ZuZ9XeP/INHNstGeHi95hrVfYPAN1jdhOTuuUmc8SsVfQO5n3vPLhC6pNuQUcxxJeX6c
-         ZTRm34hekzmPM3Z9O0ONg/9uA5q2Int5VNLmq/sA2RgrPMu4ypqrIr3lgB41FfHhpySM
-         u4zct8A82q1lvQOiSDzCHVDh8dcV5UnubmkP9Rig67x21YRrIOVVYyBAPXiySmoQdeoU
-         rXLfR3yV8iwc8YB7YEd0G5T9MXXo4MAJbH05SNWAiFax65ekavnICmlU5mb+j/oa1JNS
-         rLRw==
+        bh=PuJCjOkQZt4nKPbOtszaigYra0R67M5XNHNsgHABq8E=;
+        b=qKwGN5JbTdJQ3ihrBiCNLhRd+i8NypF8AfypSA4RQQUvII/VsHMJ2aykyDJwuqEVJS
+         Z2k4Fa0R0mbRSyBROu82ijh23ggunSZCdExD9RlkB/LX8BSS/j1mM6XVPEa4RRNkV3OB
+         gbYrmTuD+O8cI44O8nEnI2HqgsydaL8EckJAjJ0ibmbbTDLu63uOBpoidxTZtUzc63jC
+         fD02a0OVsGH3PoC1vxnMnGcTGVmYCzBac7aUYaV4M/1amCK6RDxLwQfZHWXYt2MpgCLO
+         Jfnj0i3MFHpWyHXWKBBJM/smK08D4PHoa71vhYvZCWAvpqwHoNwodfqNyBU/AO1o2fBb
+         AH7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=oxsJyb0ypyL7YqckGR650/puXCEp4Nfy6m7DgdTA/AY=;
-        b=LvsMklx+t9T9cRa/wEwYhg3V5wjDpbEex22qIi6SoZzkQYWFQOsY5oUlIyB1s+TbqB
-         LVJAWZCpwMOMYLkGuN3WY3VX+hXHVmQdZfJgl5cHu+3hhbiiIuR2XY+ssX3g3+KBrWE2
-         UtIMJ1bBqR1APUrnNvlYkNrZl5HEblOVWvRVdzr6885oQdGQsQ41DfTMLRIxyFeodqBE
-         hx/CDfpqkSz7V6ffEXk8VVPcnf6Yju+Odb5nuYe33v1qRy2K2UIXtrTa2VIWjdhE0AhZ
-         wbG9SoikXNPcdrFA/s3HrRaBPD0AU/cnf+ybF+rqPPA3OnvkwN4z6ZOMK1Ql5WurYjMa
-         D/uQ==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=PuJCjOkQZt4nKPbOtszaigYra0R67M5XNHNsgHABq8E=;
+        b=It/pltIOiAhQPjnDbeM6cwt5cnyrr9I3WD3jxPN1DUAb2RndUWBo0liBr1Naym9y+H
+         ylK9iQ2NT7BUdrLtl+YhlfcTY3iDWghcGYA1gvpB7gmrFJoaRajY2WRgwL6rErAD4E/H
+         ZzomhOH3z8wIvfkc8ouf6wfe9mcg6PSrWZJ6mIXuhyeewJkZkU4boKrYOSfvXvmIhmRy
+         VZlDf55cZ19thxi97Uv1fOuPFjFlK5cMJ+GuCRAg4aAHolJL6m4dQbJbTWMCOAnAoJa5
+         kKpnzXDa/cG2QM72tRgnZIKWIezRWi4z+sa8ZTA0/RdhNPQYQZcBEPaTk0Ugla9YpMeN
+         ZGfw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXGk+7IoRaytPuuMRZOWMvtgiPfNCxZAdWGK+BRtAve7l77pWXB
-	mlT5iThZGaGPg5Z91dchKP8=
-X-Google-Smtp-Source: APXvYqyXTZ9dkEIQspQOPqPmn1kTM9QwCAMTzYU+BuOdInqKJrOTnBPg1u3NJEtq9yyvUl1C0g46+A==
-X-Received: by 2002:aa7:914e:: with SMTP id 14mr43187307pfi.136.1565737492708;
-        Tue, 13 Aug 2019 16:04:52 -0700 (PDT)
+X-Gm-Message-State: APjAAAWe035uBUs0C6CUqyBLK1FBH+YIOEUWVfG9A6gcrVqWjB1y3S0G
+	GOmAn7G3/b8YfOYC6OrJaeQ=
+X-Google-Smtp-Source: APXvYqwNSQbOvO3AnUS3M21CLuBe8JJFG/pKCELyYTuTdP9Ouh2jwMe0wJu6o4KLXqB8/1k4NKYoHQ==
+X-Received: by 2002:a81:3acf:: with SMTP id h198mr19881928ywa.352.1565755267164;
+        Tue, 13 Aug 2019 21:01:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:9895:: with SMTP id s21ls77447plp.3.gmail; Tue, 13
- Aug 2019 16:04:52 -0700 (PDT)
-X-Received: by 2002:a17:902:6b4c:: with SMTP id g12mr2812933plt.118.1565737492431;
-        Tue, 13 Aug 2019 16:04:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565737492; cv=none;
+Received: by 2002:a81:8544:: with SMTP id v65ls127260ywf.16.gmail; Tue, 13 Aug
+ 2019 21:01:06 -0700 (PDT)
+X-Received: by 2002:a81:780f:: with SMTP id t15mr21924750ywc.74.1565755266830;
+        Tue, 13 Aug 2019 21:01:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565755266; cv=none;
         d=google.com; s=arc-20160816;
-        b=ESUSXEcP9BFMQkU6LT2tXECtWpV8nCVBl/YG6pPqyBs4nMJ8A0zrv2OrdUE1ZD3jFM
-         pIQa+uF2YKfAHyQ+H4ErHMDGCR5H2jiccYALC4OEXc47C3AkMzyZs5HzPwfZlHaMPrAP
-         WHrgQBIs+XMiTQp4ervvNZUCJKMCeVeEsoBgVlNh938nIVdr53SiAYrO3wU7m0zLvy09
-         Jdow8l+biSPAMtPvVh6Qq35LthMF/h65rNtjiJfOtN1dvQISfJas6A23JU0cn/mt7OQ+
-         HB3hJyLq6h5GST0uOx4bzxJ1TFRBbSybDRSJRl75uhvlt2ZblKLzTympTAYF5+f7JjRM
-         rPjg==
+        b=EEjvBzHZmT7BWYgeX0PuA+avVjNfG3BJun3BbARgS3yanqIr+FO+n212R8EYCKLyfs
+         KJR+D38fSonmy7WF7bk5TxgOCevA3mIHMiS5h8bpsO0hN/UqqsrENwl0W8zAyr6XEzmy
+         GWQ5gNvaJ+BKvMLr2pmj31z5J3zPcWueREvQ7seN8iM/IjyE77xVtt2BeSe3vGqQEyDj
+         QZwLiBqK3GXXyBcdAMI3UMY4/cqeFY/g9rEVVMFEl19/dgBAZ0YxYBqce28LUyX7cwW5
+         LeNOCIe5CVwEMawBX6R3+QYsMv3fwmLYmx+3cBHBGNdd6JyZMXRxUntOPSFWTDKDh6iU
+         mvgA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=b+JmorHFxBDjgjp81mdE+eQ+tC1x8WkQJkcE1tgqkc4=;
-        b=Oolw16Kv4gh0pwxF+SKj8ic8h3BaOqNQcOXaFWAVjawydlO6Bf5wjJT2RgcI6ogDOG
-         rVX3nY+6daUl3DFlWGRXC6lGD8/UMVCrVTFugyi2udkzABnN/3FFIPhjPmvQVMRyxqO9
-         brkMs7uhxLEFfIvHF1c+b6wN5/vtWyHElq8oxeK5TuJ5YtkN+mtWwYC0mOQfXFeuVi0W
-         wMAde2NT5+Ovvztos63EE3kD7guwgAbwpcnLP3LaZoclLaN8KFPIJBC7aDvJ3W24RpcR
-         p2O2+EDtTA0AM5zhAF4v+G/7YbcI36G32csDN7VDVhJkQqkAVStOOVqrXzJFAtAAwXjQ
-         IUog==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=lXef3OrrLNpsIK7vdtH4rKwnBBU6VPCqVDSJ5Ex87M4=;
+        b=npxSo+zGKIOSIccLIlJJSNGAyIGZiEA4f//q/zaBNqhpFdloOHiD55gm6jx8lAjjt/
+         eObNLDnvoVQbvOlFZCkQIubmih5oOheZu4nT54O5RZlmJfc+wlrdr4/kqdS/XBdfAvKB
+         Pj3Xb+Jys0qjqH72mbgPCmc9tRoxJVApkTExdL5Kl70W1W7Od5wGotigCIdt4RKMySjA
+         3VxY6j9fANmAFZwXXvfbpcivEeKE+sArrXBKUgy63gfhkrWc+GohWUxeeolI4jhHpXHk
+         ZDqLCTKWZDz8tJnfg5/7QmO9Psol4dGLnaosqbRMj58IH6OMqoWGQOXhb35CMLVzHlxg
+         KU/w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=jTb0CaVw;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id j6si53671pjt.0.2019.08.13.16.04.52
+       dkim=pass header.i=@kernel.org header.s=default header.b=ONnlQGzs;
+       spf=pass (google.com: domain of vkoul@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=vkoul@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id p188si5258160ywd.1.2019.08.13.21.01.06
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 13 Aug 2019 16:04:52 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id gn20so629908plb.2
-        for <clang-built-linux@googlegroups.com>; Tue, 13 Aug 2019 16:04:52 -0700 (PDT)
-X-Received: by 2002:a17:902:f30e:: with SMTP id gb14mr6861249plb.32.1565737492192;
-        Tue, 13 Aug 2019 16:04:52 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id s11sm116207822pgv.13.2019.08.13.16.04.50
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 13 Aug 2019 16:04:51 -0700 (PDT)
-Date: Tue, 13 Aug 2019 16:04:50 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Will Deacon <will@kernel.org>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 13 Aug 2019 21:01:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of vkoul@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (unknown [106.51.111.160])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 9C3262083B;
+	Wed, 14 Aug 2019 04:00:59 +0000 (UTC)
+Date: Wed, 14 Aug 2019 09:29:47 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Pierre-Louis Bossart <pierre-louis.bossart@linux.intel.com>
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Fangrui Song <maskray@google.com>,
-	Peter Smith <peter.smith@linaro.org>
-Subject: [PATCH] arm64/efi: Move variable assignments after SECTIONS
-Message-ID: <201908131602.6E858DEC@keescook>
+	Sanyog Kale <sanyog.r.kale@intel.com>,
+	clang-built-linux@googlegroups.com, alsa-devel@alsa-project.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [alsa-devel] [PATCH] soundwire: Don't build sound.o without
+ CONFIG_ACPI
+Message-ID: <20190814035947.GS12733@vkoul-mobl.Dlink>
+References: <20190813061014.45015-1-natechancellor@gmail.com>
+ <445d16e1-6b00-6797-82df-42a49a5e79e3@linux.intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-X-Original-Sender: keescook@chromium.org
+In-Reply-To: <445d16e1-6b00-6797-82df-42a49a5e79e3@linux.intel.com>
+User-Agent: Mutt/1.11.3 (2019-02-01)
+X-Original-Sender: vkoul@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=jTb0CaVw;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::642
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@kernel.org header.s=default header.b=ONnlQGzs;       spf=pass
+ (google.com: domain of vkoul@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=vkoul@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,174 +136,98 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-It seems that LLVM's linker does not correctly handle variable assignments
-involving section positions that are updated during the SECTIONS
-parsing. Commit aa69fb62bea1 ("arm64/efi: Mark __efistub_stext_offset as
-an absolute symbol explicitly") ran into this too, but found a different
-workaround.
+On 13-08-19, 09:22, Pierre-Louis Bossart wrote:
+> On 8/13/19 1:10 AM, Nathan Chancellor wrote:
+> > clang warns when CONFIG_ACPI is unset:
+> > 
+> > ../drivers/soundwire/slave.c:16:12: warning: unused function
+> > 'sdw_slave_add' [-Wunused-function]
+> > static int sdw_slave_add(struct sdw_bus *bus,
+> >             ^
+> > 1 warning generated.
+> > 
+> > Before commit 8676b3ca4673 ("soundwire: fix regmap dependencies and
+> > align with other serial links"), this code would only be compiled when
+> > ACPI was set because it was only selected by SOUNDWIRE_INTEL, which
+> > depends on ACPI.
+> > 
+> > Now, this code can be compiled without CONFIG_ACPI, which causes the
+> > above warning. The IS_ENABLED(CONFIG_ACPI) guard could be moved to avoid
+> > compiling the function; however, slave.c only contains three functions,
+> > two of which are static. Only compile slave.o when CONFIG_ACPI is set,
+> > where it will actually be used. bus.h contains a stub for
+> > sdw_acpi_find_slaves so there will be no issues with an undefined
+> > function.
+> > 
+> > This has been build tested with CONFIG_ACPI set and unset in combination
+> > with CONFIG_SOUNDWIRE unset, built in, and a module.
+> 
+> Thanks for the patch. Do you have a .config you can share offline so that we
+> add it to our tests?
+> 
+> > 
+> > Fixes: 8676b3ca4673 ("soundwire: fix regmap dependencies and align with other serial links")
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/637
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> > ---
+> >   drivers/soundwire/Makefile | 6 +++++-
+> >   drivers/soundwire/slave.c  | 3 ---
+> >   2 files changed, 5 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/soundwire/Makefile b/drivers/soundwire/Makefile
+> > index 45b7e5001653..226090902716 100644
+> > --- a/drivers/soundwire/Makefile
+> > +++ b/drivers/soundwire/Makefile
+> > @@ -4,9 +4,13 @@
+> >   #
+> >   #Bus Objs
+> > -soundwire-bus-objs := bus_type.o bus.o slave.o mipi_disco.o stream.o
+> > +soundwire-bus-objs := bus_type.o bus.o mipi_disco.o stream.o
+> >   obj-$(CONFIG_SOUNDWIRE) += soundwire-bus.o
+> > +ifdef CONFIG_ACPI
+> > +soundwire-bus-objs += slave.o
+> > +endif
+> 
+> I am fine with the change, but we might as well rename the file acpi_slave.c
+> then?
 
-However, this was not enough, as other variables were also miscalculated
-which manifested as boot failures under UEFI where __efistub__end was
-not taking the correct _end value (they should be the same):
+Srini's change add support for DT for the same file, so It does not make
+sense to rename. Yes this patch tries to fix a warn which is there due
+to DT being not supported but with Srini's patches this warn should go
+away as sdw_slave_add() will be invoked by the DT counterpart
 
-$ ld.lld -EL -maarch64elf --no-undefined -X -shared \
-	-Bsymbolic -z notext -z norelro --no-apply-dynamic-relocs \
-	-o vmlinux.lld -T poc.lds --whole-archive vmlinux.o && \
-  readelf -Ws vmlinux.lld | egrep '\b(__efistub_|)_end\b'
-368272: ffff000002218000     0 NOTYPE  LOCAL  HIDDEN    38 __efistub__end
-368322: ffff000012318000     0 NOTYPE  GLOBAL DEFAULT   38 _end
+Sorry Nathan, we would have to live with the warn for few more days till
+I apply Srini's changes. So I am not taking this (or v2) patch
 
-$ aarch64-linux-gnu-ld.bfd -EL -maarch64elf --no-undefined -X -shared \
-	-Bsymbolic -z notext -z norelro --no-apply-dynamic-relocs \
-	-o vmlinux.bfd -T poc.lds --whole-archive vmlinux.o && \
-  readelf -Ws vmlinux.bfd | egrep '\b(__efistub_|)_end\b'
-338124: ffff000012318000     0 NOTYPE  LOCAL  DEFAULT  ABS __efistub__end
-383812: ffff000012318000     0 NOTYPE  GLOBAL DEFAULT 15325 _end
+Thanks
 
-To work around this, all of the __efistub_-prefixed variable assignments
-need to be moved after the linker script's SECTIONS entry. As it turns
-out, this also solves the problem fixed in commit aa69fb62bea1, so those
-changes are reverted here.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/634
-Link: https://bugs.llvm.org/show_bug.cgi?id=42990
-Signed-off-by: Kees Cook <keescook@chromium.org>
----
- arch/arm64/kernel/image-vars.h  | 51 +++++++++++++++++++++++++++++++++
- arch/arm64/kernel/image.h       | 42 ---------------------------
- arch/arm64/kernel/vmlinux.lds.S |  2 ++
- 3 files changed, 53 insertions(+), 42 deletions(-)
- create mode 100644 arch/arm64/kernel/image-vars.h
-
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-new file mode 100644
-index 000000000000..25a2a9b479c2
---- /dev/null
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -0,0 +1,51 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Linker script variables to be set after section resolution, as
-+ * ld.lld does not like variables assigned before SECTIONS is processed.
-+ */
-+#ifndef __ARM64_KERNEL_IMAGE_VARS_H
-+#define __ARM64_KERNEL_IMAGE_VARS_H
-+
-+#ifndef LINKER_SCRIPT
-+#error This file should only be included in vmlinux.lds.S
-+#endif
-+
-+#ifdef CONFIG_EFI
-+
-+__efistub_stext_offset = stext - _text;
-+
-+/*
-+ * The EFI stub has its own symbol namespace prefixed by __efistub_, to
-+ * isolate it from the kernel proper. The following symbols are legally
-+ * accessed by the stub, so provide some aliases to make them accessible.
-+ * Only include data symbols here, or text symbols of functions that are
-+ * guaranteed to be safe when executed at another offset than they were
-+ * linked at. The routines below are all implemented in assembler in a
-+ * position independent manner
-+ */
-+__efistub_memcmp		= __pi_memcmp;
-+__efistub_memchr		= __pi_memchr;
-+__efistub_memcpy		= __pi_memcpy;
-+__efistub_memmove		= __pi_memmove;
-+__efistub_memset		= __pi_memset;
-+__efistub_strlen		= __pi_strlen;
-+__efistub_strnlen		= __pi_strnlen;
-+__efistub_strcmp		= __pi_strcmp;
-+__efistub_strncmp		= __pi_strncmp;
-+__efistub_strrchr		= __pi_strrchr;
-+__efistub___flush_dcache_area	= __pi___flush_dcache_area;
-+
-+#ifdef CONFIG_KASAN
-+__efistub___memcpy		= __pi_memcpy;
-+__efistub___memmove		= __pi_memmove;
-+__efistub___memset		= __pi_memset;
-+#endif
-+
-+__efistub__text			= _text;
-+__efistub__end			= _end;
-+__efistub__edata		= _edata;
-+__efistub_screen_info		= screen_info;
-+
-+#endif
-+
-+#endif /* __ARM64_KERNEL_IMAGE_VARS_H */
-diff --git a/arch/arm64/kernel/image.h b/arch/arm64/kernel/image.h
-index 2b85c0d6fa3d..c7d38c660372 100644
---- a/arch/arm64/kernel/image.h
-+++ b/arch/arm64/kernel/image.h
-@@ -65,46 +65,4 @@
- 	DEFINE_IMAGE_LE64(_kernel_offset_le, TEXT_OFFSET);	\
- 	DEFINE_IMAGE_LE64(_kernel_flags_le, __HEAD_FLAGS);
- 
--#ifdef CONFIG_EFI
--
--/*
-- * Use ABSOLUTE() to avoid ld.lld treating this as a relative symbol:
-- * https://github.com/ClangBuiltLinux/linux/issues/561
-- */
--__efistub_stext_offset = ABSOLUTE(stext - _text);
--
--/*
-- * The EFI stub has its own symbol namespace prefixed by __efistub_, to
-- * isolate it from the kernel proper. The following symbols are legally
-- * accessed by the stub, so provide some aliases to make them accessible.
-- * Only include data symbols here, or text symbols of functions that are
-- * guaranteed to be safe when executed at another offset than they were
-- * linked at. The routines below are all implemented in assembler in a
-- * position independent manner
-- */
--__efistub_memcmp		= __pi_memcmp;
--__efistub_memchr		= __pi_memchr;
--__efistub_memcpy		= __pi_memcpy;
--__efistub_memmove		= __pi_memmove;
--__efistub_memset		= __pi_memset;
--__efistub_strlen		= __pi_strlen;
--__efistub_strnlen		= __pi_strnlen;
--__efistub_strcmp		= __pi_strcmp;
--__efistub_strncmp		= __pi_strncmp;
--__efistub_strrchr		= __pi_strrchr;
--__efistub___flush_dcache_area	= __pi___flush_dcache_area;
--
--#ifdef CONFIG_KASAN
--__efistub___memcpy		= __pi_memcpy;
--__efistub___memmove		= __pi_memmove;
--__efistub___memset		= __pi_memset;
--#endif
--
--__efistub__text			= _text;
--__efistub__end			= _end;
--__efistub__edata		= _edata;
--__efistub_screen_info		= screen_info;
--
--#endif
--
- #endif /* __ARM64_KERNEL_IMAGE_H */
-diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-index 7fa008374907..803b24d2464a 100644
---- a/arch/arm64/kernel/vmlinux.lds.S
-+++ b/arch/arm64/kernel/vmlinux.lds.S
-@@ -245,6 +245,8 @@ SECTIONS
- 	HEAD_SYMBOLS
- }
- 
-+#include "image-vars.h"
-+
- /*
-  * The HYP init code and ID map text can't be longer than a page each,
-  * and should not cross a page boundary.
--- 
-2.17.1
-
+> 
+> > +
+> >   #Cadence Objs
+> >   soundwire-cadence-objs := cadence_master.o
+> >   obj-$(CONFIG_SOUNDWIRE_CADENCE) += soundwire-cadence.o
+> > diff --git a/drivers/soundwire/slave.c b/drivers/soundwire/slave.c
+> > index f39a5815e25d..0dc188e6873b 100644
+> > --- a/drivers/soundwire/slave.c
+> > +++ b/drivers/soundwire/slave.c
+> > @@ -60,7 +60,6 @@ static int sdw_slave_add(struct sdw_bus *bus,
+> >   	return ret;
+> >   }
+> > -#if IS_ENABLED(CONFIG_ACPI)
+> >   /*
+> >    * sdw_acpi_find_slaves() - Find Slave devices in Master ACPI node
+> >    * @bus: SDW bus instance
+> > @@ -110,5 +109,3 @@ int sdw_acpi_find_slaves(struct sdw_bus *bus)
+> >   	return 0;
+> >   }
+> > -
+> > -#endif
+> > 
 
 -- 
-Kees Cook
+~Vinod
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908131602.6E858DEC%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190814035947.GS12733%40vkoul-mobl.Dlink.
