@@ -1,46 +1,46 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBJEO2PVAKGQEL3GGA7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBFME2TVAKGQET4SPINI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 085398E2DB
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Aug 2019 04:44:54 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id t5sf1206931qtd.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 19:44:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565837093; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 529AD8E50F
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Aug 2019 08:56:23 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id d190sf1045467pfa.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 14 Aug 2019 23:56:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565852182; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ElxAnfTMGFVpyQAjTNFqlY07j9j/p2NUg12HIF5opcoEs8P9Cm+ifnlHVe97oX7w0t
-         wVhsznAjnmAUZbhElsR0ss+mdeYwUDu3wKY4FVsmaXc1hiOBEgqPdsgjMH91eK2sDaZC
-         N7qLB8Gpdv7EQMzJ6guyb1uze/OWCoD9/UISQaKpIPtCGRRsnXu360WnjgMZvG5zFraq
-         omTkOOSPY86inM5VSCAyWHSNg/4Y80bMMouvO66WBjYyGBiwfMZat0ynWx7okLEUcRtB
-         AKwMJQMuFsxQ9WfYFaBZ5JFr5sUR3xNMp/1eWH1+RI6/N70GUqmRyysYciPt6BjskddX
-         fTlQ==
+        b=R9l+fxeaqkqW0PNXNTBfdwmNDczoEZKqBx6vfjkR3PPoVn/o99dP8fDGZLYkzgTo7V
+         D5ar9heQMSlZ2GswiQMRHaP+KVeG3k7GMDUCHxt+lMh3o83X2WRcidvWrIlF7Ld2w39Q
+         CjCFlBSb7wZ6wT4BkJss665EOho1WIb+AoHhggEf7BTuMOJvzN8+BPjYWpATmbOIKeul
+         Ng3rDAN5DI5As2CIt/n9HuQS2NGF0mueHfhyIp8WYdKy+PK5unCw4Lh2e8tdee7bR0A8
+         0m9XnbiyZTdvRd4fjwkIgyvX9Q5YIvCaO8tt7P/WO0PCn55Joce2tk7nFxeKmXaZTVrh
+         hCsQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:user-agent:references
          :in-reply-to:date:cc:to:from:subject:message-id:sender
          :dkim-signature;
-        bh=xVYtHek2ua9EyFjHMnR4eI3VUlC6EV70QwyJF+zwcPU=;
-        b=hJLzGW85pTiQr2b0Z93DEO2A8/nP5nlfQWEcAz0cOZGMenrsSlkNFSDyVw9oD0jM8R
-         k7fCkqILJ1aYtpIuagkP5ItFYXAqXFN80jLNKlbcA3TC3I64ULw2ajQYxcDgQP3Lby6b
-         dFeEqRnNwqm6/vN+PGsVKRsOO75YNbtFdHOG28AtqdAi8pcw7zMSsyeoiInacQYOrX2f
-         bPtDaQOUsSH/Fk1a1jndKqaPG5IHWyD9WNqltHtp5RNxD3B7o7TmcP13/lSfBQ9TWvaa
-         zCGmlgUGVp7n0Za7d/NA/YozacLqLBpP6TzrPP5qqcMYHv9hlJ6R9ZpWhmflGhddGOW5
-         nMBQ==
+        bh=0CJBsZ+06i6NjwYsXwgq5N4YIsWFRm8Lhsx7xCyyGxw=;
+        b=0c1B0JnrSN+JpgxmfAHudRXw4Cpz/osnE1nRDSa+q01cSCkc/sPDnhj0dii2/IaJKy
+         Em2dmnNKj3/lBVozRD1gvh8RXXBscjMhYiuRNVlKS4ulbSEEi0i1DpvgxOmu5FKicXQ6
+         u4XcytKITloJWHwfbAXSipZlHZ4QsiBYuzbV30ZT6XNGO0OzN5An2/WJMoSgYodXYBpF
+         0GqZQjfi4vN98oo6JH2aCSkjyyxp/ETemrHe/4syH9u4NmBzyUSqUqcltanl8oArBkP2
+         AOOuGMbQ1XKnVRxPSLcNojyeC8B4Eb4nFnyZ5PhErcE2BNCIY9c3YxWLFjfDXIXsVpiM
+         MEwg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.234 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       spf=neutral (google.com: 216.40.44.203 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
          :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=xVYtHek2ua9EyFjHMnR4eI3VUlC6EV70QwyJF+zwcPU=;
-        b=V4PfmDZrO9Tub5EhrW/d9yMP0TiZK2U5k05XlQFIKyXlV10o3B7NzGZ8NrY9WeUaPp
-         Te6kOThJN1tJGizaHSOp6JxDqjdkCkcN4l9VBOncksBTY9msMNS2sjsctF1sZbhjqxT0
-         xKHGhBoPzNYb0NYP+3pat5Hd0z5abgV1L6Lk5tnHJ9D26ePo5whXWgW1HnsTwkyQEqJO
-         RAbdfXZ4Kq3F7xQoF54cA7IlmuRMhEdu+v4SODrViqu1kraGnSqvesruCV+XBBaEf7km
-         uwAiGZfaSZWEXz/zdvXHv/3jc+E96+PYYuAYVrVHo3TC/FmEmoSlhCpVkjusJTEu+JNv
-         fecg==
+        bh=0CJBsZ+06i6NjwYsXwgq5N4YIsWFRm8Lhsx7xCyyGxw=;
+        b=hwffdw/Jt7BOb7elTcQoKfbh8v+TpWyhOe78qk0Qzw9qaSYGsAIEMvNA/Ssx5+aaaH
+         kAWUlIjDiRvAkUUFdfNOnA9dmFq18gD6SsqomRD7ROe9h0mPscjy8SK3DeizqXiFe3QW
+         TdZLqrbRWZEH5H0GdiuEzVGsBYqSBut+5vuHAZQY0ygOWl+5sA5tX+AsYMpmHioKboeh
+         TTs0DKyn42bxcdcrle4fr7cQM4D3imcbZCfaT/eRWYTCU8AV+Fo4sVpadxnFDWEKwmq5
+         vI4qYQLzZHazi1Jsd6mzs2EnO2M03sjlUAROQ4mhV0knqKJu481dojQilipeMz1wV8jE
+         D3PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
@@ -48,87 +48,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=xVYtHek2ua9EyFjHMnR4eI3VUlC6EV70QwyJF+zwcPU=;
-        b=pLmM6o3HON5jqivWcx8og12N3ihP47P23IeHJl1kNWDprbwJvpEX8DNCWQprdw1Pma
-         +v+rl76ZOwLsN44aKqqn6o1UbG1qoANJ+MG9bkTkM1BQngvH0HPV73GgKCelR7IayAtN
-         cITYGOeBJ0FAPpnqhXDboNdqsvPsKs360XFFhnBCdTACCNRV7sLxGGJG3mmrGEr9j+xF
-         dRtqWhviq+n49/mo9hbe53wWE08z/o4uoC4FAk0nwr+y8Z02j0FJvbHzj/yH/tYB8vnk
-         YGsdS27QbFMU3NW5DhowEy2T0Jc0G9hao15WodXxmrwgAvz2Ose2wCowiEKvI/v/UaJj
-         6csA==
+        bh=0CJBsZ+06i6NjwYsXwgq5N4YIsWFRm8Lhsx7xCyyGxw=;
+        b=cHeIwlZThLwGVD+ERj3NhQFMrcw9KSkuNpWbgPlg66b5NiUaPfyc0b2wtPaYuQbY7W
+         KHCuxfrVLmAnwQIXJPvzNgnsFLbUeTy8NnnoFzfeADYx80oX4Te2s2DKK5U6494QM6LU
+         Lw8sw9yqgJhKfnQZahMVeTmzLyqBfjU+REciz+hx+ZEuGzGmaLMo1FnwVr/3yV7qL+Jz
+         xsIf+wPhHEP81vcle5MDebVyPywDqqpuUiRmTeizfLGY5kMmPd9tTL023axxlzu+cGhN
+         q+hbHrB9IQFwbw2W/Pex/8fU1gp/JALIuMM/EPABbcBGjStRlcXho9J+aFtr8h6SM5BP
+         1iyw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUibXp+aLa6a1MLWCM0x9l+Y28WmJidysHBDxXSb2m2XN4/CywK
-	dX6a9kvR1ZO+oFJlFHNeGcY=
-X-Google-Smtp-Source: APXvYqwTFM8TtZcYc+4WhDGPuvBG7u5DIDZDrPY+uKT7j3PBdxNrJ8+d+8lRDJixTx+mAP3WOntQXA==
-X-Received: by 2002:ac8:180e:: with SMTP id q14mr2099387qtj.327.1565837092918;
-        Wed, 14 Aug 2019 19:44:52 -0700 (PDT)
+X-Gm-Message-State: APjAAAUdNGmTyhIY82zSZMdMVMqz6ilfH8RbcxQS8qGmXk7mNwJwCZQG
+	suJlyaaGpDFzdxKVaPF9pQs=
+X-Google-Smtp-Source: APXvYqzbjSi6oXs04xzZBDphrfVgpVrhMJqDbdiQ+0WTFPoJ/+d3wOzr5TG3DGl+UPJton1GhTa4aQ==
+X-Received: by 2002:aa7:91ca:: with SMTP id z10mr4008685pfa.30.1565852182015;
+        Wed, 14 Aug 2019 23:56:22 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:bf52:: with SMTP id b18ls643583qvj.3.gmail; Wed, 14 Aug
- 2019 19:44:52 -0700 (PDT)
-X-Received: by 2002:a0c:e7cb:: with SMTP id c11mr1912754qvo.8.1565837092691;
-        Wed, 14 Aug 2019 19:44:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565837092; cv=none;
+Received: by 2002:a17:902:2acb:: with SMTP id j69ls1065859plb.9.gmail; Wed, 14
+ Aug 2019 23:56:21 -0700 (PDT)
+X-Received: by 2002:a17:902:7781:: with SMTP id o1mr3004079pll.205.1565852181611;
+        Wed, 14 Aug 2019 23:56:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565852181; cv=none;
         d=google.com; s=arc-20160816;
-        b=crg2huBWGpXQyiZfMzAlwsx3hBhMem2j1HVf5jdWbda1yQ+RCrJpAH5eT7FYhr/l3G
-         XHjctTNvr+vCUjOBf2w4j+6qb60RXLTQ0yPM7c2+O2DAVd6XBEZMaAN5WknQFUHRObc6
-         qBe2FOVtXQ5Q8mEFI06fiBo4a01K6iS/5zdDEbMtY/5XlPOtHR5BxTAzuTdxymHGHj62
-         JST1kUoKc5FyF5DeetiRHX0ZIG5eEJ/gTHb324Ije29ngaajUDVA5dFBH23Vk9ailEeA
-         5r8tpis2E0RiDxJNV0XF1YCHsfFyGU5I+ygqy3nJfx3+5CXCVg9vla3xsdn0HDMi6WMm
-         tIuQ==
+        b=CAAUyWNPbyNk2BCZ2UfNj7cZZXCrqusogu2Hm+/xMryDBYc86W8xuwhTUs+A14Wgkl
+         veMgiDcep4jcEyyorOo5R2Gz7OoCrYnYqxbGtV6fEYO5tqw41C0bj8AWxeyzva2FmnW0
+         blMvEr+P4FgYjRlaY09WSm39JebbsWSdkrVeR7SMA81nb9Be7/WA3wvYtYFbvZ674j67
+         CCbmF0wRwvH3t3e/zej2+XZONaJ5Oq2Y9bpCwlkX49I2AUUvO/I5cyA+h50dEt5KmGZ7
+         mcVnjM18+01OQ0viegB4Qm0npfbQoPygPSGPYfpRP7L0gQEh1NvUF/Gz1fQ4iv6OV//5
+         yHuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:user-agent:references
          :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=p1sf1MiBqRGW2+at8DrGvK0HbWcYdPCxVBUUyEnpG8M=;
-        b=VGdhXt3vVgufFaHOBZLXkutR4FoPCeUC+2PQEtQt0eQAecpRU/W37ThSqPLugMGe6R
-         Sd81IPNGxdhWP916XvZQWSRq5SZYfYJXnx0yQeqZfJRUGgsDZ7yEIGJUA8qSbHhoIIms
-         JxSDNv5XmbPM0V4xEnc0HcMZbjwf5KwHkbALoNPyt51JxBHxB4M9/nd55SQbxh6OhGh8
-         16oJu8ELFanUazcxU1vjW8sM6w5dpftlKTGvUggSQSvdyDYBaIWJwPnSQbGH1eOMjhj8
-         aEE8asD7ODfsIlwe+OHTsgmUltUz9mABaowwjf4n8ie3047Sarg0SxeBx2OXYLBwRZfv
-         nDnA==
+        bh=PA17FEKJvigD9CvyukIJF2phJ/QdKWp5Zm0Wi8c63bM=;
+        b=WCrYq/kMRaSpNyYJh9ssR5GVOl+9SGn8YJGs2ohnog82+H5+9WUTVpmFhb54cw30Dg
+         Ig2eqmwf/PByviarBf2WL+VV9MNBfwTAukSRjjgJT/UipJwL7BIQx1SHLqIFCjUrT+qh
+         Y1pOBPzyHdDe1Myj4jRip8iEebQWZdSfL8PegaoomdkTn2hWUygOasc+sgyOHe+qb3+V
+         LRaYSTts+y8RypCUWR0goTgOmayP/8NQO3y1Nefvy3PFRli8BzpAqK/l0nzwQQ9jCek1
+         OlRtZnGHMcsd+CA7O871IgW1KPDdx52Emlh8sk8+mhNO8O9LtRo6cgBRvqbSLJQuGy7G
+         WJdA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.234 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0234.hostedemail.com. [216.40.44.234])
-        by gmr-mx.google.com with ESMTPS id u47si84794qte.3.2019.08.14.19.44.52
+       spf=neutral (google.com: 216.40.44.203 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0203.hostedemail.com. [216.40.44.203])
+        by gmr-mx.google.com with ESMTPS id r202si173599pfc.0.2019.08.14.23.56.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 14 Aug 2019 19:44:52 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.234 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.234;
+        Wed, 14 Aug 2019 23:56:21 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.203 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.203;
 Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay04.hostedemail.com (Postfix) with ESMTP id 35DF3180A7FA2;
-	Thu, 15 Aug 2019 02:44:52 +0000 (UTC)
+	by smtprelay03.hostedemail.com (Postfix) with ESMTP id 381FB8368EFC;
+	Thu, 15 Aug 2019 06:56:20 +0000 (UTC)
 X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::,RULES_HIT:41:355:379:599:960:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2393:2559:2562:2693:2828:3138:3139:3140:3141:3142:3352:3622:3865:3866:3867:3868:3870:3871:3872:3873:3874:4321:4823:5007:7875:7903:7974:10004:10400:10848:11232:11658:11914:12114:12297:12346:12679:12740:12760:12895:13019:13069:13255:13311:13357:13439:14659:14721:14877:21080:21627:30054:30091,0,RBL:23.242.196.136:@perches.com:.lbl8.mailshell.net-62.8.0.180 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:32,LUA_SUMMARY:none
-X-HE-Tag: move54_d38b8fd79e23
-X-Filterd-Recvd-Size: 2898
-Received: from XPS-9350 (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::::::::::,RULES_HIT:41:355:379:599:800:960:967:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1542:1593:1594:1711:1730:1747:1777:1792:1801:2393:2525:2559:2563:2682:2685:2828:2859:2902:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3868:3870:3871:3873:3874:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4605:5007:7514:8603:8660:8957:9025:9149:10004:10400:10848:11026:11232:11658:11914:12043:12048:12296:12297:12740:12760:12895:13018:13019:13148:13230:13255:13439:14181:14659:14721:21080:21451:21627:21939:30012:30034:30054:30064:30091,0,RBL:error,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:27,LUA_SUMMARY:none
+X-HE-Tag: shirt04_19e6b128f1714
+X-Filterd-Recvd-Size: 3207
+Received: from XPS-9350.home (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
 	(Authenticated sender: joe@perches.com)
-	by omf08.hostedemail.com (Postfix) with ESMTPA;
-	Thu, 15 Aug 2019 02:44:50 +0000 (UTC)
-Message-ID: <128728a0965240aa5b68970d7721d857176ae7cd.camel@perches.com>
-Subject: Re: [PATCH] Makefile: Convert -Wimplicit-fallthrough=3 to just
- -Wimplicit-fallthrough for clang
+	by omf01.hostedemail.com (Postfix) with ESMTPA;
+	Thu, 15 Aug 2019 06:56:17 +0000 (UTC)
+Message-ID: <9973b4a89e54296a6a033c790fc0837397a14a5d.camel@perches.com>
+Subject: Re: [PATCH] netfilter: nft_bitwise: Adjust parentheses to fix
+ memcmp size argument
 From: Joe Perches <joe@perches.com>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Nick Desaulniers
-	 <ndesaulniers@google.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, Linus Torvalds
- <torvalds@linux-foundation.org>, "Gustavo A. R. Silva"
- <gustavo@embeddedor.com>,  LKML <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>
-Date: Wed, 14 Aug 2019 19:44:49 -0700
-In-Reply-To: <CANiq72m5=pqHaNi3P5VAMviaoX6yxT7OPg6sys1uMDki0g2bOw@mail.gmail.com>
-References: <c0005a09c89c20093ac699c97e7420331ec46b01.camel@perches.com>
-	 <9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
-	 <CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
-	 <6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
-	 <20190811020442.GA22736@archlinux-threadripper>
-	 <871efd6113ee2f6491410409511b871b7637f9e3.camel@perches.com>
-	 <CAKwvOdmAj34xDcMUn7Fu_aXdtD-7xHjHuU20qY=rFcr_Kz7gpg@mail.gmail.com>
-	 <CANiq72m5=pqHaNi3P5VAMviaoX6yxT7OPg6sys1uMDki0g2bOw@mail.gmail.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, Pablo Neira Ayuso
+	 <pablo@netfilter.org>, Jozsef Kadlecsik <kadlec@netfilter.org>, Florian
+	Westphal <fw@strlen.de>
+Cc: "David S. Miller" <davem@davemloft.net>,
+ netfilter-devel@vger.kernel.org,  coreteam@netfilter.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ clang-built-linux@googlegroups.com, kbuild test robot <lkp@intel.com>
+Date: Wed, 14 Aug 2019 23:56:16 -0700
+In-Reply-To: <20190814165809.46421-1-natechancellor@gmail.com>
+References: <20190814165809.46421-1-natechancellor@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 User-Agent: Evolution 3.30.5-0ubuntu0.18.10.1
 MIME-Version: 1.0
 X-Original-Sender: joe@perches.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.234 is neither permitted nor denied by best guess
+ (google.com: 216.40.44.203 is neither permitted nor denied by best guess
  record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -142,48 +136,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 2019-08-13 at 14:44 +0200, Miguel Ojeda wrote:
-> Hm... I would go for either __fallthrough as the rest of attributes,
-> or simply fallthrough -- FALLTHROUGH seems wrong. If you want it that
-> way for visibility, then I would choose __fallthrough, since the
-> underscores are quite prominent and anyway IDEs typically highlight
-> macros in a different color than keywords (return etc.).
+On Wed, 2019-08-14 at 09:58 -0700, Nathan Chancellor wrote:
+> clang warns:
+> 
+> net/netfilter/nft_bitwise.c:138:50: error: size argument in 'memcmp'
+> call is a comparison [-Werror,-Wmemsize-comparison]
+>         if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
+>                                       ~~~~~~~~~~~~~~~~~~^~
+> net/netfilter/nft_bitwise.c:138:6: note: did you mean to compare the
+> result of 'memcmp' instead?
+>         if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
+>             ^
+>                                                        )
+> net/netfilter/nft_bitwise.c:138:32: note: explicitly cast the argument
+> to size_t to silence this warning
+>         if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
+>                                       ^
+>                                       (size_t)(
+> 1 error generated.
+> 
+> Adjust the parentheses so that the result of the sizeof is used for the
+> size argument in memcmp, rather than the result of the comparison (which
+> would always be true because sizeof is a non-zero number).
+> 
+> Fixes: bd8699e9e292 ("netfilter: nft_bitwise: add offload support")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/638
+> Reported-by: kbuild test robot <lkp@intel.com>
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  net/netfilter/nft_bitwise.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/net/netfilter/nft_bitwise.c b/net/netfilter/nft_bitwise.c
+[]
+> @@ -135,8 +135,8 @@ static int nft_bitwise_offload(struct nft_offload_ctx *ctx,
+>  {
+>  	const struct nft_bitwise *priv = nft_expr_priv(expr);
+>  
+> -	if (memcmp(&priv->xor, &zero, sizeof(priv->xor) ||
+> -	    priv->sreg != priv->dreg))
+> +	if (memcmp(&priv->xor, &zero, sizeof(priv->xor)) ||
+> +	    priv->sreg != priv->dreg)
 
-Just fyi:
+This code should use memchr_inv and not compare against a
+static uninitialized struct.
 
-I added this line to my .emacs and "fallthrough" is now
-syntax highlighted like every other keyword.
+Perhaps linux should introduce and use memcchr like bsd. 
+or just add something like #define memcchr memchr_inv
 
-  (font-lock-add-keywords 'c-mode
-			'(("\\<\\(fallthrough\\)\\>" . font-lock-keyword-face)))
-
-So now my linux-c-mode block is:
-
-(defun linux-c-mode ()
-  "C mode with adjusted defaults for use with the Linux kernel."
-  (interactive)
-  (font-lock-add-keywords 'c-mode
-			'(("\\<\\(fallthrough\\)\\>" . font-lock-keyword-face)))
-  (c-mode)
-  (c-set-style "K&R")
-  (setq c-basic-offset 8)
-  (setq c-indent-level 8)
-  (setq c-brace-imaginary-offset 0)
-  (setq c-brace-offset -8)
-  (setq c-argdecl-indent 8)
-  (setq c-label-offset -8)
-  (setq c-continued-statement-offset 8)
-  (setq indent-tabs-mode t)
-  (setq tab-width 8)
-  (setq show-trailing-whitespace t)
-  )
-
-I don't know to do that for vim nor any other ide,
-but I trust someone will know and show how it's done.
 
 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/128728a0965240aa5b68970d7721d857176ae7cd.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/9973b4a89e54296a6a033c790fc0837397a14a5d.camel%40perches.com.
