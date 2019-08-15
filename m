@@ -1,142 +1,148 @@
-Return-Path: <clang-built-linux+bncBD6LJ6GMUUPBBKV42TVAKGQEPRGQQ2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBIGC2TVAKGQE42DDFBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 139DA8E783
-	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Aug 2019 10:56:12 +0200 (CEST)
-Received: by mail-qt1-x83f.google.com with SMTP id l9sf1885668qtu.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Aug 2019 01:56:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1565859371; cv=pass;
+Received: from mail-lf1-x13d.google.com (mail-lf1-x13d.google.com [IPv6:2a00:1450:4864:20::13d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 26E2C8E7CA
+	for <lists+clang-built-linux@lfdr.de>; Thu, 15 Aug 2019 11:08:49 +0200 (CEST)
+Received: by mail-lf1-x13d.google.com with SMTP id x24sf190438lfq.17
+        for <lists+clang-built-linux@lfdr.de>; Thu, 15 Aug 2019 02:08:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1565860128; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ldZtSi1ljpdW6cXUOtroxnNVwiQfsz7CS9eXYXzA+EzG1+cfzWgahSd086hns+jcie
-         PQ8LuTnaOUqQ/8onC3gq1Pk61uYenHE4n4JVWwQe5pHq4SKMkwvHMVeQnqHMGVR4qEgS
-         J8CenHIBm8fWY1/8C9IcQ3U7q93BQMy7MHldtJa7aZEZ/09R4LwNsc/aC13KDfBSNDsU
-         BmVMDb2zrYNTY9+rfM9vvQRiJFdFpvGoM61e3girQOZ3Wiw2G3Crw1C+o1voMdyJ2i3C
-         +Wdw2IM3NNxlL52sAiCBdeXKIvFREAxfmEN5EzGVbL4oWNVzGXhuaqA97hNYg5UqO2ew
-         bMeQ==
+        b=c3EzUGIe15mhZCiLmL+2iGMILsXWac24m8D04mKjvWup5+Hmo3YuEqajuSmavBqSvj
+         Ck8//PLloylIpLNo3EST4Dv39Sexk7JlnGfrqj6VgeMEvYXpLMxbK7h2ttrCAPIyiJ6b
+         VUMhUsTKeQQUqwMw5AZMqj3ZOWiHUKIV3WaQWHpEErXxeemY17IgGuykCuZYlrXfMINS
+         HTKdNyLgnyi2YUI7hO2TVhwYNzy6ujKIbDa3JpwHNv8bzyqcScaL94JLJMVVV3mMwNaQ
+         Bg08KW+RklLbKZF2fGCmWQun6404CwCJlW7OGpbhhW6bQya5tZqkbYWAkpItGfCqSh20
+         C4SA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:organization:from
-         :references:cc:to:subject:sender:dkim-signature;
-        bh=c4be4k07VYjV2CTsy/IFG2cMiVdvKZMyf14EjdOe1hA=;
-        b=iJYjK4Xu/5dKGyXmc4I4EB03F36LlRetaF41c3mpw4Ae73tVFEo0z6LK0uNWHxX/I9
-         aa0nJAvSuJcFxDp1D7UOJ6ffIASNfdR7wa2dzPI8Rc7FTyCcmVKrklwfrytkzIvj0APH
-         rt6TiiNz+WaQlyvFJWUENXFPBS+eO+QSIo93Bbpj6wXnbIbSMQ88QDGnXLOFznfqCiXR
-         8nDaMn7uDnXCQ23CANQsLoyV05mIrf8KoaGSMM/eLz8F0Jwsld4+bcqaz0cTmUwwipYB
-         RrtpYV87nxBcI8j61/G0PQxbdK9U1JwKVAFI/cZamoMN+CH5g+z9mqJQSd7nVh5Q8Y7o
-         kt+A==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=D4zu0jlNVbwV/QJUvKXneOMTRJlavo2eg/kGd2MiWEU=;
+        b=wP0iBtvk/vj9jHIFn3VXImVRWmrf4TjMdpUeV348pJjWzZ6GVXbx9WXqDNuYEMSOGe
+         BswtaIJswI5gwuo/g5EUqG7VZKA2bLktOSfc9uYOcyVlrz2W7RmTwtKF/n29eMiuZYis
+         BYVF4hdDuppnpnM8K5qXiA9fEq0UX2SBUG8i8uEF8sjWTVQeFjOxy1yfMJfysUaSwjsb
+         h63tBNdaEwA6w2/A+EcGTQWP1Gz1B6JP+VNbw7rYPjwgVYY6tqQoZl52ClFpxk828aBX
+         GjkzgBarVgnZG1PIZdmexzu9kmYHMfa8ymjmPBJD3ChruPTcl7GrKQew1Gzlcmj+D41w
+         wH2Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of adrian.hunter@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=adrian.hunter@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="XlyDTQw/";
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:organization:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=D4zu0jlNVbwV/QJUvKXneOMTRJlavo2eg/kGd2MiWEU=;
+        b=SIRnRoPX6lbJH21z0zz6xCTlmbM/UVBPhdKhv87z/kLrw3zZIcyn5m59tWDQmYDI7E
+         R9wXXRR0Oagbqdaj8cxitNkyZ0nWxrsznSvWw1TONNDNwHtNnfj1IzJxi5pJoSAaDqkC
+         cEsPbq4j3EwnUEv+8ZS/4G5S5euqcj2Pbnwh/cvIDTL69TN8sqoKevUKQRzRtfUKPrTh
+         v8dXzOrHN1L2SLaSQ09pk803muaPPPsBAHUEy/UGoxIQvY6xtBnG63OxI2Da9jH1L/Y3
+         vg4O4ePm0xqCM+0/DV3q2+Gx/9wpTNbFq6CVDovD4pHKdlmLvsyp7/9lTncbz5352Qa/
+         sDFQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=c4be4k07VYjV2CTsy/IFG2cMiVdvKZMyf14EjdOe1hA=;
-        b=G9ixGt9awzLi4gdn1zxpuC4ySvZLeMsQ/ct3yPz8DADtH9w013TBSRy5TDFawzLf1F
-         qAhiv3ysKtUm0x8Hvr0PvkUfh+qMmHP6WXXmWs3HKvX1VrOULWJNfpHmSyY8PSEY0FYe
-         QrzsfOHab2z47j6/WO7OUjeId/ODOgToAaTVL6/9n4fjqNfpRqGSDA5sipN8VcDtjNFp
-         KXwldKTO861Iv9e9rcXyYdFe3UnI1emWkYrFAUJXLRzCEMcsKklwmuUl8rfEVjvhZSGL
-         ZSxthgL3JsJ+HdrIx0ZcLSvmfi7+p0nSpEpSiBxKo4UhoVsuhdW/0o6iKyx5GRrksYst
-         BbRg==
+        bh=D4zu0jlNVbwV/QJUvKXneOMTRJlavo2eg/kGd2MiWEU=;
+        b=S8vasLmqN4D10tlGkVU5mzHx+wzouiKj2jJlHT0f7Cg9ku9Z9RRoQ6lTICOM0d7qSE
+         a0M9gIMLMAXpJ2QB4EBOTlXYBSWG4n3T4DCqx61D7kcWly4R1fqAZl4qaXmOCNrEDOPI
+         rGgetNrNRGSN+qeCENOVGEJWh+ryfKky8C9et07Lj5XgGT6DbbbNeF/KSmE4TOAxErxK
+         mKfCyYf0HwJ1k/F2r6TGJCDyrujWaO5tjXYvgI+RTKdGKdCHY/GUHlUg5b4ivU3CitKL
+         De+qkonv4dzhhkOaX99EWqQJozNL+pgyNLlgDMRcs4xHmgVItfNmL2kdx8g4GSsk7OMG
+         mZJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from
-         :organization:message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=c4be4k07VYjV2CTsy/IFG2cMiVdvKZMyf14EjdOe1hA=;
-        b=SF4ATED0cHbMzmDNY7VgxRsNZz3r8z3lH1sIP0nQOEi7OuqIkmzP6wk6wjnOeUy3OE
-         9JcOXywhdJAxGNAMud4f72CDWW1bIsMCIGIdpvq5JgMY1QF50q8DlebgF9poCrNj4Oen
-         REIbRBS7WTEkhbgVnO8oYPGqZBSbMXGtmnNLaeX1zOo/DbCv9x6tI23IhqNh4o4ufCR9
-         Rz0A4ZX5kC/UhjWyDiR/tlvzPZtYziHQ8Wd7CqWApf8xDEEMVG8WbD0MFtNatSyfXJ9W
-         3GORpz+JZ/WfyUoXf6g9j1hfR8j+iUcekVtFil74mVYPEB4AX4qW1BQpBzrtL50E5lMm
-         VwIA==
+        bh=D4zu0jlNVbwV/QJUvKXneOMTRJlavo2eg/kGd2MiWEU=;
+        b=pEv6Mbj9Tr1EEvH5Sc05r7XhCRS9L+rNscSXcGmQXwl3b4geWZgHMBDCZN2EHMCtsf
+         /3aIS26flneYIXV19dSmJF17a9YahPyJquZ2D8/1ToaMN7HLvLcN4yl2SxyQlzU1ZzrS
+         Odds4N4R5rxIzLfCNhCWM6W5rIDI9h36F779yCu/eHMm/hICqzkVZ5A397jt5WtTMikh
+         2y38Km6EM8NyH2M+8qHSbbYN1ix4kYyH/KkCEDGZ8rNiSI7EgVjwg5mXZHkQujL2/0Pc
+         xpwX069FM3tfPN3x1v15VicEDS1oIFJeaA5liMF6Vt09dutcXBLgv1+GdNTxWIr+Sd9n
+         pYJw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVJSaJ9PyB/I2BDmrxSbA6V6Stgguxsysq6AWwkSQ3WOMCnIQJM
-	PzyYvsnA40zdomCV0lgPQNQ=
-X-Google-Smtp-Source: APXvYqwy+XiHnBe1uZ7RIgb0p/rnrKPnKbHFMak+XqyxR/X2NJC+rVvA1Q98FkvQUNltIjgSIMTIZg==
-X-Received: by 2002:ae9:e102:: with SMTP id g2mr3031100qkm.182.1565859370920;
-        Thu, 15 Aug 2019 01:56:10 -0700 (PDT)
+X-Gm-Message-State: APjAAAU0sRCzNSCQkX0Tng2VVPOSK5RcfvH8TdITMt23w14ZpzqIFsuF
+	Y2mpfE+8bra9bFW1p9g6cqI=
+X-Google-Smtp-Source: APXvYqyDLnjTOz6V8s1pYYpoDIytme/xgs+OCvnqSNVxRqKWaQiW3ddCwn6mDlpUy0oqgj8e8kp/cA==
+X-Received: by 2002:ac2:50c4:: with SMTP id h4mr1819471lfm.104.1565860128693;
+        Thu, 15 Aug 2019 02:08:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:4594:: with SMTP id l20ls97629qtn.10.gmail; Thu, 15 Aug
- 2019 01:56:10 -0700 (PDT)
-X-Received: by 2002:ac8:138d:: with SMTP id h13mr3044992qtj.276.1565859370701;
-        Thu, 15 Aug 2019 01:56:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1565859370; cv=none;
+Received: by 2002:a2e:87d5:: with SMTP id v21ls560521ljj.5.gmail; Thu, 15 Aug
+ 2019 02:08:48 -0700 (PDT)
+X-Received: by 2002:a2e:9f45:: with SMTP id v5mr2157809ljk.8.1565860128044;
+        Thu, 15 Aug 2019 02:08:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1565860128; cv=none;
         d=google.com; s=arc-20160816;
-        b=W+P0vRrvKrFDwbA+dI8XtyAA/1jN+0G4O1aRoJUmVDJLDK6i8VxA9bHdyf9cJ2/pWF
-         +M8wEwuZFdQ/QzM+NGXknB8hcrxdt9Aupmqu+LVCTTYMhj7rbtsDfVITnSWRg8z3AjCf
-         sMLpNO7UA5zM21juBKVcX0zgybxxjwGRK+5k0nVL/irMu71TdpMwDallYcyVTyYFYVnd
-         bnNgp8EcL8BlGn9K2ss3ufc7Z+rDtvPJFOg/MdDplCwS3cOfL+7++4p5jjKpnX2nIXdn
-         eBeVV6vD9tpFS0vqhpDDq9G6idSXo00S+eCcgpezlP7ljU6ME/lYsRfMC030znMTaLUT
-         CPpA==
+        b=FweFlpT6fPJkg2IVEKyjlaCD3vgSKLKS1PrryM1letyjJG1C9G+FSjHrj6hIWo0eCd
+         8TyqnGI8Qypr9Sxm/CxzIRJHfS2mQoCCG61zNvaWHvFB8G3bJkkA4JWAqwOIlWRcW4i1
+         7gs8T4hkW69ZoKhLBrVIxCG57ZoayvROBtUy/xWhwbfuHv1Ddp7T+szce8qYE6AHpcf1
+         I0wjilNHGGhAL1p7Tpb4MJDPMO/POiyDCedpAUJK7OlGhmfrkkzlCLoOr+mpQVGS8vQl
+         kONZZRHnvZ2Kmm4eUas/m5JnoNELQOu664T6eRQsDv/zAJSwulcwjZqJqYV38tkvH7zs
+         yM6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:organization:from:references:cc:to
-         :subject;
-        bh=f8ohpBuaSLoZmm5dh38Zk6Kw38wS2I+LU+KsDku3yaM=;
-        b=hEx32kI2w/cBq+zdkFTqHy5jYUzhFusTRlRxVMLOcQf8vK3dW8WBfPG6yEAXFolUo6
-         j5Zs6JOHKME1EZieKSLq8SUMy4BrvEULfNEq9XsvrsBTnR2wDaeE6ymt+KUrO9PAzS3z
-         /oDTakl1F1za1+MsOJtoDB/lelvNfxNnPnriRvoxA1EPil7gSyA+XfPoVoF6ukzVRTPT
-         gRnw+ZkBoQEOr2U+vtbv7q/dhoA+fkLioD+035OkycazUqKAM8pze4H3MZH92Ke5q2RA
-         rYZLlvjFjEORfDYjbZLw4DKyw5zI0gFBYuF9wMFr4oLdK5L+/FHvdwyNjul52nD0v4GB
-         8YFQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=0UE6srbxTSzeQEGUqQmtIA5ElC0/7wYx3fPkt29gctA=;
+        b=GUzuwmUctmMgqhNEfbTZ+pRIjmIVy6YXB1BPyraPzLyiK8r/HIytTu2WccW2CS/SIc
+         nwahVry8MymiKQaRUVSUkp6Nk1Ev7q367XLvf3ImIr9iQQklW8rA5UzEuk/im9DmMDUd
+         GVx6pjLASSLFS4ecRTbRbMXo6uZiGly1aEskKIiYopRK1l+5ozgmqAJUSM4WLTiNxQUC
+         BIfvsiZCVcKi5vfdHJkeUh0Dx/4gzTCzKvlj4Pz4r86yEefvSBqYstCVsM2PfuF72XZ9
+         rnigrIm6mBWuk/wF/+Rp7fzQCsJJx3q9oDIwSxPfmzMXP+/GjB5Ay7bkP2FaZPEnI8hk
+         HyJg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of adrian.hunter@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=adrian.hunter@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id r68si27720qkb.1.2019.08.15.01.56.10
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="XlyDTQw/";
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lj1-x243.google.com (mail-lj1-x243.google.com. [2a00:1450:4864:20::243])
+        by gmr-mx.google.com with ESMTPS id i21si77675ljj.1.2019.08.15.02.08.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 15 Aug 2019 01:56:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of adrian.hunter@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 15 Aug 2019 01:56:08 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,388,1559545200"; 
-   d="scan'208";a="181821709"
-Received: from ahunter-desktop.fi.intel.com (HELO [10.237.72.122]) ([10.237.72.122])
-  by orsmga006.jf.intel.com with ESMTP; 15 Aug 2019 01:56:03 -0700
-Subject: Re: [PATCH v5] perf machine: arm/arm64: Improve completeness for
- kernel address space
-To: Leo Yan <leo.yan@linaro.org>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Yonghong Song <yhs@fb.com>, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, bpf@vger.kernel.org,
- clang-built-linux@googlegroups.com
-Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Suzuki Poulouse <suzuki.poulose@arm.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20190815082521.16885-1-leo.yan@linaro.org>
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: PL 281, 00181 Helsinki,
- Business Identity Code: 0357606 - 4, Domiciled in Helsinki
-Message-ID: <d874e6b3-c115-6c8c-bb12-160cfd600505@intel.com>
-Date: Thu, 15 Aug 2019 11:54:54 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 15 Aug 2019 02:08:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::243 as permitted sender) client-ip=2a00:1450:4864:20::243;
+Received: by mail-lj1-x243.google.com with SMTP id t14so1646789lji.4
+        for <clang-built-linux@googlegroups.com>; Thu, 15 Aug 2019 02:08:48 -0700 (PDT)
+X-Received: by 2002:a2e:9252:: with SMTP id v18mr1033100ljg.93.1565860127855;
+ Thu, 15 Aug 2019 02:08:47 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20190815082521.16885-1-leo.yan@linaro.org>
+References: <20190812215052.71840-1-ndesaulniers@google.com>
+ <20190812215052.71840-12-ndesaulniers@google.com> <20190813082744.xmzmm4j675rqiz47@willie-the-truck>
+ <CANiq72mAfJ23PyWzZAELgbKQDCX2nvY0z+dmOMe14qz=wa6eFg@mail.gmail.com>
+ <20190813170829.c3lryb6va3eopxd7@willie-the-truck> <CAKwvOdk4hca8WzWzhcPEvxXnJVLbXGnhBdDZbeL_W_H91Ttjqw@mail.gmail.com>
+In-Reply-To: <CAKwvOdk4hca8WzWzhcPEvxXnJVLbXGnhBdDZbeL_W_H91Ttjqw@mail.gmail.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 15 Aug 2019 11:08:36 +0200
+Message-ID: <CANiq72mGoGpx7EAVUPcGuhVkLit8sB3bR-k1XBDyeM8HBUaDZw@mail.gmail.com>
+Subject: Re: [PATCH 12/16] arm64: prefer __section from compiler_attributes.h
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Will Deacon <will@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	Sedat Dilek <sedat.dilek@gmail.com>, Josh Poimboeuf <jpoimboe@redhat.com>, Yonghong Song <yhs@fb.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, 
+	Andrey Konovalov <andreyknvl@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Enrico Weigelt <info@metux.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Masayoshi Mizuma <m.mizuma@jp.fujitsu.com>, 
+	Shaokun Zhang <zhangshaokun@hisilicon.com>, Alexios Zavras <alexios.zavras@intel.com>, 
+	Allison Randal <allison@lohutok.net>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, Network Development <netdev@vger.kernel.org>, 
+	bpf@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: adrian.hunter@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of adrian.hunter@intel.com designates 192.55.52.43 as
- permitted sender) smtp.mailfrom=adrian.hunter@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b="XlyDTQw/";       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,202 +155,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 15/08/19 11:25 AM, Leo Yan wrote:
-> Arm and arm64 architecture reserve some memory regions prior to the
-> symbol '_stext' and these memory regions later will be used by device
-> module and BPF jit.  The current code misses to consider these memory
-> regions thus any address in the regions will be taken as user space
-> mode, but perf cannot find the corresponding dso with the wrong CPU
-> mode so we misses to generate samples for device module and BPF
-> related trace data.
-> 
-> This patch parse the link scripts to get the memory size prior to start
-> address and reduce this size from 'machine>->kernel_start', then can
-> get a fixed up kernel start address which contain memory regions for
-> device module and BPF.  Finally, machine__get_kernel_start() can reflect
-> more complete kernel memory regions and perf can successfully generate
-> samples.
-> 
-> The reason for parsing the link scripts is Arm architecture changes text
-> offset dependent on different platforms, which define multiple text
-> offsets in $kernel/arch/arm/Makefile.  This offset is decided when build
-> kernel and the final value is extended in the link script, so we can
-> extract the used value from the link script.  We use the same way to
-> parse arm64 link script as well.  If fail to find the link script, the
-> pre start memory size is assumed as zero, in this case it has no any
-> change caused with this patch.
-> 
-> Below is detailed info for testing this patch:
-> 
-> - Install or build LLVM/Clang;
-> 
-> - Configure perf with ~/.perfconfig:
-> 
->   root@debian:~# cat ~/.perfconfig
->   # this file is auto-generated.
->   [llvm]
->           clang-path = /mnt/build/llvm-build/build/install/bin/clang
->           kbuild-dir = /mnt/linux-kernel/linux-cs-dev/
->           clang-opt = "-g"
->           dump-obj = true
-> 
->   [trace]
->           show_zeros = yes
->           show_duration = no
->           no_inherit = yes
->           show_timestamp = no
->           show_arg_names = no
->           args_alignment = 40
->           show_prefix = yes
-> 
-> - Run 'perf trace' command with eBPF event:
-> 
->   root@debian:~# perf trace -e string \
->       -e $kernel/tools/perf/examples/bpf/augmented_raw_syscalls.c
-> 
-> - Read eBPF program memory mapping in kernel:
-> 
->   root@debian:~# echo 1 > /proc/sys/net/core/bpf_jit_kallsyms
->   root@debian:~# cat /proc/kallsyms | grep -E "bpf_prog_.+_sys_[enter|exit]"
->   ffff00000008a0d0 t bpf_prog_e470211b846088d5_sys_enter  [bpf]
->   ffff00000008c6a4 t bpf_prog_29c7ae234d79bd5c_sys_exit   [bpf]
-> 
-> - Launch any program which accesses file system frequently so can hit
->   the system calls trace flow with eBPF event;
-> 
-> - Capture CoreSight trace data with filtering eBPF program:
-> 
->   root@debian:~# perf record -e cs_etm/@tmc_etr0/ \
-> 	--filter 'filter 0xffff00000008a0d0/0x800' -a sleep 5s
-> 
-> - Decode the eBPF program symbol 'bpf_prog_f173133dc38ccf87_sys_enter':
-> 
->   root@debian:~# perf script -F,ip,sym
->   Frame deformatter: Found 4 FSYNCS
->                   0 [unknown]
->    ffff00000008a1ac bpf_prog_e470211b846088d5_sys_enter
->    ffff00000008a250 bpf_prog_e470211b846088d5_sys_enter
->                   0 [unknown]
->    ffff00000008a124 bpf_prog_e470211b846088d5_sys_enter
->                   0 [unknown]
->    ffff00000008a14c bpf_prog_e470211b846088d5_sys_enter
->    ffff00000008a13c bpf_prog_e470211b846088d5_sys_enter
->    ffff00000008a14c bpf_prog_e470211b846088d5_sys_enter
->                   0 [unknown]
->    ffff00000008a180 bpf_prog_e470211b846088d5_sys_enter
->                   0 [unknown]
->    ffff00000008a1ac bpf_prog_e470211b846088d5_sys_enter
->    ffff00000008a190 bpf_prog_e470211b846088d5_sys_enter
->    ffff00000008a1ac bpf_prog_e470211b846088d5_sys_enter
->    ffff00000008a250 bpf_prog_e470211b846088d5_sys_enter
->                   0 [unknown]
->    ffff00000008a124 bpf_prog_e470211b846088d5_sys_enter
->                   0 [unknown]
->    ffff00000008a14c bpf_prog_e470211b846088d5_sys_enter
->                   0 [unknown]
->    ffff00000008a180 bpf_prog_e470211b846088d5_sys_enter
->    [...]
-> 
-> Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
-> Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-> Cc: Jiri Olsa <jolsa@redhat.com>
-> Cc: Namhyung Kim <namhyung@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Suzuki Poulouse <suzuki.poulose@arm.com>
-> Cc: Adrian Hunter <adrian.hunter@intel.com>
-> Cc: coresight@lists.linaro.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Signed-off-by: Leo Yan <leo.yan@linaro.org>
-> ---
->  tools/perf/Makefile.config | 22 ++++++++++++++++++++++
->  tools/perf/util/machine.c  | 15 ++++++++++++++-
->  2 files changed, 36 insertions(+), 1 deletion(-)
-> 
-> diff --git a/tools/perf/Makefile.config b/tools/perf/Makefile.config
-> index e4988f49ea79..d7ff839d8b20 100644
-> --- a/tools/perf/Makefile.config
-> +++ b/tools/perf/Makefile.config
-> @@ -48,9 +48,20 @@ ifeq ($(SRCARCH),x86)
->    NO_PERF_REGS := 0
->  endif
->  
-> +ARM_PRE_START_SIZE := 0
-> +
->  ifeq ($(SRCARCH),arm)
->    NO_PERF_REGS := 0
->    LIBUNWIND_LIBS = -lunwind -lunwind-arm
-> +  ifneq ($(wildcard $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds),)
-> +    # Extract info from lds:
-> +    #   . = ((0xC0000000)) + 0x00208000;
-> +    # ARM_PRE_START_SIZE := 0x00208000
-> +    ARM_PRE_START_SIZE := $(shell egrep ' \. \= \({2}0x[0-9a-fA-F]+\){2}' \
-> +      $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds | \
-> +      sed -e 's/[(|)|.|=|+|<|;|-]//g' -e 's/ \+/ /g' -e 's/^[ \t]*//' | \
-> +      awk -F' ' '{printf "0x%x", $$2}' 2>/dev/null)
-> +  endif
->  endif
->  
->  ifeq ($(SRCARCH),arm64)
-> @@ -58,8 +69,19 @@ ifeq ($(SRCARCH),arm64)
->    NO_SYSCALL_TABLE := 0
->    CFLAGS += -I$(OUTPUT)arch/arm64/include/generated
->    LIBUNWIND_LIBS = -lunwind -lunwind-aarch64
-> +  ifneq ($(wildcard $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds),)
-> +    # Extract info from lds:
-> +    #  . = ((((((((0xffffffffffffffff)) - (((1)) << (48)) + 1) + (0)) + (0x08000000))) + (0x08000000))) + 0x00080000;
-> +    # ARM_PRE_START_SIZE := (0x08000000 + 0x08000000 + 0x00080000) = 0x10080000
-> +    ARM_PRE_START_SIZE := $(shell egrep ' \. \= \({8}0x[0-9a-fA-F]+\){2}' \
-> +      $(srctree)/arch/$(SRCARCH)/kernel/vmlinux.lds | \
-> +      sed -e 's/[(|)|.|=|+|<|;|-]//g' -e 's/ \+/ /g' -e 's/^[ \t]*//' | \
-> +      awk -F' ' '{printf "0x%x", $$6+$$7+$$8}' 2>/dev/null)
-> +  endif
+On Thu, Aug 15, 2019 at 12:20 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> This lone patch of the series is just cosmetic, but patch 14/16 fixes
+> a real boot issue:
+> https://github.com/ClangBuiltLinux/linux/issues/619
+> Miguel, I'd like to get that one landed ASAP; the rest are just for consistency.
 
-So, that is not going to work if you take a perf.data file to a non-arm machine?
+Ah, interesting. It would be best to have sent that one independently
+to the others, plus adding a commit message mentioning this in
+particular. Let's talk about that in the thread.
 
-How come you cannot use kallsyms to get the information?
+> Miguel, how do you want to take the rest of these patches? Will picked
+> up the arm64 one, I think the SuperH one got picked up.  There was
+> feedback to add more info to individual commits' commit messages.
 
->  endif
->  
-> +CFLAGS += -DARM_PRE_START_SIZE=$(ARM_PRE_START_SIZE)
-> +
->  ifeq ($(SRCARCH),csky)
->    NO_PERF_REGS := 0
->  endif
-> diff --git a/tools/perf/util/machine.c b/tools/perf/util/machine.c
-> index f6ee7fbad3e4..e993f891bb82 100644
-> --- a/tools/perf/util/machine.c
-> +++ b/tools/perf/util/machine.c
-> @@ -2687,13 +2687,26 @@ int machine__get_kernel_start(struct machine *machine)
->  	machine->kernel_start = 1ULL << 63;
->  	if (map) {
->  		err = map__load(map);
-> +		if (err)
-> +			return err;
-> +
->  		/*
->  		 * On x86_64, PTI entry trampolines are less than the
->  		 * start of kernel text, but still above 2^63. So leave
->  		 * kernel_start = 1ULL << 63 for x86_64.
->  		 */
-> -		if (!err && !machine__is(machine, "x86_64"))
-> +		if (!machine__is(machine, "x86_64"))
->  			machine->kernel_start = map->start;
-> +
-> +		/*
-> +		 * On arm/arm64, the kernel uses some memory regions which are
-> +		 * prior to '_stext' symbol; to reflect the complete kernel
-> +		 * address space, compensate these pre-defined regions for
-> +		 * kernel start address.
-> +		 */
-> +		if (!strcmp(perf_env__arch(machine->env), "arm") ||
-> +		    !strcmp(perf_env__arch(machine->env), "arm64"))
-> +			machine->kernel_start -= ARM_PRE_START_SIZE;
->  	}
->  	return err;
->  }
-> 
+Yes, I told Will I would pick up whatever is not already picked up by
+individual maintainers.
+
+> I kept these tree wide changes separate to improve the likelihood that
+> they'd backport to stable cleanly, but could always squash if you'd
+> prefer to have 1 patch instead of a series.  Just let me know.
+
+Since you already did the splitting work, let's take advantage of it.
+I prefer them to be split anyway, since that gives maintainers a
+chance to pick them up individually if they prefer to do so.
+
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d874e6b3-c115-6c8c-bb12-160cfd600505%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72mGoGpx7EAVUPcGuhVkLit8sB3bR-k1XBDyeM8HBUaDZw%40mail.gmail.com.
