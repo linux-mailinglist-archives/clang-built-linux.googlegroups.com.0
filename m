@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBU4V33VAKGQEZOLPK6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBBEW33VAKGQEOIONH5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
-	by mail.lfdr.de (Postfix) with ESMTPS id A948590D07
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Aug 2019 07:04:19 +0200 (CEST)
-Received: by mail-lf1-x13f.google.com with SMTP id v13sf942560lfa.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Aug 2019 22:04:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566018259; cv=pass;
+Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 695EE90D0A
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Aug 2019 07:05:09 +0200 (CEST)
+Received: by mail-wr1-x43f.google.com with SMTP id k14sf1856119wrv.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 16 Aug 2019 22:05:09 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566018309; cv=pass;
         d=google.com; s=arc-20160816;
-        b=llV9GFT5WjFdQjEdubHp+WkkYCfU1AUQLynJrtW07tehGgYgzTjcbcAygccz3G8h1E
-         4dEVYaZjCWFuL63MOAXssSc9tGM2/cHrxUuDZN36iyJpFD6FYy3TUAGkUMFsJiWnNydm
-         UJpktT49iThPOWYDklyEAZSob1xgS4gmRebrWzXQ1eSwaxdQ93MRCwwHMnbeE5HbW2sK
-         RXU54dapGAlSQh7wqWCCrdZwLtR+08oF+5zye/zxP0gZqK6zouYyFMq8ur9FVL9jL/A5
-         tHxCJQ53zBn6Ynl/c2VOG3konxL3aTTVECJ1LRBbB7ytadTXsj7VgXAt2rqyjZTeBbgl
-         R/0g==
+        b=hmEa/gB0c+q6wyX3VZPOun8QWLk5QdGXtB/ws7YXrQxz3k2D4LGqVwpzqQVx6FtzFH
+         zsRFwQHyTJprgt6Eb7V/6fjpUHlM6KGvY9r1m1quanijs6H7NAEhMMhp9ovknDKo1ajg
+         8dncgncsn8S8Kof1A4DjIo0STUfBNizHoeNj1eqjsanqObQK7D5PrCdVzq8ZeguFplJu
+         /k0lo8FiGiu2iYie+xAzZMJno30G98YPrKCZd2D8aSguQEm47QdIbb+VIL+nY/8whGJ4
+         46WkyBh7i9Iox8dSi+eAZQImYsv68WcGNL3xCath/ZyOyEus4WB4TIT0gSLmVDIpl5OT
+         SonA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=bRsSnU0ZPIrHU10TfQxlLdIiINVHla3ecztcJXy8AE8=;
-        b=MVNQw1HnQkNVaAo4gmwO9FU4E2TD5gIhYVqwxlWlfmpr+3R5Jb296zXrkSeuujA4Rt
-         pIVCIMBlnwl9oc7W7gASeX8Df+hqH9STp9sXTHlqNHCFmqnvkVCTn/j10DizdWWRonEa
-         vl96mfs5Ofp8gG3S2yjGdb3UI4MLhdcWrrs+8MHGajQ5v52n96rIG2umvBzBKy9gJhz1
-         sUKU1Qj3SlriflRnd2XuCE2OkGZL1y43N3g2iqfuka4HNNvQcPhYEX2odQd7tWtS/4xi
-         vTx8gF13OTsy31WIeksHqo8DV3+Hi8fpUJnsOqswPUcLHWXNwCtjHIqcKTv1HQEhCW4F
-         xABA==
+        bh=RFDTI+rIvCi8uFASvcer2yvfiMbxhObmj1J7/qPJGN8=;
+        b=Robtyq+TG3u0445RmzonlxzQ4kL8XoyqCuUkqLsy7aBnbvIoqyFtVPOG7FMQqhVmdp
+         u0erk+8qLHxvggMOnFvYvk25Y0PLJ3lsYPxbKACMX61s7IErC5j2HqObN5ngDTAfgFJm
+         2rQoi+N9w6z+27iepEAmYIUULbCEa4BNaoHlWKBmxVMIMdzTDNFhEBtkf/rFFT1oUzba
+         lci9o8Exdtn+rhPaMHVweUluTXOf+xNxBjuVudIU8pzrk/F6m3Mzc1zKRwcYs+uRQE2A
+         fHdVdmMsUTBSKvu5+B24W4fF02ZzZQLunpp4a6Ani2wpa0anh3uGtdcdP7egN2xPosoF
+         7lNQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FntbtlSA;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fPEiUgIR;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bRsSnU0ZPIrHU10TfQxlLdIiINVHla3ecztcJXy8AE8=;
-        b=C2RTYNYvNEAL+0t2woIPZyNIyamxzDGJTM5QBkLC2rDgcuxY7MgOpEF6NRsD6JQH/p
-         hKjWUcQ0erFi4Zro8p/lZ7FTMZ8cLGme+34Y7IaMXJCZ8B7YsmVlRO7dDHhf+E1EmT2i
-         3N4RVbsSqBIyHCQ/Bm8oGZMCiREoQ1L8WgHqoW+IfDHQXpCYV3tbliPuR1cqztHFYWhT
-         iZy/ZYiMvZmwhKVkdkYsg5B8vdfk6j4GUUbjX5t9OwfhkuPGNfrl9YcufbvGNMco8AnR
-         QENEFieF8unva43Io7XOd1kOlwXi1K/U7ohJA5naPH4ELqavSr6asp74InCiHUkRmcu5
-         kkMw==
+        bh=RFDTI+rIvCi8uFASvcer2yvfiMbxhObmj1J7/qPJGN8=;
+        b=ptuvhfP9YH1qqwrT2jn3IuGaVe0YxKtk5lRTOu9OJPZ9xb0wWILwuKVKZCNVPvOe/n
+         3yi1byMfHe4V3+rmAugNY7OiiWpQGGmH2iqX2HowWGcyU0XsP7QOWTN6VjewrHBi6TrC
+         bK1g0v1A4TR++3xF+Zn2bOeITE+Xkxvo7VXvi33pNjuhd67wswvUjWmFmc8kfrwW2x2Z
+         V1S7MEH8AxPyX9/sbXJZrUSvsZyw6VD8M9/S6grtwbekoIn24xShcebf+pzB9PXXUosR
+         gJDkATl7ZnTkDvYsmPKSmZWQM03lRSc/3T5J3ws91HiD99M3wDN5jr8pW8DbUfrtPsBK
+         1cHg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bRsSnU0ZPIrHU10TfQxlLdIiINVHla3ecztcJXy8AE8=;
-        b=EdXHEhJYin1bQWNBxCXsfJEe6abmfaH9VbDUqr4y2bQAkCIgOBHphbHWAOHmnkZuL2
-         jLSVdVGeB5XcVy9i0vmSvQ6TapkFkyq1MT3sW0+210M7fBllh8qKmeJYzWwz+43kaElK
-         dUBEatXfALsOhWmsChb3bYKHOwln5GuQ7sXqoXL4qPI2xhqJGp80g3ZuOKsV/7TVR4zy
-         p7WGdPYdud91QOzA+p0s+nbnRxK1LRgHMrERCjkQC8opakTqGue7laR41wfH7GYxiSmb
-         YSEh6RzISFVFDmbVw8SBDPbP+AbrBw3n0tjlhYPaFtFVPlinb5EuflC0owad0beDu4gO
-         cOAQ==
+        bh=RFDTI+rIvCi8uFASvcer2yvfiMbxhObmj1J7/qPJGN8=;
+        b=ada4Rd3IgflCtbORT47X+MzQsevvfxvhcQlT+rbq3wxovfSX/M8fC7IIetDWBxcuK3
+         T0GHFLjE7tC52B8nrMIcCX2X00PmgvenpCw12tJchoD32MVYXMi7ehR3BO4OMvblMS99
+         GgC03hibdGSp5l1fxEt+2AIW7zCOzaUREWnZqpOgmyKq6rwunoLz3NoCbcWHGJc6GWiW
+         DrSccv3U2y4I4vIb32+DV6blF3UmkEcenzR9PiC6bPvQQaWnT53lEknJVBE1ca7QoPIC
+         xYBXYHD7PkH2ADIh3yHEiecplKTK+WIFQ4V0vQ2Xm9AL086mt6cLBnxbEJJpoZ3/fi8F
+         yLTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,78 +63,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=bRsSnU0ZPIrHU10TfQxlLdIiINVHla3ecztcJXy8AE8=;
-        b=sMzGbD72UD6uJ/lZG8PiGcNzSW0M6r8AMrrXI/CRZWCfSTPTxIqocCZjYJkANNGyxD
-         fY0vq63UI1oIYuC7pB7OLFGTshuNIUi3xqkVPSn+Wz5q5IA459c2dCoiuscDM4dcwMPE
-         chWc/APu8zRvuMS7CUjXLkJLQuMx4vl90pyWtH3nm2/jzC+B1HX79wP48M6QHS6K1Kd4
-         1LZS0QJ9jD4ypCQZabqo5G4UZdLy9vQgYqDFHCmqiKDLMtxzNJzq0k3IiSVDWd07F851
-         vfTNzhCkT3XmNPTYh6DYR9oseMB8n1kNysD1ueVM953dqpc1FOXfFI7Df7WkFit9J7tr
-         0npQ==
+        bh=RFDTI+rIvCi8uFASvcer2yvfiMbxhObmj1J7/qPJGN8=;
+        b=FVx9cywrgbagzfP3Y6gqiD6nZX10GY8HPAJCuzCfyTkaqXz0ufwoN8VC9tlw7P86QU
+         ZKrWl2uWu6Indeccv4XcMKJqLSKazZDZG3MIW8SuGVTg6GXvFbmIA8UholsCb4cBgCh5
+         N0YA9vwaywjCBIE0jACmIQmnud2hG/l78nkVF0f2k+Dq2qKqqFH8r0myiP7NADGcQ+kg
+         LADpW+jrzf3ifPNTVWbe4xwWg9xphU8DBMzuZ++tq0OZhQ/RVFxncveeuevCnRMwnsqO
+         +zMEqRjaK2x31Yvk2RfEPRtTzR/h6n2btPwVWeKxnM9c/sg2oLhU0aQF8vlDUA6spzAs
+         FCVA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVs16LJ9U1Or+QMcBAFGh0sWORxAgHh9G6t+Rt6AXcJXpNN+Oiu
-	CVzRBDCAJQiC3/UMvjQkBYI=
-X-Google-Smtp-Source: APXvYqwxonW5cQHp5Z2lM4b3DdRBEj3XI1yUfKpmPRXSuusrisKi1sUMAIJu56oa5pRulODUwVKxXQ==
-X-Received: by 2002:a2e:934b:: with SMTP id m11mr7363587ljh.114.1566018259189;
-        Fri, 16 Aug 2019 22:04:19 -0700 (PDT)
+X-Gm-Message-State: APjAAAWTiCuZ/of9eAhzON4Ha63uAf7uNshgocjiHUzGnBxEHo6J7ZWu
+	3jypJEphKnxJvaZ9DCLeZUk=
+X-Google-Smtp-Source: APXvYqzaECmJ/Oh/ubcgW9p3DzIoYj4+QrD9jKn6KBmwgLemgH2RugHqtcaBxcIU8CyNMU2BcPyN7A==
+X-Received: by 2002:a5d:54c4:: with SMTP id x4mr14318152wrv.155.1566018308714;
+        Fri, 16 Aug 2019 22:05:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:50c2:: with SMTP id h2ls942585lfm.0.gmail; Fri, 16 Aug
- 2019 22:04:18 -0700 (PDT)
-X-Received: by 2002:a19:914c:: with SMTP id y12mr6910821lfj.108.1566018258736;
-        Fri, 16 Aug 2019 22:04:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566018258; cv=none;
+Received: by 2002:adf:ab1b:: with SMTP id q27ls2958125wrc.7.gmail; Fri, 16 Aug
+ 2019 22:05:08 -0700 (PDT)
+X-Received: by 2002:a5d:63c9:: with SMTP id c9mr14551496wrw.15.1566018308304;
+        Fri, 16 Aug 2019 22:05:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566018308; cv=none;
         d=google.com; s=arc-20160816;
-        b=jw37TUXPYsszOgUK382w0mhO13c1498A4BbVb2HIWjd5WqoslN4ZG9YLfsYTAabSGb
-         cLS+ffDzSCQ/6mvHLpOdvYujtqfTG9Y2nNtpj6Dc2/2R9WTg2UsaSqyjth7ad0Y6rQE8
-         d6AbgVwPixot/4yw8ylbfBK0SNB9fSwpX0Rs6jueI91xCA58yAnOUwIoRgVxosCKiyJR
-         SwNAlQrlpQWwEeo5uEnf/a+U25JQdbsDPo2kSiz2qjwsJ9NiNaiDsKMghZYtoNCogL09
-         1BKWi09sOVWu88C28Z34g4Prr3Q6r8HBh8+YIRIleebkPNE7dD2nkfyLYrSxlIuVsieA
-         CcNA==
+        b=uuQmHAMywQT1XgWFBrfpAw/k2BqWTTiyLCheP5c1mBIhmPXS2lk0Bbd2RCAkxwmzoq
+         84EQJjMgvpSngaMVTnlXCjNaiCqIxIz6e2sfVoieLb23M/gP74myyySbzy2Wx1lpFWl5
+         mTkpi6A/sERhrIgJaIgYZbpyoFYgtrNL1VI+lhAL8MsSU502k0Uhm3YTbFuUaerba8os
+         z76vvEGOrd/UbMLVvYOz8FcF1j/dgOk0r54YcULi8lAUZ8+/W2HwT/FR3colgBjYKzMe
+         NRTNPR1SIyr9k0jGLXdDOMqIMYd0vmjkIHvIQv8uYF302tQ8+BIknnbjmRPSk/1t/KOh
+         Y/VA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=L6DABqyaUyZOMqXr6lkvYDDOwIwRLrHPYmA2NsFqvKk=;
-        b=LrHCBg8CJcPGuSdVBtAhP52mbfL3vtShoeguCLyvAPJfQC7iIcfIFpMolqqv6Jume0
-         1zacQVVN+7gkNrN6KdaHO+4YGy/KKjVAcJPxCgki1DxuVJZqddDCpa7cejaR1+BmIlRf
-         OeWkZYxYGtATOkttUort3MwwuF2L7Onn6Kjuf1xy5koZb6anLqQUIpwMXZ6gmwlMLFth
-         knfP2A/P43Paz7r4rjl/mSle6yfYBfhbqfYCkfJ1r8d6mpww8iDUAcGdCHFnU+ZD6xe4
-         PNyhhle29PLoKc7Yf+VcR0Dw3Fd6hx2oJilLZDpLILTKT9etSi+q6yl4pDyHA+Pnnfsc
-         ZjXg==
+        bh=dXFQzh40iVt841E0acHqLvADE7avJBWIiZ7C9WJQ5tw=;
+        b=wWDpgM5a8Qob9lQtV6GRWBCAKzBDP76cy5DcKh5jlDygAclcxe03MJzQNNQv4MyZxo
+         mCNPVmhgmQ0RM1p/JOAKSigokMKrceV8Tl3L/7fQvLZgtX77Xn+yvt1+mjzY5qQPgQSX
+         qm20phqYDaxshxmKOnJXxnK+R5LMP4g2FIf6LB7mubxF5Ll3gmWkYy+CEREgT2tYeRxK
+         yyKBkyh/b0hS6RklawQ8PPHfpIXdtiD8GcaM7h+l7GjG6z1koYvnpBaC0eBOOcCjGEKs
+         i9ELlZeao6Xb6GU0EGa3rBqzthL2Eqy1AmFkqNUlwAcfU6DriMaiBG4HD4nKBWkzIuLt
+         27IA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FntbtlSA;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fPEiUgIR;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id u10si421144lfk.0.2019.08.16.22.04.18
+Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
+        by gmr-mx.google.com with ESMTPS id p67si262286wme.2.2019.08.16.22.05.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Aug 2019 22:04:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id c3so3396555wrd.7
-        for <clang-built-linux@googlegroups.com>; Fri, 16 Aug 2019 22:04:18 -0700 (PDT)
-X-Received: by 2002:adf:9b9d:: with SMTP id d29mr14175758wrc.132.1566018257885;
-        Fri, 16 Aug 2019 22:04:17 -0700 (PDT)
+        Fri, 16 Aug 2019 22:05:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
+Received: by mail-wm1-x343.google.com with SMTP id 207so5566965wma.1
+        for <clang-built-linux@googlegroups.com>; Fri, 16 Aug 2019 22:05:08 -0700 (PDT)
+X-Received: by 2002:a1c:9d8d:: with SMTP id g135mr10671042wme.115.1566018307810;
+        Fri, 16 Aug 2019 22:05:07 -0700 (PDT)
 Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id c65sm10871080wma.44.2019.08.16.22.04.17
+        by smtp.gmail.com with ESMTPSA id k124sm15756203wmk.47.2019.08.16.22.05.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Aug 2019 22:04:17 -0700 (PDT)
-Date: Fri, 16 Aug 2019 22:04:15 -0700
+        Fri, 16 Aug 2019 22:05:07 -0700 (PDT)
+Date: Fri, 16 Aug 2019 22:05:05 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
 To: kbuild test robot <lkp@intel.com>
 Cc: kbuild@01.org, Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] gspca: zero usb_buf on error
-Message-ID: <20190817050415.GB69583@archlinux-threadripper>
-References: <201908161623.H6gwebfH%lkp@intel.com>
+Subject: Re: [feng:latencytop 16/20] mm/migrate.c:2069:5: warning: implicit
+ conversion from enumeration type 'enum migrate_hmem_reason' to different
+ enumeration type 'enum migrate_reason'
+Message-ID: <20190817050505.GC69583@archlinux-threadripper>
+References: <201908162005.7Fg7QAeo%lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <201908161623.H6gwebfH%lkp@intel.com>
+In-Reply-To: <201908162005.7Fg7QAeo%lkp@intel.com>
 User-Agent: Mutt/1.12.1 (2019-06-15)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=FntbtlSA;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=fPEiUgIR;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -148,137 +150,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Aug 16, 2019 at 04:41:58PM +0800, kbuild test robot wrote:
+On Fri, Aug 16, 2019 at 08:36:09PM +0800, kbuild test robot wrote:
 > CC: kbuild-all@01.org
-> In-Reply-To: <d6898729-7c52-5948-5499-8dd03608c361@xs4all.nl>
-> References: <d6898729-7c52-5948-5499-8dd03608c361@xs4all.nl>
-> TO: Hans Verkuil <hverkuil@xs4all.nl>
-> CC: Linux Media Mailing List <linux-media@vger.kernel.org>
-> CC: 
+> TO: Feng Tang <feng.tang@intel.com>
 > 
-> Hi Hans,
-> 
-> I love your patch! Perhaps something to improve:
-> 
-> [auto build test WARNING on linuxtv-media/master]
-> [cannot apply to v5.3-rc4 next-20190814]
-> [if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Hans-Verkuil/gspca-zero-usb_buf-on-error/20190816-123155
-> base:   git://linuxtv.org/media_tree.git master
-> config: x86_64-rhel-7.6 (attached as .config)
+> tree:   feng/latencytop
+> head:   122e8adaba02569cd18c36a4a66ee43e0d78b04f
+> commit: 0090fba8904699bccce17dad9d22e46f2b4f29cf [16/20] swapcache migration patch
+> config: arm64-defconfig (attached as .config)
 > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 > reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         git checkout 0090fba8904699bccce17dad9d22e46f2b4f29cf
 >         # save the attached .config to linux build tree
->         make ARCH=x86_64 
+>         make.cross ARCH=arm64 
 > 
 > If you fix the issue, kindly add following tag
 > Reported-by: kbuild test robot <lkp@intel.com>
 > 
 > All warnings (new ones prefixed by >>):
 > 
-> >> drivers/media/usb/gspca/nw80x.c:1579:51: warning: 'memset' call operates on objects of type '__u8' (aka 'unsigned char') while the size is based on a different type '__u8 *' (aka 'unsigned char *') [-Wsizeof-pointer-memaccess]
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                           ~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~^~~~~~~
->    drivers/media/usb/gspca/nw80x.c:1579:51: note: did you mean to provide an explicit length?
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                                                         ~~~~~~~~~~~^~~~~~~
->    1 warning generated.
-> --
-> >> drivers/media/usb/gspca/sn9c20x.c:916:51: warning: 'memset' call operates on objects of type '__u8' (aka 'unsigned char') while the size is based on a different type '__u8 *' (aka 'unsigned char *') [-Wsizeof-pointer-memaccess]
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                           ~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~^~~~~~~
->    drivers/media/usb/gspca/sn9c20x.c:916:51: note: did you mean to provide an explicit length?
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                                                         ~~~~~~~~~~~^~~~~~~
->    1 warning generated.
-> --
-> >> drivers/media/usb/gspca/sonixj.c:1169:51: warning: 'memset' call operates on objects of type '__u8' (aka 'unsigned char') while the size is based on a different type '__u8 *' (aka 'unsigned char *') [-Wsizeof-pointer-memaccess]
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                           ~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~^~~~~~~
->    drivers/media/usb/gspca/sonixj.c:1169:51: note: did you mean to provide an explicit length?
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                                                         ~~~~~~~~~~~^~~~~~~
->    1 warning generated.
-> --
-> >> drivers/media/usb/gspca/spca1528.c:78:51: warning: 'memset' call operates on objects of type '__u8' (aka 'unsigned char') while the size is based on a different type '__u8 *' (aka 'unsigned char *') [-Wsizeof-pointer-memaccess]
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                           ~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~^~~~~~~
->    drivers/media/usb/gspca/spca1528.c:78:51: note: did you mean to provide an explicit length?
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                                                         ~~~~~~~~~~~^~~~~~~
->    1 warning generated.
-> --
-> >> drivers/media/usb/gspca/sq930x.c:432:51: warning: 'memset' call operates on objects of type '__u8' (aka 'unsigned char') while the size is based on a different type '__u8 *' (aka 'unsigned char *') [-Wsizeof-pointer-memaccess]
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                           ~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~^~~~~~~
->    drivers/media/usb/gspca/sq930x.c:432:51: note: did you mean to provide an explicit length?
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                                                         ~~~~~~~~~~~^~~~~~~
->    1 warning generated.
-> --
-> >> drivers/media/usb/gspca/sunplus.c:262:51: warning: 'memset' call operates on objects of type '__u8' (aka 'unsigned char') while the size is based on a different type '__u8 *' (aka 'unsigned char *') [-Wsizeof-pointer-memaccess]
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                           ~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~^~~~~~~
->    drivers/media/usb/gspca/sunplus.c:262:51: note: did you mean to provide an explicit length?
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                                                         ~~~~~~~~~~~^~~~~~~
->    1 warning generated.
-> --
-> >> drivers/media/usb/gspca/vc032x.c:2913:51: warning: 'memset' call operates on objects of type '__u8' (aka 'unsigned char') while the size is based on a different type '__u8 *' (aka 'unsigned char *') [-Wsizeof-pointer-memaccess]
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                           ~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~^~~~~~~
->    drivers/media/usb/gspca/vc032x.c:2913:51: note: did you mean to provide an explicit length?
->                    memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->                                                         ~~~~~~~~~~~^~~~~~~
+> >> mm/migrate.c:2069:5: warning: implicit conversion from enumeration type 'enum migrate_hmem_reason' to different enumeration type 'enum migrate_reason' [-Wenum-conversion]
+>                                    MR_HMEM_SWAPCACHE_PROMOTE;
+>                                    ^~~~~~~~~~~~~~~~~~~~~~~~~
 >    1 warning generated.
 > 
-> vim +1579 drivers/media/usb/gspca/nw80x.c
+> vim +2069 mm/migrate.c
 > 
->   1556	
->   1557	/* -- read registers in usb_buf -- */
->   1558	static void reg_r(struct gspca_dev *gspca_dev,
->   1559				u16 index,
->   1560				int len)
->   1561	{
->   1562		struct usb_device *dev = gspca_dev->dev;
->   1563		int ret;
->   1564	
->   1565		if (gspca_dev->usb_err < 0)
->   1566			return;
->   1567		ret = usb_control_msg(dev, usb_rcvctrlpipe(dev, 0),
->   1568				0x00,
->   1569				USB_DIR_IN | USB_TYPE_VENDOR | USB_RECIP_DEVICE,
->   1570				0x00, index,
->   1571				gspca_dev->usb_buf, len, 500);
->   1572		if (ret < 0) {
->   1573			pr_err("reg_r err %d\n", ret);
->   1574			gspca_dev->usb_err = ret;
->   1575			/*
->   1576			 * Make sure the buffer is zeroed to avoid uninitialized
->   1577			 * values.
->   1578			 */
-> > 1579			memset(gspca_dev->usb_buf, 0, sizeof(gspca_dev->usb_buf));
->   1580			return;
->   1581		}
->   1582		if (len == 1)
->   1583			gspca_dbg(gspca_dev, D_USBI, "GET 00 0000 %04x %02x\n",
->   1584				  index, gspca_dev->usb_buf[0]);
->   1585		else
->   1586			gspca_dbg(gspca_dev, D_USBI, "GET 00 0000 %04x %02x %02x ..\n",
->   1587				  index, gspca_dev->usb_buf[0],
->   1588				  gspca_dev->usb_buf[1]);
->   1589	}
->   1590	
+>   2033	
+>   2034	/*
+>   2035	 * Attempt to migrate a misplaced page to the specified destination
+>   2036	 * node. Caller is expected to have an elevated reference count on
+>   2037	 * the page that will be dropped by this function before returning.
+>   2038	 */
+>   2039	int migrate_mapped_page(struct page *page, struct vm_area_struct *vma,
+>   2040				   int node, int is_numa_migration)
+>   2041	{
+>   2042		struct migrate_detail m_detail = {};
+>   2043		pg_data_t *pgdat = NODE_DATA(node);
+>   2044		int isolated;
+>   2045		int nr_remaining;
+>   2046		LIST_HEAD(migratepages);
+>   2047	
+>   2048		/*
+>   2049		 * Don't migrate file pages that are mapped in multiple processes
+>   2050		 * with execute permissions as they are probably shared libraries.
+>   2051		 */
+>   2052		if (page_mapcount(page) != 1 && page_is_file_cache(page) &&
+>   2053		    (vma->vm_flags & VM_EXEC))
+>   2054			goto out;
+>   2055	
+>   2056		/*
+>   2057		 * Also do not migrate dirty pages as not all filesystems can move
+>   2058		 * dirty pages in MIGRATE_ASYNC mode which is a waste of cycles.
+>   2059		 */
+>   2060		if (page_is_file_cache(page) && PageDirty(page))
+>   2061			goto out;
+>   2062	
+>   2063		isolated = numamigrate_isolate_page(pgdat, page);
+>   2064		if (!isolated)
+>   2065			goto out;
+>   2066	
+>   2067		list_add(&page->lru, &migratepages);
+>   2068		m_detail.reason = is_numa_migration ? MR_NUMA_MISPLACED :
+> > 2069					MR_HMEM_SWAPCACHE_PROMOTE;
+>   2070		nr_remaining = migrate_pages(&migratepages, alloc_misplaced_dst_page,
+>   2071					     NULL, node, MIGRATE_ASYNC, &m_detail);
+>   2072		if (nr_remaining) {
+>   2073			if (!list_empty(&migratepages)) {
+>   2074				list_del(&page->lru);
+>   2075				dec_node_page_state(page, NR_ISOLATED_ANON +
+>   2076						page_is_file_cache(page));
+>   2077				putback_lru_page(page);
+>   2078			}
+>   2079			isolated = 0;
+>   2080		} else {
+>   2081			count_vm_numa_event(NUMA_PAGE_MIGRATE);
+>   2082		}
+>   2083		BUG_ON(!list_empty(&migratepages));
+>   2084		return isolated;
+>   2085	
+>   2086	out:
+>   2087		put_page(page);
+>   2088		return 0;
+>   2089	}
+>   2090	
 > 
 > ---
 > 0-DAY kernel test infrastructure                Open Source Technology Center
 > https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 > 
 
-GCC generates a similar warning:
-
-https://lists.01.org/pipermail/kbuild-all/2019-August/063293.html
+I am assume this is an internal Intel tree? Worth reporting?
 
 Cheers,
 Nathan
@@ -286,4 +250,4 @@ Nathan
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190817050415.GB69583%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190817050505.GC69583%40archlinux-threadripper.
