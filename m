@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQVS4DVAKGQE3RWLPZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBRVZ4DVAKGQE6J3IHUA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 959CD91127
-	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Aug 2019 17:12:04 +0200 (CEST)
-Received: by mail-pg1-x53d.google.com with SMTP id c9sf4733415pgm.18
-        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Aug 2019 08:12:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566054723; cv=pass;
+Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
+	by mail.lfdr.de (Postfix) with ESMTPS id C5DA39118B
+	for <lists+clang-built-linux@lfdr.de>; Sat, 17 Aug 2019 17:27:03 +0200 (CEST)
+Received: by mail-pg1-x53e.google.com with SMTP id m19sf4770590pgv.7
+        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Aug 2019 08:27:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566055622; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CYMktvJaeGQQXXP+cJPSKRtjSiw8126/eLGhvjD8khhPuvRoa7SqGYmab/6Hw0uqq3
-         gEeFSjPQmU0yf/Wzq8XJvKKXduxXur/8pG5KRofezdd68ij8ACTiiH9OT78uLEg5KgMg
-         EoTcxqisxEjc/fvLRcrHxI5W0tvVuCRJ7LXXaj9tjv94/GTELuU5hpN1Z9Ixlb9vrZh5
-         zC9aSDhgh5PaCFy2Y7RNIqF2Q1yjQTviNX4edcUL7AL2nmG+3GaOx4F6B9CN3U38w1GD
-         +eg31WW6o/uMR7heilfLbHvmXnDSLLk1skeVuTI+8mosVj+nEnJRSLt1FQ61egIBQxqd
-         t59Q==
+        b=TAJ3s0EH+dVufl1hVoIiMtaS5NgMtx0nVagKjcKN/DKsm6vI1Cu+PD60LVdi6W0Cgy
+         TDZdmZSntMgSBAnhmCW+DfvqvUxiYPsmWQfn+32+Tsr2YvIfwISmHRtTr9Qew4qyqKdO
+         bv/QJBc46QIvAphGFJ1xzwglYy8ZgoxnpZ+Q3aYHFOiF5rYOWddi7Sabnd7QTpZLOeGV
+         08s5VGXI61gtdKpBeY1JiPPqyxfU/dTxFFtQZjvHAB5ApLzr0SrjTF52h1U1cGljIrQ9
+         dX5WdOmvWKgcGRDlb2m6JYbJNAsNin3Jj8O2BQkIfXoAq+z3hsteyJlXF298QIKLu/Eh
+         wjHg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=uuU/7SRkaJFxOOccuGobJJpaATyjD1AriCJtDDkTcmw=;
-        b=EiahTdzjqwHXU5zFLtE4irUovPl19aDmrR5XVz3r+0P1rXZD92BKb8im2th4JYfdfY
-         +KqRGfhfds4eusn9V++NML9BoejGvKxfxwicZ+qxx+ltFcY+PC/d1Yor69ImmMJsnUls
-         wuqK8Gk0/jloP70/2prDcGUyHADjFjW9Z6BIkD9N2+YvNz1tfUAxUMv8zytZ9Mo8c/Uk
-         N1zOTBpObBA98uKpxXtDvZdbz2B7vFmTiMwkCP5vSM5qeuZJotdsD4QiKIAb9CYJekN/
-         YsF7j++rPkCtk7eDR+7qqGfJRfsAhqYPupTaOqCtKiBWtRgR12OQDVImpCTPEiDgyxnJ
-         yfJg==
+        bh=K6QHlIy5vCAzBWCiqArRvP5rxUURXw4sHE18tSKsA5c=;
+        b=CuQoLkELgQKL32Rl7+YNLT32GXBgjb3Xzh6Fm+2POQO3d2WzkT0Cs4/hpAOJIzfUqz
+         c7aowOsbd2SnVF+9EtFwGI5SwUPkRMXfyVoZPeI8jJmbm/Mqpk8LMyFe9pnPdt5FL+GB
+         Z7G9W29eqighhgssfXUVUNvd5d1fxojRzOjecAy/8pfJlehf1tgwNeSLWefdfA6b51Yw
+         2i2gmYNMcEc1lTWdVp7s+poow+YxM7VqHwEAWHNAAir7B5R1qxafX3hsBDdotF3zRr4Z
+         bL6uawlTr1Tj/WQ4z2+0LxqcunjtirLGkEAbURBQvAa6GiTWK5LDk2BWInlmTWHFQNCJ
+         tAJA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=uuU/7SRkaJFxOOccuGobJJpaATyjD1AriCJtDDkTcmw=;
-        b=gLNaDecrVcONIDiHPc0wIgBBCVylHW5+KCYJogPrnnDTZge4CmUzf4Rh4luHhfUkRf
-         sbI2sZUZ1FCmDWY7GdovnoPJjMd526O+JzYysj79Q1Y6mnHGQW8JNj2IfSdcvvQCeBxL
-         PmiENwKC38p8pp+cfuuL7ILnLhuQ5tUYS7zMf9MvqWvINZjeGLYR3gjKgOeogVLN3QRj
-         L9p2HUmqH/beTT2Q1ETMX2rRfUqhJ+Xlusqm0AQeR0DIEfXVs2XqxaW06RLgO9ktKVF7
-         UL+uZhYkvU0tlWnpHCr4vRwOFLwr4Yj7l2XKj3CQZD5GeqHP15986TrvQ31bxYYilSJ8
-         1h3g==
+        bh=K6QHlIy5vCAzBWCiqArRvP5rxUURXw4sHE18tSKsA5c=;
+        b=ZRS+po9FhJjRCOxKIO5IznC64JmuiRE2RKcLwxnQwfjiSwDsLlTDKEqhbVsaIPEDoN
+         lZbaWobvrKPulF9bX/QIJ3taIeTq+fBkJDdbI8r0wHw+GLKyOBxTl2bvA49sjcKbr/fq
+         6vikCnpzkCUCNbzvn0vlZ0VKZGq9XW9xYJpE6gjjIAQZheIUoGEgITgcPXT2GlZ56BrR
+         Kq9YG05sw8FfoLDwthUuv4CiposzJYq3R7Cez63fENDXVezeENZNOYwdD5LAXj4u6ZeR
+         HbOMl3IFGj3hVkA2BsZI6rDuG/OMVc5nC1zINXCksKE7lXeJxVYoMR6AIBS4cv9H0VoW
+         /W+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=uuU/7SRkaJFxOOccuGobJJpaATyjD1AriCJtDDkTcmw=;
-        b=pOrkx6XZy9H6L8otfCtZExqOO9/u5Xxsn/XOFOw6pLo74Qd05HTHMbqgxATec9FOBA
-         dgRXfD7Xl0OUqm2f56CwmnbeGgQImw+Mpa8Kj5BZAGwJZTbxD1uICawTZdAlEeLbB7lL
-         WQcb719YZMaiVy9yI/U0UFtp4psv4g6j4Z20PN/tCSgZbHEdJCo09wfCjUnZVLywKthE
-         fvRau1hmEJl9ui5ULh63//HuYsDySOs6wzBaCVMTxY2aCm11EvCV73whVDO6zrdcEsMa
-         n+WC+BWntwtfZ33ZyQrAPQijMIziPTCGGpAlKMl1djWJERSx5TAQk6xUGctTfv5Hgjcy
-         rHDA==
+        bh=K6QHlIy5vCAzBWCiqArRvP5rxUURXw4sHE18tSKsA5c=;
+        b=R9BB6WHdxqc5JBLTETCE80xtjsnvIRsSZauB/2BEDciiHpg0uQGB9HqvASCy8Tklnf
+         YyUnhR0J1HUIjVFjGkmY8aRdg1dftpX55ZxF5FbdT4Hj5JXu/i8h8CmIp6MTMJ5Ojq4P
+         1IhAzvKParKjKaK3XIaLD9PhwBJ3QQFIbEWTuYd8lkdoMLRO2u5T8TTX4qomlnINTuvR
+         tyqUGnBZnJzVTRnGzl06Z72KNv0rIhtxYQ+8gULiEWfSr8l9oJB48pGZtX7BybAGN7NJ
+         7eU1KQp/sewfaP6sO3thsOju0FsNKgvHBerlkS0Hff0xbY6LNJbT7YeUzW3J7hOT4D/Q
+         MLzg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW4d1fnMBHa+mLEhZKdtc9ZUAhkREr1t34Rnfi0ABDl12FpS4Nb
-	O2wYTU6b7l4DnY/JIVZsqkk=
-X-Google-Smtp-Source: APXvYqxRUK+sXv8Yx7xuGz9kPoQKeugBxO50oJ+7dekodokDB77Y5qMIfAZBE7twk2PbitaKYHy4Iw==
-X-Received: by 2002:a62:db86:: with SMTP id f128mr15718248pfg.159.1566054722713;
-        Sat, 17 Aug 2019 08:12:02 -0700 (PDT)
+X-Gm-Message-State: APjAAAUpO/Y+nH1+GkVMEkpC6WWdt2R+5HXcelIP7ZEF2j4Er9aOdqdE
+	eIzCz1BvqWdTtYgmG73PjmA=
+X-Google-Smtp-Source: APXvYqxG31zfFmQN3iiHGFxkeUbL4Z74QrCYPUS7WYjTO1GTewh4NSgziGV+7yAR4uPzQEYuFQW96A==
+X-Received: by 2002:aa7:8611:: with SMTP id p17mr16233832pfn.41.1566055622368;
+        Sat, 17 Aug 2019 08:27:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:580d:: with SMTP id g13ls2414207pgr.5.gmail; Sat, 17 Aug
- 2019 08:12:02 -0700 (PDT)
-X-Received: by 2002:a62:f247:: with SMTP id y7mr16057046pfl.236.1566054722341;
-        Sat, 17 Aug 2019 08:12:02 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566054722; cv=none;
+Received: by 2002:a65:47ca:: with SMTP id f10ls2414844pgs.13.gmail; Sat, 17
+ Aug 2019 08:27:02 -0700 (PDT)
+X-Received: by 2002:a62:1858:: with SMTP id 85mr16368910pfy.120.1566055622023;
+        Sat, 17 Aug 2019 08:27:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566055622; cv=none;
         d=google.com; s=arc-20160816;
-        b=HH/6iAsIXhTFbd0AjdoDNoiOv87HT2e8HbZb9xRb993pQl/PlHudLKb8/RERkRUwFK
-         weWHhOODjF0S0BJV7S8yqskNWKO8G+t1eyyncE+CahgLT+64tDHbppM+PiSBrDiWc9Py
-         paxkKYdByzpAxXOu4tcSaeGyG8MxmXv2WsyDVJm0TLCuMKuAd61U1ZyKn70fvhq71Dlh
-         Dlw9/nzRToiYhSVX0BGv1GsxlGurq8lJk62tcKFTIPZCvHWqhEc7KAGywf0QLkIOPM5J
-         mHRWH14F/sPHosBaPQZCd8bG+0iQrH5tP79iXPLDMxn2lWIs5Et8SwkVxHDgEKAbsY3v
-         DPCQ==
+        b=XORLyIMmD37iNI/aQFs9fvJ0VikmuiwchSybM4J4kYMwegWuy7p82+l7+KoDJ2d8xc
+         VKatg/ifwGW7A61IYyhse97bOGr4Rp0bryqZPzv1NxFnxUCmOwvJnd/4m3jU81a+5Fmm
+         RkQwUAlN7efGX2Nj7z+lAByNXYwu9QHCIXj4bhMYLp9jqXcwOcEnV9RR/wnSwZA/oQLY
+         JXP1lF39CEA8BfAytttMtm+oJf1+ZpDwMq2M0tSi298akqK0KYlCvTde06BXjzudukni
+         bffSeUBnNVIOmSWWf9efkAO+UShdaydURvE6+BfXZ4YRU40bNj9TjLjqV+8JJXla5GDS
+         gLMQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=n/YbMmhw/iXLFtE+oVo6FyANAeMwm9p2uhXYK/IwXOY=;
-        b=0rFJFN3ZtCatGnTlRVs040/OUf81tbwRIPXwjt3KWJRwj8i+VStd6IOurCvEdXmDOT
-         zfc1uD96U7S2GCAd8U7uZ2hEQBbL0kcgKWZDY0W/YcRtinwsn04QBcYdPTd2r95t1Bu5
-         tfY55yDs/K69t5jMdjshNrNnj55fQZUT9q4+u7MTHyAyhG07CWkrwp4YsO0eCyAV+PPt
-         5qlZBx2WXtuIwJ1FUMNNWB/skN6eFpSsgUKWhTrjDEfWtQb4c93iXUG54YpZyYFHVQh1
-         MT8a7mM8V6WcfybhmTe9hRq2v82x9OHaSXA+rkBHos/ICBrJYy9QqvBbgJ1Aljdr4EPt
-         Df0A==
+        bh=Vek3Q0pcQFj5Wc0Z/ZlfcUD0Y1afcz5Ykwg/NRrYZVw=;
+        b=lSphpXdBDSyrVhhIgFP/6+b4bH3+nlpX/XMOqFpad725uSLNpepLPoOyV5wjyKZ9+V
+         JiA1/Kc9aZ4/EfzJcidlzglpitUKdoyKEcevFyQkV7jXr4JTev4H9BmsZ5RWwBsA8/DZ
+         aEVRaPKa7MX2R8CI/v/31kdQ4tDljwuWWvSC8Pwe+9SDqhEUCnFrsXUvryk4rBWVopRB
+         D/9QfUZLuZFyzrjdGPgY50cabwR18wWXJT07TNByalZeHv7qzM5INQZHQqrqo23YgP8o
+         4feRbzCpamP+22zwzt6a6AirkzuNrtqCy4NvHhsqYTsDI4iIFdZmPq0oPZC42EldxrjL
+         dCqg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id l72si445489pge.0.2019.08.17.08.12.02
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id t35si252389pjb.3.2019.08.17.08.27.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 17 Aug 2019 08:12:02 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+        Sat, 17 Aug 2019 08:27:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 17 Aug 2019 08:11:36 -0700
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 17 Aug 2019 08:26:36 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,397,1559545200"; 
-   d="gz'50?scan'50,208,50";a="182453033"
+   d="gz'50?scan'50,208,50";a="168332414"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 17 Aug 2019 08:11:34 -0700
+  by orsmga007.jf.intel.com with ESMTP; 17 Aug 2019 08:26:34 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hz0Mf-000AX5-MC; Sat, 17 Aug 2019 23:11:33 +0800
-Date: Sat, 17 Aug 2019 23:11:08 +0800
+	id 1hz0bC-000Dyw-0b; Sat, 17 Aug 2019 23:26:34 +0800
+Date: Sat, 17 Aug 2019 23:26:06 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH bpf-next 3/5] i40e: Enable XDP_SKIP_BPF option for AF_XDP
- sockets
-Message-ID: <201908172336.dHvxKY9k%lkp@intel.com>
+Subject: Re: [PATCH bpf-next 4/5] ixgbe: Enable XDP_SKIP_BPF option for
+ AF_XDP sockets
+Message-ID: <201908172330.NMjTnpCP%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="gfrvtbvb3mn3cm7v"
+Content-Type: multipart/mixed; boundary="aqlgexmg5asnt626"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,13 +138,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---gfrvtbvb3mn3cm7v
+--aqlgexmg5asnt626
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-In-Reply-To: <1565840783-8269-4-git-send-email-sridhar.samudrala@intel.com>
-References: <1565840783-8269-4-git-send-email-sridhar.samudrala@intel.com>
+In-Reply-To: <1565840783-8269-5-git-send-email-sridhar.samudrala@intel.com>
+References: <1565840783-8269-5-git-send-email-sridhar.samudrala@intel.com>
 TO: Sridhar Samudrala <sridhar.samudrala@intel.com>
 CC: magnus.karlsson@intel.com, bjorn.topel@intel.com, netdev@vger.kernel.org, bpf@vger.kernel.org, sridhar.samudrala@intel.com, intel-wired-lan@lists.osuosl.org, maciej.fijalkowski@intel.com, tom.herbert@intel.com
 CC: 
@@ -168,166 +168,84 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/net/ethernet/intel/i40e/i40e_txrx.c:2215:9: error: implicit declaration of function 'xsk_umem_rcv' [-Werror,-Wimplicit-function-declaration]
+>> drivers/net/ethernet/intel/ixgbe/ixgbe_main.c:2213:9: error: implicit declaration of function 'xsk_umem_rcv' [-Werror,-Wimplicit-function-declaration]
                    err = xsk_umem_rcv(umem, xdp);
                          ^
->> drivers/net/ethernet/intel/i40e/i40e_txrx.c:2322:4: error: implicit declaration of function 'xsk_umem_flush' [-Werror,-Wimplicit-function-declaration]
+>> drivers/net/ethernet/intel/ixgbe/ixgbe_main.c:2417:4: error: implicit declaration of function 'xsk_umem_flush' [-Werror,-Wimplicit-function-declaration]
                            xsk_umem_flush(umem);
                            ^
    2 errors generated.
 --
->> drivers/net/ethernet/intel/i40e/i40e_xsk.c:199:9: error: implicit declaration of function 'xsk_umem_rcv' [-Werror,-Wimplicit-function-declaration]
+>> drivers/net/ethernet/intel/ixgbe/ixgbe_xsk.c:152:9: error: implicit declaration of function 'xsk_umem_rcv' [-Werror,-Wimplicit-function-declaration]
                    err = xsk_umem_rcv(rx_ring->xsk_umem, xdp);
                          ^
-   1 error generated.
+>> drivers/net/ethernet/intel/ixgbe/ixgbe_xsk.c:540:4: error: implicit declaration of function 'xsk_umem_flush' [-Werror,-Wimplicit-function-declaration]
+                           xsk_umem_flush(umem);
+                           ^
+   2 errors generated.
 
-vim +/xsk_umem_rcv +2215 drivers/net/ethernet/intel/i40e/i40e_txrx.c
+vim +/xsk_umem_rcv +2213 drivers/net/ethernet/intel/ixgbe/ixgbe_main.c
 
-  2190	
-  2191	/**
-  2192	 * i40e_run_xdp - run an XDP program
-  2193	 * @rx_ring: Rx ring being processed
-  2194	 * @xdp: XDP buffer containing the frame
-  2195	 **/
-  2196	static struct sk_buff *i40e_run_xdp(struct i40e_ring *rx_ring,
-  2197					    struct xdp_buff *xdp)
-  2198	{
-  2199		int err, result = I40E_XDP_PASS;
-  2200		struct i40e_ring *xdp_ring;
-  2201		struct bpf_prog *xdp_prog;
-  2202		struct xdp_umem *umem;
-  2203		u32 act;
-  2204	
-  2205		rcu_read_lock();
-  2206		xdp_prog = READ_ONCE(rx_ring->xdp_prog);
-  2207	
-  2208		if (!xdp_prog)
-  2209			goto xdp_out;
+  2192	
+  2193	static struct sk_buff *ixgbe_run_xdp(struct ixgbe_adapter *adapter,
+  2194					     struct ixgbe_ring *rx_ring,
+  2195					     struct xdp_buff *xdp)
+  2196	{
+  2197		int err, result = IXGBE_XDP_PASS;
+  2198		struct bpf_prog *xdp_prog;
+  2199		struct xdp_frame *xdpf;
+  2200		struct xdp_umem *umem;
+  2201		u32 act;
+  2202	
+  2203		rcu_read_lock();
+  2204		xdp_prog = READ_ONCE(rx_ring->xdp_prog);
+  2205	
+  2206		if (!xdp_prog)
+  2207			goto xdp_out;
+  2208	
+  2209		prefetchw(xdp->data_hard_start); /* xdp_frame write */
   2210	
-  2211		prefetchw(xdp->data_hard_start); /* xdp_frame write */
-  2212	
-  2213		umem = xdp_get_umem_from_qid(rx_ring->netdev, rx_ring->queue_index);
-  2214		if (xsk_umem_skip_bpf(umem)) {
-> 2215			err = xsk_umem_rcv(umem, xdp);
-  2216			result = !err ? I40E_XDP_REDIR : I40E_XDP_CONSUMED;
-  2217			goto xdp_out;
-  2218		}
-  2219	
-  2220		act = bpf_prog_run_xdp(xdp_prog, xdp);
-  2221		switch (act) {
-  2222		case XDP_PASS:
-  2223			break;
-  2224		case XDP_TX:
-  2225			xdp_ring = rx_ring->vsi->xdp_rings[rx_ring->queue_index];
-  2226			result = i40e_xmit_xdp_tx_ring(xdp, xdp_ring);
-  2227			break;
-  2228		case XDP_REDIRECT:
-  2229			err = xdp_do_redirect(rx_ring->netdev, xdp, xdp_prog);
-  2230			result = !err ? I40E_XDP_REDIR : I40E_XDP_CONSUMED;
-  2231			break;
-  2232		default:
-  2233			bpf_warn_invalid_xdp_action(act);
-  2234			/* fall through */
-  2235		case XDP_ABORTED:
-  2236			trace_xdp_exception(rx_ring->netdev, xdp_prog, act);
-  2237			/* fall through -- handle aborts by dropping packet */
-  2238		case XDP_DROP:
-  2239			result = I40E_XDP_CONSUMED;
-  2240			break;
-  2241		}
-  2242	xdp_out:
-  2243		rcu_read_unlock();
-  2244		return ERR_PTR(-result);
-  2245	}
-  2246	
-  2247	/**
-  2248	 * i40e_rx_buffer_flip - adjusted rx_buffer to point to an unused region
-  2249	 * @rx_ring: Rx ring
-  2250	 * @rx_buffer: Rx buffer to adjust
-  2251	 * @size: Size of adjustment
-  2252	 **/
-  2253	static void i40e_rx_buffer_flip(struct i40e_ring *rx_ring,
-  2254					struct i40e_rx_buffer *rx_buffer,
-  2255					unsigned int size)
-  2256	{
-  2257	#if (PAGE_SIZE < 8192)
-  2258		unsigned int truesize = i40e_rx_pg_size(rx_ring) / 2;
-  2259	
-  2260		rx_buffer->page_offset ^= truesize;
-  2261	#else
-  2262		unsigned int truesize = SKB_DATA_ALIGN(i40e_rx_offset(rx_ring) + size);
-  2263	
-  2264		rx_buffer->page_offset += truesize;
-  2265	#endif
-  2266	}
-  2267	
-  2268	/**
-  2269	 * i40e_xdp_ring_update_tail - Updates the XDP Tx ring tail register
-  2270	 * @xdp_ring: XDP Tx ring
-  2271	 *
-  2272	 * This function updates the XDP Tx ring tail register.
-  2273	 **/
-  2274	void i40e_xdp_ring_update_tail(struct i40e_ring *xdp_ring)
-  2275	{
-  2276		/* Force memory writes to complete before letting h/w
-  2277		 * know there are new descriptors to fetch.
-  2278		 */
-  2279		wmb();
-  2280		writel_relaxed(xdp_ring->next_to_use, xdp_ring->tail);
-  2281	}
-  2282	
-  2283	/**
-  2284	 * i40e_update_rx_stats - Update Rx ring statistics
-  2285	 * @rx_ring: rx descriptor ring
-  2286	 * @total_rx_bytes: number of bytes received
-  2287	 * @total_rx_packets: number of packets received
-  2288	 *
-  2289	 * This function updates the Rx ring statistics.
-  2290	 **/
-  2291	void i40e_update_rx_stats(struct i40e_ring *rx_ring,
-  2292				  unsigned int total_rx_bytes,
-  2293				  unsigned int total_rx_packets)
-  2294	{
-  2295		u64_stats_update_begin(&rx_ring->syncp);
-  2296		rx_ring->stats.packets += total_rx_packets;
-  2297		rx_ring->stats.bytes += total_rx_bytes;
-  2298		u64_stats_update_end(&rx_ring->syncp);
-  2299		rx_ring->q_vector->rx.total_packets += total_rx_packets;
-  2300		rx_ring->q_vector->rx.total_bytes += total_rx_bytes;
-  2301	}
-  2302	
-  2303	/**
-  2304	 * i40e_finalize_xdp_rx - Bump XDP Tx tail and/or flush redirect map
-  2305	 * @rx_ring: Rx ring
-  2306	 * @xdp_res: Result of the receive batch
-  2307	 *
-  2308	 * This function bumps XDP Tx tail and/or flush redirect map, and
-  2309	 * should be called when a batch of packets has been processed in the
-  2310	 * napi loop.
-  2311	 **/
-  2312	void i40e_finalize_xdp_rx(struct i40e_ring *rx_ring, unsigned int xdp_res)
-  2313	{
-  2314		if (xdp_res & I40E_XDP_REDIR) {
-  2315			struct xdp_umem *umem;
-  2316	
-  2317			umem = rx_ring->xsk_umem;
-  2318			if (!umem)
-  2319				umem = xdp_get_umem_from_qid(rx_ring->netdev,
-  2320							     rx_ring->queue_index);
-  2321			if (xsk_umem_skip_bpf(umem))
-> 2322				xsk_umem_flush(umem);
-  2323			else
-  2324				xdp_do_flush_map();
-  2325		}
-  2326	
-  2327		if (xdp_res & I40E_XDP_TX) {
-  2328			struct i40e_ring *xdp_ring =
-  2329				rx_ring->vsi->xdp_rings[rx_ring->queue_index];
-  2330	
-  2331			i40e_xdp_ring_update_tail(xdp_ring);
-  2332		}
-  2333	}
-  2334	
+  2211		umem = xdp_get_umem_from_qid(rx_ring->netdev, rx_ring->queue_index);
+  2212		if (xsk_umem_skip_bpf(umem)) {
+> 2213			err = xsk_umem_rcv(umem, xdp);
+  2214			result = !err ? IXGBE_XDP_REDIR : IXGBE_XDP_CONSUMED;
+  2215			goto xdp_out;
+  2216		}
+  2217	
+  2218		act = bpf_prog_run_xdp(xdp_prog, xdp);
+  2219		switch (act) {
+  2220		case XDP_PASS:
+  2221			break;
+  2222		case XDP_TX:
+  2223			xdpf = convert_to_xdp_frame(xdp);
+  2224			if (unlikely(!xdpf)) {
+  2225				result = IXGBE_XDP_CONSUMED;
+  2226				break;
+  2227			}
+  2228			result = ixgbe_xmit_xdp_ring(adapter, xdpf);
+  2229			break;
+  2230		case XDP_REDIRECT:
+  2231			err = xdp_do_redirect(adapter->netdev, xdp, xdp_prog);
+  2232			if (!err)
+  2233				result = IXGBE_XDP_REDIR;
+  2234			else
+  2235				result = IXGBE_XDP_CONSUMED;
+  2236			break;
+  2237		default:
+  2238			bpf_warn_invalid_xdp_action(act);
+  2239			/* fallthrough */
+  2240		case XDP_ABORTED:
+  2241			trace_xdp_exception(rx_ring->netdev, xdp_prog, act);
+  2242			/* fallthrough -- handle aborts by dropping packet */
+  2243		case XDP_DROP:
+  2244			result = IXGBE_XDP_CONSUMED;
+  2245			break;
+  2246		}
+  2247	xdp_out:
+  2248		rcu_read_unlock();
+  2249		return ERR_PTR(-result);
+  2250	}
+  2251	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -336,14 +254,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908172336.dHvxKY9k%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908172330.NMjTnpCP%25lkp%40intel.com.
 
---gfrvtbvb3mn3cm7v
+--aqlgexmg5asnt626
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICJsVWF0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
+H4sICEobWF0AAy5jb25maWcAlDxbe9s2su/7K/SlL+1DG18S193z+QEiQQkRSbAAKEt+4afa
 cuqzvuTIdjf592cG4GUAgm7a3TbhzOA+mDv0w79+mLHXl6eH3cvd9e7+/tvs8/5xf9i97G9m
 t3f3+/+ZpXJWSjPjqTC/AHF+9/j69f3X87Pm7MPs4y+nvxz9fLg+na32h8f9/Sx5ery9+/wK
 7e+eHv/1w7/g/z8A8OELdHX49+z6fvf4efbX/vAM6Nnx0S/wv9mPn+9e/v3+Pfz34e5weDq8
@@ -1211,4 +1129,4 @@ dpFGZ96tShad1mJLjEkFi8cFmmachGgEleQk+ioq1KYqZas5bBm0cqoxh5xlMadsNyOG2Rq9
 YsvBvMwoC11Hh4sjZ6onQCbzoxljhe3NOHgjCWugyLyLymk7XKkRXoxwCEcX5DV9U6nWPCSY
 OGR6bCwJsOkxUQNKNEHC99Uen2Boh7q1TBlzOdt9SZwOvDnkmOr/BrpbdhNz9wIA
 
---gfrvtbvb3mn3cm7v--
+--aqlgexmg5asnt626--
