@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBN6V4PVAKGQEM7DXV3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBAMC4XVAKGQED7JE26A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 39FA791500
-	for <lists+clang-built-linux@lfdr.de>; Sun, 18 Aug 2019 08:05:44 +0200 (CEST)
-Received: by mail-vk1-xa3e.google.com with SMTP id a189sf173060vkc.20
-        for <lists+clang-built-linux@lfdr.de>; Sat, 17 Aug 2019 23:05:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566108343; cv=pass;
+Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 52BC691678
+	for <lists+clang-built-linux@lfdr.de>; Sun, 18 Aug 2019 14:13:55 +0200 (CEST)
+Received: by mail-yb1-xb37.google.com with SMTP id k137sf614725ybf.21
+        for <lists+clang-built-linux@lfdr.de>; Sun, 18 Aug 2019 05:13:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566130434; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wAN/rhAUEFV38IsU42bS7SbvjUuASuBPibvghFB4JsDhA4loo4KYZ/yU1IqWhRoF8l
-         MzD8d8px04JPuJA+PaIgbksnC1dyntQdX2pRR+GR8Ef18XbEbMYXqRvsgu+c295pLJWK
-         ZdP6aUW4Hj2IPhqXtnNClTEp3l5mCSUwQrIE7lrrhRwFgBHyJXXfSrWekSwPEm+b0K23
-         omp7Gsccp9LcrocrPupjNdYw6zFoyzRe0fmlGQM3zgUdsuCD8znVSF3o8K/oBff14Qye
-         y9MhY6DN49iaYBkTPJGado6W9GkeTI/iYEPNg0uj13spHDKladnPvNOz61lqjdsnSXrm
-         4bmA==
+        b=CoqA9BCCQGvklW8Db3ZtQrEXi63g6RmkLJbXsaQVOqFnGXeIM4Rmwma9HEyrOfQhgt
+         DLcKAI6/7pJHm4JjL3OzCZFL0m+TqWrRTPK3/3zw7Pr3XiFBgTERFlK5/yU5QUuPKQUZ
+         o28znZn4FMIoTb1w21esO06wpinUTe0zXM1zuYjXGBUksgfAMdFrg84JQwfbL5FNGEFN
+         nb+j5a+VUrbk1t6BP3wMPqVCYdjkIvN3Osakf0kuVMNKAUIrM58bNf6ippwscrJWvhhd
+         mI/M4Qto/YSUpdwf/y+9BImdqIf5iGjaEoabgh7PnVm7dzP5d5+VoccotSWwBPyWI9sa
+         B/xw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=VEtHmyUGwDSo4eYhBfJt5IH+PuB4Udn3RNi/xHWB+5E=;
-        b=q5MSRhvOx0WYWOEGorTNcjGty1V2yNgJb1RYQShTxTrm8ZsNh46x5urzg6VwJWyBRa
-         9BQs+aSpPhypqsj0EB6Nak4CvNPIWRChFE98AwhdjsJeMhf3AS9DgvkOfiXH2xFjx9nL
-         PJ8JcoeusZufDyDQfTJllU24fijqN7w4wS6ZJ0Wq9ZBwZlnX4eqAimhzb9D+5Nna5HiD
-         b5b/UFaYpxHIK2D7vONuztDaj5Np+CD+E0wqzvvJ0mBpmmvbuoJC1qgOOSl7cpmii3M9
-         fSAal0Fls+30J+xmof+YvXc/090Zrs/VGV2bKVPTDvwgHA7WIm8jcAKOJCdi60cSa3Qb
-         63rg==
+        bh=xM15pNj5jL0CyXW5/LLNOCTzKJxJMcMyTTrU9xeKb10=;
+        b=f1nk9zuI7ZFiWcmEKUFR1I2d1YFEw6c8vO5sLWzgLKkkJFILO3yMIbXyJUZ4oYOful
+         o3eFcDRYArVxxNg9iiltnJmPWF4mSG30/XylAEu7PMe3AOjRN72gIvmJn7D4fw/8vSA+
+         DiYDx7MAG0rbCRIBb3+T1CeWdoPLOMaBzJV2OhtRccZTh8OV7C40ebWBSo1Y8gJnKnyO
+         H4CTBZ0eycqkNVH2BCeCtwk4pOtKtGvfNpE54zHLTcpNlU2rzw27pYpS5a1CeIqvsNJE
+         6yAp761+7JY+XMhg7oI/9aw+duxkqWiM+FDFHWDAS/teNWHsFvA65bpDk7ZJSvPhi0Rb
+         hurA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VEtHmyUGwDSo4eYhBfJt5IH+PuB4Udn3RNi/xHWB+5E=;
-        b=K4m/wn6qvZmAJarunMzqIwbpmcBMg7rzahgZviLFF0ZIPzbhnve6CCMQluM+ugq9Jh
-         +C3xWE4FpPgdTm06gp0ytkWXtzaRtoCNG4MyIHnDLF007pBwqSqoIMeVuKaIhNyPgXgg
-         jknl7lBDOLQF6zCeD+GwczhhBj0lfwXA6JMxEgPiTuSSc5ZKCfLkBZwS0i252NPxPU5d
-         8h/QS80BTv5qZwtgQKa2KN2TphZstGlR3SrpVSUdiC6DD43srtJF9qUeS7w5NISseY9a
-         p+RMSQ9d9bIMr2P+Jsqn73DpLrDLW5DbKWDhyg16Cd8Qz8h0ixdjXpz9mb8ElHNIiH9m
-         RBXw==
+        bh=xM15pNj5jL0CyXW5/LLNOCTzKJxJMcMyTTrU9xeKb10=;
+        b=GseaQ8uqWszQsZ3pBOrNv+MiTwhZ6apNa/GiIvU/cUY4HqelBSV3Kh/JnBBNewF9e4
+         bt0odAP5GyKgEoRVgSMHyqJVukVLA1bFoSOAGhbcbh1tTdF3xk6hlYwwK/6kYpNgJEps
+         3/kOYOonlYNVUNXGS3CKLwXZ0md1JZm22su8uRJVe71PANuOFggbN6vcKD130yYNl2at
+         CDBHXoRUFn3gJgVqotYxbGFqIuyqu/kwLW/xyeT8dlpMpws0wNHHDK0v0alexf781zNr
+         wIS0g9bPCUFX0bSh6ANPxbOKbCtli1i9tT3G2Zrd6V7UWC/plrjOI5uIgOkhO5/C0rKU
+         di8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VEtHmyUGwDSo4eYhBfJt5IH+PuB4Udn3RNi/xHWB+5E=;
-        b=sUf1faVKPxDcAp/D+0CLNGETaIrrSahxs1HAMRh0mYL87fWHj2mUUo/M7QcmM3lJGk
-         Gy7zDh8L4IOLTvKBPN/jADp4cAKuHia3h/QghbIX0NZ6nQQ4Byg8FQmyWaqWBLcCIUpi
-         cMx8g5X6egUq2qJRkJ/79C8nmiIb9xKSSK9wvf0XwkEP52BaHhmlUEpWvOY4kpOKfGga
-         kkdEvpUloJ0S2zRPyh+nqh1KiFRFxVfY7JHrtvMWecrUKY9hK++wuqi1dxMnKp5hPPIn
-         YxyOi9t/cG4OyyXDfal7esLfpURFqXHvheJlRBN/Nr+v9yJT29l/FvMixuGRvegwMlzB
-         rJuA==
+        bh=xM15pNj5jL0CyXW5/LLNOCTzKJxJMcMyTTrU9xeKb10=;
+        b=W2RAOed0urXP4cuISdkhorDMRtgPSkvte6+baAT/BMYL7NrEgMChu48+IVzaJ+Xd3k
+         qJ+dje3ScR5OagF68WZNMl5ffaYGi1zjhEPqix0FQ5XV9kpZylznG1vMyjxqH/9RXa50
+         LBX10rD/d7mv9SZ8qw94sUTK0BgJ0Mjig0rGCkomtbsKYOu42rGJQSiJvS/UpMuAFEz9
+         ANgA4VQ2nQ0CfZQY/OQ3vxzdGEaqHr23dy4EQEEYDzmVQEd2e/siLRQkin7luMQ0z+z/
+         QHqFnh/M5TebM2sQm7Z7XqgdCNnFwChisMd/oTVfWpCsfxNk9HWfvDGeHi/I6NBbJEx0
+         FZhg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXr35WfDtxoGZq0a6+Zg1ZP1Ry8x6okQHksGFL/JY/kW3LK/ukN
-	Ey9w/X8Uv5c5oughM03EfU0=
-X-Google-Smtp-Source: APXvYqydmoA16BZZPrNpMsGJQE7pJ0y9ERDhGnB3+2BuAUgiw1gh+iW5lr/AuPZsWgaWXKw9l3SfcQ==
-X-Received: by 2002:a67:cfc3:: with SMTP id h3mr10497767vsm.235.1566108343153;
-        Sat, 17 Aug 2019 23:05:43 -0700 (PDT)
+X-Gm-Message-State: APjAAAVWD5M428hBlAvZ55YrTFZDdwtdDL6/7E7vc2V3A+tCP4r7mNA/
+	mmK1LiVN7eC8fSi0Nu4W0mg=
+X-Google-Smtp-Source: APXvYqzzJGHQxV0O5hJU+LxxZ8hLIUTRXcSvaxRLEOQgrWD+1sRklHjMcTxE69YP22uTD5oY6yw1Fw==
+X-Received: by 2002:a25:68c6:: with SMTP id d189mr13660174ybc.491.1566130433965;
+        Sun, 18 Aug 2019 05:13:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:e449:: with SMTP id n9ls557153vsm.3.gmail; Sat, 17 Aug
- 2019 23:05:42 -0700 (PDT)
-X-Received: by 2002:a67:ad01:: with SMTP id t1mr9266357vsl.73.1566108342849;
-        Sat, 17 Aug 2019 23:05:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566108342; cv=none;
+Received: by 2002:a25:9c01:: with SMTP id c1ls1437744ybo.1.gmail; Sun, 18 Aug
+ 2019 05:13:53 -0700 (PDT)
+X-Received: by 2002:a25:7357:: with SMTP id o84mr13921238ybc.54.1566130433598;
+        Sun, 18 Aug 2019 05:13:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566130433; cv=none;
         d=google.com; s=arc-20160816;
-        b=GJL4Famg5skFokKV0c1t9eEcVlQa3iMGT/gO74abgAJbeR0UJI3dmMhCQXxkW7H8jR
-         1gkDgsAGQqNoq+kTyToXMJGhKTBIQVNa2RqD4hkcWk5s4eSOAnt9FD1B9CzwTPmVSs2o
-         wQYZ3tuPVNc7YIgY3J+NvDbjxddmPDUJiHHuIYXI718J1XzxGQi5HYI4zxuVqnHKPHjb
-         vwBH+d/HRf3xdL48fZXchRDJmasNZlEwyRGjAm258IKt6Ne1tivvq5zy6bB4ExKtqV2X
-         fPeCG8sUvTWbWtL+X2EK3warrVzxur+IJ/YG2jrk9/zWwNXMdI7oCP729JrxA5edI/jA
-         ki7Q==
+        b=uVgcRgEyZYCwhLxvNWbmKe3Fl7GmzCCwGpS3z+d2N2Z8dXV1X8sapoO9OxgWwmPtVX
+         zVsQigjiV44wyZ91leLtFwzKVaBYQXryROzc4+SeYfZ85ZEHjPE19whxO7IbtCPHIoS9
+         XnzNYN8ffJamdYwHRXbZy2n77YfPIGCCSZxawewjww1pfD3nLNYKxgAKh1Amod9hI1mD
+         Lu+Q05sHbjFd8ifaFlh73K+kNmAq4niVqqfZ5oEd404DFjJfoODZuDlICKiMc1vvh43l
+         KeCQceegI09D2SEaHGKCp1sqmFghhghCUeo4Yn/D104g0xeJJFdsc6A3xOiCsbXVR9qp
+         328g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=Yy2JIVxVQ8Zr2o+BfMzXAEWrOHycRU3mCh77Sf/ExgA=;
-        b=xFLPx5acnHR/5Y/0IaMPJU7ckHRRQa8yT36aw2oMdUArHcZpkXe96iyMfzin45xjHZ
-         sNH/35FnRQEFHeqFdHN+XX09Ev8RTPQVelYv1qnM+sOIeKFKVZ2qr+Oo+eJixjWdNuYs
-         vQMqZOs4YtjQ6an0alTcH3IVtIzpSuoj+XFYqzx6Tuxb9MSEsMDwrEI9IMDQqCVroy/y
-         u2z6mpJGLkA8IJ054R4MpIt62mZaD1Hc0FdKotq5HDIItwKe/j9TrAtHLsaAh1Uos483
-         tk1HavMkETvF7Y+ONquQEysUIgDFdx3lCzo4me5shmYt2JtR82k9TIKp3zM0wFsEC8Xf
-         qmtA==
+        bh=iZZ9NpfV7eaz4S2tmKKtgGYX/USkUak0SXv9avpNOy8=;
+        b=VOpGZKLYt+MQXpAvEXy/d+jEuoHzpJsDox4wAJ4ee5VzJZ8v+8q4DSY6uSGzRZIZeo
+         x39teGMPQvJJ3AODqmlFzf5jI/zEFqRvoF6yyYqcj5CLDoZu9gMxpbiFlKqEjGOdyEqz
+         ebp6j9FPulQH9PE30uu9VEBZqMBQwO8DMG4sf5r+psFC/tXwSPW0s+ofPx3T2olQy6P7
+         IkHh4nnSvec1mUsoTFgALI2lke12c+uH75sKCLVMb2bFtjbK3ajZj7O/xle4GePSxfjo
+         iCt3gLJCnfEu0qxFf/gN6JE582F4cvrPWa4/juIDvdI1NZPm9CFDZ6Y5O37YaDxiCjys
+         wIeA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id f13si496105uap.1.2019.08.17.23.05.42
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id r6si546917ybb.1.2019.08.18.05.13.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 17 Aug 2019 23:05:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-X-Amp-Result: UNSCANNABLE
+        Sun, 18 Aug 2019 05:13:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 17 Aug 2019 23:05:40 -0700
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 18 Aug 2019 05:13:51 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,399,1559545200"; 
-   d="gz'50?scan'50,208,50";a="189211529"
+X-IronPort-AV: E=Sophos;i="5.64,400,1559545200"; 
+   d="gz'50?scan'50,208,50";a="180114272"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga002.jf.intel.com with ESMTP; 17 Aug 2019 23:05:38 -0700
+  by orsmga003.jf.intel.com with ESMTP; 18 Aug 2019 05:13:49 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1hzEJu-0008zT-DR; Sun, 18 Aug 2019 14:05:38 +0800
-Date: Sun, 18 Aug 2019 14:05:27 +0800
+	id 1hzK4C-000CJx-Mr; Sun, 18 Aug 2019 20:13:48 +0800
+Date: Sun, 18 Aug 2019 20:13:34 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH V5 2/2] genirq/affinity: Spread vectors on node according
- to nr_cpu ratio
-Message-ID: <201908181343.tKX0E9s0%lkp@intel.com>
+Subject: Re: [PATCH v2] gpio: pl061: Fix the issue failed to register the
+ ACPI interrtupion
+Message-ID: <201908182023.6sKkKWGx%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="h3x5wwqynlacrzrl"
+Content-Type: multipart/mixed; boundary="gb7stdfgyaqnsa7n"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,153 +138,86 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---h3x5wwqynlacrzrl
+--gb7stdfgyaqnsa7n
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190816022849.14075-3-ming.lei@redhat.com>
-References: <20190816022849.14075-3-ming.lei@redhat.com>
-TO: Ming Lei <ming.lei@redhat.com>
-CC: Thomas Gleixner <tglx@linutronix.de>
-CC: linux-kernel@vger.kernel.org, Ming Lei <ming.lei@redhat.com>, Christoph Hellwig <hch@lst.de>, Keith Busch <kbusch@kernel.org>, linux-nvme@lists.infradead.org, Jon Derrick <jonathan.derrick@intel.com>, Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <1565946336-20080-1-git-send-email-xuwei5@hisilicon.com>
+References: <1565946336-20080-1-git-send-email-xuwei5@hisilicon.com>
+TO: Wei Xu <xuwei5@hisilicon.com>
+CC: xuwei5@hisilicon.com, linux-gpio@vger.kernel.org, linux-kernel@vger.ker=
+nel.org, linux-arm-kernel@lists.infradead.org, linus.walleij@linaro.org, rj=
+w@rjwysocki.net, lenb@kernel.org, mika.westerberg@linux.intel.com, andy.she=
+vchenko@gmail.com, linuxarm@huawei.com, shameerali.kolothum.thodi@huawei.co=
+m, jonathan.cameron@huawei.com, john.garry@huawei.com, salil.mehta@huawei.c=
+om, shiju.jose@huawei.com, jinying@hisilicon.com, zhangyi.ac@huawei.com, li=
+guozhu@hisilicon.com, tangkunshan@huawei.com, huangdaode@hisilicon.com
+CC: linuxarm@huawei.com, shameerali.kolothum.thodi@huawei.com, jonathan.cam=
+eron@huawei.com, john.garry@huawei.com, salil.mehta@huawei.com, shiju.jose@=
+huawei.com, jinying@hisilicon.com, zhangyi.ac@huawei.com, liguozhu@hisilico=
+n.com, tangkunshan@huawei.com, huangdaode@hisilicon.com
 
-Hi Ming,
+Hi Wei,
 
-Thank you for the patch! Perhaps something to improve:
+I love your patch! Yet something to improve:
 
-[auto build test WARNING on linus/master]
+[auto build test ERROR on linus/master]
 [cannot apply to v5.3-rc4 next-20190816]
-[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+[if your patch is applied to the wrong git tree, please drop us a note to h=
+elp improve the system]
 
-url:    https://github.com/0day-ci/linux/commits/Ming-Lei/genirq-affinity-Improve-__irq_build_affinity_masks/20190818-045204
+url:    https://github.com/0day-ci/linux/commits/Wei-Xu/gpio-pl061-Fix-the-=
+issue-failed-to-register-the-ACPI-interrtupion/20190818-183921
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f=
+77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
+make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # save the attached .config to linux build tree
-        make.cross ARCH=arm64 
+        make.cross ARCH=3Darm64=20
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> kernel/irq/affinity.c:366:6: warning: variable 'nr_others' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
-           if (nr_present < 0) {
-               ^~~~~~~~~~~~~~
-   kernel/irq/affinity.c:391:22: note: uninitialized use occurs here
-           if (min(nr_present, nr_others) >= 0)
-                               ^~~~~~~~~
-   include/linux/kernel.h:854:36: note: expanded from macro 'min'
-   #define min(x, y)       __careful_cmp(x, y, <)
-                                            ^
-   include/linux/kernel.h:847:17: note: expanded from macro '__careful_cmp'
-                   __cmp_once(x, y, __UNIQUE_ID(__x), __UNIQUE_ID(__y), op))
-                                 ^
-   include/linux/kernel.h:841:25: note: expanded from macro '__cmp_once'
-                   typeof(y) unique_y = (y);               \
-                                         ^
-   kernel/irq/affinity.c:366:2: note: remove the 'if' if its condition is always false
-           if (nr_present < 0) {
-           ^~~~~~~~~~~~~~~~~~~~~
-   kernel/irq/affinity.c:342:55: note: initialize the variable 'nr_others' to silence this warning
-           unsigned int curvec = startvec, nr_present, nr_others;
-                                                                ^
-                                                                 = 0
-   1 warning generated.
+>> drivers//gpio/gpio-pl061.c:29:10: fatal error: 'gpiolib-acpi.h' file not=
+ found
+   #include "gpiolib-acpi.h"
+            ^~~~~~~~~~~~~~~~
+   1 error generated.
 
-vim +366 kernel/irq/affinity.c
+vim +29 drivers//gpio/gpio-pl061.c
 
-   332	
-   333	/*
-   334	 * build affinity in two stages:
-   335	 *	1) spread present CPU on these vectors
-   336	 *	2) spread other possible CPUs on these vectors
-   337	 */
-   338	static int irq_build_affinity_masks(unsigned int startvec, unsigned int numvecs,
-   339					    unsigned int firstvec,
-   340					    struct irq_affinity_desc *masks)
-   341	{
-   342		unsigned int curvec = startvec, nr_present, nr_others;
-   343		cpumask_var_t *node_to_cpumask;
-   344		cpumask_var_t nmsk, npresmsk;
-   345		int ret = -ENOMEM;
-   346	
-   347		if (!zalloc_cpumask_var(&nmsk, GFP_KERNEL))
-   348			return ret;
-   349	
-   350		if (!zalloc_cpumask_var(&npresmsk, GFP_KERNEL))
-   351			goto fail_nmsk;
-   352	
-   353		node_to_cpumask = alloc_node_to_cpumask();
-   354		if (!node_to_cpumask)
-   355			goto fail_npresmsk;
-   356	
-   357		ret = 0;
-   358		/* Stabilize the cpumasks */
-   359		get_online_cpus();
-   360		build_node_to_cpumask(node_to_cpumask);
-   361	
-   362		/* Spread on present CPUs starting from affd->pre_vectors */
-   363		nr_present = __irq_build_affinity_masks(curvec, numvecs,
-   364							firstvec, node_to_cpumask,
-   365							cpu_present_mask, nmsk, masks);
- > 366		if (nr_present < 0) {
-   367			ret = nr_present;
-   368			goto fail_build_affinity;
-   369		}
-   370	
-   371		/*
-   372		 * Spread on non present CPUs starting from the next vector to be
-   373		 * handled. If the spreading of present CPUs already exhausted the
-   374		 * vector space, assign the non present CPUs to the already spread
-   375		 * out vectors.
-   376		 */
-   377		if (nr_present >= numvecs)
-   378			curvec = firstvec;
-   379		else
-   380			curvec = firstvec + nr_present;
-   381		cpumask_andnot(npresmsk, cpu_possible_mask, cpu_present_mask);
-   382		nr_others = __irq_build_affinity_masks(curvec, numvecs,
-   383						       firstvec, node_to_cpumask,
-   384						       npresmsk, nmsk, masks);
-   385		if (nr_others < 0)
-   386			ret = nr_others;
-   387	
-   388	 fail_build_affinity:
-   389		put_online_cpus();
-   390	
-   391		if (min(nr_present, nr_others) >= 0)
-   392			WARN_ON(nr_present + nr_others < numvecs);
-   393	
-   394		free_node_to_cpumask(node_to_cpumask);
-   395	
-   396	 fail_npresmsk:
-   397		free_cpumask_var(npresmsk);
-   398	
-   399	 fail_nmsk:
-   400		free_cpumask_var(nmsk);
-   401		return ret;
-   402	}
-   403	
+    27=09
+    28	#include "gpiolib.h"
+  > 29	#include "gpiolib-acpi.h"
+    30=09
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+0-DAY kernel test infrastructure                Open Source Technology Cent=
+er
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporati=
+on
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908181343.tKX0E9s0%25lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/201908182023.6sKkKWGx%25lkp%40intel.com.
 
---h3x5wwqynlacrzrl
+--gb7stdfgyaqnsa7n
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICMblWF0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICBo5WV0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYC7VDP/3wU0Deji9Pu+PD7e7x8Vvwef+8P+yO+7vg/uFx
 /39BXAR5IQMaM/kBiNOH57e/P+4OT6eL4OTD/MPk18PtIljvD8/7xyB6eb5/+PwGzR9enn/4
 6Qf45ycAPn2Bng7/Cm4fd8+fg6/7wyugg+nkA/wd/Pz54fivjx/hz6eHw+Hl8PHx8etT/eXw
@@ -1124,4 +1058,4 @@ iS5BgYdP3M5ttghD43fMVx427CCi9CGCTkm5cJgZ6nld3poj656jCyUViTs2YQ/KUidyD9Bg
 2L3xdwAtmF/StRWJuaaHDBMFH/qIQAGniRU56f4i8/uN0pyYkCAAcI86zzsVs9sOfqFmbHKQ
 xURkYn0q3M8KymoUJOvwFWivbeSEoP8F+jtOA9IMAwA=
 
---h3x5wwqynlacrzrl--
+--gb7stdfgyaqnsa7n--
