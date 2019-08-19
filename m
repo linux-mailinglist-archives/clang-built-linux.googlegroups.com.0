@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB3OF5PVAKGQEDCDXMVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBDWH5PVAKGQEYDO3W3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8DFD294C1F
-	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 19:57:01 +0200 (CEST)
-Received: by mail-wm1-x33c.google.com with SMTP id r9sf71566wme.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 10:57:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566237421; cv=pass;
+Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3F6A394C36
+	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 19:59:43 +0200 (CEST)
+Received: by mail-wr1-x43e.google.com with SMTP id s18sf5605803wrt.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 10:59:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566237583; cv=pass;
         d=google.com; s=arc-20160816;
-        b=b4C6CC56943+A/GXK/UlYY+BdQyoZRFNSJYsSb8sbnUdeWDVg8iTWgnVk7hMbMbasw
-         0VhGQ3y7guw9HH6zkAtiC3nbTy+Ea0guLeY2rbylivYtOydoFUTljAl4oAxvF2IIsozl
-         7GTjSnIAQL6fr76/8k4lYfM0EsWsivKy3CEfy6MYGSuAwFw8yO9hjd15R8KPRkOzx6TR
-         EtKGmfPUdZxb1ULt3aJCTC+fBWjenmVS+jjt+AI4LjYNv5981Gkuc3C3/ePud22HxpNI
-         HrLxULV3Kzg8G6IPkFGVeLHHGyZ2ROxFjS8yo+I3KVJcxlGD8ORXWpHrErstYBerSQFu
-         6UOg==
+        b=XiVKNgO+ZyxIuvfZ3jhSTHRPfSfUAQcns9iJqr3FFC86yXrc2Y1XsauO5sQNJQz/4N
+         /GpQAqGkcF2a5fmOnNzrCUn6Tm9ezpAGpBy0tadlDGEiL4agtt958ubIYJ+oBhRYlZFm
+         dtTUwlL4JekH5g+G65CYZjD9qCJw4whsz+5QeOy7ldhrceoFfINKer7p9oiPDZLfwPpo
+         Z1fKM5NosAgQHLZjK/WYdjriTyaE8FLwC7TGzETVvVjSwzUyzEj/VmYelwGWni+zXgmg
+         DrZC8Xwjj/1olL1wVbIXmT6nTanqWzyYZLhIZNAoVQK3XRdIBnPMTVQjlE0fWVC/VohU
+         KrRw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
-        b=FHkvqe9mXaCHJOmr0WQ2tBInA+VKAP27Iy7CDTlOVAb6WpYzW+lB6SGvWIFNQmjsRP
-         8Y1q00smsJ5Vp6jBeKMxL4YypGQtkz+2hr/u5ZX1/+BTUMQnryICVKMRdgo7mpXlZKrD
-         3QbjpazPIwekvofny/xqlrSWUOhi8QIUEnJw+ySg15MXyWbJHZz58d5nojKbMqPYG+UN
-         Gja2wDPcGj5gAkai+ujUdcMVSDywV5DP2ngPIXwtRxHWdnkD4Xgi1uHtQGItkdi0Mfjr
-         M853czckoYmupAq6tf41T87NPQVRya5rq6ZKxGkTvsxv15Jvl8tP5gq+ozNWRzRK+76u
-         ND3w==
+        bh=ABESv3gfKLfLSrz98WqBWiWtvfTuDs7wnnsIh5WHL5s=;
+        b=Qp0BH7J4bqEaJm7aJjG1SrxWjGtMlNQkJIyqKuQcIrFIs/5Zza4zuv0VneMb4tMb/h
+         RTOR/Bt38afUlInK0linOW9eKeWluiqHhV9B1a+1m/z6GpCB+zftUKvZCgJE7ea9OZTc
+         qE3YTP+K+HbujGwGvfFNUjOyfxmWRu2yxR8FQ+Msi0VinAWaTK/qZwpLdk8y2VvDJnHi
+         PESyCHTPGWs5SZSyE0uOL1JSvzV8fRHs3XFzOV4G6AX7Fz3RipXGaaxmKQ4za+GKcVdT
+         dya0t3NMicZLqA805RKUN4EaN4yN2VjxIRBKBIo1IUV2BuQVTHFma1SaBnOYfqWrpcaG
+         RFgg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MG19Is3d;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=pbaWq+OV;
        spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
-        b=LuC14RR0LOtwmhxw9VWyFj81W0NV+/NIDxr8+QK1dYUdfPmD9zui1/wsxmtkMNvWTF
-         t0RqyDyXceLHyn96eTmz8dxu2AO5vf1Kl7owtwLDDJm2HXBcaSqaQIJii/BSJjP0KgST
-         6GQSFik4PCZ7+psrcDOYNkULNu+SymzAYOEIfpQIYlDfHijiVmBh81AN4L7Rmx96IAtc
-         +ln3k00PHX3JrcCqsKXjpS7K9iXoYJS4jKkMxjUaB1R7P4knkYss/hjXDuh3EcYjXrC5
-         4YxGaXWYAOpbuWw84SNuf90vUmowIqkDmkRw7pGw1yz94NQF5uSDAad+xn0aqhXoyO3V
-         YO6A==
+        bh=ABESv3gfKLfLSrz98WqBWiWtvfTuDs7wnnsIh5WHL5s=;
+        b=Z8Tn3rxwi5fBijNyjrujHBIPfCH+UZU0Tv7Pp7JaNfP8wrVv1svGC8cvv7Rsnvno+6
+         oszJQUFXtYabMbPri86tg+ib2D8tttYVmtRQ3VuR8gKJ1x9frH6hhUiJ2DDtISjyiQkT
+         4tmFLcj5vRfF7eUZT5/Lbb+3ANHwxXkILMFrSf8ytZSMeLeCkEzS+he1LgX+qpMVKJer
+         ZTSPI0GvEiHZnZnmZSHBqhgE0q0w04EI57t7Q7fzka4dbJRwp390dItlDQNEk/Co0I5w
+         /wOkGudtFNV/PecLowpNKYxjRojCFLGQnCj8v4iGooJS2KRQsWFFPAWUMeSWUTtQnoi9
+         Cykw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
-        b=Oo0yqgobQkduKNZFTKL5l6Bc5BHWBuNrGVL27CWYFeJXhJeXMtnWLt9AGafJYXW7Q8
-         kKDo916ng7PLUeZyuNzqEARP9FYB+BkTY5kgYHpUUboKvKx7CiqGx7qojWU56K+tU869
-         /N9VqIcj3tpx/Mm/LV5fzIyj4zdPhiIH9teNwt4tob6f6GRmYfFuZ8WcvkFEPoiWjDel
-         kca6QyhdHdw01ZjZKWmoKGpu2O1ls4JgfugImawWbhekfvzoHN99mxWXOmtCSLb3G031
-         GBA1Jb8OKHnLJm3GCZdV9Spw7AcspMdZufl6cyUJ5T/8bD9obq6SnJvccILXhgtZ/svi
-         t/Xg==
+        bh=ABESv3gfKLfLSrz98WqBWiWtvfTuDs7wnnsIh5WHL5s=;
+        b=LK9ipmfNMk8qZuAJrSj2R1G6+VW4JvguSfUdi2M4h8La53kB5A/Bq5vaQm9F34obBG
+         VGlReXZxET+xc2e2oQ4p1LfGWobxXEnumJqvLuBTdHPiALV6IzGR9+JaEv5k5kHLBORR
+         9URA86YtoFMqsDzdGlukQaGpSqnD6IWmvC5QDbJo7pPazwtxWZSQqaSI6j4MFphIeIqm
+         t31IGW4Ke3QzgnA46hBj3jb+Ie3DVqHoS+BvmJdxwkJ4sJQ7v+NCCaB+QO/y420eWV6S
+         BCE7E5NPVOghJiA6HknPqhnAKBXwp6vqB9bbseExsjESYJy39Ml8WQyoER0/WuuSZ1w/
+         9IWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to
@@ -63,78 +63,82 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
-        b=VpOq2VhVr01qxIt15OIv77nSF3IoH9DlUJphf86jaxdI8cKyC2Z24pyp+rCfeYI5+z
-         RyVsYzDRbhB77j38OMe9Ici3hbCnpBxVzC0mkNGwED4vWZjWi5Nl8L6vqCmqyCA4/VnF
-         xqbibAAWuuZoEk1UM8haXzot9kUAL2s87R5nC5zjx4mQoP5zNdVW4mHT+mQghFolN+bB
-         rOHfuCMdl+L5MYYxvUInZ4PXtxdxB34MYXEunUe8CXt9nu44FGvmSmgkZoKTjdzxU7bl
-         ehg8SMuwbkzFBnP/7dgK1Wl+h8CowBXxSJx1+Mn7f1gSi3TqkdKVfBDiFBAMKAJLNmar
-         SeNA==
+        bh=ABESv3gfKLfLSrz98WqBWiWtvfTuDs7wnnsIh5WHL5s=;
+        b=Rqy2dNdoTQT9Yd+hokssgxfUg8ZJX0ynXn14+8dr60cviXxmwiREH+kyOUKvyaOwGO
+         HYkvI+yoRhYhqov7rKxdsSfohSNIsxtpMnjKdLJ68zgchVOvb+yFa0HUR3QD3GZYpbpB
+         72a98B+3lh99V22W6QQYnJtcGRSC4QvFwXETvbuqK2SKyRCZmiADHcSKVJ3To9HYNDYw
+         g26n8dRqRinMJQY23+t9E3DriSa39RCLZSWfXseHgryiY1qq86rJRoQGDOIrptHZ/WOe
+         QFP7Dnbjtp5zaJEdXFQ+U2TsMaPAAY5cVVUI+ovQEISc/dWytw7Y0Uq7YyzQyYwdiR4g
+         KIBA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWcPn4OhC0iRTlZhpRsAeGcS5iJLQ1yH8BjENvMgqmkCO1FG8y4
-	zW8vk/PlhA3fv77G/2y242U=
-X-Google-Smtp-Source: APXvYqx94Q9mm/FzJKzUiZigjVA2qNGveQJFXXbdugIrovis/+eWSXjC5mxpy0ibS7GZJpeH1l72kA==
-X-Received: by 2002:a05:6000:1284:: with SMTP id f4mr30184586wrx.89.1566237421221;
-        Mon, 19 Aug 2019 10:57:01 -0700 (PDT)
+X-Gm-Message-State: APjAAAWJ5CB4LQD/as8uHvtWGzDkHSVV9dimWfo/xKrhSxe0q2Muh9tq
+	Zh2WSBFAG5h6QYQ418yXbPo=
+X-Google-Smtp-Source: APXvYqxtkfvfZGusytRfAqUtm0YdiCqQAM65ryVqUYsz2NYS/mpC1NqKplqaihg+/0eIQm3ewIltcg==
+X-Received: by 2002:a5d:54c4:: with SMTP id x4mr29281113wrv.155.1566237582859;
+        Mon, 19 Aug 2019 10:59:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:7713:: with SMTP id t19ls100715wmi.0.gmail; Mon, 19 Aug
- 2019 10:57:00 -0700 (PDT)
-X-Received: by 2002:a05:600c:2486:: with SMTP id 6mr23085309wms.80.1566237420587;
-        Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566237420; cv=none;
+Received: by 2002:adf:ab1b:: with SMTP id q27ls4770032wrc.7.gmail; Mon, 19 Aug
+ 2019 10:59:42 -0700 (PDT)
+X-Received: by 2002:adf:d1b4:: with SMTP id w20mr29344200wrc.301.1566237582318;
+        Mon, 19 Aug 2019 10:59:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566237582; cv=none;
         d=google.com; s=arc-20160816;
-        b=alNMBKd+g6oRa+rI+cUlGaTSD8JQQv5oLiRyIrh/vedrZdOOJMKIi5vwvZsup+apa6
-         hDkqjGm1CUik8PeEufFW5SUmxhDyg55QJsCOdrhFiRrC8NS1FUyf2iVKpPZD9eGi7j90
-         zUQCd2oSf+/kQ0GwfVHpl109TLZma3fHxQC01kXjYYeuREwAxiE0K88QFEB9YFRDUDix
-         r1092ghUEvGHS/Hm9kIs28HBb8Dn8XE+PSseh5+OUwhd5+MMqoWqbfLwpUje78uM1bzG
-         ptNz0ueAdkZLm5j0S0CjSJhDuJVhk+S6KqhOSd5QXNDQE6QO4XWuLpEIPBcntD8bmEqW
-         rQgg==
+        b=MayLMueGgaIneOeDgpW6MnM/pm/AWXpDnW7/dn443ewRXlyIfwrKsdcpApCKq1+iRo
+         mjdn9bx0QFA+foiFLMDFoA2K+sCWGjFFvcv1kZtxaNpBxqy/UaDQRVKcC548gAnY1Yo0
+         WNvPFShi9IAlhzjg2k6igGdl4GCJLo2HtJBCGHkEabTeRTnDtRoIKQ1qwIJ/9J0ds8yU
+         kca1pRxvvjUU1uACHw4RgbHlnAM/FgfHElfjrRQZmbdtK0ShayR0zFhC63KD0UKlbjf6
+         VgBKrb/OQQSYYsYvgUNPcotQz5dtrJqg2qPB+/THU5TrlpISHLPTKgmgP4uvk6jBu1uW
+         qpNw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=PstLfxbMd5uoHoJPwRPUMJ1FERZxzGFsbBHxhmU6GgM=;
-        b=AzEq9xtZZWnHOXq/VKvOabu/zU285idHRu/AazR8+Z+Ef2paucZgO2njtl1u71SaEr
-         0BNr0U97rwsinuZQhBeo69D5BbNjInzFQrcJYxOP4BngsoUdXuXVxikca8VuvgK1TOPX
-         zQHRw3gf0GXb+ATQyM3emoj6OkOzFDRdBd/qLZXOsR56KC/A3E3iOGTPvSeo4+VEDrug
-         FcwjbEfJCihcNNGWRye5TSgdGwLrzjISEQuoewVU5qOkqc+2uKvYERb0l5F3KBQ720A2
-         +mYannI4PhKiuCehhIOPCPmvPNW+MGOKCJP7YQy/y+Xn2sfWVSMOlYS1e5JQSlIbw2pi
-         nDzg==
+        bh=CuXX/eaXDYLAgDccWkYi0yxUiNmU914Hix0kLzwUtik=;
+        b=SW9EMtpQtBjK2lCq+Jn899Wmj2DWVABiuSNmTLE8U6DHnCspHjVhSQtZhaCrKGcjjG
+         YL7m1wQYWNzCng6AKN/wOH+CsUQdEDc+nEWFbbVwsI5czXHtICaNI9ZW5wQNXqgW8gKv
+         cnhfiNWgxKpkgZ4hMGJrT2FgUa94miDo+PRqC58s6xEejLVq5hK9rvwrPq/gSaaZGHhs
+         YPqSELnKhvNql4d9m0x9ip804jpwhNa2/GdBgCJ5yt+mLyBP6FT9bog7DU/0gSQKM4OY
+         mWv8oQ/lRSGRsRFGHfqH1v+hyzIhuZdtjv31r8+Su2f9WVcgF/FHMsA7VmHiCfxbQ600
+         iHFQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MG19Is3d;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=pbaWq+OV;
        spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id e7si608411wru.1.2019.08.19.10.57.00
+        by gmr-mx.google.com with ESMTPS id p4si516703wme.2.2019.08.19.10.59.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
+        Mon, 19 Aug 2019 10:59:42 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
-Received: by mail-wr1-x443.google.com with SMTP id z1so9619614wru.13
-        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
-X-Received: by 2002:a5d:4101:: with SMTP id l1mr30615382wrp.202.1566237420255;
- Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
+Received: by mail-wr1-x443.google.com with SMTP id k2so9647972wrq.2
+        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 10:59:42 -0700 (PDT)
+X-Received: by 2002:a5d:69c8:: with SMTP id s8mr27547794wrw.353.1566237581965;
+ Mon, 19 Aug 2019 10:59:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190812215052.71840-1-ndesaulniers@google.com>
- <20190812215052.71840-13-ndesaulniers@google.com> <1566237106.8670clhnrk.naveen@linux.ibm.com>
-In-Reply-To: <1566237106.8670clhnrk.naveen@linux.ibm.com>
+References: <20190812215052.71840-1-ndesaulniers@google.com> <20190812215052.71840-11-ndesaulniers@google.com>
+In-Reply-To: <20190812215052.71840-11-ndesaulniers@google.com>
 Reply-To: sedat.dilek@gmail.com
 From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Mon, 19 Aug 2019 19:56:47 +0200
-Message-ID: <CA+icZUVc528uRJ7SPcnzzZQuomdGGOE6+BFPPyRSUpFP2J+Lnw@mail.gmail.com>
-Subject: Re: [PATCH 13/16] include/asm-generic: prefer __section from compiler_attributes.h
-To: "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>
-Cc: akpm@linux-foundation.org, Nick Desaulniers <ndesaulniers@google.com>, 
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Alexei Starovoitov <ast@kernel.org>, bpf@vger.kernel.org, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Daniel Borkmann <daniel@iogearbox.net>, 
-	"David S. Miller" <davem@davemloft.net>, jpoimboe@redhat.com, Martin KaFai Lau <kafai@fb.com>, 
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	netdev@vger.kernel.org, Song Liu <songliubraving@fb.com>, yhs@fb.com
+Date: Mon, 19 Aug 2019 19:59:29 +0200
+Message-ID: <CA+icZUX=BPPH7rH13OkDzmc1L42hxcWDw+c_G7sf7G8wcHiPAQ@mail.gmail.com>
+Subject: Re: [PATCH 11/16] x86: prefer __section from compiler_attributes.h
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: akpm@linux-foundation.org, jpoimboe@redhat.com, yhs@fb.com, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, 
+	Song Liu <songliubraving@fb.com>, Armijn Hemel <armijn@tjaldur.nl>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Allison Randal <allison@lohutok.net>, 
+	Juergen Gross <jgross@suse.com>, Frederic Weisbecker <frederic@kernel.org>, 
+	Brijesh Singh <brijesh.singh@amd.com>, Enrico Weigelt <info@metux.net>, 
+	Kate Stewart <kstewart@linuxfoundation.org>, Hannes Reinecke <hare@suse.com>, 
+	Sean Christopherson <sean.j.christopherson@intel.com>, 
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, Pu Wen <puwen@hygon.cn>, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=MG19Is3d;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=pbaWq+OV;       spf=pass
  (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443
  as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
@@ -150,17 +154,12 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 19, 2019 at 7:52 PM Naveen N. Rao
-<naveen.n.rao@linux.ibm.com> wrote:
+On Mon, Aug 12, 2019 at 11:52 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> Nick Desaulniers wrote:
-> > Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
-> > Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> > ---
->
-> Acked-by: Naveen N. Rao <naveen.n.rao@linux.vnet.ibm.com>
->
+> Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
+> Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 
 Tested-by: Sedat Dilek <sedat.dilek@gmail.com> [ Linux v5.3-rc5 ]
 
@@ -171,9 +170,106 @@ include/linux: prefer __section from compiler_attributes.h
 include/asm-generic: prefer __section from compiler_attributes.h
 x86: prefer __section from compiler_attributes.h
 
+Thanks.
+
 - Sedat -
+
+> ---
+>  arch/x86/include/asm/cache.h       | 2 +-
+>  arch/x86/include/asm/intel-mid.h   | 2 +-
+>  arch/x86/include/asm/iommu_table.h | 5 ++---
+>  arch/x86/include/asm/irqflags.h    | 2 +-
+>  arch/x86/include/asm/mem_encrypt.h | 2 +-
+>  arch/x86/kernel/cpu/cpu.h          | 3 +--
+>  6 files changed, 7 insertions(+), 9 deletions(-)
+>
+> diff --git a/arch/x86/include/asm/cache.h b/arch/x86/include/asm/cache.h
+> index abe08690a887..bb9f4bf4ec02 100644
+> --- a/arch/x86/include/asm/cache.h
+> +++ b/arch/x86/include/asm/cache.h
+> @@ -8,7 +8,7 @@
+>  #define L1_CACHE_SHIFT (CONFIG_X86_L1_CACHE_SHIFT)
+>  #define L1_CACHE_BYTES (1 << L1_CACHE_SHIFT)
+>
+> -#define __read_mostly __attribute__((__section__(".data..read_mostly")))
+> +#define __read_mostly __section(.data..read_mostly)
+>
+>  #define INTERNODE_CACHE_SHIFT CONFIG_X86_INTERNODE_CACHE_SHIFT
+>  #define INTERNODE_CACHE_BYTES (1 << INTERNODE_CACHE_SHIFT)
+> diff --git a/arch/x86/include/asm/intel-mid.h b/arch/x86/include/asm/intel-mid.h
+> index 8e5af119dc2d..f51f04aefe1b 100644
+> --- a/arch/x86/include/asm/intel-mid.h
+> +++ b/arch/x86/include/asm/intel-mid.h
+> @@ -43,7 +43,7 @@ struct devs_id {
+>
+>  #define sfi_device(i)                                                          \
+>         static const struct devs_id *const __intel_mid_sfi_##i##_dev __used     \
+> -       __attribute__((__section__(".x86_intel_mid_dev.init"))) = &i
+> +       __section(.x86_intel_mid_dev.init) = &i
+>
+>  /**
+>  * struct mid_sd_board_info - template for SD device creation
+> diff --git a/arch/x86/include/asm/iommu_table.h b/arch/x86/include/asm/iommu_table.h
+> index 1fb3fd1a83c2..7d190710eb92 100644
+> --- a/arch/x86/include/asm/iommu_table.h
+> +++ b/arch/x86/include/asm/iommu_table.h
+> @@ -50,9 +50,8 @@ struct iommu_table_entry {
+>
+>  #define __IOMMU_INIT(_detect, _depend, _early_init, _late_init, _finish)\
+>         static const struct iommu_table_entry                           \
+> -               __iommu_entry_##_detect __used                          \
+> -       __attribute__ ((unused, __section__(".iommu_table"),            \
+> -                       aligned((sizeof(void *)))))     \
+> +               __iommu_entry_##_detect __used __section(.iommu_table)  \
+> +               __aligned((sizeof(void *)))                             \
+>         = {_detect, _depend, _early_init, _late_init,                   \
+>            _finish ? IOMMU_FINISH_IF_DETECTED : 0}
+>  /*
+> diff --git a/arch/x86/include/asm/irqflags.h b/arch/x86/include/asm/irqflags.h
+> index 8a0e56e1dcc9..68db90bca813 100644
+> --- a/arch/x86/include/asm/irqflags.h
+> +++ b/arch/x86/include/asm/irqflags.h
+> @@ -9,7 +9,7 @@
+>  #include <asm/nospec-branch.h>
+>
+>  /* Provide __cpuidle; we can't safely include <linux/cpu.h> */
+> -#define __cpuidle __attribute__((__section__(".cpuidle.text")))
+> +#define __cpuidle __section(.cpuidle.text)
+>
+>  /*
+>   * Interrupt control:
+> diff --git a/arch/x86/include/asm/mem_encrypt.h b/arch/x86/include/asm/mem_encrypt.h
+> index 0c196c47d621..db2cd3709148 100644
+> --- a/arch/x86/include/asm/mem_encrypt.h
+> +++ b/arch/x86/include/asm/mem_encrypt.h
+> @@ -50,7 +50,7 @@ void __init mem_encrypt_free_decrypted_mem(void);
+>  bool sme_active(void);
+>  bool sev_active(void);
+>
+> -#define __bss_decrypted __attribute__((__section__(".bss..decrypted")))
+> +#define __bss_decrypted __section(.bss..decrypted)
+>
+>  #else  /* !CONFIG_AMD_MEM_ENCRYPT */
+>
+> diff --git a/arch/x86/kernel/cpu/cpu.h b/arch/x86/kernel/cpu/cpu.h
+> index c0e2407abdd6..7ff9dc41a603 100644
+> --- a/arch/x86/kernel/cpu/cpu.h
+> +++ b/arch/x86/kernel/cpu/cpu.h
+> @@ -38,8 +38,7 @@ struct _tlb_table {
+>
+>  #define cpu_dev_register(cpu_devX) \
+>         static const struct cpu_dev *const __cpu_dev_##cpu_devX __used \
+> -       __attribute__((__section__(".x86_cpu_dev.init"))) = \
+> -       &cpu_devX;
+> +       __section(.x86_cpu_dev.init) = &cpu_devX;
+>
+>  extern const struct cpu_dev *const __x86_cpu_dev_start[],
+>                             *const __x86_cpu_dev_end[];
+> --
+> 2.23.0.rc1.153.gdeed80330f-goog
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVc528uRJ7SPcnzzZQuomdGGOE6%2BBFPPyRSUpFP2J%2BLnw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUX%3DBPPH7rH13OkDzmc1L42hxcWDw%2Bc_G7sf7G8wcHiPAQ%40mail.gmail.com.
