@@ -1,165 +1,143 @@
-Return-Path: <clang-built-linux+bncBDJJJ24Q5QBBBWOD5PVAKGQE7MVWQTQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB3OF5PVAKGQEDCDXMVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09FCF94C0B
-	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 19:52:27 +0200 (CEST)
-Received: by mail-io1-xd40.google.com with SMTP id g23sf4841395ioh.22
-        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 10:52:26 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566237145; cv=pass;
+Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8DFD294C1F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 19:57:01 +0200 (CEST)
+Received: by mail-wm1-x33c.google.com with SMTP id r9sf71566wme.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 10:57:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566237421; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KfChPcrFs21RrDhNc9NNvGBdEHhjD2vrBNyrtJnN0k7PxhdUJaez/YWDz6DQxVMyrl
-         uIsN68kwtjiaIuta3PqoKayPWng4FXkwt9VFkRyJsSgqJiJIw34k0R+9U4hOj9pxs8vX
-         LfqQL/d2wnj+i6GKfC/l+Oh5S6QcRVTZn06imAYgrENTgj8oce5zTlNvY/vaUmhz6mfj
-         XrKYJkFC2HrjSHXfxpsV8T5QnOw2MGeT2EMi8kZMoX4sfzcdEv+xGyB9bQLsUESANFTD
-         LfA/lGFu6scGKs5FbCfQcgZOczgbSxc1JIdE12r/ghmjOoXrzcaByYNJoE64FGICTxrE
-         YtCw==
+        b=b4C6CC56943+A/GXK/UlYY+BdQyoZRFNSJYsSb8sbnUdeWDVg8iTWgnVk7hMbMbasw
+         0VhGQ3y7guw9HH6zkAtiC3nbTy+Ea0guLeY2rbylivYtOydoFUTljAl4oAxvF2IIsozl
+         7GTjSnIAQL6fr76/8k4lYfM0EsWsivKy3CEfy6MYGSuAwFw8yO9hjd15R8KPRkOzx6TR
+         EtKGmfPUdZxb1ULt3aJCTC+fBWjenmVS+jjt+AI4LjYNv5981Gkuc3C3/ePud22HxpNI
+         HrLxULV3Kzg8G6IPkFGVeLHHGyZ2ROxFjS8yo+I3KVJcxlGD8ORXWpHrErstYBerSQFu
+         6UOg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:user-agent:mime-version
-         :in-reply-to:references:cc:to:subject:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=tiIC7V4wpFx1UKJeREiq84uUYipGREMoaaCWe2bVHRo=;
-        b=fI4Ko31OxKJ2aJU2omMLsbWnu2Gz2Xx/ulD7n/KSqDZOBGOjUePOjExUtK/vj/Ii4G
-         aX9c+F+yGHOygjvxWF941Ogf3mxgvPxbxNviS51yD5CjB1ueWd6ygEFwKIZxrrYrBFyA
-         7dUPtc5RyE9IRVelaplYJO+DiCy8sWPnWCSZHVBwY93/QM9GF4swaD8CeyJeGK9lofKN
-         lbUYL/YcN6B0SvEGPtzpwp5vaS97MeVSyk2QRCyr8AYR4fR6MpWdYFBhvaJEJgzvQC+d
-         EuUmB5aw/iA25iPVmUlN7tupqzpOeoCR5Xt6rhnX+nL3D1K+3IqX8eLtgbF6O8Q/uutp
-         Qq6w==
+        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
+        b=FHkvqe9mXaCHJOmr0WQ2tBInA+VKAP27Iy7CDTlOVAb6WpYzW+lB6SGvWIFNQmjsRP
+         8Y1q00smsJ5Vp6jBeKMxL4YypGQtkz+2hr/u5ZX1/+BTUMQnryICVKMRdgo7mpXlZKrD
+         3QbjpazPIwekvofny/xqlrSWUOhi8QIUEnJw+ySg15MXyWbJHZz58d5nojKbMqPYG+UN
+         Gja2wDPcGj5gAkai+ujUdcMVSDywV5DP2ngPIXwtRxHWdnkD4Xgi1uHtQGItkdi0Mfjr
+         M853czckoYmupAq6tf41T87NPQVRya5rq6ZKxGkTvsxv15Jvl8tP5gq+ozNWRzRK+76u
+         ND3w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of naveen.n.rao@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=naveen.n.rao@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MG19Is3d;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:subject:to:cc:references:in-reply-to:mime-version
-         :user-agent:message-id:x-original-sender
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tiIC7V4wpFx1UKJeREiq84uUYipGREMoaaCWe2bVHRo=;
-        b=bTjQeYE2GLTF8eHxwcUBALba9FVouRDWIPzoolIx13m/VwBtAj1YMT/eLG8t5AbHBl
-         mS8+vVd7FbhKzVtNsHZbug6IqJMG4ojNZ+8jhcrReUN5x4Mw3MrXZDfkOYkQUOONMHh6
-         +zl8NmkfIQB7AKCCcZvgAO6/qOXxV11MQ/aoeDtGqlu7MbdbiWxuEG+9v9iY9kUr2RfB
-         lnWIWT+mfwxyM2mHmphl/90amMsRimsdadCNIq47rzXnM/YhmHuBv6DeTC9WEbvL1gVy
-         R/rvuIrVWROlfU4+AKAu14ESi3njsSGg0DamCqi9uvE9hjoI8yS2u4jcFcY8I83trSba
-         7XVg==
+        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
+        b=LuC14RR0LOtwmhxw9VWyFj81W0NV+/NIDxr8+QK1dYUdfPmD9zui1/wsxmtkMNvWTF
+         t0RqyDyXceLHyn96eTmz8dxu2AO5vf1Kl7owtwLDDJm2HXBcaSqaQIJii/BSJjP0KgST
+         6GQSFik4PCZ7+psrcDOYNkULNu+SymzAYOEIfpQIYlDfHijiVmBh81AN4L7Rmx96IAtc
+         +ln3k00PHX3JrcCqsKXjpS7K9iXoYJS4jKkMxjUaB1R7P4knkYss/hjXDuh3EcYjXrC5
+         4YxGaXWYAOpbuWw84SNuf90vUmowIqkDmkRw7pGw1yz94NQF5uSDAad+xn0aqhXoyO3V
+         YO6A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
+        b=Oo0yqgobQkduKNZFTKL5l6Bc5BHWBuNrGVL27CWYFeJXhJeXMtnWLt9AGafJYXW7Q8
+         kKDo916ng7PLUeZyuNzqEARP9FYB+BkTY5kgYHpUUboKvKx7CiqGx7qojWU56K+tU869
+         /N9VqIcj3tpx/Mm/LV5fzIyj4zdPhiIH9teNwt4tob6f6GRmYfFuZ8WcvkFEPoiWjDel
+         kca6QyhdHdw01ZjZKWmoKGpu2O1ls4JgfugImawWbhekfvzoHN99mxWXOmtCSLb3G031
+         GBA1Jb8OKHnLJm3GCZdV9Spw7AcspMdZufl6cyUJ5T/8bD9obq6SnJvccILXhgtZ/svi
+         t/Xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:subject:to:cc:references
-         :in-reply-to:mime-version:user-agent:message-id:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=tiIC7V4wpFx1UKJeREiq84uUYipGREMoaaCWe2bVHRo=;
-        b=ie0iefEC13EqHN6dx7ETP0sla4DFZsIOaRItvqaZ1YotsV/PzWiHl1rf8lY+QCTqhy
-         N1tiERdHFd0LnHPInEIGwMsUfbDQC6XgWWn4jnvJEgjxCCHkbn5kseSVE8VI/bXUXpdW
-         XsNFKju0Mq7n8xMWuTLPd4qyxCaKEh+8I0OZW9YOCSlB6lRV0BRotNFy30l2wwcC46Fz
-         h0slRLcKsfKeDX123rJ+s6BeXUaOE0tG13+H1zL2XUu+11ymGD51XXsAaasfA2FQSsmP
-         ag95cchjreyDjXFAZNaDHtFQSJ93S8QkILOJgI5V638CRZu/sPbbQAGY5m0t9RbR3GXI
-         jFaQ==
+        bh=j8TSh4K31E3BCdQ6qrhsIK5vNFzZ1z28u1rk5rOla5I=;
+        b=VpOq2VhVr01qxIt15OIv77nSF3IoH9DlUJphf86jaxdI8cKyC2Z24pyp+rCfeYI5+z
+         RyVsYzDRbhB77j38OMe9Ici3hbCnpBxVzC0mkNGwED4vWZjWi5Nl8L6vqCmqyCA4/VnF
+         xqbibAAWuuZoEk1UM8haXzot9kUAL2s87R5nC5zjx4mQoP5zNdVW4mHT+mQghFolN+bB
+         rOHfuCMdl+L5MYYxvUInZ4PXtxdxB34MYXEunUe8CXt9nu44FGvmSmgkZoKTjdzxU7bl
+         ehg8SMuwbkzFBnP/7dgK1Wl+h8CowBXxSJx1+Mn7f1gSi3TqkdKVfBDiFBAMKAJLNmar
+         SeNA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX90Txv3NPcNUUjHO2dPxC45rp//VhHXdtFO0fgzd2OATAqYHpk
-	oy2DgXWOEFTcc9wbUlKi9Rw=
-X-Google-Smtp-Source: APXvYqyz2G4H+pyjUUTFoSuniddYmGUGNa7FVT9a14yPpd83/I9PxrtoW+6UOE1WyA+e99EGNQJleg==
-X-Received: by 2002:a6b:4a08:: with SMTP id w8mr2494124iob.246.1566237145720;
-        Mon, 19 Aug 2019 10:52:25 -0700 (PDT)
+X-Gm-Message-State: APjAAAWcPn4OhC0iRTlZhpRsAeGcS5iJLQ1yH8BjENvMgqmkCO1FG8y4
+	zW8vk/PlhA3fv77G/2y242U=
+X-Google-Smtp-Source: APXvYqx94Q9mm/FzJKzUiZigjVA2qNGveQJFXXbdugIrovis/+eWSXjC5mxpy0ibS7GZJpeH1l72kA==
+X-Received: by 2002:a05:6000:1284:: with SMTP id f4mr30184586wrx.89.1566237421221;
+        Mon, 19 Aug 2019 10:57:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:b893:: with SMTP id p19ls219838jam.9.gmail; Mon, 19 Aug
- 2019 10:52:25 -0700 (PDT)
-X-Received: by 2002:a02:cc8f:: with SMTP id s15mr28491698jap.53.1566237145270;
-        Mon, 19 Aug 2019 10:52:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566237145; cv=none;
+Received: by 2002:a1c:7713:: with SMTP id t19ls100715wmi.0.gmail; Mon, 19 Aug
+ 2019 10:57:00 -0700 (PDT)
+X-Received: by 2002:a05:600c:2486:: with SMTP id 6mr23085309wms.80.1566237420587;
+        Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566237420; cv=none;
         d=google.com; s=arc-20160816;
-        b=ejVzltEfGcmjFboOKLcPMzpUdg61qoAROKoCmyZ93lMNbrpLcKS442l4+PpFfLgu30
-         SrWH3ulWeMR2m0VVzEealJ8TF8e1PXb4sKVJJE6QTRg+se7WMSh52vJ1CIcCw+fkUZeC
-         ODygufE7FxveZ4jbe1ZqC8276r8VRKqjZydzxFA2HYbflXUaISXKoaj9d8fchxkubmhB
-         7e7jPYuvd+5yILeUnWgrEzKro4cI9reH/7JuBEHyRqTUaaKOKJfcSJIEeKOFSiaaen5l
-         U150ID29O8IlijyH24Zv/kFfO9H0YZua3Z9h+Cbq9CE0HkJxaFunwsgJrDMpaRg3zyby
-         TuRw==
+        b=alNMBKd+g6oRa+rI+cUlGaTSD8JQQv5oLiRyIrh/vedrZdOOJMKIi5vwvZsup+apa6
+         hDkqjGm1CUik8PeEufFW5SUmxhDyg55QJsCOdrhFiRrC8NS1FUyf2iVKpPZD9eGi7j90
+         zUQCd2oSf+/kQ0GwfVHpl109TLZma3fHxQC01kXjYYeuREwAxiE0K88QFEB9YFRDUDix
+         r1092ghUEvGHS/Hm9kIs28HBb8Dn8XE+PSseh5+OUwhd5+MMqoWqbfLwpUje78uM1bzG
+         ptNz0ueAdkZLm5j0S0CjSJhDuJVhk+S6KqhOSd5QXNDQE6QO4XWuLpEIPBcntD8bmEqW
+         rQgg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:content-transfer-encoding:user-agent:mime-version
-         :in-reply-to:references:cc:to:subject:from:date;
-        bh=TlgjmWOj7aNq2MixUl8gwNCMd0eCnD3Whljl4BK7Jxs=;
-        b=vCFpNHE42zK7YZ2fF2LneqWGkCCruxkCKRcZWzRHGQNZGERPzFeSq9Y01eM/dTntrG
-         wI5AaJOKI1oIfBCCJPIDabo99+4R8EcDzjGw0eogcY+bRmzlgCUE4OGITlADDGoXvOz1
-         YSPvd2gq0kBYcwd7mq+oFrJUSEwdFzq7xKoTiTqNZIf17gi718mB9/zdCf3VrJREMg3a
-         ZunISSkA1caOFebpo18be6ptb5wIURGvWnHMbFmfH05TlnamCEMYtY4cKajG7eo+Xyx4
-         x3QoaeATGvV514QMNVO5jP3TZvGTbmBwIc3xJ0RF9Dxq0ovKOp2U9woqh2J6pD4mj796
-         YPBw==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=PstLfxbMd5uoHoJPwRPUMJ1FERZxzGFsbBHxhmU6GgM=;
+        b=AzEq9xtZZWnHOXq/VKvOabu/zU285idHRu/AazR8+Z+Ef2paucZgO2njtl1u71SaEr
+         0BNr0U97rwsinuZQhBeo69D5BbNjInzFQrcJYxOP4BngsoUdXuXVxikca8VuvgK1TOPX
+         zQHRw3gf0GXb+ATQyM3emoj6OkOzFDRdBd/qLZXOsR56KC/A3E3iOGTPvSeo4+VEDrug
+         FcwjbEfJCihcNNGWRye5TSgdGwLrzjISEQuoewVU5qOkqc+2uKvYERb0l5F3KBQ720A2
+         +mYannI4PhKiuCehhIOPCPmvPNW+MGOKCJP7YQy/y+Xn2sfWVSMOlYS1e5JQSlIbw2pi
+         nDzg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of naveen.n.rao@linux.ibm.com designates 148.163.156.1 as permitted sender) smtp.mailfrom=naveen.n.rao@linux.ibm.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=ibm.com
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com. [148.163.156.1])
-        by gmr-mx.google.com with ESMTPS id h25si677361iol.2.2019.08.19.10.52.25
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=MG19Is3d;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id e7si608411wru.1.2019.08.19.10.57.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 19 Aug 2019 10:52:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of naveen.n.rao@linux.ibm.com designates 148.163.156.1 as permitted sender) client-ip=148.163.156.1;
-Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id x7JHlx4n077012
-	for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 13:52:24 -0400
-Received: from e06smtp04.uk.ibm.com (e06smtp04.uk.ibm.com [195.75.94.100])
-	by mx0a-001b2d01.pphosted.com with ESMTP id 2ufwyteddx-1
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=NOT)
-	for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 13:52:24 -0400
-Received: from localhost
-	by e06smtp04.uk.ibm.com with IBM ESMTP SMTP Gateway: Authorized Use Only! Violators will be prosecuted
-	for <clang-built-linux@googlegroups.com> from <naveen.n.rao@linux.ibm.com>;
-	Mon, 19 Aug 2019 18:52:21 +0100
-Received: from b06cxnps4074.portsmouth.uk.ibm.com (9.149.109.196)
-	by e06smtp04.uk.ibm.com (192.168.101.134) with IBM ESMTP SMTP Gateway: Authorized Use Only! Violators will be prosecuted;
-	(version=TLSv1/SSLv3 cipher=AES256-GCM-SHA384 bits=256/256)
-	Mon, 19 Aug 2019 18:52:16 +0100
-Received: from d06av22.portsmouth.uk.ibm.com (d06av22.portsmouth.uk.ibm.com [9.149.105.58])
-	by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id x7JHqFKa25427978
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 19 Aug 2019 17:52:15 GMT
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8E4AE4C058;
-	Mon, 19 Aug 2019 17:52:15 +0000 (GMT)
-Received: from d06av22.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 02FA94C040;
-	Mon, 19 Aug 2019 17:52:15 +0000 (GMT)
-Received: from localhost (unknown [9.85.69.174])
-	by d06av22.portsmouth.uk.ibm.com (Postfix) with ESMTP;
-	Mon, 19 Aug 2019 17:52:14 +0000 (GMT)
-Date: Mon, 19 Aug 2019 23:22:13 +0530
-From: "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>
-Subject: Re: [PATCH 13/16] include/asm-generic: prefer __section from
- compiler_attributes.h
-To: akpm@linux-foundation.org, Nick Desaulniers <ndesaulniers@google.com>
-Cc: Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-        Arnd Bergmann
-	<arnd@arndb.de>, Alexei Starovoitov <ast@kernel.org>,
-        bpf@vger.kernel.org, clang-built-linux@googlegroups.com,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        "David S. Miller" <davem@davemloft.net>, jpoimboe@redhat.com,
-        Martin KaFai Lau <kafai@fb.com>, linux-arch@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Masami Hiramatsu <mhiramat@kernel.org>,
-        miguel.ojeda.sandonis@gmail.com, netdev@vger.kernel.org,
-        sedat.dilek@gmail.com, Song Liu <songliubraving@fb.com>, yhs@fb.com
-References: <20190812215052.71840-1-ndesaulniers@google.com>
-	<20190812215052.71840-13-ndesaulniers@google.com>
-In-Reply-To: <20190812215052.71840-13-ndesaulniers@google.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
+Received: by mail-wr1-x443.google.com with SMTP id z1so9619614wru.13
+        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
+X-Received: by 2002:a5d:4101:: with SMTP id l1mr30615382wrp.202.1566237420255;
+ Mon, 19 Aug 2019 10:57:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: astroid/0.15.0 (https://github.com/astroidmail/astroid)
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-X-TM-AS-GCONF: 00
-x-cbid: 19081917-0016-0000-0000-000002A06F66
-X-IBM-AV-DETECTION: SAVI=unused REMOTE=unused XFE=unused
-x-cbparentid: 19081917-0017-0000-0000-000033009ADE
-Message-Id: <1566237106.8670clhnrk.naveen@linux.ibm.com>
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,, definitions=2019-08-19_04:,,
- signatures=0
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1011 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=655 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1906280000 definitions=main-1908190189
-X-Original-Sender: naveen.n.rao@linux.ibm.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of naveen.n.rao@linux.ibm.com designates 148.163.156.1 as
- permitted sender) smtp.mailfrom=naveen.n.rao@linux.ibm.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=ibm.com
+References: <20190812215052.71840-1-ndesaulniers@google.com>
+ <20190812215052.71840-13-ndesaulniers@google.com> <1566237106.8670clhnrk.naveen@linux.ibm.com>
+In-Reply-To: <1566237106.8670clhnrk.naveen@linux.ibm.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Mon, 19 Aug 2019 19:56:47 +0200
+Message-ID: <CA+icZUVc528uRJ7SPcnzzZQuomdGGOE6+BFPPyRSUpFP2J+Lnw@mail.gmail.com>
+Subject: Re: [PATCH 13/16] include/asm-generic: prefer __section from compiler_attributes.h
+To: "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>
+Cc: akpm@linux-foundation.org, Nick Desaulniers <ndesaulniers@google.com>, 
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Alexei Starovoitov <ast@kernel.org>, bpf@vger.kernel.org, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Daniel Borkmann <daniel@iogearbox.net>, 
+	"David S. Miller" <davem@davemloft.net>, jpoimboe@redhat.com, Martin KaFai Lau <kafai@fb.com>, 
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	netdev@vger.kernel.org, Song Liu <songliubraving@fb.com>, yhs@fb.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=MG19Is3d;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::443
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -172,17 +150,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nick Desaulniers wrote:
-> Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
+On Mon, Aug 19, 2019 at 7:52 PM Naveen N. Rao
+<naveen.n.rao@linux.ibm.com> wrote:
+>
+> Nick Desaulniers wrote:
+> > Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
+> > Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
+> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> > ---
+>
+> Acked-by: Naveen N. Rao <naveen.n.rao@linux.vnet.ibm.com>
+>
 
-Acked-by: Naveen N. Rao <naveen.n.rao@linux.vnet.ibm.com>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com> [ Linux v5.3-rc5 ]
 
-- Naveen
+Patchset "for-5.3/x86-section-name-escaping":
+
+include/linux/compiler.h: remove unused KENTRY macro
+include/linux: prefer __section from compiler_attributes.h
+include/asm-generic: prefer __section from compiler_attributes.h
+x86: prefer __section from compiler_attributes.h
+
+- Sedat -
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1566237106.8670clhnrk.naveen%40linux.ibm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVc528uRJ7SPcnzzZQuomdGGOE6%2BBFPPyRSUpFP2J%2BLnw%40mail.gmail.com.
