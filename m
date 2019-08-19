@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRB5OJ5PVAKGQEFL7622I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBE6Q5PVAKGQEXFQYNLI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 31A7D94C53
-	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 20:05:42 +0200 (CEST)
-Received: by mail-wm1-x33c.google.com with SMTP id g5sf204570wmh.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 11:05:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566237942; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 62C1794C72
+	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 20:18:59 +0200 (CEST)
+Received: by mail-wr1-x43a.google.com with SMTP id t9sf5671978wrx.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 11:18:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566238739; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SNzD/10z0ZwpsxTkS76Ut8jw9p+QEBezSoAYuZm3z1w1CUAMatr9k7GNUfVyzQcc5O
-         SHgu56NIP9cfq08azb4veEOJG3vJSbhNKV7yV56LL1HIbtovcpyWJBnNXDljoDj5WGS5
-         s5NHci82bM1jR4U2o9x3qFEcwkxbFpFDzR4cA/8oanab1w3Kp0wo4/ZOfzg09fV7ZYf2
-         Rv0Zs6UuvNvJUrMmfm+2mxSvj8AADcBVZj177zrtyKZjh1bdZqWcTeCspd6TSZ+ZWhiG
-         NOWiXUyDCVlJlzGM6mGBujPwGCI2hV2GscxjT4xUwo0TvnzIM9mU5Ht3v+9IEOVthRc1
-         4YdQ==
+        b=hrDEf1BTE85qwpB57+JJX8LdSDt4c1ciemAxPC6yTuvlgwr8kLISVrJmxhCiFOvf8W
+         rSYHVO+8hSJbJEIn7vEIuV4BkkiHOPwqkk7AO58FfJdURW5kfEsx6RDQOWaJakoEoAUh
+         1Bx3DEKzpbzsaFgeMXF067A4KQIn0Jmj3fJw64eQV2MbYf0a27O5Hag9/EG6jVTAJvMX
+         RWJgnuPvtnmnxmZ53sYrVtLl28uaGSoDCkSFfZX0BwZiosbxmxzhtwPqzBfjIir0ZXAj
+         /3IF4B4kt8nshD+59elTU7OSt7/td1RYaanyeQGLH8Y9YYYzcgpT3nMCYq2Y/TxjKTNX
+         GaoQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=dWXC7+b1uPrtxLrIbMSkZ6WiZp/AK9WQujVs6NDdG2o=;
-        b=P/tlK6BHZDFwmaJtIVjgjZBWRbGbc7au7KdQK3dXnp44wOlmxgfvXtGwR1rb3Y+v2W
-         3P2jBjlhEl/mdYCATRdpeEhEaw8/o8lZZXd60jS2HpNeZ+xuLhtL27JVlf6dS9+BbDtM
-         uBnlmMHAEM09QYzSX5laDHGZ85sT6Tg20jqpW8DO01bj6oMrlDhEpfkzoOEcLXUW6GRn
-         lHT2b/IhGDV0nEX63ZKkwQFQjH63986RiVN8D2DsYM0/JxFGBlOcbA1gjgz74oyeYEqc
-         1K+8y+K8Q/hsef2i2Acuxdn3tGfUtam//pHxiZr8VqNIFugfv2mo6Whm8+HsxSEze6zv
-         uDPA==
+        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
+        b=AuJK2I4kQxaaW0Ux/5WxUg/IWUUsrsv3KsJfMGDhjBIlwpUpBUK+9avYZIZtHb3gMQ
+         oIhprL+RtQqxSXTs2I49ScpLdB5NRrfsqOs5RUV48072mPfy+N5eIgtnVhvdxP7kY49c
+         bPlD84k2vceF4+GgGgoonozZd1QmK+GpaFg2phDkmlAAxGoTCE6aUIU59Fbi72o050qq
+         rbhErYjmAASeXPYq0r4CIcgeytTBhRZMgYeo3MGsUAwKj4JSz37XG3WF4E+qVz8Jz+QY
+         m5030YjfljVzy/PS2FtdRM7dSp1Sjhtu9tCIAzDCzdXOORttr8c6mFsAB7vlXO34JoeA
+         aQPQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=i+MZ7iZz;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j1fmQiO0;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dWXC7+b1uPrtxLrIbMSkZ6WiZp/AK9WQujVs6NDdG2o=;
-        b=MJgJYczDM/wNlBZdXTqzHTS0pN/kI1qS1YTfxlIKoSfr9CO5iB0rLgAbpFQszApoBZ
-         KS3OwtARLgD+B49iUeGhF32oSHvhpEi5iSQiPi7pn9ljMZWrqpcOOdL809z51+xOUF2w
-         BZLtly0ohOtAZzPUB8YQrwiZQJ5uB6asgXoJ6V6ozc5Mp+giM9vHdaxYHOpRUB8Zklpj
-         9pUDfyNKwQUaTeiKZqUUI0Ob49tmjYsoRMfd99YfaxNTDzwJXsqF9NHLU5caPf63Afc1
-         z+p3q9YTalUA8yIKta+E/ohsjSh3eYZVsZ62Y0cxQ4oXPemdvzJix4tuGCMRkWZSudOz
-         Vj2g==
+        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
+        b=XHDwHKluHwweGNI5itwBamRk7bm8+NBycROh91XvZxPnfuybAEUBhURYkdHdqoe/QD
+         1rkhzhzH9XESfxtbzpDOjTwwszwl83HhcgMYhyTuxEi0t1bMDNiat2BehDnXiecu+dny
+         du94WZZQ0J2AWDvA/excbSuruIzf59tCzPwsz4r2Wfchg/p+WY6FNQtyS126rLr3KlZP
+         36iYETS4rjMVLme9f99kfD1KGrIsJlB9G5vE8p06oYduJVygk+W4DF/T7u8DuSlFEPC5
+         Ww3t54XjQlQ4C/Uj4n/wQ4gKUX4Gl5aE1TI9b2dmAaKIV1cr47rkj5q22bKKsh293lFv
+         JOKQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dWXC7+b1uPrtxLrIbMSkZ6WiZp/AK9WQujVs6NDdG2o=;
-        b=WZsiBmtZARFXffEUI7EMz4nXY9q+rxpmRLMaAc2W+jxuF2WfuzrQuIcf08fWbOeIkK
-         egUhDF3niiSZ0ffNQsWs4E3vkSjaSJe8YxX7Nwqw2HKYqe8OPLKJE0f9QUGmGDhY9t4Z
-         pVZtiDpMBzlyuT+VXekRa5NAAODlQO9VWw8YlyxThiAfMvayr/Iu1Re1Tt4k91gviAHv
-         7X6WehxQ7T20cl/O3dyi4cjU82jK6P5ZqaFC4hIHtLG1UpgHeiihoK9Pqk7G9upUq691
-         fFvXvLcFcUjD2zVuSk0jN88aeFFEwfRO2jvAqRIkS2EVS+6I+JKniBjzyKAw87WyWS+D
-         0oGQ==
+        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
+        b=blU7S9vMt10kK4ait66uwdjZbpUdsst/HnpIOBJBCgHa257WNdygtJCNSZfOgv3o7w
+         NXgDWpgNp8cRHZY/cVPKwwPMzDhOvtkSyF6U3TAN/3c9wv4x7BFwVJhA6rN/FuCOtrKT
+         eqfCwMgU/sUOvo0iFg+612JFs28G+zkq3nDhA7ztnuaBK9M1zvjn8sNInlXEpGngJDZF
+         JDj/tZo6q+rl2BvRwLquvYsuMljIjI1d0QSBXOWZebGbooZXPYAwYjYfEnLMiWx4ihOS
+         Z+uD2e7CzYHBB0MqGI5Z/5LkXtPTwIRkBV08QbkuNkgSwGs6CX28FfpXhwh9I/fTmHpf
+         tD6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to
@@ -63,88 +63,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dWXC7+b1uPrtxLrIbMSkZ6WiZp/AK9WQujVs6NDdG2o=;
-        b=M0ntSoHwnfk7W8iAgx+bXcLhsUkk8siJDKOzef9vrvtAXdYWfn5/UyfcUoWhaY8B84
-         PIpejng2DkY9B7M2bq4oyYPYGEfqQwjlA5neYk2fN+s/+gf6kjXObqvaKKTaHiKSk2Im
-         FfHZAFqRHJFZcVmOfdP1Jf3vBTdvHk4Pbw1hli6WSdaJG09pyG5KzrplZuvm1z5N4WEM
-         bCXuBYWz+Nu7LagWOXmEFiqiW0D3HbwZBnq57IpANaHNKRJfvN4YP5JznuQlalFfa2Qa
-         OEPzu3NiobZy+xgUtvtp7BqU47tEqqj/bJO511HQUuyivPoTgFtVdZCfKdfUeNB57Dbh
-         41mg==
+        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
+        b=SPnA0MhOqoc8uXmmKbOC+TXmkhhFfMsFx2ikGCEJdA4cEiIhz7mzS5v+4lOSpFKjll
+         cnaaLgRAN/yBwOkhRaSwxUGj/Ky8l76uRLMRrgOTWnAIG22CCuknaKaUoSUXFjJGVTXW
+         BQzLGLiF0GEMdxo/ujrBIhg8cyAwN9EiiQhBMJykg0fYvt7pzOXjvVUYBcQ3FYCeZ4Yb
+         O5bVhiOyEpN/ooH8er8nFOa9l2XoOB1rrgCzAbig7JBf0eYQPmR9tbxZnAy5/tllj2Nr
+         CaM0gd37mwfeaEV/WZpKfiOb6V1zy4AT7LddtwVdkzKaTuOlVW1IjlZpMIWWeGOP6+eH
+         5n3w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXYM6v8R9l2iGNZq240M8S2WVhJ0UVPIhJusHJYmONymZn8z+e1
-	5yZUBCKzU1WJCpRN1e9yxhc=
-X-Google-Smtp-Source: APXvYqykGCBnKQR5yIOyIZDQWQndR1NanAao1Lj5U/C00AErRFRpJnm+tzP4eNagvBNW1ST7ujJCfg==
-X-Received: by 2002:a5d:4083:: with SMTP id o3mr16305300wrp.150.1566237941884;
-        Mon, 19 Aug 2019 11:05:41 -0700 (PDT)
+X-Gm-Message-State: APjAAAW46tcesrd5YHx8qqsyyGgdoter7zCnTSuhFT2tsePQmeMw6rP/
+	xM9AxbeSndwLk2E6mFhy8b4=
+X-Google-Smtp-Source: APXvYqzN8FFLXArqLeleM+ygqDazPib/f10tsIct72ULJCkSkzGAk0SVMVPsbrsyxFSnVyRVZ/4nOA==
+X-Received: by 2002:adf:f287:: with SMTP id k7mr29477250wro.183.1566238739067;
+        Mon, 19 Aug 2019 11:18:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:cc01:: with SMTP id f1ls101702wmh.4.canary-gmail; Mon,
- 19 Aug 2019 11:05:41 -0700 (PDT)
-X-Received: by 2002:a7b:cd17:: with SMTP id f23mr22430597wmj.177.1566237941235;
-        Mon, 19 Aug 2019 11:05:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566237941; cv=none;
+Received: by 2002:a5d:5506:: with SMTP id b6ls4789666wrv.4.gmail; Mon, 19 Aug
+ 2019 11:18:58 -0700 (PDT)
+X-Received: by 2002:a5d:50cb:: with SMTP id f11mr29185735wrt.277.1566238738563;
+        Mon, 19 Aug 2019 11:18:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566238738; cv=none;
         d=google.com; s=arc-20160816;
-        b=CIvClukvcdCLjyNtsook0RB7tekRNKWvut2LZIPCHy02hCGgXm+ZMNyZ77mGwbU/iL
-         2VECNwGSGZzUuIr4X/ZRPjHLrsebG5pMnNbBO2R/46yASiwDnc2ziPNFZL8LavUOz2fg
-         7BhSLaOYDXA4xvg0qPV1HWxl0v47YVp10wcRm1ldvDfcw+csWTnFTXMLeZLwM4NQf5tx
-         2no64225hBAKmMmnpcI/hoGIOBG2p+D6K01F8sg9dcP+Wj2NIhQOGQ13eGhRvSQOp125
-         VjftS6JeOVjmz+5JWgdIMaQVpE95i6PyxlNnfBnPWiOwSRXjfMij+IvVZgoNpEib7YVL
-         epbw==
+        b=X77KnIFVJ3Ix1D7+N8CoBLUudddX02kbBL7iJ+HlSwU/2lgMi23MfTxXdt3avRVr67
+         xkOlsRPA+KT6kgxeq1FkrX84KcdByPiz6MsrW1XdcQpXVlk7RKFvK4CJ+DsruAefv5nE
+         Zbu4cnAcMFkR8lDI6EAerwIFhn1FSOjBzbP+dNrPa6Gytrz79CxhkRPiRHqUvmEQG7DI
+         JuEn4/v32Cr+hFRtoygPlsDTweE91v5OW8B41WnngypUngxoS3ve0kpxQO+L8WRb8y52
+         g96QOCJ9Zy+jzOC6ZLuvKeJjc5HrLqCPkJqPNgi3SjJWoF0/pJyJZnT/4yyq8Xl4gBBi
+         I2tA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=SXhIQ/zc6wcO31VB7m35TYOSZfJd3fuQtKqpuHQk6I0=;
-        b=znGEECW2gLh0igLK1/SkFX6Bxt6ziEjG/yoGX0nWqF4LI6jwmuOs4z9CMXsn3fEg2O
-         uGYpjzgMB1suRMCYHxzoYetKAdVObOpLMdwOpDovuokdCmasoYp6WDPnXbCPL7n6MNKW
-         YogVhh/mQa0OLow/d7EKPnWV4ZpMHDYnKO3rB8Rz9PUQiXGzFqCW18VRkTFWn9QrOzUv
-         kJ49yTsUByh/hA+S7WBQdnMBEYdb3VEOGavxsAG+7US4uWj+0NuIFXRGA2U5cfxpzX9l
-         G6qRfrqB99x1kZnZR6gc84JOdfxA8A5bk4v1Golm9YpFdhlMlRLzDwmSmri0kZ5MkghP
-         l52g==
+        bh=aYP4CxwTGVmvnAPlZJ47p188K02c/ZLyHLr+oQjpd00=;
+        b=OCZIfry5GjJc76lI/pMr8fCpO9QbVrmKe8j4by2mlp7y9UCt6xaXUHbBTusC9kJ16C
+         Awrk8kwCVBikeJSfRBNRIPxvK4niEtwBkKfOfAP5GNP5zb/wcptTthK7QMw9QgzjadVP
+         jLebRYR3o7I21HjdQv6i1PfqFM2zVx46wxxIeLHJfOhQoUJb2wx8oh648fXXvOUx1Zva
+         Wr7RT2YlSkyaBYdU4shEgN5btRQyukpx19eTu8Cof23skAtMcAshZAOm77+1JHf2I4Xh
+         4ZFCg0zyPMlPdariGtWKoo00WszKD8nzANvTMBDu5LPry37HbHOGOJH3IOxFuDPHsx50
+         y2Tg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=i+MZ7iZz;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j1fmQiO0;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id p67si568409wme.2.2019.08.19.11.05.41
+Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
+        by gmr-mx.google.com with ESMTPS id l9si561996wmc.0.2019.08.19.11.18.58
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Aug 2019 11:05:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
-Received: by mail-wr1-x441.google.com with SMTP id p17so9644943wrf.11
-        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 11:05:41 -0700 (PDT)
-X-Received: by 2002:a5d:4101:: with SMTP id l1mr30649034wrp.202.1566237940836;
- Mon, 19 Aug 2019 11:05:40 -0700 (PDT)
+        Mon, 19 Aug 2019 11:18:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
+Received: by mail-wm1-x343.google.com with SMTP id p74so388022wme.4
+        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 11:18:58 -0700 (PDT)
+X-Received: by 2002:a7b:cf21:: with SMTP id m1mr23089980wmg.150.1566238737678;
+ Mon, 19 Aug 2019 11:18:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190812215052.71840-1-ndesaulniers@google.com> <20190812215052.71840-14-ndesaulniers@google.com>
-In-Reply-To: <20190812215052.71840-14-ndesaulniers@google.com>
+References: <20190812215052.71840-1-ndesaulniers@google.com> <20190812215052.71840-17-ndesaulniers@google.com>
+In-Reply-To: <20190812215052.71840-17-ndesaulniers@google.com>
 Reply-To: sedat.dilek@gmail.com
 From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Mon, 19 Aug 2019 20:05:28 +0200
-Message-ID: <CA+icZUVQ9ZBcrVskN3xOdgZ2Y7UJL_jyGY5LhoHHR7uxESmdmQ@mail.gmail.com>
-Subject: Re: [PATCH 14/16] include/linux: prefer __section from compiler_attributes.h
+Date: Mon, 19 Aug 2019 20:18:44 +0200
+Message-ID: <CA+icZUVXP9D+EtXrNSTUPBdYKhkQBX-+CUP6ocg4cLRpFcfP9Q@mail.gmail.com>
+Subject: Re: [PATCH 00/16] treewide: prefer __section from compiler_attributes.h
 To: Nick Desaulniers <ndesaulniers@google.com>
 Cc: akpm@linux-foundation.org, jpoimboe@redhat.com, yhs@fb.com, 
 	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
-	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>, Lai Jiangshan <jiangshanlai@gmail.com>, 
-	"Paul E. McKenney" <paulmck@linux.ibm.com>, Josh Triplett <josh@joshtriplett.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, 
-	Song Liu <songliubraving@fb.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@kernel.org>, "Peter Zijlstra (Intel)" <peterz@infradead.org>, 
-	Nicholas Piggin <npiggin@gmail.com>, Jiri Kosina <jkosina@suse.cz>, Will Deacon <will@kernel.org>, 
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>, Hans Liljestrand <ishkamiel@gmail.com>, 
-	Elena Reshetova <elena.reshetova@intel.com>, David Windsor <dwindsor@gmail.com>, 
-	Marc Zyngier <maz@kernel.org>, Ming Lei <ming.lei@redhat.com>, Dou Liyang <douliyangs@gmail.com>, 
-	Julien Thierry <julien.thierry.kdev@gmail.com>, 
-	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
-	linux-kernel@vger.kernel.org, linux-sparse@vger.kernel.org, 
-	rcu@vger.kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, 
+	netdev@vger.kernel.org, bpf@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: sedat.dilek@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=i+MZ7iZz;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441
+ header.i=@gmail.com header.s=20161025 header.b=j1fmQiO0;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343
  as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
  (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
@@ -162,12 +149,50 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 On Mon, Aug 12, 2019 at 11:53 PM Nick Desaulniers
 <ndesaulniers@google.com> wrote:
 >
-> Link: https://github.com/ClangBuiltLinux/linux/issues/619
-> Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> GCC unescapes escaped string section names while Clang does not. Because
+> __section uses the `#` stringification operator for the section name, it
+> doesn't need to be escaped.
+>
+> This fixes an Oops observed in distro's that use systemd and not
+> net.core.bpf_jit_enable=1, when their kernels are compiled with Clang.
+>
+> Instead, we should:
+> 1. Prefer __section(.section_name_no_quotes).
+> 2. Only use __attribute__((__section(".section"))) when creating the
+> section name via C preprocessor (see the definition of __define_initcall
+> in arch/um/include/shared/init.h).
+>
+> This antipattern was found with:
+> $ grep -e __section\(\" -e __section__\(\" -r
+>
+> See the discussions in:
+> https://bugs.llvm.org/show_bug.cgi?id=42950
+> https://marc.info/?l=linux-netdev&m=156412960619946&w=2
+>
+> Nick Desaulniers (16):
+>   s390/boot: fix section name escaping
+>   arc: prefer __section from compiler_attributes.h
+>   parisc: prefer __section from compiler_attributes.h
+>   um: prefer __section from compiler_attributes.h
+>   sh: prefer __section from compiler_attributes.h
+>   ia64: prefer __section from compiler_attributes.h
+>   arm: prefer __section from compiler_attributes.h
+>   mips: prefer __section from compiler_attributes.h
+>   sparc: prefer __section from compiler_attributes.h
+>   powerpc: prefer __section and __printf from compiler_attributes.h
+>   x86: prefer __section from compiler_attributes.h
+>   arm64: prefer __section from compiler_attributes.h
+>   include/asm-generic: prefer __section from compiler_attributes.h
+>   include/linux: prefer __section from compiler_attributes.h
+>   include/linux/compiler.h: remove unused KENTRY macro
+>   compiler_attributes.h: add note about __section
+>
 
-Tested-by: Sedat Dilek <sedat.dilek@gmail.com> [ Linux v5.3-rc5 ]
+Hi Nick,
+
+thanks for this patchset and the nice section names cleanup and simplification.
+
+I have tested 5 relevant patches for my x86-64 Debian/buster system.
 
 Patchset "for-5.3/x86-section-name-escaping" (5 patches):
 
@@ -177,171 +202,60 @@ include/linux: prefer __section from compiler_attributes.h
 include/asm-generic: prefer __section from compiler_attributes.h
 x86: prefer __section from compiler_attributes.h
 
-Thanks.
+Toolchain: LLVM/Clang compiler and LLD linker version 9.0.0-rc2 (from
+Debian/experimental)
 
+I can boot on bare metal.
+
+$ cat /proc/version
+Linux version 5.3.0-rc5-1-amd64-cbl-asmgoto
+(sedat.dilek@gmail.com@iniza) (clang version 9.0.0-+rc2-1~exp1
+(tags/RELEASE_900/rc2)) #1~buster+dileks1 SMP 2019-08-19
+
+I have sent by Tested-by to the single patches.
+
+Have a nice day,
 - Sedat -
 
-> ---
->  include/linux/cache.h       | 6 +++---
->  include/linux/compiler.h    | 8 ++++----
->  include/linux/cpu.h         | 2 +-
->  include/linux/export.h      | 2 +-
->  include/linux/init_task.h   | 4 ++--
->  include/linux/interrupt.h   | 5 ++---
->  include/linux/sched/debug.h | 2 +-
->  include/linux/srcutree.h    | 2 +-
->  8 files changed, 15 insertions(+), 16 deletions(-)
+>  arch/arc/include/asm/linkage.h        |  8 +++----
+>  arch/arc/include/asm/mach_desc.h      |  3 +--
+>  arch/arm/include/asm/cache.h          |  2 +-
+>  arch/arm/include/asm/mach/arch.h      |  4 ++--
+>  arch/arm/include/asm/setup.h          |  2 +-
+>  arch/arm64/include/asm/cache.h        |  2 +-
+>  arch/arm64/kernel/smp_spin_table.c    |  2 +-
+>  arch/ia64/include/asm/cache.h         |  2 +-
+>  arch/mips/include/asm/cache.h         |  2 +-
+>  arch/parisc/include/asm/cache.h       |  2 +-
+>  arch/parisc/include/asm/ldcw.h        |  2 +-
+>  arch/powerpc/boot/main.c              |  3 +--
+>  arch/powerpc/boot/ps3.c               |  6 ++----
+>  arch/powerpc/include/asm/cache.h      |  2 +-
+>  arch/powerpc/kernel/btext.c           |  2 +-
+>  arch/s390/boot/startup.c              |  2 +-
+>  arch/sh/include/asm/cache.h           |  2 +-
+>  arch/sparc/include/asm/cache.h        |  2 +-
+>  arch/sparc/kernel/btext.c             |  2 +-
+>  arch/um/kernel/um_arch.c              |  6 +++---
+>  arch/x86/include/asm/cache.h          |  2 +-
+>  arch/x86/include/asm/intel-mid.h      |  2 +-
+>  arch/x86/include/asm/iommu_table.h    |  5 ++---
+>  arch/x86/include/asm/irqflags.h       |  2 +-
+>  arch/x86/include/asm/mem_encrypt.h    |  2 +-
+>  arch/x86/kernel/cpu/cpu.h             |  3 +--
+>  include/asm-generic/error-injection.h |  2 +-
+>  include/asm-generic/kprobes.h         |  5 ++---
+>  include/linux/cache.h                 |  6 +++---
+>  include/linux/compiler.h              | 31 ++++-----------------------
+>  include/linux/compiler_attributes.h   | 10 +++++++++
+>  include/linux/cpu.h                   |  2 +-
+>  include/linux/export.h                |  2 +-
+>  include/linux/init_task.h             |  4 ++--
+>  include/linux/interrupt.h             |  5 ++---
+>  include/linux/sched/debug.h           |  2 +-
+>  include/linux/srcutree.h              |  2 +-
+>  37 files changed, 62 insertions(+), 83 deletions(-)
 >
-> diff --git a/include/linux/cache.h b/include/linux/cache.h
-> index 750621e41d1c..3f4df9eef1e1 100644
-> --- a/include/linux/cache.h
-> +++ b/include/linux/cache.h
-> @@ -28,7 +28,7 @@
->   * but may get written to during init, so can't live in .rodata (via "const").
->   */
->  #ifndef __ro_after_init
-> -#define __ro_after_init __attribute__((__section__(".data..ro_after_init")))
-> +#define __ro_after_init __section(.data..ro_after_init)
->  #endif
->
->  #ifndef ____cacheline_aligned
-> @@ -45,8 +45,8 @@
->
->  #ifndef __cacheline_aligned
->  #define __cacheline_aligned                                    \
-> -  __attribute__((__aligned__(SMP_CACHE_BYTES),                 \
-> -                __section__(".data..cacheline_aligned")))
-> +       __aligned(SMP_CACHE_BYTES)                              \
-> +       __section(.data..cacheline_aligned)
->  #endif /* __cacheline_aligned */
->
->  #ifndef __cacheline_aligned_in_smp
-> diff --git a/include/linux/compiler.h b/include/linux/compiler.h
-> index f0fd5636fddb..5e88e7e33abe 100644
-> --- a/include/linux/compiler.h
-> +++ b/include/linux/compiler.h
-> @@ -24,7 +24,7 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
->                         long ______r;                                   \
->                         static struct ftrace_likely_data                \
->                                 __aligned(4)                            \
-> -                               __section("_ftrace_annotated_branch")   \
-> +                               __section(_ftrace_annotated_branch)     \
->                                 ______f = {                             \
->                                 .data.func = __func__,                  \
->                                 .data.file = __FILE__,                  \
-> @@ -60,7 +60,7 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
->  #define __trace_if_value(cond) ({                      \
->         static struct ftrace_branch_data                \
->                 __aligned(4)                            \
-> -               __section("_ftrace_branch")             \
-> +               __section(_ftrace_branch)               \
->                 __if_trace = {                          \
->                         .func = __func__,               \
->                         .file = __FILE__,               \
-> @@ -118,7 +118,7 @@ void ftrace_likely_update(struct ftrace_likely_data *f, int val,
->         ".popsection\n\t"
->
->  /* Annotate a C jump table to allow objtool to follow the code flow */
-> -#define __annotate_jump_table __section(".rodata..c_jump_table")
-> +#define __annotate_jump_table __section(.rodata..c_jump_table)
->
->  #else
->  #define annotate_reachable()
-> @@ -298,7 +298,7 @@ unsigned long read_word_at_a_time(const void *addr)
->   * visible to the compiler.
->   */
->  #define __ADDRESSABLE(sym) \
-> -       static void * __section(".discard.addressable") __used \
-> +       static void * __section(.discard.addressable) __used \
->                 __PASTE(__addressable_##sym, __LINE__) = (void *)&sym;
->
->  /**
-> diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-> index fcb1386bb0d4..186bbd79d6ce 100644
-> --- a/include/linux/cpu.h
-> +++ b/include/linux/cpu.h
-> @@ -166,7 +166,7 @@ void cpu_startup_entry(enum cpuhp_state state);
->  void cpu_idle_poll_ctrl(bool enable);
->
->  /* Attach to any functions which should be considered cpuidle. */
-> -#define __cpuidle      __attribute__((__section__(".cpuidle.text")))
-> +#define __cpuidle      __section(.cpuidle.text)
->
->  bool cpu_in_idle(unsigned long pc);
->
-> diff --git a/include/linux/export.h b/include/linux/export.h
-> index fd8711ed9ac4..808c1a0c2ef9 100644
-> --- a/include/linux/export.h
-> +++ b/include/linux/export.h
-> @@ -104,7 +104,7 @@ struct kernel_symbol {
->   * discarded in the final link stage.
->   */
->  #define __ksym_marker(sym)     \
-> -       static int __ksym_marker_##sym[0] __section(".discard.ksym") __used
-> +       static int __ksym_marker_##sym[0] __section(.discard.ksym) __used
->
->  #define __EXPORT_SYMBOL(sym, sec)                              \
->         __ksym_marker(sym);                                     \
-> diff --git a/include/linux/init_task.h b/include/linux/init_task.h
-> index 6049baa5b8bc..50139505da34 100644
-> --- a/include/linux/init_task.h
-> +++ b/include/linux/init_task.h
-> @@ -51,12 +51,12 @@ extern struct cred init_cred;
->
->  /* Attach to the init_task data structure for proper alignment */
->  #ifdef CONFIG_ARCH_TASK_STRUCT_ON_STACK
-> -#define __init_task_data __attribute__((__section__(".data..init_task")))
-> +#define __init_task_data __section(.data..init_task)
->  #else
->  #define __init_task_data /**/
->  #endif
->
->  /* Attach to the thread_info data structure for proper alignment */
-> -#define __init_thread_info __attribute__((__section__(".data..init_thread_info")))
-> +#define __init_thread_info __section(.data..init_thread_info)
->
->  #endif
-> diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
-> index 5b8328a99b2a..29debfe4dd0f 100644
-> --- a/include/linux/interrupt.h
-> +++ b/include/linux/interrupt.h
-> @@ -741,8 +741,7 @@ extern int arch_early_irq_init(void);
->  /*
->   * We want to know which function is an entrypoint of a hardirq or a softirq.
->   */
-> -#define __irq_entry             __attribute__((__section__(".irqentry.text")))
-> -#define __softirq_entry  \
-> -       __attribute__((__section__(".softirqentry.text")))
-> +#define __irq_entry    __section(.irqentry.text)
-> +#define __softirq_entry        __section(.softirqentry.text)
->
->  #endif
-> diff --git a/include/linux/sched/debug.h b/include/linux/sched/debug.h
-> index 95fb9e025247..e17b66221fdd 100644
-> --- a/include/linux/sched/debug.h
-> +++ b/include/linux/sched/debug.h
-> @@ -42,7 +42,7 @@ extern void proc_sched_set_task(struct task_struct *p);
->  #endif
->
->  /* Attach to any functions which should be ignored in wchan output. */
-> -#define __sched                __attribute__((__section__(".sched.text")))
-> +#define __sched                __section(.sched.text)
->
->  /* Linker adds these: start and end of __sched functions */
->  extern char __sched_text_start[], __sched_text_end[];
-> diff --git a/include/linux/srcutree.h b/include/linux/srcutree.h
-> index 9cfcc8a756ae..9de652f4e1bd 100644
-> --- a/include/linux/srcutree.h
-> +++ b/include/linux/srcutree.h
-> @@ -124,7 +124,7 @@ struct srcu_struct {
->  # define __DEFINE_SRCU(name, is_static)                                        \
->         is_static struct srcu_struct name;                              \
->         struct srcu_struct * const __srcu_struct_##name                 \
-> -               __section("___srcu_struct_ptrs") = &name
-> +               __section(___srcu_struct_ptrs) = &name
->  #else
->  # define __DEFINE_SRCU(name, is_static)                                        \
->         static DEFINE_PER_CPU(struct srcu_data, name##_srcu_data);      \
 > --
 > 2.23.0.rc1.153.gdeed80330f-goog
 >
@@ -349,4 +263,4 @@ Thanks.
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVQ9ZBcrVskN3xOdgZ2Y7UJL_jyGY5LhoHHR7uxESmdmQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVXP9D%2BEtXrNSTUPBdYKhkQBX-%2BCUP6ocg4cLRpFcfP9Q%40mail.gmail.com.
