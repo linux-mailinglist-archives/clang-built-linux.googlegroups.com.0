@@ -1,216 +1,121 @@
-Return-Path: <clang-built-linux+bncBCSPFHXUVMKBBUXR5DVAKGQE2I7P4IA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ27FVWWUFRBAM65HVAKGQE7KP33FI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2EFC491CC2
-	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 07:51:16 +0200 (CEST)
-Received: by mail-pg1-x539.google.com with SMTP id g126sf1883548pgc.22
-        for <lists+clang-built-linux@lfdr.de>; Sun, 18 Aug 2019 22:51:16 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1566193875; cv=pass;
+Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3F68791DC0
+	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 09:25:55 +0200 (CEST)
+Received: by mail-oi1-x238.google.com with SMTP id e83sf495365oif.15
+        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 00:25:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566199554; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jK2LRfVCNYFp6Z4TSHuMTgv1E+PCZr9jBynSPm4EfrKVcoCXFRw0+/mVVOWwDpDTL2
-         zjxKsHw5Gw7Ds/XeRghdM2H/yZkbufcd+u9Bbx6APuPMmx0QsobjDYFuDxtPy3UpTf3I
-         Oey78AF+6dGQ0Z9Hb14qLzGVmIgNy84WTuKVJCCP0+/FkAYx386GhN1mS7s7ET78pmLM
-         3ke9iwXV7qGaY8FwxufxcX/Zw7gP/4Yasj7lntLje3EOnDgQ/5sJMi9hHt2ZB/8yKMM1
-         GzbtrrjnP4Js5TbhRBUZDkwaZQgDa39O2VDiLmG3itInQEWlxMqbjGWMBsfZ6oensycP
-         cTjQ==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=ih9YYz+ltlwGtLuzBH/bVF1MwwONW0suKSSqevXGhjCwZegydTXmUGTK39bFFSN3DT
+         s2BS+kUwv4QdWkQnLgXTSRsHc0v9ySyZWuHmLOd9K11VYgwEfBWvK0MDeXTwyPI91Ko4
+         K7AXrGNd4USxVL4EBNCfFCjhfKesT2IlSlHAzCEv5XWxppS24l/aVeJHXHJTnRYw3Yd5
+         ziedxP9ffYwadASs0uFoGLgXDYqmzX2Dw2GKqJiIXihqJU9mFMKfo8l2eyMpr7PB5WFw
+         6Btmx8ta015WmQLxdkY76iBh87tsKNHryum0X9ODauRGY48V1yg3yue0PHzy46Wr/TUk
+         +jAQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-id
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=mVcBp4eJXLTp4BSVGAXVfdLkr9KiThcDx/08Yxhzp5c=;
-        b=AwwwvV+GI6sZveKFpxIR2d22wobZTA4LTHLxIFCjBS0bts3ia0pN4YwJ6k97KUz/s+
-         i0yJdJ2lIs2w66JuNAgNy1XNO12Kr5p6DX5St0U2HjdudF/v558/6pmv6f/xWKRQrMWo
-         rXiMCA18jLkJ72LhfxPfJ21Csrkc4rTDoW0F8QXc2YZ/QGx7g4ZYB0D0oT2XdNUEWx1/
-         w9fa24n5wT+dpLKjj1puNRF032AqRf0xPfsk+O9hWO60kqNE4LCaAVkyc0rgDejRTjIm
-         Y4C6tEh6QkR2hebm3mPW/gm9Sx0NXOp0PCxssq10T07kLNUbkatMuYiDJAYGE02vrpCn
-         ls1Q==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@fb.com header.s=facebook header.b=oy1q7Cdh;
-       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=WxRT3jjY;
-       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
-       spf=pass (google.com: domain of prvs=3134b91f87=yhs@fb.com designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=3134b91f87=yhs@fb.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fb.com
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
+        bh=BOE9FHYWXl4TNm37mSHx2sX/MYs+KxeLFDiOjJFwNco=;
+        b=j+eG5W5JI1/7V8N3GnmdB5BPJmFGjMfehl7DlsaH83usFGPk+h8qiJVNwAyeSmSq63
+         cepX0OJNC/m7JFJ0nyfRVPUiob9puuM2CaqMXC75/Q9lrIXctZ6uuQECQ3CPt1G7L725
+         MEaTeu4rGnlfC7BXR8b3etRDL9vyKwH/1VV+Bhu6gRv7MFbjdMTbNKQw30NOuuxmLBfk
+         stbg1nE0pzgqrbidO8xCaDFgsPDHinCXxx3UVuIWNq/FoXoBEm2Maq2cgpB9JXsLDMn8
+         ek/a3Hp6Go5g9+U3Rz6rDLxAEldMfeannNY3flR8m/V0nCacA9zeYaevktq4zcxDRqWv
+         +svQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@axtens.net header.s=google header.b=OW+OUXy8;
+       spf=pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=dja@axtens.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:content-id
+        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mVcBp4eJXLTp4BSVGAXVfdLkr9KiThcDx/08Yxhzp5c=;
-        b=KKmiiLNyaD/Y7CZ22Gq/cBz652w6Z6JzKRird6RSN+8BfGzYyP1mnsY8FiKncqXAds
-         Ius70WfcKzCbRGqyK92zpgqlqwgJXi9dVciXoyHzaWEs4JgLdzJPygCfgTLPSG6XUlGI
-         0z67dx43YuUxZVO+WMHgcXx3+9QFcZoF1q1cgqHGHV4NiGUsTGSdDRTnvtpPguKlbTKX
-         W8ToCLERVyNNSFXRS9+VV/BkgN+evp6YI6DQstxmSrYGmtj65Qb/RtUMvG8WwZodoTzh
-         8+SyPo4FPJtLaMvmCqJDsZWJ2cRq5M5JJ/r5aOVlJ7/1Vsj2x3iCP1PvcJJT4vpf80h7
-         gMPw==
+        bh=BOE9FHYWXl4TNm37mSHx2sX/MYs+KxeLFDiOjJFwNco=;
+        b=n8Ml9om1asdUVQOaPjiKsPQwdfXFbDbu18iGQsrionrLMBkAmttj3CcGQBXFIZC35r
+         CNDfaT8TpMpXQzXL72kDc6lY1bgHuY5TzZ8wl7KOJ6r1Gj9oEIYeN6n/c7/VDEhrfjpr
+         BaQpJWeaCtQaymOIPzuJesne1TkupF6MagY4Kr0vnF0ZeVxTEPP/nIeJvxSyc47ovOhC
+         kfCXun7jlEMr55UsCFIIxF8Xq0uygBChpMarl86UrFnh+r87HOESTXjBCCpYRJu1A3Iz
+         2lMIaE4sLw6MrEkBn/cw4CUT7YT/nN9/p/Ep9hgjalZoQerqNpkwQIfh5pq/AitUAN02
+         iNzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:content-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
+         :date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mVcBp4eJXLTp4BSVGAXVfdLkr9KiThcDx/08Yxhzp5c=;
-        b=TJXN5gbPywp2jm8JX3bfy3Pikkbk+KqJMu6esZ6cTIDHI044iPxhJdYGxMhGeCptFs
-         isNN5Kv03iPRH3Vn7yd4ziOAioAh7IpggiQnrqwRO1oARO6wze8VQQQnlwBO7jcMWCn+
-         9klreJijSuN15EoVYoSYCbcOH2w4ApwQdEZ8UE+qRuQEX44vLsk2t51FVlhiB7EvgyxV
-         osXlOQpb9YaPGMXvoRQmywqrA7kFcWf16toTZF4JSbD0hx9Ri7Fkk5j0xrisHkQ8ucbb
-         Q+uyafQVfnW+/Jwc+JorYD5kLrx1CSzPXteHQTjQauE+RfXuSU11Dr7Btfz+Fja7SgJm
-         69ug==
+        bh=BOE9FHYWXl4TNm37mSHx2sX/MYs+KxeLFDiOjJFwNco=;
+        b=nuZVTE02qyxncuAQqyI6PtKl7S39MhMGQxEodr5HsbEusCoiaeUfu1H3mBvNIPA5/3
+         yR5t8klD/ONuWvuGYnyrepnP2qmctp4gFitaDrPDp644N7Hw7FXzXn1GJLaizu0AAaFl
+         stgtXbBLZ+LAV6BYeU4kSe8hOccs/NH2cyGNsxtQ36P/KFoBBf8II5rMN3eQNJIfuSX2
+         ipKy7I2M/ejq1oRQDWvForew4SoIkCWeVGhKHKK0hSh6iqtbvfMH8Dus3WvTLvoiMiGQ
+         sdN4Cr5BF6ckYyM5gsQyFJSI8vl4NrUMYkeMHE0bUbb6vGqM/u4Ww1HCyfu1brcssw+O
+         eBGQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVtkzKE2encbSJ1fJYsTD2WrOPB1gEPzybqjlJ+zq6jAkxpWWZ1
-	zdzEOqMhGpYYRdvrd2kbm2w=
-X-Google-Smtp-Source: APXvYqwuKn13V4vciIAitIsS4EFW/ryP6mAC58UkQcdOvi/XL/HbcKbGUNvtjAFHofhkAA5BQ5oP8w==
-X-Received: by 2002:a17:90a:2ecb:: with SMTP id h11mr12037960pjs.108.1566193874872;
-        Sun, 18 Aug 2019 22:51:14 -0700 (PDT)
+X-Gm-Message-State: APjAAAVsgRfF6O8Qk0jtUvfWwwvRuxpapx0RjZczs8QrdGb+eynry1ZF
+	0Heu5GPPknZ2E9z9yMS3ZoQ=
+X-Google-Smtp-Source: APXvYqyCMws6uwu4L3cThXvAKIb0w8LCx5jWBz+VgRbQpNTPqRdfYRZrLhvlb2HYx+YJ/5nY/LsXaA==
+X-Received: by 2002:a05:6808:5cf:: with SMTP id d15mr9093819oij.140.1566199553834;
+        Mon, 19 Aug 2019 00:25:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:68c8:: with SMTP id k8ls3270047pgt.8.gmail; Sun, 18 Aug
- 2019 22:51:14 -0700 (PDT)
-X-Received: by 2002:a62:642:: with SMTP id 63mr22585092pfg.257.1566193874616;
-        Sun, 18 Aug 2019 22:51:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566193874; cv=pass;
+Received: by 2002:aca:c488:: with SMTP id u130ls1609715oif.5.gmail; Mon, 19
+ Aug 2019 00:25:53 -0700 (PDT)
+X-Received: by 2002:aca:cc56:: with SMTP id c83mr12819812oig.75.1566199553503;
+        Mon, 19 Aug 2019 00:25:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566199553; cv=none;
         d=google.com; s=arc-20160816;
-        b=uY1JfuEaRGe566KfDuxyupdPT1HhXVV4JURfL1lHl0KB/KOwssgzuULPM9XkvRbsdX
-         rfTvSlqoTrfojdWbZF9fR0NEnV/2OJBFifAYM5CT9n3xM6bldJMKnoBqyJKfNqwGQhQe
-         6EgAQFbeR1antLejBMID5nXPB5r5ztWTNZKW+aXUkl0+yf09L635bc9mTcpk7qW0v9Qp
-         qoPQk8GQM/WB/9CNIiJheJfBzdB5x5xiZsaC93t94bG2xq5fbIQ/EITSElWyKpHTdm6A
-         2TQsQM9Sip54R6YgXs/MnnQr41EiewO5oGHGKsl0/doM+iP3v4x9CIzu5h/s0Ncu7BK4
-         z1eQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature:dkim-signature;
-        bh=/D1aTRNaQpXeGhUKDkRERGc+8ROoHc7Ime160JrClvc=;
-        b=tYxFG0r+XVPX+xaL4fUja2xvvTZGuCOUjDB1/Unf/e3QH7bh8Iabx3OaS43jZUtGuc
-         qt38L6aJI/QgAeM1w796zEWQ8gi2/smojhBffRxqQw0nwtpju/cdi2WAoUY2nClDKxUu
-         UkM0UnFZ5snRBwez5/6C/ctyf2GaFrb763WMVlBBHjVjcKQiBipdBgQ5f/8j9/xYbGMJ
-         EkmJXbLFazBmUU9iyv2pgE2M7YqHZp58gPcM6hsFVX3mOrDoePnQ2QFLmd9cJ42LN7qc
-         4byKtDNFx3QxHEGni05Yiu6Xxvr7D3HACWDgRVyh5usj2lEQHSUVp85XG2KzSdg6sn3m
-         uG4w==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@fb.com header.s=facebook header.b=oy1q7Cdh;
-       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=WxRT3jjY;
-       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
-       spf=pass (google.com: domain of prvs=3134b91f87=yhs@fb.com designates 67.231.145.42 as permitted sender) smtp.mailfrom="prvs=3134b91f87=yhs@fb.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fb.com
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com. [67.231.145.42])
-        by gmr-mx.google.com with ESMTPS id b12si787122pfd.4.2019.08.18.22.51.14
+        b=VbbgAHAqDfzlKbHIrY5zsORAV8oW5y9jYYn13NZxBbWqyji/eDIJvzoev4SQqpSMhw
+         F2fgZKt9iqJ/LkVQ+CidcqtkDj2MEj8I1C424E5YSLxYYoN/n0e5SCcKLfZ9T+JtWbaq
+         5btaVItJ1YHOWU2xpt/RYedzPMne8JnP6/d6psvn164x6HM5Fd7zYxDOjvGZAZmxc/ad
+         xIK14qZDLvRG/0cN/tgSVkl/ptDnQFcy0WXdM4/9PNXmeHiiZiPOKDJy8Q51GSZXfJAr
+         qjVra9fMUJbjq7huRVjPSqJK7wLug/Cxlso/E/N80SeVKkYUfyrRGtfvxFoyOTjNRbWA
+         jBXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:dkim-signature;
+        bh=tBCDDckHGkeN1/u6Pg4KXWwPQu/0aeVQyazu3cqADzM=;
+        b=jeCmq6oGMxhsL+oGqzRDNJ0J2nlqNBwEVohbr4ug6aCs/6MEp4Q04WaZRcXDyl7nXp
+         MMKlShYY3AR+C1XBh5YvmqbIXmV3+r2t27nQcjOEpZlLe4PqiWTgJJlys7wMz81pFhXf
+         E/HO7vHA8isBmxGjc2sWZ9Q5UVEGAY+K2XA2mGK9RreJL4q5UlrKjvspbpYY8iITkMOA
+         d22p2L2FUELOLd7Xr1VRPzMH6thpMtPpppg77RRTVPWMcr6nKFE2FPRRvrmbOHmvOy8f
+         tTiBpOB76Dh2AWPn15UCEOgMtFMyr2LF+hHvBLVDSxQgBeAzi1QbnBkboFzxcBACWzVB
+         U6aA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@axtens.net header.s=google header.b=OW+OUXy8;
+       spf=pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=dja@axtens.net
+Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id w3si881676otl.3.2019.08.19.00.25.53
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 18 Aug 2019 22:51:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of prvs=3134b91f87=yhs@fb.com designates 67.231.145.42 as permitted sender) client-ip=67.231.145.42;
-Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.16.0.27/8.16.0.27) with SMTP id x7J5nugR014183;
-	Sun, 18 Aug 2019 22:51:12 -0700
-Received: from mail.thefacebook.com (mailout.thefacebook.com [199.201.64.23])
-	by mx0a-00082601.pphosted.com with ESMTP id 2ufnqb01h1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-SHA384 bits=256 verify=NOT);
-	Sun, 18 Aug 2019 22:51:12 -0700
-Received: from prn-hub04.TheFacebook.com (2620:10d:c081:35::128) by
- prn-hub05.TheFacebook.com (2620:10d:c081:35::129) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- 15.1.1713.5; Sun, 18 Aug 2019 22:51:11 -0700
-Received: from NAM03-BY2-obe.outbound.protection.outlook.com (192.168.54.28)
- by o365-in.thefacebook.com (192.168.16.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.1.1713.5
- via Frontend Transport; Sun, 18 Aug 2019 22:51:11 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=N2FdP9OF8w6o9nZicQ4Ppzy1cUH1C+6fLBcnc97XUKYTl+/09zPWoUdBK0vpDIjn6XBJMTW6gMn+Id6RL0wptHTYyAbkquwSfrfStwhMEpSNTloJGM2AtvXA+A/slH95RjJDh8CJRQwP2qPW9M2jv7H8NLlhNcXEoJxmKMuJXy0uTb0MVZYY6/AMmaMHQFSN0bPq27lOwV5mKL9Pac/wYVE6UDSByCU9NeCRXpaRlBEFzCF34TdvKUlhoOOe9TEDXjWQB//bj0LLVeXTZcpOG/p9RqbkNOTJ+zmJAyTTJDYZk+Ufa9YzseUNUp91/19KWwiPq2oXVTwXAPACEFaNZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/D1aTRNaQpXeGhUKDkRERGc+8ROoHc7Ime160JrClvc=;
- b=D50Bh+1C7VKLPMNS1VEeK8hagr6aJcwJK1Iu549RvP+h9cmNh6uMyqJbJ/TBOy2bqvWOTht+qkYK0lE46+k+Z+NxaBEYH9t3PjOjscp6LvcNaIn9p8dPRwxEUhUn3EezVKQrs6vQgijPNDO2qsU9EvaJCXfg2CZ5LQOIPgaOAsJaA7rEEVW0LIw2JeWoOtjNnEo2QnmSYY2iPJ/ltMmPFDIP0SyvFQ+PYznIAxZD6LgtNuMkC3RdDcT+umOkF/fc/Pcvv5tqeuNbQrgdA4k/mpK/zloHbBPO2cul8RJB3sGaAWANyr8leE9eHdM6NS3IYyxq80p2tMWDX5iyQeDqvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
- header.d=fb.com; arc=none
-Received: from BYAPR15MB3384.namprd15.prod.outlook.com (20.179.59.17) by
- BYAPR15MB2439.namprd15.prod.outlook.com (52.135.198.155) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2178.16; Mon, 19 Aug 2019 05:51:09 +0000
-Received: from BYAPR15MB3384.namprd15.prod.outlook.com
- ([fe80::d95b:271:fa7e:e978]) by BYAPR15MB3384.namprd15.prod.outlook.com
- ([fe80::d95b:271:fa7e:e978%5]) with mapi id 15.20.2178.018; Mon, 19 Aug 2019
- 05:51:09 +0000
-From: Yonghong Song <yhs@fb.com>
-To: Nathan Chancellor <natechancellor@gmail.com>,
-        Alexei Starovoitov
-	<ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>
-CC: Martin Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "bpf@vger.kernel.org"
-	<bpf@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-        "clang-built-linux@googlegroups.com"
-	<clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] test_bpf: Fix a new clang warning about xor-ing two
- numbers
-Thread-Topic: [PATCH] test_bpf: Fix a new clang warning about xor-ing two
- numbers
-Thread-Index: AQHVVkfGI3lq+eqY6EetOxo2qpIqHacB956A
-Date: Mon, 19 Aug 2019 05:51:09 +0000
-Message-ID: <00b21133-196c-f304-14a1-facb24c09103@fb.com>
-References: <20190819043419.68223-1-natechancellor@gmail.com>
-In-Reply-To: <20190819043419.68223-1-natechancellor@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-clientproxiedby: MWHPR21CA0034.namprd21.prod.outlook.com
- (2603:10b6:300:129::20) To BYAPR15MB3384.namprd15.prod.outlook.com
- (2603:10b6:a03:10e::17)
-x-ms-exchange-messagesentrepresentingtype: 1
-x-originating-ip: [2620:10d:c090:180::a8b3]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: dfe2e8dd-f4e8-42a9-b03a-08d724693c09
-x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(5600148)(711020)(4605104)(1401327)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(2017052603328)(7193020);SRVR:BYAPR15MB2439;
-x-ms-traffictypediagnostic: BYAPR15MB2439:
-x-ms-exchange-purlcount: 2
-x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <BYAPR15MB2439B1BF18CBBCA0FA53C097D3A80@BYAPR15MB2439.namprd15.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:10000;
-x-forefront-prvs: 0134AD334F
-x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(136003)(346002)(39860400002)(376002)(396003)(366004)(199004)(189003)(25786009)(6246003)(14454004)(66556008)(478600001)(64756008)(66446008)(66476007)(53936002)(229853002)(4326008)(966005)(6116002)(31686004)(76176011)(52116002)(2906002)(446003)(5660300002)(6506007)(102836004)(6486002)(386003)(53546011)(7736002)(14444005)(31696002)(256004)(305945005)(86362001)(316002)(71190400001)(71200400001)(66946007)(99286004)(186003)(81156014)(81166006)(110136005)(8676002)(8936002)(36756003)(54906003)(6512007)(6306002)(6436002)(476003)(11346002)(486006)(2616005)(46003);DIR:OUT;SFP:1102;SCL:1;SRVR:BYAPR15MB2439;H:BYAPR15MB3384.namprd15.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
-received-spf: None (protection.outlook.com: fb.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: hU0I7CBEUiZygn4rD/I4IEwG8R8TciSNnNLFEanXgdL03ngJSp55zV6zfpNTaGPc0mVyp3MEDBJjq8zEiORqZwjahs/AvDPSDSy2Etnv1PZJvawtjUd4Nx49IuRmpH5DbtCxg6E4yf5x9Q4I4rFpzIaF+LUkRBtTJC4eScDTILvKnljI55x6teaKg/IjhF28TXgpxxGYl/w0W6Cdsu6PBgHmr+A8LbQAq78fmflgT/3xUpNu+llyBa3aVKbr9pOgflmXHnzFOhidzgGmsiLhBd/SZeIxMS7jomspSqU4ddLIJxz9yBai4zxxtI5BsA/h6g5BgJZOMZmIlMEVN/OMtVrw1jnwsBCCfqnmZ6XGKiMGZ5C/dJUrnIMQGk/lK1nW3f29ocm6Dmh8bBwQFkszaWh0JXZRKYb4ZTQGDUmcOhA=
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <1F8ECC3C16EEA947B68204269CE85C56@namprd15.prod.outlook.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Aug 2019 00:25:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
+Received: by mail-pf1-x443.google.com with SMTP id v12so645709pfn.10
+        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 00:25:53 -0700 (PDT)
+X-Received: by 2002:aa7:9191:: with SMTP id x17mr22772954pfa.23.1566199552574;
+        Mon, 19 Aug 2019 00:25:52 -0700 (PDT)
+Received: from localhost (ppp167-251-205.static.internode.on.net. [59.167.251.205])
+        by smtp.gmail.com with ESMTPSA id c199sm17606492pfb.28.2019.08.19.00.25.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Aug 2019 00:25:51 -0700 (PDT)
+From: Daniel Axtens <dja@axtens.net>
+To: Nathan Chancellor <natechancellor@gmail.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Michael Ellerman <mpe@ellerman.id.au>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, Nathan Chancellor <natechancellor@gmail.com>
+Subject: Re: [PATCH] powerpc: Don't add -mabi= flags when building with Clang
+In-Reply-To: <20190818191321.58185-1-natechancellor@gmail.com>
+References: <20190818191321.58185-1-natechancellor@gmail.com>
+Date: Mon, 19 Aug 2019 17:25:47 +1000
+Message-ID: <87ftlxty4k.fsf@dja-thinkpad.axtens.net>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: dfe2e8dd-f4e8-42a9-b03a-08d724693c09
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Aug 2019 05:51:09.6716
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: rH0w1dUzAX1Z514QlhnfdCSSSwAHmRsHQLrydg7wuDMMXwtH6t5R84VJXnni0GvB
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB2439
-X-OriginatorOrg: fb.com
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:,, definitions=2019-08-19_02:,,
- signatures=0
-X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 priorityscore=1501
- malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 spamscore=0
- clxscore=1015 lowpriorityscore=0 mlxscore=0 impostorscore=0
- mlxlogscore=999 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.0.1-1906280000 definitions=main-1908190067
-X-FB-Internal: deliver
-X-Original-Sender: yhs@fb.com
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: dja@axtens.net
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@fb.com header.s=facebook header.b=oy1q7Cdh;       dkim=pass
- header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com
- header.b=WxRT3jjY;       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass
- dkdomain=fb.com dmarc=pass fromdomain=fb.com);       spf=pass (google.com:
- domain of prvs=3134b91f87=yhs@fb.com designates 67.231.145.42 as permitted
- sender) smtp.mailfrom="prvs=3134b91f87=yhs@fb.com";       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=fb.com
+ header.i=@axtens.net header.s=google header.b=OW+OUXy8;       spf=pass
+ (google.com: domain of dja@axtens.net designates 2607:f8b0:4864:20::443 as
+ permitted sender) smtp.mailfrom=dja@axtens.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -223,67 +128,84 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Hi Nathan,
 
+> When building pseries_defconfig, building vdso32 errors out:
+>
+>   error: unknown target ABI 'elfv1'
+>
+> Commit 4dc831aa8813 ("powerpc: Fix compiling a BE kernel with a
+> powerpc64le toolchain") added these flags to fix building GCC but
+> clang is multitargeted and does not need these flags. The ABI is
+> properly set based on the target triple, which is derived from
+> CROSS_COMPILE.
+>
+> https://github.com/llvm/llvm-project/blob/llvmorg-9.0.0-rc2/clang/lib/Driver/ToolChains/Clang.cpp#L1782-L1804
+>
+> -mcall-aixdesc is not an implemented flag in clang so it can be
+> safely excluded as well, see commit 238abecde8ad ("powerpc: Don't
+> use gcc specific options on clang").
+>
 
-On 8/18/19 9:34 PM, Nathan Chancellor wrote:
-> r369217 in clang added a new warning about potential misuse of the xor
-> operator as an exponentiation operator:
-> 
-> ../lib/test_bpf.c:870:13: warning: result of '10 ^ 300' is 294; did you
-> mean '1e300'? [-Wxor-used-as-pow]
->                  { { 4, 10 ^ 300 }, { 20, 10 ^ 300 } },
->                         ~~~^~~~~
->                         1e300
-> ../lib/test_bpf.c:870:13: note: replace expression with '0xA ^ 300' to
-> silence this warning
-> ../lib/test_bpf.c:870:31: warning: result of '10 ^ 300' is 294; did you
-> mean '1e300'? [-Wxor-used-as-pow]
->                  { { 4, 10 ^ 300 }, { 20, 10 ^ 300 } },
->                                           ~~~^~~~~
->                                           1e300
-> ../lib/test_bpf.c:870:31: note: replace expression with '0xA ^ 300' to
-> silence this warning
-> 
-> The commit link for this new warning has some good logic behind wanting
-> to add it but this instance appears to be a false positive. Adopt its
-> suggestion to silence the warning but not change the code. According to
-> the differential review link in the clang commit, GCC may eventually
-> adopt this warning as well.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/643
-> Link: https://github.com/llvm/llvm-project/commit/920890e26812f808a74c60ebc14cc636dac661c1
+This all looks good to me, thanks for picking it up, and sorry I hadn't
+got around to it!
+
+The makefile is a bit messy and there are a few ways it could probably
+be reorganised to reduce ifdefs. But I don't think this is the right
+place to do that. With that in mind,
+
+Reviewed-by: Daniel Axtens <dja@axtens.net>
+
+Regards,
+Daniel
+
+> pseries_defconfig successfully builds after this patch and
+> powernv_defconfig and ppc44x_defconfig don't regress.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/240
 > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-
-Verified that latest trunk clang indeed has this warning, and below 
-change indeed fixed the warning in the correct way.
-
-Acked-by: Yonghong Song <yhs@fb.com>
-
 > ---
-> 
-> I highly doubt that 1e300 was intented but if it was (or something else
-> was), please let me know. Commit history wasn't entirely clear on why
-> this expression was used over just a raw number.
-> 
->   lib/test_bpf.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/lib/test_bpf.c b/lib/test_bpf.c
-> index c41705835cba..5ef3eccee27c 100644
-> --- a/lib/test_bpf.c
-> +++ b/lib/test_bpf.c
-> @@ -867,7 +867,7 @@ static struct bpf_test tests[] = {
->   		},
->   		CLASSIC,
->   		{ },
-> -		{ { 4, 10 ^ 300 }, { 20, 10 ^ 300 } },
-> +		{ { 4, 0xA ^ 300 }, { 20, 0xA ^ 300 } },
->   	},
->   	{
->   		"SPILL_FILL",
-> 
+>  arch/powerpc/Makefile | 4 ++++
+>  1 file changed, 4 insertions(+)
+>
+> diff --git a/arch/powerpc/Makefile b/arch/powerpc/Makefile
+> index c345b79414a9..971b04bc753d 100644
+> --- a/arch/powerpc/Makefile
+> +++ b/arch/powerpc/Makefile
+> @@ -93,11 +93,13 @@ MULTIPLEWORD	:= -mmultiple
+>  endif
+>  
+>  ifdef CONFIG_PPC64
+> +ifndef CONFIG_CC_IS_CLANG
+>  cflags-$(CONFIG_CPU_BIG_ENDIAN)		+= $(call cc-option,-mabi=elfv1)
+>  cflags-$(CONFIG_CPU_BIG_ENDIAN)		+= $(call cc-option,-mcall-aixdesc)
+>  aflags-$(CONFIG_CPU_BIG_ENDIAN)		+= $(call cc-option,-mabi=elfv1)
+>  aflags-$(CONFIG_CPU_LITTLE_ENDIAN)	+= -mabi=elfv2
+>  endif
+> +endif
+>  
+>  ifndef CONFIG_CC_IS_CLANG
+>    cflags-$(CONFIG_CPU_LITTLE_ENDIAN)	+= -mno-strict-align
+> @@ -144,6 +146,7 @@ endif
+>  endif
+>  
+>  CFLAGS-$(CONFIG_PPC64)	:= $(call cc-option,-mtraceback=no)
+> +ifndef CONFIG_CC_IS_CLANG
+>  ifdef CONFIG_CPU_LITTLE_ENDIAN
+>  CFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mabi=elfv2,$(call cc-option,-mcall-aixdesc))
+>  AFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mabi=elfv2)
+> @@ -152,6 +155,7 @@ CFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mabi=elfv1)
+>  CFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mcall-aixdesc)
+>  AFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mabi=elfv1)
+>  endif
+> +endif
+>  CFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mcmodel=medium,$(call cc-option,-mminimal-toc))
+>  CFLAGS-$(CONFIG_PPC64)	+= $(call cc-option,-mno-pointers-to-nested-functions)
+>  
+> -- 
+> 2.23.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/00b21133-196c-f304-14a1-facb24c09103%40fb.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87ftlxty4k.fsf%40dja-thinkpad.axtens.net.
