@@ -1,139 +1,129 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBE6Q5PVAKGQEXFQYNLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZ5D5TVAKGQE2IFL3JY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 62C1794C72
-	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 20:18:59 +0200 (CEST)
-Received: by mail-wr1-x43a.google.com with SMTP id t9sf5671978wrx.9
-        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 11:18:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566238739; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C91494FAB
+	for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 23:17:29 +0200 (CEST)
+Received: by mail-pl1-x63c.google.com with SMTP id y5sf2706003plt.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 14:17:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566249448; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hrDEf1BTE85qwpB57+JJX8LdSDt4c1ciemAxPC6yTuvlgwr8kLISVrJmxhCiFOvf8W
-         rSYHVO+8hSJbJEIn7vEIuV4BkkiHOPwqkk7AO58FfJdURW5kfEsx6RDQOWaJakoEoAUh
-         1Bx3DEKzpbzsaFgeMXF067A4KQIn0Jmj3fJw64eQV2MbYf0a27O5Hag9/EG6jVTAJvMX
-         RWJgnuPvtnmnxmZ53sYrVtLl28uaGSoDCkSFfZX0BwZiosbxmxzhtwPqzBfjIir0ZXAj
-         /3IF4B4kt8nshD+59elTU7OSt7/td1RYaanyeQGLH8Y9YYYzcgpT3nMCYq2Y/TxjKTNX
-         GaoQ==
+        b=W2CAnuOLwKJJVfAC1XTJRxtMjxEJdyw4h1KmYu0+B+fCGfATU6kQLerCIxvZ89G8pg
+         0ahp8s8+8jupfAy3YnPVZsB0ydSpe5d5k1RDEvpqXjc7lqXSNtHQVS7kwDm1NV3jYsha
+         5kRjDq571ZulGUi6P9Tj8akoMqpJn22B2VNyedzEQ/hyLrG2r+Hfpb+452TCYtknXjej
+         gzRzmbA+GWI4DIwUQH5cHBNN0c78m8O73Cd8t7DEdFTeAiWjccttSS7+j91W7oQdJL3Y
+         MmxFs4cMnrWK4B0mkn1JLAzzbItFFUn1lXehYbrJQBFnT0oQH05zgctB80K2Ie0QrBqC
+         KIIQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
-        b=AuJK2I4kQxaaW0Ux/5WxUg/IWUUsrsv3KsJfMGDhjBIlwpUpBUK+9avYZIZtHb3gMQ
-         oIhprL+RtQqxSXTs2I49ScpLdB5NRrfsqOs5RUV48072mPfy+N5eIgtnVhvdxP7kY49c
-         bPlD84k2vceF4+GgGgoonozZd1QmK+GpaFg2phDkmlAAxGoTCE6aUIU59Fbi72o050qq
-         rbhErYjmAASeXPYq0r4CIcgeytTBhRZMgYeo3MGsUAwKj4JSz37XG3WF4E+qVz8Jz+QY
-         m5030YjfljVzy/PS2FtdRM7dSp1Sjhtu9tCIAzDCzdXOORttr8c6mFsAB7vlXO34JoeA
-         aQPQ==
+        bh=Rh9xaw7XEM9Xd328C/jLEiU/fgslH2qOS3Cl0BHcRGQ=;
+        b=PL2v9ZbVMErk7jqCjeqXH7Uom8mfFtMS+iZT7C2ZsyIPZx4/47KKwU+yeGo1gpsRcr
+         KLstaViYlpmKNTysOWRrLhJFhUqPlA6LAkA54qgqkzrXbGXftudzv5usrj2+01dhY9SI
+         q1XRJGGz5x+d8wLWLEUsRND8zgJQXJ+4VsVtLhpDPqJNzID2ozjWoGzDizi+9qotbf28
+         qnfMwCiSJSKvpkBhZP20BavHSfRovckNOVQ1TSOZfEfcLXGZVkodaINZa+aVKLKlOiEc
+         f8e0xEObD2uqv5k+//ShGgNyHvim4WyXThD2ZwKVhi2c//d1haZsvKwcXadjKm8U1SEQ
+         /IhQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j1fmQiO0;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:mime-version
+         :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
-        b=XHDwHKluHwweGNI5itwBamRk7bm8+NBycROh91XvZxPnfuybAEUBhURYkdHdqoe/QD
-         1rkhzhzH9XESfxtbzpDOjTwwszwl83HhcgMYhyTuxEi0t1bMDNiat2BehDnXiecu+dny
-         du94WZZQ0J2AWDvA/excbSuruIzf59tCzPwsz4r2Wfchg/p+WY6FNQtyS126rLr3KlZP
-         36iYETS4rjMVLme9f99kfD1KGrIsJlB9G5vE8p06oYduJVygk+W4DF/T7u8DuSlFEPC5
-         Ww3t54XjQlQ4C/Uj4n/wQ4gKUX4Gl5aE1TI9b2dmAaKIV1cr47rkj5q22bKKsh293lFv
-         JOKQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
-        b=blU7S9vMt10kK4ait66uwdjZbpUdsst/HnpIOBJBCgHa257WNdygtJCNSZfOgv3o7w
-         NXgDWpgNp8cRHZY/cVPKwwPMzDhOvtkSyF6U3TAN/3c9wv4x7BFwVJhA6rN/FuCOtrKT
-         eqfCwMgU/sUOvo0iFg+612JFs28G+zkq3nDhA7ztnuaBK9M1zvjn8sNInlXEpGngJDZF
-         JDj/tZo6q+rl2BvRwLquvYsuMljIjI1d0QSBXOWZebGbooZXPYAwYjYfEnLMiWx4ihOS
-         Z+uD2e7CzYHBB0MqGI5Z/5LkXtPTwIRkBV08QbkuNkgSwGs6CX28FfpXhwh9I/fTmHpf
-         tD6Q==
+        bh=Rh9xaw7XEM9Xd328C/jLEiU/fgslH2qOS3Cl0BHcRGQ=;
+        b=A+pSuAd8mKDAy7Yf+e7LKoQOEJLK6rrixIXqBkvtHnpaiH1AS2OvHEoQ5Ye3nGZbX9
+         UbsH1akaHlUZGTWlxvSI5YfFAQrGU6/l1liO6vhfgZDFn6AiFE+UZMGQNPbgY4cW7Ioq
+         r7HWcRYTpJfKXypftxFurDlsQnOYmB81NZY3/Ayz/T+iU6gD3vHY9MbirzrkTwqubZ1R
+         IfWIvWhWApf2wL0YAJ9yD/37RU66JT9MNJQW0Stwn9vQ2H/9X5jUKMN2/0VNMdVcWj0i
+         Lhoi1UChOaqIwmUtZd2BPr2ydE+ziS+4XGyHMtPdLf3ogIHFuPRdtYOK42FeAgPyrYhL
+         g1dw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=l0xMYKmFceHPK8JhJXLbCCJYGplJHV46rZZpwgDQLqM=;
-        b=SPnA0MhOqoc8uXmmKbOC+TXmkhhFfMsFx2ikGCEJdA4cEiIhz7mzS5v+4lOSpFKjll
-         cnaaLgRAN/yBwOkhRaSwxUGj/Ky8l76uRLMRrgOTWnAIG22CCuknaKaUoSUXFjJGVTXW
-         BQzLGLiF0GEMdxo/ujrBIhg8cyAwN9EiiQhBMJykg0fYvt7pzOXjvVUYBcQ3FYCeZ4Yb
-         O5bVhiOyEpN/ooH8er8nFOa9l2XoOB1rrgCzAbig7JBf0eYQPmR9tbxZnAy5/tllj2Nr
-         CaM0gd37mwfeaEV/WZpKfiOb6V1zy4AT7LddtwVdkzKaTuOlVW1IjlZpMIWWeGOP6+eH
-         5n3w==
+        bh=Rh9xaw7XEM9Xd328C/jLEiU/fgslH2qOS3Cl0BHcRGQ=;
+        b=XpbaI2kQmBrdHYLtnGLy0I54WiIy/c5EB0UEv7VFvODJdEHmHjqv3vMSTSPkf4CygB
+         lJd8sB3+2FEkO2UDZhPdshzD06WL7SnztvHjVgXjKTqLgi2LU8gXfsW1Ww1ph3dQ42DV
+         /yysD57/bhcHbo77UWSEHc23HVAyPFanFq3IV1I4isSbmo6TA+/O1GSadTAanvXh4meF
+         udpiwnVvSQwaieSh/d4Vaff63XQhShmYG5DvysSER0slWC5eFUEhYKs+nTfkGKr/D4hv
+         upmUSqWXQC2wGr3kKvKThsReLXP+uBSWYrig//b8J6E9j3GvlNtzemdTibv+6KSCZG1l
+         SmBQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW46tcesrd5YHx8qqsyyGgdoter7zCnTSuhFT2tsePQmeMw6rP/
-	xM9AxbeSndwLk2E6mFhy8b4=
-X-Google-Smtp-Source: APXvYqzN8FFLXArqLeleM+ygqDazPib/f10tsIct72ULJCkSkzGAk0SVMVPsbrsyxFSnVyRVZ/4nOA==
-X-Received: by 2002:adf:f287:: with SMTP id k7mr29477250wro.183.1566238739067;
-        Mon, 19 Aug 2019 11:18:59 -0700 (PDT)
+X-Gm-Message-State: APjAAAXTE96kWMc3QPcqmoErBBX++/fl7TBtNB4zZV9fpXNmNZ77conC
+	EDklMSIXl+QIA+RhdqU5Lro=
+X-Google-Smtp-Source: APXvYqzhuq4akMSbjqNyD6cwAotYRGx2E2OvmMgHPRosNkd5FnUEoVQahDa2lLWx8k/1OCbJzb1O9w==
+X-Received: by 2002:a17:90a:9282:: with SMTP id n2mr58842pjo.0.1566249447267;
+        Mon, 19 Aug 2019 14:17:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:5506:: with SMTP id b6ls4789666wrv.4.gmail; Mon, 19 Aug
- 2019 11:18:58 -0700 (PDT)
-X-Received: by 2002:a5d:50cb:: with SMTP id f11mr29185735wrt.277.1566238738563;
-        Mon, 19 Aug 2019 11:18:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566238738; cv=none;
+Received: by 2002:a17:902:6b81:: with SMTP id p1ls4308006plk.6.gmail; Mon, 19
+ Aug 2019 14:17:26 -0700 (PDT)
+X-Received: by 2002:a17:902:ff0a:: with SMTP id f10mr9646972plj.163.1566249446936;
+        Mon, 19 Aug 2019 14:17:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566249446; cv=none;
         d=google.com; s=arc-20160816;
-        b=X77KnIFVJ3Ix1D7+N8CoBLUudddX02kbBL7iJ+HlSwU/2lgMi23MfTxXdt3avRVr67
-         xkOlsRPA+KT6kgxeq1FkrX84KcdByPiz6MsrW1XdcQpXVlk7RKFvK4CJ+DsruAefv5nE
-         Zbu4cnAcMFkR8lDI6EAerwIFhn1FSOjBzbP+dNrPa6Gytrz79CxhkRPiRHqUvmEQG7DI
-         JuEn4/v32Cr+hFRtoygPlsDTweE91v5OW8B41WnngypUngxoS3ve0kpxQO+L8WRb8y52
-         g96QOCJ9Zy+jzOC6ZLuvKeJjc5HrLqCPkJqPNgi3SjJWoF0/pJyJZnT/4yyq8Xl4gBBi
-         I2tA==
+        b=IMGxhf5Z7ERfEpSzRLcH6vtgb+wvhEOuW8b0USxzWuWoZkHd9OYOH/r1cTGN6al3M8
+         a2x9fEU/QEFwfXyWuoE/XbOJhrMj7kC5vh7Vm/v02AeNMD4XFFgVVcsqgmnsSuAmVMgM
+         Ljcv46oOzbhoZds321lT2H5t8LZI5Zryy/+ue3eoP792p18s+a1Ixwg+AXok8jAGg3Ft
+         YwdpR9QJPswN2slmHbjXnlbiicvYrgdyOcHm61ZH9qyjWv+VW3gJ7YHkRhRkJInUh19L
+         blix0X2KvzJcW1WPXcrr7hPzAymIPRMqRUb0UfjnpM6lKOIQgvzbyEHbyOhKXHbrT4bE
+         qiTQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=aYP4CxwTGVmvnAPlZJ47p188K02c/ZLyHLr+oQjpd00=;
-        b=OCZIfry5GjJc76lI/pMr8fCpO9QbVrmKe8j4by2mlp7y9UCt6xaXUHbBTusC9kJ16C
-         Awrk8kwCVBikeJSfRBNRIPxvK4niEtwBkKfOfAP5GNP5zb/wcptTthK7QMw9QgzjadVP
-         jLebRYR3o7I21HjdQv6i1PfqFM2zVx46wxxIeLHJfOhQoUJb2wx8oh648fXXvOUx1Zva
-         Wr7RT2YlSkyaBYdU4shEgN5btRQyukpx19eTu8Cof23skAtMcAshZAOm77+1JHf2I4Xh
-         4ZFCg0zyPMlPdariGtWKoo00WszKD8nzANvTMBDu5LPry37HbHOGOJH3IOxFuDPHsx50
-         y2Tg==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date;
+        bh=ZakZ3xB9bFVAbqFp/13l9v3uVwdwRd2ioxdnEVPySqQ=;
+        b=oXCqSDSV4n6481EEWTeDEUriOufwSjAXF24iYaY0pmPJvR8hL6oYPnQ/l0tz3NRokH
+         O3eQKTa8pIsRLRa15Dp+VMpc20g6e81Wp6FFx12ODkZ93KZ6dvsa+Clj100ydLhsjxvw
+         dwqANNBgmuEPNYirGkkQ3EHFNNOR/5rZFjrE7+tcwjQETDiSe0OD+RdGwEQ8nV9Hs/u8
+         Rq+VAR0DIO+pApzFzjwDh75RfXH2L5fSuEiH0YV2+lqGP4Ua5UglFeLcYH9syZMEsal2
+         +7ySTy6TP5RAYN0N4wNBTMp16qBIEs6VvpV3s3v6mR3ZHueQZjDdLLQVad4y4o/F8wjH
+         bSow==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j1fmQiO0;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id l9si561996wmc.0.2019.08.19.11.18.58
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id i11si621284pju.1.2019.08.19.14.17.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 Aug 2019 11:18:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id p74so388022wme.4
-        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 11:18:58 -0700 (PDT)
-X-Received: by 2002:a7b:cf21:: with SMTP id m1mr23089980wmg.150.1566238737678;
- Mon, 19 Aug 2019 11:18:57 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 19 Aug 2019 14:17:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+X-Amp-Result: UNSCANNABLE
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Aug 2019 14:17:26 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,406,1559545200"; 
+   d="gz'50?scan'50,208,50";a="172243509"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 19 Aug 2019 14:17:25 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1hzp1o-000Aev-RD; Tue, 20 Aug 2019 05:17:24 +0800
+Date: Tue, 20 Aug 2019 05:16:33 +0800
+From: kbuild test robot <lkp@intel.com>
+To: kbuild@01.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com
+Subject: [tip:WIP.timers/core 67/68] include/linux/posix-timers.h:204:20:
+ error: field has incomplete type 'struct cpu_timer'
+Message-ID: <201908200528.UgQ40BHm%lkp@intel.com>
 MIME-Version: 1.0
-References: <20190812215052.71840-1-ndesaulniers@google.com> <20190812215052.71840-17-ndesaulniers@google.com>
-In-Reply-To: <20190812215052.71840-17-ndesaulniers@google.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Mon, 19 Aug 2019 20:18:44 +0200
-Message-ID: <CA+icZUVXP9D+EtXrNSTUPBdYKhkQBX-+CUP6ocg4cLRpFcfP9Q@mail.gmail.com>
-Subject: Re: [PATCH 00/16] treewide: prefer __section from compiler_attributes.h
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: akpm@linux-foundation.org, jpoimboe@redhat.com, yhs@fb.com, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, 
-	netdev@vger.kernel.org, bpf@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=j1fmQiO0;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::343
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: multipart/mixed; boundary="dtv4whdk5lsbiysu"
+Content-Disposition: inline
+X-Patchwork-Hint: ignore
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,121 +136,256 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 12, 2019 at 11:53 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> GCC unescapes escaped string section names while Clang does not. Because
-> __section uses the `#` stringification operator for the section name, it
-> doesn't need to be escaped.
->
-> This fixes an Oops observed in distro's that use systemd and not
-> net.core.bpf_jit_enable=1, when their kernels are compiled with Clang.
->
-> Instead, we should:
-> 1. Prefer __section(.section_name_no_quotes).
-> 2. Only use __attribute__((__section(".section"))) when creating the
-> section name via C preprocessor (see the definition of __define_initcall
-> in arch/um/include/shared/init.h).
->
-> This antipattern was found with:
-> $ grep -e __section\(\" -e __section__\(\" -r
->
-> See the discussions in:
-> https://bugs.llvm.org/show_bug.cgi?id=42950
-> https://marc.info/?l=linux-netdev&m=156412960619946&w=2
->
-> Nick Desaulniers (16):
->   s390/boot: fix section name escaping
->   arc: prefer __section from compiler_attributes.h
->   parisc: prefer __section from compiler_attributes.h
->   um: prefer __section from compiler_attributes.h
->   sh: prefer __section from compiler_attributes.h
->   ia64: prefer __section from compiler_attributes.h
->   arm: prefer __section from compiler_attributes.h
->   mips: prefer __section from compiler_attributes.h
->   sparc: prefer __section from compiler_attributes.h
->   powerpc: prefer __section and __printf from compiler_attributes.h
->   x86: prefer __section from compiler_attributes.h
->   arm64: prefer __section from compiler_attributes.h
->   include/asm-generic: prefer __section from compiler_attributes.h
->   include/linux: prefer __section from compiler_attributes.h
->   include/linux/compiler.h: remove unused KENTRY macro
->   compiler_attributes.h: add note about __section
->
 
-Hi Nick,
+--dtv4whdk5lsbiysu
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-thanks for this patchset and the nice section names cleanup and simplification.
+CC: kbuild-all@01.org
+CC: linux-kernel@vger.kernel.org
+CC: tipbuild@zytor.com
+TO: Thomas Gleixner <tglx@linutronix.de>
 
-I have tested 5 relevant patches for my x86-64 Debian/buster system.
+tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/tip/tip.git WIP.timers/core
+head:   b16101077c4444bc7e0dde91e7ffb258ce1f979b
+commit: 24afd498b40f107b01c0666ea75efaeff7ae4a5c [67/68] posix-cpu-timers: Utilize timerqueue for storage
+config: x86_64-allnoconfig (attached as .config)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+reproduce:
+        git checkout 24afd498b40f107b01c0666ea75efaeff7ae4a5c
+        # save the attached .config to linux build tree
+        make ARCH=x86_64 
 
-Patchset "for-5.3/x86-section-name-escaping" (5 patches):
+If you fix the issue, kindly add following tag
+Reported-by: kbuild test robot <lkp@intel.com>
 
-compiler_attributes.h: add note about __section
-include/linux/compiler.h: remove unused KENTRY macro
-include/linux: prefer __section from compiler_attributes.h
-include/asm-generic: prefer __section from compiler_attributes.h
-x86: prefer __section from compiler_attributes.h
+All errors (new ones prefixed by >>):
 
-Toolchain: LLVM/Clang compiler and LLD linker version 9.0.0-rc2 (from
-Debian/experimental)
+   In file included from arch/x86/kernel/asm-offsets.c:9:
+   In file included from include/linux/crypto.h:21:
+   In file included from include/linux/uaccess.h:5:
+   In file included from include/linux/sched.h:32:
+>> include/linux/posix-timers.h:204:20: error: field has incomplete type 'struct cpu_timer'
+                   struct cpu_timer        cpu;
+                                           ^
+   include/linux/posix-timers.h:204:10: note: forward declaration of 'struct cpu_timer'
+                   struct cpu_timer        cpu;
+                          ^
+   1 error generated.
+   make[2]: *** [arch/x86/kernel/asm-offsets.s] Error 1
+   make[2]: Target '__build' not remade because of errors.
+   make[1]: *** [prepare0] Error 2
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [sub-make] Error 2
+   19 real  7 user  7 sys  80.15% cpu 	make prepare
 
-I can boot on bare metal.
+vim +204 include/linux/posix-timers.h
 
-$ cat /proc/version
-Linux version 5.3.0-rc5-1-amd64-cbl-asmgoto
-(sedat.dilek@gmail.com@iniza) (clang version 9.0.0-+rc2-1~exp1
-(tags/RELEASE_900/rc2)) #1~buster+dileks1 SMP 2019-08-19
+   157	
+   158	/**
+   159	 * struct k_itimer - POSIX.1b interval timer structure.
+   160	 * @list:		List head for binding the timer to signals->posix_timers
+   161	 * @t_hash:		Entry in the posix timer hash table
+   162	 * @it_lock:		Lock protecting the timer
+   163	 * @kclock:		Pointer to the k_clock struct handling this timer
+   164	 * @it_clock:		The posix timer clock id
+   165	 * @it_id:		The posix timer id for identifying the timer
+   166	 * @it_active:		Marker that timer is active
+   167	 * @it_overrun:		The overrun counter for pending signals
+   168	 * @it_overrun_last:	The overrun at the time of the last delivered signal
+   169	 * @it_requeue_pending:	Indicator that timer waits for being requeued on
+   170	 *			signal delivery
+   171	 * @it_sigev_notify:	The notify word of sigevent struct for signal delivery
+   172	 * @it_interval:	The interval for periodic timers
+   173	 * @it_signal:		Pointer to the creators signal struct
+   174	 * @it_pid:		The pid of the process/task targeted by the signal
+   175	 * @it_process:		The task to wakeup on clock_nanosleep (CPU timers)
+   176	 * @sigq:		Pointer to preallocated sigqueue
+   177	 * @it:			Union representing the various posix timer type
+   178	 *			internals.
+   179	 * @rcu:		RCU head for freeing the timer.
+   180	 */
+   181	struct k_itimer {
+   182		struct list_head	list;
+   183		struct hlist_node	t_hash;
+   184		spinlock_t		it_lock;
+   185		const struct k_clock	*kclock;
+   186		clockid_t		it_clock;
+   187		timer_t			it_id;
+   188		int			it_active;
+   189		s64			it_overrun;
+   190		s64			it_overrun_last;
+   191		int			it_requeue_pending;
+   192		int			it_sigev_notify;
+   193		ktime_t			it_interval;
+   194		struct signal_struct	*it_signal;
+   195		union {
+   196			struct pid		*it_pid;
+   197			struct task_struct	*it_process;
+   198		};
+   199		struct sigqueue		*sigq;
+   200		union {
+   201			struct {
+   202				struct hrtimer	timer;
+   203			} real;
+ > 204			struct cpu_timer	cpu;
+   205			struct {
+   206				struct alarm	alarmtimer;
+   207			} alarm;
+   208		} it;
+   209		struct rcu_head		rcu;
+   210	};
+   211	
 
-I have sent by Tested-by to the single patches.
-
-Have a nice day,
-- Sedat -
-
->  arch/arc/include/asm/linkage.h        |  8 +++----
->  arch/arc/include/asm/mach_desc.h      |  3 +--
->  arch/arm/include/asm/cache.h          |  2 +-
->  arch/arm/include/asm/mach/arch.h      |  4 ++--
->  arch/arm/include/asm/setup.h          |  2 +-
->  arch/arm64/include/asm/cache.h        |  2 +-
->  arch/arm64/kernel/smp_spin_table.c    |  2 +-
->  arch/ia64/include/asm/cache.h         |  2 +-
->  arch/mips/include/asm/cache.h         |  2 +-
->  arch/parisc/include/asm/cache.h       |  2 +-
->  arch/parisc/include/asm/ldcw.h        |  2 +-
->  arch/powerpc/boot/main.c              |  3 +--
->  arch/powerpc/boot/ps3.c               |  6 ++----
->  arch/powerpc/include/asm/cache.h      |  2 +-
->  arch/powerpc/kernel/btext.c           |  2 +-
->  arch/s390/boot/startup.c              |  2 +-
->  arch/sh/include/asm/cache.h           |  2 +-
->  arch/sparc/include/asm/cache.h        |  2 +-
->  arch/sparc/kernel/btext.c             |  2 +-
->  arch/um/kernel/um_arch.c              |  6 +++---
->  arch/x86/include/asm/cache.h          |  2 +-
->  arch/x86/include/asm/intel-mid.h      |  2 +-
->  arch/x86/include/asm/iommu_table.h    |  5 ++---
->  arch/x86/include/asm/irqflags.h       |  2 +-
->  arch/x86/include/asm/mem_encrypt.h    |  2 +-
->  arch/x86/kernel/cpu/cpu.h             |  3 +--
->  include/asm-generic/error-injection.h |  2 +-
->  include/asm-generic/kprobes.h         |  5 ++---
->  include/linux/cache.h                 |  6 +++---
->  include/linux/compiler.h              | 31 ++++-----------------------
->  include/linux/compiler_attributes.h   | 10 +++++++++
->  include/linux/cpu.h                   |  2 +-
->  include/linux/export.h                |  2 +-
->  include/linux/init_task.h             |  4 ++--
->  include/linux/interrupt.h             |  5 ++---
->  include/linux/sched/debug.h           |  2 +-
->  include/linux/srcutree.h              |  2 +-
->  37 files changed, 62 insertions(+), 83 deletions(-)
->
-> --
-> 2.23.0.rc1.153.gdeed80330f-goog
->
+---
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVXP9D%2BEtXrNSTUPBdYKhkQBX-%2BCUP6ocg4cLRpFcfP9Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908200528.UgQ40BHm%25lkp%40intel.com.
+
+--dtv4whdk5lsbiysu
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+Q/4DgC49TLhoAAA=
+
+--dtv4whdk5lsbiysu--
