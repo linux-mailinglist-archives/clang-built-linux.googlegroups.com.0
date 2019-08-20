@@ -1,157 +1,152 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBYVS5XVAKGQE6LKENMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDNU5XVAKGQESH3QDNA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7579F95446
-	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 04:22:27 +0200 (CEST)
-Received: by mail-qt1-x83b.google.com with SMTP id r10sf5770037qte.4
-        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 19:22:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566267746; cv=pass;
+Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6DA8695458
+	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 04:25:18 +0200 (CEST)
+Received: by mail-lf1-x13b.google.com with SMTP id b23sf903632lfp.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 19 Aug 2019 19:25:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566267918; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FJoWVqn2+h2BM2TvFjY0jFBDCjNk+0VbzU56WmofiqIiU01G1aY1x68DG8ciQ5JiPk
-         hT3w8rQ9qHHV3/1W7BcTzFm4q1cqIHmV1IeVLnV8Yxp67DADHSVo1DeY3zMhhmoAdz7v
-         0/q2/2lbFCDwT4QZ045plAKeHAmpdyVvrcCRRnWLocUdZGTFwcq2lRFzwL8mNjAxWRGq
-         OE6PtsCUAsrmFIbfwBk4lDSsA/VCJcIhTxuHj0501JpLyqSCn+An0G0aXu5kM645FWIg
-         cnQB7hPdqBpxEOwUFpf19fflrgz6epe2Hl+2RNoqrGLXLhG508CGI9Dxzjr8LZ4TSvuG
-         r98g==
+        b=Hy+3wCY910Vmb7j2oZWKy61JxqbLhJpstghSwYWWMyd594+8Of8bd5DCwPzw8XdtEc
+         dSOHwzhtMdT3baDj49McgbadVz7+d1wdyoOyYkYAtxZMA0qbB6+7dNG+KSGevRs6NNv4
+         MK5yGray9XvON5cA22HxQ0hmLn8ai9F4W92zMu5nTE2wn8aFLxP2Ud1ebYZvDtiHgZmd
+         fT66bgkhKsCkmTIRq6QChEKgQyx6s/uIBoVQ3LZ8he81uNbEXkqrqnF+3y+cygJZBSU0
+         nJI2TWpyHSB8yaAlL0ypiqAty+A2iAKLuVhnDfHRXlpRZ6Cgv3+gBrLlpDaMxgXBNJHn
+         iETA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:dlp-reaction
-         :dlp-version:dlp-product:content-language:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=aa/k16LM9LJzaDFb+ORScqfZGwtOk/s8lcLCfX0/Ysc=;
-        b=JOrhgKlcq71aLk+RUhAvcBCJhOaSeFBZtpavoZSLQh5FwupbINy4w2rCJ08VHGY15V
-         ItSW/dNQTcjYkbngftDOj7lz+ad/p4gct1oa5ubfgFMukBXLEuXW1cpovPRqQw081pWh
-         vhhE1RmzWhqHfWUnPiD6rSdin+nViLXjVS+cYbHswgF309vwWCk7BHm7CLYRTbFtxH/7
-         n8I3g1nWN+h2FpOMjbJ0YEpXVObYYDMkdSOjGMSDAvX29xwCREyMfNVU5Dihc1VrKsTR
-         buu5q7iKjE+vomK+7kBdf7iKNpSLFhIRPnSXT1oEBcKAL9TWXooVtb2ItCuViSDVvNhy
-         z3Rw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=nGyLxEYaaWrSGZcLE3UC8NMoxV4XKJc6+vZ1OOFTGkU=;
+        b=qs+JmZn1boxS9qEADVR6XskcWUz+F/5ZDwBMeqUOWprQoIqF6KxqX5isyVG5mJmJoU
+         bPVSswliaGhHTWgbQddtA09ZsUAE4CV/jSuAf2N1Cc7ywI0Xu3Guhmreq0w/vs9J+Q33
+         2j2BhvDEZpiYT3S7YtItPpU/en0JoDDw/bIKoDBSNVDIrAHeqzF4dLNPMmXT9UC+VV76
+         wRiLCKRDdm7buKfwSxBQLLFas6KsFFkdF0TzTwA3Irt32GIqKmloD8oQDEC0UUVPnZ3L
+         soGa8N3Y5qN2hvbhvcs3eoaNotNKTQ0hxSaXRi996KpNiJ0U8K8vx2sxhIAgVFpjvOJf
+         WUgQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RZkyaJJC;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:dlp-product
-         :dlp-version:dlp-reaction:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=aa/k16LM9LJzaDFb+ORScqfZGwtOk/s8lcLCfX0/Ysc=;
-        b=rzXOZzzH/5UP8L+VvGjd9ro1NOzWg4a9LwWPLJRLNewCndrAZKZB7aWPAlS25OZFz6
-         1UJK7sOK/DXd0ATTKrikSSQeq0Wkr3wNCfxpLjjpvitM/qOyb9DULfg52wqFA3MXBb8J
-         RneMxkVGkqbj6ZsUBaUnpRRsWzpC7Kc3t/jMxCi9yoyb6KDceVwflNuZRXeMC/NgJSdF
-         AMp/sNCxTKYBL/2W6I1iCJHqCwyNZliInFxWwpx7rdL+7iu9sD4FHUgtZXx7lQNrKOOE
-         vz/CYffQ6dSkhvZqfOR2/9otTEOn6P3FSaSLaR6qkyn2i23iVywALvMdeOZ7kgo8OJ0o
-         YlRg==
+        bh=nGyLxEYaaWrSGZcLE3UC8NMoxV4XKJc6+vZ1OOFTGkU=;
+        b=mLFyiVSehYzkv+XsIT0F/pbZ51hXcZN6WRuMm43JKVWy4vPA7/k4xbpzWRwKzzUaMR
+         iE4eXGXnJrJrVSOZSGx0LDd/rI45lX+tAioN4rb57yIl0RM7b8OpXt00B9Zu2SyMVbna
+         fa+KwKZIzgsug36Ar96HHKHY0k69yOQE+FXDGOlvvXaD7b2+4ILTqHM2Hmi+jMzEWuvj
+         q0+QhCoYNienVbOMDFP+JIro/UZXTOjXevtUsnohfFPpF/gV7MC4fyGxc7RCozEB66FR
+         FEon4buTMpbY7vH8Ypqv0jc8e6sO9N2mN3AcKkEPH/fzB5Z+4uGcT4By228P1ge/EyJi
+         xpmQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=nGyLxEYaaWrSGZcLE3UC8NMoxV4XKJc6+vZ1OOFTGkU=;
+        b=bbqLALprBIqiWjsKEDqN5MWmpNeEvt7SVjZEUOhKVWQCCe9oqFKNyXbM3dUaFamdc2
+         MoBonl7VcipgrFzi12FpODkFZ7F0UYD+7yIuVCE8TRgMg++d3tPtHKKKY7vcaLSR1DU9
+         SB+n3fg7xEo1dwYZAeNy/HQ8cvrfu4RxJtKDs0oVuTPVlKoNcFIJo1XIYdASJ0/gZUCp
+         bZDunHk34nIPc0AIY80V88FiibHBK8U1afel0eNT3Hxp8tm2Uz3N0uiiD7+N611N/HNg
+         bVMRJUWoD4/i6C9xnW9djxylj2STaqsWv5NR60u5bYz1jKtmLa6Rc5As8gcYQl9CfMMy
+         QXCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:dlp-product:dlp-version:dlp-reaction:mime-version
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=aa/k16LM9LJzaDFb+ORScqfZGwtOk/s8lcLCfX0/Ysc=;
-        b=J1KTTcetslvmTxBFndKF7L6gTP0R6rhusXzmxTDt3yU/URI3x14lALIgWVTAVWkiDi
-         TvrsoeDa1lWwEUmYu5Ke7eYljGvuIw8d4buiS8IhljYhBsN6iK8/Fo/bvMzwO/Iv//5g
-         lqEAa/+0JDytZO0+Dm8zOJ5RPtDXsz20ijyyk2Gl+SXBRjTSWgAheP7L/WuSZH1iDo68
-         znuLmMtkbHjsGj6pN8YmqAMnUqJLZ1yAWZs3ucJS25hMNU8Sv6lJjUReZZtS4bzL4P5i
-         BilThmL4VIwtS7/PlegDXS3m1p9lRCoD8rumqK4jgoXpAjnTizwQvDCmDsSMzlJ/qQp0
-         /9ew==
+        bh=nGyLxEYaaWrSGZcLE3UC8NMoxV4XKJc6+vZ1OOFTGkU=;
+        b=LnA4TIuZqddQzFgBn1Wple5p5n+QFARA+ce05GoVpLsd4ufIwZLv/xg3J3d70Xcv9n
+         n8JBVZ6xjTY6sdExdG4ruVUHcSiU5zw5iWTuCGaWuvgc42qkNoHGa60s8+7RUcAJ4UiS
+         YCtk7op+ODHJBEZ1dYw9xU7rxJYIZjKdtPX7blxdaXhr+Ot4mshRC/9iOqihaiow3s5M
+         1FSsoLRXlC43+S1Ve2SNWXHO+3VdE+nDObq96upMEzmsBmo9Y7cFuPAHJBGyEdtvMRiW
+         tA8zQ+us1eqQ+73igE581IGaCazeKU8m6U1Ia9f4k2YEox6ewGLZkpiHX/IW4y/yi22n
+         MMFA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW2inTKt0VcEHA7EZw2K2gWbRTna6ktpryib9icsc25sqHeIY4z
-	vOwsb+ejRAN8nmEkCDIhtGk=
-X-Google-Smtp-Source: APXvYqx9/oscHZRnPo5cHGwmnGH0PwDaSRdb6vID/jqybebs0QH4sDQ9N+aPaImMoK0i/3EBhyMNRw==
-X-Received: by 2002:a37:ad04:: with SMTP id f4mr24773638qkm.144.1566267746513;
-        Mon, 19 Aug 2019 19:22:26 -0700 (PDT)
+X-Gm-Message-State: APjAAAULqQLTCleFG0Ax2O+Cm6s8w2nG5sb7At6D4UEMgmi1ViKGFxHU
+	7iJnx1mqqptlMWbvV8//5dI=
+X-Google-Smtp-Source: APXvYqzRbVujd0lyGTOjac08ASotF63RUMfiJeMqAnH0VQm8jGtydYMfYvKOabOvS4IZ8cAmqNRFQQ==
+X-Received: by 2002:a2e:7001:: with SMTP id l1mr14552208ljc.48.1566267917948;
+        Mon, 19 Aug 2019 19:25:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:129b:: with SMTP id w27ls5225757qki.1.gmail; Mon,
- 19 Aug 2019 19:22:26 -0700 (PDT)
-X-Received: by 2002:a37:4ed3:: with SMTP id c202mr23995149qkb.457.1566267746243;
-        Mon, 19 Aug 2019 19:22:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566267746; cv=none;
+Received: by 2002:a2e:3018:: with SMTP id w24ls702757ljw.16.gmail; Mon, 19 Aug
+ 2019 19:25:17 -0700 (PDT)
+X-Received: by 2002:a2e:875a:: with SMTP id q26mr7711629ljj.107.1566267917476;
+        Mon, 19 Aug 2019 19:25:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566267917; cv=none;
         d=google.com; s=arc-20160816;
-        b=JralPGXtMIXfa1jN9hM1UveeoZ1hHZGfmiUoj7ibEFUgBsSaWN5qmKkHPY9R8GuRAl
-         UsVkc1neFDXwZRsORYTpB+IxJhrVej/nHW0+tbQ16rqzUCDgur/SNzJrTqVmbseklYYL
-         rwmvRtmgYrjpWLzn6/C4DbTnfgvLox+p7RjTOzg8RuO5WH2I1eXDCYkA18iCLh8IIkqT
-         FvoJBJarV/cXQEUCHsVxZCU2Upi4YoiZeNnNo/zn0RtaopWvPCg4iVE/A3DWZB/qSoCY
-         UKMrklWOzuti0hyA4PgBOcxUh4FEEKe5xyD9EhKbeoADy+/BHY+Qn/c2oifElcpt94tC
-         V84g==
+        b=MTF3pkIbL4MDB5ZgVs3W5U5DoVR3ue4jcKlyONjVpVcmGgg/IOEitIkgZwrPLp14T2
+         +JgniMrQTjss7GAPOy7/7nn6BlPOtZA7uIHcmIOpyyXbNEj0r/X4TI9qAmCy+aXnrvs9
+         ghqQWRbhmkGn/lJRhM0nRmCAygbtX5TaUewTVT40bWuCr+jTO3yv1U7am2ZFhVaI6jY5
+         33NXfqO6zYx1EYQ4+g9Q77TY1sG0w87TOwedB01a2OXBqpKUp0FsPYQtP0dyA7xcxRxe
+         Nr0t3fD1NU2fwmIwuT3RT6nPOdNbPLGtKke/KLDu2jNgRyvn+Euo4MAE6vXBNvmFjX6P
+         quuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:dlp-reaction:dlp-version
-         :dlp-product:content-language:accept-language:in-reply-to:references
-         :message-id:date:thread-index:thread-topic:subject:cc:to:from;
-        bh=eGS3xw3kTBeOiST1ITz35n20rwdo7UZkRhyqEYJGjX4=;
-        b=DoaYwCkQd30p8sMbzsevAVfx/Qs8O3Ee0Y8wMggKqbOV8N3NL6Gsa9UC3eMFF4SaBN
-         +frriA/eJ5+yjTecGu2I7BMzcqB4OywduOXPyhnhgFunYEeDlRRC0csDmiXR/623QP2W
-         E8GoPtPAEC0u8uc0QL4xfm0t2lnHZQXaSFFpWYAU/rZ7/ow6eUhQSsYR65VfcoS5V4EO
-         PaFYW28f58t7eCMkeolXoVl0XPIbfB/Xf2tA+XnQ2XsIoRCR+HO/hHz8XnYi9+rmpsSR
-         2TOgrH0P9i5+0uWvwGCjgqaGjHL1pUBRSaakBqe5PZB2SABe/yk8IPCg65QneTkbmDPF
-         b+HA==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=PmmdLjAbLWYIX1qFNc1WXndwzxCg8W0lx5gykrGDbVE=;
+        b=wsMdhYmohqWo+fdC4C4vrZIdsczuD+YG1L/xkU/LCL0qvZH9c1LZDT11sUrIBtqUnP
+         NfzKXxznDZaN8vx6xWSwmdd0Rmx1EY19VUnFJ0rPHOJtwVBj280y9kAMvbsZjeVnYySa
+         6IYmum9niR/LNb7koDDxFTYF/AEfpNu3mbzSKJBX158svb/MTVpBq36mMZ3CK/IStoaw
+         uGh+gtTZ13vdwrmbPqsjGCXEKk8hf7AYjFYcx+M6gogcKx992g8EcBWg+SqhSJREVn8S
+         VQcZ673oq69waHKVKm1CT3EwANQmbqJcjqL579EpXfZIcHMYEzns9IlLkHFrh0zPyo8I
+         N2PQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
-        by gmr-mx.google.com with ESMTPS id 37si1002602qtv.2.2019.08.19.19.22.25
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RZkyaJJC;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id h11si200276lja.2.2019.08.19.19.25.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 19 Aug 2019 19:22:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Aug 2019 19:22:24 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,407,1559545200"; 
-   d="scan'208";a="195666467"
-Received: from fmsmsx108.amr.corp.intel.com ([10.18.124.206])
-  by fmsmga001.fm.intel.com with ESMTP; 19 Aug 2019 19:22:24 -0700
-Received: from fmsmsx155.amr.corp.intel.com (10.18.116.71) by
- FMSMSX108.amr.corp.intel.com (10.18.124.206) with Microsoft SMTP Server (TLS)
- id 14.3.439.0; Mon, 19 Aug 2019 19:22:24 -0700
-Received: from shsmsx103.ccr.corp.intel.com (10.239.4.69) by
- FMSMSX155.amr.corp.intel.com (10.18.116.71) with Microsoft SMTP Server (TLS)
- id 14.3.439.0; Mon, 19 Aug 2019 19:22:24 -0700
-Received: from shsmsx102.ccr.corp.intel.com ([169.254.2.19]) by
- SHSMSX103.ccr.corp.intel.com ([169.254.4.139]) with mapi id 14.03.0439.000;
- Tue, 20 Aug 2019 10:22:22 +0800
-From: "Li, Philip" <philip.li@intel.com>
-To: Roman Kiryanov <rkir@google.com>, Nick Desaulniers
-	<ndesaulniers@google.com>
-CC: Paul Lawrence <paullawrence@google.com>, "kbuild@01.org" <kbuild@01.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>, lkp <lkp@intel.com>,
-	Andrey Konovalov <andreyknvl@google.com>
-Subject: RE: [android-goldfish:b120914098 38/99] kernel/memremap.c:312:2:
- error: implicit declaration of function 'kasan_remove_zero_shadow'
-Thread-Topic: [android-goldfish:b120914098 38/99] kernel/memremap.c:312:2:
- error: implicit declaration of function 'kasan_remove_zero_shadow'
-Thread-Index: AQHVVqwKZqwHYwcT1kaZHrfrKgPmwKcDTqZw
-Date: Tue, 20 Aug 2019 02:22:21 +0000
-Message-ID: <831EE4E5E37DCC428EB295A351E66249520C57CA@shsmsx102.ccr.corp.intel.com>
-References: <201908140530.i8rXFzLC%lkp@intel.com>
- <CAKwvOdkCKhCHjteLwDZMon1zo+DAn=M2PGGsrpvs6e=jgXV4=g@mail.gmail.com>
- <CAL=UVf7GjkROhqHymay_QCE_8oR9JpB_OtG6_PF6ePqgNXeArw@mail.gmail.com>
- <CAKwvOdmmZZsGUV69msTYx8nOooijFcZLHA0+OSiiv4cqbMSNew@mail.gmail.com>
- <CAOGAQeq_6Txt+Gn98+TMwh74dBGqrOrNSZyrFvHnYK+wF2C5dQ@mail.gmail.com>
-In-Reply-To: <CAOGAQeq_6Txt+Gn98+TMwh74dBGqrOrNSZyrFvHnYK+wF2C5dQ@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-titus-metadata-40: eyJDYXRlZ29yeUxhYmVscyI6IiIsIk1ldGFkYXRhIjp7Im5zIjoiaHR0cDpcL1wvd3d3LnRpdHVzLmNvbVwvbnNcL0ludGVsMyIsImlkIjoiNjVlNDJkZjUtNzhmZi00N2RiLThiNDctYjNkYzNhYjQ3N2Q4IiwicHJvcHMiOlt7Im4iOiJDVFBDbGFzc2lmaWNhdGlvbiIsInZhbHMiOlt7InZhbHVlIjoiQ1RQX05UIn1dfV19LCJTdWJqZWN0TGFiZWxzIjpbXSwiVE1DVmVyc2lvbiI6IjE3LjEwLjE4MDQuNDkiLCJUcnVzdGVkTGFiZWxIYXNoIjoiTVNNbXZDOUI0MzBYcFdPNkN6WTZzR0JCUkdqNU5FSVFUcHhKRFJDU2plRm4yXC9RMndVVlVMbVphMVJRYzM2NzUifQ==
-x-ctpclassification: CTP_NT
-dlp-product: dlpe-windows
-dlp-version: 11.2.0.6
-dlp-reaction: no-action
-x-originating-ip: [10.239.127.40]
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 19 Aug 2019 19:25:17 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
+Received: by mail-wr1-x443.google.com with SMTP id p17so10640998wrf.11
+        for <clang-built-linux@googlegroups.com>; Mon, 19 Aug 2019 19:25:17 -0700 (PDT)
+X-Received: by 2002:adf:f304:: with SMTP id i4mr25292909wro.61.1566267916510;
+        Mon, 19 Aug 2019 19:25:16 -0700 (PDT)
+Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
+        by smtp.gmail.com with ESMTPSA id m7sm18024413wmi.18.2019.08.19.19.25.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Aug 2019 19:25:15 -0700 (PDT)
+Date: Mon, 19 Aug 2019 19:25:14 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Borislav Petkov <bp@suse.de>, Kees Cook <keescook@chromium.org>,
+	Luc Van Oostenryck <luc.vanoostenryck@gmail.com>,
+	Michal Marek <michal.lkml@markovi.net>,
+	Paul Burton <paul.burton@mips.com>,
+	Xiaozhou Liu <liuxiaozhou@bytedance.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] kbuild: enable unused-function warnings for W= build
+ with Clang
+Message-ID: <20190820022514.GB30221@archlinux-threadripper>
+References: <20190819105138.5053-1-yamada.masahiro@socionext.com>
+ <20190819160920.GA108942@archlinux-threadripper>
+ <CAK7LNARDQPixBfWp8od1=13w+hcycYbyTX9+G-gqEHHwXxDCvA@mail.gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 192.55.52.151 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CAK7LNARDQPixBfWp8od1=13w+hcycYbyTX9+G-gqEHHwXxDCvA@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: natechancellor@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=RZkyaJJC;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -164,365 +159,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> Subject: Re: [android-goldfish:b120914098 38/99] kernel/memremap.c:312:2: error:
-> implicit declaration of function 'kasan_remove_zero_shadow'
+On Tue, Aug 20, 2019 at 01:58:26AM +0900, Masahiro Yamada wrote:
+> Hi Nathan,
 > 
-> Hi Nick,
+> On Tue, Aug 20, 2019 at 1:09 AM Nathan Chancellor
+> <natechancellor@gmail.com> wrote:
+> >
+> > On Mon, Aug 19, 2019 at 07:51:38PM +0900, Masahiro Yamada wrote:
+> > > GCC and Clang have different policy for -Wunused-function; GCC does
+> > > not report unused-function warnings at all for the functions marked
+> > > as 'static inline'. Clang does report unused-function warnings if they
+> > > are defined in source files instead of headers.
+> > >
+> > > We could use Clang for detecting unused functions, but it has been
+> > > suppressed since commit abb2ea7dfd82 ("compiler, clang: suppress
+> > > warning for unused static inline functions").
+> > >
+> > > So, we never notice left-over code if functions in .c files are
+> > > marked as inline.
+> > >
+> > > Let's remove __maybe_unused from the inline macro. As always, it is
+> > > not a good idea to sprinkle warnings for the normal build. So, these
+> > > warnings will be shown for the W= build.
+> > >
+> > > If you contribute to code clean-up, please run "make CC=clang W=1"
+> > > and check -Wunused-function warnings. You will find lots of unused
+> > > functions.
+> > >
+> > > Some of them are false-positives because the call-sites are disabled
+> > > by #ifdef. I do not like to abuse the inline keyword for suppressing
+> > > unused-function warnings because it might affect the compiler's
+> > > optimization. When I need to fix unused-functions warnings, I prefer
+> > > adding #ifdef or __maybe_unused to function definitions.
+> > >
+> > > Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+> >
+> > So if I understand everything correctly, this change allows us to start
+> > finding unused static inline functions with clang at W=1 but disables
+> > -Wunused-function by default... I am not sure that is a good tradeoff
+> > as I am pretty sure that W=1 is fairly noisy for clang although I
+> > haven't checked lately. I'd argue most regular developers do not build
+> > with W=1 meaning -Wunused-function generally will not be run with clang
+> > at all, missing stuff like this:
 > 
-> thank you for looking into this. We (goldfish) are not aware about
-> these warnings.
 > 
-> Our build log is here and I don't see "kasan" there:
+> Try "git log --grep=W=1"
 > 
-> https://android-
-> build.googleplex.com/builds/submitted/5812540/kernel/latest/view/logs/build.log
-> 
-> We use
-> 
-> arch/x86/configs/x86_64_ranchu_defconfig with build.config.goldfish.x86_64
-> arch/arm64/configs/arm64_ranchu_defconfig with build.config.goldfish.arm64
-> 
-> Could you please point where x86_64-rhel-7.6 comes from?
-Hi Roman, this kconfig is from 0-day CI, since we test various kconfigs for
-possible issues.
+> Some people are making efforts to fix W=1 warnings.
+> I believe somebody will start to remove unused static inline functions.
+
+Yes, it could be a good way to get people involved with working with
+clang.
 
 > 
-> Regards,
-> Roman.
 > 
-> On Tue, Aug 13, 2019 at 2:32 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
+> 
 > >
-> > On Tue, Aug 13, 2019 at 2:27 PM Paul Lawrence <paullawrence@google.com>
-> wrote:
-> > >
-> > > It wasn't me officer, I was just carrying this for someone else.
-> > >
-> > > See https://android-review.googlesource.com/c/kernel/common/+/989989
-> > >
-> > > Note the real culprit is Andrey Konovalov, now cc'd on this thread.
+> > https://lore.kernel.org/lkml/20190523010235.GA105588@archlinux-epyc/
 > >
-> > oh, right.
+> > https://lore.kernel.org/lkml/1558574945-19275-1-git-send-email-skomatineni@nvidia.com/
 > >
-> > Notice also:
-> > tree:   https://android.googlesource.com/kernel/goldfish b120914098
-> > config: x86_64-rhel-7.6 (attached as .config)
+> > Furthermore, per the documemtation [1], -Wno-unused-function will also
+> > disable -Wunneeded-internal-declaration, which can help find bugs like
+> > commit 8289c4b6f2e5 ("platform/x86: mlx-platform: Properly use
+> > mlxplat_mlxcpld_msn201x_items").
 > >
-> > Is the goldfish team aware or observing the warning currently with
-> > their configs?
-> >
-> > >
-> > > Paul
-> > >
-> > > On Tue, Aug 13, 2019 at 2:21 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> > >>
-> > >> Here he is officer, guilty as charged. ;)
-> > >>
-> > >> On Tue, Aug 13, 2019 at 2:14 PM kbuild test robot <lkp@intel.com> wrote:
-> > >> >
-> > >> > CC: kbuild-all@01.org
-> > >> > BCC: philip.li@intel.com
-> > >> > TO: Paul Lawrence <paullawrence@google.com>
-> > >> >
-> > >> > tree:   https://android.googlesource.com/kernel/goldfish b120914098
-> > >> > head:   88590f0a97d55a7156cdb09e9d5ecb8d829826e0
-> > >> > commit: 69c0f72d6ca84158e4cd691fe31db5d0170d38b9 [38/99]
-> BACKPORT: kernel/memremap, kasan: make ZONE_DEVICE with work with
-> KASAN
-> > >> > config: x86_64-rhel-7.6 (attached as .config)
-> > >> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project
-> 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
-> > >> > reproduce:
-> > >> >         git checkout 69c0f72d6ca84158e4cd691fe31db5d0170d38b9
-> > >> >         # save the attached .config to linux build tree
-> > >> >         make ARCH=x86_64
-> > >> >
-> > >> > If you fix the issue, kindly add following tag
-> > >> > Reported-by: kbuild test robot <lkp@intel.com>
-> > >> >
-> > >> > All errors (new ones prefixed by >>):
-> > >> >
-> > >> >    In file included from kernel/memremap.c:21:
-> > >> >    include/linux/swapops.h:327:22: warning: section attribute is specified on
-> redeclared variable [-Wsection]
-> > >> >    extern atomic_long_t num_poisoned_pages __read_mostly;
-> > >> >                         ^
-> > >> >    include/linux/mm.h:2551:22: note: previous declaration is here
-> > >> >    extern atomic_long_t num_poisoned_pages;
-> > >> >                         ^
-> > >> > >> kernel/memremap.c:312:2: error: implicit declaration of function
-> 'kasan_remove_zero_shadow' [-Werror,-Wimplicit-function-declaration]
-> > >> >            kasan_remove_zero_shadow(__va(align_start), align_size);
-> > >> >            ^
-> > >> > >> kernel/memremap.c:448:10: error: implicit declaration of function
-> 'kasan_add_zero_shadow' [-Werror,-Wimplicit-function-declaration]
-> > >> >            error = kasan_add_zero_shadow(__va(align_start), align_size);
-> > >> >                    ^
-> > >> >    kernel/memremap.c:481:2: error: implicit declaration of function
-> 'kasan_remove_zero_shadow' [-Werror,-Wimplicit-function-declaration]
-> > >> >            kasan_remove_zero_shadow(__va(align_start), align_size);
-> > >> >            ^
-> > >> >    1 warning and 3 errors generated.
-> > >> >
-> > >> > vim +/kasan_remove_zero_shadow +312 kernel/memremap.c
-> > >> >
-> > >> >    285
-> > >> >    286  #define for_each_device_pfn(pfn, map) \
-> > >> >    287          for (pfn = pfn_first(map); pfn < pfn_end(map); pfn++)
-> > >> >    288
-> > >> >    289  static void devm_memremap_pages_release(struct device *dev,
-> void *data)
-> > >> >    290  {
-> > >> >    291          struct page_map *page_map = data;
-> > >> >    292          struct resource *res = &page_map->res;
-> > >> >    293          resource_size_t align_start, align_size;
-> > >> >    294          struct dev_pagemap *pgmap = &page_map->pgmap;
-> > >> >    295          unsigned long pfn;
-> > >> >    296
-> > >> >    297          for_each_device_pfn(pfn, page_map)
-> > >> >    298                  put_page(pfn_to_page(pfn));
-> > >> >    299
-> > >> >    300          if (percpu_ref_tryget_live(pgmap->ref)) {
-> > >> >    301                  dev_WARN(dev, "%s: page mapping is still live!\n",
-> __func__);
-> > >> >    302                  percpu_ref_put(pgmap->ref);
-> > >> >    303          }
-> > >> >    304
-> > >> >    305          /* pages are dead and unused, undo the arch mapping */
-> > >> >    306          align_start = res->start & ~(SECTION_SIZE - 1);
-> > >> >    307          align_size = ALIGN(res->start + resource_size(res),
-> SECTION_SIZE)
-> > >> >    308                  - align_start;
-> > >> >    309
-> > >> >    310          mem_hotplug_begin();
-> > >> >    311          arch_remove_memory(align_start, align_size);
-> > >> >  > 312          kasan_remove_zero_shadow(__va(align_start), align_size);
-> > >> >    313          mem_hotplug_done();
-> > >> >    314
-> > >> >    315          untrack_pfn(NULL, PHYS_PFN(align_start), align_size);
-> > >> >    316          pgmap_radix_release(res, -1);
-> > >> >    317          dev_WARN_ONCE(dev, pgmap->altmap && pgmap->altmap-
-> >alloc,
-> > >> >    318                          "%s: failed to free all reserved pages\n", __func__);
-> > >> >    319  }
-> > >> >    320
-> > >> >    321  /* assumes rcu_read_lock() held at entry */
-> > >> >    322  struct dev_pagemap *find_dev_pagemap(resource_size_t phys)
-> > >> >    323  {
-> > >> >    324          struct page_map *page_map;
-> > >> >    325
-> > >> >    326          WARN_ON_ONCE(!rcu_read_lock_held());
-> > >> >    327
-> > >> >    328          page_map = radix_tree_lookup(&pgmap_radix,
-> PHYS_PFN(phys));
-> > >> >    329          return page_map ? &page_map->pgmap : NULL;
-> > >> >    330  }
-> > >> >    331
-> > >> >    332  /**
-> > >> >    333   * devm_memremap_pages - remap and provide memmap backing
-> for the given resource
-> > >> >    334   * @dev: hosting device for @res
-> > >> >    335   * @res: "host memory" address range
-> > >> >    336   * @ref: a live per-cpu reference count
-> > >> >    337   * @altmap: optional descriptor for allocating the memmap from
-> @res
-> > >> >    338   *
-> > >> >    339   * Notes:
-> > >> >    340   * 1/ @ref must be 'live' on entry and 'dead' before
-> devm_memunmap_pages() time
-> > >> >    341   *    (or devm release event). The expected order of events is that
-> @ref has
-> > >> >    342   *    been through percpu_ref_kill() before
-> devm_memremap_pages_release(). The
-> > >> >    343   *    wait for the completion of all references being dropped and
-> > >> >    344   *    percpu_ref_exit() must occur after
-> devm_memremap_pages_release().
-> > >> >    345   *
-> > >> >    346   * 2/ @res is expected to be a host memory range that could
-> feasibly be
-> > >> >    347   *    treated as a "System RAM" range, i.e. not a device mmio range,
-> but
-> > >> >    348   *    this is not enforced.
-> > >> >    349   */
-> > >> >    350  void *devm_memremap_pages(struct device *dev, struct resource
-> *res,
-> > >> >    351                  struct percpu_ref *ref, struct vmem_altmap *altmap)
-> > >> >    352  {
-> > >> >    353          resource_size_t align_start, align_size, align_end;
-> > >> >    354          unsigned long pfn, pgoff, order;
-> > >> >    355          pgprot_t pgprot = PAGE_KERNEL;
-> > >> >    356          struct dev_pagemap *pgmap;
-> > >> >    357          struct page_map *page_map;
-> > >> >    358          int error, nid, is_ram, i = 0;
-> > >> >    359          struct dev_pagemap *conflict_pgmap;
-> > >> >    360
-> > >> >    361          align_start = res->start & ~(SECTION_SIZE - 1);
-> > >> >    362          align_size = ALIGN(res->start + resource_size(res),
-> SECTION_SIZE)
-> > >> >    363                  - align_start;
-> > >> >    364          align_end = align_start + align_size - 1;
-> > >> >    365
-> > >> >    366          conflict_pgmap = get_dev_pagemap(PHYS_PFN(align_start),
-> NULL);
-> > >> >    367          if (conflict_pgmap) {
-> > >> >    368                  dev_WARN(dev, "Conflicting mapping in same
-> section\n");
-> > >> >    369                  put_dev_pagemap(conflict_pgmap);
-> > >> >    370                  return ERR_PTR(-ENOMEM);
-> > >> >    371          }
-> > >> >    372
-> > >> >    373          conflict_pgmap = get_dev_pagemap(PHYS_PFN(align_end),
-> NULL);
-> > >> >    374          if (conflict_pgmap) {
-> > >> >    375                  dev_WARN(dev, "Conflicting mapping in same
-> section\n");
-> > >> >    376                  put_dev_pagemap(conflict_pgmap);
-> > >> >    377                  return ERR_PTR(-ENOMEM);
-> > >> >    378          }
-> > >> >    379
-> > >> >    380          is_ram = region_intersects(align_start, align_size,
-> > >> >    381                  IORESOURCE_SYSTEM_RAM, IORES_DESC_NONE);
-> > >> >    382
-> > >> >    383          if (is_ram != REGION_DISJOINT) {
-> > >> >    384                  WARN_ONCE(1, "%s attempted on %s region %pr\n",
-> __func__,
-> > >> >    385                                  is_ram == REGION_MIXED ? "mixed" : "ram",
-> res);
-> > >> >    386                  return ERR_PTR(-ENXIO);
-> > >> >    387          }
-> > >> >    388
-> > >> >    389          if (!ref)
-> > >> >    390                  return ERR_PTR(-EINVAL);
-> > >> >    391
-> > >> >    392          page_map =
-> devres_alloc_node(devm_memremap_pages_release,
-> > >> >    393                          sizeof(*page_map), GFP_KERNEL,
-> dev_to_node(dev));
-> > >> >    394          if (!page_map)
-> > >> >    395                  return ERR_PTR(-ENOMEM);
-> > >> >    396          pgmap = &page_map->pgmap;
-> > >> >    397
-> > >> >    398          memcpy(&page_map->res, res, sizeof(*res));
-> > >> >    399
-> > >> >    400          pgmap->dev = dev;
-> > >> >    401          if (altmap) {
-> > >> >    402                  memcpy(&page_map->altmap, altmap, sizeof(*altmap));
-> > >> >    403                  pgmap->altmap = &page_map->altmap;
-> > >> >    404          }
-> > >> >    405          pgmap->ref = ref;
-> > >> >    406          pgmap->res = &page_map->res;
-> > >> >    407          pgmap->type = MEMORY_DEVICE_HOST;
-> > >> >    408          pgmap->page_fault = NULL;
-> > >> >    409          pgmap->page_free = NULL;
-> > >> >    410          pgmap->data = NULL;
-> > >> >    411
-> > >> >    412          mutex_lock(&pgmap_lock);
-> > >> >    413          error = 0;
-> > >> >    414
-> > >> >    415          foreach_order_pgoff(res, order, pgoff) {
-> > >> >    416                  struct dev_pagemap *dup;
-> > >> >    417
-> > >> >    418                  rcu_read_lock();
-> > >> >    419                  dup = find_dev_pagemap(res->start +
-> PFN_PHYS(pgoff));
-> > >> >    420                  rcu_read_unlock();
-> > >> >    421                  if (dup) {
-> > >> >    422                          dev_err(dev, "%s: %pr collides with mapping
-> for %s\n",
-> > >> >    423                                          __func__, res, dev_name(dup->dev));
-> > >> >    424                          error = -EBUSY;
-> > >> >    425                          break;
-> > >> >    426                  }
-> > >> >    427                  error = __radix_tree_insert(&pgmap_radix,
-> > >> >    428                                  PHYS_PFN(res->start) + pgoff, order,
-> page_map);
-> > >> >    429                  if (error) {
-> > >> >    430                          dev_err(dev, "%s: failed: %d\n", __func__, error);
-> > >> >    431                          break;
-> > >> >    432                  }
-> > >> >    433          }
-> > >> >    434          mutex_unlock(&pgmap_lock);
-> > >> >    435          if (error)
-> > >> >    436                  goto err_radix;
-> > >> >    437
-> > >> >    438          nid = dev_to_node(dev);
-> > >> >    439          if (nid < 0)
-> > >> >    440                  nid = numa_mem_id();
-> > >> >    441
-> > >> >    442          error = track_pfn_remap(NULL, &pgprot,
-> PHYS_PFN(align_start), 0,
-> > >> >    443                          align_size);
-> > >> >    444          if (error)
-> > >> >    445                  goto err_pfn_remap;
-> > >> >    446
-> > >> >    447          mem_hotplug_begin();
-> > >> >  > 448          error = kasan_add_zero_shadow(__va(align_start),
-> align_size);
-> > >> >    449          if (error) {
-> > >> >    450                  mem_hotplug_done();
-> > >> >    451                  goto err_kasan;
-> > >> >    452          }
-> > >> >    453          error = arch_add_memory(nid, align_start, align_size, false);
-> > >> >    454          if (!error)
-> > >> >    455                  move_pfn_range_to_zone(&NODE_DATA(nid)-
-> >node_zones[ZONE_DEVICE],
-> > >> >    456                                          align_start >> PAGE_SHIFT,
-> > >> >    457                                          align_size >> PAGE_SHIFT);
-> > >> >    458          mem_hotplug_done();
-> > >> >    459          if (error)
-> > >> >    460                  goto err_add_memory;
-> > >> >    461
-> > >> >    462          for_each_device_pfn(pfn, page_map) {
-> > >> >    463                  struct page *page = pfn_to_page(pfn);
-> > >> >    464
-> > >> >    465                  /*
-> > >> >    466                   * ZONE_DEVICE pages union ->lru with a ->pgmap
-> back
-> > >> >    467                   * pointer.  It is a bug if a ZONE_DEVICE page is ever
-> > >> >    468                   * freed or placed on a driver-private list.  Seed the
-> > >> >    469                   * storage with LIST_POISON* values.
-> > >> >    470                   */
-> > >> >    471                  list_del(&page->lru);
-> > >> >    472                  page->pgmap = pgmap;
-> > >> >    473                  percpu_ref_get(ref);
-> > >> >    474                  if (!(++i % 1024))
-> > >> >    475                          cond_resched();
-> > >> >    476          }
-> > >> >    477          devres_add(dev, page_map);
-> > >> >    478          return __va(res->start);
-> > >> >    479
-> > >> >    480   err_add_memory:
-> > >> >    481          kasan_remove_zero_shadow(__va(align_start), align_size);
-> > >> >    482   err_kasan:
-> > >> >    483          untrack_pfn(NULL, PHYS_PFN(align_start), align_size);
-> > >> >    484   err_pfn_remap:
-> > >> >    485   err_radix:
-> > >> >    486          pgmap_radix_release(res, pgoff);
-> > >> >    487          devres_free(page_map);
-> > >> >    488          return ERR_PTR(error);
-> > >> >    489  }
-> > >> >    490  EXPORT_SYMBOL_GPL(devm_memremap_pages);
-> > >> >    491
-> > >> >
-> > >> > ---
-> > >> > 0-DAY kernel test infrastructure                Open Source Technology
-> Center
-> > >> > https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
-> > >>
-> > >>
-> > >>
-> > >> --
-> > >> Thanks,
-> > >> ~Nick Desaulniers
-> >
-> >
-> >
-> > --
-> > Thanks,
-> > ~Nick Desaulniers
+> > [1]: https://clang.llvm.org/docs/DiagnosticsReference.html#wunused-function
+> 
+> 
+> How about this?
+> 
+> KBUILD_CFLAGS += -Wno-unused-function
+> KBUILD_CFLAGS += -Wunneeded-internal-declaration
+
+Yes, that would work.
+
+> 
+> 
+> 
+> > Is there a way to conditionally remove __maybe_unused from the inline
+> > defintion so that we keep the current behavior but we can still
+> > selectively find potentially unused functions?
+> 
+> It would be possible by tweaking include/linux/compiler_types.h
+> but I am not a big fan of uglifying the 'inline' replacement any more.
+
+I agree that ugly is not ideal but I think it is even less ideal to
+weaken the default set of warnings for clang... Merely food for thought
+though.
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/831EE4E5E37DCC428EB295A351E66249520C57CA%40shsmsx102.ccr.corp.intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190820022514.GB30221%40archlinux-threadripper.
