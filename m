@@ -1,142 +1,133 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDGC53VAKGQEZPNS3WA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD26TVH6RINBB3XV53VAKGQEMUCJ3WQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x540.google.com (mail-ed1-x540.google.com [IPv6:2a00:1450:4864:20::540])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2966795850
-	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 09:28:13 +0200 (CEST)
-Received: by mail-ed1-x540.google.com with SMTP id 63sf3582833edy.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 00:28:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566286092; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6BB9095AC9
+	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 11:18:40 +0200 (CEST)
+Received: by mail-pl1-x63d.google.com with SMTP id b30sf3708848pla.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 02:18:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566292719; cv=pass;
         d=google.com; s=arc-20160816;
-        b=gF8W3r5aRB2mUK8Vj+N79JbDqB0Dde63pu4FBjdfZBGqVCsNqR4pPKGZdPqfApuBc0
-         flv/JaYqEwf1gaY9fy1rnLMlxTpOKro5dozqLWSRDxKdslRlFP/0c6JIJuwf0Vm/33gn
-         Uk/ynb3gJ9VoXhkLkkRQCK2N3LwG9oYXZukihBWw1+SdOf/y6gDK0vHjowGo0ycn1C18
-         N9ofBL6V1sGJweO1iC5MWQNlxIJOEzvW9U72pGI5f2injVqwdWCBZv1NTdNPEtHWTA3I
-         mKpOxjiBG0lGPD7Qq+S+byifIfVCNRdyHllDcjOZaYyGs0U6XWpPBNerxRZryKugcyom
-         aMtw==
+        b=KA6GCncCkx7ICPVCrWNnmTMQzpTEx3Hm1ScHc0dU9rIztSHhZBTnX2Jp+8hqE8p8Y8
+         b9RGQwAFy39s6jSLgzoLgIC4eyQPNXC0N+ZhiMXMlXRiXDRCZhJ94v/cFX/pxM5IBbWJ
+         ErbNnLx+BZLzCy1TU2bByztMjriKZON8GjyKoPn/8E0JQ8Y8gPFuOcsg73yvE8rRTgtO
+         5BGV7I84cklnmtFrpEytU/DdolzGV2QehpbzSO23ArFlQ8QNyHi04L4QQo1iUDXXvFrz
+         2ByvLf75jI1W2lwYJFTo2txMil1s0WKIBWVVPbXW53E6MKo6WpFW1tqh4KCoCpGqFiZr
+         ti/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=h0P7Y6VVMGKAQ5L2GXtjG0QiPCKjZfZxxjzQT733mkw=;
-        b=hrRrGZkwm21l13YkpYhNGxmANf5K6NEzVdfpyAx+uULWiLq10XX1ojoa0zbugOFAzd
-         S3jci+ut/ikpblygwh1U2+Cf7D0G/7P0VDS9CQh79sOmI7FNsfADUXSln9XHX/4ewCT/
-         w+NJqbfi4x+huCLEc3oeaXVaECnhoTqFO7yDIdsWYsk09jm7qrxBToQ8tj0eGuifEOgo
-         61Gxxn3Qkf0HVfvXMRpBPgd3LmrBWu3Ezv4YOxtN716Urrk49TplZirnNggM7xYjQHOF
-         vUxbAgTl+KI+5/vE3cixx18VshEzcvIpnkE5cGAfb/lLz54mzkZj4aQTWPUVh+VTfIED
-         tjeQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=N9Kxo42f2yfXZLUtrqSPcRsDDFDFmJdLXAWYCXr6Gc8=;
+        b=hHYsQKUJeEYgCBllX4gHorWdIVGTJ5GFl0TXjJwGw6TvgUrCzfe/As62O0R8luP+hL
+         At2NE3bH8IMSbWpyRT8id8TduZfHeiJQxEQtG669Fx81zWUii1mmPwVXOP1yaoiS0O/3
+         cU6GcuTvVSaJftknjDeUcXpm2uHlOgIZqtpIMnVPAGKpFDGP3bQJcF9gCyJFP8KHBa0v
+         GXNPxwhDzl0ZbQIVKKYVJvH3xZ6L8VpTSr+h7JiKP0x/D1OEwD4pc+mKr4DaXTMjWKZ5
+         Ccil5F7DfKPQWtnmkGd6r1/4/ckc5co0kB0TcVjfPZBNxa+3pMKthr8S1stW3Iy3V2Fd
+         JYtg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=axdyS4o+;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=h0P7Y6VVMGKAQ5L2GXtjG0QiPCKjZfZxxjzQT733mkw=;
-        b=U4X0/z2lLoXCLtYZsJvSCtyMig1Ww0lajnDujIJ4h29jJSrsgEKNzUu0aQkMDdDOuc
-         ZmQe0xpm6qvthRIYcKw/+vHO4pmwPA+V7kuuL9BPB7VyiHugnvEzQ+mLGFiyZ2g6E23B
-         zDh5a8lsWNwm4wieckfvS8Aw0XJytou4do9yVStx82F3q3YXUUxcZa44SVZw7sUHF9Go
-         HNhbjmHPZZ62SiSmz0/+YaGAjqfqBzJ7xTR9is+Da64TUr25jKB4bGx96GvWgtJfGxMg
-         F9eohhSjb9Kl0OFwvFF8TA0tuMI/OuhfE3N1szDjoT7sQsBw6yLz1C9yPBaye33A/M8C
-         m/cQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=h0P7Y6VVMGKAQ5L2GXtjG0QiPCKjZfZxxjzQT733mkw=;
-        b=OAXZki8sIvhQ9kVJspNNnDItgDljRme6Lh3LHVFg0syP7oUZJ3sXlmjnifkhtZjCN+
-         0Qghc1s5jWXzkDKdMzh7y01Rc6rRy1+XaStknzR+qbf/8igwah7aC4oPGwDVfbnPWYWK
-         b8RbXvr1eKTUCeGa0nzzc6VxXokSgZiUmYD9bO0L7safd8Rl5IcEAjQt7iZ5fZzLoxRP
-         zKjfHQrEPsGH+dL3sbp/nACysQJQNI/eenvFGXOaMUV78LOL1hxahWad7sGZhwU1zps3
-         IlFKxitLkr5ogAvLMZMB7wuMJt8VUT9N0wRAHTupwIIbYkz5wnfi4XF9mruwA4lKL0Zx
-         tbPw==
+        bh=N9Kxo42f2yfXZLUtrqSPcRsDDFDFmJdLXAWYCXr6Gc8=;
+        b=jyTc7ym0VSf65VrZDO074ptl1nBaDox2/k8BjnEt0Mel4uWCjxxqtjo8vKaoHpbl+U
+         lDijRqCQk8MKQLCDMNvZb+7NvQRcUbPYnI8p8R2+RRrstceJqbZHpdGWefRhhJfsyxIv
+         +0Wt70Y3hqFP5NPI1N+Vso2dDjV+b9jNaq57PGXS1HP+SZTXmNxi/SozVyNdu66jwKTU
+         kFn8yGyl2MtbLV9+g/lvrhv6YCvsg6P4SBsZEGfBgNlxdp4A1pkv0gF1V/viFN5qzlpJ
+         80RvfXWD+W8dJjS8lFQpMEZ3sLebXC2Cp8NGNDoQRLECB2nGCR2vGrsB79/L9LbdI5L1
+         U0qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=h0P7Y6VVMGKAQ5L2GXtjG0QiPCKjZfZxxjzQT733mkw=;
-        b=JDUn0B6YcQCxBDJ97sZMPu5U6lH48I7mLTNK5tdrfbbawwmlzeoxV5/t+UcwOxlzO0
-         u6SJQA4bw4j/6AtzWfioBCnvjGzM3AaolqFTtny5Isti49imE1ghi6uL7oMMeYrYpQbw
-         Ojo80x86yYQ1N5qqGiVHPRQtAzcQ04roxh8eTjDgn4q59A+khVHxcr07Qmb3twBYolQA
-         nu+VaXT8eQlMv8+gtQoTVzOHvzsX5i2mPe1SB5shHyZXQgYZWDOpKIk/7j3oeKumAbq2
-         ZlWHi8fz/pthMVNOkTQEqcFQByd3E52OgGMF2RhQJYGwtMqGcBuTMVy488HmDdcQNUd8
-         GnXg==
+        bh=N9Kxo42f2yfXZLUtrqSPcRsDDFDFmJdLXAWYCXr6Gc8=;
+        b=di3vEg7llORJIJXgAl81V/zJOlDMa7KXSLYwSx8WkQH1HM8cwWtH/Qh7lQ2F+Y6o75
+         ysRNvypO5RV4v+19FCrC66Ix+MxfNK6YG1ygi0eQIf82ulH7szjEL17oDnvK2vfVmnLr
+         KXvxhikZLDWbJDmAaiHpU01Ql1kiLTUm4I3QeJ5YgXOYU+34k4kF8ynFOxZfoLT8Sre/
+         GeXahXJEzjhUMIXFddEU4uszPt+BdSNxAjG3TNlEuTZfoY+1Eo5nifSFofih079P8Ay/
+         B2o8OtcOE+LDRn5LwLmSJbcbIQ5YT02P9ryEurcJe8kX2bLkjlQz7+MfTKL4EDop/f6p
+         ZYIA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVnjB7fa0JI+DocgQwAIaQ/wXycue8hAJct5iiOv6v/B4+q2pfN
-	a4B14Ok16t58dRQOisOFC6Y=
-X-Google-Smtp-Source: APXvYqws1q0hJaOADe2itrsf5tHtZoql70/ihfzOU4vZT3Hhl6JOzJbKCrRg1+X5+KBQoOkuTX3cOQ==
-X-Received: by 2002:a17:906:e009:: with SMTP id cu9mr24634741ejb.267.1566286092851;
-        Tue, 20 Aug 2019 00:28:12 -0700 (PDT)
+X-Gm-Message-State: APjAAAVZuLP0sniwiNIWeQ2g3KrRVY03UZL+OPnX5iQXfpucC65movQr
+	zifvFw6HAbFuIwqOMIcmWnE=
+X-Google-Smtp-Source: APXvYqy0CWAvPFIptNk+4WupgKX/aE8UnsFwbEMRHmBxq8wilp/x2VPCJ2TcRGlKQFePR+2LD6Phxg==
+X-Received: by 2002:a63:d84e:: with SMTP id k14mr23873040pgj.234.1566292718962;
+        Tue, 20 Aug 2019 02:18:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:f07:: with SMTP id z7ls2371860eji.14.gmail; Tue, 20
- Aug 2019 00:28:12 -0700 (PDT)
-X-Received: by 2002:a17:906:1944:: with SMTP id b4mr6276704eje.44.1566286092473;
-        Tue, 20 Aug 2019 00:28:12 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566286092; cv=none;
+Received: by 2002:a62:b518:: with SMTP id y24ls4732559pfe.14.gmail; Tue, 20
+ Aug 2019 02:18:38 -0700 (PDT)
+X-Received: by 2002:a63:c442:: with SMTP id m2mr3422536pgg.286.1566292718478;
+        Tue, 20 Aug 2019 02:18:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566292718; cv=none;
         d=google.com; s=arc-20160816;
-        b=wip4v+tN67/tdmfgookKznz+B5pntelBfVqPYsL9g+2b18lYqLKMEBxTshXYl0FA2Z
-         ogLmWr2VPcW0FjsiFe8CvRs7BK3GK81+eGVdHoc7iYDdeLzqUj8ToSyB7k6FdT35H2et
-         IMAvj4s+McxjVp6Liq5cd2Dzt6eDVbFz4HYkcYSViMwxPV5RX7WNlQvJZH/owVGBiVuH
-         IlQ7ESlC50PelwOFbwAdkkc82tiUSwoCSvwCqEbqicNzw3W8noWoQgH1mA1Ok9deBKhK
-         ffgDwFCImnkJdAxS/T1Gy/WrH9ZjUkBMsqDnHFMGXz+An/frTXLPXXkV4zhDBKRWyG8h
-         W2/g==
+        b=ujc4ZzZCZCbwRcKMN9XWLlSIGvjC1Ir3UzxlrmbEJywMBdnV4grNA7eRwsMpstT0vN
+         sYnkQQ8qPRvmaIV963b6zH1jG6fyTm/I5jSW7Kcx3ys31HDkr/MOYfPbM/H3eSLETchB
+         8DArdCF2xMQ3OF8CA95jQ4NjeKABTXyp7d0jythoHuu+P1/Jrhsz91+10kRRoENrkvZi
+         WWnwuU7C4VwFqZ3DvQHJbyEfb24Q4DCw0E5uFwhzCNSy0G7XWUVHaXt5XkfxWbNKIVwn
+         UBU7YsW5xePEGI5P0cgyriZlQdWqqeMemxL/f+4buu5koZWLrLLUOBKRVRx69Y1uBYl9
+         bOqA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=STCVugaalN31QOAqpmu8JBsQHyEheYIMWoFlG13Ws1k=;
-        b=UW2WsOkw5X+wW0zx0bhUX85k2+H/eFrnmlp79KP3h+6jWdLBTKm0wHkKhF5IV/gRYI
-         +fGNfI/fMtRBd3q6wvDBxC+QzXCaRaif/nI9HAf81GPy5kF4jhB+vaKqTlAQcQLFuoXE
-         Ba563fs8ROap0u1afNXlzA/+VQpu7t53UTsobd/UHYSX5EzSEGkUzaOUU/hkLUBrs3RB
-         JBgZ0LtSsYyiLPl+30HCfsf1iyYdRl+dfX/voriORshzqFawc0JNeKw5nk6nibnt586c
-         zYOiTpj8KbdQjKYBpIlgFpGxm97tmF4DLqnTmJ31PXbzbXwXO67uDUvJ7Lq7p+VWWtsf
-         F1mg==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=VPT5/s0egY9EI9NCHESSiPnVRycPcq7InGAClFucLlc=;
+        b=EztACUXbUFpzbj36aNAfbk7i0ClRCgdUaBjBhQdD1oxSj85yG4zbYfATCmFcZdQaIF
+         D6BDm1+J9yN3joxpDsTxI2gG5Lc05Sxgz5b/7ZzTtprlo0CoU4NcqXE35FOVBI7dy4Vg
+         qBLDJ+wPO+VbjF4M0A+HpeLfrqUWJBQ0osdRfmoBOUJ4ESXe+nSFRyjprhvJA1WFRl2X
+         pn+wYaNFicS9kpr4wD40A5XHkFcsZD/cSODvtPwz3my+6P6MKmwoHAk3EkvktKHAutsk
+         TsnHbXz8UvXelxITie/UD08+Sv/t94y3My0dMqRh1F32rBSOux5he10MizFHNQ+d6+gY
+         um7g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=axdyS4o+;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id c11si430798ejr.0.2019.08.20.00.28.12
+       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id b24si557246pjq.1.2019.08.20.02.18.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 Aug 2019 00:28:12 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
-Received: by mail-wr1-x444.google.com with SMTP id p17so11217761wrf.11
-        for <clang-built-linux@googlegroups.com>; Tue, 20 Aug 2019 00:28:12 -0700 (PDT)
-X-Received: by 2002:adf:f3c1:: with SMTP id g1mr32406227wrp.203.1566286091940;
-        Tue, 20 Aug 2019 00:28:11 -0700 (PDT)
-Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id i5sm17557544wrn.48.2019.08.20.00.28.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Aug 2019 00:28:11 -0700 (PDT)
-Date: Tue, 20 Aug 2019 00:28:09 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	clang-built-linux@googlegroups.com,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: Enabling UBSAN breaks KCOV in clang (8.0.*) on arm64
-Message-ID: <20190820072809.GA62296@archlinux-threadripper>
-References: <20190819165947.GA30292@lakrids.cambridge.arm.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 20 Aug 2019 02:18:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 20 Aug 2019 02:18:37 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,408,1559545200"; 
+   d="scan'208";a="172394226"
+Received: from shao2-debian.sh.intel.com (HELO [10.239.13.6]) ([10.239.13.6])
+  by orsmga008.jf.intel.com with ESMTP; 20 Aug 2019 02:18:36 -0700
+Subject: Re: [android-goldfish:b120914098 38/99] kernel/memremap.c:312:2:
+ error: implicit declaration of function 'kasan_remove_zero_shadow'
+To: Andrey Konovalov <andreyknvl@google.com>,
+ Paul Lawrence <paullawrence@google.com>,
+ Nick Desaulniers <ndesaulniers@google.com>
+Cc: kbuild@01.org, clang-built-linux <clang-built-linux@googlegroups.com>,
+ kbuild test robot <lkp@intel.com>
+References: <201908140530.i8rXFzLC%lkp@intel.com>
+ <CAKwvOdkCKhCHjteLwDZMon1zo+DAn=M2PGGsrpvs6e=jgXV4=g@mail.gmail.com>
+ <CAL=UVf7GjkROhqHymay_QCE_8oR9JpB_OtG6_PF6ePqgNXeArw@mail.gmail.com>
+ <CAAeHK+zz5+eKXEafomMHbVVc+a9q6wg-FT9Ufuy2xebn__zPLw@mail.gmail.com>
+From: Rong Chen <rong.a.chen@intel.com>
+Message-ID: <eb85c319-e99c-c20a-4ea1-23eb3a636bfd@intel.com>
+Date: Tue, 20 Aug 2019 17:18:37 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.6.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20190819165947.GA30292@lakrids.cambridge.arm.com>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=axdyS4o+;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+In-Reply-To: <CAAeHK+zz5+eKXEafomMHbVVc+a9q6wg-FT9Ufuy2xebn__zPLw@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: rong.a.chen@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rong.a.chen@intel.com designates 192.55.52.136 as
+ permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -149,133 +140,289 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Aug 19, 2019 at 05:59:48PM +0100, Mark Rutland wrote:
-> Hi,
-> 
-> I found that when I enable both KCOV and UBSAN on arm64, clang fails to
-> emit any __sanitizer_cov_trace_*() calls in the resulting binary,
-> rendering KCOV useless.
-> 
-> For example, when building v5.3-rc3's arch/arm64/kernel/setup.o:
-> 
-> * With defconfig + CONFIG KCOV:
-> 
->   clang -Wp,-MD,arch/arm64/kernel/.setup.o.d  -nostdinc -isystem
->   /mnt/data/opt/toolchain/llvm/8.0.0/clang+llvm-8.0.0-x86_64-linux-sles11.3/lib/clang/8.0.0/include
->   -I./arch/arm64/include -I./arch/arm64/include/generated  -I./include
->   -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi
->   -I./include/uapi -I./include/generated/uapi -include
->   ./include/linux/kconfig.h -include ./include/linux/compiler_types.h
->   -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3
->   -Qunused-arguments -Wall -Wundef -Werror=strict-prototypes
->   -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE
->   -Werror=implicit-function-declaration -Werror=implicit-int
->   -Wno-format-security -std=gnu89 --target=aarch64-linux
->   --prefix=/mnt/data/opt/toolchain/kernel-org-crosstool/gcc-8.1.0-nolibc/aarch64-linux/bin/
->   --gcc-toolchain=/mnt/data/opt/toolchain/kernel-org-crosstool/gcc-8.1.0-nolibc/aarch64-linux
->   -no-integrated-as -Werror=unknown-warning-option -mgeneral-regs-only
->   -DCONFIG_AS_LSE=1 -fno-asynchronous-unwind-tables
->   -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks
->   -Wno-address-of-packed-member -O2 -Wframe-larger-than=2048
->   -fstack-protector-strong -Wno-format-invalid-specifier -Wno-gnu
->   -Wno-tautological-compare -mno-global-merge -Wno-unused-const-variable
->   -fno-omit-frame-pointer -fno-optimize-sibling-calls -g
->   -Wdeclaration-after-statement -Wvla -Wno-pointer-sign
->   -fno-strict-overflow -fno-merge-all-constants -fno-stack-check
->   -Werror=date-time -Werror=incompatible-pointer-types
->   -Wno-initializer-overrides -Wno-format -Wno-sign-compare
->   -Wno-format-zero-length  -fsanitize-coverage=trace-pc
->   -DKBUILD_BASENAME='"setup"' -DKBUILD_MODNAME='"setup"' -c -o
->   arch/arm64/kernel/setup.o arch/arm64/kernel/setup.c
-> 
->   ... and there are 44 calls to __sanitizer_cov_trace_pc in the
->   resulting setup.o
-> 
-> * with defconfig + CONFIG_KCOV + CONFIG_UBSAN:
-> 
->   clang -Wp,-MD,arch/arm64/kernel/.setup.o.d  -nostdinc -isystem
->   /mnt/data/opt/toolchain/llvm/8.0.0/clang+llvm-8.0.0-x86_64-linux-sles11.3/lib/clang/8.0.0/include
->   -I./arch/arm64/include -I./arch/arm64/include/generated  -I./include
->   -I./arch/arm64/include/uapi -I./arch/arm64/include/generated/uapi
->   -I./include/uapi -I./include/generated/uapi -include
->   ./include/linux/kconfig.h -include ./include/linux/compiler_types.h
->   -D__KERNEL__ -mlittle-endian -DKASAN_SHADOW_SCALE_SHIFT=3
->   -Qunused-arguments -Wall -Wundef -Werror=strict-prototypes
->   -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE
->   -Werror=implicit-function-declaration -Werror=implicit-int
->   -Wno-format-security -std=gnu89 --target=aarch64-linux
->   --prefix=/mnt/data/opt/toolchain/kernel-org-crosstool/gcc-8.1.0-nolibc/aarch64-linux/bin/
->   --gcc-toolchain=/mnt/data/opt/toolchain/kernel-org-crosstool/gcc-8.1.0-nolibc/aarch64-linux
->   -no-integrated-as -Werror=unknown-warning-option -mgeneral-regs-only
->   -DCONFIG_AS_LSE=1 -fno-asynchronous-unwind-tables
->   -DKASAN_SHADOW_SCALE_SHIFT=3 -fno-delete-null-pointer-checks
->   -Wno-address-of-packed-member -O2 -Wframe-larger-than=2048
->   -fstack-protector-strong -Wno-format-invalid-specifier -Wno-gnu
->   -Wno-tautological-compare -mno-global-merge -Wno-unused-const-variable
->   -fno-omit-frame-pointer -fno-optimize-sibling-calls -g
->   -Wdeclaration-after-statement -Wvla -Wno-pointer-sign
->   -fno-strict-overflow -fno-merge-all-constants -fno-stack-check
->   -Werror=date-time -Werror=incompatible-pointer-types
->   -Wno-initializer-overrides -Wno-format -Wno-sign-compare
->   -Wno-format-zero-length    -fsanitize=shift
->   -fsanitize=integer-divide-by-zero  -fsanitize=unreachable
->   -fsanitize=signed-integer-overflow  -fsanitize=bounds
->   -fsanitize=object-size  -fsanitize=bool  -fsanitize=enum
->   -fsanitize-coverage=trace-pc    -DKBUILD_BASENAME='"setup"'
->   -DKBUILD_MODNAME='"setup"' -c -o arch/arm64/kernel/setup.o
->   arch/arm64/kernel/setup.c
-> 
->   ... and there are 0 calls to __sanitizer_cov_trace_pc in the resulting
->   setup.o, even though -fsanitize-coverage=trace-pc was passed to clang.
-> 
-> If I remove -fsanitize=bounds, there are 121 calls to
-> __sanitizer_cov_trace_pc in setup.o. Removing the other options enabled
-> by UBSAN didn't have any effect on setup.o.
-> 
-> I'm using the llvm.org 8.0.{0,1} binaries [1,2], along with the
-> kernel.org crosstool 8.1.0 binaries [3].
-> 
-> Any ideas as to what's going on?
-> 
-> Thanks,
-> Mark.
-> 
-> [1] http://releases.llvm.org/download.html#8.0.0
-> [2] http://releases.llvm.org/download.html#8.0.1
-> [3] https://mirrors.edge.kernel.org/pub/tools/crosstool/
 
-Hi Mark,
 
-I've narrowed it down further; it seems that the combination of
--fsanitize-coverage=trace-pc and -fsanitize=local-bounds prevents the
-emission of __sanitizer_cov_trace_pc. -fsanitize=bounds is the same as
--fsanitize=local-bounds and -fsanitize=array-bounds, the latter of which
-has no issues.
+On 8/14/19 9:50 PM, Andrey Konovalov wrote:
+> On Tue, Aug 13, 2019 at 11:27 PM Paul Lawrence <paullawrence@google.com> wrote:
+>> It wasn't me officer, I was just carrying this for someone else.
+>>
+>> See https://android-review.googlesource.com/c/kernel/common/+/989989
+>>
+>> Note the real culprit is Andrey Konovalov, now cc'd on this thread.
+>>
+>> Paul
+>>
+>> On Tue, Aug 13, 2019 at 2:21 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
+>>> Here he is officer, guilty as charged. ;)
+>>>
+>>> On Tue, Aug 13, 2019 at 2:14 PM kbuild test robot <lkp@intel.com> wrote:
+>>>> CC: kbuild-all@01.org
+>>>> BCC: philip.li@intel.com
+>>>> TO: Paul Lawrence <paullawrence@google.com>
+>>>>
+>>>> tree:   https://android.googlesource.com/kernel/goldfish b120914098
+>>>> head:   88590f0a97d55a7156cdb09e9d5ecb8d829826e0
+>>>> commit: 69c0f72d6ca84158e4cd691fe31db5d0170d38b9 [38/99] BACKPORT: kernel/memremap, kasan: make ZONE_DEVICE with work with KASAN
+>>>> config: x86_64-rhel-7.6 (attached as .config)
+> Could you forward this attachment as well?
+Hi Nick,
 
-https://godbolt.org/z/YdF-he
+The attachment should be in the original mail named as '.config.gz', but 
+we didn't preserve it. Could you forward it?
 
-This reproducer was taken from a somewhat related bug report in April.
+Best Regards,
+Rong Chen
 
-https://bugs.llvm.org/show_bug.cgi?id=41387
-
-What's also interesting is when you remove -Qunused-arguments from the
-clang command, the following warning appears (also visible in the
-godbolt link):
-
-clang-10: warning: argument unused during compilation:
-'-fsanitize-coverage=trace-pc' [-Wunused-command-line-argument]
-
-I have no idea why this combination is special, I've been searching the
-source trying to see what I can find and I am currently not coming up
-with anything (I'm sure a good night's rest will give me a fresh set of
-eyes).
-
-This is still an issue on Clang trunk.
-
-Cheers,
-Nathan
+>
+>>>> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+>>>> reproduce:
+>>>>          git checkout 69c0f72d6ca84158e4cd691fe31db5d0170d38b9
+>>>>          # save the attached .config to linux build tree
+>>>>          make ARCH=x86_64
+>>>>
+>>>> If you fix the issue, kindly add following tag
+>>>> Reported-by: kbuild test robot <lkp@intel.com>
+>>>>
+>>>> All errors (new ones prefixed by >>):
+>>>>
+>>>>     In file included from kernel/memremap.c:21:
+>>>>     include/linux/swapops.h:327:22: warning: section attribute is specified on redeclared variable [-Wsection]
+>>>>     extern atomic_long_t num_poisoned_pages __read_mostly;
+>>>>                          ^
+>>>>     include/linux/mm.h:2551:22: note: previous declaration is here
+>>>>     extern atomic_long_t num_poisoned_pages;
+>>>>                          ^
+>>>>>> kernel/memremap.c:312:2: error: implicit declaration of function 'kasan_remove_zero_shadow' [-Werror,-Wimplicit-function-declaration]
+>>>>             kasan_remove_zero_shadow(__va(align_start), align_size);
+>>>>             ^
+>>>>>> kernel/memremap.c:448:10: error: implicit declaration of function 'kasan_add_zero_shadow' [-Werror,-Wimplicit-function-declaration]
+>>>>             error = kasan_add_zero_shadow(__va(align_start), align_size);
+>>>>                     ^
+>>>>     kernel/memremap.c:481:2: error: implicit declaration of function 'kasan_remove_zero_shadow' [-Werror,-Wimplicit-function-declaration]
+>>>>             kasan_remove_zero_shadow(__va(align_start), align_size);
+>>>>             ^
+>>>>     1 warning and 3 errors generated.
+>>>>
+>>>> vim +/kasan_remove_zero_shadow +312 kernel/memremap.c
+>>>>
+>>>>     285
+>>>>     286  #define for_each_device_pfn(pfn, map) \
+>>>>     287          for (pfn = pfn_first(map); pfn < pfn_end(map); pfn++)
+>>>>     288
+>>>>     289  static void devm_memremap_pages_release(struct device *dev, void *data)
+>>>>     290  {
+>>>>     291          struct page_map *page_map = data;
+>>>>     292          struct resource *res = &page_map->res;
+>>>>     293          resource_size_t align_start, align_size;
+>>>>     294          struct dev_pagemap *pgmap = &page_map->pgmap;
+>>>>     295          unsigned long pfn;
+>>>>     296
+>>>>     297          for_each_device_pfn(pfn, page_map)
+>>>>     298                  put_page(pfn_to_page(pfn));
+>>>>     299
+>>>>     300          if (percpu_ref_tryget_live(pgmap->ref)) {
+>>>>     301                  dev_WARN(dev, "%s: page mapping is still live!\n", __func__);
+>>>>     302                  percpu_ref_put(pgmap->ref);
+>>>>     303          }
+>>>>     304
+>>>>     305          /* pages are dead and unused, undo the arch mapping */
+>>>>     306          align_start = res->start & ~(SECTION_SIZE - 1);
+>>>>     307          align_size = ALIGN(res->start + resource_size(res), SECTION_SIZE)
+>>>>     308                  - align_start;
+>>>>     309
+>>>>     310          mem_hotplug_begin();
+>>>>     311          arch_remove_memory(align_start, align_size);
+>>>>   > 312          kasan_remove_zero_shadow(__va(align_start), align_size);
+>>>>     313          mem_hotplug_done();
+>>>>     314
+>>>>     315          untrack_pfn(NULL, PHYS_PFN(align_start), align_size);
+>>>>     316          pgmap_radix_release(res, -1);
+>>>>     317          dev_WARN_ONCE(dev, pgmap->altmap && pgmap->altmap->alloc,
+>>>>     318                          "%s: failed to free all reserved pages\n", __func__);
+>>>>     319  }
+>>>>     320
+>>>>     321  /* assumes rcu_read_lock() held at entry */
+>>>>     322  struct dev_pagemap *find_dev_pagemap(resource_size_t phys)
+>>>>     323  {
+>>>>     324          struct page_map *page_map;
+>>>>     325
+>>>>     326          WARN_ON_ONCE(!rcu_read_lock_held());
+>>>>     327
+>>>>     328          page_map = radix_tree_lookup(&pgmap_radix, PHYS_PFN(phys));
+>>>>     329          return page_map ? &page_map->pgmap : NULL;
+>>>>     330  }
+>>>>     331
+>>>>     332  /**
+>>>>     333   * devm_memremap_pages - remap and provide memmap backing for the given resource
+>>>>     334   * @dev: hosting device for @res
+>>>>     335   * @res: "host memory" address range
+>>>>     336   * @ref: a live per-cpu reference count
+>>>>     337   * @altmap: optional descriptor for allocating the memmap from @res
+>>>>     338   *
+>>>>     339   * Notes:
+>>>>     340   * 1/ @ref must be 'live' on entry and 'dead' before devm_memunmap_pages() time
+>>>>     341   *    (or devm release event). The expected order of events is that @ref has
+>>>>     342   *    been through percpu_ref_kill() before devm_memremap_pages_release(). The
+>>>>     343   *    wait for the completion of all references being dropped and
+>>>>     344   *    percpu_ref_exit() must occur after devm_memremap_pages_release().
+>>>>     345   *
+>>>>     346   * 2/ @res is expected to be a host memory range that could feasibly be
+>>>>     347   *    treated as a "System RAM" range, i.e. not a device mmio range, but
+>>>>     348   *    this is not enforced.
+>>>>     349   */
+>>>>     350  void *devm_memremap_pages(struct device *dev, struct resource *res,
+>>>>     351                  struct percpu_ref *ref, struct vmem_altmap *altmap)
+>>>>     352  {
+>>>>     353          resource_size_t align_start, align_size, align_end;
+>>>>     354          unsigned long pfn, pgoff, order;
+>>>>     355          pgprot_t pgprot = PAGE_KERNEL;
+>>>>     356          struct dev_pagemap *pgmap;
+>>>>     357          struct page_map *page_map;
+>>>>     358          int error, nid, is_ram, i = 0;
+>>>>     359          struct dev_pagemap *conflict_pgmap;
+>>>>     360
+>>>>     361          align_start = res->start & ~(SECTION_SIZE - 1);
+>>>>     362          align_size = ALIGN(res->start + resource_size(res), SECTION_SIZE)
+>>>>     363                  - align_start;
+>>>>     364          align_end = align_start + align_size - 1;
+>>>>     365
+>>>>     366          conflict_pgmap = get_dev_pagemap(PHYS_PFN(align_start), NULL);
+>>>>     367          if (conflict_pgmap) {
+>>>>     368                  dev_WARN(dev, "Conflicting mapping in same section\n");
+>>>>     369                  put_dev_pagemap(conflict_pgmap);
+>>>>     370                  return ERR_PTR(-ENOMEM);
+>>>>     371          }
+>>>>     372
+>>>>     373          conflict_pgmap = get_dev_pagemap(PHYS_PFN(align_end), NULL);
+>>>>     374          if (conflict_pgmap) {
+>>>>     375                  dev_WARN(dev, "Conflicting mapping in same section\n");
+>>>>     376                  put_dev_pagemap(conflict_pgmap);
+>>>>     377                  return ERR_PTR(-ENOMEM);
+>>>>     378          }
+>>>>     379
+>>>>     380          is_ram = region_intersects(align_start, align_size,
+>>>>     381                  IORESOURCE_SYSTEM_RAM, IORES_DESC_NONE);
+>>>>     382
+>>>>     383          if (is_ram != REGION_DISJOINT) {
+>>>>     384                  WARN_ONCE(1, "%s attempted on %s region %pr\n", __func__,
+>>>>     385                                  is_ram == REGION_MIXED ? "mixed" : "ram", res);
+>>>>     386                  return ERR_PTR(-ENXIO);
+>>>>     387          }
+>>>>     388
+>>>>     389          if (!ref)
+>>>>     390                  return ERR_PTR(-EINVAL);
+>>>>     391
+>>>>     392          page_map = devres_alloc_node(devm_memremap_pages_release,
+>>>>     393                          sizeof(*page_map), GFP_KERNEL, dev_to_node(dev));
+>>>>     394          if (!page_map)
+>>>>     395                  return ERR_PTR(-ENOMEM);
+>>>>     396          pgmap = &page_map->pgmap;
+>>>>     397
+>>>>     398          memcpy(&page_map->res, res, sizeof(*res));
+>>>>     399
+>>>>     400          pgmap->dev = dev;
+>>>>     401          if (altmap) {
+>>>>     402                  memcpy(&page_map->altmap, altmap, sizeof(*altmap));
+>>>>     403                  pgmap->altmap = &page_map->altmap;
+>>>>     404          }
+>>>>     405          pgmap->ref = ref;
+>>>>     406          pgmap->res = &page_map->res;
+>>>>     407          pgmap->type = MEMORY_DEVICE_HOST;
+>>>>     408          pgmap->page_fault = NULL;
+>>>>     409          pgmap->page_free = NULL;
+>>>>     410          pgmap->data = NULL;
+>>>>     411
+>>>>     412          mutex_lock(&pgmap_lock);
+>>>>     413          error = 0;
+>>>>     414
+>>>>     415          foreach_order_pgoff(res, order, pgoff) {
+>>>>     416                  struct dev_pagemap *dup;
+>>>>     417
+>>>>     418                  rcu_read_lock();
+>>>>     419                  dup = find_dev_pagemap(res->start + PFN_PHYS(pgoff));
+>>>>     420                  rcu_read_unlock();
+>>>>     421                  if (dup) {
+>>>>     422                          dev_err(dev, "%s: %pr collides with mapping for %s\n",
+>>>>     423                                          __func__, res, dev_name(dup->dev));
+>>>>     424                          error = -EBUSY;
+>>>>     425                          break;
+>>>>     426                  }
+>>>>     427                  error = __radix_tree_insert(&pgmap_radix,
+>>>>     428                                  PHYS_PFN(res->start) + pgoff, order, page_map);
+>>>>     429                  if (error) {
+>>>>     430                          dev_err(dev, "%s: failed: %d\n", __func__, error);
+>>>>     431                          break;
+>>>>     432                  }
+>>>>     433          }
+>>>>     434          mutex_unlock(&pgmap_lock);
+>>>>     435          if (error)
+>>>>     436                  goto err_radix;
+>>>>     437
+>>>>     438          nid = dev_to_node(dev);
+>>>>     439          if (nid < 0)
+>>>>     440                  nid = numa_mem_id();
+>>>>     441
+>>>>     442          error = track_pfn_remap(NULL, &pgprot, PHYS_PFN(align_start), 0,
+>>>>     443                          align_size);
+>>>>     444          if (error)
+>>>>     445                  goto err_pfn_remap;
+>>>>     446
+>>>>     447          mem_hotplug_begin();
+>>>>   > 448          error = kasan_add_zero_shadow(__va(align_start), align_size);
+>>>>     449          if (error) {
+>>>>     450                  mem_hotplug_done();
+>>>>     451                  goto err_kasan;
+>>>>     452          }
+>>>>     453          error = arch_add_memory(nid, align_start, align_size, false);
+>>>>     454          if (!error)
+>>>>     455                  move_pfn_range_to_zone(&NODE_DATA(nid)->node_zones[ZONE_DEVICE],
+>>>>     456                                          align_start >> PAGE_SHIFT,
+>>>>     457                                          align_size >> PAGE_SHIFT);
+>>>>     458          mem_hotplug_done();
+>>>>     459          if (error)
+>>>>     460                  goto err_add_memory;
+>>>>     461
+>>>>     462          for_each_device_pfn(pfn, page_map) {
+>>>>     463                  struct page *page = pfn_to_page(pfn);
+>>>>     464
+>>>>     465                  /*
+>>>>     466                   * ZONE_DEVICE pages union ->lru with a ->pgmap back
+>>>>     467                   * pointer.  It is a bug if a ZONE_DEVICE page is ever
+>>>>     468                   * freed or placed on a driver-private list.  Seed the
+>>>>     469                   * storage with LIST_POISON* values.
+>>>>     470                   */
+>>>>     471                  list_del(&page->lru);
+>>>>     472                  page->pgmap = pgmap;
+>>>>     473                  percpu_ref_get(ref);
+>>>>     474                  if (!(++i % 1024))
+>>>>     475                          cond_resched();
+>>>>     476          }
+>>>>     477          devres_add(dev, page_map);
+>>>>     478          return __va(res->start);
+>>>>     479
+>>>>     480   err_add_memory:
+>>>>     481          kasan_remove_zero_shadow(__va(align_start), align_size);
+>>>>     482   err_kasan:
+>>>>     483          untrack_pfn(NULL, PHYS_PFN(align_start), align_size);
+>>>>     484   err_pfn_remap:
+>>>>     485   err_radix:
+>>>>     486          pgmap_radix_release(res, pgoff);
+>>>>     487          devres_free(page_map);
+>>>>     488          return ERR_PTR(error);
+>>>>     489  }
+>>>>     490  EXPORT_SYMBOL_GPL(devm_memremap_pages);
+>>>>     491
+>>>>
+>>>> ---
+>>>> 0-DAY kernel test infrastructure                Open Source Technology Center
+>>>> https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+>>>
+>>>
+>>> --
+>>> Thanks,
+>>> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190820072809.GA62296%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/eb85c319-e99c-c20a-4ea1-23eb3a636bfd%40intel.com.
