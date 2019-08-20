@@ -1,128 +1,130 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBAHS57VAKGQEUR4O2KY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTJ7DM3WQOBBIU36DVAKGQEKNGVTXY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x840.google.com (mail-qt1-x840.google.com [IPv6:2607:f8b0:4864:20::840])
-	by mail.lfdr.de (Postfix) with ESMTPS id B1CD2960C5
-	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 15:43:29 +0200 (CEST)
-Received: by mail-qt1-x840.google.com with SMTP id g33sf7321172qtc.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 06:43:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566308608; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9ED9B963D3
+	for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 17:11:30 +0200 (CEST)
+Received: by mail-wr1-x439.google.com with SMTP id j10sf7184354wrb.16
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 08:11:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566313890; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0b1AxzMy8gL0WMTo4yQhnVR2ALwhgfqbLe60Sm5H4AOz6sQEAR9DVXdmdXE4qSDDVw
-         XikH04eTbxwjTk8kGLTy7kpE9IRA06GY6vuzws+aubDmoKVv+N9Q7NJKaNfR2JXU7Kph
-         /0mH/m6SRRt5VCbKdmMX7EDqOPybmsRrrpr38fYC/L0CgYzJbYo4I+KqHmB8fqsyLT2s
-         gU1SX2eQ6fLSA9Scd4Ozey2jP9XTdWdbfpMm5dnCzj1IyecKYr6juL8+ROAv+bw3KFRP
-         9d2uMHd3B7K/IXkcu3HM3HLJOpNRnPO8Ax2A981t3y/9K9YbQOfQE5XSVeIzOmEhzgAC
-         pqtg==
+        b=vCzBF0dz4KwVu0vV9Y8rEB2GCpwnRfzWNKIVEQ6CcUBGjtJL0ZiUaCAu08XvfU1XCs
+         dZwSMYXm411WQauXv+CJxlhbJYIeSAbdYDBrwGtsB+4CJrZMdqC9CxMN56v1fCZCktbQ
+         bT/+oOuQgT+OuFNGd2zzgGv+jEqn4+8TR8JQJkjnL7VL9aUbIF+EqGVhYQqd2qyrz5Bk
+         LT1yFnTygSROdlmfE8vFyVsnEaHEUerH+oJQkPaaZqihKPH5lRUuA+g95XBfr7TVKfpm
+         E+l61CzfXUrS/sqs/5Y1tuh52mZuBrNfd6NL4Ak/gMvngJGHd+5fipOOBGVCR+hqQb1A
+         mzcQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=x7T0ryeUyKIvS91j9UFeXo1vvT30kR6JyFPHw8Jw24w=;
-        b=Bf3OpmKrh9aexwcJyu6fhwmTYQq3AVNKbsasayJF+u3488r9EKoGHw8AhRiyD/RMEf
-         /5OSeeWGwtivtSO/nR3uRM2hH8icyCexPQUcljylcZRuHZVeCWVpvicU6gBZO6OYL8N4
-         hC59bOFs6gXJgMrONN/832Bxd6ojzXpIUdNqgI5v7CTQMTKScafnMZi/e35el03/vhiX
-         bmKN803yuonTc5SDixx4wnGhmtXC2WmKBSUkBNXftHX2zfi18894Jav+5moHnAt0hhL5
-         bg6zEGc+oR8jrJx6TvTH9D45SfsUT6dikc+57Zibwrf9/vlk+Trk8f7jDdbbWb9/ZO69
-         uGQA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=GQq8RB9++a5LNycJJDsWjjgXqdV9+CroSRrVh+v4Daw=;
+        b=mycoQlhWH7OSQ/FqXB/QPiD/KichZy2TtJzUed0FSvF2eNVVPMkVUsnxPHX/Nd+2sZ
+         na/uokCVwMuxf2xeNjCGpPlxkJ1YtanXyh6yW/7owD0dm57JX1X1zUtwTvkbYpXh+FVh
+         JbkHuNqufTfShIUUPmahNZdbDY75CKDNKDBSRK6q7drE6J1kGfZcFZFSPTXhHzEv6JJ0
+         Pjb/YYRWC/wZxVaqK1FCOxTB2Yk1w7d9uf6emMWpUbwkpD19bfZ863MMZGcwZ8QiNO32
+         So+zQwXlaadYHCFIAxtgZTNtfO6P4md3U4RsvaKiWYMpMlkTVwwsH9+yqmJBE92XVOQw
+         YQMA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ow1vNCSS;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=x7T0ryeUyKIvS91j9UFeXo1vvT30kR6JyFPHw8Jw24w=;
-        b=bkrCq6tdNcJ8bklFpLk1ygsTQymZ22bzWWs86AcNhfN+KnQzihp565HhVwolpyaplp
-         GET9xFguiyU7dSHx0aifB0LD+tzctMgcmYdeFP8PI70c5nqONefvlg3ffSQ9R+csKwiU
-         lnMwVw2X870KczC+7QDMo1NJHoKfO9Y3j5nOc20RnfRgyljs/IOmO1HShWhiqb+llyDj
-         Z4PxRMYUVVbTU1zQdbN00nJ6yYuwyUQdNVhN1PqmzvXz/3MOH+lhRLirstxX/C+ngzMh
-         A/+aIEaFVYykn8ocmpmQvMU+rhYL55oTMRK+W92RXZ7/Bl7QzUoFt2vdGYIFDnOAdaHp
-         QLUA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=GQq8RB9++a5LNycJJDsWjjgXqdV9+CroSRrVh+v4Daw=;
+        b=M0fMUwJ9XDOMRDIZ3Cjve/HYY6fCOmSMFYWDrMMxvJr/nT/0f+lt7WgOUtuzZA34ir
+         V0PxENFqMKgo4mnO2u36nf11wjY9AIRME9A8mIz7MA+7NEE3A5MmE48QEwdP7SFgGAZw
+         rVZhFyDLzzrocCdD7vp+7KNGy0ejH3chNvr/dfD7SFOn5Jta1muNtSX+8wPjveiyKuuX
+         iaOEGuPM6uS4dMxJiAWTOmSPyzP6VmV+3WvzPlXl+58+h8xUxjYy25v8eF5OoolcX+O9
+         PxM9Thot8ZJqlVmVRyETF5G5lgfZZ8g3y9hKIKiFfHiKjN/O/Anjdhd33GuEwnVJ4sCH
+         Hrcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=x7T0ryeUyKIvS91j9UFeXo1vvT30kR6JyFPHw8Jw24w=;
-        b=IeeWw6wLmEGrSQRvbUFCAqW+/bvLUJGRyuAna/MHINnuaWHAHDRCkAUcLDa4T52Wbd
-         AoPKp1dQrAPWaPODij/0IaoPq9MREeNjsw6GxwCErVHrWAvLtSQkIjb4Y87O8pNoMLta
-         HguD8sheRuAFBs+73jRnNmxbx1I+o4y5WpYaPJdEcBUJHZPF5dqBjtPQtGrZ7repdIRb
-         Ie8qMkNhZGXwKkJn0jmHquetp2zRWAQeEeMcnyRUT2WjfZpzZEdsCAN0Wk7PhvJbps3H
-         yzLnlJxJYJZb5BHbKUkrFXQXhxe+woilUIG3VotLisswiX8+FlAJyHiPNihsfiThsgWE
-         MR6g==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=GQq8RB9++a5LNycJJDsWjjgXqdV9+CroSRrVh+v4Daw=;
+        b=dKAoh6fwy4CkkqMcKJ/sXd6vYNnCL9fSr6LaQeGE6xeakT0ZjqV2OriuelTei733cK
+         kU67ztG+OvtV/BetQWXJplT97AwH0lackv2RfuXxPBiP/e9Zs6L81ZAH6TyMc+WVNJ+3
+         zuYgb5/yzEsIlx8yQgVGGoYgR6T/AOU5SiERWEAVvT3DcV0C6HKQKGT7GO3QtYzNB6nd
+         6L5Cts+bUt072Er3TI3ytykWwLFC9/7Tjuj6O4SmdZybzqjcgzx+3afrPxs6y6xWjIIx
+         T5uv3hr6Mj8zWX3lHgKD3UklZ2Yp0C4tfvjNKhE9Thn2dU4xpweYtzOMSi48R6cJr5zb
+         dC7Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWUz44QOI37hHViEIdtFgNFtBKJHtU+25a5YDx5SumXxsn0KsRX
-	afKCri4mWvRz11V2QUFFrnk=
-X-Google-Smtp-Source: APXvYqxHHVgtQK/vEYsBFQmJtO32X5F8SMgpSMVycFzknvs3Y8YaN1o8YDyA/4E4dR8CTjX7NFHM/w==
-X-Received: by 2002:a37:6905:: with SMTP id e5mr25639539qkc.121.1566308608566;
-        Tue, 20 Aug 2019 06:43:28 -0700 (PDT)
+X-Gm-Message-State: APjAAAVE8qoQTh33MdfL+md2wTil96djTFhlxMlGCO97l35mLxJpa6qo
+	VVQmoc+FXYQbxvu6arwdmgM=
+X-Google-Smtp-Source: APXvYqxvdNbHKBHpDf/zoZr4JE5ewiMcJ2RvNl9GKtzzBxbshEtcWnkWI5lcrtMtF137qsmThzlVqw==
+X-Received: by 2002:a5d:4448:: with SMTP id x8mr35848719wrr.119.1566313890330;
+        Tue, 20 Aug 2019 08:11:30 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:8a32:: with SMTP id 47ls2883377qvt.11.gmail; Tue, 20 Aug
- 2019 06:43:28 -0700 (PDT)
-X-Received: by 2002:ad4:4026:: with SMTP id q6mr13863861qvp.12.1566308608313;
-        Tue, 20 Aug 2019 06:43:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566308608; cv=none;
+Received: by 2002:a1c:5411:: with SMTP id i17ls1082045wmb.2.canary-gmail; Tue,
+ 20 Aug 2019 08:11:29 -0700 (PDT)
+X-Received: by 2002:a05:600c:d9:: with SMTP id u25mr553438wmm.26.1566313889784;
+        Tue, 20 Aug 2019 08:11:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566313889; cv=none;
         d=google.com; s=arc-20160816;
-        b=jPvD3TaTvI2kGte9CaCHkOrr3nEAY6amtFzzb4eUZUTfh/8xDTkb3pflbsmNidj2Lk
-         PTRgd0vNM3ooCfXhiWYlnJDnsLUkukfidTyKYTuTAPMI6vhOM7h3dLDe12D/YvtmkJNi
-         XdRd6D6OfS5RYRcWUY3MI88sF2wnsjLokzSJsG5GtwhITr4UAsp/sdk+l0TZvm/PIetE
-         u04r7kRZ/V0+WDgGqUf8klqMj5y2ca6cL0Rk3/7zGNy1vOTxdjpukoIV8VyNH+2CjBTj
-         z0GymtiU1okUGNvs/0S4CGv6CdM0585B7Cox8qCXcJGGQAKFb3KB0+WQ4c44XusbprX+
-         fVHA==
+        b=DCt0xgC/Q5vfaRJjQhVDb6+IpVW4cvIZr6uKg8NgUciiHTKtblnry3u+Wm+gWIv7T5
+         1SdKv9x6pfQiLy2vFm846WQB0RuCn8Q+aJoSXJrlwbW0R+M4V7pPgcGS5vkGwSXGyujK
+         gAUU/YD1E4Fz4O5G6Fn4Xtsimi+oYKoq388ErYznTONWOv7FmCwv5WQvZos2eFwm5Ob0
+         BV/hoyawLW16kIg4VR/mVWT+TxTbyWcJbGB26HOma+oeT2woDLgYxyJm5lStM9CV6f3b
+         aIy5oawIwampsxKh+W/iprgw7hugO0/Ru4HIf5RfFNQjdJfs8cDykQ1o9IrQUhj77s0Q
+         3bkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=A2GwSI166bFFFUbRnF/sPy7O9imRaG47LymfDoGtxao=;
-        b=awlADcTRmOPmiOxiRNU1DGssiF0gEIcj4lep3tjx7CkNpFPPDVk1/NJ4lWAm6bf/hC
-         J/NeO2VN0BKXLq/r4SChfeFcDbHLJ7Ekg3ZN5LNwdsBiEVFvhiWWEAaHWwpds8tcbTrZ
-         8fvXF5ptJ2vBiD+8M+/9EknBqzu4MCumu/4QROLMcOXyTS4draUm/IkVLPCRlnysIWJ+
-         Ui2N8bUnw1oKgs7o8mgAgiZ3qxfjjg6PkDY2+t3w1cBfDTay4OpBSxxA3JM0tW7asMJK
-         xzpNcio/zHGMs9lOnAq5x6rn8XpnJr6beWXt4bAIli/TE8CkOb+PMPjOzZUDgTy3TIRv
-         rIbA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=IjcmPww+qgA4CVvye/OC2HMoJacAUPaybH8UKmMlftI=;
+        b=N6sHDbsuHxZM6/FwPGkQqpx6j5ci93LQyzJG1C/pvc6ZPu/U6FWIb/RSrpd2F+kYup
+         l0QCwFxDVwbq9oPOehvB/XX+RePG8jt+VUxk9osDy/TW1WwmKob7Bf71LnK4ch6TA3qC
+         z1uVkl4XpJ+hcPHDk2UI+6OqOZqSREQsw6/NYN/Gb5izQsLMHr1MqbAFiZV8V390KODm
+         YRTwR74TOHxZzS059Iw0jr5UYmLjwkHLMJAQRbRClqdiK8pGOdHn8EofeV6pbPYoKyq/
+         M1oKmdPkBBw3HY0hDL4zXI8jognw+qzU0Lr/GMe/RhYjntvydEnIddSzKrELTZ/PrKCE
+         U+1g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=ow1vNCSS;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c79si776120qke.4.2019.08.20.06.43.28
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
+Received: from www62.your-server.de (www62.your-server.de. [213.133.104.62])
+        by gmr-mx.google.com with ESMTPS id c4si860271wrw.2.2019.08.20.08.11.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 20 Aug 2019 06:43:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from sasha-vm.mshome.net (unknown [12.236.144.82])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id B10042087E;
-	Tue, 20 Aug 2019 13:43:26 +0000 (UTC)
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	dmaengine@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.4 1/4] dmaengine: ste_dma40: fix unneeded variable warning
-Date: Tue, 20 Aug 2019 09:43:22 -0400
-Message-Id: <20190820134325.11825-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 20 Aug 2019 08:11:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) client-ip=213.133.104.62;
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+	by www62.your-server.de with esmtpsa (TLSv1.2:DHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.89_1)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1i05nC-0000ZY-30; Tue, 20 Aug 2019 17:11:26 +0200
+Received: from [178.197.249.40] (helo=pc-63.home)
+	by sslproxy05.your-server.de with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.89)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1i05nB-000Sxp-QN; Tue, 20 Aug 2019 17:11:25 +0200
+Subject: Re: [PATCH] test_bpf: Fix a new clang warning about xor-ing two
+ numbers
+To: Nathan Chancellor <natechancellor@gmail.com>,
+ Alexei Starovoitov <ast@kernel.org>
+Cc: Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+ Yonghong Song <yhs@fb.com>, netdev@vger.kernel.org, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+References: <20190819043419.68223-1-natechancellor@gmail.com>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <636449fa-9bfb-2c1e-af20-2ddac83a2143@iogearbox.net>
+Date: Tue, 20 Aug 2019 17:11:25 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Original-Sender: sashal@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=ow1vNCSS;       spf=pass
- (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
-Content-Type: text/plain; charset="UTF-8"
+In-Reply-To: <20190819043419.68223-1-natechancellor@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.100.3/25547/Tue Aug 20 10:27:49 2019)
+X-Original-Sender: daniel@iogearbox.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as
+ permitted sender) smtp.mailfrom=daniel@iogearbox.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,58 +137,38 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+On 8/19/19 6:34 AM, Nathan Chancellor wrote:
+> r369217 in clang added a new warning about potential misuse of the xor
+> operator as an exponentiation operator:
+> 
+> ../lib/test_bpf.c:870:13: warning: result of '10 ^ 300' is 294; did you
+> mean '1e300'? [-Wxor-used-as-pow]
+>                  { { 4, 10 ^ 300 }, { 20, 10 ^ 300 } },
+>                         ~~~^~~~~
+>                         1e300
+> ../lib/test_bpf.c:870:13: note: replace expression with '0xA ^ 300' to
+> silence this warning
+> ../lib/test_bpf.c:870:31: warning: result of '10 ^ 300' is 294; did you
+> mean '1e300'? [-Wxor-used-as-pow]
+>                  { { 4, 10 ^ 300 }, { 20, 10 ^ 300 } },
+>                                           ~~~^~~~~
+>                                           1e300
+> ../lib/test_bpf.c:870:31: note: replace expression with '0xA ^ 300' to
+> silence this warning
+> 
+> The commit link for this new warning has some good logic behind wanting
+> to add it but this instance appears to be a false positive. Adopt its
+> suggestion to silence the warning but not change the code. According to
+> the differential review link in the clang commit, GCC may eventually
+> adopt this warning as well.
+> 
+> Link: https://github.com/ClangBuiltLinux/linux/issues/643
+> Link: https://github.com/llvm/llvm-project/commit/920890e26812f808a74c60ebc14cc636dac661c1
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 5d6fb560729a5d5554e23db8d00eb57cd0021083 ]
-
-clang-9 points out that there are two variables that depending on the
-configuration may only be used in an ARRAY_SIZE() expression but not
-referenced:
-
-drivers/dma/ste_dma40.c:145:12: error: variable 'd40_backup_regs' is not needed and will not be emitted [-Werror,-Wunneeded-internal-declaration]
-static u32 d40_backup_regs[] = {
-           ^
-drivers/dma/ste_dma40.c:214:12: error: variable 'd40_backup_regs_chan' is not needed and will not be emitted [-Werror,-Wunneeded-internal-declaration]
-static u32 d40_backup_regs_chan[] = {
-
-Mark these __maybe_unused to shut up the warning.
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Link: https://lore.kernel.org/r/20190712091357.744515-1-arnd@arndb.de
-Signed-off-by: Vinod Koul <vkoul@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/dma/ste_dma40.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/dma/ste_dma40.c b/drivers/dma/ste_dma40.c
-index dd3e7ba273ad0..0fede051f4e1c 100644
---- a/drivers/dma/ste_dma40.c
-+++ b/drivers/dma/ste_dma40.c
-@@ -142,7 +142,7 @@ enum d40_events {
-  * when the DMA hw is powered off.
-  * TODO: Add save/restore of D40_DREG_GCC on dma40 v3 or later, if that works.
-  */
--static u32 d40_backup_regs[] = {
-+static __maybe_unused u32 d40_backup_regs[] = {
- 	D40_DREG_LCPA,
- 	D40_DREG_LCLA,
- 	D40_DREG_PRMSE,
-@@ -211,7 +211,7 @@ static u32 d40_backup_regs_v4b[] = {
- 
- #define BACKUP_REGS_SZ_V4B ARRAY_SIZE(d40_backup_regs_v4b)
- 
--static u32 d40_backup_regs_chan[] = {
-+static __maybe_unused u32 d40_backup_regs_chan[] = {
- 	D40_CHAN_REG_SSCFG,
- 	D40_CHAN_REG_SSELT,
- 	D40_CHAN_REG_SSPTR,
--- 
-2.20.1
+Applied, thanks!
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190820134325.11825-1-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/636449fa-9bfb-2c1e-af20-2ddac83a2143%40iogearbox.net.
