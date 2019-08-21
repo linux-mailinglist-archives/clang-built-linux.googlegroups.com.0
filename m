@@ -1,136 +1,132 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBX446LVAKGQECFFCZQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCQ6FHMJVICRB5VC6LVAKGQE4HHEATI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 902A596E2F
-	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Aug 2019 02:20:49 +0200 (CEST)
-Received: by mail-vk1-xa40.google.com with SMTP id c199sf132596vkc.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 17:20:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566346848; cv=pass;
+Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0D77C96E6B
+	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Aug 2019 02:34:00 +0200 (CEST)
+Received: by mail-yb1-xb38.google.com with SMTP id d33sf356902yba.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 17:33:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566347638; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WYW7QzkEUqYtdTWBmvniQl+6d7gOsDfSR09xOMCGp8/2Tz8BHeq+Pc/PWAYIaEsUxj
-         PljFwnWfMJRv3zhukkJTv+jSyJp55g2Ds4wPceYeWMilUqO3m7R9vtadM7pzxXudcDmB
-         oQZE9E+LI1cIjfR9bM8fQCz6wUOD3UNP28r+qXzczHEAKiwMpnDjaRqyeM72jSWsnJkH
-         4S1LSK4X640/cAkE7w6S96fF7Hq4XAtuBsAJenjExMSVX2A2MMr0pe/GryV2xqxLySMd
-         FVJ6tt7i9m1rS5SNTQwDOtN3t2sWDOPwd4f9VWOg5rjGh4OvdhPyQyz96J2xJa4Oaueg
-         BLow==
+        b=1Ana496RobVhTHaenbBg8SNfsahRBsIpKQfteBb5VdqQ2drb2aKPbsNEo/6WNUMthe
+         Kw9Hz5WVg+KhLKkMWMdz6uD/H2ykRdY+zLIVGe9xv2W5fEzekUWBQ2K6dqdudV8wthxL
+         gN+BcAOAJh1OrUnE2yQHqVRAaWZGW5KQtyv3XyMcjmTgRHk2QsSCYROvaBr2NXX+0EnS
+         grMX7mEiD9VPKH+iQJFmfWFoFE5h8pENHwrAZC/e+pGXH1aSvy3/50kzvUpFJhcJmHCJ
+         F0Tdts1iALmIr3dMnWUy/kDj0G/ItvQFbL7kUOhenm35XAK/wDDKKiCgQG+WDaWDevPg
+         tDbQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=mFOKLnDcACyESsd5bKd4sd+Y/nlmyixFEoKC20fHQEg=;
-        b=lT8h3n4YWRLJf6nreatSbMDUXXI8wgezS8XRfeZsKH/IcBLl4wyxiwRzjFz1n59dxT
-         jIOfeHIAE8rt9GyB7saPWGVudhD9xXA0+EdEDDLkPpLztsI90WEFUXPA5t1PthN5ENAw
-         YboHZZl/QyNCSm+OmxksqCRVrWAcQdYxFsT+Wxb/6N+OBKHRI9v4j0ZGi1nGmIwRECTB
-         2pHOaiXhRv7rUiw8t7Bcrunq9RAbvWvCRQs+LO/iH/2q9pgXWrvDMtUJplIVuGhP9GM5
-         0sv60zBb7zNmKEv3tq33zd3y1bZchIS6wzlsxCUN4t0qRgREcg9VFKPVLVQzOMH8QK7P
-         FLNw==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=9sibdcV94xaVpeWn7uybidzX2Q8wzxhly3yHiNQjsvY=;
+        b=XcXvE8ICy1Yui0dwBLlvb+RFjGn2+QSMBcK5o7fQGijyIhxMBHQko2kQ0Jux6An984
+         fDIgxORlkU6CZsoSBZKXwSQdq1QSlVokt68b0LXfRKGovRAMF3CGc6PMrzDyFC7sMFYw
+         H3gTurJQElz+3PAiV3eqTd2ZB93DJCzAkxXvQtmSWmKXwVlM5CnkO//Tv9hYiXLAalg6
+         cs5d6dsi/+hg/c8pdPjY38mW3VMbWHGQK24htVS+LZZHlRc0JWNKAV6XN72s4WV6GaBr
+         4UrWFg+/0qTy3Rw6u5xr4v0hQyscsOdxXVPAKq2FX/wcU1UIeHVV5AcPYr+azD3zbI2C
+         rukg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.1 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@canb.auug.org.au header.s=201702 header.b="qn1uM/h0";
+       spf=pass (google.com: domain of sfr@canb.auug.org.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=sfr@canb.auug.org.au
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mFOKLnDcACyESsd5bKd4sd+Y/nlmyixFEoKC20fHQEg=;
-        b=Nm1oSthOAPBX8Nv0Z6lPPAJuB9scP4PMvs66vrx9DMysH66oBC1q5vjtG66jWzYrpe
-         jBaA/4Jsx8Pj4t9EOgx/YUQ19WIGVEvU+pzwBThHH5oQAEpjb/BRkmRjnesIjOvCSImz
-         ThsvuWmTvHgRiQWBTmGqp5h0U+QFnCxpu6Vcsudi+CnG1I18qHX5HLafle1sYkAiijCQ
-         1Q7Ro1M5V52Ed3qUmlg1HzO9j3gx7ujLng9bfTO//+jPt3C/s7RxoqvZTA52kl8acVnr
-         aSvqxnUFocZAQLK6QwvSl0roDZeWZudn+jHTv9QqgyqfrEY0J0JuOUUW87jTsFXJOJrw
-         U5Tw==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=9sibdcV94xaVpeWn7uybidzX2Q8wzxhly3yHiNQjsvY=;
+        b=Yr6bRLiNpfw2gcxjbmP2yQ9334W/83UgMzIf/dMBHY90QvCVVdFG+eTWuqY1mGMh8D
+         kvnq5xh65S33iBROXNktIAsZSVTzREU5ccuE0MhGNMDOPdXi5lto1iP69lzVc39L/nvf
+         853uo/bO1H9HBSULZ2hxYuzbDhW/GEY+MDc+XLMT+l4xSYwN0TTruKZgNQ2vDttt3U5H
+         AVA3tuUGE10oAzzIhdltrDbwFZKDySLe4l+n5qByxOrAf2C08rK1Y76F9Sve4gin8Sue
+         UFp7U5dlZ8G/r/OigvYTk2olw+RIJKspjJ/eU2+DXZSkbamIf+QJXtr7/dDGBhdGF5DR
+         UgnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mFOKLnDcACyESsd5bKd4sd+Y/nlmyixFEoKC20fHQEg=;
-        b=mlIr3Mt7nps28Wmvp8cQrQSwQb4hwJOQ484wBF7zykdLOgkOViNTMh8HQ1bTDKArE0
-         0UggOZYtnD5WwiPiKfmuOB9mmPqjyb8sTQxU2WvMjE/f0hZ5ccD+7eOZBfpA/UdYFks3
-         QV1OC4YnUvgD0CPRrk8xPd35qLV1soae1rkQQpfjSOWW5L8QxA03btKDXAZKZyVbNFP+
-         cT1iRPV868cQmmo1IApzqvHbIZnrAPYlRIRu4U+PMxgFca0g5FScGXTX7zudKy8669N+
-         yVtafCNWb+87g3do0usYk+nRxEPfapahUxAwQyOxzOdM4gpnNPV/PLRlwV8Wb4ldC0St
-         nvig==
+        bh=9sibdcV94xaVpeWn7uybidzX2Q8wzxhly3yHiNQjsvY=;
+        b=SG86tTpD7DAITLztrnvjMNsTTlXe0+CkTBIkhHb0ACAHqiCr4uRhzFhlNb2BCt2ndw
+         XcDAlTHLuTv0clsJe9glmvEKcLEqwH0YXbIz9z0yLaNbE1Eek0b2V7asBb/74RbgdBxX
+         WYdER1NcPsd6VRz38XKDh8VqKGJ5Hgf/c6HPXXkShvSsXeOgCq1QkNKbTWobSOpSK6Ee
+         MjDhHM2jZzc+eb3aiF3iBwhEw/XKBpChDhQLLvCFNK5/embtTT7lRq6bzjHYtyqtK37t
+         jkwmGLxXq1eJAZoVhiRQ39sOOaQzp6MCpj1yaOQv2Tu9cpKZ3Ln74PbIpSEQ6z8tHvEk
+         L2DA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUU1qIzBLIvcTu0AYczeyEZAMSt1ffVKWlPk2tohEISKhqMcE5L
-	ua7epA4gqsTKicifGIbwkS8=
-X-Google-Smtp-Source: APXvYqxENizkGB7ddPCS3sD9z/TsTwXU2lsh1y3HW2E2NHOBvAoTBNL00FArbkIRX8TvNy6BiJAYvg==
-X-Received: by 2002:a67:3192:: with SMTP id x140mr20207101vsx.185.1566346847240;
-        Tue, 20 Aug 2019 17:20:47 -0700 (PDT)
+X-Gm-Message-State: APjAAAXjSnYO+uR/rPgTB1/uC381ojgewBfhw0LkJSIHHJflFXugt1M8
+	E+WYuW85oI01eJiDFetFRU8=
+X-Google-Smtp-Source: APXvYqyF+nsM57zGOh+jvDIn7BXZRmM71rl5CoYK7s1nTJdOZfdmFXtH7WfpF1HkxLrdicTk/5/wGg==
+X-Received: by 2002:a81:2893:: with SMTP id o141mr22543406ywo.488.1566347638617;
+        Tue, 20 Aug 2019 17:33:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac5:c4cd:: with SMTP id a13ls11730vkl.0.gmail; Tue, 20 Aug
- 2019 17:20:46 -0700 (PDT)
-X-Received: by 2002:a1f:f282:: with SMTP id q124mr9229117vkh.4.1566346846879;
-        Tue, 20 Aug 2019 17:20:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566346846; cv=none;
+Received: by 2002:a25:23d6:: with SMTP id j205ls51878ybj.0.gmail; Tue, 20 Aug
+ 2019 17:33:58 -0700 (PDT)
+X-Received: by 2002:a25:7005:: with SMTP id l5mr23083671ybc.452.1566347638328;
+        Tue, 20 Aug 2019 17:33:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566347638; cv=none;
         d=google.com; s=arc-20160816;
-        b=JenrHnK1B2EXMdHKiuiJ3LWyUF+nv5uuOBmzyXHYDCKVCW9YatwTg08fAPNR2acWic
-         xK3GoNJY0FfJUQJQtxWrgC3DNk33nTOjI7Vu3icbldrxlRs2RRcqzNikKHQVNKFJmrkF
-         Aj0aopwVcrQS4SDXoW2Fpbdj4m82zkjvIgC4BgEWGQAhGj2FNC0prjYHLH8j00dov6oJ
-         u1k8j6C7VgEdF5/rYHOr8dNPZgrxlOWr8JAne+CO1wPIVtNMOx52CiWYxpqRkFeogvGB
-         ugiNFu4nL2xYItCGi8KL1utxUP8f1L8Yi+/jWB35/x7X5daXewRpBjv36lM6y9Npk9Rt
-         NJ/g==
+        b=mIiQk5s5gf16w9Byvql1S5Tn+GOlIpVO5Ky/drZ6Rw9OS5AEKK6GoW23R6IK1hEjUz
+         5/vAH6DAQo6mo+4MYuInVkxsR7ciIzjEmXJZGbxxzlhh4DXxEBR/tl/Ob91U9tS/9QBg
+         3zVwJNZaSoWDsDIhC2dN2GwY0NpiDq3Is+r2cAxpmcOmi60qmPMH8HSiwLNb57Jf2NUO
+         MpNX+fpulrhV8JP0xYdwjDfFoCXAASa6Q2w11fXNW2180Ss1tdyMuUDN/jOYe/KmaP6Z
+         epOnixDW0X7M0CrpIxCF603QjzHRB2+ED1yrYQPNAWOO/N5xGYl2KWTSmmTQbfZuonWR
+         gkvA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=M1E1noHBlltqN15nAQ0B4qIlBHT2yyKnlU3WW9WEyd8=;
-        b=PYPyubEmKGjDvm6OL5j2JcQCe+uc1T5iELJiQ4eml3lzxuVc0sWh+vuO3bZ08MWT4c
-         1IbvoMX1eq+mdKtyRsIcugQLz0WP+IuTOCVaxciF1LIS3OzXrnFh/KWonqeBgSMn3IN0
-         tb+K/54nmXcLhmFIn4To5spEuuTUkciM6rp+LSftCy91jIONQILrCclsJNn9aOTN1cUz
-         69w31rFtMNMAD0uTvCZWFlVqfclSh65OvkyJTcJt1ubg9X8ciu+Kt+JXOhbSMwhYwee6
-         5zGCPaFn24qguiQxCc2wq0eGrHXVxd4rBDWmpH9d++oJylz2lnu5IxpFb4oam7Nd+83C
-         zRgA==
+        h=mime-version:references:in-reply-to:message-id:subject:cc:to:from
+         :date:dkim-signature;
+        bh=J8GfTdFwJ9C+O4IwrNHQDMYXfm8ILydCToLj9BH+w7k=;
+        b=bxGYoc9yKtsQ7Yv7+ySlCCBdeZ7Bq+H9UPknRhSWQ6HNY2KCqC5hjnZ7RMkjiWhZdj
+         T1m/902sMsPdIdxlLBsrR6GB4ZB0ZLaOnpftQenmIIooIOVGYRZq1uq0SPl9MadHDxKy
+         FNYn8+np/YWWS38afAR/6MczKa+tUsCToCBplPZ2uWDeyHdTYGlF+Qjm02lA0YVHZV3a
+         e/wGMcGk2un2A5my0IawxQDsE/PGD5GTGTMQNfZx9/9/y3/aWDF+Og19HtN9ST5/Mpyx
+         77xBrEITOmHKjG4U+7IhggG+D+seBsGYAI+v9Gr/BqMPBwj98lQyIJHobOD9pkLosZr9
+         ZszQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.1 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0001.hostedemail.com. [216.40.44.1])
-        by gmr-mx.google.com with ESMTPS id a8si1138685vkm.0.2019.08.20.17.20.46
+       dkim=pass header.i=@canb.auug.org.au header.s=201702 header.b="qn1uM/h0";
+       spf=pass (google.com: domain of sfr@canb.auug.org.au designates 203.11.71.1 as permitted sender) smtp.mailfrom=sfr@canb.auug.org.au
+Received: from ozlabs.org (bilbo.ozlabs.org. [203.11.71.1])
+        by gmr-mx.google.com with ESMTPS id n40si1106924ywh.3.2019.08.20.17.33.57
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 20 Aug 2019 17:20:46 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.1 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.1;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay07.hostedemail.com (Postfix) with ESMTP id 3D9DE181D33FC;
-	Wed, 21 Aug 2019 00:20:46 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 10,1,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::,RULES_HIT:41:355:379:599:800:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:1963:2393:2553:2559:2562:2828:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3868:3871:3872:3873:3874:4321:4605:5007:8603:10004:10394:10400:10471:10848:11026:11232:11473:11658:11914:12043:12114:12297:12663:12740:12760:12895:13069:13255:13311:13357:13439:14181:14659:14721:21080:21451:21627:21789:21944:30054:30060:30070:30090:30091,0,RBL:23.242.196.136:@perches.com:.lbl8.mailshell.net-62.8.0.180 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:31,LUA_SUMMARY:none
-X-HE-Tag: crush78_7af148c290837
-X-Filterd-Recvd-Size: 3059
-Received: from XPS-9350.home (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
-	(Authenticated sender: joe@perches.com)
-	by omf11.hostedemail.com (Postfix) with ESMTPA;
-	Wed, 21 Aug 2019 00:20:44 +0000 (UTC)
-Message-ID: <edd8efd53fadd07992f804cc595c6ae5fdb60e73.camel@perches.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 Aug 2019 17:33:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sfr@canb.auug.org.au designates 203.11.71.1 as permitted sender) client-ip=203.11.71.1;
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 46CpYq4Hwhz9s4Y;
+	Wed, 21 Aug 2019 10:33:51 +1000 (AEST)
+Date: Wed, 21 Aug 2019 10:33:50 +1000
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Joe Perches <joe@perches.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Julia Lawall
+ <julia.lawall@lip6.fr>, "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
+ LKML <linux-kernel@vger.kernel.org>, clang-built-linux@googlegroups.com,
+ Linux Next Mailing List <linux-next@vger.kernel.org>
 Subject: Re: rfc: treewide scripted patch mechanism? (was: Re: [PATCH]
  Makefile: Convert -Wimplicit-fallthrough=3 to just -Wimplicit-fallthrough
  for clang)QUILT
-From: Joe Perches <joe@perches.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Julia Lawall
- <julia.lawall@lip6.fr>,  "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
- LKML <linux-kernel@vger.kernel.org>,  clang-built-linux@googlegroups.com,
- Linux Next Mailing List <linux-next@vger.kernel.org>
-Date: Tue, 20 Aug 2019 17:20:43 -0700
-In-Reply-To: <CAHk-=wgqQKoAnhmhGE-2PBFt7oQs9LLAATKbYa573UO=DPBE0Q@mail.gmail.com>
+Message-ID: <20190821103350.5db50b02@canb.auug.org.au>
+In-Reply-To: <14723fccc2c3362cc045df17fc8554f37c8a8529.camel@perches.com>
 References: <c0005a09c89c20093ac699c97e7420331ec46b01.camel@perches.com>
-	 <9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
-	 <CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
-	 <6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
-	 <4398924f28a58fca296d101dae11e7accce80656.camel@perches.com>
-	 <ad42da450ccafcb571cca9289dcf52840dbb53d3.camel@perches.com>
-	 <20190820092451.791c85e5@canb.auug.org.au>
-	 <14723fccc2c3362cc045df17fc8554f37c8a8529.camel@perches.com>
-	 <CAHk-=wgqQKoAnhmhGE-2PBFt7oQs9LLAATKbYa573UO=DPBE0Q@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.32.1-2
+	<9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
+	<CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
+	<6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
+	<4398924f28a58fca296d101dae11e7accce80656.camel@perches.com>
+	<ad42da450ccafcb571cca9289dcf52840dbb53d3.camel@perches.com>
+	<20190820092451.791c85e5@canb.auug.org.au>
+	<14723fccc2c3362cc045df17fc8554f37c8a8529.camel@perches.com>
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.1 is neither permitted nor denied by best guess record
- for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Content-Type: multipart/signed; boundary="Sig_/xAmH51UGfy068NWyuk2K7em";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
+X-Original-Sender: sfr@canb.auug.org.au
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@canb.auug.org.au header.s=201702 header.b="qn1uM/h0";
+       spf=pass (google.com: domain of sfr@canb.auug.org.au designates
+ 203.11.71.1 as permitted sender) smtp.mailfrom=sfr@canb.auug.org.au
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,46 +139,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 2019-08-20 at 16:28 -0700, Linus Torvalds wrote:
-> On Mon, Aug 19, 2019 at 5:08 PM Joe Perches <joe@perches.com> wrote:
-> > 2: would be Julia Lawall's stracpy change done
-> > with coccinelle: (attached)
-> 
-> I'm not actually convinced about stracpy() and friends.
-> 
-> It seems to be yet another badly thought out string interface, and
-> there are now so many of them that no human being can keep track of
-> them.
-> 
-> The "badly thought out" part is that it (like the original strlcpy
-> garbage from BSD) thinks that there is only one size that matters -
-> the destination.
-> 
-> Yes, we fixed part of the "source is also limited" with strscpy(). It
-> didn't fix the problem with different size limits, but at least it
-> fixed the fundamentally broken assumption that the source has no size
-> limit at all.
+--Sig_/xAmH51UGfy068NWyuk2K7em
+Content-Type: text/plain; charset="UTF-8"
 
-Umm, btw: have you actually looked at stracpy?
+Hi Joe,
 
-It's just a convenience wrapper around strscpy
-and dest must be a char array and its size
-does not need to be specified as a somewhat
-useless argument otherwise prone to misuse.
+On Mon, 19 Aug 2019 17:08:00 -0700 Joe Perches <joe@perches.com> wrote:
+>
+> A few examples:
+> 
+> 1: a patch just to MAINTAINERS done via bash script:
+> 
+> https://lore.kernel.org/lkml/904551f1f198ffac9a0f9c3c99aa966b0a7c76c1.camel@perches.com/
+> 
+> $ git grep -h "^[FX]:" MAINTAINERS | \
+>   cut -f2- | grep -vP '/$|\*|\?|\[' | \
+>   while read file ; do \
+>     if [ -d $file ]; then \
+>       sed -i -e "s@${file}\$@${file}/@" MAINTAINERS ; \
+>     fi ; \
+>   done
+> 
+> This one is trivial and takes almost no time.
 
-#define stracpy(dest, src)						\
-({									\
-	size_t count = ARRAY_SIZE(dest);				\
-	BUILD_BUG_ON(!(__same_type(dest, char[]) ||			\
-		       __same_type(dest, unsigned char[]) ||		\
-		       __same_type(dest, signed char[])));		\
-									\
-	strscpy(dest, src, count);					\
-})
+That one seems ok (except you need "s around the $file in [ -d $file ]).
+In this case, I guess the plan is that I run the script and commit the
+result using the commit message and authorship from the above mail ...
 
-I sent several patches for those misuses.
+(I would also replace the first three commands with
+
+sed -En 's/^[FX]:[[:space:]]*([^[*?]*[^[*?/])$/\1/p' MAINTAINERS
+
+/me puts away his yak razor :-))
+
+> 2: would be Julia Lawall's stracpy change done
+> with coccinelle: (attached)
+> 
+> This one takes quite a bit longer as it has to do a
+> cocci --all-includes scan of each source file and each
+> of its #include files.
+
+What do I need to apply that "patch"?
+
+-- 
+Cheers,
+Stephen Rothwell
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/edd8efd53fadd07992f804cc595c6ae5fdb60e73.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190821103350.5db50b02%40canb.auug.org.au.
+
+--Sig_/xAmH51UGfy068NWyuk2K7em
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAl1ckW4ACgkQAVBC80lX
+0GwFxwf+MPJLLRcIsd54FINNuPTxfuI+rg8YgOcfHqkefg7X12vpCauMoaukc2ZO
+BzhtoYN0OxezS7idZ4vivAwsC5QRf2i9MQKB3g+7nUiron+nGvyYXk/FKTIx+ScW
+n09WjpJ8gof/lDgPiCvmQdgGJslQatGYyNfn0W5gKeFbQMEs2SOWN+Ycir21tgEq
+5/Fs/2oHDKNTIMOoEEk/Ictc+z5tXiWYoTW8I43+c2OZHRIai0KXIIUT+FuBWPTV
+xsjQqZMDuLJkwKbea2Hhut0w+xKNdGNPTcpQ8rmjSFniREhHUfDWj/HV3k9AeVy4
+QBs9fxzZ32bQxTs/mkU+Gu+uQUHMuQ==
+=IU9A
+-----END PGP SIGNATURE-----
+
+--Sig_/xAmH51UGfy068NWyuk2K7em--
