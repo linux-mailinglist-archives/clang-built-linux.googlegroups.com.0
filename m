@@ -1,126 +1,138 @@
-Return-Path: <clang-built-linux+bncBCN73WFGVYJRBPNE6LVAKGQERET42VA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBOFF6LVAKGQEQC3BDXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AE6E96E6E
-	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Aug 2019 02:37:18 +0200 (CEST)
-Received: by mail-ot1-x33b.google.com with SMTP id a26sf324875otl.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 17:37:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566347837; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id C47AA96E70
+	for <lists+clang-built-linux@lfdr.de>; Wed, 21 Aug 2019 02:39:20 +0200 (CEST)
+Received: by mail-wr1-x43a.google.com with SMTP id s18sf268702wrt.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 20 Aug 2019 17:39:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566347960; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XoWrCa1TjU0X4Z9YSm06g/WOaxNh5bAAPDaFMTQS4gNgYZUy1XqdK7rKtHRkPqY8KY
-         WBZYJ114QqXc10byyRYG1ixkpq5F7qLCOMRQa56rt409YAip8KNIPaxFvaQTlK2pDQ0F
-         ZK4aIjKxDPz7ukbCNfX5QaeQIQDUE3HT/s7IunvlbLhp3iDiJ9ydbYc8Iq+IrHXbxaeo
-         sz71oyFQvxmhpV1xwH3s8EQ8vhC34a8I+i+0vKnbnQbC6VKnnesNLLZjtaUCSEcabFqo
-         QNLdRgTYxF4IQ3K52sUBOVKyKXQ6j3zUWMdsH1Bhs9Or988N8rV+b15+rrg1MtmAL/VR
-         CAmQ==
+        b=QIlxXNRMnzuoOWOpqF4F8KnHY9F0ZfFCZu8r5mzJdlHzHVnXxD1vaCKQhk4vzhiw+f
+         ylHopkcYDOiOenRp4baC+zMO260Yd31IVdywLN8NihmX6hCy+OS53GClNQbtTOoQgT/k
+         5BUoNX6JGAvgGTcNhHLJv8m1znB9tC5TDncOMxC2xT/7rZ1ego2+q+0g7usJrx2bWccl
+         gYGQps9Uz/n0XnkMbI+bK7RB7ex4NZi7WdG4rVL6Dww+W9puT3mek3ZlWsVi3QBIDrtC
+         Yq9OUrXXHW1LOOm3gNRCkJd33LOSehIucc7c9O7GUCWsjBd+roL0RMY63klFroGSJE7F
+         PDww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
-         :in-reply-to:date:references:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=hYm7j3+BodHOZQeFFANGpao+b7Bbb248o6tUWdtzLaU=;
-        b=R5Hu3/LVWLFPkNgtPUjPM3ql/pWN3ccnlYygwcga6AIW+DGYd6fElmfwEIofl1EZ5c
-         LGRb96X4CkC62k5uQ1IsUPLHahl4CsC92HbY10guq+y0t9uSan1LFzW83R4tRwVCEA1v
-         9V5UqWsAH1RGSQjpR+yplUpE2U3MSgxhYTJe7tWXj8KlzBvb+J9dl7ZtiDhkXAj42A/N
-         r2soRLx9roAD+eAXMTphv9sCfknlI5UeP0xkcODtkdDi21HQoK6bLUOY0+BOmtT0WEBL
-         kYFBGjdjeg7VrAPCqwTWAKUJpRAX5hEOYo8EEKtur9wnl9QlKj63PobWTP6HsTVFqkWr
-         cr3w==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=0JqTcE1byf/Ufm2qU7w7EosFtdf90Av+076iTYgQkuk=;
+        b=Fj8WKoF1bE2e6vWZu93cPWhzFvdo0q7oyFzz4F5PnuxUgECChs2iiP6zvF4c/b47PB
+         aRLjtw2gsgqcrwkt/Y1vXtDCaMm1rB3VV/mmCFWJGLRza6gPU7r6QleWGYODA4tVdReB
+         HNIUQCqhZxY8Kd42bnFcJ5cbcwBceLh9hn2Qsp9g5edLkRgoEZBSOLk4T3zX2P/idHUN
+         SQBDHcyoqXbIC4RMKbmtnybkKc4fpzUw3KRu4OVwaPBXcp1iQ5+aZFD22U9qZnyYPSKo
+         PpN1giQb7vAX/3/RdywDAChOxSOFqR3KJW6KDMIDkChrPyz2nR2FjIruP0aiTBohZI5y
+         6faQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of ying.huang@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=ying.huang@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@linux-foundation.org header.s=google header.b=QRGPOX2J;
+       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:references:date:in-reply-to:message-id
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=hYm7j3+BodHOZQeFFANGpao+b7Bbb248o6tUWdtzLaU=;
-        b=VZ/VIP8xkOUHjbTlf8UO+LyXVzJEwTSRRbJNqV/Qhmm4NPD4pBbvsulwVihvbjO5Tc
-         YdlOUOcd4O4gzzLERyVJGtGcaPPPaChuGwbdK14k2VJEqQu/DPy7ZxqUlyRCAcDsGGoT
-         dxMtjYwVallSbJQKa9gbkV9jcuLlq9TNWhh2T86HI074ZOinKs5XliwdjJDsxkz4VTMQ
-         ed0N2OgmNZMv406h9dTKISLI/PRuaFGn9DVdk/0YibCla+5/SoyGErQQ5gjrEKIT6IzP
-         gxA1OX+d+P8s4xAo2bDGzGMwGEvGVfft2sdY3vq4L62swar3UmPTtNw+KKELHAka+Jx0
-         4Rrw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0JqTcE1byf/Ufm2qU7w7EosFtdf90Av+076iTYgQkuk=;
+        b=QE4luQkHZDJu8qQgBRtioHieeixbPasK5/3KJhoDtXVuNYic4bYn4H3OTkS76kPYtq
+         24U7R90kOlmo0bJ6DvLIDUkkYX9bZ5GybCp8jV9yLJL8gwhO14JORa/URgYeBaIUZx0u
+         ekphL8ii24ar62wy1yDQcbJ6BcxOPendGqeyfzzT/Vp4KyzpruLOVtNceNsGq17SWnfr
+         XTdCqFzNxwelENvq4Z6EnBIGBhbHbbZJu8dqTUvULUrYM90HJdWF07k5VmTYCcgpVIDU
+         ob4lNxavi4zwIESUWEEZT4+aLhZPxIOUsjHw5NQ47QfWgWQ/6VsFiF0SiqFUVj4Ihq1c
+         UfXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:references:date
-         :in-reply-to:message-id:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hYm7j3+BodHOZQeFFANGpao+b7Bbb248o6tUWdtzLaU=;
-        b=qmxM2qkO+zz48OZkzsLsPwiWyCHmSaLohSHWYHdafJIR72Jh3aVN78IFfLskoEtVSR
-         FX3CnaQMDN9geVS01jX0wWnayyIO5q1tCaAKETF3F01W9s/s4QiGjppiiwtniS3YzGIq
-         n1rcXjW6zYzECK7zjy8i0LkZIPkIttF9/HdgF2Ah1sSBhL8qJT9Zzbwu3RzGxo1PoiNz
-         pzjXRkEeGcdna5jYLgd2mVGEiihYtk9iJ6tI2mHLrjryoqrXOmMZDjXDPaSG+tj+cYDv
-         sYfVwzowb1R6hgDOpl3j3mfi3BzApw2RuizoFAqOR6kN1yb1OLqsWRJTtx4JOCCwxLLk
-         ILjQ==
+        bh=0JqTcE1byf/Ufm2qU7w7EosFtdf90Av+076iTYgQkuk=;
+        b=jEOdKS/krfKI8/Y0ynqKegbHPPLYfY4df1weXMVELE+8Lf1MbFmmCgebrPMGhfKSEl
+         weOIHGr6rXjuILNPn3w+Go+WD3w/DHkq1J2zIubSjY6RvdBfsqgRBU0CTn1QJgnYtcyQ
+         pcN/jlyKWTOEUOkRx5GjdyORI0/Uq2L8tds7DpPcP105LYiepdQi+ekC7XbVuVSiBVz2
+         wKi5Q140763OtrAKdmMPZv7wNPJYLywKcpJ/KsQaXisbUyCRCgov2kXaCIj54akl65zA
+         x8z5hl8EiLb8GF6JXmDmoyK/Lx18GwfUtEVsAZWP0xuNAWvgAwUPq+IlhwhcvblbLkeW
+         BDoQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW0bq/Mp+jcXMlfJgcQOJd8TwvzWOB60QKUKkASh4SYGxh+dTFX
-	lg00umFCN7Ex4S20zEi5jJo=
-X-Google-Smtp-Source: APXvYqzoF5rn3Esu6bVX3nrKkY5n7itvXeA4sPMOx8YpN1FeBIVzyK8g5oz9wtRRX0luv7XQRG24sA==
-X-Received: by 2002:a9d:66ce:: with SMTP id t14mr24059817otm.265.1566347837088;
-        Tue, 20 Aug 2019 17:37:17 -0700 (PDT)
+X-Gm-Message-State: APjAAAWZ12w/jk6g2/Lmc/5w3WX1yihpYfO5C9Y1gnuq1WSduxnBTCSi
+	hgFf18tMIIuoazNYBZt8IxU=
+X-Google-Smtp-Source: APXvYqxQEHpVmnA47Z1ecde1bG5g75Y+XOYHfbAztK3pbYlFi2srHCnVy7rlaK3jc7k6hQQyX6Y0FA==
+X-Received: by 2002:a05:600c:2102:: with SMTP id u2mr2531137wml.105.1566347960301;
+        Tue, 20 Aug 2019 17:39:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:961:: with SMTP id 88ls123251otp.8.gmail; Tue, 20 Aug
- 2019 17:37:16 -0700 (PDT)
-X-Received: by 2002:a9d:4703:: with SMTP id a3mr25103267otf.183.1566347836542;
-        Tue, 20 Aug 2019 17:37:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566347836; cv=none;
+Received: by 2002:a1c:4e0c:: with SMTP id g12ls268171wmh.4.gmail; Tue, 20 Aug
+ 2019 17:39:19 -0700 (PDT)
+X-Received: by 2002:a05:600c:ce:: with SMTP id u14mr2470516wmm.5.1566347959649;
+        Tue, 20 Aug 2019 17:39:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566347959; cv=none;
         d=google.com; s=arc-20160816;
-        b=NdeaPes0Dk1N4xyvKOlHiLFzXOELx/dokfT7VbGG1cxke8zX8kTSBGAsQg5U5tzv0M
-         mEb53eLS805pRuZ/wdGvaxIqcIlzAOgUp0FZ4CQm4yUhz+4SNTWIuvYFuwz+3mX6wBtG
-         dSenVdpSpThfG/yBCJDSSeDHDLKesonas0Tu9WlMPrrOF9ybwS9KOPbsDG3Pp+3OLPyO
-         jOn0HVEcI7OTqMVePXk35StLZvY2A1HAUHJ4FKqRJHz7ClEkcwZ9w8OXMRkV3XsDPPOp
-         w4/bjr1aWRDCxwjGbvO7JLLcK5PvdciYJ2fOHly3iRfvoovwQGE/s+BG93zOfmkUSQTe
-         suhA==
+        b=vJK/Xqpyt+Nx+h5/ScoRzKmikHDLOm2Ipv9DtGw/elc8y0mzC29x5+GybTWNTA29Oo
+         Kj1y+Ssr//8m2F4pacO7m6oH6D/QMCUmWw+aNHhjnT/YZMhqcvMcaPlV5j+II7ngdUzu
+         aw4GWZqmbcgrLekZ3aCTBYcwrEp22dTmgOwOnarQQd/cJEMlvNdddicKxC6310YHDWAL
+         nzgattxysgBkyqYpiH9QYq0D03a8biOENY+bLT5RSRpLodNRv62DnTbLw5cnDPmiWmFO
+         Ldq3gzKYwHXQyLj+A2ar+ORPe5Ygu0Uuvgnto3JQE7LPHP8SGkVkcxBlDWdJSy7UXD4W
+         WDaQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:message-id:in-reply-to:date:references
-         :subject:cc:to:from;
-        bh=9zn+jjOs8Qpu/XhJF+IyF4PAYpAHIDF/IJA//7IGor4=;
-        b=N6JbCcUwcT7QtEATHpzvRByend/TzHythKueIYAoHK36WMf60dtCgy48/ZIs2zO2gv
-         8LaUcnaf6ub5DtTPaRuYhUGqRiMd53Img8cHbYMqRZi4WQm6SCY65k7kEPrNhClkoBkw
-         ru+Kd/YJGVZ40GHH0UnVhFyMOYTRbAKCgUbX/K4k0ipfKMSETFeprGqscEkQSLbFSd+z
-         WjK4Ugc1IJP/y1UheKeZE7Bx9Q9Qk0P9dE3dksvR3V33QOS/v/krPL87b4qowALQK5NP
-         eW6LnBX9dGxICwgKZzJMlZHy804m83SKJjzoBmWbb9JG8WLEzhzWI8mHzbn0P3+gmwP7
-         5rRw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=4EOq9mDgEfmNv0YrKNDUErGyd5ODwotD5rgw4r8IYbE=;
+        b=tBYHFll0/3XNSBVXPyjEgf8k2jxm6OtRlQodphcdu6VRXwYgNF7vQV6kl53ofhErmo
+         w85cyxf5E8G8ewnC4cQSJXTBzX73POexKMiyA3E+Ugt+lrcCvmOca+q9GPzljpBwBAs7
+         IPOyNAHU6TG1W+/zqbYupvlxUFlO4ndh0/L32B9RecwPkvQN1pzTLHom6VDFG9jSNGLr
+         7/7uGikhFRgA68AkawlwKihoNx60whkLCXLJOHZ0yG0X+Vez3BHrpkr2fLhYnJ5pn2tl
+         TTK1WSP9O2el6auBy4Ky2DzWp4Ib2AwBDBq+4nmgA7pqF0XXeFqn0zzeAq2enUvBznXj
+         lHhg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of ying.huang@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=ying.huang@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id i5si835072otp.4.2019.08.20.17.37.15
+       dkim=pass header.i=@linux-foundation.org header.s=google header.b=QRGPOX2J;
+       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+Received: from mail-lf1-x143.google.com (mail-lf1-x143.google.com. [2a00:1450:4864:20::143])
+        by gmr-mx.google.com with ESMTPS id p4si67719wme.2.2019.08.20.17.39.19
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 20 Aug 2019 17:37:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ying.huang@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 20 Aug 2019 17:37:14 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,410,1559545200"; 
-   d="scan'208";a="180867706"
-Received: from yhuang-dev.sh.intel.com (HELO yhuang-dev) ([10.239.159.29])
-  by orsmga003.jf.intel.com with ESMTP; 20 Aug 2019 17:37:12 -0700
-From: "Huang\, Ying" <ying.huang@intel.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: <kbuild@01.org>,  clang-built-linux <clang-built-linux@googlegroups.com>,  kbuild test robot <lkp@intel.com>
-Subject: Re: [yhuang:autonuma-r0.2b 19/21] kernel/sched/fair.c:2646:13: warning: comparison of distinct pointer types ('typeof (nr_page / 8) *' (aka 'long *') and 'typeof (10240) *' (aka 'int *'))
-References: <201908162308.F6BiRZEg%lkp@intel.com>
-	<CAKwvOd=2b0KbpAk+wgE1ymzmXWNSBZyz7JoF0eHtiOJ7df597Q@mail.gmail.com>
-Date: Wed, 21 Aug 2019 08:37:10 +0800
-In-Reply-To: <CAKwvOd=2b0KbpAk+wgE1ymzmXWNSBZyz7JoF0eHtiOJ7df597Q@mail.gmail.com>
-	(Nick Desaulniers's message of "Tue, 20 Aug 2019 09:44:20 -0700")
-Message-ID: <87blwjicax.fsf@yhuang-dev.intel.com>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/26.1 (gnu/linux)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 Aug 2019 17:39:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::143 as permitted sender) client-ip=2a00:1450:4864:20::143;
+Received: by mail-lf1-x143.google.com with SMTP id 62so429338lfa.8
+        for <clang-built-linux@googlegroups.com>; Tue, 20 Aug 2019 17:39:19 -0700 (PDT)
+X-Received: by 2002:ac2:5394:: with SMTP id g20mr18012870lfh.112.1566347958525;
+        Tue, 20 Aug 2019 17:39:18 -0700 (PDT)
+Received: from mail-lj1-f173.google.com (mail-lj1-f173.google.com. [209.85.208.173])
+        by smtp.gmail.com with ESMTPSA id j23sm3028645ljc.6.2019.08.20.17.39.17
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 Aug 2019 17:39:17 -0700 (PDT)
+Received: by mail-lj1-f173.google.com with SMTP id x4so478810ljj.6
+        for <clang-built-linux@googlegroups.com>; Tue, 20 Aug 2019 17:39:17 -0700 (PDT)
+X-Received: by 2002:a2e:9702:: with SMTP id r2mr15740638lji.84.1566347956990;
+ Tue, 20 Aug 2019 17:39:16 -0700 (PDT)
 MIME-Version: 1.0
+References: <c0005a09c89c20093ac699c97e7420331ec46b01.camel@perches.com>
+ <9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
+ <CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
+ <6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
+ <4398924f28a58fca296d101dae11e7accce80656.camel@perches.com>
+ <ad42da450ccafcb571cca9289dcf52840dbb53d3.camel@perches.com>
+ <20190820092451.791c85e5@canb.auug.org.au> <14723fccc2c3362cc045df17fc8554f37c8a8529.camel@perches.com>
+ <CAHk-=wgqQKoAnhmhGE-2PBFt7oQs9LLAATKbYa573UO=DPBE0Q@mail.gmail.com> <9d12995c5e7e41fc5d8ba202f76a2cf854183245.camel@perches.com>
+In-Reply-To: <9d12995c5e7e41fc5d8ba202f76a2cf854183245.camel@perches.com>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 20 Aug 2019 17:39:01 -0700
+X-Gmail-Original-Message-ID: <CAHk-=wi6bEnBy11HJBbgPsG3-ctE6Zyi2+3cnozjMAafSUBAaQ@mail.gmail.com>
+Message-ID: <CAHk-=wi6bEnBy11HJBbgPsG3-ctE6Zyi2+3cnozjMAafSUBAaQ@mail.gmail.com>
+Subject: Re: rfc: treewide scripted patch mechanism? (was: Re: [PATCH]
+ Makefile: Convert -Wimplicit-fallthrough=3 to just -Wimplicit-fallthrough for clang)QUILT
+To: Joe Perches <joe@perches.com>
+Cc: Stephen Rothwell <sfr@canb.auug.org.au>, Julia Lawall <julia.lawall@lip6.fr>, 
+	"Gustavo A. R. Silva" <gustavo@embeddedor.com>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux@googlegroups.com, 
+	Linux Next Mailing List <linux-next@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ying.huang@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of ying.huang@intel.com designates 192.55.52.93 as
- permitted sender) smtp.mailfrom=ying.huang@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+X-Original-Sender: torvalds@linux-foundation.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linux-foundation.org header.s=google header.b=QRGPOX2J;
+       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
+ 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,58 +145,132 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi, Nick,
-
-Thanks a lot for you comments.
-
-Nick Desaulniers <ndesaulniers@google.com> writes:
-
-> Hi Huang, see below:
+On Tue, Aug 20, 2019 at 4:37 PM Joe Perches <joe@perches.com> wrote:
 >
-> On Fri, Aug 16, 2019 at 8:39 AM kbuild test robot <lkp@intel.com> wrote:
->>
->> CC: kbuild-all@01.org
->> TO: Huang Ying <ying.huang@intel.com>
->>
->> tree:   yhuang/autonuma-r0.2b
->> head:   c0d77303b0c04d55f2430f5c8007a9262529682d
->> commit: 31f0657a6ce249f478d6797783c4c20dc1952cb7 [19/21] autonuma: Enhance histogram aggregation and threshold updating
->> config: arm64-defconfig (attached as .config)
->> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
->> reproduce:
->>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->>         chmod +x ~/bin/make.cross
->>         git checkout 31f0657a6ce249f478d6797783c4c20dc1952cb7
->>         # save the attached .config to linux build tree
->>         make.cross ARCH=arm64
->>
->> If you fix the issue, kindly add following tag
->> Reported-by: kbuild test robot <lkp@intel.com>
->>
->> All warnings (new ones prefixed by >>):
->>
->>    kernel/sched/fair.c:1452:34: warning: signed shift result (0x280000000) requires 35 bits to represent, but 'int' only has 32 bits [-Wshift-overflow]
->>                    end = start + (MAX_SCAN_WINDOW << 22);
->>                                   ~~~~~~~~~~~~~~~ ^  ~~
+> > So I'm putting my foot down on yet another broken string copy
+> > interface from people who do not understand this fundamental issue.
 >
-> Not sure what was intended, but the math looks wrong.
-
-Yes.  Will fix this.
-
->> >> kernel/sched/fair.c:2646:13: warning: comparison of distinct
->> > pointer types ('typeof (nr_page / 8) *' (aka 'long *') and 'typeof
->> > (10240) *' (aka 'int *')) [-Wcompare-distinct-pointer-types]
->>                            if (nr < max(nr_page / 8, 10240))
->>                                     ^~~~~~~~~~~~~~~~~~~~~~~
+> I think you are mistaken about the stracpy limits as
+> the only limit is not the source size but the dest.
 >
-> Probably should be `10240L`.
+> Why should the source be size limited?
 
-Yes.  Will change this.
+You just proved my point. You don't understand that sources can also
+be limited, and the limit on a source can be *smaller* than the limit
+of a destination.
 
-Best Regards,
-Huang, Ying
+Did we learn *NOTHING* from the complete and utter disaster that was strlcpy()?
+
+Do you not understand why strlcpy() was unacceptably bad, and why the
+people who converted strncpy() to it introduced real bugs?
+
+The fact is, it's not just the destination that has a size limit. The
+source often has one too.
+
+And no, the source is not always guaranteed to be NUL-terminated, nor
+is the source buffer guaranteed to be larger than the destination
+buffer.
+
+Now, if you *know* that the source is smaller than the destination
+size, you can do:
+
+    len = strnlen(src, srclen);
+    memcpy(dst, len);
+    dst[len] = 0;
+
+and that's not wrong, but that works only when
+
+ (a) you actually do the above
+
+ (b) you have no data races on src (or you at least only require that
+'dst' is NUL-terminated, not that 'len' is necessarily the correct
+length of the result
+
+ (c) you actually know as the programmer that yes, the source is
+definitely smaller than the destination.
+
+and honestly, people don't get _any_ of that right.
+
+For one thing, the buffer sizes of the source and destination may be
+two different things and some #define. It's hard to tell that one is
+always smaller than the other (or that they are always the same size).
+So then to get it right in the *general* case, you may need to do
+something like
+
+     if (srcsize < dstsize) {
+          .. do the above ..
+     } else {
+          strlcpy(dst,src,dstsize);
+     }
+
+do you see the reason?
+
+Do you see why strlcpy() is only safe to do when the allocation size
+of the source buffer is at least as big as the allocation size of the
+destination buffer?
+
+For example, I just grepped for some patterns, and I can find code
+like this in the kernel
+
+     name_len = strnlen(fileName, PATH_MAX);
+     name_len++;  /* trailing null */
+     strncpy(pSMB->fileName, fileName, name_len);
+
+where pretty much everything is wrong. The comment is fundamentally
+wrong, and even spells "nul" wrong. Christ.
+
+Here's another one:
+
+     /* will be less than a page size */
+     len = strnlen(link, ocfs2_fast_symlink_chars(inode->i_sb));
+     kaddr = kmap_atomic(page);
+     memcpy(kaddr, link, len + 1);
+
+and notice how this time at least the comment is (hopefully) correct.
+But the code is wrong once again, because it doesn't actually do the
+correct pattern I showed above, it does a "memcpy(len+1)" instead.
+Bzzt. WRONG!
+
+What I think the code *wants* to do is
+
+     kaddr = kmap_atomic(page);
+     copy_string(
+             // destination and destination size limit
+             kaddr, PAGE_SIZE,
+             // source and source size limit
+             link, ocfs2_fast_symlink_chars(inode->i_sb)
+     );
+
+ie the destination has one size, and the source has another size, and
+the source may or may not be NUL-terminated.
+
+And then the programmer wouldn't have needed the comment, and wouldn't
+have needed to make sure that yes, ocfs2_fast_symlink_chars() is
+guaranteed to be less than PAGE_SIZE.
+
+Again, the code we actually _have_ in the kernel is not sensible. It
+doesn't actually nul-terminate the destination, despite clearly
+_trying_ to (note that "len+1" in the memcpy).
+
+Now, it's possible that it doesn't care about properly nul-terminating
+things. And it's possible; that the source is always nul-terminated to
+begin with unless the filesystem is corrupted. But the code clearly
+_tries_ to do something, and fails.
+
+Because copying a string is complicated, particularly when the
+allocations for source and destination may be entirely different.
+
+On a happier note, I actually found a correct code case too. Our
+"kstrndup()" function seems to actually be at a first glance entirely
+bug-free, and actually takes a limited source string size, and gives
+you back a nul-terminated destination string of a different size. Of
+course, that's a simple case, because the size of the destination is
+something that that function actually controls, so getting it right is
+actually somewhat simpler.
+
+                Linus
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87blwjicax.fsf%40yhuang-dev.intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3Dwi6bEnBy11HJBbgPsG3-ctE6Zyi2%2B3cnozjMAafSUBAaQ%40mail.gmail.com.
