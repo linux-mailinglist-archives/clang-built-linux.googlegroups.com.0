@@ -1,116 +1,137 @@
-Return-Path: <clang-built-linux+bncBCR5PSMFZYORB25477VAKGQERHVBUTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUO3AHUWUIRBHPO77VAKGQEGPSHBDY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3c.google.com (mail-yw1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id E42EF9AFC4
-	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Aug 2019 14:39:08 +0200 (CEST)
-Received: by mail-yw1-xc3c.google.com with SMTP id h22sf6339536ywk.15
-        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Aug 2019 05:39:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566563947; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 96A199B1D5
+	for <lists+clang-built-linux@lfdr.de>; Fri, 23 Aug 2019 16:24:30 +0200 (CEST)
+Received: by mail-qk1-x73b.google.com with SMTP id o4sf9126644qkg.11
+        for <lists+clang-built-linux@lfdr.de>; Fri, 23 Aug 2019 07:24:30 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566570269; cv=pass;
         d=google.com; s=arc-20160816;
-        b=izscF3a0ATMLOOBBm5dkGZMHAE3t0+jHWg4K/Qm6orvzbGYdCgcpYo3CfGzGn3aPV3
-         RS9/hf8VGnydN3vdn80rigldZ5AWduX8uqGFP2T49imgiV9mE5Qxni8MUhL4l+kViEUS
-         QlXTrMxWR1fvqOqDdTlCJj19B7JGHaEcpPwOAKh9RJ/Jm7VHZBWLmvnrfV+pv5rcsv/Z
-         +tgOUx6zxQxX0u2d4ZmLF3rspoH0Ct9ThwOYF9azboy8eb/28RpyPmdNRSyCsmxzufyP
-         iag3SBJ28mAifD46yCXWCwzx4ml4GhYDxXTlc2GWIvEIUZaACnNA5vBxDNHQkRHLpXEW
-         jDDQ==
+        b=VVqYmWdOO/PiNfkf4AgTD05mDOiBHq/n50Vq5SNdYMujtTHySG7P0hWKEFYuIe8g+1
+         zNtNBG6I9YFaeCcnlOPy7hEQwl93usyk/Gj/of14UEKye4kuaZKsQTFD0Osydx3Y7oUf
+         nTMCB39Ei8B/MnFkHolpceioynS6FP8LWmJKc1ccEuNTymYh5dofCzx5uJ8wbX/uE6iU
+         GiE6F5qu07Euxe+JkiGpPgUsyoP82EzU4xHxqCfe1KgjUhTj4QqrEU5iYHPHocXOCSp0
+         YkRVQcWLf7qsT8QpKVRiXarlFGf0QkikItPgWbw+t+/ZdO1qZ3DcXtEv/HVubHlard2u
+         0oxQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=NbcrgcFRgT2019+gARdNx0/jsLWSScIkvlMUXCzO9uQ=;
-        b=BlizPzSanB+GClaCmFkM/QmWj6Dp1bKHBEVpqKJTsEwjGto9vTOT3wPo83ZhbVBpia
-         9fbkM4HwqljbRQSsWet7O1kzvMjLUVOA+8peqprmHj/zwohJlJsd7xp+cTDLyETw+IoB
-         y3WslpaPw4ocmsZWA6fVPztfvDJNwKuIvgLsZpIenlofIN0AtXYXYWPEBc+SoCmdv6ax
-         smo6y9te4Q8OdVi6VHjbVma/cMPGXnhzt3ieiDMM6hW2AgLkfV+z/HsZICWD8Hj/4z07
-         2gJwJBqaUfd87ds9MdehJwtrU3VXYDljZmDOBAFpP6BLam6UaaiuLiAslurV/AWHvDIh
-         kKKA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=tqrHPI2xD8LFuTa8LI8W8EDdh1T0jl4puFTazGBb+rE=;
+        b=pNG/3Q1k7GF4vV8RP6ucFmtLO4HOrmwgeMX5A/0gVC/FCJjH9IRhL3/42gSLDKK9Nw
+         Gbe8DV75aEJIX3byRyoJ+t0uGhCUwSe1JWgDzAcc6X64hkez65QL6NunOGBKMlMlq183
+         YodmN9njdImkgfk+2v5+bUrggK7+VDTt9n+1EXkwtoeLjHVidyh0dWp8nIgqRhoOkU+3
+         nNUgPBgKlvONm41AKmwUvPCUYvX7y46Zda+3na1FrFwcaZtNl+1LhPM6LqI2u9ub7vDd
+         ylBorkVrFLovOZavvS5KRyle0iceOQ+WUY+whuXYj7IYUfx/XrnsO3XMGguRsoLgki/y
+         Z1Gg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+       dkim=pass header.i=@ziepe.ca header.s=google header.b="ZI/ikWc8";
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=jgg@ziepe.ca
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NbcrgcFRgT2019+gARdNx0/jsLWSScIkvlMUXCzO9uQ=;
-        b=MoJ8CNh+MP2HT/Prz1gJQujGTwvDCZS6lGBBkgWqManh93TiXwO/0n6i52sqszpvo+
-         Q5TNSEiYac9w9H94FyfTPLOE64wJ/wzgLUXt4mn6oIp466Zx4eUULFLGskVpbBVtFkWr
-         OItfAxzfZbukzRcVgyBW4T5hAPO6K+DM91CF37JxBdPYcbiX4yAEMrN6PqjNKD48nzhB
-         nK0gsYf+7P2oUV+EC3NKlWG/Vphz5nLQINOF83BzInouOYqctKyntd1LtOG+4LuQNHF0
-         L4c2/bwOCdaytNbowToQ+jdTQ5eJzhNurdN4m+Z7tvW8kYYVtM774Fk0mxfi1+LEhMKP
-         7j7A==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=tqrHPI2xD8LFuTa8LI8W8EDdh1T0jl4puFTazGBb+rE=;
+        b=hHFAFi98N+PHD4iEHsdGfKI0HXICNkpVAgMEvWI43Gr23+qPxSG4u9hxcYAbvplXjf
+         lHA7mwId90uD8DLDlu8gUPKZM9MytWXuLwBtUBPN98BJH0iENAaIim5E1amksiEOs4iF
+         Dh/2E6D6k9gAl/4qdjRg/7uIANSSTuPGWArPhwDGUeUQQ53q0Mu94lJfzWHa7wLLrPo4
+         SQgF3a5gFYrHXFXLr8481Fvs9ln/RyUd0i+N0DGyobZ6Kr3uHfdHuHDSM2B7hea9eWTQ
+         0vUBbRUUEVAsbeAHWOm+gXRPcizJ/QDa/9CCBwWSvx/Cj7d2bWDp4/ie02HdY5kDYdtN
+         azEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=NbcrgcFRgT2019+gARdNx0/jsLWSScIkvlMUXCzO9uQ=;
-        b=KcTLz0q9RJSlIXlAOAPoFRt1VqtXX9BSMDAehX1VSvfaFcz++hPK3HEUPO7tdJN+8d
-         7Nijnhj6exKRRmPk2LiTAp12kgpBUq08IoCmIb73YcBpvNFQKQK3Ygv4FzyqCd4x8NPU
-         PHa/2C4UJ1wx0SbuLILdzS6gFDAQK5zk79j58AnghYRLAq8LZbF4cDVE1jaoN7VewmEa
-         azop8/M4uCEpVdPwvUC4a1FcJr0wuE0ezY7pBhinYHUhtaxfOVf0mfLHC7FeVs+P4bli
-         FsSuPYAOSi9w6Q2nE8XmfEUN8Z5lyLl/h+aNHsd/Z2ylN2T4ZNTff+ugunsTSKn3sPb4
-         L9/Q==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=tqrHPI2xD8LFuTa8LI8W8EDdh1T0jl4puFTazGBb+rE=;
+        b=UPTC7duIf7M457OUOS3MnLLVlJtfjCV2ydQCuo//6C+ATpOJ0iUk65l2lIshEkqz6a
+         g8HafGJqma2I6pSPMaCDZW9sIIv34lV+s0fbpD/NODOOoC92gS2ULmrPe2ahHqLRRyhF
+         t8j6QQgiOCdEu+KErrw19kK5ljEsJBvS+91a63t8j/K6GzE9y78KpfuK0nCadrmiqOKh
+         x4WYLF3hxMJ0Km5wCzm+b3Sk0HdC527rZ7J/uTH1/EVWaPoTeTfk0DqIwXiHI9Y4Koq1
+         QxU3ONJpp8re3i6zIofMm+atG8m8QeERyZzaWozJyBTZG7OPFJdNQ36In1iqsMrY0YJP
+         gL0A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUpn9j2106RNdGzh0Tj+8UyKRofjS6pkeEHchIazI+cqw225C8c
-	eo9l97CPt2O8UqTuWiIn3B8=
-X-Google-Smtp-Source: APXvYqzvrTqu5CJQm9yYMksZ09et1Em0CYybUzSJkkHKdhyGrnFh1NfG/3CThZE7KdSBU0cscnkyrw==
-X-Received: by 2002:a25:dac8:: with SMTP id n191mr2735523ybf.161.1566563947433;
-        Fri, 23 Aug 2019 05:39:07 -0700 (PDT)
+X-Gm-Message-State: APjAAAVCnccyPs72TvoROW3vOSzJlO4DLFuRh/t2pqsAaU04sN5dMcEK
+	hUHGkqClKTejtzAM8v1p3EM=
+X-Google-Smtp-Source: APXvYqxJ6QRxZgCoZ1UtztgI97QurVcsw7jLpLvZBSlDVHGb9ibq+yzQbyKp3lXTSEaWPMs3ORq9Dw==
+X-Received: by 2002:a37:649:: with SMTP id 70mr4232623qkg.208.1566570269552;
+        Fri, 23 Aug 2019 07:24:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:a087:: with SMTP id x129ls2348536ywg.14.gmail; Fri, 23
- Aug 2019 05:39:07 -0700 (PDT)
-X-Received: by 2002:a81:4cc:: with SMTP id 195mr3480489ywe.236.1566563947122;
-        Fri, 23 Aug 2019 05:39:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566563947; cv=none;
+Received: by 2002:a37:4a96:: with SMTP id x144ls3297712qka.15.gmail; Fri, 23
+ Aug 2019 07:24:29 -0700 (PDT)
+X-Received: by 2002:a05:620a:6cf:: with SMTP id 15mr4089878qky.98.1566570269125;
+        Fri, 23 Aug 2019 07:24:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566570269; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ksc7e4YvrFqF65nEk59r/r1gq2DqP5ZxWJzahpsLu8X0O7E3sIoNPJspnR5RNaMe/P
-         RajjhCoytts3J91UlPeX4b5MiO1Ylmelx0+9LWgipGT+cZOxf9Te3OMR/2ycSEBF9Yo/
-         Djn/nP6F9o8E+Geg9dlkyEmdyeD2zjLAxSR61vlGLcq5/+0uu39tCaO6XfzyeQ1sTooM
-         0ze4dGN7Uwts/aynBqcIee6CD+ByJvrPHK1SVtVqymqQxBT8JDPU/GzOHaFYITkfEhrd
-         omGp/V1Ytiz8ft0nUY1mKEXdycIkbYb8fdi6fk35SCoQHpMilG4BFg/WjdQwf98Qk+1M
-         BerA==
+        b=VuzgJeCPO0p6sr222vkJMMT/HRIziFBJi1+usWPlv62Q9PEV5k6ps4+lpOCvICdsrI
+         uDN6QQtJKfvwJSwoUzgHFzBKEw4vlD6t3oRqkCjBM5jMHrP8A1Me8zfPmUu2zHB0sOTY
+         3B9IJ1CT0eOmVoTYEX8StNPLDxs2dt2cktTyCvwAsFT8aJWpwxpAtJiLUQ53L2ofk2oy
+         m+5qhLAc4f+SnIC3DYTjzEx4pMn0fQbiKUTrSa5toMWgvGw6w5CVs1LRFK5sehJUmgu3
+         DD9KmER+y1yYhtzUp/OBEONAuvuGd1O9JXXflvAlr5kTsR0I/thi8YFKJ2GUY5NxTEhc
+         x51w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from;
-        bh=IM7pmUdZovr1T7IefljRsCyhTSAHVchf5IRq3S+blfQ=;
-        b=Dfg15sDRDIZuN90uAtp8P4eZR3x2ndKpfuychNDHDxw9P+jlERIDaEM9XsHDh322bz
-         /pQC0R1hZoXheI9IPE53WPjf79+OHGwBuRGiKF9v9fDWL6UXKx6joNWMq1Y3+YJHBrDG
-         GXlsX36Pm/oma+VDZ2jU/tQTCU3OXhI7+paBVImqTD9+XKB9e7eSVSrml1+MG7NyEgbR
-         /QJGKt7xF9zmIOPWuPWI+46Jb5/GELgBnMqnXPjz9/OSXMZ0wOahqK2+nGXsrrUwGhQd
-         BzrifX+M8CZslQeZGXvbUoi4gYjsj6BW6FmYe9b9eU7mfASTxGodMAsVR9dOZkMp5GuO
-         Tqtg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=RZxP956OaKkH9WuNbAGH2Ye8Wz/eWZMm/eoqzNqOOhE=;
+        b=GWMzVBz6PkHoxOSIwVIW4GZ1gainDbfD+5jGUN4sFn/gWLIeACYn8WPeIxLNe78Jgn
+         aj3U/QU9hNtEVDHWEp3ZNjcw987xYvWD+6bzCD3ji5NWaoKcuTYPok4Tr/DipGHMEe3z
+         88bzqfG4ACMUV7io2eN2xSI2HHo8iMgBpa4Vh+Da4ZfLtXJ+rpE7Ib2aBR1OSbPk7RQJ
+         hSEaqcWOyBuGo0HqDd8CTuDP7XfFvTzS1Kb11cW+dWFBa66rU7UPgahrLmHng1wLMao+
+         DZn9O+KKC101zqShAe/tY608zFRUpVB+z/zRmAInR845bh3RNMejRtb2NYN2v86o4L1n
+         EgIQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) smtp.mailfrom=mpe@ellerman.id.au
-Received: from ozlabs.org (bilbo.ozlabs.org. [2401:3900:2:1::2])
-        by gmr-mx.google.com with ESMTPS id n40si124107ywh.3.2019.08.23.05.39.06
+       dkim=pass header.i=@ziepe.ca header.s=google header.b="ZI/ikWc8";
+       spf=pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=jgg@ziepe.ca
+Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
+        by gmr-mx.google.com with ESMTPS id c79si186148qke.4.2019.08.23.07.24.29
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 Aug 2019 05:39:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as permitted sender) client-ip=2401:3900:2:1::2;
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 46FLYc46Kfz9s7T;
-	Fri, 23 Aug 2019 22:39:00 +1000 (AEST)
-From: Michael Ellerman <mpe@ellerman.id.au>
-To: Nick Desaulniers <ndesaulniers@google.com>, Philip Li <philip.li@intel.com>, Chen Rong <rong.a.chen@intel.com>
-Cc: Joel Stanley <joel@jms.id.au>, kbuild@01.org, clang-built-linux <clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>
-Subject: Re: arch/powerpc/include/asm/current.h:32:43: error: unknown register name 'r2' in asm
-In-Reply-To: <CAKwvOd=8ouR_mCbK=ZtQ6ojJtWnNpvMkyj=gL1xkpADmnPg0aQ@mail.gmail.com>
-References: <201908201102.0U21yPsV%lkp@intel.com> <CAKwvOd=sfYbVT=eY=MGX-aKVuVrXW2o_=pSvTG7r2EY4dsG9NA@mail.gmail.com> <8736hs5zrp.fsf@concordia.ellerman.id.au> <CAKwvOd=8ouR_mCbK=ZtQ6ojJtWnNpvMkyj=gL1xkpADmnPg0aQ@mail.gmail.com>
-Date: Fri, 23 Aug 2019 22:38:57 +1000
-Message-ID: <87r25c3vku.fsf@concordia.ellerman.id.au>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 Aug 2019 07:24:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
+Received: by mail-qk1-x744.google.com with SMTP id d23so8345090qko.3
+        for <clang-built-linux@googlegroups.com>; Fri, 23 Aug 2019 07:24:29 -0700 (PDT)
+X-Received: by 2002:a37:a142:: with SMTP id k63mr4187227qke.487.1566570268736;
+        Fri, 23 Aug 2019 07:24:28 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-156-34-55-100.dhcp-dynamic.fibreop.ns.bellaliant.net. [156.34.55.100])
+        by smtp.gmail.com with ESMTPSA id j11sm773547qtn.20.2019.08.23.07.24.28
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Fri, 23 Aug 2019 07:24:28 -0700 (PDT)
+Received: from jgg by mlx.ziepe.ca with local (Exim 4.90_1)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1i1AUN-0007Wh-LJ; Fri, 23 Aug 2019 11:24:27 -0300
+Date: Fri, 23 Aug 2019 11:24:27 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Bernard Metzler <BMT@zurich.ibm.com>,
+	Doug Ledford <dledford@redhat.com>, linux-rdma@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] rdma/siw: Use proper enumerated type in map_cqe_status
+Message-ID: <20190823142427.GD12968@ziepe.ca>
+References: <20190710174800.34451-1-natechancellor@gmail.com>
+ <OFE93E0F86.E35CE856-ON00258434.002A83CE-00258434.002A83DF@notes.na.collabserv.com>
+ <20190711081434.GA86557@archlinux-threadripper>
+ <20190711133915.GA25807@ziepe.ca>
+ <CAKwvOdnHz3uH4ZM20LGQJ3FYhLQQUYn4Lg0B-YMr7Y1L66TAsA@mail.gmail.com>
+ <20190711171808.GF25807@ziepe.ca>
+ <20190711173030.GA844@archlinux-threadripper>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mpe@ellerman.id.au
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of mpe@ellerman.id.au designates 2401:3900:2:1::2 as
- permitted sender) smtp.mailfrom=mpe@ellerman.id.au
+Content-Disposition: inline
+In-Reply-To: <20190711173030.GA844@archlinux-threadripper>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: jgg@ziepe.ca
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@ziepe.ca header.s=google header.b="ZI/ikWc8";       spf=pass
+ (google.com: domain of jgg@ziepe.ca designates 2607:f8b0:4864:20::744 as
+ permitted sender) smtp.mailfrom=jgg@ziepe.ca
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -123,415 +144,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nick Desaulniers <ndesaulniers@google.com> writes:
-> On Thu, Aug 22, 2019 at 8:25 PM Michael Ellerman <mpe@ellerman.id.au> wrote:
->>
->> Hi Nick,
->>
->> For some reason I can't find the original mail from the buildbot,
->> despite it saying it sent it me?
->
-> Ah, haha, yeah sorry, I should have mentioned that 0day bot is just
-> sending our mailing list the Clang reports as a trial run.
+On Thu, Jul 11, 2019 at 10:30:30AM -0700, Nathan Chancellor wrote:
+> On Thu, Jul 11, 2019 at 02:18:08PM -0300, Jason Gunthorpe wrote:
+> > On Thu, Jul 11, 2019 at 10:16:44AM -0700, Nick Desaulniers wrote:
+> > > On Thu, Jul 11, 2019 at 6:39 AM Jason Gunthorpe <jgg@ziepe.ca> wrote:
+> > > >
+> > > > On Thu, Jul 11, 2019 at 01:14:34AM -0700, Nathan Chancellor wrote:
+> > > > > Maybe time to start plumbing Clang into your test flow until it can get
+> > > > > intergrated with more CI setups? :) It can catch some pretty dodgy
+> > > > > behavior that GCC doesn't:
+> > > >
+> > > > I keep asking how to use clang to build the kernel and last I was told
+> > > > it still wasn't ready..
+> > > >
+> > > > Is it ready now? Is there some flow that will compile with clang
+> > > > warning free, on any arch? (at least the portion of the kernel I check)
+> > > 
+> > > $ make CC=clang ...
+> > > 
+> > > Let us know if you find something we haven't already.
+> > > https://clangbuiltlinux.github.io/
+> > > https://github.com/ClangBuiltLinux/linux/issues
+> > 
+> > What clang version?
+> > 
+> > Jason
+> 
+> You'll need clang-9 for x86 because of the asm-goto requirement (or a
+> selective set of reverts for clang-8) but everything else should be
+> good with clang-8:
 
-Haha, OK, at least it's not me going crazy then. I even checked my spam
-folder! :P
+The latest clang-9 packages from apt.llvm.org do seem to build the
+kernel, I get one puzzling warning under RDMA:
 
-I'll assume this is some sort of config problem for now until we know
-more from the lkp folks.
+drivers/infiniband/hw/hfi1/platform.o: warning: objtool: tune_serdes()+0x1f4: can't find jump dest instruction at .text+0x118a
 
-cheers
+And a BPF one:
 
->> Nick Desaulniers <ndesaulniers@google.com> writes:
->> > +Michael and Joel,
->> > I thought this would be a bug in Clang not recognizing the register
->> > names, but my simple reproducer errors in GCC as well:
->> > https://godbolt.org/z/ivGCXo
->>
->> That link is compiling with both clang and gcc for x86_64?
->>
->> If I flip them to ppc64le it works for me:
->>
->>   https://godbolt.org/z/_mZlm7
->>
->> So I'm not sure what's going on here :)
->
-> Oh man, sorry, bad link (mine).  Indeed if I set `-target
-> powerpc-linux-gnu` (or `-target powerpc64-linux-gnu`) for clang than
-> it's recognized.
->
->>
->> My best guess is that the clang they are using is actually targeting
->> x86. That would explain the register name not being understood and also
->> the BIG/LITTLE endian mismatch.
->
-> Indeed, Rong and Philip, is the ppc backend disabled in your build of
-> clang per chance?  If you're configuring your clang build with cmake,
-> please triple check `LLVM_TARGETS_TO_BUILD` has `PowerPC` in the `;`
-> separated list.
->
-> https://llvm.org/docs/CMake.html#llvm-specific-variables
->
-> You can also check `llc --version` to check that the backend is
-> enabled.  Though PPC is a default target, IIRC, in LLVM so I think
-> you'd need to be setting `LLVM_TARGETS_TO_BUILD` without `PowerPC` in
-> the first place to observe that.
->
-> Can you triple check if that is the problem, or something else?
->
-> Otherwise maybe an allnoconfig build is messing something up?
-> make.cross looks gcc specific, I think there's still a TODO to include
-> a link to the clang one for clang reports?
->
->>
->> cheers
->>
->> > Though also the line:
->> >    include/linux/byteorder/little_endian.h:8:2: warning: inconsistent
->> > configuration, CONFIG_CPU_BIG_ENDIAN is set [-W#warnings]
->> > makes me think nothing here is valid.
->> >
->> > On Mon, Aug 19, 2019 at 8:17 PM kbuild test robot <lkp@intel.com> wrote:
->> >>
->> >> CC: kbuild-all@01.org
->> >> CC: linux-kernel@vger.kernel.org
->> >> TO: Michael Ellerman <mpe@ellerman.id.au>
->> >>
->> >> Hi Michael,
->> >>
->> >> FYI, the error/warning still remains.
->> >>
->> >> tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/torvalds/linux.git master
->> >> head:   5f97cbe22b7616ead7ae267c29cad73bc1444811
->> >> commit: ed4289e8b48845888ee46377bd2b55884a55e60b Revert "powerpc: slightly improve cache helpers"
->> >> date:   3 weeks ago
->> >> config: powerpc-allnoconfig (attached as .config)
->> >> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
->> >> reproduce:
->> >>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->> >>         chmod +x ~/bin/make.cross
->> >>         git checkout ed4289e8b48845888ee46377bd2b55884a55e60b
->> >>         # save the attached .config to linux build tree
->> >>         make.cross ARCH=powerpc
->> >>
->> >> If you fix the issue, kindly add following tag
->> >> Reported-by: kbuild test robot <lkp@intel.com>
->> >>
->> >> All errors (new ones prefixed by >>):
->> >>
->> >>    In file included from kernel/bounds.c:10:
->> >>    In file included from include/linux/page-flags.h:10:
->> >>    In file included from include/linux/bug.h:5:
->> >>    In file included from arch/powerpc/include/asm/bug.h:128:
->> >>    In file included from include/asm-generic/bug.h:18:
->> >>    In file included from include/linux/kernel.h:12:
->> >>    In file included from include/linux/bitops.h:19:
->> >>    In file included from arch/powerpc/include/asm/bitops.h:243:
->> >>    In file included from include/asm-generic/bitops/le.h:6:
->> >>    In file included from arch/powerpc/include/uapi/asm/byteorder.h:12:
->> >>    include/linux/byteorder/little_endian.h:8:2: warning: inconsistent configuration, CONFIG_CPU_BIG_ENDIAN is set [-W#warnings]
->> >>    #warning inconsistent configuration, CONFIG_CPU_BIG_ENDIAN is set
->> >>     ^
->> >>    1 warning generated.
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:14:
->> >>    In file included from include/linux/compat.h:10:
->> >>    In file included from include/linux/time.h:6:
->> >>    In file included from include/linux/seqlock.h:36:
->> >>    In file included from include/linux/spinlock.h:51:
->> >>    In file included from include/linux/preempt.h:11:
->> >>    In file included from include/linux/list.h:9:
->> >>    In file included from include/linux/kernel.h:12:
->> >>    In file included from include/linux/bitops.h:19:
->> >>    In file included from arch/powerpc/include/asm/bitops.h:243:
->> >>    In file included from include/asm-generic/bitops/le.h:6:
->> >>    In file included from arch/powerpc/include/uapi/asm/byteorder.h:12:
->> >>    include/linux/byteorder/little_endian.h:8:2: warning: inconsistent configuration, CONFIG_CPU_BIG_ENDIAN is set [-W#warnings]
->> >>    #warning inconsistent configuration, CONFIG_CPU_BIG_ENDIAN is set
->> >>     ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:14:
->> >>    In file included from include/linux/compat.h:10:
->> >>    In file included from include/linux/time.h:6:
->> >>    In file included from include/linux/seqlock.h:36:
->> >>    In file included from include/linux/spinlock.h:51:
->> >>    In file included from include/linux/preempt.h:78:
->> >>    In file included from ./arch/powerpc/include/generated/asm/preempt.h:1:
->> >>    In file included from include/asm-generic/preempt.h:5:
->> >>    In file included from include/linux/thread_info.h:21:
->> >> >> arch/powerpc/include/asm/current.h:32:43: error: unknown register name 'r2' in asm
->> >>    register struct task_struct *current asm ("r2");
->> >>                                              ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:14:
->> >>    In file included from include/linux/compat.h:10:
->> >>    In file included from include/linux/time.h:6:
->> >>    In file included from include/linux/seqlock.h:36:
->> >>    In file included from include/linux/spinlock.h:445:
->> >>    In file included from include/linux/atomic.h:7:
->> >> >> arch/powerpc/include/asm/atomic.h:138:10: error: unknown register name 'xer' in asm
->> >>            : "cc", "xer");
->> >>                    ^
->> >>    arch/powerpc/include/asm/atomic.h:154:10: error: unknown register name 'xer' in asm
->> >>            : "cc", "xer");
->> >>                    ^
->> >>    arch/powerpc/include/asm/atomic.h:171:10: error: unknown register name 'xer' in asm
->> >>            : "cc", "xer");
->> >>                    ^
->> >>    arch/powerpc/include/asm/atomic.h:187:10: error: unknown register name 'xer' in asm
->> >>            : "cc", "xer");
->> >>                    ^
->> >>    arch/powerpc/include/asm/atomic.h:262:10: error: unknown register name 'xer' in asm
->> >>            : "cc", "xer", "memory");
->> >>                    ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:87:11: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>                    return (set->sig[3] | set->sig[2] |
->> >>                            ^        ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:87:25: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>                    return (set->sig[3] | set->sig[2] |
->> >>                                          ^        ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:103:11: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>                    return  (set1->sig[3] == set2->sig[3]) &&
->> >>                             ^         ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:103:27: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>                    return  (set1->sig[3] == set2->sig[3]) &&
->> >>                                             ^         ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:104:5: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>                            (set1->sig[2] == set2->sig[2]) &&
->> >>                             ^         ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:104:21: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>                            (set1->sig[2] == set2->sig[2]) &&
->> >>                                             ^         ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:147:1: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigorsets, _sig_or)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:128:8: note: expanded from macro '_SIG_SET_BINOP'
->> >>                    a3 = a->sig[3]; a2 = a->sig[2];                         \
->> >>                         ^      ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:147:1: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigorsets, _sig_or)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:128:24: note: expanded from macro '_SIG_SET_BINOP'
->> >>                    a3 = a->sig[3]; a2 = a->sig[2];                         \
->> >>                                         ^      ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:147:1: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigorsets, _sig_or)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:129:8: note: expanded from macro '_SIG_SET_BINOP'
->> >>                    b3 = b->sig[3]; b2 = b->sig[2];                         \
->> >>                         ^      ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:147:1: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigorsets, _sig_or)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:129:24: note: expanded from macro '_SIG_SET_BINOP'
->> >>                    b3 = b->sig[3]; b2 = b->sig[2];                         \
->> >>                                         ^      ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:147:1: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigorsets, _sig_or)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >> --
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:153:1: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigandnsets, _sig_andn)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:129:24: note: expanded from macro '_SIG_SET_BINOP'
->> >>                    b3 = b->sig[3]; b2 = b->sig[2];                         \
->> >>                                         ^      ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:153:1: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigandnsets, _sig_andn)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:130:3: note: expanded from macro '_SIG_SET_BINOP'
->> >>                    r->sig[3] = op(a3, b3);                                 \
->> >>                    ^      ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:153:1: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_BINOP(sigandnsets, _sig_andn)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:131:3: note: expanded from macro '_SIG_SET_BINOP'
->> >>                    r->sig[2] = op(a2, b2);                                 \
->> >>                    ^      ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:177:1: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_OP(signotset, _sig_not)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:164:27: note: expanded from macro '_SIG_SET_OP'
->> >>            case 4: set->sig[3] = op(set->sig[3]);                          \
->> >>                                     ^        ~
->> >>    include/linux/signal.h:176:24: note: expanded from macro '_sig_not'
->> >>    #define _sig_not(x)     (~(x))
->> >>                               ^
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:177:1: warning: array index 3 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_OP(signotset, _sig_not)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:164:10: note: expanded from macro '_SIG_SET_OP'
->> >>            case 4: set->sig[3] = op(set->sig[3]);                          \
->> >>                    ^        ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:177:1: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_OP(signotset, _sig_not)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:165:20: note: expanded from macro '_SIG_SET_OP'
->> >>                    set->sig[2] = op(set->sig[2]);                          \
->> >>                                     ^        ~
->> >>    include/linux/signal.h:176:24: note: expanded from macro '_sig_not'
->> >>    #define _sig_not(x)     (~(x))
->> >>                               ^
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:15:
->> >>    include/linux/signal.h:177:1: warning: array index 2 is past the end of the array (which contains 2 elements) [-Warray-bounds]
->> >>    _SIG_SET_OP(signotset, _sig_not)
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/signal.h:165:3: note: expanded from macro '_SIG_SET_OP'
->> >>                    set->sig[2] = op(set->sig[2]);                          \
->> >>                    ^        ~
->> >>    arch/powerpc/include/uapi/asm/signal.h:18:2: note: array 'sig' declared here
->> >>            unsigned long sig[_NSIG_WORDS];
->> >>            ^
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:21:
->> >>    include/linux/mman.h:133:9: warning: division by zero is undefined [-Wdivision-by-zero]
->> >>                   _calc_vm_trans(flags, MAP_LOCKED,     VM_LOCKED    ) |
->> >>                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/mman.h:111:21: note: expanded from macro '_calc_vm_trans'
->> >>       : ((x) & (bit1)) / ((bit1) / (bit2))))
->> >>                        ^ ~~~~~~~~~~~~~~~~~
->> >>    include/linux/mman.h:134:9: warning: division by zero is undefined [-Wdivision-by-zero]
->> >>                   _calc_vm_trans(flags, MAP_SYNC,       VM_SYNC      );
->> >>                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    include/linux/mman.h:111:21: note: expanded from macro '_calc_vm_trans'
->> >>       : ((x) & (bit1)) / ((bit1) / (bit2))))
->> >>                        ^ ~~~~~~~~~~~~~~~~~
->> >>    In file included from arch/powerpc/kernel/asm-offsets.c:23:
->> >>    In file included from include/linux/suspend.h:5:
->> >>    In file included from include/linux/swap.h:9:
->> >>    In file included from include/linux/memcontrol.h:13:
->> >>    In file included from include/linux/cgroup.h:26:
->> >>    In file included from include/linux/kernel_stat.h:9:
->> >>    In file included from include/linux/interrupt.h:11:
->> >>    In file included from include/linux/hardirq.h:9:
->> >>    In file included from arch/powerpc/include/asm/hardirq.h:6:
->> >>    In file included from include/linux/irq.h:20:
->> >>    In file included from include/linux/io.h:13:
->> >> >> arch/powerpc/include/asm/io.h:152:1: error: constraint 'Z' expects an integer constant expression
->> >>    DEF_MMIO_IN_X(in_be16, 16, lhbrx);
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    arch/powerpc/include/asm/io.h:109:23: note: expanded from macro 'DEF_MMIO_IN_X'
->> >>                    : "=r" (ret) : "Z" (*addr) : "memory");                 \
->> >>                                        ^~~~~
->> >>    arch/powerpc/include/asm/io.h:153:1: error: constraint 'Z' expects an integer constant expression
->> >>    DEF_MMIO_IN_X(in_be32, 32, lwbrx);
->> >>    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> >>    arch/powerpc/include/asm/io.h:109:23: note: expanded from macro 'DEF_MMIO_IN_X'
->> >>                    : "=r" (ret) : "Z" (*addr) : "memory");                 \
->> >>                                        ^~~~~
->> >> >> arch/powerpc/include/asm/io.h:157:1: error: invalid output constraint '=Z' in asm
->> >>    DEF_MMIO_OUT_X(out_be16, 16, sthbrx);
->> >>    ^
->> >>    arch/powerpc/include/asm/io.h:117:5: note: expanded from macro 'DEF_MMIO_OUT_X'
->> >>                    : "=Z" (*addr) : "r" (val) : "memory");                 \
->> >>                      ^
->> >>    arch/powerpc/include/asm/io.h:158:1: error: invalid output constraint '=Z' in asm
->> >>    DEF_MMIO_OUT_X(out_be32, 32, stwbrx);
->> >>    ^
->> >>    arch/powerpc/include/asm/io.h:117:5: note: expanded from macro 'DEF_MMIO_OUT_X'
->> >>                    : "=Z" (*addr) : "r" (val) : "memory");                 \
->> >>                      ^
->> >>    31 warnings and 10 errors generated.
->> >>    make[2]: *** [arch/powerpc/kernel/asm-offsets.s] Error 1
->> >>    make[2]: Target '__build' not remade because of errors.
->> >>    make[1]: *** [prepare0] Error 2
->> >>    make[1]: Target 'prepare' not remade because of errors.
->> >>    make: *** [sub-make] Error 2
->> >>    16 real  4 user  6 sys  67.00% cpu   make prepare
->> >>
->> >> vim +/r2 +32 arch/powerpc/include/asm/current.h
->> >>
->> >> 584224e4095d8a include/asm-powerpc/current.h David Gibson 2005-11-09  28
->> >> 584224e4095d8a include/asm-powerpc/current.h David Gibson 2005-11-09  29  /*
->> >> 584224e4095d8a include/asm-powerpc/current.h David Gibson 2005-11-09  30   * We keep `current' in r2 for speed.
->> >> 584224e4095d8a include/asm-powerpc/current.h David Gibson 2005-11-09  31   */
->> >> 584224e4095d8a include/asm-powerpc/current.h David Gibson 2005-11-09 @32  register struct task_struct *current asm ("r2");
->> >> 584224e4095d8a include/asm-powerpc/current.h David Gibson 2005-11-09  33
->> >>
->> >> :::::: The code at line 32 was first introduced by commit
->> >> :::::: 584224e4095d8abcf2bef38efacc291be9a44c20 [PATCH] powerpc: Merge current.h
->> >>
->> >> :::::: TO: David Gibson <david@gibson.dropbear.id.au>
->> >> :::::: CC: Paul Mackerras <paulus@samba.org>
->> >>
->> >> ---
->> >> 0-DAY kernel test infrastructure                Open Source Technology Center
->> >> https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
->> >
->> >
->> >
->> > --
->> > Thanks,
->> > ~Nick Desaulniers
->
->
->
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+kernel/bpf/core.o: warning: objtool: ___bpf_prog_run()+0xd: sibling call from callable instruction with modified stack frame
+
+Jason
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87r25c3vku.fsf%40concordia.ellerman.id.au.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190823142427.GD12968%40ziepe.ca.
