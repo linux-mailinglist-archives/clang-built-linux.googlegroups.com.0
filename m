@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBTMGQTVQKGQEOX644JQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBTUOQTVQKGQEPGEHCSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83f.google.com (mail-qt1-x83f.google.com [IPv6:2607:f8b0:4864:20::83f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3958F9BCC8
-	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 11:28:47 +0200 (CEST)
-Received: by mail-qt1-x83f.google.com with SMTP id b9sf12290694qti.20
-        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 02:28:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566638926; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id BB1E49BCD7
+	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 11:45:51 +0200 (CEST)
+Received: by mail-ot1-x340.google.com with SMTP id t10sf6471650otb.3
+        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 02:45:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566639950; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Zoz4eXLs2dvNAS0saLKuIy+eM+N9vdGhnuHCaOh6Gmpml+NcMBJ7anfdiyILXAcn69
-         v0NoeO6AU/koVdHbYsxlKrqTQ2siKqVEsN9Cv12VyC1tiOgkpRLrOE7gzzdi/l5VCqFG
-         hP2nAGWpWF9X0SC9v28zgWWhWe5C7iwz79RT7Pt5edOPOrZ8Fi/NbNOAHf63VY013P8y
-         nOuSKaUIMJAx1J7b1w7kc8Krw63cD082RXeeB1WxpQ7ujK9u3mweGFdyUwebk4R0eHhM
-         ZW6A8u8xa6oBuQWMLqfF9cQyCRU2uvlIL6Omyw5HJRSPJKoChoYNjsz5nB3y7sWYk+NV
-         toVw==
+        b=nVWTmRIhvYDSoEPNz4UVs6f72ScykH0z4Y+5tnafpTIyMDLNU7hA0ORHjEwjvbLchs
+         MIfXl8BZQpyMlfZ5wGQOzxcX/FOCg4GOcEaFz5p2/WEUura+7PBQKG0paLYybq2291eI
+         VoRAafFC5nryD4rxPEd7m7EgakqK22ajOhIznhfj1tQt4X9VUICEEH6Kzepht36nAVFQ
+         pbLSEd/safzp2v1cB17DBSYrJmDNnlD6qPidmyrj3HZo8miGq4fHY34s4yB8NTFO758w
+         I2qaEzSv3SmNfs2KRUF4G3/uaYIGjKyfinprquH6PL4T3GbAsW9PFW1QWEBiEh3bCETQ
+         4UgA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=vARO2WlveBGaLJlDd3DqygcpjtUDrELnRebRh2gG904=;
-        b=YWaCrdQvUdSWeyUEqH2Vokmhow0JTTyVwc/sow2Z2NuXoJtMLgSRVoxMv3JQyzovPi
-         C/Y/eyV+M5Ky+Xq0uXtTLZLwr66CijYa4Vl8FlBnxxJ6yKFreHtjd4fG+g2y73xlDV2Z
-         yYvb1hoTATGFrfGeFIcfTUkiNRJ/C12gc56PIDbPuE/+vP4nLB41eTlDFyD6mqYAopTQ
-         6dll0zy6WxotODifAATU/DnApTv/96LtWhKDmeQZzW9X27loYfiJfx9HGO6igpMAWAGH
-         N3Z74u2tzD+AlRa/SJdNABVFHX13GExKp8ocEpfTGq9fNa6hjWhKtCAXVTZRGpCWjAjV
-         x39w==
+        bh=01Isadx86QlBo/Xt7NDWLtPfsCmi9a/iGkGnhXpgL10=;
+        b=LjVRgoEuhEg5LMahVIBTBGEigzCMg/g5ZpAFtX/acAMAhXEDWObDGZ2WZ0E38+pvpZ
+         qYnn1tGHoMpzYwj+rWpSNSEdDqTijx+y7UXhSlJDSqkOOt+pVEdzS5dIdowYYxBd+V0k
+         N8ElMXPsrGBJAruz3olQ/CbywfvEL7D5L27mRub8gLOkyNzsfynhAAKCQ8NvdFIMUASz
+         9KqSTMDNGfUBkEFOINPSPRlomy/SF7x45D+1l+0A0igJ3q+RFjK8qIc/zq9MXHm2UV+F
+         E3eakexuequSou8UcokKTODQfRE0sLaF81TT49Mw2eSHCulQ90de0prqY+JMz6VwHxH5
+         SMyQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vARO2WlveBGaLJlDd3DqygcpjtUDrELnRebRh2gG904=;
-        b=GTRyn5JryoPcxt4wN+vbK2INx5XcpcrSw3QDJbcfF4rUASg2vPxv3Nro3luU0RDQHb
-         yDwGtH5RMMqMGhn5In3L9I90mk09pHSYSwzw2aarOxAHcZm4Wqqmk9hTT5JNyaqZ+8oc
-         nFhkhv2j4vYdiZzGC1DtH6NfXpGwsc/eg+Ppd+CI3YdzDiqBLQGC1zGda1yJK874cHSZ
-         +IwlpH6ge8tyaxonrsl/JwzanFD3e9MeAdhgRLAsEv1NZaEhm7SUfUnqD0NvnqOheH75
-         eXd0O5DKOppWuz8p9O5jAItf+Ksm44IKPoGFLaPVVOFhLAQQkpGzjzrJD/jY71rQujL0
-         PVvQ==
+        bh=01Isadx86QlBo/Xt7NDWLtPfsCmi9a/iGkGnhXpgL10=;
+        b=njni2/VbeBDnN4cqBj0XFRg8hWvGhJwxSKsuliVebKtK8JEj1D4fCDJt0KjBlRI+QJ
+         WKKm1Ahxd6fNWMfkZxjhbTutQVacMwxM1BHky9GR/fZ0V6rlqJNnnInCB84h2Nahqb7Z
+         fEOoBnM12wIBESzqBC/b80UgQtkDaVbjggCtfjDa+qUX5rZQVz+yAVpoOMmL3q60knPN
+         Y0sFTNcodlSOe7X0MUqogkzjXKLk9W81/JvdBR6k9gj/pySACThqxJJvWInMUtTxGFZP
+         SQpexq3aYh2fG5zHF0FwgJ4AQuc9bn2v//wZPasE5mKp5nd+nQko8ORupKhirlBqHZor
+         9r9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=vARO2WlveBGaLJlDd3DqygcpjtUDrELnRebRh2gG904=;
-        b=ncciHtOc/BNTVrFdZf13Th1YmTDwLc3TWb7neZvYHUUSvErzfxonb7yCbxlNiCrtuQ
-         IVWPPYXS3k/gSUS+wLp+JbztxNIGgy0O8LNgq2/gPABMJKqH2F+qoU3Cr0tqVRg75WJg
-         bFmCeUmhop6cc2uHF8GRp+vVi61JENm64eGZQex8nYcwVxMYNCCAURlBXMxpptAkwzv8
-         EXxx/qoQQ+qb2tj9XKuUAB90XQGcOlNPZlrTtx6lnOv941fqFM2CCNeEbqjHr9LqqDug
-         oIrQDZKUkhYHLPvAuFHiPuYhZFPIbp9q+MNvCLtD/BLYElHdVEMrsIn4ze/HdYP3KcUm
-         X5bQ==
+        bh=01Isadx86QlBo/Xt7NDWLtPfsCmi9a/iGkGnhXpgL10=;
+        b=E0Czjsz0ulM7oCDQoC0OcRAedPHyrWQgiPo2et8uKwJfPFxnMSiiP6/3sC54rzSQ4o
+         dgXA20Jg2ybhmSdW95aNnOVg9NYMXmg4wkP80Y3e4UN8YuvVXWIdADuhQstcHeW3xaob
+         /QRQx2qm359IAFEawMAhn9NfrZd0fmBH8Vxe+8nPu9o3dkV7wqSMN+W7VbZxGdqT7XDM
+         CfNktlgCUAmOIfjSLGKvif7RCuyM44ji2hmufWGj3zBvv0Mkn0Myztnt5WUVZE4RvjIj
+         95vSOk1KhiSLy411pthmbiYRpawr+4u+ShYW3vKOmzTZaNpT/08QRkm9TdbBDglvSpEv
+         6/Yw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW+O8kdBHZQM7BsTuoU5/Xh3NfIJ08w1yLlQfjdc2UhG7E5OmaR
-	wm7PEYvO2vHLUec6mF4dHU8=
-X-Google-Smtp-Source: APXvYqzdNB9STB0KxWELoDxrWcBy9b36w2zo8S0RC+uSLXNRraiXXak23Krg6deygw7t3dg6QFouAg==
-X-Received: by 2002:ac8:678f:: with SMTP id b15mr6229402qtp.293.1566638925970;
-        Sat, 24 Aug 2019 02:28:45 -0700 (PDT)
+X-Gm-Message-State: APjAAAUhedSQKw18WSpcD617sOuu97oi1wGHtDTZGxCtMZxfhqKFcQpn
+	lU3neADQLflQxKC+pApXB60=
+X-Google-Smtp-Source: APXvYqxZQlU9Az/dlhUq1Z4ZXj5kq3bQs34hNWRhFOpKEAao/PaNVUY/GDx/OZPcKcz8MAZcggqFqw==
+X-Received: by 2002:a9d:5a85:: with SMTP id w5mr7647574oth.302.1566639950235;
+        Sat, 24 Aug 2019 02:45:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:a297:: with SMTP id l145ls4173102qke.12.gmail; Sat, 24
- Aug 2019 02:28:45 -0700 (PDT)
-X-Received: by 2002:a37:e31a:: with SMTP id y26mr7987918qki.51.1566638925695;
-        Sat, 24 Aug 2019 02:28:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566638925; cv=none;
+Received: by 2002:a05:6808:257:: with SMTP id m23ls848721oie.4.gmail; Sat, 24
+ Aug 2019 02:45:49 -0700 (PDT)
+X-Received: by 2002:a05:6808:9b6:: with SMTP id e22mr6015887oig.6.1566639949806;
+        Sat, 24 Aug 2019 02:45:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566639949; cv=none;
         d=google.com; s=arc-20160816;
-        b=ucm5yY3FPFp8DrPab0D9GiLUGDwMeC8t4yg1CHQJQCdCE7GX7CqYyXnI/9LCq3SVD6
-         hZV13DcXooo4Slcyi9iXlSMIz50vyrLoMV0yLMfDLW1NtCDUATNWvdblhS43dVOtE8Cb
-         ZVIOswfpjEb3iBM549udmhX82MmpVgkuV2yYFarg+E+63zCnAZ3KWI9xjBEhfr01y76X
-         yxCh9POhP5TdPHsOFEBjkpN1kc3DOwRgJc+b8HNd2IJLMYu3GMMtqPrJIzaeCNsm5jjh
-         oI8JkmyuhWkgajgHg0OuzeOgbbllLh6GIDhAbT9oJv4kk1NWQ0knZPV8cs64p2nRANuc
-         CtSQ==
+        b=PR7vTKCXHAaLfspZP96HHIYEY7y7ujh7CCufrX1ssNg3gBYag/F9o3ljPBmZJ7QWOh
+         DEHBJDRMxE/TddCsJApZJLIv8VKvR89dUorJ9fPgJqT34Pca+fXXhU2Qgyxb6f1f0QJT
+         aPQwGRlZJ+cSaNMje0v4S0+0JkNw/G5H7p8bv6u8OE6+FVgwzl6kelw5d+JMTzBB8kDd
+         d7nK+O/Coo0xm1mh/WgdD1x72rV25rIjthhdo7iSpp2IOwq5mRof+TnnLN+LqmQDf3F6
+         w0eQ5RO54adVCpr+dCO0s+ZbPC/4TWIvwPRqFNUeZmQ8EhpRkJsdi/Vx1Lc9x8oqwfoj
+         4fVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=52wsLADsObLNw5Cm1v122nJDhWGPufg+0xu5VnEvAiE=;
-        b=hIudH4EO/FQwA0NY08a7kl2jXQ5hHKxbkaw7gOU9vxCVEuIUEVxE6K3aiWFNY0Cn6u
-         Wozty7xyYcuXobAOJSMv7jusE/f7+02/b5V3ZnsRFdOsHe9buSBXft2MfJbxDiQElAri
-         8L2pqFwDqKc7vV6GgnF6B/mzub5u4GsPypOByfcsdtTNP3h7FC5vWzdLV0IxkYjKbCq1
-         Bp2CanS7rAPvH1+GmRSDRVxzrNi++2r3obueFS6M1MQw4/XZu2pwwABqw6FVTJfZ/8Go
-         CLHP/RnYHP2qxydnvA587Q7PmAbntlaDJVItsCPWjMsXEIWn+hDHObXNTbJIxD5LJKLm
-         +19Q==
+        bh=EFpGGYlzzKhTi2/P7vTcnzLTjgbi5yFo9wMFPdIXUso=;
+        b=crrsZg35Owz4SVtUJyKBVS10OL77s/PjcWTR1HJdGkVrbnU4lgqT/Vo/Sqb+JqbMP/
+         rm1W+SvmjxQmCe6qPfVfrg8T5ryqMJYZZZOhT8YPYG0dnhLh3BVyumhC2ojWsQKtK1IB
+         UdhNPdQamMdDmuI6v0ghxJ8tGRVSbcGz7JViNZhqOCdA/Nt7kM/rO1ap5hMqlW+TNAYM
+         QQV2pWDjGf14/BPh+yNJa3fcV25HqXT7/KkJ2oIrTiaYIcMmZ7BGfs3sWWUe42Bn6nf4
+         QiBW5QQ4F1a+lo8hEL+FbOG9ak2pO0AJ0ndbNgdVu6U6WjSMUX6nwVj5DSqzR8M5g4sb
+         9zLA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id j10si144307qtn.5.2019.08.24.02.28.44
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id p205si335958oic.1.2019.08.24.02.45.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 24 Aug 2019 02:28:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+        Sat, 24 Aug 2019 02:45:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Aug 2019 02:28:44 -0700
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Aug 2019 02:45:47 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,424,1559545200"; 
-   d="gz'50?scan'50,208,50";a="187092985"
+   d="gz'50?scan'50,208,50";a="330958871"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 24 Aug 2019 02:28:41 -0700
+  by orsmga004.jf.intel.com with ESMTP; 24 Aug 2019 02:45:45 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i1SLh-0001sv-3g; Sat, 24 Aug 2019 17:28:41 +0800
-Date: Sat, 24 Aug 2019 17:28:35 +0800
+	id 1i1ScD-0009VB-82; Sat, 24 Aug 2019 17:45:45 +0800
+Date: Sat, 24 Aug 2019 17:45:20 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v4 02/27] btrfs: Get zone information of zoned block
- devices
-Message-ID: <201908241738.ZOaoAQYl%lkp@intel.com>
+Subject: Re: [PATCH v4 13/27] btrfs: reset zones of unused block groups
+Message-ID: <201908241715.TqAEcJid%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="udvxhhjnmc2gijuf"
+Content-Type: multipart/mixed; boundary="qeaec7urbbb7eey3"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,14 +137,14 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---udvxhhjnmc2gijuf
+--qeaec7urbbb7eey3
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190823101036.796932-3-naohiro.aota@wdc.com>
-References: <20190823101036.796932-3-naohiro.aota@wdc.com>
+In-Reply-To: <20190823101036.796932-14-naohiro.aota@wdc.com>
+References: <20190823101036.796932-14-naohiro.aota@wdc.com>
 TO: Naohiro Aota <naohiro.aota@wdc.com>
 CC: linux-btrfs@vger.kernel.org, David Sterba <dsterba@suse.com>
 CC: Chris Mason <clm@fb.com>, Josef Bacik <josef@toxicpanda.com>, Nikolay B=
@@ -180,39 +179,34 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> fs/btrfs/hmzoned.c:25:8: error: implicit declaration of function 'blkdev=
+   fs/btrfs/hmzoned.c:31:8: error: implicit declaration of function 'blkdev=
 _report_zones' [-Werror,-Wimplicit-function-declaration]
            ret =3D blkdev_report_zones(device->bdev, pos >> SECTOR_SHIFT,
                  ^
-   fs/btrfs/hmzoned.c:25:8: note: did you mean 'blkdev_nr_zones'?
+   fs/btrfs/hmzoned.c:31:8: note: did you mean 'blkdev_nr_zones'?
    include/linux/blkdev.h:367:28: note: 'blkdev_nr_zones' declared here
    static inline unsigned int blkdev_nr_zones(struct block_device *bdev)
                               ^
-   1 error generated.
+>> fs/btrfs/hmzoned.c:602:8: error: implicit declaration of function 'blkde=
+v_reset_zones' [-Werror,-Wimplicit-function-declaration]
+           ret =3D blkdev_reset_zones(device->bdev,
+                 ^
+   fs/btrfs/hmzoned.c:602:8: note: did you mean 'blkdev_nr_zones'?
+   include/linux/blkdev.h:367:28: note: 'blkdev_nr_zones' declared here
+   static inline unsigned int blkdev_nr_zones(struct block_device *bdev)
+                              ^
+   2 errors generated.
 
-vim +/blkdev_report_zones +25 fs/btrfs/hmzoned.c
+vim +/blkdev_reset_zones +602 fs/btrfs/hmzoned.c
 
-    18=09
-    19	static int btrfs_get_dev_zones(struct btrfs_device *device, u64 pos,
-    20				       struct blk_zone *zones,
-    21				       unsigned int *nr_zones, gfp_t gfp_mask)
-    22	{
-    23		int ret;
-    24=09
-  > 25		ret =3D blkdev_report_zones(device->bdev, pos >> SECTOR_SHIFT,
-    26					  zones, nr_zones, gfp_mask);
-    27		if (ret !=3D 0) {
-    28			btrfs_err_in_rcu(device->fs_info,
-    29					 "get zone at %llu on %s failed %d", pos,
-    30					 rcu_str_deref(device->name), ret);
-    31			return ret;
-    32		}
-    33		if (!*nr_zones)
-    34			return -EIO;
-    35=09
-    36		return 0;
-    37	}
-    38=09
+   596=09
+   597	int btrfs_reset_device_zone(struct btrfs_device *device, u64 physica=
+l,
+   598				    u64 length, u64 *bytes)
+   599	{
+   600		int ret;
+   601=09
+ > 602		ret =3D blkdev_reset_zones(device->bdev,
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Cent=
@@ -226,14 +220,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201908241738.ZOaoAQYl%25lkp%40intel.com.
+clang-built-linux/201908241715.TqAEcJid%25lkp%40intel.com.
 
---udvxhhjnmc2gijuf
+--qeaec7urbbb7eey3
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICJP+YF0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICB0GYV0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYC7VDP/3wU0Deji9Pu+PD7e7x8Vvwef+8P+yO+7vg/uFx
 /39BXAR5IQMaM/kBiNOH57e/P+4OT6eL4OTD/MPk18PtSbDeH573j0H08nz/8PkNmj+8PP/w
 0w/wz08AfPoCPR3+Fdw+7p4/B1/3h1dAB9PJB/g7+Pnzw/FfHz/Cn08Ph8PL4ePj49en+svh
@@ -1074,4 +1068,4 @@ E12CAg+fuJ3bbBGGxu+Yrzxs2EFE6UMEnZJy4TAz1PO6vDVH1j1HF0oqEndswh6UpU7kHqDB
 sHvj7wBaML+kaysSc00PGSYKPvQRgQJOEyty0v1F5vcbpTkxIUEA4B51nncqZrcd/ELN2OQg
 i4nIxPpUuJ8VlNUoSNbhK9Be28gJQf8LhXQOltIMAwA=
 
---udvxhhjnmc2gijuf--
+--qeaec7urbbb7eey3--
