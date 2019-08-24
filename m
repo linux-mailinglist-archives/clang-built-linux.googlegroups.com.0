@@ -1,191 +1,185 @@
-Return-Path: <clang-built-linux+bncBAABBRMLQXVQKGQEGFK5O6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBVELQXVQKGQET6RQFRA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe38.google.com (mail-vs1-xe38.google.com [IPv6:2607:f8b0:4864:20::e38])
-	by mail.lfdr.de (Postfix) with ESMTPS id C806B9BE2B
-	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 16:12:22 +0200 (CEST)
-Received: by mail-vs1-xe38.google.com with SMTP id t76sf3327148vst.16
-        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 07:12:22 -0700 (PDT)
-ARC-Seal: i=3; a=rsa-sha256; t=1566655941; cv=pass;
+Received: from mail-yw1-xc3c.google.com (mail-yw1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8ACBA9BE30
+	for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 16:12:37 +0200 (CEST)
+Received: by mail-yw1-xc3c.google.com with SMTP id d18sf8755461ywb.19
+        for <lists+clang-built-linux@lfdr.de>; Sat, 24 Aug 2019 07:12:37 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1566655956; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RW0u4/LFY3S6ZwwXoF2nmMTK/HBL4YSWCDaEPxg0fS+iDwsnXQCXQq/fVjT2zFrm5R
-         5Stnfi4GcK1ywN7AfCy6Zco3ZREMoL5rOOcQM5bDzxX5dMhIAcz6WhAknXbPW1VcQ+TU
-         kufyXRu10Z0apxC5Bqw0Is09DhF830G4Ytgj2wc6qLFGyYgLHxCDs1it9txhq4mTiZR5
-         j2NMW24brkMMiQ3PwUrvDniYSMk/pIEItzuA93y4JV2T6QQ3qW9mo2+/veZN3gX3Rz74
-         +5/wctks+qaM++qUeCWJ7ANuHsVpKbAJg5+KH9Prl8RUTXG9uxbtCDrJ3G+l6b2z4jYY
-         XH1w==
+        b=r6Gya9q7ItAnElMyklqbnZLU0KeRWs/wJntbF4GgZCSwAjkg1qlO1MoyYLx7ZEMVn1
+         P3QZ/9FrsiGWmcnNJBJvVyqIV1HTQrPWkKmjeaJHqWKfKV6mTo14lDDbRjb6i9oieUHO
+         7WU9Gm32mLqBBi460/RZeIRYbzHe5ftgjgZ491T44vTX9QJfAKVvGXaudaydhLGKu/45
+         MeAj46n/nW/miPR6kXa+dsIurc7izbG7bzIN1KQsB17Xs+qTZeQ/MYb8IV8wh+GanZ1q
+         c2a2pm5DAUvOOSJiDKkjIB0KB9UxbEypWXg6iuUkIzYqx+dMgiMhDpZPftB6o4g35Tx/
+         +hLg==
 ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-id:user-agent
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=kS0g4jyqrgi5omQw5ICd/IhKBPTXlC92RXAvUTFylsg=;
-        b=vYuPyrTydKknGy8FywdSG6mQl9OEFJBJ44FQea2E3usdJ2nymrIXY3k+PkvId7eh41
-         uggQAGPzSoSM31j/YjLN+rQ4Alx29DZJy1L6328PYxdECvnIbhhzybMaA0ExY16Qvd/I
-         QWrUFBoLkMhU2IkgfbuMhRSER/T3XL5TN/ZT5T8F6xoic3t6saGlW5u5hUYr2PkXUeM4
-         bJTOdQygAfMxKoAeYu/kQOgANhZargWXeOx4vN73vLih8mJ5VF4WHA7/Vdc4LHZbc5Of
-         SfbJlzbAtkWv/ji012AMkPvxs/g4lhcBXPGNpWehxxw7AtaFLd9ZCruPKMZHUoAIzoBp
-         +fpw==
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=+phRizL28nNbfb1u2QtvACmLhjPXlYsG2sr+QKcOJbM=;
+        b=tNC8lo5/qiKHoC4J/0wz+c3EPcgwfOXlQWx0G4H2KFQA4hK24kKf+oajQ/kEBKNnFf
+         NJiT8Z1zZE+5/YZzi+iEjrd1nM4bbW0Ojt8P4UFF2aisLcOyVrVYtKK5RsVAeVtuc6Wu
+         OhfK19oUv3XkrV8fs7J4CapShYmauCGLv9bBaJiSIfVsCdcY+OuuiqLJcSABvOIyh/Iv
+         VtWoP9vrg7PTmueOstbq7SDUJLcBOToXO4oKbywrP5ZCYNiqFVNLjIPPO+dDaWl3Z8D1
+         4PbvvagjztnUx19ZhAtq1uEAwQRvrs4uJGdIKDAp/PtlYzYmIIR3hItzUDFnTZuyWcV/
+         /XlQ==
 ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@wavecomp.com header.s=selector2 header.b=HKTBiDFI;
+       dkim=pass header.i=@wavecomp.com header.s=selector2 header.b=U919u3E1;
        arc=pass (i=1 spf=pass spfdomain=wavecomp.com dkim=pass dkdomain=mips.com dmarc=pass fromdomain=mips.com);
-       spf=pass (google.com: domain of pburton@wavecomp.com designates 40.107.75.92 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
+       spf=pass (google.com: domain of pburton@wavecomp.com designates 40.107.78.99 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:user-agent
-         :content-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kS0g4jyqrgi5omQw5ICd/IhKBPTXlC92RXAvUTFylsg=;
-        b=jWXb390SC7W+vTfL0o9k9XzPX9cWoYJVmmHX/sDM9L8de5oJI6fgoC6stL9/U3G770
-         u7xRwyEazaqIxqTRspRcqL1Jij6+mGiUrf3T9aJ/JYEcb1I8FfD7V8ofqIkOwlzlVhUw
-         u7wBe7QTKUxtLKPQ63KjwuwRJn8V/O5Cm4yE20gCOSrLgUjJfb86cQ7LU0ttknB0Pepu
-         mwzP3FiOEXA4mLESKQJS7F3dodYqr/y9vl5f/nmsLY1Q4VtLKElaqhQL3Ex+4XXUDKXY
-         Jv7iyNdubWse9SYHThwb9Nn27vxzGA3LDxRRWODSbVTPVFLIll+vhV+536b+rb2P5ttl
-         3UFQ==
+         :references:in-reply-to:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=+phRizL28nNbfb1u2QtvACmLhjPXlYsG2sr+QKcOJbM=;
+        b=FsfnU6uLfpBycfsR9Awci3GsSN4obT34hPSxzy6wpGSJM8+br4isyE/0Pm5P5VMr4/
+         nxtvaErL5TSuNZuMtM8Q0XYirx5DH6wHJpZ8mU8h4tfYZRzG6jW7rgpFeP7LLovwD/l3
+         IguImGFr0RnK3TZjsKvLhDLvT9hhQAKIUba9P71MUBfvWekYBujWvnvv8uYR9U2q4JsE
+         h3o9TjIWLZgzQ7ydfU0kl2cN62mDyq0ZkKP8AtDCqp7A3QTfJxZ5DVvEAyKZp5eNoCuf
+         cxCzVIktGSvX6casMKC9kYI/9+UTu4UZ5ZEvYkCYrEuBhjGrNjAUMp08z9DWxH7A6Tml
+         o1oA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
          :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:user-agent:content-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=kS0g4jyqrgi5omQw5ICd/IhKBPTXlC92RXAvUTFylsg=;
-        b=L2ziuRryrz/fFEXq6DK7zdDoAS0doggSkWLcYKwYCEAKPppbWhxjoomMxws13WFX1E
-         J5HQW0OSm0oAyhcryedREeF9FMyO5OyyK1/Gub18aB+UwigeajexaSOJGtvOJLSp8ER0
-         2K4Msvv5BelnUwkqjf+l3yQ6KJs5WPcc3h5CNAjvVslNwbUQILb66LdTdj9s9XxB7glN
-         1XTBdlka++QJa5ASqyZfUfkYEE1rsC1taHKoyPTzddDVST2eeXk+1ez+ub/K4btBds0R
-         60/klZ6URNvGRMPACxsI32pE0UJurwbUFiHPEOy8wRWTtlOmIINGTQQKlsRbl6xEwF+z
-         hkng==
+         :content-language:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=+phRizL28nNbfb1u2QtvACmLhjPXlYsG2sr+QKcOJbM=;
+        b=mZOSxqr58xFuixJHtl65AXB7U1mV9hHjh8X/UReGj4P6dkGTqVLDbmge69VkY3UAgv
+         krhStWOQSG6go+nGvMt2aEFEu9vwj6aH52X8QHucMEL28pwbVhcmKRJzbWys3DXNhX7O
+         fvY8x/rF6Ghwm6TQFAaNQuwMgO0bsmYppS3TTsZKkPQ14mOG/fN0JgVfvQO7MfjvXAHh
+         RVayh5HQttTlC6lj7zQ9R+o01IJiTdKXrjSbZlCSU8o6rVHCk3nfILaO9TGid7VnCDk5
+         NUdv9aNPYGJWuZNEJBs7nVFJ8OSkp+vIhfDaiTNDQFsaQB6CCv6CV6O5+QZEKyO8QkNb
+         Eq1w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVRiUQMM+fusIOUht6+9gUrPgaC10/Qi8FgVGE+/f+ClikYsbcC
-	wsp8HqGo5psIhx8IjnMIuWU=
-X-Google-Smtp-Source: APXvYqwnEmq9ZQSnUIu3/+asbhbsVza4X+/3m+8XQEwRL+s1Z8imhJnN3zROzd/bSdC0oU1cdFbwnA==
-X-Received: by 2002:a67:ff93:: with SMTP id v19mr5527703vsq.109.1566655941615;
-        Sat, 24 Aug 2019 07:12:21 -0700 (PDT)
+X-Gm-Message-State: APjAAAUIPqe23FOMPyZ2JryoKDb2Az4bVmzOexAXF9+EwyCdG2HN+iPS
+	oAxq5qaXb0UPb4tGIiC9tJI=
+X-Google-Smtp-Source: APXvYqw/jJMQWN6a+uy7taqhoc9yP1ADmuGh6mflVD2HOhSpl9+nS5t6Q1KmU6Sw1hWEPAsyMRTSjA==
+X-Received: by 2002:a0d:c5c6:: with SMTP id h189mr6864761ywd.274.1566655956315;
+        Sat, 24 Aug 2019 07:12:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:6913:: with SMTP id e19ls1313419vsc.16.gmail; Sat, 24
- Aug 2019 07:12:21 -0700 (PDT)
-X-Received: by 2002:a67:d69e:: with SMTP id o30mr5835791vsj.126.1566655941344;
-        Sat, 24 Aug 2019 07:12:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566655941; cv=pass;
+Received: by 2002:a25:42c8:: with SMTP id p191ls3530337yba.4.gmail; Sat, 24
+ Aug 2019 07:12:36 -0700 (PDT)
+X-Received: by 2002:a25:b6c7:: with SMTP id f7mr6386704ybm.234.1566655956020;
+        Sat, 24 Aug 2019 07:12:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566655956; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fnPwew5rBqXClzBANO6X6mikhh/7EcKMzySVqHqoubZmGouxAvbIuso+PMHikqCypn
-         VrlIEE0l2gC41VkpBKJDbdyf7oMkgE3L7u2ikxaupevft9j15hQTIki5AiUPlm5cPMuQ
-         TR0R62GVDtm65FApx2kYY2OZFMwQKfREF8y2fY+0lRL7I7Py+okI4vew4KYOOtf+aV11
-         NrBZK8cjDbKnOSkt70/TrRwvd4o1b2solVkUrm7cWc0a9IFRGDj2GTq5FpqYGpFh7hJL
-         x2NNqibFU3jPPyC0jeL/gjqv6P3nEgFxEa2YB1QwxPol44jgG+wknYHbQFVvj9aJxmQd
-         PZMA==
+        b=smQ/DzyhSYqY3QY4MbvIuQK6gCn793RGBxvWq/kGrGT3vXE3KW5V1ocZtXkjvULXOR
+         wFJwWui+Jj3NY+51H2fTM/bS7Cvf86CDAIdDbWCoo8wOdsvTx1Jag0rjMWXwOZCuZwxV
+         HFh1Zey5x5Jup5rXklqFBWQRalYprIRzOmLee0ovTzb3hrxvaDWa7FEdLlZCcoNj5nI5
+         ILVQ2XM1kTdbuJcWQ77EzNBWxjQjYbNddeIh51I0sEXKo6r94GShcTkdXUeAL3zLA9oX
+         1cUt8s2RJ+Ndc0AH35QwRkfNC/Js3p1ejWAEILtMh0dojfbmLlNIMzvND4Ixi8WBQaqn
+         OLzw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:user-agent
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:dkim-signature;
-        bh=BIX5+vw0x9KYQdDWlnNbBhBVXVuXD7hgBxCULUA9Pcw=;
-        b=VGbHOfKTSrOkvrRatYPlx57C64jR8G3VrGRF8FUNGaDPt5B7hX0xnwa6agVft5M+UI
-         ehf8IPj743no6ZXzHoka+YuB1mdEcQ6qB0UxihyLhntOOM4kdFXxbA5W+gjRBa1ENWNc
-         iAgf2r24+mySZHJrydOGYRcdZChfHJmnJrcuP7Z+ksHRy92YNnFPMO+MMNfzGytVFAnJ
-         VA0YXriKu2WJKJ/p1xcgjNByibrnBd9ah7dUwxF1I7uKvXhsgFPOwutFhJaTxzW9rR/L
-         YMRheUFCMPjZBDuOF8V+bB1X1ISFUuz6NpUwS7GRlmilKUbRPx/je5eT6jjfvml+HJJa
-         kD4A==
+        h=mime-version:content-transfer-encoding:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=UqSQP5IHaznMy7vw5OFLKGiVE8efknV5xz9WEukBHAU=;
+        b=lWOV0Voz56Lu2nhcdredGzWmy4EjcCHT0fZBIZrGkeWObHh+6DQjl14aT9qwT+/UUk
+         SJiHfwvnLZR3UnoQ8XFWNUGSkKXPjv/+X7FurCl6BqTmLAHNiyUSCr2cLcsw7Xt3VMON
+         bNumHkp7uY+P0vNlWuh+swLuw6H6KTu4/BxZTGpL1Qhk8T5w0P/P+nfASwZ+QMs+OccB
+         OQg5tjsRyj996zSn8+r+Iwm4x3xIdjaHB6QIu//P3UMf1DESm9SAkEFZbn7jJyDlbzE0
+         pf+BoVTZPeU7Z8bZbWfVMPtptBKht/WroyFyvzl8N84IrDxP74JcdslZx/4jkeDLMFPc
+         vZ5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@wavecomp.com header.s=selector2 header.b=HKTBiDFI;
+       dkim=pass header.i=@wavecomp.com header.s=selector2 header.b=U919u3E1;
        arc=pass (i=1 spf=pass spfdomain=wavecomp.com dkim=pass dkdomain=mips.com dmarc=pass fromdomain=mips.com);
-       spf=pass (google.com: domain of pburton@wavecomp.com designates 40.107.75.92 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
-Received: from NAM02-BL2-obe.outbound.protection.outlook.com (mail-eopbgr750092.outbound.protection.outlook.com. [40.107.75.92])
-        by gmr-mx.google.com with ESMTPS id 129si154919vso.2.2019.08.24.07.12.21
+       spf=pass (google.com: domain of pburton@wavecomp.com designates 40.107.78.99 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
+Received: from NAM03-BY2-obe.outbound.protection.outlook.com (mail-eopbgr780099.outbound.protection.outlook.com. [40.107.78.99])
+        by gmr-mx.google.com with ESMTPS id p188si337676ywd.1.2019.08.24.07.12.35
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 24 Aug 2019 07:12:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of pburton@wavecomp.com designates 40.107.75.92 as permitted sender) client-ip=40.107.75.92;
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Sat, 24 Aug 2019 07:12:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pburton@wavecomp.com designates 40.107.78.99 as permitted sender) client-ip=40.107.78.99;
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=aGPvosZgXP0/2dL5ztXVTKDAqH9kwauAfY2YrePblwibo9B0AnDggy0wR5tW0GF8nWjs+rjqhRGqsmwp6c7AJ9S9ERXa2dTGI/AR86cm0dXfJzSgYPn0jDP8qHDOFkzYjW94EvVcFMtHBHO1QU17STsdSXa8w8SVcu+kUE5HerL2gdtH80xo6Sj14H2COCilJEkPEqdUyuBjDxpqoEnHmxAcpaTdGoOhovn8HmMyunodwvToxrSiQLuKp/KyBvyH0LApNx9zApJLoFXXq66Jfmb6u4wIIvU20gUgjl6HoITbB4FyB0pnohEe8f2NK0Ffl+jmKGamQvk6wWz4rTYaIA==
+ b=BiVbijZdNusCV7VDK9RCOQviOXxktSFtjAEWul3DakzpBMbGL5NhL8CMq6h3/Ut8is7xqHDRvOQ5vfphHCoUwCrAaXm5Qgv7ObSLPfo99YcDWLg9x6Sjjz25kdyDGkI3gg/xjhohmZ6hmpUw0TcCOiIcd57zEXcIZc8VtqqQZLesMvd8aVV6DonBQqopHNZ3K/VKxeX0MpKg0Zsmwlln0TUqMlLUCxoof9DNWP8Awbvei2dk7v4GgV+Fw+5lba4XV3sTLAinC8JBxTNN5e+f3qeO+bvE2jqiz5zXtgg8aIUHAghrp4BhVY+bJRx28W3XZ/qUJTYqEHZOEINxzyNCqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BIX5+vw0x9KYQdDWlnNbBhBVXVuXD7hgBxCULUA9Pcw=;
- b=jw+TEQdXtciC/DJjDHF+vevgIt2vk1lOLnSlpq/r/qpzSqqkGHlzUF0XbL6+3oeFAao/NoDW5vs5jEViMKtzB5GcaY7ZmjMFeVXATDyj2/bVj0tWId3ILr7Muw+FD70Of7Uq+otcEaktFtJ+RmI7zGMZknSQKJmQnhCKflIVJ5643TXlipsxdi6UeJSqkJDIGG2Tral0rGDtHiTm1Qd6vGsdhkhGbdt97h58CllP4A0vL/GE9Urc+LpyXQfxsBxH9bWyUr7q2dqms4FR43Xt+6TwKaxcsD7lZbM5yQjmqEZJJlWiOUWjvgRRJksurZCx7ZXB52Ni6ZluBIRa7WTTOA==
+ bh=UqSQP5IHaznMy7vw5OFLKGiVE8efknV5xz9WEukBHAU=;
+ b=bVaIGJzEIRwuy3ZpYWl0EFrq4FEYhUyAG8y1PypDYjYXIjDv72WXFxwYP0boYjZJ9djgEeTNw434ZZNKedLiJB9MelbeWH/WzXywVmK4xpHaErb7msVpzotHHo+QrVH90/dN9HaCcG9FlLaq6dXQNqK0oKPGNa1h/6U/Ul1WMDYTFVYatLe6RBlJt0zDPw4cqlQPUrDZnbId+wGRi6oVH4cwf3tiBPBkWDhRprkN+CtrFtjzJQzJ8+cee0e90EvLwhYr68pYVbfxxyZc4kFlLN1Ddha64tD6R1U2CTxBlWe0GrnvaHlcwh2IgWpRyaK2MXrVSuAOqMGoU1w37LIziQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wavecomp.com; dmarc=pass action=none header.from=mips.com;
  dkim=pass header.d=mips.com; arc=none
 Received: from CY4PR2201MB1272.namprd22.prod.outlook.com (10.171.214.23) by
  CY4PR2201MB1736.namprd22.prod.outlook.com (10.165.90.39) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2178.16; Sat, 24 Aug 2019 14:12:19 +0000
+ 15.20.2178.16; Sat, 24 Aug 2019 14:12:32 +0000
 Received: from CY4PR2201MB1272.namprd22.prod.outlook.com
  ([fe80::2d81:1469:ceaf:1168]) by CY4PR2201MB1272.namprd22.prod.outlook.com
  ([fe80::2d81:1469:ceaf:1168%5]) with mapi id 15.20.2178.020; Sat, 24 Aug 2019
- 14:12:19 +0000
+ 14:12:31 +0000
 From: Paul Burton <paul.burton@mips.com>
 To: Nick Desaulniers <ndesaulniers@google.com>
-CC: Ralf Baechle <ralf@linux-mips.org>, James Hogan <jhogan@kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>, Eli Friedman
-	<efriedma@quicinc.com>, Hassan Naveed <hnaveed@wavecomp.com>, Stephen Kitt
-	<steve@sk2.org>, Serge Semin <fancer.lancer@gmail.com>, Mike Rapoport
-	<rppt@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>, Michal Hocko
-	<mhocko@suse.com>, "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>, clang-built-linux
-	<clang-built-linux@googlegroups.com>, "regehr@cs.utah.edu"
-	<regehr@cs.utah.edu>, Philip Reames <listmail@philipreames.com>, Alexander
- Potapenko <glider@google.com>, Alistair Delva <adelva@google.com>, "Maciej W.
- Rozycki" <macro@linux-mips.org>
+CC: "ralf@linux-mips.org" <ralf@linux-mips.org>, Paul Burton
+	<pburton@wavecomp.com>, "jhogan@kernel.org" <jhogan@kernel.org>, Nick
+ Desaulniers <ndesaulniers@google.com>, Nathan Chancellor
+	<natechancellor@gmail.com>, Eli Friedman <efriedma@quicinc.com>, "Maciej W.
+ Rozycki" <macro@linux-mips.org>, Hassan Naveed <hnaveed@wavecomp.com>,
+	Stephen Kitt <steve@sk2.org>, Serge Semin <fancer.lancer@gmail.com>, Mike
+ Rapoport <rppt@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>,
+	Michal Hocko <mhocko@suse.com>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "clang-built-linux@googlegroups.com"
+	<clang-built-linux@googlegroups.com>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>
 Subject: Re: [PATCH] mips: avoid explicit UB in assignment of
  mips_io_port_base
 Thread-Topic: [PATCH] mips: avoid explicit UB in assignment of
  mips_io_port_base
-Thread-Index: AQHVWoXw5+Vd+PNBCEKgACqVCJUm1g==
-Date: Sat, 24 Aug 2019 14:12:18 +0000
-Message-ID: <20190824141213.svzmdr3pxdaqssuj@pburton-laptop>
+Thread-Index: AQHVWoX4JPcu9aL9pEei1FRjdW7LRg==
+Date: Sat, 24 Aug 2019 14:12:31 +0000
+Message-ID: <CY4PR2201MB1272E45CC3592AE4D97EF177C1A70@CY4PR2201MB1272.namprd22.prod.outlook.com>
 References: <20190729211014.39333-1-ndesaulniers@google.com>
- <alpine.LFD.2.21.1907292302451.16059@eddie.linux-mips.org>
- <CAKwvOd==SCBrj=cZ7Ax5F87+-bPMS9AtGSxp+NWp_+yDCg4R-A@mail.gmail.com>
- <CAKwvOdkXLhEuLiQ_ukE75zEg=Sw5-4BLHHCFqcZ0oyTEX3pWTQ@mail.gmail.com>
- <CAKwvOdmGax-WgXeKEnTq8+Xe0+Z5d2k4_Ad1vw0uOiO2NJ0bkg@mail.gmail.com>
-In-Reply-To: <CAKwvOdmGax-WgXeKEnTq8+Xe0+Z5d2k4_Ad1vw0uOiO2NJ0bkg@mail.gmail.com>
+In-Reply-To: <20190729211014.39333-1-ndesaulniers@google.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
-x-clientproxiedby: LNXP265CA0085.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:76::25) To CY4PR2201MB1272.namprd22.prod.outlook.com
+x-clientproxiedby: LO2P265CA0265.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a1::13) To CY4PR2201MB1272.namprd22.prod.outlook.com
  (2603:10b6:910:6e::23)
-user-agent: NeoMutt/20180716
 x-ms-exchange-messagesentrepresentingtype: 1
 x-originating-ip: [2a02:c7f:5e65:9900:8519:dc48:d16b:70fc]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 9752876b-9968-41df-5b1f-08d7289d129c
+x-ms-office365-filtering-correlation-id: 72e6581b-897c-472a-a2a1-08d7289d1a77
 x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600166)(711020)(4605104)(1401327)(2017052603328)(7193020);SRVR:CY4PR2201MB1736;
 x-ms-traffictypediagnostic: CY4PR2201MB1736:
 x-ms-exchange-purlcount: 2
 x-ms-exchange-transport-forked: True
-x-microsoft-antispam-prvs: <CY4PR2201MB1736BD0E9BB0584FB75E109BC1A70@CY4PR2201MB1736.namprd22.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:4303;
+x-microsoft-antispam-prvs: <CY4PR2201MB1736D5EAEC132D2A2D384C4BC1A70@CY4PR2201MB1736.namprd22.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
 x-forefront-prvs: 0139052FDB
-x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(7916004)(39840400004)(136003)(396003)(376002)(346002)(366004)(199004)(189003)(256004)(6116002)(4326008)(6916009)(8936002)(446003)(2906002)(5660300002)(6246003)(11346002)(486006)(44832011)(476003)(1076003)(14444005)(42882007)(71190400001)(71200400001)(7416002)(53546011)(6506007)(386003)(8676002)(6512007)(66446008)(64756008)(81166006)(81156014)(6306002)(66946007)(52116002)(6486002)(6436002)(99286004)(229853002)(7736002)(186003)(305945005)(53936002)(54906003)(33716001)(46003)(316002)(25786009)(58126008)(9686003)(76176011)(66476007)(66556008)(478600001)(966005)(14454004)(102836004);DIR:OUT;SFP:1102;SCL:1;SRVR:CY4PR2201MB1736;H:CY4PR2201MB1272.namprd22.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
+x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(979002)(39840400004)(136003)(396003)(376002)(346002)(366004)(199004)(189003)(256004)(6116002)(4326008)(6916009)(8936002)(446003)(2906002)(5660300002)(6246003)(11346002)(486006)(44832011)(476003)(55016002)(42882007)(71190400001)(71200400001)(7416002)(6506007)(386003)(8676002)(7696005)(66446008)(64756008)(81166006)(81156014)(6306002)(66946007)(52116002)(6436002)(99286004)(229853002)(33656002)(74316002)(7736002)(186003)(305945005)(53936002)(54906003)(46003)(316002)(25786009)(9686003)(76176011)(66476007)(66556008)(478600001)(966005)(52536014)(14454004)(102836004)(969003)(989001)(999001)(1009001)(1019001);DIR:OUT;SFP:1102;SCL:1;SRVR:CY4PR2201MB1736;H:CY4PR2201MB1272.namprd22.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
 received-spf: None (protection.outlook.com: wavecomp.com does not designate
  permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: +r2WW3BVWTJiQL1DHDBesKVdOsvk9wK5IUUHttwsjKWi+IvCFTYu2b5b4jfdu8PknaQ5RLH7CRriwUnLCx/4X4cTG0MLzjsOLzZkh1xZQQPSheVJp85FHac8kz2Gle4JtuYg2EXerrbeU7QOZV5Ux9t2+43dOPr05+pz4ZgP81q6A4MEzhLDbRUrRILNL1nHSTTqdj9CxREGGEyTVR6rxtVa0dyslMJO5G7Jg1V0xpCj6X5LwaPl3fM9JegosfvwuApdXuXDQrhpyqMa9tNUsL0ellewDwG0kPghTJv8pJUTotXzwtll5IgI3HDjZ0+J+hYuCXXhK/mnz1bmy8bSFRX1YTwcKwuhxnzUOjt8rMOBP6VK/liOUHr9692Vya5+p5Holyrh2Uu52V84p4iZ9uBjsEyPAhQ4gUannDZThI8=
+x-microsoft-antispam-message-info: hKCQGB9L8oa4/94lYyyFk2Bnu+QhsOhpxVBjfQkTMWGLx4DSsgIb/x5siR768JLPu4m54TKREE38jwYTFu1nrYBErrE6NQSWFbdTOTHYaRPRcFhUVm0SwpNi1fBGJxhEPezKR9lrZleDiaBp3wxHBSYNzc1VOWvDJ8CWcoYOY2wCz2pGCTeCYO17GihiMq3sobcdh4HarWlunqUHi5ejPUo980yzaUapZFw3uj2H6EmQBRbbIFL1awohJaNs8mlC+SP7xiorDV8mNP2Y/NsFU/4vmvHJanN6ysi3zaRoSdJ+w1RX/6wGS8uGDxXdcG6M+J3OndsdOsBhlY1QXWiDM49+EPp8dE6guUt3E4SadhUlRa3DX7DiLuBhk+m/0GxmT1kpwlWNwMwtaU/xV4l3XWSCwlf1yhOvLrq4BxzRCEM=
 Content-Type: text/plain; charset="UTF-8"
-Content-ID: <8FCBC784F52DCE4DA4603B274981971D@namprd22.prod.outlook.com>
 MIME-Version: 1.0
 X-OriginatorOrg: mips.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9752876b-9968-41df-5b1f-08d7289d129c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Aug 2019 14:12:18.7985
+X-MS-Exchange-CrossTenant-Network-Message-Id: 72e6581b-897c-472a-a2a1-08d7289d1a77
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Aug 2019 14:12:31.7757
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 463607d3-1db3-40a0-8a29-970c56230104
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: OIzPbi/XgbtfoRvrHKt82YIiLO55OyXpaPwg/LyJ6xdVfHlYB/E7cAUUNE2a8FE6Phl+4I01VDg58EctjFzxBg==
+X-MS-Exchange-CrossTenant-userprincipalname: fLWq3gFrO/wTy22TFI74sE6kSdTCEwQoTRx8o3pCO6zi+PLAbaBj9daH4M+RFT2SHZrX2Pqen5Z9yW+6T4EtkQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR2201MB1736
 X-Original-Sender: paul.burton@mips.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@wavecomp.com header.s=selector2 header.b=HKTBiDFI;       arc=pass
+ header.i=@wavecomp.com header.s=selector2 header.b=U919u3E1;       arc=pass
  (i=1 spf=pass spfdomain=wavecomp.com dkim=pass dkdomain=mips.com dmarc=pass
  fromdomain=mips.com);       spf=pass (google.com: domain of
- pburton@wavecomp.com designates 40.107.75.92 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
+ pburton@wavecomp.com designates 40.107.78.99 as permitted sender) smtp.mailfrom=pburton@wavecomp.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -198,37 +192,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nick,
+Hello,
 
-On Fri, Aug 23, 2019 at 10:16:04AM -0700, Nick Desaulniers wrote:
-> On Tue, Aug 20, 2019 at 10:15 AM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> > Hi Paul,
-> > Bumping this thread; we'd really like to be able to boot test another
-> > ISA in our CI.  This lone patch is affecting our ability to boot.  Can
-> > you please pick it up?
-> > https://lore.kernel.org/lkml/20190729211014.39333-1-ndesaulniers@google.com/
+Nick Desaulniers wrote:
+> The code in question is modifying a variable declared const through
+> pointer manipulation.  Such code is explicitly undefined behavior, and
+> is the lone issue preventing malta_defconfig from booting when built
+> with Clang:
 > 
-> Hi Paul,
-> Following up with this link that explains the undefined behavior issue more:
-> https://wiki.sei.cmu.edu/confluence/display/c/EXP05-C.+Do+not+cast+away+a+const+qualification
-> Please reconsider accepting this patch.
+> If an attempt is made to modify an object defined with a const-qualified
+> type through use of an lvalue with non-const-qualified type, the
+> behavior is undefined.
+> 
+> LLVM is removing such assignments. A simple fix is to not declare
+> variables const that you plan on modifying.  Limiting the scope would be
+> a better method of preventing unwanted writes to such a variable.
+> 
+> Further, the code in question mentions "compiler bugs" without any links
+> to bug reports, so it is difficult to know if the issue is resolved in
+> GCC. The patch was authored in 2006, which would have been GCC 4.0.3 or
+> 4.1.1. The minimal supported version of GCC in the Linux kernel is
+> currently 4.6.
+> 
+> For what its worth, there was UB before the commit in question, it just
+> added a barrier and got lucky IRT codegen. I don't think there's any
+> actual compiler bugs related, just runtime bugs due to UB.
+> 
+> Fixes: 966f4406d903 ("[MIPS] Work around bad code generation for <asm/io.h>.")
 
-Sorry, it's been a crazy few months & I'm currently away awaiting my
-father's funeral so I'm working through a backlog & catching up on
-things.
+Applied to mips-next.
 
-It will be a shame to lose the optimization opportunities const offers
-us, but it is an ugly hack & so I'm OK with applying this. It's likely
-to affect older machines more than newer ones (which tend to use less or
-no I/O port access) so I'm not too worried about the impact, but if we
-find it matters we can always try the fixmap approach I suggested
-previously.
+> commit 12051b318bc3
+> https://git.kernel.org/mips/c/12051b318bc3
+> 
+> Link: https://github.com/ClangBuiltLinux/linux/issues/610
+> Fixes: 966f4406d903 ("[MIPS] Work around bad code generation for <asm/io.h>.")
+> Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+> Debugged-by: Nathan Chancellor <natechancellor@gmail.com>
+> Suggested-by: Eli Friedman <efriedma@quicinc.com>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> Tested-by: Nathan Chancellor <natechancellor@gmail.com>
+> Signed-off-by: Paul Burton <paul.burton@mips.com>
 
 Thanks,
     Paul
 
+[ This message was auto-generated; if you believe anything is incorrect
+  then please email paul.burton@mips.com to report it. ]
+
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190824141213.svzmdr3pxdaqssuj%40pburton-laptop.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CY4PR2201MB1272E45CC3592AE4D97EF177C1A70%40CY4PR2201MB1272.namprd22.prod.outlook.com.
