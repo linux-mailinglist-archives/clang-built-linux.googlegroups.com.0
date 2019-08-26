@@ -1,126 +1,137 @@
-Return-Path: <clang-built-linux+bncBCQJP74GSUDRBS56R3VQKGQEU4H6LII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCM33EFK7EJRBU62R3VQKGQE6R5XL5I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3a.google.com (mail-yw1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id D03DC9CC02
-	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Aug 2019 10:58:52 +0200 (CEST)
-Received: by mail-yw1-xc3a.google.com with SMTP id k191sf11907497ywe.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Aug 2019 01:58:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566809931; cv=pass;
+Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 65D1C9CCED
+	for <lists+clang-built-linux@lfdr.de>; Mon, 26 Aug 2019 11:58:43 +0200 (CEST)
+Received: by mail-wm1-x33f.google.com with SMTP id c14sf6432683wml.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 26 Aug 2019 02:58:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566813523; cv=pass;
         d=google.com; s=arc-20160816;
-        b=vxyTxgL+ZrxM2uVHZXM3x2IFhZJVBBt5V2vy5T98IhHTPrG1Xg4Ymk/R1EhDO+kqhC
-         zbnwsQF/lHGJjfy4ql/B9LzZnstXoR4rPMOlVvRBuOfHcPO7848c6TWT3fBJX9T6ghX7
-         PbqP9cX9de3Sz9wOR8TvvSRyuFmuLZDa+wIDDKW43cMUbyEKDSq/813fy/OGHRdDKwDk
-         hl9IpRjX3T5Mwb+xFinP7S9IMo2z1tOzrifCbuA/J61a96T6T8xuVzr3cceZc2DiY4Lh
-         T60YJ505Fi0uYrqchhFRpo95S5GrvzWjIWCIeHoApE4jOckyozjcn9UP7x7YrgJIkU1/
-         hNRA==
+        b=pKRgDXIlexCZ4Y1wI8y8Y+hxJykKePzQCMJwCEhNCI/BSi7Mx3qyMaqpQChwflwviC
+         yXgfqFatcfHYxeuKGbJdOndeNqhqdxCAfaaaNE8z4bH7xwvLGTVXqUlHPjiVqYtxpZ4Z
+         AxyXc2IIp+MDrA7eM0pHBDv18BohMnHrAa4+uSBJAHagQBUZ/cJ9Y42o0NVnZwkVu4y/
+         RsFBaCIghDgKr6E2zge1UJKQfcUhrDRtXAj/Gbata5KgXhbco5ZipONbMi4mhtYfxNsP
+         Ho8AYt9OI49lJBOLES6G9quqpvTD1LHofKn24vi//M+xsrCk5tvufzBhJ0nrn9JLRK0J
+         RWnw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=elWQBx1MbX1KEWyxv/FXIldPdr/uRKgec9Yfl8n+Ito=;
-        b=AtG9p7f4+rEdVeosIK24KFmgG+UyQjTi71+Eg/Mpx4Jgi3pXpgu7RcyesjeUv+vqMA
-         /ClQPBJBGFbP1hOicxeKoF9NSedEIkv3vN3VdGOuOM3IZkWtjfVI34sHQeFz+C1Sz7e9
-         KIr8z71n5BKOHxUMVR3kBNi6QG0LJVhRoh8VnMXhxvkdyBXEd15JRwXoPGNNkTIcqIHP
-         gEok/1+f6o5SdK1jdhpRTXWWxxZ6SX93K7YXT+6gvnZn71+5Qbr4NVSltFB1g6kHiIWn
-         m7HtDP6iXnusyQ/YKIshvtjMmmdxcEryTHK+gqLWPA4VGJ0tKGZIs8uB222ZynCRreGp
-         cPHA==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=DCfycJ4DVSRESlSt5HTHqzXLPzjPZ3aFropMsCWcctk=;
+        b=QNCWKAqaAoKm8tID/a2RJbjZX9HIYqs1EZwhHsf3ZQsbZSrTS8E4hf9SEmoqEx+08R
+         aWhkMqab9X2E4S8rgOTq7mWU3bnrtMj2l7F9TJwaIMEFhX/0bT882G10o8gDv+ZX5DTH
+         ZgX3TFPNo7TS3rf80Bowpmk1HulS9BIIhe9trHoxhvkqdHaERmPbzqiYfNFdKCrnambg
+         njTA+9ljK91h291u1LPKBExTj/3pm8zDWaB2admJLrU5AF9OWQoQpBTcN7IkHK5YfuFd
+         jjIPAC/2Xod6tkgESR1NSMJVL5HmgZ/wA07bG5oL4plqYDAKfpCmpTQ2AwyuDc4MD99g
+         bRVg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.194 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=rwcggUp0;
+       spf=pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=elWQBx1MbX1KEWyxv/FXIldPdr/uRKgec9Yfl8n+Ito=;
-        b=BnjbdUXjtA3tIeYwHGKOsanUNWUSQao1O8T468VxU8Z6Ffvt33nEohV6auZUlw1JgZ
-         hrpR6vLRIAkPPZMq8gxORElJtssEyhSX70Gg57riJBb+b2y7LUOIOPwo9YdkcPGbHZo3
-         +WCOHUOGyIamp7IhGNqrWTL5G+/+X9XDAm8DEIK4ftlvBAYJWJA6aA/7+bhipVCYN23H
-         5/pojUE9cktoY2LX4ucI8uRTMW8pEsfCdYVymjPj0+dBEdp35J4E8zphcVFRGIPWh9k4
-         d23t4IFbFjYVsRo4SqjwV9A5r/V6258Cy9MjDwf7IkXStX4WqmfG3hGBr0tpdvZYEcie
-         idxw==
+        bh=DCfycJ4DVSRESlSt5HTHqzXLPzjPZ3aFropMsCWcctk=;
+        b=hY2qgONy/YCwlzN/Xz8UHrmMIZgEUi9Ko/bQL6mS6EK97PMspRmm02VAlC0InuyUbq
+         j10wbKrLVuoUU8zJKp5r3ZCYlGXYNaZLMeVH7mbfY4QJH3CiiD4pxHWrWtiuJ820/H4i
+         VkIt4seevqPCE1ZTjnfbrcf+FDfmK1jz0NKpj2LT8vkhgSrW1wFyXZEyvrritjf6G+m2
+         bfPlOrn/zYkR7VqT8fou5z5PB6eIumy/MKD1Dxj0aXhUGpPT1J51naYKCkMJfPp57Dkw
+         PvZS7+it+io+FRu6zOYJJb3kmAOCVCXyov9ryPoqAPjSez2W3w6PbtOIaHTozf3xz/Vl
+         QCVQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DCfycJ4DVSRESlSt5HTHqzXLPzjPZ3aFropMsCWcctk=;
+        b=dHUjdXhfOt/gsi4Eru6Jy0wpfd9tbp4bpJ85io+/Rx36ua84mimcDujHJw05HAfWNM
+         9DPBI3mf9g87DAtcNTPjVrbhKnWkaN9SUrZe1e99QdEiHy24MVo/a1A+H5x8b7hWH/lL
+         WEQaheXMSVfwTXn6EmO2x5eqNjPfrGVNSbbza9G7+W+jG49ebeRiL3on5tSZdNjO394R
+         p24zU/4ZCC6oLv3zAQ5idnXj5fhOrf4xc+6R2BaQgGM5ahSdYrvNXizzIgeJRUrb5F9S
+         /LFAHD9EfAGFjq/ZfvrHzJ79O48QADxN8BVHBqmaI6YeMp0UOX7rFJVYz/qYCjUcYgS9
+         vhtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=elWQBx1MbX1KEWyxv/FXIldPdr/uRKgec9Yfl8n+Ito=;
-        b=jjsWn6VGKOrZpV6Lk/T/GMgg7AlrdoVV0PTxLE2+e2xozuelSKImv/SK/ZiuLmlA6e
-         rwtDua6lFqksmSHkKDOfaeP6MSPjhcEnbB0tXisiUqWNmrqrtv5uJr8KkbC+BeID2CGr
-         048j4z8O1NmYW8z90ypAg08wZKuH5UK8taxOCPFs1tWe2ms/lyczG+55WU3ryg3TYrPk
-         HwLMxHyhZHKP+MUnu83qzzGAye6fNrFP13OUF4GpZmgdR20S8zd/GYYcsYbjYc8x/meN
-         IeTSH/3fefj/WpqZ6u7VQJrgg9L1lzX34fc32umrsYt2SuS5Lrk+8LfroQAxdUDNxPTw
-         v5lQ==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=DCfycJ4DVSRESlSt5HTHqzXLPzjPZ3aFropMsCWcctk=;
+        b=eVzkCK7S40bp/Qi/cjWJu9gCx/q7xcyukn5EhtQZe+url6JPr/bQaSP41cW6zHgCFF
+         iDaQ8rbStVVyn5pe3vYGmCmXRMR7I7t8h81S/gqwIWDkc2krpQlTUu8a3TUQFDBlit77
+         2vvOralD0kUwHG6p78p2AQ905RcpksXDYBpZ5XSPbizlcdC346/e+11aMySr9dtYyc6s
+         pDwdOG8Pp2IIUOIvZUNzbO8CktxKavPchGGyb/yu7HpAmsMMqIlqGs02PM5/0k4MvdjO
+         sFR0oAQt9AfyJw5Qm2tlPoqZHvEUhCOb3ESLpenOHYBQ6gh8EaxTmAVq1J3eP8rwrvFp
+         LoMg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXptrJo6KZVL535NR35TibDLPS1oKKOQQVk/wR48WGe+hz//TEo
-	1gMi2w/zAYipsIxdUIdPpIQ=
-X-Google-Smtp-Source: APXvYqxwJqt91RGI8bXbIWFjTOlBOLWRwXX5Rx9d4jI2x4TOWa+0MRWViDcDgYegEfPVOgaA7C6wkw==
-X-Received: by 2002:a25:ae44:: with SMTP id g4mr11923437ybe.266.1566809931586;
-        Mon, 26 Aug 2019 01:58:51 -0700 (PDT)
+X-Gm-Message-State: APjAAAWb5KR9NlVxqsdG4Sgo1BdvQmSha2s/6+PDs4Umsvzl1GU2N4BU
+	ggR/tUKf8rtayZiDn12uhXM=
+X-Google-Smtp-Source: APXvYqxBmsjfjN5DsnLFzuGd0QVhU3CaMMrRvZYrZT6DiexdYzC2i1vR7sByewZ6tIdr9R+cNOQWUA==
+X-Received: by 2002:adf:ea01:: with SMTP id q1mr21976548wrm.271.1566813523099;
+        Mon, 26 Aug 2019 02:58:43 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:b288:: with SMTP id q130ls4222526ywh.4.gmail; Mon, 26
- Aug 2019 01:58:51 -0700 (PDT)
-X-Received: by 2002:a81:2542:: with SMTP id l63mr12146712ywl.91.1566809931190;
-        Mon, 26 Aug 2019 01:58:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566809931; cv=none;
+Received: by 2002:a1c:7713:: with SMTP id t19ls6082406wmi.0.gmail; Mon, 26 Aug
+ 2019 02:58:42 -0700 (PDT)
+X-Received: by 2002:a1c:e710:: with SMTP id e16mr21200681wmh.38.1566813522530;
+        Mon, 26 Aug 2019 02:58:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566813522; cv=none;
         d=google.com; s=arc-20160816;
-        b=vo7X1A7n4AcwX/sK1tX+xQNk3cw8KsHZVv+7C9kJ/vc7Ru31CArMqHR+J6JAWfvwSA
-         BatgcFsRd+23OIbYv0jZ5UObXiMP+tGNwKLCm5QCSKN+4D5rSOu3qABLgt8ndGq8dE+6
-         wpxGVfCX3BE+MeyEcUw86kZpAkrEz20MS6MvI+dRAIzZl1TETicAu322jEy1HL+GZHbK
-         1zCd5C2fl6MQmRSCb/DZ2WG4Oe94xi0T22b5leBAPChBNBgZU5aXq/yVOu10K6b5aqqQ
-         a4nh3iGvwmNLsHuOAddaIU7YKyIsKSIK2ubqz9KYnsYfnPYPzs+RvE7WTCEMFY6j4Czw
-         VaNQ==
+        b=ZChBJLxUPT0eEwR+9+M3eQergec6LS2J/UjWuCZBESfrqdjLTRXOlSrFV9sJEJVugE
+         PWwlFEUSyGKSUBRMt17E7ntXcWseB2UoUMskLQ18FQcFLX2dmHI9HhXEObaLxuBC54HA
+         qYo9rb8mcJvyYzMI3ffcvEJTa4xoO44jcSWwUoUG+9To48NG65+OISC1oo/Naoxb14mw
+         GTsiOybG+En2LaI6vz4zwSHKwzI9+4dN1uMQ2K4lw33ibwW9KdBx2zx2rVZADVpEFOvj
+         juceQRhNKNQQmXFYa9YmN5e18MqZVsJw5fPbSHl8JBCUDf+gZO8zhb5fir19ahJbP/1u
+         dofQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=tnEOaWMh9o7a4lsL8t46ApShoBTiXhp9jJWi58Cb5Gc=;
-        b=v2jRqJjSQtX5apQus7rnOs2s1/S/rkFzZHAlhsqFukR3skhLdQWTRA65c6I2Sn4ZIw
-         TaWD8UX4absrheVD7lQnyk2RRFwCIdmDk1K/ACHwny2CWreHkMNe3qBbcV8cRcSjvtzs
-         +aMp0A2w4ov+YzGkmlLfivyeyD1RAmNJ6ArkhVMrLekxTDQR8Z1Xs02OCJbYic8B8xi+
-         vpIi440xP2IvPMKd08GHg2U8lm6/DK5Cxr3dVBMn+jvewxTS8+v779i2mCGsr4gHoLBM
-         u6tDro9/PABklVLi4DX5bIVygD7xYkc3BXLuHgJdLZVFIsZ/QN97vv0DdfbNo+IL1EUh
-         Lbsw==
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=AoSobNwrgWG+0xMdeEJoRWL4tyvVfhtrdTcQZJSWFp4=;
+        b=EiSo/ZVG32NpcWbvvZGNaxPZFjFiIa6poUXxt5VYql4h+PtfBShTsyLOCeMiYMNkjj
+         Y3Oi6KIVhxRKCCU8Sb9U2k5wl7YN8vldyUMpbLry4/DJ/ttwnRipXwBmtpkyYEugtwgi
+         oJumfV1m+7Sb1UydKHrOYfmfPomZAO4K0pd9k6j0QuHb0S8R29yHzT0QK8gg1flFgWAQ
+         yzLXhQLavigxP6BUUIPHfxZMhIFI7vkdW3kxHSyojL+SJ0C5EldjZztYEwr7rL2z8NXV
+         w/rdVaAnrIfK7MXZo44DPB4/uvjlIpRT58dJVpRrAYPpyq42TgwzidUUZibFeXuwFB8h
+         tTbg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.194 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
-Received: from mail-oi1-f194.google.com (mail-oi1-f194.google.com. [209.85.167.194])
-        by gmr-mx.google.com with ESMTPS id f190si524511ywh.2.2019.08.26.01.58.51
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=rwcggUp0;
+       spf=pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id w17si634866wmk.1.2019.08.26.02.58.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 26 Aug 2019 01:58:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.194 as permitted sender) client-ip=209.85.167.194;
-Received: by mail-oi1-f194.google.com with SMTP id h21so11539425oie.7
-        for <clang-built-linux@googlegroups.com>; Mon, 26 Aug 2019 01:58:51 -0700 (PDT)
-X-Received: by 2002:a54:478d:: with SMTP id o13mr11607090oic.54.1566809930697;
- Mon, 26 Aug 2019 01:58:50 -0700 (PDT)
-MIME-Version: 1.0
-References: <c0005a09c89c20093ac699c97e7420331ec46b01.camel@perches.com>
- <9c7a79b4d21aea52464d00c8fa4e4b92638560b6.camel@perches.com>
- <CAHk-=wiL7jqYNfYrNikgBw3byY+Zn37-8D8yR=WUu0x=_2BpZA@mail.gmail.com>
- <6a5f470c1375289908c37632572c4aa60d6486fa.camel@perches.com>
- <4398924f28a58fca296d101dae11e7accce80656.camel@perches.com>
- <ad42da450ccafcb571cca9289dcf52840dbb53d3.camel@perches.com>
- <20190820092451.791c85e5@canb.auug.org.au> <14723fccc2c3362cc045df17fc8554f37c8a8529.camel@perches.com>
- <CAHk-=wgqQKoAnhmhGE-2PBFt7oQs9LLAATKbYa573UO=DPBE0Q@mail.gmail.com>
- <9d12995c5e7e41fc5d8ba202f76a2cf854183245.camel@perches.com> <CAHk-=wi6bEnBy11HJBbgPsG3-ctE6Zyi2+3cnozjMAafSUBAaQ@mail.gmail.com>
-In-Reply-To: <CAHk-=wi6bEnBy11HJBbgPsG3-ctE6Zyi2+3cnozjMAafSUBAaQ@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 26 Aug 2019 10:58:39 +0200
-Message-ID: <CAMuHMdVtCKVXNghfrs6RgtSDC08c0eyR-xD6d7mkZuSSPEFY-Q@mail.gmail.com>
-Subject: Re: rfc: treewide scripted patch mechanism? (was: Re: [PATCH]
- Makefile: Convert -Wimplicit-fallthrough=3 to just -Wimplicit-fallthrough for clang)QUILT
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Joe Perches <joe@perches.com>, Stephen Rothwell <sfr@canb.auug.org.au>, 
-	Julia Lawall <julia.lawall@lip6.fr>, "Gustavo A. R. Silva" <gustavo@embeddedor.com>, 
-	LKML <linux-kernel@vger.kernel.org>, clang-built-linux@googlegroups.com, 
-	Linux Next Mailing List <linux-next@vger.kernel.org>
+        Mon, 26 Aug 2019 02:58:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id v15so14845931wml.0
+        for <clang-built-linux@googlegroups.com>; Mon, 26 Aug 2019 02:58:42 -0700 (PDT)
+X-Received: by 2002:a05:600c:114e:: with SMTP id z14mr19782960wmz.161.1566813521900;
+        Mon, 26 Aug 2019 02:58:41 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:a58:8166:7500:a940:180f:b044:ac12])
+        by smtp.gmail.com with ESMTPSA id 24sm11025551wmf.10.2019.08.26.02.58.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 Aug 2019 02:58:41 -0700 (PDT)
+From: Ilie Halip <ilie.halip@gmail.com>
+To: clang-built-linux@googlegroups.com
+Cc: Ilie Halip <ilie.halip@gmail.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] bus: imx-weim: remove __init from 2 functions
+Date: Mon, 26 Aug 2019 12:58:28 +0300
+Message-Id: <20190826095828.8948-1-ilie.halip@gmail.com>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: ilie.halip@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=rwcggUp0;       spf=pass
+ (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::341
+ as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: geert@linux-m68k.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.194
- as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,71 +144,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Linus,
+A previous commit removed __init from weim_probe(), but this attribute is
+still present for other functions called from it. Thus, these warnings
+are triggered:
+    WARNING: Section mismatch in reference from the function weim_probe() to the function .init.text:imx_weim_gpr_setup()
+    WARNING: Section mismatch in reference from the function weim_probe() to the function .init.text:weim_timing_setup()
 
-On Wed, Aug 21, 2019 at 2:41 AM Linus Torvalds
-<torvalds@linux-foundation.org> wrote:
-> On Tue, Aug 20, 2019 at 4:37 PM Joe Perches <joe@perches.com> wrote:
-> > > So I'm putting my foot down on yet another broken string copy
-> > > interface from people who do not understand this fundamental issue.
-> >
-> > I think you are mistaken about the stracpy limits as
-> > the only limit is not the source size but the dest.
-> >
-> > Why should the source be size limited?
->
-> You just proved my point. You don't understand that sources can also
-> be limited, and the limit on a source can be *smaller* than the limit
-> of a destination.
->
-> Did we learn *NOTHING* from the complete and utter disaster that was strlcpy()?
->
-> Do you not understand why strlcpy() was unacceptably bad, and why the
-> people who converted strncpy() to it introduced real bugs?
->
-> The fact is, it's not just the destination that has a size limit. The
-> source often has one too.
->
-> And no, the source is not always guaranteed to be NUL-terminated, nor
-> is the source buffer guaranteed to be larger than the destination
-> buffer.
->
-> Now, if you *know* that the source is smaller than the destination
-> size, you can do:
->
->     len = strnlen(src, srclen);
->     memcpy(dst, len);
->     dst[len] = 0;
->
-> and that's not wrong, but that works only when
->
->  (a) you actually do the above
->
->  (b) you have no data races on src (or you at least only require that
-> 'dst' is NUL-terminated, not that 'len' is necessarily the correct
-> length of the result
->
->  (c) you actually know as the programmer that yes, the source is
-> definitely smaller than the destination.
->
-> and honestly, people don't get _any_ of that right.
+Remove the __init attribute from these functions as well, since they
+don't seem to be used anywhere else.
 
-(d) you know the untouched trailing end of dst[] does not leak data.
+Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
+Reported-by: "kernelci.org bot" <bot@kernelci.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: clang-built-linux@googlegroups.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+---
+ drivers/bus/imx-weim.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Anything else we're missing?
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
+diff --git a/drivers/bus/imx-weim.c b/drivers/bus/imx-weim.c
+index 79af0c27f5a3..d82e8c00523d 100644
+--- a/drivers/bus/imx-weim.c
++++ b/drivers/bus/imx-weim.c
+@@ -76,7 +76,7 @@ static const struct of_device_id weim_id_table[] = {
+ };
+ MODULE_DEVICE_TABLE(of, weim_id_table);
+ 
+-static int __init imx_weim_gpr_setup(struct platform_device *pdev)
++static int imx_weim_gpr_setup(struct platform_device *pdev)
+ {
+ 	struct device_node *np = pdev->dev.of_node;
+ 	struct property *prop;
+@@ -126,7 +126,7 @@ static int __init imx_weim_gpr_setup(struct platform_device *pdev)
+ }
+ 
+ /* Parse and set the timing for this device. */
+-static int __init weim_timing_setup(struct device *dev,
++static int weim_timing_setup(struct device *dev,
+ 				    struct device_node *np, void __iomem *base,
+ 				    const struct imx_weim_devtype *devtype,
+ 				    struct cs_timing_state *ts)
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdVtCKVXNghfrs6RgtSDC08c0eyR-xD6d7mkZuSSPEFY-Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190826095828.8948-1-ilie.halip%40gmail.com.
