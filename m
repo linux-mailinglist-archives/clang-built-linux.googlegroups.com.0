@@ -1,121 +1,140 @@
-Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBHVCSXVQKGQEZBQVFVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBT6DSXVQKGQEQNOGOCI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63e.google.com (mail-pl1-x63e.google.com [IPv6:2607:f8b0:4864:20::63e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 123AA9EF5D
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 17:49:52 +0200 (CEST)
-Received: by mail-pl1-x63e.google.com with SMTP id v4sf12244555plp.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 08:49:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566920990; cv=pass;
+Received: from mail-qk1-x73b.google.com (mail-qk1-x73b.google.com [IPv6:2607:f8b0:4864:20::73b])
+	by mail.lfdr.de (Postfix) with ESMTPS id C00919F109
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 19:01:04 +0200 (CEST)
+Received: by mail-qk1-x73b.google.com with SMTP id x1sf19455262qkn.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 10:01:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566925263; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZtwcWDSvL+uGto7AgEgZoFVKFsgllgd4RBoWiBiszFKE8JiNzJ61cJg3tG1O5jDTe1
-         sLycEO9L3YTQ5WQiPq0CkefHo27v06joX2QyeYPWxR/b+r3ub/97IIZlv3yuy+fBcX9f
-         Un9ruSJri1r4b5U7z4iJa6jiKMaPDmFFODDPPYh21IN1P+gQ9j/QaDzln/mF+5hFdaSZ
-         E+Cl4xJuwzwjrMe2ObxBJAIGpUquZNr2IHWcvKrBJVg9BkBfL3wN5tAuJaZJHPo3DosN
-         qSnmqm53fUZV2RIdc1wQcez7ldfGy3b7F3p2UB8E9NvmO+vLLkigrO17aFcEpm09Xdg/
-         a2lQ==
+        b=S/qpvyDMAHhjy4PQnrDgJebHgLoqUMvvMI+GfatUxkqS9haktCD4HVjsWD3gyMqceo
+         BQSS+qL7/q/dcFDFAAnI+A8EguBDYPYxq5gcte8tDpSP43iB7IzSiAnOf060r9elrAEd
+         giZGGJ65pgyQEjvMiIit3jX4Uh0EwZlp/M8xe/Wyf27Pw1uVavQU+rFV/DPqEiStJsIm
+         /tsvA3nBSyOF/Sa7ivSeVgfC/1ZNYaGiXYYEp20mHh1mE+sVmJXV/hnQ1HgDCnyamw7C
+         ZDOc2JXN4oIDBpLKi6BkpUsj1pWQj8fRQVo0LlcDFUoC1QLpWJ4IoHc7IcmzpJ1HEOUo
+         kAug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature;
-        bh=7HW9Os0W0spSSBfxYcPLK8MhvIY8+KkbidF6Dzzxncg=;
-        b=ElTKYjc3EH1mGtjplERVkVsy/vxBJ5Isg1D3lncjQVCmBKTKMkU7rHV0hg5Wc97EeB
-         znUbKvAmOibY4+30MfxHdZAGetG02RcOgRiR8/4NnTpELtpQAIJThGUUDpmNtGuunm2k
-         5AzsKJlNqlyghG9bjGdN1nM/v6Vc6no7ATWk9aURuShu2WuwR7Xof++PrDoh5g7NMxOq
-         g5fq0JW7g4LTbRZbPez5NAr9BcGP8/p9YKkMMHiGhvWHpqZSArzC8qVVfREvdazTB/ql
-         NE81ZjtOZX/quY43Lb7WW7qJ+rWrvC86ONcFljvc1iUBfTcgSCA3y4hvqDx8GOQ08apR
-         F4PA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=8YdpPwu0lBrw39zqdvqAlI4zIj5hJBkMpz2Vv+mYtk0=;
+        b=eCRWhC5hlPZxn7n8hCmkkYm7z4qL7IRXU1KDsoR8kXbIjtPz78Wxdg22X4VsuQbqs4
+         Z9d/TL/2aMCpfRZDTXW7MlKI3BAfHnCVdY5zON8+XdxwmNEoiy/duC2XPCs1UZDlB0dX
+         PBSECSJnAslbWrAnAgyqxY5tKtBL48WZl+la5VoLbAxbzjCPYU2PzTKuTuLu4p7Y/Yz6
+         6KBieC0WUGZ2GbG7EW+ROazR/LHB18JoeW27ecWpdzxXObrN3CtNOtqhiBdjCgTvT9H/
+         bKLaFb5W7FML3BJWz7f7nQbej6rO9WSIiZ5vCpLljBjiNzI2ZpR+YRFkoKaRyQekcoMx
+         XjxA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=CxO4kuP7;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=cai@lca.pw
+       dkim=pass header.i=@kernel.org header.s=default header.b=EVEs4Ht8;
+       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7HW9Os0W0spSSBfxYcPLK8MhvIY8+KkbidF6Dzzxncg=;
-        b=J9oxiBxBLty96M2RJsnYq7j35fQSPZV9h5SKHsGit6hZf2WG6znoEZQ2jdooZ5Fhpe
-         vLKZMh3KxCqDyuqt2WEDUFHchc6oHw+gZrpXcmIODd4ct7QEiseOIDFd99WzKLL7XbFg
-         wV5dlT0WitUJQHCD0R2rUN3WtzQIvLvnmugDQnZZwrigNcVuRtLjyPOJRzBgsxrJsct3
-         SPoeRem7gqOZIdxzMtvxDjXTDyUXMVwRy7jm6VCA/vjisqh0MkftJaKCmmg0tSmTVc2g
-         aWEX9aNItVnjVbv1Vt7M4vg0Dboro5CESeFusqEVQx9IL7IZV5V3Z09boyMUwkhuE4J4
-         MVug==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=8YdpPwu0lBrw39zqdvqAlI4zIj5hJBkMpz2Vv+mYtk0=;
+        b=Maqte5JUkm3eyPXMXT2nt8J2EtNtbW47OZq8ENnbifXmHsvxv1bTR9kYgugkpJHi/S
+         IykTqnpbaHinAP47iPKmjZ2Jz8i+8RHgaieH1E67CsY8Yq/8GmnPyF3vmHrRKuy39YVu
+         R/Y2QeTZIkfEf/DXwsEoI7pF8YJgi+NQ6BoCBSQ90mgNGUgubuv3wcq4J2eKtplJRhRd
+         2GosNI+wejRppjpi1s0k2OhiaBUcFHxcnvIID8F9oEvRyAZ7I/RlTm6lP11FCS+cB6Tm
+         QQtlX+R27mLaIMch3p3ZwVJ1syU/Xwh7FpdweF4K8dsNSQbpHpr40n0jhAeaINtTSgYC
+         73jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=7HW9Os0W0spSSBfxYcPLK8MhvIY8+KkbidF6Dzzxncg=;
-        b=BqbfgkPK/WJVt0NtDrQdUuJNb6FAR2xxfNxZd36xPyOQtO7RUj+AJBlXg8O40WrpGJ
-         mIAspNLnqILXWgzvHHM1Y0F2Kb56R5gfS3v5FFFRmGl6RmGk1XP61UaTKc6fSRMPzKkO
-         RnY8onPQWmGzam2/+biTFGvITLBNAx++ggWPOBtUfJ4DToRaiRlYw+Jseq6HjMOVDs3c
-         aEJefwwOApfqAW+7STJZsRSHbygqSBOHRykcU3BrcrL1/LZwp0EzmjxOfqPfYRNtxh+x
-         MOZRT82f2a6zvbRiUIkPwOMBvVZnId1x5XyaPTJXSLKehh752oRJlDhTeb8vnNMkYN0F
-         7EMw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=8YdpPwu0lBrw39zqdvqAlI4zIj5hJBkMpz2Vv+mYtk0=;
+        b=PrTlpTuj5nzTVbgPFWISfIR45GdmNNf1lgBiXTZBzPgD6z3+3wbaRWtWZ1sioZuGfc
+         xCNw5Vlcqu//e//g6iwttDB4IqbbPl783t9Ni9KwFYLgVuAnbehFRlkqr1dabzLSDDIY
+         EHTGy13HVm/RlmxFLHSArMT/jBLqaSHTktYM8ZCmDj7GDcAc7dmjVod1jXbMfrkgoDsK
+         2l3KWGduJSVCgt5Uv1GaogrEVoOMPnPEIsbQWbTdxlGun7o4unrCWcAWv6oIGROL0eaE
+         G53Hqlx93a8AofSiZuiXj3mhGN9ctLhgqgx2I1yWHUKCkwHQLOSlgpp0zxwsC97OdUID
+         hucg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUmaAyYz+BrXsR/J8qyJ0r9qY86BOXp6/G/u+EIChMxgk2WtFtJ
-	3B6F716zFT5HEVy79HrB8zw=
-X-Google-Smtp-Source: APXvYqwqC0q1lhHKJphQY/eusxXoMWGGazso5ekm3mDg2e+5E+EU0aHCaU+Ao2y6c8Q/jHT1JTWp5w==
-X-Received: by 2002:a63:181:: with SMTP id 123mr22440283pgb.63.1566920990621;
-        Tue, 27 Aug 2019 08:49:50 -0700 (PDT)
-MIME-Version: 1.0
+X-Gm-Message-State: APjAAAWO7zVIKDsoOhnxn2fiIR+HR+IQf8dzANibO9csvIv5RgoTeUV9
+	f9mwM18X+cIkJC+LQXR6sO0=
+X-Google-Smtp-Source: APXvYqzZ9yhCrVcl7Mzl6sbXTBOYonyw1H73VnHTK8uO/ZMiDtWzFAGCDP9MXDx8MbJxjPlx4nMkKg==
+X-Received: by 2002:ac8:4612:: with SMTP id p18mr21146941qtn.49.1566925263463;
+        Tue, 27 Aug 2019 10:01:03 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:644a:: with SMTP id y71ls5792067pfb.3.gmail; Tue, 27 Aug
- 2019 08:49:50 -0700 (PDT)
-X-Received: by 2002:a62:3145:: with SMTP id x66mr8471255pfx.186.1566920990147;
-        Tue, 27 Aug 2019 08:49:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566920990; cv=none;
+Received: by 2002:a37:498c:: with SMTP id w134ls2310640qka.5.gmail; Tue, 27
+ Aug 2019 10:01:03 -0700 (PDT)
+X-Received: by 2002:ae9:d606:: with SMTP id r6mr22082803qkk.364.1566925263273;
+        Tue, 27 Aug 2019 10:01:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566925263; cv=none;
         d=google.com; s=arc-20160816;
-        b=TSjNQn9gPo4VsxExkNdzNbT+G3K7dSav2i3Qg1P80fhBGFCwSLpEnHpytYHQH/pgdn
-         QRtlGRFrd/JtAit2irfYsKdhmzxWu7JNDNY4Xp7bloQnW25+v4cx8ngpKeJ6+GR//+SV
-         8ET7ooMDadwVeSMk04STf5wxPoq6E+rfj0/TVbzaB+mL2Q8LubWr914fzvSu0DU1XZ6P
-         ZIGrQv+4j7oCDl3TAYATjxufJneTqr2lsmZ2GgzcG/mzqEW9xEtBUb30Ghn3G4vUT5dy
-         ggA4fdJGsSId9n14frFs1AoMHks4Uk34HSC4RGoAEuO3Jvbilkjc16mFgFdwWjERB+qq
-         YbQw==
+        b=pHIxBtwA6Xz2S2GK1nvb2KgtlS5SO5mY4HIye1NJQprr1EWXCclR+qF/XKS6BpfTjD
+         vdMWiRwRaHRZCvF2/HLby3Gi8tCrgVmNhiObwKXRwxwlaZatorztK6F38eNCQrcmef09
+         7fuWeRZ33dSxs+mqKIdsVsWmcqi7bVFa8/mqSzaJyPArDbjnxCHFH6XxGpuobvoSivna
+         bFvDPHABSN3pLN9g823NxdNqPl+38D3bj0dntq0tFZdFBt8cGsIAKmJfyhOffJm61TGc
+         oSScRrgttEKLzMLvpOixXk3vDUdX3FkDRo7eyZzAKHt052gU1lX4yyrEQorvXN/EE8to
+         mbWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=dibpdWj0PBeXuEM69FfN87DRWH5kS3v94RiPB1mv5iU=;
-        b=j26otV0RrhvV12y6pEQ7AqMu1gyLyc0PGGTC4TeguUpsXXBGiEamUARVRYyUH4d7a3
-         eihuS5HFGnVo2aCtM2kEsKdtouLUxt8oY0FmZ1E8IMfjOVfJC2QQ2vttROhjHJGO3+fN
-         wtwTbmJXCK83kDlV0OQk/kZx9o6Ai/cN6Hxw6eIuf9Ux/ThuGE13JohG3UQAqgblY0jQ
-         KbKPdqvut2QGObJ9nPcmAvYeqtOu8YdH7yPyWxwxBlubzynli1wfL+WSL6ngdjez5mAV
-         Ap+WVa084nStgi99sM1ZDqZ7pI9n4Q/DQvkpyjOzTw34BzfPM1mz2wR5HbZ4tCWzydkh
-         5/7Q==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=vhcLMw4HAS/pg6yWKtfHVOlA6hUJCjY4kAU9vg2m75I=;
+        b=T7ndwT8eihB9YdzVEF2Et5hLrdHzEtBg1F0lY+0ixahhT1xWIQpsbJSf8NSGRAz+t1
+         kDNtIbhcwicW7iXdzIkcNLuHRmVik5txi5mEJTen66C1EW9rx2givaWikOIOh6GjgW38
+         N/NDVHfEbjoje7HyByCDiviVZYdrMwE+PD031g9rd/4Fq0diV7m7LfwE03iueydVEpzb
+         1Lt7HwtKr3guzAEU3ICHA0EJcFeVZRVqjbTgJQ+ZR4Ke20tGUdF+MfrYzM1/dIQQ2ej4
+         kCAepAQqjUxf6eofzTTCGmIfxfAu95NSY6htom0Q5tEk3x05dVESdeTK+dRxpe1Hv+fw
+         iCLw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=CxO4kuP7;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=cai@lca.pw
-Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
-        by gmr-mx.google.com with ESMTPS id b23si768453plz.1.2019.08.27.08.49.50
+       dkim=pass header.i=@kernel.org header.s=default header.b=EVEs4Ht8;
+       spf=pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=leon@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id j10si516823qtn.5.2019.08.27.10.01.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Aug 2019 08:49:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::742 as permitted sender) client-ip=2607:f8b0:4864:20::742;
-Received: by mail-qk1-x742.google.com with SMTP id f10so2868431qkg.7
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Aug 2019 08:49:50 -0700 (PDT)
-X-Received: by 2002:a37:c49:: with SMTP id 70mr22348368qkm.429.1566920989128;
-        Tue, 27 Aug 2019 08:49:49 -0700 (PDT)
-Received: from qcai.nay.com (nat-pool-bos-t.redhat.com. [66.187.233.206])
-        by smtp.gmail.com with ESMTPSA id w1sm8505153qte.36.2019.08.27.08.49.47
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Aug 2019 08:49:48 -0700 (PDT)
-From: Qian Cai <cai@lca.pw>
-To: akpm@linux-foundation.org
-Cc: clang-built-linux@googlegroups.com,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	Qian Cai <cai@lca.pw>
-Subject: [PATCH] mm: silence -Woverride-init/initializer-overrides
-Date: Tue, 27 Aug 2019 11:47:47 -0400
-Message-Id: <1566920867-27453-1-git-send-email-cai@lca.pw>
-X-Mailer: git-send-email 1.8.3.1
-X-Original-Sender: cai@lca.pw
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@lca.pw header.s=google header.b=CxO4kuP7;       spf=pass
- (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::742 as
- permitted sender) smtp.mailfrom=cai@lca.pw
+        Tue, 27 Aug 2019 10:01:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (unknown [77.137.115.125])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 6ED072184D;
+	Tue, 27 Aug 2019 17:01:01 +0000 (UTC)
+Date: Tue, 27 Aug 2019 20:00:18 +0300
+From: Leon Romanovsky <leon@kernel.org>
+To: Josh Poimboeuf <jpoimboe@redhat.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bernard Metzler <BMT@zurich.ibm.com>,
+	Doug Ledford <dledford@redhat.com>, linux-rdma@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [PATCH] rdma/siw: Use proper enumerated type in map_cqe_status
+Message-ID: <20190827170018.GA4725@mtr-leonro.mtl.com>
+References: <20190711081434.GA86557@archlinux-threadripper>
+ <20190711133915.GA25807@ziepe.ca>
+ <CAKwvOdnHz3uH4ZM20LGQJ3FYhLQQUYn4Lg0B-YMr7Y1L66TAsA@mail.gmail.com>
+ <20190711171808.GF25807@ziepe.ca>
+ <20190711173030.GA844@archlinux-threadripper>
+ <20190823142427.GD12968@ziepe.ca>
+ <20190826153800.GA4752@archlinux-threadripper>
+ <20190826154228.GE27349@ziepe.ca>
+ <20190826233829.GA36284@archlinux-threadripper>
+ <20190827150830.brsvsoopxut2od66@treble>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20190827150830.brsvsoopxut2od66@treble>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: leon@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=EVEs4Ht8;       spf=pass
+ (google.com: domain of leon@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=leon@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -128,52 +147,30 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-When compiling a kernel with W=1, there are several of those warnings
-due to arm64 override a field by purpose. Just disable those warnings
-for both GCC and Clang of this file, so it will help dig "gems" hidden
-in the W=1 warnings by reducing some noises.
+On Tue, Aug 27, 2019 at 10:08:30AM -0500, Josh Poimboeuf wrote:
+> On Mon, Aug 26, 2019 at 04:38:29PM -0700, Nathan Chancellor wrote:
+> > Looks like that comes from tune_qsfp, which gets inlined into
+> > tune_serdes but I am far from an objtool expert so I am not
+> > really sure what kind of issues I am looking for. Adding Josh
+> > and Peter for a little more visibility.
+> >
+> > Here is the original .o file as well:
+> >
+> > https://github.com/nathanchance/creduce-files/raw/4e252c0ca19742c90be1445e6c722a43ae561144/rdma-objtool/platform.o.orig
+>
+>      574:       0f 87 00 0c 00 00       ja     117a <tune_serdes+0xdfa>
+>
+> It's jumping to la-la-land past the end of the function.
 
-mm/init-mm.c:39:2: warning: initializer overrides prior initialization
-of this subobject [-Winitializer-overrides]
-        INIT_MM_CONTEXT(init_mm)
-        ^~~~~~~~~~~~~~~~~~~~~~~~
-./arch/arm64/include/asm/mmu.h:133:9: note: expanded from macro
-'INIT_MM_CONTEXT'
-        .pgd = init_pg_dir,
-               ^~~~~~~~~~~
-mm/init-mm.c:30:10: note: previous initialization is here
-        .pgd            = swapper_pg_dir,
-                          ^~~~~~~~~~~~~~
+How is it possible?
 
-Note: there is a side project trying to support explicitly allowing
-specific initializer overrides in Clang, but there is no guarantee it
-will happen or not.
+Thanks
 
-https://github.com/ClangBuiltLinux/linux/issues/639
-
-Signed-off-by: Qian Cai <cai@lca.pw>
----
- mm/Makefile | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/mm/Makefile b/mm/Makefile
-index d0b295c3b764..5a30b8ecdc55 100644
---- a/mm/Makefile
-+++ b/mm/Makefile
-@@ -21,6 +21,9 @@ KCOV_INSTRUMENT_memcontrol.o := n
- KCOV_INSTRUMENT_mmzone.o := n
- KCOV_INSTRUMENT_vmstat.o := n
- 
-+CFLAGS_init-mm.o += $(call cc-disable-warning, override-init)
-+CFLAGS_init-mm.o += $(call cc-disable-warning, initializer-overrides)
-+
- mmu-y			:= nommu.o
- mmu-$(CONFIG_MMU)	:= highmem.o memory.o mincore.o \
- 			   mlock.o mmap.o mmu_gather.o mprotect.o mremap.o \
--- 
-1.8.3.1
+>
+> --
+> Josh
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1566920867-27453-1-git-send-email-cai%40lca.pw.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190827170018.GA4725%40mtr-leonro.mtl.com.
