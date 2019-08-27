@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBVNKS3VQKGQE765W72Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWFKS3VQKGQEWTPBYEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8A9B59F449
-	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 22:40:54 +0200 (CEST)
-Received: by mail-oi1-x23f.google.com with SMTP id t207sf84759oif.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 13:40:54 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566938453; cv=pass;
+Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 651C29F44A
+	for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 22:40:57 +0200 (CEST)
+Received: by mail-pf1-x43a.google.com with SMTP id a20sf210132pfn.19
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 13:40:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566938456; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0a8vQz4gUjQkw+laJg//QNZb2HZZHiSDNx0m0w8MaOf9Ix8e5XdslxnL8hBhy1wmQH
-         Dviz2nJEecbog+165K61vBb1HZA6vOqiCBgYlWQPDZnxO4uDvc6yxJvPc0ykLwQvrDaV
-         SbEwufLs7D1ReiY+FUbxeId9N3GDZItgeI0xRvtoCyGU71nEhAuwR15R6N9YeXUPcv1b
-         fQGUxdeDXv0KGMi83Oqm99XXR5dLox6+bFGpK+G/FjBa53HFbj5PZI+N4yUx41I25Dax
-         RhfxwBvqjAgiX3u2Yqml05GJ0DXBj9u0Qh/IfCPDyCFu88glUEuBSHKbCQaN6APntZk6
-         Szng==
+        b=dufo/9EYDaxzgEPhXXzj+H2yLVfwTtnxUoT8am8K5bJ8ZX7lquOEWA0G5dOP+KkGdt
+         LkZLSxwxlLIcK12E6qdvdKqsYTOID9kanKE8avn7wxz+X3iHw+4dxn+vU2mE5h4i8ltt
+         j18LiNh4tJU5P1ILNbDN3iS3YwGVhQxsXi0xFcTTkeRkOWQMrQkisLIRMGQ1RjUz2d/g
+         AKw5vo7yp6/qubbBzQsZbaUWHOIfnmLgW4mAIVOG6/ja8sqYRW12KqjzM5ohWcs7naIK
+         aPywUbmNbo/TFiujvAwB2goWeHyRPHmLirYODKTsVCxJvNsdnfGmZ3TXJp8uXCxf6WGX
+         PhMw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=/71cAW6f5QzQVKrj6fIIfUbO42dt7m9eeP3cOuOukAY=;
-        b=AIRLD2T1l3dcOBvktNZoB461xjRpWMWCFJvr18FDAbv3zP61pxcLUMwq5sNsWQGrND
-         pxTSWvR1fwevZVb3dmtpHssUo4Xc6j3htPZJWHsiDMq3FaW/VZLV/CiVubMfEHKCgBe0
-         fZKB9wV5oloZgskDiGSKvy/NKwh1bs0QiFXCANYkeW0Hr5LgEP0yIVX+QmsUOubntb3a
-         cw2qSCTbCOcgOmtrpiIEUDMcII+QvsEn11vCmIRxjRXEv7ZfhJPh3scQN941Q01E3v3M
-         A/j9xnLkgZnw5w+vuVOGnjTlBD1JZYSlCmKyEgmJwJPXLUn3NMHNb3Hvm7CGClIqebcV
-         ZFHw==
+        bh=AohCQps+TIm+SNisIEm5XRs06bRWk4qtrR/ju4Lho48=;
+        b=LEt6SFlRbmar7evXS6l3uL6R+ZaLVFzacEB0jwuBUyXQ/QlgO6tfT6tVEFtgLaPpyJ
+         Et9j9qYBgFA+X0twV4ErLgX3gSqdAsINt8t+bH39K2ZEAuwAnPrm31j0oiPXja32H19l
+         D2zNI3oVzVsh6uU0Zl1eAdH2YeXBKhoLXm5W9KhaRZt3r52emK3Wo2Yy+5v6QX2/ESni
+         qcrlnqkEu7fXhR0SdYsA8Kdd1YqFvDAwiZ3KscUAcChV4xK/ZGNITkpGp/LuQuSUVMOG
+         EbaFHFjdn27WmuNSuoQuGUf1B34mTR0g6ZJSGybWW+rhpBM2B20t6vSVug2EL3e/8Nmf
+         Gt2g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=oZVG6SfX;
-       spf=pass (google.com: domain of 3vjvlxqwkaacuklzh1suplyznvvnsl.jvt@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3VJVlXQwKAAcuklzh1suplyznvvnsl.jvt@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Iwi+WE6J;
+       spf=pass (google.com: domain of 3v5vlxqwkaaoxno2k4vxso12qyyqvo.myw@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3V5VlXQwKAAoxno2k4vxso12qyyqvo.myw@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/71cAW6f5QzQVKrj6fIIfUbO42dt7m9eeP3cOuOukAY=;
-        b=C7l5JAU3yHHY7e7PqP+58SuCsGkeomSrMB8wOrQzDfWP2MOgbiFH15dV0Oky44vpZF
-         isPhP4jhKBS7VsyUU6yh1nDwOZiM6RpRKxNlimb1/UH9Hp+/RnBFvvxQSYyT1CBJsAv/
-         A4uDw6IPQvNXeaafdW0AcuP2GPs/M5J8S3GCrPvOsZ3GcC9nSVMPemQbcn2J1Vk1wc6i
-         kvi47I2KizygCkMLqq9oOljDajRGPzrCG2PjeqbC6cexpoo9M+DXu1/YsJ19THhGpQxZ
-         vsKlklWBdxtnGAzNL46+TsPPFz0hN6v9OoV7fuZwsYyJ9jRcFbVytp7pTjwGCXlPduXZ
-         3d4A==
+        bh=AohCQps+TIm+SNisIEm5XRs06bRWk4qtrR/ju4Lho48=;
+        b=LOUkwuBonvC3OG7n2KkKbeaHaG+jby5n2TkCf4eddEFZkMQHhK/6MAUhTgU7/9w57X
+         Rhc/NiOD+/kpB97erB5dBmWs6zJnpC6zX6TllRbFdiOGPpAkwJqKLjKoL57ioR6j2qhH
+         KCMIyX4DOnbIP7oPdZ8RsaLk+Hm/QYpK1ZCqs2Yf2ij8MggC24UhJmoHkTzLzS4yQGVC
+         ZIW+96YpOuBD7Ovf870amsKkSWm/ZSu4iRgZDyVzysiaV1R4SSgkdgS7uoNXTa7omzrw
+         iTIC//cijpeqdPVPr4RNlsV2zydTn68e/uUeb7u1qhNk9jC6YeFsYT0apZ6sCMs4bLoT
+         eydQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/71cAW6f5QzQVKrj6fIIfUbO42dt7m9eeP3cOuOukAY=;
-        b=QzemRnC+Tx88dzkuakNR//I+YLaQgbyJJ879ZGT2eIM7mz+h22OTcz4uMr8vrwTCxv
-         TC/ZH+uViuoe9n0DqqM7bm3MPs0tuE/U1Zzo6ghqaRJ51Z9p77H1cJd5xKu4zILzORym
-         8v2Cc9O5FDeSiCvfmlSYAbzbtCLGtyZKr5kijHn6lIhAZmFYPpzSKPh5nDvTq7+AKFBx
-         pxHTaJtNICpNwf2PV4F1Rj4uDaZ1h2UgWuD3iKoGiilnhFVwZdQvX77VwhI4Lv2P2bPL
-         LbHTx3i51gfb8YNJQTIdQiZ+VBPgU7upA6fgscpwllK6m2MJn7lyM32rSA8aRQu1rWVT
-         cGDg==
-X-Gm-Message-State: APjAAAUG6yTNsTtDq/9aA8qv8Tx4TxCiMIF6BNaNYSq1P4JltmpvZObs
-	x03WZpQHTxiO2/q7V/PVoeM=
-X-Google-Smtp-Source: APXvYqwdrGVMTAV0x3vIfSiEe9MRJOw98VE2n0Q8iVEoscOAfIfDfk28SwCWMnaeRUoque6wv3RSjQ==
-X-Received: by 2002:a05:6830:1e4a:: with SMTP id e10mr478383otj.310.1566938453476;
-        Tue, 27 Aug 2019 13:40:53 -0700 (PDT)
+        bh=AohCQps+TIm+SNisIEm5XRs06bRWk4qtrR/ju4Lho48=;
+        b=FmaSyobTGnAKi90he2QrQ7LBPmOHeZTISpHv10/17w1nCSUasCWy+57b8nCv+ZD8cb
+         9dcSYyswvxdeOD3KzvldJTBI8M1qL8sQ+Vu1CmOO1lwD9qJmLSduVeKZ6pRLycd6caCJ
+         qI7LCwVarksbpojZtCYfB4alZUPB2aqNuzBhIZRllGazEpumKjrybLh5BgbknzpHE9iH
+         QLn+8mu/u+F16L9f6ly/HaCb6UFknsJuzznZwdyo+GcT9EraMyFzQDXraik+DI6YvA6m
+         +frPVqXwbGY40A4HIHGdMnP5DyUkvRN0eY5XT6ueh5hmCPermfPeAsWQcpZ+nHRYF9Nb
+         cOig==
+X-Gm-Message-State: APjAAAWO9z955RHmGKho8X2mKkV7w85z4yK3wLWsujvuUt/Y42izzdZP
+	3h/jorpwxfA8JZqWQDimoL0=
+X-Google-Smtp-Source: APXvYqyQ8wCNTDtRhvXW9DBt2nT7j0Vb0sCh/4PuebHOmsUI+62uCahLFUDoe996A5GIkP+jFldlPw==
+X-Received: by 2002:aa7:97aa:: with SMTP id d10mr429579pfq.176.1566938456126;
+        Tue, 27 Aug 2019 13:40:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:1e97:: with SMTP id n23ls108636otr.5.gmail; Tue, 27
- Aug 2019 13:40:53 -0700 (PDT)
-X-Received: by 2002:a9d:5511:: with SMTP id l17mr485539oth.206.1566938453224;
-        Tue, 27 Aug 2019 13:40:53 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566938453; cv=none;
+Received: by 2002:a65:4302:: with SMTP id j2ls55265pgq.6.gmail; Tue, 27 Aug
+ 2019 13:40:55 -0700 (PDT)
+X-Received: by 2002:a62:8344:: with SMTP id h65mr402354pfe.85.1566938455843;
+        Tue, 27 Aug 2019 13:40:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566938455; cv=none;
         d=google.com; s=arc-20160816;
-        b=P3VxIR8A6l9EHoN7oGgLIkfUehT1+cIUXraU+JTpBBLa8Ni1xs5YilSPBSwpp9g3Qf
-         NfhxTQ86xIMzXRtQ+lK6OSsxUSpqM5KAzv7xe5cyoJpIO2NqZG8/lKwQ0ixM7SX/2x/W
-         1un4YFVpKuEaQbjm9nvGg6voDAY8TcbetoiefnkRkMi1d8f0ma2tBzk9WEGAFBhdOCrj
-         sYWmMViA2NhtSkbPnhNKS19wmKg5E4ysvlsC7h4yakPFdpqqhh1Z3O7/lVekxjd4AfGd
-         JziB5DBn0JpzfPOT05pVxCGPG4yYYT+6zLATAFSMlXGBtTnYI13l3M6QrnasX3LvrHI3
-         DMJA==
+        b=JHOLpBFhs5W8Lnh/e/Kf0NUbvOnEyWCvpIrrEMxqnNhZHMMzZIN0rCzFIwDEJETqBE
+         V6J1ftBmDPZe21o7C6uCbGoZv3wjR0nCBMmTYL4LV5BmkuiqH19jkXKcpsJIbHhlrU1q
+         s8t/2eGnRvVwh8kKIJsR62X1lmqUHAXdBJVH4tDza80G39/e2njNHAGXBaYrADgFXD+5
+         43tJoi4+dEeHqZ54oEJaDndTQO9tpMYO8E7Ehrp8USlKK/zsQy0QyTJZCUH0z+Wv8ref
+         8iUqv9bcLUXkjbBv26Q81RjeguVCmvXYGP3euO4ckyOxZILZxcSZHf6YaFwoSqV0rPRq
+         mO0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=Ywx7jCXsKEfuHAj2q8Y6vNlDnApWLp+V93ssN5FszZc=;
-        b=U3xRo8Uc2eKeVnBZiNzzNI2jrJBUL1cuPFKnUcj22gfMmoV3HQJIyIdwULp5yllTqa
-         hbXv+0aNP0pf5K+kixB4ciRZFX0+Ul7YvV7N8cXrBqqmJEgenIfE5UQ9Q84s5ijTwoVB
-         FtzFGmgzRViDZTasRwhe6LqJRSSd3cxDE/9MgVkkDcuHIA+nA2I70KedJZkD98VoPk58
-         3yYpfuUkdCUaCxfC3iJEHGNjyL5siOIDc/KuRgc5W8z7u7hvGx0qJmGmbXa7ddYD2+i1
-         v+KbCJqFjAxp1TJyps6fXrVPGqz6T28t8ITMCaQBkb+R+9nUfZ3eafXZyNS4dc2l5tky
-         VG2A==
+        bh=7fwBBDcVeQDxpK7w1Viqz28DYsc11S+Pn/agx9uPCfE=;
+        b=Nm9F6D+xe4LSYrrtogn1EPl/s05UIQ+RvuZgpu9psnz5/AzIc131MXhUfeqPTk8RhL
+         c5RMt9uxEm8BiLGU+HHB0Ji6cPh58wjcm/jOmP+lDyz3AAYAo0G7NPpPOxuu3tve4qY8
+         F64XeGfP1n/GVWJeaS8TrzwhZtJl3bqD5tcMDXQTGY0cPJKqw5CEaT0PE9BCaRNyOjAx
+         SIfzma4NE3b4zTbvcQJwl9C2sS3LgvkIHkD17bndFhpFq+CoftbiYt/g3QJQJwx8F/CL
+         4DRDFSYWxuYcjJRX7eT+P49XMtxGFdZR/TMSt1m2Xq2y1D0kJneNouiSc95poO3yDdmJ
+         +mJg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=oZVG6SfX;
-       spf=pass (google.com: domain of 3vjvlxqwkaacuklzh1suplyznvvnsl.jvt@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3VJVlXQwKAAcuklzh1suplyznvvnsl.jvt@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Iwi+WE6J;
+       spf=pass (google.com: domain of 3v5vlxqwkaaoxno2k4vxso12qyyqvo.myw@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3V5VlXQwKAAoxno2k4vxso12qyyqvo.myw@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x44a.google.com (mail-pf1-x44a.google.com. [2607:f8b0:4864:20::44a])
-        by gmr-mx.google.com with ESMTPS id f16si29625oib.0.2019.08.27.13.40.53
+Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
+        by gmr-mx.google.com with ESMTPS id o9si13868pjt.2.2019.08.27.13.40.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 27 Aug 2019 13:40:53 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3vjvlxqwkaacuklzh1suplyznvvnsl.jvt@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) client-ip=2607:f8b0:4864:20::44a;
-Received: by mail-pf1-x44a.google.com with SMTP id p16so238679pfn.3
-        for <clang-built-linux@googlegroups.com>; Tue, 27 Aug 2019 13:40:53 -0700 (PDT)
-X-Received: by 2002:a63:6206:: with SMTP id w6mr281844pgb.428.1566938452324;
- Tue, 27 Aug 2019 13:40:52 -0700 (PDT)
-Date: Tue, 27 Aug 2019 13:40:02 -0700
+        Tue, 27 Aug 2019 13:40:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3v5vlxqwkaaoxno2k4vxso12qyyqvo.myw@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
+Received: by mail-pf1-x449.google.com with SMTP id b21so213371pfb.17
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Aug 2019 13:40:55 -0700 (PDT)
+X-Received: by 2002:a65:5183:: with SMTP id h3mr300039pgq.250.1566938455242;
+ Tue, 27 Aug 2019 13:40:55 -0700 (PDT)
+Date: Tue, 27 Aug 2019 13:40:03 -0700
 In-Reply-To: <20190827204007.201890-1-ndesaulniers@google.com>
-Message-Id: <20190827204007.201890-10-ndesaulniers@google.com>
+Message-Id: <20190827204007.201890-11-ndesaulniers@google.com>
 Mime-Version: 1.0
 References: <20190827204007.201890-1-ndesaulniers@google.com>
 X-Mailer: git-send-email 2.23.0.187.g17f5b7556c-goog
-Subject: [PATCH v2 09/14] powerpc: prefer __section and __printf from compiler_attributes.h
+Subject: [PATCH v2 10/14] x86: prefer __section from compiler_attributes.h
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: miguel.ojeda.sandonis@gmail.com
 Cc: sedat.dilek@gmail.com, will@kernel.org, jpoimboe@redhat.com, 
@@ -114,9 +114,9 @@ Cc: sedat.dilek@gmail.com, will@kernel.org, jpoimboe@redhat.com,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=oZVG6SfX;       spf=pass
- (google.com: domain of 3vjvlxqwkaacuklzh1suplyznvvnsl.jvt@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3VJVlXQwKAAcuklzh1suplyznvvnsl.jvt@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=Iwi+WE6J;       spf=pass
+ (google.com: domain of 3v5vlxqwkaaoxno2k4vxso12qyyqvo.myw@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3V5VlXQwKAAoxno2k4vxso12qyyqvo.myw@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -150,82 +150,103 @@ Link: https://bugs.llvm.org/show_bug.cgi?id=42950
 Link: https://marc.info/?l=linux-netdev&m=156412960619946&w=2
 Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
 Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
+Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- arch/powerpc/boot/main.c         | 3 +--
- arch/powerpc/boot/ps3.c          | 6 ++----
- arch/powerpc/include/asm/cache.h | 2 +-
- arch/powerpc/kernel/btext.c      | 2 +-
- 4 files changed, 5 insertions(+), 8 deletions(-)
+ arch/x86/include/asm/cache.h       | 2 +-
+ arch/x86/include/asm/intel-mid.h   | 2 +-
+ arch/x86/include/asm/iommu_table.h | 5 ++---
+ arch/x86/include/asm/irqflags.h    | 2 +-
+ arch/x86/include/asm/mem_encrypt.h | 2 +-
+ arch/x86/kernel/cpu/cpu.h          | 3 +--
+ 6 files changed, 7 insertions(+), 9 deletions(-)
 
-diff --git a/arch/powerpc/boot/main.c b/arch/powerpc/boot/main.c
-index 102cc546444d..3ccc84e06fc4 100644
---- a/arch/powerpc/boot/main.c
-+++ b/arch/powerpc/boot/main.c
-@@ -150,8 +150,7 @@ static struct addr_range prep_initrd(struct addr_range vmlinux, void *chosen,
-  * edit the command line passed to vmlinux (by setting /chosen/bootargs).
-  * The buffer is put in it's own section so that tools may locate it easier.
-  */
--static char cmdline[BOOT_COMMAND_LINE_SIZE]
--	__attribute__((__section__("__builtin_cmdline")));
-+static char cmdline[BOOT_COMMAND_LINE_SIZE] __section(__builtin_cmdline);
+diff --git a/arch/x86/include/asm/cache.h b/arch/x86/include/asm/cache.h
+index abe08690a887..bb9f4bf4ec02 100644
+--- a/arch/x86/include/asm/cache.h
++++ b/arch/x86/include/asm/cache.h
+@@ -8,7 +8,7 @@
+ #define L1_CACHE_SHIFT	(CONFIG_X86_L1_CACHE_SHIFT)
+ #define L1_CACHE_BYTES	(1 << L1_CACHE_SHIFT)
  
- static void prep_cmdline(void *chosen)
- {
-diff --git a/arch/powerpc/boot/ps3.c b/arch/powerpc/boot/ps3.c
-index c52552a681c5..70b2ed82d2de 100644
---- a/arch/powerpc/boot/ps3.c
-+++ b/arch/powerpc/boot/ps3.c
-@@ -24,8 +24,7 @@ extern int lv1_get_repository_node_value(u64 in_1, u64 in_2, u64 in_3,
- #ifdef DEBUG
- #define DBG(fmt...) printf(fmt)
- #else
--static inline int __attribute__ ((format (printf, 1, 2))) DBG(
--	const char *fmt, ...) {return 0;}
-+static inline int __printf(1, 2) DBG(const char *fmt, ...) { return 0; }
- #endif
- 
- BSS_STACK(4096);
-@@ -35,8 +34,7 @@ BSS_STACK(4096);
-  * The buffer is put in it's own section so that tools may locate it easier.
-  */
- 
--static char cmdline[BOOT_COMMAND_LINE_SIZE]
--	__attribute__((__section__("__builtin_cmdline")));
-+static char cmdline[BOOT_COMMAND_LINE_SIZE] __section(__builtin_cmdline);
- 
- static void prep_cmdline(void *chosen)
- {
-diff --git a/arch/powerpc/include/asm/cache.h b/arch/powerpc/include/asm/cache.h
-index 45e3137ccd71..9114495855eb 100644
---- a/arch/powerpc/include/asm/cache.h
-+++ b/arch/powerpc/include/asm/cache.h
-@@ -91,7 +91,7 @@ static inline u32 l1_cache_bytes(void)
- 	isync
- 
- #else
 -#define __read_mostly __attribute__((__section__(".data..read_mostly")))
 +#define __read_mostly __section(.data..read_mostly)
  
- #ifdef CONFIG_PPC_BOOK3S_32
- extern long _get_L2CR(void);
-diff --git a/arch/powerpc/kernel/btext.c b/arch/powerpc/kernel/btext.c
-index 6dfceaa820e4..f57712a55815 100644
---- a/arch/powerpc/kernel/btext.c
-+++ b/arch/powerpc/kernel/btext.c
-@@ -26,7 +26,7 @@
- static void scrollscreen(void);
- #endif
+ #define INTERNODE_CACHE_SHIFT CONFIG_X86_INTERNODE_CACHE_SHIFT
+ #define INTERNODE_CACHE_BYTES (1 << INTERNODE_CACHE_SHIFT)
+diff --git a/arch/x86/include/asm/intel-mid.h b/arch/x86/include/asm/intel-mid.h
+index 8e5af119dc2d..f51f04aefe1b 100644
+--- a/arch/x86/include/asm/intel-mid.h
++++ b/arch/x86/include/asm/intel-mid.h
+@@ -43,7 +43,7 @@ struct devs_id {
  
--#define __force_data __attribute__((__section__(".data")))
-+#define __force_data __section(.data)
+ #define sfi_device(i)								\
+ 	static const struct devs_id *const __intel_mid_sfi_##i##_dev __used	\
+-	__attribute__((__section__(".x86_intel_mid_dev.init"))) = &i
++	__section(.x86_intel_mid_dev.init) = &i
  
- static int g_loc_X __force_data;
- static int g_loc_Y __force_data;
+ /**
+ * struct mid_sd_board_info - template for SD device creation
+diff --git a/arch/x86/include/asm/iommu_table.h b/arch/x86/include/asm/iommu_table.h
+index 1fb3fd1a83c2..7d190710eb92 100644
+--- a/arch/x86/include/asm/iommu_table.h
++++ b/arch/x86/include/asm/iommu_table.h
+@@ -50,9 +50,8 @@ struct iommu_table_entry {
+ 
+ #define __IOMMU_INIT(_detect, _depend, _early_init, _late_init, _finish)\
+ 	static const struct iommu_table_entry				\
+-		__iommu_entry_##_detect __used				\
+-	__attribute__ ((unused, __section__(".iommu_table"),		\
+-			aligned((sizeof(void *)))))	\
++		__iommu_entry_##_detect __used __section(.iommu_table)	\
++		__aligned((sizeof(void *)))				\
+ 	= {_detect, _depend, _early_init, _late_init,			\
+ 	   _finish ? IOMMU_FINISH_IF_DETECTED : 0}
+ /*
+diff --git a/arch/x86/include/asm/irqflags.h b/arch/x86/include/asm/irqflags.h
+index 8a0e56e1dcc9..68db90bca813 100644
+--- a/arch/x86/include/asm/irqflags.h
++++ b/arch/x86/include/asm/irqflags.h
+@@ -9,7 +9,7 @@
+ #include <asm/nospec-branch.h>
+ 
+ /* Provide __cpuidle; we can't safely include <linux/cpu.h> */
+-#define __cpuidle __attribute__((__section__(".cpuidle.text")))
++#define __cpuidle __section(.cpuidle.text)
+ 
+ /*
+  * Interrupt control:
+diff --git a/arch/x86/include/asm/mem_encrypt.h b/arch/x86/include/asm/mem_encrypt.h
+index 0c196c47d621..db2cd3709148 100644
+--- a/arch/x86/include/asm/mem_encrypt.h
++++ b/arch/x86/include/asm/mem_encrypt.h
+@@ -50,7 +50,7 @@ void __init mem_encrypt_free_decrypted_mem(void);
+ bool sme_active(void);
+ bool sev_active(void);
+ 
+-#define __bss_decrypted __attribute__((__section__(".bss..decrypted")))
++#define __bss_decrypted __section(.bss..decrypted)
+ 
+ #else	/* !CONFIG_AMD_MEM_ENCRYPT */
+ 
+diff --git a/arch/x86/kernel/cpu/cpu.h b/arch/x86/kernel/cpu/cpu.h
+index c0e2407abdd6..7ff9dc41a603 100644
+--- a/arch/x86/kernel/cpu/cpu.h
++++ b/arch/x86/kernel/cpu/cpu.h
+@@ -38,8 +38,7 @@ struct _tlb_table {
+ 
+ #define cpu_dev_register(cpu_devX) \
+ 	static const struct cpu_dev *const __cpu_dev_##cpu_devX __used \
+-	__attribute__((__section__(".x86_cpu_dev.init"))) = \
+-	&cpu_devX;
++	__section(.x86_cpu_dev.init) = &cpu_devX;
+ 
+ extern const struct cpu_dev *const __x86_cpu_dev_start[],
+ 			    *const __x86_cpu_dev_end[];
 -- 
 2.23.0.187.g17f5b7556c-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190827204007.201890-10-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190827204007.201890-11-ndesaulniers%40google.com.
