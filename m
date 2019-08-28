@@ -1,138 +1,127 @@
-Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBQWWTDVQKGQEB2ZF7WQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD37J5WD5QIBBQMBTHVQKGQE24ER4LY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id A11B09FB69
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 09:20:34 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id b30sf467685lfq.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 00:20:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566976834; cv=pass;
+Received: from mail-qt1-x839.google.com (mail-qt1-x839.google.com [IPv6:2607:f8b0:4864:20::839])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3461D9FD7C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 10:52:18 +0200 (CEST)
+Received: by mail-qt1-x839.google.com with SMTP id 38sf1763848qtx.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 01:52:18 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566982337; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pX0didHt7V/jQUvpDb/klJsrJfZ262i98XCSBZmS2gubOZ38AW48uaYJJNnO9Z3DSG
-         bCUXh+P/9Dq6BjXprmh11Cn6O/RTwHOoo5qkwMQY0f7LZyuYHw/l5yK8dA5lNZofYW3N
-         Q0jx6bBNR2zYOrgAUVtdU5DK4zwDjrwNNtajbFLl+rl5vRPQaNMd2IU2nWzi6CkCsHGa
-         yo+QYXE6BpcJZTSYJ8BsMMhA7yTUw3EHqTV7bk7i0eaeEchr96B6Cg7IHOhUOV8H6ocU
-         06VcvVsPRZ9AvPgLd14Hjbh5Gsjkt9DkMvDUQ1jwiXNJ63XEXsvNK46tiO7yXXzEZ2bS
-         TXzQ==
+        b=V34jOxNM16znHXX6NtK1J237xdn5I8OHKj+4EYXTBdKQ6nTyAggiOAVdwjiAA7i7o+
+         /Ql9qPpROrJFPqekdRkMu7S/yVNTBN2g+/B6mu+8GWyT9gIUXCPOmgDllfqSs+jbWmkr
+         vTqMag7M1Q1WE9JyDRhHrWdSHiwLOmn9p5g6IxGN0MAJgIMGYy/iX0Re1FQ7di9ed5XL
+         ABqta4152PLFsjYYtyN9bKPv/Tyn7cW3iNac71KXnfeE68RwrLEU0auhC4qXBT+uYrax
+         coywMaaJXwY2w6yKxjn5py14cVvrEckQPrEcdLBGQ0jbPfWTnUZ62Ry4TSKg86mreCK3
+         eomg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=1M3VPaLiZvxWhfXrmL4aN87Enc/YhXV+CkXebQSVNWc=;
-        b=uXf/shwRLRQ8US1BeKdcb4kzr+HdFtU0JszBPUo75hYWjzxDphUWPNYPXmVpBIbjOx
-         8wtwgVwEDe/JRbPFCgPN7R4qK6Y9WqXSRYNjuV0O8PVRpw6rXbutEp/qw77YsbViAe7g
-         z2fcNl+acqW+BIvbhTFVgYqnCBVPdJWtx4l4UuLLOX4e87pncL83amNXfeK066uMxUEQ
-         IoBRpzmyB3sfPfn82oXoe68rnwaK6WJAZCHb+LFwSFdoGFSF3xpzrCxYlcZxDVINk7n4
-         6etoYp9U0JTCz8JpzwrB4tO1IzYUZEyfKjioYbsAu2fjIRdwO6YqQDUQw3MgZcd7DpBF
-         PGBg==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :date:cc:to:from:subject:message-id:sender:dkim-signature;
+        bh=bAZMC1yr8T642WXE+wucAV8l8zrKGx3J/1kdesznlWM=;
+        b=0inmfud2gGNM52xMSYz3Opyx4DOmiFmsg0p2P8bDu6jjfMFy5UqWyOo6XEBUP+fhO0
+         jIHD4Ipk8v6w4l2c6fUVpKTZFjpWe7/t+p9hkjR0Tr0VimmGrgDVj/z6ELUQ32/2u6aK
+         VxNCJmFOofnBm62MEKhBTNKuSUqRyHrPn4RaE842QOo8vcgi7EA93e3amzxHWg8DLfKq
+         nhqQnBGNG8ljhwupt7LGVLbLVss4VQXsR/8KTXvRYhNmrW+nRP91gFdPWZQ6GmOQAzPL
+         pAf7r3DRke43IyHVWtWI9I/g4k3+ZZhjj8rcqZwjt7twL4F5FH1eLZO6+CUWI3jWzuVI
+         icRQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gna4DkQN;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of rui.zhang@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=rui.zhang@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1M3VPaLiZvxWhfXrmL4aN87Enc/YhXV+CkXebQSVNWc=;
-        b=dZa6qSunGAyqtvjZNf2Rv0/JCWcwUE19AKtlvIFTxSKCCozkbsaq2L2jX9gPXppcva
-         btI/r2b2sbknqy/zgXTGYnuZmbFeJ2ZcURbTq+NIjoRRtkvd36p/DTyPg6dUjt13MKqU
-         iHup1YgGuOuXc3lTWuQNRsLXT4SyadXi0Zvdeo5fkjW5ihypWdtu8crsv9Z33FQS1nAG
-         DOWadzeYRXyofq87Q9KUARcTMFPWfiL35fy1R0lP+RMWou2FPgfhgvolI9CUF2RF04SD
-         sirL6WsllcLX8rmZW389kX9fjdi62WydU+pTPKfXVzqQLnT+gDNdaUv+XYWL0iuDuE2E
-         wpvQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1M3VPaLiZvxWhfXrmL4aN87Enc/YhXV+CkXebQSVNWc=;
-        b=PJfh6wQgmIl02iNH6AU5pzoNMbcZj/omt0q/cC9m3p2S53B70OE2LaB5ZWqOGVY6F9
-         Z3EOAPy/BMaGXOyva+f9HUmoO/eKYRu2dilM9i/cqO6yO908sKO+HGs7Ocx0QE/M6LGH
-         BSIjwRHoVYMRN6smdTm5sKJlQYW4TYLPTKSQqeo/SlfU00IbNt88l2ZPteC1Kb5Fo7Fb
-         AUf6nhHcEwwzbodgsv+c9zUosQmtUcTgdNFfRwumLD5ZdjnfaIn7BF/82MFl5B5FKvNc
-         TJ0V+SESI1MWIAyYg479ss8/hRtu0Wqw8aIoow1mCT41/Bghvs2+EcktkfNeJYNy85LV
-         c7zw==
+        bh=bAZMC1yr8T642WXE+wucAV8l8zrKGx3J/1kdesznlWM=;
+        b=sXBDfB3Z5Tl8OUy5Nhg6RdfMEJfHyhPXoAYMJ7dZFOCx5pxkGmnI/8LOo8X+W1LKI5
+         ojolW+hkM/h1+lfrwPOfuOBQmowPPq4NHZXtnT1mH3JGdZmiCDSApV5HdTFuKbqDQ9y0
+         bkK93KyiEuI3eY/CC/hZee0NzP9BRWaP2+ul1ZilvGWNMJAmETgKGODXUVvep9NJ50XB
+         ONfyvUMsLbwMvzoOpBp7xtSzWy/gqw3V82CDrFrHj3WtRqAnJqE2SJ6L/+D7CF1NlmiS
+         RmjJGNKnHWeOG4sZYX0aagQYb2dfz2VjSV1ZfHPvE4m8vekhmsUqUqUqvAeHbhvqaaiO
+         tbZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to
-         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1M3VPaLiZvxWhfXrmL4aN87Enc/YhXV+CkXebQSVNWc=;
-        b=Bt7nZZ7+QIjUEQbuNBbj9ziEJgwYZxftZ5klkRo7kfspV4poFV8tt42CP0SH/lc0AX
-         np5JfiM/c/WH/2C/zQ7uzKJOdGpBsc8vNA7ULZAJ7pb9KIcpWNTr6p8KDyzjPmui/T33
-         HgvcjYx53o3SiLjTwxUW7msVf4aQvds5sJaijGzvcfru0EdzmLu4at75P5y6u2i9dUCu
-         sHK2/m+XNWaj+omECmmbgMilMN7bAIV3zMKdR8WtXf6n9oR9bQwBb3fR2ynHpxz7upBh
-         hfLtk3CvS7UnVuu0Gn6YLrvkseIQ/omjjsXZ1pMDVxVtYh32xeMQ19ATNCuy5K9lW8V4
-         gTUQ==
+        bh=bAZMC1yr8T642WXE+wucAV8l8zrKGx3J/1kdesznlWM=;
+        b=oqtZgbS7JfA2uUP49sQnE2TgvWyNYRmAszPgggFyXD8FJQ5b+Edus+7++jZ/WJvJNr
+         TsvDc+Hi0LNJUEeGALGGdFOMzYuQRNxCZscsvWL3biDjn12e4INiAXm+xI24jx0zIS4I
+         zS5qsLdNSryDI+jqEvmd/2wO78xgSD5vv4E7vsPJQgKZVjbuGaihOTn3ouyHzw9akGBm
+         SJyhvvPtBcvKOoICQWFbzSCZpSFAxCY/9Nt/Bx/d9zxUzzsw/FpnGv9q8zlTDJUt1APS
+         K7twe8QMNELnu0d1Omup+iyjiU5BW8J+8M6kkkVBsfhjx5KKFSMJ7ajVsbzImUNpZN1y
+         DWww==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWBEIHGpBA8FecEONg53+U+QyvYFepM3oXS0s44eOMPeOnhiTEN
-	ur5wj6nXWBVduDVB1qvTj1Y=
-X-Google-Smtp-Source: APXvYqyhFjkXdZDHTFs17yU0ivuKgwJzWUnTh1yMA1FRgHI8CdXZYmLtZRJIwR+YN7dMgMCNXVogrQ==
-X-Received: by 2002:a2e:9905:: with SMTP id v5mr1216500lji.162.1566976834135;
-        Wed, 28 Aug 2019 00:20:34 -0700 (PDT)
+X-Gm-Message-State: APjAAAVVaDKmoz8ZSH6sWa5I2EtHeI51ONNiLSUTJ21ge3IyYs93BfIx
+	Fx5gH+MCfbuRc5+LQlGUecs=
+X-Google-Smtp-Source: APXvYqwacYGUqhZ+Q0toUt6Iwm8miAfFy5W64ZISCu8Gc9BcCH4FUnWj+ZRuPJxuXGqmlAQOZNX4TQ==
+X-Received: by 2002:a37:b245:: with SMTP id b66mr2728528qkf.337.1566982337253;
+        Wed, 28 Aug 2019 01:52:17 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:91d9:: with SMTP id u25ls158129ljg.15.gmail; Wed, 28 Aug
- 2019 00:20:33 -0700 (PDT)
-X-Received: by 2002:a2e:804b:: with SMTP id p11mr4931ljg.172.1566976833488;
-        Wed, 28 Aug 2019 00:20:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566976833; cv=none;
+Received: by 2002:a37:9d4f:: with SMTP id g76ls813409qke.0.gmail; Wed, 28 Aug
+ 2019 01:52:17 -0700 (PDT)
+X-Received: by 2002:a37:6007:: with SMTP id u7mr2713414qkb.92.1566982337041;
+        Wed, 28 Aug 2019 01:52:17 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566982337; cv=none;
         d=google.com; s=arc-20160816;
-        b=v7WJBmD4D5cDk7y5UZE6veWrSGqQepoEsvhW01FP0vK0rpyRF8VIknQ1DkRliQnOuH
-         cqKwXLVH5ydfj7+wpj4ui/31axTfrOMMDn9z9UOnVeP3U4HQ4/5rdwhGBwlKUGR01QGx
-         Lm0dXI2OKgjP+6WQeOnW57VI9fwvqL7KLyc4QGeZlhvkKu0/xCaDkXeXR5JuoTDPyrd1
-         oifQmDGcFLEsyrxctYng62P6Un5dOKEc7o7yGg2NLOtvP9CVTULmwjtw6lbD7lWYbVQC
-         ne/UFaEu1tSp/G70hLcHMR0QehVDnlWGnTK+NSezRE1cZvRuc4fHiYJfux93KtSDpgVz
-         9XhA==
+        b=Mqy6RBC+TfQOueq0P1bL6oJVp385+f53GUeHtQWqTW1RbRh7y5u0XofpxTCu7om12R
+         8Dd/WAEKChxxBwL9atnmTvt9FxX38mb0R5K3H3sDiuALEGgR93PLwlh5fep0iA0xKbXt
+         FJxeKP8adReiBsP+BDCRHVbRl2pFPxebg5gEoFBlx+UyI2FGX5+NF9iWQgmHPpaPL5FG
+         K91nAbmvHGTGF7dD0/0KoimOmAb1FBrFYsV7ltE3rNhB/OR91T+riW5i4ZJOELQ7ixcO
+         gp+JE2QQ2QUa1tJPmqp8THdDrvg+CgwUI2sAcy4b3dtVc5y44tezyPr5b5PPDwsf2kcG
+         ryVA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=m/1xpIzC+XYlVD64Z0IJa2mF9XyPRy3AeZIkoZXGzMo=;
-        b=YTZ78RJXxJCeFZ4YreIv+JGYcSftsUv1+1kUHAbeJ+7qW3TIUdMMJf9ULFGL3wZIKA
-         hmL+ExFv3r/2DLnyiYIQ3BSNkenmvkdgtbpfyWY/iRYKgssi/z76m4usgtVs/4/l31u+
-         elLL9QaOHmu01lTCdWUNFLH59BlERzdOCBiYdLJaaKc+xMFaZCdCebo5+yA9RwohpIN6
-         x4ui1sA6wQYUtv50ALe9QfROGNlsGTungUt+dUX79Wka4lxkOL38gHVmmqnRZyVdoDyx
-         /WK/3xaWm3oHl1DO33tHjGjt0JsZ+BHbltYGUSTCUBvcBjxg9DhZMUu0EK3PCAX5DOrU
-         QpyA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :cc:to:from:subject:message-id;
+        bh=s5cgXyjG1tJkW8ICzmceM+Fhyx5SXvHbqUwyvd8+ipA=;
+        b=AjA4NKeefhkZAbVcPSrazdLYaQtikFYzVrESus9HoYbmbmTqIJxcMo81YQ+Gn8zFFs
+         x/zVWpsgvqVwN62Fqs5kg3LYAhr69sYuQHwmHSIXGuSRsTeN/9LiiMLoBc8vYKwN6swV
+         TjW5Wrj2ZZO1VgQttf2lZtqNZoz1qh1yqnXyjAzXy8Z4zzoNaoPFMjHej2AFG9Kqf6fE
+         pzbe+JhzIG44ODKplmaxZJfBIuAWqdX8cCtXndiq57QirWd9x7gHpfu9KiZVbTzG4d+s
+         uiPh8iub+W+TrKJyzGql4dYBVvlmDGNCLc0MfsAPS14kD46bjkWUbIP4PeMARYZ311NI
+         nMvA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=gna4DkQN;
-       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id m20si74835lfh.1.2019.08.28.00.20.33
+       spf=pass (google.com: domain of rui.zhang@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=rui.zhang@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id f30si90605qta.1.2019.08.28.01.52.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Aug 2019 00:20:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
-Received: by mail-wm1-x344.google.com with SMTP id d16so1652132wme.2
-        for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 00:20:33 -0700 (PDT)
-X-Received: by 2002:a05:600c:225a:: with SMTP id a26mr3045439wmm.81.1566976832798;
- Wed, 28 Aug 2019 00:20:32 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190828055425.24765-1-yamada.masahiro@socionext.com>
-In-Reply-To: <20190828055425.24765-1-yamada.masahiro@socionext.com>
-Reply-To: sedat.dilek@gmail.com
-From: Sedat Dilek <sedat.dilek@gmail.com>
-Date: Wed, 28 Aug 2019 09:20:21 +0200
-Message-ID: <CA+icZUWigJkh-VtJc4=xE06oMgE=ci2Mfdo2JaDv0fth8PKH+A@mail.gmail.com>
-Subject: Re: [PATCH 1/2] kbuild: refactor scripts/Makefile.extrawarn
-To: Masahiro Yamada <yamada.masahiro@socionext.com>
-Cc: linux-kbuild@vger.kernel.org, Nick Desaulniers <ndesaulniers@google.com>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Michal Marek <michal.lkml@markovi.net>, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, linux-kernel@vger.kernel.org
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 28 Aug 2019 01:52:16 -0700 (PDT)
+Received-SPF: pass (google.com: domain of rui.zhang@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 28 Aug 2019 01:52:15 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,440,1559545200"; 
+   d="scan'208";a="183060632"
+Received: from deyangko-mobl.ccr.corp.intel.com ([10.249.168.35])
+  by orsmga003.jf.intel.com with ESMTP; 28 Aug 2019 01:52:12 -0700
+Message-ID: <82458318837ed1154a183be0b96337fc7809c645.camel@intel.com>
+Subject: Re: [PATCH] thermal: rcar_gen3_thermal: Fix Wshift-negative-value
+From: Zhang Rui <rui.zhang@intel.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, Nathan Huckleberry
+	 <nhuck@google.com>, edubezval@gmail.com
+Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ clang-built-linux@googlegroups.com, Yoshihiro Kaneko
+ <ykaneko0929@gmail.com>,  wsa+renesas@sang-engineering.com
+Date: Wed, 28 Aug 2019 16:52:20 +0800
+In-Reply-To: <fd8b8a48-dfb7-1478-2d8d-0953acee39d3@linaro.org>
+References: <20190613211228.34092-1-nhuck@google.com>
+	 <fd8b8a48-dfb7-1478-2d8d-0953acee39d3@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: sedat.dilek@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=gna4DkQN;       spf=pass
- (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344
- as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+X-Mailer: Evolution 3.28.5-0ubuntu0.18.04.1
+Mime-Version: 1.0
+X-Original-Sender: rui.zhang@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of rui.zhang@intel.com designates 134.134.136.31 as
+ permitted sender) smtp.mailfrom=rui.zhang@intel.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,193 +134,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 28, 2019 at 7:55 AM Masahiro Yamada
-<yamada.masahiro@socionext.com> wrote:
->
-> Instead of the warning-[123] magic, let's accumulate compiler options
-> to KBUILD_CFLAGS directly as the top Makefile does. I think this makes
-> easier to understand what is going on in this file.
->
-> This commit slightly changes the behavior, I think all of which are OK.
->
-> [1] Currently, cc-option calls are needlessly evaluated. For example,
->       warning-3 += $(call cc-option, -Wpacked-bitfield-compat)
->     needs evaluating only when W=3, but it is actually evaluated for
->     W=1, W=2 as well. With this commit, only relevant cc-option calls
->     will be evaluated. This is a slight optimization.
->
-> [2] Currently, unsupported level like W=4 is checked by:
->       $(error W=$(KBUILD_ENABLE_EXTRA_GCC_CHECKS) is unknown)
->     This will no longer be checked, but I do not think it is a big
->     deal.
->
+On Fri, 2019-06-14 at 12:52 +0200, Daniel Lezcano wrote:
+> Hi Nathan,
+> 
+> On 13/06/2019 23:12, Nathan Huckleberry wrote:
+> > Clang produces the following warning
+> > 
+> > vers/thermal/rcar_gen3_thermal.c:147:33: warning: shifting a
+> > negative
+> > signed value is undefined [-Wshift-negative-value] / (ptat[0] -
+> > ptat[2])) +
+> > FIXPT_INT(TJ_3); ^~~~~~~~~~~~~~~
+> > drivers/thermal/rcar_gen3_thermal.c:126:29
+> > note: expanded from macro 'FIXPT_INT' #define FIXPT_INT(_x) ((_x)
+> > <<
+> > FIXPT_SHIFT) ~~~~ ^ drivers/thermal/rcar_gen3_thermal.c:150:18:
+> > warning:
+> > shifting a negative signed value is undefined [-Wshift-negative-
+> > value]
+> > tsc->tj_t - FIXPT_INT(TJ_3)); ~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+> > 
+> > Upon further investigating it looks like there is no real reason
+> > for
+> > TJ_3 to be -41. Usages subtract -41, code would be cleaner to just
+> > add.
+> 
+> All the code seems broken regarding the negative value shifting as
+> the
+> macros pass an integer:
+> 
+> eg.
+>         tsc->coef.a2 = FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]),
+>                                  tsc->tj_t - FIXPT_INT(ths_tj_1));
+> 
+> thcode[1] is always < than thcode[0],
+> 
+> thcode[1] - thcode[0] < 0
+> 
+> FIXPT_INT(thcode[1] - thcode[0]) is undefined
+> 
+> 
+> Is it done on purpose FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]) ?
+> 
+> Try developing the macro with the coef.a2 computation ...
+> 
+> The code quality of this driver could be better, it deserves a rework
+> IMHO ...
+> 
+> I suggest to revert:
+> 
+> 4eb39f79ef443fa566d36bd43f1f578d5c140305
+> bdc4480a669d476814061b4da6bb006f7048c8e5
+> 6a310f8f97bb8bc2e2bb9db6f49a1b8678c8d144
+> 
+> Rework the coefficient computation and re-introduce what was reverted
+> in
+> a nicer way.
 
-Hi Masahiro Yamada,
+Sounds reasonable to me.
 
-thanks for your patch series.
+Yoshihiro,
+can you please clarify on this? Or else I will revert the above commits
+first?
 
-If KBUILD_ENABLE_EXTRA_GCC_CHECKS does extra(-warning)-checks for GCC and Clang,
-please rename the Kconfig into...
+Also CC Wolfram Sang, the driver author.
 
-KBUILD_ENABLE_EXTRA_CC_CHECKS
-
-...or something similiar (and maybe with some notes in its Kconfig help-text?).
-
-Regards,
-- Sedat -
-
-> [3] Currently, 4 Clang warnings (Winitializer-overrides, Wformat,
->     Wsign-compare, Wformat-zero-length) are shown by any of W=1, W=2,
->     and W=3. With this commit, they will be warned only by W=1. I
->     think this is a more correct behavior since each warning belongs
->     to only one warning level.
->
-> Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
-> ---
->
->  scripts/Makefile.extrawarn | 104 +++++++++++++++++++------------------
->  1 file changed, 53 insertions(+), 51 deletions(-)
->
-> diff --git a/scripts/Makefile.extrawarn b/scripts/Makefile.extrawarn
-> index a74ce2e3c33e..1fa53968e292 100644
-> --- a/scripts/Makefile.extrawarn
-> +++ b/scripts/Makefile.extrawarn
-> @@ -1,14 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  # ==========================================================================
-> -#
->  # make W=... settings
-> -#
-> -# W=1 - warnings that may be relevant and does not occur too often
-> -# W=2 - warnings that occur quite often but may still be relevant
-> -# W=3 - the more obscure warnings, can most likely be ignored
-> -#
-> -# $(call cc-option, -W...) handles gcc -W.. options which
-> -# are not supported by all versions of the compiler
->  # ==========================================================================
->
->  KBUILD_CFLAGS += $(call cc-disable-warning, packed-not-aligned)
-> @@ -17,58 +9,68 @@ ifeq ("$(origin W)", "command line")
->    export KBUILD_ENABLE_EXTRA_GCC_CHECKS := $(W)
->  endif
->
-> -ifdef KBUILD_ENABLE_EXTRA_GCC_CHECKS
-> -warning-  := $(empty)
-> +#
-> +# W=1 - warnings that may be relevant and does not occur too often
-> +#
-> +ifneq ($(findstring 1, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
->
-> -warning-1 := -Wextra -Wunused -Wno-unused-parameter
-> -warning-1 += -Wmissing-declarations
-> -warning-1 += -Wmissing-format-attribute
-> -warning-1 += -Wmissing-prototypes
-> -warning-1 += -Wold-style-definition
-> -warning-1 += -Wmissing-include-dirs
-> -warning-1 += $(call cc-option, -Wunused-but-set-variable)
-> -warning-1 += $(call cc-option, -Wunused-const-variable)
-> -warning-1 += $(call cc-option, -Wpacked-not-aligned)
-> -warning-1 += $(call cc-option, -Wstringop-truncation)
-> +KBUILD_CFLAGS += -Wextra -Wunused -Wno-unused-parameter
-> +KBUILD_CFLAGS += -Wmissing-declarations
-> +KBUILD_CFLAGS += -Wmissing-format-attribute
-> +KBUILD_CFLAGS += -Wmissing-prototypes
-> +KBUILD_CFLAGS += -Wold-style-definition
-> +KBUILD_CFLAGS += -Wmissing-include-dirs
-> +KBUILD_CFLAGS += $(call cc-option, -Wunused-but-set-variable)
-> +KBUILD_CFLAGS += $(call cc-option, -Wunused-const-variable)
-> +KBUILD_CFLAGS += $(call cc-option, -Wpacked-not-aligned)
-> +KBUILD_CFLAGS += $(call cc-option, -Wstringop-truncation)
->  # The following turn off the warnings enabled by -Wextra
-> -warning-1 += -Wno-missing-field-initializers
-> -warning-1 += -Wno-sign-compare
-> -
-> -warning-2 += -Wcast-align
-> -warning-2 += -Wdisabled-optimization
-> -warning-2 += -Wnested-externs
-> -warning-2 += -Wshadow
-> -warning-2 += $(call cc-option, -Wlogical-op)
-> -warning-2 += -Wmissing-field-initializers
-> -warning-2 += -Wsign-compare
-> -warning-2 += $(call cc-option, -Wmaybe-uninitialized)
-> -warning-2 += $(call cc-option, -Wunused-macros)
-> -
-> -warning-3 := -Wbad-function-cast
-> -warning-3 += -Wcast-qual
-> -warning-3 += -Wconversion
-> -warning-3 += -Wpacked
-> -warning-3 += -Wpadded
-> -warning-3 += -Wpointer-arith
-> -warning-3 += -Wredundant-decls
-> -warning-3 += -Wswitch-default
-> -warning-3 += $(call cc-option, -Wpacked-bitfield-compat)
-> -
-> -warning := $(warning-$(findstring 1, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)))
-> -warning += $(warning-$(findstring 2, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)))
-> -warning += $(warning-$(findstring 3, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)))
-> -
-> -ifeq ("$(strip $(warning))","")
-> -        $(error W=$(KBUILD_ENABLE_EXTRA_GCC_CHECKS) is unknown)
-> -endif
-> +KBUILD_CFLAGS += -Wno-missing-field-initializers
-> +KBUILD_CFLAGS += -Wno-sign-compare
->
-> -KBUILD_CFLAGS += $(warning)
->  else
->
-> +# W=1 also stops suppressing some warnings
-> +
->  ifdef CONFIG_CC_IS_CLANG
->  KBUILD_CFLAGS += -Wno-initializer-overrides
->  KBUILD_CFLAGS += -Wno-format
->  KBUILD_CFLAGS += -Wno-sign-compare
->  KBUILD_CFLAGS += -Wno-format-zero-length
->  endif
-> +
-> +endif
-> +
-> +#
-> +# W=2 - warnings that occur quite often but may still be relevant
-> +#
-> +ifneq ($(findstring 2, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +
-> +KBUILD_CFLAGS += -Wcast-align
-> +KBUILD_CFLAGS += -Wdisabled-optimization
-> +KBUILD_CFLAGS += -Wnested-externs
-> +KBUILD_CFLAGS += -Wshadow
-> +KBUILD_CFLAGS += $(call cc-option, -Wlogical-op)
-> +KBUILD_CFLAGS += -Wmissing-field-initializers
-> +KBUILD_CFLAGS += -Wsign-compare
-> +KBUILD_CFLAGS += $(call cc-option, -Wmaybe-uninitialized)
-> +KBUILD_CFLAGS += $(call cc-option, -Wunused-macros)
-> +
-> +endif
-> +
-> +#
-> +# W=3 - the more obscure warnings, can most likely be ignored
-> +#
-> +ifneq ($(findstring 3, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +
-> +KBUILD_CFLAGS += -Wbad-function-cast
-> +KBUILD_CFLAGS += -Wcast-qual
-> +KBUILD_CFLAGS += -Wconversion
-> +KBUILD_CFLAGS += -Wpacked
-> +KBUILD_CFLAGS += -Wpadded
-> +KBUILD_CFLAGS += -Wpointer-arith
-> +KBUILD_CFLAGS += -Wredundant-decls
-> +KBUILD_CFLAGS += -Wswitch-default
-> +KBUILD_CFLAGS += $(call cc-option, -Wpacked-bitfield-compat)
-> +
->  endif
-> --
-> 2.17.1
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190828055425.24765-1-yamada.masahiro%40socionext.com.
+thanks,
+rui
+> 
+> 
+> > Fixes: 4eb39f79ef44 ("thermal: rcar_gen3_thermal: Update value of
+> > Tj_1")
+> > Cc: clang-built-linux@googlegroups.com
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/531
+> > Signed-off-by: Nathan Huckleberry <nhuck@google.com>
+> > ---
+> >  drivers/thermal/rcar_gen3_thermal.c | 8 ++++----
+> >  1 file changed, 4 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/thermal/rcar_gen3_thermal.c
+> > b/drivers/thermal/rcar_gen3_thermal.c
+> > index a56463308694..f4b4558c08e9 100644
+> > --- a/drivers/thermal/rcar_gen3_thermal.c
+> > +++ b/drivers/thermal/rcar_gen3_thermal.c
+> > @@ -131,7 +131,7 @@ static inline void
+> > rcar_gen3_thermal_write(struct rcar_gen3_thermal_tsc *tsc,
+> >  #define RCAR3_THERMAL_GRAN 500 /* mili Celsius */
+> >  
+> >  /* no idea where these constants come from */
+> > -#define TJ_3 -41
+> > +#define TJ_3 41
+> >  
+> >  static void rcar_gen3_thermal_calc_coefs(struct
+> > rcar_gen3_thermal_tsc *tsc,
+> >  					 int *ptat, const int *thcode,
+> > @@ -144,11 +144,11 @@ static void
+> > rcar_gen3_thermal_calc_coefs(struct rcar_gen3_thermal_tsc *tsc,
+> >  	 * the dividend (4095 * 4095 << 14 > INT_MAX) so keep it
+> > unscaled
+> >  	 */
+> >  	tsc->tj_t = (FIXPT_INT((ptat[1] - ptat[2]) * 157)
+> > -		     / (ptat[0] - ptat[2])) + FIXPT_INT(TJ_3);
+> > +		     / (ptat[0] - ptat[2])) - FIXPT_INT(TJ_3);
+> >  
+> >  	tsc->coef.a1 = FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[2]),
+> > -				 tsc->tj_t - FIXPT_INT(TJ_3));
+> > -	tsc->coef.b1 = FIXPT_INT(thcode[2]) - tsc->coef.a1 * TJ_3;
+> > +				 tsc->tj_t + FIXPT_INT(TJ_3));
+> > +	tsc->coef.b1 = FIXPT_INT(thcode[2]) + tsc->coef.a1 * TJ_3;
+> >  
+> >  	tsc->coef.a2 = FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]),
+> >  				 tsc->tj_t - FIXPT_INT(ths_tj_1));
+> > 
+> 
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUWigJkh-VtJc4%3DxE06oMgE%3Dci2Mfdo2JaDv0fth8PKH%2BA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/82458318837ed1154a183be0b96337fc7809c645.camel%40intel.com.
