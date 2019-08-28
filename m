@@ -1,123 +1,140 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBYWATLVQKGQELFWK77I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBCWKTLVQKGQEWJYBWAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 505A3A0677
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 17:40:19 +0200 (CEST)
-Received: by mail-io1-xd38.google.com with SMTP id 18sf115355iof.2
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 08:40:19 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567006818; cv=pass;
+Received: from mail-wr1-x43e.google.com (mail-wr1-x43e.google.com [IPv6:2a00:1450:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id C18D4A06D4
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 18:00:10 +0200 (CEST)
+Received: by mail-wr1-x43e.google.com with SMTP id a2sf146831wrs.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 09:00:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567008010; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OXV5KBC0xo2ZMfA6n1CB4vugoTKhZcaKvTl2Y6bKtz07FAdrZNPBTa5rYqY0yKeGgO
-         0x13SOZ9u9Zd6gSZZrNzOLL3maBkL5oV3lkwBkFcQGoNe+51TyneUiLpBUdtmr9dd/zn
-         DA8+2s0dxA0qrFMKCCXFY5xhoV+w1Eq1Rb0wYWRV5PxfWjSRUxOU0L4BYmOU6YfPFKfG
-         V22ziqJedaFHR7OwwQA8SVMHzzEi7JuvuSVPqKdGOQ8HBKNerhZF9J742FXpD+Mzq/jv
-         xcNG1OzeoWtEwsISsJ3w/362B3WmW+UAIxbmfxpWE3+aEXJMHpZlab11ToFOx+NdmHRZ
-         lREg==
+        b=tGILbEbGo9fcGCV/SaCpAERSqAx2gcmW9wNmxr9xUeTUXFLh74bSn5uN6+7v795dyw
+         EmbyGkasgpf1u0ZNbNN/BqYta3uPA2EsI2nwS0ib6RMkdLrTF6P0imJhvu7m34p/ibC6
+         3x0tiISVVTF7xy0kX7ilvm3ge2WXFRYVsbThRmBqNy0F9pMulKPnjLlLC+yAW8/F5L6A
+         jzotAfZWCvAUNlqQX1GEY5mO55BHQgJ8kN72m9yv8T33b+QbjobMAvsYT4mq14edMPeJ
+         hufkFjiQGoRrhUKWdNo8P6apIAcAjVgI53LQad4E6vTQmIx7aEX0otoMCmOKXkHffOU0
+         I27g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=Q2ROpCFEuBBD5xatQ/CcuzWgAZh3DFieiMVQKEYIIDQ=;
-        b=jnTSy6DBAGgUUf8EdERGV4G2EXbdDSnhsNtT7EsIORZ6H9XbQNlaLFOoxAWHftG6UR
-         pz4f7oyZEfWNkkYRhY3V0BxAK/PwkSOHf8KODhy6lGF045inDhs5XBIwpee3xAVmXl3n
-         r96lGdEXBjdGtwFQU05X0dvVLyUKongSfYXfu1J0fZNbx5WusRRJaMEPapBouEiJ9G7Y
-         t8Hpv2+4KoYJwyLVrRV3SUdIw0wGQfIuWHEKjwfS08Tfrz1gn44+F7N/ltY/HK10b1CD
-         tAMoadHq/BOXBLon84DJ14/lyJLmREL7XYZW3s8m92Kx8t2qsqn7gh7kRflQru1dD4nl
-         OziQ==
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=nK1vU/Gy/5433EPfn8sJgDHNLOitSBxYLGLMaS3MTzo=;
+        b=fzLH4joaxkhmKoEgB1DnLT0ddZMp61dYGPmt7c1m85pIhPnmHR1J85zlekRTNNGx6m
+         SGbS7AVYzGaH5W3JFzbkK6Hs3PCZCkfyErAih1mp1I5uViibTIFpzLtPDLIMCT6gbaPu
+         56P/Q/R0p2wRNZoN9IngcyFXptW/AHauBZnxheU0zBUF0rsSvViMYaTfBXLpHWdNIhFi
+         4mNeGKMxJ2aKBLX35S1gHAZ041SRDDzGEyFez8xHC8gEkDs+Dmdv83oGWMJ5Wg2y/L0T
+         gTF98pFfyaoLjx8NWbrV/7T7uDqU966n6GAfqUFIGCOD3pyNbYRHZkZi4lAftEkDnYHc
+         ne/A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of arndbergmann@gmail.com designates 209.85.160.194 as permitted sender) smtp.mailfrom=arndbergmann@gmail.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CEwqsmRP;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=nK1vU/Gy/5433EPfn8sJgDHNLOitSBxYLGLMaS3MTzo=;
+        b=CsDkyQLqCZfyQwSyuNrcJ35RJoVRdM4XgFjbmiD7a/L8raYHIS8tM+MDRuKqVhYpR4
+         TSBGwYg/PJ0kJFDVtbjheL/+fwOSUmIsyj3HS8UNDV1a2OKGtg7CAIb7618dzZ2GDoQq
+         2fVD1JTMwDriZD2sa/36BOzhy4riM3DVN5PpbQQxxEEf2Yp6q2qGxqGPaW1WFGNCd5Yf
+         oSPrLqaQ5U7AaE38oZqN5zkIN3hzdG+dq+PXm5YuqQTv8aJa3k3YiTP+CMkmNLwIgM76
+         EQ+qZ7kqMbsIJTryxBWgCO9mpmKnFL+ghRz9CnGiT/KMK/WqHqXRrksgrsrJ69Ho52GE
+         JEyQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Q2ROpCFEuBBD5xatQ/CcuzWgAZh3DFieiMVQKEYIIDQ=;
-        b=NYOI9UrqZ4MzJzhTaFid11Ih4P2OQ20pHh8gPKq1c2aDurHLvGRw+ovw0ydDfg8KPU
-         dcM4303eLR6mTfBXEAWmojswvtnoTde3W8InwdMIKTzWNW4mNOWPCctz52a5MBB/3L8j
-         T1JjdwjLbMf6Cw7p6/HnwMMB6OSr3oUmKcoXdYY9IXvsKanCyY9Ah4XX2AejE+RwiBZ/
-         h0lif5m1Yz4luaR+WlukEfk6YS7QMQGBxPFOT8kE5sbL57CLI8v6RMgZCwYaY6hqRRRC
-         N4wwBDG/Qpxjmcp8JWlfL5pF8dVDjDt1E8+mo0ALghXz27taaAhfS/3sOkiKVR15+71k
-         sjXw==
+        bh=nK1vU/Gy/5433EPfn8sJgDHNLOitSBxYLGLMaS3MTzo=;
+        b=YuTqH3Uoi54EmqpGbCiOjxQT4KEC5q6XQLN2KG1IoJM1f56PXKA8ONRcvnHGYQ4eOL
+         RMP06/HgacB50RH/OuLcTdu/T5CRn4XoQCecJHKrEE7TEyDYMpsBUjftkLa/DUgdtdHi
+         ZIRA99eC1Gj10/8o4pL4xrKwf7Dia8O/4CbxYBXyU0M8Hmxqfv0LINtp1OzqsRujww/0
+         d9ZIIGSaC6nJwA59jNaCicGQEqkfeHeLm3zSZQm+kNRkZEgMux34ZGlNAqasc4z5ypH5
+         gABxskE6vqJSphRdTJOKFFgcEaIvhjY17HUvSP4EPrY5Sr2+OjPA6eScf4KDp284kCsy
+         iiPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Q2ROpCFEuBBD5xatQ/CcuzWgAZh3DFieiMVQKEYIIDQ=;
-        b=QI6t6XzZ3laxOPSCNgyoV3qSJc3V6J0He7AG84xc4hzr35Eab7OOut5PlrpGH4hT5F
-         Q8FeKMS5OtFpUdZqbb5AGJbCqTIA+HmNzcv1clR/j++xetTMZbXt7jG5NuYcLljXSlf9
-         TGjnzta8EgQKJGRR3rhlxia3+0MDpblCGcBGBt5pAqhG7MCE7RMVEiKgUHNglaFxlF41
-         VV8l0ZvWeLSRxJsn+9qP/ucbZH6+0EmHcO4IOHFr0+ZFubdRzL0UbVu8f1e8sWXcDQe7
-         RO+c+ReWF6sAfx5Rj/QalhOho2CV3zrgE2tCEap9XTO1BPl4Yx7KnvmBB65K2vJU4tbK
-         0Kzw==
+        bh=nK1vU/Gy/5433EPfn8sJgDHNLOitSBxYLGLMaS3MTzo=;
+        b=djn6DB3KR416m+DM0ysIiouAweMwaPr4UV2EOAA0nGziFIGTZTtbSN0yOtUlV6Hlh5
+         NHztYUgg9auufNyK/QZnU9Cjg5fCHqcisml548AZ8trAjR7KmXo45Safx/KvjHeHEer/
+         5GZdoo97x0V7TRYl/7EafTTwqtGCgLSIa5AWVT9Le1QDepYXofhnWQyDCoVf5g7YWPyW
+         EfeSQxzD8n7uLr+57d02HbZIcvTYCk+WckBjtEW6OKvukd110VNaKQEkaqbFq6xLKsAh
+         Zw2dwlqp97/yhcUtNUiEiBpQOv23yFX5QnAmXQ0lPq2AHYIpbEkjPpd86TqNUI4WlMhz
+         DzRg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVS4v04QMjeTJORjS1BBJ/T6QK2kGuuGvBrxOkw/D1i8x7u7L8F
-	9Iz1lS1/d5MXdP1rzF4qNm0=
-X-Google-Smtp-Source: APXvYqy5fj1mzn3cgf9vCICURBZmi66zQaIXYjHItlk5DXW7i2S8e3LAIxHfzIKle1n7qMt0lIC2MQ==
-X-Received: by 2002:a6b:720e:: with SMTP id n14mr1252312ioc.139.1567006818233;
-        Wed, 28 Aug 2019 08:40:18 -0700 (PDT)
+X-Gm-Message-State: APjAAAVoN9NEBFUokqiA+aMFx+hFMIMTBiSNKGf/IYAHjyTg4Kfboj+V
+	VEfcAPeumEkd3szMXaBXkXs=
+X-Google-Smtp-Source: APXvYqy68GYqzmgyZm/wEJ3oqJ7d1A44SQF2YeLBZJAuqpgJiB7ry+gvVI9FkMl0ojC5jhNz8QN3HA==
+X-Received: by 2002:adf:e885:: with SMTP id d5mr5660042wrm.15.1567008010450;
+        Wed, 28 Aug 2019 09:00:10 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:b715:: with SMTP id h21ls932275iof.12.gmail; Wed, 28 Aug
- 2019 08:40:17 -0700 (PDT)
-X-Received: by 2002:a5d:9f50:: with SMTP id u16mr5167040iot.110.1567006817919;
-        Wed, 28 Aug 2019 08:40:17 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567006817; cv=none;
+Received: by 2002:a5d:5001:: with SMTP id e1ls881679wrt.16.gmail; Wed, 28 Aug
+ 2019 09:00:09 -0700 (PDT)
+X-Received: by 2002:adf:8444:: with SMTP id 62mr2447540wrf.202.1567008009846;
+        Wed, 28 Aug 2019 09:00:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567008009; cv=none;
         d=google.com; s=arc-20160816;
-        b=cgUSZ3TMn0jPAQKfMiBE28FL5J46+RQGg+rY10oIgQ4yfsqja5ICqOJ1nRm4T0mQja
-         kHDWMWwtB2yExIUQbBU1kQVd/cqfZJFkbQ2x8GEwd+CRm1kCtnfuVzH5b5KW+keXTMol
-         FmJ+5QuNKaAHPzMV7RD7ZHjTfnjEXwH+lWykWu91XjVAqeKqTuW6vG8m+8YZOUURkAPr
-         uZrzSMZ7TFmwHwtZ1fjODoBYyhFl8KJ3PpA3r55lxyWnZFxCCma/vDRMjAasnXpaZoPC
-         suuhR/dy6PCpaFq2PEst7oX4diRUCgLsJ+gW5YiRwixdI49XK/JbYeWBUvHj9r1F3FZm
-         +kmA==
+        b=DzlqMSYCHA92Xv+iM579WWM5xR2/EGKE7hKj4B8+FWTtaWZQzuefpC41MO1/2HpPAj
+         ndZn5RFwlRg3LtMoVzS3l/vOnI/EPMHzLuGWkeuMC7R+8mOjeA/g5K3KTkq0fbmvS0r/
+         91OAXQ8oNKFzAKVRQ1pcCdxkn31iNmaI8Jim3uyPLJ62pExjprdfbVlAKCjaeZHxx5Hn
+         3/3yOKyP3kCdHl9SMOeFdgBoU3X0waQS8oo4SvgOm417W/mn+EJSXq4dwwWVHwRqxcNu
+         sdhG5dJIMiJzEBF0wD369gOZ1s8C17Nq/vCSA2MVUIJ+mvODkzPWql5e/Y9Jnnna+gcE
+         BC5A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=NQd1Wd6sIuwfQa9t3LgHt+gZSyF0tuNs40fO1Z3cv/Y=;
-        b=tQ/7B2O6Yoo3ylbILI6HnGL+jD71PcWPgdx3akjtJsopBaGkkpOsCz3XCnflIWP6eS
-         8yChwY8YP+M08cS3kxCU7Fqo1aS3mltO4PeOfMRMInzfet7n2kj8XkjgzL9ORhiNi+FZ
-         DLlOChDGvSMT4qr2Rk5OcdfrfYpyMnBYl8hNFXgqShdwMPaBPNNaLr2rjBIRslmEocmM
-         ZeAwr8UsN67QLnlhuNCqA/DUEaVhZNfidlbVQ4L9dH7yMq6BHsmSYzdc472YHYT055Ja
-         N8ArldpoaotyxSaP1egV1JrNljtFYQVOa44aCKhzm5iVjA0vv+qwG8QqDI0wyh+aXwCT
-         oBFg==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ilsyNqlWp5FVYGjiIBBsqAystUJXrBFSMt033j8p03g=;
+        b=D4FTyhuI0SJ5YgQQPb27gv9VMfdVf6wSDUwOD46TeqxGdj1hmojCPpjPOqbKyxeMVm
+         i3pdp7qZHTQCF/ciw600c1NROsy8Ml27FPJHmbVjb98ZOxfcnpSfjIDmWrZbcjXRtNC7
+         VvyIUjpaWNuIuYVu7AZeh9JTgqVr7ThdcNxsyX8X1R5s9ol1lhVRO3L02IH4e8Sw5q0O
+         3uRXhULpkqDXeYMhX3QT+7gm5gjMA2fl43bCptkJu9L7WsQloV7JhOPtb1Nsaf0ZTKai
+         xhgkYbHTC6vm2Qdt5LJinEEqGyupKCQgKgjF9IrtVEG7CgXpCn1fMvM/8ZKLe6QkQWiS
+         vnhA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of arndbergmann@gmail.com designates 209.85.160.194 as permitted sender) smtp.mailfrom=arndbergmann@gmail.com
-Received: from mail-qt1-f194.google.com (mail-qt1-f194.google.com. [209.85.160.194])
-        by gmr-mx.google.com with ESMTPS id e23si69651ioe.5.2019.08.28.08.40.17
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CEwqsmRP;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id g7si496253wmk.0.2019.08.28.09.00.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Aug 2019 08:40:17 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arndbergmann@gmail.com designates 209.85.160.194 as permitted sender) client-ip=209.85.160.194;
-Received: by mail-qt1-f194.google.com with SMTP id 44so3473627qtg.11
-        for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 08:40:17 -0700 (PDT)
-X-Received: by 2002:a0c:d07a:: with SMTP id d55mr3168143qvh.93.1567006817240;
- Wed, 28 Aug 2019 08:40:17 -0700 (PDT)
+        Wed, 28 Aug 2019 09:00:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
+Received: by mail-wm1-x344.google.com with SMTP id l2so637417wmg.0
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 09:00:09 -0700 (PDT)
+X-Received: by 2002:a1c:9c45:: with SMTP id f66mr5858099wme.38.1567008009541;
+ Wed, 28 Aug 2019 09:00:09 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAK8P3a3G=GCpLtNztuoLR4BuugAB=zpa_Jrz5BSft6Yj-nok1g@mail.gmail.com>
- <20190827145102.p7lmkpytf3mngxbj@treble> <CAHFW8PRsmmCR6TWoXpQ9gyTA7azX9YOerPErCMggcQX-=fAqng@mail.gmail.com>
- <CAK8P3a2TeaMc_tWzzjuqO-eQjZwJdpbR1yH8yzSQbbVKdWCwSg@mail.gmail.com>
- <20190827192255.wbyn732llzckmqmq@treble> <CAK8P3a2DWh54eroBLXo+sPgJc95aAMRWdLB2n-pANss1RbLiBw@mail.gmail.com>
- <CAKwvOdnD1mEd-G9sWBtnzfe9oGTeZYws6zNJA7opS69DN08jPg@mail.gmail.com>
- <CAK8P3a0nJL+3hxR0U9kT_9Y4E86tofkOnVzNTEvAkhOFxOEA3Q@mail.gmail.com>
- <CAK8P3a0bY9QfamCveE3P4H+Nrs1e6CTqWVgiY+MCd9hJmgMQZg@mail.gmail.com>
- <20190828152226.r6pl64ij5kol6d4p@treble> <CAK8P3a2ATzqRSqVeeKNswLU74+bjvwK_GmG0=jbMymVaSp2ysw@mail.gmail.com>
-In-Reply-To: <CAK8P3a2ATzqRSqVeeKNswLU74+bjvwK_GmG0=jbMymVaSp2ysw@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 28 Aug 2019 17:40:01 +0200
-Message-ID: <CAK8P3a1CONyt0AwBr2wQXZNo5+jpwAT8T3WfXe73=j799Jnv6A@mail.gmail.com>
-Subject: Re: objtool warning "uses BP as a scratch register" with clang-9
-To: Josh Poimboeuf <jpoimboe@redhat.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>, Ilie Halip <ilie.halip@gmail.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of arndbergmann@gmail.com designates 209.85.160.194 as
- permitted sender) smtp.mailfrom=arndbergmann@gmail.com
+References: <20190828055425.24765-1-yamada.masahiro@socionext.com>
+ <CA+icZUWigJkh-VtJc4=xE06oMgE=ci2Mfdo2JaDv0fth8PKH+A@mail.gmail.com>
+ <CA+icZUUhhOLfOgwoKP4nKOdPakNJF7XafJ09ERP6r7dOUduMsg@mail.gmail.com> <CA+icZUUSVRURu-jQAnVnZwPp0qiWpostDz+WkTjxx8zunVKBgw@mail.gmail.com>
+In-Reply-To: <CA+icZUUSVRURu-jQAnVnZwPp0qiWpostDz+WkTjxx8zunVKBgw@mail.gmail.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Wed, 28 Aug 2019 17:59:58 +0200
+Message-ID: <CA+icZUXZqKpLcp7xmXEezquaCfKLiPS16gwrbcce105gjYftBg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] kbuild: refactor scripts/Makefile.extrawarn
+To: Masahiro Yamada <yamada.masahiro@socionext.com>
+Cc: linux-kbuild@vger.kernel.org, Nick Desaulniers <ndesaulniers@google.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Michal Marek <michal.lkml@markovi.net>, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, linux-kernel@vger.kernel.org
+Content-Type: multipart/mixed; boundary="000000000000c516d505912f7bdc"
+X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=CEwqsmRP;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::344
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,104 +147,141 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Aug 28, 2019 at 5:28 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> On Wed, Aug 28, 2019 at 5:22 PM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
-> > On Wed, Aug 28, 2019 at 05:13:59PM +0200, Arnd Bergmann wrote:
-> > >
-> > > When CONFIG_KASAN is set, clang decides to use memset() to set
-> > > the first two struct members in this function:
-> > >
-> > >  static inline void sas_ss_reset(struct task_struct *p)
-> > >  {
-> > >         p->sas_ss_sp = 0;
-> > >         p->sas_ss_size = 0;
-> > >         p->sas_ss_flags = SS_DISABLE;
-> > >  }
-> > >
-> > > and that is called from save_altstack_ex(). Adding a barrier() after
-> > > the sas_ss_sp() works around the issue, but is certainly not the
-> > > best solution. Any other ideas?
-> >
-> > Wow, is the compiler allowed to insert memset calls like that?  Seems a
-> > bit overbearing, at least in a kernel context.  I don't recall GCC ever
-> > doing it.
->
-> Yes, it's free to assume that any standard library function behaves
-> as defined, so it can and will turn struct assignments into memcpy
-> or back, or replace string operations with others depending on what
-> seems better for optimization.
->
-> clang is more aggressive than gcc here, and this has caused some
-> other problems in the past, but it's usually harmless.
->
-> In theory, we could pass -ffreestanding to tell the compiler
-> not to make assumptions about standard library function behavior,
-> but that turns off all kinds of useful optimizations. The problem
-> is really that the kernel is neither exactly hosted nor freestanding.
+--000000000000c516d505912f7bdc
+Content-Type: text/plain; charset="UTF-8"
 
-A slightly better workaround is to move the sas_ss_reset() out of
-the try/catch block. Not sure if this is safe.
+Something like that...
 
-      Arnd
+[PATCH 1/2] kbuild: Improve extrawarn documentation
+[PATCH 2/2] kbuild: Rename extrawarn Kconfig to KBUILD_EXTRA_CC_CHECKS
 
-diff --git a/arch/x86/ia32/ia32_signal.c b/arch/x86/ia32/ia32_signal.c
-index 1cee10091b9f..14f8decf0ebc 100644
---- a/arch/x86/ia32/ia32_signal.c
-+++ b/arch/x86/ia32/ia32_signal.c
-@@ -379,6 +379,9 @@ int ia32_setup_rt_frame(int sig, struct ksignal *ksig,
-                put_user_ex(*((u64 *)&code), (u64 __user *)frame->retcode);
-        } put_user_catch(err);
-
-+       if (current->sas_ss_flags & SS_AUTODISARM)
-+               sas_ss_reset(current);
-+
-        err |= __copy_siginfo_to_user32(&frame->info, &ksig->info, false);
-        err |= ia32_setup_sigcontext(&frame->uc.uc_mcontext, fpstate,
-                                     regs, set->sig[0]);
-diff --git a/arch/x86/kernel/signal.c b/arch/x86/kernel/signal.c
-index 8eb7193e158d..fd49d28abbc5 100644
---- a/arch/x86/kernel/signal.c
-+++ b/arch/x86/kernel/signal.c
-@@ -414,6 +414,9 @@ static int __setup_rt_frame(int sig, struct ksignal *ksig,
-                 */
-                put_user_ex(*((u64 *)&rt_retcode), (u64 *)frame->retcode);
-        } put_user_catch(err);
-+
-+       if (current->sas_ss_flags & SS_AUTODISARM)
-+               sas_ss_reset(current);
-
-        err |= copy_siginfo_to_user(&frame->info, &ksig->info);
-        err |= setup_sigcontext(&frame->uc.uc_mcontext, fpstate,
-diff --git a/include/linux/compat.h b/include/linux/compat.h
-index a320495fd577..f5e36931e029 100644
---- a/include/linux/compat.h
-+++ b/include/linux/compat.h
-@@ -520,8 +520,6 @@ int __compat_save_altstack(compat_stack_t __user
-*, unsigned long);
-        put_user_ex(ptr_to_compat((void __user *)t->sas_ss_sp),
-&__uss->ss_sp); \
-        put_user_ex(t->sas_ss_flags, &__uss->ss_flags); \
-        put_user_ex(t->sas_ss_size, &__uss->ss_size); \
--       if (t->sas_ss_flags & SS_AUTODISARM) \
--               sas_ss_reset(t); \
- } while (0);
-
- /*
-diff --git a/include/linux/signal.h b/include/linux/signal.h
-index 67ceb6d7c869..9056239787f7 100644
---- a/include/linux/signal.h
-+++ b/include/linux/signal.h
-@@ -435,8 +435,6 @@ int __save_altstack(stack_t __user *, unsigned long);
-        put_user_ex((void __user *)t->sas_ss_sp, &__uss->ss_sp); \
-        put_user_ex(t->sas_ss_flags, &__uss->ss_flags); \
-        put_user_ex(t->sas_ss_size, &__uss->ss_size); \
--       if (t->sas_ss_flags & SS_AUTODISARM) \
--               sas_ss_reset(t); \
- } while (0);
-
- #ifdef CONFIG_PROC_FS
+- Sedat -
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a1CONyt0AwBr2wQXZNo5%2BjpwAT8T3WfXe73%3Dj799Jnv6A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUXZqKpLcp7xmXEezquaCfKLiPS16gwrbcce105gjYftBg%40mail.gmail.com.
+
+--000000000000c516d505912f7bdc
+Content-Type: text/x-patch; charset="US-ASCII"; 
+	name="0001-kbuild-Improve-extrawarn-documentation.patch"
+Content-Disposition: attachment; 
+	filename="0001-kbuild-Improve-extrawarn-documentation.patch"
+Content-Transfer-Encoding: base64
+Content-ID: <f_jzvg1uqs0>
+X-Attachment-Id: f_jzvg1uqs0
+
+RnJvbSAxMjc1ZWMwZjFkMzFjNGFjNTdiNzNiMzE4YmRjNDUxNTFkOTllOGRjIE1vbiBTZXAgMTcg
+MDA6MDA6MDAgMjAwMQpGcm9tOiBTZWRhdCBEaWxlayA8c2VkYXQuZGlsZWtAY3JlZGF0aXYuZGU+
+CkRhdGU6IFdlZCwgMjggQXVnIDIwMTkgMTY6Mjc6MTMgKzAyMDAKU3ViamVjdDogW1BBVENIIDEv
+Ml0ga2J1aWxkOiBJbXByb3ZlIGV4dHJhd2FybiBkb2N1bWVudGF0aW9uCgotLS0KIERvY3VtZW50
+YXRpb24va2J1aWxkL2tidWlsZC5yc3QgfCAxMCArKysrKysrKy0tCiBzY3JpcHRzL01ha2VmaWxl
+LmV4dHJhd2FybiAgICAgIHwgIDIgKy0KIDIgZmlsZXMgY2hhbmdlZCwgOSBpbnNlcnRpb25zKCsp
+LCAzIGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24va2J1aWxkL2tidWls
+ZC5yc3QgYi9Eb2N1bWVudGF0aW9uL2tidWlsZC9rYnVpbGQucnN0CmluZGV4IDYyZjlkODZjMDgy
+Yy4uZjBmMWM0NzVkN2ZhIDEwMDY0NAotLS0gYS9Eb2N1bWVudGF0aW9uL2tidWlsZC9rYnVpbGQu
+cnN0CisrKyBiL0RvY3VtZW50YXRpb24va2J1aWxkL2tidWlsZC5yc3QKQEAgLTI0Myw4ICsyNDMs
+MTQgQEAgVG8gZ2V0IGFsbCBhdmFpbGFibGUgYXJjaHMgeW91IGNhbiBhbHNvIHNwZWNpZnkgYWxs
+LiBFLmcuOjoKIAogS0JVSUxEX0VOQUJMRV9FWFRSQV9HQ0NfQ0hFQ0tTCiAtLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0KLUlmIGVuYWJsZWQgb3ZlciB0aGUgbWFrZSBjb21tYW5kIGxpbmUg
+d2l0aCAiVz0xIiwgaXQgdHVybnMgb24gYWRkaXRpb25hbAotZ2NjIC1XLi4uIG9wdGlvbnMgZm9y
+IG1vcmUgZXh0ZW5zaXZlIGJ1aWxkLXRpbWUgY2hlY2tpbmcuCitJZiBlbmFibGVkIG92ZXIgdGhl
+IG1ha2UgY29tbWFuZCBsaW5lIHdpdGggIlc9Li4uIiwgaXQgdHVybnMgb24gYWRkaXRpb25hbAor
+Y29tcGlsZXIgd2FybmluZyBvcHRpb25zIGxpa2UgLVdtaXNzaW5nLWRlY2xhcmF0aW9ucyBmb3Ig
+bW9yZSBleHRlbnNpdmUKK2J1aWxkLXRpbWUgY2hlY2tpbmcuIEZvciBtb3JlIGRldGFpbHMgc2Vl
+IDxzY3JpcHRzL01ha2VmaWxlLmV4dHJhd2Fybj4uCisKK1c9MSAtIHdhcm5pbmdzIHRoYXQgbWF5
+IGJlIHJlbGV2YW50IGFuZCBkb2VzIG5vdCBvY2N1ciB0b28gb2Z0ZW4KK1c9MSAtIGFsc28gc3Rv
+cHMgc3VwcHJlc3Npbmcgc29tZSB3YXJuaW5ncworVz0yIC0gd2FybmluZ3MgdGhhdCBvY2N1ciBx
+dWl0ZSBvZnRlbiBidXQgbWF5IHN0aWxsIGJlIHJlbGV2YW50CitXPTMgLSB0aGUgbW9yZSBvYnNj
+dXJlIHdhcm5pbmdzLCBjYW4gbW9zdCBsaWtlbHkgYmUgaWdub3JlZAogCiBLQlVJTERfQlVJTERf
+VElNRVNUQU1QCiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tCmRpZmYgLS1naXQgYS9zY3JpcHRzL01h
+a2VmaWxlLmV4dHJhd2FybiBiL3NjcmlwdHMvTWFrZWZpbGUuZXh0cmF3YXJuCmluZGV4IDNhZjE3
+NzA0OTdmZC4uNjc3MGY4ZGE0ZTZkIDEwMDY0NAotLS0gYS9zY3JpcHRzL01ha2VmaWxlLmV4dHJh
+d2FybgorKysgYi9zY3JpcHRzL01ha2VmaWxlLmV4dHJhd2FybgpAQCAtMzIsNyArMzIsNyBAQCBL
+QlVJTERfQ1BQRkxBR1MgKz0gLURLQlVJTERfRVhUUkFfV0FSTjEKIAogZWxzZQogCi0jIFc9MSBh
+bHNvIHN0b3BzIHN1cHByZXNzaW5nIHNvbWUgd2FybmluZ3MKKyMgVz0xIC0gYWxzbyBzdG9wcyBz
+dXBwcmVzc2luZyBzb21lIHdhcm5pbmdzCiAKIGlmZGVmIENPTkZJR19DQ19JU19DTEFORwogS0JV
+SUxEX0NGTEFHUyArPSAtV25vLWluaXRpYWxpemVyLW92ZXJyaWRlcwotLSAKMi4yMC4xCgo=
+--000000000000c516d505912f7bdc
+Content-Type: text/x-patch; charset="US-ASCII"; 
+	name="0002-kbuild-Rename-extrawarn-Kconfig-to-KBUILD_EXTRA_CC_C.patch"
+Content-Disposition: attachment; 
+	filename="0002-kbuild-Rename-extrawarn-Kconfig-to-KBUILD_EXTRA_CC_C.patch"
+Content-Transfer-Encoding: base64
+Content-ID: <f_jzvg1wty1>
+X-Attachment-Id: f_jzvg1wty1
+
+RnJvbSBiMzY0ODgxZjhiMmE3YWEyNThkY2RiYWJhOGQ2YmM1N2I0MWRlZjBkIE1vbiBTZXAgMTcg
+MDA6MDA6MDAgMjAwMQpGcm9tOiBTZWRhdCBEaWxlayA8c2VkYXQuZGlsZWtAY3JlZGF0aXYuZGU+
+CkRhdGU6IFdlZCwgMjggQXVnIDIwMTkgMTY6MzA6MDMgKzAyMDAKU3ViamVjdDogW1BBVENIIDIv
+Ml0ga2J1aWxkOiBSZW5hbWUgZXh0cmF3YXJuIEtjb25maWcgdG8KIEtCVUlMRF9FWFRSQV9DQ19D
+SEVDS1MKCi0tLQogRG9jdW1lbnRhdGlvbi9rYnVpbGQva2J1aWxkLnJzdCB8IDIgKy0KIHNjcmlw
+dHMvTWFrZWZpbGUuYnVpbGQgICAgICAgICAgfCAyICstCiBzY3JpcHRzL01ha2VmaWxlLmV4dHJh
+d2FybiAgICAgIHwgOCArKysrLS0tLQogc2NyaXB0cy9NYWtlZmlsZS5saWIgICAgICAgICAgICB8
+IDQgKystLQogc2NyaXB0cy9nZW5rc3ltcy9NYWtlZmlsZSAgICAgICB8IDIgKy0KIDUgZmlsZXMg
+Y2hhbmdlZCwgOSBpbnNlcnRpb25zKCspLCA5IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL0Rv
+Y3VtZW50YXRpb24va2J1aWxkL2tidWlsZC5yc3QgYi9Eb2N1bWVudGF0aW9uL2tidWlsZC9rYnVp
+bGQucnN0CmluZGV4IGYwZjFjNDc1ZDdmYS4uZGNjODNkOTkzNDU5IDEwMDY0NAotLS0gYS9Eb2N1
+bWVudGF0aW9uL2tidWlsZC9rYnVpbGQucnN0CisrKyBiL0RvY3VtZW50YXRpb24va2J1aWxkL2ti
+dWlsZC5yc3QKQEAgLTI0MSw3ICsyNDEsNyBAQCBUbyBnZXQgYWxsIGF2YWlsYWJsZSBhcmNocyB5
+b3UgY2FuIGFsc28gc3BlY2lmeSBhbGwuIEUuZy46OgogCiAgICAgJCBtYWtlIEFMTFNPVVJDRV9B
+UkNIUz1hbGwgdGFncwogCi1LQlVJTERfRU5BQkxFX0VYVFJBX0dDQ19DSEVDS1MKK0tCVUlMRF9F
+WFRSQV9DQ19DSEVDS1MKIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogSWYgZW5hYmxl
+ZCBvdmVyIHRoZSBtYWtlIGNvbW1hbmQgbGluZSB3aXRoICJXPS4uLiIsIGl0IHR1cm5zIG9uIGFk
+ZGl0aW9uYWwKIGNvbXBpbGVyIHdhcm5pbmcgb3B0aW9ucyBsaWtlIC1XbWlzc2luZy1kZWNsYXJh
+dGlvbnMgZm9yIG1vcmUgZXh0ZW5zaXZlCmRpZmYgLS1naXQgYS9zY3JpcHRzL01ha2VmaWxlLmJ1
+aWxkIGIvc2NyaXB0cy9NYWtlZmlsZS5idWlsZAppbmRleCAyYTIxY2E4NmI3MjAuLjFkZTliOWRk
+ZGRhYSAxMDA2NDQKLS0tIGEvc2NyaXB0cy9NYWtlZmlsZS5idWlsZAorKysgYi9zY3JpcHRzL01h
+a2VmaWxlLmJ1aWxkCkBAIC04NSw3ICs4NSw3IEBAIGVsc2UgaWZlcSAoJChLQlVJTERfQ0hFQ0tT
+UkMpLDIpCiAgICAgICAgIGNtZF9mb3JjZV9jaGVja3NyYyA9ICQoQ0hFQ0spICQoQ0hFQ0tGTEFH
+UykgJChjX2ZsYWdzKSAkPAogZW5kaWYKIAotaWZuZXEgKCQoS0JVSUxEX0VOQUJMRV9FWFRSQV9H
+Q0NfQ0hFQ0tTKSwpCitpZm5lcSAoJChLQlVJTERfRVhUUkFfQ0NfQ0hFQ0tTKSwpCiAgIGNtZF9j
+aGVja2RvYyA9ICQoc3JjdHJlZSkvc2NyaXB0cy9rZXJuZWwtZG9jIC1ub25lICQ8CiBlbmRpZgog
+CmRpZmYgLS1naXQgYS9zY3JpcHRzL01ha2VmaWxlLmV4dHJhd2FybiBiL3NjcmlwdHMvTWFrZWZp
+bGUuZXh0cmF3YXJuCmluZGV4IDY3NzBmOGRhNGU2ZC4uMGVlNGE1YTg4ZDJjIDEwMDY0NAotLS0g
+YS9zY3JpcHRzL01ha2VmaWxlLmV4dHJhd2FybgorKysgYi9zY3JpcHRzL01ha2VmaWxlLmV4dHJh
+d2FybgpAQCAtNiwxMyArNiwxMyBAQAogS0JVSUxEX0NGTEFHUyArPSAkKGNhbGwgY2MtZGlzYWJs
+ZS13YXJuaW5nLCBwYWNrZWQtbm90LWFsaWduZWQpCiAKIGlmZXEgKCIkKG9yaWdpbiBXKSIsICJj
+b21tYW5kIGxpbmUiKQotICBleHBvcnQgS0JVSUxEX0VOQUJMRV9FWFRSQV9HQ0NfQ0hFQ0tTIDo9
+ICQoVykKKyAgZXhwb3J0IEtCVUlMRF9FWFRSQV9DQ19DSEVDS1MgOj0gJChXKQogZW5kaWYKIAog
+IwogIyBXPTEgLSB3YXJuaW5ncyB0aGF0IG1heSBiZSByZWxldmFudCBhbmQgZG9lcyBub3Qgb2Nj
+dXIgdG9vIG9mdGVuCiAjCi1pZm5lcSAoJChmaW5kc3RyaW5nIDEsICQoS0JVSUxEX0VOQUJMRV9F
+WFRSQV9HQ0NfQ0hFQ0tTKSksKQoraWZuZXEgKCQoZmluZHN0cmluZyAxLCAkKEtCVUlMRF9FWFRS
+QV9DQ19DSEVDS1MpKSwpCiAKIEtCVUlMRF9DRkxBR1MgKz0gLVdleHRyYSAtV3VudXNlZCAtV25v
+LXVudXNlZC1wYXJhbWV0ZXIKIEtCVUlMRF9DRkxBR1MgKz0gLVdtaXNzaW5nLWRlY2xhcmF0aW9u
+cwpAQCAtNDYsNyArNDYsNyBAQCBlbmRpZgogIwogIyBXPTIgLSB3YXJuaW5ncyB0aGF0IG9jY3Vy
+IHF1aXRlIG9mdGVuIGJ1dCBtYXkgc3RpbGwgYmUgcmVsZXZhbnQKICMKLWlmbmVxICgkKGZpbmRz
+dHJpbmcgMiwgJChLQlVJTERfRU5BQkxFX0VYVFJBX0dDQ19DSEVDS1MpKSwpCitpZm5lcSAoJChm
+aW5kc3RyaW5nIDIsICQoS0JVSUxEX0VYVFJBX0NDX0NIRUNLUykpLCkKIAogS0JVSUxEX0NGTEFH
+UyArPSAtV2Nhc3QtYWxpZ24KIEtCVUlMRF9DRkxBR1MgKz0gLVdkaXNhYmxlZC1vcHRpbWl6YXRp
+b24KQEAgLTY1LDcgKzY1LDcgQEAgZW5kaWYKICMKICMgVz0zIC0gdGhlIG1vcmUgb2JzY3VyZSB3
+YXJuaW5ncywgY2FuIG1vc3QgbGlrZWx5IGJlIGlnbm9yZWQKICMKLWlmbmVxICgkKGZpbmRzdHJp
+bmcgMywgJChLQlVJTERfRU5BQkxFX0VYVFJBX0dDQ19DSEVDS1MpKSwpCitpZm5lcSAoJChmaW5k
+c3RyaW5nIDMsICQoS0JVSUxEX0VYVFJBX0NDX0NIRUNLUykpLCkKIAogS0JVSUxEX0NGTEFHUyAr
+PSAtV2JhZC1mdW5jdGlvbi1jYXN0CiBLQlVJTERfQ0ZMQUdTICs9IC1XY2FzdC1xdWFsCmRpZmYg
+LS1naXQgYS9zY3JpcHRzL01ha2VmaWxlLmxpYiBiL3NjcmlwdHMvTWFrZWZpbGUubGliCmluZGV4
+IDg4OGU1YzgzMDY0Ni4uMWY5ZTM4NTUwY2U0IDEwMDY0NAotLS0gYS9zY3JpcHRzL01ha2VmaWxl
+LmxpYgorKysgYi9zY3JpcHRzL01ha2VmaWxlLmxpYgpAQCAtMjQ4LDcgKzI0OCw3IEBAIHF1aWV0
+X2NtZF9nemlwID0gR1pJUCAgICAkQAogRFRDID89ICQob2JqdHJlZSkvc2NyaXB0cy9kdGMvZHRj
+CiAKICMgRGlzYWJsZSBub2lzeSBjaGVja3MgYnkgZGVmYXVsdAotaWZlcSAoJChmaW5kc3RyaW5n
+IDEsJChLQlVJTERfRU5BQkxFX0VYVFJBX0dDQ19DSEVDS1MpKSwpCitpZmVxICgkKGZpbmRzdHJp
+bmcgMSwkKEtCVUlMRF9FWFRSQV9DQ19DSEVDS1MpKSwpCiBEVENfRkxBR1MgKz0gLVduby11bml0
+X2FkZHJlc3NfdnNfcmVnIFwKIAktV25vLXVuaXRfYWRkcmVzc19mb3JtYXQgXAogCS1Xbm8tYXZv
+aWRfdW5uZWNlc3NhcnlfYWRkcl9zaXplIFwKQEAgLTI1OSw3ICsyNTksNyBAQCBEVENfRkxBR1Mg
+Kz0gLVduby11bml0X2FkZHJlc3NfdnNfcmVnIFwKIAktV25vLXBjaV9kZXZpY2VfcmVnCiBlbmRp
+ZgogCi1pZm5lcSAoJChmaW5kc3RyaW5nIDIsJChLQlVJTERfRU5BQkxFX0VYVFJBX0dDQ19DSEVD
+S1MpKSwpCitpZm5lcSAoJChmaW5kc3RyaW5nIDIsJChLQlVJTERfRVhUUkFfQ0NfQ0hFQ0tTKSks
+KQogRFRDX0ZMQUdTICs9IC1Xbm9kZV9uYW1lX2NoYXJzX3N0cmljdCBcCiAJLVdwcm9wZXJ0eV9u
+YW1lX2NoYXJzX3N0cmljdAogZW5kaWYKZGlmZiAtLWdpdCBhL3NjcmlwdHMvZ2Vua3N5bXMvTWFr
+ZWZpbGUgYi9zY3JpcHRzL2dlbmtzeW1zL01ha2VmaWxlCmluZGV4IGJhZjQ0ZWQwYTkzYS4uZTA4
+ZmMzYTZmN2UyIDEwMDY0NAotLS0gYS9zY3JpcHRzL2dlbmtzeW1zL01ha2VmaWxlCisrKyBiL3Nj
+cmlwdHMvZ2Vua3N5bXMvTWFrZWZpbGUKQEAgLTEyLDcgKzEyLDcgQEAgZ2Vua3N5bXMtb2Jqcwk6
+PSBnZW5rc3ltcy5vIHBhcnNlLnRhYi5vIGxleC5sZXgubwogIwogIyBKdXN0IGluIGNhc2UsIHJ1
+biAiJChZQUNDKSAtLXZlcnNpb24iIHdpdGhvdXQgc3VwcHJlc3Npbmcgc3RkZXJyCiAjIHNvIHRo
+YXQgJ2Jpc29uOiBub3QgZm91bmQnIHdpbGwgYmUgZGlzcGxheWVkIGlmIGl0IGlzIG1pc3Npbmcu
+Ci1pZmVxICgkKGZpbmRzdHJpbmcgMSwkKEtCVUlMRF9FTkFCTEVfRVhUUkFfR0NDX0NIRUNLUykp
+LCkKK2lmZXEgKCQoZmluZHN0cmluZyAxLCQoS0JVSUxEX0VYVFJBX0NDX0NIRUNLUykpLCkKIAog
+cXVpZXRfY21kX2Jpc29uX25vX3dhcm4gPSAkKHF1aWV0X2NtZF9iaXNvbikKICAgICAgIGNtZF9i
+aXNvbl9ub193YXJuID0gJChZQUNDKSAtLXZlcnNpb24gPi9kZXYvbnVsbDsgXAotLSAKMi4yMC4x
+Cgo=
+--000000000000c516d505912f7bdc--
