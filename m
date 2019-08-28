@@ -1,120 +1,137 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBJUFTHVQKGQEUCARTXQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBHVBTHVQKGQERSAKYKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B6D19FDC0
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 11:00:23 +0200 (CEST)
-Received: by mail-oi1-x23f.google.com with SMTP id u196sf627815oif.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 02:00:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566982822; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 05D769FF02
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 11:59:59 +0200 (CEST)
+Received: by mail-wm1-x337.google.com with SMTP id g2sf544029wmk.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 02:59:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566986398; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fxyxkPxRkDIWcdt0s1FcTgOsFmhGYvIIJYg7oVfD4Q5s+JFdhTIw7mACsFnrYf/DKl
-         WItNsgJgh7n1rU8hkGINRNri5TL4JwzXJFYmA7Zc9HjrxOSPNjTr/NIM/rX3OX4TeSOG
-         i4S8EPVj7ebY9KfeiJQGB/NrFJAUPpgqwywno4ZLYlxww6hctv/Cd2g6zcBNX9ihV2xz
-         USpwOWqbkbpFsO0t1CVY2X6uz8NPFAkZoh6Jh6YQb9ASTfHLkyHl0ttXJOvBW4Vda1tl
-         SNbNyvrlSTmFqmVekPvBm0+9JjmwIocIGunKmmL478DjTwr5WHfAjA8eSKBx9+8iw24D
-         DnPQ==
+        b=qdK/i8+vKU0cRDPbb2WsX+LxlnUMVGSBDvVyYb5tFLuFY4On7ZBGkgYOce2PZfht4+
+         2HoaEkOzRZMlr4y5m4HzpEpIjtO2RFaRKJ7b+SWWB5oueYD40ESG0t6GbOTQGynHn9NL
+         hpWhRpZRyVf4Nw6vVVZ6C56IvV0LYHNTR3ZfQp5VzkWuB1YCB/uNar4BkiqepfaeorYB
+         ZNP/nz7iqcjeDGkht5i3E3qRF2AtVMLn385tG4Fi+ra0xNoHBx5tP5cED4HewLwPHaMD
+         gAegP8+R/deqbUcNuZYWYYGxQP/K4e0HFQz6y/VQNmxDZ3KLOIQESSMETErZF1UBsomM
+         JDEQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=ENS1XkBWvi+aLJK+eaB8zdN+ZDl9KAQXTS/b9/B0Zyo=;
-        b=PK+gLz+3ttJzoYIaSZrcjKU+e9pEP+KPEjWVCBctw9A69sFpNkgVL85h25tMiZwPBl
-         qIE/6n4UGqBaxjTwBwAh5nD0MwJT0ZHd6jPLDFsH201+GjtG39xEAqxvdkCF7Y5kO5vT
-         20GTYzzkr55GrNEfyXm1WncxM2csWdbAtxPmX6PpaP4AyDucBc7n+1+dJ17Mln3MqpL7
-         rf2VX4KQDp5Xc1/jGW9Kv2am/v+ZGbZQ5SEfArdIZHjuB2Z5i86XDEOeYeHcW5GkI5CZ
-         EM8a6Y1bhmIRqVf0XaMy+Zcv8SJy3afOAng5GUibmjb3pWQbRATw4lq+AZTm9uBg+GTe
-         g5lA==
+         :reply-to:in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=AIurqzAyH7a91plQ+1YdbC28QDBj1135YLHpGeyz5X4=;
+        b=xdOMreIg0qCxpeMVMmkC55s1EmrPFXzocphIwYiWzBO5o8WgofH5TnaOSmiIFlWAte
+         Ly9G1SJh3py0LR5x4f33KI/ayK1Ggj4YsVXtXo4e1S/GEjGj8pJO9emXeQwiOUfbVpjJ
+         +Gl0x/rU+71FyqeaTccIF5Gny6+sSMHT0oRjcefptyfPzwD0+I+FMQLu63o/T2nKCdIq
+         t3ksv0frgR+TuN3uUTedMTz0QCfTfw/vJTJ5sqK0qRNUlyDxEMb76Ugz6h2SVgc5ddII
+         6Ts6Gqnhj06c7SmEfvxq1iqoLY51XAmuzcjTZgjNVcResEO+l8INj0EfHk0MGkwKuBFC
+         0ndQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of arndbergmann@gmail.com designates 209.85.222.195 as permitted sender) smtp.mailfrom=arndbergmann@gmail.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=T2qOK8B5;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=AIurqzAyH7a91plQ+1YdbC28QDBj1135YLHpGeyz5X4=;
+        b=cWJT4cSu6emCY0+Ysz6YF0GRa8aKAZzX52eodo6xcHpjHGRGuowv4RgLoGVjBhQ01o
+         UH1Wg8cRkMo3oKgOCEE/pYKD7ypPSpiTAXUF/LJZRIjNE9nIuCmWz/J8x7NgRoRguEP1
+         7GSZLOlUIRz5ZJjfTKDoGAGaze1GcBBbBumMSUfM8MTZ+ZXci48X1Y6xkqZPwQ+I/Rp7
+         EYvJ56h5rPoeRhBeDXMNsKQgFm01jsrxm39WJFU2W/9kNcV9n69RNTU/UD1+Oom9eTt/
+         GEceuyuEUzR/JuZ3RtA3Wfk8EkDYIZt/ULBE3b/HwxEpTQSnQyc4HRPHxdd50z8uMmiu
+         6qVA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ENS1XkBWvi+aLJK+eaB8zdN+ZDl9KAQXTS/b9/B0Zyo=;
-        b=eBIb6B6BaWIGWv5TtIN20bAKijHzsc0HYfaY72oTy49mQOVmT3fSqp9+rxZ0dHxrb0
-         ykwDJEpJdoT9uvmsTCeCs/0NQVyDtEU4Elf7FHoUEBVmf7/SiqVOF1HN74ggg4+xf6nM
-         KGm621E3qqmivpPFSIJZlA9PvDsuY+N28+sf0U3zKBVrOaV7EonYPOvgZBm+062q82Ah
-         KTaHIlXQfgfraYMKJeyiYRFsIUe/T5h3Kfefw+5isaMjbgydJQs5vauMsYaBjkbMYq2G
-         eiV5snPam2sh/weYZbtzab9es4QfMwWJQq5P74H7jTvP272Qc9PJNzRXGOEh5lMelXwH
-         u4gg==
+        bh=AIurqzAyH7a91plQ+1YdbC28QDBj1135YLHpGeyz5X4=;
+        b=T4mMJGwvQ3W7nwS2qS76AFd6IbjFrHuOg+DZeZAtNks3xDxYyEht0PUjkLUu0m7Dw+
+         7nssnpCmPM4q+7cxPdjICZGW+UebJXZpee+UvHdPQ/d7ijv42xD3t/XAycOC/4L2Tt0B
+         10DancTJMumCqKaFFOGM9GgM0INqNneoVE7df/IKVKON58y0wD9dMuLfGRuz0oWUfHWm
+         ptkw5knijLbQbh4tYb6RNgDC3CXOkP88rwnOZzhUJGHdRih/+GC44hUWqTMqGa9PksFm
+         guINdRWEtmiIWJZZFV7zPgOlbRxDkJdnwlm87IOCM3V/2bi2QNWcEqGzosCUhXN7yixw
+         hTaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ENS1XkBWvi+aLJK+eaB8zdN+ZDl9KAQXTS/b9/B0Zyo=;
-        b=QEE1IO1U8qpQyyfidVFehleRGFAKmTekCLIwa0mIw+7mQN0woDzwFpjJ+TjzEjGG3r
-         tWyg7cHWjCkIYJB8U2cM9LQEHbmF4xImNKfW37AoJ6F3NFEkwAA6k3FOkr8+jbWrUu7E
-         ygXJ5CFF76sL4GvNLYh3sRf7z7NxCJAepmOQv4kgZBTQ8doNdbJqfzdMFbMq0C+99zsI
-         +71Ac3xqpHMMu0DAUamMOVFD1pL/JWEwPDEIxrcu6M4+DNdrSNRXL96mdsw9i/KxI0nP
-         nRUxqgcOfV/FL0rwnBmeFlfIjSism/2Lg81BWkoWMYkCzU1C+/LO8mHFZzjrOJZTv7Tr
-         EQsA==
+        bh=AIurqzAyH7a91plQ+1YdbC28QDBj1135YLHpGeyz5X4=;
+        b=ozZ2kthpX9cWMGZQDAlZRALNu0k715wiGGl+08rrqogQ8kcKX67NpFiQKwgrZ66x2H
+         Lk2SEa6EerecXDAVKdHIo2LGDKyNJNbt9lC+Ub/oRUm2BOdqoGAhfTZM34qe0ny6XW7K
+         Y6EONZzPveQB53nfRQKNq9Q9UVTnh+HZHYZ4Rqyg7e5tqfOhOtQc1arlit8fE5ipbcRi
+         kSvQNGfPcTJ3hB8QZ4OnxLIECf57WDRIjSPmzqs4K7nlH3eT6iY+lH0s8x0w30/4uGCu
+         RdZdlDOUaQ903pSikKt5VrV4fywFJfX9pRife4iR/+3pvBkaVsVDKJ5y/AXIjr/UfO8L
+         lizw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW3mJ4r2MYlODlT2OUQ2XJ9bve4v5i9hoYLwU8Upqj8VD6QS1ui
-	xlMAHRLa3jysqS+EFiZ3onU=
-X-Google-Smtp-Source: APXvYqxXSsxt3/GVcHFGt7a03AXw+P5e2lYJRRW0s7JungJqxxsJA0o4eRYJWFgD5BbWKTCG/sTuiQ==
-X-Received: by 2002:a05:6830:14ce:: with SMTP id t14mr2404693otq.316.1566982822286;
-        Wed, 28 Aug 2019 02:00:22 -0700 (PDT)
+X-Gm-Message-State: APjAAAXzalN0plhyTBjprVm1dYjHc2/h/etevtHVqbuLHwo3Epo/BCwB
+	8EntWEU0ppMvc3pA8aILMXs=
+X-Google-Smtp-Source: APXvYqxdGe+ZxjLTxnWdpZK4iZ8yL2Q0DEohOaY+9UH4aIGIO7eFt27zszqE97oLTLcv872SVe8PLA==
+X-Received: by 2002:a5d:4703:: with SMTP id y3mr3807565wrq.63.1566986398637;
+        Wed, 28 Aug 2019 02:59:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:6250:: with SMTP id i16ls284134otk.1.gmail; Wed, 28 Aug
- 2019 02:00:21 -0700 (PDT)
-X-Received: by 2002:a05:6830:1015:: with SMTP id a21mr2414969otp.232.1566982821968;
-        Wed, 28 Aug 2019 02:00:21 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566982821; cv=none;
+Received: by 2002:a1c:9d02:: with SMTP id g2ls725825wme.3.canary-gmail; Wed,
+ 28 Aug 2019 02:59:58 -0700 (PDT)
+X-Received: by 2002:a1c:4c02:: with SMTP id z2mr4013240wmf.92.1566986397980;
+        Wed, 28 Aug 2019 02:59:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566986397; cv=none;
         d=google.com; s=arc-20160816;
-        b=m1KBsSHPwvo8SSA/It6Vzq2bDtfqL4HZmZMSSFeBLZadqilmKRkeTRnpwjcLEi1Vz5
-         rM0U6HBpMtgKjIXIs8j3y/K3g3XouD2p9+eStXFwWd5qumn8HqPwfIkBo4TMYWyStjEl
-         S4iQjp4n/Gb1+veFEjGooHdfrQ+bgiZboXt2J2uypPmILC1hxS6xJtZFoLkmTlcIUDiL
-         ptjn9iEAgwzL21DbMAc/VRn2GuBw8KRnbO8KfGQvUBoGy1fR49/E3TlABVrywCFESS0E
-         v8jK0ZCwIFhuSnJWV7Ho4eVJ/VlOVaPDh0dUODfVZvy3vq3WXC5caT+YObv2+mEWNzOA
-         FrOA==
+        b=szqUKDTIWuVXHVTaFKE+cyZ4IT4lD60FcdndJv2jRqpVWuF7MTedqSx5h0xxrPxD0p
+         +BLI36mtUgnvkMuJkQBtlhOXTi0A7wvBsb+YqjuCdY8t5jrwxLvNyh+DMmgZyZVd5ft/
+         ADoGGDJPBwIrXq+CFKpbxcbH7ditsj/CsGFfJUbO64S/YN+410HOHro+uHuGT7oOzP6f
+         4GWbP3P2zh/DCecYFLXc8BkaJNCEQuH1QywxrkTTqIpLwsEVQtO4jz65A2Gf9PpU/W/i
+         PNRoNpTJduMtJx5veXvHU0vEig5gqnghub/rcUMse68yeIWxP4a0LD+FvJzF4GjDbxAJ
+         ahPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=OUW305HffLjg7EH9ex82HE6wB5d1znsqD2HU0SvH2s0=;
-        b=z4p6XbRtJrnkfdIcd8UBlKEQAXHC+dQJOPvUpPBblbnqIpg5/MjEH4dj3/2rLJh7sX
-         TxvDeL1fitFyjSyDqFrjWcA79rUD4TEI+0ATNLc48ksu6kbWVO06Un+m6f4wrrjoHgOn
-         2FNXBpFHGzicVka5Qs7jtNElDayOeBoETnqvmFtU2cehoSDhc0K/8gOL3qQFFFIM1CrL
-         jYeHXF6m/ymRj8130oriEi6D4IQfazuRkUllsAAvGLL3P9tD3/xDwWkjka/p04hnrad1
-         i/b/h6fInRtjmrRY2dw7PaNV7p8sFVZcNlmuxFhUEPupbjIFltqkB2npS+DBAUXHFt/c
-         TLAg==
+        h=cc:to:subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Nz++kIJqul0wPSRdmkNJtLbYUtvatvDKV4U+pZdOE0E=;
+        b=IwERHXzeCwzGujaNwLrWEgVhQFsU61GEbee1WjGWllwc14Bxi+4Ctfnhv8XDKwhjrH
+         40+JmtlLqapBXHfrivzMQrl6PjKWzRaRhpQyWclHqEnlaRiFGMYmnQe3jlyhnmrSlV4k
+         hZOhdqoYx7mV2vDXJhYiGY5/GGif5GMEPp8ItHa6PRHD4mfBw9OniK8WpK+JhndvSHkQ
+         w4KXXCfrsRY0oy2nloXvr7bXcFdQqV46bMzRri7TvZhAQ1Wb895Uf3Z3VkT+uvZKAFxU
+         MZufRhOp8Wv0cuwAUGLldKW6tKrwk/hNfKB09X6EMUKajOlMsokqtdEXnPYPMoG4hfGo
+         7sIg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of arndbergmann@gmail.com designates 209.85.222.195 as permitted sender) smtp.mailfrom=arndbergmann@gmail.com
-Received: from mail-qk1-f195.google.com (mail-qk1-f195.google.com. [209.85.222.195])
-        by gmr-mx.google.com with ESMTPS id p205si102367oic.1.2019.08.28.02.00.21
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=T2qOK8B5;
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id w17si93969wmk.1.2019.08.28.02.59.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Aug 2019 02:00:21 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arndbergmann@gmail.com designates 209.85.222.195 as permitted sender) client-ip=209.85.222.195;
-Received: by mail-qk1-f195.google.com with SMTP id y22so1699724qkb.11
-        for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 02:00:21 -0700 (PDT)
-X-Received: by 2002:a37:4b0d:: with SMTP id y13mr2720341qka.3.1566982821079;
- Wed, 28 Aug 2019 02:00:21 -0700 (PDT)
+        Wed, 28 Aug 2019 02:59:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
+Received: by mail-wr1-x442.google.com with SMTP id e16so1843919wro.5
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 02:59:57 -0700 (PDT)
+X-Received: by 2002:adf:a54d:: with SMTP id j13mr3425130wrb.261.1566986397568;
+ Wed, 28 Aug 2019 02:59:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAK8P3a3G=GCpLtNztuoLR4BuugAB=zpa_Jrz5BSft6Yj-nok1g@mail.gmail.com>
- <20190827145102.p7lmkpytf3mngxbj@treble> <CAHFW8PRsmmCR6TWoXpQ9gyTA7azX9YOerPErCMggcQX-=fAqng@mail.gmail.com>
- <CAK8P3a2TeaMc_tWzzjuqO-eQjZwJdpbR1yH8yzSQbbVKdWCwSg@mail.gmail.com>
- <20190827192255.wbyn732llzckmqmq@treble> <CAK8P3a2DWh54eroBLXo+sPgJc95aAMRWdLB2n-pANss1RbLiBw@mail.gmail.com>
- <CAKwvOdnD1mEd-G9sWBtnzfe9oGTeZYws6zNJA7opS69DN08jPg@mail.gmail.com>
-In-Reply-To: <CAKwvOdnD1mEd-G9sWBtnzfe9oGTeZYws6zNJA7opS69DN08jPg@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 28 Aug 2019 11:00:04 +0200
-Message-ID: <CAK8P3a0nJL+3hxR0U9kT_9Y4E86tofkOnVzNTEvAkhOFxOEA3Q@mail.gmail.com>
-Subject: Re: objtool warning "uses BP as a scratch register" with clang-9
+References: <20190827204007.201890-1-ndesaulniers@google.com>
+In-Reply-To: <20190827204007.201890-1-ndesaulniers@google.com>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Wed, 28 Aug 2019 11:59:46 +0200
+Message-ID: <CA+icZUVT8GJCPSSB=jLKLu=-OrWAj5W3Rkbx1ar0SGcEq0-D0g@mail.gmail.com>
+Subject: Re: [PATCH v2 00/14] treewide: prefer __section from compiler_attributes.h
 To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Josh Poimboeuf <jpoimboe@redhat.com>, Ilie Halip <ilie.halip@gmail.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, will@kernel.org, jpoimboe@redhat.com, 
+	naveen.n.rao@linux.vnet.ibm.com, davem@davemloft.net, paul.burton@mips.com, 
+	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of arndbergmann@gmail.com designates 209.85.222.195 as
- permitted sender) smtp.mailfrom=arndbergmann@gmail.com
+X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=T2qOK8B5;       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::442
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,135 +144,133 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Aug 27, 2019 at 11:22 PM 'Nick Desaulniers' via Clang Built
-Linux <clang-built-linux@googlegroups.com> wrote:
-> On Tue, Aug 27, 2019 at 12:47 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > On Tue, Aug 27, 2019 at 9:23 PM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
-> > > On Tue, Aug 27, 2019 at 09:00:52PM +0200, Arnd Bergmann wrote:
-> > > > On Tue, Aug 27, 2019 at 5:00 PM Ilie Halip <ilie.halip@gmail.com> wrote:
-> Thanks for the description of the issue and the reduced test case.  It
-> almost reminds me of
-> https://github.com/ClangBuiltLinux/linux/issues/612.
+On Tue, Aug 27, 2019 at 10:40 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> I've filed https://bugs.llvm.org/show_bug.cgi?id=43128, anything I
-> should add to the bug report?
+> GCC unescapes escaped string section names while Clang does not. Because
+> __section uses the `#` stringification operator for the section name, it
+> doesn't need to be escaped.
+>
+> This fixes an Oops observed in distro's that use systemd and not
+> net.core.bpf_jit_enable=1, when their kernels are compiled with Clang.
+>
+> Instead, we should:
+> 1. Prefer __section(.section_name_no_quotes).
+> 2. Only use __attribute__((__section(".section"))) when creating the
+> section name via C preprocessor (see the definition of __define_initcall
+> in arch/um/include/shared/init.h).
+>
+> This antipattern was found with:
+> $ grep -e __section\(\" -e __section__\(\" -r
+>
 
-I tried the suggestion to add
+Hi Nick,
 
-diff --git a/Makefile b/Makefile
-index 1b23f95db176..97f7bc4c9b4e 100644
---- a/Makefile
-+++ b/Makefile
-@@ -755,7 +755,7 @@ endif
+thanks for the v2 of your patch-series.
 
- KBUILD_CFLAGS += $(call cc-disable-warning, unused-const-variable)
- ifdef CONFIG_FRAME_POINTER
--KBUILD_CFLAGS  += -fno-omit-frame-pointer -fno-optimize-sibling-calls
-+KBUILD_CFLAGS  += -fno-omit-frame-pointer -fno-optimize-sibling-calls
-$(call cc-option, -mno-omit-leaf-frame-pointer)
- else
- # Some targets (ARM with Thumb2, for example), can't be built with frame
- # pointers.  For those, we don't have FUNCTION_TRACER automatically
+I just checked v2 on top of Linux v5.3-rc6...
 
-from https://bugs.llvm.org/show_bug.cgi?id=43128, this avoids all the
-"uses BP as a scratch register" warnings as well as almost all the "call without
-frame pointer save/setup" warnings I also saw.
+sdi@iniza:~/src/linux-kernel/linux$ grep -e __section\(\" -e __section__\(\" -r
+include/linux/compiler_attributes.h: *        __section(".foo")
+include/linux/compiler_attributes.h: *        verbose
+__attribute__((__section__(".foo" x))) should be preferred.
 
-Only a few unique objtool warnings remain now, here are the ones I
-currently see,
-along with .config files. Let me know which ones I should investigate further,
-I assume a lot of these are known issues:
+OK: Description of the problem ^^
 
-http://paste.ubuntu.com/p/XjdDsypRxX/
-0x5BA1B7A1:arch/x86/ia32/ia32_signal.o: warning: objtool:
-ia32_setup_rt_frame()+0x238: call to memset() with UACCESS enabled
-0x5BA1B7A1:arch/x86/kernel/signal.o: warning: objtool:
-__setup_rt_frame()+0x5b8: call to memset() with UACCESS enabled
-0x5BA1B7A1:mm/kasan/common.o: warning: objtool: kasan_report()+0x44:
-call to __stack_chk_fail() with UACCESS enabled
-0x5BA1B7A1:kernel/trace/trace_selftest_dynamic.o: warning: objtool:
-__llvm_gcov_writeout()+0x13: call without frame pointer save/setup
-0x5BA1B7A1:kernel/trace/trace_selftest_dynamic.o: warning: objtool:
-__llvm_gcov_flush()+0x0: call without frame pointer save/setup
-0x5BA1B7A1:kernel/trace/trace_clock.o: warning: objtool:
-__llvm_gcov_writeout()+0x14: call without frame pointer save/setup
-0x5BA1B7A1:kernel/trace/trace_clock.o: warning: objtool:
-__llvm_gcov_flush()+0x0: call without frame pointer save/setup
-0x5BA1B7A1:kernel/trace/*: # many more of the same, all in this directory
-0x5BA1B7A1:kernel/trace/trace_uprobe.o: warning: objtool:
-__llvm_gcov_flush()+0x0: call without frame pointer save/setup
+arch/sh/include/asm/cache.h:#define __read_mostly
+__attribute__((__section__(".data..read_mostly")))
 
-http://paste.ubuntu.com/p/PyYNBK5Yx2/
-0xC1CF60CC:arch/x86/ia32/ia32_signal.o: warning: objtool:
-ia32_setup_rt_frame()+0x205: call to memset() with UACCESS enabled
-0xC1CF60CC:arch/x86/kernel/signal.o: warning: objtool:
-__setup_rt_frame()+0x597: call to memset() with UACCESS enabled
-0xC1CF60CC:arch/x86/kernel/process.o: warning: objtool:
-play_dead()+0x3: unreachable instruction
-0xC1CF60CC:mm/kasan/common.o: warning: objtool: kasan_report()+0x52:
-call to __stack_chk_fail() with UACCESS enabled
-0xC1CF60CC:kernel/sched/idle.o: warning: objtool:
-switched_to_idle()+0x3: unreachable instruction
-0xC1CF60CC:mm/madvise.o: warning: objtool: hugepage_madvise()+0x3:
-unreachable instruction
-0xC1CF60CC:mm/hugetlb.o: warning: objtool: hugetlb_vm_op_fault()+0x3:
-unreachable instruction
-0xC1CF60CC:kernel/exit.o: warning: objtool: abort()+0x3: unreachable instruction
-0xC1CF60CC:fs/hugetlbfs/inode.o: warning: objtool:
-hugetlbfs_write_end()+0x3: unreachable instruction
-0xC1CF60CC:fs/xfs/xfs_super.o: warning: objtool:
-xfs_fs_alloc_inode()+0x3: unreachable instruction
-0xC1CF60CC:drivers/mtd/nand/raw/nand_base.o: warning: objtool:
-nand_read_oob()+0x18d4: unreachable instruction
+PATCH next-20190827 ^^
+sh: prefer __section from compiler_attributes.h
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?h=next-20190827&id=baf58858e8b6d853a7a8308901fcdd438e92a522
 
-http://paste.ubuntu.com/p/xCXyJR4Gx6/
-0x99965895:arch/x86/ia32/ia32_signal.o: warning: objtool:
-ia32_setup_rt_frame()+0x1f5: call to memset() with UACCESS enabled
-0x99965895:arch/x86/kernel/signal.o: warning: objtool:
-__setup_rt_frame()+0x57f: call to memset() with UACCESS enabled
-0x99965895:drivers/pinctrl/pinctrl-ingenic.o: warning: objtool:
-ingenic_pinconf_set()+0x10d: sibling call from callable instruction
-with modified stack frame
+arch/arm64/kernel/smp_spin_table.c:volatile unsigned long
+__section(".mmuoff.data.read")
+arch/arm64/include/asm/cache.h:#define __read_mostly
+__attribute__((__section__(".data..read_mostly")))
 
-http://paste.ubuntu.com/p/SFQXxh6zvy/
-0x9278DEDC:drivers/media/dvb-frontends/cxd2880/cxd2880_tnrdmd_dvbt2.o:
-warning: objtool: x_tune_dvbt2_demod_setting()+0x7f6: can't find
-switch jump table
-0x9278DEDC:net/xfrm/xfrm_output.o: warning: objtool:
-xfrm_outer_mode_output()+0x109: unreachable instruction
-0x9278DEDC:net/xfrm/xfrm_output.o: warning: objtool:
-xfrm_outer_mode_output()+0x109: unreachable instruction
+PATCH next-20190827 ^^
+arm64: prefer __section from compiler_attributes.h
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?h=next-20190827&id=80d838122643a09a9f99824adea4b4261e4451e6
 
-http://paste.ubuntu.com/p/9jW8yR6Tph/
-0xE872D410:kernel/trace/trace_branch.o: warning: objtool:
-ftrace_likely_update()+0x6c: call to __stack_chk_fail() with UACCESS
-enabled
-0xE872D410:drivers/hwmon/pmbus/adm1275.o: warning: objtool:
-adm1275_probe()+0x756: unreachable instruction
+arch/um/include/shared/init.h:  __attribute__((__section__(".initcall"
+level ".init"))) = fn
 
-http://paste.ubuntu.com/p/qg4bxZbxwq/
-0xA833B0C9:drivers/gpu/drm/amd/amdgpu/atom.o: warning: objtool:
-atom_op_move() falls through to next function atom_op_and()
-0xA833B0C9:drivers/gpu/drm/i915/display/intel_combo_phy.o: warning:
-objtool: cnl_set_procmon_ref_values()+0x125: can't find switch jump
-table
-0xA833B0C9:drivers/gpu/drm/radeon/atom.o: warning: objtool:
-atom_op_move() falls through to next function atom_op_and()
-0xA833B0C9:drivers/gpu/drm/radeon/evergreen_cs.o: warning: objtool:
-evergreen_cs_parse() falls through to next function
-evergreen_dma_cs_parse()
+??? ^^
 
-http://paste.ubuntu.com/p/W3nq9bSHHZ/
-0xFBCA4E34:drivers/gpu/drm/amd/amdgpu/atom.o: warning: objtool:
-atom_op_move() falls through to next function atom_op_and()
-0xFBCA4E34:drivers/gpu/drm/amd/amdgpu/../display/dc/dce110/dce110_opp_csc_v.o:
-warning: objtool: dce110_opp_v_set_csc_default()+0x2bc: can't find
-switch jump table
-0xFBCA4E34:drivers/gpu/drm/amd/amdgpu/../display/dc/dce110/dce110_mem_input_v.o:
-warning: objtool: dce_mem_input_v_program_pte_vm()+0x27f: can't find
-switch jump table
+> See the discussions in:
+> https://bugs.llvm.org/show_bug.cgi?id=42950
+> https://marc.info/?l=linux-netdev&m=156412960619946&w=2
+>
+
+List CBL issue tracker to discussions:
+https://github.com/ClangBuiltLinux/linux/issues/619
+
+- Sedat -
+
+> Changes V1 -> V2:
+> * drop arm64, arc, and sh patches as they were picked up by their
+>   maintainers.
+> * Split the previous V1 hunk from include/linux that touched
+>   include/linux/compiler.h off into its own patch for inclusion in
+>   stable, as it fixes a user visible issue.
+> * Collect Acks and Tested by tags.
+>
+> Nick Desaulniers (14):
+>   s390/boot: prefer __section from compiler_attributes.h
+>   include/linux/compiler.h: prefer __section from compiler_attributes.h
+>   parisc: prefer __section from compiler_attributes.h
+>   um: prefer __section from compiler_attributes.h
+>   ia64: prefer __section from compiler_attributes.h
+>   arm: prefer __section from compiler_attributes.h
+>   mips: prefer __section from compiler_attributes.h
+>   sparc: prefer __section from compiler_attributes.h
+>   powerpc: prefer __section and __printf from compiler_attributes.h
+>   x86: prefer __section from compiler_attributes.h
+>   include/asm-generic: prefer __section from compiler_attributes.h
+>   include/linux: prefer __section from compiler_attributes.h
+>   include/linux/compiler.h: remove unused KENTRY macro
+>   compiler_attributes.h: add note about __section
+>
+>  arch/arm/include/asm/cache.h          |  2 +-
+>  arch/arm/include/asm/mach/arch.h      |  4 ++--
+>  arch/arm/include/asm/setup.h          |  2 +-
+>  arch/ia64/include/asm/cache.h         |  2 +-
+>  arch/mips/include/asm/cache.h         |  2 +-
+>  arch/parisc/include/asm/cache.h       |  2 +-
+>  arch/parisc/include/asm/ldcw.h        |  2 +-
+>  arch/powerpc/boot/main.c              |  3 +--
+>  arch/powerpc/boot/ps3.c               |  6 ++----
+>  arch/powerpc/include/asm/cache.h      |  2 +-
+>  arch/powerpc/kernel/btext.c           |  2 +-
+>  arch/s390/boot/startup.c              |  2 +-
+>  arch/sparc/include/asm/cache.h        |  2 +-
+>  arch/sparc/kernel/btext.c             |  2 +-
+>  arch/um/kernel/um_arch.c              |  6 +++---
+>  arch/x86/include/asm/cache.h          |  2 +-
+>  arch/x86/include/asm/intel-mid.h      |  2 +-
+>  arch/x86/include/asm/iommu_table.h    |  5 ++---
+>  arch/x86/include/asm/irqflags.h       |  2 +-
+>  arch/x86/include/asm/mem_encrypt.h    |  2 +-
+>  arch/x86/kernel/cpu/cpu.h             |  3 +--
+>  include/asm-generic/error-injection.h |  2 +-
+>  include/asm-generic/kprobes.h         |  5 ++---
+>  include/linux/cache.h                 |  6 +++---
+>  include/linux/compiler.h              | 31 ++++-----------------------
+>  include/linux/compiler_attributes.h   | 10 +++++++++
+>  include/linux/cpu.h                   |  2 +-
+>  include/linux/export.h                |  2 +-
+>  include/linux/init_task.h             |  4 ++--
+>  include/linux/interrupt.h             |  5 ++---
+>  include/linux/sched/debug.h           |  2 +-
+>  include/linux/srcutree.h              |  2 +-
+>  32 files changed, 54 insertions(+), 74 deletions(-)
+>
+> --
+> 2.23.0.187.g17f5b7556c-goog
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a0nJL%2B3hxR0U9kT_9Y4E86tofkOnVzNTEvAkhOFxOEA3Q%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2BicZUVT8GJCPSSB%3DjLKLu%3D-OrWAj5W3Rkbx1ar0SGcEq0-D0g%40mail.gmail.com.
