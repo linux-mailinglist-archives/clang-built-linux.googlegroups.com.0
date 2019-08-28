@@ -1,127 +1,131 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBXGWS7VQKGQEOQ5RWWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTI55WH24IRBUW3S7VQKGQEIIJYVNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD04A9F868
-	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 04:47:57 +0200 (CEST)
-Received: by mail-pf1-x438.google.com with SMTP id b8sf946833pfd.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 19:47:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1566960476; cv=pass;
+Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id CF4479F87B
+	for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 04:58:27 +0200 (CEST)
+Received: by mail-pg1-x53d.google.com with SMTP id d19sf783694pgh.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 27 Aug 2019 19:58:27 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1566961106; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cQ1MCHvllFQPvC4imcgS8xkTd/4cezTokfb3bbahWne+tWfPV07NzVciW097Cv4M/q
-         lGUOCCkdpIBtWrXCj+0TJT3AfQj0FPxa/VgI9YczzqbWJgPW0s0YobRJdPAAlVskULdu
-         1mbx0FX/kkux6HzuyBkwGoiNR0cUyqA7Q0QmTPRcWyG0VDtOf+Qvlrwi+aFQRJelqIYm
-         tC8IotTxApjIqNpZX64ah3+wmkBdM468SDWomBy5ExjKG6yvkeQsH+RTXHZE141jjqeJ
-         5h+oYULXbg+oPAFD3yg2mW84bxnQdsT7jmE6SRiaIIJ5yfjzLISnu8sN7ZiyIhGFOu33
-         gZmA==
+        b=URJbrQJWYF1AwM0Xik0VTNwnZIjmFNhs17dgXfygw26x/Pj7IEAVYN/bj5tHoYWJ1r
+         AURbJvATScJW+zPZgOUtyIuwAA7d+KHZe6mPKG54VzlMZVxpIIf0+dDc1zwjtTSWnvX7
+         hiR9OcX9kyQm7kxEz9TAM+YXKkqwu5E6K/epfxegffZBl7m5TfKZbUG4VpXJLz/BxEZl
+         RhBBSJlJehrOo6BIBpJre/BDupyA8F4u9ecVpyHsRiTgBjTsSuSoTniyF65EFoZTDdWb
+         O1eYPeQcs3pKruQe4/Tmyz6JHJuFRftkTeS5C/9WH4wz+LjlF+U00+G1+9sI/kHUqAWb
+         XglQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
          :dkim-signature;
-        bh=frWFCunSn6LDaNyCjsvRpUG/GTC/ZVs7TKyJdXSUgeA=;
-        b=OoqR44W5bhVCbWp3J4EBZHJR8W3fpbgKjlEWfUe1ajOxTXSbnJXxcDMGoGMZwTvE7i
-         HkDFhtEbIypGmFghEfTYk7PD8wwV1WVyEhmVerLgUG50QfSS/+4UKhQEUlBlD0i6E2Wb
-         dkTIx11WYhecHLuwFonBEUq21jl6uNM4sbymq7BaJrFDwkHsNPuf3F3piuE2RLnrl/1v
-         a6T7zUht3YjKmTyjlvxulwVSHWrNhIrP9Tu5fdfjb9S2AF9ZZZ5ONq2R3gC6bommGcBl
-         tITc7k+2Zg3qecbNVXx/FTTQlhRw30kuK8sDpnoz95jc7GvPy12+0/cKkvu4Koh/S3LX
-         vseQ==
+        bh=fvsbS3zD/o7xo/drtMAV/Nwsad5NWYPCn/Dp9gs5orY=;
+        b=x7y3UOjjX/BE8UbEhw/TUzGHLrBjE+8okFKTpMSYlck/YFQMXS7EyQrNMQcvtg6cIz
+         ITiuRNRn7KFnmSO2FR/aYeroS9wfkcgYI8r+eZLhkkPFGfnNk1GhNesA3c0ezmOQRUCJ
+         zVl3RGWMOk1dzqIRZlshXOnO9+cCSy3Fxg14p+WGhRYUNmxrunvsFDNBA7wiDnzAx3R6
+         2w/aIi6BVYz3+2n8F/gxKL8m1xZx5x3D8zAKtkXDMRjqu8/kRvfexN3g9N0YHl5ozF39
+         /XLppRoo1ZggSoeh/b4WmUxmRC8cZ+dryJPv3+HUul9gFT7MXrEZRlp4+tb6BGuiSqhm
+         dsRg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.168 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=J7wcNIqR;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=frWFCunSn6LDaNyCjsvRpUG/GTC/ZVs7TKyJdXSUgeA=;
-        b=hq13PzCNwWl/78jWJd9URKguLZlb2i3jrwNUSLHrt7woclsNsMe3SLyt3E31oz0rRO
-         TgJLvkXTtQfTY9KeYrmHjoE1/MZiQxRd8EnOqbdOSgveTKfsqauVOME5naEHq1eMZh/X
-         ekbEHEFAr+G2ROCdTBnShgrY0Ncj675LQO7RXTh5pJu6Dx4yvbXpVNqsJ/8USsagg+AY
-         kEnii2vdj8m8lymltnWacn2xtL4jkgWlsmVmitrmizV2eFoxjMpQ5yBNF/igutZvTaNf
-         HySMh7QCq6ZXEzSTgO/vxwQeyax2Hhara1UOpyiSjsnPxz/H2DMZeh+qLlVjYWKHGk4m
-         zJHw==
+        bh=fvsbS3zD/o7xo/drtMAV/Nwsad5NWYPCn/Dp9gs5orY=;
+        b=PrMg6fnsdCYXbRyqcHcu+tFBl7hP30wc4NaMZre5tIPj47xV8ipR3WAAZNMZl3OrIo
+         RZySvu93odmt6bBCRLlAj3FhYE+/Hhs9x3Biy9t3Vs2NZmG2OnhWR9XplLFXHwQ4ZDGz
+         10fm0zIjPWPefQrOqiVnlMG8HkMv1mf5IhsDiCuXx3cQ/3VlAV7Brb1UQri/kSKGbI+f
+         sO2PdUSvlxja4QDAJLBligheuJJOPiYUaK1efzO5vNo8voxQvw9/2QnhsTU+C9uQ4Vhv
+         XRqkjgG+ykI1DnRnpLF2VYRghawingZlcvf09Fr7tKpl80u+QE6xnTJPOHst64ZkMYFz
+         OD3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=frWFCunSn6LDaNyCjsvRpUG/GTC/ZVs7TKyJdXSUgeA=;
-        b=dJuR0JeJUzkSfOwYk3R9G7jeNts1hAC19AYn8ZTOA1vk2evGMhIoErDwDUaJVajBum
-         Me9fIkmRKu6bd+6+FmtJJBTdD2Thj6ucgfF+zX+otRoz1ku57VHcVHdhOrLUSqKaQj0K
-         ES/Bn7hnkztp8F3FuU6aCAMMqE4JZLgqOdrfJ5v7kcku0fKbxPv5WdFgFgzEP2kuoYhq
-         4y/MC66xGpuMQxcqQ94HJVAAAOYANbJCaNVLfUmbfLeWASoSG1sCASiKekih8DXtUFf6
-         jV37BMh8fT1x0aaECiSBIEc+L9Ers/1KHJ7uq7TogVYM0LJH7wbGO2IPy0AHIPpuAOI3
-         IGeA==
+        bh=fvsbS3zD/o7xo/drtMAV/Nwsad5NWYPCn/Dp9gs5orY=;
+        b=Yamtr64P9nY2u4MpLPzay3/4kFMgqUsY29JpkVZ4JzuhQLStkhQ2kTjM2+cedqeahO
+         vePF1Xye4hFt8OZHiP/tY+i8pNBU5fNt9Ly3/PILWgSkdxjTA2Rz4H8NwQaog/XoeW4g
+         oPU9pcpjwlJ1ijbAhI35k6zbdFt2x5aVltphusbaivuJRcXcEN/NK9TWB/LP16LOfUea
+         AYvjmW4Q5rd2bI7MJHacTZfPIxmbMal6uoVPfhXCeuSntjei/U7b+qkrBDpYEIFwVR7h
+         QJsJTqs3Fr0RUmq9Ism1LqXhgTEPfaRRxM81MFxLvXMlpxkInsIrzsMTJYCYFUsqRYaZ
+         35Hw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUYo6uu7h/7k2EGgHTCvpDWfArKi74SEnMqDnhLyppHxVN9BG2i
-	/4tlXOCmQcvGBaUxd3k/ruU=
-X-Google-Smtp-Source: APXvYqyTGO7f/cs/OOwfepYR79jLwmHDaDIozAnbKzy8hhib5jgn3TgJi572WqVwvH6oR9b+7tK15Q==
-X-Received: by 2002:aa7:80d7:: with SMTP id a23mr2007666pfn.208.1566960476220;
-        Tue, 27 Aug 2019 19:47:56 -0700 (PDT)
+X-Gm-Message-State: APjAAAU++o8pzpSK3Bc2BMwu4Y4ktAfofke/m78WnpWVEm9h1MdexflL
+	h+ZslZ2Ici4YI4EMGZ/Yl+s=
+X-Google-Smtp-Source: APXvYqz0WMBMy22CYbAc8Ot7o+x6aoH3Muzv910GZmlICtpMK/5+pvSf3Q5XgwXYX6MjtEPlo+e03A==
+X-Received: by 2002:aa7:96dc:: with SMTP id h28mr2103343pfq.86.1566961106249;
+        Tue, 27 Aug 2019 19:58:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:3742:: with SMTP id e63ls458224pfa.7.gmail; Tue, 27 Aug
- 2019 19:47:55 -0700 (PDT)
-X-Received: by 2002:aa7:9591:: with SMTP id z17mr2010603pfj.215.1566960475952;
-        Tue, 27 Aug 2019 19:47:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1566960475; cv=none;
+Received: by 2002:aa7:874f:: with SMTP id g15ls460476pfo.14.gmail; Tue, 27 Aug
+ 2019 19:58:26 -0700 (PDT)
+X-Received: by 2002:a63:61cd:: with SMTP id v196mr1490956pgb.263.1566961105921;
+        Tue, 27 Aug 2019 19:58:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566961105; cv=none;
         d=google.com; s=arc-20160816;
-        b=g8Cy826rX+JA3MYFQ67+D3a0SUhhCUTOjEuG2sdGctAjuQaXZh/E2tRFp3JWi3Bd1B
-         GQId2RK8y1GI4W76A7dFrp7Egts6LlB4guma5hJE6aPhbwI8VBhhS1jPPNGs+GA9P35V
-         gMbh+l/GS/VXwFkVZPUCnIprQ6pqvOwXvupEcJ9yPgIvb6aZSuC2cQTrPNzwMaDdz8Ro
-         8IgVHQjFUvOCs6a4BbrqNr9uvmEYNF75LnZowhOXi0srqrvC8q0ikr/okB/+P89Dbfwl
-         qC0ZzjXXEX1SZ6AMBeIG68g8Aku/qQw8/RsIjNehsg8gZnREuQm5vvhtJg76jSsKLS2u
-         s+tw==
+        b=WDynQMy1nFtc8LrFuL8R/vzVuqbbpLkVjEVG7q0rXsjlnsXOGhCEdwCSRef9eGi7Hl
+         FvAKCHVYwXHy/LvuwQLVlSel9DuOIHj/YIlo4Heyv9tZz9WGlit4yFgIDsUeYXrBZRZP
+         ZxwbhnJer42xhOC9YrpjjQx+DlNwNbnYGDSJ6vE5YEdSTYkv2OCocMWKUtNheRmZjxaR
+         ceT2fupEVIR2ts1sscfE9sQhLkktgAAE84I1/qhqjJw7vfAqzELxoQp2igb2ltq2Fbjq
+         dZjnarMeBLG07VTt8p9Zz6CXAz5te3rSDycOrT3EaALMveyr21s/W//StV+OP7w5269/
+         D31Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=FMiviXHFMbqg+7/dZO52WzwUl0FzClQ4n8+Joa8N1jo=;
-        b=YKhq7DN67vjzT1u5AMssOe6QCFSug9qwmQyAzcnAz+9M0SPZX4d7Qz0PNWOfUPCGIj
-         AoG/7kuOTmWVczC3SBeIB8aHIV4cz40mwyZuB1baCCvfKF3LU6kwfo5PjW7U2cIO8Vll
-         jpmfRHdPoe3kMmabT97/h5slAfDVrRfyqKyW13YRYmBdwtRJXqHcfq09WZlsAIs2zeys
-         pVRx7EWELXc+dkdke1/I4PXK3WJ2GtoNw+3Qi4EhTCmWEOO5vT/YqykD26cRsULuKZ3R
-         5Li4e3W3Algzue0nTZc3Nl9MBposnyJQtCPtRouMDakMUw6c3hDfzVbErnMfulTf0Yql
-         Aivw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=mFHsEzwB4oWOXBHmgeLVqODXLT7BOd0irzx8s7TXEyg=;
+        b=AaxsGuIs+CW3v/wO8cAjaTgWdmfwC7RoCdzvGP1flWTrUsoC6vhq8mcytDXfZqbOMH
+         ln83vhROk6wp3TEFRFcFIkKplDXIK+L8Gi7t8F3D0efFmWQMCouhlzOjQHinbBENv5GF
+         y63u5/qpzzsI07f6Roq3Tjn1PLhoZtx2yLELFTCPEVyEz4a1Iw9xkHuPwTLJn/5Bhl+N
+         fh87te/DmsrrMpvxopB1vFFLoCfYttBOI3f5Q6ln0fIdvBCMRdE9EMXH8CJa6LZ3pFhF
+         MLhmiHuBOlB5ZmyZAHLZiyXbsGyBeQH1GdFsEkYQedLA4TWmTtqPv86hLf6f9qbG6B48
+         BNyQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.168 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0168.hostedemail.com. [216.40.44.168])
-        by gmr-mx.google.com with ESMTPS id f125si53706pgc.4.2019.08.27.19.47.55
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=J7wcNIqR;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
+        by gmr-mx.google.com with ESMTPS id h136si60772pfe.3.2019.08.27.19.58.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 27 Aug 2019 19:47:55 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.168 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.168;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay08.hostedemail.com (Postfix) with ESMTP id 8F456182CED28;
-	Wed, 28 Aug 2019 02:47:54 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::::::::,RULES_HIT:41:355:379:599:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1539:1593:1594:1711:1714:1730:1747:1777:1792:2393:2559:2562:2828:3138:3139:3140:3141:3142:3350:3622:3865:3867:3868:3870:3872:3874:4321:5007:6119:10004:10400:10848:11026:11232:11658:11914:12043:12114:12297:12438:12740:12760:12895:13069:13311:13357:13439:14181:14659:14721:21080:21451:21627:30029:30030:30054:30091,0,RBL:23.242.196.136:@perches.com:.lbl8.mailshell.net-62.8.0.180 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:28,LUA_SUMMARY:none
-X-HE-Tag: van62_44cf316c12c5a
-X-Filterd-Recvd-Size: 1646
-Received: from XPS-9350 (cpe-23-242-196-136.socal.res.rr.com [23.242.196.136])
-	(Authenticated sender: joe@perches.com)
-	by omf12.hostedemail.com (Postfix) with ESMTPA;
-	Wed, 28 Aug 2019 02:47:52 +0000 (UTC)
-Message-ID: <e8851ba7888c433dac2ffa5d80f3289cd05940a3.camel@perches.com>
-Subject: Re: [PATCH v2 00/14] treewide: prefer __section from
- compiler_attributes.h
-From: Joe Perches <joe@perches.com>
-To: Nick Desaulniers <ndesaulniers@google.com>, 
-	miguel.ojeda.sandonis@gmail.com
-Cc: sedat.dilek@gmail.com, will@kernel.org, jpoimboe@redhat.com, 
- naveen.n.rao@linux.vnet.ibm.com, davem@davemloft.net, paul.burton@mips.com,
-  clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
-Date: Tue, 27 Aug 2019 19:47:51 -0700
-In-Reply-To: <20190827204007.201890-1-ndesaulniers@google.com>
-References: <20190827204007.201890-1-ndesaulniers@google.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.32.1-2
+        Tue, 27 Aug 2019 19:58:25 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com [209.85.217.45]) (authenticated)
+	by conssluserg-06.nifty.com with ESMTP id x7S2wA4m020082
+	for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 11:58:11 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com x7S2wA4m020082
+X-Nifty-SrcIP: [209.85.217.45]
+Received: by mail-vs1-f45.google.com with SMTP id j25so850405vsq.12
+        for <clang-built-linux@googlegroups.com>; Tue, 27 Aug 2019 19:58:11 -0700 (PDT)
+X-Received: by 2002:a05:6102:20c3:: with SMTP id i3mr1099865vsr.155.1566961090274;
+ Tue, 27 Aug 2019 19:58:10 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.168 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+References: <20190827103621.1073-1-yamada.masahiro@socionext.com>
+ <20190827192811.GA24626@archlinux-threadripper> <CAKwvOd=7Jf13PDC9Q1FMhZUJQsq7Ggn=wRz5xpRY0YrU6tP9Kw@mail.gmail.com>
+ <20190827213447.GA26954@archlinux-threadripper> <CAKwvOd=pQm7ytZSJeRzXoWwzouDADOYkO8S_+zSPtXOAO3Jc5g@mail.gmail.com>
+In-Reply-To: <CAKwvOd=pQm7ytZSJeRzXoWwzouDADOYkO8S_+zSPtXOAO3Jc5g@mail.gmail.com>
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+Date: Wed, 28 Aug 2019 11:57:33 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARduZNvwQ2AJbP3NNDojM+1AACx=wRqdRz+DRSCuVMK2w@mail.gmail.com>
+Message-ID: <CAK7LNARduZNvwQ2AJbP3NNDojM+1AACx=wRqdRz+DRSCuVMK2w@mail.gmail.com>
+Subject: Re: [PATCH v2] kbuild: enable unused-function warnings for W= build
+ with Clang
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Michal Marek <michal.lkml@markovi.net>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        LKML <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: yamada.masahiro@socionext.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=J7wcNIqR;       spf=softfail
+ (google.com: domain of transitioning yamada.masahiro@socionext.com does not
+ designate 210.131.2.91 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,24 +138,180 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 2019-08-27 at 13:39 -0700, Nick Desaulniers wrote:
-> GCC unescapes escaped string section names while Clang does not. Because
-> __section uses the `#` stringification operator for the section name, it
-> doesn't need to be escaped.
-> 
-> This fixes an Oops observed in distro's that use systemd and not
-> net.core.bpf_jit_enable=1, when their kernels are compiled with Clang.
-> 
-> Instead, we should:
-> 1. Prefer __section(.section_name_no_quotes).
-> 2. Only use __attribute__((__section(".section"))) when creating the
+Hi Nick, Nathan,
 
-Please use __ before and after section
+On Wed, Aug 28, 2019 at 6:56 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> On Tue, Aug 27, 2019 at 2:34 PM Nathan Chancellor
+> <natechancellor@gmail.com> wrote:
+> >
+> > On Tue, Aug 27, 2019 at 01:58:05PM -0700, Nick Desaulniers wrote:
+> > > On Tue, Aug 27, 2019 at 12:28 PM Nathan Chancellor
+> > > <natechancellor@gmail.com> wrote:
+> > > >
+> > > > On Tue, Aug 27, 2019 at 07:36:21PM +0900, Masahiro Yamada wrote:
+> > > > > GCC and Clang have different policy for -Wunused-function; GCC never
+> > > > > reports unused-function warnings for 'static inline' functions whereas
+> > > > > Clang reports them if they are defined in source files instead of
+> > > > > included headers although it has been suppressed since commit
+> > > > > abb2ea7dfd82 ("compiler, clang: suppress warning for unused static
+> > > > > inline functions").
+> > > > >
+> > > > > We often miss to remove unused functions where 'static inline' is used
+> > > > > in .c files since there is no tool to detect them. Unused code remains
+> > > > > until somebody notices. For example, commit 075ddd75680f ("regulator:
+> > > > > core: remove unused rdev_get_supply()").
+> > > > >
+> > > > > Let's remove __maybe_unused from the inline macro to allow Clang to
+> > > > > start finding unused static inline functions. As always, it is not a
+> > > > > good idea to sprinkle warnings for the normal build, so I added
+> > > > > -Wno-unsued-function for no W= build.
+> > >
+> > > s/unsued/unused/
+> > >
+> > > > >
+> > > > > Per the documentation [1], -Wno-unused-function will also disable
+> > > > > -Wunneeded-internal-declaration, which can help find bugs like
+> > > > > commit 8289c4b6f2e5 ("platform/x86: mlx-platform: Properly use
+> > > > > mlxplat_mlxcpld_msn201x_items"). (pointed out by Nathan Chancellor)
+> > > > > I added -Wunneeded-internal-declaration to address it.
+> > > > >
+> > > > > If you contribute to code clean-up, please run "make CC=clang W=1"
+> > > > > and check -Wunused-function warnings. You will find lots of unused
+> > > > > functions.
+> > > > >
+> > > > > Some of them are false-positives because the call-sites are disabled
+> > > > > by #ifdef. I do not like to abuse the inline keyword for suppressing
+> > > > > unused-function warnings because it is intended to be a hint for the
+> > > > > compiler's optimization. I prefer __maybe_unused or #ifdef around the
+> > > > > definition.
+> > >
+> > > I'd say __maybe_unused for function parameters that are used depending
+> > > of ifdefs in the body of the function, otherwise strictly ifdefs.
+> > >
+> > > > >
+> > > > > [1]: https://clang.llvm.org/docs/DiagnosticsReference.html#wunused-function
+> > > > >
+> > > > > Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+> > > > > Reviewed-by: Kees Cook <keescook@chromium.org>
+> > > >
+> > > > I am still not a big fan of this as I think it weakens clang as a
+> > > > standalone compiler but the change itself looks good so if it is going
+> > > > in anyways:
+> > > >
+> > > > Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> > > >
+> > > > I'm sure Nick would like to weigh in as well before this gets merged.
+> > >
+> > > So right away for an x86_64 defconfig w/ this patch, clang points out:
+> > >
+> > > drivers/gpu/drm/i915/i915_sw_fence.c:84:20: warning: unused function
+> > > 'debug_fence_init_onstack' [-Wunused-function]
+> > > static inline void debug_fence_init_onstack(struct i915_sw_fence *fence)
+> > >                    ^
+> > > drivers/gpu/drm/i915/i915_sw_fence.c:105:20: warning: unused function
+> > > 'debug_fence_free' [-Wunused-function]
+> > > static inline void debug_fence_free(struct i915_sw_fence *fence)
+> > >                    ^
+> > >
+> > > The first looks fishy (grep -r debug_fence_init_onstack), the second
+> > > only has a callsite ifdef CONFIG_DRM_I915_SW_FENCE_DEBUG_OBJECTS.
+> > >
+> > > drivers/gpu/drm/i915/intel_guc_submission.c:1117:20: warning: unused
+> > > function 'ctx_save_restore_disabled' [-Wunused-function]
+> > > static inline bool ctx_save_restore_disabled(struct intel_context *ce)
+> > >                    ^
+> > > drivers/gpu/drm/i915/display/intel_hdmi.c:1696:26: warning: unused
+> > > function 'intel_hdmi_hdcp2_protocol' [-Wunused-function]
+> > > enum hdcp_wired_protocol intel_hdmi_hdcp2_protocol(void)
+> > >                          ^
+> > > arm64 defconfig builds cleanly, same with arm.  Things might get more
+> > > hairy with all{yes|mod}config, but the existing things it finds don't
+> > > look insurmountable to me.  In fact, I'll file bugs in our issue
+> > > tracker (https://github.com/ClangBuiltLinux/linux/issues) for the
+> > > above.
+> > >
+> > > So I'm not certain this patch weakens existing checks.
+> >
+> > Well, we no longer get -Wunused-function warnings without W=1.
+> > Sometimes, that warning is just a result of missed clean up but there
+> > have been instances where it was a real bug:
+> >
+> > https://lore.kernel.org/lkml/20190523010235.GA105588@archlinux-epyc/
+> >
+> > https://lore.kernel.org/lkml/1558574945-19275-1-git-send-email-skomatineni@nvidia.com/
+> >
+> > Having warnings not be equal between compilers out of the box causes
+> > confusion and irritation: https://crbug.com/974884
+> >
+> > Is not the objective of ClangBuiltLinux to rely on GCC less?
+> >
+> > The only reason that we see the warnings crop up in i915 is because
+> > they add -Wall after all of the warnings get disabled (i.e.
+> > -Wno-unused-function -Wall so -Wunused-function gets enabled again).
+> >
+> > To get these warnings after this patch, W=1 has to be used and that
+> > results in a lot of extra warnings. x86_64 defconfig has one objtool
+> > warning right now, W=1 adds plenty more (from both -W flags and lack of
+> > kerneldoc annotations):
+> >
+> > https://gist.github.com/175afbca29ead14bd039ad46f4ab0ded
+> >
+> > This is just food for thought though.
+>
+> So if we took just the hunk against include/linux/compiler_types.h
+> from this patch, we'd be back in a situation pre-commit-abb2ea7dfd82
+> ("compiler, clang: suppress warning for unused static inline
+> functions").  Hmm...
+>
+> I would like to minimize the number of Clang specific warnings that
+> are disabled in scripts/Makefile.extrawarn.
 
-i.e. __attribute__((__section__("<section_name>")))
+I agree.
 
+I do not want to carry this forever.
+
+After we clean up the warnings (it may take several development cycles),
+I want to turn on Wunused-function for all the build mode.
+
+
+
+> Masahiro, does your patch correctly make -Wunused-function work for
+> clang at W=1?  It looks like -Wunused gets added to warning-1, but
+> then -Wno-unused-function gets added to KBUILD_CFLAGS after `warning`
+> does.  Will that work correctly?  I'd imagine that at W=1,
+> KBUILD_CFLAGS for clang will look like:
+> ... -Wunused -Wno-unused-function ...
+> which is probably not what we want?
+
+Hmm?
+
+-Wunused is added only when W=1.
+
+-Wno-unused-function is added only when W= was not passed.
+
+They do not happen at the same time.
+
+
+
+
+
+
+
+
+
+> --
+> Thanks,
+> ~Nick Desaulniers
+
+
+
+--
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/e8851ba7888c433dac2ffa5d80f3289cd05940a3.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARduZNvwQ2AJbP3NNDojM%2B1AACx%3DwRqdRz%2BDRSCuVMK2w%40mail.gmail.com.
