@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBGUNTTVQKGQEGYDCC3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHMNTTVQKGQEUOHUYZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53e.google.com (mail-pg1-x53e.google.com [IPv6:2607:f8b0:4864:20::53e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4FEBEA0DE3
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 00:56:28 +0200 (CEST)
-Received: by mail-pg1-x53e.google.com with SMTP id l12sf769724pgt.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 15:56:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567032987; cv=pass;
+Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 19166A0DE4
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 00:56:31 +0200 (CEST)
+Received: by mail-pl1-x63f.google.com with SMTP id j12sf814306pll.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 28 Aug 2019 15:56:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567032989; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bkjiNYqhMBH+vhamYFyPevPNaaW37U2lvLqK0ZNhl6/MoIM6NL+NszEy7LjkWbZsMm
-         R/3YwQRIHpNeh1l0KyjPgJk2jJIZZIyIjWe4wKqmtlKqJ7vQ/7SFMyBWQvMoygl2M+wq
-         dBYJWXWOg2iUEz2quAKW4oq5GgAuPp1bagEo2ujLIgDVGyzfcqwLlX3uRybhUqimlBaQ
-         mfIBDS+RcL9AIQZwX9Rbs8H1vKqvb/qjmoR3fROakbuNP/g01jJqr3ODgwKhN5z8HmKR
-         xJvlNDz1u5GbiTYPcU3hGJs1LtZ7Z74/rB9A6g5/keeFBbcLScKUX6iu45hDGmaHxgKT
-         Rkbw==
+        b=Cx4FDh9zuGMl3NjgNvS0+M6+KXduDZn7pzyRIiBFEqeOcBPQPVoXZm3uBjcIU00M3X
+         zX6Fv7a5XeP4demX8laKkSD+ZJCHXwBKbKlOyx6/a8gbQTNwF1eMiT5EWDirvAftgFB4
+         cnmSrAylpt2eCjqglvot3uYYDwEZqGu8Wi3U8PCrdGnmhTJ3enrWU0MAjqVak8emPHwc
+         N5AV8KC+jkAnIGQ+pTAHoIklac+LZopGDcuhEDa6TKmTRdrns/ic+5mG+w047/s9Eb2M
+         X81x5Zt1NF0gdyA2bSou2b5uMaFOZCTOiSl057Iy62Hbc6AFpFoRGaugxNijYBSSO/UV
+         w0TA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=pQhxUxpgzIMIJakSc6mA/XaupQWBFKVqnVXgzjA5xGs=;
-        b=RP01qxwESBNAX153usPDyZsz5TVXIqhvQigge/3UiG7eKqD/TJQm/dkNJtnzzxs3pv
-         BzehvfdEyTiKmkLUkJDRHc37E8jB3YlRLf0DR8/P+3BEnCeonR/4lls8mC06WE202pig
-         ZsW7Eu2nAa7U2E5vKu7j/b6B6U2jqg8KrFAuJwFSK13GZHXt+ozzNLWIgaqVW+4n9dJP
-         N65Sc1hKTMrOAjNGJw3x7pfdPFzVDhhVMAmn6sC+grndbn0e/HZ+xZsnqWbMQ6TdIzm4
-         hrDF7vFgHcMwPq442vJuSpxoZqyp15UOkVLwD5zlNomlihlbzq5QpJlDjM9P1IFpMeb8
-         HjBA==
+        bh=gF4i5OGFIqPFOfc4f6adsRcXuN0m++xxwDAf4d8m41U=;
+        b=TgsSoTWGkrVcSTeXgE6D4w0BT7Ok1054t+6gmjWlRvOEeFK7Bc9t7fyg0DvVW/lnvv
+         BriztG4C9Fiog+tyNCKqc5zbpoTbCOh32xSWrlRH/qZO3Qz6HDEsP1G0JOUmDRPAx19r
+         N/LtNRaos4SGCBAW1UacANolvtxMLV1ukBu15S1F9pNI/I29E1D9rxmzZ4QiB4sYEFek
+         ZqFG4o8TWCf2Up9hk1qflfhHIE09wWMWk7kyuKqmc2lhzt2VMs6Z+BErQEujQYgeJKJy
+         Ux7fmPnS6iG6VfRDRg42AoW+qyipdybENMu2wB7V0YLtiwjpN8hhh1xL8TRNVxLfOKKK
+         URpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=R04ttarl;
-       spf=pass (google.com: domain of 3mgznxqwkadueuvjrlcezvijxffxcv.tfd@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3mgZnXQwKADUeUVjRlceZVijXffXcV.Tfd@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=r9JORaju;
+       spf=pass (google.com: domain of 3naznxqwkadcgwxltnegbxklzhhzex.vhf@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3nAZnXQwKADcgWXlTnegbXklZhhZeX.Vhf@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pQhxUxpgzIMIJakSc6mA/XaupQWBFKVqnVXgzjA5xGs=;
-        b=Y3sJXZKK3NAPoplDCjGBgZ1cgycUDLZtysOai/t4m0p5CHRcpup29fg2EodxuQEGxV
-         BxDdsce4bUXTMcgsZUmBIhHZqC8NYUZ6yoOFsIQ97ZCsPCkhEPoCfq2VgLzYkx1TrJaH
-         tw/mZokn9IYNGKFu6DjbxrEd571k9wUZ500P1vCSQsb5Oz4B2uBljl3n+dQMZhAr4y5N
-         7ZEKCmGnyGQR7dwCsvtNWesJjvMgvUJMdKlQtoMCP6oXlCYgyUv7xCl6c56oy1nRp6Ng
-         DAGHSfUONvR1uyBPNNVU+IWn/qHSTmzfJRgCywILbcYuYoYRH5e/7sOi6NNB7p2TbW2f
-         7CkA==
+        bh=gF4i5OGFIqPFOfc4f6adsRcXuN0m++xxwDAf4d8m41U=;
+        b=TBFVV03CSfkBqIpUFj4kZujdemRVuB+KBnrIgKW1QSBWEkm8eTb8SMlBfZghlOd71F
+         S3sOzRGvNmURhzKFTG+HBKKrzWD5jueH/xx05qzzJCumNFA9Fx4O3Xueun9X3iAdofB3
+         JqdPDH9apvLnam5z1PEX2ANhvMmQFC5RjmxSUdmXmFT67/A0wwMdTZuYRrBME9INpkLW
+         N8OwQGc5J6kJh9Zieo76SYTN8ei8Ry9yxOHexurWDlrZAQBOw1FQwKyk8er+mVopAIp/
+         SC1+nchyQZJjTHCvrxj6aicne1VE4ZFU96VsroKBIVvcPAAnKdBoJR0r268EoUv9A1jV
+         pk1g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pQhxUxpgzIMIJakSc6mA/XaupQWBFKVqnVXgzjA5xGs=;
-        b=tU36HcOeBP3TN+d2Db1RBrUJIMiJ33nzCbmpbwQlVTxl9DP1L+sHODcXfD8k0RzKMU
-         Div+hBpvEf96MSkuzrrKxZ3lzyIzvioETqKtPPDQdzqqhCvVXzamWeJvOnkGf4t6v8RU
-         pjIhU1TCqZRR6S2DWyClc3gpyp54p6VYuVEl06MS0fMQBvepTQLEz3KOIYf5zf14CdkU
-         /3IgpoDyjXEhD/seaf59Bf2BNK3DD17igN9lgpQQil1+cVp8efPveq9IyxePL1K7A+Lr
-         D1bxH+fKuFFmRonrD0a8FtEHKt74bONAmbdDTnH8o6i7qe47bdKld2PNR2yyLp/lRjQa
-         bekg==
-X-Gm-Message-State: APjAAAW19Ao9kTffpEOU140PogZozn5L9IqqupLtUqGGgpYLqb6BOZ2s
-	ioxC57v1yQ9TaghB6ws7M0E=
-X-Google-Smtp-Source: APXvYqxitylrLSB4NXRv7BGRVe/wCI0EFTQ4sRaRmnEcxZr7AG+JyL/jrJfWKkuWZpVfsKKEJWVK8Q==
-X-Received: by 2002:aa7:9dcd:: with SMTP id g13mr7753196pfq.204.1567032987037;
-        Wed, 28 Aug 2019 15:56:27 -0700 (PDT)
+        bh=gF4i5OGFIqPFOfc4f6adsRcXuN0m++xxwDAf4d8m41U=;
+        b=Lzk7YKb1D5E8gRdmiiWf2tzT+ZVQpzjc4OxQdbjzLofcgJuTPC1B+IUvRjlGMvCv67
+         RRk9As0IZ9QsOCSHCKw6CTCBAaU5iSy+hwz2EVJOV9HqEe1Kz61Qc+mskQXq6PesEVLt
+         6hmLaGKHlz30GmPjCgBSh5QIq+FU3DcaNxKJ8Ao4vjDUmnE8aw39HYG0eMtijT0Jv3tV
+         9jUhrTsppr0QB+G8X3c2SuRitgEfpdKxwCjX0rYbpgpUYI299nS80+OF3kj4prKA1t3u
+         hsRhPwRj3eXVnHcD/8hpRjwAZhz017BIM8h4E0nAnqCbs4ICk5kMe4D8yjhsNVtE7Xll
+         4C2w==
+X-Gm-Message-State: APjAAAV/WNEWIr301IHezHgERN86vGdJB0HxKBFaCSKq1+Z2tQFTYTTD
+	towYxAeb+nqfTBqLJnb85cc=
+X-Google-Smtp-Source: APXvYqwO18TWV/xRGvmB+ikN/SHCQFPQeDn6zSZcrov7YA7kEFfpgIr4+xAGnhYjWNRvyOMXrDGRxg==
+X-Received: by 2002:a17:902:8301:: with SMTP id bd1mr6214186plb.120.1567032989801;
+        Wed, 28 Aug 2019 15:56:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:3886:: with SMTP id f128ls153717pfa.8.gmail; Wed, 28 Aug
- 2019 15:56:26 -0700 (PDT)
-X-Received: by 2002:a62:3145:: with SMTP id x66mr7655729pfx.186.1567032986748;
-        Wed, 28 Aug 2019 15:56:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567032986; cv=none;
+Received: by 2002:a62:7549:: with SMTP id q70ls149674pfc.16.gmail; Wed, 28 Aug
+ 2019 15:56:29 -0700 (PDT)
+X-Received: by 2002:a65:6096:: with SMTP id t22mr5746206pgu.204.1567032989490;
+        Wed, 28 Aug 2019 15:56:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567032989; cv=none;
         d=google.com; s=arc-20160816;
-        b=n2r53laovQ9yN+SG8jo46f7jmLBEl7PKJ/up0chl1jXXEfvL5qEdZPaSOj2NLk8/oT
-         SFLnNEeZ78+NMO5TYYWJaLLX7HnKMbFNHmTEumxR4GQ6lA/j499qyIKl/8tVkVfV1Rly
-         tQkhrHu1hMwq7Bggx0MWQ+84gyqtENPTfJQWSrg1SDb95lRoSw6fT4wC9jZtAlGDKYOy
-         qE8KkY4et88+guQ3NAQ4lKne25pDjxHYT5hXuCONxIzX58Aw9J/MstTLX9bZ6eAFMnB+
-         YAK5CNHJdqgOAgDs9/HJERp1fdN1Dtb5wxb2Xl5uFnndfT9MyoB+kb+1JK6kFn4NiCfH
-         VKmw==
+        b=kc9s6Ye47+WeKC58DTwRhuAPYVDGMStGMpcT0BN4iIskCaF95FT4DAVaugTtEkajnv
+         O1ReINFBraGn5F15CcfshHd64apChzhxOGFZ+/R9wwAjAd2W6EpDVSwW88ErmAutoqP5
+         SXHJOlVm1v8MFwjlNYqE6PQJrHKNMdy/toRMhSL0lA5iIjkXkB0vJfynvnByE80P836n
+         4kEDPDJgcoJb/PX+jiWHKKrY135AgtkIobXrwiIdgO5opRVF7S6RsGIbZpkhYs/7luo0
+         Q6DQkcmCOP4GyqUCnApDoMVUaH9WHHCUtYp32OzMy5xFHJI+8d2Is/dz6zgM1HSqvaVI
+         3xDA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=WH4YcJNGldw8lGialETJ/aKYammbyIUszQaJj27lQ9U=;
-        b=xfg+ykAxT3xRkDUB7hU88FoAv2qMQTZ35yg7zhMmqJWUTCoHu/vqDVXwpB24e7ETq2
-         RrBDOUO6AcQI4ujZ8Gsv8qlo/ouBPVSdx6v02WZ1gw1h7Vb9Nu1GMoatIKGr6oCaL1Hr
-         pfNqGX9rEZAULf2UwbgxMuAAnC2jtFmRSxAxKK9bimlrf4oq2y+dL24wWGdqXh8mYQae
-         xwlYOZ96SfOA7GFSfBIha1/Aw5Pp/SbFdDN8pWis/w9KjMdOTBfK7CThMis3thsfmVC+
-         qadW8p0geFkMb0MWRs6ihHMKcVgMtWWxW5+Cj2Razo/jysGodwWMM58Y0TtTF5eVHETg
-         ulpA==
+        bh=xAknKHqXr0xCfYuKxMybFQP6qX0ULDYjjg9JhyAUNI4=;
+        b=I+kMi4JwD5xK0W4bKoqj3D5SKb4jS6nMAOCOVfuHJN0Le6TftG66YX/0SyHIbxh/5T
+         0bLNFYjvzq2vAcMg/Jw7Qd6xoBDR2HLVO1nd7OMfFzDUF5SjfI/E1AaHMzLNHI286QcZ
+         KlY9EhHsuusauEfZk5t0QaMfGm5Lez4ExunFQP4YdaI2i991lKjueItNSxcuOQXcuxIQ
+         h+SoyHzMYBC23eyJvlN+NLHTBXfOkRysFu7yiiW/51HdorEwq+e7/ZQDfELEgIh/CXb1
+         BCsjRLPfJ3uPW5c6D/XvOo0HYgz1H45TgGMXnPJrnSxAVeicIKP2FAUhpBXRmrCHbWvM
+         TLiw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=R04ttarl;
-       spf=pass (google.com: domain of 3mgznxqwkadueuvjrlcezvijxffxcv.tfd@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3mgZnXQwKADUeUVjRlceZVijXffXcV.Tfd@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=r9JORaju;
+       spf=pass (google.com: domain of 3naznxqwkadcgwxltnegbxklzhhzex.vhf@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3nAZnXQwKADcgWXlTnegbXklZhhZeX.Vhf@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x549.google.com (mail-pg1-x549.google.com. [2607:f8b0:4864:20::549])
-        by gmr-mx.google.com with ESMTPS id i11si42600pju.1.2019.08.28.15.56.26
+Received: from mail-pg1-x54a.google.com (mail-pg1-x54a.google.com. [2607:f8b0:4864:20::54a])
+        by gmr-mx.google.com with ESMTPS id az14si35791pjb.0.2019.08.28.15.56.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 Aug 2019 15:56:26 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3mgznxqwkadueuvjrlcezvijxffxcv.tfd@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) client-ip=2607:f8b0:4864:20::549;
-Received: by mail-pg1-x549.google.com with SMTP id q1so781662pgt.2
-        for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 15:56:26 -0700 (PDT)
-X-Received: by 2002:a63:3dcd:: with SMTP id k196mr5589110pga.45.1567032986002;
- Wed, 28 Aug 2019 15:56:26 -0700 (PDT)
-Date: Wed, 28 Aug 2019 15:55:32 -0700
+        Wed, 28 Aug 2019 15:56:29 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3naznxqwkadcgwxltnegbxklzhhzex.vhf@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) client-ip=2607:f8b0:4864:20::54a;
+Received: by mail-pg1-x54a.google.com with SMTP id l11so756550pgc.14
+        for <clang-built-linux@googlegroups.com>; Wed, 28 Aug 2019 15:56:29 -0700 (PDT)
+X-Received: by 2002:a63:f04:: with SMTP id e4mr5384375pgl.38.1567032988724;
+ Wed, 28 Aug 2019 15:56:28 -0700 (PDT)
+Date: Wed, 28 Aug 2019 15:55:33 -0700
 In-Reply-To: <20190828225535.49592-1-ndesaulniers@google.com>
-Message-Id: <20190828225535.49592-12-ndesaulniers@google.com>
+Message-Id: <20190828225535.49592-13-ndesaulniers@google.com>
 Mime-Version: 1.0
 References: <20190828225535.49592-1-ndesaulniers@google.com>
 X-Mailer: git-send-email 2.23.0.187.g17f5b7556c-goog
-Subject: [PATCH v3 11/14] include/asm-generic: prefer __section from compiler_attributes.h
+Subject: [PATCH v3 12/14] include/linux: prefer __section from compiler_attributes.h
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: miguel.ojeda.sandonis@gmail.com
 Cc: sedat.dilek@gmail.com, will@kernel.org, jpoimboe@redhat.com, 
@@ -114,9 +114,9 @@ Cc: sedat.dilek@gmail.com, will@kernel.org, jpoimboe@redhat.com,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=R04ttarl;       spf=pass
- (google.com: domain of 3mgznxqwkadueuvjrlcezvijxffxcv.tfd@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3mgZnXQwKADUeUVjRlceZVijXffXcV.Tfd@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=r9JORaju;       spf=pass
+ (google.com: domain of 3naznxqwkadcgwxltnegbxklzhhzex.vhf@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3nAZnXQwKADcgWXlTnegbXklZhhZeX.Vhf@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -149,52 +149,135 @@ See the discussions in:
 Link: https://bugs.llvm.org/show_bug.cgi?id=42950
 Link: https://marc.info/?l=linux-netdev&m=156412960619946&w=2
 Link: https://github.com/ClangBuiltLinux/linux/issues/619
-Acked-by: Naveen N. Rao <naveen.n.rao@linux.vnet.ibm.com>
+Acked-by: Will Deacon <will@kernel.org>
 Reported-by: Sedat Dilek <sedat.dilek@gmail.com>
 Suggested-by: Josh Poimboeuf <jpoimboe@redhat.com>
 Tested-by: Sedat Dilek <sedat.dilek@gmail.com>
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- include/asm-generic/error-injection.h | 2 +-
- include/asm-generic/kprobes.h         | 5 ++---
- 2 files changed, 3 insertions(+), 4 deletions(-)
+ include/linux/cache.h       | 6 +++---
+ include/linux/cpu.h         | 2 +-
+ include/linux/export.h      | 2 +-
+ include/linux/init_task.h   | 4 ++--
+ include/linux/interrupt.h   | 5 ++---
+ include/linux/sched/debug.h | 2 +-
+ include/linux/srcutree.h    | 2 +-
+ 7 files changed, 11 insertions(+), 12 deletions(-)
 
-diff --git a/include/asm-generic/error-injection.h b/include/asm-generic/error-injection.h
-index 95a159a4137f..a593a50b33e3 100644
---- a/include/asm-generic/error-injection.h
-+++ b/include/asm-generic/error-injection.h
-@@ -23,7 +23,7 @@ struct error_injection_entry {
+diff --git a/include/linux/cache.h b/include/linux/cache.h
+index 750621e41d1c..3f4df9eef1e1 100644
+--- a/include/linux/cache.h
++++ b/include/linux/cache.h
+@@ -28,7 +28,7 @@
+  * but may get written to during init, so can't live in .rodata (via "const").
   */
- #define ALLOW_ERROR_INJECTION(fname, _etype)				\
- static struct error_injection_entry __used				\
--	__attribute__((__section__("_error_injection_whitelist")))	\
-+	__section(_error_injection_whitelist)				\
- 	_eil_addr_##fname = {						\
- 		.addr = (unsigned long)fname,				\
- 		.etype = EI_ETYPE_##_etype,				\
-diff --git a/include/asm-generic/kprobes.h b/include/asm-generic/kprobes.h
-index 4a982089c95c..20d69719270f 100644
---- a/include/asm-generic/kprobes.h
-+++ b/include/asm-generic/kprobes.h
-@@ -9,12 +9,11 @@
-  * by using this macro.
+ #ifndef __ro_after_init
+-#define __ro_after_init __attribute__((__section__(".data..ro_after_init")))
++#define __ro_after_init __section(.data..ro_after_init)
+ #endif
+ 
+ #ifndef ____cacheline_aligned
+@@ -45,8 +45,8 @@
+ 
+ #ifndef __cacheline_aligned
+ #define __cacheline_aligned					\
+-  __attribute__((__aligned__(SMP_CACHE_BYTES),			\
+-		 __section__(".data..cacheline_aligned")))
++	__aligned(SMP_CACHE_BYTES)				\
++	__section(.data..cacheline_aligned)
+ #endif /* __cacheline_aligned */
+ 
+ #ifndef __cacheline_aligned_in_smp
+diff --git a/include/linux/cpu.h b/include/linux/cpu.h
+index fcb1386bb0d4..186bbd79d6ce 100644
+--- a/include/linux/cpu.h
++++ b/include/linux/cpu.h
+@@ -166,7 +166,7 @@ void cpu_startup_entry(enum cpuhp_state state);
+ void cpu_idle_poll_ctrl(bool enable);
+ 
+ /* Attach to any functions which should be considered cpuidle. */
+-#define __cpuidle	__attribute__((__section__(".cpuidle.text")))
++#define __cpuidle	__section(.cpuidle.text)
+ 
+ bool cpu_in_idle(unsigned long pc);
+ 
+diff --git a/include/linux/export.h b/include/linux/export.h
+index fd8711ed9ac4..808c1a0c2ef9 100644
+--- a/include/linux/export.h
++++ b/include/linux/export.h
+@@ -104,7 +104,7 @@ struct kernel_symbol {
+  * discarded in the final link stage.
   */
- # define __NOKPROBE_SYMBOL(fname)				\
--static unsigned long __used					\
--	__attribute__((__section__("_kprobe_blacklist")))	\
-+static unsigned long __used __section(_kprobe_blacklist)	\
- 	_kbl_addr_##fname = (unsigned long)fname;
- # define NOKPROBE_SYMBOL(fname)	__NOKPROBE_SYMBOL(fname)
- /* Use this to forbid a kprobes attach on very low level functions */
--# define __kprobes	__attribute__((__section__(".kprobes.text")))
-+# define __kprobes	__section(.kprobes.text)
- # define nokprobe_inline	__always_inline
+ #define __ksym_marker(sym)	\
+-	static int __ksym_marker_##sym[0] __section(".discard.ksym") __used
++	static int __ksym_marker_##sym[0] __section(.discard.ksym) __used
+ 
+ #define __EXPORT_SYMBOL(sym, sec)				\
+ 	__ksym_marker(sym);					\
+diff --git a/include/linux/init_task.h b/include/linux/init_task.h
+index 6049baa5b8bc..50139505da34 100644
+--- a/include/linux/init_task.h
++++ b/include/linux/init_task.h
+@@ -51,12 +51,12 @@ extern struct cred init_cred;
+ 
+ /* Attach to the init_task data structure for proper alignment */
+ #ifdef CONFIG_ARCH_TASK_STRUCT_ON_STACK
+-#define __init_task_data __attribute__((__section__(".data..init_task")))
++#define __init_task_data __section(.data..init_task)
  #else
- # define NOKPROBE_SYMBOL(fname)
+ #define __init_task_data /**/
+ #endif
+ 
+ /* Attach to the thread_info data structure for proper alignment */
+-#define __init_thread_info __attribute__((__section__(".data..init_thread_info")))
++#define __init_thread_info __section(.data..init_thread_info)
+ 
+ #endif
+diff --git a/include/linux/interrupt.h b/include/linux/interrupt.h
+index 5b8328a99b2a..29debfe4dd0f 100644
+--- a/include/linux/interrupt.h
++++ b/include/linux/interrupt.h
+@@ -741,8 +741,7 @@ extern int arch_early_irq_init(void);
+ /*
+  * We want to know which function is an entrypoint of a hardirq or a softirq.
+  */
+-#define __irq_entry		 __attribute__((__section__(".irqentry.text")))
+-#define __softirq_entry  \
+-	__attribute__((__section__(".softirqentry.text")))
++#define __irq_entry	__section(.irqentry.text)
++#define __softirq_entry	__section(.softirqentry.text)
+ 
+ #endif
+diff --git a/include/linux/sched/debug.h b/include/linux/sched/debug.h
+index 95fb9e025247..e17b66221fdd 100644
+--- a/include/linux/sched/debug.h
++++ b/include/linux/sched/debug.h
+@@ -42,7 +42,7 @@ extern void proc_sched_set_task(struct task_struct *p);
+ #endif
+ 
+ /* Attach to any functions which should be ignored in wchan output. */
+-#define __sched		__attribute__((__section__(".sched.text")))
++#define __sched		__section(.sched.text)
+ 
+ /* Linker adds these: start and end of __sched functions */
+ extern char __sched_text_start[], __sched_text_end[];
+diff --git a/include/linux/srcutree.h b/include/linux/srcutree.h
+index 9cfcc8a756ae..9de652f4e1bd 100644
+--- a/include/linux/srcutree.h
++++ b/include/linux/srcutree.h
+@@ -124,7 +124,7 @@ struct srcu_struct {
+ # define __DEFINE_SRCU(name, is_static)					\
+ 	is_static struct srcu_struct name;				\
+ 	struct srcu_struct * const __srcu_struct_##name			\
+-		__section("___srcu_struct_ptrs") = &name
++		__section(___srcu_struct_ptrs) = &name
+ #else
+ # define __DEFINE_SRCU(name, is_static)					\
+ 	static DEFINE_PER_CPU(struct srcu_data, name##_srcu_data);	\
 -- 
 2.23.0.187.g17f5b7556c-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190828225535.49592-12-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190828225535.49592-13-ndesaulniers%40google.com.
