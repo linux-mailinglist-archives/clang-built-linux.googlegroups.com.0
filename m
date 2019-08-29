@@ -1,128 +1,120 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBW5LUDVQKGQESGQUSVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTI55WH24IRBQFLUDVQKGQEB7BBEFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 92D01A231F
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 20:13:48 +0200 (CEST)
-Received: by mail-pf1-x437.google.com with SMTP id s10sf3123440pfd.16
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 11:13:48 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567102427; cv=pass;
+Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 47783A2314
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 20:13:22 +0200 (CEST)
+Received: by mail-pl1-x63a.google.com with SMTP id g9sf2425274plo.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 11:13:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567102401; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RgdluA+0/j0JS266Hx7HcnTEIAwnTylr/XCvbQhhLfP1EGxKT423QLfcxF2rVFeGPA
-         6gHlIM4VX05tBjVZeucoeLI1s+ZHKtFf0uyWktBH/G958DS9lRduleeHlkdj9VJM9++4
-         7xVHGN2UUgquFMrY6zUUzAMy9APn69WyhADbQldfy6Ms8TcnNaNKFCXK1ZE0np8qNPah
-         +VCbQdJ+a54LOKeGYxbB1WWp3GEmRP4qL9864sS+4Y59YV3PegXlx2qkeWlKocisewo+
-         yK2YqkO91JtHTeABDjdERT+5cmjYm/yrVFqlAcx3ou520nWbKRaHgFLJ/qSB12k5Ydwy
-         HRag==
+        b=ltLMaFuM0EfB2/3wpJIIgPJUm1WBfU/q2ZQQFeDsKepKNUaR2DxX9/n0vvYV6Rvmjr
+         9+TvpfS5roFB6jTgV40g1m80BRGg7s+cAHWjJ7V9SzBF6Nz8AwAcRZry7NArqtEf80H/
+         4mBF+evdS0KqBxB4/14HcWZOe+8P8y0WIPL/yr2qKgIMJSDmrKI0WrOsab1+8Tbj/tNX
+         lGIBXeW/RproVHEtPCBRXQ7pmI8TlGIFZsb1yZxuTWdqW2SkjW1UGnkX0PoKMBduDDdg
+         adf8GxsWlnozbLrismWhhtK5r32zK9R7DUFHjEaRnGevY81hZLl/uEL7kuXITijT9q59
+         jIkg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=k22g+T37RwWD6HJt1C4NTZj7Il0AJk+4FOITvTvyl1I=;
-        b=eUNljfFpG6HXwsaHkEKHi1L0mNv4quS8Q+d5LGxfNIFozGLEPwc8lhH2udQrXpsjjk
-         v6Q+7anAdoN6ixnzZn2OpaNKEWYQwh1hjrQH9qL2Y6maMLOSdBaRhNV0W64j6z3tRd/0
-         pmUliq12OEVpWSWoJcNPmNlB+X9weWhAMXr54cEjTVyiMyGt5A220uhjqMVt+Z6CP74z
-         3O5KB3aZMYqknk5/fBR9YgKuEMb70OC8EPcBVTdzNpiF7cLlOC78eIAsPDQgJ4boKj7b
-         +IKF0Hh1dB2XoDaoCxkGCS6g1CWNWo243owK5ensgMwJEh0+7nxSdF5ieoE1kR15E5I+
-         uKSA==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :dkim-filter:mime-version:sender:dkim-signature;
+        bh=Y/iO9/80f/FSOA7lDnvaTj7QZK8E8o2CYkttfMjlhIQ=;
+        b=F+KcSrk6XB8dim7EzOBOEfmRLfYLuKcyXe5OfC59IRpH+pU8NPmh5cIn8HWjbrzBHx
+         wPqDm4K+SacsMDRyp/bL8Zr6ItoYeVN2FqIyPb3YwdV1N3j34fpuB1LEEFy4VK7+LJQ1
+         kdDfhi9E5yfSBvAuu/PVVPPGBnKOdCQOGMTxjBe8+yM5OTcDCYMZ1EK+hfbNqnthIrzE
+         exHOXcdA7wMUA+liv3pqytUGHfeoSEJWTIgBqSn4jtytkAloRDAK81s4gNou0vEIx3fM
+         yM9ln53AVU7nT/IA7CqfPs2l1SbQUX9nZGE66SRlhOBzwJ3eHLjXlIVIqcwSjOLPXRBW
+         nIQg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=NEf62xWt;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=EocEaH2Y;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:dkim-filter:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=k22g+T37RwWD6HJt1C4NTZj7Il0AJk+4FOITvTvyl1I=;
-        b=ivDsdt4jySdiiATm0p+/peWGvPq1Q3w1G1R7JsjJkHzcBA8mpO9vVQ/Jnw0TYpLUfI
-         W6lw9UgxYFvvkI4LqRbVg8OtrbwtG5WY/kPYUwK7CjnVQ7DZezcYwq+ek30NK7EiSnw1
-         HM5bQGPwX4x/LDXhL6lBXdohPMPMFt3WREDjfZ984JcPSQUYUnFIDXAA9u5K0TgE5IY7
-         30t9NQm3XYpB6fj+9NOKJG28oh7IGaf3STYAeq6MSoV2DF972gsRecItHNtqVjE0cBrZ
-         id+DlMPXy6+FaohZskVJFdKOwVwyoug9FVFPFanrLgil/9n5DD4KxiJrpDc3uG3eFIyA
-         WVEw==
+        bh=Y/iO9/80f/FSOA7lDnvaTj7QZK8E8o2CYkttfMjlhIQ=;
+        b=ltDxbDvpWM4+Ng4TNZOiNkgtwa80XoDMjvo4yesHotvn18X6giTvs0OPGl4Oe0i84l
+         c8nI5yFj10gWureFASOnZ6xI30UnxSpUJmR6T5Oydvp10K070x3oVTnkl5lI0Xpa/5j5
+         n2Mf7akmLtxoSFx4M5NCHvQ4aZmY27rn2z//dqeHoOo1ycxqcV6wKdF7+rj+pmgE4d8t
+         AfutQyHB5F0vJUxfrt8xct+lVpfdlBi+/n02yX22F1785OxmMnTypzCERKKLCjF0vNPG
+         b2H/Pw/Tj92hwNTtOj658Dfot5GwBSOhRPE91IEmb6xBjvuMUTxMUU79PnqWMuJXUGcH
+         +rGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
+         :subject:date:message-id:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=k22g+T37RwWD6HJt1C4NTZj7Il0AJk+4FOITvTvyl1I=;
-        b=cJ0JTx10qn3h6Mc/ZdQ2Ozu9cZHwvwJh5etDhb/pTNJfExpi1f/qAhmoMeqLemPMCt
-         WYqoJDKMm+yGjPIxwGNjyjy2Z3iug+kRuKXTVLff0zDETb1erQUayV3C0VdJ/GoXzpwq
-         wvcYoqedAR3pcv4jMFaun5hIuy484HUY4mGFXNfDx68nlNuTiXh5v6jWMA4cOSXbaHJh
-         mmNY/3w03PdeMkbm+dNpaLM44f2MKVBCGHD2MQHhvIOhYycURwQb4a1OyVfIHTEPb2gR
-         qaQZjJ1axYKeCWb0g9f+1ZxOi9ihnFCMnYCHRS+ivjEriVEHvv13gjC86MQPz5WERZFz
-         9WKg==
+        bh=Y/iO9/80f/FSOA7lDnvaTj7QZK8E8o2CYkttfMjlhIQ=;
+        b=rPPbHX+Sbi9Nns3WuJTrEIw473ha8i+6kd/j0WvEUEPNI2D+f2SeR9nbLCgtfxcKNf
+         QcBvhtDn2FxR0V8mvEUrnYVaKnFuX1iVjh3Tv1UY8KqD8W9DeYIsz76epINjwcNBKWrg
+         L63+uZ/3TsIsJQXXBP5/xq87jw4ewVvbNIp/F3KVP3OioNGMoeDSb0BbpqxmxZYXisUR
+         PtyKJlMhY8OJD3Ind/3WHAJoSOGtqTTfWMpSnlTwdTtRjOP/yNHnWs/KO2AcEKv0gWsY
+         AE8dmbw3mLG+ZJB6WB3dP98Seoz7Notm1utqvhfIFeeGh80onoXbEgxDa2no2DSlrqpY
+         KyDg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX0P9oWdOru6bsIiy7sfPyZjAhaBtcONIwSJAphkK5WY7aFLeGU
-	m6Lqvh/AgrzvNjt93wsyJ+E=
-X-Google-Smtp-Source: APXvYqyx1ISc82KRLdUtTT5qQ2sBqEIEAYju8ZtwmHHePYsVjvl2BuyIZnxV02YH5orkKuH9sLQ2YA==
-X-Received: by 2002:aa7:84d7:: with SMTP id x23mr13200163pfn.53.1567102427180;
-        Thu, 29 Aug 2019 11:13:47 -0700 (PDT)
+X-Gm-Message-State: APjAAAWi9x8OawA4cEDmThSt5pI1WVMsnEDx2MHhhlNkZwlx6gf6cpQ4
+	WetG+x1bf2trQBlg8CguaQg=
+X-Google-Smtp-Source: APXvYqxL9vnvoXHMhbCBqP5tUHFUFFQmODZLymXz6jUaX4VTLR/xs9ku2prLrAqIEvJ24PQcd8UIoA==
+X-Received: by 2002:a17:90a:b00a:: with SMTP id x10mr11688726pjq.113.1567102400915;
+        Thu, 29 Aug 2019 11:13:20 -0700 (PDT)
+MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:2b4e:: with SMTP id r75ls735827pgr.0.gmail; Thu, 29 Aug
- 2019 11:13:46 -0700 (PDT)
-X-Received: by 2002:a65:4304:: with SMTP id j4mr9859281pgq.419.1567102426839;
-        Thu, 29 Aug 2019 11:13:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567102426; cv=none;
+Received: by 2002:a17:902:2ba9:: with SMTP id l38ls998166plb.9.gmail; Thu, 29
+ Aug 2019 11:13:20 -0700 (PDT)
+X-Received: by 2002:a17:90a:b016:: with SMTP id x22mr11688747pjq.116.1567102400494;
+        Thu, 29 Aug 2019 11:13:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567102400; cv=none;
         d=google.com; s=arc-20160816;
-        b=wBWulPJZEf62HTRHeYH12RtE1Elkjdm2+9ZRHrH5+o+VYo9HOFOlvnXXThyVwxNjDx
-         2bv3i5X6lZJzxZ8oK9tPTxs4/Ao1CNQlvXlbtoMG9pYOtqkITUAJIeXrxgJYibe5pILk
-         ke7QZV2tuGCWcfh8cWxqvj7PZHON8hRzyX2QUzYfXZBs5NaNqbBU7l3dvsn10L4g7bf+
-         tQ048XHeamx34O31jhhyL4SHONDYNHCKToj4IvcUOcVGzmxUwAUn83t1SeaLE/wLgSjr
-         vfrfW9Mm0cN8/nU+sYCmuLgkIRwmgGyfqlcXOhRqMrSs3G5B0YqIUk7zIvhg8irRVAPB
-         ft8Q==
+        b=MJzuGDUNIPP4RuH/zQ9rNMJ9ww5FCYr7xo2bW2MGOcusUCCTXjwhZTwGEcWcIahXhg
+         rexG/3cgCQg6UsYv9nK8L1umlUsXAcDQqNgkttQkN5j7tHtVn5maOTAc9dVVmWlXYXjo
+         C6sKbbZS8me8oXTh8ZpYdL73gZZnuT8XIxpFRr/eR6HXf0sO7U9uI1ukHZGEaddUHV9a
+         bNYs2vGlkhbsokHKzaUOPh0fEZU7ID7WdGB3U0O8Xvd1sdoVZ3Lus/VTI1UGdkg4ol3k
+         RFdMPntQqI4kVDBa+yKAyDCHWFMRn77B7JpvtcmFujqYAGbO8NQkcfAW0IQuOo4RXZBF
+         D+yA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=m0leWSexNW5q/kQ2BsCZyDDTplyy2g/Xw+TTbvg+4gw=;
-        b=FD8IK2jdjuKbOp8FrQ8lldO8DoZYBw0mAc8TowOlgV3zZ0P8hMx0EvQluOcsS+rnYg
-         y3iL5hJe5tzO5vGKDkdbQjtDyDrkk6ZNVrpPdIrtDQEaSyXo2+trs4i7gqBQX78ifvKw
-         rhyk86RiV5PHTKPUvIcL8ebCB23AgX0jgqV7+dKNjHXSebLHHgpVwFRm/O3kEjuHTDAr
-         lp2LSquRynbkbF4PtCmag2rzxEoBitvnw1qIk4xdjSq1gACJvNvp8qSIfnnOESTTmLm7
-         d/m1IalIwkXbhVSQLgDVblnJgP0JOWoPc9trwfYG+s+FGX8TQiFd5h1xwrkHqozxHXT7
-         ob7w==
+        h=message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
+        bh=Vwg+U6w4Ii1pxbM6Y26D6NAkhEdABFM43gdRvX4UWfQ=;
+        b=vEGxxQGiKLLGff75TGr8T/HG2Le1yM0OpGtTKgJBSjSyqux/Hx4kTsE6XZlykfGV7I
+         b77XCGmvC0VNtXTrq60yZHllhPjfdwUPv8WJwh5YynRJmIxlpzNRqU79glgTao+JIa6k
+         afK1K50alLM8LTri0LhwS1674PG3U51Olb4bV2SzVdJPn8mvSyQuLmWRCzkIYLtgFH5x
+         nC4/fAZsYdlRS7jU0AHKufxIGMD34rYyjvKIhkfSrmT8qPrRq4wOJhaPGYp/mSXOG3uA
+         ctMG1PFSqLmy6ksTTWYKkJV/8AdZaxnM23xMVUJQjn/4/HBcC3R5PYMn+zhJC+AtnnhE
+         2URg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=NEf62xWt;
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t14si271463pfc.1.2019.08.29.11.13.46
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=EocEaH2Y;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.79 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+Received: from conuserg-12.nifty.com (conuserg-12.nifty.com. [210.131.2.79])
+        by gmr-mx.google.com with ESMTPS id y6si155919pjv.2.2019.08.29.11.13.20
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 29 Aug 2019 11:13:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id D2D082339E;
-	Thu, 29 Aug 2019 18:13:45 +0000 (UTC)
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Sasha Levin <sashal@kernel.org>,
-	netdev@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.2 17/76] net: tc35815: Explicitly check NET_IP_ALIGN is not zero in tc35815_rx
-Date: Thu, 29 Aug 2019 14:12:12 -0400
-Message-Id: <20190829181311.7562-17-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190829181311.7562-1-sashal@kernel.org>
-References: <20190829181311.7562-1-sashal@kernel.org>
-MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Original-Sender: sashal@kernel.org
+        Thu, 29 Aug 2019 11:13:20 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.79 as permitted sender) client-ip=210.131.2.79;
+Received: from grover.flets-west.jp (softbank126125143222.bbtec.net [126.125.143.222]) (authenticated)
+	by conuserg-12.nifty.com with ESMTP id x7TICXKJ032077;
+	Fri, 30 Aug 2019 03:12:34 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com x7TICXKJ032077
+X-Nifty-SrcIP: [126.125.143.222]
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+To: linux-kbuild@vger.kernel.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Sedat Dilek <sedat.dilek@gmail.com>,
+        Masahiro Yamada <yamada.masahiro@socionext.com>,
+        Michal Marek <michal.lkml@markovi.net>,
+        clang-built-linux@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: [PATCH v2] kbuild: refactor scripts/Makefile.extrawarn
+Date: Fri, 30 Aug 2019 03:12:31 +0900
+Message-Id: <20190829181231.5920-1-yamada.masahiro@socionext.com>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: yamada.masahiro@socionext.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=NEf62xWt;       spf=pass
- (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@nifty.com header.s=dec2015msa header.b=EocEaH2Y;       spf=softfail
+ (google.com: domain of transitioning yamada.masahiro@socionext.com does not
+ designate 210.131.2.79 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -136,58 +128,194 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+Instead of the warning-[123] magic, let's accumulate compiler options
+to KBUILD_CFLAGS directly as the top Makefile does. I think this makes
+easier to understand what is going on in this file.
 
-[ Upstream commit 125b7e0949d4e72b15c2b1a1590f8cece985a918 ]
+This commit slightly changes the behavior, I think all of which are OK.
 
-clang warns:
+[1] Currently, cc-option calls are needlessly evaluated. For example,
+      warning-3 += $(call cc-option, -Wpacked-bitfield-compat)
+    needs evaluating only when W=3, but it is actually evaluated for
+    W=1, W=2 as well. With this commit, only relevant cc-option calls
+    will be evaluated. This is a slight optimization.
 
-drivers/net/ethernet/toshiba/tc35815.c:1507:30: warning: use of logical
-'&&' with constant operand [-Wconstant-logical-operand]
-                        if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
-                                                  ^  ~~~~~~~~~~~~
-drivers/net/ethernet/toshiba/tc35815.c:1507:30: note: use '&' for a
-bitwise operation
-                        if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
-                                                  ^~
-                                                  &
-drivers/net/ethernet/toshiba/tc35815.c:1507:30: note: remove constant to
-silence this warning
-                        if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
-                                                 ~^~~~~~~~~~~~~~~
-1 warning generated.
+[2] Currently, unsupported level like W=4 is checked by:
+      $(error W=$(KBUILD_ENABLE_EXTRA_GCC_CHECKS) is unknown)
+    This will no longer be checked, but I do not think it is a big
+    deal.
 
-Explicitly check that NET_IP_ALIGN is not zero, which matches how this
-is checked in other parts of the tree. Because NET_IP_ALIGN is a build
-time constant, this check will be constant folded away during
-optimization.
+[3] Currently, 4 Clang warnings (Winitializer-overrides, Wformat,
+    Wsign-compare, Wformat-zero-length) are shown by any of W=1, W=2,
+    and W=3. With this commit, they will be warned only by W=1. I
+    think this is a more correct behavior since each warning belongs
+    to only one group.
 
-Fixes: 82a9928db560 ("tc35815: Enable StripCRC feature")
-Link: https://github.com/ClangBuiltLinux/linux/issues/608
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: David S. Miller <davem@davemloft.net>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+For understanding this commit correctly:
+
+We have 3 warning groups, W=1, W=2, and W=3. You may think W=3 has a
+higher level than W=1, but they are actually independent. If you like,
+you can combine them like W=13. To enable all the warnings, you can
+pass W=123. This is shown by 'make help', but it is often missed
+unfortunately. Since we support W= combination, there should not exist
+intersection among the three groups. If we enable Winitializer-overrides
+for W=1, we do not need to for W=2 or W=3. This is why I believe the
+change [3] makes sense.
+
+The documentation says -Winitializer-overrides is enabled by default.
+(https://clang.llvm.org/docs/DiagnosticsReference.html#winitializer-overrides)
+We negate it by passing -Wno-initializer-overrides for the normal
+build, but we do not do that for W=1. This means, W=1 effectively
+enables -Winitializer-overrides by the clang's default. The same for
+the other three. I wonder if this logic needs detailed commenting,
+but I do not want to be bothered any more. I added comments.
+
+Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
 ---
- drivers/net/ethernet/toshiba/tc35815.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/toshiba/tc35815.c b/drivers/net/ethernet/toshiba/tc35815.c
-index c50a9772f4aff..3b5a26b05295f 100644
---- a/drivers/net/ethernet/toshiba/tc35815.c
-+++ b/drivers/net/ethernet/toshiba/tc35815.c
-@@ -1504,7 +1504,7 @@ tc35815_rx(struct net_device *dev, int limit)
- 			pci_unmap_single(lp->pci_dev,
- 					 lp->rx_skbs[cur_bd].skb_dma,
- 					 RX_BUF_SIZE, PCI_DMA_FROMDEVICE);
--			if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
-+			if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN != 0)
- 				memmove(skb->data, skb->data - NET_IP_ALIGN,
- 					pkt_len);
- 			data = skb_put(skb, pkt_len);
+Changes in v2:
+  - Added comments and more commit log
+
+ scripts/Makefile.extrawarn | 105 +++++++++++++++++++------------------
+ 1 file changed, 54 insertions(+), 51 deletions(-)
+
+diff --git a/scripts/Makefile.extrawarn b/scripts/Makefile.extrawarn
+index a74ce2e3c33e..3680445823b7 100644
+--- a/scripts/Makefile.extrawarn
++++ b/scripts/Makefile.extrawarn
+@@ -1,14 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # ==========================================================================
+-#
+ # make W=... settings
+-#
+-# W=1 - warnings that may be relevant and does not occur too often
+-# W=2 - warnings that occur quite often but may still be relevant
+-# W=3 - the more obscure warnings, can most likely be ignored
+-#
+-# $(call cc-option, -W...) handles gcc -W.. options which
+-# are not supported by all versions of the compiler
+ # ==========================================================================
+ 
+ KBUILD_CFLAGS += $(call cc-disable-warning, packed-not-aligned)
+@@ -17,58 +9,69 @@ ifeq ("$(origin W)", "command line")
+   export KBUILD_ENABLE_EXTRA_GCC_CHECKS := $(W)
+ endif
+ 
+-ifdef KBUILD_ENABLE_EXTRA_GCC_CHECKS
+-warning-  := $(empty)
++#
++# W=1 - warnings that may be relevant and does not occur too often
++#
++ifneq ($(findstring 1, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
+ 
+-warning-1 := -Wextra -Wunused -Wno-unused-parameter
+-warning-1 += -Wmissing-declarations
+-warning-1 += -Wmissing-format-attribute
+-warning-1 += -Wmissing-prototypes
+-warning-1 += -Wold-style-definition
+-warning-1 += -Wmissing-include-dirs
+-warning-1 += $(call cc-option, -Wunused-but-set-variable)
+-warning-1 += $(call cc-option, -Wunused-const-variable)
+-warning-1 += $(call cc-option, -Wpacked-not-aligned)
+-warning-1 += $(call cc-option, -Wstringop-truncation)
++KBUILD_CFLAGS += -Wextra -Wunused -Wno-unused-parameter
++KBUILD_CFLAGS += -Wmissing-declarations
++KBUILD_CFLAGS += -Wmissing-format-attribute
++KBUILD_CFLAGS += -Wmissing-prototypes
++KBUILD_CFLAGS += -Wold-style-definition
++KBUILD_CFLAGS += -Wmissing-include-dirs
++KBUILD_CFLAGS += $(call cc-option, -Wunused-but-set-variable)
++KBUILD_CFLAGS += $(call cc-option, -Wunused-const-variable)
++KBUILD_CFLAGS += $(call cc-option, -Wpacked-not-aligned)
++KBUILD_CFLAGS += $(call cc-option, -Wstringop-truncation)
+ # The following turn off the warnings enabled by -Wextra
+-warning-1 += -Wno-missing-field-initializers
+-warning-1 += -Wno-sign-compare
+-
+-warning-2 += -Wcast-align
+-warning-2 += -Wdisabled-optimization
+-warning-2 += -Wnested-externs
+-warning-2 += -Wshadow
+-warning-2 += $(call cc-option, -Wlogical-op)
+-warning-2 += -Wmissing-field-initializers
+-warning-2 += -Wsign-compare
+-warning-2 += $(call cc-option, -Wmaybe-uninitialized)
+-warning-2 += $(call cc-option, -Wunused-macros)
+-
+-warning-3 := -Wbad-function-cast
+-warning-3 += -Wcast-qual
+-warning-3 += -Wconversion
+-warning-3 += -Wpacked
+-warning-3 += -Wpadded
+-warning-3 += -Wpointer-arith
+-warning-3 += -Wredundant-decls
+-warning-3 += -Wswitch-default
+-warning-3 += $(call cc-option, -Wpacked-bitfield-compat)
+-
+-warning := $(warning-$(findstring 1, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)))
+-warning += $(warning-$(findstring 2, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)))
+-warning += $(warning-$(findstring 3, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)))
+-
+-ifeq ("$(strip $(warning))","")
+-        $(error W=$(KBUILD_ENABLE_EXTRA_GCC_CHECKS) is unknown)
+-endif
++KBUILD_CFLAGS += -Wno-missing-field-initializers
++KBUILD_CFLAGS += -Wno-sign-compare
+ 
+-KBUILD_CFLAGS += $(warning)
+ else
+ 
++# Some diagnostics such as -Winitializer-overrides are enabled by default.
++# We suppress them by using -Wno... except for W=1.
++
+ ifdef CONFIG_CC_IS_CLANG
+ KBUILD_CFLAGS += -Wno-initializer-overrides
+ KBUILD_CFLAGS += -Wno-format
+ KBUILD_CFLAGS += -Wno-sign-compare
+ KBUILD_CFLAGS += -Wno-format-zero-length
+ endif
++
++endif
++
++#
++# W=2 - warnings that occur quite often but may still be relevant
++#
++ifneq ($(findstring 2, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
++
++KBUILD_CFLAGS += -Wcast-align
++KBUILD_CFLAGS += -Wdisabled-optimization
++KBUILD_CFLAGS += -Wnested-externs
++KBUILD_CFLAGS += -Wshadow
++KBUILD_CFLAGS += $(call cc-option, -Wlogical-op)
++KBUILD_CFLAGS += -Wmissing-field-initializers
++KBUILD_CFLAGS += -Wsign-compare
++KBUILD_CFLAGS += $(call cc-option, -Wmaybe-uninitialized)
++KBUILD_CFLAGS += $(call cc-option, -Wunused-macros)
++
++endif
++
++#
++# W=3 - the more obscure warnings, can most likely be ignored
++#
++ifneq ($(findstring 3, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
++
++KBUILD_CFLAGS += -Wbad-function-cast
++KBUILD_CFLAGS += -Wcast-qual
++KBUILD_CFLAGS += -Wconversion
++KBUILD_CFLAGS += -Wpacked
++KBUILD_CFLAGS += -Wpadded
++KBUILD_CFLAGS += -Wpointer-arith
++KBUILD_CFLAGS += -Wredundant-decls
++KBUILD_CFLAGS += -Wswitch-default
++KBUILD_CFLAGS += $(call cc-option, -Wpacked-bitfield-compat)
++
+ endif
 -- 
-2.20.1
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190829181311.7562-17-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190829181231.5920-1-yamada.masahiro%40socionext.com.
