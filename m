@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBOF4UDVQKGQEGYKWF2Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB56EUDVQKGQEANFCVHI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4707BA266A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 20:49:30 +0200 (CEST)
-Received: by mail-oi1-x23c.google.com with SMTP id e194sf1739069oib.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 11:49:30 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567104569; cv=pass;
+Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C4F0A2700
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 21:07:36 +0200 (CEST)
+Received: by mail-vk1-xa3b.google.com with SMTP id d21sf1715411vkf.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 12:07:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567105655; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nCvJHql4o6e1yCE4CVOdIxGJLST8LeSGNmB49P3gQy3WmJEhJ29xXwbYANMxd7i1MC
-         2nRqzxCB3QP1DZIHjl3fF5xPYRgH4sZU65crFjR8CeLqKKiM58XXA1sZ4jsO3uB+xk72
-         p1DisCpqHUAPKl7Mo0JAgYZZzDJRTlHSNWD+v4DcWXRSK77bR3Zcku1Cqu+LiafB0TIc
-         RKTucKUTJP84TupYFvy1/V22FguZxgtGGgqeco05XZjuI00vi9CaOZdNkPCOetOzCgb1
-         uypI/rnteCSY5le213hYAgU2qaAcdswb4rPjSDG1vmSsUGYVnAzGVzm5QgZQo8Lk7/c2
-         nZrQ==
+        b=oKxL7pE2iLDAtDrmPT8p0JycB8iFs+RgNV5m1PKcWRHw+bWQi8CHSRrtxtq+/yGBCX
+         Zuu6Nnju/FSKgEmfOF/woZtIk+NfbmkupkRm98Y+/uYEe24v95WMAdgqqWr4PKQ5A64d
+         lgHGZxsVXMVS4Zlmpcc65lVpf2Lkdd5HvNu/aFgydAVmvx1EnXg0XGhleqGRXJY726ek
+         SthiOPxW7YqgwRz2sJYf/rL8NLFhE7iU4/22/jgSxCuu+v1dg5eo1vxx1Pgr5nVBakE7
+         QyIOlxp9IUWLOMiYHFggaxw1HGTbv+2UL0DPPi6v+/VMPQ/yPePEdrGbbl7V+pedfB4U
+         MXzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=cii2Q9LaYT41jEAd670TIBZk5LzD94sJCMntzEThY4s=;
-        b=MIEc7g15hVzx1/cbBSxnl1QL4Lyge3dwkUY/rbFYBkP74tAQCuYEofwswR3b8UIB3g
-         ZtQ62N38XgtZJ0NP9bQLk0gzfg3Ur4HniuHX9HV8N6vvdiZV6Q4Le7TD/LjmVv0b86Ui
-         YNHWKGEpIPBriNaRM9rbNMy8Ty/q85XuJVOgMsgYgAZ2X2aqMQ+ht7mqGqo57lLEsXaB
-         dUiAlVpz+nCVjAieME4TR7bFjm6kWvbbdLbExOpOgKoRzE4AY5iEeqzpGBnieJ2WMxvG
-         v9ggze5D1EdCLxuXtTEf8OTnAMVb8Yo2rEZpx5lvj9GJw3usVQ58c3VawGBoxtP+UVFS
-         EGag==
+        bh=whkmn+3awGiYFUR956GYt8KmdgMOIXpNqwNXq99fqKs=;
+        b=gW7+izncNpWbGJc49deXIKfjFGTsfW+BJqOY3sfllY0yqPVNXOdwarR5nbWGc1A6TT
+         ned67QJtwPw1x44EjNwl34p7/J1eCyuRFFBw3LbxthXaqelk4GdcYOukB/3m9VEtGRgW
+         UyRFNReCa0ZCzzqUGBT/RZcqzZYVPUuDauk1j8erUQGabwe29oGJFeHpdFqL8GUsDjqL
+         fEA8DtWM7M4MKnXVkpv4fYj0KzPMb9blyRTEwXCXNf+AhlG/COjR26pxToOmTONG+OB7
+         AOMT3Nvw/V+wD8BtR/K+j/JPZFOmitDTHmemuV7JanK0PeK0mHpVvSBTVBwJy4B1mW8W
+         DlIQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cii2Q9LaYT41jEAd670TIBZk5LzD94sJCMntzEThY4s=;
-        b=ECDisaiC/0S46E0QC/JtSyt0fc2l/iZnp3Cr8TKrME5WGc2u60GcNW/TxyHIzQM8jZ
-         2YzSN+6jb+cmMauqwytFPYM0gaOewucwFKgUV98YjnDuYhZf/QFyMsKd+3gLOQlgn31y
-         QCEIJfQJCxPD5yMsFxD5akBMYP9JZ2ZQLSIQyMVL9qrLPr6iLNftwVxlS3b80S4bZOWj
-         GrYXCF3behfcyYG3Cnh3yC57qp4ELGzhFCVIRcR5WDtuimfRKRwBk19aojtYy3rNXvQF
-         Hk2izmQcxQFT92sAK+/Sbo7q6+FE6LdekdyMuBJnvODik70en/ypj3jACWCQrD7XhPUA
-         Y6Rg==
+        bh=whkmn+3awGiYFUR956GYt8KmdgMOIXpNqwNXq99fqKs=;
+        b=p3Z+oohlEuUXVOyuRyp4HOAeNOdUK8fT7/kv4tjbqvxZEMLMnNfimWe9Ko7otXRMsm
+         U/PD+ycr5flzwwDJ3GfiyuE1ALhPXFVYcY23WPQg/H2AFQrUl/AqblSrzer7tYScMUCa
+         facNP6P/VOz/cNHshMZi6wrzzeGcomLDuUZhf2LnIdm/Bv0LT8ikh+EFdm9HIdNNx0I1
+         xdhR2m4CHFbluIeFvvyrNxopngP/eop6xkS0dqtU3i0XTnDhAr4ZXdHpsrn5NCVIQpum
+         2dfD1phJMpuGomILU6AxaG1ZG1V0BSSPWWg9aMbzJDT7S2PUy4ONoN+Kb05joxVawgXf
+         Cl6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cii2Q9LaYT41jEAd670TIBZk5LzD94sJCMntzEThY4s=;
-        b=bzYZuDPHjxtPtZUrfkxRxyW8RUe3JJ6tOJUMAa4C+6z8xPsFJ4OrFYlW5LuzPMrG8V
-         CSxFGwvsuRKHKRXmpCqkKm378Uzowq5CzuwTPRnrcWfJRnM2HPNy2s6NWa4/fFYP4k56
-         nrbIS1IUdXiV7cLhag2GkaXs2UKdwoNyni4YcYjkcwtkCoRM906sZNayz/JF6+XfPuDj
-         MTBRub6tEruKRQy11Xow6yOvPu4auSewoBbKILyLb6AtysXM9mm1eY5JIADY9Gy0ssD1
-         OBPTMt4DhT4/BDAJNMd0/Z+LqTpiz3rZkqJrfbseL/aJyDCInVpc9HnvNX8sQ9pHsU8C
-         3Ykw==
+        bh=whkmn+3awGiYFUR956GYt8KmdgMOIXpNqwNXq99fqKs=;
+        b=hVjzMmvwMowEWtX9XkAltD1i7Si9HdVgzDq8Yt4CFExn2Nughocq6fDPbeL2LxZTpY
+         hZ9KeehS8NUtnJ4NAJrGAHpvuMAr7ws6IZTuZVS+yc0qFiphUdlYo46bUXXRyxMzkLNO
+         czC9GvEzp8rFRPZVKZNPKReu2AmUJbCg9344jrYfATR8jXFR5UwnDrOH5fZ2bbAN18rE
+         lwDD6GFGgXqxNChji/fYJaojoR5FBslv23ubvAQE686ljVEs7s44ij3ORs5JX3zpEk91
+         sLpM4OxClJ6QZdVrEoKnfJhUrp7AvBraH61zQNeHLXbTL/rYWZnBlCztONairmSe1SB+
+         7JXg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXTb8oZ4C7CtEqWw3lQMeyCBrDtFICBmIobHp0V/wrnOPQ8qgH+
-	3Lb1S/AbPaIlOAVNi7wFaRA=
-X-Google-Smtp-Source: APXvYqxW6RoHaODbbVO9J9B6MR9QGNnZOkfzVfwvIIPnU7XnUQG13ehbZfmiN8ZKYl924sr0rjouCQ==
-X-Received: by 2002:a05:6830:10c7:: with SMTP id z7mr9238573oto.243.1567104568874;
-        Thu, 29 Aug 2019 11:49:28 -0700 (PDT)
+X-Gm-Message-State: APjAAAUnSKbsNkmdfu35wuuN6t6nOz9OlOki+2eXr4fwR0Kr+zU/2oS+
+	PxDpT4V+c2FmV3c811afHUA=
+X-Google-Smtp-Source: APXvYqxijQkdTeS9+ltvtzPgla/D8Pumf/2oOHHDThieIQEB5Xe42TiXSfYHYbPuZNNzumlbhrrYLQ==
+X-Received: by 2002:a1f:2192:: with SMTP id h140mr6084366vkh.6.1567105655347;
+        Thu, 29 Aug 2019 12:07:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:482:: with SMTP id 2ls78031otm.14.gmail; Thu, 29 Aug
- 2019 11:49:28 -0700 (PDT)
-X-Received: by 2002:a9d:5e11:: with SMTP id d17mr9411371oti.135.1567104568567;
-        Thu, 29 Aug 2019 11:49:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567104568; cv=none;
+Received: by 2002:a1f:bd14:: with SMTP id n20ls126224vkf.6.gmail; Thu, 29 Aug
+ 2019 12:07:35 -0700 (PDT)
+X-Received: by 2002:ac5:c801:: with SMTP id y1mr6020423vkl.41.1567105654874;
+        Thu, 29 Aug 2019 12:07:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567105654; cv=none;
         d=google.com; s=arc-20160816;
-        b=LksBetUxpSIImp3gQGprH1PEfXuwiUQYrx36bdnFWmmRmLHVU9s0jvrOodhI7KuIp1
-         0qNtETgZD75YC7Kgok7tcBuMGN60BD0YLOeRaZ4MOsc2l+bcZGds5BA3bH8ftws6IuM1
-         qGx+/V3m292jyNTjhijqwtOPJ+LGKTjAyH8DQ9Nh4ksBNfKkKRg2LF/vfNoS8YHjHoiQ
-         HF1AmYOs4eZgj1gYmjVO2AbnsL0ZF/HczEewdUf2szhqljB01gDjOoamofFcwR0rD51q
-         qLNmvfqVaAbwQevms8m6jlQhYZB7Qz9evEW9B5xNrk67yhXwYydE0IQoCklxw7cMBVbA
-         /FYg==
+        b=Sfg1EatW+kcvaRKGEOO95Me1NXWj8dUYirC3a0gfaaelIn4f4WsDxPtsLtx5+P63xY
+         7lhxBIKFvLUvlWHJ+acpZHEhLy7vq09Oi9atR2Iw4bqF8gzzbKM8g5Aup3UkgkYllBu3
+         jQTBBSFI9rIjlvamna0I59qgtX0chFVBbwxMcLQ7TEMO3PuaWoGzokEOZjKnBtXlvT2W
+         vkXZRzfUHC8ZHyUbNfiGWDi6NAit1OMegM98rD36krzrIrIN/iJrV9Mc2xrv63A2coEx
+         Jexyc086kZQVsWy3y57npl8t++k9sedABYew4GQ7RhF5KKtdmYTrds5xeYNNld89NcT/
+         KTuw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=IVb0Ne3kr8bNNpxp5mYrHbhB2jidudcCxuCvbYVjZS4=;
-        b=qumzv31CleZTlxDsC53pYlSU5nSL2Mi9J6tzG6Jez8d1vqSVJP96ehLL1zFZlolpHJ
-         4BNe0RvHcFsTHAqjFUViGK3RRrxazRncVa7UYkCQRwox8ihRtcKVq35q+JgjaGVl4w/u
-         gmbebcyRVclI+bCEaNgqdKgp4Q1qmV5Anl5xdzAuKp9OI6i9m4kZ68BK5YCwOxGnO/7d
-         2+jNb9LwBqbXlFBwgCsytu+eIo8d54kKkc9pEp1k7rdY8DbSJodO2aFl4fGZTEhijcjI
-         wK3iOfdRWBJtqjEEKb0zfuqCfdq68+CAP+2BViGyn6hvw0pJTjDYEKNDYSfXOFGdz5Te
-         9/NQ==
+        bh=buDNkS3xpOs1eVfMxjW4kYIPj64TVN89PIsTtrauEZo=;
+        b=VKUfK9mwNDXRhBWJ5k5mHXRDmFK1wcnC/BB5d0126NuMomYrhuGxvi2yMBVW4w0ayX
+         N3ha+RyKMQTwzH8to8jveFJUSg57rD00ujoZLOkNsd1nHbtOwrne+/sNh8/88xyVQQuD
+         B1RUQfpLQQRzwYcSyaqZsaCPelNTrVv7622/YRKbOdnOy/oHEU366TvFvgtlxbKliiOt
+         5xFP62LShmXaR45EkKB8sAS85BwdP6wYm7HPfpCXTZiNQ0GXCDPCDJi5oEEOAfHLr//s
+         umxE8phYJCPgiMsXcjC8km+OPG8ikEyWBtZntGPypVl4Fw2xmtSjQcWYpvj73zwiuVOK
+         cqrg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id m4si178713otk.1.2019.08.29.11.49.28
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id c10si120772uao.0.2019.08.29.12.07.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 29 Aug 2019 11:49:28 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
+        Thu, 29 Aug 2019 12:07:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga005.jf.intel.com ([10.7.209.41])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 29 Aug 2019 11:49:27 -0700
+Received: from orsmga007.jf.intel.com ([10.7.209.58])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 29 Aug 2019 12:07:28 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,444,1559545200"; 
-   d="gz'50?scan'50,208,50";a="356544310"
+   d="gz'50?scan'50,208,50";a="171999838"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga005.jf.intel.com with ESMTP; 29 Aug 2019 11:49:24 -0700
+  by orsmga007.jf.intel.com with ESMTP; 29 Aug 2019 12:07:26 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i3PU4-0001UM-9C; Fri, 30 Aug 2019 02:49:24 +0800
-Date: Fri, 30 Aug 2019 02:48:41 +0800
+	id 1i3PlW-000FBL-Cr; Fri, 30 Aug 2019 03:07:26 +0800
+Date: Fri, 30 Aug 2019 03:06:26 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [tip: timers/core] posix-cpu-timers: Use common permission check
- in posix_cpu_clock_get()
-Message-ID: <201908300216.T6DorPNn%lkp@intel.com>
+Subject: Re: [PATCH][v2] btrfs: rework wake_all_tickets
+Message-ID: <201908300327.d40dhEPQ%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="okhjwaj4xm5zhts5"
+Content-Type: multipart/mixed; boundary="sbbvpqwc7qypzvqc"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,26 +137,24 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---okhjwaj4xm5zhts5
+--sbbvpqwc7qypzvqc
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-In-Reply-To: <156698737946.5688.8980349129135194974.tip-bot2@tip-bot2>
-References: <156698737946.5688.8980349129135194974.tip-bot2@tip-bot2>
-TO: tip-bot2 for Thomas Gleixner <tip-bot2@linutronix.de>
-CC: linux-tip-commits@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@kernel.org>, Borislav Petkov <bp@alien8.de>, linux-kernel@vger.kernel.org
-CC: Thomas Gleixner <tglx@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@kernel.org>, Borislav Petkov <bp@alien8.de>, linux-kernel@vger.kernel.org
+In-Reply-To: <20190828151247.17512-1-josef@toxicpanda.com>
+References: <20190828151247.17512-1-josef@toxicpanda.com>
+TO: Josef Bacik <josef@toxicpanda.com>
 
-Hi tip-bot2,
+Hi Josef,
 
-Thank you for the patch! Yet something to improve:
+I love your patch! Yet something to improve:
 
 [auto build test ERROR on linus/master]
 [cannot apply to v5.3-rc6 next-20190829]
 [if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
 
-url:    https://github.com/0day-ci/linux/commits/tip-bot2-for-Thomas-Gleixner/posix-cpu-timers-Use-common-permission-check-in-posix_cpu_clock_get/20190829-181227
+url:    https://github.com/0day-ci/linux/commits/Josef-Bacik/btrfs-rework-wake_all_tickets/20190829-170238
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
@@ -169,39 +166,73 @@ reproduce:
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All error/warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> kernel//time/posix-cpu-timers.c:275:8: error: implicit declaration of function 'get_task_for_clock' [-Werror,-Wimplicit-function-declaration]
-           tsk = get_task_for_clock(clock);
-                 ^
->> kernel//time/posix-cpu-timers.c:275:6: warning: incompatible integer to pointer conversion assigning to 'struct task_struct *' from 'int' [-Wint-conversion]
-           tsk = get_task_for_clock(clock);
-               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning and 1 error generated.
+>> fs/btrfs/space-info.c:817:3: error: implicit declaration of function 'btrfs_try_granting_tickets' [-Werror,-Wimplicit-function-declaration]
+                   btrfs_try_granting_tickets(fs_info, space_info);
+                   ^
+   1 error generated.
 
-vim +/get_task_for_clock +275 kernel//time/posix-cpu-timers.c
+vim +/btrfs_try_granting_tickets +817 fs/btrfs/space-info.c
 
-   268	
-   269	static int posix_cpu_clock_get(const clockid_t clock, struct timespec64 *tp)
-   270	{
-   271		const clockid_t clkid = CPUCLOCK_WHICH(clock);
-   272		struct task_struct *tsk;
-   273		u64 t;
-   274	
- > 275		tsk = get_task_for_clock(clock);
-   276		if (!tsk)
-   277			return -EINVAL;
-   278	
-   279		if (CPUCLOCK_PERTHREAD(clock))
-   280			cpu_clock_sample(clkid, tsk, &t);
-   281		else
-   282			cpu_clock_sample_group(clkid, tsk, &t);
-   283		put_task_struct(tsk);
-   284	
-   285		*tp = ns_to_timespec64(t);
-   286		return 0;
-   287	}
-   288	
+   764	
+   765	/*
+   766	 * maybe_fail_all_tickets - we've exhausted our flushing, start failing tickets
+   767	 * @fs_info - fs_info for this fs
+   768	 * @space_info - the space info we were flushing
+   769	 *
+   770	 * We call this when we've exhausted our flushing ability and haven't made
+   771	 * progress in satisfying tickets.  The reservation code handles tickets in
+   772	 * order, so if there is a large ticket first and then smaller ones we could
+   773	 * very well satisfy the smaller tickets.  This will attempt to wake up any
+   774	 * tickets in the list to catch this case.
+   775	 *
+   776	 * This function returns true if it was able to make progress by clearing out
+   777	 * other tickets, or if it stumbles across a ticket that was smaller than the
+   778	 * first ticket.
+   779	 */
+   780	static bool maybe_fail_all_tickets(struct btrfs_fs_info *fs_info,
+   781					   struct btrfs_space_info *space_info)
+   782	{
+   783		struct reserve_ticket *ticket;
+   784		u64 tickets_id = space_info->tickets_id;
+   785		u64 first_ticket_bytes = 0;
+   786	
+   787		while (!list_empty(&space_info->tickets) &&
+   788		       tickets_id == space_info->tickets_id) {
+   789			ticket = list_first_entry(&space_info->tickets,
+   790						  struct reserve_ticket, list);
+   791	
+   792			/*
+   793			 * may_commit_transaction will avoid committing the transaction
+   794			 * if it doesn't feel like the space reclaimed by the commit
+   795			 * would result in the ticket succeeding.  However if we have a
+   796			 * smaller ticket in the queue it may be small enough to be
+   797			 * satisified by committing the transaction, so if any
+   798			 * subsequent ticket is smaller than the first ticket go ahead
+   799			 * and send us back for another loop through the enospc flushing
+   800			 * code.
+   801			 */
+   802			if (first_ticket_bytes == 0)
+   803				first_ticket_bytes = ticket->bytes;
+   804			else if (first_ticket_bytes > ticket->bytes)
+   805				return true;
+   806	
+   807			list_del_init(&ticket->list);
+   808			ticket->error = -ENOSPC;
+   809			wake_up(&ticket->wait);
+   810	
+   811			/*
+   812			 * We're just throwing tickets away, so more flushing may not
+   813			 * trip over btrfs_try_granting_tickets, so we need to call it
+   814			 * here to see if we can make progress with the next ticket in
+   815			 * the list.
+   816			 */
+ > 817			btrfs_try_granting_tickets(fs_info, space_info);
+   818		}
+   819		return (tickets_id != space_info->tickets_id);
+   820	}
+   821	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -210,14 +241,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908300216.T6DorPNn%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201908300327.d40dhEPQ%25lkp%40intel.com.
 
---okhjwaj4xm5zhts5
+--sbbvpqwc7qypzvqc
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICNP1Z10AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICBYfaF0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYC7VDP/3wU0Deji9Pu+PD7e7x8Vvwef+8P+yO+7vg/uFx
 /39BXAR5IQMaM/kBiNOH57e/P+4OT6eL4OTD/MPk18PtabDeH573j0H08nz/8PkNmj+8PP/w
 0w/wz08AfPoCPR3+Fdw+7p4/B1/3h1dAB9PJB/g7+Pnzw/FfHz/Cn08Ph8PL4ePj49en+svh
@@ -1058,4 +1089,4 @@ E12CAg+fuJ3bbBGGxu+Yrzxs2EFE6UMEnZJy4TAz1PO6vDVH1j1HF0oqEndswh6UpU7kHqDB
 sHvj7wBaML+kaysSc00PGSYKPvQRgQJOEyty0v1F5vcbpTkxIUEA4B51nncqZrcd/ELN2OQg
 i4nIxPpUuJ8VlNUoSNbhK9Be28gJQf8LRaO/8tIMAwA=
 
---okhjwaj4xm5zhts5--
+--sbbvpqwc7qypzvqc--
