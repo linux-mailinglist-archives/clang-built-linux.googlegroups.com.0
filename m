@@ -1,132 +1,129 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBBOVMUDVQKGQEXJYHJKI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBXVMUDVQKGQEY73Z6YI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id 55DB2A235D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 20:15:23 +0200 (CEST)
-Received: by mail-wm1-x340.google.com with SMTP id r21sf2045754wme.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 11:15:23 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567102523; cv=pass;
+Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 86D49A2374
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 20:15:59 +0200 (CEST)
+Received: by mail-io1-xd3f.google.com with SMTP id t8sf4963049iom.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 11:15:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567102558; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cOeLbhftjJAjruJwWdQzcFcIcYAHkG8S+3AdtD70g5A5uimVc5+/Vb/ulzL1Kz2F5L
-         cwJ4BFyJZIhBOO/xDURMil9WiLRpaCGECw5GOfA195Xk470EOf8jNcWIQn/jYqLZCuvy
-         X4LxNj115KwikFY1cAaRCe+lKNaTh6FG73WZdE+eoHucOkXwNjkCkwklV4S5+Qh7ZxbE
-         loImbdRUP/D7fgnCM5PkCQBp/ME2qrXiYzmDRtr0Xp6orHG1WgWiBwGRluUmMlOTqZO8
-         VZ4SHkbIquosZ+axB+4rr7XuNfQPcXAmfMwLsF53lTk4pgZake/B+33Wz1W5UOOQ7Am9
-         JgLw==
+        b=i0gIG++TeWeCbz6hYI3Y7Z3dM9+Wv2HwC+xUN2JBVhtFwpy5oySDxmHz4BR5yTAixS
+         PiFDr3r2Bu83BsXwHtc3SqzaHTzzw7jyvoaCoWJ4CzFs91ZTlImUCSwAgZOk8lTHFK92
+         OsAh8TLkgGhjn/MH/anA3xdyUBC4htqJwCpP3osaAkR3GDQHkfdwxt1q2YsiA+m3oNyn
+         hD+FygaXK8xG2w1WNVqwoINhT9ALqN3OinKpON7YjocYJed/8dq0wGDd+zqAfrcJ013T
+         pKIyBMm93TRJSC7LEZy0Hph+KmGanPeJw+c5auzgGn7itj+vSG4UjK+8PaKEC5kIU2He
+         QR3g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=9sK7+p4+jSVEpsTYhE72xP2K70NRRDAn4mA8LIKT8V0=;
-        b=0cO2k4/1aJulAmQVSIjWziBls40+XoaBjcrxuvoNdIIyU3SG+Jn0+4s3ZzySx/l3C8
-         F9yOWKHkCJ9CXa6zFHDjL7rAmN/ZUOZIF9AdAmNdPhSyP1y7PeAsTl9OX8z+XNQoSh87
-         8KV9+ytGpZwsMLLCc8D+3l4HF6BEkIus3A2nOgX70aw5n6hKyML02nn+s9nldZCxhPXM
-         ygvn+7zALgzIOBcMbTZli/lUdHCdnrh8l2JAIRuQcHcwyJioXIMhDXWOi3SjJkVEKxlv
-         W8WdlW8MoGZ7HudP1DTc6nP5x/fzr6W3QjxBcN8Zss3tJrTMINdN3UTbOxdYXvE5jd/G
-         TaOQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=Jz1t0iQaBsvDbkqh2nv7NJeZB2epZEBE4Afun2G8iww=;
+        b=bHo6scs1fIz415D9xiVcvltfCyUVpP4WtmvN958Bgyo7E7QopxpQOL3IEmkdb3Ip7Z
+         /TuktiQPfHGi1H9YweTMAe3wJas2424vuXSQrv+7KhUJ9uHmf11qb+7woDiXdXsn5Eiu
+         FHyz9LEPKKgJXXY6vG/x9FvC3Vy0cZrQbRN1DdydNV5fHq2InaMR340D0W8Nq8DAkzHt
+         wRNxnXm+JnmLCx3afJKzwwjhCsCFIMFRCe1nt5oQ/JmQOxEj/y546bKLVxzfGL02Kfwv
+         6TuZemaIO3TechGV/5FN+efPOcnFq3NmxvYsbFiut0eiMCP7FKrUtD8ePrMGjOkWGW1y
+         if2Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=Q27etNQq;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+       dkim=pass header.i=@kernel.org header.s=default header.b=nh4gFIzi;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9sK7+p4+jSVEpsTYhE72xP2K70NRRDAn4mA8LIKT8V0=;
-        b=rjiwJqUGUp7GymrNi2YJG1cI50xqnN9KWY5aD141Wh3nPkBes7TlxyeO8GUbDkKF8M
-         n4YKCoTvowCnLHCpiXmri5g0i/j3mcBOVwF2bAEt9AIITDuIgi9y3IdeCtjvLKsXf02C
-         yiUtevs++OSRKAsGuwFpCsCikGaQXouXTJbsI1LmZpLKTQXvTiZhOrdYqrYuG34O35Tm
-         s7obWoh2SMMHWpzM90+poK6ZOk5GUmJv2wolhA3L0xuaRXnuqzh+IXlAb3enbu1EogNq
-         T0VCGEaRUBONHZxCbnro+RcHPsvFOAVtvNM3ce3goDxKLy2db4JxOyBReRj9h+Xt307w
-         fhcg==
+        bh=Jz1t0iQaBsvDbkqh2nv7NJeZB2epZEBE4Afun2G8iww=;
+        b=VgZFq4hZNUQFJzR4tSCXywhp5MzVBScBMT2odW1IT7DVmjue+YW7Wm2Q16f1DNQUYo
+         TXCSmhrTaTfPyVoVjeVXTJKxvQ9ROCyUaIBpm1KmRYI8AhoS5has2V2RhNCjMWPagKqF
+         izyXcK42s2ZeqtYSbqCQo6xzQvPWHo916V9lbSg9wu6TlSd2ftvi7N0J3pSurXiQDYW1
+         tReBgNh54cdo3nA+G78Pl/Y4Mf5MnWdWJ5xW6eq8m7JUfYMZi5hTpxc9KQwzAjfmRezU
+         5atG5eXLA8xXwW5NNkT7qBeT30d5YU24N/81de7hfzs+hSlJ5zPuQQ3KGUDZoJlNNAMT
+         Je5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9sK7+p4+jSVEpsTYhE72xP2K70NRRDAn4mA8LIKT8V0=;
-        b=RmO3i09xv4hBMD6Tkb5l1xGwr+o+X5wwMjMm1pZX3ttCWa9glQW3+K8Z8FEYjQIuGb
-         Fju0FwYQjOge/XtxROzIO645Qq/Ocx4vuM5/77UHVdaubCBnrArVAC8H/fWahttoGXNe
-         J8z5+91T6mG+GDvGQ3Zc3uNLFah2HEO0+ikJkfi7N5IUnsdF/ZfUWEeOTQRBgxaJPfmy
-         BMDsnqOAQljkOp53GTIBjGmB6AyY6fgTxo3qskTtptYwIodTqhcacj8oLPdckXbMvJ31
-         SHHotQwjtmPwePIjw8cLNhh93V0MLc1JEL47IIJfgK+lHoEJREtU8IDGOdsn06XmfmKA
-         4G4A==
+        bh=Jz1t0iQaBsvDbkqh2nv7NJeZB2epZEBE4Afun2G8iww=;
+        b=XP4VTgSN6lKgeGu/4WC196VMHfzjubVFCZEpaasj0VzWoNiVVXfWLLCYoe4+0m21xG
+         mP709U89EXJXEjS4aaOFiazGORk8U1oUIeBmxiHAkRBVNV2k1RCjGlnhcHVKaNKSGok8
+         qtrlr2Vy7O0R1eYZNfkneCOf7DMcl+QuBm3NYa87H+dN7pphv9PoTjnYlhVzu2ldk3Ce
+         C+9Uvt6z2+cQtQv9HV4dycLJVbKM+iRq/B23DgOnqTAEVo3emafxxUBOopOkdz6lpG5n
+         Aq0wPVsPbXwHlmhp+emIQJxrojZny4rS6vstRlYnhvE4pRVLjiU8ZoIocmcrPN6IGHfU
+         a0TQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUNUR6ZHtOONIR79HZjT7SFVAz9ewamismwjIDqoDOI0bJ42cGM
-	zeN4KBm/cH0WBx4m0lE9Klo=
-X-Google-Smtp-Source: APXvYqw1EDUm3IvSWKgLALgUlOf//Hveyswf0QU35OAAubLh7RBeAAe8XWCPRUyU9hgRUAxlQoTVOA==
-X-Received: by 2002:a5d:610d:: with SMTP id v13mr13818463wrt.249.1567102523019;
-        Thu, 29 Aug 2019 11:15:23 -0700 (PDT)
+X-Gm-Message-State: APjAAAUY7eUUjR/WHCp+CADZye0gswaSzeT9nm5ZxfyBP5hwMsuxEcSv
+	1ARXXt4wqkinA8ERyC9PXIA=
+X-Google-Smtp-Source: APXvYqyuDJDHw6z69HonP9jeUcsXxz5qCdMckKvHkRct0e4y0ak87Hoc/29jaBKCJb3H3DnEpU3xIQ==
+X-Received: by 2002:a5d:964a:: with SMTP id d10mr13328600ios.301.1567102558299;
+        Thu, 29 Aug 2019 11:15:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c411:: with SMTP id k17ls1357052wmi.1.gmail; Thu, 29 Aug
- 2019 11:15:22 -0700 (PDT)
-X-Received: by 2002:a1c:eb06:: with SMTP id j6mr13906766wmh.76.1567102522457;
-        Thu, 29 Aug 2019 11:15:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567102522; cv=none;
+Received: by 2002:a5d:9d41:: with SMTP id k1ls990295iok.11.gmail; Thu, 29 Aug
+ 2019 11:15:58 -0700 (PDT)
+X-Received: by 2002:a5e:d803:: with SMTP id l3mr7377595iok.126.1567102557995;
+        Thu, 29 Aug 2019 11:15:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567102557; cv=none;
         d=google.com; s=arc-20160816;
-        b=YpOM+LssQbLoT9Ahv9DVY3mIFpEnn+dF1N/Z4uLiK0zfE347SrYJDm/jBCTkeBn5iN
-         8It+mXa7uB13dpZVNIDVpSSKeih6msEyZywdRJ0r7RVhEd+YeB3yg4avOMSJjxj8bxk5
-         MVKBM9qGl7Iq1z3EpGpIxEJcdNW5R0nEKjGp7tPR2ziliJVTuPlnl1faE5MZf+e0SWes
-         xbBNEIrbAJapWGS3tnzpBuZzXvmtfNzVmU283RofCLotBxmyQQhHKhVXaHFxSvkoY2yJ
-         97abXL2wsT52V74tpssrPpmxW8EYRvYU3y7nkH+b7ZMgafdCuK+MU8qMX9PfOmnurjHF
-         mJHA==
+        b=W2FmHuN1lhabIH8DvyKoGdxCOx6Y2jo8GNXtslXgdTAZshZwKH/LmtZVtXhyAR6rUg
+         iBi8V5bHhU5r2khL6z1PF5eff0GPpqO4WXTundB2mAja/TdXNCYX++xCOfYaaMk29Jni
+         OKqup+WXwRhrmrAhNP1M4N8mmvI9nyX4RAtBZ9cghguXiW1VjXYmrFtSeaz5GiAaP3Kt
+         2sZc53hDCICrrkGQo5DLei1f7l6OoELsl6KGFffDJiWhVV/974qT3JyOYoXGAvME/RBD
+         vn0jjSOIEY5KmNnEzOx+uNRO3DmurUGxZHstw7ZKWQz8KR+qp6A/yghP6k4uFOTVy9ff
+         5A9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=sR4WCPDuQLUM49jwD7zWV6jQzPdEIbVdaFJBv2+v+F0=;
-        b=uuuimq4cTkcplAVRGpZI3Fbv2N75FPlw6Dzua1B24jrMmlsq2ZG05s1FiW/Sqa0N0i
-         t9F+jTql70iv2CxfjnRYiRKPNUNG4XtIx/WMUhXprxkTsw4YycDXda8ijsqc0Zqh3rzJ
-         lIxfB+vcEwt/3bSw6hKPQGqCcRUuIG9j77o1oRkQ95NwiBZMYCgGS8cdwQXN/ByT+l63
-         mZsUTLP26OVmbKaXFnTjIGiYqnZ/5+ESSDeriNcjQoeALSke97nZo5980u8tgiBd3nlZ
-         mchyKz/z2YYmAUyLFbqCZ6XHH0QuV2xeCLbl4+iKk0Es2KBnKba3vpeR2Lp82BJSpSHJ
-         3hzQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=x5/I4rsHCwlQvkODKYJ66s/rKe0stw9T4eC7Z1TFmXM=;
+        b=KjfugroiNeVQ7CVPKwj0GRV8sU+t2u8f+uRHKGkiMSN9dezF7J8yhHlDR4LlH3yTLp
+         luVLLdIrG1a0pWMFO9O6mrq28u7vFIuz9cjyiotwPh5N2vThSfwN99JtMp/L6Emsm0Kn
+         1P0FzS6Fm2UP++G3G/mCQuG3wdELCVkS25Jcf0dramNFZPaBVbTkC/icOFKReW9qzLNj
+         C9FCiiPmBXjuftiyo+EVGmSbRjYIGzDrGJ5iS0w9xh/xGQHvDC3XfaDzGHiquA9TEYck
+         BEpwXzw7MtI8FMSJV0IbMQoWBOqiXjQiAc3bVjUlDAI2z2AHmRC2JJNQDTiLBwTJYW+u
+         IQEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=Q27etNQq;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
-Received: from mail-lf1-x143.google.com (mail-lf1-x143.google.com. [2a00:1450:4864:20::143])
-        by gmr-mx.google.com with ESMTPS id a10si146110wmm.2.2019.08.29.11.15.22
+       dkim=pass header.i=@kernel.org header.s=default header.b=nh4gFIzi;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id a26si179795ioq.2.2019.08.29.11.15.57
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Aug 2019 11:15:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::143 as permitted sender) client-ip=2a00:1450:4864:20::143;
-Received: by mail-lf1-x143.google.com with SMTP id u29so3265991lfk.7
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Aug 2019 11:15:22 -0700 (PDT)
-X-Received: by 2002:ac2:4309:: with SMTP id l9mr6948759lfh.65.1567102521400;
-        Thu, 29 Aug 2019 11:15:21 -0700 (PDT)
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com. [209.85.208.182])
-        by smtp.gmail.com with ESMTPSA id 134sm492415lfk.70.2019.08.29.11.15.20
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Aug 2019 11:15:20 -0700 (PDT)
-Received: by mail-lj1-f182.google.com with SMTP id z17so4006592ljz.0
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Aug 2019 11:15:20 -0700 (PDT)
-X-Received: by 2002:a2e:8ed5:: with SMTP id e21mr6415604ljl.156.1567102520069;
- Thu, 29 Aug 2019 11:15:20 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 29 Aug 2019 11:15:57 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 92F9C233FF;
+	Thu, 29 Aug 2019 18:15:56 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Sasha Levin <sashal@kernel.org>,
+	netdev@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 4.19 06/45] net: tc35815: Explicitly check NET_IP_ALIGN is not zero in tc35815_rx
+Date: Thu, 29 Aug 2019 14:15:06 -0400
+Message-Id: <20190829181547.8280-6-sashal@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20190829181547.8280-1-sashal@kernel.org>
+References: <20190829181547.8280-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20190829083233.24162-1-linux@rasmusvillemoes.dk> <CAKwvOdnUXiX_cAUTSpqgYJTUERoRF-=3LfaydvwBWC6HtzfEdg@mail.gmail.com>
-In-Reply-To: <CAKwvOdnUXiX_cAUTSpqgYJTUERoRF-=3LfaydvwBWC6HtzfEdg@mail.gmail.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 29 Aug 2019 11:15:04 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wgZ7Ge8QUkkSZLCfJBsHRsre65DkfTyZ2Kt5VPwa=dkuA@mail.gmail.com>
-Message-ID: <CAHk-=wgZ7Ge8QUkkSZLCfJBsHRsre65DkfTyZ2Kt5VPwa=dkuA@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/5] make use of gcc 9's "asm inline()"
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Rasmus Villemoes <linux@rasmusvillemoes.dk>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Nadav Amit <namit@vmware.com>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Joe Perches <joe@perches.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linux-foundation.org
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux-foundation.org header.s=google header.b=Q27etNQq;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+ header.i=@kernel.org header.s=default header.b=nh4gFIzi;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,54 +136,58 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 29, 2019 at 10:36 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> I'm curious what "the size of the asm" means, and how it differs
-> precisely from "how many instructions GCC thinks it is."  I would
-> think those are one and the same?  Or maybe "the size of the asm"
-> means the size in bytes when assembled to machine code, as opposed to
-> the count of assembly instructions?
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-The problem is that we do different sections in the inline asm, and
-the instruction counts are completely bogus as a result.
+[ Upstream commit 125b7e0949d4e72b15c2b1a1590f8cece985a918 ]
 
-The actual instruction in the code stream may be just a single
-instruction. But the out-of-line sections can be multiple instructions
-and/or a data section that contains exception information.
+clang warns:
 
-So we want the asm inlined, because the _inline_ part (and the hot
-instruction) is small, even though the asm technically maybe generates
-many more bytes of additional data.
+drivers/net/ethernet/toshiba/tc35815.c:1507:30: warning: use of logical
+'&&' with constant operand [-Wconstant-logical-operand]
+                        if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
+                                                  ^  ~~~~~~~~~~~~
+drivers/net/ethernet/toshiba/tc35815.c:1507:30: note: use '&' for a
+bitwise operation
+                        if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
+                                                  ^~
+                                                  &
+drivers/net/ethernet/toshiba/tc35815.c:1507:30: note: remove constant to
+silence this warning
+                        if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
+                                                 ~^~~~~~~~~~~~~~~
+1 warning generated.
 
-The worst offenders for this tend to be
+Explicitly check that NET_IP_ALIGN is not zero, which matches how this
+is checked in other parts of the tree. Because NET_IP_ALIGN is a build
+time constant, this check will be constant folded away during
+optimization.
 
- - various exception tables for user accesses etc
+Fixes: 82a9928db560 ("tc35815: Enable StripCRC feature")
+Link: https://github.com/ClangBuiltLinux/linux/issues/608
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/net/ethernet/toshiba/tc35815.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- - "alternatives" where we list two or more different asm alternatives
-and then pick the right one at boot time depending on CPU ID flags
-
- - "BUG_ON()" instructions where there's a "ud2" instruction and
-various data annotations going with it
-
-so gcc may be "technically correct" that the inline asm statement
-contains ten instructions or more, but the actual instruction _code_
-footprint in the asm is likely just a single instruction or two.
-
-The statement counting is also completely off by the fact that some of
-the "statements" are assembler directives (ie the
-".pushsection"/".popsection" lines etc). So some of it is that the
-instruction counting is off, but the largest part is that it's just
-not relevant to the code footprint in that function.
-
-Un-inlining a function because it contains a single inline asm
-instruction is not productive. Yes, it might result in a smaller
-binary over-all (because all those other non-code sections do take up
-some space), but it actually results in a bigger code footprint.
-
-              Linus
+diff --git a/drivers/net/ethernet/toshiba/tc35815.c b/drivers/net/ethernet/toshiba/tc35815.c
+index cce9c9ed46aa9..9146068979d2c 100644
+--- a/drivers/net/ethernet/toshiba/tc35815.c
++++ b/drivers/net/ethernet/toshiba/tc35815.c
+@@ -1497,7 +1497,7 @@ tc35815_rx(struct net_device *dev, int limit)
+ 			pci_unmap_single(lp->pci_dev,
+ 					 lp->rx_skbs[cur_bd].skb_dma,
+ 					 RX_BUF_SIZE, PCI_DMA_FROMDEVICE);
+-			if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN)
++			if (!HAVE_DMA_RXALIGN(lp) && NET_IP_ALIGN != 0)
+ 				memmove(skb->data, skb->data - NET_IP_ALIGN,
+ 					pkt_len);
+ 			data = skb_put(skb, pkt_len);
+-- 
+2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3DwgZ7Ge8QUkkSZLCfJBsHRsre65DkfTyZ2Kt5VPwa%3DdkuA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190829181547.8280-6-sashal%40kernel.org.
