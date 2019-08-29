@@ -1,134 +1,134 @@
-Return-Path: <clang-built-linux+bncBDGNZTVZVAFRBA4FUDVQKGQECJP7FQA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTI55WH24IRBFUSUDVQKGQEK3YIWFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id A802AA2159
-	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 18:51:16 +0200 (CEST)
-Received: by mail-vk1-xa40.google.com with SMTP id y73sf900492vky.18
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 09:51:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567097475; cv=pass;
+Received: from mail-yw1-xc40.google.com (mail-yw1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 70C00A220A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 19:19:19 +0200 (CEST)
+Received: by mail-yw1-xc40.google.com with SMTP id m19sf3030606ywj.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 10:19:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567099158; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pz888dh3zBCeZbdULvvnIQTwwA0kY9zLUMUHZkGnZEFaF0u887Rk2HHHZ351yC9XQY
-         cdXf9bF3/njReC0jt9G4HrFUM05bhgSPonuSNgNNVL/rD7cM5lgSGmJqf/s/9g9GFnCz
-         Hke+TGmGE5/QDiqAVtjE/Ofa5R+DbbD5ILx0wwbwmOU+dgrSsIEehW2YXqLl4xEVhPc0
-         joTdr/MnLMK6h0ovatombPS3DM8WZvfiI7+CbaFJ7GQEMvxsz5J/V6mfaR4bc/G16S/y
-         efU7qtQp1hl42uih5TpSWRqIX8i3hc8Gwb629zLasBUmu+omalvS9SNnXJEJNTQNX4rN
-         KjVA==
+        b=QJE5HA/ZsNhPkRiq5PqKVoFiUR/3O1963AOErjMsIa/5went+pFrXv2Usr+qBtJwIF
+         C9/JYPWBAngQMhSmYkAywdzgs4Un9tlvTxylnpIBa0upV4eDpaznPCFUy15HDSvWWPCz
+         bvT1ujg67eZUn4LpRMD/q2M7KRIf21zsiwaIPokm4Ib+YQwdDctZnqnKm0eZ2/R9rom5
+         DAZr0zKXE50u16yzNEAehkEqsy+wGT2lA58y1Mvxv1ezdU0doxe07xS1XFnha60iiD4P
+         5fNGz5HrCo7YvYERIXS1z3Ruo1VSrSLMKXA0qI2r9x/EN+sKKwe0MLcq23nmI6+zEAMB
+         hEWA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=nF6ZIBBlnphv+h92VMvj3jzxiybOnZBfnEWO3NEzEac=;
-        b=CJqk6/OBvsULYL2652+ddjo4a5WV3/unnw5yoSJ5+cf1UrmaVK8S33Dxbv2CGd9gYQ
-         AdmdfGcmpWDxIRP9G/zxCwJ66IFKPsNcpxTr/OG1I8bNvthFOnsjOh10k4GIWy+biYDL
-         aGa7DZGfUbAvJejlQlD6rLlSJW3w+RZPpVQMS+sbZP5VtmhWOZJ24WXWG0JWW5EZtg4a
-         7J5oVgFmG9KilSRFqYCRwGycqbcFnQ80qJ9zJo4xxi/xI3pP9jsTHitGF9sXm8O2f43B
-         gp6LyTwAjRu/s6WWRSJlKrw7ayUC5IYjaXS8lphDS7sTyOGN5Y3im+pNsp5DWQeJ7Aht
-         7VwQ==
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=XZcPSrkm/Q906yKZ5Wp7FoxNmyCyUqLPJp1Gy4X2DfI=;
+        b=jF9ViAWYrsuPM2g1epo/NKfTH6MVI03rzX6A9t+JiG7JN7ryTHKKzph6E6TlotfKpp
+         NdW9RHzN6MqipZsFhj9DijjracpCgkNBvnvUeQ2sPhqBwAhNIwI42qpWerZLuiWH5TIc
+         NSpJ9mv+1LiCOd58oei8ukmgBP2ZpDnxqNEudqnHwwDooriupkGc9N1dTkzaj7Xi7ZZE
+         7msrEEEDjiu/J8dUbSFsDtaFfyKovaOwxzAxbSk/gtFt19Jd7/8afBrIBVxQ4DBlUQbt
+         71VHMKjzYTUKQ6gQRfYkUpOBVHYNZahRQ4G8PA80rUUJ8o8BVibW2OVY+PX6DSKjUWy0
+         5MmQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="o6/1mtIq";
-       spf=pass (google.com: domain of robh+dt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=robh+dt@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=f9g1cyoM;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nF6ZIBBlnphv+h92VMvj3jzxiybOnZBfnEWO3NEzEac=;
-        b=Nq6vFYMwoGWw4xw21R6YEm1LJXiVL/KlweWxwqiRpD2lVvWPIchqlHFLKaGH2jY71M
-         AuzTqxPS52gla0n3Vqk1QVgBmUlZQFiy8A7bcQQ+1rO9s+Sjbohp6GQYm5Rf9gIwvAKT
-         rwAgn+3KwN1bfb4zokNzMzGMEL9sXBSOj1NHCi4Wbcq02Y5R4UTm4QeiJ+/p7t/7KAU2
-         eFO66XVnjYuwEGVIjSqeOz6B1Z5A2cOoRQUFAFov/3AwEpfO2wXk0mEagLlRzY8DMoxK
-         0TYbUs1yVBGAZdX+a5DQ0Tr0mAXvOboojXfPyxm/CAYsi6OrrRlJ4AlTacgUdaruTKJA
-         BZvw==
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=XZcPSrkm/Q906yKZ5Wp7FoxNmyCyUqLPJp1Gy4X2DfI=;
+        b=Hd4HgQGFYsOB61gDKcFh16oMD1rywtlPymyV954BX2SMDBAxKWrga9sDY78ChlYIY3
+         ZEKvfvjzYx1h2whW+BBgEFaDWg8C4VzYPvtmes8OHiapPvHWW5rmrIB3wUzNyiTPWFa+
+         L/2OrWZoP5C6rZZ/f5XgJNecZ1A6OMZ21GluHhQb8bTlXBh/a7ZuEr7JiLnirsROXGVM
+         RhN44uT2MWMak2xdCav47L+p/A89UiYzQUpvRQMwWh0+7y1CPbwVbNH6IpzvLJ3d+sDz
+         y6J5w14i5rgXJqLxVbvWkZcJSwrGUOcudY9jzYsVtByvZqVEG7h6XddwITAAI9rVxo5j
+         AUHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nF6ZIBBlnphv+h92VMvj3jzxiybOnZBfnEWO3NEzEac=;
-        b=sFOB9Bsvpisa6iNWibbWoUrzYgMAvkhRbuqqCWS9u9cGlHAevfvi5z4SHRJ6UMJ4Wy
-         9q+ubcXuRyrFuDDf4b2ijl1x9+m5NjJh09lWjtINbH0m46Dz9YRIgexmFV+eZOVu6cmj
-         Rti8LyFJp/yo3mkrufv4AxXe57SOlo9MrDYTDpI6j/7n+I2vabe4Lgdbtc3mbYs/O/g9
-         ecmauAouB6oAR5HErc46+MYS3bcfUfPuCziWcVFhinaATxltkbbUbfdbEEggrmtpm7a6
-         RzBsuMeZE6gWsRuhmbGRIdUsoLE44K2Yvde+SsZtlxNklAq6UGQG+Pt3Drfp+M4kJaqQ
-         zVNQ==
+        bh=XZcPSrkm/Q906yKZ5Wp7FoxNmyCyUqLPJp1Gy4X2DfI=;
+        b=KFGMFZ/EbCZBP25Rew8YU0e4Vuiap/QW1rDLXJ0bQaibmA/Z699Yq7P9C7ELUxIzJI
+         9sriXrpnBEbmi+bPR7xpywPcvRSbKYntWuIdWx33UhL5BgYh4u9R/DOX2HmQh9TDsdmH
+         BjvYFkKiq4vwGd6iKKjvS+VXeJeGlQxbR2GPetdhAZch72hzEN0IeSC/GS9UM/vVd8+b
+         0Z25ZKIhRh8MtxKmI3zLNu/0HimlmorcT0PeaUR/SnjNnld806WWHZoJQVOexewxBHmO
+         b++yxLX0Sw2FLqPDshX5JNvfv7BsH+0Mfjw1SjO4Z0bpGAvfiDapLoGcmcv+u91OGzF7
+         CFfQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWLlI36wphFzbPsmW5/zJn6BUDVuNvFpnmVjmc6E3uRiBSjB0MW
-	iSmS/FkxZ5s5UOFRkPb/rW0=
-X-Google-Smtp-Source: APXvYqxDExTHYcj3SOnI0ZdDmTxx1mtQnsWnuICAKMN2qIWZScvX0i6EnXhbAS4+ZFyuxR044CeBnA==
-X-Received: by 2002:a1f:1486:: with SMTP id 128mr5755537vku.40.1567097475424;
-        Thu, 29 Aug 2019 09:51:15 -0700 (PDT)
+X-Gm-Message-State: APjAAAVveXFE7O92YH6AZymwmpJ9oCFGapoZCw0nK2iKYpaVM4tkNTBw
+	CPBolINWAk7RFOJP0X3UsSc=
+X-Google-Smtp-Source: APXvYqykOjA4ZkrmejaKEBkWzEWbGHq12FctyLogYV5VDRx6x0Y0e9EJgYDsCovRQudw21OvGVf0Qg==
+X-Received: by 2002:a25:c945:: with SMTP id z66mr7629908ybf.47.1567099158464;
+        Thu, 29 Aug 2019 10:19:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:3b0d:: with SMTP id i13ls175629uah.15.gmail; Thu, 29 Aug
- 2019 09:51:15 -0700 (PDT)
-X-Received: by 2002:ab0:630e:: with SMTP id a14mr5401122uap.37.1567097475017;
-        Thu, 29 Aug 2019 09:51:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567097475; cv=none;
+Received: by 2002:a81:578b:: with SMTP id l133ls3534ywb.13.gmail; Thu, 29 Aug
+ 2019 10:19:18 -0700 (PDT)
+X-Received: by 2002:a0d:ef45:: with SMTP id y66mr7686700ywe.498.1567099158120;
+        Thu, 29 Aug 2019 10:19:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567099158; cv=none;
         d=google.com; s=arc-20160816;
-        b=C9tA19GXgGwsZeBPioOEumTXBTsExdisnPQefRBBo5HP+gRbHf6lLlPYenAUJWGvel
-         Lij+MOF6VvqyIWv1B3ladY6t6h3qWmCyQ7fmgmF/Q+YwXE4ox2WMV67xfFcPsGWx6YoO
-         DwFj4WUVIiWJWcBoMUTTJunylHiEVz304Ertc/x554A9UT1owIq36W0tpETcBgGWxoi/
-         6urHErFzq7Pv4klK8s4kgjderYrxKXabgD2jSrBZPphnCkuQ7BqSTKc+8MmD6S19IpRV
-         EyDuCLAeRGO6C01SjN6ZHXvh1wHflSO7qi9NwyKifcraacYMO/eEcY9FFs9Y99pYr9lS
-         8l7Q==
+        b=uI1ekobxh1XL8DQg1i5tAM3E6LnB17x+igqIirWy2swdMefa4u1FHRyV0q0b10pxlQ
+         3YG4WwN6/RaW2XxhLgaT3CcekOh833JH3AlfX/qGy09k8c2S3GLq5zUOFiboy6Udh2EY
+         szjDkheMRWgn06lsu1VfiMjtWZGjvqVShgSWhOejv6kJJRaW0F3icHhVlKd/GQ7olaQ7
+         vadafZDsUHSRzQroHIi0ggriQuW6VnQfqO0axO7SBrZ8FQ1ABHO3PwDg1glzs/G61kY/
+         mNX3VCIoNXm/h7WKhgZyXJbHR1zIvwl7Pdo65ygyDt4j2ebXKaEuVxQHcw/6uj1vmiT3
+         W4WA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=WXkmY9dKDZOaUdG/SQpzdL0Fp/MnkopnRwdDQ6IEl2w=;
-        b=fVQLVhqpKyJkpOzvR1CvJlRFxVd5lJShdX4ZcFGf3fB9at1FAQCy9UhLb2EKRKhxsa
-         SkWbUMkX/a+/NvUXIlDiFV2L+G2FnkO9L4dZXOD9S1QdJZlPqcoT8TRkltdj8f/TEKUy
-         /+ZorSpjKojkA8I+1MlEWL2kVhQ7u6YJWyRXITgyQhxCwhj2VTkZJ4Hw6l7OcLZpwI7P
-         FCaAdt76EyayS5l1PN4OxCgpRGTGM5ERH3n4vHTXkbMzhJFWHnUwRojvbiDM9WVAZdVP
-         tyHmeTujNs7u48d6qP8T06789kFH/UGGGAQrVJMGs5DuZ7S8qS5tZb4zSGC1vEgIJE5K
-         ri5Q==
+         :mime-version:dkim-signature:dkim-filter;
+        bh=jCxDkVSWG7Y4WLqCHMtqonuIZYm6GUxztAGzGCbt8DY=;
+        b=CvGwYGwtFed2v11H2+y9DwHjpqyS45wfpE1D0alVJVaVXXvyt6LOYRnGMlqzHRKWmB
+         A4YZbsoIl2fkt0I16jvLJzzJ2nrVdMY2iWgY90YXR+51tEKDriofj7bQzYqi+m0ACTfA
+         oRhirfSjdiAhPwS1ZBz5xEUDQie84bhnLiLuVqLQsHxwEcGlw0vIckD483dlaqcud1Kv
+         Pf4FA+T29oj6052zkqJxfecn6zCUkB5QUXmzW+GNqlqt6xeKoqn79CaH7AfQ5mI5lEY4
+         oMel448FtiNJVYqmLDEGThJqmdOm6EMVdZ0rVHIPUuvLccQG5jJKDTrM+JCoG+A/HjX1
+         cQaw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="o6/1mtIq";
-       spf=pass (google.com: domain of robh+dt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=robh+dt@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id u189si137980vkb.2.2019.08.29.09.51.14
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=f9g1cyoM;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.91 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+Received: from conssluserg-06.nifty.com (conssluserg-06.nifty.com. [210.131.2.91])
+        by gmr-mx.google.com with ESMTPS id r134si283474ybc.4.2019.08.29.10.19.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 29 Aug 2019 09:51:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of robh+dt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id B50F82339E
-	for <clang-built-linux@googlegroups.com>; Thu, 29 Aug 2019 16:51:13 +0000 (UTC)
-Received: by mail-qt1-f180.google.com with SMTP id v38so4466115qtb.0
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Aug 2019 09:51:13 -0700 (PDT)
-X-Received: by 2002:ac8:368a:: with SMTP id a10mr10808259qtc.143.1567097472930;
- Thu, 29 Aug 2019 09:51:12 -0700 (PDT)
+        Thu, 29 Aug 2019 10:19:17 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.91 as permitted sender) client-ip=210.131.2.91;
+Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com [209.85.222.46]) (authenticated)
+	by conssluserg-06.nifty.com with ESMTP id x7THIq74017887
+	for <clang-built-linux@googlegroups.com>; Fri, 30 Aug 2019 02:18:53 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com x7THIq74017887
+X-Nifty-SrcIP: [209.85.222.46]
+Received: by mail-ua1-f46.google.com with SMTP id y19so1391323ual.13
+        for <clang-built-linux@googlegroups.com>; Thu, 29 Aug 2019 10:18:53 -0700 (PDT)
+X-Received: by 2002:ab0:4261:: with SMTP id i88mr5511251uai.95.1567099131876;
+ Thu, 29 Aug 2019 10:18:51 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190829074603.70424-1-saravanak@google.com> <20190829074603.70424-3-saravanak@google.com>
-In-Reply-To: <20190829074603.70424-3-saravanak@google.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Thu, 29 Aug 2019 11:51:02 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJ7U-kXZ9zYY+Appkh_D76oU+qzUOGz-2Zq05r3nZtCBw@mail.gmail.com>
-Message-ID: <CAL_JsqJ7U-kXZ9zYY+Appkh_D76oU+qzUOGz-2Zq05r3nZtCBw@mail.gmail.com>
-Subject: Re: [PATCH v10 2/7] of: property: Add functional dependency link from
- DT bindings
-To: Saravana Kannan <saravanak@google.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Frank Rowand <frowand.list@gmail.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Len Brown <lenb@kernel.org>, devicetree@vger.kernel.org, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>, linux-acpi@vger.kernel.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	David Collins <collinsd@codeaurora.org>, Android Kernel Team <kernel-team@android.com>, 
-	kbuild test robot <lkp@intel.com>
+References: <20190815225844.145726-1-nhuck@google.com> <20190827004155.11366-1-natechancellor@gmail.com>
+ <CAK7LNATHj5KrnFa0fvHjuC-=5mV8VBT14vrpPMfuNKWw7wabag@mail.gmail.com>
+ <CANiq72ndWZWD-KBT1s-mUxQNa1jaD7oDaCB2+NPiT1chf14Z_g@mail.gmail.com>
+ <CAKwvOdkuDPfOusJRneeTzg7tZ4VKxaRCNg2SgmjVas58cDwe8w@mail.gmail.com> <CAKwvOdnOo3RXm3cx5YDtPyM=9Ry7kss-i4HzjxQkK4pjE-n9Lw@mail.gmail.com>
+In-Reply-To: <CAKwvOdnOo3RXm3cx5YDtPyM=9Ry7kss-i4HzjxQkK4pjE-n9Lw@mail.gmail.com>
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+Date: Fri, 30 Aug 2019 02:18:14 +0900
+X-Gmail-Original-Message-ID: <CAK7LNATZSLYMW3NaEgm=r7EiHwLnxjtaogm_CRHZYgcBLVRb-w@mail.gmail.com>
+Message-ID: <CAK7LNATZSLYMW3NaEgm=r7EiHwLnxjtaogm_CRHZYgcBLVRb-w@mail.gmail.com>
+Subject: Re: [PATCH] kbuild: Do not enable -Wimplicit-fallthrough for clang
+ for now
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Michal Marek <michal.lkml@markovi.net>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>,
+        Nathan Huckleberry <nhuck@google.com>, Joe Perches <joe@perches.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: robh@kernel.org
+X-Original-Sender: yamada.masahiro@socionext.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="o6/1mtIq";       spf=pass
- (google.com: domain of robh+dt@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=robh+dt@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@nifty.com header.s=dec2015msa header.b=f9g1cyoM;       spf=softfail
+ (google.com: domain of transitioning yamada.masahiro@socionext.com does not
+ designate 210.131.2.91 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,100 +141,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Aug 29, 2019 at 2:46 AM Saravana Kannan <saravanak@google.com> wrote:
+On Thu, Aug 29, 2019 at 2:44 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> Add device links after the devices are created (but before they are
-> probed) by looking at common DT bindings like clocks and
-> interconnects.
+> On Wed, Aug 28, 2019 at 10:39 AM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+> >
+> > On Wed, Aug 28, 2019 at 9:45 AM Miguel Ojeda
+> > <miguel.ojeda.sandonis@gmail.com> wrote:
+> > >
+> > > On Wed, Aug 28, 2019 at 6:21 PM Masahiro Yamada
+> > > <yamada.masahiro@socionext.com> wrote:
+> > > >
+> > > > Applied to linux-kbuild. Thanks.
+> > > >
+> > > > (If other clang folks give tags, I will add them later.)
+> > >
+> > > Acked-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+> >
+> > I verified that GCC didn't get support for -Wimplicit-fallthrough
+> > until GCC ~7.1 release, so the cc-option guard is still required.
+> > Acked-by: Nick Desaulniers <ndesaulniers@google.com>
+> > Thanks for the patch Nathan.
 >
-> Automatically adding device links for functional dependencies at the
-> framework level provides the following benefits:
->
-> - Optimizes device probe order and avoids the useless work of
->   attempting probes of devices that will not probe successfully
->   (because their suppliers aren't present or haven't probed yet).
->
->   For example, in a commonly available mobile SoC, registering just
->   one consumer device's driver at an initcall level earlier than the
->   supplier device's driver causes 11 failed probe attempts before the
->   consumer device probes successfully. This was with a kernel with all
->   the drivers statically compiled in. This problem gets a lot worse if
->   all the drivers are loaded as modules without direct symbol
->   dependencies.
->
-> - Supplier devices like clock providers, interconnect providers, etc
->   need to keep the resources they provide active and at a particular
->   state(s) during boot up even if their current set of consumers don't
->   request the resource to be active. This is because the rest of the
->   consumers might not have probed yet and turning off the resource
->   before all the consumers have probed could lead to a hang or
->   undesired user experience.
->
->   Some frameworks (Eg: regulator) handle this today by turning off
->   "unused" resources at late_initcall_sync and hoping all the devices
->   have probed by then. This is not a valid assumption for systems with
->   loadable modules. Other frameworks (Eg: clock) just don't handle
->   this due to the lack of a clear signal for when they can turn off
->   resources. This leads to downstream hacks to handle cases like this
->   that can easily be solved in the upstream kernel.
->
->   By linking devices before they are probed, we give suppliers a clear
->   count of the number of dependent consumers. Once all of the
->   consumers are active, the suppliers can turn off the unused
->   resources without making assumptions about the number of consumers.
->
-> By default we just add device-links to track "driver presence" (probe
-> succeeded) of the supplier device. If any other functionality provided
-> by device-links are needed, it is left to the consumer/supplier
-> devices to change the link when they probe.
->
-> kbuild test robot reported clang error about missing const
-> Reported-by: kbuild test robot <lkp@intel.com>
-> Signed-off-by: Saravana Kannan <saravanak@google.com>
-> ---
->  .../admin-guide/kernel-parameters.rst         |   1 +
->  .../admin-guide/kernel-parameters.txt         |   6 +
->  drivers/of/property.c                         | 241 ++++++++++++++++++
->  3 files changed, 248 insertions(+)
+> Also, there's an inconsistency between Makefile vs
+> scripts/Makefile.extrawarn that's been bugging me: it seems we enable
+> GCC only flags in Makefile, then disable certain Clang flags in
+> scripts/Makefile.extrawarn.
 
 
-> +static int of_link_to_phandle(struct device *dev, struct device_node *sup_np)
-> +{
-> +       struct platform_device *sup_dev;
-> +       u32 dl_flags = DL_FLAG_AUTOPROBE_CONSUMER;
-> +       int ret = 0;
-> +       struct device_node *tmp_np = sup_np;
-> +
-> +       of_node_get(sup_np);
-> +       /*
-> +        * Find the device node that contains the supplier phandle.  It may be
-> +        * @sup_np or it may be an ancestor of @sup_np.
-> +        */
-> +       while (sup_np && !of_find_property(sup_np, "compatible", NULL))
-> +               sup_np = of_get_next_parent(sup_np);
-> +       if (!sup_np) {
-> +               dev_dbg(dev, "Not linking to %pOFP - No device\n", tmp_np);
-> +               return -ENODEV;
-> +       }
-> +
-> +       /*
-> +        * Don't allow linking a device node as a consumer of one of its
-> +        * descendant nodes. By definition, a child node can't be a functional
-> +        * dependency for the parent node.
-> +        */
-> +       if (!of_is_ancestor_of(dev->of_node, sup_np)) {
-> +               dev_dbg(dev, "Not linking to %pOFP - is descendant\n", sup_np);
-> +               of_node_put(sup_np);
-> +               return -EINVAL;
-> +       }
-> +       sup_dev = of_find_device_by_node(sup_np);
+All the flags listed in scripts/Makefile.extrawarn depend on W= option.
+The options in Makefile are passed irrespective of W=.
 
-What if the supplier isn't a platform_device? A regulator supply is
-quite likely not.
+There is no inconsistency.
 
-Rob
+
+> Not necessary to fix here and now, but I
+> hope one day to have one file that has all of the compiler specific
+> flags in one place (maybe its own file), so I only have to look in one
+> place.  I know, I know, "patches welcome." ;)
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAL_JsqJ7U-kXZ9zYY%2BAppkh_D76oU%2BqzUOGz-2Zq05r3nZtCBw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATZSLYMW3NaEgm%3Dr7EiHwLnxjtaogm_CRHZYgcBLVRb-w%40mail.gmail.com.
