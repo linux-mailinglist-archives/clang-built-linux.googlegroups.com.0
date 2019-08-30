@@ -1,130 +1,151 @@
-Return-Path: <clang-built-linux+bncBAABBBEWUXVQKGQE56RWTOY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBV4VUXVQKGQEPULMPVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AB1EA3BB5
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 18:12:53 +0200 (CEST)
-Received: by mail-qk1-x73f.google.com with SMTP id x28sf7789069qki.21
-        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 09:12:53 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567181572; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id A0681A3BAF
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 18:12:07 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id i4sf4452699wri.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 09:12:07 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567181527; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rK57M0Mda3U9xU4Q8qSwTTiXOfTOMJPD7FDmDU/wW31jWcN+NCupkBBIRucUQWNP3a
-         62HhyYnJl30KhXQSpozd/vQI1JDCjApF1qhyM6nTRiiQY2WkiYyvKNWpi8E+2t+wqW4A
-         MWNB79BKQi3IXhKF73bD/C6ItpyHcZKiLJuX+d/gU7Opip7wmWdFjrRLmZyE4gJDGNbH
-         Fd5mmHF0bfTPNJvu68g9g4d2gdU5cmzV9HAFt1pcIjHkOwXUFdlrMLMqq9IZpd0zaKaf
-         EgsU5lY3MjOQIzI1vAv3tn9ZOSkkzv3F+v3e66fu/xyS8nnqzAIwagTSJhwK/Nms6HYI
-         oMbQ==
+        b=j2tKSzKW5/TsWZ0brmhsCXu3krKkjCwzyVLSFLzsA5fAiyBtfPhmVeMxLwUasNN7Fd
+         I/CFKRNX/WtlGv7FXTessdGCt+8go8EHrj7yHW3afCLhLkNjnNBPCPiHe/19Pjjgk5Kb
+         SIbeSSdzcaTDTNYPlT/lRRwcvC0MNGO+v/5RI6rb3qcpdFqX2a0IAwFGoypyjBOtszZa
+         si+oorw0sIogvVZfTiLAf4GnZxFZ3NyNuCEvrmkqKvDYdPxqwREeMpUaHgt2fuMH9p3i
+         4RV2VUeIcITqUdjHyH2gHUXwq9B+dMaE52z4s8dhcAOlFVsuFCnXh0xrS6ASNOj1advm
+         EH6Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=TmQEam0os8TklSoVziXPL/lir99IsFHI/bMMUTOL9Fs=;
-        b=QIxKBPSlacf2qckxGojO7NIKS2y6bd7OR9E21gn6oFFOas5k8FclkQu3LKW5FsbDA+
-         UgEvr9fygcmChFnFMUnzcb0P28BNAMzBJUFyjvOmQkTqQ2u1cOqIJE/PYEnnfjadd/JD
-         b84tgva2G9YhiVyI6xRicL0c48gCB8I9vBPzQ09aBzn9ly/IicqqEQ+oopSihtf4HapS
-         TNyWBc3Oje8SarjtMXc/tUZoHNsIWOjg2P4622yGoDd8gczQf83bKwP290vm8Nmqhb8E
-         UajPwOha4DgoKxTcneS+zOKbMsZmpmd5o9UhyBKs8OtV25uQD1qWkuhEtERCH2gsKp/p
-         k87w==
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=2ueMp16HD+P7XZ+Ha5bSM+0unAOLFcE+qYJeX7B6rIM=;
+        b=l2NJRs8TvTzyAfHUvxVL2RMTrzw+5O0cQtifpLbQc84FEikJJvNJMA97BWwc71cZtV
+         0+mITGWE+6aZShNsEGBeKhN0+KO3nD71fOG9W0jaElwHi9VMWQHLhPM7f5suA66O5oyL
+         OfKU2JzJ8WxLQh5HYUbk6+SRYRwjlZrjW1OQN3Ds93tdflWY+zuJwtoiT/qiQtEs+19e
+         sKtjtx8l/zgA4UWo65I7NmY44OirgGjC3BWy7+Lc7Vss8CRlOOGFbMHY660yN8vgshDA
+         8K4o/bDwLedRAe0F576J0HyIUEJbiIl2gI04CXqF/qjw7k9jiLm9lxMBbu4Y+54yEG21
+         niDw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of wsa@the-dreams.de designates 88.99.104.3 as permitted sender) smtp.mailfrom=wsa@the-dreams.de
+       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=TmQEam0os8TklSoVziXPL/lir99IsFHI/bMMUTOL9Fs=;
-        b=RU7jRD0d+fhxfuTcNJw+PWMj5h+1ofv5//lyMaWz/yjx91LWFZRGGyZhlJH1Fu4fYn
-         i7sHzpORBCfq0/V6jDgbzeFeQvf08LB2Bt6i5fkJ3PJSbYLiz4ahKBA4MOOj88UVVIhl
-         WrOcxGCwPDr5cHShN2ykMiUEQ0E7YJcKmu1aJDEbuU6yXDgIRk1nFs4IGTqZzK55jeZJ
-         hLsPBgQYMbmlGZFwpjGDZKfsNa/CaDLsEDNeaSqgT4v7KybZBmcmhHsnEgAMIu3vWiKz
-         MGOpQ0g2NiAcNYYWJN3gc5TQKv1AjShLhN9nMgvsBdsCMrygonEcZ24wswsmzYXwHrZc
-         qFQw==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=2ueMp16HD+P7XZ+Ha5bSM+0unAOLFcE+qYJeX7B6rIM=;
+        b=Zop0cjKDNrCwqFhtzrRVR6h6oxMR3xNygacT5f6r5+s6JCjBmYzq3G29iDYvsTBHhN
+         8JM9x/L3ii4El8uKa8qNvCaYEjoqXkYF6U2xcxfoqSmhq3SB+hGYFOUcJcYcwf6rScZh
+         8/EGRpSRl14yfmjFyvVLI5GJJ9wh4btLM08VVyz/SpDODuvxrnQA3iZ2m+GMrZ5aOZ+F
+         vEKTzYB/HTXnlPaZTN0VnXSL38KtEglSP/+2wHVdMprW5a+swKYaveJMVaXdvvuktMsO
+         4d1KSREDESR5QxqVccekSsyUDifmTJp5DPMfiLiyqhpSXKqPtYMV772wj/diJATTaWaK
+         ogzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TmQEam0os8TklSoVziXPL/lir99IsFHI/bMMUTOL9Fs=;
-        b=Oa1mS4t/i2y4CB48Omngsas4o7QhJNULgBagTMTvDEIrhmOQw9+k0Bq33zGsSmI7Bl
-         TprdqgXl3Twlge1msTa6fTQ3QlSX/GtBwkihcUr2DEFop8YGo+/tznbHbEMf8HiT/j2h
-         uu6BagdIf5f1SE1zsabMo9c7WvW8qQHCgLHfRnQx46uef3eUu2WW+aieAQTnYmTPPafx
-         dD9tz7Adb3O6Y2fY2lFf7zjS4XjbKUM96Gwg+uGbzUYVqpyDrLFaLWQwa31XOOp2MQdT
-         939jQZgGb++vkJFWFMg80yU5IvSqKfBXbLS5O8GsD58kQPKOQu/O06Tj++GxIQ6EA6Kh
-         A9Jg==
+        bh=2ueMp16HD+P7XZ+Ha5bSM+0unAOLFcE+qYJeX7B6rIM=;
+        b=XGETUoM4+1u+X1DepMnMX8n+SwtbgqzOjBhbUnmMr7ZSPOyvjDZWP4gzt+0Iw+EaCh
+         2QnMSBZ/Qt1HkT9Ped9C2cliZXbjJNER5HCoyzKHeintzr1sZp5gvCX1xVvII+3pbikW
+         eLUa7bFYPxg/pvjq3VhCH9BVgIc7xrLldYYn9wMGiWM6e+0rO2o5y3caStBwpnk28VRr
+         fnIKHn35NTo9U0Sgio4WVD5FRcpkR5H/h/wPswyJM+MGXPlzUFoOiMXaNNmO2+AJmBd9
+         Lql36rIiMc5Svg66XxBs7CwO/ekNnGurU6RDwwATisRuJeUFfH0NnLHKLFQtFROZBxoc
+         9NZQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUmcvh7U6guG0TRkunsfcBdcVQT7F+cdXci9vtlx98fLEEEZVtb
-	sGfBB2qGGRJt6s2tTxDWtL8=
-X-Google-Smtp-Source: APXvYqwXZxvv6W30kkXEgoGzzBm3EbxXjKf5hM6KRo5vc1kK0xjLhJNWtIyl5zC2d0LQJskSUayJ6Q==
-X-Received: by 2002:a37:b982:: with SMTP id j124mr15896744qkf.251.1567181572548;
-        Fri, 30 Aug 2019 09:12:52 -0700 (PDT)
+X-Gm-Message-State: APjAAAXYnmo6ZjxFINh6q+JbmtbsI47UrajCkZ1xDHUlC49h5RlE4qAa
+	XUT8vvboqFsDbEkJDYk5D5E=
+X-Google-Smtp-Source: APXvYqxbkkbs0nPu45PIMnk82VwG48gStEMiscnBoXBQ2oLTO5WMFgvJgKJx3iOPo48+pohL/w86+A==
+X-Received: by 2002:a1c:1b58:: with SMTP id b85mr18406654wmb.95.1567181527235;
+        Fri, 30 Aug 2019 09:12:07 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:a853:: with SMTP id r80ls1363104qke.0.gmail; Fri, 30 Aug
- 2019 09:12:52 -0700 (PDT)
-X-Received: by 2002:a37:4986:: with SMTP id w128mr15604455qka.417.1567181572243;
-        Fri, 30 Aug 2019 09:12:52 -0700 (PDT)
-Received: by 2002:a05:620a:1333:0:0:0:0 with SMTP id p19msqkj;
-        Thu, 29 Aug 2019 06:11:25 -0700 (PDT)
-X-Received: by 2002:a7b:c3d0:: with SMTP id t16mr12192785wmj.25.1567084285246;
-        Thu, 29 Aug 2019 06:11:25 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567084285; cv=none;
+Received: by 2002:a1c:6c06:: with SMTP id h6ls1634361wmc.3.gmail; Fri, 30 Aug
+ 2019 09:12:06 -0700 (PDT)
+X-Received: by 2002:a1c:a546:: with SMTP id o67mr13452846wme.55.1567181526754;
+        Fri, 30 Aug 2019 09:12:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567181526; cv=none;
         d=google.com; s=arc-20160816;
-        b=CfUE53hkRGXSioS4ah9s887tW4Y+YfzvkwYBo3Il9nFFxp9GO/vPCWdBvUtoIsKI2R
-         sxP4zFEeRbzaTrkYp9iMjmZBkSg68sti59gh9LPM3+8LWHGcXB8Rp4rq3cgxauEpDaSy
-         poXLy1Yq0oIKfIbgEpIMotBt+NYzMcj6ssFdoQs/QGDr6UmYggSVQ0vfgYXlCBJfBHO1
-         vP+lTX4HwTQo+DdwCKDEz3ORi+Vf/B7T1r8UYsDxfQI7lhklWPmVDtiEEGQjc+d45RCP
-         hrLxRqmXHd8ilUaqLla74MD4hY+RgzESwDf6Dkg4myvjb5h0CBsJWvPxzel0c/RkAwTb
-         Bj0Q==
+        b=Xzl6IvDkj0OT46CKyDEoiraBsUbJWcri82on3Mt1jCT7AvVM49mRZWKtOCmgq/kjpN
+         ta2GNBtEHQpjnd3FoqM02NtO6SV8ejyjU06ptC6wbLcP11Z/lcCQVCYKnyr+oOZ3CNXZ
+         cAdu/A6RqMp8DoGNGgeRGjkWfcfEDw/VLAIOnHNMZ5ZydMD40MomoBJqOh1qbB+lWtVi
+         1iZAe9xspNaTxoV6Xh5C7b3PE0TO0kSDPTes5IJFQXw1Wx3IJktCzhcdJ4h1viSJrmbv
+         IlUUdJxQdxvQjiTdAxG+TUn0is0BPQn9LTbZ0B8W4D0mVWDH8l/D76H7h6C0BNIKBeRt
+         sfQA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=dJBlSmrfDTRv7cxuleB8tV+kWPMcqS42afzr9LQBfLI=;
-        b=xuU7B+O0z9zvNC/fxomklRt+nSs4cR0uvpsVgzCtGIKQ1QCXvuBw8CLDvnvu7E615a
-         6w2COviz+0g4lMur6GhXEKt3RJ91ZA9WAhnZ/bnWBGcVxLqV1gpfeAbXt1INOO8CwPTw
-         tJziZ2OGnbnx/ICgnFG2yNlvF8fvGPB1Ynj92FXOHKzBZeJkIG27eQtqftGzAcKY0Rx8
-         tipvAmkC8nexUyg76zDJwnV2lWqX2ElkqtJnStJxA7zrRzYHTju7oRaewCi3q85nYw2k
-         T8G8EIfGMTJumzqLKhQLlYmEg0DIraS6Mc7Tbw8v/lTflh+KSpuDTKJ1W6xwfIoaqFWJ
-         PmEw==
+        h=content-transfer-encoding:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=NQb4NTbz/qCiOVxCXGSzRuUoc9mccUuByoFQseAuHNc=;
+        b=r2l9b5SyQ/zmG+ZoGu3lZObi95lC8D1QjmvOeDDrr56kf4i7KMdJ9GkLDw0He43HLU
+         +d7iy07o2bK0dHtDzMzxFnyQZNsC3IyzOk8cJfrhTk4x1TZY/pT8qEWNlILgHOHJkN1L
+         v/4R4nvoe5cO5ExNg0Wqp6zK9t/mvUPnybLxVOSCezd02ZvvZ9JHyxJWutONCpPLMUnR
+         LsQaEUG/UbFhb4AP8XdVyFVFCVlxRVDL08Hphpwb/ECmux+ZDJQnzO2zdUgkxEiDWsPh
+         lxLoMDDzZ9urMN/UON4+tsZBMmAw1APjdZBA3uDBi/7aIdoWPBTDpiQaNtAyGgBwlw4g
+         vDVg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of wsa@the-dreams.de designates 88.99.104.3 as permitted sender) smtp.mailfrom=wsa@the-dreams.de
-Received: from pokefinder.org (sauhun.de. [88.99.104.3])
-        by gmr-mx.google.com with ESMTP id l14si97935wmc.1.2019.08.29.06.11.25
-        for <clang-built-linux@googlegroups.com>;
-        Thu, 29 Aug 2019 06:11:25 -0700 (PDT)
-Received-SPF: pass (google.com: domain of wsa@the-dreams.de designates 88.99.104.3 as permitted sender) client-ip=88.99.104.3;
-Received: from localhost (p54B33070.dip0.t-ipconnect.de [84.179.48.112])
-	by pokefinder.org (Postfix) with ESMTPSA id C78242C001C;
-	Thu, 29 Aug 2019 15:11:24 +0200 (CEST)
-Date: Thu, 29 Aug 2019 15:11:24 +0200
-From: Wolfram Sang <wsa@the-dreams.de>
-To: Zhang Rui <rui.zhang@intel.com>, Simon Horman <horms@verge.net.au>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Nathan Huckleberry <nhuck@google.com>, edubezval@gmail.com,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Yoshihiro Kaneko <ykaneko0929@gmail.com>,
-	wsa+renesas@sang-engineering.com
-Subject: Re: [PATCH] thermal: rcar_gen3_thermal: Fix Wshift-negative-value
-Message-ID: <20190829131124.GA2437@kunai>
-References: <20190613211228.34092-1-nhuck@google.com>
- <fd8b8a48-dfb7-1478-2d8d-0953acee39d3@linaro.org>
- <82458318837ed1154a183be0b96337fc7809c645.camel@intel.com>
+       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [207.82.80.151])
+        by gmr-mx.google.com with ESMTPS id r1si111158wrp.3.2019.08.30.09.12.06
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 30 Aug 2019 09:12:06 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) client-ip=207.82.80.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id uk-mta-8-vPgvCSCrNQKAFRHlhul29Q-1;
+ Fri, 30 Aug 2019 17:12:05 +0100
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Fri, 30 Aug 2019 17:12:04 +0100
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Fri, 30 Aug 2019 17:12:04 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Arnd Bergmann' <arnd@arndb.de>, Josh Poimboeuf <jpoimboe@redhat.com>
+CC: Nick Desaulniers <ndesaulniers@google.com>, Ilie Halip
+	<ilie.halip@gmail.com>, Linux Kernel Mailing List
+	<linux-kernel@vger.kernel.org>, clang-built-linux
+	<clang-built-linux@googlegroups.com>, Peter Zijlstra <peterz@infradead.org>
+Subject: RE: objtool warning "uses BP as a scratch register" with clang-9
+Thread-Topic: objtool warning "uses BP as a scratch register" with clang-9
+Thread-Index: AQHVX0vKqj9VEXOMQ0SdqQ13OMpYJacT3FgA
+Date: Fri, 30 Aug 2019 16:12:04 +0000
+Message-ID: <7fb03b2951e04c5f9b2529a6b8d5c746@AcuMS.aculab.com>
+References: <20190827192255.wbyn732llzckmqmq@treble>
+ <CAK8P3a2DWh54eroBLXo+sPgJc95aAMRWdLB2n-pANss1RbLiBw@mail.gmail.com>
+ <CAKwvOdnD1mEd-G9sWBtnzfe9oGTeZYws6zNJA7opS69DN08jPg@mail.gmail.com>
+ <CAK8P3a0nJL+3hxR0U9kT_9Y4E86tofkOnVzNTEvAkhOFxOEA3Q@mail.gmail.com>
+ <CAK8P3a0bY9QfamCveE3P4H+Nrs1e6CTqWVgiY+MCd9hJmgMQZg@mail.gmail.com>
+ <20190828152226.r6pl64ij5kol6d4p@treble>
+ <CAK8P3a2ATzqRSqVeeKNswLU74+bjvwK_GmG0=jbMymVaSp2ysw@mail.gmail.com>
+ <CAK8P3a1CONyt0AwBr2wQXZNo5+jpwAT8T3WfXe73=j799Jnv6A@mail.gmail.com>
+ <20190829232439.w3whzmci2vqtq53s@treble>
+ <CAK8P3a0ddxbGVj974XS+PM_mSJDu=aGfTGarjmqMCuLKn81mRg@mail.gmail.com>
+ <20190830151422.o4pbvjyravrz2wre@treble>
+ <CAK8P3a33LQAzsReSUyB_aZxkws28RP=oJocQXonYbxxBky7aaQ@mail.gmail.com>
+In-Reply-To: <CAK8P3a33LQAzsReSUyB_aZxkws28RP=oJocQXonYbxxBky7aaQ@mail.gmail.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zhXaljGHf11kAtnf"
-Content-Disposition: inline
-In-Reply-To: <82458318837ed1154a183be0b96337fc7809c645.camel@intel.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: wsa@the-dreams.de
+X-MC-Unique: vPgvCSCrNQKAFRHlhul29Q-1
+X-Mimecast-Spam-Score: 0
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: david.laight@aculab.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of wsa@the-dreams.de designates 88.99.104.3 as permitted
- sender) smtp.mailfrom=wsa@the-dreams.de
+ (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
+X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -133,153 +154,32 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
---zhXaljGHf11kAtnf
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-
-On Wed, Aug 28, 2019 at 04:52:20PM +0800, Zhang Rui wrote:
-> On Fri, 2019-06-14 at 12:52 +0200, Daniel Lezcano wrote:
-> > Hi Nathan,
-> > 
-> > On 13/06/2019 23:12, Nathan Huckleberry wrote:
-> > > Clang produces the following warning
-> > > 
-> > > vers/thermal/rcar_gen3_thermal.c:147:33: warning: shifting a
-> > > negative
-> > > signed value is undefined [-Wshift-negative-value] / (ptat[0] -
-> > > ptat[2])) +
-> > > FIXPT_INT(TJ_3); ^~~~~~~~~~~~~~~
-> > > drivers/thermal/rcar_gen3_thermal.c:126:29
-> > > note: expanded from macro 'FIXPT_INT' #define FIXPT_INT(_x) ((_x)
-> > > <<
-> > > FIXPT_SHIFT) ~~~~ ^ drivers/thermal/rcar_gen3_thermal.c:150:18:
-> > > warning:
-> > > shifting a negative signed value is undefined [-Wshift-negative-
-> > > value]
-> > > tsc->tj_t - FIXPT_INT(TJ_3)); ~~~~~~~~~~~~^~~~~~~~~~~~~~~~
-> > > 
-> > > Upon further investigating it looks like there is no real reason
-> > > for
-> > > TJ_3 to be -41. Usages subtract -41, code would be cleaner to just
-> > > add.
-> > 
-> > All the code seems broken regarding the negative value shifting as
-> > the
-> > macros pass an integer:
-> > 
-> > eg.
-> >         tsc->coef.a2 = FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]),
-> >                                  tsc->tj_t - FIXPT_INT(ths_tj_1));
-> > 
-> > thcode[1] is always < than thcode[0],
-> > 
-> > thcode[1] - thcode[0] < 0
-> > 
-> > FIXPT_INT(thcode[1] - thcode[0]) is undefined
-> > 
-> > 
-> > Is it done on purpose FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]) ?
-> > 
-> > Try developing the macro with the coef.a2 computation ...
-> > 
-> > The code quality of this driver could be better, it deserves a rework
-> > IMHO ...
-> > 
-> > I suggest to revert:
-> > 
-> > 4eb39f79ef443fa566d36bd43f1f578d5c140305
-> > bdc4480a669d476814061b4da6bb006f7048c8e5
-> > 6a310f8f97bb8bc2e2bb9db6f49a1b8678c8d144
-> > 
-> > Rework the coefficient computation and re-introduce what was reverted
-> > in
-> > a nicer way.
+From: Arnd Bergmann
+> Sent: 30 August 2019 16:59
+...
+> > Or even better, it would be great if we could get Clang to change their
+> > memset() insertion heuristics, so that KASAN acts more like non-KASAN
+> > code in that regard.
 > 
-> Sounds reasonable to me.
+> I suspect that's going to be harder. The clang-9 release is going to be
+> soon, and that change probably wouldn't be considered a regression fix.
 > 
-> Yoshihiro,
-> can you please clarify on this? Or else I will revert the above commits
-> first?
+> Maybe Nick can find what happens, but I don't actually see any reference
+> to KASAN in the llvm source code related to the memset generation.
 > 
-> Also CC Wolfram Sang, the driver author.
+> https://github.com/llvm-mirror/clang/blob/master/lib/CodeGen/CGExprAgg.cpp#L1803
+> has a check for >16 bytes, but that again does not match my observation.
 
-CCing Simon Horman who worked with Kaneko-san on these changes.
+That looks like the code for initialising a local structure variable,
+not for merging 'random' writes into a memset().
 
-> thanks,
-> rui
-> > 
-> > 
-> > > Fixes: 4eb39f79ef44 ("thermal: rcar_gen3_thermal: Update value of
-> > > Tj_1")
-> > > Cc: clang-built-linux@googlegroups.com
-> > > Link: https://github.com/ClangBuiltLinux/linux/issues/531
-> > > Signed-off-by: Nathan Huckleberry <nhuck@google.com>
-> > > ---
-> > >  drivers/thermal/rcar_gen3_thermal.c | 8 ++++----
-> > >  1 file changed, 4 insertions(+), 4 deletions(-)
-> > > 
-> > > diff --git a/drivers/thermal/rcar_gen3_thermal.c
-> > > b/drivers/thermal/rcar_gen3_thermal.c
-> > > index a56463308694..f4b4558c08e9 100644
-> > > --- a/drivers/thermal/rcar_gen3_thermal.c
-> > > +++ b/drivers/thermal/rcar_gen3_thermal.c
-> > > @@ -131,7 +131,7 @@ static inline void
-> > > rcar_gen3_thermal_write(struct rcar_gen3_thermal_tsc *tsc,
-> > >  #define RCAR3_THERMAL_GRAN 500 /* mili Celsius */
-> > >  
-> > >  /* no idea where these constants come from */
-> > > -#define TJ_3 -41
-> > > +#define TJ_3 41
-> > >  
-> > >  static void rcar_gen3_thermal_calc_coefs(struct
-> > > rcar_gen3_thermal_tsc *tsc,
-> > >  					 int *ptat, const int *thcode,
-> > > @@ -144,11 +144,11 @@ static void
-> > > rcar_gen3_thermal_calc_coefs(struct rcar_gen3_thermal_tsc *tsc,
-> > >  	 * the dividend (4095 * 4095 << 14 > INT_MAX) so keep it
-> > > unscaled
-> > >  	 */
-> > >  	tsc->tj_t = (FIXPT_INT((ptat[1] - ptat[2]) * 157)
-> > > -		     / (ptat[0] - ptat[2])) + FIXPT_INT(TJ_3);
-> > > +		     / (ptat[0] - ptat[2])) - FIXPT_INT(TJ_3);
-> > >  
-> > >  	tsc->coef.a1 = FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[2]),
-> > > -				 tsc->tj_t - FIXPT_INT(TJ_3));
-> > > -	tsc->coef.b1 = FIXPT_INT(thcode[2]) - tsc->coef.a1 * TJ_3;
-> > > +				 tsc->tj_t + FIXPT_INT(TJ_3));
-> > > +	tsc->coef.b1 = FIXPT_INT(thcode[2]) + tsc->coef.a1 * TJ_3;
-> > >  
-> > >  	tsc->coef.a2 = FIXPT_DIV(FIXPT_INT(thcode[1] - thcode[0]),
-> > >  				 tsc->tj_t - FIXPT_INT(ths_tj_1));
-> > > 
-> > 
-> > 
-> 
+	David
+
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190829131124.GA2437%40kunai.
-
---zhXaljGHf11kAtnf
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAl1nzvgACgkQFA3kzBSg
-KbYx+g//f5G/Zdl+qgCmmyNNWXxl8l6bbTgwmYs9qlm05wSREnJW80SFptJOOmVX
-105JuRkTrXtoUnAmCxF/Z55HYly0hG4s0HByxuALCLpb3j+rcU+G0hdXrSdNICRk
-tN9HkHzYmKGszT5yaZY2EF730nUnpv71Pc4Z3wTY/H+5wz8uDv/6mW4IpcYM3Tnr
-9ueuEBNYWwGiR/29dGwgaVnh0f/nIZllMEQbuYKeCxRuY58gqQFA9Ng5bEDfNFHV
-qR5n9jKoQetVx3zacipFHYjwv9d1rnAfHonBmvp5FjkZ/5/U0EBhkeouPxFTIRuW
-u1e2DzblJ1hGPHyVlwrl5294e9bujd6iVEMetJZnEU21n6aGb3lenQnYy6ER6cUB
-J6Pg9fnwoGFYH9WUkQwQ8V1tLO1zRf2SvJexYZmQK40n/D1M5oUUqfbTBd7wwofv
-WvXAkuVfACXvWiLVhOtlGGIX+C+IRlvdbl1L/12eAT2PW28k+aUzV7HHxHykfGjW
-CgLj4Kli7gsQO2NF4hQcG79FZDTnx/FPYGGT0U1SUaLfBBnYMOZ6HJbko4TJmnII
-FrcgDCPNHS/yGT/PcOM1XfqXwMlODu1aeneScG8bxbZT46iWRFDS7PL0zH8qrDr0
-aCtkS4xv3uPyh6A9+o8Qpg/XEmoPpmZO1Z2bNR6B8wcYIuv3YDc=
-=a7UP
------END PGP SIGNATURE-----
-
---zhXaljGHf11kAtnf--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7fb03b2951e04c5f9b2529a6b8d5c746%40AcuMS.aculab.com.
