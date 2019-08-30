@@ -1,138 +1,149 @@
-Return-Path: <clang-built-linux+bncBC3ZPIWN3EFBB5EKUXVQKGQE5UYMENI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBBMOUXVQKGQERKXTEDA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B5008A3AED
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 17:49:09 +0200 (CEST)
-Received: by mail-lj1-x23d.google.com with SMTP id c2sf909104ljf.11
-        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 08:49:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567180149; cv=pass;
+Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0670BA3B13
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 17:55:50 +0200 (CEST)
+Received: by mail-wm1-x33f.google.com with SMTP id n13sf2602442wmi.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 08:55:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567180549; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hOsfkcXDyJLornf5bgiw84XzAhQ8UKkcURgBGqVLjJGo0GF2ZGWZWMSqb5YJBjZ27Z
-         ZyDZbjFJPewnz5dcvgWDeAo4Ibmxo//MAiCmZJPzh1kuEBnaVN9AecRJXOsl+I6v4LT7
-         qqWW/MmtSMipo8VHrHK49nXvnwScfxFzAY9rTFOCj3BHzvTFqfhXUk12Fs6zQmG1F7tS
-         W+7Mpcc49eJpqdTZa0iH4ddQ22K4I5Ixh6Hy8njeX99W7O3huXfnm4CJJG0+2PEuuxL3
-         HpggTPWRxdRTi0utiM2KB6Qk/Yl/jCawCYJ3Hkxr8xBRQY/09m7/c2glyOsmQbU9y+xI
-         SEVw==
+        b=gu8pcLuo6lcYtSOjANDWLUpgHJh2LtMcYgww3iZXPAjkh5UdwXntau7Ht7+ykfDIas
+         7GGDFGIsgVVdWG6tuA1OVCgY5/h3YSdcG0W9Igv/GDutJhCDE49rjc16+5skS/Cotw2R
+         EDePqFAYYpHgmTW9O4Q0kCFvc+eel7VWPSZeOq/gXrEdamEc37Jxt0KnM2N0GMZaiaZo
+         +6flfmBpJXu/CvHXWadOn7auJpJ1U79tfQOwELYgYVpI0Phdg+veprBIn+vVzTIuRSww
+         y1QC5esnBtxxyXLuPzg+QTmQChm/++05R7ilIITMrr8cnoSAL9sQ6v5jJSsZi9wLAvAD
+         s/RA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=S6fjXsuJwFCs0Lix/VMS/9+WHVI8o7I0kFNzk4RNjck=;
-        b=ItCdcjiV60LkdBHa13FtSD4guJp0NYqJoTCPp8vNLBfN0BbLDNo9UbNp9T3TCdnEZr
-         8OZHnzDDIdsp1rbdnznF38vp4GNVJV5jQ/htz2DxFC17o8k/bOe4YJELNgx5oJfvcY8i
-         9F/OcBiB5WactC3auu3f9XQmdkI5x5fUFCYgFDonGFu6H9OmWoDgxKY15fc/dph5vXQX
-         p7gop+/r5w/TmqVlv8ch1bw6FFc6WzM3SEiNSeCXDMUNKzLYT+J90piqsXG+Z7fava2E
-         aSKRX3n8Kogk19AYq836SyuA7ubjw+1Br9RlAPN0bGTGyzOYrABmXgTrI5ZUbiZfb7Lc
-         Ar8A==
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=Qt+B8mu2JAbRgzzCx08NhYRtiShi+aYzvBHpSg1tTRw=;
+        b=qgVtogMM7YD8cFXDlYFRaqKloDaJsQYKcB7rTCVjM/ELhGNq0oM30KH3esGgxKBK3M
+         oRORIB5Fw64fpbmWvCzuZpclCXB+L17v81cLdPPsJh6eLib2sOsAMayioxP5y343Yj/q
+         1xbrHqMzA5r7a0UKCEhqHGGDjM8tuZM5a9YgcCIP7VQH8hQs5/B+G+1yWnDRfwdPOpM2
+         eeFiO152G8i4g8WbHpM6kkfn+pmRiBCYB8BV82SYvMzAv0goBFT/pTirEqj3RLHyOlrf
+         hhXFWr6g0/yRy3AU5KF8zMmWxhiLsuJ+lpmTdLsQFZZF3FQDsPpwVzh9Lke4FayQnGsS
+         2pgQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=TqP98Es7;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S6fjXsuJwFCs0Lix/VMS/9+WHVI8o7I0kFNzk4RNjck=;
-        b=HEW/UqUx4VV0UXDUHiWf7Z8sWAGt2cRAZfHjFu3TDfospmS9OifU3WVpUgvXpdpJLC
-         6n2npc8PnFt6tvDGVV64gEJcoK5xykRBviHRD0eJCfOcNz73rh9D/CymYDYA65vmfowC
-         b/lppgTRnsR0l7ZnARgY0CsONMjIGp3DElkBosWyX+GEKwWBXy6YnNjQzTwThs3v3JOd
-         MmgmdMzSs3Qm9e2A9MhJN/R8q5ndOF/V6hQaueeYN7U1vwNUjVK92/NYtXPlfjupJ2JW
-         Ir9VuBGwc4SUnmZ7FfuQhCD5CDC7mumaCxHNPCkjtm9fzPnvXI11mmoAbxLXBL+PN3hm
-         9kPg==
+        bh=Qt+B8mu2JAbRgzzCx08NhYRtiShi+aYzvBHpSg1tTRw=;
+        b=VEfaMDpOhpRsujLCMp+Xa8yZbZ7Gt4axSzglkPSQpIs3KiLVX7coWVv8yPyYV/6yLV
+         yFF9h8edTu8tKjR2XithY5cjedscBA6sG9vNuPVyrKXWbOGRZZXPLpG9vPLCKj8TXGFK
+         zjm719FpS3+MzXzvFI6pz8PwEbEqeeqMZugmwBblO0e5LAbHSOtbIdd+mVIEQTJIJSY6
+         Xp9Wogi7nXu5r+eKP1SU0j2hSKMzKYjveumj2h9LsbbvtXWY2e+26BZDlSGmfbvtv+gA
+         aEWNnZkoI8/DRm+nE39k77vQD78kOuhoK0G466fbvFq2g/blM61piFpojbmOsva0zANV
+         a34w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=S6fjXsuJwFCs0Lix/VMS/9+WHVI8o7I0kFNzk4RNjck=;
-        b=ghhLSC9LFsZPcHiuqzTWPXQYnM8OUNoDIpr4bV6wRypeQ9dkWrHrLjg+Qk/D7en02Z
-         iJKRC6Fb91/4sfIiZVrkL4cwv8n05ycwCk0s4EhBqKshMLsLLO/w+g61W4d/gtTKZ86Y
-         9pnb5AFexfJzX4v/oBcv7gr3aNv2HiMq3FFazjkhD7aeq+imDZ62oqVuFPCjLm4t699e
-         aJzA0zSEKNQWcBYsumcZ8/kV72GW2U8TcxUuZ/5Unw6TcnRRGyIrPvL4tEzA78lhnet8
-         Ohb8BBzRyr4wcQ7YROSkfbLodAybMGTjXh8kneYNmEsLdn0rNHYD5seSUNpbaMHVswtp
-         oNcQ==
+        bh=Qt+B8mu2JAbRgzzCx08NhYRtiShi+aYzvBHpSg1tTRw=;
+        b=A2yumjXesrkcAwq7rbUinZvuXdEqy2/BHl7cRlp+IhIq6TMUe18c6YVwu+J0Zybfi9
+         Rc6EcY0b4gUinLQ283Wg2Ue/EWKvnE8brbXNd8uqQhGWtiPpygzuYhSCijgW37gGerUg
+         283ltdTgXxIoqdVdAsVdH3nngfsfEAr1yibp/NUD/Dr+mEBidIyZX1UYitkelEWOWaaF
+         UG7p2c/93Sk8eKWzkaQ4RT7kU6nKSe5nGiu0EDOyevEcvueyU679vyDqDqNqoy34yFaa
+         hYIjdBkDm/cpjPl3a/8YFn+oAa9jJJl7hiq+9YxN8IEo6eU2plKaNqCWVtbyhEcoT4U+
+         JcxQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUn5jb+I5qDDzBRAlmkZYdtNvOOXWDK+tftSUPUHzi9iEa+lZL7
-	9tEBDBZtnvfikYLwTKJWHp8=
-X-Google-Smtp-Source: APXvYqzxbqsV3CLLjFdHAlGkAVVZVKnyxQYEe6D3PjU9UlZ41Wi2cxJkfGQZFIrhTHZQ9hQyOa56hA==
-X-Received: by 2002:a19:ad0c:: with SMTP id t12mr178938lfc.46.1567180149309;
-        Fri, 30 Aug 2019 08:49:09 -0700 (PDT)
+X-Gm-Message-State: APjAAAXuQruzLQmztEV1TA4vKXinlpikGfEpopCmLnc0f+JjnrMgvGPT
+	WXnkt40Tb8Y0sGeexlDeHCU=
+X-Google-Smtp-Source: APXvYqwsONfC7puRGnbf2sQ/VUKtfbJgBMG9DcZkrY+UoULHaeSq45+r88nCrWyaPwnaOinY4tSiqg==
+X-Received: by 2002:a5d:568c:: with SMTP id f12mr5126724wrv.248.1567180549658;
+        Fri, 30 Aug 2019 08:55:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b60e:: with SMTP id r14ls796067ljn.13.gmail; Fri, 30 Aug
- 2019 08:49:08 -0700 (PDT)
-X-Received: by 2002:a2e:9e86:: with SMTP id f6mr2419262ljk.157.1567180148278;
-        Fri, 30 Aug 2019 08:49:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567180148; cv=none;
+Received: by 2002:a05:600c:389:: with SMTP id w9ls737396wmd.5.canary-gmail;
+ Fri, 30 Aug 2019 08:55:49 -0700 (PDT)
+X-Received: by 2002:a05:600c:40f:: with SMTP id q15mr19706788wmb.88.1567180549239;
+        Fri, 30 Aug 2019 08:55:49 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567180549; cv=none;
         d=google.com; s=arc-20160816;
-        b=cNPRJlSVpLMiXpjuAUTpkuw2grnzjCStjSvuxL4IaEAW2F0XP1V0mrSBqp0PhoK3xI
-         dvFF4+TGXEh3QOGd32AK8hAvGTAWrLGtpCFpU4D8dpE50Q34NVIYicovTApdqfokjK3T
-         5NwqRsLtwn5HzgAuBqjPWkMHwFGXrhKC1jpYi3C4vAApJiuXxsGAoknNtyJTZsAomJDU
-         baxfA0ZHwNvbwyWeC55rDJPG52c0HnSEZbZjwK0ErowV7jLgQqMXJ2TrZAQzF+tvpW2P
-         dGTd0M4gKyOOawrwi0QQPVkUC6/e8w3CpfbqfcTN78CtsofRPqFg6xCHSVdLvAAnq3yd
-         adxg==
+        b=VPpO70zSuja92LEDoEm65vkdvmbT5BcqhyhDsCSqd20f+HC6hEoiX+p32+NUUFmIV2
+         9cc9Evvx7OGRAGTe+sPlVX6u3X/JYeyc+yhTzQre7TtjlMygKc5C1hy5FjvhpvpGNj7u
+         9+R3PgOuXc04UsHoEUBebvU/lOtugg8B2nmPwnbjoL77DZ5xTYnwMjIebh6XsfOqB9pq
+         sZkvmI3LOt89TI4gd9+PV2f9nF5RnHcvG+gKO0B4U8r50vY4swUnw5MeTiTqTUxp3dYu
+         3aoYQI3VH6nN1iTQGNZ0v5ROfKA95v/2wULhm+l8NPgdTjf92Q0KUc9VZfV2NQ6Qkq18
+         Gz2w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=vxocWBxPoSE7XWEgraDs2g3LtET7UTFJLMjvpVmaI8A=;
-        b=x1jNIGLN5MLloRTQBFI+svmnmAcCgO2qtaTI65p+YK1oEcCe5ogVnM1FuEJb6r5LlY
-         RKBe0fz1c101Lf3dWdvKkQ8p6NWbt+sftd6hLvxIdDwQDYvdU/kITPDYTI1ziaFkdlrN
-         2VqYupiGqj3aNcLXuVXobc/ZA3ZGlxK12sqsV5RsDvL+/CQ4eWQ0AKtnA1e1TIfxK7Zq
-         CvD4XSP1CuZtWAlf28i7wwxmD2RDQ1n6SRAAmr83G7aNIu7ekLCscgDunlKzxhs85Dat
-         aVTQ7emhVncbqclLOJje6a24pK/oei9zqlytiqQIsBa+ZL6XCNNoqQ/Mxn91urax/w5V
-         ltzw==
+        h=content-transfer-encoding:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=0kLpAJfREYq6GKkHQ+K1xBVCBEBTdg1HqtiKkcyWs/k=;
+        b=jVHU+oUA0px/btmTNohDn2F3uux1W3Icm4qyNGoC3gJLcUCypii2dE46AaiiiU68tg
+         mVwvNPLfeREFdkjlzLaoPdRNxlZGn3FPNM7boNPiUXmkw8h1BXDvI9TEs8KHBOcK0BDK
+         n7yxdlYfWIeqKy5ynH6OhWwSDv34Q2klmbkN+gqnLq9ZE/J7CtqJ5ELhY/lonc3467x7
+         mTUFBkBll69zXdSgZmW8NoTRscD08x867rmqUGjYfkQvEkrt7RiJp2m9t6m8i/4sKROA
+         f7fiIv/8tEjABlI1AGis/+dlKabnl8P+MDBFcLQZThi+jquamKY+CFPMtgMKSq/XIaLc
+         /uKA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linux-foundation.org header.s=google header.b=TqP98Es7;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
-Received: from mail-lf1-x142.google.com (mail-lf1-x142.google.com. [2a00:1450:4864:20::142])
-        by gmr-mx.google.com with ESMTPS id d23si376943ljo.5.2019.08.30.08.49.08
+       spf=pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [207.82.80.151])
+        by gmr-mx.google.com with ESMTPS id r1si108605wrp.3.2019.08.30.08.55.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Aug 2019 08:49:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of torvalds@linuxfoundation.org designates 2a00:1450:4864:20::142 as permitted sender) client-ip=2a00:1450:4864:20::142;
-Received: by mail-lf1-x142.google.com with SMTP id u13so5695539lfm.9
-        for <clang-built-linux@googlegroups.com>; Fri, 30 Aug 2019 08:49:08 -0700 (PDT)
-X-Received: by 2002:ac2:4835:: with SMTP id 21mr9607720lft.121.1567180147430;
-        Fri, 30 Aug 2019 08:49:07 -0700 (PDT)
-Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com. [209.85.167.53])
-        by smtp.gmail.com with ESMTPSA id r20sm968678lfm.41.2019.08.30.08.49.06
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 Aug 2019 08:49:06 -0700 (PDT)
-Received: by mail-lf1-f53.google.com with SMTP id q27so5687498lfo.10
-        for <clang-built-linux@googlegroups.com>; Fri, 30 Aug 2019 08:49:06 -0700 (PDT)
-X-Received: by 2002:ac2:5976:: with SMTP id h22mr2633464lfp.79.1567180145802;
- Fri, 30 Aug 2019 08:49:05 -0700 (PDT)
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 30 Aug 2019 08:55:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as permitted sender) client-ip=207.82.80.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-162-f_2tIRpBNluQeo7ZqbvEUQ-1; Fri, 30 Aug 2019 16:55:48 +0100
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Fri, 30 Aug 2019 16:55:47 +0100
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Fri, 30 Aug 2019 16:55:47 +0100
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Linus Torvalds' <torvalds@linux-foundation.org>, Josh Poimboeuf
+	<jpoimboe@redhat.com>
+CC: Arnd Bergmann <arnd@arndb.de>, Nick Desaulniers <ndesaulniers@google.com>,
+	Ilie Halip <ilie.halip@gmail.com>, Linux Kernel Mailing List
+	<linux-kernel@vger.kernel.org>, clang-built-linux
+	<clang-built-linux@googlegroups.com>, Peter Zijlstra <peterz@infradead.org>,
+	"Paul E. McKenney" <paulmck@linux.ibm.com>
+Subject: RE: objtool warning "uses BP as a scratch register" with clang-9
+Thread-Topic: objtool warning "uses BP as a scratch register" with clang-9
+Thread-Index: AQHVX0pqqj9VEXOMQ0SdqQ13OMpYJacT10cw
+Date: Fri, 30 Aug 2019 15:55:47 +0000
+Message-ID: <d1af87f139b54346b420d06855297cfa@AcuMS.aculab.com>
 References: <CAK8P3a2DWh54eroBLXo+sPgJc95aAMRWdLB2n-pANss1RbLiBw@mail.gmail.com>
  <CAKwvOdnD1mEd-G9sWBtnzfe9oGTeZYws6zNJA7opS69DN08jPg@mail.gmail.com>
  <CAK8P3a0nJL+3hxR0U9kT_9Y4E86tofkOnVzNTEvAkhOFxOEA3Q@mail.gmail.com>
  <CAK8P3a0bY9QfamCveE3P4H+Nrs1e6CTqWVgiY+MCd9hJmgMQZg@mail.gmail.com>
- <20190828152226.r6pl64ij5kol6d4p@treble> <CAK8P3a2ATzqRSqVeeKNswLU74+bjvwK_GmG0=jbMymVaSp2ysw@mail.gmail.com>
- <20190829173458.skttfjlulbiz5s25@treble> <CAHk-=wi-epJZfBHDbKKDZ64us7WkF=LpUfhvYBmZSteO8Q0RAg@mail.gmail.com>
+ <20190828152226.r6pl64ij5kol6d4p@treble>
+ <CAK8P3a2ATzqRSqVeeKNswLU74+bjvwK_GmG0=jbMymVaSp2ysw@mail.gmail.com>
+ <20190829173458.skttfjlulbiz5s25@treble>
+ <CAHk-=wi-epJZfBHDbKKDZ64us7WkF=LpUfhvYBmZSteO8Q0RAg@mail.gmail.com>
  <CAK8P3a1K5HgfACmJXr4dTTwDJFz5BeSCCa3RQWYbXGE-2q4TJQ@mail.gmail.com>
- <CAHk-=whuUdqrh2=LLNfRiW6oadx0zzGVkvqyx_O1cGLa2U6Jjg@mail.gmail.com> <20190830150208.jyk7tfzznqimc6ow@treble>
-In-Reply-To: <20190830150208.jyk7tfzznqimc6ow@treble>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 30 Aug 2019 08:48:49 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wgqAcRU99Dp20+ZAux7Mdgbnw5deOguwOjdCJY0eNnSkA@mail.gmail.com>
-Message-ID: <CAHk-=wgqAcRU99Dp20+ZAux7Mdgbnw5deOguwOjdCJY0eNnSkA@mail.gmail.com>
-Subject: Re: objtool warning "uses BP as a scratch register" with clang-9
-To: Josh Poimboeuf <jpoimboe@redhat.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Ilie Halip <ilie.halip@gmail.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Peter Zijlstra <peterz@infradead.org>, 
-	"Paul E. McKenney" <paulmck@linux.ibm.com>
+ <CAHk-=whuUdqrh2=LLNfRiW6oadx0zzGVkvqyx_O1cGLa2U6Jjg@mail.gmail.com>
+ <20190830150208.jyk7tfzznqimc6ow@treble>
+ <CAHk-=wgqAcRU99Dp20+ZAux7Mdgbnw5deOguwOjdCJY0eNnSkA@mail.gmail.com>
+In-Reply-To: <CAHk-=wgqAcRU99Dp20+ZAux7Mdgbnw5deOguwOjdCJY0eNnSkA@mail.gmail.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
+MIME-Version: 1.0
+X-MC-Unique: f_2tIRpBNluQeo7ZqbvEUQ-1
+X-Mimecast-Spam-Score: 0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: torvalds@linux-foundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linux-foundation.org header.s=google header.b=TqP98Es7;
-       spf=pass (google.com: domain of torvalds@linuxfoundation.org designates
- 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=torvalds@linuxfoundation.org
+X-Original-Sender: david.laight@aculab.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of david.laight@aculab.com designates 207.82.80.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,34 +156,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Aug 30, 2019 at 8:02 AM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
->
-> For KASAN, the Clang threshold for inserting memset() is *2* consecutive
-> writes instead of 17.  Isn't that likely to cause tearing-related
-> surprises?
+From: Linus Torvalds
+> Sent: 30 August 2019 16:49
+> On Fri, Aug 30, 2019 at 8:02 AM Josh Poimboeuf <jpoimboe@redhat.com> wrote:
+> >
+> > For KASAN, the Clang threshold for inserting memset() is *2* consecutive
+> > writes instead of 17.  Isn't that likely to cause tearing-related
+> > surprises?
+> 
+> Tearing isn't likely to be a problem.
+> 
+> It's not like memcpy() does byte-by-byte copies. If you pass it a
+> word-aligned pointer, it will do word-aligned accesses simply for
+> performance reasons.
+> 
+> Even on x86, where we use "rep movsb", we (a) tend to disable it for
+> small copies and (b) it turns out that microcode that does the
+> optimized movsb (which is the only case we use it) probably ends up
+> doing atomic things anyway. Note the "probably". I don't have
+> microcode source code, but there are other indications like "we know
+> it doesn't take interrupts on a byte-per-byte level, only on the
+> cacheline level".
+> 
+> So it's probably not an issue from a tearing standpoint - but it
+> worries me because of "this has to be a leaf function" kind of issues
+> where we may be using individual stores on purpose. We do have things
+> like that.
 
-Tearing isn't likely to be a problem.
+Even in userspace you might be accessing mmap()ed PCIe device memory.
+The last thing you want is the compiler converting anything into
+'rep movsb'.
 
-It's not like memcpy() does byte-by-byte copies. If you pass it a
-word-aligned pointer, it will do word-aligned accesses simply for
-performance reasons.
+	David
 
-Even on x86, where we use "rep movsb", we (a) tend to disable it for
-small copies and (b) it turns out that microcode that does the
-optimized movsb (which is the only case we use it) probably ends up
-doing atomic things anyway. Note the "probably". I don't have
-microcode source code, but there are other indications like "we know
-it doesn't take interrupts on a byte-per-byte level, only on the
-cacheline level".
-
-So it's probably not an issue from a tearing standpoint - but it
-worries me because of "this has to be a leaf function" kind of issues
-where we may be using individual stores on purpose. We do have things
-like that.
-
-               Linus
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHk-%3DwgqAcRU99Dp20%2BZAux7Mdgbnw5deOguwOjdCJY0eNnSkA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d1af87f139b54346b420d06855297cfa%40AcuMS.aculab.com.
