@@ -1,137 +1,129 @@
-Return-Path: <clang-built-linux+bncBDSIZNM7U4BRB37FUHVQKGQET6VFRRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCNODNHUQUJBBAGOULVQKGQE6O7VHVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43c.google.com (mail-wr1-x43c.google.com [IPv6:2a00:1450:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 58F43A2BBC
-	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 02:50:55 +0200 (CEST)
-Received: by mail-wr1-x43c.google.com with SMTP id b1sf3024110wru.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 17:50:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567126255; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0FC0BA2E6A
+	for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 06:33:06 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id q12sf4303422pfl.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 29 Aug 2019 21:33:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567139584; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AFCY6a/UDTirevSVev+Hbtp0S66dUb9YEGDQcqJGn0huT9LTHXp60sYOZFgHmTteR0
-         6EbWsNVJst++0B8bTlNtUU7EBhl7Z37/gH7QckUb5DVhclSQBEnfrtPQLxGVRYxyuOlA
-         RhatquZlZ4DkxZ0oAWCHH8X8PwOIEoYzlaG8MeJwvziR0+N2MGo/G7kZbDFc91ojYNW4
-         pn2IrrODDDMzj9UPETV9namzrHJD/bVAAFbzsMq09X3e1LOBTIHjCfE7uy/QZoSvFu46
-         cfDpaVox62hBFMnY/QhBtpQlLegEhs34IT623lDS82JSwiGCuJRcVEr+lpghucwRaJP6
-         oxRw==
+        b=vWdZ8b+U4OSbs8JFOYLEQnl648YyVIII80DFOKyMBu3dO1HOFMyHJFdoqp42Nd/5Ds
+         IaLG1Zs5nSWcDE3wOuv1JA6jms4sLNs4XcxvYcEJBlPvDWzKFqJNA5fZkL4AMoPzK6W4
+         p0y1KpfynFYlozqDFukwaQnokNqky1S+sbRJu8GHP5ek8WPyFNkT+XmzlmnR2sHx8dAX
+         dySUvQKulHKQNZSkOpqzktzyA+EE2fKZGMW3qt8IECYgrEx379HTF/7rBowSeR5bHIll
+         MpnH6A3otKrsjuWty0+q8Hy8VtQB6gXHm0cB5V2yWgDkNGPQJOk2zrVv+cOpPE9GCUCg
+         rGmQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:references:in-reply-to:message-id
-         :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=HoTDLdiAJUK0EWQy19jue8OrvdxcWe4S40qGAhoh7+Q=;
-        b=REX1A0CPAojvsfOLAfx0G7e4uleJa47LGK/KWi7cEXZp9zeNnB0qoubQMrSrE3wdTw
-         ZxZWrjppT88u6pawMyNccPUUCTjI1bp1kUYUmAhJlJDhOp8qyumqPWBqDj5dPI4dVQWY
-         hUaclvtJdRlEk/2ms5DrZVmBK4fVTPd6J8wcNLfrlRrEIHXPQHafwlN+oOkiORcEOeyH
-         IJHJQWV4syW4dyQWoT9teQG3oQg6ZrsK1tnuN3OB0xJVl2qxowIbQzRtk+FV3MqGx/ID
-         a756HJjSYaRmLKTu3dyJTHxNRAA0p1SRvzUy9uJ3AhhuSQYqFq3gEwmQAhK1/vQCujM0
-         eTNQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=H73h1jhe2lYjpNI1yMPkO/ivSMa7AXmdRZORVv3oA+Y=;
+        b=C0H3saNWYyHy6oVttrYGi2sFE7437CqtKozfqKr1UUd/7zTRKDZHeBhJdJ9TJp8ctU
+         bGazw9XqWLTy60LiAreLUB4s/xME4kB+avF0hLwXJKRr1vHM8foF/qBBQumayxWNaiPt
+         iqPs52cNaL+6udAjXwHjIfdcvpBmBS5Sc+xU4RRnZItcCY54x0ttZBWVgLR792iyUxUc
+         p9szso+aOZOQYdLZi+PgmTi8QV7ORo2YwcFrT/C5mhnq1wmtssOku1J/ZPr1ESdoSv/7
+         OpmF0wYO9caxcjE6I3UiQ4OyGxdm2z9Q9oL4nfZBJr2peFzligAjXOqxI4eZZgCl/UTi
+         4Oug==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Okdsp5Zx;
-       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::241 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=sHAapob+;
+       spf=pass (google.com: domain of saravanak@google.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=saravanak@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id:in-reply-to
-         :references:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HoTDLdiAJUK0EWQy19jue8OrvdxcWe4S40qGAhoh7+Q=;
-        b=hyw2XrZ4Vt+xHXY9IFR9z1ZDG4D8yJp7qFTKMM7x1gFADJKymi6/2s9o8E+iUHfx6V
-         EpZOC+0AqtvCQ5uz3rDAjQi9K+LbBbBe1WTFk8v3r+1LG0AYr0KeZ/xhZOdxLbwNtWQY
-         oTcAGalQN7tjfoDUsjl+wkSN3XpEyJb5ko9SmyG512vl3vNgYv1XmsrT8arEYAjGo8Q9
-         AJbSxsJN1m8lthv8LkngschNGmzcbPZlzpfvE/uH9jwhFryKzD8FJpO7y7DRVFOPAtoW
-         0HtjKq9PtHBHdjle8O1dEtHEoSkwQ8O8zLukHakvB+8FunLzOhXBFpcOW9LElEk+xbnr
-         UvoQ==
+        bh=H73h1jhe2lYjpNI1yMPkO/ivSMa7AXmdRZORVv3oA+Y=;
+        b=Y6T7gLQCVH7r6gufNdjTdnX24aLaRUpJEBtbKn+zdGVhGsxrnkxXq5H06JqJkRqx6T
+         yhGNZshTzNRlmxiis3rf3/XMpnraCuqvXIIhX1RGvCO+D/VmINN7Sdy9JaYlvDJ27dVh
+         eya0efvuxbgkHH0k5uKkHsXLsPkU8WcUT6NjAveE289WV3307Bj/pT98ba7Mv84fhpkB
+         +Eq+JQEjJwgMO/4Z5qbzNeMS1EKb/pWDs95QGiVdfDFauFub6XUjO/0dMJr5XTi+1G+O
+         e+v2esHrcl5VCXRVbk+7jopQ0nfoDcDpW3wKTJDfmOctORGrLyZmHv6j95NPd7nbhWNF
+         sBuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:in-reply-to:references:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HoTDLdiAJUK0EWQy19jue8OrvdxcWe4S40qGAhoh7+Q=;
-        b=ILXDxYWFB0n+YO1rrbw7V/gG7zYbJeo/Nqdq/QN1t2hdtrOHChyaAn4fPx7oLzMfNx
-         +fw91MTMybunHLequGBXUAiiPMSPeHDPZtZPb7NjfSubw9TYm6ZnjYR1iunlHH3Jp3OX
-         0q7hAq/qGvq8Ef/9ofwyIco/w5+wJBhrSAram5KQYR9i2e8DFsDuok5G8mOenoE08HKH
-         +eYOs3WJ4L2SQreffpwwVE+cKF3YRbJiYikewExRbVWUhcDae6fV9O23G6/2R6rj3evM
-         2HUoQBs5fA+TN5wX8VVZP759+4E4goFw2eVXy3Lmv+k1YtLUKT0jRT1FwrVASM7txBTT
-         igzw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUQnQX5oUigiaFLLz7iOEq+Ckb5Rya+f2m7Q2X7157BgLoei0EF
-	guwNf614ZmefdfqKWbe5/uM=
-X-Google-Smtp-Source: APXvYqw83s+KrsMmlG9Z8XMO8b2DgLAk5mJ/KiMBUVGxZ8g1Xd7HtcEGHXdu/iLiInGu6GjeFK6AuA==
-X-Received: by 2002:a05:600c:2102:: with SMTP id u2mr15223617wml.105.1567126255061;
-        Thu, 29 Aug 2019 17:50:55 -0700 (PDT)
-MIME-Version: 1.0
+        bh=H73h1jhe2lYjpNI1yMPkO/ivSMa7AXmdRZORVv3oA+Y=;
+        b=agtvVewidQNYZUs2P3VImuJsVPROVOalWcZCooUu0KaPdMQkma8KGbF8fw12L7hARb
+         qDm07dh00cb+VuC740/vc2jFj42w/wBajPtpl27BTq0yDq3OpJCnhsr0unZfSGXm5Ja5
+         a5yANQMZCqlvIiXHV1JyPfWZ1C4ECvxKESmdVsg0GPpz9xKSby1LpZMbWIkszE09kSEk
+         a658N3Hnq734gSqTe3AeX176C6EW8vCXEL6Lmb5EjrDXIcBe+APnaigJSrK3ENNEGZ+L
+         IGyB+3i4+RPbwkNeg/wFc6wtvv8sInBU8bmU6Jzw23R1knYlc3Et2xvY03zyOVPhCx/T
+         kxJA==
+X-Gm-Message-State: APjAAAUVP0uQG3qWRbDjzKZwF4ppGu8XcJMQyRrVMCU8aI1nB96ZPGnD
+	/uKVQoes1uSljBo7QotLha0=
+X-Google-Smtp-Source: APXvYqwkBg6P+YlCiTJz7lHIST/RLGlcdrFUMSVm1jF9Sfl5xlxd3iS2YMBPRTJSNsDq/bCIfRg2Cw==
+X-Received: by 2002:a62:3681:: with SMTP id d123mr15752541pfa.147.1567139584289;
+        Thu, 29 Aug 2019 21:33:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f3c4:: with SMTP id g4ls686399wrp.4.gmail; Thu, 29 Aug
- 2019 17:50:54 -0700 (PDT)
-X-Received: by 2002:a05:6000:1002:: with SMTP id a2mr2970362wrx.28.1567126254669;
-        Thu, 29 Aug 2019 17:50:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567126254; cv=none;
+Received: by 2002:a63:90:: with SMTP id 138ls1121884pga.1.gmail; Thu, 29 Aug
+ 2019 21:33:04 -0700 (PDT)
+X-Received: by 2002:a62:7789:: with SMTP id s131mr15790866pfc.50.1567139584016;
+        Thu, 29 Aug 2019 21:33:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567139584; cv=none;
         d=google.com; s=arc-20160816;
-        b=Fs5rBVGkXpBmqCOnpe99lkmK3qe6SCcG7F7+l/i9Sf5kmV2A0KUx8QUS4L0CxcimPU
-         fKnkz1unB87XJlN7kk75gL2jZKqq6PrXLiwv8uBFR9JyM9Re8i9Z1FyBDY1UNlzWAGLM
-         szKFUVnA+bwS1N2daaDZvKT2wVJZ9DF3HMzRfLg1xYwgI/UBqDo4bMGmEJUCAoM39EIv
-         tTaz/dBp2SuXCkQ+r48x2KZhXkdGAObzQefo4De1kWXdKl0/rIlKwJB3EQq5n/LcWnwQ
-         lL7e0HF3JhHJlq+WgEfbx1bypVroQeQ3YBjsxTwayNefRHYU/kbRxW0fbdAR3bj2fYC7
-         kFzw==
+        b=YpwA4gIjdHQXIgfB4Wq+EyMSnw+QjHl4sI7BmKrd6uSGP+MRRyF0DcIu6gmtAanDTf
+         W+LiBTlXdTpYCKVYfZFCNF+Ve/+qh/U44DIJYg2gjse5jtKnU+TK1sp7C93PFPNiJb1E
+         VxHKOoUpmkIpvKqf6vSKMp4GC1aNNd+JWZQDu5PTT4S4iFtKVXioOAAI79IUKy3s96UR
+         PyEqDSXFtFKcuhPUvA5F27BhBkZBZ9pMmV4qio2/nxsqatgm97x29k/3OjCdfIX7USLT
+         m10nlws8sUSuXDsXIXhoHIyuFzs7+ysgom76e+T/HcxLhTCpkzAEBCeOtu7QpuYRSn3f
+         RBSQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :dkim-signature;
-        bh=mY025N9ZTLshq6bUASscJHYyFWN73WCKPGSueHP30TA=;
-        b=qHKmV3ifvmp4ztEv+FrWz+HW7Kky3cBksbIliiyDc8Tu3tLCE2MIj/vVdYZxm2Ke/v
-         OcK0XODIQYB0iRsGEY2eTaj1r1/yaALuApk1ZorZ7ZRa2NMksHRMXkYKbrICHNvhXpNc
-         /sCgS79sGYtTr3MUPpsRd+NDxaumSSzJ2tENW6SsDByOZxK4hhtsh1r7o8KDJ/qCtTm8
-         t4DDRWtOQLknsUaYNl+0QOhc2vHxmE08uFvDvUodXWEc0Vxnu6k6gy13YhCdOUeRsbDE
-         7GFpdtptnGwrYYtO7n+NeCdXVB41vcmTMUOmKzpOQ6NlFykR0zM0wGovNGIX6umhvWBr
-         +6uA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=dckypzty3MXWBDTJpI2rCDfqM2cRZodYiUO2dmQlaCU=;
+        b=BPtnmpnRQw7zd6fmlO2iM8a/3ZvgoGWeo0BYsoJa1yEykgkOFQIg3JJ3BWlBRSCV7B
+         sWCFibdi2xPUF5H8VNMGIwk1eqVvcZ6WckLAcof/x1PKGGtOMhKh1WqKBO5j4UatAE7t
+         n+9yaGRVTIXELSNhibzJ7LEWP5TnB+145Dz5JLZ9P1O0pSAr27v0e92A80KhREdUomy2
+         OxPxn8MV6at5cDz/ncmYYwHPeVaTiOYGqxxhcK/PFIpejUDHjutyX7Fx+vCij06hdXvR
+         OoWB8rtntADyRou/1W40Dg5N55QBbOg9R1XsTUUkCBoNoQfq3H+/HMTT0Jzfq+4tKJ99
+         ZCaw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=Okdsp5Zx;
-       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::241 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-lj1-x241.google.com (mail-lj1-x241.google.com. [2a00:1450:4864:20::241])
-        by gmr-mx.google.com with ESMTPS id b15si380484wmg.1.2019.08.29.17.50.54
+       dkim=pass header.i=@google.com header.s=20161025 header.b=sHAapob+;
+       spf=pass (google.com: domain of saravanak@google.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=saravanak@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id f125si262274pgc.4.2019.08.29.21.33.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 Aug 2019 17:50:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::241 as permitted sender) client-ip=2a00:1450:4864:20::241;
-Received: by mail-lj1-x241.google.com with SMTP id t14so4834185lji.4
-        for <clang-built-linux@googlegroups.com>; Thu, 29 Aug 2019 17:50:54 -0700 (PDT)
-X-Received: by 2002:a2e:2bda:: with SMTP id r87mr1097319ljr.3.1567126254430;
-        Thu, 29 Aug 2019 17:50:54 -0700 (PDT)
-Received: from localhost.localdomain (168-200-94-178.pool.ukrtel.net. [178.94.200.168])
-        by smtp.gmail.com with ESMTPSA id f19sm628149lfk.43.2019.08.29.17.50.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 29 Aug 2019 17:50:53 -0700 (PDT)
-From: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
-To: linux@armlinux.org.uk,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	yhs@fb.com,
-	davem@davemloft.net,
-	jakub.kicinski@netronome.com,
-	hawk@kernel.org,
-	john.fastabend@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
-Subject: [PATCH RFC bpf-next 10/10] arm: include: asm: unified: mask .syntax unified for clang
-Date: Fri, 30 Aug 2019 03:50:37 +0300
-Message-Id: <20190830005037.24004-11-ivan.khoronzhuk@linaro.org>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20190830005037.24004-1-ivan.khoronzhuk@linaro.org>
-References: <20190830005037.24004-1-ivan.khoronzhuk@linaro.org>
-X-Original-Sender: ivan.khoronzhuk@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=Okdsp5Zx;       spf=pass
- (google.com: domain of ivan.khoronzhuk@linaro.org designates
- 2a00:1450:4864:20::241 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+        Thu, 29 Aug 2019 21:33:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of saravanak@google.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
+Received: by mail-oi1-x242.google.com with SMTP id l2so4414488oil.0
+        for <clang-built-linux@googlegroups.com>; Thu, 29 Aug 2019 21:33:03 -0700 (PDT)
+X-Received: by 2002:aca:cc81:: with SMTP id c123mr9117245oig.30.1567139582896;
+ Thu, 29 Aug 2019 21:33:02 -0700 (PDT)
+MIME-Version: 1.0
+References: <20190829074603.70424-1-saravanak@google.com> <CAL_Jsq+2vR75ofq=aKOt1bb1T-JfhiGSR9dnHWQf7VLmgJP4eA@mail.gmail.com>
+In-Reply-To: <CAL_Jsq+2vR75ofq=aKOt1bb1T-JfhiGSR9dnHWQf7VLmgJP4eA@mail.gmail.com>
+From: "'Saravana Kannan' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 29 Aug 2019 21:32:26 -0700
+Message-ID: <CAGETcx_8AS8AVB-95vSzXXC=Rs0+0sp3OnJvFWXWtwEn-wH-ew@mail.gmail.com>
+Subject: Re: [PATCH v10 0/7] Solve postboot supplier cleanup and optimize
+ probe ordering
+To: Rob Herring <robh+dt@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Frank Rowand <frowand.list@gmail.com>, 
+	Jonathan Corbet <corbet@lwn.net>, Len Brown <lenb@kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>, linux-acpi@vger.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	David Collins <collinsd@codeaurora.org>, Android Kernel Team <kernel-team@android.com>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: saravanak@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=sHAapob+;       spf=pass
+ (google.com: domain of saravanak@google.com designates 2607:f8b0:4864:20::242
+ as permitted sender) smtp.mailfrom=saravanak@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Saravana Kannan <saravanak@google.com>
+Reply-To: Saravana Kannan <saravanak@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,46 +136,138 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The samples/bpf reuses linux headers, with clang -emit-llvm,
-so this w/a is only for samples/bpf (samples/bpf/Makefile CLANG-bpf).
+On Thu, Aug 29, 2019 at 9:43 AM Rob Herring <robh+dt@kernel.org> wrote:
+>
+> On Thu, Aug 29, 2019 at 2:46 AM Saravana Kannan <saravanak@google.com> wrote:
+> >
+> > Add device-links to track functional dependencies between devices
+> > after they are created (but before they are probed) by looking at
+> > their common DT bindings like clocks, interconnects, etc.
+> >
+> > Having functional dependencies automatically added before the devices
+> > are probed, provides the following benefits:
+> >
+> > - Optimizes device probe order and avoids the useless work of
+> >   attempting probes of devices that will not probe successfully
+> >   (because their suppliers aren't present or haven't probed yet).
+> >
+> >   For example, in a commonly available mobile SoC, registering just
+> >   one consumer device's driver at an initcall level earlier than the
+> >   supplier device's driver causes 11 failed probe attempts before the
+> >   consumer device probes successfully. This was with a kernel with all
+> >   the drivers statically compiled in. This problem gets a lot worse if
+> >   all the drivers are loaded as modules without direct symbol
+> >   dependencies.
+> >
+> > - Supplier devices like clock providers, interconnect providers, etc
+> >   need to keep the resources they provide active and at a particular
+> >   state(s) during boot up even if their current set of consumers don't
+> >   request the resource to be active. This is because the rest of the
+> >   consumers might not have probed yet and turning off the resource
+> >   before all the consumers have probed could lead to a hang or
+> >   undesired user experience.
+> >
+> >   Some frameworks (Eg: regulator) handle this today by turning off
+> >   "unused" resources at late_initcall_sync and hoping all the devices
+> >   have probed by then. This is not a valid assumption for systems with
+> >   loadable modules. Other frameworks (Eg: clock) just don't handle
+> >   this due to the lack of a clear signal for when they can turn off
+> >   resources. This leads to downstream hacks to handle cases like this
+> >   that can easily be solved in the upstream kernel.
+> >
+> >   By linking devices before they are probed, we give suppliers a clear
+> >   count of the number of dependent consumers. Once all of the
+> >   consumers are active, the suppliers can turn off the unused
+> >   resources without making assumptions about the number of consumers.
+> >
+> > By default we just add device-links to track "driver presence" (probe
+> > succeeded) of the supplier device. If any other functionality provided
+> > by device-links are needed, it is left to the consumer/supplier
+> > devices to change the link when they probe.
+> >
+> > v1 -> v2:
+> > - Drop patch to speed up of_find_device_by_node()
+> > - Drop depends-on property and use existing bindings
+> >
+> > v2 -> v3:
+> > - Refactor the code to have driver core initiate the linking of devs
+> > - Have driver core link consumers to supplier before it's probed
+> > - Add support for drivers to edit the device links before probing
+> >
+> > v3 -> v4:
+> > - Tested edit_links() on system with cyclic dependency. Works.
+> > - Added some checks to make sure device link isn't attempted from
+> >   parent device node to child device node.
+> > - Added way to pause/resume sync_state callbacks across
+> >   of_platform_populate().
+> > - Recursively parse DT node to create device links from parent to
+> >   suppliers of parent and all child nodes.
+> >
+> > v4 -> v5:
+> > - Fixed copy-pasta bugs with linked list handling
+> > - Walk up the phandle reference till I find an actual device (needed
+> >   for regulators to work)
+> > - Added support for linking devices from regulator DT bindings
+> > - Tested the whole series again to make sure cyclic dependencies are
+> >   broken with edit_links() and regulator links are created properly.
+> >
+> > v5 -> v6:
+> > - Split, squashed and reordered some of the patches.
+> > - Refactored the device linking code to follow the same code pattern for
+> >   any property.
+> >
+> > v6 -> v7:
+> > - No functional changes.
+> > - Renamed i to index
+> > - Added comment to clarify not having to check property name for every
+> >   index
+> > - Added "matched" variable to clarify code. No functional change.
+> > - Added comments to include/linux/device.h for add_links()
+> >
+> > v7 -> v8:
+> > - Rebased on top of linux-next to handle device link changes in [1]
+> >
+> > v8 -> v9:
+> > - Fixed kbuild test bot reported errors (docs and const)
+> >
+> > v9->v10:
+> > - Changes made based on reviews on LKML [2] and discussions at ELC [3]
+> > - Dropped the edit_links() patch
+> > - Dropped the patch that skips linking for default bus nodes
+> > - 1/7: Changed from bus.add_links() to fwnode.ops.add_links()
+> > - 1/7: Update device link doc
+> > - 1/7: Lots of comments/fn doc updates
+> > - 1/7: Renamed device_link_check_waiting_consumers() to
+> >   device_link_add_missing_supplier_links()
+> > - 2/7: Moved DT parsing/linking code from of/platform.c to of/property.c
+>
+> Why? You'll notice that of/property.c doesn't know anything about
+> platform_device (and struct device):
+>
+> $ git grep platform_device -- drivers/of/property.c
+> $
+>
+> Everything related to platform_device goes in of/platform.c.
+> Everything related to struct device only goes in of/device.c. I'd be
+> okay with a new file for this too.
 
-It allows to build samples/bpf for arm on target board.
-In another way clang -emit-llvm generates errors like:
+The only platform_device related code in what got moved to
+of/property.c is the call to of_find_device_by_node(). And that's
+because I forgot that function returns a platform_device --- it should
+really have been called of_find_plat_device_by_node() or something
+similar. Outside of that, of/property.c makes sense because that's
+where the fwnode ops are implemented.
 
-<inline asm>:1:1: error: unknown directive
-.syntax unified
+As you mentioned in the other email, just searching platform_bus is
+not sufficient. So I'll have to figure something out for that. Once I
+do, I think the code will be fine in of/property.c as it shouldn't
+have any reference to platform_device.
 
-I have verified it on clang 5, 6 ,7, 8, 9, 10
-as on native platform as for cross-compiling. This decision is
-arguable, but it doesn't have impact on samples/bpf so it's easier
-just ignore it for clang, at least for now...
+Thanks for catching what I missed.
 
-Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
----
- arch/arm/include/asm/unified.h | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm/include/asm/unified.h b/arch/arm/include/asm/unified.h
-index 1e2c3eb04353..3cf8757b9a14 100644
---- a/arch/arm/include/asm/unified.h
-+++ b/arch/arm/include/asm/unified.h
-@@ -11,7 +11,11 @@
- #if defined(__ASSEMBLY__)
- 	.syntax unified
- #else
--__asm__(".syntax unified");
-+
-+#ifndef __clang__
-+	__asm__(".syntax unified");
-+#endif
-+
- #endif
- 
- #ifdef CONFIG_CPU_V7M
--- 
-2.17.1
+-Saravana
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190830005037.24004-11-ivan.khoronzhuk%40linaro.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAGETcx_8AS8AVB-95vSzXXC%3DRs0%2B0sp3OnJvFWXWtwEn-wH-ew%40mail.gmail.com.
