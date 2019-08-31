@@ -1,122 +1,141 @@
-Return-Path: <clang-built-linux+bncBCYYJNMLYYMRBBOJU3VQKGQEAZHQV6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB3HXU3VQKGQEOKKEPVA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id E4534A409A
-	for <lists+clang-built-linux@lfdr.de>; Sat, 31 Aug 2019 00:34:46 +0200 (CEST)
-Received: by mail-pf1-x438.google.com with SMTP id i2sf6483339pfe.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 15:34:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567204485; cv=pass;
+Received: from mail-pl1-x640.google.com (mail-pl1-x640.google.com [IPv6:2607:f8b0:4864:20::640])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7D05CA4140
+	for <lists+clang-built-linux@lfdr.de>; Sat, 31 Aug 2019 02:14:38 +0200 (CEST)
+Received: by mail-pl1-x640.google.com with SMTP id u24sf5055578plq.22
+        for <lists+clang-built-linux@lfdr.de>; Fri, 30 Aug 2019 17:14:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567210477; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cQf52XJi/wsWjCy8mH7t0ADM1ekrpVPXXVZxyEG9jDu+kcSf3je3tYcBbuOkSYif2z
-         YQbrKZ1r9VpMT4gTKjz4Sz/+O0ngguwapFILU6N9mdZa7h4EK4vYdYkWccAjfZc1rgn8
-         LTcoWe5cRFGi2bLN9vbWoKWnnTuB5QvJSw85m/5T9uXUolJLUEoYZAwAMbunV47l5XYC
-         xd7/BxOIKIfGENuA4SG5pHXHBwzxwLJJZNd8E+ufc1BMYCNI/b9aPdC3L+HFdlMHZMDc
-         lOMDTs5nZAgQWjGMb026OuQ1YgQUF6X5WoJX8NiUYaxsZfNjE7LT6/wRhowuFBfnzxuO
-         ayRw==
+        b=0kRmMHU3IaRILfR21F/B1/s6l1E7xtwsITkoHXnE56ctfpXHYTpcUlLJPyTaINZwLW
+         9XhH07upyFjDe0RL+YgDivCKK/9Ff4keRmwWy+pD5dCyxPC2YNm6kvCCP6hHYQ3ZiVF2
+         FwSVqsdp/t4jZzI8QtIr0C7Nh0GIzvTNFnvPONsCuYywF0WNwPeYuP2nuF9YZysV4M8T
+         /dK9MQglJHd1HNA3rFpbO2S5JsFpb1lGmMTBJ9Ty4cA9DRH34w4VW6k5+9Uexu8dq1d6
+         mI5gpgE10elmDfeAayc4jV2qbSXIuQ0POmWIX4c3p/dlkDVt3h9gDcG5MjXm/w5gOA+A
+         GC/Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=zI73ZAghq1MReILmIvhB108tig0isFSIO4ODQlimAyg=;
-        b=WkiuJOcowFgOJaalYlSX9e/n49jVnk3vkvbbTy3VkIcX9gYygspO19NWsC2Lxd87do
-         w5HCqrnlgYGIzT2PxnKBuihstdFjHswt3OhR7A2obAZVLETyiEYZzwRTCudLst6ydk1J
-         pW8Sc3fuWPzte0FIxU13NVaYLej1Eu89Y3wQBd6gg6ZOub47u+aB96eOiv/yVp6O0uwE
-         ddg09epL9flPcqNEnyj8u7uf9NP6l9MHLqhkACbliEeIieSAxV0qpjbwvCFpCcwUgxQF
-         74UF8LvX0J36G/vRWRvg1VyuA5+nVuU+yS0o98ZIBPEk+87ykc99flowgErlRaNC7wZE
-         Gm5Q==
+         :content-disposition:mime-version:references:mail-followup-to
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=iZXqcqHmdNofoegIgId5ZQ2URK1d/E8ek8wb34inH8I=;
+        b=PHJ3uGy9bX6J+BFUHoc+QvUb/dVke0/RQ2Cs5xrvRP1/evMYW4C52xuAXyXkbrcnGn
+         6B12RkSzPpId4z/+80UaLJBdvf8LGUfYfJth9gfTM8iMsxJ6bBlKSd4Zk3ctYLni22vG
+         mYV1yRqQfZTQ0NP5ByePptLUlzPA6YbceW7RXqOcex8lSTb9AAFK9Di+UGNpNoLbMpEW
+         5N9++JMyvjT8CKSwrYZ/5IGWz/26SigjI6pvlLHXkC9Stty/sc9ur0eSqijVu31Nf7jH
+         2AxklUSEqezoj+MvsDtHN1eYqH3k6WGCfyJa0D/qzLaUISzxXsujM7MiVSenBhj/+W/g
+         bvEw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
+       dkim=pass header.i=@kernel.org header.s=default header.b=wolHikVM;
+       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zI73ZAghq1MReILmIvhB108tig0isFSIO4ODQlimAyg=;
-        b=fz1un3msvi6oCZPvBtrPJyym2ZpGU2lRnLxfWVBkiRZeiNVeY/KYxl2gZF5MkOhEYQ
-         9+zDzhJX+BVev9RKJQs1GXvsMzE4/PLHTlsFPsU1ijRAtkDS1Myqy6amcJtGrnkSOfWN
-         pPw5QY/6iVZfI1LHy9VzGexLP61qysqbmAP+49oIatMtO18rKGJoVO4H+YSHEhOpHFCf
-         832O7D9tr4V3Aj5aDsrsx0mnbB4MNmFw1YdfHgoeV8TqO9LE6JhOEslqVevEL6fPv45+
-         /eXchvQqp3zi55xeaxCwh+Z3lPtjkrnhiDkAMaFF3pU9HSyMZroWvuiOWv6S2QdT/XIt
-         Gj0Q==
+        h=sender:date:from:to:cc:subject:message-id:mail-followup-to
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=iZXqcqHmdNofoegIgId5ZQ2URK1d/E8ek8wb34inH8I=;
+        b=NgMT4h2zG/8/1gc/XcB7dt0CAQWZZrSi/613msiD11IM13MYyq57zt3F/qr91CAzgB
+         y9RfntW0uJdWW5frM8i4JQMPhJyj2Q+MtjAguhZKZF7Q52oCwRSxa/LNl9U39oUqmrmo
+         rqahExV4A44NfK9DXshn0qIuGF30spQR+3XaLyn7jW9xq2wFY90+8+GyCvD1kiGvyovK
+         xr61nVt8ndRpcx/0bVKK1QHqoElcfWwiIc4xRtLzcGWKTDWPlHPedL5Z3KlkeQ2ju5ds
+         rxn4Y2M+kzaZr7BnxOv4TanM7gatOuXJFreyczYNcGRPqUiHmEvqOEHeGcvv7VXBKvtI
+         klDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=zI73ZAghq1MReILmIvhB108tig0isFSIO4ODQlimAyg=;
-        b=FthOhgnSmZm7Y2lGdeVk+xkt/ATcOaf2HFD6cWcCwURToyBljAZnLHtaFtIZrSfh0b
-         VEglJb605SzzEY/cVkH8wqoanoZwIeSLdnoXODokFjV6VSt6tna6HW6ZKAlE3o/8cZdy
-         eSnf/oaPJ1I9joQHX8XstV+zxm3PeK6spBSKIajkky4UsA81vMZWtnM+GG1z7RD0OyZX
-         K+T7DLOljOSDyN/tnSpLNYfSR2I5R85qba/0YfIzgsRArzt5ZVYZQN7ilOXI2SYk6ekC
-         ni6Z2ls2rgFXhZLSx6moGYEQICRviL5SM82c13NR9sOccz/1v21/6AKb8skMYk6MiDnw
-         6Sdw==
+         :mail-followup-to:references:mime-version:content-disposition
+         :in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=iZXqcqHmdNofoegIgId5ZQ2URK1d/E8ek8wb34inH8I=;
+        b=kgXBPVShHFvCo0lw9pq3l37SRyYnCDHh8DrZtIGC8dpGEhX+CS2dyKq4avZF/ujEPV
+         +Yrpe95IWOhB5nZnJmVo+qNF+YVcF1DhvmPkntn660F3cxsgJLNygXcNSOMEKmJ0Erac
+         ULSDPUB8SlVsw0FCR4UqjCIRB/Fyjpk4RFClc0vsVhgvvvddkjTh1SR/Ephf1lwaqmC4
+         wLmkOM/AK+cT0Wg2ZnWx0nQ3i8Q4dZrQHPKiAnKEuJ7DqlOqRnWfE1ls4GLDMIMFvLwc
+         YqdUpVCqKwa/35ZgSzVq9GADQED7TS7CMEPNif/0xTxV8jCFY3PZ6RLSt8ONT623Erj9
+         b/ww==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWyCIwMrANZNiwFIr9dy+gr2usDk7heVpM0RWV/vf8Kqe/SF33V
-	ZtyB7e8jRSZ5M9wsY0SW8/A=
-X-Google-Smtp-Source: APXvYqxMI3iFinr/NX/MG7T0L6If8POoSz1ZRelLBsl4VrVJouo2xDlEFcsy05a8JsJP9K+cbg8NKg==
-X-Received: by 2002:a63:e807:: with SMTP id s7mr14312991pgh.194.1567204485457;
-        Fri, 30 Aug 2019 15:34:45 -0700 (PDT)
+X-Gm-Message-State: APjAAAWMBSuxy+BHo6HxXF44zebfSnV89SaLT5abyv/qK+9y51f9L7uh
+	DcWQODVNhoAm8aHszmiRepw=
+X-Google-Smtp-Source: APXvYqzaon2wOGCAEkuk/V9Iz0yCUsWaA88yx+hufobgCnAaD2U5xUKtRAeQvvULDze6qObOxVtfpQ==
+X-Received: by 2002:a17:90a:c305:: with SMTP id g5mr1213138pjt.58.1567210476849;
+        Fri, 30 Aug 2019 17:14:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:1c24:: with SMTP id c36ls1581978pgc.14.gmail; Fri, 30
- Aug 2019 15:34:45 -0700 (PDT)
-X-Received: by 2002:a62:1901:: with SMTP id 1mr20964191pfz.172.1567204485197;
-        Fri, 30 Aug 2019 15:34:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567204485; cv=none;
+Received: by 2002:aa7:9e81:: with SMTP id p1ls2564388pfq.2.gmail; Fri, 30 Aug
+ 2019 17:14:36 -0700 (PDT)
+X-Received: by 2002:a62:e915:: with SMTP id j21mr16844035pfh.239.1567210476641;
+        Fri, 30 Aug 2019 17:14:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567210476; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ezo4dHFiCSd87Q2kG1A+pwLMBPBmx6IRW67aRNmh2q6tUIeMOr6nggGfruWMgUJOLI
-         jZsFQIyy4gu+6OsMnv8T0KE8h7XMfbdoLmpiX+MfcXGhd9tiZfTIUQSJ7XVTwzVkUNAB
-         7dAXQmGhuJnX2SESRfgHjiJiTFwtaxRkqLBd1SfoXej5HnaXQ86sWawJidRRMCgxeRnZ
-         S4OxANWrWVFKxWZGBMq0CiXJz8ZJ9apuj7c+pBIPPNyqa0cxL7dsu/BDS8O/pgOqDjBM
-         73XrK/X2EvXT7htQ4nwWk8TklEfgjzAiqQcNDYG6C8BNcZJR9Y7Er8cRANwzxV4IdBhr
-         PQlQ==
+        b=ljP2tdLOwCz3upP1qq6SSzDP82vmy5rOwPkscw9A4d4LfRvCpp8Km3l9OIgvELd7tL
+         /Svr07S9OKhn5LYvZWJ1lan6TdyqXeUVoWqzUJFt+5GmuHxDrHwYu9DZp8Om+BMcFG2H
+         PJHdSrQVA5rqHHVD59uJ880fWRoVp8qyTi6+lk+oB5D008Y9L4L0IJwG0O0nWZxRjPdJ
+         g8vw7QqT5Z3KDXkpUrpIbCht2qlJkzSGQiawxchvmE7flIhDmN0YUieHBT1DLoqd7rYM
+         ceBhFSWg+jn9LR+lZK19DB3gVgoTlAREOLALJMGYOPef8rE/hykMXDTEPZeJUMC5C2fS
+         q8bw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=3eaqEz7u0AlFK01u1u8WQcZgZGUs9CQKJmTpdkJFZNE=;
-        b=WPYzTmyaGeBHBC5NK5zDFnJV0wF8N96YJ/CA7lIt1L77tnz0DlcBY91t4YxVV6TquG
-         iXyok6XJmf/yg+X1gRUfGsrWvoOiDNeR0cJ0NGqbO8VaGts5npqNPx8wHJZR7cIXOa30
-         /M9I9PoEuD8/mw0xdbCXCQechIzlOoua92iOhFZWpfQTJYK2tbbw8+7CdQxXV5FRykQw
-         Xn5wBssw970AlWTtrLv/EqVLRRfGISni50btwzwegjCy3UXac+fpxyL0r8sKds9IchCF
-         j/2a6i4yPE8POpA0H9OfHhd93/dXxD7JDdXxTiuHTy40949Jb/KWHN5anGn7JYGhqigj
-         LHeQ==
+         :mail-followup-to:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=i9Jmx+QzomPtXy1uEt4AwpqffcJza50WEodrvvnjVz4=;
+        b=Hnws09s3WigaCRvuN5pbGRobdS5WRcSfjo5dxfqNPw/QhP8rKnuRtIdil7I4foA0+9
+         UpZMjY0Cf1O1Ua0xO76lgSZUln/mrLUd2oZUXX7r2KdLsCb0HR6Lb1Yo/q3GxckLY6Xq
+         5S4x9/dvmjb1l92iDTH1vz0iWJQztHsTRwf12fvgrZqHh/uvrHOBuh27EhN+xWzq1YS3
+         zFriCD/nDxODhIeOfC9pXMa/tgiGxDFf6485hLOKw0GMUC0zZQm8Dcqm9Kz55mIk8yuA
+         nTReTm2wNcTNdggkITPAoPM9zhJrW/WXZZL4YPpYXskOt5jELjhUTjPLxk+KIW7ZgJ8a
+         8Thw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) smtp.mailfrom=tytso@mit.edu
-Received: from outgoing.mit.edu (outgoing-auth-1.mit.edu. [18.9.28.11])
-        by gmr-mx.google.com with ESMTPS id a79si627009pfa.5.2019.08.30.15.34.44
+       dkim=pass header.i=@kernel.org header.s=default header.b=wolHikVM;
+       spf=pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ebiggers@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id az14si400473pjb.0.2019.08.30.17.14.36
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 30 Aug 2019 15:34:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted sender) client-ip=18.9.28.11;
-Received: from callcc.thunk.org (guestnat-104-133-0-111.corp.google.com [104.133.0.111] (may be forged))
-	(authenticated bits=0)
-        (User authenticated as tytso@ATHENA.MIT.EDU)
-	by outgoing.mit.edu (8.14.7/8.12.4) with ESMTP id x7UMYfOd001455
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 30 Aug 2019 18:34:42 -0400
-Received: by callcc.thunk.org (Postfix, from userid 15806)
-	id 9CBBB42049E; Fri, 30 Aug 2019 18:34:41 -0400 (EDT)
-Date: Fri, 30 Aug 2019 18:34:41 -0400
-From: "Theodore Y. Ts'o" <tytso@mit.edu>
-To: syzbot <syzbot+0bf8ddafbdf2c46eb6f3@syzkaller.appspotmail.com>
-Cc: adilger.kernel@dilger.ca, clang-built-linux@googlegroups.com,
-        linux-ext4@vger.kernel.org, linux-kernel@vger.kernel.org,
-        syzkaller-bugs@googlegroups.com
+        Fri, 30 Aug 2019 17:14:36 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from zzz.localdomain (h184-61-154-48.mdsnwi.dsl.dynamic.tds.net [184.61.154.48])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 31BF62342E;
+	Sat, 31 Aug 2019 00:14:35 +0000 (UTC)
+Date: Fri, 30 Aug 2019 19:14:32 -0500
+From: Eric Biggers <ebiggers@kernel.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Dmitry Vyukov <dvyukov@google.com>,
+	Andreas Dilger <adilger.kernel@dilger.ca>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	linux-ext4@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+	syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
+	Theodore Ts'o <tytso@mit.edu>,
+	syzbot <syzbot+0bf8ddafbdf2c46eb6f3@syzkaller.appspotmail.com>
 Subject: Re: WARNING: ODEBUG bug in ext4_fill_super
-Message-ID: <20190830223441.GA25380@mit.edu>
+Message-ID: <20190831001432.GB22191@zzz.localdomain>
+Mail-Followup-To: Nick Desaulniers <ndesaulniers@google.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Andreas Dilger <adilger.kernel@dilger.ca>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	linux-ext4@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>,
+	syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
+	Theodore Ts'o <tytso@mit.edu>,
+	syzbot <syzbot+0bf8ddafbdf2c46eb6f3@syzkaller.appspotmail.com>
 References: <0000000000006fc70605915ac6ad@google.com>
+ <CAKwvOdkAaFKr5gDw31uRzGoEC1JaJGNnrnAX_ysx9kH7dKx19Q@mail.gmail.com>
+ <CACT4Y+aiSbZr=m0E1c2eHe6JvyNeKUDxEb2NTLxk77LsBXGVVg@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <0000000000006fc70605915ac6ad@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: tytso@mit.edu
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of tytso@mit.edu designates 18.9.28.11 as permitted
- sender) smtp.mailfrom=tytso@mit.edu
+In-Reply-To: <CACT4Y+aiSbZr=m0E1c2eHe6JvyNeKUDxEb2NTLxk77LsBXGVVg@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: ebiggers@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b=wolHikVM;       spf=pass
+ (google.com: domain of ebiggers@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=ebiggers@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,11 +148,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-#syz invalid
+On Fri, Aug 30, 2019 at 12:46:21PM -0700, 'Dmitry Vyukov' via syzkaller-bugs wrote:
+> On Fri, Aug 30, 2019 at 12:42 PM 'Nick Desaulniers' via syzkaller-bugs
+> <syzkaller-bugs@googlegroups.com> wrote:
+> >
+> > Dmitry,
+> > Any idea how clang-built-linux got CC'ed on this?  Is syzcaller
+> > running clang builds, yet?  (this looks like a GCC build)
+> 
+> syzbot always uses get_maintainers:
+> 
+> $ ./scripts/get_maintainer.pl -f fs/ext4/super.c
+> "Theodore Ts'o" <tytso@mit.edu> (maintainer:EXT4 FILE SYSTEM)
+> Andreas Dilger <adilger.kernel@dilger.ca> (maintainer:EXT4 FILE SYSTEM)
+> linux-ext4@vger.kernel.org (open list:EXT4 FILE SYSTEM)
+> linux-kernel@vger.kernel.org (open list)
+> clang-built-linux@googlegroups.com (open list:CLANG/LLVM BUILD SUPPORT)
+> 
 
-This has already been fixed in the latest linux-next
+CLANG/LLVM BUILD SUPPORT
+L:	clang-built-linux@googlegroups.com
+W:	https://clangbuiltlinux.github.io/
+B:	https://github.com/ClangBuiltLinux/linux/issues
+C:	irc://chat.freenode.net/clangbuiltlinux
+S:	Supported
+K:	\b(?i:clang|llvm)\b
+
+So, clang-built-linux has volunteered to maintain every file that contains the
+word "clang" or "llvm" anywhere in its contents :-)
+
+$ grep clang fs/ext4/super.c
+	(void) ei;	/* shut up clang warning if !CONFIG_LOCKDEP */
+
+- Eric
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190830223441.GA25380%40mit.edu.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190831001432.GB22191%40zzz.localdomain.
