@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB2NBWTVQKGQEYPATQ6Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIVZWTVQKGQEROA3RRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6ABE4A56B6
-	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Sep 2019 14:54:03 +0200 (CEST)
-Received: by mail-io1-xd3d.google.com with SMTP id p1sf4634720iom.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Sep 2019 05:54:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567428842; cv=pass;
+Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id EBCDFA584B
+	for <lists+clang-built-linux@lfdr.de>; Mon,  2 Sep 2019 15:44:03 +0200 (CEST)
+Received: by mail-oi1-x238.google.com with SMTP id q21sf1412880oic.22
+        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Sep 2019 06:44:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567431842; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jgshhz9i2GPzU+lJm8J7PHYlGoh0DeKmJyWqAKRBQMhm9V+L6lBhykmsXHHIwb0x3Z
-         jkRFbkEvWQGMgo+z00teFsGV8nlpw8nDSfBmGoCQ5bO1hobmI/qC7DAcerdO99+0EpTf
-         S0cljGxQDb88ANB/IfJsldo0iSc2Frzxb8Zk1yI0abb9m4R8wiiHqMEnannkvorvbsZr
-         RHnFIgpHXSEpUUHn/xAnXhJaOLGsrt9irFMBNj15PQi/N3swZLZM9y3Oe/YIv2tAIHdM
-         FhF9g8kXZmC/qJc+uxC2FYgv+5sIqPpDzFpb4NA/6quRNt6WCIdEDRXqLxMPVbgxIgVu
-         QkWQ==
+        b=yIWKy9p0yahrSh/OuSwusb6CHFfgIGsD6gosMM7t60fyexrWUDoAW+ngplkth09f0X
+         3PHgcfeqK62iF9Dm+ZMMIjkaW0ohtYGMlhPyBh5myOOyWxo9AUHE7xzfEfjfLwxrzVfz
+         +ZdAzZu0n6HZ0DiUor4D6IGM9I8kcCL3wZAYvfHy//yX2Xnm90o36a1jiubbuJeuKpBY
+         a7EBKPYqoMm5k5G6/p39sWOpfObmeyEFGPWYb/tSlfLWK/7UE6bhB8fczJU0FiZQDBTv
+         s5259xHeoxtMQmaCsaoRAGAm4A48S/4KdV03Ls2e3j9f1x/Y9bzxd9Rhpbv7uNRuJbzo
+         UVsA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=JkSQW/2tFwE0UFKEGvKDBxlMix7QUnGyMPK9qW5UskI=;
-        b=dM6XktYnrmX1lQ90Bs0uh5NfNfpzOSr1bfMVsCBU+zNdLLk82Z7gr6w1jE21WOa4rc
-         0utWgtY4/PauEZfAyFWQpot0SKgslbSk8k6UHdOb7aMsTFYvSOXbJ/jEsDcErIa1bR6a
-         rTmdYbRx2bP/l0ZpPBsuHl1JI4e2pjdMdThF1e1VZ4wyyXYJLJv6VSx5I98o+xB+l3BT
-         dQ2ABlAWsgsQe3nUT3C0W1arSaXIMWxSyCwKbDrPIHeB1Y37lbQBacBYCrLaHBZ6KE7D
-         AguzKc3vxgFd1uIeXPDnFTu1Tk6naI2klid8Z+bdIsdeiLXA1jlY9YjA9b35nTXuyLxd
-         8oYA==
+        bh=74Wgj8u9HXofjv4gwn0qAkt434RD2I2eZP7pYT8OIWA=;
+        b=ZapLE3tE62xI8lSKp48FJM/o70MdQpcYcD8GDPpb/o5as0JGemuVhCVqxQyG4DxZpA
+         rFDZTcFdxhkbC0MfjigeeZ+g8+zQZdomghrN5AlyW5TzlyH34VLkoZ6GeCGZai6K7J3T
+         tVJHn9bwT21+/fp3s0EjMZohFvdMhl2xTXBl6ka5paL7irhbjGpcCADTN2XXFdTNgLux
+         PDjoH5Rd1SbjogCW64+laXOp58QYZwXHyivMu2+7esS0LikU0qS/73Are/adZtwYtlx1
+         U3EsqqCAjwsHdEoHtAnogo9aNTyX8VJr3nHrQKW7fblogAt3DxUYIgDO14VkT2lx+P5A
+         Ogow==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JkSQW/2tFwE0UFKEGvKDBxlMix7QUnGyMPK9qW5UskI=;
-        b=ae0m/FDhmYi5t7Pr/Lf7b/rhi7BI/BTplHftsl31tysTzOiiLdYvufmaSPTcwZhFej
-         A7gLgWCI5otcKlXggaXt/l4uJXStuTUMn/6IFOSArRlvBpcirBTCaChPkz1aDoVFe2oR
-         laZirbB9R6pWSDsjbM5QODrGy5iuumalLqXUnCEB24sVvmmjuyyOUYYVf5/vbf5sV5Ey
-         necHImMaDEFi5KvNTWZ28eDKguVjpp62bQxrdojkAjzKiq6YBox56klQVhVj/yBc2muT
-         MN6ycMdVVQTOqMRz9hqec5izp8eu2Ag7Ph/YSw4dDBsEp0IzSeKAuM9w2pqy7RoALI/K
-         17qw==
+        bh=74Wgj8u9HXofjv4gwn0qAkt434RD2I2eZP7pYT8OIWA=;
+        b=L4h9Q0ER3vKtd9EnizNPcZoadAYDWlD8OlMuBcU3PAacSjlx9lQCDROgnfxF3jIizM
+         uO4L7ZgU7+eiquGDf/Mk8yN2/3o05sAnvgquiMuUAreEUXEQQaDeAYTQpCLrirVNa2uw
+         BI9HePbECJ2LIYkmLq2+xg47e3/uhVE0GornlRQZby4GsqeoktaT3yb7txisPmC8D9Fc
+         5uYmXnwbfaBh4h6Qoa5mTFvYmiVnbZYuTesnMLQjoNkPYfDYyQ/lZ85mK50JfTAfEX4m
+         ASQZdZEJz3Jaku068undfK3OiSTADXxeFjkS0dBk5MBaNADL+cYBOqTd53cD6qQAvaKE
+         K/9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=JkSQW/2tFwE0UFKEGvKDBxlMix7QUnGyMPK9qW5UskI=;
-        b=Uys7CmYgX3ludPhtnN5SP85tOb4Us3JnBh3Ki8g5qztphlH8v4tYfrHFYvxSgiiaVT
-         cv9naxDXw1crfvjHMmZEk51mBPSl1ow8yq1Tnob59s7exc9Trh0WWN6A9ww4MEBrQTs8
-         G7L25RsSOLbNYHpKB8n0RuDRXYO1mlGQF7lsD2xDkMFYsWCiWxNaTSe5G+vVy2f6wBO6
-         A8SICD2DNeAouJ1p8g/Z9WhyXfIQn4y/Od/b6FMpuK342Ell4F1zsBTrifRtqYKQ4hxz
-         vH0RT7eFbg57JOszvVEIqwsZc22OtCq3Vd6NVb2aFghCgoWbJzQzhy+2kuDS8ul9HhX2
-         4YUA==
+        bh=74Wgj8u9HXofjv4gwn0qAkt434RD2I2eZP7pYT8OIWA=;
+        b=sngsFjy1JTUsFHoiEzWZ1f+LBYe4Hrhsh+lXUUJSgxCZNnU1jv5hP9T6UFAbV+/eEu
+         NTIpYkL9YDEVsIzgMDTNvkKxZ16hk2cqKyzYbhvBlsoXQ8GKDCxCb7vXj8EhX7Q9bCRZ
+         qI1p/r/VvizDR4d3+q5bKMR/r/4aoTbA1W/sBMWt+VNfX1/UDTEF7UnsnYYjOfxKfM/b
+         CXPhohTO9cL+bSggQ0oiyY7I/mJLEIC54dFw94QoIgW1+3p86VZMOML4xzWpv9Yuacr7
+         EtDhdZDYWH0xullY/6PGY5f88avd0lfhTbGSXLzCKsS97czC0DG/195fhOIkRS/XmUia
+         1/lg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU+MXYNuDWjEM1EJ9TiSPY9D4/Rlqm7qZg3rVK0Zbo2/ZItnwqX
-	kG/0URbK7ybNvpcWzOv10mw=
-X-Google-Smtp-Source: APXvYqxmV27JBeW/XuPKU9YYYF1ghahixXpl4XlOjRhkDhzyAYAHufrx6QR69LvZM4/nxMUSABq/Vg==
-X-Received: by 2002:a02:2e54:: with SMTP id u20mr21206646jae.5.1567428841691;
-        Mon, 02 Sep 2019 05:54:01 -0700 (PDT)
+X-Gm-Message-State: APjAAAU+mICca+3vRurizvSlY/m1m31lk1My/ykSiuPhwWe/Q4Smkl4Q
+	hf4yjbwobaY8NRgELKc3riU=
+X-Google-Smtp-Source: APXvYqxFSrTTKhx8H9JzJLqo7HKsP+mUYDvUIG77tc3EAC4Vz1Wf4ThM9c3+VEKk4ZRGMnDxp4EQfg==
+X-Received: by 2002:aca:30c2:: with SMTP id w185mr17844130oiw.12.1567431842684;
+        Mon, 02 Sep 2019 06:44:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:3b92:: with SMTP id i140ls2326355ioa.7.gmail; Mon, 02
- Sep 2019 05:54:01 -0700 (PDT)
-X-Received: by 2002:a6b:9107:: with SMTP id t7mr29942646iod.150.1567428838719;
-        Mon, 02 Sep 2019 05:53:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567428837; cv=none;
+Received: by 2002:a05:6830:1095:: with SMTP id y21ls1703774oto.11.gmail; Mon,
+ 02 Sep 2019 06:44:02 -0700 (PDT)
+X-Received: by 2002:a9d:5918:: with SMTP id t24mr23959554oth.72.1567431842287;
+        Mon, 02 Sep 2019 06:44:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567431842; cv=none;
         d=google.com; s=arc-20160816;
-        b=DO8tMpkXvbw0DCW4BrfN2XjiJTpMd4DnZ/0Y7pZsMWMz9kEN2S8oRmx4VJYRjToJ77
-         7sWMFRC6wmaCe2YXffmRl4QPBSyNfunozaiVUr5RYY+gtLtgY9gwXGnEmhf5qp0P5MVw
-         2XBrf3jXIxKRFZA0mVbVJm+soKsc0noYOGAlqWJxADEj2WzCb8sNHRAeaynk92q6ETd2
-         4S98d6uReT/KLllFzG56JUa2aLKSEqRCBLae6sOXB8NNCGHs3Ko6cj5VrOPw+zfhduqP
-         gIV8JXVOz5qAFaEaYVTgleq1dtMX/7x2mUXb1b7lT4qw412PkYfkZUP48xPB9r/txrjM
-         00hg==
+        b=ADp5vT3yjPI5TRaMbHPNlhNjsG0KvvBiHPzh0bh+WWoaIZnE63rUoezWEhG7sTYitg
+         iKynWPiCXIqohDoDXEN74EORQ/cvtckBm+ASMuoT/AnPfCoX4a5DRZUmoY8BxF33qjMO
+         XHlduajy5/9+ZXDwViuASyT+DuYDOIc3n0SPNPmBV2iyhsYZt8Y94hYeMFArvBW93yBT
+         C2YY79yEF0f9ynCyi6x2Kc+9TcKdEhNXw0O77vyaw2MBMcbGfDskeYbQPfyaWlecx+h8
+         g3oF1TOXLTRV+Ik2aoaborQ98UreE/eIxhKC23p1QoPGBF1Bz221F9ZjYeokVC8IRrmE
+         jEBg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=kwY2JTf8A7cODJ7bypd9t9tiL+zR1ktIBLQcQOSKKOs=;
-        b=XqgvdW4jWqynF2pAOnP2saxJ1dK5NrYmwtDJicjauwfAYGesgkNZv+nVDJjRhtmy73
-         xnj9i8UywgJUemWmSkEFvO8pCTDug/zuceWcgvrHlbzGq78x40tQZzIYJR1tvPvw96Tt
-         Ys6JbvJCP202dw/+YjDP2wlvg38/wNH7CANF7j+4mr8r5rNQuPdyb7VCR2jaLTSzYaeS
-         aaL/pQBJSv7g1BPIXUqKzz8SroqIM/+akJ9FvuX/1uNtRcMSJKYPcpq4T2vmqS8K24BN
-         eNO0beQU5mKdarhjlP73WxF41LkJhHbp44rtxLkkvKPu+pwEy4D/aOMLhMEvpTX5aOw5
-         cODQ==
+        bh=4w3tgr5gXLUJUIoda22pmWJrmx0dYM/38C8ipSsIobw=;
+        b=K5y26WRTrajp37ajZDkb9S4UwshOYUinVdwBXu5L4Il3TXLf/ILo8wGpMBLlJBbLVh
+         Yto18V57Buc+GI+Bw6BkfFv7yORgaS/XWaE4aKNLeXZjPdp4vYAqwRlvR7fg4v6keQmM
+         foq+CKc/sZ0d6pS+QKwbHhGaCiglViM9IIXgrrUKNTJcIbGdDsCeJzTxgUffFoUziznT
+         0tLsCS1qsJwzyjUAiygIhybWEEC8wtNpmtkoqFxh21wozM6eaAiE9niz4/+H97vN7wtm
+         ympNX503MrYrCu4kx3dRf2pAdh6SK74RGaKCK+wqTnAb6Cg2p85Clkwi+xaAKfU+26pe
+         FotA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id b206si956967iof.0.2019.09.02.05.53.57
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id p20si249917oip.5.2019.09.02.06.44.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 02 Sep 2019 05:53:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+        Mon, 02 Sep 2019 06:44:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 02 Sep 2019 05:53:56 -0700
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 02 Sep 2019 06:44:00 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,459,1559545200"; 
-   d="gz'50?scan'50,208,50";a="184489326"
+   d="gz'50?scan'50,208,50";a="357487389"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga003.jf.intel.com with ESMTP; 02 Sep 2019 05:53:54 -0700
+  by orsmga005.jf.intel.com with ESMTP; 02 Sep 2019 06:43:58 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i4lqD-000EKW-Cr; Mon, 02 Sep 2019 20:53:53 +0800
-Date: Mon, 2 Sep 2019 20:52:57 +0800
+	id 1i4mcf-0003v6-RR; Mon, 02 Sep 2019 21:43:57 +0800
+Date: Mon, 2 Sep 2019 21:43:47 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v1] ACPI / platform: Unregister stale platform devices
-Message-ID: <201909022014.jYVGfV2P%lkp@intel.com>
+Subject: Re: [PATCH] PCI: Remove unused includes and superfluous struct
+ declaration
+Message-ID: <201909022129.GGZ0hLu3%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="u4bymqemkol35esm"
+Content-Type: multipart/mixed; boundary="nk4nczspxh5cy54g"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,78 +138,391 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---u4bymqemkol35esm
+--nk4nczspxh5cy54g
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190830143432.21695-1-andriy.shevchenko@linux.intel.com>
-References: <20190830143432.21695-1-andriy.shevchenko@linux.intel.com>
-TO: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-CC: "Rafael J . Wysocki" <rjw@rjwysocki.net>, Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org, Ferry Toth <fntoth@gmail.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>
-CC: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Mika Westerberg <mika.westerberg@linux.intel.com>
+In-Reply-To: <20190901112506.8469-1-kw@linux.com>
+References: <20190901112506.8469-1-kw@linux.com>
+TO: Krzysztof Wilczynski <kw@linux.com>
+CC: Bjorn Helgaas <helgaas@kernel.org>, Joerg Roedel <joro@8bytes.org>, Jin=
+goo Han <jingoohan1@gmail.com>, Gustavo Pimentel <gustavo.pimentel@synopsys=
+.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Frank Rowand <frowa=
+nd.list@gmail.com>, Rob Herring <robh+dt@kernel.org>, Lorenzo Pieralisi <lo=
+renzo.pieralisi@arm.com>, iommu@lists.linux-foundation.org, linux-pci@vger.=
+kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.=
+org, devicetree@vger.kernel.org
+CC: Joerg Roedel <joro@8bytes.org>, Jingoo Han <jingoohan1@gmail.com>, Gust=
+avo Pimentel <gustavo.pimentel@synopsys.com>, Thomas Petazzoni <thomas.peta=
+zzoni@bootlin.com>, Frank Rowand <frowand.list@gmail.com>, Rob Herring <rob=
+h+dt@kernel.org>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, iommu@list=
+s.linux-foundation.org, linux-pci@vger.kernel.org, linux-kernel@vger.kernel=
+.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
 
-Hi Andy,
+Hi Krzysztof,
 
-I love your patch! Yet something to improve:
+Thank you for the patch! Yet something to improve:
 
 [auto build test ERROR on linus/master]
 [cannot apply to v5.3-rc6 next-20190830]
-[if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+[if your patch is applied to the wrong git tree, please drop us a note to h=
+elp improve the system]
 
-url:    https://github.com/0day-ci/linux/commits/Andy-Shevchenko/ACPI-platform-Unregister-stale-platform-devices/20190902-001307
+url:    https://github.com/0day-ci/linux/commits/Krzysztof-Wilczynski/PCI-R=
+emove-unused-includes-and-superfluous-struct-declaration/20190902-040019
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f=
+77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
+make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # save the attached .config to linux build tree
-        make.cross ARCH=arm64 
+        make.cross ARCH=3Darm64=20
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
 All error/warnings (new ones prefixed by >>):
 
->> drivers//acpi/acpi_platform.c:38:8: error: implicit declaration of function 'bus_find_device_by_acpi_dev' [-Werror,-Wimplicit-function-declaration]
-           dev = bus_find_device_by_acpi_dev(&platform_bus_type, adev);
-                 ^
-   drivers//acpi/acpi_platform.c:38:8: note: did you mean 'bus_find_device_by_name'?
-   include/linux/device.h:174:16: note: 'bus_find_device_by_name' declared here
-   struct device *bus_find_device_by_name(struct bus_type *bus,
+>> drivers//irqchip/irq-gic-v2m.c:558:2: error: implicit declaration of fun=
+ction 'pci_msi_register_fwnode_provider' [-Werror,-Wimplicit-function-decla=
+ration]
+           pci_msi_register_fwnode_provider(&gicv2m_get_fwnode);
+           ^
+   1 error generated.
+--
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:37:12: error: implicit declara=
+tion of function 'pci_msi_vec_count' [-Werror,-Wimplicit-function-declarati=
+on]
+           msi =3D max(pci_msi_vec_count(pdev), 0);
+                     ^
+   drivers//irqchip/irq-gic-v3-its-pci-msi.c:37:12: note: did you mean 'its=
+_pci_msi_vec_count'?
+   drivers//irqchip/irq-gic-v3-its-pci-msi.c:33:12: note: 'its_pci_msi_vec_=
+count' declared here
+   static int its_pci_msi_vec_count(struct pci_dev *pdev, void *data)
+              ^
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:38:13: error: implicit declara=
+tion of function 'pci_msix_vec_count' [-Werror,-Wimplicit-function-declarat=
+ion]
+           msix =3D max(pci_msix_vec_count(pdev), 0);
+                      ^
+   drivers//irqchip/irq-gic-v3-its-pci-msi.c:38:13: note: did you mean 'pci=
+_msi_vec_count'?
+   drivers//irqchip/irq-gic-v3-its-pci-msi.c:37:12: note: 'pci_msi_vec_coun=
+t' declared here
+           msi =3D max(pci_msi_vec_count(pdev), 0);
+                     ^
+   include/linux/kernel.h:861:33: note: expanded from macro 'max'
+   #define max(x, y)       __careful_cmp(x, y, >)
+                                         ^
+   include/linux/kernel.h:845:35: note: expanded from macro '__careful_cmp'
+           __builtin_choose_expr(__safe_cmp(x, y), \
+                                            ^
+   include/linux/kernel.h:835:16: note: expanded from macro '__safe_cmp'
+                   (__typecheck(x, y) && __no_side_effects(x, y))
+                                ^
+   include/linux/kernel.h:821:22: note: expanded from macro '__typecheck'
+                   (!!(sizeof((typeof(x) *)1 =3D=3D (typeof(y) *)1)))
+                                      ^
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:60:7: error: implicit declarat=
+ion of function 'dev_is_pci' [-Werror,-Wimplicit-function-declaration]
+           if (!dev_is_pci(dev))
+                ^
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:65:9: error: implicit declarat=
+ion of function 'to_pci_dev' [-Werror,-Wimplicit-function-declaration]
+           pdev =3D to_pci_dev(dev);
                   ^
->> drivers//acpi/acpi_platform.c:38:6: warning: incompatible integer to pointer conversion assigning to 'struct device *' from 'int' [-Wint-conversion]
-           dev = bus_find_device_by_acpi_dev(&platform_bus_type, adev);
-               ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning and 1 error generated.
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:65:7: warning: incompatible in=
+teger to pointer conversion assigning to 'struct pci_dev *' from 'int' [-Wi=
+nt-conversion]
+           pdev =3D to_pci_dev(dev);
+                ^ ~~~~~~~~~~~~~~~
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:70:2: error: implicit declarat=
+ion of function 'pci_for_each_dma_alias' [-Werror,-Wimplicit-function-decla=
+ration]
+           pci_for_each_dma_alias(pdev, its_get_pci_alias, &alias_dev);
+           ^
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:71:36: error: incomplete defin=
+ition of type 'struct pci_dev'
+           if (alias_dev !=3D pdev && alias_dev->subordinate)
+                                    ~~~~~~~~~^
+   include/acpi/acpi_drivers.h:79:8: note: forward declaration of 'struct p=
+ci_dev'
+   struct pci_dev *acpi_get_pci_dev(acpi_handle);
+          ^
+>> drivers//irqchip/irq-gic-v3-its-pci-msi.c:72:3: error: implicit declarat=
+ion of function 'pci_walk_bus' [-Werror,-Wimplicit-function-declaration]
+                   pci_walk_bus(alias_dev->subordinate, its_pci_msi_vec_cou=
+nt,
+                   ^
+   drivers//irqchip/irq-gic-v3-its-pci-msi.c:72:25: error: incomplete defin=
+ition of type 'struct pci_dev'
+                   pci_walk_bus(alias_dev->subordinate, its_pci_msi_vec_cou=
+nt,
+                                ~~~~~~~~~^
+   include/acpi/acpi_drivers.h:79:8: note: forward declaration of 'struct p=
+ci_dev'
+   struct pci_dev *acpi_get_pci_dev(acpi_handle);
+          ^
+   1 warning and 8 errors generated.
+--
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+>> include/linux/pci-acpi.h:34:29: error: incomplete definition of type 'st=
+ruct pci_dev'
+           struct pci_bus *pbus =3D pdev->bus;
+                                  ~~~~^
+   include/asm-generic/pci_iomap.h:10:8: note: forward declaration of 'stru=
+ct pci_dev'
+   struct pci_dev;
+          ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+>> include/linux/pci-acpi.h:37:10: error: implicit declaration of function =
+'pci_is_root_bus' [-Werror,-Wimplicit-function-declaration]
+           while (!pci_is_root_bus(pbus))
+                   ^
+>> include/linux/pci-acpi.h:38:14: error: incomplete definition of type 'st=
+ruct pci_bus'
+                   pbus =3D pbus->parent;
+                          ~~~~^
+   arch/arm64/include/asm/topology.h:32:8: note: forward declaration of 'st=
+ruct pci_bus'
+   struct pci_bus;
+          ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+   include/linux/pci-acpi.h:40:25: error: incomplete definition of type 'st=
+ruct pci_bus'
+           return ACPI_HANDLE(pbus->bridge);
+                              ~~~~^
+   include/linux/acpi.h:46:61: note: expanded from macro 'ACPI_HANDLE'
+   #define ACPI_HANDLE(dev)                acpi_device_handle(ACPI_COMPANIO=
+N(dev))
+                                                                           =
+  ^~~
+   include/linux/acpi.h:43:51: note: expanded from macro 'ACPI_COMPANION'
+   #define ACPI_COMPANION(dev)             to_acpi_device_node((dev)->fwnod=
+e)
+                                                                ^~~
+   include/acpi/acpi_bus.h:409:10: note: expanded from macro 'to_acpi_devic=
+e_node'
+                   typeof(__fwnode) __to_acpi_device_node_fwnode =3D __fwno=
+de; \
+                          ^~~~~~~~
+   arch/arm64/include/asm/topology.h:32:8: note: forward declaration of 'st=
+ruct pci_bus'
+   struct pci_bus;
+          ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+   include/linux/pci-acpi.h:40:25: error: incomplete definition of type 'st=
+ruct pci_bus'
+           return ACPI_HANDLE(pbus->bridge);
+                              ~~~~^
+   include/linux/acpi.h:46:61: note: expanded from macro 'ACPI_HANDLE'
+   #define ACPI_HANDLE(dev)                acpi_device_handle(ACPI_COMPANIO=
+N(dev))
+                                                                           =
+  ^~~
+   include/linux/acpi.h:43:51: note: expanded from macro 'ACPI_COMPANION'
+   #define ACPI_COMPANION(dev)             to_acpi_device_node((dev)->fwnod=
+e)
+                                                                ^~~
+   include/acpi/acpi_bus.h:409:51: note: expanded from macro 'to_acpi_devic=
+e_node'
+                   typeof(__fwnode) __to_acpi_device_node_fwnode =3D __fwno=
+de; \
+                                                                   ^~~~~~~~
+   arch/arm64/include/asm/topology.h:32:8: note: forward declaration of 'st=
+ruct pci_bus'
+   struct pci_bus;
+          ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+>> include/linux/pci-acpi.h:40:9: error: passing 'void' to parameter of inc=
+ompatible type 'struct acpi_device *'
+           return ACPI_HANDLE(pbus->bridge);
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/acpi.h:46:46: note: expanded from macro 'ACPI_HANDLE'
+   #define ACPI_HANDLE(dev)                acpi_device_handle(ACPI_COMPANIO=
+N(dev))
+                                                              ^~~~~~~~~~~~~=
+~~~~~~
+   include/linux/acpi.h:43:30: note: expanded from macro 'ACPI_COMPANION'
+   #define ACPI_COMPANION(dev)             to_acpi_device_node((dev)->fwnod=
+e)
+                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~
+   include/acpi/acpi_bus.h:408:2: note: expanded from macro 'to_acpi_device=
+_node'
+           ({                                                              =
+\
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~
+   include/linux/acpi.h:38:66: note: passing argument to parameter 'adev' h=
+ere
+   static inline acpi_handle acpi_device_handle(struct acpi_device *adev)
+                                                                    ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+   include/linux/pci-acpi.h:47:6: error: implicit declaration of function '=
+pci_is_root_bus' [-Werror,-Wimplicit-function-declaration]
+           if (pci_is_root_bus(pbus))
+               ^
+   include/linux/pci-acpi.h:48:13: error: incomplete definition of type 'st=
+ruct pci_bus'
+                   dev =3D pbus->bridge;
+                         ~~~~^
+   arch/arm64/include/asm/topology.h:32:8: note: forward declaration of 'st=
+ruct pci_bus'
+   struct pci_bus;
+          ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+   include/linux/pci-acpi.h:51:12: error: incomplete definition of type 'st=
+ruct pci_bus'
+                   if (!pbus->self)
+                        ~~~~^
+   arch/arm64/include/asm/topology.h:32:8: note: forward declaration of 'st=
+ruct pci_bus'
+   struct pci_bus;
+          ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:11:
+   include/linux/pci-acpi.h:54:14: error: incomplete definition of type 'st=
+ruct pci_bus'
+                   dev =3D &pbus->self->dev;
+                          ~~~~^
+   arch/arm64/include/asm/topology.h:32:8: note: forward declaration of 'st=
+ruct pci_bus'
+   struct pci_bus;
+          ^
+   In file included from drivers//pci/controller/pci-thunder-pem.c:12:
+   In file included from include/linux/pci-ecam.h:8:
+>> include/linux/pci.h:621:20: error: static declaration of 'pci_is_root_bu=
+s' follows non-static declaration
+   static inline bool pci_is_root_bus(struct pci_bus *pbus)
+                      ^
+   include/linux/pci-acpi.h:37:10: note: previous implicit declaration is h=
+ere
+           while (!pci_is_root_bus(pbus))
+                   ^
+   11 errors generated.
 
-vim +/bus_find_device_by_acpi_dev +38 drivers//acpi/acpi_platform.c
+vim +71 drivers//irqchip/irq-gic-v3-its-pci-msi.c
 
-    33	
-    34	static struct platform_device *acpi_platform_device_find_by_adev(struct acpi_device *adev)
-    35	{
-    36		struct device *dev;
-    37	
-  > 38		dev = bus_find_device_by_acpi_dev(&platform_bus_type, adev);
-    39		return dev ? to_platform_device(dev) : NULL;
-    40	}
-    41	
+f130420e51df30 Marc Zyngier 2015-07-28  32 =20
+3403b0259d152c Robin Murphy 2017-05-31  33  static int its_pci_msi_vec_coun=
+t(struct pci_dev *pdev, void *data)
+f130420e51df30 Marc Zyngier 2015-07-28  34  {
+3403b0259d152c Robin Murphy 2017-05-31  35  	int msi, msix, *count =3D data=
+;
+f130420e51df30 Marc Zyngier 2015-07-28  36 =20
+f130420e51df30 Marc Zyngier 2015-07-28 @37  	msi =3D max(pci_msi_vec_count(=
+pdev), 0);
+f130420e51df30 Marc Zyngier 2015-07-28 @38  	msix =3D max(pci_msix_vec_coun=
+t(pdev), 0);
+3403b0259d152c Robin Murphy 2017-05-31  39  	*count +=3D max(msi, msix);
+f130420e51df30 Marc Zyngier 2015-07-28  40 =20
+3403b0259d152c Robin Murphy 2017-05-31  41  	return 0;
+f130420e51df30 Marc Zyngier 2015-07-28  42  }
+f130420e51df30 Marc Zyngier 2015-07-28  43 =20
+f130420e51df30 Marc Zyngier 2015-07-28  44  static int its_get_pci_alias(st=
+ruct pci_dev *pdev, u16 alias, void *data)
+f130420e51df30 Marc Zyngier 2015-07-28  45  {
+3403b0259d152c Robin Murphy 2017-05-31  46  	struct pci_dev **alias_dev =3D=
+ data;
+f130420e51df30 Marc Zyngier 2015-07-28  47 =20
+3403b0259d152c Robin Murphy 2017-05-31  48  	*alias_dev =3D pdev;
+f130420e51df30 Marc Zyngier 2015-07-28  49 =20
+f130420e51df30 Marc Zyngier 2015-07-28  50  	return 0;
+f130420e51df30 Marc Zyngier 2015-07-28  51  }
+f130420e51df30 Marc Zyngier 2015-07-28  52 =20
+f130420e51df30 Marc Zyngier 2015-07-28  53  static int its_pci_msi_prepare(=
+struct irq_domain *domain, struct device *dev,
+f130420e51df30 Marc Zyngier 2015-07-28  54  			       int nvec, msi_alloc_i=
+nfo_t *info)
+f130420e51df30 Marc Zyngier 2015-07-28  55  {
+3403b0259d152c Robin Murphy 2017-05-31  56  	struct pci_dev *pdev, *alias_d=
+ev;
+54456db9a23753 Marc Zyngier 2015-07-28  57  	struct msi_domain_info *msi_in=
+fo;
+30800b3a1fb14c Marc Zyngier 2018-05-31  58  	int alias_count =3D 0, minnvec=
+ =3D 1;
+f130420e51df30 Marc Zyngier 2015-07-28  59 =20
+f130420e51df30 Marc Zyngier 2015-07-28 @60  	if (!dev_is_pci(dev))
+f130420e51df30 Marc Zyngier 2015-07-28  61  		return -EINVAL;
+f130420e51df30 Marc Zyngier 2015-07-28  62 =20
+54456db9a23753 Marc Zyngier 2015-07-28  63  	msi_info =3D msi_get_domain_in=
+fo(domain->parent);
+54456db9a23753 Marc Zyngier 2015-07-28  64 =20
+f130420e51df30 Marc Zyngier 2015-07-28 @65  	pdev =3D to_pci_dev(dev);
+3403b0259d152c Robin Murphy 2017-05-31  66  	/*
+3403b0259d152c Robin Murphy 2017-05-31  67  	 * If pdev is downstream of an=
+y aliasing bridges, take an upper
+3403b0259d152c Robin Murphy 2017-05-31  68  	 * bound of how many other vec=
+tors could map to the same DevID.
+3403b0259d152c Robin Murphy 2017-05-31  69  	 */
+3403b0259d152c Robin Murphy 2017-05-31 @70  	pci_for_each_dma_alias(pdev, i=
+ts_get_pci_alias, &alias_dev);
+3403b0259d152c Robin Murphy 2017-05-31 @71  	if (alias_dev !=3D pdev && ali=
+as_dev->subordinate)
+3403b0259d152c Robin Murphy 2017-05-31 @72  		pci_walk_bus(alias_dev->subor=
+dinate, its_pci_msi_vec_count,
+3403b0259d152c Robin Murphy 2017-05-31  73  			     &alias_count);
+f130420e51df30 Marc Zyngier 2015-07-28  74 =20
+54456db9a23753 Marc Zyngier 2015-07-28  75  	/* ITS specific DeviceID, as t=
+he core ITS ignores dev. */
+ccf91e68a4357e David Daney  2015-10-08  76  	info->scratchpad[0].ul =3D pci=
+_msi_domain_get_msi_rid(domain, pdev);
+54456db9a23753 Marc Zyngier 2015-07-28  77 =20
+30800b3a1fb14c Marc Zyngier 2018-05-31  78  	/*
+30800b3a1fb14c Marc Zyngier 2018-05-31  79  	 * Always allocate a power of =
+2, and special case device 0 for
+30800b3a1fb14c Marc Zyngier 2018-05-31  80  	 * broken systems where the De=
+vID is not wired (and all devices
+30800b3a1fb14c Marc Zyngier 2018-05-31  81  	 * appear as DevID 0). For tha=
+t reason, we generously allocate a
+30800b3a1fb14c Marc Zyngier 2018-05-31  82  	 * minimum of 32 MSIs for DevI=
+D 0. If you want more because all
+30800b3a1fb14c Marc Zyngier 2018-05-31  83  	 * your devices are aliasing t=
+o DevID 0, consider fixing your HW.
+30800b3a1fb14c Marc Zyngier 2018-05-31  84  	 */
+147c8f376e5526 Marc Zyngier 2018-05-27  85  	nvec =3D max(nvec, alias_count=
+);
+30800b3a1fb14c Marc Zyngier 2018-05-31  86  	if (!info->scratchpad[0].ul)
+30800b3a1fb14c Marc Zyngier 2018-05-31  87  		minnvec =3D 32;
+30800b3a1fb14c Marc Zyngier 2018-05-31  88  	nvec =3D max_t(int, minnvec, r=
+oundup_pow_of_two(nvec));
+147c8f376e5526 Marc Zyngier 2018-05-27  89  	return msi_info->ops->msi_prep=
+are(domain->parent, dev, nvec, info);
+f130420e51df30 Marc Zyngier 2015-07-28  90  }
+f130420e51df30 Marc Zyngier 2015-07-28  91 =20
+
+:::::: The code at line 71 was first introduced by commit
+:::::: 3403b0259d152c3ca67b32bb710f826bc17c0d16 irqchip/gic-v3-its: Fix MSI=
+ alias accounting
+
+:::::: TO: Robin Murphy <robin.murphy@arm.com>
+:::::: CC: Marc Zyngier <marc.zyngier@arm.com>
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+0-DAY kernel test infrastructure                Open Source Technology Cent=
+er
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporati=
+on
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909022014.jYVGfV2P%25lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/201909022129.GGZ0hLu3%25lkp%40intel.com.
 
---u4bymqemkol35esm
+--nk4nczspxh5cy54g
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICL4BbV0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICIMWbV0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYC7VDP/3wU0Deji9Pu+PD7e7x8Vvwef+8P+yO+7vg/uFx
 /39BXAR5IQMaM/kBiNOH57e/P+4OT6eL4OTD/MPk18PtabDeH573j0H08nz/8PkNmj+8PP/w
 0w/wz08AfPoCPR3+Fdw+7p4/B1/3h1dAB9PJB/g7+Pnzw/FfHz/Cn08Ph8PL4ePj49en+svh
@@ -1047,4 +1361,4 @@ SyZR9pFjdrKe+Ayk5ibaBK0cPog1N9ks4Yz/xwLkfsVRIZocIsGUFLMomamBn8uvphx6YJPC
 SO/hliHswTjuRE78WQ73bvyZP4cWtnRNSWZu38GGiYPXPheQI1JiR06+P8/CwaIMJxASAgDv
 sV6vWxPDbYewUbOYHGKxaZjYPQ1OYqm2Gq3HWnzkOYiNvGTzf4MpD277CgMA
 
---u4bymqemkol35esm--
+--nk4nczspxh5cy54g--
