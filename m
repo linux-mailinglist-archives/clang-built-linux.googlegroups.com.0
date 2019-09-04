@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCNODNHUQUJBBCWRYDVQKGQETEB7IYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCNODNHUQUJBBDWRYDVQKGQEODUR7JY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
-	by mail.lfdr.de (Postfix) with ESMTPS id D80F6A9495
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Sep 2019 23:11:39 +0200 (CEST)
-Received: by mail-qk1-x737.google.com with SMTP id b67sf48943qkc.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 14:11:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567631499; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id 64BD9A949A
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Sep 2019 23:11:43 +0200 (CEST)
+Received: by mail-ot1-x340.google.com with SMTP id w13sf136254otq.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 14:11:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567631502; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zhGJSPX1hWj6VtIWXrQHZN1XGGjLLWCgV7rK7NO0AUfsOg6RZVoTbeGn8JOFcAAUPF
-         PzHFU2aJTKRDz9m+NiKeF837U0f++oYzwzFKMlbIjulsPtqZoCUgXYhCQPo7Fmjg971C
-         TeTkINSjnA89ax+dsq20iFcaTyJTKWCQgQTlr/dN9QAwhhZeJWSwY7CUGtW+TkS5IKeR
-         ChxE4r9r4RX0h3RxgBZeI2scUEhMByiHINZAIv5jX3sAoKfnjjMl7cQr73/+UQU6p8dT
-         hC/Pm8MicSultBvfaoZUQPueAqrjEjhleRpvfjFruW0Gd1ZrbN7YaCYG/fWJXqXNoESq
-         zQyA==
+        b=u7rrZDjtG51QYl8uOgUKPiD+GOGF4TERlzEwZw6Fbrr4aUJe5dxO9lYAghKNJGX4MD
+         PaUUEyGvi8DpJoKzYOJRQQfg1nIESrmwWYr/aDGw+6SeXHkMNytYnHV1nwPs32hIu3JI
+         +TuGL1YxHoAAcaBRFMiWD5Gcwp9Iqmdw5/vke90suFSFCMaZFbvu76IrQvYMzyjaBAH+
+         X3qzATc5U/2RV6blfALOrjGTO37PNqLOICafEz/nm7lHlu7uUyoOuIa2zBLaZ3BIxwlv
+         ASRo87STcdx6/+GUAxdCi+AymwIQR68jwh94S2qd4c4DgrniAfNYdQ5XktZ8YupPl/cg
+         SilQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=gBsGBNnOvG+g7KtFw+DZFxIyMfkvvIZ5xcPhiCZa5Xg=;
-        b=0a3p3lsu8vd5WH/3ZcbBgt0Z1hqBimcpxSvvTJ9Gg1f97RpJN395KKfL8MslMEsEYQ
-         6UAY9ysjJU8uB2zSVuza+KlRGV4rpidlsI1yMpIte9IQQ/W+vF0WiNsLX9+SnVK8Bh1s
-         0T7aUJRJhcQUEHRLjGmKnecEO8H0etocNvTJ8wSTerKD0Fkpaf9wJ7VQtvwTQcQJQ+vR
-         jUQMdUYsiDBN6nKzSiGQXUpU94Gzq429aI6NhYSczn17Djz8V2mX1ebv3G3HOqf18S6T
-         Ka2HXwSTUNnMeFbxlEqxwT7VsgahzPaLNvhlgLGmsXkqgOq14YzbDYadizRRuZsqrBqm
-         JO8A==
+        bh=wu5U41Mg1WbDNGnVKm+V5ASrsp34LHrOWOAy9ZxPSeQ=;
+        b=JdS2RqGHRM5ck3VIJcy2wrdsTBv3uO5lShZlygJsLjKEcoyCYKyY7es65qFp4eTulF
+         fRYUl+cX6jcdXg9oWkdCED3q0PxUhgiz+/YSYtAt+twJS5yGCH0EMn4lLW6mxAhrFLA0
+         f9v1RkpiR1n+8qIbIRGjdylqthK5/Do/ARF7hjO/ZAOzpL0K2wZsZlBPoihcxw5IZJ+7
+         8Lwf3QHh+l3sXOmIG2EzkhFjKvzcRVTt4CN3v5O+HiBrfxFCpvgqye5Ynb+bpmEHMSO/
+         ObSRZTp7C533ptY2bzEoubQ2dTyUKxutvoF9JkRVyL9igav8Vx20A1ZetNF+XOnIO7xM
+         KBAA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=I7iAwvNy;
-       spf=pass (google.com: domain of 3ishwxqkkaiw8q7qbq3q0w44w1u.s42@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3iShwXQkKAIw8q7qBq3q0w44w1u.s42@flex--saravanak.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CJsbVD3O;
+       spf=pass (google.com: domain of 3jshwxqkkajacubufu7u408805y.w86@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::c49 as permitted sender) smtp.mailfrom=3jShwXQkKAJACuBuFu7u408805y.w86@flex--saravanak.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gBsGBNnOvG+g7KtFw+DZFxIyMfkvvIZ5xcPhiCZa5Xg=;
-        b=FjgJkCowScMUtZx+Z2Tb7JoD1BuyJCFMQHZvnFKHPW40X9OyXj2BKwqaKElRg4c4ce
-         VpF+UoN7GKnvNY+0GcBKAIH0h1icdVOpNNFKYU2fk4EDWmgrhomivHTAD+sdhSwJvhBI
-         qXDZIStVJwxKQTBpCBoWxTQYK11lSSUUPBa64LHoO4oh7nA1HxtdawhrKzCOyyjw4YI/
-         Xx9YYhYi8G5Dubid75mnHNGlbHxJka2WPqaQRMpxZF+zAXfjBjAzBKFQVGMXNORCLMcV
-         hqO4G6VQPIBwKv73pELwWh+UOj4yjai1AjksL8vkEUi1kt7+W5qq4+/A/jQaONc6XXUE
-         bPtQ==
+        bh=wu5U41Mg1WbDNGnVKm+V5ASrsp34LHrOWOAy9ZxPSeQ=;
+        b=ONkS7f2KciNAEkw9HlWsQUawFhbCdQ2A6IYLdTXDN3BJT1e/qtny9VWWwdF26oy+9C
+         ZkxSEq1MU2cnVLyu0TqOIUucRnbvWC3HF9e07EX8CCrhNEwlPzZXFgp9GAItTtplXuhU
+         U9z4OLBRZ2bC9pq0C9KXrTCf5CWon6pKFj2+NPKKiDrH3lIEWNheADKK/exdmmTx8lPQ
+         VSaU33bwBSHHfb3UjoiXRkSqyW9GolDVpIKyE650+OYfG9Ie+EGTvS/AxXaXhjRCSKoA
+         nPbt7MMNj1wrcBvXlqui3ZRFYMzpXk1iuAG7HJCszhqH1YTq0gob8HjNwrCXJCRItvBy
+         wbvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,63 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gBsGBNnOvG+g7KtFw+DZFxIyMfkvvIZ5xcPhiCZa5Xg=;
-        b=fP6XCHo+KV/57k9EppKl206Jna79X4nNSz40g8f+QtuCE3I2onVQmZRBQdY0zIy2H1
-         rEU//rhyJmZoXLRUSSxi8N8qrStw8HQvzxvwXqoPiCR2Y+f6sR8rJSz++sX4EQp6r+rW
-         e9QoETQNuM5JkgcOSU1nJb2YRoH6Rq16IF3cov1t+cM4p1deRKDWRzbppXSlFAqhy5ph
-         QPDo+6FYVEk0bfP+GbV+RCySnYGjnj+2O9vX0ZtdL12MnFT0NSAWyW/Li230pE8J1aGP
-         KBqoDj99ztjfgWXMdF3IGQUzkUV2PwAPK29zZdx2Sv8NqmDLt5G7EiHA48qMBMgmAC4q
-         Rh+w==
-X-Gm-Message-State: APjAAAXDgMIbCV4unnxl6sGVf6KtFQNo6w1ZcbtPsSv43g44h6WBzGhD
-	VX/5wPgIuMDM3S5STDknLcM=
-X-Google-Smtp-Source: APXvYqy70o6OVlx971tJmHdBWZz5V8u5VskeIN4AlcA3I8fGRNN+8vIKxzBvhMpU8HkOBqiYJK9xJQ==
-X-Received: by 2002:a37:9984:: with SMTP id b126mr6436700qke.46.1567631498937;
-        Wed, 04 Sep 2019 14:11:38 -0700 (PDT)
+        bh=wu5U41Mg1WbDNGnVKm+V5ASrsp34LHrOWOAy9ZxPSeQ=;
+        b=lVTM0DQarru/i5ZqEQsdei/agc0uVDTIUuSPNeKLmPrs47/d9U/JVMA44irPKMWNj9
+         JfJMew06bx9ipkMgFUdT3T3KQZLV6EYZSMK/7te5x1w2mnHoln3ISwx/2dCYAJxzGtr/
+         gyH3ztNoFXEpttKFbfSPhcHoKbaLkc4TgqHS+8DdniA4MKW5bFaKs/deRZ/CUNWc2K7x
+         G9E4lz/BEobUH/7+cugfvBXTV/LlD3MFkmFgnl1Za1lhTintJROfZBByXzl+TW0kI6vN
+         ehebrhmRbI2J3SEfV8+7GogrNtLNhxJqCuFDJGvywESie/9MfdPC84cXvOUjebgDPOPD
+         G25g==
+X-Gm-Message-State: APjAAAUsHtP5o4r7DvdQCv4TNbrD9Vn2sC0q2dEKy69tTTw0FBgjWTPj
+	t8ToFqMiK0fs8RSF/70GPec=
+X-Google-Smtp-Source: APXvYqwqTdep523CmeVIezOecyBUl1QKQzbcxIFuRuWOQRax2CFYMxLREoz+A7EGAKQoNWzURHIsWg==
+X-Received: by 2002:aca:c647:: with SMTP id w68mr50854oif.179.1567631502064;
+        Wed, 04 Sep 2019 14:11:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:1a73:: with SMTP id q48ls35962qtk.14.gmail; Wed, 04 Sep
- 2019 14:11:38 -0700 (PDT)
-X-Received: by 2002:ac8:2216:: with SMTP id o22mr98132qto.125.1567631498739;
-        Wed, 04 Sep 2019 14:11:38 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567631498; cv=none;
+Received: by 2002:a54:448b:: with SMTP id v11ls13378oiv.3.gmail; Wed, 04 Sep
+ 2019 14:11:41 -0700 (PDT)
+X-Received: by 2002:aca:df0b:: with SMTP id w11mr86531oig.142.1567631501637;
+        Wed, 04 Sep 2019 14:11:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567631501; cv=none;
         d=google.com; s=arc-20160816;
-        b=QLGYjEyB4z55iwCvo3Ff2Rc6q7tQqeCDoeBxrq8jWDdDIhMpLUgO9QNXteY4lrFXP0
-         Bou+NodThkv9NF6o67H9u3PwV/tg5t2wMEHpmW8TjkXnRMSfEeOUdgFh8DiWIWeYxZtD
-         hEaJjZRvPxwPy6uaILGWCFOwRLg7CJBN/BFvbS58zK9MbHT/kKcsWGsG17urwMbO58B8
-         H+w4AeYI2Pxhjf83FYcSzuxxv4PDFcJtPTwK/IHBQRDnM0Nnc9zsm0y3S9uY1cgmdD1N
-         RAK4DRiqGV6EgKYDw5GEatukSX8pazdOab46TkVoc634h2tFhdZ7urC74B3JgteKTXhJ
-         wBQA==
+        b=TUv8x3e0zeKkXPTlGhi7rU2iQP8YnAn24ENFrY5Vb03pHVpL9PorIW0rjGQhTdNoaa
+         gCsVyP2ai95+SzM0GhsuAI9Goe9osXkzk+7lP+5lq9tVrEiVkoyDJrjDKeJvLYP6n7Nm
+         BAKicC5cifQ/AlxPy++6nDmOAg+byfSdqZlrsIkWmYKUg1VYLknnM+X0+GBa9mVJIoVY
+         iQ8zwSc0FpaPbz659pmVSVtML6gtWaAXg/5/7lvnb5bHvphmeddVAHmJlLyoD6SerT71
+         rWRNpN4/WpZ0ntYIeF1HT//mQ6qs1xZmNBBCcv0h1/x4zRjqNQyybqV/Rr6zYGzD4ly+
+         t5GA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=EIXukcSdp+uxpQofKUUVCp+AI9LAzuFCZNBqIe/4iSA=;
-        b=SeLn/fqG5iVl75G14l/k9N1jktNeI8qd1gOG20FnA+MjsYXcUK002Lj7kvVeNariOt
-         xKaUm3010M5JjzDlk8qvsHE+fx6D159xnD6CcSGrT8n9a9M19aJzFKrkqGrZclgQxvzr
-         xjJrDoNO2DDg+/P/E4MtK55vSpAsLA/6GV/TkjC3nFmQbrsIbGUuItvZS05DMFbiJhGB
-         eiHpxfX5P06A30KbqBl9jCk3zazgCT61GqW+WxMjyE81F99uyZdtfvCYVR5ZpNJQlXd8
-         UySqfIgHNNXkuBhKAWL88ulJAcc5yRvzFCaZsfU4wrM5swagQE4EBpTque+lndK9l6j6
-         lPug==
+        bh=r0SSGqejS7hGeDjkHLwcULsZg1wwhwR+jJOFpk7tqQw=;
+        b=EaguZFA+twH3wXrF+sh1LDKDgu8/nCuajHjB7WtX6GQY/161U7jtCTmFc6GKfDAt+d
+         muDYjWAI+bhiF2FMHzrVW558J0o/4/eZJjXUBpW6svEf+/dtuKM37ecbDu6QhPKEt6ST
+         +hRa1TGpJZfql7HwtCcln1ZVD8fn65hqpoLV+EGofpwqeVbI8bkEHpYreV72CUyz2Jl+
+         OgjjrNZksT27CZjtZZI86rEEvdvlygBeKWmq3A0x8goI1UOACeM6hf5dOQWQBe34nWuT
+         uN1C4pgE9OasDE1XWG9rqqOMa0PSFekXOxTQ4uohg+XlarRrkDoQAl6NOajLh/CRYVJK
+         HjKw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=I7iAwvNy;
-       spf=pass (google.com: domain of 3ishwxqkkaiw8q7qbq3q0w44w1u.s42@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3iShwXQkKAIw8q7qBq3q0w44w1u.s42@flex--saravanak.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CJsbVD3O;
+       spf=pass (google.com: domain of 3jshwxqkkajacubufu7u408805y.w86@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::c49 as permitted sender) smtp.mailfrom=3jShwXQkKAJACuBuFu7u408805y.w86@flex--saravanak.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x549.google.com (mail-pg1-x549.google.com. [2607:f8b0:4864:20::549])
-        by gmr-mx.google.com with ESMTPS id t53si8786qte.2.2019.09.04.14.11.38
+Received: from mail-yw1-xc49.google.com (mail-yw1-xc49.google.com. [2607:f8b0:4864:20::c49])
+        by gmr-mx.google.com with ESMTPS id k184si7472oih.0.2019.09.04.14.11.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Sep 2019 14:11:38 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3ishwxqkkaiw8q7qbq3q0w44w1u.s42@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) client-ip=2607:f8b0:4864:20::549;
-Received: by mail-pg1-x549.google.com with SMTP id l12so13947040pgt.9
-        for <clang-built-linux@googlegroups.com>; Wed, 04 Sep 2019 14:11:38 -0700 (PDT)
-X-Received: by 2002:a63:2b84:: with SMTP id r126mr138422pgr.308.1567631497483;
- Wed, 04 Sep 2019 14:11:37 -0700 (PDT)
-Date: Wed,  4 Sep 2019 14:11:21 -0700
+        Wed, 04 Sep 2019 14:11:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3jshwxqkkajacubufu7u408805y.w86@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::c49 as permitted sender) client-ip=2607:f8b0:4864:20::c49;
+Received: by mail-yw1-xc49.google.com with SMTP id b2so96140ywf.0
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Sep 2019 14:11:41 -0700 (PDT)
+X-Received: by 2002:a81:8391:: with SMTP id t139mr29431136ywf.182.1567631501027;
+ Wed, 04 Sep 2019 14:11:41 -0700 (PDT)
+Date: Wed,  4 Sep 2019 14:11:22 -0700
 In-Reply-To: <20190904211126.47518-1-saravanak@google.com>
-Message-Id: <20190904211126.47518-3-saravanak@google.com>
+Message-Id: <20190904211126.47518-4-saravanak@google.com>
 Mime-Version: 1.0
 References: <20190904211126.47518-1-saravanak@google.com>
 X-Mailer: git-send-email 2.23.0.187.g17f5b7556c-goog
-Subject: [PATCH v11 2/6] driver core: Add support for linking devices during
- device addition
+Subject: [PATCH v11 3/6] of: property: Add functional dependency link from DT bindings
 From: "'Saravana Kannan' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Rob Herring <robh+dt@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -113,13 +112,14 @@ To: Rob Herring <robh+dt@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 Cc: Saravana Kannan <saravanak@google.com>, devicetree@vger.kernel.org, 
 	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
 	linux-acpi@vger.kernel.org, clang-built-linux@googlegroups.com, 
-	David Collins <collinsd@codeaurora.org>, kernel-team@android.com
+	David Collins <collinsd@codeaurora.org>, kernel-team@android.com, 
+	kbuild test robot <lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: saravanak@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=I7iAwvNy;       spf=pass
- (google.com: domain of 3ishwxqkkaiw8q7qbq3q0w44w1u.s42@flex--saravanak.bounces.google.com
- designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3iShwXQkKAIw8q7qBq3q0w44w1u.s42@flex--saravanak.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=CJsbVD3O;       spf=pass
+ (google.com: domain of 3jshwxqkkajacubufu7u408805y.w86@flex--saravanak.bounces.google.com
+ designates 2607:f8b0:4864:20::c49 as permitted sender) smtp.mailfrom=3jShwXQkKAJACuBuFu7u408805y.w86@flex--saravanak.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Saravana Kannan <saravanak@google.com>
 Reply-To: Saravana Kannan <saravanak@google.com>
@@ -135,236 +135,358 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The firmware corresponding to a device (dev.fwnode) might be able to
-provide functional dependency information between a device and its
-supplier and consumer devices.  Tracking this functional dependency
-allows optimizing device probe order and informing a supplier when all
-its consumers have probed (and thereby actively managing their
-resources).
+Add device links after the devices are created (but before they are
+probed) by looking at common DT bindings like clocks and
+interconnects.
 
-The existing device links feature allows tracking and using
-supplier-consumer relationships. So, this patch adds the add_links()
-fwnode callback to allow firmware to create device links for each
-device as the device is added.
+Automatically adding device links for functional dependencies at the
+framework level provides the following benefits:
 
-However, when consumer devices are added, they might not have a supplier
-device to link to despite needing mandatory resources/functionality from
-one or more suppliers. A waiting_for_suppliers list is created to track
-such consumers and retry linking them when new devices get added.
+- Optimizes device probe order and avoids the useless work of
+  attempting probes of devices that will not probe successfully
+  (because their suppliers aren't present or haven't probed yet).
 
+  For example, in a commonly available mobile SoC, registering just
+  one consumer device's driver at an initcall level earlier than the
+  supplier device's driver causes 11 failed probe attempts before the
+  consumer device probes successfully. This was with a kernel with all
+  the drivers statically compiled in. This problem gets a lot worse if
+  all the drivers are loaded as modules without direct symbol
+  dependencies.
+
+- Supplier devices like clock providers, interconnect providers, etc
+  need to keep the resources they provide active and at a particular
+  state(s) during boot up even if their current set of consumers don't
+  request the resource to be active. This is because the rest of the
+  consumers might not have probed yet and turning off the resource
+  before all the consumers have probed could lead to a hang or
+  undesired user experience.
+
+  Some frameworks (Eg: regulator) handle this today by turning off
+  "unused" resources at late_initcall_sync and hoping all the devices
+  have probed by then. This is not a valid assumption for systems with
+  loadable modules. Other frameworks (Eg: clock) just don't handle
+  this due to the lack of a clear signal for when they can turn off
+  resources. This leads to downstream hacks to handle cases like this
+  that can easily be solved in the upstream kernel.
+
+  By linking devices before they are probed, we give suppliers a clear
+  count of the number of dependent consumers. Once all of the
+  consumers are active, the suppliers can turn off the unused
+  resources without making assumptions about the number of consumers.
+
+By default we just add device-links to track "driver presence" (probe
+succeeded) of the supplier device. If any other functionality provided
+by device-links are needed, it is left to the consumer/supplier
+devices to change the link when they probe.
+
+kbuild test robot reported clang error about missing const
+Reported-by: kbuild test robot <lkp@intel.com>
 Signed-off-by: Saravana Kannan <saravanak@google.com>
 ---
- Documentation/driver-api/device_link.rst |  3 +-
- drivers/base/core.c                      | 88 ++++++++++++++++++++++++
- include/linux/device.h                   |  2 +
- include/linux/fwnode.h                   | 17 +++++
- 4 files changed, 109 insertions(+), 1 deletion(-)
+ .../admin-guide/kernel-parameters.rst         |   1 +
+ .../admin-guide/kernel-parameters.txt         |   6 +
+ drivers/of/property.c                         | 241 ++++++++++++++++++
+ 3 files changed, 248 insertions(+)
 
-diff --git a/Documentation/driver-api/device_link.rst b/Documentation/driver-api/device_link.rst
-index 1b5020ec6517..bc2d89af88ce 100644
---- a/Documentation/driver-api/device_link.rst
-+++ b/Documentation/driver-api/device_link.rst
-@@ -281,7 +281,8 @@ State machine
-   :c:func:`driver_bound()`.)
+diff --git a/Documentation/admin-guide/kernel-parameters.rst b/Documentation/admin-guide/kernel-parameters.rst
+index d05d531b4ec9..6d421694d98e 100644
+--- a/Documentation/admin-guide/kernel-parameters.rst
++++ b/Documentation/admin-guide/kernel-parameters.rst
+@@ -127,6 +127,7 @@ parameter is applicable::
+ 	NET	Appropriate network support is enabled.
+ 	NUMA	NUMA support is enabled.
+ 	NFS	Appropriate NFS support is enabled.
++	OF	Devicetree is enabled.
+ 	OSS	OSS sound support is enabled.
+ 	PV_OPS	A paravirtualized kernel is enabled.
+ 	PARIDE	The ParIDE (parallel port IDE) subsystem is enabled.
+diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+index af0a62af6fd8..e95f2a58acc5 100644
+--- a/Documentation/admin-guide/kernel-parameters.txt
++++ b/Documentation/admin-guide/kernel-parameters.txt
+@@ -3181,6 +3181,12 @@
+ 			This can be set from sysctl after boot.
+ 			See Documentation/admin-guide/sysctl/vm.rst for details.
  
- * Before a consumer device is probed, presence of supplier drivers is
--  verified by checking that links to suppliers are in ``DL_STATE_AVAILABLE``
-+  verified by checking the consumer device is not in the wait_for_suppliers
-+  list and by checking that links to suppliers are in ``DL_STATE_AVAILABLE``
-   state.  The state of the links is updated to ``DL_STATE_CONSUMER_PROBE``.
-   (Call to :c:func:`device_links_check_suppliers()` from
-   :c:func:`really_probe()`.)
-diff --git a/drivers/base/core.c b/drivers/base/core.c
-index 510fabf8918c..b3896da73b3d 100644
---- a/drivers/base/core.c
-+++ b/drivers/base/core.c
-@@ -44,6 +44,8 @@ early_param("sysfs.deprecated", sysfs_deprecated_setup);
- #endif
++	of_devlink	[OF, KNL] Create device links between consumer and
++			supplier devices by scanning the devictree to infer the
++			consumer/supplier relationships.  A consumer device
++			will not be probed until all the supplier devices have
++			probed successfully.
++
+ 	ohci1394_dma=early	[HW] enable debugging via the ohci1394 driver.
+ 			See Documentation/debugging-via-ohci1394.txt for more
+ 			info.
+diff --git a/drivers/of/property.c b/drivers/of/property.c
+index d7fa75e31f22..23b5ee5b0570 100644
+--- a/drivers/of/property.c
++++ b/drivers/of/property.c
+@@ -25,6 +25,7 @@
+ #include <linux/of_device.h>
+ #include <linux/of_graph.h>
+ #include <linux/string.h>
++#include <linux/moduleparam.h>
  
- /* Device links support. */
-+static LIST_HEAD(wait_for_suppliers);
-+static DEFINE_MUTEX(wfs_lock);
+ #include "of_private.h"
  
- #ifdef CONFIG_SRCU
- static DEFINE_MUTEX(device_links_lock);
-@@ -430,6 +432,58 @@ struct device_link *device_link_add(struct device *consumer,
+@@ -985,6 +986,245 @@ of_fwnode_device_get_match_data(const struct fwnode_handle *fwnode,
+ 	return of_device_get_match_data(dev);
  }
- EXPORT_SYMBOL_GPL(device_link_add);
  
-+/**
-+ * device_link_wait_for_supplier - Add device to wait_for_suppliers list
-+ * @consumer: Consumer device
-+ *
-+ * Marks the @consumer device as waiting for suppliers to become available by
-+ * adding it to the wait_for_suppliers list. The consumer device will never be
-+ * probed until it's removed from the wait_for_suppliers list.
-+ *
-+ * The caller is responsible for adding the links to the supplier devices once
-+ * they are available and removing the @consumer device from the
-+ * wait_for_suppliers list once links to all the suppliers have been created.
-+ *
-+ * This function is NOT meant to be called from the probe function of the
-+ * consumer but rather from code that creates/adds the consumer device.
-+ */
-+static void device_link_wait_for_supplier(struct device *consumer)
++static bool of_is_ancestor_of(struct device_node *test_ancestor,
++			      struct device_node *child)
 +{
-+	mutex_lock(&wfs_lock);
-+	list_add_tail(&consumer->links.needs_suppliers, &wait_for_suppliers);
-+	mutex_unlock(&wfs_lock);
-+}
-+
-+/**
-+ * device_link_add_missing_supplier_links - Add links from consumer devices to
-+ *					    supplier devices, leaving any
-+ *					    consumer with inactive suppliers on
-+ *					    the wait_for_suppliers list
-+ *
-+ * Loops through all consumers waiting on suppliers and tries to add all their
-+ * supplier links. If that succeeds, the consumer device is removed from
-+ * wait_for_suppliers list. Otherwise, they are left in the wait_for_suppliers
-+ * list.  Devices left on the wait_for_suppliers list will not be probed.
-+ *
-+ * The fwnode add_links callback is expected to return 0 if it has found and
-+ * added all the supplier links for the consumer device. It should return an
-+ * error if it isn't able to do so.
-+ *
-+ * The caller of device_link_wait_for_supplier() is expected to call this once
-+ * it's aware of potential suppliers becoming available.
-+ */
-+static void device_link_add_missing_supplier_links(void)
-+{
-+	struct device *dev, *tmp;
-+
-+	mutex_lock(&wfs_lock);
-+	list_for_each_entry_safe(dev, tmp, &wait_for_suppliers,
-+				 links.needs_suppliers)
-+		if (!fwnode_call_int_op(dev->fwnode, add_links, dev))
-+			list_del_init(&dev->links.needs_suppliers);
-+	mutex_unlock(&wfs_lock);
-+}
-+
- static void device_link_free(struct device_link *link)
- {
- 	while (refcount_dec_not_one(&link->rpm_active))
-@@ -564,6 +618,17 @@ int device_links_check_suppliers(struct device *dev)
- 	struct device_link *link;
- 	int ret = 0;
- 
-+	/*
-+	 * Device waiting for supplier to become available is not allowed to
-+	 * probe.
-+	 */
-+	mutex_lock(&wfs_lock);
-+	if (!list_empty(&dev->links.needs_suppliers)) {
-+		mutex_unlock(&wfs_lock);
-+		return -EPROBE_DEFER;
++	of_node_get(child);
++	while (child) {
++		if (child == test_ancestor) {
++			of_node_put(child);
++			return false;
++		}
++		child = of_get_next_parent(child);
 +	}
-+	mutex_unlock(&wfs_lock);
++	return true;
++}
 +
- 	device_links_write_lock();
- 
- 	list_for_each_entry(link, &dev->links.suppliers, c_node) {
-@@ -848,6 +913,10 @@ static void device_links_purge(struct device *dev)
- {
- 	struct device_link *link, *ln;
- 
-+	mutex_lock(&wfs_lock);
-+	list_del(&dev->links.needs_suppliers);
-+	mutex_unlock(&wfs_lock);
-+
- 	/*
- 	 * Delete all of the remaining links from this device to any other
- 	 * devices (either consumers or suppliers).
-@@ -1712,6 +1781,7 @@ void device_initialize(struct device *dev)
- #endif
- 	INIT_LIST_HEAD(&dev->links.consumers);
- 	INIT_LIST_HEAD(&dev->links.suppliers);
-+	INIT_LIST_HEAD(&dev->links.needs_suppliers);
- 	dev->links.status = DL_DEV_NO_DRIVER;
- }
- EXPORT_SYMBOL_GPL(device_initialize);
-@@ -2202,6 +2272,24 @@ int device_add(struct device *dev)
- 	if (dev->fwnode && !dev->fwnode->dev)
- 		dev->fwnode->dev = dev;
- 
-+	/*
-+	 * Check if any of the other devices (consumers) have been waiting for
-+	 * this device (supplier) to be added so that they can create a device
-+	 * link to it.
-+	 *
-+	 * This needs to happen after device_pm_add() because device_link_add()
-+	 * requires the supplier be registered before it's called.
-+	 *
-+	 * But this also needs to happe before bus_probe_device() to make sure
-+	 * waiting consumers can link to it before the driver is bound to the
-+	 * device and the driver sync_state callback is called for this device.
-+	 */
-+	device_link_add_missing_supplier_links();
-+
-+	if (fwnode_has_op(dev->fwnode, add_links)
-+	    && fwnode_call_int_op(dev->fwnode, add_links, dev))
-+		device_link_wait_for_supplier(dev);
-+
- 	bus_probe_device(dev);
- 	if (parent)
- 		klist_add_tail(&dev->p->knode_parent,
-diff --git a/include/linux/device.h b/include/linux/device.h
-index f30e80185825..968316bb3bd1 100644
---- a/include/linux/device.h
-+++ b/include/linux/device.h
-@@ -1136,11 +1136,13 @@ enum dl_dev_state {
-  * struct dev_links_info - Device data related to device links.
-  * @suppliers: List of links to supplier devices.
-  * @consumers: List of links to consumer devices.
-+ * @needs_suppliers: Hook to global list of devices waiting for suppliers.
-  * @status: Driver status information.
-  */
- struct dev_links_info {
- 	struct list_head suppliers;
- 	struct list_head consumers;
-+	struct list_head needs_suppliers;
- 	enum dl_dev_state status;
- };
- 
-diff --git a/include/linux/fwnode.h b/include/linux/fwnode.h
-index d8c6d231d577..6ae05b9ce359 100644
---- a/include/linux/fwnode.h
-+++ b/include/linux/fwnode.h
-@@ -66,6 +66,21 @@ struct fwnode_reference_args {
-  *			       endpoint node.
-  * @graph_get_port_parent: Return the parent node of a port node.
-  * @graph_parse_endpoint: Parse endpoint for port and endpoint id.
-+ * @add_links:	Called after the device corresponding to the fwnode is added
-+ *		using device_add(). The function is expected to create device
-+ *		links to all the suppliers of the device that are available at
-+ *		the time this function is called.  The function must NOT stop
-+ *		at the first failed device link if other unlinked supplier
-+ *		devices are present in the system.  If some suppliers are not
-+ *		yet available, this function will be called again when other
-+ *		devices are added to allow creating device links to any newly
-+ *		available suppliers.
++/**
++ * of_link_to_phandle - Add device link to supplier from supplier phandle
++ * @dev: consumer device
++ * @sup_np: phandle to supplier device tree node
 + *
-+ *		Return 0 if device links have been successfully created to all
-+ *		the suppliers of this device or if the supplier information is
-+ *		not known. Return an error if and only if the supplier
-+ *		information is known but some of the suppliers are not yet
-+ *		available to create device links to.
-  */
- struct fwnode_operations {
- 	struct fwnode_handle *(*get)(struct fwnode_handle *fwnode);
-@@ -103,6 +118,8 @@ struct fwnode_operations {
- 	(*graph_get_port_parent)(struct fwnode_handle *fwnode);
- 	int (*graph_parse_endpoint)(const struct fwnode_handle *fwnode,
- 				    struct fwnode_endpoint *endpoint);
-+	int (*add_links)(const struct fwnode_handle *fwnode,
-+			 struct device *dev);
++ * Given a phandle to a supplier device tree node (@sup_np), this function
++ * finds the device that owns the supplier device tree node and creates a
++ * device link from @dev consumer device to the supplier device. This function
++ * doesn't create device links for invalid scenarios such as trying to create a
++ * link with a parent device as the consumer of its child device. In such
++ * cases, it returns an error.
++ *
++ * Returns:
++ * - 0 if link successfully created to supplier
++ * - -EAGAIN if linking to the supplier should be reattempted
++ * - -EINVAL if the supplier link is invalid and should not be created
++ * - -ENODEV if there is no device that corresponds to the supplier phandle
++ */
++static int of_link_to_phandle(struct device *dev, struct device_node *sup_np)
++{
++	struct device *sup_dev;
++	u32 dl_flags = DL_FLAG_AUTOPROBE_CONSUMER;
++	int ret = 0;
++	struct device_node *tmp_np = sup_np;
++
++	of_node_get(sup_np);
++	/*
++	 * Find the device node that contains the supplier phandle.  It may be
++	 * @sup_np or it may be an ancestor of @sup_np.
++	 */
++	while (sup_np && !of_find_property(sup_np, "compatible", NULL))
++		sup_np = of_get_next_parent(sup_np);
++	if (!sup_np) {
++		dev_dbg(dev, "Not linking to %pOFP - No device\n", tmp_np);
++		return -ENODEV;
++	}
++
++	/*
++	 * Don't allow linking a device node as a consumer of one of its
++	 * descendant nodes. By definition, a child node can't be a functional
++	 * dependency for the parent node.
++	 */
++	if (!of_is_ancestor_of(dev->of_node, sup_np)) {
++		dev_dbg(dev, "Not linking to %pOFP - is descendant\n", sup_np);
++		of_node_put(sup_np);
++		return -EINVAL;
++	}
++	sup_dev = get_dev_from_fwnode(&sup_np->fwnode);
++	of_node_put(sup_np);
++	if (!sup_dev)
++		return -EAGAIN;
++	if (!device_link_add(dev, sup_dev, dl_flags))
++		ret = -EAGAIN;
++	put_device(sup_dev);
++	return ret;
++}
++
++/**
++ * parse_prop_cells - Property parsing function for suppliers
++ *
++ * @np:		Pointer to device tree node containing a list
++ * @prop_name:	Name of property to be parsed. Expected to hold phandle values
++ * @index:	For properties holding a list of phandles, this is the index
++ *		into the list.
++ * @list_name:	Property name that is known to contain list of phandle(s) to
++ *		supplier(s)
++ * @cells_name:	property name that specifies phandles' arguments count
++ *
++ * This is a helper function to parse properties that have a known fixed name
++ * and are a list of phandles and phandle arguments.
++ *
++ * Returns:
++ * - phandle node pointer with refcount incremented. Caller must of_node_put()
++ *   on it when done.
++ * - NULL if no phandle found at index
++ */
++static struct device_node *parse_prop_cells(struct device_node *np,
++					    const char *prop_name, int index,
++					    const char *list_name,
++					    const char *cells_name)
++{
++	struct of_phandle_args sup_args;
++
++	if (strcmp(prop_name, list_name))
++		return NULL;
++
++	if (of_parse_phandle_with_args(np, list_name, cells_name, index,
++				       &sup_args))
++		return NULL;
++
++	return sup_args.np;
++}
++
++static struct device_node *parse_clocks(struct device_node *np,
++					const char *prop_name, int index)
++{
++	return parse_prop_cells(np, prop_name, index, "clocks", "#clock-cells");
++}
++
++static struct device_node *parse_interconnects(struct device_node *np,
++					       const char *prop_name, int index)
++{
++	return parse_prop_cells(np, prop_name, index, "interconnects",
++				"#interconnect-cells");
++}
++
++static int strcmp_suffix(const char *str, const char *suffix)
++{
++	unsigned int len, suffix_len;
++
++	len = strlen(str);
++	suffix_len = strlen(suffix);
++	if (len <= suffix_len)
++		return -1;
++	return strcmp(str + len - suffix_len, suffix);
++}
++
++static struct device_node *parse_regulators(struct device_node *np,
++					    const char *prop_name, int index)
++{
++	if (index || strcmp_suffix(prop_name, "-supply"))
++		return NULL;
++
++	return of_parse_phandle(np, prop_name, 0);
++}
++
++/**
++ * struct supplier_bindings - Property parsing functions for suppliers
++ *
++ * @parse_prop: function name
++ *	parse_prop() finds the node corresponding to a supplier phandle
++ * @parse_prop.np: Pointer to device node holding supplier phandle property
++ * @parse_prop.prop_name: Name of property holding a phandle value
++ * @parse_prop.index: For properties holding a list of phandles, this is the
++ *		      index into the list
++ *
++ * Returns:
++ * parse_prop() return values are
++ * - phandle node pointer with refcount incremented. Caller must of_node_put()
++ *   on it when done.
++ * - NULL if no phandle found at index
++ */
++struct supplier_bindings {
++	struct device_node *(*parse_prop)(struct device_node *np,
++					  const char *prop_name, int index);
++};
++
++static const struct supplier_bindings bindings[] = {
++	{ .parse_prop = parse_clocks, },
++	{ .parse_prop = parse_interconnects, },
++	{ .parse_prop = parse_regulators, },
++	{},
++};
++
++/**
++ * of_link_property - Create device links to suppliers listed in a property
++ * @dev: Consumer device
++ * @con_np: The consumer device tree node which contains the property
++ * @prop_name: Name of property to be parsed
++ *
++ * This function checks if the property @prop_name that is present in the
++ * @con_np device tree node is one of the known common device tree bindings
++ * that list phandles to suppliers. If @prop_name isn't one, this function
++ * doesn't do anything.
++ *
++ * If @prop_name is one, this function attempts to create device links from the
++ * consumer device @dev to all the devices of the suppliers listed in
++ * @prop_name.
++ *
++ * Any failed attempt to create a device link will NOT result in an immediate
++ * return.  of_link_property() must create links to all the available supplier
++ * devices even when attempts to create a link to one or more suppliers fail.
++ */
++static int of_link_property(struct device *dev, struct device_node *con_np,
++			     const char *prop_name)
++{
++	struct device_node *phandle;
++	const struct supplier_bindings *s = bindings;
++	unsigned int i = 0;
++	bool matched = false;
++	int ret = 0;
++
++	/* Do not stop at first failed link, link all available suppliers. */
++	while (!matched && s->parse_prop) {
++		while ((phandle = s->parse_prop(con_np, prop_name, i))) {
++			matched = true;
++			i++;
++			if (of_link_to_phandle(dev, phandle) == -EAGAIN)
++				ret = -EAGAIN;
++			of_node_put(phandle);
++		}
++		s++;
++	}
++	return ret;
++}
++
++static int __of_link_to_suppliers(struct device *dev,
++				  struct device_node *con_np)
++{
++	struct device_node *child;
++	struct property *p;
++	int ret = 0;
++
++	for_each_property_of_node(con_np, p)
++		if (of_link_property(dev, con_np, p->name))
++			ret = -EAGAIN;
++
++	return ret;
++}
++
++static bool of_devlink;
++core_param(of_devlink, of_devlink, bool, 0);
++
++static int of_fwnode_add_links(const struct fwnode_handle *fwnode,
++			       struct device *dev)
++{
++	if (!of_devlink)
++		return 0;
++
++	if (unlikely(!is_of_node(fwnode)))
++		return 0;
++
++	return __of_link_to_suppliers(dev, to_of_node(fwnode));
++}
++
+ const struct fwnode_operations of_fwnode_ops = {
+ 	.get = of_fwnode_get,
+ 	.put = of_fwnode_put,
+@@ -1001,5 +1241,6 @@ const struct fwnode_operations of_fwnode_ops = {
+ 	.graph_get_remote_endpoint = of_fwnode_graph_get_remote_endpoint,
+ 	.graph_get_port_parent = of_fwnode_graph_get_port_parent,
+ 	.graph_parse_endpoint = of_fwnode_graph_parse_endpoint,
++	.add_links = of_fwnode_add_links,
  };
- 
- #define fwnode_has_op(fwnode, op)				\
+ EXPORT_SYMBOL_GPL(of_fwnode_ops);
 -- 
 2.23.0.187.g17f5b7556c-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904211126.47518-3-saravanak%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904211126.47518-4-saravanak%40google.com.
