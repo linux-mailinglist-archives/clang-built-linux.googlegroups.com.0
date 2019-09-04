@@ -1,125 +1,153 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBGGAXPVQKGQEJS4MGLI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBJEIXTVQKGQEMLBFBPQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 53471A7684
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Sep 2019 23:50:18 +0200 (CEST)
-Received: by mail-pg1-x53f.google.com with SMTP id q1sf11826077pgt.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Sep 2019 14:50:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567547416; cv=pass;
+Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id C9691A77DB
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Sep 2019 02:24:04 +0200 (CEST)
+Received: by mail-ed1-x537.google.com with SMTP id w15sf11543914edv.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Sep 2019 17:24:04 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567556644; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Z2LjKLEDMZDj0VCX+WQcfzKOefavSHBoKqTRUqRK/TL3eRLrQRodNKHBdXGCtVezCm
-         1sFB1Z2oUEJ5xw8hQdyHXGX6qNQMrVZaf+jmqvwuuE/ZjFCx2bTakox3pnwPS72hZ8qx
-         ub9AKwFqJWuLz3rtSw8taP8vhr3SRL0G9kyzgm0qzA+6dnpq/PqJEhbgKppHjmaB1YLV
-         R/Eh+AMj7jwcQmWOMQ4aA35eommfLVsqz/n8MQsA/N0/pj46YMzj9G2yYs/KnizpdWQL
-         hEUvJsGbwFdtY5vYhJDHvp+EzKryJyA1huJxL/vmstmJpinD2r4VUFK7Q6xFXb9Gg5BZ
-         fw0g==
+        b=pXj3wjLqT1IXffcbjo/H5kBzC/RmqR/H87MgrldeswDAM702ERB7HL6HeyCw2yf/Oo
+         XA6XVydu1D5vh04QwEoAMyzD9/WTyN+ki6yZY2vzH2N5wdWHLrUvDYFiOsKzXENoBE/S
+         ENw2HGjLZl07By32tYvXZQh4Bh31F/tpVfVITBiU9TNdwZOOF0K/L8VZcEx0vmfI5lCZ
+         F+dg58/7HkCTrLroLrCkyZXA657cV7NQiN900qAXprRlbxuTZJ6GJuCuOG/tH/9xcQJv
+         miNKWo6LfFVpqDz7QmzmZmDslDi2aS53OPcoNJ081hMVrL8E4WOAyGu7CUXCMo5CMiud
+         A8Qg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=w2/9wv7bQnEbuWeARzqiGnPnEXIpGVzj12ZqxLMy3qw=;
-        b=hsGYIgOpfMY6PhiUFWgCzmrQIPYjLKTqVMMEdJ9E0i0ZEXHB4i+hZCKmCIehJHXlrf
-         2U3aWJ2D9fIl5/nvh1wAFPdLTbChNSQeHSGC+SkEhHVENG30QUsOwQUaF9GcG7yeVuao
-         S82bqDwPkB33+/rEygcp6bqp5hgijIQ19U6GrSm0QMFWx3ksANfaFVHSdousMdxzM5Dy
-         ARNubpC9/G9dj1/ijYMDDanoujyq2WAkcacx1tUSf3G3lCTreuRHcIk0unX3mSOWeY5E
-         Oz1TTFx8wXihUMWiKwkMgHkbBbOiLycCN6LGaURe5i88+tH16fOv1WsL+CGb/08nT7MN
-         Gnug==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=QP4KOT3EhrLi3d0ooVVVsr9A2pEL/FCpKK51U4VdNUY=;
+        b=aYmXaDpSUZ118YWj00Ppuj92EwXnROzllbIJn3A3flnfJARsKkmePNiiZQ2r2twPbk
+         VSbMwrW5hUO86KFYHyHlbYYGuIIVaioXVNPRVH4Q7Timy16XwwKLLpz3ylBXEezkOJZJ
+         TPGO2c++dFgvxWninmgVGg4wjmL71iENp9AGFLouWvfVbJXkJOegL57uqHOA5UZzks78
+         knIwlvFyOxDlYtL9Berb7dUaLBmso1+IjRzKhymSPlm5t+BcRfivmRZqMEQXx8LFpEU0
+         oO3R7oDOih0gLwZsrK/1tCpcMGDAkmL9mqQFJIP6YiCesEz8dBwRkS/9MRVSVitperhf
+         Mqaw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Nt2xVI4j;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=s823D9jM;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=w2/9wv7bQnEbuWeARzqiGnPnEXIpGVzj12ZqxLMy3qw=;
-        b=HEYI4R0AjDb1KeQHmGC9Whs3GJMBz5JlbD3/DPAyTBwc3QLlmMpvcDG6e0mbWPicJm
-         5khr++fLpDxaEsC+YSAsZ82WaOoK5KramxaXuidOVeafNSHxm0k/HJCbjLqiP/pRS9jI
-         M6nN1EuMDgqYjVpHfYq/0laAyhH+puyxkv/Ec47Bu383qmto07xCV8GJtdflkLOADo6r
-         x1K0PwRt0gEWPn6e6wyeTgV3zf1HBqJsUrEyIO6ucppEHk7jVxcl34BpE4weHuy52e6F
-         SZsfpvfC5s82oZMS0yqFKdlwsDh8AoJJGXkN4ET5IWFguYn8hGt/Z/Tj0yE4oYkDYj1K
-         a7lw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=QP4KOT3EhrLi3d0ooVVVsr9A2pEL/FCpKK51U4VdNUY=;
+        b=PwKDMNbXKSNeY0vIzIF1p7oEhUZIjYUtBYdS2pigo5U+UG7RxNTs/H1pbwgnnjPZla
+         57m9Tdf/UTPhINuEnEwgehFZBOpHdJ2kHtFzP1n2mDpVYXxrduVEfhPb1udl6krSCpv9
+         xtcztj4FFmN5RJnw93GbvTqd9wIfGfoC8b/JFGmg26/xDU5BpPNHGcWBjalKm4oMliT0
+         yLc+oK9ghdruPgpDTs5tiVvQqfdPJN20H1QtMV2UlOLMEnhsFwCldff78LJL6iIOzKXP
+         tDrrR7bsh1RguBu32qQEwDrFTbQAVnvo8DsHmiWxoPCW8pJVe3JctKm7XGBVddgw+Ths
+         uNTA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=QP4KOT3EhrLi3d0ooVVVsr9A2pEL/FCpKK51U4VdNUY=;
+        b=D6WZKwNVazjtWhB6ywO8H5nb6FwsKjUMynOv2rrNhFrUsHkudwnfO9SbXrymumwtwc
+         CEMDor4HLs1M8V7UDWWkMjgTDBvoRc2JGliEonE7qAFCXm5idwdCUKeHMQougdYdNel2
+         35oscakn/82HsYcD2MH3g8ue7bWnxCmm1cjcY9UnwP+AQv7MALcNOneKAM126NFhkQT+
+         bjVTPxR4L3JQhFseZVjL2JXykmaB8HzgkjgY3P1tdqdnsOZwCx3iMmw9IuOdlIc18DUO
+         V+t9T4HepWWqtLGleOZM/IV2DS6CrdXh5fSVbWGRa1Ux1If8n639kx2CNwyFuj8VaW4Y
+         MIEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=w2/9wv7bQnEbuWeARzqiGnPnEXIpGVzj12ZqxLMy3qw=;
-        b=gQ9goX4kC0wwqy8k1JaOvIoMy68FV7oKZtV0JiHtKbSUGrAxMk61uAyMrJF5aKJwHY
-         K4poir0f54S/ycpkv82jubvgr0pn8ALtCLuqk+y3fgNIKahOHU82FVGhI97qOb+MUqih
-         sxIpr7Tg49CgJdZIuCtzygQll6pbtFuoXO8aqJiKsLayjxEA0Vt6BrSdH/5LmA8NyxiA
-         aLBjq253a+zlUvR9uSlTGY2vhe2IhtXvO9Jiv6aS85QkJKVT6SD7g4fLj53xldnDBMq7
-         Hdf9JX64EUOIGPjRhA1uevMnJ99RD1uKgb0bo4TgxZM8tYDRen4N/8syVAwvOl0szO2w
-         omkQ==
-X-Gm-Message-State: APjAAAWBqkIMXfSqY2jOnfF81mqxs7ipCaOxgecyt/l6zjHgZ3PJVdPb
-	xSNjMY8I1PP7TJip5HpZtZk=
-X-Google-Smtp-Source: APXvYqzOxDHQ5CFheI4yzFjkeRUc+Ljlf0vYYbL1pyOIDp14eUfEjksNY7XYxSGGCJe2lJvmIc435w==
-X-Received: by 2002:a63:c006:: with SMTP id h6mr31962169pgg.290.1567547416613;
-        Tue, 03 Sep 2019 14:50:16 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=QP4KOT3EhrLi3d0ooVVVsr9A2pEL/FCpKK51U4VdNUY=;
+        b=Fb2RJ6J4M1dVyTUaDsG3RSmbi6aT/XJ/fY2IOK0QsRALryKOzW9SqsiQqtF2/CJRsW
+         oFFu6028yiJQOpsR57kcx8uBnMRNMS6kJt9pQY3CQK4an5OpZSfwNy6oxkzrdX2ovIee
+         baW6+M+8PhrVaH71TbJ3PbCmfjD4brKec8Fi5XFyFBRK3lnyOQgCHU9BiOAByF36KuBL
+         8HQ0caS9ZnksgiRGDwXVeu6WBqU9lVQ/UfhuRM1Hsn1PoQEiHS6Je4RMQOVCr+A0Lexf
+         BrEpY+RAH5q56UAipwxc0h/fIw/9JcO1Xdw0HLJkEsZ3N4+KExfs1na7T3tIFdjCtwzb
+         +ChQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAVPYWi0ACS6ujxssjTw3kDeum0BI53yFdjR3DlP4FpwND2t+4+E
+	c9aVhA+nkWXNhNLOHJni6h0=
+X-Google-Smtp-Source: APXvYqwMLotzRZ1mBOfIW5ki81GlD6ZF5hp5WybDPYn4ilC3Mj+2vS8y/s51w9nLUIePUmaNlqm2UA==
+X-Received: by 2002:a50:a4d2:: with SMTP id x18mr16709842edb.126.1567556644505;
+        Tue, 03 Sep 2019 17:24:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:f84d:: with SMTP id c13ls6064295pfm.0.gmail; Tue, 03 Sep
- 2019 14:50:16 -0700 (PDT)
-X-Received: by 2002:aa7:82cb:: with SMTP id f11mr14834731pfn.192.1567547416243;
-        Tue, 03 Sep 2019 14:50:16 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567547416; cv=none;
+Received: by 2002:aa7:da85:: with SMTP id q5ls4437834eds.15.gmail; Tue, 03 Sep
+ 2019 17:24:04 -0700 (PDT)
+X-Received: by 2002:aa7:c893:: with SMTP id p19mr39547452eds.37.1567556644085;
+        Tue, 03 Sep 2019 17:24:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567556644; cv=none;
         d=google.com; s=arc-20160816;
-        b=YiQzn6pLtnItiIcEm94aWqtyKBa1dNzZEKBOm5XhlE3L4j+bewoB5YfMV6IhrHd22H
-         pTpWbzFAo+mpX4WapOM7fCd5v86GnBFlvQt/Trr3z59sYgrrK22EFFsPabN/PSHyiX2o
-         xHYUvo2BSm0SQAnCgzPZ8jJxzgarbbyk6oALM4SQselnQK7jhrj9CqemZ2yS2tlYDYZt
-         W0e0Qq85Rget7gQeIu4M/xNBvweDWR2O4q5s5q29Gc+vn0Fb6+iM++r9RTzdMZO9u3sN
-         3dpC/RFJAy9awBTokXruRojgwyHYz1pCBB20mPecDJr5OBIUTt7ATjzc77OSVO1Y3zw0
-         Xzjw==
+        b=i8xQwmpQ/EZJSyhLfnS+/0fMRy2sUojPcIlzpPILtdZKPbkLUbho92kNNkaZBUVaEz
+         +TtlZS83GFVi8OSxdztiLDRvTWE43VHd97pX1LTsDabfwjWN1xFcTSKiXaDV0p01VFba
+         epJcdaAg/WX1ODQeIkXv9eNDHOkFlD9trugocOE1u+zzg/tLtiJRGeJlwm03vsCTshmP
+         bH6gdvxooaZtqi9nfrGuzM3rInZf6o1J89ys8OV5Rq52nCM8SlIJee30j3ZhKyHGKVdV
+         mbuF/XTUDZ84gnCPEzZB/mmjPTBlCWIDx+6Y9qj1berJ/ieP/h/9JtfeRozQPQ3aB373
+         9HXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=pkHv7aeAus4diANg1wa54ZbIxaxA/Tq3Ei6vs6FUsos=;
-        b=cbKETBBRKW1xtK01i82eiUUThuLpu6L6DXAzeM7GBTP32wXAcKx0aDFWagC6c+VKuR
-         +l/Hirhlsogo9t1c/7MDkjXX/LtUMdrrJ06Z0Ok8+XaXlryMCUVLvW7grKFotm+GRxtI
-         GWqW0/l1BJjH26BZN95fs+jT4ZWXwG/R5puvOn9Wp+OWZkTUDYGCCLfolCMPeph2D+QB
-         kn12Iv5HhMVOsgpFUoiH/gMRMXDA0dgm2X4BX0WPi6EJSVGZSwIbsEaB6FrOY4lowAL6
-         3O8Mi7IDYZxYOdYjfJbkP1ZHQ2ZKekeebvS8zZ/C+Tp75CQkL80qxgju3yOTM2F9E5Ad
-         DCQg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=+kGji0iEqvX2PbYbdW45C9GxA697L85/6dAAQKl+YqI=;
+        b=jxzRlwriSQKe29pAz3Mp457N/Ob2oxkT4VoC/p8h9NZ/Vz/EUigZu8k4O4M1B4w8JH
+         QIGEiPlgOpQia0sb6MZSaUnpctI7NsU48nshrng3Z0h9QOf/2nM00MTlZLTWGbea6BaC
+         c1o/2iKZtdOU17lPjvI5Jidx965lyRpr1RMQk9LMD+Aq/yr9IOfzPlG8vZUiv6DFKUd6
+         GllKcXTSGmRo24XXS5M/TaEq/nrY1wA9FFQMu9YOMq5InTHEx3d7abjYI3JIy9vk1onM
+         5p4qnjo7SqilkWZUInPvVI9Uz0C7CA6ekaZLyZ+rXC/HhKYX2gw+rWC22JDuWIVuLw+1
+         agKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Nt2xVI4j;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
-        by gmr-mx.google.com with ESMTPS id t14si1251758pfc.1.2019.09.03.14.50.16
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=s823D9jM;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id z31si624665edc.2.2019.09.03.17.24.04
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 03 Sep 2019 14:50:16 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
-Received: by mail-pl1-x643.google.com with SMTP id d3so8563230plr.1
-        for <clang-built-linux@googlegroups.com>; Tue, 03 Sep 2019 14:50:16 -0700 (PDT)
-X-Received: by 2002:a17:902:7296:: with SMTP id d22mr17503056pll.179.1567547415436;
- Tue, 03 Sep 2019 14:50:15 -0700 (PDT)
+        Tue, 03 Sep 2019 17:24:04 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
+Received: by mail-wm1-x342.google.com with SMTP id r195so1456838wme.2
+        for <clang-built-linux@googlegroups.com>; Tue, 03 Sep 2019 17:24:04 -0700 (PDT)
+X-Received: by 2002:a1c:4c06:: with SMTP id z6mr1965649wmf.47.1567556643727;
+        Tue, 03 Sep 2019 17:24:03 -0700 (PDT)
+Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
+        by smtp.gmail.com with ESMTPSA id b26sm1242242wmj.14.2019.09.03.17.24.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Sep 2019 17:24:03 -0700 (PDT)
+Date: Tue, 3 Sep 2019 17:24:01 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Segher Boessenkool <segher@kernel.crashing.org>
+Cc: David Laight <David.Laight@aculab.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	LKML <linux-kernel@vger.kernel.org>,
+	"# 3.4.x" <stable@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Paul Mackerras <paulus@samba.org>,
+	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
+Subject: Re: [PATCH] powerpc: Avoid clang warnings around setjmp and longjmp
+Message-ID: <20190904002401.GA70635@archlinux-threadripper>
+References: <20190812023214.107817-1-natechancellor@gmail.com>
+ <878srdv206.fsf@mpe.ellerman.id.au>
+ <20190828175322.GA121833@archlinux-threadripper>
+ <CAKwvOdmXbYrR6n-cxKt3XxkE4Lmj0sSoZBUtHVb0V2LTUFHmug@mail.gmail.com>
+ <20190828184529.GC127646@archlinux-threadripper>
+ <6801a83ed6d54d95b87a41c57ef6e6b0@AcuMS.aculab.com>
+ <20190903055553.GC60296@archlinux-threadripper>
+ <20190903193128.GC9749@gate.crashing.org>
 MIME-Version: 1.0
-References: <20190831162555.31887-1-yamada.masahiro@socionext.com> <20190831162555.31887-2-yamada.masahiro@socionext.com>
-In-Reply-To: <20190831162555.31887-2-yamada.masahiro@socionext.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 3 Sep 2019 14:50:04 -0700
-Message-ID: <CAKwvOdm0zcyaBLdSVc7PmjUa-wyVuCaN=6qZoPLvnoJC1ammog@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] kbuild: rename KBUILD_ENABLE_EXTRA_GCC_CHECKS to KBUILD_EXTRA_WARN
-To: Masahiro Yamada <yamada.masahiro@socionext.com>
-Cc: Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	Nathan Chancellor <natechancellor@gmail.com>, Sedat Dilek <sedat.dilek@gmail.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Michal Marek <michal.lkml@markovi.net>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, linux-doc@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <20190903193128.GC9749@gate.crashing.org>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Nt2xVI4j;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=s823D9jM;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,187 +160,36 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Aug 31, 2019 at 9:26 AM Masahiro Yamada
-<yamada.masahiro@socionext.com> wrote:
->
-> KBUILD_ENABLE_EXTRA_GCC_CHECKS started as a switch to add extra warning
-> options for GCC, but now it is a historical misnomer since we use it
-> also for Clang, DTC, and even kernel-doc.
+On Tue, Sep 03, 2019 at 02:31:28PM -0500, Segher Boessenkool wrote:
+> On Mon, Sep 02, 2019 at 10:55:53PM -0700, Nathan Chancellor wrote:
+> > On Thu, Aug 29, 2019 at 09:59:48AM +0000, David Laight wrote:
+> > > From: Nathan Chancellor
+> > > > Sent: 28 August 2019 19:45
+> > > ...
+> > > > However, I think that -fno-builtin-* would be appropriate here because
+> > > > we are providing our own setjmp implementation, meaning clang should not
+> > > > be trying to do anything with the builtin implementation like building a
+> > > > declaration for it.
+> > > 
+> > > Isn't implementing setjmp impossible unless you tell the compiler that
+> > > you function is 'setjmp-like' ?
+> > 
+> > No idea, PowerPC is the only architecture that does such a thing.
+> 
+> Since setjmp can return more than once, yes, exciting things can happen
+> if you do not tell the compiler about this.
+> 
+> 
+> Segher
+> 
 
-Thanks for the patch!
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Fair enough so I guess we are back to just outright disabling the
+warning.
 
->
-> Rename it to more sensible, and shorter KBUILD_EXTRA_WARN.
->
-> For the backward compatibility, KBUILD_ENABLE_EXTRA_GCC_CHECKS is still
-> supported (but not advertised in the documentation).
->
-> I also fixed up 'make help', and updated the documentation.
->
-> Signed-off-by: Masahiro Yamada <yamada.masahiro@socionext.com>
-> ---
->
-> Changes in v3:
->   - new patch
->
-> Changes in v2: None
->
->  Documentation/kbuild/kbuild.rst | 14 +++++++++-----
->  Makefile                        |  2 +-
->  scripts/Makefile.build          |  2 +-
->  scripts/Makefile.extrawarn      | 13 +++++++++----
->  scripts/Makefile.lib            |  4 ++--
->  scripts/genksyms/Makefile       |  2 +-
->  6 files changed, 23 insertions(+), 14 deletions(-)
->
-> diff --git a/Documentation/kbuild/kbuild.rst b/Documentation/kbuild/kbuild.rst
-> index 62f9d86c082c..f1e5dce86af7 100644
-> --- a/Documentation/kbuild/kbuild.rst
-> +++ b/Documentation/kbuild/kbuild.rst
-> @@ -105,6 +105,15 @@ The output directory can also be specified using "O=...".
->
->  Setting "O=..." takes precedence over KBUILD_OUTPUT.
->
-> +KBUILD_EXTRA_WARN
-> +-----------------
-> +Specify the extra build checks. The same value can be assigned by passing
-> +W=... from the command line.
-> +
-> +See `make help` for the list of the supported values.
-> +
-> +Setting "W=..." takes precedence over KBUILD_EXTRA_WARN.
-> +
->  KBUILD_DEBARCH
->  --------------
->  For the deb-pkg target, allows overriding the normal heuristics deployed by
-> @@ -241,11 +250,6 @@ To get all available archs you can also specify all. E.g.::
->
->      $ make ALLSOURCE_ARCHS=all tags
->
-> -KBUILD_ENABLE_EXTRA_GCC_CHECKS
-> -------------------------------
-> -If enabled over the make command line with "W=1", it turns on additional
-> -gcc -W... options for more extensive build-time checking.
-> -
->  KBUILD_BUILD_TIMESTAMP
->  ----------------------
->  Setting this to a date string overrides the timestamp used in the
-> diff --git a/Makefile b/Makefile
-> index 06e1e21c0f45..016d72eb3ddf 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -1538,7 +1538,7 @@ help:
->         @echo  '  make C=1   [targets] Check re-compiled c source with $$CHECK (sparse by default)'
->         @echo  '  make C=2   [targets] Force check of all c source with $$CHECK'
->         @echo  '  make RECORDMCOUNT_WARN=1 [targets] Warn about ignored mcount sections'
-> -       @echo  '  make W=n   [targets] Enable extra gcc checks, n=1,2,3 where'
-> +       @echo  '  make W=n   [targets] Enable extra checks, n=1,2,3 where'
->         @echo  '                1: warnings which may be relevant and do not occur too often'
->         @echo  '                2: warnings which occur quite often but may still be relevant'
->         @echo  '                3: more obscure warnings, can most likely be ignored'
-> diff --git a/scripts/Makefile.build b/scripts/Makefile.build
-> index 2a21ca86b720..f72aba64d611 100644
-> --- a/scripts/Makefile.build
-> +++ b/scripts/Makefile.build
-> @@ -85,7 +85,7 @@ else ifeq ($(KBUILD_CHECKSRC),2)
->          cmd_force_checksrc = $(CHECK) $(CHECKFLAGS) $(c_flags) $<
->  endif
->
-> -ifneq ($(KBUILD_ENABLE_EXTRA_GCC_CHECKS),)
-> +ifneq ($(KBUILD_EXTRA_WARN),)
->    cmd_checkdoc = $(srctree)/scripts/kernel-doc -none $<
->  endif
->
-> diff --git a/scripts/Makefile.extrawarn b/scripts/Makefile.extrawarn
-> index d226c5fb13e2..53eb7e0c6a5a 100644
-> --- a/scripts/Makefile.extrawarn
-> +++ b/scripts/Makefile.extrawarn
-> @@ -8,14 +8,19 @@
->
->  KBUILD_CFLAGS += $(call cc-disable-warning, packed-not-aligned)
->
-> +# backward compatibility
-> +KBUILD_EXTRA_WARN ?= $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)
-> +
->  ifeq ("$(origin W)", "command line")
-> -  export KBUILD_ENABLE_EXTRA_GCC_CHECKS := $(W)
-> +  KBUILD_EXTRA_WARN := $(W)
->  endif
->
-> +export KBUILD_EXTRA_WARN
-> +
->  #
->  # W=1 - warnings which may be relevant and do not occur too often
->  #
-> -ifneq ($(findstring 1, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +ifneq ($(findstring 1, $(KBUILD_EXTRA_WARN)),)
->
->  KBUILD_CFLAGS += -Wextra -Wunused -Wno-unused-parameter
->  KBUILD_CFLAGS += -Wmissing-declarations
-> @@ -48,7 +53,7 @@ endif
->  #
->  # W=2 - warnings which occur quite often but may still be relevant
->  #
-> -ifneq ($(findstring 2, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +ifneq ($(findstring 2, $(KBUILD_EXTRA_WARN)),)
->
->  KBUILD_CFLAGS += -Wcast-align
->  KBUILD_CFLAGS += -Wdisabled-optimization
-> @@ -65,7 +70,7 @@ endif
->  #
->  # W=3 - more obscure warnings, can most likely be ignored
->  #
-> -ifneq ($(findstring 3, $(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +ifneq ($(findstring 3, $(KBUILD_EXTRA_WARN)),)
->
->  KBUILD_CFLAGS += -Wbad-function-cast
->  KBUILD_CFLAGS += -Wcast-qual
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index 7ab17712ab24..df83967268ba 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -248,7 +248,7 @@ quiet_cmd_gzip = GZIP    $@
->  DTC ?= $(objtree)/scripts/dtc/dtc
->
->  # Disable noisy checks by default
-> -ifeq ($(findstring 1,$(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +ifeq ($(findstring 1,$(KBUILD_EXTRA_WARN)),)
->  DTC_FLAGS += -Wno-unit_address_vs_reg \
->         -Wno-unit_address_format \
->         -Wno-avoid_unnecessary_addr_size \
-> @@ -259,7 +259,7 @@ DTC_FLAGS += -Wno-unit_address_vs_reg \
->         -Wno-pci_device_reg
->  endif
->
-> -ifneq ($(findstring 2,$(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +ifneq ($(findstring 2,$(KBUILD_EXTRA_WARN)),)
->  DTC_FLAGS += -Wnode_name_chars_strict \
->         -Wproperty_name_chars_strict
->  endif
-> diff --git a/scripts/genksyms/Makefile b/scripts/genksyms/Makefile
-> index baf44ed0a93a..78629f515e78 100644
-> --- a/scripts/genksyms/Makefile
-> +++ b/scripts/genksyms/Makefile
-> @@ -12,7 +12,7 @@ genksyms-objs := genksyms.o parse.tab.o lex.lex.o
->  #
->  # Just in case, run "$(YACC) --version" without suppressing stderr
->  # so that 'bison: not found' will be displayed if it is missing.
-> -ifeq ($(findstring 1,$(KBUILD_ENABLE_EXTRA_GCC_CHECKS)),)
-> +ifeq ($(findstring 1,$(KBUILD_EXTRA_WARN)),)
->
->  quiet_cmd_bison_no_warn = $(quiet_cmd_bison)
->        cmd_bison_no_warn = $(YACC) --version >/dev/null; \
-> --
-> 2.17.1
->
-
-
--- 
-Thanks,
-~Nick Desaulniers
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm0zcyaBLdSVc7PmjUa-wyVuCaN%3D6qZoPLvnoJC1ammog%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904002401.GA70635%40archlinux-threadripper.
