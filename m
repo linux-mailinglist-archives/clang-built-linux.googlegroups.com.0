@@ -1,106 +1,111 @@
-Return-Path: <clang-built-linux+bncBCNODNHUQUJBBBGRYDVQKGQEEEMAELY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCNODNHUQUJBBBWRYDVQKGQEPKN5RBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
-	by mail.lfdr.de (Postfix) with ESMTPS id 34F18A948F
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Sep 2019 23:11:33 +0200 (CEST)
-Received: by mail-qk1-x737.google.com with SMTP id h14sf5674412qkl.17
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 14:11:33 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567631492; cv=pass;
+Received: from mail-yw1-xc3c.google.com (mail-yw1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1320AA9492
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Sep 2019 23:11:37 +0200 (CEST)
+Received: by mail-yw1-xc3c.google.com with SMTP id l123sf50103ywd.23
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 14:11:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567631495; cv=pass;
         d=google.com; s=arc-20160816;
-        b=06tecEigdkESdNQjzu0a3hPSdDsiL3ax0hDwr3goR6ele9VapOz69TA/gGaLnXOJze
-         scCD0oanXyJrNyjyHok2Cte154jxpEH6O9BZuzGa9LC9pSIXCK+SL2r5Om+oXN1olVRn
-         WTt7PqzQEBcv3Lg3MaOUxsnGTQxQaukLTnLXYKZC139ZhO8gUzW8iBQh8uvxZgbGNSx3
-         gPO02ymTlLu8Ok930XfFy7dvZNlSm5t8IDRj1ScWu90MJE2T9H4DfCYZFn6w3UgKhr6E
-         ZZ/Pdd0XiSMbf5TIC6T1BSaIr9vylBtPwnwAA2rcK622hcsztSRSdlv64TkdmGqI/q6E
-         xeTA==
+        b=Vz5MDLcPGPljTS29+Urb0rIepPSmedeOUcizrMi8dcJiw36RnxCQwJJ1As8YAGCQ+r
+         AwOrVVGO/o9M4XDQ3NAvcYwIwAmvxmgd2a5Y15qVoE3ptEC/HK54xWiPwS8t0yRQWQgc
+         sXfCiDKesK7kcfkOyua9JviPjRYTYUs1G2YAt/qndaGGjrL7TXRR2kepQMWkM4OrbMOs
+         2JLoexH+pNg4S3Mf4Ws0EY7OCjI+oHCrY1SKZwqtW/cD1DJzylawAxn7r98zhc5gpIbl
+         rT+donU4mOmAZq09sqtAJKN+genMPOEpWQqAEYMuHdblLF3BAfUO9pV/xTSnYBjf3bDW
+         IZMA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :mime-version:message-id:date:dkim-signature;
-        bh=Qx30wRyOZPX1s3PLu7S+RpcdMxWpoapLeNantwF3Fwg=;
-        b=B+n/JU0tOKu3hXWCBRgh5+39aOYyP3n4Yv48eRF9eDAlX7YiHRD0FE7OKri+QVmqgc
-         lRwcO14Ew1UwmEH5kmel5ISxDjBFes/XsDH71lN9d+GRqzT5cHb2s4mZ4wjTxw9EZrIc
-         45jZoWVZeibWRE0G8Q6DUpkFpp5gFBnZT21FdAQkSFp0Wun90fEpQjXwvmuq9mFbIzpn
-         qTNytpF/r8fmin0vtt5yRFua3YoYr1+36s8z/0W7OapjGnHtrIp3dQuvPN7vhc/6X79a
-         /5kWdQNBIU2Xi1+L/yLP102dlhreAwmmfNLtwV7781Y6Njc4c4Pn0a2iuWIfvekwy1+e
-         P2ag==
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=gb+lx43ut2WvHHMb9pWW2YZTEDQG7VdxGxOmhi1BVgM=;
+        b=OiX6c5ulEYy3Bp8oLvNqftKrW/kGA08hwkKAaGoiJNyWzbmEivKo+6wtpMzc5wAgj1
+         +7DQyPYndIVSSIGnaL6XaJeiyZfr1Gq3OUNfF+V74dEy5QwV1tchUsSYPR7dcXGjPk9B
+         WbeALIxy+aUwBHxWVrmtAQQ4RjqnWJohPmMr+D0KVXkFw4GlSwWJyx7qUPc8K4DUC9sC
+         Fl1UlkBqV7Dwg4nlfJSjnK/4zuHFRlgibG+j8morMmC53lhC8HxPi/YLctH1a7+PhCye
+         e6/CSXkpCDbU0TazEdPy2SN863OEkCxZrz7WhUHl59c3QeA1jiS7508N/HqKXZubHV2d
+         7WJQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hsXuOq4U;
-       spf=pass (google.com: domain of 3gihwxqkkaiu1j0j4jwjtpxxpun.lxv@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3gihwXQkKAIU1j0j4jwjtpxxpun.lxv@flex--saravanak.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PeL1qXyM;
+       spf=pass (google.com: domain of 3hihwxqkkaik5n4n8n0nxt11tyr.p1z@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3hihwXQkKAIk5n4n8n0nxt11tyr.p1z@flex--saravanak.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:message-id:mime-version:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=Qx30wRyOZPX1s3PLu7S+RpcdMxWpoapLeNantwF3Fwg=;
-        b=FFjYSYPz91geEXQX+MV/0bI0CVT/XsWIW8qMmz4fvyv3DrFGkSRMrktXHNXoyGhOyM
-         lC4b/kZluo4y4lsInwusEZd6+M+FyGp/rtOcX4FiIpj8HJlluJsyGX4RLPZDfvXqPj3H
-         1cW0kXqD97cfna8qjTdIHsdMmCkGQou3RYsvHnKvCXbUXzv1XRpZQt/kMm4GGSQ4Kyqx
-         tj6rsZniXnPqvUlhhHaG+EKzPMrtGhkgRPDaGptdpALmL+B295fEPyqhJDbPzdbDlzG7
-         20DMGYryEwsm/UFqniEOdxYRhMEZpgi9prrsSdBljViBgWnxptxF4sMw6IhCvH4y/4cI
-         5lpA==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=gb+lx43ut2WvHHMb9pWW2YZTEDQG7VdxGxOmhi1BVgM=;
+        b=SIWCuDohPdjyb5ZhG2xfQHDjiDsv1GH+rCiup/KWOIWNVryvI8VM/d49F2dftpYZQK
+         MTn8NctEJQOQu29aGULmLz0gXfyjqBloWxt4uCUAsDuJ4AVp73GFB15D4fnN2KBYavns
+         d2lwcM3T58nOBUC/fykkHYmx1VCDhoMrQH+OrFFra8GGpPZtUDW0lusJYlwfKjTziTIe
+         9nSW8ezNUBqA/VYcAf7j5AOBSrg/YJYLQzNX9C73mYSUBRnGw7S9JMZ8z8JZYyJoIVBs
+         3Z7s9XLLmPY23hQRyurb200jWoGLCkjU070KnDpzpaHezJHTRYzS5yNHRS+hW3W68WpI
+         1DIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Qx30wRyOZPX1s3PLu7S+RpcdMxWpoapLeNantwF3Fwg=;
-        b=PW+l5/EK9zSTYuKhDT0COdtRbY745oFXsSYSFgf+wOz7IrDFA3Objp8Tt3qeVxrEWK
-         xBAqnGZoFaQh0Ti+dWeRuxHYXcHKizrrRqBgcPlYsN35tQJu4qIiYkgkYCRjsodcJoCn
-         ajWypwm5T3FaXZLUZ9QGM/pRDPKXEl+2y29YnbUmJKnaeCUWiNYBfquKEF0n4/G2GVWh
-         luMBCP4ZsOFL1OjhYVfvkhEZylLUF9f954OFipeoecsT8olqWK2P4tltCHawUnJ+FleR
-         wEPxOQjlWzlBGecUnvUGhMpZqghPLTmBbz+LHTJrrH60tk47u8Y6vpDvfuZWEu/W/OI9
-         5igw==
-X-Gm-Message-State: APjAAAXJZ40Xcad6ZxRFCeDOfxk6SajDohtLpiNa9jjmbrAzYZt7UJi4
-	HDN9Jd0tw6OEE/jgOrNlNOc=
-X-Google-Smtp-Source: APXvYqxiX/tWqe2As1AwQdjFGW6yzmh5VtaqUftHvM0ZBFrrIz4bsqOFP9pIhB8isLaAE5o76cJvgA==
-X-Received: by 2002:ac8:3525:: with SMTP id y34mr139992qtb.140.1567631492247;
-        Wed, 04 Sep 2019 14:11:32 -0700 (PDT)
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=gb+lx43ut2WvHHMb9pWW2YZTEDQG7VdxGxOmhi1BVgM=;
+        b=pV1SxPNwX8tS+n2DRGNHJahUjoOTLCMTeWh60+2O2zlp64jfeNr299zyDBHq7OmIb+
+         mUwsUbjiAC/CaoGONSLJne+FCuB0IvT56n4NsGgfQ6uqRmEBbD9q+xzfuZJ1yNs841QV
+         jmryOUmuM8p8Tn6OVkTtTImx4eC5Wwp2TJ6VHGa6yGVpEve+HmNvKW3ihql2GCJAu6M4
+         FCKUNRwzKnFs3tAYjdEA23Kf9UUQH0uhaDsqojcP9s+rMXbVeV3kPn9L51hR6JwYWNiq
+         YGx+qX521ccnU8pbg1gpMqAznBT/WGIsvXUHYm3+3GPCsO/bgKUPhL1TTMuj4xu4qsGL
+         copg==
+X-Gm-Message-State: APjAAAVQ5/mC1R4kfukvXmjAuSwtWDeNBqxkB/aPs/IZqhuQJti+ASy+
+	IbWFDFQo6s5EIk6bLuIPwJk=
+X-Google-Smtp-Source: APXvYqyXpKjl68997Bf4mCAAbxa8OJIlIHOOApFdd67avdPi0HndgSlqHYryZrZUgeAEHp4D4w3JSQ==
+X-Received: by 2002:a25:d8cc:: with SMTP id p195mr27200ybg.68.1567631494788;
+        Wed, 04 Sep 2019 14:11:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:3136:: with SMTP id g51ls45124qtb.4.gmail; Wed, 04 Sep
- 2019 14:11:32 -0700 (PDT)
-X-Received: by 2002:ac8:6688:: with SMTP id d8mr107622qtp.25.1567631491992;
-        Wed, 04 Sep 2019 14:11:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567631491; cv=none;
+Received: by 2002:a25:42c8:: with SMTP id p191ls3464yba.4.gmail; Wed, 04 Sep
+ 2019 14:11:34 -0700 (PDT)
+X-Received: by 2002:a25:8749:: with SMTP id e9mr20597161ybn.445.1567631494562;
+        Wed, 04 Sep 2019 14:11:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567631494; cv=none;
         d=google.com; s=arc-20160816;
-        b=PGwY3e99Rs5E6re3dTKbcrp9lCCFbSuraUgPBifjUL8tv7XyD58nGgJahJGwZVh1m4
-         fbol/th04UHrFcxDWjO6RdbpQ7b1b8c8kRcukZEtC7ieSf7MWc2hLyxYSSVtlYl2LQv1
-         UQTo6c2dG7lk8vvIK40ojuFqFF9RO+htoCwreSQCE+smz9ET2ENRnV2z6oLgVBBAioM6
-         r4x0QnQyYeO30/CDYxF89M2A05Svgs3VdiFpIP0AXuLYcw/HIGMBx/rHYOn8C2HX5gs5
-         urCQofPyJ+vnTZn47TrEnagZLF4hVU/8cMH2BEIFzk9wYf6suj86JIG/5xq5BPRu7WrS
-         g/cQ==
+        b=igdex4D8RcBvkQjpyfJ3/pOfXB1CUHYHU+LHyxD+GH6UFSSF7Wixs0HzwqRKIEIRVr
+         5itJ+hAHPR/RBjhWieKGAQgSGt/X+Ta+SfC6wxVJGuxYrYSHliZLPGTAQFIk4n6fwPj/
+         x+cSm/k4FqGDoUvYWtPYvYXf4pNrR8flGLef/oAQMFLB7Azbxb1KNhNTDny9gkqmAuY7
+         HrsXQiPTjdXwccVXh7ToE2S8t5y5Qe6+sEiuK2Q5Q2Vqn0ULcQulao6PTWooXuOoaLrV
+         mnbGkMSTCYSrwx1BGHqXgQaqtNZrSyli8VFShaOo3pO55AbIuttikH+sRcErw2SFAkhV
+         3OMQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:mime-version:message-id:date:dkim-signature;
-        bh=u6P0vTia2RxCdsskGV2Xe3w3VBUYzUpmbJKpNal4IZw=;
-        b=X1PiD7E7fPIk2kX1RBQT46jakVz2S7zg4iY9jzWDvkGafB6hMrUkAy7T7y7fGpQX26
-         t+uL67V+d5xv3VBtJdgTmlUMJMYyLPuNP0aSQkAWgShENRuwVCMRvmJEPny4md3BPX6x
-         kcYGs/yfN3rVU5sUWPBdREEv/hXRn0FdnShu+ham95rYl3eV77j6zfG0JOklxpndEq74
-         EVbkegl2fvs/6+Kda+8pR6mURveS9QMUm4aBwzW+ckrnh8hDwapqqoxDFQlr65IOVOfK
-         D3tUwJ86iAM+8K6XrmQjejyqFNnligY56ou8B/1b2RlBpQ4ivqckJ+EG82AfF042YdmU
-         nD8w==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=fqo1KOf+cOCC74wEKfOYxznTOIvWMgdfyPycEAYi4u0=;
+        b=Ysx0Lkun9CH3cPYgrrxS4mCjKgU92uEC8BxTc0AE4YBWsrYOn8Bd1yFu7kNqSxWkR8
+         xYRlSw/OjXHPl3EcNGB8J5kr4UmKOKqvKR6zdMjvSPLo8OWfWJhvJ2t6iyInElSgQsu5
+         nDRbK1Q813Qck+Nu9DdQwHKoyr6fmGwhP7i8FaRBA+Y/7iTGNBB6DKoN8MFFdOSVDVCB
+         b7xVNW1Udk9Bosd7glAIMTdJ1Qkv6KK4k4e8/QL1AqRgYcyZQPXdI0ayrFBt3dwpsZen
+         YmzC8wNK8mC4b3OrePo0YP0Mp4cUdvexEPKKq9PyCO7CzelD7+GoLjZxymnA5RaH4sQu
+         Kugg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=hsXuOq4U;
-       spf=pass (google.com: domain of 3gihwxqkkaiu1j0j4jwjtpxxpun.lxv@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3gihwXQkKAIU1j0j4jwjtpxxpun.lxv@flex--saravanak.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=PeL1qXyM;
+       spf=pass (google.com: domain of 3hihwxqkkaik5n4n8n0nxt11tyr.p1z@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3hihwXQkKAIk5n4n8n0nxt11tyr.p1z@flex--saravanak.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x549.google.com (mail-pg1-x549.google.com. [2607:f8b0:4864:20::549])
-        by gmr-mx.google.com with ESMTPS id l12si14070qkg.0.2019.09.04.14.11.31
+Received: from mail-qt1-x849.google.com (mail-qt1-x849.google.com. [2607:f8b0:4864:20::849])
+        by gmr-mx.google.com with ESMTPS id j72si7764ybg.0.2019.09.04.14.11.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Sep 2019 14:11:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3gihwxqkkaiu1j0j4jwjtpxxpun.lxv@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) client-ip=2607:f8b0:4864:20::549;
-Received: by mail-pg1-x549.google.com with SMTP id h3so13919970pgc.19
-        for <clang-built-linux@googlegroups.com>; Wed, 04 Sep 2019 14:11:31 -0700 (PDT)
-X-Received: by 2002:a63:ec03:: with SMTP id j3mr111690pgh.325.1567631490651;
- Wed, 04 Sep 2019 14:11:30 -0700 (PDT)
-Date: Wed,  4 Sep 2019 14:11:19 -0700
-Message-Id: <20190904211126.47518-1-saravanak@google.com>
+        Wed, 04 Sep 2019 14:11:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3hihwxqkkaik5n4n8n0nxt11tyr.p1z@flex--saravanak.bounces.google.com designates 2607:f8b0:4864:20::849 as permitted sender) client-ip=2607:f8b0:4864:20::849;
+Received: by mail-qt1-x849.google.com with SMTP id 91so89171qtf.13
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Sep 2019 14:11:34 -0700 (PDT)
+X-Received: by 2002:a0c:8402:: with SMTP id l2mr12315654qva.201.1567631494059;
+ Wed, 04 Sep 2019 14:11:34 -0700 (PDT)
+Date: Wed,  4 Sep 2019 14:11:20 -0700
+In-Reply-To: <20190904211126.47518-1-saravanak@google.com>
+Message-Id: <20190904211126.47518-2-saravanak@google.com>
 Mime-Version: 1.0
+References: <20190904211126.47518-1-saravanak@google.com>
 X-Mailer: git-send-email 2.23.0.187.g17f5b7556c-goog
-Subject: [PATCH v11 0/6] Solve postboot supplier cleanup and optimize probe ordering
+Subject: [PATCH v11 1/6] driver core: Add fwnode_to_dev() to look up device
+ from fwnode
 From: "'Saravana Kannan' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Rob Herring <robh+dt@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -112,9 +117,9 @@ Cc: Saravana Kannan <saravanak@google.com>, devicetree@vger.kernel.org,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: saravanak@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=hsXuOq4U;       spf=pass
- (google.com: domain of 3gihwxqkkaiu1j0j4jwjtpxxpun.lxv@flex--saravanak.bounces.google.com
- designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3gihwXQkKAIU1j0j4jwjtpxxpun.lxv@flex--saravanak.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=PeL1qXyM;       spf=pass
+ (google.com: domain of 3hihwxqkkaik5n4n8n0nxt11tyr.p1z@flex--saravanak.bounces.google.com
+ designates 2607:f8b0:4864:20::849 as permitted sender) smtp.mailfrom=3hihwXQkKAIk5n4n8n0nxt11tyr.p1z@flex--saravanak.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Saravana Kannan <saravanak@google.com>
 Reply-To: Saravana Kannan <saravanak@google.com>
@@ -130,157 +135,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Add device-links to track functional dependencies between devices
-after they are created (but before they are probed) by looking at
-their common DT bindings like clocks, interconnects, etc.
+It's often useful to look up a device that corresponds to a fwnode. So
+add an API to do that irrespective of the bus on which the device has
+been added to.
 
-Having functional dependencies automatically added before the devices
-are probed, provides the following benefits:
+Signed-off-by: Saravana Kannan <saravanak@google.com>
+---
+ drivers/base/core.c    | 7 +++++++
+ include/linux/fwnode.h | 2 ++
+ 2 files changed, 9 insertions(+)
 
-- Optimizes device probe order and avoids the useless work of
-  attempting probes of devices that will not probe successfully
-  (because their suppliers aren't present or haven't probed yet).
-
-  For example, in a commonly available mobile SoC, registering just
-  one consumer device's driver at an initcall level earlier than the
-  supplier device's driver causes 11 failed probe attempts before the
-  consumer device probes successfully. This was with a kernel with all
-  the drivers statically compiled in. This problem gets a lot worse if
-  all the drivers are loaded as modules without direct symbol
-  dependencies.
-
-- Supplier devices like clock providers, interconnect providers, etc
-  need to keep the resources they provide active and at a particular
-  state(s) during boot up even if their current set of consumers don't
-  request the resource to be active. This is because the rest of the
-  consumers might not have probed yet and turning off the resource
-  before all the consumers have probed could lead to a hang or
-  undesired user experience.
-
-  Some frameworks (Eg: regulator) handle this today by turning off
-  "unused" resources at late_initcall_sync and hoping all the devices
-  have probed by then. This is not a valid assumption for systems with
-  loadable modules. Other frameworks (Eg: clock) just don't handle
-  this due to the lack of a clear signal for when they can turn off
-  resources. This leads to downstream hacks to handle cases like this
-  that can easily be solved in the upstream kernel.
-
-  By linking devices before they are probed, we give suppliers a clear
-  count of the number of dependent consumers. Once all of the
-  consumers are active, the suppliers can turn off the unused
-  resources without making assumptions about the number of consumers.
-
-By default we just add device-links to track "driver presence" (probe
-succeeded) of the supplier device. If any other functionality provided
-by device-links are needed, it is left to the consumer/supplier
-devices to change the link when they probe.
-
-v1 -> v2:
-- Drop patch to speed up of_find_device_by_node()
-- Drop depends-on property and use existing bindings
-
-v2 -> v3:
-- Refactor the code to have driver core initiate the linking of devs
-- Have driver core link consumers to supplier before it's probed
-- Add support for drivers to edit the device links before probing
-
-v3 -> v4:
-- Tested edit_links() on system with cyclic dependency. Works.
-- Added some checks to make sure device link isn't attempted from
-  parent device node to child device node.
-- Added way to pause/resume sync_state callbacks across
-  of_platform_populate().
-- Recursively parse DT node to create device links from parent to
-  suppliers of parent and all child nodes.
-
-v4 -> v5:
-- Fixed copy-pasta bugs with linked list handling
-- Walk up the phandle reference till I find an actual device (needed
-  for regulators to work)
-- Added support for linking devices from regulator DT bindings
-- Tested the whole series again to make sure cyclic dependencies are
-  broken with edit_links() and regulator links are created properly.
-
-v5 -> v6:
-- Split, squashed and reordered some of the patches.
-- Refactored the device linking code to follow the same code pattern for
-  any property.
-
-v6 -> v7:
-- No functional changes.
-- Renamed i to index
-- Added comment to clarify not having to check property name for every
-  index
-- Added "matched" variable to clarify code. No functional change.
-- Added comments to include/linux/device.h for add_links()
-
-v7 -> v8:
-- Rebased on top of linux-next to handle device link changes in [1]
-
-v8 -> v9:
-- Fixed kbuild test bot reported errors (docs and const)
-
-v9->v10:
-- Changes made based on reviews on LKML [2] and discussions at ELC [3]
-- Dropped the edit_links() patch
-- Dropped the patch that skips linking for default bus nodes
-- 1/7: Changed from bus.add_links() to fwnode.ops.add_links() 
-- 1/7: Update device link doc
-- 1/7: Lots of comments/fn doc updates
-- 1/7: Renamed device_link_check_waiting_consumers() to
-  device_link_add_missing_supplier_links()
-- 2/7: Moved DT parsing/linking code from of/platform.c to of/property.c
-- 2/7: Lots of comments/fn doc updates
-- 2/7: Returned errors for all error cases in of_link_to_phandle()
-- 2/7: Some minor code refactor to remove "bool done"
-- 2/7: Added debug messages when links not created due permanent errors
-- 3/7: Minor comments update
-- Added 2 new patches 6/7 and 7/7 to handle cyclic dependencies using
-  depends-on
-
-v10->v11:
-- Dropped 6/7 and 7/7 from previous series that tried to handle cycles in DT
-  dependencies. We can solve it later when we actually hit a real world issue
-  in DT.
-- Added a new 1/7 that shifts the numbering for the rest of the patches
-- 1/7 adds a way to look up a device from a fwnode so that this series can work
-  across bus and firmware types
-- 3/7 removed references to platform_device from of/property.c
-- 4/7 Minor variable rename
-- 4/7 Defer sync_state() be default at driver core level and resume at
-  late_initcall_sync(). That way, we don't depend on any specific bus types
-  having to pause/resume sync_state() till late_initcall_sync()
-
-[1] - https://lore.kernel.org/lkml/2305283.AStDPdUUnE@kreacher/
-[2] - https://lore.kernel.org/lkml/20190724001100.133423-2-saravanak@google.com/
-[3] - https://lore.kernel.org/lkml/CAGETcx_pSnC_2D7ufLRyfE3b8uRc814XEf8zu+SpNtT7_Z8NLg@mail.gmail.com/
-
--Saravana
-
-
-Saravana Kannan (6):
-  driver core: Add fwnode_to_dev() to look up device from fwnode
-  driver core: Add support for linking devices during device addition
-  of: property: Add functional dependency link from DT bindings
-  driver core: Add sync_state driver/bus callback
-  of/platform: Pause/resume sync state during init and
-    of_platform_populate()
-  of: property: Create device links for all child-supplier depencencies
-
- .../admin-guide/kernel-parameters.rst         |   1 +
- .../admin-guide/kernel-parameters.txt         |   6 +
- Documentation/driver-api/device_link.rst      |   3 +-
- drivers/base/core.c                           | 167 ++++++++++++
- drivers/of/platform.c                         |  12 +
- drivers/of/property.c                         | 245 ++++++++++++++++++
- include/linux/device.h                        |  26 ++
- include/linux/fwnode.h                        |  19 ++
- 8 files changed, 478 insertions(+), 1 deletion(-)
-
+diff --git a/drivers/base/core.c b/drivers/base/core.c
+index 2db62d98e395..510fabf8918c 100644
+--- a/drivers/base/core.c
++++ b/drivers/base/core.c
+@@ -2198,6 +2198,10 @@ int device_add(struct device *dev)
+ 					     BUS_NOTIFY_ADD_DEVICE, dev);
+ 
+ 	kobject_uevent(&dev->kobj, KOBJ_ADD);
++
++	if (dev->fwnode && !dev->fwnode->dev)
++		dev->fwnode->dev = dev;
++
+ 	bus_probe_device(dev);
+ 	if (parent)
+ 		klist_add_tail(&dev->p->knode_parent,
+@@ -2342,6 +2346,9 @@ void device_del(struct device *dev)
+ 	kill_device(dev);
+ 	device_unlock(dev);
+ 
++	if (dev->fwnode && dev->fwnode->dev == dev)
++		dev->fwnode->dev = NULL;
++
+ 	/* Notify clients of device removal.  This call must come
+ 	 * before dpm_sysfs_remove().
+ 	 */
+diff --git a/include/linux/fwnode.h b/include/linux/fwnode.h
+index ababd6bc82f3..d8c6d231d577 100644
+--- a/include/linux/fwnode.h
++++ b/include/linux/fwnode.h
+@@ -17,6 +17,7 @@ struct device;
+ struct fwnode_handle {
+ 	struct fwnode_handle *secondary;
+ 	const struct fwnode_operations *ops;
++	struct device *dev;
+ };
+ 
+ /**
+@@ -123,5 +124,6 @@ struct fwnode_operations {
+ 		if (fwnode_has_op(fwnode, op))				\
+ 			(fwnode)->ops->op(fwnode, ## __VA_ARGS__);	\
+ 	} while (false)
++#define get_dev_from_fwnode(fwnode)	get_device((fwnode)->dev)
+ 
+ #endif
 -- 
 2.23.0.187.g17f5b7556c-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904211126.47518-1-saravanak%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904211126.47518-2-saravanak%40google.com.
