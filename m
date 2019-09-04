@@ -1,127 +1,147 @@
-Return-Path: <clang-built-linux+bncBCLY5BP6XMFRB7XUYDVQKGQEKE5MWQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB5P2YDVQKGQEWSRNVSQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
-	by mail.lfdr.de (Postfix) with ESMTPS id C761CA9667
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Sep 2019 00:28:15 +0200 (CEST)
-Received: by mail-ua1-x93c.google.com with SMTP id g19sf56983uaq.11
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 15:28:15 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567636094; cv=pass;
+Received: from mail-ed1-x53b.google.com (mail-ed1-x53b.google.com [IPv6:2a00:1450:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id C190EA969C
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Sep 2019 00:40:53 +0200 (CEST)
+Received: by mail-ed1-x53b.google.com with SMTP id p55sf273273edc.5
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 15:40:53 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567636853; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xe3IyDotmorvj8o29koVJx3HDo1xXPofZIOaWeMcMAVBbap0Az4uIT/XYFoFFyahhV
-         KGE60lgLm47/JJO05joLsYr4u2djTm7VL3R17McPSJjs/wqB7HCiv+/El+/mQ2pTNYzQ
-         yrsszMvpvKFyTim1ufSTtcLfXXfC3yONYhyIr0fdY2gPaenalBN5dVmVDatkjZjaXSbZ
-         apkfg9Z43NHocdqYekEp/y4ka1mbgOMfwuMFGUIhhbVMuqz7VtFGaTcz0c2Jy5Lizokj
-         vJIdyKO5RFYNW42PMraE+aV6j/fyGEVGuHVQz53WfkGZtnPnJI/N7NQOFpjVTpymwBVS
-         pL9Q==
+        b=wOUtUC3YW63U1RroQVnqkw3CJJkwHlYS8KzsI9ApXWuYTU2dDsRWvWIqqYfZa8s87n
+         VZW8PB+nuJfTgRlyy7DS0HJhU3o5qydsNDPvKtp7rHWcGEaDzNoXDBxMG4QmHbEi77hL
+         sANO/dHRvc5rM7YmNlkskci4QshL/6KhZLZzziLzFzJOXLZZRA6N7DHYAgvs/H+6Le/9
+         eSKhjsYACyWcw3oiZEaRlHaN+AZa4W/1ZzxcXUcdFLcV8sc/MKrZoBJR0NTU76t7i3M2
+         bCQf86yRSJlej82dWuH5zbrOGvKjg8eBjwEJzmNmH3pwBe8OtXDtzr4UZiJR6dz6+nwB
+         m8cA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=SwF1yPuzKoEHSkQ7FqPRR+Rn/NNv8fzPiJH9t2TNvME=;
-        b=GmtiNwTQpHtkI7cr1lwsZOsb0fqiNGFc1R9pYTwthPCSPWPVxRdt8sYonKXQBpsxzO
-         CciNJCi2b9VnI5Ya+mwglks6lYQNbCPyH3SvjkBe4XGMWQNBPpZ4n+x/fyRvpajh8M7B
-         QGNULh2ATTJJRXBivjeFCZhgy0HV5EhclshEl1i4oOS4Fq5Lv9XqfrwopFPFS948URzf
-         Hy1XCEdUeEPP/WsdEQx6JIgmkQvlVpa/Ka5/FftTz5TmqtwuWBQHBDcnbMBsKbrC77rd
-         oNc6qroRV5AGlLDYem98wDn5JTEEq+o8t9PnKz14z8Yx+cbKUDARFGdhekFS4D1pFV7T
-         wGaQ==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=kkwqcJyVYXcTala/7MQPzH0NilVKWJGCLGTnEHnsuwE=;
+        b=U52HXZhhCImYHtLKOKx9HmHIrvWDrbg6y4JM0TKIeyF7Fvlm4dz2G8IP8P7CdVRb1X
+         THlOiBhJUdmnsEaERhB7o35cpPWC9EagDfyVx0UB/3Ted8cL6vBj0BpwCzM/sNPMSSEO
+         QNDnC85oR0DNr/aG9Ro+Z1mQd4VlL9wcQOqBYTBUy21tFHiaaCNZHUPCsgeio0y6/AEi
+         sY2QRYBU/bzkOAq78YXmkGEVrC/Bkn/RWIogA2fxQoalitALdHD0M1t8gFXNIf7GVYxt
+         Wt0B2nEqLBJXYhcZ/CJdZvs8YuLPbHfmLxc6dbNXClIJ8oUb5jZ7SJMtKKjxL0otdAC9
+         2CUg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=j45t4Wou;
-       spf=pass (google.com: domain of vaibhavrustagi@google.com designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=vaibhavrustagi@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=epQ6Hx9q;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SwF1yPuzKoEHSkQ7FqPRR+Rn/NNv8fzPiJH9t2TNvME=;
-        b=qxd1tlpwieThXf0fPtYk7Jbyej4upenk5MM368EXJs526Yhn+HuOJFANQm6szBRw2n
-         0U5BV6dsT9UgruTJGV94qZ+t3vLvG2TNCsQWGpdI7xxlJdgKzYaBAaTCGAmv2A7klbU6
-         0arqylyVGI13BVYaAOo8lGVm9f5jSj49lylVQmYtZoIGREd1Z28Sg8DI8RLu/dpB2NUF
-         mX6bmbPYs1znNLJRTwKl3WB3hPcAPCad7vjlC5XbRMXs2v3nfk4R1SN7/1xO5QBsphEZ
-         VnZIlX76RprORkNiH7xaRGHjommy5qsoV3W192muU7D3sg0OImT5+JSItwMj8yECeaOP
-         YB8Q==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kkwqcJyVYXcTala/7MQPzH0NilVKWJGCLGTnEHnsuwE=;
+        b=A1zeEiMk+RctO12Bct9bktbB2vv3TgxiWY0gP0j6P5q8TUCCIZx5uLncK8F1sPHkIA
+         Tsj5hPC5Iyhz/ysV9cTJlauC8RWmf1vltzT+AUiapK1TsUC8qg/OlkB1GD8vWc4/1XEt
+         pODYoGgkHzH8iV/eT0TPTzin2L4h4W9nhgepdXKXKhAR2CiKLlSwQVadp7iI5nqZJ0xT
+         fqhvFJnWJ9tD00MZBG7pgPqczEEzd0wm2WCe+f4MKjnDpjF5bZnYWdTP+UNul9EBsjaM
+         yInBpkMS6KaSXb5qjPVn9e90MyE6yeUGKzHHBC9/m6xHUHTohxOL5eQsckMW0R/2e/LI
+         /M9A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kkwqcJyVYXcTala/7MQPzH0NilVKWJGCLGTnEHnsuwE=;
+        b=cVINWamGv9Ra7VFyI7m/4mt6kVehyzjUQ0qI7ljVxWegb880+qLjfaP6wfcF8ATjVM
+         k8vgvj5IPQ9T/Zj0lwU52/vk+ManealDJvZgmVpLfCJSCkYCynmnXLZcZR5dOE0TCLdI
+         HSJmnPCbLs41ApYD35oDmXWyMHRRFxkNz7/pTuA3BJXw0NntZYRKAAtWOKiEBxAm83O7
+         T+tzQXE4LGLjkJqb6TyvfuVNNPOF1vga3UoepzSvdGd/tr1onZNspbWkDc1FfSu6MZl9
+         wbs3+pJxMV9gSfxkktC/0TeV1jcPc08Xt1nYv/Wq3LGIJQn/4xm6xs/UDjqxEV4Kg4tm
+         H2Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=SwF1yPuzKoEHSkQ7FqPRR+Rn/NNv8fzPiJH9t2TNvME=;
-        b=RqmfaORfykGpOHofQD8mOvmosciy1tLH0grOvW486XYXu5KMzmZ6gh0ofozxHtqhwJ
-         Cke9cSagRzxdB8F+v1AIZ0ilsfQyqjVqEvs6pSQ0U5L5vKhZDkZ9k3ml7dp9jXGAYK+c
-         Es4rOUWR9VEgBYRBVxMEy84TbjNBEByOHGLvep11Ru7aYi1g6tamgFJtQDr7aioKWY14
-         /b+8WUGsq4BRLhemLfDOQqgVGNr7anL8DU2x67+8gPx6g7MMPa7Vk7UCpD4HPsj+9nO9
-         7fZcZx1TRPtPYV6KCj/8fcaj/fjjnY9nNen5B4Gqs8Oikp580B5h7f6sdHl4y1O1/uSY
-         mlTA==
-X-Gm-Message-State: APjAAAU/QxqvUzJ1obTzE59oWgrWqPoJwKh+ee/oTFGFx6t+6Nah8b1R
-	jrm+SHJv0nolJl8Ut/YTKnQ=
-X-Google-Smtp-Source: APXvYqzqRulj4OJol0Bnlot2zJf3U90a0kdNQLPnYt1DbyNPl3j+rcKmH7fT+ld/Gbian6HHvjwI7A==
-X-Received: by 2002:ab0:e19:: with SMTP id g25mr19922013uak.71.1567636094470;
-        Wed, 04 Sep 2019 15:28:14 -0700 (PDT)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=kkwqcJyVYXcTala/7MQPzH0NilVKWJGCLGTnEHnsuwE=;
+        b=RYHkKfFfJfIDRHlHb5N9Ocn3B6HaLzlQW9QgOkBu1HMovaTquOf5H52S3KpK1wElKa
+         knIBhsqQsJxeqHUg7t7jioUt+ds7/dySX2STtXuDTvAFXJ96PuSNwU+qGfD5491tn2Yc
+         ZHMapHeHupVuXTFSrOQU1+cjPUoWDWIIHYG8JuDgOe5jh2qH4nGgt44CkjdhHtDJ9s/2
+         iGHv1GgPYVEesTHTGUNNqArRUAuX4171IOgMtTPi0tkoDE128t9LHy8MKHRCZmqC8NJO
+         vJ6O0UQVnaw65mN+OlXZeA5cYbPio2ehv0iVgVnHJ3yNJWvVbFZvomLnzrXh2akv1phC
+         R/dA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAVOQh9nuM6aHXFJ61P9ovoi4vlCSbx3oqxnu457y4SQnFYM5zig
+	SGfxvijZx6VxvGlVd01vdwQ=
+X-Google-Smtp-Source: APXvYqz87GjvOEHKo4dLFUAncjdUfBOoof2gHERN4bvD73SQo4AksVj/GbC7ILvWPK2O+/jM7ZN/Eg==
+X-Received: by 2002:a17:906:3588:: with SMTP id o8mr347439ejb.50.1567636853418;
+        Wed, 04 Sep 2019 15:40:53 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:e34b:: with SMTP id s11ls29438vsm.16.gmail; Wed, 04 Sep
- 2019 15:28:14 -0700 (PDT)
-X-Received: by 2002:a67:16c3:: with SMTP id 186mr97289vsw.217.1567636094183;
-        Wed, 04 Sep 2019 15:28:14 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567636094; cv=none;
+Received: by 2002:a17:906:b794:: with SMTP id dt20ls23616ejb.7.gmail; Wed, 04
+ Sep 2019 15:40:53 -0700 (PDT)
+X-Received: by 2002:a17:906:48da:: with SMTP id d26mr345948ejt.106.1567636853037;
+        Wed, 04 Sep 2019 15:40:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567636853; cv=none;
         d=google.com; s=arc-20160816;
-        b=nZpsWCRTBTjTUayR9XnzZVBbP1bM7VKTJUBhFMck+E5dStqNOc8e75mkL5pHCCm9R0
-         hi9PMjhpM3BDf0OXxdsZ3c2f63qY0LM7skVp8XYj1BjWgxMSHdUA8sR3/BDAYm32f1Jc
-         1mhR/HKUiBViRfBZ2OLpuaflJKeI6st9spa3DSkjhGlYhvyN3in4LURGX/k5M5GOcHHi
-         74ajx0LxOYt9y5TCmCBuIdFSS8fvlBJhjkcYB8/6OSfAvCgkb6A7FBkfMTwky/T6z8SA
-         JgoDE2OnBMMRMm8lMR7pkFte5FrCsH5GcqMvmLyiIglXu35Oc+Edhf6Gfj35CqfhulCg
-         b2EQ==
+        b=uEmuawU+oFtdWwJ6oXj2Q1FYcKHNiG8NlpTWA4EwgAx7tk3Ur4MEHu9HJs8dWJhrkA
+         hfVt3sZv8Pe42+iZYlYaytWsDMgt4HIGiMX1IeZFxjOz2eUbGGzJTfCM+hBlqpzPIKXB
+         xD8WhafNnXH4Zl+L6t92acyrsK1Q2UeCoVwLItaQGqJteludKm/vuLxTVjjea4+Olzf6
+         6/4awLillhix5F4L+B0hvei7k2UHvibk3wmcYN1bfsD3l2ZtzqepJ7DOsHwdA+yXpsHC
+         QlqyhreAeGzGpXuQXZVubt+c13p/M3yH/LOFQVNEbG1qZUCKa0zpO5FNQvamJFHo30Ez
+         Xxgw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=126flrf1A3cL3mz+nUSHlYojF+EVKVDxSC6U82okBVY=;
-        b=HXorN1BNvVbkNOiQ2u7xT35QmU+dL5LrrxxqBgBrDuW2kybgNXN6sEc3dopCGAv63y
-         5KcTQdgZ/wMALv4MmIX+bAKqRPXCZxGjau60K+mP4A31HA0DSNWva3czsciLWEbZI7c0
-         yXGEF/NUthyNfR4rApuCnK7lABuWOyJOiaaKPPtlQx4NyQaWGMxnKadnrtCs2Utd82+s
-         bEAcYt4k1JHxihZEqfravzMuyxYisjOWtE4qhE1HI8W/NzXAw1VOYd+UkCU8LpxihHK2
-         CFVqp4vtIsrijdNZt3CohV35tOtN/eMxednomHF0gG1P+5gsodKDnB4fSWL3XplXJ4H+
-         aQTg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=n42hMk5GEGKVgiWQ4Tr6YXAISJ/x8t5++qX9vnL5Xm0=;
+        b=D8eFModEd+Ul92m9EgEAAviSmLww7UJdrZP8mqJzTGGOSSOwmsR6pVoFgTJOT/ykU+
+         ZBVAB6mf92N1rxeb+Q6galaYEx4o3O/Esy8D3P8lUqSPUITvzux69JQwmxKF6waKsl7I
+         v75rNPNycQ1a63dcaHUsGyS9OB/o8XJHvKbC05DFZvTlfd8SplABAxh9PFRYqImWpX3A
+         07Pn48l7UkVHEGD9xB+E8OcHN4C3iPNIBCIk1WPMWIhykPK2vk+34Q4jDTHHJo/EQQ9H
+         qaTiRehWes9Q5LvvSZzZNKiXiolvfuWPFkLotigb/85VEFswwDLssqKo3OPygX0I2I88
+         TeNg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=j45t4Wou;
-       spf=pass (google.com: domain of vaibhavrustagi@google.com designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=vaibhavrustagi@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-io1-xd41.google.com (mail-io1-xd41.google.com. [2607:f8b0:4864:20::d41])
-        by gmr-mx.google.com with ESMTPS id y12si21375vke.5.2019.09.04.15.28.14
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=epQ6Hx9q;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id f20si19223edx.1.2019.09.04.15.40.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Sep 2019 15:28:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of vaibhavrustagi@google.com designates 2607:f8b0:4864:20::d41 as permitted sender) client-ip=2607:f8b0:4864:20::d41;
-Received: by mail-io1-xd41.google.com with SMTP id b10so189583ioj.2
-        for <clang-built-linux@googlegroups.com>; Wed, 04 Sep 2019 15:28:14 -0700 (PDT)
-X-Received: by 2002:a02:93e5:: with SMTP id z92mr672371jah.8.1567636093257;
- Wed, 04 Sep 2019 15:28:13 -0700 (PDT)
+        Wed, 04 Sep 2019 15:40:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
+Received: by mail-wr1-x443.google.com with SMTP id g7so473234wrx.2
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Sep 2019 15:40:53 -0700 (PDT)
+X-Received: by 2002:adf:e607:: with SMTP id p7mr42979wrm.230.1567636852627;
+        Wed, 04 Sep 2019 15:40:52 -0700 (PDT)
+Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
+        by smtp.gmail.com with ESMTPSA id y3sm158912wrw.83.2019.09.04.15.40.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Sep 2019 15:40:52 -0700 (PDT)
+Date: Wed, 4 Sep 2019 15:40:50 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Sedat Dilek <sedat.dilek@gmail.com>,
+	Michal Marek <michal.lkml@markovi.net>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 1/2] kbuild: refactor scripts/Makefile.extrawarn
+Message-ID: <20190904224050.GA82176@archlinux-threadripper>
+References: <20190831162555.31887-1-yamada.masahiro@socionext.com>
+ <CAK8P3a0kPFojqAWqXEAcitVMjBA5ABc=rRx=zHMxXat+gCz=gA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20190904214505.GA15093@swahl-linux> <CAKwvOdnX3qVq1wGovViyGJSnySKzCATU4SU_ASsL-9XfDZ8+Eg@mail.gmail.com>
-In-Reply-To: <CAKwvOdnX3qVq1wGovViyGJSnySKzCATU4SU_ASsL-9XfDZ8+Eg@mail.gmail.com>
-From: "'Vaibhav Rustagi' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 4 Sep 2019 15:28:01 -0700
-Message-ID: <CAMVonLiOB4PnbnLGo9gP8MK8kGd_e9vW_t+GOPuHMO_RqmkKNA@mail.gmail.com>
-Subject: Re: [PATCH 1/1] x86/purgatory: Change compiler flags to avoid
- relocation errors.
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Steve Wahl <steve.wahl@hpe.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, russ.anderson@hpe.com, 
-	dimitri.sivanich@hpe.com, mike.travis@hpe.com, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: vaibhavrustagi@google.com
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a0kPFojqAWqXEAcitVMjBA5ABc=rRx=zHMxXat+gCz=gA@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=j45t4Wou;       spf=pass
- (google.com: domain of vaibhavrustagi@google.com designates
- 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=vaibhavrustagi@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Vaibhav Rustagi <vaibhavrustagi@google.com>
-Reply-To: Vaibhav Rustagi <vaibhavrustagi@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=epQ6Hx9q;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,115 +154,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 4, 2019 at 3:19 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
->
-> + (folks recommended by ./scripts/get_maintainer.pl <patchfile>)
-> (See also, step 7:
-> https://nickdesaulniers.github.io/blog/2017/05/16/submitting-your-first-patch-to-the-linux-kernel-and-responding-to-feedback/)
->
-> On Wed, Sep 4, 2019 at 2:45 PM Steve Wahl <steve.wahl@hpe.com> wrote:
-> >
-> > The last change to this Makefile caused relocation errors when loading
->
-> It's good to add a fixes tag like below when a patch fixes a
-> regression, so that stable backports the fix as far back as the
-> regression:
-> Fixes: b059f801a937 ("x86/purgatory: Use CFLAGS_REMOVE rather than
-> reset KBUILD_CFLAGS")
->
-> > a kdump kernel.  This change restores the appropriate flags, without
-> > reverting to the former practice of resetting KBUILD_CFLAGS.
-> >
-> > Signed-off-by: Steve Wahl <steve.wahl@hpe.com>
-> > ---
-> >  arch/x86/purgatory/Makefile | 35 +++++++++++++++++++----------------
-> >  1 file changed, 19 insertions(+), 16 deletions(-)
-> >
-> > diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-> > index 8901a1f89cf5..9f0bfef1f5db 100644
-> > --- a/arch/x86/purgatory/Makefile
-> > +++ b/arch/x86/purgatory/Makefile
-> > @@ -18,37 +18,40 @@ targets += purgatory.ro
-> >  KASAN_SANITIZE := n
-> >  KCOV_INSTRUMENT := n
-> >
-> > +# These are adjustments to the compiler flags used for objects that
-> > +# make up the standalone porgatory.ro
+On Wed, Sep 04, 2019 at 11:46:45PM +0200, Arnd Bergmann wrote:
+> On Sat, Aug 31, 2019 at 6:26 PM Masahiro Yamada
+> <yamada.masahiro@socionext.com> wrote:
+> 
+> > +# Some diagnostics enabled by default are noisy.
+> > +# Suppress them by using -Wno... except for W=1.
 > > +
-> > +PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
-> > +PURGATORY_CFLAGS := -mcmodel=large -ffreestanding -fno-zero-initialized-in-bss
->
-> Thanks for confirming the fix.  While it sounds like -mcmodel=large is
-> the only necessary change, I don't object to -ffreestanding of
-> -fno-zero-initialized-in-bss being readded, especially since I think
-> what you've done with PURGATORY_CFLAGS_REMOVE is more concise.
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Vaibhav, do you still have an environment setup to quickly test this
-> again w/ Clang builds?
+> >  ifdef CONFIG_CC_IS_CLANG
+> >  KBUILD_CFLAGS += -Wno-initializer-overrides
+> >  KBUILD_CFLAGS += -Wno-format
+> >  KBUILD_CFLAGS += -Wno-sign-compare
+> >  KBUILD_CFLAGS += -Wno-format-zero-length
+> >  endif
+> 
+> FWIW, I just found out I missed a bug that clang failed to warn about
+> because of the  -Wno-format. Apparently gcc warns only about type
+> mismatches that result in incompatible calling conventions (e.g.
+> int vs int64_t) but not smaller types (int, short) that get converted to an
+> int anyway. Passing -Wno-format turns both off.
+> 
+>       Arnd
 
-I will setup the environment and will try the changes.
+Hi Arnd,
 
-> Tglx, we'll likely want to get this into 5.3 if it's not too late (I
-> saw Miguel Ojeda mention there might be an -rc8)?
->
-> > +
-> >  # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
-> >  # in turn leaves some undefined symbols like __fentry__ in purgatory and not
-> >  # sure how to relocate those.
-> >  ifdef CONFIG_FUNCTION_TRACER
-> > -CFLAGS_REMOVE_sha256.o         += $(CC_FLAGS_FTRACE)
-> > -CFLAGS_REMOVE_purgatory.o      += $(CC_FLAGS_FTRACE)
-> > -CFLAGS_REMOVE_string.o         += $(CC_FLAGS_FTRACE)
-> > -CFLAGS_REMOVE_kexec-purgatory.o        += $(CC_FLAGS_FTRACE)
-> > +PURGATORY_CFLAGS_REMOVE                += $(CC_FLAGS_FTRACE)
-> >  endif
-> >
-> >  ifdef CONFIG_STACKPROTECTOR
-> > -CFLAGS_REMOVE_sha256.o         += -fstack-protector
-> > -CFLAGS_REMOVE_purgatory.o      += -fstack-protector
-> > -CFLAGS_REMOVE_string.o         += -fstack-protector
-> > -CFLAGS_REMOVE_kexec-purgatory.o        += -fstack-protector
-> > +PURGATORY_CFLAGS_REMOVE                += -fstack-protector
-> >  endif
-> >
-> >  ifdef CONFIG_STACKPROTECTOR_STRONG
-> > -CFLAGS_REMOVE_sha256.o         += -fstack-protector-strong
-> > -CFLAGS_REMOVE_purgatory.o      += -fstack-protector-strong
-> > -CFLAGS_REMOVE_string.o         += -fstack-protector-strong
-> > -CFLAGS_REMOVE_kexec-purgatory.o        += -fstack-protector-strong
-> > +PURGATORY_CFLAGS_REMOVE                += -fstack-protector-strong
-> >  endif
-> >
-> >  ifdef CONFIG_RETPOLINE
-> > -CFLAGS_REMOVE_sha256.o         += $(RETPOLINE_CFLAGS)
-> > -CFLAGS_REMOVE_purgatory.o      += $(RETPOLINE_CFLAGS)
-> > -CFLAGS_REMOVE_string.o         += $(RETPOLINE_CFLAGS)
-> > -CFLAGS_REMOVE_kexec-purgatory.o        += $(RETPOLINE_CFLAGS)
-> > +PURGATORY_CFLAGS_REMOVE                += $(RETPOLINE_CFLAGS)
-> >  endif
-> >
-> > +CFLAGS_REMOVE_purgatory.o      += $(PURGATORY_CFLAGS_REMOVE)
-> > +CFLAGS_purgatory.o             += $(PURGATORY_CFLAGS)
-> > +
-> > +CFLAGS_REMOVE_sha256.o         += $(PURGATORY_CFLAGS_REMOVE)
-> > +CFLAGS_sha256.o                        += $(PURGATORY_CFLAGS)
-> > +
-> > +CFLAGS_REMOVE_string.o         += $(PURGATORY_CFLAGS_REMOVE)
-> > +CFLAGS_string.o                        += $(PURGATORY_CFLAGS)
-> > +
-> >  $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
-> >                 $(call if_changed,ld)
-> >
-> > --
-> > 2.12.3
-> >
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
+This has been fixed in clang 10.0.0 but this areas has not been updated
+as nobody has sent a patch yet:
+
+https://github.com/ClangBuiltLinux/linux/issues/378#issuecomment-524411147
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMVonLiOB4PnbnLGo9gP8MK8kGd_e9vW_t%2BGOPuHMO_RqmkKNA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904224050.GA82176%40archlinux-threadripper.
