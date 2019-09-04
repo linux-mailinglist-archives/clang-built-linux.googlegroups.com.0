@@ -1,159 +1,146 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBLULYHVQKGQEZCVCA7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBIM2YHVQKGQEXMMJZXA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id AE43DA96F1
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Sep 2019 01:15:58 +0200 (CEST)
-Received: by mail-wm1-x338.google.com with SMTP id f63sf168332wma.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 16:15:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567638958; cv=pass;
+Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 68CF2A9756
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Sep 2019 01:47:46 +0200 (CEST)
+Received: by mail-ot1-x33c.google.com with SMTP id k70sf333404otk.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Sep 2019 16:47:46 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567640865; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZjTZgfavEYhTYUtpG49SfcoJDTwgrnOHk8998tbp+ew3NDcwEMk+b65VEeuCmcbOsk
-         iX9rUHJHTMJF9N2lKIS3wdHJzVsA486UyIC++dRViE7yOcJlcO+F8ykIE3+5YwyDkeDG
-         OsEyzAcZsO1Y6xoPU1yMBdLpbFbGeWDP8L0WsdV52XzEd2jx3hJo0Erl031rY0gXusPc
-         EdY/cOBzjHX8XMTjdEFB6GuhC8xUiuO4i5aDk+RTZw1UBXdoqG/9mVbPpi5AoybIf6WU
-         iP0EfWQI4LSxXVlXnJhaaczB08+BYaGUg9h4nv+ebDboInJtiT+/TAsYYynJRrVWfLuF
-         N6Qw==
+        b=nDbb8ETLi0hWRnbEvRrx1vWWRvD9CuViRfFDZI8pLzEMD2GYezrOqlggQ07UF1Z6BV
+         qwCzl9LUXvF+PKQQ149s5Hqlc4so/sfIA9vsCUu82Q4Lz5twRQJ/8vGT0g2iJr5bsS2x
+         VePynO7qvZlhg+gdqhw0OUDL6NPaCzIwO5h1t7bR6OPtX5xrDG+7p6kFPR/NAyQcr/79
+         tC0SK40WjfvmTeZQocBw+lccXnN2z0/R3kNP64iSNtYFu1QO1XDFsf4bQ9xwjQGRlHd+
+         uSwyVTur9xJmyJCURO3kDFS0Thu9G4IEB+CMWwnINrlT9StAW3cw/N4XktdUHc3f371q
+         m1Pw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=dCDmUOki2OJyeD89f8K+w8Kcm7EZki4U9msh2lNshkQ=;
-        b=l7WlCPuEb19xdrzj269TLZOk+wITS3WnjeDR3zseOgT2l4Adlt+y6mMomZGzGijqQM
-         VtUeHOCRhyMu3UIH3Du5YX8aD4zWgNOIbUYG7hXXkoZnD2lqYryHPIL6Wio7xj08ASjR
-         +YO2YIAlIl1E52bdJhvbPVz7BXErVa45aMbzJU8ev8bsIex73B/YLftgA0WzgJX0HZ+6
-         H7HxNfmJtm2YV4LYljF1YyZuMY8Xmq3oKUkc6eDTs/dZF56ZagPjV/pHAg33CNJTFfi7
-         vwJNI0v36GJPzyAR9V/urupLGwIVDrSu1NGzPrjr8A3qOkN9ZRG1y08u6jswxWZdCKYq
-         Zb1w==
+         :list-id:mailing-list:precedence:date:message-id:user-agent:cc:to
+         :references:in-reply-to:from:subject:mime-version:dmarc-filter
+         :sender:dkim-signature;
+        bh=v7oXvukR/l+UtK+9NnUakWQRs3+HruGnt0WQn7ERdGE=;
+        b=COs26fTEammBpYbc6ZuVpHGlqH/HOZ+QyUpG+d0/3CgyEL9FzzjYwJkDpqICUCtok1
+         DOAFoeJ6c6zzYJr0/KXXyTeFDvzCNaIPWbIBv07ln7XozgE0jXM+maiVjq/4NelwlovP
+         SAYKO6E5WZu5PcTn8/IFUWCqA4pXz9r80xeCUvC4SXWnBJVDuRh0SNpB96D4agO6DcYD
+         tEpnmSkFxViO4NQOz1PsAKQkcBWF2LA+db8vP401noM7WSpJTjvm4SaVr089CBghbdLw
+         UQ3eZArw+ZpX20TsCKzEwUBzN6Z3QGWO8px+3QfBfGJ1sx9XrBBfJkA9QdMYf80SQr62
+         MM5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="E0hH/5KZ";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@codeaurora.org header.s=default header.b=G45S1fHk;
+       dkim=pass header.i=@codeaurora.org header.s=default header.b=Zowoyk2t;
+       spf=pass (google.com: domain of kvalo@codeaurora.org designates 198.145.29.96 as permitted sender) smtp.mailfrom=kvalo@codeaurora.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:dmarc-filter:mime-version:subject:from:in-reply-to
+         :references:to:cc:user-agent:message-id:date:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dCDmUOki2OJyeD89f8K+w8Kcm7EZki4U9msh2lNshkQ=;
-        b=r7E5GRPfNeVbd8vSOSNeoBcsjDfvai2XPlzwPI0kgGoI+nLXZfQB/QVwBD6y5i/Xjv
-         CGx9aQwMNIoVKYJru/EmDzmuQgpp3gF37jmHYS8dKYJHPeWzSFIz1sf4bnRc59TxuBeP
-         eEZ3dW1ezwi77q1GT3dUP5fqAdTJKt9yzXb9XNZeDJgfHSWAhHIxX8mxCToAUEF2EZZY
-         DmfYel8M1fYiYcFA3jZOnEtdgn6qrW1oCpUSXYUZgwoYEX70RS/2Imz3FV+xYnw1oD+g
-         ZTTbKyc4/aFFiB0ugzv5wEzPukS4Jtzvsd8DCYMAoRDBtoQjmODFHbKRgAseC+7EhPsC
-         tm2g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dCDmUOki2OJyeD89f8K+w8Kcm7EZki4U9msh2lNshkQ=;
-        b=SEbm6DWCQ9RKfwnKkF27AOLwnG0TjzkC9wTr+5lpuZTg5fJ5kQ+TYsneYec1Y6o7v0
-         ghcG6bn1lPk3vOq6TD4YHaUuPUn5hmwRNIw5jP+/iOcU2UA61wRI3koXrCCdr7THS6J0
-         3c8DVG2hR03/Tac1Q8YO6zcCU6DnPyEaRnB0xCBgRwIGDkx9OiVZIyu6DS4StOf2j+P/
-         wsd2ys+ZkrjkFRH0tW8me4FDdY+DXm85RfFKDxFqe3RBTi6QIYSaLY9sRe+lZcE8Jvo+
-         nT1ylQ9emBA6iBFwfIEMMmTSVn+y/ZiM0VjBaSb6tSxX7KxCuuI0gYDhztLqGtdbG/3E
-         PjSg==
+        bh=v7oXvukR/l+UtK+9NnUakWQRs3+HruGnt0WQn7ERdGE=;
+        b=sXpBjisF7PVpwl2dY5GIvmjJOkZ9WJiTE7lG2cImc7DulpLbxhAvAootUgOAWzp7Tk
+         BpFSqPfD691wOLfksJdC+mB5Zni7r80Ezxkru+MhkKkQSQKtj8C91r+E0XlREDK8dpKm
+         kmBuDJQsYpflIyPB3Bv44AeW8RRW99brTdp03x+0Z2o2qxJSnuftM8sNX41d3Mt6UnVB
+         qK3e08LkI9VXirSNNQbIB79NzWMcn78IWk6n192c2FLSBCZRCkEBC+98hogUxG1f3Ezf
+         FVkFtDzOF6aB6jrEPtpAFsg3cX1zqhibuOr0n7qHbwDmlgLYSCbU4MOBW5/LUX3CKb7+
+         FGfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+        h=sender:x-gm-message-state:dmarc-filter:mime-version:subject:from
+         :in-reply-to:references:to:cc:user-agent:message-id:date
          :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=dCDmUOki2OJyeD89f8K+w8Kcm7EZki4U9msh2lNshkQ=;
-        b=Gp/mt4U/Xg6fGeqiSQE3EXfTK/VYje3svmjZvJ3HcPXLunPfRDl82ZSz1gQ4zsQs5P
-         4glcb3PdSmoQsahTqPg5RHbBJp1Ue0ZEMPNOwuHpcnp+nvchHfahIhAy75MU91pp+QvW
-         g7il3LBKaPUKVOpiCn/o792Qqf5Lt/7t6DXS90W+msgxFGuEJLy183IfI5xMdFl/eaG4
-         KojjQQdtwUP1DxoONBt0DFwicELiI1+Mf1R3W4z76kPq0Atwxa+j8oO3yYCJivY6sGb1
-         CKeD39+vUHDtC/hBPKTYAXxifC0gsEvmc/y33n5PVCsYSD6ltLsPhQsbI9GkDbhqx5CZ
-         Vd0A==
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=v7oXvukR/l+UtK+9NnUakWQRs3+HruGnt0WQn7ERdGE=;
+        b=FfOepNf+FGDL/9vAAIsHxUoAJGbnpw2FkO+O0tsi+fGrG/7sUPYwDLvD577e+hZGkE
+         /J1RAmg2MsT5plOySTqyaifBM77zTQu9YMbxRi3McYD12TPi68PmQSBNTlvwS5rJrae/
+         u2nH0AeSK0MsNQ/Cr6NNhYlvns3YlO2z2vdAeg0+QddD2tpMptne+B8CYKCS+p/60X8H
+         uJ5tvNP4sq4VumtZe2mSK81I1Xqy5jWuISROPIlr5y3H3uZ/Ci3yioA9wPKatVIvbijj
+         cRW/hB60sVVBokDN5BuHc7fdboB/4TQtYQWs/YMcme7k41up5eXNB5yJmCdFl2TiPBdl
+         EEsA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXOAyrDblfu4IXbDAcQCy1DG92B2PkQQbN2ID4vWDWBBLkQvPCK
-	o1kl7VN2q8OW8p0pcO1bXPc=
-X-Google-Smtp-Source: APXvYqzphNPU8lAI+Srun8t/IqhIY9norKXrn5eZcx2zz76PCB/7Syn6OiLDFc5QaFq+fSD5Hp7EaQ==
-X-Received: by 2002:a7b:c045:: with SMTP id u5mr456340wmc.139.1567638958405;
-        Wed, 04 Sep 2019 16:15:58 -0700 (PDT)
+X-Gm-Message-State: APjAAAXPWra5otmYW4FwCEdsAWZj/8nAUEfx2y8s9YPJ1ZeaypW4RSjV
+	n7Zc30tlKSuTrQ7HTaKYJZA=
+X-Google-Smtp-Source: APXvYqyGdfqTGQ4WuLSiwIsUUGaHyKhZrJZ8CfAnw6lZCsdWEmbGq6wQmF2n+g53Mv6IjJFLqImzqg==
+X-Received: by 2002:a9d:404a:: with SMTP id o10mr180478oti.94.1567640865057;
+        Wed, 04 Sep 2019 16:47:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f3c4:: with SMTP id g4ls33024wrp.4.gmail; Wed, 04 Sep
- 2019 16:15:58 -0700 (PDT)
-X-Received: by 2002:adf:ed44:: with SMTP id u4mr99224wro.185.1567638957988;
-        Wed, 04 Sep 2019 16:15:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567638957; cv=none;
+Received: by 2002:a9d:187:: with SMTP id e7ls112796ote.0.gmail; Wed, 04 Sep
+ 2019 16:47:44 -0700 (PDT)
+X-Received: by 2002:a05:6830:184:: with SMTP id q4mr184449ota.128.1567640864954;
+        Wed, 04 Sep 2019 16:47:44 -0700 (PDT)
+Received: by 2002:aca:1116:0:0:0:0:0 with SMTP id 22msoir;
+        Tue, 3 Sep 2019 23:22:55 -0700 (PDT)
+X-Received: by 2002:a62:ab1a:: with SMTP id p26mr14064105pff.2.1567578175450;
+        Tue, 03 Sep 2019 23:22:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567578175; cv=none;
         d=google.com; s=arc-20160816;
-        b=KVZc33CyNKMj1jc5qBBfWnDEoaWSj+hnBE2Q/QZ1efc8MqUpPvm3u3K34mPP5pLrZY
-         bQf5S6SvtNaxUoNgeZzTPdRqr1ItCnf0MqcXJdTj4RLoF99k1xiBddcMFu8gNWFmcp5c
-         hSFHoBgaAAVx5mjSGBSMF0RbYP7/mbeZKM8toV5rv8Okqa1XwHmGb1Zl2yr3pto7EqWm
-         h5J6/ZdNWW1FnuVaIAOfxpvYLP6NeacvOU6DerZHqEfNFAAUgtMSxzpxgCR+3Gl5fWQp
-         a+g63MDt57o3BZpEyhWjvNQSxdJlfOhPhLvZZ4xM+dU6aW0JhMBSl04XfNIFciyQb3rj
-         icHA==
+        b=KjT+KAvGF0RaKz/AY3DEZGikvFZzHDb9XnOL5IfEGKMqN6lYTGCxl2Ydi9V0makseD
+         Aj075hA3wp7CD+cjy2K1uDWwAizApdToQY7BWLI75R4Z5AbdH9pN9rxEwY/w2OFZckdf
+         W08B/+yrdMPyQshaOefUwuscHOFxSdROZ9iRbsCvpxWQrCrV5odHuDmz9lPkSP6jEtAl
+         FeJtbW6qp4eGIwzNi5VbB2Y6RUx3fi99Rw1TjAkiG4oAnkMaLCxZt1H0/KgDz12lmHx0
+         xLWHzndih9/bQVOjkexW9ZCddkqgEgIZ3fUVaqUfmYLmMw6aZnQuRBBdkD7aDZ1hyHNT
+         JJCg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=D+jh77ZLgNensDYPn2dN2wL4k27PJ6BpfuVV6pgmL7g=;
-        b=Jeh1gH1JNSG9EJkjykWAvCRTDtErE7AljcWD93SA+y7U73Nu5tswIWmGs+2HZ06ovQ
-         fxP8qyQfMH/2Xj1CuOA3Xn/dIt5kAEy4y93S0UoxPhTlL30WbeJg67losMd0cgL+mgdj
-         Vb3gYxhvQKgB+L/JZGp3iT1aoZc2oQuuH0Dkvu++wonW6fcPcPNY+pVtMFM/US6YPaZO
-         DJfbZHppi+Hq9G0BXJ0JrsgZxa5gLONv67Iw99UzJPqniNI1+H3EL0jpu9Cu+nITaoju
-         e/bv4TGv8of/L/QPl+/4MLwD9u6TFiiyMBtUjJCBgCiySCW4Slh/nXyAtkWP973JVvuQ
-         J0Mw==
+        h=date:message-id:user-agent:cc:to:references:in-reply-to:from
+         :subject:content-transfer-encoding:mime-version:dmarc-filter
+         :dkim-signature:dkim-signature;
+        bh=GecPHV4kykzcHGnqv6LdYSALw9AFAl1hhtdbs4tQ81w=;
+        b=viAf13uSRq3FhfEyEpnbpkmtKZD4YMlaH+nBF4FHS3mcxLXh58zCH6eU76zBxdVJFr
+         wIwbXXQ6so1gxCgHzSfMtY4BRI0oUl6OY1yZHHHKLU+YJv1DjIhOFoTU8y0P7VM8VuYI
+         Kk56q95A7vVsBASu0S1cEMWhUdZCYdcMh3TU3v2t7XKjrPnPeXW+j7oyB+A/s3llTCZB
+         p7pbDL4WM5nFs9ylSOYNiIXYoMDbcSqUd9XHUcy1gyn7waGLAqEcjo898ZeDTc7Fzjp8
+         DJyxE0IFMfZId7uApRDF0m5I0WHC3LgfeJPowev2ymTnOsDJrEFyNiWIHVgYDg72sW4P
+         SXeA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="E0hH/5KZ";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id x4si5592wrv.3.2019.09.04.16.15.57
+       dkim=pass header.i=@codeaurora.org header.s=default header.b=G45S1fHk;
+       dkim=pass header.i=@codeaurora.org header.s=default header.b=Zowoyk2t;
+       spf=pass (google.com: domain of kvalo@codeaurora.org designates 198.145.29.96 as permitted sender) smtp.mailfrom=kvalo@codeaurora.org
+Received: from smtp.codeaurora.org (smtp.codeaurora.org. [198.145.29.96])
+        by gmr-mx.google.com with ESMTPS id w72si1357938pfd.2.2019.09.03.23.22.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Sep 2019 16:15:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id o184so572235wme.3
-        for <clang-built-linux@googlegroups.com>; Wed, 04 Sep 2019 16:15:57 -0700 (PDT)
-X-Received: by 2002:a7b:c766:: with SMTP id x6mr514054wmk.51.1567638957553;
-        Wed, 04 Sep 2019 16:15:57 -0700 (PDT)
-Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id z189sm788009wmc.25.2019.09.04.16.15.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Sep 2019 16:15:56 -0700 (PDT)
-Date: Wed, 4 Sep 2019 16:15:54 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Segher Boessenkool <segher@kernel.crashing.org>
-Cc: David Laight <David.Laight@aculab.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	LKML <linux-kernel@vger.kernel.org>,
-	"# 3.4.x" <stable@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Paul Mackerras <paulus@samba.org>,
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
-Subject: Re: [PATCH] powerpc: Avoid clang warnings around setjmp and longjmp
-Message-ID: <20190904231554.GA42450@archlinux-threadripper>
-References: <878srdv206.fsf@mpe.ellerman.id.au>
- <20190828175322.GA121833@archlinux-threadripper>
- <CAKwvOdmXbYrR6n-cxKt3XxkE4Lmj0sSoZBUtHVb0V2LTUFHmug@mail.gmail.com>
- <20190828184529.GC127646@archlinux-threadripper>
- <6801a83ed6d54d95b87a41c57ef6e6b0@AcuMS.aculab.com>
- <20190903055553.GC60296@archlinux-threadripper>
- <20190903193128.GC9749@gate.crashing.org>
- <20190904002401.GA70635@archlinux-threadripper>
- <1bcd7086f3d24dfa82eec03980f30fbc@AcuMS.aculab.com>
- <20190904130135.GN9749@gate.crashing.org>
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 03 Sep 2019 23:22:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kvalo@codeaurora.org designates 198.145.29.96 as permitted sender) client-ip=198.145.29.96;
+Received: by smtp.codeaurora.org (Postfix, from userid 1000)
+	id 16518602A7; Wed,  4 Sep 2019 06:22:54 +0000 (UTC)
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	pdx-caf-mail.web.codeaurora.org
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.8 required=2.0 tests=ALL_TRUSTED,BAYES_00,
+	DKIM_INVALID,DKIM_SIGNED,MISSING_DATE,MISSING_MID,SPF_NONE autolearn=no
+	autolearn_force=no version=3.4.0
+Received: from potku.adurom.net (88-114-240-156.elisa-laajakaista.fi [88.114.240.156])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: kvalo@smtp.codeaurora.org)
+	by smtp.codeaurora.org (Postfix) with ESMTPSA id D386E602A7;
+	Wed,  4 Sep 2019 06:22:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org D386E602A7
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20190904130135.GN9749@gate.crashing.org>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Original-Sender: natechancellor@gmail.com
+MIME-Version: 1.0
+Subject: Re: [PATCH] wcn36xx: use dynamic allocation for large variables
+From: Kalle Valo <kvalo@codeaurora.org>
+In-Reply-To: <20190722145910.1156473-1-arnd@arndb.de>
+References: <20190722145910.1156473-1-arnd@arndb.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@arndb.de>, Eugene Krasnikov <k.eugene.e@gmail.com>,
+ "John W. Linville" <linville@tuxdriver.com>,
+ "David S. Miller" <davem@davemloft.net>, YueHaibing <yuehaibing@huawei.com>,
+ wcn36xx@lists.infradead.org, linux-wireless@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+User-Agent: pwcli/0.0.0-git (https://github.com/kvalo/pwcli/) Python/2.7.12
+Message-Id: <20190904062255.16518602A7@smtp.codeaurora.org>
+Date: Wed,  4 Sep 2019 06:22:54 +0000 (UTC)
+X-Original-Sender: kvalo@codeaurora.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="E0hH/5KZ";       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@codeaurora.org header.s=default header.b=G45S1fHk;       dkim=pass
+ header.i=@codeaurora.org header.s=default header.b=Zowoyk2t;       spf=pass
+ (google.com: domain of kvalo@codeaurora.org designates 198.145.29.96 as
+ permitted sender) smtp.mailfrom=kvalo@codeaurora.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
-X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
 X-Google-Group-Id: 357212215037
 List-Post: <https://groups.google.com/group/clang-built-linux/post>, <mailto:clang-built-linux@googlegroups.com>
 List-Help: <https://groups.google.com/support/>, <mailto:clang-built-linux+help@googlegroups.com>
@@ -162,48 +149,37 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 04, 2019 at 08:01:35AM -0500, Segher Boessenkool wrote:
-> On Wed, Sep 04, 2019 at 08:16:45AM +0000, David Laight wrote:
-> > From: Nathan Chancellor [mailto:natechancellor@gmail.com]
-> > > Fair enough so I guess we are back to just outright disabling the
-> > > warning.
-> > 
-> > Just disabling the warning won't stop the compiler generating code
-> > that breaks a 'user' implementation of setjmp().
+Arnd Bergmann <arnd@arndb.de> wrote:
+
+> clang triggers a warning about oversized stack frames that gcc does not
+> notice because of slightly different inlining decisions:
 > 
-> Yeah.  I have a patch (will send in an hour or so) that enables the
-> "returns_twice" attribute for setjmp (in <asm/setjmp.h>).  In testing
-> (with GCC trunk) it showed no difference in code generation, but
-> better save than sorry.
+> ath/wcn36xx/smd.c:1409:5: error: stack frame size of 1040 bytes in function 'wcn36xx_smd_config_bss' [-Werror,-Wframe-larger-than=]
+> ath/wcn36xx/smd.c:640:5: error: stack frame size of 1032 bytes in function 'wcn36xx_smd_start_hw_scan' [-Werror,-Wframe-larger-than=]
 > 
-> It also sets "noreturn" on longjmp, and that *does* help, it saves a
-> hundred insns or so (all in xmon, no surprise there).
+> Basically the wcn36xx_hal_start_scan_offload_req_msg,
+> wcn36xx_hal_config_bss_req_msg_v1, and wcn36xx_hal_config_bss_req_msg
+> structures are too large to be put on the kernel stack, but small
+> enough that gcc does not warn about them.
 > 
-> I don't think this will make LLVM shut up about this though.  And
-> technically it is right: the C standard does say that in hosted mode
-> setjmp is a reserved name and you need to include <setjmp.h> to access
-> it (not <asm/setjmp.h>).
+> Use kzalloc() to allocate them all. There are similar structures in other
+> parts of this driver, but they are all smaller, with the next largest
+> stack frame at 480 bytes for wcn36xx_smd_send_beacon.
+> 
+> Fixes: 8e84c2582169 ("wcn36xx: mac80211 driver for Qualcomm WCN3660/WCN3680 hardware")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Kalle Valo <kvalo@codeaurora.org>
 
-It does not fix the warning, I tested your patch.
+Patch applied to ath-next branch of ath.git, thanks.
 
-> So why is the kernel compiled as hosted?  Does adding -ffreestanding
-> hurt anything?  Is that actually supported on LLVM, on all relevant
-> versions of it?  Does it shut up the warning there (if not, that would
-> be an LLVM bug)?
+355cf3191201 wcn36xx: use dynamic allocation for large variables
 
-It does fix this warning because -ffreestanding implies -fno-builtin,
-which also solves the warning. LLVM has supported -ffreestanding since
-at least 3.0.0. There are some parts of the kernel that are compiled
-with this and it probably should be used in more places but it sounds
-like there might be some good codegen improvements that are disabled
-with it:
+-- 
+https://patchwork.kernel.org/patch/11052589/
 
-https://lore.kernel.org/lkml/CAHk-=wi-epJZfBHDbKKDZ64us7WkF=LpUfhvYBmZSteO8Q0RAg@mail.gmail.com/
-
-Cheers,
-Nathan
+https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904231554.GA42450%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190904062255.16518602A7%40smtp.codeaurora.org.
