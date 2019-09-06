@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBAABBMWXZLVQKGQE47TKDIY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBM6XZLVQKGQE5XXC5RI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-f55.google.com (mail-ed1-f55.google.com [209.85.208.55])
-	by mail.lfdr.de (Postfix) with ESMTPS id 682B7ABFE9
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Sep 2019 20:55:46 +0200 (CEST)
-Received: by mail-ed1-f55.google.com with SMTP id v17sf4110528edy.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Sep 2019 11:55:46 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567796146; cv=pass;
+Received: from mail-wr1-f60.google.com (mail-wr1-f60.google.com [209.85.221.60])
+	by mail.lfdr.de (Postfix) with ESMTPS id F25C6ABFEA
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Sep 2019 20:55:47 +0200 (CEST)
+Received: by mail-wr1-f60.google.com with SMTP id x12sf2951494wrs.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Sep 2019 11:55:47 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567796147; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Nez/8jbRTiPM5J3Vs+RLdAqAcshydb2n55YOIqAWO9QVLrkvdhcknss+f1x790V4jM
-         f5FftGRAcR4j+UKW3Y6x7tNaGKRovmfZVtw9f4G8bzPe3Xfo+6uuruH9PR7BnolQ1gZN
-         /7Kll9uBYHE+KufyFRzECIQeebtfP3NX6Fk/MOtpKtFBk93GOPnPhu6x2HMQGWyFvVOf
-         jgfBZ/JfS1D2zCS9BpOqskDLoY5PS9QdUZB+bwgrlJysTNXNUovFQrsGjYPA7vKtYL2e
-         vx3l+lLRTADCUgoBuOjJVyviXiktH1gYrRn7eWhNSZD/iP2jvXDaL+lVsBqfAdx8xbTE
-         a6nA==
+        b=DhFMVkcSGHAbV/CMbKMRNPKZvw6L1SyiKaCJ1ddhlIZ+iSZCjDAkIbVH90arvGh8AV
+         849KGtnhivIhyaXKtg8v/typnmGntG+7ujm7LnvBPxRPpZCsaZWKilaxWLTagB18i42C
+         sS4PLl3dHc5s3dueX+BMBvIuby2wytvs9wVgBaPIbG8uGP9LAlwLOz9S8iIsyI95cihb
+         gr5Q1S8GTGk5v+WvVQNNIv1yZO4NNHvm47ylzfyG4RWrlzn5vkeDVzT5k4AY9bslhl0R
+         YiFV/Q0sua9UuqHguFNAttwRE141I4GCywuXs0xOHrEjvsFuQtrHQWm1PNJMj6LwAqTv
+         duzQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=EkP7NetglT0OifBbjkhMttdOFUJMCrAPLNN8jAlXhcE=;
-        b=f4/ooNjFGmbxBbqc2V4Z8nxhcyAKev+NgHsIJZFNXQqzOU6WV5ox+sChWRc8M61JNf
-         pG4BAMt5kt48nP8yrKnMsCuINqvi/H2ZegQs3+dckJZ60aXwFRGCs95tljFsTGAJHcQd
-         qwoIFM+eLXgCMIeHKAms5FG3HtsHN+hShawkQC/MSGuhrw+oY6B+Joa+SzZLBgavizlP
-         JWwQFwcfTR2rafISscxpAYgbD8Dt3bh4xycTd+hKlNga37AXNkUwTI3Q8uWoF+K08Rrd
-         i3RJySxEcuXtjtBLubAKKg5I6fkFmN6lCy+Oly4psohg+0JkkoO2aYaBR40Dgf7r1ocE
-         zfqA==
+        bh=+xzFgzleDdSawNH4ROviZXEWXcKgqRGAxNMEF0LaPU4=;
+        b=wFmwszk1RjPXEBU7YehuyayVeUhwoK1ePoPvd8GD/14hHefYkLrN6OYzFJqnh2gwSW
+         22HJ7OIqhvc9JJ9gUpowqcm1JggTDcYey+vO9XQasmwuj9En83mvPtIBitVjQSiDF4A2
+         I3fYx+Xsdd+qit2pC9Hod38gUC7/enjkahvJgDiQBwjfH6L/+JH2VdhGO+r4j20q71Qd
+         NCj0UYCZtttFyEuQ5bPKW/7R2y1AND9Fql5rlifsHg6HkCXC071LD2UViTLqMccOu9+O
+         BVfpYIUyMbNh8bGb692sihfiSn8XIP8tG2Lhz1JTF4XiO7NRiG5czCiBAcaRbaRA2Hfq
+         FwuA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,59 +36,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EkP7NetglT0OifBbjkhMttdOFUJMCrAPLNN8jAlXhcE=;
-        b=rZCzs1TE6ipejcYfn0p+QjQYNoy7156e1JyX7WJPz5zupMssp9e/+dftagg2IMdPMs
-         Ie5TvtbtCL2iCilrCDD0kl9cOKoFrCLn7t55j2v3tAtrmy09/K2hWBhxjD++mY6NkVlO
-         /fb3DiNNRCzIXjqDhYUgXbOqZJjhF0/DEgWeGXDMFIUZ6dG1zINBi3vaP88pPofMOXA1
-         CRPdqofzJJdc8rBU1dfJlnX6nBD65lif9dzFaSQvah/1nzkw2ofLD4BPqSToo0mRW+F1
-         sfvF8Caji2R3TZ1gsUkFsj0WYlJ74HeQ8Q/m2Xx6e3rizjr+xMueagi1oc0CzY9p6NFz
-         QB1w==
-X-Gm-Message-State: APjAAAUIgVjM4Cmt+tINnQkzcdRj3q5Q33KgMuu1BoKrHMH791JkHHa7
-	YHU8Izgpwz1cG+aIflzv+e4=
-X-Google-Smtp-Source: APXvYqxcFvQgkgEL9yWXV3oiJkANJZtOFGH0VIWzqAuwtEZ++lUVQ4mLFORHhfEoJpGm7Jr19+9orQ==
-X-Received: by 2002:aa7:da18:: with SMTP id r24mr11611864eds.37.1567796146161;
-        Fri, 06 Sep 2019 11:55:46 -0700 (PDT)
+        bh=+xzFgzleDdSawNH4ROviZXEWXcKgqRGAxNMEF0LaPU4=;
+        b=PQFQZpHGfaQ3Nna9voK8g+NEcAfvnYSgbPgSca8NsiXYHDv0U1X0Wy6rLz3RYOP6eH
+         HbEZjX5ZSkMK4La8Gj8Oat0Ue5k+8RBjelTaLBZls8dWNfBaswbJmSVz4NLmcnLvCRGa
+         UxzijOcviuugbeap/4sb7zqOCJpy+G3H3XyLE59TMeGFBWhGqpeuad6JUB1wH3Fa/Dnd
+         4FEQn6x8NNlTlyOK9SWbz9cP3Zaz989RIuDiaXKs7NPbtjCCPMVexMpHWw785xQsU0uT
+         tImk0Hz92062rYXOIL7iAGHRYNyZlQwKahYlPkhONRZy2lTCxbhNE4daepGrT/m2zLv6
+         EHow==
+X-Gm-Message-State: APjAAAUuhkGwus8HyNkzMzXbt4FtwZKV81PKF+Uk93B4ZA64xD1f0NS3
+	l0qjqqyLsFkgvjE5OVR0tdA=
+X-Google-Smtp-Source: APXvYqzKNJmmP0yfJKiqX0OBC1ty4yZpvfyO7gKHjjRDwHmOBvFQZXFHICJD0HfMrJjB4+r9Bre4vA==
+X-Received: by 2002:a5d:4108:: with SMTP id l8mr4216200wrp.321.1567796147738;
+        Fri, 06 Sep 2019 11:55:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:f413:: with SMTP id r19ls1850688edm.2.gmail; Fri, 06 Sep
- 2019 11:55:45 -0700 (PDT)
-X-Received: by 2002:a50:c3cb:: with SMTP id i11mr11352323edf.98.1567796145887;
-        Fri, 06 Sep 2019 11:55:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567796145; cv=none;
+Received: by 2002:a5d:6501:: with SMTP id x1ls1860455wru.6.gmail; Fri, 06 Sep
+ 2019 11:55:47 -0700 (PDT)
+X-Received: by 2002:adf:8444:: with SMTP id 62mr273303wrf.202.1567796147425;
+        Fri, 06 Sep 2019 11:55:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567796147; cv=none;
         d=google.com; s=arc-20160816;
-        b=tI9PRYzNU08p9gjTxKEM1Dv2l3ATt+VsjU55R4j2Yg3aiV2KEb0/7YGjtltNLBUIVc
-         8kcmJPEi8CicwPCnt8SkjN612bRTU14etor28hJMhNnKK9zlgJYoYcgBakl4PrwQZNKk
-         vo56YF105cJFT3Vw1qZtuQBCKGXF+lYWPOqtoBkXq5HhlQEKo7d0TxfykRXEV3nNp/my
-         eM1+eftIMtKQVSa2cmoKvsZjoPOVsPaJU6oXAvDs4sikewPFVIevxpjskfen/R5TOBO0
-         UkvDqqxrnxzgWjXV3g76uLClMSLqspLyEZcAlrBqUoXLW23/Tg09zK3yVQmoIPrg+C9E
-         7OPQ==
+        b=0Nc/9ogFJdCxXIn5uK6MX3hf2UWbfqtn5B7MKmx7BSqWqS1NPpMMgfrgH2Y+AAwoq7
+         Oe4FzY6nI8ZF4kmo3YtPq/serLSRToJPBIZ/VNZIw771vEYZWdZrJuBiNlYPZK09e3NN
+         BebSbeZoAexCEpwCBMw0NwxhC553cE3sQAoM8eA207I1/EwUnlELl0RhJksuTRe39HJ5
+         VruosRZdsKatHQzTIXyLGSvSKns2JcQU3az8zgZ4aiPxnDQLT5YDmB02DdxuQCucNgLu
+         fjkNtdMpR4Huvq8FAUSnGLNHC2gGe6aksk626kxfEgjcTqrOE6d91i30KqqHpU16QWZr
+         LuoQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
         bh=6q4iz2KhNuUMxhl1R7WmXAZn1Sk3dlbeQUMwRnZv74M=;
-        b=ltUX0XMNm2aOWYfU+QzJOvpmGvPyJW/7nB5HevVjIW3z5+OLuIUl5I45oOnoP7uw1J
-         P7ebrKxA4VG8RXxyweZB1UHmrnkqhFPItPspVpNCOYQPHSLR4syq5CaRWb98ELA/aqy3
-         tuElPtEP3iCuFzx82sv3RBkKG3MYcOrA2/+3e4MyGpYA/s0PTIsd0WJZHHmopamhpO9S
-         9uECePfEDACn//ZcwalO1eLgasHwfIxZzfcdibizw72YzJRI57R+ZaRQ5zEV3kJ9rgE7
-         70m27SUtXAQbiBOEcp2Lnr6scDNKu95VIPYbFd7jmL7DkjrpalIrhR3sHlUKyCoSVSwq
-         Sozg==
+        b=q9h+LS71OTJX12b36kuo4LgRU/sPyHV9aQLEo5wZOAV/fiHITLBVQhoxrKsdl8YSLa
+         4+kd0rIJpbf88ki9QjsEb0gKrraJBtERtCdapKRvz3Akvqk3I4ELCkcyCe/0sKvCyEyi
+         SaI/j1DVlFEtS2Xp6vMdMLW+29FZkIh7sbAe1WTT9CcszFvMjNm/StajnBWh3duZ4Y4L
+         wDjZAGcLQXVy/oFJgsRTKfiHT/aSXgzstX0KHUD/1JRhetLd7xXeehGLQzNhtQydAynE
+         1I82En2r5HL04peYjMcYodm862PjoT5L4KtYb0oSDqb0BCxjl4u/iYjyZtbxg5pWjwEF
+         Nl8w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id y8si360421edp.3.2019.09.06.11.55.45
+        by gmr-mx.google.com with ESMTPS id x13si580399wmk.0.2019.09.06.11.55.47
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Fri, 06 Sep 2019 11:55:45 -0700 (PDT)
+        Fri, 06 Sep 2019 11:55:47 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
 Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
 	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
 	(Exim 4.80)
 	(envelope-from <tip-bot2@linutronix.de>)
-	id 1i6JOW-0000DR-6e; Fri, 06 Sep 2019 20:55:40 +0200
+	id 1i6JOb-0000EG-0g; Fri, 06 Sep 2019 20:55:45 +0200
 Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 70BF61C0744;
-	Fri,  6 Sep 2019 20:55:39 +0200 (CEST)
-Date: Fri, 06 Sep 2019 18:55:39 -0000
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 7BAC91C0744;
+	Fri,  6 Sep 2019 20:55:44 +0200 (CEST)
+Date: Fri, 06 Sep 2019 18:55:44 -0000
 From: "tip-bot2 for Steve Wahl" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
@@ -107,7 +107,7 @@ Cc: Vaibhav Rustagi <vaibhavrustagi@google.com>,
 In-Reply-To: <20190905202346.GA26595@swahl-linux>
 References: <20190905202346.GA26595@swahl-linux>
 MIME-Version: 1.0
-Message-ID: <156779613930.24167.1219380492780490078.tip-bot2@tip-bot2>
+Message-ID: <156779614439.24167.3539003390891394057.tip-bot2@tip-bot2>
 X-Mailer: tip-git-log-daemon
 Robot-ID: <tip-bot2.linutronix.de>
 Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
@@ -269,4 +269,4 @@ index 8901a1f..10fb42d 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/156779613930.24167.1219380492780490078.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/156779614439.24167.3539003390891394057.tip-bot2%40tip-bot2.
