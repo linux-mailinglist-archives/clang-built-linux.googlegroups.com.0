@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBFGTZHVQKGQEVJ5R77Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBS7DZHVQKGQEITRNV2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5A75BABA71
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Sep 2019 16:13:42 +0200 (CEST)
-Received: by mail-pg1-x539.google.com with SMTP id b12sf3405761pgm.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Sep 2019 07:13:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567779221; cv=pass;
+Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id D5250ABB52
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Sep 2019 16:48:45 +0200 (CEST)
+Received: by mail-oi1-x237.google.com with SMTP id k6sf2462114oij.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Sep 2019 07:48:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567781324; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lm2cUNy6y/q3Ua8y0qi2TFcHBNeb5AxgiM/rshciU2eC2eU+kXnP9D2mHaYfttMSrH
-         FxGjuL/rM+nFXgmmHXHQmozPJP9vjIKsgVmgdiiWrrBoqeN7luRp6FrEm95ZtH96j1vj
-         1KTfUPMSSGgo5zsQJzSdO5w3QcEpNA/psGOx+gBx55Qo2T8FJWQP+xejAYuKO0fpJJN7
-         wBRW7vPFfwb3Siaog4+A9rHEaosKwCKRiSFHQBMPp05d5Q+ZMMSIXLSyB+UxetiI1cr4
-         dbNbIEX1BKLbKuh3145IUW6Z5iCDtgaHjqhPtYUygsDFqqEwk/VhZEMn0Tasm6RcYmWO
-         ITwA==
+        b=vIS+PMTKho1Q7n1wKB8zQMg6Ado0IFW71d5RvodLprXDlKu3dRQ+0xFLdfYZeBMg0X
+         hkNNEcGWz1nylYn4wCP8SV2aeFuZRAozKpjgRYsMdBJGrnI2Jb6HTTAh92U8rGfkXlFb
+         bInfsLYXZpWyByhqlJXX0l36DU1oWx7g7MYVV2+FPzqcBO8mtpbQZe+PBMuxDg8jjh1p
+         w5TIzcMGls/dSd+2igHWovrzmOs/JJ8hxUyRhs5JdNMSorhW94laAawmocrwpmEBBEdF
+         px9U8/MOTVMvhx3JKiTSGJlbSIFr40vfVSVLG4GKnkaP9+D2zwh9VjcpZtkDdyGvcdPw
+         0pDQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=Cm5Y1CIppLtTySVfRPeydldBhwx/RigwctLmMZPxGgc=;
-        b=x8C2GoQ1kWZjenA+E26G3iembRd+t7rjcRgJVVEQWZeoCPRKmZrpMn+qXU6iRSidR8
-         1JDYSFfcaLy00XyuJMKlePfVuJ9hx5Jz3+j+pWrzcqzrDrTwwbTXlfdl8aP9wI9fQjQR
-         d4jnd1ko6nztOaGAIUPV52kMLjSir4vbyRQ63vW+JtUifqtNQyMj77zFzwLKE0i6j/hi
-         4cajq9N1C+LJ7snmsbbdcPjwiHpri745a3emRtnNmk4ExPcjyLHBkRcH1FI9YUsiipuv
-         28oNRUujKoEfF996ywCnjX8EBUXiM3Bb7wneqIC13x/ECu0qDesfd+sDAyuzgmOqcRFY
-         8XhQ==
+        bh=LqD4vnYMC5Aw8iX2xfozr1NbZArhtGvg3V4lziAt7dk=;
+        b=bZub9gxdrRE2duGEfZ36TvNG+oUwHHLV6qKwrSXrA3VKPskCB6BnxEueSIO0UYuzbG
+         VwUXmDkfKAmGWxoqCEjyq4g7A7cTMEw6G9eu2lNgdX1Av7BZj3l5kqrhCAi5dJof7wY7
+         21lec8SoRYvfjITq8uQa+gF4lxXkalsqD+qQWYHCTmbZWaIUHTLaRkBrF89tryRqDMZh
+         AAh4uBLX0RllbnXFBe/iG0uzttt7913vnrxPgTS6bqbFLSTIOipb2XoOdt6d1TuszrY+
+         8iYv0MqvvmGl6OQx4sMLLJckue5QHYZhF2hBYggq4vSX29y8NK5GFulJANYnRLWgMUsm
+         I0pA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Cm5Y1CIppLtTySVfRPeydldBhwx/RigwctLmMZPxGgc=;
-        b=PP5+zJ2cZpHTjnR/OKb2qR1hzXKvqW3bYxpG9/VKhkMGWIdYDO4Da0DsgF/319r7VM
-         Heqs9cGT2ohXK2au4UELk3tsDWVw/iA9cjxpaH2fzJpwOR3hJ/jhqa4nIXgAwRlxpyYx
-         Ce8sbqrn+Tm9WbvvrIVO3gENaN5n3+meDSyMT6tylj/8R/rM/fyM9iqKATOT82jXa2zN
-         UBui/hE94tQpHxpxZrfzaiXbRgCVTc99GYWIVnUBVlzcRm63qPKTr2uOE895XTW91+Yp
-         llsZHylyGlZEeeyXcpupyhO7NkYIHwMVCtqwkh/ipi2BPtoevYRzCjfSsaswgGKjPNRX
-         5LQg==
+        bh=LqD4vnYMC5Aw8iX2xfozr1NbZArhtGvg3V4lziAt7dk=;
+        b=e2z7VPbalU1bw+84K2Pxin94l4Nkc0dIhLHgbk7fHSpnBWx4RTtOpS+rSu4tpkks8S
+         VVw/qTrDaKKFrbrUmTiu/TTTwBTUCgoL0TVrZm533QxAlzRX/4HzlkQBYsdPivEieTc2
+         F+gU9l3OGnGsOB8tfSn5XdWg0LxTmnxdxgu0rF5U7uMbqRcqS7G8LJlC1g5NwcOtvtdG
+         Se8bCN/x/oGibCZx0D9AmzZH+JNsCSsRLFIkKi0VigrqtrsPfnz4rsF17IBFKmJo+BlU
+         dgaik7YFRo1r0wJjYT2ld4JO8M3rd3bzRLMDy9xvbrBjytJ1Kez5bEIN471HV6JfuwJ3
+         P/GA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Cm5Y1CIppLtTySVfRPeydldBhwx/RigwctLmMZPxGgc=;
-        b=LnaU7I/UJ7UyGUtU0v4pdRyUOFjfG2Q5xcx3dmZNKLMvQa0LVIQ9NX/Qkdtys03n3H
-         0X6NlfVwav5PzY5YXqsvDZfUtZocHU6ZVUYDxGYf2LUxQMGpuOyBKm5VZbA1mjNj/+qd
-         LNxreUvGCAJHZUet9PXCOUOziURKrSDT9WxJvCpb7t0PlWuCGQ9xleyvG84WGuEYedh2
-         73AmfN5Iz3aFskMJKIRE3TdqRaxT8d1wIGhnMtngjsS2nb5C9Fw7YQo6T3WMw22SxvOF
-         I4n/zdXhHqt7HdwlWLZf8uVA4a8zFgb6ZwbwkGtheM6It0EsZspaKsSMgwmO/Kely/t/
-         AVJg==
+        bh=LqD4vnYMC5Aw8iX2xfozr1NbZArhtGvg3V4lziAt7dk=;
+        b=Sz2IeNAqZdxTklhvsY0YENpSZxrUBvw2g6aMhAk/jzh/orWBC7qGDSxp5vr3IdOsR2
+         hn2kdpuVyLic+fbuQ+yggYE/I+h5J47/fdLc9FdR7YXUYA78qrb0kh1R80czm3UrLvpE
+         zy9nejGT1zvFbBYo9AOW4zGXxNecqrKXGNa5Aypjo9euuCWVNQxP6GhECWV6mnBc/SfE
+         MhRq2CBYhF9Ru1/kCWB3BKza0F/sjx7oGAotvFKS4k8a7AwaT2i20XxCmnLYHkaRBU7/
+         +Wdb0tIbe1Og6hoON2NhYkvmVnnhostysJQkUHhJavCHlhe7deEEhhemEhpsnwwrHvHC
+         l5lw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWqZ5Ep+rYMivR2nch206nOiowjFuMDCtly+xiJ2hAlybyQ21Rp
-	DPnrVkKVCIetMMAc8p/TfAQ=
-X-Google-Smtp-Source: APXvYqwIM/y0UjtOUg01XvxodM7Azox/b4UqdkaPLeUTI8LaKEKRVq2x1jU0hU0zpsZk4b7kg0NyRg==
-X-Received: by 2002:a63:6f41:: with SMTP id k62mr8165793pgc.32.1567779220762;
-        Fri, 06 Sep 2019 07:13:40 -0700 (PDT)
+X-Gm-Message-State: APjAAAVMJB+UFbpZHmCilT8KclicU3XmRQzbrurefKuRiashzrJDyFdW
+	30Rk4OG2TwkCD1CsJSoC/PI=
+X-Google-Smtp-Source: APXvYqw/z+ch/MXPeVrdt9xCT6cCB2UNlgmsO2FHabJK2kFfvhAFGFEsD3qTLWSquqDjiO9ZTiBbnA==
+X-Received: by 2002:a9d:3602:: with SMTP id w2mr7860745otb.222.1567781324035;
+        Fri, 06 Sep 2019 07:48:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:bb8e:: with SMTP id v14ls1528322pjr.1.canary-gmail;
- Fri, 06 Sep 2019 07:13:40 -0700 (PDT)
-X-Received: by 2002:a17:90a:890c:: with SMTP id u12mr9845803pjn.124.1567779220352;
-        Fri, 06 Sep 2019 07:13:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567779220; cv=none;
+Received: by 2002:a05:6830:1e97:: with SMTP id n23ls1103134otr.5.gmail; Fri,
+ 06 Sep 2019 07:48:43 -0700 (PDT)
+X-Received: by 2002:a9d:774c:: with SMTP id t12mr8284504otl.30.1567781323689;
+        Fri, 06 Sep 2019 07:48:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567781323; cv=none;
         d=google.com; s=arc-20160816;
-        b=yQe4kOLuCMYmulPlWhis0J7qM51QWGE0L+eTYScTJTPXYV5YxnYKtTbNPGe30HZgA9
-         T+KYUIfcGhVmZ6eEhSwyZ8iKL3Ij9pkZDaYNax3VzVe6jZmPGM2IFB5O2VhDgOc2YOi3
-         u9u+k7virazE5l8diRyW2xBiZRIs2ZL4wxJGTCIec60lbr1v4xVJRvyWEtO3g4iVVsZU
-         4rPjPckboh5R+QNXDiqd2CMwufLfcIWDEOlEV31DK4uzaLhUs2O12H+xaOnMbnDKjUwX
-         /3UzwiChZ1IhYYpKCi/QQBDW+df9Y30/HZach3IB/ZAyFbFq9OCyq76We9Wp7Qsk6bmO
-         iDrw==
+        b=RXHoz87sq9xQE/UL1Q1kqCuKoiazDu8ul4M+J1NAmdo4qmw7QDLYvmaRl9kURuGTQT
+         LNTXjoNvCaaL1AK8Vdz2CC8dOYh8Dcec2pFtaxtAqp2dS24oSdZF7o+xRZlA4OuQGue6
+         +Urhz+rAUJD8gxT4nHGJxGXXQIBi4THaBZanRqXkpHviAPJYlMJYSEyV4A8468euzb8w
+         DaPK5JEB6R3H6Ek8SW8oI0KccW2DfpDcMyUFoQHezaefKJao/8yk4uVTsMRzITCp3axv
+         q11HERSX0H1JL7Fi0w1xiwoTBwNeIDmnRh3n7xEr/vAICidcqs9U2rLRyMSfXNi6OZp/
+         rC+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=W9wWpi+jmMRdioHggJ2bZGx79AJSL+62ZtDzBLo5bSM=;
-        b=P5GbJvXH0/w5L6uoGqF64RYEYiap0Di5Q1WyvKgQL0ky3+k39MvyQjy7L9BO1mXPcH
-         xMpzkUjxnTiqaTvDJKxh5K5lSbhlviOTt3Ywv7CzHcJ18z4BKcsFQBocD7Q/GiiOH0Si
-         u52by+M57kyuEzt0dR5mICDmet6oaS/6M+NWkKleL4mG9fMMzwnTCMYPr2aV37iE7zDT
-         NIaIbI5Z2R1Iae4+njjzrX1Rp2As1lCkoa7gFe1t93cimpJ9B7pWYcaKUTig86E/6JNS
-         XkmvCjdnB1VwEgpVYQoHVMPrhZp914S4mA4yb/Wk1jYjyVuJBqPE5go00QaO0ImPiG1o
-         YdBw==
+        bh=6JPUTIfYl9O/C4VV3FIyETsyhAYpcFPBPAVNElGQuW8=;
+        b=G7y/J1PlHCuVl0krsoowuaTWB0EvrSO+ZISdHLQFXx4i06H/8J1HH7HfNVzmrcre36
+         6OskdpOmmNtj555kQKoF3a+qbp5feerPj2/ov3z9JnfAFAC1nLjz/bLYUzvhW3K0wbRc
+         un0fjx4AVfoQkbwG2OrnZwuDsu+Ut98KlSUt8ayrur6caE92X1lIn9r4s/s4VpAzGmFo
+         9vqNvW2Rnsj0pb9E2LL3mu/1bFcKXUHf9NJMQ6mbOU5bjikSgNRb5P/+W0hSqkTYCGcg
+         iipGiZz24zCA3Rtqtg0WgC7dSmTtpTL3lUsl5A8t6AD7lgJ+umTfXwnquVqamXomD6Bu
+         jgfg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id c6si300022pls.5.2019.09.06.07.13.40
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id m4si335360otk.1.2019.09.06.07.48.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 06 Sep 2019 07:13:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-X-Amp-Result: UNSCANNABLE
+        Fri, 06 Sep 2019 07:48:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
 Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 06 Sep 2019 07:13:39 -0700
+  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 06 Sep 2019 07:48:42 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,473,1559545200"; 
-   d="gz'50?scan'50,208,50";a="208238514"
+   d="gz'50?scan'50,208,50";a="208245966"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 06 Sep 2019 07:13:38 -0700
+  by fmsmga004.fm.intel.com with ESMTP; 06 Sep 2019 07:48:40 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i6EzZ-0004iz-MO; Fri, 06 Sep 2019 22:13:37 +0800
-Date: Fri, 6 Sep 2019 22:13:27 +0800
+	id 1i6FXU-000Guu-1l; Fri, 06 Sep 2019 22:48:40 +0800
+Date: Fri, 6 Sep 2019 22:47:53 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [morimoto-linux:fw-cleanup-2019-09-06-v2 60/461]
- sound/soc/meson/axg-frddr.c:346:12: error: use of undeclared identifier
- 'g12a_fifo_pcm_ops'; did you mean 'axg_fifo_pcm_open'?
-Message-ID: <201909062206.aG9XvXbG%lkp@intel.com>
+Subject: [morimoto-linux:fw-cleanup-2019-09-06-v2 74/461]
+ sound/soc/meson/axg-frddr.c:346:3: error: field designator 'ops' does not
+ refer to any field in type 'const struct snd_soc_component_driver'
+Message-ID: <201909062247.zbBifnms%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="q6jdlkmjfbvqgqu3"
+Content-Type: multipart/mixed; boundary="v5x26coyjtifeood"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---q6jdlkmjfbvqgqu3
+--v5x26coyjtifeood
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -147,13 +148,13 @@ TO: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 
 tree:   https://github.com/morimoto/linux fw-cleanup-2019-09-06-v2
 head:   553bcb7c8fed3dacea700f584e879fc85bdc0e4a
-commit: b4f893e0a9f53fcb9e89943e85db89dd5e55fbc1 [60/461] ASoC: meson: remove snd_pcm_ops
+commit: 3cb503639a8489c53f95e537380fed67576c10b4 [74/461] ASoC: soc-component: remove snd_pcm_ops from component driver
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout b4f893e0a9f53fcb9e89943e85db89dd5e55fbc1
+        git checkout 3cb503639a8489c53f95e537380fed67576c10b4
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -162,28 +163,28 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> sound/soc/meson/axg-frddr.c:346:12: error: use of undeclared identifier 'g12a_fifo_pcm_ops'; did you mean 'axg_fifo_pcm_open'?
+   sound/soc/meson/axg-frddr.c:346:12: error: use of undeclared identifier 'g12a_fifo_pcm_ops'; did you mean 'axg_fifo_pcm_open'?
            .ops                    = &g12a_fifo_pcm_ops
                                       ^~~~~~~~~~~~~~~~~
                                       axg_fifo_pcm_open
    sound/soc/meson/axg-fifo.h:78:5: note: 'axg_fifo_pcm_open' declared here
    int axg_fifo_pcm_open(struct snd_soc_component *component,
        ^
-   sound/soc/meson/axg-frddr.c:346:11: error: incompatible pointer types initializing 'const struct snd_pcm_ops *' with an expression of type 'int (*)(struct snd_soc_component *, struct snd_pcm_substream *)' [-Werror,-Wincompatible-pointer-types]
+>> sound/soc/meson/axg-frddr.c:346:3: error: field designator 'ops' does not refer to any field in type 'const struct snd_soc_component_driver'
            .ops                    = &g12a_fifo_pcm_ops
-                                     ^~~~~~~~~~~~~~~~~~
+            ^
    2 errors generated.
 --
->> sound/soc/meson/axg-toddr.c:293:12: error: use of undeclared identifier 'g12a_fifo_pcm_ops'; did you mean 'axg_fifo_pcm_open'?
+   sound/soc/meson/axg-toddr.c:293:12: error: use of undeclared identifier 'g12a_fifo_pcm_ops'; did you mean 'axg_fifo_pcm_open'?
            .ops                    = &g12a_fifo_pcm_ops
                                       ^~~~~~~~~~~~~~~~~
                                       axg_fifo_pcm_open
    sound/soc/meson/axg-fifo.h:78:5: note: 'axg_fifo_pcm_open' declared here
    int axg_fifo_pcm_open(struct snd_soc_component *component,
        ^
-   sound/soc/meson/axg-toddr.c:293:11: error: incompatible pointer types initializing 'const struct snd_pcm_ops *' with an expression of type 'int (*)(struct snd_soc_component *, struct snd_pcm_substream *)' [-Werror,-Wincompatible-pointer-types]
+>> sound/soc/meson/axg-toddr.c:293:3: error: field designator 'ops' does not refer to any field in type 'const struct snd_soc_component_driver'
            .ops                    = &g12a_fifo_pcm_ops
-                                     ^~~~~~~~~~~~~~~~~~
+            ^
    2 errors generated.
 
 vim +346 sound/soc/meson/axg-frddr.c
@@ -211,14 +212,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909062206.aG9XvXbG%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909062247.zbBifnms%25lkp%40intel.com.
 
---q6jdlkmjfbvqgqu3
+--v5x26coyjtifeood
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICMFncl0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhzS0eal53s+gCQoIeJmAJRsX/gUW+54
+H4sICNhvcl0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhzS0eal53s+gCQoIeJmAJRsX/gUW+54
 4qVHljvpfz9VABcABGV/k7VVVdgKhdpQ4E8//DQib4eXp+3h4Xb7+Ph99GX3vNtvD7u70f3D
 4+7/RlE+ynI5ohGTn4A4eXh+++e37f7pdD46+TT7NP51fzsZrXb7593jKHx5vn/48gbNH16e
 f/jpB/jnJwA+fYWe9v8a3T5un7+Mvu32r4AeTcaf4O/Rz18eDv/67Tf479PDfv+y/+3x8dtT
@@ -1063,4 +1064,4 @@ M9Rxu9w1xs0dBxOJ9Btu2ITdJYY6kSo/jWE+jb/yZ8Dckq4uSMxVLWSYKHjfJwIyuESsyEn3
 Z7HbK5ThxIQEAYC7V2naJCG7becWatomB1l0vCX0zATVV15ZjXZjDb7x7LSNrADzvyXESkkV
 EwMA
 
---q6jdlkmjfbvqgqu3--
+--v5x26coyjtifeood--
