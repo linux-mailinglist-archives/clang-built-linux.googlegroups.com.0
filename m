@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBH43Y3VQKGQE2P2Y6XY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7P3Y3VQKGQE64DUZNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id E7806AAE94
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Sep 2019 00:35:12 +0200 (CEST)
-Received: by mail-pf1-x43e.google.com with SMTP id z13sf2932550pfr.15
-        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Sep 2019 15:35:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1567722911; cv=pass;
+Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 68898AB07B
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Sep 2019 04:01:35 +0200 (CEST)
+Received: by mail-qt1-x83d.google.com with SMTP id h9sf3677399qtq.11
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Sep 2019 19:01:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1567735294; cv=pass;
         d=google.com; s=arc-20160816;
-        b=L7bYNjpRxTwZoJG63ngcLdmRKD0B4Q2RhvfWZKcBXLf55Pnzjxz8+mWkDY97qcLr71
-         C9KcgM4IiMM1VMQb+Mo5CzvOVmA7Qjqxy7pSEyPG9ElcpPd+LS/Ja+cezAmHFs0F3WZI
-         m7XLzeu1IsYodnUDtAgtU6KJErxyVHMWheVxb1snsFSI36wxtfInaJtmhl+m4ZJNTdZo
-         dsy6Q+IJlM46q1koeeOGDJFryOzOo0DBLFTyBDr/Lm7g5dsAOvSXyTST0nQpiqlVT9KM
-         w8qvGMM7NYbyBCWUYk4JC70JIsee9sewL5BCD0h59Sc4apGJqdXWgHniS0uPbv2BThtg
-         /RWQ==
+        b=MsDmLebTOvTsK9TUs8LoVJYjdv6SGSvNfJJjpsDxF77tnhHwV4N4F7P8zvv2l1PGf0
+         pgsRQil9pIIBW+KFmdfwP0v7d9/GQ9YCCvoJV1mxoHAEID5pcjlxYR2bUn0jeMb0qri7
+         xq39bj5njaHv6qauC6eFgA1fx20M/sqUeXZOHHIFh3MmgqP8nHHPgOHt3oAVy2OT6fO+
+         dwyIcsleap6KX2VdMfz7FRbDlHDNLN+PUw+Luhs0t/9Vj0x79m0rIrAIE68md+Jzh+Pk
+         dHhFYjGzGt0X0CaVkuswn2E2VQPtqy+X3Sb/1nScy53boUSC5B+93OyrfBM7G1fWg7Ha
+         sO1A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=cF4e2+g1SHQxWxCRah4SxFCHkOVGXIpZWeOr7Uzj06k=;
-        b=JHbP05u6Qhxgaser+4zLltH6+Xh1cRcd5w6jSEw6+e+CK7I5X30ASbUGjvmZX6R9m1
-         ZK8hFvO0itNiGgDta9shc9bzl2Rt4d+Z+eeGPGwykUlVx8uugANyoJpcuxZxpqtJK9/P
-         PwsrhOfRJin0DVVKnxHQyPWTIlMtUMfCgRy5i+IOPUthi7tO4rg/HXRD2SC3HGqNUOae
-         m3HSRqDgQLui8uNDxdIrmBzP5Op+/j41INCCSLMHH9grCJtC2dyo3AnRqOMsYCH+64U4
-         bMO3mcG/ozmFY5Xxy8YuuExMj77Et8m6u0SPYP19Qv1AfWJ/q2Sw8yclWf8Ma56PIkLW
-         VpIA==
+        bh=I/7qcMweZ/FOpkKYaIc/Fjg2aiuEy0bnU/Gcioj8/JA=;
+        b=LrG42kFDrGP92eUMCCjnB/WT125QFCQoGe+NOm0qAk3n72s3z8R1MtNWtyKLaRCErV
+         jeDyckCg7X7TLGaE8vE0HLmxWLcjUJeaiWfESstBEUSMdEUM3B0gGGVohF5ZkvszEl8l
+         rxb2tht36aQcU6y8xaj4SctTjAon9txGIpYjQeo31LtC04b0U11tU2ayiIhT4lac/dF6
+         PAo0Rn/+gqvBQbCFQNJZgB+aZNn7kZDAdTAw97bBv7YXO/ixzob3zhhNeTuPrnlg28g0
+         VAOiwXbMalt6rCbDU6hhWQ1CBEGCckiolpW2A4CxP5YsU12OUk5OacMill1eRV6/zM6w
+         3nnw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=cF4e2+g1SHQxWxCRah4SxFCHkOVGXIpZWeOr7Uzj06k=;
-        b=Jm4WhmEqYRUsRndEqkoIGfiP8YKavxJYD81pWgR9QzQ6Wd2OD5EW4WGI6j9LG7iLaI
-         4Hij9JTRP6Yk/6Fk6hygYmyGO1zwrr2GGFwpOs3NKvakOIXO0UjlICMEc+Azw2fRB+cE
-         ARhyLeaI3A5deAB82C61+o5WJdu9cxxMvQA8yAT59wMXrn/SN5950D237TyPR79lJFGy
-         YjeIreK0WrVdxmdCxIQteipQPu4XIJeHnvHsQeeo8wUe56UaxbTWIs6mH2jbosbBxDpJ
-         4Lb92ohIvvQe+MNUp9mqMy7Spp05pkDhhFmwklgcOZMAkqSTyndCSR7qVj/CZ1C6m7NY
-         p/aw==
+        bh=I/7qcMweZ/FOpkKYaIc/Fjg2aiuEy0bnU/Gcioj8/JA=;
+        b=OUN0y0w2n5PRnGL1YuYj/ShzTPZMV9vNBtk7/qEHWWXQDmgGM5er2PBJCZNmkuvf7F
+         wDQP1J5m6dCevGLkDWoyxJKWgy+ZtNVaptdxO4f/WULcRwQfn9MHGg9C3R3XGxCpPl2/
+         FgSwSxSIsJkQ+7zgZ01ysW6C54M6cA5lrCPtg1msNYnC6mjse8f9hgpSBo5OHGXbEZqh
+         CvTOi2ZYFhViB6SUjI7KoBTu5Wh0P7/a6FhLiXLSJ0xSy+MX/GU7yf5Ic51iikLYxLxS
+         wjqnY89meYKHvtOM2QzOFzIejp/8zbBRoLw7YYyeiZxzCVwumxe5pI7SzaAbHadO3ihN
+         Tncg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,73 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cF4e2+g1SHQxWxCRah4SxFCHkOVGXIpZWeOr7Uzj06k=;
-        b=Y+gdnTg36uqb0DXCkR5gkybpFrA1QOFgm7cqBcSn4kzgNGcfmBuCln16jLMHMd2ajG
-         Sp9w7lj6LklRuwjE2Z28z4gLDsmWfGbp5NFSozn3gNoJae1Pp8rK+1moFkuku1Ell1yh
-         FfKXyYVTLWIxgLJYHb2hnxv1rV4cTluu10cWFrMULutfQcTco96nA5EEf2swcUtSFne0
-         eN9CYwMbTcwfKrCTgWaGlT/+wRbcX/jZYo1sblEsw5AA4ST/fcxQoEgHLqEPROze8JN+
-         Saau49xKZF0515on2gyL6Sr1yDXANBKYPTRekp8ohkeTCfJjZNm841/+mOcBxBwYFj2n
-         uykw==
+        bh=I/7qcMweZ/FOpkKYaIc/Fjg2aiuEy0bnU/Gcioj8/JA=;
+        b=WZ5QbqY7TYdRYoxYIzREfjTHBZ6T/0bxIPZEIBpp0DbrggRSpU/+iQB2uGVfNkUfzM
+         dt6ME94H/jpEbYIQhxz8coI37zApxL+EoKrW5ZX0BaewMHPdybms0RMOuDt4TYj3dcQD
+         D6UY1dWapaPrtqCukc4ixsmPAIQ0j0oQ8wKA/JJwDpo/kj4Ufv7e4YOpW4lZRMheVSTC
+         csUsOOHb6EFAMRIV5zZ5kzkFjYJ1cPBBcdWkObW9PDwtAi62JvjdHiz44M+7Pptu3sze
+         yMbueThvwBJF/E+KKbajmv1HGYtcHFk08BCGNPNF/sxDt1maep3roXbaqLEAW6/tP248
+         4Ciw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUmhjbXpCsQNQTKHSP+iXx6r/TjhB2B/+NY54h4e4fTAYWANwkn
-	RRV2VyLBfseLI+34E2zNnMQ=
-X-Google-Smtp-Source: APXvYqzu4l9oNld1t6Zpq1yEQLx8ChrN52SQZbZXOhkA0wpVRDkJLofUPXmEZtFJ66vCY9La3Higlg==
-X-Received: by 2002:a17:902:9a8f:: with SMTP id w15mr6037490plp.221.1567722911210;
-        Thu, 05 Sep 2019 15:35:11 -0700 (PDT)
+X-Gm-Message-State: APjAAAU4RIdIyTxjMpVkCILlAqZ0W3Bs0KM2LZS9Qt6JvuXXIldNQf4b
+	UTduMzgFdlRVpGpLp3O6hyk=
+X-Google-Smtp-Source: APXvYqyJnmFX/pYiNQk7ywjHNMAxiP1JBp93sLtvMCGtmZXzuaUFkI5DDufNKVMftNGnfBB9ciIruw==
+X-Received: by 2002:ae9:f70a:: with SMTP id s10mr6409806qkg.178.1567735293857;
+        Thu, 05 Sep 2019 19:01:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:bf44:: with SMTP id u4ls1013842pls.10.gmail; Thu, 05
- Sep 2019 15:35:10 -0700 (PDT)
-X-Received: by 2002:a17:902:9b8f:: with SMTP id y15mr6366205plp.194.1567722910784;
-        Thu, 05 Sep 2019 15:35:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1567722910; cv=none;
+Received: by 2002:ae9:e707:: with SMTP id m7ls1484839qka.1.gmail; Thu, 05 Sep
+ 2019 19:01:33 -0700 (PDT)
+X-Received: by 2002:a37:bd5:: with SMTP id 204mr6490200qkl.330.1567735293508;
+        Thu, 05 Sep 2019 19:01:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1567735293; cv=none;
         d=google.com; s=arc-20160816;
-        b=eMas0vQlH+0Sm2/xUJHLuGl8YHk/SRU/WcQjubH0xWUSy5KKYMBHKlc06j/FBK9ESr
-         aYog21KWWgHDx0cpGnO0o1DJmnSVLFnHI94Ec/OYoUq8e+uVMHaNNfuWuwHAJMeVRESz
-         3d1BhP6updK/jb6dHP93v0GKPAnWEto8UT4fVyyXnJBQg7HU6lwJDVTPPIsRDWefsSGO
-         5xff6X8ke+9k5tkg7yKxh3XyqAR19JzuBjqSwUdA41F9nxyo24rYKqpIORES1rwAo/ov
-         lEaFU8nfzMKSTHUScLlnjMyhz2UcuZ4A8wBjQhIz7gBmqtlR4MC37yjVQ/EudHOunWi4
-         cqzw==
+        b=ACKX7ia6ROsEkII20WnL0Cor6cvr1xiryvCzXICcoT+5mE134Vho3PplKepSCpBfTp
+         0qPTlk47ruNWQfJJ50WgPKWcKaxXS5PaveFTOs7APLr1ZvQcsI50W1c+XvEwQ3V6CO13
+         SVLLzpNeBM8sTw9H+QsqMuOODJbHuT+zp4LVCoGUJSHjjAToNezdtDwzeOMU6xjzBR7h
+         5iC0HKZiVaksveo8PPFtD2q2xl/V8pcjYvRnFl56axLYD3Z904vYtUOM8nwNLPGfmHZf
+         fZeuh+z94IiuSu3Inxdad2IVTFzbYB+nlhFL6kBaPsJEQPgTXXbymajArJGoXGXreaFf
+         CzQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=yn+hgPsPnbW4zzivO4Tiv8UTTrR3he8Lb5HH7Hsd0xU=;
-        b=BRbSqhUPvO9BIaQPbmnriEOv+nPh7eifKQqZEROjfsCiZTCkyJAp9OA6HyvMpUNp19
-         pNEYYmLiUbyJKSH809B5Whv996sF7niVO6yccrN5OzoM53x+LEM0CKGwCqIHLgvqBCdZ
-         +NHHx2Clc/bYhMYrAthIir7UvuBs8Bsm9ZRU+NXEhwY+yVvZ0nExk+z3ArU5c5tnt7I1
-         DB0qae1COQBwDJfANJR9TNwMOC1AVmzRftb3AEq5x4SJezEqUG/QhPnKzeJT7CyX/iWW
-         GR8BycfElmN9o1grZOV+BuRA/gB7pRaCG+pMa/eb2Lg9FjeWuQ3x+1jcDwtu93kITZAg
-         s/Yw==
+        bh=HkxAq+vcsBiEfac8VKtOVEZhygu0ZG7D5SZlO/CyWOM=;
+        b=TkFUAolealAj/uFvqwyb1owOfV3XwmMOjYhpzT+qYrBHxxaTGRexDE109QCltBo8/r
+         8ofugEfgGf9o2+2EJfZxQpED3+xAyABsqyxFWE6cRFfQezZWaIZ/NQoQTQMVJ8COSQvH
+         QnjRj5AIIgtTGC5WUy8jrias4mEwJYwahbdsOtIEkz9Fn12m+aTRfZkoFKOe9MCvxZic
+         DoZaz48MZWRy9/Wquc1MzkGIG6l6A+Tlj8StSb0/kJtvnecYAGf5xf/lrlq0hH1HNH/8
+         K7cIq43uc1tHwvxZTTMh4IvO0BOwQFdCTLc3+kKOBBzQLVjpN/g3Dt+acqvc9qSn51ux
+         16sg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id 91si157311plf.0.2019.09.05.15.35.10
+        by gmr-mx.google.com with ESMTPS id r68si181318qkb.1.2019.09.05.19.01.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 05 Sep 2019 15:35:10 -0700 (PDT)
+        Thu, 05 Sep 2019 19:01:33 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga006.jf.intel.com ([10.7.209.51])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 05 Sep 2019 15:35:09 -0700
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 05 Sep 2019 19:01:31 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,471,1559545200"; 
-   d="gz'50?scan'50,208,50";a="188124309"
+X-IronPort-AV: E=Sophos;i="5.64,472,1559545200"; 
+   d="gz'50?scan'50,208,50";a="177497058"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga006.jf.intel.com with ESMTP; 05 Sep 2019 15:35:07 -0700
+  by orsmga008.jf.intel.com with ESMTP; 05 Sep 2019 19:01:29 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i60LL-0008qV-4h; Fri, 06 Sep 2019 06:35:07 +0800
-Date: Fri, 6 Sep 2019 06:34:10 +0800
+	id 1i63Z2-0007uN-Ii; Fri, 06 Sep 2019 10:01:28 +0800
+Date: Fri, 6 Sep 2019 10:01:01 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 2/3] mm: Allow large pages to be added to the page cache
-Message-ID: <201909060618.nw58MVwB%lkp@intel.com>
+Subject: Re: [PATCH 3/3] mm: Allow find_get_page to be used for large pages
+Message-ID: <201909060937.gzuuUYVT%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="o6cc4aa5jgtijqxf"
+Content-Type: multipart/mixed; boundary="5vbgaquadupdj5lx"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
@@ -137,13 +137,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---o6cc4aa5jgtijqxf
+--5vbgaquadupdj5lx
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190905182348.5319-3-willy@infradead.org>
-References: <20190905182348.5319-3-willy@infradead.org>
+In-Reply-To: <20190905182348.5319-4-willy@infradead.org>
+References: <20190905182348.5319-4-willy@infradead.org>
 TO: Matthew Wilcox <willy@infradead.org>
 CC: linux-mm@kvack.org, linux-fsdevel@vger.kernel.org
 CC: "Matthew Wilcox (Oracle)" <willy@infradead.org>, Kirill Shutemov <kirill@shutemov.name>, Song Liu <songliubraving@fb.com>, William Kucharski <william.kucharski@oracle.com>, Johannes Weiner <jweiner@fb.com>
@@ -168,99 +168,86 @@ reproduce:
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
->> mm/filemap.c:863:8: error: implicit declaration of function 'compound_nr' [-Werror,-Wimplicit-function-declaration]
+   mm/filemap.c:863:8: error: implicit declaration of function 'compound_nr' [-Werror,-Wimplicit-function-declaration]
                    nr = compound_nr(page);
                         ^
-   1 error generated.
+>> mm/filemap.c:1637:9: error: implicit declaration of function 'find_subpage' [-Werror,-Wimplicit-function-declaration]
+           page = find_subpage(page, offset);
+                  ^
+   mm/filemap.c:1637:9: note: did you mean 'find_get_page'?
+   include/linux/pagemap.h:274:28: note: 'find_get_page' declared here
+   static inline struct page *find_get_page(struct address_space *mapping,
+                              ^
+>> mm/filemap.c:1637:7: warning: incompatible integer to pointer conversion assigning to 'struct page *' from 'int' [-Wint-conversion]
+           page = find_subpage(page, offset);
+                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+   1 warning and 2 errors generated.
 
-vim +/compound_nr +863 mm/filemap.c
+vim +/find_subpage +1637 mm/filemap.c
 
-   840	
-   841	static int __add_to_page_cache_locked(struct page *page,
-   842					      struct address_space *mapping,
-   843					      pgoff_t offset, gfp_t gfp_mask,
-   844					      void **shadowp)
-   845	{
-   846		XA_STATE(xas, &mapping->i_pages, offset);
-   847		int huge = PageHuge(page);
-   848		struct mem_cgroup *memcg;
-   849		int error;
-   850		unsigned int nr = 1;
-   851		void *old;
-   852	
-   853		VM_BUG_ON_PAGE(!PageLocked(page), page);
-   854		VM_BUG_ON_PAGE(PageSwapBacked(page), page);
-   855		mapping_set_update(&xas, mapping);
-   856	
-   857		if (!huge) {
-   858			error = mem_cgroup_try_charge(page, current->mm,
-   859						      gfp_mask, &memcg, false);
-   860			if (error)
-   861				return error;
-   862			xas_set_order(&xas, offset, compound_order(page));
- > 863			nr = compound_nr(page);
-   864		}
-   865	
-   866		page_ref_add(page, nr);
-   867		page->mapping = mapping;
-   868		page->index = offset;
-   869	
-   870		do {
-   871			unsigned long exceptional = 0;
-   872			unsigned int i = 0;
-   873	
-   874			xas_lock_irq(&xas);
-   875			xas_for_each_conflict(&xas, old) {
-   876				if (!xa_is_value(old))
-   877					break;
-   878				exceptional++;
-   879				if (shadowp)
-   880					*shadowp = old;
-   881			}
-   882			if (old) {
-   883				xas_set_err(&xas, -EEXIST);
-   884				break;
-   885			}
-   886			xas_create_range(&xas);
-   887			if (xas_error(&xas))
-   888				goto unlock;
-   889	
-   890	next:
-   891			xas_store(&xas, page);
-   892			if (++i < nr) {
-   893				xas_next(&xas);
-   894				goto next;
-   895			}
-   896			mapping->nrexceptional -= exceptional;
-   897			mapping->nrpages += nr;
-   898	
-   899			/* hugetlb pages do not participate in page cache accounting */
-   900			if (!huge)
-   901				__mod_node_page_state(page_pgdat(page), NR_FILE_PAGES,
-   902							nr);
-   903	unlock:
-   904			xas_unlock_irq(&xas);
-   905		} while (xas_nomem(&xas, gfp_mask & GFP_RECLAIM_MASK));
-   906	
-   907		if (xas_error(&xas))
-   908			goto error;
-   909	
-   910		if (!huge)
-   911			mem_cgroup_commit_charge(page, memcg, false, false);
-   912		trace_mm_filemap_add_to_page_cache(page);
-   913		return 0;
-   914	error:
-   915		page->mapping = NULL;
-   916		/* Leave page->index set: truncation relies upon it */
-   917		if (!huge)
-   918			mem_cgroup_cancel_charge(page, memcg, false);
-   919		page_ref_sub(page, nr);
-   920		return xas_error(&xas);
-   921	}
-   922	ALLOW_ERROR_INJECTION(__add_to_page_cache_locked, ERRNO);
-   923	
+  1583	
+  1584	/**
+  1585	 * __find_get_page - Find and get a page cache entry.
+  1586	 * @mapping: The address_space to search.
+  1587	 * @offset: The page cache index.
+  1588	 * @order: The minimum order of the entry to return.
+  1589	 *
+  1590	 * Looks up the page cache entries at @mapping between @offset and
+  1591	 * @offset + 2^@order.  If there is a page cache page, it is returned with
+  1592	 * an increased refcount unless it is smaller than @order.
+  1593	 *
+  1594	 * If the slot holds a shadow entry of a previously evicted page, or a
+  1595	 * swap entry from shmem/tmpfs, it is returned.
+  1596	 *
+  1597	 * Return: the found page, a value indicating a conflicting page or %NULL if
+  1598	 * there are no pages in this range.
+  1599	 */
+  1600	static struct page *__find_get_page(struct address_space *mapping,
+  1601			unsigned long offset, unsigned int order)
+  1602	{
+  1603		XA_STATE(xas, &mapping->i_pages, offset);
+  1604		struct page *page;
+  1605	
+  1606		rcu_read_lock();
+  1607	repeat:
+  1608		xas_reset(&xas);
+  1609		page = xas_find(&xas, offset | ((1UL << order) - 1));
+  1610		if (xas_retry(&xas, page))
+  1611			goto repeat;
+  1612		/*
+  1613		 * A shadow entry of a recently evicted page, or a swap entry from
+  1614		 * shmem/tmpfs.  Skip it; keep looking for pages.
+  1615		 */
+  1616		if (xa_is_value(page))
+  1617			goto repeat;
+  1618		if (!page)
+  1619			goto out;
+  1620		if (compound_order(page) < order) {
+  1621			page = XA_RETRY_ENTRY;
+  1622			goto out;
+  1623		}
+  1624	
+  1625		if (!page_cache_get_speculative(page))
+  1626			goto repeat;
+  1627	
+  1628		/*
+  1629		 * Has the page moved or been split?
+  1630		 * This is part of the lockless pagecache protocol. See
+  1631		 * include/linux/pagemap.h for details.
+  1632		 */
+  1633		if (unlikely(page != xas_reload(&xas))) {
+  1634			put_page(page);
+  1635			goto repeat;
+  1636		}
+> 1637		page = find_subpage(page, offset);
+  1638	out:
+  1639		rcu_read_unlock();
+  1640	
+  1641		return page;
+  1642	}
+  1643	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -269,14 +256,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909060618.nw58MVwB%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909060937.gzuuUYVT%25lkp%40intel.com.
 
---o6cc4aa5jgtijqxf
+--5vbgaquadupdj5lx
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICF6EcV0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICKOZcV0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYC7VDP/3wU0Deji9Pu+PD7e7x8Vvwef+8P+yO+7vg/uFx
 /39BXAR5IQMaM/kBiNOH57e/P+4OT6eL4OTD/MPk18PtWbDeH573j0H08nz/8PkNmj+8PP/w
 0w/wz08AfPoCPR3+Fdw+7p4/B1/3h1dAB9PJB/g7+Pnzw/FfHz/Cn08Ph8PL4ePj49en+svh
@@ -1117,4 +1104,4 @@ YGaq5+fyqymz7tm6UNKRuGUIe1CWO5FzgIbDvht/B9Ci+S1dU5GZ23WwYeLgQx8RKBA0sSMn
 319k/rhRhhMICQGA96jzvFUx3HbwGzWDySEWk5GJ3VPhfFbQVqMhWYuvQHuxkZOC/hellVjT
 XQwDAA==
 
---o6cc4aa5jgtijqxf--
+--5vbgaquadupdj5lx--
