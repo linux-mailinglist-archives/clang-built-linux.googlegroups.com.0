@@ -1,145 +1,138 @@
-Return-Path: <clang-built-linux+bncBDZ4ZY6STAFBBRNT3LVQKGQEJJQHPEQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBBG23LVQKGQEI77DGIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id E029BADEF7
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Sep 2019 20:28:23 +0200 (CEST)
-Received: by mail-pf1-x43c.google.com with SMTP id b204sf11132862pfb.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Sep 2019 11:28:23 -0700 (PDT)
+Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5C47DADFA0
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Sep 2019 21:50:29 +0200 (CEST)
+Received: by mail-wr1-x437.google.com with SMTP id b15sf7858901wrp.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Sep 2019 12:50:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568058629; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=n1O16ZneP0GEWtSF15WAGGWlvNc801JOJzO3KhsC+/9dT8tKmU7BJOHdBG//zUvBHI
+         VhczFvptqqmFL+Jyb1xhbcpuVqdbDu+b//XZz1Y617WszTBnLVSZLscO19JZwBrQFP3B
+         CHI+HoHcs0giKGKoLkZgs1jWC+YWlaiP+boiqqCYpa0V4OiD0vObAwU83GC5sk3vdWHW
+         zlCOPCDQCbAFXoA1x/YZ9YlKTDblE50ushiVAmDCLUg1AgZ8sbXeBaaflXheyQTnEIhr
+         6fsUaPL3tsJFAcNzyaiCbqsYXj711S0A8hJVkbvLwjGdYAWzgI4b54SvykL8Ax5FNQHs
+         mnEg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature;
+        bh=aBzP6K6IGXnRh3rHI8ec8FYwluaVvDf077MVEF1YR4c=;
+        b=ywFwgqWMZH5ZuIOc/tMnSPIh5z8zzlBikM1ROweVditQGtw9aX2OuLd2+pQzumUAnF
+         2CDP1BAyIi5DsdgeEveWd4xuEiNu1Tslc8OvbZ9J30A4IC3eGrO1N0g/LuKS3p05/qpS
+         3iaIVJ1Mhc3B8qssmSzfYJcw3WNOEC9dbGQ89xKiodXrFXbLD8NIuxstpAk93lthElu/
+         4Wz/G6j3EENyOVcDnuMaT4lfwhE18vLdlVu7bFe/JQtkf18vVTNPeE2iZiJBiHQ4sLpY
+         bGCebkBOyTM+gYzw7nbOJuI+U4xSt2HZ5AZ2oV2EoC2LN5ee9xNARYCUa+o/GUQDnknC
+         3r2A==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       spf=neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:thread-topic:from:to:cc:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AyQJssYLC6fA1MgtoQHHppxd/gCzcbrdeNMV6iMd2g4=;
-        b=cjWJLZPbIh3mldJPUaZ2K5wE3pvjFPzUZhkiD6haVOREwypDcVR24JxOT/i72L7Pum
-         DPqp+qkLqTiZbOM9i5y8zZFIawzgVwp4837r6xRZKNVY+qBe5NM02A9ekf8PWkgvyeth
-         WaH3BQZFXjZdhMgmxURqJNnK/5k+B1SVOtNToBHanJGrN0/v9OI9vjS7BSceJlIVWao5
-         J12AJ4iJrRI/D5AvKMnaVlxlJpjkGiOuqCJX3DPE1dYnn6WoGxCH+E34SlfZk8+GsvNI
-         djstSdKwELfqXGNmmu7gU/rLrhVhbr7F8dvypip6QMIAZdRBH9wjkoKrHJQKUEtV+L86
-         14sg==
+        bh=aBzP6K6IGXnRh3rHI8ec8FYwluaVvDf077MVEF1YR4c=;
+        b=QHjkSrRy7kDXkWSsurnfLfxI6bGLGFB4PP4KJmnxYzYJBGL9SP/tp256AxuoJvXPdp
+         tf3WqtBwRUSrkQzTb4XHvJSe5himC8t+vubYlDyUsmzCybd/pe1nTFdkUwqSX+VvymQB
+         c8I6bsozqgWUyWuQxwduufYBQI63pSNnY6mGgjzc32/T5bX4zBhqGWatksv7NPOIOi99
+         3zasYFdhqaZMj5tfsvEgvPNwtF/tPBJk9JkZy+ZBu5gEqVtZuELaVOiUClSTB1q5vXyp
+         IaUBdIxw61aTjPf62Uh0dio0JV7R6HR08pPLwvQDNe0qpZ2+8dBb7FWm1Plr3V8bBBQd
+         Q0LQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:thread-topic:from:to:cc
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=AyQJssYLC6fA1MgtoQHHppxd/gCzcbrdeNMV6iMd2g4=;
-        b=segg4qkkI2+u29Lt1pZJ3NNZd4S6CHN8PbAY7k5cgGCvF3PgvhqpY8jR/0XvnpZnvW
-         8zcq1z55ebdachqzc9XmpxRo02qW4tgCVTkRB1+GcbWfkUKY2GA4NGfkecOHrvngY+DX
-         W4DqWLLtgCKlCqHsWbK2DIUPT8Yc+i2mylFIOvFmRpRgfjgNE4RTHwRpRoXAk7T1g1nH
-         tlJGK61iXaIKkrFyMHruHTXP0kSlyjRqew/ky3GbIaUf948w9znAsOmQBqC1sDJIC9GG
-         /ohi21ZnlZcpFfdOxGUY6jGTh8uJdb0/wqIEbfZ7pEJQdoWMSe69dYVPbiAlr7RhnSvm
-         qSJA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=aBzP6K6IGXnRh3rHI8ec8FYwluaVvDf077MVEF1YR4c=;
+        b=fMErgbQPRoqzwqPQlS0NlgkARGO2Qobx4gsX5VceYXd5hSgevttIMFRE9pT61SrTrX
+         9U6vyV9vgjDn2Z98/XA74CuXwP4uApdxV68JI7c0APLhS0cNipADqxnyW4nFqj70CuQW
+         7OfWyldhmIMIgtCbDsfpADdrSDEbkOIU1kbOHQ6L2guiN3bX9d/Wcr7vQNrSmY4hfvtj
+         EwZO/Uz4L0UKObXhJTnEF1DWDsuH6zzTBuAtq7MQS7BGvK6Oun8YFtzQbxqfdp5mXZd4
+         S18dRi9W4G9wsWAqKQk42dIJkAgJkpyzF57bp+Y9OEiqIaAtyi4v9QO6FYVsWVaxl+Sz
+         6nFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWTIxO23sjADJtscs7ixOMJJi2N315ahG11cxRpOrkfw2PIReoh
-	gUF3Y1iAHxPQjOtPlx8eM/0=
-X-Google-Smtp-Source: APXvYqzzWJXH/FvD4M3O0dopqltFyxk1S/QXsTUSJ6IZIguo1anfDGbtbN4Oi7+8kQ88/2/8V5L8fg==
-X-Received: by 2002:a17:902:8507:: with SMTP id bj7mr26127441plb.210.1568053701869;
-        Mon, 09 Sep 2019 11:28:21 -0700 (PDT)
+X-Gm-Message-State: APjAAAVFjtHeWTfCXlVTYpiKXzgUQpp9D8LOcYe0oAlJ6JSBiJBPxzzu
+	8wekKRfkuRpEisqBNXnUrf8=
+X-Google-Smtp-Source: APXvYqxzLAFT+IKCZWIAuBiN2hc6qWd4NaP+fcgqLGxFch8daLsTcPxdTqJindbWbBx9cwljcbQQ/A==
+X-Received: by 2002:adf:d84f:: with SMTP id k15mr19049632wrl.70.1568058629047;
+        Mon, 09 Sep 2019 12:50:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:47ca:: with SMTP id f10ls3013873pgs.13.gmail; Mon, 09
- Sep 2019 11:28:21 -0700 (PDT)
-X-Received: by 2002:aa7:8592:: with SMTP id w18mr29926622pfn.237.1568053701472;
-        Mon, 09 Sep 2019 11:28:21 -0700 (PDT)
-Received: from alexa-out-sd-02.qualcomm.com (alexa-out-sd-02.qualcomm.com. [199.106.114.39])
-        by gmr-mx.google.com with ESMTPS id q2si670657pgq.3.2019.09.09.11.28.21
+Received: by 2002:a5d:630e:: with SMTP id i14ls4262474wru.16.gmail; Mon, 09
+ Sep 2019 12:50:28 -0700 (PDT)
+X-Received: by 2002:a5d:4907:: with SMTP id x7mr21507595wrq.72.1568058628544;
+        Mon, 09 Sep 2019 12:50:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568058628; cv=none;
+        d=google.com; s=arc-20160816;
+        b=X6ycs5b8RBQw8zkoy54hvB69Qkeu8o9LKJXeZL3Pun1MwmsZM3pldppsBviublFDJ6
+         EIuyeLkjYpTn4MY/h29Z3731sdipCuZXt/q+oVu6dVSvdOYn3MjZRCcnFS7PUSylgdKy
+         Y32/EKpSQ0px6AKDAWkTWqkEBfgkD6R6+S0kGW3L+o9D5ACdxLG+pD+PG4mh2BmWUZUH
+         yHIiI59m6gERNv9+08Yc0BNA14W/adOkM0zZZ05wOTXJMJ10D8MaWXUMfI7i9U4I1laz
+         zWYYDkeaDmGjgRWIdkFcho/EiG5VLteyNcf8bejxQl3UlwR85kHTyVmxkGYcfkDZKn0/
+         aUVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from;
+        bh=A0OyucsRgG+ouclAn/FSKmIOUo0YzTPGytWyRs5id2c=;
+        b=HVilH22z8bF0IREHVmg4cNZ5w4YmrCNTg6GnwEz82RO6wv9rTbV95kny+EjRGoK+G2
+         OREBeWlIBqkulTYCzgGMlVJ1JzdzSCOaIABREnook+SKvFLkLpqPjkqxJjrPyCsMbSuX
+         CzAgpegq2/CT6dEVd/A0WIllr3xEFP5LBDcbhu3oRUKs9nSA9w0uYH2zK5m+IV9qkQZ8
+         IlbTrkTC6M/6HfvQe+OmyKhE65BQFdJcbMWN8R9ykt36ClO27UUrinbisMm/0JsPqCZx
+         YK+eAX+DO06Ov12oK9TR/SA5c+xAE0saLVP3k2nkZ5njA8a0gFksuZUD7SgB5yoPM4La
+         S4CA==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.131])
+        by gmr-mx.google.com with ESMTPS id m18si52491wmi.1.2019.09.09.12.50.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 09 Sep 2019 11:28:21 -0700 (PDT)
-Received-SPF: fail (google.com: domain of efriedma@quicinc.com does not designate 199.106.114.39 as permitted sender) client-ip=199.106.114.39;
-Subject: RE: [Bug 43121] ARM: invalid IT block in thumb2 mode
-Thread-Topic: [Bug 43121] ARM: invalid IT block in thumb2 mode
-Received: from unknown (HELO ironmsg01-sd.qualcomm.com) ([10.53.140.141])
-  by alexa-out-sd-02.qualcomm.com with ESMTP; 09 Sep 2019 11:28:20 -0700
-Received: from nasanexm01d.na.qualcomm.com ([10.85.0.84])
-  by ironmsg01-sd.qualcomm.com with ESMTP/TLS/AES256-SHA; 09 Sep 2019 11:28:20 -0700
-Received: from APSANEXR01B.ap.qualcomm.com (10.85.0.37) by
- NASANEXM01D.na.qualcomm.com (10.85.0.84) with Microsoft SMTP Server (TLS) id
- 15.0.1473.3; Mon, 9 Sep 2019 11:28:20 -0700
-Received: from nasanexm01a.na.qualcomm.com (10.85.0.81) by
- APSANEXR01B.ap.qualcomm.com (10.85.0.37) with Microsoft SMTP Server (TLS) id
- 15.0.1473.3; Mon, 9 Sep 2019 11:28:17 -0700
-Received: from NAM02-CY1-obe.outbound.protection.outlook.com (199.106.107.6)
- by nasanexm01a.na.qualcomm.com (10.85.0.81) with Microsoft SMTP Server (TLS)
- id 15.0.1473.3 via Frontend Transport; Mon, 9 Sep 2019 11:28:17 -0700
-Received: from MWHPR02MB2479.namprd02.prod.outlook.com (10.168.202.19) by
- MWHPR02MB3198.namprd02.prod.outlook.com (10.164.133.147) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2241.18; Mon, 9 Sep 2019 18:28:16 +0000
-Received: from MWHPR02MB2479.namprd02.prod.outlook.com
- ([fe80::91d6:633a:b2b6:7363]) by MWHPR02MB2479.namprd02.prod.outlook.com
- ([fe80::91d6:633a:b2b6:7363%9]) with mapi id 15.20.2241.018; Mon, 9 Sep 2019
- 18:28:15 +0000
-From: Eli Friedman <efriedma@quicinc.com>
-To: Hans Wennborg <hwennborg@google.com>, Nick Desaulniers
-	<ndesaulniers@google.com>
-CC: Stephen Hines <srhines@google.com>, clang-built-linux
-	<clang-built-linux@googlegroups.com>
-Thread-Index: AQHVZCWucpPfKJsiv0yeyP2sIU7tAacdhi/ggAAERwCAAMIqAIAAlQUAgAAL8ACAAHykAIADqtGAgACbPxA=
-Date: Mon, 9 Sep 2019 18:28:15 +0000
-Message-ID: <MWHPR02MB24795C9B325EC9DFFEB4B659CAB70@MWHPR02MB2479.namprd02.prod.outlook.com>
-References: <bug-43121-8919@http.bugs.llvm.org/>
- <bug-43121-8919-cA4BWUkQgt@http.bugs.llvm.org/>
- <CAKwvOdmAakhyifHBQunZxjegSUkBbuoDdcbVbsfTpH9HHUsvAA@mail.gmail.com>
- <MWHPR02MB24795CAA0744539FC6DFB513CABB0@MWHPR02MB2479.namprd02.prod.outlook.com>
- <CAKwvOdm8GPyqxPyWfdsBydDTm6cHZUrPuN0e5HgJMQvOe1+ziw@mail.gmail.com>
- <CAB8jPhf_Lj4N8YN1tRpM2NMR0k+uvaN6N=cp4Z7RSEG_CaabPA@mail.gmail.com>
- <CAKwvOd=4hWG1MhPSou2jfAGLpCEEh=tQ+sJNnmiz5=VakGWr8g@mail.gmail.com>
- <CAB8jPhfZUgVKq2=nMjqgFVA6_2wT2bsNbd2XPn5UYomtU_iaJA@mail.gmail.com>
- <CAKwvOd=vmQL6pJVCGkxee3LQUEPOyeGG1AH+syya-FF4gGtpaA@mail.gmail.com>
- <CAB8jPheC1sb2t9tiGyr0FOJRSCS9Vo60LBpSM5Szu5rR_CaRdQ@mail.gmail.com>
-In-Reply-To: <CAB8jPheC1sb2t9tiGyr0FOJRSCS9Vo60LBpSM5Szu5rR_CaRdQ@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [199.106.103.53]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 738b4952-9b00-408f-bb97-08d735537b14
-x-microsoft-antispam: BCL:0;PCL:0;RULEID:(2390118)(7020095)(4652040)(8989299)(4534185)(4627221)(201703031133081)(201702281549075)(8990200)(5600166)(711020)(4605104)(1401327)(2017052603328)(7193020);SRVR:MWHPR02MB3198;
-x-ms-traffictypediagnostic: MWHPR02MB3198:
-x-ms-exchange-purlcount: 2
-x-microsoft-antispam-prvs: <MWHPR02MB3198AA53B9185FC87A8CE497CAB70@MWHPR02MB3198.namprd02.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:8882;
-x-forefront-prvs: 01559F388D
-x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(136003)(346002)(366004)(376002)(396003)(39860400002)(199004)(189003)(7736002)(86362001)(26005)(52536014)(2906002)(66946007)(4744005)(76116006)(4326008)(66066001)(33656002)(256004)(6246003)(53936002)(9686003)(55016002)(71200400001)(71190400001)(6116002)(6306002)(3846002)(446003)(102836004)(6506007)(76176011)(486006)(229853002)(966005)(8676002)(25786009)(305945005)(66556008)(5660300002)(8936002)(64756008)(11346002)(7696005)(81166006)(81156014)(14454004)(66446008)(66476007)(316002)(74316002)(99286004)(54906003)(476003)(478600001)(6436002)(110136005)(186003);DIR:OUT;SFP:1102;SCL:1;SRVR:MWHPR02MB3198;H:MWHPR02MB2479.namprd02.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: deBHWQEAHNO645JHsppqUxmayPn79a6XnJe6tZbvuonY/qzWYJKVFxk04/dpZ7b8ISSLrEZai2pUZeuCe2axZJ6mA8KvtVRY1BdJnxBLSsv7iYc8HHYSuDqMgrwAxrmDov+OG6u4EtY4z1k8GY35cANZzK7KHBvnhrEZMacrTCxxiRDEk5lqntEdePp8+H2BgqF5c9umTYgbCkxrWe4czZr18esHE9GU3FbBcqWi2T82x435RT1aEH4rXqg6GUVgLof6ATdN0r2Pc2pbVjN64VC1ypyRyN9IL2tjqfzXb8ZAYkz60iEC3Z+uijXhANQV8B0WOi9AuNt8o6e5iPzPADxi0tH43Iwy3EU2Zyxkm63TK5OJyd9E6B1b4G7mlN+46q9jk3Pv64B1ejUSGvgSZ+HUqduexw3HnneUI7EIIzo=
-x-ms-exchange-transport-forked: True
-arc-seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=FDGPaI1fiN8GD30B2MV8ygjGeuX9iuUJoJQ/hL7KYqyMhZKM/dMqgKekiXX4iCJOl6j6rllCG/23uXb4BMjLDV6iwqw7Tzu0BFRpn+kkKq0OAyG3zBTZmwLyhGkPKpMrzoa9RfSt2++R2IuGSgrH3ZYIHPhjSlDL9oybwyRYWzwHGyvNyCZvIIUHUjUA3FWtJ6JRct7yGsmYLyvSa6ggu77/a2HcbGGQnozaithomgG7TsuUsl5Xdsg/mQ/i+AtxZcPcKEiJ5BzCpDmqJk0zrST54rOElmA92/N1xvkcSXK14W9x3tMdmTQMKx/6XMfYPpEuCMU/ocg4eQz4VSzBgw==
-arc-message-signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2EykqNyjzw52x/a/AQXnt0deBWxkPghzCff1K23GH78=;
- b=A8fomuq+tnaKi7d1iGTGXJAyHybhxO5+sJNNTFhMe13GGH2Yl2nouSkQ0lweaXzFH+V4FOVe91BRIe6XrJZ1iv8yJvyo86kbcKgDynTnCyr274dMhwTJC9RXK5jwtatprQnMR7Gqg2lq7xOgthEORX7XMT/ToTERXStFEU5XqT+zuJBKZCtjdnfUtb6xV8KWMMfvdwY3LyXPNpA0AD05Mu2JVcUBZ3/cuPfjtnFHE3mh/BB50J733Sqxs95QHulKsb2WWNos6liG8WaA698ug4fICpX5vqL5ffI83gJoZHKdZUzIIAKIpSx+kLpi1j8/sppYHPztmHpV6BJSqZim4A==
-arc-authentication-results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=quicinc.com; dmarc=pass action=none header.from=quicinc.com;
- dkim=pass header.d=quicinc.com; arc=none
-x-ms-exchange-crosstenant-network-message-id: 738b4952-9b00-408f-bb97-08d735537b14
-x-ms-exchange-crosstenant-originalarrivaltime: 09 Sep 2019 18:28:15.9418 (UTC)
-x-ms-exchange-crosstenant-fromentityheader: Hosted
-x-ms-exchange-crosstenant-id: 98e9ba89-e1a1-4e38-9007-8bdabc25de1d
-x-ms-exchange-crosstenant-mailboxtype: HOSTED
-x-ms-exchange-crosstenant-userprincipalname: Ca0JvBMOqgYpe1lVOSs9FQ0DcAtwt/FoC+4E9Q018VbtirpxJJ46tK60sUt+jSko5M24LAMcDcibbb6jRzqZdQ==
-x-ms-exchange-transport-crosstenantheadersstamped: MWHPR02MB3198
-Content-Type: text/plain; charset="UTF-8"
+        Mon, 09 Sep 2019 12:50:28 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.131;
+Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
+ (mreue010 [212.227.15.129]) with ESMTPA (Nemesis) id
+ 1MfYc4-1ieHb10Yrw-00g3kw; Mon, 09 Sep 2019 21:50:27 +0200
+From: Arnd Bergmann <arnd@arndb.de>
+To: Saeed Mahameed <saeedm@mellanox.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Alex Vesker <valex@mellanox.com>,
+	Erez Shitrit <erezsh@mellanox.com>,
+	Mark Bloch <markb@mellanox.com>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH net-next 1/2] mlx5: steering: use correct enum type
+Date: Mon,  9 Sep 2019 21:50:08 +0200
+Message-Id: <20190909195024.3268499-1-arnd@arndb.de>
+X-Mailer: git-send-email 2.20.0
 MIME-Version: 1.0
-X-OriginatorOrg: quicinc.com
-X-Original-Sender: efriedma@quicinc.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@quicinc.com header.s=qcdkim header.b=o7TU7puj;       dkim=neutral
- (body hash did not verify) header.i=@qualcomm.onmicrosoft.com
- header.s=selector2-qualcomm-onmicrosoft-com header.b=BmMWj2wQ;       arc=fail
- (body hash mismatch);       spf=fail (google.com: domain of
- efriedma@quicinc.com does not designate 199.106.114.39 as permitted sender)
- smtp.mailfrom=efriedma@quicinc.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=quicinc.com
+X-Provags-ID: V03:K1:AK8QWmjsuWG4HEmhOqIpwd62ajWhj3F/CeXNzG050S7ptBNBv9G
+ MqdkIwNGTfgOBb3ihKsasKEJrDoJT5Zpo74b2oTeKv2BSP+ZrVQCtd2Ta064gRzZTKDPm2K
+ ijG6Qr8EmM6OgvYdfR/XW+NjnKJuh154KGpE67ARZl7J65uI9gvZpKtETCzORYzrENT1wEP
+ TO5yy6EB2HYEIANJ/FMgA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:Jvrju6h+dAo=:zHHY9sOoxpwZQ26Vvkc4if
+ RPOyP48VcYi5WypqyVisjktfO79V97C6398/UTLF/+cgby1Pri2mSa0bvDZ9St/aBze/2+8VR
+ DFJ86ThQP66LHMLZlV63Z4DadH+Gd+fiptytjrrBS3OEchEcoqc9t5PgXg+FRzz4vgEZGl/as
+ 6pDheKbt1dQtYMRmqi53hSCNEwHJa9HcqZAVLJT62U70OMEY0uLlvWJJL4U4esVzz0ipjkR5O
+ Y8gVh61/ik6/tdbvLFYThYf5XMSp7rfFz87PV6Aj/seTudbvsS3CdM8ZJrutSAlY3lF5i4nmK
+ 8biTKWNB+Iw92WcfLEnYpMeOF1PFwN+Lg01hmv8PF70bZjoEBeh4COkVNqJS3Pl2/AGPYHI7i
+ sYOtwSW3hVVzwivdit9efMiKY9lnQdtwxH6fy4f1mub3eFnN4mkE/JilEHb268Zk5t/wQpOnx
+ 2wrJKux5yK2X52EP4AhNVbTKsHBNzAMjpOvjlDwJASk8z5eIsiTV4VHnI63VokYZLOdcmED+o
+ 5S5OacwomwXgjmWYIebaLek2YtxqX3YS5YGHe76vlWSNL2hMhX06+HNbmMduM3hu5nlTPpHxf
+ d7L6YSc6WwZ47ugS/0bg+Ekz2Tmtxuf8g3dXnwSY7cK8Rg66hR3YV0WrhTv3U4kXy2O0F6gc2
+ 4uixBzq3PQaj6uZmNxsWpfOAHGWjZWq1FT3wjHOLoKQXnV+v2qjrT3X36vt/NeR+2bzkwB6yD
+ uqgRZmMNbp+aj+j7aKQNobYTCNQ6z/KSgZuar84PapThwn6T6+qCw+GgUTHov5RzQAEu9x2Kt
+ KDamc3El9U5lc/xO6sFzdgkN8O90y9irglwY4Su0ehosjr+j0s=
+X-Original-Sender: arnd@arndb.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 212.227.126.131 is neither permitted nor denied by best guess
+ record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -152,29 +145,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> > Cool, just landed my fix, and Eli put up another patch that fixes the
-> > arm32 issue for me (big thanks Eli).  So having:
-> > - https://reviews.llvm.org/D67306
-> > - https://reviews.llvm.org/rG7a7bba289521e6d4da199565cf72dc9eaed3d671
-> >
-> > in clang-9 and then that's zero bugs related to asm goto that I'm aware of.
->
-> Thanks!
->
-> I've merged these ones:
->
-> - r371111 for PR43121 (and other PRs)
-> - r369705+r369713 for PR43243
-> - D67252 / r371262 for PR43222
->
-> and waiting for D67306 to land (it would be great if that could happen
-> today so we can get rc4 out).
+The newly added code triggers a harmless warning with
+clang:
 
-r371434
+drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c:1080:9: error: implicit conversion from enumeration type 'enum mlx5_reformat_ctx_type' to different enumeration type 'enum mlx5dr_action_type' [-Werror,-Wenum-conversion]
+                        rt = MLX5_REFORMAT_TYPE_L2_TO_L2_TUNNEL;
+                           ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c:1084:51: error: implicit conversion from enumeration type 'enum mlx5dr_action_type' to different enumeration type 'enum mlx5_reformat_ctx_type' [-Werror,-Wenum-conversion]
+                ret = mlx5dr_cmd_create_reformat_ctx(dmn->mdev, rt, data_sz, data,
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~            ^~
 
--Eli
+Change it to use mlx5_reformat_ctx_type instead of mlx5dr_action_type.
+
+Fixes: 9db810ed2d37 ("net/mlx5: DR, Expose steering action functionality")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c
+index a02f87f85c17..7d81a7735de5 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c
+@@ -1074,7 +1074,7 @@ dr_action_create_reformat_action(struct mlx5dr_domain *dmn,
+ 	case DR_ACTION_TYP_L2_TO_TNL_L2:
+ 	case DR_ACTION_TYP_L2_TO_TNL_L3:
+ 	{
+-		enum mlx5dr_action_type rt;
++		enum mlx5_reformat_ctx_type rt;
+ 
+ 		if (action->action_type == DR_ACTION_TYP_L2_TO_TNL_L2)
+ 			rt = MLX5_REFORMAT_TYPE_L2_TO_L2_TUNNEL;
+-- 
+2.20.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/MWHPR02MB24795C9B325EC9DFFEB4B659CAB70%40MWHPR02MB2479.namprd02.prod.outlook.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190909195024.3268499-1-arnd%40arndb.de.
