@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBO4B3PVQKGQE6B2T4CY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQML3PVQKGQEGUDVFBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x240.google.com (mail-oi1-x240.google.com [IPv6:2607:f8b0:4864:20::240])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4B1ABAE030
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Sep 2019 23:14:36 +0200 (CEST)
-Received: by mail-oi1-x240.google.com with SMTP id v133sf6215925oia.18
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Sep 2019 14:14:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568063675; cv=pass;
+Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 79B47AE04D
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Sep 2019 23:36:03 +0200 (CEST)
+Received: by mail-pf1-x43b.google.com with SMTP id f2sf11453476pfk.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Sep 2019 14:36:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568064962; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YSBWYOg12wbsYzE0+4f0x2dQjBxg/QAIF/6Iwxt1KDwkn9kIRme5RvPdayhCMls9W9
-         XwniMmmBegPqJiAxtmI5sg/lNPd+iL/KCjjW/kfIaD1CV8utg+OmM3TIOVgvF9HRlmEq
-         6h5HkPVZBGYF4OX+yEAxS/3Z1Mtu1f7G3RFo1VnmBo9KXP7Hw2TYC3ktAMTcLoZKC9Vg
-         TxZ+sbmpQ59ayZ2oL8mgtZM2M8XML0baL1f288RA55erL+/ThALYy8pVTioipUpNL/4b
-         gkPLPKZTKgrVIfbbgPDoxswRimgxbvHxBqCyNDeE2+DY8fSsdPOEfObXDmhco5NUJyTo
-         NLkw==
+        b=L3CNg7sk9FcLkHNCWT2tA/0kv9o6VmXHV2iyPOqhf7LhOXs7USagEQQ3jrrvhWM1v4
+         iuRxvA81NdnzQcDPxycL9pYlW5Dsu6PDSP/pNblBi/caAAAun9Q7307CqU8HBmRrdi0r
+         cno3a8eAkDbiW4VTJ77hrONODL7dvcH3Xes1a5jTJCTTv4wkDKuKKGAr9AYrf+Lyq+FQ
+         EVqCmE9uekctwi+eytzLqcxfqGM/iipnNrfkGIHJga9o//TBhnBBSJxB44JxsEO28PDn
+         MDUxtZlEx1nfQ6AqjYprnQYhRiTR2iLKG+0aEOszWldcyYFLxx2tyuDbJ3+G5CAikRFD
+         2A7A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=OYNILez24F8GvlKQQqW5GpFvRsD/TYV71KrPPeTUkYw=;
-        b=mDWqEr6RaK/ntcbZzFQRmWGrfc/XgOuJo5ABPuavwri/WlJ/4/RQA/Tt0KOTao9zQ7
-         xcYaQrgXf238zdVHGl3eOc6D+y6tKVkhYwyruYwqSKuudqqCS0kQXO0C5rSF4Nh/qAmp
-         mO2tPZhvCVOA1k38n71/XmVKgild8b4Nk553Op6M/tJbEo4Zd8axBb33KSr2UtWl1d3j
-         Z+LoCX9xx1liXJ4YvjcAd7J9IceSlehkSqnMyB6tYhHOOl5GsCqrGcAXrrhCICrQKD2J
-         wY+Ulpx/Q2+Nwb36W0N3/SYzzTbOGETcfq/QzF7FI+Vk0C/q5vfFWbB5huhMx/h345cw
-         Z2iA==
+        bh=X2k8EnRYoZAQB63MpzrWJIp4FnJjLSOYnMqfAiNv9ck=;
+        b=XEw02MVHK6IaX0m7adZljxPCpy0hScurviYetineCbWYG/0C/062OdR21B60uKz7/2
+         bEGpNikd6WQiJFUnVf/9mZlSDgPa2bX8Z96fvGZsd45aj3HOaqThf6eAOMZO7p1pPe8b
+         5lKliHCBEtL+2rGpxCsCpGK9Sdm4V69TN109WWkk6/gD8lYG6fFJGbpZBKGr24kTylTn
+         tBNIoaxNermXFw4Ync3Z24gcnI5ifXN0loqvgZ8iNaw+D96REpo77vYoMnt0fFiE7HKZ
+         gqamis1ksSc6QOZeP3ZWVEL1Pf0OaR4p2F3neBZKQST5tWnjbNMjaBfrhhQ+T+QmJRbX
+         acNg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="n/dhLxtI";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HooNS6Li;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OYNILez24F8GvlKQQqW5GpFvRsD/TYV71KrPPeTUkYw=;
-        b=H28ACrfZfDjq/WJPjES48p50XCjA2lAkopf31njnuZIBoiWUeo8QkiTNgLtlSGykpH
-         IKey99ksvJPeVl8sxbYEbc8z8gfuRDjodpaThatK8OweWV0MdMLDp68GkqZpBW7RdB31
-         OcsjyTpWzC5FnpAUm9Hp3EqVe4EVZ2CJWcT06W5oYM5diJeRdgIKGuxaAgMNdJNgWHmo
-         iq8NCWX/RtmlnAuw8agcUOIbyuQ/E6mnNBbPbDzEgIemai9reyl7Oj0LDleUCHK6gUrK
-         SoHZSkTo1l8a9gMBOvhBtXhWTbeyaIGv8GQy0f9XeNZIYPteI11h9XgQzLfaWjDlc7US
-         gZMw==
+        bh=X2k8EnRYoZAQB63MpzrWJIp4FnJjLSOYnMqfAiNv9ck=;
+        b=Ea7DjGu5+QELqWh0Pb29auQrnCHb5u7kCNHVd4iS+PR4gvLkQzeKvy8JyrLIbxSErq
+         fg/PkvML7ki9ErFAGfBYZjofabKQYGiVda8qubixTqEl0Cb69NClaOEElyfUBiNIVtV2
+         P7GLW01PdFKHH3P5hk8dMYcXor12yDoMAwi31Qa/+cadL4Ee7xg3riooJA9UWy4t5DGS
+         r28swOfqNPHuHm51gJM9NyrQJyw/D/en+VJtY5VeHkJL+irRkzT3BdM5mDyGjQJ29vXI
+         Oq4E+6r8oHJOC5F9NYpqrv03kqjwvlYGO+u1EfdcEbiY25/aicFsIKo2R7LQV2IKhaXB
+         BGEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,74 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OYNILez24F8GvlKQQqW5GpFvRsD/TYV71KrPPeTUkYw=;
-        b=PyGdyzTJ6l6qYFb0ZZ3OtdJ3ef8HPtPcMavt2Ga4e568X9/V0UZThQkjQpJNRnBqQ1
-         CEL4SclNeGnVJaVHHbuTZuk/NUBfP9tLpnzoNf6QX3g7+2vGxOWNIqzjb0jAAGl98b15
-         HhvlyaBkdYhxpbPXCx+7hvwcv47Nu1Og0zZYbslk/RgT0V37gjCOAa+CzayScN+rxI3t
-         SWFjuI98AnlgfuZeCYhSVX2i6upIjT7XVWMWhbrjx5CbUHsCifnTlSUAN4NOdYn+u+fx
-         Z1blfoOl8MusWW/DeqXx34xDPx3upl6wZzCv+CRnJ8kcBnEncnh/THRiFOAUWhWYrq2M
-         7KEQ==
-X-Gm-Message-State: APjAAAXvAV49QnC0Ju71iAsbiEnSVzMquL0JFJJ5YBcA29+saAl58qwH
-	CBtUkjUezuxov1xFb2wWi4E=
-X-Google-Smtp-Source: APXvYqwiyQXprsa1OktF7uANmwOS2Z48v3acpjv/gmcuaqa2zfdrrKTWAgud//J5TZTZLUXacFRVkw==
-X-Received: by 2002:a9d:200c:: with SMTP id n12mr22566299ota.334.1568063675191;
-        Mon, 09 Sep 2019 14:14:35 -0700 (PDT)
+        bh=X2k8EnRYoZAQB63MpzrWJIp4FnJjLSOYnMqfAiNv9ck=;
+        b=F9+noW7O7RKeCAWUz430TFOlhBPyZPQEen2tF5b8w0JcCBN1p+0cd+onc9N+IeCaRA
+         Y+tF2RKc9oNqdFqNRmSudj5ycYQ/fA3HCiMt5BiNetDkpsPqKFj2e+P/DMBDNwYjQ+Tp
+         3wzSnhd0VYU8/q/VqDrutNBB38vNWPKYPHTlWD9CNyQRYOXoG0IWgfunhJoIro8qGsE3
+         GALnPD18xkwsaBm9/+3F2owR5YmBvvHVEsuCmo1ML6YnRlQSBZKsfc4EoRorhhcqq+QX
+         9gpdOLlB3YgPOQ47MBe3IKJWhidU03pzFPT01oiRuqwDPZI0VdR0kFGnSdHsniLSGkA+
+         wE2A==
+X-Gm-Message-State: APjAAAVpPtTtguApLOdHsOGnJ5eLZv4F0u3gRNqAJqQx5vRK6VtHbQER
+	tpgjCB8mKzy5Uclt/QPW3yE=
+X-Google-Smtp-Source: APXvYqyLQe2NcQPrtp0evjbBE/3CfJSP37iYrOX7akwrDQpYhHjcOO2Elgkch+NpfDotk5ZSMuP9XQ==
+X-Received: by 2002:a63:481c:: with SMTP id v28mr23688039pga.50.1568064961791;
+        Mon, 09 Sep 2019 14:36:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:200d:: with SMTP id e13ls3074687otp.2.gmail; Mon,
- 09 Sep 2019 14:14:34 -0700 (PDT)
-X-Received: by 2002:a9d:5a85:: with SMTP id w5mr22062840oth.302.1568063674956;
-        Mon, 09 Sep 2019 14:14:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568063674; cv=none;
+Received: by 2002:a62:8687:: with SMTP id x129ls3829220pfd.12.gmail; Mon, 09
+ Sep 2019 14:36:01 -0700 (PDT)
+X-Received: by 2002:a62:e910:: with SMTP id j16mr31359791pfh.123.1568064961493;
+        Mon, 09 Sep 2019 14:36:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568064961; cv=none;
         d=google.com; s=arc-20160816;
-        b=nO3IZZtpyAMRvmXoEGf8/KwNes59lIiEM+BrkG56uw+j3kMFKIKqVn+4mETUwo+1xz
-         CdK0oPXyftB7brYzsCsYteFX5f2z9pQDsp6MfyPhRmssghkJ+aYR27XoOGZJPRFNO1WL
-         CDEjv7ei9ji0cgb7bdOF7o8KIuTgnGHGvXW3xCOhmR4lB8I7bdGM8GR/hlS6xQyABNuk
-         vRrwAvszkvS106OsgqFGkFPPgF5cE0lEIRDv9NQHEH+fYzR9Em08b72y/0eESXM5rqiW
-         wkDKgmDbMSX4jnqj1pftHn+3qcI3k/yvQ6cZVc7Yx03SO0JdLNnrTuzMLM526d8NFMcN
-         SHMw==
+        b=GFKCO5IzSe+SJHvuSRLBwZRERta2R4sPhP2ZRiZV5odWCLyy+Wq1Ewp+8UxMbAX9bD
+         sR5JO2upeNbhYH6QIRALiCNyH+lsxdgc5GFV36rW02M5Ksq8pJMFV1Mltby24Ef+AnuO
+         bEvJ+XPNaw6a6bchO5U1iouOL+swP+VU/j0ccL6WZXGT+n/RrO3tLj/YUUJFRTUo0LzM
+         sS6JMCwAvRi+dRb6aSWUXSNiRZ8zNfC4Zn8e8rZJsi/B/T6ygi9B1/zgXTB3la4LEbdl
+         BVdjZWoDmA/LqYz2hhrhk5QIYHZUZPj0sDxDzgnHuX31NPjRg6/rWclkad7xCOghXGr6
+         COGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=SWyrMvKoZeJUW2jP4aEz7GUGLNj1qlvRlvfndO0mMoU=;
-        b=VGYNPFHlQ+1kEeXkiEHvjZ6a00TrgzhKj+qx66x7A93yIADPxGBKBTjExJY/hUc6p9
-         6EUziizoHm/cxk/eFX04GwbMoPoZMKV0LrZn1/GjijcltYnSEZOxq7lEDtuysvrTt2HE
-         zpOknim9z3TbwmpG/F8DAnMIwt2wbUyPV8wfzi1fZkDyLQnGF0BvqIGJwot9ZAiMqaaH
-         JBfKGr6L2PvCdr3n3uFLi5LPdWx+w71nMeOwIOWZYhCrDdqw1GyTcI75BXO7hsDuKRta
-         dzTr6ymngVaYLXODGITkm/6RSKgjQz5dV/tOe94HrSbUTo16fv6iuOrbHw1ld8iuJ22k
-         Bn1A==
+        bh=AWfChiuUJemWX/xDu17NLd8EQGs1u1yuvhrocXkkuOg=;
+        b=pE2Xp2T+VwUbTkUjqk9gfaGToM8j5g7YwIJR/OMB+e7J97A7SmLpZiq4PdgWUnFkQh
+         DIz1KLAq/8PR89DUprnPFqwkMrXn/7XoinRnl8Ppf+xVD/qNmWG+2K4GhQk5T8EI9sP0
+         lHQgoDOrUwX/7yflQaq1+Cur7U+9y20qSgex54XcOxAh2XlG6keMkUoyZX6EhD+Nm/Rr
+         +sq9iRsVnLENu2vp0TngVV3+nqGsoPQjajxyHqwwzGSmmPgLF0Avw6Xd205DsV/YYeD7
+         6DFKQf27h+Xe3VgZG7TJT+4bLBFmE1YoBSm9xNG7xrKuDnNueoP0FV1lXuXay0I79ts8
+         e2+w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="n/dhLxtI";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HooNS6Li;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id c12si797506oic.4.2019.09.09.14.14.34
+Received: from mail-pl1-x641.google.com (mail-pl1-x641.google.com. [2607:f8b0:4864:20::641])
+        by gmr-mx.google.com with ESMTPS id l72si668412pge.0.2019.09.09.14.36.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Sep 2019 14:14:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id u17so8550255pgi.6
-        for <clang-built-linux@googlegroups.com>; Mon, 09 Sep 2019 14:14:34 -0700 (PDT)
-X-Received: by 2002:a63:6193:: with SMTP id v141mr24350262pgb.263.1568063673765;
- Mon, 09 Sep 2019 14:14:33 -0700 (PDT)
+        Mon, 09 Sep 2019 14:36:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641 as permitted sender) client-ip=2607:f8b0:4864:20::641;
+Received: by mail-pl1-x641.google.com with SMTP id s17so2376758plp.2
+        for <clang-built-linux@googlegroups.com>; Mon, 09 Sep 2019 14:36:01 -0700 (PDT)
+X-Received: by 2002:a17:902:8484:: with SMTP id c4mr26519733plo.223.1568064960627;
+ Mon, 09 Sep 2019 14:36:00 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190909195024.3268499-1-arnd@arndb.de> <20190909195513.GA94662@archlinux-threadripper>
-In-Reply-To: <20190909195513.GA94662@archlinux-threadripper>
+References: <20190909202153.144970-1-arnd@arndb.de> <CAKwvOdn90naN2qLx6qBCii67HNOYeJmVqTKEKuUpXcTXLEEaLA@mail.gmail.com>
+In-Reply-To: <CAKwvOdn90naN2qLx6qBCii67HNOYeJmVqTKEKuUpXcTXLEEaLA@mail.gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 9 Sep 2019 14:14:23 -0700
-Message-ID: <CAKwvOdn5pR_j=NEUtrVSS_uZYtdwVuPAAd6CqF1BOL8akSFhcQ@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/2] mlx5: steering: use correct enum type
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Saeed Mahameed <saeedm@mellanox.com>, 
-	Leon Romanovsky <leon@kernel.org>, "David S. Miller" <davem@davemloft.net>, Alex Vesker <valex@mellanox.com>, 
-	Erez Shitrit <erezsh@mellanox.com>, Mark Bloch <markb@mellanox.com>, 
-	Network Development <netdev@vger.kernel.org>, linux-rdma@vger.kernel.org, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Mon, 9 Sep 2019 14:35:49 -0700
+Message-ID: <CAKwvOdnnsQHkLG02oa2hkP8JDEiqnaH_xsxLrWBxSs0bvZetsQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64: fix unreachable code issue with cmpxchg
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Andrew Murray <andrew.murray@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Nathan Chancellor <natechancellor@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="n/dhLxtI";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
+ header.i=@google.com header.s=20161025 header.b=HooNS6Li;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::641
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -133,36 +132,113 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 9, 2019 at 12:55 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
+On Mon, Sep 9, 2019 at 2:06 PM Nick Desaulniers <ndesaulniers@google.com> wrote:
 >
-> On Mon, Sep 09, 2019 at 09:50:08PM +0200, Arnd Bergmann wrote:
-> > The newly added code triggers a harmless warning with
-> > clang:
+> On Mon, Sep 9, 2019 at 1:21 PM Arnd Bergmann <arnd@arndb.de> wrote:
 > >
-> > drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c:1080:9: error: implicit conversion from enumeration type 'enum mlx5_reformat_ctx_type' to different enumeration type 'enum mlx5dr_action_type' [-Werror,-Wenum-conversion]
-> >                         rt = MLX5_REFORMAT_TYPE_L2_TO_L2_TUNNEL;
-> >                            ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> > drivers/net/ethernet/mellanox/mlx5/core/steering/dr_action.c:1084:51: error: implicit conversion from enumeration type 'enum mlx5dr_action_type' to different enumeration type 'enum mlx5_reformat_ctx_type' [-Werror,-Wenum-conversion]
-> >                 ret = mlx5dr_cmd_create_reformat_ctx(dmn->mdev, rt, data_sz, data,
-> >                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~            ^~
+> > On arm64 build with clang, sometimes the __cmpxchg_mb is not inlined
+> > when CONFIG_OPTIMIZE_INLINING is set.
+> > Clang then fails a compile-time assertion, because it cannot tell at
+> > compile time what the size of the argument is:
 > >
-> > Change it to use mlx5_reformat_ctx_type instead of mlx5dr_action_type.
+> > mm/memcontrol.o: In function `__cmpxchg_mb':
+> > memcontrol.c:(.text+0x1a4c): undefined reference to `__compiletime_assert_175'
+> > memcontrol.c:(.text+0x1a4c): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `__compiletime_assert_175'
 > >
-> > Fixes: 9db810ed2d37 ("net/mlx5: DR, Expose steering action functionality")
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> > Mark all of the cmpxchg() style functions as __always_inline to
+> > ensure that the compiler can see the result.
 >
-> I sent the same fix a couple of days ago:
->
-> https://lore.kernel.org/netdev/20190905014733.17564-1-natechancellor@gmail.com/
->
-> I don't care which patch goes in since they are the same thing so:
->
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> Acked-by: Nick Desaulniers <ndesaulniers@google.com>
 
-GCC recently gained support (via me scanning the commit logs for an
-unrelated feature) for -Wenum-warnings (though I think it's off by
-default) so hopefully these kinds of issues will taper off over time.
+Also, I think a Link tag may be appropriate as I believe it fixes this report:
+
+Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/648
+
+>
+> >
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> > ---
+> >  arch/arm64/include/asm/cmpxchg.h | 15 ++++++++-------
+> >  1 file changed, 8 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
+> > index a1398f2f9994..fd64dc8a235f 100644
+> > --- a/arch/arm64/include/asm/cmpxchg.h
+> > +++ b/arch/arm64/include/asm/cmpxchg.h
+> > @@ -19,7 +19,7 @@
+> >   * acquire+release for the latter.
+> >   */
+> >  #define __XCHG_CASE(w, sfx, name, sz, mb, nop_lse, acq, acq_lse, rel, cl)      \
+> > -static inline u##sz __xchg_case_##name##sz(u##sz x, volatile void *ptr)                \
+> > +static __always_inline u##sz __xchg_case_##name##sz(u##sz x, volatile void *ptr)\
+> >  {                                                                              \
+> >         u##sz ret;                                                              \
+> >         unsigned long tmp;                                                      \
+> > @@ -62,7 +62,7 @@ __XCHG_CASE( ,  ,  mb_, 64, dmb ish, nop,  , a, l, "memory")
+> >  #undef __XCHG_CASE
+> >
+> >  #define __XCHG_GEN(sfx)                                                        \
+> > -static inline unsigned long __xchg##sfx(unsigned long x,               \
+> > +static __always_inline  unsigned long __xchg##sfx(unsigned long x,     \
+> >                                         volatile void *ptr,             \
+> >                                         int size)                       \
+> >  {                                                                      \
+> > @@ -103,8 +103,9 @@ __XCHG_GEN(_mb)
+> >  #define arch_xchg_release(...) __xchg_wrapper(_rel, __VA_ARGS__)
+> >  #define arch_xchg(...)         __xchg_wrapper( _mb, __VA_ARGS__)
+> >
+> > -#define __CMPXCHG_CASE(name, sz)                       \
+> > -static inline u##sz __cmpxchg_case_##name##sz(volatile void *ptr,      \
+> > +#define __CMPXCHG_CASE(name, sz)                                       \
+> > +static __always_inline u##sz                                           \
+> > +__cmpxchg_case_##name##sz(volatile void *ptr,                          \
+> >                                               u##sz old,                \
+> >                                               u##sz new)                \
+> >  {                                                                      \
+> > @@ -148,7 +149,7 @@ __CMPXCHG_DBL(_mb)
+> >  #undef __CMPXCHG_DBL
+> >
+> >  #define __CMPXCHG_GEN(sfx)                                             \
+> > -static inline unsigned long __cmpxchg##sfx(volatile void *ptr,         \
+> > +static __always_inline unsigned long __cmpxchg##sfx(volatile void *ptr,        \
+> >                                            unsigned long old,           \
+> >                                            unsigned long new,           \
+> >                                            int size)                    \
+> > @@ -230,7 +231,7 @@ __CMPXCHG_GEN(_mb)
+> >  })
+> >
+> >  #define __CMPWAIT_CASE(w, sfx, sz)                                     \
+> > -static inline void __cmpwait_case_##sz(volatile void *ptr,             \
+> > +static __always_inline void __cmpwait_case_##sz(volatile void *ptr,    \
+> >                                        unsigned long val)               \
+> >  {                                                                      \
+> >         unsigned long tmp;                                              \
+> > @@ -255,7 +256,7 @@ __CMPWAIT_CASE( ,  , 64);
+> >  #undef __CMPWAIT_CASE
+> >
+> >  #define __CMPWAIT_GEN(sfx)                                             \
+> > -static inline void __cmpwait##sfx(volatile void *ptr,                  \
+> > +static __always_inline void __cmpwait##sfx(volatile void *ptr,         \
+> >                                   unsigned long val,                    \
+> >                                   int size)                             \
+> >  {                                                                      \
+> > --
+> > 2.20.0
+> >
+> > --
+> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190909202153.144970-1-arnd%40arndb.de.
+>
+>
+>
+> --
+> Thanks,
+> ~Nick Desaulniers
+
+
+
 -- 
 Thanks,
 ~Nick Desaulniers
@@ -170,4 +246,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn5pR_j%3DNEUtrVSS_uZYtdwVuPAAd6CqF1BOL8akSFhcQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnnsQHkLG02oa2hkP8JDEiqnaH_xsxLrWBxSs0bvZetsQ%40mail.gmail.com.
