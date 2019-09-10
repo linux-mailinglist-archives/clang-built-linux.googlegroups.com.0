@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDSIZNM7U4BRBOX23XVQKGQEVTJR2WY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDSIZNM7U4BRBO723XVQKGQEV46KZAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id F2B65AE857
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 12:38:50 +0200 (CEST)
-Received: by mail-wm1-x339.google.com with SMTP id t185sf1157057wmg.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 03:38:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568111930; cv=pass;
+Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 025D4AE858
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 12:38:52 +0200 (CEST)
+Received: by mail-lf1-x13b.google.com with SMTP id o9sf3307276lfd.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 03:38:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568111931; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZnFvBvCSY7Hz0xXSvQHstAznd7PtvflpL3KMIrumHaWcc1elW+AUF+t5IdlRMvrJhO
-         KBqnSrZihsfgxk7AFUL/ugf/Hn609rf7aAhRBkIYq/J2+68UwJ1KE7yUJG8LNNcK2rsA
-         5bEfMJM4jkhtEIxc0ZMfX4b07Xfp3d6Qe1iyS4eZckY3GXFUos0QhOTRXCZnY8MUabkC
-         gREgfIly9/PVEyGD1gP+rF5Qb3Tq4W3UNrjE584GCn4QMHpOjAFdzn1fWRMcbMsfcPiN
-         E5QogXANB6DzGNICN3d3tFnGnHvKZyE9EiO9ySxUeRzft3VbCfsA4qP/nQh4h81dVR5K
-         TAPg==
+        b=ClznxEFjXu+VM2R9sGxK81IZ5WHQ3WGWHKD2u5/As2mDh4EHkr4F+UFo+xNnXi0ffZ
+         zyHDtECtfJqhUYsHROtANroN9LoAepkjZwHhghz9+GdftmmIKviKfIIdpa3EmGczGjCX
+         4Kpv2GdUBAFZycpG0g3Tn3mY0haT031Pzhtuc8PahNmiZpO29v5/HO6YjSKpa7nu+WIi
+         IVtecvGKoD5bz4lAOzz1BgfFSiuZ/ZKWzWEKRGxeLUMPhFfqrPWjwWYtQM26Fqcva096
+         CZWEDtGd5jNAYJV4IIZqA0p9ShbmVjiHOXosVNibLiWwggbCm7HNabB5pBqCt7XYtom2
+         xPYQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:references:in-reply-to:message-id
          :date:subject:cc:to:from:mime-version:sender:dkim-signature;
-        bh=z2k+EiBq75cS9GRUsJvd+FCz4URhqz08EuS0olS8RN4=;
-        b=FP+3k19HlBdFkbhdh/P3iXPxKeCYMwJ71ACz8ZvM95IQRRxuamDvoi9C2gMXfNhUs2
-         RP3UZC5qWUg67MdbVKomcbwbxrNsH9dP6k83M1IaPG0F2goqwhpbIqxG67Kz2GWpyM/W
-         o16IJGJcb98b1m4El9P3YD+bnlmOITzBMp7mbt7gEcMI40U/2m7JGr+EUh5wJvxlf9g1
-         chHOxpTZdm0Z2XUEPgVuNISarskxDTVfTbk3I9eLyVU2/cmKA95LVoOIB8uPZhd21299
-         rlZPW+jUJxf0/xpWP4idy3J4eaYhni4DidybHljRev9RtM2DHg5YDq6a7lJxfWsAyus6
-         BZdg==
+        bh=vhRXIXNEBHtYXsVq4j7498GJleMaqlkAIsM/WMEqEE0=;
+        b=iAbOEssV/mbI1kYNm7OjOGq/sjYg8Wh8Rn6wK2DrWft83UT/4h4UguRI+Bi4CRxSZ3
+         R8lm9lxt715surp5tt1+9d1B6BusjIyb/KGJevJX3EYSZDNfRHACRLdqzC5Blth9uw3A
+         HNBvvKGFqOxdfD3aMJg3XfaxyIZKyKUI4lYTzxJmuusq4FMI5O3uIO8mrSqKmre4HoUH
+         Ef3p8YYZPR+qzr+GNxmNXiKiydsGXMuSU0nMOELupy7JaUf6fv83Vx0JXj00PM1VZ34a
+         +hg1qUbkKJegOfuvaU3ws+OIUM2UUBiPZuHyALp+Xvr72B4qH0kon9LKznd5mmlgK282
+         0Sdg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=FhMAYukP;
-       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=dZCGaEuJ;
+       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::242 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=z2k+EiBq75cS9GRUsJvd+FCz4URhqz08EuS0olS8RN4=;
-        b=nswai3ryDEnT1lDi2qVJGs8WrHyJzuzSJ74oiNAxBrTqDjldeg+Cl/zhQvYdy0x1lH
-         g1n07dSnqXg46Y+sNWG7qDbTXVh/y+rf/FF+0RprooovRME9CisL9xGxinXRo6tUz5MH
-         DPihPyPRbRRACaP4w5ryT75s6a4xS52/5Pyl2wcmLz0maYCZYQVnMFY60LxXELRkhFQ2
-         bPsCFOp+hXH+/0dMYnv3rdkwgXMo+iBRta1eKAbhduYqtHCy8bp1YFAUCjw2PnudckX6
-         p7t6c6iGJkBdHWu77dL0ycclMTwDOMsRHYj+EYrBPyHQNAFngVITh+lQxpRVZBGle4Rj
-         KYjQ==
+        bh=vhRXIXNEBHtYXsVq4j7498GJleMaqlkAIsM/WMEqEE0=;
+        b=jd8fhbedRZgNWcwGpF3EdZLfMUalZmIgFvtWvbFhA5hgoDo6tB4vH5UoujG/wTmZRw
+         g/fCMIQvYPv7cfppLp0aMal5O/Mm/Vda+rTFvyNvO6X+xVWjnwm1CgpT04BYz+LDlPt1
+         Hu5XEpJ9Gq9NVi5i/jN6JXfzixNj0+hSqT7wmoyab3WETuE9Jo2ZuwtiTPGtaadEz62p
+         yIEQYvF7owiuS7CQqCnaLNASdjXzV4KOuingXYDG2M2lGaP2R099sgHpQpN5l4BRDdBH
+         Q0/CfZx29HZFqzdi5VbGFzsPFfN1Oi2PcLMMWbQjET7WJx+vyQTK28TgFpk5rtp744qC
+         dyLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
@@ -49,61 +49,61 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=z2k+EiBq75cS9GRUsJvd+FCz4URhqz08EuS0olS8RN4=;
-        b=jTMW2o48yIpj9PYWa8SJdCdNA+kS7zRvcoNxuOHVTTSMkJjakWf0SSr7X9svvy1X3E
-         KrSAgbm704um3s952bPneG5w7JhYHbxRVsMXQj8mecgkKRvewAjgsDP+mMNygHSLReh9
-         w/TV9tzUdkBlohPIjBnQ/W46MUuaaqUWBLPY0ynWBexZjvxgmox4M9cBrlPpXoD7Zzri
-         ZpB6lWgrirA7DjYP/TVb1eh+gnQ88Cs/O5G+x1HcKjlyNfZeSNhOeFOmw55qnm4Zoqn9
-         L6UAloOZry0zxxhIS4t9J87FTJH5DKStx0gnhbC4/mJXweGFhApd1jEpPpiUGV2Y5sPO
-         8dfQ==
+        bh=vhRXIXNEBHtYXsVq4j7498GJleMaqlkAIsM/WMEqEE0=;
+        b=TdMzUTJRlnRfN7jM86Deap41GNOm38rT4Btzsew+BWiPUcSaehWwar4/fz/MmvKSmY
+         D2IVt0tZG7AkNK63L1xCYO+KDltX1xbLnRgWUouNc6Gvk124auhV350bA2T6NL2xc4ni
+         EQ9wSWE2db48kZ3aXIE1D56vtxMjzT9BnFfIvmnkoIJ8uLf16tdTo1LFnQT0PJuy+QXB
+         VIcdgbm3MHn/4p2MDh5TpBxu5swsgUUgsKeAdl2qvKgRNHqsGb0FR0PZVauu6wSjIrFf
+         wwFW4VlSKatqlMFNhbjeH8kWEX3UHWp4etwsfsEKxqOxcqHGf92m7Y9HtAGM/AMg2fXp
+         PHSQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUtNSm3RHA/ldLXquiZmPrlX1smmTpw8Y9iHv5yXDzuQ+9DDnIq
-	tD6wmXH8/+DKT17LGQm16rA=
-X-Google-Smtp-Source: APXvYqyLZ63jXqcD1+xu2o86dl11uCKJDEi1ZmApbJ5EEVkKyKQ/fFylklC8bcrmJEJAHQjnz0eOWw==
-X-Received: by 2002:adf:a350:: with SMTP id d16mr24692404wrb.326.1568111930684;
-        Tue, 10 Sep 2019 03:38:50 -0700 (PDT)
+X-Gm-Message-State: APjAAAVJYWBp+ghshRqzl2f1QJeJVj/tr/66wNlecIuoMW86sxlhJOAb
+	11VAqa39v07+8LSAuhOHtFY=
+X-Google-Smtp-Source: APXvYqzWHlbohLhZKQ+NE9q5kINkbf6gJS/TDaKG0hgajuqo/RPLI28vGO6vQjlEYRznrdsC0XNelQ==
+X-Received: by 2002:ac2:4257:: with SMTP id m23mr19651670lfl.6.1568111931632;
+        Tue, 10 Sep 2019 03:38:51 -0700 (PDT)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f3c4:: with SMTP id g4ls5193615wrp.4.gmail; Tue, 10 Sep
- 2019 03:38:50 -0700 (PDT)
-X-Received: by 2002:adf:dd02:: with SMTP id a2mr25793769wrm.15.1568111930414;
-        Tue, 10 Sep 2019 03:38:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568111930; cv=none;
+Received: by 2002:a2e:934e:: with SMTP id m14ls1114143ljh.4.gmail; Tue, 10 Sep
+ 2019 03:38:51 -0700 (PDT)
+X-Received: by 2002:a2e:5d17:: with SMTP id r23mr18829739ljb.229.1568111931208;
+        Tue, 10 Sep 2019 03:38:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568111931; cv=none;
         d=google.com; s=arc-20160816;
-        b=Uz7VcIJTHanUqFVp8w7/CVqzX86JJzbRYuixrQoR3eXS1EJPLDZYC4aPzli2aF9OhI
-         tP/2sGlFBWdnut78AkzPPaZjxboT/IbKA0hKMdyfDO6xbHpWHE7+kOjmfpG0XjbBAgid
-         D86Hdy87AlEK9p4UcmTfOBVW7tGE7SS5RLE1OwPyzLarsbeqwc6GMh2vjtLKPZscDK84
-         HSErkcWloEgklU7xon13+pEFopfRROnzKM2xQKLimR/snDC/lfeTwsYugY1/yaAZh4u2
-         oEVuSWf8oqyNxg2/pkoDhMXMk94oGvqWIheJQu1GmX8rESi4dSbMHXKHcKwpS45xO9jo
-         Sizw==
+        b=dsGU2Xh+76BycnjDtjPBcHUgNOesmkov7nkgrdQ0n/n5Gr5pHclgu/HAZfE7/suEwd
+         SljcZcZ01YYkg3U7ccgHtSYPPykC6a2qRtyA1FIGmaKm07rN6WY4uy5CwaZnZbVovU4u
+         umtRBgQ2OkIE6ilGye+P35xVzvUj1kwKkNkieEqLS+pvAQcBCRzN0oZVipwD4hMgS2vN
+         VE5vlYNvxnV/YEYRM5Cud3WZeQMkdK4WgNn5yPJ3qYRQ0kNUcMR3z9vFDAdy4H3d1RQG
+         s634zDH9isEFDq6r3y8dZ51yiN7A5HjoosHL7EZCP2u4gwmj1Ci+jqRNmmn0gr+RYZyn
+         yEug==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :dkim-signature;
-        bh=DyCC3oN5QH71JUakHHjEAPConBRmS2tSFKyztM41paE=;
-        b=rZrd3kXEQBfKhGK0SqHazUO6//nUbuD21t7ePV+jDz/TOUh2yW5c6O1F/keSWXPcAJ
-         cJvQaZ2Y4MHO03+yLCaCXWzr5SiAxICqkryZQlVDOAZONC8fbLLIkP51kJcM75e4d2rI
-         gwTvmCDS9PaKY4fs8PMcbeYrEvPpa8A/pN73U3MOdkSJ4vK7bJwt4Lfjy0Tk8LCL+93n
-         iQOlTozOl3hMKJ9o2ZcOQAXMjsB7A2QgC7Kap6KNVYg4fcktbe0rqVeTWnOlDLAuQzVu
-         rVZmL7z4wc4dP9grtH6jB/MmvkgKPe4aJDYyKkpK4RPQQx8FZVrYqUBM7iCnfTfgU0ov
-         1tGg==
+        bh=aOBDMFi7PSb0gHyNeqqhWN1bJP3tg81RdsZh4BrKqUw=;
+        b=APSHE0lvRDhDRa9Lo6VuzWWW3O8IBn9QceQz4XQxVZKKEX6memih/RiiL8D34HAAOA
+         7VhAE7G31VePsM8IG8aiRFX/wzhs4T7s4BoMsJha0G0I1SiMQ+n8GqcrlQjuoa5wHpgK
+         HjE2Oz7izdP4TYgE7xn2YRm7jsHtEybFKxgwawgMfUVjd/V+YpTtIA7z0pAZ6gaQ/URT
+         IXl0VWyLpNfKCqwSeUw8c1m+ihHkjLVYOkMN1RYVzn8LbbRWxCiZ0lGGJS7sMPW4AGr+
+         sEnjNN64kqFREjsuxcr7ghB4cx+QumwjEh2HMAGlH/GFaYhNV2fme7cYVEqYW5k6ICtL
+         c4Yg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=FhMAYukP;
-       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=dZCGaEuJ;
+       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::242 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-lj1-x243.google.com (mail-lj1-x243.google.com. [2a00:1450:4864:20::243])
-        by gmr-mx.google.com with ESMTPS id m20si107856wmg.2.2019.09.10.03.38.50
+Received: from mail-lj1-x242.google.com (mail-lj1-x242.google.com. [2a00:1450:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id d3si933809lfq.1.2019.09.10.03.38.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 10 Sep 2019 03:38:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::242 as permitted sender) client-ip=2a00:1450:4864:20::242;
+Received: by mail-lj1-x242.google.com with SMTP id h2so9385470ljk.1
+        for <clang-built-linux@googlegroups.com>; Tue, 10 Sep 2019 03:38:51 -0700 (PDT)
+X-Received: by 2002:a2e:8012:: with SMTP id j18mr19477348ljg.36.1568111930993;
         Tue, 10 Sep 2019 03:38:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::243 as permitted sender) client-ip=2a00:1450:4864:20::243;
-Received: by mail-lj1-x243.google.com with SMTP id e17so15856343ljf.13
-        for <clang-built-linux@googlegroups.com>; Tue, 10 Sep 2019 03:38:50 -0700 (PDT)
-X-Received: by 2002:a2e:88c6:: with SMTP id a6mr19550313ljk.39.1568111929860;
-        Tue, 10 Sep 2019 03:38:49 -0700 (PDT)
 Received: from localhost.localdomain (168-200-94-178.pool.ukrtel.net. [178.94.200.168])
-        by smtp.gmail.com with ESMTPSA id g5sm4005563lfh.2.2019.09.10.03.38.48
+        by smtp.gmail.com with ESMTPSA id g5sm4005563lfh.2.2019.09.10.03.38.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Sep 2019 03:38:49 -0700 (PDT)
+        Tue, 10 Sep 2019 03:38:50 -0700 (PDT)
 From: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 To: ast@kernel.org,
 	daniel@iogearbox.net,
@@ -117,17 +117,17 @@ Cc: linux-kernel@vger.kernel.org,
 	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
-Subject: [PATCH bpf-next 10/11] libbpf: makefile: add C/CXX/LDFLAGS to libbpf.so and test_libpf targets
-Date: Tue, 10 Sep 2019 13:38:29 +0300
-Message-Id: <20190910103830.20794-11-ivan.khoronzhuk@linaro.org>
+Subject: [PATCH bpf-next 11/11] samples: bpf: makefile: add sysroot support
+Date: Tue, 10 Sep 2019 13:38:30 +0300
+Message-Id: <20190910103830.20794-12-ivan.khoronzhuk@linaro.org>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20190910103830.20794-1-ivan.khoronzhuk@linaro.org>
 References: <20190910103830.20794-1-ivan.khoronzhuk@linaro.org>
 X-Original-Sender: ivan.khoronzhuk@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=FhMAYukP;       spf=pass
+ header.i=@linaro.org header.s=google header.b=dZCGaEuJ;       spf=pass
  (google.com: domain of ivan.khoronzhuk@linaro.org designates
- 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
+ 2a00:1450:4864:20::242 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -142,84 +142,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-In case of LDFLAGS and EXTRA_CC/CXX flags there is no way to pass them
-correctly to build command, for instance when --sysroot is used or
-external libraries are used, like -lelf, wich can be absent in
-toolchain. This is used for samples/bpf cross-compiling allowing to
-get elf lib from sysroot.
+Basically it only enables that was added by previous couple fixes.
+For sure, just make tools/include to be included after sysroot
+headers.
+
+export ARCH=arm
+export CROSS_COMPILE=arm-linux-gnueabihf-
+make samples/bpf/ SYSROOT="path/to/sysroot"
+
+Sysroot contains correct libs installed and its headers ofc.
+Useful when working with NFC or virtual machine.
 
 Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 ---
- samples/bpf/Makefile   |  8 +++++++-
- tools/lib/bpf/Makefile | 11 ++++++++---
- 2 files changed, 15 insertions(+), 4 deletions(-)
+ samples/bpf/Makefile   |  5 +++++
+ samples/bpf/README.rst | 10 ++++++++++
+ 2 files changed, 15 insertions(+)
 
 diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
-index 79c9aa41832e..4edc5232cfc1 100644
+index 4edc5232cfc1..68ba78d1dbbe 100644
 --- a/samples/bpf/Makefile
 +++ b/samples/bpf/Makefile
-@@ -186,6 +186,10 @@ ccflags-y += -I$(srctree)/tools/perf
- ccflags-y += $(D_OPTIONS)
- ccflags-y += -Wall
- ccflags-y += -fomit-frame-pointer
-+
-+EXTRA_CXXFLAGS := $(ccflags-y)
-+
-+# options not valid for C++
- ccflags-y += -Wmissing-prototypes
- ccflags-y += -Wstrict-prototypes
- 
-@@ -252,7 +256,9 @@ clean:
- 
- $(LIBBPF): FORCE
- # Fix up variables inherited from Kbuild that tools/ build system won't like
--	$(MAKE) -C $(dir $@) RM='rm -rf' LDFLAGS= srctree=$(BPF_SAMPLES_PATH)/../../ O=
-+	$(MAKE) -C $(dir $@) RM='rm -rf' EXTRA_CFLAGS="$(PROGS_CFLAGS)" \
-+		EXTRA_CXXFLAGS="$(EXTRA_CXXFLAGS)" LDFLAGS=$(PROGS_LDFLAGS) \
-+		srctree=$(BPF_SAMPLES_PATH)/../../ O=
- 
- $(obj)/syscall_nrs.h:	$(obj)/syscall_nrs.s FORCE
- 	$(call filechk,offsets,__SYSCALL_NRS_H__)
-diff --git a/tools/lib/bpf/Makefile b/tools/lib/bpf/Makefile
-index c6f94cffe06e..bccfa556ef4e 100644
---- a/tools/lib/bpf/Makefile
-+++ b/tools/lib/bpf/Makefile
-@@ -94,6 +94,10 @@ else
-   CFLAGS := -g -Wall
+@@ -177,6 +177,11 @@ ifeq ($(ARCH), arm)
+ CLANG_EXTRA_CFLAGS := $(D_OPTIONS)
  endif
  
-+ifdef EXTRA_CXXFLAGS
-+  CXXFLAGS := $(EXTRA_CXXFLAGS)
++ifdef SYSROOT
++ccflags-y += --sysroot=${SYSROOT}
++PROGS_LDFLAGS := -L${SYSROOT}/usr/lib
 +endif
 +
- ifeq ($(feature-libelf-mmap), 1)
-   override CFLAGS += -DHAVE_LIBELF_MMAP_SUPPORT
- endif
-@@ -176,8 +180,9 @@ $(BPF_IN): force elfdep bpfdep
- $(OUTPUT)libbpf.so: $(OUTPUT)libbpf.so.$(LIBBPF_VERSION)
- 
- $(OUTPUT)libbpf.so.$(LIBBPF_VERSION): $(BPF_IN)
--	$(QUIET_LINK)$(CC) --shared -Wl,-soname,libbpf.so.$(LIBBPF_MAJOR_VERSION) \
--				    -Wl,--version-script=$(VERSION_SCRIPT) $^ -lelf -o $@
-+	$(QUIET_LINK)$(CC) $(LDFLAGS) \
-+		--shared -Wl,-soname,libbpf.so.$(LIBBPF_MAJOR_VERSION) \
-+		-Wl,--version-script=$(VERSION_SCRIPT) $^ -lelf -o $@
- 	@ln -sf $(@F) $(OUTPUT)libbpf.so
- 	@ln -sf $(@F) $(OUTPUT)libbpf.so.$(LIBBPF_MAJOR_VERSION)
- 
-@@ -185,7 +190,7 @@ $(OUTPUT)libbpf.a: $(BPF_IN)
- 	$(QUIET_LINK)$(RM) $@; $(AR) rcs $@ $^
- 
- $(OUTPUT)test_libbpf: test_libbpf.cpp $(OUTPUT)libbpf.a
--	$(QUIET_LINK)$(CXX) $(INCLUDES) $^ -lelf -o $@
-+	$(QUIET_LINK)$(CXX) $(CXXFLAGS) $(LDFLAGS) $(INCLUDES) $^ -lelf -o $@
- 
- $(OUTPUT)libbpf.pc:
- 	$(QUIET_GEN)sed -e "s|@PREFIX@|$(prefix)|" \
+ ccflags-y += -I$(objtree)/usr/include
+ ccflags-y += -I$(srctree)/tools/lib/bpf/
+ ccflags-y += -I$(srctree)/tools/testing/selftests/bpf/
+diff --git a/samples/bpf/README.rst b/samples/bpf/README.rst
+index 5f27e4faca50..786d0ab98e8a 100644
+--- a/samples/bpf/README.rst
++++ b/samples/bpf/README.rst
+@@ -74,3 +74,13 @@ samples for the cross target.
+ export ARCH=arm64
+ export CROSS_COMPILE="aarch64-linux-gnu-"
+ make samples/bpf/ LLC=~/git/llvm/build/bin/llc CLANG=~/git/llvm/build/bin/clang
++
++If need to use environment of target board (headers and libs), the SYSROOT
++also can be set, pointing on FS of target board:
++
++export ARCH=arm64
++export CROSS_COMPILE="aarch64-linux-gnu-"
++make samples/bpf/ SYSROOT=~/some_sdk/linux-devkit/sysroots/aarch64-linux-gnu
++
++Setting LLC and CLANG is not necessarily if it's installed on HOST and have
++in its targets appropriate arch triple (usually it has several arches).
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190910103830.20794-11-ivan.khoronzhuk%40linaro.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190910103830.20794-12-ivan.khoronzhuk%40linaro.org.
