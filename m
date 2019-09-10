@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBDN23TVQKGQEADCM66I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB4N43TVQKGQEK6ZUVMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD2BDAE29D
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 05:48:29 +0200 (CEST)
-Received: by mail-ed1-x53a.google.com with SMTP id f5sf9375694edr.19
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Sep 2019 20:48:29 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568087309; cv=pass;
+Received: from mail-lj1-x23c.google.com (mail-lj1-x23c.google.com [IPv6:2a00:1450:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id EF01CAE2A1
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 05:54:25 +0200 (CEST)
+Received: by mail-lj1-x23c.google.com with SMTP id s19sf2563474ljg.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Sep 2019 20:54:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568087665; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CKxbd49vDjXripy/NmuZnIlfLgD/dN4i8XXj0QIW0Z6bfNimuZU/gKEwzSoRv16Mb9
-         IAbinsCvGgdp3jyqOmDuwQIJ7OgEwggMktPi0ymqkM/1I0k777qAY5kaxfrQfFa+v4Mq
-         n/0nYry9NH1HxSpFEHmNVVE05adBNcEa2FCODvG2L5OtKm/9v65phvnjT8SJMtAk0863
-         p4sEd4b0KuqMybmz+fVRVdfKa84heuDezAoyzoub+bvMLIqNK1R0+3TCYWk9atoq4yFa
-         EfzfWm4RJrTfedxDJmx5u5NBVTVbh54atSQ/sToqRHcO/U+mDobsA1ShIsv8cwzNDv1M
-         xszg==
+        b=0/6e0yT7BOkT1bHbVsmI8HgNc0xoh7XlGW9PJ0Yo8YVR100Wq5CF1/pUK7e6Nde27E
+         OctVaE5vw+tDe+Q/56RVBr3AUPJwbDVKDs59XWpsMWl08/jdmjOXK+YwIId8c1dbtwEL
+         osxTIli05LyRAlJk3wvt7DR9IrejOyB0WRBS9OEzg006AWTFDeSeVwDhNBTe91wgZd6E
+         504TbTOJ15VMxcGbOEKRrhopbeZtb+u304qpOlueae3xtfvaZcWK+/fjh968sgtXYiR9
+         8yY/VBD9NP1ezg7MkX7/As8bbXz0iSN6Tw1XMi7hTOR75Isux0L1MQ8qi51Euww31TDq
+         8Zng==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=FX6+K66eYPicNsHbPaNRSRv5R2CnvaUaTcd7lJ21EoI=;
-        b=hvv4NvYAznYkipO3nNTOwgIgjvm6GRp6q807vzJllJ5k0VcRByRHBIDUJrylxsFLLr
-         OdGyA7KVGZeD0vcys4tUad1qHW/Fx3O0nvuMN3EZ7Jg2+Mv9sNWvep3ua2phJtl/336e
-         W+gOu/ZZreoCqApHxeEGQw8cpmI7zSyV/AkPyjMCm4tYQwLFNWx27f3VB/31o/KGwGBc
-         z9E+RJ2U4HhLu73j61z5AN6LZS7qa3lenhmOe4fPqGn16GTdGKRJxzCudea5t6DfOxSV
-         EQ/6JRwoLB9uTBUpP7Vz4WOfX27NfESJrrLVes/En/XLe0BdCrj7YzQ/1Rk+hVMGvZMj
-         LYiA==
+        bh=+RRpqepPU+KMTAQDOwpdvAqafDHGtZTLWACdOVjzaW8=;
+        b=NZi1qs4mXzjV+xmxVlZL1r8qLrbX9VByHIE6FDgQ9wSmsdi5aT15RQ/THvQQqHq5DF
+         7IVMPyrlMryI1hJcPxP4Rig76RPsC3SfDQGNl/PFAT3kiMJNQGJWHU2zfUDAJdcJcAjW
+         RdyWmiXt0mZzPt1jYqoSCDULo+PPdwzSsF6IcYoRVii9FFzTnb4YI7xQbQOPUgfVqEDP
+         UAzAiCT76pISUyYY+faFV4RgfsM1M2i05YOq9M67Pxnp99uPH2e7MuGOWc8wXk5DtAy8
+         PaJXw1Wwj/A87kH/0Kr6Llw0D5/oCR5+4UoyUi50hg9DKrfT7zt3j8cWRRVMk3wUGCnz
+         zcaQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XVWITTuB;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hGIkTnih;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FX6+K66eYPicNsHbPaNRSRv5R2CnvaUaTcd7lJ21EoI=;
-        b=YIUs2O0A6Cn6n66XcTcPIx1HjlJvR2cxij8U99jnlzBU25G01LhEtVYSdTBJnU8Y3F
-         NcMDeAmAt7Jkw/GCPODPFY7e4JpD2vvvzBMhvDOkY0QL1yL/7t5jtTLThmS52LNvE+gl
-         oM9vVySEWqahNndWuRidHoHZRh1HGBEa/4u3i9/2BjAEerwsktdd3tW3risrE+YcOh3h
-         OE1LYw6l/a+Qebdo7u3digIg8egcs8CG4/i0OvFNY1Pgq5nsZi3jqhc3DPBnf/wO0u0G
-         44SgCrCmv5TZNLy1Bheoa9a7c6qGmsXJfN2jLbzsmISlreIJWD8C6kYwYqLR5Nv7ZLIQ
-         v3xA==
+        bh=+RRpqepPU+KMTAQDOwpdvAqafDHGtZTLWACdOVjzaW8=;
+        b=KFUnZwiIyn8LJ8DgATF+AdjabElxPOo/BkbRmSe7Pz7AKi/tX/z/IM4LNYJU3Kr4ZF
+         Cr9nVB/zuSZdD4yhop4BnZRrtScYwSTL+xAe4776v1bZ5wL59RRQvj7NR+PWgfFyo3Ta
+         lt4Ia4zrDFng7BW9yjoKgO81syg6OtVaikOj2A38IUztV0H9lVMqomKVRamgHSGwBH1d
+         x35dJfz9uT8Zj07S2KcwpGt2pv6Y87GsT7rVqI3Em7MN8Eirpaau1WCiT+SCyKVQd/uE
+         gcG9jBKaJMXOxL/hkqcfp277IFv6SnoafmzluWVf/IdcvWQSc++ke0f/UqQDhB+JU7E0
+         Eu4w==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FX6+K66eYPicNsHbPaNRSRv5R2CnvaUaTcd7lJ21EoI=;
-        b=OLZCAiR9L3AzNfytiO8qIxkqsxjpf94msjiCaYn8BP/eOAUY1p2SsQ6wTHggrNwNRn
-         Y9SLdcuOdD1L8cxbTt9eWFOTYXq/AuULI9clCAPkWGfwAlJ1EeWRCa+QYZ45mb/ZKQ5y
-         TVgymUgEtwch80QTveOxjL64TqbZrcej7KtqXUYbu+skCtTP7JDYzoTdv4W8S6s5uT6T
-         nnRcx7t/X7fy+WsXvsYyXlNNkNLB1hTMHaOw6JweaQhghHIZ9zejODwsheTG7jWCAvWz
-         OWAFY2poFeIwic9dFesK7zo6+BVMCkIFtoJeKeR5AcGonaZeB5zeEOouNI2B6RtuM9cR
-         FSxQ==
+        bh=+RRpqepPU+KMTAQDOwpdvAqafDHGtZTLWACdOVjzaW8=;
+        b=cKCVkQuQUcGUhd1UugNSQnUV2bjsB76aIeq7fx21pQbc+l9UH2vQDMDeWdr/0X6A/B
+         lzazAdmYDKvfmtYZIJq0zJF6hUn2e0hypY/oD5npIMVKwsk+Y9F7o0WY9adVkOgt1rZj
+         in6kjmrhi2vT+5cM+394hVQdoctoNPsqHnJpQPUlOQ1oPin9Q8OktdmaqlSV0//rem1q
+         +rSIZdWC7zGIE0oMR0SBzev6LqA/J/p3C0wtsNQjldh7rlyPekl10dgyqjCEjuNtxO/0
+         zdurpM9wq+Ceu0CgKCk/6vsQg+KNG8FlZ14Y/yopmu9Do8sAzMl7V2MbVz4zVCH0bIPP
+         v5xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,80 +63,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=FX6+K66eYPicNsHbPaNRSRv5R2CnvaUaTcd7lJ21EoI=;
-        b=szOXgVYJdGPxd6tD2FvABzS02bWxgb320Sgi32Eh09BwaJL8UU9yoRVKMAZWRnRnOk
-         JAMH3M84OapfUxVTAsIOX88JtZBrqI+DPWWQBrWAjR/hOELwAAe2mW1cA6YCfO1Q3sr/
-         Zp5MTl21n2j5po5L0hYX264X/p0yJYahDlIUiYRIqZqiFNUglxr1Q4fDd2JMVZYM+aZq
-         ksunggZrxHsReSagEg8cOfMq3Y18f5rOV3i/edFLE8LZHq9uvWG3FK0ZwwrSN5EKihfk
-         isnpR08NZd/PRmCujhk9R2Hl83uiPCaakZMKgQ3eY3zy1wbSlGIY4rXNNiG+ygB9PeRI
-         eVTA==
+        bh=+RRpqepPU+KMTAQDOwpdvAqafDHGtZTLWACdOVjzaW8=;
+        b=Puy+R1iEI9x6IfX6DiVXWu4K+/i+p0A8JNe8z7cnOM3vavLudrVgjyYedGeUXgscpH
+         nE+6dRog53t5gyD2Xz7XAlGFzyMMEYvdrCRsodEZXB6M1cTNFZQC4EXlGCvnPQSzx+wg
+         veh2pIKdG9dInizEvLVzAwjSkcWlkZUPqdLiDM7dw62HGV67+ukqEExM9cKWIJGgbNNW
+         HMHrPnglCU1xyERwbbApcUdRR1CjyGTdMTigsTBOQ4udz+Q9osMt6uxohuBGAZdapHDQ
+         ngq/P+JL46X6Src5YzyFiVT795S+B+1UZb1DlDGXT+G9GtD1OJg/ofUyTR4QNm1xN1md
+         QfsQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWulTulCGIgHzgAmN4FwVHqNsfre4zL7DnddA0GZOhwYxFqwV2s
-	bIynSDS+yRFgwcQY3Wukjrk=
-X-Google-Smtp-Source: APXvYqwHLXU9Lf65YCipStPczSzefBIgV7NhynfCQJGmTom1T5DH8doKLNoe3UClfPXt7qYLa7mRHw==
-X-Received: by 2002:a50:9512:: with SMTP id u18mr27667342eda.182.1568087309421;
-        Mon, 09 Sep 2019 20:48:29 -0700 (PDT)
+X-Gm-Message-State: APjAAAVdim2S/mwxMD098UCSeWY2WsPsgNYMS8zlN7oNU/R2wgi6zX1G
+	MzPXeHu/aNjvjeoghl7qVro=
+X-Google-Smtp-Source: APXvYqzuebHNEx31cLd6Ng9KdPh/4+iNsSZbQ/W5iQ7eLF5EyIjJFjWXtHBA0p59/fz70WiJH1ULDw==
+X-Received: by 2002:ac2:4114:: with SMTP id b20mr941484lfi.19.1568087665526;
+        Mon, 09 Sep 2019 20:54:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:e604:: with SMTP id y4ls4124551edm.16.gmail; Mon, 09 Sep
- 2019 20:48:29 -0700 (PDT)
-X-Received: by 2002:aa7:dc56:: with SMTP id g22mr28267554edu.212.1568087309049;
-        Mon, 09 Sep 2019 20:48:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568087309; cv=none;
+Received: by 2002:a2e:93d6:: with SMTP id p22ls1855804ljh.13.gmail; Mon, 09
+ Sep 2019 20:54:25 -0700 (PDT)
+X-Received: by 2002:a2e:9086:: with SMTP id l6mr18548404ljg.120.1568087665068;
+        Mon, 09 Sep 2019 20:54:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568087665; cv=none;
         d=google.com; s=arc-20160816;
-        b=amkKpwgJoi5QbHeRoAswKP4nCfMORiaOmhhFAnVm/lzdibKc1QgvpOZAa+hJUDgJU7
-         RcKf+sVxXZF8sPbYZSUe49eZp48o4/+0z7OxFT3wHdWElNkMtOpK+iHqyil1gbEAr9xp
-         SfmSY4MegK2BKhqZ4FTA868vLZYI5OnJ9+kkt1hfesScVEqdwxo43RDehM7PkNkY8Un3
-         ssHDMBra93clK1e+6Sb/VIZHygDXMz6kYrfpurBnHilfwOE/y9hF5x7DBZMYXPYjWCmv
-         k6es5H1QmvF/q0GpFJtP526JgCHRxSJ317i3hNpao0SSsxSbIN55svMo8WFqu8F1dRRI
-         zC/A==
+        b=xXxOv3Gzjv/19rrNJHiMErfbtrYC/eaY7db1HXt2UumMJYxukMQoxkCjVJTanEMYiI
+         gFBiTv3KB9Nv9lx1/lDbBMYNa/WmlEgzB83ZezvuOwu2qYqAdzTOOCZTMmR4bJtlQahE
+         IvzpY/UNtCBw06r3anNYdQA3YSzksSLe2sJpRYTfJF41p/PblPXjnpkQX1kfI+SRX+qS
+         TKokWDPk6wkyb3pQCZSitVY7Um059piOChXfX21JqNp2g7ezeNQzhbnlV6wGv6Tna3hE
+         H0O0XP+8qgWvB/7VSY1wRSujGZ/e9CesLHHZDrz1YFdwsTZmk20insSW6fZwf/flZa9x
+         6yZA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=I93CMELHaBMh9/kbXreWDxCI9NIXAgfzoQ2tSdfrwbA=;
-        b=GjtStQaG7sXy+moR7rg2CNBMZ4NImZYjyIrTLEGXvb/jIDDAKDOAI22tM9RCOjXwDH
-         QoTre+q6nqi2/mozAxAvt+tGYEulZDKZIzWHw+DVMzYsm5hmmjnwRXg3r7CrQywvtBTM
-         3c4QTdgD7PhdmMvN1N6xihw7MyD+QEIsiglTFfq5Vmof6XSuwrjA1OKSs9/9Mlyq3rh1
-         8vvV6nL2aK4eyxjiqUR2l1NehljSR7QDwdRVDKO8MJg7sUn7PQALf12XDZ8DJjVyDv8D
-         4yZB1AVaPySmZX0AMEptygW9qFLMb6kSKfSr4Zsn95NI+LW+XVT7ln04ilTD7c5MXBZF
-         yO+g==
+        bh=28YSfalDzh/oTYQ4/Ev3arg4sOw0hegShcXGWt2ouR4=;
+        b=pg5BmJitKy1A/lc9ccs3BFo0bOh0NjgqfueCLs0KiCkfbfO8ICn3qC0/62z1F5mPoq
+         INF9oeoY8+qfjVTL1De1GKEkr7ai1z+HNyfUgxzs4PhwOrkmmxwO7Ff+kwbWBfmiAuWW
+         CzelqSBSoM3Py4SaFYVyVW5yCt8x2jEpdeTD4OeYAAHNMJHXu1Fdgb72DYSS4amHsPAz
+         y6Ex/AOFhFxLkmQnH74lmOtUkYOF0q32x4DJekbniJ6dHxmtdOLbqbIWajXtTFIHbXJH
+         Q1KF6i9nG56fz/ESM/4/llCIwj305r2jqC/mi0NJPZe+oyBviZ9Fajp1G1i5GD3H4Q1B
+         j2Fg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XVWITTuB;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hGIkTnih;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id ch16si1176552ejb.1.2019.09.09.20.48.29
+Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id d3si886050lfq.1.2019.09.09.20.54.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Sep 2019 20:48:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id l11so17052998wrx.5
-        for <clang-built-linux@googlegroups.com>; Mon, 09 Sep 2019 20:48:29 -0700 (PDT)
-X-Received: by 2002:adf:dd4d:: with SMTP id u13mr2930442wrm.112.1568087308617;
-        Mon, 09 Sep 2019 20:48:28 -0700 (PDT)
+        Mon, 09 Sep 2019 20:54:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
+Received: by mail-wr1-x441.google.com with SMTP id i1so16486766wro.4
+        for <clang-built-linux@googlegroups.com>; Mon, 09 Sep 2019 20:54:24 -0700 (PDT)
+X-Received: by 2002:a5d:4ac8:: with SMTP id y8mr16836008wrs.98.1568087663352;
+        Mon, 09 Sep 2019 20:54:23 -0700 (PDT)
 Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id q14sm35082227wrc.77.2019.09.09.20.48.27
+        by smtp.gmail.com with ESMTPSA id l6sm8168978wrv.59.2019.09.09.20.54.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Sep 2019 20:48:27 -0700 (PDT)
-Date: Mon, 9 Sep 2019 20:48:26 -0700
+        Mon, 09 Sep 2019 20:54:22 -0700 (PDT)
+Date: Mon, 9 Sep 2019 20:54:21 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Laurence Oberman <loberman@redhat.com>
+To: Xin Long <lucien.xin@gmail.com>
 Cc: kbuild@01.org, Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com,
 	kbuild test robot <lkp@intel.com>
-Subject: Re: [PATCH] bnx2fc: Handle scope bits when array returns BUSY or
- TASK_SET_FULL
-Message-ID: <20190910034826.GA1778@archlinux-threadripper>
-References: <201909072040.Dov1yjF6%lkp@intel.com>
+Subject: Re: [PATCH net-next 2/5] sctp: add pf_expose per netns and sock and
+ asoc
+Message-ID: <20190910035421.GB1778@archlinux-threadripper>
+References: <201909091802.pU2vj2DA%lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <201909072040.Dov1yjF6%lkp@intel.com>
+In-Reply-To: <201909091802.pU2vj2DA%lkp@intel.com>
 User-Agent: Mutt/1.12.1 (2019-06-15)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=XVWITTuB;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=hGIkTnih;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -150,28 +150,26 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Laurence,
+Hi Xin,
 
-The 0day team has been doing clang builds for us and this warning came
-up; it appears to be legitimate. Let me know if you have any questions!
+The 0day team has been doing clang builds for us and this warning popped
+up. Let me know if you have any questions.
 
-On Sat, Sep 07, 2019 at 08:59:34PM +0800, kbuild test robot wrote:
+On Mon, Sep 09, 2019 at 06:44:47PM +0800, kbuild test robot wrote:
 > CC: kbuild-all@01.org
-> In-Reply-To: <1567801579-18674-1-git-send-email-loberman@redhat.com>
-> References: <1567801579-18674-1-git-send-email-loberman@redhat.com>
-> TO: Laurence Oberman <loberman@redhat.com>
-> CC: loberman@redhat.com, QLogic-Storage-Upstream@qlogic.com, linux-scsi@vger.kernel.org
-> CC: 
+> In-Reply-To: <00fb06e74d8eedeb033dad83de18380bf6261231.1568015756.git.lucien.xin@gmail.com>
+> References: <00fb06e74d8eedeb033dad83de18380bf6261231.1568015756.git.lucien.xin@gmail.com>
+> TO: Xin Long <lucien.xin@gmail.com>
+> CC: network dev <netdev@vger.kernel.org>, linux-sctp@vger.kernel.org
+> CC: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, Neil Horman <nhorman@tuxdriver.com>, davem@davemloft.net
 > 
-> Hi Laurence,
+> Hi Xin,
 > 
 > Thank you for the patch! Perhaps something to improve:
 > 
-> [auto build test WARNING on linus/master]
-> [cannot apply to v5.3-rc7 next-20190904]
-> [if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
+> [auto build test WARNING on net-next/master]
 > 
-> url:    https://github.com/0day-ci/linux/commits/Laurence-Oberman/bnx2fc-Handle-scope-bits-when-array-returns-BUSY-or-TASK_SET_FULL/20190907-134720
+> url:    https://github.com/0day-ci/linux/commits/Xin-Long/sctp-update-from-rfc7829/20190909-160115
 > config: x86_64-rhel-7.6 (attached as .config)
 > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 > reproduce:
@@ -183,145 +181,99 @@ On Sat, Sep 07, 2019 at 08:59:34PM +0800, kbuild test robot wrote:
 > 
 > All warnings (new ones prefixed by >>):
 > 
-> >> drivers/scsi/bnx2fc/bnx2fc_io.c:2007:9: warning: variable 'scope' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
->                                    if (fcp_rsp->retry_delay_timer) {
->                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/scsi/bnx2fc/bnx2fc_io.c:2015:9: note: uninitialized use occurs here
->                                    if (scope > 0 && qualifier > 0 &&
->                                        ^~~~~
->    drivers/scsi/bnx2fc/bnx2fc_io.c:2007:5: note: remove the 'if' if its condition is always true
->                                    if (fcp_rsp->retry_delay_timer) {
->                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/scsi/bnx2fc/bnx2fc_io.c:1931:11: note: initialize the variable 'scope' to silence this warning
->            u16 scope, qualifier = 0;
->                     ^
->                      = 0
+> >> net/sctp/associola.c:799:24: warning: use of logical '&&' with constant operand [-Wconstant-logical-operand]
+>                    if (transport->state && SCTP_UNCONFIRMED &&
+>                                         ^  ~~~~~~~~~~~~~~~~
+>    net/sctp/associola.c:799:24: note: use '&' for a bitwise operation
+>                    if (transport->state && SCTP_UNCONFIRMED &&
+>                                         ^~
+>                                         &
+>    net/sctp/associola.c:799:24: note: remove constant to silence this warning
+>                    if (transport->state && SCTP_UNCONFIRMED &&
+>                                        ~^~~~~~~~~~~~~~~~~~~
 >    1 warning generated.
 > 
-> vim +2007 drivers/scsi/bnx2fc/bnx2fc_io.c
+> vim +799 net/sctp/associola.c
 > 
->   1922	
->   1923	void bnx2fc_process_scsi_cmd_compl(struct bnx2fc_cmd *io_req,
->   1924					   struct fcoe_task_ctx_entry *task,
->   1925					   u8 num_rq)
->   1926	{
->   1927		struct fcoe_fcp_rsp_payload *fcp_rsp;
->   1928		struct bnx2fc_rport *tgt = io_req->tgt;
->   1929		struct scsi_cmnd *sc_cmd;
->   1930		struct Scsi_Host *host;
->   1931		u16 scope, qualifier = 0;
->   1932	
->   1933	
->   1934		/* scsi_cmd_cmpl is called with tgt lock held */
->   1935	
->   1936		if (test_and_set_bit(BNX2FC_FLAG_IO_COMPL, &io_req->req_flags)) {
->   1937			/* we will not receive ABTS response for this IO */
->   1938			BNX2FC_IO_DBG(io_req, "Timer context finished processing "
->   1939				   "this scsi cmd\n");
->   1940			return;
->   1941		}
->   1942	
->   1943		/* Cancel the timeout_work, as we received IO completion */
->   1944		if (cancel_delayed_work(&io_req->timeout_work))
->   1945			kref_put(&io_req->refcount,
->   1946				 bnx2fc_cmd_release); /* drop timer hold */
->   1947	
->   1948		sc_cmd = io_req->sc_cmd;
->   1949		if (sc_cmd == NULL) {
->   1950			printk(KERN_ERR PFX "scsi_cmd_compl - sc_cmd is NULL\n");
->   1951			return;
->   1952		}
->   1953	
->   1954		/* Fetch fcp_rsp from task context and perform cmd completion */
->   1955		fcp_rsp = (struct fcoe_fcp_rsp_payload *)
->   1956			   &(task->rxwr_only.union_ctx.comp_info.fcp_rsp.payload);
->   1957	
->   1958		/* parse fcp_rsp and obtain sense data from RQ if available */
->   1959		bnx2fc_parse_fcp_rsp(io_req, fcp_rsp, num_rq);
->   1960	
->   1961		host = sc_cmd->device->host;
->   1962		if (!sc_cmd->SCp.ptr) {
->   1963			printk(KERN_ERR PFX "SCp.ptr is NULL\n");
->   1964			return;
->   1965		}
->   1966	
->   1967		if (io_req->on_active_queue) {
->   1968			list_del_init(&io_req->link);
->   1969			io_req->on_active_queue = 0;
->   1970			/* Move IO req to retire queue */
->   1971			list_add_tail(&io_req->link, &tgt->io_retire_queue);
->   1972		} else {
->   1973			/* This should not happen, but could have been pulled
->   1974			 * by bnx2fc_flush_active_ios(), or during a race
->   1975			 * between command abort and (late) completion.
->   1976			 */
->   1977			BNX2FC_IO_DBG(io_req, "xid not on active_cmd_queue\n");
->   1978			if (io_req->wait_for_abts_comp)
->   1979				if (test_and_clear_bit(BNX2FC_FLAG_EH_ABORT,
->   1980						       &io_req->req_flags))
->   1981					complete(&io_req->abts_done);
->   1982		}
->   1983	
->   1984		bnx2fc_unmap_sg_list(io_req);
->   1985		io_req->sc_cmd = NULL;
->   1986	
->   1987		switch (io_req->fcp_status) {
->   1988		case FC_GOOD:
->   1989			if (io_req->cdb_status == 0) {
->   1990				/* Good IO completion */
->   1991				sc_cmd->result = DID_OK << 16;
->   1992			} else {
->   1993				/* Transport status is good, SCSI status not good */
->   1994				BNX2FC_IO_DBG(io_req, "scsi_cmpl: cdb_status = %d"
->   1995					 " fcp_resid = 0x%x\n",
->   1996					io_req->cdb_status, io_req->fcp_resid);
->   1997				sc_cmd->result = (DID_OK << 16) | io_req->cdb_status;
->   1998	
->   1999				if (io_req->cdb_status == SAM_STAT_TASK_SET_FULL ||
->   2000				    io_req->cdb_status == SAM_STAT_BUSY) {
->   2001					/* Newer array firmware with BUSY or
->   2002					 * TASK_SET_FULL may return a status that needs
->   2003					 * the scope bits masked.
->   2004					 * Or a huge delay timestamp up to 27 minutes
->   2005					 * can result.
->   2006					*/
-> > 2007					if (fcp_rsp->retry_delay_timer) {
->   2008						/* Upper 2 bits */
->   2009						scope = fcp_rsp->retry_delay_timer
->   2010							& 0xC000;
+>    775	
+>    776	/* Engage in transport control operations.
+>    777	 * Mark the transport up or down and send a notification to the user.
+>    778	 * Select and update the new active and retran paths.
+>    779	 */
+>    780	void sctp_assoc_control_transport(struct sctp_association *asoc,
+>    781					  struct sctp_transport *transport,
+>    782					  enum sctp_transport_cmd command,
+>    783					  sctp_sn_error_t error)
+>    784	{
+>    785		struct sctp_ulpevent *event;
+>    786		struct sockaddr_storage addr;
+>    787		int spc_state = 0;
+>    788		bool ulp_notify = true;
+>    789	
+>    790		/* Record the transition on the transport.  */
+>    791		switch (command) {
+>    792		case SCTP_TRANSPORT_UP:
+>    793			/* If we are moving from UNCONFIRMED state due
+>    794			 * to heartbeat success, report the SCTP_ADDR_CONFIRMED
+>    795			 * state to the user, otherwise report SCTP_ADDR_AVAILABLE.
+>    796			 */
+>    797			if (transport->state == SCTP_PF && !asoc->pf_expose)
+>    798				ulp_notify = false;
+>  > 799			if (transport->state && SCTP_UNCONFIRMED &&
 
-This is the only initialization of scope and if this if statement never
-hits, then...
+I assume this && should either be a '&' or '=='?
 
->   2011						/* Lower 14 bits */
->   2012						qualifier = fcp_rsp->retry_delay_timer
->   2013							& 0x3FFF;
->   2014					}
->   2015					if (scope > 0 && qualifier > 0 &&
-
-We use scope uninitialized here.
-
->   2016						qualifier <= 0x3FEF) {
->   2017					/* Set the jiffies + retry_delay_timer * 100ms
->   2018					   for the rport/tgt */
->   2019						tgt->retry_delay_timestamp = jiffies +
->   2020							(qualifier * HZ / 10);
->   2021					}
->   2022				}
->   2023			}
->   2024			if (io_req->fcp_resid)
->   2025				scsi_set_resid(sc_cmd, io_req->fcp_resid);
->   2026			break;
->   2027		default:
->   2028			printk(KERN_ERR PFX "scsi_cmd_compl: fcp_status = %d\n",
->   2029				io_req->fcp_status);
->   2030			break;
->   2031		}
->   2032		sc_cmd->SCp.ptr = NULL;
->   2033		sc_cmd->scsi_done(sc_cmd);
->   2034		kref_put(&io_req->refcount, bnx2fc_cmd_release);
->   2035	}
->   2036	
+>    800			    SCTP_HEARTBEAT_SUCCESS == error)
+>    801				spc_state = SCTP_ADDR_CONFIRMED;
+>    802			else
+>    803				spc_state = SCTP_ADDR_AVAILABLE;
+>    804			transport->state = SCTP_ACTIVE;
+>    805			break;
+>    806	
+>    807		case SCTP_TRANSPORT_DOWN:
+>    808			/* If the transport was never confirmed, do not transition it
+>    809			 * to inactive state.  Also, release the cached route since
+>    810			 * there may be a better route next time.
+>    811			 */
+>    812			if (transport->state != SCTP_UNCONFIRMED) {
+>    813				transport->state = SCTP_INACTIVE;
+>    814				spc_state = SCTP_ADDR_UNREACHABLE;
+>    815			} else {
+>    816				sctp_transport_dst_release(transport);
+>    817				ulp_notify = false;
+>    818			}
+>    819			break;
+>    820	
+>    821		case SCTP_TRANSPORT_PF:
+>    822			transport->state = SCTP_PF;
+>    823			if (!asoc->pf_expose)
+>    824				ulp_notify = false;
+>    825			else
+>    826				spc_state = SCTP_ADDR_POTENTIALLY_FAILED;
+>    827			break;
+>    828	
+>    829		default:
+>    830			return;
+>    831		}
+>    832	
+>    833		/* Generate and send a SCTP_PEER_ADDR_CHANGE notification
+>    834		 * to the user.
+>    835		 */
+>    836		if (ulp_notify) {
+>    837			memset(&addr, 0, sizeof(struct sockaddr_storage));
+>    838			memcpy(&addr, &transport->ipaddr,
+>    839			       transport->af_specific->sockaddr_len);
+>    840	
+>    841			event = sctp_ulpevent_make_peer_addr_change(asoc, &addr,
+>    842						0, spc_state, error, GFP_ATOMIC);
+>    843			if (event)
+>    844				asoc->stream.si->enqueue_event(&asoc->ulpq, event);
+>    845		}
+>    846	
+>    847		/* Select new active and retran paths. */
+>    848		sctp_select_active_and_retran_path(asoc);
+>    849	}
+>    850	
 > 
 > ---
 > 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -333,4 +285,4 @@ Nathan
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190910034826.GA1778%40archlinux-threadripper.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190910035421.GB1778%40archlinux-threadripper.
