@@ -1,117 +1,130 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBLW63XVQKGQEBPKGJ6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTI55WH24IRBZXQ3XVQKGQEJ7UVXRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa37.google.com (mail-vk1-xa37.google.com [IPv6:2607:f8b0:4864:20::a37])
-	by mail.lfdr.de (Postfix) with ESMTPS id ED035AE71F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 11:38:55 +0200 (CEST)
-Received: by mail-vk1-xa37.google.com with SMTP id h145sf3439081vke.15
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 02:38:55 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568108335; cv=pass;
+Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4BFD5AE7C7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 12:18:15 +0200 (CEST)
+Received: by mail-ua1-x93e.google.com with SMTP id f22sf2527805uaq.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 03:18:15 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568110694; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HvJtXl2iLtS+5WvzGhfwiYhR9lS0sV43wpukYh9l8EAeKYLPT/Bjxj76z9VgkL10gP
-         XSdv4kZGGcwRCgE8LI/4FXIoigY+HToMo27lPKtrrnCB3P3pRaEwCNLIUHje/34beaXa
-         ItChqCqP34EmbXP6F53tltATPFKpr6qjF9wPqjIU04/LHHw+bWh62dBSw0H9JTiJEE53
-         bhZngZ7zEai/iwTLIigtREwrSgejQtB8btOgeGVQmb0DhWIDb2KTM2b/HaB6FG5XsFMu
-         RGKIfW9zL+PTa5qyMPdRusfMhvYk7sRpxfMRyWOFAPLLihTVbsXSLPbRiRr0ClCOai3f
-         38fw==
+        b=jWFPUzkKFUeGx9GnA/pGwPtB8urYmRkYkV5GcJECR/D/uQLjOjt5zb1ixgz88R8Kay
+         6zY5DRgudnH0+D6PdkOUuxtaDzKkOIR1PAKLY/Sg/B/ZMW9xJ0UVo4kpXeS5pIRHY0D4
+         p5ADjR7vPfQLYvhjj00/QWvTHmtQfxpYX6X/c0o/Epe6/6JJx3SePbjg7AlM4l0v/lp8
+         n4RE0WW6mBZZB2FD8KlLu2T/MIu9RYHsbgfhK2QZeROn+tVMnNSat6PQn6IhUUbkvww1
+         Y4E2XTUOkwQpFPtYEh0Fl9xPAaAWzivgjGwqtCd8tkIlzAfsfmWpcgfofCi3HNpxq6tz
+         V89Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=P0K8xNuCAr9hgAjuUmjLEADxof/XrqYTqOt6Ejedd/Y=;
-        b=haZxeSrkN668QUQvXuETmW9DQFLhlpck/DVAauOWYyZlSDhkU5T2MsLoB7IlrSai4M
-         f6Wf52haNfvPKD39CyqV7nGHDj2wSzcbOGBJ+QFKYqGXcOS0leKk9Lpvj44Yxn+oTVdv
-         cb+QArgER9jxtnhwLWt8NhVUBDwwtHX2TbgHwBeoK4c6rpTz310G7oiXlm4y63sB24RO
-         WyyDA5jVi5njB+KEBm9XlK0mRKU+uyx4clpCpp8dmptAEuPEk6NeTHE8Qp72Ijek+43i
-         ZUnAfMiCjcUxPL4FCG03cNI35qUbXbzLDPCNCPl6OgDi/3PTjMEfN0EWpmOxHNzX+0V6
-         0ugA==
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=vWftlPkVnZY59D6MjGCTo5MpJFFK78YM0emnsftAI4Q=;
+        b=g06WSGI7ooyimzP7wt4X35T6vxeGPxYUxyX+bqf/8WaSZYhclD80kZiKzFtGeFg2hK
+         TCejaSdKPZX1GqT0lZRbH6gH7VOsbQd8Ba+efJDXct6ebT6H4PLCRY+7MkJKhK51S7mw
+         VoX5yXOBqePiFuHOD4Iq4rZRfuyd9gXllYU5dTUx+Pccn1Qq1eU95r4ZuuKB3xlusX6S
+         7Cala+YVG5miRZ7NlaQqpbVnOMcFaFMeko7ngDve3dfJmyyqPJPSdjwu5dv5ECWIsf+v
+         VbKreN1NNeGpVjpQDG22moHYGQhfHgz0W5/l7z9H/g4P7Ue78qN0PI+A8Yt9SDpWiOoy
+         N21w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of arndbergmann@gmail.com designates 209.85.222.193 as permitted sender) smtp.mailfrom=arndbergmann@gmail.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=qcXNzlf0;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=P0K8xNuCAr9hgAjuUmjLEADxof/XrqYTqOt6Ejedd/Y=;
-        b=Q6Pzna/9BundXU/nSlUSCs1IMdh9kAqnjKPGXrBwgr2NoDQw6WTE1sDNEqJwCdWDCz
-         QNsGnNORDgMMxe33/pbHXZY4PGPh9o410/o7gvJiVaOG4YrG4AALl7i5XpVa7PJjpP27
-         aI1eqSh+NGIGCitPZ7L81ET1Asi74K5qq7rllviOBlX+mNeRDSlZJ5TsjlW/zMvmIQte
-         UcwemurCV7Vp6qJIVnMXSCGyrOQvvO4oXgEZe33otTD5BAvcknzVnfANSakFRfIBuE1d
-         Z/5NXkjLCQ5acg2In28OuVZ0OfKslatUmrufPxFDOjH6CjGSrl0a7Yvirm68hK+Cr7X3
-         bDEw==
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=vWftlPkVnZY59D6MjGCTo5MpJFFK78YM0emnsftAI4Q=;
+        b=nxsFj2RRf4wMUr7kE4hbq/gzB51I3yoIBCrC1RGzc5cox275bSrf9qBdw/3xyjF+PF
+         OpWLQGLUBcBGkwbUQO4xBSvC4NEYQe5ccUjyBIQcLzv9dElXAzMkWcTZAIOfP9MBIeN6
+         scTUK8RJXQ9LIdD4bsJfCaGArGDNBI/az8TOU7Ftt6Pj2KZMY5ezv2wb84e4dekbIu+Q
+         Lvt6/6rnPU93sQuLS1oWY+LRsc0QXJ29Eg+2m/etacLqJquEZ0c6CLo0ZcXxP4xzUoEz
+         5IjvQc2DArU2NLR9W+bnCrKzXsLDLPAtk9ly86ZL9TkwOXHOhuNECDSduLAbu6/YqsA8
+         BOPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=P0K8xNuCAr9hgAjuUmjLEADxof/XrqYTqOt6Ejedd/Y=;
-        b=YONYbYrkt/Zl6xwp1pPqvK14oN7zTIdOyCFgDtqmcIQ3EzhwhRxEW4kfczAUt4gVfT
-         FLQMoxce3gebodfwVuxNPnpAUDP1Kx4q9MzRsvXoYLwkPCpRx7hAa5uHybGAcDjk6WAa
-         F+U4AbHQIfV2izA4FoLDuu+hBL8wtNRyX4cEFGtanRGTYnS/8vFYfxjkpMfquORB923J
-         hEgg9HQ59z4wIyQ/VArf79v6mYZC+mueggWff1fmNVW11H84b/4ebKOv4f1Ov17Zg5xw
-         84WcLj1jmrtponYP3MrIIc28R7CDbqXvL70dJPtXSVHsHc2y/tgwWjQ/rcrQYf+WUfNb
-         sX+A==
+        bh=vWftlPkVnZY59D6MjGCTo5MpJFFK78YM0emnsftAI4Q=;
+        b=fFXXwbGr+2ueQs/BGd6TqxTlgG+V9jbzHGW+awttkfYN3zQCWyK0/VjsUI0OBT8225
+         f18Ozx8cmynNYWmjKk8YgK1HiscygmX9rjO30fCVgdfGbcU0a+e3PxVcDGhjeqG/O3Ok
+         LIIJAKPE4sBY46jnofSzOtE+/SFcjUrZgcAmVlBcE88V9b1JC3YAnuSsIXVnT7dA8If5
+         hXrP1RJXcHaKDsBtEJlPrvKjUrA2X1FOq2e9Y4Q4ZWBHMcL4d1kFEB1F7FvD8rCDt7nu
+         Jb5r1tytGj8ik8ZNLOd7ZUWV/XGlCBsbtFk4JwatZhQa1/ggbu91p3fYQR1Gc3D5smqN
+         YP1Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW+NYXiR3YgCYh6hwsI/Pcvw6RlOA1YDGJfCfDRwsOvz0LpEr4W
-	YEdD4f2fRddJYg24HqjhWz4=
-X-Google-Smtp-Source: APXvYqxVYcJ4nYjjgmDdxSeatFDAVtoIJa1aj78l9lg9HXsE1V5mD0+7gfWSgbW5464cdQKdwe/6YA==
-X-Received: by 2002:ac5:c4e9:: with SMTP id b9mr2646534vkl.83.1568108334928;
-        Tue, 10 Sep 2019 02:38:54 -0700 (PDT)
+X-Gm-Message-State: APjAAAUBtFINNui986qBWtLYhJYYlAUNzzSCTjXmYuJ8tr8xDPeTaKrD
+	zaG7Y1/POC9+Z4BruZ8pZcA=
+X-Google-Smtp-Source: APXvYqxpatTyQ6ayrsklfijEyysB78y8Rou03iyhAUGYI2xPzXJgokzq1psLGy3ybUjspwwMaujaIg==
+X-Received: by 2002:a67:de13:: with SMTP id q19mr14281035vsk.102.1568110694212;
+        Tue, 10 Sep 2019 03:18:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:e34b:: with SMTP id s11ls1689086vsm.16.gmail; Tue, 10
- Sep 2019 02:38:54 -0700 (PDT)
-X-Received: by 2002:a67:e2cf:: with SMTP id i15mr15182267vsm.165.1568108334621;
-        Tue, 10 Sep 2019 02:38:54 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568108334; cv=none;
+Received: by 2002:a1f:e144:: with SMTP id y65ls259950vkg.7.gmail; Tue, 10 Sep
+ 2019 03:18:14 -0700 (PDT)
+X-Received: by 2002:a1f:19d8:: with SMTP id 207mr10302200vkz.54.1568110693925;
+        Tue, 10 Sep 2019 03:18:13 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568110693; cv=none;
         d=google.com; s=arc-20160816;
-        b=SniMdCbVCt5SdLuAV3z1b3sHXxPHxyvFFkOws/MjluSABXt2s7AxxvH4V+EvxA1Pk5
-         CxZrYE/f5dO7IkifhEJsOSSbAAPnI9ePSw80Ou2w22Y5CPVkn53DYIkjQPgon9nbRS8O
-         x8fZJg1sKh/4A36uYDkm/i0cCKzjrvdIbm7doMfqBN+tDI3x9FFiXsyifuADmz1fmtsn
-         sEa0ylsEeykK1TsdCOoBSU4+T/SClA6deJ+mveYRnavA6w4Qrri2A25BcqImbldRHsc5
-         mAlUcL7/qSzuFW7EiTteKxjOMLvq0vgFsorHrRagJ7WzV20Y67ANnLRb4N4aHogqkP4t
-         aguw==
+        b=GHahj6zn+aP/3+1u+f0aIq8Ud9ydN8/lu24aDr+kJbvB/dNa55FUhpVwZA3URnJ7vm
+         EkcuZJvc1Av81ZKlgeS7MLZZ2nZVjfrFFpZapO8rRWJvN9fhO5NgRLHHyKGeuvbVzWIF
+         sM98wt8PF+CP/NJ4dZP/v/J2bF4LWv0BQAV66lXZm21YUygjQlFkWKjW2DrUMlAb64Yd
+         a3SR/Nvi1REgVvG7CTyc628+KLzUsEAND1k7gHHF2gRoPtZPnzbxiWSR1BMdIobHrEER
+         9nNjS1PdVvOh6YWAXMxfAS+5oC2RlKbagmrpNM+5d/nkp9Be53GjQKGdkxljyE24R9LB
+         HOAA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=7BZdQMWt/4gR8KdMEOxeANPATM7+OW7WAKZb9Cg8SzQ=;
-        b=wj0GX6UHGg2OB7jJIIMvGo4KfNDUbZJqeI/H2fTmzsizg/B1Hh5wU4Tmyw6syeO6o2
-         E9mFGqB1PIhItTWj5N4U/StGf03cCvKBpUNEuf2FgseBaj3Vu4nXfeCoDTCYBPf0Xgux
-         rPmJTBybNjOsfObt719c3bBm4bzWppKrDkcL9wI6gz0hTzDKjsZ1jWq2koqYIo/1JoWF
-         LvGVAy3sCY/sYvKz7mKjYcSmxbENc3deYxL9VhKMvHt/ax0E51QDTSKBy2L2TOjuJrZt
-         KKW7CRDibXOGjABmp6enmHFT0BtE17DcvDFzJJk6KMzpnvcIvnEFx055gy54Qs9FnMTt
-         r2Ig==
+         :mime-version:dkim-signature:dkim-filter;
+        bh=yIKQfh97GgxHjqDfeFwoaAFGiMM6pmiH8tsXc3yeVNw=;
+        b=Yn+3TkbNwYD2ou/MSDhMMZ570pTTxDl/dnK5tK3NpQ3pJsa0+XmXRdYPP7DUtNzU6R
+         3xyXbczF3BXwihMzKJPLRxgIrGpvDVWmomKi6deHfEzBVjD8ZKNXjbCKfr03iXsISd+U
+         jwrir4iqE7eH1h1Xos34ruIxWfe20iNC8NAf3Iwae6Vf8ClMMs+UyDuj5bPhVWGmxVxM
+         xQ+kujbiZV5M66D9DIHpT6tLm4bNFEknCzEp5roEgcmQdLs0N2lcHbDj4XvOs0tyOwXO
+         Hf/1b1op6rDWdny3wDhHK/kZ1z0DmWX/JuXxpZA6gIa3KVKzW5YxSu/FzjOIp9hmYpPu
+         33aA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of arndbergmann@gmail.com designates 209.85.222.193 as permitted sender) smtp.mailfrom=arndbergmann@gmail.com
-Received: from mail-qk1-f193.google.com (mail-qk1-f193.google.com. [209.85.222.193])
-        by gmr-mx.google.com with ESMTPS id 136si1096699vkx.4.2019.09.10.02.38.54
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=qcXNzlf0;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.80 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+Received: from conssluserg-01.nifty.com (conssluserg-01.nifty.com. [210.131.2.80])
+        by gmr-mx.google.com with ESMTPS id y23si811473vsn.1.2019.09.10.03.18.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Sep 2019 02:38:54 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arndbergmann@gmail.com designates 209.85.222.193 as permitted sender) client-ip=209.85.222.193;
-Received: by mail-qk1-f193.google.com with SMTP id h126so8586071qke.10
-        for <clang-built-linux@googlegroups.com>; Tue, 10 Sep 2019 02:38:54 -0700 (PDT)
-X-Received: by 2002:ae9:ee06:: with SMTP id i6mr7667748qkg.3.1568108334116;
- Tue, 10 Sep 2019 02:38:54 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 10 Sep 2019 03:18:13 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.80 as permitted sender) client-ip=210.131.2.80;
+Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com [209.85.221.171]) (authenticated)
+	by conssluserg-01.nifty.com with ESMTP id x8AAHun4020205
+	for <clang-built-linux@googlegroups.com>; Tue, 10 Sep 2019 19:17:57 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-01.nifty.com x8AAHun4020205
+X-Nifty-SrcIP: [209.85.221.171]
+Received: by mail-vk1-f171.google.com with SMTP id s72so3412927vkh.5
+        for <clang-built-linux@googlegroups.com>; Tue, 10 Sep 2019 03:17:56 -0700 (PDT)
+X-Received: by 2002:a1f:60c2:: with SMTP id u185mr1443841vkb.0.1568110675632;
+ Tue, 10 Sep 2019 03:17:55 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190909202153.144970-1-arnd@arndb.de> <20190910092324.GI9720@e119886-lin.cambridge.arm.com>
-In-Reply-To: <20190910092324.GI9720@e119886-lin.cambridge.arm.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Tue, 10 Sep 2019 11:38:37 +0200
-Message-ID: <CAK8P3a2Vk+KSUGJyPTRuLPD=KPEAR43SZ1ofB6k+KeQi3fSERw@mail.gmail.com>
+ <CAK8P3a2Vk+KSUGJyPTRuLPD=KPEAR43SZ1ofB6k+KeQi3fSERw@mail.gmail.com>
+In-Reply-To: <CAK8P3a2Vk+KSUGJyPTRuLPD=KPEAR43SZ1ofB6k+KeQi3fSERw@mail.gmail.com>
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+Date: Tue, 10 Sep 2019 19:17:19 +0900
+X-Gmail-Original-Message-ID: <CAK7LNAQbjPhDqN9ZeC_qnxzMAhPdrSpG4te0HmRrnxuuM6bquw@mail.gmail.com>
+Message-ID: <CAK7LNAQbjPhDqN9ZeC_qnxzMAhPdrSpG4te0HmRrnxuuM6bquw@mail.gmail.com>
 Subject: Re: [PATCH] arm64: fix unreachable code issue with cmpxchg
-To: Andrew Murray <andrew.murray@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Andrew Murray <andrew.murray@arm.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Linux ARM <linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of arndbergmann@gmail.com designates 209.85.222.193 as
- permitted sender) smtp.mailfrom=arndbergmann@gmail.com
+X-Original-Sender: yamada.masahiro@socionext.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@nifty.com header.s=dec2015msa header.b=qcXNzlf0;       spf=softfail
+ (google.com: domain of transitioning yamada.masahiro@socionext.com does not
+ designate 210.131.2.80 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -124,59 +137,81 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Sep 10, 2019 at 11:23 AM Andrew Murray <andrew.murray@arm.com> wrote:
-
+On Tue, Sep 10, 2019 at 6:38 PM Arnd Bergmann <arnd@arndb.de> wrote:
 >
-> >  arch/arm64/include/asm/cmpxchg.h | 15 ++++++++-------
-> >  1 file changed, 8 insertions(+), 7 deletions(-)
+> On Tue, Sep 10, 2019 at 11:23 AM Andrew Murray <andrew.murray@arm.com> wrote:
+>
 > >
-> > diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
-> > index a1398f2f9994..fd64dc8a235f 100644
-> > --- a/arch/arm64/include/asm/cmpxchg.h
-> > +++ b/arch/arm64/include/asm/cmpxchg.h
-> > @@ -19,7 +19,7 @@
-> >   * acquire+release for the latter.
-> >   */
-> >  #define __XCHG_CASE(w, sfx, name, sz, mb, nop_lse, acq, acq_lse, rel, cl)    \
-> > -static inline u##sz __xchg_case_##name##sz(u##sz x, volatile void *ptr)              \
-> > +static __always_inline u##sz __xchg_case_##name##sz(u##sz x, volatile void *ptr)\
+> > >  arch/arm64/include/asm/cmpxchg.h | 15 ++++++++-------
+> > >  1 file changed, 8 insertions(+), 7 deletions(-)
+> > >
+> > > diff --git a/arch/arm64/include/asm/cmpxchg.h b/arch/arm64/include/asm/cmpxchg.h
+> > > index a1398f2f9994..fd64dc8a235f 100644
+> > > --- a/arch/arm64/include/asm/cmpxchg.h
+> > > +++ b/arch/arm64/include/asm/cmpxchg.h
+> > > @@ -19,7 +19,7 @@
+> > >   * acquire+release for the latter.
+> > >   */
+> > >  #define __XCHG_CASE(w, sfx, name, sz, mb, nop_lse, acq, acq_lse, rel, cl)    \
+> > > -static inline u##sz __xchg_case_##name##sz(u##sz x, volatile void *ptr)              \
+> > > +static __always_inline u##sz __xchg_case_##name##sz(u##sz x, volatile void *ptr)\
+> >
+> > This hunk isn't needed, there is no BUILD_BUG here.
 >
-> This hunk isn't needed, there is no BUILD_BUG here.
+> Right, I noticed this, but it seemed like a good idea regardless given the small
+> size of the function compared with the overhead of a function call.  We clearly
+> want these to be inlined all the time.
 
-Right, I noticed this, but it seemed like a good idea regardless given the small
-size of the function compared with the overhead of a function call.  We clearly
-want these to be inlined all the time.
 
-Same for the others.
+Generally speaking, this should be judged by the compiler, not by humans.
+If the function size is quite small compared with the cost of function call,
+the compiler will determine to inline it anyway.
+(If the compiler's inlining heuristic is not good, we should fix the compiler.)
 
-> Alternatively is it possible to replace the BUILD_BUG's with something else?
->
-> I think because we use BUILD_BUG at the end of a switch statement, we make
-> the assumption that size is known at compile time, for this reason we should
-> ensure the function containing the BUILD_BUG is __always_inline.
->
-> Looking across the kernel where BUILD_BUG is used as a default in a switch
-> statment ($ git grep -B 3 BUILD_BUG\( | grep default), most instances are
-> within macros, but many are found in an __always_inline function:
->
-> arch/x86/kvm/cpuid.h
-> mm/kasan/generic.c
->
-> Though some are not:
->
-> include/linux/signal.h
-> arch/arm64/include/asm/arm_dsu/pmu.h
->
-> I wonder if there may be a latent mole ready to whack with pmu.h?
+So, I personally agree with Andrew Murray.
+We should use __always_inline only when we must to do so.
 
-Right, it can't hurt to annotate those as well. I actually have another
-fixup for linux/signal.h that I would have to revisit at some point.
-See https://bugs.llvm.org/show_bug.cgi?id=38789, I think this is
-fixed with clang-9 now, but maybe not with clang-8.
+Masahiro Yamada
 
-      Arnd
+
+
+>
+> Same for the others.
+>
+> > Alternatively is it possible to replace the BUILD_BUG's with something else?
+> >
+> > I think because we use BUILD_BUG at the end of a switch statement, we make
+> > the assumption that size is known at compile time, for this reason we should
+> > ensure the function containing the BUILD_BUG is __always_inline.
+> >
+> > Looking across the kernel where BUILD_BUG is used as a default in a switch
+> > statment ($ git grep -B 3 BUILD_BUG\( | grep default), most instances are
+> > within macros, but many are found in an __always_inline function:
+> >
+> > arch/x86/kvm/cpuid.h
+> > mm/kasan/generic.c
+> >
+> > Though some are not:
+> >
+> > include/linux/signal.h
+> > arch/arm64/include/asm/arm_dsu/pmu.h
+> >
+> > I wonder if there may be a latent mole ready to whack with pmu.h?
+>
+> Right, it can't hurt to annotate those as well. I actually have another
+> fixup for linux/signal.h that I would have to revisit at some point.
+> See https://bugs.llvm.org/show_bug.cgi?id=38789, I think this is
+> fixed with clang-9 now, but maybe not with clang-8.
+>
+>       Arnd
+
+
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK8P3a2Vk%2BKSUGJyPTRuLPD%3DKPEAR43SZ1ofB6k%2BKeQi3fSERw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNAQbjPhDqN9ZeC_qnxzMAhPdrSpG4te0HmRrnxuuM6bquw%40mail.gmail.com.
