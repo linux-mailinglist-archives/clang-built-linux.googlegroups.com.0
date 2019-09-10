@@ -1,131 +1,138 @@
-Return-Path: <clang-built-linux+bncBC6MFNV32EFRBHH63XVQKGQEKX4CIPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDA5BKNJ6MIBBF4T33VQKGQEORGV2LA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF704AE898
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 12:46:52 +0200 (CEST)
-Received: by mail-ed1-x53a.google.com with SMTP id ba12sf5717746edb.17
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 03:46:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568112412; cv=pass;
+Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
+	by mail.lfdr.de (Postfix) with ESMTPS id C7300AE92D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 13:31:36 +0200 (CEST)
+Received: by mail-ua1-x93f.google.com with SMTP id 13sf2557176uag.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Sep 2019 04:31:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568115095; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YAg9olcoR1qLZs3sC7AsuPfqbqC/jBeStLrKvv0y8KiAbqx186yjJO89o9u6pp9lAZ
-         z1Ix9p7YEM7l9I2l46Ny8gzXOdRiBpdQ0KKR2eULXT9Lfm4ibDtQ6HNndT3ug6wMyFFJ
-         yiXwCrAFicn6IzuErbgtMCiRwMImtsWH0zt+eP17R90FUm1Himoeg35fHXVo/WhGkjuS
-         0EWQ27sNR9a9H4XueE4shBcaH7Imm/sQIkaLxwxTmCYS6QLYTP8Ahp6tTcZt3+9f8UAu
-         YvxIoyf+zH832+FDkn92LO1Ti3FM0TSxTQ/z7ZfdgZqNSifIax2eDOlETjR3XYvmU6Gh
-         QANQ==
+        b=NLiv/QUQPOZWObe85bbhf6+TGUrXAArDGqB6fIzHuMLM7TB5uuUEdh2dYTortgnO7x
+         ZZTvfbN9wgHdwHXBHBiOiD0O9G8WTJu9XntaFsN+zkjNLnICETM5HD1h5kCff8tPggXh
+         fGXjXbXUwoBOjYJsO9knraHwCLEX5llFxLGtKMDkSb1fu2i7IcrnTAWGX2yqofwmQiuf
+         S6+IOqAZmQd+z6XMWRYCwe5gXDzUq6Ie1ofyBwTLjEntUH9BtLIqhDCOfpG4UFDRwjSY
+         0UHgwvPaYSN3lr3a9h8m7R7CLgoOLuRNoDijrfLccAhHwlDxH+3+vWBqjRNgQvlf5wsB
+         2ilQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=0HLcKLxMe46ErMmMInIEfCvjwnR+4fsaXCN6JqQX5UQ=;
-        b=qXTPzAlYaUE+Ioj1xw3E5vsr9oZyE+ieVOM0y6biQP2GpZGKy3YIYelLrpb4aGg9Mo
-         92VBqVWbPNwzmXJVMGKLqn4hhf8VJHjQF2k1i2ZXz6El5RuqhKbUi8GPiefFHRwmT4mm
-         YLXJMrvc854od4nwE+XCpN4i56sk6P6SzVmLHTbwv3+ihh7N0Ke4YEYm7fLxMDY3LY2h
-         tKTwsLCPts2BftV53866A1k5GBQ34WEGhHI4IbRPgLkHT1Qb34d7h4BfdMAP6reb5Dvw
-         1NAq3eTLZd06ee4citF99fSkiTEihIwOBXcKs23ZRAWJhPShOxrO6Ids4E/wLUKDq08s
-         oh4w==
+         :list-id:mailing-list:precedence:user-agent:organization:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=6qF7ZvvL16/XG89ic+4DRBak9GDcCFX7ZdFSH/Q5ct0=;
+        b=HdREFRhTbFX4X8wWOu4Z0aG59WcjPDxJ3SHY87MxS6ujMjj3P0EGVohFVjwROfn9ig
+         /XYnFii8U+kQAfnurz9Ri8W31ATZTBpva+cTMBQLCiNKIzpMTZQ8GWtWQm9lF+BmTYVA
+         Uud3shgRf8e9qhp8jv0GO/TymXY80pZQGlpSTk5GoxqkwNa8/T3dJldOBwn1txD23hkj
+         mUmanfNye2HIyPi5te8A//E9OH79wKGLkXI0byWRt4G1636w1lihWuZBXKhcchfEIbu9
+         bxW/AjFUAZK175+fIMjvsf3ucnhvNZNg6uOji8yZus10Hfjd9FAhIpLjRCADiVTpU0We
+         8K1w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@cogentembedded-com.20150623.gappssmtp.com header.s=20150623 header.b=n4LbfsiR;
-       spf=pass (google.com: domain of sergei.shtylyov@cogentembedded.com designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=sergei.shtylyov@cogentembedded.com
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0HLcKLxMe46ErMmMInIEfCvjwnR+4fsaXCN6JqQX5UQ=;
-        b=OX0vQgaOsQrzZrwCO9LmmPtzOQP1wSP4zQYUUygRmXTzcTD/Q3TFCA2I1H/EeIOtjm
-         o7zswfhEcQEqKYVUDLOwunoILU0czYiazgS0dv4vem8bRPWXqCAvQXkO6BrXuwtmrwWA
-         x2saITwfswVyQgKAc2VjlVTAS1j1ExYRI5IQvZrBU1mFaaPc1udbBuKdqhvhRVtungfx
-         PD+PYBzT27KXmkgFZNQAUcFEn5U00bGvHsF9Jrh1hrXyEqg7SBOYQVLMkfDbqIZ/qtp5
-         p4PGgLDxIJwBrLKR1wB2U+HSQmOlUCpkqICc99PqdvwaiHLO0UgW3fUZXoLTKfw1cGb3
-         mMxw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:organization:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6qF7ZvvL16/XG89ic+4DRBak9GDcCFX7ZdFSH/Q5ct0=;
+        b=jZD0lyjvlHjaH21Mg81OT73pGJWdY2/WbwI42rPdaIkodPUwQPWBKbM/BMhcu5YbUe
+         2Neeea31h2EKCsbNAWjOdtfY7oD/3R5ccUCXdBW3Bj2xBPnZ8bmtcyd8Jmd2my1kc23z
+         RESckvKGZfWciZ5ON6KOVWYzpUObbx2f9jqdqAGp1ucypgqqAQZUSh3Y2nZAN5hKAAFq
+         lcnJG3akaTZquqGts2ZTYLwHPpAjd6WnAapfp50wrzWGRkinH5R2S5Zg9ANVLUf2ztVF
+         bb0LDz+nFKQX2kb5t/SRgTdjJJV0eswi/8eSeu4yNRUvtB60IzYRKYLT6/XL8XlpLPio
+         DuxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=0HLcKLxMe46ErMmMInIEfCvjwnR+4fsaXCN6JqQX5UQ=;
-        b=an0UeTAx9h07UnQBpxeL/++TJ4IFwDPepu/Pv9wmv402OhJa7b7jPpEN4adVs4ckSI
-         fNT8kfuGgdCkJeGE6quKs9MhlF0GfhB/bwqovrdyhLGJkOhqg3gJns8BdadTe4QnfxEZ
-         y5qcJIgr3SSJtpSZEP84C1sWGZB4Rr8XqYOserwguj0VvaAmAwNP8WtgMXsw0FMmWLh/
-         bifYiv/2pI2+e4nU6sh2MZtDKM/wnN8K4vdw6W9dECh/wbzAbQRiP2CcZ6FRJRpt3H10
-         0TQxS5WMMHWcXniCPMwlxuRj/gTN2NGA7PE7VAnzV99fDeddZ3DIDZr6q2jr9gLWeRnq
-         diuQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :organization:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6qF7ZvvL16/XG89ic+4DRBak9GDcCFX7ZdFSH/Q5ct0=;
+        b=EbCxAxnVLuMEqrAna61N1HG1BW+hj76t78iKG/JpulZeBeBQNNrOyDWXg3nDyBLzg9
+         +Al93jywZpeiUf0FZtQ0FDJzmDQ3WZuN8ieqO8rdxVkUjka0KQsrcYD9GpPgHZ884c0b
+         /IliIlBvM47AYFQpVNycJyjf0ssUF5t3hFHlyAhe4Q2QrTBs1H4XMrfLC+KZtqx/SJ6h
+         mxU6Nioy+dcMn4AoGfrkv2urnxPM8wkUMh/qTpZdkVSH/ZyKdE565fDhsCMqKuhw1MFw
+         74eeZZRzgJe4G1/mHlwQBUkWUGXYVNwVyP6VrgKeRxLrgwnnTSl8F4XduOH3Y7p8ifDV
+         Tggg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUrCaLNOeXPIngU8moN4MYbpT17aq9lcytzX786Y7IrzHXfmbaH
-	BTe+LYXWTvcrUAr7uUe73N4=
-X-Google-Smtp-Source: APXvYqz45CVyhVuTbrLOzi8IvoS3F7FiYnyw4FmzeYIT+ubIjR5AdO0US1wzqWbp8kx8hXjYY49wQw==
-X-Received: by 2002:aa7:df1a:: with SMTP id c26mr29304288edy.106.1568112412718;
-        Tue, 10 Sep 2019 03:46:52 -0700 (PDT)
+X-Gm-Message-State: APjAAAWsUz2rLZCNPfD9dHTvm6s5K3umwGfeK/Fr+D7UfxQIhOxG8ltJ
+	9xBDdO/0JJV1mMmBxaV5VU8=
+X-Google-Smtp-Source: APXvYqxtp87jN7pbgBtUV5c/iIhLCxlA5UjgUrKZYSLlA6hGddHqG3L0cZwMg7NEg8rDQm8LkPl85Q==
+X-Received: by 2002:a67:efc5:: with SMTP id s5mr15310105vsp.65.1568115095837;
+        Tue, 10 Sep 2019 04:31:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:aed2:: with SMTP id me18ls3704543ejb.11.gmail; Tue,
- 10 Sep 2019 03:46:52 -0700 (PDT)
-X-Received: by 2002:a17:906:d29b:: with SMTP id ay27mr23621184ejb.141.1568112412367;
-        Tue, 10 Sep 2019 03:46:52 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568112412; cv=none;
+Received: by 2002:a67:bb04:: with SMTP id m4ls1263466vsn.14.gmail; Tue, 10 Sep
+ 2019 04:31:35 -0700 (PDT)
+X-Received: by 2002:a67:31cb:: with SMTP id x194mr16119695vsx.225.1568115095614;
+        Tue, 10 Sep 2019 04:31:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568115095; cv=none;
         d=google.com; s=arc-20160816;
-        b=m3Kv1z6IqBcoFcSr2TRkh66NayIPpYxF++f8zsz7fYiHG59r+wYlO8idpKdE0A/C2V
-         5X3o2B7hUTPHiEX6sSXoQBfQsbLn5q0n+uvSw66D0aMnPIbWS0bkCuH5gdLYb2dwhKwp
-         Xd3Og6+bgin/dt1byOJx7hrrKFvs/PQRFyDJxI+tv/XFgY3M/YLRrBaEOUPjIdXq+sKm
-         lH2uXFV6VBgQSBMp4C1f5WNBK/xFKhP6ULwQGKlYIMlxoRe68VCgXl4cHQdQj3LTr1DJ
-         WbYGTFfWo/1oBF9Y6FF0E7+4VOCMSx8NwrhTS4pTIC894mTgIEwOHJvcJ9I1qHvOEvnG
-         mZRg==
+        b=ewjU+HKbR4w0Fc9nJpomLPcJ42mVIbNmsfRvXkNAaDwFkbzoFLYZd5U69f9qplJFvu
+         a1jsRix7VQyv8ml0ZLlrO0Gd/rTVo3tzGCJAZdj5S4HT6bNkRyIyOcD0SKCwaHEmc4MX
+         RIKHxWEGwGthiTuMU55K2wlUDmW07GkgacZfdfdls2W84v/QMKuN6jGh1Z3iLkv+UmwZ
+         jEBioGFBr8ve7M7Uc7kLf+eY5IyexTzY7dduJmZSi4dVlhf2L7VTlqXJFYpEs9YMF2J+
+         hXf+sPE2enauFzBp5a53foi/H1i8YpswgEb27t+OP+oIEzIlThM+5noazVe4vV7wslLx
+         tf4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=uyraNbBmmkbMfViHOc096IVYSM7nk5xLDXtsUxDse+U=;
-        b=EBSPvGzmkMxnNt+FtztppNPiA9Osy+KUd9U0nrW5yObQrQBnzIm2IH3NOpfvTa5Q2d
-         XQ7jBPhv1UFyPuLdC+dpcUUbDmSIkpj9xoCPOORb/BdylD8WU9V6XD/QfRcez4JeckZd
-         XC5S2kCdBFknFCp/mxfElWoY97AFm9E04ZeEJriw7j4cjLIgbZvCeG2lfYGqZVN3YHoO
-         JlCywEErzyR63v3g7Stdl4Mu14U+5RLvo7PpFdfPNcSHJoetVhNAgml/Ioqc81AWKmWG
-         CYWZPRSUSc1Y7TPbgWL2k0TsKU6TZsyOihI3mitCF6Ux9FB8hmrj/HQZM8JFFOQhtVnf
-         vtDg==
+        h=user-agent:organization:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date;
+        bh=Cg6PKu7z0CEHLzr4/m1Pjrive2RQuhhTP5gciUE+N0s=;
+        b=A8xWsbC51D3OMhOF43rzjgZvqAAbvJ1gaKDwxmQATrEFDZTKBV6+xiTzJsUq+P+sxS
+         mzM9xzCc85MBn5PGZl9vJLbI96aTF4MpjPT6r/mzR9WGQU9UIGdz8eWiGaZ+/3Q7qSoR
+         kle4nZVbz9POfF745B6iNjMZJolMa0HVB3g3hsXbvkezsCoZhdSef9MtAucbwbjNxrzm
+         nHRS24FRmtcsXo7QAUmZ8so3XWLzoQWKRM2VZIYmVFcH27xSDWaI8jOTLakSaQxXBaK9
+         3qJSsd1S+XkD9NK4xuA8AK0lp0U6EWfkysL3nJ8M+R5IbduEeBDEjfTQ2UbiCcztaGEX
+         Mh3w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@cogentembedded-com.20150623.gappssmtp.com header.s=20150623 header.b=n4LbfsiR;
-       spf=pass (google.com: domain of sergei.shtylyov@cogentembedded.com designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=sergei.shtylyov@cogentembedded.com
-Received: from mail-lj1-x244.google.com (mail-lj1-x244.google.com. [2a00:1450:4864:20::244])
-        by gmr-mx.google.com with ESMTPS id c31si589460edb.0.2019.09.10.03.46.52
+       spf=pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id 136si1113071vkx.4.2019.09.10.04.31.35
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 10 Sep 2019 03:46:52 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sergei.shtylyov@cogentembedded.com designates 2a00:1450:4864:20::244 as permitted sender) client-ip=2a00:1450:4864:20::244;
-Received: by mail-lj1-x244.google.com with SMTP id l20so15928944ljj.3
-        for <clang-built-linux@googlegroups.com>; Tue, 10 Sep 2019 03:46:52 -0700 (PDT)
-X-Received: by 2002:a2e:6c18:: with SMTP id h24mr4979333ljc.227.1568112411723;
-        Tue, 10 Sep 2019 03:46:51 -0700 (PDT)
-Received: from ?IPv6:2a00:1fa0:29f:2049:ec7c:4ff3:ee75:27b0? ([2a00:1fa0:29f:2049:ec7c:4ff3:ee75:27b0])
-        by smtp.gmail.com with ESMTPSA id e29sm3664764ljb.105.2019.09.10.03.46.49
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Sep 2019 03:46:50 -0700 (PDT)
-Subject: Re: [PATCH bpf-next 01/11] samples: bpf: makefile: fix HDR_PROBE
- "echo"
-To: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>, ast@kernel.org,
- daniel@iogearbox.net, yhs@fb.com, davem@davemloft.net,
- jakub.kicinski@netronome.com, hawk@kernel.org, john.fastabend@gmail.com
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- bpf@vger.kernel.org, clang-built-linux@googlegroups.com
-References: <20190910103830.20794-1-ivan.khoronzhuk@linaro.org>
- <20190910103830.20794-2-ivan.khoronzhuk@linaro.org>
-From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
-Message-ID: <55803f7e-a971-d71a-fcc2-76ae1cf813bf@cogentembedded.com>
-Date: Tue, 10 Sep 2019 13:46:48 +0300
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.0
+        Tue, 10 Sep 2019 04:31:35 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Sep 2019 04:31:33 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,489,1559545200"; 
+   d="scan'208";a="196521788"
+Received: from smile.fi.intel.com (HELO smile) ([10.237.68.40])
+  by orsmga002.jf.intel.com with ESMTP; 10 Sep 2019 04:31:31 -0700
+Received: from andy by smile with local (Exim 4.92.1)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1i7eMs-0006Jq-BZ; Tue, 10 Sep 2019 14:31:30 +0300
+Date: Tue, 10 Sep 2019 14:31:30 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Kristian Klausen <kristian@klausen.dk>, kbuild@01.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	kbuild test robot <lkp@intel.com>
+Subject: Re: [dvhart-pdx86:review-andy 57/57]
+ drivers/platform/x86/asus-wmi.c:422:6: warning: logical not is only applied
+ to the left hand side of this comparison
+Message-ID: <20190910113130.GA2680@smile.fi.intel.com>
+References: <201909100442.LLEfPkdR%lkp@intel.com>
+ <20190910035936.GD1778@archlinux-threadripper>
 MIME-Version: 1.0
-In-Reply-To: <20190910103830.20794-2-ivan.khoronzhuk@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: sergei.shtylyov@cogentembedded.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@cogentembedded-com.20150623.gappssmtp.com header.s=20150623
- header.b=n4LbfsiR;       spf=pass (google.com: domain of sergei.shtylyov@cogentembedded.com
- designates 2a00:1450:4864:20::244 as permitted sender) smtp.mailfrom=sergei.shtylyov@cogentembedded.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20190910035936.GD1778@archlinux-threadripper>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: andriy.shevchenko@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of andriy.shevchenko@linux.intel.com
+ designates 192.55.52.136 as permitted sender) smtp.mailfrom=andriy.shevchenko@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,24 +145,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello!
+On Mon, Sep 09, 2019 at 08:59:36PM -0700, Nathan Chancellor wrote:
+> Hi Kristian and Andy,
+> 
+> The 0day team has been doing clang builds for us and this warning came
+> up. Please look into it when you have a chance and let me know if you
+> have any questions.
 
-On 10.09.2019 13:38, Ivan Khoronzhuk wrote:
+> > >> drivers/platform/x86/asus-wmi.c:422:6: warning: logical not is only applied to the left hand side of this comparison [-Wlogical-not-parentheses]
+> >            if (!strcmp(battery->desc->name, "BAT0") == 0)
+> >                ^                                    ~~
+> >    drivers/platform/x86/asus-wmi.c:422:6: note: add parentheses after the '!' to evaluate the comparison first
+> >            if (!strcmp(battery->desc->name, "BAT0") == 0)
+> >                ^
+> >                 (                                       )
+> >    drivers/platform/x86/asus-wmi.c:422:6: note: add parentheses around left hand side expression to silence this warning
+> >            if (!strcmp(battery->desc->name, "BAT0") == 0)
+> >                ^
+> >                (                                   )
+> >    1 warning generated.
 
-> echo should be replaced on echo -e to handle \n correctly, but instead,
+This warning is awful.
+Despite using 0 instead of false.
 
-   s/on/with/?
+> > 
+> > vim +422 drivers/platform/x86/asus-wmi.c
+> > 
+> >    416	
+> >    417	static int asus_wmi_battery_add(struct power_supply *battery)
+> >    418	{
+> >    419		/* The WMI method does not provide a way to specific a battery, so we
+> >    420		 * just assume it is the first battery.
+> >    421		 */
+> >  > 422		if (!strcmp(battery->desc->name, "BAT0") == 0)
+> 
+> Wouldn't it be clearer to write just
+> 
+> if (strcmp(battery->desc->name, "BAT0"))
+> 
+> ?
 
-> replace it on printf as some systems can't handle echo -e.
+Thank you, I will update this, but see above.
 
-    Likewise?
+-- 
+With Best Regards,
+Andy Shevchenko
 
-> Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
-[...]
-
-MBR, Sergei
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/55803f7e-a971-d71a-fcc2-76ae1cf813bf%40cogentembedded.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190910113130.GA2680%40smile.fi.intel.com.
