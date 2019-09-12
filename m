@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBX6A5LVQKGQESD53C7Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBEGD5LVQKGQESGORIEY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63a.google.com (mail-pl1-x63a.google.com [IPv6:2607:f8b0:4864:20::63a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 79BCFB14DD
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 21:45:37 +0200 (CEST)
-Received: by mail-pl1-x63a.google.com with SMTP id w13sf10918759plq.21
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 12:45:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568317536; cv=pass;
+Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A269B14EB
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 21:50:43 +0200 (CEST)
+Received: by mail-qk1-x73f.google.com with SMTP id c7sf24696766qkc.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 12:50:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568317842; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y3wWCzvzxDnv4JkQ6UkKhKKsoNB7xI8P22UlQtuosLI5HL4o5qh/SfgtAQAFmOVvS8
-         DkD+MTQOdJlo0HmU0lz4se2BkSbMsDZ+CQF7kHN0SOo6N4FNyBv9sy3Jvh6qu5o2BAZC
-         fXR8IFFhbqpW284UUO54BdDgIH7A7xe7ykePa6A702XseqG7/Gb3OHKs8vGkciqyFOxP
-         R0ASJTVesVbQZ5NRnE0tHYQ3JAUQu9ZuBrqOTj2p4DwVKQe5bM4QD2ZH0Ydx9QSU0zOs
-         fhpjFXJwTRJNO3p2QBZAQ+O98Sk6p/RDPlyubcFh+ZjEpaoPNXT9IUdB3pqzmgUMFVqp
-         ljdg==
+        b=hVsW1euN/gOpDL3sFSZ6QA4b6q7STGcS3HGzfJ0zhdJTK895Z3evOVq5TasbNZEaM/
+         fXoVjs1YfKVQcrUvazB/VvRG1Y7Ab9eNsR8sGPupTvMcpXpiGk5Hvz4RtD7377D7cVT8
+         qrZI/eFzpmTJnYcf/2pjuw1XyJfqmcrm9oX3aAvmS+LUsuOxSuBVGLLbjs5vYTi6rbqB
+         nqjx6bzXWVJb4uvbnDJaWUFAjw5NlsX/ADrd7IhzbmiuS9g+i2N0dm6BfajVyGWuD0ms
+         JPExiGQz73rJISvMHRROo+IDoYm+TiDOn3+S7RCTOduwFIDcUq9YI/EdqIvSfZ9KSNxP
+         aRvg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=jZrJdcnw6UewrUybHgmZDTN+o5mpfQywIWqyBb13ZFo=;
-        b=AD5BLMKvtg8LD2fcMxsyknnyiJHkyFo4BjPL867oxQNlTFGI5YM98nEo+ACerLWrPo
-         ZTLpbb4XZTV3Ivgiu4UJoAeW7QGVI9C2IM7h/VQqDN1IYRtZLvD1+ET0a9Lnt9V3OxVW
-         9KAW/Y2m2ueMv/Pt8c5KSXb44ezyeWeDhzsgvd8UN7EtxIO3wk60qRg5BYTBmERe79mo
-         TUpQtnei2Sgl/JHXaVbB0RUzhUtkHyFCPDyaKd1G5jLjuiYFHFt6Jg08I0YbqZha8fyL
-         1sH8osC7jR2kuTLpGoyhWjAOL4HsXuUmH9xDi4xOgCc6v+o/FBYwGCsbWLPa++E48jJ9
-         FDiw==
+        bh=8n5/RarkwVusn2qILmJAeqkuBIktJtk0WuxPc8HfE9M=;
+        b=UwGeuvGfm0VDlA4gbrtNMIbLVfylw/NZh9EXBPkAcx39wxxkXe5ijILQzttUBjxXqp
+         TJYLM8UsVRWgiqU/s4kRRtYr6bJQamMjw245/Ccc7/FXySxWima+I1/ACqId0gY1ay/l
+         UxDKM1SHVADHWXRGIuEyiY7Avhz/Pa4AGHUiktblwh37QwEi7t9tKtVvL3pkJlBKN0VD
+         bL1tFGbIIHrF3xTLGb0t4M0WLDV3P52mIh5n08zWqlz+HKFc343vZGlZkbGdyeVOwFpS
+         t86cPc5CNp5HkEd3A0frULNBgX3c3Rahx+1KgXRtAY/rKsD9MLG4BXXPqdO2lIRby9Ch
+         M7hA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=jZrJdcnw6UewrUybHgmZDTN+o5mpfQywIWqyBb13ZFo=;
-        b=fY1ZD7NWlyf2FyTETkQ7/DD2/MGeCgwLztqcGrXfuiRBP+QKV6fa2nyzqCcd7+M1qc
-         M4wRTXfev0fRpixJiIq3Cf5abrvKF5kt9gecYFdbgWTA1mwxJgapLclFkStRWxohlkl1
-         A2z62TY9pEx8BTzZzDIf8MJT6nLkDrY10V+5Yl4FjBbZEil3mvYUvxlbQQoVrVXts6y5
-         luNTVaxE3OQVMARJJc/BWprZOfVjWRYaphLFf40kGKTQHMk4xMofsRTKJYX5kPSFJSHq
-         dh9caXagm/rt1jRYUpqd7aVVir3OMdPg7yQFCOT7mLFPJtDuiiPLE+KJmy5v14f6Y3Yw
-         nodw==
+        bh=8n5/RarkwVusn2qILmJAeqkuBIktJtk0WuxPc8HfE9M=;
+        b=HoMftpq10qE2w47WzWk1V6CE9k9LgSE7U9TgWEQ33BuDi2zg0ZBKyUAUGGIRmbsFu/
+         8v/+ouyp2eyF6EKbgXBF3W5CiBf+kbvAqC9RvzBgxz1/+7/OwsTT92GzBiaz0j+hwHw+
+         t29VXINfZMRFL9nDDbpYh8phg9+HUbcAQyJQNOFHrDhYwzDPDa/eiptqqSc321mr41wr
+         QaWO44wdTwCNRH0XCar9Y0XyDMz9oK5kFqTM6v+/Zbgu5+uCAhaJaywFZNiKkR/mxZfj
+         kfOAxOlOKKt3r5XCnZCCTaVbCmlGzV8ksO1K9MaNwe306kqkiXCXIp5v1Cti3d4ULBiy
+         DvpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jZrJdcnw6UewrUybHgmZDTN+o5mpfQywIWqyBb13ZFo=;
-        b=GBpxMyucwp9o1Ezi60YJV0tq66OknyJ8kDSOn/JPhwQP1H69mqrnkL1M1EQvn690Sq
-         CgpDhDQ+rLK40u9laNkAiVMOlVQ1wF6/TLMNvkrFC8YS5en+7ZoTCTxSNzV3/x9xbyWF
-         G9x2CfXrJhSQC+wLMcojuavFY00y4wmi9zjFngw9MCFxbHNOizYRU3SKwnbCiX7OQiqf
-         6dOT0pgzHpmd/fOxeB7dCaihtK4eDs8LQMp+IclNsZHXypQz0T4Ucre4E9dq1tN2ZAzK
-         qrXz5mw5bIOhr3sOXgSSBjmiXeh33q3ke3V2NfsGu625r6rU7q6knIKHoPyjOI9lgSqw
-         tkXg==
+        bh=8n5/RarkwVusn2qILmJAeqkuBIktJtk0WuxPc8HfE9M=;
+        b=Aqsi+L16j4FcJFuB2Y0VLfiq7VpgNy/Bb/x5vr8QYQXuksHFHjyqccB2tj1H0qWXDC
+         7jqB0MsKbKZ0ytO2syadb9p8PwWNhW6CJ/2ZmelEWDcHBxT3a1CuD9AQeum9YiQx2WHB
+         W1zgTOxHtamNrKj0ZtnnQ/KHEelGFU3Epl1dujKP8qbjCO+69ScY2WZQcd3MHCO1MXE1
+         W/8Vx0x2lrfOW+Wc1EN03ey6AbvBcAtyC6tA9a9HXFdd62LfD1CKcFS30SfvXpbXGSS8
+         0qNJTPH4eOeyvOIe/eFet1u/mGS3cg0UkYsGvZDgVIiVfQlk6BATOR4Ze2PNfEpTBj4e
+         GaQA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVcgi6xm9BQEGZ7ADrCQOzUe2N+RO2Rg3vbHyELejElV9MIU1KM
-	4/ObkYVueSjGUoO1RWtWdSY=
-X-Google-Smtp-Source: APXvYqyqff46PyUfA7WSdeqIrPHSSOMTXnfkGoXrItMB/BTCDm78C292hkNlqaKHz73AOz2Q9rkSZA==
-X-Received: by 2002:aa7:8bcc:: with SMTP id s12mr51205613pfd.93.1568317535763;
-        Thu, 12 Sep 2019 12:45:35 -0700 (PDT)
+X-Gm-Message-State: APjAAAW5nRwQs4N/+Y+4wKBYSDCLg4cTVuD7RriLwYg9776IaeO4IEHT
+	em3OHZI9pQGR5oBN2HHb9jg=
+X-Google-Smtp-Source: APXvYqwm/Sj8cr6rbOAiNb72JDVJc6JDXb7mj1C7sIsZco40gFgk9A+r1Hjlat0sG0qx9NGo7XmRmg==
+X-Received: by 2002:a37:9202:: with SMTP id u2mr4656863qkd.8.1568317840827;
+        Thu, 12 Sep 2019 12:50:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:d80c:: with SMTP id a12ls4908320plz.15.gmail; Thu,
- 12 Sep 2019 12:45:35 -0700 (PDT)
-X-Received: by 2002:a17:90a:e57:: with SMTP id p23mr400330pja.126.1568317535291;
-        Thu, 12 Sep 2019 12:45:35 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568317535; cv=none;
+Received: by 2002:a37:8741:: with SMTP id j62ls67568qkd.6.gmail; Thu, 12 Sep
+ 2019 12:50:40 -0700 (PDT)
+X-Received: by 2002:a37:8204:: with SMTP id e4mr42250315qkd.281.1568317840545;
+        Thu, 12 Sep 2019 12:50:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568317840; cv=none;
         d=google.com; s=arc-20160816;
-        b=KMjLcwEQutX1rYu4H4VUNqBz4ygis2ftzEedxkHKrP9FK/AihokqQg+GHUGECQNpKB
-         z+kuvrMXyC3B7mLvoDSMp49b779FJBFLJEZQ5icNyoTHwPH3D4Vc1WK47SZBVia6TBGI
-         jsWgpaYVHATe0yGyc88Tgc3KOT63fQ+apNcba+4d1fTw387S5h2Pp7Vd3qKaiUe1JsGN
-         gYq2WdJcw+mizmLhI2tWMw6gS48A3gGN3qFstiAfgN55imeeQ+eqgs1G1+rRtXmdJXkL
-         pnzTk3ZW/RNVo2zMjur0WDQr4pccsPIZLdIEsjsfRPjDf08oIRPgy0vMFuHkVz58Punj
-         OhTA==
+        b=rJgm9QWbmCh0Urn0MYxAegqdPtDjWbFn5UXkcm1l/M5rNR5ilZkdR5BaO+a6TgXXLa
+         1Ct8vd1VsfCdJFTiJ5XRQI9RrP827oCo2b2qVdQl1dKdjpdf9+H6ZCaMC2qdvoRXb4mU
+         g4qFDpwUuleutcNuIk+Q33xjF18cKEmEckMHOLuRMaEHNxwOdRC1EIhRsvrgfEIDVYgh
+         jNJHKgkjqN24R+ryo4qYb6Cx7RjwbPcxaTmF0MDLKB36uRGNab3Gb+dAP7iimcHLyUtf
+         yVJbzLADWMUbIwTzendm9xHROmXf/tq9dO2ASwdpJgnYjvgdziMG+MBZ41MyMhc/rcI5
+         21pQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=X8AdRXjE0p01ZAls9IbqJdR8oIM7V5QFbP8+SYUrwP0=;
-        b=lKRWm8KFOtjG+fmN0JfKsVoR3TboBe91soNZleUqMyezMhhSLFvyQWRrcVxP2nW+Zx
-         2NdzRy3+EV1TurqD6XUrLzMsUTNHi0mrfzsd+QlqndqreYXnHrfzrLawtqYd+VjQLhOm
-         gqtRHogewx5d4+ukYAqRPCzSQh0Abr8eAmb6fYIn6HtmiDa/mHcDmQsW6+n4yoZ14sbq
-         7xZo5e4nukmZVOGgDo0/K09tisclMB66dImaOV2+vCyaGXPVN+EqDBy1+skFZAVF6L5Y
-         nHy7JEW+X1dGwTDYYEzcPHykLXEqiedlEykKS+doAEZoosW02gnS5FEaDyrhqWyzUMtp
-         Gq1w==
+        bh=jpklTaF/bQgCTJ7tPHXYIjdF3f4d+rutmgqz/VAYZc8=;
+        b=uTK5CX1hLl9LjzZPW1YT1RB/566Id1fVcYJdnP7TV515f9CM0LLSHDAEaiMP3FtTCH
+         zkAX1Jgy+mHD+vXKwk25ooWQeOUUl3rpYWed0F5cO6F5IOq0DnOgZV7LOAT8DzRJ0n8s
+         GVQfSUDOWYTDuSboDVn4njlDFoXeU5tRxlhBRFuSaL1FnQw/BDEgLVuuuZPp8z5JhoAO
+         qI4R9BQLOH/TBJAfNGYaZqRRHSzsTms/fYSZ+K+GPPmljtn1TVl4StfvhRhurDMRAVar
+         rwXBtSGg+pJWX70tWuwryDjFxyEKD0p6LgNT0IO1qkSzeIiOShDJLK9uIIFcVfXiPri9
+         WnwQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id y8si579803pfg.2.2019.09.12.12.45.35
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id x8si803563qkn.2.2019.09.12.12.50.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 12 Sep 2019 12:45:35 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
-X-Amp-Result: UNSCANNABLE
+        Thu, 12 Sep 2019 12:50:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Sep 2019 12:45:34 -0700
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Sep 2019 12:50:38 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,492,1559545200"; 
-   d="gz'50?scan'50,208,50";a="179464479"
+X-IronPort-AV: E=Sophos;i="5.64,498,1559545200"; 
+   d="gz'50?scan'50,208,50";a="210135598"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 12 Sep 2019 12:45:33 -0700
+  by fmsmga004.fm.intel.com with ESMTP; 12 Sep 2019 12:50:37 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i8V25-000D4i-3g; Fri, 13 Sep 2019 03:45:33 +0800
-Date: Fri, 13 Sep 2019 03:44:44 +0800
+	id 1i8V6z-00018L-00; Fri, 13 Sep 2019 03:50:36 +0800
+Date: Fri, 13 Sep 2019 03:50:02 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [p2pmem:xcopy-v0.1 1/2] fs/splice.c:1218:15: error: implicit
- declaration of function 'disk_to_dev'
-Message-ID: <201909130338.uQAWcjT7%lkp@intel.com>
+Subject: [p2pmem:xcopy-v0.1 2/2] fs/splice.c:1202:17: warning: incompatible
+ integer to pointer conversion initializing 'struct device *' with an
+ expression of type 'int'
+Message-ID: <201909130300.V4khIqo8%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="hvxsq5ihvoq4phba"
+Content-Type: multipart/mixed; boundary="iyt6y4xfnxqfwuy4"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,229 +139,64 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---hvxsq5ihvoq4phba
+--iyt6y4xfnxqfwuy4
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-TO: Stephen Bates <sbates@raithlin.com>
+TO: Chaitanya Kulkarni <chaitanya.kulkarni@wdc.com>
+CC: Stephen Bates <sbates@raithlin.com>
 
 tree:   https://github.com/sbates130272/linux-p2pmem.git xcopy-v0.1
 head:   10a2c6658d7087a222b072aff306f545aef2cf53
-commit: b40a5fbff9bbcfc0b786cecb35c53becf6605a44 [1/2] xcopy v0.1: A smoke-test for a p2pdma based xcopy()
+commit: 10a2c6658d7087a222b072aff306f545aef2cf53 [2/2] xcopy v0.1: code cleanup and fixes
 config: x86_64-allnoconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        git checkout b40a5fbff9bbcfc0b786cecb35c53becf6605a44
+        git checkout 10a2c6658d7087a222b072aff306f545aef2cf53
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All error/warnings (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> fs/splice.c:1218:15: error: implicit declaration of function 'disk_to_dev' [-Werror,-Wimplicit-function-declaration]
-           clients[0] = disk_to_dev(in->f_inode->i_sb->s_bdev->bd_disk);
-                        ^
->> fs/splice.c:1218:13: warning: incompatible integer to pointer conversion assigning to 'struct device *' from 'int' [-Wint-conversion]
-           clients[0] = disk_to_dev(in->f_inode->i_sb->s_bdev->bd_disk);
-                      ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   fs/splice.c:1219:13: warning: incompatible integer to pointer conversion assigning to 'struct device *' from 'int' [-Wint-conversion]
-           clients[1] = disk_to_dev(out->f_inode->i_sb->s_bdev->bd_disk);
-                      ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->> fs/splice.c:1222:7: error: implicit declaration of function 'blk_queue_pci_p2pdma' [-Werror,-Wimplicit-function-declaration]
-           if (!blk_queue_pci_p2pdma(in->f_inode->i_sb->s_bdev->bd_queue)) {
+   fs/splice.c:1202:21: error: implicit declaration of function 'disk_to_dev' [-Werror,-Wimplicit-function-declaration]
+           struct device *d = disk_to_dev(f->f_inode->i_sb->s_bdev->bd_disk);
+                              ^
+>> fs/splice.c:1202:17: warning: incompatible integer to pointer conversion initializing 'struct device *' with an expression of type 'int' [-Wint-conversion]
+           struct device *d = disk_to_dev(f->f_inode->i_sb->s_bdev->bd_disk);
+                          ^   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/splice.c:1204:7: error: implicit declaration of function 'blk_queue_pci_p2pdma' [-Werror,-Wimplicit-function-declaration]
+           if (!blk_queue_pci_p2pdma(f->f_inode->i_sb->s_bdev->bd_queue)) {
                 ^
-   2 warnings and 2 errors generated.
+   fs/splice.c:1223:25: error: implicit declaration of function 'disk_to_dev' [-Werror,-Wimplicit-function-declaration]
+           clients[P2P_DMA_SRC] = disk_to_dev(in->f_inode->i_sb->s_bdev->bd_disk);
+                                  ^
+   fs/splice.c:1223:23: warning: incompatible integer to pointer conversion assigning to 'struct device *' from 'int' [-Wint-conversion]
+           clients[P2P_DMA_SRC] = disk_to_dev(in->f_inode->i_sb->s_bdev->bd_disk);
+                                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/splice.c:1224:23: warning: incompatible integer to pointer conversion assigning to 'struct device *' from 'int' [-Wint-conversion]
+           clients[P2P_DMA_DST] = disk_to_dev(out->f_inode->i_sb->s_bdev->bd_disk);
+                                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   3 warnings and 3 errors generated.
 
-vim +/disk_to_dev +1218 fs/splice.c
+vim +1202 fs/splice.c
 
-  1090	
-  1091	static int splice_pipe_to_pipe(struct pipe_inode_info *ipipe,
-  1092				       struct pipe_inode_info *opipe,
-  1093				       size_t len, unsigned int flags);
-  1094	
-  1095	/*
-  1096	 * Determine where to splice to/from.
-  1097	 */
-  1098	static long do_splice(struct file *in, loff_t __user *off_in,
-  1099			      struct file *out, loff_t __user *off_out,
-  1100			      size_t len, unsigned int flags)
-  1101	{
-  1102		struct pipe_inode_info *ipipe;
-  1103		struct pipe_inode_info *opipe;
-  1104		loff_t offset;
-  1105		long ret;
-  1106	
-  1107		ipipe = get_pipe_info(in);
-  1108		opipe = get_pipe_info(out);
-  1109	
-  1110		if (ipipe && opipe) {
-  1111			if (off_in || off_out)
-  1112				return -ESPIPE;
-  1113	
-  1114			if (!(in->f_mode & FMODE_READ))
-  1115				return -EBADF;
-  1116	
-  1117			if (!(out->f_mode & FMODE_WRITE))
-  1118				return -EBADF;
-  1119	
-  1120			/* Splicing to self would be fun, but... */
-  1121			if (ipipe == opipe)
-  1122				return -EINVAL;
-  1123	
-  1124			if ((in->f_flags | out->f_flags) & O_NONBLOCK)
-  1125				flags |= SPLICE_F_NONBLOCK;
-  1126	
-  1127			return splice_pipe_to_pipe(ipipe, opipe, len, flags);
-  1128		}
-  1129	
-  1130		if (ipipe) {
-  1131			if (off_in)
-  1132				return -ESPIPE;
-  1133			if (off_out) {
-  1134				if (!(out->f_mode & FMODE_PWRITE))
-  1135					return -EINVAL;
-  1136				if (copy_from_user(&offset, off_out, sizeof(loff_t)))
-  1137					return -EFAULT;
-  1138			} else {
-  1139				offset = out->f_pos;
-  1140			}
-  1141	
-  1142			if (unlikely(!(out->f_mode & FMODE_WRITE)))
-  1143				return -EBADF;
-  1144	
-  1145			if (unlikely(out->f_flags & O_APPEND))
-  1146				return -EINVAL;
-  1147	
-  1148			ret = rw_verify_area(WRITE, out, &offset, len);
-  1149			if (unlikely(ret < 0))
-  1150				return ret;
-  1151	
-  1152			if (in->f_flags & O_NONBLOCK)
-  1153				flags |= SPLICE_F_NONBLOCK;
-  1154	
-  1155			file_start_write(out);
-  1156			ret = do_splice_from(ipipe, out, &offset, len, flags);
-  1157			file_end_write(out);
-  1158	
-  1159			if (!off_out)
-  1160				out->f_pos = offset;
-  1161			else if (copy_to_user(off_out, &offset, sizeof(loff_t)))
-  1162				ret = -EFAULT;
-  1163	
-  1164			return ret;
-  1165		}
-  1166	
-  1167		if (opipe) {
-  1168			if (off_out)
-  1169				return -ESPIPE;
-  1170			if (off_in) {
-  1171				if (!(in->f_mode & FMODE_PREAD))
-  1172					return -EINVAL;
-  1173				if (copy_from_user(&offset, off_in, sizeof(loff_t)))
-  1174					return -EFAULT;
-  1175			} else {
-  1176				offset = in->f_pos;
-  1177			}
-  1178	
-  1179			if (out->f_flags & O_NONBLOCK)
-  1180				flags |= SPLICE_F_NONBLOCK;
-  1181	
-  1182			pipe_lock(opipe);
-  1183			ret = wait_for_space(opipe, flags);
-  1184			if (!ret)
-  1185				ret = do_splice_to(in, &offset, opipe, len, flags);
-  1186			pipe_unlock(opipe);
-  1187			if (ret > 0)
-  1188				wakeup_pipe_readers(opipe);
-  1189			if (!off_in)
-  1190				in->f_pos = offset;
-  1191			else if (copy_to_user(off_in, &offset, sizeof(loff_t)))
-  1192				ret = -EFAULT;
-  1193	
-  1194			return ret;
-  1195		}
-  1196	
-  1197		return -EINVAL;
-  1198	}
-  1199	static long do_p2pdma_splice(struct file *in, loff_t __user *off_in,
-  1200				     struct file *out, loff_t __user *off_out,
-  1201				     size_t len, unsigned int flags)
-  1202	{
-  1203		struct device *clients[2];
-  1204		struct pci_dev *p2p_dev;
-  1205		int ret;
-  1206		struct kiocb kiocb;
-  1207		struct iov_iter iov_iter;
-  1208		struct bio_vec bvec;
-  1209		struct page *page;
-  1210		void *addr;
-  1211		pci_bus_addr_t paddr;
-  1212	
-  1213		/* make sure files are flagged O_DIRECT */
-  1214		if (!(io_is_direct(in) && io_is_direct(out)))
-  1215			return -EIO;
-  1216	
-  1217		/* get the struct device for each file's device */
-> 1218		clients[0] = disk_to_dev(in->f_inode->i_sb->s_bdev->bd_disk);
-  1219		clients[1] = disk_to_dev(out->f_inode->i_sb->s_bdev->bd_disk);
-  1220	
-  1221		/* ensure read and write drivers can support p2p queue requests */
-> 1222		if (!blk_queue_pci_p2pdma(in->f_inode->i_sb->s_bdev->bd_queue)) {
-  1223			pr_err("peer-to-peer DMA is not supported by the driver of %s\n",
-  1224			       dev_name(clients[0]));
-  1225			return -EINVAL;
-  1226		}
-  1227		if (!blk_queue_pci_p2pdma(out->f_inode->i_sb->s_bdev->bd_queue)) {
-  1228			pr_err("peer-to-peer DMA is not supported by the driver of %s\n",
-  1229			       dev_name(clients[1]));
-  1230			return -EINVAL;
-  1231		}
-  1232	
-  1233		/* determine p2p path and contributer for the copy */
-  1234		p2p_dev = pci_p2pmem_find_many(clients, ARRAY_SIZE(clients));
-  1235		if (!p2p_dev) {
-  1236			pr_err("no peer-to-peer memory is available (%s and %s)\n",
-  1237			       dev_name(clients[0]), dev_name(clients[1]));
-  1238			return -ENOMEM;
-  1239		}
-  1240	
-  1241		pr_info("using p2pmem on %s for xcopy between %s and %s\n",
-  1242			pci_name(p2p_dev), dev_name(clients[0]), dev_name(clients[1]));
-  1243	
-  1244		/* now do a xcopy! */
-  1245		init_sync_kiocb(&kiocb, in);
-  1246		addr = pci_alloc_p2pmem(p2p_dev, PAGE_SIZE);
-  1247		if (!addr)
-  1248			return -ENOMEM;
-  1249		page = virt_to_page(addr);
-  1250	
-  1251		bvec.bv_page = page;
-  1252		bvec.bv_len = PAGE_SIZE;
-  1253		bvec.bv_offset = 0;
-  1254	
-  1255		iov_iter_bvec(&iov_iter, READ, &bvec, 1, PAGE_SIZE);
-  1256		ret = in->f_op->read_iter(&kiocb, &iov_iter);
-  1257		if (ret != PAGE_SIZE)
-  1258			return -EIO;
-  1259		paddr = pci_p2pmem_virt_to_bus(p2p_dev, addr);
-  1260		pr_info("read %d bytes using %px %pad\n", ret, addr, &paddr);
-  1261	
-  1262		init_sync_kiocb(&kiocb, out);
-  1263		iov_iter_bvec(&iov_iter, WRITE, &bvec, 1, PAGE_SIZE);
-  1264		ret = out->f_op->write_iter(&kiocb, &iov_iter);
-  1265		if (ret != PAGE_SIZE)
-  1266			return -EIO;
-  1267		paddr = pci_p2pmem_virt_to_bus(p2p_dev, addr);
-  1268		paddr = pci_p2pmem_virt_to_bus(p2p_dev, addr);
-  1269		pr_info("wrote %d bytes using %px %pad\n", ret, addr, &paddr);
-  1270	
-  1271		pci_free_p2pmem(p2p_dev, addr, PAGE_SIZE);
-  1272	
-  1273		return 0;
-  1274	
+  1199	
+  1200	static inline bool __splice_pci_p2pdma_supported(struct file *f)
+  1201	{
+> 1202		struct device *d = disk_to_dev(f->f_inode->i_sb->s_bdev->bd_disk);
+  1203	
+  1204		if (!blk_queue_pci_p2pdma(f->f_inode->i_sb->s_bdev->bd_queue)) {
+  1205			pr_err("peer-to-peer DMA is not supported by the driver of %s\n",
+  1206			       dev_name(d));
+  1207			return false;
+  1208		}
+  1209		return true;
+  1210	}
+  1211	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -368,14 +205,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909130338.uQAWcjT7%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909130300.V4khIqo8%25lkp%40intel.com.
 
---hvxsq5ihvoq4phba
+--iyt6y4xfnxqfwuy4
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICNufel0AAy5jb25maWcAlFxbc9vGkn7Pr0AlVVv2g23drMhnSw9DYEBMiJsxA170gqJJ
+H4sICOCgel0AAy5jb25maWcAlFxbc9vGkn7Pr0AlVVv2g23drMhnSw9DYEBMiJsxA170gqJJ
 yOZGIrUkldj/frsHADEAemhvzklsTffce7q/vkB//PaHw16Pu+flcbNaPj39cL6W23K/PJZr
 53HzVP634yVOnCiHe0K9B+Zws339/uH73W1xe+N8fH/9/uLdfvWnMyn32/LJcXfbx83XV+i/
 2W1/++M3+P8f0Pj8AkPt/+Osnpbbr84/5f4AZOfy4j38z3nzdXP8z4cP8N/nzX6/2394evrn
@@ -511,4 +348,4 @@ phqSgJ5seQ6oU9gsZ95iGf6OVVztBKsXPdU1sHKw1FcbNWDlogm/hfz/3GPwOZUcnBHBPzBB
 Up/keVoKAy4tSQt1ffXlsyeo5RgEudzeo52JKua9j6wzVSWRPRR6PxxEsTyep2f2mqzK4nrh
 J7p+XdylBfwzF50Pvcizn58XwOxdQf6SP9AIdkP+AyUSN2RDaAAA
 
---hvxsq5ihvoq4phba--
+--iyt6y4xfnxqfwuy4--
