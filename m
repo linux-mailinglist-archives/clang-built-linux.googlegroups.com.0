@@ -1,127 +1,129 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBG7R5LVQKGQE52ACHHY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBWXR5LVQKGQEQ7BO2KQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1F54AB15D5
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 23:29:02 +0200 (CEST)
-Received: by mail-pl1-x639.google.com with SMTP id b23sf14930828pls.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 14:29:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568323740; cv=pass;
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id E46F2B15D7
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 23:30:03 +0200 (CEST)
+Received: by mail-qk1-x73e.google.com with SMTP id f25sf25853069qkm.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 14:30:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568323802; cv=pass;
         d=google.com; s=arc-20160816;
-        b=sKZfJIEVWBLAccy2KIqja0EWE1eP9MbKxp1X1ZAcH1mJvoEDRn4JPY2Qdel7cnACGR
-         NMjd4Wve369Q8NHUhtsWs2xkKZjM5G+uOJaLlb76ax2E1JW4eNrn0PwP3uW11DIaTBGS
-         yAxT05GctS1SXIs2yRkWX+Ra0+quhJHDDed69ejwjlMzFiUo4yAKbmaboNoJTZNX5575
-         1/viZvKnqAGqFERp893wojrTOtkrKsRdrPejnZmLgct53XJT5hW2O5HzncvmfpMqPYjF
-         E8GeaaVQkGdsoneSPM6swIwtpDlhNUzIL//IfZBJiTNteTadPpPIDOvAw6ed8nwfiD9V
-         LO6w==
+        b=pi5YV5mJipKoMZNgnZLctkyCl0n+M2TVo2+FzuDqsznyNrBBxUld+9uLcrtvwTwtHh
+         UIuer8vpvsTIehu16S3birAVfMQzpTcdCRFdJrGsm/8E/mgkhL53+16vy5Kwx310GhE8
+         ulGvCrPzAMPs7/NUjb591uGMHd/o/ktm0PEdXpqTgO5g76qGxIZg3iQhBKkr99YsMWw0
+         5YfncXIv+skS5I6DVYxN24X1o+NF/PU4OZmkiWz0+Gbiph8gOuNOul9phqHbaCcL9+ej
+         Kdtwmcc4MRxJl9B79OBpFYG3sePB5UUA1yybLO4niOaUn0I6gbA/iQIqUquvcdIZoHOH
+         PJOg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=ji+U4y9/bgbXwNByv39Lef6G5JkMHvb/x0zZ4l9WCIk=;
-        b=Vdioq9y7nSsGiIfPMaeIpx4xCufenxVGaklsrarcSNbGtgb+6HdzWmwY9aHG5fQdKT
-         IGt2nrZhooANq8JCl+XlgQ4ARoUNRxPJMDZhzjch6cpY8D8/vdy+qDDwgCuwsAcTzHeG
-         lxIAxEpvAMXdZ6PSWvlyXtQJ2h6bxHGKoB2jRoedgKTiFcMyLnn13wH+YnfbBgS1JSGh
-         1UsJL2MiQ+WayXHwg3T9oNBAVYblbcDTiZc2lGGdjnpKlkMkENzDqK5LOwHJqQw5A1i3
-         Z/8466028EYjQI7FAIiMFwL61oLxcMcFLx9RHdkHzKbgpWM4d9tn3LB3toUgzmPoLelQ
-         plvQ==
+         :list-id:mailing-list:precedence:user-agent
+         :content-transfer-encoding:content-disposition:mime-version
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=m2w5qAtKgjLkOaWhueFXCc4MRTZ70P/1qeY8tSPvUAY=;
+        b=Novcb1eEtsoM6iSXznLsRcqLcv5vnr2xdi+NgDXuL6flA6rxjyKvuEZthmnSRe0Yuq
+         +8wxq7rosc12OS8WmbCk4aljeSAsEfC9Vi2YWXPCQ1W0FPS+hk2EGE4TjESx5yK//ER1
+         Rycre69aIGMIQk9buQqTKI1int53ZGY0STaMde8AU+MYt1W1f6mRSR+BEXv1tIA/fasi
+         i0gL0Nw07ycBL+Fx3oxMVH1NQPghAsd+vvOEfXHrwMKKchjwADTEZwMFfLf+r1d2chjf
+         xvgG7XVXIYYOfDF3p56hC8oB+00q4SWxpIcSiZt82INot9FbgvzXHufn/WqqVWW8rXp4
+         BQHA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ji+U4y9/bgbXwNByv39Lef6G5JkMHvb/x0zZ4l9WCIk=;
-        b=pAnWB00mdFfxjXfa4s6GmpmcA5pI67XLxgM5OoEHMAObTQ9cDpMB98/0ZYaXQgRw9C
-         fpkfsvxcbVBxJxs6mVYbp/YYsxp4K2DJeeI+F/3aiVH/XbhTdPLnilWYDyKZhia/2IBN
-         2tmSZLPclGtP0/V5oDZ/RMkIUJ0ce5TkMGE12K42AJwLsIoos0lPp9AMFgq0vmGV3DQc
-         AsoHigkXZlF+440EQnPWpOOh9jeqT2laENoF9wTQv+PExmSn9peN9OcxZfNvJxhTt3ce
-         W66fDipX4NueTVEgJwjMOaXJQ17sNo2CW7AIKCAuYm0l6By1DMO+wZa7PfFuzHGVWc/f
-         iLaA==
+         :content-disposition:content-transfer-encoding:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=m2w5qAtKgjLkOaWhueFXCc4MRTZ70P/1qeY8tSPvUAY=;
+        b=nQYbIQadCdZIX6++a4qh36vMFbN2+WCMVrbV+XLa/VK8CNsj6p1V2ECTl3uDFc5Tcr
+         T4wxucY2yUUO4P+NcRhIfGZWoGI/MaoV3thHG2DHMUyUzUykN8NOUEOTY3ejL5P6jwfQ
+         un/y2h/hRV8zr8nz11QoRc/T8LbKAVP/2Ji41+51hR36Xqbs23GS0zty5ToR8zSWmIEa
+         j6scf4ioOYt9jdcZe/UpeAVthDSdDcMuoTCWRhZUPQrEnrp/D9Z6DFc/eueDQAzUVZYR
+         BIWaWONji0ztJ2wcQ2zm/fxyeiAIheeZsO69+LgjDuJvT7KS3LAKecfYy69PTq4qwfT/
+         ZqcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ji+U4y9/bgbXwNByv39Lef6G5JkMHvb/x0zZ4l9WCIk=;
-        b=DCVnuUaGpDMDtP75V1qq/f1f7nyHe4tkbGr7IiWJ44he8gB6219NJyrl5eGkyWJMIO
-         B5QEVacQEsjpgsk23z/0/BQbc72zXM8IqlLW0lttyeV0mGXB5PWZDffAWshNgZ4rwkj/
-         LXc3jgjuFxpWzYKkOibLfy78Uet3fx9sCU4JOKKZ0yaSP5YqnQh825DGayxPXFx6BEAR
-         J28QmbKwAAylPLhb8s6PXxN0+t/fxR1qyDBmHtRPCe7JKJt4KMVRhMJYUO6OFs86qJh/
-         VHj/leKWbf1Ow+QpOfPmb6GU8RaQEhIv4J6/qbwFr0ttPADyvNOXxjaoW8Q03JRznJ8b
-         bTig==
+         :mime-version:content-disposition:content-transfer-encoding
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=m2w5qAtKgjLkOaWhueFXCc4MRTZ70P/1qeY8tSPvUAY=;
+        b=umrAu/TMU1VuBPl1+thJMNeiZmboT6TNTqh3oCzc3+P2B4iWTiG344uTtThHmjQxsN
+         s0nBYfkDA70Ht2UKxXAPWVwbE35Cbk9W9TTsWEcobmS+GYVZUGEkWxVghQEwrbgt2wpH
+         vbd4r5ZQ+IeEwdSz81DxsCqrdRfLnLcJgXumW5sqUr78KC69CEqMXfqoeNcn4hCbWXZD
+         iqoFvStOoiL9C2/8gQeEhbl3GRz+0LrD5TV8TtfIj0YbZojaWVauo5u82zBM60N975It
+         9npb8d6Mw3lvrtayCB4f4K7X58CQ76BrIq2jzsZS1qMkN7SP9xA1MOGR4gu7AkLxFC9S
+         2dhA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWY7w+FfYdxigQZkcPGmb220eFfMG6A883UDs/468VDO4yhnrMo
-	lGnolSqrvXhFMn+E0wzuLpA=
-X-Google-Smtp-Source: APXvYqyI8Q8f0pzHXh0WyBI+PqDFPYTD2PnOCBHjHUMZUqnAa0vwT2IgFT6WlKwiqMveLpGViLSgQA==
-X-Received: by 2002:aa7:828c:: with SMTP id s12mr4450878pfm.94.1568323739904;
-        Thu, 12 Sep 2019 14:28:59 -0700 (PDT)
+X-Gm-Message-State: APjAAAWn9JEOVIptxC7kRbaWfoYBHzISSD/yZ7vYmH5OX0AC/Vv0hYeA
+	9pHXwWztUHLbY/V78vp6rhI=
+X-Google-Smtp-Source: APXvYqxa0GisMRLg0l+frR97GE+LBUGYdRKkG9/Is1nimqKaBEivbHmZ/qqc6vsXaEOkXG6SP3RwCg==
+X-Received: by 2002:ae9:e219:: with SMTP id c25mr17345459qkc.234.1568323802632;
+        Thu, 12 Sep 2019 14:30:02 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:2a06:: with SMTP id q6ls7577525pfq.14.gmail; Thu, 12 Sep
- 2019 14:28:59 -0700 (PDT)
-X-Received: by 2002:a65:6288:: with SMTP id f8mr39220744pgv.292.1568323739398;
-        Thu, 12 Sep 2019 14:28:59 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568323739; cv=none;
+Received: by 2002:ac8:41cd:: with SMTP id o13ls131643qtm.16.gmail; Thu, 12 Sep
+ 2019 14:30:02 -0700 (PDT)
+X-Received: by 2002:ac8:71ca:: with SMTP id i10mr206368qtp.149.1568323802290;
+        Thu, 12 Sep 2019 14:30:02 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568323802; cv=none;
         d=google.com; s=arc-20160816;
-        b=Qgd0gbYZE9jbfsOzrYu6hls1oTitSTq8KflMm61TuMuZ1cITOcMGDlfpeJ4EnI6Tnd
-         q21dvr0whCp2j/Uto6Fu82XKGowO2Aqf3BaNhEgNSVsRDGazzSxfGLzHkYmekIm09eF3
-         eK3da2ZSNDcrd9cXBP1VEoLQJNYq/tK/B9WQbubPd0tPISgtj55Y2IQYvsFtOBg/YvNZ
-         NRqiGmyRvNefqzRTJPNbEZUUzbeVxdT6/F+POmQ2/QAYIYbaeUUZAC+rjq91l3ppCSnz
-         9ftccHy0FnFpmb4uut8RSK9Ntu1PFEM93QrbDKXzi6cIGA/enX86Bi1SkcN4FuQUvpAT
-         ffQA==
+        b=lAg3LmrO4zklwYy3ScDcEaJegp++JXlLY3iyzpAEioT2d4MgLkJP4kC0YU1hqjaylB
+         aluavb0brBPR+07Zb8SmZ0b4Ao9F5y7ZUZCngX+ReeoRbmTYzY5fBF9EGoCnVae/2jZB
+         SiZpiElWwruag3CgrzR57YPaVfVSzeMDxfwQLM5NH5+G1f4UL6SBFqwg5Go893y9iVW4
+         bCuAxPmLwexAfLpBmya/uJm/a7cgtiUACBIREcEHnwu8zV9GEAuqWZB65FsdE/VE6U1f
+         +Zc78u3+/tlW33pXkBgg+bBFw0LDw83bM+InkMgbeiDYixst2DbUs3uOZXLD4dn4Glh8
+         qhxA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date;
-        bh=ZZuFx8PhaaS5808djsiT+nvqHbkC4TgEwjSbAwDNUhc=;
-        b=UYSFzLQf0iYmT3Rs6CF/l8hFqws4YGTnX+GaPHDM6ooZHqltCwq6/a1MzyWOsfM9VA
-         iJd+q6UpD5rpTSrecxTlH49F9FPZOyolhTr19/rzLYqSc+FLmKsphYFrAw2qP1tIRIa6
-         X263ML7mIeICQ5SFnJWP2J55dQBnoJ3KFSVK4WrzunAi7EKIk4Q9tfNZI0dkb5uIIgJN
-         nFMl/9uYbKRHiP1hp2vuS4CbucXshgFo7bqP3dGwLAAyMQ6yuDWS0QymljIsx2PZOXOh
-         7zmML3RWuOsAUQpd1LuxfAP8odBtaln56QOYdQDaIU+MOdhDXCrrP6pPeBH9qyB3YH/x
-         3EYQ==
+        h=user-agent:content-transfer-encoding:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date;
+        bh=aXLaTWLI1BrApwXbVb3tAiAwiMKLL8F/6/hrFrjlY0w=;
+        b=EphznoFITfsXi72NjbnFwmWsuobgDcdEzOdVroDpbb8l7PTnK2RoHl4p/rGIiiUo9O
+         nUGfbLh871wzqXWE5YxWI0ilr43qXpcnewuQvqPxqk/nPso9zGNrtadmvIfRN7V0bYCb
+         Kt/MixZVe+SjmIaNGQZl2MbzmtUdhZ3bk5RauDpGGcoQiDJR7puhleaQiyVR9swgB/8L
+         gPHinQm6qgvlmhhhdjT4DFta0iNBqxN5b1Q186ae8UZgZ9t8NIjaG5VTUQQtkYQNR5dg
+         ADOAH4PCgjAeFw1M8OcFOY3GSATqUbA58Qa+B6Huz8pDtBSywFMTccHGCxr48Jt3s6iT
+         BYwg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id x2si2106827pfq.3.2019.09.12.14.28.59
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id l4si754416qtl.1.2019.09.12.14.30.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 12 Sep 2019 14:28:59 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
+        Thu, 12 Sep 2019 14:30:02 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+X-Amp-Result: UNSCANNABLE
 X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Sep 2019 14:28:58 -0700
+Received: from orsmga002.jf.intel.com ([10.7.209.21])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Sep 2019 14:30:00 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,498,1559545200"; 
-   d="gz'50?scan'50,208,50";a="210160431"
+X-IronPort-AV: E=Sophos;i="5.64,492,1559545200"; 
+   d="gz'50?scan'50,208,50";a="197355145"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 12 Sep 2019 14:28:56 -0700
+  by orsmga002.jf.intel.com with ESMTP; 12 Sep 2019 14:29:58 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i8We8-000G3x-Bn; Fri, 13 Sep 2019 05:28:56 +0800
-Date: Fri, 13 Sep 2019 05:27:52 +0800
+	id 1i8Wf7-000G4X-Lu; Fri, 13 Sep 2019 05:29:57 +0800
+Date: Fri, 13 Sep 2019 05:29:52 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] scsi: storvsc: Add the support of hibernation
-Message-ID: <201909130523.KFOoFB3b%lkp@intel.com>
+Subject: Re: [Intel-gfx] [PATCH 1/2] drm/connector: Share with non-atomic
+ drivers the function to get the single encoder
+Message-ID: <201909130503.qBOIXmlk%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="yf33j564tcus3zqr"
+Content-Type: multipart/mixed; boundary="u62p6b5pzyc52463"
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,25 +139,22 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---yf33j564tcus3zqr
+--u62p6b5pzyc52463
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
-In-Reply-To: <1568244905-66625-1-git-send-email-decui@microsoft.com>
-References: <1568244905-66625-1-git-send-email-decui@microsoft.com>
-TO: Dexuan Cui <decui@microsoft.com>
-CC: KY Srinivasan <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.co=
-m>, Stephen Hemminger <sthemmin@microsoft.com>, "sashal@kernel.org" <sashal=
-@kernel.org>, "jejb@linux.ibm.com" <jejb@linux.ibm.com>, "martin.petersen@o=
-racle.com" <martin.petersen@oracle.com>, "linux-hyperv@vger.kernel.org" <li=
-nux-hyperv@vger.kernel.org>, "linux-scsi@vger.kernel.org" <linux-scsi@vger.=
-kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,=
- Michael Kelley <mikelley@microsoft.com>, Dexuan Cui <decui@microsoft.com>
-CC: Dexuan Cui <decui@microsoft.com>
+In-Reply-To: <20190911175603.30356-1-jose.souza@intel.com>
+References: <20190911175603.30356-1-jose.souza@intel.com>
+TO: "Jos=C3=A9 Roberto de Souza" <jose.souza@intel.com>
+CC: intel-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org, Danie=
+l Vetter <daniel.vetter@ffwll.ch>, Laurent Pinchart <laurent.pinchart@ideas=
+onboard.com>
+CC: Daniel Vetter <daniel.vetter@ffwll.ch>, Laurent Pinchart <laurent.pinch=
+art@ideasonboard.com>
 
-Hi Dexuan,
+Hi "Jos=C3=A9,
 
 Thank you for the patch! Yet something to improve:
 
@@ -164,8 +163,9 @@ Thank you for the patch! Yet something to improve:
 [if your patch is applied to the wrong git tree, please drop us a note to h=
 elp improve the system]
 
-url:    https://github.com/0day-ci/linux/commits/Dexuan-Cui/scsi-storvsc-Ad=
-d-the-support-of-hibernation/20190912-234223
+url:    https://github.com/0day-ci/linux/commits/Jos-Roberto-de-Souza/drm-c=
+onnector-Share-with-non-atomic-drivers-the-function-to-get-the-single-encod=
+er/20190912-213415
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f=
 77a08968c99a8172cbf2ccdd0f)
@@ -178,31 +178,8 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers//scsi/storvsc_drv.c:1982:3: error: field designator 'suspend' do=
-es not refer to any field in type 'struct hv_driver'
-           .suspend =3D storvsc_suspend,
-            ^
->> drivers//scsi/storvsc_drv.c:1983:3: error: field designator 'resume' doe=
-s not refer to any field in type 'struct hv_driver'
-           .resume =3D storvsc_resume,
-            ^
-   2 errors generated.
-
-vim +1982 drivers//scsi/storvsc_drv.c
-
-  1976=09
-  1977	static struct hv_driver storvsc_drv =3D {
-  1978		.name =3D KBUILD_MODNAME,
-  1979		.id_table =3D id_table,
-  1980		.probe =3D storvsc_probe,
-  1981		.remove =3D storvsc_remove,
-> 1982		.suspend =3D storvsc_suspend,
-> 1983		.resume =3D storvsc_resume,
-  1984		.driver =3D {
-  1985			.probe_type =3D PROBE_PREFER_ASYNCHRONOUS,
-  1986		},
-  1987	};
-  1988=09
+>> ERROR: "drm_connector_get_single_encoder" [drivers/gpu/drm/drm_kms_helpe=
+r.ko] undefined!
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Cent=
@@ -216,14 +193,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201909130523.KFOoFB3b%25lkp%40intel.com.
+clang-built-linux/201909130503.qBOIXmlk%25lkp%40intel.com.
 
---yf33j564tcus3zqr
+--u62p6b5pzyc52463
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICOWqel0AAy5jb25maWcAlDxbe9s2su/7K/S1L+1DG9tJ3HTPlweIBEVEJMECoCz5hZ9q
+H4sICGayel0AAy5jb25maWcAlDxbe9s2su/7K/S1L+1DG9tJ3HTPlweIBEVEJMECoCz5hZ9q
 y6nP+pIj293k358ZgJcBCLptd9uEM4P7YO7Q9//6fsFenh/v98+3V/u7u2+Lz4eHw3H/fLhe
 3NzeHf5nkcpFJc2Cp8L8DMTF7cPL1zdfP5y35+8W739++/PJT8erD4v14fhwuFskjw83t59f
 oP3t48O/vv8X/P97AN5/ga6O/15c3e0fPi/+PByfAL04PfkZ/rf44fPt87/fvIH/3t8ej4/H
@@ -1113,4 +1090,4 @@ owyBWUi+bH6/oMgGXygETadRK3G5jJ+E0UZ4y5m2V0zDKPWA4+35sTW+A0LwUnWkcNe9S4Pq
 st+wRJ5lNCmbESkVc4+IxTg6vc2ZkfJ0LjhDMofO3JWhlFQdVrTATdbL+K7YyLvjytpwQIxw
 6dMlDc/jchtJF51TAtouhyEDCf4DLbfRTu8JAwA=
 
---yf33j564tcus3zqr--
+--u62p6b5pzyc52463--
