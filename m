@@ -1,122 +1,126 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBXMB5LVQKGQEWATEDBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBYUZ5LVQKGQEAVDYCHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 85220B13C4
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 19:31:11 +0200 (CEST)
-Received: by mail-pf1-x43f.google.com with SMTP id z13sf18880982pfr.15
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 10:31:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568309470; cv=pass;
+Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 28555B145A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 20:22:28 +0200 (CEST)
+Received: by mail-io1-xd40.google.com with SMTP id x9sf34240710ior.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 11:22:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568312546; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fVdc9Mae0C2B+mNf1IV9vWOpkm19klUF18fH8AmW50u6RgyFJ5BYJy9kZFWnYOtFKE
-         p6/gwKLuo5e5afqbEuJ1xPdG+x81q1Nb4Aui+4zItaBFDtVV7DbnWbtIz1vlrF8Qtmj/
-         KYgLLJs0gC7cgB8c01hXXEnoqOW4Xcq9/XcdWb0S7BCDR6IHXOaSoXumFiQodfYr9y/J
-         QGny1D3SShQeLzYvUvopHYNygsBdhZcI7+pRt1EObn7nkXr9uUXpQ947EKS4e0Ggmxb5
-         ueiipCUBk1azS1C1wYbGSmibOEm6zR0Xi9Iwy+U0H5navfHe4NJTg/sldnTlI79w0ikC
-         P4kA==
+        b=mZUUsmPaTulOixPV3l5RVPhqjnz94Dn+Ht0LOSU0Nzsa4yfB9qgUxp3aRjdbBfV8FV
+         GCLRMeJArwFyEnv03GvIm15YsiKmmh0O8+au3ey4idpBKoLEQ9Cm7TzzpSFG15JXowW/
+         0/RRX1cEAPkdX11Hp2F5rB7LvBSqvMhh8LEZcLHyB+8w9r28eRZypcoPcr5qyxd7nSL8
+         zsyuS2Nc/HBt1J23zSktkC/CqwQOJ/Tno53u8wIm+Jfz/c2H1T0T6O4y7KP7qZ358eQq
+         mgtsEhrRqp3Iogywjj5SZzoQD3/vSD6VG/DxAGMrn6VkxfyV53YAyTv0o77jabJf52Ap
+         70aw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=qX+QYvHIPsLdNJJeDeHaX0RgPAbsw5qcXHiWY8AFniI=;
-        b=VLNmKTy0QGtuSRyysmzVhHf6mlhs7U0K1o5YspyOz//GFTQ4ufKd0DQOQtlLUMM/xa
-         yMsYcd3/QGmAhASbK8yjKT4BVzxJ/qdtsVkNREBDulF4KBd+JO9+aK7Kz2Dmt8M6tntc
-         zgD/2ZO0y6MkZB4jH57VJBq7lbJn7saWL/0Hpaoko2c8+Q+44QpsSfeZAcH0BypizgNm
-         LhCUri8DsoTGg5uaqRRDHO+DbLHHTdPsXboIq9JpgNQjYTG1zaa6z+KgJH936K0lLoqe
-         GFsJzBveZrnIlTKPv+mTRn5pMN9RIQHfZZp1aVVJSKJLQUkGw0hSfnMdHNkt+vDsXdcU
-         AY1A==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=m18YGWo5L9Ur44++W/aLXLMYubxNBGdvjyg94QJmlWg=;
+        b=S1FrfkxGhJyp994QHzd4RD4R/9LTIAcNU9FooqXcCXgSm1UnaU1nu4lkLM1D7+6E75
+         KPxQdkhyAFPeAepVvIgF2DkMbZ06rCIrjfR5BW29/ld5f3+vf8iEkmoO441Ytjzn2g7+
+         zrY4n9DI/np3gO7l7AW1G6aFQr6gvV5fE40w74yVqrZjK4mz1uMGfBRAnBt7b04DoeU3
+         Dq7+Jy2DWbw/lAlfR/fe2Dy+AV1VIrxNZjRduwTpwfkekovl5NKRFJYjgS5odibJbvUv
+         b8TJopb+yg4GYN278cJ78hXC/UPFvFF0rV5enKXQtdTgtXyTg97lHW144Cx7vIAZJz4h
+         2jWA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vFOuHT8q;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MH2Ar13u;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qX+QYvHIPsLdNJJeDeHaX0RgPAbsw5qcXHiWY8AFniI=;
-        b=qj4NDpEevtZkTeBrXVwC6HrWfw9O/ekSl2mlUAUY1TOCJ1e7AflCC5Ou+J7PlWZaYP
-         kMVGnPtzldgLsWe5gxRtJFv2cEIvT8EXc3PpHTvhz5+7JeQGlJca+hIrphOXLxR3lFj8
-         szuA+8f46nvbTH9VZSgYaQm8pusEWTTPGjvRKjM+E0h5y3Jhp7my0hMFQXmN7kkoIYX4
-         i59exkmh0jm3oj39YeGbXwwczaOBH68bU9Te/3rdbFBgiBfyd9jBwgdD6RlnL8nlFSBb
-         4+tLvKWY3AdZHGszx9rZfzaO3Pyq39zhvW/5/88jArASbQ0NMGkIKV0qdaC809r9FcEG
-         MFTA==
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=m18YGWo5L9Ur44++W/aLXLMYubxNBGdvjyg94QJmlWg=;
+        b=b31r5UV2u7cVnuRVtYS+hfPrgWlSkpt5maNBjLNnkqovGVxahGivwGV1X9to6aKMtb
+         tHGWOHFiAbR0UgCGCyJDHwxB9d80nC12HldMRdmPI6RwIniheMWw4gVZrVNnMc+k7Zs/
+         4nQ20ShW2TkqgPqGEYxH4Lkmlpnf+HVrmbxLXzvXNG3bgfRjxvHg6yxAOJCN1iv8X3fg
+         7CZrtiDplkJ2HZ6iwQSZMYvhHGdr0Gw5KPgAndWoo5Hu2koClSWgdjpZlVPYUMvKPXIB
+         lg5Vb8UXAXdiB+lvQ7+/y1WM6Y0poH/F2a0SR9x4AYcnEaviQpevo6Y2gtrEnEmttP0i
+         JnVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qX+QYvHIPsLdNJJeDeHaX0RgPAbsw5qcXHiWY8AFniI=;
-        b=AFQpkrdq1oqtrpq75PuyyQBESZUgr/mSup+7nF8JsIWa4yG0BV3ZVAKE6dHw2NhQoV
-         BikrbzwPgu0/SK8iVC4VovFjl67GaVst5x3AAu0IL2A5E0byOpBGO6dAlcp67TcU2c6D
-         fRfqcp2L//cxpgcnHNlvo7HzlTS+FvQvyoOJ7h6qn8UlzbLmZanm2W/OLhJUWWos+E/R
-         bA/Mk1VVVJ13Q33qLXYEQZK1Rjb1FJMctlPQ36VC+PUX7z2ZLLuOHGy3K8+7yHMKkqbS
-         1iU2IQkiRi6wf4i+Tm8i61xvh9hgJizN6OrdncWlRnMCgxcZpbbWagte5DCwHavXKd8J
-         JeZA==
-X-Gm-Message-State: APjAAAUaw55p9inxE6I1L/axguTnyD7i6/ehPdEnvVZqAIiOJtcuIyOv
-	0F373WWvI1/usMH6twDyVas=
-X-Google-Smtp-Source: APXvYqxCCq5YczsA/Pd7rcFh315q9HVHjsJpWIXQd/THJh7YPa9mPh7CADoei2sXBe9xZKiOidfw7A==
-X-Received: by 2002:a62:4e0f:: with SMTP id c15mr36288490pfb.42.1568309469916;
-        Thu, 12 Sep 2019 10:31:09 -0700 (PDT)
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=m18YGWo5L9Ur44++W/aLXLMYubxNBGdvjyg94QJmlWg=;
+        b=MEh1ExUHKlSG5skhA2iUZaQQb7IsI47DDjc3B5B35OPwJCpvqAZ/jT3DGei1TkYpcM
+         0ScxXeh/hVFicA66duLXScOIx+qy0Sn0ikozzyocb9hN+1ysgFXg47NcCgYoIZM8lXln
+         b49Mxju34MxwgCgubkuzPpPt7kfyz+xM2NG7QveFilW2kiUDC75q/eHEfTCBOg7pOjtN
+         QRywwWCHQBL3TzjrmkBzHk2C3nt8ShXKvTSii0We6AS8240Ck6C8TxaJ2IZLSjwfRiA4
+         mNF17YwlQsPr0MecHXHPb9CBX7x7T9uHH3CeJAQTTd7aboLlVFSoMfzDsVXFz6o3WLFX
+         f9tw==
+X-Gm-Message-State: APjAAAUVc2mF3BXHPSet7Xz/1+QqE9EwFUwR5RNZPL/EgCBkzKfJP3zQ
+	IFHbhXLntoMQXG85nprqoD4=
+X-Google-Smtp-Source: APXvYqwrHzsqODkv1iE7u5/BbvsBebkK8SCUbQAKkNmSF71fAccudpyDjUFqARdBZ/52Brehb+RT8Q==
+X-Received: by 2002:a02:3b6f:: with SMTP id i47mr20143267jaf.24.1568312546605;
+        Thu, 12 Sep 2019 11:22:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8e86:: with SMTP id bg6ls5986718plb.5.gmail; Thu, 12
- Sep 2019 10:31:09 -0700 (PDT)
-X-Received: by 2002:a17:90a:fc89:: with SMTP id ci9mr1440313pjb.48.1568309469607;
-        Thu, 12 Sep 2019 10:31:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568309469; cv=none;
+Received: by 2002:a5e:830d:: with SMTP id x13ls7137727iom.2.gmail; Thu, 12 Sep
+ 2019 11:22:26 -0700 (PDT)
+X-Received: by 2002:a5d:9904:: with SMTP id x4mr6007938iol.20.1568312546294;
+        Thu, 12 Sep 2019 11:22:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568312546; cv=none;
         d=google.com; s=arc-20160816;
-        b=VwIBepWlRLL2a6UijKhEGOzfmIMuiTKOoo75BSTT1H+w2HINdrTxuRhJdGCgHUhPp9
-         QuIHqNcT/YGnzpT7bL5iwytN8w6AVTlk3ebgGfiBoCpXCzj+d99G3vbA71ug8uJtzt1z
-         oS37tkw5LVMUGAOxsbHf5pg9RuywiLyGqaWBtZTV3IgkX0TjMxB6KMbPCviy+/uLWLa4
-         Xgd0U6yLtpH/PhXv6VmEWTRdDh+1u6HPdiikMJfa+6hfTqnrS4qIhforMW2br1y6/UOH
-         ZSGOHBigPOFLXVk7vke7MCeXJleJTW6L9IWO2F0LXHQiyLuRqG0WpQjXQQ8ZW3YbBZE5
-         /wqQ==
+        b=m0S6QUehOywi1xIOVeY3DERzHIQto0qS+ZHp1Gd0ygEodey8HE/KM1GZzfFW/iA1LE
+         R24x3UdIHpI2vWcdrB/av376FJkSEyLA4JcGBrUFDeaj5Gom5Yvf2hhoailZ2kgI8I7x
+         jumETNBA0sm4DwUCSjzVqixVJZ0YxbfttIca7MlXXc4ssoYdTP/CyGZQ/nZ7JGl4DMXB
+         VLz/SiWYXajczoZnO+pUzQPoTvgn/NGEB8lyYPi0J5mUb7PtZuFdcFnh+DfcjE/peR9l
+         kjBK2D2pWvYAM5TXk6pSKfZZBrWOwEYjQy8N14lcBydbN+k/Zv0FcrVfbPm6nCt3dATv
+         Wm/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=mOVlpD6BMnbKiv36TkrT6fFnE/GEkfURpkH4h7Nmx9A=;
-        b=M5OYE9x1J2v2gUhlcLZIHJranWOvd6Rmx0lvbeMjmrjdmBAM4brLu9/QCusIh54aqX
-         ZUFSALWlj8bPqY4IqgdNUDmiHWBzQ7bdaYl73A4/3tCMpLJywxkeCpNgZiSydoLOhkcJ
-         H9RQd/1eAyuPkAM8w+t2ltLFyILmd1MXR0wue6y5HwW6k0ZgFxBCd0LzrTbo8fJ/pV/W
-         7pRhPGOZub1obLhpn4EwO7YP/LWBHJljagnqRjKSeQ32sV/Gp7m418syDbnscDiK+TQx
-         wlzlogHihq0V4b+UEFBraUVarR7YWk7cDMdhAx662kyvNRTfvVEBTFy3++0E246+D1nO
-         NZLQ==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AV53qnBcqG91OokA4kg58AdEN/YxWUqmk/57JP3r53s=;
+        b=OvSf+kTbzQ3DCxeDn7Yg/YYLTuyp3+opZu/5rZbrSfBP8J3wd2zghnCl5Q+RH5WC9G
+         WUEh4KJPaVGcml7g9JInrWaroXNbII3levX3lCHEUcDSozWQEH0bfx9sDnwPlSQBxWAL
+         ZfoOShCjwAA6uI2t4zz4HxBT/RTocT4GRl/MTttEypk9s86z4nAT94hNHgA28yX7jnpY
+         lM0oMnd7hnAztzhMj4QPfA1vl8NqXAtBnwqkqpfMWNzH3aikWt3kSOUVQFE3x8XcTofS
+         WOtMrj5g+iSr9SlK+4eC/vOBBly0ToAqg6/x9CCV3jVhJUfeuJ83ipMn5UhzzW31uQSL
+         fUPQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vFOuHT8q;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=MH2Ar13u;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id 85si1395159pgb.2.2019.09.12.10.31.09
+Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id a26si946389ioq.2.2019.09.12.11.22.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Sep 2019 10:31:09 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id m3so13802748pgv.13
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Sep 2019 10:31:09 -0700 (PDT)
-X-Received: by 2002:a63:7153:: with SMTP id b19mr3009136pgn.10.1568309468835;
- Thu, 12 Sep 2019 10:31:08 -0700 (PDT)
+        Thu, 12 Sep 2019 11:22:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
+Received: by mail-pl1-x644.google.com with SMTP id f19so12116194plr.3
+        for <clang-built-linux@googlegroups.com>; Thu, 12 Sep 2019 11:22:26 -0700 (PDT)
+X-Received: by 2002:a17:902:7296:: with SMTP id d22mr44321542pll.179.1568312545181;
+ Thu, 12 Sep 2019 11:22:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190911182049.77853-1-natechancellor@gmail.com>
- <20190911182049.77853-4-natechancellor@gmail.com> <CAKwvOdnh+YoACaX4Oxk7ZiEQAQ2VgA6W=Dtbk7gzK5yJduFvGQ@mail.gmail.com>
- <20190912054304.GA103826@archlinux-threadripper>
-In-Reply-To: <20190912054304.GA103826@archlinux-threadripper>
+References: <201909130102.Qc438kZF%lkp@intel.com>
+In-Reply-To: <201909130102.Qc438kZF%lkp@intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 12 Sep 2019 10:30:57 -0700
-Message-ID: <CAKwvOdmc-1BrXG01d0PzjqhJsVbgwUMm6mxR4BcTqZ9WKtS6HA@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] powerpc/prom_init: Use -ffreestanding to avoid a
- reference to bcmp
-To: Nathan Chancellor <natechancellor@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>
-Cc: Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, 
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+Date: Thu, 12 Sep 2019 11:22:14 -0700
+Message-ID: <CAKwvOdk4-RDXEnovq82kzEWWCCrYPqXqMMTceAr8bK2ssjL0=g@mail.gmail.com>
+Subject: Re: [pinctrl:for-next 88/90] drivers/pinctrl/mediatek/pinctrl-mt6765.c:1077:14:
+ error: incompatible pointer types initializing 'int (*)(struct mtk_pinctrl *,
+ const struct mtk_pin_desc *, bool)' (aka 'int (*)(struct mtk_pinctrl *, const
+ struct mtk_pin_desc *, _Bool)') with an expression of type 'int (struct
+ mtk_pinctrl *, const struct mtk_pin_desc *, u32, u32)' (aka 'int (struct
+ mtk_pinctrl *, const struct mtk_pin_desc *, unsigned int, unsigned int)')
+To: kbuild test robot <lkp@intel.com>, light.hsieh@mediatek.com
+Cc: kbuild@01.org, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, kbuild-all@01.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=vFOuHT8q;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::542
+ header.i=@google.com header.s=20161025 header.b=MH2Ar13u;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -133,60 +137,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Sep 11, 2019 at 10:43 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> On Wed, Sep 11, 2019 at 02:01:59PM -0700, Nick Desaulniers wrote:
-> > On Wed, Sep 11, 2019 at 11:21 AM Nathan Chancellor
-> > <natechancellor@gmail.com> wrote:
-> > >
-> > > r370454 gives LLVM the ability to convert certain loops into a reference
-> > > to bcmp as an optimization; this breaks prom_init_check.sh:
-> > >
-> > >   CALL    arch/powerpc/kernel/prom_init_check.sh
-> > > Error: External symbol 'bcmp' referenced from prom_init.c
-> > > make[2]: *** [arch/powerpc/kernel/Makefile:196: prom_init_check] Error 1
-> > >
-> > > bcmp is defined in lib/string.c as a wrapper for memcmp so this could be
-> > > added to the whitelist. However, commit 450e7dd4001f ("powerpc/prom_init:
-> > > don't use string functions from lib/") copied memcmp as prom_memcmp to
-> > > avoid KASAN instrumentation so having bcmp be resolved to regular memcmp
-> > > would break that assumption. Furthermore, because the compiler is the
-> > > one that inserted bcmp, we cannot provide something like prom_bcmp.
-> > >
-> > > To prevent LLVM from being clever with optimizations like this, use
-> > > -ffreestanding to tell LLVM we are not hosted so it is not free to make
-> > > transformations like this.
-> > >
-> > > Link: https://github.com/ClangBuiltLinux/linux/issues/647
-> > > Link: https://github.com/llvm/llvm-project/commit/5c9f3cfec78f9e9ae013de9a0d092a68e3e79e002
-> >
-> > The above link doesn't work for me (HTTP 404).  PEBKAC?
-> > https://github.com/llvm/llvm-project/commit/5c9f3cfec78f9e9ae013de9a0d092a68e3e79e002
->
-> Not really sure how an extra 2 got added on the end of that... Must have
-> screwed up in vim somehow.
->
-> Link: https://github.com/llvm/llvm-project/commit/5c9f3cfec78f9e9ae013de9a0d092a68e3e79e00
++ Light
+Light, 0day bot is now testing with Clang. It looks like the function
+signature of the provided callback does not match what's expected.
+Can you please fix this?
 
-That looks better.  Assuming Michael doesn't mind amending the link
-when applying:
-Reviewed-by: Nick Desaulneris <ndesaulniers@google.com>
-
+On Thu, Sep 12, 2019 at 10:30 AM kbuild test robot <lkp@intel.com> wrote:
 >
-> I can resend unless the maintainer is able to fix that up when it gets
-> applied.
+> CC: kbuild-all@01.org
+> CC: linux-gpio@vger.kernel.org
+> TO: Light Hsieh <light.hsieh@mediatek.com>
+> CC: Linus Walleij <linus.walleij@linaro.org>
 >
-> Cheers,
-> Nathan
+> tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/linusw/l=
+inux-pinctrl.git for-next
+> head:   5a85bd8e3af3a78fd05d059835a52f5a7ee2cbc9
+> commit: dbe733ac908ef232f42a6586fa848d9c6910eeab [88/90] pinctrl: mediate=
+k: Backward compatible to previous Mediatek's bias-pull usage
+> config: arm64-defconfig (attached as .config)
+> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb0=
+6f77a08968c99a8172cbf2ccdd0f)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         git checkout dbe733ac908ef232f42a6586fa848d9c6910eeab
+>         # save the attached .config to linux build tree
+>         make.cross ARCH=3Darm64
+>
+> If you fix the issue, kindly add following tag
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All errors (new ones prefixed by >>):
+>
+> >> drivers/pinctrl/mediatek/pinctrl-mt6765.c:1077:14: error: incompatible=
+ pointer types initializing 'int (*)(struct mtk_pinctrl *, const struct mtk=
+_pin_desc *, bool)' (aka 'int (*)(struct mtk_pinctrl *, const struct mtk_pi=
+n_desc *, _Bool)') with an expression of type 'int (struct mtk_pinctrl *, c=
+onst struct mtk_pin_desc *, u32, u32)' (aka 'int (struct mtk_pinctrl *, con=
+st struct mtk_pin_desc *, unsigned int, unsigned int)') [-Werror,-Wincompat=
+ible-pointer-types]
+>            .bias_set =3D mtk_pinconf_bias_set_combo,
+>                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+> >> drivers/pinctrl/mediatek/pinctrl-mt6765.c:1078:14: error: incompatible=
+ pointer types initializing 'int (*)(struct mtk_pinctrl *, const struct mtk=
+_pin_desc *, bool, int *)' (aka 'int (*)(struct mtk_pinctrl *, const struct=
+ mtk_pin_desc *, _Bool, int *)') with an expression of type 'int (struct mt=
+k_pinctrl *, const struct mtk_pin_desc *, u32 *, u32 *)' (aka 'int (struct =
+mtk_pinctrl *, const struct mtk_pin_desc *, unsigned int *, unsigned int *)=
+') [-Werror,-Wincompatible-pointer-types]
+>            .bias_get =3D mtk_pinconf_bias_get_combo,
+>                        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+>    2 errors generated.
+>
+> vim +1077 drivers/pinctrl/mediatek/pinctrl-mt6765.c
+>
+>   1065
+>   1066  static const struct mtk_pin_soc mt6765_data =3D {
+>   1067          .reg_cal =3D mt6765_reg_cals,
+>   1068          .pins =3D mtk_pins_mt6765,
+>   1069          .npins =3D ARRAY_SIZE(mtk_pins_mt6765),
+>   1070          .ngrps =3D ARRAY_SIZE(mtk_pins_mt6765),
+>   1071          .eint_hw =3D &mt6765_eint_hw,
+>   1072          .gpio_m =3D 0,
+>   1073          .base_names =3D mt6765_pinctrl_register_base_names,
+>   1074          .nbase_names =3D ARRAY_SIZE(mt6765_pinctrl_register_base_=
+names),
+>   1075          .bias_disable_set =3D mtk_pinconf_bias_disable_set,
+>   1076          .bias_disable_get =3D mtk_pinconf_bias_disable_get,
+> > 1077          .bias_set =3D mtk_pinconf_bias_set_combo,
+> > 1078          .bias_get =3D mtk_pinconf_bias_get_combo,
+>   1079          .drive_set =3D mtk_pinconf_drive_set_direct_val,
+>   1080          .drive_get =3D mtk_pinconf_drive_get_direct_val,
+>   1081          .adv_pull_get =3D mtk_pinconf_adv_pull_get,
+>   1082          .adv_pull_set =3D mtk_pinconf_adv_pull_set,
+>   1083  };
+>   1084
+>
+> ---
+> 0-DAY kernel test infrastructure                Open Source Technology Ce=
+nter
+> https://lists.01.org/pipermail/kbuild-all                   Intel Corpora=
+tion
 
 
 
--- 
+--=20
 Thanks,
 ~Nick Desaulniers
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmc-1BrXG01d0PzjqhJsVbgwUMm6mxR4BcTqZ9WKtS6HA%40mail.gmail.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAKwvOdk4-RDXEnovq82kzEWWCCrYPqXqMMTceAr8bK2ssjL0%3Dg%40m=
+ail.gmail.com.
