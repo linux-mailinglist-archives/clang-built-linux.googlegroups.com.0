@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7PV5HVQKGQEAWJD72Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIMB5LVQKGQEKFZU57I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3f.google.com (mail-vs1-xe3f.google.com [IPv6:2607:f8b0:4864:20::e3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id CB701B1332
-	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 19:06:06 +0200 (CEST)
-Received: by mail-vs1-xe3f.google.com with SMTP id s8sf3136607vsi.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 10:06:06 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568307965; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 586ECB13C2
+	for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 19:30:11 +0200 (CEST)
+Received: by mail-pl1-x63b.google.com with SMTP id d11sf14554286plo.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 10:30:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568309410; cv=pass;
         d=google.com; s=arc-20160816;
-        b=cPAHkkoU/6QVSPm7vXoDrzv7W9ryN+10wRYvoXwo1y2OZt+/merGlfq+F4WJ5VZJIh
-         w10Wi42FhtZZIQzZBphRmnrHVbf2djhNDElp4DZIMv4WIG9/XanVzRHHsHR5h1WTE3qz
-         84wSMSxUXRXA8YpYlyPPrtls1ccPlDosSLqxxBOviuc4/TQS3PTb5TKNOjlbEuKnMp6c
-         oEeqIh/B98JmPYhOlENBJ5WjuV/1JEoLOKI9k1Sf10msQGWg9RTB0mpYsYIFpOxRvH4j
-         cdje49GXd0llUsPM32czf67t0YQheAzvrDZpreJU0VqP07UNzUkMZOzpUR1HVwSSdilM
-         UoAw==
+        b=ihPTmkgRqZKBavdune41vbgslzTGctBbMad7yM3hEg5/P0/sXKQPhD1QmtD7PH5g6+
+         scWJRbxmLtHsdnc7ab7GXlk4Zm8rRoU9AYCjz4AEpDuD1KMn+UXEAKjCunFJGm/4fB4O
+         bu1rrudwgUBXi4YTnPmjzmKMkcTQVXoJArYd9A9x20WbFeDO7O5Zw/nnezQ3Fuwpy9sV
+         ZIQI69ditVLblfYZh/bXMI0CF/qlkAXPABXSHeTvztX4IBmw7Y754W07bqctJN9Y4W0M
+         sAIYuBOqRSG3xJCJJrqZj9iWSgq7GA16PQJ7Zh5H7AUaQ1+n7yNbqKcNzsDff+/+b0/D
+         /x/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=/4A8DoKzuSJxxquHkxn81OLFy2fFsGmq147uVQTrmvg=;
-        b=IK8btk5opJDtFm+CZ1PDaB5ZGDHBEuoTUu74HcWflCo8twbEHr7ETrLewI/pCKuWIS
-         auC589F4E68ctpN3Gxu7O4gbXnfRMzlPws0wNcvUhxSNUhKs2umaVV/VWhODdjeaFdal
-         N/yfYsW3YFY2U12ytrjB6IqMwsXCLBP7J9xWioc6odsJrykc09ylZSmwunlCjzr5+Uuc
-         Y8OTscOXjbTpa9mdPNOZF+OOyxzHHs/uO8tOcChYL8xkc+PJQE2PUQn5U9/cft9cz434
-         0Uzp/Hjx/bLr27KhRGF87UN9F8PLPfEiA6uxYN58lTWeejh/FeDELLfbMkHhdBjeVc4b
-         cjow==
+        bh=6oASpJ1/+BNTrmR1WUE1wEJHZzFT3n3wMUO6bvKu9FY=;
+        b=dbl2KvQzzSKg+PfkrZ2n8hUQALz27M9QA3eOo5e35WFQ/kKJb54esIKnhDSZVJCBnf
+         0kq8ZeUxlbh3IqrbTX3z+r3f+l+MUn7m0vyLHU84NoyCNd/pSS2Nyy2OOdGgRlqIrr/+
+         swnNT4s7nQAB34uz0wItOjcYW9tagjKJE/3KqAOnsMePYzlwREDFfxq8j0MNOP+DTuzh
+         7FR8vfxX8M4Rc4W6nXrWuShvJuatQLjDKefUh9koRml5GGetb+O2ODMY/RH6lYsFGtKa
+         1iaVzkB2BcAhOD2S3vYJKyh1E5OCMqxvBZFcuEdPyrGCFEKum8BHhKPw8uwd7cxpiG+s
+         IUHA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/4A8DoKzuSJxxquHkxn81OLFy2fFsGmq147uVQTrmvg=;
-        b=B0iSP+Kiy6qobJ+TtxVsuRtsRuJU7aO8eMM1lMD9c3mr8JZOxw3hYSBykxyVcDmuan
-         XuovdOk3SZEKsPfAhL75tYlSEl2f1dvX49HjlEfMVjN4iW7xAOiT+KrII/Y6GIxurvEr
-         7FZYQO7TqzGMCx8yAX/QGJUCisTwf5ucXBLMgcviRHJ9fWqMN1TFBTrvBPv7xhbW8nCL
-         T6jaA3BaY5Cr7XFmqZR0o4TV0AcYsJ7g2u8qyQgvPwH4DfcuiznVEmNhxNdsWveCXnk6
-         RvxfwxVQuM7VEj6R6W2Ztuvkh39Ppw+yzrdy/OINGN5zoc+BrVn1waUoknFfhgVSmILX
-         AmSg==
+        bh=6oASpJ1/+BNTrmR1WUE1wEJHZzFT3n3wMUO6bvKu9FY=;
+        b=lHbGH1ABXvTbM8NDVEdn8O9kwFts191wr1+cKzpL61ax+Oe7gHXKOwoMuso3d2hNY7
+         /FqGbz7lrn1DbeNbH0A10w9/RusXV/ayzGlx5PngejSBkG2QcnF8cB4JzPPP4hbLFQxo
+         R0GvkUrI+2V8XPCCGXHlzkTbC6CeiPzhkToHPw94Ybjwwdr+rJMcOYSavnpT9RfmTQpS
+         ty/OUwepeD67bYhvWvrdyZAgUV95/2ShzfFey/sYDE9BEhO/Vx8DSu9FJV9mCrnXANNB
+         /9mGSXWfQlKNKk9lD6DBcGA7TbYUTe92gZrHkNM0dECYdhftA99wQgtRKc/x+eIjzseO
+         5Q1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/4A8DoKzuSJxxquHkxn81OLFy2fFsGmq147uVQTrmvg=;
-        b=VcO6tc42zFGLym9ujSfW5S6GXOFONL9dl2dEIZ+zbTyU4LqXIiFAtIYbOhx/9N1JPz
-         oQJ3GT5FAjBJvtMVqX6KrFfY4GGS0nRZusRnR09CS6WQRbpoTo86vQWdmnCgo5/O24YB
-         C/YF653K2499iz1lb+SCFSHT0fX4+Wi9B3qZBaxvjeVWImLK0iUK/SpPql1vtqMI0pR5
-         ddVR3l60iwkPa0GEmJ9M4olbMQR1HJhUKSdJVA/VKjmSTSMgqZd5xPymTcoHi3dForQo
-         vDx8hAcPzEpiNz53k/SvhBetKrBRk4Gz3QlTzLzsfBTG3OfczXZ6c/LLM9NY3ePF5iW6
-         6vVg==
+        bh=6oASpJ1/+BNTrmR1WUE1wEJHZzFT3n3wMUO6bvKu9FY=;
+        b=kUJ8Ta5iD4YlVe5woZ8D+vWFhuipCRi3UMW5sXKVdrJS/UJoAis6xAAMN2fXAPUPCX
+         tVLitqnFi32MCvrumbUFukHgkPfM7unGqXOY4br4ILxcryvAYWUVGKtRh4TFtbEic5ny
+         ICwGZAMIF2eyy1InGZ/WzkjugF4ZNYfj90LGKqieVjOQf/hpgyCHk1z+r/nQKjt1aZlj
+         X4v/SmpVjZM5jKEAGE+GJEgJ6K3WkE0ymDBcJPRZ0+bdv0ivNk5Yq8J5W3PJFMoBoofY
+         m6g23ZvR/CKZptOZBFQfz8zvFnsB5k6ORQWiKp6v+JFg9oj8qGpezH+JxiGVnqu6fj6n
+         9/eQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXkitekAck/TLGfUI8tytisFw2EvuQWtnLv5kqR4xV+MC0GClxk
-	+/6plXrLKk51loEScXwBwgU=
-X-Google-Smtp-Source: APXvYqw4S5/HgOK2iIDB69cd59wJ1MWUXYbfGcCdbeYgveeLK4mBsmk2I3agiDT5vBkUOEhedflD+g==
-X-Received: by 2002:ab0:4891:: with SMTP id x17mr8707668uac.87.1568307965424;
-        Thu, 12 Sep 2019 10:06:05 -0700 (PDT)
+X-Gm-Message-State: APjAAAWSdFHEEtDsSmlhWZdsctaCFsMtG8mQn3JAnm9WGe1bLwL0KR6Q
+	VF51Mpwj1IPPo24T0QwDnhY=
+X-Google-Smtp-Source: APXvYqw0MIXQ+VylIwEpFzRGNxwU5sI/1ozIuPMtfyjnWztSN7zTTzXnv5cA5WOcKdtO/vbIgUmY5w==
+X-Received: by 2002:a62:1ad3:: with SMTP id a202mr50541693pfa.75.1568309409705;
+        Thu, 12 Sep 2019 10:30:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:97c8:: with SMTP id z191ls80196vkd.11.gmail; Thu, 12 Sep
- 2019 10:06:05 -0700 (PDT)
-X-Received: by 2002:ac5:c659:: with SMTP id j25mr16527474vkl.30.1568307965067;
-        Thu, 12 Sep 2019 10:06:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568307965; cv=none;
+Received: by 2002:a65:568d:: with SMTP id v13ls5168305pgs.4.gmail; Thu, 12 Sep
+ 2019 10:30:09 -0700 (PDT)
+X-Received: by 2002:a62:1717:: with SMTP id 23mr42291562pfx.20.1568309409310;
+        Thu, 12 Sep 2019 10:30:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568309409; cv=none;
         d=google.com; s=arc-20160816;
-        b=YKbBvA1HpdXMa46b3ZAh1OzhQ6Di4tOV4LWX2xmAg0fPlD/MAdzfsZwDq4eyLkFVW3
-         tWIH7qMfdSLDpSXWf3CowRIDspBVC2ekt81qfvltndJZTjGhnmS4yx2kprhObXJMZqHq
-         Q0ttAXP4mFLkWmLuX4YDuLZRgsaEcFCSY+o+ABuppQcJr8q/5QXaHinInI5j76aO31V/
-         IhWfFBp1GKJLuz5AnyFhpMreCqOzCntXDpyNY69uVIdrVND+A3XkeuiS9a3jUNw7SOsE
-         7Ehqd16WMupq3DOknTvOFYwaaASCttBqEUezC4KJqFP/54TJJTdAshRn3lkrUJ5Zjrkr
-         AnCg==
+        b=lvQaXrz3DUaLIJDeZovDkohEV3vhNVj5+VmOffjFlsfOJ/XKqeX2B+OKtzSiJejikU
+         GdZLFYe8lQ68a6/MVKjHgLhSQOOzrydTUEmOmgGBSDHzcxowRKxVhA60dzP9WmYKg7ls
+         AJlPPpGhkkyJASwQQA8wVimLkLXTeCzfU2QFKcCLnxcHjfCY4w21VNGcgTmcmUTdfIBH
+         rVVAv+EySDrGlKzLC8J2DWettvLnK3piRN4gvdKc4qevcwE9GM8Tn467Us9pLD5btxTn
+         nc7U80p8H6NBjgheHWkrGVJ3tKDQhbDES2w9qjyQtgmMSQLTDeSRrcl548lbmuklNFD1
+         kbuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=Muu0Jy7GTtNnhWMGU8ypboI8/byEXsh/2L6D7Wjlfw4=;
-        b=a61oJ1CV5JNhY4xzdQU4bOsLHt/8EZXWl8LkfGH4yZHXHLG0QpyoaeKnFiRJjk7RgW
-         sX5MNEozqNsytmcmUUBtsEMRu3z7G46/UeBqZLRGQ26R+xlTesrGU0omyvxspbDN1WYa
-         QrwllXOioW2HXZwO8q6dTmMCWEtLtv0WY+PvDw4p5b378eY1TjrrUF2D3mBFyIsrCbbe
-         xF9IliYo1gVOTowfN2fg0fMpALx9LSpnrD26OzXVeTAJr2hpCxKai7Q/dzldUCXZQvay
-         8/zzCLVmwTmEdpON9N6SctYniOyMgeR7zgRztK8VV8JOOCUui5zRqNnIAJsP0AoH0pO1
-         Rx6g==
+        bh=TBXC1UoVuoMslibGSRl3s35hAjaaTt1alUJlHF3luS0=;
+        b=UCW+n2o9MD+5MEM7tw2p32H7R+4W1xuQpQmGnZTBYgOfW1mUzoBMfsMyAwYqhL7EYO
+         t8B1V3n8t1NsoKgXxYQIAn+ya7HCr4XJLGtbGuDACNDXB+SnEV5EqdV+6rqVxamw/sHR
+         GCCKJeZmV+sgQ4hk8sykHLo6ca2RS/7/G2oyHYF8VKs8Cv/7ihD7hmAeb3UWQghUKe32
+         hXlk/8T5LFZdI0NDWZ+/bkj9Vie9XEdmNOOpRSazvfNyzK5jxfgokExelp3ZOnODc1fl
+         hD7jEZtAdLgYUmFKXhz0Eqp6B00KQbARSsJb2hIYA+Vi8OAbRty27+b7vP/7RADAkcLy
+         +8nQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id d4si23364uam.0.2019.09.12.10.06.04
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id 85si1394931pgb.2.2019.09.12.10.30.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 12 Sep 2019 10:06:05 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+        Thu, 12 Sep 2019 10:30:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Sep 2019 10:06:02 -0700
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Sep 2019 10:30:08 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,492,1559545200"; 
-   d="gz'50?scan'50,208,50";a="179419918"
+X-IronPort-AV: E=Sophos;i="5.64,489,1559545200"; 
+   d="gz'50?scan'50,208,50";a="336645395"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 12 Sep 2019 10:06:00 -0700
+  by orsmga004.jf.intel.com with ESMTP; 12 Sep 2019 10:30:06 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i8SXf-000B1S-GE; Fri, 13 Sep 2019 01:05:59 +0800
-Date: Fri, 13 Sep 2019 01:05:02 +0800
+	id 1i8Suz-0005uy-Fd; Fri, 13 Sep 2019 01:30:05 +0800
+Date: Fri, 13 Sep 2019 01:29:09 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [pinctrl:for-next 87/90]
- drivers/pinctrl/mediatek/pinctrl-paris.c:149:42: error: use of undeclared
- identifier 'val'
-Message-ID: <201909130159.Br7HOPvw%lkp@intel.com>
+Subject: [pinctrl:for-next 88/90]
+ drivers/pinctrl/mediatek/pinctrl-mt6765.c:1077:14: error: incompatible
+ pointer types initializing 'int (*)(struct mtk_pinctrl *, const struct
+ mtk_pin_desc *, bool)' (aka 'int (*)(struct mtk_pinctrl *, const struct
+ mtk_pin_desc *, _Bool)') with an expression of type 'int (struct mtk_pinctrl
+ *, const struct mtk_pin_desc *, u32, u32)' (aka 'int (struct mtk_pinctrl *,
+ const struct mtk_pin_desc *, unsigned int, unsigned int)')
+Message-ID: <201909130102.Qc438kZF%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="4oo3l2kgoolliogw"
+Content-Type: multipart/mixed; boundary="relpfhuyvtjwdpi6"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,164 +143,100 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---4oo3l2kgoolliogw
+--relpfhuyvtjwdpi6
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
 CC: linux-gpio@vger.kernel.org
 TO: Light Hsieh <light.hsieh@mediatek.com>
 CC: Linus Walleij <linus.walleij@linaro.org>
 
-tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git for-next
+tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/linusw/lin=
+ux-pinctrl.git for-next
 head:   5a85bd8e3af3a78fd05d059835a52f5a7ee2cbc9
-commit: 7ed13ac1a9685222f9fa163b89f7eae8ea4f7fa8 [87/90] pinctrl: mediatek: Refine mtk_pinconf_get() and mtk_pinconf_set()
+commit: dbe733ac908ef232f42a6586fa848d9c6910eeab [88/90] pinctrl: mediatek:=
+ Backward compatible to previous Mediatek's bias-pull usage
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f=
+77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
+make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 7ed13ac1a9685222f9fa163b89f7eae8ea4f7fa8
+        git checkout dbe733ac908ef232f42a6586fa848d9c6910eeab
         # save the attached .config to linux build tree
-        make.cross ARCH=arm64 
+        make.cross ARCH=3Darm64=20
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/pinctrl/mediatek/pinctrl-paris.c:149:42: error: use of undeclared identifier 'val'
-                   err = mtk_hw_get_value(hw, desc, reg, &val);
-                                                          ^
-   1 error generated.
+>> drivers/pinctrl/mediatek/pinctrl-mt6765.c:1077:14: error: incompatible p=
+ointer types initializing 'int (*)(struct mtk_pinctrl *, const struct mtk_p=
+in_desc *, bool)' (aka 'int (*)(struct mtk_pinctrl *, const struct mtk_pin_=
+desc *, _Bool)') with an expression of type 'int (struct mtk_pinctrl *, con=
+st struct mtk_pin_desc *, u32, u32)' (aka 'int (struct mtk_pinctrl *, const=
+ struct mtk_pin_desc *, unsigned int, unsigned int)') [-Werror,-Wincompatib=
+le-pointer-types]
+           .bias_set =3D mtk_pinconf_bias_set_combo,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/pinctrl/mediatek/pinctrl-mt6765.c:1078:14: error: incompatible p=
+ointer types initializing 'int (*)(struct mtk_pinctrl *, const struct mtk_p=
+in_desc *, bool, int *)' (aka 'int (*)(struct mtk_pinctrl *, const struct m=
+tk_pin_desc *, _Bool, int *)') with an expression of type 'int (struct mtk_=
+pinctrl *, const struct mtk_pin_desc *, u32 *, u32 *)' (aka 'int (struct mt=
+k_pinctrl *, const struct mtk_pin_desc *, unsigned int *, unsigned int *)')=
+ [-Werror,-Wincompatible-pointer-types]
+           .bias_get =3D mtk_pinconf_bias_get_combo,
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   2 errors generated.
 
-vim +/val +149 drivers/pinctrl/mediatek/pinctrl-paris.c
+vim +1077 drivers/pinctrl/mediatek/pinctrl-mt6765.c
 
-805250982bb5c5 Zhiyong Tao 2018-09-08   75  
-805250982bb5c5 Zhiyong Tao 2018-09-08   76  static int mtk_pinconf_get(struct pinctrl_dev *pctldev,
-805250982bb5c5 Zhiyong Tao 2018-09-08   77  			   unsigned int pin, unsigned long *config)
-805250982bb5c5 Zhiyong Tao 2018-09-08   78  {
-805250982bb5c5 Zhiyong Tao 2018-09-08   79  	struct mtk_pinctrl *hw = pinctrl_dev_get_drvdata(pctldev);
-805250982bb5c5 Zhiyong Tao 2018-09-08   80  	u32 param = pinconf_to_config_param(*config);
-7ed13ac1a96852 Light Hsieh 2019-09-05   81  	int err, reg, ret = 1;
-805250982bb5c5 Zhiyong Tao 2018-09-08   82  	const struct mtk_pin_desc *desc;
-805250982bb5c5 Zhiyong Tao 2018-09-08   83  
-805250982bb5c5 Zhiyong Tao 2018-09-08   84  	desc = (const struct mtk_pin_desc *)&hw->soc->pins[pin];
-805250982bb5c5 Zhiyong Tao 2018-09-08   85  
-805250982bb5c5 Zhiyong Tao 2018-09-08   86  	switch (param) {
-805250982bb5c5 Zhiyong Tao 2018-09-08   87  	case PIN_CONFIG_BIAS_DISABLE:
-7ed13ac1a96852 Light Hsieh 2019-09-05   88  		if (hw->soc->bias_disable_get)
-805250982bb5c5 Zhiyong Tao 2018-09-08   89  			err = hw->soc->bias_disable_get(hw, desc, &ret);
-7ed13ac1a96852 Light Hsieh 2019-09-05   90  		else
-7ed13ac1a96852 Light Hsieh 2019-09-05   91  			err = -ENOTSUPP;
-805250982bb5c5 Zhiyong Tao 2018-09-08   92  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08   93  	case PIN_CONFIG_BIAS_PULL_UP:
-7ed13ac1a96852 Light Hsieh 2019-09-05   94  		if (hw->soc->bias_get)
-805250982bb5c5 Zhiyong Tao 2018-09-08   95  			err = hw->soc->bias_get(hw, desc, 1, &ret);
-7ed13ac1a96852 Light Hsieh 2019-09-05   96  		else
-7ed13ac1a96852 Light Hsieh 2019-09-05   97  			err = -ENOTSUPP;
-805250982bb5c5 Zhiyong Tao 2018-09-08   98  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08   99  	case PIN_CONFIG_BIAS_PULL_DOWN:
-7ed13ac1a96852 Light Hsieh 2019-09-05  100  		if (hw->soc->bias_get)
-805250982bb5c5 Zhiyong Tao 2018-09-08  101  			err = hw->soc->bias_get(hw, desc, 0, &ret);
-7ed13ac1a96852 Light Hsieh 2019-09-05  102  		else
-7ed13ac1a96852 Light Hsieh 2019-09-05  103  			err = -ENOTSUPP;
-805250982bb5c5 Zhiyong Tao 2018-09-08  104  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08  105  	case PIN_CONFIG_SLEW_RATE:
-7ed13ac1a96852 Light Hsieh 2019-09-05  106  		err = mtk_hw_get_value(hw, desc, PINCTRL_PIN_REG_SR, &ret);
-805250982bb5c5 Zhiyong Tao 2018-09-08  107  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08  108  	case PIN_CONFIG_INPUT_ENABLE:
-805250982bb5c5 Zhiyong Tao 2018-09-08  109  	case PIN_CONFIG_OUTPUT_ENABLE:
-7ed13ac1a96852 Light Hsieh 2019-09-05  110  		err = mtk_hw_get_value(hw, desc, PINCTRL_PIN_REG_DIR, &ret);
-7ed13ac1a96852 Light Hsieh 2019-09-05  111  		if (err)
-7ed13ac1a96852 Light Hsieh 2019-09-05  112  			goto out;
-7ed13ac1a96852 Light Hsieh 2019-09-05  113  		/*     CONFIG     Current direction return value
-7ed13ac1a96852 Light Hsieh 2019-09-05  114  		 * -------------  ----------------- ----------------------
-7ed13ac1a96852 Light Hsieh 2019-09-05  115  		 * OUTPUT_ENABLE       output       1 (= HW value)
-7ed13ac1a96852 Light Hsieh 2019-09-05  116  		 *                     input        0 (= HW value)
-7ed13ac1a96852 Light Hsieh 2019-09-05  117  		 * INPUT_ENABLE        output       0 (= reverse HW value)
-7ed13ac1a96852 Light Hsieh 2019-09-05  118  		 *                     input        1 (= reverse HW value)
-7ed13ac1a96852 Light Hsieh 2019-09-05  119  		 */
-7ed13ac1a96852 Light Hsieh 2019-09-05  120  		if (param == PIN_CONFIG_INPUT_ENABLE)
-7ed13ac1a96852 Light Hsieh 2019-09-05  121  			ret = !ret;
-805250982bb5c5 Zhiyong Tao 2018-09-08  122  
-805250982bb5c5 Zhiyong Tao 2018-09-08  123  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08  124  	case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-7ed13ac1a96852 Light Hsieh 2019-09-05  125  		err = mtk_hw_get_value(hw, desc, PINCTRL_PIN_REG_DIR, &ret);
-805250982bb5c5 Zhiyong Tao 2018-09-08  126  		if (err)
-7ed13ac1a96852 Light Hsieh 2019-09-05  127  			goto out;
-7ed13ac1a96852 Light Hsieh 2019-09-05  128  		/* return error when in output mode
-7ed13ac1a96852 Light Hsieh 2019-09-05  129  		 * because schmitt trigger only work in input mode
-7ed13ac1a96852 Light Hsieh 2019-09-05  130  		 */
-7ed13ac1a96852 Light Hsieh 2019-09-05  131  		if (ret) {
-7ed13ac1a96852 Light Hsieh 2019-09-05  132  			err = -EINVAL;
-7ed13ac1a96852 Light Hsieh 2019-09-05  133  			goto out;
-7ed13ac1a96852 Light Hsieh 2019-09-05  134  		}
-805250982bb5c5 Zhiyong Tao 2018-09-08  135  
-7ed13ac1a96852 Light Hsieh 2019-09-05  136  		err = mtk_hw_get_value(hw, desc, PINCTRL_PIN_REG_SMT, &ret);
-805250982bb5c5 Zhiyong Tao 2018-09-08  137  
-805250982bb5c5 Zhiyong Tao 2018-09-08  138  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08  139  	case PIN_CONFIG_DRIVE_STRENGTH:
-7ed13ac1a96852 Light Hsieh 2019-09-05  140  		if (hw->soc->drive_get)
-805250982bb5c5 Zhiyong Tao 2018-09-08  141  			err = hw->soc->drive_get(hw, desc, &ret);
-7ed13ac1a96852 Light Hsieh 2019-09-05  142  		else
-805250982bb5c5 Zhiyong Tao 2018-09-08  143  			err = -ENOTSUPP;
-805250982bb5c5 Zhiyong Tao 2018-09-08  144  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08  145  	case MTK_PIN_CONFIG_TDSEL:
-805250982bb5c5 Zhiyong Tao 2018-09-08  146  	case MTK_PIN_CONFIG_RDSEL:
-805250982bb5c5 Zhiyong Tao 2018-09-08  147  		reg = (param == MTK_PIN_CONFIG_TDSEL) ?
-805250982bb5c5 Zhiyong Tao 2018-09-08  148  		       PINCTRL_PIN_REG_TDSEL : PINCTRL_PIN_REG_RDSEL;
-805250982bb5c5 Zhiyong Tao 2018-09-08 @149  		err = mtk_hw_get_value(hw, desc, reg, &val);
-805250982bb5c5 Zhiyong Tao 2018-09-08  150  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08  151  	case MTK_PIN_CONFIG_PU_ADV:
-805250982bb5c5 Zhiyong Tao 2018-09-08  152  	case MTK_PIN_CONFIG_PD_ADV:
-805250982bb5c5 Zhiyong Tao 2018-09-08  153  		if (hw->soc->adv_pull_get) {
-805250982bb5c5 Zhiyong Tao 2018-09-08  154  			bool pullup;
-805250982bb5c5 Zhiyong Tao 2018-09-08  155  
-805250982bb5c5 Zhiyong Tao 2018-09-08  156  			pullup = param == MTK_PIN_CONFIG_PU_ADV;
-805250982bb5c5 Zhiyong Tao 2018-09-08  157  			err = hw->soc->adv_pull_get(hw, desc, pullup, &ret);
-7ed13ac1a96852 Light Hsieh 2019-09-05  158  		} else
-7ed13ac1a96852 Light Hsieh 2019-09-05  159  			err = -ENOTSUPP;
-805250982bb5c5 Zhiyong Tao 2018-09-08  160  		break;
-5e73de3413c5e0 Zhiyong Tao 2019-04-01  161  	case MTK_PIN_CONFIG_DRV_ADV:
-7ed13ac1a96852 Light Hsieh 2019-09-05  162  		if (hw->soc->adv_drive_get)
-5e73de3413c5e0 Zhiyong Tao 2019-04-01  163  			err = hw->soc->adv_drive_get(hw, desc, &ret);
-7ed13ac1a96852 Light Hsieh 2019-09-05  164  		else
-7ed13ac1a96852 Light Hsieh 2019-09-05  165  			err = -ENOTSUPP;
-5e73de3413c5e0 Zhiyong Tao 2019-04-01  166  		break;
-805250982bb5c5 Zhiyong Tao 2018-09-08  167  	default:
-7ed13ac1a96852 Light Hsieh 2019-09-05  168  		err = -ENOTSUPP;
-805250982bb5c5 Zhiyong Tao 2018-09-08  169  	}
-805250982bb5c5 Zhiyong Tao 2018-09-08  170  
-7ed13ac1a96852 Light Hsieh 2019-09-05  171  out:
-7ed13ac1a96852 Light Hsieh 2019-09-05  172  	if (!err)
-805250982bb5c5 Zhiyong Tao 2018-09-08  173  		*config = pinconf_to_config_packed(param, ret);
-805250982bb5c5 Zhiyong Tao 2018-09-08  174  
-7ed13ac1a96852 Light Hsieh 2019-09-05  175  	return err;
-805250982bb5c5 Zhiyong Tao 2018-09-08  176  }
-805250982bb5c5 Zhiyong Tao 2018-09-08  177  
-
-:::::: The code at line 149 was first introduced by commit
-:::::: 805250982bb5c5ce4a6e52e1d87204c5feea0dd1 pinctrl: mediatek: add pinctrl-paris that implements the vendor dt-bindings
-
-:::::: TO: Zhiyong Tao <zhiyong.tao@mediatek.com>
-:::::: CC: Linus Walleij <linus.walleij@linaro.org>
+  1065=09
+  1066	static const struct mtk_pin_soc mt6765_data =3D {
+  1067		.reg_cal =3D mt6765_reg_cals,
+  1068		.pins =3D mtk_pins_mt6765,
+  1069		.npins =3D ARRAY_SIZE(mtk_pins_mt6765),
+  1070		.ngrps =3D ARRAY_SIZE(mtk_pins_mt6765),
+  1071		.eint_hw =3D &mt6765_eint_hw,
+  1072		.gpio_m =3D 0,
+  1073		.base_names =3D mt6765_pinctrl_register_base_names,
+  1074		.nbase_names =3D ARRAY_SIZE(mt6765_pinctrl_register_base_names),
+  1075		.bias_disable_set =3D mtk_pinconf_bias_disable_set,
+  1076		.bias_disable_get =3D mtk_pinconf_bias_disable_get,
+> 1077		.bias_set =3D mtk_pinconf_bias_set_combo,
+> 1078		.bias_get =3D mtk_pinconf_bias_get_combo,
+  1079		.drive_set =3D mtk_pinconf_drive_set_direct_val,
+  1080		.drive_get =3D mtk_pinconf_drive_get_direct_val,
+  1081		.adv_pull_get =3D mtk_pinconf_adv_pull_get,
+  1082		.adv_pull_set =3D mtk_pinconf_adv_pull_set,
+  1083	};
+  1084=09
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+0-DAY kernel test infrastructure                Open Source Technology Cent=
+er
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporati=
+on
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909130159.Br7HOPvw%25lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/201909130102.Qc438kZF%25lkp%40intel.com.
 
---4oo3l2kgoolliogw
+--relpfhuyvtjwdpi6
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICNF3el0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
+H4sICLB/el0AAy5jb25maWcAnDxJd+M20vf8Cr7kkhzSrc1Lz/d8AElQQsTNACjZvvApttzx
 xEuPLHfS/36qAC4ACDr9TZZOWFXYCoXaUNBPP/wUkLfjy9Pu+HC7e3z8FnzeP+8Pu+P+Lrh/
 eNz/XxAXQV7IgMZMfgDi9OH57e+Pu8PT6SI4+TD/MPn1cHsSrPeH5/1jEL083z98foPmDy/P
 P/z0A/zzEwCfvkBPh38Ft4+758/B1/3hFdDBdPIB/g5+/vxw/NfHj/Dn08Ph8HL4+Pj49an+
@@ -1137,4 +1077,4 @@ R3bfSXriO5EhNdElKPDwidu5zRZhaPyO+crDhh1ElD5E0CkpFw4zQz2vy1tzZN1zdKGkInHH
 JuxBWepE7gEaDLs3/g6gBfNLurYiMdf0kGGi4EMfESjgNLEiJ91fZH6/UZoTExIEAO5R53mn
 YnbbwS/UjE0OspiITKxPhftZQVmNgmQdvgLttY2cEPS/i+Fi6wsNAwA=
 
---4oo3l2kgoolliogw--
+--relpfhuyvtjwdpi6--
