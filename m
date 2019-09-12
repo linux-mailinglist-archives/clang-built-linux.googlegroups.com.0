@@ -1,123 +1,128 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBK4V5PVQKGQEO2BWRVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBN5T5PVQKGQEAKSKVKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 01AF8B1669
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Sep 2019 00:46:05 +0200 (CEST)
-Received: by mail-ot1-x338.google.com with SMTP id w6sf11054751otm.19
-        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 15:46:04 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568328363; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 918C7B16BC
+	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Sep 2019 01:50:17 +0200 (CEST)
+Received: by mail-pl1-x63b.google.com with SMTP id t10sf15159144plr.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 12 Sep 2019 16:50:17 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568332216; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JVIoegJBZXsT/6akwjYRMzqyKSFJ3s3phtgS/GxlZHGXVxwUwxgGXQPJ/+GKk5Jnt5
-         7pior8o1fTt4T93xhOYZANX7HyBYwkDf+YIoPi/nhgUn/3Dynu8smX7CwIk9Dsvr2oM8
-         AV+yzF5c/JBKDLCEYUSeWWd/WnJ7FK8ADY3JX2ZnefZxUd7Az05yxvxyMgmA/lE6hlZO
-         1wKj93QEGxYWbBAn+suR+iZ0yi0NSk5WQDFxbe4ZWxBeXfjV/Ac0rAuuC+FqCKtrjbbZ
-         T2jFtxaOr/mYXGFSNyMmvjROrQS9OvMeo32So0B7sM/aAYSlRnHkCBxaSX5GkkG4GJg7
-         hnjQ==
+        b=F4OyFlBfaKO3jqx0S+lHJbS+Szd2kMiH5ttJBOu8g7Cky4t1M3AcLlGGY7J5Kleuni
+         0fHZvcQHRfw7k9nFXeRpkYZXcj2xYmpVfTDRumEE+VANROdEQTr5xXnokK61MLinZbPc
+         HajsD4yd57xvjeSw0zWSsF7Rxg0mUBLrw+x19WqpzpHxXU922uNws58aUFYf+4/eaCCR
+         MYBPTzD4aU02Ivm1FsZAvdwHXQQdULMMNpwbaYL5iqk1brdJwmdphC7Si7+zAtwN5kgl
+         X0ZJnEJTvsGzOnIFMWCg5oZ3BQFQyStJI3y3k3Nx+Auwv4ok3Q3Eh8JwD1QkYXRwpV/f
+         NMqg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=Hvc4ZpEmMKsRwQPrY3KVXj95TA4fJ8u2Li9ZMuzSpAY=;
-        b=dqfildBfuSdBquKWefUdXf5XbUNjTpvDJ3OAo3gBuHrgqrYpgaapoh5JzAswuOPA3X
-         q1CdmlN49HvfmBWzQ+9R2Czzmt4ZYaCqZoOfAS+D59BxwVcalLuP2Z30R5OLtABayzeE
-         myCxa8eeTNX6S5mvQi4OWScRVkmkxHspJ1b83l+mtFeOGkvSEXorA4hD3BQ/WW1lsjwz
-         ssKBReLxIxs9VJN24J2gwADdUfZAOaRoA/TbVv2ttBj7Qz0OcrQtemajVAVWBDGTaSUx
-         n6KGhGQkkgBcNtgDpCD2x5IIHEKyHtr0lXvF74gYHCq3j9J2OQW328KEYUPTlSVZI6D9
-         aSTQ==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=/VYjSsA/oLfe0F8EaQUM16+9OzEd/Q1FoLsOaPa4pqo=;
+        b=Sn/Mwd3VF9c74bg2SQx0MfPlQeJAha2GRLmmKMFaM/xtQYANCFJg6vZQe3PSn6g4yz
+         HNVXFexVf2qvASpvRfjs3bPWt+9u5hM36no8W7vVmDIyzPROzSN5w5zByjs18UKVDhxg
+         SaV/FeDTuVaUorUalnI++zQP11UA0UvXwKS/MPPFVbyrmc4CEvXxROoAn7C31nQOqxKA
+         bbe6MRNmvpen9Wh1B0yeAt8h0AIHUQdIWZQYeUNaphdK9CYyoukw6dZS4aTPhEyjwLeK
+         BuL3UnyNJecxLpEwAV0MqmOXgfwVoD9Q31uSHIefswkEHSMxI4FKTIQMVDiC6hkVtoHR
+         7CSA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=d7B8lQY5;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::636 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=neutral (google.com: 216.40.44.17 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Hvc4ZpEmMKsRwQPrY3KVXj95TA4fJ8u2Li9ZMuzSpAY=;
-        b=ahncs53xb01ufwGfNtnypQ6YT4l++qV+pLu5Wy35Q0ndZz0cwbrHO1AR5O+6ZRyGBg
-         rdj8HShse0C1a1ThL2PJLSc13ThkE5xiwaQSBCxH8WzphhE/or9R8hH7y9rarwIZBV3Z
-         pKdF4OCryGxJG8thSiY/gu/6imA9WzhRIvjGe0SlgQiaiSs3vEdg1xMde7vhLUwZYVBc
-         PQCZPlXKZMsUAc0YWQ++CCryA2cqNyRYiVaRJ98NkffdLdlc0M8OewAZ1sXaEv7u0ck6
-         CBOwJShHxoL8SFaEGigYHqkDC248cnaWX3NX+S/r0gToO96lUuPn+ekQdPlrakbNl1Ba
-         9C3Q==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=/VYjSsA/oLfe0F8EaQUM16+9OzEd/Q1FoLsOaPa4pqo=;
+        b=TqtiyUrYpgC+pJQA3MTQ81rWkQmkzjr6Nbx0hrKSXO2VHT8/PU1+1Q0SsE4qUvhEZF
+         ZI8AGS5Pr/pUk87TtJBOCZenz1AdYmZ9ySRAEJR6K3xVsGJDooIV5uA3AdLa+U7T1j5a
+         F7ZuLi514qEyQwlMKPQMY8xDN67lhhQIvah6KvcNZc6uxrkWOdOa5mBYUEaQQknK/ndT
+         awcEcCbHQcmGCrucfE9Wasz76valLhkYJGv8KNBM1CyyMQXuMNv1dwHZn617Hfklxtj8
+         0MrfHxEdEKFhnjkeHbM9XImuXM/VP5jOqFfaaq4IjOiZBoBDm6RGJ4Hhmp3GL8utBTNI
+         wnCA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Hvc4ZpEmMKsRwQPrY3KVXj95TA4fJ8u2Li9ZMuzSpAY=;
-        b=rWAT+FBPtqWpE61pfd1gCIbR/YKDuiOPvPhmnHZQKAxx0W1ZCUirSpTShCvR7X6+5p
-         QMTdHOACxH3h8+bIPauWGUF20etAR6a/TIyxixfWY6cGKMiE43fADu+1/q4Nj21caN99
-         /7Ma+byOnjidp3e+ro2/6WwLpKrHjO60cU03XXcBdwNnsuSvZfiJZDwb+YRiCO/0bcRf
-         +x2DH1cqPGt41gnvNlZV2sJbuLUYD9Yw/4C6x1EEv2Fg9Nku2l5ipfdpFaaZmn0lEQZj
-         RrIIzPvn1GZ4fDGB9WtItpb7TRXw1AHV+MKF0BBruitorWLmdpTVGk1pGHlXZ+7jq80p
-         cdUw==
-X-Gm-Message-State: APjAAAUyU1PQY3+8LO5I9LJ9jVzjm+3Nqw03D5Bq4gvP9Ik+lWrL6POn
-	uOmaBzEf+9Em0eKBXc/3SrU=
-X-Google-Smtp-Source: APXvYqxkpS40hEiZKtfh65F0kFwHPb0sgMkbpiTmAegFUEC97zfz0kiYtgyy22tUzCHAmiIQvfKsVg==
-X-Received: by 2002:a05:6830:9:: with SMTP id c9mr38957488otp.262.1568328363648;
-        Thu, 12 Sep 2019 15:46:03 -0700 (PDT)
+        bh=/VYjSsA/oLfe0F8EaQUM16+9OzEd/Q1FoLsOaPa4pqo=;
+        b=KoB9u2aeEyuxNypI8OiELndFwGmgYI2uCEwVHZIsaQ2IW6L1M8cX2Mz+FxNWy7QFhk
+         q9lieSzNL61FyeBwgWtw3JHDZJYTFdHIfDjxBpwPRFevdFcx02M7ESE+ckLLb3mBP0C1
+         4MUJDfj1BBGByxegIRtc3tJ7BijR28ZOGSCsd2orMHpnE0TMXb04FGPNQ8wEusm3qaro
+         VhVwLxdVuABKObIltwkNdATgjnKvKHh18b6Jxq3HDjdib8TOKBl3l3zjqfp20YQNv8yy
+         PGFQqFMIhcW5DyQmRSy77UugYm3f6lbi6PLLaxC+BgetFnWof5RuOhDXdWXuqueOWsnU
+         /A9A==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAWoJbZMGh8aOZwzD3EcANzvmfde5BeixQf0b1umUa+JWjs2lxKD
+	EyhGiV/pjjQuoWmnKKyIGHk=
+X-Google-Smtp-Source: APXvYqwhDdhljxAO4b9Ibg5HghSN/VFOTCD1tAmp7xxhbXmBHmzXXGnELy/xp1W8HyW47yc5FRCeRg==
+X-Received: by 2002:a65:4507:: with SMTP id n7mr10385047pgq.86.1568332216055;
+        Thu, 12 Sep 2019 16:50:16 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a54:440b:: with SMTP id k11ls160353oiw.6.gmail; Thu, 12 Sep
- 2019 15:46:03 -0700 (PDT)
-X-Received: by 2002:aca:33c6:: with SMTP id z189mr918801oiz.137.1568328363286;
-        Thu, 12 Sep 2019 15:46:03 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568328363; cv=none;
+Received: by 2002:a62:1b46:: with SMTP id b67ls5336674pfb.8.gmail; Thu, 12 Sep
+ 2019 16:50:15 -0700 (PDT)
+X-Received: by 2002:aa7:82d9:: with SMTP id f25mr42068700pfn.117.1568332215687;
+        Thu, 12 Sep 2019 16:50:15 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568332215; cv=none;
         d=google.com; s=arc-20160816;
-        b=nr4kz02CNeV+wlv+aRzuOiMWKGM+JyR/0KyjRmoKP3+mCBlsQnMD9CMHKjC8d4wYnA
-         XvtJRiY6U0OBs15mRnQo0ejdppvHiUDluvZMVB+aOkx8WhSsWfkzW6h+/RD0vXpLcvMI
-         4P3s5rQhWlFlRRC220b0pS8NbW4yf8R3hC3cjAmX60vT6bduyLtcc7L451Woi1JkPzLa
-         IeryjTR2FuefylXE0EaXk9eDisDiMRjOxRG3e9sHkom/QBqlsXy7eqHLIJZDEwim9eeh
-         jih9w9dfGGpPCsLuZ40a3wvoXCVe5u9GwHvq4q7SDv83HilbhoXsARAHFfbz5YD7CViK
-         4emQ==
+        b=SozDMVvtoUj48WWnzPFKrJW6kpInxQdNDfRMhhK4jdi94ZYaQPDjlw9hPW0LsedUo1
+         lY1j6p6rtJRmcbvxF2QsNCN1vgx1tGye0MLNTvzZZrMCMw9/7WvWYPPFgvdiw0Ilm6TL
+         hcbU2zp8Lo0oHCgwBuwomKdKepvlqmuazp/bafkBZGu9mBSJM/eR3AAlAyFN2s/GMhSi
+         U6I7MH39asri84zYW6Y6e3WpNIAHJe0DmWPpmbo3ljhxGJdopoVELsnXnpas4bOtQ3zJ
+         PLRwDjbOEWbbgnLgj5zjZhIMI0gSF9R1l84MxxLBM0QpKxPutBiOobQudhY8FiAwuBfn
+         JdQA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=H7OdZ21QdmXaiQoeot7FRn3EJRksBwa1NFZNghyXnJU=;
-        b=pGK7KO5ImQUeAL503+z2SAuV52gtvmF8vQdg8hsIXvmyrwnPiodfmURoGfRe32gYTr
-         gIVzR+suwiJEJrHm1Hvg/pKAZQyWmwdeajy+a+FSlSz7H/lY7/iC3xMKEw0E8wvkoats
-         85m4gz89g8qmhr4GBw8H7oGF8xc/wAw92rheSofSy4x2/jPhgPtm/1NQjHREOg8MARfT
-         8qmts+9i0KD8TVVsjeRiBQGPtTH71wDiqwkEghtlW3Fp3Qys974qggpjJc7ZH7PS/2Za
-         ceWaNMwUQS19KuNNv8ize03t0RIUp5QFdc72xGnia/sI5N+D5JmFLjRiI83R7bBlOKOc
-         lH6A==
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id;
+        bh=Cym2F2T5ZaxBBw44B+eAzTXuUBWdGqz+4oBLF7XNHUs=;
+        b=w5vMzbiBwk2+qPi3bkSKuSB0G+Gjj+vWzRn+pJuFFhgZb7mkfrO6IZvyhMCh/LU5b7
+         Xd9OYs75jiiKwb37ZLVr3aHtDl1V+5AWLoJt/zF/FFZkrxKyeSw2fpNd270spXn/Qycz
+         GAUz+bprDGtoMm/i85KA9Qkp1oIfXtSxnIAquNDrIrk5cU428gd92GFLo1JL0R2+6WEu
+         SFyQMUgvoPqZw63U46Ruof2Ry10/1nlLEMdn4wPQf84RPvH9AxaAkyLQZmmIasBqRCZ7
+         DRKmdD0+btx7qc76vxndEB/fLcKVi+qVgZ3j/9UdgI6faBxpwyYpyeCO8KHII0Rl4q0R
+         gtMg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=d7B8lQY5;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::636 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x636.google.com (mail-pl1-x636.google.com. [2607:f8b0:4864:20::636])
-        by gmr-mx.google.com with ESMTPS id v19si1452508otn.3.2019.09.12.15.46.03
+       spf=neutral (google.com: 216.40.44.17 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0017.hostedemail.com. [216.40.44.17])
+        by gmr-mx.google.com with ESMTPS id g12si1302365plm.2.2019.09.12.16.50.15
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 12 Sep 2019 15:46:03 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::636 as permitted sender) client-ip=2607:f8b0:4864:20::636;
-Received: by mail-pl1-x636.google.com with SMTP id w10so1293804plq.5
-        for <clang-built-linux@googlegroups.com>; Thu, 12 Sep 2019 15:46:03 -0700 (PDT)
-X-Received: by 2002:a17:902:d891:: with SMTP id b17mr24029479plz.119.1568328362027;
- Thu, 12 Sep 2019 15:46:02 -0700 (PDT)
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 12 Sep 2019 16:50:15 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.17 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.17;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay05.hostedemail.com (Postfix) with ESMTP id 4E0EC18030445;
+	Thu, 12 Sep 2019 23:50:14 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::,RULES_HIT:41:355:379:599:871:973:988:989:1000:1260:1313:1314:1345:1359:1437:1516:1518:1535:1537:1566:1575:1594:1711:1714:1730:1747:1764:1777:1792:2393:2559:2562:3138:3139:3140:3141:3142:3622:3865:3867:3868:3872:3873:4119:4321:4362:5007:6120:6506:6747:6748:7281:7776:7980:8531:10004:10394:10400:10848:11232:11604:11658:11914:12297:12740:12895:13439:14659:21080:21433:21627:21789:21819:30022:30054:30079:30091,0,RBL:47.151.152.152:@perches.com:.lbl8.mailshell.net-62.8.0.100 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:21,LUA_SUMMARY:none
+X-HE-Tag: snake37_1efd62991ce19
+X-Filterd-Recvd-Size: 8670
+Received: from XPS-9350.home (unknown [47.151.152.152])
+	(Authenticated sender: joe@perches.com)
+	by omf18.hostedemail.com (Postfix) with ESMTPA;
+	Thu, 12 Sep 2019 23:50:12 +0000 (UTC)
+Message-ID: <a8290101e2720cac8b06613ec4cb91ffbfd69f05.camel@perches.com>
+Subject: Re: [rfc patch script] treewide conversion of __section(foo) to
+ section("foo");
+From: Joe Perches <joe@perches.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, Stephen Rothwell
+ <sfr@canb.auug.org.au>, Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+ clang-built-linux <clang-built-linux@googlegroups.com>, LKML
+ <linux-kernel@vger.kernel.org>
+Date: Thu, 12 Sep 2019 16:50:11 -0700
+In-Reply-To: <CAKwvOdn6bMGZFAwH8iS5xD+Ce7oV8U6Fgi_SrFpCjo2-1hEUrw@mail.gmail.com>
 References: <7ef58eb00bc46b4ea3fe49a8c45cd2ff06292247.camel@perches.com>
-In-Reply-To: <7ef58eb00bc46b4ea3fe49a8c45cd2ff06292247.camel@perches.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 12 Sep 2019 15:45:50 -0700
-Message-ID: <CAKwvOdn6bMGZFAwH8iS5xD+Ce7oV8U6Fgi_SrFpCjo2-1hEUrw@mail.gmail.com>
-Subject: Re: [rfc patch script] treewide conversion of __section(foo) to section("foo");
-To: Joe Perches <joe@perches.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, Stephen Rothwell <sfr@canb.auug.org.au>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=d7B8lQY5;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::636
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+	 <CAKwvOdn6bMGZFAwH8iS5xD+Ce7oV8U6Fgi_SrFpCjo2-1hEUrw@mail.gmail.com>
+Content-Type: multipart/mixed; boundary="=-l/Hb6MCBA8+oZyjPPDsJ"
+User-Agent: Evolution 3.32.1-2
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.17 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,170 +135,122 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Sep 8, 2019 at 9:21 PM Joe Perches <joe@perches.com> wrote:
-<snip>
-> So running the script:
->
-> $ perl section.pl
->
-> produces a commit
-> ---
-> From 04e52f34fd4ee7008ea5bf0d8896bf8d1fdf9f3f Mon Sep 17 00:00:00 2001
-> Message-Id: <04e52f34fd4ee7008ea5bf0d8896bf8d1fdf9f3f.1568001863.git.joe@perches.com>
-> From: Joe Perches <joe@perches.com>
-> Date: Sun, 8 Sep 2019 20:53:41 -0700
-> Subject: [PATCH] treewide: Convert macro and uses of __section(foo) to
->  __section("foo")
->
-> Use a more generic form for __section that requires quotes to avoid
-> complications with clang and gcc differences.
->
-> Remove the quote operator # from compiler_attributes.h __section macro.
->
-> Convert all unquoted __section(foo) uses to quoted __section("foo").
-> Also convert __attribute__((section("foo"))) uses to __section("foo")
-> even if the __attribute__ has multiple list entry forms.
->
-> Signed-off-by: Joe Perches <joe@perches.com>
-> ---
->  arch/arc/include/asm/linkage.h                    |  8 +++---
->  arch/arc/include/asm/mach_desc.h                  |  2 +-
->  arch/arc/plat-hsdk/platform.c                     |  2 +-
->  arch/arm/include/asm/cache.h                      |  2 +-
->  arch/arm/include/asm/cpuidle.h                    |  2 +-
->  arch/arm/include/asm/idmap.h                      |  2 +-
->  arch/arm/include/asm/kvm_hyp.h                    |  2 +-
->  arch/arm/include/asm/mach/arch.h                  |  4 +--
->  arch/arm/include/asm/setup.h                      |  2 +-
->  arch/arm/include/asm/smp.h                        |  2 +-
->  arch/arm/include/asm/tcm.h                        |  8 +++---
->  arch/arm/kernel/cpuidle.c                         |  2 +-
->  arch/arm/kernel/devtree.c                         |  2 +-
->  arch/arm64/include/asm/cache.h                    |  2 +-
->  arch/arm64/include/asm/exception.h                |  2 +-
->  arch/arm64/include/asm/kvm_hyp.h                  |  2 +-
->  arch/arm64/kernel/efi.c                           |  2 +-
->  arch/arm64/kernel/smp_spin_table.c                |  2 +-
->  arch/ia64/include/asm/cache.h                     |  2 +-
->  arch/microblaze/kernel/setup.c                    |  2 +-
->  arch/mips/include/asm/cache.h                     |  2 +-
->  arch/mips/include/asm/mach-pmcs-msp71xx/msp_pci.h |  4 +--
->  arch/mips/include/asm/machine.h                   |  2 +-
->  arch/mips/include/asm/mips_machine.h              |  2 +-
->  arch/mips/kernel/setup.c                          |  2 +-
->  arch/mips/mm/init.c                               |  2 +-
->  arch/parisc/include/asm/cache.h                   |  2 +-
->  arch/parisc/include/asm/ldcw.h                    |  2 +-
->  arch/parisc/kernel/ftrace.c                       |  2 +-
->  arch/parisc/mm/init.c                             |  6 ++--
->  arch/powerpc/boot/main.c                          |  2 +-
->  arch/powerpc/boot/ps3.c                           |  2 +-
->  arch/powerpc/include/asm/cache.h                  |  2 +-
->  arch/powerpc/include/asm/machdep.h                |  2 +-
->  arch/powerpc/kernel/btext.c                       |  2 +-
->  arch/powerpc/kernel/prom_init.c                   |  2 +-
->  arch/powerpc/kvm/book3s_64_vio_hv.c               |  2 +-
->  arch/s390/boot/compressed/decompressor.c          |  2 +-
->  arch/s390/boot/ipl_parm.c                         |  4 +--
->  arch/s390/boot/startup.c                          |  2 +-
->  arch/s390/include/asm/cache.h                     |  2 +-
->  arch/s390/include/asm/sections.h                  |  4 +--
->  arch/s390/kernel/setup.c                          |  2 +-
->  arch/s390/mm/init.c                               |  2 +-
->  arch/sh/boards/of-generic.c                       |  2 +-
->  arch/sh/include/asm/cache.h                       |  2 +-
->  arch/sh/include/asm/machvec.h                     |  2 +-
->  arch/sh/include/asm/smp.h                         |  2 +-
->  arch/sparc/include/asm/cache.h                    |  2 +-
->  arch/sparc/kernel/btext.c                         |  2 +-
->  arch/um/include/shared/init.h                     | 22 +++++++--------
->  arch/um/kernel/skas/clone.c                       |  2 +-
->  arch/um/kernel/um_arch.c                          |  2 +-
->  arch/x86/boot/compressed/pgtable_64.c             |  2 +-
->  arch/x86/boot/tty.c                               |  8 +++---
->  arch/x86/boot/video.h                             |  2 +-
->  arch/x86/include/asm/apic.h                       |  4 +--
->  arch/x86/include/asm/cache.h                      |  2 +-
->  arch/x86/include/asm/intel-mid.h                  |  2 +-
->  arch/x86/include/asm/iommu_table.h                |  2 +-
->  arch/x86/include/asm/irqflags.h                   |  2 +-
->  arch/x86/include/asm/mem_encrypt.h                |  2 +-
->  arch/x86/include/asm/setup.h                      |  2 +-
->  arch/x86/kernel/cpu/cpu.h                         |  2 +-
->  arch/x86/kernel/head64.c                          |  2 +-
->  arch/x86/mm/mem_encrypt.c                         |  4 +--
->  arch/x86/mm/mem_encrypt_identity.c                |  2 +-
->  arch/x86/platform/pvh/enlighten.c                 |  4 +--
->  arch/x86/purgatory/purgatory.c                    | 10 +++----
->  arch/x86/um/stub_segv.c                           |  2 +-
->  arch/x86/xen/enlighten.c                          |  2 +-
->  arch/x86/xen/enlighten_pvh.c                      |  2 +-
->  arch/xtensa/kernel/setup.c                        |  2 +-
->  drivers/clk/clk.c                                 |  2 +-
->  drivers/clocksource/timer-probe.c                 |  2 +-
->  drivers/firmware/efi/libstub/efi-stub-helper.c    |  6 ++--
->  drivers/irqchip/irqchip.c                         |  2 +-
->  drivers/of/of_reserved_mem.c                      |  2 +-
->  drivers/s390/char/sclp_early_core.c               |  4 +--
->  drivers/thermal/thermal_core.h                    |  2 +-
->  include/asm-generic/bug.h                         |  6 ++--
->  include/asm-generic/error-injection.h             |  2 +-
->  include/asm-generic/kprobes.h                     |  4 +--
->  include/linux/acpi.h                              |  2 +-
->  include/linux/cache.h                             |  4 +--
->  include/linux/compiler.h                          |  8 +++---
->  include/linux/compiler_attributes.h               | 12 +-------
->  include/linux/cpu.h                               |  2 +-
->  include/linux/dynamic_debug.h                     |  2 +-
->  include/linux/export.h                            |  4 +--
->  include/linux/firmware.h                          |  2 +-
->  include/linux/frame.h                             |  2 +-
->  include/linux/init.h                              | 34 +++++++++++------------
->  include/linux/init_task.h                         |  4 +--
->  include/linux/interrupt.h                         |  4 +--
->  include/linux/kernel.h                            |  6 ++--
->  include/linux/linkage.h                           |  4 +--
->  include/linux/lsm_hooks.h                         |  4 +--
->  include/linux/module.h                            |  2 +-
->  include/linux/moduleparam.h                       |  4 +--
->  include/linux/mtd/xip.h                           |  2 +-
->  include/linux/of.h                                |  2 +-
->  include/linux/percpu-defs.h                       |  2 +-
->  include/linux/printk.h                            |  4 +--
->  include/linux/rcupdate.h                          |  2 +-
->  include/linux/sched/debug.h                       |  2 +-
->  include/linux/serial_core.h                       |  2 +-
->  include/linux/spinlock.h                          |  2 +-
->  include/linux/srcutree.h                          |  2 +-
->  include/linux/syscalls.h                          |  6 ++--
->  include/linux/trace_events.h                      |  2 +-
->  include/linux/tracepoint.h                        |  8 +++---
->  include/trace/bpf_probe.h                         |  2 +-
->  include/trace/trace_events.h                      | 10 +++----
->  kernel/kallsyms.c                                 |  4 +--
->  kernel/trace/trace_export.c                       |  2 +-
 
-Diff stats look good based on what I could find myself with grep.  I
-also manually eyeballed each hunk (#eyestrain).  When you send, please
-include my:
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-This patchset shows the need to follow up with conversions for some of
-the other attributes like __used, __aligned, and __weak.
-Good job handling some of the trickier cases.
-One case I'm not sure is perfect (or if it even matters TBH) is when
-there's a trailing backslash for a macro definition that continues
-onto the next line, if those are all still tabbed out correctly.  But
-the meat of this change is what's important and looks correct to.  If
-you want to email me just the patch file (so I don't have to
-copy+pasta from an email), I'd be happy to apply it and compile+boot
-test a few more arch's than x86.
+--=-l/Hb6MCBA8+oZyjPPDsJ
+Content-Type: text/plain; charset="UTF-8"
 
->  116 files changed, 193 insertions(+), 203 deletions(-)
--- 
-Thanks,
-~Nick Desaulniers
+On Thu, 2019-09-12 at 15:45 -0700, Nick Desaulniers wrote:
+> If you want to email me just the patch file (so I don't have to
+> copy+pasta from an email),
+
+Lazy... ;)
+
+> I'd be happy to apply it and compile+boot test a few more arch's
+> than x86.
+
+Thanks.  attached.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn6bMGZFAwH8iS5xD%2BCe7oV8U6Fgi_SrFpCjo2-1hEUrw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a8290101e2720cac8b06613ec4cb91ffbfd69f05.camel%40perches.com.
+
+--=-l/Hb6MCBA8+oZyjPPDsJ
+Content-Type: application/x-perl; name="section.pl"
+Content-Disposition: attachment; filename="section.pl"
+Content-Transfer-Encoding: base64
+
+IyBjb252ZXJ0IGxpbnV4LWtlcm5lbCBfX3NlY3Rpb24gdXNlcyBmcm9tIHVucXVvdGVkIHN0cmlu
+ZyB0byBxdW90ZWQgc3RyaW5nCiMgY29udmVydCBfX2F0dHJpYnV0ZV9fKChzZWN0aW9uKCJmb28i
+KSkpIHRvIF9fc2VjdGlvbigiZm9vIikKIyBjb252ZXJ0IF9fYXR0cmlidXRlX18oKGZvbywgc2Vj
+dGlvbj0oImJhciIpLCBiYXopKQojICAgICAgdG8gX19zZWN0aW9uKCJiYXIiKSBhdHRyaWJ1dGUo
+KGZvbywgYmF6KSkKCnVzZSBzdHJpY3Q7CgojIHBhdGNoIGNvbXBpbGVyX2F0dHJpYnV0ZXMuaCB0
+byByZW1vdmUgcXVvdGluZyBvZiBzZWN0aW9uIG5hbWUKCm15ICRyZXN1bHQgPSBxeHtwYXRjaCAt
+cDEgPDwiRU9GIgogaW5jbHVkZS9saW51eC9jb21waWxlcl9hdHRyaWJ1dGVzLmggfCAxMiArLS0t
+LS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMTEgZGVsZXRpb25zKC0p
+CgpkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9jb21waWxlcl9hdHRyaWJ1dGVzLmggYi9pbmNs
+dWRlL2xpbnV4L2NvbXBpbGVyX2F0dHJpYnV0ZXMuaAppbmRleCA5Y2EwNDBmYTFjYzYuLjg4ZDNl
+ZWExY2JiYSAxMDA2NDQKLS0tIGEvaW5jbHVkZS9saW51eC9jb21waWxlcl9hdHRyaWJ1dGVzLmgK
+KysrIGIvaW5jbHVkZS9saW51eC9jb21waWxlcl9hdHRyaWJ1dGVzLmgKQEAgLTIyNSwyMSArMjI1
+LDExIEBACiAjZGVmaW5lIF9fcHVyZSAgICAgICAgICAgICAgICAgICAgICAgICAgX19hdHRyaWJ1
+dGVfXygoX19wdXJlX18pKQogCiAvKgotICogTm90ZTogU2luY2UgdGhpcyBtYWNybyBtYWtlcyB1
+c2Ugb2YgdGhlICJzdHJpbmdpZmljYXRpb24gb3BlcmF0b3IiIGAjYCwKLSAqIGEgcXVvdGVkIHN0
+cmluZyBsaXRlcmFsIHNob3VsZCBub3QgYmUgcGFzc2VkIHRvIGl0LiBlZy4gcHJlZmVyOgotICog
+ICAgIF9fc2VjdGlvbiguZm9vKQotICogdG86Ci0gKiAgICAgX19zZWN0aW9uKCIuZm9vIikKLSAq
+IHVubGVzcyB0aGUgc2VjdGlvbiBuYW1lIGlzIGR5bmFtaWNhbGx5IGJ1aWx0IHVwLCBpbiB3aGlj
+aCBjYXNlIHRoZQotICogdmVyYm9zZSBfX2F0dHJpYnV0ZV9fKChfX3NlY3Rpb25fXygiLmZvbyIg
+eCkpKSBzaG91bGQgYmUgcHJlZmVycmVkLgotICoKLSAqIFNlZSBhbHNvOiBodHRwczovL2J1Z3Mu
+bGx2bS5vcmcvc2hvd19idWcuY2dpP2lkPTQyOTUwCi0gKgogICogICBnY2M6IGh0dHBzOi8vZ2Nj
+LmdudS5vcmcvb25saW5lZG9jcy9nY2MvQ29tbW9uLUZ1bmN0aW9uLUF0dHJpYnV0ZXMuaHRtbCNp
+bmRleC1zZWN0aW9uLWZ1bmN0aW9uLWF0dHJpYnV0ZQogICogICBnY2M6IGh0dHBzOi8vZ2NjLmdu
+dS5vcmcvb25saW5lZG9jcy9nY2MvQ29tbW9uLVZhcmlhYmxlLUF0dHJpYnV0ZXMuaHRtbCNpbmRl
+eC1zZWN0aW9uLXZhcmlhYmxlLWF0dHJpYnV0ZQogICogY2xhbmc6IGh0dHBzOi8vY2xhbmcubGx2
+bS5vcmcvZG9jcy9BdHRyaWJ1dGVSZWZlcmVuY2UuaHRtbCNzZWN0aW9uLWRlY2xzcGVjLWFsbG9j
+YXRlCiAgKi8KLSNkZWZpbmUgX19zZWN0aW9uKFMpICAgICAgICAgICAgICAgICAgICBfX2F0dHJp
+YnV0ZV9fKChfX3NlY3Rpb25fXygjUykpKQorI2RlZmluZSBfX3NlY3Rpb24oc2VjdGlvbikgICAg
+ICAgICAgICAgIF9fYXR0cmlidXRlX18oKF9fc2VjdGlvbl9fKHNlY3Rpb24pKSkKIAogLyoKICAq
+ICAgZ2NjOiBodHRwczovL2djYy5nbnUub3JnL29ubGluZWRvY3MvZ2NjL0NvbW1vbi1GdW5jdGlv
+bi1BdHRyaWJ1dGVzLmh0bWwjaW5kZXgtdW51c2VkLWZ1bmN0aW9uLWF0dHJpYnV0ZQpFT0Z9OwoK
+IyBHZXQgdGhlIGxpc3Qgb2YgZmlsZXMgdG8gbW9kaWZ5IChjb250YWlucyBfX3NlY3Rpb24gb3Ig
+X19hdHRyaWJ1dGVfXy4qc2VjdGlvbgojIChpZ25vcmUgc2NyaXB0cywgdG9vbHMsIHVhcGksIGFu
+ZCBjb21waWxlcl9hdHRyaWJ1dGVzLmgpCgpteSAkb3V0cHV0ID0gYGdpdCBncmVwIC0tbmFtZS1v
+bmx5IC1QICIoPzpcXGJfX3NlY3Rpb25cXGJcfFxcYl9fYXR0cmlidXRlX19cXGIuKnNlY3Rpb24p
+IiB8IGdyZXAgLXZQICdeKD86aW5jbHVkZS9saW51eC9jb21waWxlcl9hdHRyaWJ1dGVzXFwuaHxz
+Y3JpcHRzL3x0b29scy98L3VhcGkvKSdgOwpteSBAZmlsZXMgPSBzcGxpdCgiXG4iLCAkb3V0cHV0
+KTsKCiMgTW9kaWZ5IGVhY2ggcG9zc2libGUgZmlsZQpmb3JlYWNoIChAZmlsZXMpIHsKICAgIGNo
+b21wOwogICAgbXkgJGZpbGUgPSAkXzsKCiAgICAjIHJlYWQgdGhlIG9yaWdpbmFsIGZpbGUKICAg
+IG9wZW4oRkgsICc8JywgJGZpbGUpIG9yIGRpZSAkITsKICAgIG15IEBsaW5lcyA9IDxGSD47CiAg
+ICBjbG9zZSBGSDsKCiAgICAjIHdyaXRlIHRoZSBtb2RpZmllZCBmaWxlIGxpbmUgYnkgbGluZQog
+ICAgb3BlbiAoRkgsICc+JywgJGZpbGUpIG9yIGRpZSAkITsKICAgIGZvcmVhY2ggbXkgJGxpbmUg
+KEBsaW5lcykgewoJY2hvbXAgJGxpbmU7CglteSAkbmV3bGluZSA9ICRsaW5lOwoKCSMgQ29udmVy
+dCBfX3NlY3Rpb24oZm9vKSB0byBfX3NlY3Rpb24oImZvbyIpCgkjIGlmICJmb28iIHVzZXMgdG9r
+ZW4gcGFzdGluZywgcHJlIGFuZCBwb3N0IHRva2VucyBhcmUgYWxzbyBxdW90ZWQKCWlmICgkbGlu
+ZSA9fiBtL1xiX19zZWN0aW9uXHMqXChccyooPyEiKShbXlwpXSspXCkvKSB7CgkgICAgbXkgJG9s
+ZHNlY3Rpb24gPSAkMTsKCSAgICBteSAkbmV3c2VjdGlvbiA9ICQxOwoJICAgIGlmICgkb2xkc2Vj
+dGlvbiA9fiAvKC4qKSMjKC4qKSMjKC4qKS8pIHsKCQkkbmV3c2VjdGlvbiA9ICciJyAuIHRyaW0o
+JDEpIC4gJyIgIyMgJyAuIHRyaW0oJDIpIC4gJyAjIyAiJyAuIHRyaW0oJDMpIC4gJyInOwoJICAg
+IH0gZWxzZSB7CgkJJG5ld3NlY3Rpb24gPSAnIicgLiB0cmltKCRvbGRzZWN0aW9uKSAuICciJzsK
+CSAgICB9CgkgICAgJG5ld2xpbmUgPX4gcy9fX3NlY3Rpb25ccypcKFxzKlxRJG9sZHNlY3Rpb25c
+RVxzKlwpL19fc2VjdGlvbigkbmV3c2VjdGlvbikvOwoJfQoKCSMgY29udmVydCBfX2F0dHJpYnV0
+ZV9fKChzZWN0aW9uKCJmb28iKSkpIHRvIF9fc2VjdGlvbigiZm9vIikKCSRuZXdsaW5lID1+IHMv
+XGJfX2F0dHJpYnV0ZV9fXHMqXChccypcKFxzKl8qc2VjdGlvbl8qXHMqXChccyooIlteIl0rIilc
+cypcKVxzKlwpXHMqXCkvX19zZWN0aW9uKCQxKS87CgoJIyBjb252ZXJ0IF9fYXR0cmlidXRlX18o
+KGZvbywgc2VjdGlvbj0oImJhciIpLCBiYXopKQoJIyB0byBfX3NlY3Rpb24oImJhciIpIGF0dHJp
+YnV0ZSgoZm9vLCBiYXopKQoJaWYgKCRuZXdsaW5lID1+IC8oXGJfX2F0dHJpYnV0ZV9fXHMqXChc
+cypcKChbXixfXSspPyhccyosP1xzKl8qc2VjdGlvbl8qXHMqXChccyooIlteIl0rIilccypcKVxz
+Kiw/XHMqKSguKilccypcKVxzKlwpKS8pIHsKCSAgICBteSAkc2VjdGlvbiA9ICQzOwoJICAgIG15
+ICRjb21tYSA9ICIiOwoJICAgICRjb21tYSA9ICIsICIgaWYgKCRzZWN0aW9uID1+IC9eXHMqLC8g
+JiYgJHNlY3Rpb24gPX4gLyxccyokLyk7CgkgICAgJG5ld2xpbmUgPX4gcy9cUSRzZWN0aW9uXEUv
+JGNvbW1hLzsKCSAgICAkc2VjdGlvbiA9fiBzL15bXiJdKi8vOwoJICAgICRzZWN0aW9uID1+IHMv
+XigiW14iXSoiKS4qLyQxLzsKCSAgICAkbmV3bGluZSA9fiBzL1xiX19hdHRyaWJ1dGVfXy9fX3Nl
+Y3Rpb24oJHNlY3Rpb24pIF9fYXR0cmlidXRlX18vOwoJfQoKCSMgaWYgdGhlIGxpbmUgZW5kZWQg
+d2l0aCBhIGxpbmUgY29udGludWF0aW9uIFwsIHRyeSB0byBtb3ZlIHRoZQoJIyBjb250aW51YXRp
+b24gdG8gdGhlIHNhbWUgbG9jYXRpb24gYnkgcmVtb3Zpbmcgb3IgYWRkaW5nIHRhYnMKCWlmICgk
+bGluZSA9fiAvXFwkLykgewoJICAgIG15ICRvbGVuID0gbGVuZ3RoKGV4cGFuZF90YWJzKCRsaW5l
+KSk7CgkgICAgbXkgJG5sZW4gPSBsZW5ndGgoZXhwYW5kX3RhYnMoJG5ld2xpbmUpKTsKCSAgICBp
+ZiAoJG5ld2xpbmUgPX4gL1x0XFwkLykgewoJCWlmICgkbmxlbiA+ICRvbGVuKSB7CgkJICAgICRu
+ZXdsaW5lID1+IHMvXHRcXCQvXFwvOwoJCX0gZWxzZSB7CgkJICAgIHdoaWxlICgkbmxlbiA8ICRv
+bGVuKSB7CgkJCSRuZXdsaW5lID1+IHMvXFwkL1x0XFwvOwoJCQkkbmxlbiA9IGxlbmd0aChleHBh
+bmRfdGFicygkbmV3bGluZSkpOwoJCSAgICB9CgkJfQoJICAgIH0KCX0KCXByaW50IEZIICIkbmV3
+bGluZVxuIjsKICAgIH0KICAgIGNsb3NlIEZIOwp9CgojIEFuZCBnaXQgY29tbWl0IHRoZSBjaGFu
+Z2VzCiRyZXN1bHQgPSBxeHtnaXQgY29tbWl0IC1hIC0tYXV0aG9yPSdKb2UgUGVyY2hlcyA8am9l
+XEBwZXJjaGVzLmNvbT4nIC1GLSA8PCJFT0YiCnRyZWV3aWRlOiBDb252ZXJ0IG1hY3JvIGFuZCB1
+c2VzIG9mIF9fc2VjdGlvbihmb28pIHRvIF9fc2VjdGlvbigiZm9vIikKClVzZSBhIG1vcmUgZ2Vu
+ZXJpYyBmb3JtIGZvciBfX3NlY3Rpb24gdGhhdCByZXF1aXJlcyBxdW90ZXMgdG8gYXZvaWQKY29t
+cGxpY2F0aW9ucyB3aXRoIGNsYW5nIGFuZCBnY2MgZGlmZmVyZW5jZXMuCgpSZW1vdmUgdGhlIHF1
+b3RlIG9wZXJhdG9yICMgZnJvbSBjb21waWxlcl9hdHRyaWJ1dGVzLmggX19zZWN0aW9uIG1hY3Jv
+LgoKQ29udmVydCBhbGwgdW5xdW90ZWQgX19zZWN0aW9uKGZvbykgdXNlcyB0byBxdW90ZWQgX19z
+ZWN0aW9uKCJmb28iKS4KQWxzbyBjb252ZXJ0IF9fYXR0cmlidXRlX18oKHNlY3Rpb24oImZvbyIp
+KSkgdXNlcyB0byBfX3NlY3Rpb24oImZvbyIpCmV2ZW4gaWYgdGhlIF9fYXR0cmlidXRlX18gaGFz
+IG11bHRpcGxlIGxpc3QgZW50cnkgZm9ybXMuCgpTaWduZWQtb2ZmLWJ5OiBKb2UgUGVyY2hlcyA8
+am9lXEBwZXJjaGVzLmNvbT4KRU9GCn07CgojIHV0aWxpdHkgc3Vicm91dGluZXMKc3ViIHRyaW0g
+ewogICAgbXkgKCRzdHJpbmcpID0gQF87CiAgICAkc3RyaW5nID1+IHMvXlxzK3xccyskLy9nOwog
+ICAgcmV0dXJuICRzdHJpbmc7Cn0KCnN1YiBleHBhbmRfdGFicyB7CglteSAoJHN0cikgPSBAXzsK
+CglteSAkcmVzID0gJyc7CglteSAkbiA9IDA7Cglmb3IgbXkgJGMgKHNwbGl0KC8vLCAkc3RyKSkg
+ewoJCWlmICgkYyBlcSAiXHQiKSB7CgkJCSRyZXMgLj0gJyAnOwoJCQkkbisrOwoJCQlmb3IgKDsg
+KCRuICUgOCkgIT0gMDsgJG4rKykgewoJCQkJJHJlcyAuPSAnICc7CgkJCX0KCQkJbmV4dDsKCQl9
+CgkJJHJlcyAuPSAkYzsKCQkkbisrOwoJfQoKCXJldHVybiAkcmVzOwp9Cg==
+
+
+--=-l/Hb6MCBA8+oZyjPPDsJ--
+
