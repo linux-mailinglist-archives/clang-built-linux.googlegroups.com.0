@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDSIZNM7U4BRBYVJ6DVQKGQEC7Q3H3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDSIZNM7U4BRB6NO6DVQKGQERROVJLY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 510BDB2846
-	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Sep 2019 00:21:18 +0200 (CEST)
-Received: by mail-lf1-x13a.google.com with SMTP id o10sf6454303lfb.12
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Sep 2019 15:21:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568413277; cv=pass;
+Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B408B284F
+	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Sep 2019 00:26:02 +0200 (CEST)
+Received: by mail-lf1-x13f.google.com with SMTP id y27sf1874247lfg.21
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Sep 2019 15:26:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568413562; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NEOsXdL102W4jITf1QP/CacsXLufTkNwlSVNu008wTs5MtmIp9tgmPBmJQrxpJyMj2
-         swtfPoDFYFBVxK5LPbb3b/V7cCA29u9Q7CkL+E8VXXcHylDuVD1WfH9kDSx62g1jvmhw
-         JMoCyGanReNUbuhPnE89VwFcAu/SA/ml8bcZX4lkdzaqzDX6RZpNvnEFw5TMfR7ohmvI
-         9F0RS2to6qNPNwApDG0MZJMLvYq/aZggX5bm8ewEorQhvZdFBaL6KOojjiN89MInrWcF
-         y3uovKAqZUfGbNUM9dqx9on0eq6UoVBBsJui9RCmAmoGB6OKGg5dKhJmz+AmvRjXVJr0
-         Lu+w==
+        b=qI38pXDNKcbItnzwt1MkuCifIh/QtBDMV3Pw90dSp7ei8xE2Mq9M+KMVbUuJG2FMQl
+         tH8dCMpwhC3CHuE+qP58N1zZg0UmirREwF1GmtUHroSeHgOqFeKsHS+gxepZlbQDXesQ
+         qfOUujDNCu3w2/NpgOkUtHeg8VRV8yb+TMHs84rR6+jhbmiqRor8M1HREEQbNmAxOLEF
+         GY+JDlZ+LpZAi1UpDsB5xC5XLBfxRWlL1c+YEhrboTMaOJ1kL81CbDDhiaA27gxZToMG
+         J4WJSP0wpv4IL4bt/GIOrr4suu74dEimblm7LbiCTS/YoFTH27OIJKpkq3o8rFTjFTb1
+         gUEw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:mail-followup-to
          :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=Aeeh1TBdaefP4uO1yTPQAQrnDxV0ySIBM9woY3o5I3U=;
-        b=oAIr70EpCpvomNbPAisy0DMZIEAJwzI6+vfsmxyC8ZTQun9JwyiT1lAB0LtE/kfHyc
-         hoN+kIjkkODGIpUSdtTU3bAnproTHiIVe5Cq6ZI26erS1dx+Psq667a59s6IFx1rLYkh
-         5b0O0F3FzHU2b4Y4Okzz+D3Hfp828NMyoWGb07cMmETZpwSFNCNDlss6FDj//ihMxBDd
-         9fBaXFNqZcMyiwBMfR+hx9kZ1+TU3vQrHOB7pSXdahEcGGRziDUJN7O9EIl7i5lSBOie
-         LoTW5F9i7MFnu/8+xcLh7sAIxtZ70nfmP/5mE0HTJb/pLiHBCbgjxstzxowt7BN+o9Wh
-         KOmw==
+        bh=igdnnJazUP9PkTJP4etkU04qIVU3R9KHbrqUG8PWEEc=;
+        b=K5fA5rUTbKX1kZ9DNDjEcMoXgsr6H6BvFbUlIbg0Hz/9vLiJqnbOyZshQ/j5RQA1j3
+         JZyTuCsugfDWRi5kwjgXwG1cjC24vNl7kViMLXwHC8Yx+C8h3sLppp20lXyjh//7nU/T
+         K3WLU2WNWFDQPFwHh81MoN0Gf346xwZ5RElZ8EucbDpSpypefFjuiQICLIJyWUuklIrp
+         gzp/IbvE5bRTiWUSJniH0DkRGqC44vkFRS9ip4kTUeIsNdxC2gTwEBGpuPKGzke5eKzU
+         V3QrtkoV33UwFMeHaA4Fykx0T0XBxfgVlJpdZwE16HXzGMVeMq5hJwUnZc8QdouzFnFx
+         tY6Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=yWIvAi71;
-       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::242 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=YwEtvPh3;
+       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -37,13 +37,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Aeeh1TBdaefP4uO1yTPQAQrnDxV0ySIBM9woY3o5I3U=;
-        b=BnerCQghqyeDw9lJD1V75q3KfmBvM/TY5FNWXF9ra+/o2JGFJv2cIF2xT6Gw0mOvAx
-         tR+JYi/GTdKK6/3aPCH9FiduoyZMeZ+gQz0770itjglkRnzbEf+zUHhA9+JaOiM39ixd
-         A/fPCOkmXvbARbcMJSduPc9HxPUBueFtoBH3DkfvpZXJ1Pj2vk3BXAStey6OumJfUjBq
-         Gu0h/6Zl3PTiFaMlcDaztMElrBHGWmUgPspntyTi1DmaFsMrkasmyEnhpDFqMJhdKqlJ
-         EXSlGTpjRxlns8Fak1Ukg99ah1vx1Dv+6zPc0vPJh6LFdsLirJ4pk4lNxiRltV7g6WWC
-         2Mpw==
+        bh=igdnnJazUP9PkTJP4etkU04qIVU3R9KHbrqUG8PWEEc=;
+        b=HGktGX93afhrv+rv7i7bG+ZH8bMiyt8KO10DXoKwdQIBR9D2qRWdGn3GQXJazXrhrm
+         PEs0H6qZYz9GA+jJJplpdvsMRnIApLzA9c/z4OaHyu8Cv9P8LSG5RS8wV5gnS+WVADaa
+         1y/7JDlkrx7xL2e17TY9FzlMDoZsGwe+9aLkOoukKrjgUu34tYzJUBRGjUgkHXgY3ISK
+         zvQJzzLTvj0NePqOhR4ccbwlKdFmGSIsEwR0bdjUiuz71jAT9YZTsrhERP4lcKw443Er
+         jPl/BkMHemISYIWKBUAt1mwfcaCta9bamPxkawCDYdmGK30uWzg5mAJbcS1esxPkQ1xa
+         NyOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -52,61 +52,61 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Aeeh1TBdaefP4uO1yTPQAQrnDxV0ySIBM9woY3o5I3U=;
-        b=bGy2vwsvmOcdykiJF6p6G5n7qXvy3w/Z4KRFFWUTatvfHwhWhAS1clDFsHURaUfIPd
-         YC2i/wrz8PfuF5AQg7QUyMvbUSw/L/fRKXDWLiUTnbYMeQqLjKf3Ryumkys4YZjc7QdF
-         onBuurS/G5IVQexIoyTG8IgKFKfTMYozFW/q1fa0X+yTxqKxSrNSaXSbW3cxTWansVVc
-         N7tNZi/jbGNIHCW29GS6SmXTAblTFzm7XQfOhAJI1BjD03REGwcOvTViabpYSyio1Hus
-         l1VEoao5YSsE+GfiXjNdufEa8CbxrT1KEtWYS0De8ssYkkWOkzMEd4orWtB5EDWSSYc9
-         uAHg==
+        bh=igdnnJazUP9PkTJP4etkU04qIVU3R9KHbrqUG8PWEEc=;
+        b=j+dFAijUYZx4GSx/THwTHmBEh684DCR5XDrdRKlaxD2tzq3ceeTIMAmFLPX56/PX5S
+         kUMS9D7Sn1eaojhnR/doZZ4CG5CZQfdCGj3d0WEBZps9qOm/jWObGN7WzxgWBuEwTWOe
+         oZMyPS6layKmJWRqqY6Lt8SyguO8K1H+k+wxe6gGgPl46JhzYk+mwNbQBmLscEiq9ID4
+         DZFYpzUcQGIhEWpUYngy9Bm5IerqHr0wrPqrOI2xcKfMDjpiCOtyOarRlZbUkmhqbuo9
+         QwyJCHXbXBHRBX2JIR+X2qq7N5MHiQvtjyAoKJhfDeUQGFXvYdoaJFqFxNuIFZWCX6Zi
+         8wmg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV/jchBmHYFpmSNFboMt2rbbOzjOrzBxStefMdOdd66dATMNzfG
-	TRfVOBxiiSJ5WQ8XGvkJcM0=
-X-Google-Smtp-Source: APXvYqz5XCtFSYUrepmArb7K/YYuZVmm7tVGCwcjDGYXTK7NZCpKdS+WXoVxq/Pswrx7jtNohMkEQQ==
-X-Received: by 2002:a2e:860c:: with SMTP id a12mr30797819lji.116.1568412898206;
-        Fri, 13 Sep 2019 15:14:58 -0700 (PDT)
+X-Gm-Message-State: APjAAAXS6ZGQ24L8CusPOcAXM04vabeRkqG/iTDIp2y8SnsNBkkrM4M2
+	P1ZBQl9sNE8pjOsxdfK3DXo=
+X-Google-Smtp-Source: APXvYqzp3JcwBw+y9Gt6pseau7nZpbX10zeAvOm2hXsO33Alok0kprxT/wEi+xjrUXQKej7PL449KQ==
+X-Received: by 2002:a19:f111:: with SMTP id p17mr32432121lfh.187.1568413561963;
+        Fri, 13 Sep 2019 15:26:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:1122:: with SMTP id e2ls3695054ljo.6.gmail; Fri, 13
- Sep 2019 15:14:57 -0700 (PDT)
-X-Received: by 2002:a2e:9955:: with SMTP id r21mr5031485ljj.58.1568412897724;
-        Fri, 13 Sep 2019 15:14:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568412897; cv=none;
+Received: by 2002:a19:5f55:: with SMTP id a21ls3069166lfj.0.gmail; Fri, 13 Sep
+ 2019 15:26:01 -0700 (PDT)
+X-Received: by 2002:ac2:5611:: with SMTP id v17mr10703570lfd.87.1568413561530;
+        Fri, 13 Sep 2019 15:26:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568413561; cv=none;
         d=google.com; s=arc-20160816;
-        b=Kw2tOYQBmK0dP50JVIbUGsuyVj4CQ4tktkdt6phLISrAquhMg9PqTMZXEgoRT19xdU
-         LbXbqAoYe+Irk9EqLcahHTJHYUHyz+SiNWoBXTOqQlIZaA65fdt/FdcEb8dak72ckRvt
-         QWLv+97sBsPZbUcTwdOplHJp2xRaiJMzUHcwL4/ue0WE+TFEno6pbOf3Ulcpz1eB2bGz
-         FdJAE8rBHNFm/bOfGGGF7yMOMXRSjd9INWW4ilOyJ0sNk440QjOVkGl9NH9m7z/wQy7z
-         rU3fmRdNmAAsrHzzvKqnsNOJbnntZ1TNbS1J+QFIxiQWnEeX5+LfLay58sS35g2vyiMw
-         YAVQ==
+        b=tkfoD3kOFcGVJTzRjtDFQNHPG71kXvQEBAxIBkBGgDHr6LJOe5KZIWBcAHQUesSJny
+         IghKaZ4hAPAfc84kLKyXg92THPiiv6f2W9PMDBxZMRs6hGnh0G1f3m65iijRDfmqbrAU
+         ndnWfgQH3CwqyE+JhYjWPXG/wGe0E9uqVPqMFgvKTq1ZFjcKSA1eW8bfClhvq2bGSS+7
+         lHj2WdVQHkkn98dXlLOXbi4FHCFgxwiTqTVtToV/9Out4F+Hx7e/W6oqiuWnLIoDRQIU
+         ckwkKqfhk0KAEVKg7E5MHOwKgh9IGrOMoXoeRdpRv/TBcR7aWc4Fy0+jX1VrAJVIqtiS
+         Ug9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :mail-followup-to:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=Aws4qLTU0wWFl3XhWF/GSUsHrXBVOSQQwQxzuiN2xN0=;
-        b=O4nevgT3LFLywGBJ9SprENfMLnbGWl1Ov9ysWMJtfHm1ndc5xWX0o5l7FAtKAwhOIH
-         alTgaAUcYvNzLxlhkST32uA7aR5abv+WDMyl179z2yAESwcM01FJp41cgVDLbvojE0ny
-         orkU93qhZJcypW7nZXNQFtk3juGey1x1A/Na66JpfbP9DhJUj8lP+/f9XtY9wm3ytjsd
-         9RiCzMtM13Mhi9wYAio3JaeClqV4sCCyjnxHHNKFBAzhVVYaJeqefn25s4VrgTcgFnBe
-         BZfu8Bp3WpEZhb5EJSr/Ms6LFrGgWqsoMJr0emvRYICUoDzCzcKwjuDeMdX+ddFh44Qp
-         GIZA==
+        bh=h/ZsG9TiksBOb3vTyStnE+gAds3+4twuqY6gy9FAaAE=;
+        b=ypOVWmgSK3BLi7ZgO+qy1V9eQPhMC0CspulXWx/r3IsQTNuBDeJVepMkVju2i5EVfz
+         1kdUdAtEDKrBq7kN98Iq8+BXu3fspXAspr7EAuUZEOs/asSEq44hv0gzHjbW6Hivw7+X
+         KLUAs/wCkl+f1+rroyCFnk6kq7QdRPohqfdaFAQZ8RpQAglv3MBASjx2kU0cZmSqWdTY
+         yeNL2C16AUA/pCr2LFdtY9J19N9L1Yl7md6UXOXQtLs0jT6AM8vBTMCzYfMui2zY5gKO
+         Q6Aoq9CYHtBnXWrW2CMhrxDCscnPOX8aWVxTX8IqopsgJdWBnP3pT9VVRy/fchLJwtXE
+         9KMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=yWIvAi71;
-       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::242 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=YwEtvPh3;
+       spf=pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-lj1-x242.google.com (mail-lj1-x242.google.com. [2a00:1450:4864:20::242])
-        by gmr-mx.google.com with ESMTPS id c8si1824001lfm.4.2019.09.13.15.14.57
+Received: from mail-lf1-x142.google.com (mail-lf1-x142.google.com. [2a00:1450:4864:20::142])
+        by gmr-mx.google.com with ESMTPS id d3si1651965lfq.1.2019.09.13.15.26.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Sep 2019 15:14:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::242 as permitted sender) client-ip=2a00:1450:4864:20::242;
-Received: by mail-lj1-x242.google.com with SMTP id v24so889858ljj.3
-        for <clang-built-linux@googlegroups.com>; Fri, 13 Sep 2019 15:14:57 -0700 (PDT)
-X-Received: by 2002:a2e:3618:: with SMTP id d24mr30461361lja.179.1568412897370;
-        Fri, 13 Sep 2019 15:14:57 -0700 (PDT)
+        Fri, 13 Sep 2019 15:26:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ivan.khoronzhuk@linaro.org designates 2a00:1450:4864:20::142 as permitted sender) client-ip=2a00:1450:4864:20::142;
+Received: by mail-lf1-x142.google.com with SMTP id c195so8381345lfg.9
+        for <clang-built-linux@googlegroups.com>; Fri, 13 Sep 2019 15:26:01 -0700 (PDT)
+X-Received: by 2002:ac2:5ec1:: with SMTP id d1mr31448979lfq.83.1568413561225;
+        Fri, 13 Sep 2019 15:26:01 -0700 (PDT)
 Received: from khorivan (168-200-94-178.pool.ukrtel.net. [178.94.200.168])
-        by smtp.gmail.com with ESMTPSA id w13sm666947lfk.47.2019.09.13.15.14.56
+        by smtp.gmail.com with ESMTPSA id r8sm7173068lfm.71.2019.09.13.15.26.00
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Fri, 13 Sep 2019 15:14:56 -0700 (PDT)
-Date: Sat, 14 Sep 2019 01:14:54 +0300
+        Fri, 13 Sep 2019 15:26:00 -0700 (PDT)
+Date: Sat, 14 Sep 2019 01:25:58 +0300
 From: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 To: Yonghong Song <yhs@fb.com>
 Cc: "ast@kernel.org" <ast@kernel.org>,
@@ -119,9 +119,9 @@ Cc: "ast@kernel.org" <ast@kernel.org>,
 	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
 	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
 	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH bpf-next 07/11] samples: bpf: add makefile.prog for
- separate CC build
-Message-ID: <20190913221453.GD26724@khorivan>
+Subject: Re: [PATCH bpf-next 08/11] samples: bpf: makefile: base progs build
+ on makefile.progs
+Message-ID: <20190913222552.GE26724@khorivan>
 Mail-Followup-To: Yonghong Song <yhs@fb.com>,
 	"ast@kernel.org" <ast@kernel.org>,
 	"daniel@iogearbox.net" <daniel@iogearbox.net>,
@@ -134,18 +134,18 @@ Mail-Followup-To: Yonghong Song <yhs@fb.com>,
 	"bpf@vger.kernel.org" <bpf@vger.kernel.org>,
 	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
 References: <20190910103830.20794-1-ivan.khoronzhuk@linaro.org>
- <20190910103830.20794-8-ivan.khoronzhuk@linaro.org>
- <1720c5a5-5c64-46a3-be2f-56b59614f82a@fb.com>
+ <20190910103830.20794-9-ivan.khoronzhuk@linaro.org>
+ <dd4cd83f-7e35-ad07-8a53-d34c13c074a5@fb.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Disposition: inline
-In-Reply-To: <1720c5a5-5c64-46a3-be2f-56b59614f82a@fb.com>
+In-Reply-To: <dd4cd83f-7e35-ad07-8a53-d34c13c074a5@fb.com>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Original-Sender: ivan.khoronzhuk@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=yWIvAi71;       spf=pass
+ header.i=@linaro.org header.s=google header.b=YwEtvPh3;       spf=pass
  (google.com: domain of ivan.khoronzhuk@linaro.org designates
- 2a00:1450:4864:20::242 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
+ 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=ivan.khoronzhuk@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -159,145 +159,256 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Sep 13, 2019 at 09:33:58PM +0000, Yonghong Song wrote:
+On Fri, Sep 13, 2019 at 09:41:25PM +0000, Yonghong Song wrote:
 >
 >
 >On 9/10/19 11:38 AM, Ivan Khoronzhuk wrote:
->> The makefile.prog is added only, will be used in sample/bpf/Makefile
->> later in order to switch cross-compiling on CC from HOSTCC.
+>> The main reason for that - HOSTCC and CC have different aims.
+>> It was tested for arm cross compilation, based on linaro toolchain,
+>> but should work for others.
 >>
->> The HOSTCC is supposed to build binaries and tools running on the host
->> afterwards, in order to simplify build or so, like "fixdep" or else.
->> In case of cross compiling "fixdep" is executed on host when the rest
->> samples should run on target arch. In order to build binaries for
->> target arch with CC and tools running on host with HOSTCC, lets add
->> Makefile.prog for simplicity, having definition and routines similar
->> to ones, used in script/Makefile.host. This allows later add
->> cross-compilation to samples/bpf with minimum changes.
+>> In order to split cross compilation (CC) with host build (HOSTCC),
+>> lets base bpf samples on Makefile.progs. It allows to cross-compile
+>> samples/bpf progs with CC while auxialry tools running on host built
+>> with HOSTCC.
 >
->So this is really Makefile.host or Makefile.user, right?
-It's cut and modified version of Makefile.host
+>I got a compilation failure with the following error
+>
+>$ make samples/bpf/
+>   ...
+>   LD  samples/bpf/hbm
+>   CC      samples/bpf/syscall_nrs.s
+>gcc: error: -pg and -fomit-frame-pointer are incompatible
+>make[2]: *** [samples/bpf/syscall_nrs.s] Error 1
+>make[1]: *** [samples/bpf/] Error 2
+>make: *** [sub-make] Error 2
+>
+>Could you take a look?
+Yes, sure.
+Ilias also observer this, interesting that on my setup for cross and
+native build on arm and arm64 doesn't have this error. Now I see log
+and know how to proceed, I will fix it, maybe by using another var
+for cflags.
 
->In BPF, 'prog' can refers to user prog or bpf prog.
->To avoid ambiguity, maybe Makefile.host?
-Makefile.target? as target = host not always.
-Makefile.user also looks ok, but doesn't contain target,
-maybe "targetuser", but bpf is also target...
-Initially I was thinking about Makefile.targetprog, but it looks too long.
+Despite of it, just to be sure in order to avoid smth like this at least
+for native build, I will add one more patch like:
+
+"
+    samples: bpf: makefile: don't use host cflags when cross compile
+
+    While compile natively, the hosts cflags and ldflags are equal to ones
+    used from HOSTCFLAGS and HOSTLDFLAGS. When cross compiling it should
+    have own, used for target arch. While verification, for arm, arm64 and
+    x86_64 the following flags were used alsways:
+
+    -Wall
+    -O2
+    -fomit-frame-pointer
+    -Wmissing-prototypes
+    -Wstrict-prototypes
+
+    So, add them as they were verified and used before adding
+    Makefile.progs, but anyway limit it only for cross compile options as
+    for host can be some configurations when another options can be used,
+    So, for host arch samples left all as is, it allows to avoid potential
+    option mistmatches for existent environments.
+"
+
++ifdef CROSS_COMPILE
++ccflags-y += -Wall
++ccflags-y += -O2
++ccflags-y += -fomit-frame-pointer
++ccflags-y += -Wmissing-prototypes
++ccflags-y += -Wstrict-prototypes
++else
++ccflags-y += $(KBUILD_HOSTCFLAGS) $(HOST_EXTRACFLAGS)
++PROGS_LDLIBS := $(KBUILD_HOSTLDLIBS)
++endif
 
 >
->>
->> Makefile.prog contains only stuff needed for samples/bpf, potentially
->> can be reused and extended for other prog sets later and now needed
->
->What do you mean 'extended for other prog sets'? I am wondering whether
-Another kind of samples...with c++ for instance.
-
->we could just include 'scripts/Makefile.host'? How hard it is?
-It's bound to HOSTCC and it's environment. It is included by default and
-was used before this patchset, blocking cross complication.
-
->
->> only for unblocking tricky samples/bpf cross compilation.
 >>
 >> Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
 >> ---
->>   samples/bpf/Makefile.prog | 77 +++++++++++++++++++++++++++++++++++++++
->>   1 file changed, 77 insertions(+)
->>   create mode 100644 samples/bpf/Makefile.prog
+>>   samples/bpf/Makefile | 138 +++++++++++++++++++++++--------------------
+>>   1 file changed, 73 insertions(+), 65 deletions(-)
 >>
->> diff --git a/samples/bpf/Makefile.prog b/samples/bpf/Makefile.prog
->> new file mode 100644
->> index 000000000000..3781999b9193
->> --- /dev/null
->> +++ b/samples/bpf/Makefile.prog
->> @@ -0,0 +1,77 @@
->> +# SPDX-License-Identifier: GPL-2.0
->> +# ==========================================================================
->> +# Building binaries on the host system
->> +# Binaries are not used during the compilation of the kernel, and intendent
->> +# to be build for target board, target board can be host ofc. Added to build
->> +# binaries to run not on host system.
->> +#
->> +# Only C is supported, but can be extended for C++.
->
->The above comment is not needed.
-will drop it.
-
->samples/bpf/ only have C now. I am wondering whether your below scripts
->can be simplified, e.g., removing cxxobjs.
-I think yes, will try
-
->
->> +#
->> +# Sample syntax (see Documentation/kbuild/makefiles.rst for reference)
->> +# progs-y := xsk_example
->> +# Will compile xdpsock_example.c and create an executable named xsk_example
->> +#
->> +# progs-y    := xdpsock
->> +# xdpsock-objs := xdpsock_1.o xdpsock_2.o
->> +# Will compile xdpsock_1.c and xdpsock_2.c, and then link the executable
->> +# xdpsock, based on xdpsock_1.o and xdpsock_2.o
->> +#
->> +# Inherited from scripts/Makefile.host
->> +#
->> +__progs := $(sort $(progs-y))
+>> diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
+>> index f5dbf3d0c5f3..625a71f2e9d2 100644
+>> --- a/samples/bpf/Makefile
+>> +++ b/samples/bpf/Makefile
+>> @@ -4,55 +4,53 @@ BPF_SAMPLES_PATH ?= $(abspath $(srctree)/$(src))
+>>   TOOLS_PATH := $(BPF_SAMPLES_PATH)/../../tools
+>>
+>>   # List of programs to build
+>> -hostprogs-y := test_lru_dist
+>> -hostprogs-y += sock_example
+>> -hostprogs-y += fds_example
+>> -hostprogs-y += sockex1
+>> -hostprogs-y += sockex2
+>> -hostprogs-y += sockex3
+>> -hostprogs-y += tracex1
+>> -hostprogs-y += tracex2
+>> -hostprogs-y += tracex3
+>> -hostprogs-y += tracex4
+>> -hostprogs-y += tracex5
+>> -hostprogs-y += tracex6
+>> -hostprogs-y += tracex7
+>> -hostprogs-y += test_probe_write_user
+>> -hostprogs-y += trace_output
+>> -hostprogs-y += lathist
+>> -hostprogs-y += offwaketime
+>> -hostprogs-y += spintest
+>> -hostprogs-y += map_perf_test
+>> -hostprogs-y += test_overhead
+>> -hostprogs-y += test_cgrp2_array_pin
+>> -hostprogs-y += test_cgrp2_attach
+>> -hostprogs-y += test_cgrp2_sock
+>> -hostprogs-y += test_cgrp2_sock2
+>> -hostprogs-y += xdp1
+>> -hostprogs-y += xdp2
+>> -hostprogs-y += xdp_router_ipv4
+>> -hostprogs-y += test_current_task_under_cgroup
+>> -hostprogs-y += trace_event
+>> -hostprogs-y += sampleip
+>> -hostprogs-y += tc_l2_redirect
+>> -hostprogs-y += lwt_len_hist
+>> -hostprogs-y += xdp_tx_iptunnel
+>> -hostprogs-y += test_map_in_map
+>> -hostprogs-y += per_socket_stats_example
+>> -hostprogs-y += xdp_redirect
+>> -hostprogs-y += xdp_redirect_map
+>> -hostprogs-y += xdp_redirect_cpu
+>> -hostprogs-y += xdp_monitor
+>> -hostprogs-y += xdp_rxq_info
+>> -hostprogs-y += syscall_tp
+>> -hostprogs-y += cpustat
+>> -hostprogs-y += xdp_adjust_tail
+>> -hostprogs-y += xdpsock
+>> -hostprogs-y += xdp_fwd
+>> -hostprogs-y += task_fd_query
+>> -hostprogs-y += xdp_sample_pkts
+>> -hostprogs-y += ibumad
+>> -hostprogs-y += hbm
+>> +progs-y := test_lru_dist
+>> +progs-y += sock_example
+>> +progs-y += fds_example
+>> +progs-y += sockex1
+>> +progs-y += sockex2
+>> +progs-y += sockex3
+>> +progs-y += tracex1
+>> +progs-y += tracex2
+>> +progs-y += tracex3
+>> +progs-y += tracex4
+>> +progs-y += tracex5
+>> +progs-y += tracex6
+>> +progs-y += tracex7
+>> +progs-y += test_probe_write_user
+>> +progs-y += trace_output
+>> +progs-y += lathist
+>> +progs-y += offwaketime
+>> +progs-y += spintest
+>> +progs-y += map_perf_test
+>> +progs-y += test_overhead
+>> +progs-y += test_cgrp2_array_pin
+>> +progs-y += test_cgrp2_attach
+>> +progs-y += test_cgrp2_sock
+>> +progs-y += test_cgrp2_sock2
+>> +progs-y += xdp1
+>> +progs-y += xdp2
+>> +progs-y += xdp_router_ipv4
+>> +progs-y += test_current_task_under_cgroup
+>> +progs-y += trace_event
+>> +progs-y += sampleip
+>> +progs-y += tc_l2_redirect
+>> +progs-y += lwt_len_hist
+>> +progs-y += xdp_tx_iptunnel
+>> +progs-y += test_map_in_map
+>> +progs-y += xdp_redirect_map
+>> +progs-y += xdp_redirect_cpu
+>> +progs-y += xdp_monitor
+>> +progs-y += xdp_rxq_info
+>> +progs-y += syscall_tp
+>> +progs-y += cpustat
+>> +progs-y += xdp_adjust_tail
+>> +progs-y += xdpsock
+>> +progs-y += xdp_fwd
+>> +progs-y += task_fd_query
+>> +progs-y += xdp_sample_pkts
+>> +progs-y += ibumad
+>> +progs-y += hbm
+>>
+>>   # Libbpf dependencies
+>>   LIBBPF = $(TOOLS_PATH)/lib/bpf/libbpf.a
+>> @@ -111,7 +109,7 @@ ibumad-objs := bpf_load.o ibumad_user.o $(TRACE_HELPERS)
+>>   hbm-objs := bpf_load.o hbm.o $(CGROUP_HELPERS)
+>>
+>>   # Tell kbuild to always build the programs
+>> -always := $(hostprogs-y)
+>> +always := $(progs-y)
+>>   always += sockex1_kern.o
+>>   always += sockex2_kern.o
+>>   always += sockex3_kern.o
+>> @@ -170,21 +168,6 @@ always += ibumad_kern.o
+>>   always += hbm_out_kern.o
+>>   always += hbm_edt_kern.o
+>>
+>> -KBUILD_HOSTCFLAGS += -I$(objtree)/usr/include
+>> -KBUILD_HOSTCFLAGS += -I$(srctree)/tools/lib/bpf/
+>> -KBUILD_HOSTCFLAGS += -I$(srctree)/tools/testing/selftests/bpf/
+>> -KBUILD_HOSTCFLAGS += -I$(srctree)/tools/lib/ -I$(srctree)/tools/include
+>> -KBUILD_HOSTCFLAGS += -I$(srctree)/tools/perf
+>> -
+>> -HOSTCFLAGS_bpf_load.o += -Wno-unused-variable
+>> -
+>> -KBUILD_HOSTLDLIBS		+= $(LIBBPF) -lelf
+>> -HOSTLDLIBS_tracex4		+= -lrt
+>> -HOSTLDLIBS_trace_output	+= -lrt
+>> -HOSTLDLIBS_map_perf_test	+= -lrt
+>> -HOSTLDLIBS_test_overhead	+= -lrt
+>> -HOSTLDLIBS_xdpsock		+= -pthread
+>> -
+>>   # Strip all expet -D options needed to handle linux headers
+>>   # for arm it's __LINUX_ARM_ARCH__ and potentially others fork vars
+>>   D_OPTIONS = $(shell echo "$(KBUILD_CFLAGS) " | sed 's/[[:blank:]]/\n/g' | \
+>> @@ -194,6 +177,29 @@ ifeq ($(ARCH), arm)
+>>   CLANG_EXTRA_CFLAGS := $(D_OPTIONS)
+>>   endif
+>>
+>> +ccflags-y += -I$(objtree)/usr/include
+>> +ccflags-y += -I$(srctree)/tools/lib/bpf/
+>> +ccflags-y += -I$(srctree)/tools/testing/selftests/bpf/
+>> +ccflags-y += -I$(srctree)/tools/lib/
+>> +ccflags-y += -I$(srctree)/tools/include
+>> +ccflags-y += -I$(srctree)/tools/perf
+>> +ccflags-y += $(D_OPTIONS)
+>> +ccflags-y += -Wall
+>> +ccflags-y += -fomit-frame-pointer
+>> +ccflags-y += -Wmissing-prototypes
+>> +ccflags-y += -Wstrict-prototypes
 >> +
->> +# C code
->> +# Executables compiled from a single .c file
->> +prog-csingle	:= $(foreach m,$(__progs), \
->> +			$(if $($(m)-objs)$($(m)-cxxobjs),,$(m)))
+>> +PROGS_CFLAGS := $(ccflags-y)
 >> +
->> +# C executables linked based on several .o files
->> +prog-cmulti	:= $(foreach m,$(__progs),\
->> +		   $(if $($(m)-cxxobjs),,$(if $($(m)-objs),$(m))))
+>> +PROGCFLAGS_bpf_load.o += -Wno-unused-variable
 >> +
->> +# Object (.o) files compiled from .c files
->> +prog-cobjs	:= $(sort $(foreach m,$(__progs),$($(m)-objs)))
+>> +PROGS_LDLIBS			:= $(LIBBPF) -lelf
+>> +PROGLDLIBS_tracex4		+= -lrt
+>> +PROGLDLIBS_trace_output		+= -lrt
+>> +PROGLDLIBS_map_perf_test	+= -lrt
+>> +PROGLDLIBS_test_overhead	+= -lrt
+>> +PROGLDLIBS_xdpsock		+= -pthread
 >> +
->> +prog-csingle	:= $(addprefix $(obj)/,$(prog-csingle))
->> +prog-cmulti	:= $(addprefix $(obj)/,$(prog-cmulti))
->> +prog-cobjs	:= $(addprefix $(obj)/,$(prog-cobjs))
+>>   # Allows pointing LLC/CLANG to a LLVM backend with bpf support, redefine on cmdline:
+>>   #  make samples/bpf/ LLC=~/git/llvm/build/bin/llc CLANG=~/git/llvm/build/bin/clang
+>>   LLC ?= llc
+>> @@ -284,6 +290,8 @@ $(obj)/hbm_out_kern.o: $(src)/hbm.h $(src)/hbm_kern.h
+>>   $(obj)/hbm.o: $(src)/hbm.h
+>>   $(obj)/hbm_edt_kern.o: $(src)/hbm.h $(src)/hbm_kern.h
+>>
+>> +-include $(BPF_SAMPLES_PATH)/Makefile.prog
 >> +
->> +#####
->> +# Handle options to gcc. Support building with separate output directory
->> +
->> +_progc_flags   = $(PROGS_CFLAGS) \
->> +                 $(PROGCFLAGS_$(basetarget).o)
->> +
->> +# $(objtree)/$(obj) for including generated headers from checkin source files
->> +ifeq ($(KBUILD_EXTMOD),)
->> +ifdef building_out_of_srctree
->> +_progc_flags   += -I $(objtree)/$(obj)
->> +endif
->> +endif
->> +
->> +progc_flags    = -Wp,-MD,$(depfile) $(_progc_flags)
->> +
->> +# Create executable from a single .c file
->> +# prog-csingle -> Executable
->> +quiet_cmd_prog-csingle 	= CC  $@
->> +      cmd_prog-csingle	= $(CC) $(progc_flags) $(PROGS_LDFLAGS) -o $@ $< \
->> +		$(PROGS_LDLIBS) $(PROGLDLIBS_$(@F))
->> +$(prog-csingle): $(obj)/%: $(src)/%.c FORCE
->> +	$(call if_changed_dep,prog-csingle)
->> +
->> +# Link an executable based on list of .o files, all plain c
->> +# prog-cmulti -> executable
->> +quiet_cmd_prog-cmulti	= LD  $@
->> +      cmd_prog-cmulti	= $(CC) $(progc_flags) $(PROGS_LDFLAGS) -o $@ \
->> +			  $(addprefix $(obj)/,$($(@F)-objs)) \
->> +			  $(PROGS_LDLIBS) $(PROGLDLIBS_$(@F))
->> +$(prog-cmulti): $(prog-cobjs) FORCE
->> +	$(call if_changed,prog-cmulti)
->> +$(call multi_depend, $(prog-cmulti), , -objs)
->> +
->> +# Create .o file from a single .c file
->> +# prog-cobjs -> .o
->> +quiet_cmd_prog-cobjs	= CC  $@
->> +      cmd_prog-cobjs	= $(CC) $(progc_flags) -c -o $@ $<
->> +$(prog-cobjs): $(obj)/%.o: $(src)/%.c FORCE
->> +	$(call if_changed_dep,prog-cobjs)
+>>   # asm/sysreg.h - inline assembly used by it is incompatible with llvm.
+>>   # But, there is no easy way to fix it, so just exclude it since it is
+>>   # useless for BPF samples.
 >>
 
 -- 
@@ -307,4 +418,4 @@ Ivan Khoronzhuk
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190913221453.GD26724%40khorivan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190913222552.GE26724%40khorivan.
