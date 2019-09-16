@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBAMO77VQKGQE3YBYT3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHUS77VQKGQERERIZMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 47078B3F9D
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 19:31:47 +0200 (CEST)
-Received: by mail-oi1-x238.google.com with SMTP id s12sf238802oic.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 10:31:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568655106; cv=pass;
+Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A089B3FAB
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 19:40:48 +0200 (CEST)
+Received: by mail-pl1-x63b.google.com with SMTP id x5sf282693pln.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 10:40:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568655646; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ow2rDUBVFscViRnI2rnw/cY3vSEW0pL8bBuqEau/0Mdb/CZjGzCkvLb6bHTmAbOcUF
-         yFEBem56lnxIAYwK5wjsCvU9Y1/uKy0IxDvplRhiAvs0xoO8U93qiE++OkJqZo6nKJgz
-         oBIPybeBnZODjUp9r/ZnkcbFjfQ4NCROYkEeLo9GXNxgibWZc7LrC1izyPWTbwqXlp16
-         v/01ahzL1gZdpMTXVMezbovF/WWOUJJCielo5zQ2AhHEcsyGn+BDNlzz5BSvKhJvE8LI
-         0Uxs/i2CiC27uQiDvQBnJ3vX5IGIZi7d4nER/TeB88A5ruan5V34rjRNDj9OTBKc7lU+
-         rdnA==
+        b=UPmCI8ptegew0fQX9IxpdscXqBw9lwqpj/AYwBPdW/NvTp0hAeLs2qQfhqoGhILu9I
+         GBQXMd4xrAzFDPu+IE6kBz51Iwa/Frlq5UDQ1GAU2RHT6REe6p4c133TykorwI46YOpk
+         JlSF68dw6eJtjSHIMuXAyLJbJ9RKtAYCMXKO2T07Tz0iOQyKR3o6l/bIAXwsGdJzLoSL
+         Y2m/nGCndjXfplYwT0Rx8zKVVPEtmcHepivQvXwzyc8C7kxqSstgPndsISmDY8QoVjiz
+         zAPBl/qXQLKNlzLk0x3NR0OpfyQYFl0ktav2AjoOYQehbx0hdBSJ2hrRbEMOxB4yqRn6
+         wCPQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=XRCiAqCMKU2DeNoRRyBoJY6IdbHoCkiR0oYfUKdWxyg=;
-        b=VWfa3XVykbhIEK6wu31sqbqIdRqhrroKgDb6J2FkHPboTRbVziXEKlKAtUKuE1CTRB
-         lfPbJOiUMiOc0bkjumsk0WeeZ4byBNA505/18XtEKwJuWHl3M6onyTWt2mMEfnyqj3FM
-         KoGOwfq6zSm+eMsAxc55qTvm3/rBaWhSU4cjY0gxsHQkiInyh7C7vhJJio1x+YD6WXIQ
-         qgctK6tJeIWrIzEyGbeD/4TmQ00abFZ7Xa0i8OgqkaHnFLXYZLqKtVIMGdtQ/LZLUMsV
-         14D+d70tHHbX2fmEmIVdDtl1uNXgpnA3qED+MMvht602VP7t6txpfcv26pbGIVL9V0cl
-         QUrQ==
+        bh=OawhzjEg1b6d2SZnaTgdTQmGJWUYi+CNEt2rFG7iju0=;
+        b=VxNZuqqjVo/zzzztlYR0/FUwK/Bbt/Cfuhzn5eISaSQlIk+pNJrJq2Ev5H+lja7YBL
+         DP79L7CZREsX0B3bW67WRDCl0UA8SeseTa07kbexqTWILQZTdzaCMls2IU8sVJkFE8nj
+         2mf23ratsfXjsWdFFwQovdicPlaLSJTpjbm9nS//KnqEhnITS/L/bwmwSAAPN1HZeE/3
+         G60DCgrjfk8QlOIuCnVxzISfYWxKp3m5QGXufzBcjtcOKv4QkcJuzBobyVaWa6SxtO9F
+         SIdZRa8OYPJkOAmFXva8r/zkBgKayn9Ogs3ogVR7uJmpjIIHQ6xoPcUIGmKy69bvLJvh
+         tq4g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XRCiAqCMKU2DeNoRRyBoJY6IdbHoCkiR0oYfUKdWxyg=;
-        b=iSTO6uPdgLwVRwXIHH776v/MzHhK8xYAs6ZvOF4saZYfjLJ2M9biCmXRhe9/XN0OK4
-         tIpKIc+z7o2S48JS0/A6Z3sY2n4IDFYeNEhCLCmISZQIvepqeQH26gFAqM3MeuU1y5El
-         y1JuBFkKAlQ2EHeeUk/nIXnhcpg3X2rns2E/Vyj2JAl/Sd41uD9lBH3CLMf7PYAappj+
-         PlWQ/ikzqhfas7RtDtMv8T9E4Sk+wDw1X+/nMdpWYtVwGVdV3JPkPoiWMlKg254B8ANR
-         HV1iIxok7lvzr92JtAqbh/Oe0lBaQc2AMB9egJ5x5WD3wM4UPbxSsnuOVRoHE16gDAOV
-         Fkzg==
+        bh=OawhzjEg1b6d2SZnaTgdTQmGJWUYi+CNEt2rFG7iju0=;
+        b=CwpauwLz+8S8hMAWyN/+ZW3jfYzRZm0hAMGpg0o268JIq6GERg3JmbGYGfu0gFd3Xu
+         XxeGQo4YXtfsSO+TW13xUQcu74ELQT3cO5U06f3sPjeZck3bxPCEpE4dJsir0YynmVLL
+         aDZYsjzQRRxBQlkpbQjv7P4eN6GbNGjKWajd3ikjeg+ZRTa8ai1AcTB0UhX3sQwvXJQT
+         rbIUWjM+2KiITJ9BXL79z1STtIPr6mzWmUyUBPoBy5cjDOuzQ+6dcdJN9NLRGwNpRUOD
+         JtYmxrLGOY4HpMWZWl3bIWl6JuMk8yZZtSgmViPBNyA8jiYJOwgFKH7Ohr5/B7lFAJeS
+         47Hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,75 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XRCiAqCMKU2DeNoRRyBoJY6IdbHoCkiR0oYfUKdWxyg=;
-        b=t2x7FRuomgpofuaREdlge4CiLN98eveU5LnfrwOqtz4TbK3MN6KGx29Y53RC3UaYVB
-         8Sz4zvOqfx/s7LzqBil1pCk776Tryd9ioH/JwdyJ1dfWk1ZxizGvEWDfeL0sVQIDpUO9
-         vLW81TZYo2TgzEULcOmGpGVkbip8LaJ+HYZx0YwkHl9L0LGwq9FUPsY/pBFMmqr+3UuK
-         ls32PPLHuOJyvoaLYGzMyO9OtFJtKhv/eqpNic9A90XYjLOZcz2UV61PHEnWuNYlZ0sp
-         t/wS/u3VHbLzi9EsF27cBjmhdjw//6vWPsJyJGLHjWO+T9kLlnGJIOGZoIt1fEvRq3th
-         uY9g==
+        bh=OawhzjEg1b6d2SZnaTgdTQmGJWUYi+CNEt2rFG7iju0=;
+        b=qwY5C8ZC5j6r6DuFr5ViA1qiZPey15GIyQIT5s+yfWMRmNk4kE4rDepc4195t+d4de
+         9eRiae4gpUgiXqZOccHKsmrNa4NMGPkw5L0QbezB9IxXvJh337tRa8TSv9EJhfmFda2+
+         qSbyAwSi4uk16gODTg781/tdNhUuGzhFP2y4hpxFwHxTAnbVVULEDUHUCB+c5ttLx6dT
+         MSQ40kkOStt1ZRIGcZ7CCGfyVAMsEj1GvNEI14FXQ5XfH6msBAZHkOg0uK5rkp7udt7m
+         2Z3rkhdypK5kXKh8OFk4iE7dei0/pUmguX9KhL7PDyGJastU0UYDZy386YLeXB2JfwWC
+         VtZw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUJDTfsBFSJ9mzRapj1CqYOytvm+hFO8N7M/CSfiAoA7ID4jVkp
-	0TEStN51mL8LgrxhHhAVJ3Y=
-X-Google-Smtp-Source: APXvYqwkxwB5c//yXe6FBQuHr71m9cSsXJiZTyUAXJYYVOKOWJLjL3Pw787mNRtofE6r9hMKa3KUCw==
-X-Received: by 2002:a9d:7e8c:: with SMTP id m12mr277019otp.52.1568655106050;
-        Mon, 16 Sep 2019 10:31:46 -0700 (PDT)
+X-Gm-Message-State: APjAAAV4QkCVNgk8UhyWgjuplqN6kBpUqTxdH7oOsTB93eoQK3Y9KVoA
+	Uv82ra03O7NgA8nh/YI4NqY=
+X-Google-Smtp-Source: APXvYqyXQhNZKCVpD1HBgekjNAwXdmJKOLLxj5KJVFuUVJ4FabdpxDhQWWFC2fjpa8L4rAoDRsjS8Q==
+X-Received: by 2002:a63:408:: with SMTP id 8mr301031pge.334.1568655646153;
+        Mon, 16 Sep 2019 10:40:46 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:200d:: with SMTP id e13ls133996otp.2.gmail; Mon, 16
- Sep 2019 10:31:45 -0700 (PDT)
-X-Received: by 2002:a9d:7c97:: with SMTP id q23mr250093otn.296.1568655105551;
-        Mon, 16 Sep 2019 10:31:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568655105; cv=none;
+Received: by 2002:a17:90a:e390:: with SMTP id b16ls53056pjz.0.gmail; Mon, 16
+ Sep 2019 10:40:45 -0700 (PDT)
+X-Received: by 2002:a17:902:144:: with SMTP id 62mr1021619plb.70.1568655645618;
+        Mon, 16 Sep 2019 10:40:45 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568655645; cv=none;
         d=google.com; s=arc-20160816;
-        b=tVO5nkIGN2KjmBPQd9ZmUvfurpkVYFNGXocY0KLTcDk+7fWHOjaw+Zdys/f9XR1YNM
-         StdR3yYDenwmMl7p4yT2G5sAw966bNTh98KENqPGO+htCFKeLOegOSfXrsQXMruucDX9
-         eURmgY1G2sLMQlGewgnKJxbED6kwBwfRtVC2FmqJvQxGE7pve2LNFcAUNzmcoqe1NGlG
-         UMScN7LU/8FCUFV4D70YdcSM5p4PcJUX6k3zES7V1SaVObdFoGx6zP7Sy5RK/v8MHd91
-         QpsCyqPrEIEGrwtBU82wXsmtm75VPWvcCOlYXzrFWvcXhZFWP/udWFUMwZn165oRRfAJ
-         pnuA==
+        b=HUahDACuqiVPhGy8q+qNT2tXevkl2K2s+cLw9Ghz9lVYzGb4TUW/TfYkvxM/+V251Q
+         Knnn4x+QIg8LMPPhlZ/B2u4tbzc7BxpuFC+9JMok7BVdpzOctOmIXWA3hqZjN9RvDmcC
+         4WsMNZgR1kA7A0VCnYwDbSTdKlggy7z/Bc4LfUaJXj/9Uc7QAqAxrv9xFY7SSUHGAdMW
+         VSKQhL7kMPfU+FkQKGOF1xumpNcwf/6c7Dq95wKKjZZJX/77VSnlwhcpt/FZLragZvqZ
+         GTQBWMdNzDN9mmKifv83Q1XGJeFUlpZFAgGvqGHfS5BLO4+DCF2sVEBV40qYOMUVYac7
+         6rjg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=kernf4uwcEY+0wmDYqSLZED0W9yHmUyXoYaZADqiyUw=;
-        b=zfUKPYw/B5MRDT7niFF1gVcPqZcSLmDaYtfiNTGXv6RWWeoqfYO4JIcK85fbg2Dxe4
-         21THNgNdJcm+0KX9rV0v5mKqZavb3DD10Dz2IM4CtmR0fZU75oWmSzbqwOOjTn5NwjAS
-         PmZ6wJL9YX+CBeUQD4g+sufQVxi9s3UAgVSsl/2ZZRE3e4egUdCtjh0kInHHu+u2jlZB
-         sUMlBW7RpDnTXxwD2UQX2y7O9N/tbhSxBeOYIIGqck9HYQrASO3rhInywB6188C82Jnt
-         I79ZGiR8O0g/pxPw5tmRdVGnR+ULjinT73xqkm2Wnhu52aaTxTky0IagwbFK5WGVxK+w
-         Oz1w==
+        bh=ZxQ2Io6XS+b3icaBqUFEpktXrUxUTOD0Cn1Cse69IjM=;
+        b=fBbAV8OQuE+n4EIp/E94W3sX0srIcNBU8UBDNFYZlfnTI1o64ZTnJ29BjBeQZHAvOQ
+         vU189he+G/VekpozcfwgfSRp1yQfqWRrrPBtiCujhQlEeHMuxc7qBcMa4r4ACdVEgYy1
+         NwBVflI5vzz/Nj4O2DGy7yDuwSHBCf7a/+sAfdk2zVDYzv2w9ao4lZtM9AL8TtqYcA0r
+         O5I0LtgeYCnvd8uvoT/7ncO9EUvqh76IUy7bvULLW0XE5Hxi3M3F81+CcK3+TgF0Wk6q
+         MllzgIkqnM+KMYjV7wsqkARlK69HHaBkF+WBEviksZzKVUQDQ/XhoEGMzgvcppKkGZpI
+         LIPA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id a9si154880otr.0.2019.09.16.10.31.45
+        by gmr-mx.google.com with ESMTPS id r186si156791pfc.4.2019.09.16.10.40.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Sep 2019 10:31:45 -0700 (PDT)
+        Mon, 16 Sep 2019 10:40:45 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga007.fm.intel.com ([10.253.24.52])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 16 Sep 2019 10:31:43 -0700
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 16 Sep 2019 10:40:45 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,513,1559545200"; 
-   d="gz'50?scan'50,208,50";a="187208583"
+   d="gz'50?scan'50,208,50";a="188674892"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga007.fm.intel.com with ESMTP; 16 Sep 2019 10:31:42 -0700
+  by orsmga003.jf.intel.com with ESMTP; 16 Sep 2019 10:40:43 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i9uqj-000FOS-QF; Tue, 17 Sep 2019 01:31:41 +0800
-Date: Tue, 17 Sep 2019 01:30:58 +0800
+	id 1i9uzS-0006H2-PN; Tue, 17 Sep 2019 01:40:42 +0800
+Date: Tue, 17 Sep 2019 01:39:44 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [thierryreding:for-5.5/system-power-reset 23/32]
- drivers/firmware/psci/psci.c:283:15: error: use of undeclared identifier
- 'psci_sys_power_off'; did you mean 'psci_sys_poweroff'?
-Message-ID: <201909170155.8WOsoFgt%lkp@intel.com>
+Subject: [thierryreding:for-5.5/system-power-reset 28/32]
+ drivers/soc/tegra/pmc.c:2145:30: error: use of undeclared identifier
+ 'tegra_pmc_restart_handler'
+Message-ID: <201909170128.aAfasPbb%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="b5tnusvv4wkufgu4"
+Content-Type: multipart/mixed; boundary="q2sff4ztt66rwgaz"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
@@ -139,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---b5tnusvv4wkufgu4
+--q2sff4ztt66rwgaz
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -148,13 +148,13 @@ TO: Thierry Reding <treding@nvidia.com>
 
 tree:   https://github.com/thierryreding/linux for-5.5/system-power-reset
 head:   8a9089c9ceb1e6052a2afae6c4e4a93db4ccfb8a
-commit: 460296139c045da01f8eadc085974fa3b98e21d8 [23/32] drivers: firmware: psci: Move to system-power framework
+commit: c5bdd0c4e87900387a8036a14f0bdc830822d33b [28/32] soc/tegra: pmc: Move to system-power framework
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 460296139c045da01f8eadc085974fa3b98e21d8
+        git checkout c5bdd0c4e87900387a8036a14f0bdc830822d33b
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -163,25 +163,143 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/firmware/psci/psci.c:283:15: error: use of undeclared identifier 'psci_sys_power_off'; did you mean 'psci_sys_poweroff'?
-           .power_off = psci_sys_power_off,
-                        ^~~~~~~~~~~~~~~~~~
-                        psci_sys_poweroff
-   drivers/firmware/psci/psci.c:272:12: note: 'psci_sys_poweroff' declared here
-   static int psci_sys_poweroff(struct system_power_chip *chip)
-              ^
+>> drivers/soc/tegra/pmc.c:2145:30: error: use of undeclared identifier 'tegra_pmc_restart_handler'
+           unregister_restart_handler(&tegra_pmc_restart_handler);
+                                       ^
    1 error generated.
 
-vim +283 drivers/firmware/psci/psci.c
+vim +/tegra_pmc_restart_handler +2145 drivers/soc/tegra/pmc.c
 
-   278	
-   279	static struct system_power_chip psci_system_power = {
-   280		.level = SYSTEM_POWER_LEVEL_SYSTEM,
-   281		.name = "PSCI",
-   282		.restart = psci_sys_reset,
- > 283		.power_off = psci_sys_power_off,
-   284	};
-   285	
+19906e6b166721 Thierry Reding  2018-09-17  2030  
+7232398abc6a71 Thierry Reding  2014-07-11  2031  static int tegra_pmc_probe(struct platform_device *pdev)
+7232398abc6a71 Thierry Reding  2014-07-11  2032  {
+e8cf6616a34602 Jon Hunter      2016-02-11  2033  	void __iomem *base;
+7232398abc6a71 Thierry Reding  2014-07-11  2034  	struct resource *res;
+7232398abc6a71 Thierry Reding  2014-07-11  2035  	int err;
+7232398abc6a71 Thierry Reding  2014-07-11  2036  
+a83f1fc3f33930 Jon Hunter      2016-06-28  2037  	/*
+a83f1fc3f33930 Jon Hunter      2016-06-28  2038  	 * Early initialisation should have configured an initial
+a83f1fc3f33930 Jon Hunter      2016-06-28  2039  	 * register mapping and setup the soc data pointer. If these
+a83f1fc3f33930 Jon Hunter      2016-06-28  2040  	 * are not valid then something went badly wrong!
+a83f1fc3f33930 Jon Hunter      2016-06-28  2041  	 */
+a83f1fc3f33930 Jon Hunter      2016-06-28  2042  	if (WARN_ON(!pmc->base || !pmc->soc))
+a83f1fc3f33930 Jon Hunter      2016-06-28  2043  		return -ENODEV;
+a83f1fc3f33930 Jon Hunter      2016-06-28  2044  
+7232398abc6a71 Thierry Reding  2014-07-11  2045  	err = tegra_pmc_parse_dt(pmc, pdev->dev.of_node);
+7232398abc6a71 Thierry Reding  2014-07-11  2046  	if (err < 0)
+7232398abc6a71 Thierry Reding  2014-07-11  2047  		return err;
+7232398abc6a71 Thierry Reding  2014-07-11  2048  
+7232398abc6a71 Thierry Reding  2014-07-11  2049  	/* take over the memory region from the early initialization */
+7232398abc6a71 Thierry Reding  2014-07-11  2050  	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+0259f522e04f19 Jon Hunter      2016-02-11  2051  	base = devm_ioremap_resource(&pdev->dev, res);
+0259f522e04f19 Jon Hunter      2016-02-11  2052  	if (IS_ERR(base))
+0259f522e04f19 Jon Hunter      2016-02-11  2053  		return PTR_ERR(base);
+7232398abc6a71 Thierry Reding  2014-07-11  2054  
+c641ec6eab8587 Thierry Reding  2017-08-30  2055  	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "wake");
+c641ec6eab8587 Thierry Reding  2017-08-30  2056  	if (res) {
+c641ec6eab8587 Thierry Reding  2017-08-30  2057  		pmc->wake = devm_ioremap_resource(&pdev->dev, res);
+c641ec6eab8587 Thierry Reding  2017-08-30  2058  		if (IS_ERR(pmc->wake))
+c641ec6eab8587 Thierry Reding  2017-08-30  2059  			return PTR_ERR(pmc->wake);
+c641ec6eab8587 Thierry Reding  2017-08-30  2060  	} else {
+c641ec6eab8587 Thierry Reding  2017-08-30  2061  		pmc->wake = base;
+c641ec6eab8587 Thierry Reding  2017-08-30  2062  	}
+c641ec6eab8587 Thierry Reding  2017-08-30  2063  
+c641ec6eab8587 Thierry Reding  2017-08-30  2064  	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "aotag");
+c641ec6eab8587 Thierry Reding  2017-08-30  2065  	if (res) {
+c641ec6eab8587 Thierry Reding  2017-08-30  2066  		pmc->aotag = devm_ioremap_resource(&pdev->dev, res);
+c641ec6eab8587 Thierry Reding  2017-08-30  2067  		if (IS_ERR(pmc->aotag))
+c641ec6eab8587 Thierry Reding  2017-08-30  2068  			return PTR_ERR(pmc->aotag);
+c641ec6eab8587 Thierry Reding  2017-08-30  2069  	} else {
+c641ec6eab8587 Thierry Reding  2017-08-30  2070  		pmc->aotag = base;
+c641ec6eab8587 Thierry Reding  2017-08-30  2071  	}
+c641ec6eab8587 Thierry Reding  2017-08-30  2072  
+c641ec6eab8587 Thierry Reding  2017-08-30  2073  	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "scratch");
+c641ec6eab8587 Thierry Reding  2017-08-30  2074  	if (res) {
+c641ec6eab8587 Thierry Reding  2017-08-30  2075  		pmc->scratch = devm_ioremap_resource(&pdev->dev, res);
+c641ec6eab8587 Thierry Reding  2017-08-30  2076  		if (IS_ERR(pmc->scratch))
+c641ec6eab8587 Thierry Reding  2017-08-30  2077  			return PTR_ERR(pmc->scratch);
+c641ec6eab8587 Thierry Reding  2017-08-30  2078  	} else {
+5be2255676bf2b Thierry Reding  2017-08-30  2079  		pmc->scratch = base;
+c641ec6eab8587 Thierry Reding  2017-08-30  2080  	}
+5be2255676bf2b Thierry Reding  2017-08-30  2081  
+7232398abc6a71 Thierry Reding  2014-07-11  2082  	pmc->clk = devm_clk_get(&pdev->dev, "pclk");
+7232398abc6a71 Thierry Reding  2014-07-11  2083  	if (IS_ERR(pmc->clk)) {
+7232398abc6a71 Thierry Reding  2014-07-11  2084  		err = PTR_ERR(pmc->clk);
+5be2255676bf2b Thierry Reding  2017-08-30  2085  
+5be2255676bf2b Thierry Reding  2017-08-30  2086  		if (err != -ENOENT) {
+7232398abc6a71 Thierry Reding  2014-07-11  2087  			dev_err(&pdev->dev, "failed to get pclk: %d\n", err);
+7232398abc6a71 Thierry Reding  2014-07-11  2088  			return err;
+7232398abc6a71 Thierry Reding  2014-07-11  2089  		}
+7232398abc6a71 Thierry Reding  2014-07-11  2090  
+5be2255676bf2b Thierry Reding  2017-08-30  2091  		pmc->clk = NULL;
+5be2255676bf2b Thierry Reding  2017-08-30  2092  	}
+5be2255676bf2b Thierry Reding  2017-08-30  2093  
+3568df3d31d62b Mikko Perttunen 2015-01-06  2094  	pmc->dev = &pdev->dev;
+3568df3d31d62b Mikko Perttunen 2015-01-06  2095  
+7232398abc6a71 Thierry Reding  2014-07-11  2096  	tegra_pmc_init(pmc);
+7232398abc6a71 Thierry Reding  2014-07-11  2097  
+3568df3d31d62b Mikko Perttunen 2015-01-06  2098  	tegra_pmc_init_tsense_reset(pmc);
+3568df3d31d62b Mikko Perttunen 2015-01-06  2099  
+5f84bb1a4099e2 Sandipan Patra  2018-10-24  2100  	tegra_pmc_reset_sysfs_init(pmc);
+5f84bb1a4099e2 Sandipan Patra  2018-10-24  2101  
+7232398abc6a71 Thierry Reding  2014-07-11  2102  	if (IS_ENABLED(CONFIG_DEBUG_FS)) {
+7232398abc6a71 Thierry Reding  2014-07-11  2103  		err = tegra_powergate_debugfs_init();
+7232398abc6a71 Thierry Reding  2014-07-11  2104  		if (err < 0)
+a46b51cd2a57d5 Jon Hunter      2019-04-16  2105  			goto cleanup_sysfs;
+7892158a96629c David Riley     2015-03-18  2106  	}
+7892158a96629c David Riley     2015-03-18  2107  
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2108  	pmc->chip.level = SYSTEM_POWER_LEVEL_SOC;
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2109  	pmc->chip.dev = &pdev->dev;
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2110  	pmc->chip.restart_prepare = tegra_pmc_restart_prepare;
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2111  	pmc->chip.restart = tegra_pmc_restart;
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2112  
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2113  	err = system_power_chip_add(&pmc->chip);
+7892158a96629c David Riley     2015-03-18  2114  	if (err) {
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2115  		dev_err(&pdev->dev,
+c5bdd0c4e87900 Thierry Reding  2017-01-31  2116  			"unable to register system power chip: %d\n",
+7892158a96629c David Riley     2015-03-18  2117  			err);
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2118  		goto cleanup_debugfs;
+7232398abc6a71 Thierry Reding  2014-07-11  2119  	}
+7232398abc6a71 Thierry Reding  2014-07-11  2120  
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2121  	err = tegra_pmc_pinctrl_init(pmc);
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2122  	if (err)
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2123  		goto cleanup_restart_handler;
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2124  
+6ac2a01de1700c Jon Hunter      2019-04-16  2125  	err = tegra_powergate_init(pmc, pdev->dev.of_node);
+6ac2a01de1700c Jon Hunter      2019-04-16  2126  	if (err < 0)
+6ac2a01de1700c Jon Hunter      2019-04-16  2127  		goto cleanup_powergates;
+6ac2a01de1700c Jon Hunter      2019-04-16  2128  
+19906e6b166721 Thierry Reding  2018-09-17  2129  	err = tegra_pmc_irq_init(pmc);
+19906e6b166721 Thierry Reding  2018-09-17  2130  	if (err < 0)
+6ac2a01de1700c Jon Hunter      2019-04-16  2131  		goto cleanup_powergates;
+19906e6b166721 Thierry Reding  2018-09-17  2132  
+e8cf6616a34602 Jon Hunter      2016-02-11  2133  	mutex_lock(&pmc->powergates_lock);
+e8cf6616a34602 Jon Hunter      2016-02-11  2134  	iounmap(pmc->base);
+0259f522e04f19 Jon Hunter      2016-02-11  2135  	pmc->base = base;
+e8cf6616a34602 Jon Hunter      2016-02-11  2136  	mutex_unlock(&pmc->powergates_lock);
+0259f522e04f19 Jon Hunter      2016-02-11  2137  
+589997a157df82 Thierry Reding  2019-01-25  2138  	platform_set_drvdata(pdev, pmc);
+589997a157df82 Thierry Reding  2019-01-25  2139  
+7232398abc6a71 Thierry Reding  2014-07-11  2140  	return 0;
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2141  
+6ac2a01de1700c Jon Hunter      2019-04-16  2142  cleanup_powergates:
+6ac2a01de1700c Jon Hunter      2019-04-16  2143  	tegra_powergate_remove_all(pdev->dev.of_node);
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2144  cleanup_restart_handler:
+4a37f11c8f57ff Aapo Vienamo    2018-08-10 @2145  	unregister_restart_handler(&tegra_pmc_restart_handler);
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2146  cleanup_debugfs:
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2147  	debugfs_remove(pmc->debugfs);
+a46b51cd2a57d5 Jon Hunter      2019-04-16  2148  cleanup_sysfs:
+a46b51cd2a57d5 Jon Hunter      2019-04-16  2149  	device_remove_file(&pdev->dev, &dev_attr_reset_reason);
+a46b51cd2a57d5 Jon Hunter      2019-04-16  2150  	device_remove_file(&pdev->dev, &dev_attr_reset_level);
+4a37f11c8f57ff Aapo Vienamo    2018-08-10  2151  	return err;
+7232398abc6a71 Thierry Reding  2014-07-11  2152  }
+7232398abc6a71 Thierry Reding  2014-07-11  2153  
+
+:::::: The code at line 2145 was first introduced by commit
+:::::: 4a37f11c8f57ffd6f7397eaf372109d67edd3769 soc/tegra: pmc: Implement pad configuration via pinctrl
+
+:::::: TO: Aapo Vienamo <avienamo@nvidia.com>
+:::::: CC: Thierry Reding <treding@nvidia.com>
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -190,14 +308,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909170155.8WOsoFgt%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909170128.aAfasPbb%25lkp%40intel.com.
 
---b5tnusvv4wkufgu4
+--q2sff4ztt66rwgaz
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICEfCf10AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPPS8z0fQBCUEHFrAJRsX/gUW+54
+H4sICGrIf10AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPPS8z0fQBCUEHFrAJRsX/gUW+54
 4qVHtjvpfz9VABcABJ3+JmurqrAXagd/+O6HCXl7fX7cv97f7B8evk4+HZ4Ox/3r4XZyd/9w
 +L9JXEzyQk1YzNUvQJzeP739/ev++Hi6nJz8svhl+vPx5myyORyfDg8T+vx0d//pDZrfPz99
 98N38M8PAHz8DD0d/zW5edg/fZp8ORxfAD2ZTX+Bvyc/frp//devv8J/H++Px+fjrw8PXx7r
@@ -1046,4 +1164,4 @@ J1IlOGCYd+OvERqwkN2bJxxf0Te3sfKIxKYkeVi3EHZyle+bBzm8K9b4ZCTkidvBlOnE1gSl
 gNurLNNpyMA7uKXf8BCg33B0E7pnipotr1BH0zONj107jajFWbWcX3dPDy+uhsv7bsXX4zTW
 Jf8CUfxf5oEUAwA=
 
---b5tnusvv4wkufgu4--
+--q2sff4ztt66rwgaz--
