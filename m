@@ -1,117 +1,117 @@
-Return-Path: <clang-built-linux+bncBDE65JU6VQHBBONL77VQKGQE7C4P2ZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBAWD77VQKGQEVAD3NJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
-	by mail.lfdr.de (Postfix) with ESMTPS id BC47BB4069
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 20:34:34 +0200 (CEST)
-Received: by mail-pl1-x638.google.com with SMTP id w13sf343094plq.21
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 11:34:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568658873; cv=pass;
+Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id E9842B4118
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 21:24:51 +0200 (CEST)
+Received: by mail-pf1-x43e.google.com with SMTP id b204sf575752pfb.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 12:24:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568661890; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JpGByCIL/M6lBGuQ+tJUliq6k3tx26OHFz2cS4e5ndB+gUGScSYwQ+HEGkF1yP59g9
-         5AE1s7+SUjFm/enNIjuvBTK/aILiwCviv0LwzNAvjmFZ4nuSd5emRp9lSvS8t9LI+1TO
-         2y7h2mNWw4a1ZwrR+wF+mHgtpbStI0n73mxFhUBYgGqkhwFHKfg3c2UR0MSiP527anLa
-         x1EQhio+mXraBWHDfed8qFph/S83ERcuKr2+C9YHAdx12ii+umW+p8vCTMxYYYHnSBV0
-         ykvwdPJ47HDuAeo4X/pkhN9mB9IYh6CKFY+WGLRzcy+QmTou6Hios3HBY+9jGhFsQ+KB
-         FmXA==
+        b=G1K1WIk/Sb2TG/l45PCO6iJulKJ+/j0HebVceKiTs11bnB2JlXarLv3NwTkseHnO7u
+         CIV/GIdpQy88bZZ1wPC3ZNrHfZFraw8LDzrZT6Eh9r4zQlLrOwld6nYMFcBIC3xCLR32
+         gwH7+ivt/USLioGRMSBAWNTvCt5t/F3/d+jRZ4IUdMPl7PB8ZtJZ2ZHSBs24JMOjsEBG
+         IMquw2pTIyfTJikth03hH4DB3PDjHT9NDGfp4RvMa34oG31Scbw6yE67OYGqZykAcGZc
+         tqtDJHEyPIMCFL4G95V4jw5ZGOlq+/9hbabNhZyOH2yB07xv05pqZ1JnlHG780OKhj9l
+         Wh7A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=0Lsc2yXm5GpFU5tpNXdLNWf+k9cyaQpPV0XHBQYOJoo=;
-        b=ZmaJM6ux5TaDVfv6yaaRRFpyuFjdGbU6Oj2+oeicA+Y5tqcqUxHOC8OEpwNx97RUnp
-         J1d3qxkc+ubZkHu7cAUBRT8MY6ZAAX/MbjpOG038H6v9MX74Z3scekRh+0u0Yp2mbWZ8
-         DaeWpTG26CEpzi/BrigIKvB4Bnhs2cU4XQxbLhibIzp687LZg/fAjig2BJH+kvyaZzmX
-         We6ISX+GlAp4CI9dib96XO53rRW2eeJFjzOlFo0YXDxiRnGs9qS0C0WQZ6QquTZV5pkC
-         vfVhWNv9oSHn2oKXXV1mYt5xymT3IilhWMJu5J5jCyRVaB1Eoc2qeKRDeequIG4t7j08
-         IEpQ==
+         :list-id:mailing-list:precedence:mime-version:message-id:date:from
+         :cc:to:subject:sender:dkim-signature;
+        bh=8UtEvs/UKwRx2DBefbiPVqOkV55B7PmsI+7iuTw4cSc=;
+        b=AalnWN9q3eoB3aRLb2z6UwJm/SmUn2JqICsTemhshHLrWzatpfJ70e2XNd1U1Aa4eV
+         XxofQd+Xxnk7FSCWMYRXGAhmoC4vHHcYdEJAfEPtolZLz66p1Cr3Fe2P8u74Xf/BFiOJ
+         gDv/iVNHXUURgg9KS6aocgN6wYZuGmKLOrVrgc+1b/67kuq5fYq4z9woS+1aXVGKXlwz
+         5A6UJBwDgymtjzh3BIlOMLrKCsIO44xdz/wbsdUK3oIuNcUTOeqsTRlfIrJtUbGJAF0d
+         3X/L4e1bLMIkHG1rjo1cvVJw8bLw/VqhbQzm5sTOk0sQv9JLkPICTtZUzHMaDOGPGf1B
+         FpZg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jwboyer@gmail.com designates 209.85.160.196 as permitted sender) smtp.mailfrom=jwboyer@gmail.com
+       dkim=pass header.i=@kernel.org header.s=default header.b="B0/iMuEe";
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:subject:to:cc:from:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0Lsc2yXm5GpFU5tpNXdLNWf+k9cyaQpPV0XHBQYOJoo=;
-        b=l+NUQhUOS4igrR5kW28EgIp2U+uSrnHHj78/6FZm08atnl9ipz4L04kYPlwkF/KbNe
-         20gqwkBPy2biSfQR6PdJnGTTyG/s5lEZbPBC8gTpIaO7eFAlBnP6wc4tLHMN1IVe0lRe
-         YlrQlbmv9B9ATVhLo6cp4R3Wu4y2NFkAhHOmWTZhUZLz4fxDhL5Mo7RfeMw4MU2JgzD7
-         5uvR0KO1C2vX25wG7PH5U617lJNtC7kpVKA6Rq1vMDu/46IDhVt+7nSZcY+UQ2nZsd44
-         56hK1c4G5i3vPijPC5FBSXcTI0B00Wy75y7tuUPjZKTYtLBqED4mxY+2NnyKBzu7tN4q
-         LHug==
+        bh=8UtEvs/UKwRx2DBefbiPVqOkV55B7PmsI+7iuTw4cSc=;
+        b=LjRd9ObhqMDdHD3cp3QGcsapstQAbSorS/XXHiTyFs1tSFAM8xW5lWpMjYUG3sy+Lo
+         ONYlzoCKm7hN4CW+U3CMd4YaVXIvv+pT4RjlnNhH5dq9FBmHUpDDsqnfgL6VS5WtxbRu
+         Cr5gUxyevyXRTMf0pbrTc0OqPp5bzjws+uDSez58WPZxPYNFbxT8ouetO/8auEaz8oTd
+         UqvdcJhlaZhYPogMSvqFGPZt5K1pX4Sjh/OV3pghJm082O9AZ6+lB4BK67NCaf244g2C
+         LGFkmB0IpLGD6m9EW1yLvle9I+2iLX118Yi8SUuY0xS6MPmROeaq0QTeZv09n4N8mnpV
+         dnoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0Lsc2yXm5GpFU5tpNXdLNWf+k9cyaQpPV0XHBQYOJoo=;
-        b=Mcp9GQwhhfDDanBrNmtEBlDItAYW+fFTnMW91ZvPPQ+1vL1F8d0FphSLyHU63XbihI
-         zRJhLvnba5YQZlsnGyxBlSd4/qqebKW2/Jhv7P25/eWpVxYIA4OWOzaDPOK/h++nLAmD
-         fJaGY1QA96DgcGYOsv5WrDaLR8uh0ryv6wIfutQGlC1VZAqTFEvmUN36K6x2Rg2P7Les
-         5FjaF8UKfRTJd2YOlbzJMRbC9NqwhCTgWu6zlC0LqZlBAOdwHh090sVadBXsKvBMqzi1
-         /urBxXqpWM5bX5OScmFcwMdHgADOnQAICKI3ksFvM24poWMXy1S8moLVQ2cKsZ3xRv0h
-         5CNw==
+        h=sender:x-gm-message-state:subject:to:cc:from:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=8UtEvs/UKwRx2DBefbiPVqOkV55B7PmsI+7iuTw4cSc=;
+        b=LNk3QMP9sX8JJ39nfXRKC80kNH7ntdlbo4i/YIGTXFEaWZ83YEN+HlG9rkXKgRfihq
+         A5oh6YYPTGcDFF/PQV47evQXdt65sOsQ0yMO3Kzck2it7lWG2TKesBBAPBOGyKilMC/p
+         4EIoUoQ+0yJ/aIm5gULQYVcCx10+VNlv8PSwM6mORvhGMrukE815gWqTN/SOOueVr42R
+         8riWpOuxDgwduReJaA+FcASkcT+Z4eZdVXODksTtO4Ae063aQIdx8r5P+DmvevvTweUa
+         CBirfshZq6yOjivuCHYeIpGjXIdk/WcpZnjsCgR5+GX6/OVafrftlco2FKKtNdlTAjEn
+         zNng==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV92QOQm8DgWj/Lm6i/8/eJsAAU4NJ3LZbDy6iPuwT6+TwnFJc+
-	4twxxn5O3gTmRfVcKH2NC1E=
-X-Google-Smtp-Source: APXvYqxEqWyIjHvwpMb4b0TyKeFJ2dnRRfOYcjSIGIjXc6vO/4Bq4AoU9NKbI4sO6s+opUN3a2cKEQ==
-X-Received: by 2002:a17:90a:356d:: with SMTP id q100mr606964pjb.53.1568658873437;
-        Mon, 16 Sep 2019 11:34:33 -0700 (PDT)
+X-Gm-Message-State: APjAAAW0/BR+S3Th0/ou9owmXeRl2Ed61hV5KeBNZbGULg+NA2GV8DMK
+	PejjSZ19TZAuvnG5LRIQjHY=
+X-Google-Smtp-Source: APXvYqxKvKfrbNIdol/djnaU/X8dU8vRfmzGwzGrYKdNjg2jPf3MxMIU4sEofZ6XwJWWtP/UFpIuEg==
+X-Received: by 2002:a65:4141:: with SMTP id x1mr712581pgp.213.1568661890366;
+        Mon, 16 Sep 2019 12:24:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:644a:: with SMTP id y71ls94130pfb.9.gmail; Mon, 16 Sep
- 2019 11:34:33 -0700 (PDT)
-X-Received: by 2002:a63:de12:: with SMTP id f18mr198895pgg.453.1568658873012;
-        Mon, 16 Sep 2019 11:34:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568658873; cv=none;
+Received: by 2002:a17:902:ab81:: with SMTP id f1ls173061plr.0.gmail; Mon, 16
+ Sep 2019 12:24:50 -0700 (PDT)
+X-Received: by 2002:a17:90a:9503:: with SMTP id t3mr835330pjo.81.1568661890057;
+        Mon, 16 Sep 2019 12:24:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568661890; cv=none;
         d=google.com; s=arc-20160816;
-        b=U+UVMYDbgnxQtx34x6tJaBB6hmKZ5BfGpuHqmWnqDdi+j7SgAUUJcJBmvX68jXK4oT
-         YzlvJ+knmOL1wNoKyGkgmdcIYJAQ4phwSmxUhSKcGQtAl1+BVG1hF4a0AdklY++QY893
-         73yHOptBt0RAF8stFtuzWiRJOzaD1md0UHiCzlAwfP1ulJW0x0vfh4beWAnw+8Elnak4
-         V8kPXhCmsa6PMnBvvwJJf59AUiRXhr0912wdH0ONhWA7PGOubOoUKjMiRJTVd3fq03ux
-         RrmgdrWnFMq9K7UAYklF/2s/PDkBiwPAYc3+wfYoAUwu3SmKlLqWamSfLBxxTJKfnkmV
-         9ssw==
+        b=JX0VHCq0VXnS+n25bFXiNW7ByidChCv+kI4AUXKzFlty4laytYffL0uEiNd+SykRa2
+         PadRhPPzWQgF1XgsibbI8vB/40mfR345CfXpUDa1/dQCIebxnz6Rvr1Lbb1uZo5OuBnM
+         FrvUnjQNgHkChw6GJbIs6IPXwrHs+YQvnAK3sHV+SK0yAgVVzK56JhnamsEIrpT188o2
+         0QKaBk+IcKny1GLcjuuw4fyRc0eNT3R1x7JoGx7zGZm1s1PwF7dVsTvTXj4wfkURZRFk
+         wepsTb4tcEFPV11CiUqeG5qgWFBHPG+IbGHuchQlgqsltH9DHuvHoX4PQOLz1NaA3qrK
+         xICg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=EzvlC0aQWxRuxfShfZJQf/qCEzMwlEXj1g1xRYyzZaU=;
-        b=bFVD8tJA6rXPrRUlLddal2uUVUFoHLUa6vy/yYG5cT6jqm0+6EOknhPyTydYk6Bhzu
-         8ROkNXyiMC3+i14Cb94mUqpWCOE4u4vvdaV7CyLeQ7V+MzAdK1wnvXyyuSLlpJdHH1Lf
-         5848Ct8dZjt6cfKiEEosyZPTW9MoomBzZksiwOO5/t34CXc7rddP4sUD9SeRJac1usyJ
-         95WpnnSHYHqAHbk8Te2NJGEUsh5mFUyjrm8ifkHmUgBwBKfLpS6spEISXfpiK7UJu3CJ
-         tRWpLPr/R0E9R0zO6QdIqIbb6TUPhzgAbJ6JdcyvK6NeOqqW8VPm1jU+JM8rC5FuwnCI
-         JW3w==
+        h=content-transfer-encoding:mime-version:message-id:date:from:cc:to
+         :subject:dkim-signature;
+        bh=UJgy38sSwHvMeOVwXooJNx+kY9ya57TmItJqYpyN9ds=;
+        b=LiQZUUlITKy8xr2yw1ldnt7s4+GnhPX6H0WbCSZpNjVA0AcfIrjZx+Zmb2gfGCjXcu
+         gffAtb+VhaIUCduFVObpcl0b2A5TKhE72ncYvObi3lVnmVIGRyGJ1S5XyysZ5A9p3Vh3
+         xvJ9wN8oMjb+jT7I5QaeXgPU73nwYSZE0kuH+3YeUmwLr3SDMD33An4FxgrCJhkSbMcv
+         zkLVmvTlBIEhOZtiYLouj37ahwfXJUdxaX+vGj+ykk5vsTEdMo4BMSw38oJ+zUgkFwoK
+         ae/pPqoACxAoL4pHUbiteiJv9h1DvrQ9G3rKxKuN30VDzThS4T1U3npjUhshXmDzfo9/
+         Xf6w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jwboyer@gmail.com designates 209.85.160.196 as permitted sender) smtp.mailfrom=jwboyer@gmail.com
-Received: from mail-qt1-f196.google.com (mail-qt1-f196.google.com. [209.85.160.196])
-        by gmr-mx.google.com with ESMTPS id s28si10720pgo.0.2019.09.16.11.34.32
+       dkim=pass header.i=@kernel.org header.s=default header.b="B0/iMuEe";
+       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id w4si13230pjn.2.2019.09.16.12.24.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Sep 2019 11:34:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jwboyer@gmail.com designates 209.85.160.196 as permitted sender) client-ip=209.85.160.196;
-Received: by mail-qt1-f196.google.com with SMTP id x5so1054008qtr.7
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Sep 2019 11:34:32 -0700 (PDT)
-X-Received: by 2002:ac8:7310:: with SMTP id x16mr1057186qto.382.1568658872162;
- Mon, 16 Sep 2019 11:34:32 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Sep 2019 12:24:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl [83.86.89.107])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 4643D20665;
+	Mon, 16 Sep 2019 19:24:49 +0000 (UTC)
+Subject: Patch "x86/purgatory: Change compiler flags from -mcmodel=kernel to -mcmodel=large to fix kexec relocation errors" has been added to the 4.19-stable tree
+To: andreas@lonelycoder.com,bp@alien8.de,clang-built-linux@googlegroups.com,dimitri.sivanich@hpe.com,gregkh@linuxfoundation.org,hpa@zytor.com,mike.travis@hpe.com,mingo@kernel.org,ndesaulniers@google.com,peterz@infradead.org,russ.anderson@hpe.com,steve.wahl@hpe.com,tglx@linutronix.de,torvalds@linux-foundation.org,vaibhavrustagi@google.com
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Mon, 16 Sep 2019 21:24:47 +0200
+Message-ID: <156866188774242@kroah.com>
 MIME-Version: 1.0
-References: <201909141549.jA6j3hkx%lkp@intel.com> <CAKwvOd=YVs1Grzcy_gUgO9_C5XkLdb1aCP+GYj1K97g-hu+aCA@mail.gmail.com>
-In-Reply-To: <CAKwvOd=YVs1Grzcy_gUgO9_C5XkLdb1aCP+GYj1K97g-hu+aCA@mail.gmail.com>
-From: Josh Boyer <jwboyer@fedoraproject.org>
-Date: Mon, 16 Sep 2019 14:34:21 -0400
-Message-ID: <CA+5PVA7NmdkBS_wKYdK7XA5w1m4dRoFwZzKo1qKR1bNjDFmSwQ@mail.gmail.com>
-Subject: Re: [jwboyer-fedora:rawhide 46/63] drivers/gpu/drm/i915/display/intel_display.c:12985:17:
- warning: incompatible integer to pointer conversion passing 'int' to
- parameter of type 'const char *'
-To: Nick Desaulniers <ndesaulniers@google.com>, kernel-team@fedoraproject.org
-Cc: kbuild test robot <lkp@intel.com>, kbuild@01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild-all@01.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jwboyer@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jwboyer@gmail.com designates 209.85.160.196 as
- permitted sender) smtp.mailfrom=jwboyer@gmail.com
+X-stable: commit
+X-Patchwork-Hint: ignore
+X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernel.org header.s=default header.b="B0/iMuEe";       spf=pass
+ (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -124,133 +124,162 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 16, 2019 at 2:28 PM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> Hi Josh,
-> Below is a bugreport from 0day bot compiling w/ Clang. Can you please
-> take a look? Sorry if this has already been reported.
 
-The tree is under my name, but only for historical reasons.  It's
-really a representation of the Fedora kernel, so I've copied that team
-to take a look.
+This is a note to let you know that I've just added the patch titled
 
-josh
+    x86/purgatory: Change compiler flags from -mcmodel=kernel to -mcmodel=large to fix kexec relocation errors
 
-> On Sat, Sep 14, 2019 at 12:23 AM kbuild test robot <lkp@intel.com> wrote:
-> >
-> > CC: kbuild-all@01.org
-> > BCC: philip.li@intel.com
-> > TO: Josh Boyer <jwboyer@fedoraproject.org>
-> >
-> > tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/jwboyer/fedora.git rawhide
-> > head:   1581c155f78e7dce8af56fa074d6dd78a8c7f8d8
-> > commit: 906a121fa9b829991204b31d176177a4753de48a [46/63] drm/i915: hush check crtc state
-> > config: x86_64-rhel-7.6 (attached as .config)
-> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
-> > reproduce:
-> >         git checkout 906a121fa9b829991204b31d176177a4753de48a
-> >         # save the attached .config to linux build tree
-> >         make ARCH=x86_64
-> >
-> > If you fix the issue, kindly add following tag
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> >
-> > All warnings (new ones prefixed by >>):
-> >
-> > >> drivers/gpu/drm/i915/display/intel_display.c:12985:17: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'const char *' [-Wint-conversion]
-> >                    DRM_DEBUG_KMS(1, "pipe state doesn't match!\n");
-> >                                  ^
-> >    include/drm/drm_print.h:366:22: note: expanded from macro 'DRM_DEBUG_KMS'
-> >            drm_dbg(DRM_UT_KMS, fmt, ##__VA_ARGS__)
-> >                                ^~~
-> >    include/drm/drm_print.h:283:49: note: passing argument to parameter 'format' here
-> >    void drm_dbg(unsigned int category, const char *format, ...);
-> >                                                    ^
-> >    1 warning generated.
-> >
-> > vim +12985 drivers/gpu/drm/i915/display/intel_display.c
-> >
-> >  12923
-> >  12924  static void
-> >  12925  verify_crtc_state(struct drm_crtc *crtc,
-> >  12926                    struct drm_crtc_state *old_crtc_state,
-> >  12927                    struct drm_crtc_state *new_crtc_state)
-> >  12928  {
-> >  12929          struct drm_device *dev = crtc->dev;
-> >  12930          struct drm_i915_private *dev_priv = to_i915(dev);
-> >  12931          struct intel_encoder *encoder;
-> >  12932          struct intel_crtc *intel_crtc = to_intel_crtc(crtc);
-> >  12933          struct intel_crtc_state *pipe_config, *sw_config;
-> >  12934          struct drm_atomic_state *old_state;
-> >  12935          bool active;
-> >  12936
-> >  12937          old_state = old_crtc_state->state;
-> >  12938          __drm_atomic_helper_crtc_destroy_state(old_crtc_state);
-> >  12939          pipe_config = to_intel_crtc_state(old_crtc_state);
-> >  12940          memset(pipe_config, 0, sizeof(*pipe_config));
-> >  12941          pipe_config->base.crtc = crtc;
-> >  12942          pipe_config->base.state = old_state;
-> >  12943
-> >  12944          DRM_DEBUG_KMS("[CRTC:%d:%s]\n", crtc->base.id, crtc->name);
-> >  12945
-> >  12946          active = dev_priv->display.get_pipe_config(intel_crtc, pipe_config);
-> >  12947
-> >  12948          /* we keep both pipes enabled on 830 */
-> >  12949          if (IS_I830(dev_priv))
-> >  12950                  active = new_crtc_state->active;
-> >  12951
-> >  12952          I915_STATE_WARN(new_crtc_state->active != active,
-> >  12953               "crtc active state doesn't match with hw state "
-> >  12954               "(expected %i, found %i)\n", new_crtc_state->active, active);
-> >  12955
-> >  12956          I915_STATE_WARN(intel_crtc->active != new_crtc_state->active,
-> >  12957               "transitional active state does not match atomic hw state "
-> >  12958               "(expected %i, found %i)\n", new_crtc_state->active, intel_crtc->active);
-> >  12959
-> >  12960          for_each_encoder_on_crtc(dev, crtc, encoder) {
-> >  12961                  enum pipe pipe;
-> >  12962
-> >  12963                  active = encoder->get_hw_state(encoder, &pipe);
-> >  12964                  I915_STATE_WARN(active != new_crtc_state->active,
-> >  12965                          "[ENCODER:%i] active %i with crtc active %i\n",
-> >  12966                          encoder->base.base.id, active, new_crtc_state->active);
-> >  12967
-> >  12968                  I915_STATE_WARN(active && intel_crtc->pipe != pipe,
-> >  12969                                  "Encoder connected to wrong pipe %c\n",
-> >  12970                                  pipe_name(pipe));
-> >  12971
-> >  12972                  if (active)
-> >  12973                          encoder->get_config(encoder, pipe_config);
-> >  12974          }
-> >  12975
-> >  12976          intel_crtc_compute_pixel_rate(pipe_config);
-> >  12977
-> >  12978          if (!new_crtc_state->active)
-> >  12979                  return;
-> >  12980
-> >  12981          intel_pipe_config_sanity_check(dev_priv, pipe_config);
-> >  12982
-> >  12983          sw_config = to_intel_crtc_state(new_crtc_state);
-> >  12984          if (!intel_pipe_config_compare(sw_config, pipe_config, false)) {
-> >  12985                  DRM_DEBUG_KMS(1, "pipe state doesn't match!\n");
-> >  12986                  intel_dump_pipe_config(pipe_config, NULL, "[hw state]");
-> >  12987                  intel_dump_pipe_config(sw_config, NULL, "[sw state]");
-> >  12988          }
-> >  12989  }
-> >  12990
-> >
-> > ---
-> > 0-DAY kernel test infrastructure                Open Source Technology Center
-> > https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
->
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
+to the 4.19-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+
+The filename of the patch is:
+     x86-purgatory-change-compiler-flags-from-mcmodel-kernel-to-mcmodel-large-to-fix-kexec-relocation-errors.patch
+and it can be found in the queue-4.19 subdirectory.
+
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
+
+
+From e16c2983fba0fa6763e43ad10916be35e3d8dc05 Mon Sep 17 00:00:00 2001
+From: Steve Wahl <steve.wahl@hpe.com>
+Date: Thu, 5 Sep 2019 15:23:46 -0500
+Subject: x86/purgatory: Change compiler flags from -mcmodel=kernel to -mcmodel=large to fix kexec relocation errors
+
+From: Steve Wahl <steve.wahl@hpe.com>
+
+commit e16c2983fba0fa6763e43ad10916be35e3d8dc05 upstream.
+
+The last change to this Makefile caused relocation errors when loading
+a kdump kernel.  Restore -mcmodel=large (not -mcmodel=kernel),
+-ffreestanding, and -fno-zero-initialized-bsss, without reverting to
+the former practice of resetting KBUILD_CFLAGS.
+
+Purgatory.ro is a standalone binary that is not linked against the
+rest of the kernel.  Its image is copied into an array that is linked
+to the kernel, and from there kexec relocates it wherever it desires.
+
+With the previous change to compiler flags, the error "kexec: Overflow
+in relocation type 11 value 0x11fffd000" was encountered when trying
+to load the crash kernel.  This is from kexec code trying to relocate
+the purgatory.ro object.
+
+From the error message, relocation type 11 is R_X86_64_32S.  The
+x86_64 ABI says:
+
+  "The R_X86_64_32 and R_X86_64_32S relocations truncate the
+   computed value to 32-bits.  The linker must verify that the
+   generated value for the R_X86_64_32 (R_X86_64_32S) relocation
+   zero-extends (sign-extends) to the original 64-bit value."
+
+This type of relocation doesn't work when kexec chooses to place the
+purgatory binary in memory that is not reachable with 32 bit
+addresses.
+
+The compiler flag -mcmodel=kernel allows those type of relocations to
+be emitted, so revert to using -mcmodel=large as was done before.
+
+Also restore the -ffreestanding and -fno-zero-initialized-bss flags
+because they are appropriate for a stand alone piece of object code
+which doesn't explicitly zero the bss, and one other report has said
+undefined symbols are encountered without -ffreestanding.
+
+These identical compiler flag changes need to happen for every object
+that becomes part of the purgatory.ro object, so gather them together
+first into PURGATORY_CFLAGS_REMOVE and PURGATORY_CFLAGS, and then
+apply them to each of the objects that have C source.  Do not apply
+any of these flags to kexec-purgatory.o, which is not part of the
+standalone object but part of the kernel proper.
+
+Tested-by: Vaibhav Rustagi <vaibhavrustagi@google.com>
+Tested-by: Andreas Smas <andreas@lonelycoder.com>
+Signed-off-by: Steve Wahl <steve.wahl@hpe.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: None
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: clang-built-linux@googlegroups.com
+Cc: dimitri.sivanich@hpe.com
+Cc: mike.travis@hpe.com
+Cc: russ.anderson@hpe.com
+Fixes: b059f801a937 ("x86/purgatory: Use CFLAGS_REMOVE rather than reset KBUILD_CFLAGS")
+Link: https://lkml.kernel.org/r/20190905202346.GA26595@swahl-linux
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Cc: Andreas Smas <andreas@lonelycoder.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+
+---
+ arch/x86/purgatory/Makefile |   35 +++++++++++++++++++----------------
+ 1 file changed, 19 insertions(+), 16 deletions(-)
+
+--- a/arch/x86/purgatory/Makefile
++++ b/arch/x86/purgatory/Makefile
+@@ -18,37 +18,40 @@ targets += purgatory.ro
+ KASAN_SANITIZE	:= n
+ KCOV_INSTRUMENT := n
+ 
++# These are adjustments to the compiler flags used for objects that
++# make up the standalone purgatory.ro
++
++PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
++PURGATORY_CFLAGS := -mcmodel=large -ffreestanding -fno-zero-initialized-in-bss
++
+ # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
+ # in turn leaves some undefined symbols like __fentry__ in purgatory and not
+ # sure how to relocate those.
+ ifdef CONFIG_FUNCTION_TRACER
+-CFLAGS_REMOVE_sha256.o		+= $(CC_FLAGS_FTRACE)
+-CFLAGS_REMOVE_purgatory.o	+= $(CC_FLAGS_FTRACE)
+-CFLAGS_REMOVE_string.o		+= $(CC_FLAGS_FTRACE)
+-CFLAGS_REMOVE_kexec-purgatory.o	+= $(CC_FLAGS_FTRACE)
++PURGATORY_CFLAGS_REMOVE		+= $(CC_FLAGS_FTRACE)
+ endif
+ 
+ ifdef CONFIG_STACKPROTECTOR
+-CFLAGS_REMOVE_sha256.o		+= -fstack-protector
+-CFLAGS_REMOVE_purgatory.o	+= -fstack-protector
+-CFLAGS_REMOVE_string.o		+= -fstack-protector
+-CFLAGS_REMOVE_kexec-purgatory.o	+= -fstack-protector
++PURGATORY_CFLAGS_REMOVE		+= -fstack-protector
+ endif
+ 
+ ifdef CONFIG_STACKPROTECTOR_STRONG
+-CFLAGS_REMOVE_sha256.o		+= -fstack-protector-strong
+-CFLAGS_REMOVE_purgatory.o	+= -fstack-protector-strong
+-CFLAGS_REMOVE_string.o		+= -fstack-protector-strong
+-CFLAGS_REMOVE_kexec-purgatory.o	+= -fstack-protector-strong
++PURGATORY_CFLAGS_REMOVE		+= -fstack-protector-strong
+ endif
+ 
+ ifdef CONFIG_RETPOLINE
+-CFLAGS_REMOVE_sha256.o		+= $(RETPOLINE_CFLAGS)
+-CFLAGS_REMOVE_purgatory.o	+= $(RETPOLINE_CFLAGS)
+-CFLAGS_REMOVE_string.o		+= $(RETPOLINE_CFLAGS)
+-CFLAGS_REMOVE_kexec-purgatory.o	+= $(RETPOLINE_CFLAGS)
++PURGATORY_CFLAGS_REMOVE		+= $(RETPOLINE_CFLAGS)
+ endif
+ 
++CFLAGS_REMOVE_purgatory.o	+= $(PURGATORY_CFLAGS_REMOVE)
++CFLAGS_purgatory.o		+= $(PURGATORY_CFLAGS)
++
++CFLAGS_REMOVE_sha256.o		+= $(PURGATORY_CFLAGS_REMOVE)
++CFLAGS_sha256.o			+= $(PURGATORY_CFLAGS)
++
++CFLAGS_REMOVE_string.o		+= $(PURGATORY_CFLAGS_REMOVE)
++CFLAGS_string.o			+= $(PURGATORY_CFLAGS)
++
+ $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
+ 		$(call if_changed,ld)
+ 
+
+
+Patches currently in stable-queue which might be from steve.wahl@hpe.com are
+
+queue-4.19/x86-purgatory-change-compiler-flags-from-mcmodel-kernel-to-mcmodel-large-to-fix-kexec-relocation-errors.patch
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CA%2B5PVA7NmdkBS_wKYdK7XA5w1m4dRoFwZzKo1qKR1bNjDFmSwQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/156866188774242%40kroah.com.
