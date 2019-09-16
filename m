@@ -1,140 +1,140 @@
-Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBFPE77VQKGQEKC2UTCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDFIFCVS5QKRBI7E77VQKGQED75666A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 11DB8B41F0
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 22:35:34 +0200 (CEST)
-Received: by mail-qk1-x73c.google.com with SMTP id 11sf1448907qkh.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 13:35:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568666133; cv=pass;
+Received: from mail-vs1-xe3c.google.com (mail-vs1-xe3c.google.com [IPv6:2607:f8b0:4864:20::e3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id D3CC5B41F5
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 22:35:48 +0200 (CEST)
+Received: by mail-vs1-xe3c.google.com with SMTP id z10sf298324vsq.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 13:35:48 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568666147; cv=pass;
         d=google.com; s=arc-20160816;
-        b=x4FGt/R3dLzMTpEpLUDVwtLf2PDbDpZIQy90A8wuR8vptP4CVKcL7TMo08pB6uzBsb
-         Lw6k7xdKePxpe4k0TkSnjxD9bqYsET0wPz1jWnG/BJhnB+K0xwL8mW8Kbyv5P1wKYWix
-         lOvXb28I6mZZK4pc2BV5bXyFp2QZdaP56QF0DV5hLPYdn3yGQa3Xw9IvnxPtlAwwJXng
-         Woa+63G8UxmnIw5Fa8iKtE/2Lvw2sFBGNEoK3H0waRfD/NaWTxQMYh3lCjOz8m+3bG2V
-         9U/hcQhhMVnHSPrfyfU7YjuywuxwNPknpKj5KnCHIV9MFd038lKjq5eLZVM7rvduik9O
-         IciQ==
+        b=suvY7gtgwJJ0kA4L6V8SPr0bD3H3GvDroPRHrJBa94uMyi0Cv/vK+b0I91zAbVZYTG
+         YXup4rEQqd5drAcBkdrykkB12+9STH1QmTPEc3kf2dDkR4c2NKjnLijEcwyz81f7SQsb
+         YlUpQ+VhXjWH7u5iRnoExHS7Lu3o9f0O22suVOiip3VaumtkJeAJtsurlhmNMA/lbEPo
+         kDySnJJleZrN4LsI7jmMWbaTb9tjwK03QDHZdq9Ac24MEoydpjSKnpD4OXe2oSbxveov
+         INBOb2PWHW6fvFamYae9NMMaR+vIabJt3fFdRPsu1NWVggO+fILUkj76PiXoqHdmIMjH
+         J9xQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=7ldwdoEjlvgK698G+xurN8ZpGHQIEK+EckGRlFlQZ/g=;
-        b=wCJbLAYsYD3n+0KYfF/4Hx2p1/wXNDS3h3v/If5a5HtapQit0LZ57+wdBc1Y8q4+Z4
-         3g5y6+A8wCrXHDbWiAI0rlz72l5p0pT/Q+vv55tSizBAMH0zC6d6bOrJEit5ogmR86YL
-         zN5gsf/2NQxryH0FC2iXJNe+2L4ru/X7hhNktupHHUh/NgT4zNHsmwRnXFsrIdQyo8Kb
-         tqK/7nZulm9G9KIAd5xMMLvnHS+L8+V2LREymReLN573/zqO1zpQzJnDk9jgjq/IH59H
-         96rgiL+sF0iMGSfPVIcF/bRVrtrC2mbp3RfnSXkxFOTR2zYRPe9OpH4a8B6m6GDg9jN4
-         ggAA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=xYWFIxRF9nyOsSbZwW4KL0Oc0OICu+7tUbYMLdJppKY=;
+        b=jEiAl2+VtLh69d7l91MLiLeGfQd4pXjc/wsL5jeIssMXqdtghRat9NmeXxfUurSogJ
+         FQ+1dXSrZN1eHFWdVieLvqPprav/C9UHaBNHUQxGDKHlq1mdsbjKGiscKYaKemRBfxX1
+         2ps6BwhbVkD29oKb9ZZv7OfLZo+6pubHEVP90I7j2H/fnRQ0XTcWk4Bn9ZVISuOLeDX+
+         peKAVqyx7Z4eRVM2tA9SDBYUsgGhlEzxS2iNoQS10wickBRxtIfcXezPw2zE6Dmltq9E
+         C0RvWup8/1BKFLLEzhYrqdJ0waE0QX8X0DiRXkqrAIksZVfiuw06v/g2/uiZ2b45TmPF
+         VzgQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NVDnnS7Q;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: domain of jcline@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jcline@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7ldwdoEjlvgK698G+xurN8ZpGHQIEK+EckGRlFlQZ/g=;
-        b=MKXkKyzYx6gkiunPvUqwEV0t6uV+nKDWWEiM+EV29caPPSdbJ11/faiBVL8tuPte3e
-         8uaR+WpG1nD8bQwQ4DU8RGSclNAn3ti05gO2soRqMfJfbP7fFrchFz0YBMh3hY+GceFH
-         7njhyf4r5GDbc+LWKOq4It5kQw6/Euebc0Ipo1fuc2zjg2uX35lX5X8+Dv5HHtcv3y2Y
-         h6uTo3amkCVEg8qdNHiq8o7x2b8sYUqMQUAB9NbGbX5tqgUnnbSTnyhKYJoFg6IKhKJK
-         r3BgOLXgu+E6mgZgsA3H8d/toIvOiD5ieGZ//DzDuLIkZqr99HkSTRkaYzd9eU1yibG1
-         Zx5A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7ldwdoEjlvgK698G+xurN8ZpGHQIEK+EckGRlFlQZ/g=;
-        b=JSqt4BCbVwtpDQLWAuZ7zJWzuosG/1LUStsOI7A7nZ/YcBk+qcVQ0vCElfbcaiKsgZ
-         2BBJmBiud/pp2R/C5xI2EZqGvdNep23QJvyHXf9pFyEWY4ghW6Gt01ACVqzXsELUAOHH
-         L0mUYRkyQrXOKVxTeso0khTe6mmEqCXEY6j3wKvHAD+0O1t0Fi+UDW0UQuWDmTG6WcpH
-         AdtEULiBGyis4tdsSZETGoC4IT3XqGxhf7svF2SVe3oetl5tb+gHELc22090kT5IbHbq
-         ZYlQdvtDebpsNyRq4pV2Q7v9SZfG7bMp1PwetjVjP/eScGTTL8mEnoCvGRGKFqIOX9O8
-         L/TQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=xYWFIxRF9nyOsSbZwW4KL0Oc0OICu+7tUbYMLdJppKY=;
+        b=Zh16r38nQMq6nK6KxYAMkN7WGgGygs++00qVXEUrM8t6KBM5NyvysJgCpDL6iPxiKq
+         33I5GAR0Us6CNXYSnZ1swWn3ZkpE4XQewC68+8ahaj65UcoNMu9HZaPEJyKK0HZqIaMl
+         VCUn2RntF9uBUu7KDR+DbZhHT7q98YJDfEd1uNFF6DYuFz1fgshnv6davhZQp2Fz5Xpn
+         ertU2gBxsa63GqkQKG2gmbi46ZOECuVMb1d3A2TeyCgJvJD0niwa+i89Pfj+SvEZQeiL
+         ZNMhVsqO3Eh9dE1/i5BQfloNEnUZ/gQNpqPDyZT/bX6PPTLyU/kiJ3toAABAuNwXrQq3
+         wVYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7ldwdoEjlvgK698G+xurN8ZpGHQIEK+EckGRlFlQZ/g=;
-        b=DgIlgvTkMVNBbAXHUnKGyAoMhm9TQGoCLzrKHJPxwaqobE9wlQIduRpb7XdNGIGmXT
-         QocgbQzgLtiOYFJEQP72ynemgRhLwcm61u6YSjlbQxTp8q3O09BmL2dB8lpTNRsqeHIN
-         z9v30Nj4Oz5wwivig6DXKMGBXRcTx6qPzw8vXaFWoA1jc6YgHUrpD/7C2nS3maKbdgSS
-         zpWXIPAoS4Byzp2SCtYyMuQPYrgFlfiVk9f549F6Kkz/6UNIoWRCXwmHCrCLxi+augqW
-         o6EaqBkXIi/LckJ4p38C5pYkTHI4KxeugyzYEUVUfDSFx8XY6j3ocz/zJGvfA8x56aFb
-         u2mw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=xYWFIxRF9nyOsSbZwW4KL0Oc0OICu+7tUbYMLdJppKY=;
+        b=XcOU9WgaiX7XRR7c6WbuhkJ/TItGqKfFQyn9LWf/IgtKtxC0U6O31unIu8LD/ToN6U
+         AzbsgKV3n/NxiUBjKpIQ915tExvDrp3hizo9+q9VjwJquoPLmyIYsvZGhs489qKezAWH
+         k/84g2v4JP3VJzuiOCQyqcKrr7pzvR6D5aLMS5uoua+fG54Vu1MjzwSQ/WAUiVj/l+JR
+         qXqdvCvH/t+iNvDCsf+ziWI+QvQKZsY7o9HiQoAjiM60zIJKck03+JcxdZpGZin2grjW
+         VkhrxtQjThdEaUlWJFj/uIzn2hYzhzHLmNQexk715P3aijC854y/YKGsVVtrP3v3pwVF
+         R5gA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWsfjawH9Bx26qj5nfmTxr2zY6/9/G1G4LO/GwHOXm144YNOZL5
-	YQxFgqWtEUQytH6LXKaMdes=
-X-Google-Smtp-Source: APXvYqzg8cSbOHxQwWzESJm0N/VaMWZTD5QhQ1fhI+6pGf8IpFxbp+o6mozPeAc0tx0DsmPZ1E8frA==
-X-Received: by 2002:a37:8cc3:: with SMTP id o186mr199374qkd.186.1568666133113;
-        Mon, 16 Sep 2019 13:35:33 -0700 (PDT)
+X-Gm-Message-State: APjAAAVU9Qf6m02kEbrv9D3GeQ3iT3mIiq/5AG+wxR86qz+NUb/YKOJv
+	4Oow0d8OjdIEnvHWMjN5uXk=
+X-Google-Smtp-Source: APXvYqxSf6S8HB2aeVYa6IL3+1PDqWRQXksUd8iJQOVWVg6+89ZSt/hpCmwAU25L3eR5NwWkY3xMhQ==
+X-Received: by 2002:a1f:4805:: with SMTP id v5mr79885vka.28.1568666147681;
+        Mon, 16 Sep 2019 13:35:47 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:2efb:: with SMTP id i56ls242675qta.11.gmail; Mon, 16 Sep
- 2019 13:35:32 -0700 (PDT)
-X-Received: by 2002:ac8:2c86:: with SMTP id 6mr263295qtw.113.1568666132894;
-        Mon, 16 Sep 2019 13:35:32 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568666132; cv=none;
+Received: by 2002:a67:f64b:: with SMTP id u11ls104685vso.12.gmail; Mon, 16 Sep
+ 2019 13:35:47 -0700 (PDT)
+X-Received: by 2002:a67:1a41:: with SMTP id a62mr1167627vsa.54.1568666147387;
+        Mon, 16 Sep 2019 13:35:47 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568666147; cv=none;
         d=google.com; s=arc-20160816;
-        b=DGHdtpem59Z0mbyGpRUYrLAuDBMSFYTiGRHDDg1KYdmcXF0Q+xkn+Mxl6K2+ZMLOPa
-         8GCnxlzurtS0GaMSKD6yKE4Mey5M/SXHi6e1V0brZHwxe5ieX7dk0gUE5agvXahWb/yS
-         jAEMGULp1Z07nX5k5rELabsn80PYaUcj5VqGRV0+XueX1UzmG6sejZfU6EMn18Zd/Ulk
-         lBQghiltohVYruv0xo7c8cdcBKDsMrjoVCvXI23mcahBA/ZK70DavNLN+7VMnpWhx8yv
-         2UXAVNv+UeTCqK9R/svPeOgSxiMqLnRl8rvJrtCYERZAsdFrHvXl03+jL/W66oILYnvn
-         kUSg==
+        b=qtej1kL8PJlWjinzy3nptfUWV0OjOKWaL0HDpap/tO/1WrzkWNlcAZjMEVzuVSg63j
+         r2E7Xxui/9NrK4iPGIurvsFP2R6iq9HoYzLDEVOFB4mp9dBhnl8XLydHYdkS9HG7ej5F
+         nul5HTZXiYLYtdrztPUY7awKldig0b4Jj2IO+O1s9aAWzbLn1VaMgctC9sECa/WjwPI7
+         O7dxuZY3qhtgyRedMhAm+cQPdqOGrFCOQKOmVbfOnfXXEw8J5a1XEJpBy68G/ov0ZjbA
+         Zm0fvTCU191YeZpiD7JjiGk8prSkf4b4ldKnpyoRPfV4Uxij7N7Usq2f/aF8mkJ1eyyH
+         PjVQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=ihyLcr/IE8dYmQPkpIxkQFwoGx9mvcYHtpb7Os1ZV9I=;
-        b=bDDPP3M+QxcvJ265v5R4wSo7JVrUwytD0mQkh/0r4ycScjFgYSpx3JgFU9W7cbLHQe
-         zzqmCb5hdyuKOThaC60i+5YDBDNni7+9huC9ydpAV8SIAgD9SbFqLxSUoC4M+O0NkQkT
-         w1Ynw0ki6RV0Z0u37yBumZlDh+9//E/ap9L0gZhJd0OAmht+RfGgL5d8aASgg+Dp64Zw
-         hpJ9rKoqzsj8W1TE+aRJKlqAbSt7oIp6izDK9o4BBmoIT96yb0zAQfnv7g/e0H54PxT9
-         rNa7hppNUhJ6p2Nc7mlbU0Kg1v//Wav0DPkMd+rUUMBtzvogy4RqjmAU8HmmUqyfyIqM
-         3dKw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=xBTdXU0qMJTvH13btf8WoqUkiVQT4XwZPfUBWKosGnY=;
+        b=nqxoE2c32Co+h+2JnyclhxivYFB/cUXRf2GFdYuIbseacsZB0sBN/M+gvHZYG5LRrm
+         h6XeQUVVn04Se9AhqYz5is75C2HSFs01r/J9+eO+AyyE6Df3KImdKHd9Tj/N5bbXU9Bw
+         OI7/v3RyZMtB0mQrCb+lp0JC0s200O0W69YI2Ko9K6punx+6BK1KgHlLQI1jDsnspxWt
+         RLm5GydsP3xCkLj9ambnSxdvcg0/lO969WrwnohoOcc/aBbrtz0p/eWsG1fprGle2R5J
+         1ECQDIQ2InM//AFQ5zxtB2JRd6+wtC4oE2EC9tBJ94eYZ2s9l7xsg5iNGHZLL4k496Eq
+         OqMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NVDnnS7Q;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qt1-x841.google.com (mail-qt1-x841.google.com. [2607:f8b0:4864:20::841])
-        by gmr-mx.google.com with ESMTPS id v7si54035qkf.5.2019.09.16.13.35.32
+       spf=pass (google.com: domain of jcline@redhat.com designates 209.132.183.28 as permitted sender) smtp.mailfrom=jcline@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
+        by gmr-mx.google.com with ESMTPS id r72si11919vke.5.2019.09.16.13.35.47
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Sep 2019 13:35:32 -0700 (PDT)
-Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::841 as permitted sender) client-ip=2607:f8b0:4864:20::841;
-Received: by mail-qt1-x841.google.com with SMTP id x5so1528472qtr.7
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Sep 2019 13:35:32 -0700 (PDT)
-X-Received: by 2002:ac8:7401:: with SMTP id p1mr259871qtq.141.1568666132646;
- Mon, 16 Sep 2019 13:35:32 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Sep 2019 13:35:47 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jcline@redhat.com designates 209.132.183.28 as permitted sender) client-ip=209.132.183.28;
+Received: from smtp.corp.redhat.com (int-mx03.intmail.prod.int.phx2.redhat.com [10.5.11.13])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mx1.redhat.com (Postfix) with ESMTPS id 0ECA53082132;
+	Mon, 16 Sep 2019 20:35:46 +0000 (UTC)
+Received: from laptop.jcline.org (ovpn-122-82.rdu2.redhat.com [10.10.122.82])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id BD7BE60600;
+	Mon, 16 Sep 2019 20:35:45 +0000 (UTC)
+Received: from laptop.jcline.org (localhost [IPv6:::1])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by laptop.jcline.org (Postfix) with ESMTPS id 03DE27045B1C;
+	Mon, 16 Sep 2019 16:35:45 -0400 (EDT)
+Date: Mon, 16 Sep 2019 16:35:43 -0400
+From: Jeremy Cline <jcline@redhat.com>
+To: Josh Boyer <jwboyer@fedoraproject.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	kernel-team@fedoraproject.org, kbuild test robot <lkp@intel.com>,
+	kbuild@01.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	kbuild-all@01.org
+Subject: Re: [jwboyer-fedora:rawhide 46/63]
+ drivers/gpu/drm/i915/display/intel_display.c:12985:17: warning: incompatible
+ integer to pointer conversion passing 'int' to parameter of type 'const char
+ *'
+Message-ID: <20190916203543.GA25496@laptop.jcline.org>
+References: <201909141549.jA6j3hkx%lkp@intel.com>
+ <CAKwvOd=YVs1Grzcy_gUgO9_C5XkLdb1aCP+GYj1K97g-hu+aCA@mail.gmail.com>
+ <CA+5PVA7NmdkBS_wKYdK7XA5w1m4dRoFwZzKo1qKR1bNjDFmSwQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20190916105433.11404-1-ivan.khoronzhuk@linaro.org> <20190916105433.11404-5-ivan.khoronzhuk@linaro.org>
-In-Reply-To: <20190916105433.11404-5-ivan.khoronzhuk@linaro.org>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Mon, 16 Sep 2019 13:35:21 -0700
-Message-ID: <CAEf4BzYJ5Q4rBHGET5z6nPBhh=8qAK7uuCK=Qnsh14FDH-24gA@mail.gmail.com>
-Subject: Re: [PATCH v3 bpf-next 04/14] samples: bpf: use own EXTRA_CFLAGS for
- clang commands
-To: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Yonghong Song <yhs@fb.com>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <jakub.kicinski@netronome.com>, 
-	Jesper Dangaard Brouer <hawk@kernel.org>, john fastabend <john.fastabend@gmail.com>, 
-	open list <linux-kernel@vger.kernel.org>, Networking <netdev@vger.kernel.org>, 
-	bpf <bpf@vger.kernel.org>, clang-built-linux@googlegroups.com, 
-	sergei.shtylyov@cogentembedded.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: andrii.nakryiko@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=NVDnnS7Q;       spf=pass
- (google.com: domain of andrii.nakryiko@gmail.com designates
- 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Disposition: inline
+In-Reply-To: <CA+5PVA7NmdkBS_wKYdK7XA5w1m4dRoFwZzKo1qKR1bNjDFmSwQ@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.13
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.42]); Mon, 16 Sep 2019 20:35:46 +0000 (UTC)
+X-Original-Sender: jcline@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of jcline@redhat.com designates 209.132.183.28 as
+ permitted sender) smtp.mailfrom=jcline@redhat.com;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -147,57 +147,141 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Sep 16, 2019 at 4:01 AM Ivan Khoronzhuk
-<ivan.khoronzhuk@linaro.org> wrote:
->
-> It can overlap with CFLAGS used for libraries built with gcc if
-> not now then in next patches. Correct it here for simplicity.
->
-> Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
-> ---
+On Mon, Sep 16, 2019 at 02:34:21PM -0400, Josh Boyer wrote:
+> On Mon, Sep 16, 2019 at 2:28 PM Nick Desaulniers
+> <ndesaulniers@google.com> wrote:
+> >
+> > Hi Josh,
+> > Below is a bugreport from 0day bot compiling w/ Clang. Can you please
+> > take a look? Sorry if this has already been reported.
+> 
+> The tree is under my name, but only for historical reasons.  It's
+> really a representation of the Fedora kernel, so I've copied that team
+> to take a look.
 
-With GCC BPF front-end recently added, we should probably generalize
-this to something like BPF_EXTRA_CFLAGS or something like that,
-eventually. But for now:
+Thanks for the pointer. We'd been carrying a patch in this area for many
+years which can be replaced with upstream functionality so I've dropped
+it.
 
-Acked-by: Andrii Nakryiko <andriin@fb.com>
+- Jeremy
 
->  samples/bpf/Makefile | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
-> index b59e77e2250e..8ecc5d0c2d5b 100644
-> --- a/samples/bpf/Makefile
-> +++ b/samples/bpf/Makefile
-> @@ -218,10 +218,10 @@ BTF_LLVM_PROBE := $(shell echo "int main() { return 0; }" | \
->                           /bin/rm -f ./llvm_btf_verify.o)
->
->  ifneq ($(BTF_LLVM_PROBE),)
-> -       EXTRA_CFLAGS += -g
-> +       CLANG_EXTRA_CFLAGS += -g
->  else
->  ifneq ($(and $(BTF_LLC_PROBE),$(BTF_PAHOLE_PROBE),$(BTF_OBJCOPY_PROBE)),)
-> -       EXTRA_CFLAGS += -g
-> +       CLANG_EXTRA_CFLAGS += -g
->         LLC_FLAGS += -mattr=dwarfris
->         DWARF2BTF = y
->  endif
-> @@ -280,8 +280,8 @@ $(obj)/hbm_edt_kern.o: $(src)/hbm.h $(src)/hbm_kern.h
->  # useless for BPF samples.
->  $(obj)/%.o: $(src)/%.c
->         @echo "  CLANG-bpf " $@
-> -       $(Q)$(CLANG) $(NOSTDINC_FLAGS) $(LINUXINCLUDE) $(EXTRA_CFLAGS) -I$(obj) \
-> -               -I$(srctree)/tools/testing/selftests/bpf/ \
-> +       $(Q)$(CLANG) $(NOSTDINC_FLAGS) $(LINUXINCLUDE) $(CLANG_EXTRA_CFLAGS) \
-> +               -I$(obj) -I$(srctree)/tools/testing/selftests/bpf/ \
->                 -D__KERNEL__ -D__BPF_TRACING__ -Wno-unused-value -Wno-pointer-sign \
->                 -D__TARGET_ARCH_$(SRCARCH) -Wno-compare-distinct-pointer-types \
->                 -Wno-gnu-variable-sized-type-not-at-end \
-> --
-> 2.17.1
->
+> 
+> josh
+> 
+> > On Sat, Sep 14, 2019 at 12:23 AM kbuild test robot <lkp@intel.com> wrote:
+> > >
+> > > CC: kbuild-all@01.org
+> > > BCC: philip.li@intel.com
+> > > TO: Josh Boyer <jwboyer@fedoraproject.org>
+> > >
+> > > tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/jwboyer/fedora.git rawhide
+> > > head:   1581c155f78e7dce8af56fa074d6dd78a8c7f8d8
+> > > commit: 906a121fa9b829991204b31d176177a4753de48a [46/63] drm/i915: hush check crtc state
+> > > config: x86_64-rhel-7.6 (attached as .config)
+> > > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+> > > reproduce:
+> > >         git checkout 906a121fa9b829991204b31d176177a4753de48a
+> > >         # save the attached .config to linux build tree
+> > >         make ARCH=x86_64
+> > >
+> > > If you fix the issue, kindly add following tag
+> > > Reported-by: kbuild test robot <lkp@intel.com>
+> > >
+> > > All warnings (new ones prefixed by >>):
+> > >
+> > > >> drivers/gpu/drm/i915/display/intel_display.c:12985:17: warning: incompatible integer to pointer conversion passing 'int' to parameter of type 'const char *' [-Wint-conversion]
+> > >                    DRM_DEBUG_KMS(1, "pipe state doesn't match!\n");
+> > >                                  ^
+> > >    include/drm/drm_print.h:366:22: note: expanded from macro 'DRM_DEBUG_KMS'
+> > >            drm_dbg(DRM_UT_KMS, fmt, ##__VA_ARGS__)
+> > >                                ^~~
+> > >    include/drm/drm_print.h:283:49: note: passing argument to parameter 'format' here
+> > >    void drm_dbg(unsigned int category, const char *format, ...);
+> > >                                                    ^
+> > >    1 warning generated.
+> > >
+> > > vim +12985 drivers/gpu/drm/i915/display/intel_display.c
+> > >
+> > >  12923
+> > >  12924  static void
+> > >  12925  verify_crtc_state(struct drm_crtc *crtc,
+> > >  12926                    struct drm_crtc_state *old_crtc_state,
+> > >  12927                    struct drm_crtc_state *new_crtc_state)
+> > >  12928  {
+> > >  12929          struct drm_device *dev = crtc->dev;
+> > >  12930          struct drm_i915_private *dev_priv = to_i915(dev);
+> > >  12931          struct intel_encoder *encoder;
+> > >  12932          struct intel_crtc *intel_crtc = to_intel_crtc(crtc);
+> > >  12933          struct intel_crtc_state *pipe_config, *sw_config;
+> > >  12934          struct drm_atomic_state *old_state;
+> > >  12935          bool active;
+> > >  12936
+> > >  12937          old_state = old_crtc_state->state;
+> > >  12938          __drm_atomic_helper_crtc_destroy_state(old_crtc_state);
+> > >  12939          pipe_config = to_intel_crtc_state(old_crtc_state);
+> > >  12940          memset(pipe_config, 0, sizeof(*pipe_config));
+> > >  12941          pipe_config->base.crtc = crtc;
+> > >  12942          pipe_config->base.state = old_state;
+> > >  12943
+> > >  12944          DRM_DEBUG_KMS("[CRTC:%d:%s]\n", crtc->base.id, crtc->name);
+> > >  12945
+> > >  12946          active = dev_priv->display.get_pipe_config(intel_crtc, pipe_config);
+> > >  12947
+> > >  12948          /* we keep both pipes enabled on 830 */
+> > >  12949          if (IS_I830(dev_priv))
+> > >  12950                  active = new_crtc_state->active;
+> > >  12951
+> > >  12952          I915_STATE_WARN(new_crtc_state->active != active,
+> > >  12953               "crtc active state doesn't match with hw state "
+> > >  12954               "(expected %i, found %i)\n", new_crtc_state->active, active);
+> > >  12955
+> > >  12956          I915_STATE_WARN(intel_crtc->active != new_crtc_state->active,
+> > >  12957               "transitional active state does not match atomic hw state "
+> > >  12958               "(expected %i, found %i)\n", new_crtc_state->active, intel_crtc->active);
+> > >  12959
+> > >  12960          for_each_encoder_on_crtc(dev, crtc, encoder) {
+> > >  12961                  enum pipe pipe;
+> > >  12962
+> > >  12963                  active = encoder->get_hw_state(encoder, &pipe);
+> > >  12964                  I915_STATE_WARN(active != new_crtc_state->active,
+> > >  12965                          "[ENCODER:%i] active %i with crtc active %i\n",
+> > >  12966                          encoder->base.base.id, active, new_crtc_state->active);
+> > >  12967
+> > >  12968                  I915_STATE_WARN(active && intel_crtc->pipe != pipe,
+> > >  12969                                  "Encoder connected to wrong pipe %c\n",
+> > >  12970                                  pipe_name(pipe));
+> > >  12971
+> > >  12972                  if (active)
+> > >  12973                          encoder->get_config(encoder, pipe_config);
+> > >  12974          }
+> > >  12975
+> > >  12976          intel_crtc_compute_pixel_rate(pipe_config);
+> > >  12977
+> > >  12978          if (!new_crtc_state->active)
+> > >  12979                  return;
+> > >  12980
+> > >  12981          intel_pipe_config_sanity_check(dev_priv, pipe_config);
+> > >  12982
+> > >  12983          sw_config = to_intel_crtc_state(new_crtc_state);
+> > >  12984          if (!intel_pipe_config_compare(sw_config, pipe_config, false)) {
+> > >  12985                  DRM_DEBUG_KMS(1, "pipe state doesn't match!\n");
+> > >  12986                  intel_dump_pipe_config(pipe_config, NULL, "[hw state]");
+> > >  12987                  intel_dump_pipe_config(sw_config, NULL, "[sw state]");
+> > >  12988          }
+> > >  12989  }
+> > >  12990
+> > >
+> > > ---
+> > > 0-DAY kernel test infrastructure                Open Source Technology Center
+> > > https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+> >
+> >
+> >
+> > --
+> > Thanks,
+> > ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzYJ5Q4rBHGET5z6nPBhh%3D8qAK7uuCK%3DQnsh14FDH-24gA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190916203543.GA25496%40laptop.jcline.org.
