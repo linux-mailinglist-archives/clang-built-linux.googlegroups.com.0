@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMUU7XVQKGQEGVZB52A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBS5B7XVQKGQEG2THYGQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 494E9B367C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 10:39:16 +0200 (CEST)
-Received: by mail-pl1-x63c.google.com with SMTP id f4sf19130012plo.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 01:39:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568623154; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90D4DB36D4
+	for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 11:07:25 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id c205sf4816508oib.10
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Sep 2019 02:07:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568624844; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jzL9joZ5IwM3IWom8yXZcGf2jqwKknuXGqM2pKlHuB4HSVCqZ3oa/1nXwFfbQ/ssGa
-         g+BnPPjPwy2wYnu5sVPd5milzZ1pVgu7zVfX0snsnyHAOVfmAlPjFIs+5y9PPadgyDca
-         9UXOoui900X3b5IkVWQVIcTJIsQU2I1Fb5d6ScP6bemv4o4v+StDA6ZFigmaSGjFehe7
-         oz6Zv0kvC5tEXFiIbTekoMw/x3Q8Fw2IE/lD+kELwINrq3gFydBQnrUpIzbFy/mNGr57
-         XZiWosIWpBGtbyLbyNNyVcZjknIz0S4KP0igkBKEE0mf5AEfYMzeTOUykpOUwIF7MtFC
-         Tz5A==
+        b=yxrDyLNFtcN8ILgKmDP/gt0QkNLzAwn2DrXO4bu4Vdcs4IevOiES+1npbUXLaRgtdG
+         d9Uu5ZOwdr1Mzp7qo1dRWFV4zECq/TPkpJiplo0rw+3pj1R+5SOC5qqv3nroQ3cn4heW
+         pX1/avLdenAk69tiiCCGUNuLx36VUXFyyrRSOLYzag1ncz5GBmC53A5J1fWY/AsJHtSy
+         kHvT+7UYmbIKK6A+Tshj/YbYMMSSP7Bb3F0mAofhjm7cYjupQFdBgHfGdyr8AqVdeVEC
+         MqckZYqu8QfPhZALxuatW/ZRMkvgdpcsx6bySMwwYzdAVVx3mYBHzl/JSvK3W+GJ+Cl8
+         aj+w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=bmtM8BfiwmhxHoCnJ1Qf0j2LVI2F1WsQegxpQpTDO+0=;
-        b=TEgVkYBQouoTK53wTlYfehQSTkcdXhbCOhmdDAyWwU4Y0MG7Bve2Fj5yqgEnQmiO+z
-         xsNsYKFrNNJYfkTix+hwFvAe0OWC5uuXZV3IH9APXBjwXP9l8EPnXDczKNq7/fbnSduA
-         cfpAsQKkTIuCRLpY8j6DGPcNuQz70DH6KcCQc2AYgNmzxwmoMuuY358Xi9TVeaBcGJA6
-         Yexlu7UH1dyQ2yei/fL2qc4+bpMgyzXilKxsPh37pSK5eyjhTUnHPd9mC3S7vkKTCpzj
-         kvEFJ13FSP+SE+KrD2qR+wiq1nL55ietnh2Udj/yGbLNJbnJ//eLeZUCG+hZIizoSyGV
-         2K3Q==
+        bh=kx6vHFgcRGm/a4i+5FY3AEoe3PCrWCXzkO8IQuWZyXY=;
+        b=WqjrJOP6UvIZxNQHqNFBvqMaxqJyQE1jctpoRBl119pmuXgadSXkrqAlz3GkgKtmo+
+         vMuwckuUy00AN88RPMfSsjjjGBwWGazwTnKR+/K3GNSPrP1kIy19tJphgHAzl/b9k+rU
+         cTj0PiqXx7sxJitUCKtd/mXB55z8lqMZJskBKd9BPawTN+Lm3V5my8ayIcMdu/bMllmD
+         5Coxvj1DNsZG20O+lBiuiB3Lcgcw7dSOubyg40+aV74qA8DGDndsMovVSOytrnLTCjP1
+         yf4KrHSF4+SZ5Hfd+ThVmsIhsVoN83jxRb2lozxL/DVBMrCbFReOMa+I7i2Ru98cQ9UK
+         J3oQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bmtM8BfiwmhxHoCnJ1Qf0j2LVI2F1WsQegxpQpTDO+0=;
-        b=o3ZrBzi+c+IMGHBPzfrScMhxNfbw0AHZjleR9Tf+Y11aqyF4PiZgpIWOU+ciYSwiFN
-         CBZ3mzVQsb9zP1l0JLl56C+c1AJhK2+CLDuvxpc7FwWzS1MwA/8bIl30GornM9dDsrbj
-         STAnxNTpWhFrEvyJWrLQEAWRYgAQ1/VDTadlRu3QUwaX8EsA/ViJuiAWk7r59m2csRa3
-         qGkWB2S4BzgP7oaxyIzc/vruN7hcXvuY6BlcD9NBbFMnKueuMvm8CEDInoxKqQfOZp1Y
-         xEea1kw5Py3iwE/HZhUYaxa3QUh+oXwqzfBdDCPhEzQNc9PqL9JGHwoHBBzPXIlG0Cpa
-         hPvQ==
+        bh=kx6vHFgcRGm/a4i+5FY3AEoe3PCrWCXzkO8IQuWZyXY=;
+        b=DrG5DvFXHeVxQi6f5u9JyAkKdYiy43I4wjFlF6rTn0xXmu/ralm4GswSpBJxaSJBfz
+         tcXhMSy0DiqOtHxKui3wmNqAuskNgkyB2Q3Bq6VJZrW+RY+XISoTJGDtipVPT5mWL8rp
+         8EFWBN5SfOYIgCtyGuFZpJ+J+bgsvRsZ74BCanuV5EX1xutxUMjjX0XXZy0GnZO0HW+V
+         gjUYmtQZ9RggB+0umIkq1nocSl392lt5LURPwr8Ln73aVEj2RQsXMKCmlSGCXvnMnFqY
+         TBH90Dg+lBP8uEiSckP0Mo5fl3EHj+WlsYJVT6L7M813M/1S08M9o67aO+SoJoQ7PqoJ
+         qpmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bmtM8BfiwmhxHoCnJ1Qf0j2LVI2F1WsQegxpQpTDO+0=;
-        b=ILAXkQNvikJE+Whl536ZSy0y0SVlmBP7gtAxuGHH/nHqYzz2J7YrEC9+F7n+nI+fWH
-         hj2dT8XLaDp2V7PiuhTG9JRBLoX4QOEFrz7YgMM9DJFI0HMy3zfANC4rDZbT+Pv8GNMg
-         2KZ3TGP03nhwx6M2FO3DKDv657Q40NmbsNP0DzrVRCht65wxIf35MxXfnAicKeyjvUhV
-         jvrljIrDyYS//xd5TFZBMBIyWzYdXcIIp8BMHWT8ctFKPDJKeZ73TdIs7BC1mRhRgIFS
-         mBUMZZH6GbdSXeiVxCSNdWFz0zgaYud50ZMIGTS7jW89AVLqVhhuo7oGhsA0dWlMou0z
-         WWig==
+        bh=kx6vHFgcRGm/a4i+5FY3AEoe3PCrWCXzkO8IQuWZyXY=;
+        b=SprVcOcVxV94b4yAwa0RHTeiRh6ut6wUF6+sCYXMwrwG81u2Npqhk4zKu3ytm1VPo4
+         dflRugB697BeXP7csWulXtiokw5H6/TjwbkOM67vcqocNNC6coew8zBAknc4n68NDhe7
+         vZI+j94G/LKgU4T2orPq80DWMDPEr2/tu4ZXY/wvs9+S17BmkWnQPp1KbjBQ2OwbTzqZ
+         k+H2SFAChmCRykW33/GzzoOd8/aZx/i7R5NKtV3BiNTTVRLr2Mqf3Zzt6Y4KxNEvNxD3
+         PhwAZnR55nXYXAD69xlLeMDl5dydqifFuej8mTjtaJ7HidaLB1LiFieyCR0f1uHFlyqC
+         RRxg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWb/1dHz988iu9jyPcCk/20r2kywDIVo1y2Bv6o2004GQ44KLRc
-	6C4fvBj/7fhtcBOcKtn7W7A=
-X-Google-Smtp-Source: APXvYqy4baoPdXj3T1Zk5c7ZClA3cgSBQbrX3a2XZJwdZZ5HC5DVQZNKvjMM2buRP6il+STbH2n4ug==
-X-Received: by 2002:a62:e21a:: with SMTP id a26mr5149174pfi.80.1568623154378;
-        Mon, 16 Sep 2019 01:39:14 -0700 (PDT)
+X-Gm-Message-State: APjAAAV/UoTgGSDOmaICfFrzd7Si/hnIiA9hJwUzewLSI4MHPYkdqpBR
+	s51XqgY5lYbhEDjf/fSbzXM=
+X-Google-Smtp-Source: APXvYqwLR0o2D6DYD8jiNbMIXrZo5rZ89dpWVZcYJB3YtnyUs8QgyQ/fpPi8uBn2oKQJXD7hWb0v9w==
+X-Received: by 2002:a9d:6ac5:: with SMTP id m5mr739446otq.265.1568624844004;
+        Mon, 16 Sep 2019 02:07:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:76d1:: with SMTP id r200ls10395188pfc.3.gmail; Mon, 16
- Sep 2019 01:39:14 -0700 (PDT)
-X-Received: by 2002:a63:841:: with SMTP id 62mr50881344pgi.1.1568623153929;
-        Mon, 16 Sep 2019 01:39:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568623153; cv=none;
+Received: by 2002:a9d:5c06:: with SMTP id o6ls7632275otk.13.gmail; Mon, 16 Sep
+ 2019 02:07:23 -0700 (PDT)
+X-Received: by 2002:a05:6830:1e92:: with SMTP id n18mr32998477otr.23.1568624843653;
+        Mon, 16 Sep 2019 02:07:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568624843; cv=none;
         d=google.com; s=arc-20160816;
-        b=C8gAH3nJyVhvpILF/rLye1HRPh5URGUkOldx6D15/7tWPaRnqYNeI0O2Eqs7/GrRPi
-         akxnZ1gIb2eEz8cEb+zvi8yEt8CB/cWFFaIm32sEc3bISWf4DvLDqnwip8DPAFcXyYVj
-         2gzb2gZA7xSq6v+EmaNCZ/39bo+K/REMXopr2eEDmD4+TQJd8dDc/QEUh+6/Dd0ofy9Q
-         /kYX7JXrlu8riE2veC4E+fNxe9Fmuyw2N7mqyKRhuxSxLKUZ11pun1ibHbX9mLcsqxjH
-         dYmQS0/ENOkJAP95Vn2BfhQ3qmB7Z/JiAEUGG0mhbh51QIpMZFl+5/J76tkE79HNnnF2
-         iDkg==
+        b=p6g9bTGsg/PZBLho/KZj9VGFtVI2Oyl3xS1EAusiovzqq2+YMhMVsYy/PLRHh7yrAk
+         78gEE+/VD1KgipsEDwThbnIB6hFAyul30DYYFf6SkPqVc4Sn/MmSlrXFp8hmRTiNs/qT
+         f5QnhRnjlWUr3Z/Pp95rnqS9404E9mDfXI8nTJjV/D6dQeshr4hrRD36KhHMa35xQ5ME
+         7WCop+YESk6Wdvm1t26bRQVhFEoQsmAOOFkvTJxjDX9PRpU5OXz+QLMKqCW87Jf65onS
+         SJ5Bug8NdzOCm8gtbTobQ8ejY0lMCfZnIVnYjGRwIUvhuPpnbB+TFGq6m83YMXcIdlKr
+         P6pQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=IHfrf4/Cl4X9O3Bm5X7j97EVR+U8FwCkAh/9/1z58mU=;
-        b=rXjQQW2n3008A7inE8g/S4Mb2qHaH5gzexdy3vEUSTGhYoEvg3HigTV+/D2g1HxDrK
-         PVix1gqbUJClEMGM0dN8Kkn76+/eE5Q3CCVbGounVPNg6CVkq2rVG/8RI6w9LjKKaSmI
-         BFEci1XrNdJQiGAsiz5idrc5CvFO15u7v/Ycg+fisyX4YKRQsElrS5eoTHGDPvBH5j4I
-         TR7ZiZlIF1qrdUxzML3WamoXlG7rY68aH6Gg9FDZPbjwyFjOX+bvJtXrkyfxypGQ36Os
-         wyqLE/H1Txo256pAdDZV0Dqj0vCgmMQFuEC4MhdvL+jOS/bLdJJR+XsKA9lHLXCJhTAj
-         u13A==
+        bh=YR7a6YTG1Tar2aqLLR8XfcppvbO1WypHr23o6Lgj1dQ=;
+        b=IKd4UwavZYazrWQDi8uYXmRve5n0QpU02UhK55bUaXIdZGoAQKnTOo16CipwFJKPrf
+         c2M15l29gjbS1gLvG8TtporbnhgBqFG0KYjbcNtGW+mf/ZNhe1MAHiLZl1eLVuUUVfyI
+         zdJvlOqgI7FKcj4cICLZFfTKGDZM+CzDSvV7rSWjgJ1iObAfJ2dnGacSTrEO7A3bc5ge
+         Ku3/J66aXJpDI75kPXuyabJe7/0Nayes2XfEmd3ZdDTqvX8y5sMl2JNLXj1UnPGawTWT
+         f9INg6K7TxHnzH0dwF3It9bChkC4X7IzafBiEfyl/m4Iv6fXYFDpNWLYhbNiKYZX5snO
+         Hc2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id j21si114220pfe.5.2019.09.16.01.39.13
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id m4si156880otk.1.2019.09.16.02.07.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Sep 2019 01:39:13 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+        Mon, 16 Sep 2019 02:07:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga002.jf.intel.com ([10.7.209.21])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 16 Sep 2019 01:39:13 -0700
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 16 Sep 2019 02:07:22 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,492,1559545200"; 
-   d="gz'50?scan'50,208,50";a="198275916"
+X-IronPort-AV: E=Sophos;i="5.64,512,1559545200"; 
+   d="gz'50?scan'50,208,50";a="387138662"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga002.jf.intel.com with ESMTP; 16 Sep 2019 01:39:10 -0700
+  by fmsmga006.fm.intel.com with ESMTP; 16 Sep 2019 02:07:20 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1i9mXO-0006lY-Ee; Mon, 16 Sep 2019 16:39:10 +0800
-Date: Mon, 16 Sep 2019 16:39:03 +0800
+	id 1i9myd-000Hiu-Ja; Mon, 16 Sep 2019 17:07:19 +0800
+Date: Mon, 16 Sep 2019 17:06:32 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [RESEND v4 5/7] mm, slab_common: Make kmalloc_caches[] start at
- size KMALLOC_MIN_SIZE
-Message-ID: <201909161622.BD3gDQnz%lkp@intel.com>
+Subject: Re: [PATCH 2/2] nvme: add API for getting nsid by bdev
+Message-ID: <201909161758.XjjXvrIN%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="so7uo24mojxj2vbu"
+Content-Type: multipart/mixed; boundary="7zeg7ifyxg7usmwk"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,26 +137,26 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---so7uo24mojxj2vbu
+--7zeg7ifyxg7usmwk
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-In-Reply-To: <20190915170809.10702-6-lpf.vector@gmail.com>
-References: <20190915170809.10702-6-lpf.vector@gmail.com>
-TO: Pengfei Li <lpf.vector@gmail.com>
-CC: akpm@linux-foundation.org
-CC: vbabka@suse.cz, cl@linux.com, penberg@kernel.org, rientjes@google.com, iamjoonsoo.kim@lge.com, linux-mm@kvack.org, linux-kernel@vger.kernel.org, guro@fb.com, Pengfei Li <lpf.vector@gmail.com>
+In-Reply-To: <20190913111610.9958-3-robert.baldyga@intel.com>
+References: <20190913111610.9958-3-robert.baldyga@intel.com>
+TO: Robert Baldyga <robert.baldyga@intel.com>
+CC: kbusch@kernel.org, axboe@fb.com, hch@lst.de, sagi@grimberg.me, linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+CC: michal.rakowski@intel.com, Robert Baldyga <robert.baldyga@intel.com>
 
-Hi Pengfei,
+Hi Robert,
 
-Thank you for the patch! Yet something to improve:
+I love your patch! Yet something to improve:
 
 [auto build test ERROR on linus/master]
 [cannot apply to v5.3 next-20190915]
 [if your patch is applied to the wrong git tree, please drop us a note to help improve the system]
 
-url:    https://github.com/0day-ci/linux/commits/Pengfei-Li/mm-slab-Make-kmalloc_info-contain-all-types-of-names/20190916-065820
+url:    https://github.com/0day-ci/linux/commits/Robert-Baldyga/nvme-Add-kernel-API-for-admin-command/20190916-134358
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
@@ -171,17 +170,38 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> mm/slab_common.c:1144:34: error: use of undeclared identifier 'KMALLOC_INFO_START_IDX'
-   kmalloc_info = &all_kmalloc_info[KMALLOC_INFO_START_IDX];
-                                    ^
+>> drivers/nvme/host/core.c:827:19: error: use of undeclared identifier 'nvme_nsid_by_bdev'; did you mean 'nvme_get_nsid_by_bdev'?
+   EXPORT_SYMBOL_GPL(nvme_nsid_by_bdev);
+                     ^~~~~~~~~~~~~~~~~
+                     nvme_get_nsid_by_bdev
+   include/linux/export.h:127:18: note: expanded from macro 'EXPORT_SYMBOL_GPL'
+           __EXPORT_SYMBOL(sym, "_gpl")
+                           ^
+   include/linux/export.h:79:16: note: expanded from macro '___EXPORT_SYMBOL'
+           extern typeof(sym) sym;                                         \
+                         ^
+   drivers/nvme/host/core.c:815:5: note: 'nvme_get_nsid_by_bdev' declared here
+   int nvme_get_nsid_by_bdev(struct block_device *bdev, unsigned int *nsid)
+       ^
    1 error generated.
 
-vim +/KMALLOC_INFO_START_IDX +1144 mm/slab_common.c
+vim +827 drivers/nvme/host/core.c
 
-  1142	
-  1143	const struct kmalloc_info_struct * const __initconst
-> 1144	kmalloc_info = &all_kmalloc_info[KMALLOC_INFO_START_IDX];
-  1145	
+   814	
+   815	int nvme_get_nsid_by_bdev(struct block_device *bdev, unsigned int *nsid)
+   816	{
+   817		struct nvme_ns *ns;
+   818	
+   819		if (!bdev && !nsid)
+   820			return -EINVAL;
+   821	
+   822		ns = bdev->bd_disk->private_data;
+   823		*nsid = ns->head->ns_id;
+   824	
+   825		return 0;
+   826	}
+ > 827	EXPORT_SYMBOL_GPL(nvme_nsid_by_bdev);
+   828	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -190,14 +210,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909161622.BD3gDQnz%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909161758.XjjXvrIN%25lkp%40intel.com.
 
---so7uo24mojxj2vbu
+--7zeg7ifyxg7usmwk
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDs1f10AAy5jb25maWcAnDzJduO2svt8BU+ySRa3W5OHvu94AYKghIiTCVCyveFR23LH
+H4sICL9Of10AAy5jb25maWcAnDzJduO2svt8BU+ySRa3W5OHvu94AYKghIiTCVCyveFR23LH
 Lx76ynIn/fe3CuAAgKDT72XohFWFqVCoCQX98tMvAXk7vjztjg+3u8fH78GX/fP+sDvu74L7
 h8f9/wRRHmS5DFjE5QcgTh6e3/7+uDs8nS6Ckw/zD5NgvT887x8D+vJ8//DlDZo+vDz/9MtP
 8M8vAHz6Cr0c/h3cPu6evwTf9odXQAfTyQf4O/j1y8Px3x8/wp9PD4fDy+Hj4+O3p/rr4eV/
@@ -1038,4 +1058,4 @@ gJmpnp/Lr6bMumfrQklH4pYh7EFZ7kTOARoO+278HUCL5rd0TUVmbtfBhomDD31EoEDQxI6c
 fH+R+eNGGU4gJAQA3qPO81bFcNvBb9QMJodYTEYmdk+F81lBW42GZC2+Au3FRk4K+l/s2YVq
 bwwDAA==
 
---so7uo24mojxj2vbu--
+--7zeg7ifyxg7usmwk--
