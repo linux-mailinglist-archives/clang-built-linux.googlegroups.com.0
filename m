@@ -1,143 +1,140 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBK7CQ3WAKGQEXBGRTVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBZP4Q3WAKGQEC7PFZKI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53b.google.com (mail-ed1-x53b.google.com [IPv6:2a00:1450:4864:20::53b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 578E4B5A4B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Sep 2019 06:23:07 +0200 (CEST)
-Received: by mail-ed1-x53b.google.com with SMTP id d7sf3486924edp.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Sep 2019 21:23:07 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568780587; cv=pass;
+Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0CE80B5AC4
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Sep 2019 07:19:35 +0200 (CEST)
+Received: by mail-qk1-x73d.google.com with SMTP id s14sf7002999qkg.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Sep 2019 22:19:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568783974; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ksGuyxvZawTQWMCWlEuVD6O1E2BEDLUk6/d2YEYmrdsusiHaWUxbfHksRNXcltMYEC
-         GaxcWXW7pKlAhxUYGwlRogt+dAxpP10M0I91J4eYwbNnGa2t0ncUS0VcTkfUlbQ4kK47
-         c2bPkgmOcnF7tG8BMAsw7NFb24XrXWmdStO2wdHhraBjOIL7LqB690mo6zJ7VWooDuBF
-         HGGD1Me9Z2TyNaj1Qn2aPSl2wE10Um1dVTikXQsmou1eB8p7xGaZuGuQOWciyuGh+POa
-         cB5HxMXbhNphH1Qbdl5Uw9lFd1LHk9SeJTdoafb6FZALOFNeC3pdrJContqE2wHtZCf0
-         mFZw==
+        b=ItocWJDa6etfP577N+lU2z3JTmr64XE0M27RhZJqNBAzElf/BBmTjt660Skt3/lH3q
+         qN5zayT6GxyUa73416XPbeaEmjxlFFSkvwBGCqePa97vqryCHcujhaazeZypwBnxehU9
+         Jm6S/c08PUo7mYRwUkvBtFTu+dT+Ugc0cILPWIdldtopK/owORoD00jMF4KNdEWHsN3d
+         RmdiEg3xjpFyQLY0Jth8nqPSUia7sdudWaEd99b7QpiIjgAgYortkXjeM0TA7+j2g+n6
+         uAVjmIJ55ooPABj7L8Bzw/CYIZByw+V8ABkskpk61PGYHq0hjpZMSIOH54bisyacrjBh
+         rxsg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=6rq1Vsdf94Om08xkXlEuJXeoaqV69n4UzDw+9IA9x0s=;
-        b=ZIXROy44l4wWbLH+mHVwHXPxwVEJUMOJFDRq6z5YklgatKEsBBHcO6DmkHAvdMEC+a
-         6De07imF9xsJRGy2bZzJ0pNXNNVnzoTVp1lXiBbPD8n9SWb4lvJQ+lWIMgXAW+05PabH
-         Exo8Wlgk9sFWJFehv1z3CDW3jJshYcN11p5ZIgpMWLmXCEVxpYo90j6XROKJORj//wcR
-         5Jlp3zVO635/GgcE25wF0aGlyOFwHGV5F9VZrekUtfsx43szkLxlJFI8T9xz8Xu2Wcb3
-         RnWLUU4U1O1LvNbaBiWOLYgXLWkRSqtGrYXd/3/50JX1h5WqEjuaS6be4zlogrBpUQSu
-         bAIg==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=TkCez1DOhGfzUvlqtFUDfHvzTs+zFAmkejDCp8L+6mg=;
+        b=i2ONf0IUDt7MOq1JotvLlE66hni9dHBTnx46ORAz999m3fd+cbreotOtFRPWaYmFCf
+         bD92DjY4/srrJEC0BwlevvF47/wLUtSNNmNmbap+15JS3zviwD3kyxu68smO+H8jRQJH
+         PJ/iaLKZwGSRTRDmQajJq+3HuK6/a9w0bcZ87TaonGoxUHwzThe5/915J6UAerEakUUU
+         1YZJYGMVQzst5zNdETbO8mMZrTKZ0o5BER8WkyAbtvXs6JX35ZCTMs9ew4+zxWIMs9cY
+         UIS942oNStWttStvv7ZgYQMJe/Stx/IXR3a5wZ3NBAKkWax4jpAA0NJaBwS9X1QLNSXt
+         3POg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fRTMoTPj;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bcPs6Rjq;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6rq1Vsdf94Om08xkXlEuJXeoaqV69n4UzDw+9IA9x0s=;
-        b=pD7tjBFu3lXzNfJU+b8GLIWY4OY7mmTSLsh860uBFqfnBcwbyRhyP/wYutlSD+SeOd
-         mdkJ6QQZ4/JplUgeie86R7P44uJqC8/H31DFSpn0hpHXMEalaF6fWVGpubPrYw/x7GeZ
-         2egM/qZ42vFPmJh727+OniICTsJj4pkYZ33qNATdjhFeo0eFgaSBeVF7EvFzo+g4CU0X
-         ZYwpnvorUy5DF2LCzR6qScn4cRUksN6WgMIh8MNdRyQx47zsnxgox9y3Rl1UfM7aiuGK
-         WVMmoFjXzSfKjJ0UYeA1S68dQpxcSXHtKAeyX32JRR+AE2LmG/SaWjENX9DBIpXkuN0M
-         gagg==
+        bh=TkCez1DOhGfzUvlqtFUDfHvzTs+zFAmkejDCp8L+6mg=;
+        b=dxLCIKO6Lu7RASz/OdVdCmQN6GaMt30KBxiIeKqGa0lThXran+/1JQOt5c2NObk+iu
+         KmiZPPaKFJEWvgM8Vv1qYdCiGpzC+yX/DDjdSrxAEpnf2mKdwRXUHwQ0qE5M5EDEVSgh
+         P0k4pkvL+zEbdCAWt32WOmTp9L5PPtKGaGaOwlHtHLc05bSpwk/H1cLug7MyZsOLu+cV
+         HDD0/Ye6snuobUjYsE8yx3BMI3mpbrwyGV9FCjNjXf/Q1mmIk38BuptTGQ491WLhz7tw
+         e16beC0NYjkl0obwjupG65V53XLHVhaGSwXbXfj6+Ez1iZ9hmaz23QeQcEvFulhhH5tN
+         824A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6rq1Vsdf94Om08xkXlEuJXeoaqV69n4UzDw+9IA9x0s=;
-        b=gmnhmpFdovf5neLkjyLkbbsou48Y6WxDuzyKfEX0KRsBAYxWR87pUCx/5+0oyx8Dj/
-         xjboS8isKcAYrZij1j/fxbMRrxHDNJd0p/TEQbim2KiKoDYUYU9Au6N5CaGiMn9MemAG
-         DCSzSRwj874ymgsGm1IdFNK3GdsFXBVlyahz8Xd3nvCSmPSi1iTR0Vvn9U1lCdNfREB5
-         NnN3oOldaJblfx6/XTcyGSCavOc2j2syEnEULuEh53Xu7sd8I6LUhSf1bjnNDrnn/IAs
-         CBoXtVYtzH1Q7zObyk/Op2hQojcj19/O9rz1ikkWDbNzUX/k3lj//lLOQyiI2u6z6Qk6
-         Wu/w==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TkCez1DOhGfzUvlqtFUDfHvzTs+zFAmkejDCp8L+6mg=;
+        b=K/u1BEbbrnfBI40HZjskaPdS5HTFxJh4q/bs6buKIpWIKhjPz7+7onPLsj0Xj8IeTf
+         L6LlDsqxSjiwCsgvt3pl2TdgoEVg9mAd1c2kAIEOvqOnYen6frBWjyM9wgMMQj5KAJFq
+         IvVra3O/IEB/y50gYXdaUq9Uu95Y1jStVJRTEMym+nTJ9JnaM+1Tu3VcTS2DXumfCVxC
+         zXB+zGKpZnNHqj4zljyWJiclv9pUzBct9eiExz5YdPtAJJ+4GlzPQ3iSpIsYSf69ohen
+         7ogg+m4RotSGI+1oYDUkKh8oF3ijMD+YCQH8Ijj1XzwTa54Th16eIfwxD4PufL63p3hJ
+         YI8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=6rq1Vsdf94Om08xkXlEuJXeoaqV69n4UzDw+9IA9x0s=;
-        b=SnSpXqhoKRKctyKKbt3X0eCcHv9GuyweMxKT9wn2gMHy6r3O182dzyDbm4/MFrY8H5
-         IhOH/2NFIZu85b41RKB9BlaaflMT5pGjRE6mEgEmS/qkP4DQo7lIuiPnXzdPuAP3N0Wo
-         M4eUNxlne0NZvrv6MN5xSZPndoyRqDKvdVD5OCrU5nn0b3VDS4zqMIXo5NSRWLB0QFZI
-         k5jU6UTwI/WtX/gI2qvIyxtt01rw0MRZe44JD49pfvom/w4jG/I7MPaxDCJqjjWf8835
-         6pq4XzUpgmLi5lM+AYLjGjlogJqsCdF4lr9A1nFyk/yG0ZR8wj6Yx3eCz79U+UVdq/96
-         fRlg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=TkCez1DOhGfzUvlqtFUDfHvzTs+zFAmkejDCp8L+6mg=;
+        b=ZwQjQrMaUpvLtdzGeDyOUkYQCReQMfiQep+tmltovLYCG6Vdbm+teK00l+oq/K3daL
+         QyNsybHbNS+UodIJ1fIveq7fb7VXkPtz9Eociod1m1voR77ybepSHRMZZEdpVxvJrcxq
+         FKCme01ww0gRwbtgnEayK5yiDJ7hhIcpJxH+4cZP7yBHDzKVqBhmdiO3FkLMe+oePvJu
+         mBxCFtlkCD9OomSElVHH6QghIt50NzBhXmXDbdWkxf1qjXx7wr1TEp9zPu6JsLqlSuMD
+         BCG0sv0rV4P3tBqz65Twnn9A1CjqOCTKxTTN9gBRzIbONdEphySuNOjjRAw9Ki7ZVjpH
+         DeWA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUg9PHFpUchdAmfnGiuqHfYgfsX4XCwZzGrBeeno986QBWWnS87
-	hkL90iGcltx97K6oZwhHqEA=
-X-Google-Smtp-Source: APXvYqws332H2ce5DfCouClgwqdm1/2R1bVpNYcpeVo+RMA3CHJPZFoZTk3lNT63C+dqy82lQBtiiA==
-X-Received: by 2002:a05:6402:134d:: with SMTP id y13mr8006796edw.209.1568780587077;
-        Tue, 17 Sep 2019 21:23:07 -0700 (PDT)
+X-Gm-Message-State: APjAAAUvKoN9UiaC2TLTc2KUlpXizuJZlKPLGSBaCkEtUeL+8kd+Xxvk
+	CCJmdXHyQMzIETTBFIer/4Q=
+X-Google-Smtp-Source: APXvYqx2AZBfmELb25QkFbGKmqcMBSijY0Dx8TOfib/BfJhAxi7ecCpdti47CVM9tvnHJr/VW3qptA==
+X-Received: by 2002:a05:620a:13d9:: with SMTP id g25mr2262567qkl.230.1568783974018;
+        Tue, 17 Sep 2019 22:19:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:907:11c8:: with SMTP id va8ls155000ejb.15.gmail; Tue, 17
- Sep 2019 21:23:06 -0700 (PDT)
-X-Received: by 2002:a17:906:6448:: with SMTP id l8mr7856802ejn.233.1568780586652;
-        Tue, 17 Sep 2019 21:23:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568780586; cv=none;
+Received: by 2002:a05:6214:11b2:: with SMTP id u18ls575034qvv.16.gmail; Tue,
+ 17 Sep 2019 22:19:33 -0700 (PDT)
+X-Received: by 2002:a0c:e407:: with SMTP id o7mr1771217qvl.92.1568783973673;
+        Tue, 17 Sep 2019 22:19:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568783973; cv=none;
         d=google.com; s=arc-20160816;
-        b=sL/sLz6tBQTUoiFxUWlvMLMe4tahEeG5op8h4ISWAcVjMcy+pwGs9qKTbjNnucvf2j
-         oIZkw5ztDUM8p/hu00KvrMGGbupWeZSmG6O4bBDiJUsd0AzoniCjnJMqjvtovimbtxwo
-         z8/pFG3f2jLOWFtjSoawpTLXDtcBejt3c0WQ8cx7TfyzbzrNnOL3N3B/sjmDmoWC/sp3
-         2oHFwBbQ5t3tbCyR3WqUPCfSCyygeeH4PhweS2esC6TrTRSyB6Sy8HHcHR80O935I1VJ
-         lPLr9rLihinB+eA+aLosNKsTYoG11qlR2iZwf8r2W2neCCX46Q1H+j8ssJLK14pjfMJl
-         2yWA==
+        b=ZZ7U6sDh4tnUH+HMfvX0DqGcYOx9Snczb/04KRiUhHAoCDx4rLLPl3VRCtFZB1UBy0
+         yWaEReGGK2Rq0nBYj0kyZ9lv2b9OgYu3PeKxDdA7Cau2PVFRG5xddTG3Mp/L4oFW8Huu
+         1qvsG7WdX5Zp0lO+JRoJTv2hUETo9KyWH8wyiQYXGwELwZw+QHWm6v9qGvatW2Khsdyy
+         2ZSkZU+vW+joJHWL/ICxh8GFIdYmPpcb4q4CafcLJBzLsY9DsWGpm0cxyMVwJiLT6tHU
+         qaYpirodnWmW2HtIPoIxnw7c0PIX8ltSOkARrLvEZ2utzY3hCH6s8Bf0iYRNgsTTX+UY
+         qQyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=rIq1JW2tJfg0PLRUSRfWmLD8aLaxDS+5OXqW5mJJ9Ks=;
-        b=T1ob981JnQzakFtCp5vXgFDFqctoW6fM7QWbh/AIdmxv4z9B/1PUb/5z1QCBEHlgOW
-         5Knm6RFhuw/lL5zG20EduL7I1nbjQh4+8L5PfAvo4OMkuRpUfR6UwJE7uz/zwY5tCD/i
-         rJZWanWD4kmdNm0/rXDbafHh9uY6BG34cW4XkI9P/cfdFvkj/GuV0zklg2QpYmlKOqwb
-         3M3mtQX+cBK9j6v8gpJWHjyZ3omlVJB62ZVHhqO3dXfB2PdsrjdOSg4h3V+iM3g6zqIq
-         AFconSaMauenwClUTeOHrbz1vovVCU73wL1y/gK4iUYye8AlFdB9mo7MRJ3BqckmUCBU
-         /q6Q==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Xo9zYrCJEPVHMiv3h+aCm77vZarT+/8uPX2EY63h768=;
+        b=Eyqyvp2SZXmPwZkEIVfQNCFYUCYHmcTnV6r/RQ9W/x2HEW1g3tCe0Cq2mvctq9ony6
+         MFAnQ9wfDaUU+PKpgAHX0K24bGmOGLkZDeNDp4g01z8tazAb0fkr29xdclDF+GHC+f12
+         +0irq5qxrSYZOz++FVlY/SDnffRq1pMUmmGOKeo4mY8r2sIDGhTCbaxkyHsHk4ZkgKje
+         7YnQ7bl44IJT2T0Mcw0iOMIkpOsAhOZfCF3IfRw7gwYCODe6/catg06v1JXKjljI2WI0
+         DhqbVYGaeYm1GbZrd0GBx7CUY496RSKWRhbeFaYwE5tcFVV2fK1sztypjOwpxBteKQXp
+         o82A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=fRTMoTPj;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=bcPs6Rjq;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id y11si420125edq.1.2019.09.17.21.23.06
+Received: from mail-qt1-x844.google.com (mail-qt1-x844.google.com. [2607:f8b0:4864:20::844])
+        by gmr-mx.google.com with ESMTPS id v7si438743qkf.5.2019.09.17.22.19.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Sep 2019 21:23:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id h7so5282421wrw.8
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Sep 2019 21:23:06 -0700 (PDT)
-X-Received: by 2002:adf:f502:: with SMTP id q2mr1179861wro.186.1568780586216;
-        Tue, 17 Sep 2019 21:23:06 -0700 (PDT)
-Received: from localhost.localdomain ([2a01:4f8:222:2f1b::2])
-        by smtp.gmail.com with ESMTPSA id b184sm1025464wmg.47.2019.09.17.21.23.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Sep 2019 21:23:05 -0700 (PDT)
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Dan Williams <dan.j.williams@intel.com>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Dave Jiang <dave.jiang@intel.com>,
-	Keith Busch <keith.busch@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>
-Cc: Jason Gunthorpe <jgg@mellanox.com>,
-	linux-nvdimm@lists.01.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH] libnvdimm/nfit_test: Fix acpi_handle redefinition
-Date: Tue, 17 Sep 2019 21:21:49 -0700
-Message-Id: <20190918042148.77553-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.23.0
+        Tue, 17 Sep 2019 22:19:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) client-ip=2607:f8b0:4864:20::844;
+Received: by mail-qt1-x844.google.com with SMTP id j1so7465920qth.1
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Sep 2019 22:19:33 -0700 (PDT)
+X-Received: by 2002:a0c:88f0:: with SMTP id 45mr1845990qvo.78.1568783973290;
+ Tue, 17 Sep 2019 22:19:33 -0700 (PDT)
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=fRTMoTPj;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+References: <20190916105433.11404-1-ivan.khoronzhuk@linaro.org> <20190916105433.11404-12-ivan.khoronzhuk@linaro.org>
+In-Reply-To: <20190916105433.11404-12-ivan.khoronzhuk@linaro.org>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Tue, 17 Sep 2019 22:19:22 -0700
+Message-ID: <CAEf4BzZXNN_dhs=jUjtfCqtuV1bk9H=q5b07kVDQQsysjhF4cQ@mail.gmail.com>
+Subject: Re: [PATCH v3 bpf-next 11/14] libbpf: makefile: add C/CXX/LDFLAGS to
+ libbpf.so and test_libpf targets
+To: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Yonghong Song <yhs@fb.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <jakub.kicinski@netronome.com>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, john fastabend <john.fastabend@gmail.com>, 
+	open list <linux-kernel@vger.kernel.org>, Networking <netdev@vger.kernel.org>, 
+	bpf <bpf@vger.kernel.org>, clang-built-linux@googlegroups.com, 
+	sergei.shtylyov@cogentembedded.com
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: andrii.nakryiko@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=bcPs6Rjq;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,70 +147,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-After commit 62974fc389b3 ("libnvdimm: Enable unit test infrastructure
-compile checks"), clang warns:
+On Mon, Sep 16, 2019 at 4:00 AM Ivan Khoronzhuk
+<ivan.khoronzhuk@linaro.org> wrote:
+>
+> In case of LDFLAGS and EXTRA_CC/CXX flags there is no way to pass them
+> correctly to build command, for instance when --sysroot is used or
+> external libraries are used, like -lelf, wich can be absent in
+> toolchain. This can be used for samples/bpf cross-compiling allowing
+> to get elf lib from sysroot.
+>
+> Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
+> ---
+>  tools/lib/bpf/Makefile | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+>
+> diff --git a/tools/lib/bpf/Makefile b/tools/lib/bpf/Makefile
+> index c6f94cffe06e..bccfa556ef4e 100644
+> --- a/tools/lib/bpf/Makefile
+> +++ b/tools/lib/bpf/Makefile
+> @@ -94,6 +94,10 @@ else
+>    CFLAGS := -g -Wall
+>  endif
+>
+> +ifdef EXTRA_CXXFLAGS
+> +  CXXFLAGS := $(EXTRA_CXXFLAGS)
+> +endif
+> +
+>  ifeq ($(feature-libelf-mmap), 1)
+>    override CFLAGS += -DHAVE_LIBELF_MMAP_SUPPORT
+>  endif
+> @@ -176,8 +180,9 @@ $(BPF_IN): force elfdep bpfdep
+>  $(OUTPUT)libbpf.so: $(OUTPUT)libbpf.so.$(LIBBPF_VERSION)
+>
+>  $(OUTPUT)libbpf.so.$(LIBBPF_VERSION): $(BPF_IN)
+> -       $(QUIET_LINK)$(CC) --shared -Wl,-soname,libbpf.so.$(LIBBPF_MAJOR_VERSION) \
+> -                                   -Wl,--version-script=$(VERSION_SCRIPT) $^ -lelf -o $@
+> +       $(QUIET_LINK)$(CC) $(LDFLAGS) \
+> +               --shared -Wl,-soname,libbpf.so.$(LIBBPF_MAJOR_VERSION) \
+> +               -Wl,--version-script=$(VERSION_SCRIPT) $^ -lelf -o $@
+>         @ln -sf $(@F) $(OUTPUT)libbpf.so
+>         @ln -sf $(@F) $(OUTPUT)libbpf.so.$(LIBBPF_MAJOR_VERSION)
+>
+> @@ -185,7 +190,7 @@ $(OUTPUT)libbpf.a: $(BPF_IN)
+>         $(QUIET_LINK)$(RM) $@; $(AR) rcs $@ $^
+>
+>  $(OUTPUT)test_libbpf: test_libbpf.cpp $(OUTPUT)libbpf.a
+> -       $(QUIET_LINK)$(CXX) $(INCLUDES) $^ -lelf -o $@
+> +       $(QUIET_LINK)$(CXX) $(CXXFLAGS) $(LDFLAGS) $(INCLUDES) $^ -lelf -o $@
 
-In file included from
-../drivers/nvdimm/../../tools/testing/nvdimm/test/iomap.c:15:
-../drivers/nvdimm/../../tools/testing/nvdimm/test/nfit_test.h:206:15:
-warning: redefinition of typedef 'acpi_handle' is a C11 feature
-[-Wtypedef-redefinition]
-typedef void *acpi_handle;
-              ^
-../include/acpi/actypes.h:424:15: note: previous definition is here
-typedef void *acpi_handle;      /* Actually a ptr to a NS Node */
-              ^
-1 warning generated.
+Instead of doing ifdef EXTRA_CXXFLAGS bit above, you can just include
+both $(CXXFLAGS) and $(EXTRA_CXXFLAGS), which will do the right thing
+(and is actually recommended my make documentation way to do this).
 
-The include chain:
+But actually, there is no need to use C++ compiler here,
+test_libbpf.cpp can just be plain C. Do you mind renaming it to .c and
+using C compiler instead?
 
-iomap.c ->
-    linux/acpi.h ->
-        acpi/acpi.h ->
-            acpi/actypes.h
-    nfit_test.h
-
-Avoid this by including linux/acpi.h in nfit_test.h, which allows us to
-remove both the typedef and the forward declaration of acpi_object.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/660
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
-
-I know that every maintainer has their own thing with the number of
-includes in each header file; this issue can be solved in a various
-number of ways, I went with the smallest diff stat. Please solve it in a
-different way if you see fit :)
-
- tools/testing/nvdimm/test/nfit_test.h | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
-
-diff --git a/tools/testing/nvdimm/test/nfit_test.h b/tools/testing/nvdimm/test/nfit_test.h
-index 448d686da8b1..0bf5640f1f07 100644
---- a/tools/testing/nvdimm/test/nfit_test.h
-+++ b/tools/testing/nvdimm/test/nfit_test.h
-@@ -4,6 +4,7 @@
-  */
- #ifndef __NFIT_TEST_H__
- #define __NFIT_TEST_H__
-+#include <linux/acpi.h>
- #include <linux/list.h>
- #include <linux/uuid.h>
- #include <linux/ioport.h>
-@@ -202,9 +203,6 @@ struct nd_intel_lss {
- 	__u32 status;
- } __packed;
- 
--union acpi_object;
--typedef void *acpi_handle;
--
- typedef struct nfit_test_resource *(*nfit_test_lookup_fn)(resource_size_t);
- typedef union acpi_object *(*nfit_test_evaluate_dsm_fn)(acpi_handle handle,
- 		 const guid_t *guid, u64 rev, u64 func,
--- 
-2.23.0
+>
+>  $(OUTPUT)libbpf.pc:
+>         $(QUIET_GEN)sed -e "s|@PREFIX@|$(prefix)|" \
+> --
+> 2.17.1
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190918042148.77553-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEf4BzZXNN_dhs%3DjUjtfCqtuV1bk9H%3Dq5b07kVDQQsysjhF4cQ%40mail.gmail.com.
