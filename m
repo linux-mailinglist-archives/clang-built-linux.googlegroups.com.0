@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7NKR3WAKGQEUFBWOBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBYFOR3WAKGQEOEIPLLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3EA9DB7D32
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 16:49:35 +0200 (CEST)
-Received: by mail-yw1-xc39.google.com with SMTP id z14sf2882473ywz.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 07:49:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568904574; cv=pass;
+Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 34C8BB7D50
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 16:57:38 +0200 (CEST)
+Received: by mail-pg1-x539.google.com with SMTP id d19sf2360867pgh.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 07:57:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568905056; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UGptHv6o0ew6RrQPmPgFY0AujARDYbe0br4E0V1KWOflUD/N5vVn2lMad9zi773rbP
-         7nkdO+R/oDBKExf6zlT64QiLNKVU0VYJxLndvfti6u/7x6dwx6XPgVRLjCpKPDgyHIW6
-         NnAbVqyBhddabmEP/hFoYXFnXRoJJOGfWWojfxhLpWTBuaAzSU7A14vWbrO17MXH6B7C
-         gcwlmBKamB/npJ6hVUqj4FcEwV3lppzvQQ2hlf56w1FRqDKVzoTEi/VQzQ0JF/cyuZAF
-         O/C7g48eUYB8mDElj3kd9ue43AaoX9Cw/GrYIg4xK8uF/1B8aItmC+/1MWiy2ASReiKV
-         bk2w==
+        b=OG5cwLMHxxaBsPapOqCG09La8L73OzyIqzs8kL2PAf6VIkIBx59OF9LrWJ8zOS7R/p
+         AWRBeWpLkW4O7zeUSaC8pCrXlbuwHvXHaBirVHTRvI7cBVc41fBcaUhpRETChlAQYXm2
+         vXzUrx0dAQzl8lsyKLC46picoAYFyZNc4Rjn1To3s60qTrBl4ioUpHq8TIXyMlT9MYlO
+         7u44pl8seY9JDWAz51qUQ+ta9krgHtlkUdYcSdsJgI8SJSQi3ocYyWJtaBep3ZfEG/YJ
+         skCGhL5A5f51q0kTVKAtLXH6Br49IXGrCafhbM13csMxLep/Wei6SZh4Axi3SmzYOvQ9
+         ELJQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=ksdzIaPb4+HZn4wVbX9RDbxaVFxTLwR3WLrpt+Mx7wg=;
-        b=cy3j7IEq79jVaTDpfSBehVF8JaN+fftN86JK+BLQw7VUjiyPSxpVXa15TLwWfZa55x
-         R4f0Rx9xojo44Y1kRxoUDCzavZyv6WNtLeSdMP3Bmq3znIZhlzuuYh/RsZNBBw77p624
-         hdXCkf/c8P7jHBJxwab0AdjAgWgKiPDhJQE8YVitj7ZIeNB/0Hsih9o1p3oj55XdKb0M
-         EmhobL5fpsDkfqbIfct4AGmMJcbB1lDO1l0Y0J7MYeCl/4o2A/GNQAOhRwIB0XNx1iSd
-         iGeuRhrDOpqdk1nMTh5oBzOV/VV5EDbHsvfdlGRtZuGYIlWy+xt+1kT41e4a66YcA+n+
-         Ptbw==
+        bh=wgP4pwdWh205VsGsuO2siWTaAnrRQCn+60wz6xOQ91k=;
+        b=iuMsSE4+FADtROIgKaGR7s8PM3+wRFgeaGkHuDcsfUJWfmsPBesIG2ruQXntiCN4SD
+         8p25dlIgM12plOKDRwr0P1puvnoSRz3+nXpvQ+yxr5oKAF1YO7g+DQLqNp+szUkadFrH
+         Af/10Lf0sAhCUL9UveeMjWQ79HwUVv7B4d6hHXpvkDrd8myNm26UAngwYEa57gr0/R3t
+         Ei7VKL8Mk2VpeSKsMcKCndaqB//vEa1FMWKZs13EUEq0/zYts03dyd6vNNHgbWP/TcVU
+         B6zLrXeMwmnuJ5NX61+Y06MuhUhHqjlegPngcqa85V/htCzqdZegn2trr+weaypDisQh
+         t+jg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ksdzIaPb4+HZn4wVbX9RDbxaVFxTLwR3WLrpt+Mx7wg=;
-        b=NemRi9BRc3mRvlFrg01v3VUHISLnWrrwWKG01CmoF38O1kmppQJbyEIdiDug3xPlmH
-         WZcqiQZFHDrNGBe9h8QR+4sE+JfVsfgIOJg8Ta0mw0EfA5gLZga0Af0QjSX7KZbNvW5K
-         vXE7YVZvDL5CIXZxdrJuptLdGnrWMtBeEAQcpCtS0eqiBfx23UKXq/SvQu1xYqQWAc8b
-         J8/FosHq0lQ2Qe5hfb5oQ8RqiV0uuQ3v9dPzvDCvoh4nEPtS/+yx8Pz90kqJfHW5U+ck
-         rloUb3Ljt83TkOItml3oywcNOC+rmihiaRZ4L57ghFdxXdQriC62gVkKBHKUN+PQVp+J
-         XBgg==
+        bh=wgP4pwdWh205VsGsuO2siWTaAnrRQCn+60wz6xOQ91k=;
+        b=SEKk0lvjqsbALoE8MAB/1N2O/AcBARQhqYjk7mfEbL9s05SXH7aI1HbiVzuj1pm544
+         RSpdf7482pJpnMbCNGzmF9ssvwrcwY6QOm6VhAsGUn7cZBUaclDJgAg35MuoUefN9Pf5
+         P2bEChZjijxPQDIqoZaz7WdaIL+CPl2uad5mDlQpNHVSHEDYSz3UFmIqRYgyKqQ6OAQq
+         T4A65/aKP4zjf4WhB/aTqR604Hs2NG/XaOS08053PF5TS8REj3RPdNRTQmQ5d1PQKtBw
+         rA6qDNM10xkIA5R0zq7VfIjE+eBuzjUTxW+toJ8JsPO3T1ZJNxGqwzB+srMGgBUAVev3
+         mIMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ksdzIaPb4+HZn4wVbX9RDbxaVFxTLwR3WLrpt+Mx7wg=;
-        b=hiEkI7/Kd+1QP8QCqxG8vLLSvJdGpn9HPBoqjlzNrczNEzFsWDEJNQGM+y0uRE4s0S
-         DyyWi/iA1xSWhkz+PmcRBXdcDSlgAaLuswUCSHh5xpQqWJuUnTkXLl1FmOuLnCnQ5zMM
-         VG3NNHmgRYbpE2xVe3EfnyCDDJvmoHXH7JB7Z0KBklqAMnAhwbo73Lkyegl0Q2Y8M+01
-         RqUAWU3QQNBVANmOMOPz955NrxJWEpqsCUFOW/59Vo6ii6r03JYvBE4C+ez9rYpnl6Rd
-         ZnXqgC6LLSdrWBzC6evQmFBkDSXJiMXHTc3TeN+V/L9m9LoeVvXts581ctYDWPPguVXN
-         ekyw==
+        bh=wgP4pwdWh205VsGsuO2siWTaAnrRQCn+60wz6xOQ91k=;
+        b=pwdRDLC4sed2rMuVtQpjrgMZCK4iGre5gYAzJTG9mm1t0/2tY9lpgaCwJU5D29ff/X
+         InFTnKQuzpsxlaSsHxg9e8B5G5kUD1oTkfs+DZHRZq8h7XPAH30nskRWUYqNorC7bIl+
+         KCEZ2rR8qR/BMdJlnYinnRevTjpmW2+4jej3KOM7cujS2pCII3hz1MDZQ3wZnArxVfLX
+         Mg6bNtCNtZEdvxgCbrJHYybaoLysVXxF19xpaiuj8ZHR6TKtmvoPL68NMSgknpZ6+WL7
+         sYFa8KBV5bFIz9UT7UzoVoJM+8BvjL/zxutgp64Iw6BqVgI+9R1ySBAazE4XSP8sp7eX
+         CUwA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV1rqPu4OBRG5NcNdRpDUVTwz9OPQOkVr3KJZDEsQkYCgdu+NVt
-	+bIU32BnLzQ3Q8Sb01kfS8A=
-X-Google-Smtp-Source: APXvYqz/O8WEHntqdXPM2hf2pWMrBX+1f8lZXsCSv3jH34O0XLb6YF9fc23rEwl+KEID7rdhj2yB4w==
-X-Received: by 2002:a25:d7d5:: with SMTP id o204mr2510882ybg.214.1568904574078;
-        Thu, 19 Sep 2019 07:49:34 -0700 (PDT)
+X-Gm-Message-State: APjAAAWbwk146KYfr7MlY7J8PJl17KEHLN3AkCKPP4AO5EvWtkATDDiM
+	gdiyvxmwrFkFEyqIgGWEPfw=
+X-Google-Smtp-Source: APXvYqxEH8qZY2YzYdWEQs/fnI7t0SxGggOceysV+y6WVFCzGU1O0zMRKnOfHj7gVA4aDrnJFrOrNw==
+X-Received: by 2002:a17:902:8686:: with SMTP id g6mr10333051plo.175.1568905056366;
+        Thu, 19 Sep 2019 07:57:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:2494:: with SMTP id k142ls647229ywk.6.gmail; Thu, 19 Sep
- 2019 07:49:33 -0700 (PDT)
-X-Received: by 2002:a0d:ca16:: with SMTP id m22mr6529068ywd.45.1568904573687;
-        Thu, 19 Sep 2019 07:49:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568904573; cv=none;
+Received: by 2002:a17:90a:8a8c:: with SMTP id x12ls1027212pjn.5.gmail; Thu, 19
+ Sep 2019 07:57:36 -0700 (PDT)
+X-Received: by 2002:a17:90a:8990:: with SMTP id v16mr3715731pjn.131.1568905055969;
+        Thu, 19 Sep 2019 07:57:35 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568905055; cv=none;
         d=google.com; s=arc-20160816;
-        b=syt2F2diNQ05uvIN6dxlhlSx6d5AIC1xtulFPatsFLKzTMY7HCuoKJ4Tb/z8/MgIP1
-         FXGvvUNTWOyFjSaoeZ8n2CMsWW8/FhshJfdS55C8Fbp+8kjUxUMPc8VKgCmGdyxdeohC
-         KL1lODEjDVGeEcIC0BwjzE0HY6SWMngUVzkEjEeBC3VPZU4pbwhnYSmGvJATtya7gZ9z
-         MEdp4wB8LoehjlSe+UJKWZm5mppLmXKR2V6UuvzfliW9Utq6PzYfgkDR1frMm/lO98S0
-         i3rZSWBm60le1YoE4AXsqVGonsYOJTFw0HaRLVuCFWYmIpud49BefXr81J+J36i1wU1h
-         lPLw==
+        b=Z4iM7brPqngh2+FbEMkO5rlbyuj5OmJxBkUksKGJG5tMvtzDeGDrL5Qc5m7N2AYe77
+         pQBLtRQMtP9+yteBggk/Nt6tHH+x8wbKc3xJNQKNBC/vppeieATTeuADfJotxxwOnW8f
+         HOwmRT4BS91uffu/ybfZw7Lo9zVB33r2NbYwbwej719krljwi36twHy5Y3b3apCDKRlp
+         ++SauzcBBWsA8nnEMx4NCtbeZNpCmYlNlcLc9yazLW0fmZq/hs3kOhmJzJ9I2ol2AmG3
+         1J1qrZf6ROOu2h7qLQjSkSudzEiOCB29iKU7/v7B2v8xY7GbwRHLacyIFRcZaWz4HWO0
+         tovw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=dool8Su/2eeX99WaIVcur+llIny0zH2SDKRsg7G9QfM=;
-        b=h3FzGaUcyCjjKqLxJRklbr+2GwUuN0f68Y5PC+r0BZOznOgpV5mwqOsZpPNm48BTL6
-         aB9hCvPWpS+fEApDUDf4P1ehVakuB/gzRFjKO7Wo54BZu/DmDp0GVa4LcXf2thP7P4nh
-         clC2dVaQYsJKAAhlH886zV1TsEz+pxVhYO/2ODZEupH4PZNTrKt95LYeDsprJ8bSju7Y
-         43ou5O/OUHhVZmJ6yC3r3SdoK6jU4UaTR8cGFpbaewtIxNYnjuzKjwSwZqXal6zh/Nsp
-         Z8HjpjdHFW23xzCzXAAZpewS0icuJAwROQ8GV5nQEXd2EFpJPHK2Pj5AlYSPISsKaklX
-         vS8w==
+        bh=9z0B82wsrIgcq1I3B36zNp2OHspTNsK4+hTiZlY2foI=;
+        b=HYf1EfPof2jokdZVjCounDbBCoyin7Ex+eHb20GNqCrhJoIbjFBNbg5QLgocPwKKSN
+         b0ZqZcTzuzm6vwrIp1Pj3EaWgD2JCtlap6swwamHwwTEkkmE5XPUMLlVXScC1JPUwNxG
+         98OsZ7TyHn6DYXo8ypVoK6mQvXaJEqIDWkQUFZi02evBMhilqBqUgUGh/tXfgUMvvHu6
+         avecyNrioIftpcjS2iWfsp+sDh82T0qkInIiKcslILhs0mAvGpJFH7Q/sjUQpR9sbjzg
+         rC5304ZwcTzdp9MIyfqdjm+BgFFIUYm+ximUnUflYTKZnd3shy2Q2xh5dWp4C0zjt+LL
+         tRcg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id g4si1004022ywe.2.2019.09.19.07.49.33
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id fh7si599463pjb.0.2019.09.19.07.57.35
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Sep 2019 07:49:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+        Thu, 19 Sep 2019 07:57:35 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Sep 2019 07:49:32 -0700
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Sep 2019 07:57:35 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,523,1559545200"; 
-   d="gz'50?scan'50,208,50";a="202297796"
+   d="gz'50?scan'50,208,50";a="188113330"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga001.fm.intel.com with ESMTP; 19 Sep 2019 07:49:30 -0700
+  by fmsmga007.fm.intel.com with ESMTP; 19 Sep 2019 07:57:33 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iAxkQ-0002HE-0o; Thu, 19 Sep 2019 22:49:30 +0800
-Date: Thu, 19 Sep 2019 22:48:33 +0800
+	id 1iAxsD-0000RO-21; Thu, 19 Sep 2019 22:57:33 +0800
+Date: Thu, 19 Sep 2019 22:56:58 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [linux-pb:lkml/sched_access_methods 2/2] kernel/sched/rt.c:500:22:
- error: use of undeclared identifier 'rt_tq'; did you mean 'rt_rq'?
-Message-ID: <201909192229.pYBw1s7R%lkp@intel.com>
+Subject: [linux-pb:lkml/utilclamp_mainline_testing 13/18]
+ kernel/sched/core.c:5034:19: error: no member named 'uclamp' in 'struct rq'
+Message-ID: <201909192256.XzM48jhk%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="5ex5saqckqqchodj"
+Content-Type: multipart/mixed; boundary="kblibt5k4rni5iwb"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,20 +138,20 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---5ex5saqckqqchodj
+--kblibt5k4rni5iwb
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-TO: Patrick Bellasi <patrick.bellasi@matbug.net>
+TO: Patrick Bellasi <patrick.bellasi@arm.com>
 
-tree:   git://linux-arm.org/linux-pb.git lkml/sched_access_methods
-head:   82f0d1d9a5c54daaa520ebca120dee51cadfa29d
-commit: 82f0d1d9a5c54daaa520ebca120dee51cadfa29d [2/2] sched: Add {cfs,rt,dl}_cpu_of() access methods and root rq's checkers
+tree:   git://linux-arm.org/linux-pb.git lkml/utilclamp_mainline_testing
+head:   f4889b4c3fabe850193877e1e009faa1b70cec2d
+commit: fb1e1edea919b39bb9e2c96fb311c0ef31eb14fa [13/18] TESTING: Syscall
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        git checkout 82f0d1d9a5c54daaa520ebca120dee51cadfa29d
+        git checkout fb1e1edea919b39bb9e2c96fb311c0ef31eb14fa
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
@@ -160,34 +160,402 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> kernel/sched/rt.c:500:22: error: use of undeclared identifier 'rt_tq'; did you mean 'rt_rq'?
-           int cpu = rt_cpu_of(rt_tq);
-                               ^~~~~
-                               rt_rq
-   kernel/sched/rt.c:497:47: note: 'rt_rq' declared here
-   static void sched_rt_rq_dequeue(struct rt_rq *rt_rq)
-                                                 ^
-   1 error generated.
+>> kernel/sched/core.c:5034:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MIN].value),
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:261:17: note: expanded from macro '__READ_ONCE'
+           union { typeof(x) __val; char __c[1]; } __u;                    \
+                          ^
+>> kernel/sched/core.c:5034:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MIN].value),
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:263:22: note: expanded from macro '__READ_ONCE'
+                   __read_once_size(&(x), __u.__c, sizeof(x));             \
+                                      ^
+>> kernel/sched/core.c:5034:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MIN].value),
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:263:42: note: expanded from macro '__READ_ONCE'
+                   __read_once_size(&(x), __u.__c, sizeof(x));             \
+                                                          ^
+>> kernel/sched/core.c:5034:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MIN].value),
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:265:30: note: expanded from macro '__READ_ONCE'
+                   __read_once_size_nocheck(&(x), __u.__c, sizeof(x));     \
+                                              ^
+>> kernel/sched/core.c:5034:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MIN].value),
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:265:50: note: expanded from macro '__READ_ONCE'
+                   __read_once_size_nocheck(&(x), __u.__c, sizeof(x));     \
+                                                                  ^
+   kernel/sched/core.c:5035:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MAX].value));
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:261:17: note: expanded from macro '__READ_ONCE'
+           union { typeof(x) __val; char __c[1]; } __u;                    \
+                          ^
+   kernel/sched/core.c:5035:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MAX].value));
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:263:22: note: expanded from macro '__READ_ONCE'
+                   __read_once_size(&(x), __u.__c, sizeof(x));             \
+                                      ^
+   kernel/sched/core.c:5035:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MAX].value));
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:263:42: note: expanded from macro '__READ_ONCE'
+                   __read_once_size(&(x), __u.__c, sizeof(x));             \
+                                                          ^
+   kernel/sched/core.c:5035:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MAX].value));
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:265:30: note: expanded from macro '__READ_ONCE'
+                   __read_once_size_nocheck(&(x), __u.__c, sizeof(x));     \
+                                              ^
+   kernel/sched/core.c:5035:19: error: no member named 'uclamp' in 'struct rq'
+                                   READ_ONCE(rq->uclamp[UCLAMP_MAX].value));
+                                             ~~  ^
+   include/linux/compiler.h:269:34: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                                    ^
+   include/linux/compiler.h:265:50: note: expanded from macro '__READ_ONCE'
+                   __read_once_size_nocheck(&(x), __u.__c, sizeof(x));     \
+                                                                  ^
+>> kernel/sched/core.c:5034:5: error: argument type 'void' is incomplete
+                                   READ_ONCE(rq->uclamp[UCLAMP_MIN].value),
+                                   ^
+   include/linux/compiler.h:269:22: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                        ^
+   include/linux/compiler.h:259:36: note: expanded from macro '__READ_ONCE'
+   #define __READ_ONCE(x, check)                                           \
+                                                                           ^
+   kernel/sched/core.c:5035:5: error: argument type 'void' is incomplete
+                                   READ_ONCE(rq->uclamp[UCLAMP_MAX].value));
+                                   ^
+   include/linux/compiler.h:269:22: note: expanded from macro 'READ_ONCE'
+   #define READ_ONCE(x) __READ_ONCE(x, 1)
+                        ^
+   include/linux/compiler.h:259:36: note: expanded from macro '__READ_ONCE'
+   #define __READ_ONCE(x, check)                                           \
+                                                                           ^
+   12 errors generated.
 
-vim +500 kernel/sched/rt.c
+vim +5034 kernel/sched/core.c
 
-   496	
-   497	static void sched_rt_rq_dequeue(struct rt_rq *rt_rq)
-   498	{
-   499		struct sched_rt_entity *rt_se;
- > 500		int cpu = rt_cpu_of(rt_tq);
-   501	
-   502		rt_se = rt_rq->tg->rt_se[cpu];
-   503	
-   504		if (!rt_se) {
-   505			dequeue_top_rt_rq(rt_rq);
-   506			/* Kick cpufreq (see the comment in kernel/sched/sched.h). */
-   507			cpufreq_update_util(rt_rq_of(rt_rq), 0);
-   508		}
-   509		else if (on_rt_rq(rt_se))
-   510			dequeue_rt_entity(rt_se, 0);
-   511	}
-   512	
+  4763	
+  4764	static int __sched_setscheduler(struct task_struct *p,
+  4765					const struct sched_attr *attr,
+  4766					bool user, bool pi)
+  4767	{
+  4768		int newprio = dl_policy(attr->sched_policy) ? MAX_DL_PRIO - 1 :
+  4769			      MAX_RT_PRIO - 1 - attr->sched_priority;
+  4770		int retval, oldprio, oldpolicy = -1, queued, running;
+  4771		int new_effective_prio, policy = attr->sched_policy;
+  4772		const struct sched_class *prev_class;
+  4773		struct rq_flags rf;
+  4774		int reset_on_fork;
+  4775		int queue_flags = DEQUEUE_SAVE | DEQUEUE_MOVE | DEQUEUE_NOCLOCK;
+  4776		struct rq *rq;
+  4777	
+  4778		/* The pi code expects interrupts enabled */
+  4779		BUG_ON(pi && in_interrupt());
+  4780	recheck:
+  4781		/* Double check policy once rq lock held: */
+  4782		if (policy < 0) {
+  4783			reset_on_fork = p->sched_reset_on_fork;
+  4784			policy = oldpolicy = p->policy;
+  4785		} else {
+  4786			reset_on_fork = !!(attr->sched_flags & SCHED_FLAG_RESET_ON_FORK);
+  4787	
+  4788			if (!valid_policy(policy))
+  4789				return -EINVAL;
+  4790		}
+  4791	
+  4792		if (attr->sched_flags & ~(SCHED_FLAG_ALL | SCHED_FLAG_SUGOV))
+  4793			return -EINVAL;
+  4794	
+  4795		printk(KERN_WARNING "__sched_setscheduler: sched_priority=%d flags=%llu\n",
+  4796		       attr->sched_priority, attr->sched_flags);
+  4797	
+  4798		/*
+  4799		 * Valid priorities for SCHED_FIFO and SCHED_RR are
+  4800		 * 1..MAX_USER_RT_PRIO-1, valid priority for SCHED_NORMAL,
+  4801		 * SCHED_BATCH and SCHED_IDLE is 0.
+  4802		 */
+  4803		if ((p->mm && attr->sched_priority > MAX_USER_RT_PRIO-1) ||
+  4804		    (!p->mm && attr->sched_priority > MAX_RT_PRIO-1))
+  4805			return -EINVAL;
+  4806		if ((dl_policy(policy) && !__checkparam_dl(attr)) ||
+  4807		    (rt_policy(policy) != (attr->sched_priority != 0)))
+  4808			return -EINVAL;
+  4809	
+  4810		/*
+  4811		 * Allow unprivileged RT tasks to decrease priority:
+  4812		 */
+  4813		if (user && !capable(CAP_SYS_NICE)) {
+  4814			if (fair_policy(policy)) {
+  4815				if (attr->sched_nice < task_nice(p) &&
+  4816				    !can_nice(p, attr->sched_nice))
+  4817					return -EPERM;
+  4818			}
+  4819	
+  4820			if (rt_policy(policy)) {
+  4821				unsigned long rlim_rtprio =
+  4822						task_rlimit(p, RLIMIT_RTPRIO);
+  4823	
+  4824				/* Can't set/change the rt policy: */
+  4825				if (policy != p->policy && !rlim_rtprio)
+  4826					return -EPERM;
+  4827	
+  4828				/* Can't increase priority: */
+  4829				if (attr->sched_priority > p->rt_priority &&
+  4830				    attr->sched_priority > rlim_rtprio)
+  4831					return -EPERM;
+  4832			}
+  4833	
+  4834			 /*
+  4835			  * Can't set/change SCHED_DEADLINE policy at all for now
+  4836			  * (safest behavior); in the future we would like to allow
+  4837			  * unprivileged DL tasks to increase their relative deadline
+  4838			  * or reduce their runtime (both ways reducing utilization)
+  4839			  */
+  4840			if (dl_policy(policy))
+  4841				return -EPERM;
+  4842	
+  4843			/*
+  4844			 * Treat SCHED_IDLE as nice 20. Only allow a switch to
+  4845			 * SCHED_NORMAL if the RLIMIT_NICE would normally permit it.
+  4846			 */
+  4847			if (task_has_idle_policy(p) && !idle_policy(policy)) {
+  4848				if (!can_nice(p, task_nice(p)))
+  4849					return -EPERM;
+  4850			}
+  4851	
+  4852			/* Can't change other user's priorities: */
+  4853			if (!check_same_owner(p))
+  4854				return -EPERM;
+  4855	
+  4856			/* Normal users shall not reset the sched_reset_on_fork flag: */
+  4857			if (p->sched_reset_on_fork && !reset_on_fork)
+  4858				return -EPERM;
+  4859		}
+  4860	
+  4861		if (user) {
+  4862			if (attr->sched_flags & SCHED_FLAG_SUGOV)
+  4863				return -EINVAL;
+  4864	
+  4865			retval = security_task_setscheduler(p);
+  4866			if (retval)
+  4867				return retval;
+  4868		}
+  4869	
+  4870		/* Update task specific "requested" clamps */
+  4871		if (attr->sched_flags & SCHED_FLAG_UTIL_CLAMP) {
+  4872			retval = uclamp_validate(p, attr);
+  4873			if (retval)
+  4874				return retval;
+  4875			printk(KERN_WARNING "__sched_setscheduler: uclamp updated\n");
+  4876		}
+  4877	
+  4878		if (pi)
+  4879			cpuset_read_lock();
+  4880	
+  4881		/*
+  4882		 * Make sure no PI-waiters arrive (or leave) while we are
+  4883		 * changing the priority of the task:
+  4884		 *
+  4885		 * To be able to change p->policy safely, the appropriate
+  4886		 * runqueue lock must be held.
+  4887		 */
+  4888		rq = task_rq_lock(p, &rf);
+  4889		update_rq_clock(rq);
+  4890	
+  4891		/*
+  4892		 * Changing the policy of the stop threads its a very bad idea:
+  4893		 */
+  4894		if (p == rq->stop) {
+  4895			retval = -EINVAL;
+  4896			goto unlock;
+  4897		}
+  4898	
+  4899		/*
+  4900		 * If not changing anything there's no need to proceed further,
+  4901		 * but store a possible modification of reset_on_fork.
+  4902		 */
+  4903		if (unlikely(policy == p->policy)) {
+  4904			if (fair_policy(policy) && attr->sched_nice != task_nice(p))
+  4905				goto change;
+  4906			if (rt_policy(policy) && attr->sched_priority != p->rt_priority)
+  4907				goto change;
+  4908			if (dl_policy(policy) && dl_param_changed(p, attr))
+  4909				goto change;
+  4910			if (attr->sched_flags & SCHED_FLAG_UTIL_CLAMP)
+  4911				goto change;
+  4912	
+  4913			p->sched_reset_on_fork = reset_on_fork;
+  4914	
+  4915			printk(KERN_WARNING "__sched_setscheduler: DONE "
+  4916			       "(policy not changed)\n");
+  4917	
+  4918			retval = 0;
+  4919			goto unlock;
+  4920		}
+  4921	change:
+  4922	
+  4923		if (user) {
+  4924	#ifdef CONFIG_RT_GROUP_SCHED
+  4925			/*
+  4926			 * Do not allow realtime tasks into groups that have no runtime
+  4927			 * assigned.
+  4928			 */
+  4929			if (rt_bandwidth_enabled() && rt_policy(policy) &&
+  4930					task_group(p)->rt_bandwidth.rt_runtime == 0 &&
+  4931					!task_group_is_autogroup(task_group(p))) {
+  4932				retval = -EPERM;
+  4933				goto unlock;
+  4934			}
+  4935	#endif
+  4936	#ifdef CONFIG_SMP
+  4937			if (dl_bandwidth_enabled() && dl_policy(policy) &&
+  4938					!(attr->sched_flags & SCHED_FLAG_SUGOV)) {
+  4939				cpumask_t *span = rq->rd->span;
+  4940	
+  4941				/*
+  4942				 * Don't allow tasks with an affinity mask smaller than
+  4943				 * the entire root_domain to become SCHED_DEADLINE. We
+  4944				 * will also fail if there's no bandwidth available.
+  4945				 */
+  4946				if (!cpumask_subset(span, p->cpus_ptr) ||
+  4947				    rq->rd->dl_bw.bw == 0) {
+  4948					retval = -EPERM;
+  4949					goto unlock;
+  4950				}
+  4951			}
+  4952	#endif
+  4953		}
+  4954	
+  4955		/* Re-check policy now with rq lock held: */
+  4956		if (unlikely(oldpolicy != -1 && oldpolicy != p->policy)) {
+  4957			policy = oldpolicy = -1;
+  4958			task_rq_unlock(rq, p, &rf);
+  4959			if (pi)
+  4960				cpuset_read_unlock();
+  4961			goto recheck;
+  4962		}
+  4963	
+  4964		/*
+  4965		 * If setscheduling to SCHED_DEADLINE (or changing the parameters
+  4966		 * of a SCHED_DEADLINE task) we need to check if enough bandwidth
+  4967		 * is available.
+  4968		 */
+  4969		if ((dl_policy(policy) || dl_task(p)) && sched_dl_overflow(p, policy, attr)) {
+  4970			retval = -EBUSY;
+  4971			goto unlock;
+  4972		}
+  4973	
+  4974		p->sched_reset_on_fork = reset_on_fork;
+  4975		oldprio = p->prio;
+  4976	
+  4977		if (pi) {
+  4978			/*
+  4979			 * Take priority boosted tasks into account. If the new
+  4980			 * effective priority is unchanged, we just store the new
+  4981			 * normal parameters and do not touch the scheduler class and
+  4982			 * the runqueue. This will be done when the task deboost
+  4983			 * itself.
+  4984			 */
+  4985			new_effective_prio = rt_effective_prio(p, newprio);
+  4986			if (new_effective_prio == oldprio)
+  4987				queue_flags &= ~DEQUEUE_MOVE;
+  4988		}
+  4989	
+  4990		queued = task_on_rq_queued(p);
+  4991		running = task_current(rq, p);
+  4992		if (queued)
+  4993			dequeue_task(rq, p, queue_flags);
+  4994		if (running)
+  4995			put_prev_task(rq, p);
+  4996	
+  4997		prev_class = p->sched_class;
+  4998	
+  4999		__setscheduler(rq, p, attr, pi);
+  5000		__setscheduler_uclamp(p, attr);
+  5001	
+  5002		if (queued) {
+  5003			/*
+  5004			 * We enqueue to tail when the priority of a task is
+  5005			 * increased (user space view).
+  5006			 */
+  5007			if (oldprio < p->prio)
+  5008				queue_flags |= ENQUEUE_HEAD;
+  5009	
+  5010			enqueue_task(rq, p, queue_flags);
+  5011		}
+  5012		if (running)
+  5013			set_next_task(rq, p);
+  5014	
+  5015		check_class_changed(rq, p, prev_class, oldprio);
+  5016	
+  5017		/* Avoid rq from going away on us: */
+  5018		preempt_disable();
+  5019		task_rq_unlock(rq, p, &rf);
+  5020	
+  5021		if (pi) {
+  5022			cpuset_read_unlock();
+  5023			rt_mutex_adjust_pi(p);
+  5024		}
+  5025	
+  5026		/* Run balance callbacks after we've adjusted the PI chain: */
+  5027		balance_callback(rq);
+  5028		preempt_enable();
+  5029	
+  5030		printk(KERN_WARNING "__sched_setscheduler: DONE (policy changed)\n");
+  5031	
+  5032		if (queued) {
+  5033			printk(KERN_WARNING "cpu=%d util_min=%u util_max=%u\n", p->cpu,
+> 5034					READ_ONCE(rq->uclamp[UCLAMP_MIN].value),
+> 5035					READ_ONCE(rq->uclamp[UCLAMP_MAX].value));
+  5036		}
+  5037	
+  5038		return 0;
+  5039	
+  5040	unlock:
+  5041		task_rq_unlock(rq, p, &rf);
+  5042		if (pi)
+  5043			cpuset_read_unlock();
+  5044		return retval;
+  5045	}
+  5046	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -196,14 +564,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909192229.pYBw1s7R%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909192256.XzM48jhk%25lkp%40intel.com.
 
---5ex5saqckqqchodj
+--kblibt5k4rni5iwb
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICP6Sg10AAy5jb25maWcAlDxbe9s2su/7K/S1L+1DG9tJ3HTPlweQBCVEJMECoCz5hZ9q
+H4sICJGVg10AAy5jb25maWcAlDxbe9s2su/7K/S1L+1DG9tJ3HTPlweQBCVEJMECoCz5hZ9q
 y6nP+pIj293k358ZgJcBCLptd9uEM4P7YO7Q9//6fsFenh/v98+3V/u7u2+Lz4eHw3H/fLhe
 3NzeHf5nkclFJc2CZ8L8DMTF7cPL1zdfP5y35+8W739++/PJYn04PhzuFunjw83t5xdoe/v4
 8K/v/wX//x6A91+gm+O/F1d3+4fPiz8PxydAL05Pfob/LX74fPv87zdv4L/3t8fj4/HN3d2f
@@ -1096,4 +1464,4 @@ Rxm7hPFE+IaYdlZM06jkgOPt5bE1vwNC8lx1pHD3vUuD4rLfsESeZTQpmxEpJfMOhzVwpL3N
 mZGyZC44Qw0O6dylIZSULSZywEPWO/BtvlEvsxWV4YAY4cqnSxKex+U2ki5aJ4WynQVCBRL8
 F4wGvMoSDAMA
 
---5ex5saqckqqchodj--
+--kblibt5k4rni5iwb--
