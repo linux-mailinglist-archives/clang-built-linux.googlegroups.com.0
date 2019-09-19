@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBV7FRPWAKGQEUMRLJFA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQXRRPWAKGQENVBPVDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9945AB71D5
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 05:15:36 +0200 (CEST)
-Received: by mail-pf1-x437.google.com with SMTP id w16sf1278948pfj.9
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Sep 2019 20:15:36 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568862935; cv=pass;
+Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 769E2B71F2
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 05:40:52 +0200 (CEST)
+Received: by mail-oi1-x23f.google.com with SMTP id u69sf1270449oia.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Sep 2019 20:40:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568864451; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EtQZmsRy2lKXQ6W+kQEGwyIjLJuQU5HMIn8I+V+0Sifw8h7ioeHrzNMv2lRygDgjfd
-         vw9SstICOvlr69SKqLsyx00x0+ddP357w6CAW/09/rHuvyxBDsqEJEZk1asmRw+BFpPq
-         cke7ra7AGtf/UT4e5BydgXAsW48EzzAbja2qLwWLpwYHDB6rJnV7RAmDtI6nkds5aF08
-         uPS9wzOPWflOPaqbUO77pLeFRahG7EKTv0EDCFGKT7XDuwv6dD7jWht/S0FBYZduVETk
-         k4n+svKNfk9g715gJybPZ+oOWm5sSjasaN6wJxZ7OJ5mw23ISh8LpzhemhJIteEmJwNs
-         v3vQ==
+        b=OcCO2FFWRViDPC2ZuLgW0ZLJYcV+BhDK9juCMiovbyKTq5RjFe6PfJWLN+XldMIEdz
+         +HsByFgFGqJmj53oe8MViF2qBXfvTb7tIv2ocS8XXDy8v5CQzNVSoQpMCUm0XHwM/iA+
+         mk565+4CxQVPqyweUgFqzkyAKx9IABT+f+lQJCjxxHULOMSa4wkZ3MVQkyXoKp3plFeH
+         NuU62TZummpJ2xiyuq7I4mbBzoasGerwQSTo8QnlgVdB5j91pEHNt3l/mdutqkzLHCdc
+         K8ZL+dl10h7Gm+nIl8orK5VNLpf0Y6HW98fQ7h0V1uqLAlITvk1B4qs7RS82iEE9a94z
+         /rDA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=YtRmRpQAVcA36pMspUU+Bz4mYMb2ciQdghodPoY/cVE=;
-        b=kFJwRuP4MOpJ+TA1jhkl7wJmJTFMgpLXn45kUlxRmFWjoksyppSeFcADNoNuD8zG+M
-         G05CWkzNqmZcajSPBtYiGEucTtv0iPut486mtzYBIZGOpyv9flNhGHfsp+9N9nIFVppO
-         hvs9WW/VINwHPZiQn+JKjYYi9QrRd+qhol5phdNKfUh/SERHmD98XIA4J+eJB999ElvA
-         EFCtgNJk/u1jRpBzjJZnT37/D8OIZaF728MMn4WAwcr2xqqmRdn/MJ/UulL2U0W5x6AP
-         lVHGqR7kDTd7sLUuOQhknGGaDBf5T+fgTG694C+qYFIKJo2didMhjttyriXGxU6w91/+
-         ij9A==
+        bh=ZYs6xGzfJHqcYx8r2lBF2F+ZjVoHAGQqpLVyzBVS3V4=;
+        b=NrKOhGWU1eF4M0EUoXHXJFrXsuzx84DkORswn2g1Usot+sQdX8hpONpGq4hHS4CZIi
+         0pwpf7honrZyqK2AP41aEM2CiuzQKCQGZ9oKeQ7gA3tZi7IoGMf4bKOvyupnYPCvAchC
+         3fNh71VuDh9ec74B4Dkui1ucDDcyEbqpsSocDNu0FFC2sigFSEp5sb8tKs/rjrE8rejy
+         2mkE5B0qR6ScGFYSli4EuOMs50FzzLipxYJAY1H9fLLF43EC35jRT+tyQBRCdFHMMhCQ
+         nfFGACYM7560X6wfHYFO5oYysabAjcok4PbkYAKeMq1WPd6v4slGt2/FrhB2ftlEuooQ
+         +AvA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YtRmRpQAVcA36pMspUU+Bz4mYMb2ciQdghodPoY/cVE=;
-        b=rzyfqiF5MA0fGqTVfzI+MsnnNqAFn6HI3X3zX9q0bN76izJ/4iEc+NB8fTWoiRohBR
-         PXCVaN6P6P6NyA2RsxUvRc4DhQWBVxlFLDcNG7DAM89/EIALu9WItMPO/7I8jh4hz+ZT
-         L55maYoDuVuWtv1d7z5K9UMj2nzSP5EglVjobasC7Tb8nVaePiJLxw+3kbJzaZqfTUuO
-         DpXmahcK3218tMIkBmLEr/5LNsS3vKT5/rMO7MKdEP2/6/H5nDgXSTAYuemjFW1tku8j
-         uMZRDRvOeVK45oHyI1fZeoXmXEPhITho9l9M8QCXj5OAmcXOa12vdeHFV2kejmmWVKUq
-         SDLQ==
+        bh=ZYs6xGzfJHqcYx8r2lBF2F+ZjVoHAGQqpLVyzBVS3V4=;
+        b=td/V35ptGvCkbf5XveMIqbHZt1Ts9foV0QVbI0geHJc92BBoXkUu6nyVp/frgsPOZm
+         oFEySLxP0MsWGfaj5GZIvNQiD0h7/IFXx0H/w59LolxTVY3PfinWGGxEsYXIDZ112gKn
+         oj1CHsdY6VsHHPllhDDV0vAvB2HmpIe2qZPSQ0U+eXbCvSAjVHuHjGI6vg1JCHKn2ttb
+         9rA7PsGT5Up6rXEPX244I/wcXxqDOzlsGqzJ1OzJnpwf3VNmuzokkgetihixDHEgr2Ks
+         6MSabolWTgFizwcu7Z4A6TyQlFyNJmnGfh3fnV+Fki0FEjk7r07chh+NNNRSpu9ZyDja
+         CfgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YtRmRpQAVcA36pMspUU+Bz4mYMb2ciQdghodPoY/cVE=;
-        b=C5KSyZgKtBEKFFbC1MYb0HmdBZ+tg1ffwb9oRqfCyR9VUKfao4Tc5xSDxr0q/f/A9r
-         /ScWl0gmw379vtiwO5fKJFlDDWerKfdWCc6UWvjlJNg9rFyyRjT7aygweaV/eU87Oxmb
-         Hx7LXKNcTC2boyiySPZm9SQAPXzrBZSVtpVbV2Qg82PxLYV6hofvookdVIYUa2SdT6nx
-         CqPRj9BF8ArAh+2YR+rBsxui3Wx5G3roE/FXYlRV0agfy8qsAxazObiL0NApxOwb+eOO
-         Rh72PJ17aMIMA8Dpp3SyE0B1VZeHgWT/+woAABkguz5wnBWrnGVAbrydyzlv9aB49Wmt
-         MpaA==
+        bh=ZYs6xGzfJHqcYx8r2lBF2F+ZjVoHAGQqpLVyzBVS3V4=;
+        b=pTFYJRqSsId2H44obgVUqOUcKmJKUGm1BRvPhhBgr4o2B8jGx3ed1cM194vkEkPUzs
+         FVauesuAIwxFWVIEu2j4K+pcwjf1gUW9yixCSRYVMOjXtS4cN8GFMObxFKXlz2aKBVxO
+         Fy/ZH68D3szIGUnkFx7S2z4BIYnvamMF8RSiqJb+dl/ARF+5OEJ2ptJN/t/TbAV3SHI3
+         cbUhlz9pzplWVnTxtMzCnrQUKxr78w4YPOAudcf6Ko6hgG1No4tqeyYW9OXNK9NzFL7C
+         Gkk9hFnstsjRZLpv+GuRBfEjBO9ZvmADC/5Rxit+8s+TDZLlIs9ubA2LjacUkz5Pus7g
+         18Pg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWtZWhIwij6WQPiYczUbHZmVHuNdy5az7NxnYTAflEkqeC6LigJ
-	F6TSGxFaQC8WuPsnG+cQiOY=
-X-Google-Smtp-Source: APXvYqzW7Pe7Dnu/0X/GGRdux/PL1NyawWylLm2Et+kQgii1lq/jM9sinBCI6bGaZGTC68tajL+IAA==
-X-Received: by 2002:a62:3586:: with SMTP id c128mr7908165pfa.105.1568862935202;
-        Wed, 18 Sep 2019 20:15:35 -0700 (PDT)
+X-Gm-Message-State: APjAAAXXms3RVrqnHCknREXiPAPg2zxZ/gQAUHv0sMjwylPgM3qRtEbF
+	HR7u3FP9oRwX8G94o1wYcuI=
+X-Google-Smtp-Source: APXvYqy92tjUZHNHlN9N/p7U6HDGGiPUXJvL92MjxDGrBbE0tuOX9QEBSpEoDhk+Lc3jnBXwUBvW+g==
+X-Received: by 2002:a05:6830:18cb:: with SMTP id v11mr5391061ote.364.1568864450660;
+        Wed, 18 Sep 2019 20:40:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:6307:: with SMTP id x7ls618867pfb.0.gmail; Wed, 18 Sep
- 2019 20:15:34 -0700 (PDT)
-X-Received: by 2002:a63:115c:: with SMTP id 28mr6970223pgr.69.1568862934622;
-        Wed, 18 Sep 2019 20:15:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568862934; cv=none;
+Received: by 2002:a9d:66c3:: with SMTP id t3ls500553otm.3.gmail; Wed, 18 Sep
+ 2019 20:40:50 -0700 (PDT)
+X-Received: by 2002:a9d:5f09:: with SMTP id f9mr5451760oti.341.1568864450308;
+        Wed, 18 Sep 2019 20:40:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568864450; cv=none;
         d=google.com; s=arc-20160816;
-        b=e2ItmONHug2yjlUUZA6oorlS0icc80RIJpWzwd61MEfhX8sWJ0oc9gUVdh0XhMqOAN
-         HDQSVIA3CFCiDe6L8BerGmq+a74x8vABkJVuwCKh4koo56xzMZtandBbssLL12fpqxsd
-         3UwKXltEjXR3oRVdqFcyjx8BFNexBRoVThDpeCdiHhIVzxp8oC6de/VuuJ6o9ziXQS1o
-         YZult96rQc3xe1yDEw5sugk/QC4HeVGi9sosebWldzPbD9oETe4ZaiY3y4cTZ5S0jkfi
-         hkqLkegNfWYPJul0CF2qsXaQJGDMqmk7dwbdKMj2WAPIZeBvu6iiCPzDGLrJwYnrmOx3
-         BD7A==
+        b=hH7YmnbED/Yh5CPW5hMvgWhv+5EZFhPKKeIfmN5uWaugpNdxvOUK7Fenwxeodz+rYg
+         yqq/DTfpsZEquT02/ryqWgMCxc0YtTXbfEe+FiYK1k+2ul93qd7j7Nwta96wGKUnNQli
+         25uK4EA20WeAGEjGpWnpqPVOUe3vN1+wL+Ezxt3FZBb3yfHZTzdI1uYoJDp0WdJeSvsH
+         e1zQxHN9AwlahpXkuQyukAUZTTCqQCU1Tjh4cDljad4myunc8kkIL4PjTHPLG6aFBiwT
+         6rcoG1GgH96rWlHsmG8LbwQyWehAtO+I/1DohLIcxUTaQim+PFXxk5s1QgyUQbtdh6PG
+         bFgA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=+0xHrgczXr6q2aD9/q9NQV42ClRVVBQgs3FJqeWsd+4=;
-        b=Wy1nLjHV+UMSfTjKtgoo94GZhL5lx3mzkB8SGKo86DWf5NkZuZQk6DabRggwN8XiG0
-         KcSXQXrAvhlTq9kBh/XV00LM7GIYYNGQpLb7O+Ix1Xq0ZdYl2PNo/OOgBTMVNp07Vgpm
-         LjmaHPqrpzXA/drT3A7WUooFRnBj0NfOco80MJ1PMJZgjcBGGZGmFdZO45Yfihd/5ST9
-         UFL8pl7jzXP/DyoNcnLjhieX+Jzk7cuGHhPGIpminqnfCT8Vp191x2LYHxF6TNPbGyL+
-         E9OxTMnNSIb5Y7GHUjSGGcKvu/atvqqP3BYGLqM1078yCKlm7WXNkeXCVLlPB63D9mK3
-         sEaw==
+        bh=FklS2Led4Ojlklkolha3IBVcvNK95OanPr1GN6VtFPY=;
+        b=czI48ivz2PJunlTcV2gGIHN0cqtwLxvBK3SqC6Em+7PKNw6ZLkOyAy8mKPVCnKbDiB
+         0zDojn3cYggDFlG/HOK8xnQ7J0i/jyJOsE1HrCfglL4jxy7nbakDXAdDixmuJ3ll/AQb
+         /GUp3G/Txt7juRytG2Rs1hmf1sBmQ/mvlOS1TGMVJszcXaoLw2LPLZ8+d9Ia6rp0+bGv
+         2qpibvL0B6A0MMQf9xPgdR5o1QrNChIGn1mAgvSDBEAgQbyhL+5gu7hLzu+k8pum27UT
+         wMmuzylgiPuRUQPq23CjUZdB2WCvaZVPowaGnhHlQyctp1LvxRjOImuOGkV84rqU/S8w
+         UKMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id x6si882149pln.3.2019.09.18.20.15.34
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id c20si875616oiy.4.2019.09.18.20.40.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Sep 2019 20:15:34 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+        Wed, 18 Sep 2019 20:40:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 18 Sep 2019 20:15:33 -0700
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 18 Sep 2019 20:40:48 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,522,1559545200"; 
-   d="gz'50?scan'50,208,50";a="194248930"
+   d="gz'50?scan'50,208,50";a="202199085"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by FMSMGA003.fm.intel.com with ESMTP; 18 Sep 2019 20:15:31 -0700
+  by fmsmga001.fm.intel.com with ESMTP; 18 Sep 2019 20:40:46 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iAmuo-0002u4-JX; Thu, 19 Sep 2019 11:15:30 +0800
-Date: Thu, 19 Sep 2019 11:14:37 +0800
+	id 1iAnJF-0008ka-Ul; Thu, 19 Sep 2019 11:40:45 +0800
+Date: Thu, 19 Sep 2019 11:40:36 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [yhuang:random-r0.1e 27/30] aarch64-linux-gnu-ld: node.c:undefined
- reference to `node_random_migrate_pages'
-Message-ID: <201909191122.YT1mnmEj%lkp@intel.com>
+Subject: [yhuang:random-r0.1e 29/30] page_alloc.c:undefined reference to
+ `node_random_promote_select_work'
+Message-ID: <201909191134.o6zrmW91%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="exijw6bdidul5bmc"
+Content-Type: multipart/mixed; boundary="jbqjr7wgtergbysq"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +138,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---exijw6bdidul5bmc
+--jbqjr7wgtergbysq
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -147,13 +147,13 @@ TO: Huang Ying <ying.huang@intel.com>
 
 tree:   yhuang/random-r0.1e
 head:   0443615a60c5c8a01253dc3a3b82a9b051a16e2d
-commit: 90a643207ddd163ab1aec32bc43d4828a6b78a2e [27/30] random promote periodically
+commit: 83a0a3cf8699408fb6bb9c16771c307f27fa2c82 [29/30] random promote: hot pages selection
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 90a643207ddd163ab1aec32bc43d4828a6b78a2e
+        git checkout 83a0a3cf8699408fb6bb9c16771c307f27fa2c82
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -163,24 +163,37 @@ Reported-by: kbuild test robot <lkp@intel.com>
 All errors (new ones prefixed by >>):
 
    aarch64-linux-gnu-ld: mm/page_alloc.o: in function `pgdat_init_internals':
-   page_alloc.c:(.meminit.text+0x758): undefined reference to `node_random_promote_work'
-   page_alloc.c:(.meminit.text+0x758): relocation truncated to fit: R_AARCH64_ADR_PREL_PG_HI21 against undefined symbol `node_random_promote_work'
-   aarch64-linux-gnu-ld: page_alloc.c:(.meminit.text+0x768): undefined reference to `node_random_promote_work'
+>> page_alloc.c:(.meminit.text+0x760): undefined reference to `node_random_promote_select_work'
+   page_alloc.c:(.meminit.text+0x760): relocation truncated to fit: R_AARCH64_ADR_PREL_PG_HI21 against undefined symbol `node_random_promote_select_work'
+>> aarch64-linux-gnu-ld: page_alloc.c:(.meminit.text+0x770): undefined reference to `node_random_promote_select_work'
+   aarch64-linux-gnu-ld: page_alloc.c:(.meminit.text+0x7ac): undefined reference to `node_random_promote_check_work'
+   page_alloc.c:(.meminit.text+0x7ac): relocation truncated to fit: R_AARCH64_ADR_PREL_PG_HI21 against undefined symbol `node_random_promote_check_work'
+   aarch64-linux-gnu-ld: page_alloc.c:(.meminit.text+0x7b4): undefined reference to `node_random_promote_check_work'
+   aarch64-linux-gnu-ld: page_alloc.c:(.meminit.text+0x7e8): undefined reference to `node_random_demote_work'
+   page_alloc.c:(.meminit.text+0x7e8): relocation truncated to fit: R_AARCH64_ADR_PREL_PG_HI21 against undefined symbol `node_random_demote_work'
+   aarch64-linux-gnu-ld: page_alloc.c:(.meminit.text+0x7f0): undefined reference to `node_random_demote_work'
    aarch64-linux-gnu-ld: drivers/base/node.o: in function `random_promote_store':
-   node.c:(.text+0x12b0): undefined reference to `node_random_promote_start'
-   node.c:(.text+0x12b0): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_promote_start'
-   aarch64-linux-gnu-ld: node.c:(.text+0x12c4): undefined reference to `node_random_promote_stop'
-   node.c:(.text+0x12c4): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_promote_stop'
->> aarch64-linux-gnu-ld: node.c:(.text+0x12d4): undefined reference to `node_random_migrate_pages'
-   node.c:(.text+0x12d4): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_migrate_pages'
+>> node.c:(.text+0x12bc): undefined reference to `node_random_migrate_start'
+   node.c:(.text+0x12bc): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_migrate_start'
+>> aarch64-linux-gnu-ld: node.c:(.text+0x12d0): undefined reference to `node_random_migrate_stop'
+   node.c:(.text+0x12d0): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_migrate_stop'
+   aarch64-linux-gnu-ld: node.c:(.text+0x1318): undefined reference to `node_random_migrate_pages'
+   node.c:(.text+0x1318): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_migrate_pages'
    aarch64-linux-gnu-ld: drivers/base/node.o: in function `random_promote_period_ms_store':
-   node.c:(.text+0x13d8): undefined reference to `node_random_promote_start'
-   node.c:(.text+0x13d8): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_promote_start'
-   aarch64-linux-gnu-ld: node.c:(.text+0x13ec): undefined reference to `node_random_promote_stop'
-   node.c:(.text+0x13ec): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_promote_stop'
+   node.c:(.text+0x1410): undefined reference to `node_random_migrate_start'
+   node.c:(.text+0x1410): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_migrate_start'
+   aarch64-linux-gnu-ld: node.c:(.text+0x1424): undefined reference to `node_random_migrate_stop'
+   node.c:(.text+0x1424): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_migrate_stop'
    aarch64-linux-gnu-ld: drivers/base/node.o: in function `random_demote_store':
-   node.c:(.text+0x14c0): undefined reference to `node_random_migrate_pages'
-   node.c:(.text+0x14c0): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_migrate_pages'
+   node.c:(.text+0x1520): undefined reference to `node_random_demote_start'
+   node.c:(.text+0x1520): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_demote_start'
+   aarch64-linux-gnu-ld: node.c:(.text+0x1534): undefined reference to `node_random_demote_stop'
+   node.c:(.text+0x1534): relocation truncated to fit: R_AARCH64_CALL26 against undefined symbol `node_random_demote_stop'
+   aarch64-linux-gnu-ld: node.c:(.text+0x1544): undefined reference to `node_random_migrate_pages'
+   node.c:(.text+0x1544): additional relocation overflows omitted from the output
+   aarch64-linux-gnu-ld: drivers/base/node.o: in function `random_demote_period_ms_store':
+   node.c:(.text+0x1648): undefined reference to `node_random_demote_start'
+   aarch64-linux-gnu-ld: node.c:(.text+0x165c): undefined reference to `node_random_demote_stop'
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -189,14 +202,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909191122.YT1mnmEj%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909191134.o6zrmW91%25lkp%40intel.com.
 
---exijw6bdidul5bmc
+--jbqjr7wgtergbysq
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICPPwgl0AAy5jb25maWcAnDxJd+M20vf8Cr30JTkk0eal53s+gCQoIiIJmgAl2xc+tS13
+H4sICMr3gl0AAy5jb25maWcAnDxJd+M20vf8Cr30JTkk0eal53s+gCQoIiIJmgAl2xc+tS13
 PPHSI8ud9L+fKoALAIJOf5OlE1YV9kLt0IcfPkzI2/HlaXd8uN09Pn6bfN4/7w+74/5ucv/w
 uP+/ScQnOZcTGjH5KxCnD89vf/+2OzydLicnv85/nf5yuJ1N1vvD8/5xEr483z98foPmDy/P
 P3z4Af75AMCnL9DT4V+T28fd8+fJ1/3hFdCT2fRX+Hvy0+eH479++w3+fHo4HF4Ovz0+fn2q
@@ -1019,4 +1032,4 @@ UJM+w+16luKeDij+fxMIno67DCv+96LXpeGQDS3wkAY6XHchLFOV4TJqyzsrif1OOs9O7FR+
 d4WCl1KyjCifxrepFTRdQ6We1NM4Q/eIybW6uUeEMWxayRpHI9Ms04lTBwYA+xxCmDrPk/rW
 lVH2ksGWnCPxntnRR2drYjSmmnCNruqtVHngP8B9clMR/QIA
 
---exijw6bdidul5bmc--
+--jbqjr7wgtergbysq--
