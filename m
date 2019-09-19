@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBYU6R3WAKGQENYRLCQQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7NKR3WAKGQEUFBWOBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3F16DB7C19
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 16:23:32 +0200 (CEST)
-Received: by mail-qt1-x838.google.com with SMTP id n4sf1835246qtp.19
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 07:23:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568903011; cv=pass;
+Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3EA9DB7D32
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 16:49:35 +0200 (CEST)
+Received: by mail-yw1-xc39.google.com with SMTP id z14sf2882473ywz.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 07:49:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568904574; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zow/wVBrlv+s6z4FGb1dz2NglLv2AW1aM82YdD8HSbJYsINSLLqDezaa65K1jOCmPJ
-         zaCD3cmQ1E78NlHB3PdekGUD5wNnVmFY/b83N/3B4O3kC9G/ETSu0mnd/5A8wmMNkX81
-         isU+cxaC21u3GzrZYmt6mftrqE4spNABnIAweh0hRwxxGVw9P4445afhQV936z03rc4n
-         5kpdIUSitynHBzRrOF2Sjxjr4hHkVFXRvIwaJgxH7P15bLWtbnVQ5FA1TU1ZabD0i6J2
-         fa/OCgld7iFSupfcOjv3hqUtr4TE/EeDH3WYGH1zdikrwMaRm84okav0AjJ3VCsIM/ei
-         KagQ==
+        b=UGptHv6o0ew6RrQPmPgFY0AujARDYbe0br4E0V1KWOflUD/N5vVn2lMad9zi773rbP
+         7nkdO+R/oDBKExf6zlT64QiLNKVU0VYJxLndvfti6u/7x6dwx6XPgVRLjCpKPDgyHIW6
+         NnAbVqyBhddabmEP/hFoYXFnXRoJJOGfWWojfxhLpWTBuaAzSU7A14vWbrO17MXH6B7C
+         gcwlmBKamB/npJ6hVUqj4FcEwV3lppzvQQ2hlf56w1FRqDKVzoTEi/VQzQ0JF/cyuZAF
+         O/C7g48eUYB8mDElj3kd9ue43AaoX9Cw/GrYIg4xK8uF/1B8aItmC+/1MWiy2ASReiKV
+         bk2w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=1uuNAzhTp6zfyd2VtmtMVTeBsg5r1kFOcT8RHiLDK7k=;
-        b=U7b8OWSf8hhWoc9tOTNHb2f8UluCNbNymt9JIYPMoCB1bqn3G2or3JnMTuWXFI2Z3M
-         gyHncIleewnNHAFe4f1AnsZF/IQzr+MdakB8CgGfYp49v9mIN+AeYPlSApDT8gjRu1Tt
-         vdc1QOkApcN4ce8IwMgqf4U0vaSasqezK8+0mrVeiQNV3Xx3Qp8O/u1VeXGh6hHToW9B
-         r4F9/jxVfleRPTQ5mF6gU73Jgnj7su8IcpNXH47sEze5sjg/CJEfvmvidbT6n30lVQvI
-         gI7tJhGeNqw+QOAFuosXiNaSqnHnBU4ESEG6OBsQzb62fYtbX+RXqnYHcXBhmU7RKf3v
-         UVWA==
+        bh=ksdzIaPb4+HZn4wVbX9RDbxaVFxTLwR3WLrpt+Mx7wg=;
+        b=cy3j7IEq79jVaTDpfSBehVF8JaN+fftN86JK+BLQw7VUjiyPSxpVXa15TLwWfZa55x
+         R4f0Rx9xojo44Y1kRxoUDCzavZyv6WNtLeSdMP3Bmq3znIZhlzuuYh/RsZNBBw77p624
+         hdXCkf/c8P7jHBJxwab0AdjAgWgKiPDhJQE8YVitj7ZIeNB/0Hsih9o1p3oj55XdKb0M
+         EmhobL5fpsDkfqbIfct4AGmMJcbB1lDO1l0Y0J7MYeCl/4o2A/GNQAOhRwIB0XNx1iSd
+         iGeuRhrDOpqdk1nMTh5oBzOV/VV5EDbHsvfdlGRtZuGYIlWy+xt+1kT41e4a66YcA+n+
+         Ptbw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=1uuNAzhTp6zfyd2VtmtMVTeBsg5r1kFOcT8RHiLDK7k=;
-        b=B0uddia4hFdunRQlQlseOSGAa9Sdu85SRAYISnZgF0Q7GZ6u0XSs9kK4RarVlQ8fY9
-         xoCwRTrzv/V4LYdxnD401XdQZze0rAWn+/QqbODBRaFbeSgX9tKAHhch+7slQrI7ZcDm
-         AiK7eVWEGSjnKgaiJylHCJflUzHKdYMCTZstxT9WZBlZTMiPnpO3XRs3hpIL1vrNf3qc
-         NkK3nXmNGKWkYv9qE7icohyvBTRtNjgUh5xhA6bbF5rHPFP22HNBlLjSq+eBJZpH3kmU
-         oBfyj7kBnOd/PxM+S8uCBbzXJaDrn2CnPrWLTwSvZqiEOGrr+tvrcsIVLEImmhH7RupU
-         N0aw==
+        bh=ksdzIaPb4+HZn4wVbX9RDbxaVFxTLwR3WLrpt+Mx7wg=;
+        b=NemRi9BRc3mRvlFrg01v3VUHISLnWrrwWKG01CmoF38O1kmppQJbyEIdiDug3xPlmH
+         WZcqiQZFHDrNGBe9h8QR+4sE+JfVsfgIOJg8Ta0mw0EfA5gLZga0Af0QjSX7KZbNvW5K
+         vXE7YVZvDL5CIXZxdrJuptLdGnrWMtBeEAQcpCtS0eqiBfx23UKXq/SvQu1xYqQWAc8b
+         J8/FosHq0lQ2Qe5hfb5oQ8RqiV0uuQ3v9dPzvDCvoh4nEPtS/+yx8Pz90kqJfHW5U+ck
+         rloUb3Ljt83TkOItml3oywcNOC+rmihiaRZ4L57ghFdxXdQriC62gVkKBHKUN+PQVp+J
+         XBgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=1uuNAzhTp6zfyd2VtmtMVTeBsg5r1kFOcT8RHiLDK7k=;
-        b=m+eypLM8A1rmFJFE6qF9aXZznKwT8aj8KSbwdBx6ObLUEn9d8tPE2Pr2kJu84nk3Ne
-         ebzh/wTTgVypj8LnMuUSo98FAnjbYPNt17SE+kbsDF8d6svffrOl+nGJRE7zoVeQN4nP
-         F4nTE7AtynStVpWEpCiHsf7WVQKy4b92LmdARgZBCNoMB7ls0lm8a2pIU3Bd2lGs0eEH
-         lO10rhKLFKy2/pCPD4qQ/bfugs73URCB1LND76UrvcWaq+ChlfIw4YXGB2H2vpU1ShGi
-         HqW51Ys1fjHi0evOerkBLKn9s4CimgI3aSxX863+Tv3H3XATuxryr5PV1ZIS4l9SwiGi
-         1Ogw==
+        bh=ksdzIaPb4+HZn4wVbX9RDbxaVFxTLwR3WLrpt+Mx7wg=;
+        b=hiEkI7/Kd+1QP8QCqxG8vLLSvJdGpn9HPBoqjlzNrczNEzFsWDEJNQGM+y0uRE4s0S
+         DyyWi/iA1xSWhkz+PmcRBXdcDSlgAaLuswUCSHh5xpQqWJuUnTkXLl1FmOuLnCnQ5zMM
+         VG3NNHmgRYbpE2xVe3EfnyCDDJvmoHXH7JB7Z0KBklqAMnAhwbo73Lkyegl0Q2Y8M+01
+         RqUAWU3QQNBVANmOMOPz955NrxJWEpqsCUFOW/59Vo6ii6r03JYvBE4C+ez9rYpnl6Rd
+         ZnXqgC6LLSdrWBzC6evQmFBkDSXJiMXHTc3TeN+V/L9m9LoeVvXts581ctYDWPPguVXN
+         ekyw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUUE0+MntUfVZWTqv85s2jiouLkKIhGOpTiyTSccoqHaS+Ft9v8
-	B8FcpIWJbjh+dSFuuGeR4OU=
-X-Google-Smtp-Source: APXvYqzyOHa4chDaWOSMkcBoLE2wd3VWC7AvIQH0s0A5fffM1KqjU/UEWrcH8m5C8pr+bk91Ry17kA==
-X-Received: by 2002:a05:620a:6cf:: with SMTP id 15mr3128433qky.112.1568903010641;
-        Thu, 19 Sep 2019 07:23:30 -0700 (PDT)
+X-Gm-Message-State: APjAAAV1rqPu4OBRG5NcNdRpDUVTwz9OPQOkVr3KJZDEsQkYCgdu+NVt
+	+bIU32BnLzQ3Q8Sb01kfS8A=
+X-Google-Smtp-Source: APXvYqz/O8WEHntqdXPM2hf2pWMrBX+1f8lZXsCSv3jH34O0XLb6YF9fc23rEwl+KEID7rdhj2yB4w==
+X-Received: by 2002:a25:d7d5:: with SMTP id o204mr2510882ybg.214.1568904574078;
+        Thu, 19 Sep 2019 07:49:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:3341:: with SMTP id u59ls1159120qtd.12.gmail; Thu, 19
- Sep 2019 07:23:30 -0700 (PDT)
-X-Received: by 2002:aed:2a3b:: with SMTP id c56mr3548109qtd.343.1568903010304;
-        Thu, 19 Sep 2019 07:23:30 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568903010; cv=none;
+Received: by 2002:a81:2494:: with SMTP id k142ls647229ywk.6.gmail; Thu, 19 Sep
+ 2019 07:49:33 -0700 (PDT)
+X-Received: by 2002:a0d:ca16:: with SMTP id m22mr6529068ywd.45.1568904573687;
+        Thu, 19 Sep 2019 07:49:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568904573; cv=none;
         d=google.com; s=arc-20160816;
-        b=JvJ1Pai1+0siH0ON1vdbq8hJ/uh4yx06GPLKV9OTKx0zQ8s0R2KQ2C9hXy9WgeQteW
-         vXDg1EBMB7t4UV7rluakerkuvMK85HTcxQjE/hv1iNEKw5fywcwVgZqvH92fQuzg6pYJ
-         1zxexXWw1oLHOFS5KcyIEEFbAbd01vhSRb/rAbQhgBG9yxk/v/rA2MHl7VozrDEV7nUD
-         6SfpmOckaBTfHLFE4X2H2RmXfsLD7VZ8mEzYo5W3qCiqiPn3VtjuCFVpJz/j1CT5oOXi
-         Ni4IPTulSe0JObrp/AfZWTZQu21aSRKeCkkKCw14tPCvrjrkzd7BPi/8s5aDfV7jIPNu
-         +4jQ==
+        b=syt2F2diNQ05uvIN6dxlhlSx6d5AIC1xtulFPatsFLKzTMY7HCuoKJ4Tb/z8/MgIP1
+         FXGvvUNTWOyFjSaoeZ8n2CMsWW8/FhshJfdS55C8Fbp+8kjUxUMPc8VKgCmGdyxdeohC
+         KL1lODEjDVGeEcIC0BwjzE0HY6SWMngUVzkEjEeBC3VPZU4pbwhnYSmGvJATtya7gZ9z
+         MEdp4wB8LoehjlSe+UJKWZm5mppLmXKR2V6UuvzfliW9Utq6PzYfgkDR1frMm/lO98S0
+         i3rZSWBm60le1YoE4AXsqVGonsYOJTFw0HaRLVuCFWYmIpud49BefXr81J+J36i1wU1h
+         lPLw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=8D7PhX0M8kGDLlMt4PU21Ii9in5UItPb5ZZuucJVZvk=;
-        b=tMBxFFhp+JETbBJNATk9HWxwdvb6MIvvZOeDkEM1N2dEfXr+utCaBTsnhVfvLSDHKK
-         nXhhy1/OoMCvTYdhLn02DYXqrXhIv0erp7qqkz/zWZ2VPQCYWzSdYoZoU2LAthm0uz4i
-         yxKToWO1M/bCQiGqVvy03Qhwvo8Gqnc5lhUoEQZ7iFNPyWlT64aVLKjR9ZBC/oqonOa/
-         M/jo17s2oXPSb/DFoLqpqbgzBHGmXVyDAMF+gvSgBeTVqE6SwVdLF1bX4jdfU5Jaus1h
-         Pj0DYKTKqoN5FPyjOrChDECjUCr7e2DtMZ4mg4GQsHwOwvrvRvjVznrKoalKt2fVgmMR
-         rZtA==
+        bh=dool8Su/2eeX99WaIVcur+llIny0zH2SDKRsg7G9QfM=;
+        b=h3FzGaUcyCjjKqLxJRklbr+2GwUuN0f68Y5PC+r0BZOznOgpV5mwqOsZpPNm48BTL6
+         aB9hCvPWpS+fEApDUDf4P1ehVakuB/gzRFjKO7Wo54BZu/DmDp0GVa4LcXf2thP7P4nh
+         clC2dVaQYsJKAAhlH886zV1TsEz+pxVhYO/2ODZEupH4PZNTrKt95LYeDsprJ8bSju7Y
+         43ou5O/OUHhVZmJ6yC3r3SdoK6jU4UaTR8cGFpbaewtIxNYnjuzKjwSwZqXal6zh/Nsp
+         Z8HjpjdHFW23xzCzXAAZpewS0icuJAwROQ8GV5nQEXd2EFpJPHK2Pj5AlYSPISsKaklX
+         vS8w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
-        by gmr-mx.google.com with ESMTPS id x44si447875qtc.3.2019.09.19.07.23.29
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id g4si1004022ywe.2.2019.09.19.07.49.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 19 Sep 2019 07:23:29 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
+        Thu, 19 Sep 2019 07:49:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Sep 2019 07:23:27 -0700
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Sep 2019 07:49:32 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,523,1559545200"; 
-   d="gz'50?scan'50,208,50";a="189619235"
+   d="gz'50?scan'50,208,50";a="202297796"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga003.jf.intel.com with ESMTP; 19 Sep 2019 07:23:25 -0700
+  by fmsmga001.fm.intel.com with ESMTP; 19 Sep 2019 07:49:30 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iAxLB-000CON-Bw; Thu, 19 Sep 2019 22:23:25 +0800
-Date: Thu, 19 Sep 2019 22:22:46 +0800
+	id 1iAxkQ-0002HE-0o; Thu, 19 Sep 2019 22:49:30 +0800
+Date: Thu, 19 Sep 2019 22:48:33 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [linux-pb:lkml/utilclamp_mainline_testing 8/18]
- kernel/sched/sched_tp.c:34:6: error: implicit declaration of function
- 'trace_sched_uclamp_cfs_enabled'
-Message-ID: <201909192242.2vNi8Mv1%lkp@intel.com>
+Subject: [linux-pb:lkml/sched_access_methods 2/2] kernel/sched/rt.c:500:22:
+ error: use of undeclared identifier 'rt_tq'; did you mean 'rt_rq'?
+Message-ID: <201909192229.pYBw1s7R%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="q3mnnouhtw3ednk4"
+Content-Type: multipart/mixed; boundary="5ex5saqckqqchodj"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,20 +138,20 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---q3mnnouhtw3ednk4
+--5ex5saqckqqchodj
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
-TO: Patrick Bellasi <patrick.bellasi@arm.com>
+TO: Patrick Bellasi <patrick.bellasi@matbug.net>
 
-tree:   git://linux-arm.org/linux-pb.git lkml/utilclamp_mainline_testing
-head:   f4889b4c3fabe850193877e1e009faa1b70cec2d
-commit: 995b287fc4278d50de310b6a41c0be0a84dc248f [8/18] sched/events: Add util_clamp trace events
+tree:   git://linux-arm.org/linux-pb.git lkml/sched_access_methods
+head:   82f0d1d9a5c54daaa520ebca120dee51cadfa29d
+commit: 82f0d1d9a5c54daaa520ebca120dee51cadfa29d [2/2] sched: Add {cfs,rt,dl}_cpu_of() access methods and root rq's checkers
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
 reproduce:
-        git checkout 995b287fc4278d50de310b6a41c0be0a84dc248f
+        git checkout 82f0d1d9a5c54daaa520ebca120dee51cadfa29d
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
@@ -161,149 +160,34 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> kernel/sched/sched_tp.c:34:6: error: implicit declaration of function 'trace_sched_uclamp_cfs_enabled' [-Werror,-Wimplicit-function-declaration]
-           if (trace_sched_uclamp_cfs_enabled()) {
-               ^
->> kernel/sched/sched_tp.c:52:6: error: implicit declaration of function 'trace_sched_uclamp_rt_enabled' [-Werror,-Wimplicit-function-declaration]
-           if (trace_sched_uclamp_rt_enabled()) {
-               ^
-   kernel/sched/sched_tp.c:52:6: note: did you mean 'trace_sched_pelt_rt_enabled'?
-   kernel/sched/./sched_events.h:65:1: note: 'trace_sched_pelt_rt_enabled' declared here
-   DEFINE_EVENT(sched_pelt_rq_template, sched_pelt_rt,
-   ^
-   include/linux/tracepoint.h:525:2: note: expanded from macro 'DEFINE_EVENT'
-           DECLARE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^
-   include/linux/tracepoint.h:400:2: note: expanded from macro 'DECLARE_TRACE'
-           __DECLARE_TRACE(name, PARAMS(proto), PARAMS(args),              \
-           ^
-   include/linux/tracepoint.h:272:2: note: expanded from macro '__DECLARE_TRACE'
-           trace_##name##_enabled(void)                                    \
-           ^
-   <scratch space>:157:1: note: expanded from here
-   trace_sched_pelt_rt_enabled
-   ^
->> kernel/sched/sched_tp.c:104:6: error: implicit declaration of function 'trace_sched_uclamp_se_enabled' [-Werror,-Wimplicit-function-declaration]
-           if (trace_sched_uclamp_se_enabled()) {
-               ^
-   kernel/sched/sched_tp.c:104:6: note: did you mean 'trace_sched_load_se_enabled'?
-   kernel/sched/./sched_events.h:77:1: note: 'trace_sched_load_se_enabled' declared here
-   TRACE_EVENT(sched_load_se,
-   ^
-   include/linux/tracepoint.h:536:2: note: expanded from macro 'TRACE_EVENT'
-           DECLARE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^
-   include/linux/tracepoint.h:400:2: note: expanded from macro 'DECLARE_TRACE'
-           __DECLARE_TRACE(name, PARAMS(proto), PARAMS(args),              \
-           ^
-   include/linux/tracepoint.h:272:2: note: expanded from macro '__DECLARE_TRACE'
-           trace_##name##_enabled(void)                                    \
-           ^
-   <scratch space>:89:1: note: expanded from here
-   trace_sched_load_se_enabled
-   ^
-   kernel/sched/sched_tp.c:106:24: warning: unused variable 'p' [-Wunused-variable]
-                           struct task_struct *p = container_of(
-                                               ^
-   1 warning and 3 errors generated.
+>> kernel/sched/rt.c:500:22: error: use of undeclared identifier 'rt_tq'; did you mean 'rt_rq'?
+           int cpu = rt_cpu_of(rt_tq);
+                               ^~~~~
+                               rt_rq
+   kernel/sched/rt.c:497:47: note: 'rt_rq' declared here
+   static void sched_rt_rq_dequeue(struct rt_rq *rt_rq)
+                                                 ^
+   1 error generated.
 
-vim +/trace_sched_uclamp_cfs_enabled +34 kernel/sched/sched_tp.c
+vim +500 kernel/sched/rt.c
 
-    19	
-    20	static void sched_pelt_cfs(void *data, struct cfs_rq *cfs_rq)
-    21	{
-    22		if (trace_sched_load_cfs_rq_enabled()) {
-    23			const struct sched_avg *avg;
-    24			char path[PATH_SIZE];
-    25			int cpu;
-    26	
-    27			avg = sched_trace_cfs_rq_avg(cfs_rq);
-    28			sched_trace_cfs_rq_path(cfs_rq, path, PATH_SIZE);
-    29			cpu = sched_trace_cfs_rq_cpu(cfs_rq);
-    30	
-    31			trace_sched_load_cfs_rq(cpu, path, avg);
-    32		}
-    33	
-  > 34		if (trace_sched_uclamp_cfs_enabled()) {
-    35			if (cfs_rq_is_root(cfs_rq))
-    36				trace_sched_uclamp_cfs(rq_of(cfs_rq));
-    37		}
-    38	}
-    39	
-    40	static void sched_pelt_rt(void *data, struct rq *rq)
-    41	{
-    42		if (trace_sched_pelt_rt_enabled()) {
-    43			const struct sched_avg *avg = sched_trace_rq_avg_rt(rq);
-    44			int cpu = sched_trace_rq_cpu(rq);
-    45	
-    46			if (!avg)
-    47				return;
-    48	
-    49			trace_sched_pelt_rt(cpu, avg);
-    50		}
-    51	
-  > 52		if (trace_sched_uclamp_rt_enabled()) {
-    53			trace_sched_uclamp_rt(rq);
-    54		}
-    55	}
-    56	
-    57	static void sched_pelt_dl(void *data, struct rq *rq)
-    58	{
-    59		if (trace_sched_pelt_dl_enabled()) {
-    60			const struct sched_avg *avg = sched_trace_rq_avg_dl(rq);
-    61			int cpu = sched_trace_rq_cpu(rq);
-    62	
-    63			if (!avg)
-    64				return;
-    65	
-    66			trace_sched_pelt_dl(cpu, avg);
-    67		}
-    68	}
-    69	
-    70	static void sched_pelt_irq(void *data, struct rq *rq)
-    71	{
-    72		if (trace_sched_pelt_irq_enabled()){
-    73			const struct sched_avg *avg = sched_trace_rq_avg_irq(rq);
-    74			int cpu = sched_trace_rq_cpu(rq);
-    75	
-    76			if (!avg)
-    77				return;
-    78	
-    79			trace_sched_pelt_irq(cpu, avg);
-    80		}
-    81	}
-    82	
-    83	static void sched_pelt_se(void *data, struct sched_entity *se)
-    84	{
-    85		if (trace_sched_load_se_enabled()) {
-    86			void *gcfs_rq = get_group_cfs_rq(se);
-    87			void *cfs_rq = se->cfs_rq;
-    88			struct task_struct *p;
-    89			char path[PATH_SIZE];
-    90			char *comm;
-    91			pid_t pid;
-    92			int cpu;
-    93	
-    94			sched_trace_cfs_rq_path(gcfs_rq, path, PATH_SIZE);
-    95			cpu = sched_trace_cfs_rq_cpu(cfs_rq);
-    96	
-    97			p = gcfs_rq ? NULL : container_of(se, struct task_struct, se);
-    98			comm = p ? p->comm : "(null)";
-    99			pid = p ? p->pid : -1;
-   100	
-   101			trace_sched_load_se(cpu, path, comm, pid, &se->avg);
-   102		}
-   103	
- > 104		if (trace_sched_uclamp_se_enabled()) {
-   105			if (entity_is_task(se) && !!se->on_rq) {
-   106				struct task_struct *p = container_of(
-   107					se, struct task_struct, se);
-   108	
-   109				trace_sched_uclamp_se(p);
-   110			}
-   111		}
-   112	}
-   113	
+   496	
+   497	static void sched_rt_rq_dequeue(struct rt_rq *rt_rq)
+   498	{
+   499		struct sched_rt_entity *rt_se;
+ > 500		int cpu = rt_cpu_of(rt_tq);
+   501	
+   502		rt_se = rt_rq->tg->rt_se[cpu];
+   503	
+   504		if (!rt_se) {
+   505			dequeue_top_rt_rq(rt_rq);
+   506			/* Kick cpufreq (see the comment in kernel/sched/sched.h). */
+   507			cpufreq_update_util(rt_rq_of(rt_rq), 0);
+   508		}
+   509		else if (on_rt_rq(rt_se))
+   510			dequeue_rt_entity(rt_se, 0);
+   511	}
+   512	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -312,14 +196,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909192242.2vNi8Mv1%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909192229.pYBw1s7R%25lkp%40intel.com.
 
---q3mnnouhtw3ednk4
+--5ex5saqckqqchodj
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICI2Ng10AAy5jb25maWcAlDxbe9s2su/7K/S1L+1DG9tJ3HTPlweQBCVEJMECoCz5hZ9q
+H4sICP6Sg10AAy5jb25maWcAlDxbe9s2su/7K/S1L+1DG9tJ3HTPlweQBCVEJMECoCz5hZ9q
 y6nP+pIj293k358ZgJcBCLptd9uEM4P7YO7Q9//6fsFenh/v98+3V/u7u2+Lz4eHw3H/fLhe
 3NzeHf5nkclFJc2CZ8L8DMTF7cPL1zdfP5y35+8W739++/PJYn04PhzuFunjw83t5xdoe/v4
 8K/v/wX//x6A91+gm+O/F1d3+4fPiz8PxydAL05Pfob/LX74fPv87zdv4L/3t8fj4/HN3d2f
@@ -1212,4 +1096,4 @@ Rxm7hPFE+IaYdlZM06jkgOPt5bE1vwNC8lx1pHD3vUuD4rLfsESeZTQpmxEpJfMOhzVwpL3N
 mZGyZC44Qw0O6dylIZSULSZywEPWO/BtvlEvsxWV4YAY4cqnSxKex+U2ki5aJ4WynQVCBRL8
 F4wGvMoSDAMA
 
---q3mnnouhtw3ednk4--
+--5ex5saqckqqchodj--
