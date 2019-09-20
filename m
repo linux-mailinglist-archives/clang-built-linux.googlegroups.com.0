@@ -1,126 +1,131 @@
-Return-Path: <clang-built-linux+bncBDT6TV45WMPRB36ESTWAKGQEIZHHSZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZWXSTWAKGQE5IWCF3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 42334B9785
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 21:03:12 +0200 (CEST)
-Received: by mail-ed1-x53d.google.com with SMTP id t13sf4792753edr.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 12:03:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569006192; cv=pass;
+Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
+	by mail.lfdr.de (Postfix) with ESMTPS id 648BCB97EE
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 21:43:36 +0200 (CEST)
+Received: by mail-qt1-x837.google.com with SMTP id m19sf9358307qtm.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 12:43:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569008615; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YW6VFrh6wtxG/Yg67nxBH1X08I68k0jeEEuS/BZ75rqM40W9z/TjY75+l7er6Vn75Y
-         NIng/xC6Cfd1FcB6tUrf5Wt7YVw7lBsN8QVv8FtCaQSct8kRce4MnJt5421slWvhro8M
-         kv+ESRxIePocmaOu3QOKpauhkJiqluw7ANuyjbjBDGC1W0ryBQUtt0kfwW8Bejbngf2t
-         rQC11/1e7AsT3qycBAIP3w64tSNHyAN8Y8WrrDI3/vxVZaXxpa+mXlA/L4K6Bg33/yN3
-         nA/z/E4FnPV/MBzURyT9qKF1q+UESlAEQMDZGMlzfVR43VEhCrjCXIR6KBhdVLgAOSHU
-         xmzA==
+        b=UYjC5paEQYM3KIhq6iPU0liPySLleWMLD0K7T0GHhiHL6X2h+SEcEsxSlnP7pdhkzX
+         OiFfNHQMRURo9f3a0GlRR8qxQhzcbVpFBDIXrN+sSZy7bYmGjbubpbB/g/tVk7EgrekN
+         asTPd43EFcnEHgzD5r+EM9bIY0X6JcuGqKLENIswwfighBeUIoRu2OyMUTtvCTOnpNI9
+         UOLm+4Ys1Bj9+5h16B8cHSdLRW0/Iu2ALihJ47qm8Y14FKAtmymvDlbVGU8iLq6q0FEa
+         1KhEXlBy8IwfRn8ctqEmJnVyeNsWESn0BK0gRMcFUM3SJuiTHdkK4fL1giAtu7Spqaax
+         0BOQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:from:to:subject
-         :content-transfer-encoding:mime-version:date:message-id:sender
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=bsFh3S5Xa7gXJSP7EeRE1qDjUDkKZ2vLWPQMIN3Xe00=;
-        b=rBcpZrzpwFSLwVJt5AW820+on9ncmIucFL5AZMUIM5d0j9+hxQoisz6/U59/VEENcZ
-         cZ+lQTIG7KOrodHr7mcRH4yJUE7yM6g4SmaoDg5Mkl9ASDVklmSHUrPU8n54m8eRrIK4
-         mCeBwrVkAGG8dqeETcEkaiXSrIbi8RK3VZ+oJA0BsvM4zmtnHZ80K3unP5X32lZ2gVG3
-         6ufpBzSDXCQoDXMjZzithC649mcJ6eS1xjBbH3pDdUwtSAA8RrB8+GpPN3HzHt6IvqN2
-         FIAT7kgBrtvA+M7JyXSeGBk0JV4HUiwnnsv7Wq5yJ1rGoeuN65ehifj1GfhzbdsVjOPP
-         Pb0A==
+        bh=u+SZJIt3Oht16+5QUD2TEzKrVM8LdPTS44kVcDY3BXc=;
+        b=c14dKDZk4co8gGn26QnY/0Q26fw6elognYCQmgvvPksXki679h8a+VJAvHoYdXhWk3
+         eHGJYc0RX4XmtdpbVj0EE1UUHttK1By1n7+OK59ODojlOxqg93Zn2bCYQ5NsJx659q9h
+         XtdNUjYNSMGTsxVPhBkvD/MJgH6VJSsnhf4U+7SQBXWGzbWwhnng1UlilWnDwFozGRdP
+         s81ChYUTIM0vLM8HpjRIQGQ/Rp0N0EDCx87auGPKgjqiWcEOdQ0BzbbZq65HmWdvhTio
+         L0AEu+IdoJ+KJ9EAKHV/QcCpqrrjOObCOa1qUMGp0IUac6aymwsv+6bWpVDeFa1s+siz
+         fnww==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=nMPguOb5;
-       spf=pass (google.com: domain of bot@kernelci.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=bot@kernelci.org
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:date:mime-version:content-transfer-encoding
-         :subject:to:from:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=bsFh3S5Xa7gXJSP7EeRE1qDjUDkKZ2vLWPQMIN3Xe00=;
-        b=iRJvouRSkMD3ihqGXTMVL2bEudySnR+tUUVw4BvmH+8JLEu1E04wiE8N/IOr37P5uV
-         b5+ybQk/PI+j6uZaujfgOTl3MJnRZcRtuRlMyckjN6seupTDSR5B+uU0jbOewS7yQoc1
-         4a6QJM1GAgWdufd15Uyl5PelTZH5Rk/Z5ayUNM2/Hd7kuDdBG+sunApDlhgqaUXocGWj
-         7tpq3wKFRX5iqpak045W6u9f3ZNxAZ7DbxnOcSNedEFtPo48ptyTXcyj8scxayLdP8Py
-         UcdJj5Vc6sJxlDni+gQRvnN8xrmmnjy4rYUwmO3QjJ5k2hoNAzqmi+WHBHgU6mtIxXru
-         VjAA==
+        h=sender:date:from:to:cc:subject:message-id:mime-version
+         :content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=u+SZJIt3Oht16+5QUD2TEzKrVM8LdPTS44kVcDY3BXc=;
+        b=ZQiYg81jbGmJif3zmdO0tFL1u837uVbv8APc3firpoVonH2TpYgN7QTdG3OEeAnUkd
+         MpNVubc/9wi3e8Q5CuPdL3BEDAwgntxJLoRqk4yfUxiIiSTUZEYlddAYoq+1DGjIUp6O
+         QRZFeyCQHnQoAqndX8fvc4dkkWnCeSnaVuP8DIq46VANZPS5v3eWsyg1qACEyp+AlZiN
+         5hj4gy5yTBW+9H/x9N2G19wssSCt8XRagZARTzLWoNgtwC5eRiWCpRW/IYDi0RuB5Coz
+         YmX6NAs+WFIHy67QuhOd2ESokf18ACXZlnaFyYdFnDe+8a/nxcfcS0/QRj/VXAjqtpi+
+         vVxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:date:mime-version
-         :content-transfer-encoding:subject:to:from:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=bsFh3S5Xa7gXJSP7EeRE1qDjUDkKZ2vLWPQMIN3Xe00=;
-        b=RsmlkzxvgmEUsoTCkRifVIfhCw8EvaSsUuX5ThL8bNO97rP1wrghOw8Ts9y4kYNZIf
-         btO3/eJDwzk1+1yC+wgZH3LQzr12GajLeqDBI8V4xMOnihlpmQrnVQaBvjInSz61dtWr
-         kROUWw6XWNi9a2TiA1kkO7qfB00IVbOhEM7uHrIVbbbPpAtPI5bA113g+gRXbTZKv3qN
-         dmne1/zTa21ve9y9PIKLr2u9uf41E1uIh587FgDfiXaZltfEnYcLsAi0Wb71edYH4UOX
-         +oedVWmdY167bM2G2M9yXFcOPnjpwNSfhTaCnwapOje0Kb9FCEhYPa37NGrTfB91prkX
-         +4fg==
+        bh=u+SZJIt3Oht16+5QUD2TEzKrVM8LdPTS44kVcDY3BXc=;
+        b=K8z1WhE2Q7omXhQFRSNTGboOR3i3t7XW5b8tKgOAFTS33Nv5nxcXoijGaPQh5Oa8dj
+         0g/oNz1bhk08+uwNo13IM6UILE0t14E5vBjGmllqQZDGKJu6eoeNuxSm2QOmiAfMyDVD
+         PVx7sNiBjuy6Q8boZpn8nKT3p0l0ho1hH1hUExbI/Y4G+4RIXLm4UdiU+xcWznWXyiVg
+         V+NHMTdgfwHZDhJ7aRn85si1BZiVryXvz6s9TTAq3/Sf4SA3xmQuS226cxr4rWoF1J5S
+         TqCDNVnF+c/dfZ+RMxBm+BwEYNLJpXQATbepQNVHotRK3fmWVGlOzP07V301R6aysvlq
+         /SHA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXFAWJiHSuGO5HdUge6xpE9Whu5/j/WAgqSUBwEMcURLVwxba1F
-	OM8TFw+MD+kFZlST2lRlvW4=
-X-Google-Smtp-Source: APXvYqz71fwecRwrlkQPxgzJqCmnT6uV3dlk383vtdKk95CjoZyX0Kbub+vsZqgll/b2tcJDoV/CDg==
-X-Received: by 2002:a50:99da:: with SMTP id n26mr23494632edb.293.1569006191755;
-        Fri, 20 Sep 2019 12:03:11 -0700 (PDT)
+X-Gm-Message-State: APjAAAUZz0fwSeYVD0p21+dzwecxtVoWnqCOp8FkJ+eIq3ON9eLxW/u/
+	M3zpgecyUIuY+CV5raMWBP0=
+X-Google-Smtp-Source: APXvYqxjGH+h0FMaBc02rO53wTqqRj+C1KMX9VlXwpdS8bzg51SURroTVHN5p2qu+VyRaK6hPdDzjg==
+X-Received: by 2002:ae9:f50a:: with SMTP id o10mr5640308qkg.372.1569008614747;
+        Fri, 20 Sep 2019 12:43:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:7ac5:: with SMTP id k5ls1733861ejo.14.gmail; Fri, 20
- Sep 2019 12:03:11 -0700 (PDT)
-X-Received: by 2002:a17:906:4a5a:: with SMTP id a26mr20684956ejv.154.1569006191167;
-        Fri, 20 Sep 2019 12:03:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569006191; cv=none;
+Received: by 2002:ac8:4559:: with SMTP id z25ls836996qtn.4.gmail; Fri, 20 Sep
+ 2019 12:43:34 -0700 (PDT)
+X-Received: by 2002:ac8:3564:: with SMTP id z33mr5188268qtb.291.1569008614355;
+        Fri, 20 Sep 2019 12:43:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569008614; cv=none;
         d=google.com; s=arc-20160816;
-        b=bFK0+9GbpzzC+uF4F2VgSriPOY9K1XLlhj2C/cBcfc8TBQ6KF90HisJstaHtPzCfuT
-         SHnDBZ3i6lTimURYAfbBnEVOBt03aDCGGD3sDXSm9oxbI01wrsG0I9spf4bYop1guUCe
-         g5Ev6WnfRe6RcY/T/pPCKz95ZAp6QA0H0tWUT1ZITwaYDed6ZsWF+PdYVWi7U21ZUoz4
-         nVoq4baZjU/H+wkcQKoGU9obpU1TkG5Sw7Fx+h59XzpBsBPLAfZV5htwVU8U0lPZnC3/
-         JP7P1R2VVXirQXOqq47MYUFebnhgUKgJz6zUbeAO2L4LxI4VN9XGHrBJA3lLOE6Jsk7d
-         ktxQ==
+        b=fanbPpJ2uXrtlROpFB42ohhOT+koxNDcNsdfZ/LQQ1q55qAq4bfhMi79gLIKQDmFTT
+         oxEygbQWvmGJ8q9qqWUZKiDNbMzFmW84+lpKgljxpag2eOS+5DVBctmciaNsi+79NDW5
+         wfz0bwcetAbIcDPjEN13l38Gi/fL9xtbxIRoJ3krtFBzJ2ap1MUXo/APyHUdsvk4+cAe
+         Co0MPUQ8OtZVmePxV5eHGLNkmixqLiB+D6bIdl14prsZ9OArMMt4DpCk3nApcFNtJBsc
+         kfUBnJdWQYJItGO6XUlJB8Dtq/6AbZwaUS3hRic6YUQu5qaoYHO++w3gJBP7rm9Q9s6Y
+         u8ew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:dkim-signature;
-        bh=2GfQMvLkcrTu5Pdh7HVQJYjOWQpXd/xwkvvLDE6C8v4=;
-        b=zexgUkVTiDVVphwux/kBvhyxoBXkzpZfgin3HE1Jy+qcgxOlsvIhQ6ciSgk2LjWTpJ
-         JXCTVzlwgYSjo/C/q5xXhICDSyWCp2ORWfo81jj1qM7kUoNAUoDf4P0SUPv7po70Qsdu
-         kAqgQ5GDi+LXQcAnn48t77VB2IDr0OqEO8cs4eKXCnOan3++pPC4ix7276ntCMYPlOOF
-         lJdp3N3+OhWzR7znlAf4a7oVB6Vk3Nu6/1gyXuAK+R1K4ej/SS2LiIeuynK2R+p+FG5p
-         o6N1oFxolfwDjifcmN0Ey664FcYZavF+NKDnePViPcXmCxdnEoq+MAYgZAIFLwM4O9SW
-         EA6g==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date;
+        bh=Ftij5LWQpT1FrfmPTeBx0iLp+uJTzfGOAZ1NqoMlKI8=;
+        b=R0EPly0yMFIuG5Z7RgNgxe1QTdr+Zf/QEjHe6fB6GOmfNvp7oYajG55rdL2rgh18xQ
+         9qo/IEw1nhfYcOYxhMA1X8n8L9rOP7iscBMuj9Ch3eiIwb/0BKoKYtFWz1kGOu6irWpK
+         j+rU3OKidkHaGV14Xx67r6nASf2dwMKs+KHe5sd75PBG7yQ6rX/tH9UqTM5rlwoF+h3n
+         bF7Kgmah382XTh9BTGjobvtt7SG69oO8/W0Podk062IQCFWsTsohgq6C+lA1rAQon7bt
+         UtIm0lJeY8OZVhmjkRuHJn0wQHQtUayXN68r2ejw9V/eh0VgH5acW95ntuf28lmT7dNL
+         M2ig==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=nMPguOb5;
-       spf=pass (google.com: domain of bot@kernelci.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=bot@kernelci.org
-Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id d27si150875ejt.1.2019.09.20.12.03.11
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Sep 2019 12:03:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bot@kernelci.org designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
-Received: by mail-wm1-x344.google.com with SMTP id m18so3272445wmc.1
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Sep 2019 12:03:11 -0700 (PDT)
-X-Received: by 2002:a1c:4b10:: with SMTP id y16mr4334599wma.54.1569006188682;
-        Fri, 20 Sep 2019 12:03:08 -0700 (PDT)
-Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
-        by smtp.gmail.com with ESMTPSA id e17sm1901776wma.15.2019.09.20.12.03.07
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id n67si176531qkc.1.2019.09.20.12.43.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 20 Sep 2019 12:03:07 -0700 (PDT)
-Message-ID: <5d85226b.1c69fb81.2ca64.962c@mx.google.com>
-Date: Fri, 20 Sep 2019 12:03:07 -0700 (PDT)
-Content-Type: text/plain; charset="UTF-8"
+        Fri, 20 Sep 2019 12:43:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 20 Sep 2019 12:43:32 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.64,529,1559545200"; 
+   d="gz'50?scan'50,208,50";a="192455198"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by orsmga006.jf.intel.com with ESMTP; 20 Sep 2019 12:43:30 -0700
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1iBOoT-000I1B-SA; Sat, 21 Sep 2019 03:43:29 +0800
+Date: Sat, 21 Sep 2019 03:43:16 +0800
+From: kbuild test robot <lkp@intel.com>
+To: kbuild@01.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com
+Subject: [mark-rutland:arm64/kcsan 1/2] version.c:(.text+0x4): multiple
+ definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first
+ defined here
+Message-ID: <201909210312.zv13SHKE%lkp@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Kernel: next-20190920
-X-Kernelci-Tree: next
-X-Kernelci-Report-Type: build
-X-Kernelci-Branch: master
-Subject: next/master build: 218 builds: 6 failed, 212 passed, 11 errors,
- 583 warnings (next-20190920)
-To: clang-built-linux@googlegroups.com
-From: "kernelci.org bot" <bot@kernelci.org>
-X-Original-Sender: bot@kernelci.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
- header.b=nMPguOb5;       spf=pass (google.com: domain of bot@kernelci.org
- designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=bot@kernelci.org
+Content-Type: multipart/mixed; boundary="wtgzfypuncykdhl6"
+Content-Disposition: inline
+X-Patchwork-Hint: ignore
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,3167 +138,302 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-next/master build: 218 builds: 6 failed, 212 passed, 11 errors, 583 warning=
-s (next-20190920)
 
-Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
-xt-20190920/
-
-Tree: next
-Branch: master
-Git Describe: next-20190920
-Git Commit: b5b3bd898ba99fb0fb6aed3b23ec6353a1724d6f
-Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-Built: 7 unique architectures
-
-Build Failures Detected:
-
-arm64:
-    allmodconfig: (clang-8) FAIL
-    allmodconfig: (gcc-8) FAIL
-
-arm:
-    allmodconfig: (gcc-8) FAIL
-
-mips:
-    cavium_octeon_defconfig: (gcc-8) FAIL
-    msp71xx_defconfig: (gcc-8) FAIL
-
-x86_64:
-    allmodconfig: (gcc-8) FAIL
-
-Errors and Warnings Detected:
-
-arc:
-    allnoconfig (gcc-8): 1 warning
-    axs103_defconfig (gcc-8): 2 warnings
-    axs103_smp_defconfig (gcc-8): 2 warnings
-    haps_hs_defconfig (gcc-8): 2 warnings
-    haps_hs_smp_defconfig (gcc-8): 2 warnings
-    hsdk_defconfig (gcc-8): 2 warnings
-    nsim_hs_defconfig (gcc-8): 2 warnings
-    nsim_hs_defconfig (gcc-8): 29 warnings
-    nsim_hs_smp_defconfig (gcc-8): 2 warnings
-    nsimosci_hs_defconfig (gcc-8): 2 warnings
-    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
-    tinyconfig (gcc-8): 1 warning
-    vdk_hs38_defconfig (gcc-8): 1 warning
-    vdk_hs38_smp_defconfig (gcc-8): 1 warning
-
-arm64:
-    allmodconfig (clang-8): 1 error, 13 warnings
-    allmodconfig (gcc-8): 1 error, 1 warning
-    defconfig (gcc-8): 4 warnings
-    defconfig (clang-8): 5 warnings
-    defconfig (gcc-8): 4 warnings
-    defconfig (gcc-8): 4 warnings
-    defconfig (gcc-8): 31 warnings
-
-arm:
-    allmodconfig (gcc-8): 1 error, 1 warning
-    am200epdkit_defconfig (gcc-8): 2 warnings
-    assabet_defconfig (gcc-8): 1 warning
-    at91_dt_defconfig (gcc-8): 2 warnings
-    axm55xx_defconfig (gcc-8): 2 warnings
-    cm_x2xx_defconfig (gcc-8): 2 warnings
-    cm_x300_defconfig (gcc-8): 2 warnings
-    cns3420vb_defconfig (gcc-8): 2 warnings
-    colibri_pxa270_defconfig (gcc-8): 2 warnings
-    colibri_pxa300_defconfig (gcc-8): 2 warnings
-    collie_defconfig (gcc-8): 1 warning
-    davinci_all_defconfig (gcc-8): 3 warnings
-    dove_defconfig (gcc-8): 2 warnings
-    em_x270_defconfig (gcc-8): 2 warnings
-    ep93xx_defconfig (gcc-8): 2 warnings
-    eseries_pxa_defconfig (gcc-8): 2 warnings
-    exynos_defconfig (gcc-8): 2 warnings
-    ezx_defconfig (gcc-8): 2 warnings
-    h3600_defconfig (gcc-8): 1 warning
-    h5000_defconfig (gcc-8): 2 warnings
-    imote2_defconfig (gcc-8): 2 warnings
-    imx_v4_v5_defconfig (gcc-8): 2 warnings
-    imx_v6_v7_defconfig (gcc-8): 2 warnings
-    integrator_defconfig (gcc-8): 2 warnings
-    ixp4xx_defconfig (gcc-8): 2 warnings
-    keystone_defconfig (gcc-8): 2 warnings
-    lpc32xx_defconfig (gcc-8): 2 warnings
-    magician_defconfig (gcc-8): 2 warnings
-    milbeaut_m10v_defconfig (gcc-8): 2 warnings
-    mini2440_defconfig (gcc-8): 1 error, 4 warnings
-    mmp2_defconfig (gcc-8): 2 warnings
-    multi_v5_defconfig (gcc-8): 2 warnings
-    multi_v7_defconfig (gcc-8): 3 warnings
-    multi_v7_defconfig (gcc-8): 3 warnings
-    multi_v7_defconfig (gcc-8): 3 warnings
-    multi_v7_defconfig (gcc-8): 3 warnings
-    multi_v7_defconfig (gcc-8): 28 warnings
-    mv78xx0_defconfig (gcc-8): 2 warnings
-    mvebu_v5_defconfig (gcc-8): 2 warnings
-    mvebu_v7_defconfig (gcc-8): 2 warnings
-    mxs_defconfig (gcc-8): 3 warnings
-    neponset_defconfig (gcc-8): 1 warning
-    nhk8815_defconfig (gcc-8): 2 warnings
-    omap1_defconfig (gcc-8): 2 warnings
-    omap2plus_defconfig (gcc-8): 3 warnings
-    orion5x_defconfig (gcc-8): 2 warnings
-    oxnas_v6_defconfig (gcc-8): 2 warnings
-    palmz72_defconfig (gcc-8): 2 warnings
-    pcm027_defconfig (gcc-8): 2 warnings
-    prima2_defconfig (gcc-8): 2 warnings
-    pxa168_defconfig (gcc-8): 2 warnings
-    pxa3xx_defconfig (gcc-8): 2 warnings
-    pxa910_defconfig (gcc-8): 2 warnings
-    qcom_defconfig (gcc-8): 2 warnings
-    realview_defconfig (gcc-8): 2 warnings
-    s3c6400_defconfig (gcc-8): 2 warnings
-    s5pv210_defconfig (gcc-8): 2 warnings
-    sama5_defconfig (gcc-8): 2 warnings
-    shannon_defconfig (gcc-8): 1 warning
-    spear13xx_defconfig (gcc-8): 2 warnings
-    sunxi_defconfig (gcc-8): 2 warnings
-    tango4_defconfig (gcc-8): 2 warnings
-    tegra_defconfig (gcc-8): 2 warnings
-    trizeps4_defconfig (gcc-8): 2 warnings
-    u300_defconfig (gcc-8): 2 warnings
-    u8500_defconfig (gcc-8): 2 warnings
-    versatile_defconfig (gcc-8): 2 warnings
-    vexpress_defconfig (gcc-8): 2 warnings
-    viper_defconfig (gcc-8): 2 warnings
-    xcep_defconfig (gcc-8): 2 warnings
-    zeus_defconfig (gcc-8): 2 warnings
-
-i386:
-    i386_defconfig (gcc-8): 27 warnings
-
-mips:
-    32r2el_defconfig (gcc-8): 3 warnings
-    32r2el_defconfig (gcc-8): 30 warnings
-    allnoconfig (gcc-8): 1 warning
-    ar7_defconfig (gcc-8): 2 warnings
-    ath25_defconfig (gcc-8): 2 warnings
-    ath79_defconfig (gcc-8): 2 warnings
-    bcm47xx_defconfig (gcc-8): 2 warnings
-    bcm63xx_defconfig (gcc-8): 1 warning
-    bigsur_defconfig (gcc-8): 6 warnings
-    bmips_be_defconfig (gcc-8): 1 warning
-    bmips_stb_defconfig (gcc-8): 1 warning
-    capcella_defconfig (gcc-8): 2 warnings
-    cavium_octeon_defconfig (gcc-8): 2 errors, 4 warnings
-    ci20_defconfig (gcc-8): 1 warning
-    cobalt_defconfig (gcc-8): 2 warnings
-    db1xxx_defconfig (gcc-8): 2 warnings
-    decstation_64_defconfig (gcc-8): 8 warnings
-    decstation_defconfig (gcc-8): 4 warnings
-    decstation_r4k_defconfig (gcc-8): 4 warnings
-    e55_defconfig (gcc-8): 2 warnings
-    fuloong2e_defconfig (gcc-8): 6 warnings
-    gcw0_defconfig (gcc-8): 1 warning
-    gpr_defconfig (gcc-8): 2 warnings
-    ip22_defconfig (gcc-8): 2 warnings
-    ip27_defconfig (gcc-8): 6 warnings
-    ip28_defconfig (gcc-8): 6 warnings
-    ip32_defconfig (gcc-8): 7 warnings
-    jazz_defconfig (gcc-8): 3 warnings
-    jmr3927_defconfig (gcc-8): 1 warning
-    lasat_defconfig (gcc-8): 1 warning
-    lemote2f_defconfig (gcc-8): 7 warnings
-    loongson1b_defconfig (gcc-8): 2 warnings
-    loongson1c_defconfig (gcc-8): 2 warnings
-    loongson3_defconfig (gcc-8): 7 warnings
-    malta_defconfig (gcc-8): 2 warnings
-    malta_kvm_defconfig (gcc-8): 2 warnings
-    malta_kvm_guest_defconfig (gcc-8): 2 warnings
-    malta_qemu_32r6_defconfig (gcc-8): 3 warnings
-    maltaaprp_defconfig (gcc-8): 2 warnings
-    maltasmvp_defconfig (gcc-8): 2 warnings
-    maltasmvp_eva_defconfig (gcc-8): 2 warnings
-    maltaup_defconfig (gcc-8): 2 warnings
-    maltaup_xpa_defconfig (gcc-8): 2 warnings
-    markeins_defconfig (gcc-8): 2 warnings
-    mips_paravirt_defconfig (gcc-8): 6 warnings
-    mpc30x_defconfig (gcc-8): 2 warnings
-    msp71xx_defconfig (gcc-8): 4 errors, 2 warnings
-    mtx1_defconfig (gcc-8): 2 warnings
-    nlm_xlp_defconfig (gcc-8): 7 warnings
-    nlm_xlr_defconfig (gcc-8): 3 warnings
-    omega2p_defconfig (gcc-8): 1 warning
-    pic32mzda_defconfig (gcc-8): 2 warnings
-    pistachio_defconfig (gcc-8): 2 warnings
-    pnx8335_stb225_defconfig (gcc-8): 2 warnings
-    qi_lb60_defconfig (gcc-8): 2 warnings
-    rb532_defconfig (gcc-8): 2 warnings
-    rbtx49xx_defconfig (gcc-8): 2 warnings
-    rm200_defconfig (gcc-8): 3 warnings
-    rt305x_defconfig (gcc-8): 2 warnings
-    sb1250_swarm_defconfig (gcc-8): 4 warnings
-    tb0219_defconfig (gcc-8): 2 warnings
-    tb0226_defconfig (gcc-8): 2 warnings
-    tb0287_defconfig (gcc-8): 2 warnings
-    tinyconfig (gcc-8): 1 warning
-    vocore2_defconfig (gcc-8): 1 warning
-    workpad_defconfig (gcc-8): 2 warnings
-    xway_defconfig (gcc-8): 2 warnings
-
-riscv:
-    defconfig (gcc-8): 27 warnings
-    rv32_defconfig (gcc-8): 6 warnings
-
-x86_64:
-    allmodconfig (gcc-8): 1 error, 1 warning
-    tinyconfig (gcc-8): 1 warning
-    x86_64_defconfig (gcc-8): 27 warnings
-
-Errors summary:
-
-    3    collect2: error: ld returned 1 exit status
-    1    clang: error: linker command failed with exit code 1 (use -v to se=
-e invocation)
-    1    arch/mips/pmcs-msp71xx/msp_prom.c:65:20: error: 'prom_mem_size' de=
-fined but not used [-Werror=3Dunused-variable]
-    1    arch/mips/pmcs-msp71xx/msp_prom.c:64:34: error: 'MAX_PROM_MEM' und=
-eclared here (not in a function); did you mean 'DEV_PROP_MAX'?
-    1    arch/mips/pmcs-msp71xx/msp_prom.c:64:20: error: 'prom_mem_base' de=
-fined but not used [-Werror=3Dunused-variable]
-    1    arch/mips/pmcs-msp71xx/msp_prom.c:380:16: error: unused variable '=
-addr' [-Werror=3Dunused-variable]
-    1    arch/mips/include/asm/octeon/cvmx-ipd.h:331:36: error: 'CVMX_PIP_S=
-FT_RST' undeclared (first use in this function); did you mean 'CVMX_CIU_SOF=
-T_RST'?
-    1    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: error: storage siz=
-e of 'pip_sft_rst' isn't known
-    1    "error: actual length %d less than expected %ld\n",
-
-Warnings summary:
-
-    192  <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
--Wcpp]
-    128  WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    13   block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROT=
-ECTION' not handled in switch [-Wswitch]
-    10   WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYM=
-BOL_GPL
-    6    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a sta=
-tic EXPORT_SYMBOL
-    6    1 warning generated.
-    5    drivers/video/fbdev/sa1100fb.c:975:21: warning: 'sa1100fb_min_dma_=
-period' defined but not used [-Wunused-function]
-    5    arch/arm64/configs/defconfig:726:warning: symbol value 'm' invalid=
- for REMOTEPROC
-    5    arch/arm/configs/multi_v7_defconfig:936:warning: symbol value 'm' =
-invalid for REMOTEPROC
-    3    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' =
-[-Wunused-variable]
-    2    block/t10-pi.c:62:11: warning: enumeration value 'T10_PI_TYPE0_PRO=
-TECTION' not handled in switch [-Wswitch]
-    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
--Wcpp]
-    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
-d [-Wcpp]
-    1    {standard input}:134: Warning: macro instruction expanded into mul=
-tiple instructions
-    1    mm/shmem.c:2736:35: warning: variable 'shmem_falloc_waitq' is unin=
-itialized when used within its own initialization [-Wuninitialized]
-    1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitiali=
-zed when used within its own initialization [-Wuninitialized]
-    1    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized wh=
-en used within its own initialization [-Wuninitialized]
-    1    fs/namei.c:3128:34: warning: variable 'wq' is uninitialized when u=
-sed within its own initialization [-Wuninitialized]
-    1    fs/namei.c:1640:34: warning: variable 'wq' is uninitialized when u=
-sed within its own initialization [-Wuninitialized]
-    1    drivers/net/wireless/zydas/zd1211rw/zd_def.h:18:25: warning: forma=
-t '%ld' expects argument of type 'long int', but argument 6 has type 'size_=
-t' {aka 'unsigned int'} [-Wformat=3D]
-    1    drivers/mtd/nand/raw/au1550nd.c:443:57: warning: pointer type mism=
-atch in conditional expression
-    1    drivers/android/binderfs.c:657:41: warning: suggest braces around =
-initialization of subobject [-Wmissing-braces]
-    1    cc1: all warnings being treated as errors
-    1    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: warning: unused va=
-riable 'pip_sft_rst' [-Wunused-variable]
-    1    arch/arm/configs/omap2plus_defconfig:484:warning: symbol value 'm'=
- invalid for REMOTEPROC
-    1    arch/arm/configs/davinci_all_defconfig:231:warning: symbol value '=
-m' invalid for REMOTEPROC
-    1    2 warnings generated.
-    1    .config:1179:warning: override: UNWINDER_GUESS changes choice stat=
-e
-    1    ./.tmp.config.yZc1qryTGt:3990:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.yZc1qryTGt:3974:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.yZc1qryTGt:3973:warning: override: reassigning to sy=
-mbol STAGING
-    1    ./.tmp.config.yZc1qryTGt:3969:warning: override: reassigning to sy=
-mbol SECURITYFS
-    1    ./.tmp.config.yZc1qryTGt:3949:warning: override: reassigning to sy=
-mbol IPV6_GRE
-    1    ./.tmp.config.yZc1qryTGt:3943:warning: override: reassigning to sy=
-mbol NET_CLS_FLOWER
-    1    ./.tmp.config.yZc1qryTGt:3934:warning: override: reassigning to sy=
-mbol IPV6
-    1    ./.tmp.config.yZc1qryTGt:3932:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.yZc1qryTGt:3931:warning: override: reassigning to sy=
-mbol NET_SCHED
-    1    ./.tmp.config.yZc1qryTGt:3930:warning: override: reassigning to sy=
-mbol NET_CLS_ACT
-    1    ./.tmp.config.yZc1qryTGt:3928:warning: override: reassigning to sy=
-mbol CGROUP_BPF
-    1    ./.tmp.config.yZc1qryTGt:3927:warning: override: reassigning to sy=
-mbol TEST_BPF
-    1    ./.tmp.config.yZc1qryTGt:3924:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.yZc1qryTGt:3917:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.yZc1qryTGt:3907:warning: override: reassigning to sy=
-mbol NOTIFIER_ERROR_INJECTION
-    1    ./.tmp.config.yZc1qryTGt:3896:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.yZc1qryTGt:3788:warning: override: reassigning to sy=
-mbol NET_NS
-    1    ./.tmp.config.yZc1qryTGt:3784:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.yZc1qryTGt:3759:warning: override: reassigning to sy=
-mbol NET_ACT_GACT
-    1    ./.tmp.config.yZc1qryTGt:3738:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.yZc1qryTGt:3680:warning: override: reassigning to sy=
-mbol VLAN_8021Q
-    1    ./.tmp.config.yZc1qryTGt:3679:warning: override: reassigning to sy=
-mbol BRIDGE
-    1    ./.tmp.config.yZc1qryTGt:3675:warning: override: reassigning to sy=
-mbol VETH
-    1    ./.tmp.config.yZc1qryTGt:3674:warning: override: reassigning to sy=
-mbol IPV6_MULTIPLE_TABLES
-    1    ./.tmp.config.yZc1qryTGt:3672:warning: override: reassigning to sy=
-mbol NET_L3_MASTER_DEV
-    1    ./.tmp.config.yZc1qryTGt:3671:warning: override: reassigning to sy=
-mbol NET_VRF
-    1    ./.tmp.config.yZc1qryTGt:3668:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.ukveoQj9sD:1754:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.ukveoQj9sD:1738:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.ukveoQj9sD:1737:warning: override: reassigning to sy=
-mbol STAGING
-    1    ./.tmp.config.ukveoQj9sD:1733:warning: override: reassigning to sy=
-mbol SECURITYFS
-    1    ./.tmp.config.ukveoQj9sD:1713:warning: override: reassigning to sy=
-mbol IPV6_GRE
-    1    ./.tmp.config.ukveoQj9sD:1707:warning: override: reassigning to sy=
-mbol NET_CLS_FLOWER
-    1    ./.tmp.config.ukveoQj9sD:1698:warning: override: reassigning to sy=
-mbol IPV6
-    1    ./.tmp.config.ukveoQj9sD:1696:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.ukveoQj9sD:1695:warning: override: reassigning to sy=
-mbol NET_SCHED
-    1    ./.tmp.config.ukveoQj9sD:1694:warning: override: reassigning to sy=
-mbol NET_CLS_ACT
-    1    ./.tmp.config.ukveoQj9sD:1692:warning: override: reassigning to sy=
-mbol CGROUP_BPF
-    1    ./.tmp.config.ukveoQj9sD:1691:warning: override: reassigning to sy=
-mbol TEST_BPF
-    1    ./.tmp.config.ukveoQj9sD:1688:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.ukveoQj9sD:1681:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.ukveoQj9sD:1671:warning: override: reassigning to sy=
-mbol NOTIFIER_ERROR_INJECTION
-    1    ./.tmp.config.ukveoQj9sD:1660:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.ukveoQj9sD:1552:warning: override: reassigning to sy=
-mbol NET_NS
-    1    ./.tmp.config.ukveoQj9sD:1548:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.ukveoQj9sD:1523:warning: override: reassigning to sy=
-mbol NET_ACT_GACT
-    1    ./.tmp.config.ukveoQj9sD:1502:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.ukveoQj9sD:1444:warning: override: reassigning to sy=
-mbol VLAN_8021Q
-    1    ./.tmp.config.ukveoQj9sD:1443:warning: override: reassigning to sy=
-mbol BRIDGE
-    1    ./.tmp.config.ukveoQj9sD:1439:warning: override: reassigning to sy=
-mbol VETH
-    1    ./.tmp.config.ukveoQj9sD:1438:warning: override: reassigning to sy=
-mbol IPV6_MULTIPLE_TABLES
-    1    ./.tmp.config.ukveoQj9sD:1436:warning: override: reassigning to sy=
-mbol NET_L3_MASTER_DEV
-    1    ./.tmp.config.ukveoQj9sD:1435:warning: override: reassigning to sy=
-mbol NET_VRF
-    1    ./.tmp.config.ukveoQj9sD:1432:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.laepkqyIy7:8489:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.laepkqyIy7:8473:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.laepkqyIy7:8472:warning: override: reassigning to sy=
-mbol STAGING
-    1    ./.tmp.config.laepkqyIy7:8468:warning: override: reassigning to sy=
-mbol SECURITYFS
-    1    ./.tmp.config.laepkqyIy7:8448:warning: override: reassigning to sy=
-mbol IPV6_GRE
-    1    ./.tmp.config.laepkqyIy7:8442:warning: override: reassigning to sy=
-mbol NET_CLS_FLOWER
-    1    ./.tmp.config.laepkqyIy7:8433:warning: override: reassigning to sy=
-mbol IPV6
-    1    ./.tmp.config.laepkqyIy7:8431:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.laepkqyIy7:8430:warning: override: reassigning to sy=
-mbol NET_SCHED
-    1    ./.tmp.config.laepkqyIy7:8429:warning: override: reassigning to sy=
-mbol NET_CLS_ACT
-    1    ./.tmp.config.laepkqyIy7:8427:warning: override: reassigning to sy=
-mbol CGROUP_BPF
-    1    ./.tmp.config.laepkqyIy7:8426:warning: override: reassigning to sy=
-mbol TEST_BPF
-    1    ./.tmp.config.laepkqyIy7:8423:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.laepkqyIy7:8416:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.laepkqyIy7:8406:warning: override: reassigning to sy=
-mbol NOTIFIER_ERROR_INJECTION
-    1    ./.tmp.config.laepkqyIy7:8395:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.laepkqyIy7:8287:warning: override: reassigning to sy=
-mbol NET_NS
-    1    ./.tmp.config.laepkqyIy7:8283:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.laepkqyIy7:8258:warning: override: reassigning to sy=
-mbol NET_ACT_GACT
-    1    ./.tmp.config.laepkqyIy7:8237:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.laepkqyIy7:8179:warning: override: reassigning to sy=
-mbol VLAN_8021Q
-    1    ./.tmp.config.laepkqyIy7:8178:warning: override: reassigning to sy=
-mbol BRIDGE
-    1    ./.tmp.config.laepkqyIy7:8174:warning: override: reassigning to sy=
-mbol VETH
-    1    ./.tmp.config.laepkqyIy7:8173:warning: override: reassigning to sy=
-mbol IPV6_MULTIPLE_TABLES
-    1    ./.tmp.config.laepkqyIy7:8171:warning: override: reassigning to sy=
-mbol NET_L3_MASTER_DEV
-    1    ./.tmp.config.laepkqyIy7:8170:warning: override: reassigning to sy=
-mbol NET_VRF
-    1    ./.tmp.config.laepkqyIy7:8167:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.YvC8rNniTP:3381:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.YvC8rNniTP:3365:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.YvC8rNniTP:3364:warning: override: reassigning to sy=
-mbol STAGING
-    1    ./.tmp.config.YvC8rNniTP:3360:warning: override: reassigning to sy=
-mbol SECURITYFS
-    1    ./.tmp.config.YvC8rNniTP:3340:warning: override: reassigning to sy=
-mbol IPV6_GRE
-    1    ./.tmp.config.YvC8rNniTP:3334:warning: override: reassigning to sy=
-mbol NET_CLS_FLOWER
-    1    ./.tmp.config.YvC8rNniTP:3325:warning: override: reassigning to sy=
-mbol IPV6
-    1    ./.tmp.config.YvC8rNniTP:3323:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.YvC8rNniTP:3322:warning: override: reassigning to sy=
-mbol NET_SCHED
-    1    ./.tmp.config.YvC8rNniTP:3321:warning: override: reassigning to sy=
-mbol NET_CLS_ACT
-    1    ./.tmp.config.YvC8rNniTP:3319:warning: override: reassigning to sy=
-mbol CGROUP_BPF
-    1    ./.tmp.config.YvC8rNniTP:3318:warning: override: reassigning to sy=
-mbol TEST_BPF
-    1    ./.tmp.config.YvC8rNniTP:3315:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.YvC8rNniTP:3308:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.YvC8rNniTP:3298:warning: override: reassigning to sy=
-mbol NOTIFIER_ERROR_INJECTION
-    1    ./.tmp.config.YvC8rNniTP:3287:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.YvC8rNniTP:3179:warning: override: reassigning to sy=
-mbol NET_NS
-    1    ./.tmp.config.YvC8rNniTP:3175:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.YvC8rNniTP:3150:warning: override: reassigning to sy=
-mbol NET_ACT_GACT
-    1    ./.tmp.config.YvC8rNniTP:3129:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.YvC8rNniTP:3071:warning: override: reassigning to sy=
-mbol VLAN_8021Q
-    1    ./.tmp.config.YvC8rNniTP:3070:warning: override: reassigning to sy=
-mbol BRIDGE
-    1    ./.tmp.config.YvC8rNniTP:3066:warning: override: reassigning to sy=
-mbol VETH
-    1    ./.tmp.config.YvC8rNniTP:3065:warning: override: reassigning to sy=
-mbol IPV6_MULTIPLE_TABLES
-    1    ./.tmp.config.YvC8rNniTP:3063:warning: override: reassigning to sy=
-mbol NET_L3_MASTER_DEV
-    1    ./.tmp.config.YvC8rNniTP:3062:warning: override: reassigning to sy=
-mbol NET_VRF
-    1    ./.tmp.config.YvC8rNniTP:3059:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.JUo6e2u6ps:4902:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.JUo6e2u6ps:4886:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.JUo6e2u6ps:4885:warning: override: reassigning to sy=
-mbol STAGING
-    1    ./.tmp.config.JUo6e2u6ps:4881:warning: override: reassigning to sy=
-mbol SECURITYFS
-    1    ./.tmp.config.JUo6e2u6ps:4861:warning: override: reassigning to sy=
-mbol IPV6_GRE
-    1    ./.tmp.config.JUo6e2u6ps:4855:warning: override: reassigning to sy=
-mbol NET_CLS_FLOWER
-    1    ./.tmp.config.JUo6e2u6ps:4846:warning: override: reassigning to sy=
-mbol IPV6
-    1    ./.tmp.config.JUo6e2u6ps:4844:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.JUo6e2u6ps:4843:warning: override: reassigning to sy=
-mbol NET_SCHED
-    1    ./.tmp.config.JUo6e2u6ps:4842:warning: override: reassigning to sy=
-mbol NET_CLS_ACT
-    1    ./.tmp.config.JUo6e2u6ps:4840:warning: override: reassigning to sy=
-mbol CGROUP_BPF
-    1    ./.tmp.config.JUo6e2u6ps:4839:warning: override: reassigning to sy=
-mbol TEST_BPF
-    1    ./.tmp.config.JUo6e2u6ps:4836:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.JUo6e2u6ps:4829:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.JUo6e2u6ps:4819:warning: override: reassigning to sy=
-mbol NOTIFIER_ERROR_INJECTION
-    1    ./.tmp.config.JUo6e2u6ps:4808:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.JUo6e2u6ps:4700:warning: override: reassigning to sy=
-mbol NET_NS
-    1    ./.tmp.config.JUo6e2u6ps:4696:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.JUo6e2u6ps:4671:warning: override: reassigning to sy=
-mbol NET_ACT_GACT
-    1    ./.tmp.config.JUo6e2u6ps:4650:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.JUo6e2u6ps:4592:warning: override: reassigning to sy=
-mbol VLAN_8021Q
-    1    ./.tmp.config.JUo6e2u6ps:4591:warning: override: reassigning to sy=
-mbol BRIDGE
-    1    ./.tmp.config.JUo6e2u6ps:4587:warning: override: reassigning to sy=
-mbol VETH
-    1    ./.tmp.config.JUo6e2u6ps:4586:warning: override: reassigning to sy=
-mbol IPV6_MULTIPLE_TABLES
-    1    ./.tmp.config.JUo6e2u6ps:4584:warning: override: reassigning to sy=
-mbol NET_L3_MASTER_DEV
-    1    ./.tmp.config.JUo6e2u6ps:4583:warning: override: reassigning to sy=
-mbol NET_VRF
-    1    ./.tmp.config.JUo6e2u6ps:4580:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.EVohmfkygS:7929:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.EVohmfkygS:7913:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.EVohmfkygS:7912:warning: override: reassigning to sy=
-mbol STAGING
-    1    ./.tmp.config.EVohmfkygS:7908:warning: override: reassigning to sy=
-mbol SECURITYFS
-    1    ./.tmp.config.EVohmfkygS:7888:warning: override: reassigning to sy=
-mbol IPV6_GRE
-    1    ./.tmp.config.EVohmfkygS:7882:warning: override: reassigning to sy=
-mbol NET_CLS_FLOWER
-    1    ./.tmp.config.EVohmfkygS:7873:warning: override: reassigning to sy=
-mbol IPV6
-    1    ./.tmp.config.EVohmfkygS:7871:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.EVohmfkygS:7870:warning: override: reassigning to sy=
-mbol NET_SCHED
-    1    ./.tmp.config.EVohmfkygS:7869:warning: override: reassigning to sy=
-mbol NET_CLS_ACT
-    1    ./.tmp.config.EVohmfkygS:7867:warning: override: reassigning to sy=
-mbol CGROUP_BPF
-    1    ./.tmp.config.EVohmfkygS:7866:warning: override: reassigning to sy=
-mbol TEST_BPF
-    1    ./.tmp.config.EVohmfkygS:7863:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.EVohmfkygS:7856:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.EVohmfkygS:7846:warning: override: reassigning to sy=
-mbol NOTIFIER_ERROR_INJECTION
-    1    ./.tmp.config.EVohmfkygS:7835:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.EVohmfkygS:7727:warning: override: reassigning to sy=
-mbol NET_NS
-    1    ./.tmp.config.EVohmfkygS:7723:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.EVohmfkygS:7698:warning: override: reassigning to sy=
-mbol NET_ACT_GACT
-    1    ./.tmp.config.EVohmfkygS:7677:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.EVohmfkygS:7619:warning: override: reassigning to sy=
-mbol VLAN_8021Q
-    1    ./.tmp.config.EVohmfkygS:7618:warning: override: reassigning to sy=
-mbol BRIDGE
-    1    ./.tmp.config.EVohmfkygS:7614:warning: override: reassigning to sy=
-mbol VETH
-    1    ./.tmp.config.EVohmfkygS:7613:warning: override: reassigning to sy=
-mbol IPV6_MULTIPLE_TABLES
-    1    ./.tmp.config.EVohmfkygS:7611:warning: override: reassigning to sy=
-mbol NET_L3_MASTER_DEV
-    1    ./.tmp.config.EVohmfkygS:7610:warning: override: reassigning to sy=
-mbol NET_VRF
-    1    ./.tmp.config.EVohmfkygS:7607:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.1apvxfLOnS:4841:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.1apvxfLOnS:4825:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.1apvxfLOnS:4824:warning: override: reassigning to sy=
-mbol STAGING
-    1    ./.tmp.config.1apvxfLOnS:4820:warning: override: reassigning to sy=
-mbol SECURITYFS
-    1    ./.tmp.config.1apvxfLOnS:4800:warning: override: reassigning to sy=
-mbol IPV6_GRE
-    1    ./.tmp.config.1apvxfLOnS:4794:warning: override: reassigning to sy=
-mbol NET_CLS_FLOWER
-    1    ./.tmp.config.1apvxfLOnS:4785:warning: override: reassigning to sy=
-mbol IPV6
-    1    ./.tmp.config.1apvxfLOnS:4783:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.1apvxfLOnS:4782:warning: override: reassigning to sy=
-mbol NET_SCHED
-    1    ./.tmp.config.1apvxfLOnS:4781:warning: override: reassigning to sy=
-mbol NET_CLS_ACT
-    1    ./.tmp.config.1apvxfLOnS:4779:warning: override: reassigning to sy=
-mbol CGROUP_BPF
-    1    ./.tmp.config.1apvxfLOnS:4778:warning: override: reassigning to sy=
-mbol TEST_BPF
-    1    ./.tmp.config.1apvxfLOnS:4775:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-    1    ./.tmp.config.1apvxfLOnS:4768:warning: override: reassigning to sy=
-mbol ANDROID
-    1    ./.tmp.config.1apvxfLOnS:4758:warning: override: reassigning to sy=
-mbol NOTIFIER_ERROR_INJECTION
-    1    ./.tmp.config.1apvxfLOnS:4747:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.1apvxfLOnS:4639:warning: override: reassigning to sy=
-mbol NET_NS
-    1    ./.tmp.config.1apvxfLOnS:4635:warning: override: reassigning to sy=
-mbol USER_NS
-    1    ./.tmp.config.1apvxfLOnS:4610:warning: override: reassigning to sy=
-mbol NET_ACT_GACT
-    1    ./.tmp.config.1apvxfLOnS:4589:warning: override: reassigning to sy=
-mbol NET_SCH_INGRESS
-    1    ./.tmp.config.1apvxfLOnS:4531:warning: override: reassigning to sy=
-mbol VLAN_8021Q
-    1    ./.tmp.config.1apvxfLOnS:4530:warning: override: reassigning to sy=
-mbol BRIDGE
-    1    ./.tmp.config.1apvxfLOnS:4526:warning: override: reassigning to sy=
-mbol VETH
-    1    ./.tmp.config.1apvxfLOnS:4525:warning: override: reassigning to sy=
-mbol IPV6_MULTIPLE_TABLES
-    1    ./.tmp.config.1apvxfLOnS:4523:warning: override: reassigning to sy=
-mbol NET_L3_MASTER_DEV
-    1    ./.tmp.config.1apvxfLOnS:4522:warning: override: reassigning to sy=
-mbol NET_VRF
-    1    ./.tmp.config.1apvxfLOnS:4519:warning: override: reassigning to sy=
-mbol BPF_SYSCALL
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 30 warni=
-ngs, 0 section mismatches
-
-Warnings:
-    ./.tmp.config.yZc1qryTGt:3668:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.yZc1qryTGt:3671:warning: override: reassigning to symbol =
-NET_VRF
-    ./.tmp.config.yZc1qryTGt:3672:warning: override: reassigning to symbol =
-NET_L3_MASTER_DEV
-    ./.tmp.config.yZc1qryTGt:3674:warning: override: reassigning to symbol =
-IPV6_MULTIPLE_TABLES
-    ./.tmp.config.yZc1qryTGt:3675:warning: override: reassigning to symbol =
-VETH
-    ./.tmp.config.yZc1qryTGt:3679:warning: override: reassigning to symbol =
-BRIDGE
-    ./.tmp.config.yZc1qryTGt:3680:warning: override: reassigning to symbol =
-VLAN_8021Q
-    ./.tmp.config.yZc1qryTGt:3738:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.yZc1qryTGt:3759:warning: override: reassigning to symbol =
-NET_ACT_GACT
-    ./.tmp.config.yZc1qryTGt:3784:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.yZc1qryTGt:3788:warning: override: reassigning to symbol =
-NET_NS
-    ./.tmp.config.yZc1qryTGt:3896:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.yZc1qryTGt:3907:warning: override: reassigning to symbol =
-NOTIFIER_ERROR_INJECTION
-    ./.tmp.config.yZc1qryTGt:3917:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.yZc1qryTGt:3924:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.yZc1qryTGt:3927:warning: override: reassigning to symbol =
-TEST_BPF
-    ./.tmp.config.yZc1qryTGt:3928:warning: override: reassigning to symbol =
-CGROUP_BPF
-    ./.tmp.config.yZc1qryTGt:3930:warning: override: reassigning to symbol =
-NET_CLS_ACT
-    ./.tmp.config.yZc1qryTGt:3931:warning: override: reassigning to symbol =
-NET_SCHED
-    ./.tmp.config.yZc1qryTGt:3932:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.yZc1qryTGt:3934:warning: override: reassigning to symbol =
-IPV6
-    ./.tmp.config.yZc1qryTGt:3943:warning: override: reassigning to symbol =
-NET_CLS_FLOWER
-    ./.tmp.config.yZc1qryTGt:3949:warning: override: reassigning to symbol =
-IPV6_GRE
-    ./.tmp.config.yZc1qryTGt:3969:warning: override: reassigning to symbol =
-SECURITYFS
-    ./.tmp.config.yZc1qryTGt:3973:warning: override: reassigning to symbol =
-STAGING
-    ./.tmp.config.yZc1qryTGt:3974:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.yZc1qryTGt:3990:warning: override: reassigning to symbol =
-USER_NS
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, clang-8) =E2=80=94 FAIL, 1 error, 13 warnings, 0 secti=
-on mismatches
-
-Errors:
-    clang: error: linker command failed with exit code 1 (use -v to see inv=
-ocation)
-
-Warnings:
-    mm/shmem.c:2736:35: warning: variable 'shmem_falloc_waitq' is uninitial=
-ized when used within its own initialization [-Wuninitialized]
-    1 warning generated.
-    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized when us=
-ed within its own initialization [-Wuninitialized]
-    1 warning generated.
-    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized w=
-hen used within its own initialization [-Wuninitialized]
-    1 warning generated.
-    fs/namei.c:1640:34: warning: variable 'wq' is uninitialized when used w=
-ithin its own initialization [-Wuninitialized]
-    fs/namei.c:3128:34: warning: variable 'wq' is uninitialized when used w=
-ithin its own initialization [-Wuninitialized]
-    2 warnings generated.
-    drivers/android/binderfs.c:657:41: warning: suggest braces around initi=
-alization of subobject [-Wmissing-braces]
-    1 warning generated.
-    block/t10-pi.c:62:11: warning: enumeration value 'T10_PI_TYPE0_PROTECTI=
-ON' not handled in switch [-Wswitch]
-    1 warning generated.
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section mis=
-matches
-
-Errors:
-    collect2: error: ld returned 1 exit status
-
-Warnings:
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section m=
-ismatches
-
-Errors:
-    collect2: error: ld returned 1 exit status
-
-Warnings:
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section =
-mismatches
-
-Errors:
-    collect2: error: ld returned 1 exit status
-
-Warnings:
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-
----------------------------------------------------------------------------=
------
-allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
-smatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    drivers/video/fbdev/sa1100fb.c:975:21: warning: 'sa1100fb_min_dma_perio=
-d' defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 4 warnings,=
- 0 section mismatches
-
-Errors:
-    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: error: storage size of =
-'pip_sft_rst' isn't known
-    arch/mips/include/asm/octeon/cvmx-ipd.h:331:36: error: 'CVMX_PIP_SFT_RS=
-T' undeclared (first use in this function); did you mean 'CVMX_CIU_SOFT_RST=
-'?
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    arch/mips/include/asm/octeon/cvmx-ipd.h:330:27: warning: unused variabl=
-e 'pip_sft_rst' [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
- 0 section mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
- 0 section mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    drivers/video/fbdev/sa1100fb.c:975:21: warning: 'sa1100fb_min_dma_perio=
-d' defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
-section mismatches
-
-Warnings:
-    arch/arm/configs/davinci_all_defconfig:231:warning: symbol value 'm' in=
-valid for REMOTEPROC
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    drivers/mtd/nand/raw/au1550nd.c:443:57: warning: pointer type mismatch =
-in conditional expression
-
----------------------------------------------------------------------------=
------
-decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings,=
- 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
-XPORT_SYMBOL
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
-XPORT_SYMBOL
-
----------------------------------------------------------------------------=
------
-decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
-XPORT_SYMBOL
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
-XPORT_SYMBOL
-
----------------------------------------------------------------------------=
------
-decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings=
-, 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
-XPORT_SYMBOL
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    WARNING: "LZ4HC_setExternalDict" [lib/lz4/lz4hc_compress] is a static E=
-XPORT_SYMBOL
-
----------------------------------------------------------------------------=
------
-defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 section mi=
-smatches
-
-Warnings:
-    arch/arm64/configs/defconfig:726:warning: symbol value 'm' invalid for =
-REMOTEPROC
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section =
-mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:726:warning: symbol value 'm' invalid for =
-REMOTEPROC
-    block/t10-pi.c:62:11: warning: enumeration value 'T10_PI_TYPE0_PROTECTI=
-ON' not handled in switch [-Wswitch]
-    1 warning generated.
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 4 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:726:warning: symbol value 'm' invalid for =
-REMOTEPROC
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 4 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:726:warning: symbol value 'm' invalid for =
-REMOTEPROC
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-
----------------------------------------------------------------------------=
------
-defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 27 warnings, 0=
- section mismatches
-
-Warnings:
-    ./.tmp.config.YvC8rNniTP:3059:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.YvC8rNniTP:3062:warning: override: reassigning to symbol =
-NET_VRF
-    ./.tmp.config.YvC8rNniTP:3063:warning: override: reassigning to symbol =
-NET_L3_MASTER_DEV
-    ./.tmp.config.YvC8rNniTP:3065:warning: override: reassigning to symbol =
-IPV6_MULTIPLE_TABLES
-    ./.tmp.config.YvC8rNniTP:3066:warning: override: reassigning to symbol =
-VETH
-    ./.tmp.config.YvC8rNniTP:3070:warning: override: reassigning to symbol =
-BRIDGE
-    ./.tmp.config.YvC8rNniTP:3071:warning: override: reassigning to symbol =
-VLAN_8021Q
-    ./.tmp.config.YvC8rNniTP:3129:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.YvC8rNniTP:3150:warning: override: reassigning to symbol =
-NET_ACT_GACT
-    ./.tmp.config.YvC8rNniTP:3175:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.YvC8rNniTP:3179:warning: override: reassigning to symbol =
-NET_NS
-    ./.tmp.config.YvC8rNniTP:3287:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.YvC8rNniTP:3298:warning: override: reassigning to symbol =
-NOTIFIER_ERROR_INJECTION
-    ./.tmp.config.YvC8rNniTP:3308:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.YvC8rNniTP:3315:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.YvC8rNniTP:3318:warning: override: reassigning to symbol =
-TEST_BPF
-    ./.tmp.config.YvC8rNniTP:3319:warning: override: reassigning to symbol =
-CGROUP_BPF
-    ./.tmp.config.YvC8rNniTP:3321:warning: override: reassigning to symbol =
-NET_CLS_ACT
-    ./.tmp.config.YvC8rNniTP:3322:warning: override: reassigning to symbol =
-NET_SCHED
-    ./.tmp.config.YvC8rNniTP:3323:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.YvC8rNniTP:3325:warning: override: reassigning to symbol =
-IPV6
-    ./.tmp.config.YvC8rNniTP:3334:warning: override: reassigning to symbol =
-NET_CLS_FLOWER
-    ./.tmp.config.YvC8rNniTP:3340:warning: override: reassigning to symbol =
-IPV6_GRE
-    ./.tmp.config.YvC8rNniTP:3360:warning: override: reassigning to symbol =
-SECURITYFS
-    ./.tmp.config.YvC8rNniTP:3364:warning: override: reassigning to symbol =
-STAGING
-    ./.tmp.config.YvC8rNniTP:3365:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.YvC8rNniTP:3381:warning: override: reassigning to symbol =
-USER_NS
-
----------------------------------------------------------------------------=
------
-defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 31 warnings, 0=
- section mismatches
-
-Warnings:
-    arch/arm64/configs/defconfig:726:warning: symbol value 'm' invalid for =
-REMOTEPROC
-    ./.tmp.config.EVohmfkygS:7607:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.EVohmfkygS:7610:warning: override: reassigning to symbol =
-NET_VRF
-    ./.tmp.config.EVohmfkygS:7611:warning: override: reassigning to symbol =
-NET_L3_MASTER_DEV
-    ./.tmp.config.EVohmfkygS:7613:warning: override: reassigning to symbol =
-IPV6_MULTIPLE_TABLES
-    ./.tmp.config.EVohmfkygS:7614:warning: override: reassigning to symbol =
-VETH
-    ./.tmp.config.EVohmfkygS:7618:warning: override: reassigning to symbol =
-BRIDGE
-    ./.tmp.config.EVohmfkygS:7619:warning: override: reassigning to symbol =
-VLAN_8021Q
-    ./.tmp.config.EVohmfkygS:7677:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.EVohmfkygS:7698:warning: override: reassigning to symbol =
-NET_ACT_GACT
-    ./.tmp.config.EVohmfkygS:7723:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.EVohmfkygS:7727:warning: override: reassigning to symbol =
-NET_NS
-    ./.tmp.config.EVohmfkygS:7835:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.EVohmfkygS:7846:warning: override: reassigning to symbol =
-NOTIFIER_ERROR_INJECTION
-    ./.tmp.config.EVohmfkygS:7856:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.EVohmfkygS:7863:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.EVohmfkygS:7866:warning: override: reassigning to symbol =
-TEST_BPF
-    ./.tmp.config.EVohmfkygS:7867:warning: override: reassigning to symbol =
-CGROUP_BPF
-    ./.tmp.config.EVohmfkygS:7869:warning: override: reassigning to symbol =
-NET_CLS_ACT
-    ./.tmp.config.EVohmfkygS:7870:warning: override: reassigning to symbol =
-NET_SCHED
-    ./.tmp.config.EVohmfkygS:7871:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.EVohmfkygS:7873:warning: override: reassigning to symbol =
-IPV6
-    ./.tmp.config.EVohmfkygS:7882:warning: override: reassigning to symbol =
-NET_CLS_FLOWER
-    ./.tmp.config.EVohmfkygS:7888:warning: override: reassigning to symbol =
-IPV6_GRE
-    ./.tmp.config.EVohmfkygS:7908:warning: override: reassigning to symbol =
-SECURITYFS
-    ./.tmp.config.EVohmfkygS:7912:warning: override: reassigning to symbol =
-STAGING
-    ./.tmp.config.EVohmfkygS:7913:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.EVohmfkygS:7929:warning: override: reassigning to symbol =
-USER_NS
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-    WARNING: "HYPERVISOR_platform_op" [vmlinux] is a static EXPORT_SYMBOL_G=
-PL
-
----------------------------------------------------------------------------=
------
-dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
-mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    drivers/video/fbdev/sa1100fb.c:975:21: warning: 'sa1100fb_min_dma_perio=
-d' defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 27 warning=
-s, 0 section mismatches
-
-Warnings:
-    ./.tmp.config.1apvxfLOnS:4519:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.1apvxfLOnS:4522:warning: override: reassigning to symbol =
-NET_VRF
-    ./.tmp.config.1apvxfLOnS:4523:warning: override: reassigning to symbol =
-NET_L3_MASTER_DEV
-    ./.tmp.config.1apvxfLOnS:4525:warning: override: reassigning to symbol =
-IPV6_MULTIPLE_TABLES
-    ./.tmp.config.1apvxfLOnS:4526:warning: override: reassigning to symbol =
-VETH
-    ./.tmp.config.1apvxfLOnS:4530:warning: override: reassigning to symbol =
-BRIDGE
-    ./.tmp.config.1apvxfLOnS:4531:warning: override: reassigning to symbol =
-VLAN_8021Q
-    ./.tmp.config.1apvxfLOnS:4589:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.1apvxfLOnS:4610:warning: override: reassigning to symbol =
-NET_ACT_GACT
-    ./.tmp.config.1apvxfLOnS:4635:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.1apvxfLOnS:4639:warning: override: reassigning to symbol =
-NET_NS
-    ./.tmp.config.1apvxfLOnS:4747:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.1apvxfLOnS:4758:warning: override: reassigning to symbol =
-NOTIFIER_ERROR_INJECTION
-    ./.tmp.config.1apvxfLOnS:4768:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.1apvxfLOnS:4775:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.1apvxfLOnS:4778:warning: override: reassigning to symbol =
-TEST_BPF
-    ./.tmp.config.1apvxfLOnS:4779:warning: override: reassigning to symbol =
-CGROUP_BPF
-    ./.tmp.config.1apvxfLOnS:4781:warning: override: reassigning to symbol =
-NET_CLS_ACT
-    ./.tmp.config.1apvxfLOnS:4782:warning: override: reassigning to symbol =
-NET_SCHED
-    ./.tmp.config.1apvxfLOnS:4783:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.1apvxfLOnS:4785:warning: override: reassigning to symbol =
-IPV6
-    ./.tmp.config.1apvxfLOnS:4794:warning: override: reassigning to symbol =
-NET_CLS_FLOWER
-    ./.tmp.config.1apvxfLOnS:4800:warning: override: reassigning to symbol =
-IPV6_GRE
-    ./.tmp.config.1apvxfLOnS:4820:warning: override: reassigning to symbol =
-SECURITYFS
-    ./.tmp.config.1apvxfLOnS:4824:warning: override: reassigning to symbol =
-STAGING
-    ./.tmp.config.1apvxfLOnS:4825:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.1apvxfLOnS:4841:warning: override: reassigning to symbol =
-USER_NS
-
----------------------------------------------------------------------------=
------
-imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' [-Wun=
-used-variable]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' [-Wun=
-used-variable]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warning=
-s, 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warning=
-s, 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    {standard input}:134: Warning: macro instruction expanded into multiple=
- instructions
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
- 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
- section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, =
-0 section mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 1 error, 4 warnings, 0 sect=
-ion mismatches
-
-Errors:
-    "error: actual length %d less than expected %ld\n",
-
-Warnings:
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    drivers/net/wireless/zydas/zd1211rw/zd_def.h:18:25: warning: format '%l=
-d' expects argument of type 'long int', but argument 6 has type 'size_t' {a=
-ka 'unsigned int'} [-Wformat=3D]
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings,=
- 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-msp71xx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Errors:
-    arch/mips/pmcs-msp71xx/msp_prom.c:64:34: error: 'MAX_PROM_MEM' undeclar=
-ed here (not in a function); did you mean 'DEV_PROP_MAX'?
-    arch/mips/pmcs-msp71xx/msp_prom.c:380:16: error: unused variable 'addr'=
- [-Werror=3Dunused-variable]
-    arch/mips/pmcs-msp71xx/msp_prom.c:65:20: error: 'prom_mem_size' defined=
- but not used [-Werror=3Dunused-variable]
-    arch/mips/pmcs-msp71xx/msp_prom.c:64:20: error: 'prom_mem_base' defined=
- but not used [-Werror=3Dunused-variable]
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    cc1: all warnings being treated as errors
-
----------------------------------------------------------------------------=
------
-mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    arch/arm/configs/multi_v7_defconfig:936:warning: symbol value 'm' inval=
-id for REMOTEPROC
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
- errors, 3 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm/configs/multi_v7_defconfig:936:warning: symbol value 'm' inval=
-id for REMOTEPROC
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
-=94 PASS, 0 errors, 3 warnings, 0 section mismatches
-
-Warnings:
-    arch/arm/configs/multi_v7_defconfig:936:warning: symbol value 'm' inval=
-id for REMOTEPROC
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 =
-warnings, 0 section mismatches
-
-Warnings:
-    arch/arm/configs/multi_v7_defconfig:936:warning: symbol value 'm' inval=
-id for REMOTEPROC
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 28 warn=
-ings, 0 section mismatches
-
-Warnings:
-    arch/arm/configs/multi_v7_defconfig:936:warning: symbol value 'm' inval=
-id for REMOTEPROC
-    ./.tmp.config.laepkqyIy7:8167:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.laepkqyIy7:8170:warning: override: reassigning to symbol =
-NET_VRF
-    ./.tmp.config.laepkqyIy7:8171:warning: override: reassigning to symbol =
-NET_L3_MASTER_DEV
-    ./.tmp.config.laepkqyIy7:8173:warning: override: reassigning to symbol =
-IPV6_MULTIPLE_TABLES
-    ./.tmp.config.laepkqyIy7:8174:warning: override: reassigning to symbol =
-VETH
-    ./.tmp.config.laepkqyIy7:8178:warning: override: reassigning to symbol =
-BRIDGE
-    ./.tmp.config.laepkqyIy7:8179:warning: override: reassigning to symbol =
-VLAN_8021Q
-    ./.tmp.config.laepkqyIy7:8237:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.laepkqyIy7:8258:warning: override: reassigning to symbol =
-NET_ACT_GACT
-    ./.tmp.config.laepkqyIy7:8283:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.laepkqyIy7:8287:warning: override: reassigning to symbol =
-NET_NS
-    ./.tmp.config.laepkqyIy7:8395:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.laepkqyIy7:8406:warning: override: reassigning to symbol =
-NOTIFIER_ERROR_INJECTION
-    ./.tmp.config.laepkqyIy7:8416:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.laepkqyIy7:8423:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.laepkqyIy7:8426:warning: override: reassigning to symbol =
-TEST_BPF
-    ./.tmp.config.laepkqyIy7:8427:warning: override: reassigning to symbol =
-CGROUP_BPF
-    ./.tmp.config.laepkqyIy7:8429:warning: override: reassigning to symbol =
-NET_CLS_ACT
-    ./.tmp.config.laepkqyIy7:8430:warning: override: reassigning to symbol =
-NET_SCHED
-    ./.tmp.config.laepkqyIy7:8431:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.laepkqyIy7:8433:warning: override: reassigning to symbol =
-IPV6
-    ./.tmp.config.laepkqyIy7:8442:warning: override: reassigning to symbol =
-NET_CLS_FLOWER
-    ./.tmp.config.laepkqyIy7:8448:warning: override: reassigning to symbol =
-IPV6_GRE
-    ./.tmp.config.laepkqyIy7:8468:warning: override: reassigning to symbol =
-SECURITYFS
-    ./.tmp.config.laepkqyIy7:8472:warning: override: reassigning to symbol =
-STAGING
-    ./.tmp.config.laepkqyIy7:8473:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.laepkqyIy7:8489:warning: override: reassigning to symbol =
-USER_NS
-
----------------------------------------------------------------------------=
------
-mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section =
-mismatches
-
-Warnings:
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    drivers/video/fbdev/sa1100fb.c:975:21: warning: 'sa1100fb_min_dma_perio=
-d' defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    block/t10-pi.c:62:3: warning: enumeration value 'T10_PI_TYPE0_PROTECTIO=
-N' not handled in switch [-Wswitch]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-nsim_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-nsim_hs_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 29 warni=
-ngs, 0 section mismatches
-
-Warnings:
-    ./.tmp.config.ukveoQj9sD:1432:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.ukveoQj9sD:1435:warning: override: reassigning to symbol =
-NET_VRF
-    ./.tmp.config.ukveoQj9sD:1436:warning: override: reassigning to symbol =
-NET_L3_MASTER_DEV
-    ./.tmp.config.ukveoQj9sD:1438:warning: override: reassigning to symbol =
-IPV6_MULTIPLE_TABLES
-    ./.tmp.config.ukveoQj9sD:1439:warning: override: reassigning to symbol =
-VETH
-    ./.tmp.config.ukveoQj9sD:1443:warning: override: reassigning to symbol =
-BRIDGE
-    ./.tmp.config.ukveoQj9sD:1444:warning: override: reassigning to symbol =
-VLAN_8021Q
-    ./.tmp.config.ukveoQj9sD:1502:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.ukveoQj9sD:1523:warning: override: reassigning to symbol =
-NET_ACT_GACT
-    ./.tmp.config.ukveoQj9sD:1548:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.ukveoQj9sD:1552:warning: override: reassigning to symbol =
-NET_NS
-    ./.tmp.config.ukveoQj9sD:1660:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.ukveoQj9sD:1671:warning: override: reassigning to symbol =
-NOTIFIER_ERROR_INJECTION
-    ./.tmp.config.ukveoQj9sD:1681:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.ukveoQj9sD:1688:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.ukveoQj9sD:1691:warning: override: reassigning to symbol =
-TEST_BPF
-    ./.tmp.config.ukveoQj9sD:1692:warning: override: reassigning to symbol =
-CGROUP_BPF
-    ./.tmp.config.ukveoQj9sD:1694:warning: override: reassigning to symbol =
-NET_CLS_ACT
-    ./.tmp.config.ukveoQj9sD:1695:warning: override: reassigning to symbol =
-NET_SCHED
-    ./.tmp.config.ukveoQj9sD:1696:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.ukveoQj9sD:1698:warning: override: reassigning to symbol =
-IPV6
-    ./.tmp.config.ukveoQj9sD:1707:warning: override: reassigning to symbol =
-NET_CLS_FLOWER
-    ./.tmp.config.ukveoQj9sD:1713:warning: override: reassigning to symbol =
-IPV6_GRE
-    ./.tmp.config.ukveoQj9sD:1733:warning: override: reassigning to symbol =
-SECURITYFS
-    ./.tmp.config.ukveoQj9sD:1737:warning: override: reassigning to symbol =
-STAGING
-    ./.tmp.config.ukveoQj9sD:1738:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.ukveoQj9sD:1754:warning: override: reassigning to symbol =
-USER_NS
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-nsim_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
-, 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    arch/arm/configs/omap2plus_defconfig:484:warning: symbol value 'm' inva=
-lid for REMOTEPROC
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
-, 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' [-Wun=
-used-variable]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, =
-0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    drivers/video/fbdev/sa1100fb.c:975:21: warning: 'sa1100fb_min_dma_perio=
-d' defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
-ismatches
-
-Warnings:
-    .config:1179:warning: override: UNWINDER_GUESS changes choice state
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
-atches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
-tion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 27 war=
-nings, 0 section mismatches
-
-Warnings:
-    ./.tmp.config.JUo6e2u6ps:4580:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.JUo6e2u6ps:4583:warning: override: reassigning to symbol =
-NET_VRF
-    ./.tmp.config.JUo6e2u6ps:4584:warning: override: reassigning to symbol =
-NET_L3_MASTER_DEV
-    ./.tmp.config.JUo6e2u6ps:4586:warning: override: reassigning to symbol =
-IPV6_MULTIPLE_TABLES
-    ./.tmp.config.JUo6e2u6ps:4587:warning: override: reassigning to symbol =
-VETH
-    ./.tmp.config.JUo6e2u6ps:4591:warning: override: reassigning to symbol =
-BRIDGE
-    ./.tmp.config.JUo6e2u6ps:4592:warning: override: reassigning to symbol =
-VLAN_8021Q
-    ./.tmp.config.JUo6e2u6ps:4650:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.JUo6e2u6ps:4671:warning: override: reassigning to symbol =
-NET_ACT_GACT
-    ./.tmp.config.JUo6e2u6ps:4696:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.JUo6e2u6ps:4700:warning: override: reassigning to symbol =
-NET_NS
-    ./.tmp.config.JUo6e2u6ps:4808:warning: override: reassigning to symbol =
-USER_NS
-    ./.tmp.config.JUo6e2u6ps:4819:warning: override: reassigning to symbol =
-NOTIFIER_ERROR_INJECTION
-    ./.tmp.config.JUo6e2u6ps:4829:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.JUo6e2u6ps:4836:warning: override: reassigning to symbol =
-BPF_SYSCALL
-    ./.tmp.config.JUo6e2u6ps:4839:warning: override: reassigning to symbol =
-TEST_BPF
-    ./.tmp.config.JUo6e2u6ps:4840:warning: override: reassigning to symbol =
-CGROUP_BPF
-    ./.tmp.config.JUo6e2u6ps:4842:warning: override: reassigning to symbol =
-NET_CLS_ACT
-    ./.tmp.config.JUo6e2u6ps:4843:warning: override: reassigning to symbol =
-NET_SCHED
-    ./.tmp.config.JUo6e2u6ps:4844:warning: override: reassigning to symbol =
-NET_SCH_INGRESS
-    ./.tmp.config.JUo6e2u6ps:4846:warning: override: reassigning to symbol =
-IPV6
-    ./.tmp.config.JUo6e2u6ps:4855:warning: override: reassigning to symbol =
-NET_CLS_FLOWER
-    ./.tmp.config.JUo6e2u6ps:4861:warning: override: reassigning to symbol =
-IPV6_GRE
-    ./.tmp.config.JUo6e2u6ps:4881:warning: override: reassigning to symbol =
-SECURITYFS
-    ./.tmp.config.JUo6e2u6ps:4885:warning: override: reassigning to symbol =
-STAGING
-    ./.tmp.config.JUo6e2u6ps:4886:warning: override: reassigning to symbol =
-ANDROID
-    ./.tmp.config.JUo6e2u6ps:4902:warning: override: reassigning to symbol =
-USER_NS
-
----------------------------------------------------------------------------=
------
-xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
-n mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
-
----------------------------------------------------------------------------=
------
-zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
+--wtgzfypuncykdhl6
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+
+CC: kbuild-all@01.org
+TO: Mark Rutland <mark.rutland@arm.com>
+
+Hi Mark,
+
+First bad commit (maybe != root cause):
+
+tree:   https://kernel.googlesource.com/pub/scm/linux/kernel/git/mark/linux.git arm64/kcsan
+head:   8be50891d505fce67f46244c1201ac390a0ad1ad
+commit: 339d212d4ec937c7055d5360a898b6011ff1e78d [1/2] kcsan: add stub definition of kcsan_atomic_next()
+config: arm64-allnoconfig (attached as .config)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 45a3fd206fb06f77a08968c99a8172cbf2ccdd0f)
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        git checkout 339d212d4ec937c7055d5360a898b6011ff1e78d
+        # save the attached .config to linux build tree
+        make.cross ARCH=arm64 
+
+If you fix the issue, kindly add following tag
+Reported-by: kbuild test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+   aarch64-linux-gnu-ld: init/version.o: in function `kcsan_begin_atomic':
+>> version.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: init/version.o: in function `kcsan_end_atomic':
+>> version.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: init/version.o: in function `kcsan_atomic_next':
+>> version.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: init/do_mounts.o: in function `kcsan_begin_atomic':
+   do_mounts.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: init/do_mounts.o: in function `kcsan_end_atomic':
+   do_mounts.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: init/do_mounts.o: in function `kcsan_atomic_next':
+   do_mounts.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: init/noinitramfs.o: in function `kcsan_begin_atomic':
+   noinitramfs.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: init/noinitramfs.o: in function `kcsan_end_atomic':
+   noinitramfs.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: init/noinitramfs.o: in function `kcsan_atomic_next':
+   noinitramfs.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: init/calibrate.o: in function `kcsan_begin_atomic':
+   calibrate.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: init/calibrate.o: in function `kcsan_end_atomic':
+   calibrate.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: init/calibrate.o: in function `kcsan_atomic_next':
+   calibrate.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: init/init_task.o: in function `kcsan_begin_atomic':
+   init_task.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: init/init_task.o: in function `kcsan_end_atomic':
+   init_task.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: init/init_task.o: in function `kcsan_atomic_next':
+   init_task.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/debug-monitors.o: in function `kcsan_begin_atomic':
+   debug-monitors.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/debug-monitors.o: in function `kcsan_end_atomic':
+   debug-monitors.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/debug-monitors.o: in function `kcsan_atomic_next':
+   debug-monitors.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/irq.o: in function `kcsan_begin_atomic':
+   irq.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/irq.o: in function `kcsan_end_atomic':
+   irq.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/irq.o: in function `kcsan_atomic_next':
+   irq.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/fpsimd.o: in function `kcsan_begin_atomic':
+   fpsimd.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/fpsimd.o: in function `kcsan_end_atomic':
+   fpsimd.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/fpsimd.o: in function `kcsan_atomic_next':
+   fpsimd.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/process.o: in function `kcsan_begin_atomic':
+   process.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/process.o: in function `kcsan_end_atomic':
+   process.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/process.o: in function `kcsan_atomic_next':
+   process.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/ptrace.o: in function `kcsan_begin_atomic':
+   ptrace.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/ptrace.o: in function `kcsan_end_atomic':
+   ptrace.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/ptrace.o: in function `kcsan_atomic_next':
+   ptrace.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/setup.o: in function `kcsan_begin_atomic':
+   setup.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/setup.o: in function `kcsan_end_atomic':
+   setup.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/setup.o: in function `kcsan_atomic_next':
+   setup.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/signal.o: in function `kcsan_begin_atomic':
+   signal.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/signal.o: in function `kcsan_end_atomic':
+   signal.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/signal.o: in function `kcsan_atomic_next':
+   signal.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/sys.o: in function `kcsan_begin_atomic':
+   sys.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/sys.o: in function `kcsan_end_atomic':
+   sys.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/sys.o: in function `kcsan_atomic_next':
+   sys.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/stacktrace.o: in function `kcsan_begin_atomic':
+   stacktrace.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/stacktrace.o: in function `kcsan_end_atomic':
+   stacktrace.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/stacktrace.o: in function `kcsan_atomic_next':
+   stacktrace.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/time.o: in function `kcsan_begin_atomic':
+   time.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/time.o: in function `kcsan_end_atomic':
+   time.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/time.o: in function `kcsan_atomic_next':
+   time.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/traps.o: in function `kcsan_begin_atomic':
+   traps.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/traps.o: in function `kcsan_end_atomic':
+   traps.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/traps.o: in function `kcsan_atomic_next':
+   traps.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/io.o: in function `kcsan_begin_atomic':
+   io.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/io.o: in function `kcsan_end_atomic':
+   io.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/io.o: in function `kcsan_atomic_next':
+   io.c:(.text+0x8): multiple definition of `kcsan_atomic_next'; init/main.o:main.c:(.text+0x8): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/vdso.o: in function `kcsan_begin_atomic':
+   vdso.c:(.text+0x0): multiple definition of `kcsan_begin_atomic'; init/main.o:main.c:(.text+0x0): first defined here
+   aarch64-linux-gnu-ld: arch/arm64/kernel/vdso.o: in function `kcsan_end_atomic':
+   vdso.c:(.text+0x4): multiple definition of `kcsan_end_atomic'; init/main.o:main.c:(.text+0x4): first defined here
 
 ---
-For more info write to <info@kernelci.org>
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/5d85226b.1c69fb81.2ca64.962c%40mx.google.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201909210312.zv13SHKE%25lkp%40intel.com.
+
+--wtgzfypuncykdhl6
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+
+--wtgzfypuncykdhl6--
