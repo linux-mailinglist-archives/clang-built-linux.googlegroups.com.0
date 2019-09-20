@@ -1,127 +1,126 @@
-Return-Path: <clang-built-linux+bncBCWJFEEKWIDRBHVXSDWAKGQEFLKEZOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4LX4523YGBB4OESDWAKGQE3DCCO3Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
-	by mail.lfdr.de (Postfix) with ESMTPS id C84E7B8883
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 02:21:51 +0200 (CEST)
-Received: by mail-qt1-x83d.google.com with SMTP id x26sf6034112qtr.17
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 17:21:51 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568938910; cv=pass;
+Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
+	by mail.lfdr.de (Postfix) with ESMTPS id D71EAB88B7
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 02:50:59 +0200 (CEST)
+Received: by mail-qt1-x83b.google.com with SMTP id m19sf6143791qtm.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 17:50:59 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568940659; cv=pass;
         d=google.com; s=arc-20160816;
-        b=byo4Na9k7Sk6Mzxxv34IbrbwkchLCtHuJa0We0g1klS286MowQ4tlKZZiaRZc9OpoZ
-         IShTfeVsI8sghRu/Ql0HdVDGsAoLNecqjNJN9afxRoDa/rHEhaheIEwuGCS+PO0N15Is
-         zN91/lHnMXpoeuLt8r3xj8UERp8k6Zn5G99jzdV1G0OQKrEdl1MXMh27dYbXtyBvjAei
-         bwn8sTta7hnUtnXz9isQkI4ayLITzP/H/bwcbhzwrEtn6sETQEgy0SiY3yjSKLwpT6Ss
-         Fpi+++gmGPV2vt6wLbJZnvXRYwIz0A/eer1TugqGgnnOKS79yqeaVlyXr2LsvCr06F45
-         YCiQ==
+        b=pTO2twBdQaFN2Eb5bUdo09tbUtFKQbxhcBklKbEmtN+GamFOkGp6lcGQaPj7zoPD9F
+         eVLlrbs54H/LKPi3W9wa66yg2wNlPUafnPweCz96d1VcU3osht/PWt2shcAtTAr8Yv0Q
+         iftz2ttaBrN8OAWaFpnYlWC0TmmYzDXgrh/QrUwrdISH+7G/rp19OED8YgcoiGmFSPng
+         QRsGHDz8aQ6xTwF+f9KJlsfxmElMIZ5P9D1aVmvzlnn6pf490Oddo35f7xREFYvfnmFf
+         zoxOaP2Cp3Yu5AAwyFmuWxXMvVGg9F1Ludd6720xexm2519S1E7kUEudtECTq61kgcZ0
+         2VuQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:organization
-         :references:in-reply-to:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=7S/JL45IBSsN7VpdKo9gWei6ZuLs+PnSL5KvpZM2MOg=;
-        b=ovIng16YWelQpDgwlj2Gsiqdl7MmrJjPHy5rV2pPztUk+MH6szhcIwgQPPw/4z+Cco
-         uqhI8w5wV3ZTGhizhe6s/c2QZvQpp9VqQloMI86xSCXnWkfXA1V7ZemncAU4Deuw1pZj
-         o/ULcJgZ45f5VAiuyRu5NHDEk63JNa62WOO+MWXHuirGwmlQ1eDpQdktFc7D8RLlc/Ov
-         GbBh1C5HuDWtBC/tgK3nfCTaPdDQF7+3bdxbHUwT12vWcdZHC45wfWb0wu1xcw22yURU
-         pjwVBdY+fsAoshmCI6pg9DApTF5Xxm7LMCmfIWbIb5ikn9ED7OOhvjI5mB8chGJPUYaP
-         ijyg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=huLDnBoKjKZH9uaUEX9El7r//+XSdm38Rohf3N3YCIo=;
+        b=Rt36GpqprzJLJLriBUUGkP2eDApXWYOMGZp1HVtgzQdQkDHfyPM5zeMENbyHK84J5f
+         GNNi//LI0Zc9nfdZLuC0WXF4gtQ+csYT2NtDSu71SGCzd+2nWaLsNYGilswBgbhGHDLi
+         QUTX6VDnuSdXx+KnMeOHrWwxwmX0PPM1KLxvPVf7aoeRJ8To+B3SBXc2XmfQK/ssjgZ4
+         qV+9xyrqXqZN9uzEXV45imHmX30pURmr9Vu3CTPBCN4OkDWy3yUqtwwTL44BssMO2g5v
+         iRBUqsg1PHSXcxkt2WhUlp1ByteJG8B/E+fbuTSX9t5xeaO1yaVfKcm9po9BQKda1NFi
+         lIOQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623 header.b=p1MWiAA5;
-       spf=neutral (google.com: 2607:f8b0:4864:20::742 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :organization:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=7S/JL45IBSsN7VpdKo9gWei6ZuLs+PnSL5KvpZM2MOg=;
-        b=DF/h8uUyeXcZUXHv1ofxPXBZbkZ6koSGuGphiItcvspBcvh7HolKoCyjz5BWOvjlor
-         pljI3ErW9zYA1ifZaOBPjJB0aMuqPkbRybHhiEwXD78hCpRkPQvx8U0d4z+4XwF98eCp
-         RQJGgV66M1GCedh9Ac9bK5STwcouhJo7R49M4fPbXE5vYEmMj4U9dCopfUSxBo5STlhJ
-         kAz/qoONhhndZ+e/8d5dx2johbuaQSdEmz9z+dK9TAUoMoBHU9LHEM3KaSKK/XGPC31E
-         +pHxLafqF86lRYSf4T5GX9tHJxOGmd00bg8VqQ+DxqteWVKYbEyCDnU3d8BKxeqOddCS
-         2XEQ==
+        bh=huLDnBoKjKZH9uaUEX9El7r//+XSdm38Rohf3N3YCIo=;
+        b=iNF6HSEf60TrfiI/AvYG2k5SVch9vb1KUsgxv0PaheAk/1Ykt0sJ2OkMn1DeZ7Imcr
+         tR6bv2NtUKb7mwXnJ+lCt/O0fnQwYt9HPVFYuwtU2ZuYWkGGfXMliU7X0RcwVAMUF7Sf
+         hxUjnRsZy+ccsZt1ZnEF5jbx7l+i/ljpK8riBm283IDT8qMHF10Y63qJe243RnuFQevG
+         UEYxhCcMKPa4QlmsZVcN8IMRPSAzNY3qgsRrwXm4+Wu7HS0UjBpNbJN7egKbUPs+Q0oP
+         /sSNAG622vl8dXrSu8WO6BqmOn6oLAF74iv5a+H2my94kmUNHsJvlHYy7mQqc1HUeRN0
+         ZFCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:organization:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=7S/JL45IBSsN7VpdKo9gWei6ZuLs+PnSL5KvpZM2MOg=;
-        b=eTCx4nt3QMSGyb5Wz/tn2gR5ZcRjc7sLxruLQAmnwccUfPMPoNwCDHZorDzIKsSgyr
-         C8skG6H/aoAIbvDmJJoj0vDYJ8bamJAnZcfgi7kFPvGTEdD27Inac/5PdQuO6ksDxTN0
-         P558vIChj7y+kMmt7DSdI4VB3QPxS0NPpx6qaesK6yEihdhUbBRRRTsc7GRYolKHixnt
-         PIJo9pshD2v5qHipTaqU5UOYVA8jQmGNe4927XJajqQ3YTToAupwxKX0sjyYLt1agzso
-         WkGMQ/QEY5f6HWHNxFNBGuCr4/L98w8NaWC/McOAI5RQjG7zhEcWzEEwmmU7v82b22Iz
-         MSHA==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=huLDnBoKjKZH9uaUEX9El7r//+XSdm38Rohf3N3YCIo=;
+        b=HewCVohPjeTM7tXbR26xnxy8Qvy1LM4HlO3hhSRHicyt+SgPhgSveFK364Ad0+Nved
+         PcKhBkSGfkVT2H1CWRxVJFMIWGcRDgKBofNhnq8HLnjGZa4MvC56cDoXgAlqcAfTCRfD
+         kgqoHf25xK1SVNK/vott20MHOp3aavLFZJX/nFFfmTlK0zcr84UG66SElw3gm1nCPeY7
+         18IGkls6j8PM8orxfGRAmw74KbPea/QnA0DpMl1DK79UaDpzuISUGHmd97UrV2Qt2Ocd
+         K00ODIWhAhHgkoxjZCr3w/fd5Jk04L8nVf2JZXFnjU3agPofS6MxYcpyUS92kgTEKImk
+         e6EA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUO+vJPzjFDA2hb2r3LeyY09i4hNI+MPAhcvz+D4PJUrlgtcXAX
-	x/8aviX56RnQJIfqc42NyVA=
-X-Google-Smtp-Source: APXvYqxbS1XWODHEbUnNXGGzyLChBWp/QgPtHiQVnRZsxwxr1rZSjdRUoyKG7HY9/lGyE2PkfUzSvw==
-X-Received: by 2002:a0c:8ad0:: with SMTP id 16mr10480368qvw.237.1568938910298;
-        Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
+X-Gm-Message-State: APjAAAUn5Hc/+NHk1gu0qjtNXC1DyBtWXWktR0HIMcTYhbJihpvnu8dn
+	ySjU0Kc4EkUwwk0JTSWuS3o=
+X-Google-Smtp-Source: APXvYqwVhTa5RHvyBN4T7+y4JiwFd9pxyqZifBgsoaf58fp24689tiqZ/EE2MnELAyA8jGHccHLX3A==
+X-Received: by 2002:ac8:4716:: with SMTP id f22mr185033qtp.38.1568940658926;
+        Thu, 19 Sep 2019 17:50:58 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:102:: with SMTP id e2ls1707398qtg.2.gmail; Thu, 19 Sep
- 2019 17:21:50 -0700 (PDT)
-X-Received: by 2002:ac8:4148:: with SMTP id e8mr28859qtm.227.1568938910081;
-        Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568938910; cv=none;
+Received: by 2002:ac8:2c55:: with SMTP id e21ls1720058qta.1.gmail; Thu, 19 Sep
+ 2019 17:50:57 -0700 (PDT)
+X-Received: by 2002:ac8:1701:: with SMTP id w1mr190263qtj.24.1568940657270;
+        Thu, 19 Sep 2019 17:50:57 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568940657; cv=none;
         d=google.com; s=arc-20160816;
-        b=m63Ja/uaH9VKMNBWfo+KrFI9ftjHa8MJ7O+f/2eSuCUXHU/IEoYdmfY8S8gfCu1syD
-         fkbWmF5amtDnNfJbfoZyYABcomLiJ2F3JzPSLuPOINEngAA/y4dO2Sjml0Ph/QIks+SR
-         TFibs59Iek7kkZBVGFrWVvjUHB1jMg7JklvrLQhwTrrEDqw48PImonjnyjba0/jFbwTp
-         r4x5pqXVQG3PB/mKoDU4+OVxzYs/iPVFbitXHhvLC8EhL1x8hFZDKKL8FFOesJRyTOvs
-         rXvM2xT6brYaJbdG9gib3jj1Ja8JEmuNktvMMpMdz0RslVHhHwlCNt50y8QAgydghaYr
-         bphQ==
+        b=Ien8Cgc5YeMf8Hu+QZ6xmKNP7wyf2HPBdfYZjkFxNLrePv5HViUbzIKPmhcID4d8+4
+         BeKOypN+zyRJymY7sDU9jysBg7iTAdNGVaIeCjjMZbwWMo/uyV64+MaFoLbkU6VfkI0J
+         vzBzQ8NQ7dG549ARS4RjWhdZ8wkXrlLWWdfVYFGT99DhNiLDv/NccqNXhfKsGyAsE0WD
+         qtQCQlcxXxGxH3Qkft8aB3/CPUq6JnxoppPr/a9W5cjlGEkR219FiuXSfPu84dfYiHqq
+         Hx0vhz5RpJkKpfoUwC0WK2HM4unMu0AKDr71n4mfaLr1X1ReDMfSM0h1wHEboUWuE+L1
+         B8cQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:organization:references
-         :in-reply-to:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=pro9C8zmq7NLgMwYhgr/6LGSa3Q7PkAjnibnN9csKE0=;
-        b=b2PyuHbp9GLEbjm2EaMaIKh7OdQ+yhkc4/j5WoKUVwo09SLVYiISlA0zi0ytFUaAX6
-         GPlxC0KAyAqWdnQZLFbv9hE0TcxsfDGEi5g+UPbsuevRRMVmlj00ajXFf+DRrlaINsIZ
-         qkg18Gic5701evC3GdthcbCxcjjLJQFqwfA/DfjsIlv+2N3crO2RVZlxFmVJ3sVUKjgT
-         /K7a77LmxMjhuKeXQjtZn5Mxvwmrr4kpQFCXKLO1AVIN7BfIR7BAAUEB4jvVIfAPSZre
-         DqSoXUrIEzslYsfawCQeNdZ/aU/twBGzcm0vD/VzEP0aTD3G56uhskzuGASOm+9O5bty
-         T7Yw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date;
+        bh=SvIcktq22yVLaiRdSQRq8ZD8ehuZdAFJL74gJPLlGcg=;
+        b=AQf2SnhE8tB+Y66eVml9CpLy+tM76nCxipnqgAqpa7z6ZBMlJ7I27U69yl11R7BM0k
+         WeEfkLWYLQmzyeAW0+nMSoEvzvKduXWHhCFvoQql54BxLoESDkseJpE2WXiqfxMLjrGi
+         wKXLRfUsPhC311p7gu5V1R64mr/lyHa0FKqSQL/3LI5avfL6XdLSw/tKYSnqtyKf7kme
+         Q+oYmoK6Ccmd+Agt9XhUvtPuExAmyZhqvOF2FRxPeRq1qr1w7xin+1dYmvVaiQyJvIHU
+         wWuSlrBGnIncvMFgVSKQGszptdMF1Fb/p7oMxj625ALc3/UWfHZc1yWn9K3aLVfvklSx
+         Hw4w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623 header.b=p1MWiAA5;
-       spf=neutral (google.com: 2607:f8b0:4864:20::742 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
-Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
-        by gmr-mx.google.com with ESMTPS id w41si25485qtb.4.2019.09.19.17.21.50
+       spf=pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) smtp.mailfrom=segher@kernel.crashing.org
+Received: from gate.crashing.org (gate.crashing.org. [63.228.1.57])
+        by gmr-mx.google.com with ESMTPS id v7si25119qkf.5.2019.09.19.17.50.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
-Received-SPF: neutral (google.com: 2607:f8b0:4864:20::742 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) client-ip=2607:f8b0:4864:20::742;
-Received: by mail-qk1-x742.google.com with SMTP id x134so5481317qkb.0
-        for <clang-built-linux@googlegroups.com>; Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
-X-Received: by 2002:a37:c441:: with SMTP id h1mr589905qkm.16.1568938909826;
-        Thu, 19 Sep 2019 17:21:49 -0700 (PDT)
-Received: from cakuba.netronome.com ([66.60.152.14])
-        by smtp.gmail.com with ESMTPSA id e42sm127840qte.26.2019.09.19.17.21.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Sep 2019 17:21:49 -0700 (PDT)
-Date: Thu, 19 Sep 2019 17:21:45 -0700
-From: Jakub Kicinski <jakub.kicinski@netronome.com>
-To: Shannon Nelson <snelson@pensando.io>
-Cc: Arnd Bergmann <arnd@arndb.de>, Pensando Drivers <drivers@pensando.io>,
- "David S. Miller" <davem@davemloft.net>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] ionic: remove useless return code
-Message-ID: <20190919172146.47bc95f4@cakuba.netronome.com>
-In-Reply-To: <6cdb1e21-44d9-bba9-1931-78f7109bff2b@pensando.io>
-References: <20190918195745.2158829-1-arnd@arndb.de>
-	<6cdb1e21-44d9-bba9-1931-78f7109bff2b@pensando.io>
-Organization: Netronome Systems, Ltd.
-MIME-Version: 1.0
+        (version=TLS1 cipher=AES128-SHA bits=128/128);
+        Thu, 19 Sep 2019 17:50:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as permitted sender) client-ip=63.228.1.57;
+Received: from gate.crashing.org (localhost.localdomain [127.0.0.1])
+	by gate.crashing.org (8.14.1/8.14.1) with ESMTP id x8K0oj8m031635;
+	Thu, 19 Sep 2019 19:50:45 -0500
+Received: (from segher@localhost)
+	by gate.crashing.org (8.14.1/8.14.1/Submit) id x8K0oi7E031630;
+	Thu, 19 Sep 2019 19:50:44 -0500
+X-Authentication-Warning: gate.crashing.org: segher set sender to segher@kernel.crashing.org using -f
+Date: Thu, 19 Sep 2019 19:50:44 -0500
+From: Segher Boessenkool <segher@kernel.crashing.org>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Jakub Jelinek <jakub@redhat.com>,
+        Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+        Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+        LKML <linux-kernel@vger.kernel.org>,
+        "gcc-patches@gcc.gnu.org" <gcc-patches@gcc.gnu.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH v2 4/6] compiler-gcc.h: add asm_inline definition
+Message-ID: <20190920005044.GN9749@gate.crashing.org>
+References: <20190906163918.GJ2120@tucnak> <CAKwvOd=MT_=U250tR+t0jTtj7SxKJjnEZ1FmR3ir_PHjcXFLVw@mail.gmail.com> <20190906220347.GD9749@gate.crashing.org> <CAKwvOdnWBV35SCRHwMwXf+nrFc+D1E7BfRddb20zoyVJSdecCA@mail.gmail.com> <20190906225606.GF9749@gate.crashing.org> <CAKwvOdk-AQVJnD6-=Z0eUQ6KPvDp2eS2zUV=-oL2K2JBCYaOeQ@mail.gmail.com> <20190907001411.GG9749@gate.crashing.org> <CAKwvOdnaBD3Dg3pmZqX2-=Cd0n30ByMT7KUNZKhq0bsDdFeXpg@mail.gmail.com> <20190907131127.GH9749@gate.crashing.org> <CAKwvOdmhcaHpnqhMwzpYdjjwfAhgzq7fqA0Hu8b19E5w3AHz4w@mail.gmail.com>
+Mime-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: jakub.kicinski@netronome.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623
- header.b=p1MWiAA5;       spf=neutral (google.com: 2607:f8b0:4864:20::742 is
- neither permitted nor denied by best guess record for domain of
- jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdmhcaHpnqhMwzpYdjjwfAhgzq7fqA0Hu8b19E5w3AHz4w@mail.gmail.com>
+User-Agent: Mutt/1.4.2.3i
+X-Original-Sender: segher@kernel.crashing.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of segher@kernel.crashing.org designates 63.228.1.57 as
+ permitted sender) smtp.mailfrom=segher@kernel.crashing.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,48 +133,20 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 18 Sep 2019 13:46:34 -0700, Shannon Nelson wrote:
-> On 9/18/19 12:57 PM, Arnd Bergmann wrote:
-> > The debugfs function was apparently changed from returning an error code
-> > to a void return, but the return code left in place, causing a warning
-> > from clang:
-> >
-> > drivers/net/ethernet/pensando/ionic/ionic_debugfs.c:60:37: error: expression result unused [-Werror,-Wunused-value]
-> >                              ionic, &identity_fops) ? 0 : -EOPNOTSUPP;
-> >                                                           ^~~~~~~~~~~
-> >
-> > Fixes: fbfb8031533c ("ionic: Add hardware init and device commands")
-> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> > ---
-> >   drivers/net/ethernet/pensando/ionic/ionic_debugfs.c | 2 +-
-> >   1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c b/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c
-> > index 7afc4a365b75..bc03cecf80cc 100644
-> > --- a/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c
-> > +++ b/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c
-> > @@ -57,7 +57,7 @@ DEFINE_SHOW_ATTRIBUTE(identity);
-> >   void ionic_debugfs_add_ident(struct ionic *ionic)
-> >   {
-> >   	debugfs_create_file("identity", 0400, ionic->dentry,
-> > -			    ionic, &identity_fops) ? 0 : -EOPNOTSUPP;
-> > +			    ionic, &identity_fops);
-> >   }
-> >   
-> >   void ionic_debugfs_add_sizes(struct ionic *ionic)  
-> 
-> This has just recently been addressed by Nathan Chancellor 
-> <natechancellor@gmail.com>
+On Thu, Sep 12, 2019 at 02:54:50PM -0700, Nick Desaulniers wrote:
+> I have seen instances where instruction selection fails to select the
+> appropriate way to branch when inline asm size is misjudged, resulting
+> in un-encodeable jumps (as in the branch target is too far to be
+> encoded in the number of bits of a single jump/branch instruction).
 
-Yup, should be in the net tree now.
+"asm inline" *only* influences the estimated size *for inlining
+purposes*.  Not for anything else.  Everything else still uses
+conservative estimates.
 
-> Either way,
-> 
-> Acked-by: Shannon Nelson <snelson@pensando.io>
 
-Thanks for quick reviews!
+Segher
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190919172146.47bc95f4%40cakuba.netronome.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190920005044.GN9749%40gate.crashing.org.
