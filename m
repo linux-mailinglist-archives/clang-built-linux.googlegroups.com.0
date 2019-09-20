@@ -1,47 +1,47 @@
-Return-Path: <clang-built-linux+bncBCWJFEEKWIDRBFNXSDWAKGQEYQGHEAA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCWJFEEKWIDRBHVXSDWAKGQEFLKEZOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id BAC34B8880
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 02:21:43 +0200 (CEST)
-Received: by mail-pf1-x43f.google.com with SMTP id t65sf3403918pfd.14
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 17:21:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1568938902; cv=pass;
+Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
+	by mail.lfdr.de (Postfix) with ESMTPS id C84E7B8883
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Sep 2019 02:21:51 +0200 (CEST)
+Received: by mail-qt1-x83d.google.com with SMTP id x26sf6034112qtr.17
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Sep 2019 17:21:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1568938910; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E1GimQVonmqsk5Y1C5yn7dEHSfmEc0EhoBwqL1PCTmqB/C+N3LQa8cq+xeMQUA/fca
-         XHUmD7w6njiW9mwC/ci7JGAY9KupKo3PWos1K0M6cKYQrgaxcS45oNeSvDcxO/1godzs
-         Lu8OM2KR56PH3Qfqqyqcn6M9xi9Vyl1M/+nbYewDjJ6mOvoIwKz2YLkCO1LR+JE6ZjmJ
-         QkH+cW8oQJc2ULvjFOlAVwZ80PKRrWcDh1CV7+ozvlp40soy6CaJsSj/NtK5kfVnZh+G
-         o4Fd79r1ZVb2iMVxits+WNSEeC6UHuvIz3ECHIOdpFkX3W/VvmhEupmx4aU75m19J/Ah
-         0w6A==
+        b=byo4Na9k7Sk6Mzxxv34IbrbwkchLCtHuJa0We0g1klS286MowQ4tlKZZiaRZc9OpoZ
+         IShTfeVsI8sghRu/Ql0HdVDGsAoLNecqjNJN9afxRoDa/rHEhaheIEwuGCS+PO0N15Is
+         zN91/lHnMXpoeuLt8r3xj8UERp8k6Zn5G99jzdV1G0OQKrEdl1MXMh27dYbXtyBvjAei
+         bwn8sTta7hnUtnXz9isQkI4ayLITzP/H/bwcbhzwrEtn6sETQEgy0SiY3yjSKLwpT6Ss
+         Fpi+++gmGPV2vt6wLbJZnvXRYwIz0A/eer1TugqGgnnOKS79yqeaVlyXr2LsvCr06F45
+         YCiQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:organization
          :references:in-reply-to:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=HJn6sT+k85tB5GKtS7NQqvQoiR8j6O9jHz5U52Qht3g=;
-        b=X/NpeEDv+VXM2FxEEqgqfAsGGQJaIKeUwDHlk7XlMK9Kg5hXWGQuIZTkApeh5egH0v
-         ntha3dRRgWO6NVfuuuY6VqTBuLTZe9Vx5PyHkf4I2dbRdqiCsb1G/BY1NzihG8FYVAe4
-         p+Mlc9LB2qhWbuloj0mpbWiDbID3rNevRsVV3vWhJNz0jXCyK2fkLKK+VycvwSDghv1F
-         838+cOfsmi7W0kCGip/1SmPjvmJuijxGiei0eLbhHF6/MTu2gjR2q5Y5IxBjqcLWLUqt
-         99UPudrfgLTbRmwpOSU4KFEFfg4jtG444rAcMfoE+0lFJPOWrFP7ykT5EkWEElZ/Wlyr
-         rFLw==
+        bh=7S/JL45IBSsN7VpdKo9gWei6ZuLs+PnSL5KvpZM2MOg=;
+        b=ovIng16YWelQpDgwlj2Gsiqdl7MmrJjPHy5rV2pPztUk+MH6szhcIwgQPPw/4z+Cco
+         uqhI8w5wV3ZTGhizhe6s/c2QZvQpp9VqQloMI86xSCXnWkfXA1V7ZemncAU4Deuw1pZj
+         o/ULcJgZ45f5VAiuyRu5NHDEk63JNa62WOO+MWXHuirGwmlQ1eDpQdktFc7D8RLlc/Ov
+         GbBh1C5HuDWtBC/tgK3nfCTaPdDQF7+3bdxbHUwT12vWcdZHC45wfWb0wu1xcw22yURU
+         pjwVBdY+fsAoshmCI6pg9DApTF5Xxm7LMCmfIWbIb5ikn9ED7OOhvjI5mB8chGJPUYaP
+         ijyg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623 header.b=tAi6KJc1;
-       spf=neutral (google.com: 2607:f8b0:4864:20::744 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
+       dkim=pass header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623 header.b=p1MWiAA5;
+       spf=neutral (google.com: 2607:f8b0:4864:20::742 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
          :organization:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=HJn6sT+k85tB5GKtS7NQqvQoiR8j6O9jHz5U52Qht3g=;
-        b=ipr5bxZKY73YQDX6K+jEsuxDrMIlzkb8gPD20rivZTVInhdxcJmqEVzpvvgmrFE+hS
-         Ng1+JijbVQYkpsokI7rI8mV6litYn1oOXixAf98AkAgxoJiBRRojJaV7xixSkXJ1jWiE
-         kcjA/bxKea7dEQMjliNHSbK5zXx7+pFoPAllNT9zJTncym82Xb2kZI01Xq9nEPbRezbe
-         tlJ9wFzSsdNw3xBK70CM0OlhM5+E6JjubeuFoKR6q/zbC1vmMLiR2KcTl+Fd7rEUT1IX
-         SHEOQGlQNs7YTQVACNrFWiipXFuq2IwD8uj8HcwRdpS0S/tMcmu3nTgxB5MZB2IurkAn
-         yIfw==
+        bh=7S/JL45IBSsN7VpdKo9gWei6ZuLs+PnSL5KvpZM2MOg=;
+        b=DF/h8uUyeXcZUXHv1ofxPXBZbkZ6koSGuGphiItcvspBcvh7HolKoCyjz5BWOvjlor
+         pljI3ErW9zYA1ifZaOBPjJB0aMuqPkbRybHhiEwXD78hCpRkPQvx8U0d4z+4XwF98eCp
+         RQJGgV66M1GCedh9Ac9bK5STwcouhJo7R49M4fPbXE5vYEmMj4U9dCopfUSxBo5STlhJ
+         kAz/qoONhhndZ+e/8d5dx2johbuaQSdEmz9z+dK9TAUoMoBHU9LHEM3KaSKK/XGPC31E
+         +pHxLafqF86lRYSf4T5GX9tHJxOGmd00bg8VqQ+DxqteWVKYbEyCDnU3d8BKxeqOddCS
+         2XEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HJn6sT+k85tB5GKtS7NQqvQoiR8j6O9jHz5U52Qht3g=;
-        b=me+96yrsZaw04hqk6YBxIDyQcue7EdQD/Loktoqq/JXGz/OZS+5YdXwOWFpjHSmC0X
-         fgSy9RPVZe/o0Wt9+XgwFmpIJ8UqwCX7H36DoSqvSNG6C93RArZ3nWsfh03xllrWc6Lq
-         Wk9lwdh4dO1woOjjC3N1D8K99eDIiT/MumTIWqOcEw2R6nnRVtlaaPkzUwE4O6ppzFAO
-         uLFAWEymiQ6o7H33vuSDkQu6Ma9mzEjz//lztUqtpiKLcgT7OtG0tHtR40eL0UZ1E/mu
-         GpQPgzC9PWzEMEU5HWyGTIHFEB3PNnZX4Z2E1ZapUT6ozWVNwzQ5G80VHqcFYOy8TzbH
-         qt3A==
+        bh=7S/JL45IBSsN7VpdKo9gWei6ZuLs+PnSL5KvpZM2MOg=;
+        b=eTCx4nt3QMSGyb5Wz/tn2gR5ZcRjc7sLxruLQAmnwccUfPMPoNwCDHZorDzIKsSgyr
+         C8skG6H/aoAIbvDmJJoj0vDYJ8bamJAnZcfgi7kFPvGTEdD27Inac/5PdQuO6ksDxTN0
+         P558vIChj7y+kMmt7DSdI4VB3QPxS0NPpx6qaesK6yEihdhUbBRRRTsc7GRYolKHixnt
+         PIJo9pshD2v5qHipTaqU5UOYVA8jQmGNe4927XJajqQ3YTToAupwxKX0sjyYLt1agzso
+         WkGMQ/QEY5f6HWHNxFNBGuCr4/L98w8NaWC/McOAI5RQjG7zhEcWzEEwmmU7v82b22Iz
+         MSHA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWo+kq5zIVeB4rpHchzlN6Q1Z1b0BdRELgmh276dYxovCF9IdSz
-	TFMlFIAAdcIlwSAkQkOYETI=
-X-Google-Smtp-Source: APXvYqxqYqHJOQSBCFP1GGxgHSiPR4WvLiFQNZaU0pRpVd+ORYDm+aSokzKwXFdTCWQ3CJZqdY+hgA==
-X-Received: by 2002:a17:902:bd07:: with SMTP id p7mr13507357pls.213.1568938901775;
-        Thu, 19 Sep 2019 17:21:41 -0700 (PDT)
+X-Gm-Message-State: APjAAAUO+vJPzjFDA2hb2r3LeyY09i4hNI+MPAhcvz+D4PJUrlgtcXAX
+	x/8aviX56RnQJIfqc42NyVA=
+X-Google-Smtp-Source: APXvYqxbS1XWODHEbUnNXGGzyLChBWp/QgPtHiQVnRZsxwxr1rZSjdRUoyKG7HY9/lGyE2PkfUzSvw==
+X-Received: by 2002:a0c:8ad0:: with SMTP id 16mr10480368qvw.237.1568938910298;
+        Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:90:: with SMTP id 138ls1060592pga.1.gmail; Thu, 19 Sep
- 2019 17:21:41 -0700 (PDT)
-X-Received: by 2002:a62:754a:: with SMTP id q71mr13508235pfc.70.1568938901486;
-        Thu, 19 Sep 2019 17:21:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1568938901; cv=none;
+Received: by 2002:ac8:102:: with SMTP id e2ls1707398qtg.2.gmail; Thu, 19 Sep
+ 2019 17:21:50 -0700 (PDT)
+X-Received: by 2002:ac8:4148:: with SMTP id e8mr28859qtm.227.1568938910081;
+        Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1568938910; cv=none;
         d=google.com; s=arc-20160816;
-        b=C278AOrV4+T0x409v1Safh51kSxy9rJa9ZEs0OfRJCpp4r7VpEbIQxsZw0CdjAhqCY
-         HRT7hBuxWonrRBQDcudpPZMv7mcqnm7a0WtRYyqAgo6XzKZlsdd1gS2k+x2yWqGUZX3B
-         njTmoD0edoPxf8gG6lnxHBqqBpXcj+vyZiPTuIpnzViXBcndG9HZ11cU6lmLRaD4601z
-         hF/zs0FX1AaknQb5o5Nd2f6B+nklYMfItgyrVvn/XRtT6kN7iBWUi4DS92jnLLlYgSEt
-         DH1END76CSHzAIQR0yC/B9+G+MH7whTKLYIUVE2/XR69lgSoe9mi/s8k0XgUkCZjTmMh
-         ghKA==
+        b=m63Ja/uaH9VKMNBWfo+KrFI9ftjHa8MJ7O+f/2eSuCUXHU/IEoYdmfY8S8gfCu1syD
+         fkbWmF5amtDnNfJbfoZyYABcomLiJ2F3JzPSLuPOINEngAA/y4dO2Sjml0Ph/QIks+SR
+         TFibs59Iek7kkZBVGFrWVvjUHB1jMg7JklvrLQhwTrrEDqw48PImonjnyjba0/jFbwTp
+         r4x5pqXVQG3PB/mKoDU4+OVxzYs/iPVFbitXHhvLC8EhL1x8hFZDKKL8FFOesJRyTOvs
+         rXvM2xT6brYaJbdG9gib3jj1Ja8JEmuNktvMMpMdz0RslVHhHwlCNt50y8QAgydghaYr
+         bphQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:organization:references
          :in-reply-to:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=YTp5B1qD8E9aflcOxXO4o+LEcSQkbFxZ9MJfYS1B/aY=;
-        b=TilqRU8CmC90BnRjdMBQBRyYCnfDMCQyqMelmUrHEMEbAKQN6QV5l0Q36f53cSdkBf
-         4Gha10KV7sdDV3Y/EnRNYuBspvHC9UhYJzRq93XsQ4b1bsyrIrUaOUf9qV7r8T2SlwFb
-         XDDCtUxQKkW57/61DzSkPFRFYfQiCAJKVfMHYgsY+XZEngiJz7m8eA0SDZMJ65dnZqy2
-         gEn1KPGPA4dbbyb/B5vmmmhO7toldyRVk8C7gNh7qFyZTCT75AyzfbHxJdZeD6K/Pmln
-         BPF4RhHFa9YoW0bZi3OiMWMl8mIdx1XpvVra0Y7kM0creD47w/AqHC/c4wO1M5wb4ZoH
-         rZfw==
+        bh=pro9C8zmq7NLgMwYhgr/6LGSa3Q7PkAjnibnN9csKE0=;
+        b=b2PyuHbp9GLEbjm2EaMaIKh7OdQ+yhkc4/j5WoKUVwo09SLVYiISlA0zi0ytFUaAX6
+         GPlxC0KAyAqWdnQZLFbv9hE0TcxsfDGEi5g+UPbsuevRRMVmlj00ajXFf+DRrlaINsIZ
+         qkg18Gic5701evC3GdthcbCxcjjLJQFqwfA/DfjsIlv+2N3crO2RVZlxFmVJ3sVUKjgT
+         /K7a77LmxMjhuKeXQjtZn5Mxvwmrr4kpQFCXKLO1AVIN7BfIR7BAAUEB4jvVIfAPSZre
+         DqSoXUrIEzslYsfawCQeNdZ/aU/twBGzcm0vD/VzEP0aTD3G56uhskzuGASOm+9O5bty
+         T7Yw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623 header.b=tAi6KJc1;
-       spf=neutral (google.com: 2607:f8b0:4864:20::744 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
-Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
-        by gmr-mx.google.com with ESMTPS id r186si32762pfc.4.2019.09.19.17.21.41
+       dkim=pass header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623 header.b=p1MWiAA5;
+       spf=neutral (google.com: 2607:f8b0:4864:20::742 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
+Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
+        by gmr-mx.google.com with ESMTPS id w41si25485qtb.4.2019.09.19.17.21.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Sep 2019 17:21:41 -0700 (PDT)
-Received-SPF: neutral (google.com: 2607:f8b0:4864:20::744 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) client-ip=2607:f8b0:4864:20::744;
-Received: by mail-qk1-x744.google.com with SMTP id w2so5452915qkf.2
-        for <clang-built-linux@googlegroups.com>; Thu, 19 Sep 2019 17:21:41 -0700 (PDT)
-X-Received: by 2002:a37:591:: with SMTP id 139mr590821qkf.162.1568938900968;
-        Thu, 19 Sep 2019 17:21:40 -0700 (PDT)
+        Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::742 is neither permitted nor denied by best guess record for domain of jakub.kicinski@netronome.com) client-ip=2607:f8b0:4864:20::742;
+Received: by mail-qk1-x742.google.com with SMTP id x134so5481317qkb.0
+        for <clang-built-linux@googlegroups.com>; Thu, 19 Sep 2019 17:21:50 -0700 (PDT)
+X-Received: by 2002:a37:c441:: with SMTP id h1mr589905qkm.16.1568938909826;
+        Thu, 19 Sep 2019 17:21:49 -0700 (PDT)
 Received: from cakuba.netronome.com ([66.60.152.14])
-        by smtp.gmail.com with ESMTPSA id c16sm198104qkg.131.2019.09.19.17.21.39
+        by smtp.gmail.com with ESMTPSA id e42sm127840qte.26.2019.09.19.17.21.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Sep 2019 17:21:40 -0700 (PDT)
-Date: Thu, 19 Sep 2019 17:21:36 -0700
+        Thu, 19 Sep 2019 17:21:49 -0700 (PDT)
+Date: Thu, 19 Sep 2019 17:21:45 -0700
 From: Jakub Kicinski <jakub.kicinski@netronome.com>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Shannon Nelson <snelson@pensando.io>, Pensando Drivers
- <drivers@pensando.io>, "David S. Miller" <davem@davemloft.net>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>
-Subject: Re: [PATCH] ionic: Remove unnecessary ternary operator in
- ionic_debugfs_add_ident
-Message-ID: <20190919172136.01f0e016@cakuba.netronome.com>
-In-Reply-To: <20190917232616.125261-1-natechancellor@gmail.com>
-References: <20190917232616.125261-1-natechancellor@gmail.com>
+To: Shannon Nelson <snelson@pensando.io>
+Cc: Arnd Bergmann <arnd@arndb.de>, Pensando Drivers <drivers@pensando.io>,
+ "David S. Miller" <davem@davemloft.net>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] ionic: remove useless return code
+Message-ID: <20190919172146.47bc95f4@cakuba.netronome.com>
+In-Reply-To: <6cdb1e21-44d9-bba9-1931-78f7109bff2b@pensando.io>
+References: <20190918195745.2158829-1-arnd@arndb.de>
+	<6cdb1e21-44d9-bba9-1931-78f7109bff2b@pensando.io>
 Organization: Netronome Systems, Ltd.
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: jakub.kicinski@netronome.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
  header.i=@netronome-com.20150623.gappssmtp.com header.s=20150623
- header.b=tAi6KJc1;       spf=neutral (google.com: 2607:f8b0:4864:20::744 is
+ header.b=p1MWiAA5;       spf=neutral (google.com: 2607:f8b0:4864:20::742 is
  neither permitted nor denied by best guess record for domain of
  jakub.kicinski@netronome.com) smtp.mailfrom=jakub.kicinski@netronome.com
 Precedence: list
@@ -136,28 +134,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 17 Sep 2019 16:26:16 -0700, Nathan Chancellor wrote:
-> clang warns:
+On Wed, 18 Sep 2019 13:46:34 -0700, Shannon Nelson wrote:
+> On 9/18/19 12:57 PM, Arnd Bergmann wrote:
+> > The debugfs function was apparently changed from returning an error code
+> > to a void return, but the return code left in place, causing a warning
+> > from clang:
+> >
+> > drivers/net/ethernet/pensando/ionic/ionic_debugfs.c:60:37: error: expression result unused [-Werror,-Wunused-value]
+> >                              ionic, &identity_fops) ? 0 : -EOPNOTSUPP;
+> >                                                           ^~~~~~~~~~~
+> >
+> > Fixes: fbfb8031533c ("ionic: Add hardware init and device commands")
+> > Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> > ---
+> >   drivers/net/ethernet/pensando/ionic/ionic_debugfs.c | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c b/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c
+> > index 7afc4a365b75..bc03cecf80cc 100644
+> > --- a/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c
+> > +++ b/drivers/net/ethernet/pensando/ionic/ionic_debugfs.c
+> > @@ -57,7 +57,7 @@ DEFINE_SHOW_ATTRIBUTE(identity);
+> >   void ionic_debugfs_add_ident(struct ionic *ionic)
+> >   {
+> >   	debugfs_create_file("identity", 0400, ionic->dentry,
+> > -			    ionic, &identity_fops) ? 0 : -EOPNOTSUPP;
+> > +			    ionic, &identity_fops);
+> >   }
+> >   
+> >   void ionic_debugfs_add_sizes(struct ionic *ionic)  
 > 
-> ../drivers/net/ethernet/pensando/ionic/ionic_debugfs.c:60:37: warning:
-> expression result unused [-Wunused-value]
->                             ionic, &identity_fops) ? 0 : -EOPNOTSUPP;
->                                                          ^~~~~~~~~~~
-> 1 warning generated.
-> 
-> The return value of debugfs_create_file does not need to be checked [1]
-> and the function returns void so get rid of the ternary operator, it is
-> unnecessary.
-> 
-> [1]: https://lore.kernel.org/linux-mm/20150815160730.GB25186@kroah.com/
-> 
-> Fixes: fbfb8031533c ("ionic: Add hardware init and device commands")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/658
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> This has just recently been addressed by Nathan Chancellor 
+> <natechancellor@gmail.com>
 
-Applied, thank you!
+Yup, should be in the net tree now.
+
+> Either way,
+> 
+> Acked-by: Shannon Nelson <snelson@pensando.io>
+
+Thanks for quick reviews!
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190919172136.01f0e016%40cakuba.netronome.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190919172146.47bc95f4%40cakuba.netronome.com.
