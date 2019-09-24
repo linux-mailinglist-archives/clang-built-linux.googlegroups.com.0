@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBBUPVHWAKGQEASROKLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBEEPVHWAKGQEA67VC5A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4D58BCCBD
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 18:42:47 +0200 (CEST)
-Received: by mail-yb1-xb39.google.com with SMTP id y18sf1995609ybr.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 09:42:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569343366; cv=pass;
+Received: from mail-ot1-x33a.google.com (mail-ot1-x33a.google.com [IPv6:2607:f8b0:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 62FA2BCCC3
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 18:42:57 +0200 (CEST)
+Received: by mail-ot1-x33a.google.com with SMTP id b2sf1515254otl.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 09:42:57 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569343376; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HWtVonGudPiebr9n8N5GeyfAzXLW9l6DFNHgr7TQASWWlUauI4wkoD5MI2wNDR4GdO
-         XcrbrErVH2QugzxxLMQarVc4XWNfYF/6CqCv5iMDP/dEexPU6s57/zz5QICXuIsIH192
-         eMrY8iFQ/lmojswNfcwnbz5QLxzgJX85QUHs84XZXsD7jXn/eAAJZT5nC1C5UNaAkM+N
-         ibouRjIdExKwvljKurhg4rE+PbQTDHJNrbdnqhexUtrzcj1zu/rNaneKhhch57i2X/EJ
-         VMcmWfnCiDffqk5AlgRnLrU688SWry9/6E9qi96OMFQtNOZ36bEV3AjaKFwGVoLgL4yq
-         uafQ==
+        b=n0/XY2awUM+ADOv5XTGuoxk2V26gU6CFF0RqghCrRmgPRWuO15Z/Vb8grHS1z1YgbH
+         7TtgUfkTJIt1ouqj9X05BYV7QZCNzG0w9IXd6RCyOWL5bKwc65Ftxk/+MYYMYEbL0iF5
+         VguajLsD+aS7zNMu6Vri6OxGbsl3UeWcx00YhMYOwmdNXpcCdApRl3ow5/E3yFzNOzJ3
+         Yk2TPHY48NcazI/3t+lP1pXhJVjxD/ArqE7crhcHYMSY7fW6hkXvJeJxB6aazISsNGqj
+         pwGWKYJEw8epsqbXx59zyVs8wxYh68JBv8OgW01KhgKYN0+w5FglGJZOaA7sL+BNtGCp
+         bhPg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=leIGLU+20BdG16JwL92+HItOt4y0u0scb46oQJNb1zM=;
-        b=xvgh7Ymv7BnBCMazXxkLnMEp8QNLMXgpqIKuCpRfzbixm7+oLQ+ibwTswQpZCeWL16
-         Z5UVj0Bz4pPpHOCZeF8v54DzQV77eW6CB5J5P8FTJ5HK6Bh7xPAoFQyGlLiR3pzP29Hh
-         uZ06Mm51UYWSXNyJODQ1SgByySMmFce04I2xyPbOTVg46V6Y5GWIkZWfVzO+a3uRs1Ss
-         KsWriUTtVpWtz/GXln/9FdORPMlfdTkeDNCz6mhbC9bKwSiX95wE86nqtF3y7RvdXTjy
-         oEG1yIACn4n7xWNHjyR9gSAHeUDYsLZ5LeIlpU4TMssXqekUSzhistkDzYCrfT7G+hgU
-         KMJA==
+        bh=0xVlBC6DGoeM2HMoXOZua+Y02+g4L24ycPCOsS5WCHs=;
+        b=PLhljhPTJ+o7j7AgqnBZRdp9+k74XA9Tr78Rzso5VmGD+AUU3k540d4mdTDBxErHk6
+         abVg0xjLbhQimXB/0EpIUvF9yVM1GkZJOhfuSuOh6H+UjwGUs3bnWUqcxlJsT1ewYZwL
+         AmUEPbcqgnjBpiby7bSY1MyfwqG6dOMeCHjOkYzXbcjnE4lrPKJeup6v6UrQUOjkJbZq
+         smyJIYUkkabkTjrieexSSGJnEIVF0x0qTPC8bBQ5fsFJWSrVvdJMJK4GKBrPjV8RzifK
+         vJK8TzHVDg0BTfxzQI8ZM0iu7Budi9/Wusgx3Xi20VymAmSNbVaMhtBZYdhw0he2rZzI
+         FqUA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=iw9cy7al;
+       dkim=pass header.i=@kernel.org header.s=default header.b=PidovqNm;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=leIGLU+20BdG16JwL92+HItOt4y0u0scb46oQJNb1zM=;
-        b=brauzy34H6bpK5KWAVn1Z6M+7akdd8gFjYfJJwt4BX/lytkqXEMAT7DaXqzm8KmGMW
-         eqooNJuU/aCf8z5o7pkPrLZqV0PBwzUbEVzUYeHl+zbSZ8vq6UgOwTAnsbAlg60mYqEw
-         Xpn75a+KXvG0ADYgq63wt8nTWOK2xm9h1PzXRF455vqPLcjUsOlaMKuXBSGmh29yx35C
-         ZBRKrc5QpLhZ3JYrZCKP0XO681ySBHhsJ59CiczgphsjSJ+lR4LK7d+36O3Ii+QJ42/d
-         bzWWKplRTXxL9WUW04xECRR0yupYLyY2zKnunC/bDrceHFgYK1/NLaMoyYQYyye6PhY3
-         GZyg==
+        bh=0xVlBC6DGoeM2HMoXOZua+Y02+g4L24ycPCOsS5WCHs=;
+        b=A3w4b7OKD2WQkwMnwyKzFlJw5TXnbrZsF/KXMGqHLqREXoTShp/F7rpkcMpsxaOP76
+         p6HErzsi9X0gLOpQYfyZr1eGFSh7WncSXErv1rOVM1HW1wfDG+vl0gTdiqWuxruaBpyI
+         RpHXSsRlGN9M8XJBgNq3OaangTnZYTOljCBXpeo0XBv6ET8+wWhfUllzyzfGMpaObjRz
+         5FceC2L3+TRxHsZ2Yj9bU2owkIrOQY/HAC6rCvvbLktp9eh6A5HBa/gM+S0aQn/nB2ff
+         GhVCXK9O0PbnmMoBg+6I30F2NUwwJTFWQZaQOzrRmevM2Iyiqwy6I9Y5GvPyEp+n7gHo
+         uviw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,72 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=leIGLU+20BdG16JwL92+HItOt4y0u0scb46oQJNb1zM=;
-        b=kTG427pTwFJYMkLA7OY7JPglGxG2Td9VVmPjM2S9DL1Ns55xbroJnPtJmzV/4kLrhS
-         /elQWyJb2TAj4/9f0DWn4+Hp9CHp1BQP2K1ZqtZ4gWf1TrBUWwAiAu7yXlPKekjE9gLp
-         5x/7cl2YL+7oZTx/Z6A4I9RKEqXnqnmiNGsSfVU22REQ1t+F8uTazz2QQTv9PfgQEZrk
-         IEwqBwiw1YBFYFu+4mCHl7oZ01qeo29huyluFSDWmWMEkczshSSSH3VJez5JmY2CbqvZ
-         d077E0xwToOnYDeR3RPnYhEaudV+Wnah9+xIw2yXZAfpdlYcX4nrEmfhX5w+hd/dBSZr
-         PBUA==
+        bh=0xVlBC6DGoeM2HMoXOZua+Y02+g4L24ycPCOsS5WCHs=;
+        b=gunOBZpOn4Jf7BjLvZzARm5TJfUX3EQs0kBbeCV/fLEjsM3karspQPt4PPSeE18NMR
+         uKOYhuZu0isk2Ym4MLt/Lz0nQXASrv35j4YqWyJk5V7/utPZFy5SqclddOGiELjLcCBX
+         QMhughI/HzVuwWI5KhiRNgaX7zqLcTGe8jaGwTWgwDSwHdm7YbDkVGz8MP52ugvfYvhv
+         l4y5ZjBh9EYvEmAKsdrwwGre+6+SKAjmALVw3P3GJqq5ezaCClZKcXKxfJe5rODGCu3y
+         wc4XUB9FXhdGVX4RiMYgbwmnaRzVvTeew7YQiNQdmtekY0HSZAR5I/VF6Siw0sXqbWmR
+         /1ig==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUay3NzLWz52/KVY/BVr833H9F7SpqLcgNWHDzW8euWV0L+IidV
-	x7WUcdLOr18BKmhOdhuDZG0=
-X-Google-Smtp-Source: APXvYqxxT2loQcjtqpclPYGQDpRLbPhIAYJnT9zDUYWnexaVBgdCQMYAtxQ7qSbTBL8EAYQcO6pfcQ==
-X-Received: by 2002:a5b:c01:: with SMTP id f1mr2798077ybq.30.1569343366467;
-        Tue, 24 Sep 2019 09:42:46 -0700 (PDT)
+X-Gm-Message-State: APjAAAVpnLZkXLDwY6P8h4fVcKb05C1pUxclCdbwXTgC0HATc0XUXBni
+	m6ZXCrriR98Gph0c5G4EEXU=
+X-Google-Smtp-Source: APXvYqwkWU1tinWaO6FUzP3UTQ2cRYq/Nab0LnHH7hN126O/CifNfWcx1Yw8NNtYZMikdvqEQ5qHWw==
+X-Received: by 2002:a9d:5f10:: with SMTP id f16mr2584755oti.332.1569343376095;
+        Tue, 24 Sep 2019 09:42:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d690:: with SMTP id n138ls439533ybg.10.gmail; Tue, 24
- Sep 2019 09:42:46 -0700 (PDT)
-X-Received: by 2002:a25:60d4:: with SMTP id u203mr684108ybb.434.1569343366072;
-        Tue, 24 Sep 2019 09:42:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569343366; cv=none;
+Received: by 2002:aca:4dcb:: with SMTP id a194ls566844oib.7.gmail; Tue, 24 Sep
+ 2019 09:42:55 -0700 (PDT)
+X-Received: by 2002:aca:de55:: with SMTP id v82mr931953oig.173.1569343375850;
+        Tue, 24 Sep 2019 09:42:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569343375; cv=none;
         d=google.com; s=arc-20160816;
-        b=es00aZH/32lDHxI7WqoD1a6ug/NIBXZ+GJ2SRpCSh+L619zFhOcWFxlPUSceVcunzT
-         ZXdGo99krhuH3GXIe+pG1bun7XtWkDeE18GMZ9/KkvmNrhe69QtFd6Ks7AHu5J9WHucU
-         kmDyHT/m4TgP82NpesLz6+hj081TdFL7K3jzxzI769KDGBjhgUbltC2pvOm6J4iFdHni
-         A+mXn15Zuf5tMivXchOkRJ8KeMRQFSulMBF7JDExbA0TtZU63AA1w4o4nL0CgKAvXStH
-         n+3Yz3AaPXF83wW/fotFm5d5RS6PoOLrrNKx2Rfp+xbfKfeB1Tak2kmbc3mf7Dbe9PPC
-         k8PQ==
+        b=YXma3nUYL1aY5pzb0CxNUCClV3hpF/06BkY1DoNdEtPlHVuLBFRN/Cr83uYTOT02t/
+         hYGI5s2JY6SGPqDMvu1e7IkjpFvfcF4PQZaPpFgQgR6N1Kjo2k+6c80IS3hJNiyHM0yx
+         Usw/FjZ/48j7Ahei9MEOSm9RiGRyEvQY2YWa+l0u6Sb43GnryOavSU3HkDwS+2AsY/pX
+         f8kr97oi8zfUc/HJPUq/56rmTLkgpgF2VCs2NS9yhcVMO8NeKW89IZq/IdSh7kvhhDsC
+         htCltL6h5RT2P2+eI9B8WBcokCnAqtv+T7QidM7o9zAnozYG1gT522FAZSZ+caJEARd9
+         uhQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=LkyGZLy+XZoUqPUnVL6AClTD/0ghwr1UsiDYNgFFh4M=;
-        b=0Y+xoNMkcAKQmrMwX9JPhpeDGcetjo2oK0XzdctQfj9Sp3mKSofUc4yVTbqiPts3FO
-         LPpbr1W1Z/D7xYyiIPnn2x99nqu9QaE3Aepg2VSv6AokDTlGSG0q/ulac6KkKGn6VMAC
-         otbSUCr+5+erM/fyvl3NL93QhiHwSaJwPGUhKOhl+T38tHz+QANNler/KzgGSwvEg5Vz
-         4C+EIL1fiNIOntdewZEtYeAMUAoU42bmjgz/E0ewTfCGgk9o//BZ4VOfmemF1R8A/z9q
-         Ghcg8fG9wswl8k8vj0D4AvPlaJuwAA3w2I25PFW6Zv/LXrzyY5ItwuB+yX+RBwjx0aP3
-         J8Lg==
+        bh=h0fEiv0sp6cbGaaSvluO7JgNKxkUBB09hAimgYvZyW0=;
+        b=uA5rEOsMXS6SVgWEsclTBKlqV/6aRVwfMKuE5ynWrR1yDTxFM8n184imfTub0FrbtJ
+         XFeGQEtWfUR5merj6+FWzxdd03sb2oCdhbdoZ3GcQ+Abwykk/qhDexLfSNHHQyopQY5B
+         2vaGWO+o6nk9ObeaO++aezgovmfaCDV+qEANceaN/i+tD9V7GXKOe9Sv2tLkFSWjlW6y
+         y4oN3nhHi33TSzJHWFSsvExk+uotLCciPE9Fb21kJMK3GlSFYPCSATmwS9L3aTRbU09d
+         GIF8NvBZrv+WEaQK9ZNhsmsncKW96MxUv/JI+YVhSN14LYF6nRAghUHpghICLMh4JWrH
+         0SIA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=iw9cy7al;
+       dkim=pass header.i=@kernel.org header.s=default header.b=PidovqNm;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id d23si201256ybe.0.2019.09.24.09.42.45
+        by gmr-mx.google.com with ESMTPS id m23si182386otl.4.2019.09.24.09.42.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Sep 2019 09:42:46 -0700 (PDT)
+        Tue, 24 Sep 2019 09:42:55 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 115B4217F4;
-	Tue, 24 Sep 2019 16:42:43 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 87A4921D7C;
+	Tue, 24 Sep 2019 16:42:53 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Leo Li <sunpeng.li@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tyrel Datwyler <tyreld@linux.ibm.com>,
+	Joel Savitz <jsavitz@redhat.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
 	Sasha Levin <sashal@kernel.org>,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
+	linux-pci@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.3 20/87] drm/amd/display: Use proper enum conversion functions
-Date: Tue, 24 Sep 2019 12:40:36 -0400
-Message-Id: <20190924164144.25591-20-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.3 24/87] PCI: rpaphp: Avoid a sometimes-uninitialized warning
+Date: Tue, 24 Sep 2019 12:40:40 -0400
+Message-Id: <20190924164144.25591-24-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20190924164144.25591-1-sashal@kernel.org>
 References: <20190924164144.25591-1-sashal@kernel.org>
@@ -121,7 +123,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=iw9cy7al;       spf=pass
+ header.i=@kernel.org header.s=default header.b=PidovqNm;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -140,63 +142,87 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit d196bbbc28fab82624f7686f8b0da8e8644b6e6a ]
+[ Upstream commit 0df3e42167caaf9f8c7b64de3da40a459979afe8 ]
 
-clang warns:
+When building with -Wsometimes-uninitialized, clang warns:
 
-drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:336:8:
-warning: implicit conversion from enumeration type 'enum smu_clk_type'
-to different enumeration type 'enum amd_pp_clock_type'
-[-Wenum-conversion]
-                                        dc_to_smu_clock_type(clk_type),
-                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm_pp_smu.c:421:14:
-warning: implicit conversion from enumeration type 'enum
-amd_pp_clock_type' to different enumeration type 'enum smu_clk_type'
-[-Wenum-conversion]
-                                        dc_to_pp_clock_type(clk_type),
-                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/pci/hotplug/rpaphp_core.c:243:14: warning: variable 'fndit' is
+used uninitialized whenever 'for' loop exits because its condition is
+false [-Wsometimes-uninitialized]
+        for (j = 0; j < entries; j++) {
+                    ^~~~~~~~~~~
+drivers/pci/hotplug/rpaphp_core.c:256:6: note: uninitialized use occurs
+here
+        if (fndit)
+            ^~~~~
+drivers/pci/hotplug/rpaphp_core.c:243:14: note: remove the condition if
+it is always true
+        for (j = 0; j < entries; j++) {
+                    ^~~~~~~~~~~
+drivers/pci/hotplug/rpaphp_core.c:233:14: note: initialize the variable
+'fndit' to silence this warning
+        int j, fndit;
+                    ^
+                     = 0
 
-There are functions to properly convert between all of these types, use
-them so there are no longer any warnings.
+fndit is only used to gate a sprintf call, which can be moved into the
+loop to simplify the code and eliminate the local variable, which will
+fix this warning.
 
-Fixes: a43913ea50a5 ("drm/amd/powerplay: add function get_clock_by_type_with_latency for navi10")
-Fixes: e5e4e22391c2 ("drm/amd/powerplay: add interface to get clock by type with latency for display (v2)")
-Link: https://github.com/ClangBuiltLinux/linux/issues/586
+Fixes: 2fcf3ae508c2 ("hotplug/drc-info: Add code to search ibm,drc-info property")
+Suggested-by: Nick Desaulniers <ndesaulniers@google.com>
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Reviewed-by: Leo Li <sunpeng.li@amd.com>
-Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
+Acked-by: Tyrel Datwyler <tyreld@linux.ibm.com>
+Acked-by: Joel Savitz <jsavitz@redhat.com>
+Signed-off-by: Michael Ellerman <mpe@ellerman.id.au>
+Link: https://github.com/ClangBuiltLinux/linux/issues/504
+Link: https://lore.kernel.org/r/20190603221157.58502-1-natechancellor@gmail.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/pci/hotplug/rpaphp_core.c | 18 +++++++-----------
+ 1 file changed, 7 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
-index 592fa499c9f86..9594c154664fc 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm_pp_smu.c
-@@ -334,7 +334,7 @@ bool dm_pp_get_clock_levels_by_type(
- 		}
- 	} else if (adev->smu.funcs && adev->smu.funcs->get_clock_by_type) {
- 		if (smu_get_clock_by_type(&adev->smu,
--					  dc_to_smu_clock_type(clk_type),
-+					  dc_to_pp_clock_type(clk_type),
- 					  &pp_clks)) {
- 			get_default_clock_levels(clk_type, dc_clks);
- 			return true;
-@@ -419,7 +419,7 @@ bool dm_pp_get_clock_levels_by_type_with_latency(
- 			return false;
- 	} else if (adev->smu.ppt_funcs && adev->smu.ppt_funcs->get_clock_by_type_with_latency) {
- 		if (smu_get_clock_by_type_with_latency(&adev->smu,
--						       dc_to_pp_clock_type(clk_type),
-+						       dc_to_smu_clock_type(clk_type),
- 						       &pp_clks))
- 			return false;
+diff --git a/drivers/pci/hotplug/rpaphp_core.c b/drivers/pci/hotplug/rpaphp_core.c
+index bcd5d357ca238..c3899ee1db995 100644
+--- a/drivers/pci/hotplug/rpaphp_core.c
++++ b/drivers/pci/hotplug/rpaphp_core.c
+@@ -230,7 +230,7 @@ static int rpaphp_check_drc_props_v2(struct device_node *dn, char *drc_name,
+ 	struct of_drc_info drc;
+ 	const __be32 *value;
+ 	char cell_drc_name[MAX_DRC_NAME_LEN];
+-	int j, fndit;
++	int j;
+ 
+ 	info = of_find_property(dn->parent, "ibm,drc-info", NULL);
+ 	if (info == NULL)
+@@ -245,17 +245,13 @@ static int rpaphp_check_drc_props_v2(struct device_node *dn, char *drc_name,
+ 
+ 		/* Should now know end of current entry */
+ 
+-		if (my_index > drc.last_drc_index)
+-			continue;
+-
+-		fndit = 1;
+-		break;
++		/* Found it */
++		if (my_index <= drc.last_drc_index) {
++			sprintf(cell_drc_name, "%s%d", drc.drc_name_prefix,
++				my_index);
++			break;
++		}
  	}
+-	/* Found it */
+-
+-	if (fndit)
+-		sprintf(cell_drc_name, "%s%d", drc.drc_name_prefix, 
+-			my_index);
+ 
+ 	if (((drc_name == NULL) ||
+ 	     (drc_name && !strcmp(drc_name, cell_drc_name))) &&
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190924164144.25591-20-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190924164144.25591-24-sashal%40kernel.org.
