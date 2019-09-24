@@ -1,123 +1,151 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBNGCVHWAKGQE2U3IYVA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBJ6FVHWAKGQER47Q52Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc40.google.com (mail-yw1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 95A36BD1DD
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 20:32:21 +0200 (CEST)
-Received: by mail-yw1-xc40.google.com with SMTP id p185sf2150311ywb.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 11:32:21 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569349940; cv=pass;
+Received: from mail-lj1-x237.google.com (mail-lj1-x237.google.com [IPv6:2a00:1450:4864:20::237])
+	by mail.lfdr.de (Postfix) with ESMTPS id C5443BD1EC
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 20:38:31 +0200 (CEST)
+Received: by mail-lj1-x237.google.com with SMTP id q185sf822871ljb.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Sep 2019 11:38:31 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569350311; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hJ6TUYpnb97Fcwnuq/VBPzVEyo4JThXcW8J8onheKgc+0MEFmL4UicCnbF7odpjpgv
-         nkGPc1l2GwXdXbgKx5a59AzJFGuMt3nxXTvsbLvhB6YQi/cVwxsH3SQrAgPHxQWqABoC
-         VszijmC1QSjcN8p169g02Mrvt1I9N1uWWeBp6zf6Pn1tqNM2HALnFQApbNAvymCjY9dq
-         VycvSsn/W7zvnWXCccHglb7fCzml9/pjwUwgCPTgRhLoXsDeZNOgvES9eHc3jWG9CbPF
-         l2pV/mQvTAKt0ndL687xs0Sta3CmLRqBdmzf0qbDtlbT/Vx/jBN/ndvvDYp+HGSpeljc
-         SY3w==
+        b=UfOd3HYe5yh12yXtqyucrqoz1lu689Faqa+sthyb15umtc8tYeukiKIoRKADeKcu/V
+         JKvNJn+YzeBA3wAL30mYCAHuGapQ/tB+hbSI2bX4h+0EjQOpn+ynfmnqeyGQtJVFBGWf
+         9VTQtza1JzME/YXhegfX46IvB142WpRxBWZxJmzkc5Kc1RzNrIV+k6FaiD8ixlBVOsuJ
+         uk7PxMjNCXBTUj+sdxhGxhs8VSuOx7DHnb8gHSzwE3A4kWYmVSC/hw0aw9Da2pSs471k
+         Aj+vc1Kp6ItaJU0LsAKXhTsDFcxkngMF/nvztt3PL2lYIpqDd6K0CJWOUMD5HDy/7mQL
+         tdUg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=TSdHUoZ4C2+uxhSa+awrIYgAMWeRo15qRH/iV1qqzuY=;
-        b=wOPdpFVflnh0pgziGdhfvBIQ2UKHI1hEOc+/oEYLpJIEgwT1JOviXqR5lmi4DbDQ0c
-         gYz27s/dc+BmWByO4muF4LAdR7t/Z6Gs5fzXimdaUWk95m5azZdVvZzkbBlZmr9Y61na
-         Gve9oiOkLYVftu/DESJIv+WjfQ15RuAoZPirg3peQVBX5DyWUgFwggneFnw4gF9AWt9D
-         MAa82pjqOB0xa9LGASVJTc/qRZSDK0Zs5dgOlERqMN6m/c/y3rFL58KBTTyUlp/DYth4
-         UUvprcGf5lIhvBRIKCYmQ1m79rpS9HtavovrSfKiPtZy+MxOx24TP15bXI17/vaO51WS
-         5DhA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=hofsRva2cdXvNPEQFQXtD62JNn77QvgV6LVkT633rOs=;
+        b=D+vWJy/YnxXV6iorxoh0PYZaUdF+hnLWNiJ2kTWVgCd8gtrS9fFxmum2/CQ+cyC6cP
+         QVRbovWGb1KxcM+DLUn7gBIR7GZHNT1s70Dk2YWRppmIgSFRjWTetp2Mva5n8nsgNX6a
+         pCOyuH72xJxvurQguhh4QEzDRcEF4/ZbJkQW2l6tJqXHtVH01fDbUt53TTTSgDlL6K8l
+         s3TDvvvDDl7RbEHDjzcSeXHJbpKhvDnWTuSzPtaKHkfBdIBwYJOpKVNdvIwFFzE0Tzef
+         k6JTg9qp4uHcYUbDjLaNLbu5tnj1VDHTPivWQqnrTuVDvly/dR0pIh0QDDLcHCl4OFxC
+         WpdA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LLxllnZj;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=D4DyYPgI;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TSdHUoZ4C2+uxhSa+awrIYgAMWeRo15qRH/iV1qqzuY=;
-        b=LsXPwhuiLiWb7D+jGLLIv/5cbtxN1YFzPhqqnnyjQF8Nyg79to5QhPot51nTRUHEXF
-         zh8Nf5+fMwmlwjXbVn2ObOK4Gl3XRhBT0kymJpVY+r5qKHk4I1p4r+6rZRBQRTwoK4sA
-         q8WLadz4Gg7ZqNqJ8Ao6c/YDSFS3eJPHwP9/+hi6X20TqzceP+jshJ7ENrpiEtrrV8sD
-         qyh/4AEKmHD6KQBZ/zq6NQ2N7MVmYz5xBkzBbgAnhBTc7VyOIoz4zV1Xv+SxsEqb4nDA
-         ykoJyZERsYxpQSQt133jKp7A88TdgaypZhlSZuyWcjqaoAXkf6NkcoNiw8YUi1fCuDVW
-         5JiQ==
+        bh=hofsRva2cdXvNPEQFQXtD62JNn77QvgV6LVkT633rOs=;
+        b=jiz2GZZ0CpuVi1Ib/0jmue6Y/+yVJolHlu4wW5B/DpIKnb24Gcp8d6n4UKr7gq7PVX
+         8EjKo9UH1BPkGIki1l8+B4shRnc+6xTChBf1YExvYDPTVGmBicUPa6oixtHgxYmhcEzF
+         y0+f7e/ouBM6oxI5jClDS9gKWpafok1AUq6rYWKAT/FwBz5yBeHLoSQpNcD7V4Psz0v9
+         1EEF+FOxjrk56dkIyM0s3zhZ+E9qYyHvAnbq1bMsqGz4/CkfPtC4q3K98vh3/zC6plGh
+         X066ZFCQG+ZvaJFtizQ7LUupRSy27d3nbYZa/y1vpz33eRvzUgOOUwIfh0zKm8ZlZ9os
+         XqkA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=hofsRva2cdXvNPEQFQXtD62JNn77QvgV6LVkT633rOs=;
+        b=PFLOryZHpUwWf2KilDYBgXqeW5YPVRO7eJJ4KaEQYYuGE+wXnvplD7+ExlzOglMhvU
+         k2IRLZEIigELj0v99SH8AVTV0Z7Kl+wlTnvV11wN9HnshJx+EUWX7zvD7Wq7QeU6n/et
+         1F5+Waj2IBquMmgfn+FaiOdImvKQzqK5EYYJZ+ecYdw9WVHWnya/rqKktyL21qpK7hlz
+         oZet7zN5yE6YzuKTzMtY4FdIP9F/6lko7omI7+o4qZNpURD8LOdYYZKTklLSDDgkxEfE
+         64DIfpW0OJBnJgDB1/eEWc1gCNuILKiCuLVPNDUt1ZZHjdIWLqFX8tD9leEYXJASPBHw
+         BlLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TSdHUoZ4C2+uxhSa+awrIYgAMWeRo15qRH/iV1qqzuY=;
-        b=I4Lf+CHCGtPLKhMhMIHsyu22ah3sotqhXf/g/HeWm6bf9I43cTq/YYIZSxNwQ/sVbt
-         mrcSb27jR4Hct2qbC057J4QFvRBjm3Rnq77zCN67FX4UwyGpP6QQlkEYmkIRQj5MA3hp
-         SdwjjgRPYysNXcmfqgXubGtxlteqjsI3pcTMRgPVque/0cwH/qeSqiwg/Aiz7ZHMjKha
-         jwf/tTrDJpEgliPTQuX9SYUTG9R9xKD2QnsAq3pQeHgFdzw/0fB1zchqN1eOMnw/wKeu
-         1omPXuov0A54YyWAI2sNcJZJVAOBODJhTo7Fjh/M3VUp34lpIt3UMetgnfFtUOqFXdQ9
-         /rSQ==
-X-Gm-Message-State: APjAAAVd1StLFS3KG/TXlTYN2jYcxsxial4ZisWWYxcUSKuTWTh4ruOS
-	pdxwKl/ocS3JtW+s1KFWv94=
-X-Google-Smtp-Source: APXvYqweljo/06HbJmmnegnz4w5l+DiNIl7ckoB6t1bOabiMPoCzRgzyJPwrZLE/takW/wujvr69Sw==
-X-Received: by 2002:a25:7088:: with SMTP id l130mr159718ybc.66.1569349940623;
-        Tue, 24 Sep 2019 11:32:20 -0700 (PDT)
+        bh=hofsRva2cdXvNPEQFQXtD62JNn77QvgV6LVkT633rOs=;
+        b=uACnlcC5WnMtFp25Js1mz1QOFxGPByMTxbxJNQOANt/ips0p66QXOEGi8k8d6Fe2KR
+         Grr7EFnaepDvdvXn1kShoxhCfQNqyhB2Y2uf4oEuWgakSjmJ6MfS1OFMvyvhKK85bKqg
+         1KMT+fG0tcOVLkToN9rrnExeYpNr7XP3bSn0XggJAK5sLKm4jk4t+HcyEOAaWFoY0I9w
+         Jiw5EWRYAlsIb0vX+U9QrlASCOeAMzTpoEjncUp2hEXfjSvg5x3pWf5qYbsfXoxIMHRW
+         JuYi+ANoiqEhCjEHUgH6C+fxz7Z1/1drDe+cPneuNJTA83sCYd81uu36w/FH8fnPt+xH
+         lYBQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAVgc3/c/GD1CqwzPifVn/ZwzvVmsCSgC1EbQmcoBomBO3pcYLHQ
+	d5h82WfxOTKsFsTDp0P5WTg=
+X-Google-Smtp-Source: APXvYqxaEB0MT1yK6eb6ijmDHPk/0JvDd6ac9pgn8SoQUlAlDpBHelI0WpSbQ00onGdxWDZotSIXKQ==
+X-Received: by 2002:ac2:59c2:: with SMTP id x2mr2535268lfn.125.1569350311347;
+        Tue, 24 Sep 2019 11:38:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:1ed6:: with SMTP id e205ls28092ybe.14.gmail; Tue, 24 Sep
- 2019 11:32:19 -0700 (PDT)
-X-Received: by 2002:a25:5b41:: with SMTP id p62mr139901ybb.266.1569349939397;
-        Tue, 24 Sep 2019 11:32:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569349939; cv=none;
+Received: by 2002:ac2:51de:: with SMTP id u30ls330909lfm.14.gmail; Tue, 24 Sep
+ 2019 11:38:30 -0700 (PDT)
+X-Received: by 2002:a19:f711:: with SMTP id z17mr2764534lfe.58.1569350310889;
+        Tue, 24 Sep 2019 11:38:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569350310; cv=none;
         d=google.com; s=arc-20160816;
-        b=goSUMvQ5pQZKSyICs4pGXNV4XsXb7tavy/TQzhImY8RmggCsm2NLLSS6p7JZDVePXp
-         2moOzDmDql2Dh11cMiLTZuVQSn38NPfs3jAchyLgoCNAiHXCEzTxgk1uQLbybfqJErwc
-         txxVdbgvisHD9nrRwFnpXz4YqQygzCVhq/7SXfGVfw3jyPPGJrLqV64RGnIVkEGKVXGT
-         cR11KAjm5dIVAd/cQHcEYBS1yYL9Stovbz7QOR5MI4kYZT/uco/xdfPz2bKGFdVZHtD+
-         FcJghGnYHXQcwsqLO2UXTFXFlEqa/X9m0I2Qr3v2xPJkujIlPh/ihYLR2JR3HLa/pDbS
-         BCkA==
+        b=fe3TLNG/mi9sQQNTDw0E9nWmU2aHj3tMVFGkJv/eGEuCRerJRVKmo2IEpbXO/1KfHJ
+         E1T4s5ReWsaD7wmQMm3tZGpm22FtKMIs35wxrKioifznIXhSkz6dTgwRERKfZfS6Sywx
+         NjjpJbZXqAqmGHhRPka2CPHfF0RWOmetqyn9Qx5GF7P+fTmtCEuu0pnVaoNBDhyONgCR
+         Wv9QdcDQVi/+ERvqfV6jgJQKG8fMxweZhOhINsbKbIAHYtcLFoU9POw+n0XiL+nMP9rR
+         nTtBCenK7MegDWu+1CliVmaY9pGSFR0l1VCe3ktWcFYNMK0/+lhwMDFur4FprL78Q+KS
+         pb0w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=MFxAZD1w5UhTlzLtE5TmBr2XeUa2P0bLYhndFfGu00E=;
-        b=ue6SgTZzcReIeozhAbJIA6gcSVbcGU98EJiKm661uCE7allwQVwZ93faXhhtPAcGQo
-         1aCvx7jfKXnrxZpvzvyeuVBMaZMLJ4gxWsudBftAS0TGLOpEOhaq8DJ2ikZB/ODieP1g
-         N+wNwdWkwkYvwCYsEcO0td7BK6M8aMssBk7rDcc1LFtp5X8u3LGZbtKrnfVl3WqZdNxc
-         KScg8eyI7ixFPnB6NH9AU/nq5gV7gcWeK88i5/vhVSmorjZm1R8iSMkOC/YVmSc978fy
-         AdSaCKKUTwh66+v2VLJvyrvF5aZXO/KyoRohQTXfyQF1oUyrDbDze4qe24+WrlSQVQ8m
-         0RTA==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=HLu8vpceEOnJOAJQ9RhyxlImOiyyYOYIlhMAs4JJqtQ=;
+        b=C4giM73E2aCxojTTD3Ig4qUsEruPObb/quQtaLh2vPV57H5daf7DHGtiRsE6ruUY2y
+         5U6Sra4VeVOBshfXiWn9XgUc/sU4taUVdIphplFQR9FFjCIDNY7W1wkR3lOozUfUnjNE
+         nUK9vFHfvl5aa3pwC459ko0aDjHT75JCaa/xW6qCEUS+zEXTQ9wya4TborNKgcae49/D
+         bRnC8nDmCdOS3DaSBXM8bC0toesMnv9QGnBY3RXIr+wrn6GsOp3WpqpxuuCz6CDCEoiC
+         7Lu030MblXO5ghVQTLlA7BQt9jJneQbT56WG55597pZuOIeog9w/xOquF8I4waWuw49m
+         7L3w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=LLxllnZj;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id p140si97583ywg.4.2019.09.24.11.32.19
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=D4DyYPgI;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id c8si173420lfm.4.2019.09.24.11.38.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Sep 2019 11:32:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
-Received: by mail-pf1-x444.google.com with SMTP id q10so1881068pfl.0
-        for <clang-built-linux@googlegroups.com>; Tue, 24 Sep 2019 11:32:19 -0700 (PDT)
-X-Received: by 2002:a63:d908:: with SMTP id r8mr4509167pgg.263.1569349937836;
- Tue, 24 Sep 2019 11:32:17 -0700 (PDT)
+        Tue, 24 Sep 2019 11:38:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
+Received: by mail-wm1-x342.google.com with SMTP id 5so1319699wmg.0
+        for <clang-built-linux@googlegroups.com>; Tue, 24 Sep 2019 11:38:30 -0700 (PDT)
+X-Received: by 2002:a7b:c451:: with SMTP id l17mr1534682wmi.61.1569350310368;
+        Tue, 24 Sep 2019 11:38:30 -0700 (PDT)
+Received: from archlinux-threadripper ([2a01:4f8:222:2f1b::2])
+        by smtp.gmail.com with ESMTPSA id a6sm3404899wrr.85.2019.09.24.11.38.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Sep 2019 11:38:29 -0700 (PDT)
+Date: Tue, 24 Sep 2019 11:38:27 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: linux@roeck-us.net, clang-built-linux@googlegroups.com,
+	jdelvare@suse.com,
+	Tomasz =?utf-8?B?UGF3ZcWC?= Gajc <tpgxyz@gmail.com>,
+	Henrik Rydberg <rydberg@bitmath.org>, linux-hwmon@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] hwmon: (applesmc) fix UB and udelay overflow
+Message-ID: <20190924183827.GA2800937@archlinux-threadripper>
+References: <CAKwvOd=GVdHhsdHOMpuhEKkWMssW37keqX5c59+6fiEgLs+Q1g@mail.gmail.com>
+ <20190924174728.201464-1-ndesaulniers@google.com>
 MIME-Version: 1.0
-References: <20190923222403.22956-1-ndesaulniers@google.com> <20190924182417.GA2714282@archlinux-threadripper>
-In-Reply-To: <20190924182417.GA2714282@archlinux-threadripper>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 24 Sep 2019 11:32:06 -0700
-Message-ID: <CAKwvOdmFqPSyeKn-0th_ca9B3QU63G__kEJ=X0tfjhE+1_p=FQ@mail.gmail.com>
-Subject: Re: [PATCH] x86, realmode: explicitly set ENTRY in linker script
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20190924174728.201464-1-ndesaulniers@google.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=LLxllnZj;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=D4DyYPgI;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,59 +158,131 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Sep 24, 2019 at 11:24 AM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> On Mon, Sep 23, 2019 at 03:24:02PM -0700, 'Nick Desaulniers' via Clang Built Linux wrote:
-> > Linking with ld.lld via $ make LD=ld.lld produces the warning:
-> > ld.lld: warning: cannot find entry symbol _start; defaulting to 0x1000
-> >
-> > Linking with ld.bfd shows the default entry is 0x1000:
-> > $ readelf -h arch/x86/realmode/rm/realmode.elf | grep Entry
-> >   Entry point address:               0x1000
-> >
-> > While ld.lld is being pedantic, just set the entry point explicitly,
-> > instead of depending on the implicit default.
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/216
-> > Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> > ---
-> >  arch/x86/realmode/rm/realmode.lds.S | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/arch/x86/realmode/rm/realmode.lds.S b/arch/x86/realmode/rm/realmode.lds.S
-> > index 3bb980800c58..2034f5f79bff 100644
-> > --- a/arch/x86/realmode/rm/realmode.lds.S
-> > +++ b/arch/x86/realmode/rm/realmode.lds.S
-> > @@ -11,6 +11,7 @@
-> >
-> >  OUTPUT_FORMAT("elf32-i386")
-> >  OUTPUT_ARCH(i386)
-> > +ENTRY(0x1000)
-> >
-> >  SECTIONS
-> >  {
-> > --
-> > 2.23.0.351.gc4317032e6-goog
-> >
->
-> This appears to break ld.bfd?
->
-> ld:arch/x86/realmode/rm/realmode.lds:131: syntax error
-> make[5]: *** [../arch/x86/realmode/rm/Makefile:54: arch/x86/realmode/rm/realmode.elf] Error 1
-> make[4]: *** [../arch/x86/realmode/Makefile:20: arch/x86/realmode/rm/realmode.bin] Error 2
-> make[3]: *** [../scripts/Makefile.build:509: arch/x86/realmode] Error 2
+On Tue, Sep 24, 2019 at 10:47:28AM -0700, Nick Desaulniers wrote:
+> Fixes the following 2 issues in the driver:
+> 1. Left shifting a signed integer is undefined behavior. Unsigned
+>    integral types should be used for bitwise operations.
+> 2. The delay scales from 0x0010 to 0x20000 by powers of 2, but udelay
+>    will result in a linkage failure when given a constant that's greater
+>    than 20000 (0x4E20). Agressive loop unrolling can fully unroll the
+>    loop, resulting in later iterations overflowing the call to udelay.
+>=20
+> 2 is fixed via splitting the loop in two, iterating the first up to the
+> point where udelay would overflow, then switching to mdelay, as
+> suggested in Documentation/timers/timers-howto.rst.
+>=20
+> Reported-by: Tomasz Pawe=C5=82 Gajc <tpgxyz@gmail.com>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/678
+> Debugged-by: Nathan Chancellor <natechancellor@gmail.com>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+> Changes V1 -> V2:
+> * The first loop in send_byte() needs to break out on the same condition
+>   now. Technically, the loop condition could even be removed. The diff
+>   looks funny because of the duplicated logic between existing and newly
+>   added for loops.
+>=20
+>  drivers/hwmon/applesmc.c | 35 +++++++++++++++++++++++++++++++----
+>  1 file changed, 31 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/drivers/hwmon/applesmc.c b/drivers/hwmon/applesmc.c
+> index 183ff3d25129..c76adb504dff 100644
+> --- a/drivers/hwmon/applesmc.c
+> +++ b/drivers/hwmon/applesmc.c
+> @@ -46,6 +46,7 @@
+>  #define APPLESMC_MIN_WAIT	0x0010
+>  #define APPLESMC_RETRY_WAIT	0x0100
+>  #define APPLESMC_MAX_WAIT	0x20000
+> +#define APPLESMC_UDELAY_MAX	20000
+> =20
+>  #define APPLESMC_READ_CMD	0x10
+>  #define APPLESMC_WRITE_CMD	0x11
+> @@ -157,14 +158,23 @@ static struct workqueue_struct *applesmc_led_wq;
+>  static int wait_read(void)
+>  {
+>  	u8 status;
+> -	int us;
+> -	for (us =3D APPLESMC_MIN_WAIT; us < APPLESMC_MAX_WAIT; us <<=3D 1) {
+> +	unsigned int us;
+> +
+> +	for (us =3D APPLESMC_MIN_WAIT; us < APPLESMC_UDELAY_MAX; us <<=3D 1) {
+>  		udelay(us);
+>  		status =3D inb(APPLESMC_CMD_PORT);
+>  		/* read: wait for smc to settle */
+>  		if (status & 0x01)
+>  			return 0;
+>  	}
+> +	/* switch to mdelay for longer sleeps */
+> +	for (; us < APPLESMC_MAX_WAIT; us <<=3D 1) {
+> +		mdelay(us);
+> +		status =3D inb(APPLESMC_CMD_PORT);
+> +		/* read: wait for smc to settle */
+> +		if (status & 0x01)
+> +			return 0;
+> +	}
+> =20
+>  	pr_warn("wait_read() fail: 0x%02x\n", status);
+>  	return -EIO;
+> @@ -177,10 +187,10 @@ static int wait_read(void)
+>  static int send_byte(u8 cmd, u16 port)
+>  {
+>  	u8 status;
+> -	int us;
+> +	unsigned int us;
+> =20
+>  	outb(cmd, port);
+> -	for (us =3D APPLESMC_MIN_WAIT; us < APPLESMC_MAX_WAIT; us <<=3D 1) {
+> +	for (us =3D APPLESMC_MIN_WAIT; us < APPLESMC_UDELAY_MAX; us <<=3D 1) {
+>  		udelay(us);
+>  		status =3D inb(APPLESMC_CMD_PORT);
+>  		/* write: wait for smc to settle */
+> @@ -190,6 +200,23 @@ static int send_byte(u8 cmd, u16 port)
+>  		if (status & 0x04)
+>  			return 0;
+>  		/* timeout: give up */
+> +		if (us << 1 =3D=3D APPLESMC_UDELAY_MAX)
+> +			break;
+> +		/* busy: long wait and resend */
+> +		udelay(APPLESMC_RETRY_WAIT);
+> +		outb(cmd, port);
+> +	}
+> +	/* switch to mdelay for longer sleeps */
+> +	for (; us < APPLESMC_MAX_WAIT; us <<=3D 1) {
+> +		mdelay(us);
+> +		status =3D inb(APPLESMC_CMD_PORT);
+> +		/* write: wait for smc to settle */
+> +		if (status & 0x02)
+> +			continue;
+> +		/* ready: cmd accepted, return */
+> +		if (status & 0x04)
+> +			return 0;
+> +		/* timeout: give up */
+>  		if (us << 1 =3D=3D APPLESMC_MAX_WAIT)
+>  			break;
+>  		/* busy: long wait and resend */
+> --=20
+> 2.23.0.351.gc4317032e6-goog
+>=20
 
-Thanks for testing.  Strange, it seems that ld.bfd doesn't like it as
-an ENTRY in the linker script, but will accept `-e <addr>`.  Not sure
-if that's a bug in ld.bfd, or if ld.lld should error as well?
-https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/4/html/Using_ld_the_GNU_Linker/simple-commands.html
-v2 inbound.
--- 
-Thanks,
-~Nick Desaulniers
+This resolves the __bad_udelay appearance at -O3 for me. I am not
+familiar enough with this code to give a reviewed by though!
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmFqPSyeKn-0th_ca9B3QU63G__kEJ%3DX0tfjhE%2B1_p%3DFQ%40mail.gmail.com.
+Also, for some odd reason, I couldn't apply your patch with 'git apply':
+
+% curl -LSs https://lore.kernel.org/lkml/20190924174728.201464-1-ndesaulnie=
+rs@google.com/raw | git apply
+error: corrupt patch at line 117
+
+It looks like some of the '=3D' got changed into =3D3D and some spaces got
+changed into =3D20. Weird encoding glitch?
+
+Cheers,
+Nathan
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20190924183827.GA2800937%40archlinux-threadripper.
