@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBDSMRTMFUIFRBRPUV7WAKGQEIIPFARY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDSMRTMFUIFRBLPVV7WAKGQENJPG7VI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0ED0BE900
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Sep 2019 01:37:42 +0200 (CEST)
-Received: by mail-io1-xd3c.google.com with SMTP id w8sf835393iol.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Sep 2019 16:37:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569454661; cv=pass;
+Received: from mail-oi1-x23c.google.com (mail-oi1-x23c.google.com [IPv6:2607:f8b0:4864:20::23c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5D38CBE902
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Sep 2019 01:39:26 +0200 (CEST)
+Received: by mail-oi1-x23c.google.com with SMTP id c190sf343255oig.9
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Sep 2019 16:39:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569454765; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QdAER1Vdt8wZ5mkhG1WUVxiOKtm8jaQgZ7hlwSrqVSnTejjZR6Xg8oAVlbaj8pg/5J
-         qOZsTf5iLF2oALLAU8ep1OSlkRAgxYT9sXGrharvxU4cGigF5Oa3c4zUAp7prxGnTpXt
-         Azhg6X+vkX6PLUSugcKWd86zZoiOz+MLc4fBDeL/OE0U9rEZX5W5pryns3iuZE7slX/R
-         10EiciJ/EKldOwg3MpuiVcTH5hWdrPxxVBxvRERz5z9uu/8jTVVGd57RboUPAz+EgDa4
-         jVMr8+0V6/rsY0G/AUEFfoBVPE0YyBLt4mQAMfymvv+p5VCzWadxe5m9u1Vu5zl6tRU1
-         qckg==
+        b=i6Vyl31xzTBKodWFgxJGFb0KojeDWgeMP2INRcoAv9zdaLz6+MwtlOEbUJUbMV4Ut0
+         OlsMrxkIt3pKcRzPzng4XNNGTUBRIevhxvLl5ArUcoQAYCsOjRG/2sx0feIFhpdBz9m8
+         aJx2S+844psIIU1zDK1LxkPsinn2/8JFiO8a1kLXvXYrS/zENwk5tP8FdJYDdFuAMBdR
+         938I76Jfg+1azVlqlUrw2i9B/y9IMwtQzz6VtulIPwzQeu1WbYS8LJHz9mcJIAbJONWr
+         rCq+kKJb8DD+qbwx6bi4gYj1dUxijDDrJt6rRBACkIPPazPioAZgDlkOgW206FKBZ5z5
+         jtLg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=yNFKPoPBwPIhmGCGfVBJX0ORD0qImFpvjYdkC8dUm2Y=;
-        b=bEKa12nJe5tSnbZYGgFfXB1+YWo/65Q7bYMnz7j3gN1+WfkdDfxAD7lXPCFYsTjR+f
-         lxiDcseMcZXUJKM7LqVePInXgq5XNRJ7HjfX05xs7SMcUjDa95RhYVcoSB0OCmljRLww
-         0KICm1vut6FThiTiCOvYc3fWH2VAPDnbPPdHXhiXl87yRaJIb3hb7zgAky5yrgcJAylF
-         TDnJGAKxMpajC9YIdFQ1L4DeGhyv4JzLMPUXZBJcOIWe8VQPxEMe5QxS/HNKsAyBwl6H
-         ET+mW++PuGCzF8yn4H1cyAKMPTSkavn2r8D+R58dDMTxbM5YRz2jDfUTtxuhvANYm26W
-         iBDA==
+        bh=5wbjzmETYPhLmXcFJ5cOGO0bNxnrhtfXyLnCBpySgAo=;
+        b=AviHqDgda4kiuDwrZUzGRtlyJP58XhaCLHzKqFEekoORV31bQzVv/WEjd7ndwAwl54
+         WfdGf127bzO9QayTFcjarmoPADYj3xbkwJZSR0NpYMmT6ow+c7CeuUfqQD5fIRX9/x67
+         3f8kLEeeQ4M88veW4wlZxqayTaKJ3LpardRYij//euajXpJbTyryM/EBVdQVyxhXOZ1p
+         4cbXQU2ZTOjBLIprOZl4l+RmPktvNde4ds3J6BUoGeuyAAdL5Uz0LVLJIOQ/X/wLzkGA
+         BfzYIY/oSguJ2OTzYg+jJIitAyMHUGRhpOjVsKJlb4L+v1SWUNM4lo/YbimQh8pGyGIT
+         rKcw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=n0HrApu9;
-       spf=pass (google.com: domain of david.bolvansky@gmail.com designates 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=david.bolvansky@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="LtDNW/Nj";
+       spf=pass (google.com: domain of david.bolvansky@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=david.bolvansky@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=yNFKPoPBwPIhmGCGfVBJX0ORD0qImFpvjYdkC8dUm2Y=;
-        b=E/M/jdQeDVNxtrLA2uSvHqKWfD7wAjRiuJt5CGqtu8GNmBlvq3/6BbuTpG8PX0y2qw
-         SYBeNgC1vXAX0vp+cn7nPzu0FKekWXi/tUPWpPN2Ns2qd4to9wYYjxmXxRhguGJOXwoo
-         9PPkohjBtNx81en68Yw299fu2HiBdQJb0W+r5cQLdKm08oHX9+2GtO6lR2uLxfWUuka7
-         MjjYgFi+6FbX7tzS9zSJIj50ntRXoi4lKQO7oTtmoSUwWYJaEpUpo2kVF7yn2oxBK7zN
-         3D9KS8c8ouITamWxZGY/Yppo9eUZ2s4GhUhhqvbBWdEm8CpVfOFHLl4ZxI6FlCIJ263O
-         CSSA==
+        bh=5wbjzmETYPhLmXcFJ5cOGO0bNxnrhtfXyLnCBpySgAo=;
+        b=EPRBEdzYNBM0PEyrGS8GjDIt+zOn3GvDVCTVVEHD/IJZcubPt+LWWYDZuw2zbUJaLT
+         Wp38+FR9x3cTUdam6VxnVJGnoTlprx3FzO+Y5IyCmRJeDUh8S25J2FNeaiNt74vp0hSo
+         rEz4EKbebBM2PVvop/EHaKWaV1uFd9wid/tYlAYQ2MVWtv32wAUwyHFfMch24KDtV7G+
+         pKIvR5f7YpkKP1mWzSqza9WphA4NuwSI4CUmJi2stYXOz7hStctuw7P4LvQ7Q575fssf
+         QjG2m9rF+1tz56YvK0aM5c0ydMC4CMwCyKILCUgv1px5qMuOA7UbkRJys2qbsMXh1VVJ
+         LMvw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=yNFKPoPBwPIhmGCGfVBJX0ORD0qImFpvjYdkC8dUm2Y=;
-        b=BWb/bX7sfRZ980oPEYmdfF6oB6J8ga4CFY4u0DVAkaUYMa7SWvyLjr3pDiuPPWZB7b
-         L3Ocu3+9NgOSoL91h/E9WwslqjfFm1lfQMsvlT7r1A25K8kXd0CPXlsJxaODYptOcgcf
-         tP9Bidsk5xga812MPUX17GfcWEGmCjjG5rAtmNbFBy0AkOkAYnob0eATy7S1mIuVeoWQ
-         tS42Ghe+YIkWCeQlLJZ+4nSumlFAPWPot+G2HP/vkFfMIzKOpDzOI01dcDmwHT1vH97E
-         s6Aysc651IF/PtdsmmiOVg4FkI53sNX3usB3B1eeZu2DF0R7yL1bHCMj1y1X+b6tIEY2
-         xdfg==
+        bh=5wbjzmETYPhLmXcFJ5cOGO0bNxnrhtfXyLnCBpySgAo=;
+        b=p3dBJUQCEQ2Y/ArPTlDEre0CRJWxAQfYQVus9Wxbwf3ut4SWf4WBBXVyk4KLkN+vya
+         FWktQVquDPk64ipK9w4btiv1bwELK9tu+ba5N6tLsF+fX0jiDs8Icf65dL18GbdNOXK/
+         X+a6QOEvz/tMNm0xBT96+nS1w51Qe09zZTh/6sYXDWx7GSeZAVHjmpjPGQl3EzqEuhaX
+         rolP0zgdBSgGIIaUT642DxbqerSpWqLaBsxKBLLdysNvVDFlYL12lmfNmrxe4p9lPM6Q
+         gamtx7WM7PkczHoIa1B1fhknQZ2jzkyTqt8+BIcDjjyFyXDbrkY9gPBbaDfZjN4qdvbl
+         ofVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -63,74 +63,74 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=yNFKPoPBwPIhmGCGfVBJX0ORD0qImFpvjYdkC8dUm2Y=;
-        b=Fc2vsvuOZdANeF2Fj1xVOnqtZ0XBTsm5fk1E7Z/WUIJBKEd3QBiKztGaoHLhcedPWx
-         SCTKL57kY94hDUkldjkfuoeV0TJnigRqNa9cN+O9L7O+oWiGyJE2Sro8mE0VAc4xw1ap
-         q0ZVpfs8y/2hBQGBBvUmwiMYbW8qfv80TxNKnZf86LiD7AQqdS8b6yTPCqkJo31B25RR
-         PPNMEJD7waAFb+fmrfnymMjAzPpIgwh3S+ejCoGsVtiu4846yMKUhxNzb1N0wThh7x3F
-         YRDUMUjmQZoZzMsqaHzz3EchAawNk7eGedcLTA0oc20edhcGCVGX/0mXgRSvdPJhN8Ka
-         VXvw==
+        bh=5wbjzmETYPhLmXcFJ5cOGO0bNxnrhtfXyLnCBpySgAo=;
+        b=dFsEkD8OgPnqmXEbu3Nw3YHldeBZNQshzaIBhjjGJ3/k3x2hnMSdXVV6x1W4MIpSIF
+         KOejkmVPDoRYKufOw/0WClAqdpHdRcSqQBENfn6+L433UWIRoGYCgcNuuiAUS21X2Qyr
+         ulx5SXAUlTmJCcHEMB7wNY8AVG0USyH7aSm54TmGAzBqCj9TkVBT1Kr9/eETP3v40hYe
+         /+pnp0+76CvtbwKV6mgI9YieGDQ14Bgl4FbIy0fxAPI6dqoMdw+11OFLSivqdsr1dVIO
+         1sjqhmVQhq8dl+yJ9636evzsk+S30YnbcYH19F0N/n3ru4zNFa7LJ6xyNWi94WOt9jkf
+         MNgA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVilxfYZtL8pklhYyHW/3Y6SNDWnyhEUhHqNZEwkMNiUh3BY2S5
-	665xm+lI4f+HIDS+tMyA+zA=
-X-Google-Smtp-Source: APXvYqwp9CTwDxkqLtrTg4nIV47QLub3b8hH3DE5B5Xec8lX04E4FS2WKDUy/feHKoQLbSoKL4dQjA==
-X-Received: by 2002:a5e:a812:: with SMTP id c18mr646299ioa.220.1569454661290;
-        Wed, 25 Sep 2019 16:37:41 -0700 (PDT)
+X-Gm-Message-State: APjAAAWjwXLstz8TV55mboefeyE6ZTzs8aYDzLOtpQTLM0+ncXLiDMnE
+	BnJ4tOZNxgPfsJQ7RpYD2nA=
+X-Google-Smtp-Source: APXvYqzZhAartzKRmJreTHqCohKQNrBufZCGeeyjHwT4HGAzHGr6C0AZqbLuZxj5YrajBMuN54IggA==
+X-Received: by 2002:aca:b246:: with SMTP id b67mr470244oif.177.1569454765156;
+        Wed, 25 Sep 2019 16:39:25 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:8943:: with SMTP id b3ls100937iot.10.gmail; Wed, 25 Sep
- 2019 16:37:41 -0700 (PDT)
-X-Received: by 2002:a5d:8b02:: with SMTP id k2mr567005ion.305.1569454660990;
-        Wed, 25 Sep 2019 16:37:40 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569454660; cv=none;
+Received: by 2002:a9d:1d1:: with SMTP id e75ls80753ote.15.gmail; Wed, 25 Sep
+ 2019 16:39:24 -0700 (PDT)
+X-Received: by 2002:a9d:3e4e:: with SMTP id h14mr565586otg.198.1569454764850;
+        Wed, 25 Sep 2019 16:39:24 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569454764; cv=none;
         d=google.com; s=arc-20160816;
-        b=eJFT6q682QcjdWU+OwVTLb8Cb9VpKRPfJ9ocAT1JL4cMMak5Snn2OnLGeob5u051Lr
-         44tiGz6DCv8iGzJ4d4JOkyF6RGdDK9E53SvblS0suD7eCHtpe5RvpvbH/mmUKc1AGeZc
-         VX9gJbb2al9ump8JSMcYrF6KjtOoMDfBRAf8Ejx0PhmnU4dfk9KSTnmxr8DNlBe1U19Z
-         WsVM6iZd9Le2zqO6WBh5Emi+q9OLEOlZiU5hQPCxctv6RVnLJugDScmzpELIxbJSub9L
-         k/eQIaSuSP0Oekr0EFU1e+SyiHaDRECD8tojQqaR4n/G2GA1GT3X8d9GOpCIUcER4PNB
-         4vpw==
+        b=mwVdzkZbNSvo+KZ5/5155LH6eQuQ3GrWj7romRgPSWWIwzgT0xnAa7ivGiwX+u/m5+
+         LnQJlwAzPjERPQXhA/oQ9qdrS23CbEemqfgi9DZp9LzOddQboPwtiqoI38lzR16ful6N
+         yBBYhEP4oZKh77Hyl2aygRW946ACQKo25TxDEdqJkUCucubD9rciUr6m2DXU3QJ4Wri3
+         KHLtDa2R4KVWrAmC1xHzFV0h8Flx7XJ/VqoPLieQj+F46I/ucUc9HLUevS03CSKHjyji
+         CJz/yyST7gm5+MU9aTqvbr/JwmLF3wYmd6Rhvw8yxw7K4D/WpSjpqolwC0MBjz1fLQmY
+         oW6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=COPbZV3eNz2oNbvLWO3Un+fsFauHx5knFFpF9NT5bog=;
-        b=HyYxKmsx8H5gdoE8eyWBQRhs4z/rUNq0xnZp2msKsGCQ6m0hHtGN5ym6P3jVihPd2U
-         ZKif4CQeVJi5UC5jJ2NcaE6NUVAknRyNWouRR0AY8r5WWzyAtZAfRBilFiRjSUjES+JF
-         RZRnm2Gxmgdm4JB3f1/fNurieq6v/31gF0CDpMYaiTpucsRoe7FgAt7vwjmWyfql+4Cp
-         OTiOi56TVwBr6R2ZvsPYTc6kmF5Xqi3nnP1KtvoVoBwqqX93vZGjPD6WyN6e43Y61m26
-         dA5hevm4L96JjZvjDBC08q+apa4UEfU41gOSMBDNZ0gg2gvxJ5yjENYOxSooAC/o8nHc
-         aNnw==
+        bh=yqcgz+D1upqj7NXuebKigdWJo9KSrUKs3K7BfmtQMAY=;
+        b=p6s99kKYxqGkWtTjmM3ZRDUs+a4Q33PhdNftrqp8XHAUsUOFUtRiCuB8hLoJxICUCS
+         +nYi8SS20G5e50TTXhvG9sg47+6Qm5SkmnZ5LzaoSUdd7xmkI9xi1dQahtv2gIw+pfXf
+         AeQQ/dFtt8zFAB0ydtXwKEmsCw18FD6PxsoCLZw+Zqoa2UYATgfB+NxSD8Efb7Tvu82/
+         riluWC2dV0Lg5DSzE5a4p1jCl5Cryq1NqdUI35lfLBvRLcsu3stjIj9ZyvQBdhPauZdH
+         6ntp64SsgwiwekaH02MFFG+1yUNSkbT1bdGvvHq0omEAhs8blm7nWzZViEIqXAOx4T8M
+         xWWw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=n0HrApu9;
-       spf=pass (google.com: domain of david.bolvansky@gmail.com designates 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=david.bolvansky@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="LtDNW/Nj";
+       spf=pass (google.com: domain of david.bolvansky@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=david.bolvansky@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x243.google.com (mail-oi1-x243.google.com. [2607:f8b0:4864:20::243])
-        by gmr-mx.google.com with ESMTPS id s5si32305iol.1.2019.09.25.16.37.40
+Received: from mail-oi1-x244.google.com (mail-oi1-x244.google.com. [2607:f8b0:4864:20::244])
+        by gmr-mx.google.com with ESMTPS id i19si53960otk.0.2019.09.25.16.39.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Sep 2019 16:37:40 -0700 (PDT)
-Received-SPF: pass (google.com: domain of david.bolvansky@gmail.com designates 2607:f8b0:4864:20::243 as permitted sender) client-ip=2607:f8b0:4864:20::243;
-Received: by mail-oi1-x243.google.com with SMTP id w6so454559oie.11
-        for <clang-built-linux@googlegroups.com>; Wed, 25 Sep 2019 16:37:40 -0700 (PDT)
-X-Received: by 2002:a54:4f8f:: with SMTP id g15mr488778oiy.62.1569454660620;
- Wed, 25 Sep 2019 16:37:40 -0700 (PDT)
+        Wed, 25 Sep 2019 16:39:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of david.bolvansky@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) client-ip=2607:f8b0:4864:20::244;
+Received: by mail-oi1-x244.google.com with SMTP id o205so450871oib.12
+        for <clang-built-linux@googlegroups.com>; Wed, 25 Sep 2019 16:39:24 -0700 (PDT)
+X-Received: by 2002:a54:4f11:: with SMTP id e17mr503340oiy.46.1569454764540;
+ Wed, 25 Sep 2019 16:39:24 -0700 (PDT)
 MIME-Version: 1.0
 References: <20190925172915.576755-1-natechancellor@gmail.com> <CAKwvOdmO255nWf2PrfJ54X95ShNbYPf0FK2x=f57LmzOrCmJug@mail.gmail.com>
 In-Reply-To: <CAKwvOdmO255nWf2PrfJ54X95ShNbYPf0FK2x=f57LmzOrCmJug@mail.gmail.com>
 From: =?UTF-8?B?RMOhdmlkIEJvbHZhbnNrw70=?= <david.bolvansky@gmail.com>
-Date: Thu, 26 Sep 2019 01:37:29 +0200
-Message-ID: <CAOrgDVMqOqKtY-9FNV5iHWmz6GFqsH=ugwYp77Zwfr3Niw0ebg@mail.gmail.com>
+Date: Thu, 26 Sep 2019 01:39:13 +0200
+Message-ID: <CAOrgDVOLUTcbLNJQH3RFL13iWKL_GMnjsyUeW+iFrmvacLcHaQ@mail.gmail.com>
 Subject: Re: [PATCH] tracing: Fix clang -Wint-in-bool-context warnings in
  IF_ASSIGN macro
 To: Nick Desaulniers <ndesaulniers@google.com>
 Cc: Nathan Chancellor <natechancellor@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
 	Ingo Molnar <mingo@redhat.com>, LKML <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: multipart/alternative; boundary="0000000000008994ec059369238a"
+Content-Type: multipart/alternative; boundary="000000000000bb480205936929a1"
 X-Original-Sender: david.bolvansky@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=n0HrApu9;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b="LtDNW/Nj";       spf=pass
  (google.com: domain of david.bolvansky@gmail.com designates
- 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=david.bolvansky@gmail.com;
+ 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=david.bolvansky@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -144,7 +144,7 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---0000000000008994ec059369238a
+--000000000000bb480205936929a1
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
@@ -164,11 +164,9 @@ if (state =3D=3D A || B)
 Since this is just one occurrence and I recommend to just land this small
 fix.
 
-
-
 st 25. 9. 2019 o 19:41 Nick Desaulniers <ndesaulniers@google.com>
 nap=C3=ADsal(a):
-
+>
 > On Wed, Sep 25, 2019 at 10:29 AM Nathan Chancellor
 > <natechancellor@gmail.com> wrote:
 > >
@@ -189,8 +187,8 @@ nap=C3=ADsal(a):
 > > Add the implicit '!=3D 0' to the WARN_ON statement to fix the warnings.
 > >
 > > Link:
-> https://github.com/llvm/llvm-project/commit/28b38c277a2941e9e891b2db30652=
-cfd962f070b
+https://github.com/llvm/llvm-project/commit/28b38c277a2941e9e891b2db30652cf=
+d962f070b
 > > Link: https://github.com/ClangBuiltLinux/linux/issues/686
 > > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 >
@@ -210,7 +208,7 @@ cfd962f070b
 > > --- a/kernel/trace/trace.h
 > > +++ b/kernel/trace/trace.h
 > > @@ -365,11 +365,11 @@ static inline struct trace_array
-> *top_trace_array(void)
+*top_trace_array(void)
 > >         __builtin_types_compatible_p(typeof(var), type *)
 > >
 > >  #undef IF_ASSIGN
@@ -235,7 +233,6 @@ cfd962f070b
 > --
 > Thanks,
 > ~Nick Desaulniers
->
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -243,122 +240,84 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAOrgDVMqOqKtY-9FNV5iHWmz6GFqsH%3DugwYp77Zwfr3Niw0ebg%40m=
+clang-built-linux/CAOrgDVOLUTcbLNJQH3RFL13iWKL_GMnjsyUeW%2BiFrmvacLcHaQ%40m=
 ail.gmail.com.
 
---0000000000008994ec059369238a
+--000000000000bb480205936929a1
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">GCC C frontend does not warn, GCC C++ FE does.=C2=A0<a hre=
-f=3D"https://godbolt.org/z/_sczyM">https://godbolt.org/z/_sczyM</a><div><br=
-></div><div>So I (we?) think there is something weird in gcc frontends.</di=
-v><div><br></div><div>&gt;&gt; I can&#39;t think of a case that this warnin=
-g is a bug (maybe David can</div>explain more),<div><br></div><div>In this =
-case or generally? General bug example:</div><div><br></div><div>if (state =
-=3D=3D A || B)</div><div><br></div><div>(should be if (state =3D=3D A || st=
-ate =3D=3D B))</div><div><br></div><div>Since this is just one occurrence=
-=C2=A0and I recommend to just land this small fix.</div><div><div><br></div=
-><div><br></div></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr"=
- class=3D"gmail_attr">st 25. 9. 2019 o=C2=A019:41 Nick Desaulniers &lt;<a h=
-ref=3D"mailto:ndesaulniers@google.com">ndesaulniers@google.com</a>&gt; nap=
-=C3=ADsal(a):<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0p=
-x 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">On=
- Wed, Sep 25, 2019 at 10:29 AM Nathan Chancellor<br>
-&lt;<a href=3D"mailto:natechancellor@gmail.com" target=3D"_blank">natechanc=
-ellor@gmail.com</a>&gt; wrote:<br>
-&gt;<br>
-&gt; After r372664 in clang, the IF_ASSIGN macro causes a couple hundred<br=
->
-&gt; warnings along the lines of:<br>
-&gt;<br>
-&gt; kernel/trace/trace_output.c:1331:2: warning: converting the enum<br>
-&gt; constant to a boolean [-Wint-in-bool-context]<br>
-&gt; kernel/trace/trace.h:409:3: note: expanded from macro<br>
-&gt; &#39;trace_assign_type&#39;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0IF_ASSIGN=
-(var, ent, struct ftrace_graph_ret_entry,<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0^<br>
-&gt; kernel/trace/trace.h:371:14: note: expanded from macro &#39;IF_ASSIGN&=
-#39;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0WARN_ON(i=
-d &amp;&amp; (entry)-&gt;type !=3D id);=C2=A0 =C2=A0 =C2=A0\<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 ^<br>
-&gt; 264 warnings generated.<br>
-&gt;<br>
-&gt; Add the implicit &#39;!=3D 0&#39; to the WARN_ON statement to fix the =
-warnings.<br>
-&gt;<br>
-&gt; Link: <a href=3D"https://github.com/llvm/llvm-project/commit/28b38c277=
-a2941e9e891b2db30652cfd962f070b" rel=3D"noreferrer" target=3D"_blank">https=
-://github.com/llvm/llvm-project/commit/28b38c277a2941e9e891b2db30652cfd962f=
-070b</a><br>
-&gt; Link: <a href=3D"https://github.com/ClangBuiltLinux/linux/issues/686" =
-rel=3D"noreferrer" target=3D"_blank">https://github.com/ClangBuiltLinux/lin=
-ux/issues/686</a><br>
-&gt; Signed-off-by: Nathan Chancellor &lt;<a href=3D"mailto:natechancellor@=
-gmail.com" target=3D"_blank">natechancellor@gmail.com</a>&gt;<br>
-<br>
-I can&#39;t think of a case that this warning is a bug (maybe David can<br>
-explain more), but seems like a small fix that can stop a big spew of<br>
-warnings, and IIUC this is the lone instance we see in the kernel.=C2=A0 In=
-<br>
-that case, I prefer a tiny change to outright disabling the warning in<br>
-case it does find interesting cases later.<br>
-Reviewed-by: Nick Desaulniers &lt;<a href=3D"mailto:ndesaulniers@google.com=
-" target=3D"_blank">ndesaulniers@google.com</a>&gt;<br>
-<br>
-&gt; ---<br>
-&gt;=C2=A0 kernel/trace/trace.h | 10 +++++-----<br>
-&gt;=C2=A0 1 file changed, 5 insertions(+), 5 deletions(-)<br>
-&gt;<br>
-&gt; diff --git a/kernel/trace/trace.h b/kernel/trace/trace.h<br>
-&gt; index 26b0a08f3c7d..f801d154ff6a 100644<br>
-&gt; --- a/kernel/trace/trace.h<br>
-&gt; +++ b/kernel/trace/trace.h<br>
-&gt; @@ -365,11 +365,11 @@ static inline struct trace_array *top_trace_arra=
-y(void)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0__builtin_types_compatible_p(typeof(v=
-ar), type *)<br>
-&gt;<br>
-&gt;=C2=A0 #undef IF_ASSIGN<br>
-&gt; -#define IF_ASSIGN(var, entry, etype, id)=C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0if (FTRACE_CMP_TYPE(var, etype)) {=C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0var =3D (typeo=
-f(var))(entry);=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0WARN_ON(id &am=
-p;&amp; (entry)-&gt;type !=3D id);=C2=A0 =C2=A0 =C2=A0\<br>
-&gt; -=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0break;=C2=A0 =
+<div dir=3D"ltr">GCC C frontend does not warn, GCC C++ FE does. <a href=3D"=
+https://godbolt.org/z/_sczyM">https://godbolt.org/z/_sczyM</a><br><br>So I =
+(we?) think there is something weird in gcc frontends.<br><br>&gt;&gt; I ca=
+n&#39;t think of a case that this warning is a bug (maybe David can<br>expl=
+ain more),<br><br>In this case or generally? General bug example:<br><br>if=
+ (state =3D=3D A || B)<br><br>(should be if (state =3D=3D A || state =3D=3D=
+ B))<br><br>Since this is just one occurrence and I recommend to just land =
+this small fix.<br><br>st 25. 9. 2019 o 19:41 Nick Desaulniers &lt;<a href=
+=3D"mailto:ndesaulniers@google.com">ndesaulniers@google.com</a>&gt; nap=C3=
+=ADsal(a):<br>&gt;<br>&gt; On Wed, Sep 25, 2019 at 10:29 AM Nathan Chancell=
+or<br>&gt; &lt;<a href=3D"mailto:natechancellor@gmail.com">natechancellor@g=
+mail.com</a>&gt; wrote:<br>&gt; &gt;<br>&gt; &gt; After r372664 in clang, t=
+he IF_ASSIGN macro causes a couple hundred<br>&gt; &gt; warnings along the =
+lines of:<br>&gt; &gt;<br>&gt; &gt; kernel/trace/trace_output.c:1331:2: war=
+ning: converting the enum<br>&gt; &gt; constant to a boolean [-Wint-in-bool=
+-context]<br>&gt; &gt; kernel/trace/trace.h:409:3: note: expanded from macr=
+o<br>&gt; &gt; &#39;trace_assign_type&#39;<br>&gt; &gt; =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 IF_ASSIGN(var, ent, struct ftrace_gr=
+aph_ret_entry,<br>&gt; &gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 ^<br>&gt; &gt; kernel/trace/trace.h:371:14: note: expanded from =
+macro &#39;IF_ASSIGN&#39;<br>&gt; &gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 WARN_ON(id &amp;&amp; (entry)-&gt;type !=3D id); =C2=
+=A0 =C2=A0 \<br>&gt; &gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0^<br>&gt; &gt; 264 warnings=
+ generated.<br>&gt; &gt;<br>&gt; &gt; Add the implicit &#39;!=3D 0&#39; to =
+the WARN_ON statement to fix the warnings.<br>&gt; &gt;<br>&gt; &gt; Link: =
+<a href=3D"https://github.com/llvm/llvm-project/commit/28b38c277a2941e9e891=
+b2db30652cfd962f070b">https://github.com/llvm/llvm-project/commit/28b38c277=
+a2941e9e891b2db30652cfd962f070b</a><br>&gt; &gt; Link: <a href=3D"https://g=
+ithub.com/ClangBuiltLinux/linux/issues/686">https://github.com/ClangBuiltLi=
+nux/linux/issues/686</a><br>&gt; &gt; Signed-off-by: Nathan Chancellor &lt;=
+<a href=3D"mailto:natechancellor@gmail.com">natechancellor@gmail.com</a>&gt=
+;<br>&gt;<br>&gt; I can&#39;t think of a case that this warning is a bug (m=
+aybe David can<br>&gt; explain more), but seems like a small fix that can s=
+top a big spew of<br>&gt; warnings, and IIUC this is the lone instance we s=
+ee in the kernel.=C2=A0 In<br>&gt; that case, I prefer a tiny change to out=
+right disabling the warning in<br>&gt; case it does find interesting cases =
+later.<br>&gt; Reviewed-by: Nick Desaulniers &lt;<a href=3D"mailto:ndesauln=
+iers@google.com">ndesaulniers@google.com</a>&gt;<br>&gt;<br>&gt; &gt; ---<b=
+r>&gt; &gt; =C2=A0kernel/trace/trace.h | 10 +++++-----<br>&gt; &gt; =C2=A01=
+ file changed, 5 insertions(+), 5 deletions(-)<br>&gt; &gt;<br>&gt; &gt; di=
+ff --git a/kernel/trace/trace.h b/kernel/trace/trace.h<br>&gt; &gt; index 2=
+6b0a08f3c7d..f801d154ff6a 100644<br>&gt; &gt; --- a/kernel/trace/trace.h<br=
+>&gt; &gt; +++ b/kernel/trace/trace.h<br>&gt; &gt; @@ -365,11 +365,11 @@ st=
+atic inline struct trace_array *top_trace_array(void)<br>&gt; &gt; =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 __builtin_types_compatible_p(typeof(var), type *)<br>&=
+gt; &gt;<br>&gt; &gt; =C2=A0#undef IF_ASSIGN<br>&gt; &gt; -#define IF_ASSIG=
+N(var, entry, etype, id) =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \=
+<br>&gt; &gt; - =C2=A0 =C2=A0 =C2=A0 if (FTRACE_CMP_TYPE(var, etype)) { =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>&gt; &gt; - =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 var =3D (typeof(var))(entry); =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>&gt; &gt; - =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 WARN_ON(id &amp;&amp; (entry)-&gt;type !=3D id)=
+; =C2=A0 =C2=A0 \<br>&gt; &gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 break; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>&gt; &gt; +=
+#define IF_ASSIGN(var, entry, etype, id) =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>&gt; &gt; + =C2=A0 =C2=A0 =
+=C2=A0 if (FTRACE_CMP_TYPE(var, etype)) { =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>&gt; &gt; + =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 var =3D (typeof(var))(entry); =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>&gt; &g=
+t; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 WARN_ON(id !=3D 0 &am=
+p;&amp; (entry)-&gt;type !=3D id); =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>&gt; &gt=
+; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 break; =C2=A0 =C2=A0 =
 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
-&gt; +#define IF_ASSIGN(var, entry, etype, id)=C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0if (FTRACE_CMP_TYPE(var, etype)) {=C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0var =3D (typeo=
-f(var))(entry);=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0\<br>
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0WARN_ON(id !=
-=3D 0 &amp;&amp; (entry)-&gt;type !=3D id);=C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br=
->
-&gt; +=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0break;=C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0}<br>
-&gt;<br>
-&gt;=C2=A0 /* Will cause compile errors if type is not found. */<br>
-&gt; --<br>
-&gt; 2.23.0<br>
-&gt;<br>
-<br>
-<br>
--- <br>
-Thanks,<br>
-~Nick Desaulniers<br>
-</blockquote></div>
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>&gt; &gt; =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; &gt;<br>&gt; &gt; =C2=A0/* Will cause=
+ compile errors if type is not found. */<br>&gt; &gt; --<br>&gt; &gt; 2.23.=
+0<br>&gt; &gt;<br>&gt;<br>&gt;<br>&gt; --<br>&gt; Thanks,<br>&gt; ~Nick Des=
+aulniers</div>
 
 <p></p>
 
@@ -369,9 +328,9 @@ To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
 lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
 To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAOrgDVMqOqKtY-9FNV5iHWmz6GFqsH%3DugwYp77Zwfr3=
-Niw0ebg%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
-oups.google.com/d/msgid/clang-built-linux/CAOrgDVMqOqKtY-9FNV5iHWmz6GFqsH%3=
-DugwYp77Zwfr3Niw0ebg%40mail.gmail.com</a>.<br />
+om/d/msgid/clang-built-linux/CAOrgDVOLUTcbLNJQH3RFL13iWKL_GMnjsyUeW%2BiFrmv=
+acLcHaQ%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://gr=
+oups.google.com/d/msgid/clang-built-linux/CAOrgDVOLUTcbLNJQH3RFL13iWKL_GMnj=
+syUeW%2BiFrmvacLcHaQ%40mail.gmail.com</a>.<br />
 
---0000000000008994ec059369238a--
+--000000000000bb480205936929a1--
