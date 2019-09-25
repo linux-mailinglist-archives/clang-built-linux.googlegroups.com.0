@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB5GSV7WAKGQEYTJ5N7Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBL63V7WAKGQE2W5HFVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 262D3BE84B
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Sep 2019 00:25:58 +0200 (CEST)
-Received: by mail-pg1-x53c.google.com with SMTP id m17sf28019pgh.21
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Sep 2019 15:25:58 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569450356; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 651B1BE868
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Sep 2019 00:44:01 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id 194sf298203pfu.3
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Sep 2019 15:44:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569451440; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pjgiGsYNYC8yaTKnbTT6+aXqYUa5DMWgsKqN8bzVmzFdK1lSlQQLYmTyqIUqy6KLQA
-         JcZNLCsV3/8axlO/0PnxZxBCjchzL/CaOeAETGC/ZhPS0YF7ZAcBUfkh68NF8s9Sp6vd
-         ySEwI4zbZmeHQ5ZCUSfa01IbYDrW28b+bX1nljaseQtC5ZOPS0GJ5osSZ8X0+2SYJVtU
-         pAEz03yXedRUpT1K0dlEHtEXAvT9Sg47ybJbIhmhLva0M+8WdIC7jkW9Z0K1YEV21fIT
-         jkpZibl0DBbi2tJhKD5LazuNigHEb80oCEJDwtyXfgwbrk3XYLod823MAJu1Y4KWek10
-         yK4Q==
+        b=Vwg5l2O6KV/+CB5y6iyuV0pRwAQGcb3X1TVaA/pFL3luDmS23xeFFOuTwOr8Pb+dW5
+         GKj0tSWOfG7H7CJA1uT2kOOlDbw+SWWzLt5LP5OMgb+gnjlhQ8i6dKpECiqSLr6HRVe3
+         XlG2PnTCRpw9yEsXacoq7Vc0qfp8wYRyQV/+zeSsKNLv5Cc89NNs+x8s1ToEsFxllk8C
+         a+e6lyRMJnL2n+MpZ7b9vhPuSs/2Jdonp3Tq7P+OG/c8kn/0w0A5iHrn710C8zcChnv+
+         /9lgSNazSvcNVM3DnPowcV7ZlaYZrPB0fbHCJ3fJjx66gUF/QP4dW1rqZualKMtqRIHh
+         6bDw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent
          :content-transfer-encoding:content-disposition:mime-version
          :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=JoC7mp1fifYxp7XBVpr6cKaXfnRJCVgs+9khhstztv4=;
-        b=ZizbfPGJBMNDozywtBVZIHdHilGH2ShmV7hV74S9c3raJHZfFT0geWwjj8wBxd//D8
-         Hqto1KcMIoROC0yDWat3z5joXULov0vy/+x5tgX1wdOXUayI6GQUHdpEspnNrALEfD5X
-         JFmtDhK7RhdqsrBT0T76DWelMVYY0Cz0vjLW7SXqUcD7ISW86fba+j24wK2xvYAq6oGr
-         sz3BLbFd0x1FHDJPtCGcr/ETBFscwSTh2fvtssRxkRM1iKAEiksM5qL5Vr/S90p/BdR6
-         Zj0IMjdbdZPWClcvKI0eY7OhcyQ/qp9nZA0mqCvaOqlqn9bGBXzKRgEBb+i53UrcSayO
-         vpGg==
+        bh=UxjD8h/V8iUAMhf/VF4leiS5WrpqWWxO5tV6bEN2/Kk=;
+        b=UaGEu+Up7+m0G4Sfvc5L01p59dTb3eZJxFu3qhzI3aP+Tmhyu8ZuuIkVfq/xj8GoYV
+         kOTJB+1GA82b4o+3YARPN9NrqeGXNOrKyLErRQUQYG1ZVGVecGQGXUPF3GrppHpZ3uPh
+         nRlUM24t1VgcmIGKRdNOtRDRd6RWjnfYc+NAZrTkHTgEX15fxqmArhUwBzQF61+mPQe6
+         V9inuwkYhcXiLKvJzFFzIeldLqal+FteHrWqU23REHFRoSHutIfnn7SpHZtq17gNKoYs
+         Om8Z5WGzIxprnvYGdDDf/Msi9j2CA3sKgqGVb7Y3LxskU2/hl23OHdN+hh8Dn3S9UYfx
+         taRg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=JoC7mp1fifYxp7XBVpr6cKaXfnRJCVgs+9khhstztv4=;
-        b=TTKDJNVSIXgG98xUzgo4LDyfeJvXE3V/yjRzqJRrBkna0Wbeq1gprJPEYQdQOuoLKA
-         c8FLTg+0KW6nMEbr9wnsOYJ+yiskaL7J1k0p/9vsI3QR19nritKxzjPT7Y5rOX1Zoj9e
-         HN/gAoiH3Bx2tqOpa35W+acdw1Bkd6zacmGKJNgj/Chiecup50ZiZQPMu0Q7+cpKk1gx
-         6TFiCwMsKAVLZMwKUixUn0aP+tP2c8UG4cHRuBsAZAa79hDFxi2fcG5BOKD3BJiERnsH
-         RK5OoHR4RR/NhIB2MkAcTC+EY26zUeBzIkemnkofJMYHf1/OPxO8mH/42Q/2CejnloNR
-         QCoA==
+        bh=UxjD8h/V8iUAMhf/VF4leiS5WrpqWWxO5tV6bEN2/Kk=;
+        b=nXtLN6/GA4KDlZrXeZACKtobp0MsOB2WXTp+LyW86wwiuMdD4GEE8mfqJQt0cZduFh
+         Sko5V/LWDEBzGvoyGKy/rCrJxBn6NQGrY/Kn34WJ2N85RJqYo9kR6j35mNHqSRZkTShF
+         OMswjJtYYLKD5yMkHF6EB9gXsoOW1uCvZVhzNyAZ9nObfy3Cjv13cYjlMPKOB+4ndXAR
+         z/WIKmf8mdFm6TtFfO0YomqDBUjynG4Fm4cGQllwRnMzsB/0QCr51iePEaQHNyNRu3OX
+         SPlZNiYWcwDmbIy1EHgwcSVlsuJPp9a+7bUxDjDTlaHmZOj3TSlpfBPyTKrUC9Gif9gn
+         8oMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,80 +50,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :user-agent:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JoC7mp1fifYxp7XBVpr6cKaXfnRJCVgs+9khhstztv4=;
-        b=VdSDfWc85ZrVDB4zj/DCQYZXmkqnEUgVV9/XJSKkNG+AtGBOrTmr7HG5zp4mYIVlPt
-         +nOZ7H4Fk9D2ycOlWg9Z4YI6L8mr5U/OEuDsBExy9Fpeb1vq2zt11eX8ZlnTGdUaw8be
-         HOicM9TK3HGuAwZuZRPp7OHcEQW5UmMJX1lGqzfRY9xxl9qN3qlcFaI0AUhVSRLdJV2f
-         Cdn5J9qvA4Z36VdwDpIDBaII4Czm1RcCqq13em8C1TjJFTOyupwcYDlUiXrEjwcCi+pp
-         pWqPFRJn8jXW1/q+ES1zhkYk8MuIraYHeuDJuE1ZDO/n6DeejPRilOeUwey2bUpakL2f
-         XjSA==
+        bh=UxjD8h/V8iUAMhf/VF4leiS5WrpqWWxO5tV6bEN2/Kk=;
+        b=LyfLIFlmy4ON4XI6BgW4OWOZSxY7fkzuri98kEg+x2KGqCgeT7wJVvD5hW3a0vv3gM
+         ejc3AiDLL8I+WXyu4OMHxzxpU65I8+jNwdm3/9sZO0ybFRNfrcgl+ws8HMCezfiN34/M
+         A2Ac8ofi9B2x1nDc0l/rSsZtcdyBTw+F76Wsado1VWzmsqHvKPO+2NFOPvzaKQ4CnW03
+         BdHF6BMCWqkmRSMR2L2ETYZeXMFbVq0xroBVEa4i+/+6CQZvFo0H9jh6nmb5EkmWUCSC
+         NDVsGsv3UBXVeBestNQEdqWX20pDD2FFveXntKdBBptATZ0GznDSDM4JDbW7e11ex3Mi
+         6QMA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWVNyDfuiGIkLoqfcS+/WanYsBtZ+ym3Ozjg2K+MtJjFhRLVNxp
-	RwP7uIU9gaXNsLT22HN6lWQ=
-X-Google-Smtp-Source: APXvYqzwPrFV4KtR3iHzOHgQT5x2nOwgH5zsFa0JB9XSNMZvZqFxodIUYI3lm1nVhiWmFwKG9GxFiQ==
-X-Received: by 2002:a17:902:8505:: with SMTP id bj5mr390760plb.11.1569450356266;
-        Wed, 25 Sep 2019 15:25:56 -0700 (PDT)
+X-Gm-Message-State: APjAAAUFJlBHjI/qfKPSYQQZGppztOJCgVMKdcXFrT5QnGttFynXbCBW
+	zGtlSnmqRP1JenI6CMQsJfQ=
+X-Google-Smtp-Source: APXvYqw9+qKm3ut8T2BK+P6D+hnxY2QJ+rFLMlsM9YO/pDG0VQIjrCXVu6OWgIP1ARtnz0xSukw1PQ==
+X-Received: by 2002:a17:902:9a49:: with SMTP id x9mr499642plv.244.1569451439613;
+        Wed, 25 Sep 2019 15:43:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:6307:: with SMTP id x7ls95811pfb.0.gmail; Wed, 25 Sep
- 2019 15:25:55 -0700 (PDT)
-X-Received: by 2002:a62:7d54:: with SMTP id y81mr45558pfc.86.1569450355897;
-        Wed, 25 Sep 2019 15:25:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569450355; cv=none;
+Received: by 2002:a17:902:b413:: with SMTP id x19ls111011plr.10.gmail; Wed, 25
+ Sep 2019 15:43:59 -0700 (PDT)
+X-Received: by 2002:a17:90a:fa0d:: with SMTP id cm13mr88897pjb.70.1569451439002;
+        Wed, 25 Sep 2019 15:43:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569451438; cv=none;
         d=google.com; s=arc-20160816;
-        b=bltHimU/fTt3XcGA/i/M4mMhHfcQDpEdgIOpWSeE7o+8LdnqDF63ssMKnRAlLTg3v8
-         71aDZW9Y+6votIoJnJzNBA3/rrfIcMul3ixPqQTU8ArPQRIce9mr9MdZ1uKVBtsf/nVn
-         V+URGj8vayHz0mNaQsw4x6WsBF7jAoNjIqchGFNmLjSSqx+MWYLWFT46D8umvSdZGrem
-         QyZU8kL8bkNqMF/WdJPhwn6nWmzlDZLZYqvCaFfb8VGEJbRsn1mtkblFI049eQlmfEKj
-         pa3l20/mnVyapUYrgcpCw3sHR4BW0//NlVnS1o86ype2NO9yBBRmM4/gPHVFjKvOatIG
-         Tyzw==
+        b=bBUZlWipuet7NdJ1UC53vfT+FErbF/hdljwacHQ3Vl5XtDMTDcy3DRl/HY+TcVzfsh
+         v8sXOslbe+NTxREsNgXwOue2HIkGtj+8W9TJGJweq2FtmhCKG6lDFKszhIkN/JWecZkE
+         9eg64G33rPzzLax2jhp/o+jPNZvpJPXgZbrfUpi0aEJi5oV4IwH1WYsjL9eqgKFVapn2
+         XvHNQvg1vHOgJfXa8XPT+u8AZskVTdpPa9wC2gXCU/OKxvuYFnxRwuzARygrBEPsCMF1
+         tsNbSDqa+//lPNIKgUR7oyLedAiAe8YPyzdW2PGN8fSUoTkhFS6VcQjM/DVWo4bkeO1s
+         smGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-transfer-encoding:content-disposition
          :mime-version:message-id:subject:cc:to:from:date;
-        bh=gbu2UQZdKo4X9rh7vmb8zRvj4RGZEytffgGp0SrCfps=;
-        b=ehrRIa/ofYMPV4ujaASTaVRNQGyGTzxFlXvRA1Xdeq29/xZPlSGKkI9vAZlKpy8aTx
-         hTJPxkngnAtA8JfdsW51fwaDxNMZKzDPm+Hp3MmUHTXL0l06xf7Q/9jijzxMYH3pEPlH
-         M3NWCTg4MyGGdP05rDb0dG5/6uDijRrwKcZxd72MckgkWlf2DlNfE9hSvo3q/Q1uTMdn
-         ymnZr7Z07E7Xcs3e2NL+gJ8rbRzOublSTj9rB7FxJArwfOQYTfL/vxx5bYd9r4w73p4A
-         u6vEaAfcbTguhEHEp9SXZ3WJlB1DaPVfVXWg5qvSVVJNgDHoAmbf9JC2jvYInItuOCv6
-         36Bg==
+        bh=5OAdheC+xG5gZvWzOAxu3EcCRO1W1vkphD0eIad7v6M=;
+        b=hbuzNtiSVymdChDet5QaCQi1ErfmuHj3jehXk//KY+SFlqlLDMHneoCXWdAZXISW13
+         OdqHi/ILDYvtBAgGMwm7c+idTd7ve/X39PTj81H98+OiQ7xVtDmIg6f0stNeah6koXo9
+         e3J3AQ7fvYiQhRK6x1Jo//a4FIeIDJVYsdZ+mxZvpV5V/uZxQWMoFfjxU9MUze7988s7
+         IH02xr0Ub2mq1QDz00Wln/WuWV0X08oL8SUUdHVYaewyZXfrdZcDCvs9Nr7Z/ZVllg3D
+         /8wj4OjpqGbpNonRSHcMOwZ7nhrpeag6mfWnHI86ZBtAOZj+zz7JuxFcub3qdBn4ogyO
+         sh3g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id d15si3006pjr.2.2019.09.25.15.25.55
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id d8si7857pjv.1.2019.09.25.15.43.58
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Sep 2019 15:25:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+        Wed, 25 Sep 2019 15:43:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Sep 2019 15:25:55 -0700
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Sep 2019 15:43:58 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.64,549,1559545200"; 
-   d="gz'50?scan'50,208,50";a="179956614"
+   d="gz'50?scan'50,208,50";a="364473591"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 25 Sep 2019 15:25:50 -0700
+  by orsmga005.jf.intel.com with ESMTP; 25 Sep 2019 15:43:56 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iDFjK-000Dpr-9j; Thu, 26 Sep 2019 06:25:50 +0800
-Date: Thu, 26 Sep 2019 06:25:00 +0800
+	id 1iDG0p-000J6i-W2; Thu, 26 Sep 2019 06:43:55 +0800
+Date: Thu, 26 Sep 2019 06:43:48 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
 Subject: Re: [PATCH] audit: Report suspicious O_CREAT usage
-Message-ID: <201909260626.5Xa270mC%lkp@intel.com>
+Message-ID: <201909260632.Mu7oV2YQ%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="defuytpmhfwaypdq"
+Content-Type: multipart/mixed; boundary="3f4kmh6tzaebjw2r"
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---defuytpmhfwaypdq
+--3f4kmh6tzaebjw2r
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
@@ -166,9 +166,9 @@ u.desnoyers@efficios.com>, kernel-hardening@lists.openwall.com, linux-audit=
 
 Hi Kees,
 
-I love your patch! Yet something to improve:
+I love your patch! Perhaps something to improve:
 
-[auto build test ERROR on linus/master]
+[auto build test WARNING on linus/master]
 [cannot apply to v5.3 next-20190924]
 [if your patch is applied to the wrong git tree, please drop us a note to h=
 elp
@@ -189,89 +189,230 @@ reproduce:
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
-   In file included from kernel///time/timekeeping.c:24:
->> include/linux/audit.h:222:1: error: expected identifier or '('
+   In file included from kernel/signal.c:48:
+   include/linux/audit.h:222:1: error: expected identifier or '('
    { }
    ^
-   1 error generated.
+>> kernel/signal.c:137:37: warning: array index 3 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+           case 4: ready  =3D signal->sig[3] &~ blocked->sig[3];
+                                              ^            ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   kernel/signal.c:137:19: warning: array index 3 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+           case 4: ready  =3D signal->sig[3] &~ blocked->sig[3];
+                            ^           ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   kernel/signal.c:138:30: warning: array index 2 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+                   ready |=3D signal->sig[2] &~ blocked->sig[2];
+                                              ^            ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   kernel/signal.c:138:12: warning: array index 2 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+                   ready |=3D signal->sig[2] &~ blocked->sig[2];
+                            ^           ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   kernel/signal.c:139:30: warning: array index 1 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+                   ready |=3D signal->sig[1] &~ blocked->sig[1];
+                                              ^            ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   kernel/signal.c:139:12: warning: array index 1 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+                   ready |=3D signal->sig[1] &~ blocked->sig[1];
+                            ^           ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   kernel/signal.c:143:37: warning: array index 1 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+           case 2: ready  =3D signal->sig[1] &~ blocked->sig[1];
+                                              ^            ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   kernel/signal.c:143:19: warning: array index 1 is past the end of the ar=
+ray (which contains 1 element) [-Warray-bounds]
+           case 2: ready  =3D signal->sig[1] &~ blocked->sig[1];
+                            ^           ~
+   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
+           unsigned long sig[_NSIG_WORDS];
+           ^
+   8 warnings and 1 error generated.
 
-vim +222 include/linux/audit.h
+vim +137 kernel/signal.c
 
-b48345aafb2038 Richard Guy Briggs 2019-05-10  187 =20
-96368701e1c890 Paul Moore         2016-01-13  188  #else /* CONFIG_AUDIT */
-96368701e1c890 Paul Moore         2016-01-13  189  static inline __printf(4=
-, 5)
-96368701e1c890 Paul Moore         2016-01-13  190  void audit_log(struct au=
-dit_context *ctx, gfp_t gfp_mask, int type,
-96368701e1c890 Paul Moore         2016-01-13  191  	       const char *fmt,=
- ...)
-96368701e1c890 Paul Moore         2016-01-13  192  { }
-96368701e1c890 Paul Moore         2016-01-13  193  static inline struct aud=
-it_buffer *audit_log_start(struct audit_context *ctx,
-96368701e1c890 Paul Moore         2016-01-13  194  						   gfp_t gfp_mask,=
- int type)
-96368701e1c890 Paul Moore         2016-01-13  195  {
-96368701e1c890 Paul Moore         2016-01-13  196  	return NULL;
-96368701e1c890 Paul Moore         2016-01-13  197  }
-96368701e1c890 Paul Moore         2016-01-13  198  static inline __printf(2=
-, 3)
-96368701e1c890 Paul Moore         2016-01-13  199  void audit_log_format(st=
-ruct audit_buffer *ab, const char *fmt, ...)
-96368701e1c890 Paul Moore         2016-01-13  200  { }
-96368701e1c890 Paul Moore         2016-01-13  201  static inline void audit=
-_log_end(struct audit_buffer *ab)
-96368701e1c890 Paul Moore         2016-01-13  202  { }
-96368701e1c890 Paul Moore         2016-01-13  203  static inline void audit=
-_log_n_hex(struct audit_buffer *ab,
-96368701e1c890 Paul Moore         2016-01-13  204  				   const unsigned ch=
-ar *buf, size_t len)
-96368701e1c890 Paul Moore         2016-01-13  205  { }
-96368701e1c890 Paul Moore         2016-01-13  206  static inline void audit=
-_log_n_string(struct audit_buffer *ab,
-96368701e1c890 Paul Moore         2016-01-13  207  				      const char *bu=
-f, size_t n)
-96368701e1c890 Paul Moore         2016-01-13  208  { }
-96368701e1c890 Paul Moore         2016-01-13  209  static inline void  audi=
-t_log_n_untrustedstring(struct audit_buffer *ab,
-96368701e1c890 Paul Moore         2016-01-13  210  						const char *string=
-, size_t n)
-96368701e1c890 Paul Moore         2016-01-13  211  { }
-96368701e1c890 Paul Moore         2016-01-13  212  static inline void audit=
-_log_untrustedstring(struct audit_buffer *ab,
-96368701e1c890 Paul Moore         2016-01-13  213  					     const char *st=
-ring)
-96368701e1c890 Paul Moore         2016-01-13  214  { }
-96368701e1c890 Paul Moore         2016-01-13  215  static inline void audit=
-_log_d_path(struct audit_buffer *ab,
-96368701e1c890 Paul Moore         2016-01-13  216  				    const char *pref=
-ix,
-96368701e1c890 Paul Moore         2016-01-13  217  				    const struct pat=
-h *path)
-96368701e1c890 Paul Moore         2016-01-13  218  { }
-96368701e1c890 Paul Moore         2016-01-13  219  static inline void audit=
-_log_key(struct audit_buffer *ab, char *key)
-96368701e1c890 Paul Moore         2016-01-13  220  { }
-21e61058cf0f22 Kees Cook          2019-09-25  221  static inline void audit=
-_log_path_denied(int type, const char *string);
-96368701e1c890 Paul Moore         2016-01-13 @222  { }
-96368701e1c890 Paul Moore         2016-01-13  223  static inline int audit_=
-log_task_context(struct audit_buffer *ab)
-96368701e1c890 Paul Moore         2016-01-13  224  {
-96368701e1c890 Paul Moore         2016-01-13  225  	return 0;
-96368701e1c890 Paul Moore         2016-01-13  226  }
-2a1fe215e7300c Paul Moore         2018-11-26  227  static inline void audit=
-_log_task_info(struct audit_buffer *ab)
-96368701e1c890 Paul Moore         2016-01-13  228  { }
-4b7d248b3a1de4 Richard Guy Briggs 2019-01-22  229 =20
+b48345aafb2038 Richard Guy Briggs   2019-05-10  @48  #include <linux/audit.=
+h>
+52f5684c8e1ec7 Gideon Israel Dsouza 2014-04-07   49 =20
+d1eb650ff41309 Masami Hiramatsu     2009-11-24   50  #define CREATE_TRACE_P=
+OINTS
+d1eb650ff41309 Masami Hiramatsu     2009-11-24   51  #include <trace/events=
+/signal.h>
+84d737866e2bab Sukadev Bhattiprolu  2006-12-08   52 =20
+^1da177e4c3f41 Linus Torvalds       2005-04-16   53  #include <asm/param.h>
+7c0f6ba682b9c7 Linus Torvalds       2016-12-24   54  #include <linux/uacces=
+s.h>
+^1da177e4c3f41 Linus Torvalds       2005-04-16   55  #include <asm/unistd.h=
+>
+^1da177e4c3f41 Linus Torvalds       2005-04-16   56  #include <asm/siginfo.=
+h>
+d550bbd40c0e10 David Howells        2012-03-28   57  #include <asm/cacheflu=
+sh.h>
+^1da177e4c3f41 Linus Torvalds       2005-04-16   58 =20
+^1da177e4c3f41 Linus Torvalds       2005-04-16   59  /*
+^1da177e4c3f41 Linus Torvalds       2005-04-16   60   * SLAB caches for sig=
+nal bits.
+^1da177e4c3f41 Linus Torvalds       2005-04-16   61   */
+^1da177e4c3f41 Linus Torvalds       2005-04-16   62 =20
+e18b890bb0881b Christoph Lameter    2006-12-06   63  static struct kmem_cac=
+he *sigqueue_cachep;
+^1da177e4c3f41 Linus Torvalds       2005-04-16   64 =20
+f84d49b218b7d4 Naohiro Ooiwa        2009-11-09   65  int print_fatal_signal=
+s __read_mostly;
+f84d49b218b7d4 Naohiro Ooiwa        2009-11-09   66 =20
+35de254dc60f91 Roland McGrath       2008-07-25   67  static void __user *si=
+g_handler(struct task_struct *t, int sig)
+^1da177e4c3f41 Linus Torvalds       2005-04-16   68  {
+35de254dc60f91 Roland McGrath       2008-07-25   69  	return t->sighand->ac=
+tion[sig - 1].sa.sa_handler;
+35de254dc60f91 Roland McGrath       2008-07-25   70  }
+^1da177e4c3f41 Linus Torvalds       2005-04-16   71 =20
+e4a8b4efbfdf8c Christian Brauner    2018-08-21   72  static inline bool sig=
+_handler_ignored(void __user *handler, int sig)
+35de254dc60f91 Roland McGrath       2008-07-25   73  {
+93585eeaf3d42d Pavel Emelyanov      2008-04-30   74  	/* Is it explicitly o=
+r implicitly ignored? */
+93585eeaf3d42d Pavel Emelyanov      2008-04-30   75  	return handler =3D=3D=
+ SIG_IGN ||
+93585eeaf3d42d Pavel Emelyanov      2008-04-30   76  	       (handler =3D=
+=3D SIG_DFL && sig_kernel_ignore(sig));
+93585eeaf3d42d Pavel Emelyanov      2008-04-30   77  }
+93585eeaf3d42d Pavel Emelyanov      2008-04-30   78 =20
+41aaa481197dc5 Christian Brauner    2018-08-21   79  static bool sig_task_i=
+gnored(struct task_struct *t, int sig, bool force)
+93585eeaf3d42d Pavel Emelyanov      2008-04-30   80  {
+35de254dc60f91 Roland McGrath       2008-07-25   81  	void __user *handler;
+^1da177e4c3f41 Linus Torvalds       2005-04-16   82 =20
+f008faff0e2777 Oleg Nesterov        2009-04-02   83  	handler =3D sig_handl=
+er(t, sig);
+f008faff0e2777 Oleg Nesterov        2009-04-02   84 =20
+86989c41b5ea08 Eric W. Biederman    2018-07-19   85  	/* SIGKILL and SIGSTO=
+P may not be sent to the global init */
+86989c41b5ea08 Eric W. Biederman    2018-07-19   86  	if (unlikely(is_globa=
+l_init(t) && sig_kernel_only(sig)))
+86989c41b5ea08 Eric W. Biederman    2018-07-19   87  		return true;
+86989c41b5ea08 Eric W. Biederman    2018-07-19   88 =20
+f008faff0e2777 Oleg Nesterov        2009-04-02   89  	if (unlikely(t->signa=
+l->flags & SIGNAL_UNKILLABLE) &&
+ac25385089f673 Oleg Nesterov        2017-11-17   90  	    handler =3D=3D SI=
+G_DFL && !(force && sig_kernel_only(sig)))
+41aaa481197dc5 Christian Brauner    2018-08-21   91  		return true;
+f008faff0e2777 Oleg Nesterov        2009-04-02   92 =20
+33da8e7c814f77 Eric W. Biederman    2019-08-16   93  	/* Only allow kernel =
+generated signals to this kthread */
+33da8e7c814f77 Eric W. Biederman    2019-08-16   94  	if (unlikely((t->flag=
+s & PF_KTHREAD) &&
+33da8e7c814f77 Eric W. Biederman    2019-08-16   95  		     (handler =3D=3D=
+ SIG_KTHREAD_KERNEL) && !force))
+33da8e7c814f77 Eric W. Biederman    2019-08-16   96  		return true;
+33da8e7c814f77 Eric W. Biederman    2019-08-16   97 =20
+f008faff0e2777 Oleg Nesterov        2009-04-02   98  	return sig_handler_ig=
+nored(handler, sig);
+f008faff0e2777 Oleg Nesterov        2009-04-02   99  }
+f008faff0e2777 Oleg Nesterov        2009-04-02  100 =20
+6a0cdcd78892d4 Christian Brauner    2018-08-21  101  static bool sig_ignore=
+d(struct task_struct *t, int sig, bool force)
+f008faff0e2777 Oleg Nesterov        2009-04-02  102  {
+^1da177e4c3f41 Linus Torvalds       2005-04-16  103  	/*
+^1da177e4c3f41 Linus Torvalds       2005-04-16  104  	 * Blocked signals ar=
+e never ignored, since the
+^1da177e4c3f41 Linus Torvalds       2005-04-16  105  	 * signal handler may=
+ change by the time it is
+^1da177e4c3f41 Linus Torvalds       2005-04-16  106  	 * unblocked.
+^1da177e4c3f41 Linus Torvalds       2005-04-16  107  	 */
+325d22df7b19e0 Roland McGrath       2007-11-12  108  	if (sigismember(&t->b=
+locked, sig) || sigismember(&t->real_blocked, sig))
+6a0cdcd78892d4 Christian Brauner    2018-08-21  109  		return false;
+^1da177e4c3f41 Linus Torvalds       2005-04-16  110 =20
+35de254dc60f91 Roland McGrath       2008-07-25  111  	/*
+628c1bcba20405 Oleg Nesterov        2017-11-17  112  	 * Tracers may want t=
+o know about even ignored signal unless it
+628c1bcba20405 Oleg Nesterov        2017-11-17  113  	 * is SIGKILL which c=
+an't be reported anyway but can be ignored
+628c1bcba20405 Oleg Nesterov        2017-11-17  114  	 * by SIGNAL_UNKILLAB=
+LE task.
+35de254dc60f91 Roland McGrath       2008-07-25  115  	 */
+628c1bcba20405 Oleg Nesterov        2017-11-17  116  	if (t->ptrace && sig =
+!=3D SIGKILL)
+6a0cdcd78892d4 Christian Brauner    2018-08-21  117  		return false;
+628c1bcba20405 Oleg Nesterov        2017-11-17  118 =20
+628c1bcba20405 Oleg Nesterov        2017-11-17  119  	return sig_task_ignor=
+ed(t, sig, force);
+^1da177e4c3f41 Linus Torvalds       2005-04-16  120  }
+^1da177e4c3f41 Linus Torvalds       2005-04-16  121 =20
+^1da177e4c3f41 Linus Torvalds       2005-04-16  122  /*
+^1da177e4c3f41 Linus Torvalds       2005-04-16  123   * Re-calculate pendin=
+g state from the set of locally pending
+^1da177e4c3f41 Linus Torvalds       2005-04-16  124   * signals, globally p=
+ending signals, and blocked signals.
+^1da177e4c3f41 Linus Torvalds       2005-04-16  125   */
+938696a82974c3 Christian Brauner    2018-08-21  126  static inline bool has=
+_pending_signals(sigset_t *signal, sigset_t *blocked)
+^1da177e4c3f41 Linus Torvalds       2005-04-16  127  {
+^1da177e4c3f41 Linus Torvalds       2005-04-16  128  	unsigned long ready;
+^1da177e4c3f41 Linus Torvalds       2005-04-16  129  	long i;
+^1da177e4c3f41 Linus Torvalds       2005-04-16  130 =20
+^1da177e4c3f41 Linus Torvalds       2005-04-16  131  	switch (_NSIG_WORDS) =
+{
+^1da177e4c3f41 Linus Torvalds       2005-04-16  132  	default:
+^1da177e4c3f41 Linus Torvalds       2005-04-16  133  		for (i =3D _NSIG_WOR=
+DS, ready =3D 0; --i >=3D 0 ;)
+^1da177e4c3f41 Linus Torvalds       2005-04-16  134  			ready |=3D signal->=
+sig[i] &~ blocked->sig[i];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  135  		break;
+^1da177e4c3f41 Linus Torvalds       2005-04-16  136 =20
+^1da177e4c3f41 Linus Torvalds       2005-04-16 @137  	case 4: ready  =3D si=
+gnal->sig[3] &~ blocked->sig[3];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  138  		ready |=3D signal->s=
+ig[2] &~ blocked->sig[2];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  139  		ready |=3D signal->s=
+ig[1] &~ blocked->sig[1];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  140  		ready |=3D signal->s=
+ig[0] &~ blocked->sig[0];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  141  		break;
+^1da177e4c3f41 Linus Torvalds       2005-04-16  142 =20
+^1da177e4c3f41 Linus Torvalds       2005-04-16  143  	case 2: ready  =3D si=
+gnal->sig[1] &~ blocked->sig[1];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  144  		ready |=3D signal->s=
+ig[0] &~ blocked->sig[0];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  145  		break;
+^1da177e4c3f41 Linus Torvalds       2005-04-16  146 =20
+^1da177e4c3f41 Linus Torvalds       2005-04-16  147  	case 1: ready  =3D si=
+gnal->sig[0] &~ blocked->sig[0];
+^1da177e4c3f41 Linus Torvalds       2005-04-16  148  	}
+^1da177e4c3f41 Linus Torvalds       2005-04-16  149  	return ready !=3D	0;
+^1da177e4c3f41 Linus Torvalds       2005-04-16  150  }
+^1da177e4c3f41 Linus Torvalds       2005-04-16  151 =20
 
-:::::: The code at line 222 was first introduced by commit
-:::::: 96368701e1c89057bbf39222e965161c68a85b4b audit: force seccomp event =
-logging to honor the audit_enabled flag
+:::::: The code at line 137 was first introduced by commit
+:::::: 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2 Linux-2.6.12-rc2
 
-:::::: TO: Paul Moore <pmoore@redhat.com>
-:::::: CC: Paul Moore <paul@paul-moore.com>
+:::::: TO: Linus Torvalds <torvalds@ppc970.osdl.org>
+:::::: CC: Linus Torvalds <torvalds@ppc970.osdl.org>
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Cent=
@@ -285,14 +426,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201909260626.5Xa270mC%25lkp%40intel.com.
+clang-built-linux/201909260632.Mu7oV2YQ%25lkp%40intel.com.
 
---defuytpmhfwaypdq
+--3f4kmh6tzaebjw2r
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICAvfi10AAy5jb25maWcAlFxbc9tGsn7Pr0AlVafsh9i6Wavslh6GwICYEDdjBrzoBUWT
+H4sICP7ri10AAy5jb25maWcAlFxbc9tGsn7Pr0AlVafsh9i6Wavslh6GwICYEDdjBrzoBUWT
 kMwTidQhqcT+96d7ABADoIf2ZjexNd1z7+n++gL99stvDns77l6Wx81q+fz83Xkqt+V+eSzX
 zuPmufyP4yVOnCiHe0J9AOZws3379vHb3W1xe+N8+nD94cKZlPtt+ey4u+3j5ukN+m52219+
 +wX+/xs0vrzCMPt/O6vn5fbJ+bvcH4DsXF58gP857542x39//Aj/fdns97v9x+fnv1+K1/3u
@@ -428,4 +569,4 @@ sRqCgE62POfTK2wWs2AlDP+OVVyrCVYvOtW1sHJwVFfnNdDKeRP+CtUAioCx51VycDwE/50J
 Lo1JUWQVnXDB61nBWTZnuK2Kykiorq++fA5UurwGQWW3t1jNRPHz3kYWr6qTyE6K6QicbbGA
 X2RndpycOON6HkZE53Jll5XQUzpwBi7qrp/XzexNQTWTP9YgeyL/AXLrY1l2aAAA
 
---defuytpmhfwaypdq--
+--3f4kmh6tzaebjw2r--
