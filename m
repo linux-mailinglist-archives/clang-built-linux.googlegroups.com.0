@@ -1,129 +1,127 @@
-Return-Path: <clang-built-linux+bncBD55JLOZ34EBBRF5XHWAKGQE2UMSFRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBQ7WXHWAKGQEUKHFSTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 950F4C0BF7
-	for <lists+clang-built-linux@lfdr.de>; Fri, 27 Sep 2019 21:11:02 +0200 (CEST)
-Received: by mail-io1-xd40.google.com with SMTP id w8sf14321113iol.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 27 Sep 2019 12:11:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569611461; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id DF31AC0D0D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 27 Sep 2019 23:12:36 +0200 (CEST)
+Received: by mail-pf1-x43d.google.com with SMTP id z13sf2764678pfr.15
+        for <lists+clang-built-linux@lfdr.de>; Fri, 27 Sep 2019 14:12:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569618755; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lLpONjFYyW3Mr7oRn7zPn+UOHuBCGLQT3UXAfWkit15mAtRYkSSpKSr0J3E479RrGW
-         OyG08WJ7UBLWCdcvhHRTLo2upSmiUFblpqZslZ4zTD0TqEv7syFUUfbkbW5p0j8ObvSH
-         ycvesqfI/s8tOLwoRDQ2VIjAj9hsIWJlKNBwuvc0a7rXBPh8Cx+wZFC8Mi66IGMGIWjC
-         ubnSaPC0+XIYRPRyWeVSz68agIiGKZC9vrnrHh+Kt0VlQGOAOGAJECwPaSSQ/TNJxsvo
-         zL1NDPZkgrHaI0V2A+f7MDLnFq+XYLEYVlsrseBHhd8cXLGGmYH4w/IIbOuhvnVjvRvd
-         /zMg==
+        b=eNCz4WTMPk9X0X63HmQpPOUCrdVdAyUMpPaXq44RatOAQlpocOk3EmC8+t+38k3KDf
+         pUfY+0OjjWyS7+DdmLozNPYnE+gXMyfuoY1Le391D7mR8eDcNTV22GCFZk+/CWO79njb
+         v2HqBiiNWDiZdymoatZY++2i0Jdq5EMd6amQMjE4C7WETxMiR2FHP4SPjpvX0ddDjcPC
+         Sv5PU9Bt2W0kBKBLKVRGgONSFud907o3uakk5PQ1KtarcmFv9FDj7Wlo2xrk2+WnpQrz
+         nc1BvFl3dymVUDeMOkc8jaQIU6Pc1ZWgVoDddficNdIsvGVD9nI5O+KB9mLsHwce0zco
+         Zt7w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=vFAqSipvKMiImj5GWL4JP5MT/OUfda2A0tqLjCD/LYk=;
-        b=MzolpqmHSZfMBg7n3SV39ApKsmmhFHu4u9XErweq/5zlxqXEN5WhjBqDq2gkRYbEAw
-         TN38LmHURWDPe3Qv2C7cCBYiMkeXtnhUOiDtcspXkFiBj32LWDNCMBVP3Wjcgg5087mA
-         2wsnZJXhboFuiY5jDLEMTxBdDydNuaolipEDdfEv8Lmd1MQwpxYGl/Cdxf5hhXCJlehl
-         NOI2h9HUD20EO3RP2Tc3a2KKU+qaAgwzevrRl/RuW/Uvvu/QpLOsdut1WCRi23fuds8q
-         TP6WWKQZ9GaszmqUCS2DPCcW5u87cECkBXrt7R1/096BV9yrYurFaCFQZRfJopCC5+zR
-         3XkA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=YCSw7fRg5jFfKxk/dFIqyVmHQHi4xXKuI48EP+PUsEE=;
+        b=suR72Y1vQp8D3AI/mIXuwz+mUoHf33U3kLXMy/PPZOJGB1nonybxs6ANZFtLpna5zb
+         4urt+oydZlD2uAqVpJNIQQKcgKLSFrg3PVM095JJoKtDJCPWOaC1RxHURlVv6tNW+cHo
+         hH4h3v/AK/HaysEaaY7Or5+OBfsZ39QcwRhPDscRBi+fwiF6acPnpr7ee2jxdRKZaTBb
+         gAEx+xogdKdG6sc7caeNUC6aoYXpe7Z8mzywpjjkBk47mtt0m51KKAkuuIuNkwiF7PaX
+         V3CPiMbydqL5QajjdjWHhfpMPb5caULrvdvA7B/04Wlktse9oHSAbbapOMvrRNrY4rfj
+         EPeg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=v7kNqHHq;
-       spf=pass (google.com: domain of shuah@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=shuah@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HWrjXwmy;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vFAqSipvKMiImj5GWL4JP5MT/OUfda2A0tqLjCD/LYk=;
-        b=G5i9b8gfYr1iiMClg0T3WsS+AmmW9N/ttUPP1cM/9OE6WRLXii3JNQWMO7/eZQQ61e
-         VTTU4iNARq5uu3dJSs7xGkJqrihxpMZ07f/l2O2HEHAj0/krb3zqq+JB9vF2YP/wO3PO
-         8elYcRfSw+8hyJiZHm7xu0t9sa2rEKGMJ8eLTNs/XVGQDmkeafw0+ldjCAWH04B8GnI0
-         YT9gTYTqmt+lSy9dAUZKMOT+Y8L7OLjqdj1w+3IXPk49X4AB3M7AOlSw+OuU88olRVc6
-         XHrxQobMVit0kmkexJrbWbNajO4kVMinuesy1etbnrQDBmrXltKt9dhspxYJopPCpByJ
-         BEoA==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YCSw7fRg5jFfKxk/dFIqyVmHQHi4xXKuI48EP+PUsEE=;
+        b=DLwto1z5HkhL80p5ghSryR3rPEbISXPMh4Dgdd75tBAn9RoJdAdRMOAnIbbSBuZciW
+         05/NjAYOJb9FDUP8Nxh+gs+Mw7ig/FSDB5DOz6bpdPH1mZA2/YpB9FrjbgYQOW5R09MU
+         eZaxPD0ii+wBbOrDxrZlhkOMsm7zvxpVxorG3BiEx/Hn0AD0F9I9RAuKTC5JiuR7zfR6
+         8kf42QBU3q0iN8IL1QXXFF3gityK/pguKlyYzVrLzaJB1i18BWrRcPXwwxAaQHD1IxOr
+         7N3qhPv4swKULTOeasSCYInRuUvlfcA/t89hI9+3iwByvKbIXeoc0lD4IrV6AYPfhOrL
+         bKoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=vFAqSipvKMiImj5GWL4JP5MT/OUfda2A0tqLjCD/LYk=;
-        b=WYUVtofMRO0hvknwi7Co4luJofX0pO+E4DkDV9HXHNz4nU0TQXEfvwjwELNBrX1doV
-         iXOmyNbYbiKhihJqX7lIUWMcdNl6ux2RRtYP6k05xXgaCboUjLG9ewYVdyZWZwjWz3rJ
-         IM2cFk5lHL+Zd7se7tI7AM0GjBX6CpWsyETunD6nGaVeRYLCuAQzT/Q9SrzCPBjFtqRo
-         uAN/JpFkm7gUKtvGAmWz2LR0iz/+s4hl2llXmqvsjvTh4cjTTJ9j3kL0Hgb1KvF/EfV2
-         mvScth7sH1WigqSyp+Tug2CVS84KBPwshPNY613TxXblVwOD5mWowB8l++/bo4ZQuxrM
-         LeSA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUZa8d5CZDTgOBY3xUSxi2M3ZMStORp6f+OKaRsWeJdysa2ngSJ
-	mvyPR+K4q/z77KqzDjynMcA=
-X-Google-Smtp-Source: APXvYqwaVN/M4tVbynlbnqKYTF7tveuxKelT8PO3vgNbmgZmMnmn+UbGnbgdQe09ykOgljh5xwVLqA==
-X-Received: by 2002:a92:8812:: with SMTP id h18mr6450065ild.24.1569611461238;
-        Fri, 27 Sep 2019 12:11:01 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YCSw7fRg5jFfKxk/dFIqyVmHQHi4xXKuI48EP+PUsEE=;
+        b=nIPMk7///NMy2wEFxySqwznX9/M4oleQlTn6gbZgLRkzw/7bWsz7S4hmAtdWZQ7Hb6
+         UrrkngWTc7rg9nliPjBL7RtARqrdTY5vL7lgqhIeOyT97oParqj8FpjG3n+P5KGR1mGz
+         pgnqtAivjfeFnQ52xsZAnrUdC2Ve+1hzgjb1TTad1ZQwci8FJyXCiyAVSpHS93ZF5voG
+         6IDPXQ5NYkZqXsxh/ip6r5NSyPS7fOntySP3Kpr37met9r72+LSnHkHLPWbH1tokYdkN
+         EmV63KzoT11cOK/N0vxF62StmlPYb1iXzUyDtIIdJ1RgnEApcAXoA850mhuuXZpj8eOC
+         h3nA==
+X-Gm-Message-State: APjAAAXnbvR5nB5dYCJGniJBvXmeEh8yDDxHsGwIkBbcIHcpuXAAOh6t
+	XrUJlRZwV2qn7JMA0e/qQ38=
+X-Google-Smtp-Source: APXvYqwuG6hDNWWd/BeAvWWqHJ3H3uS6JJ56XIvpB3bFz06N2vvHpPdHY+hE55aJ6H8hEln7ZqMX5A==
+X-Received: by 2002:a17:902:9001:: with SMTP id a1mr7122509plp.148.1569618755290;
+        Fri, 27 Sep 2019 14:12:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:a598:: with SMTP id b24ls745133jam.10.gmail; Fri, 27 Sep
- 2019 12:11:00 -0700 (PDT)
-X-Received: by 2002:a02:cd8d:: with SMTP id l13mr9592185jap.138.1569611460716;
-        Fri, 27 Sep 2019 12:11:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569611460; cv=none;
+Received: by 2002:aa7:80d1:: with SMTP id a17ls720546pfn.7.gmail; Fri, 27 Sep
+ 2019 14:12:34 -0700 (PDT)
+X-Received: by 2002:a62:f249:: with SMTP id y9mr6745230pfl.147.1569618754975;
+        Fri, 27 Sep 2019 14:12:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569618754; cv=none;
         d=google.com; s=arc-20160816;
-        b=OJKZNOizBYdvSSihy8ApqxdLlBqSjU8cs5qeKMd5gMRWcg4RZzoe3WSeQlvwNOEVLq
-         /iYuO/7Thq/IDXTu4Wfpa8+AZOa6APGSe4OseeGkuUMHlrt4588tNtOec0JH/yqJtW2x
-         h3X5JBly82vDer42PoZ1Bw+r+e3dXje5G99iMkAW5Su688ZvZnlbGQkicM9Vi10EOZqp
-         qKO+9ZFY+KiXV8kXOWg7Ou41rKvkZy4suvNE/W9zYKMEwfrgsqARA4cbATci/YCEdLHx
-         s9f7/9VcU0qM+qBhB+29c7SsRXYW+aGSqRmKDP1Azg1POR5cVqOem4M1AD1uGFVOJnIV
-         48KQ==
+        b=G9HcqHHN80pco/wcVruuosjh1FxXQjzhWYzR4ts/VyiFGi/wT1qL7GnFX/lE4pkAHc
+         0AP2s7SwWYLerUyBVGbPfW3jXrcNr090YWiI90C8EfyP0guyA93YMarA7B7t445BAnw2
+         7v8NMAwY7/WACdqzDE5fYVBlXlK80MgVlvYiQTWOGWV436GMtKozdpLQCq3RycrE+wlz
+         /xNs5ewB2cz/ZdLXn9ieP5oA/UuLP438zzB4zSFriK9JceStcseuv1RtR4xa7yVkUKm9
+         xR2r8zNi9agd2TOzp+QN9toACk9VogY2GDWXiExKYOhDX1wIyniCn2nkhbjoEOHdB+mR
+         5pEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=jrDjIUehUkTgp+Yl+e6nDFYDEBr8id02fwfCa90JI08=;
-        b=W7BcoN4eTJCv5Xt8rdqJ+qkqBlIP13VtcgtK/NlYIUqXsq06x4FOvkwxJ89gnN/mzB
-         R88G24fyk1YRgFzQcIfp8t6K1okhNB796rwCSQDxHj8uqEHbZ51lH0kX9ISglXITusac
-         jha/F1HuXl6UH9I/SZXDE7DmBKyKcPBB5G84TiHKlxawNiSvSLeFqV00X8zosAK+lLKA
-         d8qGNM5M1oLqoMe4VM4AOYuFlGgs9Pr69fcvxIfSho/QLwaBgR4lWUh1ZqkRJbv5mO3c
-         tXfa50oqAg5NfxBhh6cySft9S2OpsCF7fb0SLMU6jsp5wDrTke8jKpeW78XEgFfzFJXj
-         rXkA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MT3rEIfaJgpzvHmFM2pWeqN2XOEfjsN3Ht7YF+hthq8=;
+        b=IEvR1bAlxl73DwsGceRsa4UjtQj7jHMN3keMxY+Alrpx2T0fti1Gzi0D0bpPeh0RJQ
+         fCbeYbDBv9MH9EjTl5SviJBrpe/Z+NjIPAWZNZwhQbL7ZSMsZlfe+pFf9S5kJue70PPL
+         MtNVKjauI96Z0S7IOENrDZ3QCb+pQGZ8hcbygHPi7NGIf9Plkn8ESgk9wppiruCY0yz+
+         7sMbOvhPYxRGIE3uHzLH8SbH7n72lBUF5qLwrfVOVe7hI6UJSqvDBzXY2lRyfas0zgWX
+         S24a+wt5knSqNlui5zydzXZ8CZxRD+YFXRmO7Xmf+gwbtz53+LYWRjxp+tQlzkDYLrMJ
+         RV8g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=v7kNqHHq;
-       spf=pass (google.com: domain of shuah@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=shuah@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x3si376918iom.2.2019.09.27.12.11.00
+       dkim=pass header.i=@google.com header.s=20161025 header.b=HWrjXwmy;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id x137si141627pfd.1.2019.09.27.14.12.34
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 27 Sep 2019 12:11:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of shuah@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from [192.168.1.112] (c-24-9-64-241.hsd1.co.comcast.net [24.9.64.241])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id A56B8207E0;
-	Fri, 27 Sep 2019 19:10:59 +0000 (UTC)
-Subject: Re: [PATCH] tools/power/cpupower: Fix initializer override in
- hsw_ext_cstates
-To: Nathan Chancellor <natechancellor@gmail.com>,
- Thomas Renninger <trenn@suse.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com, shuah <shuah@kernel.org>
-References: <20190927162642.2292584-1-natechancellor@gmail.com>
-From: shuah <shuah@kernel.org>
-Message-ID: <209b17e8-9800-eec9-f781-8becebeddea9@kernel.org>
-Date: Fri, 27 Sep 2019 13:10:58 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 27 Sep 2019 14:12:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
+Received: by mail-pf1-x444.google.com with SMTP id h195so2240312pfe.5
+        for <clang-built-linux@googlegroups.com>; Fri, 27 Sep 2019 14:12:34 -0700 (PDT)
+X-Received: by 2002:a62:798e:: with SMTP id u136mr6912504pfc.3.1569618754157;
+ Fri, 27 Sep 2019 14:12:34 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20190927162642.2292584-1-natechancellor@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: shuah@kernel.org
+References: <cover.1569569778.git.Jose.Abreu@synopsys.com> <80dd26ecf7fc82c88dc378d78210df5dd4138812.1569569778.git.Jose.Abreu@synopsys.com>
+In-Reply-To: <80dd26ecf7fc82c88dc378d78210df5dd4138812.1569569778.git.Jose.Abreu@synopsys.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 27 Sep 2019 14:12:23 -0700
+Message-ID: <CAKwvOdntD5HNb4Gg04YN7iZwvK3CB4enq4ZPhUM-Bd3huvR2pw@mail.gmail.com>
+Subject: Re: [PATCH net 8/8] net: stmmac: xgmac: Fix RSS not writing all Keys
+ to HW
+To: Jose Abreu <Jose.Abreu@synopsys.com>
+Cc: Network Development <netdev@vger.kernel.org>, Joao Pinto <Joao.Pinto@synopsys.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Alexandre Torgue <alexandre.torgue@st.com>, 
+	"David S. Miller" <davem@davemloft.net>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=v7kNqHHq;       spf=pass
- (google.com: domain of shuah@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=shuah@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@google.com header.s=20161025 header.b=HWrjXwmy;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,64 +134,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 9/27/19 10:26 AM, Nathan Chancellor wrote:
-> When building cpupower with clang, the following warning appears:
-> 
->   utils/idle_monitor/hsw_ext_idle.c:42:16: warning: initializer overrides
->   prior initialization of this subobject [-Winitializer-overrides]
->                   .desc                   = N_("Processor Package C2"),
->                                                ^~~~~~~~~~~~~~~~~~~~~~
->   ./utils/helpers/helpers.h:25:33: note: expanded from macro 'N_'
->   #define N_(String) gettext_noop(String)
->                                   ^~~~~~
->   ./utils/helpers/helpers.h:23:30: note: expanded from macro
->   'gettext_noop'
->   #define gettext_noop(String) String
->                                ^~~~~~
->   utils/idle_monitor/hsw_ext_idle.c:41:16: note: previous initialization
->   is here
->                   .desc                   = N_("Processor Package C9"),
->                                                ^~~~~~~~~~~~~~~~~~~~~~
->   ./utils/helpers/helpers.h:25:33: note: expanded from macro 'N_'
->   #define N_(String) gettext_noop(String)
->                                   ^~~~~~
->   ./utils/helpers/helpers.h:23:30: note: expanded from macro
->   'gettext_noop'
->   #define gettext_noop(String) String
->                               ^~~~~~
->   1 warning generated.
-> 
-> This appears to be a copy and paste or merge mistake because the name
-> and id fields both have PC9 in them, not PC2. Remove the second
-> assignment to fix the warning.
-> 
-> Fixes: 7ee767b69b68 ("cpupower: Add Haswell family 0x45 specific idle monitor to show PC8,9,10 states")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/718
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+On Fri, Sep 27, 2019 at 12:49 AM Jose Abreu <Jose.Abreu@synopsys.com> wrote:
+>
+> The sizeof(cfg->key) is != ARRAY_SIZE(cfg->key). Fix it.
+
+I think the warning was from -Wsizeof-array-div.
+
+>
+> Reported-by: kbuild test robot <lkp@intel.com>
+> Reported-by: Nick Desaulniers <ndesaulniers@google.com>
+
+I may have reported the kbuild link, but scanning my email, there's
+also a report from
+Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+
+> Fixes: 76067459c686 ("net: stmmac: Implement RSS and enable it in XGMAC core")
+> Signed-off-by: Jose Abreu <Jose.Abreu@synopsys.com>
+>
 > ---
->   tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c | 1 -
->   1 file changed, 1 deletion(-)
-> 
-> diff --git a/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c b/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c
-> index 7c7451d3f494..58dbdfd4fa13 100644
-> --- a/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c
-> +++ b/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c
-> @@ -39,7 +39,6 @@ static cstate_t hsw_ext_cstates[HSW_EXT_CSTATE_COUNT] = {
->   	{
->   		.name			= "PC9",
->   		.desc			= N_("Processor Package C9"),
-> -		.desc			= N_("Processor Package C2"),
->   		.id			= PC9,
->   		.range			= RANGE_PACKAGE,
->   		.get_count_percent	= hsw_ext_get_count_percent,
-> 
+> Cc: Giuseppe Cavallaro <peppe.cavallaro@st.com>
+> Cc: Alexandre Torgue <alexandre.torgue@st.com>
+> Cc: Jose Abreu <joabreu@synopsys.com>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+> Cc: netdev@vger.kernel.org
+> Cc: linux-stm32@st-md-mailman.stormreply.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: Nick Desaulniers <ndesaulniers@google.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> index 6d8ac2ef4fc2..4a1f52474dbc 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> @@ -533,7 +533,7 @@ static int dwxgmac2_rss_configure(struct mac_device_info *hw,
+>                 return 0;
+>         }
+>
+> -       for (i = 0; i < (sizeof(cfg->key) / sizeof(u32)); i++) {
+> +       for (i = 0; i < (ARRAY_SIZE(cfg->key) / sizeof(u32)); i++) {
 
-Looks good to me. I will queue this up for 5.4-rc2 or rc3.
+cfg is an instance of struct stmmac_rss, which looks like:
+125 struct stmmac_rss {
+126   int enable;
+127   u8 key[STMMAC_RSS_HASH_KEY_SIZE];
+128   u32 table[STMMAC_RSS_MAX_TABLE_SIZE];
+129 };
 
-thanks,
--- Shuah
+yep, LGTM. Thanks for the patch.
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+
+
+>                 ret = dwxgmac2_rss_write_reg(ioaddr, true, i, cfg->key[i]);
+>                 if (ret)
+>                         return ret;
+> --
+> 2.7.4
+>
+
+
+--
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/209b17e8-9800-eec9-f781-8becebeddea9%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdntD5HNb4Gg04YN7iZwvK3CB4enq4ZPhUM-Bd3huvR2pw%40mail.gmail.com.
