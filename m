@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBOGWYPWAKGQEFQLTEVY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB3WWYPWAKGQEBPVTNVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83a.google.com (mail-qt1-x83a.google.com [IPv6:2607:f8b0:4864:20::83a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 048C9C16D1
-	for <lists+clang-built-linux@lfdr.de>; Sun, 29 Sep 2019 19:34:50 +0200 (CEST)
-Received: by mail-qt1-x83a.google.com with SMTP id h10sf11530910qtq.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 29 Sep 2019 10:34:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569778489; cv=pass;
+Received: from mail-io1-xd37.google.com (mail-io1-xd37.google.com [IPv6:2607:f8b0:4864:20::d37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 97333C170B
+	for <lists+clang-built-linux@lfdr.de>; Sun, 29 Sep 2019 19:35:43 +0200 (CEST)
+Received: by mail-io1-xd37.google.com with SMTP id t11sf25165908ioc.13
+        for <lists+clang-built-linux@lfdr.de>; Sun, 29 Sep 2019 10:35:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569778542; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dxpA2qN8U1gDRTTbCCS6vEoA4B6+BoAJhlKjDqKM/PJe9a5eqjQWqDwVRzznWARe2I
-         sBIWV3gK97RQ1yxmfsPhlpJWQAerXpNrrNnID5p3xWzVPWliWwIj/CGasNxHEjXcENDL
-         EUqll6YhzDU6k00pxIocneokubz9OW6OiU0HR76cpgryxMNTlVx9jgi/1A2lCJb+cI7K
-         ep6J0/QoJIJ7dvgD226+ZeiCT8I6HFYvlW2e9EzkdYajRCBoe1dgDBGfz1yjUEzIb2Lw
-         Ih1QFHfw1aW3wyuZ3aphuHldnhbKWcwO3hfC3wQv7WNT8P6bpbuffmwk/eUgrFNj8RWa
-         vkxg==
+        b=dVO4bt8lnnc5A8hx9iblG2R1zLG+6cfwDzDnIsCPkquDndv3T8b2mCUUqyqkYeDrnh
+         +nMKRXb7p0HoBLyjAyaq2WaIwPrVxaxvC59B4ZA8nXKAxNjTQn8x9V5FMd++agygdBky
+         VWu4SDcIFoZEPjd7ZBJmBqxZUUTVL/c8ambkVjTRTHmQdb02/dqoxZSHLOr58YYzL48c
+         G+OHECqDV0YohT7J/H45FjKQGaCJie3MPifI8X7BEnwYilQKXPeKDYs2bOdQo4TdHjMM
+         FGGRNQw7/Brbkw4LxqM+g6wxm0MSAoLxVdzEw+deKd6dlvnfqVcN9G6wzM28LBgxPaEB
+         yI9w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=Xxk8tZDlQ/HwWp2T7rsD+v+FfCugAYOR8+JzwqhUmR0=;
-        b=jeO/P2eIRgPrFSfFxw+tAXrVLLy1rw2VaawmXiMj5qstqctUNXV0Z6ckZgA/WQVRf6
-         hH+N3BXOjZdOJ56BD0zzOEflgrKwA0GmC1mjz3exDOq7olnqSwegpSyIaEheDL7/FoFN
-         MYmcfvyorQuPqt19Mo7LhqeYBHSCso7bYmE9OYC3PYMbsR3F2EdbJ0folp0zL8HTJ3DG
-         6TI6rY9dLUXHaozSrgKT65r2Oddr9AcntBA0LbvcXve6nSwV9CgOuqPafY3aNQ4C1iFs
-         4OwPU8TWIBv1rDT7wYT8xw9ZUQOK5VfonjJRbr28EfI0bN1zbgK3qeKC7KXUauYXEdS0
-         SZyA==
+        bh=gRVU0Qg2V2zyeA0v1BE0K61wpw9eMVv0WwHNVK1fzck=;
+        b=EDV7UfbtqVpTT0G5XzVifNVg/CfdnrfVT1BoMkEazO3OqxB4fQzlO2csuMBeSx1FDN
+         dOutIeiRWseWbMpaM6VCDIyzmBtUhtLazebzvmWy3u8/lH9mPOHGWjsj2yZm96i6dZeq
+         tZ4cuNAu4r4PHspFzMGUwip00vl9Kxj6a+hsPZjVFU6Uz7Eax9FkOWxCU9oN3ocKguBU
+         o9UJQzdnpvu1DzNqzNl1M/ghx7TjK8aGzGHrYYk5EuFTe9AqmSDVKj1p4JNI0k1OARTz
+         LO/J6MpFicrrkg6xU7AVJVe34SbP/es68lUh4JEYQGd7JeFvnerFoPa2qhS/KpoaMgOd
+         YEyg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="Du8iy/6G";
+       dkim=pass header.i=@kernel.org header.s=default header.b=C+equMCp;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Xxk8tZDlQ/HwWp2T7rsD+v+FfCugAYOR8+JzwqhUmR0=;
-        b=jJQ4LOUJVzACZNeFrYDwGU92WeZvqEw6YqfsfBoJDJl8V991amwVfrWVEF6Zc0IpsU
-         hGl6oo+HyMLBbBxz3t+9J54dXb1g9WZPvm/J6yWypcOIPnbOgInZQsYMpNb/rvVqDFNd
-         1JouRD9/XZKNeXrOMRDUIXAFCCfdBVYMByYH8uGhiCxPRDHy1NQ8d5ZYaamaxXMjI5z0
-         H3Y6xjPSb8pNBBnsHJQRNNf194ZrvGgq3VOQFM/H+CtYs6gD2XaGA78d6S9GGnPr6UpP
-         uUrbJnzOJk437Z+J/XG6Ug7Q951V5OxaX6/0rS1EaDTg3Npy8tgGf0qalYF+rRqt0C+G
-         ittA==
+        bh=gRVU0Qg2V2zyeA0v1BE0K61wpw9eMVv0WwHNVK1fzck=;
+        b=JncpuKo/LGAwGz6GsV6HlanV9Tj7DR+bCe5ZdwmdDcUbCbo6TZjE4WSbcwDLfelFNf
+         +/3y67rm3mx3huVad8BFfZC8lRWZZy5uO7Y5KKm0V7o+4kM8jgXOkj5H32wtEEtgtG2H
+         4MWKMUloXtRmTL3XI3I5xK0V02vmQvcZ+aUcpzU+zabz++iiFK9NBhC8IW13alP+Vm7b
+         GbFn1Jq/5/o3RkSX79Y+SbwfPU7tywo/GbyE18aq55hfnh3QVa1gmziisNCJi1GZ5B6S
+         gpeuIFZoTvTKZX25IcQ2fsvdg1P5xQpQpS0lzw0OK/RQVosMD59rFRlc2hAHTH0yVKbp
+         pY3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,78 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Xxk8tZDlQ/HwWp2T7rsD+v+FfCugAYOR8+JzwqhUmR0=;
-        b=AedyEYKm9gaQ9AwEkB0Nf/GSHcuwxdsYHbqMCPCMctXNcD45iMEDx2tiEeHMNg+0yf
-         MlNpfbo+/Bjhv+bWhRD6p7HN6sOnzTkidY3oqBqtQREhaow+hpx7yMoBnaF3Rhtq7Do5
-         j3gojB4g589HWN4WF/MnZBBZN+ULRf9QMx9utFP1A198Ir/9a7Ir3UCCy1zkX7ITNmrq
-         07FzMz+7xwclYrnQehjBOy5D3WdHuSEIb1vQh3nlUTDX5AkNltgN4pT6AbrqEPnN/Qrc
-         kFPoIgOdCM0LBbPFRtWhsXdPZ89IlvgM0rFk7IT45Src/21eJoUFiV6WGPV/+T9TkUil
-         ErVw==
+        bh=gRVU0Qg2V2zyeA0v1BE0K61wpw9eMVv0WwHNVK1fzck=;
+        b=ixy13SrNc+co/gLlunOgSPO13wZCf2YPPJNqx3v7adDZKOQiojyJqJIFUdxTxBSaPH
+         Whjkt0mI9/a6iX6a58PonSh4/+KYyCvtk1baEukIBfJXwWCWIDHjsjO0K77bg1955VCT
+         i4sQnD+0AqBaT6rj4GQ/DPWlMkRhZKDV+5ngSElnJNRIi5DyO2TX+RGyIQmvbDYXScjF
+         TXzgw2vwL4DMlZFb8WdaEHXdXXn6pvDAPpQ0YDEhccIwyvstZjCSrm71Jaxu9Wt7Q3h+
+         HqW4N7084FE9qsNLzLdzZmA/YiNaJ78dNqke3FIGsuAnxCXcboE69R4eI27Ex+yonBmE
+         Iqug==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXDLl/eBFfxmJxxGrHyEVwFwO9b7U9NbdyltGKhN5zOvflJFpd3
-	5GGDziahQBNM9WTbxF96wAI=
-X-Google-Smtp-Source: APXvYqyl4gZAnASQ52SBn5etPpokwWVzmyeIgch99X9nYUTGTbqaxN2+psZWMps9lndr7rKy41TntA==
-X-Received: by 2002:ac8:42c9:: with SMTP id g9mr20639194qtm.74.1569778488371;
-        Sun, 29 Sep 2019 10:34:48 -0700 (PDT)
+X-Gm-Message-State: APjAAAVvfz9ZCTY06SL5PkSMCoI2LVwEnEEkZoggmmcoVjR4ju5FQOTe
+	Xw5//zPL8VC9NdWgo1+izQs=
+X-Google-Smtp-Source: APXvYqxBnN5j54jixoVMspcorW3Dwhb2izm8erWdlKHZqnTTn+NlnE/mVLOpvV3QLFiDXBvhtLCtcg==
+X-Received: by 2002:a92:b752:: with SMTP id c18mr16658427ilm.42.1569778542252;
+        Sun, 29 Sep 2019 10:35:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:ba2c:: with SMTP id w44ls2041621qvf.13.gmail; Sun, 29
- Sep 2019 10:34:48 -0700 (PDT)
-X-Received: by 2002:a05:6214:11b4:: with SMTP id u20mr14857992qvv.200.1569778487996;
-        Sun, 29 Sep 2019 10:34:47 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569778487; cv=none;
+Received: by 2002:a6b:e717:: with SMTP id b23ls1992839ioh.5.gmail; Sun, 29 Sep
+ 2019 10:35:42 -0700 (PDT)
+X-Received: by 2002:a5e:8704:: with SMTP id y4mr13899860ioj.103.1569778541996;
+        Sun, 29 Sep 2019 10:35:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569778541; cv=none;
         d=google.com; s=arc-20160816;
-        b=QAR0Y2dGl1jXb9EChv9xWu0N2ayrNFNyFRabPG8+/3z7cxiWu/kgsVuAYW4vYzpuYc
-         UzRcxn9kp0XaczChI8h/SyDFDvy7TXO3m7WCo0pl3tWVGnICJz86wbPDMDfzpQlOE13N
-         e+hvfCoUPBGvGl/yXUps3YXEB43dn9Y6gF2K0QfMG8O7BbLlYPixaDmUQS3tg9VhAKVv
-         WRbOgJhaMouxXYm+r9K554YgeQsdaZhXZMDcluSrby8IpPkVcXt7PtGNI8L4+EzxWvy2
-         R8Jkx7MSn/QHjhGp+Q/D9/SRD4xfhjbZSw9BL849Dbv00eM+R/rZxkYy/sCi2s7NlkRB
-         b/PA==
+        b=laDFeVr5/VxUmoQrUx1Eq2uaDz0IGJtq3I5wacsegvV5IvfLWo4GgY12Bi9g67FPJX
+         c3SnhX785vfXy6jUO3OItY9z3+A/ZYY6edq2x0f1cCLDJvwwMoykq4gl/r+cGdJVWrbQ
+         e7u2Lccwj0gjrsS9FV/lBBi3a530V/+1Gv522yKW6UTsVJx8UmlHhDBG0suvr2BffkMQ
+         2Km2qhOYSByGKgg3u0HALEw5eQTCQirjDI+srH2VPnnIgmZ/zoK3Y/MFBdezhgNxKbp/
+         zklzIkmhFPvGqZu0JO2JKql/Yn0shkJHCk8rHTAX88DfNXmyOBwhc5WCpEcYlzT7fiha
+         zl9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=kjfhxqC/dT0l6TqRCFJyDtDMrACA8UIZnr/wjEwhfpo=;
-        b=Qrwp6+pnRp0e4Yb4B8tpBiNt8kXa4Wwpq8QVj9E1q1SKReE2QmClhWsIX4kQKbjv4T
-         cmqYm8NDYiGL0j9NDrbKkNVaJj5Y3gYsvhvPjz0FWn5SXnbpXw4QghXCz6cs5cPGVbBe
-         5uS+bPY8BDsU4ZiGn/13CiwUiXW4XUwDxldmwYSKhoOyRbiaF4H1Ig1nlIPXEF8h5mZq
-         BI8QJRq/KNwY2wjjxO1EARL/wg/b67ZIkLPOcSU24s9KGPubJJ2dmvOeK3HVczDdxrYY
-         FAkUPd90YR5zOUObKKfLv/Scyp7ESqVFRCiZAEhwJgFJvNhF80kz62IpvSTdCwCSYzOU
-         QZbA==
+        bh=CgwL4hJCI5ee987j46Dkknf3HZ9Q98BVIvHBHDBJd00=;
+        b=Nfv+j1XVTlCWAwjS5MwA+4TDT60c+u1sr44diYTkHzdD7kw4iTdio9P9Dvzhp5YyVW
+         kaBRZPWUiQn3CdIjIeiXILX/G7MemV/bkmRZavmJFZOLPj+pWTEvSbi/GpNl0V2yZvBI
+         yn+d/neHuGq1yhM87/1rQB8lzpSdcowF8kKPzt/I/uDRLJYns2eFz0O8GfRkEtxfUS+q
+         /R2oBHJxns6zW1uS+shtqq7oxCmqcv1eeuFID28dS4vhSMGoHKdFBqsB+0xInTDpn17S
+         /luMPJ1pUQIrefaEThAp9J8IbrQ69DU6qx74/L0pwazOSa8iu+R2obofXaIvFpKnWmdU
+         KrdQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="Du8iy/6G";
+       dkim=pass header.i=@kernel.org header.s=default header.b=C+equMCp;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id v7si388240qkf.5.2019.09.29.10.34.47
+        by gmr-mx.google.com with ESMTPS id x3si550111iom.2.2019.09.29.10.35.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 29 Sep 2019 10:34:47 -0700 (PDT)
+        Sun, 29 Sep 2019 10:35:41 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 28D2F21906;
-	Sun, 29 Sep 2019 17:34:46 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 4DB8D2196E;
+	Sun, 29 Sep 2019 17:35:40 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Sasha Levin <sashal@kernel.org>,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 11/33] ARM: 8875/1: Kconfig: default to AEABI w/ Clang
-Date: Sun, 29 Sep 2019 13:33:59 -0400
-Message-Id: <20190929173424.9361-11-sashal@kernel.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Paul Burton <paul.burton@mips.com>,
+	Ralf Baechle <ralf@linux-mips.org>,
+	James Hogan <jhogan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	linux-mips@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.14 02/23] MIPS: tlbex: Explicitly cast _PAGE_NO_EXEC to a boolean
+Date: Sun, 29 Sep 2019 13:35:12 -0400
+Message-Id: <20190929173535.9744-2-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20190929173424.9361-1-sashal@kernel.org>
-References: <20190929173424.9361-1-sashal@kernel.org>
+In-Reply-To: <20190929173535.9744-1-sashal@kernel.org>
+References: <20190929173535.9744-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="Du8iy/6G";       spf=pass
+ header.i=@kernel.org header.s=default header.b=C+equMCp;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -137,52 +139,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nick Desaulniers <ndesaulniers@google.com>
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit a05b9608456e0d4464c6f7ca8572324ace57a3f4 ]
+[ Upstream commit c59ae0a1055127dd3828a88e111a0db59b254104 ]
 
-Clang produces references to __aeabi_uidivmod and __aeabi_idivmod for
-arm-linux-gnueabi and arm-linux-gnueabihf targets incorrectly when AEABI
-is not selected (such as when OABI_COMPAT is selected).
+clang warns:
 
-While this means that OABI userspaces wont be able to upgraded to
-kernels built with Clang, it means that boards that don't enable AEABI
-like s3c2410_defconfig will stop failing to link in KernelCI when built
-with Clang.
+arch/mips/mm/tlbex.c:634:19: error: use of logical '&&' with constant
+operand [-Werror,-Wconstant-logical-operand]
+        if (cpu_has_rixi && _PAGE_NO_EXEC) {
+                         ^  ~~~~~~~~~~~~~
+arch/mips/mm/tlbex.c:634:19: note: use '&' for a bitwise operation
+        if (cpu_has_rixi && _PAGE_NO_EXEC) {
+                         ^~
+                         &
+arch/mips/mm/tlbex.c:634:19: note: remove constant to silence this
+warning
+        if (cpu_has_rixi && _PAGE_NO_EXEC) {
+                        ~^~~~~~~~~~~~~~~~
+1 error generated.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/482
-Link: https://groups.google.com/forum/#!msg/clang-built-linux/yydsAAux5hk/GxjqJSW-AQAJ
+Explicitly cast this value to a boolean so that clang understands we
+intend for this to be a non-zero value.
 
-Suggested-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: Russell King <rmk+kernel@armlinux.org.uk>
+Fixes: 00bf1c691d08 ("MIPS: tlbex: Avoid placing software PTE bits in Entry* PFN fields")
+Link: https://github.com/ClangBuiltLinux/linux/issues/609
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Paul Burton <paul.burton@mips.com>
+Cc: Ralf Baechle <ralf@linux-mips.org>
+Cc: James Hogan <jhogan@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>
+Cc: linux-mips@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: clang-built-linux@googlegroups.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm/Kconfig | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/mips/mm/tlbex.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 51794c7fa6d5b..185e552f14610 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1586,8 +1586,9 @@ config ARM_PATCH_IDIV
- 	  code to do integer division.
+diff --git a/arch/mips/mm/tlbex.c b/arch/mips/mm/tlbex.c
+index c2a6869418f77..dc495578d44d3 100644
+--- a/arch/mips/mm/tlbex.c
++++ b/arch/mips/mm/tlbex.c
+@@ -634,7 +634,7 @@ static __maybe_unused void build_convert_pte_to_entrylo(u32 **p,
+ 		return;
+ 	}
  
- config AEABI
--	bool "Use the ARM EABI to compile the kernel" if !CPU_V7 && !CPU_V7M && !CPU_V6 && !CPU_V6K
--	default CPU_V7 || CPU_V7M || CPU_V6 || CPU_V6K
-+	bool "Use the ARM EABI to compile the kernel" if !CPU_V7 && \
-+		!CPU_V7M && !CPU_V6 && !CPU_V6K && !CC_IS_CLANG
-+	default CPU_V7 || CPU_V7M || CPU_V6 || CPU_V6K || CC_IS_CLANG
- 	help
- 	  This option allows for the kernel to be compiled using the latest
- 	  ARM ABI (aka EABI).  This is only useful if you are using a user
+-	if (cpu_has_rixi && _PAGE_NO_EXEC) {
++	if (cpu_has_rixi && !!_PAGE_NO_EXEC) {
+ 		if (fill_includes_sw_bits) {
+ 			UASM_i_ROTR(p, reg, reg, ilog2(_PAGE_GLOBAL));
+ 		} else {
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190929173424.9361-11-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20190929173535.9744-2-sashal%40kernel.org.
