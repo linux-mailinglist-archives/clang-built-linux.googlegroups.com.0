@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB6UCZ3WAKGQELY7I4GA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBDEDZ3WAKGQEO5G3OUQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83a.google.com (mail-qt1-x83a.google.com [IPv6:2607:f8b0:4864:20::83a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0E726C3AD5
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Oct 2019 18:40:28 +0200 (CEST)
-Received: by mail-qt1-x83a.google.com with SMTP id r15sf18074480qtn.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Oct 2019 09:40:27 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569948027; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 010D5C3AD8
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Oct 2019 18:40:46 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id v15sf13911556ybs.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Oct 2019 09:40:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569948045; cv=pass;
         d=google.com; s=arc-20160816;
-        b=w+tij1+D+w14Lu/JpDKNDaC+90swQKyJGEEWY7N2+iFrz49EY9U/kFctjhyiKuGnm9
-         sMwIHToJbpewfsBbbNwIu3F+1b/+z8forF5odKMe2VFxCVItvEBH5Vg3EiajHSuk7DEy
-         zBZG8MX6/oeTnnxsmQlz9MAGviFyTgIcxRouWB/RhQF1kcI5ePLQuTqUOdRC63rj/iJx
-         q2KU+9u3SFzw8PXtkSIBTu396vIqCqZIE85n5bfe1CHNGFn6aJhimnzKQnGRpLUeZWIY
-         4ZInhCqCAAn4BfUITX0HlXejRaOxvc/arqm9T4BmMvfumV6cHL4ZBPyvlyo4vVYovc96
-         VpFw==
+        b=RdVEFUifqKpbsN0ELfpoc86QSIxU265/DNuhAJ0+wOFX1oS/MSj+Ruvlm6CIadOFT0
+         1B2daEzYdWsrie8LN7cgUiB2IWwUWyqHJ6LYY9bHt2ZEDaeUDmY2heOddHdTeDaEUyRm
+         +Kw33trzAQQU3Oqx25pZGguOF06ezx5U4r8sfS9KjBhMggRgfoTtMFiyVAVubApTaUx1
+         xX4YY7UhHeaXt/Ib+ANnDaOCJAiUXewYvaP/JeuaRnBch7QGft9OtCvUHioYwfEF+Xk1
+         FBHdoCckMSmMHeyGD+caRFSkhnZTjbbr/VIQAp7k9VibZ+Ayrmx91uuwBv7zvbF/yfzC
+         R45Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=mvl/eyOHEqDFxO6gtOgqEdkdrYjwZHGviQFA5wMCh3Q=;
-        b=a9vGBicG0MXz99rv4fGcklrE6zyDEbKmVOEg6alFUdQiHgYlmKfNfZef/cG7RzO+ue
-         JzJJvlrBPKxkGFOY2QuRkgCq85hsxfVBuTMx7xM16lkmujWh6GGlgiXgDjlbdJwAe5Yh
-         s8B6wuregjqNhj6TlqRAVimXmVLEbb6k8kSg/dpWcgKRWGoD+VgP+4Md2kcTrboRVa50
-         Mx7gMDG+VpIASNF3F/kQfYWWhPfXWLylSKIObn8rXwku11ed4Blm0R+ySPrfBvO8kgx0
-         WrHZbie6u0d5zaIV+oShrA7IVVFmyhN6CtIiGJvhvOfpMlaYlzSOtfTQIZkAXc7dqdn3
-         DDMQ==
+        bh=DDZdszwX4p6Ra8LCvERpuIcnzFFhUfqCgYQOKBwShPY=;
+        b=XBxAsd5K80pYFG3KAb0uifRto7fzCabGmzEHianqJuMWUJ6HwINZaca6Bxv4G50LtG
+         NQJKohtLkzItw0KhLzWFNZKEdbstXf7XcU+FTwaJ3k0CC1apjdpmlcMOGjdy5va0YGcl
+         HpFwEVtvNurmIQiWMLqRS09/gPVeiQVa0p85lvVPs8EQWWqDQsocKHsOqqjOs6Bm6wzd
+         ikjaqbOcu+ScEPERbzoHSi5STJUfdLg5xtzleNApR5u3hdqcw/QVRHU7YKgxfAUaL6it
+         yLUn8cYNUzMQinFNzVq6IEM62OjmpE+aJZ3oXuaH8EJgzOCw+kEjzGdq4e8qgqZIZEZE
+         yeZg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=b0szmmoC;
+       dkim=pass header.i=@kernel.org header.s=default header.b=hw0rp2Up;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mvl/eyOHEqDFxO6gtOgqEdkdrYjwZHGviQFA5wMCh3Q=;
-        b=VNRm6F3AAAuV31XrvC3YJzUM5yMcXhlTmQXTFL/xsSxsdJaF7a3nrRqpEg8G+1oCiD
-         FPG95glm/xc94kc+nL/vd5I10dUjnp/+BsTx6tRLGL6JVZyUSdtoRmH2MHkXMGiOZvgu
-         dPTkkZFkmTb9hURWZFdhXOroEftSX7PrBkfc4LntWFRI02nnV1JvSskh970kIKYsfShy
-         KtzoVOlrTCxpkatB3K9GURobqm1y8EP1x8tdbF4Q6qjP5sYNtGsSZU4APu0+qxeoQfzO
-         sg8u+nsOfIZPHFfdgQP1orUHPAecXfMmJsdWZDWK13htZpgUpuJvLbVkl/IF6BoDnF51
-         TIyg==
+        bh=DDZdszwX4p6Ra8LCvERpuIcnzFFhUfqCgYQOKBwShPY=;
+        b=pclHMa4d/HqDjBbbZzKpfZQBgR+OVfQgmRDDoLcURH0KqPExHJFJUvAFIMWPXodSzs
+         6EF3veTzq5awkjWYfG0y9tPVYihAfiGHzxyg49HsGkRorfhFtAp1qRR1K3dXF5ZpvuDS
+         mjIiCZJqhDukUGHb6O2MiGZxUs2IS0iHW6dmDzOFxwY43FLHnzKa8/JD/ReVhKe1tGjM
+         Zpsj5mRAI7u0O6KGCdimlLoCJ/Er9oqadzqbp4B9B8zPD/nTuxy5cW2a1uLlNCX12sc4
+         zMCS9OebCUqWNol1W/dLRO2iwFlIOZ2qfdxxHYAhR7AHxVJDv6I5EQD128PrzaK6e1zy
+         COKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mvl/eyOHEqDFxO6gtOgqEdkdrYjwZHGviQFA5wMCh3Q=;
-        b=e5ez6aH3ltqZMlnqkmenesiVE0pNdH1uoSPr8wUOHxEdme4Yn+zgvjKoKNQfqctISx
-         vBGkEmrYvKt10tDejoDBlQQhWJqvOn6QZ3EHsiF0yVZelgLweeNgMZH87YV7Wr5aj+9R
-         PIjZzJpMsdJjsVqgtf+vHiZV9n4AmJSRkr2YdxV8xMbreVhk8xOv/H/dVzUV6ERmnRz4
-         8LsukyJ7UwY4qIPOG2Rbj9Chsa0HAI7D62FDiYoVSI/lcO0YqqFhuhdjqJ67u8MCCAsT
-         2x9sO4n68CTB4aiUIohiiYra8kIFgZMrtNhIExHBKBhvheIT9noBvCcWcGBsaxYBrl0i
-         Xe5Q==
+        bh=DDZdszwX4p6Ra8LCvERpuIcnzFFhUfqCgYQOKBwShPY=;
+        b=HxISpXRAJKM18aAqn0MUT6huWHGabpIjqQDrZc2y1u4/QjEPk40W0KWXMQVRTxrl1V
+         +9b4zvO+nVj0KW72Yb5P0pCBvKVjyE7OBX+gc+gKpmGNV1NN8cuESEJxB/rTJJeiACa9
+         BAvcNuItPFTk88d8e/DXnKTmCL2pzx6Wp+CkNQHwmIvrjF7YQN7ZGkw1X2h3zci/maAF
+         u2s0N6MyW/7MMd7E0MO3YAsdXcZYM1uAFXJeSqNVMO/YkrpiNnPA9oGA8ds/h6ffRAtY
+         i11Ag2OTgh+IsZ9OjoyT4vXOYDd4PitK1NBIx1N8jm7SizQPvZqif8YVon7Qf3DEmxax
+         ovsg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXvhPy78R+N1eAN5t7m+o2n3hTrwc9PD4eN7t3KsmG0IeXwPBEq
-	/nekm3LMVKn+sTIiG3x7Nzw=
-X-Google-Smtp-Source: APXvYqz84n5gdPeGr2B3SKo2o9Oo3UstRMk5PxeFe/CeHz/iYP4IH0mL2kDZf2eTpjBJsrglVwBHvw==
-X-Received: by 2002:ac8:1c34:: with SMTP id a49mr32534644qtk.182.1569948026952;
-        Tue, 01 Oct 2019 09:40:26 -0700 (PDT)
+X-Gm-Message-State: APjAAAVbZ1xgV8NA/rxziSHlGFAbx7nmX833N7vNW6pCuAFQJ+QYCf9d
+	Jw+yLN2SPAAMwPsDSZ4gpNg=
+X-Google-Smtp-Source: APXvYqyLjn+gLs/7jQ+bzzqzCC6zC6YKs2/LvC7K8jJmo3TSFBhboR/LPzG2p8kbYFaKplRRz+xG0Q==
+X-Received: by 2002:a25:d8c7:: with SMTP id p190mr14819371ybg.22.1569948045031;
+        Tue, 01 Oct 2019 09:40:45 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:45b4:: with SMTP id y20ls3112545qvu.4.gmail; Tue, 01 Oct
- 2019 09:40:26 -0700 (PDT)
-X-Received: by 2002:a0c:c351:: with SMTP id j17mr25598479qvi.218.1569948026544;
-        Tue, 01 Oct 2019 09:40:26 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569948026; cv=none;
+Received: by 2002:a5b:150:: with SMTP id c16ls1329412ybp.2.gmail; Tue, 01 Oct
+ 2019 09:40:44 -0700 (PDT)
+X-Received: by 2002:a25:a469:: with SMTP id f96mr20289041ybi.23.1569948044733;
+        Tue, 01 Oct 2019 09:40:44 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569948044; cv=none;
         d=google.com; s=arc-20160816;
-        b=Hll9sxLvuIvn+uPC2OdAOPGIsAB4tKsKIFRIjX3p8YFuoTBVSVZc0UOGlClygmXCCS
-         cJXeMEbBVeSgO+ml2upnIoyqfLkCwc65/szR+TJCSMPBw9VaMyNppjqMdA3bo7qBmk/f
-         Rr1qdxXRI+xBtDqaJ6ZI/RRRdSrLZxDnmQAbxUT5zXlHts4a7ZyvXfe8z5fuQv9Cvg0e
-         rQ8OGCGYfEzYGmHG8NJryYigwlbjUrm3RK5RSsGp42QJ0UQ3mNSWcV2Ug2+Xqjs6tHKW
-         sNoVDdCv9lUkWJHDQt9OUFx9oGoUB3patzW1fpZ2B4juDv/CKo6ADQ1Hv9lzJVD1v1Pv
-         BS1g==
+        b=Nsa1i/RZyXHe8PZvvREdUqFwsV4wbH2PEdESdzCWE7YFxd5D8h/gXFbTBTMDIN78z3
+         USfD2YJbYW7ft3zfnpf0FgGn2ge4F3XwfG1rsmsJvwNqjvl9RanKNEsduGxTJbDHjVr4
+         NDZNculhGrMZEUVsMGn+Gr5n4hDQ++Vz/Tk/E66tbEu8BlQYHp2F66opvmHVQMaxCJxD
+         k0TvGDxYV+j37AOg0J1LTXd31D+bivzaif1m+DUyeV+Vr8VRHY/huPnWysgR+YJm9WPk
+         CbBQmKAtonkfthE6AtXg40Vfg7mAk12V4zeob/gKk5BERqMnCTfL9aB5HG3gfLhnRUWj
+         UT9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=LBJvyIuzJZwU6F/hhC/WJsf5lvwWOx83QfUZFfYbvKY=;
-        b=u7uF5EH6h764wWCi33gSkRHjgRScHM3Fkx8rdEM9T5CXZQMlvCtQZrLo14I0jAkhjx
-         08rQFToKXyp7R5XozwndoJNlsHibzHUolTepCmoP6FDTKBK//WY9OedBfWWBKMdRva9F
-         PAur97Bw5ldz2lc8U7MuPnr/QmGcub0ucTaVcG3ZvCWaZ++1M12CsIc3S50RHFk6awfH
-         K45i8cdwWLQ4is81QYRG7m/BqmchibYwZGVK+1bm9cpmhMDUeHd3U9v/ORPSVgT77zdF
-         xwqBll8l2tTV5wXiRoRN1lY1E/csySBmLUB+gryD9FLGHU3iQ3L0EPvC+4UP8tqqL7s+
-         LGkw==
+        bh=Lxqj5ctpLdK8G68lYpfpnLwVE6UVS52d4ovM3AqXOcg=;
+        b=OHVmy5dfpM1SCkEDkvxKlt3wRGP5CGiJ0D5yAbbr38+DFbn3NLnNZzoKONG7vWfsnv
+         I9g8ARWTkP1OjkNypQ9+a6DblnhJ8IkRDTqazdVMiqg1uyqkCHK9CE7OS4wNIoQ36a1w
+         dMbWfdkvuS4oypIKxbR+I4LgB/WIXrDOie7x1hAAPhGEYoGcQlTM5g6ReCOXJ1dIWyaA
+         SjF2rtCbobjhS2i0ukbrHxHlH6L3H0He1KvLxecupMVMwvCAtII/FitubfXLOatrV8aF
+         5ADYAYDPoSk4bZLNKiBJnIk5xQGR2VHq1mm8fY1tgUEmawesH47JhdIK2ZPvxTrLlvIU
+         DECg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=b0szmmoC;
+       dkim=pass header.i=@kernel.org header.s=default header.b=hw0rp2Up;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id o13si697350qkj.4.2019.10.01.09.40.26
+        by gmr-mx.google.com with ESMTPS id g4si736612ywe.2.2019.10.01.09.40.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 01 Oct 2019 09:40:26 -0700 (PDT)
+        Tue, 01 Oct 2019 09:40:44 -0700 (PDT)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id D25A921906;
-	Tue,  1 Oct 2019 16:40:23 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id D3E7421D79;
+	Tue,  1 Oct 2019 16:40:42 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	Dan Williams <dan.j.williams@intel.com>,
+Cc: Andrii Nakryiko <andriin@fb.com>,
+	Alexei Starovoitov <ast@fb.com>,
+	Daniel Borkmann <daniel@iogearbox.net>,
 	Sasha Levin <sashal@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.3 43/71] libnvdimm/nfit_test: Fix acpi_handle redefinition
-Date: Tue,  1 Oct 2019 12:38:53 -0400
-Message-Id: <20191001163922.14735-43-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.3 50/71] selftests/bpf: adjust strobemeta loop to satisfy latest clang
+Date: Tue,  1 Oct 2019 12:39:00 -0400
+Message-Id: <20191001163922.14735-50-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191001163922.14735-1-sashal@kernel.org>
 References: <20191001163922.14735-1-sashal@kernel.org>
@@ -119,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=b0szmmoC;       spf=pass
+ header.i=@kernel.org header.s=default header.b=hw0rp2Up;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -136,72 +139,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Andrii Nakryiko <andriin@fb.com>
 
-[ Upstream commit 59f08896f058a92f03a0041b397a1a227c5e8529 ]
+[ Upstream commit 4670d68b9254710fdeaf794cad54d8b2c9929e0a ]
 
-After commit 62974fc389b3 ("libnvdimm: Enable unit test infrastructure
-compile checks"), clang warns:
+Some recent changes in latest Clang started causing the following
+warning when unrolling strobemeta test case main loop:
 
-In file included from
-../drivers/nvdimm/../../tools/testing/nvdimm/test/iomap.c:15:
-../drivers/nvdimm/../../tools/testing/nvdimm/test/nfit_test.h:206:15:
-warning: redefinition of typedef 'acpi_handle' is a C11 feature
-[-Wtypedef-redefinition]
-typedef void *acpi_handle;
-              ^
-../include/acpi/actypes.h:424:15: note: previous definition is here
-typedef void *acpi_handle;      /* Actually a ptr to a NS Node */
-              ^
-1 warning generated.
+  progs/strobemeta.h:416:2: warning: loop not unrolled: the optimizer was
+  unable to perform the requested transformation; the transformation might
+  be disabled or specified as part of an unsupported transformation
+  ordering [-Wpass-failed=transform-warning]
 
-The include chain:
+This patch simplifies loop's exit condition to depend only on constant
+max iteration number (STROBE_MAX_MAP_ENTRIES), while moving early
+termination logic inside the loop body. The changes are equivalent from
+program logic standpoint, but fixes the warning. It also appears to
+improve generated BPF code, as it fixes previously failing non-unrolled
+strobemeta test cases.
 
-iomap.c ->
-    linux/acpi.h ->
-        acpi/acpi.h ->
-            acpi/actypes.h
-    nfit_test.h
-
-Avoid this by including linux/acpi.h in nfit_test.h, which allows us to
-remove both the typedef and the forward declaration of acpi_object.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/660
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Reviewed-by: Ira Weiny <ira.weiny@intel.com>
-Link: https://lore.kernel.org/r/20190918042148.77553-1-natechancellor@gmail.com
-Signed-off-by: Dan Williams <dan.j.williams@intel.com>
+Cc: Alexei Starovoitov <ast@fb.com>
+Signed-off-by: Andrii Nakryiko <andriin@fb.com>
+Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/testing/nvdimm/test/nfit_test.h | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ tools/testing/selftests/bpf/progs/strobemeta.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/nvdimm/test/nfit_test.h b/tools/testing/nvdimm/test/nfit_test.h
-index 448d686da8b13..0bf5640f1f071 100644
---- a/tools/testing/nvdimm/test/nfit_test.h
-+++ b/tools/testing/nvdimm/test/nfit_test.h
-@@ -4,6 +4,7 @@
-  */
- #ifndef __NFIT_TEST_H__
- #define __NFIT_TEST_H__
-+#include <linux/acpi.h>
- #include <linux/list.h>
- #include <linux/uuid.h>
- #include <linux/ioport.h>
-@@ -202,9 +203,6 @@ struct nd_intel_lss {
- 	__u32 status;
- } __packed;
- 
--union acpi_object;
--typedef void *acpi_handle;
--
- typedef struct nfit_test_resource *(*nfit_test_lookup_fn)(resource_size_t);
- typedef union acpi_object *(*nfit_test_evaluate_dsm_fn)(acpi_handle handle,
- 		 const guid_t *guid, u64 rev, u64 func,
+diff --git a/tools/testing/selftests/bpf/progs/strobemeta.h b/tools/testing/selftests/bpf/progs/strobemeta.h
+index 8a399bdfd9203..067eb625d01c5 100644
+--- a/tools/testing/selftests/bpf/progs/strobemeta.h
++++ b/tools/testing/selftests/bpf/progs/strobemeta.h
+@@ -413,7 +413,10 @@ static __always_inline void *read_map_var(struct strobemeta_cfg *cfg,
+ #else
+ #pragma unroll
+ #endif
+-	for (int i = 0; i < STROBE_MAX_MAP_ENTRIES && i < map.cnt; ++i) {
++	for (int i = 0; i < STROBE_MAX_MAP_ENTRIES; ++i) {
++		if (i >= map.cnt)
++			break;
++
+ 		descr->key_lens[i] = 0;
+ 		len = bpf_probe_read_str(payload, STROBE_MAX_STR_LEN,
+ 					 map.entries[i].key);
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191001163922.14735-43-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191001163922.14735-50-sashal%40kernel.org.
