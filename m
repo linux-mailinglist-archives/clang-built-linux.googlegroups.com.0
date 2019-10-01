@@ -1,143 +1,127 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBLGCZXWAKGQEJCIDHRQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBSOKZXWAKGQEDOLBZYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
-	by mail.lfdr.de (Postfix) with ESMTPS id 719D6C370A
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Oct 2019 16:22:37 +0200 (CEST)
-Received: by mail-lj1-x240.google.com with SMTP id i18sf534391ljg.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Oct 2019 07:22:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569939757; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id BE527C37AC
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Oct 2019 16:40:11 +0200 (CEST)
+Received: by mail-pf1-x438.google.com with SMTP id q127sf10406379pfc.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Oct 2019 07:40:11 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569940810; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TYmhqCGW9QZNJiD9YuPT+7sA4sleK73Z+Y+LoOaZA2zCeQdBZpyz4J30ZJ9iiij1uB
-         caG5Aa9zdRZKuf7DgVnVp6l6OwCQGS8sqLti9bB3eHEImvepMd+1/KukurX3szViNaj7
-         /VsjmDH+QcXpy1XKnJeH5JFCkdSpWFQAWDV+GbF2397GjAUZ5TExVmo9fALmMZnWPPYz
-         RipQOwEjNyBE3Yf5UyDMTgrU4BOmKmiVwxkoYmFrEStGoWDhROSwtj7XVlIhtecnzO49
-         eRqQco63ymO3XPFlpvtvQB+RadUQzdZmwwzRGtEVmCI9zcnl8o4PLU6q4gp75rGO022W
-         z5Ww==
+        b=V9hzw0PSARac7IysHDmr4DkeM2CC1Q7e7Vm+JENQNJQZy44T8WV0/ee8rInDuRqXAo
+         xBch1o109tHxL2qqJC75XvX/deMZQ8l3Oo5a0/HoiqsZMotq4UbiqxDx92hg6Jn6OfAr
+         FXF0poYmBO3xpwRHxBu33vCEfBU3Wvat7ThI9E5ySXaGNq0nzAarifgs9/LjizbUBti9
+         v49oztN+I5GTf5PWjE/YASOUKC275uFLqyzdcWFlBJWpeZ7P9z56L1wREgtQexG12meE
+         3ptKP0+0L+aavQgdszZf0n4puggu2I6ViMhYj6U9AOjtfZgdNlEP6kAUAj/xl0i+2DjE
+         QB0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=M1sFzLuFlAkf6q+YqwTm+dRKmII//4HN6q0V0Wp4PaE=;
-        b=C4JLxCVX8d39zckydnsAMlKnTFdVaG8t35kTJz7O7pQ8GPrwYw7mWf54+GejdRQR/c
-         seuxHDEz8MHM6mVsauSjOmdbrRTkcazoLzTOuckiHlh9gD+r6oLT8xQpoeidcFUzyrRe
-         NRbmMsrqU1A2QtuP2Y7JAwmxACO/xbR3k5sOAdtBXE2WjencQ3xdn9JGBT3Z6eVHA+G6
-         tLrDChE1Jtf7kAaijLNRN68WHEnUP25hnEWFpr+m9qFaxr4Q1BQ3s2J/YQgMxoqojDBy
-         s4gTc8sikON4hEV50+ia9MzPdynzlKVYA6aJ91pmO2q6o5tw2AUoa1YvP8iYQnW427/f
-         C+Dw==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :date:cc:to:from:subject:message-id:sender:dkim-signature;
+        bh=OialqQispjN0TreIkHfYq4KNv+0yVq2kPt7oCOrFNmM=;
+        b=N+cRLJAX5Wd8JV7QuTpiuGxPPVNaKo3B9ZCtt5peYJYb0kt8Qz91E0irPAR//MzhWM
+         1p5ahUcUmHITyvjPUFGH9N9mfQ5huQtVwm/nDkuWy8ckC/Lv1c4XM79ges6cETEsVJa6
+         auAQExiL/XngJSO6wLMyzveTcgCBiWrJnR0C6DHSKHo/P2v6a7KQPYJpoqqG7VE/9QM/
+         vwpAQbIR8gkMI7or3Ac37eqM5Yf0Jpsgwh1TrGh4gGrgj8hORxCqfA3v11/Hynq3spFv
+         HzMEjXiuLU5xUI7l6zBumRexJOmpjJ6PyOPMKLOsjh1WetPL4KQS+5vigK+rUjnaj8uK
+         p8jA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       dkim=pass header.i=@lca.pw header.s=google header.b=IeYUUoTk;
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=cai@lca.pw
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=M1sFzLuFlAkf6q+YqwTm+dRKmII//4HN6q0V0Wp4PaE=;
-        b=rTFhQME3kMlUbLuPR/MAw5T2j333X1eL6CGe1qF3GkTYNT0dUsf5iDmqVVv4p1nTyv
-         whF5SWT6liMjmHFHgJykKOZ1LfOr9xp/X/DtOuU5NZCjPX280QbQyB+1eQiATs9pdtB4
-         cxe1YNXC9RsE5d6KLLVrd1G9PNt+L4XviuEnCP7bxKy9P9i68dV0M4w5uEW6LwdLC056
-         uJGYO9De/1oEyX9+OXFnr/mvt/xHLdK5Okxwc52A7+l0PY2fACmjcQgr5QuLmnT5+2z9
-         HBUCO0cCjdlIIjTECDIC/5OSRwRv24TCGVhNKwwMr1hTfm/UcagUdFIogKKkKj/wKFBM
-         7g0w==
+        bh=OialqQispjN0TreIkHfYq4KNv+0yVq2kPt7oCOrFNmM=;
+        b=SofQgeo4aKjNo4JRx09VvL4zKrr+Co/qBPma3r+PHjIFpp9dQwPEA27sr2doqyyc0q
+         KxdD6hqkwii+SmGqJr1k2ZYiA3dkegRxw6ryvSgkIHH2VT35DWKXIMEsiQgZnYR+uXhc
+         kpAdX2J9k7+vkC0AWeafPdGMcmRyiJAructu8/k+sAHZ9XNhDlmKYljWcotutKUbPgpu
+         dtUJjsQxZh1Qn7gKoY4w9BEFkJR8fZVhgpuxgJjn1UnQvC6lwYsw6ZaqoXp9a676P9aP
+         LTactLVh8VANbEk1Md56e4dtExOoi7GcUGqMdAEPZ/AdvdylqkBXc/7QhHRVgv0eWGjZ
+         F5gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=M1sFzLuFlAkf6q+YqwTm+dRKmII//4HN6q0V0Wp4PaE=;
-        b=pqVDhnQuWiiVn3kyaJnRQNamdY53JfC4C9QBSrqfuD0ee3Ztfxg9SND+Js5UEfgTq8
-         y2yANNnKoIhqT2MqvmjO4lSVEyAbxY28AYEj/IgKVKY55bvl8DYYUmyMgUFXkJj9gX97
-         1Kq5H8MxucqYfgi5rmsjBJaVbCCCxzb0Mbe0DOdH+9LtWSWGUtxYM1vd1ELmexWzjcjl
-         zF+rA2H3eHX1y5vZ+C0Hb77wZmxsI12TRKtxb7miAlIhjNZSNP60Sxskz0HYDHPsZVLU
-         ysOCXxZlo9wmrtQxtFCJu05vO/k4p+0SxjUd0IHYgXJjQJ0Y7PE+sJCn47CSBcVU3P5D
-         1RCA==
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=OialqQispjN0TreIkHfYq4KNv+0yVq2kPt7oCOrFNmM=;
+        b=IzqsRyg7w9LzDPOrDwzZ2rj+lTx2mdXA766NS1H5K+AQX4VYLk7zxrnZbcgtR3NLJq
+         3VtLXSBbiwSObTDegwsRdE9RqqPNwRKHI/mhGTijrjRKbiwY7M6sCY9Gpw7mvJypp106
+         6t6Q6nJ1uQai8WHIiJjo4v0mSHkujeOX+gqF3XRCykO+QY0ISEkkTrtTX2B5FzR4Hcqh
+         90Ow3lFZTHmJyo6CQ8kFsHH+MSMOB5AlGrGLNHiJbH2wQIRfVFbfuBYg4RGiVjDwnnEL
+         br/qLasq8YEkl7DKFStSz8D/c003RjwPC/BoX1zs71cy8iA0NfTs955m0Dm/x0BNIpjU
+         ej+A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVbZ98yfGcQQqLqc9lzcEFL3kX5nvWbw53584vSUkcO4b8gM4Vd
-	0GplWKVeBpmwZa33sstGHgU=
-X-Google-Smtp-Source: APXvYqy0g4YNk1jrslTMX8uDEzP96QT3Wsh7v+pwUwXYDvsIvI+BJDlaJPRiREWw9nZXXTCIq/ZjaA==
-X-Received: by 2002:a2e:9dc9:: with SMTP id x9mr16089701ljj.147.1569939756926;
-        Tue, 01 Oct 2019 07:22:36 -0700 (PDT)
+X-Gm-Message-State: APjAAAVJ90bsZ7FiABplcycUaBR1Tg4FuWBW18c8mN4YBoc2HdM/LN4o
+	egVeS3fpoUAMRlS5kCaymNY=
+X-Google-Smtp-Source: APXvYqyg9j0ifWrg8E6GpEAffo7VTE91r/LZkJaMHdYov3fCXd+Nh8LvCnEYWyV/OaxZ8ARtlVVIkg==
+X-Received: by 2002:a62:1717:: with SMTP id 23mr28193978pfx.20.1569940809950;
+        Tue, 01 Oct 2019 07:40:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9bd0:: with SMTP id w16ls2053396ljj.13.gmail; Tue, 01
- Oct 2019 07:22:36 -0700 (PDT)
-X-Received: by 2002:a2e:1208:: with SMTP id t8mr2607443lje.84.1569939756383;
-        Tue, 01 Oct 2019 07:22:36 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569939756; cv=none;
+Received: by 2002:a17:902:8bca:: with SMTP id r10ls2474401plo.13.gmail; Tue,
+ 01 Oct 2019 07:40:09 -0700 (PDT)
+X-Received: by 2002:a17:90a:850c:: with SMTP id l12mr6054775pjn.9.1569940809520;
+        Tue, 01 Oct 2019 07:40:09 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569940809; cv=none;
         d=google.com; s=arc-20160816;
-        b=xg6bXVfNxsv/1DsPtnlr8SSq+RSmYKKbYBdPzJhO3bPQd/+o2N9WoOQdRI8fd4UkXX
-         FrnJR905vaQrrkmDgWVL2k/CfWXqltqIGE3k8QEjFRd/RoM7j8oc2Lj+UYaMZSjDKuHS
-         lF6yaqe4bqyC73+GYIrkcp9hdj+tiM+qABLG0gMuv0HzLwsd/TDoy7+tMbQa6Wh3BifW
-         4tRh5PsqTbGSeJZRepP5ar9tWMXPA+SXXgA35zb43EyVCiRwl76k/7HjhECmDcrQdoP2
-         naJ08JIf3LT26sdRmud+SGweq8Dz6sRIm7f3OB7JElVJRQnz5pLmszhbjIZmoJmdgbYV
-         CjFg==
+        b=lBjePakYtIiErC7wzJD+Bi9+qnSL+7UiSkVeqBO2K5p4OdOGBJiCK4J1zZKmzU+YqI
+         Qf+cHFA2Y6xnPmadIQn83Ukrqrxy3r+8ajnFjUkUfK2nzeZR5y52Ml+W7gAQugTxgJUM
+         96yM8mlstOMaj95CupxsST9AIFw45fMb6Ckha69fWygbrBjlxof/aPGVRN+bMOpPDwTs
+         PaWApOJ32HH6LzDjCSf2BEPxHWi5cHL4mVkmtaU8x84GiFmNjNgbEjmf7mq8JpQ/hV+J
+         hEw/R5gOj2g9aNZZHcLn0CmwQqfwJMUBYRFSRr0zdP/1HMYpZ4sJaBsAgK7Z2OF4pBoG
+         AOPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from;
-        bh=csq/smfFcXTCCapAxxhi9xqqFAtwxiy+tyG2CHUm/Nk=;
-        b=ub2PJj77pfbnUYQZlfjQfaZcEwD7mw9TcJFI98zIVRQoRiQEy9wwb5y9Mi4O3DG/Nx
-         qJh5PwPEyxFwMd+F8wbHeNfyl0JOWI8hKEpr/rEqEi998EmypbKDmbe5MIPYvnr6/ANc
-         rUAllP9OjE5CIQaBM+oBsdWmkmErIbYCIzT/UsGLULKCUUiofQcZFxF6Yakacodrsd20
-         amjXtmkewQAfY66NpYmRvspAalnPBEyF3Nsnk7J3ioU7cwVfru1hZHSTKK2wWW520fka
-         IR5y5xYj5K+mPKqItXrgWPtkQB80/jVYlBFJ7q/twxCv1KoFFmJtbCMB2mhoy9eO9uBS
-         6SCQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to:date
+         :cc:to:from:subject:message-id:dkim-signature;
+        bh=9VDIX95q75l1fcGPHAGCoexbF88NYXczf33Qn1D7mVs=;
+        b=BYd0ewYAka/WBdgr7pxFvz+OGWTszreCHULen+Sr4UgvU057UpHqdvvsmQS6UuaPnk
+         4a1W/sodJi/+lqy+uklHOe8dPRO8K37SJHN3txV3mjGK6JcfumsE2pbw6GXildzX/ZDw
+         HFMJKC5E8TXfMMV9IthA1oqN2lhZcTqatAVMKae0B/vCF/d7XXplPE/hnAW9/qP5hmcj
+         nPxy6mYRuUpzV1nnek5f9BruGcDvQ3Jc1UnNSHT1mO8vyX5gmw/RMD47UA2D3b2Dy8R3
+         qSdJ53Xj+f05Kb/JJ2OUSB3H+nC4JoV6WtrltjUUwKpDNJhwB9bNQJDKIH+fXv6hSrk5
+         xlsw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [217.72.192.74])
-        by gmr-mx.google.com with ESMTPS id k24si1132770lji.3.2019.10.01.07.22.36
+       dkim=pass header.i=@lca.pw header.s=google header.b=IeYUUoTk;
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::841 as permitted sender) smtp.mailfrom=cai@lca.pw
+Received: from mail-qt1-x841.google.com (mail-qt1-x841.google.com. [2607:f8b0:4864:20::841])
+        by gmr-mx.google.com with ESMTPS id s188si457306pgs.3.2019.10.01.07.40.09
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Oct 2019 07:40:09 -0700 (PDT)
+Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::841 as permitted sender) client-ip=2607:f8b0:4864:20::841;
+Received: by mail-qt1-x841.google.com with SMTP id 3so21925282qta.1
+        for <clang-built-linux@googlegroups.com>; Tue, 01 Oct 2019 07:40:09 -0700 (PDT)
+X-Received: by 2002:a05:6214:180a:: with SMTP id o10mr25687114qvw.51.1569940808438;
+        Tue, 01 Oct 2019 07:40:08 -0700 (PDT)
+Received: from dhcp-41-57.bos.redhat.com (nat-pool-bos-t.redhat.com. [66.187.233.206])
+        by smtp.gmail.com with ESMTPSA id q2sm7515437qkc.68.2019.10.01.07.40.06
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 01 Oct 2019 07:22:36 -0700 (PDT)
-Received-SPF: neutral (google.com: 217.72.192.74 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=217.72.192.74;
-Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
- (mreue106 [212.227.15.145]) with ESMTPA (Nemesis) id
- 1MtfeD-1i0GXA0Ilb-00v9b6; Tue, 01 Oct 2019 16:22:31 +0200
-From: Arnd Bergmann <arnd@arndb.de>
-To: Johannes Weiner <hannes@cmpxchg.org>,
-	Michal Hocko <mhocko@kernel.org>,
-	Vladimir Davydov <vdavydov.dev@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Qian Cai <cai@lca.pw>,
-	Michal Hocko <mhocko@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Roman Gushchin <guro@fb.com>,
-	Shakeel Butt <shakeelb@google.com>,
-	Chris Down <chris@chrisdown.name>,
-	Tejun Heo <tj@kernel.org>,
-	cgroups@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] mm/memcontrol.c: fix another unused function warning
-Date: Tue,  1 Oct 2019 16:22:12 +0200
-Message-Id: <20191001142227.1227176-1-arnd@arndb.de>
-X-Mailer: git-send-email 2.20.0
-MIME-Version: 1.0
-X-Provags-ID: V03:K1:figbJF5L6G0XEWx7vE37p+1HREP4pdaUF1hixuKWiSXi1WhSqjN
- 1mFGZ1tTDFVzveitQ5dJm1AfeFw4+iQGprrZcQpcp3bgMfPAhxpWPB+9wFKeiUuUZZIh2io
- fKyAJSH7VFXtGs7nVJ2mRRs08ZUxBzWzQqfb+pARALNWlmIGBdxJ3hgENkjgKXJrT63booJ
- oF8KApMv5rp9nj27TuJow==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:cz+DaDPdK8A=:2nL8zO8obyUue8/B1m31Mw
- w7MDPepr2NIk/8jEqB17L8KReB0/sC8EuopUyWdwqJqlVcvp3IQxT2oKvNAJVDKUnviue6PeR
- wIcmeLA66NBBAU4oXNJhVez6AvFXLQ5pmYeEAr1ifiNfKKoNiU7quSbvLMSnWI4vHmEIn8EY8
- YWevjG+lYEUkz/gxRFFwQLNgF8cTE4qrsNGE7ZhE4GzS8Bqttluzugmj690TKdGNVNOPTVNOW
- wUOMhG58H6zDpFSVAXPrAjtUdf6LKC8aHbM2oZz0fCxNiD0UtxN15MbsAEX2/BnNGgzZDIZ5Z
- nFzqD+I/8uHKBRL6BGc540dfvuRUHxZaihiL3sC7pEDhnfPLqRAQhdagKAGVPy+dQr59WsDKI
- /U7PN60uf17KvbPNoh2oJxNUYZHDtYm9ClaXAmkLLtxS6H5Pq7+02FwhUQF8Bpcdc4unnK17I
- yjxptXPhtiFjgWbf7y6KGYFe0VgGsOTABwaetxrbxERmrNiuZmMrs68HaJhJNpJerd7TFFapt
- 4S3LG3iz/3iK/Lvpxg8eSOSe3tfEu8HiqHFe+DKOLglC9DLB6JcAUtXvsDHlrF17J+sgDkQhc
- 2qXBl2X+ugs/PMXMBsT1CoXL3Va/faJ77hBN4msDlp+BTP5ND57SWAqR66UxTtUeF9YcZqiu1
- 9nAgc0uz6fFA4PEe23LNPB4p3mFah+U+Zi0gz8FUDrxlnIhcDkHC+nnPIHWbH5B8F6sSHYXXZ
- 9mbOaXyAtbDR/icX0VfPaEESg1YMZNQ+e1zqPdMxSwDClUDfAgVg0VF2MjwtjcdZbsnh4/k6m
- jniImRYGrZzQZvT0JS/EtY/rVgs/bFaeuc73VNwLShU10MDLcsW/CUEUHfbHeQ+bbjPfsL8IQ
- ILrUXkj5IUCXuCgsn66Q==
-X-Original-Sender: arnd@arndb.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 217.72.192.74 is neither permitted nor denied by best guess
- record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+        Tue, 01 Oct 2019 07:40:07 -0700 (PDT)
+Message-ID: <1569940805.5576.257.camel@lca.pw>
+Subject: Re: [PATCH] mm/memcontrol.c: fix another unused function warning
+From: Qian Cai <cai@lca.pw>
+To: Arnd Bergmann <arnd@arndb.de>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Michal Hocko <mhocko@kernel.org>, Vladimir Davydov <vdavydov.dev@gmail.com>
+Cc: Michal Hocko <mhocko@suse.com>, Andrew Morton
+ <akpm@linux-foundation.org>,  Roman Gushchin <guro@fb.com>, Shakeel Butt
+ <shakeelb@google.com>, Chris Down <chris@chrisdown.name>, Tejun Heo
+ <tj@kernel.org>, cgroups@vger.kernel.org,  linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,  clang-built-linux@googlegroups.com
+Date: Tue, 01 Oct 2019 10:40:05 -0400
+In-Reply-To: <20191001142227.1227176-1-arnd@arndb.de>
+References: <20191001142227.1227176-1-arnd@arndb.de>
 Content-Type: text/plain; charset="UTF-8"
+X-Mailer: Evolution 3.22.6 (3.22.6-10.el7)
+Mime-Version: 1.0
+X-Original-Sender: cai@lca.pw
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@lca.pw header.s=google header.b=IeYUUoTk;       spf=pass
+ (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::841 as
+ permitted sender) smtp.mailfrom=cai@lca.pw
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,42 +134,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Removing the mem_cgroup_id_get() stub function introduced a new warning
-of the same kind when CONFIG_MMU is disabled:
+On Tue, 2019-10-01 at 16:22 +0200, Arnd Bergmann wrote:
+> Removing the mem_cgroup_id_get() stub function introduced a new warning
+> of the same kind when CONFIG_MMU is disabled:
 
-mm/memcontrol.c:4929:13: error: unused function 'mem_cgroup_id_get_many' [-Werror,-Wunused-function]
+Shouldn't CONFIG_MEMCG depends on CONFIG_MMU instead?
 
-Address this using a __maybe_unused annotation.
-
-Note: alternatively, this could be moved into an #ifdef block.  Marking it
-'static inline' would not work here as that would still produce the
-warning on clang, which only ignores unused inline functions declared
-in header files instead of .c files.
-
-Fixes: 4d0e3230a56a ("mm/memcontrol.c: fix a -Wunused-function warning")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- mm/memcontrol.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index c313c49074ca..5f9f90e3cef8 100644
---- a/mm/memcontrol.c
-+++ b/mm/memcontrol.c
-@@ -4921,7 +4921,8 @@ static void mem_cgroup_id_remove(struct mem_cgroup *memcg)
- 	}
- }
- 
--static void mem_cgroup_id_get_many(struct mem_cgroup *memcg, unsigned int n)
-+static void __maybe_unused
-+mem_cgroup_id_get_many(struct mem_cgroup *memcg, unsigned int n)
- {
- 	refcount_add(n, &memcg->id.ref);
- }
--- 
-2.20.0
+> 
+> mm/memcontrol.c:4929:13: error: unused function 'mem_cgroup_id_get_many' [-Werror,-Wunused-function]
+> 
+> Address this using a __maybe_unused annotation.
+> 
+> Note: alternatively, this could be moved into an #ifdef block.  Marking it
+> 'static inline' would not work here as that would still produce the
+> warning on clang, which only ignores unused inline functions declared
+> in header files instead of .c files.
+> 
+> Fixes: 4d0e3230a56a ("mm/memcontrol.c: fix a -Wunused-function warning")
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  mm/memcontrol.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+> index c313c49074ca..5f9f90e3cef8 100644
+> --- a/mm/memcontrol.c
+> +++ b/mm/memcontrol.c
+> @@ -4921,7 +4921,8 @@ static void mem_cgroup_id_remove(struct mem_cgroup *memcg)
+>  	}
+>  }
+>  
+> -static void mem_cgroup_id_get_many(struct mem_cgroup *memcg, unsigned int n)
+> +static void __maybe_unused
+> +mem_cgroup_id_get_many(struct mem_cgroup *memcg, unsigned int n)
+>  {
+>  	refcount_add(n, &memcg->id.ref);
+>  }
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191001142227.1227176-1-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1569940805.5576.257.camel%40lca.pw.
