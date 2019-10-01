@@ -1,123 +1,141 @@
-Return-Path: <clang-built-linux+bncBAABBWOYZTWAKGQEYTHEPPI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDHYDDNWVUNRBJ6ZZTWAKGQEUXTUUHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-f185.google.com (mail-lj1-f185.google.com [209.85.208.185])
-	by mail.lfdr.de (Postfix) with ESMTPS id 26F46C3194
-	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Oct 2019 12:37:14 +0200 (CEST)
-Received: by mail-lj1-f185.google.com with SMTP id 205sf3944986ljf.13
-        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Oct 2019 03:37:14 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1569926233; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 38EFEC3196
+	for <lists+clang-built-linux@lfdr.de>; Tue,  1 Oct 2019 12:38:32 +0200 (CEST)
+Received: by mail-lf1-x137.google.com with SMTP id g24sf2703952lfh.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 01 Oct 2019 03:38:32 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1569926311; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aMGh5PqMGmUTHbNTIOlywrMOQApZl8lEznMXHCx7ZHBNHK6PptxslYaZt5ScXGAr49
-         Cpn5gF8cGHdp6zH6QyRpWRE/NqZ1U2xbY5r/D8XdVmhOwa14VRRA0d/nVeDaFLLU38bU
-         zRnqxMqdz1TPnPyEWogtIsSpIkO1Eq2PJ0UNvck0hASmkYR9G5aRD2agZAfEoZHOZSB7
-         5WxF0eGsQtsk686dibuwhK89qxOHCjG9u7RmC8Jm65R9V1qNPSUAG+eDVGrzSIUTzD3P
-         TRQBGlVYgiFIdble5+JSqdRAxos2cFD7VAhWtj1eX9SwXc+Vq/z/K6w4t8XXVFHX8E2G
-         wjVw==
+        b=zxhXHaD4b4EjB2I1H6rTn3D/rJ4pj2k747Kw/AV2D57AirtSuTAcX5TGLiEl9SYdiS
+         jgufllWmDY4n6wPalzXXZYk3WaXOU1xwrjKZ4pTZXjWD/HEaED/cWwNqo2ja+TkQB/+/
+         PN26mHs/TQWDBEz3eoGoQphra4rnwQHlCNg+WT4+VAQQtWkrVVaUrBmlJmdL9QNPiy2n
+         tJvuFaxYv2g1B+4tf8cn1S5zOCBvnTdcf12JqhQrzEzTyLn9QuXX21FV/BHUPXQjE9LJ
+         TphewgdtvBQEC8ScDwslVQGjItao3j25RHqqjajHLzyhGX+Uzt9+Qs3Sic6ucrrkrBJu
+         3HPA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
-         :message-id:mime-version:references:in-reply-to:cc:subject:to
-         :reply-to:sender:from:date;
-        bh=SsSTTbqxXh/Rkhyy18+G1qNr0Z4W1cy9z2M1Z+iju9w=;
-        b=Gark8mE40Yz6rZ3/CPVcJR/wq9V+de0svJy75NRd03yXRngocVuHMD3KCSx5Oa/wAH
-         gWBS9GlkCos/z8WvtApqpIjaeUzX5jOEa96kjTgH2bmkwTIlYNJKK0OQg09QZCnk/pet
-         8AP00Avky0TbpOdR9PNaVEqct8F2HmJJIB3RVeW6lFa2EQDqQV0W2MDz0g1U+3hu47jG
-         XmJoscwn90mugO6wE8/ChTUMV07G4eB0z2w2Z2AJ7o6svm2RP0Wh5Obr8nWJXKnw2uj9
-         EI9dRALxsZdRohOZPUQVLPe0pnCrF3G4cTyV/K3pzJX0nR0sYyUJRhfUqlyD240Y3z0x
-         WBew==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:reply-to:in-reply-to:references
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=c4XLA5L+bfpMd5e/imp4wk3MfT/Tmoit7U6bT8z+uVU=;
+        b=wvjuKx2grYVKM3UiA1Lf7VRVaI+VYOO1TJxG/9/6jsuMBroHX2rbiCCGz/Zqx3/ue5
+         CcY/HE1oZQRoDO4TegyAwat0Er7taLptxHKAAWDUohntsYFS7W1Zm0XZPeTakwK03Bhc
+         iClRgu+/ZeKBMPbOZxnQEMrf4gIEmkmJhjp8WZ2NIv/z5u5wGTi1X4aLitUh1GX0omNY
+         5kpi+3itSeo3H46WfXrafH92yfzEaEdYKM3T1LyflMI3q0Vs/gIRkiAkSjD0J6kXgmZh
+         Tz3slezIBssVFy7LXZ39i6KwWHUv61kbMyeGWKdMF+tYLjuW5/Vh6UzTYyjom3m6VDg2
+         SjFg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="nIK/sjX1";
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:mime-version:references:in-reply-to:reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=c4XLA5L+bfpMd5e/imp4wk3MfT/Tmoit7U6bT8z+uVU=;
+        b=KzYftz85SFF5QmvZmKUA/2fdielsc1SB/4AEy7VAOO2fNJL3xTtXsQtwaW7MXyf8QN
+         lRCM5txvulxx1s8oppf8kc75EMnFprQM5zMdOW4mBUDgqy/0WlHfUulPdCIOFoJ0Yjke
+         6ev4VY42nl3BYt4Y9qoXSd2XZTTCvMyd0XoVSVUdGTvf/2KSTbk0obSR73bUeFKKWQXp
+         YBYTLWUZeJ4BkNdrepX4cNTwstvg30Tqg0ncYS0u+UImiRs6n9DSSpVR37Csn9VRVMgy
+         vjFMfqhG1zy8rNKxQLyUK9ItMr9bsqRpvsC3p8+7GkpdkmEHL7okPif96kxBDExwWBO5
+         SaOg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:reply-to:from:date:message-id
+         :subject:to:cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=c4XLA5L+bfpMd5e/imp4wk3MfT/Tmoit7U6bT8z+uVU=;
+        b=oxiSpofHq8QgnzPlfmwBQ3Z+Pm6z1pzPf9s6A9RyDcWEKHDl78yG6t3+YO2SnoPw2O
+         w82Tfen9+ka1F7hya5hm0+BnpEwy2X+nRbrg12Y7WJE4HyXQpd3jaku2HL0Ip2ksnUVP
+         k/XsEGoJdt9sgWkM8auXZ4OznDp4rboI0kLiDC2qGbMPro/tNC1TVUH3eL7DcNWfbCmd
+         HHAjqjDPHAS6Dw/n9XZZoRYIf0hD04NC5wUrUP32I6de9cM2oYpNF/1+9ybh3VSDsH2X
+         SNifj3uJ7cgoKq66C+4yPDz+9YXp4uO98NkrsuMCsNI8WzhqSSxmQl0CY0b1377eIxYJ
+         V9eQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:sender:reply-to:to:subject:cc
-         :in-reply-to:references:mime-version:message-id:robot-id
-         :robot-unsubscribe:precedence:x-original-sender
-         :x-original-authentication-results:mailing-list:list-id
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to
+         :reply-to:from:date:message-id:subject:to:cc
+         :content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=SsSTTbqxXh/Rkhyy18+G1qNr0Z4W1cy9z2M1Z+iju9w=;
-        b=rUCVnRwhgzvS/Ih8/ZF0khylNKWrjZl1oFfNY8nQt+ext1657AWS1IEETJL4VimDF8
-         aNnWJUDfN6wmnEIsbwOaOofRbJtjZrhd4rAClJyCOk2XDNDS849VW6eFd6US5n7FQrKF
-         +SOroXXOPAj6NsnEKs5aBP6f18Eoon1DHzP4VktQj5P5YOyPpuNYXLnCPL3gggnciab5
-         YMVxEuqlJOOx4ZW7GWwA1OXh8G2Q1zAM5GgdsA95wB0s0jBM3nh5rfy+V5sc28oK46+T
-         co2mzcX/iAvVKx4acUL3Un989m+ikrH81tZxrq3CSShshtXeXFIreNuLd8rZhvoQ6qG1
-         stlw==
-X-Gm-Message-State: APjAAAUXqR5avF1VFVY8ummGFBu7Uca7nijAKWO63b9db8djQVtuVt5F
-	WcAhna74X79AQFBd1hVvkTo=
-X-Google-Smtp-Source: APXvYqzW7DSgr7lINxDGX2tCEuwH5GVOoYXRx6XPi3uXgrLGpmcCIGIpFnP8EimKE7wrRHjMfX/HcQ==
-X-Received: by 2002:a2e:85d2:: with SMTP id h18mr14504319ljj.18.1569926233745;
-        Tue, 01 Oct 2019 03:37:13 -0700 (PDT)
+        bh=c4XLA5L+bfpMd5e/imp4wk3MfT/Tmoit7U6bT8z+uVU=;
+        b=CsrghVOVLPemEDoHeG1XgTfUz7DEELcad5ORP/s9iuQ/si8U6Xa0dZX/ngeDK9OzMJ
+         nF8EwWM/sSv/CiL7Ox8IhWaArPg0kEPrk5m7nmcWJ8GxBWWVyYbngVhQakXaTQHgjpw3
+         o9vRuJjoQHvHAHL1Jl6lLMQB7yjQaVYNvto2AlWv8ACCbePHxLQqfqraVHDDYYao5vW0
+         TgI90dyvVe6ljiXsMZqGJm7llY0RFiLn2S0FJYcHvqq2wQaL1VUeS2B2omC9pEiMIc5H
+         4cqLmZhWj6KsUpXXqk2r5HKQaKzBqRpIQHSCkSZVLWtpRapQMRR1puqUTlw4WFRm4mwh
+         TjrA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAV7+mwNELJo07QBYD8ElhJyKa9CqVYOy/rGoXKj14T4Lthhh0Lw
+	N7P/M8g2YkCR5GqRLw4Kyu8=
+X-Google-Smtp-Source: APXvYqxN/f6v8aRSOqizoC1xJ+NTtkg+ha9dtN5fUOGw+9IPpFQn6bx9dg9QSowWZAfy9tdSZ5QIIw==
+X-Received: by 2002:a05:6512:14c:: with SMTP id m12mr13946943lfo.27.1569926311757;
+        Tue, 01 Oct 2019 03:38:31 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9bd0:: with SMTP id w16ls1947381ljj.13.gmail; Tue, 01
- Oct 2019 03:37:13 -0700 (PDT)
-X-Received: by 2002:a05:651c:22a:: with SMTP id z10mr15124596ljn.103.1569926233418;
-        Tue, 01 Oct 2019 03:37:13 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1569926233; cv=none;
+Received: by 2002:a19:c709:: with SMTP id x9ls1469223lff.12.gmail; Tue, 01 Oct
+ 2019 03:38:31 -0700 (PDT)
+X-Received: by 2002:ac2:48ba:: with SMTP id u26mr14720057lfg.164.1569926311139;
+        Tue, 01 Oct 2019 03:38:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1569926311; cv=none;
         d=google.com; s=arc-20160816;
-        b=AtvHEX/liuxAHB0EjMDZcnGjIQmnwlHJ0F4baI2k1xKMsFHbAPWwCfaoCdEzBDB6uS
-         Wc0MojFK2a7k4SRaZPicSjSO0qWDSB6+jtDatwcD1xVO1Tu4DblKgmDJGEh3dBKM5FgO
-         kNyZtnVokETkH+Y2HLWvrhe2lu6BQJYoMeEmF4it4oTrQmmPKvaVhmlUbmnLGFWGIGKU
-         OH9+D0scHmqLVcUw9igiJ5fckM+xwEbpmQwfstfvnjhTIFYt90hsffj3XPFedKSew7a6
-         7jgC2rTplutJzKnOaT3dA2TEpjCHvciyWxXLkbua4LHSZV9lWk3D6NL9KMfbelce7zfV
-         a2LA==
+        b=NRTF1bqaZxj87aOQvCtLvYX2vvVcTdwYkExKqU6DOsTeMBSZP8B+ZORzMq+nX4xlbO
+         Wy+Cyb8bZmJp4bLlBNUJ4s8vl8gIiI5daOe11RuQpkwupdEZoR/V3TPXMocRVpprg/Kb
+         g0jGwVkphZlzqsW0vBXJsFYqdR0xpCByM9qvszzbuBwtAGOos0sbWQme0q0UYLWfmmpv
+         KzJGR9YUM79+sWg0HozZrq9yansqyEpZZRH2Lh3zJP0Bvy3oIvNaunOwn/4UNu92EXTZ
+         4PS8fBBcXyJLjx/slzpo2QZcAXmB8CnlMDKTiSAlIzXf9S+bOwyoM4laAt8FFAZLQ1O3
+         Slfw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
-         :message-id:mime-version:references:in-reply-to:cc:subject:to
-         :reply-to:sender:from:date;
-        bh=aDLnpwJqNZJs23mw/aLamr6ZX+tcSufg6rpe9IwMe0E=;
-        b=DmS/tiZ6HXaVVdzZXrad/dKlN7V78xDVZ0BwDkK4EO32QUqg3c2gYuXCuv1mytuomP
-         TybZc520FtZ30LyN60gj5dJtWAOjthSnXlMp/ZiYpU2XPPbTQYFEKq/U5vCTonGjaYQP
-         ZhwsHAw8ddx6puDlh/H5kyQznU4Xe1QUVNFKjYuahNTkX5ljUiaPmfyGwisBRrLou4mV
-         JEx0RLWAiX++EiKa6Ct9OcGAd7JqjcPGilkVlL6+RlyZcISQfz2705FZ4bkJtZzS3h/n
-         W4HVgQ55Vy0FWNjKkXiJ+m/bG1y67GpU8vj53NR8sDO3aGZYYY/mhFXcjiegdaMkhu6p
-         a+9g==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:dkim-signature;
+        bh=zw4dGaNApGaLp5V/SJ9x1nhUTtWRtLezK+ksztsbj0Q=;
+        b=axGyb1raoXOmweZAXcwgyPy5lQwJqn5Tcm6mggTXuE8+Nefix/e0+H9vcdiYEwHCZl
+         HDMoPBWZneFX6N74TsaFT9/juhrF4o01uyVsDw1OFLZBFzEp1HOjItl5ImvaGx3b1c7R
+         a3iokmIXSYMeLZI/REHWqUfMDhTSRkp7bLhOhjI/DFsP0lzTPxfNAIRYdJhVfrd3RMlS
+         4+wXYIZlDUCH4P8dOnSMMKiupGcmimjJZl4m+A11WhFiq2cX98p0tH/KBAKJDjFFuunw
+         Dw/RYnMNDhFRzgg/f9Oy48SEQRa124OhXxPwmRXMkAlfAtF5Ras0eufD3pXtWmlVWPd1
+         QHQg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
-Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id d3si798933lfq.1.2019.10.01.03.37.13
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="nIK/sjX1";
+       spf=pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id c8si1087710lfm.4.2019.10.01.03.38.31
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Tue, 01 Oct 2019 03:37:13 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
-Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
-	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
-	(Exim 4.80)
-	(envelope-from <tip-bot2@linutronix.de>)
-	id 1iFFWe-00088X-QK; Tue, 01 Oct 2019 12:37:00 +0200
-Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 4AAE01C03AB;
-	Tue,  1 Oct 2019 12:37:00 +0200 (CEST)
-Date: Tue, 01 Oct 2019 10:37:00 -0000
-From: "tip-bot2 for Nick Desaulniers" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: x86/boot] x86/realmode: Explicitly set entry point via ENTRY in
- linker script
-Cc: Borislav Petkov <bp@alien8.de>, Peter Smith <Peter.Smith@arm.com>,
- Nick Desaulniers <ndesaulniers@google.com>, Borislav Petkov <bp@suse.de>,
- "H. Peter Anvin" <hpa@zytor.com>, clang-built-linux@googlegroups.com,
- grimar@accesssoftek.com, Ingo Molnar <mingo@redhat.com>, maskray@google.com,
- ruiu@google.com, Thomas Gleixner <tglx@linutronix.de>,
- "x86-ml" <x86@kernel.org>, Ingo Molnar <mingo@kernel.org>,
- linux-kernel@vger.kernel.org
-In-Reply-To: <20190925180908.54260-1-ndesaulniers@google.com>
-References: <20190925180908.54260-1-ndesaulniers@google.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 01 Oct 2019 03:38:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
+Received: by mail-wr1-x441.google.com with SMTP id v8so14882162wrt.2
+        for <clang-built-linux@googlegroups.com>; Tue, 01 Oct 2019 03:38:31 -0700 (PDT)
+X-Received: by 2002:adf:f44d:: with SMTP id f13mr16498594wrp.197.1569926309774;
+ Tue, 01 Oct 2019 03:38:29 -0700 (PDT)
 MIME-Version: 1.0
-Message-ID: <156992622015.9978.3158653614859964805.tip-bot2@tip-bot2>
-X-Mailer: tip-git-log-daemon
-Robot-ID: <tip-bot2.linutronix.de>
-Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
-Precedence: list
+References: <CA+icZUVQqOie6Q-r1wHXkNsRASYqzTAdGqrkhfYsA5Ryh2WT0g@mail.gmail.com>
+ <19f1998d-a8b4-41b0-b86c-559c694f0c06@debian.org>
+In-Reply-To: <19f1998d-a8b4-41b0-b86c-559c694f0c06@debian.org>
+Reply-To: sedat.dilek@gmail.com
+From: Sedat Dilek <sedat.dilek@gmail.com>
+Date: Tue, 1 Oct 2019 12:38:17 +0200
+Message-ID: <CA+icZUWWEQQuG9fqGq-06WGciktgGeOgpZA9iVDHxw9ut58Y4g@mail.gmail.com>
+Subject: Re: llvm-toolchain-buster-9: LLVM/Clang/LLD/etc. 9.0.0 final
+To: Sylvestre Ledru <sylvestre@debian.org>
+Cc: Clang-Built-Linux ML <clang-built-linux@googlegroups.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Linutronix-Spam-Score: -1.0
-X-Linutronix-Spam-Level: -
-X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
-X-Original-Sender: tip-bot2@linutronix.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of tip-bot2@linutronix.de
- designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: sedat.dilek@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b="nIK/sjX1";       spf=pass
+ (google.com: domain of sedat.dilek@gmail.com designates 2a00:1450:4864:20::441
+ as permitted sender) smtp.mailfrom=sedat.dilek@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
 X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
@@ -129,68 +147,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The following commit has been merged into the x86/boot branch of tip:
+On Thu, Sep 26, 2019 at 3:04 PM Sylvestre Ledru <sylvestre@debian.org> wrot=
+e:
+>
+> Hello,
+>
+> Le 26/09/2019 =C3=A0 14:44, Sedat Dilek a =C3=A9crit :
+> > Hi Sylvestre,
+> >
+> > is it possible to have version 9.0.0 in llvm-toolchain-buster-9 APT rep=
+ository?
+> >
+> > Currently, 1:9~svn372167-1~exp1~20190917193038.54 is available.
+> > I have seen 9-1 is in Debian/unstable available.
+> I don't upload tag for apt.llvm.org, just ~svn versions (too much overhea=
+d)
+> They are usually the same (besides the version display) and rarely introd=
+uce regressions.
+>
+> Is that an issue for you?
+>
 
-Commit-ID:     3f5f909bc331a7ff9120b11c8e0e320d60b01c89
-Gitweb:        https://git.kernel.org/tip/3f5f909bc331a7ff9120b11c8e0e320d60b01c89
-Author:        Nick Desaulniers <ndesaulniers@google.com>
-AuthorDate:    Wed, 25 Sep 2019 11:09:06 -07:00
-Committer:     Borislav Petkov <bp@suse.de>
-CommitterDate: Tue, 01 Oct 2019 12:17:58 +02:00
+Hi,
 
-x86/realmode: Explicitly set entry point via ENTRY in linker script
+a clang-compiled Linux-kernel is getting more attention and a final
+(tagged) version is more profitable for marketing reasons.
+An SVN-version looks like a development one.
+As Debian/buster is the current stable release people will prefer this.
+Just think of bug-reports: If it says this was compiled with a released ver=
+sion.
 
-Linking with ld.lld via
+For me personally: If I can choose I prefer to use the final release versio=
+n.
+Technically it does not matter.
 
-$ make LD=ld.lld
+Thanks.
 
-produces the warning:
+Regards,
+- Sedat -
 
-  ld.lld: warning: cannot find entry symbol _start; defaulting to 0x1000
-
-Linking with ld.bfd shows the default entry is 0x1000:
-
-$ readelf -h arch/x86/realmode/rm/realmode.elf | grep Entry
-  Entry point address:               0x1000
-
-While ld.lld is being pedantic, just set the entry point explicitly,
-instead of depending on the implicit default. The symbol pa_text_start
-refers to the start of the .text section, which may not be at 0x1000 if
-the preceding sections listed in arch/x86/realmode/rm/realmode.lds.S
-were large enough. This matches behavior in arch/x86/boot/setup.ld.
-
-Suggested-by: Borislav Petkov <bp@alien8.de>
-Suggested-by: Peter Smith <Peter.Smith@arm.com>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Borislav Petkov <bp@suse.de>
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: clang-built-linux@googlegroups.com
-Cc: grimar@accesssoftek.com
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: maskray@google.com
-Cc: ruiu@google.com
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: x86-ml <x86@kernel.org>
-Link: https://lkml.kernel.org/r/20190925180908.54260-1-ndesaulniers@google.com
-Link: https://github.com/ClangBuiltLinux/linux/issues/216
----
- arch/x86/realmode/rm/realmode.lds.S | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/x86/realmode/rm/realmode.lds.S b/arch/x86/realmode/rm/realmode.lds.S
-index 3bb9808..64d135d 100644
---- a/arch/x86/realmode/rm/realmode.lds.S
-+++ b/arch/x86/realmode/rm/realmode.lds.S
-@@ -11,6 +11,7 @@
- 
- OUTPUT_FORMAT("elf32-i386")
- OUTPUT_ARCH(i386)
-+ENTRY(pa_text_start)
- 
- SECTIONS
- {
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/156992622015.9978.3158653614859964805.tip-bot2%40tip-bot2.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CA%2BicZUWWEQQuG9fqGq-06WGciktgGeOgpZA9iVDHxw9ut58Y4g%40m=
+ail.gmail.com.
