@@ -1,45 +1,45 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBBFE2LWAKGQEX5VNPQQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBENE2LWAKGQECHYTF7I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A0F9C87C2
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Oct 2019 14:03:16 +0200 (CEST)
-Received: by mail-ed1-x539.google.com with SMTP id h12sf10702078eda.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 05:03:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570017796; cv=pass;
+Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6701DC87C4
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Oct 2019 14:03:29 +0200 (CEST)
+Received: by mail-wm1-x339.google.com with SMTP id g67sf2007437wmg.4
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 05:03:29 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570017809; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pH3Jh0noDzCHuaN/9cwCDfK/XHuVzZYJFZ4HBDb9PfmqMq/9dYKinp/Elg/DsDULbc
-         VNAzSsPVBKrWQsCPA/4xCsmZ9Qg8lyCXqnlXOzsUNGpKtpnI+fYhTCkw8S4ZwDjzxspi
-         vPPpD8jmi1RHsQRAGorLuJLvG9xI/cm1+EnChHTvtYOuSYnQL3lDmZfmZ/mRr7de80cl
-         Ymy3K3V0y3WMwsSUP07m7aoJoj5HYi5EugTGBKonFzEqR4TGWUv+Y3NAJZKw3dXP3Nnp
-         6zFga0seY5YoALmIQrZAcJ1LA+Ec8jSFcaTDxgoXBwFK6oiv4LLEMYtSx3a7kMai+5Rc
-         gozw==
+        b=anNe7rhGcQHCrV8TPQqVm9Ww9W4kbGTImFn5Jc78V4Nry/2TzdWCWufBCZosEMrl9E
+         5ebLBT5Ht+nQ2y1eS5Tl96/Lm1sMCCjtiEzCdhKSRGgq+6hupvgMjC4/iK+9gM5srhf3
+         xyYgdgt5Azevak/0K/NTlcMBfjFNIBXRGBKy2iVZdKe18GT/2JwK9fNiIgpBdhxc8gUs
+         y/Qy2SEnIJqjE1fET4ZgIrJi3W5xErtHsbNnFluySVzfkQDyKunDm2vF28m5dOJOy4VT
+         AMBg8W+JYR7uEbJPp7BIZzorhuy/czS4BBRC2BpCseVGq8MZ8Lbdc39rcU9wWwXhC3J/
+         ztzQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=4sMV2OTI7aXLaHcS1NGIKSJnmStobqStTNKnSge3gWw=;
-        b=UmAX8M16HhJtnhLAxmuFKhHY18sqhhLCbx9xO4JD1YTnIJPxWXkInjPu3TjyxHWBDG
-         0r9Mtt4tJC+gbxW240YuMIO80BsTdDa/D5FA08Uv0+zvRQKBW8+ZlR8rXHIN63qgbx21
-         uiZBTXliUYdJ2CALsDkGPLDSS8Zo7UUotfbcdCJp/TFnOVu6ZtYW4Tu9p80zDHpVWLDY
-         ntwD3kGxtX2ygMlHcuXgOptkY+2QEK7lGPTDa/ZAlfAXCk9/cB2q5EOcg3Fl3q7ykAcN
-         kR9UU1ORCH7nuNbwlOqMg8sbA32Kr6G6s7iT24Rd+zvs1L5JHT0frEa9J6c4PNMdsfaJ
-         hG6w==
+        bh=OYgNKEa665Ua57Jhz/oGYbzO01Grcilfb0Ei6OUNMpA=;
+        b=xYTzY0RYirUrPs7AnLSobhxDSVyZEZs/f+IA+9gwJJPTFj9+5i08p/thON9QEGLv9e
+         0M5aWXhXnvz+9hldLcWFHBqKaipq+LBpJ+7Hb/cXsF7cBeRonHPwreo8XuDU/HKJ/zgU
+         CcFTrtPaDT7jOzmKWJ+iTC/ufotd8Bly19JLrcIAES9RCcasWLkKeuAnB+0cYacixQ4a
+         thNygmQnNF4ftkCaQ625Ixw/CIzRPH7Pi+j2QxBQ+oIcNGkNTOlCcd6WqBEriUedOdDc
+         hzrkqTnkeO7uS4TWSLhrlT9hEaAN6lUz0ypTKmbgaTPHjSbul2Vl4NCoQZ/KhibM1ETb
+         BbXw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.135 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 212.227.126.187 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4sMV2OTI7aXLaHcS1NGIKSJnmStobqStTNKnSge3gWw=;
-        b=HkvFXLvrItgR4Jl7s63YlO9JwIzGWMzPI0UHphSxEMINOZ1+MN7F3eBFzSNreNX+Zq
-         AHoHTEDANnyf7STCAwQApTlyruZcSwTTU4QpySFIDkAgS/8VMC5x8XSesPlQBQ7Pt0Bl
-         5PN0UIeFaxRPqcNH4kJwcob7DINVqivWTCHxwsOGOZJmxHf0Vj9qHYBhSFGCe6XKGvew
-         EJnsl7HsJ8g8knAzD0SGbIm7gx+ryZPgAIAuUr1bfSF8Xds5j2AS2a8qm1HjdVCqvIA3
-         iFm9e2FPFjOZQXUo9ZmvaBkBFj7ifObC4pygJY/2T599CbeMXBDOJEad2MlKV0TCUzas
-         XDsA==
+        bh=OYgNKEa665Ua57Jhz/oGYbzO01Grcilfb0Ei6OUNMpA=;
+        b=sZu7s1/vVFGtFdx9VfO2LhTZs6VQrUmAk19AUVlj/FjBzQ9mfLdKRVbKkAOQhSdxgH
+         3FVZ3FoBdei9/z6KtNGbr78/mWD3WLHCxgu6bADbym4DLvnUJBOH0KeXYrQh3yXy5AWK
+         nwzJNGsv309iPImCyL+KC+hPmxWtaPNm14fHo+Yq5fwIdnjb+ELQlPWTPdYQlWbgKz7s
+         e0XZSthofN5HCqovewaYakPIRlHGTVG24NCg++LGEaH/KVK7ZJvc+SfZjLlGZIdStOO2
+         S61FzkJ+Ay7DlMDIBaxNgB+DuV6KxC/VfYrU4H9+p5AHNsNofonLHjATGnwBvcvC4oY3
+         1FYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,57 +47,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4sMV2OTI7aXLaHcS1NGIKSJnmStobqStTNKnSge3gWw=;
-        b=X+uzAPAwKw0j/bo75IegTI77g1T9nrB5bbadD6KwrMDCeVMpOqeXLJGafZ3MjloAkc
-         zdAEb5k+TiPw5NJh0uhwOolmAjJ7/LXySL+TRBnRAy+x5MV8oMcupftaQSUKEYyHhzjz
-         6kVs8912y9zS70kjrxsqcn+Tnlzvy1cuk4KzOZ+/96bABTIn0jGL8V56QAaSt8qj5/vI
-         Zyt2DHeBAVzuRER3SiVO8ggP0SLAhK5rHIoFzMoaRpWLmd7DuoEtsAbFcN9NIXVD6Dnb
-         jKeKwEQsv/6JqU6jzXFO5E2iXxWvDEmtXBjGgRuMiB5Q2EHzU4k6iDI2Dn7wp/b4ASeo
-         T7CQ==
+        bh=OYgNKEa665Ua57Jhz/oGYbzO01Grcilfb0Ei6OUNMpA=;
+        b=OLLEnUDUhOCG/1Ly8ihOgz6qi12Qeo7MGVOFai+5JksbFHFcthPW1W+zEF+7cAfmyR
+         LS4LSp7nV06Fzqxw/ry6UImidqSODPc7ChyIdb7m/p/LXGMLYDslFQfz8JYnf0c+CF4b
+         uoIJp3l8ainxq8iPnKIq6UPIapaE+xglDTczWCIJPxEkR1w+pNw3Kxj+DlXeWX0G7Pna
+         oqlifoLBVtKOIkwa3NyVVRV2aZ1DbBR/ASAIU+TxIPcDf2gUtzzEHBBARqQ7cPi2xwpM
+         V/8ugwp0QLUOwWuUjhVahmGnYnfkKsoFgPvEvEdNiwHNjvysSpOw+GOm31QeT/sFGGCb
+         E/KA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU2CXS1L2A4Fm/2BrY59U8RNUWcGjGdVdD4yyXIANizUqrWR3Jp
-	GRFH7pZYyUsO9fpcjWQHbgM=
-X-Google-Smtp-Source: APXvYqxN5KUiQ0I0knPzADYnIclW0BQIChLS8wU3Zu2+JK0x+pjR0stks7pwso0YDaKn4rXZOKzkJQ==
-X-Received: by 2002:a17:906:18e2:: with SMTP id e2mr2637126ejf.129.1570017796140;
-        Wed, 02 Oct 2019 05:03:16 -0700 (PDT)
+X-Gm-Message-State: APjAAAXHk0rngh1uv8bAnl9EMYc8EpiF3N7LtRj/L81FEz+1MkbTBt6B
+	NNdFAJh/9ya69tGYxm960u4=
+X-Google-Smtp-Source: APXvYqxcRNV0Gi60Gjasgcm0KaztOjGf9W3828zzifNki7YmWshJszN07d8wm0vA4zvLlmQvZukczg==
+X-Received: by 2002:adf:eb4d:: with SMTP id u13mr2615493wrn.224.1570017809093;
+        Wed, 02 Oct 2019 05:03:29 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:f11b:: with SMTP id w27ls505499edl.1.gmail; Wed, 02 Oct
- 2019 05:03:15 -0700 (PDT)
-X-Received: by 2002:aa7:cd18:: with SMTP id b24mr3278413edw.181.1570017795647;
-        Wed, 02 Oct 2019 05:03:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570017795; cv=none;
+Received: by 2002:a1c:c143:: with SMTP id r64ls842862wmf.0.canary-gmail; Wed,
+ 02 Oct 2019 05:03:28 -0700 (PDT)
+X-Received: by 2002:a7b:c44d:: with SMTP id l13mr2562800wmi.171.1570017808683;
+        Wed, 02 Oct 2019 05:03:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570017808; cv=none;
         d=google.com; s=arc-20160816;
-        b=hiwpzO4pXeRdZz/Y7M6x06iIy1YLVLzcZ1sCClo3FSESDeO6LI3OozLyUXtoYAd/mK
-         vGc6yajgQrEtfUb1XzqJd7XhmHeUZy6yt3gmUkocLz2B+6wNPva3+U27ackXwGy1TDmv
-         VXjW+z7SxI2XVkd/90EAHCtnlIa7EnLagUfMEN1qe3b8/6+pSigj9p9PkQz+AkEpSHuX
-         K/GLz3pilk8KbmlRTURjIdPDih7QDsH2YippzGL1uRPoFvqlnq1myuyvCF6QJ35eqYso
-         yIsK9GaDG8FcZgSPwfOlP7s4VoaShQ1uis04w3UelrXO8DwH2APk4I4JizDYTMChIfNV
-         0h9w==
+        b=KFoL7JXBxbS55TbWLw4XpvU1LAQPJi9O/ldYK0N4j5G6c/ctwf/kcULKJqvWVyU7/E
+         +s5Z0P8KzY9SD84Oi7RHG5NIjuAfI+i1bXmm01qrgQwcrW7c1dGHy41VekuDfQ9iZR29
+         7znJBm1v0f7LcKPSz5GogoCBNMJf8tSimvzuL9b7BGQtXvW1iwkQaVGYZuJ6styBiXsm
+         7EmeFw41V97o66gFf3S97lesqPOz6kuYp1/Mo6KPSrYJZ5nUUdJ+cGsZkJSUAmOUwT/v
+         WC/BZ/E4/oqrBAvdVZNJqxKCX3fDV4cKn+xdUz6rDhRxIlypYoKu3CCoaLlj+9f9TWYb
+         n+KA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=uCBURTB9U+mDgNDa5X84zsyqfwAXT/CTyut/W5lwSrE=;
-        b=sqoif6Hc57y21OHn/5GmfyZkkT9d3EqRdH9uFHAY6RzC0lk4W4ObVawiRP+2td8b1c
-         5JZ5KEnhvo3yZRagk57dJ6uS0a9xRPIAGTq6kV8UboBAM/duvqUHAD/Ol4Wp1wSOXu/K
-         P5lgGA3Ty5C0b79abHTKuI8hbG7PH1/cUpLo73d8Zb+mbKJXb+M6whW94V2OBnLxg3wt
-         YJzbPPhx321+TH/i9lPWudBlUxBOXCD84TChU8z5talmkwSJFCMQcXu38/Sh/HcFEGYr
-         xkVcU7+FnjVBra/8zy1pH3gXI6GwWsQ/OUMn2H5jc1eHtGRUXI9F8JmPAKVsJ9cfvF95
-         w3qQ==
+        bh=zuLtAnEfiCYyIhvEUGcLhnNeseBA5doXkBloXUwWS70=;
+        b=wdCU80zg6bTi/47tjge6Zgbmh3EPuE92bu8pfYqBxjVZIEW5B/zN6H1FtJB+1fiMtg
+         WkDX634WHlzeJYD1PFml8TmyCrI8qUSmSFEy4+3ZJfJ9zbVs5xDbuPzqb+LAEMhJpMdS
+         YAf53BPS3IjOISIe36xL1xqH6Fce4hGSmQ9o6nRhu6SEZ0+i1lak88iFH/9hy5/gCf5W
+         nZLY20sbpCpbdQF7vDMRd6ptHYCXAT+NhFqRwgFZulEHcISoG57qic+MCtBeW5PeiKJM
+         RB+DZFvokJ6XZuYDDFZq6DJYjrHPI3nspTd6d8zwpE8toDbhj5nnCfqbgZnAtwZBCQoe
+         gqsQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.135 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.135])
-        by gmr-mx.google.com with ESMTPS id q8si999559edn.5.2019.10.02.05.03.15
+       spf=neutral (google.com: 212.227.126.187 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.187])
+        by gmr-mx.google.com with ESMTPS id x8si412432wmk.2.2019.10.02.05.03.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 02 Oct 2019 05:03:15 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.126.135 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.135;
+        Wed, 02 Oct 2019 05:03:28 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.126.187 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.187;
 Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
  (mreue009 [212.227.15.129]) with ESMTPA (Nemesis) id
- 1N1Ofr-1i9piT0TlL-012rXj; Wed, 02 Oct 2019 14:03:14 +0200
+ 1Mzhar-1htpHS1ojh-00vhrB; Wed, 02 Oct 2019 14:03:27 +0200
 From: Arnd Bergmann <arnd@arndb.de>
 To: Alex Deucher <alexander.deucher@amd.com>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Leo Li <sunpeng.li@amd.com>,
 	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
 	"David (ChunMing) Zhou" <David1.Zhou@amd.com>,
 	David Airlie <airlied@linux.ie>,
@@ -107,40 +105,38 @@ Cc: clang-built-linux@googlegroups.com,
 	linux-kernel@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	Arnd Bergmann <arnd@arndb.de>,
-	Dingchen Zhang <dingchen.zhang@amd.com>,
-	Harry Wentland <Harry.Wentland@amd.com>,
-	Nicholas Kazlauskas <nicholas.kazlauskas@amd.com>,
-	David Francis <David.Francis@amd.com>,
-	Mario Kleiner <mario.kleiner.de@gmail.com>
-Subject: [PATCH 5/6] [RESEND] drm/amd/display: hide an unused variable
-Date: Wed,  2 Oct 2019 14:01:26 +0200
-Message-Id: <20191002120136.1777161-6-arnd@arndb.de>
+	Le Ma <le.ma@amd.com>,
+	Hawking Zhang <Hawking.Zhang@amd.com>,
+	Huang Rui <ray.huang@amd.com>
+Subject: [PATCH 6/6] [RESEND] drm/amdgpu: work around llvm bug #42576
+Date: Wed,  2 Oct 2019 14:01:27 +0200
+Message-Id: <20191002120136.1777161-7-arnd@arndb.de>
 X-Mailer: git-send-email 2.20.0
 In-Reply-To: <20191002120136.1777161-1-arnd@arndb.de>
 References: <20191002120136.1777161-1-arnd@arndb.de>
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:1n5M6zZR4G8yBL9D3/PPSqfSjJLO9/wJ7CFXKkY1GhO9dfbJMYH
- BiSgOyk4TECZnA3BSyAneDEqnYgbFD97WeiIo4lGIG8gXruAgbG+OFz8JrMXpu4H9o9caks
- Np/4Fh8LpTmpmV6Xp3jiphnuOB/fVWxp/AAMAajPUx40WWakIcnYsfRjRKmzW5r6zab6tVy
- JE6I3T9syZxzU4/jUrblQ==
+X-Provags-ID: V03:K1:YNsgZzHNCw392v1rgjHTUEZ8pz20uykSXH754RL9iIOb5deh2YJ
+ VniPYenT1ADFLCFsCzgfROvSsNEN3OnGKEcwzAbZX+eQqWv1FYpwjvY8qgQaQWagz6gA/Hj
+ n50Orae4/jwItelwmwUM+w8MCNKZ1bodhPFaG7DBNsILr42QtEuWuTsTPF+I9vNTWhFwdKi
+ AC2C3ZG7mUNQXMnuZ9GNg==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:naTv7zcdLbg=:K0DiYgcUAFUIvZNSJLnPhF
- TR8ONd0H5vlFNo9s+S173Y0i1yWRmEuEcfuiUtbDNfeQhxSN4qbsGQHKYowzOslPG4Xwm7iHh
- gLASVPq3d4YTmFVY590C6iuhoOJzAB5eYIIgr05Gqlx7CR668I669LA90dj/iyUKfUnzDrJar
- LZnab4p+nt4C4PfV897q0HFaPFLgvb4CmfyFymF3TvMXJiRpUBZ/RyI74KSi8LbvKSGujvfCO
- 1XxJ7oH1mtw+Uf/jeyTxbL3aLzXfCQ+Q+eywDgTgJeZe3/r0Lz/5jR1N81AhAsov/jhUCgVo6
- G0CACRv6k5HfVXr+LnzU0RVPue/t4oSmm85X4QRjO0ycxRun1YW6GPKbjEwl6yUGrTUgmes5M
- CgZ0b57xUI4cr2Wlaqz5XI8wYnCPRsRr0gepZx+7vQWrBsqUQTgE5ON7U//qfRVQq1V1NIXk7
- WjCYrftUGzz3p28lAANIFZ4BngPJZ4u+GXqo4gKtFnoZvSgr21XuTwMH/A485jWmMFBJ4DaRh
- ukxFYBiYyuPHV2Tl6J1cZGw5HUNurtA9UsNc8Q74rboxhdw2enud8CsC9XRY7kGZA2msxsqPv
- H0gce7q61WH6+lviiLyAo1pFAzVRqZtO6m/awVb2gVLoqKkPV+MmqwTdK9A9eDVNGRzbb7/MH
- lK67JYsSZffsn0qHPiBDie2qQ8aZn+wGUas5aQQTxxx2XT67KtbTtz63FbJ13tyJMgyRViIR8
- YwFfXd6rCOs4ZuKJxz0nSW1QHEgR65YGVuNpb2rKl85o8Drf2xLESyWNx0lD6BXPq3KRSGCgQ
- O9STRSdwbZkJFO0E3wLP734Wopq5REw03eGLVciu1Uh0Xt3UtA0Fx7J17HWcsDzq/AWzmSv7N
- fu42zs35kwyPfqf/bz9A==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:4D48kbU58hA=:M0Ukpx58xOP2bgAOCbesZg
+ Ll3K2WKrJMuAIV0rQMg3YrjRgy0vn19WxNhnTpIkrflyRiZWcJOM0wBeRuWKJeyvUs0Rmo5L2
+ WT/4Q04J4mCDT0lGHrQHxf0CSt7FRwbIaoymM8ll6+AnjlipM3gBW2vuD399wywXHODhQH/Jj
+ kmmHm0vPKelSxnjmyF5QKhW2vPKNuNrxHXBAuShJhblFiaT4Tpite+9Tpqz5t78Mv1d0c4+St
+ IPO467Ji+f+nalLEiSfYfSOueaNIp0Zh2ECvF8gYGuCtq4mQgaFQma45iRPDMa0dLQp2LPHv5
+ s3HOgLJcrW3+YLL3OgrgSAIqY/JojFmQs6jVGI3Y/iaIHFpiWRvNCCVqhadcZDljlJ6/isT3C
+ cWMwh3wga4zB1HZAibk87TdIUOsEWosHOOSejWot8HMi7thZpGsmWSYlpaZpcggNF8Y5ef5cx
+ S+AFB9lJCv6tLjnDzT5CItgHD9CSDilvn5DV5AQ2CSUe7CMLtj7FRRuRtxGnzKXWHsDiqUK2X
+ dLpSNCwET1M9ENlBeQ5D+BhxBx37HFEUhCYKyJqFJoQbTkGvZkwazmwaChizrxq1gbyD4vDeD
+ GqCyA1nhBCBAM2hW+2uyIFVsDMDpeg/OoBtcZMPB8aPwvr2q464wcpu+nmB0VWQnFJx8hRRKp
+ kx+eBUDSoB7gkuurGSeum9uDonECxoSFhh//75/Bmdr0Te33FTyRIMUwkUlAfiVlOVC5ga602
+ HNuDLNkHHth6E821u1odV2gGvJVg9mgsLl5k0rHpfHXjU15zA2Ww4I8gM2c4ZgC5ypKzC/eg5
+ iac5xdsyiVk9Kf4KiWNLvvcteewurG0ZAiyq3Yo5GGXvCGBgLkIfnziVSp+lP21xvwWwPUCJr
+ pxfok2TuNB12F2uGor0g==
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.126.135 is neither permitted nor denied by best guess
+ (google.com: 212.227.126.187 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -155,44 +151,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Without CONFIG_DEBUG_FS, we get a warning for an unused
-variable:
+Code in the amdgpu driver triggers a bug when using clang to build
+an arm64 kernel:
 
-drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:6020:33: error: unused variable 'source' [-Werror,-Wunused-variable]
+/tmp/sdma_v4_0-f95fd3.s: Assembler messages:
+/tmp/sdma_v4_0-f95fd3.s:44: Error: selected processor does not support `bfc w0,#1,#5'
 
-Hide the variable in an #ifdef like its only users.
+I expect this to be fixed in llvm soon, but we can also work around
+it by inserting a barrier() that prevents the optimization.
 
-Fixes: 14b2584636c6 ("drm/amd/display: add functionality to grab DPRX CRC entries.")
-Reviewed-by: Harry Wentland <harry.wentland@amd.com>
+Link: https://bugs.llvm.org/show_bug.cgi?id=42576
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
-This was a bugfix for a commit that landed in v5.4-rc1. The
-fix was applied by Alex Deucher on Sep 19, but is still not
-seen in linux-next.
-Resending to make sure this makes it into v5.4-final, but
-please ignore if this is already coming.
+Apparently this bug is still present in both the released clang-9
+and the current development version of clang-10.
+I was hoping we would not need a workaround in clang-9+, but
+it seems that we do.
 ---
- drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-index 8cab6da512a0..7516a6436822 100644
---- a/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-+++ b/drivers/gpu/drm/amd/display/amdgpu_dm/amdgpu_dm.c
-@@ -6019,7 +6019,9 @@ static void amdgpu_dm_enable_crtc_interrupts(struct drm_device *dev,
- 	struct drm_crtc *crtc;
- 	struct drm_crtc_state *old_crtc_state, *new_crtc_state;
- 	int i;
-+#ifdef CONFIG_DEBUG_FS
- 	enum amdgpu_dm_pipe_crc_source source;
-+#endif
+diff --git a/drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c b/drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c
+index 78452cf0115d..39459cd8ddef 100644
+--- a/drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/sdma_v4_0.c
+@@ -961,6 +961,7 @@ static uint32_t sdma_v4_0_rb_cntl(struct amdgpu_ring *ring, uint32_t rb_cntl)
+ 	/* Set ring buffer size in dwords */
+ 	uint32_t rb_bufsz = order_base_2(ring->ring_size / 4);
  
- 	for_each_oldnew_crtc_in_state(state, crtc, old_crtc_state,
- 				      new_crtc_state, i) {
++	barrier(); /* work around https://bugs.llvm.org/show_bug.cgi?id=42576 */
+ 	rb_cntl = REG_SET_FIELD(rb_cntl, SDMA0_GFX_RB_CNTL, RB_SIZE, rb_bufsz);
+ #ifdef __BIG_ENDIAN
+ 	rb_cntl = REG_SET_FIELD(rb_cntl, SDMA0_GFX_RB_CNTL, RB_SWAP_ENABLE, 1);
 -- 
 2.20.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191002120136.1777161-6-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191002120136.1777161-7-arnd%40arndb.de.
