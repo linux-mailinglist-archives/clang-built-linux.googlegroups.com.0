@@ -1,45 +1,45 @@
-Return-Path: <clang-built-linux+bncBDEKVJM7XAHRBWVD2LWAKGQEYSRB6OY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDEKVJM7XAHRB3FD2LWAKGQEGYGEUIY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id C289DC87B6
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Oct 2019 14:02:34 +0200 (CEST)
-Received: by mail-wr1-x440.google.com with SMTP id i10sf7384082wrb.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 05:02:34 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570017754; cv=pass;
+Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 94B89C87B9
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Oct 2019 14:02:52 +0200 (CEST)
+Received: by mail-ed1-x53c.google.com with SMTP id w12sf10728817eda.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 05:02:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570017772; cv=pass;
         d=google.com; s=arc-20160816;
-        b=O4AJO2j9985qF8yabM2OIJ2BrNQbAv5c2x8JwP8sWYGSncnoZuvQ/t+YXBDZoDrVJF
-         UCxRI9ipPyTH7G2G0P0DxqPXfJAf57lFDFx7umYj5L6AjLLhiUktdz2E6u1e5SR3rh8E
-         xsgwKEbTNOsc8+aiBOgyo8t3zn1XbnhdNejQdqV0/BZNbC4cf/5ksFPj2CchHnz4UT9G
-         IFHvSGpO4Hh4iJ0WtpMbY2WCaEbmqJaUxk+/qS9Xbmlgj9+KaVGoOqODj32sgUIyGB1R
-         lAnXTcEFxX0wEJPnzF4hNpTRENfY/++G9E16jatyGUKdU6t/i+KiiSAZTKVl12eiKYzj
-         1zPw==
+        b=DxUd1dRQucWur+TVpNgmaGKCSEN8y+gZKmel2SIk7hLUPedr3k9pGAVSk93REmONLQ
+         tZNh9ekw6DracqgJHrXcXe6abnvKKcF7SUwv5TusQ4/gzSAa1wD4hswICHKgAabaptSv
+         z3M7+0YkqeRuyZmAi38pSE7APMWvVmyvBw0QFiscs5YBoSotJCpvsJgDMkCbDBsj/z84
+         wqu1naEexYNs3K4q7sSv7U0xZGTIyxE5GljCf+8f/t5x3wOzrpjOqKI2i0lACWPn59Cc
+         IGXCM2FnofSo7mZbwv35jUqqa1DZJj+OhfCdgYB7AnUSqm/0XWp6DKjGUGgvjFUmpi9U
+         5oJA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=VglZexUfbq6q3MhizlHOqi6C2XXhZggrlFJCTyXaLzs=;
-        b=EsjZPELS6hsshPSO+LnUK9AwBsreEB5ICdtWWjmr29IFI3QjKN83zmszgOTfdjKuVG
-         SZWopcw/J5TEiuv16556TbHFx9APYf/5gsxKySz+6S8lKwdwWaKl3T2wZG3mL40DDla1
-         pJ/ADQok/VS1S3zUhlyWbouliRloVLkaWCmU+Qftm7yKgvwMbL31WJNiRfBvthhWHD5W
-         hZN33ax9toZXjG/IeOSHOw+1LTZVOsqcEBtbalo3LhYI8mjeLxHIiEONFekx8kzvXTkN
-         6Hc588+28qbzCIOZR6SGfKZME/CHES28wn8zj2dsStB4BtEIT6qY1MPBWPzrcSZU65jM
-         NBGg==
+        bh=AsEbHhhiKc6e4DXuxS+GC/lg+zRvczujOTt1zBuLWgQ=;
+        b=riVXglUNYVDuIrZfPD0XGS7UGPtijrVI1mI/Pl9SNYlzzyzw4lHLqttmSnNMCCkxca
+         HK4fadv+KVbNwJ1MHEvCkRvaUIRyFuAL3e1yLG6lmfbM65RDBMyaSkL7vwyxpiW2Hp+j
+         9eR2ywXQmul0ruw38P4d2FuMhT07WTumsHtOGKd2VisObJcZKKBWkZ+qfkNDTJSIpLxL
+         dpE8XGflzu7w8dQwWJOmH4//UOV4bbcmLouM8G6cMnmg8ahDVF6BtS+ec+/z12pUuSx3
+         Pu1fSOp/NJwUU5Da15YX5OVP91HfAuO5CS82ZGLBTMHXCJkE+5KvqkqE4OkCmrBahDPp
+         AvMg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+       spf=neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VglZexUfbq6q3MhizlHOqi6C2XXhZggrlFJCTyXaLzs=;
-        b=gKjKgSPcIeOCM/bDcu1gCruudBZ5g7t5nQiYmqwvJWXueVt9hV+RrLMMRkXU+Ij9QB
-         etMebQlEOzQwSM6VDmHIiAqJsOfRWFH0zffswwFhq6VW8nsSmwtp8eYNo5TbzMhJLlCi
-         k6ia8brAV8qu5yZRNk04jYuC92ClPmjv+8E/BdFfKO/NNIMcfU9gtw4uBfwyaYUIPp13
-         1Q8IhaLiszG4mkWq6fjRV/s6YIA8WiCSzlpaqPiu5Zj6ELNBVUXUg+VB12p2RNBg359W
-         gWfB5EqNdMdvFcuamMjvK9XBT8EUW/5ZD/fTT27bLnXeOE9EDfkJfrtedegWIlPI03UU
-         Km0Q==
+        bh=AsEbHhhiKc6e4DXuxS+GC/lg+zRvczujOTt1zBuLWgQ=;
+        b=tVOYDLPx59cjwhnhNkEo0YwiqNOcvFpisC2uuVmAzmxdbT1reJ32+Pzv0oMekuUr4f
+         4FYW5Kdq7CD6f5DfejR71pxsIcsGp9u9+RTH1tCE5aQzHzPBj6lWhvp3atkOyFnBAiic
+         LfNDtmIC8f95OTJtTx6tBRMUTTVyXe8+dmvSM3jVbNyZMUcEfRPDyUUq+fmdW+Zzhq/q
+         Y/H7O8c6HrMm2g1XhjA22FP2ab/DKKab+23DQEmFoLHfUggywELWC2PAIdDNmmBhfnxo
+         CsM7SgKCR1KwThNhCsR+49hCkC0vOiJDWVvNYHBon1EYqUIe6Mpqr3VOSzOE6w8OCp9n
+         hjcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,55 +47,57 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VglZexUfbq6q3MhizlHOqi6C2XXhZggrlFJCTyXaLzs=;
-        b=pO0CzjP+3/27VeZv4POy1qWDHG2n704jAA0KFxLt387FW3ovwSXeJZNAhqyM7o7XYo
-         ex6vUqeknhVO9V4sPy9P9zjnNoiL16MQQz5dhJn4VvZEL91BvcUj9lSm6gGY/xrtpHCL
-         qIVBz0r3282EzZpzKrOBMjZqYuowScvS731Ip+W2DUmvKKscTQZIofRqeqoAtfxbjBAU
-         NEOL2NTGPXBK2E9sQlB7jquEATmF8Bn+DLT+C5qZlri2zFfRx75JFVL4TtSGwLYffx6k
-         2eSCPQFM7Nk+Aq40cqp/Y6JrpW8nBgeho6zBxm9QA0eMJfnhnrsNNYgjn2xuGIZ3BdPg
-         EG+Q==
+        bh=AsEbHhhiKc6e4DXuxS+GC/lg+zRvczujOTt1zBuLWgQ=;
+        b=r5HFkCfh8Y5l96R6cvq4J/CxvBcAXpPG3P0E1mh35KjFdZd3aSX9woBtYgL/kLnZdf
+         AGjOfpnvEwW3wxjNo2dcHaIQ1FxT1WVqDyhdcwfOR7sIOxCZHtSxpmva0LIa17JrYp79
+         r92ar6etg52ed/Ax0v/jLgOsqV/MBqS1w/RWJKLn7cSs1mxGx7D1WbVszfWPmwGShB1Q
+         Fj0+WXOZXaYBBs3bK6pdSdjFs4waq5LuWEU6pywo47ibrinArWQGf7e83F6FrwiDumwH
+         CLOooZtvc9qFDZII0RmyxcGk8mOIW0wyzUYIkcDe7eyOJwGtW0VWkpcshfwhKOo8qUex
+         aKvw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVvzBf4RjMVWCVqVAlQc4lYcGgTjCUr8OEyQ5NTKgr3mmqR99Pa
-	3r68CY0d8k2l0h5cj5IBcdM=
-X-Google-Smtp-Source: APXvYqxy5Z/0tm76mwtiu3S1/oPM0qJwTYtFg8Uh8vgc6sG8JXqffY3hbQu5FOjdvh6Aqd2Pqhkxlw==
-X-Received: by 2002:a5d:45c6:: with SMTP id b6mr1726069wrs.4.1570017754483;
-        Wed, 02 Oct 2019 05:02:34 -0700 (PDT)
+X-Gm-Message-State: APjAAAWsmKj/0TUUcWLrm/Fhniu9ilhGzR/1lbODbrrTOwccDQN+G3Dm
+	7yqNdxYOSeXYCr1Tp9+dsrI=
+X-Google-Smtp-Source: APXvYqzwuZDBvWIGEBrISDsFeTfTiZ+32OnDLQPifJurdkNv4ktZUKBoancwwib7+5AiJxNKcBjAkw==
+X-Received: by 2002:a05:6402:1583:: with SMTP id c3mr3351883edv.286.1570017772308;
+        Wed, 02 Oct 2019 05:02:52 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:6889:: with SMTP id h9ls624544wru.13.gmail; Wed, 02 Oct
- 2019 05:02:34 -0700 (PDT)
-X-Received: by 2002:adf:ce83:: with SMTP id r3mr29623wrn.219.1570017754037;
-        Wed, 02 Oct 2019 05:02:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570017754; cv=none;
+Received: by 2002:a50:cfc3:: with SMTP id i3ls498407edk.9.gmail; Wed, 02 Oct
+ 2019 05:02:51 -0700 (PDT)
+X-Received: by 2002:aa7:df8e:: with SMTP id b14mr3332420edy.65.1570017771876;
+        Wed, 02 Oct 2019 05:02:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570017771; cv=none;
         d=google.com; s=arc-20160816;
-        b=bbLzXUDSB70gFCk8A1AY8/61+IjAUNTmQMVUtd3krK8l1kfXyM0D1cT4E624d+BK4m
-         QJ2IY+lxFEUguVxJSMCyGwWHjIy4y/XLDYAAMDdREynuac+ZmkhinkVX8CXspKPbUqOJ
-         h33ggkBB5bKeJQ2+m3NPHUXmRpsi5PT9WGW+M2hgYP6Sk1jU+zaUPzX++idPSzRajkEu
-         n6r/b+N/NH9jiRkkSPdFqEMVXdYPLhuf7Xss65qYaLbd5B6oVUn3DN11kZNxBsTWy0UY
-         wkXbEJiprpUSdILkykRJSucNAjrvZrcv1XkYi7NU7B7ZUqcvkMOFZn+u6BXq/Y7sFZ91
-         c5Ag==
+        b=fNSCVrq2wJQRrrl6G3gkjvl0vWhEyqCf7HeY7CAddq6qqRD4VlvpYVeFvor2URlZUh
+         c49qrVIrWCmkmhaOIo9zQ+ucWrKp+d2Z6Xr2EXCR3DetjKvY+11OZy0DD6GSt8AB+PaH
+         GQ1NUqW56b4UkvXphH0tBL2Oo5Q22Pi9mu9vBEqpW70Ciyl9TnJMuZrd5aXMo6FCCfZ6
+         DIsVP2qPw+UlE9NLWwDWBrb8klAX0txR4pGb6MHeqYM23jr1r+i24qSqWfOTHtkcL29u
+         PyMT2FS2Mbo89faTSO/Zon6qvrH7dUcFnfFX2c2UFqEsZWhDS7saBDtLIcI3fR1pFpvE
+         e51g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=joxJVb3kf3s/lRIYFgHkWJMUOTIZsmg/IlWI2d/6zQQ=;
-        b=UATulxnAJFd0wA2Opxf4zyFc+Eli1+S//O0okMyUHgzWfvWF5WS72ZklX5nuIZX/oi
-         /weUQUp94jcUC/Cv30k+JWBNaH5u0vBxbb0f22cWjWEJUXrA38Mybu07G++kgUaOuEZu
-         hSHcZJslQ3H3j0hrIvgVHOqtttS9cFFyzDpYew0t4TtwCGMYbedRoklH7mLrRStuLd5Z
-         SI48w5fc8hxhpBn+4hgJowJY4Ri2NSrNu/WIhoPX7jOqIP5mkdhuBbWqZ3mFe+0ZkTp+
-         c/cRMok47MBkorfN9leEFByKG2xGO7TodzgyEqxLcQfE+4s+6dbbkq9wyIk7HCxd4mJl
-         yt6A==
+        bh=0DhDzISlFC0tr3bP+kfYIUV2Q7xgXOElc0fWnMU9BhU=;
+        b=bxMLLO5LEpNAvarRXcG7ZjgGevuWhVd3a2YrOI6PaNVzZDe1lwN2Yjd92ve/g+LcVf
+         m7vhcsRKGtgeDfIvI3GviLnRXTAKHfWFVM/FDQlAW44pdgJf98F/3vfiTbKTdypCqq4+
+         +HxVcx0YLMAjsxGxhwkm1MfHac8u7fEgfdxFPWJuc7y/Gpk3BRYb4LU/EoiIS2I1ktkp
+         P5tZsSRCW1+3IWGoCVhKI85E3x5kH+fz9a/jgPRs1B7zJU1ka9bCc7R6SF6LtSwK6cGC
+         KbfDtjw7CGvKSXIT/X5GTKYH2uuK+D660UvevKA7RNHdbX9ePaEm9Lz3W6zp+WVbJesg
+         ZeKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
-Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.133])
-        by gmr-mx.google.com with ESMTPS id q185si496464wme.1.2019.10.02.05.02.33
+       spf=neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
+Received: from mout.kundenserver.de (mout.kundenserver.de. [212.227.126.131])
+        by gmr-mx.google.com with ESMTPS id q8si999472edn.5.2019.10.02.05.02.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 02 Oct 2019 05:02:34 -0700 (PDT)
-Received-SPF: neutral (google.com: 212.227.126.133 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.133;
+        Wed, 02 Oct 2019 05:02:51 -0700 (PDT)
+Received-SPF: neutral (google.com: 212.227.126.131 is neither permitted nor denied by best guess record for domain of arnd@arndb.de) client-ip=212.227.126.131;
 Received: from threadripper.lan ([149.172.19.189]) by mrelayeu.kundenserver.de
  (mreue009 [212.227.15.129]) with ESMTPA (Nemesis) id
- 1MQ5nE-1iSsrQ1Bbs-00M5vI; Wed, 02 Oct 2019 14:02:32 +0200
+ 1N6srH-1i4Jx02kQB-018Nqd; Wed, 02 Oct 2019 14:02:49 +0200
 From: Arnd Bergmann <arnd@arndb.de>
 To: Alex Deucher <alexander.deucher@amd.com>,
+	Harry Wentland <harry.wentland@amd.com>,
+	Leo Li <sunpeng.li@amd.com>,
 	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
 	"David (ChunMing) Zhou" <David1.Zhou@amd.com>,
 	David Airlie <airlied@linux.ie>,
@@ -105,40 +107,36 @@ Cc: clang-built-linux@googlegroups.com,
 	linux-kernel@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	Arnd Bergmann <arnd@arndb.de>,
-	Harry Wentland <harry.wentland@amd.com>,
-	Roman Li <Roman.Li@amd.com>,
-	Huang Rui <ray.huang@amd.com>,
-	Evan Quan <evan.quan@amd.com>,
-	Prike Liang <Prike.Liang@amd.com>
-Subject: [PATCH 2/6] drm/amdgpu: hide another #warning
-Date: Wed,  2 Oct 2019 14:01:23 +0200
-Message-Id: <20191002120136.1777161-3-arnd@arndb.de>
+	Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
+Subject: [PATCH 3/6] drm/amdgpu: display_mode_vba_21: remove uint typedef
+Date: Wed,  2 Oct 2019 14:01:24 +0200
+Message-Id: <20191002120136.1777161-4-arnd@arndb.de>
 X-Mailer: git-send-email 2.20.0
 In-Reply-To: <20191002120136.1777161-1-arnd@arndb.de>
 References: <20191002120136.1777161-1-arnd@arndb.de>
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:NGWmbgtBQPd36ajMsUKwWTLmLmAiDhXD+Mtxk8YE6bumOY91z5j
- ElTVg9ErXeu19zyaJjHShChe33oD/sZNS+NC2xYgJxGSP+Cv3fiUPnJQyoF55GFnKYLRXfE
- 2W6ePyEZZZnJqvhJcnEYxyIsGj4XVU0SqmkvNUws9vUBxgum1tpeEkHDr3eU9mOfpWs5/qK
- c2OuGSj7VRRq4HZWHmlZg==
+X-Provags-ID: V03:K1:oBjKGQ3jYf0A2J2ocemwNHrJLF3mvVMEn6zOLTNAGubueuLRYyk
+ BpOHFj8UwLoAn+bAxDpM0Us8z6MwyTwhFaeTAJtXgpd1gN2qJVEkpNfIB76daOLbh6I9g1g
+ ahi1mLhjBji4qSGK5wctAS/ZXegSzGKfel5KNAxFR+4Ew0SuQO7JYnxKngDUC1t/3w0hgkw
+ 0QdnYpJY4kkYs3R/f4iCg==
 X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:tHfRN4OBGvs=:fW2ZMTKDtL5J46tSOTYwo7
- hI7G13ULkv0U0gsFqYPM7VIrS2vVTeLAAKk8Zocotl1a26VnKSzf9ACjbySMHLqn/YLFLM/an
- jeeK1w0O6FziurC6udZLBxSQ+w0xuShgNAS0dmb85TNlZUEbFIPBKcifVb3SOOLztBaPCGUoS
- NoehdFJs+5F06tEFkYh7RwCws57iJl9IDF36NDU172d0j651NCYKxiRTwuVJwq8v1pMMgNB5F
- GsyPI9invPbWQ3Qabv8Vl541BCJz9kq9SiLAynFCEGBppk4/2heBNKiysrhzUyY1GCFXFTpyR
- jm8R4mSKoHnYymZBfQmM21Ya5YRoWOxjZlL5b29/a/vCjHR60Mbhn6O4fWvYjFyKZM+oeDBHm
- jvmamJcUpz4LrKYPTScimQTnJiMNSF6TegjnGok+Avkuq6CXLEt76q7OcOrdcL3RlIj8N3Z93
- 0Mcr4Ca4s6pOIPFYp2MpBCsdAc496jndQymEUZ1kzL+QHE2Vm189XY8O8uy3FO62o9wg6jW8r
- 20Z2Rigz+n98Qn70o/GL7dR0t6pn5/+Ah8CUB8BUj7UuRb4B5Y1r204f9PrdCZoJd1bxNtGv1
- T/35lymzxTtG0LHfNqneYlv6dW8w81olD7OcLsd8EpnRNH21ddoiXrNZzEMkRJYeEK2UZvYN6
- v4BAKGf6lXNAe8dPzPVonqnshdSOGTOcS/U6YliDF3sFT3NUiOwme5Svxk92FTSkEJ+jGVWle
- zPH8uxRgIf9rDysK359hEjmf07lC2vhIYljzmzZSr4bZGDx2dka+aX71oDLFS+QXMs3GTAdRB
- gGHLG73VBU/aKAB1EmzCuuwYNDAJcYU/AGCdbyVwGlLKwDQX9iLOiFzUNQOoVeVwDVO2oo8tH
- jD/cUlQlPEXbqVI5PSqg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:eSQ5Yr5a9oE=:9FRtoMlN7bwSrOG9f5YY1I
+ bpZ3Qlyhsku0LcpbDJu5j1GigQk6vUWd/VoWhAWdlLLxtXK+BCdOiQtpfBiQFZdP8FLJ26cuR
+ kV5qGa3w8U+kaC94DSFBi0lHTB2sNsHBjsd2p8WvqTLIZwirBsTcidrQkvC2sa1DPz0RHHLd8
+ U9Vnvws8HuDgF+P7zwa3qcikMwSX3nStW4yO3wtkWdKwr6Uglr1x0i8/QF3LCtLtK4FEzrZVg
+ bM4cQCIHQZpPin18GxcI5pwvpk2Qgoml/0vjZaUvLxFLn2V4iCWTtG43DqQmNKwH+Uu5EPbFE
+ XKXWZUhX8b8lTqAqeEI30b2ahQc932Gp2k9HLD4BRhgWp8Ig9EQRTUgQKWSsTHSTnQtU1cNv+
+ 4wMcWJOh0Doxtl6hUiJzmGCWOFc2YYIcQ9ELhsb9uoUBPdrVP4Cjrk1ffgCIZs6HhA7bvk7NE
+ EZVguXf2MjBwrvsRdR3dXp5q2dELksAz89Tywytd8DQjNspuSufMllFGCsbJxVOgVSEnevN5g
+ fKYidaTAnk8c1QQo9w9YM1DRwbCfHfDbJUTn+5ROSNw8cDuvGt7AjNVZUyBKhRUS3S6hrk7I5
+ 34ybrIVzQiMV1ahqKIPXzQ0zPNdkHLSJNEc5Zt0ixZByldmxHwcytbpqPiVd3k++zjnk1lmAh
+ Cmv0SEdjvSfss1GwwRbvWZi8aTQH32JG2l9zkRPg7Dnv9F3dDWn4s9meRO7HnvAqZHffcxad3
+ vMQ1fsnJ20Ma1FOm07EGM6aLkWoypGrNlbx+lKhhjGOg0kBUxqdy1pVidgfcwS403HhTEwiuL
+ BlKxnY8Yx/kkAUL/1tXVJvhmg2XNXfg78iWD6M/9MmC8aZWKvP915zIr6FNADpRBtcjNi4JOp
+ 8nnSZfI7XGVLOMcy5tjQ==
 X-Original-Sender: arnd@arndb.de
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 212.227.126.133 is neither permitted nor denied by best guess
+ (google.com: 212.227.126.131 is neither permitted nor denied by best guess
  record for domain of arnd@arndb.de) smtp.mailfrom=arnd@arndb.de
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -153,36 +151,84 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-An earlier patch of mine disabled some #warning statements
-that get in the way of build testing, but then another
-instance was added around the same time.
+The type definition for 'uint' clashes with the generic kernel
+headers:
 
-Remove that as well.
+drivers/gpu/drm/amd/amdgpu/../display/dc/dml/dcn21/display_mode_vba_21.c:43:22: error: redefinition of typedef 'uint' is a C11 feature [-Werror,-Wtypedef-redefinition]
+include/linux/types.h:92:23: note: previous definition is here
 
-Fixes: b5203d16aef4 ("drm/amd/amdgpu: hide #warning for missing DC config")
-Fixes: e1c14c43395c ("drm/amdgpu: Enable DC on Renoir")
+Just remove this type and use plain 'unsigned int' consistently,
+as it is already use almost everywhere in this file.
+
+Fixes: b04641a3f4c5 ("drm/amd/display: Add Renoir DML")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- drivers/gpu/drm/amd/amdgpu/soc15.c | 2 --
- 1 file changed, 2 deletions(-)
+ .../amd/display/dc/dml/dcn21/display_mode_vba_21.c  | 13 +++++--------
+ 1 file changed, 5 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/soc15.c b/drivers/gpu/drm/amd/amdgpu/soc15.c
-index f70658a536a9..a337d980b434 100644
---- a/drivers/gpu/drm/amd/amdgpu/soc15.c
-+++ b/drivers/gpu/drm/amd/amdgpu/soc15.c
-@@ -771,8 +771,6 @@ int soc15_set_ip_blocks(struct amdgpu_device *adev)
- #if defined(CONFIG_DRM_AMD_DC)
-                 else if (amdgpu_device_has_dc_support(adev))
-                         amdgpu_device_ip_block_add(adev, &dm_ip_block);
--#else
--#       warning "Enable CONFIG_DRM_AMD_DC for display support on SOC15."
- #endif
- 		amdgpu_device_ip_block_add(adev, &vcn_v2_0_ip_block);
- 		break;
+diff --git a/drivers/gpu/drm/amd/display/dc/dml/dcn21/display_mode_vba_21.c b/drivers/gpu/drm/amd/display/dc/dml/dcn21/display_mode_vba_21.c
+index 46cda85d3d63..998970e2f84c 100644
+--- a/drivers/gpu/drm/amd/display/dc/dml/dcn21/display_mode_vba_21.c
++++ b/drivers/gpu/drm/amd/display/dc/dml/dcn21/display_mode_vba_21.c
+@@ -39,9 +39,6 @@
+  * ways. Unless there is something clearly wrong with it the code should
+  * remain as-is as it provides us with a guarantee from HW that it is correct.
+  */
+-
+-typedef unsigned int uint;
+-
+ typedef struct {
+ 	amdgpu_dc_double DPPCLK;
+ 	amdgpu_dc_double DISPCLK;
+@@ -4774,7 +4771,7 @@ void dml21_ModeSupportAndSystemConfigurationFull(struct display_mode_lib *mode_l
+ 				mode_lib->vba.MaximumReadBandwidthWithoutPrefetch = 0.0;
+ 				mode_lib->vba.MaximumReadBandwidthWithPrefetch = 0.0;
+ 				for (k = 0; k <= mode_lib->vba.NumberOfActivePlanes - 1; k++) {
+-					uint m;
++					unsigned int m;
+ 
+ 					locals->cursor_bw[k] = 0;
+ 					locals->cursor_bw_pre[k] = 0;
+@@ -5285,7 +5282,7 @@ static void CalculateWatermarksAndDRAMSpeedChangeSupport(
+ 	amdgpu_dc_double SecondMinActiveDRAMClockChangeMarginOneDisplayInVBLank;
+ 	amdgpu_dc_double FullDETBufferingTimeYStutterCriticalPlane = 0;
+ 	amdgpu_dc_double TimeToFinishSwathTransferStutterCriticalPlane = 0;
+-	uint k, j;
++	unsigned int k, j;
+ 
+ 	mode_lib->vba.TotalActiveDPP = 0;
+ 	mode_lib->vba.TotalDCCActiveDPP = 0;
+@@ -5507,7 +5504,7 @@ static void CalculateDCFCLKDeepSleep(
+ 		amdgpu_dc_double DPPCLK[],
+ 		amdgpu_dc_double *DCFCLKDeepSleep)
+ {
+-	uint k;
++	unsigned int k;
+ 	amdgpu_dc_double DisplayPipeLineDeliveryTimeLuma;
+ 	amdgpu_dc_double DisplayPipeLineDeliveryTimeChroma;
+ 	//amdgpu_dc_double   DCFCLKDeepSleepPerPlane[DC__NUM_DPP__MAX];
+@@ -5727,7 +5724,7 @@ static void CalculatePixelDeliveryTimes(
+ 		amdgpu_dc_double DisplayPipeRequestDeliveryTimeChromaPrefetch[])
+ {
+ 	amdgpu_dc_double req_per_swath_ub;
+-	uint k;
++	unsigned int k;
+ 
+ 	for (k = 0; k < NumberOfActivePlanes; ++k) {
+ 		if (VRatio[k] <= 1) {
+@@ -5869,7 +5866,7 @@ static void CalculateMetaAndPTETimes(
+ 	unsigned int dpte_groups_per_row_chroma_ub;
+ 	unsigned int num_group_per_lower_vm_stage;
+ 	unsigned int num_req_per_lower_vm_stage;
+-	uint k;
++	unsigned int k;
+ 
+ 	for (k = 0; k < NumberOfActivePlanes; ++k) {
+ 		if (GPUVMEnable == true) {
 -- 
 2.20.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191002120136.1777161-3-arnd%40arndb.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191002120136.1777161-4-arnd%40arndb.de.
