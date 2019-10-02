@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBCWT2HWAKGQE55UH3HA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBKEH2LWAKGQE4WSLXTA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id D12F3C4A43
-	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Oct 2019 11:10:35 +0200 (CEST)
-Received: by mail-qt1-x838.google.com with SMTP id s14sf20626378qtn.4
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 02:10:35 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570007434; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id D3244C86DD
+	for <lists+clang-built-linux@lfdr.de>; Wed,  2 Oct 2019 13:02:01 +0200 (CEST)
+Received: by mail-qt1-x83e.google.com with SMTP id z21sf20808985qtq.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 04:02:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570014121; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wJ70ukagy9+6ResLmeOMeAVO4X9eOQGnz99kqPbZ+nhGx2kNYKmBLI7izJx9YuizxA
-         TSYVS6kDRbqH/jqf8zJjkSvM8XF+5Fp6RvX7OxHn7tiJiZ7RabzGwGKBAz6hudNgfwes
-         RDwuiIfLMYgIHE3mI86glPdhkv2MAWsMAKp/aNKl3g+0MeaY7NEJ4jk8cedTR1XThEth
-         i/s4whV7m0p7gvUNd7sA+Q9XPnhjqbC9LlBDQZovp+nDWZ6R6p6DNrdeK6AoPTOHOxPg
-         Ldk/n5rGjbxMXDh67XP8C2mAnmfwuaeOdAAIZXl5AfzpZtrxDMMCyg56kDC2SPmlrsG/
-         x18g==
+        b=OwCKHAUCrbGT2hbeExnpA8lhadv8pjIRI/Uoi9UDzIaOLWWM2Q7WBFwjMzKHv8zIGi
+         9ovyiidWgdmSJNqWUTQMgPKXmaYhNVEz5Y8gYU/oUqk6cKmIKIMZrjyES+yTBnaQFiLi
+         MbJHXVnSn5x8L9SLXXIn4rn3kuxtQ0YZxN31YaJKGcqVeoI1qofip+IgU1cpSOtPPQC6
+         wu96M/WV0s/W8ThXnrkLiXNVpHvir/+s97l39YJjSOc3IOttxk0ltaaKPaglQ1lJGS8l
+         Yz4SQ72L6ktW8stt+I2tZpWY/MddFi0f8vKUVmwnHEt5X3/anhg5UY+9gUsqXMwkXPXP
+         3Bxg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=mF0/k1qUdGMesYpg84QX53NfO0S0F3W09IhrT81tAZA=;
-        b=hdUhczoGy49vhE+a+x8Ns1Vvd8pw5PAOhGcf3BVGca+fyW6S2n4juw5uY/G7MERM94
-         cdAcWGAJu2Kb7a1htvtygUhtfq6khGLMhtdEJ9b6w6TrfDPPgNltGUAffkfM1oaAYcym
-         c96r6RY0wEoQNBi0hJXwYwMNuSxA2kD+sg+pAPEVk1YT78xF+VbxW8B2W70Rax6R8gm6
-         NrxE6QIu9BaCCprkOLIGVzpu/AktVIiewiYUkTgS3v2cYkcA7ABd2Jho3chlr0lLX4Qg
-         wR8tIXg2ndnye+LDu1FHwEYrHEDQhmdft8DLAePGnjpT5l3Ycyg1kM3dWbY2hijNwhF4
-         lHbg==
+        bh=7nNpI38AA2VaXu0k/F0U6PKLkfh2AMsGK0hAz2EHcOI=;
+        b=AqcewmvC9lWRdgI4/syDJINJORBBQA/5QBSkYL7lMaOb2wLP1/iaWtSOEi9iNiOMPm
+         zK+9j38Jaw8FRiUkQt6t5IkRiOeAFvMWMGQAiI2aYN9yWHCG6LWaFKDgiQXJG1t0N3nQ
+         6x7mbVuJ+uIxkU5KLELO4EER2ADmJNmApxnGkuk2QWRuyNiY2WWtn/hX+jEQHdVHva8G
+         pw8owh9XvOE/pRSmVDVCinM7YxY/mmXpIaXOkcuK3PElwcL8+F4JTNQ6iGxK36oWlFJa
+         7qhIA4065C5iSZOzXKoUSzvfm3TzVwSOtMig31W9LxyWfofTZ++16KO6OTnFydR4C5e1
+         iiAQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mF0/k1qUdGMesYpg84QX53NfO0S0F3W09IhrT81tAZA=;
-        b=RvBNndZOM5NEY/s5rsZAUoRw81I4HLW+gRCl39aL9eilLQqTMZfTAGiL1qFSglXwmH
-         ahCT8GgkKNu5/M+ONac3lNNlC5Gk+YT76uuQUa80plJ6c2LAIWkN/2hqixkIIGeLBKtM
-         jiXk35Ph/yt5QJrtWsvF8xiP2BxLjYrhHgarhsMSF2pRhTb6BfyTUqpMg9oxJch7Q0bZ
-         USXTH/2rzJg9kJy+LmJ70ApRQ83kDaQiPo9xTbCl83rtiM7VpI4fIa28i3+eT42rtIIP
-         Izhm50dnPiAYaBPCqiCr/8i8vsi+NSoYy1y+kUPJmAso/q5JVOEcWxJjyGarGrSjnrMv
-         G88g==
+        bh=7nNpI38AA2VaXu0k/F0U6PKLkfh2AMsGK0hAz2EHcOI=;
+        b=Befi2UNT/sePQPBFBeTtPJDCEKQX0vKyXkeL9HZCLQ8HP3m94FT/3lwq7bImGztUOM
+         uwC8aDz2i8TC44C4A6W+QYbAQpCNw6U1ps1msFCtlnya6jYWNja1qFWr1kdWmI7npTFt
+         GIb+EzXNWcoslEopO3D8rV8JTjf+zXN/Azw4rP8UD7V4T2753BmjiOp8wSetDRKxkNA/
+         rnsOwtmdTNbf0ncwqZvXhj+gsQtzhSE0orfODiq0EWPmJiWkedenzEsJgIBZiyd5hVgs
+         aTYp9sFRJFABdgr9Am7E041GlOI1hgorIZLMV92FtpOwlipOfWDBAahfpWB2EDQ5VwWl
+         Uqyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=mF0/k1qUdGMesYpg84QX53NfO0S0F3W09IhrT81tAZA=;
-        b=HCCFG9N4e32XgKVT3/uQ1lPi4D4S9DalpC4YuGD4LZuWQVuFpwLwPZXOuZzQxzzRZ2
-         1Qc1vDhJO9E4T2vmECnar457jfJsZL1nWLYxU7pq4RoztivoCmGq85lcUqlfTobfKFsw
-         ZL6dneaCmkTVT49w5iFm5YEh9Ey988G8UPSyn9QwzhpGYHoWX77nyQ77PoOoBg63G/KW
-         y8xYlUYtQjU9Np8SBxwKMOPOaqy5Xp2l1gmPy3J2BejpTiygGNYCjQESSrge515lhfET
-         DJRR0srNPq2AAcOlqXhkWWrFrvXq1vnE/qJbwUHSUsKg9EVq/Cwn9+OzFjss1xfuaFMk
-         hUhw==
+        bh=7nNpI38AA2VaXu0k/F0U6PKLkfh2AMsGK0hAz2EHcOI=;
+        b=e6MOlMeCe0H2T7y7Y7UPPI3P5JysDn9L8MS3D+SjpFfmexS0NEhy6uX7g18b7m9f6T
+         2toNF/WHlI+bmMNl/NjsdE2InpOPc+K74v5EwttJ/DSpHufWJgRhVDqYPILdc39HowBy
+         ieGLHLIattp1asrdRukJ9iOkYTA2P98HMam2Ihu2jtO5g7mwCNvfmxttZ69vgUo0XgDr
+         wTTxhlXSmvJrVsOg7wamhqQ/j7kWdm0KNbjHhfCtdNkDbbQtaOzd0fNjSh3gISnKhaae
+         EJtrvESb8uS/0SzajCEKS8mJj5RdH7ERO58Oe2uHbEZsJoVAUeQjhUlelo0pKAasSSQr
+         jUeQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXzznUXIZj3MwBjPasVcGLaTGGvWS8Rbwo6GyIGtZ1SUl0uXmxM
-	wxi1jnG7k8ExM0vhZu0e8dM=
-X-Google-Smtp-Source: APXvYqzLz4xOiYJ0DPjnKB2q9CLXELZ4jq1SBRsBjMXwbQscfsvGIYs7C/Ny0jFYnZh1T/nTUPTnhA==
-X-Received: by 2002:a05:620a:12b5:: with SMTP id x21mr2627710qki.462.1570007434313;
-        Wed, 02 Oct 2019 02:10:34 -0700 (PDT)
+X-Gm-Message-State: APjAAAW7DEwviIgM9dAsWJn6yVgHFAIiJYaM5uNb84qiyMx4pK3ohLWo
+	au3HNuIB/SyKFb8IO66Qep8=
+X-Google-Smtp-Source: APXvYqyM9DQLVXkAhUODRNQ7WRTEMzfXehH8S5neDvmP0L3JJqibJ6G8e08teJb+H+AGH08gJQy3tQ==
+X-Received: by 2002:a0c:e94b:: with SMTP id n11mr2392613qvo.11.1570014120744;
+        Wed, 02 Oct 2019 04:02:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5493:: with SMTP id h19ls439308qtq.15.gmail; Wed, 02 Oct
- 2019 02:10:34 -0700 (PDT)
-X-Received: by 2002:ac8:4612:: with SMTP id p18mr2865159qtn.94.1570007434006;
-        Wed, 02 Oct 2019 02:10:34 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570007434; cv=none;
+Received: by 2002:a37:ac0e:: with SMTP id e14ls645777qkm.16.gmail; Wed, 02 Oct
+ 2019 04:02:00 -0700 (PDT)
+X-Received: by 2002:a37:7041:: with SMTP id l62mr3081533qkc.7.1570014120390;
+        Wed, 02 Oct 2019 04:02:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570014120; cv=none;
         d=google.com; s=arc-20160816;
-        b=mcVGRwC+B92L0rMp+nyZYCQDhbQ2td9jAW78lOUoCU/GPU4EiTH0sN0MmsqL/qXLdt
-         PwL0nNlI7M31oAABMAsaW/r5NeFZ4Lo35ZIiUG6UTjQZdQAZRMV8MFZWEYd+PtUY/+9V
-         PcExwpPwjGCyMhs8QTtfYXlNyYlWQSzWtn5CgNqr/NtrFTBCCLq9L3f1yLI35BQjHiTQ
-         Sz3hV5rpRUx059OU13wcDviaRrkVN7PajTiW9utvXrMfofqm/zbzSZ2ARYd1keZGZqDx
-         z48zJg8zG8XBsfcZscfFgcx+lUfEO0o0GKEwM7Gnuc2+pFukHaodlJGee25a9CJPamJ+
-         PAmA==
+        b=XzzxWe5X5TZYT8Y4rtrqu/RMEAIONMrrvly8N7MxkXMuDXam3RbQStRnwETy/MUMQG
+         y6PA/JExCWHeJZYuwQKdCYwWovUi3Vltfcdk7ObiPl4btP07z8lzLrNHJ4D4+4mQiPdb
+         r2TsyUEeLFziqmTCT4ZfYJlTidq1yXMNfEB90tSaCmCknfKxCdZpwtWuOfOqZXgtYbh6
+         Xxe9EQIyTajN5GPuJEdxWMRU+A0dczh9rUpjuzvA2IzOwUVEbrzAEIBr8dAL4p2wm/Fp
+         ckRjGRd8W0Gj3n92SqOSHwVFIEPbWeGIh6kZ5SZCbG1oSMHQTOvwPcmTveNBQfXkkFCy
+         KU0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=wzC2G939VJ+gInLfbHY37v7JT4zHMOXRrK3IOauESUY=;
-        b=N4jlbXepJLu2nk7rbZDdwKX2UEeclCAY/WRX3cMjoUHRAJ2DkUIXfLmtZaZl1fZ6m4
-         PWYkteIBasI+xmifoSiIa+evHt9nei3vH6PGFuCBu9dl7obQPpdZxJbdu4B6fvsIl56s
-         pI0UGBBjXz1uuUYlGa3/ca4h2RxkKOOSNGBPVlirS8LVMJ2YFX63W/UyWp112W9JVJGo
-         9IkcRn+fe1Emqswt+cbfvbJTM/aOV9pAhp6HZ5ajZIEg5oPyoX8skf2rlgVONEQI4S3y
-         lWWktRnx1nDw94UPJiX905Egf+O2iEggJlo9EPpfF/C5GbGnGEJIGxqjJjdL2NT/NwJP
-         RGLg==
+        bh=XGt3Z4hQ51J8WNg60mLN+flEUGi37I+d29fV/7LnccY=;
+        b=kzYKkpTX9vmS7ugM5jtoujVfrfM9tvCaJzPEZEWuYyQ6XN4Wm0Q3Y4SsjwnQUMasY3
+         qbFpfpZGT48beofIhYvDCIQwc4neeoUp6i9JtOZld1x0kVRBLDHDGTgtyrLESQ41kL+l
+         D21smK86mQwoK6CGd3ucLTexJLfY8K6vPLaTHqF2/9BqkPbAWT4hj3mmyiMYIb3CWE/a
+         SHdaC5DjGJVS6zdwiOoR7nnaFqMXkuCTcMATvdDgchYjIhS4UUoqb06ZTWSWjIX4B1mJ
+         AM1HFv4hnOMu2S2pId0crp3dCGZodfuPwLIv8ZDwKO2lGnF1Qk110cbS7ZafBsolH7jU
+         KIZQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id l4si1544433qtl.1.2019.10.02.02.10.33
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id t186si604144qkf.3.2019.10.02.04.01.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 02 Oct 2019 02:10:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+        Wed, 02 Oct 2019 04:01:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 02 Oct 2019 02:10:32 -0700
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 02 Oct 2019 04:01:57 -0700
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.64,573,1559545200"; 
-   d="gz'50?scan'50,208,50";a="190883994"
+X-IronPort-AV: E=Sophos;i="5.64,574,1559545200"; 
+   d="gz'50?scan'50,208,50";a="221371410"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 02 Oct 2019 02:10:30 -0700
+  by fmsmga002.fm.intel.com with ESMTP; 02 Oct 2019 04:01:55 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iFaeU-000EfS-1c; Wed, 02 Oct 2019 17:10:30 +0800
-Date: Wed, 2 Oct 2019 17:09:34 +0800
+	id 1iFcOJ-000E1H-9W; Wed, 02 Oct 2019 19:01:55 +0800
+Date: Wed, 2 Oct 2019 19:01:47 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [djwong-xfs:rough-fixes 60/164] fs/xfs/scrub/inode_repair.c:502:2:
- warning: unannotated fall-through between switch labels
-Message-ID: <201910021731.yqZP47Ia%lkp@intel.com>
+Subject: [djwong-xfs:rough-fixes 114/164]
+ fs/xfs/libxfs/xfs_inode_util.c:295:2: warning: unannotated fall-through
+ between switch labels
+Message-ID: <201910021944.t91GAzWK%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="3ydclxoncvvzr4kr"
+Content-Type: multipart/mixed; boundary="ok2acegrjpv4tto2"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---3ydclxoncvvzr4kr
+--ok2acegrjpv4tto2
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -148,11 +149,11 @@ TO: "Darrick J. Wong" <darrick.wong@oracle.com>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git rough-fixes
 head:   4612429eba92bba9759429a3529cdd37272c5c81
-commit: 5d11475f1195093ef24621e24cfeb0f46b9b92e1 [60/164] xfs: zap broken inode forks
+commit: 2088b6cf2adae0374fe49f7c7f198be2fbe07bd0 [114/164] xfs: hoist inode allocation function
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project a77c3ef03c821d448296ba2abb658288800494ac)
 reproduce:
-        git checkout 5d11475f1195093ef24621e24cfeb0f46b9b92e1
+        git checkout 2088b6cf2adae0374fe49f7c7f198be2fbe07bd0
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
@@ -261,89 +262,181 @@ All warnings (new ones prefixed by >>):
            case 0: /* Nothing left to add */
            ^
            break; 
->> fs/xfs/scrub/inode_repair.c:502:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
+>> fs/xfs/libxfs/xfs_inode_util.c:295:2: warning: unannotated fall-through between switch labels [-Wimplicit-fallthrough]
            case S_IFLNK:
            ^
-   fs/xfs/scrub/inode_repair.c:502:2: note: insert '__attribute__((fallthrough));' to silence this warning
+   fs/xfs/libxfs/xfs_inode_util.c:295:2: note: insert '__attribute__((fallthrough));' to silence this warning
            case S_IFLNK:
            ^
            __attribute__((fallthrough)); 
-   fs/xfs/scrub/inode_repair.c:502:2: note: insert 'break;' to avoid fall-through
+   fs/xfs/libxfs/xfs_inode_util.c:295:2: note: insert 'break;' to avoid fall-through
            case S_IFLNK:
            ^
            break; 
    31 warnings generated.
 
-vim +502 fs/xfs/scrub/inode_repair.c
+vim +295 fs/xfs/libxfs/xfs_inode_util.c
 
-   473	
-   474	/*
-   475	 * Check the data fork for things that will fail the ifork verifiers or the
-   476	 * ifork formatters.
-   477	 */
-   478	STATIC bool
-   479	xrep_dinode_check_dfork(
-   480		struct xfs_scrub	*sc,
-   481		struct xfs_dinode	*dip,
-   482		uint16_t		mode)
-   483	{
-   484		uint64_t		size;
-   485		unsigned int		fmt;
-   486		int			dfork_size;
-   487	
-   488		fmt = XFS_DFORK_FORMAT(dip, XFS_DATA_FORK);
-   489		size = be64_to_cpu(dip->di_size);
-   490		switch (mode & S_IFMT) {
-   491		case S_IFIFO:
-   492		case S_IFCHR:
-   493		case S_IFBLK:
-   494		case S_IFSOCK:
-   495			if (fmt != XFS_DINODE_FMT_DEV)
-   496				return true;
-   497			break;
-   498		case S_IFREG:
-   499			if (fmt == XFS_DINODE_FMT_LOCAL)
-   500				return true;
-   501			/* fall through */
- > 502		case S_IFLNK:
-   503		case S_IFDIR:
-   504			switch (fmt) {
-   505			case XFS_DINODE_FMT_LOCAL:
-   506			case XFS_DINODE_FMT_EXTENTS:
-   507			case XFS_DINODE_FMT_BTREE:
-   508				break;
-   509			default:
-   510				return true;
-   511			}
-   512			break;
-   513		default:
-   514			return true;
-   515		}
-   516		dfork_size = XFS_DFORK_SIZE(dip, sc->mp, XFS_DATA_FORK);
-   517		switch (fmt) {
-   518		case XFS_DINODE_FMT_DEV:
-   519			break;
-   520		case XFS_DINODE_FMT_LOCAL:
-   521			if (size > dfork_size)
-   522				return true;
-   523			break;
-   524		case XFS_DINODE_FMT_EXTENTS:
-   525			if (xrep_dinode_bad_extents_fork(sc, dip, dfork_size,
-   526					XFS_DATA_FORK))
-   527				return true;
-   528			break;
-   529		case XFS_DINODE_FMT_BTREE:
-   530			if (xrep_dinode_bad_btree_fork(sc, dip, dfork_size,
-   531					XFS_DATA_FORK))
-   532				return true;
-   533			break;
-   534		default:
-   535			return true;
-   536		}
-   537	
-   538		return false;
-   539	}
-   540	
+   160	
+   161	/*
+   162	 * Initialize a newly allocated inode with the given arguments.  Heritable
+   163	 * inode properties will be copied from the parent if one is supplied and the
+   164	 * appropriate inode flags are set on the parent.
+   165	 */
+   166	void
+   167	xfs_inode_init(
+   168		struct xfs_trans		*tp,
+   169		const struct xfs_ialloc_args	*args,
+   170		struct xfs_inode		*ip)
+   171	{
+   172		struct xfs_inode		*pip = args->pip;
+   173		struct inode			*inode = VFS_I(ip);
+   174		int				times;
+   175		uint				flags;
+   176	
+   177		/*
+   178		 * We always convert v1 inodes to v2 now - we only support filesystems
+   179		 * with >= v2 inode capability, so there is no reason for ever leaving
+   180		 * an inode in v1 format.
+   181		 */
+   182		if (ip->i_d.di_version == 1)
+   183			ip->i_d.di_version = 2;
+   184	
+   185		inode->i_mode = args->mode;
+   186		set_nlink(inode, args->nlink);
+   187		ip->i_d.di_uid = args->uid;
+   188		ip->i_d.di_gid = args->gid;
+   189		inode->i_rdev = args->rdev;
+   190		xfs_set_projid(ip, args->prid);
+   191	
+   192		if (pip && XFS_INHERIT_GID(pip)) {
+   193			ip->i_d.di_gid = pip->i_d.di_gid;
+   194			if ((VFS_I(pip)->i_mode & S_ISGID) && S_ISDIR(args->mode))
+   195				inode->i_mode |= S_ISGID;
+   196		}
+   197	
+   198		/*
+   199		 * If the group ID of the new file does not match the effective group
+   200		 * ID or one of the supplementary group IDs, the S_ISGID bit is cleared
+   201		 * (and only if the irix_sgid_inherit compatibility variable is set).
+   202		 */
+   203		if ((irix_sgid_inherit) &&
+   204		    (inode->i_mode & S_ISGID) &&
+   205		    (!in_group_p(xfs_gid_to_kgid(ip->i_d.di_gid))))
+   206			inode->i_mode &= ~S_ISGID;
+   207	
+   208		ip->i_d.di_size = 0;
+   209		ip->i_d.di_nextents = 0;
+   210		ASSERT(ip->i_d.di_nblocks == 0);
+   211	
+   212		times = XFS_ICHGTIME_MOD | XFS_ICHGTIME_CHG | XFS_ICHGTIME_ACCESS;
+   213		ip->i_d.di_extsize = 0;
+   214		ip->i_d.di_dmevmask = 0;
+   215		ip->i_d.di_dmstate = 0;
+   216		ip->i_d.di_flags = 0;
+   217	
+   218		if (ip->i_d.di_version == 3) {
+   219			inode_set_iversion(inode, 1);
+   220			ip->i_d.di_flags2 = 0;
+   221			ip->i_d.di_cowextsize = 0;
+   222			times |= XFS_ICHGTIME_CREATE;
+   223		}
+   224	
+   225		xfs_trans_ichgtime(tp, ip, times);
+   226	
+   227		flags = XFS_ILOG_CORE;
+   228		switch (args->mode & S_IFMT) {
+   229		case S_IFIFO:
+   230		case S_IFCHR:
+   231		case S_IFBLK:
+   232		case S_IFSOCK:
+   233			ip->i_d.di_format = XFS_DINODE_FMT_DEV;
+   234			ip->i_df.if_flags = 0;
+   235			flags |= XFS_ILOG_DEV;
+   236			break;
+   237		case S_IFREG:
+   238		case S_IFDIR:
+   239			if (pip && (pip->i_d.di_flags & XFS_DIFLAG_ANY)) {
+   240				uint		di_flags = 0;
+   241	
+   242				if (S_ISDIR(args->mode)) {
+   243					if (pip->i_d.di_flags & XFS_DIFLAG_RTINHERIT)
+   244						di_flags |= XFS_DIFLAG_RTINHERIT;
+   245					if (pip->i_d.di_flags & XFS_DIFLAG_EXTSZINHERIT) {
+   246						di_flags |= XFS_DIFLAG_EXTSZINHERIT;
+   247						ip->i_d.di_extsize = pip->i_d.di_extsize;
+   248					}
+   249					if (pip->i_d.di_flags & XFS_DIFLAG_PROJINHERIT)
+   250						di_flags |= XFS_DIFLAG_PROJINHERIT;
+   251				} else if (S_ISREG(args->mode)) {
+   252					if (pip->i_d.di_flags & XFS_DIFLAG_RTINHERIT)
+   253						di_flags |= XFS_DIFLAG_REALTIME;
+   254					if (pip->i_d.di_flags & XFS_DIFLAG_EXTSZINHERIT) {
+   255						di_flags |= XFS_DIFLAG_EXTSIZE;
+   256						ip->i_d.di_extsize = pip->i_d.di_extsize;
+   257					}
+   258				}
+   259				if ((pip->i_d.di_flags & XFS_DIFLAG_NOATIME) &&
+   260				    xfs_inherit_noatime)
+   261					di_flags |= XFS_DIFLAG_NOATIME;
+   262				if ((pip->i_d.di_flags & XFS_DIFLAG_NODUMP) &&
+   263				    xfs_inherit_nodump)
+   264					di_flags |= XFS_DIFLAG_NODUMP;
+   265				if ((pip->i_d.di_flags & XFS_DIFLAG_SYNC) &&
+   266				    xfs_inherit_sync)
+   267					di_flags |= XFS_DIFLAG_SYNC;
+   268				if ((pip->i_d.di_flags & XFS_DIFLAG_NOSYMLINKS) &&
+   269				    xfs_inherit_nosymlinks)
+   270					di_flags |= XFS_DIFLAG_NOSYMLINKS;
+   271				if ((pip->i_d.di_flags & XFS_DIFLAG_NODEFRAG) &&
+   272				    xfs_inherit_nodefrag)
+   273					di_flags |= XFS_DIFLAG_NODEFRAG;
+   274				if (pip->i_d.di_flags & XFS_DIFLAG_FILESTREAM)
+   275					di_flags |= XFS_DIFLAG_FILESTREAM;
+   276	
+   277				ip->i_d.di_flags |= di_flags;
+   278			}
+   279			if (pip &&
+   280			    (pip->i_d.di_flags2 & XFS_DIFLAG2_ANY) &&
+   281			    pip->i_d.di_version == 3 &&
+   282			    ip->i_d.di_version == 3) {
+   283				uint64_t	di_flags2 = 0;
+   284	
+   285				if (pip->i_d.di_flags2 & XFS_DIFLAG2_COWEXTSIZE) {
+   286					di_flags2 |= XFS_DIFLAG2_COWEXTSIZE;
+   287					ip->i_d.di_cowextsize = pip->i_d.di_cowextsize;
+   288				}
+   289				if (pip->i_d.di_flags2 & XFS_DIFLAG2_DAX)
+   290					di_flags2 |= XFS_DIFLAG2_DAX;
+   291	
+   292				ip->i_d.di_flags2 |= di_flags2;
+   293			}
+   294			/* FALLTHROUGH */
+ > 295		case S_IFLNK:
+   296			ip->i_d.di_format = XFS_DINODE_FMT_EXTENTS;
+   297			ip->i_df.if_flags = XFS_IFEXTENTS;
+   298			ip->i_df.if_bytes = 0;
+   299			ip->i_df.if_u1.if_root = NULL;
+   300			break;
+   301		default:
+   302			ASSERT(0);
+   303		}
+   304		/*
+   305		 * Attribute fork settings for new inode.
+   306		 */
+   307		ip->i_d.di_aformat = XFS_DINODE_FMT_EXTENTS;
+   308		ip->i_d.di_anextents = 0;
+   309	
+   310		/*
+   311		 * Log the new values stuffed into the inode.
+   312		 */
+   313		xfs_trans_ijoin(tp, ip, XFS_ILOCK_EXCL);
+   314		xfs_trans_log_inode(tp, ip, flags);
+   315	
+   316		/* now that we have an i_mode we can setup the inode structure */
+   317		xfs_setup_inode(ip);
+   318	}
+   319	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -352,14 +445,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910021731.yqZP47Ia%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910021944.t91GAzWK%25lkp%40intel.com.
 
---3ydclxoncvvzr4kr
+--ok2acegrjpv4tto2
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICNlflF0AAy5jb25maWcAlDzbdtu2su/7K7TSl/ahjW9x3X1WHkASlBCRBAuAsuQXLsWW
+H4sICAF7lF0AAy5jb25maWcAlDzbdtu2su/7K7TSl/ahjW9x3X1WHkASlBCRBAuAsuQXLsWW
 U5/tS45sdyd/f2YAXgYg5LZtVxPODO6DuUM//OuHGXt9eXrYvtxdb+/vv8++7B53++3L7mZ2
 e3e/+59ZJmeVNDOeCfMLEBd3j6/f3n+7OG/Pz2Yffjn95ejn/fWvs+Vu/7i7n6VPj7d3X16h
 /d3T479++Bf89wMAH75CV/t/z67vt49fZn/u9s+Anh0f/QL/zn78cvfy7/fv4f8Pd/v90/79
@@ -1249,4 +1342,4 @@ XHYgOZwiN8oQmIXky+b3C4ps8IVC0HQatRKXy/hJGG2Et5xpe8U0jFIPON6eH1vjOyAEL1VH
 CnfduzSoLvsNS+RZRpOyGZFSMfeIWIyj09ucGSlP54IzJHPozF0ZSknVYUUL3GS9jO+Kjbw7
 rqwNB8QIlz5d0vA8LreRdNE5JaDtchgykOA/cMP5PgUKAwA=
 
---3ydclxoncvvzr4kr--
+--ok2acegrjpv4tto2--
