@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB56A27WAKGQEU6CWEWY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBA4V3DWAKGQEOA3HCFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 468CAC9DC2
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Oct 2019 13:50:18 +0200 (CEST)
-Received: by mail-vk1-xa3d.google.com with SMTP id h145sf954914vke.15
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Oct 2019 04:50:18 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570103417; cv=pass;
+Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8BC93CA099
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Oct 2019 16:49:40 +0200 (CEST)
+Received: by mail-io1-xd3e.google.com with SMTP id i2sf5578043ioo.10
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Oct 2019 07:49:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570114179; cv=pass;
         d=google.com; s=arc-20160816;
-        b=K0KNobrt4Eae36hWH0pP99HpDduBXoNrzBSOTocJyn2X3s6x8O8U3+8FSHDAGv4iA9
-         bOoJVfPHa/TMPpZtndUjlc9xAzgDDW7l6Ho/5z4LxAR6YXphNAu9zXs1Y834OALLMkGe
-         2Ze66FoNR3XfeXv4ousPvC/rTb/hL+cmR5FWHnKB7P2/Lveod5CmmF77wI8MhWyeBM95
-         O7KNK0cyx+Wa2Q342CrRml6KtbobWMWe2//cnZ904bJxH+8hn28uDRrHIr6MY/fPvgsl
-         5h4SFRTGQPFYI8lTJ25wDr03bv/yh2iju419njVs5FoKo6Ik0XM/oEL7xpqsMpmuZTeV
-         Sayw==
+        b=gYde0kc2qHpQ7tMCyXtKRZtleBWbJhtfX0jnKqSTWC+KiI5D5whzUr+jU0W/gy2sQ0
+         wPAiVK+9p8tQwaM8kYFVTtNEmi7LN40iApqZoCOs78/64EMa+N+nu5Sth7z74EU8JiL6
+         OPTAJSJ8l9N5NhUp/pWuYLAN+kxCp5aQ/YZ5N0oq+N7+tL2xt/zOGh+boAg5Ny5y2Tsh
+         R3sETnvM2DGp6wgdLPaqqevd57y1wyf7oaaoc8XOv2n0A/NpeU8x7H3ppX90MtvQjlRo
+         RMDN3i9hyHqIym3O7DPXEA5nCdchGCol0HjQlBF3oiHRyOJ2ZcTTQHhBlJY/zrSgdGzZ
+         qrGw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=zxWD62HK1yBP6+8uLKLmyWKug1B3egFoXldFdPxjU9A=;
-        b=gV2eFLCt8TEwekAzaG+PfqpgmbDnCL654KdDiSUEnUlxYhWNLgtjbWz3S8f4saOhtL
-         0RgtNirXbRF9lj1Vmfo3Wz1uZfGoqYABWjkGcosGql7lxoNNqkybBcBV/fa2IZKRVm8K
-         vzAiZC4wtsRAFimiPNAaJ3mAp4VGqBHS8CMr7PrCEocVb7j6Qan6oK+TngF8XTaCUY8W
-         TvvCYasqm8pLeRMU1ZWc76DtAVXfl/bBOwLMo9xPGD7lPqO0iLIswQffhCWogqGTWals
-         Dm2JcoLFbaQCn4csDO73PGPmde67fjsz6hmoK4hmf5UtpajcoSgaBqEyLy73lkn9TUkm
-         NtyQ==
+        bh=8LRpQYcEIYvakcHfXfxWQAGnz4C0UWJiqaqYGp3CJE8=;
+        b=Ou8LE3zNp0qaKdoNZY7uYXX6B3mkOvUCA0u5aJuMWS5e2BX4W0damZyfwucvOtJrm8
+         8aK2TcVivwHFcB1nUjs9M0p0UTmGk51YBOOSb6JPTYbhhW7hhTK1CKtBgimVgPrcuFQD
+         kZ5BWcAzIn/RDsPZSYX7W0wlosIjK+Sg5CaHFFLVOz1ghc7SxJ2Ln2VSsgR7z99ckLMW
+         wPFrarQxAphFaj95SboKZKl1TzhNqtM2trmcKaZdV9y4e5IawQ4LftSv5O4meDyww/tz
+         ihOQplh1z7utkdagGH029mW284HQxLpu4Crsrj0TGHZU5mhIwR7m0MVD7ljd/FHyxT1l
+         pe+w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zxWD62HK1yBP6+8uLKLmyWKug1B3egFoXldFdPxjU9A=;
-        b=VOMXyO2/OXpy5BYvUgqcrUv8sEaGkVlZJmFiOHML8qI//LmXJhNlQKUpGEuBA2F87r
-         A2UKyiDcMeL4+nuJwwrleHTEBe99EMiFFhTBYEqt35do+gexeB+QCpwfxBicH82C81lu
-         oZESCOg/SZiXhPeQudjM4VSEUM/LsCCYdhSXXqQ6LEMnMBwFQOPbwLAO8G9WfJwlOpZQ
-         Kdvg2tbdPY3Xrkg7QTG2bboduK+Vl8E75DsTG6xEnERMKToGIGLddJzEVE+lo+qGDbC8
-         kmsUOG+P6pTLWzSMjTJnDg0exLpVAnXntidAcDpBrDZE5xlS2bcvPNB8bFp+CDW3oKR7
-         h8Kw==
+        bh=8LRpQYcEIYvakcHfXfxWQAGnz4C0UWJiqaqYGp3CJE8=;
+        b=ZODAY+EDrEYamdeHNO285IC4WlKilIqfXuD1LRuSlc6cqQVUj5fdPvXPuTLge4bog1
+         uAyV9l0TSbin25OvBN5lK5VrJNN9w6W5aSMpeNCejRRdmzqdt9IZWlUU4cOzo5GqHPoZ
+         jnJd0T+AXyM1R3+V1XyOLZrYDCBAKgRWLb9IpzkbRevOZ3pqqRtu9sCXWahvc0aqZ+Xu
+         RP7KG4tfl4PdzEp43P71I14tgzUY6VXbVl/ZFNc8bJXapdDyPTAw7/T3QRgGVsszyTrK
+         Ayf6b3VLdM8HwnK3MVVHnJKKdTSsJKdalZhsU9QriH36LjauZaq0mhmYwH3RGIYke/p/
+         yCEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=zxWD62HK1yBP6+8uLKLmyWKug1B3egFoXldFdPxjU9A=;
-        b=E3sTY6WDKjpqjPwqWYiTo8JxDkQ13yJVpvaGEfiF4AoNI1mrAbGa/JGhterkvP0uDF
-         ecWpt6yuUdhAP4ZfRDv9vRS4g9C8d8JvjVASout7iv0KaaFVNTHJxOzDHBiMKsZGAg8M
-         ZXZiiMQkbIH6lxclQDaoRWs4J0e2TUTFANzVoHyG4wUtiPCBaXaXNu+Ye/XdHRxpAJ2n
-         Fwl3/Z++dpVJd+cRfMQ26E/qxuyDYgrpPTR1WOoa/WRrLspTzjVw6GlkfwBH4zQvzuqA
-         gTqZDpLKe0hxQ70v0QIku1pEAgsBFBCM4Jf7hbEXD9HGtN7qxusUUdbgePnvVENSrdVN
-         xlNg==
+        bh=8LRpQYcEIYvakcHfXfxWQAGnz4C0UWJiqaqYGp3CJE8=;
+        b=GrooEqkjRGMsrAmrfXspWEdypHpX3Wq/HJfJFwuobWB95L7pud44iMFJw7c4q+AMIq
+         v4D5JNUM5Uu/x5iyMe7QWGThDRrn3IxFvho1LKw7UVnccTQSnPE+vEHwi6bjURjmQ9EN
+         uq3t/BAAsaMOL4vPW7Uw7sRMEbAB3sw2GrnDGpXqxzpDsRQFle0zlSqVHicsSLO1t/K2
+         KGMWwCcEO3aAaKYM/hujP+oONF+lGQDQVJfxYffh6jJqVqjYy8d3rwnbLRkDr7GwEJO7
+         lRUCJPGn4M6sosaHa5iQgc22qmE9DqfJeD4cK7SYfs4pOEVm4OJBt6OUjDyElIKlkU3r
+         v7mQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXGRYl62cz7uZPklC5rMdpAU3FDpx1su8Gi00oXFdAqcjcJtfl/
-	3/1k1kwpiLEzUQkGsMEQ6IE=
-X-Google-Smtp-Source: APXvYqxgZqPOm3ftg51SjnBaYVR/vM6yAEligqLBe/qE6gGm2gYbgxYtyGzNf2WMq6Jr/Y4Bqhqy9g==
-X-Received: by 2002:ab0:247:: with SMTP id 65mr4544449uas.13.1570103415622;
-        Thu, 03 Oct 2019 04:50:15 -0700 (PDT)
+X-Gm-Message-State: APjAAAVIKp9hSbkvmEdsAVXrxkEcvLAsm3l40hlTuyG1uDRy6hjH6P+A
+	e9T1wSsGqaipuICim5l+HlA=
+X-Google-Smtp-Source: APXvYqxLO0rfmGwPX9iaxObAMGbOv8LFiGmwGn1KtdV1n63HiEg2/WSKYCHVERqkLI6fETGSk1b5dw==
+X-Received: by 2002:a92:dc89:: with SMTP id c9mr9655661iln.215.1570114179231;
+        Thu, 03 Oct 2019 07:49:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:e891:: with SMTP id x17ls606601vsn.13.gmail; Thu, 03 Oct
- 2019 04:50:15 -0700 (PDT)
-X-Received: by 2002:a67:f5ca:: with SMTP id t10mr4569331vso.239.1570103415240;
-        Thu, 03 Oct 2019 04:50:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570103415; cv=none;
+Received: by 2002:a92:4808:: with SMTP id v8ls1529602ila.8.gmail; Thu, 03 Oct
+ 2019 07:49:38 -0700 (PDT)
+X-Received: by 2002:a92:d952:: with SMTP id l18mr10677489ilq.114.1570114178759;
+        Thu, 03 Oct 2019 07:49:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570114178; cv=none;
         d=google.com; s=arc-20160816;
-        b=Tgc6/uvMFOs6+F3piaQnRfkbUtQkdxtS0Y6wDxgontFLAoPIkS9fCXXO/f+aTg1iF/
-         zWmFYxPxgP3rsaWmQJxLOK79rcNXK1SG7Zm7TbCwWHQmV8uG4rWNvDF90Gdh5N+95zkA
-         DG/jMqtPoZFDsXQuse3T2mMFN85hzPTfIm8FNaGSq5ZRAZNJDK0T9QziKy9zopk/OnEc
-         dc7HePS4vtFtLcmHuLL/IcNh2Q3mk1rbxXYGeBetkFSeuq/R1i8qU62vyfr1kbV/73IP
-         VHeVz9N8g0e/1x546wrHQV9H31AsjcRlo/AoHyraJHTyg6KmrhYmP7e/0FVSFglLRgUB
-         nNTA==
+        b=DeMGLODx8f3Kb1e0dy7BGg9E/v95mhsRd9VZRQK5FytCOJwjvJyFugz6pdMhZSFZ28
+         r/YPE7BP2yG4YRCT7IVuyRNZFJfroG7PlgnGMxQTgKlRfhaxFu0hntnf9kKVt8wUt9pJ
+         CPOAVil8D52Uvz7q71ce1CPpOLD17iCkapZB+nX5k+c6epCBsxjN0sx7sg+vn7fMJ5OJ
+         CVabnrdJ6hPzEjyHmb5unVtFFN3y8FQ3fEnkynde1zfqWYL4w7cmW6CN12GolnGA/1iX
+         ovliWgR9/7vBuEQoUA3HW5ZzteT7/SbqMm5ZVjYH1lGbKqYtt20d4enXgagibBMmk4aY
+         MBIA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=MHrSBr2JrUIdyhcrI7NOvDPt4CsjD+YnE4ZKMzn2F6c=;
-        b=aXmTQZ5qol23P26lzn9yjWMEVEXmFsOBO0aMCRsm1Q6srPvXSFtYiwpEzj0jNT5SSL
-         hy7rTTbzOZelniGTBbkyykWVjE7ZkWjBQfDh8kvPSX2Gbn/1Y7UreZBA+y/PJDgqiRJl
-         og6yLmn2YHmDexzDyCJKi0C4QZtAB0Lxn7/Mt3c76tjV9ZfO0mfq+VbWp66eRAHM3oA2
-         xK296ej8dvahh+2qHxRncD9DqI2yL8+sIRcFQCOa3L/szY8isrxMKsRIDyoAWMcFpmgv
-         jBFbAJ0v8PEwei+6UB9JpLROS/+ArxBd6XV53cLCHqROOJ0dcgSveMIVK3btTmiQxfUh
-         Xlqg==
+        bh=F8L5RCQ79SH1oNQKXE9a/TmdkLayNyIWsxQXSP0eAM4=;
+        b=vg1QmEXZgkCC0ioZF4hm0teSeYBOYcJGagt0d4mUzrI2B0VszeNRysPIcVvCq4Ge0j
+         nObyia6iTMdxriTV3/rZcjI346WpU1j0DvDoMPfYkIbOHiAT23af0j7j/CuIUaqzwPx5
+         lSZxZR/Cja/d24WhZz3VSwbYweq9CBOTbnuz/tw1BWwJ8kC52HRjiMT3jszSK4iAlR71
+         Tvje7E6DdiDL+c34Pj56hjqSoyAPCHTyQss90FJ9azbmJk5oIFgBohyNDzkyBWujOMpW
+         XO72i3OP9rt8nMkAWcabcmwK3D+Xfrnuj8KURFCqEurcRcQxoEah9pCr5KUS4Qsx3AeY
+         AOeQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id h184si137032vka.3.2019.10.03.04.50.14
+Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
+        by gmr-mx.google.com with ESMTPS id n201si227190iod.3.2019.10.03.07.49.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 03 Oct 2019 04:50:14 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
+        Thu, 03 Oct 2019 07:49:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 03 Oct 2019 04:50:12 -0700
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 03 Oct 2019 07:49:37 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.67,252,1566889200"; 
-   d="gz'50?scan'50,208,50";a="216785957"
+   d="gz'50?scan'50,208,50";a="393227468"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 03 Oct 2019 04:50:09 -0700
+  by fmsmga006.fm.intel.com with ESMTP; 03 Oct 2019 07:49:34 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iFzcX-0007rg-Cn; Thu, 03 Oct 2019 19:50:09 +0800
-Date: Thu, 3 Oct 2019 19:49:24 +0800
+	id 1iG2QA-0004Kx-7S; Thu, 03 Oct 2019 22:49:34 +0800
+Date: Thu, 3 Oct 2019 22:48:31 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [ast:btf_vmlinux 1/7] include/trace/events/rtc.h:38:1: warning:
- redefinition of typedef 'btf_trace_rtc_time_alarm_class' is a C11 feature
-Message-ID: <201910031913.5bP81ECm%lkp@intel.com>
+Subject: [ast:btf_vmlinux 1/7] net/mac80211/./trace.h:253:1: warning:
+ redefinition of typedef 'btf_trace_local_only_evt' is a C11 feature
+Message-ID: <201910032202.OVnkgkNP%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="rhwuhzjpxqnbnygl"
+Content-Type: multipart/mixed; boundary="rf6qbeg7gmxet3df"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +138,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---rhwuhzjpxqnbnygl
+--rf6qbeg7gmxet3df
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -160,12 +160,12 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
-   In file included from drivers//rtc/interface.c:18:
-   In file included from include/trace/events/rtc.h:206:
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
->> include/trace/events/rtc.h:38:1: warning: redefinition of typedef 'btf_trace_rtc_time_alarm_class' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(rtc_time_alarm_class, rtc_read_time,
+>> net/mac80211/./trace.h:253:1: warning: redefinition of typedef 'btf_trace_local_only_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_only_evt, drv_start,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -173,11 +173,11 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:93:1: note: expanded from here
-   btf_trace_rtc_time_alarm_class
+   <scratch space>:54:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   include/trace/events/rtc.h:31:1: note: previous definition is here
-   DEFINE_EVENT(rtc_time_alarm_class, rtc_set_time,
+   net/mac80211/./trace.h:191:1: note: previous definition is here
+   DEFINE_EVENT(local_only_evt, drv_return_void,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -185,15 +185,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:85:1: note: expanded from here
-   btf_trace_rtc_time_alarm_class
+   <scratch space>:98:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   In file included from drivers//rtc/interface.c:18:
-   In file included from include/trace/events/rtc.h:206:
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
-   include/trace/events/rtc.h:45:1: warning: redefinition of typedef 'btf_trace_rtc_time_alarm_class' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(rtc_time_alarm_class, rtc_set_alarm,
+>> net/mac80211/./trace.h:263:1: warning: redefinition of typedef 'btf_trace_local_u32_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_u32_evt, drv_get_et_sset_count,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -201,11 +201,11 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:101:1: note: expanded from here
-   btf_trace_rtc_time_alarm_class
+   <scratch space>:70:1: note: expanded from here
+   btf_trace_local_u32_evt
    ^
-   include/trace/events/rtc.h:38:1: note: previous definition is here
-   DEFINE_EVENT(rtc_time_alarm_class, rtc_read_time,
+   net/mac80211/./trace.h:258:1: note: previous definition is here
+   DEFINE_EVENT(local_u32_evt, drv_get_et_strings,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -213,15 +213,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:93:1: note: expanded from here
-   btf_trace_rtc_time_alarm_class
+   <scratch space>:62:1: note: expanded from here
+   btf_trace_local_u32_evt
    ^
-   In file included from drivers//rtc/interface.c:18:
-   In file included from include/trace/events/rtc.h:206:
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
-   include/trace/events/rtc.h:52:1: warning: redefinition of typedef 'btf_trace_rtc_time_alarm_class' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(rtc_time_alarm_class, rtc_read_alarm,
+   net/mac80211/./trace.h:268:1: warning: redefinition of typedef 'btf_trace_local_only_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_only_evt, drv_get_et_stats,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -229,11 +229,11 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:109:1: note: expanded from here
-   btf_trace_rtc_time_alarm_class
+   <scratch space>:78:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   include/trace/events/rtc.h:45:1: note: previous definition is here
-   DEFINE_EVENT(rtc_time_alarm_class, rtc_set_alarm,
+   net/mac80211/./trace.h:253:1: note: previous definition is here
+   DEFINE_EVENT(local_only_evt, drv_start,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -241,15 +241,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:101:1: note: expanded from here
-   btf_trace_rtc_time_alarm_class
+   <scratch space>:54:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   In file included from drivers//rtc/interface.c:18:
-   In file included from include/trace/events/rtc.h:206:
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
->> include/trace/events/rtc.h:152:1: warning: redefinition of typedef 'btf_trace_rtc_offset_class' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(rtc_offset_class, rtc_read_offset,
+   net/mac80211/./trace.h:273:1: warning: redefinition of typedef 'btf_trace_local_only_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_only_evt, drv_suspend,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -257,11 +257,11 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:36:1: note: expanded from here
-   btf_trace_rtc_offset_class
+   <scratch space>:86:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   include/trace/events/rtc.h:145:1: note: previous definition is here
-   DEFINE_EVENT(rtc_offset_class, rtc_set_offset,
+   net/mac80211/./trace.h:268:1: note: previous definition is here
+   DEFINE_EVENT(local_only_evt, drv_get_et_stats,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -269,15 +269,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:28:1: note: expanded from here
-   btf_trace_rtc_offset_class
+   <scratch space>:78:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   In file included from drivers//rtc/interface.c:18:
-   In file included from include/trace/events/rtc.h:206:
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
->> include/trace/events/rtc.h:189:1: warning: redefinition of typedef 'btf_trace_rtc_timer_class' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(rtc_timer_class, rtc_timer_dequeue,
+   net/mac80211/./trace.h:278:1: warning: redefinition of typedef 'btf_trace_local_only_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_only_evt, drv_resume,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -285,11 +285,11 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:55:1: note: expanded from here
-   btf_trace_rtc_timer_class
+   <scratch space>:94:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   include/trace/events/rtc.h:182:1: note: previous definition is here
-   DEFINE_EVENT(rtc_timer_class, rtc_timer_enqueue,
+   net/mac80211/./trace.h:273:1: note: previous definition is here
+   DEFINE_EVENT(local_only_evt, drv_suspend,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -297,15 +297,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:47:1: note: expanded from here
-   btf_trace_rtc_timer_class
+   <scratch space>:86:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   In file included from drivers//rtc/interface.c:18:
-   In file included from include/trace/events/rtc.h:206:
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
-   include/trace/events/rtc.h:196:1: warning: redefinition of typedef 'btf_trace_rtc_timer_class' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(rtc_timer_class, rtc_timer_fired,
+   net/mac80211/./trace.h:297:1: warning: redefinition of typedef 'btf_trace_local_only_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_only_evt, drv_stop,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -313,11 +313,11 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:63:1: note: expanded from here
-   btf_trace_rtc_timer_class
+   <scratch space>:114:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   include/trace/events/rtc.h:189:1: note: previous definition is here
-   DEFINE_EVENT(rtc_timer_class, rtc_timer_dequeue,
+   net/mac80211/./trace.h:278:1: note: previous definition is here
+   DEFINE_EVENT(local_only_evt, drv_resume,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -325,17 +325,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:55:1: note: expanded from here
-   btf_trace_rtc_timer_class
+   <scratch space>:94:1: note: expanded from here
+   btf_trace_local_only_evt
    ^
-   6 warnings generated.
---
-   In file included from drivers//scsi/scsi_transport_iscsi.c:28:
-   In file included from include/trace/events/iscsi.h:107:
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
->> include/trace/events/iscsi.h:53:1: warning: redefinition of typedef 'btf_trace_iscsi_log_msg' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_session,
+>> net/mac80211/./trace.h:336:1: warning: redefinition of typedef 'btf_trace_local_sdata_addr_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_sdata_addr_evt, drv_remove_interface,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -343,11 +341,195 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:83:1: note: expanded from here
-   btf_trace_iscsi_log_msg
+   <scratch space>:12:1: note: expanded from here
+   btf_trace_local_sdata_addr_evt
    ^
-   include/trace/events/iscsi.h:44:1: note: previous definition is here
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_conn,
+   net/mac80211/./trace.h:302:1: note: previous definition is here
+   DEFINE_EVENT(local_sdata_addr_evt, drv_add_interface,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:122:1: note: expanded from here
+   btf_trace_local_sdata_addr_evt
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+>> net/mac80211/./trace.h:640:1: warning: redefinition of typedef 'btf_trace_local_sdata_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_sdata_evt, drv_cancel_hw_scan,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:25:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   net/mac80211/./trace.h:634:1: note: previous definition is here
+   DEFINE_EVENT(local_sdata_evt, drv_hw_scan,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:17:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+   net/mac80211/./trace.h:646:1: warning: redefinition of typedef 'btf_trace_local_sdata_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_sdata_evt, drv_sched_scan_start,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:33:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   net/mac80211/./trace.h:640:1: note: previous definition is here
+   DEFINE_EVENT(local_sdata_evt, drv_cancel_hw_scan,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:25:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+   net/mac80211/./trace.h:652:1: warning: redefinition of typedef 'btf_trace_local_sdata_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_sdata_evt, drv_sched_scan_stop,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:41:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   net/mac80211/./trace.h:646:1: note: previous definition is here
+   DEFINE_EVENT(local_sdata_evt, drv_sched_scan_start,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:33:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+   net/mac80211/./trace.h:681:1: warning: redefinition of typedef 'btf_trace_local_sdata_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_sdata_evt, drv_sw_scan_complete,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:64:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   net/mac80211/./trace.h:652:1: note: previous definition is here
+   DEFINE_EVENT(local_sdata_evt, drv_sched_scan_stop,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:41:1: note: expanded from here
+   btf_trace_local_sdata_evt
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+   net/mac80211/./trace.h:740:1: warning: redefinition of typedef 'btf_trace_local_u32_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_u32_evt, drv_set_frag_threshold,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:96:1: note: expanded from here
+   btf_trace_local_u32_evt
+   ^
+   net/mac80211/./trace.h:263:1: note: previous definition is here
+   DEFINE_EVENT(local_u32_evt, drv_get_et_sset_count,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:70:1: note: expanded from here
+   btf_trace_local_u32_evt
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+   net/mac80211/./trace.h:745:1: warning: redefinition of typedef 'btf_trace_local_u32_evt' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(local_u32_evt, drv_set_rts_threshold,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:104:1: note: expanded from here
+   btf_trace_local_u32_evt
+   ^
+   net/mac80211/./trace.h:740:1: note: previous definition is here
+   DEFINE_EVENT(local_u32_evt, drv_set_frag_threshold,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:96:1: note: expanded from here
+   btf_trace_local_u32_evt
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+>> net/mac80211/./trace.h:921:1: warning: redefinition of typedef 'btf_trace_sta_event' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(sta_event, drv_sta_add,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -356,14 +538,10 @@ All warnings (new ones prefixed by >>):
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
    <scratch space>:75:1: note: expanded from here
-   btf_trace_iscsi_log_msg
+   btf_trace_sta_event
    ^
-   In file included from drivers//scsi/scsi_transport_iscsi.c:28:
-   In file included from include/trace/events/iscsi.h:107:
-   In file included from include/trace/define_trace.h:104:
-   In file included from include/trace/bpf_probe.h:110:
-   include/trace/events/iscsi.h:62:1: warning: redefinition of typedef 'btf_trace_iscsi_log_msg' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_eh,
+   net/mac80211/./trace.h:914:1: note: previous definition is here
+   DEFINE_EVENT(sta_event, drv_sta_statistics,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -371,11 +549,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:91:1: note: expanded from here
-   btf_trace_iscsi_log_msg
+   <scratch space>:67:1: note: expanded from here
+   btf_trace_sta_event
    ^
-   include/trace/events/iscsi.h:53:1: note: previous definition is here
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_session,
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+   net/mac80211/./trace.h:928:1: warning: redefinition of typedef 'btf_trace_sta_event' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(sta_event, drv_sta_remove,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -384,14 +566,10 @@ All warnings (new ones prefixed by >>):
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
    <scratch space>:83:1: note: expanded from here
-   btf_trace_iscsi_log_msg
+   btf_trace_sta_event
    ^
-   In file included from drivers//scsi/scsi_transport_iscsi.c:28:
-   In file included from include/trace/events/iscsi.h:107:
-   In file included from include/trace/define_trace.h:104:
-   In file included from include/trace/bpf_probe.h:110:
-   include/trace/events/iscsi.h:71:1: warning: redefinition of typedef 'btf_trace_iscsi_log_msg' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_tcp,
+   net/mac80211/./trace.h:921:1: note: previous definition is here
+   DEFINE_EVENT(sta_event, drv_sta_add,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -399,11 +577,15 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:99:1: note: expanded from here
-   btf_trace_iscsi_log_msg
+   <scratch space>:75:1: note: expanded from here
+   btf_trace_sta_event
    ^
-   include/trace/events/iscsi.h:62:1: note: previous definition is here
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_eh,
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
+   In file included from include/trace/define_trace.h:104:
+   In file included from include/trace/bpf_probe.h:110:
+   net/mac80211/./trace.h:935:1: warning: redefinition of typedef 'btf_trace_sta_event' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(sta_event, drv_sta_pre_rcu_remove,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -412,14 +594,26 @@ All warnings (new ones prefixed by >>):
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
    <scratch space>:91:1: note: expanded from here
-   btf_trace_iscsi_log_msg
+   btf_trace_sta_event
    ^
-   In file included from drivers//scsi/scsi_transport_iscsi.c:28:
-   In file included from include/trace/events/iscsi.h:107:
+   net/mac80211/./trace.h:928:1: note: previous definition is here
+   DEFINE_EVENT(sta_event, drv_sta_remove,
+   ^
+   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
+           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
+           ^
+   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
+   typedef void (*btf_trace_##template)(void *__data, proto);              \
+                  ^
+   <scratch space>:83:1: note: expanded from here
+   btf_trace_sta_event
+   ^
+   In file included from net/mac80211/trace.c:11:
+   In file included from net/mac80211/./trace.h:2717:
    In file included from include/trace/define_trace.h:104:
    In file included from include/trace/bpf_probe.h:110:
-   include/trace/events/iscsi.h:80:1: warning: redefinition of typedef 'btf_trace_iscsi_log_msg' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_sw_tcp,
+   net/mac80211/./trace.h:942:1: warning: redefinition of typedef 'btf_trace_sta_event' is a C11 feature [-Wtypedef-redefinition]
+   DEFINE_EVENT(sta_event, drv_sync_rx_queues,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
@@ -427,224 +621,114 @@ All warnings (new ones prefixed by >>):
    include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
    typedef void (*btf_trace_##template)(void *__data, proto);              \
                   ^
-   <scratch space>:107:1: note: expanded from here
-   btf_trace_iscsi_log_msg
+   <scratch space>:99:1: note: expanded from here
+   btf_trace_sta_event
    ^
-   include/trace/events/iscsi.h:71:1: note: previous definition is here
-   DEFINE_EVENT(iscsi_log_msg, iscsi_dbg_tcp,
-   ^
-   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
-           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
---
-   In file included from drivers//scsi/scsi.c:74:
-   In file included from include/trace/events/scsi.h:364:
-   In file included from include/trace/define_trace.h:104:
-   In file included from include/trace/bpf_probe.h:110:
->> include/trace/events/scsi.h:340:1: warning: redefinition of typedef 'btf_trace_scsi_cmd_done_timeout_template' is a C11 feature [-Wtypedef-redefinition]
-   DEFINE_EVENT(scsi_cmd_done_timeout_template, scsi_dispatch_cmd_timeout,
+   net/mac80211/./trace.h:935:1: note: previous definition is here
+   DEFINE_EVENT(sta_event, drv_sta_pre_rcu_remove,
    ^
    include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
            __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
-           ^
-   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
-   typedef void (*btf_trace_##template)(void *__data, proto);              \
-                  ^
-   <scratch space>:4:1: note: expanded from here
-   btf_trace_scsi_cmd_done_timeout_template
-   ^
-   include/trace/events/scsi.h:336:1: note: previous definition is here
-   DEFINE_EVENT(scsi_cmd_done_timeout_template, scsi_dispatch_cmd_done,
-   ^
-   include/trace/bpf_probe.h:104:2: note: expanded from macro 'DEFINE_EVENT'
-           __DEFINE_EVENT(template, call, PARAMS(proto), PARAMS(args), 0)
-           ^
-   include/trace/bpf_probe.h:77:16: note: expanded from macro '__DEFINE_EVENT'
-   typedef void (*btf_trace_##template)(void *__data, proto);              \
-                  ^
-   <scratch space>:20:1: note: expanded from here
-   btf_trace_scsi_cmd_done_timeout_template
-   ^
-   1 warning generated.
 ..
 
-vim +/btf_trace_rtc_time_alarm_class +38 include/trace/events/rtc.h
+vim +/btf_trace_local_only_evt +253 net/mac80211/./trace.h
 
-29a1f599c0cc37 Baolin Wang 2017-12-14   37  
-29a1f599c0cc37 Baolin Wang 2017-12-14  @38  DEFINE_EVENT(rtc_time_alarm_class, rtc_read_time,
-29a1f599c0cc37 Baolin Wang 2017-12-14   39  
-29a1f599c0cc37 Baolin Wang 2017-12-14   40  	TP_PROTO(time64_t secs, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14   41  
-29a1f599c0cc37 Baolin Wang 2017-12-14   42  	TP_ARGS(secs, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14   43  );
-29a1f599c0cc37 Baolin Wang 2017-12-14   44  
-29a1f599c0cc37 Baolin Wang 2017-12-14   45  DEFINE_EVENT(rtc_time_alarm_class, rtc_set_alarm,
-29a1f599c0cc37 Baolin Wang 2017-12-14   46  
-29a1f599c0cc37 Baolin Wang 2017-12-14   47  	TP_PROTO(time64_t secs, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14   48  
-29a1f599c0cc37 Baolin Wang 2017-12-14   49  	TP_ARGS(secs, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14   50  );
-29a1f599c0cc37 Baolin Wang 2017-12-14   51  
-29a1f599c0cc37 Baolin Wang 2017-12-14   52  DEFINE_EVENT(rtc_time_alarm_class, rtc_read_alarm,
-29a1f599c0cc37 Baolin Wang 2017-12-14   53  
-29a1f599c0cc37 Baolin Wang 2017-12-14   54  	TP_PROTO(time64_t secs, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14   55  
-29a1f599c0cc37 Baolin Wang 2017-12-14   56  	TP_ARGS(secs, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14   57  );
-29a1f599c0cc37 Baolin Wang 2017-12-14   58  
-29a1f599c0cc37 Baolin Wang 2017-12-14   59  TRACE_EVENT(rtc_irq_set_freq,
-29a1f599c0cc37 Baolin Wang 2017-12-14   60  
-29a1f599c0cc37 Baolin Wang 2017-12-14   61  	TP_PROTO(int freq, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14   62  
-29a1f599c0cc37 Baolin Wang 2017-12-14   63  	TP_ARGS(freq, err),
-29a1f599c0cc37 Baolin Wang 2017-12-14   64  
-29a1f599c0cc37 Baolin Wang 2017-12-14   65  	TP_STRUCT__entry(
-29a1f599c0cc37 Baolin Wang 2017-12-14   66  		__field(int, freq)
-29a1f599c0cc37 Baolin Wang 2017-12-14   67  		__field(int, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14   68  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14   69  
-29a1f599c0cc37 Baolin Wang 2017-12-14   70  	TP_fast_assign(
-29a1f599c0cc37 Baolin Wang 2017-12-14   71  		__entry->freq = freq;
-29a1f599c0cc37 Baolin Wang 2017-12-14   72  		__entry->err = err;
-29a1f599c0cc37 Baolin Wang 2017-12-14   73  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14   74  
-29a1f599c0cc37 Baolin Wang 2017-12-14   75  	TP_printk("set RTC periodic IRQ frequency:%u (%d)",
-29a1f599c0cc37 Baolin Wang 2017-12-14   76  		  __entry->freq, __entry->err
-29a1f599c0cc37 Baolin Wang 2017-12-14   77  	)
-29a1f599c0cc37 Baolin Wang 2017-12-14   78  );
-29a1f599c0cc37 Baolin Wang 2017-12-14   79  
-29a1f599c0cc37 Baolin Wang 2017-12-14   80  TRACE_EVENT(rtc_irq_set_state,
-29a1f599c0cc37 Baolin Wang 2017-12-14   81  
-29a1f599c0cc37 Baolin Wang 2017-12-14   82  	TP_PROTO(int enabled, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14   83  
-29a1f599c0cc37 Baolin Wang 2017-12-14   84  	TP_ARGS(enabled, err),
-29a1f599c0cc37 Baolin Wang 2017-12-14   85  
-29a1f599c0cc37 Baolin Wang 2017-12-14   86  	TP_STRUCT__entry(
-29a1f599c0cc37 Baolin Wang 2017-12-14   87  		__field(int, enabled)
-29a1f599c0cc37 Baolin Wang 2017-12-14   88  		__field(int, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14   89  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14   90  
-29a1f599c0cc37 Baolin Wang 2017-12-14   91  	TP_fast_assign(
-29a1f599c0cc37 Baolin Wang 2017-12-14   92  		__entry->enabled = enabled;
-29a1f599c0cc37 Baolin Wang 2017-12-14   93  		__entry->err = err;
-29a1f599c0cc37 Baolin Wang 2017-12-14   94  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14   95  
-29a1f599c0cc37 Baolin Wang 2017-12-14   96  	TP_printk("%s RTC 2^N Hz periodic IRQs (%d)",
-29a1f599c0cc37 Baolin Wang 2017-12-14   97  		  __entry->enabled ? "enable" : "disable",
-29a1f599c0cc37 Baolin Wang 2017-12-14   98  		  __entry->err
-29a1f599c0cc37 Baolin Wang 2017-12-14   99  	)
-29a1f599c0cc37 Baolin Wang 2017-12-14  100  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  101  
-29a1f599c0cc37 Baolin Wang 2017-12-14  102  TRACE_EVENT(rtc_alarm_irq_enable,
-29a1f599c0cc37 Baolin Wang 2017-12-14  103  
-29a1f599c0cc37 Baolin Wang 2017-12-14  104  	TP_PROTO(unsigned int enabled, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14  105  
-29a1f599c0cc37 Baolin Wang 2017-12-14  106  	TP_ARGS(enabled, err),
-29a1f599c0cc37 Baolin Wang 2017-12-14  107  
-29a1f599c0cc37 Baolin Wang 2017-12-14  108  	TP_STRUCT__entry(
-29a1f599c0cc37 Baolin Wang 2017-12-14  109  		__field(unsigned int, enabled)
-29a1f599c0cc37 Baolin Wang 2017-12-14  110  		__field(int, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14  111  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14  112  
-29a1f599c0cc37 Baolin Wang 2017-12-14  113  	TP_fast_assign(
-29a1f599c0cc37 Baolin Wang 2017-12-14  114  		__entry->enabled = enabled;
-29a1f599c0cc37 Baolin Wang 2017-12-14  115  		__entry->err = err;
-29a1f599c0cc37 Baolin Wang 2017-12-14  116  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14  117  
-29a1f599c0cc37 Baolin Wang 2017-12-14  118  	TP_printk("%s RTC alarm IRQ (%d)",
-29a1f599c0cc37 Baolin Wang 2017-12-14  119  		  __entry->enabled ? "enable" : "disable",
-29a1f599c0cc37 Baolin Wang 2017-12-14  120  		  __entry->err
-29a1f599c0cc37 Baolin Wang 2017-12-14  121  	)
-29a1f599c0cc37 Baolin Wang 2017-12-14  122  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  123  
-29a1f599c0cc37 Baolin Wang 2017-12-14  124  DECLARE_EVENT_CLASS(rtc_offset_class,
-29a1f599c0cc37 Baolin Wang 2017-12-14  125  
-29a1f599c0cc37 Baolin Wang 2017-12-14  126  	TP_PROTO(long offset, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14  127  
-29a1f599c0cc37 Baolin Wang 2017-12-14  128  	TP_ARGS(offset, err),
-29a1f599c0cc37 Baolin Wang 2017-12-14  129  
-29a1f599c0cc37 Baolin Wang 2017-12-14  130  	TP_STRUCT__entry(
-29a1f599c0cc37 Baolin Wang 2017-12-14  131  		__field(long, offset)
-29a1f599c0cc37 Baolin Wang 2017-12-14  132  		__field(int, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14  133  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14  134  
-29a1f599c0cc37 Baolin Wang 2017-12-14  135  	TP_fast_assign(
-29a1f599c0cc37 Baolin Wang 2017-12-14  136  		__entry->offset = offset;
-29a1f599c0cc37 Baolin Wang 2017-12-14  137  		__entry->err = err;
-29a1f599c0cc37 Baolin Wang 2017-12-14  138  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14  139  
-29a1f599c0cc37 Baolin Wang 2017-12-14  140  	TP_printk("RTC offset: %ld (%d)",
-29a1f599c0cc37 Baolin Wang 2017-12-14  141  		  __entry->offset, __entry->err
-29a1f599c0cc37 Baolin Wang 2017-12-14  142  	)
-29a1f599c0cc37 Baolin Wang 2017-12-14  143  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  144  
-29a1f599c0cc37 Baolin Wang 2017-12-14  145  DEFINE_EVENT(rtc_offset_class, rtc_set_offset,
-29a1f599c0cc37 Baolin Wang 2017-12-14  146  
-29a1f599c0cc37 Baolin Wang 2017-12-14  147  	TP_PROTO(long offset, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14  148  
-29a1f599c0cc37 Baolin Wang 2017-12-14  149  	TP_ARGS(offset, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14  150  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  151  
-29a1f599c0cc37 Baolin Wang 2017-12-14 @152  DEFINE_EVENT(rtc_offset_class, rtc_read_offset,
-29a1f599c0cc37 Baolin Wang 2017-12-14  153  
-29a1f599c0cc37 Baolin Wang 2017-12-14  154  	TP_PROTO(long offset, int err),
-29a1f599c0cc37 Baolin Wang 2017-12-14  155  
-29a1f599c0cc37 Baolin Wang 2017-12-14  156  	TP_ARGS(offset, err)
-29a1f599c0cc37 Baolin Wang 2017-12-14  157  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  158  
-29a1f599c0cc37 Baolin Wang 2017-12-14  159  DECLARE_EVENT_CLASS(rtc_timer_class,
-29a1f599c0cc37 Baolin Wang 2017-12-14  160  
-29a1f599c0cc37 Baolin Wang 2017-12-14  161  	TP_PROTO(struct rtc_timer *timer),
-29a1f599c0cc37 Baolin Wang 2017-12-14  162  
-29a1f599c0cc37 Baolin Wang 2017-12-14  163  	TP_ARGS(timer),
-29a1f599c0cc37 Baolin Wang 2017-12-14  164  
-29a1f599c0cc37 Baolin Wang 2017-12-14  165  	TP_STRUCT__entry(
-29a1f599c0cc37 Baolin Wang 2017-12-14  166  		__field(struct rtc_timer *, timer)
-29a1f599c0cc37 Baolin Wang 2017-12-14  167  		__field(ktime_t, expires)
-29a1f599c0cc37 Baolin Wang 2017-12-14  168  		__field(ktime_t, period)
-29a1f599c0cc37 Baolin Wang 2017-12-14  169  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14  170  
-29a1f599c0cc37 Baolin Wang 2017-12-14  171  	TP_fast_assign(
-29a1f599c0cc37 Baolin Wang 2017-12-14  172  		__entry->timer = timer;
-29a1f599c0cc37 Baolin Wang 2017-12-14  173  		__entry->expires = timer->node.expires;
-29a1f599c0cc37 Baolin Wang 2017-12-14  174  		__entry->period = timer->period;
-29a1f599c0cc37 Baolin Wang 2017-12-14  175  	),
-29a1f599c0cc37 Baolin Wang 2017-12-14  176  
-29a1f599c0cc37 Baolin Wang 2017-12-14  177  	TP_printk("RTC timer:(%p) expires:%lld period:%lld",
-29a1f599c0cc37 Baolin Wang 2017-12-14  178  		  __entry->timer, __entry->expires, __entry->period
-29a1f599c0cc37 Baolin Wang 2017-12-14  179  	)
-29a1f599c0cc37 Baolin Wang 2017-12-14  180  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  181  
-29a1f599c0cc37 Baolin Wang 2017-12-14  182  DEFINE_EVENT(rtc_timer_class, rtc_timer_enqueue,
-29a1f599c0cc37 Baolin Wang 2017-12-14  183  
-29a1f599c0cc37 Baolin Wang 2017-12-14  184  	TP_PROTO(struct rtc_timer *timer),
-29a1f599c0cc37 Baolin Wang 2017-12-14  185  
-29a1f599c0cc37 Baolin Wang 2017-12-14  186  	TP_ARGS(timer)
-29a1f599c0cc37 Baolin Wang 2017-12-14  187  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  188  
-29a1f599c0cc37 Baolin Wang 2017-12-14 @189  DEFINE_EVENT(rtc_timer_class, rtc_timer_dequeue,
-29a1f599c0cc37 Baolin Wang 2017-12-14  190  
-29a1f599c0cc37 Baolin Wang 2017-12-14  191  	TP_PROTO(struct rtc_timer *timer),
-29a1f599c0cc37 Baolin Wang 2017-12-14  192  
-29a1f599c0cc37 Baolin Wang 2017-12-14  193  	TP_ARGS(timer)
-29a1f599c0cc37 Baolin Wang 2017-12-14  194  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  195  
-29a1f599c0cc37 Baolin Wang 2017-12-14  196  DEFINE_EVENT(rtc_timer_class, rtc_timer_fired,
-29a1f599c0cc37 Baolin Wang 2017-12-14  197  
-29a1f599c0cc37 Baolin Wang 2017-12-14  198  	TP_PROTO(struct rtc_timer *timer),
-29a1f599c0cc37 Baolin Wang 2017-12-14  199  
-29a1f599c0cc37 Baolin Wang 2017-12-14  200  	TP_ARGS(timer)
-29a1f599c0cc37 Baolin Wang 2017-12-14  201  );
-29a1f599c0cc37 Baolin Wang 2017-12-14  202  
-29a1f599c0cc37 Baolin Wang 2017-12-14  203  #endif /* _TRACE_RTC_H */
-29a1f599c0cc37 Baolin Wang 2017-12-14  204  
-29a1f599c0cc37 Baolin Wang 2017-12-14  205  /* This part must be outside protection */
-29a1f599c0cc37 Baolin Wang 2017-12-14 @206  #include <trace/define_trace.h>
+4efc76bdbf9bfd net/mac80211/driver-trace.h Johannes Berg  2010-06-10  252  
+ba99d93b3d7bb3 net/mac80211/driver-trace.h Johannes Berg  2011-01-26 @253  DEFINE_EVENT(local_only_evt, drv_start,
+4efc76bdbf9bfd net/mac80211/driver-trace.h Johannes Berg  2010-06-10  254  	TP_PROTO(struct ieee80211_local *local),
+ba99d93b3d7bb3 net/mac80211/driver-trace.h Johannes Berg  2011-01-26  255  	TP_ARGS(local)
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  256  );
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  257  
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  258  DEFINE_EVENT(local_u32_evt, drv_get_et_strings,
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  259  	     TP_PROTO(struct ieee80211_local *local, u32 sset),
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  260  	     TP_ARGS(local, sset)
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  261  );
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  262  
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23 @263  DEFINE_EVENT(local_u32_evt, drv_get_et_sset_count,
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  264  	     TP_PROTO(struct ieee80211_local *local, u32 sset),
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  265  	     TP_ARGS(local, sset)
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  266  );
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  267  
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  268  DEFINE_EVENT(local_only_evt, drv_get_et_stats,
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  269  	     TP_PROTO(struct ieee80211_local *local),
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  270  	     TP_ARGS(local)
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  271  );
+e352114fd62f6d net/mac80211/driver-trace.h Ben Greear     2012-04-23  272  
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  273  DEFINE_EVENT(local_only_evt, drv_suspend,
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  274  	TP_PROTO(struct ieee80211_local *local),
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  275  	TP_ARGS(local)
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  276  );
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  277  
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  278  DEFINE_EVENT(local_only_evt, drv_resume,
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  279  	TP_PROTO(struct ieee80211_local *local),
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  280  	TP_ARGS(local)
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  281  );
+eecc48000afe2c net/mac80211/driver-trace.h Johannes Berg  2011-05-04  282  
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  283  TRACE_EVENT(drv_set_wakeup,
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  284  	TP_PROTO(struct ieee80211_local *local, bool enabled),
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  285  	TP_ARGS(local, enabled),
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  286  	TP_STRUCT__entry(
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  287  		LOCAL_ENTRY
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  288  		__field(bool, enabled)
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  289  	),
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  290  	TP_fast_assign(
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  291  		LOCAL_ASSIGN;
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  292  		__entry->enabled = enabled;
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  293  	),
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  294  	TP_printk(LOCAL_PR_FMT " enabled:%d", LOCAL_PR_ARG, __entry->enabled)
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  295  );
+6d52563f2bc217 net/mac80211/driver-trace.h Johannes Berg  2012-04-04  296  
+ba99d93b3d7bb3 net/mac80211/driver-trace.h Johannes Berg  2011-01-26  297  DEFINE_EVENT(local_only_evt, drv_stop,
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  298  	TP_PROTO(struct ieee80211_local *local),
+ba99d93b3d7bb3 net/mac80211/driver-trace.h Johannes Berg  2011-01-26  299  	TP_ARGS(local)
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  300  );
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  301  
+92ddc111c4bc72 net/mac80211/driver-trace.h Luciano Coelho 2011-05-09  302  DEFINE_EVENT(local_sdata_addr_evt, drv_add_interface,
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  303  	TP_PROTO(struct ieee80211_local *local,
+4efc76bdbf9bfd net/mac80211/driver-trace.h Johannes Berg  2010-06-10  304  		 struct ieee80211_sub_if_data *sdata),
+92ddc111c4bc72 net/mac80211/driver-trace.h Luciano Coelho 2011-05-09  305  	TP_ARGS(local, sdata)
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  306  );
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  307  
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  308  TRACE_EVENT(drv_change_interface,
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  309  	TP_PROTO(struct ieee80211_local *local,
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  310  		 struct ieee80211_sub_if_data *sdata,
+2ca27bcff7127d net/mac80211/driver-trace.h Johannes Berg  2010-09-16  311  		 enum nl80211_iftype type, bool p2p),
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  312  
+2ca27bcff7127d net/mac80211/driver-trace.h Johannes Berg  2010-09-16  313  	TP_ARGS(local, sdata, type, p2p),
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  314  
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  315  	TP_STRUCT__entry(
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  316  		LOCAL_ENTRY
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  317  		VIF_ENTRY
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  318  		__field(u32, new_type)
+2ca27bcff7127d net/mac80211/driver-trace.h Johannes Berg  2010-09-16  319  		__field(bool, new_p2p)
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  320  	),
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  321  
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  322  	TP_fast_assign(
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  323  		LOCAL_ASSIGN;
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  324  		VIF_ASSIGN;
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  325  		__entry->new_type = type;
+2ca27bcff7127d net/mac80211/driver-trace.h Johannes Berg  2010-09-16  326  		__entry->new_p2p = p2p;
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  327  	),
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  328  
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  329  	TP_printk(
+2ca27bcff7127d net/mac80211/driver-trace.h Johannes Berg  2010-09-16  330  		LOCAL_PR_FMT  VIF_PR_FMT " new type:%d%s",
+2ca27bcff7127d net/mac80211/driver-trace.h Johannes Berg  2010-09-16  331  		LOCAL_PR_ARG, VIF_PR_ARG, __entry->new_type,
+2ca27bcff7127d net/mac80211/driver-trace.h Johannes Berg  2010-09-16  332  		__entry->new_p2p ? "/p2p" : ""
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  333  	)
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  334  );
+34d4bc4d41d282 net/mac80211/driver-trace.h Johannes Berg  2010-08-27  335  
+92ddc111c4bc72 net/mac80211/driver-trace.h Luciano Coelho 2011-05-09 @336  DEFINE_EVENT(local_sdata_addr_evt, drv_remove_interface,
+92ddc111c4bc72 net/mac80211/driver-trace.h Luciano Coelho 2011-05-09  337  	TP_PROTO(struct ieee80211_local *local,
+92ddc111c4bc72 net/mac80211/driver-trace.h Luciano Coelho 2011-05-09  338  		 struct ieee80211_sub_if_data *sdata),
+92ddc111c4bc72 net/mac80211/driver-trace.h Luciano Coelho 2011-05-09  339  	TP_ARGS(local, sdata)
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  340  );
+0a2b8bb24d4eb6 net/mac80211/driver-trace.h Johannes Berg  2009-07-07  341  
 
-:::::: The code at line 38 was first introduced by commit
-:::::: 29a1f599c0cc37004f92ba455d1ccda3db0b6a94 rtc: Add tracepoints for RTC system
+:::::: The code at line 253 was first introduced by commit
+:::::: ba99d93b3d7bb3a6406bc86f41ab863895968a0f mac80211: use DECLARE_EVENT_CLASS
 
-:::::: TO: Baolin Wang <baolin.wang@linaro.org>
-:::::: CC: Alexandre Belloni <alexandre.belloni@bootlin.com>
+:::::: TO: Johannes Berg <johannes.berg@intel.com>
+:::::: CC: John W. Linville <linville@tuxdriver.com>
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -653,14 +737,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910031913.5bP81ECm%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910032202.OVnkgkNP%25lkp%40intel.com.
 
---rhwuhzjpxqnbnygl
+--rf6qbeg7gmxet3df
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICAazlV0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI9upd7LP8gNEghIikmABUJb8wqXY
+H4sICHf3lV0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI9upd7LP8gNEghIikmABUJb8wqXY
 SuqzfcmR7e7k788MwMsABN227WrCmcF9MHfoxx9+nLGX58f7/fPt9f7u7vvsy+HhcNw/H25m
 n2/vDv8zS+WslGbGU2F+BeL89uHl29tv78+b83ez3349+3U+Wx+OD4e7WfL48Pn2ywu0vX18
 +OHHH+C/HwF4/xW6Of57dn23f/gy+/NwfAL07GT+K/w7++nL7fO/376F/9/fHo+Px7d3d3/e
@@ -1555,4 +1639,4 @@ u9o5x/DiogXO4WWV6Q2B6YIc1fx5QWELoTgHWk6jVOKPMnYJg4XwGTLjrJimUcsBx7uLY2d+
 B4TkuepI4e97nwbF5bBhidzGaFK2w01K5ikPZ+BIe5szI2VqLvJCDw7p3KUllJQt5m7AQzY4
 8G2+1Y+7FZXlgBjh2mFLEl7A5TaSLlsvz7Kb+EFHCfwfXc9LkkAOAwA=
 
---rhwuhzjpxqnbnygl--
+--rf6qbeg7gmxet3df--
