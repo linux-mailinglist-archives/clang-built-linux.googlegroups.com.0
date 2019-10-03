@@ -1,133 +1,144 @@
-Return-Path: <clang-built-linux+bncBC7M5BFO7YCRBOMY2XWAKGQEQEWGGNA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTI55WH24IRBNNR2XWAKGQEEQHCMWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2132BC9615
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Oct 2019 03:17:47 +0200 (CEST)
-Received: by mail-oi1-x23a.google.com with SMTP id r67sf516723oif.18
-        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 18:17:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570065465; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id B0AC6C96A0
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Oct 2019 04:11:02 +0200 (CEST)
+Received: by mail-io1-xd3d.google.com with SMTP id k13sf2745145ioc.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 02 Oct 2019 19:11:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570068661; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jRJpD10qzh9tB5sF2KTQLnmT1Klr8CzsbZVEULX5XVuhrL4Yi5ZtgF/6SOJCoPgtFw
-         A2gZae8jBINTFYX43GbcHjYxuxMElPoy7/ZvtIUei4X8pSN6r7oq4SZoYQlVaKAZ+1Wl
-         8UFUaBrB2UkFznmVUasxrPjxxE+zeu1QSeJBvFbT7i4Ef02gYQ7R2KGcSMTdLE0lMOgY
-         AnV4NaU38Ood9Glm3aefn7b78IS8g3v62GeDffcehubxbx+jke0Va5Y63y9hMPlxgkj3
-         CFFS/OmvA+rXXgpp56KTCAcQo9H4s37Z/FKhtqKVrz2bXUFk32J6cYjN3vNLGU5BX554
-         ptUg==
+        b=jZ1ZUUj4PY94fcY+DERJ2ZQhTW6nbS+ZltKqKMKLIq6awoplPYQ4U1w8xblVZ/3MMW
+         Gq5UVQh7cXkXkpcWxxgv6KcJeIjmNIb/0V4FPS1Qc0FRrR246MtsiXopkaWjE/BDj4nZ
+         MuLMGvt9d9VUTIyfcCnPEtw6cqVpNqDNgsoU4x5JRjtsXTjTkO07XVQeAD0909CkIo7m
+         1Z6GYVbqxR8Tnrjd62Ci5E5u3qg91cezkkOJaTvkeezoiZpHywTn/QT4aYCrEMCDjpLA
+         3RRmWWhP3IFtSkcwp8/p7p4LGoeHQrUOsvXXKqPlSaBEUIDVQaGn2WWg+juSnVcHWD3R
+         EedQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=EicmgC5VOUL9hBLCsKegIhXqVobwQUac5YYBahPfb9o=;
-        b=kHcywkxTjNWaTAgd3AFpC4px1IZmlYicvkxfhobgmIp+g0v78LzeKQxpNpxmBcuYUs
-         rdIc41eOKNOyUqxDEeBN4WXU31e4wLwuGLZqH9bcyt2By/Sr3OIOjqt/jfrVoKUAV1rE
-         sfdtW/hqLQ/5E7DR3jrrqR6NnczQ7sCXeF0VT/GcRvjOHY9RR4fXhcoP3EskMYXINhL5
-         AA2xDha0LuJzY2xJAjuavISZkActES6iW5Vao4S2zwyuVHwGWDR2FILFUJrHh4bKW+VH
-         sXew4/8x95FONOB8ARx7zwVAOzHAEfhkpKFiXTZACvMKYRCmtesTUgJEGrvG+bWDFbil
-         38qw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=Q0HJJeyCJSeqiOJPEnYiPv4L3icVrzNWyOMWU/jOhRc=;
+        b=aSNNf5QiRAeUSHC59Vw7arEJtilyfKZnl161QoBnm1zkdyTL42H+D1R3G2DoOyA8pS
+         yCxY9QHCb43Q/mgRb/GCpXOOSkUVyqj/WT4f9Z4SSrodQzPmkiKRzku69cVib1YU/o4Y
+         twtwgS6YSV88eKDwaly+SvJW/aRDJkGksRmvilAmUPe+JW9I40nvxH3SZY9l6ozuRxwv
+         tTtS974huyCjmJvVFyxMI3Ah7efio9TXOb8eLjcPeQ6ai9ayI5m28WJ3wHKAoJmpftGR
+         J7y6z2KSe7QFplFJCeRzELEbNlgbER5GUo8tE5TuRqJt5qWkRUky3KlAhcVdYZpP/UHh
+         +qiA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IVAGDgYf;
-       spf=pass (google.com: domain of groeck7@gmail.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=groeck7@gmail.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=U9Oi20ce;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
+        d=googlegroups.com; s=20161025;
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=EicmgC5VOUL9hBLCsKegIhXqVobwQUac5YYBahPfb9o=;
-        b=ga4K9OboCGTgqozTf2xYHPFziyE7bN2B06fCsL2+OLIVHYFgY54loa7aELuhfQT0AI
-         Tvd1acKz2Bu/ls4edC1qdEjnOZsK3T98HkMQlfmpWCQzivGEHTBacM+jEQZW8vu6VRdD
-         ZFKV+HgX2CGH6rap5e6iWZ2AXq675bIMg3glKZjuEMYKpWWJD09OtU0jONOydjIsbauO
-         qKCdY6TxBAYpBsS6rS1+lqX2Wx9nrPRoaAWY2qY+/2wOkrzycc6Ytu5aUeBhll/io/e/
-         38UgztVSFgxu+1QmccznyFth5wQucx4kYbvFhbELOtmkamiGHN5Jm9gB7/0jPuwxw9lc
-         ApQw==
+        bh=Q0HJJeyCJSeqiOJPEnYiPv4L3icVrzNWyOMWU/jOhRc=;
+        b=aSBHy32ANJoxbx8weKwvV2W3xLzJXFuVtaPAl/JhcegCxSdavsYaF2WN01Oe9Y7iHl
+         kIxjik+L3/hRXgOq+aPV5ZFdNi2Xs7+lXdftXsaSCAi5HKGieQF2yV0aWyNMicaNWhjR
+         /jTUvpeRzJnk65/lBzGPBFgNbSKmVsLP+XZao1H23p8E8hNRzZnzn4UtNzdMJn08vsMm
+         hsV6NALoxobWE4Tu1drwCVhOOSYmFBAODCFi5wYUMy+FR6qzOttBdk3r6L7ZwYD9BdXe
+         QTbhjnz7QYfuHhilUHJh1w4S7lyx7sI61AG7m03UffKCO9iVu0Nv/+vmOCMrn/KR/M80
+         njmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=EicmgC5VOUL9hBLCsKegIhXqVobwQUac5YYBahPfb9o=;
-        b=KN8QulPrnA432DHbTNV33rqakQSne8rxDilCb6WQLIS0kTvJq9kUoaiNyMBg1JRSGN
-         CVPd34rfTi5QIVNDaSdjXo7kvnwPbJW1ctoQJOplFPVCHCHQgsmkr8zWemyH059XGM59
-         UMWt05VbhWvOKjYgKr1HwqXP3o7OY3sU4IjWCokhDTdrDjdmIY06zARoAeE15WzQxE29
-         ENhg5DTJMhOk95kAz+UpZfbsJnUOvAnXubxKpGuiPIvpZmz7xn2Whs+IWLMpYauw33yC
-         3kvHXuVDw3Xuv+NAsXkQmTwNAVwGENURCkA7pThh/AGV43TcqJrHcoImLW1R/T3ZXICk
-         PN+w==
-X-Gm-Message-State: APjAAAXYnrcmZ04B7oHZrFEbD4+ko9oQhn19XmpjLGCgw3f9WLLPn58F
-	04gsiFxpoIuQ8SK/5eIw/MA=
-X-Google-Smtp-Source: APXvYqxZPWaOLHXizhTKvYaU4RrGzP1svKQZ2xN6eg0byMdMWgWZo8fWVGd6CJh7W3mTYbY7rz41zg==
-X-Received: by 2002:aca:75cd:: with SMTP id q196mr800425oic.88.1570065465767;
-        Wed, 02 Oct 2019 18:17:45 -0700 (PDT)
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=Q0HJJeyCJSeqiOJPEnYiPv4L3icVrzNWyOMWU/jOhRc=;
+        b=L2akQCLEhaQaoDJlnsKIPSjOUiPRdPRrE2LNfLbpnuE5LKefiFMQHkiGeVrioQdGQ+
+         Ns6gMIQSUX7By7EL8Slq45IXmP6ovO2x8oUohlMADxZSRhY3TBLhYSp3K2ZGfPMbH0Ob
+         07e+8xej3lE0CezAdluvbPygP5LAVuIoouzVDlPoukezJMlwvD/XMY5+rkQHMCckYunx
+         WlEUpjZwqbtqqxVdz8RYmpWf0irD8pGDCDJFXNazNLuPKv9lN3MlysAQVDW1uCbPvoge
+         0Xz/07ySVpn15jmZjOz3id66foyburu2edLG9t9TuBPBEqugA+TZ6rS11An+lwlKzSXu
+         WPog==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAWywTldDalFbOeEFLdYgNom2OmvIri/h1nmJt3cvpFcj4TsZNF3
+	+qJ/zdDf4YmjdNgWbJFFymE=
+X-Google-Smtp-Source: APXvYqzpUG/2W/AQlUnlaAuC6rU09ZGfdhvHSznHIn5X8jH980OeDNi7kN0lULp2n9DeA5l0QcpiLw==
+X-Received: by 2002:a5e:d70d:: with SMTP id v13mr6414744iom.174.1570068661634;
+        Wed, 02 Oct 2019 19:11:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:4fcd:: with SMTP id d196ls876658oib.16.gmail; Wed, 02
- Oct 2019 18:17:45 -0700 (PDT)
-X-Received: by 2002:aca:b48a:: with SMTP id d132mr795550oif.98.1570065465391;
-        Wed, 02 Oct 2019 18:17:45 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570065465; cv=none;
+Received: by 2002:a05:6638:c7:: with SMTP id w7ls471391jao.14.gmail; Wed, 02
+ Oct 2019 19:11:01 -0700 (PDT)
+X-Received: by 2002:a02:cd06:: with SMTP id g6mr7008779jaq.89.1570068661213;
+        Wed, 02 Oct 2019 19:11:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570068661; cv=none;
         d=google.com; s=arc-20160816;
-        b=jpOp0wzM/EGFh2MwAVsWzpiL7ELfPDUuyKpa6ZF1K1jswIdTRkARdTY7zqh6zqxrl9
-         ssFkGQ+CFIaMfqCz3hLc85DqSuS7M8ycp+04ZxYI9cs4detuvj2xNxiRWR0T5+QEkid8
-         L9c+ocYi7rrpPtUKd5FvVMnh6Xv6lbPa83HzT/lDlok3O9pOSQNMONY8SkLqlwQll7ue
-         YLvvvYERMvBoqfC+qQeuY2CZ0+3ofGO2GHG/Cs3+sRWdexWvnlGoGKsYhMHHEEroQVCs
-         NKha/WjdYy8TBDp8U6v26gkJZtuLryWcaY3ZL5vHr/pgAwkihhs6H6t5yHgAtlQHbZjI
-         dIYg==
+        b=yu1sj1AnUGgMOjKppeeB9kjrx+jRf90QQ5KcSyvm/JwoLSD89b2hwxZ2uTmYXgFxK7
+         Mxf21SS5IA7nYUXh9d5DcHBfYs9+lNOb2QA7CK35hmGvfMeP/huYYIqrYVwLt0wTtpUj
+         yd6PKjK279fWGMbNB5D4S1aV8pu2OUePed9Z7KJ3K4SUaGylmqG7fHR+YEnm0Kx/AMYK
+         qQLcEtgp0Ptq5LumqHZy9twJrbTM7Rz+YiXG4aJYiVa6RqME4j5fesvNDCYEnzeRuuZz
+         IPX3X8BgRW21Xthmh7V/RdsdVWqkauMPfF8kxlGffiq101z4sEcfZgMDmWFxs1Ik+T4f
+         4CGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject:sender
-         :dkim-signature;
-        bh=tSZmlKH2BrNCoI7JYxGwdsP9mWHj0/GO7SJu9GifiBw=;
-        b=iHI2oF5mLKfBTIcca3dI66sX0DG0AhEx2k6zxKmOAAAovxcxa9Fd5UkwH10YF2009r
-         eO7trbxoyau3sErXhlLBhA+JgPWnM9UTEjwgldq6IvbJ9u6TMkyW4SA77pwHo5VwPJO7
-         AJyforZ3L4zxR1AWAYTJZuCGASYwKouSgEuLyqi8XPkeLtvK1ipRclgdFYamKVCeKLxi
-         CbGkGeQSxcEfWx2jTbx0OxzLRI2d1f7GPNRGwH+M8FQjhlEeeNsdNnE7n6Dwd+85tvFW
-         xKbRtDKNoutI0QEW4f1/bA/VdTTPrvPeLWCtjIoaFKmyEmESufIZxYZJwRUbWO4x4E8L
-         eGUA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:dkim-filter;
+        bh=nkhw/a1oO0nPQOF4FHctSBWATyaUekhzHUNLh8TfmdI=;
+        b=qc99PNuJnwA1gF3L2FFzJo7QsiwPfvhoMeXYpZ/iM3r9SR1cNdIlV2/uSam0+Pvhn1
+         Xu2CWJ8Z8RdE5ADWoNIPeg8qS1m4enowSxmmoy0loeGAbSfdGmJNMsaX9homSDYRfcc+
+         v45olh+UbIgbhofrGKYRRbfyI3VsQRXRXsiS7x4QSDTl2davSysVIx2KgMozC2C/ouVy
+         12X/Lrahcj5mOqONUEz1r7+ejjFcRxRg4FW1l0EDpyv6aBdUFBUGC8h5f8hqfzqu9hE3
+         rRCEDPMup5Z+1hoQ/OtaWQbvioodSqMFikyX+RmV+xS5HjPDGab9nVLV1CvG/Iub1iXg
+         du5g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=IVAGDgYf;
-       spf=pass (google.com: domain of groeck7@gmail.com designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=groeck7@gmail.com
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id k198si55579oib.4.2019.10.02.18.17.45
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=U9Oi20ce;
+       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
+        by gmr-mx.google.com with ESMTPS id i8si71872ilq.4.2019.10.02.19.11.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 02 Oct 2019 18:17:45 -0700 (PDT)
-Received-SPF: pass (google.com: domain of groeck7@gmail.com designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id y35so710894pgl.1
-        for <clang-built-linux@googlegroups.com>; Wed, 02 Oct 2019 18:17:45 -0700 (PDT)
-X-Received: by 2002:a17:90a:1502:: with SMTP id l2mr7565357pja.140.1570065464619;
-        Wed, 02 Oct 2019 18:17:44 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id d20sm709584pfq.88.2019.10.02.18.17.41
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 02 Oct 2019 18:17:42 -0700 (PDT)
-Sender: Guenter Roeck <groeck7@gmail.com>
-Subject: Re: [PATCH v2] hwmon: (applesmc) fix UB and udelay overflow
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>,
- jdelvare@suse.com, =?UTF-8?Q?Tomasz_Pawe=c5=82_Gajc?= <tpgxyz@gmail.com>,
- Nathan Chancellor <natechancellor@gmail.com>,
- Henrik Rydberg <rydberg@bitmath.org>, linux-hwmon@vger.kernel.org,
- LKML <linux-kernel@vger.kernel.org>
-References: <CAKwvOd=GVdHhsdHOMpuhEKkWMssW37keqX5c59+6fiEgLs+Q1g@mail.gmail.com>
- <20190924174728.201464-1-ndesaulniers@google.com>
- <a2e08779-e0ba-2711-9e0d-444d812c0182@roeck-us.net>
- <CAKwvOdnG6tTHHx5aL8oA3ta_mW24aZ37JX+=HQ9YphearL4DOg@mail.gmail.com>
-From: Guenter Roeck <linux@roeck-us.net>
-Message-ID: <bde955d5-bfd4-3e0c-ac45-b999ad1cc96b@roeck-us.net>
-Date: Wed, 2 Oct 2019 18:17:40 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.8.0
+        Wed, 02 Oct 2019 19:11:00 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
+Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com [209.85.217.49]) (authenticated)
+	by conssluserg-03.nifty.com with ESMTP id x932Al2k026935
+	for <clang-built-linux@googlegroups.com>; Thu, 3 Oct 2019 11:10:48 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com x932Al2k026935
+X-Nifty-SrcIP: [209.85.217.49]
+Received: by mail-vs1-f49.google.com with SMTP id w195so597776vsw.11
+        for <clang-built-linux@googlegroups.com>; Wed, 02 Oct 2019 19:10:48 -0700 (PDT)
+X-Received: by 2002:a67:1e87:: with SMTP id e129mr3884016vse.179.1570068647121;
+ Wed, 02 Oct 2019 19:10:47 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAKwvOdnG6tTHHx5aL8oA3ta_mW24aZ37JX+=HQ9YphearL4DOg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: linux@roeck-us.net
+References: <20190930112636.vx2qxo4hdysvxibl@willie-the-truck>
+ <CAK7LNASQZ82KSOrQW7+Wq1vFDCg2__maBEAPMLqUDqZMLuj1rA@mail.gmail.com>
+ <20190930121803.n34i63scet2ec7ll@willie-the-truck> <CAKwvOdnqn=0LndrX+mUrtSAQqoT1JWRMOJCA5t3e=S=T7zkcCQ@mail.gmail.com>
+ <20191001092823.z4zhlbwvtwnlotwc@willie-the-truck> <CAKwvOdk0h2A6=fb7Yepf+oKbZfq_tqwpGq8EBmHVu1j4mo-a-A@mail.gmail.com>
+ <20191001170142.x66orounxuln7zs3@willie-the-truck> <CAKwvOdnFJqipp+G5xLDRBcOrQRcvMQmn+n8fufWyzyt2QL_QkA@mail.gmail.com>
+ <20191001175512.GK25745@shell.armlinux.org.uk> <CAKwvOdmw_xmTGZLeK8-+Q4nUpjs-UypJjHWks-3jHA670Dxa1A@mail.gmail.com>
+ <20191001181438.GL25745@shell.armlinux.org.uk> <CAKwvOdmBnBVU7F-a6DqPU6QM-BRc8LNn6YRmhTsuGLauCWKUOg@mail.gmail.com>
+ <CAMuHMdWPhE1nNkmL1nj3vpQhB7fP3uDs2i_ZVi0Gf9qij4W2CA@mail.gmail.com> <CAHk-=wgFODvdFBHzgVf3JjoBz0z6LZhOm8xvMntsvOr66ASmZQ@mail.gmail.com>
+In-Reply-To: <CAHk-=wgFODvdFBHzgVf3JjoBz0z6LZhOm8xvMntsvOr66ASmZQ@mail.gmail.com>
+From: Masahiro Yamada <yamada.masahiro@socionext.com>
+Date: Thu, 3 Oct 2019 11:10:11 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARM2jVSdgCDJWDbvVxYLiUR_CFgTPg0nxzbCszSKcx+pg@mail.gmail.com>
+Message-ID: <CAK7LNARM2jVSdgCDJWDbvVxYLiUR_CFgTPg0nxzbCszSKcx+pg@mail.gmail.com>
+Subject: Re: [PATCH] compiler: enable CONFIG_OPTIMIZE_INLINING forcibly
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+        Nick Desaulniers <ndesaulniers@google.com>,
+        Russell King - ARM Linux admin <linux@armlinux.org.uk>,
+        Will Deacon <will@kernel.org>,
+        Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+        Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+        linux-arch <linux-arch@vger.kernel.org>,
+        LKML <linux-kernel@vger.kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Stefan Wahren <wahrenst@gmx.net>, Kees Cook <keescook@google.com>,
+        Arnd Bergmann <arnd@arndb.de>,
+        clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: yamada.masahiro@socionext.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=IVAGDgYf;       spf=pass
- (google.com: domain of groeck7@gmail.com designates 2607:f8b0:4864:20::543 as
- permitted sender) smtp.mailfrom=groeck7@gmail.com
+ header.i=@nifty.com header.s=dec2015msa header.b=U9Oi20ce;       spf=softfail
+ (google.com: domain of transitioning yamada.masahiro@socionext.com does not
+ designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,58 +151,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 10/2/19 2:43 PM, Nick Desaulniers wrote:
-> On Mon, Sep 30, 2019 at 5:01 PM Guenter Roeck <linux@roeck-us.net> wrote:
->>
->> Again, I fail to understand why waiting for a multiple of 20 seconds
->> under any circumstances would make any sense. Maybe the idea was
->> to divide us by 1000 before entering the second loop ?
-> 
-> Yes, that's very clearly a mistake of mine.
-> 
->>
->> Looking into the code, there is no need to use udelay() in the first
->> place. It should be possible to replace the longer waits with
->> usleep_range(). Something like
->>
->>                  if (us < some_low_value)        // eg. 0x80
->>                          delay(us)
-> 
-> Did you mean udelay here?
-> 
-Yes
+On Thu, Oct 3, 2019 at 5:46 AM Linus Torvalds
+<torvalds@linux-foundation.org> wrote:
+>
+> On Wed, Oct 2, 2019 at 5:56 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> >
+> > >
+> > > Then use the C preprocessor to force the inlining.  I'm sorry it's not
+> > > as pretty as static inline functions.
+> >
+> > Which makes us lose the baby^H^H^H^Htype checking performed
+> > on function parameters, requiring to add more ugly checks.
+>
+> I'm 100% agreed on this.
+>
+> If the inline change is being pushed by people who say "you should
+> have used macros instead if you wanted inlining", then I will just
+> revert that stupid commit that is causing problems.
+>
+> No, the preprocessor is not the answer.
+>
+> That said, code that relies on inlining for _correctness_ should use
+> "__always_inline" and possibly even have a comment about why.
+>
+> But I am considering just undoing commit 9012d011660e ("compiler:
+> allow all arches to enable CONFIG_OPTIMIZE_INLINING") entirely.
 
->>                  else
->>                          usleep_range(us, us * 2);
->>
->> should do, and at the same time prevent the system from turning
->> into a space heater.
-> 
-> The issue would persist with the above if udelay remains in a loop
-> that gets fully unrolled.  That's while I "peel" the loop into two
-> loops over different ranges with different bodies.
-> 
+No, please do not.
 
-Sorry, you lost me. If calls to udelay() with even small delay
-parameters for some compiler-related reason no longer work, trying
-to fix the problem with some odd driver code is most definitely not
-a real solution.
+Macrofying the 'inline' is a horrid mistake that makes incorrect code work.
+It would eternally prevent people from writing portable, correct code.
+Please do not encourage to hide problems.
 
-> I think I should iterate in the first loop until the number of `us` is
-> greater than 1000 (us per ms)(which is less of a magical constant and
-> doesn't expose internal implementation details of udelay), then start
-> the second loop (dividing us by 1000).  What do you think, Guenter?
-> 
 
-We should have no second loop, period.
+> The
+> advantages are questionable, and when the advantages are balanced
+> against actual regressions and the arguments are "use macros", that
+> just shows how badly thought out this was.
+>
+>                 Linus
 
-Again, a hot delay loop of 128 ms (actually, more like 245 ms,
-adding all delays together) is clearly wrong. Those udelay() calls
-in the driver should really be replaced with usleep_range().
 
-Guenter
+
+-- 
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/bde955d5-bfd4-3e0c-ac45-b999ad1cc96b%40roeck-us.net.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNARM2jVSdgCDJWDbvVxYLiUR_CFgTPg0nxzbCszSKcx%2Bpg%40mail.gmail.com.
