@@ -1,146 +1,118 @@
-Return-Path: <clang-built-linux+bncBDTI55WH24IRBUG53DWAKGQEPC6UI3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDNPTDVEVEFBBUO53DWAKGQEI4H7GMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2BDFFCA9EF
-	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Oct 2019 19:24:34 +0200 (CEST)
-Received: by mail-yw1-xc39.google.com with SMTP id y21sf2812778ywg.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Oct 2019 10:24:34 -0700 (PDT)
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6EF79CA9EE
+	for <lists+clang-built-linux@lfdr.de>; Thu,  3 Oct 2019 19:24:33 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id w10sf1413876wrl.5
+        for <lists+clang-built-linux@lfdr.de>; Thu, 03 Oct 2019 10:24:33 -0700 (PDT)
 ARC-Seal: i=2; a=rsa-sha256; t=1570123473; cv=pass;
         d=google.com; s=arc-20160816;
-        b=s2FzGI4rmbGpc2+8D5gnskgF9HzJidiqGnhuloN6jFLMKYq0EnUWpJRtRFctfjI2oN
-         F/7OdVcIoomGq1FJz0kV0bQ5mDHQjO5L+OiYfVgvNb+oSYRGisKHNr9RigblIqBeoScU
-         QqCi4ocYepct/kyo0qgdqbrQ3VLK+0LvDysZodHu7pPMsDQjREpdFjDtF7aiPkeTc44s
-         Nl37CRXphxljqiKUhEJtqKryfN/NRVrAz5ZiwRLYhPj1AeRc7JYy2xLJ7hizX7PoGyJu
-         BcijdPL856figXMgM+XEtxTMBsGXctpv47wWY8N7UNCnMJ6qMhgWBPA6G6tB6vro15VY
-         s+/w==
+        b=kI66ow7lymhapI0sEnUo8IhoSiz2xLKZQpmVlJ1vEPw51GvUOLgaVaOjB0huf9o2HI
+         CdOl30+cmCvnMKLQv4Mpnd+s+SXZrGX9PVpd3uSl8joNUumZHrLZzfDhTR41LXKeIJ4K
+         X7/cLlX56B60y5Hzuyg/mhX6nyXuJu2q/PjfhnED1z4iHUDZbXQSYS7sOXIFiBMz3VgN
+         DFsboxe091YMVWmwOc0R0H2OfxyICKsmhS+cear5IhNLansAcdTXtWLBQjNnws7dmp8z
+         MsPIBpX71Cl2s9sqO1ogJINYoSOJFJlaaoVBrh2tMzDjXrX34rTnB9gz3JI2QJkKkVj6
+         oNmA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=guSNcrk4xVMcA0627Xm/tfX1DzrO87THhXTfJuUTT+k=;
-        b=t3CdziswktDxBa/Z2mef+aRQ/t8Hu/MjCnaWOpFGG2hnOpj5DoFB2miw22vXBCtYY4
-         twP/VZxZCmEKyBRlyigMy1iYQHnx7w/Axyyn/rViw/qeIHH/Guqn21FlpxTZwZnR6MGI
-         ZC8H2oIYDCRpa0AUgboI5BOtXLOOqHeAHjr6Iribrv5bssSsoX3bytxVh8RBNU9w3V5G
-         i4j/WBQOE5CQJWcs9uUhn0x7hn3mzItTt/F/iVQyxI7C2zBXHAKa1Y3uAzbm2SI+aW0m
-         gr5yVjjx/q6rtQdEZSR8+e8cuFfJ+JnVz3J8roIbAQtQqyeWCWP0BjUQ+6QLa7WTvVST
-         XBbQ==
+         :in-reply-to:references:mime-version:sender:dkim-signature;
+        bh=5LIoFcNpCE9T6G2zNtQJPRrAL7pWS7FZkkKhEpcPLM0=;
+        b=cOY1zIeoG1DmYuP93HZC4Dek7EON8+bIj3K8yiOrR0nB0Z0Ebp6wDciAdXCe3jroCc
+         fH9YmlR7TEMjm82MjuPX2tBF5M2SQ8ds9F1BgDD84dcDrinaAYjKHH8+EKViiXhsNwVo
+         O5KaL/j/pPmQamOOIILvkMYrjruAlngPCVP4NB0ZcrDdZsDO4oFzvcS5qefgztQTtjW6
+         fxa/r8pKklKmekLQSGwfO5V/hy6rUUtnwqkF2EnoFXnfn3htQkvQWm0hdsWryfgz43S7
+         FPYTTgUm4LYEeZhSmvUOkVIXUKTs4o18jnetHEu7qK7rI5liIl1xhMV4GN7ji0qlirNF
+         gMyA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=YJoEtvR8;
-       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+       dkim=pass header.i=@brauner.io header.s=google header.b=XTqVYkzD;
+       spf=pass (google.com: domain of christian@brauner.io designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=christian@brauner.io
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=guSNcrk4xVMcA0627Xm/tfX1DzrO87THhXTfJuUTT+k=;
-        b=gqPd6E0hQNk7UHzUgkD3S03nTOZyf5ifFa9XSTa19j543BctrzfEpiCCAO+UwmK/Y8
-         clsb4Ywr0xBHvZSQwlT+PCEuUEbUhWYHasroAdM9I24SAdAyWNAZ8VprFDivtQNA9G/6
-         TOjSBXHi75ZeOT8u5BZjKPGHZAX5ytruEPzwdjVgOGvv+1bHq5FaEtIEsxOPv4I94qbQ
-         qE4Je+Ne3jDA63msrjUxBWZ3VVxgBJLaFGu6PTNB5Hg5MxaK0YCu5aZErs2RmBzJYG3g
-         TT2uk96Qvcq8Z5uuG4I59psJmlvsvD0zKTS7yQsG6je+QYF1pb8g3Lum5uPDonvEBAHd
-         /9+w==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5LIoFcNpCE9T6G2zNtQJPRrAL7pWS7FZkkKhEpcPLM0=;
+        b=oTp8FJN4efAeQ/gz2PrHn508irfp8JEMiNKiT/OuB1fDKpByFipwXBv8HJBwIvPxQV
+         Id7P0m1otZUR05xrwupDTUmIdBot8OpK4RJKhbS99xNiFoGXMQR830jb9Xlti/9kP5Vj
+         rgYQXPYbUHXE0w36YMh6ZExm5aYHmTeCSwEil4wL4t6Ep1lwa7eCYR0S9T7MMn49U+j3
+         ARODx1f8xUXsl6gsccqMWpXI+o7PMbxX6D/0iuOEOoEd/ymmoYHTTSEugCDhWKJ5PThr
+         WNs0HsRmqDeU/dOl1E46RD27LeukXhUh37cnZnylidpWfPOMXOoFRzv6fRSyV/3Y2A/B
+         t0Uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=guSNcrk4xVMcA0627Xm/tfX1DzrO87THhXTfJuUTT+k=;
-        b=d2k6HTN01XBAjK8+A1lyENDOVoy5XS3JGjoWrlW4i7b8phBqNEJfszOrLLM4U4dfVc
-         k/W0708zyZmcLoOG5kHOZbhOYEwdOjoboz/z64Q/dP4yaTmf78qil46QD4OiCLdnMWDz
-         pcMMjxdkTCyygnQkBP3lq62rtqgbr5WXpSZIoxdQTdh+P1lCeJyQhOkqp3/kFNzwOk/U
-         4sgGktBvN6d6kvIgVSMQCphhmWCa9aCutUr5YBlBXEb7hQVvjt/JgvxyP48mLcVg8tG3
-         tFwXQosWNfHmssCCfUhL+sBf3dXMUHy0FMLYnynvtdvDBH9Cgi3t9LERYDudcoBikz6a
-         3fzw==
+        bh=5LIoFcNpCE9T6G2zNtQJPRrAL7pWS7FZkkKhEpcPLM0=;
+        b=Tzn52cYDc+fauV5KsBpPBiQZuUAdDDyfROemHwYUP2D5gRxhSQyu1xl7Rn2Ac1RadM
+         SNsDYM5Nwrygr5n1gYEfyDgNtujdLcq1JLHkeCu0jcUbpqqhhsCZcI8Mftc3nPbmBR5N
+         qEJEslqQ5A0Mm0cUiGuzLp0GdCgJQ+a5SNz6ckOa/1G0EmXCPJhV0ilFPjURhYaANCXf
+         J7EA8cBoLmk1qWdpqa/Ebgtlvj9uyrSX9ZjSo9KhoBDhSCFwZOuSW94OM7RMJ2X8W0TE
+         VvoHNJ9lDbEhtQb4bOkvM3wjuLxccE3evJ/QTaW6jGXEzMMCE6coJmpic9jisK9nnZ36
+         2EQg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV59Edfo+/lX9PnhTI7dbD0HmtoaZhzeUeKNe0OwKXXmWg3DrlP
-	6Hv9v7wwEDTUgLkwjTiEac8=
-X-Google-Smtp-Source: APXvYqz2Q7SV+unrnjp0fqI1YvkdN9ysxWJ0enOknS5h139g9t62EmCKZ96b00kTlGXHtAUI/PMRcg==
-X-Received: by 2002:a25:7393:: with SMTP id o141mr7170310ybc.18.1570123473018;
+X-Gm-Message-State: APjAAAXWnrCSq9S5qwOnkISTfN8j6nY9VlyijdyvS/O7mMWFH2sHZ8oO
+	EEdyD3qCjGPKAFBNhXqVymY=
+X-Google-Smtp-Source: APXvYqwk1es9DPvcYuvg4AVnpkXGWA6UU04YJBpyVskmwKLOzeiVzrJVvrsOxV47jTa0sDRTNpamRw==
+X-Received: by 2002:a1c:4d0d:: with SMTP id o13mr7931257wmh.19.1570123473134;
         Thu, 03 Oct 2019 10:24:33 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:34c5:: with SMTP id b188ls576887ywa.2.gmail; Thu, 03 Oct
- 2019 10:24:32 -0700 (PDT)
-X-Received: by 2002:a81:7882:: with SMTP id t124mr7548883ywc.224.1570123472230;
+Received: by 2002:a7b:c44e:: with SMTP id l14ls217828wmi.4.canary-gmail; Thu,
+ 03 Oct 2019 10:24:32 -0700 (PDT)
+X-Received: by 2002:a1c:658b:: with SMTP id z133mr7908954wmb.130.1570123472540;
         Thu, 03 Oct 2019 10:24:32 -0700 (PDT)
 ARC-Seal: i=1; a=rsa-sha256; t=1570123472; cv=none;
         d=google.com; s=arc-20160816;
-        b=mcc/lSAJWRbl/Nh1g0zGUKbewCYGfdJfPiN6RnuyWOuHUzhtdGv6raD6VhO9H4wg/f
-         ixsCh9DcHdbOHXG0xmFaD+h5KQldnXBM61uMdO9WtNPW0R9n7EJYxQIhPntqtRChYa6H
-         Qh9oWFxMbMkc0yzW1nJ1uOtr+GyZtry8MVMJ3tYsICsxSvJhhwRV6hC5Xhspfft1tXsd
-         A0BJd38YQdX9xyFF1dydYtGb8aocfnUysNP74IgUcZ0CWLnAV1REG4qo47f+M91D6PDW
-         V21d2otZApKZNZ+0p8zqiCW1PJn53nr+dpyvuQNdyb5gXQEhQhAoLeDQ3OoZQjo5xEnl
-         Sxyw==
+        b=02lf2y04y/QnFOFGAN4mjA26FtOWwj+pc+SHVf0sa3+IgwYRRU80D07zrSTRz09bHP
+         3PPDyhUI8Dw7rCpvWcroRaDFLeiS7lHY6RpPzeNRRdetp/5Bps8hynEb3uMKZ/TCarSo
+         JX7PP0XDsawOZkhsOWgyMfnYaTffc+tvUPlU8Hg2vkx5MjfYALnTCwLrnfV3Th2wHHe4
+         Jba9v3p9TcIpYX8vOTrLRvRQQMXMOoYgA8g62MUYGTITddXIL+6SllN17494StD45oY7
+         gPhlq7itZTTNX8/BTvnxW+fPZPhYYBtOFIs2Tm9mz4fdMB7qlu9IU3axg/9gxqyJDDCT
+         sMwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=LJ8ChLvuFkxOnRaAfzcwPHpVO6iA3brJ5hpU1BX1eNM=;
-        b=JlG+RI2kTiS93mQBcpMgxdSbZlxCaj/wwSjOgNrI5AXCQMRmYC7c74koq7bNuczhcw
-         F6CMwCGSSKRBV9kw6IdJlgHlQbHTmgC4AxiNDwGAsP8vMiWot5yUhYFUtHxThEanFwlH
-         fujuT4KOgJ5YhiwK2dUkCuonpHKEMVs8thbDdIgFRlBi0/4TPX+owRSHplBCjuTF6HLn
-         SR25PkYkXz98BlLOtpq0ZUnveAk8fKEZz2IIuAHr+p3b0UCjhUDFBImlc6VU6exll8IA
-         8HY68vSxiWMqNOIzQ4Awn0qYfhY0zSvPG4oTAEPidILyW1GvdTPaXikW6Rq5hv7LcMhy
-         MJrg==
+         :mime-version:dkim-signature;
+        bh=ESbmXAcvOMFr/g7zrlNPGNueObq4Tma9d504o0m9VYY=;
+        b=vTNB8KvGi8qBkYoZ3SdoR4ojsLBcS0i7Nh5ka5to4w/xcq1qlUrVVgct2+rXMYXsZ5
+         fnPP669RloZ0GWnqk6y48dRhC+U1UOUWoshVz4CriqxcbetK0UkexX21F6LteQdvU9ZU
+         sEUa5HNBoWQINyEAWNWU6q+MgtJD4GhiBOR4HvVFhe7Z7IO7q1QUjIcetIXB4y/ErGrU
+         kFH0+M+TKQXiNqX8Gn/giLadH2X9rORPSkM4pfTQMwspde4eWMSz19psdp9MK3Y1i7IX
+         iluF/Nwg6agGdr9BcCu5tsA/Izw+YTx2rwxUXyaSYH+GVL/fECwb03Esg8pRqj7rxeRV
+         N3aQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=YJoEtvR8;
-       spf=softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
-Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
-        by gmr-mx.google.com with ESMTPS id t73si249030ybi.4.2019.10.03.10.24.31
+       dkim=pass header.i=@brauner.io header.s=google header.b=XTqVYkzD;
+       spf=pass (google.com: domain of christian@brauner.io designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=christian@brauner.io
+Received: from mail-lj1-x243.google.com (mail-lj1-x243.google.com. [2a00:1450:4864:20::243])
+        by gmr-mx.google.com with ESMTPS id n16si292349wrs.4.2019.10.03.10.24.32
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
         Thu, 03 Oct 2019 10:24:32 -0700 (PDT)
-Received-SPF: softfail (google.com: domain of transitioning yamada.masahiro@socionext.com does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
-Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com [209.85.222.45]) (authenticated)
-	by conssluserg-03.nifty.com with ESMTP id x93HODCX006026
-	for <clang-built-linux@googlegroups.com>; Fri, 4 Oct 2019 02:24:13 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com x93HODCX006026
-X-Nifty-SrcIP: [209.85.222.45]
-Received: by mail-ua1-f45.google.com with SMTP id w7so1175506uag.4
-        for <clang-built-linux@googlegroups.com>; Thu, 03 Oct 2019 10:24:13 -0700 (PDT)
-X-Received: by 2002:a9f:21f6:: with SMTP id 109mr3156310uac.109.1570123452512;
- Thu, 03 Oct 2019 10:24:12 -0700 (PDT)
+Received-SPF: pass (google.com: domain of christian@brauner.io designates 2a00:1450:4864:20::243 as permitted sender) client-ip=2a00:1450:4864:20::243;
+Received: by mail-lj1-x243.google.com with SMTP id d1so3630715ljl.13
+        for <clang-built-linux@googlegroups.com>; Thu, 03 Oct 2019 10:24:32 -0700 (PDT)
+X-Received: by 2002:a2e:8919:: with SMTP id d25mr6672495lji.176.1570123471858;
+ Thu, 03 Oct 2019 10:24:31 -0700 (PDT)
 MIME-Version: 1.0
-References: <20190930112636.vx2qxo4hdysvxibl@willie-the-truck>
- <CAK7LNASQZ82KSOrQW7+Wq1vFDCg2__maBEAPMLqUDqZMLuj1rA@mail.gmail.com>
- <20190930121803.n34i63scet2ec7ll@willie-the-truck> <CAKwvOdnqn=0LndrX+mUrtSAQqoT1JWRMOJCA5t3e=S=T7zkcCQ@mail.gmail.com>
- <20191001092823.z4zhlbwvtwnlotwc@willie-the-truck> <CAKwvOdk0h2A6=fb7Yepf+oKbZfq_tqwpGq8EBmHVu1j4mo-a-A@mail.gmail.com>
- <20191001170142.x66orounxuln7zs3@willie-the-truck> <CAKwvOdnFJqipp+G5xLDRBcOrQRcvMQmn+n8fufWyzyt2QL_QkA@mail.gmail.com>
- <20191001175512.GK25745@shell.armlinux.org.uk> <CAKwvOdmw_xmTGZLeK8-+Q4nUpjs-UypJjHWks-3jHA670Dxa1A@mail.gmail.com>
- <20191001181438.GL25745@shell.armlinux.org.uk> <CAKwvOdmBnBVU7F-a6DqPU6QM-BRc8LNn6YRmhTsuGLauCWKUOg@mail.gmail.com>
- <CAMuHMdWPhE1nNkmL1nj3vpQhB7fP3uDs2i_ZVi0Gf9qij4W2CA@mail.gmail.com>
- <CAHk-=wgFODvdFBHzgVf3JjoBz0z6LZhOm8xvMntsvOr66ASmZQ@mail.gmail.com>
- <CAK7LNARM2jVSdgCDJWDbvVxYLiUR_CFgTPg0nxzbCszSKcx+pg@mail.gmail.com> <CAHk-=wiMm3rN15WmiAqMHjC-pakL_b8qgWsPPri0+YLFORT-ZA@mail.gmail.com>
-In-Reply-To: <CAHk-=wiMm3rN15WmiAqMHjC-pakL_b8qgWsPPri0+YLFORT-ZA@mail.gmail.com>
-From: Masahiro Yamada <yamada.masahiro@socionext.com>
-Date: Fri, 4 Oct 2019 02:23:36 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATSoOD0g=Aarui6Y26E_YB035NsaPpHxqtBNyw0K0UXVw@mail.gmail.com>
-Message-ID: <CAK7LNATSoOD0g=Aarui6Y26E_YB035NsaPpHxqtBNyw0K0UXVw@mail.gmail.com>
-Subject: Re: [PATCH] compiler: enable CONFIG_OPTIMIZE_INLINING forcibly
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Russell King - ARM Linux admin <linux@armlinux.org.uk>,
-        Will Deacon <will@kernel.org>,
-        Nicolas Saenz Julienne <nsaenzjulienne@suse.de>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-        Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
-        linux-arch <linux-arch@vger.kernel.org>,
-        LKML <linux-kernel@vger.kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Stefan Wahren <wahrenst@gmx.net>, Kees Cook <keescook@google.com>,
-        Arnd Bergmann <arnd@arndb.de>,
-        clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: yamada.masahiro@socionext.com
+References: <20191003171121.2723619-1-natechancellor@gmail.com>
+In-Reply-To: <20191003171121.2723619-1-natechancellor@gmail.com>
+From: Christian Brauner <christian@brauner.io>
+Date: Thu, 3 Oct 2019 19:24:19 +0200
+Message-ID: <CAHrFyr4GFJHQLHOi_OuDVkhuKxfnf_VkTWk6MJ2Mn1EtWhpqjg@mail.gmail.com>
+Subject: Re: [PATCH] usercopy: Add parentheses around assignment in test_copy_struct_from_user
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Aleksa Sarai <cyphar@cyphar.com>, Kees Cook <keescook@chromium.org>, 
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Content-Type: multipart/alternative; boundary="000000000000cb4383059404db6b"
+X-Original-Sender: christian@brauner.io
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=YJoEtvR8;       spf=softfail
- (google.com: domain of transitioning yamada.masahiro@socionext.com does not
- designate 210.131.2.82 as permitted sender) smtp.mailfrom=yamada.masahiro@socionext.com
+ header.i=@brauner.io header.s=google header.b=XTqVYkzD;       spf=pass
+ (google.com: domain of christian@brauner.io designates 2a00:1450:4864:20::243
+ as permitted sender) smtp.mailfrom=christian@brauner.io
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,66 +125,104 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Oct 4, 2019 at 2:02 AM Linus Torvalds
-<torvalds@linux-foundation.org> wrote:
+--000000000000cb4383059404db6b
+Content-Type: text/plain; charset="UTF-8"
+
+On Thu, Oct 3, 2019, 19:11 Nathan Chancellor <natechancellor@gmail.com>
+wrote:
+
+> Clang warns:
 >
-> On Wed, Oct 2, 2019 at 7:11 PM Masahiro Yamada
-> <yamada.masahiro@socionext.com> wrote:
-> >
-> > Macrofying the 'inline' is a horrid mistake that makes incorrect code work.
-> > It would eternally prevent people from writing portable, correct code.
-> > Please do not encourage to hide problems.
+> lib/test_user_copy.c:96:10: warning: using the result of an assignment
+> as a condition without parentheses [-Wparentheses]
+>         if (ret |= test(umem_src == NULL, "kmalloc failed"))
+>             ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> lib/test_user_copy.c:96:10: note: place parentheses around the
+> assignment to silence this warning
+>         if (ret |= test(umem_src == NULL, "kmalloc failed"))
+>                 ^
+>             (                                              )
+> lib/test_user_copy.c:96:10: note: use '!=' to turn this compound
+> assignment into an inequality comparison
+>         if (ret |= test(umem_src == NULL, "kmalloc failed"))
+>                 ^~
+>                 !=
 >
-> Honestly, if the alternative to hiding problems is "use a macro", then
-> I'd rather hide the problems and just make "inline" means "inline".
+> Add the parentheses as it suggests because this is intentional.
 >
-> If "inline" means "it's just a hint, use macros", then inline is useless.
-
-For clarification,
-I am not saying "use macros" at all.
-
-
-I just want to annotate __always_inline for the case
-"2. code that if not inlined is somehow not correct."
-
-
-
-> If "inline" means "using this means that there are known compiler
-> bugs, but we don't know where they trigger", then inline is _worse_
-> than useless.
+> Fixes: f5a1a536fa14 ("lib: introduce copy_struct_from_user() helper")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/731
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 >
-> I do not see the big advantage of letting the compiler say "yeah, I'm
-> not going to do that, Dave".
->
-> And I see a *huge* disadvantage when people are ignoring compiler
-> bugs, and are saying "use a macro". Seriously.
 
+I'll take this. Aleksa, can I get your ack too, please?
 
-Again, not saying "use a macro".
-
-
-
->
-> Right now we see the obvious compiler bugs that cause build breakages.
-> How many non-obvious compiler bugs do we have? And how sure are you
-> that our code is "correct" after fixing a couple of obvious cases?
->
-> As to "portable", nobody cares. We're a kernel. We aren't portable,
-> and never were.
->
-> If this is purely about the fact that x86 is different from other
-> architectures, then let's remove the "compiler can do stupid things"
-> option on x86 too. It was never clear that it was a huge advantage.
->
->                Linus
-
-
-
--- 
-Best Regards
-Masahiro Yamada
+Acked-by: Christian Brauner <christian.brauner@ubuntu.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATSoOD0g%3DAarui6Y26E_YB035NsaPpHxqtBNyw0K0UXVw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAHrFyr4GFJHQLHOi_OuDVkhuKxfnf_VkTWk6MJ2Mn1EtWhpqjg%40mail.gmail.com.
+
+--000000000000cb4383059404db6b
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D=
+"gmail_attr">On Thu, Oct 3, 2019, 19:11 Nathan Chancellor &lt;<a href=3D"ma=
+ilto:natechancellor@gmail.com">natechancellor@gmail.com</a>&gt; wrote:<br><=
+/div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex;border-le=
+ft:1px #ccc solid;padding-left:1ex">Clang warns:<br>
+<br>
+lib/test_user_copy.c:96:10: warning: using the result of an assignment<br>
+as a condition without parentheses [-Wparentheses]<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret |=3D test(umem_src =3D=3D NULL, &quot;k=
+malloc failed&quot;))<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~~~~~~~~~~<br>
+lib/test_user_copy.c:96:10: note: place parentheses around the<br>
+assignment to silence this warning<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret |=3D test(umem_src =3D=3D NULL, &quot;k=
+malloc failed&quot;))<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ^<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 )<br>
+lib/test_user_copy.c:96:10: note: use &#39;!=3D&#39; to turn this compound<=
+br>
+assignment into an inequality comparison<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret |=3D test(umem_src =3D=3D NULL, &quot;k=
+malloc failed&quot;))<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ^~<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !=3D<br>
+<br>
+Add the parentheses as it suggests because this is intentional.<br>
+<br>
+Fixes: f5a1a536fa14 (&quot;lib: introduce copy_struct_from_user() helper&qu=
+ot;)<br>
+Link: <a href=3D"https://github.com/ClangBuiltLinux/linux/issues/731" rel=
+=3D"noreferrer noreferrer" target=3D"_blank">https://github.com/ClangBuiltL=
+inux/linux/issues/731</a><br>
+Signed-off-by: Nathan Chancellor &lt;<a href=3D"mailto:natechancellor@gmail=
+.com" target=3D"_blank" rel=3D"noreferrer">natechancellor@gmail.com</a>&gt;=
+<br></blockquote></div></div><div dir=3D"auto"><br></div><div dir=3D"auto">=
+I&#39;ll take this. Aleksa, can I get your ack too, please?</div><div dir=
+=3D"auto"><br></div><div dir=3D"auto">Acked-by: Christian Brauner &lt;<a hr=
+ef=3D"mailto:christian.brauner@ubuntu.com">christian.brauner@ubuntu.com</a>=
+&gt;</div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAHrFyr4GFJHQLHOi_OuDVkhuKxfnf_VkTWk6MJ2Mn1EtW=
+hpqjg%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://grou=
+ps.google.com/d/msgid/clang-built-linux/CAHrFyr4GFJHQLHOi_OuDVkhuKxfnf_VkTW=
+k6MJ2Mn1EtWhpqjg%40mail.gmail.com</a>.<br />
+
+--000000000000cb4383059404db6b--
