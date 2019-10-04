@@ -1,133 +1,127 @@
-Return-Path: <clang-built-linux+bncBCQJP74GSUDRBY7N3PWAKGQE2EDKYTY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBVXZ3PWAKGQEXDFQIBI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3a.google.com (mail-vs1-xe3a.google.com [IPv6:2607:f8b0:4864:20::e3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 36004CB51E
-	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Oct 2019 09:38:13 +0200 (CEST)
-Received: by mail-vs1-xe3a.google.com with SMTP id r26sf515654vsq.14
-        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Oct 2019 00:38:13 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570174692; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id AEB11CB5A5
+	for <lists+clang-built-linux@lfdr.de>; Fri,  4 Oct 2019 10:03:34 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id n3sf2349386wrt.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 04 Oct 2019 01:03:34 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570176214; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0TUaXL28YOyRoQYTmJ52iU975xLjLZaDKtJvjXHQEGr/GZpb8lcSm1YyPRpg/Mo0eO
-         FDT7FHtIR9jjxDwhz0WhEcJjuUJlEYICs3I58869aNY2L2X6m5V71s4Qm5UG6hv6yGKB
-         f30S6s2+GDmbKfTm+wBnF3jQuHiDZsm2UyIpz7Z2kUrAOItglhdulihvSzN8lEsjWfNE
-         KXKlu9Ad2cc8c71v4aQmFWEtdrg1D6usB47DdRuWI0AvI1j5qgQGnn0WCvxGoKz0tGVo
-         qmFJP/LncUsURpCjmkuXD7nOMw4beN8GtwwQwBYjBRDGI6Jt0GoFB4gDgyljSfxLkqtB
-         NWgw==
+        b=UVSFLx8mnNhWjW50E5/svthsgeyJoJz+WrbBOc03pI+dWeTDq7DyqgtXIC82cYY9eG
+         ue3F7KQ3p9XJoDZRV0D1uzGSfQUJmm+JJzaUiWrdf0BGYXNIoQx99mWF7BHii5Nmol/i
+         a5U4LPWRjLNwM9YOoc7V4Zy1CHZkCSZMAVJPO6yTEVOoJkHnzQCHII/p9L4U+ZAwPg0I
+         rLfFWyG0lbY4kEzHYBeItNVwOvFOsu1r4XstIVffqTe2hHdY04V5P7kpuM42NW6N3BOc
+         XNqnPVqdsWSZ/rNtbplW61eVjZugtouSoGYxIaJaIoDar4ELMreQejlSIWjcjQ5Ds5z7
+         fXag==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=ZVN1AHPrwoJnVHJAsIE6O4XbopMhbVZ2qE2mp7A4v/Q=;
-        b=be3nDcjayRILRd9HeK5cXHjaV/0XmLNLMC4Q99PuROS0QpHhYbRzW46M96E4jzeWAu
-         pgvHLM3uA5ulhGpRxeoNGnCy+k5SW9xSZE0B+g5eKuf8qx3DnQWFirP2PhSYvCOSwojY
-         gu9cBG39Pb7vrJPB3wo2q14Y5zP37Wf9gp1iXZCfBwli0cG3N7TSShYW46MYizEo3TK/
-         MTZJQH7vzuaGOsFx96g1PXOq72nVzsMLj1g5ZNqOYC2ceDlxZ8gm2+R2pNAxHqgmcx50
-         DbQFzKP4giwpevnguDu1r6WVHh4ebLH8y7MFLi3Q3uVAtLN1comffNJ2e/ilkrW5U605
-         Jo0Q==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=jt9WkRRvlOpikcF+JONRugzUb/XhoyiJM2UyuSWzC4Y=;
+        b=mhcHZr6aszvBor8D5NUrRuVIkplFjagrXt9nQRq99r8Pv0vpmA7fS0fQC8zkpmzKEd
+         84kfXPvfZkT10sUBHC2KX23bqj03h1bdhIK+9mtmfc2AMiF9twyc6Xd7LGiAVJlwv85+
+         GP+2UNLVkHLkFYsc1av1NqMoqkmFFkjcYun7QKyKGbiWWOGLZx9etZUGVQnZ6ZeKNQmh
+         e+6+pR+rlURY7CoW1WCUKhNQG6LjAj+buNEo6giEMjAy5xpz3ZbwrxkkmmdPH+Zhvp/y
+         3m4IsiOwWqjUK2v4Kg/IkqQV0EkPl+dx8SzIVlULZTcw0bX2/axeMxXHm6XjoJ0l+5ff
+         rrWw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.195 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b="s/fkyUg1";
+       spf=neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZVN1AHPrwoJnVHJAsIE6O4XbopMhbVZ2qE2mp7A4v/Q=;
-        b=CgRFhG6hhvfmqoPXTHnRlONdLgxqrWQ4XIzAvsBZQPLvPELuculHclc1Yu8/RfpTn8
-         zY6sDnkZyX+zNqZ21e4ZCau4HEUHi467UG1+1GNQqByNZlSsYkFHaexziqr59RkyulIW
-         pbzz1km1PefOwAfL4TD1ZcEbHLqtQ1IVf0tFdq5ueT65ENi8gr35Su3s1huD98ZBvr94
-         q+k1TJM5TlXHDiMfazLu5FWAfXnpLtewkZDqPbQ5EqdiLPv1iPAbp3oB2SwFRRKvRYrq
-         +/ZA71XIWvedsCP4mndEr6BkrpOwmgWiSzbtq0IFCg9n5CJSVkDcnKKDVJ1Ao0T2CYnW
-         hYoA==
+        bh=jt9WkRRvlOpikcF+JONRugzUb/XhoyiJM2UyuSWzC4Y=;
+        b=rOvSq0PeA6oEOBJIZagx0c4lQz4siBBwsb45jE7xwj1rUdFmoqfQC4GhQGoz1rgPAe
+         rFh/tqA0DFWprie4VFct63P+Gk/oxNy5x9TXurvCpOUmLms08JgufpZIMNQRHH2Rd6Ag
+         RTN5mnNIpRDTCBRIaiKTXIymnPg04zRTOb5X6xm7iAcCvOsjxfIZ3Y+92S//C45RJ8ia
+         QqYsctlWxzcN8jtbJRnZjLlDMWL5Sgf8iCtYXnx0jT4j3oO8i2FV02etbkxTArE3RFrT
+         m+EgI6l9cMJdlGcnZQkXWfhSt6YNnMuvtpo3+JFdsjaCX70HBbEA9agK6Xwctv6Jcnp+
+         1PPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZVN1AHPrwoJnVHJAsIE6O4XbopMhbVZ2qE2mp7A4v/Q=;
-        b=atw2psBiMbNRu1KOZEJvOAPJhPbCvTDS6supFEp0V3q38+np/+N+Y41diS/sI7zdHx
-         JeRkUK2vNK755TXUaRcg7Dcw14H5uIl9NvwMllICaaSohfmyHAcX2jyPdq97I26k3R7C
-         EOtr086TFVfJIWFlXncNGAfeO9VkP4LAaWR94DvyxcsNqSliFIYJOKqtxqFE3EMiFq0y
-         Kg8TUV746JVFLq2giDBBoU7owLg+USw/GkZASerXMg3TxdWlcENgZ797DjJ+ohC8dZkr
-         8i9yvhbO7LqoQX+cgKLptuM8pi9cQpo2f/m5SYDR3fKAQ8CXnnX/jT+UquCwuE5+pHrK
-         xznw==
+        bh=jt9WkRRvlOpikcF+JONRugzUb/XhoyiJM2UyuSWzC4Y=;
+        b=l4Auip8KWaRxegr6rh3ZIIU53B/8DhcE7bVGNURbu9DA62rjSD7eS88VBnsS33gTgI
+         1ofKA9pj0rB5jjraWTo3T1XxCiYZ3NSqER6iHzazPs9oqqNnkSHzsPvZ1a7dAU5vw5qi
+         Ipdoe5NB8nyOmreiqBTMOKNZe+ewIs6ee+vFGRV+o9Zs4Z62PSvS4vk5xyXe9nLDiBRQ
+         nGmJ/03TmnMFwfC7Z/j5xeYOWN4Y2AkKAQHIyq91K36FCz7qS1RaGl3VecIfDQeJlMDk
+         0dQ3KRg2h93dlwMmKhx1mTjZWReX6cbsEc7Drrw99wAb501AnIpZHLsRlOSVP8TiIFXa
+         Zf+A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWzlCq2iVG99AbtenfCiGeMrbxQ5Op9KQKErPG4+y2U2ATpPmwv
-	LCJxIY365zMn4GRhdP1cwEY=
-X-Google-Smtp-Source: APXvYqzD1uV49q+MrWzdPvXlO8a6qsCGupW+OGCbKOBT4tGh3yrb9iABEt3vF7T9/iFEhcMnea6FOw==
-X-Received: by 2002:ac5:c7bb:: with SMTP id d27mr7133627vkn.19.1570174692070;
-        Fri, 04 Oct 2019 00:38:12 -0700 (PDT)
+X-Gm-Message-State: APjAAAXNDAoK+mpF6hIJ0cKZOCqXwSHBHf0wy9qo+rfTwucGshAh7mLo
+	yy7Q7Vvgwq7hL4/+3ugnCzY=
+X-Google-Smtp-Source: APXvYqxlobsGJM5K1Hm5X6WEIj0qfxyvAfb/ls4Qe84nCj9cDhGj1nGcHHeArfpzmYDLklIFQgNpqQ==
+X-Received: by 2002:a1c:a853:: with SMTP id r80mr9566019wme.140.1570176214104;
+        Fri, 04 Oct 2019 01:03:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:7214:: with SMTP id u20ls508911uao.2.gmail; Fri, 04 Oct
- 2019 00:38:11 -0700 (PDT)
-X-Received: by 2002:ab0:5e50:: with SMTP id a16mr2853230uah.24.1570174691550;
-        Fri, 04 Oct 2019 00:38:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570174691; cv=none;
+Received: by 2002:a05:6000:c6:: with SMTP id q6ls372430wrx.9.gmail; Fri, 04
+ Oct 2019 01:03:33 -0700 (PDT)
+X-Received: by 2002:a5d:6441:: with SMTP id d1mr4520478wrw.254.1570176213571;
+        Fri, 04 Oct 2019 01:03:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570176213; cv=none;
         d=google.com; s=arc-20160816;
-        b=t6Z/bl4QfrFfHo87vy48HogiT1UVWTYeXlwGejPlHjra4v0Q8gfr5qkXaPofrhlJ6k
-         h2utqqPRFaw99AjWJB2o9GPky26GHTI7e0eds1e56pOgDoGg1gY6sUnmTTimTDfUdFMf
-         jz7G71AQaMiprnQHdUvZIFP4tsXxsmnnAwB2/7GOpFiz57noStLxto0wiTv93ZI4+wpZ
-         EEnK8vEU30QxUpYIKavtxmAtXvQ6GUbiPnEXZokXoG8zL59vG5/tJiyPspSXf/qz5rqj
-         CK7Zy06LuSJtHpNKSu751cMXvxDPTOcBnxpdX7N8fJzEd/VmzJKg0NWpefwV77qi86YM
-         6wMA==
+        b=QIddG2ZqgiLoy0kFctelZrxF1zzKdujJQvnccRdipNQAuWRO7J2O+T/POZcN29m5iJ
+         /7Ok9SXe27cjWCPrnuoTlDu7sT3iLG8Tq/yKJ0M5dRSKzJBwxzpMTdYNJY6OHPnVeQv6
+         uLM55XEtLRM8JxJRgC7yx0GRtJHrR3ddg2U4+pl8Yd+XFGsyyVqE2QlcHdRK/Bbx23vM
+         +anvp4qrjTxUrpPMDxBQn5el+7OSKyjN+vwtvkjoDzaSGRQ5LTYsFySa5OChutpXWhV3
+         3FP3vMHhH+SjHa1b5ze6nf6nu25T7SCS62cdlCTxK8PcfOGCbP4b73MGWNvp2u+vfOqH
+         wiYQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=wuBYLzr0+BbgtiiM2Gze6MIPys+898SIQq1AttIPKCY=;
-        b=h0ArZB0sypDUGxBGrT0qbvqvVdikmO0KrHzKHv7z1NEkcAhSacWkWhvKTqu+NWH+u3
-         yoGTNdEGi7VIN66Emp5b1Yq5SQGU5P3k0I9+r2qsC9tY88fWzBVqqTiaFvwZq+UKHlih
-         zYCcKKL8bH538Gajq558xiBh4bK2SLOvvXJSeSnrBwWYAKHPoSLyOSVSiMAdVx7GLU+A
-         eorSmUlR0of90o8ViT0TOYBgC2+li3txUsUjY6bON8bTjJToZKPZKGag+zEqhi/pS2I8
-         lOffL/Qk/77JSHv1L6WOoSoUNHRXTvwRuX5fWWK9wbStKyCxYuFyjAQkN8IIwscV/iDZ
-         YoQg==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=trFJMY6UWNOJmVPdujkuYe6xBKx55zsLTF89z3ozBiE=;
+        b=i2ojOqDix7uc/5jW8niJMcR9IGql0t5fYcnSEDdVUeA9FpaMOLsxdBbD/kHEqQolz4
+         VITeSSZayO4Pzs7sB0fxjm1xD6XtxFoml57utNsOtvauRwKfHmUyr0CSbaILp76ZXgd7
+         UzlDwH2mlBrQRxH7ewDASmY/xwjgmltYoFr9CZi13wfAqdT6gt4cO9oCoPbzW7W2lQVh
+         YOlgg38ZCcVPbT2PtYsG8bdTdF8qQ81tkTRCvzmQbSnn4/s56XJ5nLP10SxI+f6bB9PQ
+         0kIxGlphdgj6wWMJ9DS+hCTmb4bpHyy74wjg0rSJEudBSbWuoNUZHh1QqjpGeB7ETMAC
+         tTBw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.195 as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
-Received: from mail-oi1-f195.google.com (mail-oi1-f195.google.com. [209.85.167.195])
-        by gmr-mx.google.com with ESMTPS id v4si6669vka.3.2019.10.04.00.38.11
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b="s/fkyUg1";
+       spf=neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id j4si253822wro.5.2019.10.04.01.03.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 04 Oct 2019 00:38:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.195 as permitted sender) client-ip=209.85.167.195;
-Received: by mail-oi1-f195.google.com with SMTP id x3so4992623oig.2
-        for <clang-built-linux@googlegroups.com>; Fri, 04 Oct 2019 00:38:11 -0700 (PDT)
-X-Received: by 2002:aca:b654:: with SMTP id g81mr5758145oif.153.1570174690802;
- Fri, 04 Oct 2019 00:38:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20190930112636.vx2qxo4hdysvxibl@willie-the-truck>
- <CAK7LNASQZ82KSOrQW7+Wq1vFDCg2__maBEAPMLqUDqZMLuj1rA@mail.gmail.com>
- <20190930121803.n34i63scet2ec7ll@willie-the-truck> <CAKwvOdnqn=0LndrX+mUrtSAQqoT1JWRMOJCA5t3e=S=T7zkcCQ@mail.gmail.com>
- <20191001092823.z4zhlbwvtwnlotwc@willie-the-truck> <CAKwvOdk0h2A6=fb7Yepf+oKbZfq_tqwpGq8EBmHVu1j4mo-a-A@mail.gmail.com>
- <20191001170142.x66orounxuln7zs3@willie-the-truck> <CAKwvOdnFJqipp+G5xLDRBcOrQRcvMQmn+n8fufWyzyt2QL_QkA@mail.gmail.com>
- <20191001175512.GK25745@shell.armlinux.org.uk> <CAKwvOdmw_xmTGZLeK8-+Q4nUpjs-UypJjHWks-3jHA670Dxa1A@mail.gmail.com>
- <20191001181438.GL25745@shell.armlinux.org.uk> <CAKwvOdmBnBVU7F-a6DqPU6QM-BRc8LNn6YRmhTsuGLauCWKUOg@mail.gmail.com>
- <CAMuHMdWPhE1nNkmL1nj3vpQhB7fP3uDs2i_ZVi0Gf9qij4W2CA@mail.gmail.com>
- <CAHk-=wgFODvdFBHzgVf3JjoBz0z6LZhOm8xvMntsvOr66ASmZQ@mail.gmail.com>
- <CAK7LNARM2jVSdgCDJWDbvVxYLiUR_CFgTPg0nxzbCszSKcx+pg@mail.gmail.com>
- <CAHk-=wiMm3rN15WmiAqMHjC-pakL_b8qgWsPPri0+YLFORT-ZA@mail.gmail.com>
- <CAK7LNATSoOD0g=Aarui6Y26E_YB035NsaPpHxqtBNyw0K0UXVw@mail.gmail.com>
- <CAHk-=wj9Dbom1x7qDfrXgNbjdFa_84bAUMdGigs4sELQQW28wg@mail.gmail.com> <CANiq72k39jKJVDkQVk=OP8zdYEAiLMadnSxDYLFY1gwpKmuo_Q@mail.gmail.com>
-In-Reply-To: <CANiq72k39jKJVDkQVk=OP8zdYEAiLMadnSxDYLFY1gwpKmuo_Q@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 4 Oct 2019 09:37:59 +0200
-Message-ID: <CAMuHMdWbv34O6=kR_3UOxvZ4WBmzaPmbGpux+gZCaQo+XLs58A@mail.gmail.com>
-Subject: Re: [PATCH] compiler: enable CONFIG_OPTIMIZE_INLINING forcibly
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Russell King - ARM Linux admin <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>, 
-	Nicolas Saenz Julienne <nsaenzjulienne@suse.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, linux-arch <linux-arch@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Stefan Wahren <wahrenst@gmx.net>, Kees Cook <keescook@google.com>, Arnd Bergmann <arnd@arndb.de>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+        Fri, 04 Oct 2019 01:03:33 -0700 (PDT)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id p7so4757794wmp.4
+        for <clang-built-linux@googlegroups.com>; Fri, 04 Oct 2019 01:03:33 -0700 (PDT)
+X-Received: by 2002:a7b:cbd0:: with SMTP id n16mr9365968wmi.82.1570176210886;
+        Fri, 04 Oct 2019 01:03:30 -0700 (PDT)
+Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
+        by smtp.gmail.com with ESMTPSA id g185sm4909287wme.10.2019.10.04.01.03.29
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 04 Oct 2019 01:03:30 -0700 (PDT)
+Message-ID: <5d96fcd2.1c69fb81.5f6cb.6e6a@mx.google.com>
+Date: Fri, 04 Oct 2019 01:03:30 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: geert@linux-m68k.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of geert.uytterhoeven@gmail.com designates 209.85.167.195
- as permitted sender) smtp.mailfrom=geert.uytterhoeven@gmail.com
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: next-20191004
+X-Kernelci-Branch: master
+X-Kernelci-Tree: next
+Subject: next/master build: 218 builds: 5 failed, 213 passed, 8 errors,
+ 486 warnings (next-20191004)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b="s/fkyUg1";       spf=neutral (google.com: 2a00:1450:4864:20::341 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,74 +134,3623 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Miguel,
+next/master build: 218 builds: 5 failed, 213 passed, 8 errors, 486 warnings=
+ (next-20191004)
 
-On Thu, Oct 3, 2019 at 10:21 PM Miguel Ojeda
-<miguel.ojeda.sandonis@gmail.com> wrote:
-> On Thu, Oct 3, 2019 at 7:29 PM Linus Torvalds
-> <torvalds@linux-foundation.org> wrote:
-> > On Thu, Oct 3, 2019 at 10:24 AM Masahiro Yamada
-> > <yamada.masahiro@socionext.com> wrote:
-> > >
-> > > I just want to annotate __always_inline for the case
-> > > "2. code that if not inlined is somehow not correct."
-> >
-> > Oh, I support that entirely - if only for documentation.
-> >
-> > But I do *not* support the dismissal of the architecture maintainers
-> > concerns about "does it work?" and apparently known compiler bugs.
-> >
-> > > Again, not saying "use a macro".
-> >
-> > Other people did, though.
-> >
-> > And there seemed to be little balancing of the pain vs the gain. The
-> > gain really isn't that obvious. If the code shrinks by a couple of kB,
-> > is that good or bad? Maybe it is smaller, but is it _better_?
->
-> I think both positions that people have shown are important to take
-> into account.
->
-> We should minimize our usage of macros wherever possible and certainly
-> not write new ones when another solution is available. But we should
-> *also* minimize our dependence on code that "must-be-inlined" to work
-> as much as possible.
->
-> In particular, I think we should allow to use __always_inline only if
-> it doesn't work otherwise, as an alternative before trying the next
-> worst solution (macros). And avoid using only "inline" when we
-> actually require inlining, of course.
->
-> And the reasoning for each usage of __always_inline should have a
-> comment (be it "bad codegen", "performance tanks without it",
-> "compiler X <= 4.2 refuses to compile"...). Which is also useful for
-> compiler folks to grep for cases to improve/fix in their compiler!
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20191004/
 
-First, we had "inline" and normal functions, where "inline" was used to
-make sure a function was inlined (e.g. because it contained code paths
-that were intended to be optimized away[*]).
-Then, the compiler started not honoring the "inline" keyword, so we got
-"always_inline", "inline", and normal functions.  With a hack to #define
-"inline" to "always_inline" for some compiler versions.
+Tree: next
+Branch: master
+Git Describe: next-20191004
+Git Commit: 311ef88adfa3b69c40234bf3000d1269e718919a
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-What's next? There should be a way for the programmer to indicate a
-function must be inlined.
+Build Failures Detected:
 
-[*] Some unused  code paths may contain references to symbols that may
-    not exist for the current configuration, or not exist at all.
+arm64:
+    allmodconfig: (clang-8) FAIL
+    allmodconfig: (gcc-8) FAIL
 
-Gr{oetje,eeting}s,
+arm:
+    allmodconfig: (gcc-8) FAIL
 
-                        Geert
+mips:
+    msp71xx_defconfig: (gcc-8) FAIL
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+x86_64:
+    allmodconfig: (gcc-8) FAIL
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Errors and Warnings Detected:
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAMuHMdWbv34O6%3DkR_3UOxvZ4WBmzaPmbGpux%2BgZCaQo%2BXLs58A%40mail.gmail.com.
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 2 warnings
+    axs103_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig (gcc-8): 2 warnings
+    hsdk_defconfig (gcc-8): 2 warnings
+    nsim_hs_defconfig (gcc-8): 2 warnings
+    nsim_hs_defconfig (gcc-8): 30 warnings
+    nsim_hs_smp_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 1 warning
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
+
+arm64:
+    allmodconfig (clang-8): 1 error, 11 warnings
+    allmodconfig (gcc-8): 1 error
+    defconfig (gcc-8): 27 warnings
+
+arm:
+    allmodconfig (gcc-8): 1 error
+    am200epdkit_defconfig (gcc-8): 1 warning
+    at91_dt_defconfig (gcc-8): 1 warning
+    axm55xx_defconfig (gcc-8): 1 warning
+    cm_x2xx_defconfig (gcc-8): 1 warning
+    cm_x300_defconfig (gcc-8): 1 warning
+    cns3420vb_defconfig (gcc-8): 1 warning
+    colibri_pxa270_defconfig (gcc-8): 1 warning
+    colibri_pxa300_defconfig (gcc-8): 1 warning
+    davinci_all_defconfig (gcc-8): 1 warning
+    dove_defconfig (gcc-8): 1 warning
+    em_x270_defconfig (gcc-8): 1 warning
+    ep93xx_defconfig (gcc-8): 1 warning
+    eseries_pxa_defconfig (gcc-8): 1 warning
+    exynos_defconfig (gcc-8): 171 warnings
+    ezx_defconfig (gcc-8): 1 warning
+    h5000_defconfig (gcc-8): 1 warning
+    imote2_defconfig (gcc-8): 1 warning
+    imx_v4_v5_defconfig (gcc-8): 1 warning
+    imx_v6_v7_defconfig (gcc-8): 1 warning
+    integrator_defconfig (gcc-8): 1 warning
+    ixp4xx_defconfig (gcc-8): 1 warning
+    keystone_defconfig (gcc-8): 1 warning
+    lpc32xx_defconfig (gcc-8): 1 warning
+    magician_defconfig (gcc-8): 1 warning
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    mini2440_defconfig (gcc-8): 1 warning
+    mmp2_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig (gcc-8): 3 warnings
+    multi_v7_defconfig (gcc-8): 3 warnings
+    multi_v7_defconfig (gcc-8): 3 warnings
+    multi_v7_defconfig (gcc-8): 3 warnings
+    multi_v7_defconfig (gcc-8): 30 warnings
+    mv78xx0_defconfig (gcc-8): 1 warning
+    mvebu_v5_defconfig (gcc-8): 1 warning
+    mvebu_v7_defconfig (gcc-8): 1 warning
+    mxs_defconfig (gcc-8): 1 warning
+    nhk8815_defconfig (gcc-8): 1 warning
+    omap1_defconfig (gcc-8): 1 warning
+    omap2plus_defconfig (gcc-8): 1 warning
+    orion5x_defconfig (gcc-8): 1 warning
+    oxnas_v6_defconfig (gcc-8): 1 warning
+    palmz72_defconfig (gcc-8): 1 warning
+    pcm027_defconfig (gcc-8): 1 warning
+    prima2_defconfig (gcc-8): 1 warning
+    pxa168_defconfig (gcc-8): 1 warning
+    pxa3xx_defconfig (gcc-8): 1 warning
+    pxa910_defconfig (gcc-8): 1 warning
+    qcom_defconfig (gcc-8): 1 warning
+    realview_defconfig (gcc-8): 1 warning
+    s3c6400_defconfig (gcc-8): 1 warning
+    s5pv210_defconfig (gcc-8): 1 warning
+    sama5_defconfig (gcc-8): 1 warning
+    spear13xx_defconfig (gcc-8): 1 warning
+    sunxi_defconfig (gcc-8): 1 warning
+    tango4_defconfig (gcc-8): 1 warning
+    tegra_defconfig (gcc-8): 1 warning
+    trizeps4_defconfig (gcc-8): 1 warning
+    u300_defconfig (gcc-8): 1 warning
+    u8500_defconfig (gcc-8): 1 warning
+    versatile_defconfig (gcc-8): 1 warning
+    vexpress_defconfig (gcc-8): 1 warning
+    viper_defconfig (gcc-8): 1 warning
+    xcep_defconfig (gcc-8): 1 warning
+    zeus_defconfig (gcc-8): 1 warning
+
+i386:
+    i386_defconfig (gcc-8): 28 warnings
+
+mips:
+    32r2el_defconfig (gcc-8): 28 warnings
+    db1xxx_defconfig (gcc-8): 1 warning
+    ip32_defconfig (gcc-8): 1 warning
+    jazz_defconfig (gcc-8): 1 warning
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    msp71xx_defconfig (gcc-8): 4 errors, 1 warning
+    nlm_xlr_defconfig (gcc-8): 1 warning
+    rm200_defconfig (gcc-8): 1 warning
+
+riscv:
+    defconfig (gcc-8): 27 warnings
+    rv32_defconfig (gcc-8): 6 warnings
+
+x86_64:
+    allmodconfig (gcc-8): 1 error
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (gcc-8): 27 warnings
+
+Errors summary:
+
+    3    collect2: error: ld returned 1 exit status
+    1    clang: error: linker command failed with exit code 1 (use -v to se=
+e invocation)
+    1    arch/mips/pmcs-msp71xx/msp_prom.c:65:20: error: 'prom_mem_size' de=
+fined but not used [-Werror=3Dunused-variable]
+    1    arch/mips/pmcs-msp71xx/msp_prom.c:64:34: error: 'MAX_PROM_MEM' und=
+eclared here (not in a function); did you mean 'DEV_PROP_MAX'?
+    1    arch/mips/pmcs-msp71xx/msp_prom.c:64:20: error: 'prom_mem_base' de=
+fined but not used [-Werror=3Dunused-variable]
+    1    arch/mips/pmcs-msp71xx/msp_prom.c:380:16: error: unused variable '=
+addr' [-Werror=3Dunused-variable]
+
+Warnings summary:
+
+    64   WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    26   <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    5    include/linux/kern_levels.h:5:18: warning: format '%lu' expects ar=
+gument of type 'long unsigned int', but argument 8 has type 'unsigned int' =
+[-Wformat=3D]
+    4    1 warning generated.
+    3    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' =
+[-Wunused-variable]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:134: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    mm/shmem.c:2736:35: warning: variable 'shmem_falloc_waitq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    1    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized wh=
+en used within its own initialization [-Wuninitialized]
+    1    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    drivers/mtd/nand/raw/au1550nd.c:443:57: warning: pointer type mism=
+atch in conditional expression
+    1    drivers/android/binderfs.c:657:41: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@8/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers=
+/usb/storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@8/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers=
+/usb/storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@6/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers=
+/usb/storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@6/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers=
+/usb/storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@4/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers=
+/usb/storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@4/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers=
+/usb/storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@10/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/driver=
+s/usb/storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    1    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build=
+@10/linux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/driver=
+s/usb/storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_ctrl_transfer
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_clear_halt
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_bulk_transfer_sg
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_access_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol usb_stor_CB_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-usbat.ko needs unknown symbol fill_inquiry_response
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol usb_stor_access_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr55.ko needs unknown symbol fill_inquiry_response
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_ctrl_transfer
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_bulk_transfer_sg
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_bulk_srb
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_access_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_CB_transport
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol usb_stor_CB_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-sddr09.ko needs unknown symbol fill_inquiry_response
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_control_msg
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-realtek.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-onetouch.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_Bulk_transport
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-karma.ko needs unknown symbol usb_stor_Bulk_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_ctrl_transfer
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_access_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol usb_stor_Bulk_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-jumpshot.ko needs unknown symbol fill_inquiry_response
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_transparent_scsi_command
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_ctrl_transfer
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-isd200.ko needs unknown symbol usb_stor_Bulk_transport
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_control_msg
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-freecom.ko needs unknown symbol usb_stor_bulk_srb
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_bulk_transfer_sg
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_bulk_srb
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-eneub6250.ko needs unknown symbol usb_stor_access_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_access_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol usb_stor_Bulk_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-datafab.ko needs unknown symbol fill_inquiry_response
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_transparent_scsi_command
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_sense_invalidCDB
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-cypress.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_suspend
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_set_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_reset_resume
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_probe2
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_probe1
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_pre_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_post_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_host_template_init
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_disconnect
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_ctrl_transfer
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_access_xfer_buf
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol usb_stor_Bulk_reset
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/b=
+uild/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/stora=
+ge/ums-alauda.ko needs unknown symbol fill_inquiry_response
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build/linux/bui=
+ld/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage=
+/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    1    depmod: WARNING: /home/buildslave/workspace/kernel-build/linux/bui=
+ld/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage=
+/uas.ko needs unknown symbol usb_stor_adjust_quirks
+    1    cc1: all warnings being treated as errors
+    1    2 warnings generated.
+    1    .config:1172:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ./.tmp.config.zprgXmuD66:4833:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.zprgXmuD66:4817:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.zprgXmuD66:4816:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.zprgXmuD66:4812:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.zprgXmuD66:4792:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.zprgXmuD66:4786:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.zprgXmuD66:4777:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.zprgXmuD66:4775:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.zprgXmuD66:4774:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.zprgXmuD66:4773:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.zprgXmuD66:4771:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.zprgXmuD66:4770:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.zprgXmuD66:4767:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.zprgXmuD66:4760:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.zprgXmuD66:4750:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.zprgXmuD66:4739:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.zprgXmuD66:4631:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.zprgXmuD66:4627:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.zprgXmuD66:4602:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.zprgXmuD66:4581:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.zprgXmuD66:4523:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.zprgXmuD66:4522:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.zprgXmuD66:4518:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.zprgXmuD66:4517:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.zprgXmuD66:4515:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.zprgXmuD66:4514:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.zprgXmuD66:4511:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.r8yKwbyJ8T:7940:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.r8yKwbyJ8T:7924:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.r8yKwbyJ8T:7923:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.r8yKwbyJ8T:7919:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.r8yKwbyJ8T:7899:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.r8yKwbyJ8T:7893:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.r8yKwbyJ8T:7884:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.r8yKwbyJ8T:7882:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.r8yKwbyJ8T:7881:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.r8yKwbyJ8T:7880:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.r8yKwbyJ8T:7878:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.r8yKwbyJ8T:7877:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.r8yKwbyJ8T:7874:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.r8yKwbyJ8T:7867:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.r8yKwbyJ8T:7857:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.r8yKwbyJ8T:7846:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.r8yKwbyJ8T:7738:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.r8yKwbyJ8T:7734:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.r8yKwbyJ8T:7709:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.r8yKwbyJ8T:7688:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.r8yKwbyJ8T:7630:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.r8yKwbyJ8T:7629:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.r8yKwbyJ8T:7625:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.r8yKwbyJ8T:7624:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.r8yKwbyJ8T:7622:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.r8yKwbyJ8T:7621:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.r8yKwbyJ8T:7618:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.bcVqcNSWuv:3374:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.bcVqcNSWuv:3358:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.bcVqcNSWuv:3357:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.bcVqcNSWuv:3353:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.bcVqcNSWuv:3333:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.bcVqcNSWuv:3327:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.bcVqcNSWuv:3318:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.bcVqcNSWuv:3316:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.bcVqcNSWuv:3315:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.bcVqcNSWuv:3314:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.bcVqcNSWuv:3312:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.bcVqcNSWuv:3311:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.bcVqcNSWuv:3308:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.bcVqcNSWuv:3301:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.bcVqcNSWuv:3291:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.bcVqcNSWuv:3280:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.bcVqcNSWuv:3172:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.bcVqcNSWuv:3168:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.bcVqcNSWuv:3143:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.bcVqcNSWuv:3122:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.bcVqcNSWuv:3064:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.bcVqcNSWuv:3063:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.bcVqcNSWuv:3059:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.bcVqcNSWuv:3058:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.bcVqcNSWuv:3056:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.bcVqcNSWuv:3055:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.bcVqcNSWuv:3052:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.PSbE0OGNre:3983:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.PSbE0OGNre:3967:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.PSbE0OGNre:3966:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.PSbE0OGNre:3962:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.PSbE0OGNre:3942:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.PSbE0OGNre:3936:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.PSbE0OGNre:3927:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.PSbE0OGNre:3925:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.PSbE0OGNre:3924:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.PSbE0OGNre:3923:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.PSbE0OGNre:3921:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.PSbE0OGNre:3920:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.PSbE0OGNre:3917:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.PSbE0OGNre:3910:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.PSbE0OGNre:3900:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.PSbE0OGNre:3889:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.PSbE0OGNre:3781:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.PSbE0OGNre:3777:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.PSbE0OGNre:3752:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.PSbE0OGNre:3731:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.PSbE0OGNre:3673:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.PSbE0OGNre:3672:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.PSbE0OGNre:3668:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.PSbE0OGNre:3667:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.PSbE0OGNre:3665:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.PSbE0OGNre:3664:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.PSbE0OGNre:3661:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.NT11nT8yPA:4894:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.NT11nT8yPA:4878:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.NT11nT8yPA:4877:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.NT11nT8yPA:4873:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.NT11nT8yPA:4853:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.NT11nT8yPA:4847:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.NT11nT8yPA:4838:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.NT11nT8yPA:4836:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.NT11nT8yPA:4835:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.NT11nT8yPA:4834:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.NT11nT8yPA:4832:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.NT11nT8yPA:4831:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.NT11nT8yPA:4828:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.NT11nT8yPA:4821:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.NT11nT8yPA:4811:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.NT11nT8yPA:4800:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.NT11nT8yPA:4692:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.NT11nT8yPA:4688:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.NT11nT8yPA:4663:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.NT11nT8yPA:4642:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.NT11nT8yPA:4584:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.NT11nT8yPA:4583:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.NT11nT8yPA:4579:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.NT11nT8yPA:4578:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.NT11nT8yPA:4576:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.NT11nT8yPA:4575:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.NT11nT8yPA:4572:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.HleLRcQDW8:8493:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.HleLRcQDW8:8477:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.HleLRcQDW8:8476:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.HleLRcQDW8:8472:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.HleLRcQDW8:8452:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.HleLRcQDW8:8446:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.HleLRcQDW8:8437:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.HleLRcQDW8:8435:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.HleLRcQDW8:8434:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.HleLRcQDW8:8433:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.HleLRcQDW8:8431:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.HleLRcQDW8:8430:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.HleLRcQDW8:8427:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.HleLRcQDW8:8420:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.HleLRcQDW8:8410:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.HleLRcQDW8:8399:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.HleLRcQDW8:8291:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.HleLRcQDW8:8287:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.HleLRcQDW8:8262:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.HleLRcQDW8:8241:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.HleLRcQDW8:8183:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.HleLRcQDW8:8182:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.HleLRcQDW8:8178:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.HleLRcQDW8:8177:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.HleLRcQDW8:8175:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.HleLRcQDW8:8174:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.HleLRcQDW8:8171:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.7Uk1UHlzUr:1749:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.7Uk1UHlzUr:1733:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.7Uk1UHlzUr:1732:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.7Uk1UHlzUr:1728:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.7Uk1UHlzUr:1708:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.7Uk1UHlzUr:1702:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.7Uk1UHlzUr:1693:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.7Uk1UHlzUr:1691:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.7Uk1UHlzUr:1690:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.7Uk1UHlzUr:1689:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.7Uk1UHlzUr:1687:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.7Uk1UHlzUr:1686:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.7Uk1UHlzUr:1683:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.7Uk1UHlzUr:1676:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.7Uk1UHlzUr:1666:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.7Uk1UHlzUr:1655:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.7Uk1UHlzUr:1547:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.7Uk1UHlzUr:1543:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.7Uk1UHlzUr:1518:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.7Uk1UHlzUr:1497:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.7Uk1UHlzUr:1439:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.7Uk1UHlzUr:1438:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.7Uk1UHlzUr:1434:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.7Uk1UHlzUr:1433:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.7Uk1UHlzUr:1431:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.7Uk1UHlzUr:1430:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.7Uk1UHlzUr:1427:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+
+Section mismatches summary:
+
+    5    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x365c): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x32bc): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 28 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.PSbE0OGNre:3661:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.PSbE0OGNre:3664:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.PSbE0OGNre:3665:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.PSbE0OGNre:3667:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.PSbE0OGNre:3668:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.PSbE0OGNre:3672:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.PSbE0OGNre:3673:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.PSbE0OGNre:3731:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.PSbE0OGNre:3752:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.PSbE0OGNre:3777:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.PSbE0OGNre:3781:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.PSbE0OGNre:3889:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.PSbE0OGNre:3900:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.PSbE0OGNre:3910:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.PSbE0OGNre:3917:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.PSbE0OGNre:3920:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.PSbE0OGNre:3921:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.PSbE0OGNre:3923:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.PSbE0OGNre:3924:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.PSbE0OGNre:3925:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.PSbE0OGNre:3927:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.PSbE0OGNre:3936:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.PSbE0OGNre:3942:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.PSbE0OGNre:3962:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.PSbE0OGNre:3966:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.PSbE0OGNre:3967:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.PSbE0OGNre:3983:warning: override: reassigning to symbol =
+USER_NS
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-8) =E2=80=94 FAIL, 1 error, 11 warnings, 0 secti=
+on mismatches
+
+Errors:
+    clang: error: linker command failed with exit code 1 (use -v to see inv=
+ocation)
+
+Warnings:
+    mm/shmem.c:2736:35: warning: variable 'shmem_falloc_waitq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized when us=
+ed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/android/binderfs.c:657:41: warning: suggest braces around initi=
+alization of subobject [-Wmissing-braces]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section =
+mismatches
+
+Errors:
+    collect2: error: ld returned 1 exit status
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
+smatches
+
+Errors:
+    collect2: error: ld returned 1 exit status
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section=
+ mismatches
+
+Errors:
+    collect2: error: ld returned 1 exit status
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/mtd/nand/raw/au1550nd.c:443:57: warning: pointer type mismatch =
+in conditional expression
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x365c): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x32bc): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 27 warnings, 0=
+ section mismatches
+
+Warnings:
+    ./.tmp.config.bcVqcNSWuv:3052:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.bcVqcNSWuv:3055:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.bcVqcNSWuv:3056:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.bcVqcNSWuv:3058:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.bcVqcNSWuv:3059:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.bcVqcNSWuv:3063:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.bcVqcNSWuv:3064:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.bcVqcNSWuv:3122:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.bcVqcNSWuv:3143:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.bcVqcNSWuv:3168:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.bcVqcNSWuv:3172:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.bcVqcNSWuv:3280:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.bcVqcNSWuv:3291:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.bcVqcNSWuv:3301:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.bcVqcNSWuv:3308:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.bcVqcNSWuv:3311:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.bcVqcNSWuv:3312:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.bcVqcNSWuv:3314:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.bcVqcNSWuv:3315:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.bcVqcNSWuv:3316:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.bcVqcNSWuv:3318:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.bcVqcNSWuv:3327:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.bcVqcNSWuv:3333:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.bcVqcNSWuv:3353:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.bcVqcNSWuv:3357:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.bcVqcNSWuv:3358:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.bcVqcNSWuv:3374:warning: override: reassigning to symbol =
+USER_NS
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 27 warnings, 0=
+ section mismatches
+
+Warnings:
+    ./.tmp.config.r8yKwbyJ8T:7618:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.r8yKwbyJ8T:7621:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.r8yKwbyJ8T:7622:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.r8yKwbyJ8T:7624:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.r8yKwbyJ8T:7625:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.r8yKwbyJ8T:7629:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.r8yKwbyJ8T:7630:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.r8yKwbyJ8T:7688:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.r8yKwbyJ8T:7709:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.r8yKwbyJ8T:7734:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.r8yKwbyJ8T:7738:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.r8yKwbyJ8T:7846:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.r8yKwbyJ8T:7857:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.r8yKwbyJ8T:7867:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.r8yKwbyJ8T:7874:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.r8yKwbyJ8T:7877:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.r8yKwbyJ8T:7878:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.r8yKwbyJ8T:7880:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.r8yKwbyJ8T:7881:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.r8yKwbyJ8T:7882:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.r8yKwbyJ8T:7884:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.r8yKwbyJ8T:7893:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.r8yKwbyJ8T:7899:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.r8yKwbyJ8T:7919:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.r8yKwbyJ8T:7923:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.r8yKwbyJ8T:7924:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.r8yKwbyJ8T:7940:warning: override: reassigning to symbol =
+USER_NS
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 171 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_Bulk_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_ctrl_transfer
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol fill_inquiry_response
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_access_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-alauda.ko needs unknown symbol usb_stor_set_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_transparent_scsi_command
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_sense_invalidCDB
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-cypress.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_Bulk_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol fill_inquiry_response
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_access_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-datafab.ko needs unknown symbol usb_stor_set_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_bulk_srb
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_bulk_transfer_sg
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_access_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-eneub6250.ko needs unknown symbol usb_stor_set_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_bulk_srb
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_control_msg
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-freecom.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_ctrl_transfer
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_transparent_scsi_command
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_Bulk_transport
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-isd200.ko needs unknown symbol usb_stor_set_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_Bulk_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_ctrl_transfer
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol fill_inquiry_response
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_access_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-jumpshot.ko needs unknown symbol usb_stor_set_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_Bulk_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_Bulk_transport
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-karma.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-onetouch.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_control_msg
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-realtek.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_bulk_srb
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_bulk_transfer_sg
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_CB_transport
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_CB_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_ctrl_transfer
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol fill_inquiry_response
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_access_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr09.ko needs unknown symbol usb_stor_set_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol fill_inquiry_response
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_access_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_bulk_transfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-sddr55.ko needs unknown symbol usb_stor_set_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_bulk_transfer_sg
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_probe1
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_clear_halt
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_CB_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_suspend
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_ctrl_transfer
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_reset_resume
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_pre_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_host_template_init
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol fill_inquiry_response
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_probe2
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_disconnect
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_post_reset
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_access_xfer_buf
+    depmod: WARNING: /home/buildslave/workspace/kernel-build@2/linux/build/=
+_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/um=
+s-usbat.ko needs unknown symbol usb_stor_set_xfer_buf
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 28 warning=
+s, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.zprgXmuD66:4511:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.zprgXmuD66:4514:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.zprgXmuD66:4515:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.zprgXmuD66:4517:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.zprgXmuD66:4518:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.zprgXmuD66:4522:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.zprgXmuD66:4523:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.zprgXmuD66:4581:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.zprgXmuD66:4602:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.zprgXmuD66:4627:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.zprgXmuD66:4631:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.zprgXmuD66:4739:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.zprgXmuD66:4750:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.zprgXmuD66:4760:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.zprgXmuD66:4767:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.zprgXmuD66:4770:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.zprgXmuD66:4771:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.zprgXmuD66:4773:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.zprgXmuD66:4774:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.zprgXmuD66:4775:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.zprgXmuD66:4777:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.zprgXmuD66:4786:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.zprgXmuD66:4792:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.zprgXmuD66:4812:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.zprgXmuD66:4816:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.zprgXmuD66:4817:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.zprgXmuD66:4833:warning: override: reassigning to symbol =
+USER_NS
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' [-Wun=
+used-variable]
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' [-Wun=
+used-variable]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:134: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 1 warning, 0 sect=
+ion mismatches
+
+Errors:
+    arch/mips/pmcs-msp71xx/msp_prom.c:64:34: error: 'MAX_PROM_MEM' undeclar=
+ed here (not in a function); did you mean 'DEV_PROP_MAX'?
+    arch/mips/pmcs-msp71xx/msp_prom.c:380:16: error: unused variable 'addr'=
+ [-Werror=3Dunused-variable]
+    arch/mips/pmcs-msp71xx/msp_prom.c:65:20: error: 'prom_mem_size' defined=
+ but not used [-Werror=3Dunused-variable]
+    arch/mips/pmcs-msp71xx/msp_prom.c:64:20: error: 'prom_mem_base' defined=
+ but not used [-Werror=3Dunused-variable]
+
+Warnings:
+    cc1: all warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@10/l=
+inux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb=
+/storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@10/l=
+inux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb=
+/storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 3 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@8/li=
+nux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/=
+storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@8/li=
+nux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/=
+storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 3 warnings, 0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@6/li=
+nux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/=
+storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@6/li=
+nux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/=
+storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 =
+warnings, 0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@4/li=
+nux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/=
+storage/uas.ko needs unknown symbol usb_stor_sense_invalidCDB
+    depmod: WARNING: /home/buildslave/workspace/workspace/kernel-build@4/li=
+nux/build/_modules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/=
+storage/uas.ko needs unknown symbol usb_stor_adjust_quirks
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 30 warn=
+ings, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.HleLRcQDW8:8171:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.HleLRcQDW8:8174:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.HleLRcQDW8:8175:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.HleLRcQDW8:8177:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.HleLRcQDW8:8178:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.HleLRcQDW8:8182:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.HleLRcQDW8:8183:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.HleLRcQDW8:8241:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.HleLRcQDW8:8262:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.HleLRcQDW8:8287:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.HleLRcQDW8:8291:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.HleLRcQDW8:8399:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.HleLRcQDW8:8410:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.HleLRcQDW8:8420:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.HleLRcQDW8:8427:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.HleLRcQDW8:8430:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.HleLRcQDW8:8431:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.HleLRcQDW8:8433:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.HleLRcQDW8:8434:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.HleLRcQDW8:8435:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.HleLRcQDW8:8437:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.HleLRcQDW8:8446:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.HleLRcQDW8:8452:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.HleLRcQDW8:8472:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.HleLRcQDW8:8476:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.HleLRcQDW8:8477:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.HleLRcQDW8:8493:warning: override: reassigning to symbol =
+USER_NS
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    depmod: WARNING: /home/buildslave/workspace/kernel-build/linux/build/_m=
+odules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/uas.=
+ko needs unknown symbol usb_stor_sense_invalidCDB
+    depmod: WARNING: /home/buildslave/workspace/kernel-build/linux/build/_m=
+odules_/lib/modules/5.4.0-rc1-next-20191004/kernel/drivers/usb/storage/uas.=
+ko needs unknown symbol usb_stor_adjust_quirks
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+
+---------------------------------------------------------------------------=
+-----
+nsim_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsim_hs_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 30 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.7Uk1UHlzUr:1427:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.7Uk1UHlzUr:1430:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.7Uk1UHlzUr:1431:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.7Uk1UHlzUr:1433:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.7Uk1UHlzUr:1434:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.7Uk1UHlzUr:1438:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.7Uk1UHlzUr:1439:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.7Uk1UHlzUr:1497:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.7Uk1UHlzUr:1518:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.7Uk1UHlzUr:1543:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.7Uk1UHlzUr:1547:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.7Uk1UHlzUr:1655:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.7Uk1UHlzUr:1666:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.7Uk1UHlzUr:1676:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.7Uk1UHlzUr:1683:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.7Uk1UHlzUr:1686:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.7Uk1UHlzUr:1687:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.7Uk1UHlzUr:1689:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.7Uk1UHlzUr:1690:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.7Uk1UHlzUr:1691:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.7Uk1UHlzUr:1693:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.7Uk1UHlzUr:1702:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.7Uk1UHlzUr:1708:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.7Uk1UHlzUr:1728:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.7Uk1UHlzUr:1732:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.7Uk1UHlzUr:1733:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.7Uk1UHlzUr:1749:warning: override: reassigning to symbol =
+USER_NS
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+
+---------------------------------------------------------------------------=
+-----
+nsim_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    arch/mips/fw/arc/memory.c:163:16: warning: unused variable 'addr' [-Wun=
+used-variable]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1172:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 27 war=
+nings, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.NT11nT8yPA:4572:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.NT11nT8yPA:4575:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.NT11nT8yPA:4576:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.NT11nT8yPA:4578:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.NT11nT8yPA:4579:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.NT11nT8yPA:4583:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.NT11nT8yPA:4584:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.NT11nT8yPA:4642:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.NT11nT8yPA:4663:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.NT11nT8yPA:4688:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.NT11nT8yPA:4692:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.NT11nT8yPA:4800:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.NT11nT8yPA:4811:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.NT11nT8yPA:4821:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.NT11nT8yPA:4828:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.NT11nT8yPA:4831:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.NT11nT8yPA:4832:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.NT11nT8yPA:4834:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.NT11nT8yPA:4835:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.NT11nT8yPA:4836:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.NT11nT8yPA:4838:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.NT11nT8yPA:4847:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.NT11nT8yPA:4853:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.NT11nT8yPA:4873:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.NT11nT8yPA:4877:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.NT11nT8yPA:4878:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.NT11nT8yPA:4894:warning: override: reassigning to symbol =
+USER_NS
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5d96fcd2.1c69fb81.5f6cb.6e6a%40mx.google.com.
