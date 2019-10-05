@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBAEK4HWAKGQEE3GRUZA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBKMV4HWAKGQEY64YZ2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
-	by mail.lfdr.de (Postfix) with ESMTPS id A3F4ECC893
-	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Oct 2019 09:23:45 +0200 (CEST)
-Received: by mail-qk1-x737.google.com with SMTP id s28sf8926405qkm.5
-        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Oct 2019 00:23:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570260224; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 85F1DCC8A2
+	for <lists+clang-built-linux@lfdr.de>; Sat,  5 Oct 2019 09:47:55 +0200 (CEST)
+Received: by mail-yb1-xb39.google.com with SMTP id 206sf4013190ybf.8
+        for <lists+clang-built-linux@lfdr.de>; Sat, 05 Oct 2019 00:47:55 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570261674; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pi0udoxHmYNeqQ4JGVRq34sc90mxS4T3AlFRzSDt9uL2Fs2N+ixi9pPBf7VhogJoOL
-         oq/BQmb5YXlx155ZY5Wj5dqKaEZW0Pe7d3wVotEVZpw+rpx6QENn9n2Kw5zdq3HTjdPt
-         PGBaWTtWNbJ2vQiUgGJUwvbCn12o6YOXu1XcnCwffkOvAbhE8Zr1LWQzOZZcOMOpfJbZ
-         uA3md9sS99fVPYtNNvHbb8Kitw7zGvYNUnvsS/BabcYKib2f7y+ottiLRIM1VK+O7yUi
-         r7FU3pI71te+FOk8Vu32ZQB4ESNFpAM8Da0urgMb3jrCwub8Z0k1QzH24j6soW1NIsH0
-         lIZg==
+        b=yH7HJu14xhbFCh1Wk+pLHmKXd8gQoCKFULSXhDRvPDujYhRYTYgAMdmDwKtg4ccXlh
+         /ktJ1B/kHv8aGnmar6lqX0gHu/y8lY28Y5w25s01G5zDQc79olwDinaQ8Iop2N2Q9NVC
+         pOudYo2l3UnHnvpa1FxI36+tkw3MMcoH5KDA+Z379ZM3zmWndhNnjdyV6yXKWbBZ3Fo+
+         ZlW/8Byj1pNMWTQtmW76xfsHeL/G9BcsE/u4uR3m6CmI+Rf/FVH4Z5okBXrwXrL1+1bD
+         6CUoD+jGcBBYTkGRWwCnF1tinOnafR+O7zak/J/MeWpp61uO9vDiLiIM/OvUHYqbnUNk
+         zrlQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=0FKydABTLIsBCBBVogDGgM7a4CUgmw9yxRmLY7CNY60=;
-        b=ZQO4yFYrOVjQcPw+sD69dUIWYgo0736LDBdW9O5Ib2bM90jdrbneD9XVBHPZGRATaU
-         /q45y8g0+2cnIOGLg6vgoNgdRsdFhbgNLrH4j3zby3tjJl4+REUYwIQ7YxpPdJCKPDPP
-         pTcOG7ZGW+CRYqqyFV9OesTbeSHUi/kxV8qq7qTfAIWtzuJV7k8zTOJpgQnh4EIPxf8J
-         d3n0sVhy1yRSimApMTSZmvyqhQK5j/zGyGT7scQIt+odmPki2ge3N+j4ixj35khhu8HH
-         G61Xe15ovjET7oEcPl8n/V9V346AA4Iqv3PfEkrjMjNfHgQMUkvuzh8XskIZC0Q4+7Gb
-         8FFQ==
+        bh=tlDtmfdE5Ro63RZeslooYc12o+QBdBje1UqPP8JR+Ag=;
+        b=fSQkUopYsHKnNI2GxEKt8ADH8dQ8Qev4xGNoJGeVm/D826Fl6r0kZVvpf7vD4jNCvH
+         XhwxJo2xQQQ/snPQmNdfI4ye+GjZpNxY4pI7Q0j5UL6ksEpbLqjlR+dgIFcES/ma11XZ
+         9tnJDvXNkrCRG7YZeZGiwdneamFjQdzdNdRDerVGmQ3i3nZWpQIDAigtw8cXoPOdFMmV
+         zLCw7184bXmTzE1rjCknD7/FD4r4aV7jtrWor2pjQOiKHop34yjnxCPyahpWEnY/RYEJ
+         EYOjwc4ZOjpCIv0cOOVFpgo1U/CzXvUmcLJZ0tdS9efxTvuFAw9148nYrY0AXuaUD3fk
+         J2gg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0FKydABTLIsBCBBVogDGgM7a4CUgmw9yxRmLY7CNY60=;
-        b=sjprPfq2dB3pFSWxoTKJElNoPwDkE9VdvEnch56m9nSisIDWjR/09KONNjkz+UIU4V
-         31bGnJpzp0sscGYOZge3LX+gmZ2qyRP1sgSiX6/GL7cbCBkhxKPkpwZMAdibKyZKqgFq
-         jfM6CzgIyo80MNvEDk/C1nkN69kOu8q1tbgVp4KrS1UWEKrNa94bdpQWHrqqC2qFyz8E
-         ppjx/Hdh3HB9pflzp+iupI9oUIvh6SfTXclT6tyJUjta/BSSjk9VqWg8XQmf6Fohys+H
-         xXPcQvrzOPviK39lwDkaQxc4vqVQYrY5DE8R6fEZLOyUsi9nCclzBdRNu4f/ZkuT4P5K
-         3FQg==
+        bh=tlDtmfdE5Ro63RZeslooYc12o+QBdBje1UqPP8JR+Ag=;
+        b=XT0MAfNcHFaaIToHUHKVUbDthBTOeL2K23Hq3FWlJO3i94plCBRcD2Bhsgk4S4ja1u
+         3/K8sEtTsgwPL6LvqIAnfGlvjGbs/NyLc+EsB+2QT7eY5aUqkl2Fvha/a0G1s8nsXYu5
+         l8QcBBJSJd4UkzlijCL4ITiEiQJnEGDyv5wtrA2U4uD4NdNzc9cGZbc1j4b1KpFaN++U
+         kyus2jkMOBeOZVmeIXqtMgHRElEHfFprkIL60M8AH8YoVUkEgdSyHNnPOp/DRr+vptN6
+         YNJcg2qVhcMJbHiLU4JuXwyeUGYhN7QUvACcisIY+Ox7Eb3ntsigw4NyuMesfcbE6R23
+         DWxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0FKydABTLIsBCBBVogDGgM7a4CUgmw9yxRmLY7CNY60=;
-        b=L1YITYwIJtqFPfdI/6nKe80k9My1X+2b7DpCJ9qG8GwumNoOgxQvbu+e/LraPwEUDK
-         9lAkPUm089TibVmfsGSJT4tiziVU1gYSYErCd77ES2x15aHIMSMSfBsVJDzmQXkftUy+
-         Afa9MYzvk4/hD18RQRV3zyO9i7bz5OGBGAOBNvUPe9ADAVfzuQf8LdCem3Qhb9MOkfKm
-         Tc70C9m3juwXvNTza5qwvm9qb3PvzhEFOmFdT+OSL/H4+wFhQH1nDVi27BIdKbsVSXbG
-         UUWDpW+kGWGlSlKOagFLnmY2te6sC9YlpYeadYkg+U8LzJp5uRefTbZboHznZTNyKJLj
-         lhRQ==
+        bh=tlDtmfdE5Ro63RZeslooYc12o+QBdBje1UqPP8JR+Ag=;
+        b=ty9pe3jpBZeREqn+AAUtRKYLhBqupbOtJdaZfnEvdTHqaPF7F3mFuj3ZWCf8ZulFHD
+         +igofRbS8ru3qjdE78aYMKurTG1yxv2ssoUBAL2T1HpcYFEG2z50vPXG735VnyCPKC54
+         KYsvdYhjG+QBE7jISJSdD0txZ/UFwHvVuJJYBbkKJUBkTLy50xE+qYuxrP4I3nk96v6G
+         /6kshppzZHI8ImQyxgzE8+1iS6ZLuzAHUyTb1P1pS+QBLLiKChT29+gmhFSXZ5a6eNpD
+         WOyPLjMuw61H5nbJjhMvZXH9YgfhJftd170SN1HAcE5v+Wud2Ma4OCG15wVwGXENgqsH
+         3xTg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVRcxCQrZzgHufBK0OIp70zwBL2r8ntkclmm4X/wVvjOIy220ST
-	6W/Vkef3vOa+jr2jzaz9ezE=
-X-Google-Smtp-Source: APXvYqyjeK/y3cNDsA0sVjYfQv1mL1bH2Atrzt3jtvC/XVfHJYjfgT616Ig5bOaqOsQe2zw278SQdw==
-X-Received: by 2002:ac8:2d09:: with SMTP id n9mr19854695qta.10.1570260224664;
-        Sat, 05 Oct 2019 00:23:44 -0700 (PDT)
+X-Gm-Message-State: APjAAAVExT5o6QeTAf97nYSldxE8QWwNfkGd8wI/7+32bSMAld5P1p4B
+	7ZUZSuEkbQqiVyKOQADHb+A=
+X-Google-Smtp-Source: APXvYqzqRUF8jXmVKuALcBxEvsVYTjHuQw4c47izoQi9kf370vWKjelX6UyY+LAZMb9MoJPtAPRyVQ==
+X-Received: by 2002:a81:3182:: with SMTP id x124mr12563772ywx.411.1570261674210;
+        Sat, 05 Oct 2019 00:47:54 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0c:944a:: with SMTP id i10ls2018364qvi.12.gmail; Sat, 05
- Oct 2019 00:23:44 -0700 (PDT)
-X-Received: by 2002:a0c:8ad0:: with SMTP id 16mr18040472qvw.237.1570260224187;
-        Sat, 05 Oct 2019 00:23:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570260224; cv=none;
+Received: by 2002:a25:1ed6:: with SMTP id e205ls1410701ybe.14.gmail; Sat, 05
+ Oct 2019 00:47:53 -0700 (PDT)
+X-Received: by 2002:a25:da46:: with SMTP id n67mr4623086ybf.467.1570261673604;
+        Sat, 05 Oct 2019 00:47:53 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570261673; cv=none;
         d=google.com; s=arc-20160816;
-        b=FzkfKLSBHQq5h+jCUjMAAXvja5hOYzCJ5QYlOK3himPjzLnnUd8ibrIzbRVymBGp4O
-         kNu3dGA/DMFjw9i7wU1UIaeM+ZbF3rLDGSIQNSoQlj2/LJLfnCnQtcIXkLKWIOqPx1ki
-         KBGRJw5D90QoVq58SVrfqlt60kvsdnFK1sffH/2SofxJtMI6TO6YSYJXQb0N9TSpd2xl
-         Y3FBKIaixDgEdGUcmvvWMyFgsdndpTHRAfKsnpGSIoQvvCg3s/tuNSO06NbaZ8KGobmz
-         V8XlX4wOODEP++kdS2hBWgZM0pAzwss7mDn2PASH7FNhXFDn1o38hzH3fGN2u2ap2+us
-         B2UA==
+        b=ZV39rcTu/Zbgw8/duDNbUxqR0AoROr7xLiY5gcWDOJNSeVpeSDQU8pWLwGLrD93tM0
+         i2fhqSV4VXXQBHuHhlmRg27SMIj6ufX9nCKjRylPaREMTYW75wc1pF/dgKrQTr3d1vty
+         hsxru3rgHzZ0ImpcwxFbdBt1zTAwisuqk9TtzN5ecNAPisL7kHTJrC4iyznx2IhBVV1J
+         dZ/jWoH/Nzzvuw3OAHpr7P5TcWHIsZbiynhhyYfEr1qlupynnnq8DlFyBAvEN70XN2aI
+         7qIlyjbUMwLfAvauPfQI1FR6pC0MUlix3uG0J7dMPiMyZWDEqFoN5PVB0MNpdKbnfhYv
+         V1Pg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=m0IP2g6A0WqIq1w75ka+Km0n3RHY2A9XIBnrPAsNGTg=;
-        b=ms9qGz+Io+BXZY3TnciOmRqLfGTGsbwSeNOMfY2PvmLJOF6jDNPRH2WIuJ1bx9fqie
-         /MMu0fadRZjFAGKs3htzvoCSKl8L/gLhBqf6DIR3jGndEi53OkquOhc26vFfNB12pBNu
-         f8OW0MfC5OSuSXJ0TE38LmSd5HzzFlM5NWGheKQCejTWgIFiAKft5Rs8tvnE5SO9AfPP
-         X4ZeFZqk7NUxpitP5z5IGaLlLU6sr16BoD/DSZMj47Q0Fnl8hCOfrEidOoMlPceHOuh4
-         AOFKL1CMyW6pvRPpc6LczF7Ew2as+WP+wdPIm7qFRz/NlZGQH5CNq5VmsJavzun9o5b0
-         DK5g==
+        bh=xqmRu+DmS5j3p71qX8X+gdDMTeHc7d7AxIF+wTnBq3o=;
+        b=e4PkBzxmIaDgo6TTFINuS8P51aR8nQDizW+AasgxKaC9B9s0x/wM0gi10mdqQs3ptg
+         jaFMVeVlwhzImLTn8Mk/qJCTEJj+ag3P2YwVJFhZmfVzwnDcYTWZiXnDTgRfqc3zRgqD
+         orJVztYAcTN48q7gaar03Mu2j2bicoGreG7t0pIig6J8479YpJ37rRGi8dw6QvFp6VA8
+         suDfR0X/g+S9BL8lE4YhbX7Ddnz7CTnbWMfxHfkn54LLSpd7nlEJiN/4vRsNofMV7ioA
+         mbnLWPCW7TSMba4iX/I8RqCcFI3wwvaIYvPvq9yheoomnuD//9BZLiW6NqmnCwQGijkk
+         ONxQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id w41si731496qtb.4.2019.10.05.00.23.43
+Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
+        by gmr-mx.google.com with ESMTPS id y7si396951ybg.5.2019.10.05.00.47.52
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 05 Oct 2019 00:23:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+        Sat, 05 Oct 2019 00:47:53 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 05 Oct 2019 00:23:42 -0700
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 05 Oct 2019 00:47:51 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.67,259,1566889200"; 
-   d="gz'50?scan'50,208,50";a="392531521"
+   d="gz'50?scan'50,208,50";a="222382324"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 05 Oct 2019 00:23:40 -0700
+  by fmsmga002.fm.intel.com with ESMTP; 05 Oct 2019 00:47:49 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iGePj-0000bJ-Ry; Sat, 05 Oct 2019 15:23:39 +0800
-Date: Sat, 5 Oct 2019 15:23:01 +0800
+	id 1iGen6-000Av7-W2; Sat, 05 Oct 2019 15:47:48 +0800
+Date: Sat, 5 Oct 2019 15:47:02 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 1/3] net: phylink: switch to using
- fwnode_gpiod_get_index()
-Message-ID: <201910051555.dcQYO3ZD%lkp@intel.com>
+Subject: Re: [PATCH 3/3] net: phy: fixed_phy: switch to using
+ fwnode_gpiod_get_index
+Message-ID: <201910051515.YZ3lE8ym%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="gnyurlvsg4vr4jeq"
+Content-Type: multipart/mixed; boundary="dgaprngtflozvdbl"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,20 +138,16 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---gnyurlvsg4vr4jeq
+--dgaprngtflozvdbl
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@01.org
-In-Reply-To: <20191004231356.135996-2-dmitry.torokhov@gmail.com>
-References: <20191004231356.135996-2-dmitry.torokhov@gmail.com>
+In-Reply-To: <20191004231356.135996-4-dmitry.torokhov@gmail.com>
+References: <20191004231356.135996-4-dmitry.torokhov@gmail.com>
 TO: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 CC: "David S . Miller" <davem@davemloft.net>
-CC: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Andy Shevchenko <=
-andriy.shevchenko@linux.intel.com>, Andrew Lunn <andrew@lunn.ch>, Florian F=
-ainelli <f.fainelli@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>, Rus=
-sell King <linux@armlinux.org.uk>
+CC: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit <hkallweit1@gmail.com>
 
 Hi Dmitry,
 
@@ -159,171 +155,92 @@ I love your patch! Yet something to improve:
 
 [auto build test ERROR on net-next/master]
 [cannot apply to v5.4-rc1 next-20191004]
-[if your patch is applied to the wrong git tree, please drop us a note to h=
-elp
-improve the system. BTW, we also suggest to use '--base' option to specify =
-the
-base tree in git format-patch, please see https://stackoverflow.com/a/37406=
-982]
+[if your patch is applied to the wrong git tree, please drop us a note to help
+improve the system. BTW, we also suggest to use '--base' option to specify the
+base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
 
-url:    https://github.com/0day-ci/linux/commits/Dmitry-Torokhov/net-phy-sw=
-itch-to-using-fwnode_gpiod_get_index/20191005-083613
+url:    https://github.com/0day-ci/linux/commits/Dmitry-Torokhov/net-phy-switch-to-using-fwnode_gpiod_get_index/20191005-083613
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 68d01d9429019f=
-7c62f3555a503f4ac04c466ab6)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 68d01d9429019f7c62f3555a503f4ac04c466ab6)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
-make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # save the attached .config to linux build tree
-        make.cross ARCH=3Darm64=20
+        make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
 All error/warnings (new ones prefixed by >>):
 
->> drivers/net/phy/phylink.c:171:11: error: implicit declaration of functio=
-n 'fwnode_gpiod_get_index' [-Werror,-Wimplicit-function-declaration]
-                           desc =3D fwnode_gpiod_get_index(fixed_node, "lin=
-k", 0,
-                                  ^
-   drivers/net/phy/phylink.c:171:11: note: did you mean 'devm_gpiod_get_ind=
-ex'?
-   include/linux/gpio/consumer.h:90:32: note: 'devm_gpiod_get_index' declar=
-ed here
+>> drivers/net/phy/fixed_phy.c:213:10: error: implicit declaration of function 'fwnode_gpiod_get_index' [-Werror,-Wimplicit-function-declaration]
+           gpiod = fwnode_gpiod_get_index(of_fwnode_handle(fixed_link_node),
+                   ^
+   drivers/net/phy/fixed_phy.c:213:10: note: did you mean 'devm_gpiod_get_index'?
+   include/linux/gpio/consumer.h:90:32: note: 'devm_gpiod_get_index' declared here
    struct gpio_desc *__must_check devm_gpiod_get_index(struct device *dev,
                                   ^
->> drivers/net/phy/phylink.c:171:9: warning: incompatible integer to pointe=
-r conversion assigning to 'struct gpio_desc *' from 'int' [-Wint-conversion=
-]
-                           desc =3D fwnode_gpiod_get_index(fixed_node, "lin=
-k", 0,
-                                ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~~
+>> drivers/net/phy/fixed_phy.c:213:8: warning: incompatible integer to pointer conversion assigning to 'struct gpio_desc *' from 'int' [-Wint-conversion]
+           gpiod = fwnode_gpiod_get_index(of_fwnode_handle(fixed_link_node),
+                 ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    1 warning and 1 error generated.
 
-vim +/fwnode_gpiod_get_index +171 drivers/net/phy/phylink.c
+vim +/fwnode_gpiod_get_index +213 drivers/net/phy/fixed_phy.c
 
-   143=09
-   144	static int phylink_parse_fixedlink(struct phylink *pl,
-   145					   struct fwnode_handle *fwnode)
-   146	{
-   147		struct fwnode_handle *fixed_node;
-   148		const struct phy_setting *s;
-   149		struct gpio_desc *desc;
-   150		u32 speed;
-   151		int ret;
-   152=09
-   153		fixed_node =3D fwnode_get_named_child_node(fwnode, "fixed-link");
-   154		if (fixed_node) {
-   155			ret =3D fwnode_property_read_u32(fixed_node, "speed", &speed);
-   156=09
-   157			pl->link_config.speed =3D speed;
-   158			pl->link_config.duplex =3D DUPLEX_HALF;
-   159=09
-   160			if (fwnode_property_read_bool(fixed_node, "full-duplex"))
-   161				pl->link_config.duplex =3D DUPLEX_FULL;
-   162=09
-   163			/* We treat the "pause" and "asym-pause" terminology as
-   164			 * defining the link partner's ability. */
-   165			if (fwnode_property_read_bool(fixed_node, "pause"))
-   166				pl->link_config.pause |=3D MLO_PAUSE_SYM;
-   167			if (fwnode_property_read_bool(fixed_node, "asym-pause"))
-   168				pl->link_config.pause |=3D MLO_PAUSE_ASYM;
-   169=09
-   170			if (ret =3D=3D 0) {
- > 171				desc =3D fwnode_gpiod_get_index(fixed_node, "link", 0,
-   172							      GPIOD_IN, "?");
-   173=09
-   174				if (!IS_ERR(desc))
-   175					pl->link_gpio =3D desc;
-   176				else if (desc =3D=3D ERR_PTR(-EPROBE_DEFER))
-   177					ret =3D -EPROBE_DEFER;
-   178			}
-   179			fwnode_handle_put(fixed_node);
-   180=09
-   181			if (ret)
-   182				return ret;
-   183		} else {
-   184			u32 prop[5];
-   185=09
-   186			ret =3D fwnode_property_read_u32_array(fwnode, "fixed-link",
-   187							     NULL, 0);
-   188			if (ret !=3D ARRAY_SIZE(prop)) {
-   189				phylink_err(pl, "broken fixed-link?\n");
-   190				return -EINVAL;
-   191			}
-   192=09
-   193			ret =3D fwnode_property_read_u32_array(fwnode, "fixed-link",
-   194							     prop, ARRAY_SIZE(prop));
-   195			if (!ret) {
-   196				pl->link_config.duplex =3D prop[1] ?
-   197							DUPLEX_FULL : DUPLEX_HALF;
-   198				pl->link_config.speed =3D prop[2];
-   199				if (prop[3])
-   200					pl->link_config.pause |=3D MLO_PAUSE_SYM;
-   201				if (prop[4])
-   202					pl->link_config.pause |=3D MLO_PAUSE_ASYM;
-   203			}
-   204		}
-   205=09
-   206		if (pl->link_config.speed > SPEED_1000 &&
-   207		    pl->link_config.duplex !=3D DUPLEX_FULL)
-   208			phylink_warn(pl, "fixed link specifies half duplex for %dMbps link=
-?\n",
-   209				     pl->link_config.speed);
-   210=09
-   211		bitmap_fill(pl->supported, __ETHTOOL_LINK_MODE_MASK_NBITS);
-   212		linkmode_copy(pl->link_config.advertising, pl->supported);
-   213		phylink_validate(pl, pl->supported, &pl->link_config);
-   214=09
-   215		s =3D phy_lookup_setting(pl->link_config.speed, pl->link_config.dup=
-lex,
-   216				       pl->supported, true);
-   217		linkmode_zero(pl->supported);
-   218		phylink_set(pl->supported, MII);
-   219		phylink_set(pl->supported, Pause);
-   220		phylink_set(pl->supported, Asym_Pause);
-   221		if (s) {
-   222			__set_bit(s->bit, pl->supported);
-   223		} else {
-   224			phylink_warn(pl, "fixed link %s duplex %dMbps not recognised\n",
-   225				     pl->link_config.duplex =3D=3D DUPLEX_FULL ? "full" : "half",
-   226				     pl->link_config.speed);
-   227		}
-   228=09
-   229		linkmode_and(pl->link_config.advertising, pl->link_config.advertisi=
-ng,
-   230			     pl->supported);
-   231=09
-   232		pl->link_config.link =3D 1;
-   233		pl->link_config.an_complete =3D 1;
-   234=09
-   235		return 0;
-   236	}
-   237=09
+   194	
+   195	#ifdef CONFIG_OF_GPIO
+   196	static struct gpio_desc *fixed_phy_get_gpiod(struct device_node *np)
+   197	{
+   198		struct device_node *fixed_link_node;
+   199		struct gpio_desc *gpiod;
+   200	
+   201		if (!np)
+   202			return NULL;
+   203	
+   204		fixed_link_node = of_get_child_by_name(np, "fixed-link");
+   205		if (!fixed_link_node)
+   206			return NULL;
+   207	
+   208		/*
+   209		 * As the fixed link is just a device tree node without any
+   210		 * Linux device associated with it, we simply have obtain
+   211		 * the GPIO descriptor from the device tree like this.
+   212		 */
+ > 213		gpiod = fwnode_gpiod_get_index(of_fwnode_handle(fixed_link_node),
+   214					       "link-gpios", 0, GPIOD_IN, "mdio");
+   215		if (IS_ERR(gpiod) && PTR_ERR(gpiod) != -EPROBE_DEFER) {
+   216			if (PTR_ERR(gpiod) != -ENOENT)
+   217				pr_err("error getting GPIO for fixed link %pOF, proceed without\n",
+   218				       fixed_link_node);
+   219			gpiod = NULL;
+   220		}
+   221		of_node_put(fixed_link_node);
+   222	
+   223		return gpiod;
+   224	}
+   225	#else
+   226	static struct gpio_desc *fixed_phy_get_gpiod(struct device_node *np)
+   227	{
+   228		return NULL;
+   229	}
+   230	#endif
+   231	
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Cent=
-er
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporati=
-on
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201910051555.dcQYO3ZD%25lkp%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910051515.YZ3lE8ym%25lkp%40intel.com.
 
---gnyurlvsg4vr4jeq
+--dgaprngtflozvdbl
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICANCmF0AAy5jb25maWcAnDzZduM2su/zFTrJS/IwiTar3XOPH0AQlBBxawCUbL/wKLbc
+H4sICJRImF0AAy5jb25maWcAnDzZduM2su/zFTrJS/IwiTar3XOPH0AQlBBxawCUbL/wKLbc
 8R0vPbLdSf/9VAFcABB0+t6szarCVijUhoJ+/MePE/L2+vx4eL2/OTw8fJt8Pj4dT4fX4+3k
 7v7h+D+TuJjkhZqwmKtfgDi9f3r769fD6XG1nJz9svhlOtkeT0/Hhwl9frq7//wGTe+fn/7x
 4z/gnx8B+PgFejn9a3LzcHj6PPl6PL0AejKb/gJ/T376fP/6r19/hf8+3p9Oz6dfHx6+PtZf
@@ -1172,4 +1089,4 @@ y/g7Ziv3GzIQsYci+ppU6RjMBA1czlctvvJAQCLj1saGVNhDZokTrvsbMey70RcHLViY07UV
 sLmmQx7GAl76IkGBRhMJcpD9RRq2G3k6ViGRAIg76Dw3WUxvO4SZ2qiTI1lGj0zsnhkWV4m8
 GruTGfxOdVA38pzK/wLAyU3MMRUDAA==
 
---gnyurlvsg4vr4jeq--
+--dgaprngtflozvdbl--
