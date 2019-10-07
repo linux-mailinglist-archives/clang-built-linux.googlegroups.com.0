@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBD6253WAKGQET2ZD67Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBB4G653WAKGQEGAXAOVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3e.google.com (mail-io1-xd3e.google.com [IPv6:2607:f8b0:4864:20::d3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7141CCEE62
-	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Oct 2019 23:24:32 +0200 (CEST)
-Received: by mail-io1-xd3e.google.com with SMTP id r5sf28975529iop.2
-        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Oct 2019 14:24:32 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570483471; cv=pass;
+Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E77B3CEE6F
+	for <lists+clang-built-linux@lfdr.de>; Mon,  7 Oct 2019 23:34:41 +0200 (CEST)
+Received: by mail-pg1-x53a.google.com with SMTP id z7sf11024905pgk.11
+        for <lists+clang-built-linux@lfdr.de>; Mon, 07 Oct 2019 14:34:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570484080; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tKo3KPdIx56StpzAvOXKqL1QnJ+fAuQ4FTQT7MlmW6MvK/Qg1wvcH/mM9nMAN9SxD2
-         9IeMsU65Mv54aBJ/wv1H0ESZbiMmhodIo3Nx2lF6PkQXifQaakPcp3aM4rMEK6f8uwlk
-         ehKN6g5fIWRJv9ysCrSA5ifqrdjLoRgBZHjgDzkQ9p7YI0M9z4Rccovf0CzXutbCCQ48
-         hh4SEl/g4kuIVQeqHusDmlo3mbsxJbA4HIHbEfeUMNEsf+Xw44PcFutHCKdo4/8BARsC
-         tt9IcnKzQeM/qD3vh+nc1DA5OJPSaUQBp+WDeD0GLqEsvJpv3wKptwdk0Wr6v8oXwmSE
-         T9zw==
+        b=JVi0z+4Xt4IqjmKNu9Hs3oxq7Z5M4AkyofAIsn9A+nPDrpgJiW3yAzbQkuI88XJg79
+         1xTk+eDZfNHNSoUIucJ2diDo/vhMaPpT+qJfisuP5jQr7PM67y1zNZknmp1bytsiQA6W
+         knKvpiqYezWTZ8iUfIIpaYK0wd3bYH/+KgPJwKvvgnizOkiszECQUDOQBEinqzHYjUxB
+         rpcL/4mPDRIwUQPH/fg1Zcc4+E+kdHxb8NdD3Clsw7Ne4eg6mNSrK073v4SC1XYWu0T8
+         fhMxysXZGWaBHoDLS3FpwoDlKbFaKyHf1924XiDpJ4ZdvZHdM4bZC0XJqqrcjV+j4yin
+         dblg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=gv36w9rwrmYQg3QjL8wvtyv8MJbBr8vKrJJwxYwoQmE=;
-        b=RiIcG4PqIEAoyqwNoKYUaGkcQoq7NTkUkfaiQmwVuH98auKQ2EZC9yUF0pNYkbF5cy
-         Vbbzn3TAfwdHxtc+nJLGahPivx1QzNhrrOOPic365aan+VBWiGqOICWSHejHwKQE4xi6
-         OqGjJmXoEZMcgPE7sRSNPuJDI4ZxjGwRDTIyswotDw0s4vsQqPFclSR54mMRZ6Qb0rVC
-         XBvpoqEmHbGCBqckCL9cCvClcmcXYJ4AkKT3wvFZtXfImfVdlMzWtf2j8f9aiWZIiIrh
-         zDncogaiScSySSrHWU1QRAqcyBVlo1VTA86CHcTFjSo7o/WBEIbUFjh9ZYFpEpYLmvbQ
-         NpuQ==
+        bh=RbqDjaJR/N3lq4SLIhZbZIWRvABt4H8RDGLT1YTnynE=;
+        b=HJjFhsq7xkP4WnDeonWDSAeWEu5VWhxM9GAHZO/ieg3l0qMaxFIyDfpi/LhiIE7zM6
+         VFziOILiPRSYOhxbXf4VEalmy3ZDJgJNmaU0H49QBtX/BgGPStgT4H9tZ19/u5RUPPMt
+         hzXjc07b9lFo+2omkIj3oouTSwgierQDwJkB2R42dzwOe3VFDfJOpn1Aro1yRMHDupWL
+         Vcy63HZBRXu6x8/Zv1RJPzS5+InF5GSB9tm9KJstsohoEc6vhcbCMngkSD9mPCnMC1OV
+         X6vjcwb536dohtt+ch4hdTVZxHDR/C0klp6YGoPjdrTLZs1JjnrCVg7UKYQ+QgyzNJkN
+         jUCA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jda3vWTj;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::942 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ab23GOHo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gv36w9rwrmYQg3QjL8wvtyv8MJbBr8vKrJJwxYwoQmE=;
-        b=UwqDAdhD7vCDuG93wuzDYt28DCugEND7zJV/LU2lBZJrkEYJvLz0Hcgk+bmyKhJKn8
-         LdAf/0qXW6MefRVoieKpQRzLApLdDvgM1gOrG+QhUDdWBcaoHR2abyCCgnqwkjgryjLo
-         vCdxSP0wKCW6DTYA0S5plVSbF8mqWpy7Rz/EAKWAQvDypKntYIBaqLBNY9DZQAyaMD/R
-         zhEcN/aKAQJjX65N/wER1ejmikJ6QwBz4dBbeu3IzNFL7rnesjO7h36z0D1JPGDQHmyC
-         fj2vBr3BalqAbNiGXCw4OZM2CPr5fLv8jcu98gVWbT45QAw+cIzyA0Ch69tvr2LLfYjY
-         bCVw==
+        bh=RbqDjaJR/N3lq4SLIhZbZIWRvABt4H8RDGLT1YTnynE=;
+        b=sIxibX4vpDIkZqflEazZeWaaT8xcXlLjJFPVs4ED+8H8GXO8UGhD8yIpiGWjujZFMI
+         idkAPMRqSKFUbjGkM90j+bCdJQQBi9naI3LsKfCh/SPNH9n05fechIr75lQUEIqwVlNw
+         uUlZSqAfzKYw9CVVxjilsDHf63Oq7TrgLOcJyBMTsFJmCRHcgFyP8cFHm3w6/sjavIMv
+         XglIA97VsTpaMK9e6wzvmX0ScrAJ5GiEtQ81Z3EeP5lJzYydvRLxE4ajOl4JvZr+fcKu
+         mSGJIs13LdcGLhE8llpnzLsr2VTMbGP9NOUeOp6pLZAipoQ7qu3mrllNvZBFF+FGnr6g
+         Ytuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,76 +49,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gv36w9rwrmYQg3QjL8wvtyv8MJbBr8vKrJJwxYwoQmE=;
-        b=pTwrwHuAfTt2umT56dIy1ExjAAKJdR8/z2BQ2xLn3MLiB5U1NzqKbZf4/yYpseo4sX
-         Pc21aFsx2eqNuHUjzdYNWfoSZ2O7QZKEPL3EmLYcO5DWtQnkA4GfTqg5IMOFY0uz6EC7
-         qGa6c21mVofd2AeqrUsq+wYFh37+C6dYOoB1hySPSv3/QNwBh5jR7nqjACrnjTxe3Fch
-         G9vvDqYM8eiHuMfWl8/tFY6bu+rMc5Yk4UDbsscw4/Zk3Hq79TQEAmRqafloj2Ck7RkJ
-         LKS19uoLW/jFSlZh9OjdYVVRoadW7phLQ3VgkGYuGjEU/w6TtKF/zJFymxI+88Jo3sqC
-         TrhQ==
-X-Gm-Message-State: APjAAAXVKFNrDnc2du9YBE4xFfoaX8r1wpx5NVzWQu8e3Uv9GhdXYXZt
-	1LGBMnCWxw+C28xtS39qOas=
-X-Google-Smtp-Source: APXvYqzGWd/tcdG2M7vaiIj2wEzi9nNpxn+d45nBt7X4yz8Y885HJui33xOaMhmgoSCFc6Xr22Qr1Q==
-X-Received: by 2002:a92:5a0b:: with SMTP id o11mr30744182ilb.248.1570483471380;
-        Mon, 07 Oct 2019 14:24:31 -0700 (PDT)
+        bh=RbqDjaJR/N3lq4SLIhZbZIWRvABt4H8RDGLT1YTnynE=;
+        b=I3X9v/Vli0sngDW3iNDKTBmTU1nrOLffHKbvgj4F9YCI1YAY5rxtRouIdObDHyuVGq
+         BPXbsqiL7ueMEFegv8RwiVAu3rjOTkdEqwu1Mmz7wBHRDUusBsfdTRiLldgqr2/rP2i9
+         YF/VmuJ6IL2YOTlj0yXK4mgru4q2xWqM0pQf2g233JRILxnhDvhW0FASLNm8ebbbVWgK
+         nB6+aFYEvNdsT43D2f+xAnc1AjyFxg0AzL7LkA/9oIj1mawQjJHxIKHD/YBnIbvIW494
+         5acB4FxjflbW7Qz7Rso87nZFWwpQBu6Ea6L/krl6WiAjlIRJ/71F76Zl6pCxyKm0iWH5
+         QRRg==
+X-Gm-Message-State: APjAAAWqpb6wsOrVVCmixQ8A7/t3npr4nyTQTmCotqdxRgIG//+H4S40
+	VXGbZQCAhEo8D049pM+auYQ=
+X-Google-Smtp-Source: APXvYqybYvM7N1iyv25cAF0ErGHZvpHI6crRhfpr6ROTC+8eEFItBIjX6EkXboTQx9w5L2zeJ53QPg==
+X-Received: by 2002:a63:613:: with SMTP id 19mr8034403pgg.435.1570484080229;
+        Mon, 07 Oct 2019 14:34:40 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:998a:: with SMTP id t10ls195074ilk.9.gmail; Mon, 07 Oct
- 2019 14:24:31 -0700 (PDT)
-X-Received: by 2002:a92:603:: with SMTP id x3mr31355836ilg.295.1570483471033;
-        Mon, 07 Oct 2019 14:24:31 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570483471; cv=none;
+Received: by 2002:a65:454d:: with SMTP id x13ls183476pgr.12.gmail; Mon, 07 Oct
+ 2019 14:34:39 -0700 (PDT)
+X-Received: by 2002:a65:6792:: with SMTP id e18mr1369762pgr.166.1570484079171;
+        Mon, 07 Oct 2019 14:34:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570484079; cv=none;
         d=google.com; s=arc-20160816;
-        b=Z/7KvA+uoWXHKjYFoz76PGI/erUdm/6IeZt+hNrEfHdmTle4v3Az3sWXfYcTfR5ia/
-         4nbgJTBs7bW5MshjPmxrTFIgVQpUU1PwOBjVs7Eu59xdD4voa+QBzdhuTUx4xFT5ZJUr
-         loxzY9krQq7asFpxtrze27xD9P2fIkvyrFr06V7fYAVheWqat0NVZMZZR2NQCM8zrXru
-         uM0bNzTCp3L+RF8K11w5Z6cYeELCi6DtaPyO8/0PVkPoa/3TwmRi6/y18gYKCYYCi1Vo
-         Wjq4n7/u37PYBsEOtkxT7EjTkGSHTJ7ODHdOUHzRTTvxNJEl5Z2+cCzFbr4MSgBLtaVM
-         um5A==
+        b=UMmE2jsssuRnDT4uQeQWbowQ2mTuTTBw81LIuI9ovYVSyz1ikJkYAIAJPBBUcQsakM
+         BmCVvlcFUR6tqcwKfg3ox/1n92r8PFnQpb+UY/sRrkx/ghBK3PfUGKE45QcpyEYS4C4/
+         uFxcEsJ6wnTkF3Mijf6r9VAg59XP6Se6dJXkq13s3Y1a48be1phkYONnbSyoX0H+Noy7
+         92JKbJI45sUqn0uRd/kCgbJQQZ8FkYKrXKd5/+c1QCyvzHPyiE7cQ1jrAYnKbgjTtawf
+         9WYIfjaapsrKSwtFxl3UdyQkIuVM3Dx0DHnVYjQh/83tUs+IfhzZ4ZalkjNjOBW77hq+
+         aKjA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=qtdz6MVtYHywhBENAE676gRhNyUtv8gAoEkfWav5ZEE=;
-        b=mimkyBZgJ/2gZwXz+8WirmSwIs0+WIIcUnEUMEyY9Er8ixDHWkQfdnUYsabphDf+/z
-         +1cZFmqTSC6gHB3iMnARqaBbONSZAP5ZUkbtKaI/KxVLijMrPpZaF13A0XeJoVlfIIW1
-         f7WHf+bnLQfogCDI0ToCpz1tE/uf7J9qP+q1s7wOslpo/Cg9DngCywofxLpAoZLarnHl
-         kXlSBNOFgCsx1JzetVMORNOS6SXkjHCGUrpHGT3W/i9Wln4t0R+CEcbb577BL7zADBGr
-         yiyGiwgsB53eM8hLUHZ0hHbR+VM6Gfm4miYHuseJvTl0cSXgQHKj9EQnFH990PdYgFTf
-         1LaA==
+        bh=BSjkDRau+gNdox3X7pHNAbU0K+agxk4/tBMFb1iKCao=;
+        b=KkYioweV6CDoc5j+MhOBNEmhSr8dZU+WourJFMHp142WiBWJcVjQHK5xOx4y7+ZWui
+         VqoEJfjbR4hW0Upe0MC3kShxFNVbWK1cXa6fG1s5P+rdNC8J06ijruvRXHjtticv+Adc
+         L3EVuoj/9A1HxyXHhYs0dUnqCLzjNmVS/nzsKrlXW+Izs0HDLJIxokRDu5xqB+fMMZ9w
+         PBY/osV84W9ayk1KIBozkBP4XnlR87GmewZXqbAKLyk2P0MIXGoa6vQPQVMAX7QN9Ydf
+         CMZT5qPr0I4+hhdIEXEj5REFrWaD83h/8iFhjpbmB9zrJjXSNSeQcFlUF2AYqn7dS/31
+         IvIg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jda3vWTj;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::942 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ab23GOHo;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-ua1-x942.google.com (mail-ua1-x942.google.com. [2607:f8b0:4864:20::942])
-        by gmr-mx.google.com with ESMTPS id b2si1120619ilf.5.2019.10.07.14.24.31
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id g12si82913pfi.5.2019.10.07.14.34.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 07 Oct 2019 14:24:31 -0700 (PDT)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::942 as permitted sender) client-ip=2607:f8b0:4864:20::942;
-Received: by mail-ua1-x942.google.com with SMTP id m21so4540087ual.13
-        for <clang-built-linux@googlegroups.com>; Mon, 07 Oct 2019 14:24:30 -0700 (PDT)
-X-Received: by 2002:ab0:77cc:: with SMTP id y12mr4639713uar.110.1570483469932;
- Mon, 07 Oct 2019 14:24:29 -0700 (PDT)
+        Mon, 07 Oct 2019 14:34:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id q10so9511032pfl.0
+        for <clang-built-linux@googlegroups.com>; Mon, 07 Oct 2019 14:34:39 -0700 (PDT)
+X-Received: by 2002:a63:2f45:: with SMTP id v66mr33356685pgv.263.1570484077649;
+ Mon, 07 Oct 2019 14:34:37 -0700 (PDT)
 MIME-Version: 1.0
-References: <20191007201452.208067-1-samitolvanen@google.com> <CAKwvOdmaMaO-Gpv2x0CWG+CRUCNKbNWJij97Jr0LaRaZXjAiTA@mail.gmail.com>
-In-Reply-To: <CAKwvOdmaMaO-Gpv2x0CWG+CRUCNKbNWJij97Jr0LaRaZXjAiTA@mail.gmail.com>
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 7 Oct 2019 14:24:18 -0700
-Message-ID: <CABCJKufxncBPOx6==57asbMF_On=g1sZAv+w6RnqHJFSwOSeTw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: lse: fix LSE atomics with LLVM's integrated assembler
-To: Nick Desaulniers <ndesaulniers@google.com>
+References: <20191007211418.30321-1-samitolvanen@google.com>
+In-Reply-To: <20191007211418.30321-1-samitolvanen@google.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 7 Oct 2019 14:34:26 -0700
+Message-ID: <CAKwvOdnX6O0Grth11R8JLoD9bp-BECheucZKHbiHt4=XpQferA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: fix alternatives with LLVM's integrated assembler
+To: Sami Tolvanen <samitolvanen@google.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrew Murray <andrew.murray@arm.com>, Kees Cook <keescook@chromium.org>, 
+	Marc Zyngier <maz@kernel.org>, Kees Cook <keescook@chromium.org>, 
 	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: samitolvanen@google.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=jda3vWTj;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::942
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=ab23GOHo;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::441
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,24 +131,136 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Oct 7, 2019 at 1:28 PM 'Nick Desaulniers' via Clang Built
-Linux <clang-built-linux@googlegroups.com> wrote:
-> I tried adding `.arch armv8-a+lse` directives to all of the inline asm:
-> https://github.com/ClangBuiltLinux/linux/issues/573#issuecomment-535098996
+On Mon, Oct 7, 2019 at 2:14 PM 'Sami Tolvanen' via Clang Built Linux
+<clang-built-linux@googlegroups.com> wrote:
+>
+> LLVM's integrated assembler fails with the following error when
+> building KVM:
+>
+>   <inline asm>:12:6: error: expected absolute expression
+>    .if kvm_update_va_mask == 0
+>        ^
+>   <inline asm>:21:6: error: expected absolute expression
+>    .if kvm_update_va_mask == 0
+>        ^
+>   <inline asm>:24:2: error: unrecognized instruction mnemonic
+>           NOT_AN_INSTRUCTION
+>           ^
+>   LLVM ERROR: Error parsing inline asm
+>
+> These errors come from ALTERNATIVE_CB and __ALTERNATIVE_CFG,
+> which test for the existence of the callback parameter in inline
+> assembly using the following expression:
+>
+>   " .if " __stringify(cb) " == 0\n"
+>
+> This works with GNU as, but isn't supported by LLVM. This change
+> splits __ALTERNATIVE_CFG and ALTINSTR_ENTRY into separate macros
+> to fix the LLVM build.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/472
+> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> ---
+>  arch/arm64/include/asm/alternative.h | 32 ++++++++++++++++++----------
+>  1 file changed, 21 insertions(+), 11 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/alternative.h b/arch/arm64/include/asm/alternative.h
+> index b9f8d787eea9..324e7d5ab37e 100644
+> --- a/arch/arm64/include/asm/alternative.h
+> +++ b/arch/arm64/include/asm/alternative.h
+> @@ -35,13 +35,16 @@ void apply_alternatives_module(void *start, size_t length);
+>  static inline void apply_alternatives_module(void *start, size_t length) { }
+>  #endif
+>
+> -#define ALTINSTR_ENTRY(feature,cb)                                           \
+> +#define ALTINSTR_ENTRY(feature)                                                      \
+>         " .word 661b - .\n"                             /* label           */ \
+> -       " .if " __stringify(cb) " == 0\n"                                     \
+>         " .word 663f - .\n"                             /* new instruction */ \
+> -       " .else\n"                                                            \
+> +       " .hword " __stringify(feature) "\n"            /* feature bit     */ \
+> +       " .byte 662b-661b\n"                            /* source len      */ \
+> +       " .byte 664f-663f\n"                            /* replacement len */
+> +
+> +#define ALTINSTR_ENTRY_CB(feature, cb)                                       \
+> +       " .word 661b - .\n"                             /* label           */ \
+>         " .word " __stringify(cb) "- .\n"               /* callback */        \
+> -       " .endif\n"                                                           \
+>         " .hword " __stringify(feature) "\n"            /* feature bit     */ \
+>         " .byte 662b-661b\n"                            /* source len      */ \
+>         " .byte 664f-663f\n"                            /* replacement len */
+> @@ -62,15 +65,14 @@ static inline void apply_alternatives_module(void *start, size_t length) { }
+>   *
+>   * Alternatives with callbacks do not generate replacement instructions.
+>   */
+> -#define __ALTERNATIVE_CFG(oldinstr, newinstr, feature, cfg_enabled, cb)        \
+> +#define __ALTERNATIVE_CFG(oldinstr, newinstr, feature, cfg_enabled)    \
+>         ".if "__stringify(cfg_enabled)" == 1\n"                         \
+>         "661:\n\t"                                                      \
+>         oldinstr "\n"                                                   \
+>         "662:\n"                                                        \
+>         ".pushsection .altinstructions,\"a\"\n"                         \
+> -       ALTINSTR_ENTRY(feature,cb)                                      \
+> +       ALTINSTR_ENTRY(feature)                                         \
+>         ".popsection\n"                                                 \
+> -       " .if " __stringify(cb) " == 0\n"                               \
+>         ".pushsection .altinstr_replacement, \"a\"\n"                   \
+>         "663:\n\t"                                                      \
+>         newinstr "\n"                                                   \
+> @@ -78,17 +80,25 @@ static inline void apply_alternatives_module(void *start, size_t length) { }
+>         ".popsection\n\t"                                               \
+>         ".org   . - (664b-663b) + (662b-661b)\n\t"                      \
+>         ".org   . - (662b-661b) + (664b-663b)\n"                        \
+> -       ".else\n\t"                                                     \
+> +       ".endif\n"
+> +
+> +#define __ALTERNATIVE_CFG_CB(oldinstr, feature, cfg_enabled, cb)       \
+> +       ".if "__stringify(cfg_enabled)" == 1\n"                         \
+> +       "661:\n\t"                                                      \
+> +       oldinstr "\n"                                                   \
+> +       "662:\n"                                                        \
+> +       ".pushsection .altinstructions,\"a\"\n"                         \
+> +       ALTINSTR_ENTRY_CB(feature, cb)                                  \
+> +       ".popsection\n"                                                 \
+>         "663:\n\t"                                                      \
+>         "664:\n\t"                                                      \
+> -       ".endif\n"                                                      \
+>         ".endif\n"
+>
+>  #define _ALTERNATIVE_CFG(oldinstr, newinstr, feature, cfg, ...)        \
+> -       __ALTERNATIVE_CFG(oldinstr, newinstr, feature, IS_ENABLED(cfg), 0)
+> +       __ALTERNATIVE_CFG(oldinstr, newinstr, feature, IS_ENABLED(cfg))
+>
+>  #define ALTERNATIVE_CB(oldinstr, cb) \
+> -       __ALTERNATIVE_CFG(oldinstr, "NOT_AN_INSTRUCTION", ARM64_CB_PATCH, 1, cb)
+> +       __ALTERNATIVE_CFG_CB(oldinstr, ARM64_CB_PATCH, 1, cb)
+>  #else
+>
+>  #include <asm/assembler.h>
 
-Yes, I had a similar patch earlier. I feel like using a command line
-parameter here is cleaner, but I'm fine with either solution.
 
-> One thing to be careful about is that blankets the entire kernel in
-> `+lse`, allowing LSE atomics to be selected at any point.
+Should the definition of the ALTERNATIVE macro
+(arch/arm64/include/asm/alternative.h#L295) also be updated in this
+patch to not pass `1` as the final parameter? Otherwise with this
+patch and your LSE one
+(https://lore.kernel.org/lkml/20191007201452.208067-1-samitolvanen@google.com/T/#u)
+I get one error on linux-next that looks related:
+$ ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make CC=clang AS=clang
+-j71 arch/arm64/kvm/
+...
+arch/arm64/kvm/hyp/entry.S:109:87: error: too many positional arguments
+ alternative_insn nop, .inst (0xd500401f | ((0) << 16 | (4) << 5) |
+((!!1) << 8)), 4, 1
 
-Is that a problem? The current code allows LSE instructions with gcc
-in any file that includes <asm/lse.h>, which turns out to be quite a
-few places.
+               ^
 
-Sami
+Since __ALTERNATIVE_CFG now takes one less arg, with your patch?
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKufxncBPOx6%3D%3D57asbMF_On%3Dg1sZAv%2Bw6RnqHJFSwOSeTw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnX6O0Grth11R8JLoD9bp-BECheucZKHbiHt4%3DXpQferA%40mail.gmail.com.
