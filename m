@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJGQ67WAKGQEU5Q4FOA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBQXI67WAKGQEPKO6WFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x539.google.com (mail-pg1-x539.google.com [IPv6:2607:f8b0:4864:20::539])
-	by mail.lfdr.de (Postfix) with ESMTPS id DD908D10B8
-	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Oct 2019 16:01:11 +0200 (CEST)
-Received: by mail-pg1-x539.google.com with SMTP id 186sf1698682pgd.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Oct 2019 07:01:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570629670; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id E05FDD11CB
+	for <lists+clang-built-linux@lfdr.de>; Wed,  9 Oct 2019 16:52:51 +0200 (CEST)
+Received: by mail-yb1-xb3a.google.com with SMTP id q127sf1950102ybq.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 09 Oct 2019 07:52:51 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570632771; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MfCLC6MfUnWRYn0wdC+JEdnudCy2xb0AxQzWRBXMSWQPM+PpFePhMjZkXvn+IOHrTm
-         EvpHNnfNmIolJrZnv/p+lhQuZyquySJPen+v8cuXyAEAhGjghVkXAlFbk+qSJXlWJInu
-         KIYN6LfwjwGgDdit7RYvA62C3pzYfDDEEeHEMWFxUrHqNlwUiHGjZhoKvdGV+sgLe3IJ
-         6XUNeJjguVUbaxC19MFq6SUbJ4NvBAVLJMFUGC6I4dxTcVxZsEaA1chDwj+kOr4/JsNT
-         Gm8fXx+OhkIpk3ebYzjB0Uf/CS0m1TXb3QRyrdgAwIaWfYfaYTtODJTFeujSVRPB24qI
-         Us3g==
+        b=Yt8I7R2o4V8Wua07OzeMW3HMN61soxL6qmwzVwr0GjJ6sWi6ZaP6szpl9k+46++H5R
+         0YoBterW+QNQpSntR7Eu0xSU1BULAJd/UIllaYRumF76cA1/+bqwZVFIRnDc0mB/AaHI
+         fWVuDHt1dbpWFos0YydrbyDTzuTDPmykU1HPIN8R/KPnX9rqJdAYY58RlerdfD+NpdD7
+         FsPo6kYQ8LRWzA3fZPefYBPUgOfJGeffYqkRkd/LxJFAljtoHV3S4GN1IFTisuN7FUKm
+         N0xwDrvqBeo1PggaFn5ev5GYFuyja8TBSH+34whwatMUCuI2SJYmdv7qr3KzU5GxTWnr
+         I+LQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=IfmGZhDYAq6/y7rIY7rMobsGMfju5idnojkHTUCaU3U=;
-        b=iLby//k0x74RIWe0ScB0pC/IfHrhB0RSwEuWil0oYIW2WIeTasHlp4ge4kaFILsgfW
-         mu+COBrUPyZHHPwq9wP+sx+rCSdYGYoxGzBi+/k3AnC9fz7SOhk/XzXVALE+omqZynio
-         jPW9R1yVyOP7C2XrJvGTX11DoZtTEA6BgjQm4dEijOton75D6y8qbgq8t1u/MUkYBh/s
-         c3qFeVA/FhrBG7ZUjpGCGJ/NSrflZTdN9bSQxeFTHVgZc9EIpf0OjTQKEV8DcUtHjqzg
-         BVp9Sv2SVbQEFCq1SCjV/BaNyGJcoHvAjha4W6jV6qQBdjUPE5/r+8dIgThynDirNTEw
-         95Zw==
+        bh=9vLQOS6mQz92hvM5TuMLfnj7bql6NJRsDol6j3eLklQ=;
+        b=p8wrdV42j6KMU5EeDKTxcsvfK/87CA3PwbG2C5t24tiWq+r8HfwAdMIBm/ZrVEr1bV
+         EJsZITersGkLCaBGb0DV+b/bvurS02PvaIiB2MMmgjeObqgxV0mhlMAls8bjHpgmkbVo
+         86V8vYqmWHdKZi99CpvxzfrYxACR24/3S1Zy+DUfu83JSHsew57OxKcaO62MDvoDks1s
+         OVRzqJXevPW4XzcV5x22Z88aJNDLBlg02yMr9uMmKgw90aVbF/fcDazEVBEJCEfT2XFu
+         x5GHVcurgbzYGHqkOpJMBb61JdAMoOsPDAI0XqMtkUxpgGW2SUYvkhd5jj+15bauiluW
+         JrZw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=IfmGZhDYAq6/y7rIY7rMobsGMfju5idnojkHTUCaU3U=;
-        b=acnahIHLYhDkilCQ+qz0SoCu57HibiNYkKWh6+jqrLj4pwZv1t//YdQXHMn0LHuogF
-         fHv1Q0r2vzpbraBKMfzsKt+K6lkF8npnRYmaOt3QsySlhca5FieNkIJd5cq4okGKZ56B
-         B9ITrtalaTKih6zM//OBM371+sCNH4vyiam7RHaXeMkLYIaFAHuk+YQt+SuSofo95nwr
-         Xm7jhU0cGm9UcYONJ1KxIbgyHd+zeNYC4NSjv3m1UefQ6aluSAAKxKZ+jr2aew4erHhU
-         iqvmjgKmQm8ZzvM6Bb5aQDjTz7OaCfVYcy9FU3C3IsX1QY4Qy+/bnCd3fqeA/jWpCjKV
-         kZuQ==
+        bh=9vLQOS6mQz92hvM5TuMLfnj7bql6NJRsDol6j3eLklQ=;
+        b=PKR8zVNVpVCZqYH0+oEtXgwFioraSl0UhEAhPVxQb2XTgM+7+SIKJ5hpSL3Zs7mUuC
+         2WObf0SMEXxpV6J6P8mW5uCS5vldffilYZRm7ozzqS6zPiMgVGwq7X0zlxgPKj3H4C/O
+         EGpj782bVJdQ++5kRdRoTQP8vQ4cyLiduA/2MTkPhrnP/oWf742The5D0lVBOKv35j6E
+         uFp/reomb/AOxjpkgi+xLQ1K53ap4BXiYQpr7SF69czWjpylYhxUcqBWYgrMm59+m0u7
+         qKy2I2O4TbhCakjrBGi58LZwmn/3QmOtB8I5QG5HpTdFa8r+U1uGzSYM9ZExnPhUMBQi
+         Monw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IfmGZhDYAq6/y7rIY7rMobsGMfju5idnojkHTUCaU3U=;
-        b=OhWHNgYBlaD3tyvPNCW207tnVRAjmUIn0wymn58nS8tVyuJbI1MxFmHA7PEHY4PpFa
-         K3dZJ9C0c0JvT5M6qDtl6zhzca03PKKZPyPR4QsXzqoOtIvG8E14SAH5by0HpAt+Y/GZ
-         0mXYXncejdcLdn4fuo6lD0eNAyeJGrtQFIcYdu54wRmDJYdErSXOEsvg34K0zxZbTE68
-         iZao2k2xB8R8Bs4iwGAv0EVIViXJhitBvLSy5yOiHOMwYk3Z1inSiksFbWRBWiNPC9qK
-         VTUL25bTGIlVXa4ITUGiWRT9E0oiBli9E0yAPK4CkFkUN5h45K1x2RaCjj/orv3L8KSr
-         iKNw==
+        bh=9vLQOS6mQz92hvM5TuMLfnj7bql6NJRsDol6j3eLklQ=;
+        b=nNTsjwPMBM3hdDzMyxOsis5CSSgO/Gl0oPy69ozA17HiNf6Yw+/WpTdmHhIIevnlV9
+         JyQG8BgN1p4CX5fi/jTp2PXMTKkc7GaQ/WrFLFXXY3bwbqf2z1LZVDFxAUNHs4IjmBrN
+         ccMWRT3lukWPFWFvt8Mg5lbPGU19TAhGsNEXbJxF5obLbiXC0BmRov7HSXI6Bnlr0amt
+         wRGHN3WQZJg72blB/zL2NgtLdnOM522e+3NvsqC93XgpWxbjYMxDqeutASrQ6MtUbWgh
+         Uejeq861YzxEysW4P/y3urTRW/J0kEOZPRrUeGHZZvfkQxDFqPuv/W8spMex8ocCTcrv
+         7SyQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAULAt3uXZAyqOxzHm1oMqCeULE19bui6KFrXuUqQ8oAk94AjL9i
-	h/0X7kih4VtH8UAZsuaW6C0=
-X-Google-Smtp-Source: APXvYqw3ECkV2WSORpOqNkGFO+u/rWyYbUwPjwaCwBqcJNff4UWoUD7q1Lb44JMysbV37sMjPCxpPw==
-X-Received: by 2002:a17:90a:9416:: with SMTP id r22mr4383969pjo.20.1570629668219;
-        Wed, 09 Oct 2019 07:01:08 -0700 (PDT)
+X-Gm-Message-State: APjAAAVjqXPZeTxni+v3R4M/DKxDEb1dY3rofvFsT6XSoEs5n9cY2vXr
+	N34t0bn8SFrhmWKjA/2fazg=
+X-Google-Smtp-Source: APXvYqxGjcsI9LbNDkOCrypMda041EqFzEvMopyGaY3i7JOLFlgCTaCEIrpeGv4F//YXorNNJZgGuA==
+X-Received: by 2002:a25:c485:: with SMTP id u127mr2339989ybf.136.1570632770637;
+        Wed, 09 Oct 2019 07:52:50 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:2a06:: with SMTP id q6ls42010pfq.14.gmail; Wed, 09 Oct
- 2019 07:01:07 -0700 (PDT)
-X-Received: by 2002:a65:648e:: with SMTP id e14mr4378431pgv.391.1570629667588;
-        Wed, 09 Oct 2019 07:01:07 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570629667; cv=none;
+Received: by 2002:a81:e81:: with SMTP id 123ls97019ywo.15.gmail; Wed, 09 Oct
+ 2019 07:52:50 -0700 (PDT)
+X-Received: by 2002:a0d:c201:: with SMTP id e1mr3091934ywd.502.1570632770235;
+        Wed, 09 Oct 2019 07:52:50 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570632770; cv=none;
         d=google.com; s=arc-20160816;
-        b=FYLfhoGpHzPzQXHf0m6OP5txGfsD1x4VjrnVKh+1D/GvqY/XMZ01G7IAF6knJO4sxx
-         Lt2KsmRaBQVJRSi67AsDxx/coCQw8W9MX8zNfy+E95yFBMtpmboHDsivAHw05+r7cHL/
-         B0CzkydbbMWT+tAEnT7gv9AddEHzaAaGd5ps1LVewkH2jSerBLKlhRBbMgfkmrVWtNZG
-         wnbpoSsEf/+F2noj2Zy7tGtdXiRUOQJ4HQVyPwkQcq/N++UNsLZ6GeWleGTf/Bc0riY8
-         shPeJLQIp+SlhMnn6BgC3YZyqO+Xdj7lbea4iGdAlkwAP4EPhH/Sp/erJ8sHakIgVajm
-         T+NA==
+        b=EaX0rFOqqiYQ/Zx/imA+WIeTFYF71OXlGoyLB9hl3mXad+8nRT/7HPqNR5NoWcTEj+
+         hbPbhmvZcGRV6E0+kXDj0VvvZatVgOXbYxN5wH6vcqk2d3lxNMwxz5C17JjM4KAslpg9
+         vZqnBBDcZlzezuycopPixxrHagtrTmEd7gnfT4VYQkvvhv5TYJcoorvti6i67bNk8+1U
+         c4EtZQUFs6Y7H3ehJxze77koy1N2CeG5TONAfF7Zcny2Z0KAsd439Lca5J6v/bptXIcE
+         soO23R/dN12bqDsqnqK54Dms9Vl7m7CBIdbywiv/U/juZ107U460SUUU4j9mgGwD9eFK
+         8OUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=FKhwKWvcG/5TKeWl1hG5xiOulYD3+xoSs+sD4fSgCF4=;
-        b=jfIlUq6zj9LbaBvs1LPXZ4mIRyVDPXPckGS4pi7mLCJCtzRDw9d9uiCeOzDm+12+zu
-         365uGvpajPeHaKBfr73vesodPYsg23pS2bhxIrOKELep2xakAgXL8qHcoW4kkk7UIOkX
-         uYkmazgGu/AM++66WmOLlju+Q0gU47MPjLSvtJGDm4qY4H8BKnOMjt6nCEL+7HyWxMaq
-         D/rr1ojuEeyOnJa5G/blefU4csRXQT3H9IVXMLJ2ctwXO6pI0kWEnRHP9LSfbFJIF1uu
-         Ep/mN/trKPPlerIZ3AjkZg0knEabEeQDaMH1VHxIrmXxbAB3bXjgKWZMRapKNnbzVDkS
-         T32Q==
+        bh=LMHJixHUf4PsOw0DPLuL4HtMqDf1//wZGhH3iyXxJYA=;
+        b=bDtDrHxa0giylIjT+3Wlt0pY7EjqRaecdMLoOmI8czn/qksbqljfTy6Lanl7kVPO1+
+         c3Ne6yT6O/6+YEWLIl2rP0BnBvHKRZk8cM3+p2ytMdog5i2t+sbPNq7wuaieq2OLZ038
+         jLmGksTVYVPiXMpPN7UHkCUopgfpauhWkAOyLODLlER+jDN2gbHnVbWlMukY0Fl1GDhO
+         JOV72s4XGUYvAGIdJowY+PlfkpTEmGNSCn8OnxS8ZZIuvvOflwk0HkNtxTr+Vcv5S+y6
+         z8qK6aj3QifgITd+FoZ7rBES05a4gEysCL+zHdmgWORuGP2pMUOU5t/OLI79EGkDiHRd
+         JYlA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id t17si39359pgk.0.2019.10.09.07.01.07
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id u129si97864ywc.1.2019.10.09.07.52.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 09 Oct 2019 07:01:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+        Wed, 09 Oct 2019 07:52:49 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 09 Oct 2019 07:01:06 -0700
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 09 Oct 2019 07:52:36 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.67,276,1566889200"; 
-   d="gz'50?scan'50,208,50";a="218634289"
+   d="gz'50?scan'50,208,50";a="198031079"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 09 Oct 2019 07:01:03 -0700
+  by orsmga006.jf.intel.com with ESMTP; 09 Oct 2019 07:52:26 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iICWW-0007sU-3Y; Wed, 09 Oct 2019 22:01:04 +0800
-Date: Wed, 9 Oct 2019 22:00:16 +0800
+	id 1iIDKD-000B2c-Hm; Wed, 09 Oct 2019 22:52:25 +0800
+Date: Wed, 9 Oct 2019 22:51:54 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [peterz-queue:locking/jump_label 7/30]
- arch/x86/kernel/ftrace.c:440:26: error: variable has incomplete type 'union
- ftrace_code_union'
-Message-ID: <201910092210.XSh8T3Lc%lkp@intel.com>
+Subject: [peterz-queue:x86/static_call 11/25]
+ arch/x86/include/asm/kprobes.h:72:30: error: use of undeclared identifier
+ 'RELATIVE_ADDR_SIZE'
+Message-ID: <201910092246.jux56MW9%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="4a7gtnz4vp3nenmt"
+Content-Type: multipart/mixed; boundary="f6ulifx2qy5lw4vb"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,88 +139,85 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---4a7gtnz4vp3nenmt
+--f6ulifx2qy5lw4vb
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@01.org
 TO: Peter Zijlstra <peterz@infradead.org>
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git locking/jump_label
-head:   ef36041eb3c323ddc4050649298755a82b367782
-commit: 0c54fd21334a9f256976fa366b29e803d3e263da [7/30] x86/ftrace: Use text_gen_insn()
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git x86/static_call
+head:   b1220b9c448f47bcd61f2f9a09dd77a3ab8760cf
+commit: a1975668afd5f6bda9347f1441409b31ee2068a3 [11/25] x86/kprobes: Convert to text-patching.h
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 41c934acaf8539dedad4b48bbc88580c74fed25a)
 reproduce:
-        git checkout 0c54fd21334a9f256976fa366b29e803d3e263da
+        git checkout a1975668afd5f6bda9347f1441409b31ee2068a3
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All error/warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> arch/x86/kernel/ftrace.c:63:41: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'const void *' [-Wint-conversion]
-           return text_gen_insn(CALL_INSN_OPCODE, ip, addr);
-                                                  ^~
-   arch/x86/include/asm/text-patching.h:52:51: note: passing argument to parameter 'addr' here
-   extern void *text_gen_insn(u8 opcode, const void *addr, const void *dest);
-                                                     ^
-   arch/x86/kernel/ftrace.c:63:45: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'const void *' [-Wint-conversion]
-           return text_gen_insn(CALL_INSN_OPCODE, ip, addr);
-                                                      ^~~~
-   arch/x86/include/asm/text-patching.h:52:69: note: passing argument to parameter 'dest' here
-   extern void *text_gen_insn(u8 opcode, const void *addr, const void *dest);
-                                                                       ^
->> arch/x86/kernel/ftrace.c:440:26: error: variable has incomplete type 'union ftrace_code_union'
+   In file included from arch/x86//entry/common.c:31:
+   In file included from arch/x86/include/asm/traps.h:6:
+   In file included from include/linux/kprobes.h:30:
+>> arch/x86/include/asm/kprobes.h:72:30: error: use of undeclared identifier 'RELATIVE_ADDR_SIZE'
+           kprobe_opcode_t copied_insn[RELATIVE_ADDR_SIZE];
+                                       ^
+   1 error generated.
+--
+   In file included from arch/x86//kernel/ftrace.c:30:
+>> arch/x86/include/asm/kprobes.h:72:30: error: use of undeclared identifier 'RELATIVE_ADDR_SIZE'
+           kprobe_opcode_t copied_insn[RELATIVE_ADDR_SIZE];
+                                       ^
+   arch/x86//kernel/ftrace.c:440:26: error: variable has incomplete type 'union ftrace_code_union'
            union ftrace_code_union calc;
                                    ^
-   arch/x86/kernel/ftrace.c:440:8: note: forward declaration of 'union ftrace_code_union'
+   arch/x86//kernel/ftrace.c:440:8: note: forward declaration of 'union ftrace_code_union'
            union ftrace_code_union calc;
                  ^
-   arch/x86/kernel/ftrace.c:522:42: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'const void *' [-Wint-conversion]
-           return text_gen_insn(JMP32_INSN_OPCODE, ip, addr);
-                                                   ^~
-   arch/x86/include/asm/text-patching.h:52:51: note: passing argument to parameter 'addr' here
-   extern void *text_gen_insn(u8 opcode, const void *addr, const void *dest);
-                                                     ^
-   arch/x86/kernel/ftrace.c:522:46: warning: incompatible integer to pointer conversion passing 'unsigned long' to parameter of type 'const void *' [-Wint-conversion]
-           return text_gen_insn(JMP32_INSN_OPCODE, ip, addr);
-                                                       ^~~~
-   arch/x86/include/asm/text-patching.h:52:69: note: passing argument to parameter 'dest' here
-   extern void *text_gen_insn(u8 opcode, const void *addr, const void *dest);
-                                                                       ^
-   4 warnings and 1 error generated.
+   2 errors generated.
+--
+   In file included from arch/x86//kernel/kprobes/core.c:29:
+   In file included from include/linux/kprobes.h:30:
+>> arch/x86/include/asm/kprobes.h:72:30: error: use of undeclared identifier 'RELATIVE_ADDR_SIZE'
+           kprobe_opcode_t copied_insn[RELATIVE_ADDR_SIZE];
+                                       ^
+>> arch/x86//kernel/kprobes/core.c:304:31: error: use of undeclared identifier 'INT3_INSN_OPCODED'
+                   if (insn.opcode.bytes[0] == INT3_INSN_OPCODED)
+                                               ^
+   arch/x86//kernel/kprobes/core.c:355:31: error: use of undeclared identifier 'INT3_INSN_OPCODED'
+           if (insn->opcode.bytes[0] == INT3_INSN_OPCODED)
+                                        ^
+   arch/x86//kernel/kprobes/core.c:608:19: error: use of undeclared identifier 'INT3_INSN_OPCODED'
+           if (p->opcode == INT3_INSN_OPCODED)
+                            ^
+   arch/x86//kernel/kprobes/core.c:694:22: error: use of undeclared identifier 'INT3_INSN_OPCODED'
+           } else if (*addr != INT3_INSN_OPCODED) {
+                               ^
+   5 errors generated.
 
-vim +440 arch/x86/kernel/ftrace.c
+vim +/RELATIVE_ADDR_SIZE +72 arch/x86/include/asm/kprobes.h
 
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  436) 
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  437) /* Return the address of the function the trampoline calls */
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  438) static void *addr_from_call(void *ptr)
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  439) {
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03 @440) 	union ftrace_code_union calc;
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  441) 	int ret;
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  442) 
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  443) 	ret = probe_kernel_read(&calc, ptr, MCOUNT_INSN_SIZE);
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  444) 	if (WARN_ON_ONCE(ret < 0))
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  445) 		return NULL;
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  446) 
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  447) 	/* Make sure this is a call */
-745cfeaac09ce3 Steven Rostedt (VMware   2019-03-04  448) 	if (WARN_ON_ONCE(calc.op != 0xe8)) {
-745cfeaac09ce3 Steven Rostedt (VMware   2019-03-04  449) 		pr_warn("Expected e8, got %x\n", calc.op);
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  450) 		return NULL;
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  451) 	}
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  452) 
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  453) 	return ptr + MCOUNT_INSN_SIZE + calc.offset;
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  454) }
-15d5b02cc575e5 Steven Rostedt (Red Hat  2014-07-03  455) 
+d6be29b871e285 include/asm-x86/kprobes.h      Masami Hiramatsu 2008-01-30  69  
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  70  struct arch_optimized_insn {
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  71  	/* copy of the original instructions */
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25 @72  	kprobe_opcode_t copied_insn[RELATIVE_ADDR_SIZE];
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  73  	/* detour code buffer */
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  74  	kprobe_opcode_t *insn;
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  75  	/* the size of instructions copied to detour code buffer */
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  76  	size_t size;
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  77  };
+c0f7ac3a9edde7 arch/x86/include/asm/kprobes.h Masami Hiramatsu 2010-02-25  78  
 
-:::::: The code at line 440 was first introduced by commit
-:::::: 15d5b02cc575e5b20ddfa1645fc1242f0b0ba1c8 ftrace/x86: Show trampoline call function in enabled_functions
+:::::: The code at line 72 was first introduced by commit
+:::::: c0f7ac3a9edde786bc129d37627953a8b8abefdf kprobes/x86: Support kprobes jump optimization on x86
 
-:::::: TO: Steven Rostedt (Red Hat) <rostedt@goodmis.org>
-:::::: CC: Steven Rostedt <rostedt@goodmis.org>
+:::::: TO: Masami Hiramatsu <mhiramat@redhat.com>
+:::::: CC: Ingo Molnar <mingo@elte.hu>
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -229,14 +226,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910092210.XSh8T3Lc%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910092246.jux56MW9%25lkp%40intel.com.
 
---4a7gtnz4vp3nenmt
+--f6ulifx2qy5lw4vb
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICMzinV0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oYzuOj7vP8gNEghQikmABUJb8wqXY
+H4sICC3xnV0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oYzuOj7vP8gNEghQikmABUJb8wqXY
 cuqzfcmW7e7k788MwMsAhNy27WrCmcF9MHfoxx9+nLHXl6eH7cvd9fb+/vvsy+5xt9++7G5m
 t3f3u/+dpXJWSTPjqTC/AnFx9/j67f2387P27HT28dfTX49+2V+fzJa7/ePufpY8Pd7efXmF
 9ndPjz/8+AP89yMAH75CV/t/za7vt49fZn/u9s+Anh0f/Qr/zn76cvfyr/fv4f8Pd/v90/79
@@ -1131,4 +1128,4 @@ qK5cNl5Kdlc75xheXLTAObysMr0hMF2Qo5o/LyhsIRTnQMtplEr8UcYuYbAQPkNmnBXTNGo5
 4Hh3cezM74CQPFcdKfx979OguBw2LJHbGE3KdrhJyTzl4QwcaW9zZqRMzUVe6MEhnbu0hJKy
 xdwNeMgGB77Nt/pxt6KyHBAjXDtsScILuNxG0mXr5Vl2Ez/oKIH/A9jxVVFkDgMA
 
---4a7gtnz4vp3nenmt--
+--f6ulifx2qy5lw4vb--
