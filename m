@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBAFN73WAKGQE36A5YRI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB3NN73WAKGQEH6XZUKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 27EB9D322A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 22:37:22 +0200 (CEST)
-Received: by mail-pf1-x437.google.com with SMTP id z13sf5628308pfr.15
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 13:37:22 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570739840; cv=pass;
+Received: from mail-pl1-x637.google.com (mail-pl1-x637.google.com [IPv6:2607:f8b0:4864:20::637])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0090ED322D
+	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 22:39:11 +0200 (CEST)
+Received: by mail-pl1-x637.google.com with SMTP id j9sf4574135plk.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 13:39:10 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570739949; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yALmVrK+RJ+GIfpqFZFWVL9rp3MfDetfJSg0f9dX8WeVI/QUQcfw5RGvI4QXQt7piO
-         rQbOty6pGBd1O6b+yagqOKPbGV7UnxPT7OuYglPicbZ5vtNv12Tqt0Db/GC2WT90TTmK
-         UX3inroHh08J22WW/XlOerbRAKCr3pP31HsFkzdC/kCJocqWP0P0q5uZ2iilbBIm6KS6
-         RkgtfjdsbtMK/BZB1slt4Oo5V+aIDhFPcTO3PtOdWd/lQprAqaLLZxQxxI/NSrD+t1AV
-         Kl7lUmENa5kMh8O7/GSeHxisWWVvWc5Jh29wEp5arwiBeroRT0u6XyO0/EFacukvH1CK
-         lxtw==
+        b=SOjWX3tBm3oiaq31uFB+fLLagF1gFMp82GCcPAp7N8WktoL08U3TJYdTxkWO9q6Pqf
+         3THvDnqkJxKRm2t6jHSpueyvmFDG4Tnfnmgk0WNbnjN3HkBklnffxhWbazlLutuq1rhW
+         T+XdK36U4St7HofpWndasejF7VRlAyv/8M9pKFX2kuZWi4PUZpFFVPBSXfoIMJ+803eV
+         ErtH2PsYRc/VU3IVBTr1rAtrLvwqCeaYbMV076ewfHQ3jUBuy12AbVSb15mqrapuYT7v
+         jK1xOlnzZ/uGFH5LiZhb8tO7a8WD0Ytok5CnVSLIUgXk9155+uXMFNZPmvOJx5yfSjTG
+         4cwQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=8mSHjgKz5kn91qt5zWSGhUFFSJ2eIoPr/dSsNgLVK3s=;
-        b=f0o0uSbv458hQ2SaBBQ1KTf7oaMYdW1JU/Uc6x8KGOYHSDpNEM6PgTjVLhWcGY8N6z
-         gGhsGDnFjp24or4RI3FneiNbH/+uULH/hiMV8oTDTfEJE79udCK74dWQBSFcY+0naVaE
-         HAQZGFSPkcfL/TRVaznRKlI43AGYfaV7Hq2s4Xj0yaoimMonTE7eThmn9Xi+TxTdoMwz
-         oAA7eAzzVB77Ul+HDJO8QSC2QTnx6Sn/dbrO4BzjnikiftWFjqqjpqYC2DLdTw9xlmz5
-         XIVx+leDmLYfhqqT9k3Po1hZaCLWXsz3lbgwzEYBXV/mj4vde8ZG0rgDU1XsDTKBR9JF
-         iTUA==
+        bh=GmRIWtRDZJ2yYXjdHJxi3Mel6K9IN3Sa2k+0BZE7fh8=;
+        b=fmbupYHa6K1axaS4mD/SIsY/3HVBGM4woEQu1yTjYgE2vE6x46pJL+p6th71c+aBFS
+         fagM/xYDQKuiZWcomJ6+JeuJENZaNe3tq8y4mcpnQYr1qfpmC7gtb/alralvZion9eeS
+         KQSGczCV91Y0x2kRePgdSGKqHpkaZJR/Qw5387UIVOzOog8SXx5QnIhA2/+SxtP7dypH
+         Dmx0UgM8TUYlnymlUyclvfMUTkMMr5HobiU7jYH5N/ATp1pQuUSUiDOZDOyKncbIrclI
+         FYVBZhgFzclvRpwqH333l8NTsfiyBqEO8veLVxStKXJ/ATixYzgJcuPt2OaO9dyAPOVW
+         u1PQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=WrQxU5tF;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=H3tKHjAt;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=8mSHjgKz5kn91qt5zWSGhUFFSJ2eIoPr/dSsNgLVK3s=;
-        b=aAzdUIaP85Pfe1t1TA7SCoAsvCJiqVaLhzCCSyM+yVzX5x1VhSi6/UTysh45Uh9ZK4
-         GLdHx2E1WeIP/1qKJwiOewjtARnwjGgZcRxFHPxujqlsEiXsZKJKPDoKuHzmsDKDhDa6
-         8qFJzioURVqTBZdSMQv6bXPmdeSiw6RNB727ZQ7s3Yz7vGEF6C7OOjq9rdMTebZV4+mj
-         5qOEMbdR8xXofD/rB7hVTP13POwW93EhdJQd+s9llxTRwyvhpyfzql1SBdC1/o8ha9UM
-         OziGoiPPJ4Q6RsbCp2L/ZLzf2X50b1jooSKoe1bH/dEKGlG4CZE3a0Ls7JVq9ocoaB82
-         Fr1A==
+        bh=GmRIWtRDZJ2yYXjdHJxi3Mel6K9IN3Sa2k+0BZE7fh8=;
+        b=EMumqIXzvudZ8cWWz5O0mKsoBzz8Icj71xvZgvHw+NCrEklROoE96Nu9SLFMIQ3pzx
+         IgM2UoBkHZ4Sx31kAV6AyNyusQ1QxwDRIKtGUqyoD6fEIzwSB8JTwELmhcQ1SWx3tZZV
+         SCp1Mf6bwdVfHeFuqSIKH4Pt3ax9F5neUeSyp8T+MYnmX9RiJZ1H2f2XHspnJyKeeXac
+         yDNuQHlFg3Mtu/EIXuhM6QGq/MQzf/NdoQjOErZE7s7PW6csx0CW3QRhjDMI2ML1nyfB
+         H5YNnffkoolcrffTzVhtDyFmkhSl+0m+hAi3sjtLBM79pojGT+i3IE6Wh5LfMCjCFsnT
+         51WQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,65 +50,66 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=8mSHjgKz5kn91qt5zWSGhUFFSJ2eIoPr/dSsNgLVK3s=;
-        b=Svlq6g/bkivRvU8GsOi9XedBWxyPXN2/3ab3JcGrAGQ2zEQ9gcWD4P4HAMTbBvexkl
-         YrHwJj+1MkTnYi5D2jIS788vMVG5CNIO10flYFVYKkqdqkfW602NO/VeaW62UBJD8hkt
-         gRpQCoHeMCkgFxyRHLJVTuvjpBqEtbzgduoANmwhCgBSvJMeYEGqumCi/8QNy13ccgu/
-         vrw3PC5bHArUq5HDzrZPMRkUhGeJZlab8nxqzLZSucv5DCEBSwkXnFM01DE6WNxtajrp
-         G6lHsJwT7TpZ0zydtFuv+vsttMZZcSjaarHuySXwtwi51FwAkAWScX4Pi9ZbK8QFBMRb
-         T1NQ==
+        bh=GmRIWtRDZJ2yYXjdHJxi3Mel6K9IN3Sa2k+0BZE7fh8=;
+        b=k3vX4FRk2rradZJ4bl9p7HqU3cXQ7BLfmAzCYf7za7FFPF4B4KfoP1jZKdvbPZu+l6
+         fv0PPK+R/8jxefKeUnM99zRR5inamaFfr6pAZqOUVxiRStI+mlXpVJe7m8P4MwMf681Z
+         5v5M45NDPy4jwug+WupinznkmkOWv4VFidEitTE2zKZ2WeKLH7y32bc6tiW10hktH+/M
+         dSlaANA6YwRwztL8iYl81ngB9ISFXBhwA6D1GL4pk8a7egB4eOSuZVQLqH0tBKy5l8R3
+         4NY5PTpK7sKk3L+EHGRPQSjnN00I3NID2O7HwV1HvcNd8YhSYyBCjCvIOCNs2Lgk4lyg
+         r55g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXqJeySfkrUdCiZb5KV+J8MOx25Q7qZZA/PK7PL7nj+9PPuequ1
-	ouwNq9ZGVJS8ZzBNg5BcG40=
-X-Google-Smtp-Source: APXvYqxw/ru7ZK9fF9ljYYNqVSQEkBP8HJMKKd8g9NzmiSQM16a84wN6CECyEdTTWEh70Kp/eueCuw==
-X-Received: by 2002:a17:902:8346:: with SMTP id z6mr495826pln.280.1570739840743;
-        Thu, 10 Oct 2019 13:37:20 -0700 (PDT)
+X-Gm-Message-State: APjAAAVXwj+UAK4Hlh8lcz0sMu9P+Hi/oKab0ihM+u337aw75Ku4P5Bp
+	+IwFSxbHyeljhDm9hvVvN70=
+X-Google-Smtp-Source: APXvYqzdag0RNXJhwtajAR0VSBpF2haj57XZXehKmwGVMbW4FOf7i2tDMribWqLkFR7omVZ0vNTc8Q==
+X-Received: by 2002:a63:352:: with SMTP id 79mr13220157pgd.232.1570739949527;
+        Thu, 10 Oct 2019 13:39:09 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:8dc2:: with SMTP id j2ls1477860pfr.8.gmail; Thu, 10 Oct
- 2019 13:37:20 -0700 (PDT)
-X-Received: by 2002:a65:464b:: with SMTP id k11mr13378583pgr.263.1570739840257;
-        Thu, 10 Oct 2019 13:37:20 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570739840; cv=none;
+Received: by 2002:a17:902:5996:: with SMTP id p22ls1481475pli.3.gmail; Thu, 10
+ Oct 2019 13:39:09 -0700 (PDT)
+X-Received: by 2002:a17:90a:b003:: with SMTP id x3mr13687539pjq.101.1570739948983;
+        Thu, 10 Oct 2019 13:39:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570739948; cv=none;
         d=google.com; s=arc-20160816;
-        b=ISQBWgjDx4aU6uszs+Vi3kF7hhJlHFin1mhRZuw3CZP7WgozNC2tlSAa35I7/qQkhI
-         V3vpUJlLwOF+ESIS+LqUSmHQA/1Y5zPC1CubMMU3Auw9rPzaBYPVB6JzWY/0ifs0b2Iy
-         oFyezvmM/z6POhWMDU0fAhpTO4YUSJ/aVWjPj1FfNn8fud3v3rWoJ3UgUz06i21mh58/
-         coQr56uLnFdbtFJiT6CrBTN3uJcW+aOLRbAxlNa6CwqZzxy8rtnPPWpQrAn0+WlevDt0
-         tsLNxaymZVWCehlZTXdndVBrSx0ME1QASkytcZccPSF9BzKvU0RZG/pYhyevP8CdDQ94
-         dClQ==
+        b=j1XspWRWM6Q9HvvtOOWonqzW7tDsUOiYA4H5sU6+cuqEhUxjImCV24HaD0pTQ2WjdE
+         O/+LvqN9V4lXDxW/6uZ7YjCFOGUmZwomKUKHRXkDT18jKfGyAdC7gJcaJyLX1aOEhCTH
+         QA1y3X0dsrokdjFq6sWTB8AW9ARQk27HBafvPOhMqy5MyqXcsWCHs+WsdmvZxE+Hq7Fe
+         Le0tY0nQinEIGWtQjFPyTmph0DwnfRUjY5wS4S4w1DeU4QlmK3UqfxRq0+9ng0WjCUoJ
+         coCYSuQ6e6oPk7ck6s2npMGdXsCKJ+j0FVkFBfekpnM+NZWFJ1xf07NTYNH5C2OgudJj
+         TnzA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=pMZW5vPXBLhM8tBCY8rJcYa/z4xJ5M13bp7cRgtTWOI=;
-        b=BwVTWqPEvjvJTaBGmge6oItOhgpRDQEkAP+g4/1PPTY5gzZXnaSsFR637jd3/gXqIT
-         ZGi2bT6WlAoylwg5Tk7tJBZGc00XnQ7RdgBDNCjODYLiKQ72JXuJOdjOl3JWwGREv5o4
-         2L9atveLJ2m7BwXIaVBGj/p0UnvlqnFRoy0O329/sny1lnnjVvt+YOAiGNYwAIq88pvN
-         v6Nx7q6h2nDEeUYvBTi09JmukmrQKYZ8L4Eqoc2yrKokmgDnh13W49XFVhacCsJRt3Tc
-         qtO6ckAF67iRa19555jmpah/jrxcWCJTJj5pXuJh1qAyxwY9Oi9neRNx4Wytiy3MmaSV
-         +MJQ==
+        bh=S6k3ViNzJ7YzSO4Rk6x02I91FS8Fe+dk8MkxjwLqK8Q=;
+        b=s9gA1Rc1iRNdXkrNDSTvyL8xS1DjVbYijNCdbH7silGmXm4YDugp7R6Va5VWr1emNf
+         bG8m058OmR7ANNKc+sv45wk3C5c3KhW3iJacEpdI4r7Hy3fmQDwe3n2mzXR8QlpE5tTr
+         6vgY5NvzODYEDDJ6JP4oPPveGieqbMqxgNaFi1vAKOPw3NA6byikcJ3qWTPRlGDhzhEY
+         sxXnqZbTbbr/1qSYL1zA8ldkqN88flOW9VT1JnCLSUIivEvJxKvCpB6+nMLOkPTH83bU
+         Q0+pVl249GapVn+9uwDeHxHVW3nQ0AGa+A/ZMEi0NuBNo0Z66zj9G/EAj0azLXX+n7/t
+         bKeg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=WrQxU5tF;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::542 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=H3tKHjAt;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x542.google.com (mail-pg1-x542.google.com. [2607:f8b0:4864:20::542])
-        by gmr-mx.google.com with ESMTPS id br8si893945pjb.3.2019.10.10.13.37.20
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id x197si690783pgx.5.2019.10.10.13.39.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Oct 2019 13:37:20 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::542 as permitted sender) client-ip=2607:f8b0:4864:20::542;
-Received: by mail-pg1-x542.google.com with SMTP id r1so3201296pgj.12
-        for <clang-built-linux@googlegroups.com>; Thu, 10 Oct 2019 13:37:20 -0700 (PDT)
-X-Received: by 2002:a63:a54d:: with SMTP id r13mr12919802pgu.353.1570739839786;
-        Thu, 10 Oct 2019 13:37:19 -0700 (PDT)
+        Thu, 10 Oct 2019 13:39:08 -0700 (PDT)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id y5so4646473pfo.4
+        for <clang-built-linux@googlegroups.com>; Thu, 10 Oct 2019 13:39:08 -0700 (PDT)
+X-Received: by 2002:a63:5516:: with SMTP id j22mr12913251pgb.201.1570739948545;
+        Thu, 10 Oct 2019 13:39:08 -0700 (PDT)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id b3sm5077563pjp.13.2019.10.10.13.37.18
+        by smtp.gmail.com with ESMTPSA id f65sm6116366pgc.90.2019.10.10.13.39.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Oct 2019 13:37:19 -0700 (PDT)
-Date: Thu, 10 Oct 2019 13:37:18 -0700
+        Thu, 10 Oct 2019 13:39:07 -0700 (PDT)
+Date: Thu, 10 Oct 2019 13:39:06 -0700
 From: Kees Cook <keescook@chromium.org>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Joe Perches <joe@perches.com>,
+To: Joe Perches <joe@perches.com>
+Cc: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
 	Borislav Petkov <bp@alien8.de>, "H . Peter Anvin" <hpa@zytor.com>,
 	Thomas Gleixner <tglx@linutronix.de>, Pavel Machek <pavel@ucw.cz>,
 	"Gustavo A . R . Silva" <gustavo@embeddedor.com>,
@@ -118,26 +119,26 @@ Cc: Joe Perches <joe@perches.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Shawn Landden <shawn@git.icu>,
 	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
 	Nathan Chancellor <natechancellor@gmail.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	David Miller <davem@davemloft.net>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH 2/4] compiler_attributes.h: Add 'fallthrough' pseudo
- keyword for switch/case use
-Message-ID: <201910101334.7E09211F@keescook>
+Subject: Re: [PATCH 4/4] scripts/cvt_style.pl: Tool to reformat sources in
+ various ways
+Message-ID: <201910101338.59F36A33@keescook>
 References: <cover.1570292505.git.joe@perches.com>
- <79237afe056af8d81662f183491e3589922b8ddd.1570292505.git.joe@perches.com>
- <CANiq72kU2_s=58HqdN6VMGDAh_+G+dtns9xzoc4huSVwP+ZXUg@mail.gmail.com>
+ <4a904777303fbaea75fe0875b7984c33824f4b68.1570292505.git.joe@perches.com>
+ <CANiq72nwDgMgXNczW=JRANzH72=f0ukwVoPaud1d7J4YQLQX=w@mail.gmail.com>
+ <52794b248ba13e88ab4c30c9b6ea55a7be30df5d.camel@perches.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CANiq72kU2_s=58HqdN6VMGDAh_+G+dtns9xzoc4huSVwP+ZXUg@mail.gmail.com>
+In-Reply-To: <52794b248ba13e88ab4c30c9b6ea55a7be30df5d.camel@perches.com>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=WrQxU5tF;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::542
+ header.i=@chromium.org header.s=google header.b=H3tKHjAt;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -152,114 +153,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Oct 05, 2019 at 07:17:36PM +0200, Miguel Ojeda wrote:
-> Hi Joe,
+On Sat, Oct 05, 2019 at 11:35:42PM -0700, Joe Perches wrote:
+> On Sat, 2019-10-05 at 19:31 +0200, Miguel Ojeda wrote:
+> > Hi Joe,
 > 
-> On Sat, Oct 5, 2019 at 6:46 PM Joe Perches <joe@perches.com> wrote:
-> >
-> > Reserve the pseudo keyword 'fallthrough' for the ability to convert the
-> > various case block /* fallthrough */ style comments to appear to be an
-> > actual reserved word with the same gcc case block missing fallthrough
-> > warning capability.
-> >
-> > All switch/case blocks now must end in one of:
-> >
-> >         break;
-> >         fallthrough;
-> >         goto <label>;
-> >         return [expression];
-> >         continue;
-> >
-> > fallthough is gcc's __attribute__((__fallthrough__)) which was introduced
-> > in gcc version 7..
+> Hello.
 > 
-> Nits: double period, missing "r" in fallthough.
+> > On Sat, Oct 5, 2019 at 6:47 PM Joe Perches <joe@perches.com> wrote:
+> []
+> > > As for the commit itself: while I am sure this tool is very useful
+> > (and certainly you put a *lot* of effort into this tool), I don't see
+> > how it is related to the fallthrough remapping (at least the
+> > non-fallthrough parts).
 > 
-> > fallthrough devolves to an empty "do {} while (0)" if the compiler
-> > version (any version less than gcc 7) does not support the attribute.
+> It's not particularly related.
 > 
-> Perhaps add a short note why (empty statement warnings maybe? I don't
-> remember them but it was months ago so maybe it changed).
+> It's a 10 year old script that I just extended because it's
+> convenient for me.
 > 
-> > Signed-off-by: Joe Perches <joe@perches.com>
-> > Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> I think I first posted it in 2011, but I started it as a
+> complement to checkpatch in 2010.
 > 
-> Please add Dan's Suggested-by and copy the things I wrote in the
-> commit message when I proposed this:
+> https://lwn.net/Articles/380161/
 > 
->   https://github.com/ojeda/linux/commit/668f011a2706ea555987e263f609a5deba9c7fc4
+> Doing the regexes for the fallthrough conversions took me
+> a couple hours.
+> 
+> > Also, we should consider whether we want more tools like this now or
+> > simply put the efforts into moving to clang-format.
+> 
+> I think clang-format could not do this sort of conversion.
+> Nor could coccinelle or checkpatch.
+> 
+> Anyway, it's not really necessary for this particular patch
+> to be applied, but it's a convenient way to show the script
+> has the capability to do fallthrough comment conversions.
+> 
+> I think it does conversions fairly reasonably but likely
+> some files could not compile without adding an #include
+> like:
+> 
+> #include <linux/compiler.h>
 
-Perhaps just take this patch directly with Miguel's authorship into the
-series and tweak the __fallthrough to fallthrough in subject and body.
-
--Kees
-
-> 
-> > ---
-> >  include/linux/compiler_attributes.h | 17 +++++++++++++++++
-> >  1 file changed, 17 insertions(+)
-> >
-> > diff --git a/include/linux/compiler_attributes.h b/include/linux/compiler_attributes.h
-> > index 6b318efd8a74..cdf016596659 100644
-> > --- a/include/linux/compiler_attributes.h
-> > +++ b/include/linux/compiler_attributes.h
-> > @@ -40,6 +40,7 @@
-> >  # define __GCC4_has_attribute___noclone__             1
-> >  # define __GCC4_has_attribute___nonstring__           0
-> >  # define __GCC4_has_attribute___no_sanitize_address__ (__GNUC_MINOR__ >= 8)
-> > +# define __GCC4_has_attribute___fallthrough__         0
-> 
-> This goes after __externally_visible__.
-> 
-> >  #endif
-> >
-> >  /*
-> > @@ -185,6 +186,22 @@
-> >  # define __noclone
-> >  #endif
-> >
-> > +/*
-> > + * Add the pseudo keyword 'fallthrough' so case statement blocks
-> > + * must end with any of these keywords:
-> > + *   break;
-> > + *   fallthrough;
-> > + *   goto <label>;
-> > + *   return [expression];
-> > + *
-> > + *  gcc: https://gcc.gnu.org/onlinedocs/gcc/Statement-Attributes.html#Statement-Attributes
-> 
-> This also goes after __externally_visible__.
-> 
-> Please add:
-> 
->   * Optional: only supported since gcc >= 7.1
->   * Optional: only supported since clang >= 10
->   * Optional: not supported by icc
-> 
-> As well as:
-> 
->   clang: https://clang.llvm.org/docs/AttributeReference.html#fallthrough
-> 
-> See how I did it in the link above:
-> 
->   https://github.com/ojeda/linux/commit/668f011a2706ea555987e263f609a5deba9c7fc4
-> 
-> > + */
-> > +#if __has_attribute(__fallthrough__)
-> > +# define fallthrough                    __attribute__((__fallthrough__))
-> > +#else
-> > +# define fallthrough                    do {} while (0)  /* fallthrough */
-> > +#endif
-> > +
-> >  /*
-> >   * Note the missing underscores.
-> >   *
-> > --
-> > 2.15.0
-> >
-> 
-> Cheers,
-> Miguel
+I think this is a nice tool to add -- at the very least it serves as
+infrastructure for future similar conversions. And small cleanups can be
+generated from it for people looking to clean up subsystems, etc.
 
 -- 
 Kees Cook
@@ -267,4 +205,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910101334.7E09211F%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910101338.59F36A33%40keescook.
