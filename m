@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDPPFIEASMFBBW7U7XWAKGQEK3IXATI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBBXXU7XWAKGQENI5OPEA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
-	by mail.lfdr.de (Postfix) with ESMTPS id DF79FD3082
-	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 20:37:16 +0200 (CEST)
-Received: by mail-qk1-x738.google.com with SMTP id w7sf6316566qkf.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 11:37:16 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570732636; cv=pass;
+Received: from mail-yw1-xc3b.google.com (mail-yw1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id A7750D3083
+	for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 20:37:19 +0200 (CEST)
+Received: by mail-yw1-xc3b.google.com with SMTP id j15sf5325925ywg.22
+        for <lists+clang-built-linux@lfdr.de>; Thu, 10 Oct 2019 11:37:19 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570732638; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Nq4P8YEkA1jVtpyTX+eKlyDn5KfSIS1GMA6Xpu4N7KZWVsmufMEAcUQfdwWID5BbGC
-         At7ilOMIOmawG+qXBNvwmaPHhWyPTsDrdu81Vd1VwIksCPyxWx2r+mOFAlymVab3Nagu
-         +HbFN8MCS/jQu7UVDh0N6sKfjqerHpGS2q8siWprpvV4AC5JLUZTYpfu9UvDV0/2GWdS
-         5VnncwGZxVMn/3+P6EE93uyxbrOzn98uUs9GxsXkF6rlhfzVZrKbayvD7BwlAGGwUFAq
-         j8nXezrh0BX0LZ3VFa1Du5dHiQIP6lbyac/sb8O1DbltkaqOraoixoctX4/yC0QjV9E3
-         e4Xw==
+        b=t4XOBLN4dtslVx5WrBChC/rD0H/ex7tr69pPljdKKS0Ls156OWmSvOpwERVa3+kCpx
+         8FblJx7xxYveRLew/4q2Lg95l7dejz4jaNtVEOur6668s5iZ+oN8IYnotVSFqPeGqLTa
+         XY+gVGHq36tybud7hI7AaJfVon+N5e0m79YkmO2yWFNGBdkmGxQXh0FOoD54aGCdjz2K
+         2ev9MPQDEYhBBDPNWLD8gGzdt69gDuszj7cc0y7EELYb0szcxnxHtsTTk0RRAMkMtwXu
+         PgErHx5Dc+oe8jUlX68dSimUoEzk7xeQmHCrDcyAzi++OYbA0hW0w9hQNGPcQx9crA4t
+         03xw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=Z5M0TRMiPJy4FOJLfDI/UbKS1tiuyf+wXyRvo4S1gdk=;
-        b=XgD7BoMEpJ6ZK9JILeYOvGIcsFtoNW0yKdBKrg4orsz6biKRLZ20cCQsLg8xzhkDJk
-         v67bmuIaBNvQMeO3b4MBNO78o9dFkng7NJ1Wir6bd8Pl1/Ax15hR7aZV7edaAZVFosCE
-         +LDc96rkUPwM22k6PzIiQ7pqcmWHwGKa280oqsPf2NDKTVN13WOB3ZzUNQB/LsJ++d4y
-         qulxgsO9U9nugUS7aMgGT93H7kdWf865rETyggU4yhX/Y3N4M/MaRg5+uhFjRcLfyy0n
-         BaW3F32QpTo2HBj4sbLg+FlS9sLc4fCmJ4ezV5YlK+3W0HAbpv2EKv8+A6XbYrLE7Z21
-         aieg==
+        bh=tfiP6fyi0eVcKiFgcXKLBJiLBAFcPjiePFAQfk8PEzg=;
+        b=JRTLL/P9vlSCN6QIhj1mY6jqMEJw4niLwWeoku1RGanTTOHToFOaLgZwQYclqQG/Ve
+         xN4EDSDvvAa9ufYemcn8+So9GAnzIlhLfVJLHm5vy6KUT2GCNcZQlS9TEY3jlCT1uvBJ
+         JgN74lquyOSh6tFZw4tlU4M2JMymbg0VW+vybRhgKB2WIu/LDdiSsaZwC9Nb2TC5qgvY
+         nqFCx8s7t3aWr0a922sHZWElMFRGHgvoX4RSWC26CQqNHAqwsosrX/jYGGkehtxe+XZE
+         LUPgZbynvI/AsPVZEZqaTho5WpYND6kQzPj84iBDu3WA0rA8+HRyaIXr42y8M5Du/rIy
+         2Wdg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vzfIzLpT;
-       spf=pass (google.com: domain of 3wnqfxqckeb8nwtljwxlttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::c49 as permitted sender) smtp.mailfrom=3WnqfXQcKEb8nwtljwxlttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--irogers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Si0K657W;
+       spf=pass (google.com: domain of 3xxqfxqckeciqzwomz0owwotm.kwuktivo-j2qt1-tqv25owwotmozw2x0.kwu@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3XXqfXQcKEcIqzwomz0owwotm.kwuktivo-j2qt1-tqv25owwotmozw2x0.kwu@flex--irogers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Z5M0TRMiPJy4FOJLfDI/UbKS1tiuyf+wXyRvo4S1gdk=;
-        b=pbWV6ekPMzkupL5BdgT4BshLiXE73RHVzQvqrWALtcoxIcEaFhnR75LtMUgtYm3Uqp
-         D3g5j0Rzfff5wMWIDQGpNDYxeMcWtCqBJeSgtWkMRFOLuBuveUA48bH5/w2msjyINFyS
-         GorodfBYQlcRcN+cZMas3AEt3e5zn2BoUjC1coUBmqafJJsivD7mLYbHB+q/yi2yw37J
-         LN+cK6J5pRjcPv5//tuaLIntGOhGtWtnJg0KaGd7OMhPGNhob/wGZD9Rz6qsAVjWlgu7
-         5y3pS7w4e8VshplKI4QndOPiDU6cWrXdWM4bxAM+lglxhZCZ/MEw/uYwospIHR5N8/2K
-         ct1A==
+        bh=tfiP6fyi0eVcKiFgcXKLBJiLBAFcPjiePFAQfk8PEzg=;
+        b=HTL651IMeLgAg9bXOknwPlZ9PHQFKPdB5D5BugqTNCqC/mr28PwxqpchRLpSihJ7uL
+         b0BymK3SCFeREzJnZsfrrIE1T8Cl3ToIFnE8meGWgrbTYXf3Mran9IFRD8u4DUfBBzlk
+         WMLiHbXHrUZjXtNrQYwRHAR7L9hCUXynwagV9ZFzMnh6Fco2B+XgCCLtN3d8VZU3kBYW
+         EZa7H/OdxoXvhFUelAmoznXX4Ai2xIzro2E95Fm0aLEMsBdlLNht4DcDz67AtLFq6FKE
+         fU3b3R1xvMm/xuspEW+6VQn21j1o93HLvUxdckl8tzEcngSfzDCPxUIbfb0/bwqrKWTo
+         Qvxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Z5M0TRMiPJy4FOJLfDI/UbKS1tiuyf+wXyRvo4S1gdk=;
-        b=P1nqbPoVnmJuFdXDkPR1y7RDS09jl4aqZDwkVqygZONCO/iTNcmpqAaVSTMJ+pVg9Z
-         FuMax5E17fPyrOPkFfBTdGOfXbSpjVjP4oUPxBIjGcLRyPGh/dbruyNs1LIPTup3j5Ar
-         6ZUtheD9V/2+caC652gvQf1Qu2znziX2DcBnK7bexUaT1vwc6nbvW2cdSzgsJnFh1FFQ
-         s7iaTN5iv6O48n1WWk6vxHYtv0U6ieFYKtsZD6HR9PA5kcNu9WRrhlOQmaVE9oTbF5iq
-         Ln+4iRkYYwlIyTt5U7t/HkOEnQUKa/nSnGXo0v//mD4rdfHX/OZK/32C1/Gwv/4goCvf
-         nUCQ==
-X-Gm-Message-State: APjAAAU5aGJkMt+iFlfBo13VdOoiMWUFddcu4fK6xt3gryztkwtHnXQI
-	k5yxAYmtOU2t5RJv8+qoGg8=
-X-Google-Smtp-Source: APXvYqwRNOzTBp9n8vdDaxcb+tO767Ar1HKG5XIURGrkjiOJd8/WXqEeHzAlUWSKNfEg3MCLYXqmKw==
-X-Received: by 2002:ad4:4dcc:: with SMTP id cw12mr11607528qvb.31.1570732635823;
-        Thu, 10 Oct 2019 11:37:15 -0700 (PDT)
+        bh=tfiP6fyi0eVcKiFgcXKLBJiLBAFcPjiePFAQfk8PEzg=;
+        b=k4Vv35hNl076or4EvHARTwWPPllmvMivxlKDKjGEQDjGPHWMiH/oY5Y7LCDXJ6Bf7x
+         rAuvp2773AoMG/sCbWoGre/XrIg8Qk/zOFpbCDLmjmA1klomxTWCt8/museWMshhVbm+
+         kaFlSRNuSGWW8HJkbSZGECyllAkYSs4GoX3msVrkaEVGLUB7e8Fhziki7nQrYDeiKD6D
+         k3wek+Jmbll1kJ8PMPkLCBuhVEYRs+33vhps5nGp18BZ06pCYtCd5ZTYvbVij9tkzrjT
+         /xXR833Ap/Qz+T1DUCM1sOrrq15B6Rky1qF0FipWeNuZy48fxMOszRe0WN7jIJ7JgaAF
+         5oZw==
+X-Gm-Message-State: APjAAAUXMLiEREtAC/Mz0/Hcf6sDZ1vjRsYD63f14UqdNhvGT8DsNhWs
+	V0U5ij1Cxh2DOsePruVRRNU=
+X-Google-Smtp-Source: APXvYqznIq+R1PB98IGNMC45aVQDtcsCRU+FOXwDuXbqilRxRk6SLdEDZv2FA/abomleUEbRklnuJw==
+X-Received: by 2002:a25:8149:: with SMTP id j9mr7135567ybm.148.1570732638638;
+        Thu, 10 Oct 2019 11:37:18 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:5493:: with SMTP id h19ls662090qtq.15.gmail; Thu, 10 Oct
- 2019 11:37:15 -0700 (PDT)
-X-Received: by 2002:aed:2a3b:: with SMTP id c56mr12718917qtd.343.1570732635508;
-        Thu, 10 Oct 2019 11:37:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570732635; cv=none;
+Received: by 2002:a25:c04f:: with SMTP id c76ls342545ybf.10.gmail; Thu, 10 Oct
+ 2019 11:37:18 -0700 (PDT)
+X-Received: by 2002:a25:824c:: with SMTP id d12mr7427239ybn.213.1570732638289;
+        Thu, 10 Oct 2019 11:37:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570732638; cv=none;
         d=google.com; s=arc-20160816;
-        b=Ej9pk3/b8pTpWILX9AWlkgPDX48LxAzK4AMGmqvQQF5f44JVWdhfVor6ZcFwVKNEf4
-         k5XdkiElotaUzLCLNZlAVcU8UEGFIvT0y2m1Qtezc9Fiai5MuPrA43yzftDu+++E6Al+
-         4gTTc0YZTZTXqEbL+qoiV6ekC1JU/lnHkOSauV2zkE22IjGIEQXU9PJmQ6Csd8q3N5MR
-         u5MjYd1dIzgZNUUEL9OZwq7YqDjnWkz+3b/c8RTHAB6y/LjOCJ66jbq3891vEiGUSWK2
-         nk7FikNEOn7qw151Z5+NiQqD3tsz1/382h/dDFFYTBYH8R00VgaTtk2/ERkKayJ7Dnqh
-         Fuhw==
+        b=m+x1RFPRyRiTnE7mLXBA+jdFDvRZTH/Zp9kK1xgZ8dq/zNsXkxXnJ5d72RWWPMI1E4
+         hGNUaulEes8so/plkG8Hq6PEVrzgouWeM1gHRFgNZY2yPwc22r8YtbGQToaJzcYB6VLj
+         ZA1JINVl668wFvAvFwx1Z3GrLscGPUUnXs63NTSoJ3r6G0MCSHWVQHyO/T0sPgWHufFE
+         O0jPUYQmUr+QpSEue7C0FS4EylU19QpEq8loqhwUM76UlRwLmdLCk+05/mF+m/ws0h4H
+         KmvuntLv1Q94rrKBzR9l8HmKvqAJE1GRmACWVHRF8+3JKSauGq9ugOmrb9DN+kLJiCEh
+         wS5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=nit8ZJ4SE1V3fsaRZCnq2igRzfJerqe4wY5NN8wXmO4=;
-        b=hBmVEjGxSAXm8i0af8fkMH1Z7tqXrmRutKfj0GD2wfmj28DdAO7R/GvVutXeWTP+l6
-         s60jdUQtViDcB9ggasT6vKPyZ+H5uXHvF1fyuQPkVIPeFf+Z/A9bd2WwS4YVn4PUDJC8
-         sMPQGZUSAXFLl2CX2RYyGCUKU5GD1EUOUGjTZSL7PEc6n9+YEY0cxiCWKadNnWK/9K/e
-         xArAZUv+L10M8EXTOJFkK8fnSxX9erL7PeeTveTunGwXOmhggOiHIbSKWJrgGWqnxdSX
-         MUC7HCw9QhvMdISsOUEU55ulWfCoTgLgfJAPrG9dbWka75eSs85TJNqPVdefnJQvkCk/
-         4Kbw==
+        bh=+OGMGqzbdua1JvnmjrGnKHeEWLFeUVoFJYkCdgpO3Hs=;
+        b=QOlN+vnnpy0voGWVbTGlwmVYX9cEcwlNwiEUxRJejsZXe3WG5nGactZh5+ULLy7B8D
+         nJhIBQIqghTOPk3lNqQTjuPhm4nZYRmwLeUOYehON8/3AmvtuazfWPC+Itsq3uumgGm5
+         zsHAia8qfgS4LrmUPF8cnPN0bWKP04NvjHXiVHtTrt5JAz8i38j1flsD4kcjSk2QNI8F
+         Mo5pWk6c3otcGQy/sd76NrolpSWfVqLSQe/LSQmWgzOzbc0vFCwEBq/PX8gqTWK/5zZf
+         ERuhqKYlvrZj/6N5hC+wnzp668pTqwvUm65OS5wBmwQeFwKbA0Z2SkGm0gEu9AQRgk25
+         v4LA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vzfIzLpT;
-       spf=pass (google.com: domain of 3wnqfxqckeb8nwtljwxlttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::c49 as permitted sender) smtp.mailfrom=3WnqfXQcKEb8nwtljwxlttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--irogers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Si0K657W;
+       spf=pass (google.com: domain of 3xxqfxqckeciqzwomz0owwotm.kwuktivo-j2qt1-tqv25owwotmozw2x0.kwu@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3XXqfXQcKEcIqzwomz0owwotm.kwuktivo-j2qt1-tqv25owwotmozw2x0.kwu@flex--irogers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yw1-xc49.google.com (mail-yw1-xc49.google.com. [2607:f8b0:4864:20::c49])
-        by gmr-mx.google.com with ESMTPS id t186si151528qkf.3.2019.10.10.11.37.15
+Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
+        by gmr-mx.google.com with ESMTPS id u129si280835ywc.1.2019.10.10.11.37.18
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 10 Oct 2019 11:37:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3wnqfxqckeb8nwtljwxlttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::c49 as permitted sender) client-ip=2607:f8b0:4864:20::c49;
-Received: by mail-yw1-xc49.google.com with SMTP id x198so5347729ywg.20
-        for <clang-built-linux@googlegroups.com>; Thu, 10 Oct 2019 11:37:15 -0700 (PDT)
-X-Received: by 2002:a25:230f:: with SMTP id j15mr7585251ybj.397.1570732634929;
- Thu, 10 Oct 2019 11:37:14 -0700 (PDT)
-Date: Thu, 10 Oct 2019 11:36:48 -0700
+        Thu, 10 Oct 2019 11:37:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3xxqfxqckeciqzwomz0owwotm.kwuktivo-j2qt1-tqv25owwotmozw2x0.kwu@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
+Received: by mail-pf1-x449.google.com with SMTP id 22so5414391pfx.8
+        for <clang-built-linux@googlegroups.com>; Thu, 10 Oct 2019 11:37:18 -0700 (PDT)
+X-Received: by 2002:a63:6a46:: with SMTP id f67mr12116929pgc.87.1570732637239;
+ Thu, 10 Oct 2019 11:37:17 -0700 (PDT)
+Date: Thu, 10 Oct 2019 11:36:49 -0700
 In-Reply-To: <20191010183649.23768-1-irogers@google.com>
-Message-Id: <20191010183649.23768-5-irogers@google.com>
+Message-Id: <20191010183649.23768-6-irogers@google.com>
 Mime-Version: 1.0
 References: <20191010183649.23768-1-irogers@google.com>
 X-Mailer: git-send-email 2.23.0.581.g78d2f28ef7-goog
-Subject: [PATCH 4/5] perf annotate: don't pipe objdump output through expand
+Subject: [PATCH 5/5] perf annotate: fix objdump --no-show-raw-insn flag
 From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -116,9 +116,9 @@ Cc: Stephane Eranian <eranian@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: irogers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=vzfIzLpT;       spf=pass
- (google.com: domain of 3wnqfxqckeb8nwtljwxlttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--irogers.bounces.google.com
- designates 2607:f8b0:4864:20::c49 as permitted sender) smtp.mailfrom=3WnqfXQcKEb8nwtljwxlttlqj.htrhqfsl-gznqy-qnsz2lttlqjlwtzux.htr@flex--irogers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=Si0K657W;       spf=pass
+ (google.com: domain of 3xxqfxqckeciqzwomz0owwotm.kwuktivo-j2qt1-tqv25owwotmozw2x0.kwu@flex--irogers.bounces.google.com
+ designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3XXqfXQcKEcIqzwomz0owwotm.kwuktivo-j2qt1-tqv25owwotmozw2x0.kwu@flex--irogers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Ian Rogers <irogers@google.com>
 Reply-To: Ian Rogers <irogers@google.com>
@@ -134,183 +134,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Avoiding a pipe allows objdump command failures to surface.
-Move to the caller of symbol__parse_objdump_line the call to strim
-that removes leading and trailing tabs.
-Add a new expand_tabs function that if a tab is present allocate a new
-line in which tabs are expanded.
-In symbol__parse_objdump_line the line had no leading spaces, so
-simplify the line_ip processing.
+Remove redirection of objdump's stderr to /dev/null to help diagnose
+failures.
+Fix the '--no-show-raw' flag to be '--no-show-raw-insn' which binutils
+is permissive and allows, but fails with LLVM objdump.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/annotate.c | 95 ++++++++++++++++++++++++++++++--------
- 1 file changed, 76 insertions(+), 19 deletions(-)
+ tools/perf/util/annotate.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
-index 0a7a6f3c55f4..3d5b9236576a 100644
+index 3d5b9236576a..2a71c90a4921 100644
 --- a/tools/perf/util/annotate.c
 +++ b/tools/perf/util/annotate.c
-@@ -1488,35 +1488,24 @@ annotation_line__print(struct annotation_line *al, struct symbol *sym, u64 start
-  */
- static int symbol__parse_objdump_line(struct symbol *sym,
- 				      struct annotate_args *args,
--				      char *line, int *line_nr)
-+				      char *parsed_line, int *line_nr)
- {
- 	struct map *map = args->ms.map;
- 	struct annotation *notes = symbol__annotation(sym);
- 	struct disasm_line *dl;
--	char *parsed_line, *tmp, *tmp2;
-+	char *tmp;
- 	s64 line_ip, offset = -1;
- 	regmatch_t match[2];
- 
--	line_ip = -1;
--	parsed_line = strim(line);
--
- 	/* /filename:linenr ? Save line number and ignore. */
- 	if (regexec(&file_lineno, parsed_line, 2, match, 0) == 0) {
- 		*line_nr = atoi(parsed_line + match[1].rm_so);
- 		return 0;
- 	}
- 
--	tmp = skip_spaces(parsed_line);
--	if (*tmp) {
--		/*
--		 * Parse hexa addresses followed by ':'
--		 */
--		line_ip = strtoull(tmp, &tmp2, 16);
--		if (*tmp2 != ':' || tmp == tmp2 || tmp2[1] == '\0')
--			line_ip = -1;
--	}
--
--	if (line_ip != -1) {
-+	/* Process hex address followed by ':'. */
-+	line_ip = strtoull(parsed_line, &tmp, 16);
-+	if (parsed_line != tmp && tmp[0] == ':' && tmp[1] != '\0') {
- 		u64 start = map__rip_2objdump(map, sym->start),
- 		    end = map__rip_2objdump(map, sym->end);
- 
-@@ -1524,7 +1513,7 @@ static int symbol__parse_objdump_line(struct symbol *sym,
- 		if ((u64)line_ip < start || (u64)line_ip >= end)
- 			offset = -1;
- 		else
--			parsed_line = tmp2 + 1;
-+			parsed_line = tmp + 1;
- 	}
- 
- 	args->offset  = offset;
-@@ -1833,6 +1822,67 @@ static int symbol__disassemble_bpf(struct symbol *sym __maybe_unused,
- }
- #endif // defined(HAVE_LIBBFD_SUPPORT) && defined(HAVE_LIBBPF_SUPPORT)
- 
-+/*
-+ * Possibly create a new version of line with tabs expanded. Returns the
-+ * existing or new line, storage is updated if a new line is allocated. If
-+ * allocation fails then NULL is returned.
-+ */
-+static char *expand_tabs(char *line, char **storage, size_t *storage_len)
-+{
-+	size_t i, src, dst, len, new_storage_len, num_tabs;
-+	char *new_line;
-+	size_t line_len = strlen(line);
-+
-+	for (num_tabs = 0, i = 0; i < line_len; i++)
-+		if (line[i] == '\t')
-+			num_tabs++;
-+
-+	if (num_tabs == 0)
-+		return line;
-+
-+	/*
-+	 * Space for the line and '\0', less the leading and trailing
-+	 * spaces. Each tab may introduce 7 additional spaces.
-+	 */
-+	new_storage_len = line_len + 1 + (num_tabs * 7);
-+
-+	new_line = malloc(new_storage_len);
-+	if (new_line == NULL) {
-+		pr_err("Failure allocating memory for tab expansion\n");
-+		return NULL;
-+	}
-+
-+	/*
-+	 * Copy regions starting at src and expand tabs. If there are two
-+	 * adjacent tabs then 'src == i', the memcpy is of size 0 and the spaces
-+	 * are inserted.
-+	 */
-+	for (i = 0, src = 0, dst = 0; i < line_len && num_tabs; i++) {
-+		if (line[i] == '\t') {
-+			len = i - src;
-+			memcpy(&new_line[dst], &line[src], len);
-+			dst += len;
-+			new_line[dst++] = ' ';
-+			while (dst % 8 != 0)
-+				new_line[dst++] = ' ';
-+			src = i + 1;
-+			num_tabs--;
-+		}
-+	}
-+
-+	/* Expand the last region. */
-+	len = line_len + 1 - src;
-+	memcpy(&new_line[dst], &line[src], len);
-+	dst += len;
-+	new_line[dst] = '\0';
-+
-+	free(*storage);
-+	*storage = new_line;
-+	*storage_len = new_storage_len;
-+	return new_line;
-+
-+}
-+
- static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
- {
- 	struct annotation_options *opts = args->options;
-@@ -1894,7 +1944,7 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
+@@ -1944,13 +1944,13 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
  	err = asprintf(&command,
  		 "%s %s%s --start-address=0x%016" PRIx64
  		 " --stop-address=0x%016" PRIx64
--		 " -l -d %s %s -C \"$1\" 2>/dev/null|expand",
-+		 " -l -d %s %s -C \"$1\" 2>/dev/null",
+-		 " -l -d %s %s -C \"$1\" 2>/dev/null",
++		 " -l -d %s %s -C \"$1\"",
  		 opts->objdump_path ?: "objdump",
  		 opts->disassembler_style ? "-M " : "",
  		 opts->disassembler_style ?: "",
-@@ -1941,6 +1991,7 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
- 	nline = 0;
- 	while (!feof(file)) {
- 		const char *match;
-+		char *expanded_line;
+ 		 map__rip_2objdump(map, sym->start),
+ 		 map__rip_2objdump(map, sym->end),
+-		 opts->show_asm_raw ? "" : "--no-show-raw",
++		 opts->show_asm_raw ? "" : "--no-show-raw-insn",
+ 		 opts->annotate_src ? "-S" : "");
  
- 		if (getline(&line, &line_len, file) < 0 || !line)
- 			break;
-@@ -1950,13 +2001,19 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
- 		if (match && match[strlen(symfs_filename)] == ':')
- 			continue;
- 
-+		expanded_line = strim(line);
-+		expanded_line = expand_tabs(expanded_line, &line, &line_len);
-+		if (!expanded_line)
-+			break;
-+
- 		/*
- 		 * The source code line number (lineno) needs to be kept in
- 		 * across calls to symbol__parse_objdump_line(), so that it
- 		 * can associate it with the instructions till the next one.
- 		 * See disasm_line__new() and struct disasm_line::line_nr.
- 		 */
--		if (symbol__parse_objdump_line(sym, args, line, &lineno) < 0)
-+		if (symbol__parse_objdump_line(sym, args, expanded_line,
-+					       &lineno) < 0)
- 			break;
- 		nline++;
- 	}
+ 	if (err < 0) {
 -- 
 2.23.0.581.g78d2f28ef7-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191010183649.23768-5-irogers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191010183649.23768-6-irogers%40google.com.
