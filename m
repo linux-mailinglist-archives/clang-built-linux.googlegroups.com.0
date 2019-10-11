@@ -1,150 +1,145 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBQP2QPWQKGQEADIDBEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRB3MCQTWQKGQE46V3P5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x837.google.com (mail-qt1-x837.google.com [IPv6:2607:f8b0:4864:20::837])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3723ED4A30
-	for <lists+clang-built-linux@lfdr.de>; Sat, 12 Oct 2019 00:08:03 +0200 (CEST)
-Received: by mail-qt1-x837.google.com with SMTP id f15sf10866104qth.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 15:08:03 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570831682; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id DD804D4A48
+	for <lists+clang-built-linux@lfdr.de>; Sat, 12 Oct 2019 00:25:49 +0200 (CEST)
+Received: by mail-wr1-x440.google.com with SMTP id w10sf4998750wrl.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 15:25:49 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570832749; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KJ39r2ejZNkRAr3GFRk63+hbB+5rm9bfw5XjiXjgggTFWkxNwKU22n1KPaUXRz7DVv
-         LsG17g2AWdJeOksyAhEbWjRAzhT4rNB3sjJ/e8m70ajdbPKypLg730rPrP7QvkLdVh15
-         XmJxLCrJDdHMBJeV95Y3dRzzBDndSPIo1C1LbbXjJjtPlZ2q5Ep8fzhUyymhAKNava5Y
-         wMwc/Okwyx8m1qfWMXCIgnmpwlEWhaa0APJ5kj515qm5cjXKipQU2b9KyF7CARY4XxSk
-         I/q6zQAig84LdMatRaKzNPzxw/83j2OobPJ89VeZBI7KOcea/gAQs0XWk7MxgSdLrS2L
-         P7LA==
+        b=NZvaaHO8oPr1YTu8ec65V52IeOKbLlcstZwgQgApC5NRMaqspGWP3Zi0kGrawNbjEd
+         cE8Lal4aPmZJXpzJp/SwTNpySkTxD/RlNQjgGTPZ+xfbMhxiW2PUvJyoqETD1JlrRuE3
+         +fqZYBp5YosROD/dPUFPgfYtOdQygzTHNcFx01a6w5gSijOHwpWFRjlvmVTvPOaVwVkB
+         app2XfqzFD/ILyUIDgDUpYwBS4+Z0qUlN+4009k0dVJbf9SB+228Fruzz9PUy+Dit0Ul
+         igMDPwwCeP9HzwmY5nnHDR8CEOOvhAi+Y8l6PJ6oY/IgEFYRDs479V+8ax/LVxqqMtG1
+         983A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=BGgdKTN6bD1ij1k9NxPJV23diorf4YN1EO4W/syAcE0=;
-        b=beb+WtOzVU4mQFwx9i/gP313TbV4OVChsfwcEpcb6ILrkmV4KYtAoe/+tQ7YHPIeYm
-         Oe+cdEqOXqjmZNRTaaVLXwpv4j88YZi9f4TLmOQCZ1itEbHOFnRHGJ1YRI32oQOBY7Yu
-         Pp/yYBUVrWvlXoIrhSZ+ixXhgQDcP1EGwuyXmADv5H3bqAjDz7iRdNiAKe+iTujt/Qem
-         Zfx19J/F4HH0S4cqe9mSveq/ZDQiWsn3u3s5xMOFoENYbDz1X99bQkLsz6C3AqFup3D9
-         XzDsO611wltKb1zccnqVWMni9CK1UX20Oo7EEVFMQ6pwvkPJq9XRfbcikF+kqnLsT/At
-         fAHQ==
+        bh=NRDkZ/thhqpkDuLUcwhd/PUiF7u0uHV6iyiUOyWobfE=;
+        b=r2u6jWlT/a4aGIz6pUj6ml6cyENvb2ybCtah72tfBhi9DPn7C3k72P9XVZVxXhzDGc
+         zXqxifIp3qdXqncb2+doOWvzvlGA5+QgnNzCSDV3KsW0v+9T+7pHLarXcReZ2csEew2j
+         VGGend3oxIAIzMmYHRL9Scd58+ipfbZ4MPzNziAh88KjJeeUQn9rgKSW7R6mnBTMd/z8
+         19qmkLJZQtkB3Q2vQiV9W66C2Bu8ByIotljfFbspYfIfC8FILvgCfquGkaNrBBlucvQ2
+         ntAQeR84Q/SpTrCQ8r9+SNlRhWGfrloaY9rvM0v0ZjmvNCNqTJpQC5IK4XPMefHGfkbO
+         ta2Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=AUmbSlE2;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=VhKvdiWs;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=BGgdKTN6bD1ij1k9NxPJV23diorf4YN1EO4W/syAcE0=;
-        b=QpOOtXFfW1o7dRglhFR+jMBhpzrZT/0HZNKtmTzed1x5ri47vzfwC25r0A0+wYbJBx
-         6rR8Yz9yH5xWSwSP1ExcdL0WGaAVIHi7zymWk9VHrJD0zdQmjiUH9UMfednLKI+4fMz/
-         fqxgfWlNtIhlF0+Tf09D+YZvZ5k+8Ur8vO5KnGLZIGnpgLa/e7ofnaZSBUtRK+GltaNc
-         dJe3lVOvgJHITiIIqOVkSHxW4cjmoH5UR9Hevjx/CJkQwELJZi4knRnIwkyUGOKp1fJl
-         0opvsG0E3yuAoVtV8GQtDzYGTV/nydHuAG2I7nQhQN0jDFSr6nOrAXT9wepUEXbbmcJa
-         PwTw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=NRDkZ/thhqpkDuLUcwhd/PUiF7u0uHV6iyiUOyWobfE=;
+        b=h94//xQuBlmlL/eBNtvVJtqIeKLwr9dYaENFUw/bTQZDqF9oCtyKFQUMzuSRJWWOYR
+         rJCBrt1calyTF0/uw9g5DyZl1Q75tQkmYU6/MrGFommKhg5q/m8ulMFdG6E7wAFzqHIV
+         ZADKb84QOkyaVgu8LBioMcQgaDjYBUb5mmmGy65VEyFpoNsjM00VppAHd/qcOMtDYUpR
+         aA/Bz4DXgsIACfRnGt/7GfmpAbGKi/IsHqELouHjYwj7sIf2dnlgSumqHwV5AAPNknFc
+         iwNrjUkkCKTyeQ4QVxZH/L+ihzOVRkdi/ATrsgtGZHkRDzeNaQbymj+NatG5H5k/oqvJ
+         2Dew==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=NRDkZ/thhqpkDuLUcwhd/PUiF7u0uHV6iyiUOyWobfE=;
+        b=Pln4DY8GD+y0ffNmApRNeqxQiPPZ6qYdBGwJou/i7Vl+lL2Y+kAf2o8iGr5prgof/2
+         zpdui3gWQX3fjBSPJzLSEUO8UpfQt356kl7lhAuXGeg6GfqdurpKLZwts4mI+hnquGY+
+         Man6qt1ZFDJgLNCJPjUSmuafqkSJ4U3763RKAMeNFdsJkGDtscDi1fWVRkJ15M0Tip7S
+         ATTQ/nBYawnLsDKOdtDWSRpesLK8Kq1QoxQboQI0Bzlw6KPJxgdJV67ytEEQQO5xWZ56
+         uF/F5j68ue8KrOof2ogpf6EJqO9QPMtGu24kN7xwKNCtRRig6zcU1iVIZ03oiw4J/C6/
+         1QXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=BGgdKTN6bD1ij1k9NxPJV23diorf4YN1EO4W/syAcE0=;
-        b=W2TWNPZ/MN3gGFSqKS9C7xs1toxhKJbqRQ713FYLFH5/9MFvvqW2BAksOLQz6iMlar
-         y8UFhKGYvh05AbUXEnKZ2HkQCkaiQl/WNcglvNkI8ZONw03aL5IDPeA+r1BOOS9v+7VL
-         1pQiu+H10AC1QuPeSLXzo/2loseBXGJsxVROGpE156+C/oQSjNDfoINPEpdPY0Yypg+G
-         p8owPn8MDNHvehWevq6YAhH0HRHych3H016Ia2qQUKYv6ITIEeUMtxgAn8splf3WlHnJ
-         T8zLphZ61AODfhGYEExFPqjGlRzKtdiTTwwNSJ2WoRbHF13ZVNVvFWgZnRwqJYsguqQu
-         YUJg==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=NRDkZ/thhqpkDuLUcwhd/PUiF7u0uHV6iyiUOyWobfE=;
+        b=jTCFt0WeKV8LduscZpHK5gcxf3wiUsYFPMRBtIPcgpanOhZiGaVIUiqGtoO9rsLAwL
+         IVhpCgir4X+rHVAZK1K3E5xBBHar9nbe8PQSZRKeucvIxE2IQTCKUguGCByI2hB8h/Ru
+         umyc1YzIxZSnqwvFezFXm4GEdlMKW9PylpCjsfi6hF/luwUbIrdYbiP31VZ527S6ITUH
+         NBQBCkgw+kR1LdKM7zRVwtQ1nKfN5JK9bhA3h9X6FGT28bCKmQhtkOaCfRMe3EQcOqtb
+         7mZ0XvOjK8wjIIMCRubt3JISCUOo8wWHVINzJp9+wWgnpJnQyvu/vFXBRAXL/ulbMjYN
+         BzRg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWt3Uy3+hSKvcUa3TBjt679xydStiVve5JlBktxLw1SCFb0AY+d
-	QCffFSUGU0Ifz0ekIPCT/GQ=
-X-Google-Smtp-Source: APXvYqwwpfSwzwRQWlygLhoej50b6IlCH2LQhcL18dKukjkASNS1gG9nL0FfkNghsjLaCiZOCCxEdg==
-X-Received: by 2002:a05:620a:74f:: with SMTP id i15mr18722501qki.265.1570831682031;
-        Fri, 11 Oct 2019 15:08:02 -0700 (PDT)
+X-Gm-Message-State: APjAAAX3/YQahN2cj+ee5Re3DtfEdNEo7rKYUA6YndtOkutONJdoDakV
+	9cvf2vN2RjPyMA0IukuyxTM=
+X-Google-Smtp-Source: APXvYqxdIQMvrh+iAV7t17uq2U+LrH7KVKSi5xMlZtw49yX6OyGhBZPsbYXgUw66Md0WeQLW7vd2rA==
+X-Received: by 2002:a5d:460a:: with SMTP id t10mr15514915wrq.13.1570832749584;
+        Fri, 11 Oct 2019 15:25:49 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:436a:: with SMTP id u10ls1541991qvt.1.gmail; Fri, 11 Oct
- 2019 15:08:01 -0700 (PDT)
-X-Received: by 2002:a0c:ee49:: with SMTP id m9mr18749727qvs.118.1570831681729;
-        Fri, 11 Oct 2019 15:08:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570831681; cv=none;
+Received: by 2002:a7b:c5c4:: with SMTP id n4ls3463115wmk.3.canary-gmail; Fri,
+ 11 Oct 2019 15:25:48 -0700 (PDT)
+X-Received: by 2002:a1c:b654:: with SMTP id g81mr4747954wmf.172.1570832748929;
+        Fri, 11 Oct 2019 15:25:48 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570832748; cv=none;
         d=google.com; s=arc-20160816;
-        b=z9VtsbI6QGNEAOGtbdQixWLqRJEb8d7JvM7AKDM0QzFd7mB2hjms4B22cnTAVA0gNf
-         q5eBPpDKCA0ThmwJfHD0D9Y8E6X70S/xfj1xciq+9sGgXz+gXsABx9j4jVSBgS790Ihd
-         zp4HeTK2rENM2EbKARTpOCcMBnc7uLc7xcQsrOABIxehCHbUm94bgi7CIFFxJUw72E0O
-         wmYZ45vim1+CsXXma2eXC17k2abOpjtZVIcJZx4SNQpVyHNWp6uxlv/lTSyVrgweKHki
-         5b+WGt+vRv1HV1Pka20uNMa7o49Uq8ts7d44DsL7+NWW3wqMYqE78j4xhxeYb4jZ+Nva
-         H6ng==
+        b=i6vdTKYixl/4vqurwdxC9AdlAfPkt/7Yp3r5vcRbG6sGnWRCElhhPOid1U34Dcbm5Q
+         njPa1kwW5z9iELtYzcj3flPAWHaqC4WBpapQ01jvCotskVS5I4MFJnnpiQhkFx3cbqIQ
+         x2I01P/7VLfiJpYijCsuNhncbazbDclLF0NJT31PhnEp01cq2sioeXpj5vcTjbvzzoKL
+         MsMHBGHWcWWQwV0UeSHPbiidSlcFk8hbSRR6TquN2tYoM+VkS8akS8se58mqEGcyF/Yq
+         WsJj/HwhuQ9wPSiCU9ytbmCGbvJDjZ9reAVLC8bxTKlYPlOlsDvYg89EN/OE5BG0uW3w
+         2Gxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=u657WMybRKGf4iTEdbvgPKUQHMvQCoMqXMiRc7mnyNw=;
-        b=VIAlwsslWPLKxyikubHx7gc06X3iup4iWSB0h+MYR9YhGIzjzhf8BnZEJFMFIhbp/+
-         1/Nhd4LFY3NLywdRFy4BGwlo7rXgq3AzICiJOSqOMRD3iUsNR9diUVVUJ92u8qcYVjCJ
-         2GCbtQCe2m6X7tgztDo7e27XYUTe2jQwKDiukPaNNSlcjX5KNGaaW396ixhOYyZL4qbJ
-         dXOaP9TBlJi/sHIi2BjKyYaMU9HYZ7NNxgBhY0qWsgUdNHUCj0pvdY7SBVJ1mReBBJm8
-         ifM4XMwuvC6RflNGL8opQzUUGQXQpr7k6SzP2RtISZzJsp/v1vH9mepOeZKl1e9/dhud
-         kArA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=QenENoNx2upQIqA236w/j+vjS4vhzOddn2duiocDbww=;
+        b=B+5MpdTij9axfqPEJ8x0KgMB+6ZX5DEkvgYBVRijNiJIm+cj548QySuQn4YdUrkHij
+         tTBbDTrY01D5sMerLpK3EfduYK09QAmQ1H+TedTlRK8G+dt2PDkUOze7nMWjPNtm2q3B
+         9itCXVslTdbX2kTwYJcDudwii7fZZ4g8J/E4VmDaj665LDqc/O3jm5TykInA6MY+fwYH
+         XLEw0EM+dTWs4Zz3RqLnhChkmudmYPn/ZKiseS0pcaq7Fwk7kkPy4P6RCG7+KXmJN2KI
+         dEQTg9Sz4a97SSfEjJltEPf+T9EGXoyjNXcxAJ6bYp4xTN+kPFHY/X1uzNxKV0w7LCwE
+         OgKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=AUmbSlE2;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
-        by gmr-mx.google.com with ESMTPS id n67si194655qkc.1.2019.10.11.15.08.01
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=VhKvdiWs;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lf1-x143.google.com (mail-lf1-x143.google.com. [2a00:1450:4864:20::143])
+        by gmr-mx.google.com with ESMTPS id q185si462256wme.1.2019.10.11.15.25.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Oct 2019 15:08:01 -0700 (PDT)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543 as permitted sender) client-ip=2607:f8b0:4864:20::543;
-Received: by mail-pg1-x543.google.com with SMTP id p30so6551437pgl.2
-        for <clang-built-linux@googlegroups.com>; Fri, 11 Oct 2019 15:08:01 -0700 (PDT)
-X-Received: by 2002:aa7:956a:: with SMTP id x10mr18500783pfq.220.1570831680868;
-        Fri, 11 Oct 2019 15:08:00 -0700 (PDT)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id p66sm10301368pfg.127.2019.10.11.15.07.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Oct 2019 15:07:59 -0700 (PDT)
-Date: Fri, 11 Oct 2019 15:07:58 -0700
-From: Kees Cook <keescook@chromium.org>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-	Joe Perches <joe@perches.com>, linux-sctp@vger.kernel.org,
-	Borislav Petkov <bp@alien8.de>, "H . Peter Anvin" <hpa@zytor.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Pavel Machek <pavel@ucw.cz>,
-	"Gustavo A . R . Silva" <gustavo@embeddedor.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Shawn Landden <shawn@git.icu>,
-	the arch/x86 maintainers <x86@kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Miller <davem@davemloft.net>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Vlad Yasevich <vyasevich@gmail.com>,
-	Neil Horman <nhorman@tuxdriver.com>,
-	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
-	"open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
-	Netdev <netdev@vger.kernel.org>
-Subject: Re: [PATCH 0/4] treewide: Add 'fallthrough' pseudo-keyword
-Message-ID: <201910111506.45AE850D5@keescook>
-References: <cover.1570292505.git.joe@perches.com>
- <CAHk-=whOF8heTGz5tfzYUBp_UQQzSWNJ_50M7-ECXkfFRDQWFA@mail.gmail.com>
- <CANiq72kDNT6iPxYYNzY_eb3ddWNUEzgg48pOenEBrJXynxsvoA@mail.gmail.com>
+        Fri, 11 Oct 2019 15:25:48 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::143 as permitted sender) client-ip=2a00:1450:4864:20::143;
+Received: by mail-lf1-x143.google.com with SMTP id q12so8056316lfc.11
+        for <clang-built-linux@googlegroups.com>; Fri, 11 Oct 2019 15:25:48 -0700 (PDT)
+X-Received: by 2002:a19:ae05:: with SMTP id f5mr9672657lfc.165.1570832748416;
+ Fri, 11 Oct 2019 15:25:48 -0700 (PDT)
 MIME-Version: 1.0
+References: <cover.1570292505.git.joe@perches.com> <79237afe056af8d81662f183491e3589922b8ddd.1570292505.git.joe@perches.com>
+ <CANiq72kU2_s=58HqdN6VMGDAh_+G+dtns9xzoc4huSVwP+ZXUg@mail.gmail.com> <201910101334.7E09211F@keescook>
+In-Reply-To: <201910101334.7E09211F@keescook>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Sat, 12 Oct 2019 00:25:37 +0200
+Message-ID: <CANiq72msyinpJ0TDe=kh0Zp7jnkWBkkGdy7RYzeY_kmgVDS8=w@mail.gmail.com>
+Subject: Re: [PATCH 2/4] compiler_attributes.h: Add 'fallthrough' pseudo
+ keyword for switch/case use
+To: Kees Cook <keescook@chromium.org>
+Cc: Joe Perches <joe@perches.com>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Borislav Petkov <bp@alien8.de>, "H . Peter Anvin" <hpa@zytor.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Pavel Machek <pavel@ucw.cz>, "Gustavo A . R . Silva" <gustavo@embeddedor.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Kan Liang <kan.liang@linux.intel.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Shawn Landden <shawn@git.icu>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, 
+	Nathan Chancellor <natechancellor@gmail.com>, Nick Desaulniers <ndesaulniers@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, David Miller <davem@davemloft.net>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CANiq72kDNT6iPxYYNzY_eb3ddWNUEzgg48pOenEBrJXynxsvoA@mail.gmail.com>
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=AUmbSlE2;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::543
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@gmail.com header.s=20161025 header.b=VhKvdiWs;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2a00:1450:4864:20::143 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -157,40 +152,54 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Oct 11, 2019 at 08:01:42PM +0200, Miguel Ojeda wrote:
-> Hi Linus,
-> 
-> On Fri, Oct 11, 2019 at 6:30 PM Linus Torvalds
-> <torvalds@linux-foundation.org> wrote:
+On Thu, Oct 10, 2019 at 10:37 PM Kees Cook <keescook@chromium.org> wrote:
+>
+> On Sat, Oct 05, 2019 at 07:17:36PM +0200, Miguel Ojeda wrote:
+> > Hi Joe,
 > >
-> > On Sat, Oct 5, 2019 at 9:46 AM Joe Perches <joe@perches.com> wrote:
+> > On Sat, Oct 5, 2019 at 6:46 PM Joe Perches <joe@perches.com> wrote:
 > > >
-> > > Add 'fallthrough' pseudo-keyword to enable the removal of comments
-> > > like '/* fallthrough */'.
+> > > Reserve the pseudo keyword 'fallthrough' for the ability to convert the
+> > > various case block /* fallthrough */ style comments to appear to be an
+> > > actual reserved word with the same gcc case block missing fallthrough
+> > > warning capability.
+> > >
+> > > All switch/case blocks now must end in one of:
+> > >
+> > >         break;
+> > >         fallthrough;
+> > >         goto <label>;
+> > >         return [expression];
+> > >         continue;
+> > >
+> > > fallthough is gcc's __attribute__((__fallthrough__)) which was introduced
+> > > in gcc version 7..
 > >
-> > I applied patches 1-3 to my tree just to make it easier for people to
-> > start doing this. Maybe some people want to do the conversion on their
-> > own subsystem rather than with a global script, but even if not, this
-> > looks better as a "prepare for the future" series and I feel that if
-> > we're doing the "fallthrough" thing eventually, the sooner we do the
-> > prepwork the better.
+> > Nits: double period, missing "r" in fallthough.
 > >
-> > I'm a tiny bit worried that the actual conversion is just going to
-> > cause lots of pain for the stable people, but I'll not worry about it
-> > _too_ much. If the stable people decide that it's too painful for them
-> > to deal with the comment vs keyword model, they may want to backport
-> > these three patches too.
-> 
-> I was waiting for a v2 series to pick it up given we had some pending changes...
+> > > fallthrough devolves to an empty "do {} while (0)" if the compiler
+> > > version (any version less than gcc 7) does not support the attribute.
+> >
+> > Perhaps add a short note why (empty statement warnings maybe? I don't
+> > remember them but it was months ago so maybe it changed).
+> >
+> > > Signed-off-by: Joe Perches <joe@perches.com>
+> > > Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> >
+> > Please add Dan's Suggested-by and copy the things I wrote in the
+> > commit message when I proposed this:
+> >
+> >   https://github.com/ojeda/linux/commit/668f011a2706ea555987e263f609a5deba9c7fc4
+>
+> Perhaps just take this patch directly with Miguel's authorship into the
+> series and tweak the __fallthrough to fallthrough in subject and body.
 
-Hmpf, looks like it's in torvalds/master now. Miguel, most of the changes
-were related to the commit log, IIRC, so that ship has sailed. :( Can the
-stuff in Documentation/ be improved with a follow-up patch, perhaps?
+Since I was going to pick it up, I would have signed-off-by anyway, but yeah ;P
 
--- 
-Kees Cook
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910111506.45AE850D5%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72msyinpJ0TDe%3Dkh0Zp7jnkWBkkGdy7RYzeY_kmgVDS8%3Dw%40mail.gmail.com.
