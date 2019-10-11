@@ -1,135 +1,133 @@
-Return-Path: <clang-built-linux+bncBC6MFNV32EFRB6GIQHWQKGQE5TPIIZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCOOP5GPTQDRB6HAQHWQKGQELDT7PPI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6B34FD3E10
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 13:16:09 +0200 (CEST)
-Received: by mail-wr1-x43a.google.com with SMTP id v18sf4189123wro.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 04:16:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570792569; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id E3F79D3F2F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 14:07:20 +0200 (CEST)
+Received: by mail-wm1-x337.google.com with SMTP id j125sf4008450wmj.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 05:07:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570795640; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GgoxJjQTH+W+YD9z0t+IgFfSguS1lNUKeh29j/imoN8Whtc6MD/NhksmkNBt1c75l3
-         3eoPBYLay6Cc349MRCYYuiYveyEZe3tidE+t+8PqHs7cCJw45vBuNcmMq2DmsmRj6qkT
-         qzjFmNDR4fZgF1RNNejbh7cR4bzawd9+YsWCHHxz2N4De+Fr6oiHIqBZhgZXu7AJcg8I
-         Q95mtnlnyeIh6PA4wleXv8IBEM/TTKIRuVIKrd/x99dDcn+FHgi/H2In0J8myzGlnb6V
-         ymKVT/zaewNVi7DF4il+4rb9bm2BNL43QgRe/HRLQMfIxecGnVwz/ZsRb5HMblA/eyRp
-         yUSA==
+        b=k3YMhpHCVSwGuNYM33CcBy0SwvfU97AQO+WMl2mOOROMTmlHhKLTdkzDm+4nNMazql
+         eG2YILAtyHDCBM2nQf/L8XHIinfmGoBf3GjixHfp4+mf8lyqrlM0wSuUEpw+D99yhRUa
+         Qbpv1BiUnqrmmtjiJytIz00mdaysQPl7akSVXs3mhABW0uTtvi1tHEErpONGWMcQeObN
+         GZ7bfuzJ01PmYdOknncqvHCFL11VmDW8mUrjflGFftgLLwzI0OfKJZIuWaC4919DJG7C
+         UgfiK6uK5+mM3FzcDxfVdsu1zyk03rNNqTLhLtGgoWyl3gCqKWB2qkKUx+j1+3TGtmn6
+         MMbg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:organization:from
-         :references:to:subject:sender:dkim-signature;
-        bh=W3J0/Ue3hyYBl9u+ykuJjJPkew0xtM8fnXAcTQcP0Uc=;
-        b=spyNngO0a62i+ebIHLj5ej2MPldUFcuF+prv2yLAfIsukUjuYjLqY0+yrLAfdiieA+
-         Y+BUVIGUhq5yQIS4PyVLHb+EsuJx7ysy9aOpunJnwbj5T7g6pCL8hDJXi8g/I7HG3sW8
-         w/CYDvxxbiJtQhJQ8b0yHo3nteGiRDqr/GeCq0kx37nBciSEq2kIi7YNGbuqtSvdKd5f
-         aTtcFEm8dIGBQrsQg0GBV8EZYfShWIbITl+WNX+Ua2pRvfD7SJKfTyFWQ4+yoy5y0+OL
-         6MxCEHqMYcoATE48ht7Ro0aqGWyZbBjqrz8Hi+/WSwahVKKttmufalmUfW/sOTIlpAyq
-         EWGw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=VVs4W5MSoWNH8BdiGtLAaUsQeN6zTBRL/GnLR9Q4m/o=;
+        b=Ft9BshMbdDJpPVUqIlBKET+vSaw64THGXQoXtFKm1a9/kKGIACC4T4l9+YFsYXIz7L
+         c5WXnbZgyKaolaGcauNGjl7cUAksrDq/Ou/PhqFSh88E21Qy7stXOhB3JmgMrvYZBLft
+         E/feu+ZcUHNn7Ac5XgZYBCLQ8v5Lodu98cVirv6nbAwc1Sdx5lizUzZaFVD04Aqmh/ih
+         VOPMPJh1hamH9hprmdnveG/yzUd1N1HLDzz3ArLLMLbZ5w2IhnWXo343PAc6xvhtoxXt
+         O8MqKzC1I7Br6vZKLmfr0Xy5/BH59d4uMX8nARRIZ+cdygspOO4Uts1ANxTorLjs6gC8
+         Z2PA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@cogentembedded-com.20150623.gappssmtp.com header.s=20150623 header.b=FJGDUtGW;
-       spf=pass (google.com: domain of sergei.shtylyov@cogentembedded.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=sergei.shtylyov@cogentembedded.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=DbiKHYxS;
+       spf=pass (google.com: domain of ilias.apalodimas@linaro.org designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ilias.apalodimas@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:references:from:organization:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=W3J0/Ue3hyYBl9u+ykuJjJPkew0xtM8fnXAcTQcP0Uc=;
-        b=W9nGnu/y8YN7FnDf8UOJsa5Dv1cOvr8qcXh9zqbzk6ni8NY3zTJX54pPKqd4bPwVRA
-         CAVgfKlK1sh9ObPP/xptjOa43e2cX0sTUaTF7qnPXV1nXlncTlHyx8OKG6RjoFrSngaM
-         BXIJuNcAsgHeuNrGJoUQjqskftzWkTXzutyM1eCaZFueiSmz9U6nC5ezCvat1dq4/Zj5
-         q242N4l0FkVAKOVcA2xmZf85yI+DOSHwz4KPl3cqHDoUs5UscSwC+XOaUhVVBgABIGS5
-         toBD0m7M4TmhEwHNpk2G6/rz+PafInrVp8LE/aWwRDT14Hx4qpPFOyGIm7Zj2faAur4+
-         c6AA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=VVs4W5MSoWNH8BdiGtLAaUsQeN6zTBRL/GnLR9Q4m/o=;
+        b=eLdpNpbZ4kE8y93fvmNv640xbS7/5UfpN1+MUSMiriAAikIZou7N6EEcI9JN1zkIZp
+         jdtomAPua39ff9XyMq8S4hZ+DHs66KzWd66Jbbg5bEbK/he3KSlh/3F8VnIGUrXnDnyk
+         lfctPa3nawG6VfPhdqQeJYk+BPLKU57fF4gc4UpJkVF8T9V2V3wttuW/Op6y+AJUhsIm
+         1MKZCjVAnnALitZYVkOtBPbBSnAnAG2VaZKR8jbvI005plLmbExzvuvHISxCCEK1dd9i
+         +Gt09+d5iU8N8psjMqGn3ENVnm5K1eIgm61nwiFJUNd3uDTYOzR1RMiyPnsuo8nbJGsj
+         tb3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:references:from:organization
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=W3J0/Ue3hyYBl9u+ykuJjJPkew0xtM8fnXAcTQcP0Uc=;
-        b=VN2BRt+cFYTT3uaTg5H8EkKbBH/wGYg6sblONlYliasv/rcsKylkInxjkv7pG6zxIE
-         mlP8w9lT62MHUs3yQ5bIFI6gcbMdIG6Ly1Y1Dgks2WwrOqPbQr8g4NxvweNjTA5YMsdA
-         7W3p+u1aH19IqzLTvgj3Ck02hw7/sGwEbov6huWsW2YHNm0z6Je7uEQHexTg7E/ZuicU
-         7iLq4ig4dtxo/NGtRhUuThFOwYhx5qHKdttiAGa6xkK4/KUGRtxy+TZ6PxmeaTrxFoR6
-         8b0kBvHzr5aQUv60m9en6sBI182ASC+m1a9d+3DmCOcK7WKxWms1uus/PDxWnGzMLJRT
-         aAUA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=VVs4W5MSoWNH8BdiGtLAaUsQeN6zTBRL/GnLR9Q4m/o=;
+        b=G7qYIxdM7pVtfM9LoRxhHlDnQ5NGI2R4vZKUe/F/Oe1gxbbC3RokAKMPmo+8EaYpHe
+         RIfy0kQgAf772UpQ5MzbFsJ30AIFZn26JsneX0j9V2VAsPf70XuiUxLFvZSpIFMbpLn1
+         wA9HgHqReKMOaqnjehgnOkvK/OraLL5V1lfJJAux2TvbjaG5MgtNbdlEFWfjQFqOsxcT
+         4xsPDD6prKbXnsI16Y8Z4XRjrjFkqlYTp8gElh3W+06z0+eqPa+dSF96FmxxteIN+isU
+         ZQd4bvHNeTYpx+X/L0YzuY1FHrlgNrkDfoWxhw3YdKiUrg6e8Ttvc3NabIUCj4vRbXG5
+         tZ5g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXjKKV8t8WcdTDXnIfo9kSsN6q2qfXfjsJY8bF1ue2tzWm58Q6K
-	w7ujOjdwOTdlPPLMRppsrUE=
-X-Google-Smtp-Source: APXvYqx+1zikUGTPK2JnjcuHi0Wrr7nehujhvngcVYUo2PNEHAmUZBfy0vSStLYhppT1R4KWTEp2TQ==
-X-Received: by 2002:a5d:460a:: with SMTP id t10mr13230432wrq.13.1570792568969;
-        Fri, 11 Oct 2019 04:16:08 -0700 (PDT)
+X-Gm-Message-State: APjAAAWPBr8dqBdsxdPArn5QDhrYMkpCbNyr3+FCtqt2uUF6X9wKJw1y
+	E58YnOLjGhJpaxjxBKGB0GY=
+X-Google-Smtp-Source: APXvYqwa5rJR7JehQhSktKqARH4Dm1YzwaWVvqnYcD5OCGkMKzjjz0bkuv9iLUua+cXn8vWowBvnQw==
+X-Received: by 2002:adf:e38a:: with SMTP id e10mr1559643wrm.348.1570795640558;
+        Fri, 11 Oct 2019 05:07:20 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:dccc:: with SMTP id x12ls2462105wrm.3.gmail; Fri, 11 Oct
- 2019 04:16:08 -0700 (PDT)
-X-Received: by 2002:a05:6000:11c7:: with SMTP id i7mr13002327wrx.231.1570792568547;
-        Fri, 11 Oct 2019 04:16:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570792568; cv=none;
+Received: by 2002:a7b:c0d9:: with SMTP id s25ls2756303wmh.4.gmail; Fri, 11 Oct
+ 2019 05:07:20 -0700 (PDT)
+X-Received: by 2002:a1c:1d41:: with SMTP id d62mr3108823wmd.143.1570795639982;
+        Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570795639; cv=none;
         d=google.com; s=arc-20160816;
-        b=z/aUaUMqMCzh79Co2DMGaKDSGHym4ViTdQqPFvogue98TbgI0KefZ8gSyFthUR/+9K
-         8kaEHGXg+2irw5Ko9YZsTcSVTz4hObHU/SEf5bQ/osXi1YuDgyuqpT8JOlasceMknJKl
-         FDvB9SxYJPVWUkCsjdLndplwcfhFUi077GDAa7gyuZZHpV2YY4gYe8g27cuEIPKRA1XZ
-         fbz9z/k06DSROnjzld/LyXoIqzd/z190xG0zRYKNMIK4JyUH2IURLq9Jfmh+3Lu5lcat
-         NrS2mrGGHJPaB2muA9wFMd9FjLsad2A8hcuf/t2DxnASSshQ73jZloNhrlvcQW0iVkCZ
-         MFAA==
+        b=wSt3qU4TXl/vgArhJSmCGcVrpohygG29DhgPMhVcfHdvqzKq2L1WKIJI75zOY8GNKx
+         g+HwgZ1QrXfCEw2FXXdsB2q2gJaOkgbM2+B7BwzZkSXLO5uAPo6pR9sTkNJHzBSc/X4r
+         +/e6Hdp1DfQ1AU3N6bVYV0R18yFGqSyC1c+F9UG80mXFFQTrNf2AVbaI7W/n9/SKtjxa
+         TTYpPt2z2ddkzOgShRjQfmVyUjvGR5/ODXeSUISbCjdAuQzyvmA+uB87tBPhnA71aLK0
+         qlTp+1FOBMBo3Wi/oThnMvs8G0AX1h3movTczpcM5OIWUNsb2M9xsh9xIBlYcpphzou7
+         7QhA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:organization:from:references:to:subject
-         :dkim-signature;
-        bh=Ooy01geSvoqL+GgWiguG5Arr/pkbSR9LEwm6vQ6trlA=;
-        b=xMn0G4XmZpjhCJwXYiOJKsaAOfw3hlaMqVPFwv78R2aUiZyyTOjzVtbkaH1QhHNlUN
-         WYKgD+AGK+uWDwEP3ah0uyeaMp0mOB6FFizfJdZSyBXR0ebr0y4g2Aw4kXToQ+3rmyAk
-         DW5iqkRhXWpg0/veX3v5BrnMR7TnH8FzLfdDtZjzXRqNpbjzWUvpjAu7etHRCOtHXhu0
-         opAy1EGh8LGTgqXD5UBXl9xBd01dR4i9hKJKmfAjNVi1g3AgEsVJtsBCXiDw6BPlo8SD
-         FYIBVCePv5PTOlfo3s4ipuPT2kly+MSgNeyUa/EMONJCIHbpgYeGECEVVw+e7JyjY2H9
-         4z2A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=DXHRllLSJ/1e62jK/WoBiAvlasUoqg+VrQjUmvDHO/E=;
+        b=Xh5Ut97Hd6CfrfMZhs5wcTeEqEro6VvqbVgKLAJ5tc2nvjA5qeKwWkt4j/cWmERvBW
+         bFLyq806pht+tkQLq1A5yRwBGK4Wc/KBpg2qtt02hMkwUaGXORUmZ0NILVdBJaqG3xWp
+         G5h4dEPdloKRyJ710vt3LzfyhjvUiuYC9cqZmsjR504TZC+pC1wH24uMdgX567V5Sihh
+         gRtnNOcb0s9vAMFGP1JplLIW/4rCXRTcclvyxddaRjpPSRi6lxX69iCIEPjJnlf13wBI
+         ak8I0L44CWFMHHd+SLPPHlDnPwOwe70UXm1QjKq6tXx900c8LbLit6XLXlMXMkWwTT9Z
+         EG7A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@cogentembedded-com.20150623.gappssmtp.com header.s=20150623 header.b=FJGDUtGW;
-       spf=pass (google.com: domain of sergei.shtylyov@cogentembedded.com designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=sergei.shtylyov@cogentembedded.com
-Received: from mail-lj1-x243.google.com (mail-lj1-x243.google.com. [2a00:1450:4864:20::243])
-        by gmr-mx.google.com with ESMTPS id n16si578439wrs.4.2019.10.11.04.16.08
+       dkim=pass header.i=@linaro.org header.s=google header.b=DbiKHYxS;
+       spf=pass (google.com: domain of ilias.apalodimas@linaro.org designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ilias.apalodimas@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id q185si376351wme.1.2019.10.11.05.07.19
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Oct 2019 04:16:08 -0700 (PDT)
-Received-SPF: pass (google.com: domain of sergei.shtylyov@cogentembedded.com designates 2a00:1450:4864:20::243 as permitted sender) client-ip=2a00:1450:4864:20::243;
-Received: by mail-lj1-x243.google.com with SMTP id d1so9376784ljl.13
-        for <clang-built-linux@googlegroups.com>; Fri, 11 Oct 2019 04:16:08 -0700 (PDT)
-X-Received: by 2002:a2e:569a:: with SMTP id k26mr9075699lje.256.1570792567730;
-        Fri, 11 Oct 2019 04:16:07 -0700 (PDT)
-Received: from wasted.cogentembedded.com ([2a00:1fa0:4430:5cc6:e6ed:2da1:4d7:1d29])
-        by smtp.gmail.com with ESMTPSA id q26sm1857253lfd.53.2019.10.11.04.16.06
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 11 Oct 2019 04:16:06 -0700 (PDT)
-Subject: Re: [PATCH v5 bpf-next 09/15] samples/bpf: use own flags but not
- HOSTCFLAGS
-To: ast@kernel.org, daniel@iogearbox.net, yhs@fb.com, davem@davemloft.net,
- jakub.kicinski@netronome.com, hawk@kernel.org, john.fastabend@gmail.com,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org,
- clang-built-linux@googlegroups.com, ilias.apalodimas@linaro.org
+        Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
+Received-SPF: pass (google.com: domain of ilias.apalodimas@linaro.org designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
+Received: by mail-wr1-x441.google.com with SMTP id n14so11612864wrw.9
+        for <clang-built-linux@googlegroups.com>; Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
+X-Received: by 2002:a5d:4108:: with SMTP id l8mr12459949wrp.391.1570795639449;
+        Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
+Received: from apalos.home (ppp-94-65-93-45.home.otenet.gr. [94.65.93.45])
+        by smtp.gmail.com with ESMTPSA id w9sm13356785wrt.62.2019.10.11.05.07.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Oct 2019 05:07:18 -0700 (PDT)
+Date: Fri, 11 Oct 2019 15:07:15 +0300
+From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+To: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
+Cc: ast@kernel.org, daniel@iogearbox.net, yhs@fb.com, davem@davemloft.net,
+	jakub.kicinski@netronome.com, hawk@kernel.org,
+	john.fastabend@gmail.com, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, bpf@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	sergei.shtylyov@cogentembedded.com
+Subject: Re: [PATCH v5 bpf-next 00/15] samples: bpf: improve/fix
+ cross-compilation
+Message-ID: <20191011120715.GA7944@apalos.home>
 References: <20191011002808.28206-1-ivan.khoronzhuk@linaro.org>
- <20191011002808.28206-10-ivan.khoronzhuk@linaro.org>
- <99f76e2f-ed76-77e0-a470-36ae07567111@cogentembedded.com>
- <20191011095715.GB3689@khorivan>
-From: Sergei Shtylyov <sergei.shtylyov@cogentembedded.com>
-Organization: Cogent Embedded
-Message-ID: <3fb88a06-5253-1e48-9bea-2d31a443250b@cogentembedded.com>
-Date: Fri, 11 Oct 2019 14:16:05 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
 MIME-Version: 1.0
-In-Reply-To: <20191011095715.GB3689@khorivan>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-MW
-X-Original-Sender: sergei.shtylyov@cogentembedded.com
+Content-Disposition: inline
+In-Reply-To: <20191011002808.28206-1-ivan.khoronzhuk@linaro.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: ilias.apalodimas@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@cogentembedded-com.20150623.gappssmtp.com header.s=20150623
- header.b=FJGDUtGW;       spf=pass (google.com: domain of sergei.shtylyov@cogentembedded.com
- designates 2a00:1450:4864:20::243 as permitted sender) smtp.mailfrom=sergei.shtylyov@cogentembedded.com
+ header.i=@linaro.org header.s=google header.b=DbiKHYxS;       spf=pass
+ (google.com: domain of ilias.apalodimas@linaro.org designates
+ 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ilias.apalodimas@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,35 +140,192 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 10/11/2019 12:57 PM, Ivan Khoronzhuk wrote:
+On Fri, Oct 11, 2019 at 03:27:53AM +0300, Ivan Khoronzhuk wrote:
+> This series contains mainly fixes/improvements for cross-compilation
+> but not only, tested for arm, arm64, and intended for any arch.
+> Also verified on native build (not cross compilation) for x86_64
+> and arm, arm64.
+> 
+> Initial RFC link:
+> https://lkml.org/lkml/2019/8/29/1665
+> 
+> Prev. version:
+> https://lkml.org/lkml/2019/10/9/1045
+> 
+> Besides the patches given here, the RFC also contains couple patches
+> related to llvm clang
+>   arm: include: asm: swab: mask rev16 instruction for clang
+>   arm: include: asm: unified: mask .syntax unified for clang
+> They are necessarily to verify arm 32 build.
+> 
+> Also, couple more fixes were added but are not merged in bpf-next yet,
+> they can be needed for verification/configuration steps, if not in
+> your tree the fixes can be taken here:
+> https://www.spinics.net/lists/netdev/msg601716.html
+> https://www.spinics.net/lists/netdev/msg601714.html
+> https://www.spinics.net/lists/linux-kbuild/msg23468.html
+> 
+> Now, to build samples, SAMPLE_BPF should be enabled in config.
+> 
+> The change touches not only cross-compilation and can have impact on
+> other archs and build environments, so might be good idea to verify
+> it in order to add appropriate changes, some warn options could be
+> tuned also.
+> 
+> All is tested on x86-64 with clang installed (has to be built containing
+> targets for arm, arm64..., see llc --version, usually it's present already)
+> 
+> Instructions to test native on x86_64
+> =================================================
+> Native build on x86_64 is done in usual way and shouldn't have difference
+> except HOSTCC is now printed as CC wile building the samples.
+> 
+> Instructions to test cross compilation on arm64
+> =================================================
+> #Toolchain used for test:
+> gcc version 8.3.0
+> (GNU Toolchain for the A-profile Architecture 8.3-2019.03 (arm-rel-8.36))
+> 
+> # Get some arm64 FS, containing at least libelf
+> I've used sdk for TI am65x got here:
+> http://downloads.ti.com/processor-sdk-linux/esd/AM65X/latest/exports/\
+> ti-processor-sdk-linux-am65xx-evm-06.00.00.07-Linux-x86-Install.bin
+> 
+> # Install this binary to some dir, say "sdk".
+> # Configure kernel (use defconfig as no matter), but clean everything
+> # before.
+> make ARCH=arm64 -C tools/ clean
+> make ARCH=arm64 -C samples/bpf clean
+> make ARCH=arm64 clean
+> make ARCH=arm64 defconfig
+> 
+> # Enable SAMPLE_BPF and it's dependencies in config
+> 
+> # The kernel version used in sdk doesn't correspond to checked one,
+> # but for this verification only headers need to be syched,
+> # so install them (can be enabled in config):
+> make ARCH=arm64 headers_install
+> 
+> # or on SDK if need keep them in sync (not necessarily to verify):
+> 
+> make ARCH=arm64 INSTALL_HDR_PATH=/../sdk/\
+> ti-processor-sdk-linux-am65xx-evm-06.00.00.07/linux-devkit/sysroots/\
+> aarch64-linux/usr headers_install
+> 
+> # Build samples
+> make samples/bpf/ ARCH=arm64 CROSS_COMPILE="aarch64-linux-gnu-"\
+> SYSROOT="/../sdk/ti-processor-sdk-linux-am65xx-evm-06.00.00.07/\
+> linux-devkit/sysroots/aarch64-linux"
+> 
+> Instructions to test cross compilation on arm
+> =================================================
+> #Toolchains used for test:
+> arm-linux-gnueabihf-gcc (Linaro GCC 7.2-2017.11) 7.2.1 20171011
+> or
+> arm-linux-gnueabihf-gcc
+> (GNU Toolchain for the A-profile Architecture 8.3-2019.03 \
+> (arm-rel-8.36)) 8.3.0
+> 
+> # Get some FS, I've used sdk for TI am52xx got here:
+> http://downloads.ti.com/processor-sdk-linux/esd/AM57X/05_03_00_07/exports/\
+> ti-processor-sdk-linux-am57xx-evm-05.03.00.07-Linux-x86-Install.bin
+> 
+> # Install this binary to some dir, say "sdk".
+> # Configure kernel, but clean everything before.
+> make ARCH=arm -C tools/ clean
+> make ARCH=arm -C samples/bpf clean
+> make ARCH=arm clean
+> make ARCH=arm omap2plus_defconfig
+> 
+> # The kernel version used in sdk doesn't correspond to checked one, but
+> # headers only should be synched,
+> # so install them (can be enabled in config):
+> 
+> make ARCH=arm headers_install
+> 
+> # or on SDK if need keep them in sync (not necessarily):
+> 
+> make ARCH=arm INSTALL_HDR_PATH=/../sdk/\
+> ti-processor-sdk-linux-am57xx-evm-05.03.00.07/linux-devkit/sysroots/\
+> armv7ahf-neon-linux-gnueabi/usr headers_install
+> 
+> # Build samples
+> make samples/bpf/ ARCH=arm CROSS_COMPILE="arm-linux-gnueabihf-"\
+> SYSROOT="/../sdk/ti-processor-sdk-linux-am57xx-evm-05.03\
+> .00.07/linux-devkit/sysroots/armv7ahf-neon-linux-gnueabi"
+> 
+> 
+> Based on bpf-next/master
+> 
+> v5..v4:
+> - any changes, only missed SOBs are added
+> 
+> v4..v3:
+> - renamed CLANG_EXTRA_CFLAGS on BPF_EXTRA_CFLAGS
+> - used filter for ARCH_ARM_SELECTOR
+> - omit "-fomit-frame-pointer" and use same flags for native and "cross"
+> - used sample/bpf prefixes
+> - use C instead of C++ compiler for test_libbpf target
+> 
+> v3..v2:
+> - renamed makefile.progs to makeifle.target, as more appropriate
+> - left only __LINUX_ARM_ARCH__ for D options for arm
+> - for host build - left options from KBUILD_HOST for compatibility reasons
+> - split patch adding c/cxx/ld flags to libbpf by modules
+> - moved readme change to separate patch
+> - added patch setting options for cross-compile
+> - fixed issue with option error for syscall_nrs.S,
+>   avoiding overlap for ccflags-y.
+> 
+> v2..v1:
+> - restructured patches order
+> - split "samples: bpf: Makefile: base progs build on Makefile.progs"
+>   to make change more readable. It added couple nice extra patches.
+> - removed redundant patch:
+>   "samples: bpf: Makefile: remove target for native build"
+> - added fix:
+>   "samples: bpf: makefile: fix cookie_uid_helper_example obj build"
+> - limited -D option filter only for arm
+> - improved comments
+> - added couple instructions to verify cross compilation for arm and
+>   arm64 arches based on TI am57xx and am65xx sdks.
+> - corrected include a little order
+> 
+> Ivan Khoronzhuk (15):
+>   samples/bpf: fix HDR_PROBE "echo"
+>   samples/bpf: fix cookie_uid_helper_example obj build
+>   samples/bpf: use --target from cross-compile
+>   samples/bpf: use own EXTRA_CFLAGS for clang commands
+>   samples/bpf: use __LINUX_ARM_ARCH__ selector for arm
+>   samples/bpf: drop unnecessarily inclusion for bpf_load
+>   samples/bpf: add makefile.target for separate CC target build
+>   samples/bpf: base target programs rules on Makefile.target
+>   samples/bpf: use own flags but not HOSTCFLAGS
+>   samples/bpf: use target CC environment for HDR_PROBE
+>   libbpf: don't use cxx to test_libpf target
+>   libbpf: add C/LDFLAGS to libbpf.so and test_libpf targets
+>   samples/bpf: provide C/LDFLAGS to libbpf
+>   samples/bpf: add sysroot support
+>   samples/bpf: add preparation steps and sysroot info to readme
+> 
+>  samples/bpf/Makefile                          | 164 ++++++++++--------
+>  samples/bpf/Makefile.target                   |  75 ++++++++
+>  samples/bpf/README.rst                        |  41 ++++-
+>  tools/lib/bpf/Makefile                        |  23 +--
+>  .../bpf/{test_libbpf.cpp => test_libbpf.c}    |  14 +-
+>  5 files changed, 218 insertions(+), 99 deletions(-)
+>  create mode 100644 samples/bpf/Makefile.target
+>  rename tools/lib/bpf/{test_libbpf.cpp => test_libbpf.c} (61%)
+> 
+> -- 
+> 2.17.1
+> 
 
->>> While compiling natively, the host's cflags and ldflags are equal to
->>> ones used from HOSTCFLAGS and HOSTLDFLAGS. When cross compiling it
->>> should have own, used for target arch. While verification, for arm,
->>
->>   While verifying.
-> While verification stage.
+For native compilation on x86_64 and aarch64 
 
-   While *in* verification stage, "while" doesn't combine with nouns w/o
-a preposition.
-
->>> arm64 and x86_64 the following flags were used always:
->>>
->>> -Wall -O2
->>> -fomit-frame-pointer
->>> -Wmissing-prototypes
->>> -Wstrict-prototypes
->>>
->>> So, add them as they were verified and used before adding
->>> Makefile.target and lets omit "-fomit-frame-pointer" as were proposed
->>> while review, as no sense in such optimization for samples.
->>>
->>> Signed-off-by: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
->> [...]
-
-MBR, Sergei
+Tested-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/3fb88a06-5253-1e48-9bea-2d31a443250b%40cogentembedded.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191011120715.GA7944%40apalos.home.
