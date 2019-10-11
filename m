@@ -1,48 +1,46 @@
-Return-Path: <clang-built-linux+bncBCOOP5GPTQDRB6HAQHWQKGQELDT7PPI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC53VREB5EHBBWXHQHWQKGQEXA4OYRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id E3F79D3F2F
-	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 14:07:20 +0200 (CEST)
-Received: by mail-wm1-x337.google.com with SMTP id j125sf4008450wmj.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 05:07:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570795640; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4BE3ED3F64
+	for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 14:21:50 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id 19sf4653065oii.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 11 Oct 2019 05:21:50 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570796509; cv=pass;
         d=google.com; s=arc-20160816;
-        b=k3YMhpHCVSwGuNYM33CcBy0SwvfU97AQO+WMl2mOOROMTmlHhKLTdkzDm+4nNMazql
-         eG2YILAtyHDCBM2nQf/L8XHIinfmGoBf3GjixHfp4+mf8lyqrlM0wSuUEpw+D99yhRUa
-         Qbpv1BiUnqrmmtjiJytIz00mdaysQPl7akSVXs3mhABW0uTtvi1tHEErpONGWMcQeObN
-         GZ7bfuzJ01PmYdOknncqvHCFL11VmDW8mUrjflGFftgLLwzI0OfKJZIuWaC4919DJG7C
-         UgfiK6uK5+mM3FzcDxfVdsu1zyk03rNNqTLhLtGgoWyl3gCqKWB2qkKUx+j1+3TGtmn6
-         MMbg==
+        b=We/NAK3u+wsMBj+c6niVkVE/bR1uARfiGdarBvzMu3WnFgRoX4oKe6+aaipF0Fr6tb
+         JiVQC5WyqRU8K/B5W4GYUS/s4JwWYoQA4JoCnZhzfTskVkycPybxTeJ1hiqi5eOOnxXp
+         Vzg2qozY7vCX3he6AagWVzMbyfYF1fbf7YFOGkWBr1eDc0wFyhQP9RnnOnBA1J81wjiq
+         ut+M/okqZ+KGAY9OB3DV7QAID8VONAHytm11emwrgn4LHaYNFIXXY5GFBcVJxGlmn7LC
+         gyLfDTZflGjZdJWyEFEpYeEYAv/2SJRAB5YkM+tuKMYgWQwvS4PUO0tLdaMwOdOjd52q
+         b9cA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=VVs4W5MSoWNH8BdiGtLAaUsQeN6zTBRL/GnLR9Q4m/o=;
-        b=Ft9BshMbdDJpPVUqIlBKET+vSaw64THGXQoXtFKm1a9/kKGIACC4T4l9+YFsYXIz7L
-         c5WXnbZgyKaolaGcauNGjl7cUAksrDq/Ou/PhqFSh88E21Qy7stXOhB3JmgMrvYZBLft
-         E/feu+ZcUHNn7Ac5XgZYBCLQ8v5Lodu98cVirv6nbAwc1Sdx5lizUzZaFVD04Aqmh/ih
-         VOPMPJh1hamH9hprmdnveG/yzUd1N1HLDzz3ArLLMLbZ5w2IhnWXo343PAc6xvhtoxXt
-         O8MqKzC1I7Br6vZKLmfr0Xy5/BH59d4uMX8nARRIZ+cdygspOO4Uts1ANxTorLjs6gC8
-         Z2PA==
+        bh=nWSLrA0pdbjWXAQpmGzQZk0c5Q7AYOI1zpupIAyuon8=;
+        b=uoc5TnUS1p5KdkyATkDm5Y7wHof23KHgOCxrIiCTAEU4ZYmo5+yuBv+Gs0GTR3FK6v
+         yxAXsNC+UBxCDxgjYLPZ9Y5l1esNcrVQ6AqZ/tlwayuMqxtp0OnuCjNYyFGK++W5v37M
+         MwpyKqP+WPJYbyw07QfGJKcb7tLmjHSlephOhgFXzuXQWi2oq1vEnNmE6fMMp3RA9g6+
+         BZ6wW1D2a7xCREuk2NgAQ4j+AIFOSE/vikipzB2XITgqrduqj/Pg7MJ6ZgLaWSbg1EIZ
+         b/2oRwJ/m4pC7fTfmlMvga+PuKseT0nB2EoB9ZmOlDFCBzuJHYKtpx5WpNH8F8GjpQuY
+         TCIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=DbiKHYxS;
-       spf=pass (google.com: domain of ilias.apalodimas@linaro.org designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ilias.apalodimas@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of nhorman@tuxdriver.com designates 2001:470:7:9c9::2 as permitted sender) smtp.mailfrom=nhorman@tuxdriver.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VVs4W5MSoWNH8BdiGtLAaUsQeN6zTBRL/GnLR9Q4m/o=;
-        b=eLdpNpbZ4kE8y93fvmNv640xbS7/5UfpN1+MUSMiriAAikIZou7N6EEcI9JN1zkIZp
-         jdtomAPua39ff9XyMq8S4hZ+DHs66KzWd66Jbbg5bEbK/he3KSlh/3F8VnIGUrXnDnyk
-         lfctPa3nawG6VfPhdqQeJYk+BPLKU57fF4gc4UpJkVF8T9V2V3wttuW/Op6y+AJUhsIm
-         1MKZCjVAnnALitZYVkOtBPbBSnAnAG2VaZKR8jbvI005plLmbExzvuvHISxCCEK1dd9i
-         +Gt09+d5iU8N8psjMqGn3ENVnm5K1eIgm61nwiFJUNd3uDTYOzR1RMiyPnsuo8nbJGsj
-         tb3g==
+        bh=nWSLrA0pdbjWXAQpmGzQZk0c5Q7AYOI1zpupIAyuon8=;
+        b=GFdQxVShpaB1jf1iM93cYExjaZLKhqC1Ij0UzkJZZQxWFRfE0bCPRN7WVFePEr6Pcn
+         enM+KGgARH4KaEkpHSI6Jwktn7PvoNWom8RPt1xQfm5uv8mabQJN+0l4tVc6zN5KoRn/
+         3vyHTxaIbRy2Ue7MFPgEB2/eMnBmZBe1jsaoBPYVkE++9M+sqODbi2gGFiMsfUmRWkoN
+         ahFGrn3GAFvFfnZI5MgX/MmCQGyQ8Xib3wTLoaj0gbxvkDjMuxmcX2CNmwcB/4YZ18QK
+         /gwRb6DJf7jDrkegVbeQxIWyM0pOht2GkNIT5AuBrq9RFxlhdk5mReUgBf+hDoVHBqj5
+         75ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,84 +48,93 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=VVs4W5MSoWNH8BdiGtLAaUsQeN6zTBRL/GnLR9Q4m/o=;
-        b=G7qYIxdM7pVtfM9LoRxhHlDnQ5NGI2R4vZKUe/F/Oe1gxbbC3RokAKMPmo+8EaYpHe
-         RIfy0kQgAf772UpQ5MzbFsJ30AIFZn26JsneX0j9V2VAsPf70XuiUxLFvZSpIFMbpLn1
-         wA9HgHqReKMOaqnjehgnOkvK/OraLL5V1lfJJAux2TvbjaG5MgtNbdlEFWfjQFqOsxcT
-         4xsPDD6prKbXnsI16Y8Z4XRjrjFkqlYTp8gElh3W+06z0+eqPa+dSF96FmxxteIN+isU
-         ZQd4bvHNeTYpx+X/L0YzuY1FHrlgNrkDfoWxhw3YdKiUrg6e8Ttvc3NabIUCj4vRbXG5
-         tZ5g==
+        bh=nWSLrA0pdbjWXAQpmGzQZk0c5Q7AYOI1zpupIAyuon8=;
+        b=GMEIojZuvXhm8Q9x5LDQOGrxgVeHK/qEqHxMeBKbxb8bM9vxB9u+qvr+5ZG1ZW+YYX
+         RJdPpW/wnkX2jSuekvxCeClXVByxfazBSx/6Q328hmOmq6CRnnC3EH3uJ62pIYdiGzjM
+         gRbZPUaPQB5C3+fC0wpdI0NopaJEMttRihMMqmytE8HiSuyM/FVuzql6bLwGSKX9pbrI
+         hJZSfCRO0wGDlNwlYvUl+tNfVpOfiSdirTmI5YmlsSkt7cLBB3OXyvOuhgIRw5YjM5wE
+         CoutqV1D3wpFnZ7H36qqQG8twdxGseJHo1yvEF6ehkgCbe46Pk6rt5NpFrtG7PD54Drr
+         owOQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWPBr8dqBdsxdPArn5QDhrYMkpCbNyr3+FCtqt2uUF6X9wKJw1y
-	E58YnOLjGhJpaxjxBKGB0GY=
-X-Google-Smtp-Source: APXvYqwa5rJR7JehQhSktKqARH4Dm1YzwaWVvqnYcD5OCGkMKzjjz0bkuv9iLUua+cXn8vWowBvnQw==
-X-Received: by 2002:adf:e38a:: with SMTP id e10mr1559643wrm.348.1570795640558;
-        Fri, 11 Oct 2019 05:07:20 -0700 (PDT)
+X-Gm-Message-State: APjAAAWkkHEJTpEd0rV672W31/OS2mYhHaHwUro8NyhPA4jxs3b/yaOW
+	6ybvrnR7AvbG7x09QeJO09s=
+X-Google-Smtp-Source: APXvYqwvxt92ib/rhyj9lOU4hfS4g+WdRoEyxh8M3BZWSasccmF9995ynamMYOLl5ORu/KHf7E5GBQ==
+X-Received: by 2002:aca:3e03:: with SMTP id l3mr12226932oia.65.1570796508853;
+        Fri, 11 Oct 2019 05:21:48 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c0d9:: with SMTP id s25ls2756303wmh.4.gmail; Fri, 11 Oct
- 2019 05:07:20 -0700 (PDT)
-X-Received: by 2002:a1c:1d41:: with SMTP id d62mr3108823wmd.143.1570795639982;
-        Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570795639; cv=none;
+Received: by 2002:a54:4f98:: with SMTP id g24ls1365487oiy.12.gmail; Fri, 11
+ Oct 2019 05:21:46 -0700 (PDT)
+X-Received: by 2002:aca:d706:: with SMTP id o6mr12328522oig.57.1570796506490;
+        Fri, 11 Oct 2019 05:21:46 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570796506; cv=none;
         d=google.com; s=arc-20160816;
-        b=wSt3qU4TXl/vgArhJSmCGcVrpohygG29DhgPMhVcfHdvqzKq2L1WKIJI75zOY8GNKx
-         g+HwgZ1QrXfCEw2FXXdsB2q2gJaOkgbM2+B7BwzZkSXLO5uAPo6pR9sTkNJHzBSc/X4r
-         +/e6Hdp1DfQ1AU3N6bVYV0R18yFGqSyC1c+F9UG80mXFFQTrNf2AVbaI7W/n9/SKtjxa
-         TTYpPt2z2ddkzOgShRjQfmVyUjvGR5/ODXeSUISbCjdAuQzyvmA+uB87tBPhnA71aLK0
-         qlTp+1FOBMBo3Wi/oThnMvs8G0AX1h3movTczpcM5OIWUNsb2M9xsh9xIBlYcpphzou7
-         7QhA==
+        b=kI1pNqFDyIpl+MXYYywY7imyBmZavAx6b1FjpSlaAO8UjAI2r6b+K82F7ui2NDOtGM
+         tj0/xOfoVojCerkY9R7A7Bx9OvIN2di8xAXUYTMN7v9HPpTxQqMEHmxZy0vFz98x/6XQ
+         OGfW2oqyA+4kabI1JThy81VqY68DE/IV62sukqjHAmHwJX7dROyB0LEzFwVQ1gW5FH5D
+         RAdtpB7MCAu4kMg4r+RfKDuLXADoyRGYwa0+CdDR9TW9/ymu8lRhtAIC5lvgck+rNt0I
+         hsNE4CTVwlQWAldayR0zv9kHebgq5ed4o/pNZ6IYxvtirZjHo4uyeUcJfWUbJf7xc4bK
+         f+5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=DXHRllLSJ/1e62jK/WoBiAvlasUoqg+VrQjUmvDHO/E=;
-        b=Xh5Ut97Hd6CfrfMZhs5wcTeEqEro6VvqbVgKLAJ5tc2nvjA5qeKwWkt4j/cWmERvBW
-         bFLyq806pht+tkQLq1A5yRwBGK4Wc/KBpg2qtt02hMkwUaGXORUmZ0NILVdBJaqG3xWp
-         G5h4dEPdloKRyJ710vt3LzfyhjvUiuYC9cqZmsjR504TZC+pC1wH24uMdgX567V5Sihh
-         gRtnNOcb0s9vAMFGP1JplLIW/4rCXRTcclvyxddaRjpPSRi6lxX69iCIEPjJnlf13wBI
-         ak8I0L44CWFMHHd+SLPPHlDnPwOwe70UXm1QjKq6tXx900c8LbLit6XLXlMXMkWwTT9Z
-         EG7A==
+         :message-id:subject:cc:to:from:date;
+        bh=h9prKIfwhl6BgpPw42Ppw6x1dSst/WlwJtO+uY0Qleo=;
+        b=Y4x8fHrMC+TSXnMkIeepl2/fjUegkriXz+O7TLNcUC2ZrATchOzbFO5O4trfUdlUQs
+         Mx6E+/8/Hj1Q6b0Xl752IHcSpwHFd28fXvwXrWxXXpcoIO9ensJQP/78k5zlRWkwap9N
+         m0brq6aD2qL9YMwVOwIYxTVYD25GznsIIYEQa9zxn904kPB5LWIi3oPjYhJ+RGMCYeet
+         HZgW657akM7TL8Ua5bqhjCNwzQGxWGw1fSYeGE905zqMBs0b6Mrokgt1w93TU7dERYxp
+         1VYrO+d6nP27Yq4zGjRnkVPjPFRIOCBHYCpJNrml9eMa7jPEhYJ3575fb5ZWZk8ELiqD
+         cqgQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=DbiKHYxS;
-       spf=pass (google.com: domain of ilias.apalodimas@linaro.org designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ilias.apalodimas@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id q185si376351wme.1.2019.10.11.05.07.19
+       spf=pass (google.com: domain of nhorman@tuxdriver.com designates 2001:470:7:9c9::2 as permitted sender) smtp.mailfrom=nhorman@tuxdriver.com
+Received: from smtp.tuxdriver.com (tunnel92311-pt.tunnel.tserv13.ash1.ipv6.he.net. [2001:470:7:9c9::2])
+        by gmr-mx.google.com with ESMTPS id a22si85309otf.3.2019.10.11.05.21.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ilias.apalodimas@linaro.org designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
-Received: by mail-wr1-x441.google.com with SMTP id n14so11612864wrw.9
-        for <clang-built-linux@googlegroups.com>; Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
-X-Received: by 2002:a5d:4108:: with SMTP id l8mr12459949wrp.391.1570795639449;
-        Fri, 11 Oct 2019 05:07:19 -0700 (PDT)
-Received: from apalos.home (ppp-94-65-93-45.home.otenet.gr. [94.65.93.45])
-        by smtp.gmail.com with ESMTPSA id w9sm13356785wrt.62.2019.10.11.05.07.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 11 Oct 2019 05:07:18 -0700 (PDT)
-Date: Fri, 11 Oct 2019 15:07:15 +0300
-From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-To: Ivan Khoronzhuk <ivan.khoronzhuk@linaro.org>
-Cc: ast@kernel.org, daniel@iogearbox.net, yhs@fb.com, davem@davemloft.net,
-	jakub.kicinski@netronome.com, hawk@kernel.org,
-	john.fastabend@gmail.com, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	sergei.shtylyov@cogentembedded.com
-Subject: Re: [PATCH v5 bpf-next 00/15] samples: bpf: improve/fix
- cross-compilation
-Message-ID: <20191011120715.GA7944@apalos.home>
-References: <20191011002808.28206-1-ivan.khoronzhuk@linaro.org>
+        (version=TLS1 cipher=AES128-SHA bits=128/128);
+        Fri, 11 Oct 2019 05:21:46 -0700 (PDT)
+Received-SPF: pass (google.com: domain of nhorman@tuxdriver.com designates 2001:470:7:9c9::2 as permitted sender) client-ip=2001:470:7:9c9::2;
+Received: from cpe-2606-a000-111b-43ee-0-0-0-115f.dyn6.twc.com ([2606:a000:111b:43ee::115f] helo=localhost)
+	by smtp.tuxdriver.com with esmtpsa (TLSv1:AES256-SHA:256)
+	(Exim 4.63)
+	(envelope-from <nhorman@tuxdriver.com>)
+	id 1iItuT-0005XC-6F; Fri, 11 Oct 2019 08:20:47 -0400
+Date: Fri, 11 Oct 2019 08:20:37 -0400
+From: Neil Horman <nhorman@tuxdriver.com>
+To: Joe Perches <joe@perches.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	Vlad Yasevich <vyasevich@gmail.com>,
+	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+	Kees Cook <keescook@chromium.org>, Borislav Petkov <bp@alien8.de>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Pavel Machek <pavel@ucw.cz>,
+	"Gustavo A . R . Silva" <gustavo@embeddedor.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Shawn Landden <shawn@git.icu>, x86@kernel.org,
+	linux-kernel@vger.kernel.org,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Miller <davem@davemloft.net>,
+	clang-built-linux@googlegroups.com, linux-sctp@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 1/4] net: sctp: Rename fallthrough label to unhandled
+Message-ID: <20191011122037.GA16269@hmswarspite.think-freely.org>
+References: <cover.1570292505.git.joe@perches.com>
+ <2e0111756153d81d77248bc8356bac78925923dc.1570292505.git.joe@perches.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20191011002808.28206-1-ivan.khoronzhuk@linaro.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: ilias.apalodimas@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=DbiKHYxS;       spf=pass
- (google.com: domain of ilias.apalodimas@linaro.org designates
- 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=ilias.apalodimas@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+In-Reply-To: <2e0111756153d81d77248bc8356bac78925923dc.1570292505.git.joe@perches.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Spam-Score: -2.9 (--)
+X-Spam-Status: No
+X-Original-Sender: nhorman@tuxdriver.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of nhorman@tuxdriver.com designates 2001:470:7:9c9::2 as
+ permitted sender) smtp.mailfrom=nhorman@tuxdriver.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,192 +147,79 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Oct 11, 2019 at 03:27:53AM +0300, Ivan Khoronzhuk wrote:
-> This series contains mainly fixes/improvements for cross-compilation
-> but not only, tested for arm, arm64, and intended for any arch.
-> Also verified on native build (not cross compilation) for x86_64
-> and arm, arm64.
+On Sat, Oct 05, 2019 at 09:46:41AM -0700, Joe Perches wrote:
+> fallthrough may become a pseudo reserved keyword so this only use of
+> fallthrough is better renamed to allow it.
 > 
-> Initial RFC link:
-> https://lkml.org/lkml/2019/8/29/1665
+> Signed-off-by: Joe Perches <joe@perches.com>
+> ---
+>  net/sctp/sm_make_chunk.c | 12 ++++++------
+>  1 file changed, 6 insertions(+), 6 deletions(-)
 > 
-> Prev. version:
-> https://lkml.org/lkml/2019/10/9/1045
-> 
-> Besides the patches given here, the RFC also contains couple patches
-> related to llvm clang
->   arm: include: asm: swab: mask rev16 instruction for clang
->   arm: include: asm: unified: mask .syntax unified for clang
-> They are necessarily to verify arm 32 build.
-> 
-> Also, couple more fixes were added but are not merged in bpf-next yet,
-> they can be needed for verification/configuration steps, if not in
-> your tree the fixes can be taken here:
-> https://www.spinics.net/lists/netdev/msg601716.html
-> https://www.spinics.net/lists/netdev/msg601714.html
-> https://www.spinics.net/lists/linux-kbuild/msg23468.html
-> 
-> Now, to build samples, SAMPLE_BPF should be enabled in config.
-> 
-> The change touches not only cross-compilation and can have impact on
-> other archs and build environments, so might be good idea to verify
-> it in order to add appropriate changes, some warn options could be
-> tuned also.
-> 
-> All is tested on x86-64 with clang installed (has to be built containing
-> targets for arm, arm64..., see llc --version, usually it's present already)
-> 
-> Instructions to test native on x86_64
-> =================================================
-> Native build on x86_64 is done in usual way and shouldn't have difference
-> except HOSTCC is now printed as CC wile building the samples.
-> 
-> Instructions to test cross compilation on arm64
-> =================================================
-> #Toolchain used for test:
-> gcc version 8.3.0
-> (GNU Toolchain for the A-profile Architecture 8.3-2019.03 (arm-rel-8.36))
-> 
-> # Get some arm64 FS, containing at least libelf
-> I've used sdk for TI am65x got here:
-> http://downloads.ti.com/processor-sdk-linux/esd/AM65X/latest/exports/\
-> ti-processor-sdk-linux-am65xx-evm-06.00.00.07-Linux-x86-Install.bin
-> 
-> # Install this binary to some dir, say "sdk".
-> # Configure kernel (use defconfig as no matter), but clean everything
-> # before.
-> make ARCH=arm64 -C tools/ clean
-> make ARCH=arm64 -C samples/bpf clean
-> make ARCH=arm64 clean
-> make ARCH=arm64 defconfig
-> 
-> # Enable SAMPLE_BPF and it's dependencies in config
-> 
-> # The kernel version used in sdk doesn't correspond to checked one,
-> # but for this verification only headers need to be syched,
-> # so install them (can be enabled in config):
-> make ARCH=arm64 headers_install
-> 
-> # or on SDK if need keep them in sync (not necessarily to verify):
-> 
-> make ARCH=arm64 INSTALL_HDR_PATH=/../sdk/\
-> ti-processor-sdk-linux-am65xx-evm-06.00.00.07/linux-devkit/sysroots/\
-> aarch64-linux/usr headers_install
-> 
-> # Build samples
-> make samples/bpf/ ARCH=arm64 CROSS_COMPILE="aarch64-linux-gnu-"\
-> SYSROOT="/../sdk/ti-processor-sdk-linux-am65xx-evm-06.00.00.07/\
-> linux-devkit/sysroots/aarch64-linux"
-> 
-> Instructions to test cross compilation on arm
-> =================================================
-> #Toolchains used for test:
-> arm-linux-gnueabihf-gcc (Linaro GCC 7.2-2017.11) 7.2.1 20171011
-> or
-> arm-linux-gnueabihf-gcc
-> (GNU Toolchain for the A-profile Architecture 8.3-2019.03 \
-> (arm-rel-8.36)) 8.3.0
-> 
-> # Get some FS, I've used sdk for TI am52xx got here:
-> http://downloads.ti.com/processor-sdk-linux/esd/AM57X/05_03_00_07/exports/\
-> ti-processor-sdk-linux-am57xx-evm-05.03.00.07-Linux-x86-Install.bin
-> 
-> # Install this binary to some dir, say "sdk".
-> # Configure kernel, but clean everything before.
-> make ARCH=arm -C tools/ clean
-> make ARCH=arm -C samples/bpf clean
-> make ARCH=arm clean
-> make ARCH=arm omap2plus_defconfig
-> 
-> # The kernel version used in sdk doesn't correspond to checked one, but
-> # headers only should be synched,
-> # so install them (can be enabled in config):
-> 
-> make ARCH=arm headers_install
-> 
-> # or on SDK if need keep them in sync (not necessarily):
-> 
-> make ARCH=arm INSTALL_HDR_PATH=/../sdk/\
-> ti-processor-sdk-linux-am57xx-evm-05.03.00.07/linux-devkit/sysroots/\
-> armv7ahf-neon-linux-gnueabi/usr headers_install
-> 
-> # Build samples
-> make samples/bpf/ ARCH=arm CROSS_COMPILE="arm-linux-gnueabihf-"\
-> SYSROOT="/../sdk/ti-processor-sdk-linux-am57xx-evm-05.03\
-> .00.07/linux-devkit/sysroots/armv7ahf-neon-linux-gnueabi"
-> 
-> 
-> Based on bpf-next/master
-> 
-> v5..v4:
-> - any changes, only missed SOBs are added
-> 
-> v4..v3:
-> - renamed CLANG_EXTRA_CFLAGS on BPF_EXTRA_CFLAGS
-> - used filter for ARCH_ARM_SELECTOR
-> - omit "-fomit-frame-pointer" and use same flags for native and "cross"
-> - used sample/bpf prefixes
-> - use C instead of C++ compiler for test_libbpf target
-> 
-> v3..v2:
-> - renamed makefile.progs to makeifle.target, as more appropriate
-> - left only __LINUX_ARM_ARCH__ for D options for arm
-> - for host build - left options from KBUILD_HOST for compatibility reasons
-> - split patch adding c/cxx/ld flags to libbpf by modules
-> - moved readme change to separate patch
-> - added patch setting options for cross-compile
-> - fixed issue with option error for syscall_nrs.S,
->   avoiding overlap for ccflags-y.
-> 
-> v2..v1:
-> - restructured patches order
-> - split "samples: bpf: Makefile: base progs build on Makefile.progs"
->   to make change more readable. It added couple nice extra patches.
-> - removed redundant patch:
->   "samples: bpf: Makefile: remove target for native build"
-> - added fix:
->   "samples: bpf: makefile: fix cookie_uid_helper_example obj build"
-> - limited -D option filter only for arm
-> - improved comments
-> - added couple instructions to verify cross compilation for arm and
->   arm64 arches based on TI am57xx and am65xx sdks.
-> - corrected include a little order
-> 
-> Ivan Khoronzhuk (15):
->   samples/bpf: fix HDR_PROBE "echo"
->   samples/bpf: fix cookie_uid_helper_example obj build
->   samples/bpf: use --target from cross-compile
->   samples/bpf: use own EXTRA_CFLAGS for clang commands
->   samples/bpf: use __LINUX_ARM_ARCH__ selector for arm
->   samples/bpf: drop unnecessarily inclusion for bpf_load
->   samples/bpf: add makefile.target for separate CC target build
->   samples/bpf: base target programs rules on Makefile.target
->   samples/bpf: use own flags but not HOSTCFLAGS
->   samples/bpf: use target CC environment for HDR_PROBE
->   libbpf: don't use cxx to test_libpf target
->   libbpf: add C/LDFLAGS to libbpf.so and test_libpf targets
->   samples/bpf: provide C/LDFLAGS to libbpf
->   samples/bpf: add sysroot support
->   samples/bpf: add preparation steps and sysroot info to readme
-> 
->  samples/bpf/Makefile                          | 164 ++++++++++--------
->  samples/bpf/Makefile.target                   |  75 ++++++++
->  samples/bpf/README.rst                        |  41 ++++-
->  tools/lib/bpf/Makefile                        |  23 +--
->  .../bpf/{test_libbpf.cpp => test_libbpf.c}    |  14 +-
->  5 files changed, 218 insertions(+), 99 deletions(-)
->  create mode 100644 samples/bpf/Makefile.target
->  rename tools/lib/bpf/{test_libbpf.cpp => test_libbpf.c} (61%)
-> 
+> diff --git a/net/sctp/sm_make_chunk.c b/net/sctp/sm_make_chunk.c
+> index e41ed2e0ae7d..48d63956a68c 100644
+> --- a/net/sctp/sm_make_chunk.c
+> +++ b/net/sctp/sm_make_chunk.c
+> @@ -2155,7 +2155,7 @@ static enum sctp_ierror sctp_verify_param(struct net *net,
+>  	case SCTP_PARAM_SET_PRIMARY:
+>  		if (ep->asconf_enable)
+>  			break;
+> -		goto fallthrough;
+> +		goto unhandled;
+>  
+>  	case SCTP_PARAM_HOST_NAME_ADDRESS:
+>  		/* Tell the peer, we won't support this param.  */
+> @@ -2166,11 +2166,11 @@ static enum sctp_ierror sctp_verify_param(struct net *net,
+>  	case SCTP_PARAM_FWD_TSN_SUPPORT:
+>  		if (ep->prsctp_enable)
+>  			break;
+> -		goto fallthrough;
+> +		goto unhandled;
+>  
+>  	case SCTP_PARAM_RANDOM:
+>  		if (!ep->auth_enable)
+> -			goto fallthrough;
+> +			goto unhandled;
+>  
+>  		/* SCTP-AUTH: Secion 6.1
+>  		 * If the random number is not 32 byte long the association
+> @@ -2187,7 +2187,7 @@ static enum sctp_ierror sctp_verify_param(struct net *net,
+>  
+>  	case SCTP_PARAM_CHUNKS:
+>  		if (!ep->auth_enable)
+> -			goto fallthrough;
+> +			goto unhandled;
+>  
+>  		/* SCTP-AUTH: Section 3.2
+>  		 * The CHUNKS parameter MUST be included once in the INIT or
+> @@ -2203,7 +2203,7 @@ static enum sctp_ierror sctp_verify_param(struct net *net,
+>  
+>  	case SCTP_PARAM_HMAC_ALGO:
+>  		if (!ep->auth_enable)
+> -			goto fallthrough;
+> +			goto unhandled;
+>  
+>  		hmacs = (struct sctp_hmac_algo_param *)param.p;
+>  		n_elt = (ntohs(param.p->length) -
+> @@ -2226,7 +2226,7 @@ static enum sctp_ierror sctp_verify_param(struct net *net,
+>  			retval = SCTP_IERROR_ABORT;
+>  		}
+>  		break;
+> -fallthrough:
+> +unhandled:
+>  	default:
+>  		pr_debug("%s: unrecognized param:%d for chunk:%d\n",
+>  			 __func__, ntohs(param.p->type), cid);
 > -- 
-> 2.17.1
+> 2.15.0
 > 
+> 
+I'm still not a fan of the pseudo keyword fallthrough, but I don't have
+a problem in renaming the label, so
 
-For native compilation on x86_64 and aarch64 
-
-Tested-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Acked-by: Neil Horman <nhorman@tuxdriver.com>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191011120715.GA7944%40apalos.home.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191011122037.GA16269%40hmswarspite.think-freely.org.
