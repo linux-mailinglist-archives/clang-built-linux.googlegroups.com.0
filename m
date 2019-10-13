@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBKP6RXWQKGQE6AJMAZY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBC4XR3WQKGQEP46OAVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C271DD57D9
-	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Oct 2019 21:46:50 +0200 (CEST)
-Received: by mail-qt1-x83b.google.com with SMTP id h10sf15805586qtq.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Oct 2019 12:46:50 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1570996009; cv=pass;
+Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 30944D5820
+	for <lists+clang-built-linux@lfdr.de>; Sun, 13 Oct 2019 22:39:41 +0200 (CEST)
+Received: by mail-qt1-x83d.google.com with SMTP id m20sf15909132qtq.16
+        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Oct 2019 13:39:41 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1570999180; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CVYdrhrIKar4t1CbS4vMsLHiyrhYc0Vvec54cwJpZQb/n9rH6AYe3jRi+p8rF0YR6E
-         nhOeMZQvalwVYYUgR8gFX0FOxKnKNtPBMff3UJNH3I9PH7oEWTCCyxjCDwBhf5Jhutvp
-         4U+8XBUbqQDseR/3nGLfICbJYtIRqWAHpHik9rQEonpZGTFuQIsG5IEBqbUFwhrJdB5E
-         IbJxKDZYD1J+AT0gu5DAWCyCdMfh2a8d2mJUcGquGum6g0ph7rGQ/8usdoy2EhJM1PTd
-         CIHsvxgm16g2KwEG7dz1DFC+uZGh/Jqu4uiNTR9cK63Plbt66oX2jc1eVQZKjFCEi1r7
-         241g==
+        b=ky2RN4ycj4FGXFqqQbyiOulQxc+LXAED3yA22Fqkce6aSL26dtN3dOyPKZ1bSHQlKG
+         8F7UxYVxt+zOdt2DvdAxwpNXVyaUiYAtHCC3Gno0VCWsrI8JZ2kMMc6vQnMmh0nP0wd6
+         9/E3nRpRiDtueDfgfUv74exXlCqklBZIqmtOK74ecYAs7O5ufqUBfAcKhsrDH7wibN0L
+         VghnMSderIImub5chr4vlsXvSJIMKQ1DH/NOwg6fMEYA3u0lf5RKgexeG1OMeGGkJx6r
+         NGlWOyiHl3ID+bxcyd+CxeBSpLpXfykbCN9mbII1pIqGyeNXVdUYVvEMa+NQrdqcMkmy
+         s8Tg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=rBEHrgL6LiRcH4cIcJl1bQqD0JIl7cO++k8BTmGo8Fw=;
-        b=K3+CSucK/neNeTyjiARO2szJbkhEKyVzhLgWZzEGrAVXyyvWgT8hWv5dynrA9PKpuz
-         w9gA2MftVsfQpO7Y6DgstscgyBH2SroG8KNfsRq296XS74vmqF1qDAHpipZsageViOtY
-         STXQUoVWq8ni8vJOm568SGWklEwzJaOhosdre+rqYxQrV4s/frDyD8VTtF9nnj+9hpfr
-         2OfX85XfxprUrqyuNKKvaR3+E9fyouA6w1/oSZPX4HeH/kytvTFAyHDAXa47NR25eMmY
-         t9DYwtaoskr+fmCPWSZxMazcIfiM+LTfpBioSTz3GqgTffXiEI0p+6+qNiqjd/XQg+eG
-         TtvQ==
+        bh=Py+ADIMrfyi09fLHOBgMmOoy8jRds+msYb1YNHcQvt0=;
+        b=oc3HXn9vVJRE5On9VEo6AJN9f3kaYhcccsFyW3HYk+TLv4OicU35G/qUxw+8M79ojf
+         qDkVV+tRnxZvE/dptHuD46RCVo/robFcUAKN4OtRVIWwstn3jlzgvkc7nu1cKMTW3c4A
+         hFzOKoTZGASvwJLXLRBCBRyKn7VM+YpxRJllUzHVOJwUnOTBllG96WyInvZhx4GSyRJ8
+         8cMXqlzpxk39sTlpg3ogYrPlrAK6pwIwqJkKd75kEt5Ium2L3+XBVILcmWMzGq5l6rGL
+         ABD9u8cpohBzmMZHROT4gObaMnBmvUBwAlLGfjbHFTel2crPg/EFIAypKKVfbVqLgyYt
+         eaaQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=rBEHrgL6LiRcH4cIcJl1bQqD0JIl7cO++k8BTmGo8Fw=;
-        b=pNdNXF7QTmiA/fuos2Q4ilNK8v55imwRVXfkJSQEW2d1DRz5Y/ete0X0WgLl2oPc3q
-         bdy4/pVypynDOoZMdpqPzeXne3wqrL8BZjqGnnUsLM9AiIheZftnRPnoG+SE7eM7FYXf
-         jZ8f8mbz0K47kyAQKkO2g+9pwZOfG3k7hItOMsr6v8PKlR1NyWWB3h0kBHufmO5DeG1S
-         KOZgVNgU+ok4N3wdffFdV69hntTTMq0FAy1dfOVtUukXO5low0RKeyZFhYTFptVB3PAK
-         0pkZTm4SFZbgu0JF7dHfuOWhnvrNFExahIKtMx7GqSXAUXM9zX7elNXpivtYnD2jfCoH
-         eC4g==
+        bh=Py+ADIMrfyi09fLHOBgMmOoy8jRds+msYb1YNHcQvt0=;
+        b=pBA05CMXFVPs3FE4nU88Wt5ti1KD8GVdxvzV34qJhT86zMCrW53NfC1PBxwYQSpcU/
+         FsX0KPqOftmLCR9d6bZGdv9h6qIqr94O7Mt5MnXpZp69obiEz9NZ0Jo5jhvZou2+xtTA
+         JsQZdI4mtYxXCk/NkKCzGnn4ROJbzG/IQs/s2ZZIaWClUvI3Gexjj8mrWMX4cGxzL9qV
+         N51nzk0K++wUBgj4GkTsX7byEYSQbWD9uYRXs/edtDA6LQ5smvjMU0EUUmp00WMCQr38
+         mw2M5E7C+LXSRcv8eU0rHy5n+ky9JtJOAI7oKrFNo3wZRv22iI8CeAa2TY7LsD4LcYY9
+         kTuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=rBEHrgL6LiRcH4cIcJl1bQqD0JIl7cO++k8BTmGo8Fw=;
-        b=oKozYdkr2DWUAf0MCcnLi6RyCz7Sv/NxFylmv8QsWkD47KzfwHugaa6giPoPuZ75AE
-         3uMMGc4COcd0E768dP0LbKo2eXo/y1oEU49/plk2QT3MeCeM0m2eFbnxWaLMHMPN8LUz
-         ntP33q5DqHLerA+lZj/I7idFdpjZ26Ww0hP5tDN3E7SGU5rHLmVWNSWI70lcN3rdHU19
-         pykoasD4kXSOtixnzwnaQsmT04C0sRFAVdREz/0yj8jJEXr/MIwQFWj8h7syidMqa1ob
-         xPxCw3MMuKo+EnQq8h/+52qdON3/lrIlrIn+adiwIfqL+DvT0bOjCjnG1JU9TyaQCgID
-         AgjQ==
+        bh=Py+ADIMrfyi09fLHOBgMmOoy8jRds+msYb1YNHcQvt0=;
+        b=GG8L1Vo3ql4OuV2IAoot7kjrJF0BflacQxCaJyLtNf2IPBJqyRld9nrVAiFpgC7kdG
+         QOfTPUQvbWon0edJsMHZwUbs/PHMVGyHWXAwxii2ccG0TZJaY2+ouhKTooC5aYqvJq8t
+         pWIEJ+kizakb//yM704xRzJDqAOjS/s7pIPCD/b0+vdrBsmKP6X9qykFVsIUQNpb0z56
+         v4srczT51libFrCLOkz0+K26uuyK3ZPwTb5wr4XG1iG4NQhIF/14WRwNN/wxiDNmBZfm
+         PjuMklu06mtarddnAkCe/oRqi1M3JmKhhGP/0ZEVuLUBNZEDqj1uNSHeGzRpnCtIgSpp
+         jeSw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXBJpFRPZXpwxmLCKTNsssRo/+C/FDxfQpyTOLdNCTKqIaPTR4x
-	gJSXqYtIo5MdVSQAzxsYxCc=
-X-Google-Smtp-Source: APXvYqyeEJnCXA2BPLRGzehMfb3GcJWiUgmMCoxZRgT/ZSP+H3AI8o6twgQaCnvLd2XxcP4bSsX5Ng==
-X-Received: by 2002:ac8:47c7:: with SMTP id d7mr29998540qtr.29.1570996009457;
-        Sun, 13 Oct 2019 12:46:49 -0700 (PDT)
+X-Gm-Message-State: APjAAAV8k33aVzAFqwzutgW/G/SdKgoZh57nuluU4tFbojpmPfH7rEuv
+	yLcohtoBLUutzMELLD5GIks=
+X-Google-Smtp-Source: APXvYqzGDpYuDsGjsdF9BYnKPf4z/hyCC2UoTon/OzSe/mupOLXXXaizOkfmJz2RXZ8rMrgBi00gyw==
+X-Received: by 2002:a37:5b46:: with SMTP id p67mr27238689qkb.318.1570999179902;
+        Sun, 13 Oct 2019 13:39:39 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:d92:: with SMTP id 140ls3516783qkn.13.gmail; Sun, 13 Oct
- 2019 12:46:49 -0700 (PDT)
-X-Received: by 2002:a37:f503:: with SMTP id l3mr27480029qkk.477.1570996008937;
-        Sun, 13 Oct 2019 12:46:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1570996008; cv=none;
+Received: by 2002:a05:620a:5fd:: with SMTP id z29ls3552273qkg.4.gmail; Sun, 13
+ Oct 2019 13:39:39 -0700 (PDT)
+X-Received: by 2002:a37:a8c8:: with SMTP id r191mr26719774qke.92.1570999179509;
+        Sun, 13 Oct 2019 13:39:39 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1570999179; cv=none;
         d=google.com; s=arc-20160816;
-        b=KFyRLDOlDpNiToTlKx5a/OPM5vex4iLUl64NUNlvk+zdgjAQpsjXOdVT0YGmUHHl6r
-         5Rmhy9xzErwD+541o1bm07sGr96GFw1/oKyNt3K9mWCGgmyBIRTfAEla2Ok3BphwQMzY
-         IFipjrRNVuvVyXUOfchXh8dKtSWsL7E1H97pZ+6bfBm64lYS1//rHJ1rR2rbaWqA8Q5u
-         qxqV3XE1Ekk/gjiHlUlSctb3skApre+o4icr/Kui3spouvUaOuIqJGg1p8qx22RntyfA
-         s0HfjwBlRuepfAb6LDHaAQvTBugNXd+1N83rSe+hfsKE9XZgOQ4QNl/f+XJ56bvVeWpq
-         6WIQ==
+        b=Tf2ZBHlzuipZhxkFwATFeD1gQ09Z0uWoBspoRmj8+Pd9/blQdNvn+rn3dGIqsD0alW
+         SjxJyTQDW+53a8oBIq2epRm+IErXMyqjzLJ6F30kFhs8OGvEky74hvcDTnWxKFtIOQ4b
+         yYHJoPomfK2G34TzqCJxGueTCMHOXDthnvhUkO88y++c2vamH/0pvlY+SDtmikEH1KqF
+         mDnpzxcw1NqiCEZSBkutAEDYK6/NfugeyM+17RFmMiO75GEletJTelmyxwRV0TVOiAEf
+         5fxkpmBnMkViijDvQErKS22rAno1PcjWpiFuLyxrTV6WDVw7p+k88Evuw9WXcrSiQbFE
+         LoEA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=UPdCBv5rwE95t2cKa/aNUB3HcNaYGmWg3sbQbNagjfE=;
-        b=ku5Y0ObCSM/xFMawg3PmjBRa20Hc19eCh3AYuKCSeC/1q+TlmdLeHT78HScTWIOhXs
-         8UMvA9yxeWZFSdvSZx1gcXZ2KYi4Ya8vZFZ1gCrEY93GhVk5yDV+FfF278WKNolfCUzS
-         fNVA2LSiZCG0Y7kyJ6ZWarGVfRec0dmwsNdWt9JhrBEeMLexFrmbWpTKV9EUC++oZfqG
-         uSzTt6tj/YEHTTN5kAPD2AlcuEUcwmCh44YtHN1kOxLFFHkI9uCgd/Cx8GdJecQwQryi
-         cT9vTbDGCbOL4fXHKUwH2Ly5vhKU0uHzOORPmGwsC6/tIAZG8MgKItksOViVSrhIodZs
-         bVIg==
+        bh=V5MaXk+FvtSiLMHltmvifKGHSWyD4Hru6rEBDOHC9yE=;
+        b=nzWMb2gxQ2kwkX8NlYBlf+STDebKpZt5qrDLxH+dar2tbpoB0VXpdcYOOUgVn0fPKr
+         7M3WfwstmCtrnckmuFpK0ECmHv+7i3drAaA0aSsN4iKXHIHNiXX/5KBKYpAAjJlUM6ri
+         pzhFKoqRahziPU03fRmWQ6aaeDfdaSOENZbLf610DsaGVQsSfkJxa3RTrtYWvuch6WSB
+         nCXwenDzx4Kbk2gmjIsrg6O6dHhusR21P7055aGEhtafKNMmTbYDsGSfhACxJz6YtmWc
+         7x6t7gLMA5+EFTIJrdRjWwbGmt1GzejBK+BqorzNIDVptwKWCoItC8sHlgFt74JqdK2x
+         7qUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
-        by gmr-mx.google.com with ESMTPS id o13si842459qkj.4.2019.10.13.12.46.48
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id l4si640025qtl.1.2019.10.13.13.39.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 13 Oct 2019 12:46:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+        Sun, 13 Oct 2019 13:39:39 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 13 Oct 2019 12:46:46 -0700
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 13 Oct 2019 13:39:37 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.67,293,1566889200"; 
-   d="gz'50?scan'50,208,50";a="278674203"
+   d="gz'50?scan'50,208,50";a="369948332"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga001.jf.intel.com with ESMTP; 13 Oct 2019 12:46:44 -0700
+  by orsmga005.jf.intel.com with ESMTP; 13 Oct 2019 13:39:35 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iJjpD-000EFj-MD; Mon, 14 Oct 2019 03:46:43 +0800
-Date: Mon, 14 Oct 2019 03:46:20 +0800
+	id 1iJkeN-000798-6I; Mon, 14 Oct 2019 04:39:35 +0800
+Date: Mon, 14 Oct 2019 04:38:53 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] kernel: dma: Make CMA boot parameters __ro_after_init
-Message-ID: <201910140334.nhultlt8%lkp@intel.com>
+Subject: Re: [RFC] writeback: add elastic bdi in cgwb bdp
+Message-ID: <201910140425.9puB2Vr7%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="ixikajusb5r3w75c"
+Content-Type: multipart/mixed; boundary="di6ind57wgs5ur7n"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,129 +137,156 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---ixikajusb5r3w75c
+--di6ind57wgs5ur7n
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191012122918.8066-1-mayhs11saini@gmail.com>
-References: <20191012122918.8066-1-mayhs11saini@gmail.com>
-TO: Shyam Saini <mayhs11saini@gmail.com>
-CC: kernel-hardening@lists.openwall.com, iommu@lists.linux-foundation.org, =
-linux-kernel@vger.kernel.org, linux-mm@kvack.org, Shyam Saini <mayhs11saini=
-@gmail.com>, Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprowski=
-@samsung.com>, Robin Murphy <robin.murphy@arm.com>, Matthew Wilcox <willy@i=
-nfradead.org>, Christopher Lameter <cl@linux.com>, Kees Cook <keescook@chro=
-mium.org>, iommu@lists.linux-foundation.org, linux-kernel@vger.kernel.org, =
-linux-mm@kvack.org, Shyam Saini <mayhs11saini@gmail.com>, Christoph Hellwig=
- <hch@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <r=
-obin.murphy@arm.com>, Matthew Wilcox <willy@infradead.org>, Christopher Lam=
-eter <cl@linux.com>, Kees Cook <keescook@chromium.org>
-CC: iommu@lists.linux-foundation.org, linux-kernel@vger.kernel.org, linux-m=
-m@kvack.org, Shyam Saini <mayhs11saini@gmail.com>, Christoph Hellwig <hch@l=
-st.de>, Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.mu=
-rphy@arm.com>, Matthew Wilcox <willy@infradead.org>, Christopher Lameter <c=
-l@linux.com>, Kees Cook <keescook@chromium.org>
+In-Reply-To: <20191012132740.12968-1-hdanton@sina.com>
+References: <20191012132740.12968-1-hdanton@sina.com>
+TO: Hillf Danton <hdanton@sina.com>
 
-Hi Shyam,
+Hi Hillf,
 
-Thank you for the patch! Yet something to improve:
-
+[FYI, it's a private test report for your RFC patch.]
 [auto build test ERROR on linus/master]
 [cannot apply to v5.4-rc2 next-20191011]
-[if your patch is applied to the wrong git tree, please drop us a note to h=
-elp
-improve the system. BTW, we also suggest to use '--base' option to specify =
-the
-base tree in git format-patch, please see https://stackoverflow.com/a/37406=
-982]
+[if your patch is applied to the wrong git tree, please drop us a note to help
+improve the system. BTW, we also suggest to use '--base' option to specify the
+base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
 
-url:    https://github.com/0day-ci/linux/commits/Shyam-Saini/kernel-dma-Mak=
-e-CMA-boot-parameters-__ro_after_init/20191014-011828
+url:    https://github.com/0day-ci/linux/commits/Hillf-Danton/writeback-add-elastic-bdi-in-cgwb-bdp/20191014-014906
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 1f5823b788037b=
-0dc8c846a22ef6a5a8a0714af7)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 1f5823b788037b0dc8c846a22ef6a5a8a0714af7)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
-make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # save the attached .config to linux build tree
-        make.cross ARCH=3Darm64=20
+        make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
->> kernel/dma/contiguous.c:46:36: error: 'size_cmdline' causes a section ty=
-pe conflict with 'size_bytes'
-   static phys_addr_t __ro_after_init size_cmdline =3D -1;
-                                      ^
-   kernel/dma/contiguous.c:45:42: note: declared here
-   static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr_t)CMA=
-_SIZE_MBYTES * SZ_1M;
-                                            ^
->> kernel/dma/contiguous.c:47:36: error: 'base_cmdline' causes a section ty=
-pe conflict with 'size_bytes'
-   static phys_addr_t __ro_after_init base_cmdline;
-                                      ^
-   kernel/dma/contiguous.c:45:42: note: declared here
-   static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr_t)CMA=
-_SIZE_MBYTES * SZ_1M;
-                                            ^
->> kernel/dma/contiguous.c:48:36: error: 'limit_cmdline' causes a section t=
-ype conflict with 'size_bytes'
-   static phys_addr_t __ro_after_init limit_cmdline;
-                                      ^
-   kernel/dma/contiguous.c:45:42: note: declared here
-   static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr_t)CMA=
-_SIZE_MBYTES * SZ_1M;
-                                            ^
-   3 errors generated.
+>> mm/page-writeback.c:1954:4: error: implicit declaration of function 'cgwb_bdp' [-Werror,-Wimplicit-function-declaration]
+                           cgwb_bdp(wb);
+                           ^
+>> mm/page-writeback.c:1955:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
+                   else
+                   ^
+   1 warning and 1 error generated.
+--
+>> mm/backing-dev.c:329:28: error: no member named 'bdp_waitq' in 'struct bdi_writeback'
+                   init_waitqueue_head(&wb->bdp_waitq);
+                                        ~~  ^
+   include/linux/wait.h:67:26: note: expanded from macro 'init_waitqueue_head'
+                   __init_waitqueue_head((wq_head), #wq_head, &__key);             \
+                                          ^~~~~~~
+   1 error generated.
+--
+>> fs/fs-writeback.c:637:29: error: no member named 'bdp_waitq' in 'struct bdi_writeback'
+                   if (waitqueue_active(&wb->bdp_waitq))
+                                         ~~  ^
+   fs/fs-writeback.c:638:21: error: no member named 'bdp_waitq' in 'struct bdi_writeback'
+                           wake_up_all(&wb->bdp_waitq);
+                                        ~~  ^
+   include/linux/wait.h:210:36: note: expanded from macro 'wake_up_all'
+   #define wake_up_all(x)                  __wake_up(x, TASK_NORMAL, 0, NULL)
+                                                     ^
+   2 errors generated.
 
-vim +46 kernel/dma/contiguous.c
+vim +/cgwb_bdp +1954 mm/page-writeback.c
 
-    34=09
-    35	/*
-    36	 * Default global CMA area size can be defined in kernel's .config.
-    37	 * This is useful mainly for distro maintainers to create a kernel
-    38	 * that works correctly for most supported systems.
-    39	 * The size can be set in bytes or as a percentage of the total memo=
-ry
-    40	 * in the system.
-    41	 *
-    42	 * Users, who want to set the size of global CMA area for their syst=
-em
-    43	 * should use cma=3D kernel parameter.
-    44	 */
-  > 45	static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr_t=
-)CMA_SIZE_MBYTES * SZ_1M;
-  > 46	static phys_addr_t __ro_after_init size_cmdline =3D -1;
-  > 47	static phys_addr_t __ro_after_init base_cmdline;
-  > 48	static phys_addr_t __ro_after_init limit_cmdline;
-    49=09
+  1889	
+  1890	/**
+  1891	 * balance_dirty_pages_ratelimited - balance dirty memory state
+  1892	 * @mapping: address_space which was dirtied
+  1893	 *
+  1894	 * Processes which are dirtying memory should call in here once for each page
+  1895	 * which was newly dirtied.  The function will periodically check the system's
+  1896	 * dirty state and will initiate writeback if needed.
+  1897	 *
+  1898	 * On really big machines, get_writeback_state is expensive, so try to avoid
+  1899	 * calling it too often (ratelimiting).  But once we're over the dirty memory
+  1900	 * limit we decrease the ratelimiting by a lot, to prevent individual processes
+  1901	 * from overshooting the limit by (ratelimit_pages) each.
+  1902	 */
+  1903	void balance_dirty_pages_ratelimited(struct address_space *mapping)
+  1904	{
+  1905		struct inode *inode = mapping->host;
+  1906		struct backing_dev_info *bdi = inode_to_bdi(inode);
+  1907		struct bdi_writeback *wb = NULL;
+  1908		int ratelimit;
+  1909		int *p;
+  1910	
+  1911		if (!bdi_cap_account_dirty(bdi))
+  1912			return;
+  1913	
+  1914		if (inode_cgwb_enabled(inode))
+  1915			wb = wb_get_create_current(bdi, GFP_KERNEL);
+  1916		if (!wb)
+  1917			wb = &bdi->wb;
+  1918	
+  1919		ratelimit = current->nr_dirtied_pause;
+  1920		if (wb->dirty_exceeded)
+  1921			ratelimit = min(ratelimit, 32 >> (PAGE_SHIFT - 10));
+  1922	
+  1923		preempt_disable();
+  1924		/*
+  1925		 * This prevents one CPU to accumulate too many dirtied pages without
+  1926		 * calling into balance_dirty_pages(), which can happen when there are
+  1927		 * 1000+ tasks, all of them start dirtying pages at exactly the same
+  1928		 * time, hence all honoured too large initial task->nr_dirtied_pause.
+  1929		 */
+  1930		p =  this_cpu_ptr(&bdp_ratelimits);
+  1931		if (unlikely(current->nr_dirtied >= ratelimit))
+  1932			*p = 0;
+  1933		else if (unlikely(*p >= ratelimit_pages)) {
+  1934			*p = 0;
+  1935			ratelimit = 0;
+  1936		}
+  1937		/*
+  1938		 * Pick up the dirtied pages by the exited tasks. This avoids lots of
+  1939		 * short-lived tasks (eg. gcc invocations in a kernel build) escaping
+  1940		 * the dirty throttling and livelock other long-run dirtiers.
+  1941		 */
+  1942		p = this_cpu_ptr(&dirty_throttle_leaks);
+  1943		if (*p > 0 && current->nr_dirtied < ratelimit) {
+  1944			unsigned long nr_pages_dirtied;
+  1945			nr_pages_dirtied = min(*p, ratelimit - current->nr_dirtied);
+  1946			*p -= nr_pages_dirtied;
+  1947			current->nr_dirtied += nr_pages_dirtied;
+  1948		}
+  1949		preempt_enable();
+  1950	
+  1951		if (unlikely(current->nr_dirtied >= ratelimit))
+  1952			if (IS_ENABLED(CONFIG_CGROUP_WRITEBACK) &&
+  1953			    IS_ENABLED(CONFIG_CGWB_BDP_WITH_EBDI))
+> 1954				cgwb_bdp(wb);
+> 1955			else
+  1956				balance_dirty_pages(wb, current->nr_dirtied);
+  1957	
+  1958		wb_put(wb);
+  1959	}
+  1960	EXPORT_SYMBOL(balance_dirty_pages_ratelimited);
+  1961	
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Cent=
-er
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporati=
-on
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201910140334.nhultlt8%25lkp%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910140425.9puB2Vr7%25lkp%40intel.com.
 
---ixikajusb5r3w75c
+--di6ind57wgs5ur7n
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDd4o10AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eQh9x0vQBCUEHEyAEq2NzyKLXf8
+H4sICF17o10AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eQh9x0vQBCUEHEyAEq2NzyKLXf8
 4qGvbHfSf3+rAA4ACDr9XsZmVWEu1Ax9/6/vJ+T97eVp//Zwu398/Dr5dHg+HPdvh7vJ/cPj
 4X8mcTHJCzVhMVc/A3H68Pz+9y/749PpcnLy8/Ln6U/H2/lkczg+Hx4n9OX5/uHTOzR/eHn+
 1/f/gn++B+DTZ+jp+O/J7eP++dPky+H4CujJbPoz/D354dPD279/+QX++/RwPL4cf3l8/PJU
@@ -1109,4 +1136,4 @@ OzeZYxfG3zFdeUhIQcQSiGhrUqWjMBM08Dg/tZi6A/4EzZWJOxJh99q6Tjhtb8Kw30YfDLRg
 YU7XVsDmmh55GF/w0gcFClSa6CKHu7/Iwnojd8ciJBIAcUeT552OyW37MFObZHIky2SRib1T
 Y26UyKuxuFiHn5kOykaeUflfkBU//R4WAwA=
 
---ixikajusb5r3w75c--
+--di6ind57wgs5ur7n--
