@@ -1,148 +1,146 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBKVZR7WQKGQE7SHDL4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBWVZR7WQKGQE5VRPKKY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C958AD5989
-	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Oct 2019 04:25:47 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id f80sf9138560oig.8
-        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Oct 2019 19:25:47 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571019946; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4C352D598C
+	for <lists+clang-built-linux@lfdr.de>; Mon, 14 Oct 2019 04:26:36 +0200 (CEST)
+Received: by mail-vk1-xa39.google.com with SMTP id a130sf6545255vke.0
+        for <lists+clang-built-linux@lfdr.de>; Sun, 13 Oct 2019 19:26:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571019995; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CZdezfU9zcLLfELHErFrS+ErxKtrfbj9f3UiISJYZgnlbmcnp1PZtEv4uAcZoMASI0
-         WWiAn7jtqYjnqNhUxBChsWRkKGj4HRJ1HRJ2m4Nchtf+ICA0u7z6lYYGXl7J5QxijNvm
-         9PawZRlDJSMd6BE5HA4X4KM4iMtzQXxC7gekwfsjQf8kXMeFTD3egaukN+omTSVUli67
-         OsD1diGX0W9fX0Uy1NSNprXHLz6BwugE9O95+W1fEzhty49ina0KIytpVULiWGP0zQN6
-         41U9OHL2ntTMGUTstLDM1hUTmtw1cQ9IYqjsvw50U5pyFdwifHtkKxrOuYlal3TJPW+9
-         q71g==
+        b=FYlVxIPSUFw/YFisHUsc1OvEdH1kUJvDpLvvvf1GHbLAuIoJc1+0uqUXkfZEur9VBc
+         ZD+ndQob0GkKARYREofiljGwbXiRjEGkOgdDKlVsWuFS6yrJrMc/U/zBn0E6YYWRKCLz
+         GLodttAPvPE1tvwkYupSPneE/zuSZdMxxh8yZPMZVfCMfKJIsWgMGgvKnid2C10VVVTg
+         uxG/JOyaxaKl4ecxzfKcuoFX53d8uT4RtFeaLSGAleyhU67dIg0OVE8nQWFGkLSy4lUW
+         kykn2sntGhI2oKb/+uiyuOeutBkrm4i1ofgf8sRvHwolqM6HIARmCg5CgqPaeOrGfICI
+         8flg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=JvEyrQBWki/MAhhld9VGxloOx4h/wT4/Q11hV8PJFUE=;
-        b=KIvfKzjsewwI4E788In5YDm39jaqg8vWiStL3MaZiE1cm7XySZwdvMD0rep2rb92kX
-         XPItd7QNnvmyxRMkufY53VIE0QjwTFxVR2fGrx2IDPzb6cwhr8YiWQA7xiXvFpDfiR4i
-         wr+sGmXJAp4KhyKuBbF7nvgcj6YGV9XqmRwMkHsJ4Z7q81T+35+0H3cdR0049wi34IQP
-         91eXuxb19LnI/dYbM24P4iHjpmXRu7zW1Zu2ECKLTKhVJdJxg+Kh+9X/mXpQ+BX77Fq3
-         lBvaYCYDhxVw3TUReGwJSxyRALCoLMewgI4xRhBv1O6q5MvxG1NwUuxh2TQBkU/Jfx8Z
-         HViQ==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=A5VZQW238mhEuvLN9mWl4SvFm8dd9f/XU6ARkqvhDSg=;
+        b=t6uvcI8FZ/geYZVKjSAu02KGrqX2QcG4XJwnS5S5PNlrr0mpvYeQcz9oLxDr/dGLZ9
+         +lbJHfxHO97yO4EXi/FDGNfV3GqwY4V8B6o4bZOQgpzHR6zPXfxyupgRpFa9sKSS2CIS
+         hlKcfOlGhSpfbjEcdj0cQgG7Az0zTTZHY16uGS7717aiPdt6O41rhYnhXgJVuliEFREe
+         IJRjb3tjNbq9U0Pgd8rio0GxIAv+OuRgM/vcskWsrdYbD33u5ekYXgvm1H0wAi/iD1q7
+         SzvBa0ZcY1jYvHN3qRRZgzTLiE24e7ND0AuCSddrEV53G+i7kRgRltM5eEsVxQBI2cvl
+         g0qw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="IS5BQ/44";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jKrnyQS1;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JvEyrQBWki/MAhhld9VGxloOx4h/wT4/Q11hV8PJFUE=;
-        b=Zl7RxDZ3TDhAboEk8M1v3aD9e5vtePjZw35CAwH+v3juM7LDHOa3hsd6kmFUlbcdI3
-         ZmWIx27gLAmbGJ0JaCP9qRgCjkG5x1LiyHT0EPjli0ue4h4WlLqLTY83g7PtASfO+mLj
-         fQVAXsvJCHbv5YBYpENeNBncIkniw7xgSDZZ3L8P4KafN5kljXhs8mpnwO2UhfCvyFMU
-         VeWIiNyesf9gzN8Vt1Aa0Svjo7lwKJI+DOg3mIsm2iDGmgWvGtVeKB3UPnbZxlXZfNFd
-         FlB53K5UZaK4DlW+ssc8c9WGeSVi26C0wKm82XQnt7u1yTH8yZxUqFOknC6SpsaH8wEZ
-         AxCA==
+         :x-original-authentication-results:content-transfer-encoding
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=A5VZQW238mhEuvLN9mWl4SvFm8dd9f/XU6ARkqvhDSg=;
+        b=hz6d8+HaMNwue1d7Iqa+/KDKGbQ6tKMEBwDEM5lPZRPGW1+1vDm3hSUuJn0glsfLcq
+         eJIwGPPE/fvqX0wMl6sANYs46D5S6cc1sAPq9AuFjkrZC3Mag36pu1AkHH4naGzs1V1f
+         oeJQI0WHg/Akwum0c/o/9ULyDuTtioJEdCjJEpuz5+sGysAp3Z/umUbe/48u+ZV8FRwH
+         72AL0uUVriM2WtQkz7KhCeamXzZ+i9aOswxYt3UPNfbglJ6AFSBgl+mDTSJtxWeRLTQ8
+         1G/wFEcpElhIb2wXwaBkrgw/QeT8AH3e+7Sua0KRZErSWtm1C/x4uhFwCpBI/lIRmLP8
+         KncQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=JvEyrQBWki/MAhhld9VGxloOx4h/wT4/Q11hV8PJFUE=;
-        b=puNFvgK4iRWk/jvzveTPkTt9AKnz6lVGlozkAxIJjUdDnRHBIWkxHKo+G3gENv6Px1
-         kt3yxHSLg4T+n6dbdmnC1CKEZjJISPpcTRTNoq9NZmEz07+0kSX9+FQ2dlJF8FMd31SJ
-         Tm+lnCrC5Ztb49y/2cjje+voNbU4/TsT/InOwvnp5HvxexHUUAILFEBAkFIFQe7ObqOB
-         oHafPErHj5G1serjBlNH9sox5uZdYeoMOlXQRHwC/GW7IL1FEc4W+lUmhXwBOgANGHQt
-         9jYWjf0pyzVJbSpZH4e6fITCXKLMG4W3ltKCqJhqh0PGwOtohbzQpKfcY1DeH9jOs7I6
-         KH9w==
+         :x-original-authentication-results:content-transfer-encoding
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=A5VZQW238mhEuvLN9mWl4SvFm8dd9f/XU6ARkqvhDSg=;
+        b=lZXyvPqQJxIZJHAuIN2BQ2crxD5gBoq1BS64HgmRvCdGLVsUJFkyvReg2Jg0AQWVCE
+         rxHBbWQ4lAVLts466+4Pu85Us4b0xtj3i+ghRr2UXIKcIorfitE7K4LWLv6EYqUQrKhL
+         dqfYJkm8GJ6GmNBmaEYau+hCB1BrHb5kseIegM5kJh5NC7/MXWKjLnZwOK2skl8dn4Hv
+         bspMICJ360JG9PbPgXF8VBdrDcikWFkdu2NREnibmimT6wOhOABaL/K0FO/paPR2Vv2v
+         kFBTmvDnb/aSfiB5V2yBFweT1f0FSNrGB//wXQRBFFgeQunfonS3IK60ftF8cR0v3aaP
+         Xjyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
          :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=JvEyrQBWki/MAhhld9VGxloOx4h/wT4/Q11hV8PJFUE=;
-        b=NmzDRPeW/+Oe9s9pn2e/g5di0Sj8QOdFS7KxyBOuPq25fzURIoVPRT2oEzHYJXBIwz
-         wM3dYKikEcu3RY7btg3YruhOuX0z9ZDw58F3D//K5nCSAjqCZHCHuQhvs4OSOrXKXIeq
-         Y7KpusP4vZolJIym96fsZLXajI0cF/vGSnhHWzmfW7lA9c1sZroZ8ikHVfIalJdhNXng
-         lHhu2PrY7hyt4s9sBzOo5NTbMKIkMTZhvhqRUq/Hc18YEa5rcGdIp2hawM7vDOcQDQQl
-         WXDjnaNXBKVkG04O5yeDp7jEYfjlk7ALBdtW6yh/zOAXdIOrA2DEltpCJqlw++OgAJxa
-         k44w==
+         :x-original-sender:x-original-authentication-results
+         :content-transfer-encoding:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=A5VZQW238mhEuvLN9mWl4SvFm8dd9f/XU6ARkqvhDSg=;
+        b=Nwa+lzIQEVeM42Ovp27YZL92GaWx6yqUuZJhIyR73LBEOPH7r2yQSj56M+Tb/Iq/if
+         umXZVs7WRHfdM6icnYEP1awATM0B5awL6fkJGF/gVcHpaDV9Ify6XgylAfzm2E9mMXhP
+         PpKjEnAH9VUvT9r8cjki8G6LuoYfBN09e5c0pwF5HlFit3O97xfGhmnjqJi+k703swMJ
+         DAI/DKMgCu618Lu3HMkYQqy0IJ9Y0s5S1UQBliUfZa4lhAc4eNBMxzikuw8dBSx5Bojh
+         9CN70NSwvGLwsYcr9qAuClf6I5P89knk5ahINEBjMxiEhmfuDWhclCILQXx5IG+zpfLV
+         pGRg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXPMpoDEEORi+CmlzypgFjR5Hk5va27TlU0qXkKkikQ9StfBmtd
-	Dtmo5W4o9DJgiQuouL7uJeU=
-X-Google-Smtp-Source: APXvYqzd4jV63JDE3lO4izT7YdadoCu4yYwHEvPdDHgtgVO13yq7yBNMC+dTOCI1RYs/6ZXTeEKXBQ==
-X-Received: by 2002:aca:c5c6:: with SMTP id v189mr21664401oif.169.1571019946425;
-        Sun, 13 Oct 2019 19:25:46 -0700 (PDT)
+X-Gm-Message-State: APjAAAXH4sIlkcBpjkpMuaFsnDjaxMjHciHybeMiY+TSgakO15WviJQX
+	hLEHyZV2T/7iyjUtjRTvzcY=
+X-Google-Smtp-Source: APXvYqzPlgCSeZ7SnjbOHsquCC9fu5n6FFxe+6jaU3dpIYv/fguLuUpjPB36ByL5p46cmCzV9516/g==
+X-Received: by 2002:ab0:1333:: with SMTP id g48mr9048350uae.5.1571019994905;
+        Sun, 13 Oct 2019 19:26:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:1291:: with SMTP id g17ls2396281otg.11.gmail; Sun, 13
- Oct 2019 19:25:46 -0700 (PDT)
-X-Received: by 2002:a9d:1d2:: with SMTP id e76mr23814159ote.30.1571019946111;
-        Sun, 13 Oct 2019 19:25:46 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571019946; cv=none;
+Received: by 2002:a9f:318f:: with SMTP id v15ls669525uad.15.gmail; Sun, 13 Oct
+ 2019 19:26:34 -0700 (PDT)
+X-Received: by 2002:ab0:208e:: with SMTP id r14mr12209741uak.138.1571019994393;
+        Sun, 13 Oct 2019 19:26:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571019994; cv=none;
         d=google.com; s=arc-20160816;
-        b=L5gvL5We/lH4x7Zr64A3s28sxeg5u2qhZYfN71I7QLRbIuikV1FnzicFmLYLqOufom
-         t35KQSn4+8MIoQQcwLuB4L2m04bqm25NSAUessQ/2ivd+Zkd0WXszT/kuO7FNGxWqYF9
-         OzP0YQFvJGGz7xJbx/gt0J+bQTfpxFTqw3tZZ8jVygbT1GpTWKnnFPkPhwllamK9jvOf
-         nqT0B016AFIgngeIvmJOuc1sFrE2Hqke35Hw1TaI/Blso28e1vcljGAvlv2u11uApm3t
-         lgJCC7FNPqApjiZkdBhKnmNXYZXW5q5mzIllOJjmA6A01PzXklgGSgKrcYl0Oe5LjZk/
-         uUNg==
+        b=ACGoomQWhjj1EZZWYQ45143wtaW9rro2wC4EagepTxhZ4NM31PNPhixuugn3lz5uGN
+         gwDl25kZSGSkM2ReSNPvzkCJoNW80aeRcf9fL4fzeIfJcO3RIWuBVATf5xZMdfWh1+i2
+         edxGPEgpPJkRcWHLlDa0kJe9Yq3Mk014hlV4AJLbMLW+cjOWu5ZRit+fg/HhP0yw6OAX
+         3d8Iw0H8G8gariWzaGp+qqCXEuFw4RBIN4ZB+yam0C5QwmiND860rcCDdWwQTkH4juGM
+         isulZ85flEhTnsD/0+hYIacsPvLo/ymCf8UlS5MhKG2cb6kRGMBAWhrFIbMdhQiIV8R4
+         1CPA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=lP906qLGyTEBqe55BgoOje0n/wNr+NcPtklrVASvvHA=;
-        b=Llm6P5Q7YlaHVYf2kqgFVZkUZpAXKfP/R5AWcQ/GYPFgreApqv9idbbK/RdAMLjKEb
-         i4qpP6EeAqGzZhKhuVdBkt/3j89OFB3aRCg0vGtvAUhs6JOP74UmDgE8mln8l10Iw4ci
-         Yvcf49/oowV04X0X7aHb95kaekhabNg+kPEovvTYSpy7YKmwmpxmRwyOSza5ev2b1yFt
-         99zmrUzn+QEEKVGhAs0P1+y48oRQUGQIT5CyS0iIOvh4GHSVypYrm1eCqTD6ELwoyzYN
-         akPF2H1e/Hi3ESdcylVskQpYUvTuzAQZAMXM5zAp6oJr/TIiQVLw05L1nLD966Bx+ffA
-         JGOQ==
+        bh=RxN3YWc8co3WpzgAgCGJyKIact7URhE8U4Q8POhgJwA=;
+        b=zevnrlD1NtmXUasSVDGHD6eZvIrgsKn7GxQ41tLOdFWjz7sGlzi8nQsfnWw4dck1LQ
+         aSV9vcU52CtDoCvP8MnfVVrS6rQcyLJ8x7ufgXo0hDYSmiGzPxdEft8XHn/Zjg8OpsGt
+         7e/Gp/rQ/kIyRRTyJDxX04B+hdw9lz0AVAck/ka1iYTls1/hN8LIiVUAVxUeKF8ao7WP
+         THP7XpoBhE45KHex40gHpaXVPPVQVC6FnvxjzFRh6u3kZRQp0bpepWfIAA/xG2oR3yDA
+         t4Hwd9cEC1OGiqJM4J5RVdZL81nj++S3TMRxTvXtL5la4hW1flQ9rxgd+yUd6LpBtkOp
+         8g3A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="IS5BQ/44";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=jKrnyQS1;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id c67si295541oig.1.2019.10.13.19.25.46
+Received: from mail-oi1-x244.google.com (mail-oi1-x244.google.com. [2607:f8b0:4864:20::244])
+        by gmr-mx.google.com with ESMTPS id 136si1316498vkx.4.2019.10.13.19.26.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 13 Oct 2019 19:25:46 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
-Received: by mail-ot1-x342.google.com with SMTP id o44so12535204ota.10
-        for <clang-built-linux@googlegroups.com>; Sun, 13 Oct 2019 19:25:46 -0700 (PDT)
-X-Received: by 2002:a9d:12ac:: with SMTP id g41mr21703818otg.57.1571019945644;
-        Sun, 13 Oct 2019 19:25:45 -0700 (PDT)
+        Sun, 13 Oct 2019 19:26:34 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::244 as permitted sender) client-ip=2607:f8b0:4864:20::244;
+Received: by mail-oi1-x244.google.com with SMTP id 83so12540671oii.1
+        for <clang-built-linux@googlegroups.com>; Sun, 13 Oct 2019 19:26:34 -0700 (PDT)
+X-Received: by 2002:aca:4042:: with SMTP id n63mr21876291oia.124.1571019993582;
+        Sun, 13 Oct 2019 19:26:33 -0700 (PDT)
 Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id d95sm5617723otb.25.2019.10.13.19.25.44
+        by smtp.gmail.com with ESMTPSA id u130sm5132102oib.56.2019.10.13.19.26.33
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Sun, 13 Oct 2019 19:25:45 -0700 (PDT)
-Date: Sun, 13 Oct 2019 19:25:43 -0700
+        Sun, 13 Oct 2019 19:26:33 -0700 (PDT)
+Date: Sun, 13 Oct 2019 19:26:31 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Shyam Saini <mayhs11saini@gmail.com>
-Cc: kernel-hardening@lists.openwall.com, iommu@lists.linux-foundation.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Christoph Hellwig <hch@lst.de>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Matthew Wilcox <willy@infradead.org>,
-	Christopher Lameter <cl@linux.com>,
-	Kees Cook <keescook@chromium.org>,
+To: kbuild test robot <lkp@intel.com>
+Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
 Subject: Re: [PATCH] kernel: dma: Make CMA boot parameters __ro_after_init
-Message-ID: <20191014022543.GA2674@ubuntu-m2-xlarge-x86>
-References: <20191012122918.8066-1-mayhs11saini@gmail.com>
+Message-ID: <20191014022631.GA14421@ubuntu-m2-xlarge-x86>
+References: <201910140334.nhultlt8%lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20191012122918.8066-1-mayhs11saini@gmail.com>
+In-Reply-To: <201910140334.nhultlt8%lkp@intel.com>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="IS5BQ/44";       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=jKrnyQS1;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::244 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Transfer-Encoding: quoted-printable
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,69 +153,124 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Oct 12, 2019 at 05:59:18PM +0530, Shyam Saini wrote:
-> This parameters are not changed after early boot.
-> By making them __ro_after_init will reduce any attack surface in the
-> kernel.
-> 
-> Link: https://lwn.net/Articles/676145/
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Matthew Wilcox <willy@infradead.org>
-> Cc: Christopher Lameter <cl@linux.com>
-> Cc: Kees Cook <keescook@chromium.org>
-> Signed-off-by: Shyam Saini <mayhs11saini@gmail.com>
+On Mon, Oct 14, 2019 at 03:46:20AM +0800, kbuild test robot wrote:
+> CC: kbuild-all@lists.01.org
+> In-Reply-To: <20191012122918.8066-1-mayhs11saini@gmail.com>
+> References: <20191012122918.8066-1-mayhs11saini@gmail.com>
+> TO: Shyam Saini <mayhs11saini@gmail.com>
+> CC: kernel-hardening@lists.openwall.com, iommu@lists.linux-foundation.org=
+, linux-kernel@vger.kernel.org, linux-mm@kvack.org, Shyam Saini <mayhs11sai=
+ni@gmail.com>, Christoph Hellwig <hch@lst.de>, Marek Szyprowski <m.szyprows=
+ki@samsung.com>, Robin Murphy <robin.murphy@arm.com>, Matthew Wilcox <willy=
+@infradead.org>, Christopher Lameter <cl@linux.com>, Kees Cook <keescook@ch=
+romium.org>, iommu@lists.linux-foundation.org, linux-kernel@vger.kernel.org=
+, linux-mm@kvack.org, Shyam Saini <mayhs11saini@gmail.com>, Christoph Hellw=
+ig <hch@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy =
+<robin.murphy@arm.com>, Matthew Wilcox <willy@infradead.org>, Christopher L=
+ameter <cl@linux.com>, Kees Cook <keescook@chromium.org>
+> CC: iommu@lists.linux-foundation.org, linux-kernel@vger.kernel.org, linux=
+-mm@kvack.org, Shyam Saini <mayhs11saini@gmail.com>, Christoph Hellwig <hch=
+@lst.de>, Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.=
+murphy@arm.com>, Matthew Wilcox <willy@infradead.org>, Christopher Lameter =
+<cl@linux.com>, Kees Cook <keescook@chromium.org>
+>=20
+> Hi Shyam,
+>=20
+> Thank you for the patch! Yet something to improve:
+>=20
+> [auto build test ERROR on linus/master]
+> [cannot apply to v5.4-rc2 next-20191011]
+> [if your patch is applied to the wrong git tree, please drop us a note to=
+ help
+> improve the system. BTW, we also suggest to use '--base' option to specif=
+y the
+> base tree in git format-patch, please see https://stackoverflow.com/a/374=
+06982]
+>=20
+> url:    https://github.com/0day-ci/linux/commits/Shyam-Saini/kernel-dma-M=
+ake-CMA-boot-parameters-__ro_after_init/20191014-011828
+> config: arm64-defconfig (attached as .config)
+> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 1f5823b78803=
+7b0dc8c846a22ef6a5a8a0714af7)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         # save the attached .config to linux build tree
+>         make.cross ARCH=3Darm64=20
+>=20
+> If you fix the issue, kindly add following tag
+> Reported-by: kbuild test robot <lkp@intel.com>
+>=20
+> All errors (new ones prefixed by >>):
+>=20
+> >> kernel/dma/contiguous.c:46:36: error: 'size_cmdline' causes a section =
+type conflict with 'size_bytes'
+>    static phys_addr_t __ro_after_init size_cmdline =3D -1;
+>                                       ^
+>    kernel/dma/contiguous.c:45:42: note: declared here
+>    static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr_t)C=
+MA_SIZE_MBYTES * SZ_1M;
+>                                             ^
+> >> kernel/dma/contiguous.c:47:36: error: 'base_cmdline' causes a section =
+type conflict with 'size_bytes'
+>    static phys_addr_t __ro_after_init base_cmdline;
+>                                       ^
+>    kernel/dma/contiguous.c:45:42: note: declared here
+>    static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr_t)C=
+MA_SIZE_MBYTES * SZ_1M;
+>                                             ^
+> >> kernel/dma/contiguous.c:48:36: error: 'limit_cmdline' causes a section=
+ type conflict with 'size_bytes'
+>    static phys_addr_t __ro_after_init limit_cmdline;
+>                                       ^
+>    kernel/dma/contiguous.c:45:42: note: declared here
+>    static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr_t)C=
+MA_SIZE_MBYTES * SZ_1M;
+>                                             ^
+>    3 errors generated.
+>=20
+> vim +46 kernel/dma/contiguous.c
+>=20
+>     34=09
+>     35	/*
+>     36	 * Default global CMA area size can be defined in kernel's .config=
+.
+>     37	 * This is useful mainly for distro maintainers to create a kernel
+>     38	 * that works correctly for most supported systems.
+>     39	 * The size can be set in bytes or as a percentage of the total me=
+mory
+>     40	 * in the system.
+>     41	 *
+>     42	 * Users, who want to set the size of global CMA area for their sy=
+stem
+>     43	 * should use cma=3D kernel parameter.
+>     44	 */
+>   > 45	static const phys_addr_t __ro_after_init size_bytes =3D (phys_addr=
+_t)CMA_SIZE_MBYTES * SZ_1M;
+>   > 46	static phys_addr_t __ro_after_init size_cmdline =3D -1;
+>   > 47	static phys_addr_t __ro_after_init base_cmdline;
+>   > 48	static phys_addr_t __ro_after_init limit_cmdline;
+>     49=09
+>=20
 > ---
->  kernel/dma/contiguous.c | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
-> index 69cfb4345388..1b689b1303cd 100644
-> --- a/kernel/dma/contiguous.c
-> +++ b/kernel/dma/contiguous.c
-> @@ -42,10 +42,10 @@ struct cma *dma_contiguous_default_area;
->   * Users, who want to set the size of global CMA area for their system
->   * should use cma= kernel parameter.
->   */
-> -static const phys_addr_t size_bytes = (phys_addr_t)CMA_SIZE_MBYTES * SZ_1M;
-> -static phys_addr_t size_cmdline = -1;
-> -static phys_addr_t base_cmdline;
-> -static phys_addr_t limit_cmdline;
-> +static const phys_addr_t __ro_after_init size_bytes = (phys_addr_t)CMA_SIZE_MBYTES * SZ_1M;
+> 0-DAY kernel test infrastructure                Open Source Technology Ce=
+nter
+> https://lists.01.org/pipermail/kbuild-all                   Intel Corpora=
+tion
+>=20
 
-The 0day bot reported an issue with this change with clang:
+Reported on the patch's thread so that it does not get applied:
 
-https://groups.google.com/d/msgid/clang-built-linux/201910140334.nhultlt8%25lkp%40intel.com
-
-kernel/dma/contiguous.c:46:36: error: 'size_cmdline' causes a section type conflict with 'size_bytes'
-static phys_addr_t __ro_after_init size_cmdline = -1;
-                                   ^
-kernel/dma/contiguous.c:45:42: note: declared here
-static const phys_addr_t __ro_after_init size_bytes = (phys_addr_t)CMA_SIZE_MBYTES * SZ_1M;
-                                         ^
-kernel/dma/contiguous.c:47:36: error: 'base_cmdline' causes a section type conflict with 'size_bytes'
-static phys_addr_t __ro_after_init base_cmdline;
-                                   ^
-kernel/dma/contiguous.c:45:42: note: declared here
-static const phys_addr_t __ro_after_init size_bytes = (phys_addr_t)CMA_SIZE_MBYTES * SZ_1M;
-                                         ^
-kernel/dma/contiguous.c:48:36: error: 'limit_cmdline' causes a section type conflict with 'size_bytes'
-static phys_addr_t __ro_after_init limit_cmdline;
-                                   ^
-kernel/dma/contiguous.c:45:42: note: declared here
-static const phys_addr_t __ro_after_init size_bytes = (phys_addr_t)CMA_SIZE_MBYTES * SZ_1M;
-                                         ^
-3 errors generated.
-
-The errors seem kind of cryptic at first but something that is const
-should automatically be in the read only section, this part of the
-commit seems unnecessary. Removing that part of the change fixes the error.
+https://lore.kernel.org/lkml/20191014022543.GA2674@ubuntu-m2-xlarge-x86/
 
 Cheers,
 Nathan
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191014022543.GA2674%40ubuntu-m2-xlarge-x86.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20191014022631.GA14421%40ubuntu-m2-xlarge-x86.
