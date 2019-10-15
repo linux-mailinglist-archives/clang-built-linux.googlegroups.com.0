@@ -1,130 +1,138 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBCWSTDWQKGQE4ZD3L6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBAOXTDWQKGQEFUCXPMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83a.google.com (mail-qt1-x83a.google.com [IPv6:2607:f8b0:4864:20::83a])
-	by mail.lfdr.de (Postfix) with ESMTPS id E0556D80D5
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Oct 2019 22:16:11 +0200 (CEST)
-Received: by mail-qt1-x83a.google.com with SMTP id m6sf22379403qtk.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Oct 2019 13:16:11 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571170570; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id E0763D80F4
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Oct 2019 22:26:43 +0200 (CEST)
+Received: by mail-pf1-x43f.google.com with SMTP id u21sf13932876pfm.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Oct 2019 13:26:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571171202; cv=pass;
         d=google.com; s=arc-20160816;
-        b=UI8V6N4xI/T2eFQcWKOBM+GCeZWBusiVGp8tCP55aYkVPOGGccquVClIRVrLGbsZmZ
-         SPuZ7RW75lW391x5EyLpbxon5BqLcEpZ99IwN2At+0aC3I6jVG/BnJn2QPIxSRiVaW5m
-         YqtXRBkcszrUFcw2cvDqbSAbyoKCxfM3ZxXeCYhmJeB2SpPRufTFPELVsgmYhhZ92uGe
-         0SdjfSOiH+Nu/fVom3AfQa0Vc76RJvsZrrn4ZV+XeBGEZJMImLNgIUmnczwpFY6ppfuA
-         IQWdp2q6tAZrIW6stKtzTCxggRUGAkGPOMUu4GM1C4soBMKvecJiS1Zkd0CjsirP6bsr
-         wWiQ==
+        b=DLR9uF4zjCqrAwisR6SnKURoinkjqX7dhlCwUkCkRAYFj6loqSr6grtETwpEPG1ouo
+         nS9MlIFR7QRJbjTT3cN4lDzybdAowoVIQCdjI1BLYhynnD2HtEupYs/1spTEL6WhHxEB
+         SdvstHC+quVe6bpFwDvBXm6eXLub8dNFAswgyY8Brqt1EPizEFlFWbuS7NLNIP06C21w
+         FHLsN+GOamsIWcml4XV1eH/rWSDvlze8+Sxve5pukEQgmIbsMFonYAXzVZJaxrGv6HYF
+         1mDEB6H1oJq8ovazDlqZKrz1evA1SXBMqYLf9rbou6lKBOlX6ORWyhtD8bBv4+d/+QsW
+         1opw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=sw70fSgZygyp5EMALC+26Q/UWk4rO+ymfy8nJsstlt8=;
-        b=jmeGyp5PMUaqA0RxOl6vGrFF1vYsUnYBsq08E8E3qsDnhVSf/qnJsgKVcDgumh+MZJ
-         eCGVNA6X9i5XmYpobaEKQW279gC6BaysL/MSA8kj8ZOT4YsYK6DCyTr9EOJBnr+8pQUp
-         AD4Rxbfg5lmwggsBYmbs+eIu+Y74u8XnxAlHMX2rpuoEBGz8KAGlxV6JbDvx33DhW0sf
-         x1HRjM3ijXWzhTAk1s5VTtbCzHfVkh0Qm3vq7kAcnw1emagSafoAuNzuYR4P4Lo8gcVP
-         +3hpaYShW1mAUfNqQadr6NfxnqJFbz0TDZg5wcCYBQH9JDXEulFPYWFxdjYw1xZaebMm
-         731Q==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:date:from:sender:dkim-signature;
+        bh=uiyH7bwgJcJb/2PlUakTmwJ791hQwSsbxXopB3SFrKM=;
+        b=nlrWsipbErn3N1EMReJ9ENzzbSapksmZwqEdPdssBRPlr/VJCgBQTXbZlhH0wyHCmZ
+         v09DbGwCGpgCsZXNs7JJQWbtoqX7bnRXo7dqzHCoknHQNn8oQTtUNnX+IDxEyo23+VPa
+         gC2NyNZBR+1NY7SUCicxBKeUBTDphYXWtjun3kgfHCCk76q9BBgXRnvfPLlPV+1LmM/3
+         /8dmv4SJHfvcCMHWwCmthLL9uF+dgDsdo/CdQz8FrJR8a4xmWLsCusFS6INhIrjfa0zt
+         4jl2lI4SyBw4mP+ehxkNbJel1d8lACqd4yFZ4IRUBqY/DoWmD3RcOXF3kAz6FK9Rn0Gh
+         DVRA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ZkUC2VvD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RNSQmhS1;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::834 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sw70fSgZygyp5EMALC+26Q/UWk4rO+ymfy8nJsstlt8=;
-        b=EBYigiuFq91YSjgKgeKwT5jCmVrLtRLbQ6q0bMGxNf1MSVWYg1SpyyImVwfVIDk2Nh
-         i4ZmzG0vgdy87AwKJh2Fo6B9L8N9fkRrwuM0UM5jdf5ZRnTX7AUlVeZhvsZSO6hfD6A9
-         ce0gp52WK1A8bBnCPAxkNaEV1dVY6P4TK2u8MPhFQ3kXD80KkzYFQKCTgt6d0zzv8JnC
-         FBXrBtW2hSDVaUHuUEEtoxxEVvvVi2hz4PL+65m9zYYQKQJg4obYbjk4vPvefHO5TDSy
-         Z16z0Rk1cUsWxymJFIPe60Sr8ehihiO8qEUVmPcATZ5iNB+ZtocBobgsK55PiGhdOgfe
-         k0Cw==
+        d=gmail.com; s=20161025;
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=uiyH7bwgJcJb/2PlUakTmwJ791hQwSsbxXopB3SFrKM=;
+        b=g1fz7YT7CHjkRzkFnWuaO2JpfVBkVa5G+1mpLCnJAuAO8DttysKiAON/MDOJRq3Rvq
+         GglHb2YjY7ZbAOSTdkeJ51s+RAhf1WjCJlnrP/Nj/6j/IuQ41xHn7rHd05VIXwM3MTsV
+         BULMW6vfY+lUNIGgD8OhNRi2tEesjMINRYC05sZrkprzUmWNXqvWFkA4/FeLdqD6rz9b
+         Jib21B88pVwUfJX6e+h8MigBahKJL4U+SA8NmmNsgoUcDfAqf2MLVnKXfOgTGbdMY7tE
+         5F6iBoIoNJUSBKkgYxqK2AsMWD3VQrZk4zAspkgPo+riHug9ESWkM7O4zSWTXBKZRXbd
+         Jt7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sw70fSgZygyp5EMALC+26Q/UWk4rO+ymfy8nJsstlt8=;
-        b=Pb8BOMh4DfWJOxQzWarja9QOtWF/4QplC1kDVumGPeFIz4iuiPoWgcPMi4Gq1xfaXO
-         bHJc2nayowqzLXODLkfGIpUHfbf23zhLzEMIxDRmTLjbh7DeKnvJKGDNpjUmQ+duDSRm
-         8rv5FWdQinfq1feNi4R0p1tajvp+t1oHtu3xA7Ps+xAX/M1zjo4vQ9FpD1uCwXgR878q
-         Ao0zTwIxJedUSK4FBajhDMCKH4Xephg6304QfYV5IlOVBtebWvAXXgBmlkdr391KH74T
-         gIyn3y0w67B3S9mkq7wYF/dfheFjBxXr7J3xqO/mQNgR9Wwdr6g9eTFIRJYOjM2UmAv8
-         oJ3w==
-X-Gm-Message-State: APjAAAVcP6OmsN8hC2OMOPAX+8q9btzvrY3d5sxdgulYGG5CWhfWAVsv
-	L8wiSZREPB7xuba5jRK6fd0=
-X-Google-Smtp-Source: APXvYqxMyh/t6or5hCd9fcpwN1+ubihgdLq2ZubkJ8DtO1iRjdFARChx/4e0rWRHBmhokUXQDq8ufQ==
-X-Received: by 2002:ac8:1894:: with SMTP id s20mr41886476qtj.241.1571170570712;
-        Tue, 15 Oct 2019 13:16:10 -0700 (PDT)
+        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=uiyH7bwgJcJb/2PlUakTmwJ791hQwSsbxXopB3SFrKM=;
+        b=SsXGEexesCrsz3T5QzZNVfhSZEtBOU7110BkyKdEtAPa/MWGdSTQy4BCyXAlj/dCok
+         Fl6AabNW9wXA0qKF1ix2f2ufuiWwsTLzBOS/YvVu2IefyQNBf3aQpqbpxSFfZWUo2Pc6
+         N9tT3nZuvsqBKSH2hmrhGfifLH/gATT1XDW62s+CPSghx0Q0lGM+MIocwiBiCH2DLH/p
+         Hlg+ooehBmf7Vs+O6JfFUY/zA4B75RDhngMEEnbLflv95OPXVHcAbBty48BVlM8yFgIf
+         bF39Cz5ViT+v+COLL5mZJfQZDmEQifrIyv7OmC4p6rea6d6ISbM2mmFGHj7MwOH3gtBY
+         Lylg==
+X-Gm-Message-State: APjAAAWVxQU9lGb2Mxo2qp0ml0ob9CvXfVYotn6pOvj7kqALiM93LmWU
+	kkIgcOlMMzfYF1kyhKo9+kY=
+X-Google-Smtp-Source: APXvYqw0qgatnHNIMruBbQ8fdRdOSO1N5BrvWGfZvPU5p4c+aaavo28SQzamz7eU387iFnrRBwjrIg==
+X-Received: by 2002:a17:90a:c684:: with SMTP id n4mr437491pjt.33.1571171201871;
+        Tue, 15 Oct 2019 13:26:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:2c55:: with SMTP id e21ls20489qta.1.gmail; Tue, 15 Oct
- 2019 13:16:10 -0700 (PDT)
-X-Received: by 2002:ac8:16eb:: with SMTP id y40mr40935417qtk.67.1571170570375;
-        Tue, 15 Oct 2019 13:16:10 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571170570; cv=none;
+Received: by 2002:a17:90a:25e2:: with SMTP id k89ls87373pje.3.gmail; Tue, 15
+ Oct 2019 13:26:41 -0700 (PDT)
+X-Received: by 2002:a17:90a:b946:: with SMTP id f6mr409675pjw.81.1571171201460;
+        Tue, 15 Oct 2019 13:26:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571171201; cv=none;
         d=google.com; s=arc-20160816;
-        b=adLCI81ATrN3Ttbk9afRpcYtHmHuzOsYSyNONHVPDpAK2bRcW3huxPLBkNBUj3gR98
-         CCZh+IH8qal/fn73wtVGC95cTgfXAknYXJMs/alj9ws7Rs1PWsuTgXgUxXtQK5BqOvw2
-         G47lxT8T7pJ1p/dB3UFvatLCEyrPL0ak7c+6dtXgzGELx2Yk3R+yjiGCk+TMQpWHrsCc
-         S0ixTEHdLCecjBExs8MK/Poi/kRQa9qQrAn8M7ooju2DYl8MaThVd3EdYV+fC0aLb9OT
-         xXDiD+xnEK5Ng4dzFqIjaBtjCpogM/HrFzqpTy9lkHBUC4Rj97VROyGtsXZXs7759eiH
-         ovaw==
+        b=wc8SwaDfCXS1y+HY1Fznt75ybXAbzRtgjAtJ+x7a1485T7bmwGBnkGJ/htJWXo2xBK
+         hSWmhkV/mki/WBJ1GakDLnqa46u7TnSAUj9jZxDeiE/9VJWQbPAGF5afjBbRg8i6k4Hz
+         dTmP/A1wW3BMDzosJh6ZEwAOIf8i4Db1uR9NctmGLDT4vGB+Ge4htB5iNhUrXzyUY2ww
+         I7iuT7pvb6u999PDjwcDFEtoT9wL69KXzkVhC6EjyKcTwxAj61P9rr7Tx+ucy2b+D13w
+         E1orutRRNMxhfb2zA5/X9F65kwb+BoEJOJ8pZHblg5GF4TIODn8bbCj4Rk1buJ726RyW
+         K1NA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=T6wGmR3qIig/wVR5vsFEQByfOvdwbfZeNFvYpJXRBa8=;
-        b=TBMP4fA+Dfp1tEm6bxBnMM9hScMUbRQvbSnO+50vx5tq/KaWWPmzHPCVMH3p9USGPJ
-         z0PAhtSpe932gyw1Ld96hjxc4VcuP94th9puebhMOPKvN+YQ8u494ARh51fTJWz5jXYG
-         BfHBkgPvdQ6VRnIIowge38rZ8Z/xlHLvLc+dujI/tpNdA6FLhiBhv6NWxDoRpxn/7OUh
-         F3AvA8/uXzpoSpsGypp8z0iLZ95X5zrM0495LZ763mh/nEK7rGayWc75uhba9xcuRYVi
-         8qmaAFJQ+yzk4w0huw3SOA3tDEo4HAh8qC3Dpnb+/s2wdLpHkWOGz/t7NbKVHKm2s1yB
-         kWxw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:date:from:sender:dkim-signature;
+        bh=GvhT2QXQ0GgfNEOJ+UXo4IMteX3tSISiPGXC9WqcO04=;
+        b=orA42p4Mm38WzZ18h/yvwrFhGUkvhkZVcBNXmdQdrhPPnHVhafbwZIvk+54tayQ7Bj
+         r48LzG2M9Rx6+dcc+kn/Ik1kyStNzbvJ56DdqbzvoApL4/DR8HTxT6+kowAmJ7y8G5ag
+         xaNr0xW3LayCrP3QX8DMYIqvc8AyvXJgxXwD69z5sdzrRorUNvxI7lC5uGgl8abBBqaZ
+         WWQKAQ8QfbSxmHe4/+t+Y/ZyiGAQjd+2qrBYDTQrgkP7zskpTL7CNPT+qTsIhR0SfiPx
+         56nAHa0Jb+3YOfOKHW1t+3v7FNrlOTIjI0xWVd5r5wOcLjun2UNYgN1SHS4rJ0gCsTEz
+         1Y/A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ZkUC2VvD;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x536.google.com (mail-pg1-x536.google.com. [2607:f8b0:4864:20::536])
-        by gmr-mx.google.com with ESMTPS id h4si889939qkm.2.2019.10.15.13.16.10
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=RNSQmhS1;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::834 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qt1-x834.google.com (mail-qt1-x834.google.com. [2607:f8b0:4864:20::834])
+        by gmr-mx.google.com with ESMTPS id d5si2103803pls.5.2019.10.15.13.26.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 15 Oct 2019 13:16:10 -0700 (PDT)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536 as permitted sender) client-ip=2607:f8b0:4864:20::536;
-Received: by mail-pg1-x536.google.com with SMTP id e13so4607924pga.7
-        for <clang-built-linux@googlegroups.com>; Tue, 15 Oct 2019 13:16:10 -0700 (PDT)
-X-Received: by 2002:a17:90a:aa81:: with SMTP id l1mr7575pjq.73.1571170568840;
- Tue, 15 Oct 2019 13:16:08 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAKwvOdnDVe-dahZGnRtzMrx-AH_C+2Lf20qjFQHNtn9xh=Okzw@mail.gmail.com>
- <9e4d6378-5032-8521-13a9-d9d9519d07de@amd.com> <CAK8P3a3_Q15hKT=gyupb0FrPX1xV3tEBpVaYy1LF0kMUj2u8hw@mail.gmail.com>
- <CAKwvOdnLxm_tZ_qR1D-BE64Z3QaMC2h79ooobdRVAzmCD_2_Sg@mail.gmail.com> <CADnq5_P55aRJ-1VVz2uKA=xpddyi0BvDcXqPD=xVpw3aJZrzng@mail.gmail.com>
-In-Reply-To: <CADnq5_P55aRJ-1VVz2uKA=xpddyi0BvDcXqPD=xVpw3aJZrzng@mail.gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 15 Oct 2019 13:15:57 -0700
-Message-ID: <CAKwvOdme6g7rr+AkJi6Do6Rzq7zYAJm+spQaBF3cwgKU1H2ThQ@mail.gmail.com>
+        Tue, 15 Oct 2019 13:26:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::834 as permitted sender) client-ip=2607:f8b0:4864:20::834;
+Received: by mail-qt1-x834.google.com with SMTP id n17so13215673qtr.4
+        for <clang-built-linux@googlegroups.com>; Tue, 15 Oct 2019 13:26:41 -0700 (PDT)
+X-Received: by 2002:ac8:6a06:: with SMTP id t6mr18025686qtr.169.1571171200885;
+        Tue, 15 Oct 2019 13:26:40 -0700 (PDT)
+Received: from rani ([2001:470:1f07:5f3:9e5c:8eff:fe50:ac29])
+        by smtp.gmail.com with ESMTPSA id u43sm12322018qte.19.2019.10.15.13.26.40
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 15 Oct 2019 13:26:40 -0700 (PDT)
+Sender: Arvind Sankar <niveditas98@gmail.com>
+From: Arvind Sankar <nivedita@alum.mit.edu>
+Date: Tue, 15 Oct 2019 16:26:38 -0400
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, "S, Shirish" <sshankar@amd.com>,
+	"Wentland, Harry" <Harry.Wentland@amd.com>,
+	"Deucher, Alexander" <Alexander.Deucher@amd.com>,
+	"yshuiv7@gmail.com" <yshuiv7@gmail.com>,
+	"andrew.cooper3@citrix.com" <andrew.cooper3@citrix.com>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Matthias Kaehlcke <mka@google.com>,
+	"S, Shirish" <Shirish.S@amd.com>,
+	"Zhou, David(ChunMing)" <David1.Zhou@amd.com>,
+	"Koenig, Christian" <Christian.Koenig@amd.com>,
+	amd-gfx list <amd-gfx@lists.freedesktop.org>,
+	LKML <linux-kernel@vger.kernel.org>
 Subject: Re: AMDGPU and 16B stack alignment
-To: Alex Deucher <alexdeucher@gmail.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, "S, Shirish" <sshankar@amd.com>, 
-	"Zhou, David(ChunMing)" <David1.Zhou@amd.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	"andrew.cooper3@citrix.com" <andrew.cooper3@citrix.com>, LKML <linux-kernel@vger.kernel.org>, 
-	amd-gfx list <amd-gfx@lists.freedesktop.org>, "S, Shirish" <Shirish.S@amd.com>, 
-	Matthias Kaehlcke <mka@google.com>, "yshuiv7@gmail.com" <yshuiv7@gmail.com>, 
-	"Deucher, Alexander" <Alexander.Deucher@amd.com>, "Wentland, Harry" <Harry.Wentland@amd.com>, 
-	"Koenig, Christian" <Christian.Koenig@amd.com>
+Message-ID: <20191015202636.GA1671072@rani>
+References: <CAKwvOdnDVe-dahZGnRtzMrx-AH_C+2Lf20qjFQHNtn9xh=Okzw@mail.gmail.com>
+ <9e4d6378-5032-8521-13a9-d9d9519d07de@amd.com>
+ <CAK8P3a3_Q15hKT=gyupb0FrPX1xV3tEBpVaYy1LF0kMUj2u8hw@mail.gmail.com>
+ <CAKwvOdnLxm_tZ_qR1D-BE64Z3QaMC2h79ooobdRVAzmCD_2_Sg@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnLxm_tZ_qR1D-BE64Z3QaMC2h79ooobdRVAzmCD_2_Sg@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=ZkUC2VvD;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::536
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=RNSQmhS1;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::834
+ as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,102 +145,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Oct 15, 2019 at 11:30 AM Alex Deucher <alexdeucher@gmail.com> wrote:
->
-> On Tue, Oct 15, 2019 at 2:07 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> >
-> > On Tue, Oct 15, 2019 at 12:19 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> > >
-> > > On Tue, Oct 15, 2019 at 9:08 AM S, Shirish <sshankar@amd.com> wrote:
-> > > > On 10/15/2019 3:52 AM, Nick Desaulniers wrote:
-> > >
-> > > > My gcc build fails with below errors:
-> > > >
-> > > > dcn_calcs.c:1:0: error: -mpreferred-stack-boundary=3 is not between 4 and 12
-> > > >
-> > > > dcn_calc_math.c:1:0: error: -mpreferred-stack-boundary=3 is not between 4 and 12
-> >
-> > I was able to reproduce this failure on pre-7.1 versions of GCC.  It
-> > seems that when:
-> > 1. code is using doubles
-> > 2. setting -mpreferred-stack-boundary=3 -mno-sse2, ie. 8B stack alignment
-> > than GCC produces that error:
-> > https://godbolt.org/z/7T8nbH
-> >
-> > That's already a tall order of constraints, so it's understandable
-> > that the compiler would just error likely during instruction
-> > selection, but was eventually taught how to solve such constraints.
-> >
-> > > >
-> > > > While GPF observed on clang builds seem to be fixed.
-> >
-> > Thanks for the report.  Your testing these patches is invaluable, Shirish!
-> >
-> > >
-> > > Ok, so it seems that gcc insists on having at least 2^4 bytes stack
-> > > alignment when
-> > > SSE is enabled on x86-64, but does not actually rely on that for
-> > > correct operation
-> > > unless it's using sse2. So -msse always has to be paired with
-> > >  -mpreferred-stack-boundary=3.
-> >
-> > Seemingly only for older versions of GCC, pre 7.1.
-> >
-> > >
-> > > For clang, it sounds like the opposite is true: when passing 16 byte
-> > > stack alignment
-> > > and having sse/sse2 enabled, it requires the incoming stack to be 16
-> > > byte aligned,
-> >
-> > I don't think it requires the incoming stack to be 16B aligned for
-> > sse2, I think it requires the incoming and current stack alignment to
-> > match. Today it does not, which is why we observe GPFs.
-> >
-> > > but passing 8 byte alignment makes it do the right thing.
-> > >
-> > > So, should we just always pass $(call cc-option, -mpreferred-stack-boundary=4)
-> > > to get the desired outcome on both?
-> >
-> > Hmmm...I would have liked to remove it outright, as it is an ABI
-> > mismatch that is likely to result in instability and non-fun-to-debug
-> > runtime issues in the future.  I suspect my patch does work for GCC
-> > 7.1+.  The question is: Do we want to either:
-> > 1. mark AMDGPU broken for GCC < 7.1, or
-> > 2. continue supporting it via stack alignment mismatch?
-> >
-> > 2 is brittle, and may break at any point in the future, but if it's
-> > working for someone it does make me feel bad to outright disable it.
-> > What I'd image 2 looks like is (psuedo code in a Makefile):
->
-> Well, it's been working as is for years now, at least with gcc, so I'd
-> hate to break that.
+On Tue, Oct 15, 2019 at 11:05:56AM -0700, Nick Desaulniers wrote:
+> Hmmm...I would have liked to remove it outright, as it is an ABI
+> mismatch that is likely to result in instability and non-fun-to-debug
+> runtime issues in the future.  I suspect my patch does work for GCC
+> 7.1+.  The question is: Do we want to either:
+> 1. mark AMDGPU broken for GCC < 7.1, or
+> 2. continue supporting it via stack alignment mismatch?
+> 
+> 2 is brittle, and may break at any point in the future, but if it's
+> working for someone it does make me feel bad to outright disable it.
+> What I'd image 2 looks like is (psuedo code in a Makefile):
+> 
+> if CC_IS_GCC && GCC_VERSION < 7.1:
+>   set stack alignment to 16B and hope for the best
+> 
+> So my diff would be amended to keep the stack alignment flags, but
+> only to support GCC < 7.1.  And that assumes my change compiles with
+> GCC 7.1+. (Looks like it does for me locally with GCC 8.3, but I would
+> feel even more confident if someone with hardware to test on and GCC
+> 7.1+ could boot test).
+> -- 
+> Thanks,
+> ~Nick Desaulniers
 
-Ok, I'm happy to leave that as is for GCC, then.  Would you prefer I
-modify it for GCC >7.1 or just leave it alone (maybe I'll add a
-comment about *why* it's done for GCC)? Would you prefer 1 patch or 4?
+If we do keep it, would adding -mstackrealign make it more robust?
+That's simple and will only add the alignment to functions that require
+16-byte alignment (at least on gcc).
 
->
-> Alex
->
-> >
-> > if CC_IS_GCC && GCC_VERSION < 7.1:
-> >   set stack alignment to 16B and hope for the best
+Alternative is to use
+__attribute__((force_align_arg_pointer)) on functions that might be
+called from 8-byte-aligned code.
 
-Ie, this ^
-
-> >
-> > So my diff would be amended to keep the stack alignment flags, but
-> > only to support GCC < 7.1.  And that assumes my change compiles with
-> > GCC 7.1+. (Looks like it does for me locally with GCC 8.3, but I would
-> > feel even more confident if someone with hardware to test on and GCC
-> > 7.1+ could boot test).
-
--- 
-Thanks,
-~Nick Desaulniers
+It looks like -mstackrealign should work from gcc 5.3 onwards.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdme6g7rr%2BAkJi6Do6Rzq7zYAJm%2BspQaBF3cwgKU1H2ThQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191015202636.GA1671072%40rani.
