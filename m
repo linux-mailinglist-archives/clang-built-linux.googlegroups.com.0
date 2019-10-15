@@ -1,128 +1,181 @@
-Return-Path: <clang-built-linux+bncBAABBWFTSXWQKGQETLMESVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDZ7HIWT7AJRBZPASXWQKGQEMFNBE3Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-f58.google.com (mail-ed1-f58.google.com [209.85.208.58])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1A0D0D6EAF
-	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Oct 2019 07:32:09 +0200 (CEST)
-Received: by mail-ed1-f58.google.com with SMTP id l5sf11468794edr.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 14 Oct 2019 22:32:09 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571117528; cv=pass;
+Received: from mail-qk1-x73f.google.com (mail-qk1-x73f.google.com [IPv6:2607:f8b0:4864:20::73f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 94486D6FE2
+	for <lists+clang-built-linux@lfdr.de>; Tue, 15 Oct 2019 09:08:22 +0200 (CEST)
+Received: by mail-qk1-x73f.google.com with SMTP id x62sf19307575qkb.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 15 Oct 2019 00:08:22 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1571123301; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QFb/MEwNglvGIYqS/xlmtQ+kJAKqW/a7mcwKgXgMDhwJitsJzSCfRCm4buZzi94Y2Z
-         y3nrGreB3xlOyJsmWrfrSiOK0p5cjdk/C+peQPVXXYPumGe1/AGvICX3kYlcDPnwa2cj
-         0X5J/EgTUdKaogmTP3BeINx9/VN1eetX3xQwLwpL4/MyF4aatwW7HeujmQcdHi820+Te
-         jI6xc+mKEHxbWdo2XYQpWuAK0ZbhrkgGFS4MY2Yvg8SGARB3lOVKOSH84DH4IbSGjxsj
-         h4qsEHFBs70N8iT8j/3vRjtFKcXqawaSSs3j03ne0UFBuzc5nZ21ZVSV9M13hFia44Nn
-         Pj3w==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=w4bNbFekmonz1JjQjLz618wTB5D/PBfo/OAVHltDfMs+JqJMfsXI388PY5VTQIpNfg
+         CBSoD8TUbVSObk6jjFm7wDkGd0z3ZUTAyUPkPQNBd2bVX/Tracn4rh0DNk4pgK0H6Psk
+         nTZD3zWmnW2k3fWzK7z2PaZk01DrqNLpf+8iQUGEPd3DF3sdhdochjEkLcWzBFIXEdqi
+         3kxcb/huCgTR7crATySFlokpC/7Eo1Zu1zXfriBgGL0GD0kIv3A+Cr6iitaMVS/uZ3zm
+         Uus7dNtFXjg6oacWKjzwC7b7QDDmKE9viJLxLxK3n/EzkNo2YaTB89iEJcaQG2Z5D5dC
+         Gmow==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
-         :message-id:mime-version:references:in-reply-to:cc:subject:to
-         :reply-to:sender:from:date;
-        bh=LBP5KL45X9WkWWUx5axOX6m+ZC0XGWe9Hdj8ZYMtYRY=;
-        b=eRaE3IsxsM71LDy0WHN2AM/e7NEwhF7vMxFnYXr0/C5UjvFQ4VL7Y9AWG7157dNdkn
-         /pJHlQ6Sxv2SxtGvZw7o24UbY2Ne8f/ZsRcHr5yVve0pe35c94avYe7HeSOudlDuL/Ao
-         QIJxO3sT7oSTfxs3RbS3CweQX/d43kKY6O6m9CP6UFX00JHm1f7nUvIBHTRd1SgVBf/u
-         v+u8MWMG+eIPZnf3KrF/pT7abZPRpImmWYbIn7S9EIMy/9D0Na08F33mHEHA/trL/uJA
-         0rDFrg+MVvWHaKpSU3ixufGPZSWMqvCPZBwHnfNV4jOAJ9PLSLxO3HFmhW+x+qRXifIb
-         7/oA==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=9S0whuR/E32STaPUR6b0pRGqglrRzVyxxN1L+T1WhMU=;
+        b=B9W6Beg6hlJF7YM9VZPSBeA3QlLSSYbPyEJ3g44iiJwVupy7AmeLZwrfjEA/KRPPdy
+         J037F00jXTWF37sX3FtblaK/CnHWqdYv2JGxTG5ZNi2fmzHgDCmKmCbLqHUAHBmtsuE2
+         35EP5m1hUZoqHL1Xbq65mdhUJSDWWyYXb6gpneEIC7FaCHv2PljpmWudqWpMSpmaAXQK
+         NrobrxaruCuZ1+pjCBeQ6J81q0M7Y1wGF6Q1Alu2Clewcn4TnD/KwS9rrE74HZKJur+d
+         qB9pg71blhTqu9ps9STqhmhMMpXrOiQbnUltaAi/it00wKzmYFqwR6VqIsxc5gcTRbIg
+         H+lQ==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector2-amdcloud-onmicrosoft-com header.b=amATFtbq;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.80.73 is neither permitted nor denied by best guess record for domain of shirish.s@amd.com) smtp.mailfrom=Shirish.S@amd.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=9S0whuR/E32STaPUR6b0pRGqglrRzVyxxN1L+T1WhMU=;
+        b=Qz1fmLfaRGes8RbTRCg4lXdVfV80dWboD+jjAwqnrnwk5Iz9cMJ76VorDGbs7uJWYc
+         5wgjYPCVlfif+zyfJEcJw7BdBfk4eeCRwjXRdlGj2603xQ8B1N42M6+K7Bf0MPlerzj3
+         Jvq0nb94BCnQ3S46toGHhDCfz0ReejeDk1D2wGBVOVy9lYOkyaxSs55zM2qctO8bMG9k
+         YiYixxadE2jvkL8343bhrEBBU/heU/Wm22do6JNsxY3oyn7IAL8raM3tL/x5LryyLS+P
+         U8CK/vQYqcTzgjuUdyP/eSfwR4wZ6cGHw/amCu9qPN7o2yI7zhtDuW6Ai2UHCxvp4zos
+         b7UA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:sender:reply-to:to:subject:cc
-         :in-reply-to:references:mime-version:message-id:robot-id
-         :robot-unsubscribe:precedence:x-original-sender
-         :x-original-authentication-results:mailing-list:list-id
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=LBP5KL45X9WkWWUx5axOX6m+ZC0XGWe9Hdj8ZYMtYRY=;
-        b=WmUNVJepa7rNa5uoJlx0stYuLABVKeC2GaUHi8UZYdhBpTi7610EZUlSu6N5T94hLW
-         Gp8e4ewfyI9fgYtyriDjlY4IGdgVPNA/Vfyyj0JGwmGeojPQWVukK9mkNXrzUGAy8kcU
-         xRz6HF+Xh/rWa/DdnwDAqemesSqPHVvru3XoeboPMOouIX4S10mdrHUe5Xi6FjDvOZ3v
-         fQ96HZDdzCIH0kGbZZMorS/mTFzs6euzC01LwleakO7iGVXqEmO+PbPaE5fz3sUe6qOM
-         rffW2RCJdAbKtcY27WTQ8uRXXsTPALEFGRhJqoTnTZB1LMs9r3xo+uxJh+aGb6/PmZMu
-         RxAg==
-X-Gm-Message-State: APjAAAV26cJaHdvUPT4aXSV4XhIzVd9N2kkFoesJ/SB/vx94X7YHYZG1
-	VV3pDELEFEW9JLOLsWsiiJM=
-X-Google-Smtp-Source: APXvYqzffG3sufRiVgruo1wn8a6EeBElERnZ42kUOLxWItQX+WcmVq1/mhV2VtI+vG+iR8uHNelH0Q==
-X-Received: by 2002:a50:f742:: with SMTP id j2mr31398796edn.253.1571117528765;
-        Mon, 14 Oct 2019 22:32:08 -0700 (PDT)
+        bh=9S0whuR/E32STaPUR6b0pRGqglrRzVyxxN1L+T1WhMU=;
+        b=bD5YTPFE+iqAF2qk+5tauvJnL58pyHBpTp7psBvzqF5figoe1BiBi7cTjjNYeetGBt
+         9XTw6VeFSmq5oSwBXiaeJVoaqHnMbpMcTls3nJYuikQKjd1keWdXYJWOs/qwNpztDg4n
+         IYwztUBQ6KURRsjDjZamS1KBJHAk7YlSZ8Sy2vO+GbtxDCEDp54F5mdtdWPQ41hAL1Re
+         ArF+lUJk+SrIr+NnSpvizFI4aelf+pum7vmQFiZRU+6p1WcVpSoaLedrCe47X1eoiiWg
+         8qVLLosyASRdhtAmkU5LZXFG8ezCQUV2OCGTkgJFurFZIdiQzkBs05CjHW0BXXUSueRP
+         7n6w==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAUxGXSTneLX4SLKqT292kURe/Fp/juya+7R4c0203o/YqiZ0rnY
+	nrdpYi7masPtLjpXRBaJ/mA=
+X-Google-Smtp-Source: APXvYqwDzAg+ymd8X9uyrl1XPyTGuS+ZoHq5yoj68BWNd0zhqqizn2lAySgPYYxMDoY4js7dl1E7vg==
+X-Received: by 2002:ad4:408c:: with SMTP id l12mr33700851qvp.210.1571123301448;
+        Tue, 15 Oct 2019 00:08:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:a585:: with SMTP id a5ls3914453edc.11.gmail; Mon, 14 Oct
- 2019 22:32:08 -0700 (PDT)
-X-Received: by 2002:a50:c90d:: with SMTP id o13mr31592569edh.85.1571117528399;
-        Mon, 14 Oct 2019 22:32:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571117528; cv=none;
+Received: by 2002:a37:2e06:: with SMTP id u6ls5146571qkh.5.gmail; Tue, 15 Oct
+ 2019 00:08:20 -0700 (PDT)
+X-Received: by 2002:a05:620a:14ae:: with SMTP id x14mr34891363qkj.326.1571123300799;
+        Tue, 15 Oct 2019 00:08:20 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571123300; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zwFEezMhGLFpteUSBcX8OFQEEqUYbz5peEkwn2vOYQbDzIc5U4t4fpzo4tN9HuccNd
-         sev2XiQyQvwosbrdoygCOi019lC2jvINDlF19cqAY3mMyCoftmOsqB5Je3wac+VxNRiT
-         4CjAemT+HYGDI1PVprvpglBO3Fh7TKrWip1j/259t0YjYDN7XjKCq1KogcFmwt8UZfrB
-         oDkXcBXXz345jAC2kW6w4h6cdZGGg/9HOOzFjt+Vupo6lk5pIlw47v+P3SoQY0Ayot/k
-         Z74AzcWbDszJ0bgGfuBMa6lkGlY5/MHwDMfG3GYxXC7biQE4G17DLbPrPRAZiplPz4dE
-         ghkw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
-         :message-id:mime-version:references:in-reply-to:cc:subject:to
-         :reply-to:sender:from:date;
-        bh=eyY5b5Be+HqIR3zJVMCNorjGnk4J0mJ24oQRV3hpohI=;
-        b=yf+Md+RwxtAdkQFuHayNIZwkmEFdznMLgo9YDTWr+84X+6Sqslb4GtGl+/PUjQzUtR
-         b6Q0Oa+tkQLApxZIiRaZkByYnbboUosxK1fyp+Joe9awvI4p8iqnllafzkM8KktwdhyS
-         6EJSfZvwSEr+ljp6l5wkbK8lD3SW9u1NyN5cl6pd701qng9hO1eIFk1BdsHTIM7A0Fcx
-         lYConIHXEHoKNboIKAllteytV7ZtiizvTykBBdZOG6yP+KcZlYYBjeGCTdd2k3Uophb3
-         JJbqOEjNWxb6fiy2xlJccW6lEHxyV7ijKg/vqlbXYokrd90g1VfMm7IDR8T53nGwHa6W
-         ccFw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
-Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id c31si827124edb.0.2019.10.14.22.32.08
+        b=DWXDTTz6Hr6mAaJkBGTzB0Gb5vlkmNjJ67YkqBMjpfYnbjeEguqurWhX7TM+qroEbs
+         N9LDqm/jBlGBS3AVWxJwlsHF6+62fY0Q7GcbKy0Jrcm+UOfFF2OuOsLZxQ60b9OIjIci
+         CHBD30RhkGaXMhS2bdZJ+oG0U8RmumNQvgVx3HdI2JPCkAGvoo8ppY2QsObppsT2u1xt
+         N0/Eg+vm1NFEjJaZhUzbbSYftWaIH6J9VQxUXNYAQ6lJiCdR8LINGmCJ4s5XzhpPKmMO
+         TPnKxjq9rVIa6V5WWSZOb3SdwyDY7Ahe/FNSEc9bUqvkeXm2QgXh0Tpsc16MpcwmznVy
+         1U4Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-language:accept-language:in-reply-to
+         :references:message-id:date:thread-index:thread-topic:subject:cc:to
+         :from:dkim-signature;
+        bh=FzX8nntndpVFVXhux9JrI6FqueVu0QtbhToSul5Y5GA=;
+        b=WEQF208C62mKBdhAdiEohSdSsxVnbv5tFAGDicr4XYhqfNcAnN4RbSNOvDsTM8C/7O
+         DcWVf+vzzqD13w4HSFOXzZm6Q90TnqU8YEadeFSfdHRDwzfXTFS/8Kv0GyZulszdwYaN
+         fnIZiXU21DA1VRyc+6BoGUIPcLzz5CO6+eDqqvGbnlDDJLHYYXw8YH0T+uT6DsSnYoac
+         Mf13fRIrKCpx7DqkJb+cg6OTxW6ELaBw1T+VcD7jQKhhtPV2tsj03CUCCS1Vtcim/Czt
+         OkE2wQKi+z/MYTN3vmXxvO5Loj5KIZDjvE6L1Lnf/VQeVL3P/xf8cRUNFd2hToL3/sCn
+         0s5A==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector2-amdcloud-onmicrosoft-com header.b=amATFtbq;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.80.73 is neither permitted nor denied by best guess record for domain of shirish.s@amd.com) smtp.mailfrom=Shirish.S@amd.com
+Received: from NAM03-DM3-obe.outbound.protection.outlook.com (mail-eopbgr800073.outbound.protection.outlook.com. [40.107.80.73])
+        by gmr-mx.google.com with ESMTPS id v7si126413qkf.5.2019.10.15.00.08.20
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Mon, 14 Oct 2019 22:32:08 -0700 (PDT)
-Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
-Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
-	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
-	(Exim 4.80)
-	(envelope-from <tip-bot2@linutronix.de>)
-	id 1iKFR5-0000Cc-3U; Tue, 15 Oct 2019 07:31:55 +0200
-Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 4F5AA1C03AB;
-	Tue, 15 Oct 2019 07:31:42 +0200 (CEST)
-Date: Tue, 15 Oct 2019 05:31:42 -0000
-From: "tip-bot2 for Ian Rogers" <tip-bot2@linutronix.de>
-Sender: tip-bot2@linutronix.de
-Reply-to: linux-kernel@vger.kernel.org
-To: linux-tip-commits@vger.kernel.org
-Subject: [tip: perf/core] perf tools: Avoid 'sample_reg_masks' being const + weak
-Cc: Ian Rogers <irogers@google.com>,
- Nick Desaulniers <ndesaulniers@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Alexey Budankov <alexey.budankov@linux.intel.com>,
- Andi Kleen <ak@linux.intel.com>, clang-built-linux@googlegroups.com,
- Guo Ren <guoren@kernel.org>, Kan Liang <kan.liang@linux.intel.com>,
- linux-riscv@lists.infradead.org, Mao Han <han_mao@c-sky.com>,
- Mark Rutland <mark.rutland@arm.com>, Namhyung Kim <namhyung@kernel.org>,
- Palmer Dabbelt <palmer@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, Stephane Eranian <eranian@google.com>,
- Arnaldo Carvalho de Melo <acme@redhat.com>, Ingo Molnar <mingo@kernel.org>,
- Borislav Petkov <bp@alien8.de>, linux-kernel@vger.kernel.org
-In-Reply-To: <20191001003623.255186-1-irogers@google.com>
-References: <20191001003623.255186-1-irogers@google.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Tue, 15 Oct 2019 00:08:20 -0700 (PDT)
+Received-SPF: neutral (google.com: 40.107.80.73 is neither permitted nor denied by best guess record for domain of shirish.s@amd.com) client-ip=40.107.80.73;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=b1wHQ+sEFUAO55e8BokJXDw1/fCl+00++0CCOafmoExoAnETPUg0milLEnTdNoAVdd7QAl804o8tdRY8ci0tp3H9BciOZskfqTfo1k/DspViTgRATsSuF1mCj77r/cBsFYoHW7fChAMxEotRdoXuLXpvDtgsnlZnKD43mvWWPAWbIGEc5U6X976xlEh9GN9cPExr1nglVeNtdJGIALRrsJV6rCkFV98hPyW7a+4w4hbsBIryyC87d+h+wq5kwvdt64RFWI+IdTDE+jkKwm14MbgL/dY1gVN/ZTNEOsQRg+w6kWUsyGV91aYqEKQRl03jog1uoqXTzREC9fxXOb1l4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FzX8nntndpVFVXhux9JrI6FqueVu0QtbhToSul5Y5GA=;
+ b=dk/7+7ecYr0TS2bsb85rLWnT62eljyvDY7ZpcOEp/pzPObhN4taSuQG26wiZPBUwMdTbF0fO3FNONckkH5RvrhaHmPmYkoznJ3wsy76cQ2mf03cchpQEvpzIcDFHcZ2kUtQCAUhW3kVRcLVB4ggeZDFfYTy2gzbgMe+ssEva/kH9XRH3QbkJ+SD4XREDCBgP6iis9zGesWBzCvQIzGzXrBWUcMU0TOiXq3LnpI6UyLgzupvGvZmKN0IohDJ9Lce5Ba0MkImQcmOf6t6mY3u2FWjfNomNBnd2wE7xf7o2w2wgY7J+lhbs6x+Ch3jiS1h3U1jhAX52SKVLEG8Je667YQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+Received: from MN2PR12MB3248.namprd12.prod.outlook.com (20.179.80.74) by
+ MN2PR12MB4254.namprd12.prod.outlook.com (10.255.224.209) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2347.18; Tue, 15 Oct 2019 07:08:19 +0000
+Received: from MN2PR12MB3248.namprd12.prod.outlook.com
+ ([fe80::dd77:dfe4:1913:9d7e]) by MN2PR12MB3248.namprd12.prod.outlook.com
+ ([fe80::dd77:dfe4:1913:9d7e%4]) with mapi id 15.20.2347.023; Tue, 15 Oct 2019
+ 07:08:19 +0000
+From: "S, Shirish" <sshankar@amd.com>
+To: Nick Desaulniers <ndesaulniers@google.com>, "Wentland, Harry"
+	<Harry.Wentland@amd.com>, "Deucher, Alexander" <Alexander.Deucher@amd.com>
+CC: "yshuiv7@gmail.com" <yshuiv7@gmail.com>, "andrew.cooper3@citrix.com"
+	<andrew.cooper3@citrix.com>, Arnd Bergmann <arnd@arndb.de>, clang-built-linux
+	<clang-built-linux@googlegroups.com>, Matthias Kaehlcke <mka@google.com>, "S,
+ Shirish" <Shirish.S@amd.com>, "Zhou, David(ChunMing)" <David1.Zhou@amd.com>,
+	"Koenig, Christian" <Christian.Koenig@amd.com>, amd-gfx list
+	<amd-gfx@lists.freedesktop.org>, LKML <linux-kernel@vger.kernel.org>
+Subject: Re: AMDGPU and 16B stack alignment
+Thread-Topic: AMDGPU and 16B stack alignment
+Thread-Index: AQHVgt3apwMg5pas7kOX+VanLgXpgqdbSgsA
+Date: Tue, 15 Oct 2019 07:08:19 +0000
+Message-ID: <9e4d6378-5032-8521-13a9-d9d9519d07de@amd.com>
+References: <CAKwvOdnDVe-dahZGnRtzMrx-AH_C+2Lf20qjFQHNtn9xh=Okzw@mail.gmail.com>
+In-Reply-To: <CAKwvOdnDVe-dahZGnRtzMrx-AH_C+2Lf20qjFQHNtn9xh=Okzw@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: MA1PR01CA0094.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a00::34)
+ To MN2PR12MB3248.namprd12.prod.outlook.com (2603:10b6:208:a9::10)
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [165.204.157.251]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 01614867-cf8a-4c97-9405-08d7513e74bc
+x-ms-office365-filtering-ht: Tenant
+x-ms-traffictypediagnostic: MN2PR12MB4254:
+x-ms-exchange-purlcount: 1
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <MN2PR12MB4254A4B7B95E47CBD266D6A4F2930@MN2PR12MB4254.namprd12.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:1417;
+x-forefront-prvs: 01917B1794
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(136003)(39860400002)(376002)(366004)(396003)(346002)(189003)(199004)(2616005)(66066001)(6636002)(66556008)(66476007)(64756008)(66946007)(11346002)(66446008)(71200400001)(71190400001)(31686004)(81166006)(8676002)(8936002)(81156014)(476003)(186003)(102836004)(486006)(26005)(2906002)(446003)(7736002)(110136005)(99286004)(54906003)(5660300002)(316002)(6506007)(36756003)(76176011)(256004)(3846002)(31696002)(53546011)(386003)(52116002)(6116002)(6486002)(229853002)(606006)(25786009)(6512007)(54896002)(6306002)(236005)(4326008)(6436002)(6246003)(966005)(14454004)(478600001);DIR:OUT;SFP:1101;SCL:1;SRVR:MN2PR12MB4254;H:MN2PR12MB3248.namprd12.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;MX:1;A:1;
+received-spf: None (protection.outlook.com: amd.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 1IFkOUblArKgJzzr47qz+j+rHvHIF/oSIP4OoLqs9SGKKUcJMmdqDcFM/dJn3vMbtAQteWO54T/Hvduz0LyaEvY2saY0Y9rPi4lFjFsv+Z3quzFTu85jvI5KRR0hVTzxz0y1Z0s1fMNVx8Z6d8c/YU+e90jUfZ9iTYznt0qGvD23vMRIbwMl9VFRirnXWAiXgczaiC7iKSXATYzbg4WKKBFd2LXtsrCi1OZsIMKjY6vOYNoTZJuFd3BrQpVkeUDnd0K6r5uIwIuwxNm6+Y/xiIQ1MJt/nkit+fKIUgM8jVa2XonFdpWzkaJBQAA6Y8gkdILcCwCK3MYRJyGKRgHmC761F8Vzycbl5wVFqydOc5ZwUHD//GynwWqpAKHWiHbd9AHRERG0YFG67xbx5Lgov21fwOf3n412fHEHUm9Nej28v4zmgG2L6qG4PBC5dI/QpW26yh7U7M0Zb66Vw/gsrw==
+Content-Type: multipart/alternative;
+	boundary="_000_9e4d63785032852113a9d9d9519d07deamdcom_"
 MIME-Version: 1.0
-Message-ID: <157111750226.12254.8803927521747525091.tip-bot2@tip-bot2>
-X-Mailer: tip-git-log-daemon
-Robot-ID: <tip-bot2.linutronix.de>
-Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 01614867-cf8a-4c97-9405-08d7513e74bc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Oct 2019 07:08:19.1578
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: fcEKODsyV8Z8jG5NmIRrohtrDBKrVLlgTBlujwOHmalwUfuZAJ/KZPPb9877umfbzIRqq0MpFKy4S8OuPfmjSw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4254
+X-Original-Sender: shirish.s@amd.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@amdcloud.onmicrosoft.com header.s=selector2-amdcloud-onmicrosoft-com
+ header.b=amATFtbq;       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass
+ dkdomain=amd.com dmarc=pass fromdomain=amd.com);       spf=neutral
+ (google.com: 40.107.80.73 is neither permitted nor denied by best guess
+ record for domain of shirish.s@amd.com) smtp.mailfrom=Shirish.S@amd.com
 Precedence: list
-Content-Type: text/plain; charset="UTF-8"
-X-Linutronix-Spam-Score: -1.0
-X-Linutronix-Spam-Level: -
-X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
-X-Original-Sender: tip-bot2@linutronix.de
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: best guess record for domain of tip-bot2@linutronix.de
- designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
 X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
@@ -134,281 +187,181 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The following commit has been merged into the perf/core branch of tip:
+--_000_9e4d63785032852113a9d9d9519d07deamdcom_
+Content-Type: text/plain; charset="UTF-8"
 
-Commit-ID:     42466b9f29b415c254dc4c2f4618e2a96951a406
-Gitweb:        https://git.kernel.org/tip/42466b9f29b415c254dc4c2f4618e2a96951a406
-Author:        Ian Rogers <irogers@google.com>
-AuthorDate:    Mon, 30 Sep 2019 17:36:23 -07:00
-Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
-CommitterDate: Thu, 10 Oct 2019 09:29:33 -03:00
+Hi Nick,
 
-perf tools: Avoid 'sample_reg_masks' being const + weak
+On 10/15/2019 3:52 AM, Nick Desaulniers wrote:
 
-Being const + weak breaks with some compilers that constant-propagate
-from the weak symbol. This behavior is outside of the specification, but
-in LLVM is chosen to match GCC's behavior.
+Hello!
 
-LLVM's implementation was set in this patch:
+The x86 kernel is compiled with an 8B stack alignment via
+    `-mpreferred-stack-boundary=3` for GCC since 3.6-rc1 via
+    commit d9b0cde91c60 ("x86-64, gcc: Use
+-mpreferred-stack-boundary=3 if supported")
+    or `-mstack-alignment=8` for Clang. Parts of the AMDGPU driver are
+    compiled with 16B stack alignment.
 
-  https://github.com/llvm/llvm-project/commit/f49573d1eedcf1e44893d5a062ac1b72c8419646
+    Generally, the stack alignment is part of the ABI. Linking together two
+    different translation units with differing stack alignment is dangerous,
+    particularly when the translation unit with the smaller stack alignment
+    makes calls into the translation unit with the larger stack alignment.
+    While 8B aligned stacks are sometimes also 16B aligned, they are not
+    always.
 
-A const + weak symbol is set to be weak_odr:
+    Multiple users have reported General Protection Faults (GPF) when using
+    the AMDGPU driver compiled with Clang. Clang is placing objects in stack
+    slots assuming the stack is 16B aligned, and selecting instructions that
+    require 16B aligned memory operands. At runtime, syscalls handling 8B
+    stack aligned code calls into code that assumes 16B stack alignment.
+    When the stack is a multiple of 8B but not 16B, these instructions
+    result in a GPF.
 
-  https://llvm.org/docs/LangRef.html
+    GCC doesn't select instructions with alignment requirements, so the GPFs
+    aren't observed, but it is still considered an ABI breakage to mix and
+    match stack alignment.
 
-ODR is one definition rule, and given there is one constant definition
-constant-propagation is possible. It is possible to get this code to
-miscompile with LLVM when applying link time optimization. As compilers
-become more aggressive, this is likely to break in more instances.
+I have patches that basically remove -mpreferred-stack-boundary=4 and
+-mstack-alignment=16 from AMDGPU:
+https://github.com/ClangBuiltLinux/linux/issues/735#issuecomment-541247601
+Yuxuan has tested with Clang and GCC and reported it fixes the GPF's observed.
 
-Move the definition of sample_reg_masks to the conditional part of
-perf_regs.h and guard usage with HAVE_PERF_REGS_SUPPORT. This avoids the
-weak symbol.
+My gcc build fails with below errors:
 
-Fix an issue when HAVE_PERF_REGS_SUPPORT isn't defined from patch v1.
-In v3, add perf_regs.c for architectures that HAVE_PERF_REGS_SUPPORT but
-don't declare sample_regs_masks.
+dcn_calcs.c:1:0: error: -mpreferred-stack-boundary=3 is not between 4 and 12
 
-Further notes:
+dcn_calc_math.c:1:0: error: -mpreferred-stack-boundary=3 is not between 4 and 12
 
-Jiri asked:
+While GPF observed on clang builds seem to be fixed.
 
-  "Is this just a precaution or you actualy saw some breakage?"
+--
+Regards,
+Shirish S
 
-Ian answered:
 
-  "We saw a breakage with clang with thinlto enabled for linking. Our
-   compiler team had recently seen, and were surprised by, a similar issue
-   and were able to dig out the weak ODR issue."
 
-Signed-off-by: Ian Rogers <irogers@google.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Acked-by: Jiri Olsa <jolsa@kernel.org>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Alexey Budankov <alexey.budankov@linux.intel.com>
-Cc: Andi Kleen <ak@linux.intel.com>
-Cc: clang-built-linux@googlegroups.com
-Cc: Guo Ren <guoren@kernel.org>
-Cc: Kan Liang <kan.liang@linux.intel.com>
-Cc: linux-riscv@lists.infradead.org
-Cc: Mao Han <han_mao@c-sky.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Namhyung Kim <namhyung@kernel.org>
-Cc: Palmer Dabbelt <palmer@sifive.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Stephane Eranian <eranian@google.com>
-Link: http://lore.kernel.org/lkml/20191001003623.255186-1-irogers@google.com
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
----
- tools/perf/arch/arm/util/Build         | 2 ++
- tools/perf/arch/arm/util/perf_regs.c   | 6 ++++++
- tools/perf/arch/arm64/util/Build       | 1 +
- tools/perf/arch/arm64/util/perf_regs.c | 6 ++++++
- tools/perf/arch/csky/util/Build        | 2 ++
- tools/perf/arch/csky/util/perf_regs.c  | 6 ++++++
- tools/perf/arch/riscv/util/Build       | 2 ++
- tools/perf/arch/riscv/util/perf_regs.c | 6 ++++++
- tools/perf/arch/s390/util/Build        | 1 +
- tools/perf/arch/s390/util/perf_regs.c  | 6 ++++++
- tools/perf/util/parse-regs-options.c   | 8 ++++++--
- tools/perf/util/perf_regs.c            | 4 ----
- tools/perf/util/perf_regs.h            | 4 ++--
- 13 files changed, 46 insertions(+), 8 deletions(-)
- create mode 100644 tools/perf/arch/arm/util/perf_regs.c
- create mode 100644 tools/perf/arch/arm64/util/perf_regs.c
- create mode 100644 tools/perf/arch/csky/util/perf_regs.c
- create mode 100644 tools/perf/arch/riscv/util/perf_regs.c
- create mode 100644 tools/perf/arch/s390/util/perf_regs.c
+I've split the patch into 4; same commit message but different Fixes
+tags so that they backport to stable on finer granularity. 2 questions
+BEFORE I send the series:
 
-diff --git a/tools/perf/arch/arm/util/Build b/tools/perf/arch/arm/util/Build
-index 296f0ea..37fc637 100644
---- a/tools/perf/arch/arm/util/Build
-+++ b/tools/perf/arch/arm/util/Build
-@@ -1,3 +1,5 @@
-+perf-y += perf_regs.o
-+
- perf-$(CONFIG_DWARF) += dwarf-regs.o
- 
- perf-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
-diff --git a/tools/perf/arch/arm/util/perf_regs.c b/tools/perf/arch/arm/util/perf_regs.c
-new file mode 100644
-index 0000000..2864e2e
---- /dev/null
-+++ b/tools/perf/arch/arm/util/perf_regs.c
-@@ -0,0 +1,6 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "../../util/perf_regs.h"
-+
-+const struct sample_reg sample_reg_masks[] = {
-+	SMPL_REG_END
-+};
-diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
-index 3cde540..0a7782c 100644
---- a/tools/perf/arch/arm64/util/Build
-+++ b/tools/perf/arch/arm64/util/Build
-@@ -1,4 +1,5 @@
- perf-y += header.o
-+perf-y += perf_regs.o
- perf-y += sym-handling.o
- perf-$(CONFIG_DWARF)     += dwarf-regs.o
- perf-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
-diff --git a/tools/perf/arch/arm64/util/perf_regs.c b/tools/perf/arch/arm64/util/perf_regs.c
-new file mode 100644
-index 0000000..2864e2e
---- /dev/null
-+++ b/tools/perf/arch/arm64/util/perf_regs.c
-@@ -0,0 +1,6 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "../../util/perf_regs.h"
-+
-+const struct sample_reg sample_reg_masks[] = {
-+	SMPL_REG_END
-+};
-diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/util/Build
-index 1160bb2..7d30501 100644
---- a/tools/perf/arch/csky/util/Build
-+++ b/tools/perf/arch/csky/util/Build
-@@ -1,2 +1,4 @@
-+perf-y += perf_regs.o
-+
- perf-$(CONFIG_DWARF) += dwarf-regs.o
- perf-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/csky/util/perf_regs.c b/tools/perf/arch/csky/util/perf_regs.c
-new file mode 100644
-index 0000000..2864e2e
---- /dev/null
-+++ b/tools/perf/arch/csky/util/perf_regs.c
-@@ -0,0 +1,6 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "../../util/perf_regs.h"
-+
-+const struct sample_reg sample_reg_masks[] = {
-+	SMPL_REG_END
-+};
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-index 1160bb2..7d30501 100644
---- a/tools/perf/arch/riscv/util/Build
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -1,2 +1,4 @@
-+perf-y += perf_regs.o
-+
- perf-$(CONFIG_DWARF) += dwarf-regs.o
- perf-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/riscv/util/perf_regs.c b/tools/perf/arch/riscv/util/perf_regs.c
-new file mode 100644
-index 0000000..2864e2e
---- /dev/null
-+++ b/tools/perf/arch/riscv/util/perf_regs.c
-@@ -0,0 +1,6 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "../../util/perf_regs.h"
-+
-+const struct sample_reg sample_reg_masks[] = {
-+	SMPL_REG_END
-+};
-diff --git a/tools/perf/arch/s390/util/Build b/tools/perf/arch/s390/util/Build
-index 22797f0..3d9d0f4 100644
---- a/tools/perf/arch/s390/util/Build
-+++ b/tools/perf/arch/s390/util/Build
-@@ -1,5 +1,6 @@
- perf-y += header.o
- perf-y += kvm-stat.o
-+perf-y += perf_regs.o
- 
- perf-$(CONFIG_DWARF) += dwarf-regs.o
- perf-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/s390/util/perf_regs.c b/tools/perf/arch/s390/util/perf_regs.c
-new file mode 100644
-index 0000000..2864e2e
---- /dev/null
-+++ b/tools/perf/arch/s390/util/perf_regs.c
-@@ -0,0 +1,6 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "../../util/perf_regs.h"
-+
-+const struct sample_reg sample_reg_masks[] = {
-+	SMPL_REG_END
-+};
-diff --git a/tools/perf/util/parse-regs-options.c b/tools/perf/util/parse-regs-options.c
-index ef46c28..e687497 100644
---- a/tools/perf/util/parse-regs-options.c
-+++ b/tools/perf/util/parse-regs-options.c
-@@ -13,7 +13,7 @@ static int
- __parse_regs(const struct option *opt, const char *str, int unset, bool intr)
- {
- 	uint64_t *mode = (uint64_t *)opt->value;
--	const struct sample_reg *r;
-+	const struct sample_reg *r = NULL;
- 	char *s, *os = NULL, *p;
- 	int ret = -1;
- 	uint64_t mask;
-@@ -46,19 +46,23 @@ __parse_regs(const struct option *opt, const char *str, int unset, bool intr)
- 
- 			if (!strcmp(s, "?")) {
- 				fprintf(stderr, "available registers: ");
-+#ifdef HAVE_PERF_REGS_SUPPORT
- 				for (r = sample_reg_masks; r->name; r++) {
- 					if (r->mask & mask)
- 						fprintf(stderr, "%s ", r->name);
- 				}
-+#endif
- 				fputc('\n', stderr);
- 				/* just printing available regs */
- 				return -1;
- 			}
-+#ifdef HAVE_PERF_REGS_SUPPORT
- 			for (r = sample_reg_masks; r->name; r++) {
- 				if ((r->mask & mask) && !strcasecmp(s, r->name))
- 					break;
- 			}
--			if (!r->name) {
-+#endif
-+			if (!r || !r->name) {
- 				ui__warning("Unknown register \"%s\", check man page or run \"perf record %s?\"\n",
- 					    s, intr ? "-I" : "--user-regs=");
- 				goto error;
-diff --git a/tools/perf/util/perf_regs.c b/tools/perf/util/perf_regs.c
-index 2774cec..5ee47ae 100644
---- a/tools/perf/util/perf_regs.c
-+++ b/tools/perf/util/perf_regs.c
-@@ -3,10 +3,6 @@
- #include "perf_regs.h"
- #include "event.h"
- 
--const struct sample_reg __weak sample_reg_masks[] = {
--	SMPL_REG_END
--};
--
- int __weak arch_sdt_arg_parse_op(char *old_op __maybe_unused,
- 				 char **new_op __maybe_unused)
- {
-diff --git a/tools/perf/util/perf_regs.h b/tools/perf/util/perf_regs.h
-index 47fe34e..e014c2c 100644
---- a/tools/perf/util/perf_regs.h
-+++ b/tools/perf/util/perf_regs.h
-@@ -15,8 +15,6 @@ struct sample_reg {
- #define SMPL_REG2(n, b) { .name = #n, .mask = 3ULL << (b) }
- #define SMPL_REG_END { .name = NULL }
- 
--extern const struct sample_reg sample_reg_masks[];
--
- enum {
- 	SDT_ARG_VALID = 0,
- 	SDT_ARG_SKIP,
-@@ -27,6 +25,8 @@ uint64_t arch__intr_reg_mask(void);
- uint64_t arch__user_reg_mask(void);
- 
- #ifdef HAVE_PERF_REGS_SUPPORT
-+extern const struct sample_reg sample_reg_masks[];
-+
- #include <perf_regs.h>
- 
- #define DWARF_MINIMAL_REGS ((1ULL << PERF_REG_IP) | (1ULL << PERF_REG_SP))
+1. Would you prefer 4 patches with unique `fixes` tags, or 1 patch?
+2. Was there or is there still a good reason for the stack alignment mismatch?
+
+(Further, I think we can use -msse2 for BOTH clang+gcc after my patch,
+but I don't have hardware to test on. I'm happy to write/send the
+follow up patch, but I'd need help testing).
+
+
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157111750226.12254.8803927521747525091.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/9e4d6378-5032-8521-13a9-d9d9519d07de%40amd.com.
+
+--_000_9e4d63785032852113a9d9d9519d07deamdcom_
+Content-Type: text/html; charset="UTF-8"
+Content-ID: <267B82E01838E646AB58A6CF276F443F@namprd12.prod.outlook.com>
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body text=3D"#000000" bgcolor=3D"#FFFFFF">
+<p>Hi Nick,<br>
+</p>
+<div class=3D"moz-cite-prefix">On 10/15/2019 3:52 AM, Nick Desaulniers wrot=
+e:<br>
+</div>
+<blockquote type=3D"cite" cite=3D"mid:CAKwvOdnDVe-dahZGnRtzMrx-AH_C&#43;2Lf=
+20qjFQHNtn9xh=3DOkzw@mail.gmail.com">
+<pre class=3D"moz-quote-pre" wrap=3D"">Hello!
+
+The x86 kernel is compiled with an 8B stack alignment via
+    `-mpreferred-stack-boundary=3D3` for GCC since 3.6-rc1 via
+    commit d9b0cde91c60 (&quot;x86-64, gcc: Use
+-mpreferred-stack-boundary=3D3 if supported&quot;)
+    or `-mstack-alignment=3D8` for Clang. Parts of the AMDGPU driver are
+    compiled with 16B stack alignment.
+
+    Generally, the stack alignment is part of the ABI. Linking together two
+    different translation units with differing stack alignment is dangerous=
+,
+    particularly when the translation unit with the smaller stack alignment
+    makes calls into the translation unit with the larger stack alignment.
+    While 8B aligned stacks are sometimes also 16B aligned, they are not
+    always.
+
+    Multiple users have reported General Protection Faults (GPF) when using
+    the AMDGPU driver compiled with Clang. Clang is placing objects in stac=
+k
+    slots assuming the stack is 16B aligned, and selecting instructions tha=
+t
+    require 16B aligned memory operands. At runtime, syscalls handling 8B
+    stack aligned code calls into code that assumes 16B stack alignment.
+    When the stack is a multiple of 8B but not 16B, these instructions
+    result in a GPF.
+
+    GCC doesn't select instructions with alignment requirements, so the GPF=
+s
+    aren't observed, but it is still considered an ABI breakage to mix and
+    match stack alignment.
+
+I have patches that basically remove -mpreferred-stack-boundary=3D4 and
+-mstack-alignment=3D16 from AMDGPU:
+<a class=3D"moz-txt-link-freetext" href=3D"https://github.com/ClangBuiltLin=
+ux/linux/issues/735#issuecomment-541247601">https://github.com/ClangBuiltLi=
+nux/linux/issues/735#issuecomment-541247601</a>
+Yuxuan has tested with Clang and GCC and reported it fixes the GPF's observ=
+ed.</pre>
+</blockquote>
+<p>My gcc build fails with below errors:</p>
+<blockquote>
+<p>dcn_calcs.c:1:0: error: -mpreferred-stack-boundary=3D3 is not between 4 =
+and 12</p>
+<p>dcn_calc_math.c:1:0: error: -mpreferred-stack-boundary=3D3 is not betwee=
+n 4 and 12</p>
+</blockquote>
+<p>While GPF observed on clang builds seem to be fixed.<br>
+</p>
+<pre class=3D"moz-signature" cols=3D"72">--=20
+Regards,
+Shirish S</pre>
+<blockquote type=3D"cite" cite=3D"mid:CAKwvOdnDVe-dahZGnRtzMrx-AH_C&#43;2Lf=
+20qjFQHNtn9xh=3DOkzw@mail.gmail.com">
+<pre class=3D"moz-quote-pre" wrap=3D"">
+
+I've split the patch into 4; same commit message but different Fixes
+tags so that they backport to stable on finer granularity. 2 questions
+BEFORE I send the series:
+
+1. Would you prefer 4 patches with unique `fixes` tags, or 1 patch?
+2. Was there or is there still a good reason for the stack alignment mismat=
+ch?
+
+(Further, I think we can use -msse2 for BOTH clang&#43;gcc after my patch,
+but I don't have hardware to test on. I'm happy to write/send the
+follow up patch, but I'd need help testing).
+</pre>
+</blockquote>
+<pre class=3D"moz-signature" cols=3D"72">
+</pre>
+</body>
+</html>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/9e4d6378-5032-8521-13a9-d9d9519d07de%40amd.com=
+?utm_medium=3Demail&utm_source=3Dfooter">https://groups.google.com/d/msgid/=
+clang-built-linux/9e4d6378-5032-8521-13a9-d9d9519d07de%40amd.com</a>.<br />
+
+--_000_9e4d63785032852113a9d9d9519d07deamdcom_--
