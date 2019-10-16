@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBDODT3WQKGQEKOU2GJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBEODT3WQKGQE53RKQLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63f.google.com (mail-pl1-x63f.google.com [IPv6:2607:f8b0:4864:20::63f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B576DA1D9
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Oct 2019 01:02:39 +0200 (CEST)
-Received: by mail-pl1-x63f.google.com with SMTP id y2sf142552plk.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Oct 2019 16:02:39 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571266957; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id AACB2DA1DB
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Oct 2019 01:02:42 +0200 (CEST)
+Received: by mail-pg1-x53f.google.com with SMTP id s125sf323607pgc.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Oct 2019 16:02:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571266961; cv=pass;
         d=google.com; s=arc-20160816;
-        b=z9B0KN9BCH/xYa3NhN0i4ax60SfcuuSVLgZeEHdSF8eMFvGMF4dIy2VGWI5Cn5D0Px
-         puIGt5We4s0zbyuw4j1zNLHYGYyT7IdGc1xOEX/76zykQCPnIHCBNm34OXhmcpKgJuy9
-         TBMqvhDqvPQq9kHO6o/h0h7/UZll/tMMpGISYRQPPIzbCvhxbUf01QqhSfPunDFHCrH2
-         q/6UCHW9UmamrYEtqSUopzNA2M71rupQuJ1C5R+7kMDO6xb4bKevoavlblGKHaNvtpMi
-         OdDbx8USg7OSOuMj5+fe9hSATl02dy/S39HFMBXHnAjA1VRekRP3eDwO4WhuQ/MjErUg
-         YzGg==
+        b=fk2VFF4YBsnReVG7T4AAskgYb8BfpZfPutF61jGCGyPmnDacQQz9AawIW4adIx7F3E
+         PSQJcOXAZsZVSl9Y/vOStqor7nMzcSTq88hTXPUFb8mRnqcRqL2DyHZwuNKt8zjPAOGL
+         eN8rjk+NW9RJOG3YzbcdtzJ7YYsca5rrl5H/nAMFa8p3havc4HxauR7pfMyOaYuxxTb4
+         FgY9OX/Z7VMboGMLE1qylngbx9ybJB8W0BNYynCczv9Z31laZCqfyZU5BaoTqGSoC46R
+         FrFGXcr6DRQn7SL3XdDR7R/I8ToQdeubvECU+6ui6aXj3qF7q18A0ak+j68GHEKffaTS
+         +KYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=o9ByEretqe9RsR4O2tSccJAif/X7/qfhVZKl36v2wec=;
-        b=zM9O+pDi4Fg23qSg66B3jUfI4uR+GX7aVehb4IF0iyOvUqTT4kNgu2IkVEG5at/9zJ
-         PavT7PYee7uAS855wdiMWZzDJ7JSekeqnDQnlv4V6ykEsKoG4/9Ft0uf9HE+0CktQkWT
-         xS9VfgXrt6o9V1/nQtqX6IOkN6u//A74M+akdwQsKzM8g7VzvHmWt5up7gywWL8UCrF7
-         NEaBAlRWQY4oaNT+sQQVR5blcsTEhu5uwoaAP8NIgAJjvusGyzPc2vqnmMGbxjM+Ahf/
-         dExhB7+jIczZIOw+N7COX+Kb+EMVCG/5V0chZxdyeN+dsTiQyfVy60iJXLDrGk2i8epa
-         Ic0Q==
+        bh=MrmZzILxmh4nFIs1486pgVoOFklvrCHkgzCvHpCEbUE=;
+        b=aTtVlNns6Gu2kawYt3sbTzqaelrM8aTlMmgJcJkB0h4/pUNGsBIuK2CjgbS/ByGaM/
+         6de99UZBzb0aWVuoK/tngUVck/8CVjqjjlytsH2kvyV0QQGPWS0xwuN9f+GHLgWhOOm2
+         XOta4PRY+WDR7BSetOnonKnJGzQnHRJhw4VANzm2MMYPnDdr1nq3SLE3mLdNwk3jUJSD
+         JCIIxdhCx7PknMK0xzp0KjuVOBJYNDsWar5bI8qFcInEWSQsh6eHj4D+6wrzhr8vrvLx
+         pjX+e5LWrOKhUi09IaHRV3GWIG1P/yAGNPGda4rNTFy440Vnx4V8Hmdiw7uuhKOfK1Jq
+         185g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="KWxGWHf/";
-       spf=pass (google.com: domain of 3jkgnxqwkagemcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3jKGnXQwKAGEMCDR9TKMHDQRFNNFKD.BNL@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=RLuFVPUM;
+       spf=pass (google.com: domain of 3kkgnxqwkaguqghvdxoqlhuvjrrjoh.frp@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3kKGnXQwKAGUQGHVDXOQLHUVJRRJOH.FRP@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o9ByEretqe9RsR4O2tSccJAif/X7/qfhVZKl36v2wec=;
-        b=QiMtZkpQqm8VHU/D8emRlrjCm+zs4YDfv16H6CG6XhfEjk269MYtGbm4tNe+JDxfdf
-         N9IVS65fM2bKDSXlx8rbWLVe6THzjyTwf87QSUxCKVM8qMY3iiy/jtQz2ishq8U11u4k
-         nBRU2L92IGx9juv7nUrWfEVFbx7BSgyQhlZP259U8H2Xy+eEY6726aMHF30JN/V4mQ5h
-         O0cllCGcQa5tU4BaC15/gNzXruPT4MBH/QKhPzi1brEICrKw/TgERL7SrSsaVBeR5IhV
-         MCPTI+jh8Vfo94XssT8z9daIwz7Jshbg3uTNTAuPKFVM5GZRYseKK9GemtfOUlrpoavC
-         lh/A==
+        bh=MrmZzILxmh4nFIs1486pgVoOFklvrCHkgzCvHpCEbUE=;
+        b=FMsIKQiTv43GqWSOsX2sGNybeSIkqTT9BuW2ZlqylP9jol5roKHP5ImXVNTqQpkijL
+         1sTjjtksAdWNFdc231SLbLamPRMyfiv86Mow8GyO+91Wz0YxgYKQgDoUMF62sd8I8GO4
+         6JQZPXy6MIQJEYmbaYZChT2kSRu0XhYOymBWZH+GN9zNuCHCck3ur4s8DQ+fqa7ySafA
+         hZO/CwY5McYxpt45wvA2qzYmE9uXuaRiEBVhq2dAQLdK1+jijKAFqsYk2YhK5Rd1AE+n
+         gOYJWSOGrZv+279ujCyS1FvtKHrXbWxkc7R3CvfgQasi15mEeP67LUxZ1o7JHvzrUc5U
+         h3yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=o9ByEretqe9RsR4O2tSccJAif/X7/qfhVZKl36v2wec=;
-        b=auii3QqFLqzE6k24oS3PgsD6Mf055Ie/QDodhqd4LDfg33qOeBVMDBkwPtEG/p2BIx
-         fpY/bFulrsfReNzkXiV3DzyT2Ft/Ttwh1nwFSspiYELnD8lMu+Jf160i57c607rbesta
-         MCIBEex8y65HycxUYDTnMwVUelVgNO//kJpM5AHqF36ftdvojXeVf9nKdj109Mw5+ilL
-         VzEyFWpXCEf5KzRCr5ezRld5sTxeXiTbooTlwIGU6vmOONNQHsKfSeTynKnWHza9viea
-         7n+qpDwj/dZp559CWIahQ0sW1oPegxTo5b6sPuZQPfiuLFxiJiqCauKA+QXMdH4SaLzp
-         Ixng==
-X-Gm-Message-State: APjAAAUOCgI43EUSuts8k3Y1eODPAl6Lb9y4dBHjQiFMob61F5V0Lu0K
-	iEPFgJw61PlLCHoXY+AtC5M=
-X-Google-Smtp-Source: APXvYqzoKlMCCmA9gvusT0G4v/A/ryld0RE3HWI01B/lhEnhN0frOLE/l2ysD87xaqTCOpatkAfWxw==
-X-Received: by 2002:a17:902:aa91:: with SMTP id d17mr678302plr.69.1571266957405;
-        Wed, 16 Oct 2019 16:02:37 -0700 (PDT)
+        bh=MrmZzILxmh4nFIs1486pgVoOFklvrCHkgzCvHpCEbUE=;
+        b=SIsNfMqKwmQcwCpJzNAwwl9pT6iWHHEE2jmw5WV04mlBiVZxUc7SqQ+8KUT3oipe2k
+         bVQ/u7IEaVs4vUimlhuUcWNA9fwIR2xWiJhsYRz6m0HqWCYySYXCpmt5TEA+PM9RLaX2
+         HFdK/Fn0JgOdmY01SZtaomb0mBMuZhYRlOQTGZlRW+nZMryLVLqt2T/adDPx03LWQtMC
+         j1UvnXygNI4DJ9FF/etIN6vE4YgI8WxF2yIBwfojG5xuGTiSVA48XjID5CpGzDCbljfx
+         2pk8Z7oFydP1kIfwyGTU2tp62p8Vo55CLhOtDMi0iOWnf2r6aAY6J2cpp8rl4B2JZYYK
+         XmKw==
+X-Gm-Message-State: APjAAAVZxtRyjrKXgb0ZxZzBgBaI8V7AtCfnKdr2bzgwDtXPqE0pi2W2
+	fanjsSmf4VRhyw+HFdN7cec=
+X-Google-Smtp-Source: APXvYqweWZR46CxQhcD+t/0Jbdykc3oyvC0G27XO5iCptqm9WPi/Rkh1OetUrGZ50PzHvoCwM0POsQ==
+X-Received: by 2002:a17:902:b789:: with SMTP id e9mr733332pls.7.1571266961149;
+        Wed, 16 Oct 2019 16:02:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:8bca:: with SMTP id r10ls48214plo.13.gmail; Wed, 16
- Oct 2019 16:02:37 -0700 (PDT)
-X-Received: by 2002:a17:902:8bc7:: with SMTP id r7mr691898plo.333.1571266957041;
-        Wed, 16 Oct 2019 16:02:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571266957; cv=none;
+Received: by 2002:a17:902:bc48:: with SMTP id t8ls47106plz.16.gmail; Wed, 16
+ Oct 2019 16:02:40 -0700 (PDT)
+X-Received: by 2002:a17:90a:be15:: with SMTP id a21mr513555pjs.52.1571266960782;
+        Wed, 16 Oct 2019 16:02:40 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571266960; cv=none;
         d=google.com; s=arc-20160816;
-        b=pZtfEmLhLCo07k7VaSP+Nc3k6szILZQmXfFbwF8i5hibrGO7NDRb4DXdeZ6qQUqRk/
-         Y0kPoUOrK13nyXxQhdb+wqlP9zw7uppPP7kwWjJbb7W8xLfA//RoD8OlfxrLMbk22hfI
-         1PWI6c5uwjlH5BWcYeMTALN0UPirUZFwfVb/KUIazLzH/jzL8w4r0sMHyJ0fWchHOM2w
-         yS5Hx2HT2XSbnZ87xX5qQ7EFXUpUf9+neycxwMLPA8Nj0+yITrokJawUUWgc+L3E+0YA
-         i9biH7TEbPu5ujo97zoxVBWyiT6PKlKk7ZvsSYrr3rW+lpYT0c11ekCMlDS4c9xDV2C+
-         ByFw==
+        b=NqgFVdK6m5vIRENXCAv8wZXMg4Kd0NYs7eeAM4SoTlG3ucYT22HSAOhotW5RPWTXPG
+         lGO53sYLc/xJJeAARF37TmMj7zKTYsJ433+8/l4byRGFHHGbNUv5Ghpba7KtltpjXHMR
+         gm54tzmFLHG4CGC5ZTP+4DN4hg1RCYbHgVHRpfmT9Pw4Nfz0qKCBKoOkFr0UAoSPbVgD
+         5CPS4VNtl8UdX2fn62vcHVXfl9JSlZrxk++7BTuqyyQeceK0NlY8LyDD3Zg73pYmKypZ
+         U0GFJfFOu1hgSku1n568rd8JHdl2SvCUxpy9j4CzXoKgz4N7XoTm88WYDxNquDcL25ND
+         HV1Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=+9wE/YnttgoSYQLeI+fM6xNhxWRLjwkrvMn1N+1ady8=;
-        b=brColMtrJRW7bzjSvqwkhK4z8uEHTbJug/uvSh8RYGpkhh94GAWFu1swTJWQgnsARN
-         SqJwjqmrbemX2Mjf3oCPptZ4JT5t/A+qknlUL6hoDqYMjjVP/iYJCrKqJfoWAi/Wjicc
-         dvb8Ywxgl+h5rNKUN5qLO1Zx9fqLejMKN3RFREe7VJE+IbL6ijOtW9RcWGFtSqYOnHg9
-         sNVgSbgZHtuEWn5P1TZckqwSROCKbsRjFvEKy7EXmxV4K7XdxwVKmhJ2SmY0dHEW1RKb
-         fIud/adRQyoSCeo2Wv2JgWHtfIJ97PSsMATVBzS2kVDE8eIy4y8OBSGLWG8d4EbUc8vJ
-         BxhQ==
+        bh=+HTLwtBsb8GklYcE8zHDNoq/yMsTyW1DbJyJzcZRL08=;
+        b=Xkej8TZ52L5R+2NpFZgmuLTJFNCb/4Ojsy3P/bfdhhrfSFWCcztLaUCx6x244Di/+n
+         +VbPX+h2AfDmge3NsZ1rlnHFTDCIXRZJ1TQzGDMudUFe/uGFrSj7VcQnLF18LQ07XkdA
+         UuCFw4ojLl9WPmXV+Q5oxJsXEF5CSEhHCEBLHU5Cbyam01paaaiR+DWpY6uf/jy6kVG1
+         3W5GQ9XP/PWi7/RiqXR+5L7HWLWy4/c/gfHUn/NwxeCBVbBks+M0V0t5/1sebOXZJP0s
+         X2djqm5uSlZ8vHJgXLNeLKmJ20HN4TEIwAnA9e16Q6i52+b/P9YxrrWbIwQ+/g1wvlp4
+         GyUA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="KWxGWHf/";
-       spf=pass (google.com: domain of 3jkgnxqwkagemcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3jKGnXQwKAGEMCDR9TKMHDQRFNNFKD.BNL@flex--ndesaulniers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=RLuFVPUM;
+       spf=pass (google.com: domain of 3kkgnxqwkaguqghvdxoqlhuvjrrjoh.frp@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3kKGnXQwKAGUQGHVDXOQLHUVJRRJOH.FRP@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 Received: from mail-pl1-x649.google.com (mail-pl1-x649.google.com. [2607:f8b0:4864:20::649])
-        by gmr-mx.google.com with ESMTPS id o23si27988pjt.2.2019.10.16.16.02.37
+        by gmr-mx.google.com with ESMTPS id o23si27988pjt.2.2019.10.16.16.02.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Oct 2019 16:02:37 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3jkgnxqwkagemcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) client-ip=2607:f8b0:4864:20::649;
+        Wed, 16 Oct 2019 16:02:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3kkgnxqwkaguqghvdxoqlhuvjrrjoh.frp@flex--ndesaulniers.bounces.google.com designates 2607:f8b0:4864:20::649 as permitted sender) client-ip=2607:f8b0:4864:20::649;
 Received: by mail-pl1-x649.google.com with SMTP id f10so161323plr.7
-        for <clang-built-linux@googlegroups.com>; Wed, 16 Oct 2019 16:02:37 -0700 (PDT)
-X-Received: by 2002:a63:e057:: with SMTP id n23mr640963pgj.94.1571266956495;
- Wed, 16 Oct 2019 16:02:36 -0700 (PDT)
-Date: Wed, 16 Oct 2019 16:02:07 -0700
+        for <clang-built-linux@googlegroups.com>; Wed, 16 Oct 2019 16:02:40 -0700 (PDT)
+X-Received: by 2002:a63:c446:: with SMTP id m6mr648240pgg.136.1571266960259;
+ Wed, 16 Oct 2019 16:02:40 -0700 (PDT)
+Date: Wed, 16 Oct 2019 16:02:08 -0700
 In-Reply-To: <20191016230209.39663-1-ndesaulniers@google.com>
-Message-Id: <20191016230209.39663-2-ndesaulniers@google.com>
+Message-Id: <20191016230209.39663-3-ndesaulniers@google.com>
 Mime-Version: 1.0
 References: <20191016230209.39663-1-ndesaulniers@google.com>
 X-Mailer: git-send-email 2.23.0.700.g56cf767bdb-goog
-Subject: [PATCH 1/3] drm/amdgpu: fix stack alignment ABI mismatch for Clang
+Subject: [PATCH 2/3] drm/amdgpu: fix stack alignment ABI mismatch for GCC 7.1+
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: harry.wentland@amd.com, alexander.deucher@amd.com
 Cc: yshuiv7@gmail.com, andrew.cooper3@citrix.com, arnd@arndb.de, 
@@ -114,9 +114,9 @@ Cc: yshuiv7@gmail.com, andrew.cooper3@citrix.com, arnd@arndb.de,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="KWxGWHf/";       spf=pass
- (google.com: domain of 3jkgnxqwkagemcdr9tkmhdqrfnnfkd.bnl@flex--ndesaulniers.bounces.google.com
- designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3jKGnXQwKAGEMCDR9TKMHDQRFNNFKD.BNL@flex--ndesaulniers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=RLuFVPUM;       spf=pass
+ (google.com: domain of 3kkgnxqwkaguqghvdxoqlhuvjrrjoh.frp@flex--ndesaulniers.bounces.google.com
+ designates 2607:f8b0:4864:20::649 as permitted sender) smtp.mailfrom=3kKGnXQwKAGUQGHVDXOQLHUVJRRJOH.FRP@flex--ndesaulniers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
 Reply-To: Nick Desaulniers <ndesaulniers@google.com>
@@ -132,160 +132,155 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The x86 kernel is compiled with an 8B stack alignment via
-`-mpreferred-stack-boundary=3` for GCC since 3.6-rc1 via
-commit d9b0cde91c60 ("x86-64, gcc: Use -mpreferred-stack-boundary=3 if supported")
-or `-mstack-alignment=8` for Clang. Parts of the AMDGPU driver are
-compiled with 16B stack alignment.
+GCC earlier than 7.1 errors when compiling code that makes use of
+`double`s and sets a stack alignment outside of the range of [2^4-2^12]:
 
-Generally, the stack alignment is part of the ABI. Linking together two
-different translation units with differing stack alignment is dangerous,
-particularly when the translation unit with the smaller stack alignment
-makes calls into the translation unit with the larger stack alignment.
-While 8B aligned stacks are sometimes also 16B aligned, they are not
-always.
+$ cat foo.c
+double foo(double x, double y) {
+  return x + y;
+}
+$ gcc-4.9 -mpreferred-stack-boundary=3 foo.c
+error: -mpreferred-stack-boundary=3 is not between 4 and 12
 
-Multiple users have reported General Protection Faults (GPF) when using
-the AMDGPU driver compiled with Clang. Clang is placing objects in stack
-slots assuming the stack is 16B aligned, and selecting instructions that
-require 16B aligned memory operands.
+This is likely why the AMDGPU driver was ever compiled with a different
+stack alignment (and thus different ABI) than the rest of the x86
+kernel. The kernel uses 8B stack alignment, while the driver was using
+16B stack alignment in a few places.
 
-At runtime, syscall handlers with 8B aligned stack call into code that
-assumes 16B stack alignment.  When the stack is a multiple of 8B but not
-16B, these instructions result in a GPF.
+Since GCC 7.1+ doesn't error, fix the ABI mismatch for users of newer
+versions of GCC.
 
-Remove the code that added compatibility between the differing compiler
-flags, as it will result in runtime GPFs when built with Clang. Cleanups
-for GCC will be sent in later patches in the series.
+There was discussion about whether to mark the driver broken or not for
+users of GCC earlier than 7.1, but since the driver currently is
+working, don't explicitly break the driver for them here.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/735
-Debugged-by: Yuxuan Shui <yshuiv7@gmail.com>
-Reported-by: Shirish S <shirish.s@amd.com>
-Reported-by: Yuxuan Shui <yshuiv7@gmail.com>
-Suggested-by: Andrew Cooper <andrew.cooper3@citrix.com>
+Relying on differing stack alignment is unspecified behavior, and
+brittle, and may break in the future.
+
+This patch is no functional change for GCC users earlier than 7.1. It's
+been compile tested on GCC 4.9 and 8.3 to check the correct flags. It
+should be boot tested when built with GCC 7.1+.
+
+-mincoming-stack-boundary= or -mstackrealign may help keep this code
+building for pre-GCC 7.1 users.
+
+The version check for GCC is broken into two conditionals, both because
+cc-ifversion is currently GCC specific, and it simplifies a subsequent
+patch.
+
 Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 ---
- drivers/gpu/drm/amd/display/dc/calcs/Makefile | 10 ++++------
- drivers/gpu/drm/amd/display/dc/dcn20/Makefile | 10 ++++------
- drivers/gpu/drm/amd/display/dc/dcn21/Makefile | 10 ++++------
- drivers/gpu/drm/amd/display/dc/dml/Makefile   | 10 ++++------
- drivers/gpu/drm/amd/display/dc/dsc/Makefile   | 10 ++++------
- 5 files changed, 20 insertions(+), 30 deletions(-)
+ drivers/gpu/drm/amd/display/dc/calcs/Makefile | 9 +++++++++
+ drivers/gpu/drm/amd/display/dc/dcn20/Makefile | 9 +++++++++
+ drivers/gpu/drm/amd/display/dc/dcn21/Makefile | 9 +++++++++
+ drivers/gpu/drm/amd/display/dc/dml/Makefile   | 9 +++++++++
+ drivers/gpu/drm/amd/display/dc/dsc/Makefile   | 9 +++++++++
+ 5 files changed, 45 insertions(+)
 
 diff --git a/drivers/gpu/drm/amd/display/dc/calcs/Makefile b/drivers/gpu/drm/amd/display/dc/calcs/Makefile
-index 985633c08a26..4b1a8a08a5de 100644
+index 4b1a8a08a5de..a1af55a86508 100644
 --- a/drivers/gpu/drm/amd/display/dc/calcs/Makefile
 +++ b/drivers/gpu/drm/amd/display/dc/calcs/Makefile
-@@ -24,13 +24,11 @@
- # It calculates Bandwidth and Watermarks values for HW programming
- #
+@@ -27,6 +27,15 @@
+ calcs_ccflags := -mhard-float -msse
  
--ifneq ($(call cc-option, -mpreferred-stack-boundary=4),)
--	cc_stack_align := -mpreferred-stack-boundary=4
--else ifneq ($(call cc-option, -mstack-alignment=16),)
--	cc_stack_align := -mstack-alignment=16
--endif
-+calcs_ccflags := -mhard-float -msse
- 
--calcs_ccflags := -mhard-float -msse $(cc_stack_align)
-+ifdef CONFIG_CC_IS_GCC
-+calcs_ccflags += -mpreferred-stack-boundary=4
+ ifdef CONFIG_CC_IS_GCC
++ifeq ($(call cc-ifversion, -lt, 0701, y), y)
++IS_OLD_GCC = 1
 +endif
- 
- ifdef CONFIG_CC_IS_CLANG
- calcs_ccflags += -msse2
-diff --git a/drivers/gpu/drm/amd/display/dc/dcn20/Makefile b/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
-index ddb8d5649e79..5fe3eb80075d 100644
---- a/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
-+++ b/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
-@@ -10,13 +10,11 @@ ifdef CONFIG_DRM_AMD_DC_DSC_SUPPORT
- DCN20 += dcn20_dsc.o
++endif
++
++ifdef IS_OLD_GCC
++# Stack alignment mismatch, proceed with caution.
++# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
++# (8B stack alignment).
+ calcs_ccflags += -mpreferred-stack-boundary=4
  endif
  
--ifneq ($(call cc-option, -mpreferred-stack-boundary=4),)
--	cc_stack_align := -mpreferred-stack-boundary=4
--else ifneq ($(call cc-option, -mstack-alignment=16),)
--	cc_stack_align := -mstack-alignment=16
--endif
-+CFLAGS_$(AMDDALPATH)/dc/dcn20/dcn20_resource.o := -mhard-float -msse
+diff --git a/drivers/gpu/drm/amd/display/dc/dcn20/Makefile b/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
+index 5fe3eb80075d..cb0ac131f74a 100644
+--- a/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
++++ b/drivers/gpu/drm/amd/display/dc/dcn20/Makefile
+@@ -13,6 +13,15 @@ endif
+ CFLAGS_$(AMDDALPATH)/dc/dcn20/dcn20_resource.o := -mhard-float -msse
  
--CFLAGS_$(AMDDALPATH)/dc/dcn20/dcn20_resource.o := -mhard-float -msse $(cc_stack_align)
-+ifdef CONFIG_CC_IS_GCC
-+CFLAGS_$(AMDDALPATH)/dc/dcn20/dcn20_resource.o += -mpreferred-stack-boundary=4
+ ifdef CONFIG_CC_IS_GCC
++ifeq ($(call cc-ifversion, -lt, 0701, y), y)
++IS_OLD_GCC = 1
 +endif
++endif
++
++ifdef IS_OLD_GCC
++# Stack alignment mismatch, proceed with caution.
++# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
++# (8B stack alignment).
+ CFLAGS_$(AMDDALPATH)/dc/dcn20/dcn20_resource.o += -mpreferred-stack-boundary=4
+ endif
  
- ifdef CONFIG_CC_IS_CLANG
- CFLAGS_$(AMDDALPATH)/dc/dcn20/dcn20_resource.o += -msse2
 diff --git a/drivers/gpu/drm/amd/display/dc/dcn21/Makefile b/drivers/gpu/drm/amd/display/dc/dcn21/Makefile
-index ef673bffc241..7057e20748b9 100644
+index 7057e20748b9..f92320ddd27f 100644
 --- a/drivers/gpu/drm/amd/display/dc/dcn21/Makefile
 +++ b/drivers/gpu/drm/amd/display/dc/dcn21/Makefile
-@@ -3,13 +3,11 @@
+@@ -6,6 +6,15 @@ DCN21 = dcn21_hubp.o dcn21_hubbub.o dcn21_resource.o
+ CFLAGS_$(AMDDALPATH)/dc/dcn21/dcn21_resource.o := -mhard-float -msse
  
- DCN21 = dcn21_hubp.o dcn21_hubbub.o dcn21_resource.o
- 
--ifneq ($(call cc-option, -mpreferred-stack-boundary=4),)
--	cc_stack_align := -mpreferred-stack-boundary=4
--else ifneq ($(call cc-option, -mstack-alignment=16),)
--	cc_stack_align := -mstack-alignment=16
--endif
-+CFLAGS_$(AMDDALPATH)/dc/dcn21/dcn21_resource.o := -mhard-float -msse
- 
--CFLAGS_$(AMDDALPATH)/dc/dcn21/dcn21_resource.o := -mhard-float -msse $(cc_stack_align)
-+ifdef CONFIG_CC_IS_GCC
-+CFLAGS_$(AMDDALPATH)/dc/dcn21/dcn21_resource.o += -mpreferred-stack-boundary=4
+ ifdef CONFIG_CC_IS_GCC
++ifeq ($(call cc-ifversion, -lt, 0701, y), y)
++IS_OLD_GCC = 1
 +endif
++endif
++
++ifdef IS_OLD_GCC
++# Stack alignment mismatch, proceed with caution.
++# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
++# (8B stack alignment).
+ CFLAGS_$(AMDDALPATH)/dc/dcn21/dcn21_resource.o += -mpreferred-stack-boundary=4
+ endif
  
- ifdef CONFIG_CC_IS_CLANG
- CFLAGS_$(AMDDALPATH)/dc/dcn21/dcn21_resource.o += -msse2
 diff --git a/drivers/gpu/drm/amd/display/dc/dml/Makefile b/drivers/gpu/drm/amd/display/dc/dml/Makefile
-index 5b2a65b42403..1bd6e307b7f8 100644
+index 1bd6e307b7f8..ef1bdd20b425 100644
 --- a/drivers/gpu/drm/amd/display/dc/dml/Makefile
 +++ b/drivers/gpu/drm/amd/display/dc/dml/Makefile
-@@ -24,13 +24,11 @@
- # It provides the general basic services required by other DAL
- # subcomponents.
+@@ -27,6 +27,15 @@
+ dml_ccflags := -mhard-float -msse
  
--ifneq ($(call cc-option, -mpreferred-stack-boundary=4),)
--	cc_stack_align := -mpreferred-stack-boundary=4
--else ifneq ($(call cc-option, -mstack-alignment=16),)
--	cc_stack_align := -mstack-alignment=16
--endif
-+dml_ccflags := -mhard-float -msse
- 
--dml_ccflags := -mhard-float -msse $(cc_stack_align)
-+ifdef CONFIG_CC_IS_GCC
-+dml_ccflags += -mpreferred-stack-boundary=4
+ ifdef CONFIG_CC_IS_GCC
++ifeq ($(call cc-ifversion, -lt, 0701, y), y)
++IS_OLD_GCC = 1
 +endif
++endif
++
++ifdef IS_OLD_GCC
++# Stack alignment mismatch, proceed with caution.
++# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
++# (8B stack alignment).
+ dml_ccflags += -mpreferred-stack-boundary=4
+ endif
  
- ifdef CONFIG_CC_IS_CLANG
- dml_ccflags += -msse2
 diff --git a/drivers/gpu/drm/amd/display/dc/dsc/Makefile b/drivers/gpu/drm/amd/display/dc/dsc/Makefile
-index b456cd23c6fa..932c3055230e 100644
+index 932c3055230e..3f7840828a9f 100644
 --- a/drivers/gpu/drm/amd/display/dc/dsc/Makefile
 +++ b/drivers/gpu/drm/amd/display/dc/dsc/Makefile
-@@ -1,13 +1,11 @@
- #
- # Makefile for the 'dsc' sub-component of DAL.
+@@ -4,6 +4,15 @@
+ dsc_ccflags := -mhard-float -msse
  
--ifneq ($(call cc-option, -mpreferred-stack-boundary=4),)
--	cc_stack_align := -mpreferred-stack-boundary=4
--else ifneq ($(call cc-option, -mstack-alignment=16),)
--	cc_stack_align := -mstack-alignment=16
--endif
-+dsc_ccflags := -mhard-float -msse
- 
--dsc_ccflags := -mhard-float -msse $(cc_stack_align)
-+ifdef CONFIG_CC_IS_GCC
-+dsc_ccflags += -mpreferred-stack-boundary=4
+ ifdef CONFIG_CC_IS_GCC
++ifeq ($(call cc-ifversion, -lt, 0701, y), y)
++IS_OLD_GCC = 1
 +endif
++endif
++
++ifdef IS_OLD_GCC
++# Stack alignment mismatch, proceed with caution.
++# GCC < 7.1 cannot compile code using `double` and -mpreferred-stack-boundary=3
++# (8B stack alignment).
+ dsc_ccflags += -mpreferred-stack-boundary=4
+ endif
  
- ifdef CONFIG_CC_IS_CLANG
- dsc_ccflags += -msse2
 -- 
 2.23.0.700.g56cf767bdb-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191016230209.39663-2-ndesaulniers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191016230209.39663-3-ndesaulniers%40google.com.
