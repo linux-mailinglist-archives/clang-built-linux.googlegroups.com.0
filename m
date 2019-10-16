@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBN4ZT3WQKGQEER2UEFQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB7FYT3WQKGQERKCKJVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id E5F0AD9D85
-	for <lists+clang-built-linux@lfdr.de>; Wed, 16 Oct 2019 23:33:44 +0200 (CEST)
-Received: by mail-io1-xd40.google.com with SMTP id f9sf40137430ioh.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Oct 2019 14:33:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571261623; cv=pass;
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id A3818DA1A4
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Oct 2019 00:41:02 +0200 (CEST)
+Received: by mail-qk1-x73e.google.com with SMTP id s14sf222601qkg.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 16 Oct 2019 15:41:02 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571265661; cv=pass;
         d=google.com; s=arc-20160816;
-        b=HC3RNilsvDlTlmLZZIeVXr612xa1vHbCmS75K9qTNw5Z5op+DqY2milRIzkW5iRMZ3
-         VQSc9VUJcBZhFjB0b78lDJ7kGa0yVsVkqSmIThsP2Dz4jevTDSqy0CIV7n+2ll5pirwC
-         OExcng1V0TNKX3Iuo73hChez1Nn6dTTFbeBeSQAXjFbUpRCbnAEk5+OoJeuCBGhhbHa2
-         ixrOw5zXoZ6EAIOIUEqwQOsriF2adSloS3zLpeTXvIsiTBrPyUiwXtcglN9Gkb39J4VB
-         3rwMmQI51J0m1qtGej+aX5QTRnbHYh60BK3DDfK6aA5Ku2hPD5WvnnhKQ06UeoPqkCyw
-         NIjQ==
+        b=fs1fjFxQ9nK80hcKnNyHAif26W4aVvPhZl0Eq9gYfG99WQMCTvEU7gvc9YuG3I2Jio
+         AI2m9BUFAiggmjkzQlcC/BtHP0sZNjC+wFLvyvWvehCuXKO/53+2hoYgluxfrPJnV29o
+         vE1y6y2NO+QWRToZlHfWWiumppiR2DncdcGSF4G5+1DjbVtNm52wvCqBgVGRoIL5P3QY
+         zdQd5SSVdtE0g2+mkFRTc+OHQdtjSdB4/gnwlekFGDHG+MYwDTxrfUjdUHBzVpsIeHiE
+         SuI4GxCegelK56bsCCwkHMbbZS5H9GSIoioeorAPuzsIogn1mMskfHSrPVvxNzKr699s
+         ty/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=Z6sTW9udrrQeITGvyVpHF2G/P4zx6SmUQeH+GlX5J5I=;
-        b=y2aJlnGMkjU/L2tyBxzkQlTDdvCSZl+xAWLmcg3rjwCQGmiPZDAhrzmfIadsg3NIuu
-         4xffhfj2mG7J2XHlBf3STo7lT9K+tCWFmJGxA9TDpf2NOoEh6cftLIfEB9rKXlHMvbu/
-         3m/qxQwcun2RdVRWyN46pjgpSxrOp5ryCBmo4H6uN4aSLoXzdORKKjvWT1oBQvQ2zeTG
-         zj0KJ21DnsOTxnnvXDSeo8jqVlB7OnYq6YTMR+gNOt/78+/GJF/fI/L5S+23vR7/easc
-         m8os906LbXf5tEu7PYSYSTbMsf0hJjAmKmK1IJeYd4Dot6DsbQ7u+yUexzOXE0WoG31j
-         /yoA==
+        bh=M/EQ95lEIEpaZtUWedAN6h0qYdq+xaChH+X6VQGL5Xo=;
+        b=tszZidwMvaUnKiaIHwhLadxPxqt7x/jPXELnEq2bhxFomCh7ox6UPEpfWOv4238VQ2
+         ty4Csxz8XLX+EiO0Y2nFD4Icj7SvHdY4lMrIDHiGLcDx5FE0rX4J9yeXOSjnPN3BIPaA
+         dthYC+i3ptoBYW6foJVPkupGLdp84v4vU78ETbd/P7T/2/7qqEBUG5DDYy9kwwKESpEj
+         4CuTDbpbAalgC0AHiFUd7oLcpCW5M062f3kNqhkoMpBwY501G8ZKl1aOgEpUblJWL3p6
+         IufiKdJi6USzcPuiFLFmmltd62xn4L+5YkL5D7CBcVAoxPqTQ2jMZ3//XIkAFhETFdMi
+         bB4g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Z6sTW9udrrQeITGvyVpHF2G/P4zx6SmUQeH+GlX5J5I=;
-        b=ahLyf3palbcvv1v8l/+szK1qERUUNFAegqs5aWGKCT1CK+Whx+osf0VXjxewtHxiEL
-         s/ZpInndBxqdYgYSqCpbY4foyVp6GYlL2Fd7i9dRez1BCu0zxybx3gwt0J+EiTjlflqL
-         u0TSdmfACyB33Ht8XfU0GpQyMwUzb3NMn+qJbZPYWfyXLgg3559xezqO6sDWXm4Djyse
-         FtXZ1DV85lfLqTNja5SXIq7OUIrUNO5v1JdtI++um8hrMpeliUUAwSvkbCVO3uZrSWmO
-         C1MojHTJYfHY3tNfYLVzBpfN/VNM/i+cPuQ+c9hkm9kzT9vZVvsi/7r3yZPo5yckQ9C/
-         ZmZw==
+        bh=M/EQ95lEIEpaZtUWedAN6h0qYdq+xaChH+X6VQGL5Xo=;
+        b=g07R0sqtcG22mVqHDXkcKGCDSCTCHvHb6z0o4Dy1Izs3u2d5Uq7WWhF09cFOKfduUw
+         6k6BjcSJHmracwDGXzeFNB3lS/AHYimYq2fj9LfNaux4yBWRQUHSBrGr6loBk2W+57H4
+         siAvRw5SPtpyABRW1HT2+XaZxNeC2d/vNFr6VoBe7lP0M6dfm1KikyBUstzAoDVjocAN
+         9/EdYU0AfmY1mb7XWJc8K8Nk/H5AiSp5+vsECKh8n18yOgnbTRrEjfafNsqFn1f8/ZNL
+         /iBpiwwRMjIYu0vuboesjJejMCPaSrI7OM7gCRfsNYZvxrcGWTLEmA36sgXJ7OsGfm4O
+         65JA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Z6sTW9udrrQeITGvyVpHF2G/P4zx6SmUQeH+GlX5J5I=;
-        b=QlpoXc9sTUzqEOBr2wnKPXXG4kCpL4IMs7Dqfx3N+4FNHzczw3DRoZxbpcsaVXV6hp
-         ijh4Yz0cOBLQYDbFGx3sb0Ml2z49yaJSWdN6SXrZTuKYG9wgliIU3HTEFsppHnSTA+GS
-         jyULFIUSSbxo5Y0L4m7plO6B85519dhWqg7YiEEh/rAuCx6WS020OYz9sdWGPSZHGh16
-         MCAXHTe3wxt7NAUfg5QUTIN91zSoFevGGPCBaOe5vsvwareczm3B4bsFbyrzel+73tR/
-         Z/sclJlhcQYd3ZYm45x2PzCKsHBJOkqyAKHJS2h4QsTp7WftyNFAwny/X++IN8hW52Ui
-         2dmg==
+        bh=M/EQ95lEIEpaZtUWedAN6h0qYdq+xaChH+X6VQGL5Xo=;
+        b=HNnc37vGC0UabqwLi3ASdmuRRP6FkkHYyhtmXgI4oSjc6CMam1974fIkRPAepn6X/N
+         yjqWRMwhuBAICfcg41oVv8FjPcom4lONriCYC6ar0vbClLsZYJ/o+E0Wfe5TmM2Js5tz
+         /dun0NtiW0DympUmA2drP9VWw88rBggzld9yDShdNzr3/NBeAfgdpIqFcYAVmUHlgg87
+         41be/Mr2lODF/fzQO8cR/8Ia1uDFfJkCj5+fQLrUJkw4kKPzgCQvdOkhWt2vQqGcJdrZ
+         sQJzNLJHOsXQRuzhZMAe2fUZQe6PG1tScxO9tHapMEqkyxFXBWX/FYxtSBWmDR3PkIal
+         t84g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWQyin3/jJDdbVhCO7Evr8bsG9pKde2JEivvfrQ5GxK0tc5dJxX
-	cwaFR0y5arijh6Mfg52LAQQ=
-X-Google-Smtp-Source: APXvYqw9tSCLiEbzZViSgu7XBoUQT5LkFBPe/vhZ2EZPhYI1V2NhwzTnub4NAn7Gwdk7FhFu6ujdcw==
-X-Received: by 2002:a5d:8b14:: with SMTP id k20mr33564425ion.22.1571261623612;
-        Wed, 16 Oct 2019 14:33:43 -0700 (PDT)
+X-Gm-Message-State: APjAAAVrLdYRDGE8zv9A+2Oh4Kqg2d3GZWQQYLz71yWg0pPQHOWTwnvo
+	iYgF4mPAO7+t0evHkHiN0VM=
+X-Google-Smtp-Source: APXvYqwbHDvE+35bB4KMxlD/lFtCAQc5rSvOiwl/HJEopyCAVDS9CQvDcjPC7xJzxuljlQfZlbDWnA==
+X-Received: by 2002:a0c:fde8:: with SMTP id m8mr597280qvu.4.1571265660662;
+        Wed, 16 Oct 2019 15:41:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:8707:: with SMTP id m7ls19880ild.2.gmail; Wed, 16 Oct
- 2019 14:33:43 -0700 (PDT)
-X-Received: by 2002:a92:7ed5:: with SMTP id q82mr14559537ill.291.1571261623178;
-        Wed, 16 Oct 2019 14:33:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571261623; cv=none;
+Received: by 2002:a37:4852:: with SMTP id v79ls74235qka.2.gmail; Wed, 16 Oct
+ 2019 15:41:00 -0700 (PDT)
+X-Received: by 2002:ae9:ed57:: with SMTP id c84mr331838qkg.426.1571265660145;
+        Wed, 16 Oct 2019 15:41:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571265660; cv=none;
         d=google.com; s=arc-20160816;
-        b=DZd7ukohj6e/squvRXsnKCByMr//LW53FM7vlSTbtGGnDw4+U+xYRWTV2pvdralH7S
-         2S7YCYchB76tUURXk+q4CLInvMVfUbL1BPLFu6nkyeOD1HJ5qXfE/ubYgKPiIRdYJHRl
-         NZ7tWjYz/LydvyUk8L+dcl1J3afuuFNrf59ZIyuEt/7PsmIGrlF3drvQvtHUcf9O7Sc7
-         ynfDatVMnj2/tI1VINdf0OiKpzKgKZZ4IoGaue08H7UYL2uaGjokJh7A2jdokq5QDakC
-         jG/q3KS2s+XqfuVM47drLCwWZ3wKoARxVC3Qjm0meM53mcd8dLXbtFr3K7c5GDXMapV1
-         4dNQ==
+        b=fuG7+GhjOCN1jrTgJUvpPYDoVbNFxOSqdq+6vGWyj0dAsI4r6Lt/fCOSSDGAuO1pPO
+         uVToOiskuAt9YfGC6TnmpFYkzfRdaUl1vk0rdJ+/QqI+yMlkZk8qI2Zz99ZlGvDpTRRg
+         eEHDtDT11p6ce+c0ZzUYq+zuZ4uIOFTSmX7XewlnFb8TsGHl4wyN2lpJ+EyNofrW92pB
+         tGF2QaG9rIvQSboguUolYyk+/zxqXwPougx+R9VAca9daKtWIwmclMxLM25DKSHfZgUq
+         fxkFtwXkn5ukkpsBdDYT6YpVXHEhMqvQcX02TLV3j7WcRG9asPpcrs33ojMPC0Mz7+tA
+         rn6A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=Y9S/uqXzANTDP9EogUKrQUfSOu6sf9KkpE2mfuYnjzM=;
-        b=CF7gW423dFtGROb4xY2MmtA6QUe8vsOlO/PHBCkGdpVlOi66VC44P7H0DHkGmYHPDw
-         TfGswJzdKr8ASjLW5XWli2Q3nBqb0Ov2fVJ2rXmWsLbm3hJKKlQU//7ZEDb0AlOc4UFL
-         oLa78eHMZCi66zbrpNJPmXrfFYrgtAY3spFGbqP/gFMSlCDBbIy79LyU92B0A1hOKaDF
-         5Gx9XPGw7tcIhHFFMiX/IuTLphWq0xaGJz/LvXBzGWxmOFAPFDCPrJuT026brvSC20z1
-         5tb8tvOiZec+WaBJYaaIBPLF0Xn9W3man5pXcRPraTt+vxL6ZXDZB8SnxnBO0oEsskpk
-         1OhA==
+        bh=/wiJ65tCCwaXlhldDV02/0ILnbQ3PWCMS7MHA/4NFxE=;
+        b=Z7UbzznHp8HHhvr9Nztczoumme/NbxIdOjKoheWoxqwul48KLAR4NG+73MQyZjA1vf
+         nGBeErSkphb7a5KsuM6iEX3ijoACj12kUJ8Uw08B1pPWedbSQBc1RSh+A+IImZNrdQIF
+         XTPCuyAvmgq8KvfaBSzKV3CISyFkeV5YMUvoZcsryzeENeJCN0Bv5gol19WouI4hNn1k
+         S6Du32qh3MzH9w5OIUNQbvpEoHhXLrzVukpnxigKczj8X2EODB14xalkiMPmVN9H/iz9
+         hb+cMpqKL2CUJiPRABl2kBhN3h2zrBFHanKFKXaCjxHOVqFv9ZnGJ+7FeTGk7t4lbIjm
+         oTtg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id b2si7749ilf.5.2019.10.16.14.33.42
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id t53si20701qte.2.2019.10.16.15.40.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 16 Oct 2019 14:33:42 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+        Wed, 16 Oct 2019 15:40:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 16 Oct 2019 14:33:41 -0700
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 16 Oct 2019 15:40:57 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.67,305,1566889200"; 
-   d="gz'50?scan'50,208,50";a="208495114"
+   d="gz'50?scan'50,208,50";a="370947286"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga001.fm.intel.com with ESMTP; 16 Oct 2019 14:33:39 -0700
+  by orsmga005.jf.intel.com with ESMTP; 16 Oct 2019 15:40:55 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iKqvL-0005K4-6a; Thu, 17 Oct 2019 05:33:39 +0800
-Date: Thu, 17 Oct 2019 05:33:02 +0800
+	id 1iKryQ-000C3K-UP; Thu, 17 Oct 2019 06:40:54 +0800
+Date: Thu, 17 Oct 2019 06:39:57 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
 Subject: [peterz-queue:x86/static_call 29/34]
- include/trace/events/ufs.h:49:1: error: implicit declaration of function
- 'STATIC_CALL_TRAMP_ADDR'
-Message-ID: <201910170500.CMYmeNx1%lkp@intel.com>
+ drivers/usb/typec/ucsi/./trace.h:29:1: error: implicit declaration of
+ function 'STATIC_CALL_TRAMP_ADDR'
+Message-ID: <201910170656.rdKFkgH3%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="6ihycc4nrtir7trx"
+Content-Type: multipart/mixed; boundary="pwi47mvlpptiypi4"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---6ihycc4nrtir7trx
+--pwi47mvlpptiypi4
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -162,254 +162,11 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All error/warnings (new ones prefixed by >>):
 
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
    In file included from include/trace/define_trace.h:95:
->> include/trace/events/ufs.h:49:1: error: implicit declaration of function 'STATIC_CALL_TRAMP_ADDR' [-Werror,-Wimplicit-function-declaration]
-   TRACE_EVENT(ufshcd_clk_gating,
-   ^
-   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
->> include/trace/events/ufs.h:49:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   TRACE_EVENT(ufshcd_clk_gating,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
->> include/trace/events/ufs.h:49:1: error: initializer element is not a compile-time constant
-   TRACE_EVENT(ufshcd_clk_gating,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/ufs.h:70:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   TRACE_EVENT(ufshcd_clk_scaling,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/ufs.h:70:1: error: initializer element is not a compile-time constant
-   TRACE_EVENT(ufshcd_clk_scaling,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/ufs.h:98:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   TRACE_EVENT(ufshcd_auto_bkops_state,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/ufs.h:98:1: error: initializer element is not a compile-time constant
-   TRACE_EVENT(ufshcd_auto_bkops_state,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/ufs.h:143:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   DEFINE_EVENT(ufshcd_profiling_template, ufshcd_profile_hibern8,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/ufs.h:143:1: error: initializer element is not a compile-time constant
-   DEFINE_EVENT(ufshcd_profiling_template, ufshcd_profile_hibern8,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
---
-   include/linux/signal.h:177:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-   _SIG_SET_OP(signotset, _sig_not)
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/signal.h:167:27: note: expanded from macro '_SIG_SET_OP'
-           case 2: set->sig[1] = op(set->sig[1]);                          \
-                                    ^        ~
-   include/linux/signal.h:176:24: note: expanded from macro '_sig_not'
-   #define _sig_not(x)     (~(x))
-                              ^
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:20:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:18:
-   In file included from include/uapi/linux/bpf_perf_event.h:11:
-   In file included from ./arch/x86/include/generated/uapi/asm/bpf_perf_event.h:1:
-   In file included from include/uapi/asm-generic/bpf_perf_event.h:4:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:177:1: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-   _SIG_SET_OP(signotset, _sig_not)
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/signal.h:167:10: note: expanded from macro '_SIG_SET_OP'
-           case 2: set->sig[1] = op(set->sig[1]);                          \
-                   ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:20:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:18:
-   In file included from include/uapi/linux/bpf_perf_event.h:11:
-   In file included from ./arch/x86/include/generated/uapi/asm/bpf_perf_event.h:1:
-   In file included from include/uapi/asm-generic/bpf_perf_event.h:4:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:188:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-           case 2: set->sig[1] = 0;
-                   ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:20:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:18:
-   In file included from include/uapi/linux/bpf_perf_event.h:11:
-   In file included from ./arch/x86/include/generated/uapi/asm/bpf_perf_event.h:1:
-   In file included from include/uapi/asm-generic/bpf_perf_event.h:4:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:201:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-           case 2: set->sig[1] = -1;
-                   ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:20:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:18:
-   In file included from include/uapi/linux/bpf_perf_event.h:11:
-   In file included from ./arch/x86/include/generated/uapi/asm/bpf_perf_event.h:1:
-   In file included from include/uapi/asm-generic/bpf_perf_event.h:4:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:232:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-           case 2: set->sig[1] = 0;
-                   ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers//scsi/ufs/ufshcd.c:52:
-   In file included from include/trace/events/ufs.h:282:
-   In file included from include/trace/define_trace.h:102:
-   In file included from include/trace/trace_events.h:20:
-   In file included from include/linux/trace_events.h:10:
-   In file included from include/linux/perf_event.h:18:
-   In file included from include/uapi/linux/bpf_perf_event.h:11:
-   In file included from ./arch/x86/include/generated/uapi/asm/bpf_perf_event.h:1:
-   In file included from include/uapi/asm-generic/bpf_perf_event.h:4:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:244:10: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-           case 2: set->sig[1] = -1;
-                   ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
->> drivers//scsi/ufs/ufshcd.c:8209:44: warning: shift count >= width of type [-Wshift-count-overflow]
-                   if (!dma_set_mask_and_coherent(hba->dev, DMA_BIT_MASK(64)))
-                                                            ^~~~~~~~~~~~~~~~
-   include/linux/dma-mapping.h:142:54: note: expanded from macro 'DMA_BIT_MASK'
-   #define DMA_BIT_MASK(n) (((n) == 64) ? ~0ULL : ((1ULL<<(n))-1))
-                                                        ^ ~~~
-   63 warnings and 14 errors generated.
---
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
-   In file included from include/trace/define_trace.h:95:
->> include/trace/events/spi.h:29:1: error: implicit declaration of function 'STATIC_CALL_TRAMP_ADDR' [-Werror,-Wimplicit-function-declaration]
-   DEFINE_EVENT(spi_controller, spi_controller_idle,
+>> drivers/usb/typec/ucsi/./trace.h:29:1: error: implicit declaration of function 'STATIC_CALL_TRAMP_ADDR' [-Werror,-Wimplicit-function-declaration]
+   DEFINE_EVENT(ucsi_log_ack, ucsi_ack,
    ^
    include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
            DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
@@ -420,12 +177,12 @@ All error/warnings (new ones prefixed by >>):
    include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
                      STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
                      ^
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
    In file included from include/trace/define_trace.h:95:
->> include/trace/events/spi.h:29:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   DEFINE_EVENT(spi_controller, spi_controller_idle,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/usb/typec/ucsi/./trace.h:29:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_EVENT(ucsi_log_ack, ucsi_ack,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
            DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -435,12 +192,12 @@ All error/warnings (new ones prefixed by >>):
    include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
                      STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
    In file included from include/trace/define_trace.h:95:
->> include/trace/events/spi.h:29:1: error: initializer element is not a compile-time constant
-   DEFINE_EVENT(spi_controller, spi_controller_idle,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/usb/typec/ucsi/./trace.h:29:1: error: initializer element is not a compile-time constant
+   DEFINE_EVENT(ucsi_log_ack, ucsi_ack,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
            DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -450,71 +207,11 @@ All error/warnings (new ones prefixed by >>):
    include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
                      STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
    In file included from include/trace/define_trace.h:95:
-   include/trace/events/spi.h:37:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   DEFINE_EVENT(spi_controller, spi_controller_busy,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/spi.h:37:1: error: initializer element is not a compile-time constant
-   DEFINE_EVENT(spi_controller, spi_controller_busy,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/spi.h:68:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   DEFINE_EVENT(spi_message, spi_message_submit,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/spi.h:68:1: error: initializer element is not a compile-time constant
-   DEFINE_EVENT(spi_message, spi_message_submit,
-   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
-           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
-           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
-                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
-                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
-   In file included from include/trace/define_trace.h:95:
-   include/trace/events/spi.h:76:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
-   DEFINE_EVENT(spi_message, spi_message_start,
+   drivers/usb/typec/ucsi/./trace.h:47:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_EVENT(ucsi_log_control, ucsi_command,
    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
            DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
@@ -525,13 +222,351 @@ All error/warnings (new ones prefixed by >>):
    include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
                      STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   In file included from drivers//spi/spi.c:38:
-   In file included from include/trace/events/spi.h:182:
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
    In file included from include/trace/define_trace.h:95:
-   include/trace/events/spi.h:76:1: error: initializer element is not a compile-time constant
-   DEFINE_EVENT(spi_message, spi_message_start,
+   drivers/usb/typec/ucsi/./trace.h:47:1: error: initializer element is not a compile-time constant
+   DEFINE_EVENT(ucsi_log_control, ucsi_command,
    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
+   In file included from include/trace/define_trace.h:95:
+   drivers/usb/typec/ucsi/./trace.h:68:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_EVENT(ucsi_log_command, ucsi_run_command,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
+   In file included from include/trace/define_trace.h:95:
+   drivers/usb/typec/ucsi/./trace.h:68:1: error: initializer element is not a compile-time constant
+   DEFINE_EVENT(ucsi_log_command, ucsi_run_command,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
+   In file included from include/trace/define_trace.h:95:
+   drivers/usb/typec/ucsi/./trace.h:73:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_EVENT(ucsi_log_command, ucsi_reset_ppm,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from drivers/usb/typec/ucsi/trace.c:4:
+   In file included from drivers/usb/typec/ucsi/./trace.h:173:
+   In file included from include/trace/define_trace.h:95:
+   drivers/usb/typec/ucsi/./trace.h:73:1: error: initializer element is not a compile-time constant
+   DEFINE_EVENT(ucsi_log_command, ucsi_reset_ppm,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:57:2: note: expanded from macro 'DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+--
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+>> fs/cifs/./trace.h:59:1: error: implicit declaration of function 'STATIC_CALL_TRAMP_ADDR' [-Werror,-Wimplicit-function-declaration]
+   DEFINE_SMB3_RW_ERR_EVENT(write_err);
+   ^
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+   include/trace/define_trace.h:57:2: note: expanded from macro '\
+   DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+>> fs/cifs/./trace.h:59:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_SMB3_RW_ERR_EVENT(write_err);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+   include/trace/define_trace.h:57:2: note: expanded from macro '\
+   DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+>> fs/cifs/./trace.h:59:1: error: initializer element is not a compile-time constant
+   DEFINE_SMB3_RW_ERR_EVENT(write_err);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+   include/trace/define_trace.h:57:2: note: expanded from macro '\
+   DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+   fs/cifs/./trace.h:60:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_SMB3_RW_ERR_EVENT(read_err);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+   include/trace/define_trace.h:57:2: note: expanded from macro '\
+   DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+   fs/cifs/./trace.h:60:1: error: initializer element is not a compile-time constant
+   DEFINE_SMB3_RW_ERR_EVENT(read_err);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+   include/trace/define_trace.h:57:2: note: expanded from macro '\
+   DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+   fs/cifs/./trace.h:61:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_SMB3_RW_ERR_EVENT(query_dir_err);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+   include/trace/define_trace.h:57:2: note: expanded from macro '\
+   DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+   fs/cifs/./trace.h:61:1: error: initializer element is not a compile-time constant
+   DEFINE_SMB3_RW_ERR_EVENT(query_dir_err);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+   include/trace/define_trace.h:57:2: note: expanded from macro '\
+   DEFINE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/cifs/trace.c:8:
+   In file included from fs/cifs/./trace.h:884:
+   In file included from include/trace/define_trace.h:95:
+   fs/cifs/./trace.h:62:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   DEFINE_SMB3_RW_ERR_EVENT(zero_err);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   fs/cifs/./trace.h:48:49: note: expanded from macro 'DEFINE_SMB3_RW_ERR_EVENT'
+   #define DEFINE_SMB3_RW_ERR_EVENT(name)          \
+                                                   ^
+--
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+>> fs/gfs2/./trace_gfs2.h:91:1: error: implicit declaration of function 'STATIC_CALL_TRAMP_ADDR' [-Werror,-Wimplicit-function-declaration]
+   TRACE_EVENT(gfs2_glock_state_change,
+   ^
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+>> fs/gfs2/./trace_gfs2.h:91:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   TRACE_EVENT(gfs2_glock_state_change,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+>> fs/gfs2/./trace_gfs2.h:91:1: error: initializer element is not a compile-time constant
+   TRACE_EVENT(gfs2_glock_state_change,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+   fs/gfs2/./trace_gfs2.h:130:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   TRACE_EVENT(gfs2_glock_put,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+   fs/gfs2/./trace_gfs2.h:130:1: error: initializer element is not a compile-time constant
+   TRACE_EVENT(gfs2_glock_put,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+   fs/gfs2/./trace_gfs2.h:162:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   TRACE_EVENT(gfs2_demote_rq,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+   fs/gfs2/./trace_gfs2.h:162:1: error: initializer element is not a compile-time constant
+   TRACE_EVENT(gfs2_demote_rq,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+   fs/gfs2/./trace_gfs2.h:199:1: warning: incompatible integer to pointer conversion initializing 'void *' with an expression of type 'int' [-Wint-conversion]
+   TRACE_EVENT(gfs2_promote,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
+           DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
+           DEFINE_TRACE_FN(name, NULL, NULL, PARAMS(proto), PARAMS(args));
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   include/linux/tracepoint.h:292:5: note: expanded from macro 'DEFINE_TRACE_FN'
+                     STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   In file included from fs/gfs2/glock.c:49:
+   In file included from fs/gfs2/./trace_gfs2.h:632:
+   In file included from include/trace/define_trace.h:95:
+   fs/gfs2/./trace_gfs2.h:199:1: error: initializer element is not a compile-time constant
+   TRACE_EVENT(gfs2_promote,
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+   include/trace/define_trace.h:28:2: note: expanded from macro 'TRACE_EVENT'
            DEFINE_TRACE(name, PARAMS(proto), PARAMS(args))
            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    include/linux/tracepoint.h:313:2: note: expanded from macro 'DEFINE_TRACE'
@@ -541,36 +576,160 @@ All error/warnings (new ones prefixed by >>):
                      STATIC_CALL_TRAMP_ADDR(tp_func_##name),               \
 ..
 
-vim +/STATIC_CALL_TRAMP_ADDR +49 include/trace/events/ufs.h
+vim +/STATIC_CALL_TRAMP_ADDR +29 drivers/usb/typec/ucsi/./trace.h
 
-7ff5ab47363334 Subhash Jadavani 2016-12-22  48  
-7ff5ab47363334 Subhash Jadavani 2016-12-22 @49  TRACE_EVENT(ufshcd_clk_gating,
-7ff5ab47363334 Subhash Jadavani 2016-12-22  50  
-7ff5ab47363334 Subhash Jadavani 2016-12-22  51  	TP_PROTO(const char *dev_name, int state),
-7ff5ab47363334 Subhash Jadavani 2016-12-22  52  
-7ff5ab47363334 Subhash Jadavani 2016-12-22  53  	TP_ARGS(dev_name, state),
-7ff5ab47363334 Subhash Jadavani 2016-12-22  54  
-7ff5ab47363334 Subhash Jadavani 2016-12-22  55  	TP_STRUCT__entry(
-7ff5ab47363334 Subhash Jadavani 2016-12-22  56  		__string(dev_name, dev_name)
-7ff5ab47363334 Subhash Jadavani 2016-12-22  57  		__field(int, state)
-7ff5ab47363334 Subhash Jadavani 2016-12-22  58  	),
-7ff5ab47363334 Subhash Jadavani 2016-12-22  59  
-7ff5ab47363334 Subhash Jadavani 2016-12-22  60  	TP_fast_assign(
-7ff5ab47363334 Subhash Jadavani 2016-12-22  61  		__assign_str(dev_name, dev_name);
-7ff5ab47363334 Subhash Jadavani 2016-12-22  62  		__entry->state = state;
-7ff5ab47363334 Subhash Jadavani 2016-12-22  63  	),
-7ff5ab47363334 Subhash Jadavani 2016-12-22  64  
-7ff5ab47363334 Subhash Jadavani 2016-12-22  65  	TP_printk("%s: gating state changed to %s",
-7ff5ab47363334 Subhash Jadavani 2016-12-22  66  		__get_str(dev_name),
-7ff5ab47363334 Subhash Jadavani 2016-12-22  67  		__print_symbolic(__entry->state, UFSCHD_CLK_GATING_STATES))
-7ff5ab47363334 Subhash Jadavani 2016-12-22  68  );
-7ff5ab47363334 Subhash Jadavani 2016-12-22  69  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   28  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  @29  DEFINE_EVENT(ucsi_log_ack, ucsi_ack,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   30  	TP_PROTO(u8 ack),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   31  	TP_ARGS(ack)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   32  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   33  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   34  DECLARE_EVENT_CLASS(ucsi_log_control,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   35  	TP_PROTO(struct ucsi_control *ctrl),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   36  	TP_ARGS(ctrl),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   37  	TP_STRUCT__entry(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   38  		__field(u64, ctrl)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   39  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   40  	TP_fast_assign(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   41  		__entry->ctrl = ctrl->raw_cmd;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   42  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   43  	TP_printk("control=%08llx (%s)", __entry->ctrl,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   44  		ucsi_cmd_str(__entry->ctrl))
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   45  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   46  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   47  DEFINE_EVENT(ucsi_log_control, ucsi_command,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   48  	TP_PROTO(struct ucsi_control *ctrl),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   49  	TP_ARGS(ctrl)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   50  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   51  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   52  DECLARE_EVENT_CLASS(ucsi_log_command,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   53  	TP_PROTO(struct ucsi_control *ctrl, int ret),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   54  	TP_ARGS(ctrl, ret),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   55  	TP_STRUCT__entry(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   56  		__field(u64, ctrl)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   57  		__field(int, ret)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   58  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   59  	TP_fast_assign(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   60  		__entry->ctrl = ctrl->raw_cmd;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   61  		__entry->ret = ret;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   62  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   63  	TP_printk("%s -> %s (err=%d)", ucsi_cmd_str(__entry->ctrl),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   64  		__entry->ret < 0 ? "FAIL" : "OK",
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   65  		__entry->ret < 0 ? __entry->ret : 0)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   66  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   67  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   68  DEFINE_EVENT(ucsi_log_command, ucsi_run_command,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   69  	TP_PROTO(struct ucsi_control *ctrl, int ret),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   70  	TP_ARGS(ctrl, ret)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   71  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   72  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   73  DEFINE_EVENT(ucsi_log_command, ucsi_reset_ppm,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   74  	TP_PROTO(struct ucsi_control *ctrl, int ret),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   75  	TP_ARGS(ctrl, ret)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   76  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   77  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   78  DECLARE_EVENT_CLASS(ucsi_log_cci,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   79  	TP_PROTO(u32 cci),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   80  	TP_ARGS(cci),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   81  	TP_STRUCT__entry(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   82  		__field(u32, cci)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   83  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   84  	TP_fast_assign(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   85  		__entry->cci = cci;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   86  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   87  	TP_printk("CCI=%08x %s", __entry->cci, ucsi_cci_str(__entry->cci))
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   88  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   89  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   90  DEFINE_EVENT(ucsi_log_cci, ucsi_notify,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   91  	TP_PROTO(u32 cci),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   92  	TP_ARGS(cci)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   93  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   94  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   95  DECLARE_EVENT_CLASS(ucsi_log_connector_status,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   96  	TP_PROTO(int port, struct ucsi_connector_status *status),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   97  	TP_ARGS(port, status),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   98  	TP_STRUCT__entry(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16   99  		__field(int, port)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  100  		__field(u16, change)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  101  		__field(u8, opmode)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  102  		__field(u8, connected)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  103  		__field(u8, pwr_dir)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  104  		__field(u8, partner_flags)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  105  		__field(u8, partner_type)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  106  		__field(u32, request_data_obj)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  107  		__field(u8, bc_status)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  108  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  109  	TP_fast_assign(
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  110  		__entry->port = port - 1;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  111  		__entry->change = status->change;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  112  		__entry->opmode = status->pwr_op_mode;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  113  		__entry->connected = status->connected;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  114  		__entry->pwr_dir = status->pwr_dir;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  115  		__entry->partner_flags = status->partner_flags;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  116  		__entry->partner_type = status->partner_type;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  117  		__entry->request_data_obj = status->request_data_obj;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  118  		__entry->bc_status = status->bc_status;
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  119  	),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  120  	TP_printk("port%d status: change=%04x, opmode=%x, connected=%d, "
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  121  		"sourcing=%d, partner_flags=%x, partner_type=%x, "
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  122  		"request_data_obj=%08x, BC status=%x", __entry->port,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  123  		__entry->change, __entry->opmode, __entry->connected,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  124  		__entry->pwr_dir, __entry->partner_flags, __entry->partner_type,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  125  		__entry->request_data_obj, __entry->bc_status)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  126  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  127  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  128  DEFINE_EVENT(ucsi_log_connector_status, ucsi_connector_change,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  129  	TP_PROTO(int port, struct ucsi_connector_status *status),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  130  	TP_ARGS(port, status)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  131  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  132  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  133  DEFINE_EVENT(ucsi_log_connector_status, ucsi_register_port,
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  134  	TP_PROTO(int port, struct ucsi_connector_status *status),
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  135  	TP_ARGS(port, status)
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  136  );
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  137  
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  138  DECLARE_EVENT_CLASS(ucsi_log_register_altmode,
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  139  	TP_PROTO(u8 recipient, struct typec_altmode *alt),
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  140  	TP_ARGS(recipient, alt),
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  141  	TP_STRUCT__entry(
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  142  		__field(u8, recipient)
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  143  		__field(u16, svid)
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  144  		__field(u8, mode)
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  145  		__field(u32, vdo)
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  146  	),
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  147  	TP_fast_assign(
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  148  		__entry->recipient = recipient;
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  149  		__entry->svid = alt->svid;
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  150  		__entry->mode = alt->mode;
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  151  		__entry->vdo = alt->vdo;
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  152  	),
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  153  	TP_printk("%s alt mode: svid %04x, mode %d vdo %x",
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  154  		  ucsi_recipient_str(__entry->recipient), __entry->svid,
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  155  		  __entry->mode, __entry->vdo)
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  156  );
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  157  
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  158  DEFINE_EVENT(ucsi_log_register_altmode, ucsi_register_altmode,
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  159  	TP_PROTO(u8 recipient, struct typec_altmode *alt),
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  160  	TP_ARGS(recipient, alt)
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  161  );
+ad74b8649beaf1 Heikki Krogerus 2019-04-23  162  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  163  #endif /* __UCSI_TRACE_H */
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  164  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  165  /* This part must be outside protection */
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  166  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  167  #undef TRACE_INCLUDE_PATH
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  168  #define TRACE_INCLUDE_PATH .
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  169  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  170  #undef TRACE_INCLUDE_FILE
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  171  #define TRACE_INCLUDE_FILE trace
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16  172  
+c1b0bc2dabfa88 Heikki Krogerus 2017-06-16 @173  #include <trace/define_trace.h>
 
-:::::: The code at line 49 was first introduced by commit
-:::::: 7ff5ab4736333431311a4cbbfb574b155758b08c scsi: ufs: add tracing support
+:::::: The code at line 29 was first introduced by commit
+:::::: c1b0bc2dabfa884dea49c02adaf3cd6b52b33d2f usb: typec: Add support for UCSI interface
 
-:::::: TO: subhashj@codeaurora.org <subhashj@codeaurora.org>
-:::::: CC: Martin K. Petersen <martin.petersen@oracle.com>
+:::::: TO: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+:::::: CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -579,14 +738,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910170500.CMYmeNx1%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910170656.rdKFkgH3%25lkp%40intel.com.
 
---6ihycc4nrtir7trx
+--pwi47mvlpptiypi4
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHKBp10AAy5jb25maWcAlDzZduM2su/zFTqdl+QhaW/t+M49foBIUEKLJBgAlCW/8Ci2
+H4sICO6Xp10AAy5jb25maWcAlDzZduM2su/zFTqdl+QhaW/t+M49foBIUEKLJBgAlCW/8Ci2
 3PEdLz2ynen++1sFcCmAoCdJctLNqsJeqB364R8/zNjb6/Pj7vX+Zvfw8H32Zf+0P+xe97ez
 u/uH/f/OUjkrpZnxVJhfgDi/f3r79vHbxXlzfjb79MvZL0c/H25OZ6v94Wn/MEuen+7uv7xB
 +/vnp3/88A/47wcAPn6Frg7/nN087J6+zP7cH14APTs++gX+nf345f71nx8/wv8f7w+H58PH
@@ -1482,4 +1641,4 @@ mXFWTNOo5YDj3cWxM78DQvJcdaTw971Pg+Jy2LBEbmM0KdvhJiXzlIczcKS9zZmRMjUXeaEH
 h3Tu0hJKyhZzN+AhGxz4Nt/qx92KynJAjHDtsCUJL+ByG0mXrZdn2U38oKME/g89jYy2jg4D
 AA==
 
---6ihycc4nrtir7trx--
+--pwi47mvlpptiypi4--
