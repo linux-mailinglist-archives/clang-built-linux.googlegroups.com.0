@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBDMAUPWQKGQEXPS7NJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBCEQUPWQKGQEDYAZKQQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B3CDEDB770
-	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Oct 2019 21:25:02 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id g25sf1933883oiy.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Oct 2019 12:25:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571340301; cv=pass;
+Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E995DB814
+	for <lists+clang-built-linux@lfdr.de>; Thu, 17 Oct 2019 21:59:06 +0200 (CEST)
+Received: by mail-pf1-x43b.google.com with SMTP id f2sf2613139pfk.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 17 Oct 2019 12:59:06 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571342344; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YW0Ak03i7X7MMZHsBQL6mmNcWsZoPeW799gIvc0arraE53Azm5lU6DyWMulqA4ko4e
-         b9Tj4z2gEo+tpgRTZUbZiVAY8QM4s7bqU3DuyL9pj68cnv74z+nTTR6m3tTML90lXFMv
-         eUVk8vMUq5JPZdNIXx8QA90mZZNdTb+NeCB4GjRv3szxthPzGPsj7xCnD1HApDkdigrU
-         LJBy3MS+dkw3Ms0qoP+fw0X/yXuLOOpCFFFH7Dt7UHPM6NCPjjF9woi6m7MB3sYEk4et
-         8XfGvrpsVXYfplGNdVlIBjZW7E0CR7h0r7tHFXggBi+Q0PDUtkPTahbUBIIJn44SzvoS
-         ViHw==
+        b=xJSrGqx/dBCr0MObQYl7lBMVU2St9Sc6et6wRtvsUZaixGDwS0d8E+o80M4AnN5iHx
+         GTU6q1PikFCCA8g9YWhFgsu8wqXT4BZ2fSzmfXzAP2FvrCZLIu7WpaHsJVXA4M/0/FSW
+         xz2cP6IhLx43As3lLGzI/Hax50X5Ki/3VyQ7NuqUnEYqHO/C4ly4Ts6rxIxFRLuOQC4i
+         sYArifS4hgS068ZYbUJOW2cDWSoXr3yAimcrduHsICeahMEy7OMOBU6A53JAIjzhKk87
+         s6zppYXN6TSgsVaKlblEh2Q+P/4SL49/mgHhu9TCsYwZ0/xTEKeTTxLiZU+QTd9/8i/6
+         NSIg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=YVGx58GQ1klqQRYWFgBfh4CgGHH3ITiTvaP3WOxUtO8=;
-        b=Tm1BpCvbBWc+A3v+PfFeeDQ8fYxrliPVxaIhhRMmlr0YEw8n69ttPXUXn8rz8I9q3P
-         uLY6CgMltLCaHiuqbuGH+wPrRRGc4OP34yAsNnMw76vSYmuErPLmkD0Sm++Nz9G3cPy6
-         HIPTt+We51KUfgcXxpz0ZuXPjEpjZ37IWUYF5kSI2uxOT3jtnS9u+Ze3oMd1lNHQluNN
-         XenIsqEkq7TbtPeJbmTldH1Q1z9USVZDLHCXiQHziTOMMJZX8kq5VJTmTiVwZ3IdiCC1
-         YsiN4OWVJafa58AbKMdLOSVhRYFqqJuhFbTZRFO+eMiOgJzNiOcaHtrIZ8wKMJNbhkP0
-         n84g==
+        bh=/SUYmX2nb73GlYnINXhMxGyZBqYg/wnMegMaqwFHO14=;
+        b=thvl2e5ukW/H6GweCmCVm6VGQYMO49fX1rC087Kiy75zvY31ltkT93AwjgQt5HKGhp
+         +t271JlDCGIP7XingEQ75uiBkkfJGu81FvP04aj/il3auF5/LU3VjGRfX3Eip62M0ojQ
+         Ust8h55lTMe7f2nA52YWcKCQBsxz0E/S8a+24DH3F8V1GuRv/X9u+1BIFfgdyOkYX0CH
+         M3EYSc2i9y8JtkCt2fvV6sY96nhX4JwAIL+DGcaZJftgJ41I1BTlPgZnNoZrl3PE46ge
+         pZQlox0De+ixpVCYd0UCrmPshB5DXwBQUvaac3pOEGTLCP+95hulEaqQHKRTg5TYI7k9
+         jSOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YVGx58GQ1klqQRYWFgBfh4CgGHH3ITiTvaP3WOxUtO8=;
-        b=RQzqw31pbFpX/PsPyIMWiRbmQ7KuS0MjSy4aIP3shlPv0xjmSrJORMcxdjR3OpQshP
-         KghHvFb4BQUzINGn1YYlGaSMZJN4nS8DAMMiWppViVetQZN38qb7fb5seLdFVf9kcZ7j
-         d3akKEwd5oFMYj6cLUyZmVarDQYkA3+/4SWWqxq8evwbxxIl96eNy+QG2a16YP69QGfz
-         qvnSLfa8jajHka023mTP2XqU/tQaN7DGx/O3oznCbj9U/Nxl9vLnEkUO4C5ulyLtXU/X
-         G+N4Kh6Go74TXpayfF9Xay8m4G4dsitBugNw0v3q0Kauw0YDNUy+LYz/p4L13wrB2ytq
-         lWRQ==
+        bh=/SUYmX2nb73GlYnINXhMxGyZBqYg/wnMegMaqwFHO14=;
+        b=lBpMm0VW/9saIt8iQlhYZRkifiPdZcsftSz6TmaT5soMwBqUGNPSCxjy4qHd8h7Nqf
+         w2SOBtKVrkqQIkxCuoNugk0y6IyRNlR8klEhYInWHLR2lnNBlaEOJfoQx4pZLCwRWQbl
+         qhmemp38QY1Rb4UYmbcWOhX9jpGIt3+Lvgcj8Ps0U+pksP4CG34MJNVF91k66i+M/813
+         8uwwRdUmAgxqwDZzAeBMiRwYO6jQi9aeL89zg20pBWzLlaQre2VZSjYAVbzEXKdTj8AD
+         510MVDTwMUvlvQpUYEFVETRbh3+5DFacj+GzkklVvfslJWYzbdtznq6tT0zI/5Y+uJeN
+         UtyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,75 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=YVGx58GQ1klqQRYWFgBfh4CgGHH3ITiTvaP3WOxUtO8=;
-        b=KI3pMo3fny68iJ1pcxUHgrafYlYgV3Pd+foQkGoSSZrwghrXWOqB96GPg1j4A0wGSo
-         4eJ7OQtpUgI0vdP7hVuB5P2jLjPZC6iOVRVAKoH7BNxJSBO1FNF4HArrsRPrBDXm0QdX
-         D3PvHN7nxk6zQkjHFbzCkYlpMfNW5nNtn6S2EQxNCF9KyuXkKuTuV453L2fYZIwQSqm9
-         Vi0vJ5ZHI54BaqKYV1yau5UmhyT7hlfHIcWdXU57rW65tXb9PkWO6veCnmo/f577FH8K
-         8uoLBB491xJWfxttnw/Qf+/tUngBD3KIWg/EQ/UVuGIyNgUBYNrHiAGWgPTDUpZq+9LI
-         r7EQ==
+        bh=/SUYmX2nb73GlYnINXhMxGyZBqYg/wnMegMaqwFHO14=;
+        b=IZEdFAXof84Ewg/CzSiuphJAjxUk537ccbtglB8pS4hLVbe0Q2dLUTtSPdXN95QQdv
+         o92ogPqSIeW0JqSFRQu9bXRW0hUVYWW7KlIT21YLEIZ6ARsBrRXSsFeItOMtY/S+bSoq
+         YAExJK+DQn0Nk+9vAm05ycOgdoaqgm/E+ON69C5RCv9jQfVC/QBYb5gnDMTDpGkvc5Aw
+         ToyaFUNopY8LJFYGwQWyGqraj5rQZO195ldFORG57F9v9Nyo8ZNwROgktuHZBy6eLrZG
+         o6F006kOdi9Q/DD/1mvaCaR56o+n6EVcM4xryEx5tPnEB8y6IjArMe8/r5t3m9mItm2w
+         4h3g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUbcYtxx02H+RuuuYXrn9EJsmBi6EcFBTDO7jTTAu8Ufmq0ZXeK
-	4HAie7k9Knc5ydccaRfJ9so=
-X-Google-Smtp-Source: APXvYqwQfPTnM3736cbihxqEwPSA1chqaPD6P/8cI746lAK21tQzmRHFvg4H7GSEVzGhBl4nRGp7Kg==
-X-Received: by 2002:a05:6808:3b4:: with SMTP id n20mr4532822oie.131.1571340301510;
-        Thu, 17 Oct 2019 12:25:01 -0700 (PDT)
+X-Gm-Message-State: APjAAAVvTztb14k2HUmDWTVsEUTVdHZRjl5nnHQSiVHWngRmn7rPR8k9
+	aBVVhrRh6gktu6Zu50ILpNA=
+X-Google-Smtp-Source: APXvYqxmpf1xvQQuilF8m4GN8cbvhPN7Q9gWbaFGeN1ymKBkH+pCNvTAD+xzrLiibMbe+tG/Z0A4MA==
+X-Received: by 2002:a17:902:8690:: with SMTP id g16mr5719060plo.294.1571342344088;
+        Thu, 17 Oct 2019 12:59:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:688:: with SMTP id 8ls635258otx.9.gmail; Thu, 17 Oct
- 2019 12:25:01 -0700 (PDT)
-X-Received: by 2002:a9d:5e82:: with SMTP id f2mr4593172otl.34.1571340301053;
-        Thu, 17 Oct 2019 12:25:01 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571340301; cv=none;
+Received: by 2002:a17:902:aa91:: with SMTP id d17ls1061571plr.2.gmail; Thu, 17
+ Oct 2019 12:59:03 -0700 (PDT)
+X-Received: by 2002:a17:90a:741:: with SMTP id s1mr6550712pje.113.1571342343667;
+        Thu, 17 Oct 2019 12:59:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571342343; cv=none;
         d=google.com; s=arc-20160816;
-        b=cXpOqk25mn4pDa+Z/4GwZkl7NPJOdtxnTNGBPOoJGTSefYliaeq4dyzgn8dPe5muYL
-         FvK5INuD+D1ONYYmMYjJomLTUcI5BgxZh9f1GxFkWe7OExmFZGD4ISvgz7EY554XpbCA
-         wdHUupLZ1DMgBbyE6jY4kfvwGLC0eFgZ6lY8gAy+OpQcBmTwPTbEgIPfcmaVAFFOLXZE
-         16a7N77XLS+YaX/oPjz9A7kRuLsmT9FuJCTS9aZFMm/wOcrBgp2snRXaQU7s3DQZdEz7
-         IQYZe6rIYiLJY4w69l0GOA6hz3XTM1LfgP4hRWVRqpRDaeTbtu2Y53l5L0wUvMmKHbhQ
-         nTAw==
+        b=wVWNlc+cmKvM4VPXohGCqfWNtNu08RlosilG42C6NP+/pKX4kGmmQBTYP+Q4yxdls7
+         CUyj8oIOcm9p1S9q/Wu1JEQ25BdCZS4gJffma5uYKvlFMxLifWS2UocnXvqZmQAC2ClL
+         57FnTEhWsVYSWfAA+fQGbhvJZvo8JLfQLWxULEwA1u57qdoVKV0cdFeAOzWJC+8j9m2+
+         wu98vMbwZ+L+MiPH2/t4Yi5QlTVqGPHylavQcceN2KNcfXyD+PE8pr2F7SmGZaMc6Fyn
+         oXcqsbPIb/QcSLApofyWUjOZipVES4+2hvFmo7RJkD5VriisgftJ6T4KlITsreXkAH8T
+         0tYw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=WlhQ5IFoGV9tBKXtYwgfv35B8rnPu4BZ1gQws4DXhfM=;
-        b=YNw2XL/c8srE+/4FslHVknegK9NP8X83V8aCq8NGL9d4Akgu420OgxOey3T8SeRkSY
-         WXlqNaopERdbukpSYc1/wsYPTJajbZj1xNytZjn0Pd98QpqW5AR21B2qPS64D8JIx6eD
-         aQdddcLnF8dOfHJ7ncfuaqi4mEZRMUpaGbKwIicJimyICId8TqsBCiRp+UNad5/Y59mi
-         KNJQn6cboTTouBJeaidJ2cHXl4+vRgFRhZ5NfnOVpqa3w0L+Y3e+ASqJvX825vz3nmZe
-         yJMI1JJgb4y7rzHqBKP4K8WYzgWrtlleJOtwpMeASmbrlqMIDDtRZ5U35FnK6dqY3Q4I
-         WRGw==
+        bh=RATkOYbuWMjKbp3tI3xgWJtkJz65CpJclbptcoVhZf4=;
+        b=PdrR4Uix+oq9hfIoyWB23yxnqXhDe0MJ7WHk9/6R+lui7Voqcwh9m4trzUpGn600BT
+         Sz3zpO8cXa+D9XLxkqfNhp/sqWHwMx2WIAGbwQ+/l1gZARnRiJRyDFaHr0lT1MyrzgF7
+         xrvAODd33J4fW4BS5aeEg4N9IpgI2Ev+cqdvtn8dNjNq3o8pMUrIHwEkyAxJ+LNxVJaV
+         0+NbBUpQQ0W0U5gWdTw1cTutC4TRYzLGWpTrQ9MRRE1tMemI3mBXjZtebKHxwCak0M6R
+         FNDvha6LMRi3EqC9aTkEDpF5NXGG06wTjAEqSTRWTomtZ+fL4R5R7TtUvfAYYeMJh9vs
+         5qGw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
-        by gmr-mx.google.com with ESMTPS id a22si167008otf.3.2019.10.17.12.25.00
+        by gmr-mx.google.com with ESMTPS id m44si114063pjb.0.2019.10.17.12.59.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 17 Oct 2019 12:25:01 -0700 (PDT)
+        Thu, 17 Oct 2019 12:59:03 -0700 (PDT)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 17 Oct 2019 12:24:58 -0700
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 17 Oct 2019 12:59:03 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.67,308,1566889200"; 
-   d="gz'50?scan'50,208,50";a="195257037"
+   d="gz'50?scan'50,208,50";a="371242963"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 17 Oct 2019 12:24:56 -0700
+  by orsmga005.jf.intel.com with ESMTP; 17 Oct 2019 12:59:01 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iLBOJ-000HIx-Vn; Fri, 18 Oct 2019 03:24:55 +0800
-Date: Fri, 18 Oct 2019 03:24:38 +0800
+	id 1iLBvI-000EZS-HX; Fri, 18 Oct 2019 03:59:00 +0800
+Date: Fri, 18 Oct 2019 03:58:08 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [mark-rutland:arm64/ftrace-with-regs 4/5]
- arch/arm64/kernel/module.c:505:23: error: use of undeclared identifier
- 'FTRACE_ADDR'
-Message-ID: <201910180334.Qb28SCzu%lkp@intel.com>
+Subject: [mark-rutland:arm64/ftrace-with-regs 5/5]
+ arch/arm64/kernel/module.c:514:42: error: use of undeclared identifier
+ 'FTRACE_REGS_ADDR'
+Message-ID: <201910180306.EFnaZz8e%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="gqgrgfx7lfetm2qp"
+Content-Type: multipart/mixed; boundary="tysxo5d3acmvrw36"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
@@ -139,22 +139,23 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---gqgrgfx7lfetm2qp
+--tysxo5d3acmvrw36
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-TO: Mark Rutland <mark.rutland@arm.com>
+TO: Torsten Duwe <duwe@lst.de>
+CC: Mark Rutland <mark.rutland@arm.com>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git arm64/ftrace-with-regs
 head:   a8d4472940d5bd2282e9e1dc9743a0f83c57f536
-commit: 30cf8c99ed55256ae1b2c9e3a85c4afa08aac9b5 [4/5] arm64: module/ftrace: intialise PLT at load time
+commit: a8d4472940d5bd2282e9e1dc9743a0f83c57f536 [5/5] arm64: implement ftrace with regs
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 1f5823b788037b0dc8c846a22ef6a5a8a0714af7)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 30cf8c99ed55256ae1b2c9e3a85c4afa08aac9b5
+        git checkout a8d4472940d5bd2282e9e1dc9743a0f83c57f536
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -163,36 +164,49 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> arch/arm64/kernel/module.c:505:23: error: use of undeclared identifier 'FTRACE_ADDR'
-           *plt = get_plt_entry(FTRACE_ADDR, plt);
-                                ^
+   arch/arm64/kernel/module.c:511:36: error: use of undeclared identifier 'FTRACE_ADDR'
+           __init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
+                                             ^
+>> arch/arm64/kernel/module.c:514:42: error: use of undeclared identifier 'FTRACE_REGS_ADDR'
+                   __init_plt(&plts[FTRACE_REGS_PLT_IDX], FTRACE_REGS_ADDR);
+                                                          ^
+   2 errors generated.
+--
+>> arch/arm64/kernel/module-plts.c:333:20: error: use of undeclared identifier 'NR_FTRACE_PLTS'
+                   tramp->sh_size = NR_FTRACE_PLTS * sizeof(struct plt_entry);
+                                    ^
    1 error generated.
 
-vim +/FTRACE_ADDR +505 arch/arm64/kernel/module.c
+vim +/FTRACE_REGS_ADDR +514 arch/arm64/kernel/module.c
 
-   488	
-   489	int module_init_ftrace_plt(const Elf_Ehdr *hdr,
-   490				   const Elf_Shdr *sechdrs,
-   491				   struct module *mod)
-   492	{
-   493	#if CONFIG_ARM64_MODULE_PLTS
-   494		const Elf_Shdr *s;
-   495		struct plt_entry *plt;
-   496	
-   497		if (!IS_ENABLED(CONFIG_DYNAMIC_FTRACE))
-   498			return 0;
-   499	
-   500		s = find_section(hdr, sechdrs, ".text.ftrace_trampoline");
-   501		if (!s)
-   502			return -ENOEXEC;
-   503	
-   504		plt = (void *)s->sh_addr;
- > 505		*plt = get_plt_entry(FTRACE_ADDR, plt);
-   506		mod->arch.ftrace_trampoline = plt;
-   507	#endif
-   508		return 0;
-   509	}
+   493	
+   494	int module_init_ftrace_plt(const Elf_Ehdr *hdr,
+   495				   const Elf_Shdr *sechdrs,
+   496				   struct module *mod)
+   497	{
+   498	#if CONFIG_ARM64_MODULE_PLTS
+   499		const Elf_Shdr *s;
+   500		struct plt_entry *plts;
+   501	
+   502		if (!IS_ENABLED(CONFIG_DYNAMIC_FTRACE))
+   503			return 0;
+   504	
+   505		s = find_section(hdr, sechdrs, ".text.ftrace_trampoline");
+   506		if (!s)
+   507			return -ENOEXEC;
+   508	
+   509		plts = (void *)s->sh_addr;
    510	
+ > 511		__init_plt(&plts[FTRACE_PLT_IDX], FTRACE_ADDR);
+   512	
+   513		if (IS_ENABLED(CONFIG_DYNAMIC_FTRACE_WITH_REGS))
+ > 514			__init_plt(&plts[FTRACE_REGS_PLT_IDX], FTRACE_REGS_ADDR);
+   515	
+   516		mod->arch.ftrace_trampolines = plts;
+   517	#endif
+   518		return 0;
+   519	}
+   520	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -201,14 +215,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910180334.Qb28SCzu%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910180306.EFnaZz8e%25lkp%40intel.com.
 
---gqgrgfx7lfetm2qp
+--tysxo5d3acmvrw36
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICPe9qF0AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eQh9x0vQBCUEHEyAEq2NzyKLXf8
+H4sICPDBqF0AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eQh9x0vQBCUEHEyAEq2NzyKLXf8
 4qGvbHfSf3+rAA4ACDr9XsZmVWEu1Ax9/6/vJ+T97eVp//Zwu398/Dr5dHg+HPdvh7vJ/cPj
 4X8mcTHJCzVhMVc/A3H68Pz+9y/749PpcnLy8/Ln6U/H28Vkczg+Hx4n9OX5/uHTOzR/eHn+
 1/f/gn++B+DTZ+jp+O/J7eP++dPky+H4CujJbPoz/D354dPD279/+QX++/RwPL4cf3l8/PJU
@@ -1058,4 +1072,4 @@ OzeZYxfG3zFdeUhIQcQSiGhrUqWjMBM08Dg/tZi6A/4EzZWJOxJh99q6Tjhtb8Kw30YfDLRg
 YU7XVsDmmh55GF/w0gcFClSa6CKHu7/Iwnojd8ciJBIAcUeT552OyW37MFObZHIky2SRib1T
 Y26UyKuxuFiHn5kOykaeUflfWqwTeh4WAwA=
 
---gqgrgfx7lfetm2qp--
+--tysxo5d3acmvrw36--
