@@ -1,130 +1,144 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB2VNVHWQKGQEENZ2IGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBJFOVHWQKGQEH272EZA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B332ADD5BD
-	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Oct 2019 02:20:59 +0200 (CEST)
-Received: by mail-oi1-x23b.google.com with SMTP id r67sf4163654oif.18
-        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Oct 2019 17:20:59 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571444458; cv=pass;
+Received: from mail-ed1-x53a.google.com (mail-ed1-x53a.google.com [IPv6:2a00:1450:4864:20::53a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D7152DD5BE
+	for <lists+clang-built-linux@lfdr.de>; Sat, 19 Oct 2019 02:21:56 +0200 (CEST)
+Received: by mail-ed1-x53a.google.com with SMTP id t13sf4465013edr.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 18 Oct 2019 17:21:56 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571444516; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yBzi46xlz76sW+i9yRbXQZeY4obJPru14C5MkEGeTaQouu4B5CdDrJd7FG+hRBHEx8
-         4AHpIW62+1CQ21I1w5SpBkMVmDEec1qNbrQ1jy/fbQGphcfkPnYxxStiSNdO2J5/JE5v
-         Dw/rDBrNOfi+40dzirvi/DeNGXpf7NtDGrS2xCc3NjD+BrGG8RCsM7b/Quf7sQkDUhA7
-         nyK8WGmsQ56UGL7bXjldriJnZTSjOKVb4AC/EpavJGRUxPYbP2f6XBWRN79pLY2WZCG/
-         t/J07Wn5qAGPvnHfrfB07L7pPMqqSlM3tYHSsomqU08mqLGFZE4cHgQfAvXONE4fjPXm
-         9U+g==
+        b=lSRMJB6//bomSC3LgCvmHPXfnieAlMdEROmQKBBLcyHDSNlujaSCP5ns5XSibbU5jq
+         KRCLyuxZ1nnEyM30wKKk4uHMEcchJE1hY8wQbrxK4ySIJQXwjo+k62lkLXvBuRnyeY0G
+         Kv4foNVbo520GVK4bB4qqRFSNhJ6WMThDODu0aSyQtQv8m+R2Z2OfBSjwK5Yx6FTZfLs
+         NGOsjARhch0gvBjuR2x0tn/c3jarIKI8VffvhjM0CsmAUthw4cMagLlmpME9WCRKmJRt
+         /xMYVKnWSK7Mf5W2x8SgLa/eZBWoEoJnEP1Xt6ZgqD6+iOomzV0U8UMbwv8uFkiwGlwZ
+         3bbA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
          :dkim-signature;
-        bh=U4VhbEcLnw4cX0Cs/v1k7+wlHATAEFIRABJTvsX0wJY=;
-        b=G6l3T9qNaP3nYTmfMID4jgK41I7ISR1HecxJBt/QeglEy7vdIOysh2UXIQvuor2tRd
-         TDleFpiVVgcumZTP1FZoqiYJXJK2anEi+QF+UEj4P22a/TJlFcORA1Pk1qteIk51KS+W
-         9nLv/0Tpi659hrkicRrk1OoptGcX7ZgF4fF6OrogSE8+umn2pTloddKXPCQz8RShgVv0
-         4Ox99etRB+ij0qkjhcyuLfaGK6WFiDu8uw/iPcY5B6fcb2eoJBm6Mq1rHYu4UdgmjFyk
-         5vgxnquHvKIltNNEoC2YZGhUargC2B/YM1tzvZko8VDrCkwRj9mUbo4qUL31Tuphbjbh
-         DBbA==
+        bh=rN8nS3YC/gfLjXrd8leyT2Nv30ePeZpKanj+v0V1Gyc=;
+        b=0CuoxWFa/hP2Wy+3U1C0+K50qUFi2OjHQQc7eUiRmA3KYnEOs1o7xy6nbL5yqIbIOp
+         lN5RXwEaL7VCg9aI+ZiDqhwNFn9spQlMZ7Wa8EPM3/nRO9rGHUdBMkp5T8/+jKrfvKOF
+         /lVB+Jzytl9hkH+guadsVWvGzmefhaHuQ65MyoHm3FnOl4aJTXHOYxFM67Ft/L5zR6T1
+         +QKi3RKrUz8dJLZ5DprK4P/VKWCME9DkXVEwe3YVn4A8WBuJyOxm5blSyLuEIqjaYBxL
+         4pXHOeVoxs3iYnwxEtTQWKt+KCP+TnDr1MjS3e4nK5epPVDhImiNByJPwOE2pmIIGnCE
+         tJ6A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SJhBGhz9;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::141 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=U4VhbEcLnw4cX0Cs/v1k7+wlHATAEFIRABJTvsX0wJY=;
-        b=girooqL8X6L8gtLewCxcoSc0SnZlbKASyUxse/IoiUnmt5l+XKSROhqOYF7mgtGnLg
-         4tboKJrY30Wku9wTog4jAe8bWg96ANon+Kbs6EZOZVgH+lBHvffMdB00USyE6tX0+8av
-         W67V9bHl84aAfmtaHYWdDY8nJJZlQu+2pFdcOQDauuCNtPoYqIebpkC2ijfdBtaNsW58
-         gQVXRJHFNZA/W1n4X0e06UCOPhmCekzayHgOX2i0BscrxeTa1UDeEw7/FuQRxgRRfc1U
-         RIydQBNdPLpYtAKIZnAdQtJAQNr8EeT4nd3J1+ovjA45EkARs+aJc53/VOaUs7mgnXS+
-         oqaA==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rN8nS3YC/gfLjXrd8leyT2Nv30ePeZpKanj+v0V1Gyc=;
+        b=qycoHNI/odDvt0ik8CNl0Nb5YvSH0kNb5f3gqZira4yQF3zRukF7xw7zWS8RMR83ds
+         na72hx36TUz6SZIu4seQxhwCuU9TQ+XnzvUAGAehyysK8nSJQQ4u7A7fmHmbkHjsMQbG
+         ZPnAKYuSsy/Kb174/ur7Ri0eZE42so/31HMFmzxC6KR56KOllz5sNlbA2Msrj/EPFvnK
+         HN053jykbeAEcbLZPrr5ZOeuXdJrav7PL0pbYiQ/4+E0MNIEBtwxPXLIeOKtvt0dKpiZ
+         6+yWAPwowHGBQP+ZtsWRySxyrvUZ1cHqXeg+pOP6BKwRdKrAMFhuKTjzhA3/qYM6ocY0
+         o1bw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rN8nS3YC/gfLjXrd8leyT2Nv30ePeZpKanj+v0V1Gyc=;
+        b=UodBmTAFm08+xgSAx+BBOltQ6oN5C3AERXkbyM7FvLuZebLMWPQ2yaK2k/7FkGmhPM
+         hXEFdyay/F2Qj4Ww3u5myePAsExG0U/58Zm+g1kfM/DUGktuO8kvjhS5tSmmKcFgB+YR
+         B8sCjOFonlAqtLR3wajBwyNOx8M642XUIrs15ECHiOFy9XnQvXHbhD09T4HcqtAo7RFG
+         Uv6++9XdH67qDILFz9Kqj04tvWZ9mSgG494KaEMhSI1Rqs2ggytcN6eNOn+Euhok9dyi
+         bTWGrP+am73X2jxciJVSeT4EmYOrxeSvRipRjG9HOCydvuWU6RvD2Kp+nU8rf083ANhs
+         pKXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=U4VhbEcLnw4cX0Cs/v1k7+wlHATAEFIRABJTvsX0wJY=;
-        b=F4DwgYZgwnotjW56t9oosAJV15W/Ullkw3bJFCcl6Mdgklk3sqXaIBrN3QQSyOrd8S
-         ldyDU/aQSEjQyjW/OLVRa3SNS9GOCN+O4Q69yAFVGeW7ncQUz65gZUpCSofyBKoWUWIV
-         q4RXlCPldUv7s6hcnWPiPi3PXTxZZXRsjHooXN2vjkG+RqfGXabJX8yp/b31ipSrdP5b
-         XMa9eN2yVlmq3YFjMw72d7jlQEzdLEYiVJVrPrtukN9LLrD7VTW4DTJk//85RLB2WbMk
-         F/Q5uBHgLkzv9WUHIxQgnzBA9KXqpFJMrYrl/LaCAQRf/88lyQbwNb2lw+PZkKZayc0G
-         fpbw==
+        bh=rN8nS3YC/gfLjXrd8leyT2Nv30ePeZpKanj+v0V1Gyc=;
+        b=eFebxBg/2AyH/6K/PHPPSqfdVquJBwXqlIk3vGdZEoBzHgQTQ+qSlmleDKN3jqF9/K
+         MmITS30j/i1v34JUK9rTTLi+/yoRsCO4RIGzveMAPFiZO2k+cjQMeU2AXc21U1aZHcu4
+         ++gZ/HMSvdicJbG2mThA2+laVI4xD9ntq8UDVMDZHQsHnxt4wkZW07g9C4CMZ5lN6DE4
+         ttUv6dIkI2EfxwtmtQWq6mqleM7WxLdVOpPo2M6XBr+jffXJxM2SKtHXIjrwjl4J1O49
+         DhR0RfbrAQ0Wv9plxpLYuLLDMMw19NoF2Pa2JYNLClM4sscGxmw90M2HIdtx7c6lxo8S
+         SgXw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUjSmfwVUrgFS1Deb257oRcxOA2B43GlT8CbMXTMKY7NwvlUswG
-	bjTStwnC7I1kGA8h4sgEaK4=
-X-Google-Smtp-Source: APXvYqwcfkOdgyDTuBOcZR5WHPC9t/sIuabdMgIQFmWrkdYdx2aC2j41XU9w/zzAV4EBcl36CvGHKQ==
-X-Received: by 2002:a9d:60c9:: with SMTP id b9mr10113123otk.255.1571444458096;
-        Fri, 18 Oct 2019 17:20:58 -0700 (PDT)
+X-Gm-Message-State: APjAAAVlbY5CNCZr3Ny/hxOZQk2FM1uOhyrIzs8m097Mw3uJ3Z7b83e9
+	qk1oRafmr47tYLhZB2ncFR8=
+X-Google-Smtp-Source: APXvYqz05ffDWFgYPteXRsp5p0sZFUgIMuQV1q0FDGIxSUe2uOyMGYcuHs0JeKzzBXre8lYvGRzhPw==
+X-Received: by 2002:a17:906:194d:: with SMTP id b13mr11391913eje.199.1571444516492;
+        Fri, 18 Oct 2019 17:21:56 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:f4c9:: with SMTP id s192ls1315743oih.1.gmail; Fri, 18
- Oct 2019 17:20:57 -0700 (PDT)
-X-Received: by 2002:a05:6808:606:: with SMTP id y6mr10349558oih.74.1571444457712;
-        Fri, 18 Oct 2019 17:20:57 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571444457; cv=none;
+Received: by 2002:aa7:c44d:: with SMTP id n13ls1779774edr.7.gmail; Fri, 18 Oct
+ 2019 17:21:55 -0700 (PDT)
+X-Received: by 2002:aa7:c6cf:: with SMTP id b15mr12578326eds.215.1571444515944;
+        Fri, 18 Oct 2019 17:21:55 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571444515; cv=none;
         d=google.com; s=arc-20160816;
-        b=uZaiwv0zzY0pLy8kpLb9Q6L9clEiTaQEDANoQzxpUOLvNchOb6f/YAdK30n7TIs/gS
-         PkcBNRQWGoDayCP/lo0/+XQqXEjbzLXD8woPdsCbNkWGThmiGeGcMkYnX4SUH34DpSzD
-         ipMvHsYyhhvCx5BLmzlu6RtpHyjN8oZXo1Jq8mjM3QpjU1Tqa+BM/+WNlnL3WrWGxoPP
-         /jxaUS+ffgZk8bigHoEpRxf1AQ+q1t9pWEQEmq+O135BnJv0lHr/tKzQBq19SCQRaU0S
-         KxRAIb98FS3Z3bwxIzFZn4ovXMzXqFWokx9nFGYzTx2zQr3Ht3KxhoslCETKAOzBpjVG
-         RclQ==
+        b=qYVwr3nas3Hyie4U1BtbIRiY/zkNQuSGKlCqo3GVvkFO4y3ExvuuY+qCCraCjsMEu4
+         vStvH7ZzmfOg3430YLP++diCL78nNNKrmKBBECmHVo1Orur4Kw5CYfx/Mg76TW3t21RD
+         CLTDCORST66CIRvOIY0U0/BmwIM6lN8w1qwa7khnJDzty3xntwHAl2wRnX5LHo46exC8
+         51/ng7Aqea4igd00bnTE+k+sZQvMej1MizjHr+5YSMKKGb8sdqWW8XV6UN/fYKcAUHb6
+         VPJem2RfZIXlHoM2H3h2k7gJtAjKQWPNtZc9IUSwH1fTeISRacFveuY/77sn0aQrQQjo
+         z+Gw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date;
-        bh=J198Si9ez2C61BbebbbIGuJTdPlemqNtHh18roB/7I8=;
-        b=hPuJTTaLeXlLmjd9AN0ob0H3b8XzgAdSB7zSEo+e51zEkZ5Wx9BjLzMBwY8sR9IG/G
-         UAQ7vp6SJfAbr4xd7lsiK9Tj1ginwktRUu11Mi5Uj0co6nI5UnUEAzGpnZlYseQqvJ9X
-         cqRQnkvmZ/36iDSjfpFKKSycTEKbE7TRN0rZBAFInNGMQsc5gR/qAu5a4f0UtOH+UspJ
-         wv7u1KCJBK3KMony3QdMxMylVayN6PDMK1ZKOQP6rYpeiFV5W34iSdMtfRL8QO0C8L/q
-         i37eltLxo2o/eEAPAla3qCXtvt4mMycALMYJme1TDICw7b0uVnAhJm/r4YR5G8voQ4B2
-         VxeA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ZqICylESWKf0IpOr+KHkluRNlL0wf5TguV6mXdP4QGA=;
+        b=DtYkTawxpRqU+mO1ltyl5Xn4KtSIkFcdqz010CV99Uuf+t10LxihCvT6AP3Un60Lqq
+         e8g7nKGDY78a9oCRAxmxFf+Ss90LFNsKw1QqT3dh7J7GJTwlLVDTdOQsl3t8gVrRsy52
+         uRrux1SNkdYuYHZOekq8cnXKhwwF7MAECkKm7kquiROYBNnE7JXyKD89tE9p1LahWoKk
+         RJnbGS/2uF6dKEnxyD6XlosYqjE0tSEA3whYZLZ4uYNz9TbfHStCH3hMFu68OTwmx9QD
+         TBBZlzffTnoisjdxDfbhLSWg8qPDKpDH8x23Tu6rQ1xIg67LwwIxLimXBJYNW6GyX3bA
+         3brQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
-        by gmr-mx.google.com with ESMTPS id b11si599634oii.5.2019.10.18.17.20.57
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SJhBGhz9;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::141 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lf1-x141.google.com (mail-lf1-x141.google.com. [2a00:1450:4864:20::141])
+        by gmr-mx.google.com with ESMTPS id d14si420195edb.4.2019.10.18.17.21.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 18 Oct 2019 17:20:57 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 18 Oct 2019 17:20:56 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.67,313,1566889200"; 
-   d="scan'208";a="190520543"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 18 Oct 2019 17:20:55 -0700
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
-	(envelope-from <lkp@intel.com>)
-	id 1iLcUI-000CuB-UG; Sat, 19 Oct 2019 08:20:54 +0800
-Date: Sat, 19 Oct 2019 08:19:58 +0800
-From: kbuild test robot <lkp@intel.com>
-To: kbuild@lists.01.org
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com
-Subject: [arnd-playground:pxa-multiplatform 46/52] arch/arm/Kconfig:697:
- can't open file "arch/arm/plat-pxa/Kconfig"
-Message-ID: <201910190848.JHAaryCw%lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 18 Oct 2019 17:21:55 -0700 (PDT)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::141 as permitted sender) client-ip=2a00:1450:4864:20::141;
+Received: by mail-lf1-x141.google.com with SMTP id w6so5950614lfl.2
+        for <clang-built-linux@googlegroups.com>; Fri, 18 Oct 2019 17:21:55 -0700 (PDT)
+X-Received: by 2002:ac2:55b4:: with SMTP id y20mr7590271lfg.173.1571444515448;
+ Fri, 18 Oct 2019 17:21:55 -0700 (PDT)
 MIME-Version: 1.0
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20191018161033.261971-7-samitolvanen@google.com> <CAKwvOd=z3RxvJeNV1sBE=Y1b6HgXdnT4M9bwMrUNZcvcSOqwTw@mail.gmail.com>
+ <CABCJKud6+F=yhTo6xTXkHhtLWcSE99K=NcfKW_5E4swS4seKMw@mail.gmail.com>
+ <CANiq72=PSzufQkW+2fikdDfZ5ZR1sw2epvxv--mytWZkTZQ9sg@mail.gmail.com> <CAKwvOdkqfbXVQ8dwoT5RVza6bZw3cBQUEGcuRHu0-LhObkg--w@mail.gmail.com>
+In-Reply-To: <CAKwvOdkqfbXVQ8dwoT5RVza6bZw3cBQUEGcuRHu0-LhObkg--w@mail.gmail.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Sat, 19 Oct 2019 02:21:44 +0200
+Message-ID: <CANiq72m_+YLLWuRGi=yZBAUj2WHSbw9E+jQ02LbXyq3b12Vb6g@mail.gmail.com>
+Subject: Re: [PATCH 06/18] add support for Clang's Shadow Call Stack (SCS)
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Sami Tolvanen <samitolvanen@google.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Kees Cook <keescook@chromium.org>, Laura Abbott <labbott@redhat.com>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Patchwork-Hint: ignore
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=SJhBGhz9;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2a00:1450:4864:20::141 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,62 +151,20 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-CC: kbuild-all@lists.01.org
-TO: Arnd Bergmann <arnd@arndb.de>
+On Fri, Oct 18, 2019 at 10:33 PM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
+>
+> Sami pointed out to me off thread that __has_attribute would only
+> check `no_sanitize`, not `shadow-call-stack`.  So maybe best to keep
+> the definition here (include/linux/compiler-clang.h), but wrapped in a
+> `__has_feature` check so that Clang 6.0 doesn't start complaining.
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/arnd/playground.git pxa-multiplatform
-head:   fcc4181cd625827d83b97b98e66febd5743bebdd
-commit: 038908f6d09fa7ceefb66dbd2de01eb462ced8ce [46/52] ARM: pxa: move plat-pxa to drivers/soc/
-config: arm-allnoconfig
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project a9aa4ec6a31c3c37796ca168b41f311b21359e19)
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        git checkout 038908f6d09fa7ceefb66dbd2de01eb462ced8ce
-        make.cross ARCH=arm  allnoconfig
-        make.cross ARCH=arm 
+Ah, good point -- agreed!
 
-If you fix the issue, kindly add following tag
-Reported-by: kbuild test robot <lkp@intel.com>
-
-All errors (new ones prefixed by >>):
-
->> arch/arm/Kconfig:697: can't open file "arch/arm/plat-pxa/Kconfig"
-   make[2]: *** [allnoconfig] Error 1
-   make[1]: *** [allnoconfig] Error 2
-   make: *** [sub-make] Error 2
-   1 real  0 user  0 sys  103.31% cpu 	make allnoconfig
---
->> arch/arm/Kconfig:697: can't open file "arch/arm/plat-pxa/Kconfig"
-   make[2]: *** [oldconfig] Error 1
-   make[1]: *** [oldconfig] Error 2
-   make: *** [sub-make] Error 2
-   1 real  0 user  0 sys  102.91% cpu 	make oldconfig
---
->> arch/arm/Kconfig:697: can't open file "arch/arm/plat-pxa/Kconfig"
-   make[2]: *** [olddefconfig] Error 1
-   make[1]: *** [olddefconfig] Error 2
-   make: *** [sub-make] Error 2
-   0 real  0 user  0 sys  103.86% cpu 	make olddefconfig
-
-vim +697 arch/arm/Kconfig
-
-a66c51f9cc9937 Alexandre Belloni 2018-02-27  695  
-95b8f20fd6a269 Russell King      2010-01-14  696  source "arch/arm/mach-pxa/Kconfig"
-95b8f20fd6a269 Russell King      2010-01-14 @697  source "arch/arm/plat-pxa/Kconfig"
-585cf17561d317 Tzachi Perelstein 2007-10-23  698  
-
-:::::: The code at line 697 was first introduced by commit
-:::::: 95b8f20fd6a2694a16b8addb190b942bfb670c88 ARM: fix badly placed mach/plat entries in Kconfig & Makefile
-
-:::::: TO: Russell King <rmk+kernel@arm.linux.org.uk>
-:::::: CC: Russell King <rmk+kernel@arm.linux.org.uk>
-
----
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910190848.JHAaryCw%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72m_%2BYLLWuRGi%3DyZBAUj2WHSbw9E%2BjQ02LbXyq3b12Vb6g%40mail.gmail.com.
