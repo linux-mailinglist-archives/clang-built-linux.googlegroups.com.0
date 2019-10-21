@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBAABBAH2XDWQKGQE3PYZURQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBB72XDWQKGQENDSRW4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-f55.google.com (mail-wr1-f55.google.com [209.85.221.55])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF674DF87B
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 01:19:28 +0200 (CEST)
-Received: by mail-wr1-f55.google.com with SMTP id x9sf1779303wrq.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571699968; cv=pass;
+Received: from mail-ed1-f63.google.com (mail-ed1-f63.google.com [209.85.208.63])
+	by mail.lfdr.de (Postfix) with ESMTPS id C600BDF87E
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 01:19:35 +0200 (CEST)
+Received: by mail-ed1-f63.google.com with SMTP id p55sf10024778edc.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 16:19:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571699975; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qOkkDdoyl5FAEc1HJiNTQFEOlEcuMLCQPq33ovWl9JG72WJ+8TWldOzwpxZrFQYDT9
-         bN96PCxD2X/XsuouaBaVi4LX/IxK6QA5UnQJCOJp0OInd4RBkhsyrcvnsoqfsWZ0p4o2
-         Jd2umg52c1eJ+wP9mtlGHz7v+dDhomTX6oKAcTK5k/xKZJTzlfB8/zWHPpUFM/79s4sN
-         IZDEtK6lig6JBoRTGNV88TSqc3ng5tJDGounxZ6MZTNbffVzXBEfq9b7v8iFXlFBxzVB
-         DkhF+0y5gaxOEc+QQ7sJvf3utWFInFd8cluO+TltfzE6ERjL91aJV9wG4fBIxxkjHVK9
-         6jeQ==
+        b=CmVu1UCg4ds3cgbrXcLny6AtgLTpgkKVF7UvuhXIDPLLNqgxBohLGOp61Wb0TVH/28
+         zZ4b7UBip0Z1T7JS1LsgY7MlAwsKOmHmjKyOk+8cwBEFrO69CTWbeu5fwOF3uWDVGL1F
+         hF6j/juI+tNnx9wgeMzN1NDF5wF96AfUpv0eaH0gPpU42E5ESSQJuZdySXfli9jVFtWi
+         UnDHe+eToHqEZuFoU92yKbgDrs1ASb/MzukSaGsGfTup2I/whsqY3MjOgG+YUmBn6nh5
+         jwrPBbMiCucE6o8tDkDbJyvsT3xaGQm+1an8nG6u/L0eOnyK0MnKJr05N9cNpJ7ygKDe
+         vV5g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=qZpBSvqDEad8/Csn4Al7jZIrAGDNSt+ovsAOo4cOyHg=;
-        b=NGe54837KvIi/gKEN96RCDFfFN0WP+laArBJohjzLz83mpAb8jEczqAt836uzcDeUz
-         Ji/dJp0ZkaigM4xjbFrAaHyJW5pU94FnauE/P9z96iEE6MP3RWzXS4OlRGvBcRC1n2zw
-         WA9mLXTIEylNHzxIAR5nf6T0dp/e4uFs0t0+DSVW89TBFX4uLujyFt88M9bYu3o6x/mq
-         90IE7z4LQ9IR7mwMYUJHtW5kzrdZ3JhFp96z345co7lgOHkRL9m4tmZH3ffkMaarxvTu
-         OQPB71NZynhlztn+wAvQJ/9/WfMuktdM2PN1wdAgQ/c5PAydwyAl2CWGwYzR3jr7RgEv
-         5HfQ==
+        bh=z+AyMcEpYDXrsxGNK5payb0kO65zPMfo8VuMNHRahY8=;
+        b=mDR1l2K8LGVsWfjpVh77+xA9CGT0l9UR0jbxFJN+19Mt/mCKOurb5MZgA2dhyjMwQF
+         AlHQ6bhTIoYWLODtzWrkSn9PRGDbEXrOpCrTFl7x6u4MIXjUmNMucqx2H8k3ULDCdYuK
+         KUnImMh4/hahdHndvazyVOO4bOzDXjuTH3ZDo7OvbOUqimcJx3jiMqZXrjy1aYCHfzLb
+         hmC+F3ljfqlansJUfPnNX1WSQDnrlpFrkbz0bbT3VCuPagKqoXG0MASl7ZGnt9UR4NPa
+         x7XqVsxVf6NLfAKgHpcnGD1KFiN6vyZpSqnH4EdxBCD4KJpZoeRlPk78YlUeoMNWMJQd
+         PGVg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,76 +36,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qZpBSvqDEad8/Csn4Al7jZIrAGDNSt+ovsAOo4cOyHg=;
-        b=dgFQeKQH3NDVWjgZFKIVHDZ4uXyQvulaSBK3vwAG59wAmEvQyVR5WNLtCwlPPaHyO4
-         lYBg9og7ukCeEokJ4c6wPtmgRdyHWicHSyQxc4CiUtK5pKP9LQ1aLnJEWwW0MNeR2+qc
-         TqKOna9yDxYMOzUoHfMwce3UkIFzNLY+o0n2p6RJkGEJmK0HJrvxgzSUZKuB8yDErGPw
-         Fk5Wcz4W8iPghWwyNLPqxqIrnyeFGcGUt9o89WDkuk2wnfHkoo63k9AySNVJyeOo+AFN
-         S92PX2P9iNZCcngAhlZXA1ESEf+P1LlfG1CcZ+XMMnJepNmd7AHXaEE/xaNQDJYZEYon
-         UyVA==
-X-Gm-Message-State: APjAAAWi0y2J+a/jQDUneiRF2qnUR7+Gqi94ApZclfDpA1SUDMvgcE4Z
-	yFQFpqYB/nziVTXYh9KMls8=
-X-Google-Smtp-Source: APXvYqwd6htBc//aXmWgePH48YeHiIM64V4RN9DzdnTIH6Obrpgi8LwEFYBvyKQa70qxpR1bO7xc0A==
-X-Received: by 2002:a1c:7c13:: with SMTP id x19mr314588wmc.80.1571699968461;
-        Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
+        bh=z+AyMcEpYDXrsxGNK5payb0kO65zPMfo8VuMNHRahY8=;
+        b=c8HPYlFRGQPQjd5n7zIer5sxOo9d5GVcevGCnstNSIoodFHrxm5/iEjIZZqPflWzSO
+         IlJdt6iBEnBN71EoOJJhHe2OVcXBZvzy3obThTT4ya+OJQi6KnRnvgP6Xx9usbkP5udS
+         Ok+cNp14rXGqj3W+3Y8L0UDtXheM7SJTvFleEyQ8f/fFEn9AfhA5tanwQW7TtluokZw4
+         EYa0SWobWLBoljEJvUtPziV/rxD0age9uvx2fwC9ID1aqERUaGJy4P4ngqBCFteU0Ni7
+         BRPRvbaab0DPMF3zUCCIm1yMxYJeWytoqMuJrT9D+/WSCkHmWKpEDLL4z1agfdUYANYg
+         v5MQ==
+X-Gm-Message-State: APjAAAXmsIaKA46KCTBhbZSpiatlm6lf//DgDTgsODWlZk1k6qr6JWR/
+	KeYOO1CC/7JAx+V2kyeIfFw=
+X-Google-Smtp-Source: APXvYqytc2FRX8LRGZf00NLKUsGzu84ZyfdwhvR36KD/F95ScWS6CghehcQcF/nZyU1tQ9BPQNvTxg==
+X-Received: by 2002:a17:906:2961:: with SMTP id x1mr24597808ejd.91.1571699975567;
+        Mon, 21 Oct 2019 16:19:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:efce:: with SMTP id i14ls7729030wrp.10.gmail; Mon, 21
- Oct 2019 16:19:28 -0700 (PDT)
-X-Received: by 2002:a5d:4a03:: with SMTP id m3mr561388wrq.359.1571699968232;
-        Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571699968; cv=none;
+Received: by 2002:a17:906:a3d7:: with SMTP id ca23ls3620334ejb.0.gmail; Mon,
+ 21 Oct 2019 16:19:34 -0700 (PDT)
+X-Received: by 2002:a17:906:2d49:: with SMTP id e9mr24435485eji.240.1571699974861;
+        Mon, 21 Oct 2019 16:19:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571699974; cv=none;
         d=google.com; s=arc-20160816;
-        b=liq8auXBDxyWqORS7MPT5mkENICyAR5ATpoIeUUYhaVhtKg/UPcUnVHzM3VuHQAA8/
-         BapSeRvd3JFXGIPguJTYcxm6qzP17DJoDY22wOM9rsnNcZdoDIJdOpRVGFudUAHEztjw
-         zHv4Ceyr/l7kzsd8FM6ZdA1feYn7ESHfOaBlxEF7oR7VboXaCir0qtpzETh6CYBPovpJ
-         1zFYdTjUPquXEYC5OprZUnwCsv28ROmPK3HqWppE7hv/kEJOi87dHfQhFNuT1uKAR3ui
-         hVcZRRJbEr0GO0SCBNAxUBxmFxwTeV2rloKW4sqnZ6IWTEIccEWUPwNDYKsX38H+2rkt
-         iDEw==
+        b=BYUwHQr8NXgpU0kOXP/m804T1juw+mxdEDX89oG6RkIVe1VpesRdIX8PDxwg2aK3ai
+         dCkzkx9bGeVN8IMo3p/vbTLqkfvjA5geQyspIkzkmKkNioaAv3LWvXBEHRUrtnQwK4IK
+         kZLFQICyGeVtqbPkmHhbd1wdKcQcFNGnU9wsClyggsmggTbboQNKoPgKqcWq66CVaYpc
+         7mLhpRf4cjinZErQFtFtkQHLwC5wEnm6sad6Aa/tA6wOxYYIpm3JWExjIZzQGhs+Kr28
+         qZj5pSYISQE//turJwrOv1bg9typLFR2adHQkcwg5aWvioCHLlHcTyVRaOmw/YVigSSb
+         uldg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=7U361mmxkUMuyaLQXkqRBJP3xdjzVkWyYINedk71u9w=;
-        b=jbClamhA4bJUGI7vOOXCWHz5kSzmaciLk1L5fshN8tY3EpR7X3Bs4voBptmq5nBYFM
-         Z57V3w6WxJx251MjCCErFNFJzuX68jxvDFgh7zzERfsBWcoWXGXHlImNerkHeHj5A/FV
-         f3eNM+mw1lJ9lGa62WmrExUeu7sMnLTvTxCfNpUhPvZPopvv78gjZum27eekJY5g2Esk
-         1NqwzZR7iyAFvzE7MZg+Yfy3sadqeQCa25UsxlbMIyQFd/ysiadbHNZ7vUZ9MjcE9n9n
-         +dlZG5n8glGbIng7iJ8a2ZppQ4csjow0dSE6Qkc5V0UQK6048/H8N4fUIeRvCb3Kxb8d
-         KaBQ==
+        bh=WGxz3hFt2TIpoFGtmy+IF5efbNB2IsHA7IGjPi4quLw=;
+        b=lVKksNJr42vnoWTn8FLv5IJPkossKoGpt3ov2zXyB6rRcoHMTuY8WoPgjdC+KI40ps
+         6mBcKOzZiO2ZQ1M6xLiKJQQXCfcmklsQkGL9bKWBtXd0o/pkelhlcvDFJ5CsoScarySR
+         VwinI+7OTiI7wrpTKclGXDbCfe1PYXmZeOoTZE61yFEh46rpPPw0EEROpru7l6xDhcht
+         IyZ+7ZEBl4Xp3xEBvZ+8RNhnZvGjUaBfg5AYpz42COYcOs5MqLKcJyMC3NaJOZhpC5OI
+         wJgzw7whceAPIY2CNTxiQp6VfI76OLuKfWweq8p0yv9wIcj6L4g5HL6bF70PSY17pUXK
+         Lc8A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id y185si709569wmd.4.2019.10.21.16.19.28
+        by gmr-mx.google.com with ESMTPS id c31si681644edb.0.2019.10.21.16.19.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
+        Mon, 21 Oct 2019 16:19:34 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
 Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
 	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
 	(Exim 4.80)
 	(envelope-from <tip-bot2@linutronix.de>)
-	id 1iMgxO-0004Cf-JP; Tue, 22 Oct 2019 01:19:23 +0200
+	id 1iMgxS-0004DK-E6; Tue, 22 Oct 2019 01:19:27 +0200
 Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 290561C04D5;
-	Tue, 22 Oct 2019 01:19:15 +0200 (CEST)
-Date: Mon, 21 Oct 2019 23:19:14 -0000
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 4C74D1C0086;
+	Tue, 22 Oct 2019 01:19:16 +0200 (CEST)
+Date: Mon, 21 Oct 2019 23:19:15 -0000
 From: "tip-bot2 for Ian Rogers" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: perf/core] perf annotate: Fix objdump --no-show-raw-insn flag
+Subject: [tip: perf/core] perf annotate: Don't pipe objdump output through
+ 'grep' command
 Cc: Ian Rogers <irogers@google.com>,
+ Arnaldo Carvalho de Melo <acme@redhat.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
  Jin Yao <yao.jin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>,
  Mark Rutland <mark.rutland@arm.com>, Namhyung Kim <namhyung@kernel.org>,
  Peter Zijlstra <peterz@infradead.org>, Song Liu <songliubraving@fb.com>,
  Stephane Eranian <eranian@google.com>, clang-built-linux@googlegroups.com,
- Arnaldo Carvalho de Melo <acme@redhat.com>, Ingo Molnar <mingo@kernel.org>,
- Borislav Petkov <bp@alien8.de>, linux-kernel@vger.kernel.org
-In-Reply-To: <20191010183649.23768-6-irogers@google.com>
-References: <20191010183649.23768-6-irogers@google.com>
+ Ingo Molnar <mingo@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20191010183649.23768-4-irogers@google.com>
+References: <20191010183649.23768-4-irogers@google.com>
 MIME-Version: 1.0
-Message-ID: <157169995483.29376.7991382178457422946.tip-bot2@tip-bot2>
+Message-ID: <157169995595.29376.8511916224657103022.tip-bot2@tip-bot2>
 X-Mailer: tip-git-log-daemon
 Robot-ID: <tip-bot2.linutronix.de>
 Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
@@ -131,22 +133,21 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 The following commit has been merged into the perf/core branch of tip:
 
-Commit-ID:     c5baf9089246c1356705c9ba36d767ee8ce43dd2
-Gitweb:        https://git.kernel.org/tip/c5baf9089246c1356705c9ba36d767ee8ce43dd2
+Commit-ID:     7a675de428364a16038a8e6ed557daf0a009ce9c
+Gitweb:        https://git.kernel.org/tip/7a675de428364a16038a8e6ed557daf0a009ce9c
 Author:        Ian Rogers <irogers@google.com>
-AuthorDate:    Thu, 10 Oct 2019 11:36:49 -07:00
+AuthorDate:    Thu, 10 Oct 2019 11:36:47 -07:00
 Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
 CommitterDate: Tue, 15 Oct 2019 08:39:42 -03:00
 
-perf annotate: Fix objdump --no-show-raw-insn flag
+perf annotate: Don't pipe objdump output through 'grep' command
 
-Remove redirection of objdump's stderr to /dev/null to help diagnose
-failures.
-
-Fix the '--no-show-raw' flag to be '--no-show-raw-insn' which binutils
-is permissive and allows, but fails with LLVM objdump.
+Simplify the objdump command by not piping the output of objdump through
+grep. Instead, drop lines that match the grep pattern during the reading
+loop.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
+Tested-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
 Cc: Jin Yao <yao.jin@linux.intel.com>
 Cc: Jiri Olsa <jolsa@redhat.com>
@@ -156,34 +157,44 @@ Cc: Peter Zijlstra <peterz@infradead.org>
 Cc: Song Liu <songliubraving@fb.com>
 Cc: Stephane Eranian <eranian@google.com>
 Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20191010183649.23768-6-irogers@google.com
+Link: http://lore.kernel.org/lkml/20191010183649.23768-4-irogers@google.com
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/util/annotate.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ tools/perf/util/annotate.c |  9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
 diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
-index efc5bfe..eef8aa8 100644
+index 9835666..0e052e2 100644
 --- a/tools/perf/util/annotate.c
 +++ b/tools/perf/util/annotate.c
-@@ -1966,13 +1966,13 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
+@@ -1916,7 +1916,7 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
  	err = asprintf(&command,
  		 "%s %s%s --start-address=0x%016" PRIx64
  		 " --stop-address=0x%016" PRIx64
--		 " -l -d %s %s -C \"$1\" 2>/dev/null",
-+		 " -l -d %s %s -C \"$1\"",
+-		 " -l -d %s %s -C \"$1\" 2>/dev/null|grep -v \"$1:\"|expand",
++		 " -l -d %s %s -C \"$1\" 2>/dev/null|expand",
  		 opts->objdump_path ?: "objdump",
  		 opts->disassembler_style ? "-M " : "",
  		 opts->disassembler_style ?: "",
- 		 map__rip_2objdump(map, sym->start),
- 		 map__rip_2objdump(map, sym->end),
--		 opts->show_asm_raw ? "" : "--no-show-raw",
-+		 opts->show_asm_raw ? "" : "--no-show-raw-insn",
- 		 opts->annotate_src ? "-S" : "");
+@@ -1962,9 +1962,16 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
  
- 	if (err < 0) {
+ 	nline = 0;
+ 	while (!feof(file)) {
++		const char *match;
++
+ 		if (getline(&line, &line_len, file) < 0 || !line)
+ 			break;
+ 
++		/* Skip lines containing "filename:" */
++		match = strstr(line, symfs_filename);
++		if (match && match[strlen(symfs_filename)] == ':')
++			continue;
++
+ 		/*
+ 		 * The source code line number (lineno) needs to be kept in
+ 		 * across calls to symbol__parse_objdump_line(), so that it
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157169995483.29376.7991382178457422946.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157169995595.29376.8511916224657103022.tip-bot2%40tip-bot2.
