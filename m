@@ -1,144 +1,130 @@
-Return-Path: <clang-built-linux+bncBAABBQ6TW7WQKGQEKBQVJ5A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRB3FQXDWQKGQEPA3TTCY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23b.google.com (mail-lj1-x23b.google.com [IPv6:2a00:1450:4864:20::23b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2CCF8DF41A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 19:24:20 +0200 (CEST)
-Received: by mail-lj1-x23b.google.com with SMTP id m8sf2574455ljb.3
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 10:24:20 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571678659; cv=pass;
+Received: from mail-yw1-xc3e.google.com (mail-yw1-xc3e.google.com [IPv6:2607:f8b0:4864:20::c3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8C6CFDF6ED
+	for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 22:43:25 +0200 (CEST)
+Received: by mail-yw1-xc3e.google.com with SMTP id o204sf11450736ywc.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 13:43:25 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571690604; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rPWAVw+VdNVtnUaZEzjmEL5Zl8VGJlpMvqxPovgf8P2UYSAtlzoTfNCv0Txi5AFwgT
-         TOF0eESlKJJkst98fMcydAoknVuuezF+cyTteZRuHQLLpFtLJEakIkrkHC+AUmcOzBvp
-         1+TLF2bo0XdwjidyMbrnvcvS04A4GX857ep9Ggr+LTIBhM6uVyPWCT8lGmfUAz0iiDOE
-         3IIeoPWqyfQsULHfAk+8cfVRYnpL3smuY67aADAXABVtf6gv6SXYJ65YArB33dmEZgjs
-         h6Ebpur+YcQq/TTWnnMcy1ejFlMQY0pDvHxJFbl412ntklaa1Jf/bsW6z8NKrmWOWpn8
-         JRXg==
+        b=CB437KjtaEwEB0qSALl65Mc9kMhjkbmSLidv9lxgrcT/SY0PH9LU5oMZ52SsFQNmYP
+         zlC4si0Rn9nZ+Zh/HXlGf3qR0Hy39hOOhyJe72XTAg6XHN2H7bbLBdILRVBE0qMaOwwS
+         0WU3DI9hu8sgAY5pvN/IfVupWPlAsu1J/fTKCyStO6AHXyl4s/jIO3/zbOH6JyvuwrCz
+         pIzb4EyocsSXxA1HRPyvsOqD9FsY+X8x14CuDtQcUVSS8T+b+anYRAnDAa/ueg6GXv5f
+         kqZVBT/Uoj7JNlpgLTjgyvcdB2Tm+1jhR7ghWPAwYA+oQpj1bci28GCycYL81Ih98dKy
+         AQrw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=wzbVBQiG9WBw+TywSEjcOx4oIGqpUKsnpQRzLbTM2dI=;
-        b=XC7GXzpQ3oLl90P0qFE+XkFn28oS2qaKBfp+2d/Ys3zmcUD9bJK/Uh40hF3kGflQaX
-         43O6nqnoXBYbLqQntga7FgD4Ii1kN5lzIzJjfuc+zk507SHTPUytMTrsrOdHrJw6QfZF
-         zO8vwpDhmYUMwya2dzyJSSTCemvGG3+sChuQWgc2+VrafkN3P3MJ8fiVZfxK/eqEDQ7b
-         X60x2rd4wQsG75j0v6DEtikkSwbWRCdQJmusgYTz/j0fjLlQyQ8JscxhDlkm0p5Y+SaC
-         A4RE+OJ3seWn0a3xRVT9fc/MRvjCXF1RRj6+Ce09HMi6kx3OCUDomGa6FlyEXwQJV0We
-         W8uA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=hEJCeKeRjjwARbGVWiUmiZ45HNij+PefJkjzShCE6QM=;
+        b=d8KR63a5areXebJj5h2moxQvOHFTY13c/zfQ/fTJd1r3lEA5LDjAL5j6M4uZYGTQpF
+         fvEiZoXSSYaSKEYyexnnJWDMcFw3Di+y1KoVYkZUhEMO/OSRN+sr6BECisTYMOmQRIoS
+         5hqnTKODu/lxPZhk3f1iwBEa8mpgRGE47eUzY+FuymKREj0fj158Hq32j0TaZbDqvl3H
+         Sm/WcDGLOqpR2F8+HPJcXyhy1eW2URETjO9UEjsdfSIqadhB5mCH98FxpG20bUBHnZXY
+         HXZHf9xjC/XULYrEjIzq+TpKmrA8Cf7OXR2r5TgzUroojP2BWwEroUA9eWrjNC4aCyd/
+         qvjA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@shipmail.org header.s=mail header.b=HnBNMudk;
-       spf=pass (google.com: domain of thomas_os@shipmail.org designates 213.80.101.71 as permitted sender) smtp.mailfrom=thomas_os@shipmail.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=KSDqpUym;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::941 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wzbVBQiG9WBw+TywSEjcOx4oIGqpUKsnpQRzLbTM2dI=;
-        b=soaGDtGkz0ZKyEZ1iZOrg6JFOeXPP9k0GMpuHrRfaj9pxEx9uf3WyfgrkAcoiN6Xfv
-         wMtFUcr4rIOz8TzXIaCL7yEsopEGMb1gitxYif/StRUWQofkPIJl/Unun0yikU8mUrNZ
-         1UtZ4q22mXeohoXzYMGKJIcHj1uEJWyAKGIK0KhbM6Rd0HgCn8BxTnBL+suN4e2gU57A
-         hHY8S/lYWAfwNTwapaWCoK2OQR1N+YVSeLn8LSH5kavgyVrhtBB4e9NWXGZgPJ1epj5a
-         24c2PrRAj63QhgVcsliVKKTyTe/aK8lUy7JL27yKKFHN+4+mR++bUiMr7orrKCb7rs6R
-         zfwA==
+        bh=hEJCeKeRjjwARbGVWiUmiZ45HNij+PefJkjzShCE6QM=;
+        b=hRKkrBnTCTlLwA8G7CjjygmQqOuumUt4C1p7uo8J473SR9larnSyQYjc4lAsELrQ7d
+         vQw2NKx1VgTLrB2vSWlyzMXjzk6Hd02sHgfS6ay1XWwsgIlsAfyi1eGfPx4fOWXqY/jS
+         TaIWKDYVrIGMft4gjnkdqQ3ezYklZ0O4DTs2SXELT4Vf82yBwdCwxNtGtl/6AzcfGlvs
+         dn4RWEo8mOGqr7GmZytSWSua0yXh9In0bqWy6QCENioli8f3Mea5LriHF0EItXz9cE0o
+         1rNMG4QONVtWvT/GnlJsv/LI0Cg4jiVK+5QYuOm369GMCwZaBl6p9aZQNGlXLFAuc1Jl
+         cxpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wzbVBQiG9WBw+TywSEjcOx4oIGqpUKsnpQRzLbTM2dI=;
-        b=Nc+pH91KgMDrOPFMfqCqKkkkfKeonzHHlh6By9ubj+sP0wbXJGQNdkhE+hpjqQ7+x0
-         BJnVxiAT7t+CZRirMMVUUE+Vnn4OKFTm3bhVBw2DwwvsKKpXlQyqtwLq+feWO7dQzosq
-         M+sDjhtwjehmjZlcqb33x2tY/YraGnfk4qNyjyBc515btAO4CwZVnS3nkJOERGazIxxD
-         33tZGVQ7dC675cA+9b1pNtfLqH2k+jCHbcxSdi12zEtXplaHdnG5aEyNkrBOf911hpBc
-         SY3oGjQl/lrLy5ZP5MjIW9Yy+YHDcsqj/VKm7e65i5KxqmKakuXuC3qJ/9rU3ZvsCHuc
-         X1xA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUHCrYidXmh5nI+Jah7b8BV6VJjhannkWOG3NygD+FKoiif6xaq
-	GQ7eTkT4LIeChVXb0EIiGdA=
-X-Google-Smtp-Source: APXvYqwQmPEisYMHZLXCk+QfFal87AkubEzFRMyKa8gTcJVqMsCyaY6iRNsUWfSd+eepTT60ujbJDA==
-X-Received: by 2002:a19:4f0b:: with SMTP id d11mr5482672lfb.51.1571678659758;
-        Mon, 21 Oct 2019 10:24:19 -0700 (PDT)
+        bh=hEJCeKeRjjwARbGVWiUmiZ45HNij+PefJkjzShCE6QM=;
+        b=j0eSNz+t7bPGjqMhhObDEOOW7kCekaoDwPwycm7RvoJohEZ4WvH0xHQKqWwIOR5/75
+         hwd5am00O4828id2M7Qz3EZMTVDUIiMYoWw6E24qiAVylhwAfjhtcR6ivdfG81zx7OmS
+         q59s41SB8m7yeDOJJTgjCsoUBdiRcZAreVO5iJ78Erqs1xDWepb+wMGtV4eiSixVDZGy
+         0DfR9rzfdvpEpvqT8pf/n+G62Mtt/sCB4hO1RZvbKGMWT2O3Rnwxj2pyPfjtBKB8bJ3B
+         fYEKGLRAS/M3Zk2+dRmNrhEWUL/2AGmdcPA9dFV1zGiQAMeOta2ZIpAOoFivfEuWffuA
+         mbXw==
+X-Gm-Message-State: APjAAAVrFuN9ds79zTowv7ogG4ipymt34RIwayFqEo+WGYGZe8P8spRU
+	rxeUJcQ4fhVgG4woI/nBdIk=
+X-Google-Smtp-Source: APXvYqxBJ0nSJRnUpiFVbn8RkaqdfDkIVDLTCbAe/hSxi/tpwDBexIl+Avn7lqQkp6JYghj/d8TQuQ==
+X-Received: by 2002:a81:4e8d:: with SMTP id c135mr640815ywb.149.1571690604354;
+        Mon, 21 Oct 2019 13:43:24 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:5613:: with SMTP id v19ls274480lfd.15.gmail; Mon, 21 Oct
- 2019 10:24:19 -0700 (PDT)
-X-Received: by 2002:ac2:43d9:: with SMTP id u25mr16433507lfl.142.1571678659383;
-        Mon, 21 Oct 2019 10:24:19 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571678659; cv=none;
+Received: by 2002:a0d:f703:: with SMTP id h3ls501336ywf.2.gmail; Mon, 21 Oct
+ 2019 13:43:23 -0700 (PDT)
+X-Received: by 2002:a81:9486:: with SMTP id l128mr652001ywg.334.1571690603873;
+        Mon, 21 Oct 2019 13:43:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571690603; cv=none;
         d=google.com; s=arc-20160816;
-        b=zD2g9YPBgdTM58fqBOVyLsWupKuHVsmuGcgb7g06KF76mWrTR4IQjWiCHRA57iHI1I
-         qZLCNgEqYFKxNbRx6zUNYz4PMv4EACvDtTU1hDNjrNci8RjSzU/K3qsvMwpTE5/nKcFA
-         dZOOhmAopOYdPCye9lSCXEQRlt/vo58bfVDt0VyzX9zATYxWNPtyAgt0ink8CTkosxWG
-         cIcJfopfGUSdv3pBpPpw7gDUvh+y12zhgaXnZi7Vh/JBbD0m3N3WIv4q/7+/a+V+wj8T
-         K5nEu0NkOHkdMr1JKEDV1ABL2gVI4ejdW50AA/bPB5NFsqwaNa8IX+fVPZ4Ka5bEmcR/
-         +ojg==
+        b=SEVycTwFIN/cpQwjcysYOdII3+PcsS56M8W4Yaa2tHoOrYmigs12JPTFK7suKGTMni
+         TIp7IEqhDECsyqAMf4gWDEDo/aVZrbx1OcRX1Pvkxh/4bP94LozRjAJ9MC3qcST3UwPZ
+         EfEB+/d3z7rwIB5labLxYW6QHPV5SxAeHiwFv2Sk2hQ27aKMh1+a5753bynGIVyUNjxD
+         bgF9VaifrkT291JXaRNYa0wBBheBFolXCiqLUKwklVhojWhOyRhKA6bp2xwB4flT4ICD
+         daSwn6ZpZ8jeK/ow3eV1zQmrwo6GyFoIA2dYuEpT0AhPbAkffv1lym++f7M/ICAmivpP
+         KVoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=mKa3gjbTGuSda59B3ys01RMLrkaf4+YUIjKDoIL62Ks=;
-        b=d63zs0BNgRvoy1GCX3fpE+GdPnZmCcrpMe2+LsRjBsCy+MXCHoB3HRnyl6ksPph+1t
-         A2w1UBRfAbljE1YkRnodzWTprPbZROMoABYtX4mPXZABSCZ7QirTC2Zym+sFJ2Da6sFs
-         3RmC0aC1cJKIHpPjoIiO9qdbHy9dd42FDWl505N6nAExK9JlvHoP/7jYKZZXIjWAk77I
-         Xv76Ij7Rmm+1xHAJEfNxtZxOIbPVXpCturkTIVLTzdDZMu6pucW9XyrbebSw3tTDIkTc
-         tDh8q3YYXk4Jh7ZF9+DtQdoj1boxfQcFWvebeWPs29gf0NRiW2HxOYemL9+BhLueYdEp
-         rlRg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/J47pHWT2X7Av3FRgY9sGp9A1Q4EsZtxdv8QeJCfN3I=;
+        b=QxG3at+R6pOR+Rr2Xv/zfPquSgCGODdceVKGu8in6lzhK/8R2VoYV6KltWe4p07+5I
+         GUQt/mErVKzvxkbu0cDLQJUPkwNKa/BIOR/38Nztz3pTg66DJvdM5SuYH0e4Crp9Q94v
+         fJsBACRldDKT3zbzQc8G8KeAyXMCJ+I3n5RiWO4EVwGvE1z8tRiEkb0QiEpJAwJvW/F4
+         veb82x/hph239e+ZO8YVUJ7d0B5kB3TexHI6lQJn5iVq/U809cmx6IpjbzbNLbEhWpMF
+         v0oQqW47xZNsqDx0xNDxblWSK1b/nX7mjuAnaE9iUO5VJIsaGU5y6fq2hRVR1hCD3fHR
+         YU9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@shipmail.org header.s=mail header.b=HnBNMudk;
-       spf=pass (google.com: domain of thomas_os@shipmail.org designates 213.80.101.71 as permitted sender) smtp.mailfrom=thomas_os@shipmail.org
-Received: from ste-pvt-msa2.bahnhof.se (ste-pvt-msa2.bahnhof.se. [213.80.101.71])
-        by gmr-mx.google.com with ESMTPS id h9si560589lfp.5.2019.10.21.10.24.18
+       dkim=pass header.i=@google.com header.s=20161025 header.b=KSDqpUym;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::941 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-ua1-x941.google.com (mail-ua1-x941.google.com. [2607:f8b0:4864:20::941])
+        by gmr-mx.google.com with ESMTPS id v135si553436ywa.0.2019.10.21.13.43.23
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 21 Oct 2019 10:24:18 -0700 (PDT)
-Received-SPF: pass (google.com: domain of thomas_os@shipmail.org designates 213.80.101.71 as permitted sender) client-ip=213.80.101.71;
-Received: from localhost (localhost [127.0.0.1])
-	by ste-pvt-msa2.bahnhof.se (Postfix) with ESMTP id 7ECA23FA1C;
-	Mon, 21 Oct 2019 19:24:17 +0200 (CEST)
-X-Virus-Scanned: Debian amavisd-new at bahnhof.se
-X-Spam-Flag: NO
-X-Spam-Score: -2.099
-X-Spam-Level: 
-X-Spam-Status: No, score=-2.099 tagged_above=-999 required=6.31
-	tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
-	DKIM_VALID_AU=-0.1, DKIM_VALID_EF=-0.1, URIBL_BLOCKED=0.001]
-	autolearn=ham autolearn_force=no
-Received: from ste-pvt-msa2.bahnhof.se ([127.0.0.1])
-	by localhost (ste-ftg-msa2.bahnhof.se [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id Qs1SSQC1V96B; Mon, 21 Oct 2019 19:24:16 +0200 (CEST)
-Received: from mail1.shipmail.org (h-205-35.A357.priv.bahnhof.se [155.4.205.35])
-	(Authenticated sender: mb878879)
-	by ste-pvt-msa2.bahnhof.se (Postfix) with ESMTPA id 27BEE3FA41;
-	Mon, 21 Oct 2019 19:24:14 +0200 (CEST)
-Received: from localhost.localdomain.localdomain (h-205-35.A357.priv.bahnhof.se [155.4.205.35])
-	by mail1.shipmail.org (Postfix) with ESMTPSA id A5B94360195;
-	Mon, 21 Oct 2019 19:24:14 +0200 (CEST)
-From: =?UTF-8?q?Thomas=20Hellstr=C3=B6m=20=28VMware=29?= <thomas_os@shipmail.org>
-To: linux-kernel@vger.kernel.org
-Cc: Sean Christopherson <sean.j.christopherson@intel.com>,
-	Thomas Hellstrom <thellstrom@vmware.com>,
-	clang-built-linux@googlegroups.com,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	x86-ml <x86@kernel.org>,
-	Borislav Petkov <bp@suse.de>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: [PATCH v2 1/2] x86/cpu/vmware: Use the full form of INL in VMWARE_HYPERCALL
-Date: Mon, 21 Oct 2019 19:24:02 +0200
-Message-Id: <20191021172403.3085-2-thomas_os@shipmail.org>
-X-Mailer: git-send-email 2.21.0
-In-Reply-To: <20191021172403.3085-1-thomas_os@shipmail.org>
-References: <20191021172403.3085-1-thomas_os@shipmail.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 21 Oct 2019 13:43:23 -0700 (PDT)
+Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::941 as permitted sender) client-ip=2607:f8b0:4864:20::941;
+Received: by mail-ua1-x941.google.com with SMTP id w7so4234474uag.4
+        for <clang-built-linux@googlegroups.com>; Mon, 21 Oct 2019 13:43:23 -0700 (PDT)
+X-Received: by 2002:ab0:5981:: with SMTP id g1mr64566uad.98.1571690602892;
+ Mon, 21 Oct 2019 13:43:22 -0700 (PDT)
 MIME-Version: 1.0
-X-Original-Sender: thomas_os@shipmail.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@shipmail.org header.s=mail header.b=HnBNMudk;       spf=pass
- (google.com: domain of thomas_os@shipmail.org designates 213.80.101.71 as
- permitted sender) smtp.mailfrom=thomas_os@shipmail.org
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20191018161033.261971-6-samitolvanen@google.com> <CAKwvOd=SZ+f6hiLb3_-jytcKMPDZ77otFzNDvbwpOSsNMnifSg@mail.gmail.com>
+ <CABCJKuf1cTHqvAC2hyCWjQbNEdGjx8dtfHGWwEvrEWzv+f7vZg@mail.gmail.com> <CAKv+Gu92eR81+W1iXOXZHWgub-fNPcKaa+NCpGS_Yy4K4=7t+Q@mail.gmail.com>
+In-Reply-To: <CAKv+Gu92eR81+W1iXOXZHWgub-fNPcKaa+NCpGS_Yy4K4=7t+Q@mail.gmail.com>
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 21 Oct 2019 13:43:11 -0700
+Message-ID: <CABCJKufZX7McCUoeH8=VR90gdQPCjUSNaPgjPRzo6-vV-y6oHw@mail.gmail.com>
+Subject: Re: [PATCH 05/18] arm64: kbuild: reserve reg x18 from general
+ allocation by the compiler
+To: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>, Will Deacon <will@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>, 
+	Laura Abbott <labbott@redhat.com>, Mark Rutland <mark.rutland@arm.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: samitolvanen@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=KSDqpUym;       spf=pass
+ (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::941
+ as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,49 +137,16 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Thomas Hellstrom <thellstrom@vmware.com>
+On Sun, Oct 20, 2019 at 11:12 PM Ard Biesheuvel
+<ard.biesheuvel@linaro.org> wrote:
+> Also, please combine this patch with the one that reserves it
+> conditionally, no point in having both in the same series.
 
-LLVM's assembler doesn't accept the short form INL instruction:
+Sure, I'll just drop this patch from v2 then and only reserve it with SCS.
 
-  inl (%%dx)
-
-but instead insists on the output register to be explicitly specified.
-
-This was previously fixed for the VMWARE_PORT macro. Fix it also for
-the VMWARE_HYPERCALL macro.
-
-Cc: clang-built-linux@googlegroups.com
-Cc: "H. Peter Anvin" <hpa@zytor.com>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: x86-ml <x86@kernel.org>
-Cc: Borislav Petkov <bp@suse.de>
-Fixes: b4dd4f6e3648 ("Add a header file for hypercall definitions")
-Suggested-by: Sami Tolvanen <samitolvanen@google.com>
-Signed-off-by: Thomas Hellstrom <thellstrom@vmware.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
----
- arch/x86/include/asm/vmware.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/x86/include/asm/vmware.h b/arch/x86/include/asm/vmware.h
-index e00c9e875933..3caac90f9761 100644
---- a/arch/x86/include/asm/vmware.h
-+++ b/arch/x86/include/asm/vmware.h
-@@ -29,7 +29,8 @@
- 
- /* The low bandwidth call. The low word of edx is presumed clear. */
- #define VMWARE_HYPERCALL						\
--	ALTERNATIVE_2("movw $" VMWARE_HYPERVISOR_PORT ", %%dx; inl (%%dx)", \
-+	ALTERNATIVE_2("movw $" VMWARE_HYPERVISOR_PORT ", %%dx; "	\
-+		      "inl (%%dx), %%eax",				\
- 		      "vmcall", X86_FEATURE_VMCALL,			\
- 		      "vmmcall", X86_FEATURE_VMW_VMMCALL)
- 
--- 
-2.21.0
+Sami
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191021172403.3085-2-thomas_os%40shipmail.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKufZX7McCUoeH8%3DVR90gdQPCjUSNaPgjPRzo6-vV-y6oHw%40mail.gmail.com.
