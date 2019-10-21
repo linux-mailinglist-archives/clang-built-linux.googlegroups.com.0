@@ -1,129 +1,126 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBD7JXDWQKGQEQKGJ6KQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBKPPXDWQKGQEY5J63WY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
-	by mail.lfdr.de (Postfix) with ESMTPS id EA478DF827
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 00:43:28 +0200 (CEST)
-Received: by mail-yb1-xb38.google.com with SMTP id o141sf11956651yba.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 15:43:28 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571697808; cv=pass;
+Received: from mail-wm1-f63.google.com (mail-wm1-f63.google.com [209.85.128.63])
+	by mail.lfdr.de (Postfix) with ESMTPS id 04772DF84B
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 00:56:42 +0200 (CEST)
+Received: by mail-wm1-f63.google.com with SMTP id l184sf4062326wmf.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 15:56:42 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571698601; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X7olWuhLwKugNMgcVVbtUW0MjKsVTISnEYXXRkMtN4e+PSGhoTTrwwI9OoCb+4bSG9
-         Loitbi7ckM2CCGejnX8BzXcBLCRFohRIayolW0pQNePgmF4pTMcKE/4ZdGjXGd2mCiD7
-         g1aFOtp5Oo5EQfnrRMDOEEotUo7/IGiXNNmYCiowodjcQheVCHvg+pIQDep0cNtvKE1Y
-         yc+a/ApTf60FHHfzdyH324VKzXN7S4lwdHJj129E59Ffg3FwsmproNDsv2WWVc9K6u4s
-         leQaGdpJO5bLV2FiHXZYoqfgKBdWCxSziS+s6t+V+nupy2C326+Jt8THpFU0EqzNm/Hr
-         EIEQ==
+        b=rv2Tgxmhbf2lJNxoHe58WnWsIODGuBcO46xPG2CcKf+8mWz6alwNgaY/E/g93UJ0iO
+         sVG2SSATgojLWiISy2k1w5exNcVPh3jsvmuonf+XeZDEWv12AqlMNUBoO1vJn3faJUlo
+         ZY4FI/wpoxyzE2UPEidOd9E27tvynVG2o4k0jYOSSIidItKpfT77TVyMaDHlAZ2Z8x3V
+         ywr5siiAUHyIhT3az/fZRo4VWGClJjnIkAqI2fVK/m1M/zXI2dOGeO5W/Q+ow6tY7x15
+         eUowOog+CJA8JBUQgWlCClIEQrvAVSTzsf2re6ZWXzd15F+NzWgztAiu3z++/t88fXro
+         XMag==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=PVVh3FKixaspFAfe87POZZTw+yvQc1y+fbX+P1X/o6k=;
-        b=dePr4FHuhV97C79rg3maeaO+MIJlfI6e894f2ILVGlLN2cg5YtGCg1OxRfQyWUVO00
-         NhzxS92UdgEJWJb+n2Nz9NUiEmKlpqxxilkHTZLwuFFfIhbr4NkgMnJ7NQCgHLN92Fwv
-         m1BOaR6hHvxN8Ol7FGyPdVu13OKsVhuk8LaaN5KmyzfoMqqIlvoMd4ripWEBguisY5pa
-         7lnhZZHbrdURzjEFinBur/LtkTFNVCpkRHbOlRLhreyWK1n01fG0Qmoedp0VlNy4+Y1l
-         RVRNSkycgLb/wO6y6yJ1yNqEYJH3Lp7c7o79+zkcfGsykyRCnhS7GEFKB071mGsao9+R
-         MlxA==
+         :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:date;
+        bh=FLleRxSVymWiqhlSWyJ3BzQuYdlJ9haXhGIF3WWpAdU=;
+        b=t7YwxRR00uH08rjeO61FR+j8rJzQGZ6Plj9Gmv1tdFms8/GUuwL0rUDq1zcbYAOtfk
+         KgXgd+vF+qHnJWlogOOOIBAWd411VlYkXzCzBMWWGA07TQXAsmGC0pFrIiamsPi06exj
+         dyTP7OirKneoqJi6maHKU5xhtI+WFHPeyLshZkgPlVRamx1rssfP+mxvHxBnM06UxpYr
+         Byf8CCypWWaPwJyQeDAdPPGwUR5FLBjqIcEM+pTvfPmzMhSmZ2t7iw+eg6IqF5odpBs4
+         gnZe8zWQsa6xSVot1KhDGu3BUVSLQc4S4Ru2kpgTEzLcVhlK3N74DRCDA9a2mbo9hiTF
+         qhUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=b7OnnKII;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=PVVh3FKixaspFAfe87POZZTw+yvQc1y+fbX+P1X/o6k=;
-        b=eDR1E4pfs1ubxuK7tcyZ3+fH8Klb6TAs0+R/BiOqszI60IBeRmtPWbTnuG8Dj+/Is6
-         vDMXbapSvJUHkQn+r1O50+0UOuiihl1h8eQt8PcMluB1ObkmI/fKq0T+/DszWHwRDUM/
-         Gn+A2Enp+BTxWKgcHI1QlVONi7gmHa4KVhHCt0QzBGpZsBuas3KoVQFGeTU/uPXx8gxK
-         oYHNyU0URGcC8V8DLP3NdAug/PQiyWF95Etd5ulj4rd45Ke4EWbAinnaqJ6/NC7EFq03
-         UHyT87FouOcReuJJUgZ+1gP0T29iNPUaHtURVUmoMzOgkNmi0xkTiuW9+u1U0r5ge0mv
-         //zw==
+       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:from:sender:reply-to:to:subject:cc
+         :in-reply-to:references:mime-version:message-id:robot-id
+         :robot-unsubscribe:precedence:x-original-sender
+         :x-original-authentication-results:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=PVVh3FKixaspFAfe87POZZTw+yvQc1y+fbX+P1X/o6k=;
-        b=eCRMd3SxxjUs61AUMaSS9A0XL5XydDyRu7aRv2tf0bhD6j9o6kJOWq2bb5JMoKblgi
-         DFs1sZelXgw9Vio8/0ccwc5qRIXXx1S7Z1eoeXKf/vP3Ekrj5Nin0aHxHtX3v2jsUEBP
-         kKgdLm4ENJbZtBpgwHexGtZKSgXOaDkd8BTovSyTxjYeIP+/lG4jLYBaqSHnVnKteQ16
-         6XmkBdjdzWDdpNz3XZfTmDtSKhlLMxMHkOnSrSfyGb2K//Q3VJ6xEypsjL9WgH+oUlto
-         nf/qhz+HRPkIezbn1m54OCG3ke0pnKTrLNUhOTqz+SRdvSA+avLkmIRA2MwAnDmsplKs
-         XVNw==
-X-Gm-Message-State: APjAAAWtD8/Cqh+bFt+1u9gXMDF6319ASdUNMzOO5twg6eDIZuBx8XAb
-	hDgoHYY7G6XaKC++ciytAUw=
-X-Google-Smtp-Source: APXvYqyBkTe8VN7lY4GCVtDu4VLOT6QI+NlTZ1GpNgUVqpyiHSCq5VGoNYPF4APzCZdKo54VRWs4rQ==
-X-Received: by 2002:a25:21c4:: with SMTP id h187mr437359ybh.316.1571697807886;
-        Mon, 21 Oct 2019 15:43:27 -0700 (PDT)
+        bh=FLleRxSVymWiqhlSWyJ3BzQuYdlJ9haXhGIF3WWpAdU=;
+        b=H1KzgzJFOQ6c7Qg1ekKe1LMDW4A9od76rpGEQOmvgZ5l8kIvDBud40EnRPkdpuVFNJ
+         AQzD4RkXoR4s2w5QdY0ZjVd4INWsrqhnTJs+OeIdp4lju80itW36gR561SYLlO+qmUcJ
+         SpLTZRqIjl3d/GNE9FDiPXgjdWdCHh2H680Qh3HLfhNpFOESP0BNetXlp2+Yc5f6uF1b
+         uIlnBmtpm5YHG3y1pJJFzkl9nG1RIOagtruh/+uIjm6zlMJXeaLuiANxouNQjpSx6Z8/
+         0F1C2y9Yi7CADLTUTeuJLhwszF/muK+B+sOp74Xm2I+0Ysxd4REXnwqvaRsreiX9VY+C
+         +OPA==
+X-Gm-Message-State: APjAAAXmbkecSvpYH2tr70pmz4mPUWIP1kXGBvhf5L6Eb4OVoWcw/DGG
+	fnjY0wHl7Zjh4RzZw2W9uwE=
+X-Google-Smtp-Source: APXvYqwMDrgFwuppwmF0UEP8fbBQwx0nb2q0anoQK1yKHPpMNXz9YR2YzLg2ujnbCGUMFYHY3/SzAg==
+X-Received: by 2002:adf:c641:: with SMTP id u1mr486479wrg.361.1571698601711;
+        Mon, 21 Oct 2019 15:56:41 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:c442:: with SMTP id s2ls2442939ywj.9.gmail; Mon, 21 Oct
- 2019 15:43:27 -0700 (PDT)
-X-Received: by 2002:a81:9958:: with SMTP id q85mr187634ywg.433.1571697807256;
-        Mon, 21 Oct 2019 15:43:27 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571697807; cv=none;
+Received: by 2002:adf:b7cd:: with SMTP id t13ls8113731wre.5.gmail; Mon, 21 Oct
+ 2019 15:56:41 -0700 (PDT)
+X-Received: by 2002:adf:978a:: with SMTP id s10mr545886wrb.264.1571698601382;
+        Mon, 21 Oct 2019 15:56:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571698601; cv=none;
         d=google.com; s=arc-20160816;
-        b=WYZEc80b+bi6s2RgAXGr4rzwizI7bASu4oYnyRnNpmSRQ5gGp+A2uCQZ0Z4FaX2IVQ
-         P38pmqs4Xy0LXMxaNJvu2lnuIfAnsM26ZO5iFp4g9sfKmpvgn9J48PzPVmYKrzISS8tb
-         Y59XayYeAiaUqyRd3Y39ktmZjc3DvetlErZdu85BIMYce6EHpQm6u1yGCkeYdzVRCF5N
-         8dSAqbW8pmUzPZXdwXCzKWY4XZY1qXa04l8qYdaz36UF/PiU50Nk2mJMnKNCXpCgi8uM
-         RP4JAc3rcnz1YSgZBPTeZaEXZeRIxn3R0QlDBMit9utr0RTYf4iud0JSyqspW92kfNmh
-         nFWQ==
+        b=FHYlbFZij0Hx81zYg6yPmqf4eL9s4kNIm39us6osec27fns52FBOOot7nDVV0UFcWA
+         UQubibAkP6j7Qf1tGJAw+UZZI4ovJKw1F3Klkm+e20EhmC6DUHVTonf3Y8KWl1hgZ05u
+         5xleSTnoiza70WbKWUwmsbXRoFP057kjXFh5UMy64rwG7/hGzAi8yj40b6kovsUVuQfV
+         dgCevH1dwbHcFBhtTLkMkeb6wmmMNXDX5U1f3NTCE9OSCf8jjFSBDJpwgMxYuY8zo+Kh
+         g9Av1JICtUfwmKcADUkga4hAah6n8/COJfwxVLrPMHsQEjAzhqIkj/+EI6gx6qNdTnUW
+         Gf4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=a8E0A8Vlgzb4xSRYYj/bS6TXPUSZill0B9wa3qYYw0E=;
-        b=CP1an/fzWAMO+0s/MHJqTDtYqXP0jZPvzr1l/yFAhmbGVlOrhPsPU0XoAsXkh5DelJ
-         OpuxCHLB/gziaPz+CFZcCicwA2dy7BB7jjXOxOawZKS8IFEpM9kcqFLeVqW3+DOY3+w/
-         4D/RugYZgYG4Y46qem14qeWIpaFYTuITqH44Mi0HySN3xwLzX/JwzzpWXEq8W4xQ7/E5
-         E/bhbDLFska17VUXOYkWtV9XvudsTaW6xVFu1N8LTrQFZUMtxFM1iD1awLhkuRZuCzsZ
-         qtNSDm/z6zsD5RQjqVSAq95GuIt+oyQKpetUcj1oU8c4EDQCcK4LYjVHbn9NYUr6TXBZ
-         Ti0w==
+        h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:date;
+        bh=GouS7NGoHggBG3cnq+3rc/UFefDdE7kEgoeYqMo7tHA=;
+        b=geWokbhUow/yS7QHczpMgZUQII8CP0OIpFst/0AQMPIdkn3HddphcOFmtfHIHYMbdo
+         VJOZnve/2uxKJKkgaNu23sPOy+65puzbfDf8GFX+RBPiFnSpGICVpcu6mNjMMK8XR4pw
+         9NkxPFtWTZ0TnhXnVrxCb78wW+1/QLzC+s0XoI91GZ7BztCz6Keu3ixUpqfKtAeXh/Wx
+         1Yc1l8gaUZdi7aAfQQqOZ2dVVAQsUBkF8PhI6XqNjV1AXTCDB6vbPqE9O46q56atPOkh
+         zJHJvZdBGxDVj41olJtBzNQRYB0Atl/k0QMFKCjjr0xsB/4LboEDlgxS7a6+pnvhLJQA
+         4zZw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=b7OnnKII;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-vs1-xe43.google.com (mail-vs1-xe43.google.com. [2607:f8b0:4864:20::e43])
-        by gmr-mx.google.com with ESMTPS id v135si575219ywa.0.2019.10.21.15.43.27
+       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
+Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
+        by gmr-mx.google.com with ESMTPS id 5si1501497wmf.1.2019.10.21.15.56.41
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 21 Oct 2019 15:43:27 -0700 (PDT)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43 as permitted sender) client-ip=2607:f8b0:4864:20::e43;
-Received: by mail-vs1-xe43.google.com with SMTP id p13so10044148vso.0
-        for <clang-built-linux@googlegroups.com>; Mon, 21 Oct 2019 15:43:27 -0700 (PDT)
-X-Received: by 2002:a67:fb44:: with SMTP id e4mr113225vsr.112.1571697806489;
- Mon, 21 Oct 2019 15:43:26 -0700 (PDT)
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Mon, 21 Oct 2019 15:56:41 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
+Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
+	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
+	(Exim 4.80)
+	(envelope-from <tip-bot2@linutronix.de>)
+	id 1iMgbE-0003So-06; Tue, 22 Oct 2019 00:56:29 +0200
+Received: from [127.0.1.1] (localhost [IPv6:::1])
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 721F61C03AB;
+	Tue, 22 Oct 2019 00:56:27 +0200 (CEST)
+Date: Mon, 21 Oct 2019 22:56:27 -0000
+From: "tip-bot2 for Thomas Hellstrom" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: x86/urgent] x86/cpu/vmware: Use the full form of INL in
+ VMWARE_HYPERCALL, for clang/llvm
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+ Thomas Hellstrom <thellstrom@vmware.com>,
+ Nick Desaulniers <ndesaulniers@google.com>, Borislav Petkov <bp@suse.de>,
+ "H. Peter Anvin" <hpa@zytor.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Sean Christopherson <sean.j.christopherson@intel.com>,
+ Thomas Gleixner <tglx@linutronix.de>, clang-built-linux@googlegroups.com,
+ Ingo Molnar <mingo@kernel.org>, Borislav Petkov <bp@alien8.de>,
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20191021172403.3085-2-thomas_os@shipmail.org>
+References: <20191021172403.3085-2-thomas_os@shipmail.org>
 MIME-Version: 1.0
-References: <20191018161033.261971-1-samitolvanen@google.com>
- <20191018161033.261971-14-samitolvanen@google.com> <20191021165649.GE56589@lakrids.cambridge.arm.com>
-In-Reply-To: <20191021165649.GE56589@lakrids.cambridge.arm.com>
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 21 Oct 2019 15:43:14 -0700
-Message-ID: <CABCJKucm2ETxe2dgJhb4Ruzq72psFMGsx=0D6TVnJ-_DL2FgfA@mail.gmail.com>
-Subject: Re: [PATCH 13/18] arm64: preserve x18 when CPU is suspended
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Ard Biesheuvel <ard.biesheuvel@linaro.org>, 
-	Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>, 
-	Laura Abbott <labbott@redhat.com>, Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: samitolvanen@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=b7OnnKII;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+Message-ID: <157169858708.29376.13468044937611817754.tip-bot2@tip-bot2>
+X-Mailer: tip-git-log-daemon
+Robot-ID: <tip-bot2.linutronix.de>
+Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
 Precedence: list
+Content-Type: text/plain; charset="UTF-8"
+X-Linutronix-Spam-Score: -1.0
+X-Linutronix-Spam-Level: -
+X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
+X-Original-Sender: tip-bot2@linutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of tip-bot2@linutronix.de
+ designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
 X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
@@ -135,15 +132,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Oct 21, 2019 at 9:56 AM Mark Rutland <mark.rutland@arm.com> wrote:
-> This should have a corresponding change to cpu_suspend_ctx in
-> <asm/suspend.h>. Otherwise we're corrupting a portion of the stack.
+The following commit has been merged into the x86/urgent branch of tip:
 
-Ugh, correct. I'll fix this in the next version. Thanks.
+Commit-ID:     db633a4e0e6eda69b6065e3e106f9ea13a0676c3
+Gitweb:        https://git.kernel.org/tip/db633a4e0e6eda69b6065e3e106f9ea13a0676c3
+Author:        Thomas Hellstrom <thellstrom@vmware.com>
+AuthorDate:    Mon, 21 Oct 2019 19:24:02 +02:00
+Committer:     Ingo Molnar <mingo@kernel.org>
+CommitterDate: Tue, 22 Oct 2019 00:51:44 +02:00
 
-Sami
+x86/cpu/vmware: Use the full form of INL in VMWARE_HYPERCALL, for clang/llvm
+
+LLVM's assembler doesn't accept the short form INL instruction:
+
+  inl (%%dx)
+
+but instead insists on the output register to be explicitly specified.
+
+This was previously fixed for the VMWARE_PORT macro. Fix it also for
+the VMWARE_HYPERCALL macro.
+
+Suggested-by: Sami Tolvanen <samitolvanen@google.com>
+Signed-off-by: Thomas Hellstrom <thellstrom@vmware.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Borislav Petkov <bp@suse.de>
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Sean Christopherson <sean.j.christopherson@intel.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: clang-built-linux@googlegroups.com
+Fixes: b4dd4f6e3648 ("Add a header file for hypercall definitions")
+Link: https://lkml.kernel.org/r/20191021172403.3085-2-thomas_os@shipmail.org
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+---
+ arch/x86/include/asm/vmware.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/x86/include/asm/vmware.h b/arch/x86/include/asm/vmware.h
+index e00c9e8..3caac90 100644
+--- a/arch/x86/include/asm/vmware.h
++++ b/arch/x86/include/asm/vmware.h
+@@ -29,7 +29,8 @@
+ 
+ /* The low bandwidth call. The low word of edx is presumed clear. */
+ #define VMWARE_HYPERCALL						\
+-	ALTERNATIVE_2("movw $" VMWARE_HYPERVISOR_PORT ", %%dx; inl (%%dx)", \
++	ALTERNATIVE_2("movw $" VMWARE_HYPERVISOR_PORT ", %%dx; "	\
++		      "inl (%%dx), %%eax",				\
+ 		      "vmcall", X86_FEATURE_VMCALL,			\
+ 		      "vmmcall", X86_FEATURE_VMW_VMMCALL)
+ 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKucm2ETxe2dgJhb4Ruzq72psFMGsx%3D0D6TVnJ-_DL2FgfA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157169858708.29376.13468044937611817754.tip-bot2%40tip-bot2.
