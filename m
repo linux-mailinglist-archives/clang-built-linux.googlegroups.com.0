@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBAABBKPPXDWQKGQEY5J63WY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBAH2XDWQKGQE3PYZURQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-f63.google.com (mail-wm1-f63.google.com [209.85.128.63])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04772DF84B
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 00:56:42 +0200 (CEST)
-Received: by mail-wm1-f63.google.com with SMTP id l184sf4062326wmf.6
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 15:56:42 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571698601; cv=pass;
+Received: from mail-wr1-f55.google.com (mail-wr1-f55.google.com [209.85.221.55])
+	by mail.lfdr.de (Postfix) with ESMTPS id AF674DF87B
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 01:19:28 +0200 (CEST)
+Received: by mail-wr1-f55.google.com with SMTP id x9sf1779303wrq.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571699968; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rv2Tgxmhbf2lJNxoHe58WnWsIODGuBcO46xPG2CcKf+8mWz6alwNgaY/E/g93UJ0iO
-         sVG2SSATgojLWiISy2k1w5exNcVPh3jsvmuonf+XeZDEWv12AqlMNUBoO1vJn3faJUlo
-         ZY4FI/wpoxyzE2UPEidOd9E27tvynVG2o4k0jYOSSIidItKpfT77TVyMaDHlAZ2Z8x3V
-         ywr5siiAUHyIhT3az/fZRo4VWGClJjnIkAqI2fVK/m1M/zXI2dOGeO5W/Q+ow6tY7x15
-         eUowOog+CJA8JBUQgWlCClIEQrvAVSTzsf2re6ZWXzd15F+NzWgztAiu3z++/t88fXro
-         XMag==
+        b=qOkkDdoyl5FAEc1HJiNTQFEOlEcuMLCQPq33ovWl9JG72WJ+8TWldOzwpxZrFQYDT9
+         bN96PCxD2X/XsuouaBaVi4LX/IxK6QA5UnQJCOJp0OInd4RBkhsyrcvnsoqfsWZ0p4o2
+         Jd2umg52c1eJ+wP9mtlGHz7v+dDhomTX6oKAcTK5k/xKZJTzlfB8/zWHPpUFM/79s4sN
+         IZDEtK6lig6JBoRTGNV88TSqc3ng5tJDGounxZ6MZTNbffVzXBEfq9b7v8iFXlFBxzVB
+         DkhF+0y5gaxOEc+QQ7sJvf3utWFInFd8cluO+TltfzE6ERjL91aJV9wG4fBIxxkjHVK9
+         6jeQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=FLleRxSVymWiqhlSWyJ3BzQuYdlJ9haXhGIF3WWpAdU=;
-        b=t7YwxRR00uH08rjeO61FR+j8rJzQGZ6Plj9Gmv1tdFms8/GUuwL0rUDq1zcbYAOtfk
-         KgXgd+vF+qHnJWlogOOOIBAWd411VlYkXzCzBMWWGA07TQXAsmGC0pFrIiamsPi06exj
-         dyTP7OirKneoqJi6maHKU5xhtI+WFHPeyLshZkgPlVRamx1rssfP+mxvHxBnM06UxpYr
-         Byf8CCypWWaPwJyQeDAdPPGwUR5FLBjqIcEM+pTvfPmzMhSmZ2t7iw+eg6IqF5odpBs4
-         gnZe8zWQsa6xSVot1KhDGu3BUVSLQc4S4Ru2kpgTEzLcVhlK3N74DRCDA9a2mbo9hiTF
-         qhUQ==
+        bh=qZpBSvqDEad8/Csn4Al7jZIrAGDNSt+ovsAOo4cOyHg=;
+        b=NGe54837KvIi/gKEN96RCDFfFN0WP+laArBJohjzLz83mpAb8jEczqAt836uzcDeUz
+         Ji/dJp0ZkaigM4xjbFrAaHyJW5pU94FnauE/P9z96iEE6MP3RWzXS4OlRGvBcRC1n2zw
+         WA9mLXTIEylNHzxIAR5nf6T0dp/e4uFs0t0+DSVW89TBFX4uLujyFt88M9bYu3o6x/mq
+         90IE7z4LQ9IR7mwMYUJHtW5kzrdZ3JhFp96z345co7lgOHkRL9m4tmZH3ffkMaarxvTu
+         OQPB71NZynhlztn+wAvQJ/9/WfMuktdM2PN1wdAgQ/c5PAydwyAl2CWGwYzR3jr7RgEv
+         5HfQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,79 +36,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=FLleRxSVymWiqhlSWyJ3BzQuYdlJ9haXhGIF3WWpAdU=;
-        b=H1KzgzJFOQ6c7Qg1ekKe1LMDW4A9od76rpGEQOmvgZ5l8kIvDBud40EnRPkdpuVFNJ
-         AQzD4RkXoR4s2w5QdY0ZjVd4INWsrqhnTJs+OeIdp4lju80itW36gR561SYLlO+qmUcJ
-         SpLTZRqIjl3d/GNE9FDiPXgjdWdCHh2H680Qh3HLfhNpFOESP0BNetXlp2+Yc5f6uF1b
-         uIlnBmtpm5YHG3y1pJJFzkl9nG1RIOagtruh/+uIjm6zlMJXeaLuiANxouNQjpSx6Z8/
-         0F1C2y9Yi7CADLTUTeuJLhwszF/muK+B+sOp74Xm2I+0Ysxd4REXnwqvaRsreiX9VY+C
-         +OPA==
-X-Gm-Message-State: APjAAAXmbkecSvpYH2tr70pmz4mPUWIP1kXGBvhf5L6Eb4OVoWcw/DGG
-	fnjY0wHl7Zjh4RzZw2W9uwE=
-X-Google-Smtp-Source: APXvYqwMDrgFwuppwmF0UEP8fbBQwx0nb2q0anoQK1yKHPpMNXz9YR2YzLg2ujnbCGUMFYHY3/SzAg==
-X-Received: by 2002:adf:c641:: with SMTP id u1mr486479wrg.361.1571698601711;
-        Mon, 21 Oct 2019 15:56:41 -0700 (PDT)
+        bh=qZpBSvqDEad8/Csn4Al7jZIrAGDNSt+ovsAOo4cOyHg=;
+        b=dgFQeKQH3NDVWjgZFKIVHDZ4uXyQvulaSBK3vwAG59wAmEvQyVR5WNLtCwlPPaHyO4
+         lYBg9og7ukCeEokJ4c6wPtmgRdyHWicHSyQxc4CiUtK5pKP9LQ1aLnJEWwW0MNeR2+qc
+         TqKOna9yDxYMOzUoHfMwce3UkIFzNLY+o0n2p6RJkGEJmK0HJrvxgzSUZKuB8yDErGPw
+         Fk5Wcz4W8iPghWwyNLPqxqIrnyeFGcGUt9o89WDkuk2wnfHkoo63k9AySNVJyeOo+AFN
+         S92PX2P9iNZCcngAhlZXA1ESEf+P1LlfG1CcZ+XMMnJepNmd7AHXaEE/xaNQDJYZEYon
+         UyVA==
+X-Gm-Message-State: APjAAAWi0y2J+a/jQDUneiRF2qnUR7+Gqi94ApZclfDpA1SUDMvgcE4Z
+	yFQFpqYB/nziVTXYh9KMls8=
+X-Google-Smtp-Source: APXvYqwd6htBc//aXmWgePH48YeHiIM64V4RN9DzdnTIH6Obrpgi8LwEFYBvyKQa70qxpR1bO7xc0A==
+X-Received: by 2002:a1c:7c13:: with SMTP id x19mr314588wmc.80.1571699968461;
+        Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:b7cd:: with SMTP id t13ls8113731wre.5.gmail; Mon, 21 Oct
- 2019 15:56:41 -0700 (PDT)
-X-Received: by 2002:adf:978a:: with SMTP id s10mr545886wrb.264.1571698601382;
-        Mon, 21 Oct 2019 15:56:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571698601; cv=none;
+Received: by 2002:adf:efce:: with SMTP id i14ls7729030wrp.10.gmail; Mon, 21
+ Oct 2019 16:19:28 -0700 (PDT)
+X-Received: by 2002:a5d:4a03:: with SMTP id m3mr561388wrq.359.1571699968232;
+        Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571699968; cv=none;
         d=google.com; s=arc-20160816;
-        b=FHYlbFZij0Hx81zYg6yPmqf4eL9s4kNIm39us6osec27fns52FBOOot7nDVV0UFcWA
-         UQubibAkP6j7Qf1tGJAw+UZZI4ovJKw1F3Klkm+e20EhmC6DUHVTonf3Y8KWl1hgZ05u
-         5xleSTnoiza70WbKWUwmsbXRoFP057kjXFh5UMy64rwG7/hGzAi8yj40b6kovsUVuQfV
-         dgCevH1dwbHcFBhtTLkMkeb6wmmMNXDX5U1f3NTCE9OSCf8jjFSBDJpwgMxYuY8zo+Kh
-         g9Av1JICtUfwmKcADUkga4hAah6n8/COJfwxVLrPMHsQEjAzhqIkj/+EI6gx6qNdTnUW
-         Gf4A==
+        b=liq8auXBDxyWqORS7MPT5mkENICyAR5ATpoIeUUYhaVhtKg/UPcUnVHzM3VuHQAA8/
+         BapSeRvd3JFXGIPguJTYcxm6qzP17DJoDY22wOM9rsnNcZdoDIJdOpRVGFudUAHEztjw
+         zHv4Ceyr/l7kzsd8FM6ZdA1feYn7ESHfOaBlxEF7oR7VboXaCir0qtpzETh6CYBPovpJ
+         1zFYdTjUPquXEYC5OprZUnwCsv28ROmPK3HqWppE7hv/kEJOi87dHfQhFNuT1uKAR3ui
+         hVcZRRJbEr0GO0SCBNAxUBxmFxwTeV2rloKW4sqnZ6IWTEIccEWUPwNDYKsX38H+2rkt
+         iDEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=GouS7NGoHggBG3cnq+3rc/UFefDdE7kEgoeYqMo7tHA=;
-        b=geWokbhUow/yS7QHczpMgZUQII8CP0OIpFst/0AQMPIdkn3HddphcOFmtfHIHYMbdo
-         VJOZnve/2uxKJKkgaNu23sPOy+65puzbfDf8GFX+RBPiFnSpGICVpcu6mNjMMK8XR4pw
-         9NkxPFtWTZ0TnhXnVrxCb78wW+1/QLzC+s0XoI91GZ7BztCz6Keu3ixUpqfKtAeXh/Wx
-         1Yc1l8gaUZdi7aAfQQqOZ2dVVAQsUBkF8PhI6XqNjV1AXTCDB6vbPqE9O46q56atPOkh
-         zJHJvZdBGxDVj41olJtBzNQRYB0Atl/k0QMFKCjjr0xsB/4LboEDlgxS7a6+pnvhLJQA
-         4zZw==
+        bh=7U361mmxkUMuyaLQXkqRBJP3xdjzVkWyYINedk71u9w=;
+        b=jbClamhA4bJUGI7vOOXCWHz5kSzmaciLk1L5fshN8tY3EpR7X3Bs4voBptmq5nBYFM
+         Z57V3w6WxJx251MjCCErFNFJzuX68jxvDFgh7zzERfsBWcoWXGXHlImNerkHeHj5A/FV
+         f3eNM+mw1lJ9lGa62WmrExUeu7sMnLTvTxCfNpUhPvZPopvv78gjZum27eekJY5g2Esk
+         1NqwzZR7iyAFvzE7MZg+Yfy3sadqeQCa25UsxlbMIyQFd/ysiadbHNZ7vUZ9MjcE9n9n
+         +dlZG5n8glGbIng7iJ8a2ZppQ4csjow0dSE6Qkc5V0UQK6048/H8N4fUIeRvCb3Kxb8d
+         KaBQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id 5si1501497wmf.1.2019.10.21.15.56.41
+        by gmr-mx.google.com with ESMTPS id y185si709569wmd.4.2019.10.21.16.19.28
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Mon, 21 Oct 2019 15:56:41 -0700 (PDT)
+        Mon, 21 Oct 2019 16:19:28 -0700 (PDT)
 Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
 Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
 	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
 	(Exim 4.80)
 	(envelope-from <tip-bot2@linutronix.de>)
-	id 1iMgbE-0003So-06; Tue, 22 Oct 2019 00:56:29 +0200
+	id 1iMgxO-0004Cf-JP; Tue, 22 Oct 2019 01:19:23 +0200
 Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 721F61C03AB;
-	Tue, 22 Oct 2019 00:56:27 +0200 (CEST)
-Date: Mon, 21 Oct 2019 22:56:27 -0000
-From: "tip-bot2 for Thomas Hellstrom" <tip-bot2@linutronix.de>
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 290561C04D5;
+	Tue, 22 Oct 2019 01:19:15 +0200 (CEST)
+Date: Mon, 21 Oct 2019 23:19:14 -0000
+From: "tip-bot2 for Ian Rogers" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: x86/urgent] x86/cpu/vmware: Use the full form of INL in
- VMWARE_HYPERCALL, for clang/llvm
-Cc: Sami Tolvanen <samitolvanen@google.com>,
- Thomas Hellstrom <thellstrom@vmware.com>,
- Nick Desaulniers <ndesaulniers@google.com>, Borislav Petkov <bp@suse.de>,
- "H. Peter Anvin" <hpa@zytor.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Sean Christopherson <sean.j.christopherson@intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, clang-built-linux@googlegroups.com,
- Ingo Molnar <mingo@kernel.org>, Borislav Petkov <bp@alien8.de>,
- linux-kernel@vger.kernel.org
-In-Reply-To: <20191021172403.3085-2-thomas_os@shipmail.org>
-References: <20191021172403.3085-2-thomas_os@shipmail.org>
+Subject: [tip: perf/core] perf annotate: Fix objdump --no-show-raw-insn flag
+Cc: Ian Rogers <irogers@google.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jin Yao <yao.jin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>,
+ Mark Rutland <mark.rutland@arm.com>, Namhyung Kim <namhyung@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>, Song Liu <songliubraving@fb.com>,
+ Stephane Eranian <eranian@google.com>, clang-built-linux@googlegroups.com,
+ Arnaldo Carvalho de Melo <acme@redhat.com>, Ingo Molnar <mingo@kernel.org>,
+ Borislav Petkov <bp@alien8.de>, linux-kernel@vger.kernel.org
+In-Reply-To: <20191010183649.23768-6-irogers@google.com>
+References: <20191010183649.23768-6-irogers@google.com>
 MIME-Version: 1.0
-Message-ID: <157169858708.29376.13468044937611817754.tip-bot2@tip-bot2>
+Message-ID: <157169995483.29376.7991382178457422946.tip-bot2@tip-bot2>
 X-Mailer: tip-git-log-daemon
 Robot-ID: <tip-bot2.linutronix.de>
 Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
@@ -132,59 +129,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The following commit has been merged into the x86/urgent branch of tip:
+The following commit has been merged into the perf/core branch of tip:
 
-Commit-ID:     db633a4e0e6eda69b6065e3e106f9ea13a0676c3
-Gitweb:        https://git.kernel.org/tip/db633a4e0e6eda69b6065e3e106f9ea13a0676c3
-Author:        Thomas Hellstrom <thellstrom@vmware.com>
-AuthorDate:    Mon, 21 Oct 2019 19:24:02 +02:00
-Committer:     Ingo Molnar <mingo@kernel.org>
-CommitterDate: Tue, 22 Oct 2019 00:51:44 +02:00
+Commit-ID:     c5baf9089246c1356705c9ba36d767ee8ce43dd2
+Gitweb:        https://git.kernel.org/tip/c5baf9089246c1356705c9ba36d767ee8ce43dd2
+Author:        Ian Rogers <irogers@google.com>
+AuthorDate:    Thu, 10 Oct 2019 11:36:49 -07:00
+Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
+CommitterDate: Tue, 15 Oct 2019 08:39:42 -03:00
 
-x86/cpu/vmware: Use the full form of INL in VMWARE_HYPERCALL, for clang/llvm
+perf annotate: Fix objdump --no-show-raw-insn flag
 
-LLVM's assembler doesn't accept the short form INL instruction:
+Remove redirection of objdump's stderr to /dev/null to help diagnose
+failures.
 
-  inl (%%dx)
+Fix the '--no-show-raw' flag to be '--no-show-raw-insn' which binutils
+is permissive and allows, but fails with LLVM objdump.
 
-but instead insists on the output register to be explicitly specified.
-
-This was previously fixed for the VMWARE_PORT macro. Fix it also for
-the VMWARE_HYPERCALL macro.
-
-Suggested-by: Sami Tolvanen <samitolvanen@google.com>
-Signed-off-by: Thomas Hellstrom <thellstrom@vmware.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Borislav Petkov <bp@suse.de>
-Cc: H. Peter Anvin <hpa@zytor.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Signed-off-by: Ian Rogers <irogers@google.com>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Jin Yao <yao.jin@linux.intel.com>
+Cc: Jiri Olsa <jolsa@redhat.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
 Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Sean Christopherson <sean.j.christopherson@intel.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Song Liu <songliubraving@fb.com>
+Cc: Stephane Eranian <eranian@google.com>
 Cc: clang-built-linux@googlegroups.com
-Fixes: b4dd4f6e3648 ("Add a header file for hypercall definitions")
-Link: https://lkml.kernel.org/r/20191021172403.3085-2-thomas_os@shipmail.org
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Link: http://lore.kernel.org/lkml/20191010183649.23768-6-irogers@google.com
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- arch/x86/include/asm/vmware.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ tools/perf/util/annotate.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/include/asm/vmware.h b/arch/x86/include/asm/vmware.h
-index e00c9e8..3caac90 100644
---- a/arch/x86/include/asm/vmware.h
-+++ b/arch/x86/include/asm/vmware.h
-@@ -29,7 +29,8 @@
+diff --git a/tools/perf/util/annotate.c b/tools/perf/util/annotate.c
+index efc5bfe..eef8aa8 100644
+--- a/tools/perf/util/annotate.c
++++ b/tools/perf/util/annotate.c
+@@ -1966,13 +1966,13 @@ static int symbol__disassemble(struct symbol *sym, struct annotate_args *args)
+ 	err = asprintf(&command,
+ 		 "%s %s%s --start-address=0x%016" PRIx64
+ 		 " --stop-address=0x%016" PRIx64
+-		 " -l -d %s %s -C \"$1\" 2>/dev/null",
++		 " -l -d %s %s -C \"$1\"",
+ 		 opts->objdump_path ?: "objdump",
+ 		 opts->disassembler_style ? "-M " : "",
+ 		 opts->disassembler_style ?: "",
+ 		 map__rip_2objdump(map, sym->start),
+ 		 map__rip_2objdump(map, sym->end),
+-		 opts->show_asm_raw ? "" : "--no-show-raw",
++		 opts->show_asm_raw ? "" : "--no-show-raw-insn",
+ 		 opts->annotate_src ? "-S" : "");
  
- /* The low bandwidth call. The low word of edx is presumed clear. */
- #define VMWARE_HYPERCALL						\
--	ALTERNATIVE_2("movw $" VMWARE_HYPERVISOR_PORT ", %%dx; inl (%%dx)", \
-+	ALTERNATIVE_2("movw $" VMWARE_HYPERVISOR_PORT ", %%dx; "	\
-+		      "inl (%%dx), %%eax",				\
- 		      "vmcall", X86_FEATURE_VMCALL,			\
- 		      "vmmcall", X86_FEATURE_VMW_VMMCALL)
- 
+ 	if (err < 0) {
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157169858708.29376.13468044937611817754.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157169995483.29376.7991382178457422946.tip-bot2%40tip-bot2.
