@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBAABBZ5CXLWQKGQEOBAVT6Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74BA9DFD0F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 07:19:37 +0200 (CEST)
-Received: by mail-yb1-xb3e.google.com with SMTP id g135sf12562787ybf.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 22:19:37 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571721576; cv=pass;
+Received: from mail-oi1-x23b.google.com (mail-oi1-x23b.google.com [IPv6:2607:f8b0:4864:20::23b])
+	by mail.lfdr.de (Postfix) with ESMTPS id E583FDFD0D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 07:19:36 +0200 (CEST)
+Received: by mail-oi1-x23b.google.com with SMTP id d206sf8861838oig.6
+        for <lists+clang-built-linux@lfdr.de>; Mon, 21 Oct 2019 22:19:36 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571721575; cv=pass;
         d=google.com; s=arc-20160816;
-        b=H0JelHDC/O7RDbLzsFhmsFog2LM437UORtndxKwCL/DaLotNwzUkem82F9VNWG6k4P
-         ipmyKR/NRnBxh/o4jFJDAdtefMVqZGXwcjTSWJm/qhK5wE8zuqEgSQBWlbOH6e7xjFed
-         DezqrazlA1pA4DIz1EccluqSExtCUdVZdDFRV0MS+18jUif5LmIvPtqimzRf2NkWQhAj
-         2SGyFYJVJuKSDIwYmB2HGY2zh0CU8FhWBNNpM1RsP5TDvSymsgsbI84p1JkngID9KMkU
-         4RHQu2bssJsY99LMyzYiA4SV01pkkGmZXvMDrUkYnijQI55+sfrLD/VVMnhFjjtrVgg7
-         bX7Q==
+        b=rJNC6W6ZVIRe85eYOit8Oa7yUtnresHekin08oVhvAsT6+yT9mFu7SP/U0HYx6T8HV
+         rECvKglegMqYac+AjBWu+M4JKVfbkV2HTD2AOFimWGd7It9UpszYcryZbcIDpxyvX2Ri
+         c2mA4vNBoJb1X3havpRRP0/Zm0wNyFEczsC1ikGnmFvTJTwCl3JOjqrKktIlCL+f1p+M
+         Uga5oNqoT3rGHIr9Z+0JMbid3W71B5Pt5XhVwnaA8C0xuISSN1sv5IoVgUm0Lt2NCI4k
+         Z6f/JbfUM/YV097l5Qo036SgJbnmIxMchtYA5e/mgXAFhaO1MbVT//Vp6+TWj+63AxmX
+         f5Kg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=mIJKWRNHqdwLfMca/FzJN34fqz9rZz29XiERrJCZgxk=;
-        b=Qau/wp0bTb5bG0abnracvEYhpI5RER2fal0zLlhtFY+9cHuJiBJX9yx7jJ4aYEGDfQ
-         nPqXKkgY8dRIsueU5dhTY5F0PSHkps4zQ1wzkfxLF7BCk8chRGkc7UmhT9f4JNcNDP7L
-         yqzC+nO07eg3pX18ESAouOe/sVCSV7z2pObnJL5a/+PzF4CwdIKXaRgxvCL32pVn5C/h
-         7kl8mtvqjuYwN9IP00HSfIVSy/HLK213aqImITkYpqgcsicgzH4VtmXv1YiRQ7jgsERr
-         pxwoGF/BMRH0g60knv2avf9qksj4JNrAeOHl9CtF7FhmbblKxrjVcC0lPKKdyOi++3Ju
-         FZMA==
+        bh=lZQWgg+MHYLe79aGdyaKofaKaQs5CykoT+g1ebECpZc=;
+        b=l608xiHF5BrKqbs8poWVeaTKMiQOud5FS2pW83nsDteBohjJcJqYA6EjE7qZWlf9mp
+         mWi/B8Oit1saCl9W17cuigKOMKMRe2wTmba3jpiSYyKsyOd5+9yORYOXk6uORVLhvlCP
+         4rwczuauidfxLpfju3HRmqipkMW1W1J2MDAw1zoiQwgJVMEPEBH9fSe1zOTxd6yUbXDP
+         wao+cL+qQ0eRuPrwTHsxl0yWu+Y4HHzAx64/KbUJQcC8AF1FZB5mi1d/ZqFYLFCOgFyw
+         E/BZVcPnAikaTh6QYSe4wD26ogqv8VdaYNFxPq1ifGueI39N3kyrd/Lt7MR1NgENyoyj
+         3VGA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,96 +35,96 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mIJKWRNHqdwLfMca/FzJN34fqz9rZz29XiERrJCZgxk=;
-        b=hV5kyETQFMtFwzAhN0C6OgxUOI3NHqqoPTqONn7fR67lEeq0exrKV38F5ReaAjpbSS
-         QmvSMUs34pSOx5SjSxx2bTJ1zBqbRPMwhEV77VBbG1bNi1jZUreL+7rKNKPbESv3JJgU
-         Xv5WJitXIfXAcC4zq+s17yqR39DqfnP+cpMmUkAiFmy5ZSsgIuh4leN2FaksYKPVSdRN
-         MhXsT9iJEaKB4Lx2PLYPkatlzNnJjjFyoFVPq8cPBzy8Gdwp/Be5026LqK7vImRrpXTk
-         fua4svg13YHkMzjJRh7xflMN8c3K4FrI/ngbJw2e3Lk9aHYSJ+hgppO6r2Pteu5nRZFZ
-         aumw==
+        bh=lZQWgg+MHYLe79aGdyaKofaKaQs5CykoT+g1ebECpZc=;
+        b=MZTcS6tGoX4tZqT4/aunFWsRjMq9rh95D+jpazm8s5eAsuwG8+sVrN/UZm+VuZfW++
+         WzfRJUpawdu2cFoVmQG15KT8RIKoocKgjLPqRnOHFXo6SiOGhUwfsc9KounuBNE2UPFi
+         eV1RtkPtCePj78AYwgAx7r5+DR0Ea5kABZQBJxkNhXezR5EwdHwFXCxqayWSxUioWlGU
+         XSW8feSMSR4+WLJ+9CaBJWDyBOPD4XkjZx0TpEOqrQVgEaKQtprKy22CyHrtY9OCde56
+         1gzYwwfv0uD53lywWYlWV9FeLPqJRVKoQbLtwRHesP/mMzzGuS5mDpOWFp8gRBYiSECO
+         8usA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
          :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mIJKWRNHqdwLfMca/FzJN34fqz9rZz29XiERrJCZgxk=;
-        b=fX5m+v2Kfy/0WTMeaqpUQ6j5uUuDYFcBoElJrS+bWOouCdG23z3QHBNpmkkjm+nKmQ
-         3xfgv0mMuGcTWEFe7ReoKllSJnnJg0J6Qp+eWohsdQOFyeFmYVwcGGVI4CMcV1LxK4MP
-         h4fEblmHPZqHQ0ORB17VdSZqhimMHLZxIB9cpnLVgylA+d/GzpDrySwxmCyoEZNQn5hC
-         7wTJSu1rrHl9Wjdr1f2oVmYyxcps62Z81eJvhvLlj71s3PoT0kcbGdmSPoH6qtfGyPW6
-         R1QGEDCTTiPqTyg+g3ncWYeyldCQhaLvC3HweSATcEbycKQ1zDhjkLdSYDT7fDciBvW5
-         6SbQ==
+        bh=lZQWgg+MHYLe79aGdyaKofaKaQs5CykoT+g1ebECpZc=;
+        b=HqbcZ2rhdnrew0DBrfdKOSCJ0DrlofVsUaVASEp6cFoC/Wo3frCa7eSZntp823kYyq
+         yXT0oHc4j6vLxUvDwvlxyvHty7rGx4UjZRIsl8mvGw333bH+vpPTLMTDokFq9w7yRw5m
+         CuwH91/+1ykWaR2lcYmuzt2rvXzHy2WLt0LnS7I4Rx77yakNiOVEFwd7KfV8oZNEfeKg
+         KI/g+2v5LT7ByR1Ltb36Vurf9jZKF7nJahu3PhKE/yZp96pHWymqWebxOqGJOXvScDbx
+         tFvN7TiTyxTfCGJSHV3z1LYqiRYHoT4e/P0cSzPFprCA/N8hLhWaFq640LMFJwfs6XZa
+         Vhtw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUeS3aplmITdIsHlGd53BYbVFkFvpSWq1bOMYsHn9jTasIB+0XT
-	1/OnB0vo9oWJuja659+EnI8=
-X-Google-Smtp-Source: APXvYqwkodsceJG311K9uh3zWdqCkUuE705t17SiSi4QDM3AW+Q/HfmfjIMRrHBbgnGl85lGwjz4NA==
-X-Received: by 2002:a0d:cac4:: with SMTP id m187mr923896ywd.445.1571721575999;
+X-Gm-Message-State: APjAAAUcdciA+hGtO5cAXdw1U6kqsi9m53LnDrcO91JMeOMKOd2HAs34
+	EGcJ5J+rPgmv5lOAf/uHoqs=
+X-Google-Smtp-Source: APXvYqyN+ccbraO3leqAkizP6sC0OcfuEDFAEY7H9doptqhjWyEPpYEmwP7RLo7rnEV/lwX8fgPN7Q==
+X-Received: by 2002:aca:7543:: with SMTP id q64mr1387894oic.95.1571721575684;
         Mon, 21 Oct 2019 22:19:35 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d98d:: with SMTP id q135ls2340412ybg.9.gmail; Mon, 21
- Oct 2019 22:19:35 -0700 (PDT)
-X-Received: by 2002:a25:248a:: with SMTP id k132mr1157399ybk.243.1571721575775;
+Received: by 2002:a9d:5f09:: with SMTP id f9ls2646376oti.13.gmail; Mon, 21 Oct
+ 2019 22:19:35 -0700 (PDT)
+X-Received: by 2002:a05:6830:1bd9:: with SMTP id v25mr1247796ota.52.1571721575580;
         Mon, 21 Oct 2019 22:19:35 -0700 (PDT)
-Received: by 2002:a81:a985:0:0:0:0:0 with SMTP id g127msywh;
-        Mon, 21 Oct 2019 21:12:15 -0700 (PDT)
-X-Received: by 2002:a81:6857:: with SMTP id d84mr897176ywc.376.1571717535084;
-        Mon, 21 Oct 2019 21:12:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571717535; cv=none;
+Received: by 2002:aca:7208:0:0:0:0:0 with SMTP id p8msoic;
+        Mon, 21 Oct 2019 22:13:23 -0700 (PDT)
+X-Received: by 2002:a62:b504:: with SMTP id y4mr2049388pfe.198.1571721203011;
+        Mon, 21 Oct 2019 22:13:23 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571721203; cv=none;
         d=google.com; s=arc-20160816;
-        b=xbtsfOxpwpI2hgV/AkCSb6VDJSA6KtV3hH4+aFd7qMtKJg5LltW3Q5rn+XfEl/5zYJ
-         jTcaOMb1vKPvfoWdsDkkk+KX5a/Z4pa4JfNCSwnNgOxnirbU71DGz5w5C1DpuyfsbYAI
-         SwHZ0jYyNuCtFywoaFX3k8Zrl2KtzFOIDLjO/g0wMLsuYWBw/fudtGBbNNlffOvV65o0
-         zfIlR+9xCaI4zu0NJawBbEEykwkTdCCde6PSiZ64wbD9ab71lABrm/kJ5K97maSGyJSU
-         Zx9VBoTC84vnk2nPvOu3/BDGJxuMVt053M8SHm44ssUXl8NeEuT32FXLFmDjXmI0XoVq
-         VF3Q==
+        b=J45HSrlI+l6IDhTezCkEwAovG0L62BAnyiXphrBAFfctQmn78RWkuvRPkRmOdQZ0Jl
+         RyhJorVI5HwT6Sb34mt1iM7wZF2WBgw2kTVXgumpFf9wfF6ldDia4EHRWes347BC39pB
+         qjVehAxlJcUAV3iBudqrsM/pE1Jzp85YsAUVF5kTZU0Sm+GDUO71LlonWD4fUl2+KEXK
+         kuV1SgLwFZlGFlGNdC6oQLQmBzw9JM7u9tbYFMBH9SKPY8f/iHSunehMc6c3TAa8l+9n
+         OQ1qLmQzKFQBlYbxjfFeFsNLUGFipfqr5o8gci49OaBq4Bgmgwik+JZR7ppwzzm2eYH/
+         3jAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=L5/ocx3o7rBDrXXmeDNGtV5widogD/pFJDvt+BqreG0=;
-        b=NwGHxYoHh2H1rgV6Ld3Tp+oByanl8DdBDMmhXmp2rqkNlr6oNYqARjc6ho3v87OQDS
-         HxmDTaxO24ko4JWyaL+SL7dAFBfWEzXfKGpxzkX+9VMAggvuMTxAWAidm63+BNY1dIg3
-         ZrSJx252b421UZcwVcoCStv/Kqan1klCuI4g8HeE/21/Mtn48o81LRqJcHVA0GGq3RHF
-         jAE8EvU9IICX1qR9csAWwVi85Xk+GD6YHz6ofkIHdDOprWJ4XAz3j3qlcVfebX62WkU1
-         VaFk3kpW34OKfrr3sPHNFVxUjyWNjmTgr0vu917ZNnCPFg43PvZ7ltTGcPSZG8/o8ipN
-         FqUA==
+        bh=WcMZb5IY43nv0p2CAM2Vc5FnFAhra4dy7gE0i9pMqZg=;
+        b=TUHRy9ENP9OODClEeFLCzR56/k/2+AZ0AE0vx92F29jofweuTV80ed5GQGE4/+gtvI
+         rPx/zDeSdl3sWFdWOWKEPopiIbKc2vycBVizCOCa0nwaqRukEQUAQ2a44aumelU6fiqY
+         PW6tLPLUJx3y/HZdbrdrQbmfhxfhNuvJptLEyNYf6E7LIc8BGpICEfsL5UPnOSYTBRaT
+         W092lpbuP4v+SgpmXxy0+3ONymU6zY6RgiMNIdMdRpPLEcrcB7pdYlUzO3xEFrFX7hQv
+         d66Ofm3CWKBxfMJHyyxu/vMiYRwsb+Iq4NyXKioXsu6gfSEJC3njkYAyEbwXtoYHOOpF
+         cD8Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id u8si1030596ybc.2.2019.10.21.21.12.14
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id q141si971280pfc.4.2019.10.21.22.13.22
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 21 Oct 2019 21:12:15 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+        Mon, 21 Oct 2019 22:13:22 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 21 Oct 2019 21:12:13 -0700
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 21 Oct 2019 22:13:22 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.67,326,1566889200"; 
-   d="gz'50?scan'50,208,50";a="398882346"
+   d="gz'50?scan'50,208,50";a="203536936"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 21 Oct 2019 21:12:12 -0700
+  by FMSMGA003.fm.intel.com with ESMTP; 21 Oct 2019 22:13:20 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iMlWl-000GBG-My; Tue, 22 Oct 2019 12:12:11 +0800
-Date: Tue, 22 Oct 2019 12:11:26 +0800
+	id 1iMmTv-0003ME-LQ; Tue, 22 Oct 2019 13:13:19 +0800
+Date: Tue, 22 Oct 2019 13:12:37 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [RFC v1] writeback: add elastic bdi in cgwb bdp
-Message-ID: <201910221204.EGLikKvK%lkp@intel.com>
+Subject: Re: [RFC v1] memcg: add memcg lru for page reclaiming
+Message-ID: <201910221347.AcZ62v98%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="pnt5hnwxdtj7zken"
+Content-Type: multipart/mixed; boundary="3fddzz7vu6hh5jpy"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,13 +139,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---pnt5hnwxdtj7zken
+--3fddzz7vu6hh5jpy
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191020130013.3500-1-hdanton@sina.com>
-References: <20191020130013.3500-1-hdanton@sina.com>
+In-Reply-To: <20191021115654.14740-1-hdanton@sina.com>
+References: <20191021115654.14740-1-hdanton@sina.com>
 TO: Hillf Danton <hdanton@sina.com>
 
 Hi Hillf,
@@ -157,7 +157,7 @@ Hi Hillf,
 improve the system. BTW, we also suggest to use '--base' option to specify the
 base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
 
-url:    https://github.com/0day-ci/linux/commits/Hillf-Danton/writeback-add-elastic-bdi-in-cgwb-bdp/20191022-070010
+url:    https://github.com/0day-ci/linux/commits/Hillf-Danton/memcg-add-memcg-lru-for-page-reclaiming/20191022-082625
 base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 7d194c2100ad2a6dded545887d02754948ca5241
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project ef9a0278f0ac3ccf5eb3bd5f8716a930685402e4)
@@ -170,109 +170,48 @@ reproduce:
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
->> mm/page-writeback.c:1949:4: error: implicit declaration of function 'cgwb_bdp' [-Werror,-Wimplicit-function-declaration]
-                           cgwb_bdp(wb);
-                           ^
-   mm/page-writeback.c:1950:3: warning: add explicit braces to avoid dangling else [-Wdangling-else]
-                   else
-                   ^
-   1 warning and 1 error generated.
---
->> mm/backing-dev.c:328:28: error: no member named 'bdp_waitq' in 'struct bdi_writeback'
-                   init_waitqueue_head(&wb->bdp_waitq);
-                                        ~~  ^
-   include/linux/wait.h:67:26: note: expanded from macro 'init_waitqueue_head'
-                   __init_waitqueue_head((wq_head), #wq_head, &__key);             \
-                                          ^~~~~~~
-   1 error generated.
---
->> fs/fs-writeback.c:2102:29: error: no member named 'bdp_waitq' in 'struct bdi_writeback'
-                   if (waitqueue_active(&wb->bdp_waitq))
-                                         ~~  ^
-   fs/fs-writeback.c:2103:21: error: no member named 'bdp_waitq' in 'struct bdi_writeback'
-                           wake_up_all(&wb->bdp_waitq);
-                                        ~~  ^
-   include/linux/wait.h:210:36: note: expanded from macro 'wake_up_all'
-   #define wake_up_all(x)                  __wake_up(x, TASK_NORMAL, 0, NULL)
-                                                     ^
-   2 errors generated.
+>> mm/memcontrol.c:2385:8: error: use of undeclared identifier 'start'
+                           if (start != memcg) {
+                               ^
+>> mm/memcontrol.c:2386:5: error: implicit declaration of function 'memcg_add_lru' [-Werror,-Wimplicit-function-declaration]
+                                   memcg_add_lru(memcg);
+                                   ^
+>> mm/memcontrol.c:3202:30: error: implicit declaration of function 'memcg_pick_lru' [-Werror,-Wimplicit-function-declaration]
+                   struct mem_cgroup *memcg = memcg_pick_lru();
+                                              ^
+>> mm/memcontrol.c:3202:22: warning: incompatible integer to pointer conversion initializing 'struct mem_cgroup *' with an expression of type 'int' [-Wint-conversion]
+                   struct mem_cgroup *memcg = memcg_pick_lru();
+                                      ^       ~~~~~~~~~~~~~~~~
+>> mm/memcontrol.c:5119:26: error: no member named 'lru_node' in 'struct mem_cgroup'
+                   INIT_LIST_HEAD(&memcg->lru_node);
+                                   ~~~~~  ^
+   1 warning and 4 errors generated.
 
-vim +/cgwb_bdp +1949 mm/page-writeback.c
+vim +/start +2385 mm/memcontrol.c
 
-  1885	
-  1886	/**
-  1887	 * balance_dirty_pages_ratelimited - balance dirty memory state
-  1888	 * @mapping: address_space which was dirtied
-  1889	 *
-  1890	 * Processes which are dirtying memory should call in here once for each page
-  1891	 * which was newly dirtied.  The function will periodically check the system's
-  1892	 * dirty state and will initiate writeback if needed.
-  1893	 *
-  1894	 * On really big machines, get_writeback_state is expensive, so try to avoid
-  1895	 * calling it too often (ratelimiting).  But once we're over the dirty memory
-  1896	 * limit we decrease the ratelimiting by a lot, to prevent individual processes
-  1897	 * from overshooting the limit by (ratelimit_pages) each.
-  1898	 */
-  1899	void balance_dirty_pages_ratelimited(struct address_space *mapping)
-  1900	{
-  1901		struct inode *inode = mapping->host;
-  1902		struct backing_dev_info *bdi = inode_to_bdi(inode);
-  1903		struct bdi_writeback *wb = NULL;
-  1904		int ratelimit;
-  1905		int *p;
-  1906	
-  1907		if (!bdi_cap_account_dirty(bdi))
-  1908			return;
-  1909	
-  1910		if (inode_cgwb_enabled(inode))
-  1911			wb = wb_get_create_current(bdi, GFP_KERNEL);
-  1912		if (!wb)
-  1913			wb = &bdi->wb;
-  1914	
-  1915		ratelimit = current->nr_dirtied_pause;
-  1916		if (wb->dirty_exceeded)
-  1917			ratelimit = min(ratelimit, 32 >> (PAGE_SHIFT - 10));
-  1918	
-  1919		preempt_disable();
-  1920		/*
-  1921		 * This prevents one CPU to accumulate too many dirtied pages without
-  1922		 * calling into balance_dirty_pages(), which can happen when there are
-  1923		 * 1000+ tasks, all of them start dirtying pages at exactly the same
-  1924		 * time, hence all honoured too large initial task->nr_dirtied_pause.
-  1925		 */
-  1926		p =  this_cpu_ptr(&bdp_ratelimits);
-  1927		if (unlikely(current->nr_dirtied >= ratelimit))
-  1928			*p = 0;
-  1929		else if (unlikely(*p >= ratelimit_pages)) {
-  1930			*p = 0;
-  1931			ratelimit = 0;
-  1932		}
-  1933		/*
-  1934		 * Pick up the dirtied pages by the exited tasks. This avoids lots of
-  1935		 * short-lived tasks (eg. gcc invocations in a kernel build) escaping
-  1936		 * the dirty throttling and livelock other long-run dirtiers.
-  1937		 */
-  1938		p = this_cpu_ptr(&dirty_throttle_leaks);
-  1939		if (*p > 0 && current->nr_dirtied < ratelimit) {
-  1940			unsigned long nr_pages_dirtied;
-  1941			nr_pages_dirtied = min(*p, ratelimit - current->nr_dirtied);
-  1942			*p -= nr_pages_dirtied;
-  1943			current->nr_dirtied += nr_pages_dirtied;
-  1944		}
-  1945		preempt_enable();
-  1946	
-  1947		if (unlikely(current->nr_dirtied >= ratelimit))
-  1948			if (IS_ENABLED(CONFIG_CGWB_BDP_WITH_EBDI))
-> 1949				cgwb_bdp(wb);
-  1950			else
-  1951				balance_dirty_pages(wb, current->nr_dirtied);
-  1952	
-  1953		wb_put(wb);
-  1954	}
-  1955	EXPORT_SYMBOL(balance_dirty_pages_ratelimited);
-  1956	
+  2372	
+  2373	static void reclaim_high(struct mem_cgroup *memcg,
+  2374				 unsigned int nr_pages,
+  2375				 gfp_t gfp_mask)
+  2376	{
+  2377	#ifdef CONFIG_MEMCG_LRU
+  2378		struct mem_cgroup *start = memcg;
+  2379	#endif
+  2380		do {
+  2381			if (page_counter_read(&memcg->memory) <= memcg->high)
+  2382				continue;
+  2383			memcg_memory_event(memcg, MEMCG_HIGH);
+  2384			if (IS_ENABLED(CONFIG_MEMCG_LRU))
+> 2385				if (start != memcg) {
+> 2386					memcg_add_lru(memcg);
+  2387					return;
+  2388				}
+  2389			try_to_free_mem_cgroup_pages(memcg, nr_pages, gfp_mask, true);
+  2390		} while ((memcg = parent_mem_cgroup(memcg)));
+  2391	}
+  2392	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -281,14 +220,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910221204.EGLikKvK%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910221347.AcZ62v98%25lkp%40intel.com.
 
---pnt5hnwxdtj7zken
+--3fddzz7vu6hh5jpy
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICE9orl0AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eQh9x0vQBCUEHEyAEq2NzyKLXf8
+H4sICFSArl0AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eQh9x0vQBCUEHEyAEq2NzyKLXf8
 4qGvbHfSf3+rAA4ACDr9XsZmVWEqFGpCQd//6/sJeX97edq/PdzuHx+/Tj4dng/H/dvhbnL/
 8Hj4n0lcTPJCTVjM1c9AnD48v//9y/74dLqcnPy8/Hn60/F2Odkcjs+Hxwl9eb5/+PQOzR9e
 nv/1/b/gn+8B+PQZejr+e3L7uH/+NPlyOL4CejKb/gx/T3749PD2719+gf8+PRyPL8dfHh+/
@@ -1138,4 +1077,4 @@ of7CG2rnJrHswPi9piv3ESuIKHkIW5MqLIWZoZ7H5anZtO3xH6RSibhlEXafGteJpOmNGObb
 +AOBBszP6ZqS2FzdgYfJBR/6gEAOpYkvcrr788SvN0p3IkKCAMAddJa16ZrctvcztVEmB1lG
 i8zaO1PkQgV5NYqJtfistFc2cozK/wKVwMe2LhYDAA==
 
---pnt5hnwxdtj7zken--
+--3fddzz7vu6hh5jpy--
