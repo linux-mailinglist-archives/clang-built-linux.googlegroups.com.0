@@ -1,132 +1,142 @@
-Return-Path: <clang-built-linux+bncBCRIZROPVQPBBG4PX7WQKGQE54WKPOQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCVOD7PJWIARBZGOX7WQKGQEWUXXIRI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 70A45E1079
-	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 05:23:08 +0200 (CEST)
-Received: by mail-vk1-xa39.google.com with SMTP id i20sf8496843vkk.21
-        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 20:23:08 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571800987; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id D5D9DE11BB
+	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 07:38:45 +0200 (CEST)
+Received: by mail-pf1-x440.google.com with SMTP id z13sf15282288pfr.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 22 Oct 2019 22:38:45 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571809124; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aF5++HEo3q29BGkvHYvb3Klz0Q3mV14sKWlgQ0lJ1Ag1iwBgOmxkADy9FYgFXHv55+
-         s42v0t6d921X9o/P0YhFsUNhW4OTKH/2JuInWZu15vIQbuev03nU8S6MXTiX7nZfi5fV
-         7n88eCxVBFV+76KejZ/vzJtYzDYgV5ynZmt/ZjFmxmnsXmNXK/OMmf7M8c9ckupL7vq4
-         VXVYIlPzQIrzLAcPq2w38ctVoaoJuPicPlGGMfj7bGFuN1r6O8x+Uxd6c4qtBIahpRfD
-         x4zizwOzxoZ3uw+HjOOgXet7KK8jkuG6ZpB+WUgujtAUGGE/P05pP3nY8gA3upyKmYqh
-         BzXw==
+        b=FT5s/r6Kk33ldt000xGE2eWWr56SbfQ8voUqWxkbd7ZLGuhknW6hu8zJnHX28C1A4x
+         eB9h/orASR4vyvjaIcMOpfZIFECIZV9ilg+qmvwJBtGZOsNCIjUcihiKS3/mfglRugQT
+         K/JXOrFYD6i3EML6Za1vJaRPz9dJtceuDrWLJiAIBGZYuoz4+tNRzsS3dqt5KdqE7dl2
+         SgbO8NsMspMKzPddmYpFDAVw69+Nq9xLf2VS5fQ6x+uCM08A0IrI4eTdE8Osdpg8AhsH
+         1tiMQZdzKygZgS4L4nfaTYEkyN0TVToeDp8Az+NiPDG8Pk1fXC5JVnh6rl0DcJ0dh841
+         10Lw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=Ywe3SrzHHmgpNh7IF9fFy8J5AZAaLPV4EgIp6YITUo0=;
-        b=0/GPkvpFeyEyfW3NnDN1GEGO14iqHBnNSBPHJegSMBuJuizjdSpwlSj/GkAp+plj35
-         DVpBHGQ+OZBs9i1e8uxubQovDc3MY3zASCuwNkBR6cd8bkDvws087AESa/NKAbiC6VP8
-         8QwFLZ/IrI24D35kFS3Mk3fVLxfjQCPfCUVWv1/klr8m8eWxEHHJowcjwqwz4q2HnWEG
-         uaVSTMIJ2EdeKOYGtYOkh+yZPWA+Vd6MBniRKFNxJQjnV29WxzFBjiw+aVkWoVOkWdhJ
-         oFdIf+4nswUk9idAHKhGCsQKlKTaMVNnbnvUxnT863E4LELLwDw7yEIu+bXuF6FsSW3Y
-         ARJQ==
+         :list-id:mailing-list:precedence:mime-version
+         :content-transfer-encoding:content-id:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:authenticated-by:sender
+         :dkim-signature;
+        bh=skXHzoLK5UjLlNC+go+8zJMukBjRbkGxkbC8Jg5mi84=;
+        b=h1S42fLpbyUF6RIZ0MYtd65eHneYUH66jCnhF3TxXxLLAG5pW8fOTH1CeclEcXBSR4
+         2yFe6PpJaMu2ZrfD+quu4HtNvdIpERi1tXGrqSPDqLRZqrMjmZ9zVs1MjPvRXP9dX0DU
+         yW1ErxlaO4Tm7YBU6L0THHbyhT5pN1yR8kmmVfRzNgAE2bdogF2tfNSSZw+AfjADIU5X
+         g93otwz5qaQdMlsSDsHqSu7xLtiUs4SX4hmnKj+z5OQAh2Ih/8qnYXZHFDuwFRr4vpLc
+         UUiG1WMsK/kZ3Mya0LZax9rcEjV92NfJrymG2yNjTnrsmy7A8ao74iCUdwqB5ku3Oa02
+         Ln9A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=LXsEOBqK;
-       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of pkshih@realtek.com designates 211.75.126.72 as permitted sender) smtp.mailfrom=pkshih@realtek.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Ywe3SrzHHmgpNh7IF9fFy8J5AZAaLPV4EgIp6YITUo0=;
-        b=to+e8RYpGBf/qmcATKfcdzObnjOx4jflLsxTUXdDgT3M/5t19EHewk2MvZhF5dOhyA
-         c9eYavQ5078gNppJDlgWJOXn4Op+lp1/iIJWoZ99GNZ2zOERi3njBi2YfDlu6AbowQK0
-         aV/S5eF6McXlm2tiv1PwRG9uYpj+D3Kor1B1mu9BrnU/4sezcM851W74FjXwhdq86quo
-         NhCuLQ9pIPUqn8FWXlegmeg9OqBxjzuYdJf4RCklDEvk6WJpAYiI70DXISejZcuQTEX9
-         +OYJMU2r9BYTXKLsG6GVb91Uwekk9pjrMifUHgezEIX7f2B9hc027ZhVqER2ZtTXz8c0
-         4wbQ==
+        h=sender:authenticated-by:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:content-id:content-transfer-encoding:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=skXHzoLK5UjLlNC+go+8zJMukBjRbkGxkbC8Jg5mi84=;
+        b=C8Nq/Lg2mueEFTb6n4wQghNtd6t5Hi0eFC0KGCn+T5/85IzJYS3XeR/f7p8tLP2kYd
+         x/qta/sVN7f0ZP1a/IUGMtxqPWaYrRy9JqTg/84R2c+cZs0dgXHlxIFlhwAfrjy/xGRN
+         s9O0PfBjW52jmtDizR7XaAcdU6FVjhocyQBKEElisUnPA/3UYJsY42IosWAunExNAbZH
+         eCLUMv2PjvGRm1oNwFGZleAwhC4cJDYeNcfn5Z/EhESfbY/VNkfVGKb+AjFgiii8t4ja
+         I6AztqF6CHN/WEOU9LqHEIHAjVg2JWQFcTAp4Zr/NemRe8GbVWeUJdLjIuHYSUvAIppB
+         5TPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Ywe3SrzHHmgpNh7IF9fFy8J5AZAaLPV4EgIp6YITUo0=;
-        b=oaE119IdKa/cj7NzOesmoh/b2t0+cYImg57ZjiisdtKJYTwD07xPZPZwxIOyJ0apV8
-         w3e5u2ZNWel46l7JGnAC8cKNSvFJUb6MXxV3CA/a2C9+4cRRsT2Z6a0N+u5dhjhfzbv/
-         U1vR7SWF21bABTxjQ6hauPynrDsEMjtlQGwyDaFyZz9k2A8pb49bOg3ucz556pBNh5s6
-         E7trru9+47blhrSEbOrhsRxBOpTZzBQRMQe6/XEibaAppSy7XtDIfRU6jqwa/FVB8X6Z
-         VXiCOTyVyb6i1UH8lotLRSm/BpcDji9i8/FvFzNelcf532fJtJTLkCwZ8qipb/xNQRNu
-         wPog==
+        h=sender:x-gm-message-state:authenticated-by:from:to:cc:subject
+         :thread-topic:thread-index:date:message-id:references:in-reply-to
+         :accept-language:content-language:content-id
+         :content-transfer-encoding:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=skXHzoLK5UjLlNC+go+8zJMukBjRbkGxkbC8Jg5mi84=;
+        b=mWvSebFVrvFxE+mYi204XUXpv5v7OxSRhUjKAdCn7/5b3p9lnlzjejpjPHUT6lUZjF
+         QG13cXC6xzybz5Vu3Ywz3JCm8ZaHobf9YWamTkAlT0kq81n8pF5yuqPDcrm4Jzc2b/iF
+         o5/SRf5i1UUQUTe+6ITgooJbdfR32F3HPhpClsM1qhreJAeaoNdzG/+dd7vLe4BImDKb
+         rTMKUHYv90W/jyagVFZpeBtDGhPs/vCNDZ+qU4gNltUysZwN2Qm2V8XhZMUuZw3Ae+Qt
+         LfcraaoRafdRIHRACIMlOAE+8fl0zBlubplRB9WcEtUboTFD4SbE9cx75YjTuf0/qrnB
+         EZBA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXHkZQefZCSezKNrmEJpvUowhgDsR23JR2pF5iqk5CX6g3qUOUh
-	A8w5g7JX70oU5f7PEwFWi84=
-X-Google-Smtp-Source: APXvYqzXdACxnRUghM85IgBjLYpPbpVzpTIhVnt0PPtDamKmn2UDWNtGhZxB5Kg1pKrqHCG+5YLXtg==
-X-Received: by 2002:a67:f288:: with SMTP id m8mr4117830vsk.223.1571800987227;
-        Tue, 22 Oct 2019 20:23:07 -0700 (PDT)
+X-Gm-Message-State: APjAAAWuwPxYsD5Yf4MGwDsrUFFDfyyCMvtIUUd1kB5kM+cDbPngEEhO
+	d1Vo7T8LCe0hMMLaKCvRsuo=
+X-Google-Smtp-Source: APXvYqzN/jskQtA5LZ3DUf6xLF3BZrArBT4DyfyG7ecsb/yGFTFW2cLz0XeyxNYq/qNkXQzaZuAgtQ==
+X-Received: by 2002:a17:902:8a8c:: with SMTP id p12mr7466284plo.208.1571809124252;
+        Tue, 22 Oct 2019 22:38:44 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:c883:: with SMTP id v3ls103199vsk.2.gmail; Tue, 22 Oct
- 2019 20:23:06 -0700 (PDT)
-X-Received: by 2002:a67:1643:: with SMTP id 64mr4191503vsw.62.1571800986806;
-        Tue, 22 Oct 2019 20:23:06 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571800986; cv=none;
+Received: by 2002:a17:902:59c7:: with SMTP id d7ls373184plj.1.gmail; Tue, 22
+ Oct 2019 22:38:43 -0700 (PDT)
+X-Received: by 2002:a17:90a:fb8c:: with SMTP id cp12mr2135089pjb.140.1571809123668;
+        Tue, 22 Oct 2019 22:38:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571809123; cv=none;
         d=google.com; s=arc-20160816;
-        b=FBIyp8HaKJ/5WaG29wlryQnYe7xr1aJXPQabkHXxMafRrM/Ogr9hrWjqUJ7bZEeWQG
-         dTvmJJwIMpCSy3yTm3rPQxzLPogscNRwl94RjVvDHZ6hwi8Jm83yUPzR7se4tvG/LcBM
-         NE+8qTRU+9MWca0JUd0+MOhTOFMj2bxWnZARInrcyenZHqsU6DjkXdf5r6C1bdg8hXAz
-         3dWrESpwvpxwQcYOwfvZvzxjCidiK/cXgvOa9M1sOeOxkJohuOV/WDhETuU2S9mqaHHf
-         fTbiU2xMVFCsBUFMOPiAW67nHvMENmyL2wvuB9h3E6q5TIori8wCMEhII9sUE4lpuN5Q
-         WuuQ==
+        b=V0gSF5dZxIUxFbsJOXtDF8AFNLqGmXw+GxbaFWG0HsnnkCEcxpQLXDL4KhJGegHynA
+         HL/pRDnvKuSToEZ02jgUBVNA7UJoc31m29fkwaZ5QeUN1V2ZPqiHs8zbR6qDY2F/5dtc
+         O3R3KTqRKHvhAXHqTtBzEXv2ZUjBSSjlQEIW5DY57zYXhim+Xym6Fj6D/KVEglwc8s0K
+         GziN4YxaCm+3iZbaq8w/rpUE2G5yi0h49P2c8hxCsJhDLP/Md5cJeDOq2ZjtexTCTPhj
+         Now+eftXkNE3/8snSPWc2EINI17QQSblEVgHjm6mlb2pDsBdTduYRNNHjS1Rcw2vZSoA
+         EXNg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=vG1wlSoVjAH3TslkWdryreWfIFyS6PFtkukPqp6iu6k=;
-        b=F4MXg7nwMMMhW/5Ac7w0un9OJSOzGDACbXZQZJ63vt8u1wtlwtHIRyYc7Gul6JIaYZ
-         uz/zCOWCG6aXONrSlzCsLguaVEUjmbSvrBvep3+bY+1zOI8v/xgunmO2OGX+sdzUj+2z
-         UFBj4kfVQQEkxvJRudunNkfjrrbm1xJ7/ij+5Z3wnEXFGRXCYqupVoD+Zzknjdr8uE8V
-         RMrHT3N6psR0F/9xl35MMvDwhtVHbnshwUDP2n/Hr18GRhOR63fQWT8KHUkWm1pvZuW+
-         ng/1Xj6p8n5efYg74OKlhyQxZbjSkuAvvvF78j9YlE4i8NUSM8qVcI2FmnQ/KO+tOd0m
-         /1VA==
+        h=mime-version:content-transfer-encoding:content-id:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:authenticated-by;
+        bh=R66PT2fDH/rR93lFA37HusSb3N8+5ZGDWwGa/gJR07Q=;
+        b=Q0MWkmoYWB6p2/jDJezfP6IR+BPaeHw0SqlLjYfKv8GrLKHzYMrRmRsYl4nz/jtZDi
+         ZbMam/JCebC5omnmwHUFyyhBlfFAskXoVznTv2CM6JDDaU4FRS+pUXJBcQXAakgCY9rt
+         I0OWjpl6t1cvunWnjxLfCAhYPo4cSAANIn/V7ChzfswbWq2nXnDSoWGeHirUbOtngc7+
+         WTFGIFlAH4dsba8onfdfUxUAXlAC8v0/aK7JpbdRGoPjIrZ6LjLUXqDtmgKHhc9bqZkk
+         hncK3QUeeoHiswrEgZeEZVqpFY67HOiTn/UaG5xii6GV7QvgyDGEZfP2KOObIRFHBMPO
+         xVCA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=LXsEOBqK;
-       spf=pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id y14si976739vsj.2.2019.10.22.20.23.06
+       spf=pass (google.com: domain of pkshih@realtek.com designates 211.75.126.72 as permitted sender) smtp.mailfrom=pkshih@realtek.com
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com. [211.75.126.72])
+        by gmr-mx.google.com with ESMTPS id d5si1030779pls.5.2019.10.22.22.38.43
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 22 Oct 2019 20:23:06 -0700 (PDT)
-Received-SPF: pass (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id l24so6313443pgh.10
-        for <clang-built-linux@googlegroups.com>; Tue, 22 Oct 2019 20:23:06 -0700 (PDT)
-X-Received: by 2002:a17:90a:ac12:: with SMTP id o18mr8782943pjq.93.1571800985488;
-        Tue, 22 Oct 2019 20:23:05 -0700 (PDT)
-Received: from localhost ([122.172.151.112])
-        by smtp.gmail.com with ESMTPSA id f15sm19700257pfd.141.2019.10.22.20.23.04
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 22 Oct 2019 20:23:04 -0700 (PDT)
-Date: Wed, 23 Oct 2019 08:53:02 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Nathan Chancellor <natechancellor@gmail.com>, broonie@kernel.org
-Cc: Kukjin Kim <kgene@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rafael J. Wysocki" <rjw@rjwysocki.net>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] cpufreq: s3c64xx: Remove pointless NULL check in
- s3c64xx_cpufreq_driver_init
-Message-ID: <20191023032302.tu5nkvulo2yoctgr@vireshk-i7>
-References: <20191023000906.14374-1-natechancellor@gmail.com>
-MIME-Version: 1.0
+        Tue, 22 Oct 2019 22:38:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of pkshih@realtek.com designates 211.75.126.72 as permitted sender) client-ip=211.75.126.72;
+Authenticated-By: 
+X-SpamFilter-By: BOX Solutions SpamTrap 5.62 with qID x9N5cVkK004030, This message is accepted by code: ctloc85258
+Received: from mail.realtek.com (RTITCASV01.realtek.com.tw[172.21.6.18])
+	by rtits2.realtek.com.tw (8.15.2/2.57/5.78) with ESMTPS id x9N5cVkK004030
+	(version=TLSv1 cipher=DHE-RSA-AES256-SHA bits=256 verify=NOT);
+	Wed, 23 Oct 2019 13:38:31 +0800
+Received: from RTITMBSVM04.realtek.com.tw ([fe80::e404:880:2ef1:1aa1]) by
+ RTITCASV01.realtek.com.tw ([::1]) with mapi id 14.03.0468.000; Wed, 23 Oct
+ 2019 13:38:30 +0800
+From: Pkshih <pkshih@realtek.com>
+To: "kvalo@codeaurora.org" <kvalo@codeaurora.org>,
+        "natechancellor@gmail.com"
+	<natechancellor@gmail.com>
+CC: "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "Larry.Finger@lwfinger.net" <Larry.Finger@lwfinger.net>,
+        "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] rtlwifi: Remove unnecessary NULL check in rtl_regd_init
+Thread-Topic: [PATCH] rtlwifi: Remove unnecessary NULL check in rtl_regd_init
+Thread-Index: AQHViTtpsZzjxTpDzEGH+xR50FXlCadnL6AA
+Date: Wed, 23 Oct 2019 05:38:30 +0000
+Message-ID: <1571809110.12757.0.camel@realtek.com>
+References: <20191023004703.39710-1-natechancellor@gmail.com>
+In-Reply-To: <20191023004703.39710-1-natechancellor@gmail.com>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [172.21.69.95]
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20191023000906.14374-1-natechancellor@gmail.com>
-User-Agent: NeoMutt/20180716-391-311a52
-X-Original-Sender: viresh.kumar@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=LXsEOBqK;       spf=pass
- (google.com: domain of viresh.kumar@linaro.org designates 2607:f8b0:4864:20::544
- as permitted sender) smtp.mailfrom=viresh.kumar@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Content-ID: <EA6B22816DFAC3419D67AF0D26586ED0@realtek.com>
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-Original-Sender: pkshih@realtek.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of pkshih@realtek.com designates 211.75.126.72 as
+ permitted sender) smtp.mailfrom=pkshih@realtek.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,76 +149,63 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 22-10-19, 17:09, Nathan Chancellor wrote:
+On Tue, 2019-10-22 at 17:47 -0700, Nathan Chancellor wrote:
 > When building with Clang + -Wtautological-pointer-compare:
-> 
-> drivers/cpufreq/s3c64xx-cpufreq.c:152:6: warning: comparison of array
-> 's3c64xx_freq_table' equal to a null pointer is always false
+>=20
+> drivers/net/wireless/realtek/rtlwifi/regd.c:389:33: warning: comparison
+> of address of 'rtlpriv->regd' equal to a null pointer is always false
 > [-Wtautological-pointer-compare]
->         if (s3c64xx_freq_table == NULL) {
->             ^~~~~~~~~~~~~~~~~~    ~~~~
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (wiphy =3D=3D NULL || =
+&rtlpriv->regd =3D=3D NULL)
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0~~~~~~~~~^~~~=C2=A0=C2=A0=C2=A0=C2=A0~~~~
 > 1 warning generated.
-> 
-> The definition of s3c64xx_freq_table is surrounded by an ifdef
-> directive for CONFIG_CPU_S3C6410, which is always true for this driver
-> because it depends on it in drivers/cpufreq/Kconfig.arm (and if it
-> weren't, there would be a build error because s3c64xx_freq_table would
-> not be a defined symbol).
-> 
-> Resolve this warning by removing the unnecessary NULL check because it
-> is always false as Clang notes. While we are at it, remove the
-> unnecessary ifdef conditional because it is always true.
-> 
-> Fixes: b3748ddd8056 ("[ARM] S3C64XX: Initial support for DVFS")
-
-+broonie, who wrote this patch to see his views on why he kept it like
-this.
-
-> Link: https://github.com/ClangBuiltLinux/linux/issues/748
+>=20
+> The address of an array member is never NULL unless it is the first
+> struct member so remove the unnecessary check. This was addressed in
+> the staging version of the driver in commit f986978b32b3 ("Staging:
+> rtlwifi: remove unnecessary NULL check").
+>=20
+> While we are here, fix the following checkpatch warning:
+>=20
+> CHECK: Comparison to NULL could be written "!wiphy"
+> 35: FILE: drivers/net/wireless/realtek/rtlwifi/regd.c:389:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (wiphy =3D=3D NULL)
+>=20
+> Fixes: 0c8173385e54 ("rtl8192ce: Add new driver")
+> Link:https://github.com/ClangBuiltLinux/linux/issues/750
 > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+
+Looks good.
+Thanks for your fix.
+
+Acked-by: Ping-Ke Shih <pkshih@realtek.com>
+
 > ---
->  drivers/cpufreq/s3c64xx-cpufreq.c | 7 -------
->  1 file changed, 7 deletions(-)
-> 
-> diff --git a/drivers/cpufreq/s3c64xx-cpufreq.c b/drivers/cpufreq/s3c64xx-cpufreq.c
-> index af0c00dabb22..c6bdfc308e99 100644
-> --- a/drivers/cpufreq/s3c64xx-cpufreq.c
-> +++ b/drivers/cpufreq/s3c64xx-cpufreq.c
-> @@ -19,7 +19,6 @@
->  static struct regulator *vddarm;
->  static unsigned long regulator_latency;
->  
-> -#ifdef CONFIG_CPU_S3C6410
->  struct s3c64xx_dvfs {
->  	unsigned int vddarm_min;
->  	unsigned int vddarm_max;
-> @@ -48,7 +47,6 @@ static struct cpufreq_frequency_table s3c64xx_freq_table[] = {
->  	{ 0, 4, 800000 },
->  	{ 0, 0, CPUFREQ_TABLE_END },
->  };
-> -#endif
->  
->  static int s3c64xx_cpufreq_set_target(struct cpufreq_policy *policy,
->  				      unsigned int index)
-> @@ -149,11 +147,6 @@ static int s3c64xx_cpufreq_driver_init(struct cpufreq_policy *policy)
->  	if (policy->cpu != 0)
->  		return -EINVAL;
->  
-> -	if (s3c64xx_freq_table == NULL) {
-> -		pr_err("No frequency information for this CPU\n");
-> -		return -ENODEV;
-> -	}
-> -
->  	policy->clk = clk_get(NULL, "armclk");
->  	if (IS_ERR(policy->clk)) {
->  		pr_err("Unable to obtain ARMCLK: %ld\n",
-> -- 
-> 2.23.0
+> =C2=A0drivers/net/wireless/realtek/rtlwifi/regd.c | 2 +-
+> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/wireless/realtek/rtlwifi/regd.c
+> b/drivers/net/wireless/realtek/rtlwifi/regd.c
+> index c10432cd703e..8be31e0ad878 100644
+> --- a/drivers/net/wireless/realtek/rtlwifi/regd.c
+> +++ b/drivers/net/wireless/realtek/rtlwifi/regd.c
+> @@ -386,7 +386,7 @@ int rtl_regd_init(struct ieee80211_hw *hw,
+> =C2=A0	struct wiphy *wiphy =3D hw->wiphy;
+> =C2=A0	struct country_code_to_enum_rd *country =3D NULL;
+> =C2=A0
+> -	if (wiphy =3D=3D NULL || &rtlpriv->regd =3D=3D NULL)
+> +	if (!wiphy)
+> =C2=A0		return -EINVAL;
+> =C2=A0
+> =C2=A0	/* init country_code from efuse channel plan */
 
--- 
-viresh
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191023032302.tu5nkvulo2yoctgr%40vireshk-i7.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/1571809110.12757.0.camel%40realtek.com.
