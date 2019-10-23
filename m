@@ -1,154 +1,136 @@
-Return-Path: <clang-built-linux+bncBCDZTXMP2EPRB7VNYDWQKGQEO7HQHZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2L75W5QGBBO65YDWQKGQE2SWIHQY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A16F4E1503
-	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 11:01:52 +0200 (CEST)
-Received: by mail-io1-xd3b.google.com with SMTP id x8sf6642792ion.12
-        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 02:01:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571821311; cv=pass;
+Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7DE5BE182F
+	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 12:43:08 +0200 (CEST)
+Received: by mail-wr1-x438.google.com with SMTP id 92sf5352424wro.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 03:43:08 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571827388; cv=pass;
         d=google.com; s=arc-20160816;
-        b=bcxtEgcaCizkI/AsP74agykO4XWdZUtmPIf1IgxUGcyukQ5ZL1aABtf3R/LClAnJ/C
-         Koai4Juzpoqp2BNc2/gDApvNrGplBKocWS3Kcnnj8mqmVKO6xk7LXjrkvVD9n5Ju3yz3
-         qbgOek+fpPZFY0TvJmoSXfhylxreBtdvqzZatmKQT9xUZKP/FSuj3DxIBw6Jmm5qD2Bj
-         pd8LiWY8lGdMHOmQD/bmkDLV7jbMZJRaLTedwQOlUE1LfWinEqdRVlOgdfTrfwC0tsL8
-         WAzWVjD7GHTNeuckzp0ILDhMqsdRs2iArzTb71xa1FUHDsoh1b4k102Btt8FTCuwLEY9
-         fJIQ==
+        b=mWdMDkR91A1rscaDpHa5FopTiNbJLgdfjhSHMQbB1+vPF0TvyDtnUy3xO4ihVW+e1Y
+         bNjnMPg+XCbkvN6Kqk3YG/Fqlv73FUwmZicyH2poqo0MnvqR/+4GjWb3bcP5M8Kn3WLd
+         DHPDdzIbtCptvHcR3feBHHbFERPxadxt1BzW6svdBEufCfLVMaNdW/gpD9scxf0NYQzP
+         ugNN5nwoPhi/DU4+GFqQrcimFJVDaf4tH0dzNyZP4Er4cOcOQ9hkEyROBdnF4vCE7tKh
+         mJSPCPkCb5LDrDT5hne9ZoO0t77V+Op7YGHhkMtKS+yGUaRmm4/+X2xchXRwIx/C4692
+         Xs/g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-disposition
-         :content-transfer-encoding:user-agent:in-reply-to:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=4EYjJ9VL989vOcwVv+JQl+PLTJGNi3mGhgtwxQuUfuA=;
-        b=T7mB3e1itL4HI7fNNdGrsP7VkFxGd5DguzQfNGYscSxWFYnXU6LzrU1mMSCJSbMwBi
-         TBgP2pb2PX8tYY8AsXon0y5q1wra52PpJzHpjRc8ev6NLoQqs9I1Ta4IDpsa3mroMxNG
-         fjggfn5ZQVGA+/eioEbRd9q4nZhrs75vxTk880TDvY+LL98LfCMzHci9ZSVF2EVckoN4
-         MLlttjKRqthWumTvSLbaHIH2S/l07EojDOUklR930N7NjqXreVRCTCaY0vOCO9/zWWZy
-         BUEgUN2cPEwXpI2Oyit1z4CJ6b/gADE8AuWE26YYPbMlWuVet83A+Dnr9HrRUXvB2OzB
-         USuA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=ypHD7LeEydiPzVvfV6s6MKg7s1bH0sVf/RDb/I+FPRM=;
+        b=KsmXzKLZkSJ670g4ZO4nku5lA1nwDG4UgshXbd5ceoT46Sa3VAFp3LBHQ2+a4DA74Y
+         iaurDcoW/4SqFNMsCEIX5wk0tr818noXu2+1Si9C6MQlwmffKW4C6+vXvsXjfzWibMl0
+         07w3L8G8nDwUmCGtobkVTrn5SDyzn/eOUQdltMhAOtlEf+1mN7E8tJItLMini4ehs+6Q
+         9mR9hfJjAf0tUopcfpmxT2egkYff1U4lMrGq/A5L3S/hii2ORDIROc+EFCpXduJhKA0J
+         V8oLbhOQazH3EShh93Y0/ApXAJyD4FqXy5VJWU7S23w183roOQnemO1/6VjuxVu4ulEN
+         LruQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=bCsIvhyh;
-       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b="osCh/jbE";
+       spf=pass (google.com: domain of broonie@sirena.co.uk designates 172.104.155.198 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :in-reply-to:user-agent:content-transfer-encoding
-         :content-disposition:x-original-sender
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4EYjJ9VL989vOcwVv+JQl+PLTJGNi3mGhgtwxQuUfuA=;
-        b=dSUe85CETq1wvjggOh5twcd+KINj4tG6aMFmD7QZkJTmvRzpdmGYt1LPwTWjl2cCLG
-         yDjV/QILyEGQgQCJMVMK04XpvmWeCq9x303ctZDFOu/7OHeFb6N2L8N+BNFz0EfuvpaR
-         H0jveZSB/qa2kQXqutctGN23brzDrzDZ99tFejuMR5io7rOErsV8pILz55EIwkOsoqre
-         0O7+66K+0tlFkZKf9PdXUwEh/jiv5pO80mn6VIGWjeNBlZV0ppQCk8z1JnW3UhDrP9hu
-         BdZSSbstFa/pwqZYsyAAAsVxpqNqJX6q5qYHAORVf1et128JQfTaf8D3smBwvxrDze39
-         3jaA==
+        bh=ypHD7LeEydiPzVvfV6s6MKg7s1bH0sVf/RDb/I+FPRM=;
+        b=qcMBfexsmOImDWKXpiSAqfOPevoW7bi1rbnvwmI/OunsVpJDdk0eI/Pxyjx7gVXX1c
+         phic6CtQ6AnbvfnJR0xtrDwpCfYxrl8gx1dawItU4Cb3UqXj+T8md5i6IaPVxTf9Ny4e
+         NILqpMHj+iWV3joaDrkwYGRW24bIYpzfMEqAmwbk5hzYPsAz8TCagb/nH3yQ0SlATVET
+         wUNz2Edo5PKNf03Eb5/sSgkP00LOK0AllfPqVimLHJ0+GQc1Dvow3vivHhL2alesQUOI
+         rSKpoB5jhv+l5NdFjElUJBvfajccsU8v+qoXieKHRgQAw2h/uKLHHSsNmu6Lv/w1ld4A
+         YYug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:in-reply-to:user-agent
-         :content-transfer-encoding:content-disposition:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=4EYjJ9VL989vOcwVv+JQl+PLTJGNi3mGhgtwxQuUfuA=;
-        b=QX1Kg9Yuahf/bRPq67IyMXLK6k/XMc1/lh1D0OquO0i2BEenlQyVnP2WWgO/EKvoy6
-         IOtnPKCjkhZSzjgF1r3EjY6zAy53QmnlRwQ2EV8dln0mkESDNXNb3vQ06uSraYUcvsBe
-         9R+ongz0rXp7TtKfvPtduhAy3AD1DGUhTH3PjAfhJOeaG7w9Z94Rqji5Jfrnr/EZIjTN
-         GQsp5lAxPS6eW1bExlUpbeSMHDmu6/UScqnzlapo7JqTvkhfGFS3bRFlcr6x9dG8/Liu
-         gP6+Q4vq8Dd7ZCPBuGgl2ZitUMpuwUgto/MzhojBey1c+FxCjAun54HP5Ta/Vcgq0NRh
-         QWUA==
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ypHD7LeEydiPzVvfV6s6MKg7s1bH0sVf/RDb/I+FPRM=;
+        b=SnAicz665Z7k3zHjN0zc4QvxQpEYtCQJUTUuMa17hetYVa/OeeKwGiT0UWuPAqFB2p
+         vm67Q7NhHT9PyypOoWhzRVSOctKPZLVjzCNpEOrmX5bkcADzGFpb20VKNpDav4OHhgHT
+         8Lqkzucv4WPfDu/MU+mh1kCy2KHmlcGTyFAlNBLNZbaiQzMKx5R6JR3sQKCpnV8HmFff
+         jTA3x1vniJNAHuLeGkMQAwCYlwts/VEfPC6l+48+cHisEZcO3P74jQzjNNJasB5NnY+y
+         PcAzcL68ejKJ9ILpR3j/D+qqJ4BpkqXxxlp3pp86GXRaNQWdX0ygq7S5aDxVTgQbhDeB
+         xqfA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUc42p6Orb62Drax8t0Ou6YhovJZGYLX1LwqaGKx/6AuDfePabo
-	rphq950sRxiJjclYMzKAXlA=
-X-Google-Smtp-Source: APXvYqwhIUyOwYHs+4fGrQiLAM1W0P3ULBk3NZvJo7GinQrSFGw3iZU6XNYSPTCPC/sIqjpCNBmQWA==
-X-Received: by 2002:a92:d0a:: with SMTP id 10mr4210823iln.218.1571821311061;
-        Wed, 23 Oct 2019 02:01:51 -0700 (PDT)
+X-Gm-Message-State: APjAAAVD6yipoSGb4Gzf7dOFY1STcFlWvZiRzETh9S8MvzBQcJn26bmp
+	kOa9+vQEwffZDKAR3gFraH8=
+X-Google-Smtp-Source: APXvYqzv6OUxyt9YGAXZBAU/KQuh31wLT9SO+AQ6Zqlk5Ard/6Ld59wy9V2ZlCtXb2itRybRME6wLw==
+X-Received: by 2002:adf:ff81:: with SMTP id j1mr7675615wrr.98.1571827388188;
+        Wed, 23 Oct 2019 03:43:08 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:998a:: with SMTP id t10ls260863ilk.9.gmail; Wed, 23 Oct
- 2019 02:01:50 -0700 (PDT)
-X-Received: by 2002:a92:3651:: with SMTP id d17mr37928793ilf.268.1571821310717;
-        Wed, 23 Oct 2019 02:01:50 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571821310; cv=none;
+Received: by 2002:adf:fc85:: with SMTP id g5ls692209wrr.4.gmail; Wed, 23 Oct
+ 2019 03:43:07 -0700 (PDT)
+X-Received: by 2002:adf:8103:: with SMTP id 3mr8295821wrm.194.1571827387559;
+        Wed, 23 Oct 2019 03:43:07 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571827387; cv=none;
         d=google.com; s=arc-20160816;
-        b=MWNwM9Xw07kpewLw59kbwS4jCq/iaQXiOfBlyT+LzedW2wWCO9mUpg9dX1Altu5ima
-         elUii/p2XN6NFTo2ESL3ECY3UP5mC0V0HnDEhdYapPSE9TMNyWMIZKpkYiaXF87gin1y
-         xcuLs6IkefVNAW6Lik/EYs4Hakyx2BDsNQn/NpR/o0132UuI4PZZ+xVC9FFiJJ6MfPs0
-         PFGaovnRZ4h9kMGX2xsKrI/Gt0tD+zxBt4R8S4pBSCw04orWRL/OwZE4+X5huO0fkIC+
-         JuGiCSJiJmqwbePCZP/eIa2jzq/m0ZXjBjOp0/4eqCX3kULaLmRwqSY4MifUCD7+kFpo
-         erpA==
+        b=su1iKPQKyiKyD45R4mXquxB5j3WN3zaT9coFyrsg6Lc7lXlHrI4gxM/piM4+eZwjLG
+         jee5QGEJ7ipfFpsOe40gO7E/TXidgRh+TnALvGTK11zTSYdS4caOdN/hMtJsz6g8poP0
+         WWmrzI0BALlDziY4XZzjNbBpJHUobvz/E6q8YyQHTNgcleV1Dezht+OMsGCVxz1WbRhD
+         IZr+qnagtDSNFd+Zb354BxHai4fOvxx7K+64AuikTAy/5vT44TUkkzbfmEZRC50J5zQ9
+         yYRE619Y0LJjONJPqXoLwLUxlGWHP4L58J7dlfuXaaVG8rCeco7vzjAKn2N5bY16aj4b
+         N2HQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:content-transfer-encoding:user-agent
-         :in-reply-to:mime-version:references:message-id:subject:cc:to:from
-         :date:dkim-signature;
-        bh=N61mf/IyTSPpFH13u3QL5saI0zqXCL7YT7+aVbI/wNI=;
-        b=TAkgqHHKwRl/K1ionzBNe9xssePUqf93Nx0wdqiiHxMHlolFJhi7DdRrQgPFiKA6fF
-         COAzlcPRCYxyJFYmLq7vLw4JRUWTQNZRSqdZNXOucBT0vVq1ivxIY7QCCQMFNkeW3kuj
-         xN8JdyP+dKDM7Hj1IE+7lvIDKVojxDhklWH0Npc5lRqVDEaVJmmRGVcAR0dBXyM6lO5A
-         iaNIgn3ExMpMCg/w5KowCa7PInaysl0Yph9hm0b6WscJeQAUYqMdv0RAsifA/CgtYzVF
-         /qtZdypSmLvM2g1Lg/AQTwCzdFecEzuDUpySJDIRdRjXKV5zcXmQQmsb7ir4ekRi/cuE
-         BJPw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=o8+aRiWYArgOfcIQUpcz0HRWYDcLBPfXp8bzXS/M6uk=;
+        b=gj11z+OpxcJ+g8Ow1Xp7uD3sT1k3VtTW2xdOnrkjhFTyg12Ab66batS6lvCWUOl6Lb
+         aSJpS13UGhRqSZ7FLvnAqW0QFatGuygy47+CEuTLBl7UwO4Frciv57BwnDevFg7Ziyvs
+         pphTDYql/diWX52+ZycVXBvPcN9m0Spjzvzuji1l7MfcdATdNUUYJqvI606qFAsMBZhQ
+         qtGIqUvgvaE0z72duQyOz8iem6RF5rY8WtxjAfnIWfZluaEzc+qyKrXh2ouq28vHAKB4
+         UBVO4J5nwO1J2UO3trnDv7WkrcHMLH4JLyXYFpNdwZQWqi0YXp/O7oQb34YiKz5+fJVB
+         SdEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=bCsIvhyh;
-       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
-        by gmr-mx.google.com with ESMTPS id 75si353615ilw.3.2019.10.23.02.01.50
+       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b="osCh/jbE";
+       spf=pass (google.com: domain of broonie@sirena.co.uk designates 172.104.155.198 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk. [172.104.155.198])
+        by gmr-mx.google.com with ESMTPS id 5si1813550wmf.1.2019.10.23.03.43.07
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 23 Oct 2019 02:01:50 -0700 (PDT)
-Received-SPF: pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-368-NB-BrnHlPs6FLyJ_rB9LBw-1; Wed, 23 Oct 2019 05:01:38 -0400
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com [10.5.11.14])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 2827F1005509;
-	Wed, 23 Oct 2019 09:01:36 +0000 (UTC)
-Received: from krava (unknown [10.43.17.61])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 0D8185DC1E;
-	Wed, 23 Oct 2019 09:01:31 +0000 (UTC)
-Date: Wed, 23 Oct 2019 11:01:31 +0200
-From: Jiri Olsa <jolsa@redhat.com>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>, Andi Kleen <ak@linux.intel.com>,
-	Jin Yao <yao.jin@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.garry@huawei.com>, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Stephane Eranian <eranian@google.com>
-Subject: Re: [PATCH v2 6/9] perf tools: add destructors for parse event terms
-Message-ID: <20191023090131.GH22919@krava>
-References: <20191017170531.171244-1-irogers@google.com>
- <20191023005337.196160-1-irogers@google.com>
- <20191023005337.196160-7-irogers@google.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 23 Oct 2019 03:43:07 -0700 (PDT)
+Received-SPF: pass (google.com: domain of broonie@sirena.co.uk designates 172.104.155.198 as permitted sender) client-ip=172.104.155.198;
+Received: from cpc102320-sgyl38-2-0-cust46.18-2.cable.virginm.net ([82.37.168.47] helo=ypsilon.sirena.org.uk)
+	by heliosphere.sirena.org.uk with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <broonie@sirena.co.uk>)
+	id 1iNE6b-0000J4-QS; Wed, 23 Oct 2019 10:43:05 +0000
+Received: by ypsilon.sirena.org.uk (Postfix, from userid 1000)
+	id 0557E2743259; Wed, 23 Oct 2019 11:43:04 +0100 (BST)
+Date: Wed, 23 Oct 2019 11:43:04 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Kukjin Kim <kgene@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rafael J. Wysocki" <rjw@rjwysocki.net>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] cpufreq: s3c64xx: Remove pointless NULL check in
+ s3c64xx_cpufreq_driver_init
+Message-ID: <20191023104304.GA5723@sirena.co.uk>
+References: <20191023000906.14374-1-natechancellor@gmail.com>
+ <20191023032302.tu5nkvulo2yoctgr@vireshk-i7>
 MIME-Version: 1.0
-In-Reply-To: <20191023005337.196160-7-irogers@google.com>
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
-X-MC-Unique: NB-BrnHlPs6FLyJ_rB9LBw-1
-X-Mimecast-Spam-Score: 0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9amGYk9869ThD9tj"
 Content-Disposition: inline
-X-Original-Sender: jolsa@redhat.com
+In-Reply-To: <20191023032302.tu5nkvulo2yoctgr@vireshk-i7>
+X-Cookie: MMM-MM!!  So THIS is BIO-NEBULATION!
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: broonie@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=bCsIvhyh;
-       spf=pass (google.com: domain of jolsa@redhat.com designates
- 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@sirena.org.uk header.s=20170815-heliosphere header.b="osCh/jbE";
+       spf=pass (google.com: domain of broonie@sirena.co.uk designates
+ 172.104.155.198 as permitted sender) smtp.mailfrom=broonie@sirena.co.uk;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,26 +143,51 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Oct 22, 2019 at 05:53:34PM -0700, Ian Rogers wrote:
-> If parsing fails then destructors are ran to clean the up the stack.
-> Rename the head union member to make the term and evlist use cases more
-> distinct, this simplifies matching the correct destructor.
 
-I'm getting compilation fail:
+--9amGYk9869ThD9tj
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
 
-  CC       util/parse-events-bison.o
-util/parse-events.y: In function =E2=80=98yydestruct=E2=80=99:
-util/parse-events.y:125:45: error: =E2=80=98struct tracepoint_name=E2=80=99=
- has no member named =E2=80=98sys=E2=80=99; did you mean =E2=80=98sys1=E2=
-=80=99?
-  125 | %destructor { free ($$.sys); free ($$.event); } <tracepoint_name>
+On Wed, Oct 23, 2019 at 08:53:02AM +0530, Viresh Kumar wrote:
+> On 22-10-19, 17:09, Nathan Chancellor wrote:
+> > When building with Clang + -Wtautological-pointer-compare:
+> > 
+> > drivers/cpufreq/s3c64xx-cpufreq.c:152:6: warning: comparison of array
+> > 's3c64xx_freq_table' equal to a null pointer is always false
+> > [-Wtautological-pointer-compare]
+> >         if (s3c64xx_freq_table == NULL) {
+> >             ^~~~~~~~~~~~~~~~~~    ~~~~
+> > 1 warning generated.
+> > 
+> > The definition of s3c64xx_freq_table is surrounded by an ifdef
+> > directive for CONFIG_CPU_S3C6410, which is always true for this driver
+> > because it depends on it in drivers/cpufreq/Kconfig.arm (and if it
+> > weren't, there would be a build error because s3c64xx_freq_table would
+> > not be a defined symbol).
 
-jirka
+> +broonie, who wrote this patch to see his views on why he kept it like
+> this.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20191023090131.GH22919%40krava.
+The driver should also have supported s3c6400 as well.
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191023104304.GA5723%40sirena.co.uk.
+
+--9amGYk9869ThD9tj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl2wLrMACgkQJNaLcl1U
+h9B2ZAf/eQxJSi8vjkh2szC5fpPoxL3PqhhtoNyHk9pyamhKksLnfq8Wfc5cXoYf
+m805fFfs10op9oNpI//wwBy+WtmSWx7wFDZx+by2GeKvzPfCqjdXBvUziAtQhq/q
+pU4RI10nDISz7KV5+MogDYKIqS86tiaCpprrXQI9B524i1u1TCIiaqoW9EC6eho5
+104of9kneV1wM3wKRtz1W9HkOlV+Dnm1rDRWldGriYbd+HAJNhxGe+LNiLubnATf
+N3ntYDNTJmhuwc4KWuzOTHQE+5RXi2VBkk599ZoLoNSZhd6M5a4UU896+XYBjvEN
+NBjAKyjIVg55uIINznEJ2YtoD+u6qg==
+=wd9j
+-----END PGP SIGNATURE-----
+
+--9amGYk9869ThD9tj--
