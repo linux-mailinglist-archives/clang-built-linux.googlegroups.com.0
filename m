@@ -1,131 +1,129 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBLVXYLWQKGQE7ZH3EYI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBLF7YLWQKGQEYIKNK4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc38.google.com (mail-yw1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2ADD9E227A
-	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 20:28:00 +0200 (CEST)
-Received: by mail-yw1-xc38.google.com with SMTP id 202sf4595388ywf.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 11:28:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571855279; cv=pass;
+Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id D1DA7E22A7
+	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 20:45:01 +0200 (CEST)
+Received: by mail-yb1-xb3b.google.com with SMTP id j2sf15573753ybm.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 11:45:01 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571856301; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tt+leNW3BoKPiRWy2HU+xR2x0W7CaAgKzbSAfLHV7zikpgZAGTGjLdRNz6A7ylmPpW
-         gKQ0qBjmVFtRbZR9rcb1q+j/IWDZ1iuDcGX26XDdhZUIy1ZxpZ3PLMdPX9Y5pqHJ4n2C
-         GVnkW2Yz2SYf22K+EwJd9ddBu5zLh1+a+8C9SXGOg/DLa9NpoBCLaZ5879T4bXwqNOt+
-         g2eBPYg8uWO4mgfje3oAh9k5FdQOMfnwyqGMej40Zxoq9VrsYFrIz8/Osmm9RbC2o8R5
-         oqFVKq6G/WErD2Robs/SbI0laGC8h4RIdb68Ay1Mwt8F0Y5mdfYsFPna4azbxEVPiTeW
-         zSGg==
+        b=E8Bf4AxooyU/lXPX7cmpEznam5jUIYQ1WkFrNcXL8e86xnmGSt6C6akco0YLxxF6sZ
+         C0NwmGWhz29x/Nx36FxI+9i7TSl7+E6HtTpON/KB3sDTo2AopYS9XPTIz1ucXS115jUW
+         7uyc5enoS1/oVlhVbcYlg1Xn2cmkYKR7Jes1Yfk33P+gczaJdAumoGq/SvkSaJlIp9RN
+         HYwSz+ARx2bb2Pfzz/y/kvFBuAZPSxFr/mylqzehYwnOaBr9CSyCgC7zHveIPwYmC1um
+         pru6roqwxwAdat9Px9KbHTkrM3Dc4p2TOYypjo5DyD9YM58ujjLeObaDI70RfnHu9Zv5
+         KmEA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent
-         :content-transfer-encoding:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=Xn81tyYjHXwCJRDmRXWQfCZRNBDyVSiitr59wSGp7yk=;
-        b=ZJtSZZVSst75bkVVESwtZL8gcQLYISnjZvw6kkoEXbuTk4BsSsK2EIbWhnOTntkyuR
-         No1Yx/P44IB9NdDiBrX+LSW12T8glqJAccA2wCXoyBCoyI/G5TcAnYB7633xZK/yD9u9
-         r/sLYuyrKgt1Fmn4R5uF9XzPRv/AWN5GS9SdVktkvss/PT/GZ6pr5cpAUhGiJXF6Qoy6
-         3juEQQbaaiM98qJh1b+wQOX8z1eH3pOeAU9q+l1H2fuDPIw97pLFhgwRrZ2Md2buDuoK
-         jAw0W2HNuxwrckrz4rnVqSep1T3GM1TKKmeCGz4IHDL/BBY0yYsH8KNugU4a1GXlgUur
-         NtkQ==
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=gwvj239fSEi3TDVDtbUbiK5A0gLWt20RMgp3yepFOOU=;
+        b=jbWQ3cpELefgH9Qc2kvONxA7ykwG7Nv5pJ4LbzKA5+rpfBG7tGoZDtcn18pw1qDTVP
+         AW7S5xfeoM9DjPYHsuulV238YvsLWrBRwXOInwFsAY4jMfPsw/Q+5adLDymR3wEUcalt
+         kO9eNC0yAImtCjiqhN4QGPV28svRs8lQK/fTVi0Kg9juyQ19QK3qNP/uRd7jhKsPomJs
+         f9CElI++fW3qItsFnkrFidQn3UzmqtxY1jpmX+DpPIAJJGdGAcJeSw1XiZW7Eih1TQPI
+         QDk+MmLEBJ7zsebEateo7BE1WsVQB5X047SgM3v4wwP1NJOnKqpS+fhoDrs6kmNQ1CzY
+         BFiQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:content-transfer-encoding:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Xn81tyYjHXwCJRDmRXWQfCZRNBDyVSiitr59wSGp7yk=;
-        b=fhhn+1obyvuruGp1Y8H71kH7KYTp00nLogz1eXICduX2KiBK2tWXEXMdgR3BRDNgc4
-         hELFWdHQQzKD2Dy81zHZJ2+D/oQ9q8lhW9BxxpUj+JKLOeAxAFnP3l/p3U80Vwmy/i0F
-         lhEx7ARjAv64vOXaZc1O6pWqZcaP9q/ICETRf4z8NHTULjstcxCBDOy2kqFpiKbWLEKX
-         tut8xZaK9Pel52hG3YQkW0/1p2LpPJpv0lm0St4Gcsiy10ze/U2btnGXinhpOOEDF0ye
-         J8I84Yh6wLkuhlI8mY0tUad3G/zfkzsuh+pXBqB1gIgTmI0C7O5BPvGuS7s85tAbekRK
-         xRpQ==
+         :content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=gwvj239fSEi3TDVDtbUbiK5A0gLWt20RMgp3yepFOOU=;
+        b=LGSkD85mawMGRgbCAxsyhUdJ9kM2EWQVO0pCjxYk+rtwbaHwB56vGT55qKvjnzaWtj
+         9KFEKq6k6hvlGnl4GI8PkVo0UEZWetAnKGsNpKSw8BfH4yAisv9QXsX6WosKBXLgY3iy
+         FS7lYMzmFIRbk73w3LuEuAjx5YlPv/O3eQR/kDeWnau5GXSQzWgmIVFyKJZk2h7C/zJ0
+         BxV9SyI2aSEBjXa5QicuKIWVRDgVDyfs2gQNwvFTL8RtLY2oFRHzaJYXsebBL+sZaFeI
+         XI5v2DEoMthsfbHRK65gAk8k0mreQGpbw6AesLEpC8W75EoUjhK3pk4l9pfZ0j32Rakk
+         7sWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:content-transfer-encoding
-         :user-agent:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Xn81tyYjHXwCJRDmRXWQfCZRNBDyVSiitr59wSGp7yk=;
-        b=Btaky8Nmi8gCaSkZv9b93F660Z50xpWDGWK+S9/t0n55L2OP983vH+7UhJrOut2/B/
-         838jiBEuQuhOwAAyjUldqbQBhZtoncBr75wgug5+Kxo6uaVi6QbWFoAHIwoF528EfJQj
-         iukZ8TSzrv89STYs2JodgzdkTxas2rrDzJ1UKQOyBTek+eJuzmlpDtGNFGPBFhS9mG13
-         JCIub1q+zOOPT3YkBv5+cS3bhwDx9g/RUhV/zpMcL7tvjDZY+LWYvnXeaBXif6NnBmT9
-         htJkE9/9qVX5/6zkh21yMPtZc6NkB9INgb6VwC1Zq/DHBZrcrU6vusuIB+nmv4Lfva7v
-         Lk8w==
+         :mime-version:content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=gwvj239fSEi3TDVDtbUbiK5A0gLWt20RMgp3yepFOOU=;
+        b=dvdGtZtynEZ6lGG6iYQcLdAtHjsqpZZCvwBaA+WTzwwlmF76aNHBrzlc8BxOe8K/zo
+         bwRp+v6GZmq1iOrQVdr8gtHqIKOhsRDAbSCu45Hxc50xrM86XzmiDM/I/Lb6Za2DSDk8
+         ZPJvM+HhqoelrnKAePmUBHSknej/BnEhXyW/wzNbQStoBQuqDTuBioz78IDZH3RUvgbS
+         4TYc53ybBGZPEcbH2cY/Dwnpgk8+dfC4OGO03jJNMITTQZOs38lV5bgoR/qrqp1c1waw
+         8s9RReo70kUXyAfbfyZs4LJCKowUaiQkBHR3fFoUKscNSxzBvi5Wx5dT1U65k7NJ0RK2
+         RymA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXJ69bnLOBUnggafStH3qEz4KQ/BYAMdEdfmErweNOCShulajmE
-	nEyIQ23/Qx8Nv939vO0kRoA=
-X-Google-Smtp-Source: APXvYqyT8yxOOIl1kGC5NMargy86iWJB3jwxypBqbfVoKmaCgZbTeoxM4a7cupHPjnIklJOYOVw/iQ==
-X-Received: by 2002:a81:1ac4:: with SMTP id a187mr3920854ywa.482.1571855279008;
-        Wed, 23 Oct 2019 11:27:59 -0700 (PDT)
+X-Gm-Message-State: APjAAAVFvh9scIRJtoQPXsr9F2AkKW6JjVM/quWvjRK9yLVh5Rn+mdVE
+	0cDXLn5gY+epGmUGRe6rhVI=
+X-Google-Smtp-Source: APXvYqyipYxsPLGXyKW8CQMp23corufZ3VXI3AbMCZWdhSaj7RrNp9GD5AdM45Lon1PO6FHunmK6Ig==
+X-Received: by 2002:a0d:cb11:: with SMTP id n17mr4209916ywd.197.1571856300683;
+        Wed, 23 Oct 2019 11:45:00 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:af60:: with SMTP id x32ls520492ywj.3.gmail; Wed, 23 Oct
- 2019 11:27:58 -0700 (PDT)
-X-Received: by 2002:a81:4e8d:: with SMTP id c135mr4029779ywb.149.1571855278421;
-        Wed, 23 Oct 2019 11:27:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571855278; cv=none;
+Received: by 2002:a25:cf05:: with SMTP id f5ls534914ybg.5.gmail; Wed, 23 Oct
+ 2019 11:45:00 -0700 (PDT)
+X-Received: by 2002:a5b:60e:: with SMTP id d14mr7562079ybq.521.1571856300179;
+        Wed, 23 Oct 2019 11:45:00 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571856300; cv=none;
         d=google.com; s=arc-20160816;
-        b=L6prM4nQuYTtC+FzRZjMUu/UL9jW99ZA51fVHxu/tmZkhNOvzD9EFODp2KBSG2GaUh
-         4UaQta9hCPYGHbpPHVcmr7bQuRMpdJs3jfAGdwtIV6l7QkQ7fH0M+XYYeJx8VPKOT4RD
-         NWnu8YGWYgitcQEGUxfFovI0k0wRbV0prPRw6VBQLQO31RqVLrHARUlx8lwKV95Yg+z6
-         IEsyTDmhnVr2UgAqbQ3QFgpQKxhfjgk4W3cw9c+LkWrSWqoKwnKJN8mbpm7ckXianhc4
-         Ty7A/xuE3zm8GwYk6eoyh3OqsKf07lv5eXwvZbjO+YrjDRJlXreQOFxnpuc8bWq6ZsFN
-         XY2Q==
+        b=al41Kz4qXT/kheicYncEJ8ev49rAeFXdUrJO4XbyAFhcb0IWNWMpDoCLnAn0VSsU7m
+         Bq6EkF3Y9EgbO3GKNKXUxBPzMDnFLIbloAqROn44r6cBn/D6PAnIHaHflto323FoAyiu
+         I8F32+a8l0WM3HoLV9jb1m7AuV7TbvyTaud3XyCVnPVJAHOpUHzjOQGskYQrbncz3dYY
+         P5Op/mjouJJrthTeXZvQcH4WQKQm3vxCNU+hPCrvgarK3XCRrVWIi/j+TQDbBJ/x7gN2
+         PKYjqyBYba9G2OD4+GUqyjajr9izn6/qvotbR60EGsTeIaU2QnZpfKT3lR4iEAQrdipg
+         DFPQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-transfer-encoding:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date;
-        bh=G1a5ku4pHAF8hft39Li3zSVdQ6sWvvWM7KaaTIFmwFA=;
-        b=a0dTB6qCiLK18dYvuBVOiI5xGXR0G6V3IcmM9AjuNAmMUJALAdrCUenOnX6eUvTHOy
-         z9vyPNGMTcjMdB1sMivWgHfBkFGVVNo+DL+9ubzhR0ra/HdJ6Ep2JI1XJcqeKG/BAXXt
-         RLDZ7SfpMF0AdyPUol+AP2KCR/12yUBUOFDEDtOZnC2XngekM2QfeMwXb6HefC+PGDmk
-         8UPulTJFgkMuiPe1fxEX7iQg7OKA0VkVZnu9fXLPIk2i980HWn69iy56ElzAfoL9Y0Ee
-         vEX31vQew06FGl9fYIasZ4pijRksowmVnPYUWcc0fAT4y9U0slBV+rN2y2XZ4UMnY7vU
-         sCaw==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date;
+        bh=MiRWE5KF+9aJIE8wo/cmjmc0YRtCSiF862/50yt5ILs=;
+        b=K6u1Z4u7CxewV9OqTa1LFkr+wPWIrMx4yzqRX8Pp8xea4p0PK0pkel1++WhAoo1aIm
+         HcOp3PgYYh3zk8P1RSPq2tcYWGsBXFC+yzG0PtdBZ7W2FKj/txb/oMTbfk6jxGE+0PvB
+         f3CQdnWTBBY/rvtliydM2Jy1LaNyfxsOxgl8zh1yOObEbYC0VTyMsunHxrUfYcZoJB2O
+         MtwaM741aORx/f0Ihv9A8mEbGckzTEG2Y8/iniS5jYhv6wcuyF+IzxOm8sBF6RAdTqt9
+         pbwni0/toIWAXBz331Q9d+npDHaLWV6TRN2DA0wCWhtUeyoBTi15x9j/z30k7XPhlnms
+         PKEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id r185si223509ywe.2.2019.10.23.11.27.57
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id p140si1040573ywg.4.2019.10.23.11.44.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 23 Oct 2019 11:27:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+        Wed, 23 Oct 2019 11:45:00 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 23 Oct 2019 11:27:56 -0700
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 23 Oct 2019 11:44:58 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.68,221,1569308400"; 
-   d="gz'50?scan'50,208,50";a="196862607"
+   d="gz'50?scan'50,208,50";a="209977696"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 23 Oct 2019 11:27:54 -0700
+  by fmsmga001.fm.intel.com with ESMTP; 23 Oct 2019 11:44:56 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iNLMQ-000FAN-5P; Thu, 24 Oct 2019 02:27:54 +0800
-Date: Thu, 24 Oct 2019 02:27:10 +0800
+	id 1iNLcu-0003xB-D0; Thu, 24 Oct 2019 02:44:56 +0800
+Date: Thu, 24 Oct 2019 02:44:28 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [dhowells-fs:notifications-pipe-prep 4/10]
- drivers//char/virtio_console.c:937:13: error: no member named 'nrbufs' in
- 'struct pipe_inode_info'; did you mean 'bufs'?
-Message-ID: <201910240208.SkNuFP9B%lkp@intel.com>
+Subject: [snawrocki:for-v5.4/fixes 1/2]
+ drivers/clk/samsung/clk-exynos5433.c:5598:4: error: implicit declaration of
+ function 'kfree'
+Message-ID: <201910240225.DKya6slV%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="weqsh5j3p6ibdb2c"
+Content-Type: multipart/mixed; boundary="4i4fjxtun6md2w2k"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -141,186 +139,167 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---weqsh5j3p6ibdb2c
+--4i4fjxtun6md2w2k
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@lists.01.org
-TO: David Howells <dhowells@redhat.com>
+TO: Marek Szyprowski <m.szyprowski@samsung.com>
+CC: Sylwester Nawrocki <s.nawrocki@samsung.com>
+CC: Krzysztof Kozlowski <krzk@kernel.org>
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.g=
-it notifications-pipe-prep
-head:   48045df7b3191f476ef0095ec30d6fcbe4411940
-commit: 2b988693eb16961453719e63b7a96e83cacd7fd2 [4/10] pipe: Use head and =
-tail pointers for the ring, not cursor and length
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/snawrocki/clk.git for-v5.4/fixes
+head:   12a8ee2dc890686ab917d757e5d9379dd6943cc1
+commit: 4265a77ed90d7a7ae3fb9c8e424a9f8e8ea77889 [1/2] clk: samsung: exynos5433: Fix error paths
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 31d3c1d8b70507=
-da0db004001b6a89a6f534544c)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 31d3c1d8b70507da0db004001b6a89a6f534544c)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
-make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 2b988693eb16961453719e63b7a96e83cacd7fd2
+        git checkout 4265a77ed90d7a7ae3fb9c8e424a9f8e8ea77889
         # save the attached .config to linux build tree
-        make.cross ARCH=3Darm64=20
+        make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All error/warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> drivers//char/virtio_console.c:937:13: error: no member named 'nrbufs' i=
-n 'struct pipe_inode_info'; did you mean 'bufs'?
-           if (!pipe->nrbufs) {
-                      ^~~~~~
-                      bufs
-   include/linux/pipe_fs_i.h:63:22: note: 'bufs' declared here
-           struct pipe_buffer *bufs;
-                               ^
-   drivers//char/virtio_console.c:946:48: error: no member named 'nrbufs' i=
-n 'struct pipe_inode_info'; did you mean 'bufs'?
-           buf =3D alloc_buf(port->portdev->vdev, 0, pipe->nrbufs);
-                                                         ^~~~~~
-                                                         bufs
-   include/linux/pipe_fs_i.h:63:22: note: 'bufs' declared here
-           struct pipe_buffer *bufs;
-                               ^
-   drivers//char/virtio_console.c:954:19: error: no member named 'nrbufs' i=
-n 'struct pipe_inode_info'; did you mean 'bufs'?
-           sgl.size =3D pipe->nrbufs;
-                            ^~~~~~
-                            bufs
-   include/linux/pipe_fs_i.h:63:22: note: 'bufs' declared here
-           struct pipe_buffer *bufs;
-                               ^
->> drivers//char/virtio_console.c:954:11: warning: incompatible pointer to =
-integer conversion assigning to 'unsigned int' from 'struct pipe_buffer *' =
-[-Wint-conversion]
-           sgl.size =3D pipe->nrbufs;
-                    ^ ~~~~~~~~~~~~
-   1 warning and 3 errors generated.
+>> drivers/clk/samsung/clk-exynos5433.c:5598:4: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+                           kfree(data->clk_save);
+                           ^
+   drivers/clk/samsung/clk-exynos5433.c:5598:4: note: did you mean 'vfree'?
+   include/linux/vmalloc.h:116:13: note: 'vfree' declared here
+   extern void vfree(const void *addr);
+               ^
+   drivers/clk/samsung/clk-exynos5433.c:5605:5: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
+                                   kfree(data->clk_save);
+                                   ^
+   2 errors generated.
 
-vim +937 drivers//char/virtio_console.c
+vim +/kfree +5598 drivers/clk/samsung/clk-exynos5433.c
 
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  906 =20
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  907  /* Faster zero-copy writ=
-e by splicing */
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  908  static ssize_t port_fops=
-_splice_write(struct pipe_inode_info *pipe,
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  909  				      struct file *f=
-ilp, loff_t *ppos,
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  910  				      size_t len, un=
-signed int flags)
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  911  {
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  912  	struct port *port =3D f=
-ilp->private_data;
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  913  	struct sg_list sgl;
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  914  	ssize_t ret;
-276a3e954cfe4d Sjur Br=C3=A6ndeland    2012-12-14  915  	struct port_buffer=
- *buf;
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  916  	struct splice_desc sd =
-=3D {
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  917  		.total_len =3D len,
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  918  		.flags =3D flags,
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  919  		.pos =3D *ppos,
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  920  		.u.data =3D &sgl,
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  921  	};
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  922 =20
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  923  	/*
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  924  	 * Rproc_serial do=
-es not yet support splice. To support splice
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  925  	 * pipe_to_sg() mu=
-st allocate dma-buffers and copy content from
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  926  	 * regular pages t=
-o dma pages. And alloc_buf and free_buf must
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  927  	 * support allocat=
-ing and freeing such a list of dma-buffers.
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  928  	 */
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  929  	if (is_rproc_seria=
-l(port->out_vq->vdev))
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  930  		return -EINVAL;
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  931 =20
-68c034fefe20ea Yoshihiro YUNOMAE  2013-07-23  932  	/*
-68c034fefe20ea Yoshihiro YUNOMAE  2013-07-23  933  	 * pipe->nrbufs =3D=3D =
-0 means there are no data to transfer,
-68c034fefe20ea Yoshihiro YUNOMAE  2013-07-23  934  	 * so this returns just=
- 0 for no data.
-68c034fefe20ea Yoshihiro YUNOMAE  2013-07-23  935  	 */
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  936  	pipe_lock(pipe);
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23 @937  	if (!pipe->nrbufs) {
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  938  		ret =3D 0;
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  939  		goto error_out;
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  940  	}
-68c034fefe20ea Yoshihiro YUNOMAE  2013-07-23  941 =20
-efe75d24a69fc3 Masami Hiramatsu   2012-08-09  942  	ret =3D wait_port_writa=
-ble(port, filp->f_flags & O_NONBLOCK);
-efe75d24a69fc3 Masami Hiramatsu   2012-08-09  943  	if (ret < 0)
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  944  		goto error_out;
-efe75d24a69fc3 Masami Hiramatsu   2012-08-09  945 =20
-2855b33514d290 Michael S. Tsirkin 2018-04-20  946  	buf =3D alloc_buf(port-=
->portdev->vdev, 0, pipe->nrbufs);
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  947  	if (!buf) {
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  948  		ret =3D -ENOMEM;
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  949  		goto error_out;
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  950  	}
-276a3e954cfe4d Sjur Br=C3=A6ndeland    2012-12-14  951 =20
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  952  	sgl.n =3D 0;
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  953  	sgl.len =3D 0;
-8ca84a50e5b394 Masami Hiramatsu   2012-08-09 @954  	sgl.size =3D pipe->nrbu=
-fs;
-276a3e954cfe4d Sjur Br=C3=A6ndeland    2012-12-14  955  	sgl.sg =3D buf->sg=
-;
-8ca84a50e5b394 Masami Hiramatsu   2012-08-09  956  	sg_init_table(sgl.sg, s=
-gl.size);
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  957  	ret =3D __splice_from_p=
-ipe(pipe, &sd, pipe_to_sg);
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  958  	pipe_unlock(pipe);
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  959  	if (likely(ret > 0))
-276a3e954cfe4d Sjur Br=C3=A6ndeland    2012-12-14  960  		ret =3D __send_to=
-_port(port, buf->sg, sgl.n, sgl.len, buf, true);
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  961 =20
-fe5295374ec9ac Sjur Br=C3=A6ndeland    2012-10-15  962  	if (unlikely(ret <=
-=3D 0))
-1b6370463e88b0 Sjur Br=C3=A6ndeland    2012-12-14  963  		free_buf(buf, tru=
-e);
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  964  	return ret;
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  965 =20
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  966  error_out:
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  967  	pipe_unlock(pipe);
-2b4fbf029dff5a Yoshihiro YUNOMAE  2013-07-23  968  	return ret;
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  969  }
-eb5e89fc70bb3f Masami Hiramatsu   2012-08-09  970 =20
-
-:::::: The code at line 937 was first introduced by commit
-:::::: 2b4fbf029dff5a28d9bf646346dea891ec43398a virtio/console: Add pipe_lo=
-ck/unlock for splice_write
-
-:::::: TO: Yoshihiro YUNOMAE <yoshihiro.yunomae.ez@hitachi.com>
-:::::: CC: Rusty Russell <rusty@rustcorp.com.au>
+  5552	
+  5553	static int __init exynos5433_cmu_probe(struct platform_device *pdev)
+  5554	{
+  5555		const struct samsung_cmu_info *info;
+  5556		struct exynos5433_cmu_data *data;
+  5557		struct samsung_clk_provider *ctx;
+  5558		struct device *dev = &pdev->dev;
+  5559		struct resource *res;
+  5560		void __iomem *reg_base;
+  5561		int i;
+  5562	
+  5563		info = of_device_get_match_data(dev);
+  5564	
+  5565		data = devm_kzalloc(dev,
+  5566				    struct_size(data, ctx.clk_data.hws, info->nr_clk_ids),
+  5567				    GFP_KERNEL);
+  5568		if (!data)
+  5569			return -ENOMEM;
+  5570		ctx = &data->ctx;
+  5571	
+  5572		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+  5573		reg_base = devm_ioremap_resource(dev, res);
+  5574		if (IS_ERR(reg_base))
+  5575			return PTR_ERR(reg_base);
+  5576	
+  5577		for (i = 0; i < info->nr_clk_ids; ++i)
+  5578			ctx->clk_data.hws[i] = ERR_PTR(-ENOENT);
+  5579	
+  5580		ctx->clk_data.num = info->nr_clk_ids;
+  5581		ctx->reg_base = reg_base;
+  5582		ctx->dev = dev;
+  5583		spin_lock_init(&ctx->lock);
+  5584	
+  5585		data->clk_save = samsung_clk_alloc_reg_dump(info->clk_regs,
+  5586							    info->nr_clk_regs);
+  5587		if (!data->clk_save)
+  5588			return -ENOMEM;
+  5589		data->nr_clk_save = info->nr_clk_regs;
+  5590		data->clk_suspend = info->suspend_regs;
+  5591		data->nr_clk_suspend = info->nr_suspend_regs;
+  5592		data->nr_pclks = of_clk_get_parent_count(dev->of_node);
+  5593	
+  5594		if (data->nr_pclks > 0) {
+  5595			data->pclks = devm_kcalloc(dev, sizeof(struct clk *),
+  5596						   data->nr_pclks, GFP_KERNEL);
+  5597			if (!data->pclks) {
+> 5598				kfree(data->clk_save);
+  5599				return -ENOMEM;
+  5600			}
+  5601			for (i = 0; i < data->nr_pclks; i++) {
+  5602				struct clk *clk = of_clk_get(dev->of_node, i);
+  5603	
+  5604				if (IS_ERR(clk)) {
+  5605					kfree(data->clk_save);
+  5606					while (--i >= 0)
+  5607						clk_put(data->pclks[i]);
+  5608					return PTR_ERR(clk);
+  5609				}
+  5610				data->pclks[i] = clk;
+  5611			}
+  5612		}
+  5613	
+  5614		if (info->clk_name)
+  5615			data->clk = clk_get(dev, info->clk_name);
+  5616		clk_prepare_enable(data->clk);
+  5617	
+  5618		platform_set_drvdata(pdev, data);
+  5619	
+  5620		/*
+  5621		 * Enable runtime PM here to allow the clock core using runtime PM
+  5622		 * for the registered clocks. Additionally, we increase the runtime
+  5623		 * PM usage count before registering the clocks, to prevent the
+  5624		 * clock core from runtime suspending the device.
+  5625		 */
+  5626		pm_runtime_get_noresume(dev);
+  5627		pm_runtime_set_active(dev);
+  5628		pm_runtime_enable(dev);
+  5629	
+  5630		if (info->pll_clks)
+  5631			samsung_clk_register_pll(ctx, info->pll_clks, info->nr_pll_clks,
+  5632						 reg_base);
+  5633		if (info->mux_clks)
+  5634			samsung_clk_register_mux(ctx, info->mux_clks,
+  5635						 info->nr_mux_clks);
+  5636		if (info->div_clks)
+  5637			samsung_clk_register_div(ctx, info->div_clks,
+  5638						 info->nr_div_clks);
+  5639		if (info->gate_clks)
+  5640			samsung_clk_register_gate(ctx, info->gate_clks,
+  5641						  info->nr_gate_clks);
+  5642		if (info->fixed_clks)
+  5643			samsung_clk_register_fixed_rate(ctx, info->fixed_clks,
+  5644							info->nr_fixed_clks);
+  5645		if (info->fixed_factor_clks)
+  5646			samsung_clk_register_fixed_factor(ctx, info->fixed_factor_clks,
+  5647							  info->nr_fixed_factor_clks);
+  5648	
+  5649		samsung_clk_of_add_provider(dev->of_node, ctx);
+  5650		pm_runtime_put_sync(dev);
+  5651	
+  5652		return 0;
+  5653	}
+  5654	
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Cent=
-er
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporati=
-on
+0-DAY kernel test infrastructure                Open Source Technology Center
+https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201910240208.SkNuFP9B%25lkp%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910240225.DKya6slV%25lkp%40intel.com.
 
---weqsh5j3p6ibdb2c
+--4i4fjxtun6md2w2k
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHSYsF0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPOS+Z4PIAhKiLgZACXbFz61re54
+H4sICB2PsF0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPOS+Z4PIAhKiLgZACXbFz61re54
 4qVHtjvpfz9VABcABJ3+JmuzqrAXaod++O6HCXl7fX7cv97f7h8evk4+HZ4Ox/3r4W7y8f7h
-8H+TuJjkhZqwmKtfgDi9f3r7+9f98fF0OTn5ZfnL9Ofj7XyyORyfDg8T+vz08f7TGzS/f376
+8H+TuJjkhZqwmKtfgDi9f3r7+9f98fF0OTn5ZfnL9Ofj7WyyORyfDg8T+vz08f7TGzS/f376
 7ofv4J8fAPj4GXo6/mty+7B/+jT5cji+AHoym/4Cf09+/HT/+q9ff4X/Pt4fj8/HXx8evjzW
 n4/P/z7cvk4Ws7vF7ezu/MPZ9GR6dref3n2YTpfT6ezD6f78t/3px5PF8mS5vP0JhqJFnvBV
 vaK03jIheZFfTFsgwLisaUry1cXXDoifHe1sin9ZDSjJ65TnG6sBrddE1kRm9apQRY/g4rLe
@@ -1166,6 +1145,6 @@ MFQc2mE4+kylJMrDGDXiNi2MzxWCh5JcGJrF/swJOcf7lUN+XYS1A3l4JLoEy5SEgtUa+RHm
 m0CXCsQMx0lchNErkRTAMDmZGNw9m+/EPfG1ypCYaBQaOrxhdm5jy7GM32u2crdhAxE9FOFr
 UrllMDPUc7lcNfvKPQGJRFobN6zCHhJDnEjd34Bh3o2/OGjA/JyuLojNVS14mAj40BcJMhhN
 LMhJ9mex326U6USFBAGA2+s0bZI1ve3gZ2qDTg6yDB6ZtXsmKK4K8mp0J2vwnWqvbuQ4lf8F
-3CUXA34WAwA=
+VufeJ34WAwA=
 
---weqsh5j3p6ibdb2c--
+--4i4fjxtun6md2w2k--
