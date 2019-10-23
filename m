@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBLF7YLWQKGQEYIKNK4A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBUOCYLWQKGQEKTOW6IY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D1DA7E22A7
-	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 20:45:01 +0200 (CEST)
-Received: by mail-yb1-xb3b.google.com with SMTP id j2sf15573753ybm.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 11:45:01 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571856301; cv=pass;
+Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8357EE22BF
+	for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 20:52:03 +0200 (CEST)
+Received: by mail-pf1-x43b.google.com with SMTP id z4sf16879805pfn.0
+        for <lists+clang-built-linux@lfdr.de>; Wed, 23 Oct 2019 11:52:03 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571856722; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E8Bf4AxooyU/lXPX7cmpEznam5jUIYQ1WkFrNcXL8e86xnmGSt6C6akco0YLxxF6sZ
-         C0NwmGWhz29x/Nx36FxI+9i7TSl7+E6HtTpON/KB3sDTo2AopYS9XPTIz1ucXS115jUW
-         7uyc5enoS1/oVlhVbcYlg1Xn2cmkYKR7Jes1Yfk33P+gczaJdAumoGq/SvkSaJlIp9RN
-         HYwSz+ARx2bb2Pfzz/y/kvFBuAZPSxFr/mylqzehYwnOaBr9CSyCgC7zHveIPwYmC1um
-         pru6roqwxwAdat9Px9KbHTkrM3Dc4p2TOYypjo5DyD9YM58ujjLeObaDI70RfnHu9Zv5
-         KmEA==
+        b=bUG64p/DcKm846ruFMrFnYbfOlGJPFPYS9ZVDPCOod18pHaNc+hPGCvMu/5TbvbTQ8
+         hxFyDFdxm6gEi2JnHaHukLimQCf9KuxgfkLczj+0o1vWWYjLnGwszanCyV7w89JIdmbI
+         hVYxIgqiKiMRb2Zbg8Rkmt4FejxHSiuZkAgQjkneXSPpN7D89ve8u3bMiModF3YJthvt
+         5R+GN/J7YY0SyuILajO/lNfmxlTCmbpwLY5J4tU5Pv9aUHnxa+CI5ctcs1kAoE5OD8ms
+         HvZFLQh3Z3ZAJdUP0802aX4WJJkNC9LVv8aSf5BN86V/dpkOSv6Hot3LJlA8X/p/zlkY
+         UQvQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=gwvj239fSEi3TDVDtbUbiK5A0gLWt20RMgp3yepFOOU=;
-        b=jbWQ3cpELefgH9Qc2kvONxA7ykwG7Nv5pJ4LbzKA5+rpfBG7tGoZDtcn18pw1qDTVP
-         AW7S5xfeoM9DjPYHsuulV238YvsLWrBRwXOInwFsAY4jMfPsw/Q+5adLDymR3wEUcalt
-         kO9eNC0yAImtCjiqhN4QGPV28svRs8lQK/fTVi0Kg9juyQ19QK3qNP/uRd7jhKsPomJs
-         f9CElI++fW3qItsFnkrFidQn3UzmqtxY1jpmX+DpPIAJJGdGAcJeSw1XiZW7Eih1TQPI
-         QDk+MmLEBJ7zsebEateo7BE1WsVQB5X047SgM3v4wwP1NJOnKqpS+fhoDrs6kmNQ1CzY
-         BFiQ==
+        bh=vb2Zln8JKMlLWiJBY1UD/yInwagjEm+DwBcJiug33NY=;
+        b=vOJAv+wmY4yzxznTbm8gptLMBedX3IpJu3QO3WYDvGvhCY9Y23JymqHvUSg0LoosSC
+         vQZUDrDbJWGL94CLb9u6N3IuJPjMHN+qxrz2VrfHgW0bgV6fbBmC1voB/TpN/qtMztaU
+         Uh/937chZ2XX9+0m+TVLWt7S480Yh9eXwvX1LSW4vMy4GtAEYn2Op4RiwbS+hlzh0OHa
+         Gs+tKwQvz8ilvOk98ye6NWSNtGsrSCZ0UPodONHCa1wLyD3v/yMavMTPFwTLwzFbi11t
+         1mh5wns70dOyZQEkMZ8lQXX185QvCnsNrVWfFvZHfj9yLU7TnU6f/pHlQF5Ej9Bbq83u
+         0Kfg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=gwvj239fSEi3TDVDtbUbiK5A0gLWt20RMgp3yepFOOU=;
-        b=LGSkD85mawMGRgbCAxsyhUdJ9kM2EWQVO0pCjxYk+rtwbaHwB56vGT55qKvjnzaWtj
-         9KFEKq6k6hvlGnl4GI8PkVo0UEZWetAnKGsNpKSw8BfH4yAisv9QXsX6WosKBXLgY3iy
-         FS7lYMzmFIRbk73w3LuEuAjx5YlPv/O3eQR/kDeWnau5GXSQzWgmIVFyKJZk2h7C/zJ0
-         BxV9SyI2aSEBjXa5QicuKIWVRDgVDyfs2gQNwvFTL8RtLY2oFRHzaJYXsebBL+sZaFeI
-         XI5v2DEoMthsfbHRK65gAk8k0mreQGpbw6AesLEpC8W75EoUjhK3pk4l9pfZ0j32Rakk
-         7sWA==
+        bh=vb2Zln8JKMlLWiJBY1UD/yInwagjEm+DwBcJiug33NY=;
+        b=hwIqv6GRgCqnQ5nFrIxWQAnJujk3O/k7beP7ogp1FVv02Nhr0Hoe2tcyHOQYJpyvOw
+         VsVPASMBn3P810AkTqcYC9bq846eqJeBI25fKh9KH9jR98ibJDqqta1zG9/vC5MnjhNP
+         7b4sIMIJDwKGyD2QVyRW6OS/zoymoBahCjkCPTw4H2eW3mkTRHuTmcnZbhqSKqW3qGhC
+         lQO1UzKY4gNB0wh+u6y6stC86X5BMI2egIOvqnN5VMd8kAPPMZPsBi+Z7eat//Nh7i+K
+         Et/Ge4mP7P0bGCNzuUyvBQNyiykQ/qdI9az5ucNR9xuTZstYReCREMc5MDDRKDGBpXQU
+         kcOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gwvj239fSEi3TDVDtbUbiK5A0gLWt20RMgp3yepFOOU=;
-        b=dvdGtZtynEZ6lGG6iYQcLdAtHjsqpZZCvwBaA+WTzwwlmF76aNHBrzlc8BxOe8K/zo
-         bwRp+v6GZmq1iOrQVdr8gtHqIKOhsRDAbSCu45Hxc50xrM86XzmiDM/I/Lb6Za2DSDk8
-         ZPJvM+HhqoelrnKAePmUBHSknej/BnEhXyW/wzNbQStoBQuqDTuBioz78IDZH3RUvgbS
-         4TYc53ybBGZPEcbH2cY/Dwnpgk8+dfC4OGO03jJNMITTQZOs38lV5bgoR/qrqp1c1waw
-         8s9RReo70kUXyAfbfyZs4LJCKowUaiQkBHR3fFoUKscNSxzBvi5Wx5dT1U65k7NJ0RK2
-         RymA==
+        bh=vb2Zln8JKMlLWiJBY1UD/yInwagjEm+DwBcJiug33NY=;
+        b=iR1cQfIt19MwNQUN8TcQjKGTyp27GqRWPxz4VdWnKkmFCd/CbOhZ4j026wrZpMWC9g
+         oGNUq4XqhCWKW8dtV4917VD3wtP9dITj/r3c8M5ZQvyhkv7AQPZ88losL5KfXxXG22hH
+         cU7ocVJ9xg035xTTJSv4FTnM+zYaH5fnS4hotM9rOCo4CS/kvOKiyISXYkD7oqGX5+Ef
+         l4kN/+FaLQbsy/XZXLMix3zjsLglzFDa7qfg8BxJjWvB7FnrmVlOaUcYepQWYzs62LHz
+         Og8DzVg9DjF5YDHCeEUimGg/pCMdKPwsMUgj4BKU6+EnTbnZQQY8C7LJdvQTxChRu2qf
+         BBUA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVFvh9scIRJtoQPXsr9F2AkKW6JjVM/quWvjRK9yLVh5Rn+mdVE
-	0cDXLn5gY+epGmUGRe6rhVI=
-X-Google-Smtp-Source: APXvYqyipYxsPLGXyKW8CQMp23corufZ3VXI3AbMCZWdhSaj7RrNp9GD5AdM45Lon1PO6FHunmK6Ig==
-X-Received: by 2002:a0d:cb11:: with SMTP id n17mr4209916ywd.197.1571856300683;
-        Wed, 23 Oct 2019 11:45:00 -0700 (PDT)
+X-Gm-Message-State: APjAAAW+VHuk5859lZKTOViJ994mt5XcT1HUO9bH7hA/eDsw/hrAcqMv
+	GZhkeu712B4ggILXXGHlzjM=
+X-Google-Smtp-Source: APXvYqwtrbE+NAHMSM+E/B/zwBIS/bdQN6R09I04iw2Nod73AXh+7n0nk0/gmTugFz/VNI9dMH6jKA==
+X-Received: by 2002:a17:902:6bc1:: with SMTP id m1mr11445996plt.67.1571856721914;
+        Wed, 23 Oct 2019 11:52:01 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:cf05:: with SMTP id f5ls534914ybg.5.gmail; Wed, 23 Oct
- 2019 11:45:00 -0700 (PDT)
-X-Received: by 2002:a5b:60e:: with SMTP id d14mr7562079ybq.521.1571856300179;
-        Wed, 23 Oct 2019 11:45:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571856300; cv=none;
+Received: by 2002:a17:902:9a02:: with SMTP id v2ls952379plp.15.gmail; Wed, 23
+ Oct 2019 11:52:01 -0700 (PDT)
+X-Received: by 2002:a17:90a:bb0a:: with SMTP id u10mr1942351pjr.14.1571856721455;
+        Wed, 23 Oct 2019 11:52:01 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571856721; cv=none;
         d=google.com; s=arc-20160816;
-        b=al41Kz4qXT/kheicYncEJ8ev49rAeFXdUrJO4XbyAFhcb0IWNWMpDoCLnAn0VSsU7m
-         Bq6EkF3Y9EgbO3GKNKXUxBPzMDnFLIbloAqROn44r6cBn/D6PAnIHaHflto323FoAyiu
-         I8F32+a8l0WM3HoLV9jb1m7AuV7TbvyTaud3XyCVnPVJAHOpUHzjOQGskYQrbncz3dYY
-         P5Op/mjouJJrthTeXZvQcH4WQKQm3vxCNU+hPCrvgarK3XCRrVWIi/j+TQDbBJ/x7gN2
-         PKYjqyBYba9G2OD4+GUqyjajr9izn6/qvotbR60EGsTeIaU2QnZpfKT3lR4iEAQrdipg
-         DFPQ==
+        b=iGJdgapiCdQShq19LgSw3z9fcncrv81QTD80JpVJvf3uGH08ESiEPfA2d5UQF40vmC
+         6FSnRQ4iY32iehi3EwIQqG3rLIZKqiytJYiXn4C46DvHD8KNUL8N0MbodDDS43rxoBIn
+         x8plrenoxyPOYI54Mv9YVsUL6Yk8Nqk23KWzEJSA0VCarnjIBrAZIuN+LyI42ksrQ2zi
+         f4PT1NhNudscTXOsI1EdYoq8ILar+vvhIRYWF1tOjg/5paX7kgB3mO8hDhZSvSvRacOF
+         hingVylsgclCyutTbfK9Jf9jdotsbp5vIztWAHAFBPIkk2T+gMfAsGpnRP/e6k51NKdN
+         ruDw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=MiRWE5KF+9aJIE8wo/cmjmc0YRtCSiF862/50yt5ILs=;
-        b=K6u1Z4u7CxewV9OqTa1LFkr+wPWIrMx4yzqRX8Pp8xea4p0PK0pkel1++WhAoo1aIm
-         HcOp3PgYYh3zk8P1RSPq2tcYWGsBXFC+yzG0PtdBZ7W2FKj/txb/oMTbfk6jxGE+0PvB
-         f3CQdnWTBBY/rvtliydM2Jy1LaNyfxsOxgl8zh1yOObEbYC0VTyMsunHxrUfYcZoJB2O
-         MtwaM741aORx/f0Ihv9A8mEbGckzTEG2Y8/iniS5jYhv6wcuyF+IzxOm8sBF6RAdTqt9
-         pbwni0/toIWAXBz331Q9d+npDHaLWV6TRN2DA0wCWhtUeyoBTi15x9j/z30k7XPhlnms
-         PKEg==
+        bh=/MlIBL0qlc6lXfoygXqKIsZAcC2Ahr108dwA8IFZqYo=;
+        b=TlxqIyBVhWtKBm+NWOpJIhdxdMxbzU2AlJEeWKL9kt1r30DCI25CidJBTiKU6aXbTE
+         66/578A9+nKq1TBeM7DoqrqqfCVZcWXj4J15nUpzNt/LTL+FmV8j5W50OFPSSnMgPHYn
+         cWsmLz8pAVTelIO6pfrYrXiHnTooXBgk+47a0OMUDMuIsgH6w6uaDoYKWftsR1+hHOt5
+         a8WZqB0Em0si9GlcVM9ANNdGIxKQFuuYIhghTamaNlKeSyvKPPqPC/8tk5139T+HZkOb
+         bsLMFcrIE85wpCMKUc+87jeqsMJiE2yJ627TMlQGaNXft1TR8alce6zXrgUAo546c4Rb
+         qoMg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id p140si1040573ywg.4.2019.10.23.11.44.59
+Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
+        by gmr-mx.google.com with ESMTPS id q195si683900pgq.5.2019.10.23.11.52.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 23 Oct 2019 11:45:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
+        Wed, 23 Oct 2019 11:52:01 -0700 (PDT)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga001.fm.intel.com ([10.253.24.23])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 23 Oct 2019 11:44:58 -0700
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 23 Oct 2019 11:52:00 -0700
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.68,221,1569308400"; 
-   d="gz'50?scan'50,208,50";a="209977696"
+   d="gz'50?scan'50,208,50";a="223298620"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga001.fm.intel.com with ESMTP; 23 Oct 2019 11:44:56 -0700
+  by fmsmga004.fm.intel.com with ESMTP; 23 Oct 2019 11:51:58 -0700
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iNLcu-0003xB-D0; Thu, 24 Oct 2019 02:44:56 +0800
-Date: Thu, 24 Oct 2019 02:44:28 +0800
+	id 1iNLji-00092d-DH; Thu, 24 Oct 2019 02:51:58 +0800
+Date: Thu, 24 Oct 2019 02:51:55 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [snawrocki:for-v5.4/fixes 1/2]
- drivers/clk/samsung/clk-exynos5433.c:5598:4: error: implicit declaration of
- function 'kfree'
-Message-ID: <201910240225.DKya6slV%lkp@intel.com>
+Subject: [dhowells-fs:notifications-pipe-prep 4/10] lib/iov_iter.c:962:27:
+ warning: variable 'i_head' is uninitialized when used here
+Message-ID: <201910240241.NJ1woVwM%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="4i4fjxtun6md2w2k"
+Content-Type: multipart/mixed; boundary="uyrhentyzenskfv3"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,149 +138,70 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---4i4fjxtun6md2w2k
+--uyrhentyzenskfv3
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-TO: Marek Szyprowski <m.szyprowski@samsung.com>
-CC: Sylwester Nawrocki <s.nawrocki@samsung.com>
-CC: Krzysztof Kozlowski <krzk@kernel.org>
+TO: David Howells <dhowells@redhat.com>
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/snawrocki/clk.git for-v5.4/fixes
-head:   12a8ee2dc890686ab917d757e5d9379dd6943cc1
-commit: 4265a77ed90d7a7ae3fb9c8e424a9f8e8ea77889 [1/2] clk: samsung: exynos5433: Fix error paths
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git notifications-pipe-prep
+head:   48045df7b3191f476ef0095ec30d6fcbe4411940
+commit: 2b988693eb16961453719e63b7a96e83cacd7fd2 [4/10] pipe: Use head and tail pointers for the ring, not cursor and length
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 31d3c1d8b70507da0db004001b6a89a6f534544c)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 4265a77ed90d7a7ae3fb9c8e424a9f8e8ea77889
+        git checkout 2b988693eb16961453719e63b7a96e83cacd7fd2
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> drivers/clk/samsung/clk-exynos5433.c:5598:4: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-                           kfree(data->clk_save);
-                           ^
-   drivers/clk/samsung/clk-exynos5433.c:5598:4: note: did you mean 'vfree'?
-   include/linux/vmalloc.h:116:13: note: 'vfree' declared here
-   extern void vfree(const void *addr);
-               ^
-   drivers/clk/samsung/clk-exynos5433.c:5605:5: error: implicit declaration of function 'kfree' [-Werror,-Wimplicit-function-declaration]
-                                   kfree(data->clk_save);
-                                   ^
-   2 errors generated.
+>> lib/iov_iter.c:962:27: warning: variable 'i_head' is uninitialized when used here [-Wuninitialized]
+                   memzero_page(pipe->bufs[i_head & p_mask].page, off, chunk);
+                                           ^~~~~~
+   lib/iov_iter.c:949:21: note: initialize the variable 'i_head' to silence this warning
+           unsigned int i_head;
+                              ^
+                               = 0
+   1 warning generated.
 
-vim +/kfree +5598 drivers/clk/samsung/clk-exynos5433.c
+vim +/i_head +962 lib/iov_iter.c
 
-  5552	
-  5553	static int __init exynos5433_cmu_probe(struct platform_device *pdev)
-  5554	{
-  5555		const struct samsung_cmu_info *info;
-  5556		struct exynos5433_cmu_data *data;
-  5557		struct samsung_clk_provider *ctx;
-  5558		struct device *dev = &pdev->dev;
-  5559		struct resource *res;
-  5560		void __iomem *reg_base;
-  5561		int i;
-  5562	
-  5563		info = of_device_get_match_data(dev);
-  5564	
-  5565		data = devm_kzalloc(dev,
-  5566				    struct_size(data, ctx.clk_data.hws, info->nr_clk_ids),
-  5567				    GFP_KERNEL);
-  5568		if (!data)
-  5569			return -ENOMEM;
-  5570		ctx = &data->ctx;
-  5571	
-  5572		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-  5573		reg_base = devm_ioremap_resource(dev, res);
-  5574		if (IS_ERR(reg_base))
-  5575			return PTR_ERR(reg_base);
-  5576	
-  5577		for (i = 0; i < info->nr_clk_ids; ++i)
-  5578			ctx->clk_data.hws[i] = ERR_PTR(-ENOENT);
-  5579	
-  5580		ctx->clk_data.num = info->nr_clk_ids;
-  5581		ctx->reg_base = reg_base;
-  5582		ctx->dev = dev;
-  5583		spin_lock_init(&ctx->lock);
-  5584	
-  5585		data->clk_save = samsung_clk_alloc_reg_dump(info->clk_regs,
-  5586							    info->nr_clk_regs);
-  5587		if (!data->clk_save)
-  5588			return -ENOMEM;
-  5589		data->nr_clk_save = info->nr_clk_regs;
-  5590		data->clk_suspend = info->suspend_regs;
-  5591		data->nr_clk_suspend = info->nr_suspend_regs;
-  5592		data->nr_pclks = of_clk_get_parent_count(dev->of_node);
-  5593	
-  5594		if (data->nr_pclks > 0) {
-  5595			data->pclks = devm_kcalloc(dev, sizeof(struct clk *),
-  5596						   data->nr_pclks, GFP_KERNEL);
-  5597			if (!data->pclks) {
-> 5598				kfree(data->clk_save);
-  5599				return -ENOMEM;
-  5600			}
-  5601			for (i = 0; i < data->nr_pclks; i++) {
-  5602				struct clk *clk = of_clk_get(dev->of_node, i);
-  5603	
-  5604				if (IS_ERR(clk)) {
-  5605					kfree(data->clk_save);
-  5606					while (--i >= 0)
-  5607						clk_put(data->pclks[i]);
-  5608					return PTR_ERR(clk);
-  5609				}
-  5610				data->pclks[i] = clk;
-  5611			}
-  5612		}
-  5613	
-  5614		if (info->clk_name)
-  5615			data->clk = clk_get(dev, info->clk_name);
-  5616		clk_prepare_enable(data->clk);
-  5617	
-  5618		platform_set_drvdata(pdev, data);
-  5619	
-  5620		/*
-  5621		 * Enable runtime PM here to allow the clock core using runtime PM
-  5622		 * for the registered clocks. Additionally, we increase the runtime
-  5623		 * PM usage count before registering the clocks, to prevent the
-  5624		 * clock core from runtime suspending the device.
-  5625		 */
-  5626		pm_runtime_get_noresume(dev);
-  5627		pm_runtime_set_active(dev);
-  5628		pm_runtime_enable(dev);
-  5629	
-  5630		if (info->pll_clks)
-  5631			samsung_clk_register_pll(ctx, info->pll_clks, info->nr_pll_clks,
-  5632						 reg_base);
-  5633		if (info->mux_clks)
-  5634			samsung_clk_register_mux(ctx, info->mux_clks,
-  5635						 info->nr_mux_clks);
-  5636		if (info->div_clks)
-  5637			samsung_clk_register_div(ctx, info->div_clks,
-  5638						 info->nr_div_clks);
-  5639		if (info->gate_clks)
-  5640			samsung_clk_register_gate(ctx, info->gate_clks,
-  5641						  info->nr_gate_clks);
-  5642		if (info->fixed_clks)
-  5643			samsung_clk_register_fixed_rate(ctx, info->fixed_clks,
-  5644							info->nr_fixed_clks);
-  5645		if (info->fixed_factor_clks)
-  5646			samsung_clk_register_fixed_factor(ctx, info->fixed_factor_clks,
-  5647							  info->nr_fixed_factor_clks);
-  5648	
-  5649		samsung_clk_of_add_provider(dev->of_node, ctx);
-  5650		pm_runtime_put_sync(dev);
-  5651	
-  5652		return 0;
-  5653	}
-  5654	
+   944	
+   945	static size_t pipe_zero(size_t bytes, struct iov_iter *i)
+   946	{
+   947		struct pipe_inode_info *pipe = i->pipe;
+   948		unsigned int p_mask = pipe->ring_size - 1;
+   949		unsigned int i_head;
+   950		size_t n, off;
+   951		int idx;
+   952	
+   953		if (!sanity(i))
+   954			return 0;
+   955	
+   956		bytes = n = push_pipe(i, bytes, &idx, &off);
+   957		if (unlikely(!n))
+   958			return 0;
+   959	
+   960		do {
+   961			size_t chunk = min_t(size_t, n, PAGE_SIZE - off);
+ > 962			memzero_page(pipe->bufs[i_head & p_mask].page, off, chunk);
+   963			i->head = i_head;
+   964			i->iov_offset = off + chunk;
+   965			n -= chunk;
+   966			off = 0;
+   967			i_head++;
+   968		} while (n);
+   969		i->count -= bytes;
+   970		return bytes;
+   971	}
+   972	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -290,16 +210,16 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910240225.DKya6slV%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910240241.NJ1woVwM%25lkp%40intel.com.
 
---4i4fjxtun6md2w2k
+--uyrhentyzenskfv3
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICB2PsF0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPOS+Z4PIAhKiLgZACXbFz61re54
+H4sICAWgsF0AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPOS+Z4PIAhKiLgZACXbFz61re54
 4qVHtjvpfz9VABcABJ3+JmuzqrAXaod++O6HCXl7fX7cv97f7h8evk4+HZ4Ox/3r4W7y8f7h
-8H+TuJjkhZqwmKtfgDi9f3r7+9f98fF0OTn5ZfnL9Ofj7WyyORyfDg8T+vz08f7TGzS/f376
+8H+TuJjkhZqwmKtfgDi9f3r7+9f98fF0OTn5ZfnL9Ofj7XyyORyfDg8T+vz08f7TGzS/f376
 7ofv4J8fAPj4GXo6/mty+7B/+jT5cji+AHoym/4Cf09+/HT/+q9ff4X/Pt4fj8/HXx8evjzW
 n4/P/z7cvk4Ws7vF7ezu/MPZ9GR6dref3n2YTpfT6ezD6f78t/3px5PF8mS5vP0JhqJFnvBV
 vaK03jIheZFfTFsgwLisaUry1cXXDoifHe1sin9ZDSjJ65TnG6sBrddE1kRm9apQRY/g4rLe
@@ -1145,6 +1065,6 @@ MFQc2mE4+kylJMrDGDXiNi2MzxWCh5JcGJrF/swJOcf7lUN+XYS1A3l4JLoEy5SEgtUa+RHm
 m0CXCsQMx0lchNErkRTAMDmZGNw9m+/EPfG1ypCYaBQaOrxhdm5jy7GM32u2crdhAxE9FOFr
 UrllMDPUc7lcNfvKPQGJRFobN6zCHhJDnEjd34Bh3o2/OGjA/JyuLojNVS14mAj40BcJMhhN
 LMhJ9mex326U6USFBAGA2+s0bZI1ve3gZ2qDTg6yDB6ZtXsmKK4K8mp0J2vwnWqvbuQ4lf8F
-VufeJ34WAwA=
+3CUXA34WAwA=
 
---4i4fjxtun6md2w2k--
+--uyrhentyzenskfv3--
