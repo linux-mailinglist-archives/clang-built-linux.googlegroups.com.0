@@ -1,144 +1,146 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBBVVY7WQKGQEFIFOG7Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVVVY7WQKGQE6DGA34A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43b.google.com (mail-pf1-x43b.google.com [IPv6:2607:f8b0:4864:20::43b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4FBC8E3957
-	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 19:08:24 +0200 (CEST)
-Received: by mail-pf1-x43b.google.com with SMTP id r19sf19528167pfh.7
-        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 10:08:24 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571936902; cv=pass;
+Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A7BBE3966
+	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 19:09:43 +0200 (CEST)
+Received: by mail-qt1-x83c.google.com with SMTP id n34sf12791654qta.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 10:09:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571936982; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JGypmgVEmrRByLlYlDE8Mjto4ZkCV5F+Y0VF9ozcjqgZkhR+ksouYmWlBNDGLqIQ2I
-         /bocoZcxP1s0kbegWdL7ayksg1wn0L+Ricq6pMflR4RGf9pMxxa0wt9PC47lc/kbVLKJ
-         Q1hlirCRTPY8+LwYUN9CzmAERPzh2BFBgqm/qkWjX47wwXSR3jWqqXLOOWC0POLrptlW
-         sZNAkfVWoTujSouvdZL7o+U0nXyl0sDpXBwdSQxYBGZj6Bx0cfKYz/ObdrqqqFQM+pKm
-         aIHyyFx+WGQL+8iumiTBPsp580zRdh3VFbejK1pAFCHx39gB+69BHE1j3AkMsfImu3oH
-         MRig==
+        b=PVFWIFBSI9UexdyzuBrq5ie4W0qfPVEmzzZB4Q0gh3HwxIwkC5krqXIAJs2AqOYKmB
+         7g4wLrHNyrhVELW8BYI1+RNFHRme/FA24H4fC/3R9+zJqxgQQZ9bQroyTLYnQOA5pLGn
+         FLm3lhUW7NMYRBUf8U0lxOaSY/0kABKBzRCcveXOtHi90/I9B6Al4titcCEahkDPhysQ
+         T0GHlC7rvyTvtgDXl+8+M4yBv6yT5LNgRZy4DArx+qRlNfU73N/Eh6uT3E82HP8KsDFO
+         rBH2BoTaT5302n1NjDR2/04vZJYfg863AJ2i/EzYROWs/YbllIbd/klJzPMp4QIVmr3/
+         InrA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=by+wSKhYI/v77ckEz1RE30Y9i+wvNYsIMnNMERS9FsU=;
-        b=P6AmgkCcKwL8BTKeKL/3emEfq5M4tAytBFNEJAICHx3k6LmDbdMY/O0fqm6pJ+Xwqx
-         djVCZWEMYv39UuR+h6rnoNxrl9eJ6KdxDwXvsSVWsdP+VEUGPecwAK0pOf7zBGBE0GHJ
-         FmPq+aVbSdDx6ptw5/4SrPkoTZDio4GeFCs1YgikY5ii4AQi08D9DqTtjZEV6Zsq1Ok4
-         0M2w8N9xMAHrtHbM215YK4unNm6CM4rVvM8VsXCuLG4kLSYbUl4lpkpBNvUMbEGAu4cQ
-         Agk/nBNl/D1p5He8qoW5Iuc5Fosb64vye50c3KmOzlJ/XytxOekam9eaNaxFFLe3fyn/
-         Q0Mg==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:sender:dkim-signature
+         :dkim-signature;
+        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
+        b=kkm1BMrpl5VoLg9X2e0Go7uZZza1BvgYeB4f2kxw7cX5sDcLxR2jTF2Kq0NNlipb2n
+         QR1bViFYF3vnkcN7NHVcILaXP5P4RLlEPeiJIGB26sm6pYY3nZhCbI4BcDkQpES+fF4B
+         RBqUmFNvnbUCZjPWpe6/cDygK3t4D/bOZorI0+ahawGjbOjG3qbK7k6buFXvZjNvLU0v
+         pBKBqHtppLEyEeBQodqMMZjnXfO2OZQwwtBhr9v97GnYMvXaDRK8vQqzQL74beZz5l+D
+         Z7GHcCo/1g8ddb48F0GD/MY6x4Jb53GPq4xFsUH42KETFh+iXku/zWDs5FHLkjyZWS5E
+         vbzg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Wli3MZlt;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="O1F8D/I5";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=by+wSKhYI/v77ckEz1RE30Y9i+wvNYsIMnNMERS9FsU=;
-        b=FdwQ+i3TDHr8Y+filx1bLUUQCBB11TL/j2dPljPdhSsS7KdEKO93fJPAzuIXOapFaX
-         UCTMoKxNyBo6wlZxaLVsrQ1WUJUKmwp31MStCAiXZnr9/sXzEes+g6d+THonfWpXo9nK
-         nzKr8mP8F1dRWbPk8vexhrIjBfxnp4mdEn6zVFGIGt5LfDHU1TxmfaIoCqQdR5MqEZcT
-         rGObWzqBYO7uyuYXnhAyhV+o24yPSxO1zZ0b0E/nmBCFivepPMHKxfqx3UBYQ6lA1xH6
-         nwmdL+6E37bfnNSNaIfUIf9a8dQdVn/MVCL5pa/Xs4twQAGporE+6rk5uV3+pfFkwCJQ
-         DuHA==
+         :x-original-authentication-results:content-transfer-encoding
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
+        b=A+kNn98erRGXtLqJYPN1BRpUMHRzTELxaJFIbLn6a9pvDn7YZJpmXtICeNjvcD5YS2
+         2qBk4oDTjbgtchmKiDALWTROhrpGVbKLxsofYk7ezmi0I0Gkbnixm+c/XUfCjVbLHc/d
+         Br8JPfdOdSMbE8OJrfwgLf9tzbJ6FHmSWhgJJATkBqb2ShrPnDSNDdAyIdOjBL8VPs2x
+         vSiYI+MGlNsQ2kfdXN4o3s9972hhCDG5K0dTgDwJo0hSsrNAKRCN6UOqFE5kzNjupesg
+         fd5/Dcl5oWTT6CtMhT93NqoaFWY7USKgnofupW0jcmGQxwuQ8IGuXyBhlwTI6yRArvwT
+         Kn7g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=by+wSKhYI/v77ckEz1RE30Y9i+wvNYsIMnNMERS9FsU=;
-        b=JsUH9PaJrGcg/YzXezkMBCKtbmxCBM8vtOWsxnvJdPJDXo1R51YCZYErp1v2lGadyF
-         Lt+cejtdw2q1N9b56n3i82rsBX5dAMkOWM3XrQMUvjLBssfa9jXGIA5iFkSGgJETARxz
-         g4pYwJIGLpAFvmuSucCFbPPlamqaHC66N+B/OeF2Tz5XSgcAKdk4B0X8dIiszkjSteG+
-         yRH0YRdPz0QRkZ3ZYJ4BSoiJvpOukPQkLQ/QvbLXAc1Fe33eKKWOshII8KmveD96AnVn
-         J0gpwg6Ra9lq4MvOgFbFM+eTI4+fIJNJutHB3Vhsr9rM01MApsS//esWCQmySML5ypK6
-         MJ/A==
+         :x-original-authentication-results:content-transfer-encoding
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
+        b=KzrqetOGIt+pyIQXNTOLRtVkk1DB7ttTXt9C8d5Gaunx/uP0B0+vMgjkniKbqIbv5N
+         frSP4kDRGNuVylVCLjPeRdFDwcyoqX7Q/AD0Gf+VCIaWvy6AswgZIv1VWw7uQ5ViLxsl
+         nvYn8G8j7TQO7NZnhuCtCEv/dwGJvHj2FiHAY1a6Ve3flQDCi/K3TXziHGOB0qmTDvYt
+         wAUK5X8yO07AHA3KASD/sxexKMg4QdzLvYn27PSGDnhrRQMmc8Gq0E0qaWA3sdrLfwxk
+         T9m8ZeDTBvBVWbGs9VXhbOORgtLGRGff1utiDg4+5tnjkYE+y6WnIvjrMr2iatFFTxsx
+         zQuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
          :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=by+wSKhYI/v77ckEz1RE30Y9i+wvNYsIMnNMERS9FsU=;
-        b=tYdySdS9hzQk1ApM0qlZn5OrkBAs/NKhju6aE4F1OaT3RqkRy8Y9WOtfI+/fDJQ7XQ
-         Z3YiyB01T5rcERHjQrsfJ+i9Wk/Qi6HTHJF2MfdNNF/5EtPE7EUqjHRTt7s+SPlZ8f+I
-         eDMB5HJsvO49I8ZGn8K5n0dOygysKgwVhpjel81IO8ixabJfa6NEKQKFofTcPbZZdSPu
-         JflFi8mshA8CDRntPW+JvP6uVA0UlKxSNPPkibBPZR4EhMdRKN+igtuvg72s7vANLIl6
-         hO4mioxNFA1rk4+o3n5YdKaW7gjZuElQsywMqWiZHPes4Zl1zNfqcgM/lLsvbUj7S+pP
-         D5sg==
+         :x-original-sender:x-original-authentication-results
+         :content-transfer-encoding:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
+        b=ZENg/CGnk+WCY+fcQygeXpENlQORenBOSbiyKKUNtTQ7W2IK626H3nihL7TBhI8Uwq
+         X2uqi7/SZxkVX0RVlsjFNOifO2XMR21EoS59GrP4CpTvzuC5PRt1SXcn1pYOX4LX9wtX
+         Ukcw3lUSZCZBDW8Gulq5bsIi8sYUn5y8KaZcKb0JOjqB2qmH1A01l2ocuW7FszVKBExf
+         XX3ECSrUKogaQY1wc+ER/tytXBwjBJgSJDXalt8nuGAo8URjP0scXuO8l3qcXx11AygM
+         2f7AiuB3CaXmeFxfQgHJfbFL25C+x0fqqq3iZDOKBirbTauuOVUn7CPAWauTHruCkqnx
+         eEOQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU38NNOJp1J6fTWOiauI4FH0m4NkSE0m0yM41SLsx2lu/gZg34y
-	RV4KxdUflWdhRpbvrP2QCM8=
-X-Google-Smtp-Source: APXvYqzFE3AqKSlciRLexRlxucboRF7mVfQk4M4BLHS+sY9WXhyNm5GS/vwQrDnzVnw/OLLMvnHGxw==
-X-Received: by 2002:a17:902:6943:: with SMTP id k3mr17343494plt.158.1571936902558;
-        Thu, 24 Oct 2019 10:08:22 -0700 (PDT)
+X-Gm-Message-State: APjAAAXaRn7bfCaXgvv7QFj9Fvbg1VlyEhrKF5kt8JtBR/kzEF0z+HXD
+	LoMMpoflNhhXCpi3z6xdF90=
+X-Google-Smtp-Source: APXvYqxFB7079Tf8Cen5zt9BUGSEG4gbwn9gAK6aVfThdfRo6/C73wyMpczpoMam9kS9W1mQf2zWaw==
+X-Received: by 2002:ac8:4995:: with SMTP id f21mr5462123qtq.343.1571936982211;
+        Thu, 24 Oct 2019 10:09:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:345:: with SMTP id fh5ls2229805pjb.0.gmail; Thu, 24
- Oct 2019 10:08:22 -0700 (PDT)
-X-Received: by 2002:a17:902:aa86:: with SMTP id d6mr17435554plr.268.1571936902076;
-        Thu, 24 Oct 2019 10:08:22 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571936902; cv=none;
+Received: by 2002:a37:6289:: with SMTP id w131ls2228076qkb.15.gmail; Thu, 24
+ Oct 2019 10:09:41 -0700 (PDT)
+X-Received: by 2002:a37:a345:: with SMTP id m66mr14727283qke.487.1571936981713;
+        Thu, 24 Oct 2019 10:09:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571936981; cv=none;
         d=google.com; s=arc-20160816;
-        b=C77p3I1Qu1e6sZFonui/j4C7dQp8+PgJz9gKMdCIWbBQd6ZNHemhbHdboBub1Gr2rc
-         9VOVCKZTGUGACDzVscemn8IKo45mTd8+izBBwrPvtQ8V0SyUa7NAbJ3dJNII+L1Dxsi0
-         UP02gjNuI9DQ/nJVjQ//cto3LfkY+TwRJSSaztspSUE/L1YJIX40J8xLPKVZPeHH0SR7
-         EoYcAGdCG/Yy6+jetOPMj6ygXJVTNXHUmpIdS+jbtMsOQOJR7NALh/+YJioek4kxLAmV
-         GHJxgIkf5aHB+c3Il9FKjgtc/GwJ1J3a0Ac8E5JWAkSVjSo1EosJm1oBP1R3WgdoJxTC
-         7HoQ==
+        b=L3oKwx0tZ1vArTGZOWRou7B4KBEY+LqqcWSj9fCNknn5HWmolkwR96eNt1ptMKMq3M
+         ezWqoyWT2d+22GSCrkbTlQND/85wOHVSrsyG+HafqcI83hVdObt4V7byuIizUAJBKsAj
+         cwbqScGfr70be/WbVvzmfg/6RtI6Hfx64j3L8re61tTbAtuv2/OnqhqiDBhYfnPojma2
+         FW1CD8kTl4vF2ZoLsnGRQIG7VmTGPP5Co3BM7EkNExiRn/ZZ9Ch1KX//idLNCnQ5Hm29
+         uW13MaSfKrqGxmLRwZVqPOPGeKh8KsX4e2xVEt7YTi41U4DMRkfuZ4HTYyHTq8N+SaTD
+         Q0AA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=ySPqWF/b+qV1qQPvYGrtrPPGTIi+Mry4npeJgPDNYQQ=;
-        b=V1bm8XMo9oTohgcbeio9IQVl/xkEZWydO0LJZjq+Ikd317j+xTfsHOW4TiRVVANSRM
-         d5lR6XEQ2nM+tQmxGwudVsPlFGoKtcUIN7y1EXtJwjjPomfaywSlgJziuTd3WV9WKalX
-         LkExkVydPD5VfL73XdjgQ0dXuheVZ0+VJsfZd42M8rO1hN5vq5QBxZEUinLC/RnvOOC/
-         q+ByLVDZZEFLUCjdDkcHtC8n71kWYxVdaT0VRAJIyIh4Y032kdTdEdeBjAbT8V5snQIW
-         TW5UNI4S81l/CiKi4NGJcBj2784LDgGPCbbls6xdcBekXfhRHUlzh0d3SdhQTL8ASyxa
-         2J7A==
+        bh=yKjYqMeHq/rNi8fA86MLMxH/F5PbH59nztPuXsHmsPk=;
+        b=fljykDXBGHFtZBO8yHLOnaV8DYAZX1PjVbTAPqe0QaizWUsvzbbd2xMHAB63QIULtI
+         jZwbfHpeRK2kv3z8YsCB+8Gvu3aGeHrEZRWRVbFLE7BFOEalcdFaVpKoAWgpuCoTWSeu
+         CLqA1oOFo2PO6ZRJ6O9lLEaMQjawGQzmLTsO0hrORIZXdwfgV14x3cxUzIBHwjQ40oQn
+         8VdwCFSVxxWFzDizRu34+H5xbjFY/OIWIdQSOkP3cGa+LJnbLJ9mrL5uWwgYeSk6qyjT
+         H3GBDjLTTn1xRnESrDbaDE5qDgAKU//5krTeifyXYXS07G0a7kmzBO+6dKQkdCbh0fA0
+         LXwA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Wli3MZlt;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="O1F8D/I5";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id t17si1173560pgk.0.2019.10.24.10.08.22
+Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id z90si228060qtc.3.2019.10.24.10.09.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Oct 2019 10:08:22 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
-Received: by mail-ot1-x343.google.com with SMTP id b16so10526713otk.9
-        for <clang-built-linux@googlegroups.com>; Thu, 24 Oct 2019 10:08:22 -0700 (PDT)
-X-Received: by 2002:a9d:6c85:: with SMTP id c5mr9709676otr.257.1571936901036;
-        Thu, 24 Oct 2019 10:08:21 -0700 (PDT)
+        Thu, 24 Oct 2019 10:09:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
+Received: by mail-ot1-x341.google.com with SMTP id z6so21346129otb.2
+        for <clang-built-linux@googlegroups.com>; Thu, 24 Oct 2019 10:09:41 -0700 (PDT)
+X-Received: by 2002:a05:6830:10cc:: with SMTP id z12mr2878335oto.20.1571936980956;
+        Thu, 24 Oct 2019 10:09:40 -0700 (PDT)
 Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id o5sm2045120otl.73.2019.10.24.10.08.20
+        by smtp.gmail.com with ESMTPSA id s66sm7314132otb.65.2019.10.24.10.09.40
         (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 24 Oct 2019 10:08:20 -0700 (PDT)
-Date: Thu, 24 Oct 2019 10:08:19 -0700
+        Thu, 24 Oct 2019 10:09:40 -0700 (PDT)
+Date: Thu, 24 Oct 2019 10:09:39 -0700
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Chris Wilson <chris@chris-wilson.co.uk>
+To: kbuild test robot <lkp@intel.com>
 Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com,
-	kbuild test robot <lkp@intel.com>
-Subject: Re: [drm-drm-intel:drm-intel-next-queued 5/6]
- drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: warning: use of
- logical '&&' with constant operand
-Message-ID: <20191024170819.GA40118@ubuntu-m2-xlarge-x86>
-References: <201910241556.zhmi2E5w%lkp@intel.com>
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH v7 3/3] soc: fsl: add RCPM driver
+Message-ID: <20191024170939.GB40118@ubuntu-m2-xlarge-x86>
+References: <201910241421.jNfqkBvg%lkp@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <201910241556.zhmi2E5w%lkp@intel.com>
+In-Reply-To: <201910241421.jNfqkBvg%lkp@intel.com>
 User-Agent: Mutt/1.9.4 (2018-02-28)
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Wli3MZlt;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b="O1F8D/I5";       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Transfer-Encoding: quoted-printable
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,87 +153,143 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Chris,
-
-The 0day team has been doing clang builds for us and sending the results
-to our mailing list; this one popped up. Mind taking a look at it?
-
-On Thu, Oct 24, 2019 at 03:54:59PM +0800, kbuild test robot wrote:
+On Thu, Oct 24, 2019 at 04:01:21PM +0800, kbuild test robot wrote:
 > CC: kbuild-all@lists.01.org
-> TO: Chris Wilson <chris@chris-wilson.co.uk>
-> CC: Jon Bloomfield <jon.bloomfield@intel.com>
-> CC: Tvrtko Ursulin <tvrtko.ursulin@intel.com>
-> 
-> tree:   git://anongit.freedesktop.org/drm/drm-intel drm-intel-next-queued
-> head:   8eb8e322ec07392e8c8008437216c38c310ff6c7
-> commit: 058179e72e0956a2dfe4927db6cbe5fbfb2406aa [5/6] drm/i915/gt: Replace hangcheck by heartbeats
-> config: x86_64-rhel-7.6 (attached as .config)
-> compiler: clang version 10.0.0 (git://gitmirror/llvm_project bf869683c3f26827853e3c34d3c4a337069928fe)
+> In-Reply-To: <20191021034927.19300-3-ran.wang_1@nxp.com>
+> References: <20191021034927.19300-3-ran.wang_1@nxp.com>
+> TO: Ran Wang <ran.wang_1@nxp.com>
+> CC: "Rafael J . Wysocki" <rjw@rjwysocki.net>, Rob Herring <robh+dt@kernel=
+.org>, Li Yang <leoyang.li@nxp.com>, Mark Rutland <mark.rutland@arm.com>, P=
+avel Machek <pavel@ucw.cz>
+> CC: Li Biwen <biwen.li@nxp.com>, Len Brown <len.brown@intel.com>, Greg Kr=
+oah-Hartman <gregkh@linuxfoundation.org>, linuxppc-dev@lists.ozlabs.org, li=
+nux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kerne=
+l@vger.kernel.org, linux-pm@vger.kernel.org, Ran Wang <ran.wang_1@nxp.com>
+>=20
+> Hi Ran,
+>=20
+> Thank you for the patch! Perhaps something to improve:
+>=20
+> [auto build test WARNING on linus/master]
+> [cannot apply to v5.4-rc4 next-20191022]
+> [if your patch is applied to the wrong git tree, please drop us a note to=
+ help
+> improve the system. BTW, we also suggest to use '--base' option to specif=
+y the
+> base tree in git format-patch, please see https://stackoverflow.com/a/374=
+06982]
+>=20
+> url:    https://github.com/0day-ci/linux/commits/Ran-Wang/PM-wakeup-Add-r=
+outine-to-help-fetch-wakeup-source-object/20191024-101743
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
+t 13b86bc4cd648eae69fdcf3d04b2750c76350053
+> config: arm64-defconfig (attached as .config)
+> compiler: clang version 10.0.0 (git://gitmirror/llvm_project bf869683c3f2=
+6827853e3c34d3c4a337069928fe)
 > reproduce:
->         git checkout 058179e72e0956a2dfe4927db6cbe5fbfb2406aa
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
+n/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
 >         # save the attached .config to linux build tree
->         make ARCH=x86_64 
-> 
+>         make.cross ARCH=3Darm64=20
+>=20
 > If you fix the issue, kindly add following tag
 > Reported-by: kbuild test robot <lkp@intel.com>
-> 
+>=20
 > All warnings (new ones prefixed by >>):
-> 
-> >> drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: warning: use of logical '&&' with constant operand [-Wconstant-logical-operand]
->            if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
->                       ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: note: use '&' for a bitwise operation
->            if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
->                       ^~
->                       &
->    drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: note: remove constant to silence this warning
->            if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
->                      ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>=20
+> >> drivers/soc/fsl/rcpm.c:72:14: warning: using the result of an assignme=
+nt as a condition without parentheses [-Wparentheses]
+>            } while (ws =3D wakeup_source_get_next(ws));
+>                     ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    drivers/soc/fsl/rcpm.c:72:14: note: place parentheses around the assig=
+nment to silence this warning
+>            } while (ws =3D wakeup_source_get_next(ws));
+>                        ^
+>                     (                              )
+>    drivers/soc/fsl/rcpm.c:72:14: note: use '=3D=3D' to turn this assignme=
+nt into an equality comparison
+>            } while (ws =3D wakeup_source_get_next(ws));
+>                        ^
+>                        =3D=3D
 >    1 warning generated.
-> 
-> vim +159 drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c
-> 
->    152	
->    153	int intel_engine_set_heartbeat(struct intel_engine_cs *engine,
->    154				       unsigned long delay)
->    155	{
->    156		int err;
->    157	
->    158		/* Send one last pulse before to cleanup persistent hogs */
->  > 159		if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
-
-Might I suggest either explicitly stating '!= 0' or casting to a
-boolean? You could also swap the CONFIG and the !delay to silence it but
-that is fragile since Clang should probably emit the same warning in
-that case (see https://bugs.llvm.org/show_bug.cgi?id=38571).
-
->    160			err = intel_engine_pulse(engine);
->    161			if (err)
->    162				return err;
->    163		}
->    164	
->    165		WRITE_ONCE(engine->props.heartbeat_interval_ms, delay);
->    166	
->    167		if (intel_engine_pm_get_if_awake(engine)) {
->    168			if (delay)
->    169				intel_engine_unpark_heartbeat(engine);
->    170			else
->    171				intel_engine_park_heartbeat(engine);
->    172			intel_engine_pm_put(engine);
->    173		}
->    174	
->    175		return 0;
->    176	}
->    177	
-> 
+>=20
+> vim +72 drivers/soc/fsl/rcpm.c
+>=20
+>     24=09
+>     25	static int rcpm_pm_prepare(struct device *dev)
+>     26	{
+>     27		int i, ret, idx;
+>     28		void __iomem *base;
+>     29		struct wakeup_source	*ws;
+>     30		struct rcpm		*rcpm;
+>     31		struct device_node	*np =3D dev->of_node;
+>     32		u32 value[RCPM_WAKEUP_CELL_MAX_SIZE + 1], tmp;
+>     33=09
+>     34		rcpm =3D dev_get_drvdata(dev);
+>     35		if (!rcpm)
+>     36			return -EINVAL;
+>     37=09
+>     38		base =3D rcpm->ippdexpcr_base;
+>     39=09
+>     40		/* Begin with first registered wakeup source */
+>     41		ws =3D wakeup_source_get_start(&idx);
+>     42		do {
+>     43			/* skip object which is not attached to device */
+>     44			if (!ws->dev->parent)
+>     45				continue;
+>     46=09
+>     47			ret =3D device_property_read_u32_array(ws->dev->parent,
+>     48					"fsl,rcpm-wakeup", value,
+>     49					rcpm->wakeup_cells + 1);
+>     50=09
+>     51			/*  Wakeup source should refer to current rcpm device */
+>     52			if (ret || (np->phandle !=3D value[0])) {
+>     53				dev_info(dev, "%s doesn't refer to this rcpm\n",
+>     54						ws->name);
+>     55				continue;
+>     56			}
+>     57=09
+>     58			for (i =3D 0; i < rcpm->wakeup_cells; i++) {
+>     59				/* We can only OR related bits */
+>     60				if (value[i + 1]) {
+>     61					if (rcpm->little_endian) {
+>     62						tmp =3D ioread32(base + i * 4);
+>     63						tmp |=3D value[i + 1];
+>     64						iowrite32(tmp, base + i * 4);
+>     65					} else {
+>     66						tmp =3D ioread32be(base + i * 4);
+>     67						tmp |=3D value[i + 1];
+>     68						iowrite32be(tmp, base + i * 4);
+>     69					}
+>     70				}
+>     71			}
+>   > 72		} while (ws =3D wakeup_source_get_next(ws));
+>     73=09
+>     74		wakeup_source_get_stop(idx);
+>     75=09
+>     76		return 0;
+>     77	}
+>     78=09
+>=20
 > ---
-> 0-DAY kernel test infrastructure                Open Source Technology Center
-> https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+> 0-DAY kernel test infrastructure                Open Source Technology Ce=
+nter
+> https://lists.01.org/pipermail/kbuild-all                   Intel Corpora=
+tion
+>=20
+
+GCC also warned on this construct:
+
+https://lore.kernel.org/lkml/201910241056.5U6SmK2P%25lkp@intel.com/
 
 Cheers,
 Nathan
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191024170819.GA40118%40ubuntu-m2-xlarge-x86.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20191024170939.GB40118%40ubuntu-m2-xlarge-x86.
