@@ -1,146 +1,130 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBVVVY7WQKGQE6DGA34A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBBMPEY7WQKGQELCJRAMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83c.google.com (mail-qt1-x83c.google.com [IPv6:2607:f8b0:4864:20::83c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6A7BBE3966
-	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 19:09:43 +0200 (CEST)
-Received: by mail-qt1-x83c.google.com with SMTP id n34sf12791654qta.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 10:09:43 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571936982; cv=pass;
+Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id 17D4BE3B50
+	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 20:49:22 +0200 (CEST)
+Received: by mail-ed1-x539.google.com with SMTP id y20sf7833719edv.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 11:49:22 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571942961; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PVFWIFBSI9UexdyzuBrq5ie4W0qfPVEmzzZB4Q0gh3HwxIwkC5krqXIAJs2AqOYKmB
-         7g4wLrHNyrhVELW8BYI1+RNFHRme/FA24H4fC/3R9+zJqxgQQZ9bQroyTLYnQOA5pLGn
-         FLm3lhUW7NMYRBUf8U0lxOaSY/0kABKBzRCcveXOtHi90/I9B6Al4titcCEahkDPhysQ
-         T0GHlC7rvyTvtgDXl+8+M4yBv6yT5LNgRZy4DArx+qRlNfU73N/Eh6uT3E82HP8KsDFO
-         rBH2BoTaT5302n1NjDR2/04vZJYfg863AJ2i/EzYROWs/YbllIbd/klJzPMp4QIVmr3/
-         InrA==
+        b=kPZF+ePDHLedzJv6YF3wd111beaYNH+BN4xiRzUnIRjyK4rhf3IfG/tT+TA0uTHEf8
+         Kv4WtbS77568nKtLWTsSVLlhZTuITDNtYX+aYwXaX/7nlAEgAw3Uh3CdGN8df/HpdrI8
+         r6buXNJeK0AbwZoQlKRvUPHE/FPNNNUtCijfU83B2vrYVPZze5k8CL8MwKXNlwJmYDwr
+         /ot5bcuVUn8f24BuKrVFqi3lSbpABHgPqsQ+lDUKFT2kwFfMEZjegal+Fs3HPfah5ae0
+         +2ty8VIhH1RemIF2bLQNJGP1Tq8kvjpWv1MpYfGAPrfg80AXGL/MlKyYjmnBHhvINmqm
+         vTLQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:sender:dkim-signature
-         :dkim-signature;
-        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
-        b=kkm1BMrpl5VoLg9X2e0Go7uZZza1BvgYeB4f2kxw7cX5sDcLxR2jTF2Kq0NNlipb2n
-         QR1bViFYF3vnkcN7NHVcILaXP5P4RLlEPeiJIGB26sm6pYY3nZhCbI4BcDkQpES+fF4B
-         RBqUmFNvnbUCZjPWpe6/cDygK3t4D/bOZorI0+ahawGjbOjG3qbK7k6buFXvZjNvLU0v
-         pBKBqHtppLEyEeBQodqMMZjnXfO2OZQwwtBhr9v97GnYMvXaDRK8vQqzQL74beZz5l+D
-         Z7GHcCo/1g8ddb48F0GD/MY6x4Jb53GPq4xFsUH42KETFh+iXku/zWDs5FHLkjyZWS5E
-         vbzg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=d5ZIUYtaRdgML2i9GPeMPTB73cYvBsXX9cFjuxTmNOo=;
+        b=jn6BNa/2MyUdBvzy3q0fMxf2wdOy8c1nIYRjYT5KVn3QUpOXVPPFtOR8/T32/f0DZY
+         DJWfucEL4MD0rgYPXZmoxwlei+HUD11c6QYKIzXIEAOD39WIN0Cay7NRV+GqoJeHu4Yd
+         Ztil3PSz6ijunKWyaly9VHn336iaAohGf9dZzhvYDOlaSmB5/0FTQjke5WqOInylmrHa
+         RvM/9P0s2UDvceqIJiV6x5W5gRooRj2+8qLNrspMEYxdUujyr4834fXKZhAPFLXQPD29
+         kZEj5uGq0pydyrfFklCJb/jfzHt79o/5pkBxB3khgV7TqxCeiyDQUk+169Ei5f+8q4uB
+         ZR8Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="O1F8D/I5";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dJ3S9OxN;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:content-transfer-encoding
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
-        b=A+kNn98erRGXtLqJYPN1BRpUMHRzTELxaJFIbLn6a9pvDn7YZJpmXtICeNjvcD5YS2
-         2qBk4oDTjbgtchmKiDALWTROhrpGVbKLxsofYk7ezmi0I0Gkbnixm+c/XUfCjVbLHc/d
-         Br8JPfdOdSMbE8OJrfwgLf9tzbJ6FHmSWhgJJATkBqb2ShrPnDSNDdAyIdOjBL8VPs2x
-         vSiYI+MGlNsQ2kfdXN4o3s9972hhCDG5K0dTgDwJo0hSsrNAKRCN6UOqFE5kzNjupesg
-         fd5/Dcl5oWTT6CtMhT93NqoaFWY7USKgnofupW0jcmGQxwuQ8IGuXyBhlwTI6yRArvwT
-         Kn7g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:content-transfer-encoding
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
-        b=KzrqetOGIt+pyIQXNTOLRtVkk1DB7ttTXt9C8d5Gaunx/uP0B0+vMgjkniKbqIbv5N
-         frSP4kDRGNuVylVCLjPeRdFDwcyoqX7Q/AD0Gf+VCIaWvy6AswgZIv1VWw7uQ5ViLxsl
-         nvYn8G8j7TQO7NZnhuCtCEv/dwGJvHj2FiHAY1a6Ve3flQDCi/K3TXziHGOB0qmTDvYt
-         wAUK5X8yO07AHA3KASD/sxexKMg4QdzLvYn27PSGDnhrRQMmc8Gq0E0qaWA3sdrLfwxk
-         T9m8ZeDTBvBVWbGs9VXhbOORgtLGRGff1utiDg4+5tnjkYE+y6WnIvjrMr2iatFFTxsx
-         zQuQ==
+        bh=d5ZIUYtaRdgML2i9GPeMPTB73cYvBsXX9cFjuxTmNOo=;
+        b=qy8FnTAHhwVM7TbRXaTorLGpuJjHmyJue2Jnt6Piw5OrBkJr1UkX6sZBHP+fSSmodP
+         dnX1NwtXqCJfZHZ22CmqYS/42lpRAumdJbZQDnooMYtpNlbecYo/rkHPX7IklfKjBOK/
+         Qnuu2EDQMNDHYjHV5/SFdeSnvO9f1tcoLrePCooYwua3auxeoXQLP+o4KSAiVlqFpiRR
+         FvUep2M2lOSS37ZIVPNFns1i1gPK/uXbXkKsPtppX3wsrLGxFLlLVPnPZ86sAYzM9MuJ
+         EPZ7I8XmmZmqc6qMxDvV9xoFmpDFe5vKVbKO+avc7guq2F3XCgauifkAM9RAvP0keJd/
+         0G9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results
-         :content-transfer-encoding:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/i/fs5WaWaVNnmhi95E7SazjB4gJ+cqITn7HrmKUWUw=;
-        b=ZENg/CGnk+WCY+fcQygeXpENlQORenBOSbiyKKUNtTQ7W2IK626H3nihL7TBhI8Uwq
-         X2uqi7/SZxkVX0RVlsjFNOifO2XMR21EoS59GrP4CpTvzuC5PRt1SXcn1pYOX4LX9wtX
-         Ukcw3lUSZCZBDW8Gulq5bsIi8sYUn5y8KaZcKb0JOjqB2qmH1A01l2ocuW7FszVKBExf
-         XX3ECSrUKogaQY1wc+ER/tytXBwjBJgSJDXalt8nuGAo8URjP0scXuO8l3qcXx11AygM
-         2f7AiuB3CaXmeFxfQgHJfbFL25C+x0fqqq3iZDOKBirbTauuOVUn7CPAWauTHruCkqnx
-         eEOQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXaRn7bfCaXgvv7QFj9Fvbg1VlyEhrKF5kt8JtBR/kzEF0z+HXD
-	LoMMpoflNhhXCpi3z6xdF90=
-X-Google-Smtp-Source: APXvYqxFB7079Tf8Cen5zt9BUGSEG4gbwn9gAK6aVfThdfRo6/C73wyMpczpoMam9kS9W1mQf2zWaw==
-X-Received: by 2002:ac8:4995:: with SMTP id f21mr5462123qtq.343.1571936982211;
-        Thu, 24 Oct 2019 10:09:42 -0700 (PDT)
+        bh=d5ZIUYtaRdgML2i9GPeMPTB73cYvBsXX9cFjuxTmNOo=;
+        b=XPMfbDsgHGz1PgrPpMubLTFPwbFKxTBrLJcw9+FNA0qs6k4n/1ra7y6F6cdAeV/Xbi
+         u3/G0aSslvwc8YQK+kh6KKM/HXq4Y7VactAgCJmnV9RwiPa/xLD2oV/5SIu7xSQzhS06
+         B7HwAcxm0Hryl6VBw2MjHEI6opP1Z2GyxzTvUFQWTBam/FifPUdOzTeQ5PRs2I8Tj2xL
+         S5P6PZUivQkOFPC+GeLjbx4zY+eG3eNGwd+ItGwzUwqqwEeb5tm0dbBwuJKMdJ9cNpJ4
+         7pg25fUuPjUEX0UQVFNb0bch3uP9u5Yrdnt04aGAmtzlCOAnMGmQ4SlDgsnmRyAx/kJb
+         d9Sw==
+X-Gm-Message-State: APjAAAUZzBlAr5sTu0IuI74qxj++hu4EHh/3olnqsOopskzaQJ41JVbH
+	QjJ0AJgVNDF57prJhdZCgDI=
+X-Google-Smtp-Source: APXvYqyfvXITMr0OdQS/aEI07S03KT7+NpmqoRUyIVYOxn+NBjCoJSDa/zqbYlKnhjAJSVsBlFrtDg==
+X-Received: by 2002:a17:906:d72:: with SMTP id s18mr23467696ejh.29.1571942961746;
+        Thu, 24 Oct 2019 11:49:21 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6289:: with SMTP id w131ls2228076qkb.15.gmail; Thu, 24
- Oct 2019 10:09:41 -0700 (PDT)
-X-Received: by 2002:a37:a345:: with SMTP id m66mr14727283qke.487.1571936981713;
-        Thu, 24 Oct 2019 10:09:41 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571936981; cv=none;
+Received: by 2002:a50:cd1e:: with SMTP id z30ls1626563edi.15.gmail; Thu, 24
+ Oct 2019 11:49:21 -0700 (PDT)
+X-Received: by 2002:a50:9254:: with SMTP id j20mr19845956eda.0.1571942961302;
+        Thu, 24 Oct 2019 11:49:21 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571942961; cv=none;
         d=google.com; s=arc-20160816;
-        b=L3oKwx0tZ1vArTGZOWRou7B4KBEY+LqqcWSj9fCNknn5HWmolkwR96eNt1ptMKMq3M
-         ezWqoyWT2d+22GSCrkbTlQND/85wOHVSrsyG+HafqcI83hVdObt4V7byuIizUAJBKsAj
-         cwbqScGfr70be/WbVvzmfg/6RtI6Hfx64j3L8re61tTbAtuv2/OnqhqiDBhYfnPojma2
-         FW1CD8kTl4vF2ZoLsnGRQIG7VmTGPP5Co3BM7EkNExiRn/ZZ9Ch1KX//idLNCnQ5Hm29
-         uW13MaSfKrqGxmLRwZVqPOPGeKh8KsX4e2xVEt7YTi41U4DMRkfuZ4HTYyHTq8N+SaTD
-         Q0AA==
+        b=r4Dvj8Ytp0UougBSyTYofXAEIQb77yjaqXDnoCauJoNpggDvtLT9lpvJYoyknO8ksL
+         53CgGHi5uOECUj88mQ/0238HxClQdpyE8UMa3b3Bt2YK8M+okWtZzC+ny2OVjE2eq1fG
+         XiI+NQSjtKY2w9PEaIoS+UO/qV1i/ERmnnmiSl9RX/Eg9xRSZzn09KgWAbr3GRAgO52U
+         lOXh0qvEBITKjgcNUDMXzjQv7kIem5z8g3uLaSBh5MW/ydWOEwgcdEz6NTZQsx8ZHaaU
+         M5NW0w4yBy1WeXnOA/bcp0u096D/+YVv55Q8ftP7BZQ3s/EPF8yk4f0Tm4mR6mQm2XaQ
+         J0aQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=yKjYqMeHq/rNi8fA86MLMxH/F5PbH59nztPuXsHmsPk=;
-        b=fljykDXBGHFtZBO8yHLOnaV8DYAZX1PjVbTAPqe0QaizWUsvzbbd2xMHAB63QIULtI
-         jZwbfHpeRK2kv3z8YsCB+8Gvu3aGeHrEZRWRVbFLE7BFOEalcdFaVpKoAWgpuCoTWSeu
-         CLqA1oOFo2PO6ZRJ6O9lLEaMQjawGQzmLTsO0hrORIZXdwfgV14x3cxUzIBHwjQ40oQn
-         8VdwCFSVxxWFzDizRu34+H5xbjFY/OIWIdQSOkP3cGa+LJnbLJ9mrL5uWwgYeSk6qyjT
-         H3GBDjLTTn1xRnESrDbaDE5qDgAKU//5krTeifyXYXS07G0a7kmzBO+6dKQkdCbh0fA0
-         LXwA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ITwmhF+SfhXrttHS8dPYpR9ZuDrzsKrnQrQApgmQKjg=;
+        b=OJFrbj0OYjcMSAncKs7RkkSIsxwFhD78JDdIKu+RM5LU9rltuuWTGZrMHnePSHbEg/
+         QX6nbLWOGRILob5uN8C3f4QOUyRLNoWBL09kPL6x+aV0+aQjIlZGUwepn7NOgjeD7n+2
+         JCdFzAswVPpO6qBOHreDWgqEwbaN+d+VXIlH3fXK9u36xfD5oWKmdWEFHarQziD2jYrk
+         qfeuL9gfZcP+ozMIoRW7WrY75WYjSor/Vd8djcoWcCkacyRdoMe2wPDBy/kHYZwfyWAe
+         +nCVDMmQ8Xntyf7akMUS03Z8PUEl1ovlZ5rhPTvNPy+TD2ApzP+yZyi0r9Gssni8dt4z
+         EV4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="O1F8D/I5";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id z90si228060qtc.3.2019.10.24.10.09.41
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dJ3S9OxN;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id b25si461288ejb.1.2019.10.24.11.49.21
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Oct 2019 10:09:41 -0700 (PDT)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id z6so21346129otb.2
-        for <clang-built-linux@googlegroups.com>; Thu, 24 Oct 2019 10:09:41 -0700 (PDT)
-X-Received: by 2002:a05:6830:10cc:: with SMTP id z12mr2878335oto.20.1571936980956;
-        Thu, 24 Oct 2019 10:09:40 -0700 (PDT)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id s66sm7314132otb.65.2019.10.24.10.09.40
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 24 Oct 2019 10:09:40 -0700 (PDT)
-Date: Thu, 24 Oct 2019 10:09:39 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: kbuild test robot <lkp@intel.com>
-Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v7 3/3] soc: fsl: add RCPM driver
-Message-ID: <20191024170939.GB40118@ubuntu-m2-xlarge-x86>
-References: <201910241421.jNfqkBvg%lkp@intel.com>
+        Thu, 24 Oct 2019 11:49:21 -0700 (PDT)
+Received-SPF: pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
+Received: by mail-wr1-x441.google.com with SMTP id z11so3854512wro.11
+        for <clang-built-linux@googlegroups.com>; Thu, 24 Oct 2019 11:49:21 -0700 (PDT)
+X-Received: by 2002:a5d:4644:: with SMTP id j4mr5507194wrs.355.1571942960507;
+ Thu, 24 Oct 2019 11:49:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <201910241421.jNfqkBvg%lkp@intel.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+References: <20191017170531.171244-1-irogers@google.com> <20191023005337.196160-1-irogers@google.com>
+ <20191023005337.196160-7-irogers@google.com> <20191023090131.GH22919@krava>
+In-Reply-To: <20191023090131.GH22919@krava>
+From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 24 Oct 2019 11:49:08 -0700
+Message-ID: <CAP-5=fWodxON9uuO5g0fh_4daJZB=8YfoBed08VmUQ=kKJvVFA@mail.gmail.com>
+Subject: Re: [PATCH v2 6/9] perf tools: add destructors for parse event terms
+To: Jiri Olsa <jolsa@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, 
+	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, Andi Kleen <ak@linux.intel.com>, 
+	Jin Yao <yao.jin@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.garry@huawei.com>, 
+	LKML <linux-kernel@vger.kernel.org>, netdev@vger.kernel.org, bpf@vger.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Stephane Eranian <eranian@google.com>
+Content-Type: multipart/alternative; boundary="000000000000c54a410595ac7df2"
+X-Original-Sender: irogers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="O1F8D/I5";       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Content-Transfer-Encoding: quoted-printable
+ header.i=@google.com header.s=20161025 header.b=dJ3S9OxN;       spf=pass
+ (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441
+ as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Ian Rogers <irogers@google.com>
+Reply-To: Ian Rogers <irogers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,138 +137,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Oct 24, 2019 at 04:01:21PM +0800, kbuild test robot wrote:
-> CC: kbuild-all@lists.01.org
-> In-Reply-To: <20191021034927.19300-3-ran.wang_1@nxp.com>
-> References: <20191021034927.19300-3-ran.wang_1@nxp.com>
-> TO: Ran Wang <ran.wang_1@nxp.com>
-> CC: "Rafael J . Wysocki" <rjw@rjwysocki.net>, Rob Herring <robh+dt@kernel=
-.org>, Li Yang <leoyang.li@nxp.com>, Mark Rutland <mark.rutland@arm.com>, P=
-avel Machek <pavel@ucw.cz>
-> CC: Li Biwen <biwen.li@nxp.com>, Len Brown <len.brown@intel.com>, Greg Kr=
-oah-Hartman <gregkh@linuxfoundation.org>, linuxppc-dev@lists.ozlabs.org, li=
-nux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kerne=
-l@vger.kernel.org, linux-pm@vger.kernel.org, Ran Wang <ran.wang_1@nxp.com>
->=20
-> Hi Ran,
->=20
-> Thank you for the patch! Perhaps something to improve:
->=20
-> [auto build test WARNING on linus/master]
-> [cannot apply to v5.4-rc4 next-20191022]
-> [if your patch is applied to the wrong git tree, please drop us a note to=
- help
-> improve the system. BTW, we also suggest to use '--base' option to specif=
-y the
-> base tree in git format-patch, please see https://stackoverflow.com/a/374=
-06982]
->=20
-> url:    https://github.com/0day-ci/linux/commits/Ran-Wang/PM-wakeup-Add-r=
-outine-to-help-fetch-wakeup-source-object/20191024-101743
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.gi=
-t 13b86bc4cd648eae69fdcf3d04b2750c76350053
-> config: arm64-defconfig (attached as .config)
-> compiler: clang version 10.0.0 (git://gitmirror/llvm_project bf869683c3f2=
-6827853e3c34d3c4a337069928fe)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
-n/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # save the attached .config to linux build tree
->         make.cross ARCH=3Darm64=20
->=20
-> If you fix the issue, kindly add following tag
-> Reported-by: kbuild test robot <lkp@intel.com>
->=20
-> All warnings (new ones prefixed by >>):
->=20
-> >> drivers/soc/fsl/rcpm.c:72:14: warning: using the result of an assignme=
-nt as a condition without parentheses [-Wparentheses]
->            } while (ws =3D wakeup_source_get_next(ws));
->                     ~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/soc/fsl/rcpm.c:72:14: note: place parentheses around the assig=
-nment to silence this warning
->            } while (ws =3D wakeup_source_get_next(ws));
->                        ^
->                     (                              )
->    drivers/soc/fsl/rcpm.c:72:14: note: use '=3D=3D' to turn this assignme=
-nt into an equality comparison
->            } while (ws =3D wakeup_source_get_next(ws));
->                        ^
->                        =3D=3D
->    1 warning generated.
->=20
-> vim +72 drivers/soc/fsl/rcpm.c
->=20
->     24=09
->     25	static int rcpm_pm_prepare(struct device *dev)
->     26	{
->     27		int i, ret, idx;
->     28		void __iomem *base;
->     29		struct wakeup_source	*ws;
->     30		struct rcpm		*rcpm;
->     31		struct device_node	*np =3D dev->of_node;
->     32		u32 value[RCPM_WAKEUP_CELL_MAX_SIZE + 1], tmp;
->     33=09
->     34		rcpm =3D dev_get_drvdata(dev);
->     35		if (!rcpm)
->     36			return -EINVAL;
->     37=09
->     38		base =3D rcpm->ippdexpcr_base;
->     39=09
->     40		/* Begin with first registered wakeup source */
->     41		ws =3D wakeup_source_get_start(&idx);
->     42		do {
->     43			/* skip object which is not attached to device */
->     44			if (!ws->dev->parent)
->     45				continue;
->     46=09
->     47			ret =3D device_property_read_u32_array(ws->dev->parent,
->     48					"fsl,rcpm-wakeup", value,
->     49					rcpm->wakeup_cells + 1);
->     50=09
->     51			/*  Wakeup source should refer to current rcpm device */
->     52			if (ret || (np->phandle !=3D value[0])) {
->     53				dev_info(dev, "%s doesn't refer to this rcpm\n",
->     54						ws->name);
->     55				continue;
->     56			}
->     57=09
->     58			for (i =3D 0; i < rcpm->wakeup_cells; i++) {
->     59				/* We can only OR related bits */
->     60				if (value[i + 1]) {
->     61					if (rcpm->little_endian) {
->     62						tmp =3D ioread32(base + i * 4);
->     63						tmp |=3D value[i + 1];
->     64						iowrite32(tmp, base + i * 4);
->     65					} else {
->     66						tmp =3D ioread32be(base + i * 4);
->     67						tmp |=3D value[i + 1];
->     68						iowrite32be(tmp, base + i * 4);
->     69					}
->     70				}
->     71			}
->   > 72		} while (ws =3D wakeup_source_get_next(ws));
->     73=09
->     74		wakeup_source_get_stop(idx);
->     75=09
->     76		return 0;
->     77	}
->     78=09
->=20
-> ---
-> 0-DAY kernel test infrastructure                Open Source Technology Ce=
-nter
-> https://lists.01.org/pipermail/kbuild-all                   Intel Corpora=
-tion
->=20
+--000000000000c54a410595ac7df2
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-GCC also warned on this construct:
+Sorry, the intent here is that patch v2 be used in preference to the 1st
+patch, it looks like you've applied both. The first patch split apart
+tracepoint_name to avoid accessing out of scope stack memory, the second
+patch allocates heap memory that is correctly destructed (and consequently
+needs 1 fewer struct tracepoint_name member). Please disregard the 1st
+patch and just apply the second series.
 
-https://lore.kernel.org/lkml/201910241056.5U6SmK2P%25lkp@intel.com/
+Thanks,
+Ian
 
-Cheers,
-Nathan
+On Wed, Oct 23, 2019 at 2:01 AM Jiri Olsa <jolsa@redhat.com> wrote:
+
+> On Tue, Oct 22, 2019 at 05:53:34PM -0700, Ian Rogers wrote:
+> > If parsing fails then destructors are ran to clean the up the stack.
+> > Rename the head union member to make the term and evlist use cases more
+> > distinct, this simplifies matching the correct destructor.
+>
+> I'm getting compilation fail:
+>
+>   CC       util/parse-events-bison.o
+> util/parse-events.y: In function =E2=80=98yydestruct=E2=80=99:
+> util/parse-events.y:125:45: error: =E2=80=98struct tracepoint_name=E2=80=
+=99 has no member
+> named =E2=80=98sys=E2=80=99; did you mean =E2=80=98sys1=E2=80=99?
+>   125 | %destructor { free ($$.sys); free ($$.event); } <tracepoint_name>
+>
+> jirka
+>
+>
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -292,4 +177,57 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20191024170939.GB40118%40ubuntu-m2-xlarge-x86.
+clang-built-linux/CAP-5%3DfWodxON9uuO5g0fh_4daJZB%3D8YfoBed08VmUQ%3DkKJvVFA=
+%40mail.gmail.com.
+
+--000000000000c54a410595ac7df2
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><div>Sorry, the intent here is that patch v2 be used i=
+n preference to the 1st patch, it looks like you&#39;ve applied both. The f=
+irst patch split apart tracepoint_name to avoid accessing=C2=A0out of scope=
+ stack memory, the second patch allocates heap memory that is correctly des=
+tructed (and consequently needs 1 fewer struct tracepoint_name member). Ple=
+ase disregard the 1st patch and just apply the second series.</div><div><br=
+></div><div>Thanks,</div><div>Ian</div></div><br><div class=3D"gmail_quote"=
+><div dir=3D"ltr" class=3D"gmail_attr">On Wed, Oct 23, 2019 at 2:01 AM Jiri=
+ Olsa &lt;<a href=3D"mailto:jolsa@redhat.com">jolsa@redhat.com</a>&gt; wrot=
+e:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0=
+.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">On Tue, Oct 2=
+2, 2019 at 05:53:34PM -0700, Ian Rogers wrote:<br>
+&gt; If parsing fails then destructors are ran to clean the up the stack.<b=
+r>
+&gt; Rename the head union member to make the term and evlist use cases mor=
+e<br>
+&gt; distinct, this simplifies matching the correct destructor.<br>
+<br>
+I&#39;m getting compilation fail:<br>
+<br>
+=C2=A0 CC=C2=A0 =C2=A0 =C2=A0 =C2=A0util/parse-events-bison.o<br>
+util/parse-events.y: In function =E2=80=98yydestruct=E2=80=99:<br>
+util/parse-events.y:125:45: error: =E2=80=98struct tracepoint_name=E2=80=99=
+ has no member named =E2=80=98sys=E2=80=99; did you mean =E2=80=98sys1=E2=
+=80=99?<br>
+=C2=A0 125 | %destructor { free ($$.sys); free ($$.event); } &lt;tracepoint=
+_name&gt;<br>
+<br>
+jirka<br>
+<br>
+</blockquote></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAP-5%3DfWodxON9uuO5g0fh_4daJZB%3D8YfoBed08VmU=
+Q%3DkKJvVFA%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https:=
+//groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfWodxON9uuO5g0fh_4daJ=
+ZB%3D8YfoBed08VmUQ%3DkKJvVFA%40mail.gmail.com</a>.<br />
+
+--000000000000c54a410595ac7df2--
