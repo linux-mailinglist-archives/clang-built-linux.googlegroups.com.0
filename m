@@ -1,120 +1,138 @@
-Return-Path: <clang-built-linux+bncBCDITI7XW4DRBXEHZDWQKGQEXHSV5UI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBO4NZDWQKGQEQY32BPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id DBB26E3CB7
-	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 22:04:44 +0200 (CEST)
-Received: by mail-ed1-x53d.google.com with SMTP id o92sf16246714edb.9
-        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 13:04:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1571947484; cv=pass;
+Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F587E3D0A
+	for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 22:17:00 +0200 (CEST)
+Received: by mail-ua1-x93e.google.com with SMTP id k13sf3450281uap.9
+        for <lists+clang-built-linux@lfdr.de>; Thu, 24 Oct 2019 13:17:00 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1571948219; cv=pass;
         d=google.com; s=arc-20160816;
-        b=iF6IHAfrOmYY1nt6Ym9ecrfwJbMwYdlcFIqLq3q9u+deVWNWvlpy5znxwfM5XmiKSR
-         i5RpqwQTZqvddGTJOTOIncn7nASeyvfTxdPo9bmDpAJ/jzUDek5tNeeMjhesJh6XkbyS
-         /T3C9iMza+l7f+1AhOj4BTutU+I974EGNo/6LTWBMsAJsw7dnlT/EeVNPXNpBa3+9Zxj
-         wfT+Earvxzx85bkSlIhP22G4tzEhzYmPWfvSmyv+ua6pdBCtNb5ZkYT/W0xhhoShRULf
-         2ZTJuxTmaVFm1PofaJjme6fFb8j4i7CwgTc0LUIulbyYsXxQXL66ufoEbPJAl5PnYaL7
-         e7sA==
+        b=DDD8+WMu6apYntCMkY/8msyRIId3TXAIysq79dwyNaUKwR1Z/AriD119foy2r9gcrV
+         NXTaaIGy1jMZhvSBjB/yfC3mOezxgRPHO8tTPL0YRisfcfe0nwVCqsSlDuZ1hVJmS3hb
+         Rvm4tuIPaOCIDaiHqn+8rAEvt8xqyppcC0pL6pe4a2TD9e6HcXd7keVmi2cmcV1JP9Uc
+         gF2xnN0s8SPalTtEdGSNx9sugD9yrA8yIHQdziFofw/JoplwqUaDVpB7YAlrErteh2Ux
+         PNPcRVp0mfXMwNINMKb20Qd3m2tMQJ38mHu47qkN/bK2PzN9cfMLOAhl4Yc596RqRym8
+         7fCQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:date:subject:user-agent:message-id
-         :references:cc:in-reply-to:from:to:mime-version:sender
-         :dkim-signature;
-        bh=GaikEQdz5qb27gh2EwR6ObbtSCzQiwIpZojzZsM6NSA=;
-        b=PwRA9CBjxRHRvNa0Xuj2fjPsHNPnLK36nPUhHzAIHL7NPeZiLrZNc+HZkLqEYsOTPA
-         K08ITgMUh77MadL0nYEHc4GJ4c7ooV7Z/0r3Dh89F1xai4Po89TC8DX9heZZ3TkuttRJ
-         dpPEINN3ZWBOFJkEB676bJmlXqXzyD/vRxjhvepUqZEAcXodNw/iu2nK+fVX5sq9dz/2
-         crg/J6AQToMev9EDMvMgUZYRcinCXnIcGgd84hBP5e5/YcHG8XnYqCeGht12kkB65em3
-         4tn1sEI4n68d2ylDSvutI9xQ5T/38KfVR/lzXLPQACu+RXZIm1m6lNWSJ3+GupIHbSb2
-         jFVw==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
+        bh=eON4Uo0lfVSIdDRg32DD+9BGqsk+qCF85z0oWLa05vQ=;
+        b=DfzympUALo9o5LFJmsinGSKdOt1EOBEqF+VqHySA1c1Io5L0LCwXy2P6qojAU73CNk
+         0Qe1L4C3dTvhcySCo0vYbgN0Id9vz6M7Xn0watYLtd6pZ4Hs4Wm7qnzbK3BSH9w3C7KJ
+         XKseSxiwDmEmJwAazV+W10biEBySxLWcDvKsHJUghJnfcRFvSAh0ECPLjpG0lcB9SKnG
+         ELoLFqHknHIEw+i+cmMp+7hLVmezTAg6GGZsGLc63yyvZm+S+xyTIJhCTMU9SqbF45Mq
+         OgzviFDu1uGXfM1y6te35IJDsCY0+u19LVmyHgFLfCsH5KeBNVpdiVq07KIi/NP1Ttjg
+         h4wg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=TknIaVe1;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:to:from:in-reply-to:cc:references:message-id
-         :user-agent:subject:date:x-original-sender
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eON4Uo0lfVSIdDRg32DD+9BGqsk+qCF85z0oWLa05vQ=;
+        b=ArfJ9bLtxFC11RyIhTxMyVB6XamdQ/raWur4hUbnSnA2y+mnQvf66KXmIXxYM4QSkm
+         wUT7+kUt71FtusvXWiORmeasQK43UqzmHQMcF2RjhE0H+ywQZWINH41O7PRHzCuX7jGV
+         WSazrwRb0Ig71M6MD8grRCwxV4eZ803vF5iKyOF/xucP4fo4WHpltQB39bXXnfHblc46
+         EX+qrNftLKudAombmKncoY3+7XFB/oUQNW6C7zS28IF4bQY8WjFHiey/TZCiK304X1Pw
+         Io2B8A2oOzNVvbCeVvQmtUZ8kKerMoAyJJ8gTxK6sdPu58u4aGN5LgfI8tLYIQfIDzav
+         Z1qA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=GaikEQdz5qb27gh2EwR6ObbtSCzQiwIpZojzZsM6NSA=;
-        b=rS41J2Mfj+DaChMvzO7sJYhAGfK5GH23a/gJhRhKqD4hMzewETHpBBDghIhcpoqBqf
-         d+GyCBm1tJEYBq8sGJiCaxjULa/UPrXgi21cpzQzPLqNDS1r1+ii8EK8EZFMXVIuNpiU
-         gr3LTPVrz+LzpCdbPu4mtAwClrN/lY42ItuvwnHpAEmGZdy7gTss5YLYyLIFV59Hw/l4
-         yuTIw9bRmDNch61/g1YSLg55sAqDTojgTtiM2JiLIknTqChuidCEHDxLRCxGGiEWHBtY
-         57j5Jni7Uv7TC+S7nkcibi6lB/zxFw+k2+ZgZqXM8gL1fAN9iKLzZBPQ30wCmLOx5uN/
-         eOBA==
+        bh=eON4Uo0lfVSIdDRg32DD+9BGqsk+qCF85z0oWLa05vQ=;
+        b=q45jofn1n+rpRMwjyBfadNnOjIonSMCfTP+yiOScLqj/nXz9F5VJ+rHT6fv7hOwCuo
+         iAJvPfKCcBPfP3wI34l1uW3C2wyvN1rAr7Hys6Y0YpaPj26ozHdt1EjujqSWuzQIihLB
+         AhPy66EnI7dnDrRBYE5B2Rcu3R7RAU16jgh27vI94xIv4+/+vZluq+9zXA7poZEuqwka
+         Td98KpIFi4wA5s0A66OkvDOtJ8vwc/mYmr0fZsObvFtOMOf5mtXh7T3qbhZfeLpEBcfg
+         /tzKLui5mdhakuR4JO7HdPsOvdtLlD7GmDz3lVugcuc3rFAPUXf2af+RuFxkiu6uP6A4
+         WmEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:to:from:in-reply-to:cc
-         :references:message-id:user-agent:subject:date:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=GaikEQdz5qb27gh2EwR6ObbtSCzQiwIpZojzZsM6NSA=;
-        b=T/qvc6AKAudtq0Ed6oc5plM7DbUUvWsfxGFOm+wLLWGZvbnaerHKLScnheg6c98QrV
-         +4O74E5p1ukBIpDa9xfGQ8kvI5KVsDu/ospj0grAmVbXylykZ2MoMpIZdbMiDTFsQH7v
-         W2ulDbp+Qx/U6Y0ql2brP4vNdDAl1GlU4EFREAyfKiw5/iANw6+XgdAMygQoAtGn3mHB
-         AIaYk1CKsi85eiGXPHrm7FUTPILW8W8KhIxfcmeoPdkpYhCfV/FXpQQzfcmeuRnMkS3f
-         LL55nPzhrsgy3c1ldvNO+J9sbsqt3xV6sOei0uyxn7qO+8OXahTI2Xl9UTzgghMfNgHX
-         lblQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=eON4Uo0lfVSIdDRg32DD+9BGqsk+qCF85z0oWLa05vQ=;
+        b=VsLuYINbl1G5qV9tBb5VtPodg/Ez6ejmpTymJG3d9KchCknKsePXqM0/d7uNelOKuz
+         gNF6M/pA/PqoZhhdlAyj3mPb/os4A22hjEW4Dze+XlFl9+XhULvPqHEyBYVns9ljG4bU
+         0j7d1PdQSRppOS2crwiRIIxtEGmsgYmgR9eEx4SHVXW+8CEPGaPft2/nrd27Zik5X25j
+         FDxgkB+hksjXvhhsaUj/Ctt/1sx4Jpp35NpnfDNm8TmAIGVJ8r+CRNw9KJLG4y884P1u
+         jPwmEs7wM9644dhmT563VRud16ZFAQKZUzrcoT7YDavjeDNHlI23mSuTC9KqGtYwA99X
+         Gf4g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUR0PCKCT5oNUqT+omQXib+rviLYMQLyvuhhXIpujmHXDwnrF2Q
-	Msuc8OQl0spQi6WN+xwbv0I=
-X-Google-Smtp-Source: APXvYqzL1TlaMNQOvDOW+OPdky5xHNbj8YP6LQZPDEfsEmU9eJpsrOi/iz1jfuy0HLTGNuo6qppp/Q==
-X-Received: by 2002:a50:97af:: with SMTP id e44mr58059edb.3.1571947484578;
-        Thu, 24 Oct 2019 13:04:44 -0700 (PDT)
+X-Gm-Message-State: APjAAAWVZIAQrfMivY/5yadtxzr7l6d2lSpy53E27yz55k9dyV3qHMcD
+	FkoWb0D836Z8hoFCfvfDVPU=
+X-Google-Smtp-Source: APXvYqwfWNblZaiaqJHdpspC55cZi6ZPI9LzrBFCOfD0KwGmHryCUQdd0hbs1JrMEoRDNdeNotkRBQ==
+X-Received: by 2002:a1f:5742:: with SMTP id l63mr139368vkb.38.1571948219503;
+        Thu, 24 Oct 2019 13:16:59 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:d58b:: with SMTP id r11ls677619edq.10.gmail; Thu, 24 Oct
- 2019 13:04:44 -0700 (PDT)
-X-Received: by 2002:aa7:d54e:: with SMTP id u14mr52651edr.49.1571947484091;
-        Thu, 24 Oct 2019 13:04:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1571947484; cv=none;
+Received: by 2002:a67:e28c:: with SMTP id g12ls721920vsf.11.gmail; Thu, 24 Oct
+ 2019 13:16:59 -0700 (PDT)
+X-Received: by 2002:a67:ebc2:: with SMTP id y2mr10354807vso.191.1571948219166;
+        Thu, 24 Oct 2019 13:16:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1571948219; cv=none;
         d=google.com; s=arc-20160816;
-        b=Fgi6BmieXWUWEY+vroYgYVcYegOl6Gm3a43yDWeLvomhJ/JiG4WCBwwGj0IZxiZKnV
-         mM1TpiuoCviPwcriuBMTq9NZkArICLI6NMojrJUcO0R8RMykD2UB85OwAR0jsAU70jqu
-         iae+JNNXAnBtzSoxWEvfFi9LhAFwhDK6CsG+RDeDaMZDS7ivQ0ZMKgxFI8De70NLODTt
-         NgLUwszV8HS3eSljSx6Eoju0+4VPBlUEx7KTghmbNRiK2LFZHcfZAcqI9IGrWZPh+X7b
-         R/C3TpBiYATIdjjb/7woowwjXF0gXyXPjLUIXbgRp2ONha5EBf5Eq/v/FLywCu/3fmtV
-         va1Q==
+        b=WXF0rOImL9KqKW1ht5f7nkkudTdUXdl5if5mSjCrBvfRlC0r8VKidyCWJWiGGadz7d
+         k2XnHByq0awG21wATMA+Lk1H3R3zHWfd5ek8NATRS7x8rVPUYxC+pF8w4pips31zP2kz
+         bH+nt057iOQEElSQgVE1KOdpSNwhf4bXAjSf6Zu4WUecTEuhXKM+lqYY6EdZ2kG1QKlk
+         cgl3CP35f4zVDjXdi2UPNIDLHqCx1qP9B7BIT70xyP5Bxub8c8eaJlNRumhHhRgJSmeu
+         ORfyWP/i4Cei+oIet2ecoZggKjPZiRH/bRhwvrYN8sXsoJy80xB60BuzD0LrgIcOEimx
+         iyzg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=date:subject:user-agent:message-id:references:cc:in-reply-to:from
-         :to:content-transfer-encoding:mime-version;
-        bh=40MZkkxVhjJNxdZJ+F2Uk/D2NFjJC9OOnwUurUNpO/4=;
-        b=P6A60dMVD/2R11Ugx64qvHNwOwR8q1if4N39IY0PMq8mntH0Qs4ElUiW4lhEYlVKhU
-         SEaw0YmUDQkOOv8Yy+mIkxdvfc7v+zAVZAI/RkvwayORzgFm+VhhIybzRsRuyGOsYQM8
-         WLXnwozMBhI0vMuzgUgTNg1pCvZF9ZPQmKKQs8O9jr19+TIEAnjsFjre/L0Ntxm3rKON
-         ITp2a+bagqeIhpRB5fFHXYQf22rqfSMmFnIjsMrRdTwEXIKUrIpZDmCIhgdsDJhyi9Ao
-         Oq9xNQOyywUPY7grRdDyg7+Ic6N6fFkGE+2TBQgI+14xY7og7AThadk9SMBjNGhjLAHd
-         EYkg==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=NoDa2hDhS4AMPTGgcpEaE/wDOgHtq9oF44sew+cusWM=;
+        b=CW07Ffci5xZ/IfqiutD8EhKQODdSyeLBoL1Bgo9ntv7tIp8VAZJcvqOx4PLZszxLZ8
+         n2n58x8C49Ouo0Yg3aIVBMV1swbzRQLrp7iyKfYXCJll2AS/05P6PmtCWddSZiDiMRdW
+         7Fms5lRQleI9Eg0CtoSxaEc9DGjAemwICqR1F+4Q5rSWK8RjfE6y7L++K24JQC1dcyEu
+         hlSdPquqabSrlab9ChOxAj22UJj/9XQr0OH0pibzlC4o6bXlKkNvnStEtyd/03wRQkxh
+         HnxG9UCq2kmAQh2aJrEHwXon1T3xSgvJOqnzlAofljuuB+dnBb1lPevbeEDZEKT8tY8t
+         CkTQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
-Received: from fireflyinternet.com (mail.fireflyinternet.com. [109.228.58.192])
-        by gmr-mx.google.com with ESMTPS id c31si169711edb.0.2019.10.24.13.04.43
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=TknIaVe1;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-oi1-x243.google.com (mail-oi1-x243.google.com. [2607:f8b0:4864:20::243])
+        by gmr-mx.google.com with ESMTPS id u206si1194901vke.2.2019.10.24.13.16.59
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 24 Oct 2019 13:04:43 -0700 (PDT)
-Received-SPF: neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) client-ip=109.228.58.192;
-X-Default-Received-SPF: pass (skip=forwardok (res=PASS)) x-ip-name=78.156.65.138;
-Received: from localhost (unverified [78.156.65.138]) 
-	by fireflyinternet.com (Firefly Internet (M1)) with ESMTP (TLS) id 18954686-1500050 
-	for multiple; Thu, 24 Oct 2019 21:04:31 +0100
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Oct 2019 13:16:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::243 as permitted sender) client-ip=2607:f8b0:4864:20::243;
+Received: by mail-oi1-x243.google.com with SMTP id o205so21772891oib.12
+        for <clang-built-linux@googlegroups.com>; Thu, 24 Oct 2019 13:16:59 -0700 (PDT)
+X-Received: by 2002:aca:4584:: with SMTP id s126mr6348066oia.21.1571948218335;
+        Thu, 24 Oct 2019 13:16:58 -0700 (PDT)
+Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id z5sm7323655oto.77.2019.10.24.13.16.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Oct 2019 13:16:57 -0700 (PDT)
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <natechancellor@gmail.com>
+Subject: [PATCH] media: v4l2-device.h: Explicitly compare grpmask to zero in v4l2_device_mask_call_all
+Date: Thu, 24 Oct 2019 13:12:41 -0700
+Message-Id: <20191024201240.49063-1-natechancellor@gmail.com>
+X-Mailer: git-send-email 2.24.0.rc1
 MIME-Version: 1.0
-To: Nathan Chancellor <natechancellor@gmail.com>
-From: Chris Wilson <chris@chris-wilson.co.uk>
-In-Reply-To: <20191024170819.GA40118@ubuntu-m2-xlarge-x86>
-Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>,
- clang-built-linux@googlegroups.com, kbuild test robot <lkp@intel.com>
-References: <201910241556.zhmi2E5w%lkp@intel.com>
- <20191024170819.GA40118@ubuntu-m2-xlarge-x86>
-Message-ID: <157194746880.2725.6247510106796004407@skylake-alporthouse-com>
-User-Agent: alot/0.6
-Subject: Re: [drm-drm-intel:drm-intel-next-queued 5/6]
- drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: warning: use of
- logical '&&' with constant operand
-Date: Thu, 24 Oct 2019 21:04:28 +0100
-X-Original-Sender: chris@chris-wilson.co.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 109.228.58.192 is neither permitted nor denied by best guess
- record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+X-Patchwork-Bot: notify
+X-Original-Sender: natechancellor@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=TknIaVe1;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::243 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -127,65 +145,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Quoting Nathan Chancellor (2019-10-24 18:08:19)
-> Hi Chris,
-> 
-> The 0day team has been doing clang builds for us and sending the results
-> to our mailing list; this one popped up. Mind taking a look at it?
-> 
-> On Thu, Oct 24, 2019 at 03:54:59PM +0800, kbuild test robot wrote:
-> > CC: kbuild-all@lists.01.org
-> > TO: Chris Wilson <chris@chris-wilson.co.uk>
-> > CC: Jon Bloomfield <jon.bloomfield@intel.com>
-> > CC: Tvrtko Ursulin <tvrtko.ursulin@intel.com>
-> > 
-> > tree:   git://anongit.freedesktop.org/drm/drm-intel drm-intel-next-queued
-> > head:   8eb8e322ec07392e8c8008437216c38c310ff6c7
-> > commit: 058179e72e0956a2dfe4927db6cbe5fbfb2406aa [5/6] drm/i915/gt: Replace hangcheck by heartbeats
-> > config: x86_64-rhel-7.6 (attached as .config)
-> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project bf869683c3f26827853e3c34d3c4a337069928fe)
-> > reproduce:
-> >         git checkout 058179e72e0956a2dfe4927db6cbe5fbfb2406aa
-> >         # save the attached .config to linux build tree
-> >         make ARCH=x86_64 
-> > 
-> > If you fix the issue, kindly add following tag
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> > 
-> > All warnings (new ones prefixed by >>):
-> > 
-> > >> drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: warning: use of logical '&&' with constant operand [-Wconstant-logical-operand]
-> >            if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
-> >                       ^  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >    drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: note: use '&' for a bitwise operation
-> >            if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
-> >                       ^~
-> >                       &
-> >    drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c:159:13: note: remove constant to silence this warning
-> >            if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
-> >                      ~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >    1 warning generated.
-> > 
-> > vim +159 drivers/gpu/drm/i915/gt/intel_engine_heartbeat.c
-> > 
-> >    152        
-> >    153        int intel_engine_set_heartbeat(struct intel_engine_cs *engine,
-> >    154                                       unsigned long delay)
-> >    155        {
-> >    156                int err;
-> >    157        
-> >    158                /* Send one last pulse before to cleanup persistent hogs */
-> >  > 159                if (!delay && CONFIG_DRM_I915_PREEMPT_TIMEOUT) {
-> 
-> Might I suggest either explicitly stating '!= 0' or casting to a
-> boolean? You could also swap the CONFIG and the !delay to silence it but
-> that is fragile since Clang should probably emit the same warning in
-> that case (see https://bugs.llvm.org/show_bug.cgi?id=38571).
+When building with Clang + -Wtautological-constant-compare, several of
+the ivtv drivers warn along the lines of:
 
-How well does IS_ENABLED() work with kconfig value types?
--Chris
+ drivers/media/pci/cx18/cx18-driver.c:1005:21: warning: converting the
+ result of '<<' to a boolean always evaluates to true
+ [-Wtautological-constant-compare]
+                         cx18_call_hw(cx, CX18_HW_GPIO_RESET_CTRL,
+                                         ^
+ drivers/media/pci/cx18/cx18-cards.h:18:37: note: expanded from macro
+ 'CX18_HW_GPIO_RESET_CTRL'
+ #define CX18_HW_GPIO_RESET_CTRL         (1 << 6)
+                                           ^
+ 1 warning generated.
+
+This is because the shift operation is implicitly converted to a boolean
+in v4l2_device_mask_call_all before being negated. This can be solved by
+just comparing the mask result to 0 explicity so that there is no
+boolean conversion.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/752
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+---
+
+I am aware that there is suddenly a style mismatch (some macros using
+!(grpmask) and this one using (grpmask) == 0) but I chose to display the
+minimal fix. If you want me to update all the macros to use this style,
+I'd be happy to in a followup patch.
+
+There are 19 of these warnings in the drivers/media/pci folder, which
+can be seen here:
+
+https://github.com/ClangBuiltLinux/linux/issues/488#issuecomment-545218125
+
+This is the simplest fix but if you all prefer an alternative one, I
+would be happy to see/review/test it. The ultimate goal is to get
+-Wtautological-compare enabled because there are several subwarnings
+that would be helpful to have and right now they are all disabled:
+
+https://github.com/ClangBuiltLinux/linux/issues/488
+
+ include/media/v4l2-device.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/media/v4l2-device.h b/include/media/v4l2-device.h
+index e0b8f2602670..8564b3227887 100644
+--- a/include/media/v4l2-device.h
++++ b/include/media/v4l2-device.h
+@@ -431,8 +431,8 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
+ 		struct v4l2_subdev *__sd;				\
+ 									\
+ 		__v4l2_device_call_subdevs_p(v4l2_dev, __sd,		\
+-			!(grpmsk) || (__sd->grp_id & (grpmsk)), o, f ,	\
+-			##args);					\
++			(grpmsk) == 0 || (__sd->grp_id & (grpmsk)), o,	\
++			f , ##args);					\
+ 	} while (0)
+ 
+ /**
+-- 
+2.24.0.rc1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157194746880.2725.6247510106796004407%40skylake-alporthouse-com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191024201240.49063-1-natechancellor%40gmail.com.
