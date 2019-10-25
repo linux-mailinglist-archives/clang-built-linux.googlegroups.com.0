@@ -1,113 +1,111 @@
-Return-Path: <clang-built-linux+bncBDPPFIEASMFBB2NCZTWQKGQEWCASBQI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBBDVSZTWQKGQEDJNAWJA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 71CBBE4FE2
-	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 17:14:49 +0200 (CEST)
-Received: by mail-ed1-x53d.google.com with SMTP id w24sf1632994edx.16
-        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 08:14:49 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572016489; cv=pass;
+Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id B26D1E505E
+	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 17:47:26 +0200 (CEST)
+Received: by mail-wr1-x437.google.com with SMTP id e25sf1445256wra.9
+        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 08:47:26 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572018446; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QicYNI0cH+1gow2+Rfsdb2kMcaCQNVYldZ8zeibL3gDwYhrIVa3hhfnf+m8kBN7rpZ
-         vqT6aq16YeUpzQDpzo/zglCISMd0y55Wfhh7/WUR5o4/RonKdJbNgsZp3hsPRaZvxOXh
-         yLNXlqVcMIJhAGkT3qU3QH3DGb0DDXWMtOhRmDr2cMwV73U2HnjTd65U2iw4ertyyFKw
-         yq+2ByFHlHbD5Z3rMP+cr+dJGXtREqCkmQ5KbLMSvAI7xrcJBBnv8btaqDAkeTCjIjrX
-         CrepKRupc+aNUR53N89vBaZGpQ43O7sSjbqJxWQHO9D+Dh/aVZzEtnVqwmrFTkHnymH+
-         Uh8w==
+        b=XwWVHVxiK3O1akUCyyMLgu52JCaU153w+QroThsF0qoL13q25SUNp8vCGq41LTIyn5
+         z+rPJ+DX7ueOsOrcYeOB30pbRyIGgQ7tZ1IUS7EMvGhWC4O/c/tiY4Ngemiay5b49Zq5
+         SRierAliQvWesmIbdjcWG1Zs70y+teOE2LnCDh9Ix4Oh3yUK35fu4+lQ1avynvJzV8M3
+         fVTHEMjnT+aC3KzBe/Zjn+hapbdNo0kdwa0lTWcAIr/j4r6BF5MM4ezblDmEVC1prysI
+         zVyUM28+T1/fHZQRDkj3EYpKIIDoC8YUcN266o1cu7DOygm/0CUyDRE0Fy3xhJtGd7O+
+         +swA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=hZeIncGOaVyOX7Fsvlsnfdqm72QeQJWks8bPwizvrjQ=;
-        b=JWUJ6/+LsPa6tiQGR5/EFaf2SyPKXcLyAI92dLFyvBlLNkVViTfQ7KxZKb0Vc2ggu9
-         IF0/cTq5ajIZW1e1ju6Vp7Bk3ofNy0dCDDD9hGXPXyiVm5lgfzxRwN5RM484BKIpJbm9
-         iP8v8/NO5Z5qsvdzAMQ9p565ItwwUkDTJA1K2vPw9kbxcQdYNBqiOKA26KJwWQ6HYaxp
-         SztHZXRZuQIRbMWs/dAXC7/StgoFza9W7pemeQ6rvJpwBuVmxHpyPkImpYFMLswfyHjY
-         wrkNLVOfN73y12n8QxANx5sA3mi4aevHsnyi3Lcj8NdrhMiaiFXPdG8XJ0RlQ9aGjtCo
-         ehAw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=8HLUNCoEC05qLHGLeKrn2nt1M/6QHSZ4uzzn7MF/Bbo=;
+        b=Dnu+93CbBcJdJacLQ09UTc8LgeOOdqOJ67ewmiNpHNHPR19j0F3I0+OhXMxQUX0kRr
+         KMiyYd1UHioltbCceCsmCGW4Pkb27+Mj0H1PMXT+zkM4TsltdbRFfbbpwenxZBXqH+8m
+         tG03+IDdD30N0A0MISGfui5oc7HS4jmZEJE1ACnJD/nOP4QMuZvOdMeecI3KqXnFbewn
+         fdVFZ5uriYmiji+1CLzbBtL4vn7jWIquYG12EN9qnAJn/So3Pm+bedo9HevRQvHK1syU
+         13cEmXh/bWuFHB2oMG23e5ZZtRKGC8hz/3uVo0VWy5w70Wo9gieO6cc7XVybbMBlvDX4
+         XLrA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=HTlq9o3+;
-       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ga91dKJk;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=irogers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=hZeIncGOaVyOX7Fsvlsnfdqm72QeQJWks8bPwizvrjQ=;
-        b=IvUw8yTgGNHn65khbQyXPBTNPnO1aYzYoU0y31WRFvts8R6itYCEgJnjdSyzpegeJl
-         enOZz/y8oj6Z8qrbSJXjLuA4/9YhjQWqsVQXaDwnnYSSSBiNCw8BL1JaqG8UGMzkDcUB
-         Ln3E2iqH4bJzSWR9soseIgQe2cN1wOkP8TqvqpaiUoh6Vb3Z6azDadacRv87aai3vBbi
-         nhTrkxYnWTAqvkCpsB1XjzdnZmRF5303X8UAKC43klkcjpXIvoOVnLMmx9nOwxEQJIx4
-         OwFSWcvSM/iZKtHholazq3VcOeMIISMi9yExN/lSPduKx3Jq4ciViHI9PIU4usbmrO5d
-         JuzA==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8HLUNCoEC05qLHGLeKrn2nt1M/6QHSZ4uzzn7MF/Bbo=;
+        b=k21vQh71H/V1m5H9dJ0OS+dPoFXDZYvmw8Ket/1P248wdTx84irtWMrNDgVkUq9JjI
+         z/egr4GpQFEZiMyftDjNVf8XSwXgN2TWrnS9UsFyjtjNV8dXceXlUW8GqEA7F0+19CIq
+         AXSoNUckBDS91Aux2F82XdcB9BwK32ukWe4J1HGtzN6GgRNUbK9gQzJMZUBbreRVcfzi
+         NRExvaIw59cZnaDuNCEFT76PXcsxdDdCPCApmxAfRLpeS8gmLKuc9MiR0ukfoefTsZSu
+         92zd18bO1IbaDchZHGcpHdKP9HMpuOkDx8W9r4EfvOtNqwbhC0flic4yKpWfPD9Mg01M
+         yfRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=hZeIncGOaVyOX7Fsvlsnfdqm72QeQJWks8bPwizvrjQ=;
-        b=IFf5Jbsuy+w1neMkV7d+WpdqhPBv1uYI4FT/m4yzKePFriscWek4quSQ+3hppRvyDB
-         RJzWHANbGCHWHBck1BgrCHeJSnPoOTtAUtwTO9FRVSoAlkDJAEpfalrQUI0O2QcSQksz
-         a24tRTR8lInTWuLj0vNEMsVJM2CbpoDWS7rOQHPM2Y1MgyWtwWvNC5nzaSnm6snibrDs
-         bmu1Z0QMF6eG4hzZoQ8B6AVjiFXfmWk7Ypl6ImKmkv18lwn2bc/WztRaALah/U1q0/NB
-         q5C7t4IFJwGHRPmMyTdLe+qf1UyZFy5157GpXEJGtRpnqPR9vb4VwGRwMX6/R5aA73Ia
-         VFzw==
-X-Gm-Message-State: APjAAAXFp7jDh9qohUkrkvUwi7h0PNiVwN4BvRcHwwTT1F3GJtYDjIid
-	2ZExyKvgpLtZWLiPcbmnqKA=
-X-Google-Smtp-Source: APXvYqwR//1Xqu4lniJudhT2oXGrhPGByc7WSgD4HYdq+wQn5dYu4fcRRLVOUGB9P2819m4sI/7USw==
-X-Received: by 2002:aa7:cd79:: with SMTP id ca25mr4570008edb.33.1572016489125;
-        Fri, 25 Oct 2019 08:14:49 -0700 (PDT)
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=8HLUNCoEC05qLHGLeKrn2nt1M/6QHSZ4uzzn7MF/Bbo=;
+        b=iLKYSDuxMidn47FxHMg8vFi6xM1R66g2zQqdi2qmvyEhlYLCSmD4CBBFG1YNY2qvEv
+         lAhZhulp3qQDjwzRJQnlB0Iw4KXgWBvStTueld6h9GmmsUQbxuUGhKpsfM/VF4xMjmY1
+         d/tvpiwK5b4ZUAdFEiNwawZseHP+SnvaS1b2fS9avusSjN1Jt/B5+2648dhVc8PV3Mkg
+         Xdj/1Do0zklU7gpeAs8F8HRGHWdZSaNzeXyBVdSFcIma7Sz4tn32/Sci1Q7ALMfnA2CD
+         q8gfp/lPA56xZVHt4w2Y+JLF5rO43WBMTidxep70SVuhpvo3ztbfaK/Hi0ki1xMCOmZo
+         fqPg==
+X-Gm-Message-State: APjAAAV/cBHrOBGKZIvl4d3SRu1lt4py0dNKAuZBq7hftYAMlB+dLUUw
+	+9L6Fhg8/PVRckYBOeArXhs=
+X-Google-Smtp-Source: APXvYqwh3i4rvDRmtjQnmYA/B27f6hfk9r6f015kxa7EHXq0QpH2RKegoCYp2WFCA2O1cNLQIyuvaQ==
+X-Received: by 2002:a1c:2342:: with SMTP id j63mr4004256wmj.56.1572018446389;
+        Fri, 25 Oct 2019 08:47:26 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:d98d:: with SMTP id u13ls2336343eds.12.gmail; Fri, 25
- Oct 2019 08:14:48 -0700 (PDT)
-X-Received: by 2002:a50:b63b:: with SMTP id b56mr2874506ede.165.1572016488622;
-        Fri, 25 Oct 2019 08:14:48 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572016488; cv=none;
+Received: by 2002:adf:8b1d:: with SMTP id n29ls6292159wra.8.gmail; Fri, 25 Oct
+ 2019 08:47:25 -0700 (PDT)
+X-Received: by 2002:a5d:404d:: with SMTP id w13mr3855388wrp.185.1572018445936;
+        Fri, 25 Oct 2019 08:47:25 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572018445; cv=none;
         d=google.com; s=arc-20160816;
-        b=FP44XVoDxbZCRSuOVp+4DLdaQrFN6dIZAVoRDh/ngOG20G44SXU6BTHnPiGzpPOjmq
-         5FECSg+5ckPW1f5LxRnWIeErk1IvQeHbGWedib7LCjaVqutdDHq0ctQs8Jnr6EfomsHd
-         NPR6jC2ttbuth5tcytQn7bVFIIxBxzPib5fNVu3T2eYB4BahE+r6sCjC/K9qXtDUEjhB
-         0UfQUzSusQd8MifAWq+9531DW4jfAWbkU5j/h2kH/ZHkyy+BgBcvqk6Gl2dLJpFX5ESS
-         SKRjzAn9vqYzkUuVJwZQTuAt1RiMTSKuEpQGwvPG1shbno08vwowXD2RbV9QzVcL16XO
-         hDgQ==
+        b=sgm9Sqb396nkflduBgCtGAPlLB1v1nvV2bIO+yALygYkMzlVxYlE0c247dQ7uKpZnw
+         b3htnMlWD8fMRm6aMqwmxqFaAIRqOJC8/mqyvqiV4CBX+xTCq94WIV3oQp4S8i9vvXvU
+         jkUw4Vs/xNs9C3kACSPIIhqWs7CyzsagDhhQAsBanc5YgTHa91j6Oc5K6ZwjyiLDiSej
+         PTvuQrYOiV9xDO9RMtzU/zJeWCxgZnLzLfA/5EY6TkQw8AgwrYu5Nha9mrPX+A0uJ00R
+         pqr0BcN1gC6HOtbBpcOzC4XS5KezuPxsbw2zZutFF6/9m2ZNU2xiCAL01445zWqiaMRh
+         wRTw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=T+Bv0KDvuw3zXjFcMykuhlzsgcG5x86hqhsyWGKJAKE=;
-        b=mf31UjmnZuHMeDuFwS6pRgYZNZZ17OfWw7S8l4en2Vb4J9iyYt1rEIvcMDIGDyIuiw
-         uxifGB0qeBmdEcdfBW8bCSCsPLzxddmNlJRPcSQpkAUx6S9dMaidZgQYiekzf5hS8DNK
-         s8T5IUtPqjpvfPFenSNcsn/NFykTeRGP1zG5t1QJ0iF9c5pX0aOUMNbFZGt9IMsLPwm+
-         OOOqpqdgEgOdKFpf9UzMw5on7p3R3SrvZ62VDItq9GhksGQjiA9Htr7F/DQhrcfxb36K
-         DyBmQiHzQe/mdToiOw9AIodYTNMzrrqouKXhJqF4WovrTEHSuiU2K+RyiMqwmE/h61RF
-         1a0Q==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=fo4JPUIMC83Jn+ORQE5fOd6wpwt98Yvm2b1ZRTBSf+k=;
+        b=JoIH7eOXLjgmZMAwZacyyKrut/6Q7yGLbwn2sEb2el3Af1q8bYvALWInIp7bOFHgzU
+         C1+qLocNrzWy47+UVXsAyXk49KyHjzYZGvwveoZU/sI//EdRm0Fd1virUVz+yVHLPIpm
+         i4JYByrPg2r+r4QYUcXJ7WJ6ZsYu3Jgv42CKLjppEQmaJmxPQ0s4+tp4MACEfhrgB5np
+         G/Lb7xKtOLd/GcEzRBW0HZBw8hTZoE1fX/gA/34ZdaTkMIoxt7j2zzjmH/b74FNep5q4
+         hstqtxwlNxgMWkZ1viEIvle72oEePFDe31GzvSrBXCen7bGFbgOxnqYofZVLFDD3VcZf
+         noUw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=HTlq9o3+;
-       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=ga91dKJk;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=irogers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id c31si151683edb.0.2019.10.25.08.14.48
+Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id z8si128492wmi.1.2019.10.25.08.47.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2019 08:14:48 -0700 (PDT)
-Received-SPF: pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
-Received: by mail-wr1-x441.google.com with SMTP id v9so2763760wrq.5
-        for <clang-built-linux@googlegroups.com>; Fri, 25 Oct 2019 08:14:48 -0700 (PDT)
-X-Received: by 2002:a5d:6785:: with SMTP id v5mr3524578wru.174.1572016487559;
- Fri, 25 Oct 2019 08:14:47 -0700 (PDT)
+        Fri, 25 Oct 2019 08:47:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
+Received: by mail-wr1-x444.google.com with SMTP id p4so2877602wrm.8
+        for <clang-built-linux@googlegroups.com>; Fri, 25 Oct 2019 08:47:25 -0700 (PDT)
+X-Received: by 2002:adf:e651:: with SMTP id b17mr3130375wrn.191.1572018445122;
+ Fri, 25 Oct 2019 08:47:25 -0700 (PDT)
 MIME-Version: 1.0
 References: <20191023005337.196160-1-irogers@google.com> <20191024190202.109403-1-irogers@google.com>
- <20191024190202.109403-2-irogers@google.com> <20191025075820.GE31679@krava>
-In-Reply-To: <20191025075820.GE31679@krava>
+ <20191024190202.109403-3-irogers@google.com> <20191025080142.GF31679@krava>
+In-Reply-To: <20191025080142.GF31679@krava>
 From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 25 Oct 2019 08:14:36 -0700
-Message-ID: <CAP-5=fV3yruuFagTz4=8b9t6Y1tzZpFU=VhVcOmrSMiV+h2fQA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/9] perf tools: add parse events append error
+Date: Fri, 25 Oct 2019 08:47:12 -0700
+Message-ID: <CAP-5=fWoHN9wqWasZyyu8mB99-1SOP3NhTT9XX6d99aTG6-AOA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/9] perf tools: splice events onto evlist even on error
 To: Jiri Olsa <jolsa@redhat.com>
 Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -119,11 +117,10 @@ Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	LKML <linux-kernel@vger.kernel.org>, netdev@vger.kernel.org, bpf@vger.kernel.org, 
 	clang-built-linux <clang-built-linux@googlegroups.com>, Stephane Eranian <eranian@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: irogers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=HTlq9o3+;       spf=pass
- (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441
+ header.i=@google.com header.s=20161025 header.b=ga91dKJk;       spf=pass
+ (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::444
  as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Ian Rogers <irogers@google.com>
@@ -140,438 +137,185 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Oct 25, 2019 at 12:58 AM Jiri Olsa <jolsa@redhat.com> wrote:
+On Fri, Oct 25, 2019 at 1:01 AM Jiri Olsa <jolsa@redhat.com> wrote:
 >
-> On Thu, Oct 24, 2019 at 12:01:54PM -0700, Ian Rogers wrote:
-> > Parse event error handling may overwrite one error string with another
-> > creating memory leaks and masking errors. Introduce a helper routine
-> > that appends error messages and avoids the memory leak.
+> On Thu, Oct 24, 2019 at 12:01:55PM -0700, Ian Rogers wrote:
+> > If event parsing fails the event list is leaked, instead splice the list
+> > onto the out result and let the caller cleanup.
 > >
-> > A reproduction of this problem can be seen with:
-> >   perf stat -e c/c/
-> > After this change this produces:
-> > event syntax error: 'c/c/'
-> >                        \___ unknown term (previous error: unknown term =
-(previous error: unknown term (previous error: unknown term (previous error=
-: unknown term (previous error: unknown term (previous error: unknown term =
-(previous error: unknown term (previous error: unknown term (previous error=
-: unknown term (previous error: unknown term (previous error: unknown term =
-(previous error: unknown term (previous error: unknown term (previous error=
-: unknown term (previous error: unknown term (previous error: unknown term =
-(previous error: unknown term (previous error: unknown term (previous error=
-: unknown term (previous error: unknown term (previous error: Cannot find P=
-MU `c'. Missing kernel support?)(help: valid terms: event,filter_rem,filter=
-_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,filter_opc=
-1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,config,c=
-onfig1,config2,name,period,percore))(help: valid terms: event,filter_rem,fi=
-lter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,filter=
-_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,conf=
-ig,config1,config2,name,period,percore))(help: valid terms: event,filter_re=
-m,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,fi=
-lter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,=
-config,config1,config2,name,period,percore))(help: valid terms: event,filte=
-r_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umas=
-k,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter=
-_nm,config,config1,config2,name,period,percore))(help: valid terms: event,f=
-ilter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,=
-umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,fi=
-lter_nm,config,config1,config2,name,period,percore))(help: valid terms: eve=
-nt,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,=
-inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_stat=
-e,filter_nm,config,config1,config2,name,period,percore))(help: valid terms:=
- event,pc,in_tx,edge,any,offcore_rsp,in_tx_cp,ldlat,inv,umask,frontend,cmas=
-k,config,config1,config2,name,period,percore))(help: valid terms: event,fil=
-ter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,um=
-ask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filt=
-er_nm,config,config1,config2,name,period,percore))(help: valid terms: event=
-,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,in=
-v,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,=
-filter_nm,config,config1,config2,name,period,percore))(help: valid terms: e=
-vent,config,config1,config2,name,period,percore))(help: valid terms: event,=
-filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv=
-,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,f=
-ilter_nm,config,config1,config2,name,period,percore))(help: valid terms: ev=
-ent,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc=
-,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_sta=
-te,filter_nm,config,config1,config2,name,period,percore))(help: valid terms=
-: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filte=
-r_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter=
-_state,filter_nm,config,config1,config2,name,period,percore))(help: valid t=
-erms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,f=
-ilter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,fi=
-lter_state,filter_nm,config,config1,config2,name,period,percore))(help: val=
-id terms: event,config,config1,config2,name,period,percore))(help: valid te=
-rms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,fi=
-lter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,fil=
-ter_state,filter_nm,config,config1,config2,name,period,percore))(help: vali=
-d terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_lo=
-c,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm=
-,filter_state,filter_nm,config,config1,config2,name,period,percore))(help: =
-valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filte=
-r_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_no=
-t_nm,filter_state,filter_nm,config,config1,config2,name,period,percore))(he=
-lp: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,f=
-ilter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filte=
-r_not_nm,filter_state,filter_nm,config,config1,config2,name,period,percore)=
-)(help: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_t=
-id,filter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,f=
-ilter_not_nm,filter_state,filter_nm,config,config1,config2,name,period,perc=
-ore))
+> > An example input for parse_events found by libFuzzer that reproduces
+> > this memory leak is 'm{'.
+> >
+> > Signed-off-by: Ian Rogers <irogers@google.com>
+> > ---
+> >  tools/perf/util/parse-events.c | 17 +++++++++++------
+> >  1 file changed, 11 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+> > index edb3ae76777d..f0d50f079d2f 100644
+> > --- a/tools/perf/util/parse-events.c
+> > +++ b/tools/perf/util/parse-events.c
+> > @@ -1968,15 +1968,20 @@ int parse_events(struct evlist *evlist, const char *str,
+> >
+> >       ret = parse_events__scanner(str, &parse_state, PE_START_EVENTS);
+> >       perf_pmu__parse_cleanup();
+> > +
+> > +     if (!ret && list_empty(&parse_state.list)) {
+> > +             WARN_ONCE(true, "WARNING: event parser found nothing\n");
+> > +             return -1;
+> > +     }
+> > +
+> > +     /*
+> > +      * Add list to the evlist even with errors to allow callers to clean up.
+> > +      */
+> > +     perf_evlist__splice_list_tail(evlist, &parse_state.list);
 >
+> I still dont understand this one.. if there was an error, the list
+> should be empty, right? also if there's an error and there's something
+> on the list, what is it? how it gets deleted?
 >
-> hum... I'd argue that the previous state was better:
->
-> [jolsa@krava perf]$ ./perf stat -e c/c/
-> event syntax error: 'c/c/'
->                        \___ unknown term
->
->
+> thanks,
 > jirka
 
-I am agnostic. We can either have the previous state or the new state,
-I'm keen to resolve the memory leak. Another alternative is to warn
-that multiple errors have occurred before dropping or printing the
-previous error. As the code is shared in memory places the approach
-taken here was to try to not conceal anything that could potentially
-be useful. Given this, is the preference to keep the status quo
-without any warning?
+What I see happening with PARSER_DEBUG for 'm{' is (I've tried to
+manually tweak the line numbers to be consistent with the current
+parse-events.y, sorry for any discrepancies):
+
+Starting parse
+Entering state 0
+Reading a token: Next token is token PE_START_EVENTS (1.1: )
+Shifting token PE_START_EVENTS (1.1: )
+Entering state 1
+Reading a token: Next token is token PE_EVENT_NAME (1.0: )
+Shifting token PE_EVENT_NAME (1.0: )
+Entering state 8
+Reading a token: Next token is token PE_NAME (1.0: )
+Shifting token PE_NAME (1.0: )
+Entering state 46
+Reading a token: Next token is token '{' (1.1: )
+Reducing stack by rule 50 (line 510):
+-> $$ = nterm opt_event_config (1.0: )
+Stack now 0 1 8 46
+Entering state 51
+Reducing stack by rule 27 (line 229):
+  $1 = token PE_NAME (1.0: )
+  $2 = nterm opt_event_config (1.0: )
+-> $$ = nterm event_pmu (1.0: )
+Stack now 0 1 8
+Entering state 25
+Reducing stack by rule 19 (line 219):
+  $1 = nterm event_pmu (1.0: )
+-> $$ = nterm event_def (1.0: )
+Stack now 0 1 8
+Entering state 47
+Reducing stack by rule 17 (line 210):
+  $1 = token PE_EVENT_NAME (1.0: )
+  $2 = nterm event_def (1.0: )
+-> $$ = nterm event_name (1.0: )
+Stack now 0 1
+Entering state 23
+Next token is token '{' (1.1: )
+Reducing stack by rule 16 (line 207):
+  $1 = nterm event_name (1.0: )
+-> $$ = nterm event_mod (1.0: )
+Stack now 0 1
+Entering state 22
+Reducing stack by rule 14 (line 191):
+  $1 = nterm event_mod (1.0: )
+-> $$ = nterm event (1.0: )
+Stack now 0 1
+Entering state 21
+Reducing stack by rule 7 (line 147):
+  $1 = nterm event (1.0: )
+-> $$ = nterm groups (1.0: )
+Stack now 0 1
+Entering state 18
+Next token is token '{' (1.1: )
+Reducing stack by rule 3 (line 119):
+  $1 = nterm groups (1.0: )
+-> $$ = nterm start_events (1.0: )
+Stack now 0 1
+Entering state 17
+Reducing stack by rule 1 (line 115):
+  $1 = token PE_START_EVENTS (1.1: )
+  $2 = nterm start_events (1.0: )
+-> $$ = nterm start (1.1: )
+Stack now 0
+Entering state 3
+Next token is token '{' (1.1: )
+Error: popping nterm start (1.1: )
+Stack now 0
+Cleanup: discarding lookahead token '{' (1.1: )
+Stack now 0
+
+Working backward through this we're going:
+start: PE_START_EVENTS start_events
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L115
+
+start_events: groups
+{
+struct parse_events_state *parse_state = _parse_state;
+parse_events_update_lists($1, &parse_state->list); // <--- where list
+gets onto the state
+}
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L119
+
+groups: event
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L147
+
+event: event_mod
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L191
+
+event_mod: event_name
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L207
+
+event_name: PE_EVENT_NAME event_def
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L210
+
+event_def: event_pmu
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L219
+
+event_pmu: PE_NAME opt_event_config
+{
+...
+ALLOC_LIST(list);  // <--- where list gets allocated
+...
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L229
+
+opt_event_config:
+https://github.com/torvalds/linux/blob/master/tools/perf/util/parse-events.y#L510
+
+So the parse_state is ending up with a list, however, parsing is
+failing. If the list isn't adding to the evlist then it becomes a
+leak. Splicing it onto the evlist allows the caller to clean this up
+and avoids the leak. An alternate approach is to free the failed list
+and not get the caller to clean up. A way to do this is to create an
+evlist, splice the failed list onto it and then free it - which winds
+up being fairly identical to this approach, and this approach is a
+smaller change.
 
 Thanks,
 Ian
 
-> >
-> > valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,f=
-ilter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filte=
-r_not_nm,filter_state,filter_nm,config,config1,config2,name,period,percore
-> > Run 'perf list' for a list of valid events
-> >
-> >  Usage: perf stat [<options>] [<command>]
-> >
-> >     -e, --event <event>   event selector. use 'perf list' to list avail=
-able events
-> >
-> > Signed-off-by: Ian Rogers <irogers@google.com>
-> > ---
-> >  tools/perf/util/parse-events.c | 100 +++++++++++++++++++++++----------
-> >  tools/perf/util/parse-events.h |   2 +
-> >  tools/perf/util/pmu.c          |  30 ++++++----
-> >  3 files changed, 89 insertions(+), 43 deletions(-)
-> >
-> > diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-eve=
-nts.c
-> > index db882f630f7e..edb3ae76777d 100644
-> > --- a/tools/perf/util/parse-events.c
-> > +++ b/tools/perf/util/parse-events.c
-> > @@ -182,6 +182,38 @@ static int tp_event_has_id(const char *dir_path, s=
-truct dirent *evt_dir)
-> >
-> >  #define MAX_EVENT_LENGTH 512
-> >
-> > +void parse_events__append_error(struct parse_events_error *err, int id=
-x,
-> > +                             char *str, char *help)
-> > +{
-> > +     char *new_str =3D NULL;
 > > +
-> > +     if (WARN(!str, "WARNING: failed to provide error string")) {
-> > +             free(help);
-> > +             return;
-> > +     }
-> > +     if (err->str) {
-> > +             int ret;
-> > +
-> > +             if (err->help) {
-> > +                     ret =3D asprintf(&new_str,
-> > +                             "%s (previous error: %s(help: %s))",
-> > +                             str, err->str, err->help);
-> > +             } else {
-> > +                     ret =3D asprintf(&new_str,
-> > +                             "%s (previous error: %s)",
-> > +                             str, err->str);
-> > +             }
-> > +             if (ret < 0)
-> > +                     new_str =3D NULL;
-> > +             else
-> > +                     zfree(&str);
-> > +     }
-> > +     err->idx =3D idx;
-> > +     free(err->str);
-> > +     err->str =3D new_str ?: str;
-> > +     free(err->help);
-> > +     err->help =3D help;
-> > +}
+> >       if (!ret) {
+> >               struct evsel *last;
 > >
-> >  struct tracepoint_path *tracepoint_id_to_path(u64 config)
-> >  {
-> > @@ -932,11 +964,11 @@ static int check_type_val(struct parse_events_ter=
-m *term,
-> >               return 0;
-> >
-> >       if (err) {
-> > -             err->idx =3D term->err_val;
-> > -             if (type =3D=3D PARSE_EVENTS__TERM_TYPE_NUM)
-> > -                     err->str =3D strdup("expected numeric value");
-> > -             else
-> > -                     err->str =3D strdup("expected string value");
-> > +             parse_events__append_error(err, term->err_val,
-> > +                                     type =3D=3D PARSE_EVENTS__TERM_TY=
-PE_NUM
-> > +                                     ? strdup("expected numeric value"=
-)
-> > +                                     : strdup("expected string value")=
-,
-> > +                                     NULL);
-> >       }
-> >       return -EINVAL;
-> >  }
-> > @@ -972,8 +1004,11 @@ static bool config_term_shrinked;
-> >  static bool
-> >  config_term_avail(int term_type, struct parse_events_error *err)
-> >  {
-> > +     char *err_str;
-> > +
-> >       if (term_type < 0 || term_type >=3D __PARSE_EVENTS__TERM_TYPE_NR)=
- {
-> > -             err->str =3D strdup("Invalid term_type");
-> > +             parse_events__append_error(err, -1,
-> > +                                     strdup("Invalid term_type"), NULL=
-);
-> >               return false;
-> >       }
-> >       if (!config_term_shrinked)
-> > @@ -992,9 +1027,9 @@ config_term_avail(int term_type, struct parse_even=
-ts_error *err)
-> >                       return false;
-> >
-> >               /* term_type is validated so indexing is safe */
-> > -             if (asprintf(&err->str, "'%s' is not usable in 'perf stat=
-'",
-> > -                          config_term_names[term_type]) < 0)
-> > -                     err->str =3D NULL;
-> > +             if (asprintf(&err_str, "'%s' is not usable in 'perf stat'=
-",
-> > +                             config_term_names[term_type]) >=3D 0)
-> > +                     parse_events__append_error(err, -1, err_str, NULL=
-);
-> >               return false;
-> >       }
-> >  }
-> > @@ -1036,17 +1071,20 @@ do {                                           =
-                          \
-> >       case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
-> >               CHECK_TYPE_VAL(STR);
-> >               if (strcmp(term->val.str, "no") &&
-> > -                 parse_branch_str(term->val.str, &attr->branch_sample_=
-type)) {
-> > -                     err->str =3D strdup("invalid branch sample type")=
-;
-> > -                     err->idx =3D term->err_val;
-> > +                 parse_branch_str(term->val.str,
-> > +                                 &attr->branch_sample_type)) {
-> > +                     parse_events__append_error(err, term->err_val,
-> > +                                     strdup("invalid branch sample typ=
-e"),
-> > +                                     NULL);
-> >                       return -EINVAL;
-> >               }
-> >               break;
-> >       case PARSE_EVENTS__TERM_TYPE_TIME:
-> >               CHECK_TYPE_VAL(NUM);
-> >               if (term->val.num > 1) {
-> > -                     err->str =3D strdup("expected 0 or 1");
-> > -                     err->idx =3D term->err_val;
-> > +                     parse_events__append_error(err, term->err_val,
-> > +                                             strdup("expected 0 or 1")=
-,
-> > +                                             NULL);
-> >                       return -EINVAL;
-> >               }
-> >               break;
-> > @@ -1080,8 +1118,9 @@ do {                                             =
-                          \
-> >       case PARSE_EVENTS__TERM_TYPE_PERCORE:
-> >               CHECK_TYPE_VAL(NUM);
-> >               if ((unsigned int)term->val.num > 1) {
-> > -                     err->str =3D strdup("expected 0 or 1");
-> > -                     err->idx =3D term->err_val;
-> > +                     parse_events__append_error(err, term->err_val,
-> > +                                             strdup("expected 0 or 1")=
-,
-> > +                                             NULL);
-> >                       return -EINVAL;
-> >               }
-> >               break;
-> > @@ -1089,9 +1128,9 @@ do {                                             =
-                          \
-> >               CHECK_TYPE_VAL(NUM);
-> >               break;
-> >       default:
-> > -             err->str =3D strdup("unknown term");
-> > -             err->idx =3D term->err_term;
-> > -             err->help =3D parse_events_formats_error_string(NULL);
-> > +             parse_events__append_error(err, term->err_term,
-> > +                             strdup("unknown term"),
-> > +                             parse_events_formats_error_string(NULL));
-> >               return -EINVAL;
-> >       }
-> >
-> > @@ -1142,9 +1181,9 @@ static int config_term_tracepoint(struct perf_eve=
-nt_attr *attr,
-> >               return config_term_common(attr, term, err);
-> >       default:
-> >               if (err) {
-> > -                     err->idx =3D term->err_term;
-> > -                     err->str =3D strdup("unknown term");
-> > -                     err->help =3D strdup("valid terms: call-graph,sta=
-ck-size\n");
-> > +                     parse_events__append_error(err, term->err_term,
-> > +                             strdup("unknown term"),
-> > +                             strdup("valid terms: call-graph,stack-siz=
-e\n"));
-> >               }
-> >               return -EINVAL;
-> >       }
-> > @@ -1323,10 +1362,12 @@ int parse_events_add_pmu(struct parse_events_st=
-ate *parse_state,
-> >
-> >       pmu =3D perf_pmu__find(name);
-> >       if (!pmu) {
-> > -             if (asprintf(&err->str,
-> > +             char *err_str;
-> > +
-> > +             if (asprintf(&err_str,
-> >                               "Cannot find PMU `%s'. Missing kernel sup=
-port?",
-> > -                             name) < 0)
-> > -                     err->str =3D NULL;
-> > +                             name) >=3D 0)
-> > +                     parse_events__append_error(err, -1, err_str, NULL=
-);
-> >               return -EINVAL;
-> >       }
-> >
-> > @@ -2797,13 +2838,10 @@ void parse_events__clear_array(struct parse_eve=
-nts_array *a)
-> >  void parse_events_evlist_error(struct parse_events_state *parse_state,
-> >                              int idx, const char *str)
-> >  {
-> > -     struct parse_events_error *err =3D parse_state->error;
+> > -             if (list_empty(&parse_state.list)) {
+> > -                     WARN_ONCE(true, "WARNING: event parser found nothing\n");
+> > -                     return -1;
+> > -             }
 > > -
-> > -     if (!err)
-> > +     if (!parse_state->error)
-> >               return;
-> > -     err->idx =3D idx;
-> > -     err->str =3D strdup(str);
-> > -     WARN_ONCE(!err->str, "WARNING: failed to allocate error string");
-> > +
-> > +     parse_events__append_error(parse_state->error, idx, strdup(str), =
-NULL);
-> >  }
-> >
-> >  static void config_terms_list(char *buf, size_t buf_sz)
-> > diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-eve=
-nts.h
-> > index 769e07cddaa2..a7d42faeab0c 100644
-> > --- a/tools/perf/util/parse-events.h
-> > +++ b/tools/perf/util/parse-events.h
-> > @@ -124,6 +124,8 @@ struct parse_events_state {
-> >       struct list_head          *terms;
-> >  };
-> >
-> > +void parse_events__append_error(struct parse_events_error *err, int id=
-x,
-> > +                             char *str, char *help);
-> >  void parse_events__shrink_config_terms(void);
-> >  int parse_events__is_hardcoded_term(struct parse_events_term *term);
-> >  int parse_events_term__num(struct parse_events_term **term,
-> > diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-> > index adbe97e941dd..4015ec11944a 100644
-> > --- a/tools/perf/util/pmu.c
-> > +++ b/tools/perf/util/pmu.c
-> > @@ -1050,9 +1050,9 @@ static int pmu_config_term(struct list_head *form=
-ats,
-> >               if (err) {
-> >                       char *pmu_term =3D pmu_formats_string(formats);
-> >
-> > -                     err->idx  =3D term->err_term;
-> > -                     err->str  =3D strdup("unknown term");
-> > -                     err->help =3D parse_events_formats_error_string(p=
-mu_term);
-> > +                     parse_events__append_error(err, term->err_term,
-> > +                             strdup("unknown term"),
-> > +                             parse_events_formats_error_string(pmu_ter=
-m));
-> >                       free(pmu_term);
-> >               }
-> >               return -EINVAL;
-> > @@ -1080,8 +1080,9 @@ static int pmu_config_term(struct list_head *form=
-ats,
-> >               if (term->no_value &&
-> >                   bitmap_weight(format->bits, PERF_PMU_FORMAT_BITS) > 1=
-) {
-> >                       if (err) {
-> > -                             err->idx =3D term->err_val;
-> > -                             err->str =3D strdup("no value assigned fo=
-r term");
-> > +                             parse_events__append_error(err, term->err=
-_val,
-> > +                                        strdup("no value assigned for =
-term"),
-> > +                                        NULL);
-> >                       }
-> >                       return -EINVAL;
-> >               }
-> > @@ -1094,8 +1095,9 @@ static int pmu_config_term(struct list_head *form=
-ats,
-> >                                               term->config, term->val.s=
-tr);
-> >                       }
-> >                       if (err) {
-> > -                             err->idx =3D term->err_val;
-> > -                             err->str =3D strdup("expected numeric val=
-ue");
-> > +                             parse_events__append_error(err, term->err=
-_val,
-> > +                                     strdup("expected numeric value"),
-> > +                                     NULL);
-> >                       }
-> >                       return -EINVAL;
-> >               }
-> > @@ -1108,11 +1110,15 @@ static int pmu_config_term(struct list_head *fo=
-rmats,
-> >       max_val =3D pmu_format_max_value(format->bits);
-> >       if (val > max_val) {
-> >               if (err) {
-> > -                     err->idx =3D term->err_val;
-> > -                     if (asprintf(&err->str,
-> > -                                  "value too big for format, maximum i=
-s %llu",
-> > -                                  (unsigned long long)max_val) < 0)
-> > -                             err->str =3D strdup("value too big for fo=
-rmat");
-> > +                     char *err_str;
-> > +
-> > +                     parse_events__append_error(err, term->err_val,
-> > +                             asprintf(&err_str,
-> > +                                 "value too big for format, maximum is=
- %llu",
-> > +                                 (unsigned long long)max_val) < 0
-> > +                                 ? strdup("value too big for format")
-> > +                                 : err_str,
-> > +                                 NULL);
-> >                       return -EINVAL;
-> >               }
-> >               /*
+> > -             perf_evlist__splice_list_tail(evlist, &parse_state.list);
+> >               evlist->nr_groups += parse_state.nr_groups;
+> >               last = evlist__last(evlist);
+> >               last->cmdline_group_boundary = true;
 > > --
 > > 2.23.0.866.gb869b98d4c-goog
 > >
 >
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAP-5%3DfV3yruuFagTz4%3D8b9t6Y1tzZpFU%3DVhVcOmrSMiV%2Bh2f=
-QA%40mail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfWoHN9wqWasZyyu8mB99-1SOP3NhTT9XX6d99aTG6-AOA%40mail.gmail.com.
