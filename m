@@ -1,139 +1,132 @@
-Return-Path: <clang-built-linux+bncBDPZFQ463EFRB2FBZXWQKGQE3TG7SQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBXN7ZXWQKGQE4VUWE2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
-	by mail.lfdr.de (Postfix) with ESMTPS id C913AE549A
-	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 21:45:44 +0200 (CEST)
-Received: by mail-wm1-x33f.google.com with SMTP id 6sf1626369wmj.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 12:45:44 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572032744; cv=pass;
+Received: from mail-vk1-xa39.google.com (mail-vk1-xa39.google.com [IPv6:2607:f8b0:4864:20::a39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1273BE556D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 22:49:35 +0200 (CEST)
+Received: by mail-vk1-xa39.google.com with SMTP id r128sf1310099vke.17
+        for <lists+clang-built-linux@lfdr.de>; Fri, 25 Oct 2019 13:49:35 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572036574; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ur839ksX9ZaQgmkPNJuFk+Nco1yb2c77r+O88ED5VlY55oKWPXtSE1gXT2I5UpnNN4
-         LhtZKcxMbq7zneuuocZ/npO21ZAIAxFkgCjxvZm03SqfvcbDU5L6jWaiSYDMAaVO0Xq3
-         cYNXwEVw3ORIbRwCXTUkgM/k0Dmdn/TDdgbAxjWHgJw5km7oSbKB2fJlIiUq6L/olv3B
-         d+yNPLIPiYe1lOQhgbHSGdzGfZCmYYus2oBmV+OGAzg97V3L4TYARcqgnuKhPdp7Ts+1
-         3QJHeT1wOX4g1DcwjQvNglAgavhdOjPsYoscBM1rdlMo8a7nsnKt5vna1HP/x+6sm8os
-         lQpg==
+        b=obsRPlCXtEC/7uLppHt54UzEnWFpHXDyrIvIk6/JravitiasH63PWoM2eVnEV1a5Cc
+         6nnZDQLsATB9OFDF2lKqDORECynRNKGY58iq6LrA+PSoTomOxEIRECe3TamJ8MY6poFY
+         D3jR5sYiLzmxU6KNmbrFh4ZCnAbjk1ug0ZEigj4VVu/H3SLdbRqR6Cb8cdWMMh/LQ2lP
+         5yiH7QjtZSodugGhMYdjIw45QyIlIILMz45QFRoXiSF4DJSt4GWLvwMfcIdS5IC97ng6
+         DXJy2fI7qgxZnQza9YW+xqSGUfwutuJgrektUy/kAxYw13OY0MuRBhbC75VqjZmBzz95
+         kUbg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=5l37VHK4tkg4sGISzmWMr+34N/27nOMVW/D1IBPsIcE=;
-        b=qpUKNETgPXfzHxlHrbEpuWrQPVvSXUW8dO2rUYnfMLDhRCqYwIbqBrbeQf5a0RgMER
-         ZQWxU9qE5E71BFMf2/cJQ7vbpqHDk99EC51xX88Pd71m2kvhlaWgYb+xFy/79m9+1bV6
-         GkCxsNtOYwOYms9TYpN45rd/X8a09b/ohuw8FIlFQfbTGRNRGkCFPY04fPn6OiGVlctR
-         sELyhAv8Bf2LC9iCf+vCMZQllgcuwkr7A8thGREbgz2GIsiY3Kgx+Rwmz85FnUcLWCDA
-         sXkpSjzgpOoMLC8jScmWssV/uQ+VXqw80KrO4hbDX9asXhh0hWV72r74IDg7lIH7FaMl
-         zcrg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=siGPe6sHwz4fwUKLfV7FxVnrDTrZ6Q1FIxDzmG9jYFg=;
+        b=BC/l659ZNn8CiVx0WIwohcync8dYeYAq5kFEn+qKttk9qFQKxBfPZaoQ36b4xwcd3U
+         rJ8u2JxTLqTWwmx7jw0m9rgHgvToO22B9E70nzAuJHCF/+WYQqXkS6qxg0qyQZG9B92W
+         hctjOoFyzqZG1ezIud42XNkxrdTyV+ePq6twmN9FjQxRVipzgRhg5J+Rdsc0QNDLjEhw
+         SYxLRLOkfYBBmC/Y42fyald1bJJ7xS1w+6d8Mp+B4Vu8U94vgajXvv21L1qME4ziBja9
+         med8huU/jxhqXwNJPohjKDFui7vTqTu8/wYqeKoiIhn25RfRknUcC3WOIHryFIC8Xghi
+         Wt+Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tN3Udkn6;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LoSD3OZa;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e44 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5l37VHK4tkg4sGISzmWMr+34N/27nOMVW/D1IBPsIcE=;
-        b=Lh69nOUmFppLuZ5WPgN2vNPTOTQDoJaJuFbTG/cf2wh2N6u4wwCkKq3vkH3cXiuHVc
-         YblCTKOlmLBUQuJ7vVXQTQV7TOPEIwMuaoDEUfwja+dw1PH5x9CfzX13tVbuTxWPk7qP
-         C9fhFhFqVZE2BgusOLcU9UjgzbKDYjpc4emg3YTnXqpT7C1nVgJK0bS3pYhmS3uRy4NE
-         TMaBNv8I+fq9PFglpwjltTVvjIWPFQe5whW+/SbdmAMVhekBsHHAv62b/FUNAEHnTMf8
-         Y5XoyZbiParWqzPtQIA5fmlxa7yNQP9LK4Bpr2IxoelOiF+Xv+rPdD+TUPOrDCYwCghm
-         iC9w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5l37VHK4tkg4sGISzmWMr+34N/27nOMVW/D1IBPsIcE=;
-        b=gCHcDbUGPXNG30AC+gG6zQX49aZ2JzzrjiFMDzabLpVRd4H7QtNs9kl6/QLXuvovIn
-         MBgAlZ/fv8grEpKdaDYdldmvByQg6eowSkq+kv9yMq6EOq+wNT6SWDAoJ6FD3RAuYfUQ
-         aJbvFrzORdMs5zAObxVC4BYa6/FZKIn7Li5t2jZcBnRKy25APMzs6LAGP3S2/8Ee5HK1
-         k5tm4GfI3RPjxyzX9voL7B7kn/cPwRqbzKalgTp/HvwinOKW+eb5XFY2aEpO1jrMMznb
-         cz9swmXXa7NDIprlxCobiw5WDSSlZwueHNCLEc04GsKAW9XZit+kx57khdxCi5aqNtta
-         wjnA==
+        bh=siGPe6sHwz4fwUKLfV7FxVnrDTrZ6Q1FIxDzmG9jYFg=;
+        b=TCpGjflUkX0ujOtUxS5UUyqa9oKh/9j17Ab6kKG/+SBRdhn9rzuhH/U3K33B9jChKz
+         pH/dIY+tNF/OxSFUyEP/zoam3ZLVv8bX+BRt4bcwYOuDBvbq8nct7zH01N5r5vKlnbux
+         X/+ivcHTjN/pe2JqxD4KSFMZt0HT8aQJpdf5riqu3bvoIT1qBdJWPM6ZY9yL/HB06ZLb
+         bXSZZtlvR1kngT8iGNMZcdiHqaE+ya/4KhHTvlEkeyJ9Uw5wyqQYH7o1a6y1YtqYRx6i
+         El5YX7QtNAsc7azwpj60s1Wd/EJa5ltEg8u/ZysDh98BnKPRLwPZP7ygHL9eQMn5lJap
+         Uscg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5l37VHK4tkg4sGISzmWMr+34N/27nOMVW/D1IBPsIcE=;
-        b=SA1YQcc296XvST0yMYu0GXW9Eac768EUbUfbR6UobSEVi7u0kBkR/WQ8sTMPY0Mm6C
-         YqJGbv6YV1xaVJ5ZbG4rB1PxJzslAJm3HSdw1EARyJY3J9igtf3MGrRH+stWs3/IM6pH
-         zN8fhV9HoCT9DtVAqO13j0R4uuFK99YuLx/AFOYC/WCmqoKmsJ1TfTJC3kLpL2o0jHlw
-         2dWjdjbRvV1XHvrNvXb6l0DkgQUFUIldu4osQk/vlA3CCHNnlQTgcTNdtxMiNaiLdv9w
-         Af+4c29tF5dElPMC1EhE/5hd6uwH1vQpvInVR6TkDw5g8iOam+3zkyfkVgTJ301gQlcV
-         VPdA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVjMLM9+7nwQ1Ke4kOF/7JtTZt6akWoYNoGSis5RhZwVXPvVX30
-	UD6vwnI69jRKNekW1yaIpAk=
-X-Google-Smtp-Source: APXvYqz7iH5UpHk20xe7P3c7XS4USGa82p9ghjQZaZ0jQ75PXxON0WYnm3oZblebfoqjT/tjPZMX2Q==
-X-Received: by 2002:a7b:ce84:: with SMTP id q4mr4674266wmj.36.1572032744481;
-        Fri, 25 Oct 2019 12:45:44 -0700 (PDT)
+        bh=siGPe6sHwz4fwUKLfV7FxVnrDTrZ6Q1FIxDzmG9jYFg=;
+        b=Jz3D1OkroZYXD0OTRtb0XK0L6KeS5J0bAUcW7/RpAiZ3W9kO6TPGPdkpPry9IFlDHa
+         4LZhujsgjcbxpygaP9dMFmSXysnz5E0Cqc5PULlkZSiV6upCIgHgVK1oRua+0k2JeHjB
+         OhgQVW7RReYNcc/Ep3mXqS4O5nnzfVbJjDiT+nz8qA7OsyFMetH7K7xmad0292NwkFZt
+         nWeIZtE/qSgzLCit8tPTiQcrVmmODCIhp+AA87h5znZ1kjvCdcthR7o2/B83z3TTrLaW
+         VCfmbOCmjkxdTQj7K6YYOdF2n6gD14ishu/2ogcKMdqKSChtcm20YuN5UonD1LP6k7OV
+         xrug==
+X-Gm-Message-State: APjAAAUbzawQQHiDr9VowXWLcBwh5NTcfPOetVo/PYjPEkly+SaNajaT
+	o45aGmfbbjgrF4pxo7pYU+g=
+X-Google-Smtp-Source: APXvYqyC3DGMXjNKX8OjqPNb186uU5X9eEqQ/91EVbLqWkRRIddHBANQXVWWJWKFoG5z1b7Y+tXS8A==
+X-Received: by 2002:a9f:3c2c:: with SMTP id u44mr2888995uah.2.1572036574055;
+        Fri, 25 Oct 2019 13:49:34 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:efce:: with SMTP id i14ls6700269wrp.10.gmail; Fri, 25
- Oct 2019 12:45:44 -0700 (PDT)
-X-Received: by 2002:adf:8011:: with SMTP id 17mr4642468wrk.367.1572032744021;
-        Fri, 25 Oct 2019 12:45:44 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572032744; cv=none;
+Received: by 2002:a05:6102:5d8:: with SMTP id v24ls663340vsf.6.gmail; Fri, 25
+ Oct 2019 13:49:33 -0700 (PDT)
+X-Received: by 2002:a67:ec13:: with SMTP id d19mr3319857vso.73.1572036573611;
+        Fri, 25 Oct 2019 13:49:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572036573; cv=none;
         d=google.com; s=arc-20160816;
-        b=U1kA3Ik6ib1joEPBJU5oqnGgtKc/QhL71MPab5qo3NA43B9cwtq6MGJOb6nGzFcFHu
-         Z8WbKbalkZ1kLD1jbdVnGF9m4Vl9S5GOWOz/L45R6ZVDq07W32JyLE/y0RPtTDdyYrgy
-         y1Nq8E/126dRs9ahTc7wRkgnPRx6jDaky+RM/FOlKYnR/M4tLKdXrx1xIQRxw4Se9dZy
-         uEIf7Xk5Wzf7KNLXo5le1fnjqLLICswTqgs9p/auszPJZo1elX5HGXhflYgrXZ9uDUCY
-         mRA5Tv+xiW9ytccuCTq6VphQcmQztNLS/SzQBSaxwnekqv8W9eprLgd1lbzdupVXa90Y
-         O6gw==
+        b=aya17Yfp+lwPj9wXcEpJOBau+B7PwDzrVVIOhKNRvZA5SRVfce+3QIkQXEUIS22qFN
+         lmEXGvhJgk2W0AsE6G3zwtx6bMb5BjOMdWcCcbuR4gFkpnA8MpwhIRPyue0eB5hcbp/G
+         KoP1fcBvN/DJrJ9bLkcqRHuCIjBr1U5arCmDaNGy9VbWJCRjB5iAgFeHV67ezp7R3Ole
+         gyvztC3K4KgapwLmI8D+Tw/pkDGhiacaBcSJawNg+SuhvmuF8QepeQq0ugulDaEsmIwl
+         J5oDdcxX6wXi81hIyBLgp9fxyD3jkQZvp49aKL64e6EnlPOGYNlFQcS+NfNGy4WcDH4m
+         vtfQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=neabhCzzi0dq4nLNqnclhYb/Pn2frsP1v9KepipEQQk=;
-        b=daVnrSkcZMdZnaBrkB3223NmSXy1aLGsVY3OOK0lGfuI9u234HRUBuwb7Zb+Ev5eLu
-         ZuilBqLvwEr58AIEe3OCxziHTxWhihjkXnP6TOAcZzsN9tLe0K8cYYE9Do5s9vpl5nZU
-         4hOzLHICDrPRT10eRjKUCFrBk3jvArRVlmdfps9zUqW2XftxT4Ygedy8UUXBj0hYOZvE
-         +8SkXSO/wXVOsPhjHHzx6cEBhVih4SJDg/fH+BF0fJ3rIJFJydTO1raXewb2g35Do9MG
-         P8t5iOYjgpcnF/rgyVzIFyrkasSmg5rDvF31cYaFsp+K1xhsgN1ymB9nFVW2s1druOz8
-         BOYw==
+        bh=B01qVjfF1LUa0PK52bjL02zxaBRU3eQBI1v+W/4JeHk=;
+        b=JUphURZckUTVZrciyxCVMq8P5R9A6q1zIWZvMcc6wLeorKC5p3z7k5J+BYySlM61G4
+         StvNTmsYkf1/Kq9WcXoM14w1FU9UiLgPZ3jVOILvB3C6S0LUA+Pa64coabzIs/vYqgQP
+         NPH3nClaujHBiHPlKP5EJxmUGF0DUe1jjy+0RKKtxOyPYxX+EMwsmIk7Cn11GZNv7vSE
+         uEPfXeu++KvZLVUhHAf7XWL9BiUBFE4iUNUJq/awaocWN9hMD2Ztor5e6enL/4J0hX+D
+         oLQ8CQMv0sQbci/qkZLRSVwabpUm3xbif0S/Wo/KoSjlxj9krKekgekCbAGOOc7SfPUh
+         2nEQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tN3Udkn6;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id c12si167257wrn.2.2019.10.25.12.45.44
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LoSD3OZa;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e44 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-vs1-xe44.google.com (mail-vs1-xe44.google.com. [2607:f8b0:4864:20::e44])
+        by gmr-mx.google.com with ESMTPS id p18si101837vsn.1.2019.10.25.13.49.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Oct 2019 12:45:44 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id a11so3639624wra.6
-        for <clang-built-linux@googlegroups.com>; Fri, 25 Oct 2019 12:45:44 -0700 (PDT)
-X-Received: by 2002:a5d:6ac3:: with SMTP id u3mr4688572wrw.206.1572032743513;
- Fri, 25 Oct 2019 12:45:43 -0700 (PDT)
+        Fri, 25 Oct 2019 13:49:33 -0700 (PDT)
+Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e44 as permitted sender) client-ip=2607:f8b0:4864:20::e44;
+Received: by mail-vs1-xe44.google.com with SMTP id p13so2391743vso.0
+        for <clang-built-linux@googlegroups.com>; Fri, 25 Oct 2019 13:49:33 -0700 (PDT)
+X-Received: by 2002:a67:ffc7:: with SMTP id w7mr3154037vsq.15.1572036572738;
+ Fri, 25 Oct 2019 13:49:32 -0700 (PDT)
 MIME-Version: 1.0
-References: <20191016230209.39663-1-ndesaulniers@google.com> <CAKwvOdkDCeNCg7N0jyjo9oQmVX6seOXjSv06DvQDCDz_7qSo=Q@mail.gmail.com>
-In-Reply-To: <CAKwvOdkDCeNCg7N0jyjo9oQmVX6seOXjSv06DvQDCDz_7qSo=Q@mail.gmail.com>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Fri, 25 Oct 2019 15:45:32 -0400
-Message-ID: <CADnq5_PbUQV5vvgN6yQuiQVpG0Ssk6r_G9tJEhT8XWKf-fOuFQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] drm/amdgpu: fix stack alignment ABI mismatch
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, 
-	"Deucher, Alexander" <alexander.deucher@amd.com>, yshuiv7@gmail.com, 
-	"S, Shirish" <shirish.s@amd.com>, "Zhou, David(ChunMing)" <David1.Zhou@amd.com>, Arnd Bergmann <arnd@arndb.de>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, andrew.cooper3@citrix.com, 
-	LKML <linux-kernel@vger.kernel.org>, amd-gfx list <amd-gfx@lists.freedesktop.org>, 
-	Matthias Kaehlcke <mka@google.com>, "Koenig, Christian" <christian.koenig@amd.com>
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20191024225132.13410-1-samitolvanen@google.com> <20191024225132.13410-6-samitolvanen@google.com>
+ <20191025105643.GD40270@lakrids.cambridge.arm.com>
+In-Reply-To: <20191025105643.GD40270@lakrids.cambridge.arm.com>
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 25 Oct 2019 13:49:21 -0700
+Message-ID: <CABCJKuc+XiDRdqfvjwCF7y=1wX3QO0MCUpeu4Gdcz91+nmnEAQ@mail.gmail.com>
+Subject: Re: [PATCH v2 05/17] add support for Clang's Shadow Call Stack (SCS)
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Dave Martin <Dave.Martin@arm.com>, 
+	Kees Cook <keescook@chromium.org>, Laura Abbott <labbott@redhat.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Jann Horn <jannh@google.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Masahiro Yamada <yamada.masahiro@socionext.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: alexdeucher@gmail.com
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=tN3Udkn6;       spf=pass
- (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::442
- as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=LoSD3OZa;       spf=pass
+ (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e44
+ as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,106 +139,121 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Oct 25, 2019 at 4:12 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
+On Fri, Oct 25, 2019 at 3:56 AM Mark Rutland <mark.rutland@arm.com> wrote:
+> > +#define SCS_SIZE     1024
 >
-> On Wed, Oct 16, 2019 at 4:02 PM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
-> >
-> > The x86 kernel is compiled with an 8B stack alignment via
-> > `-mpreferred-stack-boundary=3` for GCC since 3.6-rc1 via
-> > commit d9b0cde91c60 ("x86-64, gcc: Use -mpreferred-stack-boundary=3 if supported")
-> > or `-mstack-alignment=8` for Clang. Parts of the AMDGPU driver are
-> > compiled with 16B stack alignment.
-> >
-> > Generally, the stack alignment is part of the ABI. Linking together two
-> > different translation units with differing stack alignment is dangerous,
-> > particularly when the translation unit with the smaller stack alignment
-> > makes calls into the translation unit with the larger stack alignment.
-> > While 8B aligned stacks are sometimes also 16B aligned, they are not
-> > always.
-> >
-> > Multiple users have reported General Protection Faults (GPF) when using
-> > the AMDGPU driver compiled with Clang. Clang is placing objects in stack
-> > slots assuming the stack is 16B aligned, and selecting instructions that
-> > require 16B aligned memory operands.
-> >
-> > At runtime, syscall handlers with 8B aligned stack call into code that
-> > assumes 16B stack alignment.  When the stack is a multiple of 8B but not
-> > 16B, these instructions result in a GPF.
-> >
-> > Remove the code that added compatibility between the differing compiler
-> > flags, as it will result in runtime GPFs when built with Clang.
-> >
-> > The series is broken into 3 patches, the first is an important fix for
-> > Clang for ChromeOS. The rest are attempted cleanups for GCC, but require
-> > additional boot testing. The first patch is critical, the rest are nice
-> > to have. I've compile tested the series with ToT Clang, GCC 4.9, and GCC
-> > 8.3 **but** I do not have hardware to test on, so I need folks with the
-> > above compilers and relevant hardware to help test the series.
-> >
-> > The first patch is a functional change for Clang only. It does not
-> > change anything for any version of GCC. Yuxuan boot tested a previous
-> > incarnation on hardware, but I've changed it enough that I think it made
-> > sense to drop the previous tested by tag.
->
-> Thanks for testing the first patch Shirish. Are you or Yuxuan able to
-> test the rest of the series with any combination of {clang|gcc < 7.1|
-> gcc >= 7.1} on hardware and report your findings?
->
-> >
-> > The second patch is a functional change for GCC 7.1+ only. It does not
-> > affect older versions of GCC or Clang (though if someone wanted to
-> > double check with pre-GCC 7.1 it wouldn't hurt).  It should be boot
-> > tested on GCC 7.1+ on the relevant hardware.
-> >
-> > The final patch is also a functional change for GCC 7.1+ only. It does
-> > not affect older versions of GCC or Clang. It should be boot tested on
-> > GCC 7.1+ on the relevant hardware. Theoretically, there may be an issue
-> > with it, and it's ok to drop it. The series was intentional broken into
-> > 3 in order to allow them to be incrementally tested and accepted. It's
-> > ok to take earlier patches without the later patches.
-> >
-> > And finally, I do not condone linking object files of differing stack
-> > alignments.  Idealistically, we'd mark the driver broken for pre-GCC
-> > 7.1.  Pragmatically, "if it ain't broke, don't fix it."
->
-> Harry, Alex,
-> Thoughts on the series? Has AMD been able to stress test these more internally?
->
+> I think it'd be worth a comment on how this size was chosen. IIRC this
+> empirical?
 
-Was out of the office most of the week.  They look good to me.  I'll
-pull them in today and see what happens.
+Correct. I'll add a comment.
 
-Alex
+> > +#define SCS_END_MAGIC        0xaf0194819b1635f6UL
+>
+> Keyboard smash? ... or is there a prize for whoever figures out the
+> secret? ;)
 
-> >
-> > Nick Desaulniers (3):
-> >   drm/amdgpu: fix stack alignment ABI mismatch for Clang
-> >   drm/amdgpu: fix stack alignment ABI mismatch for GCC 7.1+
-> >   drm/amdgpu: enable -msse2 for GCC 7.1+ users
-> >
-> >  drivers/gpu/drm/amd/display/dc/calcs/Makefile | 19 ++++++++++++-------
-> >  drivers/gpu/drm/amd/display/dc/dcn20/Makefile | 19 ++++++++++++-------
-> >  drivers/gpu/drm/amd/display/dc/dcn21/Makefile | 19 ++++++++++++-------
-> >  drivers/gpu/drm/amd/display/dc/dml/Makefile   | 19 ++++++++++++-------
-> >  drivers/gpu/drm/amd/display/dc/dsc/Makefile   | 19 ++++++++++++-------
-> >  5 files changed, 60 insertions(+), 35 deletions(-)
-> >
-> > --
-> > 2.23.0.700.g56cf767bdb-goog
-> >
+It's a random number, so if someone figures out a secret in it,
+they'll definitely deserve a prize. :)
+
+> > +static inline void task_set_scs(struct task_struct *tsk, void *s)
+> > +{
+> > +     task_thread_info(tsk)->shadow_call_stack = s;
+> > +}
 >
+> This should probably be named get and set, or have:
 >
-> --
-> Thanks,
-> ~Nick Desaulniers
-> _______________________________________________
-> amd-gfx mailing list
-> amd-gfx@lists.freedesktop.org
-> https://lists.freedesktop.org/mailman/listinfo/amd-gfx
+> #define task_scs(tsk)   (task_thread_info(tsk)->shadow_call_stack)
+>
+> ... which can have a trivial implementation as NULL for the !SCS case.
+
+Sure, sounds good.
+
+> For all the trivial wrappers you can put the implementation on the same
+> line as the prototype. That makes it a bit easier to compare against the
+> prototypes on the other side of the ifdeffery.
+>
+> e.g. this lot can be:
+>
+> static inline void *task_scs(struct task_struct *tsk) { return 0; }
+> static inline void task_set_scs(struct task_struct *tsk, void *s) { }
+> static inline void scs_init(void) { }
+
+Agreed.
+
+> > diff --git a/kernel/fork.c b/kernel/fork.c
+> > index bcdf53125210..ae7ebe9f0586 100644
+> > --- a/kernel/fork.c
+> > +++ b/kernel/fork.c
+> > @@ -94,6 +94,7 @@
+> >  #include <linux/livepatch.h>
+> >  #include <linux/thread_info.h>
+> >  #include <linux/stackleak.h>
+> > +#include <linux/scs.h>
+>
+> Nit: alphabetical order, please (this should come before stackleak.h).
+
+The includes in kernel/fork.c aren't in alphabetical order, so I just
+added this to the end here.
+
+> > +     retval = scs_prepare(p, node);
+> > +     if (retval)
+> > +             goto bad_fork_cleanup_thread;
+>
+> Can we please fold scs_prepare() into scs_task_init() and do this in
+> dup_task_struct()? That way we set this up consistently in one place,
+> where we're also allocating the regular stack.
+
+Yes, that does sound cleaner. I'll change that.
+
+> > +     scs_task_reset(idle);
+>
+> I'm a bit confused by this -- please see comments below on
+> scs_task_reset().
+
+> > +static inline void *__scs_base(struct task_struct *tsk)
+> > +{
+> > +     return (void *)((uintptr_t)task_scs(tsk) & ~(SCS_SIZE - 1));
+> > +}
+>
+> We only ever assign the base to task_scs(tsk), with the current live
+> value being in a register that we don't read. Are we expecting arch code
+> to keep this up-to-date with the register value?
+>
+> I would have expected that we just leave this as the base (as we do for
+> the regular stack in the task struct), and it's down to arch code to
+> save/restore the current value where necessary.
+>
+> Am I missing some caveat with that approach?
+
+To keep the address of the currently active shadow stack out of
+memory, the arm64 implementation clears this field when it loads x18
+and saves the current value before a context switch. The generic code
+doesn't expect the arch code to necessarily do so, but does allow it.
+This requires us to use __scs_base() when accessing the base pointer
+and to reset it in idle tasks before they're reused, hence
+scs_task_reset().
+
+> > +     BUILD_BUG_ON(SCS_SIZE > PAGE_SIZE);
+>
+> It's probably worth a comment on why we rely on SCS_SIZE <= PAGE_SIZE.
+
+Ack.
+
+> > +static inline unsigned long *scs_magic(struct task_struct *tsk)
+> > +{
+> > +     return (unsigned long *)(__scs_base(tsk) + SCS_SIZE - sizeof(long));
+>
+> Slightly simpler as:
+>
+>         return (unsigned long *)(__scs_base(tsk) + SCS_SIZE) - 1;
+
+Yes, that's a bit cleaner.
+
+I'll fix these in v3. Thank you for the review!
+
+Sami
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CADnq5_PbUQV5vvgN6yQuiQVpG0Ssk6r_G9tJEhT8XWKf-fOuFQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKuc%2BXiDRdqfvjwCF7y%3D1wX3QO0MCUpeu4Gdcz91%2BnmnEAQ%40mail.gmail.com.
