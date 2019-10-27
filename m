@@ -1,130 +1,122 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBPHX27WQKGQEWT4DMCY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBPVI3DWQKGQEJUF5TAQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5728EE6551
-	for <lists+clang-built-linux@lfdr.de>; Sun, 27 Oct 2019 21:19:10 +0100 (CET)
-Received: by mail-vk1-xa40.google.com with SMTP id m205sf4036000vke.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 27 Oct 2019 13:19:10 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572207549; cv=pass;
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E6ADE69D7
+	for <lists+clang-built-linux@lfdr.de>; Sun, 27 Oct 2019 23:03:44 +0100 (CET)
+Received: by mail-ot1-x33f.google.com with SMTP id v20sf4318188ota.6
+        for <lists+clang-built-linux@lfdr.de>; Sun, 27 Oct 2019 15:03:43 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572213822; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KzeeBy0m/l95MfFf9IKBY+KL0UMXxmHYcWWdcruHJhx0QN5pWQw5+vjlmjI8YIVUMP
-         hhRsiZ9V7BXETTQ7IqaabIqmjhVI4c9OhvSiAR7WqKG4kl3u/gW6tM0tyZ7BnM6zNhTy
-         b0lYInCIf6inL648x2tJFf7+U2knN4mO/pzLOuyiL3UWlQzPV8hIZ47+EHUNjASfJ536
-         oq2stpW3xui8enb/OMQYaiLUX75F2XVKCGM9Ufzq/Qxj94YUylajEBVVVmP6mXtBFN9c
-         wX9he4LjZ1hwQnsVHPyGiCcdtMPmXdk15q/ESEDbJ2B0MU9MV3vbmb9a19OG0QuD5g5M
-         47aQ==
+        b=q1BGaH41otLhXKhRb/p83XEgmOf79mRS4KqT6lZqjyDuhH/b7EsyKjzO1Gawrg89Fv
+         aCSwdyl12CRMx2OX4mbtpV/4MSoR2/5VeieKh/dNzDslMOg4lreaJ6/p85S2KHl0bWGZ
+         ogpAE2E2xszF4FS7dH8fNJI5Rle26WfdZu0BuWdqS4NSDlbmrAVbEKK3Mbn12yxOwOwy
+         LgUHqfIYF2s59nqf2Rp0T7zHatGM6cdDWhXcBm3q0c+9cLI9HF348kczIKVZ8ipPKCEW
+         G/wUZTzOaxwQU64K1oSZi+w85q5aO9Ap/8lHZU05zwiCegm4UQhbIDv1CKAG5xYYvFgH
+         CyxA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=iPsNxFwOhttjM91aBIjmcC1EOoW/OX4MhMJ25veXrUU=;
-        b=LTa7jNs6GuCeeayG4lLYRnc8U/kX8ZE3wiJtHz78/TeZEPqJBmT8IJjGRRHhHQXOqP
-         2MpG+zJPNvTn0pvxNEwcu8/L6o3bVi3j4kNlYriZj+NAWuw6w6+1PwEtzpHXx1y2/zvh
-         0dy7qGD2Eww9O4WTgaCmei09E/v46dfnUG55UWqg+Dj5FNJs5NmQXX/FTSBObkjGWnLQ
-         HsONPwWFaIKMHmwqbAd0pAUQRuH3egi/s6X2YjugFqsg1dLk1CcD7/Q5C9ubHTFYkg98
-         1g333E6aneNVFqi5T+r6wZUhU9du1Hyr+0l7J8Q8FtUSa4264vw0PSZHbPMtITbytHIA
-         +gYQ==
+         :list-id:mailing-list:precedence:mime-version:user-agent:date:cc:to
+         :from:subject:message-id:sender:dkim-signature;
+        bh=tnQkDcgDLmygIYwrYa7CIjrc3C6p+IqOBN/GLN+xYOg=;
+        b=uDmwHht9WDWLT8zYEikLiD6Hyx0rCkzYu/V/UzCGo5/8DgbxmoKr6MpMM7PM8qyp6z
+         PT96At4bTSQcLn1x48uohpqgoGrXMs1YUzf/5SUnP73O8hKWJ5cngIUekDtiJW/Z11Ym
+         Y+mte5wCl3EZxujW+tAgHszjPXq0HDi69UdTxEXmKvfLnqQGwcUS1HlwGlQRhKaYZIpP
+         LkcMHVPoAiGneZxeWzrDIQeD4X1D0Q7sHAv69PZj5A0riJTcs9juwcA1NeFk0sW5tMCd
+         yoJ/V9rmGqn1UI4ADyZ78ZpH8e/aBaM8AfVee/P8gQ3puJuJ3J7pkLRwTurzuy9QywQc
+         ksXA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=neutral (google.com: 216.40.44.164 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=iPsNxFwOhttjM91aBIjmcC1EOoW/OX4MhMJ25veXrUU=;
-        b=is7iqscHoJJfTVGUonTt+caddff7v7J/j+iA7eawWRvbZ0pdUBJ43JtrlRfMX+WDex
-         PGACaGjLcEpp5KZJU9Rxg0jC3wlxJd39zbnnBHfUFwJqmTYwUIjUU1plZ74jNqK0QLKp
-         WH+KyeiwSEjOrvw0ubrRL5+MgZKTxFo7dtj7ALVKgn/S6rP+vT66NzwjCOdi+Xn8iOCg
-         JtjqgJV2bYGX8s06LQSjshOOIvg4KfMHxm0Gv6u0SHtzVm/4rAP79tKJblhclSF1rcJb
-         V7kIj+i8RmMZjR7mzevVisy0P1ZR6tKYk2oFUD571F8IAyeXg/VQLBqGMUbk+dqSrX5O
-         /j9A==
+        h=sender:message-id:subject:from:to:cc:date:user-agent:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=tnQkDcgDLmygIYwrYa7CIjrc3C6p+IqOBN/GLN+xYOg=;
+        b=bVP7KbvwlpqGLrLnik5r+4rbabkIZNNpkF1LGD47pUVYgOBMIVfKJH7+lLjZG97dAA
+         ePzz8wXSYVlACDGGjEHTKIDhp7uBmMdNmCBOybf8g+Xin9H2n4DqDkkoFl/C8iPgdpHC
+         r1JUEGtVoeFpwVHOmkIZi8TjhstG5vco/+7O/euhDGr9FAo2io18Z7Tv/9eYphXmhUkk
+         d18V9nPMJjRiYTa3sKxYR9cY2ofLijGvgZW5Q3EpeBd6A78elGfs3M8fIZUHvlIyvVFj
+         Tfi4vpCcwKZ8P8OP2UZ5DpVlxL25DappxK5oYkGmDjbaEa0s0I9f6hegyvBqhgUX04Cm
+         EKJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iPsNxFwOhttjM91aBIjmcC1EOoW/OX4MhMJ25veXrUU=;
-        b=HZy1GgP8fAFdIB7dAq6g4EU6ZvB00b9i/3MJBHjJsM2NdXqeJJSfNhEFnhjc0PAERM
-         GMiS3UiCz1hXXq3brtILJ6n2XJdePJrNBs4pJUPsgR6uQQ/qfA0Mp7CP3thhjnw7hWoX
-         3ckMbD/NkjmL6jBoHy3XbLny1yo6lT1UHM9nwBjrsO/wIpoWbQWC/5mcWiziXjh/c0/0
-         sDqkvMI+GYIAL19DZal+WWXc5gj0VpzyyZxg3qDdZ1tIat5HeKe+BPsB91V5W+VJ4mhW
-         B4CxaQApXHbzTCbGDpgJD+/NuD5ahnFjYluykCsumaRDW3kwhiH8B/LARGnYeHQmCLDg
-         h0uw==
+        bh=tnQkDcgDLmygIYwrYa7CIjrc3C6p+IqOBN/GLN+xYOg=;
+        b=XPISniEUkRMA2paYpABRtYuAo0kClG5YGTYrvnUEvPIKWJeLeOz0elBQ4JNVmubU3A
+         Nhr9dS7Yh27zeGCWykLHFxwZm9K5qich9YvSBmE/NcQt8kIuWHZD8WwbP5mN/073Som5
+         wXs/kE3ctO/++DwVLXxG3wpHOMvqEn46luEaF4qHlFZ9yckZ2GZx3XpI51ka9qs6uzMk
+         bMY0CxhUSca2DRpltKg9XpsOTMblUDpr3V1QYNkOyKu+5Zgef8xneMdFif5aLsQyMmRs
+         R++4PPGfF60GbM9iLt8lijNG4iLKGXkAYlDy9sGxYRD0hHHTuwyirDT0bd8f6L6kE/W/
+         KB+g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUmOGoekYotvhREX9Nkkguh+h5MUIprNXrXA0/L/HRS39lLoBdw
-	v4o4TcpJshEK2Get0TFrsvw=
-X-Google-Smtp-Source: APXvYqyAgNc3vi9IJwRnc/jCnRJ8dP2KkCQIazEsffLZSDAfxrRi+kUg75+39i+HzMn12VAZDMNkpg==
-X-Received: by 2002:ab0:55d5:: with SMTP id w21mr6027559uaa.88.1572207548830;
-        Sun, 27 Oct 2019 13:19:08 -0700 (PDT)
+X-Gm-Message-State: APjAAAVCKtmEuN+EArZvVWGed/YJzSeD/fW61/GsqBCsd9wBbxZwjBTq
+	EOyCYR0G8WVZpQG8pbcZXjU=
+X-Google-Smtp-Source: APXvYqweADQx7wWAh9eIni5JdLFnvTKJpac23Oy78PtSx4Crfc+Kd4apiGH62PL2YP8CeJ36lDtuYQ==
+X-Received: by 2002:a9d:5606:: with SMTP id e6mr10422636oti.173.1572213822634;
+        Sun, 27 Oct 2019 15:03:42 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:dd04:: with SMTP id y4ls1415778vsj.5.gmail; Sun, 27 Oct
- 2019 13:19:08 -0700 (PDT)
-X-Received: by 2002:a67:544:: with SMTP id 65mr7576768vsf.12.1572207548430;
-        Sun, 27 Oct 2019 13:19:08 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572207548; cv=none;
+Received: by 2002:aca:7549:: with SMTP id q70ls71236oic.9.gmail; Sun, 27 Oct
+ 2019 15:03:42 -0700 (PDT)
+X-Received: by 2002:aca:ef04:: with SMTP id n4mr4204046oih.91.1572213822147;
+        Sun, 27 Oct 2019 15:03:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572213822; cv=none;
         d=google.com; s=arc-20160816;
-        b=NTml1PKNMcj/YM0+qQ1Juq1kW4rAC+7P4mB7JSKdfi0ak9IuqDnZV6Weuk1yDFcpGc
-         L7UQGNb9mYeK/Z+KnOd6cJAE/k2L9TaqOullF6WGZBG4WJV1xbPQ4xa4YgCxROVGs0Gc
-         qHVsY/nI1YSA9bnjGyWlb2SmpgTt71L+j1ybctf8GyAjmR858PHKttoS9GUXsXSQ0UvF
-         gCyhyBWp2h4Dx1NpDFoT/Y10G79A20LZILsXqnzPtYCWhuD7DZI/1l42+5RQh1rkUSD7
-         nh4WIjCD7NvH0OfoIq6RbObD+jR1XhLpgiujD1Iv5JSPqclqghzlAYCnkapU0Jdk9qP5
-         5MMA==
+        b=C78U25Craa3whMbfS3WfjM3KkXmYvlCSBXSbGcbisSSrwF/v7KNlJtIWvDUb/jZi8u
+         8xr3Xnx/osrC53sf7NO/won25B/q/do2OXEKeFecW7IpclnqNCUF7m5XmCRkraBBf/+e
+         ELmMy+CB8JM2nUb8JKfBpamkev70UKiGPb4j7YyTS9s2CLniT5xjIWQ+G2ttfr5534Ti
+         +F2+lh8AF8irMysx6fSErCyMQ+LLGLKcKdlEwlJo1d4beHBokFycn7+xalxOjBexC0GW
+         +9pbI+M/D3q4QrniXprVkLKCBJbCaN91XAfI9A9rWsJbb1O0G2O1L2R41y2h8U7b5oC3
+         Hd7A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date;
-        bh=7Tx222z+uUan43Abm//LVX8DpjRh5p4u6aJcSpWfkW0=;
-        b=IaiauEvRRwrR5VERxjn+5Liy2U6HCFxD9ydL8BrqUCyJJuXZksq7ApE1BNDk4GpOIk
-         S1XGSg1o1P7BSydr0LSkaxAPuUrdsQOHz37Y5n06d5wX73YREJXhuYZzey2WQEAt1vMz
-         9f00QWM3sI8EWvV5rygOus3N140hziKzHHr+RUJWaQIugJ0p9iwvAfH5WtGZYmcqOL0h
-         Vj43000R2MYk7t+byYyrIrh1u+b858RN8jnJmBHnQP3EFuaNDcwFwZnbV9kCg+cdadl0
-         gKCaJM6PSXlnPGjmcNJ3VT4DSiHFOZDp1GyNa9p6XX8o5haR6gq+PJVmVFFkJ6tXK244
-         OZHA==
+        h=content-transfer-encoding:mime-version:user-agent:date:cc:to:from
+         :subject:message-id;
+        bh=hsvu9IoQflNtJSBXHF6HWRnVXvhrIAEptUV7WlYIUyk=;
+        b=RVkJIOt/kYBiKIs1uwAeMIoM1VAVVQ7V73Av29OtM2l2qN7v1pgOuyo3aoLy0Z93ZO
+         rtFagCGQ+8aHaAaJsoWNTDWGAhZARBFURbelBbgt9JaphD/HNzeokhrYafLPyrtHKXj6
+         /QXDYAcYj1veqkgRBsi6+iMJkUFnSEtzeFtXeyYtsLKk2Bm27AOG5aMa9Dp+wct517/s
+         G4Fl3JL6GqrJCk2zZcpRF5NFm7DIXeWm2hg26mOp3t9A6Einw3/FYIuCrG9ztdixw8T0
+         JAB5op4+cVjCluVR+Jef8J7WsAfGcOmgZvoBA7f3mxNu9Ejjm2UVsIWgwDuELZ1k5TSl
+         D0wg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id o206si594692vka.4.2019.10.27.13.19.07
+       spf=neutral (google.com: 216.40.44.164 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0164.hostedemail.com. [216.40.44.164])
+        by gmr-mx.google.com with ESMTPS id v3si389701oth.4.2019.10.27.15.03.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 27 Oct 2019 13:19:07 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 27 Oct 2019 13:18:56 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.68,237,1569308400"; 
-   d="scan'208";a="197917556"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 27 Oct 2019 13:18:55 -0700
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
-	(envelope-from <lkp@intel.com>)
-	id 1iOp02-0003Dl-KW; Mon, 28 Oct 2019 04:18:54 +0800
-Date: Mon, 28 Oct 2019 04:18:15 +0800
-From: kbuild test robot <lkp@intel.com>
-To: kbuild@lists.01.org
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
+        Sun, 27 Oct 2019 15:03:41 -0700 (PDT)
+Received-SPF: neutral (google.com: 216.40.44.164 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.164;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay02.hostedemail.com (Postfix) with ESMTP id 2396345DA;
+	Sun, 27 Oct 2019 22:03:41 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::,RULES_HIT:2:41:69:355:379:800:960:973:988:989:1260:1277:1311:1313:1314:1345:1431:1437:1515:1516:1518:1535:1593:1594:1606:1730:1747:1777:1792:2194:2199:2393:2538:2559:2562:2828:3138:3139:3140:3141:3142:3355:3866:3867:3868:3872:3874:4321:5007:10004:10848:11026:11473:11658:11914:12043:12296:12297:12438:12555:12683:12760:12986:13439:14096:14097:14394:14659:21080:21433:21451:21627:21795:21972:30003:30029:30051:30054:30070,0,RBL:47.151.135.224:@perches.com:.lbl8.mailshell.net-62.8.0.100 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:24,LUA_SUMMARY:none
+X-HE-Tag: map19_775f4b485eb16
+X-Filterd-Recvd-Size: 5943
+Received: from XPS-9350.home (unknown [47.151.135.224])
+	(Authenticated sender: joe@perches.com)
+	by omf01.hostedemail.com (Postfix) with ESMTPA;
+	Sun, 27 Oct 2019 22:03:40 +0000 (UTC)
+Message-ID: <7a15bc8ad7437dc3a044a4f9cd283500bd0b5f36.camel@perches.com>
+Subject: [PATCH] compiler*.h: Add '__' prefix and suffix to all
+ __attribute__ #defines
+From: Joe Perches <joe@perches.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel <linux-kernel@vger.kernel.org>, 
 	clang-built-linux@googlegroups.com
-Subject: [drm-drm-intel:drm-intel-next-queued 6/6] init/Kconfig:76: symbol
- BROKEN is selected by DRM_I915_DEBUG
-Message-ID: <201910280411.kbTofJTz%lkp@intel.com>
-MIME-Version: 1.0
+Date: Sun, 27 Oct 2019 15:03:34 -0700
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Patchwork-Hint: ignore
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+User-Agent: Evolution 3.34.1-2
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.164 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,65 +129,136 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-CC: kbuild-all@lists.01.org
-TO: Chris Wilson <chris@chris-wilson.co.uk>
-CC: Rodrigo Vivi <rodrigo.vivi@intel.com>
+To avoid macro name collisions and improve portability use a
+double underscore prefix and suffix on all __attribute__ #defines.
 
-tree:   git://anongit.freedesktop.org/drm/drm-intel drm-intel-next-queued
-head:   d9d54a530a70eee6f003bd3ade38817cf85b9325
-commit: d9d54a530a70eee6f003bd3ade38817cf85b9325 [6/6] drm/i915: Put future HW and their uAPIs under STAGING & BROKEN
-config: powerpc-defconfig
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 9d77ad57540c45b0a6e6ffcf8721a3189c0ed70e)
-reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        git checkout d9d54a530a70eee6f003bd3ade38817cf85b9325
-        make.cross ARCH=powerpc  defconfig
-        make.cross ARCH=powerpc 
+Before this patch, 33 of 56 #defines used a form like:
 
-If you fix the issue, kindly add following tag
-Reported-by: kbuild test robot <lkp@intel.com>
+	'#define __<type> __attribute__((__<attribute_name>__))'
 
-All errors (new ones prefixed by >>):
+Now all __attribute__ #defines use that form.
 
->> arch/powerpc/platforms/embedded6xx/Kconfig:2:error: recursive dependency detected!
->> arch/powerpc/platforms/embedded6xx/Kconfig:2: symbol EMBEDDED6xx depends on BROKEN_ON_SMP
->> init/Kconfig:79: symbol BROKEN_ON_SMP depends on BROKEN
->> init/Kconfig:76: symbol BROKEN is selected by DRM_I915_DEBUG
->> drivers/gpu/drm/i915/Kconfig.debug:20: symbol DRM_I915_DEBUG depends on DRM_I915
->> drivers/gpu/drm/i915/Kconfig:2: symbol DRM_I915 depends on DRM
->> drivers/gpu/drm/Kconfig:8: symbol DRM depends on AGP
->> drivers/char/agp/Kconfig:2: symbol AGP depends on PCI
->> drivers/pci/Kconfig:16: symbol PCI depends on HAVE_PCI
->> drivers/pci/Kconfig:7: symbol HAVE_PCI is selected by FORCE_PCI
->> drivers/pci/Kconfig:11: symbol FORCE_PCI is selected by MVME5100
->> arch/powerpc/platforms/embedded6xx/Kconfig:51: symbol MVME5100 depends on EMBEDDED6xx
-   For a resolution refer to Documentation/kbuild/kconfig-language.rst
-   subsection "Kconfig recursive dependency limitations"
-
-vim +76 init/Kconfig
-
-^1da177e4c3f41 Linus Torvalds 2005-04-16  75  
-^1da177e4c3f41 Linus Torvalds 2005-04-16 @76  config BROKEN
-^1da177e4c3f41 Linus Torvalds 2005-04-16  77  	bool
-^1da177e4c3f41 Linus Torvalds 2005-04-16  78  
-^1da177e4c3f41 Linus Torvalds 2005-04-16 @79  config BROKEN_ON_SMP
-^1da177e4c3f41 Linus Torvalds 2005-04-16  80  	bool
-^1da177e4c3f41 Linus Torvalds 2005-04-16  81  	depends on BROKEN || !SMP
-^1da177e4c3f41 Linus Torvalds 2005-04-16  82  	default y
-^1da177e4c3f41 Linus Torvalds 2005-04-16  83  
-
-:::::: The code at line 76 was first introduced by commit
-:::::: 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2 Linux-2.6.12-rc2
-
-:::::: TO: Linus Torvalds <torvalds@ppc970.osdl.org>
-:::::: CC: Linus Torvalds <torvalds@ppc970.osdl.org>
-
+Signed-off-by: Joe Perches <joe@perches.com>
 ---
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+ include/linux/compiler-clang.h |  2 +-
+ include/linux/compiler-gcc.h   | 10 +++++-----
+ include/linux/compiler_types.h | 34 +++++++++++++++++-----------------
+ 3 files changed, 23 insertions(+), 23 deletions(-)
+
+diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
+index 333a66..26d655f 100644
+--- a/include/linux/compiler-clang.h
++++ b/include/linux/compiler-clang.h
+@@ -19,7 +19,7 @@
+ /* emulate gcc's __SANITIZE_ADDRESS__ flag */
+ #define __SANITIZE_ADDRESS__
+ #define __no_sanitize_address \
+-		__attribute__((no_sanitize("address", "hwaddress")))
++		__attribute__((__no_sanitize__("address", "hwaddress")))
+ #else
+ #define __no_sanitize_address
+ #endif
+diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
+index d7ee4c..7a2dee 100644
+--- a/include/linux/compiler-gcc.h
++++ b/include/linux/compiler-gcc.h
+@@ -76,7 +76,7 @@
+ #define __compiletime_error(message) __attribute__((__error__(message)))
+ 
+ #if defined(LATENT_ENTROPY_PLUGIN) && !defined(__CHECKER__)
+-#define __latent_entropy __attribute__((latent_entropy))
++#define __latent_entropy __attribute__((__latent_entropy__))
+ #endif
+ 
+ /*
+@@ -101,8 +101,8 @@
+ 	} while (0)
+ 
+ #if defined(RANDSTRUCT_PLUGIN) && !defined(__CHECKER__)
+-#define __randomize_layout __attribute__((randomize_layout))
+-#define __no_randomize_layout __attribute__((no_randomize_layout))
++#define __randomize_layout __attribute__((__randomize_layout__))
++#define __no_randomize_layout __attribute__((__no_randomize_layout__))
+ /* This anon struct can add padding, so only enable it under randstruct. */
+ #define randomized_struct_fields_start	struct {
+ #define randomized_struct_fields_end	} __randomize_layout;
+@@ -140,7 +140,7 @@
+ #endif
+ 
+ #if __has_attribute(__no_sanitize_address__)
+-#define __no_sanitize_address __attribute__((no_sanitize_address))
++#define __no_sanitize_address __attribute__((__no_sanitize_address__))
+ #else
+ #define __no_sanitize_address
+ #endif
+@@ -171,4 +171,4 @@
+ #define __diag_GCC_8(s)
+ #endif
+ 
+-#define __no_fgcse __attribute__((optimize("-fno-gcse")))
++#define __no_fgcse __attribute__((__optimize__("-fno-gcse")))
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index 72393a..b8c2145 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -5,27 +5,27 @@
+ #ifndef __ASSEMBLY__
+ 
+ #ifdef __CHECKER__
+-# define __user		__attribute__((noderef, address_space(1)))
+-# define __kernel	__attribute__((address_space(0)))
+-# define __safe		__attribute__((safe))
+-# define __force	__attribute__((force))
+-# define __nocast	__attribute__((nocast))
+-# define __iomem	__attribute__((noderef, address_space(2)))
+-# define __must_hold(x)	__attribute__((context(x,1,1)))
+-# define __acquires(x)	__attribute__((context(x,0,1)))
+-# define __releases(x)	__attribute__((context(x,1,0)))
+-# define __acquire(x)	__context__(x,1)
+-# define __release(x)	__context__(x,-1)
++# define __user		__attribute__((__noderef__, __address_space__(1)))
++# define __kernel	__attribute__((__address_space__(0)))
++# define __safe		__attribute__((__safe__))
++# define __force	__attribute__((__force__))
++# define __nocast	__attribute__((__nocast__))
++# define __iomem	__attribute__((__noderef__, __address_space__(2)))
++# define __must_hold(x)	__attribute__((__context__(x, 1, 1)))
++# define __acquires(x)	__attribute__((__context__(x, 0, 1)))
++# define __releases(x)	__attribute__((__context__(x, 1, 0)))
++# define __acquire(x)	__context__(x, 1)
++# define __release(x)	__context__(x, -1)
+ # define __cond_lock(x,c)	((c) ? ({ __acquire(x); 1; }) : 0)
+-# define __percpu	__attribute__((noderef, address_space(3)))
+-# define __rcu		__attribute__((noderef, address_space(4)))
+-# define __private	__attribute__((noderef))
++# define __percpu	__attribute__((__noderef__, __address_space__(3)))
++# define __rcu		__attribute__((__noderef__, __address_space__(4)))
++# define __private	__attribute__((__noderef__))
+ extern void __chk_user_ptr(const volatile void __user *);
+ extern void __chk_io_ptr(const volatile void __iomem *);
+ # define ACCESS_PRIVATE(p, member) (*((typeof((p)->member) __force *) &(p)->member))
+ #else /* __CHECKER__ */
+ # ifdef STRUCTLEAK_PLUGIN
+-#  define __user __attribute__((user))
++#  define __user __attribute__((__user__))
+ # else
+ #  define __user
+ # endif
+@@ -111,9 +111,9 @@ struct ftrace_likely_data {
+ #endif
+ 
+ #if defined(CC_USING_HOTPATCH)
+-#define notrace			__attribute__((hotpatch(0, 0)))
++#define notrace			__attribute__((__hotpatch__(0, 0)))
+ #elif defined(CC_USING_PATCHABLE_FUNCTION_ENTRY)
+-#define notrace			__attribute__((patchable_function_entry(0, 0)))
++#define notrace			__attribute__((__patchable_function_entry__(0, 0)))
+ #else
+ #define notrace			__attribute__((__no_instrument_function__))
+ #endif
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910280411.kbTofJTz%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/7a15bc8ad7437dc3a044a4f9cd283500bd0b5f36.camel%40perches.com.
