@@ -1,146 +1,134 @@
-Return-Path: <clang-built-linux+bncBAABBFEW3XWQKGQEQVAUU6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBBXNQ3XWQKGQE7JOBCPY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
-	by mail.lfdr.de (Postfix) with ESMTPS id AFC2DE79AB
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 21:09:57 +0100 (CET)
-Received: by mail-il1-x137.google.com with SMTP id x17sf10711396ill.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 13:09:57 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572293396; cv=pass;
+Received: from mail-ed1-x53d.google.com (mail-ed1-x53d.google.com [IPv6:2a00:1450:4864:20::53d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 27523E7AD0
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 22:06:38 +0100 (CET)
+Received: by mail-ed1-x53d.google.com with SMTP id o92sf7274792edb.9
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 14:06:38 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572296798; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X/gzB+YJ3C9oUIuvLI3We9IjaoDP9dFsfkOfkTp6fb6pdyY8Cerkg3/LePJTygOI52
-         /ZsRBgiWpeZr9tQFzHnK08Qx5ptFheSrW5X0VyG01hAzh/8RvK/czAFiDR/1sBfupBLN
-         ivfNtJLuB7zllSzz5f5JrUt9H6AqGBXK6Z+qgZtg9V1n80fdzQYSKWjp3dSoPz2OE11j
-         d6MstQN4NhUaEon9656lz4IXCrWuH2VZ9qna4KqLmYztdMPgr+TwdWYzMNb2ZcsOjNsI
-         hShySVLWwYNG5bj+H+lRHIjvHoEy7qqIug46OtV7sJ3TV3aU59NkJ71MpPIUokOV64ki
-         7TSg==
+        b=DdZ2EN/47rvr35LatMFvyvITpiyvBESfmkybPMd/LT8ywVaLlBPtdFzoIgOxzyHINX
+         DpxS2NS1qys6VnJ4IfZwu5Tb/SKZZKb0Y6m+UreyQ2NIE0R4BrauwyVAPBMsHsxu2OUw
+         /iJ7RfGy5HPWCt7eneN/VcrDP5kGT5QcIVbaUWWSpwHK0gQLpEXdk0KmqMPyV+rzOFMl
+         qVUdzuLfItkL7/wnm/U29n4FGzboqsB6Tc/Ha6y4nmB6QRiKIjGnV6kCsErSJeo2ChCM
+         KyWJJNQgswlvGqr6lXulmFFtSclh+CPM8V8XveS7XsxLfioHCidJLb+wLefyTMzJE22e
+         Z6TA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:thread-index
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:sender:dkim-signature;
-        bh=nkSmwKQ9bzetLyEYizKCpxP/uSBZ6jT3QCXFtop8O1M=;
-        b=Ym0tJlX/A6UCgUgMWnk1oTgxUvLRwtPybeERhKBH6HHf2gKfNd5YtDtWFPrZEC+GLn
-         SMFwerzuWOqA5/y8B/RcxPVJPLJXVpXP2vVwcw60jMnffuVHX8MtgdGVegnBs4j4OzQo
-         RnSoBLNxt0xXwFKbsOgG3F5iSFoSYAnUpKwQ2ia1BtaqXF09ay2dz+Efq52HQd2y0p1d
-         FQu6XA/ufHD15jd7cYmlv1tDHaNNwjwViaB+yaxnzzrR7NsJ50xOY7w+oGNNqlIdLcju
-         rgJChMmCTHRvC46QkVUvJ+ai/jiHfH/VucgwUZTDrNawmjHi0ZpLN773B1mP7bG9Zzs2
-         qRLw==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=I+FCqXccugwxUzUGsOF2OE/XsGPfH4SO2JabnCYDkkw=;
+        b=DLtZbwPvExbzOh5vBCxPZroC6/40bKfWpIDtW1s7vTEVFrAl/BJrbPBjWv8VJ6J7mp
+         DRTVdCpMK5bSPWRSN04AvgIuBRFQ4gHPWyxp5pdXScrOzmyXXYaCOkbMYeKJSlH6NFC5
+         hjdVlBi5wT05bkYsdrCXyd9tIUpv9qGvlBZBE722IC5XA4W8dXX+E2i0/yXlW0kdw/4e
+         RMSA0I2e2JGkWgbwzaqQm4es7yb+s0vHdySzdl355P8B3GPV/tluUTFY8U2yWwC99eY3
+         XCB8ADxub5jZV2Z7rvppD2ai0YyPkLf5pKq/FUc/M97AHv8wwEZpWxBoqDm3gLbx001X
+         adPQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@codeaurora.org header.s=default header.b=YcdA17Z8;
-       dkim=pass header.i=@codeaurora.org header.s=default header.b=mCdCEyDr;
-       spf=pass (google.com: domain of bcain@codeaurora.org designates 198.145.29.96 as permitted sender) smtp.mailfrom=bcain@codeaurora.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=VM9Fmn7y;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dmarc-filter:reply-to:from:to:cc:references:in-reply-to
-         :subject:date:message-id:mime-version:thread-index:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nkSmwKQ9bzetLyEYizKCpxP/uSBZ6jT3QCXFtop8O1M=;
-        b=l3qPcww5Rak9oFowSB8pY67aE0gIA33BSC/Xi+t+Y1CgNFI3KxQYjV91Q1ZK/lacwV
-         23LpiD4fcccY5KffZiuLw+mQX7TRX94HLZMvhwfpz97hrL1qUjrsQPFd2brtSa2VOjbn
-         pRVnzAAoXPYSNVAv+cRO1DDB3iw/4ZrqWsdaIz+zMddbpvthUNRF+61va7kn6xAfu6Gu
-         QRW6HG2gtLjBckL8GKxuzHkmh1j6v3PiHLsnFYLCn28nTZgy9auh0xY7KyZ4SJnAedsT
-         dK6yUcNaLxauSgk2xVooybyvugf82q9z7+UI2Ivy32tMF81RBCTJuNgReH6xKXYGhKUm
-         NiRg==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=I+FCqXccugwxUzUGsOF2OE/XsGPfH4SO2JabnCYDkkw=;
+        b=NSV6JSEr4Q3wipIrmS36KjX9/TlDfpPH5fZuyqSCMqpub/ykg1l9ktoy+xTmSVdsv3
+         7h7n+UrQi7TiDmrG5111VBnM7y/idSYMVjI1RDSRSZpThjhDwr6SPEwQUOIRcARMa7cU
+         1xID/GH/nMefGVV+lopWZVyK0c53QfF6dcMxfYXydWVDPN6GvjoBwbysQYFWhrr0NxrS
+         rO1yfI9EAKqF9/3d2jqaYXhaAI9GKzLhKeUEYtwTY2gb7XhXkvBRjEOz3Z8d0ueNuMGV
+         HxG8dfE9/hG+S0elHYnwstztD6bCl17dOU3YoTWD3oODalHgWWUC7Hwa3ABBQjj8jpnM
+         CJMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dmarc-filter:reply-to:from:to:cc
-         :references:in-reply-to:subject:date:message-id:mime-version
-         :thread-index:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nkSmwKQ9bzetLyEYizKCpxP/uSBZ6jT3QCXFtop8O1M=;
-        b=mS1iYzChLZCqgWhDTzeu3HwkoO1MjKd9XhT+dE8jOUlVm6hKF60bS5XEoKABZr0WjX
-         atydAN7236i+Krk3OErX2oOgYP8u9Xi1dPkM4YUrX09tBWW96uKDf8aAZkl2oBsWahlc
-         N2oeqIIxjoh5k5bWKur7dAVXTCvbGzE3AdA2+OGkkN9DNfhISPBG4Diqg/xCjFktX0Of
-         zvzGUkK31gjxpwmv+G2M7bt44MRem25pAVSaS1FcpfCrq1MkK8w1bcANgE71EaeQInGD
-         W4caj7zlkk43xi2PGg9z14brOa8QAZMqc3EPEpd65peRoK160TKb606JHX7P289nfuKk
-         eGXw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVn3R32uWYDcoV7mOKnmYB9amSq6f9mmotiSdMymQ+4cNrnW5ea
-	9qpLJZnpu3NX8VTtmc0w8Uc=
-X-Google-Smtp-Source: APXvYqxddKyJy8GNq7ahct1MBiyvzFOQuMtPrLKgR6eGp4anaZSD5XJ1ShXjXLPwMd5hFAGEBPD+aA==
-X-Received: by 2002:a92:5d97:: with SMTP id e23mr21368758ilg.24.1572293396314;
-        Mon, 28 Oct 2019 13:09:56 -0700 (PDT)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=I+FCqXccugwxUzUGsOF2OE/XsGPfH4SO2JabnCYDkkw=;
+        b=PpQf0KzJKABOtz7Q8Wd3kKFGNL1QLLR2WKQv3b83l2sYij5D5K4iP34m2ihWbcoo5g
+         w1kSDUfL1SPQ3EBGLYyKvkikTRHLOXWRezyAQhztQdTZoiB1z6Ep9M+rwRywdhWaBeLX
+         RInjyeyMQKhJdsJIllqgerDuX4I+TUIRaCWL4gO1N8gijlm7cK3zrOMe8kMrxyGCunr8
+         89BEaYJRsX28qYyg+gLUm6cCp1rCm4552sxHFVUkAX/CEqh4gLP/ytUKW35RXQ7Va0cS
+         k9/yfC1rVC8wlLRR/bX0bk/EB/fGqBGUgmbY+qMoTjaqCMsEhV7R7wFm6Y1xagBagCyG
+         5ctQ==
+X-Gm-Message-State: APjAAAVVMrnkJRi2Fp+FsxFGi8qz8fabhw44SpFz0BY9xmycCw/28OpX
+	Sixt7g8nCjwSCpujgCPdKto=
+X-Google-Smtp-Source: APXvYqzHmJHH2I2yzC0QahoDMbSYKcVmlrzBCi0uu811U9bIhVcAYPuE6U/dFFECQY/H1k6eOQT7NQ==
+X-Received: by 2002:a50:9254:: with SMTP id j20mr22757038eda.0.1572296797903;
+        Mon, 28 Oct 2019 14:06:37 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:4781:: with SMTP id e1ls3202854ilk.10.gmail; Mon, 28 Oct
- 2019 13:09:55 -0700 (PDT)
-X-Received: by 2002:a92:4514:: with SMTP id s20mr23278579ila.232.1572293395983;
-        Mon, 28 Oct 2019 13:09:55 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572293395; cv=none;
+Received: by 2002:aa7:c0cc:: with SMTP id j12ls2050327edp.10.gmail; Mon, 28
+ Oct 2019 14:06:37 -0700 (PDT)
+X-Received: by 2002:a50:950a:: with SMTP id u10mr22264431eda.68.1572296797351;
+        Mon, 28 Oct 2019 14:06:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572296797; cv=none;
         d=google.com; s=arc-20160816;
-        b=lr7klz783CkpYxriHsUiltO72AvD21jZAg9NQsFUa9CJjbOSPNQb8V/MimvB+HiSaf
-         2tqcHW/lxO3ENXBcZn+gj4cHC8Vlq5rjGlXc8kVtoP25WFkBOUguB0j2axUKRAe3F0uE
-         uhx0EgDk/M3yumnNsK6Xl9+P1EvnQ153cDxlpPf7+Xp3XBHGKQfmtL6yIxT09CVIr+nx
-         xsOo4qjLS5rPXAsIxhX6PVBpJi3moimsgZzyYUkb2MiWlm5CewsN2dJfzK4MEjFhHR2H
-         GwY03WVsBoxDsnjB4p1+tG2bTC/OVSunCly7bNh8+XlRURShBeyoUPTV0vmhthPDxIGc
-         Hb4w==
+        b=nMQhbQzTR/tLit/qQKy4NKO+JHGUMVWlr3/ckY5bsrLKwUhh4gVhLL4bZnjHj6hTBL
+         qjZnP6g6EMJTHq9AU/JzVitx85po21Ge+QwygtECUDd16PuKEh0gLcVuqzu2XsALwW6M
+         Y+vnRcLl+pCdFd8hJPHSJBSjCiQI/6EXgD/aiFpjLEJICN+Su2krt+gFmorfTMTJFnyU
+         DuTrx8esV1X/CnCmCgl4dux/vLFAM8lVI4K6Z2wCwyxSoi1ckbNtP/8x2O7WpbZffDcK
+         V2S12KF1/X3hX43nVzXjx1+J2ZcZ5LyUsQ9zgraxd4Y4UeIVPvxKGs14UV10E9kiw9uR
+         UoGA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:thread-index:content-transfer-encoding
-         :mime-version:message-id:date:subject:in-reply-to:references:cc:to
-         :from:reply-to:dmarc-filter:dkim-signature:dkim-signature;
-        bh=Den5HckjWVd4B5x4OAIo3DsOSqa8IgNXFKz/9MsO0QQ=;
-        b=Q9tiByD7J+KYZalnVj4nNsi8GCFBQjfw9Nc/XQe5v8Ym9smcyh0pjSLqHnWkvbYYpe
-         cI1xljHcmyb2/NPQty0tjZ7o65yryZqT7dDbm6LbQ1a855ZxisnJYYHJ3ByoXjI6YqVW
-         a571trLJB3zK/DKsRmYNtDp6/FgqcDrJR6CCMXOsoDJ/3RCeRUHl4RNtkE1CcSAA8Aki
-         XiRKmjTsKfmCuwcAjUmQ4Yw6S6dJQTcxoH9Uxyn03+0JjrOMKLaWRBAJ1VXPm2Pyhi+i
-         ah3j/dSICLp7Pg7Hf1Jz3gRkROjO2XOydjjgZ6hT3h4pUJQno9xFBacOx6ScPQSaxQCi
-         lCyg==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=kmLbG7xlFIRZD/3ijO96lnD7meByS4x923IZvFm+VaA=;
+        b=i6NXDbZw0m/OgDc3F/bnsWHzat+OzI/3/79sZHebRp8O85vAebYP0+TwpZIHOeyaaA
+         TO782tx15sUDP5oq9UmZD7XFuTiKslKGtLKJNztjU0s59pmx+kGVhWuN6fLUMnp5m00M
+         CRfhwaHtP6lM8yUONwbiBInj73rAy/Y/9VJB0SRNibcGxNB/mGHlHH2q7oRa3V3Wqbf9
+         cTl1Aba2f0+crkYBBo6Uqfau4eHE2j8mjrQ0rye901/WxX4REFF5FcB23X3JzeN0q+CZ
+         YB7voz9fbYlH1HijHiAJtGJMqz8w4RiookF3WU9H2i+EnhVHrBZIixXcbg+dLjPik3bt
+         bMcg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@codeaurora.org header.s=default header.b=YcdA17Z8;
-       dkim=pass header.i=@codeaurora.org header.s=default header.b=mCdCEyDr;
-       spf=pass (google.com: domain of bcain@codeaurora.org designates 198.145.29.96 as permitted sender) smtp.mailfrom=bcain@codeaurora.org
-Received: from smtp.codeaurora.org (smtp.codeaurora.org. [198.145.29.96])
-        by gmr-mx.google.com with ESMTPS id b74si101823ilb.1.2019.10.28.13.09.55
+       dkim=pass header.i=@google.com header.s=20161025 header.b=VM9Fmn7y;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id y21si416710ejp.1.2019.10.28.14.06.37
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 28 Oct 2019 13:09:55 -0700 (PDT)
-Received-SPF: pass (google.com: domain of bcain@codeaurora.org designates 198.145.29.96 as permitted sender) client-ip=198.145.29.96;
-Received: by smtp.codeaurora.org (Postfix, from userid 1000)
-	id 42597609DD; Mon, 28 Oct 2019 20:09:55 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	pdx-caf-mail.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-2.7 required=2.0 tests=ALL_TRUSTED,BAYES_00,
-	DKIM_INVALID,DKIM_SIGNED,SPF_NONE autolearn=no autolearn_force=no
-	version=3.4.0
-Received: from BCAIN (i-global254.qualcomm.com [199.106.103.254])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: bcain@codeaurora.org)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id A46AB60274;
-	Mon, 28 Oct 2019 20:09:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org A46AB60274
-Reply-To: <bcain@codeaurora.org>
-From: "Brian Cain" <bcain@codeaurora.org>
-To: "'Nick Desaulniers'" <ndesaulniers@google.com>
-Cc: "'Sid Manning'" <sidneym@quicinc.com>,
-	"'Allison Randal'" <allison@lohutok.net>,
-	"'Greg Kroah-Hartman'" <gregkh@linuxfoundation.org>,
-	"'Richard Fontana'" <rfontana@redhat.com>,
-	"'Thomas Gleixner'" <tglx@linutronix.de>,
-	<linux-hexagon@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>,
-	<clang-built-linux@googlegroups.com>
-References: <20191028155722.23419-1-ndesaulniers@google.com>
-In-Reply-To: <20191028155722.23419-1-ndesaulniers@google.com>
-Subject: RE: [PATCH] hexagon: work around compiler crash
-Date: Mon, 28 Oct 2019 15:09:52 -0500
-Message-ID: <002301d58dcb$a9ffaa80$fdfeff80$@codeaurora.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Oct 2019 14:06:37 -0700 (PDT)
+Received-SPF: pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
+Received: by mail-wr1-x441.google.com with SMTP id r1so11377285wrs.9
+        for <clang-built-linux@googlegroups.com>; Mon, 28 Oct 2019 14:06:37 -0700 (PDT)
+X-Received: by 2002:a5d:6785:: with SMTP id v5mr12529813wru.174.1572296796532;
+ Mon, 28 Oct 2019 14:06:36 -0700 (PDT)
 MIME-Version: 1.0
+References: <20191023005337.196160-1-irogers@google.com> <20191024190202.109403-1-irogers@google.com>
+ <20191024190202.109403-2-irogers@google.com> <20191025075820.GE31679@krava>
+ <CAP-5=fV3yruuFagTz4=8b9t6Y1tzZpFU=VhVcOmrSMiV+h2fQA@mail.gmail.com> <20191028193224.GB28772@krava>
+In-Reply-To: <20191028193224.GB28772@krava>
+From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 28 Oct 2019 14:06:24 -0700
+Message-ID: <CAP-5=fWqzT24JwuYYdH=4auB0EB2P4MMw4bvqGd02fTShXnJfg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/9] perf tools: add parse events append error
+To: Jiri Olsa <jolsa@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Namhyung Kim <namhyung@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, 
+	Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, Andi Kleen <ak@linux.intel.com>, 
+	Jin Yao <yao.jin@linux.intel.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Kan Liang <kan.liang@linux.intel.com>, John Garry <john.garry@huawei.com>, 
+	LKML <linux-kernel@vger.kernel.org>, netdev@vger.kernel.org, bpf@vger.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Stephane Eranian <eranian@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQKUlOT6xDYs3glgy2B+THlWPmKFrqXybLvA
-Content-Language: en-us
-X-Original-Sender: bcain@codeaurora.org
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: irogers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@codeaurora.org header.s=default header.b=YcdA17Z8;       dkim=pass
- header.i=@codeaurora.org header.s=default header.b=mCdCEyDr;       spf=pass
- (google.com: domain of bcain@codeaurora.org designates 198.145.29.96 as
- permitted sender) smtp.mailfrom=bcain@codeaurora.org
+ header.i=@google.com header.s=20161025 header.b=VM9Fmn7y;       spf=pass
+ (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::441
+ as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Ian Rogers <irogers@google.com>
+Reply-To: Ian Rogers <irogers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,23 +141,133 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-> -----Original Message-----
-> From: linux-hexagon-owner@vger.kernel.org <linux-hexagon-
-> owner@vger.kernel.org> On Behalf Of Nick Desaulniers
-...
-> Subject: [PATCH] hexagon: work around compiler crash
-> 
-> Clang cannot translate the string "r30" into a valid register yet.
-> 
-> Link: https://github.com/ClangBuiltLinux/linux/issues/755
-> Suggested-by: Sid Manning <sidneym@quicinc.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+On Mon, Oct 28, 2019 at 12:32 PM Jiri Olsa <jolsa@redhat.com> wrote:
+>
+> On Fri, Oct 25, 2019 at 08:14:36AM -0700, Ian Rogers wrote:
+> > On Fri, Oct 25, 2019 at 12:58 AM Jiri Olsa <jolsa@redhat.com> wrote:
+> > >
+> > > On Thu, Oct 24, 2019 at 12:01:54PM -0700, Ian Rogers wrote:
+> > > > Parse event error handling may overwrite one error string with anot=
+her
+> > > > creating memory leaks and masking errors. Introduce a helper routin=
+e
+> > > > that appends error messages and avoids the memory leak.
+> > > >
+> > > > A reproduction of this problem can be seen with:
+> > > >   perf stat -e c/c/
+> > > > After this change this produces:
+> > > > event syntax error: 'c/c/'
+> > > >                        \___ unknown term (previous error: unknown t=
+erm (previous error: unknown term (previous error: unknown term (previous e=
+rror: unknown term (previous error: unknown term (previous error: unknown t=
+erm (previous error: unknown term (previous error: unknown term (previous e=
+rror: unknown term (previous error: unknown term (previous error: unknown t=
+erm (previous error: unknown term (previous error: unknown term (previous e=
+rror: unknown term (previous error: unknown term (previous error: unknown t=
+erm (previous error: unknown term (previous error: unknown term (previous e=
+rror: unknown term (previous error: unknown term (previous error: Cannot fi=
+nd PMU `c'. Missing kernel support?)(help: valid terms: event,filter_rem,fi=
+lter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,filter=
+_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,conf=
+ig,config1,config2,name,period,percore))(help: valid terms: event,filter_re=
+m,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,fi=
+lter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,=
+config,config1,config2,name,period,percore))(help: valid terms: event,filte=
+r_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umas=
+k,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter=
+_nm,config,config1,config2,name,period,percore))(help: valid terms: event,f=
+ilter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,=
+umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,fi=
+lter_nm,config,config1,config2,name,period,percore))(help: valid terms: eve=
+nt,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,=
+inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_stat=
+e,filter_nm,config,config1,config2,name,period,percore))(help: valid terms:=
+ event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter=
+_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_=
+state,filter_nm,config,config1,config2,name,period,percore))(help: valid te=
+rms: event,pc,in_tx,edge,any,offcore_rsp,in_tx_cp,ldlat,inv,umask,frontend,=
+cmask,config,config1,config2,name,period,percore))(help: valid terms: event=
+,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,in=
+v,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,=
+filter_nm,config,config1,config2,name,period,percore))(help: valid terms: e=
+vent,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_n=
+c,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_st=
+ate,filter_nm,config,config1,config2,name,period,percore))(help: valid term=
+s: event,config,config1,config2,name,period,percore))(help: valid terms: ev=
+ent,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc=
+,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_sta=
+te,filter_nm,config,config1,config2,name,period,percore))(help: valid terms=
+: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filte=
+r_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter=
+_state,filter_nm,config,config1,config2,name,period,percore))(help: valid t=
+erms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,f=
+ilter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,fi=
+lter_state,filter_nm,config,config1,config2,name,period,percore))(help: val=
+id terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_l=
+oc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_n=
+m,filter_state,filter_nm,config,config1,config2,name,period,percore))(help:=
+ valid terms: event,config,config1,config2,name,period,percore))(help: vali=
+d terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_lo=
+c,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm=
+,filter_state,filter_nm,config,config1,config2,name,period,percore))(help: =
+valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filte=
+r_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_no=
+t_nm,filter_state,filter_nm,config,config1,config2,name,period,percore))(he=
+lp: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,f=
+ilter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filte=
+r_not_nm,filter_state,filter_nm,config,config1,config2,name,period,percore)=
+)(help: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_t=
+id,filter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,f=
+ilter_not_nm,filter_state,filter_nm,config,config1,config2,name,period,perc=
+ore))(help: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filt=
+er_tid,filter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_=
+op,filter_not_nm,filter_state,filter_nm,config,config1,config2,name,period,=
+percore))
+> > >
+> > >
+> > > hum... I'd argue that the previous state was better:
+> > >
+> > > [jolsa@krava perf]$ ./perf stat -e c/c/
+> > > event syntax error: 'c/c/'
+> > >                        \___ unknown term
+> > >
+> > >
+> > > jirka
+> >
+> > I am agnostic. We can either have the previous state or the new state,
+> > I'm keen to resolve the memory leak. Another alternative is to warn
+> > that multiple errors have occurred before dropping or printing the
+> > previous error. As the code is shared in memory places the approach
+> > taken here was to try to not conceal anything that could potentially
+> > be useful. Given this, is the preference to keep the status quo
+> > without any warning?
+>
+> if the other alternative is string above, yes.. but perhaps
+> keeping just the first error would be the best way?
+>
+> here it seems to be the:
+>    "Cannot find PMU `c'. Missing kernel support?)(help: valid..."
 
-LGTM.  Thanks, Nick.
+I think this is a reasonable idea. I'd propose doing it as an
+additional patch, the purpose of this patch is to avoid a possible
+memory leak. I can write the patch and base it on this series.
+To resolve the issue, I'd add an extra first error to the struct
+parse_events_error. All callers would need to be responsible for
+cleaning this up when present, which is why I'd rather not make it
+part of this patch.
+Does this sound reasonable?
 
-Reviewed-by: Brian Cain <bcain@codeaurora.org>
+Thanks,
+Ian
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/002301d58dcb%24a9ffaa80%24fdfeff80%24%40codeaurora.org.
+> jirka
+>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAP-5%3DfWqzT24JwuYYdH%3D4auB0EB2P4MMw4bvqGd02fTShXnJfg%4=
+0mail.gmail.com.
