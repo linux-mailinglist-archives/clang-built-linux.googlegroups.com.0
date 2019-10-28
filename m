@@ -1,129 +1,157 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBT7B3TWQKGQELJWPG5I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCDZTXMP2EPRBVUE3XWQKGQECBQCATY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id DFF7EE783C
-	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 19:17:52 +0100 (CET)
-Received: by mail-il1-x13d.google.com with SMTP id n81sf10370410ili.22
-        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 11:17:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572286671; cv=pass;
+Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2CC06E793E
+	for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 20:32:40 +0100 (CET)
+Received: by mail-il1-x13c.google.com with SMTP id p18sf2453996ilm.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 28 Oct 2019 12:32:40 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572291158; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WcXCPD4IR2A3DLh+ro27VRmxLwyICLCARvlZ6V0YUeDLOP8WFHmxnKZ/SHBzGocCIm
-         KpIcyglaTHMF5ZAGD/2dgYKH07hiBxJtvWKAqaYvuMqYEbJyjBmOas+KMx+1MTvv/xdz
-         Rv/dlf508/jViFe1GCtPZAwg4SROT4EcUtVcyuvlUY/b8A+yGJectA9uTmzod7T7NIFl
-         t1lRslUU7DqXbpdPkac7JL3I92BA5lt+Y0p01jvv/AypJf++TsNIymc8W/Smd5QpNYHR
-         JRlHrqWGc+VLE+FjMB+yX610nGZarV+/TZAE6fzCBHJMiD8OH0MQ1NKLqEDeSROKdje4
-         ZYGQ==
+        b=XlbeyfnC8nIltEiV+Rk++t/2vWtlSp8IjWqQND+nL5o1I1QJA6ZNYLi22RzoSaXm5R
+         8Q1vBgTI9Y2Fe0lUYoxvaaiE0GfCFY29lnk7Su3zprE48BkUXaHPEv2HTho5z9XWuABM
+         WeTrSD9mDCATICukMuKW2PzKvrguOP23OY9uISG6korC8qgU29hwJBL2AHlHiQN+CuIc
+         aSA69XYl4tArAAyqKsv0dq30rdZ9qFF+VBhFcZQ2lx0EK4/CDtyzOJrha8OtV55ZXvKC
+         wlZa5WnDtojos+9x647m49cWWYw8tz5HpUWDBusXKCjjf+xs3wwQMagWVG2H3HO4w/CK
+         y/gQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
-         :dkim-signature;
-        bh=/iK7mr+LqU/s9sUfVyhmYN87FiDjlNoBkzan176pgkQ=;
-        b=mp7Rvt5t5nirlwJw+rhUJRFL83waIqa4rNJW0OQvMk6E9QdxmuiVJrabiXarvYQ6Ql
-         w8QYXuOq4Ko0hrAWZVB7utyu3Nr6W4C3M2OL9KnDQ0Czz3Kq0AkDVTD2s3SG9aYtSx7R
-         pL1jPsN6bcEah4hMqcusPVIPylMVNgVapSsZw9OtTj9qN9sOgLPKSs+55R5XeoGQSnNJ
-         6lftJcW1A4ZAvjCSbdRC4R/ukqrFROlpZrEnEMU8CUFR+zVSEZKaHuO2M479xAqv76c2
-         q4TL+KXyCdnjoZuTgjU8RgndDB4k9silRgNtjq7ZnKe5/0MJAKyAJckQAgT4nvw7ec16
-         +N8g==
+         :list-id:mailing-list:precedence:content-disposition
+         :content-transfer-encoding:user-agent:in-reply-to:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=fDbLN+7JwkUUXIuuj7+8EcquVRlr3WrMl9IKkaL81wU=;
+        b=uHeBHttV+ySjyHqyXd7MjyNHthCDq2cyWoMZTyjnn+HJ6wbLOFalM4YQY+5AXXAqBN
+         bA6uWYcsaOkRlKAcwbKxlUBauEX7M6+SBpzZvjpd9jm+suy9EEhJh8UngiZfGpY3KMYf
+         QVt9Qw5n8kT6P5JTVgxmUGnsnRwBMAdOJR85OYz9SQ36bQdtk0fkQ+nBSIgUii8iXd3W
+         HqZcdOPYIyJQcFulrq+3ZpFFYVoQCH4ILqMDXNTze3U81sDUPzJgzt1WurTMt5xD3+dM
+         bzSyld4yBsC9eHKA0wwTmLjBVYxTufPa2hf8ujAZGb84A91OEf0xkm94nMEjW32kFZr9
+         OrWg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.70 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="aP/LBvmi";
+       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :in-reply-to:user-agent:content-transfer-encoding
+         :content-disposition:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/iK7mr+LqU/s9sUfVyhmYN87FiDjlNoBkzan176pgkQ=;
-        b=snJ5Pst2wOQnhgGKp01iL9XuPpFY9HW5vitwmRpeOEtKm1gPbXWrc3rsOI1QyK/vpz
-         3xl5CzZ/hYwtxrTa57cPx5cVX+tbpr+4OyWuYLVxu8twaBpXlKcW2JUQjv+/El5PnFnb
-         Fcw6toZOnvGILa0ZICaDBX9h3basiPV2u6q7HbUa2qs48MUq/H3lfPsinJ1vbeEMrTZr
-         7eCqJDgcwAtpPPVT0qIaY8rCukYKdh0AAqS8IzIkqVYfsIFjSLiT86f9nma1C1ZBjnio
-         s0lhtDJFk45V34KIcZ6r+14B/LB4dCihmEJRvx+D9otoEeHxgRquNF1z0fOLm4umM+NW
-         Z5AQ==
+        bh=fDbLN+7JwkUUXIuuj7+8EcquVRlr3WrMl9IKkaL81wU=;
+        b=aFwkW6cr8gWrkfCwcHi/UrgDRJ1HtpV0XU74MyhncRf28jqnK6yCtUUEYW4dvwcf/a
+         OWEf4Yb4qk/kT10Wao+Zb6oPKDuOBcpiwTexiD6BJzMW8rU1P5FejWJgvjKVzm/SycIy
+         z7tZXt87FvRybiTyakz3v43sQQjIpg1xzSt9Np6JT3G8IgPmRarWeCXaMCiFa2qE0b2N
+         VUnctVKos+oBLGZOYamV44zL07gR09U7SBjnIUuW+xEO1vnkw0gnYniVaDn1UsjnDyi+
+         3gQuQV1jv/ZPHbmaM4Hv29P5cgMwCTnCH8Wh06MpUMc+VRYW1VRqjtWddl5XsRlLZXM/
+         JYuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:in-reply-to:user-agent
+         :content-transfer-encoding:content-disposition:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=/iK7mr+LqU/s9sUfVyhmYN87FiDjlNoBkzan176pgkQ=;
-        b=GOkzZgop/6+KDy4IV+Tk/9iUDcAc+4MNHrVmpZ+9xaUwVD+9I2ruZP6SyxkpWZHqfe
-         yRz7QlyccvRDlMIKaDUIgJKjXY9sa1hffzB0Yl3rHFbblbJzg53Km5edtnpW8/WmZhnm
-         oeM3d0MaaehDcTkMd/371TnEqGv8WG7NoQZQit+JLNstsI1/9EujW79oJMrzyRlSLota
-         k+FMtixgRKraDsK7E+TuJKWRXZkMLusDQz+eQgmFeQj3IMtb675lelh55ddgMSE9o8mg
-         fkprYp71Xl96eQNLBkvnzCJ9IrYOtPthYn26NKaFWrDk8+eOGz16slaDL7lfi15CSMOO
-         h44Q==
+        bh=fDbLN+7JwkUUXIuuj7+8EcquVRlr3WrMl9IKkaL81wU=;
+        b=Q7eFj4JjFAvKOMawPekrMRZhljx2A8xrY2e/XF1IGtkv5UOu7fjcNvWw32YBkuvPw8
+         jRQpAZYru6Bgt2LrJFan2RfDsNmMvSPSOfXEiCMIiBmbKaM4rI/A7/JMgi8WkV2DMd6+
+         lclgkKBMgO/Tg02kpitA2MPyKs3+byk2bRn7bZMt6hoKbGFVE/6fzJx94XAHfD4xNFUb
+         WDRYV49PiIkW15PSzQDTAmF9nR9UDnhXxyUXoIm521OwctoG4aFSN8xdJE6DUY5+4x/v
+         MCYJ9bmifLGF513R7mz5bXAaH37OJgrvCPzuIFpyBdwLV852HaofEzzkIQhuchfNypgl
+         CtUA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVbcMEhXfwM3flwnhou4z1BKcS7amyibCZlFweMRVC5AJxvjl3z
-	FO57vuh9yP27JBBY1WCUz5k=
-X-Google-Smtp-Source: APXvYqx1JCPlV4on6AvUEoMjvgdWunepm//afKzOtzHMA+Czv+gBa785vLeVhdRt7ZPUf1nb9zNleQ==
-X-Received: by 2002:a5d:87d7:: with SMTP id q23mr6000616ios.304.1572286671759;
-        Mon, 28 Oct 2019 11:17:51 -0700 (PDT)
+X-Gm-Message-State: APjAAAWZu+2g4evR8Jg3W4DcnLFsEQQxUyhiJ2Bdd8sNnRWnGrYnnlFS
+	EVoYKPfGGDjArX+6Gxm17sQ=
+X-Google-Smtp-Source: APXvYqw/6CLBel05EFC2qsnRE/aXyVmVwkSpqaGt0LZ9FCxHC4gOCu+Ox+v13e4Lm8+7rCJ7laqA+g==
+X-Received: by 2002:a6b:fb0c:: with SMTP id h12mr12293841iog.239.1572291158795;
+        Mon, 28 Oct 2019 12:32:38 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a02:a598:: with SMTP id b24ls152713jam.4.gmail; Mon, 28 Oct
- 2019 11:17:51 -0700 (PDT)
-X-Received: by 2002:a02:cac5:: with SMTP id f5mr18279047jap.113.1572286671254;
-        Mon, 28 Oct 2019 11:17:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572286671; cv=none;
+Received: by 2002:a92:d204:: with SMTP id y4ls3180900ily.11.gmail; Mon, 28 Oct
+ 2019 12:32:38 -0700 (PDT)
+X-Received: by 2002:a92:6910:: with SMTP id e16mr21591096ilc.186.1572291158420;
+        Mon, 28 Oct 2019 12:32:38 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572291158; cv=none;
         d=google.com; s=arc-20160816;
-        b=gvB7VIbT1nZfW3ySHR3+lMW9O/WWr4M+DWSqVieEyhw8H/m+a7IyzscRm2Wb9kKm3I
-         AZbQeBEiKNaHeYaamBukrBhdsG4ukn3glf/b6O3DzT38fnKzpoyKBu404CgzD8GharzF
-         dx0cAQxvfgBlpFGMo382/hK0X0ztrO/zIgUwhp2rU0u1T29SZCUISNKQzdFUzB/gphdr
-         r4lySx4mmWDYPEy3LbtF8Bw9o+7MiYxiBQNJnKcO3ZSQNgNs2dBIBz8X1cCPhXT3iEwg
-         evvdQeeHniuo2v9PWLBFbGQhvqHRngTtd+IVec3noctfpV2GbXb0l4ZdIBs8PBJkbs4N
-         rBrQ==
+        b=pnylKzytiRkc6Mc5Yr+QKyoSo4e8bzGw71q47ZQVZWNzp8KLCvJzPBAO25H9cfUEG4
+         JGAXh2N37t1r4X7GcwTkUwPMR7iPHb6VavX9LLfESrZ3bS7eCnsmunZhvFcv+SZdLMNO
+         z1pKyz0qLbrb9OymboYAnjXYfI/TTSdK1CR9G1PavGUJ78B9TjFT4uFE4XcL+YCOdWbA
+         Y6jRYGXh+Fx1bKgs7m+el3F3L1/7E8Sh78alRLUfbunCII8Hj3RPe0w0MLBq66n0iWQd
+         TlxTolFA0z+qU68hVzd4HXZ4trgO9JqgYn02vMOdQNAcoow2HlKIp3rIHzOeymQ/4gz1
+         5MQQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=cXtD8wVDKCY2HkIt3kWPJtyhwCmvcQCTUmdt+hMHbEo=;
-        b=lLs2pXkkmCK5ZcSEx46z7/vNM4QZQHyaQwlTiy6WcAfEZZarAIZmHRnlCAqQ9ejaHx
-         ZVsvqEGLuydh8CBMGXJQ1hTgOwCM9HumkRn8FLsiFsR//NUr1AqBwTi58MFv5l7Q57pR
-         P2p29DejyCH21zC6ICil6YnvBuOfwB30UReM481ej4HiDs6MXzUDC3f00fs05qsN3fch
-         RWVI/lgicfCWhM1/Pcf+xp0moCU7/NODn8y5wWuCwlNXSwLxHuPcvrA2GSCQNlAZ5g6y
-         ezYZ00Qv3PV/PwSflzee9IaUJDyDRWEorOaR+iH0y4EjO/ElpcA1gDRkY6geF/xls6av
-         0wmw==
+        h=content-disposition:content-transfer-encoding:user-agent
+         :in-reply-to:mime-version:references:message-id:subject:cc:to:from
+         :date:dkim-signature;
+        bh=YIoVA/fFJrGQ97aiYNbpnayE4EinXi0s2gJ+zmT21Gs=;
+        b=sPAma/Mu8XDY+4vLjrRxsy6yeziweeN5ruRvfIZGjznixzJdHLy/i8n2jCKP3UUYJ1
+         UFELQSMh23TbECrvkmbpkuTKhh37eKSFfphORwV/vVq7kopME2GoAYwLqxuPvk+wMrSN
+         XobrVKCXkNwSBdGWSK8B8x/KFL9x/ex/VhrnKxs1Fjn+tNGtT7SZx8ZrOQffiUoWEKKb
+         3yXcDnu9nX3SCJtO7G3vM8ezf7Pg+j29577D6W8wicMjtZeGkrv1zPM18UEL1d1Xye2H
+         m814+IkfHgmlTLXgyn4I4HJ+kODVF0yv/zIhZ1eCCSBv3Usl2pErB7ZnNuIw7n/ebkyf
+         mqMg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.70 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0070.hostedemail.com. [216.40.44.70])
-        by gmr-mx.google.com with ESMTPS id y205si713851iof.2.2019.10.28.11.17.51
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b="aP/LBvmi";
+       spf=pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [205.139.110.120])
+        by gmr-mx.google.com with ESMTPS id 75si632519ilw.3.2019.10.28.12.32.38
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 28 Oct 2019 11:17:51 -0700 (PDT)
-Received-SPF: neutral (google.com: 216.40.44.70 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.70;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay05.hostedemail.com (Postfix) with ESMTP id 5FFBA1801C405;
-	Mon, 28 Oct 2019 18:17:50 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 2,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::,RULES_HIT:41:355:379:800:960:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1535:1544:1593:1594:1711:1730:1747:1777:1792:2194:2199:2393:2559:2562:2692:2828:3138:3139:3140:3141:3142:3354:3865:3866:3867:3868:3871:3872:5007:6119:7903:10004:11026:11473:11658:11914:12043:12296:12297:12438:12555:12760:12895:13095:13161:13229:13255:13439:14096:14097:14181:14394:14659:14721:21080:21433:21451:21627:21795:21972:30003:30029:30051:30054:30070,0,RBL:47.151.135.224:@perches.com:.lbl8.mailshell.net-62.8.0.100 64.201.201.201,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:fn,MSBL:0,DNSBL:neutral,Custom_rules:0:0:0,LFtime:25,LUA_SUMMARY:none
-X-HE-Tag: queen23_6160776bf5133
-X-Filterd-Recvd-Size: 5179
-Received: from XPS-9350.home (unknown [47.151.135.224])
-	(Authenticated sender: joe@perches.com)
-	by omf04.hostedemail.com (Postfix) with ESMTPA;
-	Mon, 28 Oct 2019 18:17:49 +0000 (UTC)
-Message-ID: <07d3b90307f85267c7467fd329043a8790a2c332.camel@perches.com>
-Subject: [PATCH V2] compiler*.h: Add '__' prefix and suffix to all
- __attribute__ #defines
-From: Joe Perches <joe@perches.com>
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, Luc Van Oostenryck
-	 <luc.vanoostenryck@gmail.com>, linux-sparse@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>, linux-kernel
-	 <linux-kernel@vger.kernel.org>, clang-built-linux
-	 <clang-built-linux@googlegroups.com>
-Date: Mon, 28 Oct 2019 11:17:43 -0700
-In-Reply-To: <19fd23e98bab65a1ee624445193bd2ed86108881.camel@perches.com>
-References: <7a15bc8ad7437dc3a044a4f9cd283500bd0b5f36.camel@perches.com>
-	 <CANiq72=B6XKwfkC9L4=+OxWtjxCp-94TWRG1a=pC=y636gzckA@mail.gmail.com>
-	 <19fd23e98bab65a1ee624445193bd2ed86108881.camel@perches.com>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.34.1-2
+        Mon, 28 Oct 2019 12:32:38 -0700 (PDT)
+Received-SPF: pass (google.com: domain of jolsa@redhat.com designates 205.139.110.120 as permitted sender) client-ip=205.139.110.120;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-274-NOa2wEhTPFy97C6tgrEGpQ-1; Mon, 28 Oct 2019 15:32:34 -0400
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id D3EB7107AD28;
+	Mon, 28 Oct 2019 19:32:30 +0000 (UTC)
+Received: from krava (ovpn-204-45.brq.redhat.com [10.40.204.45])
+	by smtp.corp.redhat.com (Postfix) with SMTP id 7AD9E46;
+	Mon, 28 Oct 2019 19:32:25 +0000 (UTC)
+Date: Mon, 28 Oct 2019 20:32:24 +0100
+From: Jiri Olsa <jolsa@redhat.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>, Andi Kleen <ak@linux.intel.com>,
+	Jin Yao <yao.jin@linux.intel.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.garry@huawei.com>,
+	LKML <linux-kernel@vger.kernel.org>, netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Stephane Eranian <eranian@google.com>
+Subject: Re: [PATCH v3 1/9] perf tools: add parse events append error
+Message-ID: <20191028193224.GB28772@krava>
+References: <20191023005337.196160-1-irogers@google.com>
+ <20191024190202.109403-1-irogers@google.com>
+ <20191024190202.109403-2-irogers@google.com>
+ <20191025075820.GE31679@krava>
+ <CAP-5=fV3yruuFagTz4=8b9t6Y1tzZpFU=VhVcOmrSMiV+h2fQA@mail.gmail.com>
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.70 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+In-Reply-To: <CAP-5=fV3yruuFagTz4=8b9t6Y1tzZpFU=VhVcOmrSMiV+h2fQA@mail.gmail.com>
+User-Agent: Mutt/1.12.1 (2019-06-15)
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
+X-MC-Unique: NOa2wEhTPFy97C6tgrEGpQ-1
+X-Mimecast-Spam-Score: 0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: inline
+X-Original-Sender: jolsa@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b="aP/LBvmi";
+       spf=pass (google.com: domain of jolsa@redhat.com designates
+ 205.139.110.120 as permitted sender) smtp.mailfrom=jolsa@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,116 +164,116 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-To avoid macro name collisions and improve portability use a
-double underscore prefix and suffix on all __attribute__ #defines.
+On Fri, Oct 25, 2019 at 08:14:36AM -0700, Ian Rogers wrote:
+> On Fri, Oct 25, 2019 at 12:58 AM Jiri Olsa <jolsa@redhat.com> wrote:
+> >
+> > On Thu, Oct 24, 2019 at 12:01:54PM -0700, Ian Rogers wrote:
+> > > Parse event error handling may overwrite one error string with anothe=
+r
+> > > creating memory leaks and masking errors. Introduce a helper routine
+> > > that appends error messages and avoids the memory leak.
+> > >
+> > > A reproduction of this problem can be seen with:
+> > >   perf stat -e c/c/
+> > > After this change this produces:
+> > > event syntax error: 'c/c/'
+> > >                        \___ unknown term (previous error: unknown ter=
+m (previous error: unknown term (previous error: unknown term (previous err=
+or: unknown term (previous error: unknown term (previous error: unknown ter=
+m (previous error: unknown term (previous error: unknown term (previous err=
+or: unknown term (previous error: unknown term (previous error: unknown ter=
+m (previous error: unknown term (previous error: unknown term (previous err=
+or: unknown term (previous error: unknown term (previous error: unknown ter=
+m (previous error: unknown term (previous error: unknown term (previous err=
+or: unknown term (previous error: unknown term (previous error: Cannot find=
+ PMU `c'. Missing kernel support?)(help: valid terms: event,filter_rem,filt=
+er_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,filter_o=
+pc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,config=
+,config1,config2,name,period,percore))(help: valid terms: event,filter_rem,=
+filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,filt=
+er_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,co=
+nfig,config1,config2,name,period,percore))(help: valid terms: event,filter_=
+rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,=
+filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_n=
+m,config,config1,config2,name,period,percore))(help: valid terms: event,fil=
+ter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,um=
+ask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filt=
+er_nm,config,config1,config2,name,period,percore))(help: valid terms: event=
+,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,in=
+v,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,=
+filter_nm,config,config1,config2,name,period,percore))(help: valid terms: e=
+vent,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_n=
+c,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_st=
+ate,filter_nm,config,config1,config2,name,period,percore))(help: valid term=
+s: event,pc,in_tx,edge,any,offcore_rsp,in_tx_cp,ldlat,inv,umask,frontend,cm=
+ask,config,config1,config2,name,period,percore))(help: valid terms: event,f=
+ilter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,=
+umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,fi=
+lter_nm,config,config1,config2,name,period,percore))(help: valid terms: eve=
+nt,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,=
+inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_stat=
+e,filter_nm,config,config1,config2,name,period,percore))(help: valid terms:=
+ event,config,config1,config2,name,period,percore))(help: valid terms: even=
+t,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,i=
+nv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state=
+,filter_nm,config,config1,config2,name,period,percore))(help: valid terms: =
+event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_=
+nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_s=
+tate,filter_nm,config,config1,config2,name,period,percore))(help: valid ter=
+ms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,fil=
+ter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filt=
+er_state,filter_nm,config,config1,config2,name,period,percore))(help: valid=
+ terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc=
+,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,=
+filter_state,filter_nm,config,config1,config2,name,period,percore))(help: v=
+alid terms: event,config,config1,config2,name,period,percore))(help: valid =
+terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,=
+filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,f=
+ilter_state,filter_nm,config,config1,config2,name,period,percore))(help: va=
+lid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_=
+loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_=
+nm,filter_state,filter_nm,config,config1,config2,name,period,percore))(help=
+: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,fil=
+ter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_=
+not_nm,filter_state,filter_nm,config,config1,config2,name,period,percore))(=
+help: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid=
+,filter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,fil=
+ter_not_nm,filter_state,filter_nm,config,config1,config2,name,period,percor=
+e))(help: valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter=
+_tid,filter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op=
+,filter_not_nm,filter_state,filter_nm,config,config1,config2,name,period,pe=
+rcore))
+> >
+> >
+> > hum... I'd argue that the previous state was better:
+> >
+> > [jolsa@krava perf]$ ./perf stat -e c/c/
+> > event syntax error: 'c/c/'
+> >                        \___ unknown term
+> >
+> >
+> > jirka
+>=20
+> I am agnostic. We can either have the previous state or the new state,
+> I'm keen to resolve the memory leak. Another alternative is to warn
+> that multiple errors have occurred before dropping or printing the
+> previous error. As the code is shared in memory places the approach
+> taken here was to try to not conceal anything that could potentially
+> be useful. Given this, is the preference to keep the status quo
+> without any warning?
 
-There are __CHECKER__ exceptions to these uses of attribute types
-because sparse as of version 0.6.1 and earlier do not recognize
-a few __<type>__ attributes.
+if the other alternative is string above, yes.. but perhaps
+keeping just the first error would be the best way?
 
-Signed-off-by: Joe Perches <joe@perches.com>
----
+here it seems to be the:
+   "Cannot find PMU `c'. Missing kernel support?)(help: valid..."
 
-v2: Do not modify the __CHECKER__ attribute #defines
-    Add a comment describing why to the __CHECKER__ block.
+jirka
 
- include/linux/compiler-clang.h |  2 +-
- include/linux/compiler-gcc.h   | 10 +++++-----
- include/linux/compiler_types.h | 11 ++++++++---
- 3 files changed, 14 insertions(+), 9 deletions(-)
-
-diff --git a/include/linux/compiler-clang.h b/include/linux/compiler-clang.h
-index 333a66..26d655f 100644
---- a/include/linux/compiler-clang.h
-+++ b/include/linux/compiler-clang.h
-@@ -19,7 +19,7 @@
- /* emulate gcc's __SANITIZE_ADDRESS__ flag */
- #define __SANITIZE_ADDRESS__
- #define __no_sanitize_address \
--		__attribute__((no_sanitize("address", "hwaddress")))
-+		__attribute__((__no_sanitize__("address", "hwaddress")))
- #else
- #define __no_sanitize_address
- #endif
-diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
-index d7ee4c..7a2dee 100644
---- a/include/linux/compiler-gcc.h
-+++ b/include/linux/compiler-gcc.h
-@@ -76,7 +76,7 @@
- #define __compiletime_error(message) __attribute__((__error__(message)))
- 
- #if defined(LATENT_ENTROPY_PLUGIN) && !defined(__CHECKER__)
--#define __latent_entropy __attribute__((latent_entropy))
-+#define __latent_entropy __attribute__((__latent_entropy__))
- #endif
- 
- /*
-@@ -101,8 +101,8 @@
- 	} while (0)
- 
- #if defined(RANDSTRUCT_PLUGIN) && !defined(__CHECKER__)
--#define __randomize_layout __attribute__((randomize_layout))
--#define __no_randomize_layout __attribute__((no_randomize_layout))
-+#define __randomize_layout __attribute__((__randomize_layout__))
-+#define __no_randomize_layout __attribute__((__no_randomize_layout__))
- /* This anon struct can add padding, so only enable it under randstruct. */
- #define randomized_struct_fields_start	struct {
- #define randomized_struct_fields_end	} __randomize_layout;
-@@ -140,7 +140,7 @@
- #endif
- 
- #if __has_attribute(__no_sanitize_address__)
--#define __no_sanitize_address __attribute__((no_sanitize_address))
-+#define __no_sanitize_address __attribute__((__no_sanitize_address__))
- #else
- #define __no_sanitize_address
- #endif
-@@ -171,4 +171,4 @@
- #define __diag_GCC_8(s)
- #endif
- 
--#define __no_fgcse __attribute__((optimize("-fno-gcse")))
-+#define __no_fgcse __attribute__((__optimize__("-fno-gcse")))
-diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
-index 72393a..506b3a 100644
---- a/include/linux/compiler_types.h
-+++ b/include/linux/compiler_types.h
-@@ -5,6 +5,11 @@
- #ifndef __ASSEMBLY__
- 
- #ifdef __CHECKER__
-+/*
-+ * sparse as of v0.6.1 does not understand several double underscore
-+ * prefix and suffix forms of attribute types, so do not use them when
-+ * sparse checking is enabled
-+ */
- # define __user		__attribute__((noderef, address_space(1)))
- # define __kernel	__attribute__((address_space(0)))
- # define __safe		__attribute__((safe))
-@@ -25,7 +30,7 @@ extern void __chk_io_ptr(const volatile void __iomem *);
- # define ACCESS_PRIVATE(p, member) (*((typeof((p)->member) __force *) &(p)->member))
- #else /* __CHECKER__ */
- # ifdef STRUCTLEAK_PLUGIN
--#  define __user __attribute__((user))
-+#  define __user __attribute__((__user__))
- # else
- #  define __user
- # endif
-@@ -111,9 +116,9 @@ struct ftrace_likely_data {
- #endif
- 
- #if defined(CC_USING_HOTPATCH)
--#define notrace			__attribute__((hotpatch(0, 0)))
-+#define notrace			__attribute__((__hotpatch__(0, 0)))
- #elif defined(CC_USING_PATCHABLE_FUNCTION_ENTRY)
--#define notrace			__attribute__((patchable_function_entry(0, 0)))
-+#define notrace			__attribute__((__patchable_function_entry__(0, 0)))
- #else
- #define notrace			__attribute__((__no_instrument_function__))
- #endif
-
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/07d3b90307f85267c7467fd329043a8790a2c332.camel%40perches.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20191028193224.GB28772%40krava.
