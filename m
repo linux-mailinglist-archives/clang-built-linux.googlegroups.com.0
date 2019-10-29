@@ -1,133 +1,142 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBNH74HWQKGQERUDBOEQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDB477GYKIIM3FPC5UCRUBFGEEONW@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5863FE8EF6
-	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Oct 2019 19:06:45 +0100 (CET)
-Received: by mail-vk1-xa40.google.com with SMTP id a188sf6333093vkc.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Oct 2019 11:06:45 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572372404; cv=pass;
+Received: from mail-lf1-x13f.google.com (mail-lf1-x13f.google.com [IPv6:2a00:1450:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7CA19E8F95
+	for <lists+clang-built-linux@lfdr.de>; Tue, 29 Oct 2019 19:54:05 +0100 (CET)
+Received: by mail-lf1-x13f.google.com with SMTP id t27sf1522502lfk.21
+        for <lists+clang-built-linux@lfdr.de>; Tue, 29 Oct 2019 11:54:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572375245; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KjZpo3yEF6EoaX0wr7XXLzPMtAW8Faa7DR6K8TD+PC0qc9cHt2NfYSL1kxLnwlZqcU
-         HCoZTtaxtY8jRYyggeuqhv+A1KKDQ0sslwpZBWXMTm1+tW6Amtkq8x0CDPCDckYSVDP7
-         mTMhTMG8q5A+FIZ2PzMjHu5soqAN8bhq8Tc74kGpszJ7+oXBLyZ+CTm3O4f9INpQs53o
-         bZNSl2+lCKVz0DpLXyeqkWWCcU/jQdEzJNGuDvvz82xpHtpUvNns6j1f/fk2HO4wfmyn
-         xuW2wNuYVuCheiRaDBXOitjfwDMLACgphVaTvYv9n1WO4WtswvsCtknduJ83bgDNBt2o
-         BFLA==
+        b=pm1rKiEquGIGvl2mJW+cMr7gZJIY8zWUq9lBYlPH5gkTToQm/netO6XabWrv4VQSQm
+         fhiFyCjzgGH46z7nFz7o2OSrldGQEK+LnpR59z8tndcJxomE2QNaXUhBvrooWZ+kcC7d
+         apdbJcWODNWmqt1TJ2phGddYrTvEqGQCQgxrhhx3KJlwQDuG10d2wj+ZNmfkBmYvNSrw
+         LBR19ql1JTb5OnSdDfk2rglN8xUO6gsZR+zev5AP8BtQnLvT237Kt/v9O8sQE7+T3bSs
+         El+4j1ydeNAyM13IZmoCQ4chwucF2Xs92nbo/XZOdrL4yCIKkb+ayfwq9nM2xRFcmMKC
+         Iz9Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=S35uyNWv1OjAKVebIZu0RgaC+mS6D9u0vWQP6/HF4GU=;
-        b=BkUc+yL0n6em3VAsKaU/hYgM1vBBy3v2uSKGlmk38M7WTzu63L7fIXmNcwx+N7IiBk
-         5BkTiG6zxKQjXJO36JWl2y1b5kGrbW8et1Esq0vokdKu/aqp+ytPc8Gy09ibFmLP/FtE
-         nC5LGrcL8jjXAZP2XdAvEPjfxr7ooJqobAPwfD0MTcPfFLiI1mK0c3jeMizrlPOOi3z2
-         buuW9g0z1/vI8xl74c1bihABybRBh8FJM/3Ic5zyC23uUtA/fBeJl18S8RO2PqvZDnZs
-         Ptbw6wHcD2Wu6lO2j1X6zDVkX/t+lU+LZUfyyJyS1qmLej8L8qHsoKjUXBDFkWmXnhAq
-         Ea/w==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=r7dVAS9KvJ7WwFLJtf15MejmIE/C0VnQ3kEA+HxInr0=;
+        b=hL1sPv7IbxHOlB6ESHrD5440zE5EeloUFLIjoVbxxP3+1khbL4uhOPxR6+a++eAQL7
+         jAob8WwKEt2xz81PahQZQycbGARhbee9LNV2W9IplSz933QmyTnQKY/cA50UP+khQEAc
+         CpIB81TSiRfKKMtbULcJzQZHWYb080bS5qbHOLnsc8cVMZB5ov8enixXktlii8AbAV9D
+         fLn9oqr9/8ImoN00dX2kGuKkKULYLwnccKZjy4ig28zkgg40VKXrSiuN9FGOGqLk+gzS
+         Nd3W2V9OgFUK7cmMNrKQqCZaS6aW4iaULELRReb3tmPVEEL7AKJIN50j/EdzMRhUMKgO
+         smOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jnGz5ZBc;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@plus.com header.s=042019 header.b=qGlZh9wk;
+       spf=neutral (google.com: 84.93.230.244 is neither permitted nor denied by best guess record for domain of ramsay@ramsayjones.plus.com) smtp.mailfrom=ramsay@ramsayjones.plus.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=S35uyNWv1OjAKVebIZu0RgaC+mS6D9u0vWQP6/HF4GU=;
-        b=K9wBsBbWmRbu+DcDSfwgNGw/jNdyXzx7MAGtSoUTDLKWp25FRF9mDSMNHCwTgUHrNK
-         dWcdvihRisuagANmw3wBn0HFopkVxO6MORyeNMVryQ9JFK6E/EtYAjeO2sR/8eGxxuxX
-         RhoelK4Z9MxxNIV+0QlPPj0PfqBEuB61eKwqk+PjEWzQfQ61jLrcP2pO+N19QfvMBCiK
-         XpoEchv9UvXmxiYUnx83k32VGxk/qMIgyrZ8DTQGpFAKoeSGoLaW+v3WT+6p8+PqDp6G
-         fPvxifn2I4JU5BrjsrWB51guxWHwDRhuBNRpaUfg6GvW83/rmcS2QrSR8h1M+3xj12xQ
-         AkrA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=r7dVAS9KvJ7WwFLJtf15MejmIE/C0VnQ3kEA+HxInr0=;
+        b=SLap5+G2Fq9dG+gxNwNCHKEyc8pA9mwa3i5PSkxZyAEToDNQ9D+DXsrC3ddxZQpRAh
+         CI5fjRx0yUAarXVio6SrirxVaOB/p3zw6Nbtaod7j0JDaOOnqyNLaF8TDpSJCCeh9o9P
+         rQDUXCP98xjft1VKA87pUNXw5/Kj8eVrmKf6s4HBShsgWXxnmayRk5T+WXTKpAiu1jtd
+         KbYVhgkxz3iIhEide0OTMsojoo639TT1pUC8vuLjOTIoy1i/CtvoucIFfd/nDSeODDct
+         /gmYc0tm0w4ANluNIsAYbVkh03ve8RrUL1qRu1hSKhShW3dUEEiWv2TzaI79si03rmzD
+         p+1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=S35uyNWv1OjAKVebIZu0RgaC+mS6D9u0vWQP6/HF4GU=;
-        b=ohXjO4JSMpRlIfbR/NQacshkjqNYNuqbQ0wCskUCnjdT6B0gCIB2vAkNWrjSojUnS2
-         Xvs70yq3T3w6z8h6cObGWD+nwPBL/MffeBmOuMCzkPB4njdXU8kHcffEfsmNQHCLiQlG
-         02hjhegtNUqY4MrlvY/rfRZJYPyFxPC5sPyXQebxvezgk653luQ+LEHNyHuYqiHeYw42
-         pTFLC1PLRBeCG+ox3dcojcpfr9WS7C2QT6X4eSc+H4cw1AD63kHac6yuRSyxiRv1X6gG
-         vL6crjTe2MW326XW21+YyStcN/PxLP6eRgNbNIZctHawJN63j47dmI5CD6W91I4aYMRh
-         SObA==
-X-Gm-Message-State: APjAAAVzhwMUSFIyy17argHnDvywngOTZUT4yIddQUSLO4XYy/ClgDJq
-	W5cQvoQD1MyHw0Ja/4J7Uq8=
-X-Google-Smtp-Source: APXvYqxYbAFuf7L17OEHxBSwRKybWmgjBWwN4W+KhwPburPwtSb+qjV3sm/e3iozS4dwXn7b7vu14w==
-X-Received: by 2002:a1f:c846:: with SMTP id y67mr18269vkf.70.1572372404184;
-        Tue, 29 Oct 2019 11:06:44 -0700 (PDT)
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=r7dVAS9KvJ7WwFLJtf15MejmIE/C0VnQ3kEA+HxInr0=;
+        b=hzotfIXNepfp88NNvoogvJjJ38IXo69hQd5U1yI4p/O3dYLKm9LFyk8u48fQ+Xx5x1
+         YS2MbsWwVwgkfgsaK/nOvfrhN4gl6gx5GXUPkXwjNI/Q/l+T1/tT0AyMqNIYJgGfcCsl
+         eYxCl7AypaJAEuJtgfii6VUVdNil5Tq7mfGlpA4DpTTW2W2WjTUN09bcrI6kelEQsG2G
+         +cFuUX/rJIhYkKcWVEhD2LJ8qzHxnKNFBDtF1UG+DnQC6V4ZmXrubyrLITjnBXZ5xaA2
+         HvT3otB++2MlVT9bKUZCEwvsHE6Zpa2qJHPuq5qZJTjmzFpT92uGV83Gch2Qj+j3xrmt
+         iIAA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAVHWlY5dlqnsfICp0fumq93ZvW2JlInP1WZkQ2pAr72G1DnDmQY
+	4XcESXH4ruxEf/ajkx/hjfw=
+X-Google-Smtp-Source: APXvYqxSe3bTCKjgUzDkFmv5P4RYjdYIsFAGpOswwVBHeB+LPgCYrjPidRGn0kcCXZ+E+2kLua+n6Q==
+X-Received: by 2002:a2e:87c3:: with SMTP id v3mr3339928ljj.61.1572375245123;
+        Tue, 29 Oct 2019 11:54:05 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac5:c392:: with SMTP id s18ls214167vkk.15.gmail; Tue, 29 Oct
- 2019 11:06:43 -0700 (PDT)
-X-Received: by 2002:a1f:d906:: with SMTP id q6mr12366713vkg.25.1572372403758;
-        Tue, 29 Oct 2019 11:06:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572372403; cv=none;
+Received: by 2002:ac2:4190:: with SMTP id z16ls2350308lfh.7.gmail; Tue, 29 Oct
+ 2019 11:54:04 -0700 (PDT)
+X-Received: by 2002:a19:40cf:: with SMTP id n198mr3425035lfa.189.1572375244407;
+        Tue, 29 Oct 2019 11:54:04 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572375244; cv=none;
         d=google.com; s=arc-20160816;
-        b=vGohoiipJrMCwFQnu3gYgpLiXipnBLFPNPUCb02R8x413TWfaho2DiuJsj1ZvxH2YK
-         lYx70FRwAHbj+n9qP7kTs4eyy83A5kj96imbxa45Em6VNagBrb2HCf6b7S6IrzASJ4yU
-         lXyMWHmX6+aF0jXiZSWD0XRfjm6zmWrq0r5HpkSHkl3ddq6Q8JGkSSEfKeBTRUnHrihT
-         NUrlvpYRbUHAh8jAdwBAbray9luVyPp6bEdXpzfkudYVcnQB0pH9xghvLrNG6ApWdrUn
-         3NBgasFq32o/6+rH7sKNPmmO4t9lJzitu4pGQAl7yv+0E9cLYBzImILZDCDCNM7euiqn
-         ZLhA==
+        b=gzS+XBOB9EpV2SeXci4Ffp9Wbpa7RAJ3fu+lueePDmgICbrwQzkbGDAADQKcRW16nn
+         pujecOvXCd26thFyJg1zPrIW/509utuv6IKY/afWUXB54cxsm8YR9VX2N3bXY1w7j5BS
+         uGObvOvTmvEgdN60NHby57ndJrEq4ydBDVDcb6WlOXq2w2ln+lL6WdQh47y0kKZiUdCK
+         t5XbMbE8sdQOEfMi53HxmSzuCM7iHEo/4mUnTwb2jVhPVKeaTNkVGfG9fqr0XbdBMOBB
+         /ZadWWp8W91c9Oy2c7H1udM87e4PTifrnlBKREBrCK8/vv5bb1cbpXR6Vbjou/1ZcoLX
+         t3tQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=mFw8F15ZQ3Xbg7xoMFqwMMbaKM4Z7mDJFWlKx02r/fU=;
-        b=LmFRZ/AN0QTUxL254nRtv+CL2+hbMVMJyLECtm7C9zwG7/U/IYb8gW0fEb+BcwleaK
-         M5e1CFn+6eU5V1SzlJJ3BlFV6J/TIVkBIgVR8WsF1RWdrffQjwgY4AxbvroXO12g3MrO
-         Ncs6w1700u7QfFuzB3rBlzADxEZXYSjDJTXnbq6B79GQhMKN6zpvMUVpqM+oa1V0x5cE
-         yiL1gOJw3R2xACnbBkoLt7dko+2KFDkxOI5YI5u2je1Byf9a32Vfu9pZ1s7VDFZVtygl
-         PeygIDxaIFD+TWh3IO3I7qwkZUp76T2bUTaopVlHcAQKHQB9HBAqcBrVR+oL6tXIu10Z
-         Ww/g==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=I4ZZ/wVJJQ0guXrWMZRkvryKrerb1ReP5+TDi/d996w=;
+        b=r0hKzSy0b5y78EdgsZCNSBFwFVy9hGBaiAfuCISBOAbfAmURnimod1DDTnKcR1uwgn
+         +A7AIKUmlcVG2qlHWUk0eGQyhfzxYu+k3PAJdZxl0l80W5QDgR+wq8nZ9RBltvwPt2K4
+         OmQ/UxCYRNzndjLsvH3mqrEITxUJO2g1Smz2HqEYysSQpJRoNFVSexuARQ0Rn/FQk/+s
+         Te4i0vhbx8w/68i0ouiDB5TPqMPh4aioWsxHxgg07IF8eVIvFgHnWTcNNJ22NcC1o3um
+         ghisPxhyIGfy+btiheuv6vcl6yOOHgAIgYj0lb6uZSRjU71JGI3qoGl9yQGjNE0H/ZQX
+         Q4ow==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=jnGz5ZBc;
-       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-vs1-xe43.google.com (mail-vs1-xe43.google.com. [2607:f8b0:4864:20::e43])
-        by gmr-mx.google.com with ESMTPS id y14si1049392uaa.0.2019.10.29.11.06.43
+       dkim=pass header.i=@plus.com header.s=042019 header.b=qGlZh9wk;
+       spf=neutral (google.com: 84.93.230.244 is neither permitted nor denied by best guess record for domain of ramsay@ramsayjones.plus.com) smtp.mailfrom=ramsay@ramsayjones.plus.com
+Received: from avasout03.plus.net (avasout03.plus.net. [84.93.230.244])
+        by gmr-mx.google.com with ESMTPS id q25si780590ljg.5.2019.10.29.11.54.04
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Oct 2019 11:06:43 -0700 (PDT)
-Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43 as permitted sender) client-ip=2607:f8b0:4864:20::e43;
-Received: by mail-vs1-xe43.google.com with SMTP id q21so9368203vsg.3
-        for <clang-built-linux@googlegroups.com>; Tue, 29 Oct 2019 11:06:43 -0700 (PDT)
-X-Received: by 2002:a67:fe02:: with SMTP id l2mr2281254vsr.112.1572372402875;
- Tue, 29 Oct 2019 11:06:42 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 29 Oct 2019 11:54:04 -0700 (PDT)
+Received-SPF: neutral (google.com: 84.93.230.244 is neither permitted nor denied by best guess record for domain of ramsay@ramsayjones.plus.com) client-ip=84.93.230.244;
+Received: from [10.0.2.15] ([146.198.133.39])
+	by smtp with ESMTPA
+	id PWcyigzCktvkXPWcziiYf9; Tue, 29 Oct 2019 18:54:03 +0000
+X-Clacks-Overhead: "GNU Terry Pratchett"
+X-CM-Score: 0.00
+X-CNFS-Analysis: v=2.3 cv=ePBtc0h1 c=1 sm=1 tr=0
+ a=1Jh3712dEPwUcX5EWi7t+w==:117 a=1Jh3712dEPwUcX5EWi7t+w==:17
+ a=jpOVt7BSZ2e4Z31A5e1TngXxSK0=:19 a=IkcTkHD0fZMA:10 a=491Ab-Zl-TA3clIL934A:9
+ a=QEXdDO2ut3YA:10
+X-AUTH: ramsayjones@:2500
+Subject: Re: [PATCH] compiler*.h: Add '__' prefix and suffix to all
+ __attribute__ #defines
+To: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
+Cc: Joe Perches <joe@perches.com>,
+ Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
+ linux-sparse@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>
+References: <7a15bc8ad7437dc3a044a4f9cd283500bd0b5f36.camel@perches.com>
+ <CANiq72=B6XKwfkC9L4=+OxWtjxCp-94TWRG1a=pC=y636gzckA@mail.gmail.com>
+ <19fd23e98bab65a1ee624445193bd2ed86108881.camel@perches.com>
+ <20191028221523.vlzdk6dkcglxei6v@desk.local>
+ <00c5ef125a4e62f538de7ddddc9d8fe7085794a3.camel@perches.com>
+ <20191028230349.xlhm42ripxktx43y@desk.local>
+ <61eb73ad-5c30-0005-5031-6584df72ad5f@ramsayjones.plus.com>
+ <20191029080701.qpvscbz3xptadhbd@ltop.local>
+From: Ramsay Jones <ramsay@ramsayjones.plus.com>
+Message-ID: <ede574e5-d18d-f30c-b9f0-a39b73d57ff3@ramsayjones.plus.com>
+Date: Tue, 29 Oct 2019 18:54:00 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-References: <20191018161033.261971-1-samitolvanen@google.com>
- <20191024225132.13410-1-samitolvanen@google.com> <20191024225132.13410-6-samitolvanen@google.com>
- <20191025105643.GD40270@lakrids.cambridge.arm.com> <CABCJKuc+XiDRdqfvjwCF7y=1wX3QO0MCUpeu4Gdcz91+nmnEAQ@mail.gmail.com>
- <20191028163532.GA52213@lakrids.cambridge.arm.com> <201910281250.25FBA8533@keescook>
-In-Reply-To: <201910281250.25FBA8533@keescook>
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 29 Oct 2019 11:06:31 -0700
-Message-ID: <CABCJKufubiN9JdOTGUSRgmmc_0bW3SRCnk9404+zmor4kh9ZCQ@mail.gmail.com>
-Subject: Re: [PATCH v2 05/17] add support for Clang's Shadow Call Stack (SCS)
-To: Kees Cook <keescook@chromium.org>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Ard Biesheuvel <ard.biesheuvel@linaro.org>, 
-	Dave Martin <Dave.Martin@arm.com>, Laura Abbott <labbott@redhat.com>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Jann Horn <jannh@google.com>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
+In-Reply-To: <20191029080701.qpvscbz3xptadhbd@ltop.local>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: samitolvanen@google.com
+Content-Language: en-GB
+X-CMAE-Envelope: MS4wfDVoYw7ULPJG2gXopqFyDkmgZvbcO8oQUTiYMfxlmz6Gnd4uUsch0XW/zcYouohl3jtIkJ7OQVZAnwhkyFoc8eds9yVeMsZTsXYDLiJipbGXmrCsDCtr
+ za5CAl/4tJyknrO/ZELIDVMujXsk5bX+Sikt3kiRL/wHwOCtfiBirisVIPhLKd5Ukiv0n5RlbrmlvWR/OS4bhUPPnrzRTPg8JlY=
+X-Original-Sender: ramsay@ramsayjones.plus.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=jnGz5ZBc;       spf=pass
- (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e43
- as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+ header.i=@plus.com header.s=042019 header.b=qGlZh9wk;       spf=neutral
+ (google.com: 84.93.230.244 is neither permitted nor denied by best guess
+ record for domain of ramsay@ramsayjones.plus.com) smtp.mailfrom=ramsay@ramsayjones.plus.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,51 +149,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Oct 28, 2019 at 12:57 PM Kees Cook <keescook@chromium.org> wrote:
-> On Mon, Oct 28, 2019 at 04:35:33PM +0000, Mark Rutland wrote:
-> > On Fri, Oct 25, 2019 at 01:49:21PM -0700, Sami Tolvanen wrote:
-> > > To keep the address of the currently active shadow stack out of
-> > > memory, the arm64 implementation clears this field when it loads x18
-> > > and saves the current value before a context switch. The generic code
-> > > doesn't expect the arch code to necessarily do so, but does allow it.
-> > > This requires us to use __scs_base() when accessing the base pointer
-> > > and to reset it in idle tasks before they're reused, hence
-> > > scs_task_reset().
-> >
-> > Ok. That'd be worth a comment somewhere, since it adds a number of
-> > things which would otherwise be unnecessary.
-> >
-> > IIUC this assumes an adversary who knows the address of a task's
-> > thread_info, and has an arbitrary-read (to extract the SCS base from
-> > thead_info) and an arbitrary-write (to modify the SCS area).
-> >
-> > Assuming that's the case, I don't think this buys much. If said
-> > adversary controls two userspace threads A and B, they only need to wait
-> > until A is context-switched out or in userspace, and read A's SCS base
-> > using B.
-> >
-> > Given that, I'd rather always store the SCS base in the thread_info, and
-> > simplify the rest of the code manipulating it.
->
-> I'd like to keep this as-is since it provides a temporal protection.
-> Having arbitrary kernel read and write at arbitrary time is a very
-> powerful attack primitive, and is, IMO, not very common. Many attacks
-> tend to be chains of bugs that give attackers narrow visibility in to the
-> kernel at specific moments. I would say this design is more about stopping
-> "current" from dumping thread_info (as there are many more opportunities
-> for current to see its own thread_info compared to arbitrary addresses
-> or another task's thread_info). As such, I think it's a reasonable
-> precaution to take.
 
-I'm not sure if always storing the base address in thread_info would
-simplify the code that much. We could remove __scs_base() and
-scs_task_reset(), which are both trivial, and drop a few instructions
-in the arch-specific code that clear the field. I do agree that a
-comment or two would help understand what's going on here though.
 
-Sami
+On 29/10/2019 08:07, Luc Van Oostenryck wrote:
+> On Tue, Oct 29, 2019 at 02:38:54AM +0000, Ramsay Jones wrote:
+>> On 28/10/2019 23:03, Luc Van Oostenryck wrote:
+>>> diff --git a/parse.c b/parse.c
+>>> index 4464e2667..4b0a1566c 100644
+>>> --- a/parse.c
+>>> +++ b/parse.c
+>>> @@ -345,6 +345,7 @@ static struct symbol_op goto_op = {
+>>>  
+>>>  static struct symbol_op __context___op = {
+>>>  	.statement = parse_context_statement,
+>>> +	.attribute = attribute_context,
+>>
+>> Hmm, so why is do we have a context_op and a __context___op?
+>>
+>>>  };
+>>>  
+>>>  static struct symbol_op range_op = {
+>>> @@ -537,6 +538,7 @@ static struct init_keyword {
+>>>  	{ "while",	NS_KEYWORD, .op = &while_op },
+>>>  	{ "do",		NS_KEYWORD, .op = &do_op },
+>>>  	{ "goto",	NS_KEYWORD, .op = &goto_op },
+>>> +	{ "context",	NS_KEYWORD, .op = &context_op },
+>>>  	{ "__context__",NS_KEYWORD, .op = &__context___op },
+>>
+>> So, can '__context__' be used in a statement, as well as an
+>> attribute, while 'context' can only be used in an attribute?
+> 
+> Yes, indeed.
+
+OK, so I wasn't quite as confused as I thought! ;-)
+
+> '__context__' was only parsed as a statement and 'context'
+> only as an attribute. But now we also want to be able to use
+> '__context__' as an attribute (because 'context' is not a
+> reserved keyword and can thus be a used defined macro).
+> 
+> There is no reason, though, we should now also want to use
+> 'context' as a statement since it's a sparse extension. Hence
+> adding attribute_context to '__context___op' and keeping
+> 'context_op' as such (but moving them together).
+
+Thanks for the explanation.
+
+ATB,
+Ramsay Jones
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKufubiN9JdOTGUSRgmmc_0bW3SRCnk9404%2Bzmor4kh9ZCQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ede574e5-d18d-f30c-b9f0-a39b73d57ff3%40ramsayjones.plus.com.
