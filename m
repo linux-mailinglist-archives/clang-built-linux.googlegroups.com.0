@@ -1,133 +1,127 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBM5U4XWQKGQEIAEZOCI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBZGY4XWQKGQELVQ3BJI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc37.google.com (mail-yw1-xc37.google.com [IPv6:2607:f8b0:4864:20::c37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7DFB1E994B
-	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 10:39:00 +0100 (CET)
-Received: by mail-yw1-xc37.google.com with SMTP id s128sf1134174ywb.16
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 02:39:00 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572428339; cv=pass;
+Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
+	by mail.lfdr.de (Postfix) with ESMTPS id 55905E9A7D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 11:56:37 +0100 (CET)
+Received: by mail-wr1-x439.google.com with SMTP id f4sf1109058wrj.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 03:56:37 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572432997; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wY9ozyCQ66oJ8fVEWbU0mSIq3wxlBCLdFuXNpwjap6olT7bPMd0Po8TJemE65o+vWr
-         GZoVUJ9Jjjn+/tqCxlMRkq2rB/+VSzAOu4W3gsCqT9zAD+jCqEHwgIlX/tQL3H/YQ8Ld
-         Yo2sZAiC6GlqkDbnvLm8KaW48OhtDPr08/bPQdCyDRW7WmTMFT+vkrrjnkalpU7jt7tS
-         fN34mtJD569gDqwbPqfRAh0ZGnIQoyp1WIhkMXGEXIWv9LPxsgY5U48DuBAoD+M85kTI
-         osY4C+FoPTHfPLXpRqRVqbcDrbG48C7nVej3QgMO5pd2wOIc3/SiMhwUBu/IBYubWL1R
-         Ts5A==
+        b=AAJ8LD8G096sBB7QuDR2AswZTbaJddpYVaeP5U3EXzXQJIC6Z713A1laWYsMXcEvWv
+         Zn4lJTvpOfH98KWFTDHqHHt/S2L/Kmz6EpWegUB1jwaoxZPwlEVq2WpO1kEQr7r1WWB9
+         VsRaSuxhZMjJiBkWZOHuoePLwoPOdozEzVRRh8Iu45sI+F5DYXmXyFtb+iobnTD0EUk+
+         6085piwp9+NudVETrOgAc8iUXjLBe+RJYmBtmAXZeV2kJWXHmj4alFVeWDdL6I+ikq9K
+         uN5vZH8UVK9rMZExqNfTsr3yIjSwreV582CETO1wnKSPjhdkohBLafFUwa7KXic2bRIX
+         CwRA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=zqrbBfAh9MC+qH36Ytd6iVx70fKJg1os4oJKQFlmAAc=;
-        b=AHarta4TqWgwbjcSpxy9tWkLaMhSZv2+V76nqfa/F4O1wjwO6U8CkjyW2GQLOd7yUU
-         CfCY3C11lpNKBbJsQ/E7njwiukRrpEL+LxR7TOfhN04uTBdIna02+hMO+qgFE6tbvDdr
-         hCncvDogfjhqhs/nsPEMi0D5hsZD8JzDJV0+mj2UrzFg3tcvibIiiGOd0obbMVaCx8Eq
-         4xK0Vzds7zoUkSzo/QGcv1UsTZuUD03agiNjAehhJ9uGbqXCfNZoJYUxg8nn7oEsag4Y
-         tvjtjRS+qv6vct8ixRxgNS53Xxgc1nIWqk97C1wAs5x2Iqd73/M3z0lttJ+ui7qFiGap
-         nRGw==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=0Yq2RogFIz+9mQcn0OmP7iHw7erj/4g9IiFkBtM1x8o=;
+        b=LSf5CYil2+COea3Z9lUijjtFTVC8qAZlJGkZU8hZHi1YTiExDlkFuY/y9dIHEFO1Hr
+         wg4/ELEcP70VuVeSXmSkJdkce1H1x6UOCtDcfxR6eVAckrgSJU2o/TWT+NlnY9VnrkA4
+         oN2gRhJPRIEJkXcCjuG4jiE/0Q7/XayNxWhCEWq566iFUpBFLbhJBLYRN+uUwkA0UPaA
+         y0ri0i+fEoBATMfC0H5qrEZFS3BjHllpQDyMe+d5MhUNriH+WEQVfGY+IgOkOautmb5I
+         TNQHws/PFgAeKdDugFSHrxHLO5E0xSBVRFgF/mwXh40+q11XXwzFa4OGbLNingx3EAjI
+         fkMg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=D2f7Qxho;
+       spf=neutral (google.com: 2a00:1450:4864:20::444 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=zqrbBfAh9MC+qH36Ytd6iVx70fKJg1os4oJKQFlmAAc=;
-        b=O3xSruRRrfdCgPx5CVZaqaIOyq3mezkq57eMutKQKTRSRuXlVRzn0MQcM9AWOv9y97
-         vJws6TjT/JgSyPsJ/eChspfCCQgXLIwrVOBQas2Vn7rJqUZtqeEamI/VImfKrgWhX7Yv
-         ZhkAmelEBCyTLJbXU6x3JGFn1jNCsxpXApfzt7q4i3+sBsl/w+654HH7R9UjBcTGZk7+
-         yIPWxfav/Eyqcjqk5tvd5rmUnW192ejqJelD1kK/Fe+JKpnWHDAx/m2e8S0Hj49ztM8s
-         5KIl6N5oBI6smgZdXYUiDHqRTC6fjck/PrPgEKPZN70JG36Xp3dTYlypR0qfLcmpbQwm
-         78Cw==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0Yq2RogFIz+9mQcn0OmP7iHw7erj/4g9IiFkBtM1x8o=;
+        b=DhsPCcAjAfRc29z2wXIeQgnQ/tmbkkfSjsHHyRgaKi0eV/Ec6XbYCrfVqa248JNShd
+         V76nojlrScSG8tdHY94ezvYr1Xp/Zgs6FXTLTmH8EYnPSq8AOgh/Ut2wr6hwKbPRMCEM
+         CbEuZrCqfAfPHtfeineEYMemr84my3CkuOr52Ay7OJe9qpi1sTUWC0dJZPp30aLILqvu
+         AnackvfEwZAs1OPPJKHF6yGJWGccQj0zlRpstMnh06L7hEySERGQBNGK+MGcRYXtrA9y
+         AJJy7hg4W8hqTY24qH5NN/wfpH0bvUpfGez40RvcymrJyiFbdtWUZ+qEEkDEFX0CV8X0
+         vR5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=zqrbBfAh9MC+qH36Ytd6iVx70fKJg1os4oJKQFlmAAc=;
-        b=ODQTPoVPrE0xtE51XYAmqqIWms0OAShRl6wEzjlxSjySUL0+ois+xb8wom3ebnTthp
-         oe2/bWna9M+9aOXVku4UK2umpShsGvn6yxSYN97e7GtwOmmO4pyCbr5ZD/Td2GnalaXj
-         pYmVan1YZGO/55phUhyYYsRrNRtRl1cUoS/cMtNkSPyAqgDvuCSgUU2dSWBNMhN4+Qx0
-         IvtCQM8RaemzsHunRAsGHT5n2rvIFfCLKpTnFjf6qkoiVoIxQS9HkcDSMLjNxrPuRjps
-         EyLDxw1SlbXlgmb/Q2cgIivCy13LIjX3LoGniCkBaJEr63FEcTnvuzCZVbA+3UMKVv5T
-         ieAg==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=0Yq2RogFIz+9mQcn0OmP7iHw7erj/4g9IiFkBtM1x8o=;
+        b=Ym5l9tYAb7QYcgYrQR6BMnAi9CZbVhknxoxGwW86R1aZ8hN5HAX3MDf/uSy3GzLu9a
+         uAs5Yv0qBSC0TeIox/C/6dkjs6wVoqtsbTF6sx1VA71hBlWg3cjTihiLy7VcauWWMeMd
+         p8d/VZMcIsg5TDTHSXl2NR98PCiV5ut+9cCg/9ZhXz0UFo6OOhJP9CCcFNwfQR9UR+tg
+         CkvrVaLwdtPJg/AgGxDGvugR+pmkI/I0CSo8LuqPLyaHGNm6a7XTbn6c1zv7XfsvBuJw
+         B2z50XGwgQBIxbodk0wd9LX8JniqbiS4YT/onWx2SidRGbcLzME58fEAafSjVTSJsHol
+         UOeA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUyJSzxoRtYCah3MuufHubJorKHFtEEbTb3DbAqgO0TeniWXUtj
-	oayygDtSx1zI3iUyK5+rrqU=
-X-Google-Smtp-Source: APXvYqy4K8h4CBjuJw19mdLW8TCbB6lJuXTHO/54aJHHIPsKVgsr6czfGd32flAtMBqSc/jkTawO9g==
-X-Received: by 2002:a0d:d651:: with SMTP id y78mr19980431ywd.365.1572428339273;
-        Wed, 30 Oct 2019 02:38:59 -0700 (PDT)
+X-Gm-Message-State: APjAAAXjt8tIBDpjn3rZ2XzXVxMxUjGynUj9IOm1LN52PhYgNHntk8F+
+	NBcefZgJLgvcr9n4oYnzr4M=
+X-Google-Smtp-Source: APXvYqwEXg11rCy7tXjR4yjnu4pKjJAXSJQqyiQ2JX5vT/C26cDsqt7OFfg5yqwLSHl3rDy9geA/lA==
+X-Received: by 2002:a7b:c925:: with SMTP id h5mr7615310wml.61.1572432996828;
+        Wed, 30 Oct 2019 03:56:36 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d0d7:: with SMTP id h206ls288247ybg.12.gmail; Wed, 30
- Oct 2019 02:38:58 -0700 (PDT)
-X-Received: by 2002:a25:80c1:: with SMTP id c1mr2671609ybm.195.1572428338689;
-        Wed, 30 Oct 2019 02:38:58 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572428338; cv=none;
+Received: by 2002:a5d:538d:: with SMTP id d13ls17073904wrv.12.gmail; Wed, 30
+ Oct 2019 03:56:36 -0700 (PDT)
+X-Received: by 2002:adf:9185:: with SMTP id 5mr25509055wri.389.1572432996181;
+        Wed, 30 Oct 2019 03:56:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572432996; cv=none;
         d=google.com; s=arc-20160816;
-        b=hbNW4fIWnPdctqxi9vfXxyaBoDhcUzJu+r6l+m2kwPF8wAzU/pgHmggnLgHIjuhgoa
-         71Dp87BI5rtOc0pnhkFH3llZdjtinB55L8ihdLMtZILgHQUFfcZlmtvEdN5NpGTAeScH
-         Ti4+qEupOvaV83ZNlH+OATMiqkCB+lCLaiWVl5S6843x5iIsK2dDiXx0FfQHMNmxRlhi
-         4M5liZYZFsOmVIUUfrzs6wvjyXlrCxcUbJgR55isR6zVIUtb0FGZUghK+lResHiO5K0a
-         nDS0eVMgrqgCIJX+KeNT3OS27W9m9yBoQYdGaU6Qh85bCy+tpdWZAOmwPeW3ZgeC3BpR
-         YtTQ==
+        b=BIE4En30o73oSqyU07pViD04K2hLJuT330y3RsmkhuS/bdi0X+2tUhp4pItMaQ6EJI
+         yNAldUrUxbOmkYuGJcyHmZYRVf0BSArJukG1HxPFKWBWtHkGJr9MRJ3hSbRnHfY0qQRb
+         5W/+rvwWhcusCjA9bBALd6Zv1ubDSF7eJZTKIvVFsOaTgVX6ffDRv0Q3PGg0VESsnT3b
+         inditpn6RSrxuoj4bxO+BgoGsIVAqqt3Ou+M2BeHGd/j2KhfTlDUrCAD6/RASRh3tFdx
+         RkhC4ZfLtJpMUuudeCybe5A2fGn4x+/EComrvrFkWoyNAWgCyhcVCeVbIPTRi71cw7gx
+         ZQDw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=72bvwXCynWQWsMHPI7ORhQTM2EBMg4/6u3caInmUkEE=;
-        b=WwRR06Gc+ZDU+eXaH/MI23Ahf6hCRq0drTo88JVsd6lMAJv6+bzMwqOF8+aED9XVLC
-         INiLzcaa42ikH1QrgngJquMqNy3yA+wdPLoT/D6tfA4VLfMHLJ0/Fp/RWqG3SKYzhgb8
-         KvYYykRy7Kglvbf/JST/+K0gN2Ef3IRo5VMiUN8Neqk9i/oGqpTBWiaGjahZvy5zsefa
-         v1K+GN8xvj2KqXUD9ZIrlCKZ2BoPTDb5QfQ4tp0L/TGmvOh25jpIOSC3D1E3/JOJDmy+
-         0RBm0z3UKPuoHhIheVnTwzCHkgX5SL0zUBwieP2QurZRZRFcHPRJhFXbw7hxDUnFVHIS
-         0Mcg==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=aoNnm/jj5xjgxPUx6yHzkmwbGgUSjiKXsSZVhWu6RwQ=;
+        b=EwpjgO1Bs7fI7T3lza4e60ckcOdeQYuKclHzbeaWCvSETQjRRYKjBppduaSvxS+XkJ
+         qgLTFLjJ4mxVhcTXj6qkOO9KSWXq/d31MR4jGKsU3/eJahRFI77Mv3+esm3rp7coNtHU
+         T0W1Ioidk3rJLaxXaZ98J1nR52MbwZTfUWiMyicfYJ3OOpvDQtvprA0iq5HDtl84ClwV
+         vRxLzjnQ9yZNUqLvv84pYPxCJT9cUNROwyaIL5jw3tI03maW0CXCVg2Cx5vD3azBCYOV
+         +VF9p/Bl/tqhDBYZWUDdlSf4ZmzNfLJ/Knjar8S8KThPoKGOXQwP0MfF6xOdkye6vRXf
+         Bwaw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id d192si133346ywb.1.2019.10.30.02.38.57
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=D2f7Qxho;
+       spf=neutral (google.com: 2a00:1450:4864:20::444 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
+        by gmr-mx.google.com with ESMTPS id a14si91664wrm.1.2019.10.30.03.56.36
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 30 Oct 2019 02:38:58 -0700 (PDT)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 30 Oct 2019 02:38:56 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.68,247,1569308400"; 
-   d="scan'208";a="190227862"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 30 Oct 2019 02:38:54 -0700
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
-	(envelope-from <lkp@intel.com>)
-	id 1iPkRJ-00066Y-K1; Wed, 30 Oct 2019 17:38:53 +0800
-Date: Wed, 30 Oct 2019 17:38:39 +0800
-From: kbuild test robot <lkp@intel.com>
-To: Joe Perches <joe@perches.com>
-Cc: kbuild-all@lists.01.org, Andrew Morton <akpm@linux-foundation.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] compiler*.h: Add '__' prefix and suffix to all
- __attribute__ #defines
-Message-ID: <201910301644.N7zPlCBx%lkp@intel.com>
-References: <7a15bc8ad7437dc3a044a4f9cd283500bd0b5f36.camel@perches.com>
-MIME-Version: 1.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2019 03:56:36 -0700 (PDT)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::444 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2a00:1450:4864:20::444;
+Received: by mail-wr1-x444.google.com with SMTP id n15so1721544wrw.13
+        for <clang-built-linux@googlegroups.com>; Wed, 30 Oct 2019 03:56:36 -0700 (PDT)
+X-Received: by 2002:adf:b1c6:: with SMTP id r6mr25012099wra.48.1572432993887;
+        Wed, 30 Oct 2019 03:56:33 -0700 (PDT)
+Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
+        by smtp.gmail.com with ESMTPSA id p10sm2615336wrx.2.2019.10.30.03.56.31
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Oct 2019 03:56:32 -0700 (PDT)
+Message-ID: <5db96c60.1c69fb81.2a4d3.b834@mx.google.com>
+Date: Wed, 30 Oct 2019 03:56:32 -0700 (PDT)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <7a15bc8ad7437dc3a044a4f9cd283500bd0b5f36.camel@perches.com>
-X-Patchwork-Hint: ignore
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Branch: master
+X-Kernelci-Tree: next
+X-Kernelci-Kernel: next-20191030
+X-Kernelci-Report-Type: build
+Subject: next/master build: 216 builds: 5 failed, 211 passed, 20 errors,
+ 283 warnings (next-20191030)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=D2f7Qxho;       spf=neutral (google.com: 2a00:1450:4864:20::444 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,1434 +134,2450 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Joe,
+next/master build: 216 builds: 5 failed, 211 passed, 20 errors, 283 warning=
+s (next-20191030)
 
-I love your patch! Perhaps something to improve:
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20191030/
 
-[auto build test WARNING on linus/master]
-[cannot apply to v5.4-rc5 next-20191029]
-[if your patch is applied to the wrong git tree, please drop us a note to help
-improve the system. BTW, we also suggest to use '--base' option to specify the
-base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+Tree: next
+Branch: master
+Git Describe: next-20191030
+Git Commit: fdbc6c104f956257ee41b8be7c846e6c2035291e
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-url:    https://github.com/0day-ci/linux/commits/Joe-Perches/compiler-h-Add-__-prefix-and-suffix-to-all-__attribute__-defines/20191030-054036
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 23fdb198ae81f47a574296dab5167c5e136a02ba
-reproduce:
-        # apt-get install sparse
-        # sparse version: v0.6.1-dirty
-        make ARCH=x86_64 allmodconfig
-        make C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__'
+Build Failures Detected:
 
-If you fix the issue, kindly add following tag
-Reported-by: kbuild test robot <lkp@intel.com>
+arm:
+    allmodconfig: (gcc-8) FAIL
+    bcm2835_defconfig: (gcc-8) FAIL
+    multi_v7_defconfig+kselftest: (gcc-8) FAIL
+    qcom_defconfig: (gcc-8) FAIL
 
+mips:
+    cavium_octeon_defconfig: (gcc-8) FAIL
 
-sparse warnings: (new ones prefixed by >>)
+Errors and Warnings Detected:
 
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   kernel/exit.c:715:17: sparse: sparse: symbol 'do_exit' redeclared with different type (originally declared at include/linux/kernel.h:328) - different modifiers
-   kernel/exit.c:879:6: sparse: sparse: symbol 'complete_and_exit' redeclared with different type (originally declared at include/linux/kernel.h:329) - different modifiers
-   kernel/exit.c:1732:13: sparse: sparse: symbol 'abort' was not declared. Should it be static?
->> arch/x86/include/asm/irqflags.h:54:9: sparse: sparse: context imbalance in 'find_child_reaper' - unexpected unlock
-   kernel/exit.c:1007:17: sparse: sparse: context imbalance in 'wait_task_zombie' - unexpected unlock
-   kernel/exit.c:1199:24: sparse: sparse: context imbalance in 'wait_task_stopped' - unexpected unlock
-   include/linux/uidgid.h:168:9: sparse: sparse: context imbalance in 'wait_task_continued' - unexpected unlock
-   arch/x86/include/asm/current.h:15:16: sparse: sparse: context imbalance in 'do_wait' - different lock contexts for basic block
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1000:47: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1000:47: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1000:47: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1037:59: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1037:59: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1037:59: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1128:47: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1128:47: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1128:47: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1384:65: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1384:65: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1384:65: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1453:27: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1453:27: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1453:27: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1627:54: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1627:54: sparse: sparse: cast to restricted gfp_t
-   kernel/resource.c:1627:54: sparse: sparse: cast to restricted gfp_t
->> kernel/resource.c:88:13: sparse: sparse: context imbalance in 'r_start' - wrong count at exit
->> kernel/resource.c:99:13: sparse: sparse: context imbalance in 'r_stop' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   kernel/user.c:85:19: sparse: sparse: symbol 'uidhash_table' was not declared. Should it be static?
-   kernel/user.c:185:53: sparse: sparse: cast to restricted gfp_t
-   kernel/user.c:185:53: sparse: sparse: cast to restricted gfp_t
-   kernel/user.c:185:53: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:680:44: sparse: sparse: cast to restricted gfp_t
-   kernel/user.c:217:28: sparse: sparse: cast to restricted slab_flags_t
-   kernel/user.c:217:47: sparse: sparse: cast to restricted slab_flags_t
->> kernel/user.c:139:13: sparse: sparse: context imbalance in 'free_user' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   kernel/signal.c:1110:38: sparse: sparse: cast to restricted gfp_t
-   kernel/signal.c:1110:38: sparse: sparse: cast to restricted gfp_t
-   kernel/signal.c:1110:38: sparse: sparse: cast to restricted gfp_t
-   kernel/signal.c:1808:60: sparse: sparse: cast to restricted gfp_t
-   kernel/signal.c:1808:60: sparse: sparse: cast to restricted gfp_t
-   kernel/signal.c:1808:60: sparse: sparse: cast to restricted gfp_t
-   kernel/signal.c:4574:27: sparse: sparse: cast to restricted slab_flags_t
-   kernel/signal.c:1289:9: sparse: sparse: context imbalance in 'do_send_sig_info' - different lock contexts for basic block
-   include/linux/rcupdate.h:651:9: sparse: sparse: context imbalance in '__lock_task_sighand' - different lock contexts for basic block
-   include/linux/rcupdate.h:649:9: sparse: sparse: context imbalance in 'send_sigqueue' - wrong count at exit
->> kernel/signal.c:2230:17: sparse: sparse: context imbalance in 'ptrace_stop' - unexpected unlock
->> arch/x86/include/asm/current.h:15:16: sparse: sparse: context imbalance in 'do_signal_stop' - unexpected unlock
->> arch/x86/include/asm/current.h:15:16: sparse: sparse: context imbalance in 'do_freezer_trap' - unexpected unlock
-   kernel/signal.c:2598:33: sparse: sparse: context imbalance in 'get_signal' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   kernel/workqueue.c:330:8: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:330:8: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:543:25: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:543:25: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:543:25: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:1820:48: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:1820:48: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:1820:48: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:701:43: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:1913:14: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:1913:14: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:1913:14: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3352:41: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3352:41: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3352:41: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3355:49: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3355:49: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3355:49: sparse: sparse: cast to restricted gfp_t
-   include/linux/idr.h:311:33: sparse: sparse: cast to restricted gfp_t
-   include/linux/idr.h:311:33: sparse: sparse: cast to restricted gfp_t
-   include/linux/idr.h:311:33: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/idr.h:311:33: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3607:44: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3607:44: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3607:44: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3780:48: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3780:48: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3780:48: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3896:63: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3896:63: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:3896:63: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:4247:46: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:4247:46: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:4247:46: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5267:49: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5267:49: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5267:49: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5546:43: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5546:43: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5546:43: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5608:56: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5608:56: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5608:56: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5835:52: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5835:52: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5835:52: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:629:47: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5839:17: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5839:17: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5839:17: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5874:9: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5874:9: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5874:9: sparse: sparse: cast to restricted gfp_t
-   kernel/workqueue.c:5877:21: sparse: sparse: cast to restricted slab_flags_t
->> arch/x86/include/asm/irqflags.h:54:9: sparse: sparse: context imbalance in 'maybe_create_worker' - unexpected unlock
->> kernel/workqueue.c:2240:9: sparse: sparse: context imbalance in 'process_one_work' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   kernel/futex.c:811:47: sparse: sparse: cast to restricted gfp_t
-   kernel/futex.c:811:47: sparse: sparse: cast to restricted gfp_t
-   kernel/futex.c:811:47: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   kernel/futex.c:1559:9: sparse: sparse: context imbalance in 'wake_futex_pi' - unexpected unlock
-   kernel/futex.c:1719:33: sparse: sparse: context imbalance in 'futex_wake_op' - different lock contexts for basic block
-   kernel/futex.c:2015:39: sparse: sparse: context imbalance in 'futex_requeue' - different lock contexts for basic block
->> kernel/futex.c:2356:9: sparse: sparse: context imbalance in 'unqueue_me_pi' - unexpected unlock
-   kernel/futex.c:2491:9: sparse: sparse: context imbalance in 'fixup_pi_state_owner' - unexpected unlock
-   kernel/futex.c:2600:13: sparse: sparse: context imbalance in 'futex_wait_queue_me' - unexpected unlock
-   kernel/futex.c:2702:1: sparse: sparse: context imbalance in 'futex_wait_setup' - different lock contexts for basic block
->> kernel/futex.c:2954:22: sparse: sparse: context imbalance in 'futex_lock_pi' - different lock contexts for basic block
-   kernel/futex.c:2981:12: sparse: sparse: context imbalance in 'futex_unlock_pi' - different lock contexts for basic block
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'futex_wait_requeue_pi' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> arch/x86/kernel/process_32.c:159:66: sparse: sparse: cast to restricted gfp_t
->> arch/x86/kernel/process_32.c:159:66: sparse: sparse: cast to restricted gfp_t
->> arch/x86/kernel/process_32.c:159:66: sparse: sparse: cast to restricted gfp_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> arch/x86/kernel/irq_32.c:120:37: sparse: sparse: cast to restricted gfp_t
->> arch/x86/kernel/irq_32.c:120:37: sparse: sparse: cast to restricted gfp_t
->> arch/x86/kernel/irq_32.c:120:37: sparse: sparse: cast to restricted gfp_t
->> arch/x86/kernel/irq_32.c:120:37: sparse: sparse: cast to restricted gfp_t
->> arch/x86/kernel/irq_32.c:120:37: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:484:9: sparse: sparse: cast to restricted gfp_t
-   arch/x86/kernel/irq_32.c:123:37: sparse: sparse: cast to restricted gfp_t
-   arch/x86/kernel/irq_32.c:123:37: sparse: sparse: cast to restricted gfp_t
-   arch/x86/kernel/irq_32.c:123:37: sparse: sparse: cast to restricted gfp_t
-   arch/x86/kernel/irq_32.c:123:37: sparse: sparse: cast to restricted gfp_t
-   arch/x86/kernel/irq_32.c:123:37: sparse: sparse: cast to restricted gfp_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:232:45: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:232:45: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:232:45: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:257:36: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:257:36: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:257:36: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:701:43: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:323:38: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:323:38: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:323:38: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:342:39: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:342:39: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:342:39: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:382:9: sparse: sparse: cast to restricted gfp_t
->> mm/mempool.c:382:9: sparse: sparse: cast from restricted gfp_t
-   mm/mempool.c:383:9: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:385:21: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:386:21: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:387:21: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:389:33: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:389:54: sparse: sparse: cast to restricted gfp_t
-   mm/mempool.c:422:26: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:484:9: sparse: sparse: cast to restricted gfp_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> mm/vmscan.c:392:47: sparse: sparse: cast to restricted gfp_t
->> mm/vmscan.c:392:47: sparse: sparse: cast to restricted gfp_t
->> mm/vmscan.c:392:47: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:753:46: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:753:46: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:753:46: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1163:48: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1164:65: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1290:54: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1540:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1540:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1540:29: sparse: sparse: cast to restricted gfp_t
->> mm/vmscan.c:1583:47: sparse: sparse: cast to restricted isolate_mode_t
-   mm/vmscan.c:1596:20: sparse: sparse: cast to restricted isolate_mode_t
-   mm/vmscan.c:1625:21: sparse: sparse: cast to restricted isolate_mode_t
-   mm/vmscan.c:1695:52: sparse: sparse: cast to restricted isolate_mode_t
-   mm/vmscan.c:1852:30: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1852:41: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1852:56: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:1852:67: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:2154:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:2154:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:2154:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:2966:33: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:421:42: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:421:42: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:421:42: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:421:42: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:421:20: sparse: sparse: cast from restricted gfp_t
-   mm/vmscan.c:2978:50: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:2978:50: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:2978:50: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:2978:63: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:421:20: sparse: sparse: cast from restricted gfp_t
-   include/linux/gfp.h:421:20: sparse: sparse: cast from restricted gfp_t
-   mm/vmscan.c:3242:26: sparse: sparse: cast to restricted gfp_t
->> include/linux/sched/mm.h:187:36: sparse: sparse: cast to restricted gfp_t
-   include/linux/sched/mm.h:187:47: sparse: sparse: cast to restricted gfp_t
-   include/linux/sched/mm.h:189:35: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:421:20: sparse: sparse: cast from restricted gfp_t
-   mm/vmscan.c:3586:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:3586:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:3586:29: sparse: sparse: cast to restricted gfp_t
-   mm/vmscan.c:4005:35: sparse: sparse: cast to restricted gfp_t
-   arch/x86/include/asm/irqflags.h:54:9: sparse: sparse: context imbalance in 'check_move_unevictable_pages' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> mm/slab_common.c:291:21: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:311:41: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:311:41: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:311:41: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:311:41: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:311:41: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:311:41: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:348:21: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:348:21: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:348:21: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:348:21: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:348:21: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:348:21: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:358:30: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:358:30: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:358:30: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:358:62: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:358:62: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:358:62: sparse: sparse: cast to restricted slab_flags_t
->> mm/slab_common.c:392:43: sparse: sparse: cast to restricted gfp_t
->> mm/slab_common.c:392:43: sparse: sparse: cast to restricted gfp_t
->> mm/slab_common.c:392:43: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:680:44: sparse: sparse: cast to restricted gfp_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:476:22: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:487:18: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:499:42: sparse: sparse: cast to restricted gfp_t
-   mm/slab_common.c:499:42: sparse: sparse: cast to restricted gfp_t
-   mm/slab_common.c:499:42: sparse: sparse: cast to restricted gfp_t
-   mm/slab_common.c:521:29: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:612:24: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:1012:32: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:1065:62: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   mm/slab_common.c:1223:26: sparse: sparse: cast to restricted gfp_t
-   mm/slab_common.c:1232:26: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:1286:42: sparse: sparse: cast to restricted slab_flags_t
-   mm/slab_common.c:1303:18: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:484:9: sparse: sparse: cast to restricted gfp_t
-   mm/slab_common.c:1491:54: sparse: sparse: cast to restricted slab_flags_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> mm/compaction.c:81:46: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:948:38: sparse: sparse: cast to restricted gfp_t
->> mm/compaction.c:1108:57: sparse: sparse: cast to restricted isolate_mode_t
-   mm/compaction.c:1748:55: sparse: sparse: cast to restricted isolate_mode_t
-   mm/compaction.c:1749:45: sparse: sparse: cast to restricted isolate_mode_t
-   include/linux/gfp.h:310:9: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:310:9: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:310:9: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:310:9: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:318:29: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:318:29: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:318:27: sparse: sparse: restricted gfp_t degrades to integer
-   mm/compaction.c:2343:41: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:2343:39: sparse: sparse: incorrect type in initializer (different base types) @@    expected int may_perform_io @@    got restricted gint may_perform_io @@
-   mm/compaction.c:2343:39: sparse:    expected int may_perform_io
-   mm/compaction.c:2343:39: sparse:    got restricted gfp_t
-   mm/compaction.c:2419:29: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:2419:29: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:2419:29: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:2534:29: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:2534:29: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:2534:29: sparse: sparse: cast to restricted gfp_t
-   mm/compaction.c:482:13: sparse: sparse: context imbalance in 'compact_lock_irqsave' - wrong count at exit
-   include/linux/spinlock.h:393:9: sparse: sparse: context imbalance in 'compact_unlock_should_abort' - unexpected unlock
-   mm/compaction.c:638:39: sparse: sparse: context imbalance in 'isolate_freepages_block' - unexpected unlock
-   mm/compaction.c:1047:39: sparse: sparse: context imbalance in 'isolate_migratepages_block' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: cast to restricted gfp_t
-   mm/debug.c:36:9: sparse: sparse: cast from restricted gfp_t
->> mm/debug.c:36:9: sparse: sparse: too many warnings
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   include/asm-generic/pgalloc.h:21:25: sparse: sparse: cast to restricted gfp_t
-   include/asm-generic/pgalloc.h:21:25: sparse: sparse: cast to restricted gfp_t
-   include/asm-generic/pgalloc.h:21:25: sparse: sparse: cast to restricted gfp_t
-   include/asm-generic/pgalloc.h:21:25: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:838:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:838:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:838:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2181:63: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2181:74: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2187:16: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2187:16: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2187:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/highmem.h:208:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/highmem.h:208:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/highmem.h:208:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/highmem.h:208:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/highmem.h:208:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/highmem.h:208:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/highmem.h:208:16: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:484:9: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2326:28: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2326:28: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2326:28: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2326:28: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2326:28: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2326:28: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2333:55: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2333:55: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2333:55: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2777:32: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2777:32: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2777:32: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2777:32: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2777:32: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2777:32: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2787:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2787:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2787:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2787:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2787:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2787:56: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2844:59: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2844:59: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:2844:59: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3006:59: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3006:59: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3006:59: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3508:25: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3508:25: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3508:25: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3508:25: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3508:25: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3508:25: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3512:68: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3512:68: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:3512:68: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:4418:37: sparse: sparse: cast to restricted gfp_t
-   mm/memory.c:800:17: sparse: sparse: context imbalance in 'copy_pte_range' - different lock contexts for basic block
-   mm/memory.c:1412:16: sparse: sparse: context imbalance in '__get_locked_pte' - different lock contexts for basic block
-   mm/memory.c:1801:17: sparse: sparse: context imbalance in 'remap_pte_range' - different lock contexts for basic block
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'apply_to_pte_range' - unexpected unlock
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'wp_pfn_shared' - unexpected unlock
->> include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'wp_page_shared' - unexpected unlock
->> include/linux/mm.h:839:9: sparse: sparse: context imbalance in 'do_wp_page' - unexpected unlock
->> mm/memory.c:2930:9: sparse: sparse: context imbalance in 'do_swap_page' - different lock contexts for basic block
-   mm/memory.c:3124:19: sparse: sparse: context imbalance in 'pte_alloc_one_map' - different lock contexts for basic block
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'finish_fault' - unexpected unlock
-   mm/memory.c:3463:9: sparse: sparse: context imbalance in 'do_fault_around' - unexpected unlock
->> mm/memory.c:3805:19: sparse: sparse: context imbalance in 'handle_pte_fault' - different lock contexts for basic block
-   mm/memory.c:4116:12: sparse: sparse: context imbalance in '__follow_pte_pmd' - different lock contexts for basic block
-   mm/memory.c:4195:5: sparse: sparse: context imbalance in 'follow_pte_pmd' - different lock contexts for basic block
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   fs/super.c:77:30: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:203:70: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:203:70: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:203:70: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:203:70: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1017:39: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1017:39: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1017:39: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1051:39: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1051:39: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1051:39: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1058:8: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1058:8: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1058:8: sparse: sparse: cast from restricted xa_mark_t
-   fs/super.c:1058:8: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1080:25: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1080:25: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1080:25: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1281:24: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1281:37: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1285:25: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1367:24: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1367:37: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1371:25: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1444:9: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1445:33: sparse: sparse: cast to restricted fmode_t
-   fs/super.c:1599:25: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1599:25: sparse: sparse: cast to restricted gfp_t
-   fs/super.c:1599:25: sparse: sparse: cast to restricted gfp_t
->> fs/super.c:385:12: sparse: sparse: context imbalance in 'grab_super' - unexpected unlock
->> fs/super.c:509:20: sparse: sparse: context imbalance in 'sget_fc' - different lock contexts for basic block
->> fs/super.c:574:20: sparse: sparse: context imbalance in 'sget' - different lock contexts for basic block
->> fs/super.c:845:20: sparse: sparse: context imbalance in 'get_active_super' - wrong count at exit
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   fs/dcache.c:1688:49: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:1688:49: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:1688:49: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:1705:51: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:1705:51: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:1705:51: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:1705:51: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:1706:51: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   fs/dcache.c:3168:24: sparse: sparse: cast to restricted slab_flags_t
-   fs/dcache.c:3168:24: sparse: sparse: cast to restricted slab_flags_t
-   fs/dcache.c:3168:24: sparse: sparse: cast to restricted slab_flags_t
-   fs/dcache.c:3207:25: sparse: sparse: cast to restricted slab_flags_t
-   fs/dcache.c:3207:44: sparse: sparse: cast to restricted slab_flags_t
->> fs/dcache.c:365:23: sparse: sparse: context imbalance in 'dentry_unlink_inode' - unexpected unlock
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in '__dentry_kill' - unexpected unlock
-   fs/dcache.c:622:9: sparse: sparse: context imbalance in '__lock_parent' - wrong count at exit
-   fs/dcache.c:686:9: sparse: sparse: context imbalance in 'dentry_kill' - wrong count at exit
->> include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'dput' - unexpected unlock
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'dput_to_list' - unexpected unlock
-   include/linux/spinlock.h:338:9: sparse: sparse: context imbalance in 'd_prune_aliases' - different lock contexts for basic block
-   fs/dcache.c:1055:13: sparse: sparse: context imbalance in 'shrink_lock_dentry' - different lock contexts for basic block
-   include/linux/compiler.h:199:9: sparse: sparse: context imbalance in 'shrink_dentry_list' - different lock contexts for basic block
-   fs/dcache.c:1124:24: sparse: sparse: context imbalance in 'dentry_lru_isolate' - wrong count at exit
-   fs/dcache.c:1205:24: sparse: sparse: context imbalance in 'dentry_lru_isolate_shrink' - wrong count at exit
-   fs/dcache.c:1267:13: sparse: sparse: context imbalance in 'd_walk' - different lock contexts for basic block
-   fs/dcache.c:1501:24: sparse: sparse: context imbalance in 'select_collect2' - different lock contexts for basic block
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'shrink_dcache_parent' - unexpected unlock
-   fs/dcache.c:2447:9: sparse: sparse: context imbalance in 'd_delete' - wrong count at exit
-   fs/dcache.c:2674:6: sparse: sparse: context imbalance in 'd_add' - different lock contexts for basic block
-   include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in '__d_move' - unexpected unlock
-   fs/dcache.c:3044:16: sparse: sparse: context imbalance in 'd_splice_alias' - different lock contexts for basic block
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   fs/file.c:111:47: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:111:47: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:111:47: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:111:47: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:115:58: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:115:58: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:115:58: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:115:58: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:122:34: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:122:34: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:122:34: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:122:34: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:280:47: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:280:47: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:280:47: sparse: sparse: cast to restricted gfp_t
-   fs/file.c:734:27: sparse: sparse: cast to restricted fmode_t
-   fs/file.c:739:27: sparse: sparse: cast to restricted fmode_t
-   fs/file.c:784:33: sparse: sparse: cast to restricted fmode_t
-   fs/file.c:798:37: sparse: sparse: cast to restricted fmode_t
->> fs/file.c:148:12: sparse: sparse: context imbalance in 'expand_fdtable' - unexpected unlock
->> include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'expand_files' - unexpected unlock
->> include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in 'do_dup2' - unexpected unlock
-   fs/file.c:887:5: sparse: sparse: context imbalance in 'replace_fd' - different lock contexts for basic block
->> fs/file.c:909:12: sparse: sparse: context imbalance in 'ksys_dup3' - different lock contexts for basic block
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   fs/fs-writeback.c:1557:48: sparse: sparse: cast to restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   fs/fs-writeback.c:2412:46: sparse: sparse: cast to restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
->> include/linux/backing-dev.h:158:39: sparse: sparse: context imbalance in 'inode_to_wb_and_lock_list' - wrong count at exit
->> fs/fs-writeback.c:1118:6: sparse: sparse: context imbalance in 'inode_io_list_del' - unexpected unlock
->> fs/fs-writeback.c:1351:13: sparse: sparse: context imbalance in 'inode_sleep_on_writeback' - unexpected unlock
-   fs/fs-writeback.c:1577:20: sparse: sparse: context imbalance in 'writeback_single_inode' - different lock contexts for basic block
-   fs/fs-writeback.c:1639:9: sparse: sparse: context imbalance in 'writeback_sb_inodes' - different lock contexts for basic block
->> fs/fs-writeback.c:1853:17: sparse: sparse: context imbalance in 'wb_writeback' - different lock contexts for basic block
-   fs/fs-writeback.c:2194:9: sparse: sparse: context imbalance in 'block_dump___mark_inode_dirty' - different lock contexts for basic block
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> arch/x86/include/asm/tlbflush.h:411:30: sparse: sparse: context imbalance in 'prepare_set' - wrong count at exit
->> arch/x86/kernel/cpu/mtrr/generic.c:792:9: sparse: sparse: context imbalance in 'post_set' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> fs/notify/dnotify/dnotify.c:295:53: sparse: sparse: cast to restricted gfp_t
->> fs/notify/dnotify/dnotify.c:295:53: sparse: sparse: cast to restricted gfp_t
->> fs/notify/dnotify/dnotify.c:295:53: sparse: sparse: cast to restricted gfp_t
-   fs/notify/dnotify/dnotify.c:302:60: sparse: sparse: cast to restricted gfp_t
-   fs/notify/dnotify/dnotify.c:302:60: sparse: sparse: cast to restricted gfp_t
-   fs/notify/dnotify/dnotify.c:302:60: sparse: sparse: cast to restricted gfp_t
->> fs/notify/dnotify/dnotify.c:388:32: sparse: sparse: cast to restricted slab_flags_t
-   fs/notify/dnotify/dnotify.c:390:30: sparse: sparse: cast to restricted slab_flags_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> fs/notify/inotify/inotify_fsnotify.c:99:36: sparse: sparse: cast to restricted gfp_t
->> fs/notify/inotify/inotify_fsnotify.c:99:36: sparse: sparse: cast to restricted gfp_t
->> fs/notify/inotify/inotify_fsnotify.c:99:36: sparse: sparse: cast to restricted gfp_t
->> fs/notify/inotify/inotify_fsnotify.c:99:36: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_fsnotify.c:99:57: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> fs/notify/inotify/inotify_user.c:109:23: sparse: sparse: cast to restricted __poll_t
-   fs/notify/inotify/inotify_user.c:109:33: sparse: sparse: cast to restricted __poll_t
->> fs/notify/inotify/inotify_user.c:362:21: sparse: sparse: cast to restricted gfp_t
->> fs/notify/inotify/inotify_user.c:362:21: sparse: sparse: cast to restricted gfp_t
->> fs/notify/inotify/inotify_user.c:362:21: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_user.c:365:51: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_user.c:570:66: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_user.c:570:66: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_user.c:570:66: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_user.c:632:61: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_user.c:632:61: sparse: sparse: cast to restricted gfp_t
-   fs/notify/inotify/inotify_user.c:632:61: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   include/linux/idr.h:137:9: sparse: sparse: cast to restricted gfp_t
-   include/linux/idr.h:137:9: sparse: sparse: cast to restricted gfp_t
->> fs/notify/inotify/inotify_user.c:825:37: sparse: sparse: cast to restricted slab_flags_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   kernel/sched/core.c:5398:47: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5398:47: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5398:47: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5402:43: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5402:43: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5402:43: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5490:43: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5490:43: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5490:43: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5547:39: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5547:39: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:5547:39: sparse: sparse: cast to restricted gfp_t
-   kernel/sched/core.c:6561:51: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
->> kernel/sched/core.c:89:36: sparse: sparse: context imbalance in '__task_rq_lock' - wrong count at exit
->> kernel/sched/core.c:130:36: sparse: sparse: context imbalance in 'task_rq_lock' - wrong count at exit
->> kernel/sched/sched.h:1182:9: sparse: sparse: context imbalance in 'ttwu_remote' - unexpected unlock
->> kernel/sched/core.c:2943:6: sparse: sparse: context imbalance in 'wake_up_new_task' - unexpected unlock
->> arch/x86/include/asm/irqflags.h:54:9: sparse: sparse: context imbalance in 'finish_task_switch' - unexpected unlock
->> kernel/sched/core.c:3579:9: sparse: sparse: context imbalance in 'task_sched_runtime' - unexpected unlock
->> kernel/sched/core.c:3989:29: sparse: sparse: context imbalance in '__schedule' - wrong count at exit
->> kernel/sched/core.c:4472:9: sparse: sparse: context imbalance in 'rt_mutex_setprio' - unexpected unlock
->> kernel/sched/sched.h:1191:9: sparse: sparse: context imbalance in 'set_user_nice' - unexpected unlock
->> kernel/sched/core.c:5002:23: sparse: sparse: context imbalance in '__sched_setscheduler' - unexpected unlock
->> kernel/sched/core.c:5863:23: sparse: sparse: context imbalance in 'sched_rr_get_interval' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> kernel/sched/cputime.c:275:12: sparse: sparse: context imbalance in 'read_sum_exec_runtime' - unexpected unlock
-   kernel/sched/cputime.c:316:17: sparse: sparse: context imbalance in 'thread_group_cputime' - different lock contexts for basic block
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> kernel/sched/sched.h:1191:9: sparse: sparse: context imbalance in 'dl_task_timer' - unexpected unlock
-   kernel/sched/sched.h:1191:9: sparse: sparse: context imbalance in 'inactive_task_timer' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> kernel/time/timer.c:919:26: sparse: sparse: context imbalance in 'lock_timer_base' - wrong count at exit
->> kernel/time/timer.c:1057:9: sparse: sparse: context imbalance in 'mod_timer_pending' - unexpected unlock
->> kernel/time/timer.c:1057:9: sparse: sparse: context imbalance in 'mod_timer' - unexpected unlock
->> kernel/time/timer.c:1057:9: sparse: sparse: context imbalance in 'timer_reduce' - unexpected unlock
->> kernel/time/timer.c:1171:27: sparse: sparse: context imbalance in 'add_timer_on' - unexpected unlock
->> kernel/time/timer.c:1199:17: sparse: sparse: context imbalance in 'del_timer' - unexpected unlock
->> kernel/time/timer.c:1228:9: sparse: sparse: context imbalance in 'try_to_del_timer_sync' - unexpected unlock
->> kernel/time/timer.c:1057:9: sparse: sparse: context imbalance in 'schedule_timeout' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   drivers/base/devres.c:153:44: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:728:61: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:728:61: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:728:61: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:1023:60: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:1023:60: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:1023:60: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:1091:63: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:1091:63: sparse: sparse: cast to restricted gfp_t
-   drivers/base/devres.c:1091:63: sparse: sparse: cast to restricted gfp_t
->> drivers/base/devres.c:490:12: sparse: sparse: context imbalance in 'release_nodes' - unexpected unlock
->> drivers/base/devres.c:521:5: sparse: sparse: context imbalance in 'devres_release_all' - different lock contexts for basic block
->> drivers/base/devres.c:684:9: sparse: sparse: context imbalance in 'devres_release_group' - wrong count at exit
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   drivers/base/firmware_loader/main.c:174:45: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:174:45: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:174:45: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:178:51: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:178:51: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:178:51: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:479:16: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:479:16: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:479:16: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:609:28: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:609:28: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:609:28: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:612:41: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:612:41: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:612:41: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:693:61: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:693:61: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:693:61: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:1128:37: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:1128:37: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:1128:37: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:1132:41: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:1132:41: sparse: sparse: cast to restricted gfp_t
-   drivers/base/firmware_loader/main.c:1132:41: sparse: sparse: cast to restricted gfp_t
->> drivers/base/firmware_loader/main.c:242:13: sparse: sparse: context imbalance in '__free_fw_priv' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> include/linux/spinlock.h:378:9: sparse: sparse: context imbalance in '__rpm_callback' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   lib/iov_iter.c:522:37: sparse: sparse: cast to restricted gfp_t
-   lib/iov_iter.c:522:37: sparse: sparse: cast to restricted gfp_t
-   lib/iov_iter.c:522:37: sparse: sparse: cast to restricted gfp_t
-   lib/iov_iter.c:522:37: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:484:9: sparse: sparse: cast to restricted gfp_t
-   include/net/checksum.h:86:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:92:32: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:59:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:60:17: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:47: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:17: sparse: sparse: cast to restricted __wsum
-   lib/iov_iter.c:1318:57: sparse: sparse: cast to restricted gfp_t
-   lib/iov_iter.c:1318:57: sparse: sparse: cast to restricted gfp_t
-   lib/iov_iter.c:1318:57: sparse: sparse: cast to restricted gfp_t
-   include/net/checksum.h:86:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:92:32: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:59:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:60:17: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:47: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:17: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:86:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:92:32: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:59:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:60:17: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:47: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:17: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:86:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:92:32: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:59:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:60:17: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:47: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:17: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:86:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:92:32: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:59:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:60:17: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:47: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:17: sparse: sparse: cast to restricted __wsum
->> arch/x86/include/asm/checksum_32.h:196:17: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:86:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:92:32: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:59:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:60:17: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:47: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:17: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:86:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:92:32: sparse: sparse: cast to restricted __wsum
-   include/net/checksum.h:59:20: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:60:17: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:47: sparse: sparse: cast from restricted __wsum
-   include/net/checksum.h:61:17: sparse: sparse: cast to restricted __wsum
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   lib/once.c:26:33: sparse: sparse: cast to restricted gfp_t
-   lib/once.c:26:33: sparse: sparse: cast to restricted gfp_t
-   lib/once.c:26:33: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   lib/once.c:37:6: sparse: sparse: context imbalance in '__do_once_start' - wrong count at exit
->> lib/once.c:55:6: sparse: sparse: context imbalance in '__do_once_done' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
-   lib/xarray.c:137:46: sparse: sparse: cast to restricted xa_mark_t
-   lib/xarray.c:137:29: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:301:33: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:302:24: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:32:17: sparse: sparse: cast from restricted gfp_t
-   lib/xarray.c:330:33: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:331:24: sparse: sparse: cast to restricted gfp_t
-   include/linux/gfp.h:325:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:365:29: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:365:42: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:367:41: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:368:32: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:62:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:57:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:73:28: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:73:28: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:74:35: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:74:35: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:67:30: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:67:30: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:68:33: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:68:33: sparse: sparse: cast to restricted gfp_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:597:37: sparse: sparse: cast to restricted xa_mark_t
-   lib/xarray.c:599:25: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:599:25: sparse: sparse: cast to restricted xa_mark_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:67:30: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:67:30: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:68:33: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:68:33: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:79:29: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:73:28: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:73:28: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:74:35: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:74:35: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:941:29: sparse: sparse: cast to restricted xa_mark_t
-   lib/xarray.c:943:17: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:943:17: sparse: sparse: cast to restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:416:31: sparse: sparse: cast to restricted gfp_t
-   include/linux/xarray.h:1583:52: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:1658:29: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:1659:34: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:1673:41: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:1810:22: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:1848:22: sparse: sparse: cast from restricted xa_mark_t
-   include/linux/xarray.h:1583:52: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:1946:14: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:73:28: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:73:28: sparse: sparse: cast to restricted gfp_t
-   lib/xarray.c:74:35: sparse: sparse: cast from restricted xa_mark_t
-   lib/xarray.c:74:35: sparse: sparse: cast to restricted gfp_t
->> arch/x86/include/asm/irqflags.h:54:9: sparse: sparse: context imbalance in '__xas_nomem' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> drivers/input/serio/libps2.c:35:17: sparse: sparse: context imbalance in 'ps2_do_sendbyte' - unexpected unlock
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> drivers/power/supply/power_supply_hwmon.c:290:32: sparse: sparse: cast to restricted gfp_t
->> drivers/power/supply/power_supply_hwmon.c:290:32: sparse: sparse: cast to restricted gfp_t
->> drivers/power/supply/power_supply_hwmon.c:290:32: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:293:51: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:293:51: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:293:51: sparse: sparse: cast to restricted gfp_t
-   include/linux/device.h:919:46: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:301:38: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:301:38: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:301:38: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:342:52: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:342:52: sparse: sparse: cast to restricted gfp_t
-   drivers/power/supply/power_supply_hwmon.c:342:52: sparse: sparse: cast to restricted gfp_t
---
-   include/linux/mm_types.h:673:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:674:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:675:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:676:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:677:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:678:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:679:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:680:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:681:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:682:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:683:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:684:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:685:36: sparse: sparse: cast to restricted vm_fault_t
-   include/linux/mm_types.h:686:36: sparse: sparse: cast to restricted vm_fault_t
->> drivers/thermal/thermal_hwmon.c:143:41: sparse: sparse: cast to restricted gfp_t
->> drivers/thermal/thermal_hwmon.c:143:41: sparse: sparse: cast to restricted gfp_t
->> drivers/thermal/thermal_hwmon.c:143:41: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:690:38: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:329:13: sparse: sparse: cast to restricted gfp_t
-   include/linux/slab.h:336:24: sparse: sparse: cast to restricted gfp_t
-   drivers/thermal/thermal_hwmon.c:158:39: sparse: sparse: cast to restricted gfp_t
-   drivers/thermal/thermal_hwmon.c:158:39: sparse: sparse: cast to restricted gfp_t
-   drivers/thermal/thermal_hwmon.c:158:39: sparse: sparse: cast to restricted gfp_t
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 2 warnings
+    axs103_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig (gcc-8): 2 warnings
+    hsdk_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 1 warning
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
 
-vim +/find_child_reaper +54 arch/x86/include/asm/irqflags.h
+arm64:
+    allmodconfig (gcc-8): 1 warning
+    allmodconfig (clang-8): 52 warnings
+    defconfig (gcc-8): 29 warnings
 
-6abcd98ffafbff include/asm-x86/irqflags.h Glauber de Oliveira Costa 2008-01-30  51  
-6abcd98ffafbff include/asm-x86/irqflags.h Glauber de Oliveira Costa 2008-01-30  52  static inline void native_irq_enable(void)
-6abcd98ffafbff include/asm-x86/irqflags.h Glauber de Oliveira Costa 2008-01-30  53  {
-6abcd98ffafbff include/asm-x86/irqflags.h Glauber de Oliveira Costa 2008-01-30 @54  	asm volatile("sti": : :"memory");
-6abcd98ffafbff include/asm-x86/irqflags.h Glauber de Oliveira Costa 2008-01-30  55  }
-6abcd98ffafbff include/asm-x86/irqflags.h Glauber de Oliveira Costa 2008-01-30  56  
+arm:
+    allmodconfig (gcc-8): 6 errors
+    bcm2835_defconfig (gcc-8): 3 errors
+    eseries_pxa_defconfig (gcc-8): 1 warning
+    magician_defconfig (gcc-8): 1 warning
+    multi_v7_defconfig (gcc-8): 6 errors, 29 warnings
+    qcom_defconfig (gcc-8): 1 error
+    s3c2410_defconfig (gcc-8): 1 warning
+    s3c6400_defconfig (gcc-8): 1 warning
+    zeus_defconfig (gcc-8): 1 warning
 
-:::::: The code at line 54 was first introduced by commit
-:::::: 6abcd98ffafbff81f0bfd7ee1d129e634af13245 x86: irqflags consolidation
+i386:
+    i386_defconfig (gcc-8): 31 warnings
 
-:::::: TO: Glauber de Oliveira Costa <gcosta@redhat.com>
-:::::: CC: Ingo Molnar <mingo@elte.hu>
+mips:
+    32r2el_defconfig (gcc-8): 31 warnings
+    cavium_octeon_defconfig (gcc-8): 4 errors, 3 warnings
+    db1xxx_defconfig (gcc-8): 1 warning
+    ip27_defconfig (gcc-8): 2 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    nlm_xlp_defconfig (gcc-8): 2 warnings
+    nlm_xlr_defconfig (gcc-8): 4 warnings
+    rbtx49xx_defconfig (gcc-8): 1 warning
+
+riscv:
+    defconfig (gcc-8): 2 warnings
+    defconfig (gcc-8): 31 warnings
+    rv32_defconfig (gcc-8): 8 warnings
+
+x86_64:
+    allmodconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (gcc-8): 29 warnings
+
+Errors summary:
+
+    1    trace_preemptirq.c:(.text+0xd14): undefined reference to `return_a=
+ddress'
+    1    trace_preemptirq.c:(.text+0x710): undefined reference to `return_a=
+ddress'
+    1    trace_preemptirq.c:(.text+0x470): undefined reference to `return_a=
+ddress'
+    1    trace_preemptirq.c:(.text+0x2a8): undefined reference to `return_a=
+ddress'
+    1    trace_irqsoff.c:(.text+0xa70): undefined reference to `return_addr=
+ess'
+    1    trace_irqsoff.c:(.text+0x7a8): undefined reference to `return_addr=
+ess'
+    1    drivers/staging/octeon/ethernet.c:516:29: error: type of formal pa=
+rameter 2 is incomplete
+    1    drivers/staging/octeon/ethernet.c:499:30: error: storage size of '=
+link_info' isn't known
+    1    drivers/staging/octeon/ethernet.c:463:30: error: storage size of '=
+link_info' isn't known
+    1    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing poi=
+nter to incomplete type 'struct cvmx_wqe'
+    1    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0xda0): undefine=
+d reference to `return_address'
+    1    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0xb10): undefine=
+d reference to `return_address'
+    1    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0x49c): undefine=
+d reference to `return_address'
+    1    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0x2e4): undefine=
+d reference to `return_address'
+    1    arm-linux-gnueabihf-ld: kernel/trace/trace_irqsoff.o:trace_irqsoff=
+.c:(.text+0xee4): more undefined references to `return_address' follow
+    1    arm-linux-gnueabihf-ld: kernel/trace/trace_irqsoff.o:trace_irqsoff=
+.c:(.text+0x27a8): more undefined references to `return_address' follow
+    1    arm-linux-gnueabihf-ld: /home/buildslave/workspace/kernel-build/li=
+nux/build/../kernel/trace/trace_sched_wakeup.c:596: undefined reference to =
+`return_address'
+    1    /home/buildslave/workspace/workspace/kernel-build@3/linux/build/..=
+/drivers/thermal/qcom/tsens-common.c:95: undefined reference to `__aeabi_ul=
+divmod'
+    1    /home/buildslave/workspace/kernel-build/linux/build/../kernel/trac=
+e/trace_sched_wakeup.c:596: undefined reference to `return_address'
+    1    /home/buildslave/workspace/kernel-build/linux/build/../kernel/trac=
+e/trace_sched_wakeup.c:476: undefined reference to `return_address'
+
+Warnings summary:
+
+    20   <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    17   1 warning generated.
+    6    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunu=
+sed-variable]
+    6    drivers/net/ethernet/intel/e1000e/netdev.c:6405:13: warning: 'e100=
+0e_s0ix_exit_flow' defined but not used [-Wunused-function]
+    6    drivers/net/ethernet/intel/e1000e/netdev.c:6298:13: warning: 'e100=
+0e_s0ix_entry_flow' defined but not used [-Wunused-function]
+    6    2 warnings generated.
+    3    sound/soc/codecs/rt5677-spi.c:114:30: warning: unused variable 'rt=
+d' [-Wunused-variable]
+    3    include/linux/kern_levels.h:5:18: warning: format '%lu' expects ar=
+gument of type 'long unsigned int', but argument 8 has type 'unsigned int' =
+[-Wformat=3D]
+    3    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argu=
+ment of type 'long unsigned int', but argument 5 has type 'unsigned int' [-=
+Wformat=3D]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:134: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable 'rtd' [-=
+Wunused-variable]
+    1    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitia=
+lized when used within its own initialization [-Wuninitialized]
+    1    mm/shmem.c:2737:35: warning: variable 'shmem_falloc_waitq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    1    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized wh=
+en used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized =
+when used within its own initialization [-Wuninitialized]
+    1    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: 'union cv=
+mx_helper_link_info' declared inside parameter list will not be visible out=
+side of this definition or declaration
+    1    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable=
+ 'link_info' [-Wunused-variable]
+    1    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable=
+ 'link_info' [-Wunused-variable]
+    1    drivers/scsi/lpfc/lpfc_sli.c:11878:34: warning: variable 'done_q' =
+is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/lpfc/lpfc_scsi.c:4726:34: warning: variable 'waitq' i=
+s uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/net/wireless/realtek/rtw88/phy.c:2074:55: warning: address=
+ of array 'swing_table->p' will always evaluate to 'true' [-Wpointer-bool-c=
+onversion]
+    1    drivers/net/wireless/realtek/rtw88/phy.c:2074:36: warning: address=
+ of array 'swing_table->n' will always evaluate to 'true' [-Wpointer-bool-c=
+onversion]
+    1    drivers/net/usb/lan78xx.c:2665:34: warning: variable 'unlink_wakeu=
+p' is uninitialized when used within its own initialization [-Wuninitialize=
+d]
+    1    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/drm/amd/amdgpu/../powerplay/renoir_ppt.c:183:26: warni=
+ng: suggest braces around initialization of subobject [-Wmissing-braces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link.c:2520:42: w=
+arning: implicit conversion from enumeration type 'enum transmitter' to dif=
+ferent enumeration type 'enum physical_phy_id' [-Wenum-conversion]
+    1    drivers/dma/fsl-dpaa2-qdma/dpdmai.c:151:25: warning: variable 'cfg=
+' is uninitialized when used within its own initialization [-Wuninitialized=
+]
+    1    drivers/dma/fsl-dpaa2-qdma/dpdmai.c:151:20: warning: variable 'cmd=
+' is uninitialized when used within its own initialization [-Wuninitialized=
+]
+    1    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/android/binderfs.c:657:41: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    1    WARNING: unmet direct dependencies detected for FSL_RCPM
+    1    .config:1166:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ./.tmp.config.qxLhZL6EPk:8594:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.qxLhZL6EPk:8577:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.qxLhZL6EPk:8576:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.qxLhZL6EPk:8572:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.qxLhZL6EPk:8552:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.qxLhZL6EPk:8546:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.qxLhZL6EPk:8537:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.qxLhZL6EPk:8535:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.qxLhZL6EPk:8534:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.qxLhZL6EPk:8533:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.qxLhZL6EPk:8531:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.qxLhZL6EPk:8530:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.qxLhZL6EPk:8527:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.qxLhZL6EPk:8520:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.qxLhZL6EPk:8510:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.qxLhZL6EPk:8499:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.qxLhZL6EPk:8391:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.qxLhZL6EPk:8387:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.qxLhZL6EPk:8361:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.qxLhZL6EPk:8340:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.qxLhZL6EPk:8332:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.qxLhZL6EPk:8328:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.qxLhZL6EPk:8273:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.qxLhZL6EPk:8272:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.qxLhZL6EPk:8268:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.qxLhZL6EPk:8267:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.qxLhZL6EPk:8265:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.qxLhZL6EPk:8264:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.qxLhZL6EPk:8261:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.hTtaPIIAlx:4838:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.hTtaPIIAlx:4821:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.hTtaPIIAlx:4820:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.hTtaPIIAlx:4816:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.hTtaPIIAlx:4796:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.hTtaPIIAlx:4790:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.hTtaPIIAlx:4781:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.hTtaPIIAlx:4779:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.hTtaPIIAlx:4778:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.hTtaPIIAlx:4777:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.hTtaPIIAlx:4775:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.hTtaPIIAlx:4774:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.hTtaPIIAlx:4771:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.hTtaPIIAlx:4764:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.hTtaPIIAlx:4754:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.hTtaPIIAlx:4743:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.hTtaPIIAlx:4635:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.hTtaPIIAlx:4631:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.hTtaPIIAlx:4605:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.hTtaPIIAlx:4584:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.hTtaPIIAlx:4576:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.hTtaPIIAlx:4572:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.hTtaPIIAlx:4517:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.hTtaPIIAlx:4516:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.hTtaPIIAlx:4512:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.hTtaPIIAlx:4511:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.hTtaPIIAlx:4509:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.hTtaPIIAlx:4508:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.hTtaPIIAlx:4505:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.h8nD9zShJB:3996:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.h8nD9zShJB:3979:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.h8nD9zShJB:3978:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.h8nD9zShJB:3974:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.h8nD9zShJB:3954:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.h8nD9zShJB:3948:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.h8nD9zShJB:3939:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.h8nD9zShJB:3937:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.h8nD9zShJB:3936:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.h8nD9zShJB:3935:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.h8nD9zShJB:3933:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.h8nD9zShJB:3932:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.h8nD9zShJB:3929:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.h8nD9zShJB:3922:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.h8nD9zShJB:3912:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.h8nD9zShJB:3901:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.h8nD9zShJB:3793:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.h8nD9zShJB:3789:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.h8nD9zShJB:3763:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.h8nD9zShJB:3742:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.h8nD9zShJB:3734:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.h8nD9zShJB:3730:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.h8nD9zShJB:3675:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.h8nD9zShJB:3674:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.h8nD9zShJB:3670:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.h8nD9zShJB:3669:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.h8nD9zShJB:3667:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.h8nD9zShJB:3666:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.h8nD9zShJB:3663:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.cxF9bqBtBM:7987:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.cxF9bqBtBM:7970:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.cxF9bqBtBM:7969:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.cxF9bqBtBM:7965:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.cxF9bqBtBM:7945:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.cxF9bqBtBM:7939:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.cxF9bqBtBM:7930:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.cxF9bqBtBM:7928:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.cxF9bqBtBM:7927:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.cxF9bqBtBM:7926:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.cxF9bqBtBM:7924:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.cxF9bqBtBM:7923:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.cxF9bqBtBM:7920:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.cxF9bqBtBM:7913:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.cxF9bqBtBM:7903:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.cxF9bqBtBM:7892:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.cxF9bqBtBM:7784:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.cxF9bqBtBM:7780:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.cxF9bqBtBM:7754:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.cxF9bqBtBM:7733:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.cxF9bqBtBM:7725:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.cxF9bqBtBM:7721:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.cxF9bqBtBM:7666:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.cxF9bqBtBM:7665:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.cxF9bqBtBM:7661:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.cxF9bqBtBM:7660:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.cxF9bqBtBM:7658:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.cxF9bqBtBM:7657:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.cxF9bqBtBM:7654:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.ZI5b02XVAV:3380:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.ZI5b02XVAV:3363:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.ZI5b02XVAV:3362:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.ZI5b02XVAV:3358:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.ZI5b02XVAV:3338:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.ZI5b02XVAV:3332:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.ZI5b02XVAV:3323:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.ZI5b02XVAV:3321:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.ZI5b02XVAV:3320:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.ZI5b02XVAV:3319:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.ZI5b02XVAV:3317:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.ZI5b02XVAV:3316:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.ZI5b02XVAV:3313:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.ZI5b02XVAV:3306:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.ZI5b02XVAV:3296:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.ZI5b02XVAV:3285:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.ZI5b02XVAV:3177:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.ZI5b02XVAV:3173:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.ZI5b02XVAV:3147:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.ZI5b02XVAV:3126:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.ZI5b02XVAV:3118:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.ZI5b02XVAV:3114:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.ZI5b02XVAV:3059:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.ZI5b02XVAV:3058:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.ZI5b02XVAV:3054:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.ZI5b02XVAV:3053:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.ZI5b02XVAV:3051:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.ZI5b02XVAV:3050:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.ZI5b02XVAV:3047:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.Tb0g551Wca:4901:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.Tb0g551Wca:4884:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.Tb0g551Wca:4883:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.Tb0g551Wca:4879:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.Tb0g551Wca:4859:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.Tb0g551Wca:4853:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.Tb0g551Wca:4844:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.Tb0g551Wca:4842:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.Tb0g551Wca:4841:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.Tb0g551Wca:4840:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.Tb0g551Wca:4838:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.Tb0g551Wca:4837:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.Tb0g551Wca:4834:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.Tb0g551Wca:4827:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.Tb0g551Wca:4817:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.Tb0g551Wca:4806:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.Tb0g551Wca:4698:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.Tb0g551Wca:4694:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.Tb0g551Wca:4668:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.Tb0g551Wca:4647:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.Tb0g551Wca:4639:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.Tb0g551Wca:4635:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.Tb0g551Wca:4580:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.Tb0g551Wca:4579:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.Tb0g551Wca:4575:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.Tb0g551Wca:4574:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.Tb0g551Wca:4572:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.Tb0g551Wca:4571:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.Tb0g551Wca:4568:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+
+Section mismatches summary:
+
+    5    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3630): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3320): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 31 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.h8nD9zShJB:3663:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.h8nD9zShJB:3666:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.h8nD9zShJB:3667:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.h8nD9zShJB:3669:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.h8nD9zShJB:3670:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.h8nD9zShJB:3674:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.h8nD9zShJB:3675:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.h8nD9zShJB:3730:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.h8nD9zShJB:3734:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.h8nD9zShJB:3742:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.h8nD9zShJB:3763:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.h8nD9zShJB:3789:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.h8nD9zShJB:3793:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.h8nD9zShJB:3901:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.h8nD9zShJB:3912:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.h8nD9zShJB:3922:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.h8nD9zShJB:3929:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.h8nD9zShJB:3932:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.h8nD9zShJB:3933:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.h8nD9zShJB:3935:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.h8nD9zShJB:3936:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.h8nD9zShJB:3937:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.h8nD9zShJB:3939:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.h8nD9zShJB:3948:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.h8nD9zShJB:3954:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.h8nD9zShJB:3974:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.h8nD9zShJB:3978:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.h8nD9zShJB:3979:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.h8nD9zShJB:3996:warning: override: reassigning to symbol =
+USER_NS
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 6 errors, 0 warnings, 0 section m=
+ismatches
+
+Errors:
+    trace_preemptirq.c:(.text+0x710): undefined reference to `return_addres=
+s'
+    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0xb10): undefined ref=
+erence to `return_address'
+    trace_preemptirq.c:(.text+0xd14): undefined reference to `return_addres=
+s'
+    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0xda0): undefined ref=
+erence to `return_address'
+    trace_irqsoff.c:(.text+0xa70): undefined reference to `return_address'
+    arm-linux-gnueabihf-ld: kernel/trace/trace_irqsoff.o:trace_irqsoff.c:(.=
+text+0x27a8): more undefined references to `return_address' follow
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    sound/soc/codecs/rt5677-spi.c:114:30: warning: unused variable 'rtd' [-=
+Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for FSL_RCPM
+    sound/soc/codecs/rt5677-spi.c:114:30: warning: unused variable 'rtd' [-=
+Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 52 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/shmem.c:2737:35: warning: variable 'shmem_falloc_waitq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized when us=
+ed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/android/binderfs.c:657:41: warning: suggest braces around initi=
+alization of subobject [-Wmissing-braces]
+    1 warning generated.
+    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/dma/fsl-dpaa2-qdma/dpdmai.c:151:20: warning: variable 'cmd' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    drivers/dma/fsl-dpaa2-qdma/dpdmai.c:151:25: warning: variable 'cfg' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    sound/soc/codecs/rt5677-spi.c:114:30: warning: unused variable 'rtd' [-=
+Wunused-variable]
+    1 warning generated.
+    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when used =
+within its own initialization [-Wuninitialized]
+    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when used=
+ within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../powerplay/renoir_ppt.c:183:26: warning: s=
+uggest braces around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link.c:2520:42: warnin=
+g: implicit conversion from enumeration type 'enum transmitter' to differen=
+t enumeration type 'enum physical_phy_id' [-Wenum-conversion]
+    1 warning generated.
+    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/scsi/lpfc/lpfc_sli.c:11878:34: warning: variable 'done_q' is un=
+initialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/scsi/lpfc/lpfc_scsi.c:4726:34: warning: variable 'waitq' is uni=
+nitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/net/usb/lan78xx.c:2665:34: warning: variable 'unlink_wakeup' is=
+ uninitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/net/wireless/realtek/rtw88/phy.c:2074:36: warning: address of a=
+rray 'swing_table->n' will always evaluate to 'true' [-Wpointer-bool-conver=
+sion]
+    drivers/net/wireless/realtek/rtw88/phy.c:2074:55: warning: address of a=
+rray 'swing_table->p' will always evaluate to 'true' [-Wpointer-bool-conver=
+sion]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 FAIL, 3 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    /home/buildslave/workspace/kernel-build/linux/build/../kernel/trace/tra=
+ce_sched_wakeup.c:596: undefined reference to `return_address'
+    arm-linux-gnueabihf-ld: /home/buildslave/workspace/kernel-build/linux/b=
+uild/../kernel/trace/trace_sched_wakeup.c:596: undefined reference to `retu=
+rn_address'
+    /home/buildslave/workspace/kernel-build/linux/build/../kernel/trace/tra=
+ce_sched_wakeup.c:476: undefined reference to `return_address'
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 3 warnings,=
+ 0 section mismatches
+
+Errors:
+    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing pointer =
+to incomplete type 'struct cvmx_wqe'
+    drivers/staging/octeon/ethernet.c:463:30: error: storage size of 'link_=
+info' isn't known
+    drivers/staging/octeon/ethernet.c:499:30: error: storage size of 'link_=
+info' isn't known
+    drivers/staging/octeon/ethernet.c:516:29: error: type of formal paramet=
+er 2 is incomplete
+
+Warnings:
+    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: 'union cvmx_he=
+lper_link_info' declared inside parameter list will not be visible outside =
+of this definition or declaration
+    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable 'lin=
+k_info' [-Wunused-variable]
+    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable 'lin=
+k_info' [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3630): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3320): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section mi=
+smatches
+
+Warnings:
+    drivers/net/ethernet/intel/e1000e/netdev.c:6405:13: warning: 'e1000e_s0=
+ix_exit_flow' defined but not used [-Wunused-function]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6298:13: warning: 'e1000e_s0=
+ix_entry_flow' defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 31 warnings, 0=
+ section mismatches
+
+Warnings:
+    ./.tmp.config.ZI5b02XVAV:3047:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.ZI5b02XVAV:3050:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.ZI5b02XVAV:3051:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.ZI5b02XVAV:3053:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.ZI5b02XVAV:3054:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.ZI5b02XVAV:3058:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.ZI5b02XVAV:3059:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.ZI5b02XVAV:3114:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.ZI5b02XVAV:3118:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.ZI5b02XVAV:3126:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.ZI5b02XVAV:3147:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.ZI5b02XVAV:3173:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.ZI5b02XVAV:3177:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.ZI5b02XVAV:3285:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.ZI5b02XVAV:3296:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.ZI5b02XVAV:3306:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.ZI5b02XVAV:3313:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.ZI5b02XVAV:3316:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.ZI5b02XVAV:3317:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.ZI5b02XVAV:3319:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.ZI5b02XVAV:3320:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.ZI5b02XVAV:3321:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.ZI5b02XVAV:3323:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.ZI5b02XVAV:3332:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.ZI5b02XVAV:3338:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.ZI5b02XVAV:3358:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.ZI5b02XVAV:3362:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.ZI5b02XVAV:3363:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.ZI5b02XVAV:3380:warning: override: reassigning to symbol =
+USER_NS
+    drivers/net/ethernet/intel/e1000e/netdev.c:6405:13: warning: 'e1000e_s0=
+ix_exit_flow' defined but not used [-Wunused-function]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6298:13: warning: 'e1000e_s0=
+ix_entry_flow' defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 29 warnings, 0=
+ section mismatches
+
+Warnings:
+    ./.tmp.config.cxF9bqBtBM:7654:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.cxF9bqBtBM:7657:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.cxF9bqBtBM:7658:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.cxF9bqBtBM:7660:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.cxF9bqBtBM:7661:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.cxF9bqBtBM:7665:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.cxF9bqBtBM:7666:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.cxF9bqBtBM:7721:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.cxF9bqBtBM:7725:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.cxF9bqBtBM:7733:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.cxF9bqBtBM:7754:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.cxF9bqBtBM:7780:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.cxF9bqBtBM:7784:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.cxF9bqBtBM:7892:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.cxF9bqBtBM:7903:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.cxF9bqBtBM:7913:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.cxF9bqBtBM:7920:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.cxF9bqBtBM:7923:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.cxF9bqBtBM:7924:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.cxF9bqBtBM:7926:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.cxF9bqBtBM:7927:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.cxF9bqBtBM:7928:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.cxF9bqBtBM:7930:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.cxF9bqBtBM:7939:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.cxF9bqBtBM:7945:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.cxF9bqBtBM:7965:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.cxF9bqBtBM:7969:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.cxF9bqBtBM:7970:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.cxF9bqBtBM:7987:warning: override: reassigning to symbol =
+USER_NS
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 31 warning=
+s, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.hTtaPIIAlx:4505:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.hTtaPIIAlx:4508:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.hTtaPIIAlx:4509:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.hTtaPIIAlx:4511:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.hTtaPIIAlx:4512:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.hTtaPIIAlx:4516:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.hTtaPIIAlx:4517:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.hTtaPIIAlx:4572:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.hTtaPIIAlx:4576:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.hTtaPIIAlx:4584:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.hTtaPIIAlx:4605:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.hTtaPIIAlx:4631:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.hTtaPIIAlx:4635:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.hTtaPIIAlx:4743:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.hTtaPIIAlx:4754:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.hTtaPIIAlx:4764:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.hTtaPIIAlx:4771:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.hTtaPIIAlx:4774:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.hTtaPIIAlx:4775:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.hTtaPIIAlx:4777:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.hTtaPIIAlx:4778:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.hTtaPIIAlx:4779:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.hTtaPIIAlx:4781:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.hTtaPIIAlx:4790:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.hTtaPIIAlx:4796:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.hTtaPIIAlx:4816:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.hTtaPIIAlx:4820:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.hTtaPIIAlx:4821:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.hTtaPIIAlx:4838:warning: override: reassigning to symbol =
+USER_NS
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/net/ethernet/intel/e1000e/netdev.c:6405:13: warning: 'e1000e_s0=
+ix_exit_flow' defined but not used [-Wunused-function]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6298:13: warning: 'e1000e_s0=
+ix_entry_flow' defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:134: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
+warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 FAIL, 6 errors, 29 warn=
+ings, 0 section mismatches
+
+Errors:
+    trace_preemptirq.c:(.text+0x2a8): undefined reference to `return_addres=
+s'
+    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0x2e4): undefined ref=
+erence to `return_address'
+    trace_preemptirq.c:(.text+0x470): undefined reference to `return_addres=
+s'
+    arm-linux-gnueabihf-ld: trace_preemptirq.c:(.text+0x49c): undefined ref=
+erence to `return_address'
+    trace_irqsoff.c:(.text+0x7a8): undefined reference to `return_address'
+    arm-linux-gnueabihf-ld: kernel/trace/trace_irqsoff.o:trace_irqsoff.c:(.=
+text+0xee4): more undefined references to `return_address' follow
+
+Warnings:
+    ./.tmp.config.qxLhZL6EPk:8261:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.qxLhZL6EPk:8264:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.qxLhZL6EPk:8265:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.qxLhZL6EPk:8267:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.qxLhZL6EPk:8268:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.qxLhZL6EPk:8272:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.qxLhZL6EPk:8273:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.qxLhZL6EPk:8328:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.qxLhZL6EPk:8332:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.qxLhZL6EPk:8340:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.qxLhZL6EPk:8361:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.qxLhZL6EPk:8387:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.qxLhZL6EPk:8391:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.qxLhZL6EPk:8499:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.qxLhZL6EPk:8510:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.qxLhZL6EPk:8520:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.qxLhZL6EPk:8527:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.qxLhZL6EPk:8530:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.qxLhZL6EPk:8531:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.qxLhZL6EPk:8533:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.qxLhZL6EPk:8534:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.qxLhZL6EPk:8535:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.qxLhZL6EPk:8537:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.qxLhZL6EPk:8546:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.qxLhZL6EPk:8552:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.qxLhZL6EPk:8572:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.qxLhZL6EPk:8576:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.qxLhZL6EPk:8577:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.qxLhZL6EPk:8594:warning: override: reassigning to symbol =
+USER_NS
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/net/ethernet/intel/e1000e/netdev.c:6405:13: warning: 'e1000e_s0=
+ix_exit_flow' defined but not used [-Wunused-function]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6298:13: warning: 'e1000e_s0=
+ix_entry_flow' defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6405:13: warning: 'e1000e_s0=
+ix_exit_flow' defined but not used [-Wunused-function]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6298:13: warning: 'e1000e_s0=
+ix_entry_flow' defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section =
+mismatches
+
+Errors:
+    /home/buildslave/workspace/workspace/kernel-build@3/linux/build/../driv=
+ers/thermal/qcom/tsens-common.c:95: undefined reference to `__aeabi_uldivmo=
+d'
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable 'rtd' [-Wunus=
+ed-variable]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6405:13: warning: 'e1000e_s0=
+ix_exit_flow' defined but not used [-Wunused-function]
+    drivers/net/ethernet/intel/e1000e/netdev.c:6298:13: warning: 'e1000e_s0=
+ix_entry_flow' defined but not used [-Wunused-function]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1166:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 29 war=
+nings, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.Tb0g551Wca:4568:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.Tb0g551Wca:4571:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.Tb0g551Wca:4572:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.Tb0g551Wca:4574:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.Tb0g551Wca:4575:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.Tb0g551Wca:4579:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.Tb0g551Wca:4580:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.Tb0g551Wca:4635:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.Tb0g551Wca:4639:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.Tb0g551Wca:4647:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.Tb0g551Wca:4668:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.Tb0g551Wca:4694:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.Tb0g551Wca:4698:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.Tb0g551Wca:4806:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.Tb0g551Wca:4817:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.Tb0g551Wca:4827:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.Tb0g551Wca:4834:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.Tb0g551Wca:4837:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.Tb0g551Wca:4838:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.Tb0g551Wca:4840:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.Tb0g551Wca:4841:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.Tb0g551Wca:4842:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.Tb0g551Wca:4844:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.Tb0g551Wca:4853:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.Tb0g551Wca:4859:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.Tb0g551Wca:4879:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.Tb0g551Wca:4883:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.Tb0g551Wca:4884:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.Tb0g551Wca:4901:warning: override: reassigning to symbol =
+USER_NS
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
 
 ---
-0-DAY kernel test infrastructure                Open Source Technology Center
-https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+For more info write to <info@kernelci.org>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201910301644.N7zPlCBx%25lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5db96c60.1c69fb81.2a4d3.b834%40mx.google.com.
