@@ -1,48 +1,61 @@
-Return-Path: <clang-built-linux+bncBCALTBOXTMIRBL7A43WQKGQEAK6BJ7Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBS7B43WQKGQEDQZUG2I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id D3F2CE9F6C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 16:45:52 +0100 (CET)
-Received: by mail-vs1-xe3d.google.com with SMTP id v72sf377835vsv.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 08:45:52 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572450351; cv=pass;
+Received: from mail-pl1-x638.google.com (mail-pl1-x638.google.com [IPv6:2607:f8b0:4864:20::638])
+	by mail.lfdr.de (Postfix) with ESMTPS id EF766E9F75
+	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 16:48:28 +0100 (CET)
+Received: by mail-pl1-x638.google.com with SMTP id x8sf1807475plo.17
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 08:48:28 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572450507; cv=pass;
         d=google.com; s=arc-20160816;
-        b=n6CHnwhavEJi19TP2kq78WrG9ip2P6gOqlCyYhwwZ307KrLbkYbpYAZnAT97QBf88J
-         8zNznoDmOGOXJIZxVBaX63CdItqcafvc5J0ykNvv2cAu48rHz+/0ttBSqVu1RWNEYL72
-         lKuLT4XX6wvk9B7jNBZGLwV2Rt82JSuG+N8nsQa7jrrPSpl0OnF9opURG0fBoHsFCTXy
-         P8Md2fs7/moGgPjWyIJ9W6o1lImtRg5tx9yP/uEBcb7MkFAl6ub8gaux6Z6PJ0wnceKI
-         JmZxOtohd97Oag9hfmpuwMMAda3wka3w8GGxIqF6ZVemAzViL9EcO/O8q6DWjETxr6EE
-         9C9g==
+        b=w7f/uAHcSXwp34V2qQEvOhkWQmDTp5M/d54PXKXfCabLu2Xha44CZ6vBytgGKA6HSt
+         Ouw1g2oUNU4UQt8LcVJHHeCM6h22G8Xa1+cC3bOPUnrG1ECu+LJ6qCHSFZrw4mbLMqqy
+         Gzwk2W/iS1YP4Q2BM5H149tL2R2Foy3kU34eQ2p6XLUu8VhvxLqs3+jQfaHXk4AtYP/x
+         SzwIfoE1DAj+GQ2M43usr39eE9MZSmBGljcGj8MWj4nYaejvwSWZ/3xx+t3D4HCtVHEI
+         /IY3X6WnokzjTi2Oaiu1JydOeiM9IWFl7OzZIV/uyE7HZQ9277yKtI8xkQo+tS680IAu
+         e4Tw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=dkE+5QuuE1QWj+6yripA8ff6w7haNG5KjrIO0vtSzlE=;
-        b=sjxgSOv0QqgwNdtPf9FrF+0iPz4YHefevz9NsNmF2p6QWSum61ZmM7bjLvjrbifmlB
-         O/Vk/+T7hpWvvAbr8vu0Q78mElrBdbboj6U7ftgn4mQXLZU1hqRJOdCRgstp+PHBEG81
-         YFhSypWROU7w9sJ/0xDpEHQ/FQPpcEQkKBedW4P1LdBvA1HH7OCCC7XGly+mkBp5tHgB
-         A/lrxMUdoA8iwEL+6AkyT0wS5ZySlQpojIE/ayiT2xPZ8Aho+UvmnLGM8MX0ejh6l3OG
-         d6gaYP6nDtn0KyjZFPoiqNDRCZbF+bW+ezBrUbA3ZUDh6PNug+CTNRk6NW3e52sWzCTy
-         xMSA==
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=M3pe2yDe0NBwNlhZaPIBCt7Sitagsi7zbt73OA0eWTo=;
+        b=ffowNTnnS/TN1AtN0hgGeuEC9KDC8+xI8rQSpatp+tH8BNOLKEK9Qdenfp/Yk1fbdb
+         212wqwNdwRg1rF5R7ur9/7eUb9GuPdhCJDvB0kEO2/IaEyDfuJK/rj8Jz0D/WhLEzO4U
+         Vi5MvBxhHxypstmLkFTDjaTBj30RXWedJzfhFdbyjroGdDicZxrq9+RmD0oOAO84nxe0
+         f5/grnCQgKxcpyv8aduPdokwk3zwGocnGODOzwgCLLdYBVyyuGW/NODPD464t26QB0gi
+         otnrWLo4TQIXzdfSdL59IhYcsT0m0Rv2V/6AloFJN9Li5RRAbiopViyS32RZ1oWNMNs0
+         uCXQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2019-08-05 header.b=Nf3CxzQX;
-       spf=pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="ReOfxv/Q";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dkE+5QuuE1QWj+6yripA8ff6w7haNG5KjrIO0vtSzlE=;
-        b=SCOBovyB/Vom1NKllHhkO4ljf+yG0p8NDbnVZL5OmbKedB+lIDk5qChxezx0dzvp1z
-         x08wmj0bHwLoEnTalmxVKYcbdsoweFBNUFVo7nvJKdbo0FI+fBEbaxdogmdXtkIq+hll
-         B31r74hoA3UW9bIKOJqh3vmqsCCkv6ZNs/W1aVFTVJB+w/yQmvrmskKKi5NuQZhZQOPh
-         wC2+KaGKvk7QSaTtc3aLZBpDcBQPX7oy96xsbmPMdiQVSDxIQr2MrWhBTiccjzEA1gVC
-         vxp9kG5HQ8JfnT8vYEgMH72cvX3AUpX538cnhZljGICu82rXfCaC5mtVWIRL/54RYJc0
-         nBGA==
+        bh=M3pe2yDe0NBwNlhZaPIBCt7Sitagsi7zbt73OA0eWTo=;
+        b=H9c1OulSajJw9F7w6ZqmZFl4A4J51fVDggcR579sV/pmpaXcJBJdDFNNJxSFekLOkT
+         y1hE4yxsS9UFJ+lShFA+htTxpZZxYLtaWnzeoIdJUFC/fqf1/6qnyEANjPys5vza+geH
+         XY3/jGj3gLYB7RSiy1D6JXQ6+z/B30buZ5mMQiNe0q2CuFEeuPQvWBOq/fEOkDj/XkmN
+         S/Lv6TxhEyNwB85lDGg0++Qs00aW1tx2bRF+T15uHWI86LZlFfek5IejrzHmyI5fb91N
+         EyIIoVIgZdDMSto1vthIyKrkHbeGcBHvt1kKylKMIDVZi9ubtjt7qVqt76N4qgtvtnFh
+         DQXA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=M3pe2yDe0NBwNlhZaPIBCt7Sitagsi7zbt73OA0eWTo=;
+        b=Gcxc7ZgSaCH51YhXb2QLod2laUZHghlGcJGrPpfP9TZwPM5Bid7iXCz4GFk2iJNhge
+         JXvKqxd1GAmhuwK6nCBshJIPAHjQGwTagrL3XVpxuNGwPmskPSvJvfsUGa6452MLMFmk
+         724rAofM/WYOykMR/XcthQkBzEAE13VtJakpJSTYZruT2cQMvuVkyTtzO/K8uwSornnh
+         +fUNkvO3Qx3vMC46ei+xzEObv3FCvFWCuX4/wJJtOaTYgqVxDKFZNDhz+FdP8qFUtNfj
+         AwRhpm/aOxoPJY4EslOqZM9HZXkzA6PKEZRvMHL8ok0oZ7WFsubRAakEc129dnNMn+mC
+         0tbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,105 +63,84 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=dkE+5QuuE1QWj+6yripA8ff6w7haNG5KjrIO0vtSzlE=;
-        b=ZiNYTSnnHOKQL0/zXnZb1GTJ1cUEFZ3Akq8zqyrfJch9WTpNhWyrjczaRJwJMeN8dD
-         bC5WPMyvPZkWm3gd0sMoazpO2/TqyWEF1RiMn6VrN7wqP2H/Nj9R5gN7dFDMU0GRsNUX
-         WBwNdoru2vGk6dM8wsUP+ICWMWBNEk4i2BrPQ7nWgZyn1Tvgc5O4rVjJOW1DueBDuobZ
-         DCGL07gJw4abn2OT0KWmuYBVRtqnahruBWtPEE0edyz3/NAdcdwIXxUedSQVry1JR5wM
-         dyvnN5ixExJkysa7C6YBobgWznK5C5yZ1MA650yGFucip/t8Asu6oZ59W956fkIsReX8
-         UxkA==
+        bh=M3pe2yDe0NBwNlhZaPIBCt7Sitagsi7zbt73OA0eWTo=;
+        b=OKRXRS4aR56KdIzC/MK7agJ77DfV1jKTSO2QvAMKYt3PRqErFhwiK4SkPaJaToTD4k
+         hF/2KtyMnFH0tTPbSJb1mJjcbOeR2s9Ue7Q3ee4iUpXuIl0VrQe4Jp4HzoGaJ60tnRqM
+         IvCPzXm+1cDcOn6dcUTYBwiVPEbwuHmz1t6gR85awGzrVfHLJfqNY77/QAlOSi+dDWbh
+         xT42DFBvbSNAfwWe9n9akUyA1FDtKUpx3M9kPWzk0t3IFzGPM76BOIBOlTXdkjZ6uVD+
+         7DeYK4huoqIeZCpnGbnpFjssjto1DhybX7qfxU+RMAXxh6tun3xM9UVJSRQO6W8NW2Cl
+         mzYw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXYT0+36RB8oA8YOoVZ6LUShUY25zq9E2WKIWRGKZuRFGz4JyQS
-	EZCuYaevGGbUQH2XGuuZ2hk=
-X-Google-Smtp-Source: APXvYqxISNoHkDdPTNkA227cIr7Yw6KHlA8KQJmi+kT4K1ud7eS9qoTCQBhOkzm9HaCDTnMKcP4Fng==
-X-Received: by 2002:a67:ef0c:: with SMTP id j12mr35870vsr.201.1572450351775;
-        Wed, 30 Oct 2019 08:45:51 -0700 (PDT)
+X-Gm-Message-State: APjAAAXqTiiCStFbjmh33rdh4zhwOE6eupmzr4whN0bgDBw/kOEhut7S
+	YQBfOWhdabclOnyqGaUiEiQ=
+X-Google-Smtp-Source: APXvYqwAjT50kWPa8iI9ZDrSL8SC6zusee8/WQqwIlYpP/meWaYfvPHNRsGx1b2xpLrPR5rlo9OYjQ==
+X-Received: by 2002:a63:4c4:: with SMTP id 187mr35056761pge.425.1572450507195;
+        Wed, 30 Oct 2019 08:48:27 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:604e:: with SMTP id o14ls316896ual.14.gmail; Wed, 30 Oct
- 2019 08:45:51 -0700 (PDT)
-X-Received: by 2002:a9f:350f:: with SMTP id o15mr152236uao.123.1572450351316;
-        Wed, 30 Oct 2019 08:45:51 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572450351; cv=none;
+Received: by 2002:a62:3687:: with SMTP id d129ls7928059pfa.13.gmail; Wed, 30
+ Oct 2019 08:48:26 -0700 (PDT)
+X-Received: by 2002:a63:d651:: with SMTP id d17mr103026pgj.106.1572450506496;
+        Wed, 30 Oct 2019 08:48:26 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572450506; cv=none;
         d=google.com; s=arc-20160816;
-        b=b8K7JsA12I4i3RQYeIYWhLIRBpW3s/jwFYMI1UMkVVPmqJG+e1BTMIGrjoVSSMYXJL
-         S7mSnr2g+fXP/TJnK3p2qr25858FLkTi2jCi/nb8zJOwkRu6kq+C6DA+00eP9ZcEVS0A
-         00bYSxD+JwPplEn5p7l8QC7ESxDpHmSYbM7L4y9AaIqJPVAazOBS3VeWPjUcnceVGwrj
-         4jAZlGLE0RPg1r6x/rYcDS1yuUrHHds6tuniPBIb+4rMFBfhR8xD16R9mZFVNASggzh+
-         uZ0A7nhHXTZHFeSGuLmV5XSo8ObZRBcgf3IS5WIggm0N63NppkSLvTb7mhQcXPwNYnNb
-         ht5g==
+        b=ceg7TyrqzY2P6+qUGFDT2LoYedD0yF9fM0V0mergvcdGpVHxzFd2Pzsw/1Q22bOwpn
+         8uH8rW9zJvgvDbeI9PzwzxbqpWkiG8Q+c5iO57KmtKPtNcvWkk2UR5aDsz07jefgJyiv
+         J9A8SaGKIb8tJDWnQdWJ0x1uLFyxlw/KDSDnd+SYxetgS+Z1PBPzRlSwlb+JCqaW7H7v
+         xfEv6FMNBwf/+sS4OVCalNvnceG7Scl+qOTCC5boys7zPKP+NaR0MWDBTJlEbTnPyNLD
+         E509nFka7cXeB3JknTnzwnyg1KybUpmXp0ANsHlZoJDtMlUrH8Me+KE9KJNs/lpa0vrE
+         kYQA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=HMUMvR5rSGpx9tf5PjrzHfWQ6zOaZmBBpl12ivMHr/0=;
-        b=b2sFfMPE8i9jxf5fviVReeXkCsINsAm1tqFesB5jzMyHIihpKBnL/pYxGNbrtrKkJS
-         5zqVXNo+9h8TeOteNCv+1QYudsggtlKr4yw+i7uGEs7paQsq80RW6IyripOTbljfv3CZ
-         S9s1leqyZGrKTTCAwYlDJU3PZenyr7I4+uRYZj1Y7I09nXfLDveLxytRo5xQE41jIhd1
-         zoox5Wjg68GenjJt2ny7yUddJ4ZC5PkjxBfIiuzycJNiKA6MiWJHQ4kQQM9biM02YX9q
-         3YXj/NOrZO975CHvZzk0Y5fWEP8qnWw11Zs2G0BmnBhmhuwxbfOeVkRv5HxLBMRqi684
-         vUPw==
+        bh=gj9hCTVviCIZQiNm0Xht1ZF+XXxGcESBre4ygleGi3w=;
+        b=RL7ZwmWrpoaJRSP3IlJYqNA8GzC0fgfmVj+QD4dgPJ5vMb/Emc5W1tg8H83885p4MQ
+         gENbhky4FQ6iGexTU89Is7fRh5UwSwFbSHUtysHD6aeVtfsLX006x/XtbeMRUquyGcqe
+         eT937bfY7cGaivnCHGjCKMtzmsVH34847bhD61cVQJzcaqWyZQpETuoZhzf0X489aO/i
+         4XXgaI+CLcwWM8yyszZQY7QZkGKS8PhJ0MBRr+Dt6y95lEOcktqQAM9bYFOhfyZWNbSf
+         pZMiOcEpbqV7b+YeUnIRHnWmhR7CE7Fwfjk2CM/s36jVT/0zADjaOymSXQqPLBOO1qlM
+         O0bw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@oracle.com header.s=corp-2019-08-05 header.b=Nf3CxzQX;
-       spf=pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
-Received: from aserp2120.oracle.com (aserp2120.oracle.com. [141.146.126.78])
-        by gmr-mx.google.com with ESMTPS id y8si63512vsg.2.2019.10.30.08.45.51
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="ReOfxv/Q";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id x10si140414pfi.1.2019.10.30.08.48.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 30 Oct 2019 08:45:51 -0700 (PDT)
-Received-SPF: pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.78 as permitted sender) client-ip=141.146.126.78;
-Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
-	by aserp2120.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x9UFaKMv034612;
-	Wed, 30 Oct 2019 15:45:48 GMT
-Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
-	by aserp2120.oracle.com with ESMTP id 2vxwhfd7uy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 30 Oct 2019 15:45:47 +0000
-Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
-	by aserp3030.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x9UFeRL9081736;
-	Wed, 30 Oct 2019 15:45:47 GMT
-Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
-	by aserp3030.oracle.com with ESMTP id 2vxwja6k54-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 30 Oct 2019 15:45:47 +0000
-Received: from abhmp0023.oracle.com (abhmp0023.oracle.com [141.146.116.29])
-	by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x9UFjifK002165;
-	Wed, 30 Oct 2019 15:45:45 GMT
-Received: from localhost (/67.169.218.210)
-	by default (Oracle Beehive Gateway v4.0)
-	with ESMTP ; Wed, 30 Oct 2019 15:45:44 +0000
-Date: Wed, 30 Oct 2019 08:45:43 -0700
-From: "Darrick J. Wong" <darrick.wong@oracle.com>
-To: Nathan Chancellor <natechancellor@gmail.com>, Ian Kent <raven@themaw.net>
-Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>,
-        clang-built-linux@googlegroups.com, kbuild test robot <lkp@intel.com>,
-        xfs <linux-xfs@vger.kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Oct 2019 08:48:26 -0700 (PDT)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
+Received: by mail-oi1-x242.google.com with SMTP id r27so2366995oij.7
+        for <clang-built-linux@googlegroups.com>; Wed, 30 Oct 2019 08:48:26 -0700 (PDT)
+X-Received: by 2002:a54:4499:: with SMTP id v25mr9529384oiv.17.1572450505567;
+        Wed, 30 Oct 2019 08:48:25 -0700 (PDT)
+Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id y7sm142421ote.81.2019.10.30.08.48.24
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Wed, 30 Oct 2019 08:48:25 -0700 (PDT)
+Date: Wed, 30 Oct 2019 08:48:23 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: "Darrick J. Wong" <darrick.wong@oracle.com>
+Cc: Ian Kent <raven@themaw.net>, kbuild@lists.01.org,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com,
+	kbuild test robot <lkp@intel.com>, xfs <linux-xfs@vger.kernel.org>
 Subject: Re: [djwong-xfs:mount-api-crash 91/104] fs/xfs/xfs_message.c:23:40:
  warning: address of array 'mp->m_super->s_id' will always evaluate to 'true'
-Message-ID: <20191030154543.GF15221@magnolia>
+Message-ID: <20191030154823.GA28650@ubuntu-m2-xlarge-x86>
 References: <201910291437.fsxNAnIM%lkp@intel.com>
  <20191030033925.GA14630@ubuntu-m2-xlarge-x86>
+ <20191030154543.GF15221@magnolia>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20191030033925.GA14630@ubuntu-m2-xlarge-x86>
+In-Reply-To: <20191030154543.GF15221@magnolia>
 User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9425 signatures=668685
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 malwarescore=0
- phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.0.1-1908290000 definitions=main-1910300145
-X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9425 signatures=668685
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 priorityscore=1501 malwarescore=0
- suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1011
- lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1908290000
- definitions=main-1910300144
-X-Original-Sender: darrick.wong@oracle.com
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@oracle.com header.s=corp-2019-08-05 header.b=Nf3CxzQX;
-       spf=pass (google.com: domain of darrick.wong@oracle.com designates
- 141.146.126.78 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+ header.i=@gmail.com header.s=20161025 header.b="ReOfxv/Q";       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -161,80 +153,24 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Oct 29, 2019 at 08:39:25PM -0700, Nathan Chancellor wrote:
-> On Tue, Oct 29, 2019 at 02:45:40PM +0800, kbuild test robot wrote:
-> > CC: kbuild-all@lists.01.org
-> > CC: "Darrick J. Wong" <darrick.wong@oracle.com>
-> > TO: Ian Kent <raven@themaw.net>
-> > CC: "Darrick J. Wong" <darrick.wong@oracle.com>
-> > CC: Christoph Hellwig <hch@lst.de>
-
-FYI, It's customary to cc the patch author [and the xfs list]...
-
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git mount-api-crash
-> > head:   e35c37b1b9987c8d87d91dbeca6c24aade2a3390
-> > commit: a5a36409da3a608c815b38b0ff2eb5bcfc1adec6 [91/104] xfs: use super s_id instead of struct xfs_mount
-> > config: x86_64-rhel-7.6 (attached as .config)
-> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 7cd595df96d5929488063d8ff5cc3b5d800386da)
-> > reproduce:
-> >         git checkout a5a36409da3a608c815b38b0ff2eb5bcfc1adec6
-> >         # save the attached .config to linux build tree
-> >         make ARCH=x86_64 
-> > 
-> > If you fix the issue, kindly add following tag
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> > 
-> > All warnings (new ones prefixed by >>):
-> > 
-> > >> fs/xfs/xfs_message.c:23:40: warning: address of array 'mp->m_super->s_id' will always evaluate to 'true' [-Wpointer-bool-conversion]
-> >            if (mp && mp->m_super && mp->m_super->s_id) {
-> >                                  ~~ ~~~~~~~~~~~~~^~~~
-
-...so, Ian, I guess this isn't necessary ^^^^^^^^^^^^^^^^
-because it's a char array, not a pointer. :)
-
-Good catch!
-
---D
-
-> >    1 warning generated.
-> > 
-> > vim +23 fs/xfs/xfs_message.c
-> > 
-> >     13	
-> >     14	/*
-> >     15	 * XFS logging functions
-> >     16	 */
-> >     17	static void
-> >     18	__xfs_printk(
-> >     19		const char		*level,
-> >     20		const struct xfs_mount	*mp,
-> >     21		struct va_format	*vaf)
-> >     22	{
-> >   > 23		if (mp && mp->m_super && mp->m_super->s_id) {
-> >     24			printk("%sXFS (%s): %pV\n", level, mp->m_super->s_id, vaf);
-> >     25			return;
-> >     26		}
-> >     27		printk("%sXFS: %pV\n", level, vaf);
-> >     28	}
-> >     29	
-> > 
-> > ---
-> > 0-DAY kernel test infrastructure                Open Source Technology Center
-> > https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
-> > 
+On Wed, Oct 30, 2019 at 08:45:43AM -0700, Darrick J. Wong wrote:
+> On Tue, Oct 29, 2019 at 08:39:25PM -0700, Nathan Chancellor wrote:
+> > On Tue, Oct 29, 2019 at 02:45:40PM +0800, kbuild test robot wrote:
+> > > CC: kbuild-all@lists.01.org
+> > > CC: "Darrick J. Wong" <darrick.wong@oracle.com>
+> > > TO: Ian Kent <raven@themaw.net>
+> > > CC: "Darrick J. Wong" <darrick.wong@oracle.com>
+> > > CC: Christoph Hellwig <hch@lst.de>
 > 
-> Hi Darrick,
-> 
-> The 0day team has been doing clang builds for us and we've been
-> forwarding the valid warnings along to developers. This appeared after
-> the commit listed above. That check should be unnecessary, perhaps you
-> meant to check for something else? Thanks for looking into this.
-> 
-> Cheers,
-> Nathan
+> FYI, It's customary to cc the patch author [and the xfs list]...
+
+Ugh sorry, was in a rush last night and not paying attention :( will be
+better next time and thanks for adding the right people!
+
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191030154543.GF15221%40magnolia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191030154823.GA28650%40ubuntu-m2-xlarge-x86.
