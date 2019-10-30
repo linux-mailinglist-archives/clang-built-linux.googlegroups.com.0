@@ -1,141 +1,154 @@
-Return-Path: <clang-built-linux+bncBDPZFQ463EFRBW5Q43WQKGQELKBFUEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCALTBOXTMIRBL7A43WQKGQEAK6BJ7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7BA5AE9D07
-	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 15:04:12 +0100 (CET)
-Received: by mail-lj1-x238.google.com with SMTP id p14sf657188ljh.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 07:04:12 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572444252; cv=pass;
+Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id D3F2CE9F6C
+	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 16:45:52 +0100 (CET)
+Received: by mail-vs1-xe3d.google.com with SMTP id v72sf377835vsv.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 08:45:52 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572450351; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zSdasX9UBBOwdhiH+knMAh+beebw3wC8OxQCVESRvosGryb4iWK4FqnTa0PS3E+Ctu
-         OjpWuhF3lb25FEHKIlqykn9l7U0vpvWGK2n1wySRPG9qFoUAaXSwewzh3fUwcJFYiDZ3
-         5ayCROQA9OHFutSsiayLsct2rYiwzkE6FYe/dFw1jwx1TcZGAZYtrE3SzlzNYtSvgz4Z
-         hinFxogOtDYsJEMo956HcY74RX7+YLVEYthQwN0DzNyIvzfZVqeDvvi2C+kQ40kzakcY
-         r6A7lNFQAY10I64GYRMT3xKfgL6ALLRQJSM4hsFZwOWq1KC8nmRZySEdYVlZhAT+D8vg
-         Y6ww==
+        b=n6CHnwhavEJi19TP2kq78WrG9ip2P6gOqlCyYhwwZ307KrLbkYbpYAZnAT97QBf88J
+         8zNznoDmOGOXJIZxVBaX63CdItqcafvc5J0ykNvv2cAu48rHz+/0ttBSqVu1RWNEYL72
+         lKuLT4XX6wvk9B7jNBZGLwV2Rt82JSuG+N8nsQa7jrrPSpl0OnF9opURG0fBoHsFCTXy
+         P8Md2fs7/moGgPjWyIJ9W6o1lImtRg5tx9yP/uEBcb7MkFAl6ub8gaux6Z6PJ0wnceKI
+         JmZxOtohd97Oag9hfmpuwMMAda3wka3w8GGxIqF6ZVemAzViL9EcO/O8q6DWjETxr6EE
+         9C9g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
-         :dkim-signature;
-        bh=0Q34sxYzEvaKLgXtsInMw+bSlDhMK5hBkEm/lnKu6FM=;
-        b=EzMb0CqDnrB6Y6gEPB9e5SoYTt5STKOVS6Mk+hrHSI9J1E+XwEWv78VD7aG0h8ILlE
-         PnqlZdq6Smw1JhALfAvqZ5CxsMXi4Oqi/3cukF1EvZpykhL3b8hc/06F2jzNjH9xugOg
-         /0mfxixYEno7hRd7Jh9zwdu0jwJIHkrELOrTALo1tkleCOsH3qfx8Rdj3sX1RiksB+Fi
-         XIXqYF8FrR8pUc292Q5L21pVimabhqzoXf4IXO2atmlgflZYTlp7mrNzdz7lRAzl7f9m
-         /pWEklkgQjf+8IkP3/sT5R0af3Ugkvrd8BLVT9xvdsbXbVAxnzvr8HVOxRIbx4PLdILe
-         WkPw==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=dkE+5QuuE1QWj+6yripA8ff6w7haNG5KjrIO0vtSzlE=;
+        b=sjxgSOv0QqgwNdtPf9FrF+0iPz4YHefevz9NsNmF2p6QWSum61ZmM7bjLvjrbifmlB
+         O/Vk/+T7hpWvvAbr8vu0Q78mElrBdbboj6U7ftgn4mQXLZU1hqRJOdCRgstp+PHBEG81
+         YFhSypWROU7w9sJ/0xDpEHQ/FQPpcEQkKBedW4P1LdBvA1HH7OCCC7XGly+mkBp5tHgB
+         A/lrxMUdoA8iwEL+6AkyT0wS5ZySlQpojIE/ayiT2xPZ8Aho+UvmnLGM8MX0ejh6l3OG
+         d6gaYP6nDtn0KyjZFPoiqNDRCZbF+bW+ezBrUbA3ZUDh6PNug+CTNRk6NW3e52sWzCTy
+         xMSA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XdAUuouV;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@oracle.com header.s=corp-2019-08-05 header.b=Nf3CxzQX;
+       spf=pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0Q34sxYzEvaKLgXtsInMw+bSlDhMK5hBkEm/lnKu6FM=;
-        b=CfnNXUuYzE5LpLyGGkQhOdQ39yP/guDDjWQb/2Uanx+RZTJuYB94J/jxFe3nRie8r2
-         iaMGmzFYu072yLic9r/PdXAdp60fXWTxqR9UTm3dj518Ikm8qSCz/7Y3b1EYq+FQtD/J
-         LbTko8UW4N31IIEJpJLeqzMpL76ThMTGUz48zaAJ3ama3i68Lk2Duy6vrUT8jxphYuOc
-         O3dPVYinjhxTCgO+EUh3UHrqD/POi5KO+pyrwlwxDsp1F5Litalgyk3nkQZzgCsH6ja9
-         T0psndL824FgL5+kPiqrJt3vxoXPaP58EphzBI1svuncH5pAuHXkCRYwCexP3LcQX9iy
-         HCMw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0Q34sxYzEvaKLgXtsInMw+bSlDhMK5hBkEm/lnKu6FM=;
-        b=XWaYCFeWbpwL3lE57IxhN/rUVjIeGc+la37JXDhe2Y8pH/SubPILk1yInDY/gK0Zm5
-         2K1n8XVrMi8Cr25Q0tDYNQux1gTzPWUGYVcR80eeqVsp31kWjXD2NnRYchwgf8o8xMfQ
-         2zbbTq5DeZwyhyypbvekpx+g2u7+5AXbw7axnUSWMVe8+VWit3JynJhegpYpPvhzxlBH
-         pbvGOgPcu/HLwAs2R0r7CgVPWDRq6ED5/BqsNSLG1IONd/1utsTpGHaDFVnAAIH5hlrQ
-         qPuduV/uj0IOjESPO7Rbpjvw8S8ONvmCq75s60KKi78+ST7JP5umQo3VhrznkXaLAutV
-         slSA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=dkE+5QuuE1QWj+6yripA8ff6w7haNG5KjrIO0vtSzlE=;
+        b=SCOBovyB/Vom1NKllHhkO4ljf+yG0p8NDbnVZL5OmbKedB+lIDk5qChxezx0dzvp1z
+         x08wmj0bHwLoEnTalmxVKYcbdsoweFBNUFVo7nvJKdbo0FI+fBEbaxdogmdXtkIq+hll
+         B31r74hoA3UW9bIKOJqh3vmqsCCkv6ZNs/W1aVFTVJB+w/yQmvrmskKKi5NuQZhZQOPh
+         wC2+KaGKvk7QSaTtc3aLZBpDcBQPX7oy96xsbmPMdiQVSDxIQr2MrWhBTiccjzEA1gVC
+         vxp9kG5HQ8JfnT8vYEgMH72cvX3AUpX538cnhZljGICu82rXfCaC5mtVWIRL/54RYJc0
+         nBGA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0Q34sxYzEvaKLgXtsInMw+bSlDhMK5hBkEm/lnKu6FM=;
-        b=JoN6lT4wNn/K1Ef3mMnY28xN9ZguaQfXtJYDnT7htn2PYUUVmc1j+6p/Z7pKAyt5QG
-         Sfve/FyoGaJ/QZmn1fkIzQqeNfKxmqrMOc+zgmj98Pa+JgXYX3Dwrb7yupET++sa/XED
-         MrPMlGKmBP3ehFkTERs4UYinWXWR9sJdQd5sB70Anm1VwV8BsvGe6gvejPRUmaRc20Qh
-         r27CvN36UR4lrYBrcDpOPKAGmWSkBNaWy3W0fj9LL3L4E19RsBxrDwKkei63jZJkJq4t
-         7QpNmMjX02Y6kqWumPVZ0Vo6cNstL1k5+3YnXl28G7xEKZLTQ5BeJS33DtQYiyCB21/I
-         HBAw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=dkE+5QuuE1QWj+6yripA8ff6w7haNG5KjrIO0vtSzlE=;
+        b=ZiNYTSnnHOKQL0/zXnZb1GTJ1cUEFZ3Akq8zqyrfJch9WTpNhWyrjczaRJwJMeN8dD
+         bC5WPMyvPZkWm3gd0sMoazpO2/TqyWEF1RiMn6VrN7wqP2H/Nj9R5gN7dFDMU0GRsNUX
+         WBwNdoru2vGk6dM8wsUP+ICWMWBNEk4i2BrPQ7nWgZyn1Tvgc5O4rVjJOW1DueBDuobZ
+         DCGL07gJw4abn2OT0KWmuYBVRtqnahruBWtPEE0edyz3/NAdcdwIXxUedSQVry1JR5wM
+         dyvnN5ixExJkysa7C6YBobgWznK5C5yZ1MA650yGFucip/t8Asu6oZ59W956fkIsReX8
+         UxkA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW+UXY+mmPZxNYv2EY97u5UPk/SR/5bauod+aVI4+zRUBLoxxAw
-	VKTjUzvb9WztQ1KWcljTRJA=
-X-Google-Smtp-Source: APXvYqznqcxv681ArGwq29Jy/NHwl/+8jJveIPhC/EmxxKTEp6KYL5JDkMCayERcuMUq8SpExy1Juw==
-X-Received: by 2002:a2e:b044:: with SMTP id d4mr6996164ljl.102.1572444251980;
-        Wed, 30 Oct 2019 07:04:11 -0700 (PDT)
+X-Gm-Message-State: APjAAAXYT0+36RB8oA8YOoVZ6LUShUY25zq9E2WKIWRGKZuRFGz4JyQS
+	EZCuYaevGGbUQH2XGuuZ2hk=
+X-Google-Smtp-Source: APXvYqxISNoHkDdPTNkA227cIr7Yw6KHlA8KQJmi+kT4K1ud7eS9qoTCQBhOkzm9HaCDTnMKcP4Fng==
+X-Received: by 2002:a67:ef0c:: with SMTP id j12mr35870vsr.201.1572450351775;
+        Wed, 30 Oct 2019 08:45:51 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9c53:: with SMTP id t19ls1286644ljj.12.gmail; Wed, 30
- Oct 2019 07:04:11 -0700 (PDT)
-X-Received: by 2002:a05:651c:10e:: with SMTP id a14mr6753616ljb.177.1572444251419;
-        Wed, 30 Oct 2019 07:04:11 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572444251; cv=none;
+Received: by 2002:ab0:604e:: with SMTP id o14ls316896ual.14.gmail; Wed, 30 Oct
+ 2019 08:45:51 -0700 (PDT)
+X-Received: by 2002:a9f:350f:: with SMTP id o15mr152236uao.123.1572450351316;
+        Wed, 30 Oct 2019 08:45:51 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572450351; cv=none;
         d=google.com; s=arc-20160816;
-        b=JCtM6M4AUTf8s1ROBpvb+HfLcj6G/hPsoC6w/Z5TOx9Os8SeayV52ScTIzZMFDT1T8
-         Tm3N+v5BKCadKzNN9GYujA1pvX5NC7G6GNB784GMNLwaoK1MqxOFjSm2x1QTQh98uCro
-         DirihsnQtJBHWCT1T0tmJ+3PuqgmTvqYbeWGMxVqpNZuWQaK87wevCkB+79N++UQt0LI
-         3HRaPu7pFJ0E12PK6rqCCI03T1UJrc3DyxNhu+C5V7I0R4GXmsrX2M5UCB1AWUe7TuMn
-         RmT0WP9KZptmtESjG4ECv33riEVg7AXvKsa0lFsH2ePKCCXlw+AmjC5NJpf8Fucvw7/H
-         7ltA==
+        b=b8K7JsA12I4i3RQYeIYWhLIRBpW3s/jwFYMI1UMkVVPmqJG+e1BTMIGrjoVSSMYXJL
+         S7mSnr2g+fXP/TJnK3p2qr25858FLkTi2jCi/nb8zJOwkRu6kq+C6DA+00eP9ZcEVS0A
+         00bYSxD+JwPplEn5p7l8QC7ESxDpHmSYbM7L4y9AaIqJPVAazOBS3VeWPjUcnceVGwrj
+         4jAZlGLE0RPg1r6x/rYcDS1yuUrHHds6tuniPBIb+4rMFBfhR8xD16R9mZFVNASggzh+
+         uZ0A7nhHXTZHFeSGuLmV5XSo8ObZRBcgf3IS5WIggm0N63NppkSLvTb7mhQcXPwNYnNb
+         ht5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=0aCQjH8ptc0xQjGtBTJNWD3Vb7W7u0ebnKJvX0R/Yz4=;
-        b=qslzpaQj5znjHremG3nMOLy3OZZHnV4k6e3iRKTV5WxyXECAwO7Cx0jonW2AwNnAe8
-         PWCGhqmH6vaT2yTOos7s2qQdBmS8/0fXG27MBmE7B3NqqNWfUnzrDZeVsO686pBI8VKJ
-         ggRNRNB5w95eUJWizAg8fUCoD16OF7fh2fTB04l8Z3COBs9vOtVj0yI4nq2MOSwtILHj
-         l0x3/hE1I78HtfIfBCmGEZMyEZ7wZN/Xe5Nzuy0o2e1YjjlXTP9fBQDq4e72ZIxQzg8g
-         Io9VxStcsDtqE+dzd+drQoaIpT90zfXr+7Xk0CO0eiTpWuxOxNXPHt+vxUApKlGMq9QB
-         L8YQ==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=HMUMvR5rSGpx9tf5PjrzHfWQ6zOaZmBBpl12ivMHr/0=;
+        b=b2sFfMPE8i9jxf5fviVReeXkCsINsAm1tqFesB5jzMyHIihpKBnL/pYxGNbrtrKkJS
+         5zqVXNo+9h8TeOteNCv+1QYudsggtlKr4yw+i7uGEs7paQsq80RW6IyripOTbljfv3CZ
+         S9s1leqyZGrKTTCAwYlDJU3PZenyr7I4+uRYZj1Y7I09nXfLDveLxytRo5xQE41jIhd1
+         zoox5Wjg68GenjJt2ny7yUddJ4ZC5PkjxBfIiuzycJNiKA6MiWJHQ4kQQM9biM02YX9q
+         3YXj/NOrZO975CHvZzk0Y5fWEP8qnWw11Zs2G0BmnBhmhuwxbfOeVkRv5HxLBMRqi684
+         vUPw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=XdAUuouV;
-       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id s4si168534ljg.1.2019.10.30.07.04.11
+       dkim=pass header.i=@oracle.com header.s=corp-2019-08-05 header.b=Nf3CxzQX;
+       spf=pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.78 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
+Received: from aserp2120.oracle.com (aserp2120.oracle.com. [141.146.126.78])
+        by gmr-mx.google.com with ESMTPS id y8si63512vsg.2.2019.10.30.08.45.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2019 07:04:11 -0700 (PDT)
-Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
-Received: by mail-wr1-x443.google.com with SMTP id a11so2443048wra.6
-        for <clang-built-linux@googlegroups.com>; Wed, 30 Oct 2019 07:04:11 -0700 (PDT)
-X-Received: by 2002:adf:fb0b:: with SMTP id c11mr72834wrr.50.1572444250709;
- Wed, 30 Oct 2019 07:04:10 -0700 (PDT)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 30 Oct 2019 08:45:51 -0700 (PDT)
+Received-SPF: pass (google.com: domain of darrick.wong@oracle.com designates 141.146.126.78 as permitted sender) client-ip=141.146.126.78;
+Received: from pps.filterd (aserp2120.oracle.com [127.0.0.1])
+	by aserp2120.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x9UFaKMv034612;
+	Wed, 30 Oct 2019 15:45:48 GMT
+Received: from aserp3030.oracle.com (aserp3030.oracle.com [141.146.126.71])
+	by aserp2120.oracle.com with ESMTP id 2vxwhfd7uy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 30 Oct 2019 15:45:47 +0000
+Received: from pps.filterd (aserp3030.oracle.com [127.0.0.1])
+	by aserp3030.oracle.com (8.16.0.27/8.16.0.27) with SMTP id x9UFeRL9081736;
+	Wed, 30 Oct 2019 15:45:47 GMT
+Received: from userv0121.oracle.com (userv0121.oracle.com [156.151.31.72])
+	by aserp3030.oracle.com with ESMTP id 2vxwja6k54-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 30 Oct 2019 15:45:47 +0000
+Received: from abhmp0023.oracle.com (abhmp0023.oracle.com [141.146.116.29])
+	by userv0121.oracle.com (8.14.4/8.13.8) with ESMTP id x9UFjifK002165;
+	Wed, 30 Oct 2019 15:45:45 GMT
+Received: from localhost (/67.169.218.210)
+	by default (Oracle Beehive Gateway v4.0)
+	with ESMTP ; Wed, 30 Oct 2019 15:45:44 +0000
+Date: Wed, 30 Oct 2019 08:45:43 -0700
+From: "Darrick J. Wong" <darrick.wong@oracle.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, Ian Kent <raven@themaw.net>
+Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>,
+        clang-built-linux@googlegroups.com, kbuild test robot <lkp@intel.com>,
+        xfs <linux-xfs@vger.kernel.org>
+Subject: Re: [djwong-xfs:mount-api-crash 91/104] fs/xfs/xfs_message.c:23:40:
+ warning: address of array 'mp->m_super->s_id' will always evaluate to 'true'
+Message-ID: <20191030154543.GF15221@magnolia>
+References: <201910291437.fsxNAnIM%lkp@intel.com>
+ <20191030033925.GA14630@ubuntu-m2-xlarge-x86>
 MIME-Version: 1.0
-References: <20191030060411.21168-1-natechancellor@gmail.com> <b8a9f49e-b788-82b8-ead3-0ae6fba7e8fa@amd.com>
-In-Reply-To: <b8a9f49e-b788-82b8-ead3-0ae6fba7e8fa@amd.com>
-From: Alex Deucher <alexdeucher@gmail.com>
-Date: Wed, 30 Oct 2019 10:03:59 -0400
-Message-ID: <CADnq5_Na9Lyb_9z7DY27o8SWkPQNi6pNbU1qXd0R7W6_Qa9Xtg@mail.gmail.com>
-Subject: Re: [PATCH -next] drm/amd/display: Add a conversion function for
- transmitter and phy_id enums
-To: "Kazlauskas, Nicholas" <Nicholas.Kazlauskas@amd.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>, "Wentland, Harry" <Harry.Wentland@amd.com>, 
-	"Li, Sun peng (Leo)" <Sunpeng.Li@amd.com>, "Deucher, Alexander" <Alexander.Deucher@amd.com>, 
-	"Koenig, Christian" <Christian.Koenig@amd.com>, "Zhou, David(ChunMing)" <David1.Zhou@amd.com>, 
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
-	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, "Li, Roman" <Roman.Li@amd.com>, 
-	"amd-gfx@lists.freedesktop.org" <amd-gfx@lists.freedesktop.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: alexdeucher@gmail.com
+Content-Disposition: inline
+In-Reply-To: <20191030033925.GA14630@ubuntu-m2-xlarge-x86>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9425 signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 malwarescore=0
+ phishscore=0 bulkscore=0 spamscore=0 mlxscore=0 mlxlogscore=999
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.0.1-1908290000 definitions=main-1910300145
+X-Proofpoint-Virus-Version: vendor=nai engine=6000 definitions=9425 signatures=668685
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 priorityscore=1501 malwarescore=0
+ suspectscore=0 phishscore=0 bulkscore=0 spamscore=0 clxscore=1011
+ lowpriorityscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999 adultscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.0.1-1908290000
+ definitions=main-1910300144
+X-Original-Sender: darrick.wong@oracle.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=XdAUuouV;       spf=pass
- (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::443
- as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@oracle.com header.s=corp-2019-08-05 header.b=Nf3CxzQX;
+       spf=pass (google.com: domain of darrick.wong@oracle.com designates
+ 141.146.126.78 as permitted sender) smtp.mailfrom=darrick.wong@oracle.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=oracle.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -148,115 +161,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Oct 30, 2019 at 8:33 AM Kazlauskas, Nicholas
-<Nicholas.Kazlauskas@amd.com> wrote:
->
-> On 2019-10-30 2:04 a.m., Nathan Chancellor wrote:
-> > Clang warns:
-> >
-> > ../drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link.c:2520:42:
-> > error: implicit conversion from enumeration type 'enum transmitter' to
-> > different enumeration type 'enum physical_phy_id'
-> > [-Werror,-Wenum-conversion]
-> >          psr_context->smuPhyId = link->link_enc->transmitter;
-> >                                ~ ~~~~~~~~~~~~~~~~^~~~~~~~~~~
-> > 1 error generated.
-> >
-> > As the comment above this assignment states, this is intentional. To
-> > match previous warnings of this nature, add a conversion function that
-> > explicitly converts between the enums and warns when there is a
-> > mismatch.
-> >
-> > See commit 828cfa29093f ("drm/amdgpu: Fix amdgpu ras to ta enums
-> > conversion") and commit d9ec5cfd5a2e ("drm/amd/display: Use switch table
-> > for dc_to_smu_clock_type") for previous examples of this.
-> >
-> > Fixes: e0d08a40a63b ("drm/amd/display: Add debugfs entry for reading psr state")
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/758
-> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
->
-> Reviewed-by: Nicholas Kazlauskas <nicholas.kazlauskas@amd.com>
->
-> With the small nitpick that maybe the default case should be
-> PHYLD_UNKNOWN, but well get the warning if that happens anyway.
->
+On Tue, Oct 29, 2019 at 08:39:25PM -0700, Nathan Chancellor wrote:
+> On Tue, Oct 29, 2019 at 02:45:40PM +0800, kbuild test robot wrote:
+> > CC: kbuild-all@lists.01.org
+> > CC: "Darrick J. Wong" <darrick.wong@oracle.com>
+> > TO: Ian Kent <raven@themaw.net>
+> > CC: "Darrick J. Wong" <darrick.wong@oracle.com>
+> > CC: Christoph Hellwig <hch@lst.de>
 
-Applied with that change.
+FYI, It's customary to cc the patch author [and the xfs list]...
 
-Thanks!
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/djwong/xfs-linux.git mount-api-crash
+> > head:   e35c37b1b9987c8d87d91dbeca6c24aade2a3390
+> > commit: a5a36409da3a608c815b38b0ff2eb5bcfc1adec6 [91/104] xfs: use super s_id instead of struct xfs_mount
+> > config: x86_64-rhel-7.6 (attached as .config)
+> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 7cd595df96d5929488063d8ff5cc3b5d800386da)
+> > reproduce:
+> >         git checkout a5a36409da3a608c815b38b0ff2eb5bcfc1adec6
+> >         # save the attached .config to linux build tree
+> >         make ARCH=x86_64 
+> > 
+> > If you fix the issue, kindly add following tag
+> > Reported-by: kbuild test robot <lkp@intel.com>
+> > 
+> > All warnings (new ones prefixed by >>):
+> > 
+> > >> fs/xfs/xfs_message.c:23:40: warning: address of array 'mp->m_super->s_id' will always evaluate to 'true' [-Wpointer-bool-conversion]
+> >            if (mp && mp->m_super && mp->m_super->s_id) {
+> >                                  ~~ ~~~~~~~~~~~~~^~~~
 
-Alex
+...so, Ian, I guess this isn't necessary ^^^^^^^^^^^^^^^^
+because it's a char array, not a pointer. :)
 
-> Nicholas Kazlauskas
->
+Good catch!
+
+--D
+
+> >    1 warning generated.
+> > 
+> > vim +23 fs/xfs/xfs_message.c
+> > 
+> >     13	
+> >     14	/*
+> >     15	 * XFS logging functions
+> >     16	 */
+> >     17	static void
+> >     18	__xfs_printk(
+> >     19		const char		*level,
+> >     20		const struct xfs_mount	*mp,
+> >     21		struct va_format	*vaf)
+> >     22	{
+> >   > 23		if (mp && mp->m_super && mp->m_super->s_id) {
+> >     24			printk("%sXFS (%s): %pV\n", level, mp->m_super->s_id, vaf);
+> >     25			return;
+> >     26		}
+> >     27		printk("%sXFS: %pV\n", level, vaf);
+> >     28	}
+> >     29	
+> > 
 > > ---
-> >   drivers/gpu/drm/amd/display/dc/core/dc_link.c | 38 ++++++++++++++++++-
-> >   1 file changed, 37 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/gpu/drm/amd/display/dc/core/dc_link.c b/drivers/gpu/drm/amd/display/dc/core/dc_link.c
-> > index 7b18087be585..38dfe460e13b 100644
-> > --- a/drivers/gpu/drm/amd/display/dc/core/dc_link.c
-> > +++ b/drivers/gpu/drm/amd/display/dc/core/dc_link.c
-> > @@ -2447,6 +2447,41 @@ bool dc_link_get_psr_state(const struct dc_link *link, uint32_t *psr_state)
-> >       return true;
-> >   }
-> >
-> > +static inline enum physical_phy_id
-> > +transmitter_to_phy_id(enum transmitter transmitter_value)
-> > +{
-> > +     switch (transmitter_value) {
-> > +     case TRANSMITTER_UNIPHY_A:
-> > +             return PHYLD_0;
-> > +     case TRANSMITTER_UNIPHY_B:
-> > +             return PHYLD_1;
-> > +     case TRANSMITTER_UNIPHY_C:
-> > +             return PHYLD_2;
-> > +     case TRANSMITTER_UNIPHY_D:
-> > +             return PHYLD_3;
-> > +     case TRANSMITTER_UNIPHY_E:
-> > +             return PHYLD_4;
-> > +     case TRANSMITTER_UNIPHY_F:
-> > +             return PHYLD_5;
-> > +     case TRANSMITTER_NUTMEG_CRT:
-> > +             return PHYLD_6;
-> > +     case TRANSMITTER_TRAVIS_CRT:
-> > +             return PHYLD_7;
-> > +     case TRANSMITTER_TRAVIS_LCD:
-> > +             return PHYLD_8;
-> > +     case TRANSMITTER_UNIPHY_G:
-> > +             return PHYLD_9;
-> > +     case TRANSMITTER_COUNT:
-> > +             return PHYLD_COUNT;
-> > +     case TRANSMITTER_UNKNOWN:
-> > +             return PHYLD_UNKNOWN;
-> > +     default:
-> > +             WARN_ONCE(1, "Unknown transmitter value %d\n",
-> > +                       transmitter_value);
-> > +             return PHYLD_0;
-> > +     }
-> > +}
-> > +
-> >   bool dc_link_setup_psr(struct dc_link *link,
-> >               const struct dc_stream_state *stream, struct psr_config *psr_config,
-> >               struct psr_context *psr_context)
-> > @@ -2517,7 +2552,8 @@ bool dc_link_setup_psr(struct dc_link *link,
-> >       /* Hardcoded for now.  Can be Pcie or Uniphy (or Unknown)*/
-> >       psr_context->phyType = PHY_TYPE_UNIPHY;
-> >       /*PhyId is associated with the transmitter id*/
-> > -     psr_context->smuPhyId = link->link_enc->transmitter;
-> > +     psr_context->smuPhyId =
-> > +             transmitter_to_phy_id(link->link_enc->transmitter);
-> >
-> >       psr_context->crtcTimingVerticalTotal = stream->timing.v_total;
-> >       psr_context->vsyncRateHz = div64_u64(div64_u64((stream->
-> >
->
-> _______________________________________________
-> amd-gfx mailing list
-> amd-gfx@lists.freedesktop.org
-> https://lists.freedesktop.org/mailman/listinfo/amd-gfx
+> > 0-DAY kernel test infrastructure                Open Source Technology Center
+> > https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
+> > 
+> 
+> Hi Darrick,
+> 
+> The 0day team has been doing clang builds for us and we've been
+> forwarding the valid warnings along to developers. This appeared after
+> the commit listed above. That check should be unnecessary, perhaps you
+> meant to check for something else? Thanks for looking into this.
+> 
+> Cheers,
+> Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CADnq5_Na9Lyb_9z7DY27o8SWkPQNi6pNbU1qXd0R7W6_Qa9Xtg%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191030154543.GF15221%40magnolia.
