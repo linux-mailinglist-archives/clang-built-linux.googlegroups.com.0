@@ -1,161 +1,184 @@
-Return-Path: <clang-built-linux+bncBDEPBSN75UNRBB7W4XWQKGQEDBDORVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS2ZOPPSEBBBCUG43WQKGQECHH2LNI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa40.google.com (mail-vk1-xa40.google.com [IPv6:2607:f8b0:4864:20::a40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2423AE9B37
-	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 12:59:05 +0100 (CET)
-Received: by mail-vk1-xa40.google.com with SMTP id x65sf855786vkd.15
-        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 04:59:05 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572436744; cv=pass;
+Received: from mail-yw1-xc3f.google.com (mail-yw1-xc3f.google.com [IPv6:2607:f8b0:4864:20::c3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4CC84E9B93
+	for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 13:33:15 +0100 (CET)
+Received: by mail-yw1-xc3f.google.com with SMTP id 202sf1461084ywf.8
+        for <lists+clang-built-linux@lfdr.de>; Wed, 30 Oct 2019 05:33:15 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1572438794; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MLqrAFJB0dECI5bk2gpW+5GNDpU8nIZD6H7W+FJSz/A33pOjR40E7JcKY8eH0Xvd9w
-         dvmr/vpPXsGyDRMSZVxOs0RX3Hmj2TfY00h7wVeOnM36R9mddJ1fgQXClI0ENIvQO7jf
-         FSDBfrW1UrBm7PrAenpK359IaU4GkAX5wbfz7OBdmXuDyfWkyYsK3Uki94yJ1afWKZXF
-         rAShO+okIAcu1wgVDEaNIJT9q8SPN5/ab5SGkWHJs9XVOe1rOtAYbK/n2tAj5NCvq5rn
-         DvF0ONEqsyGmIEgNoEVWDCLXWbuKv75pOnTShyzV3iVF8emD0/GnjmTax4CP6/nFlbRF
-         nASA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=pDfE6rSTI/fX2UKqARH4/V7E47wbMBIQtrFf2vdXLJ7hmDbocUs8aSKjfcUPazGuiJ
+         0SMAemeBCHuoOVvFuSK9nKfm21RWCHG5V8X6yH6EFdheClJ+sbmxMnXJ18d4zFRRb3Fy
+         T4hmPSX9SctcqerdcI5VwQUAB3r3uMh3e0Yht9IKFmeIh8fgcikxQron5Mgt+RknT9s9
+         8y4PezJsTG3G+1g495wTheUAbJDmlmr7YQ0cBZjWuA+MZ1P6zgQi2LfT2WTSqyiYgbeP
+         CHqA/xX4B16ej2eX8OAeYdMGnwb/TBSP8EISnfR293e07Ot+7R9XJ8Ri3x9sE/orDzAE
+         cHww==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:date:from:sender:dkim-signature:dkim-signature;
-        bh=+hgqwnvB56rLwkEZxWuv+QjgoLh+33ZSkf9gR61vCOM=;
-        b=GTTWNSnQecZxEq+ZVz1rd6Ez3XplIhBnz/5jEuglY90Typzfmv8QlgMML0WyiCcYs+
-         maadRzhsB2KwFrTT/q0rq/WBXns17JFtdrZOumtsetrtx1B+wxfd4OeRRdOsCeQlJJN+
-         gfgNRGYz0hOSa9ikoVZ/tQsAYqWYoE1Pni1FeZvV6fjvW9OD/3+KA9Thw/Przv9o8Jxq
-         es44fLft0eW5XOOmHirqDLaZzEAY0R/daSfAY7amR9FQA8dkvc3gLG/5NfMgRQge8Cp+
-         v5GR1qbxosGsGos1koep2R/in/cxVi7zkTY4iQqqyjLpYwYTnPIrSIxoKt0tU5QloqcI
-         7j9w==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=TPN+erso;
-       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+         :list-id:mailing-list:precedence:mime-version:content-id
+         :content-language:accept-language:in-reply-to:references:message-id
+         :date:thread-index:thread-topic:subject:cc:to:from:sender
+         :dkim-signature;
+        bh=5vOBNUw+Faft8E2b0Sb0J3q2g3IVFfPC0tQpqHm0H+8=;
+        b=nwEeYzN3++SwafWaGpKGSYEjud9wzDBaWkohxk8I9fXaEEMcsB36Z260ua+v5Lj8Ym
+         QQKf13uag4CCNMqwUKf6Yq+yar8tw88mSVi1FUoqISFen5b7gsDlikCgKARCKzb7y3Q6
+         AeBnhpo0jXtVfrlRJ3JGw5Y1KVsiHJENfJHJvMTKaI0pvPMyya//J9Z53K2sXFHqe6iL
+         dfVKWU3YU2a82I985cRXxYE5V4jSBLCg0mmlcJ+4exZX88731LXFjqYoaG+I6OkTYT4W
+         +/TgajVqi4P01hLYfxZzG3iArjxBjtNsDwRRBimzzdxTnC9k1Ps6JOmXqVSgUzoUUtuG
+         ycNA==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector2-amdcloud-onmicrosoft-com header.b=g7KOJ1NM;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.72.70 is neither permitted nor denied by best guess record for domain of nicholas.kazlauskas@amd.com) smtp.mailfrom=Nicholas.Kazlauskas@amd.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+hgqwnvB56rLwkEZxWuv+QjgoLh+33ZSkf9gR61vCOM=;
-        b=dDI4oNVDmVcLy2IA3TtrNxZeo+23PKdrSIhouSMnFyYpzf73OGy9+OFMV+fVrhiWUW
-         gQNzwZPiTRP99wP8jWOkdt11lbln+2/PXOyWdEPseAtoqyDTobLYsZmb03ePCLxFO2XQ
-         LNDbCNwdLX471kx3w0iU7fHFVHR16MJo5qPKd/ATjmR1LrRbfr+0nj1gNBKj6XgxL0cK
-         8aLshFO6fVvpBwdiRB9BXz9m2NrJrluW/MdqXpJ2y/OFdBvZF9FjQuONa1LaLkrYIlb9
-         ymtREos22E6U3ek5ou43ju1+1nsnbjbL+k7yDjGKiAoy7Lxs2uHPjgQk/pmLVvScdLqs
-         BijA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+hgqwnvB56rLwkEZxWuv+QjgoLh+33ZSkf9gR61vCOM=;
-        b=EpWahgeqM13+hbsO5wioJdsP9J7mXzRYNyJmtVnTCVyGSKLWZUOVKvjgZ9E5msxyEB
-         F+yL5vFwIZ/I0M7OPeWXMWeb891YCiUSOXrMC3dnAaYIe17eo0ZLhGh82kzGggA03Xoq
-         1JFRDg0Te4tFdQqP7y9uBpMgr161Yr7qLSWmY1jIZka+ZnOAdxAMPx8eotp6BrPTOk5v
-         5zmIpFulC2O2znccheply4vQAlUq2Z/Wctx2NK7uIeGqswG7KbBem61BFbZLPLCPtDDV
-         as+Lrs8qxlFdtP6MvldNFh9Bw1CwUtl9NR+hF2TLQD2Q/HRzZbRttKkgMgGrBpeLi/8Y
-         4Fwg==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language:content-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5vOBNUw+Faft8E2b0Sb0J3q2g3IVFfPC0tQpqHm0H+8=;
+        b=q4NNuYe/PGXRIoMnIsNB8YEgh/Lx1AUN6ITESnTbuTvr8KikPbziraYXdLb4cXcSiZ
+         VKOG3J1iXcNVGeKjQakBCkU7wkVzyqmenaoX6TDDMd9hi41aG9i5BSb3+eLk5DNdYPZ+
+         nFcBn6uWiTVTdFPQRbMTioqsRSLh/CXkYhMhLm3ZOJ+4UCvl+1BsN3yNizfcmB44dRgZ
+         IXheaCeSXjmx1tmRVU1A6D0rlSoaaAFgntxTrwHiAW0av3YmRwk9t+QtPTzU3mYzbiub
+         aEF4W7CavFUhzD1XBotNH3YMVb+ots2YMa/6NRqLTOd+CiDdj7JJtguVqJOsLI6Nl7Qd
+         EaLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=+hgqwnvB56rLwkEZxWuv+QjgoLh+33ZSkf9gR61vCOM=;
-        b=cQFJmRRHrVUG/knuv/fszbBBvRxF66jur7qgQzK2ee7pOKAJYao+Ruv/yk8LT5ZZ5R
-         HBv43eeVs2jhPPhtiCvFkRXNQWX0NTIViFpIpBz2wUs2UOjFzQ9dcau066sfH/k8OinF
-         FGTb82Z6ZJfdYFtJGSDOPQB+4KsWhXl7vgsm7ZdrEN1LFpxGOuGOAHM3GqUxrjUZVqjE
-         jraJnlBC5sdvhtMEoAMNTWETXa4gZg0B1r83pgn/IV0Ya6r9kSZaQeDJXkESqQZaueR3
-         K36uPztJYrnlbTsOlECb+AVmI/hs4VzKqtLRZ/1DK+xOTdNHCktYyuWIsI+VpKH5xdLD
-         mhzw==
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:content-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5vOBNUw+Faft8E2b0Sb0J3q2g3IVFfPC0tQpqHm0H+8=;
+        b=D8vM5HAEKrv8BHHo4JDgZQ8pruk8tWodL/XlmFS32GccHRfrzOdJjUUznJpmuN2Wed
+         +I9bez51L8ofPg3Ukgl3QV6DLpKk+K6ue2Aq6ssO2KEJfwSAOiVzrjN46prbPTjSme5e
+         RE4qAfJobSoPr0ju0uXtNCd7FOBtGmBdPJYaNMsT3AibT6mNhfOtmwqxTBS1xOofeQdu
+         TajNHrEMqJcBkcNhYnuHkSFc7bd2ORvEApjMxs4OcZdRRiiL6oKjZPyF5HlAxWPr+Kib
+         fW2Hmw1JrDlnbaQXxkLCRtimUX9H5d0Z25GXIW9I3ZFMKyuVrSzEi3TovLKt0KmK3nGE
+         gGBA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXIWYk6h1ohiKBUxGj0OBTlLK5LJ0ag6Exmc19Vh9zhBLwsR4UP
-	xAHc3iHgj1F9E/oz8xnX91k=
-X-Google-Smtp-Source: APXvYqyvMfX0OzLAprrt9s7AKX8yht6tbh5Y58ehnDp2FYNy5n753m4MYd5tHQEu9msotAvK2hd23Q==
-X-Received: by 2002:a05:6102:3115:: with SMTP id e21mr4840328vsh.53.1572436744003;
-        Wed, 30 Oct 2019 04:59:04 -0700 (PDT)
+X-Gm-Message-State: APjAAAXnYNBfiELvuIQjSvf9bofsT8AXCp6+RE6NE7Och8duwzOUt8Ap
+	8qKnQr3d0COywCJdopcK7pU=
+X-Google-Smtp-Source: APXvYqyF03nEzGA7Q0kXcQ3ve7ss6bTri+A6vqeSSOeRJ07R77tiL6+J/ScIR8dPdeSgC9Vyr4hxtw==
+X-Received: by 2002:a81:a042:: with SMTP id x63mr21835105ywg.301.1572438794279;
+        Wed, 30 Oct 2019 05:33:14 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:e2c8:: with SMTP id i8ls820297vsm.13.gmail; Wed, 30 Oct
- 2019 04:59:03 -0700 (PDT)
-X-Received: by 2002:a67:20c7:: with SMTP id g190mr902580vsg.177.1572436593758;
-        Wed, 30 Oct 2019 04:56:33 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572436593; cv=none;
+Received: by 2002:a25:7496:: with SMTP id p144ls3885252ybc.1.gmail; Wed, 30
+ Oct 2019 05:33:13 -0700 (PDT)
+X-Received: by 2002:a25:e64f:: with SMTP id d76mr3327739ybh.277.1572438793709;
+        Wed, 30 Oct 2019 05:33:13 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572438793; cv=pass;
         d=google.com; s=arc-20160816;
-        b=p78RU1iX1ZLgYsV2fH1diAnfUikpW9K/g2k1uvPWSV5FspsJ1966kdwI7F8fA70t+l
-         Wi7x8Sx16jgpiuWCIL7WbnkCrImw3yPhtXtwgi2Jq5Sq0dejK28uROhJoqcnx53yQcjA
-         WhHHfRekQd5cnsXmT0v8CWDhyRR1M1MgR3f55PgafLu1ZF162fr2QQiCVF8oqvynbdSh
-         iJYi0XuQkCMC87qP0f/RDrxmY4CB1YbDiYp1tKJXYvGDWtdy3km1/fYOQv0DbfNjHb3L
-         XDMe0cQ/5yJMchr2CZjiN36WMCg3iCJf9vuuZ08Kgz7nuO0bGHApxfKafA3aA2k8Nd1E
-         MUSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:date:from:dkim-signature;
-        bh=9VRvwupe1Us8UkNQwMDn+6sFPpjxIr5st7RpNyH9QM4=;
-        b=O62/mc/DxAv7vY2UGv/xT3OyERioUGRFQJnRvu/ZHpcB3xsnJ+B6DTsq7IpAz80pqH
-         OYhmcws9npOl64W9J4hIT9xwyR3zsSjT0QXlGOVcO838skBCjIDTpaUjZaExF8WqSEiH
-         58XvQM5afF/43N7M1wcITBa70tH0El/+Vk3Ch0cH3UtVYsjuXYW2C7PFUrSTM/WSZhsW
-         jNWlc9BVGHz/sMr4Syh9ukJ2pdKDg4AJIvU9Lyyp/OIrrono5QWBf01dBft4CHwi4h3K
-         djUUoeP4eHSEkxjMtDOQIXprn1fK1FowPb3nLUwW+U7+95q0ID2S7IuRadeL2m0iXRS9
-         E2aQ==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=TPN+erso;
-       spf=pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qt1-x844.google.com (mail-qt1-x844.google.com. [2607:f8b0:4864:20::844])
-        by gmr-mx.google.com with ESMTPS id c126si161311vkb.3.2019.10.30.04.56.33
+        b=iP+TcrPyAT2SdWvStBc015pzE5pQpB8MzI2EVhTyf5V9qufD+V2ThvQEB7u7Ys3nqf
+         jhlNFDaf/sNVte0Zz78915awujG4A8Ibn2IJsFX8qAgcKA1mTxmxBJSMPK+hVjjIpLna
+         JcJtRjn4IRlyQrCdl3I5F0q5ZXAEj90CGDnLYWbm23RugR8CwtcI3VXLa+srJGbgxnns
+         ld3Jh2PuXW8mrl9sxqfMaVM/FfW2uT5NA1rGZ/TFicRTqOExsMrAzBWLXOOGRmBe3tIF
+         xICaWYvAA6a1mO25l8zrTXwMuinC8mbq/hf6Zp1wn/TUJ6LtKrybqwT6FeKo0u7lYIja
+         5Vqw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-id:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature;
+        bh=RyCASmsmlHb3b2+IFdVg1ifMpBpMMhfkaATEpR5uK3c=;
+        b=NTBM5VYspGkUJKtgznNuO8BbldB9POLmJkswF7D3eL9G0nlr8pQ26dfaOeedJ/F/jU
+         sJPzcumma9WuCu3wTfrrnKRR8hOnnE0H6DQvJ+Y92tDJ4dGB6xKa7xlJOkRe2gj+ytT1
+         hpcs4AEdRJSwATUCNj1m400Fl2MiQNiIA0VpOoQEl4VU5x0DT3K6NqLJAiOAwePW3PDQ
+         Ct6Ds9ag6ofFwnTSbjsH3twFOQ4L0mGMPv49B6Yp1l4uKvLpjh0+AEBcUyfeU/Px5Ad8
+         evWoqZbHOZ7jy4GDlKhfe/Lz8FVZM/bbX10wqeUImeiKvZnYdaq5FgSPus+OeNCDGDhz
+         Az/A==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@amdcloud.onmicrosoft.com header.s=selector2-amdcloud-onmicrosoft-com header.b=g7KOJ1NM;
+       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass dkdomain=amd.com dmarc=pass fromdomain=amd.com);
+       spf=neutral (google.com: 40.107.72.70 is neither permitted nor denied by best guess record for domain of nicholas.kazlauskas@amd.com) smtp.mailfrom=Nicholas.Kazlauskas@amd.com
+Received: from NAM05-CO1-obe.outbound.protection.outlook.com (mail-eopbgr720070.outbound.protection.outlook.com. [40.107.72.70])
+        by gmr-mx.google.com with ESMTPS id a1si156247ywh.3.2019.10.30.05.33.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Oct 2019 04:56:33 -0700 (PDT)
-Received-SPF: pass (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::844 as permitted sender) client-ip=2607:f8b0:4864:20::844;
-Received: by mail-qt1-x844.google.com with SMTP id x21so2733599qto.12
-        for <clang-built-linux@googlegroups.com>; Wed, 30 Oct 2019 04:56:33 -0700 (PDT)
-X-Received: by 2002:aed:3e75:: with SMTP id m50mr4307731qtf.87.1572436593246;
-        Wed, 30 Oct 2019 04:56:33 -0700 (PDT)
-Received: from quaco.ghostprotocols.net ([179.97.35.50])
-        by smtp.gmail.com with ESMTPSA id w15sm1200336qtk.43.2019.10.30.04.56.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Oct 2019 04:56:32 -0700 (PDT)
-From: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
-Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
-	id 28557410D7; Wed, 30 Oct 2019 08:56:30 -0300 (-03)
-Date: Wed, 30 Oct 2019 08:56:30 -0300
-To: Jiri Olsa <jolsa@redhat.com>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>, Andi Kleen <ak@linux.intel.com>,
-	Jin Yao <yao.jin@linux.intel.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.garry@huawei.com>, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Stephane Eranian <eranian@google.com>
-Subject: Re: [PATCH v4 4/9] perf tools: splice events onto evlist even on
- error
-Message-ID: <20191030115630.GC27327@kernel.org>
-References: <20191024190202.109403-1-irogers@google.com>
- <20191025180827.191916-1-irogers@google.com>
- <20191025180827.191916-5-irogers@google.com>
- <20191028210712.GB6158@krava>
-MIME-Version: 1.0
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 30 Oct 2019 05:33:13 -0700 (PDT)
+Received-SPF: neutral (google.com: 40.107.72.70 is neither permitted nor denied by best guess record for domain of nicholas.kazlauskas@amd.com) client-ip=40.107.72.70;
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=QHAY7breFizVbxY/xiAmTGNA/f9xlkBJzFj4swz1gnfH0OMCKxJeFz8CzuaWYuie4NDxROi8IVkuJRDPjhvfkNWrrdXrMIA8dqOPjnvcZ51AmKEYlQaMWuQTsukZSaFpl/tt/gWYjyWrih+3g2TakA7qN3yqh29ZM1F6yTUxpSZtTcvyz+LWq4BA0M6I2PTqirmLUQ9cV0WGvlItkEaM89MeeqPiF9Nio5Kg85CvBl5M5GXbZ9nAJVMAaPH8ffD2eWufwGAV7aP2i0JC2CLMvMDqc9CsGa/dC124KrJPVVrtIVVUURVUnswU0UvL4/FwTUM2Rk8Auciu4v9e8oUKaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RyCASmsmlHb3b2+IFdVg1ifMpBpMMhfkaATEpR5uK3c=;
+ b=UTjMKwqsAaA4H6v5NRPKZJNXZi07HNS1ANU5wsPac1rqjsjEGDfPsrKdKmcSKgTGZlctIOrQ5oh1v45gtfEJ9eg5R5OY0Zzj0ZyT8QImX81ZlvlEphlaVz/0ir8cSrP1wsUqEQ8a36zm9r74DoR7GZf2cMASto8oqxD0+zSfVywZ9XSP7GfNVjBkf6ZS5hiBgYGGOwrU0lIH8gTXE2WZCYYDUnJLbg6UlK1M9nsw/A/bq1dh7lhnO5beevmQzJ7ao4+tjHiwq0XLhT7lVtXcq2rJPUMzfssJkpVXidzRzPBGJCe5rfuj5IVTwff6nH91yiElE66wUeHavoOkgVk/Iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+Received: from BYAPR12MB3560.namprd12.prod.outlook.com (20.178.197.10) by
+ BYAPR12MB3173.namprd12.prod.outlook.com (20.179.94.218) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2387.23; Wed, 30 Oct 2019 12:33:12 +0000
+Received: from BYAPR12MB3560.namprd12.prod.outlook.com
+ ([fe80::f950:f7be:9139:7c26]) by BYAPR12MB3560.namprd12.prod.outlook.com
+ ([fe80::f950:f7be:9139:7c26%7]) with mapi id 15.20.2408.018; Wed, 30 Oct 2019
+ 12:33:12 +0000
+From: "Kazlauskas, Nicholas" <Nicholas.Kazlauskas@amd.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, "Wentland, Harry"
+	<Harry.Wentland@amd.com>, "Li, Sun peng (Leo)" <Sunpeng.Li@amd.com>,
+	"Deucher, Alexander" <Alexander.Deucher@amd.com>, "Koenig, Christian"
+	<Christian.Koenig@amd.com>, "Zhou, David(ChunMing)" <David1.Zhou@amd.com>
+CC: "Li, Roman" <Roman.Li@amd.com>, "amd-gfx@lists.freedesktop.org"
+	<amd-gfx@lists.freedesktop.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "clang-built-linux@googlegroups.com"
+	<clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH -next] drm/amd/display: Add a conversion function for
+ transmitter and phy_id enums
+Thread-Topic: [PATCH -next] drm/amd/display: Add a conversion function for
+ transmitter and phy_id enums
+Thread-Index: AQHVjufqOqphme+ZcUWQhKhHM4f606dzHo4A
+Date: Wed, 30 Oct 2019 12:33:11 +0000
+Message-ID: <b8a9f49e-b788-82b8-ead3-0ae6fba7e8fa@amd.com>
+References: <20191030060411.21168-1-natechancellor@gmail.com>
+In-Reply-To: <20191030060411.21168-1-natechancellor@gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: YT1PR01CA0013.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01::26)
+ To BYAPR12MB3560.namprd12.prod.outlook.com (2603:10b6:a03:ae::10)
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [165.204.55.250]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-ht: Tenant
+x-ms-office365-filtering-correlation-id: 03e27e70-34e0-4e69-26a6-08d75d3553c6
+x-ms-traffictypediagnostic: BYAPR12MB3173:
+x-ms-exchange-purlcount: 1
+x-ms-exchange-transport-forked: True
+x-microsoft-antispam-prvs: <BYAPR12MB31734B2EC1A0AC147EC7CC83EC600@BYAPR12MB3173.namprd12.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:2276;
+x-forefront-prvs: 02065A9E77
+x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(366004)(396003)(376002)(346002)(136003)(39860400002)(199004)(189003)(229853002)(316002)(6506007)(386003)(102836004)(71190400001)(2906002)(36756003)(71200400001)(26005)(5660300002)(4001150100001)(4326008)(53546011)(6636002)(14444005)(6246003)(256004)(76176011)(110136005)(186003)(6116002)(6306002)(6512007)(52116002)(6436002)(6486002)(54906003)(99286004)(3846002)(66476007)(25786009)(81156014)(446003)(81166006)(66946007)(64756008)(66446008)(66556008)(8676002)(966005)(86362001)(31696002)(486006)(478600001)(2616005)(7736002)(66066001)(31686004)(8936002)(305945005)(11346002)(476003)(14454004)(921003)(1121003);DIR:OUT;SFP:1101;SCL:1;SRVR:BYAPR12MB3173;H:BYAPR12MB3560.namprd12.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
+received-spf: None (protection.outlook.com: amd.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: tPyQI4EcVgJitIJYXaKdPnGO86ps6beD1+ZNc00rh8+jnqGV85gXUlWs2p3rHkKt2ZnCXc93GB48E6xla34mCDULlkzvSxxURnFU9VcIXsvVJ1UkSqy4WKzV7+EYqkV0f8nWuLulXQCy5c7LIR09QhYtJDV0eMUNZP2i+ZCaEaNwUot8GCEUjQXuLI3pyEjSWrekDANIo2GqhNGk4z9q96EVd2GMu5o6rnwH5uEHyTd/RIYLL+DyyCULhV+G3HTFy9xEGSfYo6I4vs/OOr2XDQCieFOQJFqWWIYiY1j6p9oqid8WB8psI9SMC9ags1ZSeC3E+72rlhAqdBQHH+Cusm3AFXmZDrpOhV65HTJunIeXTo2lDWLCF5t1z3SbkMY2JLwOwXgwvcY9CG19g/GbyFXfgEV9BKhIIy8VeFIW1BnCmCibIbXSA5kGBmGhb4IJ34irxuLMXY5wJAd4fHzbVLM8gIjUUx9M4GIluqa4B/I=
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20191028210712.GB6158@krava>
-X-Url: http://acmel.wordpress.com
-User-Agent: Mutt/1.12.1 (2019-06-15)
-X-Original-Sender: arnaldo.melo@gmail.com
+Content-ID: <5C94A34E747B3348870EDD8EC50ECBB8@namprd12.prod.outlook.com>
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 03e27e70-34e0-4e69-26a6-08d75d3553c6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Oct 2019 12:33:11.9397
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Zl4n7EuSeM5mR9q3UO0EoCn8zSZHWzq/HLhlYN/IbGvglB8v26EQSSkdbQa3wzxvtixw1aIvpCWhR9qFQhoSJA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR12MB3173
+X-Original-Sender: nicholas.kazlauskas@amd.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=TPN+erso;       spf=pass
- (google.com: domain of arnaldo.melo@gmail.com designates 2607:f8b0:4864:20::844
- as permitted sender) smtp.mailfrom=arnaldo.melo@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@amdcloud.onmicrosoft.com header.s=selector2-amdcloud-onmicrosoft-com
+ header.b=g7KOJ1NM;       arc=pass (i=1 spf=pass spfdomain=amd.com dkim=pass
+ dkdomain=amd.com dmarc=pass fromdomain=amd.com);       spf=neutral
+ (google.com: 40.107.72.70 is neither permitted nor denied by best guess
+ record for domain of nicholas.kazlauskas@amd.com) smtp.mailfrom=Nicholas.Kazlauskas@amd.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -168,67 +191,100 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Em Mon, Oct 28, 2019 at 10:07:12PM +0100, Jiri Olsa escreveu:
-> On Fri, Oct 25, 2019 at 11:08:22AM -0700, Ian Rogers wrote:
-> > If event parsing fails the event list is leaked, instead splice the list
-> > onto the out result and let the caller cleanup.
-> > 
-> > An example input for parse_events found by libFuzzer that reproduces
-> > this memory leak is 'm{'.
-> > 
-> > Signed-off-by: Ian Rogers <irogers@google.com>
+On 2019-10-30 2:04 a.m., Nathan Chancellor wrote:
+> Clang warns:
 > 
-> Acked-by: Jiri Olsa <jolsa@kernel.org>
-
-Thanks, applied.
- 
-> thanks,
-> jirka
+> ../drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link.c:2520:42:
+> error: implicit conversion from enumeration type 'enum transmitter' to
+> different enumeration type 'enum physical_phy_id'
+> [-Werror,-Wenum-conversion]
+>          psr_context->smuPhyId = link->link_enc->transmitter;
+>                                ~ ~~~~~~~~~~~~~~~~^~~~~~~~~~~
+> 1 error generated.
 > 
-> > ---
-> >  tools/perf/util/parse-events.c | 17 +++++++++++------
-> >  1 file changed, 11 insertions(+), 6 deletions(-)
-> > 
-> > diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-> > index c516d0cce946..4c4c6f3e866a 100644
-> > --- a/tools/perf/util/parse-events.c
-> > +++ b/tools/perf/util/parse-events.c
-> > @@ -1952,15 +1952,20 @@ int parse_events(struct evlist *evlist, const char *str,
-> >  
-> >  	ret = parse_events__scanner(str, &parse_state, PE_START_EVENTS);
-> >  	perf_pmu__parse_cleanup();
-> > +
-> > +	if (!ret && list_empty(&parse_state.list)) {
-> > +		WARN_ONCE(true, "WARNING: event parser found nothing\n");
-> > +		return -1;
-> > +	}
-> > +
-> > +	/*
-> > +	 * Add list to the evlist even with errors to allow callers to clean up.
-> > +	 */
-> > +	perf_evlist__splice_list_tail(evlist, &parse_state.list);
-> > +
-> >  	if (!ret) {
-> >  		struct evsel *last;
-> >  
-> > -		if (list_empty(&parse_state.list)) {
-> > -			WARN_ONCE(true, "WARNING: event parser found nothing\n");
-> > -			return -1;
-> > -		}
-> > -
-> > -		perf_evlist__splice_list_tail(evlist, &parse_state.list);
-> >  		evlist->nr_groups += parse_state.nr_groups;
-> >  		last = evlist__last(evlist);
-> >  		last->cmdline_group_boundary = true;
-> > -- 
-> > 2.24.0.rc0.303.g954a862665-goog
-> > 
+> As the comment above this assignment states, this is intentional. To
+> match previous warnings of this nature, add a conversion function that
+> explicitly converts between the enums and warns when there is a
+> mismatch.
+> 
+> See commit 828cfa29093f ("drm/amdgpu: Fix amdgpu ras to ta enums
+> conversion") and commit d9ec5cfd5a2e ("drm/amd/display: Use switch table
+> for dc_to_smu_clock_type") for previous examples of this.
+> 
+> Fixes: e0d08a40a63b ("drm/amd/display: Add debugfs entry for reading psr state")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/758
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 
--- 
+Reviewed-by: Nicholas Kazlauskas <nicholas.kazlauskas@amd.com>
 
-- Arnaldo
+With the small nitpick that maybe the default case should be 
+PHYLD_UNKNOWN, but well get the warning if that happens anyway.
+
+Nicholas Kazlauskas
+
+> ---
+>   drivers/gpu/drm/amd/display/dc/core/dc_link.c | 38 ++++++++++++++++++-
+>   1 file changed, 37 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/gpu/drm/amd/display/dc/core/dc_link.c b/drivers/gpu/drm/amd/display/dc/core/dc_link.c
+> index 7b18087be585..38dfe460e13b 100644
+> --- a/drivers/gpu/drm/amd/display/dc/core/dc_link.c
+> +++ b/drivers/gpu/drm/amd/display/dc/core/dc_link.c
+> @@ -2447,6 +2447,41 @@ bool dc_link_get_psr_state(const struct dc_link *link, uint32_t *psr_state)
+>   	return true;
+>   }
+>   
+> +static inline enum physical_phy_id
+> +transmitter_to_phy_id(enum transmitter transmitter_value)
+> +{
+> +	switch (transmitter_value) {
+> +	case TRANSMITTER_UNIPHY_A:
+> +		return PHYLD_0;
+> +	case TRANSMITTER_UNIPHY_B:
+> +		return PHYLD_1;
+> +	case TRANSMITTER_UNIPHY_C:
+> +		return PHYLD_2;
+> +	case TRANSMITTER_UNIPHY_D:
+> +		return PHYLD_3;
+> +	case TRANSMITTER_UNIPHY_E:
+> +		return PHYLD_4;
+> +	case TRANSMITTER_UNIPHY_F:
+> +		return PHYLD_5;
+> +	case TRANSMITTER_NUTMEG_CRT:
+> +		return PHYLD_6;
+> +	case TRANSMITTER_TRAVIS_CRT:
+> +		return PHYLD_7;
+> +	case TRANSMITTER_TRAVIS_LCD:
+> +		return PHYLD_8;
+> +	case TRANSMITTER_UNIPHY_G:
+> +		return PHYLD_9;
+> +	case TRANSMITTER_COUNT:
+> +		return PHYLD_COUNT;
+> +	case TRANSMITTER_UNKNOWN:
+> +		return PHYLD_UNKNOWN;
+> +	default:
+> +		WARN_ONCE(1, "Unknown transmitter value %d\n",
+> +			  transmitter_value);
+> +		return PHYLD_0;
+> +	}
+> +}
+> +
+>   bool dc_link_setup_psr(struct dc_link *link,
+>   		const struct dc_stream_state *stream, struct psr_config *psr_config,
+>   		struct psr_context *psr_context)
+> @@ -2517,7 +2552,8 @@ bool dc_link_setup_psr(struct dc_link *link,
+>   	/* Hardcoded for now.  Can be Pcie or Uniphy (or Unknown)*/
+>   	psr_context->phyType = PHY_TYPE_UNIPHY;
+>   	/*PhyId is associated with the transmitter id*/
+> -	psr_context->smuPhyId = link->link_enc->transmitter;
+> +	psr_context->smuPhyId =
+> +		transmitter_to_phy_id(link->link_enc->transmitter);
+>   
+>   	psr_context->crtcTimingVerticalTotal = stream->timing.v_total;
+>   	psr_context->vsyncRateHz = div64_u64(div64_u64((stream->
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191030115630.GC27327%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b8a9f49e-b788-82b8-ead3-0ae6fba7e8fa%40amd.com.
