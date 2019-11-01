@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBMG36LWQKGQE33WRQTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBM636LWQKGQEVM3SCJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63b.google.com (mail-pl1-x63b.google.com [IPv6:2607:f8b0:4864:20::63b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 69523ECAEF
-	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Nov 2019 23:12:02 +0100 (CET)
-Received: by mail-pl1-x63b.google.com with SMTP id x8sf7146219plo.17
-        for <lists+clang-built-linux@lfdr.de>; Fri, 01 Nov 2019 15:12:02 -0700 (PDT)
-ARC-Seal: i=2; a=rsa-sha256; t=1572646321; cv=pass;
+Received: from mail-yw1-xc3a.google.com (mail-yw1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A241ECAF0
+	for <lists+clang-built-linux@lfdr.de>; Fri,  1 Nov 2019 23:12:05 +0100 (CET)
+Received: by mail-yw1-xc3a.google.com with SMTP id c72sf8306566ywb.13
+        for <lists+clang-built-linux@lfdr.de>; Fri, 01 Nov 2019 15:12:05 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1572646324; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BFjb2/zVjJbo6FP2Rqb06GqCVIEa9Gw+4gMJfqJUwY/wuGcgF/UwI4N5kq3kUZ9+Ng
-         YDAyjTB4cDwUBmZa7kv0x8oJMaDtBMG9OZtghnSey1UyKq74fZ9NwDjQ/u/PPFJu8+6M
-         hgEA52Lgan4vrLQg7JhB92INSkIyjaY/GtBBK8mLJERcf77Dtg/850vjm/gJsBdENow7
-         AxFg1qkkNPukdpOe2YxUTfrxvjycIOGkYnju46A8TKwQalgyOcCMV5iGKPWHoL1JttTB
-         K5nLrMn4wH8cWTQ1ShW6VCCbhIPI1IWIAd/jdHlGzZKedTedyRxzS5Fe7T//xKbz2+RA
-         pUjg==
+        b=FGRl6qHuYMDperggFMsIDIejL3iPa2jgJfatZGsJNzMf5zHahuBK2ZeLn1w8K3Cq3Q
+         INIrO8eXU+e/OlW5XeRAY+gt9NTRtykb3z/6dWFDtv08KjxoNf+2OEdoQhKt3awAQh7c
+         qA67gEbuEHhCYUeR7VQoGGDCY5Ttkn8PuZYMIlOY8Uyw1ZgIa3ISiyfc/afsVzZECOHh
+         lAzYeb2FXUUUgtGNsl0ieqfX+1q34KPlOt2bYz7tlEK6pdwYaPbs1LNRBICtP3hGkQkx
+         pXARvFaFN7haSbYy2RT7QLVioJGcextF8iDJ0bwJQWLeam7dLW5shEsZsIYSfIe3VUGR
+         Yx0A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=4NIuzDEvK/OZ0wm56sws22VQ5JVCkXHeuASEUnCpmKU=;
-        b=YRWVxyy1dnpWUWxHqVTORxbM3E6XBgvqJRZRxrjTwzhwIQuv4I0GfZcyQ2OBbOSPI4
-         qrWvJU661Ct2fXxfwvqVFTvkFHH6nmHpqIgPJaqDXd9MEAVItCF/E6ezlFvkj9LSGFd7
-         UO6v6YbjCF4rQx1CgdrBZTkdNTpAwXM6pr41iQw33kzx3XfplFgywokcK3+T9vMviFe+
-         /tMKUucW7C+G84+sC4ItY2RjwEroOcQmV7rxEhYtUyEWLWWwLhQXJHC837uffexU/Zt0
-         7PrS/CXV+pjf+asccAyiy+yw6JIYghJ3qdbup3BMNBTRAE4goqPjMQK63tJ8LcWzE/Qg
-         wlpQ==
+        bh=rT2hMjJf4nzXRdIL2cF1E8NOdklYidAIjSm7jqP3PSc=;
+        b=TrxI928vdG33QE97Lp0Nzkp5n18srMbKxcJeDR88vxzYWaXzSYSwbI9jIfmcpZg+k+
+         +VfuCgWWOsYUGof0axSCqKlxNWBnXZDQDaa2YcCU3ziiKmLMtHMehjYJf5+f7NcYQUxM
+         QKXs1Mz2YAND7Z5pl/WgP/8JvTUudaq72Jt1Uf677oSOGm9RX/S7qThPjjliYr4ZMDKs
+         oHKea92VNwIdxUyYJc+6fzEXmhkhoTrCV5QB/7faEpkvaWgqFcahxCmnhZLob94AAmrZ
+         A/XQ3Las2mvTNDrxg8xUfh8wF6bM/f4LXNJG4F0EjU/vIblA/upLCb6x5PCLkbjBYij3
+         hD5w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Q0ypX2RR;
-       spf=pass (google.com: domain of 3r628xqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3r628XQwKAPAkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bzUzyeY2;
+       spf=pass (google.com: domain of 3sq28xqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3sq28XQwKAPMnVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4NIuzDEvK/OZ0wm56sws22VQ5JVCkXHeuASEUnCpmKU=;
-        b=fzizgbqveTf6u5T34/D8/LI8b6wTOoRswpOYnSGAc2LMmARnX35K1JAbCvbVPnRJ+O
-         Mv8en8dZqA28xtLZnopdRErULrpajD63ZiGBsOwPof8jEpjDOZiRZv4fJ5IaC2tEiYi3
-         ZWfgkLFHfnoVD0ZhOoKIurk2FvQVhq3RTn3HsQ0zNhWd/OV5NKMQbe/LLi3jkhuGGGXc
-         QlxiDgFt58MA8uU4L4s26j6Bus+hoLSYLuMBqfxlMhW7xAtfpyAFRlB3mXNpeDWhXT7f
-         cTJeAIU+YpKkCqAZV0+9bfLC9JmIp2AtnT+YsqFdyP8xN4C8THIviMV7GfFQ5r8yxOTe
-         zkBw==
+        bh=rT2hMjJf4nzXRdIL2cF1E8NOdklYidAIjSm7jqP3PSc=;
+        b=Da39GDBF91StHjnQU/5zqsECCOuBnZVc+jeTDrF+kMi882U+Qz+j0UYdcx24XsBx+/
+         BXxTSgIBbHh9Gp/UCWH9vzX25wMzzy2GcAG2uFNNQfT4CC7Xg3BjkCzqYhRy1Q94qdT6
+         TQbQDbjVzmzgSTXSlcle5oGvgYpboUdWQL9mQhvSyT831/qxZqh7QfRbftY664q88utb
+         coqsbXTfvvWH1fctfGDU/xMj4AqZzSkSqrYo+gtU2iihOlRgMXLsNaonaiL6I+fPyFRA
+         E2rMg/tuXl1FyQkd1+HR4xh4GBNipDhWRqfJ2/pLXExU9YwepwCgb6fY5X7sRpz1hc1e
+         Sf+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,63 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4NIuzDEvK/OZ0wm56sws22VQ5JVCkXHeuASEUnCpmKU=;
-        b=BFGL2c7Cz0fjerluP0zzC/CvvXd/SUcDlJwg1lGX5JB5BIrbi6irnLMrqeDfkmccc1
-         c1cPd2Zu8VqSpdhGmwUoW5XU7ogWQLs0atcTmdQaCfKgj5tvPGFupb7Tlj1AJmskrtJv
-         NObbeOuUKQUI8Je0KDiRuj4x5UzuwJSdmEjB1W3+eyvP8yHsqHlRgoyqjlYnLeGim+nF
-         otC53MT+1yDAXHgz8HnRrhmayiO9E1APL70BaSlTZOar4olchoiFtH0OpDJa39J++w4l
-         Q4hy1409y4uEnTpbQsFCnKAul9FTwUzbkVMMitvx/o3dLN/mHWYI4hPhmXZQnInW1Vd5
-         Wi7g==
-X-Gm-Message-State: APjAAAU357ny9QMLoaGf1LeSWayTKb0J7oQk2rW9QZRjPwIP3JPNLVI9
-	K3AomMAlVzwBrX6Nt14J75s=
-X-Google-Smtp-Source: APXvYqyDfmv6KY6qaug4SapWYqEOy5rC6/3OeCBU9C5SWqBKmfipVXCPwJxTYpmXh/N2Isqfj88OCA==
-X-Received: by 2002:a17:902:6b49:: with SMTP id g9mr5518554plt.72.1572646321035;
-        Fri, 01 Nov 2019 15:12:01 -0700 (PDT)
+        bh=rT2hMjJf4nzXRdIL2cF1E8NOdklYidAIjSm7jqP3PSc=;
+        b=CjBejGSvuI1ZpukrYtYBm1dVo/7QdmY9gYHqtRfhFKC9o7Eagk0RTPQCz4YFtUEEDK
+         28SneC5gJB0Zen9SxJ9yVL+V2Si5JA9pYGB+/bAx5prO7ozLF8ie1EsE5igw+l2a/HNB
+         za/Ey0xGGLzoSWA2oogxy9krVf4spk/eANEMrFZNPgwMxt+nMhyFM4hyoO1TFJIXwMoo
+         ++YtZ9f2e7vXg/9Cx6UULnMatWxUZwPMSj6D6IEHLVe02nSS/x0d0mXqIuvyu/W2e0ef
+         DUV4n7nL/GGcCPYA10SvQW8BOPxAWaTUsbt2yWJnUs521HpTgvTVFnfLg1kMV33CohSZ
+         kHjA==
+X-Gm-Message-State: APjAAAVizkvgb/m+swFt68FZcCaSJx0xEnLVTlZwLvqGTubnlpxlQjwE
+	pxQ8tEVLh2xO274DWtF0Msw=
+X-Google-Smtp-Source: APXvYqyiK8EsojGagAQPb34910DDSJuL0Lku7tVZwiolDOt7p0smkriMUWV3X6ZCfcx5541kIOXC7A==
+X-Received: by 2002:a81:114:: with SMTP id 20mr3241526ywb.207.1572646324023;
+        Fri, 01 Nov 2019 15:12:04 -0700 (PDT)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:db48:: with SMTP id u8ls949033pjx.0.canary-gmail;
- Fri, 01 Nov 2019 15:12:00 -0700 (PDT)
-X-Received: by 2002:a17:90a:9a9:: with SMTP id 38mr18652210pjo.45.1572646320628;
-        Fri, 01 Nov 2019 15:12:00 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1572646320; cv=none;
+Received: by 2002:a81:af0a:: with SMTP id n10ls1150986ywh.4.gmail; Fri, 01 Nov
+ 2019 15:12:03 -0700 (PDT)
+X-Received: by 2002:a81:db45:: with SMTP id b5mr10591521ywn.378.1572646323568;
+        Fri, 01 Nov 2019 15:12:03 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1572646323; cv=none;
         d=google.com; s=arc-20160816;
-        b=w36TwuZKdh1Nb7/3bveXuoJQBB2YFegX6qBA+QI+DLdU3m7TP7sO1vryClfQ9Kt3C+
-         E7lQfEUadeEBur/kD+5EvjKLLTiB/TdjQCJ5vqnvdhxLSgnkn+k1MkY5OYwSzHZCqVTk
-         lONk4Ir4eISm1wL47iq0VNOBDK/CKmjtxSmKcY2O7O/GZ1VAiyp3rLR7gpDpdmlZMpI9
-         RYJHUY4OJTzMyLGBWAbWX5A5/HZOkHCm++ynklo2+mOwUdAU11bOiMoXNMsD00DMSyvr
-         JJCE3wJAVWsZArJDI9zTTXcHMe94V/58pGQSoSPozYNdwk4XwApBzXi/7r+XgMIg5NsM
-         oJpg==
+        b=H4e1Ljdjd0Oenkl510naKh7jJVjQ58w12M/TJLT9R6BOEF09KsvAjr4/jue+qKqSwB
+         qpZfrqIjtNPFX0u1SzOaNU8Gf4SatfHiAKcuNLXSaRv97ZZkdt1bpVMnheBmP3FfVjuz
+         gS/wT6F48RChdbcODpYG+Ihx7veVEyd3zIHvPPpVzD4iP6aoCsGyYGm2PwDzdxUi4k/n
+         +X9Q4sQbCVWmw8UlUjR4SO8UVQqKOwYfPk2pnLemOUhchV6eOrPSaE0X/jf30pUWSR/T
+         tk7PYjmkM57QqU6sHuptZdplE/P26Fz77J3/2YbplKPwePBT/TtpR/GT3tbsbQjYe9Lv
+         brVw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=OH2SjYe0B8esWxTAcCgR+62MsPomBC+RzRSTMU1rFk8=;
-        b=zdHUsQScGj/7KmJ+Rm6Mu4Su1vOo/52eN3UaBGncxyK4mh7aDhNgXXbz0pkCv948YJ
-         HaIWeTxHCPM7JctJlUVTt6/t05KVj3tmgCpkSJIzfXpDi4FnuODmXFmNlaqNaS5qDd0t
-         GElVNbIBhI0hslKznE0pXBUmAWCqWx3WZuPa9noEHVcJv3FL2ks2f2XeBrvdlKb+Jdid
-         CVsHtCWkMrdxqFkj7zRA/M3BW8F4ic7f8PMJhjYzGQliCyACs3uCZ4R0J6PD7CQDdpwX
-         DZjX1XMVsA5m1lyT6yE4j7+wTFhsSxuD5O+2v9pqEHIyNVjCKGqUZFLh5O0uykoRXvC6
-         11ng==
+        bh=LP5ER91yDYZoiG1DiO5iJutGGta/8W2YsIEILYrERFw=;
+        b=jqwd9YFgAxtYHWD4HJPpEaz8IoNfVNct8U0HPLuzXt/6w21V3ZU4SRYormf20jKdqd
+         OTpjul8qUH5vlwbJAUr2HBPxSIH2bekj7+/K6a2uupHg4mdbhitHW5Xc0GXjMFgmdHmw
+         7miSgEeY8IlkqI/rWdFbwEvQpgUaMyld5AxScZbUxAeubAeTaIXzY45QeMwnhU7n+3Ir
+         ZJ6/WTuZY88yDWXuQ5KWZtFFT21DWP32Q/XbkJ35hqJkyAGLJe+wXetLQCxla4Av5JEM
+         wa6xNcvgSkM3FG6XSpG9SDqk/Ma7kpPZnsvXHaO2dxs/GkafVbGpT3V8yegTLJCDKkni
+         S71A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Q0ypX2RR;
-       spf=pass (google.com: domain of 3r628xqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3r628XQwKAPAkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bzUzyeY2;
+       spf=pass (google.com: domain of 3sq28xqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3sq28XQwKAPMnVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x54a.google.com (mail-pg1-x54a.google.com. [2607:f8b0:4864:20::54a])
-        by gmr-mx.google.com with ESMTPS id t17si493226pgk.0.2019.11.01.15.12.00
+Received: from mail-pf1-x44a.google.com (mail-pf1-x44a.google.com. [2607:f8b0:4864:20::44a])
+        by gmr-mx.google.com with ESMTPS id 5si504611ybl.1.2019.11.01.15.12.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 01 Nov 2019 15:12:00 -0700 (PDT)
-Received-SPF: pass (google.com: domain of 3r628xqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) client-ip=2607:f8b0:4864:20::54a;
-Received: by mail-pg1-x54a.google.com with SMTP id 196so8029525pge.14
-        for <clang-built-linux@googlegroups.com>; Fri, 01 Nov 2019 15:12:00 -0700 (PDT)
-X-Received: by 2002:a63:e454:: with SMTP id i20mr15822954pgk.319.1572646319823;
- Fri, 01 Nov 2019 15:11:59 -0700 (PDT)
-Date: Fri,  1 Nov 2019 15:11:35 -0700
+        Fri, 01 Nov 2019 15:12:03 -0700 (PDT)
+Received-SPF: pass (google.com: domain of 3sq28xqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::44a as permitted sender) client-ip=2607:f8b0:4864:20::44a;
+Received: by mail-pf1-x44a.google.com with SMTP id r187so8428408pfc.16
+        for <clang-built-linux@googlegroups.com>; Fri, 01 Nov 2019 15:12:03 -0700 (PDT)
+X-Received: by 2002:a63:535c:: with SMTP id t28mr6291818pgl.173.1572646322264;
+ Fri, 01 Nov 2019 15:12:02 -0700 (PDT)
+Date: Fri,  1 Nov 2019 15:11:36 -0700
 In-Reply-To: <20191101221150.116536-1-samitolvanen@google.com>
-Message-Id: <20191101221150.116536-3-samitolvanen@google.com>
+Message-Id: <20191101221150.116536-4-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20191018161033.261971-1-samitolvanen@google.com> <20191101221150.116536-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.24.0.rc1.363.gb1bccd3e3d-goog
-Subject: [PATCH v4 02/17] arm64/lib: copy_page: avoid x18 register in
- assembler code
+Subject: [PATCH v4 03/17] arm64: kvm: stop treating register x18 as caller save
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
@@ -120,9 +119,9 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Q0ypX2RR;       spf=pass
- (google.com: domain of 3r628xqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3r628XQwKAPAkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=bzUzyeY2;       spf=pass
+ (google.com: domain of 3sq28xqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::44a as permitted sender) smtp.mailfrom=3sq28XQwKAPMnVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -140,91 +139,121 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Ard Biesheuvel <ard.biesheuvel@linaro.org>
 
-Register x18 will no longer be used as a caller save register in the
-future, so stop using it in the copy_page() code.
+In preparation of reserving x18, stop treating it as caller save in
+the KVM guest entry/exit code. Currently, the code assumes there is
+no need to preserve it for the host, given that it would have been
+assumed clobbered anyway by the function call to __guest_enter().
+Instead, preserve its value and restore it upon return.
 
-Link: https://patchwork.kernel.org/patch/9836869/
+Link: https://patchwork.kernel.org/patch/9836891/
 Signed-off-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-[Sami: changed the offset and bias to be explicit]
+[Sami: updated commit message, switched from x18 to x29 for the guest context]
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Reviewed-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- arch/arm64/lib/copy_page.S | 38 +++++++++++++++++++-------------------
- 1 file changed, 19 insertions(+), 19 deletions(-)
+ arch/arm64/kvm/hyp/entry.S | 41 +++++++++++++++++++-------------------
+ 1 file changed, 20 insertions(+), 21 deletions(-)
 
-diff --git a/arch/arm64/lib/copy_page.S b/arch/arm64/lib/copy_page.S
-index bbb8562396af..290dd3c5266c 100644
---- a/arch/arm64/lib/copy_page.S
-+++ b/arch/arm64/lib/copy_page.S
-@@ -34,45 +34,45 @@ alternative_else_nop_endif
- 	ldp	x14, x15, [x1, #96]
- 	ldp	x16, x17, [x1, #112]
+diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
+index e5cc8d66bf53..c3c2d842c609 100644
+--- a/arch/arm64/kvm/hyp/entry.S
++++ b/arch/arm64/kvm/hyp/entry.S
+@@ -23,6 +23,7 @@
+ 	.pushsection	.hyp.text, "ax"
  
--	mov	x18, #(PAGE_SIZE - 128)
-+	add	x0, x0, #256
- 	add	x1, x1, #128
- 1:
--	subs	x18, x18, #128
-+	tst	x0, #(PAGE_SIZE - 1)
+ .macro save_callee_saved_regs ctxt
++	str	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
+ 	stp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
+ 	stp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
+ 	stp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
+@@ -32,6 +33,8 @@
+ .endm
  
- alternative_if ARM64_HAS_NO_HW_PREFETCH
- 	prfm	pldl1strm, [x1, #384]
- alternative_else_nop_endif
+ .macro restore_callee_saved_regs ctxt
++	// We assume \ctxt is not x18-x28
++	ldr	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
+ 	ldp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
+ 	ldp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
+ 	ldp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
+@@ -48,7 +51,7 @@ ENTRY(__guest_enter)
+ 	// x0: vcpu
+ 	// x1: host context
+ 	// x2-x17: clobbered by macros
+-	// x18: guest context
++	// x29: guest context
  
--	stnp	x2, x3, [x0]
-+	stnp	x2, x3, [x0, #-256]
- 	ldp	x2, x3, [x1]
--	stnp	x4, x5, [x0, #16]
-+	stnp	x4, x5, [x0, #16 - 256]
- 	ldp	x4, x5, [x1, #16]
--	stnp	x6, x7, [x0, #32]
-+	stnp	x6, x7, [x0, #32 - 256]
- 	ldp	x6, x7, [x1, #32]
--	stnp	x8, x9, [x0, #48]
-+	stnp	x8, x9, [x0, #48 - 256]
- 	ldp	x8, x9, [x1, #48]
--	stnp	x10, x11, [x0, #64]
-+	stnp	x10, x11, [x0, #64 - 256]
- 	ldp	x10, x11, [x1, #64]
--	stnp	x12, x13, [x0, #80]
-+	stnp	x12, x13, [x0, #80 - 256]
- 	ldp	x12, x13, [x1, #80]
--	stnp	x14, x15, [x0, #96]
-+	stnp	x14, x15, [x0, #96 - 256]
- 	ldp	x14, x15, [x1, #96]
--	stnp	x16, x17, [x0, #112]
-+	stnp	x16, x17, [x0, #112 - 256]
- 	ldp	x16, x17, [x1, #112]
- 
- 	add	x0, x0, #128
- 	add	x1, x1, #128
- 
--	b.gt	1b
-+	b.ne	1b
- 
--	stnp	x2, x3, [x0]
--	stnp	x4, x5, [x0, #16]
--	stnp	x6, x7, [x0, #32]
--	stnp	x8, x9, [x0, #48]
--	stnp	x10, x11, [x0, #64]
--	stnp	x12, x13, [x0, #80]
--	stnp	x14, x15, [x0, #96]
--	stnp	x16, x17, [x0, #112]
-+	stnp	x2, x3, [x0, #-256]
-+	stnp	x4, x5, [x0, #16 - 256]
-+	stnp	x6, x7, [x0, #32 - 256]
-+	stnp	x8, x9, [x0, #48 - 256]
-+	stnp	x10, x11, [x0, #64 - 256]
-+	stnp	x12, x13, [x0, #80 - 256]
-+	stnp	x14, x15, [x0, #96 - 256]
-+	stnp	x16, x17, [x0, #112 - 256]
- 
+ 	// Store the host regs
+ 	save_callee_saved_regs x1
+@@ -67,31 +70,28 @@ alternative_else_nop_endif
  	ret
- ENDPROC(copy_page)
+ 
+ 1:
+-	add	x18, x0, #VCPU_CONTEXT
++	add	x29, x0, #VCPU_CONTEXT
+ 
+ 	// Macro ptrauth_switch_to_guest format:
+ 	// 	ptrauth_switch_to_guest(guest cxt, tmp1, tmp2, tmp3)
+ 	// The below macro to restore guest keys is not implemented in C code
+ 	// as it may cause Pointer Authentication key signing mismatch errors
+ 	// when this feature is enabled for kernel code.
+-	ptrauth_switch_to_guest x18, x0, x1, x2
++	ptrauth_switch_to_guest x29, x0, x1, x2
+ 
+ 	// Restore guest regs x0-x17
+-	ldp	x0, x1,   [x18, #CPU_XREG_OFFSET(0)]
+-	ldp	x2, x3,   [x18, #CPU_XREG_OFFSET(2)]
+-	ldp	x4, x5,   [x18, #CPU_XREG_OFFSET(4)]
+-	ldp	x6, x7,   [x18, #CPU_XREG_OFFSET(6)]
+-	ldp	x8, x9,   [x18, #CPU_XREG_OFFSET(8)]
+-	ldp	x10, x11, [x18, #CPU_XREG_OFFSET(10)]
+-	ldp	x12, x13, [x18, #CPU_XREG_OFFSET(12)]
+-	ldp	x14, x15, [x18, #CPU_XREG_OFFSET(14)]
+-	ldp	x16, x17, [x18, #CPU_XREG_OFFSET(16)]
+-
+-	// Restore guest regs x19-x29, lr
+-	restore_callee_saved_regs x18
+-
+-	// Restore guest reg x18
+-	ldr	x18,      [x18, #CPU_XREG_OFFSET(18)]
++	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
++	ldp	x2, x3,   [x29, #CPU_XREG_OFFSET(2)]
++	ldp	x4, x5,   [x29, #CPU_XREG_OFFSET(4)]
++	ldp	x6, x7,   [x29, #CPU_XREG_OFFSET(6)]
++	ldp	x8, x9,   [x29, #CPU_XREG_OFFSET(8)]
++	ldp	x10, x11, [x29, #CPU_XREG_OFFSET(10)]
++	ldp	x12, x13, [x29, #CPU_XREG_OFFSET(12)]
++	ldp	x14, x15, [x29, #CPU_XREG_OFFSET(14)]
++	ldp	x16, x17, [x29, #CPU_XREG_OFFSET(16)]
++
++	// Restore guest regs x18-x29, lr
++	restore_callee_saved_regs x29
+ 
+ 	// Do not touch any register after this!
+ 	eret
+@@ -114,7 +114,7 @@ ENTRY(__guest_exit)
+ 	// Retrieve the guest regs x0-x1 from the stack
+ 	ldp	x2, x3, [sp], #16	// x0, x1
+ 
+-	// Store the guest regs x0-x1 and x4-x18
++	// Store the guest regs x0-x1 and x4-x17
+ 	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(0)]
+ 	stp	x4, x5,   [x1, #CPU_XREG_OFFSET(4)]
+ 	stp	x6, x7,   [x1, #CPU_XREG_OFFSET(6)]
+@@ -123,9 +123,8 @@ ENTRY(__guest_exit)
+ 	stp	x12, x13, [x1, #CPU_XREG_OFFSET(12)]
+ 	stp	x14, x15, [x1, #CPU_XREG_OFFSET(14)]
+ 	stp	x16, x17, [x1, #CPU_XREG_OFFSET(16)]
+-	str	x18,      [x1, #CPU_XREG_OFFSET(18)]
+ 
+-	// Store the guest regs x19-x29, lr
++	// Store the guest regs x18-x29, lr
+ 	save_callee_saved_regs x1
+ 
+ 	get_host_ctxt	x2, x3
 -- 
 2.24.0.rc1.363.gb1bccd3e3d-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191101221150.116536-3-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191101221150.116536-4-samitolvanen%40google.com.
