@@ -1,146 +1,140 @@
-Return-Path: <clang-built-linux+bncBAABBDEV77WQKGQETSHTL7I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCM33EFK7EJRB5WS77WQKGQEHH5ZP4Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x540.google.com (mail-ed1-x540.google.com [IPv6:2a00:1450:4864:20::540])
-	by mail.lfdr.de (Postfix) with ESMTPS id DA2AEED928
-	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Nov 2019 07:51:56 +0100 (CET)
-Received: by mail-ed1-x540.google.com with SMTP id s15sf11578386edj.1
-        for <lists+clang-built-linux@lfdr.de>; Sun, 03 Nov 2019 22:51:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1572850316; cv=pass;
+Received: from mail-wm1-x33e.google.com (mail-wm1-x33e.google.com [IPv6:2a00:1450:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id D8563EDB2F
+	for <lists+clang-built-linux@lfdr.de>; Mon,  4 Nov 2019 10:03:50 +0100 (CET)
+Received: by mail-wm1-x33e.google.com with SMTP id f2sf6187845wmf.8
+        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Nov 2019 01:03:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1572858230; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0XR2+Lns2K5dndi8rCzMoizXXLw4jzpmq4Ou7+ItTrqW9ds9UlZ61yo24Oo0ugU39M
-         2abLYQcLTaCG5yYebZT8D6VMfzbJRHPzxSNQ/RwC2fITurWyK89B+7/bU6l/fUvqqxmd
-         /J9jEJEJzR7F3Hzssqf0LFl7LoVzk892ypD4Is1kFEhwHZVmgDVEPAY2JCqMsDLw/00H
-         0Jdv6jc9exRUOcgrH0GkG91u/CpPCtkk3AMiA+THUsXoKlkRY2BPRyCSIt+a4N4hOtVN
-         2SP/b+RWQMUmwrU26TOjGBFLeSKDTxQAGmyQEDXV3wYWVWnbNtOerfUGpUq9YifpAui3
-         UbuA==
+        b=NDRScZXpSBNEsYSvvh6jdaX0r6UsX3DzuFbwGjzFCUqoOslirOoddgONJeVXdLxPwC
+         C6/tDc2bNxPAfZRk3F/3iqw3i/PsiI2NcGxpjyln6yXGztOaHxYL/qzhBfqlL5QVF43C
+         juz3oa3TiqHzzm/J1sw/Gtybtj9pBdn5krnREI9oy8SQXt2wAZShcojR60tBdHNym2gb
+         X3mN3J8x8H+TcMFOslf3PGJTdXZC5r+rRQCWr8qTp9FRSX+mPI7XZ7tc0IlbwyQedwh+
+         QgT2u5hENcZ5bMOuxmKueBxgDzahqF5Fx8RQLHWWYSHPRZG/AAG3kLTn4pgyZlv63Dc/
+         wwjw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-id
-         :content-language:accept-language:in-reply-to:references:message-id
-         :date:thread-index:thread-topic:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=T8eILPyLoQq558uq0RIGNGEK+Wvj8zzwAcm2o8faRCo=;
-        b=Fm76x9XuUUiUIheH22P0c4m2JlzGPemNPWdhrFeU3mpPJxmK+7t/S57vNN6/UKzq0/
-         WMpSxe6M4sZeZeUvQPc9diAey17TiAo3J8laNo+2vJELaQupb+0B4j855CxrYL/G1Dhc
-         INCqI66K4vlH2s5UK1zOHWnBUY28Ts1u3GL5sb5SpqvouCpR0Ht7KaO79bq26JgdCA/Y
-         j8PpSH8NBRLUAqe8zjmjivJOFjCJLj7sHDtcXem/WkU06mvwlFoHvOYVOEKHfAhEdxNK
-         xBnjHIeaI2Wc3nw+a0tME+TVy5vHme8GhjP9n5O44++wvBJo/IiJx2I/oJKX4XJSFkmg
-         zTjQ==
+         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
+         :mime-version:sender:dkim-signature:dkim-signature;
+        bh=+9P0dvk1uiYaTqolmYBaoEqaekHNyi2OPLMuKsqw3ao=;
+        b=NR1tM01URYnDlYPPOLdzPDgN2BSTBAgnWhh+bWCWliLXVP+u+CLUJcEJ6sdfJ++Mm2
+         G8Ynqv7Y7xx5PFRTVqBRGreTOdSlqrzADYb9+WCzG3idGG31Y7IuL6cCOPjUejB0sRZ1
+         VD5wQyPMHmZUpaOn5eAkVXUTqfemvF19bOU+kP7YyeEB/h0YP/kYoXc39HbUN2vGEVU/
+         oB6N/qbPH0k66Bob0s+g2Iqd5J+y7y6O0+FSOyXwbf0lRckEvDsu7oYt3NZ4pnJTxJKr
+         Pf38DHCw+ZA77eevTrEs5KSgrq+b1lv1HdmGgwqJyBbbJi5F1UJexu7q7Eqzaqo8j0aB
+         91FQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of prvs=12112fbd93=matti.vaittinen@fi.rohmeurope.com designates 178.15.145.194 as permitted sender) smtp.mailfrom="prvs=12112fbd93=Matti.Vaittinen@fi.rohmeurope.com"
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j06SGU3h;
+       spf=pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:content-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:from:to:cc:subject:date:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=T8eILPyLoQq558uq0RIGNGEK+Wvj8zzwAcm2o8faRCo=;
-        b=FFvKzueTDlL7qIsxOlbL7Zl6Y/zqmhEwoJolwOXrnpfCVKPzyfiMC87t/vpewClVw7
-         tmLCo+9JmJ2y80qc//dpS5/6LEMblmK9evlwQkMeOPQ3UfIKnnOTNvPcrZC+AzMD++Pc
-         grMfjY0xNJsTJl+/3YA7CNPxmmD1iss7XJcHN581zaZIZWHB3VCzrwIfOPfvSephbhrQ
-         /wqljLjtswcDm1cP82sHggPgLkR/z79ECCperIvNyaVt0wyIt/VIX8lh8PahJd3lCAQB
-         3c0iDL7ZvcafscYEttMAoFD3vv9iw9gurUNWKXZsBvMlD6KGEMTFgglHilZNzuQfcOqo
-         Ebsg==
+        bh=+9P0dvk1uiYaTqolmYBaoEqaekHNyi2OPLMuKsqw3ao=;
+        b=JpPJ0nyvFiXfD9jxBmbEpF/PD+AUB8dE42NYEQNMp5z0p6LDcK2N3Ebt9trtcUu15D
+         aKT2/U1cjj1WCkNwi+jITTVbUwKLiEEgMP4NwoXFFK7AP0VoF68GG0rf0ubF+fHL//pt
+         gXUhlSteFWHb2v0cZOxBz3ZTlkMxO2rJKQBfuVQmyNxtUyWLFLjfJti/IaG+CvRZJpPf
+         jNIEvPPKbNaAOUROXcKsH6k/UIkPERNE10hVMLlS8N8cHFe45U85GeUvep4DTW7O5TGL
+         tIpxET8R0yT601QFcAMRSkJqubmuOS6tTWGkhEhg9eQWgUu9TN9IKjtYqJO/zkGrD72z
+         aALQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+9P0dvk1uiYaTqolmYBaoEqaekHNyi2OPLMuKsqw3ao=;
+        b=iCv2rOlCxfmVozG1QZ9KuA955qWALzkZJNAe2ctnFepEaLSLM+AtZ8QdNQvTXmymvQ
+         ftIMS5D0ajNLM2sO1b+ezWfZ4SVJw5BxayQrMt+VvwhDU93XZ15SLFJhF+ahq53KUVbN
+         xGTaiPTNa6LS3AQlSks7WNhUW+N+62vMdiJJeD2dnYVDXXCpMyZnxNAlr2XoK0bbX4ix
+         aK0C3kKEfCOrRoX3DQAhBQq+/YUtxq7BfyIX0gXb08zflvfCPFD6wfYv/sPeqAaqXohC
+         jWk7wggAvwFMIxdiNe531yenDldpmhxklhVL9mBnxjstR40AtUHi7rbsuXqDKKGIOcXj
+         32XA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:content-id:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=T8eILPyLoQq558uq0RIGNGEK+Wvj8zzwAcm2o8faRCo=;
-        b=Eoc0KIctnY0BS9Kn/g4mSRE2oQuhKeQU7+xRFpbgwLaIIO+0O1kMwPtOxM1aea6qW4
-         MuZQ4UtHcN2u5RUjkTjFzGmQ8+DrYNkZCFe1OBQB89EiqGkKN+kR17bKePdASwNDcpaO
-         70N+KGS+bukglOrSC149KD0nr7dz4pGxnKRFbzzPUTetgHfVJaFBvDmGUynnVtDYse6q
-         RKuPMhdykYLDt6ki79B0oZn4K6JRiUlobiJQfy7klXHmt5vflxA1TNBuX8a2jMrKJ1mK
-         7+fpTlntjXk9+bRZAX2PLCFG3XiNB3acgQasxG1QfStvCY669gFjJpxiSXbh9OrVUL/g
-         72gQ==
+        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
+         :message-id:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+9P0dvk1uiYaTqolmYBaoEqaekHNyi2OPLMuKsqw3ao=;
+        b=EBNtPzxAoZzl9bEmjW/my4DBK5FnDslfT4CGS0DMeRoYtASsR9+rgF+vdJTXA6M+mT
+         QDBzkLMOIshmgoP3fPx2VY50BlHKMeTFmfcvhyqyriaYPpM0efayMLOJxdkdRzZ97vm6
+         g9dvv2QSWuBLnwZ3iEgqoE6jHSU+wEbczHnjpARfbDB3uRKeYdTxqLgiozkW9SSWxryS
+         /Q+D+srf6Yc3WUO51o+CBEdhiphLPznEdrs5HBRSiy5o/KIAm6QsgK8ZG9iGlYJ1Mfg7
+         a9XVj+yTTk/lc0XmrBRqPWNCqOipmXrVydY17jPRB4jSGFXQkdHRXVvLZFMRW2bKMxQs
+         X9xw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWBW8j4ft1cDo4zBGtnIDevNhQ3NGGkjSR7lnbYxig93JcK2ipy
-	kKHbNJZZG21WHzVYaW3gfi4=
-X-Google-Smtp-Source: APXvYqxHlw9otcbZpqroAqiijizIYlTR494fjyIymJUuyTTR/u2rR2pq8rWe+pr6cbyatZbiZvrukA==
-X-Received: by 2002:a17:906:7fcb:: with SMTP id r11mr4646918ejs.85.1572850316530;
-        Sun, 03 Nov 2019 22:51:56 -0800 (PST)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:c790:: with SMTP id n16ls3833049eds.5.gmail; Sun, 03 Nov
- 2019 22:51:56 -0800 (PST)
-X-Received: by 2002:a50:ff19:: with SMTP id a25mr27381837edu.181.1572850316185;
-        Sun, 03 Nov 2019 22:51:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1572850316; cv=none;
-        d=google.com; s=arc-20160816;
-        b=xXz9a4uvOfHKHN3PiWXaBLvzDePEGBIgU0hJdzf2SUyvN9rSOUn0RE7qv5saKA8xtI
-         tSFkaAGw+RaoxmNJ64OBfevLs6a522w3vDhFjjEiEnYwgoTGxm40T2o7KQEHR1bEJrNF
-         v47XKM+gGWycj+Fhh5SiEPKx8v2LtheqIe81un53v9M8eHtYherJqBSjF60OmY6D8i5q
-         TRDiR9FUmungRwmmgeH9nz03qoHT/2Uk8sy3rX9yk+Pc/XX/7KI3o4HfIRlAii6dTsMc
-         P399Vp/qQRi6SsBxaKhqmmy/5qQVQEfCysj3H0yH5e8+5fzI66/Latr+qGXz6h9Xb9Ud
-         nEzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from;
-        bh=DxHlUU6QVC5eqv3Lr3wTG+zkxof+X+Csx148NtWIJpw=;
-        b=P3Fy0nl3HjUdyXRTvlGUS9359kdfXHIw8GDOlaFWE/EkA9ZFWzEpKCc0xVSJXiJEU3
-         lYcKP3TihRJjNKn6k5JNNL1LUHBMcpioQdC1kZ0gmTENIgoOjZ7trjQb6huVuzMrBrdM
-         iU5B0fbBcTvhnCb6M5DY0nVWiGPxkMD5OyLI/t32pbqQDySN1AWUpt1JXNv9aMNj+2UE
-         XS7LNk2aU8RaF7mae/zVLqtS/XQ6NVBfG+Fzzr5HwRau0mBVFGdofVXQyoWKBWeWc7oH
-         8oz29bma+KRwMS/rcpCOuOacBcxCs+tzw6ORvGh/M1DhVO2/0jREpYvPnm27Glxg4cze
-         Hbuw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of prvs=12112fbd93=matti.vaittinen@fi.rohmeurope.com designates 178.15.145.194 as permitted sender) smtp.mailfrom="prvs=12112fbd93=Matti.Vaittinen@fi.rohmeurope.com"
-Received: from mailgate1.rohmeurope.com (mailgate1.rohmeurope.com. [178.15.145.194])
-        by gmr-mx.google.com with ESMTP id z18si830180edd.5.2019.11.03.22.51.56
-        for <clang-built-linux@googlegroups.com>;
-        Sun, 03 Nov 2019 22:51:56 -0800 (PST)
-Received-SPF: pass (google.com: domain of prvs=12112fbd93=matti.vaittinen@fi.rohmeurope.com designates 178.15.145.194 as permitted sender) client-ip=178.15.145.194;
-X-AuditID: c0a8fbf4-199ff70000001fa6-4e-5dbfca8b1159
-Received: from smtp.reu.rohmeu.com (will-cas002.reu.rohmeu.com [192.168.251.178])
-	by mailgate1.rohmeurope.com (Symantec Messaging Gateway) with SMTP id 5A.CB.08102.B8ACFBD5; Mon,  4 Nov 2019 07:51:55 +0100 (CET)
-Received: from WILL-MAIL002.REu.RohmEu.com ([fe80::e0c3:e88c:5f22:d174]) by
- WILL-CAS002.REu.RohmEu.com ([fe80::fc24:4cbc:e287:8659%12]) with mapi id
- 14.03.0439.000; Mon, 4 Nov 2019 07:51:45 +0100
-From: "Vaittinen, Matti" <Matti.Vaittinen@fi.rohmeurope.com>
-To: "natechancellor@gmail.com" <natechancellor@gmail.com>
-CC: "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"ndesaulniers@google.com" <ndesaulniers@google.com>, "kbuild@lists.01.org"
-	<kbuild@lists.01.org>, "lkp@intel.com" <lkp@intel.com>
-Subject: Re: [RFC PATCH v3 14/15] gpio: Add definition for GPIO direction
-Thread-Topic: [RFC PATCH v3 14/15] gpio: Add definition for GPIO direction
-Thread-Index: AQHVkaa1hdqKw9vEbUql9O/haZZyiad6hJ4A
-Date: Mon, 4 Nov 2019 06:51:44 +0000
-Message-ID: <f86cd49e9da9fec5643b42141ccdeeb90280c3b7.camel@fi.rohmeurope.com>
-References: <201911030009.jfBGqgTX%lkp@intel.com>
-	 <20191102175528.GA49760@ubuntu-m2-xlarge-x86>
-In-Reply-To: <20191102175528.GA49760@ubuntu-m2-xlarge-x86>
-Accept-Language: en-US, de-DE
-Content-Language: de-DE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [213.255.186.46]
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <F4E08838FCEB594CAF1032A830D060EB@de.rohmeurope.com>
+X-Gm-Message-State: APjAAAUNg3QYx54VcbwQi22rkBKmdSoWlUuv4/OZJ9VjxVRAVDddJ2gW
+	hXUQU6goNxXHw3Oc0ZNFNxQ=
+X-Google-Smtp-Source: APXvYqzLa2OQC73ZK62fiI31ZujPzxjIbqn2weJxjW/yvH7vOC6olb2LWb5t/jDEvKqEZ6uteAm0ew==
+X-Received: by 2002:a05:600c:210b:: with SMTP id u11mr20434378wml.170.1572858230606;
+        Mon, 04 Nov 2019 01:03:50 -0800 (PST)
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA01SW0gUYRjln5mdHS8j46rt75YPuwWSoKZFrCYpvbRqSNBLSYuN7uSI7q7M
-	7ob2tGKs6RJoeR0RxMxLUsYq0UVdWzXTRCmUktA0pVQ0L2R2Q5txvb2cOfznO985MB+Byspx
-	BZFhMDOcgc5S4Z5Yd9NfR6h90Kk9UdYerJ5arMbVLdYniHoh/wuuXlkyq1eKt5A4ieY5PyHV
-	1Dosmo6SAVxzv2Me0dirN7GLkmSvmFTafONSRroh/Ow1L9bWX4Blv4/Kmbttw62gVF0EPAhI
-	nYJNs3mIyGXUGIA9zswi4CnwfgCHPtrRIkAQOBUDi8al4ow/FQW/jTqk4gxKjQL40/kZEwU/
-	Kh46/w3uDCXA0tpu1M0jYUNXBS5yjDoGW6xOIHKSSoLtpW8xd3AqbGyc2573oKLhZol9ewZQ
-	QbDQ+n27HErJoePrhsRdmoL1HSOomwfA+ZnNnXcV7Pw9jYmdUeo4bH0R7rbGwZlbfTtrlLDU
-	Pi11V/CFA1WzWDE4xB9I4Pfd/AE3f8DNH3DXAslDAPV0RlY6bWYiwjjGEsYZWb3wSTPqHcD9
-	J388A1uueBdACOACgQSiCiDrPnRpZT6pRl0uS5vYFM6SxZhcABKoyp98V9mplZE6Ovcmwxl3
-	pcMEppKTwdMlWhklZmUyTDbD7apHCEIFyaoBp1bmyzHpTM71jCzzvowQHuJyT4W/iTHoGI62
-	mNkU8TxSTMJ9iJK3kIsI5yYjTdm0Xnh1WwdBPFE8X1OHEouP6gVc2sbxZRF7ax4IaJucELBA
-	RBlmMBoYhZw8I/agxEWsxbBXYwHICaDyI4ffCKq3cOx7KQtCAUQocGGmSyxgpvclhRU00j3R
-	yefCfdcCC0PWpsZazlda4pXKWF2QPEUnUTy1FTQPXB6MXM4//fpKWdTipVf56y//5BSsmvi0
-	4UA2gU2azQQrQfq+o8W8NHazGd5tm3SMuboeL68lxcINutXYmtfwSVtu5RNXq2OH0JhfFfeU
-	iTG966Ftd65G+oycXFBhJpaOCEE5E/0fcfSZO6kDAAA=
-X-Original-Sender: matti.vaittinen@fi.rohmeurope.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of prvs=12112fbd93=matti.vaittinen@fi.rohmeurope.com
- designates 178.15.145.194 as permitted sender) smtp.mailfrom="prvs=12112fbd93=Matti.Vaittinen@fi.rohmeurope.com"
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a1c:1b0b:: with SMTP id b11ls16725282wmb.3.gmail; Mon, 04
+ Nov 2019 01:03:49 -0800 (PST)
+X-Received: by 2002:a1c:ed04:: with SMTP id l4mr22505678wmh.96.1572858229959;
+        Mon, 04 Nov 2019 01:03:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1572858229; cv=none;
+        d=google.com; s=arc-20160816;
+        b=kgVUvrqYyg9v9Pwtu4/TvFYjvTv/7GTOOk6HrcLcXzZ7nSEVlsTJGwA//S5QGigsQy
+         FlGPratgiMzx/6mHetwGXYE+bkRrOuPyGtIUxPy6GO/IOqi/4ciYDGkfSQ6PWdehHB3Y
+         uI/2cdOWxO07dDPp/qOlX/zgIE5ckuW+RMsNpllE5v8sXA8wpKEZsJ5uc1gKd7UlWosw
+         VUxIzxeWTfq5fjVGsGEBxTWbA67hwZZ65jlANq8Lz/9WdYrlbHNbLtvXEy6bQRKGnMfD
+         CUbdnwo9i68JfAk+rEpUeDduIjta8QnUltO4NIIwC8qKRdDBIAcQVrnpDsiVZKXHzEZf
+         LPVA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:date:subject:cc:to:from:dkim-signature;
+        bh=Y0YQGawiwSeX4aHJm0zQu9hKirW5TWrGPsoV/UHqG+A=;
+        b=s3iQixK4ATRm57R2gXvzBXc6hxmUJM9YSvkKxirq/iHAEb5yy7/yTWoqqY2xMtLl/P
+         KS9JP1Za55BW6M66xCuxkGdSDcWOgTpIdXWfyvn8mp2EFMFK8G4ccKanxQb3kxU3YsG8
+         zhKjrjIbpNXtKzw5OF8Sbg8fo8vubODVEUzGGggG8Ngl8OOgLzl7AO+eEM3aWDCxhfBu
+         UZjO1Yq2Y+qcijh/tvuSATfasz/iPPIjJA6iM+kxosuOjnsDHB73aDuFyICVrwk/wdkU
+         M9QSVSfTWJtlHkZ1P01LL3gHQH12KKCXR4DyIKtKg1BdGbFtT1awmuFScAandNyrARob
+         32iQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=j06SGU3h;
+       spf=pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id t18si898740wrw.0.2019.11.04.01.03.49
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 04 Nov 2019 01:03:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
+Received: by mail-wm1-x344.google.com with SMTP id z26so2500446wmi.4
+        for <clang-built-linux@googlegroups.com>; Mon, 04 Nov 2019 01:03:49 -0800 (PST)
+X-Received: by 2002:a1c:3801:: with SMTP id f1mr7726259wma.44.1572858229634;
+        Mon, 04 Nov 2019 01:03:49 -0800 (PST)
+Received: from localhost.localdomain ([2a02:a58:8166:7500:4997:f83a:5cb7:7659])
+        by smtp.gmail.com with ESMTPSA id d13sm14493544wrq.51.2019.11.04.01.03.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 04 Nov 2019 01:03:48 -0800 (PST)
+From: Ilie Halip <ilie.halip@gmail.com>
+To: x86@kernel.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Ilie Halip <ilie.halip@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH] x86/boot: explicitly place .eh_frame after .rodata
+Date: Mon,  4 Nov 2019 11:03:38 +0200
+Message-Id: <20191104090339.20941-1-ilie.halip@gmail.com>
+X-Mailer: git-send-email 2.17.1
+X-Original-Sender: ilie.halip@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=j06SGU3h;       spf=pass
+ (google.com: domain of ilie.halip@gmail.com designates 2a00:1450:4864:20::344
+ as permitted sender) smtp.mailfrom=ilie.halip@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,141 +147,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello Nathan
+When using GCC as compiler and LLVM's lld as linker, linking
+setup.elf fails:
+      LD      arch/x86/boot/setup.elf
+    ld.lld: error: init sections too big!
 
-On Sat, 2019-11-02 at 10:55 -0700, Nathan Chancellor wrote:
-> On Sun, Nov 03, 2019 at 12:44:35AM +0800, kbuild test robot wrote:
-> > CC: kbuild-all@lists.01.org
-> > In-Reply-To: <
-> > f08d265c12ebf185c0e1dbbfe0a3f86de4907194.1572606437.git.matti.vaittinen@fi.rohmeurope.com
-> > >
-> > References: <
-> > f08d265c12ebf185c0e1dbbfe0a3f86de4907194.1572606437.git.matti.vaittinen@fi.rohmeurope.com
-> > >
-> > TO: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
-> > 
-> > Hi Matti,
-> > 
-> > [FYI, it's a private test report for your RFC patch.]
-> > [auto build test WARNING on ljones-mfd/for-mfd-next]
-> > [also build test WARNING on v5.4-rc5 next-20191031]
-> > [if your patch is applied to the wrong git tree, please drop us a
-> > note to help
-> > improve the system. BTW, we also suggest to use '--base' option to
-> > specify the
-> > base tree in git format-patch, please see 
-> > https://stackoverflow.com/a/37406982]
-> > 
-> > url:    
-> > https://github.com/0day-ci/linux/commits/Matti-Vaittinen/Support-ROHM-BD71828-PMIC/20191102-222004
-> > base:   https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git
-> >  for-mfd-next
-> > config: arm64-defconfig (attached as .config)
-> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project
-> > cecc0d27ad58c0aed8ef9ed99bbf691e137a0f26)
-> > reproduce:
-> >         wget 
-> > https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross
-> > -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         # save the attached .config to linux build tree
-> >         make.cross ARCH=arm64 
-> > 
-> > If you fix the issue, kindly add following tag
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> > 
-> > All warnings (new ones prefixed by >>):
-> > 
-> > > > drivers//gpio/gpio-tegra.c:35:9: warning: 'GPIO_OUT' macro
-> > > > redefined [-Wmacro-redefined]
-> >    #define GPIO_OUT(t, x)          (GPIO_REG(t, x) + 0X20)
-> >            ^
-> >    include/linux/gpio/driver.h:26:9: note: previous definition is
-> > here
-> >    #define GPIO_OUT        0
-> >            ^
-> > > > drivers//gpio/gpio-tegra.c:36:9: warning: 'GPIO_IN' macro
-> > > > redefined [-Wmacro-redefined]
-> >    #define GPIO_IN(t, x)           (GPIO_REG(t, x) + 0x30)
-> >            ^
-> >    include/linux/gpio/driver.h:25:9: note: previous definition is
-> > here
-> >    #define GPIO_IN         1
-> >            ^
-> >    2 warnings generated.
-> > 
-> > vim +/GPIO_OUT +35 drivers//gpio/gpio-tegra.c
-> > 
-> > 3c92db9ac0ca3e arch/arm/mach-tegra/gpio.c Erik Gilling    2010-03-
-> > 15  29  
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  30  #define GPIO_REG(tgi, x)	(GPIO_BANK(x) * tgi->soc-
-> > >bank_stride + \
-> > 5c1e2c9dc684f2 drivers/gpio/gpio-tegra.c  Stephen Warren  2012-03-
-> > 16  31  					GPIO_PORT(x) * 4)
-> > 3c92db9ac0ca3e arch/arm/mach-tegra/gpio.c Erik Gilling    2010-03-
-> > 15  32  
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  33  #define GPIO_CNF(t, x)		(GPIO_REG(t, x) + 0x00)
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  34  #define GPIO_OE(t, x)		(GPIO_REG(t, x) + 0x10)
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25 @35  #define GPIO_OUT(t, x)		(GPIO_REG(t, x) + 0X20)
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25 @36  #define GPIO_IN(t, x)		(GPIO_REG(t, x) + 0x30)
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  37  #define GPIO_INT_STA(t, x)	(GPIO_REG(t, x) + 0x40)
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  38  #define GPIO_INT_ENB(t, x)	(GPIO_REG(t, x) + 0x50)
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  39  #define GPIO_INT_LVL(t, x)	(GPIO_REG(t, x) + 0x60)
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  40  #define GPIO_INT_CLR(t, x)	(GPIO_REG(t, x) + 0x70)
-> > 3737de42afb8d7 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  41  #define GPIO_DBC_CNT(t, x)	(GPIO_REG(t, x) + 0xF0)
-> > 3737de42afb8d7 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  42  
-> > b546be0db95584 drivers/gpio/gpio-tegra.c  Laxman Dewangan 2016-04-
-> > 25  43  
-> > 
-> > :::::: The code at line 35 was first introduced by commit
-> > :::::: b546be0db955840e2c14aae5d8e5f93a456f9982 gpio: tegra: Get
-> > rid of all file scoped global variables
-> > 
-> > :::::: TO: Laxman Dewangan <ldewangan@nvidia.com>
-> > :::::: CC: Linus Walleij <linus.walleij@linaro.org>
-> > 
-> > ---
-> > 0-DAY kernel test infrastructure                Open Source
-> > Technology Center
-> > https://lists.01.org/pipermail/kbuild-all                   Intel
-> > Corporation
-> > 
-> 
-> Hi Matti,
-> 
-> The 0day team has been doing clang builds for us and sending them to
-> our
-> mailing list for triage; this one popped up from one of your patches.
-> It
-> appears that some drivers define this macro already. Mind taking a
-> look
-> to see how you could resolve this? I did not CC any mailing lists
-> aside
-> from our own because your patch cc'd six mailing lists and I am not
-> sure
-> they would find this interesting.
+This happens because ld.lld has different rules for placing
+orphan sections (i.e. sections not mentioned in a linker script)
+compared to ld.bfd.
 
-I'll change the define to something less generic :)
+Particularly, in this case, the merged .eh_frame section is
+placed before __end_init, which triggers an assert in the script.
 
-Br,
-	Matti Vaittinen
+Explicitly place this section after .rodata, in accordance with
+ld.bfd's behavior.
 
-> 
-> Cheers,
-> Nathan
+Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/760
+---
+ arch/x86/boot/setup.ld | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/x86/boot/setup.ld b/arch/x86/boot/setup.ld
+index 0149e41d42c2..4e02eab11b59 100644
+--- a/arch/x86/boot/setup.ld
++++ b/arch/x86/boot/setup.ld
+@@ -25,6 +25,7 @@ SECTIONS
+ 
+ 	. = ALIGN(16);
+ 	.rodata		: { *(.rodata*) }
++	.eh_frame	: { *(.eh_frame*) }
+ 
+ 	.videocards	: {
+ 		video_cards = .;
+-- 
+2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/f86cd49e9da9fec5643b42141ccdeeb90280c3b7.camel%40fi.rohmeurope.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191104090339.20941-1-ilie.halip%40gmail.com.
