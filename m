@@ -1,31 +1,31 @@
 Return-Path: <clang-built-linux+bncBDV37XP3XYDRBFFHQ7XAKGQEHOVYZWA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9A7D8F065C
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 99D9DF065B
 	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Nov 2019 20:55:00 +0100 (CET)
-Received: by mail-wr1-x437.google.com with SMTP id m17sf12775215wrb.20
+Received: by mail-wr1-x440.google.com with SMTP id k10sf12818561wrl.22
         for <lists+clang-built-linux@lfdr.de>; Tue, 05 Nov 2019 11:55:00 -0800 (PST)
 ARC-Seal: i=2; a=rsa-sha256; t=1572983700; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CP3JOxxEOc2XLGY3kLp9Qz7j7sKsv+Q0nH/m0UmDc+scum9PrRTJzHNeqQ3GK0N7V9
-         3+d2Y70Of26YMbz9GO7PSSkjt7acYPVtbliQSIA0S5kowTKO+u2AGJHevBDieZ1SaQKE
-         SqQZZZWAcLxr2cy48R9D6dDOMh/QupPtoUKbAabPwt7d0WRI/hNuqYVDUBt8BxA9bwsW
-         tUP1BP98PpfLzrXvpV8r/BX1/PnPO7ow0PDTAblK0lxlzANUg3MQKO2+14BhZBfrrNoZ
-         UyjNUsTUNfnCKuIKZdE19KuUwQ6Jh5CizBvpBcu4B2np7f2g1tzlGFKLBvJ15p999bEM
-         DWJw==
+        b=qMeqhdJ/FAy93g1+Cd4mk8ZHZHWlqrOd6ps8gg3IkZiXjRW11HMvsc4n6D23qeSb/u
+         5WtU5qtvCHyBgHIwcaG76FofKSctokkr0circMFsP8JWFklk2DNIbh+iK6qfopEUWRmq
+         0eavXRwmx9rAKcOVsGu84K1cf8bjY++p+UjmHh+wI/OKt12xTIYlcniAC0m4o7KkfKD9
+         AAYCDxGngmebOHS8yAKNgRX1CK3qUOPv02avroUV3Be7ejtDJfgC3uEDjfDIK30NFs8r
+         Hgp5p0C2al6sthnAYSHjh/+hhfqc6I2AopsH1kplrYx0LYjSLA8zUr7UQGmRsQCHZ9DR
+         bxSA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=RRxChB6pa2y8WidzTUf8BI+5J0blysVMGBI0uGG1BBI=;
-        b=CIgLGeNE19absE4E2gn0uLrZIrK5kBvr2Vpmeteq/v9UYke/ICxRTUuQQnBy5tVpm/
-         pb89due70NG5S6MQtdr8Rx4zBvOSUSOZhAiE30YIGb6OcXBtpF8/IHeab019Xg61HdpY
-         OUrfq4gQyy2gP0EI6yX2RyT2ozYnozUXwEuQSI/3KQElEk5iCd6UIRWZe1IMd+gm7pkE
-         YnMVhmi1HDpV6Iw6ip/z3QiWP5IzsCbFnZ5wyeGIGQRD+uwsvppooWjVEdXpytwaQdQ1
-         srnH0+K3wip5KShcM8OcL84TObFVTBfIjUKa+ZagfIZ3CvNmjPzstHQh/G74KA4hzq+e
-         8qqg==
+        bh=LQEzTKaXyaBLB8/HPdASJk4l9He82HTNXvmtGvjKWyI=;
+        b=FERT1F9NGl81VWQIyCcYKoeRMKiQ/OTZzBil1vDNGfeHsfd3WPmcNzI/1W9gcTLzWf
+         Ju19MZEnIUaNyroQaNhbMOIXQBVdoLEzbASx0eDj9xvoQ1scpfL2y7KGdcZFOVZdkIXf
+         NYYiN1uw5G4TqBu100nLz1bYmIISIZWi+vUuBVXXJlEwSB9Zh6Nu37FZNMmSk9eLqkc0
+         sWU5vfz9grzp8qkN3grN/z5f5IFXNbM0XcvW2bvMQUnZdXw+mugaNe+66pCBsa/1f/P4
+         6rS8+fn7rEYZ5xifr9Fi5EEkhCPeochgNgHE1G1Hsfu8kaeQMLmp5KQTMjd3fCZ0Uycb
+         sHPw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RRxChB6pa2y8WidzTUf8BI+5J0blysVMGBI0uGG1BBI=;
-        b=pk1WnlQU3zBt/SOHRs7oPq28hMSbiUnXkG+Ud7nAUymmPJstAyqQXST7VFxwa7mA6e
-         HLEgDPGiHA1mbwNz1UEB1X4Y0KQsNSfI9plkMAiogc+Lci1Ug3iI59oK4SD6FUtA2JZ4
-         eH6QZaPvwOHZEjj5rPCcvdilg7mYkBBHuBeu25+jg290OLA3l+rcshZIJlTPkaF0okUE
-         cNZaWCnc9oav7M2FZWPUI4KgkXvLN06BDJhTtCtQ4Cix+5lUTWBgb84DMEVybQD0i4Ff
-         9/MJ+gawCvFsYjNnP9d8XxQEcjCv47MoKqz/LqGpNxuQ39ZTws1o7kc3hxQy1k18RVBh
-         g5NA==
+        bh=LQEzTKaXyaBLB8/HPdASJk4l9He82HTNXvmtGvjKWyI=;
+        b=PJ1RoC/KjnG36oB4zkSN2E4qIkNpcymvccw1x4WCk9oPiyq8+47aoCdml8emYoKAd9
+         4Va6WKV0ket/m10uGU9ShyJSzyXCvn6LMCsAuEYwRdTR+jcytRIMxvnfmeywGQj7Am7K
+         PxNtnysx+z5Pu8+havWoEl6k0H2vE8S/8k+dxbbldRBXuy6yN8urgTsD8yJ6nUpfyC7Z
+         yxRe4SZCcsbGiOxGm/1A2MsnPkSG464q9jTn3dSLJdCrY6mW/8Dt6MuSzvlWHFTfO1Hb
+         DlW/XBLorECT9qXLfmEgjCWO1hMLah08Jsyhq+KOw3NSFQlSFG06OgGX1QVBtx2EWcij
+         0keg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -48,56 +48,56 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=RRxChB6pa2y8WidzTUf8BI+5J0blysVMGBI0uGG1BBI=;
-        b=R4zAnnY6o/Ha7KXt+A0yeRTlElEEt8QlEhC9xBFcDIDg3Z74LDuCbmjTSTiofn4ccR
-         sDw/jyF/iTb17BfZ4Py+zqkakq6B249NWfh3uOtxCYlG0XYZd9IqHa3rvg18Dy8YyGCt
-         21OKTxpUcRPBf7VVMpb+5JGbj7SRMVXyRdb3RIsGMjfypBP35PiZwDT1FMVbxZinc72G
-         og2Rsya+EHefOhq5nZJRn0dkwe02Eo/V5Yo5AxcFyK5KdYr2eGqmi8ZiPTqDlxRp0hEV
-         apHcv++33SXSgTVzQn77dNs/R/J/j8SpFIPBIYiFfOOXkAaKG3wuxo2C2FnYP+Rhs7Dr
-         162A==
+        bh=LQEzTKaXyaBLB8/HPdASJk4l9He82HTNXvmtGvjKWyI=;
+        b=FvCdEHaYwh145l1jWHY662fcN8/8JvLqy6dA8rMXiS8Ucm8ykFTHuyOMHEEwf87Vue
+         fgjkiebqoaFt86N9svkgBlkUV1vKGpvce64Qg5DE9lDfFeWj/X4qe2dsXzWMxgvgf/Sj
+         Ncs9Rbi4x5nFWuX5+Opf134EVEr5pI0OONUF4/RhCe3t8EKXGW+Lyh8GJ0xZEDfk7cYZ
+         z1fbEWf99/KDPeTV1eWwZII+U6zPcUSacKIIPbaG3Ge4h1PYbv/cxCOWq6zSZSp7VHpu
+         IXcV8bQqeSxkSzQ/Psmhl/ALhDGU1RMPs3dRWS+FjWz6ca4DAup2oXwy9wAfYwpiubaa
+         +dbg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVj27h8cpI3+tm4KKIiP/gFx6oOeiLkDSdLue7+7UhOF4HJyy/E
-	EKoCpxtxCNdY2VfO/jwTRrI=
-X-Google-Smtp-Source: APXvYqwSm0+pecHObJvYBxMAl/rxqETVsF1fJPqdiC8fSCmPwu1cpbeLOvbVJxUsS6W8YCHeqOmzHw==
-X-Received: by 2002:a5d:424a:: with SMTP id s10mr28553583wrr.108.1572983700287;
+X-Gm-Message-State: APjAAAXv0+8JV/hXoubY+aXlx9qX3d7J9ZupU4FbVgg7BKLuNKi4VpHN
+	cxGperTQRveDQLX+Z10lJ+w=
+X-Google-Smtp-Source: APXvYqxxfes2joUrWSPVUfifKk0CNNnV9vlEePbViqIAUGhVIAx08lsqPsFhohXxbmM/y8rKwno1wA==
+X-Received: by 2002:a1c:9d07:: with SMTP id g7mr596769wme.53.1572983700259;
         Tue, 05 Nov 2019 11:55:00 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:5284:: with SMTP id c4ls6852740wrv.15.gmail; Tue, 05 Nov
- 2019 11:54:59 -0800 (PST)
-X-Received: by 2002:adf:fa4a:: with SMTP id y10mr23958208wrr.177.1572983699551;
+Received: by 2002:a1c:6085:: with SMTP id u127ls3939984wmb.5.gmail; Tue, 05
+ Nov 2019 11:54:59 -0800 (PST)
+X-Received: by 2002:a1c:e308:: with SMTP id a8mr593099wmh.55.1572983699554;
         Tue, 05 Nov 2019 11:54:59 -0800 (PST)
 ARC-Seal: i=1; a=rsa-sha256; t=1572983699; cv=none;
         d=google.com; s=arc-20160816;
-        b=sTfOcv5DrFBU7uflbCUIztalzaGmqKMHjrCLWCC5uAlgBif4yyMaoeUhsbKbWsiKh1
-         wHC1kcQJhBWiKjOxJuMU50fgPvccDk0tmJ0A4sXcqk6QHOJD4xLCXTtzJ6J4Ssairmrc
-         p35whAj9swJhxgK4Ql145Ud6ugGPVztAoi6y5bMskeC3d02SR9AT3Rxj1xr9WE+Fmgzl
-         6BDbnXB6NjiYW/wjUjyXa+r0v5i7E5GHNjLwogjF2VZa+1+T8Q+i8nv5s7Ky9eR8cuWs
-         4NMRMFb8Mod7ha9VIDphplY234Srjwucylw4TWHQs+LEwnyhrB9Sj8N2GHkHb83eIKEe
-         oZHA==
+        b=hq42tmthMOI10+Sjk0UXu39kTqtQEdjDV5NTWlBowltWXJorzf1VUytpn52m8mXmEL
+         SBKfdKdUSvbKoxw6yoEAwkp6ThPogZouRQMOMKeijHRpHgWnYcoENxUs/C/kI5fXlHrF
+         IbV+4g9IvrDTJJ2XAtJYa5pg1LmIKOk2/+cOpWqwOgC6ljZ/aZ4EbxiTMhtmGwqKeTA1
+         EKl/xMGXHJ7HkugR9Jis5m0lgG66bdVgSg/tyPQ2w2mGud38tPIJHKosEQbSRvehIxIQ
+         8y+/zlnNC8vfZH8BhIH5w/Y0bNtTvYcDRlwOiw858bXmi9ikcNaHMCVP1Zktlweq10k3
+         ecQw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date;
-        bh=s5OAPJWJQvDqSUqcJwATukE31mcRm1uO5rU03nn4PnQ=;
-        b=zpjh8u6Xh6d7mPXaBXFsiWztIA6mUYe7b5mDBwmdGZ/goXmQgKmIqTN1dxuoqvsck/
-         pKZsfZovry7rQTdbzLy6U1X6jaZcl0XsEMbGSBoOpUpkLm6ERRaOJv9jnMdjbxIVVd8y
-         l2dWg3GBs/kfdJM5rfgCquLQZ1ASET0DqlEI4tXo+TfBvi8L9iaIqi8B5EcyfCPTKk1k
-         3fk/sYOgOVlJLloKE5RLM4kE4zyQjDly5uA1KFLtHpSo/Rb20FFD7AS1TBEXTh1L9wWQ
-         L33uAhXMC4J24ukA0LY2cYDdsc64wuFZoQR+J8WVZ251llE0rxN1LtiOAdaelh5s8eFu
-         XRjQ==
+        bh=JN/L3OaIrafNQib9frGtyAZYrdDrAsFreHB52qUoKdY=;
+        b=Sm9MP2WJ2Pj48ttcECkCatgDdxToE6wfLgA8VGlxBlStXW72h8G98DkCLddY9QA71d
+         EH2EOGhz3dUXnoCav+KPBZP0Bbxsgz6QdJvE7f0zVf1kOhfzhFT5Ke5C1Adtr4UfdQK6
+         N94XXKIiIhHU/Bf7casLaxzgvZFfBR5mlemzcPc7L6zYlB27So4EAVqs3IApsyT5uJFR
+         OmtOI11mRweVbq68OZd3K7fGryFd9a9240TusHqL4G3+PPEddoCE4ySdhU0OVZl1LB6D
+         ORFTYMX/Hc4y4x3CvdOcYGUp49CpvGN7mMSypsqQ4Xx7Vl6cy+WAE71KcrTrNtiw+Xce
+         gixw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id s126si81480wme.1.2019.11.05.11.54.59
+        by gmr-mx.google.com with ESMTP id b198si55209wmd.4.2019.11.05.11.54.59
         for <clang-built-linux@googlegroups.com>;
         Tue, 05 Nov 2019 11:54:59 -0800 (PST)
 Received-SPF: pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E02A7B9;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DFB87AD;
 	Tue,  5 Nov 2019 11:54:56 -0800 (PST)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E4523FBA1;
-	Tue,  5 Nov 2019 01:15:53 -0800 (PST)
-Date: Tue, 5 Nov 2019 09:15:51 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7AFF33FBB1;
+	Tue,  5 Nov 2019 01:17:25 -0800 (PST)
+Date: Tue, 5 Nov 2019 09:17:23 +0000
 From: Mark Rutland <mark.rutland@arm.com>
 To: Sami Tolvanen <samitolvanen@google.com>
 Cc: Will Deacon <will@kernel.org>,
@@ -116,17 +116,17 @@ Cc: Will Deacon <will@kernel.org>,
 	Kernel Hardening <kernel-hardening@lists.openwall.com>,
 	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
 	LKML <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 11/17] arm64: disable function graph tracing with SCS
-Message-ID: <20191105091301.GB4743@lakrids.cambridge.arm.com>
+Subject: Re: [PATCH v4 07/17] scs: add support for stack usage debugging
+Message-ID: <20191105091723.GC4743@lakrids.cambridge.arm.com>
 References: <20191018161033.261971-1-samitolvanen@google.com>
  <20191101221150.116536-1-samitolvanen@google.com>
- <20191101221150.116536-12-samitolvanen@google.com>
- <20191104171132.GB2024@lakrids.cambridge.arm.com>
- <CABCJKufDnLjP9vA-wSW0gSY05Cbr=NOpJ-WCh-bdj2ZNq7VNXw@mail.gmail.com>
+ <20191101221150.116536-8-samitolvanen@google.com>
+ <20191104124017.GD45140@lakrids.cambridge.arm.com>
+ <CABCJKueoJs7hS7VrVoz6CY_oAjTGcV-W61v9GAdwg+zk0W5ErA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <CABCJKufDnLjP9vA-wSW0gSY05Cbr=NOpJ-WCh-bdj2ZNq7VNXw@mail.gmail.com>
+In-Reply-To: <CABCJKueoJs7hS7VrVoz6CY_oAjTGcV-W61v9GAdwg+zk0W5ErA@mail.gmail.com>
 User-Agent: Mutt/1.11.1+11 (2f07cb52) (2018-12-01)
 X-Original-Sender: mark.rutland@arm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -144,41 +144,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Nov 04, 2019 at 03:44:39PM -0800, Sami Tolvanen wrote:
-> On Mon, Nov 4, 2019 at 9:11 AM Mark Rutland <mark.rutland@arm.com> wrote:
-> > Can you please elaborate on _how_ this is incompatible in the commit
-> > message?
+On Mon, Nov 04, 2019 at 01:35:28PM -0800, Sami Tolvanen wrote:
+> On Mon, Nov 4, 2019 at 4:40 AM Mark Rutland <mark.rutland@arm.com> wrote:
+> > > +#ifdef CONFIG_DEBUG_STACK_USAGE
+> > > +static inline unsigned long scs_used(struct task_struct *tsk)
+> > > +{
+> > > +     unsigned long *p = __scs_base(tsk);
+> > > +     unsigned long *end = scs_magic(tsk);
+> > > +     uintptr_t s = (uintptr_t)p;
 > >
-> > For example, it's not clear to me if you mean that's functionally
-> > incompatible, or if you're trying to remove return-altering gadgets.
-> >
-> > If there's a functional incompatibility, please spell that out a bit
-> > more clearly. Likewise if this is about minimizing the set of places
-> > that can mess with control-flow outside of usual function conventions.
+> > As previously, please use unsigned long for consistency.
 > 
-> Sure, I'll add a better description in v5. In this case, the return
-> address is modified in the kernel stack, which means the changes are
-> ignored with SCS.
+> Ack.
+> 
+> > > +     while (p < end && *p)
+> > > +             p++;
+> >
+> > I think this is the only place where we legtimately access the shadow
+> > call stack directly.
+> 
+> There's also scs_corrupted, which checks that the end magic is intact.
 
-Ok, that makes sense to me. I'd suggest something like:
+Ah, true. I missed that.
 
-| The graph tracer hooks returns by modifying frame records on the
-| (regular) stack, but with SCS the return address is taken from the
-| shadow stack, and the value in the frame record has no effect. As we
-| don't currently have a mechanism to determine the corresponding slot
-| on the shadow stack (and to pass this through the ftrace
-| infrastructure), for now let's disable the graph tracer when SCS is
-| enabled.
+> > When using SCS and KASAN, are the
+> > compiler-generated accesses to the SCS instrumented?
+> >
+> > If not, it might make sense to make this:
+> >
+> >         while (p < end && READ_ONCE_NOCKECK(*p))
+> >
+> > ... and poison the allocation from KASAN's PoV, so that we can find
+> > unintentional accesses more easily.
+> 
+> Sure, that makes sense. I can poison the allocation for the
+> non-vmalloc case, I'll just need to refactor scs_set_magic to happen
+> before the poisoning.
 
-... as I suspect with some rework of the trampoline and common ftrace
-code we'd be able to correctly manipulate the shadow stack for this.
-Similarly, if clang gained -fpatchable-funciton-etnry, we'd get that for
-free.
+Sounds good!
 
-Thanks,
 Mark.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191105091301.GB4743%40lakrids.cambridge.arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191105091723.GC4743%40lakrids.cambridge.arm.com.
