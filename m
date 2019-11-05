@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBDFFQTXAKGQEJJJXRPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBNFLQTXAKGQESCPFVWI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73a.google.com (mail-qk1-x73a.google.com [IPv6:2607:f8b0:4864:20::73a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9AD63EF56C
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Nov 2019 07:11:25 +0100 (CET)
-Received: by mail-qk1-x73a.google.com with SMTP id d144sf20193520qke.16
-        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Nov 2019 22:11:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1572934284; cv=pass;
+Received: from mail-qk1-x737.google.com (mail-qk1-x737.google.com [IPv6:2607:f8b0:4864:20::737])
+	by mail.lfdr.de (Postfix) with ESMTPS id 124D2EF57C
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Nov 2019 07:24:54 +0100 (CET)
+Received: by mail-qk1-x737.google.com with SMTP id x186sf20316375qke.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Nov 2019 22:24:53 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1572935093; cv=pass;
         d=google.com; s=arc-20160816;
-        b=s8yP1X0D/z6qmx6O266mCrAuOJcS74+1xIRO3XH6w5TSqG4gp+W05kfR/cvhsI5Llc
-         +4KYQsrctvGXf930cWmqPrdn7fgIEaDJUgF2ShlDPRKs358DxlmVeu8P8m6jz0LSDWxO
-         mhCNUHsjIRVjizrjGbaOfAv1U4g5kgWYWD05Tdgc+6hBS2btRG4u4/9TnMsxyYlw7M12
-         099THpjYxNd6KP96Tvs3rTP42MqfOx9sYN+dCMDIaaBpR2wVD/XsG5TfSoeZ28Lmn/5u
-         hWbcV7yKCh/HErZJr4x5puwEZOQ+xwVvJR8NUuU2uiiKkBX25expx22ahIgPx72DRywU
-         MwtQ==
+        b=Tex5hlUi0+bzU/zrlDtEt/pYA3s3TNKDqR/LVEwRwo0kNOqYmZU5KmJybRcfpAVs0K
+         zz/sUi1WGIycJNTSx+DISzYxTwwfz/XLSwk8AlzVpBDXY7tH09t4vmc1JNwb38GNeYh5
+         J9rFuIprfFFU4dlSzIRGNj4ZmBSZvQYCQ3JBE2cL+zpS8Ue4EDAPod4zYt781tkW3szY
+         thPapni2WHCz+aKVVFFhv3Yy/tHSIjN1cia9MboFiTv2P0/bdh1GSN5+4xcKPjdAH3xj
+         1DhUmV4qqaw1RJFlPYEHp48EqTSU7S3JAaJ3cgel06i7sELsKInV3c+iI8lOpO+LXCfC
+         wILw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=lsOqwhVv8XQ/yPiBo/iZNPf1CqIYX1C6tFTIJ25v+s4=;
-        b=Oazd3DYDvYlYoD6WdsB3VI4xNA/aje9397UcvnMF8K3CwPBSK+u0CgtIsjFbocp0uU
-         yK0MwJYfVnKe/bAtLAD+t5rfTXJ3uWkT7m56U0Ek3HOTt3W0LElWQlaoRf6RbgclGTgj
-         gq0c++KuAVKwUgo8Hns/CqxM/vNf5BVbKBVaEQhG6ucpFPPq5+5B0LMRuC+num2Teqy2
-         yIWfTXaBBh77A9ebFh6/63WN3aFxkhiBSecSqz67Qcvd2zEP7BYIx5uagh1E5RszOrmV
-         CzcVRXKJNtu4+BSbTYJJElvGJ3WX9FF1dWFjk+hvSPDoxAoqThWZcbpiv/8ur5npd4rM
-         ci2Q==
+        bh=Ody4zglZDncFjIn45E9JCtCtxAy4QLFxIDrjdDA6UF0=;
+        b=MzW1nbdBNFpqgN99aTIfoPfJNfdBxDrBVNSPTDGrWqSCfk7ZaPUj/+L1F9Ev5Iv/FV
+         dHXN1nvqHtRxVO5RPGPKzOV+eXb79Ty1XhhCPXG1Lh91pnuW1xwnXLmfGmHdkgXZ1KrJ
+         gwhy3MVp8YVRkQcIcy/JJqEQ5gWFRMquZlhCjbYc3Jh6JAp2S+UfnKfUz7rsN8fcTfxn
+         P8Kn59CiPEXQwCBvB1sun+lUCJtMsSZkTpB7oa+vMd3Gxa6GtPZ+9X+k7I4FEl6hFzFl
+         EIYBIYM5lu49BHyM+Qy1wx/l+pDOMoXVoWqUvFRXn4McgUpv2/LOY3m8gTbxQpxvnFny
+         otZA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lsOqwhVv8XQ/yPiBo/iZNPf1CqIYX1C6tFTIJ25v+s4=;
-        b=neEt5V7jrCo7VafBzQfKII13SKVZKocvXX0jpcNUJWvngO3bZ29bDxYl5KF0LP37Lp
-         lggYcwZzC9A3mpM8PW8TZOXHkqopqTrKEVnBF3j0jBOFUJuctRea0bR4D3WWXLtZ2R+P
-         X5MuqmDpesNAeKOqgCXLXUkgVUUAdmuZ2BM5avOqr6GKp6vztO0Y6V9xoVw6YhgsIEUx
-         jt8J7NGNyhWKZtYbP7uMNW2gVWdd07bK7nZ1HAflptSKIpE0o9uLLZK940E7IfnyQFXM
-         V4lBPdxWv9ndPeW7ZzVzfGST8rP//LFdj8P7GliuoqZ5lY1dXSEZ5FxdOY9uHoQ3uNfg
-         YNzw==
+        bh=Ody4zglZDncFjIn45E9JCtCtxAy4QLFxIDrjdDA6UF0=;
+        b=Nmx9ymGgt6AgkmNgyeE+GySgwoAe47UUrK/FcUcpMUf3Osp752uLbULRACG5lq6mAG
+         H+2DYhXbDvF4rkJ+pOQH8QloQksAnLB6hlZQd8uc2P4QV4mgPdFsBv5q3zFZVcUmpPDT
+         0G9igUXofYFgehbrjjK+fnIZFfaOMEpq9OnMZ3/uYz0kWtSUg8pOidttn6SWNjNBLx5l
+         aAFD0UR+CS6FVt8be0nw4ZNHQfl6RwxJwbe+OvODdR4AtpCWmYPT7w3puUlBqfdKsjK1
+         oKX11pBuqiywEfk4PSeJ6VbLIsQuIqwdw4it5w1UDRs9gXZ5GS0hf+kjq+uAvYvFRP2z
+         /72Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lsOqwhVv8XQ/yPiBo/iZNPf1CqIYX1C6tFTIJ25v+s4=;
-        b=fY5QQRAhCiC9jKaeD75lpj9XLY9p9L8EpjtXfaKds2GTB1ruKgWFR8bVrxHxAKoQ6Q
-         aE7ze7NlqKENHNya8tluMplRQhdM8HoiYPWH2AsFuBiEiPF4OYh2sK0x2V9aZlkZL53Y
-         xDWy58ecbAAglJR3tAvESZ/MDoxdK5IB2by/EvUDLelNE2jcfEJIrzEYmpnfCxL/qweR
-         vmOfgBg07fRgKmE+E8i+eIqcOQFqsTciImow6QCz5mDdubicKRDlocqPEHK5qIdL+vhi
-         IJ3zUMN18BRWfr/Agvcdr0FvL4wDoqbsweDtNtwI8Z38i40cxIPVAkB9xEJr378JCdM9
-         FIlg==
+        bh=Ody4zglZDncFjIn45E9JCtCtxAy4QLFxIDrjdDA6UF0=;
+        b=mBEJs2dS7U58hD3nSt4qRL2ZPStzTdByWlMfZmaA9adprQkDNBpYnXUxlp5ghoig0e
+         tAkaaq2N/wPNrovK3vk8Jvy1yRhgj/XhdFqefG3chjOyAR5Ap8QNTGKX1K/g8XW5oJ5J
+         K/rIlUKrISXt008faLE+WggrowQLxbY8Jc14xk8vZhcePRM8CpIAvH/5YMtPC4abZJ3E
+         1V/Xhdw6Vc1cMQmkbQ6zJFRmznp5UPPt2UYkm6YYzaoLoqhlfUiTQwsYE652tPUNR/7v
+         Qs+/h/OzI4HCN8WvbEDeuIW/UFl0hDjkgoaDImGMEZWYsDlSm2lG85uVVw93GDZgeq4n
+         tRdQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXAObg11Tu44y3CQ00V12LEb0OKBdYtMwp0QXDvJTUn2IwlyJo8
-	xNHuqwA+xAb1EZtmVz0hKaQ=
-X-Google-Smtp-Source: APXvYqwoeu9TvuyVrzNsMaWZ19AEz+2NrxmQwN1JOqAavP8Kb4xvLwK6Xe6isroDKJ8JNagqJn9Pvw==
-X-Received: by 2002:ae9:c302:: with SMTP id n2mr4679747qkg.69.1572934284576;
-        Mon, 04 Nov 2019 22:11:24 -0800 (PST)
+X-Gm-Message-State: APjAAAV5UpFFIEc21PIHECUYkrAComBFVhJf1wgRlGahQH9/iCcQteS0
+	rANLp6jvwwEKoSym+d4SVsA=
+X-Google-Smtp-Source: APXvYqyVp328vFCaKk6iBp+Av68Mo7G12cIxPhdzckOPa1VAvOOnsWU7OHEuLgpQKtfKgdYzZg1xVQ==
+X-Received: by 2002:ae9:ed89:: with SMTP id c131mr8982423qkg.267.1572935092848;
+        Mon, 04 Nov 2019 22:24:52 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:4c44:: with SMTP id z65ls1979016qka.12.gmail; Mon, 04
- Nov 2019 22:11:24 -0800 (PST)
-X-Received: by 2002:a37:650c:: with SMTP id z12mr5470412qkb.130.1572934284034;
-        Mon, 04 Nov 2019 22:11:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1572934284; cv=none;
+Received: by 2002:aed:21d2:: with SMTP id m18ls1346810qtc.10.gmail; Mon, 04
+ Nov 2019 22:24:52 -0800 (PST)
+X-Received: by 2002:aed:2722:: with SMTP id n31mr15378563qtd.98.1572935092433;
+        Mon, 04 Nov 2019 22:24:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1572935092; cv=none;
         d=google.com; s=arc-20160816;
-        b=oot/mlgxBFgau+KvusaQ80vxScpUcpdWik2U3lDT+XeOdbamBElVt4xWBBo5vH+Ih8
-         olSPMJWMbkNaWpduy0BHsRPcjUL5z2HlNviRL4xEsOTL4YKKRQzANywCxsGU+D7AVHL5
-         SVhKlMLSmO2Km7YPwtXRke0CppES+QpJWBmDgwC0p0mV7ct7Yf8/e+rcx39H4QUf1KsK
-         1r8ShDGGEKnXGnVe6miIUw45ilapDwHbn8iJx78q+ZiYtWSz8TXcpsGzrIBTxl6cBPCq
-         36KW6UDShOEzLnM+pyZj425kJ3v4iTzR0OqeV25oFkyLrb1cih0Oc4uChr6AzLBqvwsg
-         i4jw==
+        b=ox6bM+MeteNFBUV9ntrR/ywnGaFdEFL6TwFr2ly2DoFGvs6tGs4uHbBZ7AdDL7R4hY
+         zE/uOUgV77Ytyfg4+8uqXwn1PW8UoUTwhJp5dnBwEpXeTpOYVSTc7nCcW9gSjf5KUzhj
+         IfCKLvF4gGbbB5mUz4CMcqjODkMfao9ZqueFbwHnizG9VBjK8+ZZ/Q1OZeFUJ3O0cfpV
+         Tufzcwg8lhaOgGhtNmudYjp07ORJ+mvcSg+G6Crlo3kbycMjo1dpd4kc4/RocFwvk+r0
+         /2RE8tmGnzRzOGWL3+NRRn0bBQMU/ctS0rGOElCOLhEaTiOJNWPzJKnesqRNUP9NDdz1
+         I0/A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=ic3VnZR+TNXh/1OsYUgDT9gQvRQE6R/WDw2oyohWlZM=;
-        b=JsvjYGv1aUkBGfmykXug2W78923MyR50ZrSZhL/1wU5A0BzNo5d1u2DRt3dHGkudM3
-         OC0fB3GV/KwHo93YING3jHyYUPfuJeNwoIADJXUvQj2Yd/PRBvhZFDHk81Mvl6Ov6pPA
-         HNH0g0w6sFULU1H0d2OA8Cw/qyCaX4fjBNYE4g2b0Av/SZXAZslFDon8SSsfwgHaHqwP
-         xLh2TYxCjcqI7pBYNiLpRybLxTNrj8/LwLuSmJHVKQwSXX6nhheq0W3DOoZoFG1m8TJ4
-         oJQmF3IohVJ24ox8k0ibgCWMbpDBB5cmresfjfD9MkBXU6wTatTo9xpbbzajgW0qpM+7
-         Oq3w==
+        bh=tssKsfkgc85RhSjqMUV2Pjek/TP0EKqHVikLAuxFEUM=;
+        b=SYXf1sqkXoL3rDERB5G1U+NRatvL3Fp7q+U3uc1iIWJhg/B9IKvAr5uJyx99KrOD5i
+         x+jvkqX+v+dpR5cc9pYUroEikUWJZ5/sS/ZjJ7QfXnLXgvnFim1bgK/M3kgH/fscMXtO
+         P/TwQ78J/Zn+PQQLdgbCF8sKK1QT2hEBxs2npLghYiL97gSQVDshtvqUG9nc0tapbX2v
+         c+9nxUkG3UAFxo2Nd2c56QJu6Fbs0fozfOeh0Lt8AzcjztqIWpXY+cqBrfZkNht2pa7J
+         Acb9M5SnZ2aWjGXWXexT0B+q2wqWnXeawlKK3ms9qjdvJ6RiSQwD4WDm0zcK9HTJ0us1
+         JXgQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id y41si1308956qtb.5.2019.11.04.22.11.23
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id t187si1055693qkd.0.2019.11.04.22.24.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 04 Nov 2019 22:11:24 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+        Mon, 04 Nov 2019 22:24:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 04 Nov 2019 22:11:21 -0800
+Received: from fmsmga001.fm.intel.com ([10.253.24.23])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 04 Nov 2019 22:24:49 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.68,270,1569308400"; 
-   d="gz'50?scan'50,208,50";a="401872285"
+   d="gz'50?scan'50,208,50";a="212474088"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 04 Nov 2019 22:11:19 -0800
+  by fmsmga001.fm.intel.com with ESMTP; 04 Nov 2019 22:24:47 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iRs3j-0003ha-0k; Tue, 05 Nov 2019 14:11:19 +0800
-Date: Tue, 5 Nov 2019 14:10:35 +0800
+	id 1iRsGl-000429-Cu; Tue, 05 Nov 2019 14:24:47 +0800
+Date: Tue, 5 Nov 2019 14:24:40 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [boqun:arm64-hyperv-vpci 19/24]
- arch/x86/include/asm/mshyperv.h:260:9: error: use of undeclared identifier
- 'x86_vector_domain'
-Message-ID: <201911051429.3zthCQLR%lkp@intel.com>
+Subject: [boqun:arm64-hyperv-vpci 23/24]
+ drivers/pci/controller/pci-hyperv.c:818:5: warning:
+ 'CONFIG_PCI_DOMAINS_GENERIC' is not defined, evaluates to 0
+Message-ID: <201911051437.l3eD5Hp3%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="hddzpsrmgl4avibf"
+Content-Type: multipart/mixed; boundary="wlhzljz7kzhiu33h"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,206 +139,45 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---hddzpsrmgl4avibf
+--wlhzljz7kzhiu33h
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
 TO: Boqun Feng <boqun.feng@gmail.com>
-CC: Sunil Muthuswamy <sunilmut@microsoft.com>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/boqun/linux.git arm64-hyperv-vpci
 head:   73a45c99547231f8c65366595848a1e0a1169114
-commit: 094089feac671bf59bb8563db25a664826518ebb [19/24] pci: controller: hyperv: Generify irq/msi set-up and handling
+commit: d5f8c8476483ad659da80ea808c5234b776f6627 [23/24] pci: arm64: Allow use arch-specific pci sysdata
 config: x86_64-rhel-7.6 (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 403739b2fdb64e90118017355bd01f88a0640b3f)
 reproduce:
-        git checkout 094089feac671bf59bb8563db25a664826518ebb
+        git checkout d5f8c8476483ad659da80ea808c5234b776f6627
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-Note: the boqun/arm64-hyperv-vpci HEAD 73a45c99547231f8c65366595848a1e0a1169114 builds fine.
-      It only hurts bisectibility.
+All warnings (new ones prefixed by >>):
 
-All error/warnings (new ones prefixed by >>):
+>> drivers/pci/controller/pci-hyperv.c:818:5: warning: 'CONFIG_PCI_DOMAINS_GENERIC' is not defined, evaluates to 0 [-Wundef]
+   #if CONFIG_PCI_DOMAINS_GENERIC
+       ^
+   1 warning generated.
 
-   In file included from drivers/clocksource/hyperv_timer.c:20:
-   In file included from include/clocksource/hyperv_timer.h:18:
->> arch/x86/include/asm/mshyperv.h:260:9: error: use of undeclared identifier 'x86_vector_domain'
-           return x86_vector_domain;
-                  ^
->> arch/x86/include/asm/mshyperv.h:266:24: error: implicit declaration of function 'irqd_cfg' [-Werror,-Wimplicit-function-declaration]
-           struct irq_cfg *cfg = irqd_cfg(data);
-                                 ^
->> arch/x86/include/asm/mshyperv.h:266:18: warning: incompatible integer to pointer conversion initializing 'struct irq_cfg *' with an expression of type 'int' [-Wint-conversion]
-           struct irq_cfg *cfg = irqd_cfg(data);
-                           ^     ~~~~~~~~~~~~~~
->> arch/x86/include/asm/mshyperv.h:268:12: error: incomplete definition of type 'struct irq_cfg'
-           return cfg->vector;
-                  ~~~^
-   arch/x86/include/asm/io_apic.h:156:8: note: forward declaration of 'struct irq_cfg'
-   struct irq_cfg;
-          ^
-   In file included from drivers/clocksource/hyperv_timer.c:20:
-   In file included from include/clocksource/hyperv_timer.h:18:
->> arch/x86/include/asm/mshyperv.h:273:36: warning: declaration of 'struct msi_domain_info' will not be visible outside of this function [-Wvisibility]
-   hv_msi_domain_ops_get_hwirq(struct msi_domain_info *info,
-                                      ^
->> arch/x86/include/asm/mshyperv.h:274:8: error: unknown type name 'msi_alloc_info_t'
-                               msi_alloc_info_t *arg)
-                               ^
-   2 warnings and 4 errors generated.
---
-   In file included from drivers/hv/vmbus_drv.c:26:
->> arch/x86/include/asm/mshyperv.h:260:9: error: use of undeclared identifier 'x86_vector_domain'
-           return x86_vector_domain;
-                  ^
->> arch/x86/include/asm/mshyperv.h:266:24: error: implicit declaration of function 'irqd_cfg' [-Werror,-Wimplicit-function-declaration]
-           struct irq_cfg *cfg = irqd_cfg(data);
-                                 ^
->> arch/x86/include/asm/mshyperv.h:266:18: warning: incompatible integer to pointer conversion initializing 'struct irq_cfg *' with an expression of type 'int' [-Wint-conversion]
-           struct irq_cfg *cfg = irqd_cfg(data);
-                           ^     ~~~~~~~~~~~~~~
->> arch/x86/include/asm/mshyperv.h:268:12: error: incomplete definition of type 'struct irq_cfg'
-           return cfg->vector;
-                  ~~~^
-   arch/x86/include/asm/io_apic.h:156:8: note: forward declaration of 'struct irq_cfg'
-   struct irq_cfg;
-          ^
-   In file included from drivers/hv/vmbus_drv.c:26:
->> arch/x86/include/asm/mshyperv.h:273:36: warning: declaration of 'struct msi_domain_info' will not be visible outside of this function [-Wvisibility]
-   hv_msi_domain_ops_get_hwirq(struct msi_domain_info *info,
-                                      ^
->> arch/x86/include/asm/mshyperv.h:274:8: error: unknown type name 'msi_alloc_info_t'
-                               msi_alloc_info_t *arg)
-                               ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:87:11: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                   return (set->sig[3] | set->sig[2] |
-                           ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:87:25: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                   return (set->sig[3] | set->sig[2] |
-                                         ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:88:4: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                           set->sig[1] | set->sig[0]) == 0;
-                           ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:90:11: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                   return (set->sig[1] | set->sig[0]) == 0;
-                           ^        ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:103:11: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                   return  (set1->sig[3] == set2->sig[3]) &&
-                            ^         ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:103:27: warning: array index 3 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                   return  (set1->sig[3] == set2->sig[3]) &&
-                                            ^         ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:104:5: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                           (set1->sig[2] == set2->sig[2]) &&
-                            ^         ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:104:21: warning: array index 2 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                           (set1->sig[2] == set2->sig[2]) &&
-                                            ^         ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:105:5: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                           (set1->sig[1] == set2->sig[1]) &&
-                            ^         ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:105:21: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                           (set1->sig[1] == set2->sig[1]) &&
-                                            ^         ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
-           ^
-   In file included from drivers/hv/vmbus_drv.c:29:
-   In file included from include/linux/ptrace.h:7:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:108:11: warning: array index 1 is past the end of the array (which contains 1 element) [-Warray-bounds]
-                   return  (set1->sig[1] == set2->sig[1]) &&
-                            ^         ~
-   arch/x86/include/asm/signal.h:24:2: note: array 'sig' declared here
-           unsigned long sig[_NSIG_WORDS];
+vim +/CONFIG_PCI_DOMAINS_GENERIC +818 drivers/pci/controller/pci-hyperv.c
 
-vim +/x86_vector_domain +260 arch/x86/include/asm/mshyperv.h
-
-   256	
-   257	/* Returns the Hyper-V PCI parent MSI vector domain. */
-   258	static inline struct irq_domain *hv_msi_parent_vector_domain(void)
-   259	{
- > 260		return x86_vector_domain;
-   261	}
-   262	
-   263	/* Returns the interrupt vector mapped to the given IRQ. */
-   264	static inline unsigned int hv_msi_get_int_vector(struct irq_data *data)
-   265	{
- > 266		struct irq_cfg *cfg = irqd_cfg(data);
-   267	
- > 268		return cfg->vector;
-   269	}
-   270	
-   271	/* Return the H/W interrupt vector mapped to the given MSI. */
-   272	static inline irq_hw_number_t
- > 273	hv_msi_domain_ops_get_hwirq(struct msi_domain_info *info,
- > 274				    msi_alloc_info_t *arg)
-   275	{
-   276		return arg->msi_hwirq;
-   277	}
-   278	
+   813	
+   814	/* PCIe operations */
+   815	static struct pci_ops hv_pcifront_ops = {
+   816		.read  = hv_pcifront_read_config,
+   817		.write = hv_pcifront_write_config,
+ > 818	#if CONFIG_PCI_DOMAINS_GENERIC
+   819		.use_arch_sysdata = 1,
+   820	#endif
+   821	};
+   822	
 
 ---
 0-DAY kernel test infrastructure                Open Source Technology Center
@@ -347,14 +186,14 @@ https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911051429.3zthCQLR%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911051437.l3eD5Hp3%25lkp%40intel.com.
 
---hddzpsrmgl4avibf
+--wlhzljz7kzhiu33h
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICOsOwV0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI1/ine6z/ACRoISIJFgAlCW/cDm2
+H4sICEQUwV0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI1/ine6z/ACRoISIJFgAlCW/cDm2
 nPpsX3Jkuzv5+zMD8DIAQbdtu5pwZnAfzB368YcfZ+z15enh6uXu+ur+/vvsy/5xf7h62d/M
 bu/u9/8zS+WslGbGU2F+BeL87vH12/tvH8+as9PZh19Pf53/crg+nq33h8f9/Sx5ery9+/IK
 7e+eHn/48Qf470cAPnyFrg7/nl3fXz1+mf25PzwDenY0/xX+nf305e7l3+/fw/8f7g6Hp8P7
@@ -1249,4 +1088,4 @@ HFEmqiuXjZeS3dXOOYYXFy1wDi+rTG8ITBfkqObPCwpbCMU50HIapRJ/lLFLGCyEz5AZZ8U0
 jVoOON5dHDvzOyAkz1VHCn/f+zQoLocNS+Q2RpOyHW5SMk95OANH2tucGSlTc5EXenBI5y4t
 oaRsMXcDHrLBgW/zrX7cragsB8QI1w5bkvACLreRdNl6eZbdxA86SuD/AKBEj59kDgMA
 
---hddzpsrmgl4avibf--
+--wlhzljz7kzhiu33h--
