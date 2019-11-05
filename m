@@ -1,136 +1,127 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBL5MQTXAKGQE4T6SIPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBM6OQXXAKGQEE3FFQHY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3b.google.com (mail-yw1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8FC50EF580
-	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Nov 2019 07:26:56 +0100 (CET)
-Received: by mail-yw1-xc3b.google.com with SMTP id o130sf15570333ywo.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 04 Nov 2019 22:26:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1572935215; cv=pass;
+Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 27808EFCF8
+	for <lists+clang-built-linux@lfdr.de>; Tue,  5 Nov 2019 13:12:36 +0100 (CET)
+Received: by mail-wr1-x43d.google.com with SMTP id u2sf6122621wrm.7
+        for <lists+clang-built-linux@lfdr.de>; Tue, 05 Nov 2019 04:12:36 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1572955955; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OzffuKTCyiuu6OEUJOT0gdJIW0Cqp5QJCsS4x8K5hGph9/YAg5LX9jKHMARo4jEzUD
-         pMu7JuU0L+o5JSJwtp7eMMWhQZ/Wvsjym+lR+t486SHWXmDeuu+hgkeicK0pUFZLqSWY
-         vYnkrDBQJnkgUqx+VTcxWuD/xZWjrRJTszM1TlOlxcD9fCTR/wAg1sTqSupFRiG6dXbR
-         JgIkFE/4gONL5koXtNe3CKCbOCxBkZ2TWD6k9OEK7Yd8Twim1+qhcqvS9DW9wj3VV90R
-         lKEZHOrqfbtsqMHI0pJe4oRsRmn1UHKiX6bY0QtVxMMbgWxWmMzN5eOYjU0uvnphuUxg
-         d10w==
+        b=yBsOR3R83rjG5w6ZVU3TQq9Bwb18S3y9+dNXHCF+5fGsdyIdZHGrhX5rghjfF54yzi
+         /MGbekeI3JGADW2ASiZEd5wSaITEW2i4Hf2uOtZi8M1jam62YIYcPK1BAaqL6TZDnMLa
+         qU1mqB8OGtrWA0iLwmTXNs7h1rYRIdekDTMlcwpbYsaCFwJE2QWNHEoOV/nLBSvPadhe
+         42DVCJBQ/uAUyWahihseuHoBCnPLYvMUaiqYiaLxTe8gw/btO32qmEcK0BsGzUZhZRFO
+         6oqLAP4fCPbfdZ6chttQ5nMlBjYF7WyB9/ML3/1I1GlXQMsUFjdRRq4nVR9Y10qGnes1
+         wZNw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
          :dkim-signature;
-        bh=jsL3uNYoAOa1vZZOSyFjAge/4XeGNIAMjkaxthcg/vk=;
-        b=WtfgT6VNb//WXGBu/VX0whGxp0w+pUaaWxmoh+bXkRCq7b3/hkURIlkY0oki6z2Edr
-         y+IQ+HTTKIg0PhUcg+oBjqv5Jy5R1dQamT+BYuKrV8NefyYXmgC21mf3UEeH1q4nPVz+
-         UZHKWCo10rT0BOBe09TaEM3KGp8y/pMABo5kr840YzfLvzDeFLFhEOaaedJgfS6aWn5S
-         qMcdbrLwyNeIboXkLOIwQRtl0IsM/2h3Lc8FakckHo4YG4C9wea4wOr1Sm4nootgr4Tp
-         0EyorrjKNHftdsORmCFBwLDpxMG/BGwlvmPs0qm8lUijkSPWoXgzRd7Z0elQRyCiJdZG
-         21uA==
+        bh=r0jN5uwVVMX2m0dhFjmKEbJ8qZ6aShROP5Zl60ZhKvo=;
+        b=C1xf22uFDyICUlce5/heFcHaAnuYsLql1mdX5Q4w8Rkk3aknbjtK3O5WW7wr9/x/Tw
+         O5LkePGE/mGmaN3IE6F73yzjMsSFI75YVrF27BCbaBKC6bOfT0yMqrr+aSlguiaXko+H
+         ipmMRrbCf4bzjbkP1mPlb2KtawEdFwXAPCo1gH2KrxJSam7QEl16lyBRtM7RrSKzLXnN
+         HhW2gEO3l6s9lkXz2BadveFCuLFEPfHjLIHX6uCh/KdV+Ca7tya0rMTQDzh7BYGIb52b
+         7VmPejRi99YvRYqm2kKRDRPXXIdi4KTaFH9flTlrNrKDJJPHTucTruyi/zhf3TQ0aFFG
+         jxHA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=dvDWRFhO;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::944 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=zE0HNOK2;
+       spf=neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jsL3uNYoAOa1vZZOSyFjAge/4XeGNIAMjkaxthcg/vk=;
-        b=ExBdIJMBm2viofaK5RiMpp8DtHCLZQAHfITLvvQiwwumK1V5eQgyB0T3JQPY6BSTDo
-         mhQCgAua3DdrsXafeUxXbNpdIAywJtY7tQynsCXu3TfLAvEDUrqiHnYu3Me/qGtVdPUN
-         yLIgOSMMRLnA0A8QE0NMyo3UwV4KXXgeGFsXAE2xAeDyTEp3vMfelwv5AEzW/rzXlX06
-         w9Bno4coVKMqsbwTA0nWaBjoImLBNUUdn58QfziKu+Y8nu+IPl9/JvxEwMstEsbEEDY2
-         sOtoThPWceOEaXeQUYmrdgZzOzLgCv26bN7KtrxJIlhfKemcRviXlqe0uk/oYwfHkT52
-         HXtA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=jsL3uNYoAOa1vZZOSyFjAge/4XeGNIAMjkaxthcg/vk=;
-        b=lhHm16bnsiKP8xS4GsLgpJVPPWQMva8wz+bGDBHA/z15BWOVLwyialVLx/GeMWbuY4
-         YzEbE8lK8YtypZqtK2UqXI4YkXSe5VdCa783BVZIi5J5+jv/DXhAubnRtE/93Ny+uTCg
-         ZhNLfZHyLxHJAzNVkz7AzRaj2p9qcjreFfy0F6Xgbb9g2Ov15ZBKFI6H2m6ZSBhPeGMM
-         iNEWEBlqsKKpqm63U4XtV55sXsV7XhLVjWjSc5U17w1e4k2mxezdpUq7IySFPMMXKp+2
-         mGjR1KzsrXs2KYZwDRvA9V11vEwBS/QqyMw8MNczH0kZUbFbGX1f2J7Ar+ZxCHM/lM80
-         3r7w==
+        bh=r0jN5uwVVMX2m0dhFjmKEbJ8qZ6aShROP5Zl60ZhKvo=;
+        b=m5u0hB2PrG4m5hiDqga1Annrr/0b8j/f0aFYB2OwSm5efuYmGOl2LrU+K/PJ/OX2q6
+         pczSzv1xM9joWl0A+kK4DYpY606iKLjcHOPtgjKssDd1Rf4jSiInW1mwd5UuFua1eV8L
+         zqMeYw0xf8zeWyq5JpfaOjsX9+B+6w2249/E1RpEcTS545hyloLJ0woXgPZfrPonTlzg
+         TeR/JRt1QVCYvGdFsOsSD2ASZP+Jl7ndTg6vPcOInxAiHXg328PDJKeqWGNULmEViulN
+         A0hGtGI+yNJLy4r+4hv0u068/L4n1bufgiYUCwbsEhAStgsI63OQnlzhtMWCx4ehGSOg
+         dA1Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jsL3uNYoAOa1vZZOSyFjAge/4XeGNIAMjkaxthcg/vk=;
-        b=HiD2R4wZjeY4dDiBJOSWcLqTpGfE9Zeb1PZD9cI7OO/EegjTQaSIcMDB/ybnJIGjI1
-         Ll0xoC+5Lie5/NWFH/Wp1+XaTzmXC4ALd09IcyoBZzdu52Db1wJh4ziqks1P/0IPWn8E
-         sP6UvZrL+9SPzb3CldHSZocZ2bnHSW/aHIWinR7na69Mnog2OrjmvaXy7NwuoIAlxFGf
-         Wv73NOpfJDym0leg6fFQ2qqOeieby6hX6vv9qVAk1u7PqXPlls0XZ3GeTDMPyHDRkDT/
-         x42sTX37qbCW9SmzBoOq65xN4caVw9UEe10X9316IHM+1vwJ0IhRYECBgdinn1J2+2wF
-         J/rQ==
+        bh=r0jN5uwVVMX2m0dhFjmKEbJ8qZ6aShROP5Zl60ZhKvo=;
+        b=ryW+EbkMa7txlOQ6+GMdenlpG0KOoAjhPdUvTdDuYNSKpKobEexMWYRkUsl2Shfp6D
+         PjYwqLRox0+92Y4hujgtiEtkc1X9raYpJmkp8+Lmq5hSOnzeA5xPDB8w/zRPSXFL7WWV
+         CnZvyjkIfOL+FYn79uIYJdXmYeArGgRLmmIe01WrL4QaiG7GygpqTfJaWdFQnfhM7JRE
+         J7U2qecP40lecuetcK5bjuNLjdeox3CHP1IcGj8BsUpVQ6xAOcDjPb6bBs6wT5bUylrv
+         3SuwWSApGJF96kl/+OZkCSbHcDT5RlnmsGC0h5x0S/7oNI4aTJ75PdoqnkhIRk5xJt63
+         oo0g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVY//SbnoLeEBmKrYqbvCaaA2pSw+es+9wBhe0NJh6F3A6wilwL
-	FJINTVWMSKewXJdX3VJsNM4=
-X-Google-Smtp-Source: APXvYqyqgYnWZCehwh+4f+2VKQY3a+gTqySrjsZjI8UW3kkcqpHsef4eIXP+6zTOEi0jelDrdWnwIQ==
-X-Received: by 2002:a25:4643:: with SMTP id t64mr26807026yba.498.1572935215245;
-        Mon, 04 Nov 2019 22:26:55 -0800 (PST)
+X-Gm-Message-State: APjAAAWDaRPZIxRwxTvsKzRECSZ6fiG1jqHeOdivPafIlJaysnRR/SCy
+	uAs9D2Y4S5HgaocrWg8BNzE=
+X-Google-Smtp-Source: APXvYqwTCY49rRtVsUnXaHuow+tY+q62QfK4PPHu6bFOF/TgCOrw+hf+FCtQgLBCQ6gAOhp0a09LVA==
+X-Received: by 2002:a05:6000:14a:: with SMTP id r10mr26952562wrx.310.1572955955612;
+        Tue, 05 Nov 2019 04:12:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:dc6:: with SMTP id 189ls2637054ybn.3.gmail; Mon, 04 Nov
- 2019 22:26:54 -0800 (PST)
-X-Received: by 2002:a25:b6ca:: with SMTP id f10mr27811675ybm.376.1572935214848;
-        Mon, 04 Nov 2019 22:26:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1572935214; cv=none;
+Received: by 2002:adf:f74c:: with SMTP id z12ls14336645wrp.10.gmail; Tue, 05
+ Nov 2019 04:12:35 -0800 (PST)
+X-Received: by 2002:a05:6000:34f:: with SMTP id e15mr30194129wre.232.1572955954985;
+        Tue, 05 Nov 2019 04:12:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1572955954; cv=none;
         d=google.com; s=arc-20160816;
-        b=hfg+bnuht3elGZFuEBfC7JlW9tqFpOfqjSACEJNbIvrytvhLxSF7dgP0+ghvOXHfl4
-         zC9IEQGuIZzdTqPFT2XrobLPbaNMIQr/deGYrw4pBTJCuFf5sOXKjhtifrrXxpoCvsp6
-         oOjOHAHY38QeWb2iT4brtxVKnvZhvS2dvTM8LfmnUnIFESYyJv+weRhV3BUCEoMAThIM
-         fSqI6dOLWWwEXt6qcNeNc7L/OYCIOP/MBKxNE8QpFozlalDcDIUQgUiMJZZcQRri3p87
-         yIk36wI5QhIbQZPzPsh8PHW1JVxtupidjXZDgr92C+nXAuWoCpQhMUjDGrQ9JKQ4Wplk
-         jKiQ==
+        b=aCNzzg9PqQ5fqWIPUfXs0ae1wubOG1tbSg3t9BNZaCipzc0dsG2nZrrw+d+vUvBkBh
+         RQL8sEJL/ZRA7ydJ9Lyk7cJ8T2Uy3aMSAY96SRtpbKFL8jBnAHKJIU06hmRVMB0digO3
+         l2HvA68VQdQGh2nPFSvPXGMs7faK7lzf98AJr1mxdltCFRG+g/wRqFSDz2I+2N9SKk4k
+         1ahv28UD9Lt4KJx6B3hmwEXp3erw3FJivzNEwFVhb9HR+zZ7WfaOjRsaOKLhnIfQsD5z
+         xreob4h+NgWh/OE02YIHJlBgD/7VvKhwodnI3i9RkHbmJ/pg4SMlIxNO2V6dcs+kKf7P
+         cPvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=CaNCEd81BjRvLOlUPrvzpS8sYf2mI9wPJzemtji2y7A=;
-        b=HVYoDje6i4wONtn7oJjkisP/3DGVZJ7MzCm41p9v1B+DKf5goKcPJAtYNBINzwYIFk
-         0xPSeYrWyRJoxGAH3ra+GBXrF8XCR8KQkbNjhAbp6GCijavD1ZSIm9nhoMfHu/hsYqnt
-         RE3N9bLXIBiFFg3KaPwNOZbacfKy9TZQwbWrV5+UAv5DY1lf3HkLci+bnbyIqUVv30vI
-         +7U8yEy1373wwmKzgVZBY0zIdxHJFI7BIhkdfsrIByFqnw8hAAzZ45UGi0ZvLCv8lenz
-         BJT8y9tsBC1Yd6oun29fma8dAz9PxLhJsHKNwlSgblgpkTJmHKwj7RI48vhqUMG6D9ws
-         ZdNQ==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=/P6/iPiKnVqU14CJFbgjeVpEPBunjr3bUiRrT8/6QpY=;
+        b=KyUjxwwCs2E8tgflEJ+dteL61AjEtdtvVfad6aJMEoYCOdSMgihFRwat5ukyu2Xq+l
+         ee18aodvDHjEvo/jLRfy0DoS2odbulOwz/1O/xVu1VvMi6Q+uUFd/P/r9xGMV8kPzF26
+         cZERik2sIFv7reLa8FCEGkvw/AB5/fCV+9FyzeS5g7xhpDaB3Q/5ac1P/NSUYNM//otu
+         9aGUj5ud1IyconOHpx32rJX8371Csky5YY/KEByhTlGhdNSy8UXUUNlqw0/6dj/bkkZY
+         +BzbJG/+W2sibTTxw9mMdbUSjY02mhbvFXu256quhekUff1jfN9VJzFGSKUkrTR99ANV
+         DKqw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=dvDWRFhO;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::944 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ua1-x944.google.com (mail-ua1-x944.google.com. [2607:f8b0:4864:20::944])
-        by gmr-mx.google.com with ESMTPS id f184si124720ybg.3.2019.11.04.22.26.54
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=zE0HNOK2;
+       spf=neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id y140si1188053wmd.0.2019.11.05.04.12.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 04 Nov 2019 22:26:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::944 as permitted sender) client-ip=2607:f8b0:4864:20::944;
-Received: by mail-ua1-x944.google.com with SMTP id o9so4035518uat.8
-        for <clang-built-linux@googlegroups.com>; Mon, 04 Nov 2019 22:26:54 -0800 (PST)
-X-Received: by 2002:ab0:7058:: with SMTP id v24mr13328236ual.83.1572935214251;
- Mon, 04 Nov 2019 22:26:54 -0800 (PST)
-MIME-Version: 1.0
-References: <201911051437.l3eD5Hp3%lkp@intel.com>
-In-Reply-To: <201911051437.l3eD5Hp3%lkp@intel.com>
-From: Nathan Chancellor <natechancellor@gmail.com>
-Date: Mon, 4 Nov 2019 23:26:41 -0700
-Message-ID: <CAEVzpNmXGq+xw4HxvT5YNUqijH8vwuWhEL=UFok8udddBd5yQA@mail.gmail.com>
-Subject: Re: [boqun:arm64-hyperv-vpci 23/24] drivers/pci/controller/pci-hyperv.c:818:5:
- warning: 'CONFIG_PCI_DOMAINS_GENERIC' is not defined, evaluates to 0
-To: kbuild test robot <lkp@intel.com>
-Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>, 
-	Clang-Built-Linux ML <clang-built-linux@googlegroups.com>
+        Tue, 05 Nov 2019 04:12:34 -0800 (PST)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id z26so7447907wmi.4
+        for <clang-built-linux@googlegroups.com>; Tue, 05 Nov 2019 04:12:34 -0800 (PST)
+X-Received: by 2002:a1c:6745:: with SMTP id b66mr3879593wmc.30.1572955952513;
+        Tue, 05 Nov 2019 04:12:32 -0800 (PST)
+Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
+        by smtp.gmail.com with ESMTPSA id p12sm22630662wrm.62.2019.11.05.04.12.30
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 05 Nov 2019 04:12:31 -0800 (PST)
+Message-ID: <5dc1672f.1c69fb81.1ad1a.00b0@mx.google.com>
+Date: Tue, 05 Nov 2019 04:12:31 -0800 (PST)
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: natechancellor@gmail.com
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Branch: master
+X-Kernelci-Tree: next
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: next-20191105
+Subject: next/master build: 216 builds: 2 failed, 214 passed, 6 errors,
+ 456 warnings (next-20191105)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=dvDWRFhO;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::944 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=zE0HNOK2;       spf=neutral (google.com: 2a00:1450:4864:20::341 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -143,57 +134,3065 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Nov 4, 2019 at 11:24 PM kbuild test robot <lkp@intel.com> wrote:
->
-> CC: kbuild-all@lists.01.org
-> TO: Boqun Feng <boqun.feng@gmail.com>
->
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/boqun/linux.git arm64-hyperv-vpci
-> head:   73a45c99547231f8c65366595848a1e0a1169114
-> commit: d5f8c8476483ad659da80ea808c5234b776f6627 [23/24] pci: arm64: Allow use arch-specific pci sysdata
-> config: x86_64-rhel-7.6 (attached as .config)
-> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 403739b2fdb64e90118017355bd01f88a0640b3f)
-> reproduce:
->         git checkout d5f8c8476483ad659da80ea808c5234b776f6627
->         # save the attached .config to linux build tree
->         make ARCH=x86_64
->
-> If you fix the issue, kindly add following tag
-> Reported-by: kbuild test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> drivers/pci/controller/pci-hyperv.c:818:5: warning: 'CONFIG_PCI_DOMAINS_GENERIC' is not defined, evaluates to 0 [-Wundef]
->    #if CONFIG_PCI_DOMAINS_GENERIC
->        ^
->    1 warning generated.
->
-> vim +/CONFIG_PCI_DOMAINS_GENERIC +818 drivers/pci/controller/pci-hyperv.c
->
->    813
->    814  /* PCIe operations */
->    815  static struct pci_ops hv_pcifront_ops = {
->    816          .read  = hv_pcifront_read_config,
->    817          .write = hv_pcifront_write_config,
->  > 818  #if CONFIG_PCI_DOMAINS_GENERIC
->    819          .use_arch_sysdata = 1,
->    820  #endif
->    821  };
->    822
->
-> ---
-> 0-DAY kernel test infrastructure                Open Source Technology Center
-> https://lists.01.org/pipermail/kbuild-all                   Intel Corporation
->
+next/master build: 216 builds: 2 failed, 214 passed, 6 errors, 456 warnings=
+ (next-20191105)
 
-This appears fixed with the latest branch:
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20191105/
 
-https://git.kernel.org/pub/scm/linux/kernel/git/boqun/linux.git/commit/?h=arm64-hyperv-vpci&id=c68b670a983ce05da28a6e21835e7c34d7c691e5
+Tree: next
+Branch: master
+Git Describe: next-20191105
+Git Commit: 51309b9d73f5de2d8cba2c850df0c3b5d9125bee
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-Cheers,
-Nathan
+Build Failures Detected:
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAEVzpNmXGq%2Bxw4HxvT5YNUqijH8vwuWhEL%3DUFok8udddBd5yQA%40mail.gmail.com.
+arm:
+    allmodconfig: (gcc-8) FAIL
+
+mips:
+    cavium_octeon_defconfig: (gcc-8) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 3 warnings
+    axs103_smp_defconfig (gcc-8): 3 warnings
+    haps_hs_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig (gcc-8): 2 warnings
+    hsdk_defconfig (gcc-8): 3 warnings
+    nsimosci_hs_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 2 warnings
+    vdk_hs38_smp_defconfig (gcc-8): 2 warnings
+
+arm64:
+    allmodconfig (clang-8): 46 warnings
+    allmodconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 29 warnings
+
+arm:
+    allmodconfig (gcc-8): 2 errors, 20 warnings
+    am200epdkit_defconfig (gcc-8): 1 warning
+    at91_dt_defconfig (gcc-8): 2 warnings
+    axm55xx_defconfig (gcc-8): 2 warnings
+    badge4_defconfig (gcc-8): 1 warning
+    bcm2835_defconfig (gcc-8): 1 warning
+    cerfcube_defconfig (gcc-8): 1 warning
+    cm_x2xx_defconfig (gcc-8): 2 warnings
+    cm_x300_defconfig (gcc-8): 2 warnings
+    cns3420vb_defconfig (gcc-8): 1 warning
+    colibri_pxa270_defconfig (gcc-8): 1 warning
+    colibri_pxa300_defconfig (gcc-8): 2 warnings
+    davinci_all_defconfig (gcc-8): 2 warnings
+    dove_defconfig (gcc-8): 2 warnings
+    em_x270_defconfig (gcc-8): 2 warnings
+    ep93xx_defconfig (gcc-8): 2 warnings
+    eseries_pxa_defconfig (gcc-8): 3 warnings
+    exynos_defconfig (gcc-8): 2 warnings
+    ezx_defconfig (gcc-8): 2 warnings
+    h5000_defconfig (gcc-8): 1 warning
+    hisi_defconfig (gcc-8): 1 warning
+    imote2_defconfig (gcc-8): 2 warnings
+    imx_v4_v5_defconfig (gcc-8): 2 warnings
+    imx_v6_v7_defconfig (gcc-8): 1 warning
+    integrator_defconfig (gcc-8): 1 warning
+    iop32x_defconfig (gcc-8): 1 warning
+    ixp4xx_defconfig (gcc-8): 2 warnings
+    keystone_defconfig (gcc-8): 2 warnings
+    lart_defconfig (gcc-8): 1 warning
+    lpc32xx_defconfig (gcc-8): 1 warning
+    magician_defconfig (gcc-8): 2 warnings
+    milbeaut_m10v_defconfig (gcc-8): 2 warnings
+    mini2440_defconfig (gcc-8): 2 warnings
+    mmp2_defconfig (gcc-8): 2 warnings
+    moxart_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (gcc-8): 2 warnings
+    multi_v7_defconfig (gcc-8): 2 warnings
+    multi_v7_defconfig (gcc-8): 2 warnings
+    multi_v7_defconfig (gcc-8): 2 warnings
+    multi_v7_defconfig (gcc-8): 2 warnings
+    multi_v7_defconfig (gcc-8): 32 warnings
+    mv78xx0_defconfig (gcc-8): 2 warnings
+    mvebu_v5_defconfig (gcc-8): 2 warnings
+    mvebu_v7_defconfig (gcc-8): 2 warnings
+    mxs_defconfig (gcc-8): 2 warnings
+    nhk8815_defconfig (gcc-8): 2 warnings
+    omap1_defconfig (gcc-8): 2 warnings
+    omap2plus_defconfig (gcc-8): 1 warning
+    orion5x_defconfig (gcc-8): 2 warnings
+    oxnas_v6_defconfig (gcc-8): 2 warnings
+    palmz72_defconfig (gcc-8): 2 warnings
+    pcm027_defconfig (gcc-8): 2 warnings
+    pleb_defconfig (gcc-8): 1 warning
+    prima2_defconfig (gcc-8): 1 warning
+    pxa168_defconfig (gcc-8): 1 warning
+    pxa3xx_defconfig (gcc-8): 1 warning
+    pxa910_defconfig (gcc-8): 1 warning
+    pxa_defconfig (gcc-8): 1 warning
+    qcom_defconfig (gcc-8): 2 warnings
+    realview_defconfig (gcc-8): 1 warning
+    rpc_defconfig (gcc-8): 1 warning
+    s3c2410_defconfig (gcc-8): 2 warnings
+    s3c6400_defconfig (gcc-8): 3 warnings
+    s5pv210_defconfig (gcc-8): 2 warnings
+    sama5_defconfig (gcc-8): 2 warnings
+    simpad_defconfig (gcc-8): 1 warning
+    socfpga_defconfig (gcc-8): 1 warning
+    spear13xx_defconfig (gcc-8): 2 warnings
+    spear3xx_defconfig (gcc-8): 1 warning
+    spear6xx_defconfig (gcc-8): 1 warning
+    spitz_defconfig (gcc-8): 1 warning
+    stm32_defconfig (gcc-8): 1 warning
+    sunxi_defconfig (gcc-8): 2 warnings
+    tango4_defconfig (gcc-8): 2 warnings
+    tegra_defconfig (gcc-8): 2 warnings
+    trizeps4_defconfig (gcc-8): 2 warnings
+    u300_defconfig (gcc-8): 1 warning
+    u8500_defconfig (gcc-8): 2 warnings
+    versatile_defconfig (gcc-8): 1 warning
+    vexpress_defconfig (gcc-8): 2 warnings
+    vf610m4_defconfig (gcc-8): 1 warning
+    viper_defconfig (gcc-8): 2 warnings
+    vt8500_v6_v7_defconfig (gcc-8): 1 warning
+    xcep_defconfig (gcc-8): 1 warning
+    zeus_defconfig (gcc-8): 3 warnings
+    zx_defconfig (gcc-8): 1 warning
+
+i386:
+    i386_defconfig (gcc-8): 31 warnings
+
+mips:
+    32r2el_defconfig (gcc-8): 1 warning
+    32r2el_defconfig (gcc-8): 32 warnings
+    bmips_be_defconfig (gcc-8): 1 warning
+    bmips_stb_defconfig (gcc-8): 1 warning
+    capcella_defconfig (gcc-8): 1 warning
+    cavium_octeon_defconfig (gcc-8): 4 errors, 4 warnings
+    ci20_defconfig (gcc-8): 1 warning
+    cobalt_defconfig (gcc-8): 1 warning
+    db1xxx_defconfig (gcc-8): 2 warnings
+    decstation_64_defconfig (gcc-8): 1 warning
+    decstation_defconfig (gcc-8): 1 warning
+    decstation_r4k_defconfig (gcc-8): 1 warning
+    e55_defconfig (gcc-8): 1 warning
+    fuloong2e_defconfig (gcc-8): 1 warning
+    ip27_defconfig (gcc-8): 1 warning
+    jazz_defconfig (gcc-8): 1 warning
+    lasat_defconfig (gcc-8): 1 warning
+    loongson1b_defconfig (gcc-8): 1 warning
+    loongson1c_defconfig (gcc-8): 1 warning
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    markeins_defconfig (gcc-8): 1 warning
+    mips_paravirt_defconfig (gcc-8): 1 warning
+    nlm_xlp_defconfig (gcc-8): 1 warning
+    nlm_xlr_defconfig (gcc-8): 2 warnings
+    pic32mzda_defconfig (gcc-8): 1 warning
+    pistachio_defconfig (gcc-8): 1 warning
+    qi_lb60_defconfig (gcc-8): 1 warning
+    rbtx49xx_defconfig (gcc-8): 1 warning
+    rm200_defconfig (gcc-8): 1 warning
+    tb0219_defconfig (gcc-8): 1 warning
+    tb0287_defconfig (gcc-8): 1 warning
+    workpad_defconfig (gcc-8): 1 warning
+
+riscv:
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 30 warnings
+    rv32_defconfig (gcc-8): 7 warnings
+
+x86_64:
+    allmodconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (gcc-8): 29 warnings
+
+Errors summary:
+
+    1    drivers/staging/octeon/ethernet.c:516:29: error: type of formal pa=
+rameter 2 is incomplete
+    1    drivers/staging/octeon/ethernet.c:499:30: error: storage size of '=
+link_info' isn't known
+    1    drivers/staging/octeon/ethernet.c:463:30: error: storage size of '=
+link_info' isn't known
+    1    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing poi=
+nter to incomplete type 'struct cvmx_wqe'
+
+Warnings summary:
+
+    105  fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-=
+variable]
+    64   WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    20   <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    15   1 warning generated.
+    6    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunu=
+sed-variable]
+    4    include/linux/kern_levels.h:5:18: warning: format '%lu' expects ar=
+gument of type 'long unsigned int', but argument 8 has type 'unsigned int' =
+[-Wformat=3D]
+    4    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argu=
+ment of type 'long unsigned int', but argument 5 has type 'unsigned int' [-=
+Wformat=3D]
+    4    2 warnings generated.
+    2    drivers/net/ethernet/mellanox/mlx5/core/eswitch.c:1356:2: warning:=
+ 'spec' may be used uninitialized in this function [-Wmaybe-uninitialized]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:134: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable 'rtd' [-=
+Wunused-variable]
+    1    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitia=
+lized when used within its own initialization [-Wuninitialized]
+    1    mm/shmem.c:2737:35: warning: variable 'shmem_falloc_waitq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    1    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized wh=
+en used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized =
+when used within its own initialization [-Wuninitialized]
+    1    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: 'union cv=
+mx_helper_link_info' declared inside parameter list will not be visible out=
+side of this definition or declaration
+    1    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable=
+ 'link_info' [-Wunused-variable]
+    1    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable=
+ 'link_info' [-Wunused-variable]
+    1    drivers/scsi/lpfc/lpfc_sli.c:11878:34: warning: variable 'done_q' =
+is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/lpfc/lpfc_scsi.c:4726:34: warning: variable 'waitq' i=
+s uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/net/usb/lan78xx.c:2665:34: warning: variable 'unlink_wakeu=
+p' is uninitialized when used within its own initialization [-Wuninitialize=
+d]
+    1    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/drm/amd/amdgpu/../powerplay/renoir_ppt.c:183:26: warni=
+ng: suggest braces around initialization of subobject [-Wmissing-braces]
+    1    drivers/bus/fsl-mc/fsl-mc-bus.c:720:37: warning: suggest braces ar=
+ound initialization of subobject [-Wmissing-braces]
+    1    drivers/bus/fsl-mc/fsl-mc-bus.c:719:37: warning: suggest braces ar=
+ound initialization of subobject [-Wmissing-braces]
+    1    drivers/bus/fsl-mc/fsl-mc-bus.c:718:43: warning: suggest braces ar=
+ound initialization of subobject [-Wmissing-braces]
+    1    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/android/binderfs.c:657:41: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    1    WARNING: unmet direct dependencies detected for FSL_RCPM
+    1    3 warnings generated.
+    1    .config:1166:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ./.tmp.config.vqZIUqRrzd:3999:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.vqZIUqRrzd:3982:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.vqZIUqRrzd:3981:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.vqZIUqRrzd:3977:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.vqZIUqRrzd:3957:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.vqZIUqRrzd:3951:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.vqZIUqRrzd:3942:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.vqZIUqRrzd:3940:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.vqZIUqRrzd:3939:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.vqZIUqRrzd:3938:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.vqZIUqRrzd:3936:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.vqZIUqRrzd:3935:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.vqZIUqRrzd:3932:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.vqZIUqRrzd:3925:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.vqZIUqRrzd:3915:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.vqZIUqRrzd:3904:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.vqZIUqRrzd:3796:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.vqZIUqRrzd:3792:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.vqZIUqRrzd:3766:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.vqZIUqRrzd:3745:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.vqZIUqRrzd:3737:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.vqZIUqRrzd:3733:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.vqZIUqRrzd:3678:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.vqZIUqRrzd:3677:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.vqZIUqRrzd:3673:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.vqZIUqRrzd:3672:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.vqZIUqRrzd:3670:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.vqZIUqRrzd:3669:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.vqZIUqRrzd:3666:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.tWIduLVvTT:3380:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.tWIduLVvTT:3363:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.tWIduLVvTT:3362:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.tWIduLVvTT:3358:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.tWIduLVvTT:3338:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.tWIduLVvTT:3332:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.tWIduLVvTT:3323:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.tWIduLVvTT:3321:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.tWIduLVvTT:3320:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.tWIduLVvTT:3319:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.tWIduLVvTT:3317:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.tWIduLVvTT:3316:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.tWIduLVvTT:3313:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.tWIduLVvTT:3306:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.tWIduLVvTT:3296:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.tWIduLVvTT:3285:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.tWIduLVvTT:3177:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.tWIduLVvTT:3173:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.tWIduLVvTT:3147:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.tWIduLVvTT:3126:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.tWIduLVvTT:3118:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.tWIduLVvTT:3114:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.tWIduLVvTT:3059:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.tWIduLVvTT:3058:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.tWIduLVvTT:3054:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.tWIduLVvTT:3053:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.tWIduLVvTT:3051:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.tWIduLVvTT:3050:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.tWIduLVvTT:3047:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.lnAvAAfT8M:4901:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.lnAvAAfT8M:4884:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.lnAvAAfT8M:4883:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.lnAvAAfT8M:4879:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.lnAvAAfT8M:4859:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.lnAvAAfT8M:4853:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.lnAvAAfT8M:4844:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.lnAvAAfT8M:4842:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.lnAvAAfT8M:4841:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.lnAvAAfT8M:4840:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.lnAvAAfT8M:4838:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.lnAvAAfT8M:4837:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.lnAvAAfT8M:4834:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.lnAvAAfT8M:4827:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.lnAvAAfT8M:4817:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.lnAvAAfT8M:4806:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.lnAvAAfT8M:4698:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.lnAvAAfT8M:4694:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.lnAvAAfT8M:4668:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.lnAvAAfT8M:4647:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.lnAvAAfT8M:4639:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.lnAvAAfT8M:4635:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.lnAvAAfT8M:4580:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.lnAvAAfT8M:4579:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.lnAvAAfT8M:4575:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.lnAvAAfT8M:4574:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.lnAvAAfT8M:4572:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.lnAvAAfT8M:4571:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.lnAvAAfT8M:4568:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.SI4flU8F6A:4838:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.SI4flU8F6A:4821:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.SI4flU8F6A:4820:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.SI4flU8F6A:4816:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.SI4flU8F6A:4796:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.SI4flU8F6A:4790:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.SI4flU8F6A:4781:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.SI4flU8F6A:4779:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.SI4flU8F6A:4778:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.SI4flU8F6A:4777:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.SI4flU8F6A:4775:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.SI4flU8F6A:4774:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.SI4flU8F6A:4771:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.SI4flU8F6A:4764:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.SI4flU8F6A:4754:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.SI4flU8F6A:4743:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.SI4flU8F6A:4635:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.SI4flU8F6A:4631:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.SI4flU8F6A:4605:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.SI4flU8F6A:4584:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.SI4flU8F6A:4576:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.SI4flU8F6A:4572:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.SI4flU8F6A:4517:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.SI4flU8F6A:4516:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.SI4flU8F6A:4512:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.SI4flU8F6A:4511:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.SI4flU8F6A:4509:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.SI4flU8F6A:4508:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.SI4flU8F6A:4505:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.LI37HXHJLA:8609:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.LI37HXHJLA:8592:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.LI37HXHJLA:8591:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.LI37HXHJLA:8587:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.LI37HXHJLA:8567:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.LI37HXHJLA:8561:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.LI37HXHJLA:8552:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.LI37HXHJLA:8550:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.LI37HXHJLA:8549:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.LI37HXHJLA:8548:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.LI37HXHJLA:8546:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.LI37HXHJLA:8545:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.LI37HXHJLA:8542:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.LI37HXHJLA:8535:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.LI37HXHJLA:8525:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.LI37HXHJLA:8514:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.LI37HXHJLA:8406:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.LI37HXHJLA:8402:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.LI37HXHJLA:8376:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.LI37HXHJLA:8355:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.LI37HXHJLA:8347:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.LI37HXHJLA:8343:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.LI37HXHJLA:8288:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.LI37HXHJLA:8287:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.LI37HXHJLA:8283:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.LI37HXHJLA:8282:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.LI37HXHJLA:8280:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.LI37HXHJLA:8279:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.LI37HXHJLA:8276:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.FsUxrEMXiQ:8008:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.FsUxrEMXiQ:7991:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.FsUxrEMXiQ:7990:warning: override: reassigning to sy=
+mbol STAGING
+    1    ./.tmp.config.FsUxrEMXiQ:7986:warning: override: reassigning to sy=
+mbol SECURITYFS
+    1    ./.tmp.config.FsUxrEMXiQ:7966:warning: override: reassigning to sy=
+mbol IPV6_GRE
+    1    ./.tmp.config.FsUxrEMXiQ:7960:warning: override: reassigning to sy=
+mbol NET_CLS_FLOWER
+    1    ./.tmp.config.FsUxrEMXiQ:7951:warning: override: reassigning to sy=
+mbol IPV6
+    1    ./.tmp.config.FsUxrEMXiQ:7949:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.FsUxrEMXiQ:7948:warning: override: reassigning to sy=
+mbol NET_SCHED
+    1    ./.tmp.config.FsUxrEMXiQ:7947:warning: override: reassigning to sy=
+mbol NET_CLS_ACT
+    1    ./.tmp.config.FsUxrEMXiQ:7945:warning: override: reassigning to sy=
+mbol CGROUP_BPF
+    1    ./.tmp.config.FsUxrEMXiQ:7944:warning: override: reassigning to sy=
+mbol TEST_BPF
+    1    ./.tmp.config.FsUxrEMXiQ:7941:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+    1    ./.tmp.config.FsUxrEMXiQ:7934:warning: override: reassigning to sy=
+mbol ANDROID
+    1    ./.tmp.config.FsUxrEMXiQ:7924:warning: override: reassigning to sy=
+mbol NOTIFIER_ERROR_INJECTION
+    1    ./.tmp.config.FsUxrEMXiQ:7913:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.FsUxrEMXiQ:7805:warning: override: reassigning to sy=
+mbol NET_NS
+    1    ./.tmp.config.FsUxrEMXiQ:7801:warning: override: reassigning to sy=
+mbol USER_NS
+    1    ./.tmp.config.FsUxrEMXiQ:7775:warning: override: reassigning to sy=
+mbol NET_ACT_GACT
+    1    ./.tmp.config.FsUxrEMXiQ:7754:warning: override: reassigning to sy=
+mbol NET_SCH_INGRESS
+    1    ./.tmp.config.FsUxrEMXiQ:7746:warning: override: reassigning to sy=
+mbol NF_NAT
+    1    ./.tmp.config.FsUxrEMXiQ:7742:warning: override: reassigning to sy=
+mbol NF_CONNTRACK
+    1    ./.tmp.config.FsUxrEMXiQ:7687:warning: override: reassigning to sy=
+mbol VLAN_8021Q
+    1    ./.tmp.config.FsUxrEMXiQ:7686:warning: override: reassigning to sy=
+mbol BRIDGE
+    1    ./.tmp.config.FsUxrEMXiQ:7682:warning: override: reassigning to sy=
+mbol VETH
+    1    ./.tmp.config.FsUxrEMXiQ:7681:warning: override: reassigning to sy=
+mbol IPV6_MULTIPLE_TABLES
+    1    ./.tmp.config.FsUxrEMXiQ:7679:warning: override: reassigning to sy=
+mbol NET_L3_MASTER_DEV
+    1    ./.tmp.config.FsUxrEMXiQ:7678:warning: override: reassigning to sy=
+mbol NET_VRF
+    1    ./.tmp.config.FsUxrEMXiQ:7675:warning: override: reassigning to sy=
+mbol BPF_SYSCALL
+
+Section mismatches summary:
+
+    5    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    4    WARNING: drivers/gpio/gpio-xgs-iproc.o(.data+0x50): Section mismat=
+ch in reference from the variable bcm_iproc_gpio_driver to the variable .in=
+it.rodata:bcm_iproc_gpio_of_match
+    3    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    2    WARNING: vmlinux.o(.data+0xbe040): Section mismatch in reference f=
+rom the variable bcm_iproc_gpio_driver to the (unknown reference) .init.rod=
+ata:(unknown)
+    2    WARNING: vmlinux.o(.data+0x83e50): Section mismatch in reference f=
+rom the variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_ipr=
+oc_gpio_of_match
+    1    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3630): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3320): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.data+0xdde6c): Section mismatch in reference f=
+rom the variable bcm_iproc_gpio_driver to the (unknown reference) .init.rod=
+ata:(unknown)
+    1    WARNING: vmlinux.o(.data+0xc6028): Section mismatch in reference f=
+rom the variable bcm_iproc_gpio_driver to the (unknown reference) .init.rod=
+ata:(unknown)
+    1    WARNING: vmlinux.o(.data+0xbe380): Section mismatch in reference f=
+rom the variable bcm_iproc_gpio_driver to the (unknown reference) .init.rod=
+ata:(unknown)
+    1    WARNING: vmlinux.o(.data+0x83970): Section mismatch in reference f=
+rom the variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_ipr=
+oc_gpio_of_match
+    1    WARNING: vmlinux.o(.data+0x834a8): Section mismatch in reference f=
+rom the variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_ipr=
+oc_gpio_of_match
+    1    WARNING: vmlinux.o(.data+0x110e20): Section mismatch in reference =
+from the variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_ip=
+roc_gpio_of_match
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 32 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.vqZIUqRrzd:3666:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.vqZIUqRrzd:3669:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.vqZIUqRrzd:3670:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.vqZIUqRrzd:3672:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.vqZIUqRrzd:3673:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.vqZIUqRrzd:3677:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.vqZIUqRrzd:3678:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.vqZIUqRrzd:3733:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.vqZIUqRrzd:3737:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.vqZIUqRrzd:3745:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.vqZIUqRrzd:3766:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.vqZIUqRrzd:3792:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.vqZIUqRrzd:3796:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.vqZIUqRrzd:3904:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.vqZIUqRrzd:3915:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.vqZIUqRrzd:3925:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.vqZIUqRrzd:3932:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.vqZIUqRrzd:3935:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.vqZIUqRrzd:3936:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.vqZIUqRrzd:3938:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.vqZIUqRrzd:3939:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.vqZIUqRrzd:3940:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.vqZIUqRrzd:3942:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.vqZIUqRrzd:3951:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.vqZIUqRrzd:3957:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.vqZIUqRrzd:3977:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.vqZIUqRrzd:3981:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.vqZIUqRrzd:3982:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.vqZIUqRrzd:3999:warning: override: reassigning to symbol =
+USER_NS
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 46 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    mm/shmem.c:2737:35: warning: variable 'shmem_falloc_waitq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/android/binderfs.c:657:41: warning: suggest braces around initi=
+alization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/bus/fsl-mc/fsl-mc-bus.c:718:43: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    drivers/bus/fsl-mc/fsl-mc-bus.c:719:37: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    drivers/bus/fsl-mc/fsl-mc-bus.c:720:37: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    3 warnings generated.
+    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized when us=
+ed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when used =
+within its own initialization [-Wuninitialized]
+    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when used=
+ within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/net/usb/lan78xx.c:2665:34: warning: variable 'unlink_wakeup' is=
+ uninitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/scsi/lpfc/lpfc_sli.c:11878:34: warning: variable 'done_q' is un=
+initialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../powerplay/renoir_ppt.c:183:26: warning: s=
+uggest braces around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/scsi/lpfc/lpfc_scsi.c:4726:34: warning: variable 'waitq' is uni=
+nitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+
+Section mismatches:
+    WARNING: drivers/gpio/gpio-xgs-iproc.o(.data+0x50): Section mismatch in=
+ reference from the variable bcm_iproc_gpio_driver to the variable .init.ro=
+data:bcm_iproc_gpio_of_match
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: unmet direct dependencies detected for FSL_RCPM
+    drivers/net/ethernet/mellanox/mlx5/core/eswitch.c:1356:2: warning: 'spe=
+c' may be used uninitialized in this function [-Wmaybe-uninitialized]
+
+Section mismatches:
+    WARNING: drivers/gpio/gpio-xgs-iproc.o(.data+0x50): Section mismatch in=
+ reference from the variable bcm_iproc_gpio_driver to the variable .init.ro=
+data:bcm_iproc_gpio_of_match
+    WARNING: drivers/gpio/gpio-xgs-iproc.o(.data+0x50): Section mismatch in=
+ reference from the variable bcm_iproc_gpio_driver to the variable .init.ro=
+data:bcm_iproc_gpio_of_match
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/net/ethernet/mellanox/mlx5/core/eswitch.c:1356:2: warning: 'spe=
+c' may be used uninitialized in this function [-Wmaybe-uninitialized]
+
+Section mismatches:
+    WARNING: drivers/gpio/gpio-xgs-iproc.o(.data+0x50): Section mismatch in=
+ reference from the variable bcm_iproc_gpio_driver to the variable .init.ro=
+data:bcm_iproc_gpio_of_match
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 20 warnings, 0 section =
+mismatches
+
+Errors:
+    ERROR: "__aeabi_ldivmod" [drivers/gpu/drm/drm_kms_helper.ko] undefined!
+    ERROR: "__aeabi_uldivmod" [drivers/gpu/drm/drm_kms_helper.ko] undefined=
+!
+
+Warnings:
+    /tmp/cco1s4iX.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/cco1s4iX.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    include/linux/kern_levels.h:5:18: warning: format '%ld' expects argumen=
+t of type 'long int', but argument 5 has type 'size_t' {aka 'unsigned int'}=
+ [-Wformat=3D]
+    drivers/net/ethernet/mellanox/mlx5/core/eswitch.c:1356:2: warning: 'spe=
+c' may be used uninitialized in this function [-Wmaybe-uninitialized]
+
+Section mismatches:
+    WARNING: drivers/gpio/gpio-xgs-iproc.o(.data+0x2c): Section mismatch in=
+ reference from the variable bcm_iproc_gpio_driver to the (unknown referenc=
+e) .init.rodata:(unknown)
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 4 warnings,=
+ 0 section mismatches
+
+Errors:
+    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing pointer =
+to incomplete type 'struct cvmx_wqe'
+    drivers/staging/octeon/ethernet.c:463:30: error: storage size of 'link_=
+info' isn't known
+    drivers/staging/octeon/ethernet.c:499:30: error: storage size of 'link_=
+info' isn't known
+    drivers/staging/octeon/ethernet.c:516:29: error: type of formal paramet=
+er 2 is incomplete
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: 'union cvmx_he=
+lper_link_info' declared inside parameter list will not be visible outside =
+of this definition or declaration
+    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable 'lin=
+k_info' [-Wunused-variable]
+    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable 'lin=
+k_info' [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3630): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3320): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0x834a8): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_iproc_gp=
+io_of_match
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0x83e50): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_iproc_gp=
+io_of_match
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0x83970): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_iproc_gp=
+io_of_match
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0x83e50): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_iproc_gp=
+io_of_match
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 30 warnings, 0=
+ section mismatches
+
+Warnings:
+    ./.tmp.config.tWIduLVvTT:3047:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.tWIduLVvTT:3050:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.tWIduLVvTT:3051:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.tWIduLVvTT:3053:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.tWIduLVvTT:3054:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.tWIduLVvTT:3058:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.tWIduLVvTT:3059:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.tWIduLVvTT:3114:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.tWIduLVvTT:3118:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.tWIduLVvTT:3126:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.tWIduLVvTT:3147:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.tWIduLVvTT:3173:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.tWIduLVvTT:3177:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.tWIduLVvTT:3285:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.tWIduLVvTT:3296:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.tWIduLVvTT:3306:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.tWIduLVvTT:3313:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.tWIduLVvTT:3316:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.tWIduLVvTT:3317:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.tWIduLVvTT:3319:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.tWIduLVvTT:3320:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.tWIduLVvTT:3321:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.tWIduLVvTT:3323:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.tWIduLVvTT:3332:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.tWIduLVvTT:3338:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.tWIduLVvTT:3358:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.tWIduLVvTT:3362:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.tWIduLVvTT:3363:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.tWIduLVvTT:3380:warning: override: reassigning to symbol =
+USER_NS
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 29 warnings, 0=
+ section mismatches
+
+Warnings:
+    ./.tmp.config.FsUxrEMXiQ:7675:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.FsUxrEMXiQ:7678:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.FsUxrEMXiQ:7679:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.FsUxrEMXiQ:7681:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.FsUxrEMXiQ:7682:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.FsUxrEMXiQ:7686:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.FsUxrEMXiQ:7687:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.FsUxrEMXiQ:7742:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.FsUxrEMXiQ:7746:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.FsUxrEMXiQ:7754:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.FsUxrEMXiQ:7775:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.FsUxrEMXiQ:7801:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.FsUxrEMXiQ:7805:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.FsUxrEMXiQ:7913:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.FsUxrEMXiQ:7924:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.FsUxrEMXiQ:7934:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.FsUxrEMXiQ:7941:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.FsUxrEMXiQ:7944:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.FsUxrEMXiQ:7945:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.FsUxrEMXiQ:7947:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.FsUxrEMXiQ:7948:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.FsUxrEMXiQ:7949:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.FsUxrEMXiQ:7951:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.FsUxrEMXiQ:7960:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.FsUxrEMXiQ:7966:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.FsUxrEMXiQ:7986:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.FsUxrEMXiQ:7990:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.FsUxrEMXiQ:7991:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.FsUxrEMXiQ:8008:warning: override: reassigning to symbol =
+USER_NS
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0x110e20): Section mismatch in reference from =
+the variable bcm_iproc_gpio_driver to the variable .init.rodata:bcm_iproc_g=
+pio_of_match
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 31 warning=
+s, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.SI4flU8F6A:4505:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.SI4flU8F6A:4508:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.SI4flU8F6A:4509:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.SI4flU8F6A:4511:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.SI4flU8F6A:4512:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.SI4flU8F6A:4516:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.SI4flU8F6A:4517:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.SI4flU8F6A:4572:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.SI4flU8F6A:4576:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.SI4flU8F6A:4584:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.SI4flU8F6A:4605:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.SI4flU8F6A:4631:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.SI4flU8F6A:4635:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.SI4flU8F6A:4743:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.SI4flU8F6A:4754:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.SI4flU8F6A:4764:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.SI4flU8F6A:4771:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.SI4flU8F6A:4774:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.SI4flU8F6A:4775:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.SI4flU8F6A:4777:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.SI4flU8F6A:4778:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.SI4flU8F6A:4779:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.SI4flU8F6A:4781:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.SI4flU8F6A:4790:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.SI4flU8F6A:4796:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.SI4flU8F6A:4816:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.SI4flU8F6A:4820:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.SI4flU8F6A:4821:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.SI4flU8F6A:4838:warning: override: reassigning to symbol =
+USER_NS
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:134: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, =
+0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0xbe040): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the (unknown reference) .init.rodata:(=
+unknown)
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 2 warnings, 0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0xbe040): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the (unknown reference) .init.rodata:(=
+unknown)
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 2 warnings, 0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0xbe380): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the (unknown reference) .init.rodata:(=
+unknown)
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 =
+warnings, 0 section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0xc6028): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the (unknown reference) .init.rodata:(=
+unknown)
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 32 warn=
+ings, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.LI37HXHJLA:8276:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.LI37HXHJLA:8279:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.LI37HXHJLA:8280:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.LI37HXHJLA:8282:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.LI37HXHJLA:8283:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.LI37HXHJLA:8287:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.LI37HXHJLA:8288:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.LI37HXHJLA:8343:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.LI37HXHJLA:8347:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.LI37HXHJLA:8355:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.LI37HXHJLA:8376:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.LI37HXHJLA:8402:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.LI37HXHJLA:8406:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.LI37HXHJLA:8514:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.LI37HXHJLA:8525:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.LI37HXHJLA:8535:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.LI37HXHJLA:8542:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.LI37HXHJLA:8545:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.LI37HXHJLA:8546:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.LI37HXHJLA:8548:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.LI37HXHJLA:8549:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.LI37HXHJLA:8550:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.LI37HXHJLA:8552:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.LI37HXHJLA:8561:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.LI37HXHJLA:8567:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.LI37HXHJLA:8587:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.LI37HXHJLA:8591:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.LI37HXHJLA:8592:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.LI37HXHJLA:8609:warning: override: reassigning to symbol =
+USER_NS
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+Section mismatches:
+    WARNING: vmlinux.o(.data+0xdde6c): Section mismatch in reference from t=
+he variable bcm_iproc_gpio_driver to the (unknown reference) .init.rodata:(=
+unknown)
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/kern_levels.h:5:18: warning: format '%lu' expects argumen=
+t of type 'long unsigned int', but argument 8 has type 'unsigned int' [-Wfo=
+rmat=3D]
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable 'rtd' [-Wunus=
+ed-variable]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1166:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 29 war=
+nings, 0 section mismatches
+
+Warnings:
+    ./.tmp.config.lnAvAAfT8M:4568:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.lnAvAAfT8M:4571:warning: override: reassigning to symbol =
+NET_VRF
+    ./.tmp.config.lnAvAAfT8M:4572:warning: override: reassigning to symbol =
+NET_L3_MASTER_DEV
+    ./.tmp.config.lnAvAAfT8M:4574:warning: override: reassigning to symbol =
+IPV6_MULTIPLE_TABLES
+    ./.tmp.config.lnAvAAfT8M:4575:warning: override: reassigning to symbol =
+VETH
+    ./.tmp.config.lnAvAAfT8M:4579:warning: override: reassigning to symbol =
+BRIDGE
+    ./.tmp.config.lnAvAAfT8M:4580:warning: override: reassigning to symbol =
+VLAN_8021Q
+    ./.tmp.config.lnAvAAfT8M:4635:warning: override: reassigning to symbol =
+NF_CONNTRACK
+    ./.tmp.config.lnAvAAfT8M:4639:warning: override: reassigning to symbol =
+NF_NAT
+    ./.tmp.config.lnAvAAfT8M:4647:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.lnAvAAfT8M:4668:warning: override: reassigning to symbol =
+NET_ACT_GACT
+    ./.tmp.config.lnAvAAfT8M:4694:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.lnAvAAfT8M:4698:warning: override: reassigning to symbol =
+NET_NS
+    ./.tmp.config.lnAvAAfT8M:4806:warning: override: reassigning to symbol =
+USER_NS
+    ./.tmp.config.lnAvAAfT8M:4817:warning: override: reassigning to symbol =
+NOTIFIER_ERROR_INJECTION
+    ./.tmp.config.lnAvAAfT8M:4827:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.lnAvAAfT8M:4834:warning: override: reassigning to symbol =
+BPF_SYSCALL
+    ./.tmp.config.lnAvAAfT8M:4837:warning: override: reassigning to symbol =
+TEST_BPF
+    ./.tmp.config.lnAvAAfT8M:4838:warning: override: reassigning to symbol =
+CGROUP_BPF
+    ./.tmp.config.lnAvAAfT8M:4840:warning: override: reassigning to symbol =
+NET_CLS_ACT
+    ./.tmp.config.lnAvAAfT8M:4841:warning: override: reassigning to symbol =
+NET_SCHED
+    ./.tmp.config.lnAvAAfT8M:4842:warning: override: reassigning to symbol =
+NET_SCH_INGRESS
+    ./.tmp.config.lnAvAAfT8M:4844:warning: override: reassigning to symbol =
+IPV6
+    ./.tmp.config.lnAvAAfT8M:4853:warning: override: reassigning to symbol =
+NET_CLS_FLOWER
+    ./.tmp.config.lnAvAAfT8M:4859:warning: override: reassigning to symbol =
+IPV6_GRE
+    ./.tmp.config.lnAvAAfT8M:4879:warning: override: reassigning to symbol =
+SECURITYFS
+    ./.tmp.config.lnAvAAfT8M:4883:warning: override: reassigning to symbol =
+STAGING
+    ./.tmp.config.lnAvAAfT8M:4884:warning: override: reassigning to symbol =
+ANDROID
+    ./.tmp.config.lnAvAAfT8M:4901:warning: override: reassigning to symbol =
+USER_NS
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+    WARNING: "return_address" [vmlinux] is a static EXPORT_SYMBOL_GPL
+    sound/soc/soc-pcm.c:1185:8: warning: unused variable 'name' [-Wunused-v=
+ariable]
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    fs/ext4/super.c:2054:23: warning: unused variable 'sbi' [-Wunused-varia=
+ble]
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5dc1672f.1c69fb81.1ad1a.00b0%40mx.google.com.
