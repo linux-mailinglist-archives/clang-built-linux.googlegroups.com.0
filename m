@@ -1,125 +1,189 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJEMRTXAKGQEYXD5P3Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBBG5RTXAKGQEQFGWTAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 40FF2F1CAF
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Nov 2019 18:43:02 +0100 (CET)
-Received: by mail-pf1-x440.google.com with SMTP id w16sf8318017pfq.14
-        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Nov 2019 09:43:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573062181; cv=pass;
+Received: from mail-yb1-xb37.google.com (mail-yb1-xb37.google.com [IPv6:2607:f8b0:4864:20::b37])
+	by mail.lfdr.de (Postfix) with ESMTPS id 603B4F1FF1
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Nov 2019 21:35:18 +0100 (CET)
+Received: by mail-yb1-xb37.google.com with SMTP id p1sf19743ybg.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Nov 2019 12:35:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573072517; cv=pass;
         d=google.com; s=arc-20160816;
-        b=I4oMIHh7aNW0xVFhM49ZiLvfpjSQQZC3ovHmrT7+PDET5onCYNIh6z7+WxOE4coMcH
-         l97gc57jxHJH4pfA3OJ0YpUrmZaZEp8bAnCB694WKo7x1ScyFaRcUD1AKt1SbDSA8EoU
-         2xFS82If/g6D4PkTBXp7eP6LDDeYPvwkBbjSnzusxZsRHzdjEM6taaa01eTPw8vtQIvD
-         Kc+2euL3AMWKQDb3zg1pZWgV/cg9IGr/dhnkA4g6lrqtVsPRhiCIWoNFSjhX5RVtDJD3
-         rACA1Lp1pL1sgSjleVg6ANdRmAZ+p0Au3KHdxCXvH2fMw39p7aLEr2hGJD5/eXX/g8eK
-         WyJQ==
+        b=II1uvK2K85WOWiEaq/2kR+rUOcWY+ulzsSsrE0gwjqGwsiZxrIw8KvQwm1n790uTaf
+         dvWrS0YbydiG6min46X5iYjduOb6kPCxphx7MU3wzpbUJASAAnDPZUpkLnbryuDMAgir
+         jrnkC0t0gjMLNBfyg9Jmjm/GxZK9FI4X2H6/OBNATuX3APK8ByU/LC2VxiF+6m5vn3yM
+         H0kZ4QTIUngtvJ8S6vUqcO+4cU74e9y4AsDwKRu9HtOWhtib+BXcU0RMiAUsy/RBylwX
+         42GQ666pdXqp4p35GQg0pFfobFwBhavXy8QFT6MqpeCy4o+pnYKDEHatv9oXjDUrbYu0
+         c1jQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=/gevbRJPWIF6vfI35JB6sqGE8nwFFcHmBFWT9mztpmw=;
-        b=qG7whR/QZiWqsxAtPzM8LZNfesHomxYEmfWzqc0x7XFDCsHA5rkEIsvHfN671rizzB
-         7czKu1EeosKzMgb6hXO/IBWTUMgr44fccZvb7qidASKuK4PZSwOArwsYdybK5OOVvlkW
-         brU52o3/Apy+sqF5kVy9l1Xp5lhqogq0IKBdiSr6MHPMunh90+pK6WB7A9vi5LPPigtx
-         83nYEGfc0/0Bf4jMxb6h3Ljz7dQW9qWYtr8Q9Dovq60wBCHehg8uKwh+X2G56TOl0egf
-         fnE33NCwp7rxuhD0cBniZaTWrcDVlFdByy6KyIvJJEPV2OFI2Qic6ttFO3OSfitqjsc4
-         Mqgg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=q63X+mdIruZXKCwSuSaZ4jEIs3uN310uWWFNYrFARHg=;
+        b=LR7LZhhdxtBBLcnwH2zy68K6IWHs6Da+qz6bjcHsV+WATPElLK6tjpB9OyecSiMPIv
+         SftIywg8YDFYh8vohnHs2OZkI0o1nZb+jeZ/FGXIhHZjRYti64mRQZQx+9juQ/86yKUi
+         bCS6SaXGTpdFNoU7lDOfUaubZ9+ejFvjUcu7NPCc4oVfVU5YyB5QCk/wfUpZoVDb9Ejm
+         gNvdwDMKbSNqDdMmtEBoqwni/Lb1txb/4KOzdvtByjT1amJKFJThbuZ+3WQIWCsTvhf9
+         4uVsXAizgi5Z0wtWSS5N05YWtZftFi0ZRV7W3yYwl5hesOZmnV+l12idjZIiFKdZDuyL
+         Q2mg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=fty5f8Kk;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=dLqPPOZn;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=/gevbRJPWIF6vfI35JB6sqGE8nwFFcHmBFWT9mztpmw=;
-        b=pJamGwdZABg7gYiv6luIdKEGzMmxuYv5w1blLsO9ID6qRc+vsb6690ue0C9kwmm/08
-         MpC7CpvRXBUckmzvke67JWIMXE6PG6PmZy1IP7xIjccjy5Lk+XNnUstgTEyTVAN3+rLv
-         3N4Pg68UjXnkmW7ITKkkYPfWzTujzSTWmdSLZPj0xOf+k2B+7skx54Sgqp1dRDxbe0Yj
-         sUX52P4P568my7cFJEcZ/R+pvByQuI1ikRlV9O4Mnl+EVscmQzL0snseGrQPWzXkhZ+p
-         jEHztbZQ+G1UnaUFX2T2aTnAL+hil1NTT2RyghyP9inuxISFJ091/WsPop+vSKu4pf9n
-         mU2A==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=q63X+mdIruZXKCwSuSaZ4jEIs3uN310uWWFNYrFARHg=;
+        b=tFuCVqarC7u6pDX6H3Mrxxk4oJI8UaY+WShNoxjG2vLEeE7yWjBv2R/NJwqFNSi8nn
+         KwmXlKIqqZp/IgQEAqWS8zZftegLxHtCoLlAh+g0O59xbgnDohzqbIYyfeL4XnUv9M4H
+         TvIK+QtWTuvaVd/uBPXk6OQiWnnyVV1nqeH1jANalULjmuas4uC/7/Iosn0QoqUAgNXp
+         e3GKcgqY0yIaByPjiY2xF1J19u+cNy8DY1ViD7hS6Tk3G/+sATJ+v9udSOBVEOi0skXJ
+         AQOoX8tqvsCSr5iRKTsYYGXtRGUqVwJeqDX2ccq768X+72Hy9jc3DsZavA7BdmGENT7m
+         Scwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/gevbRJPWIF6vfI35JB6sqGE8nwFFcHmBFWT9mztpmw=;
-        b=eknzu3dTgrio6wwKu7WpUDn1IO5ORXuMdOB2yW5X+EF3NS99ysOy1qd4SLteGu+s8W
-         P8RI3iUS90c8MvnUvrEX+tFhHJuODR6owGmrhC9lVaGriKJ+jx0mnpF+mr5yBUQ1pc2J
-         zObfLKhGIGDcMmrxewiZcCFNsVr1sc3M4obF0bsbanI24hVtiu+vedJfKZulny3hu+BK
-         nmej6jW8HVfk6cFwhlEyEvZcF1HqfUdLY+lNInoBxl2O0hk6YWuo570UL0ati61xuLgc
-         OpfWA8HcSNyBWAI47h7rt+7gxkf34HAMPVeSlsyia62YdkiHzQNAeNCkA7gRlYwXBQyK
-         QcHQ==
-X-Gm-Message-State: APjAAAUK/prToOJdM8ygeAuRy8Vcir0Gmj0aAs1ALKswQrprBgNypdfi
-	YMOkETLqtesHOEJRBBK1k3o=
-X-Google-Smtp-Source: APXvYqzRAB/gb026IZm793AmDjgMLsrRtOx4Lx4zzyBX6yUb3neAzuQNrI2eZdf9ViDGRhkLO/VRtw==
-X-Received: by 2002:a65:5a02:: with SMTP id y2mr4197846pgs.104.1573062180892;
-        Wed, 06 Nov 2019 09:43:00 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=q63X+mdIruZXKCwSuSaZ4jEIs3uN310uWWFNYrFARHg=;
+        b=Pl5Q2GjI2ygFFnUoimhsjVGRQRuNHMKcYTQTP9ArQDALhFT3N3jOpBSsgv9E4brXDs
+         +qHXq2NYUJRgaDINtLgZmes55AOkseTPqLlpYAkSa6NVFZP6Ey57B5IVxn6VAym4dOI/
+         mH+f0kGMF0HBsizRULNirYwiHl8NIFbWNhMClW5JR9ivfSE7nH/qiSLuPhdan3RT4tKT
+         YMBOe3hvEdarDEWmZGcDY4namueRXWfFWtSCaa9utsSfkqc4vWgeqqb817axz7y1fxPT
+         IesvHb3WyNsE5ZrSzTuUnO6pPRp2M1I50I8bKYfjbcHcbMcP457r9aRg9rfGnqvjCxiq
+         vIGQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAWywCdXSC1JiV2Sht+zvDrPTMCEU9ECefvdB+1JsRH7+zkyrFdb
+	yFB0/upeXGqLsTiEkYNxfH0=
+X-Google-Smtp-Source: APXvYqzBsZFhPkozlIFdektAalZqBTKc0wrpg+pIF2Eb7kTfAOalVtMeVXjxxnSs0cFRsbYINP2R2g==
+X-Received: by 2002:a81:3497:: with SMTP id b145mr3035651ywa.315.1573072516858;
+        Wed, 06 Nov 2019 12:35:16 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:4342:: with SMTP id k2ls702155pgq.6.gmail; Wed, 06 Nov
- 2019 09:43:00 -0800 (PST)
-X-Received: by 2002:a63:6607:: with SMTP id a7mr4418970pgc.68.1573062180403;
-        Wed, 06 Nov 2019 09:43:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573062180; cv=none;
+Received: by 2002:a25:7903:: with SMTP id u3ls610902ybc.15.gmail; Wed, 06 Nov
+ 2019 12:35:16 -0800 (PST)
+X-Received: by 2002:a25:df4c:: with SMTP id w73mr1955833ybg.461.1573072516441;
+        Wed, 06 Nov 2019 12:35:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573072516; cv=none;
         d=google.com; s=arc-20160816;
-        b=u0Dn9/gH/Ddv5TfrUJVyuNJGlLMS/YiSw4nRRTQqTRhuIEPqBo+AWIzv7UGf5ruvaF
-         Lp3qQ2vYcZcxiAxokk8IxMffABvo1p7tbgWXDQEjd6obxLfdUzF+t+2K5WdpLqVvWL9q
-         5HxTrCSL7avQRUML5d8gPoNk69eE0P1qvHr0WyMF4P2I/NZPKpz2bB75XGI+SF5iYsDD
-         JC7t6m5zgsLorwNqv96J51Tt+QVbzW+SW5CBdxSMkFlDZ5nwivokZzzVSzjT7Q/A99WD
-         6JKb/6+qv8byIOTTUPSCRwApXNGV5x/ea/PexZqh8HwPV27OyKqf7SiNpsIIlkk4WJmR
-         vh0w==
+        b=el7Z4jrXmmWreDLUiYzhqNaw5UMLB9H5dHvSFkI0GGc3FAzOYYSu8zIkM6bS1vgdnO
+         AhNu1SZuCdZ0ssB76p0ZtdbYx8R1ETfewZ8UleIzKJACiL3u45u+dteectqEO2hxMNVf
+         iVas+cL8E2aY3x1YPxIlwSUTU4OYzLh9bsdeaNU1o5GXBCDQvdwxtJ4wfGMBfsHZFyno
+         aSqXuOzElYcoxbGKXE/MDChEw+i8eu54HYpVy6sTfj4ZW2Wy0oJya2O//eu3kb8aYS7h
+         sqmVUiQNUApSDnOKiFG4E9ChrrnhcJ/YlNpfMyihKt6njQBOLMN6Lni9PpjPSBHXs+v3
+         Wa1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/UkIv3k7BKAfomm8lniRgJxC0ijapS1Y/VJiJEeJjjM=;
-        b=jfL7rkTinYvH4DNjvIMgs1RMV3tyHFiwDyXUQQumQgh+QHou+evBEJvDyXlwPCmEKF
-         ZrO6t34BbhyyiYLrRoutZlHk0ynvzYeeLSU4GdLe6NLEnvq0SWeaZ+dXQqo6vu2o2lkS
-         q6FHBbXzEKlSD23O1xUwjhYg4h3vPSmzcbZNPTc1rwF6N4bLJ4QqE+GsP7YzZKytITEY
-         993tZRqoVFzveOptn20QEJHklhv0kHRAydG47kSh6px4Bk6RGlip/sGP0zw3so7lXYc9
-         cS65Vpx21UzjjHWUAProwfQykurteMM0Q9QWwwwuhjZior388/tmcJ8gwZcvs2c3KKJG
-         qWuw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=IJrcQXptkMvPiExxcW5iB0NzeMYZeKfH93+EIxkwDzY=;
+        b=JaLYCqs+oPwO7+TzARTTn0eCAlnG6X/YTeeLSgslwA6HsHfookZ61Ro0fHbmemdrmU
+         bUfSW6ZfwdRCUKDlhfRP7pMjrJKtjEPkyLBdzGz2qHC01MTV1ReLAb4uWRvrsGpjBVZd
+         JPnPawoQN0sjAVU+HdHAf2mgNLqoMxUfwU/XxaupLixVRw8JVfJJYEumPruWOG4mRShy
+         18ToWV+EC4hhQeZhSi3NgvtADck7dT7ei3vDnh6OQNIgiUzswXVLiCcePd3+eQMgbnej
+         T48V+vYipbyoDNYp0cMaaBdzp+wYg9ca0x86uqtLDqdQEgqHXP6sSzOf287RKZtApofw
+         Lsig==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=fty5f8Kk;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x631.google.com (mail-pl1-x631.google.com. [2607:f8b0:4864:20::631])
-        by gmr-mx.google.com with ESMTPS id ba9si26145plb.5.2019.11.06.09.43.00
+       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=dLqPPOZn;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
+        by gmr-mx.google.com with ESMTPS id v135si1416317ywa.0.2019.11.06.12.35.16
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Nov 2019 09:43:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) client-ip=2607:f8b0:4864:20::631;
-Received: by mail-pl1-x631.google.com with SMTP id o9so5092970plk.6
-        for <clang-built-linux@googlegroups.com>; Wed, 06 Nov 2019 09:43:00 -0800 (PST)
-X-Received: by 2002:a17:902:9b83:: with SMTP id y3mr3831723plp.179.1573062179368;
- Wed, 06 Nov 2019 09:42:59 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 06 Nov 2019 12:35:16 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=worktop.programming.kicks-ass.net)
+	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1iSS0p-0001aJ-G0; Wed, 06 Nov 2019 20:34:43 +0000
+Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
+	id C2126980DF5; Wed,  6 Nov 2019 21:34:40 +0100 (CET)
+Date: Wed, 6 Nov 2019 21:34:40 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Dmitry Safonov <dima@arista.com>
+Cc: linux-kernel@vger.kernel.org, Dmitry Safonov <0x7f454c46@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@kernel.org>, Jiri Slaby <jslaby@suse.com>,
+	Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Segall <bsegall@google.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Greentime Hu <green.hu@gmail.com>, Ingo Molnar <mingo@redhat.com>,
+	James Hogan <jhogan@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
+	Mel Gorman <mgorman@suse.de>, Michal Simek <monstr@monstr.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Ralf Baechle <ralf@linux-mips.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vincent Chen <deanbo422@gmail.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Will Deacon <will@kernel.org>, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	Matt Turner <mattst88@gmail.com>,
+	Richard Henderson <rth@twiddle.net>, linux-alpha@vger.kernel.org,
+	Vineet Gupta <vgupta@synopsys.com>,
+	linux-snps-arc@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	clang-built-linux@googlegroups.com,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+	Mark Salter <msalter@redhat.com>, linux-c6x-dev@linux-c6x.org,
+	Guo Ren <guoren@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	uclinux-h8-devel@lists.sourceforge.jp,
+	Brian Cain <bcain@codeaurora.org>, linux-hexagon@vger.kernel.org,
+	Fenghua Yu <fenghua.yu@intel.com>, Tony Luck <tony.luck@intel.com>,
+	linux-ia64@vger.kernel.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-m68k@lists.linux-m68k.org, Ley Foon Tan <lftan@altera.com>,
+	nios2-dev@lists.rocketboards.org, Jonas Bonn <jonas@southpole.se>,
+	Stafford Horne <shorne@gmail.com>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	openrisc@lists.librecores.org, Helge Deller <deller@gmx.de>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	linux-parisc@vger.kernel.org,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org,
+	Christian Borntraeger <borntraeger@de.ibm.com>,
+	Heiko Carstens <heiko.carstens@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org,
+	Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
+	linux-um@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
+	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+	x86@kernel.org, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, linux-xtensa@linux-xtensa.org,
+	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
+	"Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-pm@vger.kernel.org,
+	Daniel Thompson <daniel.thompson@linaro.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	kgdb-bugreport@lists.sourceforge.net
+Subject: Re: [PATCH 00/50] Add log level to show_stack()
+Message-ID: <20191106203440.GH3079@worktop.programming.kicks-ass.net>
+References: <20191106030542.868541-1-dima@arista.com>
+ <20191106092039.GT4131@hirez.programming.kicks-ass.net>
+ <10db6fa1-5b17-ebe6-09e0-6335e09e4db8@arista.com>
 MIME-Version: 1.0
-References: <5dc29bd0.1c69fb81.31968.c1f6@mx.google.com>
-In-Reply-To: <5dc29bd0.1c69fb81.31968.c1f6@mx.google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 6 Nov 2019 09:42:47 -0800
-Message-ID: <CAKwvOdmLTVmn4nmM1pLc=zc1NZEH5T0xnZJai7m4zzZysU5aNA@mail.gmail.com>
-Subject: Re: next/master build: 216 builds: 2 failed, 214 passed, 11 errors,
- 682 warnings (next-20191106)
-To: "kernelci.org bot" <bot@kernelci.org>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>, Alistair Delva <adelva@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <10db6fa1-5b17-ebe6-09e0-6335e09e4db8@arista.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: peterz@infradead.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=fty5f8Kk;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@infradead.org header.s=bombadil.20170209 header.b=dLqPPOZn;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,114 +196,71 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Nov 6, 2019 at 2:09 AM kernelci.org bot <bot@kernelci.org> wrote:
->
-> allmodconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 48 warnings, 0 se=
-ction mismatches
->
-> Warnings:
->     drivers/android/binderfs.c:657:41: warning: suggest braces around ini=
-tialization of subobject [-Wmissing-braces]
+On Wed, Nov 06, 2019 at 04:27:33PM +0000, Dmitry Safonov wrote:
+> Hi Peter,
+> 
+> On 11/6/19 9:20 AM, Peter Zijlstra wrote:
+> > On Wed, Nov 06, 2019 at 03:04:51AM +0000, Dmitry Safonov wrote:
+> >> Add log level argument to show_stack().
+> >> Done in three stages:
+> >> 1. Introducing show_stack_loglvl() for every architecture
+> >> 2. Migrating old users with an explicit log level
+> >> 3. Renaming show_stack_loglvl() into show_stack()
+> >>
+> >> Justification:
+> >> o It's a design mistake to move a business-logic decision
+> >>   into platform realization detail.
+> >> o I have currently two patches sets that would benefit from this work:
+> >>   Removing console_loglevel jumps in sysrq driver [1]
+> >>   Hung task warning before panic [2] - suggested by Tetsuo (but he
+> >>   probably didn't realise what it would involve).
+> >> o While doing (1), (2) the backtraces were adjusted to headers
+> >>   and other messages for each situation - so there won't be a situation
+> >>   when the backtrace is printed, but the headers are missing because
+> >>   they have lesser log level (or the reverse).
+> >> o As the result in (2) plays with console_loglevel for kdb are removed.
+> > 
+> > I really don't understand that word salad. Why are you doing this?
+> > 
+> 
+> Sorry, I should have tried to describe better.
+> 
+> I'm trying to remove external users of console_loglevel by following
+> reasons:
 
-It seems that this is no longer a warning in clang-9.  That makes the
-rest of these -Wmissing-braces suspect.  I'll have to dig in what
-changed here; I'm particularly curious if the original warning was
-wrong or clang has regressed.
-https://github.com/ClangBuiltLinux/linux/issues/674
+I suppose since all my machines have 'debug ignore_loglevel
+earlyprintk=serial,ttyS0,115200 console=ttyS0,115200' I don't have this
+experience.
 
->     1 warning generated.
->     mm/shmem.c:2737:35: warning: variable 'shmem_falloc_waitq' is uniniti=
-alized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/bus/fsl-mc/fsl-mc-bus.c:718:43: warning: suggest braces aroun=
-d initialization of subobject [-Wmissing-braces]
->     drivers/bus/fsl-mc/fsl-mc-bus.c:719:37: warning: suggest braces aroun=
-d initialization of subobject [-Wmissing-braces]
->     drivers/bus/fsl-mc/fsl-mc-bus.c:720:37: warning: suggest braces aroun=
-d initialization of subobject [-Wmissing-braces]
->     3 warnings generated.
->     fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized when =
-used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized=
- when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when used=
- within its own initialization [-Wuninitialized]
->     fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when used=
- within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     lib/vsprintf.c:766:14: warning: unused variable 'str' [-Wunused-varia=
-ble]
+> - changing console_loglevel on SMP means that unwanted messages from
+> other CPUs will appear (that have lower log level)
+> - on UMP unwanted messages may appear if the code is preempted while it
+> hasn't set the console_loglevel back to old
+> - rising console_loglevel to print wanted message(s) may not work at all
+> if printk() has being delayed and the console_loglevel is already set
+> back to old value
 
-https://github.com/ClangBuiltLinux/linux/issues/767
+Sure, frobbing the global console_loglevel is bad.
 
->     1 warning generated.
->     fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized wh=
-en used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is uni=
-nitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is uniniti=
-alized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized when=
- used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitializ=
-ed when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is uni=
-nitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized whe=
-n used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake' is=
- uninitialized when used within its own initialization [-Wuninitialized]
->     drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake' is=
- uninitialized when used within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when use=
-d within its own initialization [-Wuninitialized]
->     fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when us=
-ed within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     drivers/net/usb/lan78xx.c:2665:34: warning: variable 'unlink_wakeup' =
-is uninitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uninitia=
-lized when used within its own initialization [-Wuninitialized]
->     drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uninitia=
-lized when used within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     drivers/scsi/lpfc/lpfc_sli.c:11878:34: warning: variable 'done_q' is =
-uninitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/scsi/lpfc/lpfc_scsi.c:4726:34: warning: variable 'waitq' is u=
-ninitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/gpu/drm/amd/amdgpu/../powerplay/renoir_ppt.c:183:26: warning:=
- suggest braces around initialization of subobject [-Wmissing-braces]
->     1 warning generated.
->
-> Section mismatches:
->     WARNING: drivers/gpio/gpio-xgs-iproc.o(.data+0x50): Section mismatch =
-in reference from the variable bcm_iproc_gpio_driver to the variable .init.=
-rodata:bcm_iproc_gpio_of_match
+> I also have patches in wip those needs to print backtrace with specific
+> loglevel (higher when it's critical, lower when it's notice and
+> shouldn't go to serial console).
 
-https://github.com/ClangBuiltLinux/linux/issues/768
+(everything always should go to serial, serial is awesome :-)
 
---=20
-Thanks,
-~Nick Desaulniers
+> Besides on local tests I see hits those have headers (messages like
+> "Backtrace: ") without an actual backtrace and the reverse - a backtrace
+> without a reason for it. It's quite annoying and worth addressing by
+> syncing headers log levels to backtraces.
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdmLTVmn4nmM1pLc%3Dzc1NZEH5T0xnZJai7m4zzZysU5aNA%40m=
-ail.gmail.com.
+I suppose I'm surprised there are backtraces that are not important.
+Either badness happened and it needs printing, or the user asked for it
+and it needs printing.
+
+Perhaps we should be removing backtraces if they're not important
+instead of allowing to print them as lower loglevels?
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191106203440.GH3079%40worktop.programming.kicks-ass.net.
