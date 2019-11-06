@@ -1,183 +1,126 @@
-Return-Path: <clang-built-linux+bncBDZKHAFW3AGBBZULRLXAKGQEVV3TUVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSPV64IYUKBB2E5RLXAKGQE2CPLUEI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x23d.google.com (mail-lj1-x23d.google.com [IPv6:2a00:1450:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 19A75F1125
-	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Nov 2019 09:35:51 +0100 (CET)
-Received: by mail-lj1-x23d.google.com with SMTP id e17sf2533157ljj.12
-        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Nov 2019 00:35:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573029350; cv=pass;
+Received: from mail-wr1-f61.google.com (mail-wr1-f61.google.com [209.85.221.61])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1AB4DF11E2
+	for <lists+clang-built-linux@lfdr.de>; Wed,  6 Nov 2019 10:14:17 +0100 (CET)
+Received: by mail-wr1-f61.google.com with SMTP id y3sf6864787wrm.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 06 Nov 2019 01:14:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573031656; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xTCd21B0cERgap0zawRYZspNwvMLSIuJ9n7u3qKjufacVoiJPgQCORV6TSLybIotiq
-         48SgzzWZ46h+Qcu4oNp7uQF8PB4IUvQPI8R3MDf9RMsipE4DaFyPwr7/w+LeFf7se9zb
-         fTRbu0l/rzFT16GpOtIQVMiF8jjqw0i8nj35pF9LKmdvTR+hbF21qolRCgf4Yh2UzNZt
-         p9P1Pfl6WoTM0gjIUaAf1D5sZVJ7TPHgfu/IrQhGDEl2S4HAtL5oe/mL8YYTy+KUPXV+
-         BwrQUbs2pvI+HGm1N66iKlMv8JLo14KuDuTTxWouWT3OUrsxIGVAzi7OU2qA0PSSsYRh
-         CF6A==
+        b=HeO7m9qK8E+7CgMO7tHcP3cIeVeEUy5wcuM5UfjqdsoWh76gaFgoIs0l5RrKYe7/OM
+         uvLV/mRGzj6e9+4tKcACe6/VY+zZX7Vlj4ZI7AGeEFKwrMp70GhWXBAq1xYdLlIkBUll
+         wbiojRbc4dAy87uOXRT0dxsjrzaaso79Rk0p3M0jX/fJp6mURJFRk2VIdE4eCyuNjGRN
+         NhC+ltN/eEeMc0x0LEv6CsxXMXpqRWd9w9K+q4JwYY/GFtJq6iCdHk9dTxkMHLVAljNp
+         locckmIxUPjF+vHiN1APH3F1ltysh13aaVXNo9mxd2cxdN9oK+j8Ro591q035VZD7WUX
+         yYdA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :list-id:mailing-list:precedence:sender:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=ZKZIZ8fYQ3JDh7ArDfbYTESXAcyj81F0HjUXoUnVzOI=;
-        b=uW0EnwhBYHEgQTtonGVav6jnqdezgdKiaVrVul6vbce3qO5vcur0ukxPJkKPeJ/gnJ
-         EvSvzyOshQGpAH9U7GVgPEzw16P9ITrTJ9JzQVnS8wrS6TyaTxIS86Pv8J4sALIbDyua
-         3EzpYWg0pCW5BEgWsFtQ2mJBR9ACO39PzG3H7J7eTOMUJWQEj7x3L5GFRuLN0fFrninr
-         ZO5eRY9tpGnmkLmPNcZwIkEhwJ/fhABaUhwv4fXsvahPisS+iq77IJnMGeFiktCxLYyg
-         1XyCIpwFaoyGRR1DGq5Odq3bWUvbf+zWsGmHVmvOBLb22aj6/XYvbw+zfgwCSh/dv3K+
-         ZkuQ==
+         :to:from:date;
+        bh=LixoQ9JyxaFbLL82pgWe2nHYLf4Fn14xqjARgu3BpmM=;
+        b=DxJCb7vpUERnHuXU/LaD1VYHdYyK8MqK4QU2+Fp5MIGnBclhNCmlgXDe5/QrnywZBs
+         isAZgwFCm3lEjTLjHNYCmAnzf2XdK12U76rvi8pSLa2oHqBkSCBXfaO1SlusWrwtw0C9
+         rETQyrjmWBFiuWekpmPhYLjQ+9ws1dIUy18wi7tMV2BkLtylgfbb8RyhYCCBVd/BaNeo
+         X+yxJ/TaqKxEA3qbyygy/tmnsA7/Qnno88tc+dxFGpD2Z2hpcHyELBD0FfvWS0KMKkfu
+         XKdUo3D/5D7jN1yNtFGWYoMPnJ9LxtPthz4RSWcZBOHWlNqAew3RO3nK3RduNPQYIqBt
+         NCpg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=pmladek@suse.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZKZIZ8fYQ3JDh7ArDfbYTESXAcyj81F0HjUXoUnVzOI=;
-        b=GCaCvz/tPS8pInqvJi9FDBexkCyeuknApJah1YhRlS6jC5OtAXNpiEPkKCug8khpn+
-         nggGctzc9L3jp+yAmFGncOqfylk4L1HgwuatdfYVoWqA8SdlKD2TKIrO6FdbWDmlWYNr
-         o+XGsIQW8QYEseOS4+sAShnkiM5oOaJKjesuBCwufDF0qkv5mAkb5UMh7/BK6aIfgcgw
-         CmeqcwEQNP81xo+y37kF5VH6s9LyAvvWYpj+gHYEaHwl04OcIv0A8aMg2+vZlHxNB15Y
-         i4aD3iAgmkw8S7Vjj2gb+Lw3+eNHOfTXJ6r7Fnxeyl2B5qpdXU3MPdO7YucVcpsOVFJ1
-         7cvw==
+       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=PGPKVKzC;
+       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:user-agent:sender
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=ZKZIZ8fYQ3JDh7ArDfbYTESXAcyj81F0HjUXoUnVzOI=;
-        b=jPOIy4UBldNiAmAsWVg68vuO+ykQkjEnreTIAoglTTynjDSuY/136EtgBeivUPvIai
-         +SNnO+4o7/PnBzvKD+zPBkPhAPZBP6PRjUJPxM2zJZhevh3jcZXKm4n3l7rl0+YchGfd
-         YTPF5piq/0FLxsSy0fdxC6p8H1WjHZ9FrYq7izup/mlJw3cXsZ33zsNFMoHB8Yp9PAqb
-         bokRKCAB8e3gduL7GvAFcBI8mYBA/nkKLvaXQatAHAiZ3Syng8LSL009uwnDrmIrzaYS
-         ZbFI7ppPjlt4vpNP1zXvfryuOo0vmEcozc8YqCu4vFuh2+LT6qUgzfpxgmL9gtilCAKJ
-         0MkQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXw4rHLF1KJrwjeTt70SW5H0SZOJKyWeHxg+Xvav4troUhGKWL4
-	V6ZbOLIpgpfkpu+wZOJSM8M=
-X-Google-Smtp-Source: APXvYqw7NTYvt4HsWlU7b+sK1b2hjm991n44+xQS04n0ZYjUSWFVQDOwXlQhYp7yfeVTILzEz/QWQw==
-X-Received: by 2002:a05:651c:1196:: with SMTP id w22mr956590ljo.217.1573029350542;
-        Wed, 06 Nov 2019 00:35:50 -0800 (PST)
+        bh=LixoQ9JyxaFbLL82pgWe2nHYLf4Fn14xqjARgu3BpmM=;
+        b=M3nHGW2Cj/XuKrxuhU3sJ2gJ7ZfA7i7dpQbdRuV0ebmjJYRLpRqreEh18zvo8ihAt3
+         xQ6plOIkgQSsq+tGq5Wju9i1gNu25L/GBHX7A+3COV7Ma4gGbAyCm15Toy7//fKWYaCB
+         bCR43Osvbe/RKBE4RHWVSysY2v5xX37anzSeBdBHwV8mle/tuAwjKPJJEzihpgcHHxiL
+         ycjEWPF4k7eboWelRaEMULEQpVlWDg0J1YB8u2/bD+gzjp6NjnAdWlAuYpDsG1v6fOTl
+         sqxBgm6kKQ/kZBB/yG3U33e55hQiQzfxzHvAXdyAiglSOawZrBQRwkRuiTn8MylwUoUV
+         2jww==
+X-Gm-Message-State: APjAAAXSbwRFriQF1AdKXGxVSXaj6TXWrdoLf+4NbUXFrDGRCdhMTPGM
+	KAYqg5rM+r/clnpkmrw2XfQ=
+X-Google-Smtp-Source: APXvYqxACw19C01u6635ckwuC/aXs+PKPtOIzjOBGNSE+ugPJtno0TFA5Xl9VkTPsUAx4Sctj0EpAg==
+X-Received: by 2002:a1c:814b:: with SMTP id c72mr1496477wmd.167.1573031656765;
+        Wed, 06 Nov 2019 01:14:16 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac2:593b:: with SMTP id v27ls453951lfi.2.gmail; Wed, 06 Nov
- 2019 00:35:49 -0800 (PST)
-X-Received: by 2002:ac2:5295:: with SMTP id q21mr23182785lfm.93.1573029349978;
-        Wed, 06 Nov 2019 00:35:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573029349; cv=none;
+Received: by 2002:adf:9125:: with SMTP id j34ls952013wrj.2.gmail; Wed, 06 Nov
+ 2019 01:14:16 -0800 (PST)
+X-Received: by 2002:adf:dc44:: with SMTP id m4mr1705348wrj.203.1573031656290;
+        Wed, 06 Nov 2019 01:14:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573031656; cv=none;
         d=google.com; s=arc-20160816;
-        b=lMAGHlwpD2PZhSdKD4RIIUJbaz3RHdrpwwshmKieN1jmOhZA9XpCbDBstxPVwMjRP3
-         PMvJXthR4Ka7RL79/J9qxO33NF7alK7xTqvb3RbzHnxScqES4E8fUW3Ubma57haP/l91
-         4MQ38igfPuZqlR6NcqKuAVhHK98CwGGYUeeAUJRv2dxYaiOZwftfMr/S1/vlrfPVZ1Bu
-         PvfD223GlnnUXsrT3Xv2PmB7PNVAMcUGi+6H+zef1K/jmkwg2/w1Se2IdSnhpkTIrgsC
-         f/x9bj1foKXaYsEDIIW0QLZxjE8P4lkobpH2EJowUiZCk4u/IN/LIcVn6Jrdm3OLg3gd
-         7T3w==
+        b=cV/YRwDTq+u6SSLIY63TEC7I9rV74mgNyzVFVri2ve1JBrebXiRvC1j/ADav2HOWHZ
+         fMCp0GzaHHR8Bzk43oOr9O2m3KMaKq59JjDRzzpnYEuUE4XPqTjIXGc2zbc+mbDpkfL4
+         SA8dPmPJ2wOLVorVJIoCQkrEy1DUkF1GZd2iokGHCDDOGhNSBDIuJ5QNBWukrR0jnZiD
+         7m1LYmfCncoPFU9XWPLhnq1NYZluaZmeVEyXkcA4n3QX1Xt4nm3c6gZ4McaZCeCx2QOV
+         86GsBNTIYvNE7cZA3TrFe5PO52u2eeavGBMARMoHklNDWhGYxYP1/LdpVpfkt01uvD42
+         1Zwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=Qk+OYjvpNaLjFaIqmjjs7SMjcunhbhU68T3kJ5WqXMs=;
-        b=gNuFIdgEJwRWMhY08XZ6pWQbg5u45L6jGfpFP7GRzQ8FPxb8oaKuu9xMqfSq6/Cixp
-         cZVUSysLBuwHpywvobfntAyWdElwaOVIumjt68y541MV0k+hcmInCaRCfGIslmqGLz3W
-         ObsezMIVnb0/R2KbrURpNOwF8xA9IrF8RgDWJrHBhnNeFLTd9qirGUKi3xd10EGoYPCf
-         xY7jB8n0y2qFSCi4aoGEIVZsdHrU09MlRfBBBehYTodmXeHKrNUDLN0/IHXm95yMxFiA
-         UOktIFgFJx6s8TmAPS5JvYUoR1g1wYIeOurs6MN94AuLKpehFhWM78XIpmsljtFuOxp6
-         /pjA==
+        h=sender:user-agent:in-reply-to:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=TOdQALz0m5WieFGaUz1ns1b04RuCs9AC7LJ76ZAlU8g=;
+        b=S5Dcj22/5kaS5JgIDDapETiqt77HkB4SioDp+/gppYDNG0+du1fiFrhcr69LCLk2uh
+         4OtAtk6aoSBRx321j+ZoqL/qLy6hGdiFVMHtY200X4kQHuqMoJEIIzvE2YaOZO61aq3W
+         pHUdV/FSFhx80NrsCF5Otxdq19CBjgG7Or7wjzCQboiC+WHv+dNO711XQC8sNkiHR8+m
+         pe1HWuzaG6dGFUf/bfjhQSjALZq/BysMfPifK5im1xfyhhA3+vLcUbsLH2QLRM0ueDou
+         Bs967aQ9K91difTKQqisTT3aX0rTKx0/G3FdBrEKxHue3nNlxQ5jeExmD6echc+1+Th+
+         UALQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of pmladek@suse.com designates 195.135.220.15 as permitted sender) smtp.mailfrom=pmladek@suse.com
-Received: from mx1.suse.de (mx2.suse.de. [195.135.220.15])
-        by gmr-mx.google.com with ESMTPS id c25si1081776lji.2.2019.11.06.00.35.49
+       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=PGPKVKzC;
+       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+Received: from pandora.armlinux.org.uk (pandora.armlinux.org.uk. [2001:4d48:ad52:3201:214:fdff:fe10:1be6])
+        by gmr-mx.google.com with ESMTPS id w6si174296wmk.3.2019.11.06.01.14.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 06 Nov 2019 00:35:49 -0800 (PST)
-Received-SPF: pass (google.com: domain of pmladek@suse.com designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
-	by mx1.suse.de (Postfix) with ESMTP id 210EFAED5;
-	Wed,  6 Nov 2019 08:35:47 +0000 (UTC)
-Date: Wed, 6 Nov 2019 09:35:38 +0100
-From: Petr Mladek <pmladek@suse.com>
+        Wed, 06 Nov 2019 01:14:16 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) client-ip=2001:4d48:ad52:3201:214:fdff:fe10:1be6;
+Received: from shell.armlinux.org.uk ([2001:4d48:ad52:3201:5054:ff:fe00:4ec]:52522)
+	by pandora.armlinux.org.uk with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.90_1)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1iSHNB-0003vt-DG; Wed, 06 Nov 2019 09:13:05 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1iSHN5-0003wB-1z; Wed, 06 Nov 2019 09:12:59 +0000
+Date: Wed, 6 Nov 2019 09:12:59 +0000
+From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
 To: Dmitry Safonov <dima@arista.com>
 Cc: linux-kernel@vger.kernel.org, Dmitry Safonov <0x7f454c46@gmail.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Ingo Molnar <mingo@kernel.org>, Jiri Slaby <jslaby@suse.com>,
+	Petr Mladek <pmladek@suse.com>,
 	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Segall <bsegall@google.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Greentime Hu <green.hu@gmail.com>, Ingo Molnar <mingo@redhat.com>,
-	James Hogan <jhogan@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
-	Mel Gorman <mgorman@suse.de>, Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Burton <paulburton@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ralf Baechle <ralf@linux-mips.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vincent Chen <deanbo422@gmail.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Will Deacon <will@kernel.org>, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>,
-	Richard Henderson <rth@twiddle.net>, linux-alpha@vger.kernel.org,
-	Vineet Gupta <vgupta@synopsys.com>,
-	linux-snps-arc@lists.infradead.org,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	clang-built-linux@googlegroups.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
-	Mark Salter <msalter@redhat.com>, linux-c6x-dev@linux-c6x.org,
-	Guo Ren <guoren@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	uclinux-h8-devel@lists.sourceforge.jp,
-	Brian Cain <bcain@codeaurora.org>, linux-hexagon@vger.kernel.org,
-	Fenghua Yu <fenghua.yu@intel.com>, Tony Luck <tony.luck@intel.com>,
-	linux-ia64@vger.kernel.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-m68k@lists.linux-m68k.org, Ley Foon Tan <lftan@altera.com>,
-	nios2-dev@lists.rocketboards.org, Jonas Bonn <jonas@southpole.se>,
-	Stafford Horne <shorne@gmail.com>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	openrisc@lists.librecores.org, Helge Deller <deller@gmx.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	linux-parisc@vger.kernel.org,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org,
-	Christian Borntraeger <borntraeger@de.ibm.com>,
-	Heiko Carstens <heiko.carstens@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org,
-	Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
-	linux-um@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
-	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>, linux-xtensa@linux-xtensa.org,
-	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
-	"Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-pm@vger.kernel.org,
-	Daniel Thompson <daniel.thompson@linaro.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	kgdb-bugreport@lists.sourceforge.net
-Subject: Re: [PATCH 00/50] Add log level to show_stack()
-Message-ID: <20191106083538.z5nlpuf64cigxigh@pathway.suse.cz>
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 05/50] arm: Add loglvl to unwind_backtrace()
+Message-ID: <20191106091258.GS25745@shell.armlinux.org.uk>
 References: <20191106030542.868541-1-dima@arista.com>
+ <20191106030542.868541-6-dima@arista.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20191106030542.868541-1-dima@arista.com>
-User-Agent: NeoMutt/20170912 (1.9.0)
-X-Original-Sender: pmladek@suse.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of pmladek@suse.com designates 195.135.220.15 as
- permitted sender) smtp.mailfrom=pmladek@suse.com
+In-Reply-To: <20191106030542.868541-6-dima@arista.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+Sender: Russell King - ARM Linux admin <linux@armlinux.org.uk>
+X-Original-Sender: linux@armlinux.org.uk
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
+ mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=PGPKVKzC;
+       spf=pass (google.com: best guess record for domain of
+ linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates
+ 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender)
+ smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -190,56 +133,113 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed 2019-11-06 03:04:51, Dmitry Safonov wrote:
-> Add log level argument to show_stack().
-> Done in three stages:
-> 1. Introducing show_stack_loglvl() for every architecture
-> 2. Migrating old users with an explicit log level
-> 3. Renaming show_stack_loglvl() into show_stack()
+On Wed, Nov 06, 2019 at 03:04:56AM +0000, Dmitry Safonov wrote:
+> Currently, the log-level of show_stack() depends on a platform
+> realization. It creates situations where the headers are printed with
+> lower log level or higher than the stacktrace (depending on
+> a platform or user).
 > 
-> Justification:
-> o It's a design mistake to move a business-logic decision
->   into platform realization detail.
-> o I have currently two patches sets that would benefit from this work:
->   Removing console_loglevel jumps in sysrq driver [1]
+> Furthermore, it forces the logic decision from user to an architecture
+> side. In result, some users as sysrq/kdb/etc are doing tricks with
+> temporary rising console_loglevel while printing their messages.
+> And in result it not only may print unwanted messages from other CPUs,
+> but also omit printing at all in the unlucky case where the printk()
+> was deferred.
+> 
+> Introducing log-level parameter and KERN_UNSUPPRESSED [1] seems
+> an easier approach than introducing more printk buffers.
+> Also, it will consolidate printings with headers.
+> 
+> Add log level argument to unwind_backtrace() as a preparation for
+> introducing show_stack_loglvl().
+> 
+> As a good side-effect arm_syscall() is now printing errors with the same
+> log level as the backtrace.
+> 
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: clang-built-linux@googlegroups.com
+> [1]: https://lore.kernel.org/lkml/20190528002412.1625-1-dima@arista.com/T/#u
+> Signed-off-by: Dmitry Safonov <dima@arista.com>
+> ---
+>  arch/arm/include/asm/unwind.h | 3 ++-
+>  arch/arm/kernel/traps.c       | 6 +++---
+>  arch/arm/kernel/unwind.c      | 7 ++++---
+>  3 files changed, 9 insertions(+), 7 deletions(-)
+> 
+> diff --git a/arch/arm/include/asm/unwind.h b/arch/arm/include/asm/unwind.h
+> index 6e282c33126b..0f8a3439902d 100644
+> --- a/arch/arm/include/asm/unwind.h
+> +++ b/arch/arm/include/asm/unwind.h
+> @@ -36,7 +36,8 @@ extern struct unwind_table *unwind_table_add(unsigned long start,
+>  					     unsigned long text_addr,
+>  					     unsigned long text_size);
+>  extern void unwind_table_del(struct unwind_table *tab);
+> -extern void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk);
+> +extern void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk,
+> +			     const char *loglvl);
+>  
+>  #endif	/* !__ASSEMBLY__ */
+>  
+> diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
+> index 7c3f32b26585..69e35462c9e9 100644
+> --- a/arch/arm/kernel/traps.c
+> +++ b/arch/arm/kernel/traps.c
+> @@ -202,7 +202,7 @@ static void dump_instr(const char *lvl, struct pt_regs *regs)
+>  #ifdef CONFIG_ARM_UNWIND
+>  static inline void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
+>  {
+> -	unwind_backtrace(regs, tsk);
+> +	unwind_backtrace(regs, tsk, KERN_DEBUG);
 
-Just to clarify. The problem in sysrq driver is a bit different.
-It modifies console_loglevel to show even less important message
-on the console.
+Why demote this to debug level?  This is used as part of the kernel
+panic message, surely we don't want this at debug level?  What about
+the non-unwind version?
 
-IMHO, it should be solved by printing the header line with pr_error().
-It is not ideal. A cleaner solution might be to introduce another
-loglevel that will always get pushed to the console. But I am
-not sure if it is worth this single line.
+>  }
+>  #else
+>  static void dump_backtrace(struct pt_regs *regs, struct task_struct *tsk)
+> @@ -660,10 +660,10 @@ asmlinkage int arm_syscall(int no, struct pt_regs *regs)
+>  	if (user_debug & UDBG_SYSCALL) {
+>  		pr_err("[%d] %s: arm syscall %d\n",
+>  		       task_pid_nr(current), current->comm, no);
+> -		dump_instr("", regs);
+> +		dump_instr(KERN_ERR, regs);
+>  		if (user_mode(regs)) {
+>  			__show_regs(regs);
+> -			c_backtrace(frame_pointer(regs), processor_mode(regs), NULL);
+> +			c_backtrace(frame_pointer(regs), processor_mode(regs), KERN_ERR);
+>  		}
+>  	}
+>  #endif
+> diff --git a/arch/arm/kernel/unwind.c b/arch/arm/kernel/unwind.c
+> index 0a65005e10f0..caaae1b6f721 100644
+> --- a/arch/arm/kernel/unwind.c
+> +++ b/arch/arm/kernel/unwind.c
+> @@ -455,11 +455,12 @@ int unwind_frame(struct stackframe *frame)
+>  	return URC_OK;
+>  }
+>  
+> -void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk)
+> +void unwind_backtrace(struct pt_regs *regs, struct task_struct *tsk,
+> +		      const char *loglvl)
+>  {
+>  	struct stackframe frame;
+>  
+> -	pr_debug("%s(regs = %p tsk = %p)\n", __func__, regs, tsk);
+> +	printk("%s%s(regs = %p tsk = %p)\n", loglvl, __func__, regs, tsk);
 
->   Hung task warning before panic [2] - suggested by Tetsuo (but he
->   probably didn't realise what it would involve).
-> o While doing (1), (2) the backtraces were adjusted to headers
->   and other messages for each situation - so there won't be a situation
->   when the backtrace is printed, but the headers are missing because
->   they have lesser log level (or the reverse).
-> o As the result in (2) plays with console_loglevel for kdb are removed.
+Clearly, this isn't supposed to be part of the normal backtrace output...
 
-> The least important for upstream, but maybe still worth to note that
-> every company I've worked in so far had an off-list patch to print
-> backtrace with the needed log level (but only for the architecture they
-> cared about).
-> If you have other ideas how you will benefit from show_stack() with
-> a log level - please, reply to this cover letter.
+Overall impression at this point is really not good.
 
-I agree with all the other justification.
-
-I would add. The backtrace is really useful for debugging. It should
-be possible to print it even in less critical situations.
-
-I am afraid that many people use WARN() for this purpose. But WARN()
-is not always appropriate. WARN() misuse huts when panic_on_warn
-option is used.
-
-Best Regards,
-Petr
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTC broadband for 0.8mile line in suburbia: sync at 12.1Mbps down 622kbps up
+According to speedtest.net: 11.9Mbps down 500kbps up
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191106083538.z5nlpuf64cigxigh%40pathway.suse.cz.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191106091258.GS25745%40shell.armlinux.org.uk.
