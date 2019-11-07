@@ -1,155 +1,148 @@
-Return-Path: <clang-built-linux+bncBC5L5P75YUERBPW7R7XAKGQEJ3JWDWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCCMH5WKTMGRBW7ER7XAKGQEFGCXL6A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x240.google.com (mail-lj1-x240.google.com [IPv6:2a00:1450:4864:20::240])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3CE33F2C04
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Nov 2019 11:19:43 +0100 (CET)
-Received: by mail-lj1-x240.google.com with SMTP id l12sf289373lji.10
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Nov 2019 02:19:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573121982; cv=pass;
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D1592F2C25
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Nov 2019 11:30:51 +0100 (CET)
+Received: by mail-lj1-x23f.google.com with SMTP id x17sf297966ljd.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Nov 2019 02:30:51 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573122651; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PiMpfkUBP318MpybOO0IIwYHjuzZ3TB+gbIp7aoijFjlCZeNzg5+0TlE03hDTy74Iz
-         XPP91zWdQpP2mnTHqf1ZhQOfzraPQt5y3mbyQ+GOZsFhqnM3gzwGMby8Cm/G1C18iwls
-         xEDnfqAXkCLVf4ChIS5PDMVEwhSS7/ol613HiwHtuRBF7HSJF1QcNSHuc2pivW3Foiw4
-         wDBhUvRyxRNOhkGoLW2muTr+u1a1kcKSn9JO2bOkMlGkpaEcCGlDmFTeOP9RVKWcRTvF
-         e7+anM9PVr9OgP9A/lVslK4EU+eQs4d5RTgDZ1fXYBWbfxAUHgWW2b7f9t8kssf/02Mr
-         p/jA==
+        b=arI8pPdd0BclnIWUjF8dq9Y/kANQe7bPx30zuf9d8DjEz7Q5wav8NCT1acRCYLf8I2
+         iaEi/5proYfVgnKvv9ggjFfMIbTHliHd/yO0JKk/YFbwQ7yqta3nuqZUM6lUHTJRTizT
+         QzWdtbXlTJ8qqzcfhCZD4Pvw7ulH6lEtdsOGNPxRsbRKPWcNz2ENYZTmPN/pYre1LZAd
+         6sIZEj9AG2Dq/Bz62SR2YMwTp7Uikcn3WqqBll0C3SdfwBEXJAYEDE3h2pZciGdzg+aV
+         YUWDTLm2zo7YjcEgbuLo8VyKVHhAN+22cGMp/QqbTKTeI2eMhuJTNQEDENWIdkUPatFM
+         NEbA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=kYKjK7IjGAf/L/W2YTxsZsFKoO70cmAtGa0tnyr/aWA=;
-        b=j6lR+42am/j0NlosvRt1ylqqosgRDItLmgrAHTee2E5SRRZjOXSZokBTsfhMJ8o2mv
-         RJo+q8DbjiY3TiGRZMLyCbsZ9ztOjvhX59dQG2fjrHJZV+FLHgX4uyBUnW4zWt8UPjzB
-         DHLn8y32vwoVAxj26FUO12GJPvKuSjvuhd9wBPs316j1jU2AvVmS6xHlyg+mcuWlQsWh
-         ueAmQmpw0Em65ih14S6MGndPiUvS+SSnOPns7TRGCZd4GHI8nYcRJuCi4tB0dTqIYW+p
-         yI1BgE5ydusvPKPqyQMAfT8PnDJiNawkqcIyEOiIupCbmhdfD3Md+Z1Z58B5P/DC/RGO
-         RNUg==
+         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
+         :cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=n7Bu16Ks0bsJwJptwT0gtaEDsfu4imIO8GZIUACrIaY=;
+        b=RDVfUxdhmGYzVVnYY2FZpiZiEdWgta0T54MNX7e6b52aMgRqhPhRfsEIyWECo6Sv1u
+         f9aYWS8ofupG5Mp9gyWXX0VyFwJjRK5WPeUCRHedwjmk4LSO3SJ50Lh0VXmb9YqqBKuW
+         8FOQh3Dn8mbAiuMcua+2vfslN+n13YhaSXjnpNmxYlYtZj3JwqeRFHmisl0C3KffyDHD
+         TZ/goPPYu4kSyhyTucsY8T4bp+w/6FFU+pGOop2UjUTXiPlfjYwLsoQlLpvVeu633X/q
+         vPVTH1PggOwBPDMTdZeEVgzStRctBYDHPAtOoXgG0WjPX75c6FzhZ/KrnKdY9IqrZPjh
+         LzlA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of aryabinin@virtuozzo.com designates 185.231.240.75 as permitted sender) smtp.mailfrom=aryabinin@virtuozzo.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=virtuozzo.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=W8w6KWUU;
+       spf=pass (google.com: domain of glider@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=glider@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kYKjK7IjGAf/L/W2YTxsZsFKoO70cmAtGa0tnyr/aWA=;
-        b=KlLGJUPJMgO5OZqzq5WeVMJ6RJhLfOoxjNpfg3jWx8QW56Nv4cn2qlyGJQaaq9/CSg
-         Biol07bHvegsMIw87aD9NTcIsoWqh4DhBZVcVJR3yRHlLCJlYTacxxXFnZp7o6CODz8p
-         GSrc0Y/x4NMzNuDOwO2+BOXVpN/94bg6uHvY3OKIcmOB38mr4ZoR8GARqVXT2sCcBpby
-         MtvuZWbJX7x30jiFIkzBLVEkPObO8Hiy9ityMQMrXEX3TM3A9zQttaKoPFoAzxi+o9CV
-         oXRl5kr23hrMwBxLCcKiFicI3Teu16Qui/3JVKCEHoo9VzNDA7SogLWJk/vN/DwJXA/a
-         wuNQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=n7Bu16Ks0bsJwJptwT0gtaEDsfu4imIO8GZIUACrIaY=;
+        b=NgYLc88B4qeU1I2JAtIYVbmSr9fNuJjS6uA+SOHbx3FHnYnH6tT6L7K7tgaC2Ha4wj
+         kLe7iO189XH3xMNPjTo7j5WUikTCcKTVSX3/vsq7MGy11j1U7gZk41VAzaUqY+Uk2aAv
+         v2f3CDBAjer0ERnYS6QVI2nNrc3fLHp3+vcLwlIrVlOYEYLFW0DB5+EIkpSFY0SZZ6/0
+         Kabtq+APn8oT4NaJNEPU5Q8fNAdMr4yg966klOQaHy0/WxbpmedazaXDeh+aa0978/vh
+         WvyPzpnOkrn6fkbyngOSZGc+OxWKID2a8peqkFMjjC35kXpG6VN3pxU3l0QtVgF38CQT
+         wksQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=kYKjK7IjGAf/L/W2YTxsZsFKoO70cmAtGa0tnyr/aWA=;
-        b=iA8mhkRHs7Bl3RSANcZT9BO1rq9FhRgXOj7Ia7CoY1IKXsr9AR2bg9gNetofTbvSpc
-         xfHYRvgltpKmrYiD7kQVRyaXH1OlJ5Cwrb2rnn6mRdEQpHk3w0/fqD+J45CR5uTa9lCt
-         /TMDoVH34sxFRL7ISseYjiUnF7trLU9dqUoP7qTRbFBbOeXcMibeGG50EOuA+eM3k56j
-         65ZRRLa5fO27SfpQO7kARjWpyYep7hJNjnyy8yWmWla+XCvW+eCXh3Zg4DEG8vWpjgM5
-         15HfmGFKVl77k6MPra/gB244+bB0ivOlUtBqbW5AzBPyvIVP9NTxyuFftjygtrs3YwwA
-         QOiA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU6jl6H+pJyCf9iIB6+UU3Az2EUfyTqEDKqq7pIK4BCnVVBzhiO
-	fiDUioJElImZ5yuPBzfdlEk=
-X-Google-Smtp-Source: APXvYqweHA2mSrasFNzPX953i37hosQV4YHYyQAlZdiET1UXnWCAHCLPuCWO1YGemc3LMYIK4IEQBQ==
-X-Received: by 2002:ac2:46e5:: with SMTP id q5mr1890327lfo.148.1573121982685;
-        Thu, 07 Nov 2019 02:19:42 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=n7Bu16Ks0bsJwJptwT0gtaEDsfu4imIO8GZIUACrIaY=;
+        b=H9U0gqhZOw1tO5tVzBZZA30peq3F+NSbCpSSgmZsxvuDN1FJLcIAKSjMV/0aSCwq6s
+         vXCxQvpvvU2BCHhcSWJ10V2aL5V5pKpbS8lQfWGRzZgT7jzgc8C6xd7y2megut4TCYhy
+         ZECUJX1E+8CloYJMdV0OzNH5dKrJTfugixCRGN3ZEqwHzqLUbGHXdt8ZDnHdPc/P/NkY
+         yEzL8ttIBIDlQnUjWYGkrWvVBw5flSil7KYVnZlyzpIK1K+KDgMCrIOfgfEvMo8au0Bg
+         Ed17T+nSGvZN36Ue5I1dDTB85ywSbBSwTDRMqOiNJ5e+f7NQXQr5tgt/mXSTOZCEEcJG
+         9Fpg==
+X-Gm-Message-State: APjAAAXFxbeZKTzeA9QQZcoIiGyzjvBMQsbZ12OR38EAFWh7FvdKe3Zd
+	i+Y8y5eLZbeWxmsaV9LRejk=
+X-Google-Smtp-Source: APXvYqzjdqWdU7inVJdTmXGrGSCCnRlcMbSF8CvtuOC2I0FVcO5Nvwi/UGAZGTkyjgOIMLZYpIvrWw==
+X-Received: by 2002:a19:7515:: with SMTP id y21mr1864299lfe.96.1573122651212;
+        Thu, 07 Nov 2019 02:30:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:98c:: with SMTP id 134ls1069413lfj.6.gmail; Thu, 07 Nov
- 2019 02:19:42 -0800 (PST)
-X-Received: by 2002:a19:5e0e:: with SMTP id s14mr1798529lfb.30.1573121982154;
-        Thu, 07 Nov 2019 02:19:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573121982; cv=none;
+Received: by 2002:a2e:720a:: with SMTP id n10ls1480562ljc.9.gmail; Thu, 07 Nov
+ 2019 02:30:50 -0800 (PST)
+X-Received: by 2002:a2e:8508:: with SMTP id j8mr1826707lji.136.1573122650705;
+        Thu, 07 Nov 2019 02:30:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573122650; cv=none;
         d=google.com; s=arc-20160816;
-        b=MVinFNmBuAnuOlc3z6eAmx/BbErodsY0By6VxLy+mf1GaZ1VoEjlT+xAbkVK5Ld4sk
-         PbVjJt0csSPZF2xe8s+wSoPPpbePo+vDBeeNbE3+mEGTAGzEe3cXPFf3AA3TL4RLA/Bx
-         xliF39x01zBBNn/XcTxZoVqMI3UJ21xfU4ha0oXSOzGUDmHaQVXlOvIt+mFDJLQ4LHn8
-         FR1A2px+6E5edSL8yn0fYbPJydoNRJO/gxbW18xVry682tLSP0eEgLQ2kK1U2Rdvn+zE
-         9jZkks6VE0z19Y9N7tC99frxY1bAahxolLYfzOom5a8rTMOfoY0qSrWK1uXjC6Rr7rYV
-         7WBQ==
+        b=ehss70vFAn23PoU8kJgNymsRbPY1HIFoTylUt9VStPpOw9a78d8VpD39gyIiawus2K
+         4DCBy8w4aesnWnBvku+A+pAnojz/JjCEWyr2Sm3BMzRFUT80NKR5XnmTIpv+BKoY/YtX
+         noC/scfIDmA8g+cIC88iKep17qP25lTQ8MTxGTW7PyAFzu3JtksqZDm7DCOG2L4Q76gk
+         yOXDDtYW2M+dX7iX8GB4Z08Ss+qxjRoaoXa2gwj5JxTyd5is3tJkV9MO1+t7ets7rfXc
+         j/VyN2/D2vUVWG7Kev0Tzkotlck6tkW+mJx/JEY9cOv36/ubog2O4AgkuEPV5/eDyOz2
+         2wKw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=HwK0A733qAI+SQi2OO3K9Pv1Ybco3Id1ciT1dzVZq1M=;
-        b=0pRrI4ukz6cjxC+SmMH+uUIksipX7ZLFYjwZ/F8Fa6SwqOrqDXMV7yMPntfVrEuy6/
-         JOgU3T6ApPZXLuAPhneSdcV7PKMv6+/8eDzOOvaocMAjjvpMERB53g6Q9Szd7sBV7vhG
-         11YMN+lyesqHAaFF92qEPvxfui7nAsZZ3CvVuT8mtacE4JeeTPM6np01GrEp7bsFHB2G
-         giaAXDsoWTWnmx+6z5pc+l/bq+fwyyS9m6haZE7cwtVRcS/B5IJzXMBxBMj9ZazuPUg7
-         egIF/pbRp/Fx0pXIqTPAbD89PZtICgmCzDkQWEuq406/DUOMAlKA62AsPKL20A7NneYj
-         j5wQ==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=gfnRKWxQsfmZZ793n5BwE5j+nRq6Ghk0lwXjK8nGNg4=;
+        b=PRodugzHCV3HT2+gRxdkn7yV86MBZVrm5psSY1Ox2Hwwo/0yxqspKS5NwQmE67doth
+         UXC32KDhOomdVrZAnYNjo+yrsNzRrrXEQBnUeCy3GpMb1NPzPVxoNG0u24l7xHDsPzsU
+         XigfFrrwayx1NYF18jsTo/RpBkjstCL0nVZz8w7Vh3VKB2AS4OV39VEwFtF6tK2sHs9H
+         yUSQCM35BXiXl8Ax7YyeqDGjrk2He4PYg2yrBtPqMQkF8/mXyhGyGsqg91ozjKY/pkcy
+         S/YAtoMmHrGF+lJ2EvmMlIIrgIwB4H2jUyYb+0jEfPQwlV/AfpnwrzmytR23kOa0bP44
+         bixQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of aryabinin@virtuozzo.com designates 185.231.240.75 as permitted sender) smtp.mailfrom=aryabinin@virtuozzo.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=virtuozzo.com
-Received: from relay.sw.ru (relay.sw.ru. [185.231.240.75])
-        by gmr-mx.google.com with ESMTPS id f3si183776ljg.3.2019.11.07.02.19.42
+       dkim=pass header.i=@google.com header.s=20161025 header.b=W8w6KWUU;
+       spf=pass (google.com: domain of glider@google.com designates 2a00:1450:4864:20::441 as permitted sender) smtp.mailfrom=glider@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id z9si131742ljj.4.2019.11.07.02.30.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 07 Nov 2019 02:19:42 -0800 (PST)
-Received-SPF: pass (google.com: domain of aryabinin@virtuozzo.com designates 185.231.240.75 as permitted sender) client-ip=185.231.240.75;
-Received: from [172.16.25.5]
-	by relay.sw.ru with esmtp (Exim 4.92.3)
-	(envelope-from <aryabinin@virtuozzo.com>)
-	id 1iSet6-0004Y9-JK; Thu, 07 Nov 2019 13:19:37 +0300
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 07 Nov 2019 02:30:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of glider@google.com designates 2a00:1450:4864:20::441 as permitted sender) client-ip=2a00:1450:4864:20::441;
+Received: by mail-wr1-x441.google.com with SMTP id t1so2407468wrv.4
+        for <clang-built-linux@googlegroups.com>; Thu, 07 Nov 2019 02:30:50 -0800 (PST)
+X-Received: by 2002:adf:9ec7:: with SMTP id b7mr2106602wrf.221.1573122649537;
+ Thu, 07 Nov 2019 02:30:49 -0800 (PST)
+MIME-Version: 1.0
+References: <20191030142237.249532-1-glider@google.com> <20191030142237.249532-3-glider@google.com>
+ <20191101055033.GA226263@google.com> <CAG_fn=UQFwF3hre0bWDnhHEg+_bgUWNpr01hExi2_NmJi3XHwA@mail.gmail.com>
+ <20191107060816.GA93084@google.com> <CAK8P3a1=V=tve1NaS5+O3dM_4pFLWz78+TNiqdtqns0WazMz_w@mail.gmail.com>
+ <CAG_fn=Wwds32i3A1EpBAjFF7MHhLJaASjHq=Jwuyg3h6XhLU-Q@mail.gmail.com>
+ <47fdac13-fa2c-2acd-2480-5e6d4db208f8@virtuozzo.com> <CAK8P3a0pSy_dwg8h8vTK-yoa1W1OxLiisnBe9E_tDBfJY9E1qQ@mail.gmail.com>
+ <6875c6e6-2f1f-f8e6-e5d7-d451c48397ff@virtuozzo.com>
+In-Reply-To: <6875c6e6-2f1f-f8e6-e5d7-d451c48397ff@virtuozzo.com>
+From: "'Alexander Potapenko' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 7 Nov 2019 11:30:38 +0100
+Message-ID: <CAG_fn=Uw2b7veVZA+7KC_6bTz+3EnChE8ijDFTOK+0oAM-zEgQ@mail.gmail.com>
 Subject: Re: [PATCH RFC v2 02/25] stackdepot: prevent Clang from optimizing
  away stackdepot_memcmp()
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Alexander Potapenko <glider@google.com>,
- Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>,
- Vegard Nossum <vegard.nossum@oracle.com>, Dmitry Vyukov
- <dvyukov@google.com>, Linux Memory Management List <linux-mm@kvack.org>,
- Al Viro <viro@zeniv.linux.org.uk>, Andrew Morton
- <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
- Ard Biesheuvel <ard.biesheuvel@linaro.org>, Christoph Hellwig <hch@lst.de>,
- Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Eric Dumazet <edumazet@google.com>, Eric Van Hensbergen <ericvh@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Harry Wentland <harry.wentland@amd.com>,
- Herbert Xu <herbert@gondor.apana.org.au>, Ingo Molnar <mingo@elte.hu>,
- Jens Axboe <axboe@kernel.dk>,
- "Martin K . Petersen" <martin.petersen@oracle.com>,
- Martin Schwidefsky <schwidefsky@de.ibm.com>,
- "Michael S. Tsirkin" <mst@redhat.com>, Michal Simek <monstr@monstr.eu>,
- Petr Mladek <pmladek@suse.com>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Steven Rostedt <rostedt@goodmis.org>, Takashi Iwai <tiwai@suse.com>,
- Theodore Ts'o <tytso@mit.edu>, Thomas Gleixner <tglx@linutronix.de>,
- Wolfram Sang <wsa@the-dreams.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Ilya Leoshkevich <iii@linux.ibm.com>, Mark Rutland <mark.rutland@arm.com>,
- Matthew Wilcox <willy@infradead.org>, Randy Dunlap <rdunlap@infradead.org>,
- Andrey Konovalov <andreyknvl@google.com>, Marco Elver <elver@google.com>,
- Nick Desaulniers <ndesaulniers@google.com>,
- clang-built-linux <clang-built-linux@googlegroups.com>
-References: <20191030142237.249532-1-glider@google.com>
- <20191030142237.249532-3-glider@google.com>
- <20191101055033.GA226263@google.com>
- <CAG_fn=UQFwF3hre0bWDnhHEg+_bgUWNpr01hExi2_NmJi3XHwA@mail.gmail.com>
- <20191107060816.GA93084@google.com>
- <CAK8P3a1=V=tve1NaS5+O3dM_4pFLWz78+TNiqdtqns0WazMz_w@mail.gmail.com>
- <CAG_fn=Wwds32i3A1EpBAjFF7MHhLJaASjHq=Jwuyg3h6XhLU-Q@mail.gmail.com>
- <47fdac13-fa2c-2acd-2480-5e6d4db208f8@virtuozzo.com>
- <CAK8P3a0pSy_dwg8h8vTK-yoa1W1OxLiisnBe9E_tDBfJY9E1qQ@mail.gmail.com>
-From: Andrey Ryabinin <aryabinin@virtuozzo.com>
-Message-ID: <6875c6e6-2f1f-f8e6-e5d7-d451c48397ff@virtuozzo.com>
-Date: Thu, 7 Nov 2019 13:19:16 +0300
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.9.0
-MIME-Version: 1.0
-In-Reply-To: <CAK8P3a0pSy_dwg8h8vTK-yoa1W1OxLiisnBe9E_tDBfJY9E1qQ@mail.gmail.com>
+To: Andrey Ryabinin <aryabinin@virtuozzo.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>, 
+	Vegard Nossum <vegard.nossum@oracle.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Linux Memory Management List <linux-mm@kvack.org>, Al Viro <viro@zeniv.linux.org.uk>, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Christoph Hellwig <hch@lst.de>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Eric Dumazet <edumazet@google.com>, 
+	Eric Van Hensbergen <ericvh@gmail.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Harry Wentland <harry.wentland@amd.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	Ingo Molnar <mingo@elte.hu>, Jens Axboe <axboe@kernel.dk>, 
+	"Martin K . Petersen" <martin.petersen@oracle.com>, Martin Schwidefsky <schwidefsky@de.ibm.com>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, Michal Simek <monstr@monstr.eu>, Petr Mladek <pmladek@suse.com>, 
+	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Takashi Iwai <tiwai@suse.com>, "Theodore Ts'o" <tytso@mit.edu>, Thomas Gleixner <tglx@linutronix.de>, 
+	Wolfram Sang <wsa@the-dreams.de>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Matthew Wilcox <willy@infradead.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Andrey Konovalov <andreyknvl@google.com>, Marco Elver <elver@google.com>, 
+	Nick Desaulniers <ndesaulniers@google.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: aryabinin@virtuozzo.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of aryabinin@virtuozzo.com designates 185.231.240.75 as
- permitted sender) smtp.mailfrom=aryabinin@virtuozzo.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=virtuozzo.com
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: glider@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=W8w6KWUU;       spf=pass
+ (google.com: domain of glider@google.com designates 2a00:1450:4864:20::441 as
+ permitted sender) smtp.mailfrom=glider@google.com;       dmarc=pass (p=REJECT
+ sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Alexander Potapenko <glider@google.com>
+Reply-To: Alexander Potapenko <glider@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -162,31 +155,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Thu, Nov 7, 2019 at 11:19 AM Andrey Ryabinin <aryabinin@virtuozzo.com> w=
+rote:
+>
+>
+>
+> On 11/7/19 1:00 PM, Arnd Bergmann wrote:
+> > On Thu, Nov 7, 2019 at 10:46 AM Andrey Ryabinin <aryabinin@virtuozzo.co=
+m> wrote:
+> >> On 11/7/19 12:22 PM, Alexander Potapenko wrote:
+> >>> On Thu, Nov 7, 2019 at 10:04 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> >>>> On Thu, Nov 7, 2019 at 7:08 AM Sergey Senozhatsky
+> >>>> <sergey.senozhatsky.work@gmail.com> wrote:
+> >>>> The normal way to do a volatile access would be
+> >>>> READ_ONCE()/WRITE_ONCE(), but that seems stronger than
+> >>>> the barrier() here. I'd just stick to adding a barrier.
+> >>> I actually like the READ_ONCE idea more, as READ_ONCE is really a
+> >>> documented way to prevent the compiler from merging reads, which is
+> >>> what we want here.
+> >>
+> >> I would rather go with -fno-builtin-bcmp or maybe even -fno-builtin if=
+ that works.
+> >
+> > The commit message for 5f074f3e192f ("lib/string.c: implement a basic b=
+cmp")
+> > mentions that  -fno-builtin-bcmp did not work for LTO when the global b=
+cmp()
+> > help was added. I don't know whether the same applies here, but my gues=
+s is
+> > that it's the same issue.
+>
+> But we don't do LTO.
+I don't think not doing LTO now is a valid argument, as some
+distributions may start doing LTO in the future.
+(Android already does LTO, by the way)
+
+Regarding this particular case, -fno-builtin-bcmp is insufficient, as
+Clang falls back to memcmp() in that case.
+Building with -fno-builtin-bcmp -fno-builtin-memcmp does the trick,
+but we'd probably better use -fno-builtin just to avoid future
+surprises.
+> --
+> You received this message because you are subscribed to the Google Groups=
+ "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an=
+ email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgi=
+d/clang-built-linux/6875c6e6-2f1f-f8e6-e5d7-d451c48397ff%40virtuozzo.com.
 
 
-On 11/7/19 1:00 PM, Arnd Bergmann wrote:
-> On Thu, Nov 7, 2019 at 10:46 AM Andrey Ryabinin <aryabinin@virtuozzo.com> wrote:
->> On 11/7/19 12:22 PM, Alexander Potapenko wrote:
->>> On Thu, Nov 7, 2019 at 10:04 AM Arnd Bergmann <arnd@arndb.de> wrote:
->>>> On Thu, Nov 7, 2019 at 7:08 AM Sergey Senozhatsky
->>>> <sergey.senozhatsky.work@gmail.com> wrote:
->>>> The normal way to do a volatile access would be
->>>> READ_ONCE()/WRITE_ONCE(), but that seems stronger than
->>>> the barrier() here. I'd just stick to adding a barrier.
->>> I actually like the READ_ONCE idea more, as READ_ONCE is really a
->>> documented way to prevent the compiler from merging reads, which is
->>> what we want here.
->>
->> I would rather go with -fno-builtin-bcmp or maybe even -fno-builtin if that works.
-> 
-> The commit message for 5f074f3e192f ("lib/string.c: implement a basic bcmp")
-> mentions that  -fno-builtin-bcmp did not work for LTO when the global bcmp()
-> help was added. I don't know whether the same applies here, but my guess is
-> that it's the same issue.
 
-But we don't do LTO.
+--=20
+Alexander Potapenko
+Software Engineer
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6875c6e6-2f1f-f8e6-e5d7-d451c48397ff%40virtuozzo.com.
+Google Germany GmbH
+Erika-Mann-Stra=C3=9Fe, 33
+80636 M=C3=BCnchen
+
+Gesch=C3=A4ftsf=C3=BChrer: Paul Manicle, Halimah DeLaine Prado
+Registergericht und -nummer: Hamburg, HRB 86891
+Sitz der Gesellschaft: Hamburg
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAG_fn%3DUw2b7veVZA%2B7KC_6bTz%2B3EnChE8ijDFTOK%2B0oAM-zE=
+gQ%40mail.gmail.com.
