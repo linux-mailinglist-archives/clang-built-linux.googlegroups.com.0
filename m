@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDPPFIEASMFBBYFOSLXAKGQEMY5GQQQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBBY5OSLXAKGQEHRJTL5Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 17519F3B09
-	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Nov 2019 23:14:58 +0100 (CET)
-Received: by mail-yb1-xb3a.google.com with SMTP id 63sf3220094ybv.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Nov 2019 14:14:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573164897; cv=pass;
+Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A413F3B0E
+	for <lists+clang-built-linux@lfdr.de>; Thu,  7 Nov 2019 23:15:06 +0100 (CET)
+Received: by mail-yw1-xc39.google.com with SMTP id c72sf2999504ywb.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 07 Nov 2019 14:15:06 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573164900; cv=pass;
         d=google.com; s=arc-20160816;
-        b=J9V7njoWuztPX+Mkkgr6FcfOUpzJrAMkSWC5C2hzw4H9pLjymgzyY3f4MrMKJ8KceM
-         VIfYOz4JOH0Ph2o7L4kF5JJ5s4ZOcuEfICJ3vmLNSJ1Sw6MoG1ed+MiMWF5x8oCBQbvL
-         jTsnOiZTTotrsQi9yUVTlxNJ86cEG1b5SPZWp9X9ftBrNzdq+uauzYxJpI+Cw410IknC
-         2G27Z39PvOcdFpxHH/vHn508hxP3TfDDZmwdrKiPy1S0fdSXhETIEDe584DYchivH3cn
-         N+KTfnumDbohtJ9IOZA/pcn18jAZnILMl2APs8nIQ4IKnMt2OXTyRhB62FaB4T+2qmrl
-         Ig9g==
+        b=VL10C7fZ4vX0b+TJZMfc0Hhcm2WM5gVlL3tzXqO6nhh6n3pTALtUUO4jLX1VOBGEYC
+         xw5TNMV4/blj06Ap02QzBjTBxGuUUygyU3TVxO3WEuJRumA4DSWAbsEWMZPHpyUz7g18
+         2SMHFEJkkoWv3Wc5UtJX5wfYv5qGCQw7dMdvqikCZtiP+j0dX/QWIUrbm4GBsMrk8fEI
+         xmiMKGlDPn2nLILY6RTnEVDCJo5KuK8x98t3+2tDvSlH+9fQMr3F2OSeQXZ8XtZFo+xe
+         P89P9feORPyp4xWGMb/dgSXjLY2zIQg2MURAzESUINeMw3RXIj2GSk6Zab5WSwk8p1vX
+         xmww==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=AEg5XYQ5jNDvNFQrRBNM+XcLV5yUB0Mt9DYDaiUQ2MM=;
-        b=u7GCECpUpGXVYhN5kObeq9OSKFSfqsJYs3ql8RYBqFUATJp+thrOeJkkEhdhUuyRuf
-         h/9HY+4FzMrU0nr0mK15K6kmQp/Y/M3pLuQxVXx6mfO4MRfu3/SoXCF5HqoR6px5QXP5
-         QC8vW/EENimnDjWCfjQnUfH2EKDakrhR9ykwC2xV/HS3HTelV30IkDYSfmR1j7UnziDd
-         QwNerAZMypAOLW7AR8vgjIRa0WGXpL4eLrRVf7g7piNRyZIsIWlu4jEjl97QKlHE2oj5
-         GnjXUR+WVVlVT828JEwrRIztCRVdMfdOfp+dHwlgdnTt/o/bTohFDDVjIEi2KbmmFkCN
-         T3Yw==
+        bh=EXbrLExhK6f5DUfECKNxlomrYZnl8S/iKury2WduGvg=;
+        b=FDU6gXa1fhmDKA6iERzLB38x6m45qWvdhrO698IBGTQfAsVdaDrj0sEl/N1o4ttG0a
+         HC5Ak9C9zxYip/N+Ck78iK/xqifuiK3nkm8XfPea08QStzZhh9tXlyeT9DNBjlFFdK1l
+         VQTdIXk+FFHrGW3ECH2SGpxle+cPs8TB/AZkg0JLyIZSJgfOM4KXkIOXNj8diz5DySI9
+         7d3TVLKaNkHCM1OoEkEXFvQqqcPQAl3eLm8icqg5lOIhVZd/lzNpOZFj3wwe+a5RbqkS
+         gaELvaDthuWkGx7hOULHX1U49kjFvvtbQARXLnnT0zx+t+KKeZ00sMTPp8qUfwOGhFBN
+         zXQA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=VEe+Gbab;
-       spf=pass (google.com: domain of 3xpfexqckezm5eb31ef3bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3XpfEXQcKEZM5EB31EF3BB381.zB9z8xA3-yH58G-85AHK3BB3813EBHCF.zB9@flex--irogers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dDOQDYZG;
+       spf=pass (google.com: domain of 3yzfexqckezy8he64hi6ee6b4.2ec2b0d6-1k8bj-b8dkn6ee6b46hekfi.2ec@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3YZfEXQcKEZY8HE64HI6EE6B4.2EC2B0D6-1K8BJ-B8DKN6EE6B46HEKFI.2EC@flex--irogers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AEg5XYQ5jNDvNFQrRBNM+XcLV5yUB0Mt9DYDaiUQ2MM=;
-        b=F3G2A4SASwF2D2Yeoa0fBUDNLzWqlVnNUb3zEpNEcwUBWTj91uwGsbsACUHh17yXzm
-         hDUnqjMtOVKVYF2BqZEGMvk81J/Kz4nvc0i/b2m4LfUafcMFXXK9QRa81FQgBLzMeqz0
-         vhalqqnD3MLmUrKu6QRnwMQG9I+R6i4EDKOkKTz0zPL8mXJ7fH+jVxMLFtpLL1F9M92r
-         Px4Xfiwkqey6NV0EtEQWMG26wc3KqTwqrxdfwPhNTGj2v13zZRDvlclbRsIls8uM4OtC
-         PMOzkIviUD1Xfm71dtPNUKqYMag9wnzOxNSMG0WDjWaN2iYuyNHAX2RjzNomuAej/RAD
-         hmLg==
+        bh=EXbrLExhK6f5DUfECKNxlomrYZnl8S/iKury2WduGvg=;
+        b=TfLMMGhYxuRWqIbyUt3OuEIc0Mtc8qc0jCkUcbub9popz8hna9YcEr3d7KitD0g1QF
+         XIxFFZfsvT7ycYscnerl8OVDSjwO9s/YYVmWC0LL5SR6JX9Vn5ek9PTVgKI1yAFbGBeM
+         qBvkzSGa1mVybT/1FtvJQMGJb18Hl0NVjy8QB3kLfTiqRggWJ962SY2CJOcRtJ0XlhUO
+         OieBdBX6z1eUv3CFd0NBBjBfSkguK+J/roa1uEAMY/wNUaZnBfTaPnt4MUNMpvG8UIsb
+         5KHtmSH5oyp1aabXKAhT3qzAsnv26bgwWJx75dWx05PXNQvh/izV71bXYeNQll2lRcvb
+         /GKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AEg5XYQ5jNDvNFQrRBNM+XcLV5yUB0Mt9DYDaiUQ2MM=;
-        b=d7JMXlIVcHWhOfONygAW6B/u9aGfm1wDzNunQ736mxtpNqIpQ+gnZ6BGZ2h+wNxa6z
-         Ny4Wv1OHMpUO4bD09XCBck2YHZYua16OzK8ADlJ6jHXqLs8v5H2mJO4jXv+6NWGJ2e76
-         rGElzbJtUwAjtuu1v92p9Y9DScr4zc/BB1Y2Af1wrNE2EB/o/YEiMKjJ9K5y13rbCo5B
-         gHp2llyLTcb8b7rt5baMZyIMpyHxx72f2mExL0lBPA73s9U1LCl0JUbMY4wzYddhTnpB
-         oItf4h7YLqBI0kLavMqY4zgE0oyX6RI9HpSGbfxhjLhnr0fsWUrC1LDrRdOoHVNBkhEp
-         HsfQ==
-X-Gm-Message-State: APjAAAXWjtuD+8ctK1KVz+QPrmKD5V3VhyoljU6fDQoyULoMA72PY7HQ
-	YBq0P4GqLpHHvUgkpTd3T8c=
-X-Google-Smtp-Source: APXvYqyF+MyYWpmy08dbrC3zeRLxufCPeRuJVgMlu23LtMgtSEGFWAo+4h1kbFcPYypa1N8+gC6Jpw==
-X-Received: by 2002:a81:516:: with SMTP id 22mr4616330ywf.504.1573164896482;
-        Thu, 07 Nov 2019 14:14:56 -0800 (PST)
+        bh=EXbrLExhK6f5DUfECKNxlomrYZnl8S/iKury2WduGvg=;
+        b=JEmJ2qj3BCVIpP/Nk0IzgKSJeVAD0lHnWAPif38IYMqmqQC9aCJ1IJlx6Mei1H3fWv
+         TATNPqQ/K4Gt+8HWW6SAbX4Ks4qHpAeyg5SikI/0rbQJDRmwi6x5ps2BGA9USHSeW9ji
+         4GyduHcXuvHcqJewBECSF+Zhb0+pf6tS73OIfk31TCW8vffQBi4VK69IVQ3taBi+BVU6
+         mxiRQuNyJaYptTgv4A1r9inMpLxd8lrvLtuHApnI21HAauLa99Z+pAurRNqW82CPFckc
+         bgBi3ZyGuN1H90TtOCgdrIfLcsozYJnA9nQd2Xpn34oWeDKXBYTdtRjOldkqC4WTCVWo
+         MAwQ==
+X-Gm-Message-State: APjAAAWwFKJMfhUBmYOTtMyY75pwaJ+I7SEBDCzy0aHUsCXnhFFqe9r/
+	UF08iCLH8TKSJbrnG3V0WuU=
+X-Google-Smtp-Source: APXvYqz3ohtDOEpb582Cec5zUk057SMAZrCsXGeNqUSKBara0OCC98QsfhZ9blBDqtC7AfkEcl/U0g==
+X-Received: by 2002:a81:10d4:: with SMTP id 203mr4390200ywq.390.1573164899308;
+        Thu, 07 Nov 2019 14:14:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:7910:: with SMTP id u16ls1155929ywc.9.gmail; Thu, 07 Nov
- 2019 14:14:56 -0800 (PST)
-X-Received: by 2002:a81:13d7:: with SMTP id 206mr4654161ywt.396.1573164896158;
-        Thu, 07 Nov 2019 14:14:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573164896; cv=none;
+Received: by 2002:a25:4114:: with SMTP id o20ls1381958yba.13.gmail; Thu, 07
+ Nov 2019 14:14:58 -0800 (PST)
+X-Received: by 2002:a25:860c:: with SMTP id y12mr1096910ybk.467.1573164898810;
+        Thu, 07 Nov 2019 14:14:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573164898; cv=none;
         d=google.com; s=arc-20160816;
-        b=VuT0WhbpdsMXr/zCNJDIYZWQr0CILLslh6q5iXoCzT17noTpAGOkQRc7hj8hD/U1iw
-         OYzfPJWx8SeiPe52A0NRE2+R3ryZaW5aQ/ZD848R5v1RuYu76mSGgi6SRJhzcia3pFSo
-         PJChmmskoeO3rim3ZO0b64ZfP1o1tgVi3W3k2V4o8ISEk1XeDvkvl/trIKfIcQ4Xxw1W
-         uoDB3X+CGB+E21Rqv2wO9ho3MB3bo1/QnURgtUmiig58s6FXAmHV/xC1ayLF/5950yp3
-         KooebRN120ewC3eLJjXhcCeevLuGeiFqDNWItwyQ+mfKDsUr1FRHB4uCSwEzbGuWfLEV
-         iZmA==
+        b=pon6KMXVjlZ3Xl5i/0L2J9uS7tnGlOA9t+D5W4ZH1UgZU+nxYO3VrHvgYP6aQl4ddT
+         RsAuI66rksbbiSGOCZ2uNHve2jMSplL51yIXoDuirpohMQuQGVqgTpTQc1hYGXBq8q07
+         7BE22nGXpZQiZtRLEnAeRGsEq6pR/q4lJyguHtihWeB3h0s6HYFGbZP+z1EFdIPJsZUU
+         TO2OiuPndxjZZIHZfJIepDx58FamQJGtL4JVJO/pOw0Mn3fSdoJ7U+sizF+CDm53Gi9W
+         /lI+wcEX/eUDZlT69yo9juM6cz2aiPPVk9XSs87vYce1oNXPgS45FGtXqzqkMcaGmKhU
+         eAdg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=TexSPagk/qPWLXB1RzSvRc/jlf08CXbHxdJXlTnMvco=;
-        b=ypd3BmZFE42XiGbOIoTc5GQ4fitwZ52NmDthMQlD1S71e3H2krPceUsfvK2jW0uED3
-         EZ5qj0kgni7joSd8Z1EwqnRDM2TVYjsnNkJGciYXlfFZ+pX+nlB7On5wDoHF7YCCp7uR
-         2END8zqc2OAMcyIXzRh8oYyqBcryfMyu6CGjt1MVUgyyYKx6vCmz1sctwa19AjqG7qxA
-         aPk0QJrlp5gV4cMIEHw6Fy7KDtdP05xixh3aPt/8tnJbqMWaQAKxkKtfO5TsbOVKeLr+
-         zkevIpFwoGiHDHPVF2uAM1WbMC4wt8a31ySxkN6lLtW5tIM+MzteMp7lSXgDX1AILXGI
-         XHlA==
+        bh=GYsTOK8xYRxAzUxpL4TGFf0MCdaNxbX2unbIlv+2Rhk=;
+        b=b2P0kLgTS8qwKL3L3fhk+3ILgtgDj2J71eOzwyh2aJNNKly7jyySTwth+63ZqoZnuw
+         8jcXozjI9QfJs88o3rcIJ4e/nBKKaS6oJIKeu9yuoKTFT6wKh83b/Y1T//OWLbzS4Kq6
+         2yKwVafK+C077Tucv2zGSmmsloFk3n/bscuQys0FK+kWIJozbBfyfsXO2gbuIlvWD4Ce
+         5MfrEp13zmQinKLi6tz5JnaHfMFHysnds27H4g5i4zPtQmgRAx0gnh2yl8ibrtgxmrqi
+         Ay1YP+/XNZ56KPcCkyWaYI6zEkWbf0mswEwCaXWKiMnZizFGOKylz//PL+q1rmDjrYJP
+         zpZg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=VEe+Gbab;
-       spf=pass (google.com: domain of 3xpfexqckezm5eb31ef3bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3XpfEXQcKEZM5EB31EF3BB381.zB9z8xA3-yH58G-85AHK3BB3813EBHCF.zB9@flex--irogers.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=dDOQDYZG;
+       spf=pass (google.com: domain of 3yzfexqckezy8he64hi6ee6b4.2ec2b0d6-1k8bj-b8dkn6ee6b46hekfi.2ec@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3YZfEXQcKEZY8HE64HI6EE6B4.2EC2B0D6-1K8BJ-B8DKN6EE6B46HEKFI.2EC@flex--irogers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x54a.google.com (mail-pg1-x54a.google.com. [2607:f8b0:4864:20::54a])
-        by gmr-mx.google.com with ESMTPS id u8si309732ybc.2.2019.11.07.14.14.56
+Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
+        by gmr-mx.google.com with ESMTPS id c5si177822ywn.5.2019.11.07.14.14.58
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 07 Nov 2019 14:14:56 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3xpfexqckezm5eb31ef3bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) client-ip=2607:f8b0:4864:20::54a;
-Received: by mail-pg1-x54a.google.com with SMTP id e6so2992667pgc.8
-        for <clang-built-linux@googlegroups.com>; Thu, 07 Nov 2019 14:14:56 -0800 (PST)
-X-Received: by 2002:a63:eb47:: with SMTP id b7mr7374005pgk.179.1573164894908;
- Thu, 07 Nov 2019 14:14:54 -0800 (PST)
-Date: Thu,  7 Nov 2019 14:14:23 -0800
+        Thu, 07 Nov 2019 14:14:58 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3yzfexqckezy8he64hi6ee6b4.2ec2b0d6-1k8bj-b8dkn6ee6b46hekfi.2ec@flex--irogers.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
+Received: by mail-pf1-x449.google.com with SMTP id m1so3016427pfh.5
+        for <clang-built-linux@googlegroups.com>; Thu, 07 Nov 2019 14:14:58 -0800 (PST)
+X-Received: by 2002:a63:f513:: with SMTP id w19mr7443214pgh.55.1573164897568;
+ Thu, 07 Nov 2019 14:14:57 -0800 (PST)
+Date: Thu,  7 Nov 2019 14:14:24 -0800
 In-Reply-To: <20191107221428.168286-1-irogers@google.com>
-Message-Id: <20191107221428.168286-6-irogers@google.com>
+Message-Id: <20191107221428.168286-7-irogers@google.com>
 Mime-Version: 1.0
 References: <20191030223448.12930-1-irogers@google.com> <20191107221428.168286-1-irogers@google.com>
 X-Mailer: git-send-email 2.24.0.432.g9d3f5f5b63-goog
-Subject: [PATCH v6 05/10] perf tools: ensure config and str in terms are unique
+Subject: [PATCH v6 06/10] perf tools: add destructors for parse event terms
 From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -120,9 +120,9 @@ Cc: Stephane Eranian <eranian@google.com>, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: irogers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=VEe+Gbab;       spf=pass
- (google.com: domain of 3xpfexqckezm5eb31ef3bb381.zb9z8xa3-yh58g-85ahk3bb3813ebhcf.zb9@flex--irogers.bounces.google.com
- designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3XpfEXQcKEZM5EB31EF3BB381.zB9z8xA3-yH58G-85AHK3BB3813EBHCF.zB9@flex--irogers.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=dDOQDYZG;       spf=pass
+ (google.com: domain of 3yzfexqckezy8he64hi6ee6b4.2ec2b0d6-1k8bj-b8dkn6ee6b46hekfi.2ec@flex--irogers.bounces.google.com
+ designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3YZfEXQcKEZY8HE64HI6EE6B4.2EC2B0D6-1K8BJ-B8DKN6EE6B46HEKFI.2EC@flex--irogers.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Ian Rogers <irogers@google.com>
 Reply-To: Ian Rogers <irogers@google.com>
@@ -138,154 +138,130 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Make it easier to release memory associated with parse event terms by
-duplicating the string for the config name and ensuring the val string
-is a duplicate.
-
-Currently the parser may memory leak terms and this is addressed in a
-later patch.
+If parsing fails then destructors are ran to clean the up the stack.
+Rename the head union member to make the term and evlist use cases more
+distinct, this simplifies matching the correct destructor.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/parse-events.c | 51 ++++++++++++++++++++++++++++------
- tools/perf/util/parse-events.y |  4 ++-
- 2 files changed, 45 insertions(+), 10 deletions(-)
+ tools/perf/util/parse-events.y | 69 +++++++++++++++++++++++-----------
+ 1 file changed, 48 insertions(+), 21 deletions(-)
 
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 03e54a2d8685..578288c94d2a 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -1412,7 +1412,6 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
- int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 			       char *str, struct list_head **listp)
- {
--	struct list_head *head;
- 	struct parse_events_term *term;
- 	struct list_head *list;
- 	struct perf_pmu *pmu = NULL;
-@@ -1429,19 +1428,30 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 
- 		list_for_each_entry(alias, &pmu->aliases, list) {
- 			if (!strcasecmp(alias->name, str)) {
-+				struct list_head *head;
-+				char *config;
-+
- 				head = malloc(sizeof(struct list_head));
- 				if (!head)
- 					return -1;
- 				INIT_LIST_HEAD(head);
--				if (parse_events_term__num(&term, PARSE_EVENTS__TERM_TYPE_USER,
--							   str, 1, false, &str, NULL) < 0)
-+				config = strdup(str);
-+				if (!config)
-+					return -1;
-+				if (parse_events_term__num(&term,
-+						   PARSE_EVENTS__TERM_TYPE_USER,
-+						   config, 1, false, &config,
-+						   NULL) < 0) {
-+					free(list);
-+					free(config);
- 					return -1;
-+				}
- 				list_add_tail(&term->list, head);
- 
- 				if (!parse_events_add_pmu(parse_state, list,
- 							  pmu->name, head,
- 							  true, true)) {
--					pr_debug("%s -> %s/%s/\n", str,
-+					pr_debug("%s -> %s/%s/\n", config,
- 						 pmu->name, alias->str);
- 					ok++;
- 				}
-@@ -1450,8 +1460,10 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 			}
- 		}
- 	}
--	if (!ok)
-+	if (!ok) {
-+		free(list);
- 		return -1;
-+	}
- 	*listp = list;
- 	return 0;
- }
-@@ -2746,30 +2758,51 @@ int parse_events_term__sym_hw(struct parse_events_term **term,
- 			      char *config, unsigned idx)
- {
- 	struct event_symbol *sym;
-+	char *str;
- 	struct parse_events_term temp = {
- 		.type_val  = PARSE_EVENTS__TERM_TYPE_STR,
- 		.type_term = PARSE_EVENTS__TERM_TYPE_USER,
--		.config    = config ?: (char *) "event",
-+		.config    = config,
- 	};
- 
-+	if (!temp.config) {
-+		temp.config = strdup("event");
-+		if (!temp.config)
-+			return -ENOMEM;
-+	}
- 	BUG_ON(idx >= PERF_COUNT_HW_MAX);
- 	sym = &event_symbols_hw[idx];
- 
--	return new_term(term, &temp, (char *) sym->symbol, 0);
-+	str = strdup(sym->symbol);
-+	if (!str)
-+		return -ENOMEM;
-+	return new_term(term, &temp, str, 0);
- }
- 
- int parse_events_term__clone(struct parse_events_term **new,
- 			     struct parse_events_term *term)
- {
-+	char *str;
- 	struct parse_events_term temp = {
- 		.type_val  = term->type_val,
- 		.type_term = term->type_term,
--		.config    = term->config,
-+		.config    = NULL,
- 		.err_term  = term->err_term,
- 		.err_val   = term->err_val,
- 	};
- 
--	return new_term(new, &temp, term->val.str, term->val.num);
-+	if (term->config) {
-+		temp.config = strdup(term->config);
-+		if (!temp.config)
-+			return -ENOMEM;
-+	}
-+	if (term->type_val == PARSE_EVENTS__TERM_TYPE_NUM)
-+		return new_term(new, &temp, NULL, term->val.num);
-+
-+	str = strdup(term->val.str);
-+	if (!str)
-+		return -ENOMEM;
-+	return new_term(new, &temp, str, 0);
- }
- 
- int parse_events_copy_term_list(struct list_head *old,
 diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
-index ffa1a1b63796..545ab7cefc20 100644
+index 545ab7cefc20..035edfa8d42e 100644
 --- a/tools/perf/util/parse-events.y
 +++ b/tools/perf/util/parse-events.y
-@@ -665,9 +665,11 @@ PE_NAME array '=' PE_VALUE
- PE_DRV_CFG_TERM
- {
- 	struct parse_events_term *term;
-+	char *config = strdup($1);
- 
-+	ABORT_ON(!config);
- 	ABORT_ON(parse_events_term__str(&term, PARSE_EVENTS__TERM_TYPE_DRV_CFG,
--					$1, $1, &@1, NULL));
-+					config, $1, &@1, NULL));
- 	$$ = term;
+@@ -12,6 +12,7 @@
+ #include <stdio.h>
+ #include <linux/compiler.h>
+ #include <linux/types.h>
++#include <linux/zalloc.h>
+ #include "pmu.h"
+ #include "evsel.h"
+ #include "parse-events.h"
+@@ -37,6 +38,25 @@ static struct list_head* alloc_list()
+ 	return list;
  }
  
++static void free_list_evsel(struct list_head* list_evsel)
++{
++	struct evsel *evsel, *tmp;
++
++	list_for_each_entry_safe(evsel, tmp, list_evsel, core.node) {
++		list_del_init(&evsel->core.node);
++		perf_evsel__delete(evsel);
++	}
++	free(list_evsel);
++}
++
++static void free_term(struct parse_events_term *term)
++{
++	if (term->type_val == PARSE_EVENTS__TERM_TYPE_STR)
++		free(term->val.str);
++	zfree(&term->array.ranges);
++	free(term);
++}
++
+ static void inc_group_count(struct list_head *list,
+ 		       struct parse_events_state *parse_state)
+ {
+@@ -66,6 +86,7 @@ static void inc_group_count(struct list_head *list,
+ %type <num> PE_VALUE_SYM_TOOL
+ %type <num> PE_RAW
+ %type <num> PE_TERM
++%type <num> value_sym
+ %type <str> PE_NAME
+ %type <str> PE_BPF_OBJECT
+ %type <str> PE_BPF_SOURCE
+@@ -76,37 +97,43 @@ static void inc_group_count(struct list_head *list,
+ %type <str> PE_EVENT_NAME
+ %type <str> PE_PMU_EVENT_PRE PE_PMU_EVENT_SUF PE_KERNEL_PMU_EVENT
+ %type <str> PE_DRV_CFG_TERM
+-%type <num> value_sym
+-%type <head> event_config
+-%type <head> opt_event_config
+-%type <head> opt_pmu_config
++%destructor { free ($$); } <str>
+ %type <term> event_term
+-%type <head> event_pmu
+-%type <head> event_legacy_symbol
+-%type <head> event_legacy_cache
+-%type <head> event_legacy_mem
+-%type <head> event_legacy_tracepoint
++%destructor { free_term ($$); } <term>
++%type <list_terms> event_config
++%type <list_terms> opt_event_config
++%type <list_terms> opt_pmu_config
++%destructor { parse_events_terms__delete ($$); } <list_terms>
++%type <list_evsel> event_pmu
++%type <list_evsel> event_legacy_symbol
++%type <list_evsel> event_legacy_cache
++%type <list_evsel> event_legacy_mem
++%type <list_evsel> event_legacy_tracepoint
++%type <list_evsel> event_legacy_numeric
++%type <list_evsel> event_legacy_raw
++%type <list_evsel> event_bpf_file
++%type <list_evsel> event_def
++%type <list_evsel> event_mod
++%type <list_evsel> event_name
++%type <list_evsel> event
++%type <list_evsel> events
++%type <list_evsel> group_def
++%type <list_evsel> group
++%type <list_evsel> groups
++%destructor { free_list_evsel ($$); } <list_evsel>
+ %type <tracepoint_name> tracepoint_name
+-%type <head> event_legacy_numeric
+-%type <head> event_legacy_raw
+-%type <head> event_bpf_file
+-%type <head> event_def
+-%type <head> event_mod
+-%type <head> event_name
+-%type <head> event
+-%type <head> events
+-%type <head> group_def
+-%type <head> group
+-%type <head> groups
++%destructor { free ($$.sys); free ($$.event); } <tracepoint_name>
+ %type <array> array
+ %type <array> array_term
+ %type <array> array_terms
++%destructor { free ($$.ranges); } <array>
+ 
+ %union
+ {
+ 	char *str;
+ 	u64 num;
+-	struct list_head *head;
++	struct list_head *list_evsel;
++	struct list_head *list_terms;
+ 	struct parse_events_term *term;
+ 	struct tracepoint_name {
+ 		char *sys;
 -- 
 2.24.0.432.g9d3f5f5b63-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191107221428.168286-6-irogers%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191107221428.168286-7-irogers%40google.com.
