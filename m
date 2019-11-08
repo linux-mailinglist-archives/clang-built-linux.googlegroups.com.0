@@ -1,188 +1,131 @@
-Return-Path: <clang-built-linux+bncBCSPV64IYUKBBJGOS3XAKGQEEVC3X5Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPPFIEASMFBB47CS3XAKGQE75HB5FY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-f57.google.com (mail-wr1-f57.google.com [209.85.221.57])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4A3CCF529D
-	for <lists+clang-built-linux@lfdr.de>; Fri,  8 Nov 2019 18:34:29 +0100 (CET)
-Received: by mail-wr1-f57.google.com with SMTP id 4sf3650783wrf.19
-        for <lists+clang-built-linux@lfdr.de>; Fri, 08 Nov 2019 09:34:29 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573234469; cv=pass;
+Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6EF84F5364
+	for <lists+clang-built-linux@lfdr.de>; Fri,  8 Nov 2019 19:18:27 +0100 (CET)
+Received: by mail-wr1-x43f.google.com with SMTP id g17sf3741244wru.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 08 Nov 2019 10:18:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573237107; cv=pass;
         d=google.com; s=arc-20160816;
-        b=WwTAW2yyIHMSq218br0I7RasQEujp/upItBqCclyBwaFGGxAAwC+m7IX0Ld9QmNo7L
-         +pQhN8HgxoHFUjYRkczbF1D4y52Evvgue1BfwK7DqZbsjQWgjXCXbol66esvYZ77Lzt3
-         bMmdx68cNSVT32InXqgwAEPftlOt+e+rssU+/TSEn7XRJiVcWI/oSVtqnsF+1pkIxMs5
-         spc4pYBO744CAdxtjyg3Lecnf41fG4Ilam5phY4nndZSHrN7m53E3vwHc5lMoeKCJyBn
-         7hptP5BxcnA5mhhZM6qBWgAPKBeKeIQNiQu8R/Z5EunlEsrLDA+yKLGj7IRvpqi1G2Ps
-         sEqA==
+        b=zfyrSYb+cu4X5Tfi1T/iVt3aFfZCZ2yg3HAyKhYJ88hnhjK19TGMZX8qqMlkl6Hip4
+         QxP2/87QcwVEnyQ1AKBrhzkCtQ2edSbTDlzpI3/gbDo/2oroWyvbUaunnUnY47PCe8/R
+         l+brvxpGjXkKWk9JmicfD42nm06fZXA08dN0ukrvGYKdLudDaRNIYeJG9HAYPz9Krgnt
+         rFjcuOMFSOkY09iUZbj95eIAimXZmsHKk40otmZtdPQ+j2chQF3+vy7RTbD/uK2DAzeP
+         81oSGgSK0wQxcMuw6orSxPWZ2UgVeek9+0fYTokBwrO3v9q3iYLhEf9J8qrhfLf1zE5r
+         /oyw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:sender:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date;
-        bh=g8Ef/tYbSfclodqn7pzTPxFGuCwXrJcwdoHeqOgPcrI=;
-        b=zodVCwPx/j87EDKYxqmU7dYYtf1P4lZPzWYib7Af11c58e9G958egRdUpCEVMFYMx9
-         i5fG6ozCbKO6eoeR9HNj8pZy6rHMxwKMiN7WwINioaI34pG4dsAkgBaD7LBOsNKsHL+G
-         yM9jQYt9EsMS0PeZxvKCA06Lwux9Viq6jhqv5mwJMFn0/8xQMF5f5ebty9oAEnzyKr6c
-         MSKuwJTujdD6DNmN05c9HlXJEf3SsY2KSxr8ydCS8D673vLVRaqVbL1FiIBCLtNGXCs/
-         QZUI18eijJ1KQM2ORcX6gspIOjOdnDSdnqz46OPPKxpSw1m1TAqs8KJZ3UQevFVn+6lD
-         D1oQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=fTR7ne7ZyGGLQ5blTtyVyMPD+KyedJ066U0uhuytxFM=;
+        b=mH3bCutC9hQTBY2C0Fbup90oPArmT63cdj5TAHpdHuDFZkOXwGc+Fa0nesvLa0zkpA
+         TwhXfeVtWMQ1oNoEyRGI4iKjOVB9p3/WksXwFAga28ZCJoUbrznKUh7y/9j4PM8VIFtQ
+         lLber8XimSrv7Sr6rTeXU01H66TpQ9sCsFNhU9zrGOvMc+wP8XVEa2IiyhdTvrFCTCis
+         aMrW5KWpoOwxfkupQvjITITFQ6zNWrTdIzr4EOBMpDyi+ElsnI19BWXcRP6H5nQGLftz
+         HIarpVJAzwOCs4kuW1ujjoSRiwA8V/ix9AukQjxQTq7+saApN0hsoj7xFDBQYbLwXAC8
+         ZyoQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=swiYqGJ7;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+       dkim=pass header.i=@google.com header.s=20161025 header.b=odPKyS18;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=fTR7ne7ZyGGLQ5blTtyVyMPD+KyedJ066U0uhuytxFM=;
+        b=A6DEvg2OScEbMfVEN3IJfa3GvntRdYBuyfTWkQ47kz49rCux2BtUmUOw05tekEG6Li
+         flvleL3VwIUGYSVAwGQcFebqnqk2Yh/MDjSMMvAJsz5eNlY3mMM1grIGiaWkRR7GNh7c
+         bRtYSj1YI5sVdllnac6ZHjfxD6DxDvVqrtWQnk4MRc2rIGmaKG6r7e7viNzX9YjgnfDF
+         WuD5B3+aNnx8OY72g9MfN84/SbsVhGy6cqUULARuvbmoSY0hLMXTWTEvVQ/+dMOnAPcQ
+         M9uRBHBCtePpvlNV0RVo1m2jxn1WGsikt9iweFSu0OFdC2vIDgVjfNFoZDdwPxXWAysQ
+         XCBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to:user-agent:sender
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=g8Ef/tYbSfclodqn7pzTPxFGuCwXrJcwdoHeqOgPcrI=;
-        b=PZ8K8VKlHuP8qNiER6gLg5i7/3YTqXzoSIIYEoOjF7g0T0Ko6p7sDb77eK2BE0cMPj
-         Ip3jNmtohFI67lx48H8iMy+Zh5zabPWFxuaXXkZz/ZTRHaenzwksgcv6l64ZvOHYvCPq
-         /LMs5k/HyiiL7Y/LVxyi+kjvMVxeiLxVr4lOr0AliczWdMBRHpR/Fbh2QoEJwSD1m6J/
-         dl7eWL1+LznG1BwdwP/IEjIkJhOfnE69Fsw4PSCNVnfl/fcCS38xTH/j93rctPcoH/yQ
-         s04aq8m3dHhptbcPNO587KJoBJ21bGEzckHhK4Q6kyTsxG+i2CeK+hy5zYV4O+FldhjR
-         DjbA==
-X-Gm-Message-State: APjAAAVTIuNlYGVtXNDdYcc2aX/2kQ9cytoaDvPepPBtDyGW8HOw+rwE
-	rI6lLg8xZyXJJkT8jlZIl/Y=
-X-Google-Smtp-Source: APXvYqygY9+w7tP/v7l2xf+gWKLFAdNQRUeRdzQM2kzrxttz8ZQXykRFKANYNhhMh7Lt5NDrw1+cxA==
-X-Received: by 2002:a5d:6203:: with SMTP id y3mr9676960wru.142.1573234468916;
-        Fri, 08 Nov 2019 09:34:28 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=fTR7ne7ZyGGLQ5blTtyVyMPD+KyedJ066U0uhuytxFM=;
+        b=rV3Pe33tgdHc8WxbgSnA2AjFN0KBb7Izee9u/AaSi5sK6kd4nT52cnuSqdgZnbHzu3
+         xoO3tN4cYtKWewT+X2RkrPw8JsCb+jlrcL2T8TyOlbjJyW5d4FuGYfR1WKu822bV6y9V
+         EuTDC+hAhK76Lj9LRtlVt1bvIB9+vmt99lkJMfpfQnXHdB1hYYc8ne2igcuPnzkIPMht
+         hSXky//lolmQGZCDP2BBDG9RYqT/HMiVqdEe+fsAYYdGPbih5MKbInk5pw909NSklVoK
+         B+rDe4cJQrtS9CKiojn9+eAOvF4stEUe7FP1+rpmWLJde7fq7kwTswe/f0zK61dke4SQ
+         1g6g==
+X-Gm-Message-State: APjAAAXLmO18fSmFWHhT7elzHqOBU/UUTX0EUhhNnGyWkQAK5r7E3cxp
+	YesCFR+bdBacwqCej17KCIc=
+X-Google-Smtp-Source: APXvYqzZtdJioZtPXBttE4IKpgKlqKHkF4Xl13td9TRIU5cg+l6wiG4wfbb5P5up28cOWQBZ4zXT0Q==
+X-Received: by 2002:a1c:e40b:: with SMTP id b11mr9410546wmh.152.1573237107086;
+        Fri, 08 Nov 2019 10:18:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:f10c:: with SMTP id r12ls6907234wro.11.gmail; Fri, 08
- Nov 2019 09:34:28 -0800 (PST)
-X-Received: by 2002:adf:dc06:: with SMTP id t6mr9836782wri.378.1573234468370;
-        Fri, 08 Nov 2019 09:34:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573234468; cv=none;
+Received: by 2002:a5d:5284:: with SMTP id c4ls7022208wrv.15.gmail; Fri, 08 Nov
+ 2019 10:18:26 -0800 (PST)
+X-Received: by 2002:a5d:4645:: with SMTP id j5mr1308303wrs.329.1573237106587;
+        Fri, 08 Nov 2019 10:18:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573237106; cv=none;
         d=google.com; s=arc-20160816;
-        b=EemVEmuon4q+OH/O7aRYCPcXbvblGlykJHpy9pabmz2hNSAFyo/3x6m9NAhQf6sw+W
-         +ks2v9zWnhcuDLqtA8FeWcgNnNWnovXYKNzf5GpYV6ZpSP+OgLpkmheXe5BUvVN1jolW
-         S9rGY+LAz6bcTZXWyQR83CEkGwe06dHYvT5fCYlU54Ll83zQczEnfkb3/CQwAtVor5SH
-         WLAZEYDOJhKpNT1sqyrbgFCxJK7UVq5Yi7wOKzflu8mVaLdLP8FDXXMMpedyW8scleRT
-         9i5q64l0pCnTtS+NuLvn6Wu0YFvgmxuI98WI52AQVnuux8627yYn6L4BPUCMQnl+UZfT
-         BhSQ==
+        b=Sd7ZIja+R3QqHnBicDA79btffaWbPsRr1IFpR/5gCkRF/qm+xVZKLP9bmgnT0sQ64y
+         YMFTTUA3hMiqa9mPiyW8hXX8pkYIuV9vx7wr+msGSCSVuvH4/CeBX3KE4Gng6MGEnoxX
+         GzjeoVbj1Bsp2gZR41qmVoscUhMmrXHnNIsYU72SuxsIuzZtdMmz6iCj/ZG8ViZEdyPe
+         6YhtmtNZrdztHtXLK/qe6G+1XvuaVqyS7ilH/GofmJJ4Te85FxoJVsU8jhapknVFWgL7
+         3jdpUUUer7m3ZrAe/wq4DH9cdkNdiGjaXnnGfg5pOzuyGeSpVDL5ZBuGZv/XVLP9DFXa
+         pVWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=sender:user-agent:in-reply-to:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:dkim-signature;
-        bh=8OKQ8ybzqBvVwbNEFVvCvShIsxDoVn1JKRJjkQiqoKU=;
-        b=hpIqMPJkDF0+Y+FNdGXMhBF8FWQgQsIV1qRzvEzDC0iv2dI9O1VnrJHzBPgYspwD4o
-         1M+GlvFn2tTk2mpmYdBw5TS2ago0SrUz7WIe6Hnd9uoSpk/aU+DlrsWDzzhh+p3T32oU
-         Y4hTWfgqx9GJLf4ZdfHhsJjJYC6sHPWTLVB6Eb/+AuVNr4LgLqmu0w+h3NSxr8QDM472
-         eLdcifAHGV8lfJVWbEgoAjf++kyYjFA8lI8L/7aIhKmd+N48BhwUycG+3Kn/9QWie3Wa
-         2AYXJOlbjKCGrjHeS/FQvR7ILPJ8C52XQpYt83tcdLxAcHxk3Q6e+OzACqH9WuhyVHCQ
-         xRbw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=YFWgg2ppFdsSmvg1LO5Op3wVrU8obP4yfGKEavUKWnE=;
+        b=eTRDxpm6w+Kf3zctde+kwHRolPB5qanmmhGclB/9zcKw/d4jsjrZ78M7nK2HUGXndf
+         rnCx55JfmEAlGq1G5u1a0A6avxyn/GZPm4qMV+eewfw/uq7bhcjOkkHxSbWc4Gr7lWMa
+         P4Xg89V1eacLkFrD94B4ju7iizfmAhjF0UpBGePe5pQqrCpQsrZ/HL65tRJ2bJPIw4/Q
+         MwhCJb6xnCeypUVt8VGpwDglK6fipT3OK83oWkXA7BgseIOe6t+n3Rzxp55eZEffQq+J
+         n7D+rb4NzbvEdXDDf9OVwPVK+kbJs2q80vVI+TKvl91QGqJQos77uvUHTN5BupuTLZt1
+         OI2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=swiYqGJ7;
-       spf=pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
-Received: from pandora.armlinux.org.uk (pandora.armlinux.org.uk. [2001:4d48:ad52:3201:214:fdff:fe10:1be6])
-        by gmr-mx.google.com with ESMTPS id l10si646567wmd.0.2019.11.08.09.34.27
+       dkim=pass header.i=@google.com header.s=20161025 header.b=odPKyS18;
+       spf=pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id q22si482619wme.2.2019.11.08.10.18.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 08 Nov 2019 09:34:28 -0800 (PST)
-Received-SPF: pass (google.com: best guess record for domain of linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender) client-ip=2001:4d48:ad52:3201:214:fdff:fe10:1be6;
-Received: from shell.armlinux.org.uk ([2001:4d48:ad52:3201:5054:ff:fe00:4ec]:53540)
-	by pandora.armlinux.org.uk with esmtpsa (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
-	(Exim 4.90_1)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1iT86P-0003rG-IT; Fri, 08 Nov 2019 17:31:18 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.92)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1iT85t-000697-Tp; Fri, 08 Nov 2019 17:30:45 +0000
-Date: Fri, 8 Nov 2019 17:30:45 +0000
-From: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-To: Dmitry Safonov <dima@arista.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@kernel.org>, Jiri Slaby <jslaby@suse.com>,
-	Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Tetsuo Handa <penguin-kernel@i-love.sakura.ne.jp>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ben Segall <bsegall@google.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Greentime Hu <green.hu@gmail.com>, Ingo Molnar <mingo@redhat.com>,
-	James Hogan <jhogan@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
-	Mel Gorman <mgorman@suse.de>, Michal Simek <monstr@monstr.eu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Burton <paulburton@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Ralf Baechle <ralf@linux-mips.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vincent Chen <deanbo422@gmail.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Will Deacon <will@kernel.org>, linux-mips@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Matt Turner <mattst88@gmail.com>,
-	Richard Henderson <rth@twiddle.net>, linux-alpha@vger.kernel.org,
-	Vineet Gupta <vgupta@synopsys.com>,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	clang-built-linux@googlegroups.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
-	Mark Salter <msalter@redhat.com>, linux-c6x-dev@linux-c6x.org,
-	Guo Ren <guoren@kernel.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	uclinux-h8-devel@lists.sourceforge.jp,
-	Brian Cain <bcain@codeaurora.org>, linux-hexagon@vger.kernel.org,
-	Fenghua Yu <fenghua.yu@intel.com>, Tony Luck <tony.luck@intel.com>,
-	linux-ia64@vger.kernel.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	linux-m68k@lists.linux-m68k.org, Ley Foon Tan <lftan@altera.com>,
-	nios2-dev@lists.rocketboards.org, Jonas Bonn <jonas@southpole.se>,
-	Stafford Horne <shorne@gmail.com>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	openrisc@lists.librecores.org, Helge Deller <deller@gmx.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	linux-parisc@vger.kernel.org,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org,
-	Christian Borntraeger <borntraeger@de.ibm.com>,
-	Heiko Carstens <heiko.carstens@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org,
-	Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
-	linux-um@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
-	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
-	X86 ML <x86@kernel.org>, Chris Zankel <chris@zankel.net>,
-	Max Filippov <jcmvbkbc@gmail.com>,
-	"open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>,
-	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
-	"Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-pm@vger.kernel.org,
-	Daniel Thompson <daniel.thompson@linaro.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	kgdb-bugreport@lists.sourceforge.net
-Subject: Re: [PATCH 00/50] Add log level to show_stack()
-Message-ID: <20191108173045.GY25745@shell.armlinux.org.uk>
-References: <20191106030542.868541-1-dima@arista.com>
- <20191106092039.GT4131@hirez.programming.kicks-ass.net>
- <10db6fa1-5b17-ebe6-09e0-6335e09e4db8@arista.com>
- <20191106203440.GH3079@worktop.programming.kicks-ass.net>
- <CAGrbwDRgX1BZoFrVYSXhAeeUKHrB=q3w8jXFPOuRvO7HV4Ciqw@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 08 Nov 2019 10:18:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id l17so6330180wmh.0
+        for <clang-built-linux@googlegroups.com>; Fri, 08 Nov 2019 10:18:26 -0800 (PST)
+X-Received: by 2002:a1c:a791:: with SMTP id q139mr9275963wme.155.1573237105658;
+ Fri, 08 Nov 2019 10:18:25 -0800 (PST)
 MIME-Version: 1.0
+References: <20191030223448.12930-1-irogers@google.com> <20191107221428.168286-1-irogers@google.com>
+ <20191107222315.GA7261@kernel.org>
+In-Reply-To: <20191107222315.GA7261@kernel.org>
+From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 8 Nov 2019 10:18:14 -0800
+Message-ID: <CAP-5=fVNYbZoEmFzxMj850eorOtRJAouzvCFObxZRZT2G7YOCg@mail.gmail.com>
+Subject: Re: [PATCH v6 00/10] Improvements to memory usage by parse events
+To: Arnaldo Carvalho de Melo <arnaldo.melo@gmail.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, 
+	Yonghong Song <yhs@fb.com>, Andi Kleen <ak@linux.intel.com>, Jin Yao <yao.jin@linux.intel.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
+	John Garry <john.garry@huawei.com>, LKML <linux-kernel@vger.kernel.org>, 
+	netdev@vger.kernel.org, bpf@vger.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, Stephane Eranian <eranian@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAGrbwDRgX1BZoFrVYSXhAeeUKHrB=q3w8jXFPOuRvO7HV4Ciqw@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-Sender: Russell King - ARM Linux admin <linux@armlinux.org.uk>
-X-Original-Sender: linux@armlinux.org.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@armlinux.org.uk header.s=pandora-2019 header.b=swiYqGJ7;
-       spf=pass (google.com: best guess record for domain of
- linux+clang-built-linux=googlegroups.com@armlinux.org.uk designates
- 2001:4d48:ad52:3201:214:fdff:fe10:1be6 as permitted sender)
- smtp.mailfrom="linux+clang-built-linux=googlegroups.com@armlinux.org.uk";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=armlinux.org.uk
+X-Original-Sender: irogers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=odPKyS18;       spf=pass
+ (google.com: domain of irogers@google.com designates 2a00:1450:4864:20::341
+ as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Ian Rogers <irogers@google.com>
+Reply-To: Ian Rogers <irogers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -195,81 +138,91 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Nov 08, 2019 at 04:28:30PM +0000, Dmitry Safonov wrote:
-> On 11/6/19 8:34 PM, Peter Zijlstra wrote:
-> > On Wed, Nov 06, 2019 at 04:27:33PM +0000, Dmitry Safonov wrote:
-> [..]
-> >> Sorry, I should have tried to describe better.
-> >>
-> >> I'm trying to remove external users of console_loglevel by following
-> >> reasons:
+On Thu, Nov 7, 2019 at 2:23 PM Arnaldo Carvalho de Melo
+<arnaldo.melo@gmail.com> wrote:
+>
+> Em Thu, Nov 07, 2019 at 02:14:18PM -0800, Ian Rogers escreveu:
+> > The parse events parser leaks memory for certain expressions as well
+> > as allowing a char* to reference stack, heap or .rodata. This series
+> > of patches improves the hygeine and adds free-ing operations to
+> > reclaim memory in the parser in error and non-error situations.
 > >
-> > I suppose since all my machines have 'debug ignore_loglevel
-> > earlyprintk=serial,ttyS0,115200 console=ttyS0,115200' I don't have this
-> > experience.
-> 
-> Yeah, I remember you avoid all those functionalities of printk(), fair
-> enough. On the other side, regular users and I'm betting most of
-> the non-tuned distributions use /proc/sys/kernel/printk by default.
-> (Checking on my Arch & Fedora - loglevel 4 from the box)
-> 
-> >> - changing console_loglevel on SMP means that unwanted messages from
-> >> other CPUs will appear (that have lower log level)
-> >> - on UMP unwanted messages may appear if the code is preempted while it
-> >> hasn't set the console_loglevel back to old
-> >> - rising console_loglevel to print wanted message(s) may not work at all
-> >> if printk() has being delayed and the console_loglevel is already set
-> >> back to old value
+> > The series of patches was generated with LLVM's address sanitizer and
+> > libFuzzer:
+> > https://llvm.org/docs/LibFuzzer.html
+> > called on the parse_events function with randomly generated input. With
+> > the patches no leaks or memory corruption issues were present.
 > >
-> > Sure, frobbing the global console_loglevel is bad.
-> >
-> >> I also have patches in wip those needs to print backtrace with specific
-> >> loglevel (higher when it's critical, lower when it's notice and
-> >> shouldn't go to serial console).
-> >
-> > (everything always should go to serial, serial is awesome :-)
-> 
-> Personally I agree. Unfortunately, here @Arista there are switches (I'm
-> speaking about the order of thousands at least) those have baud-rate 9600.
-> It's a bit expensive being elaborate with such setup.
-> 
-> >> Besides on local tests I see hits those have headers (messages like
-> >> "Backtrace: ") without an actual backtrace and the reverse - a backtrace
-> >> without a reason for it. It's quite annoying and worth addressing by
-> >> syncing headers log levels to backtraces.
-> >
-> > I suppose I'm surprised there are backtraces that are not important.
-> > Either badness happened and it needs printing, or the user asked for it
-> > and it needs printing.
-> >
-> > Perhaps we should be removing backtraces if they're not important
-> > instead of allowing to print them as lower loglevels?
-> 
-> Well, the use-case for lower log-level is that everything goes into logs
-> (/var/log/dmesg or /var/log/messages whatever rsyslog has settting).
-> 
-> That has it's value:
-> - after a failure (i.e. panic) messages, those were only signs that
-> something goes wrong can be seen in logs which can give ideas what has
-> happened.
+> > The v6 patches address a C90 compilation issue.
+>
+> Please take a look at what is in my perf/core branch, to see what is
+> left, if something needs fixing, please send a patch on top of that,
 
-No they don't.  When the kernel panics, userspace generally stops
-running, so rsyslog won't be able to write them to /var/log/messages.
+Thanks, just the last patch remaining. I resent it rebased on your
+perf/core branch:
+https://lkml.org/lkml/2019/11/8/1103
+https://git.kernel.org/pub/scm/linux/kernel/git/acme/linux.git/log/?h=perf/core
 
-How, by "kernel panics" I mean a real kernel panic, which probably
-isn't what you're talking about there.  You are probably talking
-about the whole shebang of non-fatal kernel oops, kernel warnings
-and the like.  If so, I'd ask you to stop confuzzilating terminology.
+Thanks,
+Ian
 
-If you really want to capture such events, then you need to have the
-kernel write the panic to (e.g.) flash - see the mtdoops driver.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTC broadband for 0.8mile line in suburbia: sync at 12.1Mbps down 622kbps up
-According to speedtest.net: 11.9Mbps down 500kbps up
+> Thanks,
+>
+> - Arnaldo
+>
+> > The v5 patches add initial error print to the set, as requested by
+> > Jiri Olsa. They also fix additional 2 missed frees in the patch
+> > 'before yyabort-ing free components' and remove a redundant new_str
+> > variable from the patch 'add parse events handle error' as spotted by
+> > Stephane Eranian.
+> >
+> > The v4 patches address review comments from Jiri Olsa, turning a long
+> > error message into a single warning, fixing the data type in a list
+> > iterator and reordering patches.
+> >
+> > The v3 patches address review comments from Jiri Olsa improving commit
+> > messages, handling ENOMEM errors from strdup better, and removing a
+> > printed warning if an invalid event is passed.
+> >
+> > The v2 patches are preferable to an earlier proposed patch:
+> >    perf tools: avoid reading out of scope array
+> >
+> > Ian Rogers (10):
+> >   perf tools: add parse events handle error
+> >   perf tools: move ALLOC_LIST into a function
+> >   perf tools: avoid a malloc for array events
+> >   perf tools: splice events onto evlist even on error
+> >   perf tools: ensure config and str in terms are unique
+> >   perf tools: add destructors for parse event terms
+> >   perf tools: before yyabort-ing free components
+> >   perf tools: if pmu configuration fails free terms
+> >   perf tools: add a deep delete for parse event terms
+> >   perf tools: report initial event parsing error
+> >
+> >  tools/perf/arch/powerpc/util/kvm-stat.c |   9 +-
+> >  tools/perf/builtin-stat.c               |   2 +
+> >  tools/perf/builtin-trace.c              |  16 +-
+> >  tools/perf/tests/parse-events.c         |   3 +-
+> >  tools/perf/util/metricgroup.c           |   2 +-
+> >  tools/perf/util/parse-events.c          | 239 +++++++++++----
+> >  tools/perf/util/parse-events.h          |   7 +
+> >  tools/perf/util/parse-events.y          | 390 +++++++++++++++++-------
+> >  tools/perf/util/pmu.c                   |  32 +-
+> >  9 files changed, 511 insertions(+), 189 deletions(-)
+> >
+> > --
+> > 2.24.0.432.g9d3f5f5b63-goog
+>
+> --
+>
+> - Arnaldo
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191107222315.GA7261%40kernel.org.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191108173045.GY25745%40shell.armlinux.org.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfVNYbZoEmFzxMj850eorOtRJAouzvCFObxZRZT2G7YOCg%40mail.gmail.com.
