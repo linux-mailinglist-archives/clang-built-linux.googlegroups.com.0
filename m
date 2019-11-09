@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBN56TDXAKGQE2D5W57A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBA6HTHXAKGQEI3H3AOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
-	by mail.lfdr.de (Postfix) with ESMTPS id BF0CFF5CE9
-	for <lists+clang-built-linux@lfdr.de>; Sat,  9 Nov 2019 03:06:48 +0100 (CET)
-Received: by mail-vk1-xa3c.google.com with SMTP id l4sf3770196vkn.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 08 Nov 2019 18:06:48 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573265207; cv=pass;
+Received: from mail-ot1-x338.google.com (mail-ot1-x338.google.com [IPv6:2607:f8b0:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 46134F5DBE
+	for <lists+clang-built-linux@lfdr.de>; Sat,  9 Nov 2019 07:58:13 +0100 (CET)
+Received: by mail-ot1-x338.google.com with SMTP id i13sf6607563otc.0
+        for <lists+clang-built-linux@lfdr.de>; Fri, 08 Nov 2019 22:58:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573282691; cv=pass;
         d=google.com; s=arc-20160816;
-        b=XqqWSEyA12+uKB30G/x0ELWLSODl5uZeHhawBCx8Il1lqwmuJperjkLCkAQny2Ifyx
-         edGMEp/M6Xh8zkqumgxFlXZ5O5SR4y3nWip03Fv5Fln9BA8rNspz+u6NrOUoT68OLILk
-         QKhudKgPZtedZuZrlUGbwIAgcQW8nOT+YklZ74K+Q3BDjbmTlNOCIUmFec06RsJ4ffGu
-         46AAiRNt6z3Ke4gYl+QEtipmyfWe9OOOhXcBNuVI1WIWrH6Ht+/d0ycOO5uVY7ceDpbS
-         KVA2nlhGLSIcqKKquIsnF/fhwIcJfyAvBGwBXDApA+DAteUibYdGk+BMUw6wyPPLJA0k
-         K9MQ==
+        b=etSi8970/bnXSxNlMLfqA1C9/gc5HodeEpxD3j0ZYW69PaWU4ReHRna9ara2RrfJ/K
+         wDL1JTwZ7Fvl4eC7cJgvYjcrHspvTV68CtR9pq+msWeqokjwHp1ps2OfVVmpElRD6FzD
+         0JyEVIJHKIRL8i+TDX53KrVx0Wjudc0a7U8NLHiOfU1vlhVo8Q7miY+sFAfs+lBGIeA6
+         IOmyiXW7JrbXmCc0Ppk/FCnja9LJxUO6yReU+Kyf3TIx4FLH76LU59pCzgzPXo8zlaHY
+         GiQlotwtmPFJ36PsOhRdwbnAAsIpNp6gdmyPZk8FrNBG4tMeVnmhAQhUBoP1HuvABVV4
+         5HIg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=9cRVjMBYFNJ9Y878kkh9L6Tze++WF1q98X8BxWRen40=;
-        b=TnGSDsKrr1Bj1/Rha0lueybth1JjGv2oYs3j7DKgHfjU6D31mhtca1KUmOPpkZhrGC
-         cUPwk5pFYMj6IJ1RsbOUWrysWt2kLqbGGodl4OoMh3WjK/vwwVc993ctCk00ZEMiDc6o
-         02sliAPuhb8FLrSX6MebV0iH+R15vSFp6Lhuiyh7JWpKknbnoTFi2Zrxbm9yMGSnG2O4
-         xcOES2x38UaPivpiIg6gjv0KTj3gURKnqOxMuyjUoRZqqndGRKsgdABFuwnMYximOBy3
-         L3qV7Kvv7vhOXssKcZHkVxe4vyIK8GuD0MzUZigfVTQAGW5tjsjXDRAAGooQnvVxMizM
-         nzIA==
+        bh=giLUV2ZxWDPhdOoFbGhCLd+Udm2/7ypktWiWSdTvtz4=;
+        b=atvsBf8Our5ED2RIBi269w+LlU8Ao6bop0AYzybyILJBPLG+gNPIu7IjY1n5iSh70R
+         xQWbE/t0K8Z1YTan+2DK9S0aQFeYtDHAofybP37mMWAiRU4wmKnsLpF4ktrjeW/Xhj44
+         AGAhywI6511SZ1HKNqYyCt+U8DVuvT7uDv+uyR4BJgWVTpIDzPwo8qi4r0vlIJcn00gJ
+         mCM6lL8HhSrWOG+3y4ybPNVmTQK/C/XmSZyBwH31sFZ8JMTjlBXxm53VjXJCL7aAKr0Q
+         eQAcEpALJ3pj2UQr8jN4qKngVoBp8v0GJ6FvjOT7kI+OTbuu79z0uKcyrsqIEYaBtqiY
+         Sv2g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=9cRVjMBYFNJ9Y878kkh9L6Tze++WF1q98X8BxWRen40=;
-        b=dHdCrwZbJi9cNzKKJnWq799gT+uSmXqT6Fo6GMFXrkkgg5Q3Lv1kmcD1DhnHi6/eTu
-         uZgXj63BG0Z+RJ/AQF71i61TPSrXoKwZtyFi0XMipG+vJifKekHkNt1vd4xi/cvf5Trs
-         UZ9MKlx4CcIzfVuFIf4AMKV5YkQVoPgQs1HamCIi2sMzp5T3Xiuv/IX6QFWa43V2ZlfC
-         XIBNPN8cFT5lxScZR8d0ffjfSWAVrarL7JjZKJRkgUnch9Nu1BC6eNUqRpvUJxyQn/Qw
-         wEW3EJqj00uCD44Lj4gBRJEV4ukpwJDxLCRYucEzAYu6Y582jfMdIsw54S6Hj+xO1fUy
-         zyNA==
+        bh=giLUV2ZxWDPhdOoFbGhCLd+Udm2/7ypktWiWSdTvtz4=;
+        b=JXPWFVsYpNo4j8cNJiXMtRzgIbnifiHlHPYaljjzADQZadu+kUT/Sw9ZDrlLpco5hO
+         XCZRV83UD3AA3US5g02KGlo7WI2SVv+eQbiugWHIPEdXpB371g0VpQYY1Qh6vMTj4i6C
+         rk8f9pyLKuTa/SlkpQ4Y+iEf3fDGIsvUuBmsZFDyIzhyR5j3zE7qog0FXUiuCk3kYbck
+         i4zAHVXegXyHPz+PfO8A58MpwlAofp7+Zf138pLTZCQR6JaeEEqsaL/ZPScdllnn20K3
+         9Hto7c4Ftj1RpB4VrLBPzFEquzkaMjbEnbJUG1PipCjFrrMB1mb3Pa35OYEWclHm15Fo
+         YfMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=9cRVjMBYFNJ9Y878kkh9L6Tze++WF1q98X8BxWRen40=;
-        b=IKW+oJIxs0a5CQt/g2XDw6OS2GNT7c5zIHfK6A9frni+oc2Lqk4EneE+AADxWR/wij
-         fiW7t0n1I4wjOy4wmdE+hNUMJR6IlgygnG3750yusQiffaPj/ID70kVZb0SFCU4O+dfA
-         PBVGZ3bDZRtEhE7BGVltzgdPVeS5hnkhcmB4vMoYQjtJGFTrbrH/kTaFaULWKUpUWdRt
-         GBoBBQImYcxsDNyIYEuFuAR1V0pFjdoO9jgCc2aspxuA9wdoyl7OVrgcjaeG+jvQOzp5
-         SUaLZmjLrrUW5jzarMRqGs1klVYZfixItnoFWd1Qqgbn7ZYzYi5Sr5GYxzTyVWPiSws8
-         FhLg==
+        bh=giLUV2ZxWDPhdOoFbGhCLd+Udm2/7ypktWiWSdTvtz4=;
+        b=Zjy43t5836jMaE89KIseIl2KP57/U5ZITMQXP45S7rNpTssRgnhfqZkAEEesJZ3dfF
+         CO+m7VBu4UZlyrzUrrtCR2okZeeAnFIBViSqkIKl1dtQiI8J3shPJmz7kZ2BrUVHws4O
+         jy8rQaa9gJSzMuhheWrk7IcS1vh5wqL/QVoVo7AraSKBmDLzD1Nob0jOa3t21SxL2uCv
+         8M88WrK8LajWGn7uZFVsfpdQ5WXDaCZ5uVqBGOwaTNEt3YBjybvZSlDtBDzuVI40R9qO
+         LpsSGwFTT+wcmiIrEc2TFDjaCuIMB5sTjI91qJWp9SY3ctHRe3XKSiTW9SBvyQlJFyoo
+         mpNQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVpXAJwLv/aSeAoWIfWO102gEU1MONQkYwN0yC8yS14L7q76/kZ
-	oSjRrGOCtMkZzZdNCmO3ATs=
-X-Google-Smtp-Source: APXvYqxZCl5fsnGMtKDsdH1X1ko+saSroKO8f6hkmhIazul1pEXu2FzGLvMlS0kqus7NTyXOenMVWA==
-X-Received: by 2002:a1f:4b05:: with SMTP id y5mr9860031vka.12.1573265207413;
-        Fri, 08 Nov 2019 18:06:47 -0800 (PST)
+X-Gm-Message-State: APjAAAVJkH1hE6wYQS4LMBkjr+Fp4EjCCC/AP2jMr/KowOAcXBb/KSKX
+	O411ydJrUJ5mBr4RXqFKkzM=
+X-Google-Smtp-Source: APXvYqyyF12febQAhV7Z4sVK2/bbf/Wu3oj0VjmR+w3hauxFfyqbxLE1QDKMzMWiFos5oAf60puLxw==
+X-Received: by 2002:aca:b805:: with SMTP id i5mr14067523oif.110.1573282691494;
+        Fri, 08 Nov 2019 22:58:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:bfcd:: with SMTP id p196ls276504vkf.12.gmail; Fri, 08
- Nov 2019 18:06:46 -0800 (PST)
-X-Received: by 2002:a1f:7d88:: with SMTP id y130mr10087517vkc.71.1573265206720;
-        Fri, 08 Nov 2019 18:06:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573265206; cv=none;
+Received: by 2002:aca:3756:: with SMTP id e83ls281552oia.13.gmail; Fri, 08 Nov
+ 2019 22:58:11 -0800 (PST)
+X-Received: by 2002:a05:6808:4c3:: with SMTP id a3mr14185729oie.40.1573282691052;
+        Fri, 08 Nov 2019 22:58:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573282691; cv=none;
         d=google.com; s=arc-20160816;
-        b=emJ7csJ5jUnEtxiy3d1hhOfeqMpyFFwXBgNZHxMJjM6+61kyz0LhU3dbeGm/wfuXk/
-         OyDLjminPcemixwczwzKmjMFOLXAQWVlfiT5X/XUVAZsfbzYV0mNqhswvR4TquUr6jpI
-         sIilVbSr09oC3+ZCE6L17Iuyv3Ez/PQO8H29ZRrxLpy3GVen+42qsiZWVlMLVwq1D9Tl
-         v7W+su/cTwoi/r1fRvzzhxK8F7s4/LX06JQLMbFes/SNQjmT8+b4C0uRLIUEmsHVsUEU
-         kuvO4Mn94K/AJ/5pqWdrcpTqtHA+5ZAZsp3i3Ma91IDip8gCG7TEYNoh+GSmYXfYbheU
-         pb2w==
+        b=NBqY5At84Bg3t/4v4aZdqA0OEH4BHvX/IOg/WUerGvlMqiBJ1KdAeTP9EZErWklIRt
+         DTURrhmpQ89eoIflweedHjW+0ve6Fp+HFCTNgSpVvlme/vtPYOnG17l3nZmsnEzpnQ/9
+         SWeUqXoBisZqDwdocfqtWryW08p2AVOBjTn+mm+FKcp7GX+mT56zqu6OcqPlbkp9myTG
+         44np+flCoaktpoaGw3sqn74fkVI5pXqE/qzBgTTX6Sq/mKRAg4S/VTfKhkzqgSHnyuuu
+         kNS7yEXu4G1xi2DNboCE9+vupW40MALP9mBIW1MEg/fWHNOvWRXDk6WD3D14SHTsaZjH
+         X/5w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=h+kfXKfLNxAsglqVYmF1+qARDdJP9Sh09NKIKH97LMw=;
-        b=wkFrcDpWm3aVpju6/Kj4sP6osLW3mWnQ+9NggnUctqLWTmCeF41f8RuC3njwGDSF2f
-         M1sX67y8Y3XlpifgO72IhJOYdcHuVPJE1vLY7dVOo0cHySHLoU2LAWdHuVFq03/N8nio
-         mI/drVZ8UuPRdT98/TQGsFua+WJJKEOKif7SlJE8sF3W4836O2IOc1vFOmLBZiGLP0Wz
-         aE2M/YQ4yHDSdwqS2vVPOMzcRuBov3foP05gCYHoalqinArt00kOhb/OajFef4WqH3Uw
-         jvzpsNick5bS18SW/GJlMfEnRzCM1pKgny5Vp7g5zL87USGIw8aYXb5MgjiSigGluVKG
-         hCaQ==
+        bh=pWLrYzqEKJ74UCN09DQXiMb0rJQMSKepWcGIMETms9w=;
+        b=UIhwvbmrhKa7kWvg8jZthHXgvMzXVxUpGahVxiShYB6HH0+whM3H0q6E02RroO+DGz
+         G0zPjTCh3Okga/+tOJ3aryiQQdhTqkV93Ahp/mDCgGCH83XSkz1zXRWsHpwT8gfAV4s7
+         MchDNYYlNnc4BaTRq1xK44fJWDqxEhiVWcgBO7KxerFBUwFDOaGFo7yJ1jajxC45d/qA
+         qVvwoNQSAgX7SJGJpivU6FmMYZBAdd2yE6H0T6dM8jiHTldsNfUFFH0XXPseJZmVZ/kX
+         HcDgdx7a1+JO7CFNvNbec7o8lvo9cEpciIDLJyvudu8bYwa2g75XtJKSkiwgImh9A6Fl
+         /xpA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id e11si625028uaf.0.2019.11.08.18.06.45
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id n18si511423otr.3.2019.11.08.22.58.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 08 Nov 2019 18:06:46 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+        Fri, 08 Nov 2019 22:58:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 08 Nov 2019 18:06:44 -0800
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 08 Nov 2019 22:58:09 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.68,283,1569308400"; 
-   d="gz'50?scan'50,208,50";a="403259960"
+   d="gz'50?scan'50,208,50";a="201881990"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 08 Nov 2019 18:06:42 -0800
+  by fmsmga007.fm.intel.com with ESMTP; 08 Nov 2019 22:58:08 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iTG9C-0005bf-5V; Sat, 09 Nov 2019 10:06:42 +0800
-Date: Sat, 9 Nov 2019 10:06:05 +0800
+	id 1iTKhD-000EFM-LQ; Sat, 09 Nov 2019 14:58:07 +0800
+Date: Sat, 9 Nov 2019 14:57:10 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [radeon-alex:amd-mainline-dkms-5.2 2698/2834]
- include/kcl/kcl_drm.h:182:6: error: static declaration of
- 'drm_fb_helper_cfb_fillrect' follows non-static declaration
-Message-ID: <201911091004.HkKQYsfr%lkp@intel.com>
+Subject: [radeon-alex:amd-mainline-dkms-5.2 2699/2834]
+ include/kcl/kcl_drm.h:206:17: error: static declaration of
+ 'drm_fb_helper_alloc_fbi' follows non-static declaration
+Message-ID: <201911091408.wWYSqiP1%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="ep22it4f2fejgvc4"
+Content-Type: multipart/mixed; boundary="n5vcaiu64bqxt7pz"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---ep22it4f2fejgvc4
+--n5vcaiu64bqxt7pz
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -149,13 +149,13 @@ TO: Flora Cui <flora.cui@amd.com>
 
 tree:   git://people.freedesktop.org/~agd5f/linux.git amd-mainline-dkms-5.2
 head:   a48b0cc1cdf3900e3e73801f9de64afbb70dc193
-commit: 45978f4e7fc258a4a8ecb042f5fa3a9bc5dd0255 [2698/2834] drm/amdkcl: drop kcl_drm_fb_helper_cfb_xxx
+commit: faafc170760aa44876ca6d04bc0b461945c9c98d [2699/2834] drm/amdkcl: drop kcl_drm_fb_helper_{alloc,unregister}_fbi
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 03b84e4f6d0e1c04f22d69cc445f36e1f713beb4)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 45978f4e7fc258a4a8ecb042f5fa3a9bc5dd0255
+        git checkout faafc170760aa44876ca6d04bc0b461945c9c98d
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -167,7 +167,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:161:1: error: redefinition of 'drm_fb_helper_remove_conflicting_pci_framebuffers'
+   include/kcl/kcl_drm.h:159:1: error: redefinition of 'drm_fb_helper_remove_conflicting_pci_framebuffers'
    drm_fb_helper_remove_conflicting_pci_framebuffers(struct pci_dev *pdev,
    ^
    include/drm/drm_fb_helper.h:612:1: note: previous definition is here
@@ -176,7 +176,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
->> include/kcl/kcl_drm.h:182:6: error: static declaration of 'drm_fb_helper_cfb_fillrect' follows non-static declaration
+   include/kcl/kcl_drm.h:180:6: error: static declaration of 'drm_fb_helper_cfb_fillrect' follows non-static declaration
    void drm_fb_helper_cfb_fillrect(struct fb_info *info,
         ^
    include/drm/drm_fb_helper.h:289:6: note: previous declaration is here
@@ -185,7 +185,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
->> include/kcl/kcl_drm.h:189:6: error: static declaration of 'drm_fb_helper_cfb_copyarea' follows non-static declaration
+   include/kcl/kcl_drm.h:187:6: error: static declaration of 'drm_fb_helper_cfb_copyarea' follows non-static declaration
    void drm_fb_helper_cfb_copyarea(struct fb_info *info,
         ^
    include/drm/drm_fb_helper.h:291:6: note: previous declaration is here
@@ -194,7 +194,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
->> include/kcl/kcl_drm.h:196:6: error: static declaration of 'drm_fb_helper_cfb_imageblit' follows non-static declaration
+   include/kcl/kcl_drm.h:194:6: error: static declaration of 'drm_fb_helper_cfb_imageblit' follows non-static declaration
    void drm_fb_helper_cfb_imageblit(struct fb_info *info,
         ^
    include/drm/drm_fb_helper.h:293:6: note: previous declaration is here
@@ -203,7 +203,25 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:308:17: error: too few arguments to function call, expected at least 5, have 4
+>> include/kcl/kcl_drm.h:206:17: error: static declaration of 'drm_fb_helper_alloc_fbi' follows non-static declaration
+   struct fb_info *drm_fb_helper_alloc_fbi(struct drm_fb_helper *fb_helper)
+                   ^
+   include/drm/drm_fb_helper.h:265:17: note: previous declaration is here
+   struct fb_info *drm_fb_helper_alloc_fbi(struct drm_fb_helper *fb_helper);
+                   ^
+   In file included from <built-in>:4:
+   In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
+   In file included from include/kcl/kcl_drm_backport.h:5:
+>> include/kcl/kcl_drm.h:213:6: error: static declaration of 'drm_fb_helper_unregister_fbi' follows non-static declaration
+   void drm_fb_helper_unregister_fbi(struct drm_fb_helper *fb_helper)
+        ^
+   include/drm/drm_fb_helper.h:266:6: note: previous declaration is here
+   void drm_fb_helper_unregister_fbi(struct drm_fb_helper *fb_helper);
+        ^
+   In file included from <built-in>:4:
+   In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
+   In file included from include/kcl/kcl_drm_backport.h:5:
+   include/kcl/kcl_drm.h:306:17: error: too few arguments to function call, expected at least 5, have 4
                             encoder_type);
                                         ^
    include/drm/drm_encoder.h:182:1: note: 'drm_encoder_init' declared here
@@ -215,7 +233,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:323:19: error: too few arguments to function call, expected at least 6, have 5
+   include/kcl/kcl_drm.h:321:19: error: too few arguments to function call, expected at least 6, have 5
                                     cursor, funcs);
                                                  ^
    include/drm/drm_crtc.h:1119:1: note: 'drm_crtc_init_with_planes' declared here
@@ -227,7 +245,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:343:33: error: too few arguments to function call, expected at least 9, have 7
+   include/kcl/kcl_drm.h:341:33: error: too few arguments to function call, expected at least 9, have 7
                                     formats, format_count, type);
                                                                ^
    include/drm/drm_plane.h:712:1: note: 'drm_universal_plane_init' declared here
@@ -239,7 +257,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:354:43: error: too many arguments to function call, expected 2, have 3
+   include/kcl/kcl_drm.h:352:43: error: too many arguments to function call, expected 2, have 3
                    return drm_gem_object_lookup(dev, filp, handle);
                           ~~~~~~~~~~~~~~~~~~~~~            ^~~~~~
    include/drm/drm_gem.h:386:1: note: 'drm_gem_object_lookup' declared here
@@ -248,7 +266,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:363:8: error: redefinition of 'drm_format_name_buf'
+   include/kcl/kcl_drm.h:361:8: error: redefinition of 'drm_format_name_buf'
    struct drm_format_name_buf {
           ^
    include/drm/drm_fourcc.h:142:8: note: previous definition is here
@@ -257,20 +275,20 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:395:9: error: implicit declaration of function 'drm_gem_object_unreference_unlocked' [-Werror,-Wimplicit-function-declaration]
+   include/kcl/kcl_drm.h:393:9: error: implicit declaration of function 'drm_gem_object_unreference_unlocked' [-Werror,-Wimplicit-function-declaration]
            return drm_gem_object_unreference_unlocked(obj);
                   ^
-   include/kcl/kcl_drm.h:395:9: note: did you mean 'drm_gem_object_put_unlocked'?
+   include/kcl/kcl_drm.h:393:9: note: did you mean 'drm_gem_object_put_unlocked'?
    include/drm/drm_gem.h:367:6: note: 'drm_gem_object_put_unlocked' declared here
    void drm_gem_object_put_unlocked(struct drm_gem_object *obj);
         ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:395:2: error: void function 'kcl_drm_gem_object_put_unlocked' should not return a value [-Wreturn-type]
+   include/kcl/kcl_drm.h:393:2: error: void function 'kcl_drm_gem_object_put_unlocked' should not return a value [-Wreturn-type]
            return drm_gem_object_unreference_unlocked(obj);
            ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/kcl/kcl_drm.h:509:34: error: redefinition of 'drm_debug_printer'
+   include/kcl/kcl_drm.h:507:34: error: redefinition of 'drm_debug_printer'
    static inline struct drm_printer drm_debug_printer(const char *prefix)
                                     ^
    include/drm/drm_print.h:219:34: note: previous definition is here
@@ -279,7 +297,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:589:20: error: static declaration of 'drm_dev_put' follows non-static declaration
+   include/kcl/kcl_drm.h:587:20: error: static declaration of 'drm_dev_put' follows non-static declaration
    static inline void drm_dev_put(struct drm_device *dev)
                       ^
    include/drm/drm_drv.h:739:6: note: previous declaration is here
@@ -288,65 +306,43 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:5:
-   include/kcl/kcl_drm.h:591:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
+   include/kcl/kcl_drm.h:589:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
            return drm_dev_unref(dev);
                   ^
-   include/kcl/kcl_drm.h:591:9: note: did you mean 'drm_dev_enter'?
+   include/kcl/kcl_drm.h:589:9: note: did you mean 'drm_dev_enter'?
    include/drm/drm_drv.h:741:6: note: 'drm_dev_enter' declared here
    bool drm_dev_enter(struct drm_device *dev, int *idx);
         ^
 
-vim +/drm_fb_helper_cfb_fillrect +182 include/kcl/kcl_drm.h
+vim +/drm_fb_helper_alloc_fbi +206 include/kcl/kcl_drm.h
 
-   154	
-   155	#define IS_REACHABLE(option) __or(IS_BUILTIN(option), \
-   156					__and(IS_MODULE(option), __is_defined(MODULE)))
-   157	#endif
-   158	extern int remove_conflicting_pci_framebuffers(struct pci_dev *pdev, int res_id,
-   159						       const char *name);
-   160	static inline int
- > 161	drm_fb_helper_remove_conflicting_pci_framebuffers(struct pci_dev *pdev,
-   162							  int resource_id,
-   163							  const char *name)
-   164	{
-   165	#if IS_REACHABLE(CONFIG_FB)
-   166		return remove_conflicting_pci_framebuffers(pdev, resource_id, name);
-   167	#else
-   168		return 0;
-   169	#endif
-   170	}
-   171	#endif
-   172	
-   173	#ifndef HAVE_DRM_FB_HELPER_CFB_XX
-   174	extern void _kcl_drm_fb_helper_cfb_fillrect(struct fb_info *info,
-   175					const struct fb_fillrect *rect);
-   176	extern void _kcl_drm_fb_helper_cfb_copyarea(struct fb_info *info,
-   177					const struct fb_copyarea *area);
-   178	extern void _kcl_drm_fb_helper_cfb_imageblit(struct fb_info *info,
-   179					 const struct fb_image *image);
-   180	
-   181	static inline
- > 182	void drm_fb_helper_cfb_fillrect(struct fb_info *info,
-   183					const struct fb_fillrect *rect)
-   184	{
-   185		_kcl_drm_fb_helper_cfb_fillrect(info, rect);
-   186	}
-   187	
-   188	static inline
- > 189	void drm_fb_helper_cfb_copyarea(struct fb_info *info,
-   190					const struct fb_copyarea *area)
-   191	{
-   192		_kcl_drm_fb_helper_cfb_copyarea(info, area);
-   193	}
-   194	
-   195	static inline
- > 196	void drm_fb_helper_cfb_imageblit(struct fb_info *info,
-   197					 const struct fb_image *image)
-   198	{
-   199		_kcl_drm_fb_helper_cfb_imageblit(info, image);
-   200	}
-   201	#endif
-   202	
+   192	
+   193	static inline
+ > 194	void drm_fb_helper_cfb_imageblit(struct fb_info *info,
+   195					 const struct fb_image *image)
+   196	{
+   197		_kcl_drm_fb_helper_cfb_imageblit(info, image);
+   198	}
+   199	#endif
+   200	
+   201	#ifndef HAVE_DRM_FB_HELPER_XX_FBI
+   202	extern struct fb_info *_kcl_drm_fb_helper_alloc_fbi(struct drm_fb_helper *fb_helper);
+   203	extern void _kcl_drm_fb_helper_unregister_fbi(struct drm_fb_helper *fb_helper);
+   204	
+   205	static inline
+ > 206	struct fb_info *drm_fb_helper_alloc_fbi(struct drm_fb_helper *fb_helper)
+   207	
+   208	{
+   209		return _kcl_drm_fb_helper_alloc_fbi(fb_helper);
+   210	}
+   211	
+   212	static inline
+ > 213	void drm_fb_helper_unregister_fbi(struct drm_fb_helper *fb_helper)
+   214	{
+   215		_kcl_drm_fb_helper_unregister_fbi(fb_helper);
+   216	}
+   217	#endif
+   218	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -355,14 +351,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911091004.HkKQYsfr%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911091408.wWYSqiP1%25lkp%40intel.com.
 
---ep22it4f2fejgvc4
+--n5vcaiu64bqxt7pz
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICKAXxl0AAy5jb25maWcAnDxJd9w20vf8Cr7kkhzi9KbF8z0dQBJsIs1NBNgt6cLXlihH
+H4sICABbxl0AAy5jb25maWcAnDxJd9w20vf8Cr7kkhzi9KbF8z0dQBJsIs1NBNgt6cLXlihH
 Ey2eVsuJ//1UAVwAEFT8TSbjmFVYC4Xa0T/98JNH3o4vT/vjw+3+8fGb97l5bg77Y3Pn3T88
 Nv/nhbmX5cKjIRMfoHHy8Pz292/7w9Ppyjv5sPgw+/VwO/c2zeG5efSCl+f7h89v0P3h5fmH
 n36Af38C4NMXGOnwL+/2cf/82fvaHF4B7c1nH+B/3s+fH47/+u03+PPp4XB4Ofz2+Pj1qf5y
@@ -1185,4 +1181,4 @@ mvQZbtezFPd0QPH/m0DwdNxlWPG/F70uDYdsaIGHNNDhugthmaoMl1Fb3llJ7HfSeXZip/K7
 KxS8lJJlRPk0vk2toOkaKvWknsYZukdMrtXNPSKMYdNK1jgamWaZTpw6MADY5xDC1Hme1Leu
 jLKXDLbkHIn3zI4+OlsTozHVhGt0VW+lygP/AYP08YoR/QIA
 
---ep22it4f2fejgvc4--
+--n5vcaiu64bqxt7pz--
