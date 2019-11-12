@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBAABB45JVLXAKGQEZZUY74Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBCNKVLXAKGQEKQWGKFY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-wm1-f57.google.com (mail-wm1-f57.google.com [209.85.128.57])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B84BF8DE4
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 12:18:12 +0100 (CET)
-Received: by mail-wm1-f57.google.com with SMTP id b10sf1022919wmh.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 03:18:12 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573557492; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id D7F44F8DF2
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 12:18:33 +0100 (CET)
+Received: by mail-wm1-f57.google.com with SMTP id g14sf1293164wmk.9
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 03:18:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573557513; cv=pass;
         d=google.com; s=arc-20160816;
-        b=u8m1+YgZntxITg8RFGtFvHPW1hk5ZZ93WcJTrO0CATjUs2vXUkT9/SiFazrAJtDId3
-         XDeAIcI4yaAgp976u002hNxFXgrQcDevlEu5CZ1sMQ1pHo+V82PKsEtT24BPrq7g9o8Y
-         rK+GRUv5yMaarN3ae7mLiM6tF15vRZ/80s0DfMgL8vPUr1VHIdfWh9Gp0OzjgNd61F2v
-         1GgRbGlcicIwfbqbj7KFJX1jg4HDvGLO/nQR27pED/9zs1azM2ixVGZVz9hJlJYcA1vZ
-         ibJLMk0XDxJm0S3EJ68ZNzN6W62pyiYkPXueAawEC7yLnNXD6G34vEoz/aHciYXMnJBD
-         Nu5Q==
+        b=R4jdzKC5zfqlUOpxVnqVFOHKdovN115i0W1gyM25MPSAFK+H0Q/mWgiskc7T4/SN9q
+         vpVxpMCO9hi76AX4fkOXBcfRfahBsuicQYj5gCcW6iOjzo1KZwPrJmjMUay7wJsuJAfd
+         /5V1BVEU1cYgzgRwQMswC487DGYNyyt9dXnG8UoSO0g6R77dYqnVPkim1JGJE2UJfa/K
+         XPzVu6P7ZWIhOGzo9Y9aIbHoPnm1nwOLlh76sS4oKKLygd2FqTQrriDaHO+DKlTWgnCe
+         B2768qgva/rjeTnlsdCAMOfYFF3416RtKC51qrXSLY0u2a7iq7LjMcO41mDcpy4aGKLa
+         CvlA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=pqQpJ0PNf9G3EZupJ1A9thMl8HofpYmGqmjkL+lpPuw=;
-        b=xzFqhK1HgqqVUGsbk3BDAbO9ynqZm8nsaNyuQYG8AXW4lJ5nkmxUjbuYMd/ek4p8d3
-         pQMsTUtI3XArNUdiOKlFIiRCpOh4deCfquWXPbgW/Dv0JtMFbEHwfFP8m+9Ujef+GehT
-         gPAiZWIlOdLzdGqDTCNqioYGBcMlKFDB29w6e2fqp64H4aOVrnXqzeiKT/7QuQN/DbaY
-         SBjH7xkWQiGmXgVcUMHlezQ+si+rUCT++F5Aqzpw199aD2osmYiXkjeAfkdmdNiwmcV6
-         5NOdSZ8c7G3Jm4Wui2HZ9JmNf2EVpiT8uLdEG4ZJyoIsEwIPHkByE+yeZLBRzOLUX2cN
-         xyFw==
+        bh=8nAtbPOZv/IDg4Q54PGFTUNICeNJBcgpTwUXKLEoIa4=;
+        b=D7lUMUQXSH0FbjDJOKUj1tozMD+MO1xypfIF+MclVncMND1PHL93ksDK79TDrUQ2Qm
+         C2925G9Gf+W4g6yozQNZV0aTIUdPIW2SbzQ+Dn3DmPmQWpwX3q4gy7hBGWSED5zFXHVf
+         z29mOWf3OFerMa0CtivQ4p81tYcINh6CCj2chn1TDG8sPbz2usaukN6w60Hhr/0K1A9m
+         /DSeHqqpoQQIjgCqTgl6S2Wu/ZqfSwFzFR1SZkzvL516cTRF1nK1docpE8g7G2SgxgQG
+         41cAKqmduIWdkKb0n7MKXBC8tyLTUnHHgPSgA8cBzDTubeeJJb356rJy1m5L/1pymYw9
+         95Zg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,64 +36,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pqQpJ0PNf9G3EZupJ1A9thMl8HofpYmGqmjkL+lpPuw=;
-        b=Vc8IraTIsquQEtxUy6CrvaynSfv0ttXeGNRGpX6Jjb0Tmye5NyqLGzdaVtf/Yd3KL5
-         yo++3i+UwlMigE1f6jO0uAZS7eoRK887TzuE2cjYFjH26/WAuDmqRcI6uSVo/eLw4q2x
-         eB4YSH5tSwJBS6T0rUqIIxRNSAA6mD+t0P3pGo8D/27sXRCWV3OvI2G4P3v8NsiLbVZ1
-         JgDLLEKfaIbPZKjM9yRPEZVPmABlj8j+LkeX+UykY1nMDBdtNXioiU4Cm6Y5SVM06+qe
-         PkQB1QeA3kBB9XJg5Rxgq/guLFp23UMtP5jOi465iOkMRkaAcdBI1g/DawIe7y9XX3I/
-         KHRA==
-X-Gm-Message-State: APjAAAXHZMzp3MTvo+1xI3PDrOHa56ciAruQBOtlNo8NNLzEmcLcNs2q
-	X0pwRrjIx6Nxhon+CLDVQNc=
-X-Google-Smtp-Source: APXvYqwvqve1LRXWfxHfeUKrOIUceWA0x5tf75Nwf/CDCeIJSMrwwRq1i7Ep5MN54mfwfeVNZZ1dQQ==
-X-Received: by 2002:a7b:cb89:: with SMTP id m9mr3396878wmi.141.1573557491892;
-        Tue, 12 Nov 2019 03:18:11 -0800 (PST)
+        bh=8nAtbPOZv/IDg4Q54PGFTUNICeNJBcgpTwUXKLEoIa4=;
+        b=kD0zxngvzw939ztQb/Er6kjz87KSkiU+pVVeLXZD833iiqydFzm6n3chrK28LQxU6O
+         +IcazJc+r63x+obQ00dk1sFYgo6GL2gQ+vIl8EEjspPDEJpITEAjlqtsnrDzchL0Ji/0
+         QcSSOfxTSm4yFQqVBq/DFpokQEgkAFYj0EHvarqPOlKkcMf2OjD/ZGZ5UPes0mXE79CW
+         y4G5dYtVmF81qJY/p5uAeRldPVHvvr5l92X1QiZWQ1sLz5on0nuw815qLMu8kYWad2nm
+         3NgnK6VwQPUjz8SakgZ4u7epmwqcHiDT8QqeISuMtNZAgK+TIUcnpI2zswZZ5AVW5dfM
+         3W4g==
+X-Gm-Message-State: APjAAAVD0itT+xfU2BbMr2MnlP4hLE0SgbT6UkUX64+3eihAksi3XpS/
+	wu5sC2VHDXHERZVywWvTkEw=
+X-Google-Smtp-Source: APXvYqwHiTLFBX8bhaJIeF4NLgtpIJt5qgiLQnHw+lKYW7vUZrvXlgmOkVn6iavub0aEcNdkZu4oKg==
+X-Received: by 2002:a7b:c743:: with SMTP id w3mr3536786wmk.165.1573557513653;
+        Tue, 12 Nov 2019 03:18:33 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:660f:: with SMTP id n15ls1844504wru.8.gmail; Tue, 12 Nov
- 2019 03:18:11 -0800 (PST)
-X-Received: by 2002:adf:fe0c:: with SMTP id n12mr24891411wrr.174.1573557491543;
-        Tue, 12 Nov 2019 03:18:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573557491; cv=none;
+Received: by 2002:a1c:6085:: with SMTP id u127ls2159542wmb.5.gmail; Tue, 12
+ Nov 2019 03:18:33 -0800 (PST)
+X-Received: by 2002:a1c:410a:: with SMTP id o10mr3440466wma.117.1573557513312;
+        Tue, 12 Nov 2019 03:18:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573557513; cv=none;
         d=google.com; s=arc-20160816;
-        b=inle75sK2sh+XVi3F5hneKv1FyH3UBZefz2JvftI8LQvxUmmt9KW6D0ZPKANq1jzEP
-         IatjjIuusAt5qURKGLafVuM0yR3BeyFwnEg8st3QAeLX+LojGd/Ml36IwOYhfMIQ+kdm
-         4xGUJVDywyN4xnbrP81LbmDNm50R2T+jDhqGE9ZhMbndJIQMMkThvu4vzAp75kmkXn7H
-         N7piCRHf7iuakmwSWN0MkeBR81uYmovOt6XuLr9iydLalfciknAlt79WyfUtCIn5revg
-         51mSahFdw/K2/+I/ykqQtu/Lm8C4C3jLp5GSONCpjsmfK+ITfk48j52UkyoGPpnA/MSo
-         iCJQ==
+        b=Wrq7Z84mVq2Nce3yl2Tzg+E5DdEKLIUNQWuu57Y/t68jRVa0KkAgy/pgjcHmH8b5+G
+         Tl1VqA2S3jlSlbOdCaotjKponi/mubPmlGZE/7VIiw4hLEs9t1pMJtzTKieHAAxfMh5t
+         zYk3wohWMY6seWYDhoXb4WUDdV4pVvK0+TpigXiPAcmPcVq8iip2KlP7noqtIS6BJvJC
+         DHuzwsmODaDoHAb+aB8q7hQ2kXmRkfg9MVVfjsB5+S6e0sbvzbQJC4d0D133uMVg15xe
+         FiEFCSHiG/+7GSGbjhKGRqigyEy/tlduQT2p61m3IFpALXnGwlfoH26oxOhyMT6FwPe1
+         MxAw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=DfPpmZGH+sEMVccEbINJdVbciNkbVBT5id3AcuuTh+s=;
-        b=X/uOPm1hXPUKnOE9tqzFCq2P3kW24VtyGDXk/mc3RXJnG1sPzGKIKGwuhA3So36rvE
-         e61QMNghcfZpMo5YIbQsfOCw/mGmPrXjrGj3zfMA1dnWOKscqcGIH4XOOaoOYYb0hRsx
-         5KyftSbUH/5Rw94ONddQFrpTsykKx9FrjJ7MMUxEPTWRu6YqsfdaZsX3ZtwM4lnG6aUp
-         cvzpdUthb9jM+r8O8KwSfOIrUaSBL26hCRQ7IPb+/76YiD2YApXGz7uLhr5yZMh2zkJL
-         fr7wyCqQo9CaDdOcm9Apr61I9bijBv50/LAYLtOxyQHolgJJN7MuwaYGoQP3H8N9Qi6M
-         i2yQ==
+        bh=UhZBM67w63jk0c37IZRBO2LUyOee8EpPaIZDEp1GA0w=;
+        b=ve7SR3EMlCKUKqX125BGSHVKmAZ+yluWDzMNBGq1E96P/4p3OJmeUQrj+j4WYoMuLg
+         DsubMQkcNvW2hn+jy8YvN8DB18+LHkA0TN/6Gl5coNFEk7H64ZVjHLenCnAbu/T8Nlvx
+         cp966ymtgV4lgh5dI+ycmoOFF8ZTITPl+ZQiXRlBq30jf45/yB7uGGiy5MxEuTcoHbtj
+         ang5m5Ej7IZalN6OtaWyRtn71nnnWgkhE0cjW7tjxgbJfiktlZwaU4kww0vaCuWPNnfM
+         shrXwn97U8xBnQBJioV3lZJFhvQARXsscX36zM7gJ77is9AG7jM+7kE1b+LFNbBDyCDI
+         WgrQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id w10si1140757wru.4.2019.11.12.03.18.11
+        by gmr-mx.google.com with ESMTPS id w10si1140808wru.4.2019.11.12.03.18.33
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Tue, 12 Nov 2019 03:18:11 -0800 (PST)
+        Tue, 12 Nov 2019 03:18:33 -0800 (PST)
 Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
 Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
 	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
 	(Exim 4.80)
 	(envelope-from <tip-bot2@linutronix.de>)
-	id 1iUUBS-0000Se-Pd; Tue, 12 Nov 2019 12:18:07 +0100
+	id 1iUUBl-0000go-RY; Tue, 12 Nov 2019 12:18:26 +0100
 Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 1A63A1C0483;
-	Tue, 12 Nov 2019 12:18:03 +0100 (CET)
-Date: Tue, 12 Nov 2019 11:18:02 -0000
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id F08A11C0357;
+	Tue, 12 Nov 2019 12:18:14 +0100 (CET)
+Date: Tue, 12 Nov 2019 11:18:14 -0000
 From: "tip-bot2 for Ian Rogers" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: perf/core] perf tools: Splice events onto evlist even on error
+Subject: [tip: perf/core] perf tools: Avoid a malloc() for array events
 Cc: Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
  Adrian Hunter <adrian.hunter@intel.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
@@ -107,10 +107,10 @@ Cc: Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
  clang-built-linux@googlegroups.com, netdev@vger.kernel.org,
  Arnaldo Carvalho de Melo <acme@redhat.com>, Ingo Molnar <mingo@kernel.org>,
  Borislav Petkov <bp@alien8.de>, linux-kernel@vger.kernel.org
-In-Reply-To: <20191025180827.191916-5-irogers@google.com>
-References: <20191025180827.191916-5-irogers@google.com>
+In-Reply-To: <20191023005337.196160-6-irogers@google.com>
+References: <20191023005337.196160-6-irogers@google.com>
 MIME-Version: 1.0
-Message-ID: <157355748269.29376.11251581788671798282.tip-bot2@tip-bot2>
+Message-ID: <157355749440.29376.10975700265435116588.tip-bot2@tip-bot2>
 X-Mailer: tip-git-log-daemon
 Robot-ID: <tip-bot2.linutronix.de>
 Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
@@ -136,20 +136,17 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 The following commit has been merged into the perf/core branch of tip:
 
-Commit-ID:     8e8714c3d157568b7a769917a5e05573bbaf5af0
-Gitweb:        https://git.kernel.org/tip/8e8714c3d157568b7a769917a5e05573bbaf5af0
+Commit-ID:     826100a7ce9a659b42140710ebe789d710799048
+Gitweb:        https://git.kernel.org/tip/826100a7ce9a659b42140710ebe789d710799048
 Author:        Ian Rogers <irogers@google.com>
-AuthorDate:    Fri, 25 Oct 2019 11:08:22 -07:00
+AuthorDate:    Tue, 22 Oct 2019 17:53:33 -07:00
 Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
-CommitterDate: Wed, 06 Nov 2019 15:49:39 -03:00
+CommitterDate: Wed, 06 Nov 2019 15:43:05 -03:00
 
-perf tools: Splice events onto evlist even on error
+perf tools: Avoid a malloc() for array events
 
-If event parsing fails the event list is leaked, instead splice the list
-onto the out result and let the caller cleanup.
-
-An example input for parse_events found by libFuzzer that reproduces
-this memory leak is 'm{'.
+Use realloc() rather than malloc()+memcpy() to possibly avoid a memory
+allocation when appending array elements.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 Acked-by: Jiri Olsa <jolsa@kernel.org>
@@ -171,45 +168,36 @@ Cc: Yonghong Song <yhs@fb.com>
 Cc: bpf@vger.kernel.org
 Cc: clang-built-linux@googlegroups.com
 Cc: netdev@vger.kernel.org
-Link: http://lore.kernel.org/lkml/20191025180827.191916-5-irogers@google.com
+Link: http://lore.kernel.org/lkml/20191023005337.196160-6-irogers@google.com
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/util/parse-events.c | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
+ tools/perf/util/parse-events.y | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index db882f6..d36b812 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -1927,15 +1927,20 @@ int parse_events(struct evlist *evlist, const char *str,
+diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
+index 5863acb..ffa1a1b 100644
+--- a/tools/perf/util/parse-events.y
++++ b/tools/perf/util/parse-events.y
+@@ -689,14 +689,12 @@ array_terms ',' array_term
+ 	struct parse_events_array new_array;
  
- 	ret = parse_events__scanner(str, &parse_state, PE_START_EVENTS);
- 	perf_pmu__parse_cleanup();
-+
-+	if (!ret && list_empty(&parse_state.list)) {
-+		WARN_ONCE(true, "WARNING: event parser found nothing\n");
-+		return -1;
-+	}
-+
-+	/*
-+	 * Add list to the evlist even with errors to allow callers to clean up.
-+	 */
-+	perf_evlist__splice_list_tail(evlist, &parse_state.list);
-+
- 	if (!ret) {
- 		struct evsel *last;
- 
--		if (list_empty(&parse_state.list)) {
--			WARN_ONCE(true, "WARNING: event parser found nothing\n");
--			return -1;
--		}
--
--		perf_evlist__splice_list_tail(evlist, &parse_state.list);
- 		evlist->nr_groups += parse_state.nr_groups;
- 		last = evlist__last(evlist);
- 		last->cmdline_group_boundary = true;
+ 	new_array.nr_ranges = $1.nr_ranges + $3.nr_ranges;
+-	new_array.ranges = malloc(sizeof(new_array.ranges[0]) *
+-				  new_array.nr_ranges);
++	new_array.ranges = realloc($1.ranges,
++				sizeof(new_array.ranges[0]) *
++				new_array.nr_ranges);
+ 	ABORT_ON(!new_array.ranges);
+-	memcpy(&new_array.ranges[0], $1.ranges,
+-	       $1.nr_ranges * sizeof(new_array.ranges[0]));
+ 	memcpy(&new_array.ranges[$1.nr_ranges], $3.ranges,
+ 	       $3.nr_ranges * sizeof(new_array.ranges[0]));
+-	free($1.ranges);
+ 	free($3.ranges);
+ 	$$ = new_array;
+ }
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157355748269.29376.11251581788671798282.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157355749440.29376.10975700265435116588.tip-bot2%40tip-bot2.
