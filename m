@@ -1,169 +1,196 @@
-Return-Path: <clang-built-linux+bncBDTKPJW47IKRBFFXVDXAKGQEEXM4YWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSN3LHKTUMRBTXIVDXAKGQE2WXNSMI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 391B6F86F4
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 03:40:21 +0100 (CET)
-Received: by mail-wm1-x33c.google.com with SMTP id m68sf803790wme.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Nov 2019 18:40:21 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573526421; cv=pass;
+Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E641F875C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 05:25:52 +0100 (CET)
+Received: by mail-vk1-xa3e.google.com with SMTP id c5sf8384966vkm.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Nov 2019 20:25:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573532751; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qkCECEfBBDQUUGmvTcK+w8vUG9RvIca8zE8Vg159UfY9/kwJwMxS8jWsPan12JEt7+
-         26Hd/fp3BlBuEIrgD64t7aSTXxJ2IY80BvKaaE0uKrc/krHNJKIJmjZ/GZwy0/5w0i0V
-         pd9uy5oLYMVTVJs7wJmSyG2/HebcpSdv+cKnK9cQA8oUY9KbhlcsXMzbRch+topa7pBz
-         4o3IF2+w30lBfdzpRkMqCFFObdLcpmcHdUxb3gCKHKy3A3mhEjOnC1BKlYfoTzXr0vgf
-         MuRG2PSxFSgwr79tgmk7MT0hkpyxqhbQe/j7xMl1leyUXWYInQRZgHk5EdvaQZfhgtZM
-         x47Q==
+        b=h1t7F/XHmwsNy6kQuDwZ+7PfGbcn5nFfpqVkIeUVH2RWgHuSS8JBo/ku7IC63bSBhc
+         4wxCDHlOXFd2SIwRRKdzR7cKR2M89/55opKdEOHMm5BZUSisTX4vf99sbh3m+g/l/B7I
+         /pb1w8bbAbgEhlVZHlZyjP9t2UZB95Ij8aeRD8nWFJVtx6M2kqxfwb5h8Y3k/2pYP701
+         ffJvKkh859fOVhibDOUkMMdVs4hQVaIbAi569uRaHIRK6yyt6kdHVnaRzf7yn1bL0ijS
+         tB5WC8GfJtsr3nPOKmcmEJ7vQRDsfEkL6TQWK6U59PSQMUCXPm1WxNQ1DaN3Dbv1CfOX
+         +27g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-language
-         :in-reply-to:mime-version:user-agent:date:message-id:from:references
-         :cc:to:subject:dkim-signature;
-        bh=ZcGu2OYuOlnFqMVafu9+c0FicmLSwySEqRbE/sFPaV8=;
-        b=WOkeMR9eF8Ufc5DydSoSvyU5oikGAH0lJ0HVN3nCr6xg5gRgNphcV+MWsqeLk1A4cu
-         TrLk7LeAoVQ3C7uRjsAbXplYHp3qu7gkuhBkvTpye6n0jRS1ST3BLXKq8IDzb6oLvhTW
-         K17/aNVv4QtlueU7SuB4cV4674pdWDDUKJN8LjLSBPr0WWjbQx4BAVnQOEPoLJT08NfX
-         /aUsUirJeZQwyhWf5pwxeWRH+xbdgckV9V6cBnPxYQP7CNUmrbnH1RG8qG8Elb6CSiZS
-         vm4jYtClphIqNf2Xz78o12GGtRbahmQmj2MioeixPaj9Wuq+dsRsQeY7yiqT6eN8pAde
-         U4HA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
+        b=ILag03fMrK48XS6om8omxrcTVTlQItzCyI1pz9b5qUrqtE0ZSJLzHxZIQkEQfQBa4b
+         M+VAJ96UZatCUjNFVRxRMnV+tON3eJvpNAN+9RyznqQQoFhg/yd0ZIawmRsLasOGDIG8
+         NUIsPC9HEXyn/FHq+kA+L0SY/cpBP0n6mSi7P6QL1tjSO5Q2cyeLuaqpU8nMV6jvjGbV
+         YTSX7Z986DnG3YYH3nAlV46iC/T03XvD810dzaSw3EZnBvVo82PtAOiQgCokwr2AEequ
+         txxGIJ1aBsBb7JdnDvbfX75IOB0dOnBRse6n243Bi3/lg/TVX/spUcqX7pVK4CDY0sK1
+         Y8Gg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@arista.com header.s=googlenew header.b=MX42aMTT;
-       spf=pass (google.com: domain of dima@arista.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=dima@arista.com;
-       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cdGWTYNC;
+       spf=pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=ZcGu2OYuOlnFqMVafu9+c0FicmLSwySEqRbE/sFPaV8=;
-        b=h/3iYQyQnNhoIuCH/UynZokoobMUAULfuKX4jeP7N0JlLoHIqirFcDLNuaoFps/AbT
-         JU7BDQro1sTENJ2gSkx8da1QUtO777nRttU4jyAKMe9fmmwFXlWqIIFPJIPoe2ocE2bM
-         lpPCcfSMuUtlqZgMIEFpkoBg7/cC7OFlPm28FJUZhFq8hEWaUTgmCzFZ7RtpeROD//fI
-         wdKsnf/GBM707fIpSWLgwKdFq0xkvuPQmLueNc/dMG/4Gh2ifQGgCa3xyYSXHigcXWo5
-         Up+jWAVrGR/MIGFRI5HXSE4hM8WKZ7wVLFhrX+N/rrboRks/URxTzlVm4ipnXb3v6lYH
-         I14Q==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
+        b=Hk9AimwzD3bSGit49EvHAomgq6Ue+nfz3cirUPHNNphE995tym3PCJxl8Cm1WJ/re+
+         wn/XHlbZS/6ROor0IW71psw9bG5qMk7peaLVdll672v5E0JDKZtpJzj4Kl8Jz7wkZdF+
+         tz3ZH35BYTa/6hj2DIXtrwjf8VlMCFbPD2cmdhY/7bCEYzmEten2a+znNx6T39QKHnO4
+         3AQuI7KMbJGV7uyKVMC+fwSBdxDIwrJpHPkomJctKcVqdJbVQUDAgFglI+Jl1N2dVL3D
+         zBVEI4VBJPxLJJJsR1jo4jK8XPcXCLIr+WN6T++zv6a9dPUNejLtlXMmFj71tusyWOpE
+         A+Fg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
+        b=GhJ60r4AAL09+1VP/TVpKTpm+q0KhiMbF09ZBl/8+9KbX7p6rCTUqpPCGmEVDJ/rRe
+         HIplgKxeoeEis85tUldpbuvccGU5Ds3IpoXXbpM8ZGSMGcFGG4bv8x1AwRQSP5oI+HDi
+         01Aig5P7zgG43cmRdlK7wOyq+xc6yo8Sgi4LUulMLgNjuaHdjPk0rGobarFAE5bRnFQ5
+         0bLPGI2VCRsVqNIB54E/sdSirD+iVapnwelyqhzjdgMKCkBpW+HRFQxtrlZnkdOkodQn
+         YrC4zb2qM973/X2p709kw+OY7rjCeccuXy7G4cV4NX58MaCmQUW05QSSRQGXkcBT/qG+
+         /Y2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZcGu2OYuOlnFqMVafu9+c0FicmLSwySEqRbE/sFPaV8=;
-        b=edByJReglYqkEhRN6k51247dfK2Ym1awd6sEBm1yt4+7uF7XF9i+EmfF0OLHI7Fubs
-         hWmiJR1elpAhn2TIJPMEWa46F0/kc6wOmVPUn3Lg5K0d0fClKWpN+rqFAOSuBcHHMLts
-         +XHTH0uMobgxUYgFi9vOZ/J42rg3wf/9EfYOPdmrykDEwtdtzf9S9EwKyMLdouhazX2G
-         CDQbJ/3R12mfOXzj2F3rQbIxKGSA8wG+0FGPwiAbVyquSNp4RU3xDmhA20rAQbfZMpXv
-         6t5RrFcxKIukCDp+l2zGQaKgGJMTDKtSwwS+5aqUoozPJslSMZn+3AJ4dijSIedH/+I3
-         ha/A==
-X-Gm-Message-State: APjAAAX4lcAqKnifkQL6JtvqremdD01pq3vw+tTU4F8ls5Ws77catHEQ
-	+WNFqz+kFeCuvlYQHBTCelw=
-X-Google-Smtp-Source: APXvYqxS1EIlkPHjnKG62QgW1JfMst8Sir9rJNhiyVO+2yvmgXGl0GoCX0V5b5avH8CFhDnTD4VqbQ==
-X-Received: by 2002:adf:f987:: with SMTP id f7mr5980979wrr.284.1573526420901;
-        Mon, 11 Nov 2019 18:40:20 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
+        b=sUFkMBwo55QccZQIGDZHXd9cU4zmhVmVkNfMvemUS4vuyti2+azZdE5fVTbwIIBwcE
+         mLR65Ag7Eox2a4pl/2RAstpAOttBtq0YvA6eKry9Hgsqup3EatbEBB2BkTo5zmnN1N13
+         U6XZRBcoeWgloiN68lwAqXKDgBObXSpBtTAqkQFbJAzixL13fzo2wclkn+wRW64TVZ3g
+         ApZSwRxFWZu+S46o3RfD6Mk3ZLov/cqKdPCWpDmQsliFGvNG48kLJisIk3azzLrnYRhR
+         bVakuQpF47hQ3PHiOQo4Msq21ZlavLAQpLrvo3XkLn7G5boBt0W5OZ874+PXdg4iFswt
+         wqUQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAW74tZ9wzpCSTniGrZY7WrkbQWciV0H9nXGwf9b4Y41Gthgr1PP
+	yJimfPjtMqzugkd6NTfmvKc=
+X-Google-Smtp-Source: APXvYqwUMUUvYxvm7dOx4d/XQtL/hL6ZGyfwqHI5iVvyVJuKznPMOW2Gqxfv4Pv6CsSYfqOYDIXv/Q==
+X-Received: by 2002:a67:f649:: with SMTP id u9mr19155226vso.20.1573532750917;
+        Mon, 11 Nov 2019 20:25:50 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:5284:: with SMTP id c4ls1165409wrv.15.gmail; Mon, 11 Nov
- 2019 18:40:20 -0800 (PST)
-X-Received: by 2002:a05:6000:103:: with SMTP id o3mr25351898wrx.80.1573526420451;
-        Mon, 11 Nov 2019 18:40:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573526420; cv=none;
+Received: by 2002:ab0:4813:: with SMTP id b19ls49314uad.15.gmail; Mon, 11 Nov
+ 2019 20:25:50 -0800 (PST)
+X-Received: by 2002:ab0:26cf:: with SMTP id b15mr18944572uap.115.1573532750504;
+        Mon, 11 Nov 2019 20:25:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573532750; cv=none;
         d=google.com; s=arc-20160816;
-        b=egQyfkRZbbd6Vr105X2P8W7kv/d4zqOB0RlYpaJDkPvljHNSunlj4nnjuv2wP6fa+V
-         vF9eISBYNqkDap5HGkhKUSBpPL2Sum1IRmn9u/NOsO5D4LdppSvMBHlJUQCp3ih28ocS
-         TVcfxtNiZKmIDqzNWsbzVclo8l98kxjtY8//vDexVbU5F5fEoV+h605aSn8DApdcN+ed
-         vZ8XaYzcldc7TYSvEsB4ZOVpgob3u/++i6a7S15pGdb59Bj1i7Ez7yGNhtCBrNbmknG5
-         11aEtD7h2sixDlgVoAYkm+o7utf3+2S1sLwFTS6CMhEiOf0kiproROV4R+rZ+dSlcKX5
-         5huw==
+        b=izEKlKJTNA32VxiiRXqTRLz7wBhYyaUYDx+POpDpSXce2mb3++YgnKv5ImisO6hgKv
+         c6hR89XhzxruWSkNYCOO16NRw0JNdTuppeoxWJjYCny0Ffpiti2CJZ6BrBR9w1hI4D7c
+         ADczoeW7dpkfvoA+cNcQxygb122IMPpdJRVxHzQcyHcyYBaSofD1iVfuAcCbo4/JX4DO
+         ywe3Okj08UvsniOQoVwMPgSMyp92f61aP9lp2VYfmtcfJU9fQ7yhSKYavrJMGYdGCJ/a
+         qjA5zYfZDI9NTYJOYo/95VoxJZ9b2438ymAqN6RLsyLIimUEMyP6CkYOiWPuU7xeFJNA
+         qWEQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=hc0bl6ua3Awo0puTEJJtiCFLlsTJGov09J6GyMYDUcw=;
-        b=LN/OO9tcHHMTa1NxLMRpBG7Fq/+h7qhAJlEU5wLvrHB9XNfoloy5KsvqCu4uotIbE3
-         iOBOY0PaHO63TjUAA4ggwIe//aVsTOWKwyaL73DLKE2TGOsq3OJuNTqL3NxdOrnNdPZJ
-         eJWCFYil1n0fm4vG12DQG2Y/R6ePhozpMWmMCqZVMt6BV9mb5w5dgm+GjcZxuGOxna0F
-         dPUo7Rr55czt78NyJCXByQCM82qme7HsYR+aeVF3OTIj83homCQ6XBjbDU7LjOifXm5t
-         jkUoeq9pYhtB61dQB01Ssh9+zbVBrZUBwuYDa6/AjMX89xwVPK512f95H6p1Z1MbgE7B
-         gZ2A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=9VefD4i9ErvjrjSu5lBHBfa2VMuQnRlhyfcHWoSsFGA=;
+        b=XSezEIlcxu66dFudElIEslkXdWKeeZ94A2BWGxZYDQ4AoJDivjWN9go9AW0k6CRQ9+
+         JjC6JkUCDWflMZM3KOINGPScyNFZ7AWUTij/eTzhbYIE86HiWxN/fVUju8staUvTl6xy
+         gcb9mR8HaSLlNulKlirzm0QxkZ743T7rcBmSEx3UfU2kFbS26H4ejoLTlqmhyavazSsN
+         6uKMpb9D5Dq/F+8m4JhwoIgYGfxsoCe67/nQwh7OGe8uqggI1KQaJu73wPJdVE+nZQFF
+         labRf3puiAy0YJtVj3kpU8FKGqPsi1T2ksUCr5iuLaNebKYJc4kiZO3dYR5X3BQ/sj9k
+         T6dg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@arista.com header.s=googlenew header.b=MX42aMTT;
-       spf=pass (google.com: domain of dima@arista.com designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=dima@arista.com;
-       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
-Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id y188si84960wmc.0.2019.11.11.18.40.20
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cdGWTYNC;
+       spf=pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
+        by gmr-mx.google.com with ESMTPS id 192si901670vkz.3.2019.11.11.20.25.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Nov 2019 18:40:20 -0800 (PST)
-Received-SPF: pass (google.com: domain of dima@arista.com designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
-Received: by mail-wm1-x342.google.com with SMTP id c22so1327621wmd.1
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Nov 2019 18:40:20 -0800 (PST)
-X-Received: by 2002:a7b:c211:: with SMTP id x17mr1567811wmi.71.1573526420054;
-        Mon, 11 Nov 2019 18:40:20 -0800 (PST)
-Received: from [10.83.36.153] ([217.173.96.166])
-        by smtp.gmail.com with ESMTPSA id u26sm1511046wmj.9.2019.11.11.18.40.16
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Nov 2019 18:40:19 -0800 (PST)
+        Mon, 11 Nov 2019 20:25:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
+Received: by mail-pl1-x644.google.com with SMTP id e3so8812754plt.7
+        for <clang-built-linux@googlegroups.com>; Mon, 11 Nov 2019 20:25:50 -0800 (PST)
+X-Received: by 2002:a17:902:246:: with SMTP id 64mr28628529plc.339.1573532749511;
+        Mon, 11 Nov 2019 20:25:49 -0800 (PST)
+Received: from localhost ([2401:fa00:8f:203:250d:e71d:5a0a:9afe])
+        by smtp.gmail.com with ESMTPSA id 186sm23754823pfb.99.2019.11.11.20.25.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 11 Nov 2019 20:25:48 -0800 (PST)
+Date: Tue, 12 Nov 2019 13:25:46 +0900
+From: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
+To: Dmitry Safonov <dima@arista.com>
+Cc: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>,
+	Petr Mladek <pmladek@suse.com>, linux-kernel@vger.kernel.org,
+	Dmitry Safonov <0x7f454c46@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@kernel.org>, Jiri Slaby <jslaby@suse.com>,
+	Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ben Segall <bsegall@google.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Greentime Hu <green.hu@gmail.com>, Ingo Molnar <mingo@redhat.com>,
+	James Hogan <jhogan@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
+	Mel Gorman <mgorman@suse.de>, Michal Simek <monstr@monstr.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Burton <paulburton@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ralf Baechle <ralf@linux-mips.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vincent Chen <deanbo422@gmail.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Will Deacon <will@kernel.org>, linux-mips@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	Matt Turner <mattst88@gmail.com>,
+	Richard Henderson <rth@twiddle.net>, linux-alpha@vger.kernel.org,
+	Vineet Gupta <vgupta@synopsys.com>,
+	linux-snps-arc@lists.infradead.org,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	clang-built-linux@googlegroups.com,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+	Mark Salter <msalter@redhat.com>, linux-c6x-dev@linux-c6x.org,
+	Guo Ren <guoren@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	uclinux-h8-devel@lists.sourceforge.jp,
+	Brian Cain <bcain@codeaurora.org>, linux-hexagon@vger.kernel.org,
+	Fenghua Yu <fenghua.yu@intel.com>, Tony Luck <tony.luck@intel.com>,
+	linux-ia64@vger.kernel.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	linux-m68k@lists.linux-m68k.org, Ley Foon Tan <lftan@altera.com>,
+	nios2-dev@lists.rocketboards.org, Jonas Bonn <jonas@southpole.se>,
+	Stafford Horne <shorne@gmail.com>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	openrisc@lists.librecores.org, Helge Deller <deller@gmx.de>,
+	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	linux-parisc@vger.kernel.org,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Mackerras <paulus@samba.org>, linuxppc-dev@lists.ozlabs.org,
+	Christian Borntraeger <borntraeger@de.ibm.com>,
+	Heiko Carstens <heiko.carstens@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org,
+	Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Jeff Dike <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
+	linux-um@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
+	Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+	x86@kernel.org, Chris Zankel <chris@zankel.net>,
+	Max Filippov <jcmvbkbc@gmail.com>, linux-xtensa@linux-xtensa.org,
+	Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
+	"Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-pm@vger.kernel.org,
+	Daniel Thompson <daniel.thompson@linaro.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	kgdb-bugreport@lists.sourceforge.net
 Subject: Re: [PATCH 00/50] Add log level to show_stack()
-To: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
-Cc: Petr Mladek <pmladek@suse.com>, linux-kernel@vger.kernel.org,
- Dmitry Safonov <0x7f454c46@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@kernel.org>, Jiri Slaby <jslaby@suse.com>,
- Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
- Steven Rostedt <rostedt@goodmis.org>,
- Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
- Albert Ou <aou@eecs.berkeley.edu>, Ben Segall <bsegall@google.com>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>,
- Greentime Hu <green.hu@gmail.com>, Ingo Molnar <mingo@redhat.com>,
- James Hogan <jhogan@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
- Mel Gorman <mgorman@suse.de>, Michal Simek <monstr@monstr.eu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Burton <paulburton@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, Ralf Baechle <ralf@linux-mips.org>,
- Thomas Gleixner <tglx@linutronix.de>, Vincent Chen <deanbo422@gmail.com>,
- Vincent Guittot <vincent.guittot@linaro.org>, Will Deacon <will@kernel.org>,
- linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
- Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
- <mattst88@gmail.com>, Richard Henderson <rth@twiddle.net>,
- linux-alpha@vger.kernel.org, Vineet Gupta <vgupta@synopsys.com>,
- linux-snps-arc@lists.infradead.org, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, clang-built-linux@googlegroups.com,
- Catalin Marinas <catalin.marinas@arm.com>,
- Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
- Mark Salter <msalter@redhat.com>, linux-c6x-dev@linux-c6x.org,
- Guo Ren <guoren@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>,
- uclinux-h8-devel@lists.sourceforge.jp, Brian Cain <bcain@codeaurora.org>,
- linux-hexagon@vger.kernel.org, Fenghua Yu <fenghua.yu@intel.com>,
- Tony Luck <tony.luck@intel.com>, linux-ia64@vger.kernel.org,
- Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
- Ley Foon Tan <lftan@altera.com>, nios2-dev@lists.rocketboards.org,
- Jonas Bonn <jonas@southpole.se>, Stafford Horne <shorne@gmail.com>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- openrisc@lists.librecores.org, Helge Deller <deller@gmx.de>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- linux-parisc@vger.kernel.org,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Michael Ellerman <mpe@ellerman.id.au>, Paul Mackerras <paulus@samba.org>,
- linuxppc-dev@lists.ozlabs.org, Christian Borntraeger
- <borntraeger@de.ibm.com>, Heiko Carstens <heiko.carstens@de.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org,
- Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
- "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>, Jeff Dike
- <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
- linux-um@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
- Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
- x86@kernel.org, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, linux-xtensa@linux-xtensa.org,
- Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
- "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-pm@vger.kernel.org,
- Daniel Thompson <daniel.thompson@linaro.org>,
- Douglas Anderson <dianders@chromium.org>,
- Jason Wessel <jason.wessel@windriver.com>,
- kgdb-bugreport@lists.sourceforge.net
+Message-ID: <20191112042546.GA119579@google.com>
 References: <20191106030542.868541-1-dima@arista.com>
  <20191106083538.z5nlpuf64cigxigh@pathway.suse.cz>
  <20191108103719.GB175344@google.com>
@@ -171,23 +198,18 @@ References: <20191106030542.868541-1-dima@arista.com>
  <20191111012336.GA85185@google.com>
  <13e72b62-c842-8ed5-5b41-bc1692b28f53@arista.com>
  <20191112021747.GA68506@google.com>
-From: "'Dmitry Safonov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Message-ID: <25cb9647-007a-9c18-4784-49c0aef4f54b@arista.com>
-Date: Tue, 12 Nov 2019 02:40:11 +0000
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.2.0
+ <25cb9647-007a-9c18-4784-49c0aef4f54b@arista.com>
 MIME-Version: 1.0
-In-Reply-To: <20191112021747.GA68506@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: dima@arista.com
+Content-Disposition: inline
+In-Reply-To: <25cb9647-007a-9c18-4784-49c0aef4f54b@arista.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: sergey.senozhatsky.work@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@arista.com header.s=googlenew header.b=MX42aMTT;       spf=pass
- (google.com: domain of dima@arista.com designates 2a00:1450:4864:20::342 as
- permitted sender) smtp.mailfrom=dima@arista.com;       dmarc=pass
- (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
-X-Original-From: Dmitry Safonov <dima@arista.com>
-Reply-To: Dmitry Safonov <dima@arista.com>
+ header.i=@gmail.com header.s=20161025 header.b=cdGWTYNC;       spf=pass
+ (google.com: domain of sergey.senozhatsky.work@gmail.com designates
+ 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -200,39 +222,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Sergey,
-
-On 11/12/19 2:17 AM, Sergey Senozhatsky wrote:
-> On (19/11/11 19:47), Dmitry Safonov wrote:
+On (19/11/12 02:40), Dmitry Safonov wrote:
 [..]
->> What I'm going to do - is to fix all build and reported issues, I'll
->> send v2 this week and feel free to NAK it, I will forget about those
->> patches and won't be offended.
-> 
-> Lovely.
-> And - no, I'm not going to NAK platform specific changes. Just so you know.
-> 
-> *All* I'm talking about is an alternative, less "go and touch a ton of
-> platform code" approach. The argument "I patched so many files that I'm
-> not even going to discuss anything now" is not productive, to say the
-> least. Hope this clarifies.
+> In my point of view the cost of one-time [mostly build] testing every
+> architecture is cheaper than introducing some new smart code that will
+> live forever.
 
-It probably was a wrong impression from the both sides.
-My impression was "You touch every architecture - we won't even consider
-that". Sorry for the the wrong impression from my side - I'm open for
-discussion.
+Well, there may be the need to pass loglevel deeper due to "hey __show_stack()
+on that arch invokes bar(), which invokes foo() and now foo() does printk(),
+but we don't see it". The context which decided to backtaraces decided
+to do so for a reason, probably, so I guess we can look at it as "a special
+error reporting code block".
 
-In my point of view the cost of one-time [mostly build] testing every
-architecture is cheaper than introducing some new smart code that will
-live forever. Though, again you and Petr understand more than me in
-printk() code, so I'm not any insisting.
+The proposed patch set passes loglevel via slightly unusual channel -
+via sprintf(). We probably can do it, but I would prefer to minimize
+the number of such printk-s in the kernel. The code snippet which I
+posted also does pretty unusual thing w.r.t loglevel. Both approaches
+are "non-standard" from that POV.
 
-I'll reply to your suggestion tomorrow, it's a bit late in my tz.
+> I'll reply to your suggestion tomorrow, it's a bit late in my tz.
 
-Thanks,
-          Dmitry
+Sure.
+
+To anyone who will comment on that code snippet - this is not a
+"look, here is what you need to do" type of proposal. Just an
+alternative approach with its pros and cons.
+
+We had several requests over the years to have something like "forcibly
+allow all underlying printk-s from here to here" or "forcibly suppress
+or postpone underlying printk-s from here to here", etc.
+
+	-ss
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/25cb9647-007a-9c18-4784-49c0aef4f54b%40arista.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191112042546.GA119579%40google.com.
