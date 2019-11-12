@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBAABB3FJVLXAKGQEZS2OFXQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB45JVLXAKGQEZZUY74Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-f55.google.com (mail-wr1-f55.google.com [209.85.221.55])
-	by mail.lfdr.de (Postfix) with ESMTPS id A67AAF8DDC
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 12:18:04 +0100 (CET)
-Received: by mail-wr1-f55.google.com with SMTP id w4sf11694062wro.10
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 03:18:04 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573557484; cv=pass;
+Received: from mail-wm1-f57.google.com (mail-wm1-f57.google.com [209.85.128.57])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2B84BF8DE4
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 12:18:12 +0100 (CET)
+Received: by mail-wm1-f57.google.com with SMTP id b10sf1022919wmh.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 03:18:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573557492; cv=pass;
         d=google.com; s=arc-20160816;
-        b=m0MTPOd8PwPg9ayihREZysAtl1CDBtVjGRpJcGmEEF6QQH4KQOy2Rz5iNJRGtQipq1
-         T3XBjDk6asMzaqYqifoc0PIJBLAvH4w3y7Hn/gE0XSpwH6i94X9GxHYTilgMuFl0ytzF
-         WcgtYjlTaUoxDrOPmH5uTu5Bvu6GG93SZ1CcH65O4+/CgFWbe+z5GkjZMS8EMiHJRB91
-         y0dMFJglnb860dfRCx0WOkcUdlA7BVwY2DiKjb+ZNmagkxngP383Xb0frtuhNHAheZfl
-         H4z8FlZOCleuIZqHp7/8fbWQ8/hXY9msBIvEoJR8v/UWm7eqvWnFPV8j5BFiTjEnM+pL
-         VTtg==
+        b=u8m1+YgZntxITg8RFGtFvHPW1hk5ZZ93WcJTrO0CATjUs2vXUkT9/SiFazrAJtDId3
+         XDeAIcI4yaAgp976u002hNxFXgrQcDevlEu5CZ1sMQ1pHo+V82PKsEtT24BPrq7g9o8Y
+         rK+GRUv5yMaarN3ae7mLiM6tF15vRZ/80s0DfMgL8vPUr1VHIdfWh9Gp0OzjgNd61F2v
+         1GgRbGlcicIwfbqbj7KFJX1jg4HDvGLO/nQR27pED/9zs1azM2ixVGZVz9hJlJYcA1vZ
+         ibJLMk0XDxJm0S3EJ68ZNzN6W62pyiYkPXueAawEC7yLnNXD6G34vEoz/aHciYXMnJBD
+         Nu5Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=O1hlW+C31SB8P09YGYl/jm/nZxMBjx7yDj9ucWuuTGw=;
-        b=epy46NXNYKQuZ/pcE+f0E90FSWuXVjsvyr4e9tUqqSXCpdyb2g9l7IC45uZQXZGGPn
-         MJeYGWVLAykgcO7LIU+kVY4YNOzAYrWqezl8m/NSvQxDmU3x0kdHhnQVJH1GoF7Nij5q
-         0Ym++MXnhNkxQiXg2WzQS3ryjzJ63H6Ph/WzZKvHgzFRXULGp7q/l2HFVx8tLLkxlrwi
-         ZmeUOa/j+OwGg3qUV+ok3x9dpr30PvfjB5SrQ45PMaLiazRpY2NyTawYDiE0SzORBoQ+
-         to6R5rqlq3VXObn7b95IW44GjsAtWbdk8mhOVF+OmORXASu9ZaFSWVftttYxAB6xWPWT
-         yvVQ==
+        bh=pqQpJ0PNf9G3EZupJ1A9thMl8HofpYmGqmjkL+lpPuw=;
+        b=xzFqhK1HgqqVUGsbk3BDAbO9ynqZm8nsaNyuQYG8AXW4lJ5nkmxUjbuYMd/ek4p8d3
+         pQMsTUtI3XArNUdiOKlFIiRCpOh4deCfquWXPbgW/Dv0JtMFbEHwfFP8m+9Ujef+GehT
+         gPAiZWIlOdLzdGqDTCNqioYGBcMlKFDB29w6e2fqp64H4aOVrnXqzeiKT/7QuQN/DbaY
+         SBjH7xkWQiGmXgVcUMHlezQ+si+rUCT++F5Aqzpw199aD2osmYiXkjeAfkdmdNiwmcV6
+         5NOdSZ8c7G3Jm4Wui2HZ9JmNf2EVpiT8uLdEG4ZJyoIsEwIPHkByE+yeZLBRzOLUX2cN
+         xyFw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,64 +36,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=O1hlW+C31SB8P09YGYl/jm/nZxMBjx7yDj9ucWuuTGw=;
-        b=IcWs0nUJW19KFnqp45qc4RMJtpd/QhgMUGON9LQIxsV0j9hqXidWHdSGLHD+gpAyUp
-         yjxJtD6eZmbIaOtMaYuCkwaQ2nFQlXBeGmko+zuNeBe5Ed1xXohkYwpYZwhPoEEZ0coV
-         Kp5usAigCye+BJQGfnff5knmfHMPntt0V7xfZh+DI2jpY2ViHdZCY/TCXy6wrQzVgYED
-         LTjbfA48DjUPnPl6fCsVQyVbZCtyNgVckvnuVQvdWzcBEQkspOIBzCDZexXnd5tt80Ww
-         svm9Yk4WDdb5dFUBqEt8MactCPZMLrrQahm35mzRwWN1CNxhSQ1HJDf4iqhJLh1R4K6Z
-         Uxuw==
-X-Gm-Message-State: APjAAAX4RWktz7wHBGNc6qT35mdNxRg5DcvOu6wTNBoqZImmFuhv3YjJ
-	KU65OZnFfOvBzy7Y+3tM/Js=
-X-Google-Smtp-Source: APXvYqzH2Qx9IntyABEUFzwjwXfiDYiv28bJX3H0LzTThrl7PBHWTJ5F2aNvOc7S8DAinf1U0Hunug==
-X-Received: by 2002:adf:f60e:: with SMTP id t14mr24185624wrp.292.1573557484326;
-        Tue, 12 Nov 2019 03:18:04 -0800 (PST)
+        bh=pqQpJ0PNf9G3EZupJ1A9thMl8HofpYmGqmjkL+lpPuw=;
+        b=Vc8IraTIsquQEtxUy6CrvaynSfv0ttXeGNRGpX6Jjb0Tmye5NyqLGzdaVtf/Yd3KL5
+         yo++3i+UwlMigE1f6jO0uAZS7eoRK887TzuE2cjYFjH26/WAuDmqRcI6uSVo/eLw4q2x
+         eB4YSH5tSwJBS6T0rUqIIxRNSAA6mD+t0P3pGo8D/27sXRCWV3OvI2G4P3v8NsiLbVZ1
+         JgDLLEKfaIbPZKjM9yRPEZVPmABlj8j+LkeX+UykY1nMDBdtNXioiU4Cm6Y5SVM06+qe
+         PkQB1QeA3kBB9XJg5Rxgq/guLFp23UMtP5jOi465iOkMRkaAcdBI1g/DawIe7y9XX3I/
+         KHRA==
+X-Gm-Message-State: APjAAAXHZMzp3MTvo+1xI3PDrOHa56ciAruQBOtlNo8NNLzEmcLcNs2q
+	X0pwRrjIx6Nxhon+CLDVQNc=
+X-Google-Smtp-Source: APXvYqwvqve1LRXWfxHfeUKrOIUceWA0x5tf75Nwf/CDCeIJSMrwwRq1i7Ep5MN54mfwfeVNZZ1dQQ==
+X-Received: by 2002:a7b:cb89:: with SMTP id m9mr3396878wmi.141.1573557491892;
+        Tue, 12 Nov 2019 03:18:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:8183:: with SMTP id 3ls1832167wra.12.gmail; Tue, 12 Nov
- 2019 03:18:03 -0800 (PST)
-X-Received: by 2002:a05:6000:34f:: with SMTP id e15mr27449365wre.232.1573557483916;
-        Tue, 12 Nov 2019 03:18:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573557483; cv=none;
+Received: by 2002:a5d:660f:: with SMTP id n15ls1844504wru.8.gmail; Tue, 12 Nov
+ 2019 03:18:11 -0800 (PST)
+X-Received: by 2002:adf:fe0c:: with SMTP id n12mr24891411wrr.174.1573557491543;
+        Tue, 12 Nov 2019 03:18:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573557491; cv=none;
         d=google.com; s=arc-20160816;
-        b=bLfBCO4JPOfYbUAWZ2FUwMgj86DHdu3vqfoS8XHDNQFzWlol5OqwcK/xeD0DVFdHRG
-         WtnMs7NQPylp+3Z2xW8jCxK2bWssLHy396Vqq8Ky9HS5dnZ9o2XVWI5gIwMKlUZ/C59S
-         eNcltRwrQYe+1uwUlaiDlU3XHcNAEFVwGk18fUHXi8BJCJBHDYe4B9caAS2sA9mhq+hp
-         5SJRbdXlCBG12ClWMkhu5dpi1y0ajoOOU2KVq672yb4l6mgw3Rxe6LolN234mhdmwBeQ
-         utt7+OYG0Z3ZX3InvanzXtNhW+OcKVIkJBoZNH1bFUWXv5MnHQdIjBgDYyJto67AMds+
-         YPKw==
+        b=inle75sK2sh+XVi3F5hneKv1FyH3UBZefz2JvftI8LQvxUmmt9KW6D0ZPKANq1jzEP
+         IatjjIuusAt5qURKGLafVuM0yR3BeyFwnEg8st3QAeLX+LojGd/Ml36IwOYhfMIQ+kdm
+         4xGUJVDywyN4xnbrP81LbmDNm50R2T+jDhqGE9ZhMbndJIQMMkThvu4vzAp75kmkXn7H
+         N7piCRHf7iuakmwSWN0MkeBR81uYmovOt6XuLr9iydLalfciknAlt79WyfUtCIn5revg
+         51mSahFdw/K2/+I/ykqQtu/Lm8C4C3jLp5GSONCpjsmfK+ITfk48j52UkyoGPpnA/MSo
+         iCJQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=KEgMjdNEjgL2xA/g2AitWPa9SHVO+N6cF+cymAMLc5c=;
-        b=DoiIhLdjZwHltyb48dLo7yqQHz3kocC04TK6oMGV9iyLYo4ecvIx9cNsrrPT/vK8uk
-         LaheiEPlOsa3cy5nkW9R+Z6stQn6W86LEe6nJL1tTmmImSlz2kDNNVdxAUO9JvReNlXi
-         Xvu3mLxGnBuNZWwkoMzzML5H5PitBa0q7wW5J8rxXspwlgoHwlut5baccYKNFr5dp2wV
-         6KQFzz35/MCvyHva72FDyj/pOf/qxEUYrnnnyCKr9s9mobxeNAUZJR3YKqLq79kqkflm
-         GbdwvCAGJO4naljsegD6bm5nxzYfPrb5yb66aWcIr3z5qMMOcS7LgTwjGXvZ8JGqQT39
-         U/Mw==
+        bh=DfPpmZGH+sEMVccEbINJdVbciNkbVBT5id3AcuuTh+s=;
+        b=X/uOPm1hXPUKnOE9tqzFCq2P3kW24VtyGDXk/mc3RXJnG1sPzGKIKGwuhA3So36rvE
+         e61QMNghcfZpMo5YIbQsfOCw/mGmPrXjrGj3zfMA1dnWOKscqcGIH4XOOaoOYYb0hRsx
+         5KyftSbUH/5Rw94ONddQFrpTsykKx9FrjJ7MMUxEPTWRu6YqsfdaZsX3ZtwM4lnG6aUp
+         cvzpdUthb9jM+r8O8KwSfOIrUaSBL26hCRQ7IPb+/76YiD2YApXGz7uLhr5yZMh2zkJL
+         fr7wyCqQo9CaDdOcm9Apr61I9bijBv50/LAYLtOxyQHolgJJN7MuwaYGoQP3H8N9Qi6M
+         i2yQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id l10si172737wmd.0.2019.11.12.03.18.03
+        by gmr-mx.google.com with ESMTPS id w10si1140757wru.4.2019.11.12.03.18.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=AES128-SHA bits=128/128);
-        Tue, 12 Nov 2019 03:18:03 -0800 (PST)
+        Tue, 12 Nov 2019 03:18:11 -0800 (PST)
 Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
 Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
 	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
 	(Exim 4.80)
 	(envelope-from <tip-bot2@linutronix.de>)
-	id 1iUUBM-0000Mc-JH; Tue, 12 Nov 2019 12:18:00 +0100
+	id 1iUUBS-0000Se-Pd; Tue, 12 Nov 2019 12:18:07 +0100
 Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 986EC1C0357;
-	Tue, 12 Nov 2019 12:17:58 +0100 (CET)
-Date: Tue, 12 Nov 2019 11:17:58 -0000
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 1A63A1C0483;
+	Tue, 12 Nov 2019 12:18:03 +0100 (CET)
+Date: Tue, 12 Nov 2019 11:18:02 -0000
 From: "tip-bot2 for Ian Rogers" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: perf/core] perf parse: Add parse events handle error
+Subject: [tip: perf/core] perf tools: Splice events onto evlist even on error
 Cc: Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
  Adrian Hunter <adrian.hunter@intel.com>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
@@ -107,10 +107,10 @@ Cc: Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
  clang-built-linux@googlegroups.com, netdev@vger.kernel.org,
  Arnaldo Carvalho de Melo <acme@redhat.com>, Ingo Molnar <mingo@kernel.org>,
  Borislav Petkov <bp@alien8.de>, linux-kernel@vger.kernel.org
-In-Reply-To: <20191030223448.12930-2-irogers@google.com>
-References: <20191030223448.12930-2-irogers@google.com>
+In-Reply-To: <20191025180827.191916-5-irogers@google.com>
+References: <20191025180827.191916-5-irogers@google.com>
 MIME-Version: 1.0
-Message-ID: <157355747823.29376.1827924793040708314.tip-bot2@tip-bot2>
+Message-ID: <157355748269.29376.11251581788671798282.tip-bot2@tip-bot2>
 X-Mailer: tip-git-log-daemon
 Robot-ID: <tip-bot2.linutronix.de>
 Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
@@ -136,34 +136,20 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 The following commit has been merged into the perf/core branch of tip:
 
-Commit-ID:     448d732cefb3b4017f687f18c300e48354ddc240
-Gitweb:        https://git.kernel.org/tip/448d732cefb3b4017f687f18c300e48354ddc240
+Commit-ID:     8e8714c3d157568b7a769917a5e05573bbaf5af0
+Gitweb:        https://git.kernel.org/tip/8e8714c3d157568b7a769917a5e05573bbaf5af0
 Author:        Ian Rogers <irogers@google.com>
-AuthorDate:    Wed, 30 Oct 2019 15:34:39 -07:00
+AuthorDate:    Fri, 25 Oct 2019 11:08:22 -07:00
 Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
-CommitterDate: Wed, 06 Nov 2019 15:49:40 -03:00
+CommitterDate: Wed, 06 Nov 2019 15:49:39 -03:00
 
-perf parse: Add parse events handle error
+perf tools: Splice events onto evlist even on error
 
-Parse event error handling may overwrite one error string with another
-creating memory leaks. Introduce a helper routine that warns about
-multiple error messages as well as avoiding the memory leak.
+If event parsing fails the event list is leaked, instead splice the list
+onto the out result and let the caller cleanup.
 
-A reproduction of this problem can be seen with:
-
-  perf stat -e c/c/
-
-After this change this produces:
-WARNING: multiple event parsing errors
-event syntax error: 'c/c/'
-                       \___ unknown term
-
-valid terms: event,filter_rem,filter_opc0,edge,filter_isoc,filter_tid,filter_loc,filter_nc,inv,umask,filter_opc1,tid_en,thresh,filter_all_op,filter_not_nm,filter_state,filter_nm,config,config1,config2,name,period,percore
-Run 'perf list' for a list of valid events
-
- Usage: perf stat [<options>] [<command>]
-
-    -e, --event <event>   event selector. use 'perf list' to list available events
+An example input for parse_events found by libFuzzer that reproduces
+this memory leak is 'm{'.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 Acked-by: Jiri Olsa <jolsa@kernel.org>
@@ -185,256 +171,45 @@ Cc: Yonghong Song <yhs@fb.com>
 Cc: bpf@vger.kernel.org
 Cc: clang-built-linux@googlegroups.com
 Cc: netdev@vger.kernel.org
-Link: http://lore.kernel.org/lkml/20191030223448.12930-2-irogers@google.com
+Link: http://lore.kernel.org/lkml/20191025180827.191916-5-irogers@google.com
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/perf/util/parse-events.c | 82 ++++++++++++++++++++-------------
- tools/perf/util/parse-events.h |  2 +-
- tools/perf/util/pmu.c          | 30 +++++++-----
- 3 files changed, 71 insertions(+), 43 deletions(-)
+ tools/perf/util/parse-events.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
 
 diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index d36b812..03e54a2 100644
+index db882f6..d36b812 100644
 --- a/tools/perf/util/parse-events.c
 +++ b/tools/perf/util/parse-events.c
-@@ -182,6 +182,20 @@ static int tp_event_has_id(const char *dir_path, struct dirent *evt_dir)
+@@ -1927,15 +1927,20 @@ int parse_events(struct evlist *evlist, const char *str,
  
- #define MAX_EVENT_LENGTH 512
- 
-+void parse_events__handle_error(struct parse_events_error *err, int idx,
-+				char *str, char *help)
-+{
-+	if (WARN(!str, "WARNING: failed to provide error string\n")) {
-+		free(help);
-+		return;
+ 	ret = parse_events__scanner(str, &parse_state, PE_START_EVENTS);
+ 	perf_pmu__parse_cleanup();
++
++	if (!ret && list_empty(&parse_state.list)) {
++		WARN_ONCE(true, "WARNING: event parser found nothing\n");
++		return -1;
 +	}
-+	WARN_ONCE(err->str, "WARNING: multiple event parsing errors\n");
-+	err->idx = idx;
-+	free(err->str);
-+	err->str = str;
-+	free(err->help);
-+	err->help = help;
-+}
- 
- struct tracepoint_path *tracepoint_id_to_path(u64 config)
- {
-@@ -932,11 +946,11 @@ static int check_type_val(struct parse_events_term *term,
- 		return 0;
- 
- 	if (err) {
--		err->idx = term->err_val;
--		if (type == PARSE_EVENTS__TERM_TYPE_NUM)
--			err->str = strdup("expected numeric value");
--		else
--			err->str = strdup("expected string value");
-+		parse_events__handle_error(err, term->err_val,
-+					type == PARSE_EVENTS__TERM_TYPE_NUM
-+					? strdup("expected numeric value")
-+					: strdup("expected string value"),
-+					NULL);
- 	}
- 	return -EINVAL;
- }
-@@ -972,8 +986,11 @@ static bool config_term_shrinked;
- static bool
- config_term_avail(int term_type, struct parse_events_error *err)
- {
-+	char *err_str;
 +
- 	if (term_type < 0 || term_type >= __PARSE_EVENTS__TERM_TYPE_NR) {
--		err->str = strdup("Invalid term_type");
-+		parse_events__handle_error(err, -1,
-+					strdup("Invalid term_type"), NULL);
- 		return false;
- 	}
- 	if (!config_term_shrinked)
-@@ -992,9 +1009,9 @@ config_term_avail(int term_type, struct parse_events_error *err)
- 			return false;
- 
- 		/* term_type is validated so indexing is safe */
--		if (asprintf(&err->str, "'%s' is not usable in 'perf stat'",
--			     config_term_names[term_type]) < 0)
--			err->str = NULL;
-+		if (asprintf(&err_str, "'%s' is not usable in 'perf stat'",
-+				config_term_names[term_type]) >= 0)
-+			parse_events__handle_error(err, -1, err_str, NULL);
- 		return false;
- 	}
- }
-@@ -1036,17 +1053,20 @@ do {									   \
- 	case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
- 		CHECK_TYPE_VAL(STR);
- 		if (strcmp(term->val.str, "no") &&
--		    parse_branch_str(term->val.str, &attr->branch_sample_type)) {
--			err->str = strdup("invalid branch sample type");
--			err->idx = term->err_val;
-+		    parse_branch_str(term->val.str,
-+				    &attr->branch_sample_type)) {
-+			parse_events__handle_error(err, term->err_val,
-+					strdup("invalid branch sample type"),
-+					NULL);
- 			return -EINVAL;
- 		}
- 		break;
- 	case PARSE_EVENTS__TERM_TYPE_TIME:
- 		CHECK_TYPE_VAL(NUM);
- 		if (term->val.num > 1) {
--			err->str = strdup("expected 0 or 1");
--			err->idx = term->err_val;
-+			parse_events__handle_error(err, term->err_val,
-+						strdup("expected 0 or 1"),
-+						NULL);
- 			return -EINVAL;
- 		}
- 		break;
-@@ -1080,8 +1100,9 @@ do {									   \
- 	case PARSE_EVENTS__TERM_TYPE_PERCORE:
- 		CHECK_TYPE_VAL(NUM);
- 		if ((unsigned int)term->val.num > 1) {
--			err->str = strdup("expected 0 or 1");
--			err->idx = term->err_val;
-+			parse_events__handle_error(err, term->err_val,
-+						strdup("expected 0 or 1"),
-+						NULL);
- 			return -EINVAL;
- 		}
- 		break;
-@@ -1089,9 +1110,9 @@ do {									   \
- 		CHECK_TYPE_VAL(NUM);
- 		break;
- 	default:
--		err->str = strdup("unknown term");
--		err->idx = term->err_term;
--		err->help = parse_events_formats_error_string(NULL);
-+		parse_events__handle_error(err, term->err_term,
-+				strdup("unknown term"),
-+				parse_events_formats_error_string(NULL));
- 		return -EINVAL;
- 	}
- 
-@@ -1142,9 +1163,9 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
- 		return config_term_common(attr, term, err);
- 	default:
- 		if (err) {
--			err->idx = term->err_term;
--			err->str = strdup("unknown term");
--			err->help = strdup("valid terms: call-graph,stack-size\n");
-+			parse_events__handle_error(err, term->err_term,
-+				strdup("unknown term"),
-+				strdup("valid terms: call-graph,stack-size\n"));
- 		}
- 		return -EINVAL;
- 	}
-@@ -1323,10 +1344,12 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
- 
- 	pmu = perf_pmu__find(name);
- 	if (!pmu) {
--		if (asprintf(&err->str,
-+		char *err_str;
++	/*
++	 * Add list to the evlist even with errors to allow callers to clean up.
++	 */
++	perf_evlist__splice_list_tail(evlist, &parse_state.list);
 +
-+		if (asprintf(&err_str,
- 				"Cannot find PMU `%s'. Missing kernel support?",
--				name) < 0)
--			err->str = NULL;
-+				name) >= 0)
-+			parse_events__handle_error(err, -1, err_str, NULL);
- 		return -EINVAL;
- 	}
+ 	if (!ret) {
+ 		struct evsel *last;
  
-@@ -2802,13 +2825,10 @@ void parse_events__clear_array(struct parse_events_array *a)
- void parse_events_evlist_error(struct parse_events_state *parse_state,
- 			       int idx, const char *str)
- {
--	struct parse_events_error *err = parse_state->error;
+-		if (list_empty(&parse_state.list)) {
+-			WARN_ONCE(true, "WARNING: event parser found nothing\n");
+-			return -1;
+-		}
 -
--	if (!err)
-+	if (!parse_state->error)
- 		return;
--	err->idx = idx;
--	err->str = strdup(str);
--	WARN_ONCE(!err->str, "WARNING: failed to allocate error string");
-+
-+	parse_events__handle_error(parse_state->error, idx, strdup(str), NULL);
- }
- 
- static void config_terms_list(char *buf, size_t buf_sz)
-diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index 769e07c..34f58d2 100644
---- a/tools/perf/util/parse-events.h
-+++ b/tools/perf/util/parse-events.h
-@@ -124,6 +124,8 @@ struct parse_events_state {
- 	struct list_head	  *terms;
- };
- 
-+void parse_events__handle_error(struct parse_events_error *err, int idx,
-+				char *str, char *help);
- void parse_events__shrink_config_terms(void);
- int parse_events__is_hardcoded_term(struct parse_events_term *term);
- int parse_events_term__num(struct parse_events_term **term,
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index adbe97e..f9f427d 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -1050,9 +1050,9 @@ static int pmu_config_term(struct list_head *formats,
- 		if (err) {
- 			char *pmu_term = pmu_formats_string(formats);
- 
--			err->idx  = term->err_term;
--			err->str  = strdup("unknown term");
--			err->help = parse_events_formats_error_string(pmu_term);
-+			parse_events__handle_error(err, term->err_term,
-+				strdup("unknown term"),
-+				parse_events_formats_error_string(pmu_term));
- 			free(pmu_term);
- 		}
- 		return -EINVAL;
-@@ -1080,8 +1080,9 @@ static int pmu_config_term(struct list_head *formats,
- 		if (term->no_value &&
- 		    bitmap_weight(format->bits, PERF_PMU_FORMAT_BITS) > 1) {
- 			if (err) {
--				err->idx = term->err_val;
--				err->str = strdup("no value assigned for term");
-+				parse_events__handle_error(err, term->err_val,
-+					   strdup("no value assigned for term"),
-+					   NULL);
- 			}
- 			return -EINVAL;
- 		}
-@@ -1094,8 +1095,9 @@ static int pmu_config_term(struct list_head *formats,
- 						term->config, term->val.str);
- 			}
- 			if (err) {
--				err->idx = term->err_val;
--				err->str = strdup("expected numeric value");
-+				parse_events__handle_error(err, term->err_val,
-+					strdup("expected numeric value"),
-+					NULL);
- 			}
- 			return -EINVAL;
- 		}
-@@ -1108,11 +1110,15 @@ static int pmu_config_term(struct list_head *formats,
- 	max_val = pmu_format_max_value(format->bits);
- 	if (val > max_val) {
- 		if (err) {
--			err->idx = term->err_val;
--			if (asprintf(&err->str,
--				     "value too big for format, maximum is %llu",
--				     (unsigned long long)max_val) < 0)
--				err->str = strdup("value too big for format");
-+			char *err_str;
-+
-+			parse_events__handle_error(err, term->err_val,
-+				asprintf(&err_str,
-+				    "value too big for format, maximum is %llu",
-+				    (unsigned long long)max_val) < 0
-+				    ? strdup("value too big for format")
-+				    : err_str,
-+				    NULL);
- 			return -EINVAL;
- 		}
- 		/*
+-		perf_evlist__splice_list_tail(evlist, &parse_state.list);
+ 		evlist->nr_groups += parse_state.nr_groups;
+ 		last = evlist__last(evlist);
+ 		last->cmdline_group_boundary = true;
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157355747823.29376.1827924793040708314.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157355748269.29376.11251581788671798282.tip-bot2%40tip-bot2.
