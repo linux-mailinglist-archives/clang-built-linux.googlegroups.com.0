@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB37TVPXAKGQE7HOBOIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBAVCVTXAKGQEUEQHSXQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id A0605F98A0
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 19:29:05 +0100 (CET)
-Received: by mail-pl1-x639.google.com with SMTP id t5sf13450692plz.15
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 10:29:05 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573583344; cv=pass;
+Received: from mail-pg1-x537.google.com (mail-pg1-x537.google.com [IPv6:2607:f8b0:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id E8B6CF9A3F
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 21:07:31 +0100 (CET)
+Received: by mail-pg1-x537.google.com with SMTP id u11sf15366352pgm.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 12:07:31 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573589250; cv=pass;
         d=google.com; s=arc-20160816;
-        b=A5FB8xUISh5PNCxivi/ClIUy2jWfu0YM9zkvy7AXFlYNNiPnYQSD/jJBSrPd8rSt6o
-         oyWI83EnLhcZwKBqVjeaxtyRqMku8C+TAeE1b4xyK6vv5rGJionEv3aQV0IjoW/mzgGc
-         dzLOzOZBagX7bBuGmJr8nEDqDMyD20wtE9sczIsZyoniBOh2UxjhGZpo8PHQcC2dtv5I
-         JUM5FeJyYE48Nhz6l+WudvHJv4V7kRt8Osmkyg/qPaig0djopmhVN5b++g+VWvwmeoj4
-         t4MmSf1K/+fmwxI4ViYI4LPQcCweSewM5xz2S2kH+44h//ZPcFllz8jOSSWPt9VR0aA7
-         T1Qg==
+        b=tUb+Oh2RVGGHh6fGY5WhpJcacLrejHmnRfqWh/+/KH3Fn0cwNUlgyelubxdW9JIYTI
+         rjChcOcoaCcZ5sfX4nnIY9LNSsZoDP203HqVHIpa5nWEdrtnxYqrENP06DzAmEtQKkTl
+         /yL38xnnK4sPO/5jgKE5KTSV7F5YDzdsqjj2Y+44gd/v1SmkxljE/daOSNQiQlhKANT2
+         IdbWFxNJpuMXJCj+xgJXPYFJDZDMQFtpjveedg8b7jxw2K6soZTiPTjqEynNSV8PhyVQ
+         avYYgGMUPYyoAPzxEavmVadGsh3J4YeGBTELSd9MX77qgIxJ2jQrwrwUMGBT3D9PMxAY
+         a5ow==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=lYPnh/KtQio0txi5jPZ6UZWkL6HfPVS7VBW/4PYvOIA=;
-        b=IYczllCFnYtfOMx7MgVlANUWKkXDvk/JLjbd8LzAY9E0UmglPWCAwXJRefLxAlY8Yn
-         CGPcvyaN0sd3i/ofkX8w7ABCQxqfyCPolZXYTlDAN64u6OlCVDBnPEZRYSMqjlvMW47R
-         nv2101Yg9zJv5inkvGY28sNoGiNtdmg+e6lm7+jTBlEQk8gX3/T5g0Ue0NzXkh4g8y9p
-         7/zNgED+JrN+03v09h5XvP6sPFre9sCsp+2lvU4AyvmVOXWOsuDdJqVPz8VTH1q/FCcA
-         R7LFLkFhecoefQVuE13GDyl0BuMGZUzJgKtKJYH6UZUPMNYwdbNTS+krhYMOZceyE+Al
-         cP2Q==
+        bh=aykUnosqGZoYAZYo7LfodMu/t0yrMlfkLIng8QhyhPY=;
+        b=qP9rGjmX++UC1CfB96n1YhCBPfZP1nklXA+FK2iYtNZNj+d4b8GlCn6t730g0J02xn
+         V2YGhosGEzQizxx3tDchU807onAcV/TapgntIyglmZW9V+zTh+osu7qhha6SiXvABRlj
+         f5Yz1D+4fxTYir5t65mObzvC0g2F3H0aqmDvBll/uqOzRyXvMcf1USyrPpHJ4T0t4Sq2
+         9xj347eHySMPEFnHBwfsSVJjJSuP5O4atrdiJyOkAJYQm/Cmf295EdyTOBlYLbqx3uQi
+         hiLGQNumIWrJCUprrtg0csAL9nTNoEEsyzh62ErDphWP2vH9diAIkToJrf3wwhFLyaZo
+         73UA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=lYPnh/KtQio0txi5jPZ6UZWkL6HfPVS7VBW/4PYvOIA=;
-        b=cFQDCocNy3WnUvrVoZIDNh9+6S5wEk/x7znJbH0GVLkZxBPeWNOD691xOIrs5lItmD
-         wgJFV+KfbcpDuAjCxLt3FtxJeDZLA3uLEYO8jswaW01T7qPCfrXeDTfWJdpKiopVS+gl
-         p6oabMIU9WGrNw1ilQBEISGbC50Y81gfZVRQkPjiO7827t6LybMMuSSHhOhJnF/H12Qf
-         yQkg9w3FpiWE7QvzPZ+tUbOG4J0151E07ls4kK8C2e/8d6yF2xugnDo1/nsLnQGgWQbc
-         QAX43X1nXxJlHlph6SsfM9BTYPOaZ3mxOcC9EHojHN4VdAp84LMrGIuYqgAn6zuerB2N
-         QCDw==
+        bh=aykUnosqGZoYAZYo7LfodMu/t0yrMlfkLIng8QhyhPY=;
+        b=QqHJU6Nqtn7Y+FTsGP55UJepBZ3VAHB30Mxwt1HnbYYqUiEw7SwkLGY6pY1fKP97Bz
+         Qb4kyi9MzIBHSg5QaOg23dyQbS/C9FrEvPWwSAjK0tds/CxqSQF1yY+btvfLELFHranA
+         5kiL4ngq7xI4bZEAJeHgDcV0rtGDhxZk7tcUpM3JE6PCmHTDr/Wx61Om1UPNpo9sybpz
+         Viecq1PHR5hGNpeQMZFDYZgDJFl7jwJOpJYn9K+GmF8nty4YVEPc0S51WjRiRzuTBw8p
+         UDOrSinX8GvqXhF238FW293yBIlX4giuV7PSMqSk9gdsyBOsUJrmlxNO8a5Li2LaRttp
+         o1mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,81 +49,81 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=lYPnh/KtQio0txi5jPZ6UZWkL6HfPVS7VBW/4PYvOIA=;
-        b=fPcD69/GYbzQbqSWNiXkdiGm4XtvIlOxVn5iiQM5LsK//tWY8WgmZmmN9Ory9FctYT
-         aNatLeSHzMUSDxaLaQM0xV8YOEmb+o5H3eLwqZNNgvEaw6BCrxk8wjeSUCOGHwYHSRkO
-         8As5zntqhEl6Ssuw1IsRjqo7nrd3QJTpJeGrNhTzpVmQ4r0xfDRBPAhUCpo1eX7/3o2E
-         D75+I8VpApe5rwLyzRawmnfo9VJ53QQ6mmxnYnvzx1CvfqV6bZ5npVp1U14h8mDxIBuQ
-         R7TtlYG8GHxdsGP9mS0V1EF3qVp1x1KsZ6PLWCilZXgGLTicuK2vxoSSZoPMMiolrvgR
-         H9Cg==
+        bh=aykUnosqGZoYAZYo7LfodMu/t0yrMlfkLIng8QhyhPY=;
+        b=eVTe6YaR1rzmkjzxCJ6JcrFRmwoKx/cKzrnqnDOCJVR0GiZ7iCtdXRja5C0gxPN7L7
+         +ve6E7WufHoaBeDRMEDTtSeWJEohgUxiaJt9XUw0FXMFm6PHY4ucGIg3s21BVSQ1lccP
+         4IQcrA8ctKxb8QLe0qSh+uJASgFiWo/BULLkiXcCPTvebFmRaxhELZfRIVJULoIxUW+D
+         AgOUIKEOhmvs3MRQ/Er6mM4WynXRFthTN+OK+oAk7KoB2DGtIDEyzO9oDkgKw0Rzqk1P
+         hjkZRoPP8lBkvzRPNfT3zKps1YVA+P7mvltNbmyF2v6qN12G1yTv+teat7FEjzM4qlkV
+         lB7g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVMOwNSgfHdEq4457slWeTs9B5U6Px2En7C3Ong/wm7pfKgORKG
-	/OmxHIBLxvAIwmOC4oQj5OE=
-X-Google-Smtp-Source: APXvYqz2/mozDPkamM39Bs3I5Lq/zIm4sGbJlQofvYzUBm0uwJNNy5NE5K2ctDk87oGPMPnfQv1WQA==
-X-Received: by 2002:a65:5683:: with SMTP id v3mr37012451pgs.190.1573583343808;
-        Tue, 12 Nov 2019 10:29:03 -0800 (PST)
+X-Gm-Message-State: APjAAAX9WrtyThK7li8zj8q5KnzU6ieHjug4cxCU7A3s2yMH9xFjvMOk
+	AEoVNo1vWUWFUDjvY3wY1Ck=
+X-Google-Smtp-Source: APXvYqxFsv6N8gdvI+0ln5tPkWSUkMWsTa84fCKnCq5+w0LIRKRYndLgCoSbjo3c7EDFgpMycy88rA==
+X-Received: by 2002:a17:90b:318:: with SMTP id ay24mr8760056pjb.25.1573589250218;
+        Tue, 12 Nov 2019 12:07:30 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:f201:: with SMTP id m1ls2836623pfh.1.gmail; Tue, 12 Nov
- 2019 10:29:03 -0800 (PST)
-X-Received: by 2002:aa7:9639:: with SMTP id r25mr37841655pfg.17.1573583343310;
-        Tue, 12 Nov 2019 10:29:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573583343; cv=none;
+Received: by 2002:a17:90a:322b:: with SMTP id k40ls980283pjb.3.canary-gmail;
+ Tue, 12 Nov 2019 12:07:29 -0800 (PST)
+X-Received: by 2002:a17:902:9882:: with SMTP id s2mr33728640plp.101.1573589249614;
+        Tue, 12 Nov 2019 12:07:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573589249; cv=none;
         d=google.com; s=arc-20160816;
-        b=OBNhnn1+DoeHCVxedG8yaM/f+rjWQQuA8mYTNPHIhOhJozq0JTLmbuAhq1f4qUCcwR
-         8ygZmWc2vehIG0i0nVq/0gxQ5XczGxRGGHQGMw+E8LWRCPiTSTj3/S/6poHxbBAbuwYS
-         Rf+L9TkMMArYTapFT6oqcvs+68aYxVE0oExmABX3yT3X2YgC3TY9K0wSvQ2TZ3n79nCG
-         tqHtOLNw8o03wCOPVUOUUU1OJwiTScxTQWr871u2Z9HJ/O0fpXf5pCRzApndZt4er4gj
-         k7b4B6qg/7OFv0NZdv8WJOZ6to6NGeQwM7byQDi+vpZiCLpUQWD6QxU5fBaQcfThazEz
-         lkmA==
+        b=s2UowqETBILg9G+ewYRByx4X7t/1c5UlPRohNx1X5Ef+Sh1B6rdQ/1JnjedQ9B7GXH
+         /0O3muakKIBG8mWbl87AAMLYTyhmhMdtPQMOZVUTeIhJY2A59a0aM/N1wfhHgiPohKAv
+         9mM10Y2syU58R+049bU8f1gp9IEFMFjtf/YIQsuauNrfi4d7LwUAGQ8XmzZwNTcW3qN6
+         C5VtilBk5kjnilZDRC4mITdjDJefEC5cu3EoZ4QqegF3EppMH6qXkr//P6vhVNbm0Yrd
+         96vyk5KLc7t7w6VtvGpssbNMKut5lyuB2LXFXzRe8TViDou8AMUbzH6juvf5Z8QaDvzL
+         EUZw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=oJbbwNNBqzXnlhi1c4jHIRoDlsk5T6hZCS+EphxCdKs=;
-        b=CeP4GqqAXQpTZ2ylfjy1W9FxJJ5WYLjJ+tUpNkJb028Yy88o2ayHt6/k+eToH7joPs
-         r1yERdUz7iskkhgHZXZmWZkFXMNirjAB54C51bGwU8UQoKDPCWWeWH6xezLedZFN5L5a
-         YbMU2RhqaEUPcvAKgfhn6PHi3B7+nGKPQ9MCu7aqwDrQpX28gUfxPRrmEX6Q+SvUNdsl
-         XPJx0vfZRcySsixTE7HCAERpmc4RAYF/JhMt/UL4AWDRWpV/nQ8226d9B+bbP99nQjT1
-         ma/8uRgGgjC6aTfxvjhWmX1fap62FDaXF1cjpVQxBDFNN+zwMHwvfGIi9DHVXuDDBNGg
-         l2EQ==
+        bh=IqF8xWIGBZqdllbe0MLHNbOgt/3CTSdErmDySdJlKZ0=;
+        b=CgUee+FeActLJmBcBTTCKsUdYsvXEXW5ogr3aSCujbctlxSql28D18kHubfoGiOCRd
+         6l8B4Uea4VMS5RLeSCZdVfFJkUDRHZ0pL6CYX/GiT3O5sZez7OImWaJ/gjClhJOqBYJm
+         IIVkcIh49nmJabBSRWv1wnKvMCOczm+i4kmpxjwdRYWsakwEK2HSGNY2VpORWoc7o1na
+         ZYiimY4LObktAOP5wrOqGVFg2RJpEtUY2B5ryAv1HcposUs8hU9tc8BsmfCNDY+foXZn
+         RpsxbEvfbFbNVxwHkIp6KwL6okuZb2RtwPbzJGSEbfybNnSrAI31z2ThH5ewNBaEpCos
+         Rb2w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id n10si115733pjp.0.2019.11.12.10.29.03
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id r20si1283024pfc.3.2019.11.12.12.07.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 Nov 2019 10:29:03 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+        Tue, 12 Nov 2019 12:07:29 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Nov 2019 10:29:02 -0800
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Nov 2019 12:07:28 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.68,297,1569308400"; 
-   d="gz'50?scan'50,208,50";a="207201957"
+   d="gz'50?scan'50,208,50";a="405719227"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga003.jf.intel.com with ESMTP; 12 Nov 2019 10:29:00 -0800
+  by fmsmga006.fm.intel.com with ESMTP; 12 Nov 2019 12:07:27 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iUauR-0007qb-F9; Wed, 13 Nov 2019 02:28:59 +0800
-Date: Wed, 13 Nov 2019 02:27:42 +0800
+	id 1iUcRi-0001hP-LH; Wed, 13 Nov 2019 04:07:26 +0800
+Date: Wed, 13 Nov 2019 04:07:11 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [radeon-alex:amd-mainline-dkms-5.2 2714/2834]
- include/kcl/kcl_drm.h:290:1: error: static declaration of
- 'drm_gem_object_put_unlocked' follows non-static declaration
-Message-ID: <201911130240.LUgwMrev%lkp@intel.com>
+Subject: [radeon-alex:amd-mainline-dkms-5.2 2715/2834]
+ include/kcl/kcl_drm.h:370:1: error: static declaration of
+ '__drm_atomic_helper_connector_reset' follows non-static declaration
+Message-ID: <201911130408.pw5ISxwr%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="42l7veiscjipsl7o"
+Content-Type: multipart/mixed; boundary="h7nnhpe343y4tvgf"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -139,7 +139,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---42l7veiscjipsl7o
+--h7nnhpe343y4tvgf
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -149,13 +149,13 @@ TO: Flora Cui <flora.cui@amd.com>
 
 tree:   git://people.freedesktop.org/~agd5f/linux.git amd-mainline-dkms-5.2
 head:   a48b0cc1cdf3900e3e73801f9de64afbb70dc193
-commit: fcf554b61ab082c5a46c7587b4565164ed93f620 [2714/2834] drm/amdkcl: drop kcl_drm_gem_object_put_unlocked
+commit: ad128d15300ee8f73f452b566ffea9379dd41141 [2715/2834] drm/amdkcl: drop kcl_drm_atomic_helper_connector_reset
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 03b84e4f6d0e1c04f22d69cc445f36e1f713beb4)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout fcf554b61ab082c5a46c7587b4565164ed93f620
+        git checkout ad128d15300ee8f73f452b566ffea9379dd41141
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -242,7 +242,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:16:
->> include/kcl/kcl_drm.h:290:1: error: static declaration of 'drm_gem_object_put_unlocked' follows non-static declaration
+   include/kcl/kcl_drm.h:290:1: error: static declaration of 'drm_gem_object_put_unlocked' follows non-static declaration
    drm_gem_object_put_unlocked(struct drm_gem_object *obj)
    ^
    include/drm/drm_gem.h:367:6: note: previous declaration is here
@@ -261,10 +261,19 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:16:
->> include/kcl/kcl_drm.h:292:2: error: void function 'drm_gem_object_put_unlocked' should not return a value [-Wreturn-type]
+   include/kcl/kcl_drm.h:292:2: error: void function 'drm_gem_object_put_unlocked' should not return a value [-Wreturn-type]
            return drm_gem_object_unreference_unlocked(obj);
            ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/kcl/kcl_drm.h:404:34: error: redefinition of 'drm_debug_printer'
+>> include/kcl/kcl_drm.h:370:1: error: static declaration of '__drm_atomic_helper_connector_reset' follows non-static declaration
+   __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+   ^
+   include/drm/drm_atomic_state_helper.h:60:6: note: previous declaration is here
+   void __drm_atomic_helper_connector_reset(struct drm_connector *connector,
+        ^
+   In file included from <built-in>:4:
+   In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
+   In file included from include/kcl/kcl_drm_backport.h:16:
+   include/kcl/kcl_drm.h:400:34: error: redefinition of 'drm_debug_printer'
    static inline struct drm_printer drm_debug_printer(const char *prefix)
                                     ^
    include/drm/drm_print.h:219:34: note: previous definition is here
@@ -273,7 +282,7 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:16:
-   include/kcl/kcl_drm.h:484:20: error: static declaration of 'drm_dev_put' follows non-static declaration
+   include/kcl/kcl_drm.h:480:20: error: static declaration of 'drm_dev_put' follows non-static declaration
    static inline void drm_dev_put(struct drm_device *dev)
                       ^
    include/drm/drm_drv.h:739:6: note: previous declaration is here
@@ -282,20 +291,20 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:16:
-   include/kcl/kcl_drm.h:486:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
+   include/kcl/kcl_drm.h:482:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
            return drm_dev_unref(dev);
                   ^
-   include/kcl/kcl_drm.h:486:9: note: did you mean 'drm_dev_enter'?
+   include/kcl/kcl_drm.h:482:9: note: did you mean 'drm_dev_enter'?
    include/drm/drm_drv.h:741:6: note: 'drm_dev_enter' declared here
    bool drm_dev_enter(struct drm_device *dev, int *idx);
         ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:16:
-   include/kcl/kcl_drm.h:486:2: error: void function 'drm_dev_put' should not return a value [-Wreturn-type]
+   include/kcl/kcl_drm.h:482:2: error: void function 'drm_dev_put' should not return a value [-Wreturn-type]
            return drm_dev_unref(dev);
            ^      ~~~~~~~~~~~~~~~~~~
-   include/kcl/kcl_drm.h:491:19: error: static declaration of 'drm_crtc_accurate_vblank_count' follows non-static declaration
+   include/kcl/kcl_drm.h:487:19: error: static declaration of 'drm_crtc_accurate_vblank_count' follows non-static declaration
    static inline u64 drm_crtc_accurate_vblank_count(struct drm_crtc *crtc)
                      ^
    include/drm/drm_vblank.h:218:5: note: previous declaration is here
@@ -304,95 +313,107 @@ All errors (new ones prefixed by >>):
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    In file included from include/kcl/kcl_drm_backport.h:16:
-   include/kcl/kcl_drm.h:528:20: error: static declaration of 'drm_mode_is_420_only' follows non-static declaration
+   include/kcl/kcl_drm.h:524:20: error: static declaration of 'drm_mode_is_420_only' follows non-static declaration
    static inline bool drm_mode_is_420_only(const struct drm_display_info *display,
                       ^
    include/drm/drm_modes.h:473:6: note: previous declaration is here
    bool drm_mode_is_420_only(const struct drm_display_info *display,
         ^
-   In file included from <built-in>:4:
-   In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   In file included from include/kcl/kcl_drm_backport.h:16:
-   include/kcl/kcl_drm.h:535:20: error: static declaration of 'drm_mode_is_420_also' follows non-static declaration
-   static inline bool drm_mode_is_420_also(const struct drm_display_info *display,
-                      ^
-   include/drm/drm_modes.h:475:6: note: previous declaration is here
-   bool drm_mode_is_420_also(const struct drm_display_info *display,
-        ^
    fatal error: too many errors emitted, stopping now [-ferror-limit=]
    20 errors generated.
 
-vim +/drm_gem_object_put_unlocked +290 include/kcl/kcl_drm.h
+vim +/__drm_atomic_helper_connector_reset +370 include/kcl/kcl_drm.h
 
-   227	
-   228	#ifndef HAVE_DRM_ATOMIC_HELPER_UPDATE_LEGACY_MODESET_STATE
-   229	extern void _kcl_drm_atomic_helper_update_legacy_modeset_state(struct drm_device *dev,
-   230						      struct drm_atomic_state *old_state);
-   231	
-   232	static inline void
- > 233	drm_atomic_helper_update_legacy_modeset_state(struct drm_device *dev,
-   234						      struct drm_atomic_state *old_state)
-   235	{
-   236		_kcl_drm_atomic_helper_update_legacy_modeset_state(dev, old_state);
-   237	}
-   238	#endif
-   239	
-   240	#ifndef DRM_FB_HELPER_DEFAULT_OPS
-   241	#define DRM_FB_HELPER_DEFAULT_OPS \
-   242		.fb_check_var	= drm_fb_helper_check_var, \
-   243		.fb_set_par	= drm_fb_helper_set_par, \
-   244		.fb_setcmap	= drm_fb_helper_setcmap, \
-   245		.fb_blank	= drm_fb_helper_blank, \
-   246		.fb_pan_display	= drm_fb_helper_pan_display, \
-   247	#ifdef HAVE_FB_OPS_FB_DEBUG_XX \
-   248		.fb_debug_enter = drm_fb_helper_debug_enter, \
-   249		.fb_debug_leave = drm_fb_helper_debug_leave,\
-   250	#endif \
-   251		.fb_ioctl	= drm_fb_helper_ioctl
-   252	#endif
-   253	
-   254	#ifndef DRM_DEBUG_VBL
-   255	#define DRM_UT_VBL		0x20
-   256	#define DRM_DEBUG_VBL(fmt, args...)					\
-   257		do {								\
-   258			if (unlikely(drm_debug & DRM_UT_VBL))			\
-   259				drm_ut_debug_printk(__func__, fmt, ##args);	\
-   260		} while (0)
-   261	#endif
-   262	
-   263	static inline bool kcl_drm_arch_can_wc_memory(void)
-   264	{
-   265	#if defined(CONFIG_PPC) && !defined(CONFIG_NOT_COHERENT_CACHE)
-   266		return false;
-   267	#elif defined(CONFIG_MIPS) && defined(CONFIG_CPU_LOONGSON3)
-   268		return false;
-   269	#else
-   270		return true;
-   271	#endif
-   272	}
-   273	
-   274	#if defined(HAVE_DRM_COLOR_LUT) && !defined(HAVE_DRM_COLOR_LUT_SIZE)
-   275	/**
-   276	 * drm_color_lut_size - calculate the number of entries in the LUT
-   277	 * @blob: blob containing the LUT
-   278	 *
-   279	 * Returns:
-   280	 * The number of entries in the color LUT stored in @blob.
-   281	 */
-   282	static inline int drm_color_lut_size(const struct drm_property_blob *blob)
-   283	{
-   284		return blob->length / sizeof(struct drm_color_lut);
-   285	}
-   286	#endif
    287	
    288	#if !defined(HAVE_DRM_GEM_OBJECT_PUT_UNLOCKED)
    289	static inline void
- > 290	drm_gem_object_put_unlocked(struct drm_gem_object *obj)
+   290	drm_gem_object_put_unlocked(struct drm_gem_object *obj)
    291	{
  > 292		return drm_gem_object_unreference_unlocked(obj);
    293	}
    294	#endif
    295	
+   296	#ifdef BUILD_AS_DKMS
+   297	extern struct dma_buf_ops *_kcl_drm_gem_prime_dmabuf_ops;
+   298	#define drm_gem_prime_dmabuf_ops (*_kcl_drm_gem_prime_dmabuf_ops)
+   299	#endif
+   300	
+   301	#if !defined(HAVE_DRM_IS_CURRENT_MASTER)
+   302	bool drm_is_current_master(struct drm_file *fpriv);
+   303	#endif
+   304	
+   305	static inline struct drm_crtc_state *
+   306	kcl_drm_atomic_get_old_crtc_state_before_commit(struct drm_atomic_state *state,
+   307						    struct drm_crtc *crtc)
+   308	{
+   309	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   310		return drm_atomic_get_old_crtc_state(state, crtc);
+   311	#elif defined(HAVE_DRM_CRTCS_STATE_MEMBER)
+   312		return state->crtcs[drm_crtc_index(crtc)].ptr->state;
+   313	#else
+   314		return state->crtcs[drm_crtc_index(crtc)].state;
+   315	#endif
+   316	}
+   317	
+   318	static inline struct drm_crtc_state *
+   319	kcl_drm_atomic_get_old_crtc_state_after_commit(struct drm_atomic_state *state,
+   320					  struct drm_crtc *crtc)
+   321	{
+   322	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   323		return drm_atomic_get_old_crtc_state(state, crtc);
+   324	#else
+   325		return drm_atomic_get_existing_crtc_state(state, crtc);
+   326	#endif
+   327	}
+   328	
+   329	static inline struct drm_crtc_state *
+   330	kcl_drm_atomic_get_new_crtc_state_before_commit(struct drm_atomic_state *state,
+   331					  struct drm_crtc *crtc)
+   332	{
+   333	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   334		return drm_atomic_get_new_crtc_state(state,crtc);
+   335	#else
+   336		return drm_atomic_get_existing_crtc_state(state, crtc);
+   337	#endif
+   338	}
+   339	
+   340	static inline struct drm_crtc_state *
+   341	kcl_drm_atomic_get_new_crtc_state_after_commit(struct drm_atomic_state *state,
+   342						    struct drm_crtc *crtc)
+   343	{
+   344	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   345		return drm_atomic_get_new_crtc_state(state,crtc);
+   346	#elif defined(HAVE_DRM_CRTCS_STATE_MEMBER)
+   347		return state->crtcs[drm_crtc_index(crtc)].ptr->state;
+   348	#else
+   349		return state->crtcs[drm_crtc_index(crtc)].state;
+   350	#endif
+   351	}
+   352	
+   353	static inline struct drm_plane_state *
+   354	kcl_drm_atomic_get_new_plane_state_before_commit(struct drm_atomic_state *state,
+   355								struct drm_plane *plane)
+   356	{
+   357	#if defined(HAVE_DRM_ATOMIC_GET_NEW_PLANE_STATE)
+   358		return drm_atomic_get_new_plane_state(state, plane);
+   359	#else
+   360		return drm_atomic_get_existing_plane_state(state, plane);
+   361	#endif
+   362	}
+   363	
+   364	#if !defined(HAVE_DRM_ATOMIC_HELPER_CONNECTOR_RESET)
+   365	extern void
+   366	__kcl_drm_atomic_helper_connector_reset(struct drm_connector *connector,
+   367					    struct drm_connector_state *conn_state);
+   368	
+   369	static inline void
+ > 370	__drm_atomic_helper_connector_reset(struct drm_connector *connector,
+   371					    struct drm_connector_state *conn_state)
+   372	{
+   373		return __kcl_drm_atomic_helper_connector_reset(connector, conn_state);
+   374	}
+   375	#endif
+   376	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -401,14 +422,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911130240.LUgwMrev%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911130408.pw5ISxwr%25lkp%40intel.com.
 
---42l7veiscjipsl7o
+--h7nnhpe343y4tvgf
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICLbyyl0AAy5jb25maWcAnDzZduM2su/zFTzJS/KQRJuXnnv8AJKghIibAVCy/cKjttUd
+H4sICPgNy10AAy5jb25maWcAnDzZduM2su/zFTzJS/KQRJuXnnv8AJKghIibAVCy/cKjttUd
 33jpkeVO+u+nCuACgKDS92YynWZVYS/UDv34rx8D8n58fd4dH+93T0/fgs/7l/1hd9w/BJ8e
 n/b/E8RFkBcyoDGTvwJx+vjy/vdvu8Pz+SI4+3X26+SXw/00WO8PL/unIHp9+fT4+R2aP76+
 /OvHf8G/PwLw+Qv0dPh3cP+0e/kcfN0f3gAdTCe/wv+Cnz4/Hv/922/w5/Pj4fB6+O3p6etz
@@ -1231,4 +1252,4 @@ ATXpM9yuZynu6YDi/zeB4Om4y7Dify96XRoO2dACD2mgw3UXwjJVGS6jtryzktjvpPPsxE7l
 d1coeCkly4jyaXybWkHTNVTqST2NM3SPmFyrm3tEGMOmlaxxNDLNMp04dWAAsM8hhKnzPKlv
 XRllLxlsyTkS75kdfXS2JkZjqgnX6KreSpUH/gMALS1eEf0CAA==
 
---42l7veiscjipsl7o--
+--h7nnhpe343y4tvgf--
