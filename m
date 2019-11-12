@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBV5WVTXAKGQENK2AUSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBC7MVTXAKGQEGBBRHJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1DC65F9B3C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 21:51:37 +0100 (CET)
-Received: by mail-ot1-x33c.google.com with SMTP id l1sf14628164otr.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 12:51:37 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573591895; cv=pass;
+Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id B4663F9D5C
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 23:45:32 +0100 (CET)
+Received: by mail-il1-x140.google.com with SMTP id n84sf167500ila.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 14:45:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573598731; cv=pass;
         d=google.com; s=arc-20160816;
-        b=K9GuuCQUdSs6AU1eem5KOUd1qCuTRklSmRPJlF4BNMeyV5TIXnf38MCvKdGFajtNCP
-         LQLaKhZoBRFSrQFc8Q22M14W5k3Ouehb0pGUMoJKosDFH79aYtpC89ZUaSGk0Pc5UskJ
-         ZeR+wshhL1rEpt/QYqtMnrG8AxQe8BuPHjzNSH3wchj3Mjpfn4ppvvurmU88kOPgxS77
-         WHvc9+X8LYWb4FYNnmryI2vaj0gN88k+7kJjI84703hMrnTsAWOIIl5YM3Mluojj1qkZ
-         hNo/l+f6GMkxzzLZqX58Ulm0ZR6YKFK4ibDTBHZy6fDUiYoJEWGk1DIugjMPcnsPuw2p
-         actg==
+        b=ob+1upQHDVRLz3DHfUD/O4U6yU7ly5Zdf0aDhU32LOHBB4kVtskxvc6T+5RObbQB9E
+         kNU9U6ujU2GpZeP0kCxZ/vQGoIyFM6KTXEOMBAwPZHEY4gaWQaxs23pWsxchzlE05+66
+         GWlRZ4K7hbKzB0Sj5PhJB0TeZzDT3J+S2aV0F9bPqjGhCaYBamRWaU65SRKw8XM5V6+c
+         zmf18u0SE3K7uYLSaJ083UEMhhibjoYt7xtvjEnYQaSBIFbZDRKS5C1UL6grXsfIp6VA
+         F1Bfptwl/wbiLBANT5pKIT078ohJ8YCpwHSQM3mfKrOV+74kFgfN13LoJ7WDebs2Zgaw
+         Q6EA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=ZYw37Aiv4tWKTsPX+sVd1Q0U6ywgRSOMILyN72UmtD8=;
-        b=08RRwnEzNDdVc3uBgVc3enCKcr7reJnnHmg4EMx8En5uQPm3amFtg5WSJT6OpBA8Ht
-         qUmS33opSQUIk4REbZJLYmxSipp3F9B9UICW/579yL1+Tlki23LnpYn/F0GSTtX3YjIP
-         FDi3kDiHpxzmv52DVxQAFFs8vPVR57fPbGxdqlE0g6DcCCyUdKURSGITrE4eVMm/+fsL
-         8ZiJ3UJQW8HRJl5UM9iE5QOH8YiPLa/UNBcIzMu99f/+ilo8XcrMaY6NtU/hE3ip7jAH
-         Yk+vWsLbEBS0sRq7xmgJfY1LqXf6e7KL7G7ARv2X30RkFvyp5ufVXhpxHcaHP+a67Ac7
-         LM0g==
+        bh=rsYrsyYdv1iFB31Mc3zLskeNEq3Yt1XzIwqDhCK+/oQ=;
+        b=mtCJwvnDnUETAT48Ite4YJcPG5zk3iewjLpF0g5SarySEty2uqtqDbEMW+yyN8PDY+
+         zBGAmUjhrcs7/PG/rZdvXNSh8NygIM6BloL+WaWjuPtFmo1djkYIs2mJ3n2FUqLnlNnV
+         BGAfSv4PrfmJxiZVGMe366do5YQ/JM5HH/SGHgpX1iDhYIButrUTHLXYCQimigNxJlsO
+         JFxh0d5sA7TylEEwhxB27Rkge8crAdF+YY4ZWXfsRR4z+P1aH0VYD6349raeUIsRVhBJ
+         EyIb4cONeeL/WAoXf0VJ2kcCCFmHbQL/5IcMWxsD1z30BOi7gpWElWICDU9jT6PGaJxc
+         o8jw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZYw37Aiv4tWKTsPX+sVd1Q0U6ywgRSOMILyN72UmtD8=;
-        b=Ff5PheEKywHH5TPNBvn63tB4QIbu44iwhPPsnyCPaZf0mGdS559VJPunmBDmaN36mF
-         Fxbh/ziihDb5MDlp+WQO/QQe82fTChDwoKVK9/nFWTDWzXzsnFKHVu6YFzskFUDcnjCf
-         xhNmVC6McFNAHLFNZLV7CZrxL6AuFBr87aocKd2VgfxH0bGY4nXNlbIkkGwp+zDeF7LK
-         vVcm+wx7Tm46ipv0iLaEflaj7vBbdlWDKyNlQGvESSQiXiNfOJRoIVCailBTa/viwzle
-         5fH3I7qI6tICUBpa3NmdZ/N4YiCytWI24Wh4bd+EZGqkLG+zsZkwiRSnVzTQK/n1g3qO
-         ghPg==
+        bh=rsYrsyYdv1iFB31Mc3zLskeNEq3Yt1XzIwqDhCK+/oQ=;
+        b=RxyIy/04OJNmsEqPnhEhDpQYitW2b8R+utE+jWoBKcSfxJTybdI5hUIqwDl7bwWBX8
+         L6kNqZCn23h/dWVXGtQ0bZV4jfA4W1mtzI+JlcO6D3BIDc7oX/yatXAI/isfe3BT1MWW
+         RFF0Jvv3lnZRBMl8g335X8RWtIgWOl52VZBcTCyI+/Jwc9Fg6xXF3QnVNi6pj7/Tjk2j
+         aIruUshQqQ1mQiOoC/3ba42xNe0JWVfJ1hcgPUrjRbe/lA8Cj/0xn6AitU/g95qaTCAz
+         I4QTnyRC7bQBVEiTVlvqFbAFyynKtuUNge8+xiTJAo78Lae9g/kS9nSBIg3MANGdm/On
+         Eh+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ZYw37Aiv4tWKTsPX+sVd1Q0U6ywgRSOMILyN72UmtD8=;
-        b=GWdIMCnIK+/jiD07c81cId/VZY7RfAAWr3WKXR24ZNP6Rs7H/W+M0GFZzZZB8N+xRJ
-         Yw1ThE4nOwj5MinqS6KXn9FwL7gQh9E+e1jlyNE4kDgb6/hX1tnN0s5f9hEQb9vR1Rka
-         p4U3j8IvK9moUEU2QwGYOmZI8ZWmomjSmMVMMtMl5wpYnQEakrhyVeR3gXc+6CGsT4S+
-         n4d52TAOuTAWEeqVf/+iChBs67dLPuhNvdthCcI0BQeQorx2zHF6ecaDDeA77AW3a+lF
-         oJ7j00bd8UZUIsnSoBTacT9zW/PD6/QUQLZqi58JqPEe3bo3sQQUwIlrLBX55n4voRsT
-         1WGw==
+        bh=rsYrsyYdv1iFB31Mc3zLskeNEq3Yt1XzIwqDhCK+/oQ=;
+        b=ZES1P2gYnt+lcBGWbSY993mOqzmu2fypWVZrU8Pg/pZOunMALVg1LQxPl8JYwjfpYU
+         6QG7xuQ3eL1Z3fY3GlsFghD7REuDkg9AXXecsymn61Fs/DkhmMNcZogBSFfxkGsTRw2K
+         JMeMpZuy/NOxVX7id8aEJ7uOc/QbXtbvr/Af8en22aEwcWPOoXe/p5HzdNGD0jB37i2z
+         3nqyX5z6wWpMOnMvcxWbwXs+/+wQQ4oDRpiHLPEsQj0eyKrqbOz4lu5efYCw6WwIay1w
+         afIKv1MLoYt7A5Dzwh4jcrNMneqeWcfkcgZCcurNHLZIf/3T9GGCqFScitxQa/XGAOED
+         31CA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV9uh1/nLpkSy53hXi96GEo7L4FOiCgh2kW3IffXRh8MQ+1W/Cr
-	+oSYkQc4kX33dbAkYIhveMo=
-X-Google-Smtp-Source: APXvYqwmrotIupZlvIlbPLTR/SWK+8SKrsVAiW44It/E31Bk/QCOEDM8mARunt3P3AdIXMY28MCNHw==
-X-Received: by 2002:a05:6808:24a:: with SMTP id m10mr864075oie.176.1573591895425;
-        Tue, 12 Nov 2019 12:51:35 -0800 (PST)
+X-Gm-Message-State: APjAAAWt6UdWO9F0PNL79SfmPZ5xYtds8CHPz4+0K8U4a59YdwKon+Nu
+	3+yaK9rW7kqDoSvHxjgSnNo=
+X-Google-Smtp-Source: APXvYqymOeUu23pLhdkK4u0eB5FifMpt+mDZdJDXcU7ke6BG0PHycO0UtFu+vi/G30yYeX4dCl5uiA==
+X-Received: by 2002:a5d:88cd:: with SMTP id i13mr366090iol.145.1573598731377;
+        Tue, 12 Nov 2019 14:45:31 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:68f:: with SMTP id k15ls3593693oig.15.gmail; Tue,
- 12 Nov 2019 12:51:35 -0800 (PST)
-X-Received: by 2002:aca:6543:: with SMTP id j3mr837926oiw.65.1573591894976;
-        Tue, 12 Nov 2019 12:51:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573591894; cv=none;
+Received: by 2002:a92:8149:: with SMTP id e70ls40585ild.7.gmail; Tue, 12 Nov
+ 2019 14:45:31 -0800 (PST)
+X-Received: by 2002:a92:c8:: with SMTP id 191mr316545ila.287.1573598730911;
+        Tue, 12 Nov 2019 14:45:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573598730; cv=none;
         d=google.com; s=arc-20160816;
-        b=GAU/+5bjpladyieOLUTIwKtCHZD1pPmhs4SHAYv6Ukcysch+jKsu9puSvN6VkkQjsz
-         OCh6f3ufKWL8cl3PnHojGtyF7D+rysHc7s5AJtL7ijl/m0oj/MjIPregOkzMMordciFc
-         HeOx5dmoca+6cvqN5bBnTSIzEYA62gJqO9f0gffuJbZrfAn5e8fp+eRn7vw41AG5DTIb
-         Hj2Ee9bUI6Tu+ScgxQHjwJ5Np6+2gYnpyLMg4R4p9fceQwmA6llP/V+pIV9UkVB9J9Tg
-         YFhpm3L3nptnHbKvJKoxU6t1nQe/2ooLCCYE+Kem70FjF9yQrnwFNMXPHlxy8vBsscsh
-         cScA==
+        b=BtSahF4oznYJTPlQ93o/T32zGL5pBlEc230fTG13BigW8K28R3twJQLeJaOYtxjsPS
+         Gk0taI4C4gqlL9KtzS5MYVhzs6gXqHEDwh6Kj9RXZAniH9arVwx4/S/pjMUmeSIxcmAR
+         lClJztOJrcBz1SkBhnYOadz4GlFOHmjG3AynFCAAHkcQnfuuZmhMwGZMWsPXM9fZ4aJI
+         QU2Zr8gNIgERG0u2iG4c6sR4t82ZhB2OhHsQQA04qXTMAmB/jAiLgeRwVX+0sjJWq42N
+         UE84A5W1tOFTCSnXoBVJ33vtH4mgcnE3ilCCwt5MsRAqVO9b+Rcqh/87TuGUiUOlJWWI
+         T8eQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=xEcFHWpS3BbXzGR3QYU8Z+LUARK/fZlf2wYNJ+UO1hA=;
-        b=cVT57+PZrBCkg2LC+lW1A6PtX4J44J0QiwBTtCvCfR3eCVfM0/tyYXQGS6PXj8/oLx
-         StBG+stJLdkb/9sM9G6mcgA0y6gYUaOJGmr1lA7XIpDaUdAsRAZLZ2aYnqxKQVXh0Fyo
-         k/RbJ6kaARzz1oHFKGqI4F89j73fOamcHlRvuxRbeUaJg1sbP1iQ4HwA2gYRWqGJIUZU
-         HDjGK6ghPVYhPertQfkXr+kgHmE2kIedrRWxtGkD1fzOx5gtlv+sEF7HCo1SKG5aq9Pz
-         bgITUyLElOQJu31WNFwKU9R0G5ILaTIvDY0/8D+GPaQnepGl/gCDxvd0OyGIOQgEbrL1
-         FlAA==
+        bh=If1jbqPfwsbJDbW0w0vKd0V5rxteCuk4f/FHi4e4Ro8=;
+        b=p9FwjonxDXxdXJ9KbxGP7jNyRlKHxiTNQ7eusE/L6PIi5T3LxITLWOaUsEKDKSLjzD
+         1DBSWk1QlMIF48VKQdM6bdNm7P20Om1o9eV0DgYVLrWm2mhjG5+MDGOru5WP8zLLirNU
+         aQC1ZvkW0l1uhiB2GTI04QaFWPND5zuddZIh6HTlmUxvU+7T9T87ZtAVBgnc1ivfIZA7
+         8+MZ7/+NwvERjr5tlZuAvIH9VSywdBX+8E8Wa2J+DoUZ4QDAlwdjBLN0b2Rmgu45VjXp
+         P9/yK0JuENvr7cC1+sfM11a4wnENi6A+JvDG4wmeE9Gf9VgV2RP7u2yV49N92gTMHRE/
+         jNfA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id j190si1016328oib.0.2019.11.12.12.51.34
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id n6si4120iod.3.2019.11.12.14.45.30
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 Nov 2019 12:51:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+        Tue, 12 Nov 2019 14:45:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Nov 2019 12:51:33 -0800
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Nov 2019 14:45:29 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.68,297,1569308400"; 
-   d="gz'50?scan'50,208,50";a="202540021"
+X-IronPort-AV: E=Sophos;i="5.68,298,1569308400"; 
+   d="gz'50?scan'50,208,50";a="235048409"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 12 Nov 2019 12:51:31 -0800
+  by fmsmga002.fm.intel.com with ESMTP; 12 Nov 2019 14:45:27 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iUd8N-000D0v-0r; Wed, 13 Nov 2019 04:51:31 +0800
-Date: Wed, 13 Nov 2019 04:51:14 +0800
+	id 1iUeud-000J1G-Hl; Wed, 13 Nov 2019 06:45:27 +0800
+Date: Wed, 13 Nov 2019 06:45:00 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v2] Bluetooth: btusb: hci_event: handle msbc audio over
- USB Endpoints
-Message-ID: <201911130402.mHj7sBAP%lkp@intel.com>
+Subject: Re: [PATCH v7 2/2] mac80211: Use Airtime-based Queue Limits (AQL) on
+ packet dequeue
+Message-ID: <201911130617.gF1aKmwF%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="52qx3qgdvddxspk7"
+Content-Type: multipart/mixed; boundary="2ixjtfh5c5nst3cb"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,165 +138,222 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---52qx3qgdvddxspk7
+--2ixjtfh5c5nst3cb
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191111111735.7467-1-sathish.narasimman@intel.com>
-References: <20191111111735.7467-1-sathish.narasimman@intel.com>
-TO: Sathish Narsimman <nsathish41@gmail.com>
-CC: linux-bluetooth@vger.kernel.org, Sathish Narasimman <sathish.narasimman=
-@intel.com>, Chethan T N <chethan.tumkur.narayan@intel.com>, Hsin-Yu Chao <=
-hychao@chromium.org>, Amit K Bag <amit.k.bag@intel.com>, Sathish Narasimman=
- <sathish.narasimman@intel.com>, Chethan T N <chethan.tumkur.narayan@intel.=
-com>, Hsin-Yu Chao <hychao@chromium.org>, Amit K Bag <amit.k.bag@intel.com>
-CC: Sathish Narasimman <sathish.narasimman@intel.com>, Chethan T N <chethan=
-.tumkur.narayan@intel.com>, Hsin-Yu Chao <hychao@chromium.org>, Amit K Bag =
-<amit.k.bag@intel.com>
+In-Reply-To: <20191112021136.42918-3-kyan@google.com>
+References: <20191112021136.42918-3-kyan@google.com>
+TO: Kan Yan <kyan@google.com>
+CC: johannes@sipsolutions.net
+CC: linux-wireless@vger.kernel.org, make-wifi-fast@lists.bufferbloat.net, toke@redhat.com, nbd@nbd.name, yiboz@codeaurora.org, john@phrozen.org, lorenzo@kernel.org, rmanohar@codeaurora.org, kevinhayes@google.com
 
-Hi Sathish,
+Hi Kan,
 
-Thank you for the patch! Perhaps something to improve:
+I love your patch! Yet something to improve:
 
-[auto build test WARNING on bluetooth-next/master]
-[also build test WARNING on v5.4-rc7 next-20191112]
-[if your patch is applied to the wrong git tree, please drop us a note to h=
-elp
-improve the system. BTW, we also suggest to use '--base' option to specify =
-the
-base tree in git format-patch, please see https://stackoverflow.com/a/37406=
-982]
+[auto build test ERROR on mac80211-next/master]
+[cannot apply to v5.4-rc7 next-20191112]
+[if your patch is applied to the wrong git tree, please drop us a note to help
+improve the system. BTW, we also suggest to use '--base' option to specify the
+base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
 
-url:    https://github.com/0day-ci/linux/commits/Sathish-Narsimman/Bluetoot=
-h-btusb-hci_event-handle-msbc-audio-over-USB-Endpoints/20191113-022414
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth=
--next.git master
+url:    https://github.com/0day-ci/linux/commits/Kan-Yan/Implement-Airtime-based-Queue-Limit-AQL/20191113-055705
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/jberg/mac80211-next.git master
 config: arm64-defconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project edab7dd426249b=
-d40059b49b255ba9cc5b784753)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project edab7dd426249bd40059b49b255ba9cc5b784753)
 reproduce:
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/=
-make.cross -O ~/bin/make.cross
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
         # save the attached .config to linux build tree
-        make.cross ARCH=3Darm64=20
+        make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
->> drivers/bluetooth/btusb.c:1658:8: warning: variable 'new_alts' is used u=
-ninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-                           if (btusb_find_altsetting(data, 6))
-                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/bluetooth/btusb.c:1664:35: note: uninitialized use occurs here
-                   if (bt_switch_alt_setting(hdev, new_alts) < 0)
-                                                   ^~~~~~~~
-   drivers/bluetooth/btusb.c:1658:4: note: remove the 'if' if its condition=
- is always true
-                           if (btusb_find_altsetting(data, 6))
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/bluetooth/btusb.c:1653:14: warning: variable 'new_alts' is used =
-uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
-                   } else if (data->air_mode =3D=3D HCI_NOTIFY_ENABLE_SCO_T=
-RANSP) {
-                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~
-   drivers/bluetooth/btusb.c:1664:35: note: uninitialized use occurs here
-                   if (bt_switch_alt_setting(hdev, new_alts) < 0)
-                                                   ^~~~~~~~
-   drivers/bluetooth/btusb.c:1653:10: note: remove the 'if' if its conditio=
-n is always true
-                   } else if (data->air_mode =3D=3D HCI_NOTIFY_ENABLE_SCO_T=
-RANSP) {
-                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=
-~~~
-   drivers/bluetooth/btusb.c:1630:14: note: initialize the variable 'new_al=
-ts' to silence this warning
-           int new_alts;
-                       ^
-                        =3D 0
-   2 warnings generated.
+>> net/mac80211/tx.c:3671:13: error: implicit declaration of function 'ieee80211_calc_expected_tx_airtime' [-Werror,-Wimplicit-function-declaration]
+                   airtime = ieee80211_calc_expected_tx_airtime(hw, vif, txq->sta,
+                             ^
+   1 error generated.
 
-vim +1658 drivers/bluetooth/btusb.c
+vim +/ieee80211_calc_expected_tx_airtime +3671 net/mac80211/tx.c
 
-  1625=09
-  1626	static void btusb_work(struct work_struct *work)
-  1627	{
-  1628		struct btusb_data *data =3D container_of(work, struct btusb_data, w=
-ork);
-  1629		struct hci_dev *hdev =3D data->hdev;
-  1630		int new_alts;
-  1631		int err;
-  1632=09
-  1633		if (data->sco_num > 0) {
-  1634			if (!test_bit(BTUSB_DID_ISO_RESUME, &data->flags)) {
-  1635				err =3D usb_autopm_get_interface(data->isoc ? data->isoc : data->=
-intf);
-  1636				if (err < 0) {
-  1637					clear_bit(BTUSB_ISOC_RUNNING, &data->flags);
-  1638					usb_kill_anchored_urbs(&data->isoc_anchor);
-  1639					return;
-  1640				}
-  1641=09
-  1642				set_bit(BTUSB_DID_ISO_RESUME, &data->flags);
-  1643			}
-  1644=09
-  1645			if (data->air_mode =3D=3D HCI_NOTIFY_ENABLE_SCO_CVSD) {
-  1646				if (hdev->voice_setting & 0x0020) {
-  1647					static const int alts[3] =3D { 2, 4, 5 };
-  1648=09
-  1649					new_alts =3D alts[data->sco_num - 1];
-  1650				} else {
-  1651					new_alts =3D data->sco_num;
-  1652				}
-  1653			} else if (data->air_mode =3D=3D HCI_NOTIFY_ENABLE_SCO_TRANSP) {
-  1654=09
-  1655				data->usb_alt6_packet_flow =3D true;
-  1656=09
-  1657				/* Check if Alt 6 is supported for Transparent audio*/
-> 1658				if (btusb_find_altsetting(data, 6))
-  1659					new_alts =3D 6;
-  1660				else
-  1661					BT_ERR("%s Device does not support ALT setting 6", hdev->name);
-  1662			}
-  1663=09
-  1664			if (bt_switch_alt_setting(hdev, new_alts) < 0)
-  1665				BT_ERR("%s Set USB Alt: %d failed!", hdev->name, new_alts);
-  1666		} else {
-  1667			clear_bit(BTUSB_ISOC_RUNNING, &data->flags);
-  1668			usb_kill_anchored_urbs(&data->isoc_anchor);
-  1669=09
-  1670			__set_isoc_interface(hdev, 0);
-  1671			if (test_and_clear_bit(BTUSB_DID_ISO_RESUME, &data->flags))
-  1672				usb_autopm_put_interface(data->isoc ? data->isoc : data->intf);
-  1673		}
-  1674	}
-  1675=09
+  3537	
+  3538	struct sk_buff *ieee80211_tx_dequeue(struct ieee80211_hw *hw,
+  3539					     struct ieee80211_txq *txq)
+  3540	{
+  3541		struct ieee80211_local *local = hw_to_local(hw);
+  3542		struct txq_info *txqi = container_of(txq, struct txq_info, txq);
+  3543		struct ieee80211_hdr *hdr;
+  3544		struct sk_buff *skb = NULL;
+  3545		struct fq *fq = &local->fq;
+  3546		struct fq_tin *tin = &txqi->tin;
+  3547		struct ieee80211_tx_info *info;
+  3548		struct ieee80211_tx_data tx;
+  3549		ieee80211_tx_result r;
+  3550		struct ieee80211_vif *vif = txq->vif;
+  3551	
+  3552		WARN_ON_ONCE(softirq_count() == 0);
+  3553	
+  3554		if (!ieee80211_txq_airtime_check(hw, txq))
+  3555			return NULL;
+  3556	
+  3557	begin:
+  3558		spin_lock_bh(&fq->lock);
+  3559	
+  3560		if (test_bit(IEEE80211_TXQ_STOP, &txqi->flags) ||
+  3561		    test_bit(IEEE80211_TXQ_STOP_NETIF_TX, &txqi->flags))
+  3562			goto out;
+  3563	
+  3564		if (vif->txqs_stopped[ieee80211_ac_from_tid(txq->tid)]) {
+  3565			set_bit(IEEE80211_TXQ_STOP_NETIF_TX, &txqi->flags);
+  3566			goto out;
+  3567		}
+  3568	
+  3569		/* Make sure fragments stay together. */
+  3570		skb = __skb_dequeue(&txqi->frags);
+  3571		if (skb)
+  3572			goto out;
+  3573	
+  3574		skb = fq_tin_dequeue(fq, tin, fq_tin_dequeue_func);
+  3575		if (!skb)
+  3576			goto out;
+  3577	
+  3578		spin_unlock_bh(&fq->lock);
+  3579	
+  3580		hdr = (struct ieee80211_hdr *)skb->data;
+  3581		info = IEEE80211_SKB_CB(skb);
+  3582	
+  3583		memset(&tx, 0, sizeof(tx));
+  3584		__skb_queue_head_init(&tx.skbs);
+  3585		tx.local = local;
+  3586		tx.skb = skb;
+  3587		tx.sdata = vif_to_sdata(info->control.vif);
+  3588	
+  3589		if (txq->sta)
+  3590			tx.sta = container_of(txq->sta, struct sta_info, sta);
+  3591	
+  3592		/*
+  3593		 * The key can be removed while the packet was queued, so need to call
+  3594		 * this here to get the current key.
+  3595		 */
+  3596		r = ieee80211_tx_h_select_key(&tx);
+  3597		if (r != TX_CONTINUE) {
+  3598			ieee80211_free_txskb(&local->hw, skb);
+  3599			goto begin;
+  3600		}
+  3601	
+  3602		if (test_bit(IEEE80211_TXQ_AMPDU, &txqi->flags))
+  3603			info->flags |= IEEE80211_TX_CTL_AMPDU;
+  3604		else
+  3605			info->flags &= ~IEEE80211_TX_CTL_AMPDU;
+  3606	
+  3607		if (info->control.flags & IEEE80211_TX_CTRL_FAST_XMIT) {
+  3608			struct sta_info *sta = container_of(txq->sta, struct sta_info,
+  3609							    sta);
+  3610			u8 pn_offs = 0;
+  3611	
+  3612			if (tx.key &&
+  3613			    (tx.key->conf.flags & IEEE80211_KEY_FLAG_GENERATE_IV))
+  3614				pn_offs = ieee80211_hdrlen(hdr->frame_control);
+  3615	
+  3616			ieee80211_xmit_fast_finish(sta->sdata, sta, pn_offs,
+  3617						   tx.key, skb);
+  3618		} else {
+  3619			if (invoke_tx_handlers_late(&tx))
+  3620				goto begin;
+  3621	
+  3622			skb = __skb_dequeue(&tx.skbs);
+  3623	
+  3624			if (!skb_queue_empty(&tx.skbs)) {
+  3625				spin_lock_bh(&fq->lock);
+  3626				skb_queue_splice_tail(&tx.skbs, &txqi->frags);
+  3627				spin_unlock_bh(&fq->lock);
+  3628			}
+  3629		}
+  3630	
+  3631		if (skb_has_frag_list(skb) &&
+  3632		    !ieee80211_hw_check(&local->hw, TX_FRAG_LIST)) {
+  3633			if (skb_linearize(skb)) {
+  3634				ieee80211_free_txskb(&local->hw, skb);
+  3635				goto begin;
+  3636			}
+  3637		}
+  3638	
+  3639		switch (tx.sdata->vif.type) {
+  3640		case NL80211_IFTYPE_MONITOR:
+  3641			if (tx.sdata->u.mntr.flags & MONITOR_FLAG_ACTIVE) {
+  3642				vif = &tx.sdata->vif;
+  3643				break;
+  3644			}
+  3645			tx.sdata = rcu_dereference(local->monitor_sdata);
+  3646			if (tx.sdata) {
+  3647				vif = &tx.sdata->vif;
+  3648				info->hw_queue =
+  3649					vif->hw_queue[skb_get_queue_mapping(skb)];
+  3650			} else if (ieee80211_hw_check(&local->hw, QUEUE_CONTROL)) {
+  3651				ieee80211_free_txskb(&local->hw, skb);
+  3652				goto begin;
+  3653			} else {
+  3654				vif = NULL;
+  3655			}
+  3656			break;
+  3657		case NL80211_IFTYPE_AP_VLAN:
+  3658			tx.sdata = container_of(tx.sdata->bss,
+  3659						struct ieee80211_sub_if_data, u.ap);
+  3660			/* fall through */
+  3661		default:
+  3662			vif = &tx.sdata->vif;
+  3663			break;
+  3664		}
+  3665	
+  3666		IEEE80211_SKB_CB(skb)->control.vif = vif;
+  3667	
+  3668		if (local->airtime_flags & AIRTIME_USE_AQL) {
+  3669			u32 airtime;
+  3670	
+> 3671			airtime = ieee80211_calc_expected_tx_airtime(hw, vif, txq->sta,
+  3672								     skb->len);
+  3673			if (airtime) {
+  3674				/* We only have 10 bits in tx_time_est, so store airtime
+  3675				 * in increments of 4us and clamp the maximum to 2**12-1
+  3676				 */
+  3677				airtime = min_t(u32, airtime, 4095) & ~3U;
+  3678				info->tx_time_est = airtime >> 2;
+  3679				ieee80211_sta_update_pending_airtime(local, tx.sta,
+  3680								     txq->ac, airtime,
+  3681								     false);
+  3682			}
+  3683		}
+  3684	
+  3685		return skb;
+  3686	
+  3687	out:
+  3688		spin_unlock_bh(&fq->lock);
+  3689	
+  3690		return skb;
+  3691	}
+  3692	EXPORT_SYMBOL(ieee80211_tx_dequeue);
+  3693	
 
 ---
-0-DAY kernel test infrastructure                 Open Source Technology Cen=
-ter
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporat=
-ion
+0-DAY kernel test infrastructure                 Open Source Technology Center
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201911130402.mHj7sBAP%25lkp%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911130617.gF1aKmwF%25lkp%40intel.com.
 
---52qx3qgdvddxspk7
+--2ixjtfh5c5nst3cb
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICK0Hy10AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eSh7ztegCAoIeJkAJRsb3jUtrrj
+H4sICHQzy10AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0eSh7ztegCAoIeJkAJRsb3jUtrrj
 Fw99ZbuT/vtbBXAAQNDp9zI2qwpToVATCvrxXz9OyNvr8+P+9f52//DwbfL58HQ47l8Pd5NP
 9w+H/5nExSQv1ITFXP0KxOn909vfv+2Pj6fLycmvy1+nvxxvF5PN4fh0eJjQ56dP95/foPn9
 89O/fvwX/PMjAB+/QE/Hf09uH/ZPnydfD8cXQE9m01/h78lPn+9f//3bb/Dfx/vj8fn428PD
@@ -1146,4 +1203,4 @@ mciOAN0vVbAxoy9BWUpw8c2d+AizVUJXiGFzMla4R1LfgXvixyWla6JTWH/hDbVzkzl2YPwd
 kYfxBS99QKBApYkucrj7iyysN3J3LEIiARB3NHne6Zjctg8ztUkmR7JMFpnYOzXmQom8GouJ
 dfhZ6aBs5BmV/wWM3xmtEBYDAA==
 
---52qx3qgdvddxspk7--
+--2ixjtfh5c5nst3cb--
