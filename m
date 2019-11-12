@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCSN3LHKTUMRBTXIVDXAKGQE2WXNSMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSN3LHKTUMRBQ7RVDXAKGQE66YL54Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2E641F875C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 05:25:52 +0100 (CET)
-Received: by mail-vk1-xa3e.google.com with SMTP id c5sf8384966vkm.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Nov 2019 20:25:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573532751; cv=pass;
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5D85AF878E
+	for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 05:44:53 +0100 (CET)
+Received: by mail-oi1-x23e.google.com with SMTP id j14sf12789096oie.1
+        for <lists+clang-built-linux@lfdr.de>; Mon, 11 Nov 2019 20:44:53 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573533892; cv=pass;
         d=google.com; s=arc-20160816;
-        b=h1t7F/XHmwsNy6kQuDwZ+7PfGbcn5nFfpqVkIeUVH2RWgHuSS8JBo/ku7IC63bSBhc
-         4wxCDHlOXFd2SIwRRKdzR7cKR2M89/55opKdEOHMm5BZUSisTX4vf99sbh3m+g/l/B7I
-         /pb1w8bbAbgEhlVZHlZyjP9t2UZB95Ij8aeRD8nWFJVtx6M2kqxfwb5h8Y3k/2pYP701
-         ffJvKkh859fOVhibDOUkMMdVs4hQVaIbAi569uRaHIRK6yyt6kdHVnaRzf7yn1bL0ijS
-         tB5WC8GfJtsr3nPOKmcmEJ7vQRDsfEkL6TQWK6U59PSQMUCXPm1WxNQ1DaN3Dbv1CfOX
-         +27g==
+        b=RI6KLcz/gyapJ5cdzbs1SR1WIB8rtzXZfdgcsbo1swdO5au2b3c5E370uGKYUiB1Tf
+         +U3Y0yiFnl7PgCdpl4g9knGUUMqQR8IZl1JV1cxwwzv0gKku5qLHDiiq74KpmyRQAHIB
+         NvC7N1YzT5OG1BmyKMxVTC7DS6Ib0Qd/wLv0RXbYZUDE7Lx8fT/sl3d+Q7ijiHW5014B
+         LkmYa+cO9kbfp0Q+9oWsY8YDe1fW3uG89eNJ6dv8l+4EQ4FuBFdVDsQnvm2GDlMdFi52
+         ef7C6Thqfj4swrrO5K96XKROmihLy+9S8TPsDA5Nbdkm3w+lYuu30lvyNqeg4VRY1eeu
+         kccg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
-        b=ILag03fMrK48XS6om8omxrcTVTlQItzCyI1pz9b5qUrqtE0ZSJLzHxZIQkEQfQBa4b
-         M+VAJ96UZatCUjNFVRxRMnV+tON3eJvpNAN+9RyznqQQoFhg/yd0ZIawmRsLasOGDIG8
-         NUIsPC9HEXyn/FHq+kA+L0SY/cpBP0n6mSi7P6QL1tjSO5Q2cyeLuaqpU8nMV6jvjGbV
-         YTSX7Z986DnG3YYH3nAlV46iC/T03XvD810dzaSw3EZnBvVo82PtAOiQgCokwr2AEequ
-         txxGIJ1aBsBb7JdnDvbfX75IOB0dOnBRse6n243Bi3/lg/TVX/spUcqX7pVK4CDY0sK1
-         Y8Gg==
+        bh=jLyyx8VPxaaAnbgx1EuUzljmetU5M3oJ+bZlzmaZzDs=;
+        b=RfmCdm8GPq8fMr0p4KXks+RnQdgHZoKVVkwgjum7+Jv1o+AOfZxgG/AI6RxUNSKN3H
+         IRTWAFjwkM5P16VCl/P0qnuIAy3fO5oAR/nw4Y1YhIBsCBc+eR7w1qwek8Vr6wq/eT7b
+         YiXmIpT5+iez510FY6PmrdKzDf2SrSHs6JcirKTAaBzGqx6B/17zS2Tp6bSPRrboUQRW
+         +6BrXztEfqgDBcaQcoYEmntplFPMZ6iiFT/o8txkNgOQSQ30WlGZs9mdyoeYnw26lCTC
+         69HnulEvoyjHPmU3qfdrsJbrwDZjd5vBhSSjwudqdVjdYn4+fQgwbFc94xkikHPnA/bM
+         nMgw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cdGWTYNC;
-       spf=pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=D8FdqJ91;
+       spf=pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
-        b=Hk9AimwzD3bSGit49EvHAomgq6Ue+nfz3cirUPHNNphE995tym3PCJxl8Cm1WJ/re+
-         wn/XHlbZS/6ROor0IW71psw9bG5qMk7peaLVdll672v5E0JDKZtpJzj4Kl8Jz7wkZdF+
-         tz3ZH35BYTa/6hj2DIXtrwjf8VlMCFbPD2cmdhY/7bCEYzmEten2a+znNx6T39QKHnO4
-         3AQuI7KMbJGV7uyKVMC+fwSBdxDIwrJpHPkomJctKcVqdJbVQUDAgFglI+Jl1N2dVL3D
-         zBVEI4VBJPxLJJJsR1jo4jK8XPcXCLIr+WN6T++zv6a9dPUNejLtlXMmFj71tusyWOpE
-         A+Fg==
+        bh=jLyyx8VPxaaAnbgx1EuUzljmetU5M3oJ+bZlzmaZzDs=;
+        b=M2qBHyoM4bRF6QLIbw4/N5a4lgMcegCDIawTd4y2MmWg4VJwROMXPccgSRX/MO+dpL
+         Rbh7P5nRAKd9PGTBO9l29ECtcFKoy8TvPJGNYJB6VmZVxykDh9B61P8xptAo3Lb6L1SN
+         dYBUow0N+Ewl5Ub6XFWnMdJjrJHwSa2igPuQTLwMkz3QXSYv2UD6q6zKd9jWYf1L1xKk
+         hzfeej+54KoueLGgv2WeVxEEQ4qWqxyn91si2b4MmDKQwLTPTlj9W0myVek84yz0V9Xl
+         o06OHXFmkl3cWKNt735zwrk/XfmW6KVnDu8B6WAUnTzpMTx+vJJqz8OSq/RnEw53dFfA
+         7WGA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
-        b=GhJ60r4AAL09+1VP/TVpKTpm+q0KhiMbF09ZBl/8+9KbX7p6rCTUqpPCGmEVDJ/rRe
-         HIplgKxeoeEis85tUldpbuvccGU5Ds3IpoXXbpM8ZGSMGcFGG4bv8x1AwRQSP5oI+HDi
-         01Aig5P7zgG43cmRdlK7wOyq+xc6yo8Sgi4LUulMLgNjuaHdjPk0rGobarFAE5bRnFQ5
-         0bLPGI2VCRsVqNIB54E/sdSirD+iVapnwelyqhzjdgMKCkBpW+HRFQxtrlZnkdOkodQn
-         YrC4zb2qM973/X2p709kw+OY7rjCeccuXy7G4cV4NX58MaCmQUW05QSSRQGXkcBT/qG+
-         /Y2g==
+        bh=jLyyx8VPxaaAnbgx1EuUzljmetU5M3oJ+bZlzmaZzDs=;
+        b=vYNzaj8oeGTNGMc4QD612jwe3QHZEMTwCDzZvKRMce4N0vvnNTsiDLR3D3XO4Yj7Cd
+         bHZb3WBjg+IG2Mrnq45xYjzrHIEWpJjfkttHAv5/I/MsuWaA/fRl2YS+vjwOplXYzFzT
+         2XrZrYyyxwwAw1PHwUrLbAUI2u7EebaATOcrvwfWYpNjlrkci11aGcooVPmF8ZIuA1QI
+         0bh5SQO2x/6weamjwblI+VjTaNiG6CxTFg5xAtK1H55ffKlHx5tY6Rp2GeiYqK5JlZqL
+         j/Knf5CsqkwNivx/sN2fcngj1qI4HQOWyTzu+YUz3L9QFf5RYJpLoOXlRSkb3luCcG31
+         1QyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -63,65 +63,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=tZOai6BQI0KVscdntpQvkH2CJ/8kDUynF3BzY3rtiDc=;
-        b=sUFkMBwo55QccZQIGDZHXd9cU4zmhVmVkNfMvemUS4vuyti2+azZdE5fVTbwIIBwcE
-         mLR65Ag7Eox2a4pl/2RAstpAOttBtq0YvA6eKry9Hgsqup3EatbEBB2BkTo5zmnN1N13
-         U6XZRBcoeWgloiN68lwAqXKDgBObXSpBtTAqkQFbJAzixL13fzo2wclkn+wRW64TVZ3g
-         ApZSwRxFWZu+S46o3RfD6Mk3ZLov/cqKdPCWpDmQsliFGvNG48kLJisIk3azzLrnYRhR
-         bVakuQpF47hQ3PHiOQo4Msq21ZlavLAQpLrvo3XkLn7G5boBt0W5OZ874+PXdg4iFswt
-         wqUQ==
+        bh=jLyyx8VPxaaAnbgx1EuUzljmetU5M3oJ+bZlzmaZzDs=;
+        b=d8yIzV4ECSvg7sRgqm687zKnXgY1R5xnOQ9eZDXed5OhIV6SbpNtPVdyXFGgspqp23
+         Vhej12e1gWnCoS2EtnFIsz7nTZON2pvnS+NsAK9KMukRss5zoneBuaPqmmpV5NrQ0qAm
+         K5M43dV5eTZbbXkXkLA25WsdXdgVifb9MoUR4tblRS/lfbFnz/f4oT6oTmaD7BPeawxp
+         FkudLN4z9geRliHQeiEuvhDnW5NBKBE8ERK7LCCEoilynUZrZ9R3jqOASIZXTpxJ4aPo
+         KpeUXpBZmK0krIYbTBPfujwWosmyZ0sNKoNLeS7wnnyFxO2zi12oDc+Wy+naqwupwvxP
+         RkcA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW74tZ9wzpCSTniGrZY7WrkbQWciV0H9nXGwf9b4Y41Gthgr1PP
-	yJimfPjtMqzugkd6NTfmvKc=
-X-Google-Smtp-Source: APXvYqwUMUUvYxvm7dOx4d/XQtL/hL6ZGyfwqHI5iVvyVJuKznPMOW2Gqxfv4Pv6CsSYfqOYDIXv/Q==
-X-Received: by 2002:a67:f649:: with SMTP id u9mr19155226vso.20.1573532750917;
-        Mon, 11 Nov 2019 20:25:50 -0800 (PST)
+X-Gm-Message-State: APjAAAVpSKpZF+9ZIutT51iksThVQTOffSfHzDnz2dCx6QWA6X7wqD2n
+	SVDB/L/mg+ZuvXbOe3BPjQE=
+X-Google-Smtp-Source: APXvYqycj+/hBUtyEuEboF+1t8WABExUJ8QnRh4gcg+aJ0bb/Vs31qj95MfgVM2YyfuO8LzraD2JmA==
+X-Received: by 2002:aca:eb57:: with SMTP id j84mr215242oih.0.1573533891865;
+        Mon, 11 Nov 2019 20:44:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:4813:: with SMTP id b19ls49314uad.15.gmail; Mon, 11 Nov
- 2019 20:25:50 -0800 (PST)
-X-Received: by 2002:ab0:26cf:: with SMTP id b15mr18944572uap.115.1573532750504;
-        Mon, 11 Nov 2019 20:25:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573532750; cv=none;
+Received: by 2002:a05:6830:1e94:: with SMTP id n20ls2632404otr.12.gmail; Mon,
+ 11 Nov 2019 20:44:51 -0800 (PST)
+X-Received: by 2002:a9d:66d9:: with SMTP id t25mr13077362otm.30.1573533891511;
+        Mon, 11 Nov 2019 20:44:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573533891; cv=none;
         d=google.com; s=arc-20160816;
-        b=izEKlKJTNA32VxiiRXqTRLz7wBhYyaUYDx+POpDpSXce2mb3++YgnKv5ImisO6hgKv
-         c6hR89XhzxruWSkNYCOO16NRw0JNdTuppeoxWJjYCny0Ffpiti2CJZ6BrBR9w1hI4D7c
-         ADczoeW7dpkfvoA+cNcQxygb122IMPpdJRVxHzQcyHcyYBaSofD1iVfuAcCbo4/JX4DO
-         ywe3Okj08UvsniOQoVwMPgSMyp92f61aP9lp2VYfmtcfJU9fQ7yhSKYavrJMGYdGCJ/a
-         qjA5zYfZDI9NTYJOYo/95VoxJZ9b2438ymAqN6RLsyLIimUEMyP6CkYOiWPuU7xeFJNA
-         qWEQ==
+        b=aoCCQgDDqyNNT4BQe3tXK+dV7zLqk+BRUz3i4BQj+7WXbWPeeAs5F8EWYwYsS1Y/M+
+         j7bWdlm9L6C4cHoWe9o/e5vA+mw5CxyeTIGTrZjRoCRISZZRoiimh/p2Lp2VPyK6A57K
+         wa5qHbNKbQCp32RuWMwTkGGL2clH/r3Ppqi4aJJpuIA0u/zVsYqCeNCD7IjRfx22oFrs
+         pnrAWwzOf67WD7dkaYEqNkaea6j2v5cP5VYw1Kni3ep8GtxtZe6qkxsqAdmPh+b4tz8Q
+         bZtrbYTvvDVnjeApmpNOtJjP3hsRVAS9VTqV2uQS//2e5J5vz9vE5maWeJhfI51yNLPb
+         jPkQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=9VefD4i9ErvjrjSu5lBHBfa2VMuQnRlhyfcHWoSsFGA=;
-        b=XSezEIlcxu66dFudElIEslkXdWKeeZ94A2BWGxZYDQ4AoJDivjWN9go9AW0k6CRQ9+
-         JjC6JkUCDWflMZM3KOINGPScyNFZ7AWUTij/eTzhbYIE86HiWxN/fVUju8staUvTl6xy
-         gcb9mR8HaSLlNulKlirzm0QxkZ743T7rcBmSEx3UfU2kFbS26H4ejoLTlqmhyavazSsN
-         6uKMpb9D5Dq/F+8m4JhwoIgYGfxsoCe67/nQwh7OGe8uqggI1KQaJu73wPJdVE+nZQFF
-         labRf3puiAy0YJtVj3kpU8FKGqPsi1T2ksUCr5iuLaNebKYJc4kiZO3dYR5X3BQ/sj9k
-         T6dg==
+        bh=z6L3+hI6K7wkMCOOKfC6B5htW9e/NujoD4rmfI82OVU=;
+        b=O4ioZRy9NoUTsCgLvSWmZXPHpSLeUEXtnIAIclbBFAUWKcyU/7CnJ2+ke2GcdL+ru7
+         hOsoWAN2eHukFkdoALr65pBdAHby7db60t01QaZJmSCnVXMYmKEIkM6vhrDezljmnGxy
+         4Hc7sZoeuHc0XmwqHAfD5UfV16Cpk8wfW//WK6ZqQtn28NAIIc2LbfNXZHLApjw04Ywz
+         oxXXfDFXy9DRwzu3sM6kgvFYYUN/T6nZp59n+1iOC6QWMLLPWq6wq7XtGNosg7CDvSYn
+         v3WiSRmJA0kipoDf1mZ5vdQON9rWQ4zdZZKlN4BzRfu4aH+qEacmwRFZxsNoJpM/2Awy
+         5Low==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cdGWTYNC;
-       spf=pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=D8FdqJ91;
+       spf=pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
-        by gmr-mx.google.com with ESMTPS id 192si901670vkz.3.2019.11.11.20.25.50
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id i23si224777oie.1.2019.11.11.20.44.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 11 Nov 2019 20:25:50 -0800 (PST)
-Received-SPF: pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
-Received: by mail-pl1-x644.google.com with SMTP id e3so8812754plt.7
-        for <clang-built-linux@googlegroups.com>; Mon, 11 Nov 2019 20:25:50 -0800 (PST)
-X-Received: by 2002:a17:902:246:: with SMTP id 64mr28628529plc.339.1573532749511;
-        Mon, 11 Nov 2019 20:25:49 -0800 (PST)
+        Mon, 11 Nov 2019 20:44:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of sergey.senozhatsky.work@gmail.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id p26so12425053pfq.8
+        for <clang-built-linux@googlegroups.com>; Mon, 11 Nov 2019 20:44:51 -0800 (PST)
+X-Received: by 2002:a63:d802:: with SMTP id b2mr32909872pgh.414.1573533890747;
+        Mon, 11 Nov 2019 20:44:50 -0800 (PST)
 Received: from localhost ([2401:fa00:8f:203:250d:e71d:5a0a:9afe])
-        by smtp.gmail.com with ESMTPSA id 186sm23754823pfb.99.2019.11.11.20.25.47
+        by smtp.gmail.com with ESMTPSA id l62sm18583061pgl.24.2019.11.11.20.44.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Nov 2019 20:25:48 -0800 (PST)
-Date: Tue, 12 Nov 2019 13:25:46 +0900
+        Mon, 11 Nov 2019 20:44:49 -0800 (PST)
+Date: Tue, 12 Nov 2019 13:44:47 +0900
 From: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
-To: Dmitry Safonov <dima@arista.com>
+To: Petr Mladek <pmladek@suse.com>
 Cc: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>,
-	Petr Mladek <pmladek@suse.com>, linux-kernel@vger.kernel.org,
+	Dmitry Safonov <dima@arista.com>, linux-kernel@vger.kernel.org,
 	Dmitry Safonov <0x7f454c46@gmail.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -190,25 +190,23 @@ Cc: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>,
 	Jason Wessel <jason.wessel@windriver.com>,
 	kgdb-bugreport@lists.sourceforge.net
 Subject: Re: [PATCH 00/50] Add log level to show_stack()
-Message-ID: <20191112042546.GA119579@google.com>
+Message-ID: <20191112044447.GA121272@google.com>
 References: <20191106030542.868541-1-dima@arista.com>
  <20191106083538.z5nlpuf64cigxigh@pathway.suse.cz>
  <20191108103719.GB175344@google.com>
  <20191108130447.h3wfgo4efjkto56f@pathway.suse.cz>
  <20191111012336.GA85185@google.com>
- <13e72b62-c842-8ed5-5b41-bc1692b28f53@arista.com>
- <20191112021747.GA68506@google.com>
- <25cb9647-007a-9c18-4784-49c0aef4f54b@arista.com>
+ <20191111091207.u3lrd6cmumnx4czr@pathway.suse.cz>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <25cb9647-007a-9c18-4784-49c0aef4f54b@arista.com>
+In-Reply-To: <20191111091207.u3lrd6cmumnx4czr@pathway.suse.cz>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: sergey.senozhatsky.work@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=cdGWTYNC;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=D8FdqJ91;       spf=pass
  (google.com: domain of sergey.senozhatsky.work@gmail.com designates
- 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
+ 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=sergey.senozhatsky.work@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -222,39 +220,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On (19/11/12 02:40), Dmitry Safonov wrote:
+On (19/11/11 10:12), Petr Mladek wrote:
 [..]
-> In my point of view the cost of one-time [mostly build] testing every
-> architecture is cheaper than introducing some new smart code that will
-> live forever.
+> > I do recall that we talked about per-CPU printk state bit which would
+> > start/end "just print it" section. We probably can extend it to "just
+> > log_store" type of functionality. Doesn't look like a very bad idea.
+> 
+> The problem with per-CPU printk is that we would need to disable
+> interrupts.
 
-Well, there may be the need to pass loglevel deeper due to "hey __show_stack()
-on that arch invokes bar(), which invokes foo() and now foo() does printk(),
-but we don't see it". The context which decided to backtaraces decided
-to do so for a reason, probably, so I guess we can look at it as "a special
-error reporting code block".
+Or disable preemption and have loglevel per-CPU and per-context.
+preempt_count can navigate us to the right context loglevel on
+particular CPU. I'm talking here only about backtrace (error)
+reporting contexts. Those can be atomic perfectly fine.
 
-The proposed patch set passes loglevel via slightly unusual channel -
-via sprintf(). We probably can do it, but I would prefer to minimize
-the number of such printk-s in the kernel. The code snippet which I
-posted also does pretty unusual thing w.r.t loglevel. Both approaches
-are "non-standard" from that POV.
+I posted a silly code snippet.
 
-> I'll reply to your suggestion tomorrow, it's a bit late in my tz.
+[..]
+> But yes, this per-code-section loglevel is problematic. The feedback
+> against the patchset shows that people want it also the other way.
+> I mean to keep pr_debug() as pr_debug().
 
-Sure.
+Hmm. Right.
 
-To anyone who will comment on that code snippet - this is not a
-"look, here is what you need to do" type of proposal. Just an
-alternative approach with its pros and cons.
+> A solution might be to use the per-code-section loglevel only instead
+> of some special loglevel.
 
-We had several requests over the years to have something like "forcibly
-allow all underlying printk-s from here to here" or "forcibly suppress
-or postpone underlying printk-s from here to here", etc.
+So maybe we can "overwrite" only KERN_DEFAULT loglevels?
+We certainly should not mess with SCHED or with anything in between
+EMERG and ERR.
+
+> The explicitly passed loglevel makes me feel more confident that
+> all needed printk() calls were updated. But it might be a false
+> feeling. I do not really have any strong preference.
+
+I'm not like really objecting, just trying to explore some other
+options.
 
 	-ss
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191112042546.GA119579%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191112044447.GA121272%40google.com.
