@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBL6EVXXAKGQEXWFIP5A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBVOEVXXAKGQE7RXPALY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3f.google.com (mail-io1-xd3f.google.com [IPv6:2607:f8b0:4864:20::d3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id ACF4EFA0E6
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 02:53:52 +0100 (CET)
-Received: by mail-io1-xd3f.google.com with SMTP id p2sf369633iof.4
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 17:53:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573610031; cv=pass;
+Received: from mail-yb1-xb3c.google.com (mail-yb1-xb3c.google.com [IPv6:2607:f8b0:4864:20::b3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id C3395FA100
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 02:54:30 +0100 (CET)
+Received: by mail-yb1-xb3c.google.com with SMTP id o7sf653250ybq.17
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 17:54:30 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573610069; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SbVhHcvIsfQX7+XQDdMSVBxOL/AI4UbfpFDuA9Re46z1eg6imWk6ypvace1GixmVbt
-         239CTftVN7948//qBA2oCpBrGlIP2R06ZhQvyJJ150jckmLQAnDqaLGA4F56A6ISu6Ud
-         mZlcXZzd3ny9ShF6ZIQlF4b5u0xsEpqA8I1fLFKA1ucsXx/Egaea7+yQq61NCnLzZSOo
-         +OMe0a7u4qOQZh7vBKryArcBfzs4BXKYtlDa4PeDTg1ns2f09Fwu3b9GPrzNXwQrD8Xi
-         f4hUKr7ypcsv7bzvlxzZ0CDKuxA+jxZJ/VUypuE1fC1dRUAZK0ESRFiMkdz0MVPdnAyu
-         4RMg==
+        b=pB/KAA6FmCdukmpOn5UkPHzoHlpbPiEzCvg9yxBmVPuTLDwAi37M3KKlWw0nM1Iqoo
+         p3KVgW0tfkBVwAuVUWdUTs6UEi5yy1ic7iFjjqQDs8VRPTd2iFVgUlvxHQphPtPN63FK
+         Tt5qxLeIF2ZaYPrdJBNTQzw1HBmQbA8xxNjMXT0ud32jMQv3sy2zZ0PriJjk7Kp07yRe
+         Ff3z6nOtPR/596ApJKhTwynQ3zmMO4GVRf5RmVZm6pRb2I2IqktSN4a8wXQJM2uM2Log
+         HF+sFKokbFPpBKqcGbnblea0kguiNNufqrrJ31cNXfbbragwqE4p6P7ICtJwFw98CjjK
+         NaYA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=e1XOD+PIRaId2RbiQ5PUW6KGDZxyT8ccWqUNcsX3d6E=;
-        b=oq+j4arAta15MADsky5bz9gbPVEdPreJZrjRhNSKekZhoLeElaBBNL34DpBjSMpqDc
-         BgItymm1CvjmN9z0/y6x+Ti1/A1I5MO/KcdFEtFIImg2aJ19fAerOWgoLlSPm+Pdt0Z4
-         DGgv7PUXM0/z7c0Q0tdtg7JkYM2R6MecdX2B5eEvh+AmPimJjWmyRDpneygy9KG6o88F
-         XhW0G/V6xsL6qIjG1iRTx0ouk5INTh5ofheqGmFAtustKbHF4dU8HW6L2kaK9Y8WAqBp
-         PKvB2TkDDCnC6J14NbvSk1US69cKKexuB9AXXh0y82SvDTuIbVMRdehl5DAIBBezn1YR
-         FgHQ==
+        bh=bfzwpO1C/dU5OZDUjBrgRUr90FD8skSRJJcZoc/W7Ds=;
+        b=LbIASS/PiM5uVpyHquZ0Sl2FY+X4Ehq0Iupt5qbHjBjiuoIQW1jQVu2SBaeycson/m
+         gqhFAdUKiC2C9QID/j9RulWAh+b+f1p/xpumOgSwRbg9/Zz1C69BJ2nJ3IJKg5r6YxCR
+         W21x92HuYwwvUyNZkbJ0x+3ws66CxZN4AWByIKVs32LnWexRYHKD0uZoaQejgoDbcSsx
+         q+wZOmnxI6BsNiZQmMgIfvcs/HLzZodFTGmi/8hi8/6IwzvA0aML6hw7tG6dE+IPN0ec
+         Ua3vOCTDxA0SM9IU0EzTD/2y78QTg02XFOnoVd+Gu07me7dvWQIPiqhiKRQm4c6Qyrxe
+         vGsw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="azWy3I/g";
+       dkim=pass header.i=@kernel.org header.s=default header.b=a0GAc63V;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=e1XOD+PIRaId2RbiQ5PUW6KGDZxyT8ccWqUNcsX3d6E=;
-        b=lUYoXr2L6gV31fNIOG9OX0ct6YEsfHqywuS+B6whPTZRbUTtkiIfnERh/dh9qLBoMI
-         4Z3OC7FILkJm6o7Yv1TQJvX1jXsXFdDLWkRyjrlx0GZE5jk9eUbAw9YJcfZAp1LS9mu9
-         ysDULLTl9MxheHJnkG6vk9gkzrigQiaQQZKkGbsrFL+4Ys0ml11/71Ix9MLXSxi2xKjy
-         5ghwQ43y0qZUJOyM+A8X7lCYeTnvPOqYJeNxXAoc41laJwf5u0v7hGSihGk/Di+K0vls
-         QOvTdr+z84iRCXo/J2oJ6A6F9V7vu7Wlg1KxHn9Rw4cFDLtgihRcVQkIwr5DdIJ7pilv
-         pkiQ==
+        bh=bfzwpO1C/dU5OZDUjBrgRUr90FD8skSRJJcZoc/W7Ds=;
+        b=TkX1rvloF5g7KKuqJT5vSMaEnoW28wykzHLkXv5IEox+dcDwXUwTtQ5usPDfnh5MJM
+         7o6Me2yz1oBltGiGtc7//EAs5i8sX6GyWeWSopOAyODKUPyQkEeXUex9A8PJ3u7EA/KT
+         wMD5Lm9vF1aOcw7YRc/I5kSFqTbcIFM9N2gJJ49AX9QejDl4wbFDqktjuduYPLAVW7ih
+         Er448/CsTQT+jRsQKkamFfsg11d4eEItqJB9KQEdez2EPZIO1ba390JuQnXACqWvNUrU
+         tQCmI7a/9AkY61sjA2/WKUt7onP7qZ72FxHvXbivw11OqWcx76h1zWOXi67RHGnRAsdA
+         GQeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,71 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=e1XOD+PIRaId2RbiQ5PUW6KGDZxyT8ccWqUNcsX3d6E=;
-        b=rdOrbUCDq6EAmMGe9YKb6dC6nxyP+LMjnkCaw54hHDuLHEenZYtSZkcwH3vUFDnHgQ
-         2/uxwie9cnvRe6uy4awpMxlIYpJ9bhB7VqBe7dlgYZqve6pFZr2v6UZ0yHYemsvqgYjQ
-         jOvltNe5dz4tqvGNizVL/1qfux7IyFugEFXp6JyG9uyzMKejkg6wUag6tNSJx0u/DmU8
-         NlvGDYgmehTtVmVAGKqlZi++HqXX+hXT5KupDOK/Lwrbokrce4cFxqoD8PETrTnj/TUd
-         lqcdnZiaw4ShNnUc4a5mkolCo44fbQSGys6HuhKWP6GcEEy+aAmX7PnUrHFLOzNKOmii
-         b0tw==
+        bh=bfzwpO1C/dU5OZDUjBrgRUr90FD8skSRJJcZoc/W7Ds=;
+        b=QNEtP9QkjPX4S+eS69o68MhHo62wLUqf3Tq5BoRixHuYlwpGyIGJKsFEd/wJOSmaEh
+         0PtuBM/qFBizm4hJdDfRquk23J8XUZa1L9QI+FH/fkyYziWQfHOJdTRsQXZwAFj5y6PZ
+         RgAnqnvK5hYsFbXmYFZNUeWBRnnHtZkZQFUVY9DwiGfcgLuLRWfrzyBXpnYZAQcScG/f
+         BDwTY6ELjMZkXEQBgmi2ErxaeJ76tzfHNpkKDZNZMiOVCrIQl6SkqYvEBgsAG0Xh1iCF
+         6a2NrSXyMZRh9LXsjGpF3Zt9cQeG5QUOLvBFn/o5rSQBedfo+aIg5yMwOgXD9/TExS//
+         hCVg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXUca0c6l6VicPxiK/s5weqfAcXSQjjGkBXhA14ITE1vf679bc0
-	y9xtKsLaKVyHE7Chvj++CFU=
-X-Google-Smtp-Source: APXvYqxfLlpQ8qCy1KrwjJSZiHx9s8qG2WgbSW+tLJ2JIm7MngJ28nxbKynLtD5a7hZSQoHv0vB2mQ==
-X-Received: by 2002:a92:60b:: with SMTP id x11mr1071220ilg.69.1573610031635;
-        Tue, 12 Nov 2019 17:53:51 -0800 (PST)
+X-Gm-Message-State: APjAAAWZgspYbHnFT+dDoRr6KljhXLwTqxtTZ8GGKWSZazlnBYZ2f1mD
+	QBg82J33emSapoit22I7MFo=
+X-Google-Smtp-Source: APXvYqxM5tv2OzsZFprzp3ePgfX0qKvrAhpdhq9cYQS19dbYQW++Zwb88unTeabLMxSeI9P5ho+FuQ==
+X-Received: by 2002:a25:ad8e:: with SMTP id z14mr848269ybi.170.1573610069697;
+        Tue, 12 Nov 2019 17:54:29 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:730f:: with SMTP id e15ls90794ioh.8.gmail; Tue, 12 Nov
- 2019 17:53:51 -0800 (PST)
-X-Received: by 2002:a6b:f914:: with SMTP id j20mr1007520iog.223.1573610031303;
-        Tue, 12 Nov 2019 17:53:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573610031; cv=none;
+Received: by 2002:a81:7845:: with SMTP id t66ls122074ywc.14.gmail; Tue, 12 Nov
+ 2019 17:54:29 -0800 (PST)
+X-Received: by 2002:a0d:e891:: with SMTP id r139mr735383ywe.232.1573610069313;
+        Tue, 12 Nov 2019 17:54:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573610069; cv=none;
         d=google.com; s=arc-20160816;
-        b=CusOYOcCv+P8jjqPbAQkdiRJTVGWiLc073UpgLc6ynmWpwPKPe7f1zLNQO/5K9X0/W
-         OcmG8JNnL4dr5FtwBZBPDfx7XguOHMNMHM4HNxiFMA1CzWfF2iVqQeJyAMEunBllX6vb
-         V3i/vjD9xW7CBJGOfIoRwwpVSedXn+1RD2+lMQ+iQv5zPaYLVVBGdZjkEM8I1eXMc5/v
-         6WmqwRvTRdId1tpihPH0nxxI0NBPAnebivxDAdwIETgYA/CzVv9xzOsWnqKslpT80PiG
-         2WCxlM9fMYZO0FWABl8FJstEJql+oTHDfIjlspA7PzKBgFHaHPBq64O0IXiCA7wXKUw9
-         qEcA==
+        b=qFzdL/nGtblczcW2nkoMFf23QKF+tU1yWjW1ks4FvLLGy0wfC9jaqKQ2+nFtcitL16
+         mZ/ktKwz6YK82peHK0IVxz4UNE75BbKn80smUafqNWw1EbM+whVIN0TqHxXhZSZwuHHo
+         t4Sb+jneMFp1xSv3pCE9W98YMKnflMO4T0hdg7nJ7JVs1bbBCYjDztI6MO+yiFEHO6X4
+         auUQU+g07V6r1EtRFvI7lsXC4L1EfMy1Fivm3ZOk5GDkjW1go6MPMx9C/MXtQdluPxlp
+         m8SyIwqrnLx7z6Bxd9JAaEOF68F4ZEswpUgx8+csjjNvccfP9D55TnTXpkhy4L7HQfRk
+         avsQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=x1JKoC9MjMp0vdM5a4kSAGzlI8xrUGJjtqp82rG1jjA=;
-        b=izshFKKWDzlV0Wm6u8+dBtNp6bzrSTqDJaJgac/5Syuf7hhVAoVMbLPd/Q4QHVcFZt
-         rVHp0UTkyLi3k8gnJ5NwNXtmzl3SZqQDsCQhvT/5yKe8Vd+iAgjagRyqxJy2gzY6ObcN
-         +CNPPIdhC/PRkelLcs5PcoXbhItyAIZEZh/nSABxXsytfm5XG7Q1kcHsKYyMOAB+afZC
-         Pupysh8E87mexL0CwFVL+6eLfkaozn66F1wl1qy76mW/z+Qsqdr9bJ+SVUldTdAp27e1
-         MRSYVcysNPAitHGZKonYvllaRM28U55LflyY7XQHiPZDQ391s7bRV1D6m2mvyOgonfXQ
-         axPg==
+        bh=/T0Ii9xNAik7Q45j0p4eJz9Ov5kDr9IkplLfWD3TroQ=;
+        b=UiT9GnleM9optAKpYRnsL2PpngEg9Wp/JOrZTjz7Vgc29CQ9XPsE2UOnZgitAJkQXW
+         0Jv39bK4rs2xIgzdsW2GX9AjgPM0j1u7Z+LkC7PMCbeGmrEHbnH+sp5wZIjJ2HzmE8P/
+         gIxnPpSTxhsNqC9f+dcAGbIGfAQNB9CR5D8TUg4sxxsTJrmTMZIOD4C+90KevrzB7tXF
+         xQTg6GEs6FgyVQZP4kuNLVDdIcvvS27qhz8jrtMYhr7VaKeC8Ohjuz4vKPLFEtP6deqY
+         a+vbsxYrIAdVlFdaf/yp/BQR3vfEjygyaUwWZLgCpYWgrBlGJk6vgayM/OIwTgFbnCUb
+         R8cg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="azWy3I/g";
+       dkim=pass header.i=@kernel.org header.s=default header.b=a0GAc63V;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id z130si31186iof.5.2019.11.12.17.53.51
+        by gmr-mx.google.com with ESMTPS id r185si52092ywe.2.2019.11.12.17.54.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 Nov 2019 17:53:51 -0800 (PST)
+        Tue, 12 Nov 2019 17:54:29 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id C0F67222CD;
-	Wed, 13 Nov 2019 01:53:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 82D472245A;
+	Wed, 13 Nov 2019 01:54:27 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Davide Caratti <dcaratti@redhat.com>,
-	Lucas Bates <lucasb@mojatatu.com>,
-	"David S . Miller" <davem@davemloft.net>,
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Vadim Pasternak <vadimp@mellanox.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 124/209] tc-testing: fix build of eBPF programs
-Date: Tue, 12 Nov 2019 20:49:00 -0500
-Message-Id: <20191113015025.9685-124-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 147/209] platform/x86: mlx-platform: Properly use mlxplat_mlxcpld_msn201x_items
+Date: Tue, 12 Nov 2019 20:49:23 -0500
+Message-Id: <20191113015025.9685-147-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191113015025.9685-1-sashal@kernel.org>
 References: <20191113015025.9685-1-sashal@kernel.org>
@@ -122,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="azWy3I/g";       spf=pass
+ header.i=@kernel.org header.s=default header.b=a0GAc63V;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,172 +137,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Davide Caratti <dcaratti@redhat.com>
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit cf5eafbfa586d030f9321cee516b91d089e38280 ]
+[ Upstream commit 8289c4b6f2e53750de78bd38cecb6bce4d7a988c ]
 
-rely on uAPI headers in the current kernel tree, rather than requiring the
-correct version installed on the test system. While at it, group all
-sections in a single binary and test the 'section' parameter.
+Clang warns that mlxplat_mlxcpld_msn201x_items is not going to be
+emitted in the final assembly because it's only used in ARRAY_SIZE right
+now, which is a compile time evaluation since the array's size is known.
 
-Reported-by: Lucas Bates <lucasb@mojatatu.com>
-Signed-off-by: Davide Caratti <dcaratti@redhat.com>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+drivers/platform/x86/mlx-platform.c:555:32: warning: variable
+'mlxplat_mlxcpld_msn201x_items' is not needed and will not be emitted
+[-Wunneeded-internal-declaration]
+static struct mlxreg_core_item mlxplat_mlxcpld_msn201x_items[] = {
+                               ^
+1 warning generated.
+
+It appears this was a copy and paste mistake from when this item was
+first added. Use the definition in mlxplat_mlxcpld_msn201x_data so that
+Clang no longer warns.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/141
+Fixes: a49a41482f61 ("platform/x86: mlx-platform: Add support for new msn201x system type")
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Acked-by: Vadim Pasternak <vadimp@mellanox.com>
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../testing/selftests/tc-testing/bpf/Makefile | 29 +++++++++++++++++++
- .../testing/selftests/tc-testing/bpf/action.c | 23 +++++++++++++++
- .../tc-testing/tc-tests/actions/bpf.json      | 16 +++++-----
- .../selftests/tc-testing/tdc_config.py        |  4 ++-
- 4 files changed, 63 insertions(+), 9 deletions(-)
- create mode 100644 tools/testing/selftests/tc-testing/bpf/Makefile
- create mode 100644 tools/testing/selftests/tc-testing/bpf/action.c
+ drivers/platform/x86/mlx-platform.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/tc-testing/bpf/Makefile b/tools/testing/selftests/tc-testing/bpf/Makefile
-new file mode 100644
-index 0000000000000..dc92eb271d9a1
---- /dev/null
-+++ b/tools/testing/selftests/tc-testing/bpf/Makefile
-@@ -0,0 +1,29 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+APIDIR := ../../../../include/uapi
-+TEST_GEN_FILES = action.o
-+
-+top_srcdir = ../../../../..
-+include ../../lib.mk
-+
-+CLANG ?= clang
-+LLC   ?= llc
-+PROBE := $(shell $(LLC) -march=bpf -mcpu=probe -filetype=null /dev/null 2>&1)
-+
-+ifeq ($(PROBE),)
-+  CPU ?= probe
-+else
-+  CPU ?= generic
-+endif
-+
-+CLANG_SYS_INCLUDES := $(shell $(CLANG) -v -E - </dev/null 2>&1 \
-+	| sed -n '/<...> search starts here:/,/End of search list./{ s| \(/.*\)|-idirafter \1|p }')
-+
-+CLANG_FLAGS = -I. -I$(APIDIR) \
-+	      $(CLANG_SYS_INCLUDES) \
-+	      -Wno-compare-distinct-pointer-types
-+
-+$(OUTPUT)/%.o: %.c
-+	$(CLANG) $(CLANG_FLAGS) \
-+		 -O2 -target bpf -emit-llvm -c $< -o - |      \
-+	$(LLC) -march=bpf -mcpu=$(CPU) $(LLC_FLAGS) -filetype=obj -o $@
-diff --git a/tools/testing/selftests/tc-testing/bpf/action.c b/tools/testing/selftests/tc-testing/bpf/action.c
-new file mode 100644
-index 0000000000000..c32b99b80e19e
---- /dev/null
-+++ b/tools/testing/selftests/tc-testing/bpf/action.c
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0
-+ * Copyright (c) 2018 Davide Caratti, Red Hat inc.
-+ *
-+ * This program is free software; you can redistribute it and/or
-+ * modify it under the terms of version 2 of the GNU General Public
-+ * License as published by the Free Software Foundation.
-+ */
-+
-+#include <linux/bpf.h>
-+#include <linux/pkt_cls.h>
-+
-+__attribute__((section("action-ok"),used)) int action_ok(struct __sk_buff *s)
-+{
-+	return TC_ACT_OK;
-+}
-+
-+__attribute__((section("action-ko"),used)) int action_ko(struct __sk_buff *s)
-+{
-+	s->data = 0x0;
-+	return TC_ACT_OK;
-+}
-+
-+char _license[] __attribute__((section("license"),used)) = "GPL";
-diff --git a/tools/testing/selftests/tc-testing/tc-tests/actions/bpf.json b/tools/testing/selftests/tc-testing/tc-tests/actions/bpf.json
-index 6f289a49e5ecf..1a9b282dd0be2 100644
---- a/tools/testing/selftests/tc-testing/tc-tests/actions/bpf.json
-+++ b/tools/testing/selftests/tc-testing/tc-tests/actions/bpf.json
-@@ -55,7 +55,7 @@
-             "bpf"
-         ],
-         "setup": [
--            "printf '#include <linux/bpf.h>\nchar l[] __attribute__((section(\"license\"),used))=\"GPL\"; __attribute__((section(\"action\"),used)) int m(struct __sk_buff *s) { return 2; }' | clang -O2 -x c -c - -target bpf -o _b.o",
-+            "make -C bpf",
-             [
-                 "$TC action flush action bpf",
-                 0,
-@@ -63,14 +63,14 @@
-                 255
-             ]
-         ],
--        "cmdUnderTest": "$TC action add action bpf object-file _b.o index 667",
-+        "cmdUnderTest": "$TC action add action bpf object-file $EBPFDIR/action.o section action-ok index 667",
-         "expExitCode": "0",
-         "verifyCmd": "$TC action get action bpf index 667",
--        "matchPattern": "action order [0-9]*: bpf _b.o:\\[action\\] id [0-9]* tag 3b185187f1855c4c( jited)? default-action pipe.*index 667 ref",
-+        "matchPattern": "action order [0-9]*: bpf action.o:\\[action-ok\\] id [0-9]* tag [0-9a-f]{16}( jited)? default-action pipe.*index 667 ref",
-         "matchCount": "1",
-         "teardown": [
-             "$TC action flush action bpf",
--            "rm -f _b.o"
-+            "make -C bpf clean"
-         ]
-     },
-     {
-@@ -81,7 +81,7 @@
-             "bpf"
-         ],
-         "setup": [
--            "printf '#include <linux/bpf.h>\nchar l[] __attribute__((section(\"license\"),used))=\"GPL\"; __attribute__((section(\"action\"),used)) int m(struct __sk_buff *s) { s->data = 0x0; return 2; }' | clang -O2 -x c -c - -target bpf -o _c.o",
-+            "make -C bpf",
-             [
-                 "$TC action flush action bpf",
-                 0,
-@@ -89,10 +89,10 @@
-                 255
-             ]
-         ],
--        "cmdUnderTest": "$TC action add action bpf object-file _c.o index 667",
-+        "cmdUnderTest": "$TC action add action bpf object-file $EBPFDIR/action.o section action-ko index 667",
-         "expExitCode": "255",
-         "verifyCmd": "$TC action get action bpf index 667",
--        "matchPattern": "action order [0-9]*: bpf _c.o:\\[action\\] id [0-9].*index 667 ref",
-+        "matchPattern": "action order [0-9]*: bpf action.o:\\[action-ko\\] id [0-9].*index 667 ref",
-         "matchCount": "0",
-         "teardown": [
-             [
-@@ -101,7 +101,7 @@
-                 1,
-                 255
-             ],
--            "rm -f _c.o"
-+            "make -C bpf clean"
-         ]
-     },
-     {
-diff --git a/tools/testing/selftests/tc-testing/tdc_config.py b/tools/testing/selftests/tc-testing/tdc_config.py
-index a023d0d62b25c..d651bc1501bdb 100644
---- a/tools/testing/selftests/tc-testing/tdc_config.py
-+++ b/tools/testing/selftests/tc-testing/tdc_config.py
-@@ -16,7 +16,9 @@ NAMES = {
-           'DEV2': '',
-           'BATCH_FILE': './batch.txt',
-           # Name of the namespace to use
--          'NS': 'tcut'
-+          'NS': 'tcut',
-+          # Directory containing eBPF test programs
-+          'EBPFDIR': './bpf'
-         }
+diff --git a/drivers/platform/x86/mlx-platform.c b/drivers/platform/x86/mlx-platform.c
+index 742a0c2179256..d17db140cb1fc 100644
+--- a/drivers/platform/x86/mlx-platform.c
++++ b/drivers/platform/x86/mlx-platform.c
+@@ -575,7 +575,7 @@ static struct mlxreg_core_item mlxplat_mlxcpld_msn201x_items[] = {
  
- 
+ static
+ struct mlxreg_core_hotplug_platform_data mlxplat_mlxcpld_msn201x_data = {
+-	.items = mlxplat_mlxcpld_msn21xx_items,
++	.items = mlxplat_mlxcpld_msn201x_items,
+ 	.counter = ARRAY_SIZE(mlxplat_mlxcpld_msn201x_items),
+ 	.cell = MLXPLAT_CPLD_LPC_REG_AGGR_OFFSET,
+ 	.mask = MLXPLAT_CPLD_AGGR_MASK_DEF,
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113015025.9685-124-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113015025.9685-147-sashal%40kernel.org.
