@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBEGIVXXAKGQEBVSVTLQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBFWIVXXAKGQEWPYLRZA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x237.google.com (mail-oi1-x237.google.com [IPv6:2607:f8b0:4864:20::237])
-	by mail.lfdr.de (Postfix) with ESMTPS id C36DCFA204
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 03:01:53 +0100 (CET)
-Received: by mail-oi1-x237.google.com with SMTP id x15sf219784oif.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 18:01:53 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573610512; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 329A0FA205
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 03:01:59 +0100 (CET)
+Received: by mail-yb1-xb3f.google.com with SMTP id t33sf663308ybt.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 18:01:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573610518; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qK++cu/gUpxFI4rrfWpDzMmASPDMmsXZt1Uw5edEkVxmmuONEgjuT/oCBusYEzWb1x
-         3tGwBKo05WFebClwIrLNU8FsgWCft7siReKiOOSPh3Aw80ARBkA1hc1XIdQ1d6z1GeC7
-         MRU/lL/XBnFuZp/8Dl2juGmZjY5ZLOWN1SqznetcCFP2JLtbdf8VH/TB4X7Y35iR3NAQ
-         RbajozUdBKo2TAia7T8W16UNKrFkqYmD3/h9f/YMrHlYZowIWWk3FPvBuI57muk8lfYP
-         YtVYhu3NL8gZjg/B2RfMqrSxzVvusZJInfv1PyXlwTvH41oU7GTLy6REF15nOOs7y5/1
-         2ZeQ==
+        b=Rhxj1rW7NSBvpSP25vS8aufenZTjMGF1yxiVWWBFzNYA/zo+GgTVTT15HYhyjPXid5
+         h8ghadmhQ1al3wESj9WU4rTf4w13hgPNkgsoJ1AbMr3wUdc2UUKPnP+AVuMQklFj97FI
+         n6AMuMp5gQeCuOzB5d+Zfadh2mVrhtpf/Y+0LTJEVMZEt8SguFhqx3RBF2TaPf3e0AmC
+         /IHNxvY65Q9eyIKbDOcyWiPy4DHKSq9KdpH1eAANE2eqpUp3vWXkV9oGO1jHb3zlUG2x
+         abq1M3dSa3nd4ZEjjbXYWAR1ZvN0ONeBx24RvxdumzWgBcsnRdt3hHHyIsBhtvviokoM
+         RtzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=pZiYThsCNZg2ZQO/GcgBm3IJqkUtwyeyuFQ2fxsqutc=;
-        b=ca0t71zbPFjcobteGjba4xcGpiHBOrWXuaLNrIZQXyVFgxZ3MWO7/T5wiRVl3T0IPH
-         NaUAXXhBAOghJJJTBfBmWjYymDlqlZTXcBtR65bFA9W0Y+0wmdHB9wJgoyb+SwA2fGQh
-         3yene4k8B29yw0UB0yQplRFGORt79ot0MU3vvSAxq0Lvj6TgthMTUfefxX0I+qz/KVUa
-         1lxy8im0sVuxPpIkUujVDdbSfon7NpaNh2+1u4pE9dbzzzF8qAR5sfhAkQM6NgmiZwdK
-         kH6EM97eXtH7LRh5+GhixkbimGItxhXkCHZ7SEsFiXsYodplphNdfkkt6AgawIOIRXsN
-         i0hA==
+        bh=k2RHfxHcnc7N0EcRuo0kOdvuVG9a7IhaFsecNiiDi7w=;
+        b=kp4fGUnej//QC/2Z8J92T2ZKM3QS9OcRlGBX7EyftVdPWk/C5lJAebPMzLkEwPVN7S
+         HkV5ayrJB8rEktYf7idNDQqDXJjplN0YD7yw9c1a0nWZwU+ZzdavAlYMZgbAhFcZigLk
+         h1e1lsUjeTlWv8lWvtmXzXcz/2Sr6O2g7ugj/FKIqWmUppljqm/mHH0YPBvXek9fxkyC
+         xmVYTf8/i/fkmbe91B/bGXl35FBmSfgFTBenPhzcFw9VlxqWTxIZxV0iJTLSGs8p03iZ
+         Jsk2ROl1zqqs3itaf4p4rTzwrp+zOzApLO+Ds5YS0AyyT/0Kid8PBU7Wm7mRkHhr7jBa
+         OL/g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=2CYoAIfx;
+       dkim=pass header.i=@kernel.org header.s=default header.b=v06lANdt;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pZiYThsCNZg2ZQO/GcgBm3IJqkUtwyeyuFQ2fxsqutc=;
-        b=gm+5rin4p5FbP3In4H/f5qF3xt32P1HVOVSsRhG93GNISX1sTcqsIHjchch3W3Jo36
-         mO/ZuDJjuI+gh0LZR75F2XMwCGvl9zY0qLfN0qHs3V0XueIzEH2Mj6KKU+cXh6G3CVzB
-         kutvq91hhpGVKh902SOPfsejz2dxz5mxyTonhhl/R7Q36hNo3wIc3zqcgg6Ac3ocRRAL
-         iTKnbv9Wy4cT4x4a3wL0FHsg+QtY4mt0azq3vl/ZDZrNblWRcnKZxCgIYpNOAKsvVYSE
-         p7gsOXWzwXhkCv6oHOaXaL9DaGEi4P/eHczXUoKL31yhtTgxyklg2fkR1WkwTAd5db4s
-         1+yA==
+        bh=k2RHfxHcnc7N0EcRuo0kOdvuVG9a7IhaFsecNiiDi7w=;
+        b=MMBzPNxdsurfjSqWO5f5V4Z17AyGIsO9XU7S3ORooC63Eg7vc4fw0rAX9JcRwB/Uzj
+         EHPZ00zsbh4QM58ag8a4EH1T8NwxcgIgNuggQwKkPwVmvJo3fOLx4dBHcKV9esHNIfwv
+         7PZh3inAl6SlOUmPCRYraGx933+oYMemKoF1v1Hx7dxIvCsNffWJBLodgZ/u6b68BsrJ
+         kzA7g8GzXik9M2Y/4celIuILlDKFAzjjC/yCt+q89A7+45AzYe7/b7KaqfLTz+t7jRLh
+         7r7oQLD/aj6cvClAhp8LM7GvSeQxGdYsx5uG5x6l1vPVBj83+/wA1A5D5M5tnIYnyhX1
+         uQAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,69 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pZiYThsCNZg2ZQO/GcgBm3IJqkUtwyeyuFQ2fxsqutc=;
-        b=aoYAZCXyoMcF3E9LgQumSTvrtFgylM80iiy1LJHCFF1d9ioFD5FdQNRkwEPW16uDe9
-         7smesswzTGZwHeaJFBy0eef7lvLyn95RwTFzvDyfAucihzH/cZ0+6EWMfnOcHFPWfVJo
-         DmWNaQKbE7IJtehKBevGUFXRCE+tQE8PVE0A5PHOkpUNhiCo3E6ZJJ7h56y6fu1PLaXm
-         pRA59Z4zO0IpCKfGG+xnzR9qk3OATKkXmFdEo5zS1If1EuPikNNqCjadDp4Qh/GxkrIi
-         8jlq8U+VxDwDY3pNs6zpAQnurFmYCXOshYQaoW49WzWs1lM4FxnDtF+KVXLbFODV/D0M
-         QUnQ==
+        bh=k2RHfxHcnc7N0EcRuo0kOdvuVG9a7IhaFsecNiiDi7w=;
+        b=Q2uFC0gK9IaNDhYWaAOhZPXsd8AbJ1iVashAnXgQXeoyoMHOv/JrWycOadxDQcQkDE
+         9NBNcXEozD5H8yIg5Eyhk1d1O2SKXck+ealGhApe50FgAbCi9HfknYwjg9lUKz5nQrSj
+         cTMjYUsxipvZY8YA07eeFK9p0lr4v7cGJfU6vPONzByuv5SJ13mbJhjQr2OrIUstFFwq
+         DUWLh8+japOS80/sz+Fpuqge9U5MypgbJJH9bHKzAHrFQqgkQ2X9DFmXuq6cB+DruGJ0
+         EEn2koCsxwgeN11f47IRNd1Dk2FMrDS3LyRHxWCgm9eE7Sd5NHptbGSYAgOXbbSJsKl+
+         /pgw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWvqW6SjW+ZFTiyFDc65NB/5PmnoPmKi1e1OINQNTwyjOizCxay
-	FTv5itjXcayVBBAe2qvQDF4=
-X-Google-Smtp-Source: APXvYqy+iICkHZHbSzTyBFpl6SJ4W/uhkW57SfJlOtbhjw/49b0C8qYrqqKJyst2kCebmweZfjoJZQ==
-X-Received: by 2002:aca:a8d4:: with SMTP id r203mr597023oie.12.1573610512504;
-        Tue, 12 Nov 2019 18:01:52 -0800 (PST)
+X-Gm-Message-State: APjAAAWmYKqjKqYUdXJKDht7KAHel/aW+VFu1e0XFcyZ7uKMN2L+Mb4B
+	QkJtcyLkzrrWKly/MwXyrhw=
+X-Google-Smtp-Source: APXvYqwVK5OFE3aSZ8ytQahGWsJftjP5eN2eRVKUBqbJya1p1r7sAv7zRQ9Dx/CBwJ8CpVZ3JOpAqA==
+X-Received: by 2002:a05:6902:4c4:: with SMTP id v4mr819179ybs.312.1573610518222;
+        Tue, 12 Nov 2019 18:01:58 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:49a:: with SMTP id z26ls242281oid.1.gmail; Tue, 12
- Nov 2019 18:01:52 -0800 (PST)
-X-Received: by 2002:aca:d606:: with SMTP id n6mr591500oig.36.1573610512181;
-        Tue, 12 Nov 2019 18:01:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573610512; cv=none;
+Received: by 2002:a25:1e85:: with SMTP id e127ls196811ybe.12.gmail; Tue, 12
+ Nov 2019 18:01:57 -0800 (PST)
+X-Received: by 2002:a25:7395:: with SMTP id o143mr909837ybc.190.1573610517895;
+        Tue, 12 Nov 2019 18:01:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573610517; cv=none;
         d=google.com; s=arc-20160816;
-        b=UAV2zrKBj9LXFUNcYorJVegudjZ42inWlha0aW15/WEFR2NvGNJEYJCt1num/NeOzn
-         YB58qgl1UDr4xDM1OuufXKnmt+5fdb7HUGtsVLcY/pt/R0ufuujcY1XQ8N6Y2TUCZmdx
-         9uD2EKrjOYjXdWfOBYNAqYCuwmF38lwfB4eoY6I7EOaptAPWO/dNx9254uhWNxQL7UPE
-         sFnIerDksuBGlXOf+bji9x5F8uY8dXYUzfnfgAeTOElGLGbCGu8KOiCDpvwu4UdapRc9
-         YZXE5mnIYQHM9Kn78BIHrqZk73ZUEPTDNA25wEHjVHwEIwR/lKNP8lC4tCLpu8SWu9Za
-         GS0w==
+        b=LYnnj7oW+qJmPYm41PsvA/cGXATJd/+uC1HTVLjrydRtWktmxtExtn6x9OS8zuQNTp
+         o0lVTDfDBJMsuOPLisxmBk5LnDi9JUcrPD7zZQFHM4rFuRL6fMP/7Q+zFU00LCYI1cpo
+         292KfPp3IHWKrx7BPyKKaMa79jSuU3YSeCivarhLI4DzrhBzwprVztqt4k0e9dDSxKDf
+         8AaA5vRm1Nr/9EuRNLhsv0y5KFmr+g0drpje+2dFpMWiofpk7lGT8+BoXm2cPYbwIkj3
+         T0kye0uOqa5F5P1pN5Ld35Cfbow8S2JgpsNRe4luAciTMs30qv9KhA+R4yzBx5UTdYhK
+         kpvQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=SHswYgakd4cmvmhrHJU76B0qFxA1jD05+R70Da1SU40=;
-        b=yw1MxkMpolh0bN7upq5YcNeTt8Gv8T8EU4mtZfXtk51lUzArPYRJcN+BXWWoW5LiIe
-         7eK3auR5ifamO75dblOUkFaoe2QAi2h1YZDzT7s2GZNWf9bWjEphdiCP86ZnTBkfgbLd
-         Vz+p9ixE3GBMwxvgG73a5r11x+tvs0vJNOtn3t66mR2nQAmqYtNK21L+3v/D5PW4g6/q
-         +kdhdUo5STPV3tv+XbGEpeH5P9QcDd+IPfLSALm6NqcnDZw1LdXSBksHgmO/M10Mr1eu
-         gY44MjS16lm8I1U/h49bMZ7JYYNq2dvps/ud1wEjZDbiDmdXw+9pTsUGm9sziEBumhq/
-         Lbyw==
+        bh=l06TsQFZAAT0rCrbNa36HavTVGbfjQvc5SYJRfU1TNk=;
+        b=W2yRSdWjT7udgOiVNwH/5/2Wk0ONv7mEDBjyMnbUa+sn4QgJxYoHlF2uRvjVuqKVTW
+         Goh5tDz0VPI6JajOuPJu9e7Ybn8XGD/9EjhXcrUq9pL31pB9/S5h3efjgIL/1u4gBbHp
+         pQHhH//jlKWO+7x6m7vsvcQUhH6Bv2pGpK7k7vRWNDJMfYmbiw/v9Nr3HtkSB+TSgLcL
+         LmDFXuPQusGJfAm02Xwmj9nb9Sw0/FUSI/XYKMB1vrIkKy8m1ND2uYG4EnST/rExjDYq
+         3pCj7vhrJxcnsIAASDY5YiLxmGV5hHTcFidIGqspaP4WoHgScbsJfPFhzAOduXEQWtB0
+         wcaA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=2CYoAIfx;
+       dkim=pass header.i=@kernel.org header.s=default header.b=v06lANdt;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 144si31941oii.2.2019.11.12.18.01.52
+        by gmr-mx.google.com with ESMTPS id f184si56479ybg.3.2019.11.12.18.01.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 Nov 2019 18:01:52 -0800 (PST)
+        Tue, 12 Nov 2019 18:01:57 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 94C8F20674;
-	Wed, 13 Nov 2019 02:01:50 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 31F66222CA;
+	Wed, 13 Nov 2019 02:01:56 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	"David S . Miller" <davem@davemloft.net>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
 	Sasha Levin <sashal@kernel.org>,
-	netdev@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.4 13/48] cxgb4: Use proper enum in IEEE_FAUX_SYNC
-Date: Tue, 12 Nov 2019 21:00:56 -0500
-Message-Id: <20191113020131.13356-13-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.4 16/48] mtd: rawnand: sh_flctl: Use proper enum for flctl_dma_fifo0_transfer
+Date: Tue, 12 Nov 2019 21:00:59 -0500
+Message-Id: <20191113020131.13356-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191113020131.13356-1-sashal@kernel.org>
 References: <20191113020131.13356-1-sashal@kernel.org>
@@ -120,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=2CYoAIfx;       spf=pass
+ header.i=@kernel.org header.s=default header.b=v06lANdt;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,50 +139,62 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 258b6d141878530ba1f8fc44db683822389de914 ]
+[ Upstream commit e2bfa4ca23d9b5a7bdfcf21319fad9b59e38a05c ]
 
-Clang warns when one enumerated type is implicitly converted to another.
+Clang warns when one enumerated type is converted implicitly to another:
 
-drivers/net/ethernet/chelsio/cxgb4/cxgb4_dcb.c:390:4: warning: implicit
-conversion from enumeration type 'enum cxgb4_dcb_state' to different
-enumeration type 'enum cxgb4_dcb_state_input' [-Wenum-conversion]
-                        IEEE_FAUX_SYNC(dev, dcb);
-                        ^~~~~~~~~~~~~~~~~~~~~~~~
-drivers/net/ethernet/chelsio/cxgb4/cxgb4_dcb.h:70:10: note: expanded
-from macro 'IEEE_FAUX_SYNC'
-                                            CXGB4_DCB_STATE_FW_ALLSYNCED);
-                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/mtd/nand/raw/sh_flctl.c:483:46: warning: implicit conversion
+from enumeration type 'enum dma_transfer_direction' to different
+enumeration type 'enum dma_data_direction' [-Wenum-conversion]
+                flctl_dma_fifo0_transfer(flctl, buf, rlen, DMA_DEV_TO_MEM) > 0)
+                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+drivers/mtd/nand/raw/sh_flctl.c:542:46: warning: implicit conversion
+from enumeration type 'enum dma_transfer_direction' to different
+enumeration type 'enum dma_data_direction' [-Wenum-conversion]
+                flctl_dma_fifo0_transfer(flctl, buf, rlen, DMA_MEM_TO_DEV) > 0)
+                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+2 warnings generated.
 
-Use the equivalent value of the expected type to silence Clang while
-resulting in no functional change.
+Use the proper enums from dma_data_direction to satisfy Clang.
 
-CXGB4_DCB_STATE_FW_ALLSYNCED = CXGB4_DCB_INPUT_FW_ALLSYNCED = 3
+DMA_MEM_TO_DEV = DMA_TO_DEVICE = 1
+DMA_DEV_TO_MEM = DMA_FROM_DEVICE = 2
 
+Reported-by: Nick Desaulniers <ndesaulniers@google.com>
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/ethernet/chelsio/cxgb4/cxgb4_dcb.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/mtd/nand/sh_flctl.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_dcb.h b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_dcb.h
-index ccf24d3dc9824..2c418c405c508 100644
---- a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_dcb.h
-+++ b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_dcb.h
-@@ -67,7 +67,7 @@
- 	do { \
- 		if ((__dcb)->dcb_version == FW_PORT_DCB_VER_IEEE) \
- 			cxgb4_dcb_state_fsm((__dev), \
--					    CXGB4_DCB_STATE_FW_ALLSYNCED); \
-+					    CXGB4_DCB_INPUT_FW_ALLSYNCED); \
- 	} while (0)
+diff --git a/drivers/mtd/nand/sh_flctl.c b/drivers/mtd/nand/sh_flctl.c
+index 1f2785ee909fe..c00a180306e50 100644
+--- a/drivers/mtd/nand/sh_flctl.c
++++ b/drivers/mtd/nand/sh_flctl.c
+@@ -428,7 +428,7 @@ static void read_fiforeg(struct sh_flctl *flctl, int rlen, int offset)
  
- /* States we can be in for a port's Data Center Bridging.
+ 	/* initiate DMA transfer */
+ 	if (flctl->chan_fifo0_rx && rlen >= 32 &&
+-		flctl_dma_fifo0_transfer(flctl, buf, rlen, DMA_DEV_TO_MEM) > 0)
++		flctl_dma_fifo0_transfer(flctl, buf, rlen, DMA_FROM_DEVICE) > 0)
+ 			goto convert;	/* DMA success */
+ 
+ 	/* do polling transfer */
+@@ -487,7 +487,7 @@ static void write_ec_fiforeg(struct sh_flctl *flctl, int rlen,
+ 
+ 	/* initiate DMA transfer */
+ 	if (flctl->chan_fifo0_tx && rlen >= 32 &&
+-		flctl_dma_fifo0_transfer(flctl, buf, rlen, DMA_MEM_TO_DEV) > 0)
++		flctl_dma_fifo0_transfer(flctl, buf, rlen, DMA_TO_DEVICE) > 0)
+ 			return;	/* DMA success */
+ 
+ 	/* do polling transfer */
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113020131.13356-13-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113020131.13356-16-sashal%40kernel.org.
