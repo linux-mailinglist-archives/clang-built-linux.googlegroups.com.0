@@ -1,148 +1,124 @@
-Return-Path: <clang-built-linux+bncBAABBEWHWHXAKGQENISO23I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBYGLWHXAKGQEH5QX7ZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3CE63FB97A
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 21:12:03 +0100 (CET)
-Received: by mail-wr1-x438.google.com with SMTP id k15sf2458670wrp.22
-        for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 12:12:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573675923; cv=pass;
+Received: from mail-il1-x13f.google.com (mail-il1-x13f.google.com [IPv6:2607:f8b0:4864:20::13f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A898FB9A2
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 21:21:53 +0100 (CET)
+Received: by mail-il1-x13f.google.com with SMTP id d11sf2916018ild.10
+        for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 12:21:53 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573676512; cv=pass;
         d=google.com; s=arc-20160816;
-        b=poAi2yPKbhre4BlOdLGzshSl5U4jzX3nZ62lZerGBd0syiJ/DnFQWsfIk0NHS93ZH3
-         iuOqUJr1bYtWBrBOCdGUR/Y7dhJYBas1Q9JGnKK1/2zvPECXQyb4IGwKa4Cs1koWpnj+
-         c5q5mSKXGyul8Mtlbvsey9D1tUGd8fcEjNaigPiLBROJ2RmhTS8iwWLjU0ezgYy0bYRF
-         uHDvEX89JQv0fncAiDQ0FaEBi3Efnqe+5Dkybzup4tfAPScl35XYFcEDTdVmuHdVz0pi
-         fC2fCUYVFPNoAJfH6BQsLsGGaIh/tQ5ClQjOxkR1nq5KBXO5KUYo85m1CFeYVWRzCt/M
-         YGrw==
+        b=WtdlbYcJkxo9Xo9Eiy9hdAckX11DKE7x+Sh3vxrmO3wKHPUyP7ORbGD1ANyPK/HZS0
+         FBHm8iXqHZ4awpBUpmhuuwA40QFJ0aFDkfDeEJUGsQnlfUwM1wdIsaIQ6cK5l5p6GCzx
+         j31Wvyjxwi24vlxpDFEj0C0SsoMGQVfC9mqdfoJC5wnMMrh29eQ947fVNalVgcIelvqb
+         0Kt3iIBRxt/YCbEu6De1TjIetCIwv10yUldNZYkB56H8dLVAw8p7NbsQJeZ3A+mRK+pV
+         3b4loA12hWm2laZiuqYOojyK1vmOD128aqJDXemyDvhyTkLC0Z8rzTc1EhnwSSM+xmdp
+         HfbQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language
-         :content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:organization:from:references:cc:to:subject:sender
-         :dkim-signature;
-        bh=2I+nVik/GnjZzyogUZSdPo1oW2JE4MNH3XihfWf4SDQ=;
-        b=qN1YmXgGpYlkuaXPFSPAAZ7PW/TZr7zltnZ0c2g4yE8Na0P7oIJwrVr0jiFqsFZzjU
-         4SGhDwiVjFnshhpDpkGIhu0xb2ushqc0g14YNWpfWfYHB42OT//fZeecAMPWsoChHQSg
-         4omf1ktolDww9iEu2m/ELXXQFVssyc0ApqJVs3KtKM4CJ1WGrqyGChEardx7V3dh3QTC
-         ZHdrQaRcdykLLM64HmQVTqrO/dpk0RWeyKbuZg9OG9dPFirRjQgijRzT0u0J3cqo9Gs/
-         lwxbtxa81vWP/C1AhzU4FM55HFjXAA8iqGrX0R5rs0qkNDmDy5EXrYoSdZYPOGlTQ+TU
-         ySyQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=H/d+2MjAm8v8MBBZo0GBkLeEfBSEC2BPDY0L8cLo02s=;
+        b=rRWRJJXkWCkD4+25OXtXfeu0JbfJiE6UYr8ZuV+m0cxUgBcyKhgX1UCd7gtOXfPYHk
+         FrzXoJlATZgX+fOCIDcEHS5G/vXHpHIhaelzweVNHAV7ZZ/V4FzeOPopPkTjW2m/WOeV
+         haBZAJwU4MzKdTtAo8/jvoYtSO8iSf2aVlCmcQLFu+3AbgNMBsobldqE0/SDgulJD5mY
+         VpNSnPf1MWrx44fGUdcQCF6skcdOoQcJ+8Fc4t/q37dwxxqvy+GNMIPMVopI9dgUJ1QG
+         UNiM1HDqLlLPOI4SID9PlDaj35WRilCTY579NAMugMeMas1UhrJU2uK6b2u/aZ0rIoOw
+         BIAQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@shipmail.org header.s=mail header.b=qIYlqGC7;
-       spf=pass (google.com: domain of thomas_os@shipmail.org designates 79.136.2.41 as permitted sender) smtp.mailfrom=thomas_os@shipmail.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LCNg1f86;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:organization:message-id:date
-         :user-agent:mime-version:in-reply-to:content-transfer-encoding
-         :content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2I+nVik/GnjZzyogUZSdPo1oW2JE4MNH3XihfWf4SDQ=;
-        b=DMkh1ILB7iKQYlY9b0XE1PCx0JCtPCgvRur9+7nfo5LWnxmHbWSoZzySLVsuiTYbeN
-         5gMWXMGe+46me+G0p8lTXIIC0dqkd1IOLA5V3Vwf0/MbAMxk/r11I5Chodh0BUrx2Y9x
-         F7yqiJjmawMf62XlFCp6Qxmmcwr66VA6IgJGQUjwqoscEkNqN8rOy/QjtZaBESVFdHp7
-         ptQqgI9JMFe74pqO9Mmx33PUSoa2vOtJFCRKr3oubj+uc2waRjcm02YnPMhl0VKBarga
-         TY4XzPc7Sp4hWnsLbia9qYv1EEGUSzXz9GRuONEA6pdGnWKrzQThn9EqPsF2eTGf+3+k
-         W4SQ==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=H/d+2MjAm8v8MBBZo0GBkLeEfBSEC2BPDY0L8cLo02s=;
+        b=fSK4BMEEyrK4Iq4YqcdLCDDKKN8bXDZR6ADWLIDBeBZ7z6Xh4f59puWARNmI/2YkXl
+         1qPsOGJrjvMVxngxkt9Wxj2fTNN3TwRDf1hIN9pLvk0tYeW6NNUdaHp0C5mzgDIi4XQo
+         I3bAgZQJAIkwc3rKJTAqQBiEltNhwfGIrdiOnY9JrogwBSieSpEwpDY5otfnvaJabgcA
+         hMYq2U8rJY08bHcjeUE4ll3HF8KY/H++yv1DFgydRfTjIqQO0SKQOTVrTs4Musr0rwiZ
+         BHOg3uoFDbnJt8sG7hWpimjNmQ6KpS+aIjF9lIImTYGjQ3TsHp280MSGL2Em+w3nkpBH
+         fmbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from
-         :organization:message-id:date:user-agent:mime-version:in-reply-to
-         :content-transfer-encoding:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=2I+nVik/GnjZzyogUZSdPo1oW2JE4MNH3XihfWf4SDQ=;
-        b=nCrnCSnPGeW0BbAPfloyJtUzbQkJxtkKZQ17dGoqb57Ck9bJu3p+QAIDqma1DOsIhZ
-         vyoMk/EgNHGpicp42MlaoDh5nFzHCPkwD/QDuZgXSKvmlzFThXkaKuEDOVk21fqTmlI1
-         MhbQyMckGPKfbr92Nrf5TLEHqQREdP3sSZYBeQbiSWCsMPPnUYTfG4dxUzIo5FXQW8Hp
-         tFzrhyvriI6L5IF+yNw6d4jjv/XLw6zKEYaT9Y5Kq3Y6wrdAA+AB0EdSOnUKS6FnOLW9
-         BFZhAobanLUohd3o0razPWwbkE41XCMwROWkPrJ5lqowW7YEHkTpSBvblh2pWMn0Yu0t
-         +Q/A==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVGfEJhMeLKoUwIVph8MVtxLcleA3EgvklyeUnKBbzu4TvjjNBu
-	bSl+5OIp6EKU6pm8hq5UbXU=
-X-Google-Smtp-Source: APXvYqzeezlPuWoFwUYhXJD4ahIpcA6A6r0tCvkiz4tE1b5JHk+EkKA7L1nOx/UTLH3hWSSnZhFTkQ==
-X-Received: by 2002:a5d:574d:: with SMTP id q13mr4888822wrw.263.1573675922798;
-        Wed, 13 Nov 2019 12:12:02 -0800 (PST)
+        bh=H/d+2MjAm8v8MBBZo0GBkLeEfBSEC2BPDY0L8cLo02s=;
+        b=Zv73vP1wbj2szqoSLI4XgSX7VbEbzv0jWV61a6LqAnjmibP9ELLsfSlX5JrzmDVn7c
+         Rp7Xvh86Nu4vaS8ktRcLnQAibEDdynGIalktM43Xztdt+UBfWH/z6bRI/fysWXRF4C2w
+         Tobti6ScJq44WrZQVnDy/1GnJSCqjvZPervsVeJJTXZk9hw9UTLFyoQtalCzsVgQaenH
+         1D+813q/h5acCIaIyOkKZR6gpob3nJCbGQ7yxVpUKUpkFXceauvMkrkUUpDVa6Dd2Udr
+         JEq7FO4NQ0NVFlzCQ29+myfoV2Dp9qaDzResBXOsyTYqn7g5lQcSONGuB2kw3MONtXY7
+         KJAw==
+X-Gm-Message-State: APjAAAVzYChU7BA4c9vvJNOdivcIusGVXOiwN2WeoHXOJ2DhBkMM3OdI
+	Gb+GpI16yy2delQrSmDQbZM=
+X-Google-Smtp-Source: APXvYqxp4PCMomEHlNHY/NUh21xGdD6qi/V9Mf/NIflFFiYAacfZqd46DhH+1gk+RFiipxt/WdQCxg==
+X-Received: by 2002:a6b:6f15:: with SMTP id k21mr5319352ioc.292.1573676512212;
+        Wed, 13 Nov 2019 12:21:52 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6000:1008:: with SMTP id a8ls4457700wrx.3.gmail; Wed, 13
- Nov 2019 12:12:02 -0800 (PST)
-X-Received: by 2002:adf:fb0b:: with SMTP id c11mr4758173wrr.50.1573675922132;
-        Wed, 13 Nov 2019 12:12:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573675922; cv=none;
+Received: by 2002:a92:2908:: with SMTP id l8ls669104ilg.3.gmail; Wed, 13 Nov
+ 2019 12:21:51 -0800 (PST)
+X-Received: by 2002:a92:ba09:: with SMTP id o9mr6539472ili.6.1573676511867;
+        Wed, 13 Nov 2019 12:21:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573676511; cv=none;
         d=google.com; s=arc-20160816;
-        b=RDxsL0VQRbhGct6KNzlQ5odtIwAuNeOsl376itUAKbfXDgxqFPocvJWWoA97SR4Kur
-         xC/FREmrfd0k0PwshfctXkbAwiclcdWznkXdqS8WjqwB4OSv7rqdR0Vpkn8m9juZI9pV
-         KUTUYONzgpA+jX0LkRa+GvzxU9SqqQ0hvxbww9FST3IK+zGeNslYG99na9ZmuX7JSfvH
-         AS80/qIkgLM50Xy48uITtv/hEjsjCPAOqaksZRqKtct8bE1JXBIiEiUdNf/6doraN3af
-         zs5uu5ltRaGtz80yEy9N+uA7wMOjmXSmyGYkE92pDkmsKQBKngshVodYDiYA3l3M8ca5
-         afLw==
+        b=DViq68ACqUBWtaKgQXCxsI7o1FKew7ahUma2AWwODbOqwZa+8dc/9BS0seY0e3GotS
+         DXIV7YzYhnRN2HJRwEqZVy7JP2h36//YMMcgBBmCDnhbZrcRwDOwS+OeMHvGBOf0D4Hk
+         wkFSOb9GPs0bSNBOKF0vXsHwnRm6TdWa/t32diyQGI/6Ho9rJVJxA7noqlkOml0usmfv
+         46SPos8xAPrwxO3Uu56AHanct+lpoAUZ3yPAXL89VAzKK7CSTPA6Wwd+voPWJd1TTbTd
+         VDWbFXMuJfJBIZ6zYxtUZ6TEU77MR7k+yjc0ZKsBVHo9mAfgkBJjshLumvvma3/8dBJu
+         TJBA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:organization:from:references:cc:to
-         :subject:dkim-signature;
-        bh=cu9p1LDvvv78cWXiUnDcyOxiG00+1xLIyMksZ61Ar0E=;
-        b=b3t1NOI+Giv/pcjiKYZB+gSkp1ffvNrFOIo6bK0uNiXgDnM9LEOJXcMA+503BNJSuh
-         rnYVhyvi5Dp9btSXJ0VC+J0WQVP3LG1IyXqPTsTkFvmU4pb/fVFSduiiWK/D6QF0pRfb
-         c68vhwDUgWHQAQ5kG/Firoe0bGaNe0UKy1UkSk/toLpq7cl8d64evihhqwev1esm47ZZ
-         mtDs3etOgYZ03S2LBE7Fc9/bV+p6l6jX10EO/6+ba3kpggwmjOEpvEpOxAn/c1kQ5cNE
-         I2ExO+M3PxskPXFPLBWRwa21abyiY3Rt58bhDAwpLEcqTXb121zWqK/ZtJJEcc8BJsYm
-         iaiw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=yBtFKdTTwOdEpJntftbSiIvfMLr2w+6D1CtPpc+aOSo=;
+        b=jDbtsvO5nLhAeU7b5Dqm46SJ//RQ3sOJqxcLUlNulh44C0TBHYHwMjhUkfQ//mmH2F
+         trqCiU+YxfzDe+8AfQk4oayEyj5BYghUXwq1qePPJbEsrt5ZanqiDNu3eE/S9jvAAgjh
+         Okn0YAr9Mf+NyBAkX9Azz+x9E8QHLSyuJmVYUnjdsu8Dn/Enhq4fu/njND34P6OtcT0z
+         YoV60gLxMdbvBg7ZMT8gUlfCU0K7wQYKc8uhqR/jC/eAxtm78QzLzhzMBHSCgcayJZln
+         4gSuOq4SOjfAEgjzKTpKfyBEH4rYzKdHwSsfwfhDjkm4L9TTK3vB7jPnApyw6hIbgyni
+         Y8IA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass (test mode) header.i=@shipmail.org header.s=mail header.b=qIYlqGC7;
-       spf=pass (google.com: domain of thomas_os@shipmail.org designates 79.136.2.41 as permitted sender) smtp.mailfrom=thomas_os@shipmail.org
-Received: from pio-pvt-msa2.bahnhof.se (pio-pvt-msa2.bahnhof.se. [79.136.2.41])
-        by gmr-mx.google.com with ESMTPS id y188si234370wmc.0.2019.11.13.12.12.01
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LCNg1f86;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x429.google.com (mail-pf1-x429.google.com. [2607:f8b0:4864:20::429])
+        by gmr-mx.google.com with ESMTPS id x8si210108ior.1.2019.11.13.12.21.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 13 Nov 2019 12:12:01 -0800 (PST)
-Received-SPF: pass (google.com: domain of thomas_os@shipmail.org designates 79.136.2.41 as permitted sender) client-ip=79.136.2.41;
-Received: from localhost (localhost [127.0.0.1])
-	by pio-pvt-msa2.bahnhof.se (Postfix) with ESMTP id A5C4244E9D;
-	Wed, 13 Nov 2019 21:12:00 +0100 (CET)
-X-Virus-Scanned: Debian amavisd-new at bahnhof.se
-X-Spam-Flag: NO
-X-Spam-Score: -2.099
-X-Spam-Level: 
-X-Spam-Status: No, score=-2.099 tagged_above=-999 required=6.31
-	tests=[BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1,
-	DKIM_VALID_AU=-0.1, DKIM_VALID_EF=-0.1, URIBL_BLOCKED=0.001]
-	autolearn=ham autolearn_force=no
-Received: from pio-pvt-msa2.bahnhof.se ([127.0.0.1])
-	by localhost (pio-pvt-msa2.bahnhof.se [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id N54YzGlTUUoV; Wed, 13 Nov 2019 21:11:59 +0100 (CET)
-Received: from mail1.shipmail.org (h-205-35.A357.priv.bahnhof.se [155.4.205.35])
-	(Authenticated sender: mb878879)
-	by pio-pvt-msa2.bahnhof.se (Postfix) with ESMTPA id 143BF408E5;
-	Wed, 13 Nov 2019 21:11:55 +0100 (CET)
-Received: from localhost.localdomain (h-205-35.A357.priv.bahnhof.se [155.4.205.35])
-	by mail1.shipmail.org (Postfix) with ESMTPSA id 6F3CD360103;
-	Wed, 13 Nov 2019 21:11:55 +0100 (CET)
-Subject: Re: drm/vmwgfx: Use dma-coherent memory for high-bandwidth port
- messaging
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, Thomas Hellstrom
- <thellstrom@vmware.com>, Brian Paul <brianp@vmware.com>,
- clang-built-linux@googlegroups.com
-References: <20191113095144.2981-1-thomas_os@shipmail.org>
- <20191113200153.GA27721@ubuntu-m2-xlarge-x86>
-From: =?UTF-8?Q?Thomas_Hellstr=c3=b6m_=28VMware=29?= <thomas_os@shipmail.org>
-Organization: VMware Inc.
-Message-ID: <a2d2b374-229c-98fa-fb40-6e76a386f188@shipmail.org>
-Date: Wed, 13 Nov 2019 21:11:54 +0100
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 13 Nov 2019 12:21:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429 as permitted sender) client-ip=2607:f8b0:4864:20::429;
+Received: by mail-pf1-x429.google.com with SMTP id 193so2376702pfc.13
+        for <clang-built-linux@googlegroups.com>; Wed, 13 Nov 2019 12:21:51 -0800 (PST)
+X-Received: by 2002:aa7:980c:: with SMTP id e12mr6685169pfl.165.1573676510765;
+ Wed, 13 Nov 2019 12:21:50 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20191113200153.GA27721@ubuntu-m2-xlarge-x86>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
-X-Original-Sender: thomas_os@shipmail.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass (test
- mode) header.i=@shipmail.org header.s=mail header.b=qIYlqGC7;       spf=pass
- (google.com: domain of thomas_os@shipmail.org designates 79.136.2.41 as
- permitted sender) smtp.mailfrom=thomas_os@shipmail.org
+References: <201911140105.a5aulJde%lkp@intel.com>
+In-Reply-To: <201911140105.a5aulJde%lkp@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 13 Nov 2019 12:21:38 -0800
+Message-ID: <CAKwvOdm7Ydt4D4F6se3VOVtgwbL6+=zHBYr0b_16Nvf3dSpRPA@mail.gmail.com>
+Subject: Re: [dhowells-fs:fscache-iter 23/33] fs/fscache/read_helper.c:258:2:
+ warning: variable 'x_flags' is uninitialized when used here
+To: David Howells <dhowells@redhat.com>
+Cc: kbuild@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>, 
+	kbuild-all@lists.01.org
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=LCNg1f86;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::429
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -155,237 +131,108 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi, Nathan,
-
-On 11/13/19 9:01 PM, Nathan Chancellor wrote:
-> On Wed, Nov 13, 2019 at 10:51:42AM +0100, Thomas Hellstr=C3=B6m (VMware) =
-wrote:
->> From: Thomas Hellstrom <thellstrom@vmware.com>
->>
->> With AMD-SEV high-bandwidth port messaging runs into trouble since the
->> message content is encrypted using the vm-specific key, and the
->> hypervisor is unable to read it.
->>
->> So use unencrypted dma-coherent bounce buffers for temporary message
->> storage space. Allocating that memory is expensive so a future
->> optimization might include a static unencrypted memory area for messages=
-.
->>
->> Signed-off-by: Thomas Hellstrom <thellstrom@vmware.com>
->> Reviewed-by: Brian Paul <brianp@vmware.com>
-> Hi Thomas,
+On Wed, Nov 13, 2019 at 9:59 AM kbuild test robot <lkp@intel.com> wrote:
 >
-> The 0day team has been doing clang builds for us and sending the results
-> to our mailing list for triage; this patch causes the following warning.
-> Seems legitimate, mind taking a look at it and resolving it how you see
-> fit?
+> CC: kbuild-all@lists.01.org
+> TO: David Howells <dhowells@redhat.com>
 >
-> Cheers,
-> Nathan
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/linux-fs.git fscache-iter
+> head:   f62d2e3b55357b54ea4a541e85200ecdccfce7b4
+> commit: b546e3179314dd9f56dd09047dfdaf93a2baada3 [23/33] fscache: Add read helper
+> config: x86_64-rhel-7.6 (attached as .config)
+> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 335ac2eb662ce5f1888e2a50310b01fba2d40d68)
+> reproduce:
+>         git checkout b546e3179314dd9f56dd09047dfdaf93a2baada3
+>         # save the attached .config to linux build tree
+>         make ARCH=x86_64
+>
+> If you fix the issue, kindly add following tag
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+> >> fs/fscache/read_helper.c:258:2: warning: variable 'x_flags' is uninitialized when used here [-Wuninitialized]
+>            x_flags |= fscache_shape_extent(req->io_handle, extent, i_size, false);
+>            ^~~~~~~
+>    fs/fscache/read_helper.c:239:23: note: initialize the variable 'x_flags' to silence this warning
+>            unsigned char x_flags;
+>                                 ^
+>                                  = '\0'
 
-This should be harmless as dma_free_coherent() with reply =3D=3D NULL is a=
-=20
-nop, but anyway I'll respin to silence the warning.
+Hi David, 0day bot flagged this from a Clang build. Warning looks
+legit, can you please take a look?
 
+>    1 warning generated.
+>
+> vim +/x_flags +258 fs/fscache/read_helper.c
+>
+>    209
+>    210  /**
+>    211   * fscache_read_helper - Helper to manage a read request
+>    212   * @req: The initialised request structure to use
+>    213   * @extent: The extent of the pages to access
+>    214   * @requested_page: Singular page to include
+>    215   * @pages: Unattached pages to include (readpages)
+>    216   * @type: FSCACHE_READ_*
+>    217   * @aop_flags: AOP_FLAG_*
+>    218   *
+>    219   * Read a sequence of pages appropriately sized for an fscache allocation
+>    220   * block.  Pages are added at both ends and to fill in the gaps as appropriate
+>    221   * to make it the right size.
+>    222   *
+>    223   * req->mapping should indicate the mapping to which the pages will be attached.
+>    224   *
+>    225   * The operations pointed to by req->ops will be used to issue or reissue a
+>    226   * read against the server in case the cache is unavailable, incomplete or
+>    227   * generates an error.  req->iter will be set up to point to the iterator
+>    228   * representing the buffer to be filled in.
+>    229   */
+>    230  int fscache_read_helper(struct fscache_io_request *req,
+>    231                          struct fscache_extent *extent,
+>    232                          struct page **requested_page,
+>    233                          struct list_head *pages,
+>    234                          enum fscache_read_type type,
+>    235                          unsigned int aop_flags)
+>    236  {
+>    237          struct address_space *mapping = req->mapping;
+>    238          struct page *page;
+>    239          unsigned char x_flags;
+>    240          pgoff_t eof, cursor, start, first_index, trailer = ULONG_MAX;
+>    241          loff_t i_size;
+>    242          int ret;
+>    243
+>    244          first_index = extent->start;
+>    245          _enter("{%lx,%lx}", first_index, extent->limit);
+>    246
+>    247          ASSERTIFCMP(requested_page && *requested_page,
+>    248                      (*requested_page)->index, ==, first_index);
+>    249          ASSERTIF(type == FSCACHE_READ_LOCKED_PAGE ||
+>    250                   type == FSCACHE_READ_FOR_WRITE,
+>    251                   pages == NULL);
+>    252          ASSERTIFCMP(pages && !list_empty(pages),
+>    253                      first_index, ==, lru_to_page(pages)->index);
+>    254
+>    255          i_size = i_size_read(mapping->host);
+>    256          eof = (i_size + PAGE_SIZE - 1) >> PAGE_SHIFT;
+>    257
+>  > 258          x_flags |= fscache_shape_extent(req->io_handle, extent, i_size, false);
+>
+> ---
+> 0-DAY kernel test infrastructure                 Open Source Technology Center
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911140105.a5aulJde%25lkp%40intel.com.
+
+
+
+-- 
 Thanks,
+~Nick Desaulniers
 
-Thomas
-
-
-> On Thu, Nov 14, 2019 at 03:36:44AM +0800, kbuild test robot wrote:
->> CC: kbuild-all@lists.01.org
->> In-Reply-To: <20191113095144.2981-1-thomas_os@shipmail.org>
->> References: <20191113095144.2981-1-thomas_os@shipmail.org>
->> TO: "Thomas Hellstr=C3=B6m (VMware)" <thomas_os@shipmail.org>
->> CC: dri-devel@lists.freedesktop.org, Thomas Hellstrom <thellstrom@vmware=
-.com>, Brian Paul <brianp@vmware.com>, Thomas Hellstrom <thellstrom@vmware.=
-com>, Brian Paul <brianp@vmware.com>
->> CC: Thomas Hellstrom <thellstrom@vmware.com>, Brian Paul <brianp@vmware.=
-com>
->>
->> Hi "Thomas,
->>
->> I love your patch! Perhaps something to improve:
->>
->> [auto build test WARNING on linus/master]
->> [also build test WARNING on v5.4-rc7 next-20191113]
->> [if your patch is applied to the wrong git tree, please drop us a note t=
-o help
->> improve the system. BTW, we also suggest to use '--base' option to speci=
-fy the
->> base tree in git format-patch, please see https://stackoverflow.com/a/37=
-406982]
->>
->> url:    https://github.com/0day-ci/linux/commits/Thomas-Hellstr-m-VMware=
-/drm-vmwgfx-Use-dma-coherent-memory-for-high-bandwidth-port-messaging/20191=
-114-020818
->> base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.g=
-it 0e3f1ad80fc8cb0c517fd9a9afb22752b741fa76
->> config: x86_64-rhel-7.6 (attached as .config)
->> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 335ac2eb662=
-ce5f1888e2a50310b01fba2d40d68)
->> reproduce:
->>          # save the attached .config to linux build tree
->>          make ARCH=3Dx86_64
->>
->> If you fix the issue, kindly add following tag
->> Reported-by: kbuild test robot <lkp@intel.com>
->>
->> All warnings (new ones prefixed by >>):
->>
->>>> drivers/gpu/drm/vmwgfx/vmwgfx_msg.c:441:6: warning: variable 'reply_ha=
-ndle' is used uninitialized whenever '||' condition is true [-Wsometimes-un=
-initialized]
->>             if (vmw_send_msg(&channel, msg) ||
->>                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     drivers/gpu/drm/vmwgfx/vmwgfx_msg.c:467:47: note: uninitialized use =
-occurs here
->>             dma_free_coherent(dev, reply_len + 1, reply, reply_handle);
->>                                                          ^~~~~~~~~~~~
->>     drivers/gpu/drm/vmwgfx/vmwgfx_msg.c:441:6: note: remove the '||' if =
-its condition is always false
->>             if (vmw_send_msg(&channel, msg) ||
->>                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->>     drivers/gpu/drm/vmwgfx/vmwgfx_msg.c:421:37: note: initialize the var=
-iable 'reply_handle' to silence this warning
->>             dma_addr_t req_handle, reply_handle;
->>                                                ^
->>                                                 =3D 0
->>     1 warning generated.
->>
->> vim +441 drivers/gpu/drm/vmwgfx/vmwgfx_msg.c
->>
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  400
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  401
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  402  /**
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  403   * vmw_host_get_guesti=
-nfo: Gets a GuestInfo parameter
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  404   *
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  405   * Gets the value of a=
-  GuestInfo.* parameter.  The value returned will be in
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  406   * a string, and it is=
- up to the caller to post-process.
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  407   *
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  408   * @dev: Pointer to st=
-ruct device used for coherent memory allocation
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  409   * @guest_info_param: =
- Parameter to get, e.g. GuestInfo.svga.gl3
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  410   * @buffer: if NULL, *=
-reply_len will contain reply size.
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  411   * @length: size of th=
-e reply_buf.  Set to size of reply upon return
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  412   *
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  413   * Returns: 0 on succe=
-ss
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  414   */
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  415  int vmw_host_get_guest=
-info(struct device *dev, const char *guest_info_param,
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  416  			   char *buffer, si=
-ze_t *length)
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  417  {
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  418  	struct rpc_channel ch=
-annel;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  419  	char *msg, *reply =3D=
- NULL;
->> 6073a09210e06f Himanshu Jha      2018-03-22  420  	size_t reply_len =3D =
-0;
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  421  	dma_addr_t req_handle=
-, reply_handle;
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  422  	int req_len =3D strle=
-n("info-get ") + strlen(guest_info_param) + 1;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  423
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  424  	if (!vmw_msg_enabled)
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  425  		return -ENODEV;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  426
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  427  	if (!guest_info_param=
- || !length)
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  428  		return -EINVAL;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  429
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  430  	msg =3D dma_alloc_coh=
-erent(dev, req_len, &req_handle, GFP_KERNEL);
->> 1a4adb05632e90 Ravikant B Sharma 2016-11-08  431  	if (!msg) {
->> 3fbeccf8ceb165 Thomas Hellstrom  2018-06-20  432  		DRM_ERROR("Cannot al=
-locate memory to get guest info \"%s\".",
->> 3fbeccf8ceb165 Thomas Hellstrom  2018-06-20  433  			  guest_info_param)=
-;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  434  		return -ENOMEM;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  435  	}
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  436  	snprintf(msg, req_len=
-, "info-get %s", guest_info_param);
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  437
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  438  	if (vmw_open_channel(=
-&channel, RPCI_PROTOCOL_NUM))
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  439  		goto out_open;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  440
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23 @441  	if (vmw_send_msg(&cha=
-nnel, msg) ||
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  442  	    vmw_recv_msg(dev,=
- &channel, (void *) &reply, &reply_len,
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  443  			 &reply_handle))
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  444  		goto out_msg;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  445
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  446  	vmw_close_channel(&ch=
-annel);
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  447  	if (buffer && reply &=
-& reply_len > 0) {
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  448  		/* Remove reply code=
-, which are the first 2 characters of
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  449  		 * the reply
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  450  		 */
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  451  		reply_len =3D max(re=
-ply_len - 2, (size_t) 0);
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  452  		reply_len =3D min(re=
-ply_len, *length);
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  453
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  454  		if (reply_len > 0)
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  455  			memcpy(buffer, repl=
-y + 2, reply_len);
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  456  	}
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  457
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  458  	*length =3D reply_len=
-;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  459
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  460  	dma_free_coherent(dev=
-, reply_len + 1, reply, reply_handle);
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  461  	dma_free_coherent(dev=
-, req_len, msg, req_handle);
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  462
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  463  	return 0;
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  464
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  465  out_msg:
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  466  	vmw_close_channel(&ch=
-annel);
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  467  	dma_free_coherent(dev=
-, reply_len + 1, reply, reply_handle);
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  468  out_open:
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  469  	*length =3D 0;
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  470
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  471  	DRM_ERROR("Failed to =
-get guest info \"%s\".", guest_info_param);
->> 6bdb21230a2a01 Thomas Hellstrom  2019-11-13  472  	dma_free_coherent(dev=
-, req_len, msg, req_handle);
->> f37230c0ad4810 Thomas Hellstrom  2018-05-23  473  	return -EINVAL;
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  474  }
->> 89da76fde68de1 Sinclair Yeh      2016-04-27  475
->>
->> :::::: The code at line 441 was first introduced by commit
->> :::::: f37230c0ad481091bc136788ff8b37dc86300c6d drm/vmwgfx: Fix host log=
-ging / guestinfo reading error paths
->>
->> :::::: TO: Thomas Hellstrom <thellstrom@vmware.com>
->> :::::: CC: Thomas Hellstrom <thellstrom@vmware.com>
->>
->> ---
->> 0-DAY kernel test infrastructure                 Open Source Technology =
-Center
->> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corpo=
-ration
-
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/a2d2b374-229c-98fa-fb40-6e76a386f188%40shipmail.org.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm7Ydt4D4F6se3VOVtgwbL6%2B%3DzHBYr0b_16Nvf3dSpRPA%40mail.gmail.com.
