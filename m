@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBCU73AEHRQBBBCGEWDXAKGQE45MMXRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU73AEHRQBBBNGHWDXAKGQEQONL5CY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 217E3FB3C1
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 16:32:26 +0100 (CET)
-Received: by mail-vk1-xa3b.google.com with SMTP id l4sf1163626vkn.6
-        for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 07:32:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573659145; cv=pass;
+Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 38C2BFB3D5
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 16:39:34 +0100 (CET)
+Received: by mail-ot1-x339.google.com with SMTP id s1sf1371315oth.15
+        for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 07:39:34 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573659573; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AS1SqZgDJor2r/g+FqB15CnZbYnVdYM81OIH2r5318q9Ls5Ww64iTTO4dKe8id0NFd
-         frblif3RzFycmY7c9t1OTO8eRWafyP71xEu1PkuUzbVdH/x0dFrOi1CpA874piwx1ivh
-         Qgf1Ls3WvRNcC0QZ4ausD7FLce0gV14ix6txI9kVd1Qt4k7FE1Uqps9QbjeKrBW2Gbqg
-         ZCZQhwDdOA4j+J2u//lt1gV/zKzzZKkyUrAtRbcUSe2rLAqESFptnkQiLgk03nURffAl
-         B3oxINT6ET2BbilLiVVbS6PDohUrYXD5gHYslTvA4p2wu/5emmQG4Dis1hMONVupOhoH
-         JF3g==
+        b=IopY7/mW30EA84faKZD6LrwHB2KcKU2WGNNNwmSMZxerOLOVs/xfSPKw8xE3U7qNmB
+         YRKz6GQfQu2i8a54rinSLECdn4iW0CNu0snKuTMznhtIZPMuJ4mmpDSZqJHTDoMOmCQY
+         a/Sf5kUigbSY2xaDif5Oq8pvFzrtLQy4RaSkYLUK3BVlQHrgX4Phdck1Jzkm/XuNmo/X
+         mcphrEO2FhHNHSfNHY1RTfPk9Z04Cyxb327Y4mPzQzHG+P5Q+v8I51RO76zUYfq9mc91
+         R+4/QHAz0CakDCLuIoTKdcBbvXCHLrRBeukNacA50rKnLFfrCLmn+KjVLuTiRYUpREan
+         KAtw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=cSCvEEFBLKaWNx2dcQIPzkYS2TxVZrfD0+dkG7fQQco=;
-        b=X+0EegYEj1oVhnyZXr10ksPqQMGFSgcakXMKaVZ2FFfckuKuVU56Y5wavAGeWELzBm
-         UOzWO/6BAe677JwYLlTXUdw95gKY6wj1q3RsCNaxh8qLbihP7L/3zPd/ASooyMDZg9oe
-         fPiKTi7bq5vPlUs13S+8ZpXcqG28p3izahOIMENUTBo0ZjHxq5ulqvcN9DHnFxZivmro
-         xe9QYcKRw2r2n6+VwmqzLLWI1gl9tzCuyg+NaRUpr+By30XtoXx6Ileh0LtARXCjC8u5
-         a+iFq5As0/Hz3p4wBxz2rWn2F9Ci0R8zNAJIJQLtjey6Mlhjjy/p8oAHdMO+aBbQd+HY
-         DftQ==
+        bh=JIFVjIQyDhN9v6k9P2Lyt+p5toQxgRj+bSSxp+jyjfM=;
+        b=owGcJp/ECZlMF873VAb5Zw8XXKLiLcWwrC1WP/lCG+4u2oBlcltn0fQBSnFe1WexJl
+         8ucP8kgL29SkvyJZ0cRu48LeoR0Ctx9ENJJ8oMV+2qzM25+UqjiyPePEQXHThLBm34xx
+         O9yi4HBL5EjJFsHoKIKRqFjMJwXAqLl1TMHp2WEQtko+nCCDRxyt5mw5UivolaXQxqti
+         G+DqDsHC7qCBv+YkYSNfmtI866q/4FW904U0cs1u+FMV8Jm0MXT/yTHxoVgvbv1FHEoN
+         CK6kKh0RKI9SAv+e6ib+hefDIm1FiBX77pFanIDdD6XsSbFwkHhYsm+r4iicArsc/Ykz
+         YQJw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of srs0=n35v=zf=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=n35v=ZF=goodmis.org=rostedt@kernel.org"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cSCvEEFBLKaWNx2dcQIPzkYS2TxVZrfD0+dkG7fQQco=;
-        b=sLVOvs7H2Wr5GrYw2JJpISyMLkS5+gOa5ttPfBoA21QJ28pTMQF9Hs5uroQhnRYkhv
-         9w3hqmTnHlcewumpnoqw7sSiOQyCGwJ4PamGXJijSi7BopdJXrsIq6vejCNy7mWsfeHF
-         1lPMqA1eDlKkjxv7vqeUk6ytdA4JKKPvkCKMQpOI65ygyJ5jrz8LrMmvX7zE03YEsl4W
-         bhLpTRP2hC+WCrbDPt6nNcXcNj0zeaWZbtOh6Dwx7BW63U0L71Vd+gYwc9CtdmntpvNf
-         WTtZ7RwBgTYmmoMmdg6bzf4uG6hFekdtF7cVtBv7FpRJrob1HHOZSBbvQUFwVtqxjC40
-         uRPA==
+        bh=JIFVjIQyDhN9v6k9P2Lyt+p5toQxgRj+bSSxp+jyjfM=;
+        b=e/S0bL2VKmt44iEO/SgqdGiz7/2SbeVbWA+qHWkYGUF9u9fR7RSZ5U9NvHRweA5kRF
+         8HGjAL1spGwo6PjZE5IS2CdXuIdGibLfKu7zRht6IO1oCHtBvLv+Ba+PNxd81R6TXmvS
+         xJoZkKI4uAITeWUDoSj6pPNb17K/bJ9DgP1jlbI/gk1bSpyaXhxLvzzxmCLeWd6X9TZi
+         oyFQIQe6mouMXC/yculmUDSkiLr+sqUpPGP7ul06TW5pFSTA9MH6RZ3JKGpSvnhfsbsV
+         A7oG0Hsdl8yyQWNQJ//V2zN5FWDMYDb4lR5VWclVpa6prhmDEu9MaU+fFne3rRIop+rY
+         lhhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -47,59 +47,59 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cSCvEEFBLKaWNx2dcQIPzkYS2TxVZrfD0+dkG7fQQco=;
-        b=p3Zgj7Wvcl9OkfIiY6XR9ox/dDfT8ZcRzFjAjLJK+vAF0t8QOVf147I9TG/EThVzl7
-         uV02/ikj/ZUOAXqqObHItb8W7ChNnGSvmvax7mqxwcxlJNckpCCjKgwrg9J64umbJhrB
-         nCPP/qlh+Vf7DLO/I5rPvWri0omUED2wYM8/a923nEPe/cqISWwt84J8cW+qwwT3rDY3
-         7kWbGMZNCLtk63lgCFVlTLaP8FllFVk9bWa+8qbRnqNaLxZ9SMHkmj0+UhI23eTfR9A9
-         aGRD40DzW7ykTE+JJV+WJrQ8fb2cAAX4E/FU7WGE9SH2GiTzH0pDtXpdBAJAQIvKhVRu
-         /qWA==
+        bh=JIFVjIQyDhN9v6k9P2Lyt+p5toQxgRj+bSSxp+jyjfM=;
+        b=DScevUnAD5oiv0dOpsstrO/nc1B9a/MyWkfY0gj86Kctm+k9BzY2A1OS5zGLjasaBj
+         7K2+WWR0rscs8j56OB6V6Z8Q2O/5WZBLyPSI2hG2f2ZdIbrlDNXyeuz2HXCvJBAynjJC
+         AJoKBa7HAXBAMwmwHvvSvcO35046NvHuCGDDJ27x+NJewVQc6aDAT4J69eJjVteutWZ3
+         Xx3n+5FDkQOqWbhPhl+thFuecwz9xJsVlmI17G9UUh0iIe21F3c6PdEBfSbwHsKQKnrL
+         bEEgOW0TFfCEyvS8G6ZhFWj7EZJdAIdoUWSTU2JOSaEXBKbgcG6BICtFPaHrBB2XNj4U
+         hjKg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVS9Bnzp7Q3wH1zDU75Pn74IE4dnyWdh5cBj3xsUsktFLoS++3g
-	whGuXPWj5tlymJp+oxeQOis=
-X-Google-Smtp-Source: APXvYqzkJLLra5TAQToTH0QEurJWnIMBrj3zH7wIUa4ZBcfjT8cS3pMFZKSiGKYL2NQOnn+9NIFwBg==
-X-Received: by 2002:a67:d019:: with SMTP id r25mr2286884vsi.107.1573659144896;
-        Wed, 13 Nov 2019 07:32:24 -0800 (PST)
+X-Gm-Message-State: APjAAAXiB6eTQuSNNWQ1ptPX8X5c94fKXKoDm5/jnWTo13bRmdkWw3X9
+	N68miLsP2ELg5Gx43qtiABM=
+X-Google-Smtp-Source: APXvYqyuOv+o1YYCbJJa4noFfBuslFyQRI5a9APH92xrdIKecmaP9twJI6TuFmIFIyRNLdoihDLdiA==
+X-Received: by 2002:a9d:30d2:: with SMTP id r18mr3933076otg.287.1573659572837;
+        Wed, 13 Nov 2019 07:39:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac5:c967:: with SMTP id t7ls48228vkm.4.gmail; Wed, 13 Nov
- 2019 07:32:24 -0800 (PST)
-X-Received: by 2002:ac5:c2c3:: with SMTP id i3mr376784vkk.17.1573659144419;
-        Wed, 13 Nov 2019 07:32:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573659144; cv=none;
+Received: by 2002:a05:6808:68f:: with SMTP id k15ls878541oig.15.gmail; Wed, 13
+ Nov 2019 07:39:32 -0800 (PST)
+X-Received: by 2002:aca:5158:: with SMTP id f85mr4364805oib.86.1573659572404;
+        Wed, 13 Nov 2019 07:39:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573659572; cv=none;
         d=google.com; s=arc-20160816;
-        b=cRs+Qkq0kHe081tFJ1VNQd6SeiF0S0xdFbgJWYjWx9tOt8rjtk5nCOyXHvo7wzyjuL
-         9q4HwBDl1vFXPdyaFAJ1gJjvM2teMGeLR4aTYK6Q6LScDBi8I7IcWUGwoRoRpr90QIMp
-         ZxWSi9nCgld64dyq34ZVLpLntMXGYeZwW8daMjX6hdkMioxe6GC5Bi41c0iz07gGIuuu
-         FysUiiieXfKE8Svo1ftwaf6yawiHbjiCbq8+8GPHDHtgDid8CXv78nwHKwP0QJ4SQk6F
-         qgrrg8QcdZmVD38+hmy+HOSLJ+fh56pKnAS/wWCN+To1mq027dGMb3eYs7xWkCR3+cZ6
-         Ni/Q==
+        b=nt4UTeXcamUS7u3yx3uGY3M7VcWKGf3gTW5gVVn0dAxzQ4N5h+ahPxHinv00kBXwWS
+         /e/LQ+eyNeHtPqoMYZMNwiocrodq/1DrYCgWc9ACWDeYW+ux5sbj9FKrekAuuyTQXalP
+         OxPSbz532WeruQ2OMpWs5+/dmOtbsWIIgfgHKdfccH21SgxrHODdccodeoSeIczhd4Ir
+         MHN9XUj5BoZ324b4aMTpzz8M6bCPZmFkxsTGCcsAbrHFrgaMtsimwgGv7aNYoVO4k/yo
+         Q2Agl39OTGvQ0m2hrAT+dNdeoL3sqSPLPgLmNz4wxLeVmJPwuCNU8WzEda2OXPjD4YK9
+         fYQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date;
-        bh=e5rvMICZAsQwI1I30ZpWQ1rTleXP19y89+IzS9q5pJ8=;
-        b=LDOEpd+0rlUyHkHRjSr4/a9htwXC29S+20UuTGH9YdsICXO+K8ABdPblw3c4GcyeoC
-         RSNt7Q4LFWnt2Ri81Cs41Bmi6NmUCzpcEHIfPrhzfsGgiAefVwOGYZebFrIebZS6oX3I
-         yuRdtahsMEkMJSQ7erAX6tXypaiiRu1QKFwx02CTFqtC9faFgHSADbGzoaKsSusw0PL9
-         4P09JiFuId8OOda3d2BaIYCnFsyOPl35BRrThH26oPNBav6bOJYjS8Hg+50PQFVJR+0r
-         rBS6kQKugFGFeQyY4jp+RDOROk8Emvt4nvz1SRKlwUazgL+Ev4xV0+cILbFdtRxaznQg
-         EYDQ==
+        bh=gw4IJXXLhJTYsyl2Q+LUl3qKNOOTxXdEzG324677S2A=;
+        b=fZj/Ma5L13+qd8ar4rI15mfHLHd42mvhu7zDpLL5kQSAvYP29/ty55uECS6rMs2Abv
+         wc8w8ac0un328GU15/UuTcQ1UMJmh4d1E40la6rwL/vu26EwBXuQ0nALJKQvbT7DjLne
+         Hn/kXViV/8XErxjKKRzlmlxfqAzIGkcy3KyYO2HTfL7/YEba0LUKD86fV0xncEnkT89o
+         qAuFZx+YbmkHQp7AmvNEEXvtnXJduWujYBnmNjs73POGpo9yFn57SSzC4DuQnf+WCeJz
+         ChS0si83PprPb5ugvL+I+7FQmxDOA+NR4HJepmai4DtGawj2DQQdlxvBpUnHhpkKNZkF
+         lZEQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of srs0=n35v=zf=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=n35v=ZF=goodmis.org=rostedt@kernel.org"
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f12si76929vso.1.2019.11.13.07.32.24
+        by gmr-mx.google.com with ESMTPS id j190si118529oib.0.2019.11.13.07.39.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 13 Nov 2019 07:32:24 -0800 (PST)
+        Wed, 13 Nov 2019 07:39:32 -0800 (PST)
 Received-SPF: pass (google.com: domain of srs0=n35v=zf=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com [66.24.58.225])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id BEBEA20679;
-	Wed, 13 Nov 2019 15:32:15 +0000 (UTC)
-Date: Wed, 13 Nov 2019 10:32:14 -0500
+	by mail.kernel.org (Postfix) with ESMTPSA id 688C62248C;
+	Wed, 13 Nov 2019 15:39:24 +0000 (UTC)
+Date: Wed, 13 Nov 2019 10:39:22 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
 To: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>
-Cc: Petr Mladek <pmladek@suse.com>, Dmitry Safonov <dima@arista.com>,
+Cc: Dmitry Safonov <dima@arista.com>, Petr Mladek <pmladek@suse.com>,
  linux-kernel@vger.kernel.org, Dmitry Safonov <0x7f454c46@gmail.com>, Andrew
  Morton <akpm@linux-foundation.org>, Greg Kroah-Hartman
  <gregkh@linuxfoundation.org>, Ingo Molnar <mingo@kernel.org>, Jiri Slaby
@@ -150,15 +150,15 @@ Cc: Petr Mladek <pmladek@suse.com>, Dmitry Safonov <dima@arista.com>,
  Douglas Anderson <dianders@chromium.org>, Jason Wessel
  <jason.wessel@windriver.com>, kgdb-bugreport@lists.sourceforge.net
 Subject: Re: [PATCH 00/50] Add log level to show_stack()
-Message-ID: <20191113103214.1585923c@gandalf.local.home>
-In-Reply-To: <20191112044447.GA121272@google.com>
+Message-ID: <20191113103922.3dc3e8e9@gandalf.local.home>
+In-Reply-To: <20191112021747.GA68506@google.com>
 References: <20191106030542.868541-1-dima@arista.com>
 	<20191106083538.z5nlpuf64cigxigh@pathway.suse.cz>
 	<20191108103719.GB175344@google.com>
 	<20191108130447.h3wfgo4efjkto56f@pathway.suse.cz>
 	<20191111012336.GA85185@google.com>
-	<20191111091207.u3lrd6cmumnx4czr@pathway.suse.cz>
-	<20191112044447.GA121272@google.com>
+	<13e72b62-c842-8ed5-5b41-bc1692b28f53@arista.com>
+	<20191112021747.GA68506@google.com>
 X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
@@ -178,27 +178,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 12 Nov 2019 13:44:47 +0900
+On Tue, 12 Nov 2019 11:17:47 +0900
 Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com> wrote:
 
-> > > I do recall that we talked about per-CPU printk state bit which would
-> > > start/end "just print it" section. We probably can extend it to "just
-> > > log_store" type of functionality. Doesn't look like a very bad idea.  
-> > 
-> > The problem with per-CPU printk is that we would need to disable
-> > interrupts.  
+> void show_stack(struct task_struct *task, unsigned long *sp, int log_level)
+> {
+> 	printk_emergency_enter(log_level);
+> 	__show_stack(task, sp);
+> 	printk_emergency_exit();
+> }
+> // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - //
 > 
-> Or disable preemption and have loglevel per-CPU and per-context.
-> preempt_count can navigate us to the right context loglevel on
-> particular CPU. I'm talking here only about backtrace (error)
-> reporting contexts. Those can be atomic perfectly fine.
+> show_stack() never schedules, disabling preemption around it should
+> not change anything. Should it be interrupted, we will handle it via
+> preempt count.
 
-With my real-time hat on, I'm totally against disabling of preemption
-for this purpose.
+Please no! The whole point of the printk rewrite was to allow for
+printk to be preemptible and used in more contexts. The show_stack() can
+be all over the place and is not a fast function. Let's not disable
+preemption for it.
 
 -- Steve
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113103214.1585923c%40gandalf.local.home.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113103922.3dc3e8e9%40gandalf.local.home.
