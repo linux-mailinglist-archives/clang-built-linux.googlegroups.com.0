@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBDWGVXXAKGQEZNWBSFI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBFOGVXXAKGQEQZNBA3Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb40.google.com (mail-yb1-xb40.google.com [IPv6:2607:f8b0:4864:20::b40])
-	by mail.lfdr.de (Postfix) with ESMTPS id F1B97FA16C
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 02:57:35 +0100 (CET)
-Received: by mail-yb1-xb40.google.com with SMTP id j66sf683175ybg.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 17:57:35 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573610255; cv=pass;
+Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
+	by mail.lfdr.de (Postfix) with ESMTPS id 798A5FA16D
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 02:57:42 +0100 (CET)
+Received: by mail-qk1-x739.google.com with SMTP id x186sf496843qke.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 17:57:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573610261; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pidr+sXhMF/M3PODHCKMOBK129xb2wyD2pMtXBRKw3Kk5uOqanAUQWYEuIbU7HLkCT
-         Z+s17GBbouSrhUjK8QeAzSXcbpeOngh56HtL3SeVWxUYXj+gXcNXALLr14ml9qQbggqi
-         YpSuWyk9+vR1Et4xQ/ZwTP1u5lepVQOnd9qB7J2qc/f7L1cAC3o+9DCoaZTXIkupEl2t
-         8HV+fM1gg9CJxgsIV6kGSBQlFqX4DXLCe9WgarCeAtKnkNTTVmq6XTMuN8B0YPrfU+Qz
-         uCOOruzDBt7gk/Lvv6STRJmgIAOJ836RYvPRvgrJnwQCO3m70dtwPNn3s1HF1Hq8m5Zk
-         t8kg==
+        b=tri2XBBeGt6EPbYXcYBh4Zwh7/SKaaZYtGUR8vsaMuIUl5FSeyDoi2N5V3NhhYegKM
+         DdzSA1hcqvnfYV22bsbse4NNQYmmyfANmoZZOfFj90rIzSdW7L8zjdXXv32HgltCdPoH
+         bXh+uK99+tjLtGplWCYovnaFIW398BGK6aFKOpsGcUA8sTmke3Gar/LTNPMzz6oFNO4k
+         YgFZ7AHKVmQcBqeJwYhznr9tJWTxX1zK2fLShfIAIDXViacGXPWCsqBqVFtJAbCP9sM6
+         TQGpmn9FXbP1vJ83FQAxv/ejzVRMS3T5JsMoEjauHXm/OuB9M6S6ti4FYFV0RtS0Cqu7
+         J9oA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=k6D+nZi4NCsBBJuULiNC1GumJAvvD4dsesa0C25TMcI=;
-        b=uxT+rPrJFa9N0bfZJZ5jAHH9V+dfHsNKoLWumEcJOkjkSaaWCOMcCSYra2EFtMuqxK
-         YYIREpQBiyvvsX0QZaLgjv2mGJneOKdUxEedlOgb7ylA5XbIHtykQfOCRLxliBLVWTpF
-         mJNwYJWXjY0wU0bhXQRePzSsdyFiBrNRLVRzWNb8GxC4PksIBgdSjr2dX04ETtrDiGSb
-         m1SyLhv4wfSsmccsrddbfRIJyGVdO51b7fMR7cyz5JBhaJ6ZkF9vLcM3OzxS+jgpdR5B
-         F//SEw/j/AchylxWsIrOeCtR9+yl6gt2AoC78YY2LvB1xX4yfb6KMVRR+DBn8dP9nJK0
-         2o/g==
+        bh=TcN4sCKTMNgnjTkoB1CAmg7v2ZIJRQ8ugPfowqUYObU=;
+        b=A/GDWqY/RzKIFZdQChpXCFWhC1qC0C8je8tV7VchB3xUO3i49Y+auViQZIdO9Goo0D
+         2o5Vgf8YBxu85orE/IKuCIDmXi9Jg6jo34biWYd6MIXiXnK8rk/FrKRzzou4d7hti5Dd
+         QWcWHwl48Ob20VzieOeDXS9jfmOm2QF47197IazFgfZlOXDq1R/S2OniF0CgjMqWBL1B
+         /vvNoCsE3D+JVTQRLGcizAFOOVryhLZTiu0ME4dbse0x6YaWKNJg/kc5ldNQlzGdc1kW
+         6XK7Hcxw6gx1SNw3FP6V3xAtrxf8Q83LL/RysV1vZ/SFLXxaRKtcWMhM2FnIhKBB9YWH
+         P64g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=vpTjgECG;
+       dkim=pass header.i=@kernel.org header.s=default header.b=mgUmwHMF;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=k6D+nZi4NCsBBJuULiNC1GumJAvvD4dsesa0C25TMcI=;
-        b=awY7zw2KbooQyGDnRL2HVxIaZL5R+gs9K+eL809+ZL3YWkf2JGshzVcj9rm3xV0Kn7
-         8l9p8vt6UX8knSLqQBxat2Y8kxUACh9K3Ej3e6FmUhL1oDLuf7pqxUhEj9N5NOiEpKTU
-         gOHkLJfzlJ+O5WemwTE1nQ/zrVrzqDCk7S7XRi9mN5vENVvfpIpJDL7QIjpmP2fwsY16
-         YVNhJF1fGg52kXSsglvOlJmAONCBqVjVPChxKsay5H90EhZp2EicKc6/HhAEFp+/SYGT
-         fupa2xu8azJ1bqhNSuiqebEsVmTEZdvf2Z469eVwS3AMM17gjs75L8qQUMypPjigV+zl
-         1E1A==
+        bh=TcN4sCKTMNgnjTkoB1CAmg7v2ZIJRQ8ugPfowqUYObU=;
+        b=AFvTGI7sWFvEbHds5OnYP06EglXBBZNCUJklXt0qDBnIPhk0BfE7zW+bJ5k6QsqsxS
+         yztUi4W5+N+1Kp2CSn4kwXC1HCLeO0d55OYYi/gPlUAqU0OOsZ/0lUD6DdYUfHhpQUAQ
+         EzvBEB6IUMaGBbPHH7vq8gWVlktEGrofEzGzKjF2R7mhKTGs8jQGc1k1Y0BIKaWQJvR2
+         QopvkHaFRUCU99xmePSvhbiOs+dVk8kt32lu6Ax6wXh/GZaWS30ZbirEiuSlejyhkIlj
+         9BQ38oZsRR9UrRYG10Bs1rwsdT9qyzCuN1nMJdtMqgkLfbxChRnVoX2HUpMDIXaqaSmz
+         4hsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,69 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=k6D+nZi4NCsBBJuULiNC1GumJAvvD4dsesa0C25TMcI=;
-        b=peZjFPiQUC2MmhBThE1YQK4K2VzuckH/31EU5EYC8Fe7pG13lm8NxxQx2CNKMhdzjw
-         MQ1ZE1Bfii4+bO8KzWiwk8YCRIGkwYraoKDgwrIqgZLnRx8j3yDOsAd5VS6OM8gTyzn8
-         wjdkOtRKwYCRdSxP440Anv/aE1BwV/U2HadQ+kgonnGHVnXM1saZRbDj3mu6YZCKqFqa
-         UV32jO0LgSGJhGJONF2aOggX4OseolT5iBv5tMVL/CfYfL/NLMNFy/f36UNSV6bzFx8F
-         U0dH/H2ISJDaYzSH0gZDDanvBqv5QinDKAj0figEV2GmKQ5xtRElYGgv1Amm0x1q7g6k
-         c9vg==
+        bh=TcN4sCKTMNgnjTkoB1CAmg7v2ZIJRQ8ugPfowqUYObU=;
+        b=qXO1lgQT6uDWXbkbTIo7U+34ZgKHjsEWJE6eBHKqX8deVt8uGSG80vgCYYH31eiLUJ
+         lS5di+GFg5GekODbc1TqQTfwj72sg+/iK0W7vX+RfysrrXMEds4OF0g7BWGi6Vu2wQFv
+         ZogQ9+fHKRrmirxrdhGTewf0vkfCwKbl/bLi3Eowc7ZX4UjpOrQJDIUr4jonxHsLVg0I
+         LsNxIdFcgh6dBUIfkdnPeapI0oSsxopt9LE/ctqtSvzIytU0xaV6ROHtQTYwqQT30S9S
+         MfiF6A+Q/CrZ0VaW9D9hbNEAAt9hNpXZdkpOMzkToZrE8pVv7/9O/hZWHI19c6B7zK0q
+         5WEg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUy6hOBlf0DKQFoT0HvbkVGemNEJJJLResNWtNkLezxDZzbBkYk
-	JDNFcBVMtryxZgHRj9Gyxaw=
-X-Google-Smtp-Source: APXvYqzX109Gsni01e1FcABq2YZ9jjM96kyroLyaI/LxJYsih1TmEEMbxkpGwbMoo26V7HAMpetFLA==
-X-Received: by 2002:a25:be87:: with SMTP id i7mr824442ybk.113.1573610254977;
-        Tue, 12 Nov 2019 17:57:34 -0800 (PST)
+X-Gm-Message-State: APjAAAU3NyfLgRtpgzI1HVnboTLUmvCKs6+dZVixoSBsoYvjEPykZTR7
+	DG2HJYkSIDo+b49Ar+vkzzI=
+X-Google-Smtp-Source: APXvYqxHJ664vg5VuHB8F0tRSO+aumdy4GyAmAp/M6aQjB6nW9G3BJ58retsbMUKvPM8fWGpNPf9ag==
+X-Received: by 2002:aed:2a75:: with SMTP id k50mr432709qtf.346.1573610261557;
+        Tue, 12 Nov 2019 17:57:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:8843:: with SMTP id y64ls130024ywf.5.gmail; Tue, 12 Nov
- 2019 17:57:34 -0800 (PST)
-X-Received: by 2002:a81:c249:: with SMTP id t9mr737465ywg.9.1573610254638;
-        Tue, 12 Nov 2019 17:57:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573610254; cv=none;
+Received: by 2002:ac8:341d:: with SMTP id u29ls240482qtb.2.gmail; Tue, 12 Nov
+ 2019 17:57:41 -0800 (PST)
+X-Received: by 2002:aed:3f2e:: with SMTP id p43mr431950qtf.338.1573610261278;
+        Tue, 12 Nov 2019 17:57:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573610261; cv=none;
         d=google.com; s=arc-20160816;
-        b=zuvacIRehoS5JahQq3ld6QC4tUbOIdNYllvNOOIFGzpV+ipzNhNqYJPBX/8SVfqmfU
-         bu7p1jgJA21/3nKaAIrKH7Wpmo5RmZD0j8McxCbszROdWnHrRV9UDRGGC669jqSH46J6
-         psm/OlvFsIoKVT1BK6kL/EMZXY3TUax+v/Ec95h8oUPx+0CYLdsxOeI27kCXgEHaz9dN
-         PGkHPuVfueVKhRI7ACYwcCiUDbajJWvq4VLXsY26cogCaemmSiiKlzpJ3HHHpSXmviCV
-         3GHPOJZE/Pf0sOKzWK5T5RusdlTGAxoRXQMGigKYO55VDU/abu3QEOVKHsnghuRVqJT2
-         zEHw==
+        b=X0OOsfsBF0G4uPNfoKMFPWEZ9yicpqlvDs+ZFPrBivC8lGiARCluMeJRq+JMuZJ0k4
+         IRO5rmZfPNjlqaK4cY7hNmgBlHGwNZruVV9MUnoOS4lx3mDtzpqRykuGIXnXhG0K5zxH
+         Hb+wDiw7m1Adl7nNb+GRln27c8I534UKlBp+M9t7+aKDHo9HdUkD054RJCMV+fgoVe2P
+         31/Qb6nQDupD76Im4p3IyWCbGDeP5aGG2zqsV2xHWgifWUXhsOZgeHSKL/+u7o4yc0P4
+         aucXiUUAPTgaLgdixpTmQgUZMyg3K9Yp6j6Ny2XZ7/uKBATTEzD+s+4Ygvbul1GCz0d8
+         2Wcg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=0ysBXSX6agXjrMb/nPY+izkNxc177YNqoVVVLLrsfZ4=;
-        b=tXisdWDy7GaWkLdi9Fh9kAvZUbfdaCIKlDN5f9afe8HTCWr0/QTIpnguZI9FwmSmza
-         enb7ZYr0yb/RdX5nvQCT6GHzgthfVlSBWg/XiR1I4prfPZlj/iAclNY96XtLTj9PwbTu
-         7ci0K9UwtOp5Rk4AS5k0g4vK9l0p0KbRv4ZD5u6wd2Mslt+dN35+l8ZAxVEcWo+S5aUd
-         C3aCUo7Vna46VhagYTH2nUiCXHJKBGeDjD4ncXfm7KYNUSiVZBhGZJ8fcVRc/Ksb+k7a
-         m3i44VUn3LP0SD84/5lE5NdmtChPhkh759OWWDiOjfPXz0vrKhghw4dmEcm6JUK27dWq
-         L4tQ==
+        bh=xwTSTY1rmoLu9VYf7Yd7eqsZpy/t1CbJfY7FGPCp+Kg=;
+        b=sRlnbq4IOWEkHpgLcrxxzS3Yh8sQ2BL6FQ2FWoKRul+AMs9OjiT/zpheAqtUutQsEk
+         dMOL+GIYqQwMu6rkeBYcg1wQREaUrV7pq9bTR8GP1UUjTuCh9aRvMpIwHjCpCx7LywTV
+         PZgXkvS5tO6tOjqmziSTozFfwoAwM1bXGYH+tp72o+rSZggEIiBFi1RDevFYKs9Sjkq2
+         mfWsfViOLSMgbYuxbbyuM1OlJsl//YAZ6BQ+9UAabKkdavwhrLSKhOqibIcq7fGLfwap
+         L884gew/X0lvIVk47ojrNdrBuiKxX/96rO6CBSOiolxZr6cOfdv3xd5Cl32NEWSgtPKz
+         4yYQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=vpTjgECG;
+       dkim=pass header.i=@kernel.org header.s=default header.b=mgUmwHMF;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id f184si55641ybg.3.2019.11.12.17.57.34
+        by gmr-mx.google.com with ESMTPS id a189si46726qkb.4.2019.11.12.17.57.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 Nov 2019 17:57:34 -0800 (PST)
+        Tue, 12 Nov 2019 17:57:41 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id DF3C5222D3;
-	Wed, 13 Nov 2019 01:57:32 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 414082245A;
+	Wed, 13 Nov 2019 01:57:39 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>,
-	Jens Axboe <axboe@kernel.dk>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Hans Verkuil <hans.verkuil@cisco.com>,
+	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-ide@vger.kernel.org,
+	linux-media@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.14 049/115] ata: ep93xx: Use proper enums for directions
-Date: Tue, 12 Nov 2019 20:55:16 -0500
-Message-Id: <20191113015622.11592-49-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.14 052/115] media: pxa_camera: Fix check for pdev->dev.of_node
+Date: Tue, 12 Nov 2019 20:55:19 -0500
+Message-Id: <20191113015622.11592-52-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191113015622.11592-1-sashal@kernel.org>
 References: <20191113015622.11592-1-sashal@kernel.org>
@@ -120,7 +121,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=vpTjgECG;       spf=pass
+ header.i=@kernel.org header.s=default header.b=mgUmwHMF;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,89 +140,48 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 6adde4a36f1b6a562a1057fbb1065007851050e7 ]
+[ Upstream commit 44d7f1a77d8c84f8e42789b5475b74ae0e6d4758 ]
 
-Clang warns when one enumerated type is implicitly converted to another.
+Clang warns that the address of a pointer will always evaluated as true
+in a boolean context.
 
-drivers/ata/pata_ep93xx.c:662:36: warning: implicit conversion from
-enumeration type 'enum dma_data_direction' to different enumeration type
-'enum dma_transfer_direction' [-Wenum-conversion]
-        drv_data->dma_rx_data.direction = DMA_FROM_DEVICE;
-                                        ~ ^~~~~~~~~~~~~~~
-drivers/ata/pata_ep93xx.c:670:36: warning: implicit conversion from
-enumeration type 'enum dma_data_direction' to different enumeration type
-'enum dma_transfer_direction' [-Wenum-conversion]
-        drv_data->dma_tx_data.direction = DMA_TO_DEVICE;
-                                        ~ ^~~~~~~~~~~~~
-drivers/ata/pata_ep93xx.c:681:19: warning: implicit conversion from
-enumeration type 'enum dma_data_direction' to different enumeration type
-'enum dma_transfer_direction' [-Wenum-conversion]
-        conf.direction = DMA_FROM_DEVICE;
-                       ~ ^~~~~~~~~~~~~~~
-drivers/ata/pata_ep93xx.c:692:19: warning: implicit conversion from
-enumeration type 'enum dma_data_direction' to different enumeration type
-'enum dma_transfer_direction' [-Wenum-conversion]
-        conf.direction = DMA_TO_DEVICE;
-                       ~ ^~~~~~~~~~~~~
+drivers/media/platform/pxa_camera.c:2400:17: warning: address of
+'pdev->dev.of_node' will always evaluate to 'true'
+[-Wpointer-bool-conversion]
+        if (&pdev->dev.of_node && !pcdev->pdata) {
+             ~~~~~~~~~~^~~~~~~ ~~
+1 warning generated.
 
-Use the equivalent valued enums from the expected type so that Clang no
-longer warns about a conversion.
+Judging from the rest of the kernel, it seems like this was an error and
+just the value of of_node should be checked rather than the address.
 
-DMA_TO_DEVICE = DMA_MEM_TO_DEV = 1
-DMA_FROM_DEVICE = DMA_DEV_TO_MEM = 2
-
-Acked-by: Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>
+Reported-by: Nick Desaulniers <ndesaulniers@google.com>
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Jens Axboe <axboe@kernel.dk>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Hans Verkuil <hans.verkuil@cisco.com>
+Signed-off-by: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/ata/pata_ep93xx.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/media/platform/pxa_camera.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/ata/pata_ep93xx.c b/drivers/ata/pata_ep93xx.c
-index 0a550190955ad..cc6d06c1b2c70 100644
---- a/drivers/ata/pata_ep93xx.c
-+++ b/drivers/ata/pata_ep93xx.c
-@@ -659,7 +659,7 @@ static void ep93xx_pata_dma_init(struct ep93xx_pata_data *drv_data)
- 	 * start of new transfer.
- 	 */
- 	drv_data->dma_rx_data.port = EP93XX_DMA_IDE;
--	drv_data->dma_rx_data.direction = DMA_FROM_DEVICE;
-+	drv_data->dma_rx_data.direction = DMA_DEV_TO_MEM;
- 	drv_data->dma_rx_data.name = "ep93xx-pata-rx";
- 	drv_data->dma_rx_channel = dma_request_channel(mask,
- 		ep93xx_pata_dma_filter, &drv_data->dma_rx_data);
-@@ -667,7 +667,7 @@ static void ep93xx_pata_dma_init(struct ep93xx_pata_data *drv_data)
- 		return;
+diff --git a/drivers/media/platform/pxa_camera.c b/drivers/media/platform/pxa_camera.c
+index edca993c2b1f0..d270a23299cc7 100644
+--- a/drivers/media/platform/pxa_camera.c
++++ b/drivers/media/platform/pxa_camera.c
+@@ -2374,7 +2374,7 @@ static int pxa_camera_probe(struct platform_device *pdev)
+ 	pcdev->res = res;
  
- 	drv_data->dma_tx_data.port = EP93XX_DMA_IDE;
--	drv_data->dma_tx_data.direction = DMA_TO_DEVICE;
-+	drv_data->dma_tx_data.direction = DMA_MEM_TO_DEV;
- 	drv_data->dma_tx_data.name = "ep93xx-pata-tx";
- 	drv_data->dma_tx_channel = dma_request_channel(mask,
- 		ep93xx_pata_dma_filter, &drv_data->dma_tx_data);
-@@ -678,7 +678,7 @@ static void ep93xx_pata_dma_init(struct ep93xx_pata_data *drv_data)
- 
- 	/* Configure receive channel direction and source address */
- 	memset(&conf, 0, sizeof(conf));
--	conf.direction = DMA_FROM_DEVICE;
-+	conf.direction = DMA_DEV_TO_MEM;
- 	conf.src_addr = drv_data->udma_in_phys;
- 	conf.src_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
- 	if (dmaengine_slave_config(drv_data->dma_rx_channel, &conf)) {
-@@ -689,7 +689,7 @@ static void ep93xx_pata_dma_init(struct ep93xx_pata_data *drv_data)
- 
- 	/* Configure transmit channel direction and destination address */
- 	memset(&conf, 0, sizeof(conf));
--	conf.direction = DMA_TO_DEVICE;
-+	conf.direction = DMA_MEM_TO_DEV;
- 	conf.dst_addr = drv_data->udma_out_phys;
- 	conf.dst_addr_width = DMA_SLAVE_BUSWIDTH_4_BYTES;
- 	if (dmaengine_slave_config(drv_data->dma_tx_channel, &conf)) {
+ 	pcdev->pdata = pdev->dev.platform_data;
+-	if (&pdev->dev.of_node && !pcdev->pdata) {
++	if (pdev->dev.of_node && !pcdev->pdata) {
+ 		err = pxa_camera_pdata_from_dt(&pdev->dev, pcdev, &pcdev->asd);
+ 	} else {
+ 		pcdev->platform_flags = pcdev->pdata->flags;
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113015622.11592-49-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113015622.11592-52-sashal%40kernel.org.
