@@ -1,131 +1,194 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBOWIVXXAKGQEKU6L5MA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTKPJW47IKRBJ6TVXXAKGQEFOZPVBQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x239.google.com (mail-oi1-x239.google.com [IPv6:2607:f8b0:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id 888CEFA233
-	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 03:02:35 +0100 (CET)
-Received: by mail-oi1-x239.google.com with SMTP id g189sf229906oif.10
-        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 18:02:35 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573610554; cv=pass;
+Received: from mail-vk1-xa38.google.com (mail-vk1-xa38.google.com [IPv6:2607:f8b0:4864:20::a38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9A425FA5E8
+	for <lists+clang-built-linux@lfdr.de>; Wed, 13 Nov 2019 03:25:44 +0100 (CET)
+Received: by mail-vk1-xa38.google.com with SMTP id l4sf429712vkn.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 12 Nov 2019 18:25:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573611943; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Gcuv28gTs2YOvc+AeYleGio5VAgBCnLpA2kUzeCl4Wc0N5yJc3bjOoppV48AeOpion
-         v24qmYvvVEb/xZarau/xgjhbaHh0hx38rpDjETOOGM95ZG7WWcigH7a/kS+xPvIPb/BH
-         4VGlhR9hh547WCFD3ueSYY7tY3IQX/sbewAzr8T3oc1TNeEyF9j0bqarMFlDlwVMUC1D
-         q5KPT65n7h+QoOTDClWxvNbVWz2NNwZYwBjDLA9DgGx88zomBHp9vg7CFsH7StV9JMNP
-         Sux7/A6tRLSdvLY8Sb1lT/IBPCI9vzbkWa/lNir9EeMvIWN3RzJPHje46WCnr6k0w8qN
-         PNzQ==
+        b=xiV3jo1wuEXT8m6Nb2CU6jKKoyjKRQTxslYAFrnkAQ3ENMao3txYLLwLCg6yiTaDhA
+         k7Q64ADsxYjzY9j2FCKB7n5Cf8jWGNiykNqDsXZiIczreSrjqnxcsk+XM4te+/k0zX3r
+         yk9Awca75P8JUEWWa8Po7NG+a9t3gR1LqnsyjkURw+v53pglEGQYoFopQnKWKlUeaPaO
+         IMPZSrIYru78JFmsZPiaxeLCx14n5Aq2Pik+FTIN7lUHJ5uY8I070KQ7Xsi7VPRyQ9ym
+         GYBw0m68z0VCJwyCdtO88lBZQ7b3cR7Z7ikM8YgdaoEbMnk7szccufu2I0hl08eM13p5
+         CUzA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=UxYHZ6phGEry4pr6RdMewelk2myi3EgS4+5jEVlfDKI=;
-        b=hu1oNSJBYQk1kfWEzps1lKUe0kOvOzsKOPft4ERb8WKCVLnTNG6TdmNRhX2d3LGoGL
-         GEA1dEcJgs4gNNfmI16Jh7NC6Go1U/67/eh6PncdUJBJOGwkqg+gifdnQ/57Fc3nHI2T
-         VInE5TZP9kHOChKSomQfa9tLSZMBLz8TKSu0RgF2vAnuXBaJzCRMHZwEwtheNJjnA6/B
-         pHhDkA2HfGoZqL/C4yCzMQRB9wLcy8i/4H5gM2+OQ3OsWWtZRaUhsofUnmsDfO8fWPoR
-         6iwjlAQfif9N+XF9wRTDaAutXUCc+RPucHV96oYsCEYrQYw2QQLJeIhEMTh4akGXwdyJ
-         qogQ==
+         :list-id:mailing-list:precedence:reply-to:content-language
+         :in-reply-to:mime-version:user-agent:date:message-id:from:references
+         :cc:to:subject:dkim-signature;
+        bh=+Z9TgEyR2SpanjMQ9jydXcgaxLi/SicXOh7VT5AAO80=;
+        b=thEweSLvdOaI23hcf2FgUIoHylJejfx8cAmpHGEVDZKdwwzDPpZ6sBB+3WdEB2jUvI
+         FoJEdXD+6cd6i19qod5Mc6C3g3kGMBrnHydSxBaLJno+FgihLYA7p1j1nf/LWfD/10mU
+         3XJa33+6UHSS/7NGuaqC5FpvYKCZKKn7RF5X731gMVEWhUSS3xHxcmLfCicf8BqtVNy1
+         QAXkjvHj9KpGgrx1etLPI0JLpYlteXAQztcdXKdcJIJPK2dEFLA6LZsDiy188cWiEoXy
+         zkl67eQ7oMXM73+2iCsvHOWwDxpfSmET0InVqfeZdZFx9xGGUXYehVQa1qD+kzx9P0DC
+         ZGIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="I/BRtjC+";
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@arista.com header.s=googlenew header.b=BPU+KO8V;
+       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=dima@arista.com;
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=UxYHZ6phGEry4pr6RdMewelk2myi3EgS4+5jEVlfDKI=;
-        b=G1Uq7Iwta2zIhlcNrSmUaPUYqJ5dcA8GJ3nJLdULczr4W5NPWGtBmbcn+Jr3AzOACQ
-         r9mZOfBjQolmPWFknSVX1ZrjI+66Tc0C5DZnWgyBNpBCJflQ7LM9ya/5JLno5ivLwK6L
-         I/x8X8ZZAelbm9Q3V+NcamnKf4lQbomwPzjEs1XdMsdZ2nVpM3Idw9mM9jX25UMA13rl
-         Md5owCjKC3GXMQKLskj/xyoXJyGl5h6YiOEro+OM4EBGcxZcP+7WK3Nb2uE5ik6saaUC
-         MTdMY76sKOW1es+n+OtGOOEzS62W7fYWcEx9ZJNIvrIu4X23YswdwOCbGwZIQql76DPT
-         NZsQ==
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=+Z9TgEyR2SpanjMQ9jydXcgaxLi/SicXOh7VT5AAO80=;
+        b=YoOBgVkar+z59kNR13LPiy+2MN0/Rcpl65LNOfwcZu3jm7GFaSIaWQLAkPHxiajEOw
+         WPLOMdeZL4zFXCessc62B5xF91ku/tGKw1WwSA8X6xwinWLLK1ANzJTrlHQkDew7ERHT
+         2X05FNnc8ItHKEeSAnEWlOt7gzgc/0PfoyhKSupLSqvJ0amMfnB4y4w4hEHRNv9zWH5v
+         eUasOpe1KrLVrQa3elmsAIV0+ETOGppGJLnv8ZjICmylcGSZ4GRVkjcmZWafvpE0lyD4
+         ZOPGIzz5bBSVnU9kXfZKYjn14ovSjCj0EdIPLVNd6v68YBLAmTS6Y4f093KImMPnpWEt
+         VKmA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=UxYHZ6phGEry4pr6RdMewelk2myi3EgS4+5jEVlfDKI=;
-        b=UDvRHOVo0BpJUKhUEKluZ+TwChtkCZCVmgjdYQLzM8YBluc0EgYr2tX72fanFn+ZaU
-         +MeLxLldgPBWmx9iRkWsTTnP2w0OHdU6vJlztN/1pxC4Eh5+S0Q/fWTvmEby46hBfrKX
-         NZrhXOXZQ9WgQ+33IuGE/rdGqh9HrcLEMel3ZL1i/AlvF6JYVXchpHDDb4xBrqOy5LMb
-         ejCPqFui4l+rhxr9eJDNBACH3jMWtNXJoydgqLzamJ6XlrIesrZrz9upEivnLN5OX4yq
-         VJ2Cy8apn9dtnABkLG/qNr1rPvDCfvF2jD6J7ktl7tPL3yzjH/KYMahsJfaoxYZTNQ2B
-         SIJw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV2C3JbtZWEbWObMnxa8TxlBCc664kDjf5UpMmfbc4+lcmCic1T
-	WCHkCdL/+2XHxTLQH9j6o1c=
-X-Google-Smtp-Source: APXvYqzFo6FzCWWUW6HKrWLJNM+KVnk8Ld1f+fCHzxNo65SuDRXpib+3ZV3KHMoHRXwlHgzb1shPUA==
-X-Received: by 2002:aca:4896:: with SMTP id v144mr612937oia.16.1573610554399;
-        Tue, 12 Nov 2019 18:02:34 -0800 (PST)
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=+Z9TgEyR2SpanjMQ9jydXcgaxLi/SicXOh7VT5AAO80=;
+        b=Z/TQ2vEZ/Dmpeas8Crqbu37qXWzWPeCngJdXw1xydO++bbOQpcT4tMj580tJU/rcNn
+         XJMezduhAT31AmIlekMxoZmfIc7JX754q+udXMEwes2OVK+mWbUhEe09ATZ2nTSgFVfZ
+         wefx9/+vWqjYqXzDhNSkeDhidzxuyl2pSuDqPt99fhUrMFpGH3AyTYiffHOYj4vj6O9c
+         xmGvLVr8uWsRLKnX+0QqJOaaAg7Y9zMht71pm/M68gxF101/3NQjeDx0xJC4d94Z/m8r
+         /1gEWCANYHPNF15a5FhiDA6bfeSKHP7fe6Taw7zTJjZuIAK0m0CD7wpz3og1hA3BO1we
+         dZHw==
+X-Gm-Message-State: APjAAAXvfvIq3Au2OsqHBtxnE/J3oiE9U/+iJ0wFAgl7ViEYm434riJ0
+	S6qEg8z991huAA6wDk7RKfw=
+X-Google-Smtp-Source: APXvYqzqlfae4vzcWWoVGILOSewmV8rlhppVLh6FutAmIillvb3jruvWMycWAVwRNjO9Mb2FIcZrNg==
+X-Received: by 2002:ab0:6441:: with SMTP id j1mr432727uap.141.1573611943632;
+        Tue, 12 Nov 2019 18:25:43 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:4a9c:: with SMTP id i28ls150819otf.14.gmail; Tue, 12 Nov
- 2019 18:02:34 -0800 (PST)
-X-Received: by 2002:a05:6830:1d4d:: with SMTP id p13mr597533oth.286.1573610554117;
-        Tue, 12 Nov 2019 18:02:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573610554; cv=none;
+Received: by 2002:a67:fd08:: with SMTP id f8ls39624vsr.13.gmail; Tue, 12 Nov
+ 2019 18:25:43 -0800 (PST)
+X-Received: by 2002:a67:ef4e:: with SMTP id k14mr515012vsr.165.1573611943342;
+        Tue, 12 Nov 2019 18:25:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573611943; cv=none;
         d=google.com; s=arc-20160816;
-        b=TmXBN8ATnOHRInnuGOb5XCzjmYKKYbF5kF7q0TQ2GRT4cEZZW7rlpAe+vqMw4iYGLV
-         E4WIpg2pyBzCZF0ydtNjW6PItaLPhb5ekgDNQXOUP8L5Ce9BlE05knGIWif3fZfDXN2S
-         nh0THESouEAcpunv4bxqRE3bvAomOlBJ/UNtiusdQdsekLIxlWmz5jDmxaMtOLAIYgCy
-         pkKEO5o5JJkbiAG5eiMh6/uIBZlOkroOn0xg7voRvk3aCFPgYgPecejZZYduSkb/at56
-         NzNuO48c0oCifw4ri+ooS+nteEK1Ca3qjeHH2pERs9+vtHUp9S1CwYDEgDcZ3mjFgg8q
-         a9Tw==
+        b=B3VtI6CTY2d1SF3TE0cSqXk/3BBytUIgxCqVXDWGf2JcyA1sPfVP70Yt4efz8tADoW
+         ZYkOiutlV49DyuAW6heoKens8klroOr3pFmBZY0EQ4yU7MkTJTZCIae1pG+u07cziHe3
+         MumcAYQo1/IwM2QBHENoTgSYrVorHJEshJlrXE1wkRIjSh1GWT2vdMatytCIfr/HrrKi
+         B71bd3/IZkl+EJHyOTWZcMoNNdwNofDRml1AUDjltXu7MsAQbjH4Y8mlHKW8Hrjoe2BA
+         OMcZIe0k4atkOdk87QRfOl3BptJziSZhNSkyjPJdcsHFap4AJwQfmSViGFNC8WzAjNNA
+         RFMg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=C407jHLMOxX+2P242tPgCmfZShnaGxhrzvFQxGxwJpk=;
-        b=FPgh2i54mr6BAVyBSwAsMd8yPw9iOrGlw2NqaT/evMs6SSFhoLfhZ6ZuBsHWWcFJ1S
-         MHy7zaiWgz3DXUzNGsUEgWqbve0kkfhTGLSQn3c0bc/3hE3QyJFGvRt/0E1LmYmt0F6S
-         MjuJUoTn9LWebMZodeota/hN5BT5fT8SdYzY0iOVWyhLb85Pv8dOQw5AMmUe6wQXkJlp
-         1soa7yogeopjXvsoLw+xJ7AanGQ3rl4QAplqLcFVCJDfhczcFftyDvG38VMjMKR07K7N
-         Vl+RoN1+Xnod0s/L5ddXcuR1Yw/gEeNmJ9VPGaqAhet2tcyf3QkA/SV68dNwGAisEHKG
-         TFYQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=nujO1oAvQuda3HPNop9afPS+ilUfrJs0rYOKUqnCb18=;
+        b=nwsN320LMKKCX4lD2Gmo8Lbq4UDgBsZS0DvJeSZJHjsgkyNsWwrUaSTSph7vBZBzL6
+         Bgr6wYWq3nsNtuebh5ky8aWyAiRlUK6KUmXBZh/Xg/FCbxu7nZCiIUDMhqz9/sq81UaR
+         aIQZYzvjD1WpbCXrna5TfcyN5uGH1a+UoDip2IEIc/CwFHBWKbivxfOu5KvxlZUVog30
+         xhj75kZRhyxmkIxwK++IDafZJsVg+SAyA2qjy3NX6wQCh2SAW9/+bjlMzvRnH5UZ9nVW
+         UfHK2uNEo92wOcofpOvC5hv68wT3csnsvakAXGkMtor53nhMIk42xt/khEB0yjZpJ+h2
+         6V9w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="I/BRtjC+";
-       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id i3si37586otp.4.2019.11.12.18.02.34
+       dkim=pass header.i=@arista.com header.s=googlenew header.b=BPU+KO8V;
+       spf=pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=dima@arista.com;
+       dmarc=pass (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id o206si52133vka.4.2019.11.12.18.25.43
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 12 Nov 2019 18:02:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 6F1982245B;
-	Wed, 13 Nov 2019 02:02:32 +0000 (UTC)
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Daniel Thompson <daniel.thompson@linaro.org>,
-	Lee Jones <lee.jones@linaro.org>,
-	Sasha Levin <sashal@kernel.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-fbdev@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.4 36/48] backlight: lm3639: Unconditionally call led_classdev_unregister
-Date: Tue, 12 Nov 2019 21:01:19 -0500
-Message-Id: <20191113020131.13356-36-sashal@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20191113020131.13356-1-sashal@kernel.org>
-References: <20191113020131.13356-1-sashal@kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Nov 2019 18:25:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id p26so518151pfq.8
+        for <clang-built-linux@googlegroups.com>; Tue, 12 Nov 2019 18:25:43 -0800 (PST)
+X-Received: by 2002:a63:b20f:: with SMTP id x15mr830789pge.65.1573611942121;
+        Tue, 12 Nov 2019 18:25:42 -0800 (PST)
+Received: from [10.83.36.153] ([217.173.96.166])
+        by smtp.gmail.com with ESMTPSA id y24sm319473pfr.116.2019.11.12.18.25.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 12 Nov 2019 18:25:41 -0800 (PST)
+Subject: Re: [PATCH 00/50] Add log level to show_stack()
+To: Sergey Senozhatsky <sergey.senozhatsky.work@gmail.com>,
+ Petr Mladek <pmladek@suse.com>, Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-kernel@vger.kernel.org, Dmitry Safonov <0x7f454c46@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@kernel.org>, Jiri Slaby <jslaby@suse.com>,
+ Sergey Senozhatsky <sergey.senozhatsky@gmail.com>,
+ Tetsuo Handa <penguin-kernel@I-love.SAKURA.ne.jp>,
+ Albert Ou <aou@eecs.berkeley.edu>, Ben Segall <bsegall@google.com>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>,
+ Greentime Hu <green.hu@gmail.com>, Ingo Molnar <mingo@redhat.com>,
+ James Hogan <jhogan@kernel.org>, Juri Lelli <juri.lelli@redhat.com>,
+ Mel Gorman <mgorman@suse.de>, Michal Simek <monstr@monstr.eu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Burton <paulburton@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ralf Baechle <ralf@linux-mips.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Vincent Chen <deanbo422@gmail.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>, Will Deacon <will@kernel.org>,
+ linux-mips@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner
+ <mattst88@gmail.com>, Richard Henderson <rth@twiddle.net>,
+ linux-alpha@vger.kernel.org, Vineet Gupta <vgupta@synopsys.com>,
+ linux-snps-arc@lists.infradead.org, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, clang-built-linux@googlegroups.com,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Aurelien Jacquiot <jacquiot.aurelien@gmail.com>,
+ Mark Salter <msalter@redhat.com>, linux-c6x-dev@linux-c6x.org,
+ Guo Ren <guoren@kernel.org>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ uclinux-h8-devel@lists.sourceforge.jp, Brian Cain <bcain@codeaurora.org>,
+ linux-hexagon@vger.kernel.org, Fenghua Yu <fenghua.yu@intel.com>,
+ Tony Luck <tony.luck@intel.com>, linux-ia64@vger.kernel.org,
+ Geert Uytterhoeven <geert@linux-m68k.org>, linux-m68k@lists.linux-m68k.org,
+ Ley Foon Tan <lftan@altera.com>, nios2-dev@lists.rocketboards.org,
+ Jonas Bonn <jonas@southpole.se>, Stafford Horne <shorne@gmail.com>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ openrisc@lists.librecores.org, Helge Deller <deller@gmx.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ linux-parisc@vger.kernel.org,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Mackerras <paulus@samba.org>,
+ linuxppc-dev@lists.ozlabs.org, Christian Borntraeger
+ <borntraeger@de.ibm.com>, Heiko Carstens <heiko.carstens@de.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, linux-s390@vger.kernel.org,
+ Rich Felker <dalias@libc.org>, linux-sh@vger.kernel.org,
+ "David S. Miller" <davem@davemloft.net>, sparclinux@vger.kernel.org,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, Jeff Dike
+ <jdike@addtoit.com>, Richard Weinberger <richard@nod.at>,
+ linux-um@lists.infradead.org, Guan Xuetao <gxt@pku.edu.cn>,
+ Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+ x86@kernel.org, Chris Zankel <chris@zankel.net>,
+ Max Filippov <jcmvbkbc@gmail.com>, linux-xtensa@linux-xtensa.org,
+ Len Brown <len.brown@intel.com>, Pavel Machek <pavel@ucw.cz>,
+ "Rafael J. Wysocki" <rjw@rjwysocki.net>, linux-pm@vger.kernel.org,
+ Daniel Thompson <daniel.thompson@linaro.org>,
+ Douglas Anderson <dianders@chromium.org>,
+ Jason Wessel <jason.wessel@windriver.com>,
+ kgdb-bugreport@lists.sourceforge.net
+References: <20191106030542.868541-1-dima@arista.com>
+ <20191106083538.z5nlpuf64cigxigh@pathway.suse.cz>
+ <20191108103719.GB175344@google.com>
+ <20191108130447.h3wfgo4efjkto56f@pathway.suse.cz>
+ <20191111012336.GA85185@google.com>
+ <20191111091207.u3lrd6cmumnx4czr@pathway.suse.cz>
+ <20191112044447.GA121272@google.com> <20191112045704.GA138013@google.com>
+ <20191112083509.gmgjpkjffsfaw5lm@pathway.suse.cz>
+ <20191112101229.GA201294@google.com> <20191113012337.GA70781@google.com>
+From: "'Dmitry Safonov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Message-ID: <25ff45f0-6420-f660-55a8-637f11ab5ab4@arista.com>
+Date: Wed, 13 Nov 2019 02:25:15 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.2.2
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-Original-Sender: sashal@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="I/BRtjC+";       spf=pass
- (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=kernel.org
+In-Reply-To: <20191113012337.GA70781@google.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-US
+X-Original-Sender: dima@arista.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@arista.com header.s=googlenew header.b=BPU+KO8V;       spf=pass
+ (google.com: domain of dima@arista.com designates 2607:f8b0:4864:20::441 as
+ permitted sender) smtp.mailfrom=dima@arista.com;       dmarc=pass
+ (p=QUARANTINE sp=REJECT dis=NONE) header.from=arista.com
+X-Original-From: Dmitry Safonov <dima@arista.com>
+Reply-To: Dmitry Safonov <dima@arista.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,61 +201,68 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+On 11/13/19 1:23 AM, Sergey Senozhatsky wrote:
+> On (19/11/12 19:12), Sergey Senozhatsky wrote:
+>> On (19/11/12 09:35), Petr Mladek wrote:
+>> [..]
+>>> This is getting too complicated. It would introduce too many
+>>> hidden rules. While the explicitly passed loglevel parameter
+>>> is straightforward and clear.
+>>
+>> If loglevel is DEFAULT or NOTICE or INFO then we can overwrite it
+>> (either downgrade or upgrade). That's one rule, basically. Not too
+>> complicated, I guess.
+> 
+> Can be taken even a bit further than
+> 
+> 	show_stack(NULL, NULL, LOGLEVEL_DEBUG);
+> or
+> 	show_stack(NULL, NULL, LOGLEVEL_ERR);
+> 
+> For instance,
+> 
+> 	spin_lock_irqsave(&rq->lock, flags);
+> 	printk_emergency_enter(LOGLEVEL_SCHED);
+> 		...
+> 		show_stack(...);
+> 		printk();
+> 		printk();
+> 		...
+> 	spin_unlock_irqrestore(&rq->lock, flags);
+> 
+> or
+> 
+> 	spin_lock_irqsave(&uart_port->lock, flags);
+> 	printk_emergency_enter(LOGLEVEL_SCHED);
+> 		...
+> 		printk();
+> 		printk();
+> 		...
 
-[ Upstream commit 7cea645ae9c5a54aa7904fddb2cdf250acd63a6c ]
+Yeah, that makes sense.
 
-Clang warns that the address of a pointer will always evaluated as true
-in a boolean context.
+I believe it's up to you, Petr and Steven to decide what's better for
+printk(). I mean, after all you care for all this code.
 
-drivers/video/backlight/lm3639_bl.c:403:14: warning: address of
-'pchip->cdev_torch' will always evaluate to 'true'
-[-Wpointer-bool-conversion]
-        if (&pchip->cdev_torch)
-        ~~   ~~~~~~~^~~~~~~~~~
-drivers/video/backlight/lm3639_bl.c:405:14: warning: address of
-'pchip->cdev_flash' will always evaluate to 'true'
-[-Wpointer-bool-conversion]
-        if (&pchip->cdev_flash)
-        ~~   ~~~~~~~^~~~~~~~~~
-2 warnings generated.
+I guess I've pointed that in my point of view price for one-time testing
+code is cheaper than adding a new printk feature to swap log levels on
+the fly. But again, it's just how I see it - if we fix those printing
+problems, than in half year we will forget they ever existed, but in
+your proposal, there will still be some clever printk code.
 
-These statements have been present since 2012, introduced by
-commit 0f59858d5119 ("backlight: add new lm3639 backlight
-driver"). Given that they have been called unconditionally since
-then presumably without any issues, removing the always true if
-statements to fix the warnings without any real world changes.
+On the other side, also worth to note that current patches set fix
+problems for kdb (and for my hung task printing patch), but it's
+incomplete for sysrq driver. I've gone through functions used by sysrq
+driver and the same changes introducing log level parameter would be
+needed for: sched_show_task(), debug_show_all_locks(), show_regs(),
+show_state(), show_mem(). Some of them don't need any platform changes,
+but at least show_regs() needs.
+So, you also need to have that in mind making the decision.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/119
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Reviewed-by: Daniel Thompson <daniel.thompson@linaro.org>
-Signed-off-by: Lee Jones <lee.jones@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/video/backlight/lm3639_bl.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/video/backlight/lm3639_bl.c b/drivers/video/backlight/lm3639_bl.c
-index cd50df5807ead..086611c7bc03c 100644
---- a/drivers/video/backlight/lm3639_bl.c
-+++ b/drivers/video/backlight/lm3639_bl.c
-@@ -400,10 +400,8 @@ static int lm3639_remove(struct i2c_client *client)
- 
- 	regmap_write(pchip->regmap, REG_ENABLE, 0x00);
- 
--	if (&pchip->cdev_torch)
--		led_classdev_unregister(&pchip->cdev_torch);
--	if (&pchip->cdev_flash)
--		led_classdev_unregister(&pchip->cdev_flash);
-+	led_classdev_unregister(&pchip->cdev_torch);
-+	led_classdev_unregister(&pchip->cdev_flash);
- 	if (pchip->bled)
- 		device_remove_file(&(pchip->bled->dev), &dev_attr_bled_mode);
- 	return 0;
--- 
-2.20.1
+Thanks,
+          Dmitry
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191113020131.13356-36-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/25ff45f0-6420-f660-55a8-637f11ab5ab4%40arista.com.
