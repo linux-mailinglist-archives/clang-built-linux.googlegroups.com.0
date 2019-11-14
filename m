@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBF4OW3XAKGQEXP263BQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBAMPW3XAKGQEQ4D2M4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53a.google.com (mail-pg1-x53a.google.com [IPv6:2607:f8b0:4864:20::53a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 91183FCB27
-	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Nov 2019 17:55:53 +0100 (CET)
-Received: by mail-pg1-x53a.google.com with SMTP id v10sf4963532pge.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Nov 2019 08:55:53 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573750552; cv=pass;
+Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
+	by mail.lfdr.de (Postfix) with ESMTPS id ECED1FCB2F
+	for <lists+clang-built-linux@lfdr.de>; Thu, 14 Nov 2019 17:57:38 +0100 (CET)
+Received: by mail-ot1-x33e.google.com with SMTP id w14sf3622276otk.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 14 Nov 2019 08:57:38 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573750657; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OtysB8TF/E2DdOT9AfeuP4/3KCJ2WKtnApVwpekTT7RokdfDjpdHWQeiC5YacUMZqI
-         4oKSSDs2B2PIZOXFVGKc4C+NS4HVJc/FJgGlbM4JHCpeAbK+9nAlt08IfK5cMZUHRFRX
-         sOcLltgLPPgnXiEAXEzB/SKfFvM9mK+6EIwl0nH6rZXGb552h7rb6yFG78ZQiKuwqNp7
-         I1nNkh0SeIuiaxZo52Z0so8SkdnFZoCxBjBBT1KLI9UXiyvlrJqn0SyGhlR5ycPpjark
-         lnu6XZITxi3czr9SIDrjIml8HOu0ypNghZQm+LSc0uZdK6B3OHUFTjpUZbO73R/+iic4
-         i2/Q==
+        b=uuIJp3MMA6xZdydFzCAT7SahL77KaS3JJt8cI/2eKwvfBhkUz+F85pTzaWTZJLTNTk
+         3PX1vNDuvKBzgnGLKBuc/95Sl9gHLW9cQ+IkGUFiTMuzz/PuMdZRqh93TEp2bXGNIEcN
+         vXy3WD0g+6E9NzEgyEdi809kr1rBvwmK5L0xf0QidCmxLjJdjupz6i50dvB7Yp+JCpEa
+         Bx1BO2Qb8XwjHGxbzzl0GyH350eIj/HxaUVis/KGlQMpMGf+gykbAOLabgeVIYxaL5YJ
+         7GK8lfyi10oX9HIn1PG8TsBj+12Lqp+jOidT4f+SAesGHyFNb9/NjsO9Aa9e3PWYYpLm
+         GNCA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=UfgA8GRrPZ2whz5OyU7V81kdVgd2FhxcuNoCU+7RSq8=;
-        b=qrnmPu5AAu+t4TU8UuTXgqe8fyTSnx1YIegzDCc/PYL7lVmkr6i16Z1ALwOco18iXK
-         cqjeg0/L1uvldV8pY4GmiA4NkxcB8AyVGf57UhX55aEll693Cxl1O3DIhLbb5LtbaJAt
-         Gr/nKE9mpLB3QYdkI1/B6LpovSwu0f6+WvMnrR4oiu3aV7ZRO47I/RiPA7mUhCRUacxS
-         /xO41InEzVWLzIXMTAsHw0cpWWNML3hvZuYFfEjL66B/m4xp1ks2cUYsWY6OO9WAlH46
-         Ps5sdWYnk3wlktwPM0Uney3Oy6BynlODisOFU8k1wdq4FgmJlaBUXeJjm1xfBHWrQIth
-         fOBg==
+        bh=DJM4Hbz/qRK8aWhjKbelShk6M6REK3tkfWvCuDFdkrY=;
+        b=E1ZczTROwA4wr82rpUMViJF/HwJQETe7UWp57U9CUqriQYwHRSyAEW1yC+oMqYtVuj
+         NmefR+nGXZyDrMgwoLMWkbBlWIRajwq4bqd8+FMBUkAaDR5s+kYVL1VTx6swU+ZSBSH1
+         srwEJdm+OdDGh94w5UbihYpfFdDoYNUcOopFDcI6+kzQtbfAr8p99C4fDgJB6SQig72W
+         zgSyVusHuSgHqhBOweCcLEWUOufkNWdMeuvz4U+lbiQhSzU+6qZKVnDHo+k7s9cLKsQa
+         xwZg9P6t/YQfOYg5Nkn8V7D7NdGg/r2SdJT08fy7jHt2akGuPoi+LNjul0OQl61oYTG8
+         G+sg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=IzGGwjyc;
+       dkim=pass header.i=@kernel.org header.s=default header.b=hZy7g62H;
        spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UfgA8GRrPZ2whz5OyU7V81kdVgd2FhxcuNoCU+7RSq8=;
-        b=sbPH35eyGfYeubRgRy6whg9/extAjOcdt4YNdNkMs6XzVSuHgyW6AodZMXdv4CwkX0
-         UHPhddTUdz6LACk+k99Rg4h6dgU1zRdoHVRg7vNvU2sos/EMmrr0+p+ZSz8o7gFTlxKD
-         augqKCDHiwFXkaP1bEaPdTmHA7borjahKIjIGcnUz2BlToZImtAdOls10aIRVzDYiobV
-         D6zBAk7lss2WxsHRbcnS1CyHG0/b/HCOp8af1/9+LrZPh6b4AWwfnUlsj5zvO3VPaeBh
-         BG4K42Af3LVSv4vtNP9OgTZnK+3bOp0p7koKgP4lirnU9Tew3TpcEv/dztWWqMX9KTZt
-         UQkw==
+        bh=DJM4Hbz/qRK8aWhjKbelShk6M6REK3tkfWvCuDFdkrY=;
+        b=KXFftKxuOGWNLyyfk8aa9Ol8CeBsg0XWf//yQKKizWhtK8S7Kg/5IhfCYLbCj0PFSa
+         2Ts3qJfWfZUXaN058p7mOKM4RTaMBT6d+/xbbqOQX1RKBGeDfDWGfZEaQTbXDM0Xzn19
+         uFW3+xN77FokttmoXxp7KB3dtKpGbEOvWxPd/xzkg15JFTv/04nco+N+FyosZVPVA8O3
+         rjdIjkzxjRmos1wZX/q9ha0cdm6LN7R4i8PXD3gr4KSgcl8UK2++JEqcaBq/om8fS5Lh
+         O+t7khPeWvMkOUNpvgUpw2quWuByBfjpXqvhhQCfzwjenn3b7c30qAje0b58W6tCgxvE
+         fd+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,77 +50,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=UfgA8GRrPZ2whz5OyU7V81kdVgd2FhxcuNoCU+7RSq8=;
-        b=ar8Byswyc0D4Q4o307LYvjU3Ncp1yTXlYCUiq8k5jGUa289KprIflyXdGwf3O0yEWE
-         x7iHpxY0L5lran1Xowu8VTbtdjSZFEh4V0wMNYpNCDYjs5cdwe9gSS/XoQ1FzwLq9TKE
-         TTLcYwvDW0mzc/OUcVcrXt2n+dzwMrkCpg7WfXdglaTsZLuXkzW1LT6aGUWgAk08TBel
-         9Zlw/B7sv/etsKlfYucqpFSKFe70p3dnm17UGgGx4XHOcKffyomwtUxKiJ8yi3pWwX4y
-         cl+eePN4sNGT/SrG+tADeoApTHKRq1w7gvV7zPHPbe84wTtzK7IkZJPuFARYmTOTFGE+
-         ZvAQ==
+        bh=DJM4Hbz/qRK8aWhjKbelShk6M6REK3tkfWvCuDFdkrY=;
+        b=C1Gm6DPfbYzHY6Mj/NPPR2bPclHOz6BQy65Fthrcjl3g5X6qIvUa9JDsmqVchu79Z3
+         MvT2sOK1rUeQmoYS/hDSicf8lOjA+EBR2s3wg/oYlTgAXLIcwl9WWyFkXkFLDdzkWb1h
+         paYsZ/5A+WafIqQFYBjxNyVvJEE7MLPWn/7iCgXUFw/atulaMlbYJQe0JuM2RMH+ZAvB
+         9NfYLtdtOP59CUgtTeHirv2xNVefCutOKw3XyeAHmszfnckfj2pNUJWlJlc6Oagsu1Fg
+         qVgaf/voGozfDLw3Xvzew/btGQROw2ySZfOCuFMHNzFirqHlmz0OYNTUp+tXH9F/MaRq
+         F9HA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX1NC6TGK7Zbeb7gZrlE/Thq3AH2de9E1zwgB43b4Kp1tGygtt6
-	5YO19SW87IJJYUTAW5MPJPc=
-X-Google-Smtp-Source: APXvYqwC9Xg77ixaCCtR5iXkCOeQjAeyCZbZ8EHgEF2U5ldib/6mqKLiIfFAHPchGFqIy9gSskj6Jg==
-X-Received: by 2002:a62:e308:: with SMTP id g8mr6389104pfh.121.1573750552025;
-        Thu, 14 Nov 2019 08:55:52 -0800 (PST)
+X-Gm-Message-State: APjAAAW66RjA10nQU3jlA0oiNKYZ++dUwVXKfe5aMP6h410bbVpeZIyD
+	eMU+m4LhVMisBgKunQQx4Q4=
+X-Google-Smtp-Source: APXvYqwHp6VjTXaWB9KWsuCvwcugagSiJW4m94rCxyJIKj1n1gFob8D3sqQKePy9P/0z3suYu3e6MQ==
+X-Received: by 2002:a05:6830:1b6b:: with SMTP id d11mr5628342ote.169.1573750657858;
+        Thu, 14 Nov 2019 08:57:37 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:cb0f:: with SMTP id p15ls783065pgg.1.gmail; Thu, 14 Nov
- 2019 08:55:51 -0800 (PST)
-X-Received: by 2002:a63:1b5c:: with SMTP id b28mr1316058pgm.69.1573750551495;
-        Thu, 14 Nov 2019 08:55:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573750551; cv=none;
+Received: by 2002:aca:cf8f:: with SMTP id f137ls1864031oig.8.gmail; Thu, 14
+ Nov 2019 08:57:37 -0800 (PST)
+X-Received: by 2002:a54:4898:: with SMTP id r24mr4362834oic.143.1573750657505;
+        Thu, 14 Nov 2019 08:57:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573750657; cv=none;
         d=google.com; s=arc-20160816;
-        b=iW21slkp2ONQd+f4I6dNLhbpdyRmiXa+XMvBv2mPRfWC1oebtaYF/w/XKPtCzUYGk5
-         rq3tbCeLMkhakzBtdmVIXx0bFun2XDRrpgwX1XCRk76y7h5K524b4MPLiz+y5RSbm+Mq
-         QXfc+sKZrvrv4Y2wqhMcuQygaRbAAwTWmiPYD3st3iKC7uNHQNDJjCE9myZBjbU3HqMW
-         /tCbrd596X9ve6DlDNeBJ2arX4LW8BsCZBNOtKePOOkBnLzv5TTGF/i84o44t+M2WtGc
-         wmIn6IsHLbylY+zLWrJYX9PJ9aaC0bH94UOWnJKgKFS275D9hPKa2p+GR0dv2W763XUr
-         +3vA==
+        b=SnuyD8q+TbTdYxL8e3HkUt3yT9Y80YME4gpAyzVWusci8UnQVl33qIlk1Cc7xFzKa/
+         0x8jT6fJcwBLLUyoNlfeXEsaPlnBg9FxYBzK71sKF2UXdDpnUW8fn02p6qwHi+pAvcQN
+         LuOO1qduo2H0W9v9zlVSN2uJkW3hGV6M4k6C7D7GGSxir4/+80x7nevWuF7u7xp6PsVy
+         wJDY4V7JXUawdQSMze0C8T/HMLRoPFc0DIMOyKen2B3RN4pdlWejtPBit8O1IMonLGTq
+         yTegqmTZw++DqqlGhvwoQGBwVRgxWoSd4i5P7sirALwFb436DPfVy/IJf0CiE15O2maW
+         0hUA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=SBrVC9s2les4SR/cUrjqOydjUmZTVoflVmsG5q8KNZk=;
-        b=Yg/Qc2QxRMen+F3xA3sbzkwb3GkjcGUu7pa2TDPicXiTM7k+UkCZcx2uzCqAspy4Db
-         Jyr+tDHGbZeuFEEOOHOeZHALKKFk+5LImj2DYrrYI9tfg9OFCHqF43V92L4nuXVklu7a
-         HyAsO3qoNjL0wv/PhYAidU4SknDbJDDj5V8twFiIoBW6aVeOsMJVoOJA82OZSx8Ob2xa
-         QmKmKZocZ7WvRdl6A6J9blVO0idXrYUB5QMYJwnVYIm90+/EB8L/2Wbpglx+xmvFubBv
-         ekohnNDPHILGYvZQJ1dJEwxOwZFcgBDw9kL7hIVnK2RoDC9huzXVIpK619WPzfi8mM5L
-         Fnsg==
+        bh=1sIV2atvFdfsM0+qioNLMP2SAs/uD7m16JhFR2KLy/0=;
+        b=gIZ0cImkVnIOmK6SlHT98JFO72wHtqZ56mH4yK1s4/Ye/LxfPEW5adTY/9VCI8WaoF
+         aZqWOaztyyVkuzbzwAF/X0FRl6WRicMTp2PS2+zcctST2hHHHH51BVO0QLUTmEAuofCl
+         JL1R69XRORI0GsdoGjm3raCtGN0ezucOGUS/scNlXJuqellucVkL0/m0hU+J8x6wAuHk
+         qmLqf4tS+2LmAojhGAayoYBCivhiARp8l43N+F/jeXmaPqN5r+wIWspWo+ybFVxbDM86
+         cvTljdwzKhre3y2pG3mMYW/2A/vS3Rhy01g05Rc1CEfMcBPqk3Bq5bVRuHi7aycF1ss7
+         9kcw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=IzGGwjyc;
+       dkim=pass header.i=@kernel.org header.s=default header.b=hZy7g62H;
        spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 102si262797plb.3.2019.11.14.08.55.51
+        by gmr-mx.google.com with ESMTPS id j26si323719otk.0.2019.11.14.08.57.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 14 Nov 2019 08:55:51 -0800 (PST)
+        Thu, 14 Nov 2019 08:57:37 -0800 (PST)
 Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 0E967206EF;
-	Thu, 14 Nov 2019 16:55:48 +0000 (UTC)
-Date: Thu, 14 Nov 2019 16:55:44 +0000
+	by mail.kernel.org (Postfix) with ESMTPSA id 829C9206D3;
+	Thu, 14 Nov 2019 16:57:34 +0000 (UTC)
+Date: Thu, 14 Nov 2019 16:57:30 +0000
 From: Will Deacon <will@kernel.org>
 To: Sami Tolvanen <samitolvanen@google.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Kees Cook <keescook@chromium.org>,
+	Andrew Murray <andrew.murray@arm.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Kees Cook <keescook@chromium.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nick Desaulniers <ndesaulniers@google.com>
-Subject: Re: [RESEND PATCH] arm64: fix alternatives with LLVM's integrated
- assembler
-Message-ID: <20191114165544.GB5158@willie-the-truck>
-References: <20191031194652.118427-1-samitolvanen@google.com>
+	clang-built-linux@googlegroups.com
+Subject: Re: [RESEND PATCH v2] arm64: lse: fix LSE atomics with LLVM's
+ integrated assembler
+Message-ID: <20191114165730.GC5158@willie-the-truck>
+References: <20191031195705.36916-1-samitolvanen@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20191031194652.118427-1-samitolvanen@google.com>
+In-Reply-To: <20191031195705.36916-1-samitolvanen@google.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=IzGGwjyc;       spf=pass
+ header.i=@kernel.org header.s=default header.b=hZy7g62H;       spf=pass
  (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -136,45 +137,20 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Sami,
-
-Sorry -- I thought I'd already replied to this, but it had actually
-slipped through the cracks.
-
-On Thu, Oct 31, 2019 at 12:46:52PM -0700, Sami Tolvanen wrote:
-> LLVM's integrated assembler fails with the following error when
-> building KVM:
+On Thu, Oct 31, 2019 at 12:57:05PM -0700, Sami Tolvanen wrote:
+> Unlike gcc, clang considers each inline assembly block to be independent
+> and therefore, when using the integrated assembler for inline assembly,
+> any preambles that enable features must be repeated in each block.
 > 
->   <inline asm>:12:6: error: expected absolute expression
->    .if kvm_update_va_mask == 0
->        ^
->   <inline asm>:21:6: error: expected absolute expression
->    .if kvm_update_va_mask == 0
->        ^
->   <inline asm>:24:2: error: unrecognized instruction mnemonic
->           NOT_AN_INSTRUCTION
->           ^
->   LLVM ERROR: Error parsing inline asm
-> 
-> These errors come from ALTERNATIVE_CB and __ALTERNATIVE_CFG,
-> which test for the existence of the callback parameter in inline
-> assembly using the following expression:
-> 
->   " .if " __stringify(cb) " == 0\n"
-> 
-> This works with GNU as, but isn't supported by LLVM. This change
-> splits __ALTERNATIVE_CFG and ALTINSTR_ENTRY into separate macros
-> to fix the LLVM build.
+> This change defines __LSE_PREAMBLE and adds it to each inline assembly
+> block that has LSE instructions, which allows them to be compiled also
+> with clang's assembler.
 
-Please could you explain a bit more about the failure and why LLVM's
-integrated assembler rejects this? Could we use something like .ifb or
-.ifeqs instead?
-
-Thanks,
+Any chance LLVM can be fixed to avoid this bodge in the kernel?
 
 Will
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191114165544.GB5158%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191114165730.GC5158%40willie-the-truck.
