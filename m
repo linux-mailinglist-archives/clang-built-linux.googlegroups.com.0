@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBDV37XP3XYDRBX7GXLXAKGQEXQ6QLII@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDV37XP3XYDRBJPHXLXAKGQEIZCXH5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7AF0DFDFD9
-	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Nov 2019 15:17:04 +0100 (CET)
-Received: by mail-wm1-x337.google.com with SMTP id m68sf6983750wme.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Nov 2019 06:17:04 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573827424; cv=pass;
+Received: from mail-ed1-x539.google.com (mail-ed1-x539.google.com [IPv6:2a00:1450:4864:20::539])
+	by mail.lfdr.de (Postfix) with ESMTPS id CC83EFDFDF
+	for <lists+clang-built-linux@lfdr.de>; Fri, 15 Nov 2019 15:18:13 +0100 (CET)
+Received: by mail-ed1-x539.google.com with SMTP id s26sf6164102edi.4
+        for <lists+clang-built-linux@lfdr.de>; Fri, 15 Nov 2019 06:18:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573827493; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zxEUJkLijlF2F00jJYduEEyqw62B0RRQLAZF+PVhxIrVvLL+DKr7sJQ9uXCIsIqoi8
-         OoWmupqthO1N8f9U56hiH/XTm1riWBGy7LsGUScCKaWBue1WKcWOsGWhHBdT0NgSr2yx
-         wdsI1CY5i/Q4j4AqKfYxCrb1nu67qZy0i5gfmz8vIHSrlXrH/SOb8eMmqh67G7K8jroL
-         GHncKOyY1YDUZNKwa8z2YvNdj91tPSqSMyPic0tDffrs42dt3QS12F/58WoZdtoF6ryd
-         GDWlFJoPjHwp6nvMCRHgVQW253iEyPxQE/qjdSCLQV+8xPDrwZsDBy4JwjgQTW0Qt+U1
-         xfAw==
+        b=OUPel2Y7lyu0GY+JqGlVibOQ8GvOJFvpERfYo44J2LZjjoSfUF46Y3Wz4iiMzU7JnW
+         2ScdtENjuQ59YlCebN+wmy2GecB4ZfhAzsHwvwUKd8YbIDnK70Fs0fbHvQA8CtQKjYn4
+         kbePyf+9+C2vfk19QBxtVyKmq4Exl8UA0uDSEr571DLH+QIgaDuqo4SI2WKjzpgW16p3
+         gPIDHBntsCZx3uIfdtpa3iCO2diuUeicc66IGdXcMPsfXbXAznwtabVUHGpLPVJPG2Fl
+         nhwy+fbFVDEgUixIDX2VCzj7XGT7Beh8qbuYDxMnUkawBDIpY6zy1tqv2LYbAkakSwx/
+         nRIQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=/HjOLLSmmgwdegB+BjC5czP7WaFDWdKfnO1iwKcREvE=;
-        b=OJ8Mu0+7O/e8+A66Po9cmOoHipVaO1W//cND5B/e09unOqmBU3qYFR5Gghf1D1KQcd
-         vLJitFTyKN3/nC51PEG39NImO7I3bk3a8aSpF8K5rgg1Mwydk8JLIdtwz3QeIz1tU1/Y
-         Wy5nCJFSjecJImgY19ErFToWW+T8sF5u+nKzwXK8G+9OLLohtZ5NFURAKokjJkUTf8cp
-         FEm0XuqPAxCwDiur0ZNlNH3MDxircpNMGJXPTKEPoYTN2BEFPWcItI511NP3hyKUeRCN
-         A8C2ghX0mqghRGNN88/QWMlf9MT31ILhamgzs1VmcJ2RCmPOqpltehtcJPsRu8Rjk1yJ
-         5v2Q==
+        bh=lJ1DufcHEZmD6HCQuw05H+ZryUgwASIeNni8NRoYWh0=;
+        b=IlpvXl1UItoACB/ZccfZTo7UiKhT+KbiSa1+vOyQ8W1YSZtTIXdMZEk1Hwtx3VbRd3
+         76OqQh+NNO/ATwU19eKNb9KGuGNisgx5nVtZtdiCA4zvCZi64RhVBPltxt7rfpP1PZJD
+         8cn5PS8JHs2P22z4oOGsmBtyOFXNjbb0Rnvz4vP9OWBkbfvyIYqx3CfJvtpt55+6n8sx
+         61jEHx9Xqar28q9z2MYSLff/ku6ZoHUvrJAiAHLcvX+Yq3qoylHxbs1XbqQjE9PCLFEL
+         2MtTSaNmysERbFPU0dBfLbmTdta1puTL3tl0BZo+XnORl9riZSAsBp5bnSuCQg6vpIDj
+         QA+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -34,13 +34,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=/HjOLLSmmgwdegB+BjC5czP7WaFDWdKfnO1iwKcREvE=;
-        b=dZ0kPCzFKAGbpRCT9AGA1T1sTbLyYKcJWm3yjWmXyYLzsrESrB6YTPhWLWkEcguNcl
-         TvtKPaVt7HUL/1rph+6UT1bqTBp/LFCmhhsvLbXQTzuMyCD5tNMpIrLaT/5fKmzRlSCR
-         18me7vMOfuF4fpF7VboyoDn4+yyYuxQZdLZzDOKoUr5Z2E2vZRBkXvwN1uqWxgH+1R3K
-         pqvG9/0tGT9/ooUfABG8Jx4bQO0r/1lL/N8aLNJFmIitlnZ0Iu+0GuWdpP7yJy4Gyns3
-         UY1DPRb5jSginT40WPL/lfLqlD/xxwGPjMX4ogG9bE/p9vaoEmSU6WuAxvolXYnFDPlG
-         9Bpg==
+        bh=lJ1DufcHEZmD6HCQuw05H+ZryUgwASIeNni8NRoYWh0=;
+        b=Qg203WGoDDBk4117FjOjjk+nAgAC/JOYFHoehhxKmQPKv0vIfUTi2vQiw5a8Hm1Rum
+         QYdj+/VdFySPFjDa3vc0k2yBaXzg0VrY9I+tX62wAAp3tYSBFyLRJsfT9k5+zQcdwSZi
+         2sazua3hX1hC5KMdeJaQSkXCNowegf5+5NUNs8jdQ4+16nE16t5n5+741AacLgz+rQZo
+         4PD15CSHaaIyjnbYp5O44PcheDo/1WVTWHvbMewBtfCv8e6aGyrvKfv2jf+7KQaGAdlK
+         HyplIPE1/CWYrM+4n/BFmYKq/q+jcOzmJwb1amg4gihgsN6PjQy0VIjO1Rlltqvebk+t
+         Id4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -48,65 +48,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=/HjOLLSmmgwdegB+BjC5czP7WaFDWdKfnO1iwKcREvE=;
-        b=sv/6IP0eKdEHuePI2cSBmQLSz+RY+afzKuoBg7A4ipWHg/lvfWAPVPN+7VVPEQAoy2
-         7MUs/+EVutlWocGSehCLwd7BRW3tSdhOfXoYRDTymz3ia+M1qAh+7K4tk36/qoadPmoD
-         GKL34i63kmy7KnQDiZK0qQrOTtlEy8KhfQFyo9tPRwRCp+VnpgqFay1yrCDrK5GHM7rb
-         S75N9ETy9JATMDa9tBvxQz6M3EJDgxH/JbuKH9zq/z//bGHLOO+3HfOk1LGeXewCrGp4
-         70vqtxmqXwZ3Q+MI9FoVzKhAAvR1txsqvos75HLLgW+V8BUNXbXjAnnAzuIe+EfviY+z
-         Q7ew==
+        bh=lJ1DufcHEZmD6HCQuw05H+ZryUgwASIeNni8NRoYWh0=;
+        b=Z+s1PVY8YcrvJm8buEhiNNF8Dz/qG1UHbZYT3wmE8s+gHMVgX2n0gRpKqKRC7uHH2F
+         vkWmE4Qu2Rlz4XhfOPBLtSgiEAg1KdKzisRUknHBniIr/GmblA4elWv8HkYag4Lf/vwp
+         yxn6gvT2ACy2ENoe8bg3uzkI+qZHCPryShoQgSxyeSnXtJ4Jlyts9MZoY6nCB9t8URVx
+         AK0Icwvw9Fskj1PBRZw4waZc53Ben+jQFy+gJ+soq1bzv7HOIyHnyLD2zxzHEDQWOhEi
+         j8a7r/dm4wXwnzVa1xh14uOcAJjaQGCC+yMTkjPhgqRo9IqTaadn0DEHJ8IFMET9ZcQi
+         8y+Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWSAfnuzuUtgpmmpp91nlzpYVmqErGDqhwKsxkm+MzycBd50m01
-	DK4ura3GUyaSurNthDzmcvc=
-X-Google-Smtp-Source: APXvYqxMu0uXz8IDbY7wfRmJgp1t5RUj7sOZOIOJMEy97jM7zMrwT2cEDNOjFQpogaSwjNEIdXiKHA==
-X-Received: by 2002:adf:f490:: with SMTP id l16mr4839185wro.77.1573827424156;
-        Fri, 15 Nov 2019 06:17:04 -0800 (PST)
+X-Gm-Message-State: APjAAAXl4WRsLAwn+sHyAdHbwGpjRaaJdm8Y8UuvEMzPyFfjVUoMdum0
+	T8gK7TQ8vlSxlCLlBBw33SA=
+X-Google-Smtp-Source: APXvYqzhhA9GXcMS8bNfsCg5rwTHsTR5scriKi04o/xjXFRNL6hrrxNTSyzngXGhzYm8kgWCkemjoA==
+X-Received: by 2002:a17:906:f108:: with SMTP id gv8mr1295085ejb.180.1573827493519;
+        Fri, 15 Nov 2019 06:18:13 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:ca52:: with SMTP id m18ls2569718wml.4.gmail; Fri, 15 Nov
- 2019 06:17:03 -0800 (PST)
-X-Received: by 2002:a1c:49d5:: with SMTP id w204mr15583698wma.111.1573827423353;
-        Fri, 15 Nov 2019 06:17:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573827423; cv=none;
+Received: by 2002:a17:906:b245:: with SMTP id ce5ls188065ejb.13.gmail; Fri, 15
+ Nov 2019 06:18:12 -0800 (PST)
+X-Received: by 2002:a17:906:b7c6:: with SMTP id fy6mr1293909ejb.90.1573827492846;
+        Fri, 15 Nov 2019 06:18:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573827492; cv=none;
         d=google.com; s=arc-20160816;
-        b=VCD89FJOIaNJxiWmGwAgPSE8w1JWCgnirDbQac39+rjs9SSLM18AZXTPn9vD2SQHy6
-         R0TzhYivXnCg57sm00s0gwADhDzeZtPxKE+jQ8cCXx/kSwQujtYBMG+x7cuEhYdVi8SR
-         DNpyewnBa22lrRzuBU3GIbH0yzXH7IgvczETjq1vdcP9I6HiIM4zJIrxxA4q07WVfPnp
-         vpcLRBytGaE0cqQ2LLeqyz2dJ+55ZsV7IoPxB1sTmVzvdDBzstX5q0tU2j6nHfVaxKN9
-         ijaewoDoQo1PzpL2P0DvRhvmEaLsUaiQwCLoLOVlili7oHnefKHjAr185cCaIdWcFUn0
-         5Jzg==
+        b=VzQxQECUi0cd114lOyH/qPtncD2hn/QtAP6v/H88HtkTvXpliJrEWUW95nN9LfvfqW
+         3WPZt1CwsSpB4Nmpnz51I9fSRRi1ZH3xP9xdptwadbdz5W7qGcaayErCAPw4JfViO4Wx
+         VLc82tv7t5PwCxL4xhvzPI5qXaTX6Demu7tx393FvM/i9DFRAnTtKWdWIzFdUdwSaPr8
+         uutDcVJSgpyGSAdjFiK5mdFeiTkfw3XiZir0HvUo4om3oUH/hP/XzhsqPooSWGA2jMoU
+         q527tqBlNmPie1rxoR5KemzJwaGXR44cN43yRc3LwHjcJ+veg152P8iHIoAb1K+3TnQH
+         g2yg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date;
-        bh=9krPwWFD5V97ExVQ4zmy3pVlx+NIOvaawAfoD9nIn0M=;
-        b=i5LNBtnBE4BtjZCcbp6a8lNkUxoiOJCZZG4/1zsmru54jT+8J0H/I3IWGLHsahdFtK
-         irytSKxPZCXXzjTdLuZ2VL8oI/6EIhISp0zUh5ao9rP02b6N0wrGSYVo5Ym0HXGQaekd
-         Fd0cZhvW3++WVp4gx4DjYEr4Yj9Y8WQYU79MxRoqsVTkFZwvu3bYQqlgPizGXgu34AJr
-         QezkgnvFGsQGIBUXo1cgLuB/HI/x4hD0mt5bKbgBTjhAqp2c0Q1aa5BXCcOTrDhHEUv/
-         y7rr2wSDDIZF2K3CITc9b1eplk5wS2oN+L/MEqh4fjPEcD2w7fU6RSsWrrNWFziH1Cm7
-         aAxg==
+        bh=Mru6ed0Ud+osgeKbGHn02fYY8df0uyq9joVPVD5Z2hQ=;
+        b=HApyi0UO0EhNTzVXP8H+McGp8KpiNkv4CZq28GrC9kglMN1sw3fzIMSaE/spTkZkHe
+         JvasmA07fKAWHG44rfCEXhQ1uY8VL4FJ56q6sTK6rEbwRXOt5gTHcnk+/dtEeqMd1Nki
+         EsM/XqgrIR47N6wQ/z9oi/g+OowjVk5Q7Qollp/w+JYyUzKKvqiOltIdJ4oCIYO/6kSB
+         nrxc/xJAYvIApidfFpG9xrTDZZGv0lCi4ELz26V6xb5HqpVlQHnuSjkgMxd8UC09ttVo
+         TOkZXb8nsLQikwMN9xricU74+jJcY2o88/cIBXP+D9pwwG+2AF+wdFAN9p7ACOzOz5E3
+         Q3YA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.rutland@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id w6si846415wmk.3.2019.11.15.06.17.03
+        by gmr-mx.google.com with ESMTP id v57si887670edc.3.2019.11.15.06.18.12
         for <clang-built-linux@googlegroups.com>;
-        Fri, 15 Nov 2019 06:17:03 -0800 (PST)
+        Fri, 15 Nov 2019 06:18:12 -0800 (PST)
 Received-SPF: pass (google.com: domain of mark.rutland@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 897C431B;
-	Fri, 15 Nov 2019 06:17:02 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2A2B231B;
+	Fri, 15 Nov 2019 06:18:12 -0800 (PST)
 Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4B8EC3F534;
-	Fri, 15 Nov 2019 06:17:00 -0800 (PST)
-Date: Fri, 15 Nov 2019 14:16:58 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E562B3F534;
+	Fri, 15 Nov 2019 06:18:09 -0800 (PST)
+Date: Fri, 15 Nov 2019 14:18:07 +0000
 From: Mark Rutland <mark.rutland@arm.com>
-To: Kees Cook <keescook@chromium.org>
+To: Sami Tolvanen <samitolvanen@google.com>
 Cc: Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Masami Hiramatsu <mhiramat@kernel.org>,
 	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
 	Dave Martin <Dave.Martin@arm.com>,
+	Kees Cook <keescook@chromium.org>,
 	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Jann Horn <jannh@google.com>,
@@ -115,15 +115,15 @@ Cc: Will Deacon <will@kernel.org>,
 	clang-built-linux@googlegroups.com,
 	kernel-hardening@lists.openwall.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 00/14] add support for Clang's Shadow Call Stack
-Message-ID: <20191115141657.GD41572@lakrids.cambridge.arm.com>
+Subject: Re: [PATCH v5 08/14] arm64: disable function graph tracing with SCS
+Message-ID: <20191115141807.GE41572@lakrids.cambridge.arm.com>
 References: <20191018161033.261971-1-samitolvanen@google.com>
  <20191105235608.107702-1-samitolvanen@google.com>
- <201911121530.FA3D7321F@keescook>
+ <20191105235608.107702-9-samitolvanen@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <201911121530.FA3D7321F@keescook>
+In-Reply-To: <20191105235608.107702-9-samitolvanen@google.com>
 User-Agent: Mutt/1.11.1+11 (2f07cb52) (2018-12-01)
 X-Original-Sender: mark.rutland@arm.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -141,24 +141,44 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Nov 12, 2019 at 03:44:42PM -0800, Kees Cook wrote:
-> On Tue, Nov 05, 2019 at 03:55:54PM -0800, Sami Tolvanen wrote:
-> > This patch series adds support for Clang's Shadow Call Stack
-> > (SCS) mitigation, which uses a separately allocated shadow stack
-> > to protect against return address overwrites. More information
+On Tue, Nov 05, 2019 at 03:56:02PM -0800, Sami Tolvanen wrote:
+> The graph tracer hooks returns by modifying frame records on the
+> (regular) stack, but with SCS the return address is taken from the
+> shadow stack, and the value in the frame record has no effect. As we
+> don't currently have a mechanism to determine the corresponding slot
+> on the shadow stack (and to pass this through the ftrace
+> infrastructure), for now let's disable the graph tracer when SCS is
+> enabled.
 > 
-> Will, Catalin, Mark,
-> 
-> What's the next step here? I *think* all the comments have been
-> addressed. 
+> Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+> Reviewed-by: Kees Cook <keescook@chromium.org>
 
-I'm hoping to look over the remaining bits in the next week or so, and
-to throw my test boxes at this shortly.
+Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 
-Thanks,
 Mark.
+
+> ---
+>  arch/arm64/Kconfig | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 3f047afb982c..8cda176dad9a 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -148,7 +148,7 @@ config ARM64
+>  	select HAVE_FTRACE_MCOUNT_RECORD
+>  	select HAVE_FUNCTION_TRACER
+>  	select HAVE_FUNCTION_ERROR_INJECTION
+> -	select HAVE_FUNCTION_GRAPH_TRACER
+> +	select HAVE_FUNCTION_GRAPH_TRACER if !SHADOW_CALL_STACK
+>  	select HAVE_GCC_PLUGINS
+>  	select HAVE_HW_BREAKPOINT if PERF_EVENTS
+>  	select HAVE_IRQ_TIME_ACCOUNTING
+> -- 
+> 2.24.0.rc1.363.gb1bccd3e3d-goog
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191115141657.GD41572%40lakrids.cambridge.arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191115141807.GE41572%40lakrids.cambridge.arm.com.
