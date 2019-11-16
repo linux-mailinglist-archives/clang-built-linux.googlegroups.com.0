@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBANWYDXAKGQEY33N53Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBAVWYDXAKGQEAXZGHFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8CBF2FEE65
-	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:51:30 +0100 (CET)
-Received: by mail-il1-x13e.google.com with SMTP id e5sf11768324ile.23
-        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:51:30 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573919489; cv=pass;
+Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90707FEE6A
+	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:51:31 +0100 (CET)
+Received: by mail-ua1-x93a.google.com with SMTP id x2sf2911576uaj.21
+        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:51:31 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573919490; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Oj8kYWG0i6PEblzlOvWbhepKeDtiQ6tD1BYT8Nu0I0Y7OQElY+5hPl/Lv2uF+3SRwC
-         1Az5z9XNKNcbguKPQ4+bCXmmFpkIU9lHwf2Beuuvqxd+uUnrqYChrOPXMcqNxqY6iMZI
-         wBDRGmSQstyBND3udw/IoPMi+/PonQ81tOlag5KHgjUt7aZOZPDPvMWinUL2fumrev+T
-         mFXIT+cfYfBe2y5ajDdoCHHhUxzrW4FNUl8yl5+4x1CO3Sp+xG/CV2xsSLB7uyJ1gyJz
-         YkV3UaEElm8ysEDK7NsmB4+X2sfsDWLcPPADXnp6aRyKw8X7tdNE0r3try+wcDyuFCEE
-         sjag==
+        b=JiPGqcr98Mgfg8A6SKEDWMD6Ov6FsORAI6rCDWwpS7xCJwQUAG/oq7Td08K9eBEVOo
+         lBVJMV7pnjFIbxUt8ojsnRnM8v7gU7C9cE8K8a1fwkG3FiiniDhOoNGTYyyQZyziGQJV
+         uy9Qjqzqs/fPkGSDeDBlKhMdoGuBfjSdIy3gGSqXNzG71PR+edBKKFv+noRrz+CVsZSU
+         Et+ZHmiGG+mFXOyPqMe9D9UoaB2A4/FJXeyr+kbwFjRc2rxJYADdvROttBzgQAl9cYBd
+         ZqTjI9BfZmxt1NIRjdmr+8cP40A9jd/S0VIuJWzt07WFffPONvAz1O0WSoPfahEWvATh
+         DT9w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=dSdk4Oiow8rtDgFLGMARUO6PGVjN39fYcVdVJ97OqnI=;
-        b=bnXz/IvLrQGzTcDxDIXvEg9+j1XIjQCYCtIrnTbzstUSu2D+M6uQSW9wss5bFdyyxh
-         YUEne/qQjsJYTZL0Oo+HiOJU9U7DNlVLyga0wNrcyM8cWqE1nklky9QzJEsJtLQZOhes
-         klWnWVcM2gQWVSWL1ehRpYJv/EkgZelN4qDm7027zk1e0pOUlDUGVzHUfXtc5n5O/Eza
-         4yh2KlwdboE75Ll2w17Iz9i0P2pvHgJ4r40L/VYAz2BPZ11lOko4M01oNbBsZ9iWnbkR
-         X0m+v5JX7KCBdTOfjZcKVlXy3lmHgrARLw+jSFTUjkLYPPEgHuwzeof5xVzbApB3/BWe
-         lCXQ==
+        bh=UpT70LJ+hmMtlq3EcJIbsA+IyMbTL2bPZI6IF7kBpqM=;
+        b=Jcg3RRnDeaaIsuPHlGnJIhLVQgC+d5li9+IVno6Slbr+/ajStvjE9JkceIi9rdJI5F
+         rcyV4wZT2RsVri7ExNL14nXmoblmCm9QwO7uA5siKb+KB2fwRgeAojvTRiC6L4B4zdst
+         gpJu5rgEeT/Z8vRzolbSm73eKuvMY49IaFdNSy1BKZmH8+tfIvp81t9vXTKNg9FafJKZ
+         cWBxFxjRrlKGp+Js9DJbjhxW6vDlBiGofPmflJDzfiIh7OfOVv69mqSbYUUs1tpLw0NY
+         cTGNS58AsF5YBW04Ruzov/x4+7W4ICA3YJlQh5UXV/HDQmPymZY84QrnDI/dfxtxrHnz
+         Ho/w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=tB6lN5Hj;
+       dkim=pass header.i=@kernel.org header.s=default header.b=fFLp6j65;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dSdk4Oiow8rtDgFLGMARUO6PGVjN39fYcVdVJ97OqnI=;
-        b=OrfNqQKHZm3NW8sv4NZMeDGG2oiUYpAZ9V1BkWdjyhDpFD1RM+rbidz52sf9UgoLfA
-         v+IDSg71tc0CgnbR+3pQgqK206JZH25kFRHLV2J9YyCcLTNfZ9pmDURSGFGEAkzMh9Dl
-         Q5+iPDL9NOPyMW0jiO+feFCVs+UNqNW2Vbnb2/OW2nPGFyTeWkSniYeZ1msf0nAG50b3
-         GWqs5wGLQ1hkVeY7tMcmsyjAhKM5WlAgM55Hl64jzD1+g6B3n3h3j4u4OJINbpEVvb6u
-         VTXcSlw2ynTSVna+LEEAHoasEpCn2ms6sHPYyiG8TkLMz0/EddQnnc5jbp+Ty3Lqv9YG
-         FM6Q==
+        bh=UpT70LJ+hmMtlq3EcJIbsA+IyMbTL2bPZI6IF7kBpqM=;
+        b=BhCxF/zXXHoj8HPjVIINGwZc2ecE0UjGJprZK8OATYAE+8+SoltsK/uEe104rwU0eD
+         i/onTBGvEt7roajAJMqTHwRss5HZd9kBgTqG7ltPgl0N1+YNwbreYmpnr+Oy+mkbZ+uy
+         CHB8fOdZ2s1IhDiCD6HSvqy+duKV4paiSjQRgXpfAYBbJx0SzSsUhkR4AuwVDcUWMQ5K
+         8Uxok10rrDELOg+zLQ0vdeqI4thtNixoyNft1w3HzsbtVSOb+fnTFsABBI4C3H4rJBC5
+         KwrboVAjLF5yscVUcrb8+spNHhIrAin3iypXlVZ/2Hv1OgQ8egsz7Z2UgOKzGqDRwEpx
+         SRcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dSdk4Oiow8rtDgFLGMARUO6PGVjN39fYcVdVJ97OqnI=;
-        b=TQDEc8lyAaj8Ktt208A6Jr51tsAxydlds3h7G09NRJYoMg9XGvleXdzbxAxlcEBzdG
-         JuLluAei2UcbU9j8y2H2JDvyVWdu6F3y1wuXa9CC2qlHeQmGEIx/KvYA0KDMQ5Oj5L5E
-         3FxGYlGwrNgmjXPS3sM6yYXmgA5cd4hxeAwCZJKx+qRtPr7l59+5fMx1Yayl6jdB58V6
-         EQIhy/oxxTvBhCT4keR1U7g65HzJ4oYc4T5OSWNjqp70w1sxirCmctHiOo6UHfVrv4MA
-         a78c6Bk5Yi4zBo2q2ANHsrzNQNicyodBvtxEC2rrDoJrkJDyZwmlmnCUAA9/zcyG0wth
-         tqsQ==
+        bh=UpT70LJ+hmMtlq3EcJIbsA+IyMbTL2bPZI6IF7kBpqM=;
+        b=eaBo/R0CQwVhLoTkFxQz9GsiSu/42repjkNqOdTFyQplKaptyKXYtTUclPtvlpXnRb
+         tt8mNRzwsQG+zWXem04i9mscEoQga4ybfZ0KUyrIBOJr9wbkUnNszDcOqznbdmJ4oQtu
+         dG8uXkdKlx9HRcs5ibyVUCK0PlJed4iksWD/C7k00wM/SK0GeWGAW7neomuYFdKdGVrm
+         kWAaWDvYSieJsb0dFVaIwQdHyTF3KpMPPMa6+bqtxdghHSVrkxCrAHSZ3ylJDkAiulHT
+         ApxDCn2A3iL7cxpX3ILdFGLWHOQxC5n46KMI1PQ5ZSRF3r1n3KnmE2xWT3XWhMSHkkmt
+         SiqA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU3ZmC5XBT7Mh+S3WUAasxl3B6g4BPmgYbLxUNMUAw94HpSlOuw
-	I8Pbx0CrxjE9lbux9gLgqBE=
-X-Google-Smtp-Source: APXvYqzBv+/rQFm5AWMdiYBdVIJiFZSQi+8XVMdxIVsv47+nxSCwBG2OE6/K3SUeN3PwO07WqB4x5g==
-X-Received: by 2002:a6b:e701:: with SMTP id b1mr5695822ioh.119.1573919489257;
-        Sat, 16 Nov 2019 07:51:29 -0800 (PST)
+X-Gm-Message-State: APjAAAVjrdfs1rHtB8kaO4cu3KzDFxi/6Ch7EzvBuVk78sKKelcEJp8t
+	d6uQNQD26C2pd73knRM1w7U=
+X-Google-Smtp-Source: APXvYqy42j7c8a845iHBxqEK99BSwczm6x5aMX2LImLwhQCJtwcnxasAlqjyD+ZPnllhMWEm6oAd7g==
+X-Received: by 2002:ab0:6c5:: with SMTP id g63mr12652831uag.46.1573919490463;
+        Sat, 16 Nov 2019 07:51:30 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5ad5:: with SMTP id b82ls2400743ilg.2.gmail; Sat, 16 Nov
- 2019 07:51:28 -0800 (PST)
-X-Received: by 2002:a92:48cf:: with SMTP id j76mr6613021ilg.189.1573919488893;
-        Sat, 16 Nov 2019 07:51:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573919488; cv=none;
+Received: by 2002:a05:6102:2261:: with SMTP id v1ls894326vsd.11.gmail; Sat, 16
+ Nov 2019 07:51:30 -0800 (PST)
+X-Received: by 2002:a67:bd05:: with SMTP id y5mr12813225vsq.180.1573919490194;
+        Sat, 16 Nov 2019 07:51:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573919490; cv=none;
         d=google.com; s=arc-20160816;
-        b=SE53FZyaLCYLJPoT1LrwvIep+f5ws1S5YtAKWrrtGoyQeY2b62DH+ZuIMACJh6ZWwi
-         p/9fz4pXiUupD52yG56zzjFPwCAw+AmGtfiKpQHW6cdoYyYkM4cMBD9IF05vwJdxE1YQ
-         9Ocjf1YJtRWKlb335WZenmxEPVZpRe/bqqPPaZDgdH0EQBuVdKYlotg0hDeMF8gBpqAt
-         VkmSv27XJdQBELQRKoBaZi2kOX/KAaZhwf8OgQ7V7geUt0VXFHgwFkaJre5uPjFlxJjC
-         ruOGCbYPLM3O1ZXS7RJepwe6a51T7q1/olOWU0KpDYVbLCa6RdudUbH6Xnxq5l4sZW52
-         HZFQ==
+        b=SJ0zZmOh/qmN9Jw7ET5EFgXqudBrfusQiyLECl3z094F4ruYzmXLOyQI0Fja3V+px2
+         eFr0phBgELxaLj67SNkOAcYoAKl3tFgQaswD6cMFjb1mcL83B7fra/kEgywi4EOizSGc
+         Io+2FiGL6shHQSpdcJMQNVwwxpdWNB9HalxLC6ihks19vobjpWOOghujPY1eDVqMXiHq
+         qLMTumz/57WSZI8/nPHWrZFnIqmRZO0aAlwmPzlPlWg32SI8Wlg/vO4IhDaYRno6tGIJ
+         9JSxuD94CL+6Cs4lpQrprruVj1OTyJUQcAj5w83R290EM4QNylF3rWw/XHU1ztvFVJ4z
+         LtXw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=tXw16BFDT2zjWFdBgZwpM511geHgNliyoe1t+QRRIIk=;
-        b=xBoE/0EUMhDDEiBwoNzgVrYfN8VWYB30BTbXrNPudQfEWR8tpPauv+gOQ7I7K+XwOq
-         S5VHj8o9C2481h7PS3zgqdIp+6CgolFrefsFSG4H7a/0vzHTXBeqMFHrxwHVH8Hv110b
-         kxiLAO1D8lE2Ckg+qwBzrKC71NjTUyCocN+tvwAPlHB7BFdBFozTmqcLz9hynvhkj8Ec
-         tsWi1HaDGB6Q0BlU6zONeuBPnhdlxUtfLOcHzUkD1AL24ijmWhkgRdsxUqGcvWV2LKpK
-         Vm1gpcBcQPqDQcBeMKmBf7N3Viajt4fWiWxX+imiMgdAZV/5ioDuo4MBFpk3/3NUCpsc
-         xn3g==
+        bh=rCkybPrf2FwDzma2SlZQztjRUTvdo3elsw3WhgT7lvo=;
+        b=y7JYAM+YXNsSMfh/sGfHEpmgGugNV0TNJwUXpfyPx0UApNeZoErfiqGVeOF8M4sqLF
+         8DCRGpZoTO0fjKfomKxD5Po6nsmk+J6MqWyj9uI7cwROEAelAqPIleLYOIYd8Q1e0LVb
+         2bAJpaZ2+bvQYwSwDrxIcJM0+QzMMEvB4Npy0tgFCALrq3wShyKDBPULK5p2yANsyIey
+         BNrsmjVSpUc0z5C6TYmQHTGaIInZ3Ih/celnThcAHEM4lrvK2WSVn+BX4KzT2kPIuNT3
+         pd5PIPMQxv/OKmPEDkWdrFMKP7A/j0m2+LtcYDikWI/HdqWnd92IBbkDveNUw8KOFMlo
+         48Ow==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=tB6lN5Hj;
+       dkim=pass header.i=@kernel.org header.s=default header.b=fFLp6j65;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id n6si373874iod.3.2019.11.16.07.51.28
-        for <clang-built-linux@googlegroups.com>
+        by gmr-mx.google.com with ESMTPS id o206si689622vka.4.2019.11.16.07.51.30
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 16 Nov 2019 07:51:28 -0800 (PST)
+        Sat, 16 Nov 2019 07:51:30 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (unknown [50.234.116.4])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id D4E0820857;
-	Sat, 16 Nov 2019 15:51:27 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id A8B8421887;
+	Sat, 16 Nov 2019 15:51:28 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
 	"Martin K . Petersen" <martin.petersen@oracle.com>,
 	Sasha Levin <sashal@kernel.org>,
+	open-iscsi@googlegroups.com,
 	linux-scsi@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.9 19/99] scsi: isci: Change sci_controller_start_task's return type to sci_status
-Date: Sat, 16 Nov 2019 10:49:42 -0500
-Message-Id: <20191116155103.10971-19-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.9 20/99] scsi: iscsi_tcp: Explicitly cast param in iscsi_sw_tcp_host_get_param
+Date: Sat, 16 Nov 2019 10:49:43 -0500
+Message-Id: <20191116155103.10971-20-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191116155103.10971-1-sashal@kernel.org>
 References: <20191116155103.10971-1-sashal@kernel.org>
@@ -119,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=tB6lN5Hj;       spf=pass
+ header.i=@kernel.org header.s=default header.b=fFLp6j65;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,106 +139,48 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 362b5da3dfceada6e74ecdd7af3991bbe42c0c0f ]
+[ Upstream commit 20054597f169090109fc3f0dfa1a48583f4178a4 ]
 
-Clang warns when an enumerated type is implicitly converted to another.
+Clang warns when one enumerated type is implicitly converted to another.
 
-drivers/scsi/isci/request.c:3476:13: warning: implicit conversion from
-enumeration type 'enum sci_task_status' to different enumeration type
-'enum sci_status' [-Wenum-conversion]
-                        status = sci_controller_start_task(ihost,
-                               ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-drivers/scsi/isci/host.c:2744:10: warning: implicit conversion from
-enumeration type 'enum sci_status' to different enumeration type 'enum
-sci_task_status' [-Wenum-conversion]
-                return SCI_SUCCESS;
-                ~~~~~~ ^~~~~~~~~~~
-drivers/scsi/isci/host.c:2753:9: warning: implicit conversion from
-enumeration type 'enum sci_status' to different enumeration type 'enum
-sci_task_status' [-Wenum-conversion]
-        return status;
-        ~~~~~~ ^~~~~~
+drivers/scsi/iscsi_tcp.c:803:15: warning: implicit conversion from
+enumeration type 'enum iscsi_host_param' to different enumeration type
+'enum iscsi_param' [-Wenum-conversion]
+                                                 &addr, param, buf);
+                                                        ^~~~~
+1 warning generated.
 
-Avoid all of these implicit conversion by just making
-sci_controller_start_task use sci_status. This silences
-Clang and has no functional change since sci_task_status
-has all of its values mapped to something in sci_status.
+iscsi_conn_get_addr_param handles ISCSI_HOST_PARAM_IPADDRESS just fine
+so add an explicit cast to iscsi_param to make it clear to Clang that
+this is expected behavior.
 
 Link: https://github.com/ClangBuiltLinux/linux/issues/153
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 Signed-off-by: Martin K. Petersen <martin.petersen@oracle.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/scsi/isci/host.c | 8 ++++----
- drivers/scsi/isci/host.h | 2 +-
- drivers/scsi/isci/task.c | 4 ++--
- 3 files changed, 7 insertions(+), 7 deletions(-)
+ drivers/scsi/iscsi_tcp.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/scsi/isci/host.c b/drivers/scsi/isci/host.c
-index 609dafd661d14..da4583a2fa23e 100644
---- a/drivers/scsi/isci/host.c
-+++ b/drivers/scsi/isci/host.c
-@@ -2717,9 +2717,9 @@ enum sci_status sci_controller_continue_io(struct isci_request *ireq)
-  *    the task management request.
-  * @task_request: the handle to the task request object to start.
-  */
--enum sci_task_status sci_controller_start_task(struct isci_host *ihost,
--					       struct isci_remote_device *idev,
--					       struct isci_request *ireq)
-+enum sci_status sci_controller_start_task(struct isci_host *ihost,
-+					  struct isci_remote_device *idev,
-+					  struct isci_request *ireq)
- {
- 	enum sci_status status;
+diff --git a/drivers/scsi/iscsi_tcp.c b/drivers/scsi/iscsi_tcp.c
+index ace4f1f41b8e0..d60564397be54 100644
+--- a/drivers/scsi/iscsi_tcp.c
++++ b/drivers/scsi/iscsi_tcp.c
+@@ -798,7 +798,8 @@ static int iscsi_sw_tcp_host_get_param(struct Scsi_Host *shost,
+ 			return rc;
  
-@@ -2728,7 +2728,7 @@ enum sci_task_status sci_controller_start_task(struct isci_host *ihost,
- 			 "%s: SCIC Controller starting task from invalid "
- 			 "state\n",
- 			 __func__);
--		return SCI_TASK_FAILURE_INVALID_STATE;
-+		return SCI_FAILURE_INVALID_STATE;
+ 		return iscsi_conn_get_addr_param((struct sockaddr_storage *)
+-						 &addr, param, buf);
++						 &addr,
++						 (enum iscsi_param)param, buf);
+ 	default:
+ 		return iscsi_host_get_param(shost, param, buf);
  	}
- 
- 	status = sci_remote_device_start_task(ihost, idev, ireq);
-diff --git a/drivers/scsi/isci/host.h b/drivers/scsi/isci/host.h
-index 22a9bb1abae14..15dc6e0d8deb0 100644
---- a/drivers/scsi/isci/host.h
-+++ b/drivers/scsi/isci/host.h
-@@ -490,7 +490,7 @@ enum sci_status sci_controller_start_io(
- 	struct isci_remote_device *idev,
- 	struct isci_request *ireq);
- 
--enum sci_task_status sci_controller_start_task(
-+enum sci_status sci_controller_start_task(
- 	struct isci_host *ihost,
- 	struct isci_remote_device *idev,
- 	struct isci_request *ireq);
-diff --git a/drivers/scsi/isci/task.c b/drivers/scsi/isci/task.c
-index 6dcaed0c1fc8c..fb6eba331ac6e 100644
---- a/drivers/scsi/isci/task.c
-+++ b/drivers/scsi/isci/task.c
-@@ -258,7 +258,7 @@ static int isci_task_execute_tmf(struct isci_host *ihost,
- 				 struct isci_tmf *tmf, unsigned long timeout_ms)
- {
- 	DECLARE_COMPLETION_ONSTACK(completion);
--	enum sci_task_status status = SCI_TASK_FAILURE;
-+	enum sci_status status = SCI_FAILURE;
- 	struct isci_request *ireq;
- 	int ret = TMF_RESP_FUNC_FAILED;
- 	unsigned long flags;
-@@ -301,7 +301,7 @@ static int isci_task_execute_tmf(struct isci_host *ihost,
- 	/* start the TMF io. */
- 	status = sci_controller_start_task(ihost, idev, ireq);
- 
--	if (status != SCI_TASK_SUCCESS) {
-+	if (status != SCI_SUCCESS) {
- 		dev_dbg(&ihost->pdev->dev,
- 			 "%s: start_io failed - status = 0x%x, request = %p\n",
- 			 __func__,
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116155103.10971-19-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116155103.10971-20-sashal%40kernel.org.
