@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBWNUYDXAKGQEI4EPPTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBW5UYDXAKGQEA3UQR7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
-	by mail.lfdr.de (Postfix) with ESMTPS id A83FAFEE0B
-	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:48:42 +0100 (CET)
-Received: by mail-qk1-x739.google.com with SMTP id q14sf916873qkq.13
-        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:48:42 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573919321; cv=pass;
+Received: from mail-qt1-x83d.google.com (mail-qt1-x83d.google.com [IPv6:2607:f8b0:4864:20::83d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6DE26FEE0C
+	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:48:44 +0100 (CET)
+Received: by mail-qt1-x83d.google.com with SMTP id x50sf8926556qth.4
+        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:48:44 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573919323; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZpOFMv0LqD7NH0d1FMl1DepMnQ8T9Rfz8w6TTo2fXc2hP61lw+WOhXPxuX2rcVtbH6
-         JIzlT8P4a7TCezGQxTdGsyx6fI8JMo436xovc5e0Stx5BfGpwtZvpKhY7Z9WGggEUHU2
-         evHXD+DxbWxklIrSCiGl2xMN4y9BY3YoGi/GXMJv1q9qQ9WNKumz1nhvKcq35tKwkwQo
-         mJyEwVerxOg+Q+TCl2imi9owygimGnsYHbuDIqbpPUn9n3tvbGWCBTI2sHEwAUmzE2o/
-         ReBXZzL06q6+AOxd1UgKrC85cxNC9PRJv9LXDfUL2q9ns3XvlTHaPK5FQsBSXqHVtTOp
-         ttXw==
+        b=QUyoLzrMOIkarQ9b6D4UzGNu2mHuKag6iTaQn1bpqT7SBzTDDNX8rjZN1lHp0Ns/+S
+         AHzZRX4H5fQpiJfm2NaNffCNIokNMXiQPnUC902ujg2LRaWrVqCuTKVJ0RwRQVWihN/1
+         SbSGCWtXB0xsLuEtHIv0jfSTpPy/vOl3712MUHb2v9AdaJvQdDigAAX9Az57XzYci0/V
+         h7X/+PkIrC+EcBTesaq2vkmmA+L2gyV3dOCiCEDPTt2ID75kzPFkzI3V2AcQGDbkz5tc
+         RMFZUwnQpddbEPlJxQ47L1BphhGzXEGnaLfC7fgHlI2L00EwAAKn36MsNhU3O6jiKGMO
+         UEsA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=6q6Y3A8u/aFtFV1q1nuHSN7MonLv67an6Oq3UX3wHos=;
-        b=OQ2K7IQVWPb5cewo9vUjyr2bX8lFi6CqdPZ7yqEDoPOzvQaugwrEdpFdorto+c7k7y
-         TU7HfYhtupZvIPokr0DysVgS+Ma14TNrdp1z+DY0cKAt62h7LVwBbFJyK4mLItUARe07
-         Tf9YuJeKfriD6aIipvB0ZErFkWQhP2fduzAVSpSxUHgXKMt4nRNu02cfe/EGIt3v82Xo
-         oqrK323vzZpp4NlDCOC6u6XRj1kYW1tO7oCdATzfMk1JcDfComoEtWca9mM6VBWxjDPJ
-         9YBt0bzrxrRK3BXv3huzONA3xcXWzR+Larbbx+5yB6EotxbXj+LMzg0nG/49oiSeuAS2
-         l6xQ==
+        bh=EbJEvFanILWro6FKnKF0ebhtOJpACYNdNIjhh33M8ck=;
+        b=FcFOt1VnFlbkE4iMhiKGRUVB0Yl3uNPb6bmJw+U1cYtZzroIQb8PHvTIIg/z4MdvKi
+         YTFDljGhu7WPRxIaQevUAL3RhOIxuZty88R5MUvqjCcE+zxX11oTpbQ1BdqfXAyzrqkE
+         nuOXpoYxw87Um1aP0V7/IBQbXY9RwNvC+4zjmHVImKxDplZKDSfk+gRCeWR8G99iOojm
+         GoCqCRVHyMjFxkO3lOIGR6SHeLNQJwwmOjWoPk0o9fFJc6Ncz9eQDOddxQ5LFJGVGzzA
+         4ITVUXIZcWJUNLEVKzps0sYAVs0WlgG5smRTyn08ijbM3Z/tF392TX1zwwX3HwimZlJX
+         Pq+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=vEzkBOgN;
+       dkim=pass header.i=@kernel.org header.s=default header.b=WRQkIddX;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6q6Y3A8u/aFtFV1q1nuHSN7MonLv67an6Oq3UX3wHos=;
-        b=QO1+IgEteNN8gixpEN8OGiB0IyFmNXBUhe4zYTe/xOhk9+pSaM7uMDaNJDzOM1e67/
-         f1dch3CTX+nhBqC8jlzBYDHwpcbeD0rZYoHVXTOp7GpA0gAwt0M++aLX5hN8lHfPu0f4
-         ku1i78eYz15wV7YM5EqSYCZm65BARauHe3Jj/FapWrPDBm9nlfpmvg2PaE79xg1FDNVg
-         ozug+JpHo/M4Eog5Vmw8mPR2WTjvc65wZQuTHu5NxIR1JI2eYTrFvP6PlQX28MBJ/KZa
-         uqp7SKHwgfc2PAaLca38vJn55+TP6FyquMiObMB/p/+Y0C+elnOkSWzjsTakIaok8P8F
-         M6PQ==
+        bh=EbJEvFanILWro6FKnKF0ebhtOJpACYNdNIjhh33M8ck=;
+        b=iaBS2ThdeAfGT4XXrGMuuw1+iSKQBsjgIWvHNyWtsFPexV4PPk1wQvxasqm+Mf6azD
+         KARBY+mABINIRImQOee3XqnHA/UImBk121vt/RWcule8/hkSnbUb5iKyxn6TnDXD6BA8
+         EuLoVsnWllAMP3PAWQsWPSM20bXuRJtK7uQDbek2ICPKR9IwF6HKdJaI+C/bKEbvbgl1
+         Oa650zGOk6/ia7sASJHxOTMfNLoFOYFCfkPkcU7ikTktRM7mHh6Cha7WkvzkfK5plffc
+         gDI+855xOizfRNtzcmnLNa+5Hy6VHdRE4+bPpDNS3KwSKVStekDyFaIdLIO0NLMg4q0L
+         RWMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=6q6Y3A8u/aFtFV1q1nuHSN7MonLv67an6Oq3UX3wHos=;
-        b=t85Bk+OwHsiylHz5f9XdAeM489VsjPM/2WPtVb2Kfifk3JntzZNUjTMNizrKEyjDzv
-         gbcmiiIkuZ5UgFSA11DwY68Gmbxlyn7VnPbmw5VKaAYSRaUVxU5NXKNDx5MJdcIxoRtG
-         VMU1J/gPQzOL6FXblg5yQ515Tr3Js5OGQQIdtKNvMDU6EUsGmxBc6ZFojMa84ObEaJlm
-         Z8+07Kvf/450lUbwanSkk6pGFbYeQlcHvgB5W6ZoOmi0cJjfsPyTPE3JQ0WL4NSP22jp
-         oeC8fawiAg8B0/GeQUP6hpnhsvipfSYbvgtCDoLiR7VNcH0jhfzTBuja59bxk8Pc8O8O
-         2hVg==
+        bh=EbJEvFanILWro6FKnKF0ebhtOJpACYNdNIjhh33M8ck=;
+        b=aq/rFLsSjSqD19sJU1OY5XzNX1FoxjjdbGItRP42pWqkuBFeRlT5U2ucdwuALFH7h3
+         jGkDe9PttS12WQPdojd70eiBOAHcrMhYhOBZb/BHHY8GbyWndwPiaI969ervkANRqllO
+         w21h84jP3iSA5mH4Ps+5I7dyN1gDFoteu6qGvZWR6hDakNixcR72pJvxnmPkPMbxLCmk
+         Ufaqdbws5l9zldNyb6l8CMugFuqkEzqTnPFyFhkjGONGaYb/bHt78g+6/o5SOOlwBdjy
+         uXrnbTOz3+WTYcHi+JxKSZtozDYc58eOq4El6GuRoJtGj6LVYcRxpOvfcBec34f2C6fA
+         OBqg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWCgM2BJPvafhsJIo29Flpz54XbzO7EwqcfsDXIB5NAl0XM5/uD
-	p+mRbAj30QE0UtdD/Vemqzs=
-X-Google-Smtp-Source: APXvYqw99rPqNNPZqnhwzkP2BzPWyEMMajBFSut5bc9HMPC2htb/J1ae4W8xU2vkQC+kPZDXvEkR2A==
-X-Received: by 2002:a37:ba01:: with SMTP id k1mr17784256qkf.198.1573919321688;
-        Sat, 16 Nov 2019 07:48:41 -0800 (PST)
+X-Gm-Message-State: APjAAAVJfNWf6d4SUJoKdfxSQRlvARSkivMa0Oi3ElF3GHNVZtywgyww
+	ArL4t4QeHcSuSPc42o7oq2Q=
+X-Google-Smtp-Source: APXvYqwTHHwYf2H09oW0b3HZaL2ZDDv5fX334RJAqZkbKSOi6tAXmHN3qxO3u3TgCjEcb7nHjmTJUA==
+X-Received: by 2002:a37:a416:: with SMTP id n22mr17280305qke.96.1573919323435;
+        Sat, 16 Nov 2019 07:48:43 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:18c9:: with SMTP id o9ls3346874qtk.3.gmail; Sat, 16 Nov
- 2019 07:48:41 -0800 (PST)
-X-Received: by 2002:aed:241c:: with SMTP id r28mr20027322qtc.148.1573919321368;
-        Sat, 16 Nov 2019 07:48:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573919321; cv=none;
+Received: by 2002:a37:a5d3:: with SMTP id o202ls3302257qke.5.gmail; Sat, 16
+ Nov 2019 07:48:43 -0800 (PST)
+X-Received: by 2002:a37:4e03:: with SMTP id c3mr13126733qkb.6.1573919323086;
+        Sat, 16 Nov 2019 07:48:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573919323; cv=none;
         d=google.com; s=arc-20160816;
-        b=kka6EOuRyK/aJsEGbvEzBWuuvHpJWSAQaaPtO4tjd2gbR/+e7jcozA7wdTfIN32Gwx
-         YMUinmw3FkpHAyV3lv88e3L7Dzak5pV/W9iuBqwvUhqbkYJXStztufUwJz/dGE1zYafa
-         DWdQOL8zHQtE3rBb45EAKH+1gnh/lXdk09rRRY1nA0gUSxdmsLiYaOU75RgIqn4G+kkm
-         +TqT/7oGspD7jF/xlRe6pEmZ64IcqrlRlCsP+/XMsp5ySmqfr3l/+eiBKS5z5T4BY+hc
-         BKy+NQnHEbACjiAsmA8hPQBcKNtHI4yo2xMcZZHKQaOgW8uirzjcnMkZB8OLvhEcZ/ny
-         ZdFw==
+        b=f82dJhfNNuWq0X8uKsgVK5OepiWIA4479Vq5ZKJap90kMyiP4o6Dl9W/yJID6481TX
+         94ee7EwxLG5ochc7KrOPl1JgRn3iCEk3BLrU3zog/pb52bThYrfFJOSy99e73EccfAgq
+         xFL9DXnWfph6ZzX7hBevHE1dqPFRB+soJdudakULLy6JfLjKKBuSmDjxvU9SSvtKrgDE
+         FYPDhB4qyiQjjzrF0Z4E8qvF4ZqyQ0W1GTzgmJhVeq2jqaUToljW8uf9gxeGmXkC9iy1
+         U/Ux+CIRqK/2cCnYhcidz2KoOVAx8cYOK9CmyrZ4S9C2oPHUTqOO/kb+l0JnVrJEBowY
+         sL3w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=s2Qr2OYyZKB1y+DHbcZfy2DuiZEX7STrPPJ8LNj3kts=;
-        b=B6L6ooxSYitkdoLy4H9OYBCUg24qgLn/GhfhtKDz2G/+40AjVEE2H7ozhWIuRP0HhE
-         Si3J8RImldQ3yxmftKSSdCdV7kWl/rXDi0zCEORbNj5ZRtJwMMtpyvj7airr4FA3t95l
-         aX6yeT9RFmv6gvy3AnfZefRhpy1smkBN5gyK/pv4n4fJfTsQb5dNQdW3UchatdZ12fwj
-         tyvKP+Z4Jas4x4rqbi5wOMwhZBAJFxXz1uKYZurG+Sk1S8dc1WS7bI7OY+8tHBkAgpHX
-         AAyVgDsOAWSjBHrmmssUCgJfzqB8H5yca5BRd2ccd18vlYxxaiuocxqvjlN9GiDPXHPk
-         74Qg==
+        bh=akO/ZN/gB9E5gDwa1Py5Qjj0F1kulZBt1ksy60gLUBg=;
+        b=QOqy1LwTNoITPaNhMWH9pNmiBpHk3Xu81KG2JBXmZUXFNLBNm+vrKz54275VvQYFDY
+         QLn4fhsaD0kPcJY8WoJ7ySlLHd/qjoyUEwU5M3C5MqaEGlk3PGRlv6w0S4t5B4B2ttDk
+         DBEM5Q0j66GddnNwcJMfoBxhnKKpM8k8CTgDVNlBvBkxsyfjRA3DdpOLjtHo/jTAfwJg
+         kgLCLO1+7x/jcFcmSrP3V5nemyirWpujBpOv478LufnCUw8Ynvq5BzuHIVShm/lPcQLi
+         wqWYnSuI8yuv9WYFMGVaKhA/G2FaKlzoibm3vWz4w3hT5y5fycIvNB2QBRFELELGrl90
+         vL+w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=vEzkBOgN;
+       dkim=pass header.i=@kernel.org header.s=default header.b=WRQkIddX;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j40si881258qtj.4.2019.11.16.07.48.41
+        by gmr-mx.google.com with ESMTPS id a189si603242qkb.4.2019.11.16.07.48.42
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 16 Nov 2019 07:48:41 -0800 (PST)
+        Sat, 16 Nov 2019 07:48:43 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (unknown [50.234.116.4])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 100C820870;
-	Sat, 16 Nov 2019 15:48:40 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 72C4C208E3;
+	Sat, 16 Nov 2019 15:48:41 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	"David S . Miller" <davem@davemloft.net>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-rtc@vger.kernel.org,
+	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.14 062/150] rtc: s35390a: Change buf's type to u8 in s35390a_init
-Date: Sat, 16 Nov 2019 10:46:00 -0500
-Message-Id: <20191116154729.9573-62-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.14 064/150] mISDN: Fix type of switch control variable in ctrl_teimanager
+Date: Sat, 16 Nov 2019 10:46:02 -0500
+Message-Id: <20191116154729.9573-64-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191116154729.9573-1-sashal@kernel.org>
 References: <20191116154729.9573-1-sashal@kernel.org>
@@ -119,7 +119,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=vEzkBOgN;       spf=pass
+ header.i=@kernel.org header.s=default header.b=WRQkIddX;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,44 +138,70 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit ef0f02fd69a02b50e468a4ddbe33e3d81671e248 ]
+[ Upstream commit aeb5e02aca91522733eb1db595ac607d30c87767 ]
 
-Clang warns:
+Clang warns (trimmed for brevity):
 
-drivers/rtc/rtc-s35390a.c:124:27: warning: implicit conversion from
-'int' to 'char' changes value from 192 to -64 [-Wconstant-conversion]
-        buf = S35390A_FLAG_RESET | S35390A_FLAG_24H;
-            ~ ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
-1 warning generated.
+drivers/isdn/mISDN/tei.c:1193:7: warning: overflow converting case value
+to switch condition type (2147764552 to 18446744071562348872) [-Wswitch]
+        case IMHOLD_L1:
+             ^
+drivers/isdn/mISDN/tei.c:1187:7: warning: overflow converting case value
+to switch condition type (2147764550 to 18446744071562348870) [-Wswitch]
+        case IMCLEAR_L2:
+             ^
+2 warnings generated.
 
-Update buf to be an unsigned 8-bit integer, which matches the buf member
-in struct i2c_msg.
+The root cause is that the _IOC macro can generate really large numbers,
+which don't find into type int. My research into how GCC and Clang are
+handling this at a low level didn't prove fruitful and surveying the
+kernel tree shows that aside from here and a few places in the scsi
+subsystem, everything that uses _IOC is at least of type 'unsigned int'.
+Make that change here because as nothing in this function cares about
+the signedness of the variable and it removes ambiguity, which is never
+good when dealing with compilers.
 
-https://github.com/ClangBuiltLinux/linux/issues/145
+While we're here, remove the unnecessary local variable ret (just return
+-EINVAL and 0 directly).
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/67
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Signed-off-by: David S. Miller <davem@davemloft.net>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/rtc/rtc-s35390a.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/isdn/mISDN/tei.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-index 7067bca5c20d9..6bfff0a6d6552 100644
---- a/drivers/rtc/rtc-s35390a.c
-+++ b/drivers/rtc/rtc-s35390a.c
-@@ -108,7 +108,7 @@ static int s35390a_get_reg(struct s35390a *s35390a, int reg, char *buf, int len)
- 
- static int s35390a_init(struct s35390a *s35390a)
+diff --git a/drivers/isdn/mISDN/tei.c b/drivers/isdn/mISDN/tei.c
+index 12d9e5f4beb1f..58635b5f296f0 100644
+--- a/drivers/isdn/mISDN/tei.c
++++ b/drivers/isdn/mISDN/tei.c
+@@ -1180,8 +1180,7 @@ static int
+ ctrl_teimanager(struct manager *mgr, void *arg)
  {
--	char buf;
-+	u8 buf;
- 	int ret;
- 	unsigned initcount = 0;
+ 	/* currently we only have one option */
+-	int	*val = (int *)arg;
+-	int	ret = 0;
++	unsigned int *val = (unsigned int *)arg;
  
+ 	switch (val[0]) {
+ 	case IMCLEAR_L2:
+@@ -1197,9 +1196,9 @@ ctrl_teimanager(struct manager *mgr, void *arg)
+ 			test_and_clear_bit(OPTION_L1_HOLD, &mgr->options);
+ 		break;
+ 	default:
+-		ret = -EINVAL;
++		return -EINVAL;
+ 	}
+-	return ret;
++	return 0;
+ }
+ 
+ /* This function does create a L2 for fixed TEI in NT Mode */
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116154729.9573-62-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116154729.9573-64-sashal%40kernel.org.
