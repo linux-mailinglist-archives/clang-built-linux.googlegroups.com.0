@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB6NRYDXAKGQE4UO3ZEQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBFNSYDXAKGQEOLSEAZI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 466E5FED37
-	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:42:51 +0100 (CET)
-Received: by mail-vk1-xa3d.google.com with SMTP id v188sf5710802vkv.18
-        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:42:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573918970; cv=pass;
+Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5F105FED38
+	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:43:19 +0100 (CET)
+Received: by mail-il1-x139.google.com with SMTP id c19sf11855075ilf.14
+        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:43:19 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573918998; cv=pass;
         d=google.com; s=arc-20160816;
-        b=rMOd6Oj92czLC8PogdSOaKUde9FE8mS9TNQacrvg+2tLMJtPOhFj81x7/k5aFuUyj8
-         NM+7CdWJDp+OftOI5IzVTAjYbZvdfI5fmlodrn4EuUBAQWNCNAGbO0MLYEiXHqbM2BHa
-         +Ib+znBc425FJqB/rYbtEKei8yqI5ACm9dXv25e1ruvMT5qaFCTeYdfKOTtGCPDD6lAU
-         b011hWzkwjhOQPcTUkBM0zinn/g7MFUWENqiGHuBAXtci3ME5WpYwsZ/GjLxiWNzHIwX
-         R23/KpyWM4Ug9LsebyS1+2bs4CWl5WSU2ncrJqNlYyO+lbIfLxQahNDd8gGqV/m6sDwn
-         MiOw==
+        b=fVx+BKv6FAA5fZU1eC5X9j4vsxnEaGt8wcZakFt+sT2XKOAFYAU0SIwFMjFmvD02AF
+         jLFIwAWHRNKupx4APw+8HCtR3O0Ee5p+WiM5nar2QRyuQWh8Macqhb5tRTPLdRG7O2M6
+         4AfvO8uAUqU0l+1drzAXC7mk43ig+tt240/hegIF1LUBFjDBgRQseWB4BB2UYwpEqh19
+         OSNDOFwdbA0adU5OBomqUEFGP+ClxSGwnByXEDMp6CVFXpaHwy3Yw2S1Y+c/7IG0oA4K
+         et+GXq5b557pyydqv+qPlLr4WA/wRtyEHWFSKeO3zY1s+FOxDSqQhnqY4zdnkq6nvmtu
+         z3yg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=KGccQU5w5jYuLTnzOOX0K4089Q7c7WqXjgivAH3E65A=;
-        b=PRpf4FijcZNzhbVgDtFYOGJTp/yd+getEZNfExkiwV/VY5N1DKkJxAuUEnukHkABma
-         cv/WfR+gkIPQFdVMF+u95KGWUAyhvytCyzNLsCIq8hH8AaeXd2+rQ1pWbErRV6gxGNpb
-         wFvfeIYZ9kaFhgzkz3Vt2hpDZSypeGLZjhe3pnMMMrjv8/769r6ebZaA2sN1l7ZaLqsM
-         Fnn+7g2TM5V9fy95RSbeljxNwi9SXNQyXQ52a+qJ8BUto64rYieiZRRbbHxOitWj9Fgg
-         HET6NeP4g3ZFe2BUZoVW4EjRJz6eprI1i0P3FtahOCx7Q53b7W6A+tspxjY6b8gLTsJb
-         mroA==
+        bh=L7+FSnQIcvAj0Xt+B/nDcXkHQBnj2Slw4iHJ280qL30=;
+        b=ijIi8+t9EGJbr+PdX5nT+o3g/91J9uDDbmOlzZLE5drBq1CJb8vWqzMGONDWvAPku5
+         aHSCDREoraxRBcxPCUF5O4CdZAwb8+SDOxnoHWWW5MD522B0DQsEBisBYXr/O1wxH1bg
+         KZDd3bOv/Jkn1T4pQL9fj2x6OrATk8fztcW9GIJrh88e9C+VSgLBSfgnRoooVtyjM3BM
+         CQSMOQZWxw4aakg/Zj/Ov5CF+0YxVWl6WxEkzNHlb1FyYZS2HDS+CJggu1+8zSSw/OSz
+         2MxQyOQvckB1Q3q3M2YwguYA/H7V98167o+dS7qlxOMA0S0cVq70ihVyQ3DTdzhkA8mk
+         Aw0g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=QEPP+RIV;
+       dkim=pass header.i=@kernel.org header.s=default header.b=QorIwn+M;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=KGccQU5w5jYuLTnzOOX0K4089Q7c7WqXjgivAH3E65A=;
-        b=Y/v5zH9wQKPTzNKrA0wYvmq0sQ0iqJBt9kGutQV8eynLrqd1ddND/niQt8VXe8wQsZ
-         EfhUS6AgjkjaKEZmq1UQnG3OF1PSc8wohlkz4pDJrid2cJhHMNb0gJYdlF9rKu0T6cg4
-         3hA0TgGkdBE19lDYQBXxjAd4VGop5DlpqSHECNOrCEXTZ776T0yA4aAXekghBWjjN3+D
-         on166OkNskT/+SFvxg4bptL4Hdpps1tusKsYsWempB5V9ph43B+bTLZFxKQfkBhxSmN9
-         qbWXMPCb8faDXCbO+KeFaA9rMwKR1LW6hwZf6DN6yL01ioXvy4tWJIcn6UhvgjJkiTOc
-         LVBg==
+        bh=L7+FSnQIcvAj0Xt+B/nDcXkHQBnj2Slw4iHJ280qL30=;
+        b=dE7eiLv+/DnVtrL00BXS7MdGl2M8LdN0s3II4yKGs8xSLhU04RCtBjXUzDLakm/9r8
+         f+lz5dRaKQ4YIvTQJyqU9k0Q7BMCyawul2BJAk363m0T8YFsmP9Rlm4F/V/vc8lSW2Vt
+         zx1V9IhhGkNbJb8ie5KPb5LlkDw+sqfEzGUjKXDl4T8RsAqJu1WLY9p/s5TsBougDjGx
+         cwuUlJmdZuqV0AhATGjBZv6gke5CLwfTXRO/zXi+YDL2PQQr78CvHz+9PQbQCyKJmUTO
+         DsGAojS+TbJtmPEYFKYNr2V4WFEvuz61wTfbQfWwP/31K9P+XAY0u1ivovlW3MqjldPL
+         Xc2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,69 +49,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=KGccQU5w5jYuLTnzOOX0K4089Q7c7WqXjgivAH3E65A=;
-        b=j5OYU2QTtAWGMSSbcS7q2SmGmwQqlfWanzpclBfBdJgfQKapkOwDpOeU32JyL7THS8
-         nTu0cdljlSFV3TdQRX//rXLLZsII25WKwkkyER4T7CvtedLtyeYcUVU9qeeu/6b63XN9
-         hnu/lDgO17H+Cff8nfF1Tqhs+UN6NiBSTKhXto24sBuZ7PVr1pCvJq2EkX/gvPb8NXqi
-         JmyV09hcd/mTM0P/8gXFMqZBNiL5R1OCV45paO7a5CWSTm8sBHXHAjA6v2VUMj44B652
-         t73LI9FvE1tpuZA2aGhvobi35OMjbuiDhsclDIhd7cfzdWcjrbKBoW/4fjEokaDqktoA
-         Vgmw==
+        bh=L7+FSnQIcvAj0Xt+B/nDcXkHQBnj2Slw4iHJ280qL30=;
+        b=bYtffUtMZshGX1KREUtOi2mN3lwPrCmYi1P7CzB80WbCWSeE+F+1n3CVQP1qFk38XH
+         F64CvlNYfh54/JvDhDP3e2LxsT2aBehvK+Qqnp7B3IEYqFSbff9NF3ooVn6b94WJ5CJA
+         8luqKCrQKlJd3bFkrl6dit4T+CVPITUZcgkpLrq3M059BAxJdsSHkoj4NaLuaRPdJKuK
+         YQJWnZ3lV41vcHCRVhBB/IHnrTAtA7Ozp8MUwmIsvwPcfVWMwO9aHptNgqcFIuL9yLjS
+         k+QgmDEe5NUNXOxosb7bFW5sWd5e2ZjgD8m4THHwsjMpbliI+MGjvVQrUOsPVHPUR28A
+         73Og==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVAmOngodbeSrzv7eeXdy56acq2+faVeflGmwFA3niKTajg0rF4
-	6WmgygfMj2/BMFdx4nJjQCc=
-X-Google-Smtp-Source: APXvYqy1L/D4ivQdPMVudYnJwWqqch1uRicNILYIr48g4okRrQp0A1s+oymAEcUvounN4AtCZ0veZQ==
-X-Received: by 2002:ab0:4e87:: with SMTP id l7mr12652253uah.63.1573918970038;
-        Sat, 16 Nov 2019 07:42:50 -0800 (PST)
+X-Gm-Message-State: APjAAAXjiyo52fGtOJ1WyVIG1sRQ5fKVb55J9/RhJt1gYT/5CMHajmga
+	SQeUbFzi2r56GWHK6twQyBw=
+X-Google-Smtp-Source: APXvYqxHnyExOvGS6XEj5IEuzXs2HrzPKcFnQG/LS23er5GGazyfbxOqsa88YlLg5L5Gxl3NipiMDw==
+X-Received: by 2002:a6b:660b:: with SMTP id a11mr5591766ioc.283.1573918998048;
+        Sat, 16 Nov 2019 07:43:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:1607:: with SMTP id 7ls361118vkw.9.gmail; Sat, 16 Nov
- 2019 07:42:49 -0800 (PST)
-X-Received: by 2002:ac5:c98c:: with SMTP id e12mr11708873vkm.45.1573918969489;
-        Sat, 16 Nov 2019 07:42:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573918969; cv=none;
+Received: by 2002:a6b:8e8b:: with SMTP id q133ls2024466iod.4.gmail; Sat, 16
+ Nov 2019 07:43:17 -0800 (PST)
+X-Received: by 2002:a6b:e61a:: with SMTP id g26mr5944115ioh.141.1573918997657;
+        Sat, 16 Nov 2019 07:43:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573918997; cv=none;
         d=google.com; s=arc-20160816;
-        b=PufMUlBicHXlNIv7XWXkzFgsmQ13voykAo/Y2VJDyFVpihEkmWX3ckkp9XXlstB+u3
-         bMmp0X9rQLUOdu/JZEE1QeMYbEEd6S+CulqGoKpgqp1j8bsaEKV219q0NahUvBqRMtOM
-         n2qymaV2BlznBWj9uzJ3echZWEmX8uqcoEtK9SG4cafJ9Bp/R2KUMe1WQy0xjJG+AzOv
-         V+wKzSlM2FOJRd/3MJMKu+Cwkhh0VrRm9zuhmhpUZ3l2LgJ0R0oAurijVZPigVICv7+V
-         qydvM4MLGQOmgo6ivHPJEW5NDKifBgqGZiW/HT7Ofng0ALPd1jLnt7ITgsdLKxxVE+WQ
-         Z/9Q==
+        b=qOKi2SSBEot2kws8mIdI50KGeNUL1axDf0kAf0ebdcINdEy2QxCjSH1B/2ugYZExu5
+         x/GDuHqWan/e4RuyJ2YWNats3Br2db7M5HA4eIyPXAjUhxdHHXamaASRQ6/Eq1++4zgm
+         w9NIKVRWmjoZt/MMWVHlwTRkXFoBSXSj8Hjg+2YIIz+TvO6fsR1AVSiQs9+9W3Mxx0XD
+         UQb//cmjT7EoIQu+rf3BEpynnYgpQL13CqJCg2/s+hrOy3Puw+TfOi4ZrubFJXZvwRfL
+         E28E4ey0oyz0EctwF8AE1gGtNtgQe+5tuj858BH6kHnqEwmuoMdYcFRh9cCuW8+hlqod
+         LRNQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=bd1K5JdxIcfsY9q5ALHrGiaf7DYsr5FpvXfR8tX5034=;
-        b=BRojEYoStvrPkV8zmAWK200fO8xcEorMWm2eTkehKyvYl1qqNhD4PezVzyc6W0LSMw
-         CHYDKgBfFoHyU7gxD2MtGFFKtA/yXvwpK8xQhau0htMKUENo2iWFrKIURg4QBE6WvabC
-         aEnc0Wkg3zdi9RzeL3MZpHQQcB1/C3SlxrYj+L+Z/qDunQ2hDfqGOnIze9CrHT/FPodr
-         x457fFdMDoWkuVr0BbCjI0pTPfY8MqRa2HNZx7qoNeb5daW0LlC4a5SfDpKZSgIr+4eB
-         CXdqqHJL5BgLZ8poF4qpydo5T2um89gCqKRDS6m7K0Sc2kUlyFcbLzpLqVa7OARTWu/3
-         yLlQ==
+        bh=9shXIkFgZ4TF6p1UqaGuQjZq8X8VDKSwdgOBbtIOLiA=;
+        b=JBczDN7m10KgdDKuvmK9go+DATpYZMrvvFr7xe9vkDI6zmW4KnbH38yylpvF8Ne4+a
+         25icZfolGhUJZRLzm2W2MHJhVYjwkf2Yo694Ejie6IcSpl8v6YuSvS1+jFrXXeGtLxgM
+         ygIz8CQ5+Y4TWNBfC+PXeiuJVqtyUA5h0pTjbi4eDtjlvdGnuwYYIxf5Mt6Su5SQu45X
+         5hfBZ1khmSVcTkXwDPFnM/nT00CfD335ZCaHqrK1WY11yH8BbQeTJo8dUBHgTf/Jk82W
+         8PFtFrciGjG2nZXL8KH4NrtN9HL0eNrii3cE0ow7F23BWiBF2cb1COPduMidaDN6Dtwd
+         tVtw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=QEPP+RIV;
+       dkim=pass header.i=@kernel.org header.s=default header.b=QorIwn+M;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 192si752792vkz.3.2019.11.16.07.42.49
+        by gmr-mx.google.com with ESMTPS id x8si840329ior.1.2019.11.16.07.43.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 16 Nov 2019 07:42:49 -0800 (PST)
+        Sat, 16 Nov 2019 07:43:17 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (unknown [50.234.116.4])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id EF9612083B;
-	Sat, 16 Nov 2019 15:42:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id ABD7F207DD;
+	Sat, 16 Nov 2019 15:43:16 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Masahiro Yamada <yamada.masahiro@socionext.com>,
-	"David S . Miller" <davem@davemloft.net>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
 	Sasha Levin <sashal@kernel.org>,
-	netdev@vger.kernel.org,
+	linux-rtc@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 084/237] atm: zatm: Fix empty body Clang warnings
-Date: Sat, 16 Nov 2019 10:38:39 -0500
-Message-Id: <20191116154113.7417-84-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 101/237] rtc: s35390a: Change buf's type to u8 in s35390a_init
+Date: Sat, 16 Nov 2019 10:38:56 -0500
+Message-Id: <20191116154113.7417-101-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191116154113.7417-1-sashal@kernel.org>
 References: <20191116154113.7417-1-sashal@kernel.org>
@@ -120,7 +119,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=QEPP+RIV;       spf=pass
+ header.i=@kernel.org header.s=default header.b=QorIwn+M;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,170 +138,39 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 64b9d16e2d02ca6e5dc8fcd30cfd52b0ecaaa8f4 ]
+[ Upstream commit ef0f02fd69a02b50e468a4ddbe33e3d81671e248 ]
 
 Clang warns:
 
-drivers/atm/zatm.c:513:7: error: while loop has empty body
-[-Werror,-Wempty-body]
-        zwait;
-             ^
-drivers/atm/zatm.c:513:7: note: put the semicolon on a separate line to
-silence this warning
+drivers/rtc/rtc-s35390a.c:124:27: warning: implicit conversion from
+'int' to 'char' changes value from 192 to -64 [-Wconstant-conversion]
+        buf = S35390A_FLAG_RESET | S35390A_FLAG_24H;
+            ~ ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+1 warning generated.
 
-Get rid of this warning by using an empty do-while loop. While we're at
-it, add parentheses to make it clear that this is a function-like macro.
+Update buf to be an unsigned 8-bit integer, which matches the buf member
+in struct i2c_msg.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/42
-Suggested-by: Masahiro Yamada <yamada.masahiro@socionext.com>
+https://github.com/ClangBuiltLinux/linux/issues/145
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/atm/zatm.c | 42 +++++++++++++++++++++---------------------
- 1 file changed, 21 insertions(+), 21 deletions(-)
+ drivers/rtc/rtc-s35390a.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/atm/zatm.c b/drivers/atm/zatm.c
-index e89146ddede69..d5c76b50d3575 100644
---- a/drivers/atm/zatm.c
-+++ b/drivers/atm/zatm.c
-@@ -126,7 +126,7 @@ static unsigned long dummy[2] = {0,0};
- #define zin_n(r) inl(zatm_dev->base+r*4)
- #define zin(r) inl(zatm_dev->base+uPD98401_##r*4)
- #define zout(v,r) outl(v,zatm_dev->base+uPD98401_##r*4)
--#define zwait while (zin(CMR) & uPD98401_BUSY)
-+#define zwait() do {} while (zin(CMR) & uPD98401_BUSY)
+diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
+index 77feb603cd4c0..3c64dbb08109a 100644
+--- a/drivers/rtc/rtc-s35390a.c
++++ b/drivers/rtc/rtc-s35390a.c
+@@ -108,7 +108,7 @@ static int s35390a_get_reg(struct s35390a *s35390a, int reg, char *buf, int len)
  
- /* RX0, RX1, TX0, TX1 */
- static const int mbx_entries[NR_MBX] = { 1024,1024,1024,1024 };
-@@ -140,7 +140,7 @@ static const int mbx_esize[NR_MBX] = { 16,16,4,4 }; /* entry size in bytes */
- 
- static void zpokel(struct zatm_dev *zatm_dev,u32 value,u32 addr)
+ static int s35390a_init(struct s35390a *s35390a)
  {
--	zwait;
-+	zwait();
- 	zout(value,CER);
- 	zout(uPD98401_IND_ACC | uPD98401_IA_BALL |
- 	    (uPD98401_IA_TGT_CM << uPD98401_IA_TGT_SHIFT) | addr,CMR);
-@@ -149,10 +149,10 @@ static void zpokel(struct zatm_dev *zatm_dev,u32 value,u32 addr)
- 
- static u32 zpeekl(struct zatm_dev *zatm_dev,u32 addr)
- {
--	zwait;
-+	zwait();
- 	zout(uPD98401_IND_ACC | uPD98401_IA_BALL | uPD98401_IA_RW |
- 	  (uPD98401_IA_TGT_CM << uPD98401_IA_TGT_SHIFT) | addr,CMR);
--	zwait;
-+	zwait();
- 	return zin(CER);
- }
- 
-@@ -241,7 +241,7 @@ static void refill_pool(struct atm_dev *dev,int pool)
- 	}
- 	if (first) {
- 		spin_lock_irqsave(&zatm_dev->lock, flags);
--		zwait;
-+		zwait();
- 		zout(virt_to_bus(first),CER);
- 		zout(uPD98401_ADD_BAT | (pool << uPD98401_POOL_SHIFT) | count,
- 		    CMR);
-@@ -508,9 +508,9 @@ static int open_rx_first(struct atm_vcc *vcc)
- 	}
- 	if (zatm_vcc->pool < 0) return -EMSGSIZE;
- 	spin_lock_irqsave(&zatm_dev->lock, flags);
--	zwait;
-+	zwait();
- 	zout(uPD98401_OPEN_CHAN,CMR);
--	zwait;
-+	zwait();
- 	DPRINTK("0x%x 0x%x\n",zin(CMR),zin(CER));
- 	chan = (zin(CMR) & uPD98401_CHAN_ADDR) >> uPD98401_CHAN_ADDR_SHIFT;
- 	spin_unlock_irqrestore(&zatm_dev->lock, flags);
-@@ -571,21 +571,21 @@ static void close_rx(struct atm_vcc *vcc)
- 		pos = vcc->vci >> 1;
- 		shift = (1-(vcc->vci & 1)) << 4;
- 		zpokel(zatm_dev,zpeekl(zatm_dev,pos) & ~(0xffff << shift),pos);
--		zwait;
-+		zwait();
- 		zout(uPD98401_NOP,CMR);
--		zwait;
-+		zwait();
- 		zout(uPD98401_NOP,CMR);
- 		spin_unlock_irqrestore(&zatm_dev->lock, flags);
- 	}
- 	spin_lock_irqsave(&zatm_dev->lock, flags);
--	zwait;
-+	zwait();
- 	zout(uPD98401_DEACT_CHAN | uPD98401_CHAN_RT | (zatm_vcc->rx_chan <<
- 	    uPD98401_CHAN_ADDR_SHIFT),CMR);
--	zwait;
-+	zwait();
- 	udelay(10); /* why oh why ... ? */
- 	zout(uPD98401_CLOSE_CHAN | uPD98401_CHAN_RT | (zatm_vcc->rx_chan <<
- 	    uPD98401_CHAN_ADDR_SHIFT),CMR);
--	zwait;
-+	zwait();
- 	if (!(zin(CMR) & uPD98401_CHAN_ADDR))
- 		printk(KERN_CRIT DEV_LABEL "(itf %d): can't close RX channel "
- 		    "%d\n",vcc->dev->number,zatm_vcc->rx_chan);
-@@ -699,7 +699,7 @@ printk("NONONONOO!!!!\n");
- 	skb_queue_tail(&zatm_vcc->tx_queue,skb);
- 	DPRINTK("QRP=0x%08lx\n",zpeekl(zatm_dev,zatm_vcc->tx_chan*VC_SIZE/4+
- 	  uPD98401_TXVC_QRP));
--	zwait;
-+	zwait();
- 	zout(uPD98401_TX_READY | (zatm_vcc->tx_chan <<
- 	    uPD98401_CHAN_ADDR_SHIFT),CMR);
- 	spin_unlock_irqrestore(&zatm_dev->lock, flags);
-@@ -891,12 +891,12 @@ static void close_tx(struct atm_vcc *vcc)
- 	}
- 	spin_lock_irqsave(&zatm_dev->lock, flags);
- #if 0
--	zwait;
-+	zwait();
- 	zout(uPD98401_DEACT_CHAN | (chan << uPD98401_CHAN_ADDR_SHIFT),CMR);
- #endif
--	zwait;
-+	zwait();
- 	zout(uPD98401_CLOSE_CHAN | (chan << uPD98401_CHAN_ADDR_SHIFT),CMR);
--	zwait;
-+	zwait();
- 	if (!(zin(CMR) & uPD98401_CHAN_ADDR))
- 		printk(KERN_CRIT DEV_LABEL "(itf %d): can't close TX channel "
- 		    "%d\n",vcc->dev->number,chan);
-@@ -926,9 +926,9 @@ static int open_tx_first(struct atm_vcc *vcc)
- 	zatm_vcc->tx_chan = 0;
- 	if (vcc->qos.txtp.traffic_class == ATM_NONE) return 0;
- 	spin_lock_irqsave(&zatm_dev->lock, flags);
--	zwait;
-+	zwait();
- 	zout(uPD98401_OPEN_CHAN,CMR);
--	zwait;
-+	zwait();
- 	DPRINTK("0x%x 0x%x\n",zin(CMR),zin(CER));
- 	chan = (zin(CMR) & uPD98401_CHAN_ADDR) >> uPD98401_CHAN_ADDR_SHIFT;
- 	spin_unlock_irqrestore(&zatm_dev->lock, flags);
-@@ -1557,7 +1557,7 @@ static void zatm_phy_put(struct atm_dev *dev,unsigned char value,
- 	struct zatm_dev *zatm_dev;
- 
- 	zatm_dev = ZATM_DEV(dev);
--	zwait;
-+	zwait();
- 	zout(value,CER);
- 	zout(uPD98401_IND_ACC | uPD98401_IA_B0 |
- 	    (uPD98401_IA_TGT_PHY << uPD98401_IA_TGT_SHIFT) | addr,CMR);
-@@ -1569,10 +1569,10 @@ static unsigned char zatm_phy_get(struct atm_dev *dev,unsigned long addr)
- 	struct zatm_dev *zatm_dev;
- 
- 	zatm_dev = ZATM_DEV(dev);
--	zwait;
-+	zwait();
- 	zout(uPD98401_IND_ACC | uPD98401_IA_B0 | uPD98401_IA_RW |
- 	  (uPD98401_IA_TGT_PHY << uPD98401_IA_TGT_SHIFT) | addr,CMR);
--	zwait;
-+	zwait();
- 	return zin(CER) & 0xff;
- }
+-	char buf;
++	u8 buf;
+ 	int ret;
+ 	unsigned initcount = 0;
  
 -- 
 2.20.1
@@ -310,4 +178,4 @@ index e89146ddede69..d5c76b50d3575 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116154113.7417-84-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116154113.7417-101-sashal%40kernel.org.
