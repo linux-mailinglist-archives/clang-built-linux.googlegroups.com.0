@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB6VTYDXAKGQEG7BIVWA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB7FTYDXAKGQEJC5CSSA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5D64FFEDCD
-	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:47:08 +0100 (CET)
-Received: by mail-pl1-x639.google.com with SMTP id p2sf8272244plr.20
-        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:47:08 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1573919227; cv=pass;
+Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id ED373FEDD1
+	for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 16:47:09 +0100 (CET)
+Received: by mail-vk1-xa3d.google.com with SMTP id v71sf5749557vkd.16
+        for <lists+clang-built-linux@lfdr.de>; Sat, 16 Nov 2019 07:47:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1573919229; cv=pass;
         d=google.com; s=arc-20160816;
-        b=A9SWMbm9NmNf81Go1sL38CTx4tPVS8BHyi+ib8j4YVRYuqnx9ySiyM0/JWuc3aoBJ5
-         BzkyaWxhf2lK1QQm9+tAe/TziiKYgLBStrAwetn61oPHhFZT59+a6M1BzrZp/wFxHa0H
-         hl4HsuN2FO4kJ9rgaJJHEaYu9YBglnpa9BzkM1iG7tz71sJ6LyutZezACxogVq8qbP2l
-         /UdwtG3oacCwO1D9fKaBAfJHEhvMt5MK8nnPOQIoWLrY6ty6BAEB2cgcY9FuV1X/pdGI
-         10W/9B+2/17RzRBQCFdLyeIvga6M7RntTbByq0o9At3foYI7DtVO0PUru69LpZtrCp2S
-         lJrQ==
+        b=VEvSALl8qo+t8G02MzOtEI19jrP4OAZolALBrrWQEYPrtK4/LArm5+TQtIbZ9kkxrP
+         L/7WAQItopQVAf/5vS0q9iPUUckDMuLULDMBO/bQuXRBWhBuuwOL+fXrHWW0TJW6eNno
+         6/QemFAEmjiepIslj+D25NKVjhM4yiTpj/raN5nw0t8aVtrRTBJd+WfiumE0lhkvE3Tk
+         bBR6hOgByhWvWi/bhquKjtFIMpqZl5CRqWBcgp9A5usXRsm694eKGtmbfDICC3HSKlnH
+         cRAgi0eZvCkrIB9JsWDKTT7pWxeTPAZFWxeXm/DqrT7+0fT6BW9S0b+0frCLFK1Ydfmg
+         pd1Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=ACE7lZqlkWQROmWGiEZ3tCCVw6yrCocx3GCLdpf/ths=;
-        b=BAaZl+BG9zKYtTXoKjOizYt7fijneQ0BGDi1SJc1vkenfKA1tjVH5DKEeLuV5EdwPq
-         qRBiAK8/09ko0lwMFwXXu/SkxzotukXhZ0nB/VDOV8T+IWIsrpo2HRWDRjcnS6MVWUHb
-         25KrryvqFI4FQUfaTOT/daXY6wt6nej0/LqQH3yja0Fezmk5Y/4T6PWnC4YhEbm/DChl
-         RczJQFIO5rff4DpwEkKBtnmc20YX7sc+bqxRZJFxGhEOrZdy7+RBwacTAFn7PNCZQDYM
-         hWJcGkybCNsew3ocqULvMPRFbAjPzptyIkAVNeJROv9BrUhRWk+5F5iRk0B35G3kI+cy
-         SS4g==
+        bh=/yrChdD1r50HdECt2ozjGj8I8jTNthcGDjRlA6SbyPY=;
+        b=rXk7bInj4T/BeaNJwD0qwoFnoDtboqEmoHuSLYjSwgr30OgGtpduN8xsI+PAv1eDl3
+         D+q8TUxo6IED3UKU58WcYxhwm8TQpYf7PZ/2LqYaQ+kzP1lLyeaSGFJNjwF2XBlq/dpX
+         E4C5iiHkgDsW3Wwmb2gufl8TxyhX/GFJ/oN5kFbih3ld7lOPoeckFQF26UfwNby9ASy/
+         BKTuTNtLvdcSRGQtJ7V9DAVhDGmN+g2F3bqLxrfe40zsntw5tebZKWmUAQwpK84HWU0B
+         FpmJYyGjxAQxutp1pFFYy44g4qWxg4emiNqb/8ke3KtMSwPZ73Yxq6nepUvROLDpiE3z
+         /uuw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=jWq54rnu;
+       dkim=pass header.i=@kernel.org header.s=default header.b=RzPnVjzv;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ACE7lZqlkWQROmWGiEZ3tCCVw6yrCocx3GCLdpf/ths=;
-        b=JomJ+Lnqjdj6Hakex4Y96P15b9Q02z3v4REciypyM7/bFue7tdoeMzYRb0y27uLEqb
-         H/8GHODKhvWq/NjxNsaQq26r4e01qMwtDNz8x0ZU38DoVQjREmTbyLlBWXjZBgtyPRpR
-         +gPkuFS7rBeOI6UOsx7iB2/CoW0gq6Uabm/gfGYzW+WtdAM5cDOjwJahdvwMHb+C3b0j
-         EC0R0Xj+G73n8G/fR903dL6iaoOXEHmZigeaSFpjhER2DlHoyy+eGXHEBH2xCCkAFE1i
-         iq4eDgu3P84iUQ77HSZkXeZ5N30UJSb2SS9Xy3/vr7WQCJkI7SSszRJ3vpAur3PdyUGk
-         vrNQ==
+        bh=/yrChdD1r50HdECt2ozjGj8I8jTNthcGDjRlA6SbyPY=;
+        b=JEyqNnqqOGX6jIC6npEDa1vTl1paGI8XOR1Kw+kW84TDlZ1t4iAids0Ewv+N5MC20C
+         H3UFWtnQXXVTy6ZdvbFxbU/F3uTlSzGRbd0ZfGGzoMFxVCEqNR7lPW+0mShKohJIQ8Bd
+         PkFDByZXVSk18+z7klxdxgG0c+VCJod3U21wKEWoPuAcG8pf76O7KGPvMI/DlsZhGve4
+         AQmMLYSnvrrwCmtVV5rNZVjUl9vKop4TubBZFsknNIqPHOU4ehDLKFZHThRPQxHJf+fx
+         AOamqPV/cXd2+J/5lprdNom4JUKUF3lw/lKKHUPt02r1w2B0j8X48j13fZm2j0Xe27hQ
+         qRSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ACE7lZqlkWQROmWGiEZ3tCCVw6yrCocx3GCLdpf/ths=;
-        b=DPzbqJmfNXbeiwmBNir+FMCCknBKzpJ7bgIMSwMPV/tzLvsCrNvnITG5sgx+HKVoaQ
-         I/AmcEVmEMsNaH4OAOFnxfoueV/+gPKpGkmOycjYi2PJTObSXd7HtBnJ4U0nrCo0CBDT
-         sC+w1n3knWwyMQ+AWcMz9ScFQeQymTP40jKXmQYh2C6lmniYv6C4xOubI7uPlrfEwcME
-         qfBnX5+YmH8v9HFB2Wdu8petF1hIKcjhwtl1VJD9wb0CHcctXqsQPWgI8qeFVYuh1ckO
-         RrCzektK0IWfP/ZTn3/IhmFjkKYSOlbk5Zh06VyJpHoGw88rNGpbIDmQF20abO51hoIV
-         9nSA==
+        bh=/yrChdD1r50HdECt2ozjGj8I8jTNthcGDjRlA6SbyPY=;
+        b=KVkxud5XCpE/FHJwZH0sOJ3D8JJ58JqQz9DexbaAybAsb8O4B/a5qD8HPRRbsbIvlt
+         qV9rHNUlJcVDwXTGy5qYPeyKXPRGuw7dewTvRvgiel8TjGw9R8FttpM64ZsksnDItNkV
+         GfJJg8oFfqKpx8y1kMRUD0m0OD5AtGLZtGKw1mAKmCpqZZxF1qoDjLeTVq/Nsj9r5u4R
+         cRdWk954w8Sy76kH8mbW1qOVYX+Grv/usTEaR7X5R6xH6FunTQ51A5vv2AVet1VdZf61
+         mC34vMu+PWlGS5VCRDcwYNcMDbp4pc5jdTYMMkMp9KmcpSImMg8jR+YhKKZyiAsAjJWR
+         2S0w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWBUZHuQrVWknhpblFf5DavyPr0IFcW5ZEPxEcpoPwpDxW3tdTO
-	ND0960LulXarI9/uifGDIao=
-X-Google-Smtp-Source: APXvYqySmTaLw217cQovkhZh2uW7dOSfAdG48w9To5HKUzYZtZNL1BONutvP9gSCAZJjnoJWP+ZRkA==
-X-Received: by 2002:a17:902:a60f:: with SMTP id u15mr21344950plq.64.1573919226973;
-        Sat, 16 Nov 2019 07:47:06 -0800 (PST)
+X-Gm-Message-State: APjAAAWJnlc6b5nK1W1mHZdgJAPmarTLEM2HxW0mmYYA7S56O1Bt4R1J
+	t6jWh+/1kPUhaBpexDzHQxg=
+X-Google-Smtp-Source: APXvYqzeRdcxeDHFRv6xAOMv9JcMwSgBuSIOcVWhf6Tgn+ErA4YbbH4m7n+9BeJehgUT8JFRpc3ayw==
+X-Received: by 2002:a1f:2c55:: with SMTP id s82mr3281395vks.22.1573919228971;
+        Sat, 16 Nov 2019 07:47:08 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:bd46:: with SMTP id b6ls49313plx.0.gmail; Sat, 16
- Nov 2019 07:47:06 -0800 (PST)
-X-Received: by 2002:a17:902:9f83:: with SMTP id g3mr20547704plq.161.1573919226479;
-        Sat, 16 Nov 2019 07:47:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1573919226; cv=none;
+Received: by 2002:a67:fd08:: with SMTP id f8ls894409vsr.13.gmail; Sat, 16 Nov
+ 2019 07:47:08 -0800 (PST)
+X-Received: by 2002:a67:d20e:: with SMTP id y14mr14022438vsi.16.1573919228648;
+        Sat, 16 Nov 2019 07:47:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1573919228; cv=none;
         d=google.com; s=arc-20160816;
-        b=jGGW7WDiIzpP/z9yGU4lkWGUTGv9b05DkPb5OUIn96ufrBbvUitBQxZNeDKgecJUKk
-         cmvBbeiluWftuyce8Y/YZWGMNFFK/WqNPcAseTTO+HavUJrWSALaBwS7vqDa86ISr9rX
-         wu4HfobMMgxIuQg5i8UQILbaXRBYWChRYxncqxLbaSU1+VynFGOPL7Bn8wHf1nejldez
-         ukfs39ABuApg1qex0SgmbdO8S/cOuFofIKmZmp3jIpjC8ZweSLRpi1moEEo7H0vRFca0
-         6KJzD5qyJ12aJ7FbPXIv+PBDak9VwBEc3Fg1rdClXwnMTlJp85gGrpDwepz/uL3NaSbo
-         hyGQ==
+        b=c0vo0kZma4+2DKsdfGHYtA6tfU6IcLXN/NDeWxbnlV0Ar71YUqN5lOfKntevaOjdAi
+         uEJi+dS3ckF2b6/wu7QHG2vWWL5CyMyKLcUlRI8od5FMfjt2HQVYRU6KLvlX634CSt/B
+         Xiasv7ru++k1Wq4d7jeMKVThg1XiAQsf2FCeWbGC1d0MQCrEiPGXSYRZ8YqahFQv+Oev
+         5UbL2bbL1CvohqFk+4nZnUvrOMEbfSRq5hOtPR4F+Krvpn7/BLCzx5PmBUKbXdgmyDHb
+         c3iulQ72CpGJXK8J5Y7erAf4hLlJ6kIYTr5ujDHPz4Fr5lDlZuWDnqzXIE81U+RnKKsR
+         u2Aw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=CqjHQJRxle9xQCfHjWjIb3XsaLcGl/sb3nLEFwFj/II=;
-        b=BnOjAmscUsg8cBJ5tZarDEvp3czFHHxJGZ70SX0Iy4I9a4IKYAMlQG+RDC5YQH7YQs
-         7LDkZ3Dwt95G3czpV6ZIIP18U55wWn9mXYMpKWQ5dAKTknsLJRp1/v2oCTNI0rdLS/7X
-         oT/uPWB6w9wx56BFikSxefHnwcKltFCyIxeBHjBjdLqGyTZOO6IcCAhPbKyV0TR1xcFJ
-         Arn4OYa6Z9uCmmf8CEgvBw3ghlFnSQ5fafP8qwLJ/94SHHyITueE/IlZM0fNAjkOVTY/
-         qm0MS2hdzyEI6JopZ3okYLvNI5zIRnHUy6uC/5mIHLP1iwJ8OwaoUpwy/N1Q4+zP+MB/
-         CsJA==
+        bh=joCEblYj6xbRU6yYN3o9RBSpbJO7+Y0YCZ1RVby6eiM=;
+        b=r9ZGYNteimxXOKZgGwnEF8Ql59whLzX6BJqLxvj6fo3wVe0nbljt5b9QTU6J6x19sU
+         G05OKSvWKIyCKTnkB4k2pCg7TGCDb9GVt1vHqOHvjdyg6ssz+w9JIV0WwcS5o8hDB9qT
+         HGpH3PNVNLUaAh1iCCTuCUHB13sa0r/foKz4B21PZktvE+AeB74cJ0drPF8tBTiKtd7+
+         MZoSkYqrATEs+9M691IrZ0dWprs907lkr7BXv3uwbp9q1ycj8NBZkfMZZnzrURrFT5i4
+         WBtZZb8nQWPWvwhH/JdY2n/Euv3xzGK8o1d8QBh6Q0cmUQgJtxbmTYbQZJqjjQAE0Rsm
+         t1GQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=jWq54rnu;
+       dkim=pass header.i=@kernel.org header.s=default header.b=RzPnVjzv;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w63si515525pgd.2.2019.11.16.07.47.06
+        by gmr-mx.google.com with ESMTPS id s197si634130vkd.5.2019.11.16.07.47.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 16 Nov 2019 07:47:06 -0800 (PST)
+        Sat, 16 Nov 2019 07:47:07 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (unknown [50.234.116.4])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id BB78C2084F;
-	Sat, 16 Nov 2019 15:47:05 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 8D2D620885;
+	Sat, 16 Nov 2019 15:47:06 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Michal Simek <michal.simek@xilinx.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
 	linux-gpio@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 229/237] pinctrl: lpc18xx: Use define directive for PIN_CONFIG_GPIO_PIN_INT
-Date: Sat, 16 Nov 2019 10:41:04 -0500
-Message-Id: <20191116154113.7417-229-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 230/237] pinctrl: zynq: Use define directive for PIN_CONFIG_IO_STANDARD
+Date: Sat, 16 Nov 2019 10:41:05 -0500
+Message-Id: <20191116154113.7417-230-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191116154113.7417-1-sashal@kernel.org>
 References: <20191116154113.7417-1-sashal@kernel.org>
@@ -119,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=jWq54rnu;       spf=pass
+ header.i=@kernel.org header.s=default header.b=RzPnVjzv;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,20 +139,20 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit f24bfb39975c241374cadebbd037c17960cf1412 ]
+[ Upstream commit cd8a145a066a1a3beb0ae615c7cb2ee4217418d7 ]
 
 Clang warns when one enumerated type is implicitly converted to another:
 
-drivers/pinctrl/pinctrl-lpc18xx.c:643:29: warning: implicit conversion
-from enumeration type 'enum lpc18xx_pin_config_param' to different
-enumeration type 'enum pin_config_param' [-Wenum-conversion]
-        {"nxp,gpio-pin-interrupt", PIN_CONFIG_GPIO_PIN_INT, 0},
-        ~                          ^~~~~~~~~~~~~~~~~~~~~~~
-drivers/pinctrl/pinctrl-lpc18xx.c:648:12: warning: implicit conversion
-from enumeration type 'enum lpc18xx_pin_config_param' to different
-enumeration type 'enum pin_config_param' [-Wenum-conversion]
-        PCONFDUMP(PIN_CONFIG_GPIO_PIN_INT, "gpio pin int", NULL, true),
-        ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+drivers/pinctrl/pinctrl-zynq.c:985:18: warning: implicit conversion from
+enumeration type 'enum zynq_pin_config_param' to different enumeration
+type 'enum pin_config_param' [-Wenum-conversion]
+        {"io-standard", PIN_CONFIG_IOSTANDARD, zynq_iostd_lvcmos18},
+        ~               ^~~~~~~~~~~~~~~~~~~~~
+drivers/pinctrl/pinctrl-zynq.c:990:16: warning: implicit conversion from
+enumeration type 'enum zynq_pin_config_param' to different enumeration
+type 'enum pin_config_param' [-Wenum-conversion]
+        = { PCONFDUMP(PIN_CONFIG_IOSTANDARD, "IO-standard", NULL, true),
+            ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ./include/linux/pinctrl/pinconf-generic.h:163:11: note: expanded from
 macro 'PCONFDUMP'
         .param = a, .display = b, .format = c, .has_arg = d     \
@@ -164,39 +165,41 @@ isn't an issue. Most drivers that take advantage of this define the
 PIN_CONFIG variables as constants, rather than enumerated values. Do the
 same thing here so that Clang no longer warns.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/140
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Acked-by: Michal Simek <michal.simek@xilinx.com>
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/pinctrl/pinctrl-lpc18xx.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+ drivers/pinctrl/pinctrl-zynq.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/pinctrl/pinctrl-lpc18xx.c b/drivers/pinctrl/pinctrl-lpc18xx.c
-index 190f17e4bbdaf..1d3b88e6ab862 100644
---- a/drivers/pinctrl/pinctrl-lpc18xx.c
-+++ b/drivers/pinctrl/pinctrl-lpc18xx.c
-@@ -630,14 +630,8 @@ static const struct pinctrl_pin_desc lpc18xx_pins[] = {
- 	LPC18XX_PIN(i2c0_sda, PIN_I2C0_SDA),
+diff --git a/drivers/pinctrl/pinctrl-zynq.c b/drivers/pinctrl/pinctrl-zynq.c
+index a0daf27042bd0..90fd37e8207bf 100644
+--- a/drivers/pinctrl/pinctrl-zynq.c
++++ b/drivers/pinctrl/pinctrl-zynq.c
+@@ -971,15 +971,12 @@ enum zynq_io_standards {
+ 	zynq_iostd_max
  };
  
 -/**
-- * enum lpc18xx_pin_config_param - possible pin configuration parameters
-- * @PIN_CONFIG_GPIO_PIN_INT: route gpio to the gpio pin interrupt
-- * 	controller.
-- */
--enum lpc18xx_pin_config_param {
--	PIN_CONFIG_GPIO_PIN_INT = PIN_CONFIG_END + 1,
+- * enum zynq_pin_config_param - possible pin configuration parameters
+- * @PIN_CONFIG_IOSTANDARD: if the pin can select an IO standard, the argument to
++/*
++ * PIN_CONFIG_IOSTANDARD: if the pin can select an IO standard, the argument to
+  *	this parameter (on a custom format) tells the driver which alternative
+  *	IO standard to use.
+  */
+-enum zynq_pin_config_param {
+-	PIN_CONFIG_IOSTANDARD = PIN_CONFIG_END + 1,
 -};
-+/* PIN_CONFIG_GPIO_PIN_INT: route gpio to the gpio pin interrupt controller */
-+#define PIN_CONFIG_GPIO_PIN_INT		(PIN_CONFIG_END + 1)
++#define PIN_CONFIG_IOSTANDARD		(PIN_CONFIG_END + 1)
  
- static const struct pinconf_generic_params lpc18xx_params[] = {
- 	{"nxp,gpio-pin-interrupt", PIN_CONFIG_GPIO_PIN_INT, 0},
+ static const struct pinconf_generic_params zynq_dt_params[] = {
+ 	{"io-standard", PIN_CONFIG_IOSTANDARD, zynq_iostd_lvcmos18},
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116154113.7417-229-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191116154113.7417-230-sashal%40kernel.org.
