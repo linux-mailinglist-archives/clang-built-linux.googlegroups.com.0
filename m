@@ -1,132 +1,127 @@
-Return-Path: <clang-built-linux+bncBCP4ZTXNRIFBBYFUZPXAKGQE5WOPOTQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBVGBZPXAKGQEMPVJ27Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id A5D48100ADB
-	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Nov 2019 18:52:32 +0100 (CET)
-Received: by mail-wr1-x439.google.com with SMTP id n11sf3477113wrq.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Nov 2019 09:52:32 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1574099552; cv=pass;
+Received: from mail-il1-x13e.google.com (mail-il1-x13e.google.com [IPv6:2607:f8b0:4864:20::13e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 92475100B60
+	for <lists+clang-built-linux@lfdr.de>; Mon, 18 Nov 2019 19:20:05 +0100 (CET)
+Received: by mail-il1-x13e.google.com with SMTP id q1sf17077037ile.4
+        for <lists+clang-built-linux@lfdr.de>; Mon, 18 Nov 2019 10:20:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1574101204; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fBGHLwC60W43g0HhITlyyLUa8ycjXVwskP3w/yJHXL3mkcrChSR1QINNNapy3c+oq2
-         IDAgpkgjWKN/izI3uxYRRi1qaClx75FiPI63O8WzXA3H3E4tEiD7i9J5RsenhIrpIkLh
-         MD+83PTiDzPj3+VTtu71hC3dX+3TdWwcyHnrG3NFTsZEUK0vsZGYiP7h50BRnt8GQLZQ
-         5S3St7szAcEAIRVE+y1PZVv0a6nyAaPi5cWWEuHbBSTL5MInMwdXUQ7w3RQvcPwbs2m2
-         EN1DRGi5HoOulzGFWL3ZIOUt2cn4JTiIYgdLpHE24/E41dpRHDQdG8TZ3LfczqjHOA4S
-         WWAw==
+        b=PMRJC3V2ubAJTG6Ks+i+X+Rk8Rdlb85ACMu9MDmIXgQcvKZHjOqPUCOOUZIqluw/xO
+         8qHsRImSVuR27h8K0Qk1/qt8HTAERo3+psWF2KNnGCX5FiMP6xYH9Cipu9E9+eLYKVkd
+         XwPKetHo4lyvWqykv4CfH/n4To5l6AHMElFAxwafDFElplGZQe5U1bnD7Peo93nLkuIa
+         Ow8VFg3mcaZFER85yY8BOWRyeNwVs+Ziu+KqdN25Hh2vQrIonMuXhDx6UuY0rFcEG4fo
+         a44jWphZStsrbkp78lov2Q1YVAbcrMHR1bG5aIwYh1JMMIZxhdXX+FipsKAXok87QbH0
+         +FnQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=P6wzZRr9XkERaVp9SfVtHbR9nH2zM3u6cpfBMY7RIGY=;
-        b=KdzeA5yEahC0B0Mx2hhUizpQHgcM2ltRvJAhyUAF9xmrDv+x+KYcBlC13JXnWkzMgc
-         vxi5XiGfE7YlwroM9utNe/+yXdkUElz3lkrTuHeOArDu7la2kZkouRR81g0BlEyjK83n
-         ll6tXQcYnBoLba008fDahuiZ6khxSyP8oQLzggh9lHBaMmzjMis186r2MlVvihFElTHk
-         hvGYtUvJHQagWMvbO50nVUOWV9KOjpDEAwZ4Z0xXCUPYy/TFrBCb6/oveG0PFLpb6HVa
-         1WcHL65sQKzj80vB5I88crAvzzV8DUkHJKiNTQ2Bc5QxWw9Fe8aziD0tNdMnsjevscnA
-         wlTA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=JERHxs/a8pFhv3kawTFQl+9jnWDemFhkeJSyLol1FPU=;
+        b=gwU/QW7ZUlcY2t0aOfyTcpz3ZPw2d3HnLUbUKt3ioXlSiCqgNi87v1rxBg8ArLdQEJ
+         j+yhT+PJnf2X2p29MJcBG6S+o8gdjbsT51UGXQ87hoQ/SL/fAVLsZszKaDwHHQeLpizR
+         h/X1QhIFWB1TlhOSNFylYsRZ6tPc+jihd7TQfOW6KrmiuppxC1MG/rzLPNEsFZ7FanXD
+         BWOpwciXLp/BWrX58aQM3TydAPrBqDr9TwQUd5kFfXwS/g1z6phLBxC+iCbqYhWGINRV
+         KwOe3ml/gnHaC7pqQi5bebxuzU7unHq5HyZ74NXotoKRodqKEBA026CWIIUSIvmc4Zqq
+         PJug==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@alien8.de header.s=dkim header.b=bz6rJuqn;
-       spf=pass (google.com: domain of bp@alien8.de designates 5.9.137.197 as permitted sender) smtp.mailfrom=bp@alien8.de;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LOmfDMUE;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=P6wzZRr9XkERaVp9SfVtHbR9nH2zM3u6cpfBMY7RIGY=;
-        b=Cd9Gpp0KNC7aDeKgcb/RQOvs2Kuf2C6SQ/O6h+dQMqjgotjgvE7toQIgnxaKuXohnI
-         jROqVAWvgtT2EI6sRt3C8Tv0QvDkBXlQ0/54lM6tU1YgBm5Pkdlm01Y71MPMdK6Kc4/0
-         X8P2+T+3FUmZ7nXrYvgTSsE49Yg48fJUh6+Tg+caDr43CvYKWxeuUNvyn9qc5sSQoXGi
-         E52nB9N39HSj5IgaIo+Xu/piYDQbY9TFMZWzgFTebX29DshuiYVkL75UZ68FtB0CLOcA
-         Ivx8gK06kZ9s4ayx/BqPqSA6+eQxuDO2ZnPTNs/Ls3uOjtV4zIKj6gJHJmtztYW7a6HV
-         l82w==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=JERHxs/a8pFhv3kawTFQl+9jnWDemFhkeJSyLol1FPU=;
+        b=itE7dWfrmXErw/64ZUs7apu+766F3rMQPjlfGbna8jIKfQQ3HZfmLP1Ww4LOICnL5i
+         Oj+DQsoKSxWRh7ir15Ha0vQ9BGl2Iubivka5XalI3Tb2ZchAImOBmofcBMfOdOG8IBRo
+         JD59KC9LaGq7JvLGzXcro81LRgZJA5KFQaBtwQzlxo5X+KrSYSvSHsdcKFiDUignEf5l
+         /PESvhOdBkD0TW8YwraIt2m52MWNQgjfLQujPMiRGf/+EIE5x73coop56mW9p4sTBCwe
+         Ao7S+KGV1pefGUIVF0s63NFl01A/W3Mv+9z2nlaK/paUUbqjP4et2h1giF6FZFAuOV92
+         uZ0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=P6wzZRr9XkERaVp9SfVtHbR9nH2zM3u6cpfBMY7RIGY=;
-        b=U/xWL5T/U4mfbLfP216D0MyDiGWoZoNnp3QjFd2DZoWbucQONqat8L3kDP5KFmrC5D
-         os7QN3ULI+mrceF3PkTWLBb4kzFaOmNfrJS7wnkOo3S5ahOnsbWZYrdUJzx2MvR6zDL6
-         I54YpPkTBHLx3+L2l6s1NrF5xrMOj64uj+OARyhNZ2fcctHBOwlMxOsIPz4rvoLUK1xr
-         z+9dCzexlqioEYRM7IPi8oc2soEyAlmgQ2mPrH3Tre293a4ajD+VLxYR8lrpDVL85YHC
-         nIJBXf0C47yRUPwMlD9UbRw0nuR8XFQ31by9cLs+2sRGyWubOcLoLzqnWkLbyW1m8PeF
-         MzVw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWcs0JbmaW5iXKCSsvtgAHLKCLCPi2kmNRS7VXtQbl/bxwlshZv
-	Ig7AlcNXSSJ7/G1JKdoPOmA=
-X-Google-Smtp-Source: APXvYqwK7Lc/iRWqv6Q/xo5o/Yojc23zAWQ3U2nHzNCVhEL+0jVMM89NxN9CgZS80aSNtJwhlTrwgw==
-X-Received: by 2002:a1c:2d49:: with SMTP id t70mr258674wmt.131.1574099552297;
-        Mon, 18 Nov 2019 09:52:32 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=JERHxs/a8pFhv3kawTFQl+9jnWDemFhkeJSyLol1FPU=;
+        b=onTA4NXDBux9uUHqsavH0TnDLSIBNG7zg9otxkfIaqKqmMCz4rh6N5RO3LKIQ07crb
+         yXywIutZ3bBGl/D36YTTErx3mFwJAlqQCKIgK3HlJsqr5nliOSQmoSYveOXINkL5iS6D
+         9cP3NdHK7OUBbQEwekLPXMNzXkBKQZQOQm3cwSpwShRDDHvssYtaN24nBmv0d/OxOfb6
+         HCze/dgQvvpuLdlSilpO823CG+LaoRSLO/I8dPZ0dScXC7tTdFeuc9DMq5zcVjPVelca
+         nx05wmwKBPhFcoPDkrnf6t+ilSRqIZanyOlbtA7eRz7mX+da6wp2GaIjs6FoHi8Xg9vp
+         7G8w==
+X-Gm-Message-State: APjAAAW7JCvskgc6w8TpsqRUgXi+niiPeuHx168r8KxqrGbY/Px9Rf9F
+	2sTlBRaV9iH0i44rg0+tJSY=
+X-Google-Smtp-Source: APXvYqy0HZtx0v4C4SwRKrNrG7IRt6SCrVjoyrGK22TR8YKT+AMC+zNCnH+h963A34TzBxRvdqXZUw==
+X-Received: by 2002:a6b:6e0a:: with SMTP id d10mr10586107ioh.111.1574101204483;
+        Mon, 18 Nov 2019 10:20:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:ca52:: with SMTP id m18ls451469wml.4.gmail; Mon, 18 Nov
- 2019 09:52:31 -0800 (PST)
-X-Received: by 2002:a05:600c:254:: with SMTP id 20mr380835wmj.6.1574099551836;
-        Mon, 18 Nov 2019 09:52:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1574099551; cv=none;
+Received: by 2002:a05:6638:397:: with SMTP id y23ls1340244jap.14.gmail; Mon,
+ 18 Nov 2019 10:20:04 -0800 (PST)
+X-Received: by 2002:a02:c54b:: with SMTP id g11mr15026543jaj.136.1574101204016;
+        Mon, 18 Nov 2019 10:20:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574101204; cv=none;
         d=google.com; s=arc-20160816;
-        b=UK76mQ6L6s+0spXTULwNrxiMogVXkIlruG2L7I/e2ftDItcFohXKFZ7XDaE1JXdlwa
-         mF29WXR1/YhvDQ4RmiBnAPvGoU979SJ/4st25u7wOaYrZpK8xrfxxG+Cte9ur3UYSEzb
-         BnDd1gHYdvWy2vrPM2T7gvu7csF0Bd7S1obOwKHZVbDZ/8Rfi4Bf0ZY6NiwoceRec6PM
-         OffvusLrrRHnSYMagfzNua8eCkOIBAWOzY8uV3Mor6BMG8UIF2OZJAXqRxNaUpZPmO5D
-         cOPYpTx9Nvg1O/X9wrfWOMHiwbywUaDgDXnmRaSaAgO+0Q2VERZccjbr+ohoz65LyR3T
-         tfDA==
+        b=NYEwb9m7wTnnN7c7CWk9G7vjI7rgpNeU6zjWjN6zSE4EGyunip6XeU9vdLfifyuXG9
+         8uEWf6EPSezvwAUDPud/sNUJg7q+y/ei8WD7AFPFd3nm9JqlcS8cl+573LEtNONiLlWz
+         9C1r1S+b0Qlsk1v+r5YdF1B1GOL8bctiwL7wEBIzUbMV8y7LMp6ozifRFXEmzIIa8bF4
+         TMsGMlH5/L3AoKSZGd0BaTzvAM8fFzELiQkL1Wy/vuE80Xt/+UA/kYdri4DJippexRHT
+         d+51zer60qqA9ujkf84NzjRnnf4LqNzY/+0NaqLeLV0aZOSuz86fvGlc04m+lW5sTXLt
+         pI/Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=iPwPA4kAOvYxtc6qwVWrK8VMs7ifOI7h/WCSD5jVWg0=;
-        b=nCoOgFA5dRaDRtl0FQ8GB6Q4hGbTodfQR6+KPGpNoNF1Wh2hJdwlTyExYHBDFycobK
-         vdK5hAZ1TuhHAcplwVREk+oaqm6lW9jAw1izNPBwGI3Yk+End2EHaR4jW3TaBUt+wIUT
-         I3VlC0How8QtxYGsQTHhmFDKg7oadcBl2Wc/9BjopQTf72kCUDSV2f52WjfAPc8Bny03
-         YPbsyHfnHSthams3JaYpupJs+CwcJoIBv+CsmScv3yon/qjSZHqhIecjC6DeqamZgWkn
-         0tjqZkAySUrgk8AHHA5gjiFQrDK+R2X02Fv6PE6X8HqLx285/sQMnqydIb17TpFxz72z
-         sdrA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=xHxaepY/XsExcaoO9ZBZCDqbAjqKRJghjQ9vW9q/pQY=;
+        b=DswuVkFOtyZt7QPl/Ft2NF7UyCed3Qy4TOOmulR7KMLqCcupn6Mvqpiq8hvITEWhMG
+         yiQLW4iiXF1Wa6LxnFRXCC4f9zj8lJ7uEz7aWjZi1BFvVwkAdMs2bzY+ba8tU40wsT3B
+         mRlSN637k9QDroJb2KQDowOuk37iA/egpjbBKPlMfcm2l+VF83lQEwhV1oc1VJpbNb6p
+         sBxXc/sIX11DKcXFIG4sKB6cAN672yd6lXNWz7b0+pP/6DeCW67hsw/UfPKYyo/wUuBW
+         lAN/mMaegc1yVlr96Ny39HwYNAhJZMBmxLX7pFz44FpMFUPj5aCAIN9yeGfQVxm4UBeN
+         mpKg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@alien8.de header.s=dkim header.b=bz6rJuqn;
-       spf=pass (google.com: domain of bp@alien8.de designates 5.9.137.197 as permitted sender) smtp.mailfrom=bp@alien8.de;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alien8.de
-Received: from mail.skyhub.de (mail.skyhub.de. [5.9.137.197])
-        by gmr-mx.google.com with ESMTPS id h2si1013852wre.0.2019.11.18.09.52.31
+       dkim=pass header.i=@google.com header.s=20161025 header.b=LOmfDMUE;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
+        by gmr-mx.google.com with ESMTPS id k11si1116011ilg.4.2019.11.18.10.20.03
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 18 Nov 2019 09:52:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of bp@alien8.de designates 5.9.137.197 as permitted sender) client-ip=5.9.137.197;
-Received: from zn.tnic (p200300EC2F27B500B4ECF45A19F4392B.dip0.t-ipconnect.de [IPv6:2003:ec:2f27:b500:b4ec:f45a:19f4:392b])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.skyhub.de (SuperMail on ZX Spectrum 128k) with ESMTPSA id 3F2F71EC05DE;
-	Mon, 18 Nov 2019 18:52:27 +0100 (CET)
-Date: Mon, 18 Nov 2019 18:52:23 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Ilie Halip <ilie.halip@gmail.com>, LKML <linux-kernel@vger.kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCH V2] x86/boot: explicitly place .eh_frame after .rodata
-Message-ID: <20191118175223.GM6363@zn.tnic>
-References: <CAKwvOdmSo=BWGnaVeejez6K0Tukny2niWXrr52YvOPDYnXbOsg@mail.gmail.com>
- <20191106120629.28423-1-ilie.halip@gmail.com>
- <20191118143553.GD6363@zn.tnic>
- <CAKwvOdmWoHqrUyZ-_ino9z7KRzizpdoY2ZL5ngUzwGy55MuZ4g@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 18 Nov 2019 10:20:03 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
+Received: by mail-pl1-x642.google.com with SMTP id d29so10229128plj.8
+        for <clang-built-linux@googlegroups.com>; Mon, 18 Nov 2019 10:20:03 -0800 (PST)
+X-Received: by 2002:a17:90a:be05:: with SMTP id a5mr387048pjs.73.1574101202963;
+ Mon, 18 Nov 2019 10:20:02 -0800 (PST)
 MIME-Version: 1.0
+References: <201911160531.VrqGMTij%lkp@intel.com>
+In-Reply-To: <201911160531.VrqGMTij%lkp@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 18 Nov 2019 10:19:52 -0800
+Message-ID: <CAKwvOdk70dd5F7JjZW5oNaSkQKh8_3P9D8VJ7aPpgx1vYw8Uog@mail.gmail.com>
+Subject: Re: [linux-next:master 11878/12136] mm/vmscan.c:2216:39: warning:
+ implicit conversion from enumeration type 'enum lru_list' to different
+ enumeration type 'enum node_stat_item'
+To: Johannes Weiner <hannes@cmpxchg.org>
+Cc: kbuild@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild-all@lists.01.org, 
+	kbuild test robot <lkp@intel.com>, Suren Baghdasaryan <surenb@google.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, 
+	Linux Memory Management List <linux-mm@kvack.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdmWoHqrUyZ-_ino9z7KRzizpdoY2ZL5ngUzwGy55MuZ4g@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: bp@alien8.de
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@alien8.de header.s=dkim header.b=bz6rJuqn;       spf=pass
- (google.com: domain of bp@alien8.de designates 5.9.137.197 as permitted
- sender) smtp.mailfrom=bp@alien8.de;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=alien8.de
+ header.i=@google.com header.s=20161025 header.b=LOmfDMUE;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,36 +134,115 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Nov 18, 2019 at 09:46:23AM -0800, Nick Desaulniers wrote:
-> Yep. Looks like:
-> - arch/x86/kernel/vmlinux.lds.S
-> - arch/x86/realmode/rm/realmode.lds.S
-> 
-> discard .eh_frame, while
-> - arch/x86/entry/vdso/vdso-layout.lds.S
-> - arch/x86/um/vdso/vdso-layout.lds.S
-> 
-> keep it.  I assume then that just vdso code that get linked into
-> userspace needs to preserve this.
+Hi Johannes,
+Below is a 0day report from a build with Clang, can you please take a look?
 
-Yap, that's what I think too. Lemme add Andy to Cc.
+On Fri, Nov 15, 2019 at 1:44 PM kbuild test robot <lkp@intel.com> wrote:
+>
+> CC: kbuild-all@lists.01.org
+> TO: Johannes Weiner <hannes@cmpxchg.org>
+> CC: Suren Baghdasaryan <surenb@google.com>
+> CC: Andrew Morton <akpm@linux-foundation.org>
+> CC: Linux Memory Management List <linux-mm@kvack.org>
+>
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> head:   5a6fcbeabe3e20459ed8504690b2515dacc5246f
+> commit: 07976d367592d6613370c93706795b4ebc0850f1 [11878/12136] mm: vmscan: enforce inactive:active ratio at the reclaim root
+> config: arm64-defconfig (attached as .config)
+> compiler: clang version 10.0.0 (git://gitmirror/llvm_project f7e9d81a8e222f3c9d4f57e0817f19bbb795e5b6)
+> reproduce:
+>         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>         chmod +x ~/bin/make.cross
+>         git checkout 07976d367592d6613370c93706795b4ebc0850f1
+>         # save the attached .config to linux build tree
+>         make.cross ARCH=arm64
+>
+> If you fix the issue, kindly add following tag
+> Reported-by: kbuild test robot <lkp@intel.com>
+>
+> All warnings (new ones prefixed by >>):
+>
+> >> mm/vmscan.c:2216:39: warning: implicit conversion from enumeration type 'enum lru_list' to different enumeration type 'enum node_stat_item' [-Wenum-conversion]
+>            inactive = lruvec_page_state(lruvec, inactive_lru);
+>                       ~~~~~~~~~~~~~~~~~         ^~~~~~~~~~~~
+>    mm/vmscan.c:2217:37: warning: implicit conversion from enumeration type 'enum lru_list' to different enumeration type 'enum node_stat_item' [-Wenum-conversion]
+>            active = lruvec_page_state(lruvec, active_lru);
+>                     ~~~~~~~~~~~~~~~~~         ^~~~~~~~~~
+>    mm/vmscan.c:2746:42: warning: implicit conversion from enumeration type 'enum lru_list' to different enumeration type 'enum node_stat_item' [-Wenum-conversion]
+>            file = lruvec_page_state(target_lruvec, LRU_INACTIVE_FILE);
+>                   ~~~~~~~~~~~~~~~~~                ^~~~~~~~~~~~~~~~~
+>    3 warnings generated.
+>
+> vim +2216 mm/vmscan.c
+>
+>   2180
+>   2181  /*
+>   2182   * The inactive anon list should be small enough that the VM never has
+>   2183   * to do too much work.
+>   2184   *
+>   2185   * The inactive file list should be small enough to leave most memory
+>   2186   * to the established workingset on the scan-resistant active list,
+>   2187   * but large enough to avoid thrashing the aggregate readahead window.
+>   2188   *
+>   2189   * Both inactive lists should also be large enough that each inactive
+>   2190   * page has a chance to be referenced again before it is reclaimed.
+>   2191   *
+>   2192   * If that fails and refaulting is observed, the inactive list grows.
+>   2193   *
+>   2194   * The inactive_ratio is the target ratio of ACTIVE to INACTIVE pages
+>   2195   * on this LRU, maintained by the pageout code. An inactive_ratio
+>   2196   * of 3 means 3:1 or 25% of the pages are kept on the inactive list.
+>   2197   *
+>   2198   * total     target    max
+>   2199   * memory    ratio     inactive
+>   2200   * -------------------------------------
+>   2201   *   10MB       1         5MB
+>   2202   *  100MB       1        50MB
+>   2203   *    1GB       3       250MB
+>   2204   *   10GB      10       0.9GB
+>   2205   *  100GB      31         3GB
+>   2206   *    1TB     101        10GB
+>   2207   *   10TB     320        32GB
+>   2208   */
+>   2209  static bool inactive_is_low(struct lruvec *lruvec, enum lru_list inactive_lru)
+>   2210  {
+>   2211          enum lru_list active_lru = inactive_lru + LRU_ACTIVE;
+>   2212          unsigned long inactive, active;
+>   2213          unsigned long inactive_ratio;
+>   2214          unsigned long gb;
+>   2215
+> > 2216          inactive = lruvec_page_state(lruvec, inactive_lru);
+>   2217          active = lruvec_page_state(lruvec, active_lru);
 
-> This suggestion would be a functional change, which is why we pursued
-> the conservative change preserving it.
+Look like lruvec_page_state() defined in include/linux/memcontrol.h
+takes an `enum node_stat_item` for its second parameter, but `enum
+lru_list`'s are being passed instead?  I see what's going on with the
+definitions, but a function should be used to safely convert between
+the two different enums in case their definitions ever change,
+otherwise we'll continue to see this warning.
 
-Sure but what would be the purpose of preserving the section, especially
-in the early boot code? At least I don't see one. And kernel-proper
-kills it...
+>   2218
+>   2219          gb = (inactive + active) >> (30 - PAGE_SHIFT);
+>   2220          if (gb)
+>   2221                  inactive_ratio = int_sqrt(10 * gb);
+>   2222          else
+>   2223                  inactive_ratio = 1;
+>   2224
+>   2225          return inactive * inactive_ratio < active;
+>   2226  }
+>   2227
+>
+> ---
+> 0-DAY kernel test infrastructure                 Open Source Technology Center
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 
-Thx.
+
 
 -- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191118175223.GM6363%40zn.tnic.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk70dd5F7JjZW5oNaSkQKh8_3P9D8VJ7aPpgx1vYw8Uog%40mail.gmail.com.
