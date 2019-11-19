@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZ6S2HXAKGQEF22UV2I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJPL2HXAKGQEVBGXW3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 21584102EED
-	for <lists+clang-built-linux@lfdr.de>; Tue, 19 Nov 2019 23:15:05 +0100 (CET)
-Received: by mail-pf1-x43e.google.com with SMTP id 2sf17839242pfx.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Nov 2019 14:15:05 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1574201703; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id EC226102FB4
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Nov 2019 00:07:18 +0100 (CET)
+Received: by mail-io1-xd39.google.com with SMTP id z12sf17141372iop.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Nov 2019 15:07:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1574204837; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ewgzBztmKzwW2iFi7Ae0NrX+AvAc3qelRZIrWZl1is9VAiZueNzF3i4XQrX8ssc1Q9
-         U+ScQLZx5l3beAQkQNzZOuz4xCY9u6ChBndwp40i6rsehBpLgozBT6K/Vu3Fht/o1cc0
-         Ajr9Oqdxs3Ao13ry9cC9ImNIQ2ccaxVLNWGKOZb5PpCv1NSugYlUPzcocC5b7QEDdSyU
-         DVVx3uiowy+khk2gzHpAYu4UXquXw/kJRDFPCsaMWLJ2KhtS4G7vC0ns6DWYECy14TmL
-         dG3mwBrte82ZwDx3/6e6+sEytQmqvgPOkZCJXManZfgVhP+Oz1rNnQYSLPN72PzkJhJF
-         TP1w==
+        b=yKTpOwRBC/KO1G/HqWBrjJBUakA1W29mkYxCdoNXKFSkyue+9hxkd/DCCYBwnPCXz9
+         OOJUO/wya010W5nz+5gtqt5kODOwPmcV2xney2GQaqHlZc8E1s21htI0D7k/NUj4YyvC
+         1XwLZPJ557qpBZbpfM2jyB87atI1QQ7jxE7fDf0KeRyyB9vr4LqCCnwukustqL4mEcvQ
+         NbeX4o3ha20Ke+YH5H72MhLVMfi4HP3YO5HAib/B0qtJPaNBkDl2zmVKrC0hfQniKU7x
+         bg250VNZbG9AeKOffa2DqmRRICqHPen6TYoj8MZLGFujh/SDeGmuivvJWF+tZhnbj+42
+         dtUg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=XQ5JyVrN9bA5iAUXjp4VaAKWtINYtywzc3BaS9/Icis=;
-        b=j+9ZvauI6K+5Y09PvUMRg+i/U3yCnNnhtgzn7ub9dWeN5R7Tj4Bbzw1n2FuPNzp4QF
-         2HM+cL6lDdPUmFtvrPrDju5ytpCEALIp0LjOyIBvvoQOqP5NsbKnZUpc5ZVLTLogcMU/
-         DuWI3yHhgnTnRjFWDtSknaqgJAqM00DNw+T2fueUvdwhTq6M4yCp6B4A+9eY5FXTJWdw
-         sZzrEs3VZpUXYQgdxeJhlwn4BzoiAGI+zi2ztG9M7JX0mQwUXUTqZipynRxpCQaNPKvi
-         3smkaVWQFIGxw5v4f0EFZXArlC4ANGCLmpl0ua02cVGRCmeEQGooxjsOlh2puzQLprY3
-         5+0Q==
+        bh=kJE9g8NZpr/cwCZ/ZhPdPBgmQLq+Djm+OOa7weg2/FU=;
+        b=xsrC5G4yJoJpqPyFPNIK1FenUg17GMoa0tRiwR5g8Nc+PsCk1TXZhQeO3hXAw2kieW
+         T+SysvN0IYjQcGz+8QIE8fR/JszObELf/6Z4e5Gn312/Kn2538zbcWub1YLQpLYl0s9Q
+         3TEwVvJqx0Jc+6yzoyjveebeaaCWXh/xXWGg8X67S8Ugr+43V/pvKCEG2JcU81lyo/jo
+         NI6u4A2oHplSvCVgYg6M2L5jpb5Mv674Ee6iXtmkfjk+KrQa3xYYsjeW+Ayyn/8kHYOX
+         IlqBdDN3aA0nlRwbTZHVEz/+C5+MI59dyAAo0+ZepeOTqi1HPYSCCKkIEnc/rhmKLRAa
+         ZAOw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=XQ5JyVrN9bA5iAUXjp4VaAKWtINYtywzc3BaS9/Icis=;
-        b=orLkvGP6XmSpVTI+m9b1KfWa7eHdg/gaU2PV/YAFleLqtlE2u4L/mZ1KRY+RXS6yek
-         lCZhAf44c9CnOVlRtLzvotVbsJEpeNN4zVOL/a8rVtCxhQ8FlK+xRXMZWtcn+BTGEMs3
-         RHTt5ZQR4+WeBpNHNOFFJ/EzQMMEQalvJRG9rYMNL9KhARxYomXOtSzwEXmUkZz9kvGk
-         aEty9dK7eFe4x9YNaf+qyqlTNg4NQryfUYSZY+x1ihjOUT97s/en1zJdfAzd4JpB2Ysb
-         u+R/2/s2L8uK2fbs94d0qKrD5HTqQpp4r7Y1HHYjLDIH2XA3XYfhymJiutU8fr5LlrWF
-         ds+w==
+        bh=kJE9g8NZpr/cwCZ/ZhPdPBgmQLq+Djm+OOa7weg2/FU=;
+        b=Xsxy4CuFtErrZH6aPtQfvhd8Rawbf2ZO7ruSBSxNM45qKFSR1gfNMRWlyldr/OzyL4
+         BlZ/oFrxwUepKc4aTEOpc813mTTnejy1TvWavwAEi7hzAQe+Gl4sBmyOR30zEemVmQmz
+         SnoRNYrg70eMCJ7Z2JFlbUsae6etXzQSNqTgAXKPJvfqGjKDqHlDeGjLG/VvM+3bdch7
+         QHvim+S3t+D5j1l/wjaofQUUq2GsiC/3vcDxPactAb77O+uUlVrdHgivVHCZVSAYmzjS
+         hQfMhPRYaydNkQUoUFQDnv/cd1ffsamXpLN2ekndbubjBegiKmEocrrfQYgCCIEWPiRe
+         TZ3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XQ5JyVrN9bA5iAUXjp4VaAKWtINYtywzc3BaS9/Icis=;
-        b=kenuSogZQG4aQj2iBT5nTh5LtFtANI5vXnHtzTya6zu270RYSDLeiS4oJree6OMdAn
-         rHKHCp9IlpZ2Xozb5fckz+OpPI2T/IzDSf+vj381Y3d9/zzLPbdtvoG1aA2JFILUNmmB
-         rD+UwVBANCuAeJBEvtf6jD3GTpcMcS4HuBZZkBKoic9mcGYpO8HkEozuzKQvVONG7cdx
-         +WYpWW31ZxCuc5VxfEk5ybkUc/aLWDojSMjcZFntDDRv/DKeabCLzvCDT+oINBZ1rh9L
-         TSaK0JYlHE5a+TTVKXfIuggbrOYMU0PgxG2OoG3H/j1uzIf08Unu8vsUvhVEIdt2WBKQ
-         SK/A==
+        bh=kJE9g8NZpr/cwCZ/ZhPdPBgmQLq+Djm+OOa7weg2/FU=;
+        b=filzctQLmuWGURNasp3lQByu+8WLAU+ZnvkzGjDoCrmIzhPERAFeDZuZBz5UFRzXmo
+         duZno/GIp513djeYpKRSSPOZIuSdG5bJJmx+kRrZ6r4/28dUu7e43QqwfKHV7yYutxP6
+         KRBXIjYJM/fynyr/xtohenfdngRTd7Appstb/cph7HuOYjnM7j04iPccIuTTDTZ0ieyj
+         AiVZAvcwbnT2w0IW0y3emk7MRYkZgD2liwmB7AedEbniPgVWqwG1BPhVMPPc9PjVW9zu
+         E05amhIcZ2Z+j1PibFNtUNfzDtz84md9bC3eG6S4gHrlIMwv7HO2HVZ4DEJJbZvjE2gx
+         Ezhg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWUm8rcMMCXtbDNfO/L7TIYYCwH8RbioyjOCf/iDfdJ9Tp+fXvG
-	2tFHk1x2luGN+Q1kiMkUQsU=
-X-Google-Smtp-Source: APXvYqw1B83zbT3GW/22IQ5YMKblRH4hBRhR4/PC0wn+Fz1GVftkEcYDp5vuWIFjX6Lj3XY4D4HasQ==
-X-Received: by 2002:a62:28b:: with SMTP id 133mr8648286pfc.204.1574201703644;
-        Tue, 19 Nov 2019 14:15:03 -0800 (PST)
+X-Gm-Message-State: APjAAAWizVzAcggPXgUrpKoQnpROykVzxtO7k1s9YpYWTuv7j5t4Xg3F
+	HzFfmQqP1YfG44y8EGDXqGg=
+X-Google-Smtp-Source: APXvYqzcf408UAuzTrA+nU6D+TrCqDkgX8bgZJejc31BOUPXmXlUE6OJwJ7jkQ1FhhfLKs7RTdCntw==
+X-Received: by 2002:a05:6638:304:: with SMTP id w4mr384005jap.57.1574204837718;
+        Tue, 19 Nov 2019 15:07:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:bd46:: with SMTP id b6ls2560832plx.0.gmail; Tue, 19
- Nov 2019 14:15:03 -0800 (PST)
-X-Received: by 2002:a17:902:7c94:: with SMTP id y20mr37794154pll.241.1574201702889;
-        Tue, 19 Nov 2019 14:15:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1574201702; cv=none;
+Received: by 2002:a92:1f04:: with SMTP id i4ls37903ile.8.gmail; Tue, 19 Nov
+ 2019 15:07:17 -0800 (PST)
+X-Received: by 2002:a92:8983:: with SMTP id w3mr277319ilk.108.1574204837268;
+        Tue, 19 Nov 2019 15:07:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574204837; cv=none;
         d=google.com; s=arc-20160816;
-        b=qoQ89I1qYNwTBIjnEBCRBd8d0wVT02pgc8PThCOHYT2zALTHNCVRIf9dOXTgixmr75
-         dIeAsicQGcuwiftwlrvS3NwNfGb9ORTv+fD4l3/htY2/oJhC5f+D1tFcWKcCM/LmlphV
-         cZw7PbbpdCS7Abzo8wgydnRgeSaXod1AWexRKfmomwym+NV5HPpFj6BYVKSS/ja3MYQt
-         tehgaE/Y5/wo8zfA+ofi12IaAyQUoFJQsavAxLvJR59/gauFWT9YTWLH/0rtjltektjT
-         77EgRynX06TgbExgfIMLDi1K2YjZbx7rqwXeK6XI/jYZuAZiGkBtyf++V+nG3IvQCcLi
-         pc2w==
+        b=OJF4014IpD9fPjmdr2+m8N1fHRnAlicNRPxEjhyUR5dBNPA3K9YxtWMJOA0DH0/8eh
+         7yfNz9b/kKaizWzKq1rojk6l6SZ+droMKStaDMK8hgUYLQ1mO84yqGiLOqAHzI5/LT2+
+         TsKbhInyOQQXwhx2O99KnMGYelm38F+e1JcCO/pnvRWnRavcvDBMXvzvLt7uAcE38o5u
+         RfZQtHFBRTcxnahIbq8JHq4KrFNNbzZG/hzs00JzZNhq8JD8kb4e5K9cMCnegyrQG1AU
+         0olok4sTVagsdkpP3tyI4+LJk+W+4MW9N74LVJ0CNkrYQrhsaNggiot/iph0iewBoKkg
+         SuRA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=XjGB+tXX92gtwSpAUItfKAwYMPcCmKOLaaxnfftKkOw=;
-        b=M95gh7feoXs1s13h4v8dfY1raofSPo4b3xV9ozDTPh9FkM7W0ggNkmETim9To/EtAp
-         RNP7PsYAdkBVRYvw4dUPnn4p+hUukKQS1S8TYZZ6Gg61zzJLgkGslpvMli/3Oh7qk/0k
-         iHRUqj7Wo/kkhxoPy6m6b7U7lp34VPNkEizhW4IkrYTp++Snd4xPsTwo9Ab5EYFrr36A
-         pMAsTgbMu09EclNoIbFWurm8L1xjd/wpANfeJJa21PqjnK5rO3CH9ZaOF+t5scRoFPLZ
-         A03FDKlJg4p8Zymwkj7TdU1VafDf+PtmpzYXendxUR+TXZ7NOBijSckvd/bKUSZEzOdN
-         ULUQ==
+        bh=d2FohDbkoOouVcT150hZ13RQv6x4T3kMZo1hecYLiP4=;
+        b=NKPk+AzHXWF8cvzJLu29vWgzlF0S090hBJd2/ESl4VCXpUBc7rekNNCq5RWozCdsct
+         5/Sq0qHLGs0c/UELNoz6e/UusOj6swB+j4QaNhi7+wr9rRDO2ID+69HUVViWnKCYtsY8
+         71gKII1eDYXFwJqttMbcIZVqMbKjUm5n10ga3NxLU1JrCkbTGnnTZ5/ZRJSmuMUUxu2b
+         G1ahaBSs0CYDgHyL8Azd7c8RJl1O/iv3ZjHzXZsAz8V5+fcmWffRBBUJFZ/3TYCvByQv
+         xO863eyUB4dpPSP30SKXyCFPQ/gN+nItuv9BjAs80tQHeN2X1/M61kXvElUb/3Gb221o
+         QYBg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
-        by gmr-mx.google.com with ESMTPS id w63si835516pfc.1.2019.11.19.14.15.02
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id n6si672738iod.3.2019.11.19.15.07.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 19 Nov 2019 14:15:02 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
+        Tue, 19 Nov 2019 15:07:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Nov 2019 14:15:02 -0800
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Nov 2019 15:07:15 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,219,1571727600"; 
-   d="gz'50?scan'50,208,50";a="196648823"
+   d="gz'50?scan'50,208,50";a="237513598"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 19 Nov 2019 14:14:59 -0800
+  by fmsmga002.fm.intel.com with ESMTP; 19 Nov 2019 15:07:14 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iXBlz-0008RI-5Q; Wed, 20 Nov 2019 06:14:59 +0800
-Date: Wed, 20 Nov 2019 06:14:05 +0800
+	id 1iXCaX-0009a9-Nm; Wed, 20 Nov 2019 07:07:13 +0800
+Date: Wed, 20 Nov 2019 07:06:46 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [Intel-gfx] [V3 1/8] drm/i915/dsi: Configure transcoder
- operation for command mode.
-Message-ID: <201911200659.gfJhUnAr%lkp@intel.com>
+Subject: Re: [Intel-gfx] [V3 6/8] drm/i915/dsi: Configure TE interrupt for
+ cmd mode
+Message-ID: <201911200726.BWAWzTQC%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="rhoad7awr3uxr2u7"
+Content-Type: multipart/mixed; boundary="ue7mxmjoxx2iausm"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,13 +138,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---rhoad7awr3uxr2u7
+--ue7mxmjoxx2iausm
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191119123316.5094-2-vandita.kulkarni@intel.com>
-References: <20191119123316.5094-2-vandita.kulkarni@intel.com>
+In-Reply-To: <20191119123316.5094-7-vandita.kulkarni@intel.com>
+References: <20191119123316.5094-7-vandita.kulkarni@intel.com>
 TO: Vandita Kulkarni <vandita.kulkarni@intel.com>
 CC: intel-gfx@lists.freedesktop.org
 CC: jani.nikula@intel.com
@@ -172,18 +172,12 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/gpu//drm/i915/display/icl_dsi.c:718:11: error: use of undeclared identifier 'TE_SOURCE_GPIO'
-                           tmp |= TE_SOURCE_GPIO;
-                                  ^
->> drivers/gpu//drm/i915/display/icl_dsi.c:986:10: error: use of undeclared identifier 'UTIL_PIN_DIRECTION_INPUT'
-                   tmp |= UTIL_PIN_DIRECTION_INPUT;
-                          ^
->> drivers/gpu//drm/i915/display/icl_dsi.c:1151:20: error: implicit declaration of function 'DSI_CMD_FRMCTL' [-Werror,-Wimplicit-function-declaration]
-                           tmp = I915_READ(DSI_CMD_FRMCTL(port));
-                                           ^
->> drivers/gpu//drm/i915/display/icl_dsi.c:1151:10: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
-                           tmp = I915_READ(DSI_CMD_FRMCTL(port));
-                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/gpu//drm/i915/i915_irq.c:2590:19: error: implicit declaration of function 'DSI_INTR_MASK_REG' [-Werror,-Wimplicit-function-declaration]
+           tmp =  I915_READ(DSI_INTR_MASK_REG(port));
+                            ^
+>> drivers/gpu//drm/i915/i915_irq.c:2590:9: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
+           tmp =  I915_READ(DSI_INTR_MASK_REG(port));
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    drivers/gpu//drm/i915/i915_drv.h:1981:57: note: expanded from macro 'I915_READ'
    #define I915_READ(reg__)         __I915_REG_OP(read, dev_priv, (reg__))
                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
@@ -196,12 +190,15 @@ All errors (new ones prefixed by >>):
    drivers/gpu//drm/i915/intel_uncore.h:288:20: note: expanded from macro '__uncore_read'
                                               i915_reg_t reg) \
                                                          ^
->> drivers/gpu//drm/i915/display/icl_dsi.c:1152:12: error: use of undeclared identifier 'DSI_PERIODIC_FRAME_UPDATE_ENABLE'
-                           tmp &= ~DSI_PERIODIC_FRAME_UPDATE_ENABLE;
-                                   ^
-   drivers/gpu//drm/i915/display/icl_dsi.c:1153:4: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
-                           I915_WRITE(DSI_CMD_FRMCTL(port), tmp);
-                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/gpu//drm/i915/i915_irq.c:2592:11: error: use of undeclared identifier 'DSI_TE_EVENT'
+                   tmp &= ~DSI_TE_EVENT;
+                           ^
+   drivers/gpu//drm/i915/i915_irq.c:2594:10: error: use of undeclared identifier 'DSI_TE_EVENT'
+                   tmp |= DSI_TE_EVENT;
+                          ^
+   drivers/gpu//drm/i915/i915_irq.c:2596:2: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
+           I915_WRITE(DSI_INTR_MASK_REG(port), tmp);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    drivers/gpu//drm/i915/i915_drv.h:1982:65: note: expanded from macro 'I915_WRITE'
    #define I915_WRITE(reg__, val__) __I915_REG_OP(write, dev_priv, (reg__), (val__))
                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
@@ -214,165 +211,42 @@ All errors (new ones prefixed by >>):
    drivers/gpu//drm/i915/intel_uncore.h:295:18: note: expanded from macro '__uncore_write'
                                             i915_reg_t reg, u##x__ val) \
                                                        ^
-   6 errors generated.
+>> drivers/gpu//drm/i915/i915_irq.c:3401:22: error: use of undeclared identifier 'DSI0_TE'
+                           de_port_masked |= DSI0_TE | DSI1_TE;
+                                             ^
+>> drivers/gpu//drm/i915/i915_irq.c:3401:32: error: use of undeclared identifier 'DSI1_TE'
+                           de_port_masked |= DSI0_TE | DSI1_TE;
+                                                       ^
+   7 errors generated.
 
-vim +/TE_SOURCE_GPIO +718 drivers/gpu//drm/i915/display/icl_dsi.c
+vim +/DSI_INTR_MASK_REG +2590 drivers/gpu//drm/i915/i915_irq.c
 
-   621	
-   622	static void
-   623	gen11_dsi_configure_transcoder(struct intel_encoder *encoder,
-   624				       const struct intel_crtc_state *pipe_config)
-   625	{
-   626		struct drm_i915_private *dev_priv = to_i915(encoder->base.dev);
-   627		struct intel_dsi *intel_dsi = enc_to_intel_dsi(&encoder->base);
-   628		struct intel_crtc *intel_crtc = to_intel_crtc(pipe_config->base.crtc);
-   629		enum pipe pipe = intel_crtc->pipe;
-   630		u32 tmp;
-   631		enum port port;
-   632		enum transcoder dsi_trans;
-   633	
-   634		for_each_dsi_port(port, intel_dsi->ports) {
-   635			dsi_trans = dsi_port_to_transcoder(port);
-   636			tmp = I915_READ(DSI_TRANS_FUNC_CONF(dsi_trans));
-   637	
-   638			if (intel_dsi->eotp_pkt)
-   639				tmp &= ~EOTP_DISABLED;
-   640			else
-   641				tmp |= EOTP_DISABLED;
-   642	
-   643			/* enable link calibration if freq > 1.5Gbps */
-   644			if (intel_dsi_bitrate(intel_dsi) >= 1500 * 1000) {
-   645				tmp &= ~LINK_CALIBRATION_MASK;
-   646				tmp |= CALIBRATION_ENABLED_INITIAL_ONLY;
-   647			}
-   648	
-   649			/* configure continuous clock */
-   650			tmp &= ~CONTINUOUS_CLK_MASK;
-   651			if (intel_dsi->clock_stop)
-   652				tmp |= CLK_ENTER_LP_AFTER_DATA;
-   653			else
-   654				tmp |= CLK_HS_CONTINUOUS;
-   655	
-   656			/* configure buffer threshold limit to minimum */
-   657			tmp &= ~PIX_BUF_THRESHOLD_MASK;
-   658			tmp |= PIX_BUF_THRESHOLD_1_4;
-   659	
-   660			/* set virtual channel to '0' */
-   661			tmp &= ~PIX_VIRT_CHAN_MASK;
-   662			tmp |= PIX_VIRT_CHAN(0);
-   663	
-   664			/* program BGR transmission */
-   665			if (intel_dsi->bgr_enabled)
-   666				tmp |= BGR_TRANSMISSION;
-   667	
-   668			/* select pixel format */
-   669			tmp &= ~PIX_FMT_MASK;
-   670			switch (intel_dsi->pixel_format) {
-   671			default:
-   672				MISSING_CASE(intel_dsi->pixel_format);
-   673				/* fallthrough */
-   674			case MIPI_DSI_FMT_RGB565:
-   675				tmp |= PIX_FMT_RGB565;
-   676				break;
-   677			case MIPI_DSI_FMT_RGB666_PACKED:
-   678				tmp |= PIX_FMT_RGB666_PACKED;
-   679				break;
-   680			case MIPI_DSI_FMT_RGB666:
-   681				tmp |= PIX_FMT_RGB666_LOOSE;
-   682				break;
-   683			case MIPI_DSI_FMT_RGB888:
-   684				tmp |= PIX_FMT_RGB888;
-   685				break;
-   686			}
-   687	
-   688			if (INTEL_GEN(dev_priv) >= 12) {
-   689				if (is_vid_mode(intel_dsi))
-   690					tmp |= BLANKING_PACKET_ENABLE;
-   691			}
-   692	
-   693			/* program DSI operation mode */
-   694			if (is_vid_mode(intel_dsi)) {
-   695				tmp &= ~OP_MODE_MASK;
-   696				switch (intel_dsi->video_mode_format) {
-   697				default:
-   698					MISSING_CASE(intel_dsi->video_mode_format);
-   699					/* fallthrough */
-   700				case VIDEO_MODE_NON_BURST_WITH_SYNC_EVENTS:
-   701					tmp |= VIDEO_MODE_SYNC_EVENT;
-   702					break;
-   703				case VIDEO_MODE_NON_BURST_WITH_SYNC_PULSE:
-   704					tmp |= VIDEO_MODE_SYNC_PULSE;
-   705					break;
-   706				}
-   707			} else {
-   708				/*
-   709				 * FIXME: Retrieve this info from VBT.
-   710				 * As per the spec when dsi transcoder is operating
-   711				 * in TE GATE mode, TE comes from GPIO
-   712				 * which is UTIL PIN for DSI 0.
-   713				 * Also this GPIO would not be used for other
-   714				 * purposes is an assumption.
-   715				 */
-   716				tmp &= ~OP_MODE_MASK;
-   717				tmp |= CMD_MODE_TE_GATE;
- > 718				tmp |= TE_SOURCE_GPIO;
-   719			}
-   720	
-   721			I915_WRITE(DSI_TRANS_FUNC_CONF(dsi_trans), tmp);
-   722		}
-   723	
-   724		/* enable port sync mode if dual link */
-   725		if (intel_dsi->dual_link) {
-   726			for_each_dsi_port(port, intel_dsi->ports) {
-   727				dsi_trans = dsi_port_to_transcoder(port);
-   728				tmp = I915_READ(TRANS_DDI_FUNC_CTL2(dsi_trans));
-   729				tmp |= PORT_SYNC_MODE_ENABLE;
-   730				I915_WRITE(TRANS_DDI_FUNC_CTL2(dsi_trans), tmp);
-   731			}
-   732	
-   733			/* configure stream splitting */
-   734			configure_dual_link_mode(encoder, pipe_config);
-   735		}
-   736	
-   737		for_each_dsi_port(port, intel_dsi->ports) {
-   738			dsi_trans = dsi_port_to_transcoder(port);
-   739	
-   740			/* select data lane width */
-   741			tmp = I915_READ(TRANS_DDI_FUNC_CTL(dsi_trans));
-   742			tmp &= ~DDI_PORT_WIDTH_MASK;
-   743			tmp |= DDI_PORT_WIDTH(intel_dsi->lane_count);
-   744	
-   745			/* select input pipe */
-   746			tmp &= ~TRANS_DDI_EDP_INPUT_MASK;
-   747			switch (pipe) {
-   748			default:
-   749				MISSING_CASE(pipe);
-   750				/* fallthrough */
-   751			case PIPE_A:
-   752				tmp |= TRANS_DDI_EDP_INPUT_A_ON;
-   753				break;
-   754			case PIPE_B:
-   755				tmp |= TRANS_DDI_EDP_INPUT_B_ONOFF;
-   756				break;
-   757			case PIPE_C:
-   758				tmp |= TRANS_DDI_EDP_INPUT_C_ONOFF;
-   759				break;
-   760			}
-   761	
-   762			/* enable DDI buffer */
-   763			tmp |= TRANS_DDI_FUNC_ENABLE;
-   764			I915_WRITE(TRANS_DDI_FUNC_CTL(dsi_trans), tmp);
-   765		}
-   766	
-   767		/* wait for link ready */
-   768		for_each_dsi_port(port, intel_dsi->ports) {
-   769			dsi_trans = dsi_port_to_transcoder(port);
-   770			if (wait_for_us((I915_READ(DSI_TRANS_FUNC_CONF(dsi_trans)) &
-   771					LINK_READY), 2500))
-   772				DRM_ERROR("DSI link not ready\n");
-   773		}
-   774	}
-   775	
+  2574	
+  2575	static bool gen11_dsi_configure_te(struct drm_i915_private *dev_priv,
+  2576					   struct drm_display_mode *mode, bool enable)
+  2577	{
+  2578		enum port port;
+  2579		u32 tmp;
+  2580	
+  2581		if (!(mode->private_flags &
+  2582		    (I915_MODE_FLAG_DSI_USE_TE1 | I915_MODE_FLAG_DSI_USE_TE0)))
+  2583			return false;
+  2584	
+  2585		if (mode->private_flags & I915_MODE_FLAG_DSI_USE_TE1)
+  2586			port = PORT_B;
+  2587		else
+  2588			port = PORT_A;
+  2589	
+> 2590		tmp =  I915_READ(DSI_INTR_MASK_REG(port));
+  2591		if (enable)
+> 2592			tmp &= ~DSI_TE_EVENT;
+  2593		else
+  2594			tmp |= DSI_TE_EVENT;
+  2595	
+  2596		I915_WRITE(DSI_INTR_MASK_REG(port), tmp);
+  2597		return true;
+  2598	}
+  2599	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -381,14 +255,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911200659.gfJhUnAr%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911200726.BWAWzTQC%25lkp%40intel.com.
 
---rhoad7awr3uxr2u7
+--ue7mxmjoxx2iausm
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICCtg1F0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI1/ine6z/ACRIIWIJFgAlCW/cDm2
+H4sICIlw1F0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI1/ine6z/ACRIIWIJFgAlCW/cDm2
 nPpsX3Jkuzv5+zMD8DIAIbdtu5pwZnAfzB368YcfZ+z15enh6uXu+ur+/vvsy+5xt7962d3M
 bu/ud/8zS+WskmbGU2F+BeLi7vH12/tvH8/as9PZh19Pf53/sr/+12y12z/u7mfJ0+Pt3ZdX
 aH/39PjDjz/Afz8C8OErdLX/9+z6/urxy+zP3f4Z0LOj+a/w7+ynL3cv/37/Hv7/cLffP+3f
@@ -1285,4 +1159,4 @@ DJlxVozTqOWA4+3lsTO/PULyXHWg8Pe9T4PictiwRG5jNCnb4SYF85SHM3CkvU2ZkVI1FXmh
 B4d07sISSooGczfgIRsc+Cbb6Mfd8tJyQAxw7bAlCS/gchtIF42XZ9lN/KCjBP4P6e3f+CYP
 AwA=
 
---rhoad7awr3uxr2u7--
+--ue7mxmjoxx2iausm--
