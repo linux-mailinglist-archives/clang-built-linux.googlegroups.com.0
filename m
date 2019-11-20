@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBJPL2HXAKGQEVBGXW3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB2UJ2LXAKGQEU5OQSEQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id EC226102FB4
-	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Nov 2019 00:07:18 +0100 (CET)
-Received: by mail-io1-xd39.google.com with SMTP id z12sf17141372iop.3
-        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Nov 2019 15:07:18 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1574204837; cv=pass;
+Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9EAC5103096
+	for <lists+clang-built-linux@lfdr.de>; Wed, 20 Nov 2019 01:12:27 +0100 (CET)
+Received: by mail-ot1-x33b.google.com with SMTP id y65sf12984802ota.18
+        for <lists+clang-built-linux@lfdr.de>; Tue, 19 Nov 2019 16:12:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1574208746; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yKTpOwRBC/KO1G/HqWBrjJBUakA1W29mkYxCdoNXKFSkyue+9hxkd/DCCYBwnPCXz9
-         OOJUO/wya010W5nz+5gtqt5kODOwPmcV2xney2GQaqHlZc8E1s21htI0D7k/NUj4YyvC
-         1XwLZPJ557qpBZbpfM2jyB87atI1QQ7jxE7fDf0KeRyyB9vr4LqCCnwukustqL4mEcvQ
-         NbeX4o3ha20Ke+YH5H72MhLVMfi4HP3YO5HAib/B0qtJPaNBkDl2zmVKrC0hfQniKU7x
-         bg250VNZbG9AeKOffa2DqmRRICqHPen6TYoj8MZLGFujh/SDeGmuivvJWF+tZhnbj+42
-         dtUg==
+        b=tkHBHbHmbjM1ziNWZyT9J21GU5Fyr407A5JNA/e9vd/OABV7GXwKAtRKubWyo1z+tR
+         AuRJOke/Vg51x6SyyWbF+8MvaLkvzBKToNAPz3zprEcnRaNdHZMLX2bsJkd3Oa1/UG2f
+         bf+cuUvPT9UO1qneUNnqCUWXRCpmGDymp6dCJysCBv38qnxS9UC8c3Xuo2v2J3tUIMiT
+         wJP0u9XCue4XDyetOHyOgf4DbzKe+RpCVfCz2248WFYfzNUUzbR1NJMkv8ESRFm+feuk
+         qeGZ9eefGw3hijcQB4UFabdxNTZqVDbrovpzUHjpVngbTjZTF+Ef1Dk8rWXOgeD4QYsO
+         C0nQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=kJE9g8NZpr/cwCZ/ZhPdPBgmQLq+Djm+OOa7weg2/FU=;
-        b=xsrC5G4yJoJpqPyFPNIK1FenUg17GMoa0tRiwR5g8Nc+PsCk1TXZhQeO3hXAw2kieW
-         T+SysvN0IYjQcGz+8QIE8fR/JszObELf/6Z4e5Gn312/Kn2538zbcWub1YLQpLYl0s9Q
-         3TEwVvJqx0Jc+6yzoyjveebeaaCWXh/xXWGg8X67S8Ugr+43V/pvKCEG2JcU81lyo/jo
-         NI6u4A2oHplSvCVgYg6M2L5jpb5Mv674Ee6iXtmkfjk+KrQa3xYYsjeW+Ayyn/8kHYOX
-         IlqBdDN3aA0nlRwbTZHVEz/+C5+MI59dyAAo0+ZepeOTqi1HPYSCCKkIEnc/rhmKLRAa
-         ZAOw==
+        bh=0C2P+m2cqARNyU6Qix69OIJj+ebJyFtvo7WxpaGIHIs=;
+        b=wDI4TcHNkne9Ui6ok52h3uaG8h1yRz6BVg8AiWgTcRc1Kce3rdyHkICHEYoYgEgsb1
+         ichOKFBqdcrmtPRCU1C2Ec0/VM55hzZ3744l/2KIrUZjTH0dqFhNfka39x9tOjv5UdD4
+         zHl0I6gJpB/9SnG8D8FNMDmz+00RIGNJnMkTxg1az4xTyQXmJsakaR9Q+fDxRl1K007X
+         3H72VV85fUV2lgBhwgd/E26PSf+6iSPC0fpecijFIYwtERWlV29z4nmZYBsvikbfWzzW
+         oiHiYrxCHbjoA2cI2BFMDxqBPKWN7k0fZXysZ1NHC1Fhw2LoFEQmKq5aKOc4LTf0v0jE
+         nmIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=kJE9g8NZpr/cwCZ/ZhPdPBgmQLq+Djm+OOa7weg2/FU=;
-        b=Xsxy4CuFtErrZH6aPtQfvhd8Rawbf2ZO7ruSBSxNM45qKFSR1gfNMRWlyldr/OzyL4
-         BlZ/oFrxwUepKc4aTEOpc813mTTnejy1TvWavwAEi7hzAQe+Gl4sBmyOR30zEemVmQmz
-         SnoRNYrg70eMCJ7Z2JFlbUsae6etXzQSNqTgAXKPJvfqGjKDqHlDeGjLG/VvM+3bdch7
-         QHvim+S3t+D5j1l/wjaofQUUq2GsiC/3vcDxPactAb77O+uUlVrdHgivVHCZVSAYmzjS
-         hQfMhPRYaydNkQUoUFQDnv/cd1ffsamXpLN2ekndbubjBegiKmEocrrfQYgCCIEWPiRe
-         TZ3w==
+        bh=0C2P+m2cqARNyU6Qix69OIJj+ebJyFtvo7WxpaGIHIs=;
+        b=NQDxifsYIvpq/4JIot8V3txDepOa+wWwuxnEvEmgijM2fHyTifcsgI65Ncntorc+3X
+         W8TY6U0hYITcwK+deRSyPYeZp8Zcm2VUjDsufRTBFzIj/dCV1KFpM66d65eOphUqPj9x
+         95Q2YS/ID7x/4yJv2FojW6EIzZNM+krAI5KI1HVf/FEEcCTPQmj0+Jm3i9NCv6FWeTCY
+         oPjuUrEq1k3yzb9DcEG+ter19aq190BKovG41r33Z6WHK8ErpzyO4BHrLMAyQBafE1vj
+         +UX84goZ29stlwK/XvF67rXgg1jPrXNPV77jlZvRswUXoVCwe1+0tasoo8xawIwPaHUp
+         HkAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=kJE9g8NZpr/cwCZ/ZhPdPBgmQLq+Djm+OOa7weg2/FU=;
-        b=filzctQLmuWGURNasp3lQByu+8WLAU+ZnvkzGjDoCrmIzhPERAFeDZuZBz5UFRzXmo
-         duZno/GIp513djeYpKRSSPOZIuSdG5bJJmx+kRrZ6r4/28dUu7e43QqwfKHV7yYutxP6
-         KRBXIjYJM/fynyr/xtohenfdngRTd7Appstb/cph7HuOYjnM7j04iPccIuTTDTZ0ieyj
-         AiVZAvcwbnT2w0IW0y3emk7MRYkZgD2liwmB7AedEbniPgVWqwG1BPhVMPPc9PjVW9zu
-         E05amhIcZ2Z+j1PibFNtUNfzDtz84md9bC3eG6S4gHrlIMwv7HO2HVZ4DEJJbZvjE2gx
-         Ezhg==
+        bh=0C2P+m2cqARNyU6Qix69OIJj+ebJyFtvo7WxpaGIHIs=;
+        b=of7/YoOgEb9AFvY2T5VeDl2FdFTe4VZCPFZdyoQWZLmLPjHYPlCDWmSteFTXxO2+wK
+         980v8coV4XDV6rLKn3BqfRfO1NkylUtOZTSy7hjkM53V6l7U6SVXxNjjPJ2N6tX1GszH
+         TPw3H5M4wCSB/Lh6bkBTr0J/tSbQCKWk64AvQI560F8jmIP3WhRXCWs31JY5lhtql1qD
+         xENGYCfscqj7fl+d5mFbeyNVR35t2Anvb0QoS+6erh3R1LEt0BDXTsEk6KjUML5my0Ig
+         UQ1DhdkSLrHrbNCPKLXjsIWo1HOeSOk4BjINLigsnsLbIsyzlKW19owcFYEevfBxv2cl
+         HJ6Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWizVzAcggPXgUrpKoQnpROykVzxtO7k1s9YpYWTuv7j5t4Xg3F
-	HzFfmQqP1YfG44y8EGDXqGg=
-X-Google-Smtp-Source: APXvYqzcf408UAuzTrA+nU6D+TrCqDkgX8bgZJejc31BOUPXmXlUE6OJwJ7jkQ1FhhfLKs7RTdCntw==
-X-Received: by 2002:a05:6638:304:: with SMTP id w4mr384005jap.57.1574204837718;
-        Tue, 19 Nov 2019 15:07:17 -0800 (PST)
+X-Gm-Message-State: APjAAAXaDZCXrPk3n/au+DHMPcBYq2PpM4/imDZBvQlmj8O/qOFXkmwq
+	GP6rvQL/7ZnIie9rt596EP4=
+X-Google-Smtp-Source: APXvYqwlhWzMY9o1rK/HiqCwiVEVtn/l4rmvOen+Yjp+EgRDYSTfG03zoWkX+IB0kIZheJJh/E8Tww==
+X-Received: by 2002:aca:f4c6:: with SMTP id s189mr202270oih.63.1574208746355;
+        Tue, 19 Nov 2019 16:12:26 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:1f04:: with SMTP id i4ls37903ile.8.gmail; Tue, 19 Nov
- 2019 15:07:17 -0800 (PST)
-X-Received: by 2002:a92:8983:: with SMTP id w3mr277319ilk.108.1574204837268;
-        Tue, 19 Nov 2019 15:07:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1574204837; cv=none;
+Received: by 2002:a9d:7e8f:: with SMTP id m15ls12142otp.13.gmail; Tue, 19 Nov
+ 2019 16:12:26 -0800 (PST)
+X-Received: by 2002:a9d:7588:: with SMTP id s8mr6103751otk.300.1574208745866;
+        Tue, 19 Nov 2019 16:12:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574208745; cv=none;
         d=google.com; s=arc-20160816;
-        b=OJF4014IpD9fPjmdr2+m8N1fHRnAlicNRPxEjhyUR5dBNPA3K9YxtWMJOA0DH0/8eh
-         7yfNz9b/kKaizWzKq1rojk6l6SZ+droMKStaDMK8hgUYLQ1mO84yqGiLOqAHzI5/LT2+
-         TsKbhInyOQQXwhx2O99KnMGYelm38F+e1JcCO/pnvRWnRavcvDBMXvzvLt7uAcE38o5u
-         RfZQtHFBRTcxnahIbq8JHq4KrFNNbzZG/hzs00JzZNhq8JD8kb4e5K9cMCnegyrQG1AU
-         0olok4sTVagsdkpP3tyI4+LJk+W+4MW9N74LVJ0CNkrYQrhsaNggiot/iph0iewBoKkg
-         SuRA==
+        b=G0JSIQirPapC3JNq8tLaOXCLUcmNZMJ3GzFb/mRQGOQiS9TXEiqU8av4CG55Rhz7YL
+         2PdTPs40QdxA0ITeDuC3v6HJWhyCyxCBS8icX8qzTbCos9LqV9S1gVWFlD02JxmKrNQj
+         gx0d8MVZ5tYS/V/rumXpu2KXiCyNQvQPysWM5TaqMxNuIf+eKhc8z35t0eYm7lkgEcYj
+         qwvd/LvkCDKsxqfl7maSuPG2ROHF7XjCjt7v0Qe81a5MDL5r7HI0K5h0GUxGEjqaRX2p
+         cBa3avfjKIBv5UJ9QbsBEWzYo+2wXaeFHMvvJxz/KWyHeBrhH/XVT/El0ncW9h/h+uoI
+         1qmQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=d2FohDbkoOouVcT150hZ13RQv6x4T3kMZo1hecYLiP4=;
-        b=NKPk+AzHXWF8cvzJLu29vWgzlF0S090hBJd2/ESl4VCXpUBc7rekNNCq5RWozCdsct
-         5/Sq0qHLGs0c/UELNoz6e/UusOj6swB+j4QaNhi7+wr9rRDO2ID+69HUVViWnKCYtsY8
-         71gKII1eDYXFwJqttMbcIZVqMbKjUm5n10ga3NxLU1JrCkbTGnnTZ5/ZRJSmuMUUxu2b
-         G1ahaBSs0CYDgHyL8Azd7c8RJl1O/iv3ZjHzXZsAz8V5+fcmWffRBBUJFZ/3TYCvByQv
-         xO863eyUB4dpPSP30SKXyCFPQ/gN+nItuv9BjAs80tQHeN2X1/M61kXvElUb/3Gb221o
-         QYBg==
+        bh=XQsUypt6aSYtetdwyiqTzUBiEz6RF7fnMAhfqOt+tuw=;
+        b=jK/sYTv2t8G3YsVr8SxtP74VixUEnBKVZv7bVqMaHXerTXJOP654panLwjrxp2t9Fo
+         7CzDasTsSXXje1w/7KCqV5UDVA5nmSqe4LdJtnGgtHpdHhsjRU4Mc1jajoN96pm5qZCt
+         k53TFrrORn7q91cIzpPzKfFi5Nj/r6lscfh0RPb9g0acbCCmlsilu5FlZVRjdFkOO7Gl
+         TIVE1J7hZNjmeX4pv6Xbf6Nqg4Egb9jC+o4rfWyAgtO2HXUo9aY6CRtsj5WJ5iWo9FtT
+         6nnLgNbhIMxtDcvD3Uw4d7Ndrto8Yh7UnInWkEbSqX2o6TMJ43mQa7q4NH2OIxeWkff+
+         KCrg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id n6si672738iod.3.2019.11.19.15.07.17
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id 144si1176542oii.2.2019.11.19.16.12.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 19 Nov 2019 15:07:17 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+        Tue, 19 Nov 2019 16:12:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Nov 2019 15:07:15 -0800
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 19 Nov 2019 16:12:23 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,219,1571727600"; 
-   d="gz'50?scan'50,208,50";a="237513598"
+   d="gz'50?scan'50,208,50";a="357267667"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 19 Nov 2019 15:07:14 -0800
+  by orsmga004.jf.intel.com with ESMTP; 19 Nov 2019 16:12:22 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iXCaX-0009a9-Nm; Wed, 20 Nov 2019 07:07:13 +0800
-Date: Wed, 20 Nov 2019 07:06:46 +0800
+	id 1iXDbZ-0000Ot-G9; Wed, 20 Nov 2019 08:12:21 +0800
+Date: Wed, 20 Nov 2019 08:11:10 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [Intel-gfx] [V3 6/8] drm/i915/dsi: Configure TE interrupt for
- cmd mode
-Message-ID: <201911200726.BWAWzTQC%lkp@intel.com>
+Subject: Re: [Intel-gfx] [V3 7/8] drm/i915/dsi: Add TE handler for dsi cmd
+ mode.
+Message-ID: <201911200824.qFjOXFlG%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="ue7mxmjoxx2iausm"
+Content-Type: multipart/mixed; boundary="ytuvh5o5lszjed27"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,13 +138,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---ue7mxmjoxx2iausm
+--ytuvh5o5lszjed27
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191119123316.5094-7-vandita.kulkarni@intel.com>
-References: <20191119123316.5094-7-vandita.kulkarni@intel.com>
+In-Reply-To: <20191119123316.5094-8-vandita.kulkarni@intel.com>
+References: <20191119123316.5094-8-vandita.kulkarni@intel.com>
 TO: Vandita Kulkarni <vandita.kulkarni@intel.com>
 CC: intel-gfx@lists.freedesktop.org
 CC: jani.nikula@intel.com
@@ -154,7 +154,7 @@ Hi Vandita,
 Thank you for the patch! Yet something to improve:
 
 [auto build test ERROR on drm-intel/for-linux-next]
-[also build test ERROR on v5.4-rc8 next-20191119]
+[also build test ERROR on v5.4-rc8]
 [if your patch is applied to the wrong git tree, please drop us a note to help
 improve the system. BTW, we also suggest to use '--base' option to specify the
 base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
@@ -172,10 +172,58 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/gpu//drm/i915/i915_irq.c:2590:19: error: implicit declaration of function 'DSI_INTR_MASK_REG' [-Werror,-Wimplicit-function-declaration]
+   drivers/gpu//drm/i915/i915_irq.c:2252:24: error: use of undeclared identifier 'DSI1_TE'
+           port = ((te_trigger & DSI1_TE && val) || (te_trigger & DSI0_TE)) ?
+                                 ^
+   drivers/gpu//drm/i915/i915_irq.c:2252:57: error: use of undeclared identifier 'DSI0_TE'
+           port = ((te_trigger & DSI1_TE && val) || (te_trigger & DSI0_TE)) ?
+                                                                  ^
+   drivers/gpu//drm/i915/i915_irq.c:2282:23: error: use of undeclared identifier 'DSI1_TE'
+           port = (te_trigger & DSI1_TE) ? PORT_B : PORT_A;
+                                ^
+>> drivers/gpu//drm/i915/i915_irq.c:2283:18: error: implicit declaration of function 'DSI_INTR_IDENT_REG' [-Werror,-Wimplicit-function-declaration]
+           tmp = I915_READ(DSI_INTR_IDENT_REG(port));
+                           ^
+   drivers/gpu//drm/i915/i915_irq.c:2283:8: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
+           tmp = I915_READ(DSI_INTR_IDENT_REG(port));
+                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu//drm/i915/i915_drv.h:1981:57: note: expanded from macro 'I915_READ'
+   #define I915_READ(reg__)         __I915_REG_OP(read, dev_priv, (reg__))
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+   drivers/gpu//drm/i915/i915_drv.h:1979:45: note: expanded from macro '__I915_REG_OP'
+           intel_uncore_##op__(&(dev_priv__)->uncore, __VA_ARGS__)
+                                                      ^~~~~~~~~~~
+   drivers/gpu//drm/i915/intel_uncore.h:302:1: note: passing argument to parameter 'reg' here
+   __uncore_read(read, 32, l, true)
+   ^
+   drivers/gpu//drm/i915/intel_uncore.h:288:20: note: expanded from macro '__uncore_read'
+                                              i915_reg_t reg) \
+                                                         ^
+   drivers/gpu//drm/i915/i915_irq.c:2284:2: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
+           I915_WRITE(DSI_INTR_IDENT_REG(port), tmp);
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/gpu//drm/i915/i915_drv.h:1982:65: note: expanded from macro 'I915_WRITE'
+   #define I915_WRITE(reg__, val__) __I915_REG_OP(write, dev_priv, (reg__), (val__))
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+   drivers/gpu//drm/i915/i915_drv.h:1979:45: note: expanded from macro '__I915_REG_OP'
+           intel_uncore_##op__(&(dev_priv__)->uncore, __VA_ARGS__)
+                                                      ^~~~~~~~~~~
+   drivers/gpu//drm/i915/intel_uncore.h:308:1: note: passing argument to parameter 'reg' here
+   __uncore_write(write, 32, l, true)
+   ^
+   drivers/gpu//drm/i915/intel_uncore.h:295:18: note: expanded from macro '__uncore_write'
+                                            i915_reg_t reg, u##x__ val) \
+                                                       ^
+   drivers/gpu//drm/i915/i915_irq.c:2354:23: error: use of undeclared identifier 'DSI0_TE'
+                                   tmp_mask = iir & (DSI0_TE | DSI1_TE);
+                                                     ^
+   drivers/gpu//drm/i915/i915_irq.c:2354:33: error: use of undeclared identifier 'DSI1_TE'
+                                   tmp_mask = iir & (DSI0_TE | DSI1_TE);
+                                                               ^
+   drivers/gpu//drm/i915/i915_irq.c:2654:19: error: implicit declaration of function 'DSI_INTR_MASK_REG' [-Werror,-Wimplicit-function-declaration]
            tmp =  I915_READ(DSI_INTR_MASK_REG(port));
                             ^
->> drivers/gpu//drm/i915/i915_irq.c:2590:9: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
+   drivers/gpu//drm/i915/i915_irq.c:2654:9: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
            tmp =  I915_READ(DSI_INTR_MASK_REG(port));
                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    drivers/gpu//drm/i915/i915_drv.h:1981:57: note: expanded from macro 'I915_READ'
@@ -190,13 +238,13 @@ All errors (new ones prefixed by >>):
    drivers/gpu//drm/i915/intel_uncore.h:288:20: note: expanded from macro '__uncore_read'
                                               i915_reg_t reg) \
                                                          ^
->> drivers/gpu//drm/i915/i915_irq.c:2592:11: error: use of undeclared identifier 'DSI_TE_EVENT'
+   drivers/gpu//drm/i915/i915_irq.c:2656:11: error: use of undeclared identifier 'DSI_TE_EVENT'
                    tmp &= ~DSI_TE_EVENT;
                            ^
-   drivers/gpu//drm/i915/i915_irq.c:2594:10: error: use of undeclared identifier 'DSI_TE_EVENT'
+   drivers/gpu//drm/i915/i915_irq.c:2658:10: error: use of undeclared identifier 'DSI_TE_EVENT'
                    tmp |= DSI_TE_EVENT;
                           ^
-   drivers/gpu//drm/i915/i915_irq.c:2596:2: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
+   drivers/gpu//drm/i915/i915_irq.c:2660:2: error: passing 'int' to parameter of incompatible type 'i915_reg_t'
            I915_WRITE(DSI_INTR_MASK_REG(port), tmp);
            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    drivers/gpu//drm/i915/i915_drv.h:1982:65: note: expanded from macro 'I915_WRITE'
@@ -211,42 +259,73 @@ All errors (new ones prefixed by >>):
    drivers/gpu//drm/i915/intel_uncore.h:295:18: note: expanded from macro '__uncore_write'
                                             i915_reg_t reg, u##x__ val) \
                                                        ^
->> drivers/gpu//drm/i915/i915_irq.c:3401:22: error: use of undeclared identifier 'DSI0_TE'
+   drivers/gpu//drm/i915/i915_irq.c:3465:22: error: use of undeclared identifier 'DSI0_TE'
                            de_port_masked |= DSI0_TE | DSI1_TE;
                                              ^
->> drivers/gpu//drm/i915/i915_irq.c:3401:32: error: use of undeclared identifier 'DSI1_TE'
+   drivers/gpu//drm/i915/i915_irq.c:3465:32: error: use of undeclared identifier 'DSI1_TE'
                            de_port_masked |= DSI0_TE | DSI1_TE;
                                                        ^
-   7 errors generated.
+   15 errors generated.
 
-vim +/DSI_INTR_MASK_REG +2590 drivers/gpu//drm/i915/i915_irq.c
+vim +/DSI_INTR_IDENT_REG +2283 drivers/gpu//drm/i915/i915_irq.c
 
-  2574	
-  2575	static bool gen11_dsi_configure_te(struct drm_i915_private *dev_priv,
-  2576					   struct drm_display_mode *mode, bool enable)
-  2577	{
-  2578		enum port port;
-  2579		u32 tmp;
-  2580	
-  2581		if (!(mode->private_flags &
-  2582		    (I915_MODE_FLAG_DSI_USE_TE1 | I915_MODE_FLAG_DSI_USE_TE0)))
-  2583			return false;
-  2584	
-  2585		if (mode->private_flags & I915_MODE_FLAG_DSI_USE_TE1)
-  2586			port = PORT_B;
-  2587		else
-  2588			port = PORT_A;
-  2589	
-> 2590		tmp =  I915_READ(DSI_INTR_MASK_REG(port));
-  2591		if (enable)
-> 2592			tmp &= ~DSI_TE_EVENT;
-  2593		else
-  2594			tmp |= DSI_TE_EVENT;
-  2595	
-  2596		I915_WRITE(DSI_INTR_MASK_REG(port), tmp);
-  2597		return true;
-  2598	}
-  2599	
+  2232	
+  2233	void gen11_dsi_te_interrupt_handler(struct drm_i915_private *dev_priv,
+  2234					    u32 te_trigger)
+  2235	{
+  2236		enum pipe pipe = INVALID_PIPE;
+  2237		enum transcoder dsi_trans;
+  2238		enum port port;
+  2239		u32 val, tmp;
+  2240	
+  2241		/*
+  2242		 * Incase of dual link, TE comes from DSI_1
+  2243		 * this is to check if dual link is enabled
+  2244		 */
+  2245		val = I915_READ(TRANS_DDI_FUNC_CTL2(TRANSCODER_DSI_0));
+  2246		val &= PORT_SYNC_MODE_ENABLE;
+  2247	
+  2248		/*
+  2249		 * if dual link is enabled, then read DSI_0
+  2250		 * transcoder registers
+  2251		 */
+> 2252		port = ((te_trigger & DSI1_TE && val) || (te_trigger & DSI0_TE)) ?
+  2253							  PORT_A : PORT_B;
+  2254		dsi_trans = (port == PORT_A) ? TRANSCODER_DSI_0 : TRANSCODER_DSI_1;
+  2255	
+  2256		/* Check if DSI configured in command mode */
+  2257		val = I915_READ(DSI_TRANS_FUNC_CONF(dsi_trans));
+  2258		val = (val & OP_MODE_MASK) >> 28;
+  2259	
+  2260		if (val) {
+  2261			DRM_ERROR("DSI trancoder not configured in command mode\n");
+  2262			return;
+  2263		}
+  2264	
+  2265		/* Get PIPE for handling VBLANK event */
+  2266		val = I915_READ(TRANS_DDI_FUNC_CTL(dsi_trans));
+  2267		switch (val & TRANS_DDI_EDP_INPUT_MASK) {
+  2268		case TRANS_DDI_EDP_INPUT_A_ON:
+  2269			pipe = PIPE_A;
+  2270			break;
+  2271		case TRANS_DDI_EDP_INPUT_B_ONOFF:
+  2272			pipe = PIPE_B;
+  2273			break;
+  2274		case TRANS_DDI_EDP_INPUT_C_ONOFF:
+  2275			pipe = PIPE_C;
+  2276			break;
+  2277		default:
+  2278			DRM_ERROR("Invalid PIPE\n");
+  2279		}
+  2280	
+  2281		/* clear TE in dsi IIR */
+  2282		port = (te_trigger & DSI1_TE) ? PORT_B : PORT_A;
+> 2283		tmp = I915_READ(DSI_INTR_IDENT_REG(port));
+  2284		I915_WRITE(DSI_INTR_IDENT_REG(port), tmp);
+  2285	
+  2286		drm_handle_vblank(&dev_priv->drm, pipe);
+  2287	}
+  2288	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -255,14 +334,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911200726.BWAWzTQC%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911200824.qFjOXFlG%25lkp%40intel.com.
 
---ue7mxmjoxx2iausm
+--ytuvh5o5lszjed27
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICIlw1F0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI1/ine6z/ACRIIWIJFgAlCW/cDm2
+H4sICJx+1F0AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oI1/ine6z/ACRIIWIJFgAlCW/cDm2
 nPpsX3Jkuzv5+zMD8DIAIbdtu5pwZnAfzB368YcfZ+z15enh6uXu+ur+/vvsy+5xt7962d3M
 bu/ud/8zS+WskmbGU2F+BeLi7vH12/tvH8/as9PZh19Pf53/sr/+12y12z/u7mfJ0+Pt3ZdX
 aH/39PjDjz/Afz8C8OErdLX/9+z6/urxy+zP3f4Z0LOj+a/w7+ynL3cv/37/Hv7/cLffP+3f
@@ -1159,4 +1238,4 @@ DJlxVozTqOWA4+3lsTO/PULyXHWg8Pe9T4PictiwRG5jNCnb4SYF85SHM3CkvU2ZkVI1FXmh
 B4d07sISSooGczfgIRsc+Cbb6Mfd8tJyQAxw7bAlCS/gchtIF42XZ9lN/KCjBP4P6e3f+CYP
 AwA=
 
---ue7mxmjoxx2iausm--
+--ytuvh5o5lszjed27--
