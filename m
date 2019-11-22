@@ -1,125 +1,129 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTGH3XXAKGQE5GKL5HQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBNXO3XXAKGQERNQGMVQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id DC9BB105F36
-	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Nov 2019 05:27:57 +0100 (CET)
-Received: by mail-yb1-xb3e.google.com with SMTP id t33sf4063661ybt.20
-        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Nov 2019 20:27:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1574396877; cv=pass;
+Received: from mail-io1-xd3b.google.com (mail-io1-xd3b.google.com [IPv6:2607:f8b0:4864:20::d3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8EA17106096
+	for <lists+clang-built-linux@lfdr.de>; Fri, 22 Nov 2019 06:50:48 +0100 (CET)
+Received: by mail-io1-xd3b.google.com with SMTP id u6sf4050516ion.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 21 Nov 2019 21:50:48 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1574401847; cv=pass;
         d=google.com; s=arc-20160816;
-        b=b+qx5ziMGBbSKbGtpngcXS5bXidhYvybLb9j6oK1GTYSEwbm74NOz+oVrZj1+WDWRd
-         Hpc84JwBrMHlXE4QYD9nKqGBo7TEKgZKXw2DrikGaEbEMDm66wgJhBz+JjN257lTf5xL
-         /KJBOZbrGvAqVvA2pIBwk/venutzgS+hNI1xtHUmwDuX1GzC62HLXvx39X3e6v5yzkdH
-         eTcxPo2NH9aTZMBaWXQdYixvvBWbRGGt2+gAQKla+tXqYRDTcY1VgmLLj0eOFp1h1ZOS
-         rcbkegboknv6vLeMukw87XNfeMUORk8w6hl4WjU8CSYMIvxJ4jSamOjRtt4fguseyIhq
-         99Ow==
+        b=wbFsJwhC6+Tc9yDIPJEqOhB32ErPwL2fQlspsRs+XFbDxXkL5LIaGhj4UTikgsXVNY
+         nmqjIKFRyT9yKNgfkzv1Y2udLHdYx/2L+XMDscevn/evJCwVg54e86LsArg2KjUNxoPb
+         sdNk4O1joLgsSfIkGnaUGmEztzkSCy0Sx2BQdhEyN5+FYIKRjkT5JBuz2a5MiAWn3Fee
+         9Mli8ySi/KTaRN4oZxF5m+E4Toq58gBqBOcF247i9ELeiDLucM2Qustwk42dgoAGWQfG
+         i2T6eBXw4+oEbg4MkpOlaw7UpTy7lSCof2s6OJhy7K06CXpoMkaWvtsZX9XBIGRiVv7E
+         1Sdg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=8AdGTTh4LUxVeYz+VktDIdwK2Wyb1sW66WLfxeNpEcM=;
-        b=YWFyvdNbrQ2Jkhfs1TeaeLEO+Y7Emp8E3xN7G0y/vF4Wy5+lmFs+txTGpWGaXBAVlQ
-         cNZaSDMES1Sv1RAooNzjcCn5E/WTHZknLYG0GehFSzUzM2sVZ1qlzUVDRbDMKcEs6Ldp
-         tSIeGcMwpfbZlJBbXM/VNGQDCnAsO1BGH40EUzkzRWdJ0mgrdgjkX9ZOxbrTkL1IQWgZ
-         ozyTV4ZkaZZdFWWrUxA1gB3xjJy+QGquaCsKeQB65dGGUw3pbDv2UZqDVFaSlBTN9S74
-         +yyXNLS8Abz8/WeV1u8PM06Pr34GpdDmNT67yl6NXx9fPRZ7gelkqNgjN8i9+ZH551zM
-         T7PQ==
+         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:sender:dkim-signature;
+        bh=HfvFpC0U5ltHUU9jTBrN8bRZetSP4jNeletYy2+0v6M=;
+        b=nYfP7LybzIQAxsq8j1mFzsXZ4bINvYdMxrl0BCVEWqNMhTBFMfyIfs+A9T2SRHLAZ7
+         RZaBshT7/XZylzrXhsGIqQZRxQ/KE4Ro/Pb8jx9IYR8tI6QqEG2LdJjY6jBY7S4nqtKP
+         YevfJLGVyP9OGp98dfUw2bKlfu1EHKLg3IswEhCoaCvc3I//FpCRExiEgLxw7+ADiv4G
+         JGa9nce0oD2Bh3Wdxk1hbT2JsCCxqH9vkaSattNxoihmjaFsMHHf1s2cu/fZ+XeB9O2V
+         3CaxpFcBDVdTJQYT5UP0uJgeNOncgiY2reT6p3qLe1KhDPhZ3Cxefuws8fIhr7Ab/m3z
+         37HQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="iiAAKav/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernel.org header.s=default header.b=RXX9ywVw;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8AdGTTh4LUxVeYz+VktDIdwK2Wyb1sW66WLfxeNpEcM=;
-        b=T6VNtcgeyyy2PE67dALKrsSfjsVsqvawOeknRQL0whB5SKmsf2Hll9OvjxgMhglo/R
-         mAbPUlkrlD9wMr4w3FYpd4j32nb5vAzsbnnOGzB4DW/K2q2prbuuoVOxG5X5JL4Bbm3r
-         m2v9/DU23obXgyKwx68Nk5zFxtMTDJauJC2If7+CetJNRTwktJfFN9ZY58YqfIXWeE3E
-         mnS35S2iQZB1q0CKAQ2CiPoQmYG9wUCYTgnNfRs0UcEYlVxH4ihE4eKPNKbr/hf9dJRP
-         husUK4+pAEuEMZdko/j3mJqvPxHnxwHSX1IArS81MEDzB1f+7L+Lg4zeuOYBSSAwp3nS
-         OFWw==
+        bh=HfvFpC0U5ltHUU9jTBrN8bRZetSP4jNeletYy2+0v6M=;
+        b=iU1ELm3BNq+OYOVKQaW2M3qBzZyxuTcHpuvZnG6WDYah6JX8CtE6vc38eeQr3By4LE
+         mniPiFaq2syhFdkDfRLQFFKpSkeal0SuOZepEv1P6jhjRC9WKHJ8PFO9J32ew8axot9m
+         eHF3Cq9LJw3rwiB1csAO7pKEXOi1NOoXpPkHaMX6WS929Oo1W2ragLYmpc7VXXweECTd
+         J4GqHBWFJBFVr2b6AOOCXXjA5A11+ZkVPapd12qtMc3qguG+Tf0WRGJKqzTCJe2C8nio
+         gmmhZGPEO/38J27uSosrf6872DLNzlKaFL9g5PZPSyXxhTBKtn5wVOf94qLAbly2lnZ+
+         TKnw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :in-reply-to:references:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8AdGTTh4LUxVeYz+VktDIdwK2Wyb1sW66WLfxeNpEcM=;
-        b=bpnUO+tlStKHm1wRtrGfgjRvjUQJNYAeQecKWdGb2EjPlo/jDth/T4cAkMpECkxjnB
-         9aBJnSwQFXK9N7VlTxwhd9KoNK5+LGVDlnkuH+VOa9CB/jssb1oBEoeLLkXLSmO9QuH6
-         HybwYHhLhqRhSGK/1epyyXa64lUYZ1+ObMDnT2L/u64uzDnGTwFlvj+iD3xJH2kiubgw
-         /CJfVlJlw9SU3AO1MquOi4dpmVfUtW9Fb4abgbYIn17M/NS5yLNNMb8bUMDkvP065YNm
-         FMQ1CRop3cWoe/ejM7kxKiXNf2wLgyOhuMvlzmZZm5tRbYbov3VCsxmlF0/oSL2kKHGM
-         zQrw==
-X-Gm-Message-State: APjAAAV2LpjGRsAAqjlqOXCSQXG1NAu2kC6YGaY+kztRe6FDZSqT7JAj
-	QLCfhPo7MsyyNpJrocCjrJQ=
-X-Google-Smtp-Source: APXvYqwqP/G9ItCI0EXijk8dqoAC7JiZLVhc23jr3QeSBPVX706qo+yuMAN1G60CRqbBon88WsTZIg==
-X-Received: by 2002:a25:b7d4:: with SMTP id u20mr8799389ybj.382.1574396876762;
-        Thu, 21 Nov 2019 20:27:56 -0800 (PST)
+        bh=HfvFpC0U5ltHUU9jTBrN8bRZetSP4jNeletYy2+0v6M=;
+        b=PX04TZ/HI9zS+8y3O9+qMZ2L5udVg+rbuPw2duqt45disr9TTyEgJPhx0dq7hsdiSC
+         gHgsmNTiZCstaGXAPPCTU4POfprjxi3Cor7H3zpul//0jYw/cuCqGfjXOmh1sU9mHfIR
+         VF+3vtQveAZOR69fDXPKZgKDV3KY2VmWZ/+F8fcySDY+SkElhuE7F0LHAgAVkcCZYTmP
+         b5iPEpYXETLP1V2Lt+D85qodTkFbmCGtL4AzCabh70NqbB5mTrLGY4gbvmoZh2XuQ8Qb
+         stR8mK0dUCFe90QqV/FueWVGd6rejxYYnTuYbRhbnaLZmqmTUBtBMfCnOGqa51IWshNc
+         wvrA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAU7CjoWPYtjYSmlS4QnKbdzlCMlLE2Y/LDdlwsAb7Hb58j107W2
+	PTEwbiHC/rk9/cMPpku9VY4=
+X-Google-Smtp-Source: APXvYqxEnCX8/Dq9CZ+4iaHwti6Xl6XFriV4MzbyzhHcrkoy2T+f5DleYaDfoh2K77lRnyT/FhyliA==
+X-Received: by 2002:a92:1bcc:: with SMTP id f73mr681971ill.207.1574401847109;
+        Thu, 21 Nov 2019 21:50:47 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:9ac2:: with SMTP id r185ls1153821ywg.10.gmail; Thu, 21
- Nov 2019 20:27:56 -0800 (PST)
-X-Received: by 2002:a81:3b97:: with SMTP id i145mr8393965ywa.290.1574396876352;
-        Thu, 21 Nov 2019 20:27:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1574396876; cv=none;
+Received: by 2002:a92:1f04:: with SMTP id i4ls1585623ile.8.gmail; Thu, 21 Nov
+ 2019 21:50:46 -0800 (PST)
+X-Received: by 2002:a92:c8:: with SMTP id 191mr14928459ila.287.1574401846657;
+        Thu, 21 Nov 2019 21:50:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574401846; cv=none;
         d=google.com; s=arc-20160816;
-        b=unriCq2YVUEH2kbMGnkaRz9ri3lOS7iPl5hUQNJthP6da4sKWgmWT2CyCv1WcVJSio
-         WDQG7twOMDLU86FeBmOqudjmlFb3QHWFHkHKM4HrAekaS0IWUA/Ek+vKN8YY/TUQutjf
-         8Zw6YQkrX7ff0ha3opT/2TC2iQ5cMkpzojIpVQjKX2OH1IkhCbypJ5upKfvKfFn0yWrc
-         zKOpLxwfM424IH7awhe9tRwTbNHwdmKBpiBt16f2izl7kQCWwL/HGD2WJT46mNrFZP0x
-         6u63lAqEMHdctYJbiw7JgFbg3206e+d2PwMEVRrrQ5cr8VCfS43qlML+fg3pq+heqtLd
-         Nsfw==
+        b=XxEA28uBaqwnWGo3EMA3qjoDXP/stjZJCZHWU9RJs1HEAJL1M3xiDZax5mQq7V6Mtv
+         sKmYynvfsSdE4aBDNh3LFKRq9TAsBrmo4JYn7zfFrwXfbfFeN3tpctZHfTSHKdEHg9R+
+         Ggoh8oU2F/msSfryjIf1lJxIfBnDt93Efgz67v5kJ6sO18Q/k9G6IQifNimC4hMFv6zu
+         1zE2F+FzW6JHuUJ/H24KPrsdtjTV0aG8qfTHmv8psu2Ppg4AKs4XvCPHXvHT7Hg69ybO
+         LV3kPJKMaq3X9GfSuHydjQjGfvZUmHDbCpQ3S0iVczNNNzgeFgbOnBd1CPxLASeUamjX
+         tQpg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=FMVG6+Kx1xhwjBWiCA3I3pAlD6vo349K1VEd3grV/SA=;
-        b=YhjblkB71V+n8zmtwvngtKrj9MZKPjaEO/arvelmH2ciVUQgV9OXvIvUct0IqKxVaX
-         kZ9Qk0aqFWnaqulLt3j+dRejhcZCoApSrVUD3DmRunVv3cAk57RNx61dXhQeiy4gDHIX
-         6asCHr4QPFyhZ+Vu3Wj3zSGd1uj+3HkTV3NeDDequg5YoombD6z1+Kh54GW8UAbfQrBj
-         X9CLiyJH1QW+QHThryrk16XaXGmZGyRd65Z3Dlih9vU1ZYuuwtX3LpfN8mDSSRRSF3Vd
-         th7eRHLgO6+4owdMct0i+hNgouFyzxpdAhBGLD+RARTd6rxEk+CMoqCvyBpCo5PrBLOy
-         bqlQ==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature;
+        bh=ombv632F0PC60exuGUqNhF5Sk/gI2n1rNwIxBfy10hg=;
+        b=nJxddhZvPjow+s81h2MTtDKkAbT5O7ZBhfPg638Ix8bInZuEesOT8Ew0mj0pfBGdgI
+         ajwHmAaVA4RHyHi30asmQuElgwl7NMMJSUKhIyNTFEH7cX+lPDmw3UcEu4cZwbe/7d1T
+         MnsCzm+7kf8mkxAGRjNlUySbWxQaKbNFpC9RhrvL2MK6BF9LIIvpBXOOWJyyHxnExSJm
+         SYurfSmD3Rv3LLfqbPuVibaX2g6TLlOxl8hn5YnV2mFpejs3LzhdV24KbuXcFe3web96
+         S72Tdd2rEtN+izkbEc0ScQVP/Kf2BE6TWngcBFGkPHXHPtZzrfHPjhybR6BAPFGuavdw
+         q+7w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="iiAAKav/";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x644.google.com (mail-pl1-x644.google.com. [2607:f8b0:4864:20::644])
-        by gmr-mx.google.com with ESMTPS id x69si237472ybg.2.2019.11.21.20.27.56
+       dkim=pass header.i=@kernel.org header.s=default header.b=RXX9ywVw;
+       spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id 75si301305ilw.3.2019.11.21.21.50.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Nov 2019 20:27:56 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644 as permitted sender) client-ip=2607:f8b0:4864:20::644;
-Received: by mail-pl1-x644.google.com with SMTP id ay6so2589362plb.0
-        for <clang-built-linux@googlegroups.com>; Thu, 21 Nov 2019 20:27:56 -0800 (PST)
-X-Received: by 2002:a17:902:8f94:: with SMTP id z20mr11787383plo.119.1574396875002;
- Thu, 21 Nov 2019 20:27:55 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 21 Nov 2019 21:50:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 1B9B42072E;
+	Fri, 22 Nov 2019 05:50:45 +0000 (UTC)
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Alex Williamson <alex.williamson@redhat.com>,
+	Sasha Levin <sashal@kernel.org>,
+	kvm@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 4.19 084/219] vfio-mdev/samples: Use u8 instead of char for handle functions
+Date: Fri, 22 Nov 2019 00:46:56 -0500
+Message-Id: <20191122054911.1750-77-sashal@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20191122054911.1750-1-sashal@kernel.org>
+References: <20191122054911.1750-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <201911220351.HPI9gxNo%lkp@intel.com>
-In-Reply-To: <201911220351.HPI9gxNo%lkp@intel.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 21 Nov 2019 20:27:43 -0800
-Message-ID: <CAKwvOdn5j37AYzmoOsaSqyYdBkjqevbTrSyGQypB+G_NgxX0fQ@mail.gmail.com>
-Subject: Re: [PATCH 05/22] btrfs: add the beginning of async discard, discard workqueue
-To: dennis@kernel.org
-Cc: kbuild@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>, 
-	kbuild-all@lists.01.org, David Sterba <dsterba@suse.com>, Chris Mason <clm@fb.com>, 
-	Josef Bacik <josef@toxicpanda.com>, osandov@osandov.com, kernel-team@fb.com, 
-	linux-btrfs@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="iiAAKav/";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::644
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernel.org header.s=default header.b=RXX9ywVw;       spf=pass
+ (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
+ permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,135 +136,154 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Dennis,
-Below is a 0day bot report from a build w/ Clang. Warning looks legit,
-can you please take a look?
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-On Thu, Nov 21, 2019 at 11:27 AM kbuild test robot <lkp@intel.com> wrote:
->
-> CC: kbuild-all@lists.01.org
-> In-Reply-To: <63d3257efe1158a6fbbd7abe865cd9250b494438.1574282259.git.dennis@kernel.org>
-> References: <63d3257efe1158a6fbbd7abe865cd9250b494438.1574282259.git.dennis@kernel.org>
-> TO: Dennis Zhou <dennis@kernel.org>
-> CC: David Sterba <dsterba@suse.com>, Chris Mason <clm@fb.com>, Josef Bacik <josef@toxicpanda.com>, Omar Sandoval <osandov@osandov.com>
-> CC: kernel-team@fb.com, linux-btrfs@vger.kernel.org, Dennis Zhou <dennis@kernel.org>
->
-> Hi Dennis,
->
-> I love your patch! Perhaps something to improve:
->
-> [auto build test WARNING on kdave/for-next]
-> [also build test WARNING on next-20191121]
-> [cannot apply to v5.4-rc8]
-> [if your patch is applied to the wrong git tree, please drop us a note to help
-> improve the system. BTW, we also suggest to use '--base' option to specify the
-> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
->
-> url:    https://github.com/0day-ci/linux/commits/Dennis-Zhou/btrfs-async-discard-support/20191121-230429
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux.git for-next
-> config: arm64-defconfig (attached as .config)
-> compiler: clang version 10.0.0 (git://gitmirror/llvm_project cf823ce4ad9d04c69b7c29d236f7b14c875111c2)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # save the attached .config to linux build tree
->         make.cross ARCH=arm64
->
-> If you fix the issue, kindly add following tag
-> Reported-by: kbuild test robot <lkp@intel.com>
->
-> All warnings (new ones prefixed by >>):
->
-> >> fs/btrfs/free-space-cache.c:3238:6: warning: variable 'trim_state' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
->            if (!ret) {
->                ^~~~
->    fs/btrfs/free-space-cache.c:3251:53: note: uninitialized use occurs here
->            __btrfs_add_free_space(fs_info, ctl, start, bytes, trim_state);
->                                                               ^~~~~~~~~~
->    fs/btrfs/free-space-cache.c:3238:2: note: remove the 'if' if its condition is always true
->            if (!ret) {
->            ^~~~~~~~~~
->    fs/btrfs/free-space-cache.c:3224:2: note: variable 'trim_state' is declared here
->            enum btrfs_trim_state trim_state;
->            ^
->    1 warning generated.
->
-> vim +3238 fs/btrfs/free-space-cache.c
->
->   3210
->   3211  static int do_trimming(struct btrfs_block_group *block_group,
->   3212                         u64 *total_trimmed, u64 start, u64 bytes,
->   3213                         u64 reserved_start, u64 reserved_bytes,
->   3214                         enum btrfs_trim_state reserved_trim_state,
->   3215                         struct btrfs_trim_range *trim_entry)
->   3216  {
->   3217          struct btrfs_space_info *space_info = block_group->space_info;
->   3218          struct btrfs_fs_info *fs_info = block_group->fs_info;
->   3219          struct btrfs_free_space_ctl *ctl = block_group->free_space_ctl;
->   3220          int ret;
->   3221          int update = 0;
->   3222          u64 end = start + bytes;
->   3223          u64 reserved_end = reserved_start + reserved_bytes;
->   3224          enum btrfs_trim_state trim_state;
->   3225          u64 trimmed = 0;
->   3226
->   3227          spin_lock(&space_info->lock);
->   3228          spin_lock(&block_group->lock);
->   3229          if (!block_group->ro) {
->   3230                  block_group->reserved += reserved_bytes;
->   3231                  space_info->bytes_reserved += reserved_bytes;
->   3232                  update = 1;
->   3233          }
->   3234          spin_unlock(&block_group->lock);
->   3235          spin_unlock(&space_info->lock);
->   3236
->   3237          ret = btrfs_discard_extent(fs_info, start, bytes, &trimmed);
-> > 3238          if (!ret) {
->   3239                  *total_trimmed += trimmed;
->   3240                  trim_state = BTRFS_TRIM_STATE_TRIMMED;
->   3241          }
->   3242
->   3243          mutex_lock(&ctl->cache_writeout_mutex);
->   3244          if (reserved_start < start)
->   3245                  __btrfs_add_free_space(fs_info, ctl, reserved_start,
->   3246                                         start - reserved_start,
->   3247                                         reserved_trim_state);
->   3248          if (start + bytes < reserved_start + reserved_bytes)
->   3249                  __btrfs_add_free_space(fs_info, ctl, end, reserved_end - end,
->   3250                                         reserved_trim_state);
->   3251          __btrfs_add_free_space(fs_info, ctl, start, bytes, trim_state);
+[ Upstream commit 8ba35b3a0046d6573c98f00461d9bd1b86250d35 ]
 
-^ oops
+Clang warns:
 
->   3252          list_del(&trim_entry->list);
->   3253          mutex_unlock(&ctl->cache_writeout_mutex);
->   3254
->   3255          if (update) {
->   3256                  spin_lock(&space_info->lock);
->   3257                  spin_lock(&block_group->lock);
->   3258                  if (block_group->ro)
->   3259                          space_info->bytes_readonly += reserved_bytes;
->   3260                  block_group->reserved -= reserved_bytes;
->   3261                  space_info->bytes_reserved -= reserved_bytes;
->   3262                  spin_unlock(&block_group->lock);
->   3263                  spin_unlock(&space_info->lock);
->   3264          }
->   3265
->   3266          return ret;
->   3267  }
->   3268
->
-> ---
-> 0-DAY kernel test infrastructure                 Open Source Technology Center
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
+samples/vfio-mdev/mtty.c:592:39: warning: implicit conversion from 'int'
+to 'char' changes value from 162 to -94 [-Wconstant-conversion]
+                *buf = UART_MSR_DSR | UART_MSR_DDSR | UART_MSR_DCD;
+                     ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+1 warning generated.
 
+Turns out that all uses of buf in this function ultimately end up stored
+or cast to an unsigned type. Just use u8, which has the same number of
+bits but can store this larger number so Clang no longer warns.
 
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Alex Williamson <alex.williamson@redhat.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ samples/vfio-mdev/mtty.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
+diff --git a/samples/vfio-mdev/mtty.c b/samples/vfio-mdev/mtty.c
+index 7abb79d8313d9..f6732aa16bb1f 100644
+--- a/samples/vfio-mdev/mtty.c
++++ b/samples/vfio-mdev/mtty.c
+@@ -171,7 +171,7 @@ static struct mdev_state *find_mdev_state_by_uuid(uuid_le uuid)
+ 	return NULL;
+ }
+ 
+-void dump_buffer(char *buf, uint32_t count)
++void dump_buffer(u8 *buf, uint32_t count)
+ {
+ #if defined(DEBUG)
+ 	int i;
+@@ -250,7 +250,7 @@ static void mtty_create_config_space(struct mdev_state *mdev_state)
+ }
+ 
+ static void handle_pci_cfg_write(struct mdev_state *mdev_state, u16 offset,
+-				 char *buf, u32 count)
++				 u8 *buf, u32 count)
+ {
+ 	u32 cfg_addr, bar_mask, bar_index = 0;
+ 
+@@ -304,7 +304,7 @@ static void handle_pci_cfg_write(struct mdev_state *mdev_state, u16 offset,
+ }
+ 
+ static void handle_bar_write(unsigned int index, struct mdev_state *mdev_state,
+-				u16 offset, char *buf, u32 count)
++				u16 offset, u8 *buf, u32 count)
+ {
+ 	u8 data = *buf;
+ 
+@@ -475,7 +475,7 @@ static void handle_bar_write(unsigned int index, struct mdev_state *mdev_state,
+ }
+ 
+ static void handle_bar_read(unsigned int index, struct mdev_state *mdev_state,
+-			    u16 offset, char *buf, u32 count)
++			    u16 offset, u8 *buf, u32 count)
+ {
+ 	/* Handle read requests by guest */
+ 	switch (offset) {
+@@ -650,7 +650,7 @@ static void mdev_read_base(struct mdev_state *mdev_state)
+ 	}
+ }
+ 
+-static ssize_t mdev_access(struct mdev_device *mdev, char *buf, size_t count,
++static ssize_t mdev_access(struct mdev_device *mdev, u8 *buf, size_t count,
+ 			   loff_t pos, bool is_write)
+ {
+ 	struct mdev_state *mdev_state;
+@@ -698,7 +698,7 @@ static ssize_t mdev_access(struct mdev_device *mdev, char *buf, size_t count,
+ #if defined(DEBUG_REGS)
+ 			pr_info("%s: BAR%d  WR @0x%llx %s val:0x%02x dlab:%d\n",
+ 				__func__, index, offset, wr_reg[offset],
+-				(u8)*buf, mdev_state->s[index].dlab);
++				*buf, mdev_state->s[index].dlab);
+ #endif
+ 			handle_bar_write(index, mdev_state, offset, buf, count);
+ 		} else {
+@@ -708,7 +708,7 @@ static ssize_t mdev_access(struct mdev_device *mdev, char *buf, size_t count,
+ #if defined(DEBUG_REGS)
+ 			pr_info("%s: BAR%d  RD @0x%llx %s val:0x%02x dlab:%d\n",
+ 				__func__, index, offset, rd_reg[offset],
+-				(u8)*buf, mdev_state->s[index].dlab);
++				*buf, mdev_state->s[index].dlab);
+ #endif
+ 		}
+ 		break;
+@@ -827,7 +827,7 @@ ssize_t mtty_read(struct mdev_device *mdev, char __user *buf, size_t count,
+ 		if (count >= 4 && !(*ppos % 4)) {
+ 			u32 val;
+ 
+-			ret =  mdev_access(mdev, (char *)&val, sizeof(val),
++			ret =  mdev_access(mdev, (u8 *)&val, sizeof(val),
+ 					   *ppos, false);
+ 			if (ret <= 0)
+ 				goto read_err;
+@@ -839,7 +839,7 @@ ssize_t mtty_read(struct mdev_device *mdev, char __user *buf, size_t count,
+ 		} else if (count >= 2 && !(*ppos % 2)) {
+ 			u16 val;
+ 
+-			ret = mdev_access(mdev, (char *)&val, sizeof(val),
++			ret = mdev_access(mdev, (u8 *)&val, sizeof(val),
+ 					  *ppos, false);
+ 			if (ret <= 0)
+ 				goto read_err;
+@@ -851,7 +851,7 @@ ssize_t mtty_read(struct mdev_device *mdev, char __user *buf, size_t count,
+ 		} else {
+ 			u8 val;
+ 
+-			ret = mdev_access(mdev, (char *)&val, sizeof(val),
++			ret = mdev_access(mdev, (u8 *)&val, sizeof(val),
+ 					  *ppos, false);
+ 			if (ret <= 0)
+ 				goto read_err;
+@@ -889,7 +889,7 @@ ssize_t mtty_write(struct mdev_device *mdev, const char __user *buf,
+ 			if (copy_from_user(&val, buf, sizeof(val)))
+ 				goto write_err;
+ 
+-			ret = mdev_access(mdev, (char *)&val, sizeof(val),
++			ret = mdev_access(mdev, (u8 *)&val, sizeof(val),
+ 					  *ppos, true);
+ 			if (ret <= 0)
+ 				goto write_err;
+@@ -901,7 +901,7 @@ ssize_t mtty_write(struct mdev_device *mdev, const char __user *buf,
+ 			if (copy_from_user(&val, buf, sizeof(val)))
+ 				goto write_err;
+ 
+-			ret = mdev_access(mdev, (char *)&val, sizeof(val),
++			ret = mdev_access(mdev, (u8 *)&val, sizeof(val),
+ 					  *ppos, true);
+ 			if (ret <= 0)
+ 				goto write_err;
+@@ -913,7 +913,7 @@ ssize_t mtty_write(struct mdev_device *mdev, const char __user *buf,
+ 			if (copy_from_user(&val, buf, sizeof(val)))
+ 				goto write_err;
+ 
+-			ret = mdev_access(mdev, (char *)&val, sizeof(val),
++			ret = mdev_access(mdev, (u8 *)&val, sizeof(val),
+ 					  *ppos, true);
+ 			if (ret <= 0)
+ 				goto write_err;
 -- 
-Thanks,
-~Nick Desaulniers
+2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdn5j37AYzmoOsaSqyYdBkjqevbTrSyGQypB%2BG_NgxX0fQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191122054911.1750-77-sashal%40kernel.org.
