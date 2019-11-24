@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBO5X5LXAKGQEVYDCWHA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB2PA5LXAKGQEPIY56QA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id CC6211083F4
-	for <lists+clang-built-linux@lfdr.de>; Sun, 24 Nov 2019 16:03:25 +0100 (CET)
-Received: by mail-pj1-x1037.google.com with SMTP id m12sf5840521pjs.0
-        for <lists+clang-built-linux@lfdr.de>; Sun, 24 Nov 2019 07:03:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1574607804; cv=pass;
+Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
+	by mail.lfdr.de (Postfix) with ESMTPS id BE7F1108433
+	for <lists+clang-built-linux@lfdr.de>; Sun, 24 Nov 2019 17:31:38 +0100 (CET)
+Received: by mail-io1-xd39.google.com with SMTP id p1sf9125749ioo.9
+        for <lists+clang-built-linux@lfdr.de>; Sun, 24 Nov 2019 08:31:38 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1574613097; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tPVZgSatwymKOkx/mZ5EYS1BHF2+GcCj2nm2psAyjFFXbb+Ka0NDQhoVMAylqvWX/T
-         qSXIx3144a1iE5cqn2+ZBdVB3W1d8B3dIAf/XUT+4PCAL+zaesMNqxzOnjHtCT5PxWcN
-         OLwzrE25a6WV/lohpvPYNYCVbm05Dse8G6PjwAqYSkC/eAR5KZKzKvSc/+SIOCj5LP0+
-         VW5C8gfxc0HaUBD83dGeOev+/wX7nj20A47chGL4zcb/+rGlk0sBXBUmAcDCsbvYL6eF
-         1Sv6u/HFe3nd2/YRCDNyqQKK0aX17d+0XEI+02O1QYgxoLEGA7ROdeRLFmMTVibg2gnW
-         rKfA==
+        b=oqvlRqxFTZe9L13mTcq1byKPQA9UqIhJwcOi+vHQBx1uHDPMPBf1dpk4awod1rE9IE
+         679nkMD0KQXFiDeL3sKs79RAPlm3uHD11VEqKMUBBx3WcbYeJbhZosUQqgAyyb5w9QN+
+         ezna0SHsvIfigr+xBFv4RCcswO9pJsymjCTZJDWtd3qjnuCQD8MxRDQTq6gAEseQCG0l
+         O9GXgxPHVEK3CDe8rCAJKSKhs2nJK7SLdp5SL71FaNM8QzJF6+H8pRzjT+nXK9ngouR4
+         SXGxqEBPof3S+mD0ALluKA0hg504DQwHFrsQF82pGYVlOL4FmpkGTfwI7xqnQ6QDN8ZO
+         taYw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=4gJTuXx4nNib4rU+5JjW7HHZnDuaOZyca8Y16g4yRpM=;
-        b=rmU5kYZugdoawDccP2QzjlmJnyaEVK5q+KpFdwPfCwBh6oneH/ytdvvITMMpzBVv9k
-         7+w7zrgB1O/h7pRPvyDVUFfbcznRgI1wKN/Me+9uFiGREXWkjNcSP8MEhhuw+6ToDXld
-         dKifO/KV5I8Zi+dexMcvNylGjmRoEE8GyKcDZ/MKMAvInNQzgtHMfu6haL8P11LswwI4
-         VpzOnkGwqmFEXpBuvJPP8E8ud6EXZ+rDteY9uowml55/t4wQ+Di1U5h6VbkuaeF380sH
-         zgT2kefhkQYTiTJPubJp4AidzjdeXDbn8Lgb1oDtEH3SnYswiQW7C15MnHr4+IAk5OzV
-         KJmA==
+        bh=QPQDeXIx4P9q6MFiZhE8zvLltkZe4csUbhplTN4dpBs=;
+        b=pfRRM+QZCZg8J8U+SFjIabc6wxixE4O6YrCVssCEvAeB4MDSsr4l6ZQcTdIrM1gxWe
+         PPj6e5cjH6269gwdDd2bxlRMHnf6wadRpX6/2JSZ0DvvAx14eZy72aW6y6Z4Ad/MfSaX
+         RymfeMgAh9n560Oki4yjQ9SYnyVpFqXpXqC6nwyE4r43IA6gR2IRS5AtlGO0FEn5MGwu
+         J1CEPZbroSoWXcGNhVYE7YDsRwEanDDpXCbfh95QAqlxT7O+Cz6Bj4GwpkF6iUWKhVLf
+         JfQ0OdGpDff3oPuUC6haV/q/yYI6lUzuod3Np39nHd+P7Ui7Qn547W5X6qTa9LvtebVA
+         nfFQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=4gJTuXx4nNib4rU+5JjW7HHZnDuaOZyca8Y16g4yRpM=;
-        b=S9n3T7EGy854v7JGmf+kVFRPMA7qtuc1oxVdnsJGmcJp0Pmeqav/V7HZD1EmB/Riiv
-         VX0ZakDkXjD3BjF3dvkkM5+HUJBwJX3qHE3w8QEnvgIhVXEXIIDviF1PFSezbsGgBQOP
-         CSX8PjOMu8n/cn9fB2/Oo0ZIluug09XHtEU/BN6xAB27oZNF5cRoLQWfWy5Y3fOct44A
-         eOHdwV2Zrkw30KZ78r523Xx7n9A1mpPF6B4cVbRGM5SqGh+B+URSMwhrGaY2928zfD/m
-         QkjcApZIkgYwQ2lv9tLrL3//QPG6G7gvvc3U6d5d4RwKJRtXtMMGHgcl0EmoQYWT7Lg1
-         z0RQ==
+        bh=QPQDeXIx4P9q6MFiZhE8zvLltkZe4csUbhplTN4dpBs=;
+        b=Tpop7FycUExIrSMpjb0oZ90aPLCTXRHtv419ZG+u5KkgKeOUTGF8bY5iXxfdSqDLg6
+         nd0kLe/wylM768xwExKmNwVh3ce1rd5HxBYjOqK1oTPjctWqgW5FP0I4tRPDsfJ1rGPW
+         DUfEC5NQoNYjsCrVbMGOYflNYKfuhk/J9hH6Zzt3IwSqdu2oA+XhZAWjVGL97D8+9Tmg
+         LwxViU1ChovWML6Nqydx9z0e2Rvnt6M0KbD4XHijjpPQv6OPilYqgcAVwnVdLJlr39rO
+         Jt1UbcBW7H+p8rVFYrmrDIu1nOI8ZiiS/F6rRLSS6mqgjQOLdnW9CPyTE+HH23voQfiL
+         lfiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=4gJTuXx4nNib4rU+5JjW7HHZnDuaOZyca8Y16g4yRpM=;
-        b=Sk8isf5iEZDkotNpa4f/LUN2mesW9GwkXdxZq0NGdziQkvzPGd/5dshUaFrfu21pfs
-         Ru2brU3RwiHMUyPceHagtrVN5UV0TZiIs+X7svP+2S8NLW3wI7O52mUoY8QKq9XH+Kgi
-         5BkIhv6OE3kwdEZ9to/7FTQKZhYFQOC6YFYeAwEbtP3S5iTYiXEFK+duvs4gyQFC6gb7
-         BwjgRBLQiJ58bJ1cDLxwfARsQrpZavOpAC53I8Uags8I2L1vRH3csNFXtXH27Q54b05T
-         ABMpr80iDXwQTs0mmAWEmJhr7zU2YC0WsiLOHpYF4LldZpDsJsI7Z1oNdagJeMI11DqN
-         McDA==
+        bh=QPQDeXIx4P9q6MFiZhE8zvLltkZe4csUbhplTN4dpBs=;
+        b=VXwZZHRzWeT2u3elSrHwcoK8bF4rd0uRQmbjHaI9UjUDGf1ZeEiQb92XwwHS76Qtg4
+         c8JbcgBR5Y5OeS2XsRGzGvGBu30UwHmiBpASPJyIhZYhRKv1iBWI8jotl2GEd4ubAHdu
+         5yiC4BHspbmuUVyBYR8ZEUTIrAmstrq7uqCM3PflIy5FmuV/LQAVy1Av2Q5lwOgMB/AS
+         0fgjC1ZSYqYJ53eHJwvpTGss6VAL7QkBkSQkWGZ9Of6mXnZ2I+abVRF5Wm0dmGuqmU+3
+         WrCY43JP8IxRfgJyP7dxZpIcLOj2B015ZNDB6wiNoj4m8GPUVkTDCl6gs3BjvwAm90jt
+         XK3Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVKI4/VhfQXJIJQ80B4EB0oKMjJkSnAgqsXGGS8JSluLqxvhlgL
-	qwcbvkuw3uFZWczjS4jkg8k=
-X-Google-Smtp-Source: APXvYqwnB1J80Sv4xlnEJWY1YlZEm670P2loOnxXiFMnrYVmvNaPP8e9DHYENSUFzmOByj/lptfkXw==
-X-Received: by 2002:a63:3409:: with SMTP id b9mr13886103pga.320.1574607803780;
-        Sun, 24 Nov 2019 07:03:23 -0800 (PST)
+X-Gm-Message-State: APjAAAXlo+bxENBwfiyZpSmHFRdQX0sp+mD2YlD7t0Vcu7c9eZpe1A/p
+	mtMAvgqJrT+HtoerRzmxtSM=
+X-Google-Smtp-Source: APXvYqwb3WtmJhYmqGDnWc6FCW9B+3qSz7xrfQb+zb5KKmn2baTU7AQmdueIV33K8UW3nCszzBLfbg==
+X-Received: by 2002:a02:3208:: with SMTP id j8mr22956174jaa.86.1574613097210;
+        Sun, 24 Nov 2019 08:31:37 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:5fd1:: with SMTP id t200ls3253736pgb.4.gmail; Sun, 24
- Nov 2019 07:03:23 -0800 (PST)
-X-Received: by 2002:a63:5c21:: with SMTP id q33mr28253911pgb.61.1574607803289;
-        Sun, 24 Nov 2019 07:03:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1574607803; cv=none;
+Received: by 2002:a02:ba81:: with SMTP id g1ls319703jao.8.gmail; Sun, 24 Nov
+ 2019 08:31:36 -0800 (PST)
+X-Received: by 2002:a02:13c3:: with SMTP id 186mr8068308jaz.115.1574613096709;
+        Sun, 24 Nov 2019 08:31:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574613096; cv=none;
         d=google.com; s=arc-20160816;
-        b=MkgPw5us/SrhGkKOsRpwphbT8rnysjG2WihJ3vUkaab4l9uvhJWG1ihyaGAYcK/bai
-         VfKRDxFLjJH4ysAB7oweOgLBWx2zkgeQWAVRD8ynCIGT1l60w/v5l4Lxbco+mpoplw+P
-         vMB7NEm7XeOam7AdEN2Ll2I1MSTcAg35ZfQN7vZeqS8Q6qXsxscqSUXbCgcWGdToLftJ
-         eKR0kSlHSmDUR+N+L7tSd44Goj8DviwTAQ+5JIKlRwCtmpfCzXa5yIcAKS251QQIBxiq
-         l5r0motSAMH9A2l72CqDlrLh8AysWHGfwYjDOYdKA0+XAYEQCMbU+Kw3/MyaKE79a1CG
-         cnqA==
+        b=bURPr3Tso2NBMJhDaYGhBlvIzOKqWhmCX0jcSOzLYu/rXnCaLehaxu5/sxGvm6AlLI
+         RzBoJInidso53OUsEIhcDIKAeBIYVbP3YHtZh0kgrwwgykr37LfYNRSk6DtWUm5xzHgI
+         5YYh3w0P8wBONtIm4Mp0zElTucmOwSSRi/eG/0wyk8NFyqYU+nuXpV9HoRFnMhiNKR8C
+         2uwSW/XwqEW/zMVMRugw/ikUj6ednDLRg+RAoo1mBhWqIHX72FauEgEaoF+rZ81SmC56
+         Ajf2rRMNdJveJLnMgxpHDTps5pjlMDvSQ0JmBc2l4sVO+NUdDLrPhxVWK0lTszfrCWxI
+         JPYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=kK+Lj8cQjF00i6+L1za3ZyM8zStjEC1QMK1+/l7x+aA=;
-        b=FwtFh4g9stxfFA/4NwDrmKn8jMJk3UjuelPQ20z3E2fShB2xzWMueURnOG7I4eNOHH
-         n9oqqDptwmRuXOpJorIJHwEZzUZ5hcSceS/g6LJAefHwKrUqvRIqPHKFIxVBDkjx4Yy4
-         OaZfGZegNgNhG7UloYdc9h+4/Bpv6PhDp0+LdoU8eQge25CYrexPW8h9b8bYY24j8LqJ
-         wEZ08FPVBlnpH2SI26f/6EXDphko1UVKds0BHyL0F5lIUrdwQgaCt6pVVZO78UGHejOT
-         F2xnZIddxESx8ftUhttd4LYa4KabbDrULAqQ9lEMblXzWDXea5rsJOPhlK+tHCcUzUZw
-         WHlA==
+        bh=K7o1MT/dIkNLTLN0JVmfASx9OwUfVnz1NOXoU4y+iBA=;
+        b=BTnxbAGGSPeZ59YXZKxkvYwssQ0tESIjhrTW8htiEpEHv16VY0HW8gATun8UVeL8vs
+         33bFYLXGYqlAU48Uy0Ygu02nnvThW79dWXaN7q0PrF6G41e3n+wiNsQ31U48I69Vfrfl
+         rbnTlGcEmyDk0msPMvrX7UYRJ6suJDNRUqQ6URxoABMVA6EsoWNLKJcc9P45DpIq4CXd
+         0Ka4uF/vNztpUBwb/lGqqof7x+zIZMyUjOCtLpGIYwaVSZ1P/AT6Ora+2PmOr4e93esF
+         h4SGoWKaMtaEiqx5VmJGa2sRGb5RgxoKn5rkvaKT/dXSTYLlclNH2U30yvBr/30KB1uP
+         jAug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id n2si171385pgq.0.2019.11.24.07.03.23
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id g10si527004ilb.2.2019.11.24.08.31.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 24 Nov 2019 07:03:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+        Sun, 24 Nov 2019 08:31:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Nov 2019 07:03:22 -0800
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Nov 2019 08:31:35 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,238,1571727600"; 
-   d="gz'50?scan'50,208,50";a="198171557"
+   d="gz'50?scan'50,208,50";a="202086415"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 24 Nov 2019 07:03:21 -0800
+  by orsmga008.jf.intel.com with ESMTP; 24 Nov 2019 08:31:32 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iYtQ1-0009XE-DQ; Sun, 24 Nov 2019 23:03:21 +0800
-Date: Sun, 24 Nov 2019 23:03:12 +0800
+	id 1iYunN-0000gN-UE; Mon, 25 Nov 2019 00:31:33 +0800
+Date: Mon, 25 Nov 2019 00:31:01 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 4/5] fibmap: Use bmap instead of ->bmap method in
- ioctl_fibmap
-Message-ID: <201911242219.iyazkqle%lkp@intel.com>
+Subject: [feng:master 7/8] mm/page_alloc.c:4768:34: error: no member named
+ 'node' in 'struct zone'
+Message-ID: <201911250000.Q6ojOEoR%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="56d3pjpha4vikqus"
+Content-Type: multipart/mixed; boundary="i5qvazkmhpqbzkms"
 Content-Disposition: inline
 X-Patchwork-Hint: ignore
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,89 +138,218 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---56d3pjpha4vikqus
+--i5qvazkmhpqbzkms
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191122085320.124560-5-cmaiolino@redhat.com>
-References: <20191122085320.124560-5-cmaiolino@redhat.com>
-TO: Carlos Maiolino <cmaiolino@redhat.com>
-CC: linux-fsdevel@vger.kernel.org
-CC: hch@lst.de, darrick.wong@oracle.com, sandeen@sandeen.net
+TO: Feng Tang <feng.tang@intel.com>
 
-Hi Carlos,
-
-Thank you for the patch! Yet something to improve:
-
-[auto build test ERROR on hch-configfs/for-next]
-[also build test ERROR on v5.4-rc8 next-20191122]
-[if your patch is applied to the wrong git tree, please drop us a note to help
-improve the system. BTW, we also suggest to use '--base' option to specify the
-base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
-
-url:    https://github.com/0day-ci/linux/commits/Carlos-Maiolino/Refactor-ioctl_fibmap-internal-interface/20191124-165458
-base:   git://git.infradead.org/users/hch/configfs.git for-next
+tree:   feng/master
+head:   c376b4e0c0b793663f26be6fe8912407480a41a4
+commit: f3f0fe74c2b69c3355eee038ba1e97f72464e012 [7/8] zonelist: add dump
 config: x86_64-allnoconfig (attached as .config)
-compiler: clang version 10.0.0 (git://gitmirror/llvm_project 844d97f650a2d716e63e3be903c32a82f2f817b1)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 844d97f650a2d7=
+16e63e3be903c32a82f2f817b1)
 reproduce:
+        git checkout f3f0fe74c2b69c3355eee038ba1e97f72464e012
         # save the attached .config to linux build tree
-        make ARCH=x86_64 
+        make ARCH=3Dx86_64=20
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   In file included from arch/x86/kernel/asm-offsets.c:13:
-   In file included from include/linux/suspend.h:5:
-   In file included from include/linux/swap.h:9:
-   In file included from include/linux/memcontrol.h:13:
-   In file included from include/linux/cgroup.h:17:
->> include/linux/fs.h:2869:38: error: parameter name omitted
-   static inline int bmap(struct inode *,  sector_t *)
-                                        ^
-   include/linux/fs.h:2869:51: error: parameter name omitted
-   static inline int bmap(struct inode *,  sector_t *)
-                                                     ^
-   2 errors generated.
-   make[2]: *** [arch/x86/kernel/asm-offsets.s] Error 1
-   make[2]: Target '__build' not remade because of errors.
-   make[1]: *** [prepare0] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [sub-make] Error 2
-   21 real  7 user  9 sys  82.74% cpu 	make prepare
+   mm/page_alloc.c:4761:6: error: use of undeclared identifier 'watchdog_th=
+resh'; did you mean 'proc_watchdog_thresh'?
+           if (watchdog_thresh =3D=3D 20) {
+               ^~~~~~~~~~~~~~~
+               proc_watchdog_thresh
+   include/linux/nmi.h:211:12: note: 'proc_watchdog_thresh' declared here
+   extern int proc_watchdog_thresh(struct ctl_table *, int ,
+              ^
+   mm/page_alloc.c:4761:22: warning: comparison between pointer and integer=
+ ('int (*)(struct ctl_table *, int, void *, size_t *, loff_t *)' (aka 'int =
+(*)(struct ctl_table *, int, void *, unsigned long *, long long *)') and 'i=
+nt') [-Wpointer-integer-compare]
+           if (watchdog_thresh =3D=3D 20) {
+               ~~~~~~~~~~~~~~~ ^  ~~
+>> mm/page_alloc.c:4768:34: error: no member named 'node' in 'struct zone'
+                                           ac.preferred_zoneref->zone->node=
+,
+                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~  ^
+   include/linux/kernel.h:130:43: note: expanded from macro 'mtp'
+           trace_printk(KERN_ERR "" f "\n",##x)
+                                             ^
+   mm/page_alloc.c:4803:20: error: no member named 'node' in 'struct zone'
+                                                   zrefs->zone->node,
+                                                   ~~~~~~~~~~~  ^
+   1 warning and 3 errors generated.
 
-vim +2869 include/linux/fs.h
+vim +4768 mm/page_alloc.c
 
-  2865	
-  2866	#ifdef CONFIG_BLOCK
-  2867	extern int bmap(struct inode *, sector_t *);
-  2868	#else
-> 2869	static inline int bmap(struct inode *,  sector_t *)
-  2870	{
-  2871		return -EINVAL;
-  2872	}
-  2873	#endif
-  2874	
+  4725=09
+  4726	/*
+  4727	 * This is the 'heart' of the zoned buddy allocator.
+  4728	 */
+  4729	struct page *
+  4730	__alloc_pages_nodemask(gfp_t gfp_mask, unsigned int order, int prefe=
+rred_nid,
+  4731								nodemask_t *nodemask)
+  4732	{
+  4733		struct page *page;
+  4734		unsigned int alloc_flags =3D ALLOC_WMARK_LOW;
+  4735		gfp_t alloc_mask; /* The gfp_t that was actually used for allocatio=
+n */
+  4736		struct alloc_context ac =3D { };
+  4737=09
+  4738=09
+  4739		/*
+  4740		 * There are several places where we assume that the order value is=
+ sane
+  4741		 * so bail out early if the request is out of bound.
+  4742		 */
+  4743		if (unlikely(order >=3D MAX_ORDER)) {
+  4744			WARN_ON_ONCE(!(gfp_mask & __GFP_NOWARN));
+  4745			return NULL;
+  4746		}
+  4747=09
+  4748		gfp_mask &=3D gfp_allowed_mask;
+  4749		alloc_mask =3D gfp_mask;
+  4750		if (!prepare_alloc_pages(gfp_mask, order, preferred_nid, nodemask, =
+&ac, &alloc_mask, &alloc_flags))
+  4751			return NULL;
+  4752=09
+  4753		finalise_ac(gfp_mask, &ac);
+  4754=09
+  4755		/*
+  4756		 * Forbid the first pass from falling back to types that fragment
+  4757		 * memory until all local zones are considered.
+  4758		 */
+  4759		alloc_flags |=3D alloc_flags_nofragment(ac.preferred_zoneref->zone,=
+ gfp_mask);
+  4760=09
+> 4761		if (watchdog_thresh =3D=3D 20) {
+  4762=09
+  4763	//		if (loop % 4096 =3D=3D 0) {
+  4764			if (tloop % 256 =3D=3D 0) {
+  4765=09
+  4766				if (ac.preferred_zoneref && ac.preferred_zoneref->zone)
+  4767					mtp("ac->pref: node[%d].zone[%d] cur_nid=3D%d aflag=3D0x%x sdirt=
+y=3D%d order=3D%d anm=3D%*pbl pid=3D%d onm=3D%*pbl",
+> 4768						ac.preferred_zoneref->zone->node,
+  4769						ac.preferred_zoneref->zone_idx,
+  4770						numa_node_id(),
+  4771						alloc_flags,
+  4772						ac.spread_dirty_pages,
+  4773						order,
+  4774						nodemask_pr_args(ac.nodemask),
+  4775						preferred_nid,
+  4776						nodemask_pr_args(nodemask)
+  4777						);
+  4778				else
+  4779					mtp("no ac.preferred_zoneref"); =20
+  4780			}
+  4781=09
+  4782			if (tloop % (8192*2) =3D=3D 0) {
+  4783=09
+  4784				/* dump node */
+  4785				pg_data_t *newpgdat =3D NODE_DATA(numa_node_id());
+  4786				dump_node_zonelists(newpgdat);
+  4787=09
+  4788				/* dump ac's zonelist */
+  4789				if (ac.zonelist) {
+  4790=09
+  4791					struct zoneref *zrefs =3D ac.zonelist->_zonerefs;
+  4792					int i;
+  4793=09
+  4794					mcp("dump ac.zonelists:");
+  4795=09
+  4796					for (i =3D 0; i < MAX_ZONES_PER_ZONELIST + 1; i++) {
+  4797				=09
+  4798						if (!zrefs->zone)
+  4799							break;
+  4800=09
+  4801						printk("ac [%d]: nid[%d].zone[%d]\n",
+  4802							i,
+  4803							zrefs->zone->node,
+  4804							zrefs->zone_idx
+  4805							);
+  4806=09
+  4807						zrefs++;
+  4808					}
+  4809				}
+  4810			}
+  4811=09
+  4812			tloop++;
+  4813		}
+  4814=09
+  4815=09
+  4816		/* First allocation attempt */
+  4817		page =3D get_page_from_freelist(alloc_mask, order, alloc_flags, &ac=
+);
+  4818		if (likely(page))
+  4819			goto out;
+  4820=09
+  4821		/*
+  4822		 * Apply scoped allocation constraints. This is mainly about GFP_NO=
+FS
+  4823		 * resp. GFP_NOIO which has to be inherited for all allocation requ=
+ests
+  4824		 * from a particular context which has been marked by
+  4825		 * memalloc_no{fs,io}_{save,restore}.
+  4826		 */
+  4827		alloc_mask =3D current_gfp_context(gfp_mask);
+  4828		ac.spread_dirty_pages =3D false;
+  4829=09
+  4830		/*
+  4831		 * Restore the original nodemask if it was potentially replaced wit=
+h
+  4832		 * &cpuset_current_mems_allowed to optimize the fast-path attempt.
+  4833		 */
+  4834		if (unlikely(ac.nodemask !=3D nodemask))
+  4835			ac.nodemask =3D nodemask;
+  4836=09
+  4837		page =3D __alloc_pages_slowpath(alloc_mask, order, &ac);
+  4838=09
+  4839	out:
+  4840		if (memcg_kmem_enabled() && (gfp_mask & __GFP_ACCOUNT) && page &&
+  4841		    unlikely(__memcg_kmem_charge(page, gfp_mask, order) !=3D 0)) {
+  4842			__free_pages(page, order);
+  4843			page =3D NULL;
+  4844		}
+  4845=09
+  4846		trace_mm_page_alloc(page, order, alloc_mask, ac.migratetype);
+  4847=09
+  4848		return page;
+  4849	}
+  4850	EXPORT_SYMBOL(__alloc_pages_nodemask);
+  4851=09
 
 ---
-0-DAY kernel test infrastructure                 Open Source Technology Center
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
+0-DAY kernel test infrastructure                 Open Source Technology Cen=
+ter
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporat=
+ion
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201911242219.iyazkqle%25lkp%40intel.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/201911250000.Q6ojOEoR%25lkp%40intel.com.
 
---56d3pjpha4vikqus
+--i5qvazkmhpqbzkms
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICBGM2l0AAy5jb25maWcAlFxbc9vGkn7Pr0AlVVv2g23drChnSw9DYEBMiJsxA170gmJI
+H4sICEuc2l0AAy5jb25maWcAlFxbc9vGkn7Pr0AlVVv2g23drChnSw9DYEBMiJsxA170gmJI
 SOZGIrUkldj/frsHADEAemhvzklsTffce7q/vkC//fKbw96Ou5flcbNaPj9/d57KbblfHsu1
-87h5Lv/b8RInTpTDPaE+AnO42b59+/Tt7ra4vXE+f7z5ePFhv7p1JuV+Wz477m77uHl6g/6b
+87h5Lv/b8RInTpTDPaE+AnO42b59+/Tt7ra4vXE+f7z5ePFhv7p2JuV+Wz477m77uHl6g/6b
 3faX336B//8GjS+vMNT+P87qebl9cv4p9wcgO5cXH+F/zrunzfE/nz7Bf182+/1u/+n5+Z+X
 4nW/+59ydXTubm7Wf/z+ePv5Ynm1/v3ytry9Lq//Kv+4uF5dXy3vrh6vHu8uf//r8j1M5Sax
 L8bF2HWLKc+kSOL7i6YR2oQs3JDF4/vvp0b88cR7eYH/GB1cFhehiCdGB7cImCyYjIpxopKW
@@ -352,6 +481,6 @@ fdYLOC8I+bGGW4eWRM8PK9GuU4d04pmpLbccU1MI1QiRdBlxA6Be5+RF8OsQajCkp4tc9DRM
 zgrUyReUqoYgoBdbntbpJDarubfHhX/HMq52itmLXuoa2DBYNqv1GijlvAl/hYT/3CPlOZkc
 3ADB/1iCjBdXspdGVycry0wnUlyfo5baop6WCkWRGkGzmyhbEfloRF00Z0g2HX8TRDoEsu6t
 WdqzKe7RpTHJ87QMJ5z3ekZTll0z7CFESSqpm8uvXzwhLqdAENLtLdq5qG/e28j6VFUSOSOh
-jsDZFgv4eXrmLMnqL26WfkS0Lld0aQE9pQOn56L2+XlpzN4UhDH5m4vgIOQHbNQ5BF1oAAA=
+jsDZFgv4eXrmLMnqL26WfkS0Lld0aQE9pQOn56L2+XlpzN4UhDH5m4vgIOQH/CDmZl1oAAA=
 
---56d3pjpha4vikqus--
+--i5qvazkmhpqbzkms--
