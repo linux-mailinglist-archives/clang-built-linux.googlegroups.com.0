@@ -1,134 +1,127 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBLMZ53XAKGQESK4COKI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBG5T53XAKGQE3UIBB5Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id D517F1089D5
-	for <lists+clang-built-linux@lfdr.de>; Mon, 25 Nov 2019 09:11:26 +0100 (CET)
-Received: by mail-pj1-x1037.google.com with SMTP id 6sf7012054pja.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 25 Nov 2019 00:11:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1574669485; cv=pass;
+Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6867B108A7B
+	for <lists+clang-built-linux@lfdr.de>; Mon, 25 Nov 2019 10:06:36 +0100 (CET)
+Received: by mail-lj1-x239.google.com with SMTP id h10sf2473774ljl.18
+        for <lists+clang-built-linux@lfdr.de>; Mon, 25 Nov 2019 01:06:36 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1574672796; cv=pass;
         d=google.com; s=arc-20160816;
-        b=mOW3wK+6i4jCVz8AykdZ/O7TJfu98vHULiGI5Wf78cEFKOpNTrZw0Mr46J9ULEox9s
-         E2QyPPlGDX6gbQthnIWUKAtZeJt203Y7ncWCui0an4TV0PtM4jkK88vUg/7xIUpaTJ7H
-         kRwwds5EhwJW2KdzgW6wVei6/birR7HO4YBNWNmfy7rEprzBEGqMyE+/SfGVe4oBbndI
-         NYCpcA4Pcg1WV9FuMKjUOYTzYdXFXGs5Ep1jjaU6FQ1rhMwI8s8bKHHSfmPzAjdwrls8
-         PphPGlOo+GdAR3pZlxfpPMkLk6WOoJ1ZOMlYCXgOez8kd2uuv1GMRXvusczB/qdcJv3t
-         J2Bg==
+        b=jiaW7cIxOOvEvt/h0k5EWz5JO4IKxpwreBwQ4flBOVVoKOWFEkicwlnHFeastgXZpQ
+         xzUVEAxTvF6zt+jdwHBkSIT9mt8VXTXb/FO5iAvDJmJ+rBSS6Qk3tZo4h10fQHOFPZXz
+         +U0//zZ236ZTV+OmHDqPD5f+ETT/3qSa/x6Pakmc2D9PzaBBsG581nvVMh8ZhEHmDpGL
+         ByPvre2xZ5TuU7x0mFYWLaG5EbY/uA0jXid4nnBOaiaBr7SK3jdHDKXQCwgWDtAACv5i
+         Yiv7QfWL1o+ern8PH8642S44qTnmvui+FPu8KpGp5pW6qPrRyVtmRiJ5ovjCksss73dY
+         TTuA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=FlripeT+vfKIYVqVn1Cgmq2h7uPSvqY4aCWADmMl6HM=;
-        b=uxi2G1QPeszNvl3No2sfS53eOhLF0n94snBKe1iFP1wVcaGoXDLN7QMAOGgynP9loL
-         q774PR8BMR6WXAvu8h34jgz8tDUM/igJpsbQ0pRu7Jg9toH38NWC+0ZeJmiJq7vU+UJx
-         HMMBF5IYcIUt3lOhSU+aAiC67bUbIKWrba2lHyErInttAk4pajsdDCgOZHs/fMjTCf0m
-         0QSLTQt+jE4FpnUkH9JuzCKufxPxsFZndtYYxcnOxaQNwol9lgmQIqmQksNDe9rOgzYb
-         2s0tDxuQzXcttrXWFp5Skp6JhLydT/U7c+6TP5gHQ9tENoSe+bi32qYWR3PIU/gDV9qx
-         +RWQ==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=muC3SS8iJAw+Gfu5Ir5hPrQeRMBWa+/VqGYdPR7Ywps=;
+        b=rLbvrjHr/sPuUx0zsyfSTATC9aSv7zjGwgXQEAmp6rhfU6exdWEncnhoCxv6jVdRU9
+         L7vk/+emLb+vNBLVYQBjPHDq+h0BEKT0jSrV3k+iL9PgKrR97uEI255yxfQyOvkxANCC
+         55IklImgmxrmmKB2yY6kvwdrKZldH7XwjpdELaOeMB/aitbTkL5yxFzeL3KUfFvj8BFD
+         e5Wd7r3qk/MlEiz+8Mkzj6ByK/wi8xKgWsrq2rCCxX9lJqVob1L1o4d4IiyOVqPLgxK/
+         aMI0wOS3HXkjW5d5aLUrOuhDCepFjih1Bhimd+sOHQOHeGqYGR+ZTF2rHabmn/0Ys/j/
+         G3FQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=rpx4SVZu;
+       spf=neutral (google.com: 2a00:1450:4864:20::442 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=FlripeT+vfKIYVqVn1Cgmq2h7uPSvqY4aCWADmMl6HM=;
-        b=BPxtE9enlclw3He5KAlrUI4bw2JJ//T8eJdPNsPu2rBixHZGD/BMqQtehG+V2H5Grr
-         HFzTj6CSM0utpDSlvL6vuDwxLWrARcuOSdgeM8nc+RRRs2ofoKJXsgqY+YI7QYjpMnSp
-         UGgohOjU77TNfsCswWar50yGhgtrclawSgNkh+ZiAPzmDLO/73zrddo3IUepW0j93nyK
-         T2HTdoxALcCdr1CgjuWq69bQovIwLDN1047bOV8Fg1iib9yEpyhzhguCAaSzjBrFFnvy
-         3IqG+tU2KAtIRaqB34TS3BC+Tz8ygyfGzC4SjR/4UAYm2ILDf5Ky1Ch65NxTmRfC/fhS
-         WY6Q==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=muC3SS8iJAw+Gfu5Ir5hPrQeRMBWa+/VqGYdPR7Ywps=;
+        b=PG+P/5CjBa9sgCExg6REyIA05O9EvTBMUHbu6pAWP3QvoEF3TTO9G7IM1XZ1AHf+5t
+         bTWtJVYm568tSHT4BvspHqSrYU10rjfdFiP846J5pYGbTD0MuPh8Rogn+/YwRXhVly21
+         3Pvv0XVmrvCFoQQZ7o2iRJV/edaQ91UIHkW/W5tmm9MmsONxvAz6B3Rvn61arWLUJiH4
+         hLttZBImzjigtOi03Fi7DxB71VUd6xVmdNpzsO6BOjA5butsvpam9XeQnt4KMWhES40z
+         oVRe2XBkPg9kSr50Tbr/aLL858bglTU95OmVicyIu/u2kPZqfepTm+dSceivD72Exryi
+         hjkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=FlripeT+vfKIYVqVn1Cgmq2h7uPSvqY4aCWADmMl6HM=;
-        b=doU+HYTgAVYHFEo7b4Dl9h+9z39VPdUe88d19czJxJeo6Lp1VjSMQ2cwRMuFfEq+Hm
-         /HEPbN3OXB9UZPmktEdrflL5n7FW3CgU4Yt9BjcWN/5vR+eDctVfXZuyxoYlRxsqBORY
-         JGM44I0tTzSCYUO8KIH8VQQaGWiXVPYLqZCKYK++6gxVoEOssqDxe0bpIEoDQIqcr092
-         98jyogfRaaKCibvsQBAYFk9MpuTD/w/mItYwAiDm1O3AGr7lXKVLI+ILfRI7DzN6k7u8
-         cZYG7XxgmlzMotYjbTBmZ5IXoDr26OzMccjMSibsyw75ozdRYLSwYx1RsqA6pv/+U3Av
-         x3TA==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=muC3SS8iJAw+Gfu5Ir5hPrQeRMBWa+/VqGYdPR7Ywps=;
+        b=GZukDX/5+3A3SgJnQVHzMoSvqmznFcs44t8/0SuEYBa7IahmMfK/HQcjKk3a+rYB7r
+         y705oZWu+8vbb6Wy+MBwxA6rCmF5scw3b8gqjSxpIioh79aUQeFTEmZex8wSHzGv/8ku
+         obvYp4jcmCVpMQtuWjpOYs5UObaf0XULpXfi1eCIFWVZf/qnq88FGr/ZCxVwtqi7sNvg
+         LaCpN2GYBtDS+XpjtKEgUFx+yJKfp8NLzHGBvt3KZJgYFDznKqy/HnImmgdN8r9puiEs
+         xrCD1z1TVw996YX6vu6UkM2pt278rzgRUMuxIsfVbtFr29F3t4KKnuT/rdZWP/mpyc+j
+         bQVQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVCepuZpqIPKRacHoiZ3p2WPcLE9wcibhVPDejZSofjhsMP5aMj
-	JGdwJaJVc4bBcvsnRxdX4j0=
-X-Google-Smtp-Source: APXvYqzarHFZEXBZA0YAc9I84n2/M0kyvtw6QJuOwjJxJzeosX6Cl0INZwapCCdhVQ9FxBHCdHsfOQ==
-X-Received: by 2002:a17:90a:244a:: with SMTP id h68mr36898288pje.79.1574669485375;
-        Mon, 25 Nov 2019 00:11:25 -0800 (PST)
+X-Gm-Message-State: APjAAAURhHNFtBJA+rp4zUEtywilJynGPLA9b2tqoXq/Zj6S9BfXxKnj
+	6orqwt5tjNM/I/J1Alc3XYI=
+X-Google-Smtp-Source: APXvYqw7bkl6I68/FDNT0qQqrb17JASTUbwhukTprAeCawAUyM12WJd8K+PsyESmykB7bENoHuoUyg==
+X-Received: by 2002:a2e:91d5:: with SMTP id u21mr21898973ljg.32.1574672795913;
+        Mon, 25 Nov 2019 01:06:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:9b8a:: with SMTP id y10ls3965200plp.12.gmail; Mon,
- 25 Nov 2019 00:11:25 -0800 (PST)
-X-Received: by 2002:a17:902:34d:: with SMTP id 71mr19566143pld.140.1574669484867;
-        Mon, 25 Nov 2019 00:11:24 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1574669484; cv=none;
+Received: by 2002:a05:651c:289:: with SMTP id b9ls2276287ljo.10.gmail; Mon, 25
+ Nov 2019 01:06:35 -0800 (PST)
+X-Received: by 2002:a2e:9ad8:: with SMTP id p24mr21549003ljj.114.1574672795184;
+        Mon, 25 Nov 2019 01:06:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574672795; cv=none;
         d=google.com; s=arc-20160816;
-        b=EFMyXFs6BihLluqiS3lsFKh3wa8Kl9vH/udrrabVsALUInEil21QUx06cmlmkGlUGj
-         qnTVm9UHWeFsop9KxmEIKPax/tY4I+53IvmlQWRGjMf0m7Svx0sCIJVO5JpuIPliAQOn
-         MAwqqkXZNbSe/zXH4cVSOPr74p9Xswm6oDu/+TD26olbyRJufHCff4y7xR8+5dIPnute
-         MU/QQqo0G7k+fS2/snANV7+UlY6tOcSIYxgZPFYFW5bNJ1v/MmbBU+kuYw08ays8EOLz
-         sAMKdyUm29aSmKdGU6FLM14HhRCp/i5/oJaK6FqLkBCp338Qy8/eAJLmiSPEzknGE7o2
-         FcIw==
+        b=vsw6B8rDJefinoZqe6hispqpCljY4xvDvgNhxSMj6hMSSAL4d/ZpdEW+kcJPJgWt7d
+         u9r7yfkRxjRiqTVQ5y0z3iiLQg+3aMGluXkZrPjJOpMQwvwPAyCeo5HPK4d12fEbneBC
+         1CfOBDlso9pqNlE/L0dVJf8Jh2kExoIOtqaZxTZf9CBbTxaFz1GfwTFGOQAstnzIprvT
+         kRxDl/u2bzuduY3+SbDX4063S+7IH9IazmxTyYMntiPSyCOPd1chleruxYsQk2QtXxXY
+         dR/Hu1MUzasNZD//A80Nv8EVamdafgZyY1t6rqW4oSsn35CZ2RSipOHBWY9GIUvcnme+
+         Wl3A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=HqdYRRO9gik9kjYLa03E5PVDl5LhTZp0n7ZlEJyumT4=;
-        b=Jxa32iUx1OIyL0wBaWqyga6nU5TRuGtaUb4+WcEUdujGuPw/bu/d5tLyeelI0X57/c
-         rgqPK0ebJWDKfZsdMa1occJNv9oBI3e9nFM5mkVU7NwZFo9ueEURFoqh5CQNgzOvjmDE
-         aiKSfiCSXzDAfVQe/lkyLQDGeV+3FlQyPaZVL778ov8Cj91w4cBbSTw+eBqCt0Xp8Cr2
-         6LOwgSP3wk0U7Dy5PvGlXT8mR+TUA8YbQQrSBnO4LyTrDNVlVL1sFFSG0ejZjXN3VqZj
-         qp6zoCqgn2Br3C2TZ5kfSzooA/JdH7aZ5X+JfTePqhAVNIYNzpAWxyQpXm79wiBdA3Xr
-         TxjA==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=p+gFG0kM836Oo37i+7WyWaiQKDCPbTGz7taatZnuigw=;
+        b=EkTkzBvBoScr3qiBUyYXY7pADISZGqO6CPdjSohFpYvpuI+VB8Aiue/K8ik6zJ43ii
+         T8EaoldblOn5hGHRxgc9xsq0+3n1tlFN3LULf1OrrCyvAcS991Pg+9OtvPVC/mJarSnA
+         mw3cizv2Ky7bASgFs1QGWb6TqaMCEWT6Yk0N8mTP5ZC3saiYxr0u2s15eb0/QOKq4Opv
+         qiat4PfZLvFdRoHyNnkaPo1C/OvLbtfO/P3vUwPCIU5awE5Sqm/cyfgMXP4qPBof9bYP
+         NYo+amh13nk2WMjPibIgHbEXSIf8rzbuQUdH0z5r44iibIqT8XtgbobnRK0TjovsufJT
+         gs6w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
-        by gmr-mx.google.com with ESMTPS id 62si248095pld.2.2019.11.25.00.11.24
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=rpx4SVZu;
+       spf=neutral (google.com: 2a00:1450:4864:20::442 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id f11si389437lfm.2.2019.11.25.01.06.34
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 25 Nov 2019 00:11:24 -0800 (PST)
-Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Nov 2019 00:11:24 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,241,1571727600"; 
-   d="scan'208";a="233326691"
-Received: from shao2-debian.sh.intel.com (HELO [10.239.13.6]) ([10.239.13.6])
-  by fmsmga004.fm.intel.com with ESMTP; 25 Nov 2019 00:11:22 -0800
-Subject: Re: [atishp04:efi_stub 1/1]
- drivers/firmware/efi/libstub/arm-stub.c:203:7: warning: variable
- 'secure_boot' is uninitialized when used here
-To: Nick Desaulniers <ndesaulniers@google.com>,
- Atish Patra <Atish.Patra@wdc.com>, Philip Li <philip.li@intel.com>
-Cc: "kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
- "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
- "kbuild@lists.01.org" <kbuild@lists.01.org>, "lkp@intel.com" <lkp@intel.com>
-References: <201911191421.oOPAr13c%lkp@intel.com>
- <CAKwvOd=2frrSGAh5a3NtbcXuCsn3B4xJYyFvLGftqaDmNj+AYQ@mail.gmail.com>
- <dfbc952f478c57bcc2b8ec41ef0542119785444b.camel@wdc.com>
- <CAKwvOdkntuMELqccE2UT9p0878OWnGLDWfqaxeB7wHSJNRXETw@mail.gmail.com>
-From: Rong Chen <rong.a.chen@intel.com>
-Message-ID: <07bd7e95-c28e-6890-96e6-1a1c3b97dbcd@intel.com>
-Date: Mon, 25 Nov 2019 16:10:59 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Nov 2019 01:06:35 -0800 (PST)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::442 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2a00:1450:4864:20::442;
+Received: by mail-wr1-x442.google.com with SMTP id t1so16899878wrv.4
+        for <clang-built-linux@googlegroups.com>; Mon, 25 Nov 2019 01:06:34 -0800 (PST)
+X-Received: by 2002:a5d:4101:: with SMTP id l1mr29487804wrp.283.1574672792693;
+        Mon, 25 Nov 2019 01:06:32 -0800 (PST)
+Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
+        by smtp.gmail.com with ESMTPSA id 60sm8529270wrn.86.2019.11.25.01.06.32
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 25 Nov 2019 01:06:32 -0800 (PST)
+Message-ID: <5ddb9998.1c69fb81.229d.b9b3@mx.google.com>
+Date: Mon, 25 Nov 2019 01:06:32 -0800 (PST)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-In-Reply-To: <CAKwvOdkntuMELqccE2UT9p0878OWnGLDWfqaxeB7wHSJNRXETw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-US
-X-Original-Sender: rong.a.chen@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rong.a.chen@intel.com designates 192.55.52.115 as
- permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Kernel: next-20191125
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+X-Kernelci-Report-Type: build
+Subject: next/master build: 217 builds: 5 failed, 212 passed, 10 errors,
+ 136 warnings (next-20191125)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=rpx4SVZu;       spf=neutral (google.com: 2a00:1450:4864:20::442 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,614 +134,1795 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Nick,
+next/master build: 217 builds: 5 failed, 212 passed, 10 errors, 136 warning=
+s (next-20191125)
 
-On 11/22/19 3:10 AM, Nick Desaulniers wrote:
-> On Wed, Nov 20, 2019 at 2:46 PM Atish Patra <Atish.Patra@wdc.com> wrote:
->> On Mon, 2019-11-18 at 22:39 -0800, Nick Desaulniers wrote:
->>> Atish, below is a report from 0day bot from a build with Clang. The
->>> warning looks legit, can you please take a look?
->>>
->> Hi Nick,
->> Thanks for the email. This is a work in progress branch. Is there way
->> not to trigger kbuild tests on this branch ?
-> That's a common question that Rong or Philip can answer (I forgot what
-> the answer has been in the past).  Rong/Philip, it may be good to have
-> a URL/link that I can point people to in the future, since it's a FAQ.
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20191125/
 
-We have blacklisted "efi_stub" and "wip_.*" branches for Atish. In 
-general, branches named as ".*experimental.*" or ".*dont-build"
-won't be tested by default. and we have a doc to introduce basic 
-configurations: https://github.com/intel/lkp-tests/wiki/Repo-Spec
+Tree: next
+Branch: master
+Git Describe: next-20191125
+Git Commit: c165016bac2719e05794c216f9b6da730d68d1e3
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-Best Regards,
-Rong Chen
+Build Failures Detected:
 
->
->> --
->> Regards,
->> Atish
->>
->>
->>> On Mon, Nov 18, 2019 at 10:17 PM kbuild test robot <lkp@intel.com>
->>> wrote:
->>>> CC: kbuild-all@lists.01.org
->>>> TO: Atish Patra <atish.patra@wdc.com>
->>>>
->>>> tree:   https://github.com/atishp04/linux efi_stub
->>>> head:   7dbf2060ab3115d2edcfba8f0f677a321a1611f1
->>>> commit: 7dbf2060ab3115d2edcfba8f0f677a321a1611f1 [1/1] Add efi stub
->>>> config: arm64-defconfig (attached as .config)
->>>> compiler: clang version 10.0.0 (git://gitmirror/llvm_project
->>>> 0213adde218530bc31e5c4e50b49704c6bb2f2e9)
->>>> reproduce:
->>>>          wget
->>>> https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross
->>>> -O ~/bin/make.cross
->>>>          chmod +x ~/bin/make.cross
->>>>          git checkout 7dbf2060ab3115d2edcfba8f0f677a321a1611f1
->>>>          # save the attached .config to linux build tree
->>>>          make.cross ARCH=arm64
->>>>
->>>> If you fix the issue, kindly add following tag
->>>> Reported-by: kbuild test robot <lkp@intel.com>
->>>>
->>>> All warnings (new ones prefixed by >>):
->>>>
->>>>     drivers/firmware/efi/libstub/arm-stub.c:132:22: warning: unused
->>>> variable 'si' [-Wunused-variable]
->>>>             struct screen_info *si;
->>>>                                 ^
->>>>>> drivers/firmware/efi/libstub/arm-stub.c:203:7: warning:
->>>>>> variable 'secure_boot' is uninitialized when used here [-
->>>>>> Wuninitialized]
->>>>                  secure_boot != efi_secureboot_mode_disabled) {
->>>>                  ^~~~~~~~~~~
->>>>     drivers/firmware/efi/libstub/arm-stub.c:131:2: note: variable
->>>> 'secure_boot' is declared here
->>>>             enum efi_secureboot_mode secure_boot;
->>>>             ^
->>>>     2 warnings generated.
->>>>
->>>> vim +/secure_boot +203 drivers/firmware/efi/libstub/arm-stub.c
->>>>
->>>> b844470f22061e drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2018-09-21   92
->>>> b844470f22061e drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2018-09-21   93
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15   94  /*
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15   95   * This function handles the
->>>> architcture specific differences between arm and
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15   96   * arm64 regarding where the kernel
->>>> image must be loaded and any memory that
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15   97   * must be reserved. On failure it is
->>>> required to free all
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15   98   * all allocations it has made.
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15   99   */
->>>> bd669475d14e32 drivers/firmware/efi/arm-stub.c         Ard
->>>> Biesheuvel  2014-07-02  100  efi_status_t
->>>> handle_kernel_image(efi_system_table_t *sys_table,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  101                                   unsigned long
->>>> *image_addr,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  102                                   unsigned long
->>>> *image_size,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  103                                   unsigned long
->>>> *reserve_addr,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  104                                   unsigned long
->>>> *reserve_size,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  105                                   unsigned long dram_base,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  106                                   efi_loaded_image_t
->>>> *image);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  107  /*
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  108   * EFI entry point for the arm/arm64
->>>> EFI stubs.  This is the entrypoint
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  109   * that is described in the PE/COFF
->>>> header.  Most of the code is the same
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  110   * for both archictectures, with the
->>>> arch-specific code provided in the
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  111   * handle_kernel_image() function.
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  112   */
->>>> ddeeefe2dfbe1f drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2015-01-12  113  unsigned long efi_entry(void *handle,
->>>> efi_system_table_t *sys_table,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  114                                 unsigned
->>>> long *image_addr)
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  115  {
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  116          efi_loaded_image_t *image;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  117          efi_status_t status;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  118          unsigned long image_size = 0;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  119          unsigned long dram_base;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  120          /* addr/point and size pairs
->>>> for memory management*/
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  121          unsigned long initrd_addr;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  122          u64 initrd_size = 0;
->>>> 345c736edd07b6 drivers/firmware/efi/arm-stub.c         Ard
->>>> Biesheuvel  2014-04-03  123          unsigned long fdt_addr =
->>>> 0;  /* Original DTB */
->>>> a643375f4b1755 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2015-03-04  124          unsigned long fdt_size = 0;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  125          char *cmdline_ptr = NULL;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  126          int cmdline_size = 0;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  127          unsigned long new_fdt_addr;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  128          efi_guid_t loaded_image_proto =
->>>> LOADED_IMAGE_PROTOCOL_GUID;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  129          unsigned long reserve_addr = 0;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  130          unsigned long reserve_size = 0;
->>>> de8cb458625c16 drivers/firmware/efi/libstub/arm-stub.c David
->>>> Howells   2017-02-06  131          enum efi_secureboot_mode
->>>> secure_boot;
->>>> f0827e18a7a1da drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-04-25 @132          struct screen_info *si;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  133
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  134          /* Check if we were booted by
->>>> the EFI firmware */
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  135          if (sys_table->hdr.signature !=
->>>> EFI_SYSTEM_TABLE_SIGNATURE)
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  136                  goto fail;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  137
->>>> b9d6769b5678db drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-02-17  138          status =
->>>> check_platform_features(sys_table);
->>>> b9d6769b5678db drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-02-17  139          if (status != EFI_SUCCESS)
->>>> b9d6769b5678db drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-02-17  140                  goto fail;
->>>> b9d6769b5678db drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-02-17  141
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  142          /*
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  143           * Get a handle to the loaded
->>>> image protocol.  This is used to get
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  144           * information about the
->>>> running image, such as size and the command
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  145           * line.
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  146           */
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  147          status = sys_table->boottime-
->>>>> handle_protocol(handle,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  148                                          &loaded_image_prot
->>>> o, (void *)&image);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  149          if (status != EFI_SUCCESS) {
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  150                  pr_efi_err(sys_table,
->>>> "Failed to get loaded image protocol\n");
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  151                  goto fail;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  152          }
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  153
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  154          dram_base =
->>>> get_dram_base(sys_table);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  155          if (dram_base == EFI_ERROR) {
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  156                  pr_efi_err(sys_table,
->>>> "Failed to find DRAM base\n");
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  157                  goto fail;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  158          }
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  159
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  160          /*
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  161           * Get the command line from
->>>> EFI, using the LOADED_IMAGE
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  162           * protocol. We are going to
->>>> copy the command line into the
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  163           * device tree, so this can be
->>>> allocated anywhere.
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  164           */
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  165          cmdline_ptr =
->>>> efi_convert_cmdline(sys_table, image, &cmdline_size);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  166          if (!cmdline_ptr) {
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  167                  pr_efi_err(sys_table,
->>>> "getting command line via LOADED_IMAGE_PROTOCOL\n");
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  168                  goto fail;
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  169          }
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  170
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  171          if
->>>> (IS_ENABLED(CONFIG_CMDLINE_EXTEND) ||
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  172              IS_ENABLED(CONFIG_CMDLINE_FORCE) ||
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  173              cmdline_size == 0)
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  174                  efi_parse_options(CONFIG_CMDLINE);
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  175
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  176          if
->>>> (!IS_ENABLED(CONFIG_CMDLINE_FORCE) && cmdline_size > 0)
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  177                  efi_parse_options(cmdline_ptr);
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  178
->>>> eeff7d634f4750 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  179          pr_efi(sys_table, "Booting
->>>> Linux Kernel...\n");
->>>> 7dbf2060ab3115 drivers/firmware/efi/libstub/arm-stub.c Atish
->>>> Patra     2019-11-18  180  #if 0
->>>> f0827e18a7a1da drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-04-25  181          si =
->>>> setup_graphics(sys_table);
->>>> 7dbf2060ab3115 drivers/firmware/efi/libstub/arm-stub.c Atish
->>>> Patra     2019-11-18  182  #endif
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  183          status =
->>>> handle_kernel_image(sys_table, image_addr, &image_size,
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-
->>>> 26  184                                       &reserve_addr,
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-
->>>> 26  185                                       &reserve_size,
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-
->>>> 26  186                                       dram_base, image);
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  187          if (status != EFI_SUCCESS) {
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  188                  pr_efi_err(sys_table,
->>>> "Failed to relocate kernel\n");
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  189                  goto
->>>> fail_free_cmdline;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  190          }
->>>> 7dbf2060ab3115 drivers/firmware/efi/libstub/arm-stub.c Atish
->>>> Patra     2019-11-18  191  #if 0
->>>> ccc829ba3624be drivers/firmware/efi/libstub/arm-stub.c Matthew
->>>> Garrett 2017-08-25  192          /* Ask the firmware to clear
->>>> memory on unclean shutdown */
->>>> ccc829ba3624be drivers/firmware/efi/libstub/arm-stub.c Matthew
->>>> Garrett 2017-08-
->>>> 25  193          efi_enable_reset_attack_mitigation(sys_table);
->>>> ccc829ba3624be drivers/firmware/efi/libstub/arm-stub.c Matthew
->>>> Garrett 2017-08-25  194
->>>> 73a6492589c87c drivers/firmware/efi/libstub/arm-stub.c Linn
->>>> Crosetto   2016-04-25  195          secure_boot =
->>>> efi_get_secureboot(sys_table);
->>>> 7dbf2060ab3115 drivers/firmware/efi/libstub/arm-stub.c Atish
->>>> Patra     2019-11-18  196  #endif
->>>> 345c736edd07b6 drivers/firmware/efi/arm-stub.c         Ard
->>>> Biesheuvel  2014-04-03  197          /*
->>>> de8cb458625c16 drivers/firmware/efi/libstub/arm-stub.c David
->>>> Howells   2017-02-06  198           * Unauthenticated device tree
->>>> data is a security hazard, so ignore
->>>> de8cb458625c16 drivers/firmware/efi/libstub/arm-stub.c David
->>>> Howells   2017-02-06  199           * 'dtb=' unless UEFI Secure
->>>> Boot is disabled.  We assume that secure
->>>> de8cb458625c16 drivers/firmware/efi/libstub/arm-stub.c David
->>>> Howells   2017-02-06  200           * boot is enabled if we can't
->>>> determine its state.
->>>> 345c736edd07b6 drivers/firmware/efi/arm-stub.c         Ard
->>>> Biesheuvel  2014-04-03  201           */
->>>> 3d7ee348aa4127 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2018-07-11  202          if
->>>> (!IS_ENABLED(CONFIG_EFI_ARMSTUB_DTB_LOADER) ||
->>>> 3d7ee348aa4127 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2018-07-11 @203               secure_boot !=
->>>> efi_secureboot_mode_disabled) {
->>>> 3d7ee348aa4127 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2018-07-11  204                  if
->>>> (strstr(cmdline_ptr, "dtb="))
->>>> 73a6492589c87c drivers/firmware/efi/libstub/arm-stub.c Linn
->>>> Crosetto   2016-04-
->>>> 25  205                          pr_efi(sys_table, "Ignoring DTB
->>>> from command line.\n");
->>>> 345c736edd07b6 drivers/firmware/efi/arm-stub.c         Ard
->>>> Biesheuvel  2014-04-03  206          } else {
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  207                  status =
->>>> handle_cmdline_files(sys_table, image, cmdline_ptr,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  208                                                "dtb=",
->>>> a643375f4b1755 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2015-03-
->>>> 04  209                                                ~0UL,
->>>> &fdt_addr, &fdt_size);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  210
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  211                  if (status !=
->>>> EFI_SUCCESS) {
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  212                          pr_efi_err(sys_table, "Failed to
->>>> load device tree!\n");
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  213                          goto
->>>> fail_free_image;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  214                  }
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  215          }
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  216
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  217          if (fdt_addr) {
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  218                  pr_efi(sys_table,
->>>> "Using DTB from command line\n");
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  219          } else {
->>>> 345c736edd07b6 drivers/firmware/efi/arm-stub.c         Ard
->>>> Biesheuvel  2014-04-03  220                  /* Look for a device
->>>> tree configuration table entry. */
->>>> a643375f4b1755 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2015-03-04  221                  fdt_addr =
->>>> (uintptr_t)get_fdt(sys_table, &fdt_size);
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  222                  if (fdt_addr)
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-
->>>> 23  223                          pr_efi(sys_table, "Using DTB from
->>>> configuration table\n");
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  224          }
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  225
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  226          if (!fdt_addr)
->>>> 0bcaa9040d0586 drivers/firmware/efi/libstub/arm-stub.c Mark
->>>> Rutland    2014-10-23  227                  pr_efi(sys_table,
->>>> "Generating empty DTB\n");
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  228
->>>> 138728dd4ee30d drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  229          status =
->>>> handle_cmdline_files(sys_table, image, cmdline_ptr, "initrd=",
->>>> 138728dd4ee30d drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  230                                        efi_get_max_initrd_a
->>>> ddr(dram_base,
->>>> 138728dd4ee30d drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  231
->>>>      *image_addr),
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  232                                        (unsigned long
->>>> *)&initrd_addr,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  233                                        (unsigned long
->>>> *)&initrd_size);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  234          if (status != EFI_SUCCESS)
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  235                  pr_efi_err(sys_table,
->>>> "Failed initrd from command line!\n");
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  236
->>>> 568bc4e87033d2 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-11-
->>>> 12  237          efi_random_get_seed(sys_table);
->>>> 568bc4e87033d2 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-11-12  238
->>>> 38fb6652229c21 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-10-25  239          /* hibernation expects the
->>>> runtime regions to stay in the same place */
->>>> 38fb6652229c21 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-10-25  240          if
->>>> (!IS_ENABLED(CONFIG_HIBERNATION) && !nokaslr()) {
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  241                  /*
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  242                   * Randomize the base
->>>> of the UEFI runtime services region.
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  243                   * Preserve the 2 MB
->>>> alignment of the region by taking a
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  244                   * shift of 21 bit
->>>> positions into account when scaling
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  245                   * the headroom value
->>>> using a 32-bit random value.
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  246                   */
->>>> 197decefdb79d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-17  247                  static const u64
->>>> headroom = EFI_RT_VIRTUAL_LIMIT -
->>>> 197decefdb79d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 17  248                                              EFI_RT_VIRTUAL
->>>> _BASE -
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  249                                              EFI_RT_VIRTUAL
->>>> _SIZE;
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  250                  u32 rnd;
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  251
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  252                  status =
->>>> efi_get_random_bytes(sys_table, sizeof(rnd),
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  253                                                (u8 *)&rnd);
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  254                  if (status ==
->>>> EFI_SUCCESS) {
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  255                          virtmap_base =
->>>> EFI_RT_VIRTUAL_BASE +
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  256                                         (((headroom >> 21)
->>>> * rnd) >> (32 - 21));
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  257                  }
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  258          }
->>>> e69176d68d26d6 drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-04  259
->>>> b844470f22061e drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2018-09-
->>>> 21  260          install_memreserve_table(sys_table);
->>>> b844470f22061e drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2018-09-21  261
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  262          new_fdt_addr = fdt_addr;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  263          status =
->>>> allocate_new_fdt_and_exit_boot(sys_table, handle,
->>>> 138728dd4ee30d drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2017-04-
->>>> 04  264                                  &new_fdt_addr,
->>>> efi_get_max_fdt_addr(dram_base),
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  265                                  initrd_addr, initrd_size,
->>>> cmdline_ptr,
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-
->>>> 15  266                                  fdt_addr, fdt_size);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  267
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  268          /*
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  269           * If all went well, we need to
->>>> return the FDT address to the
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  270           * calling function so it can
->>>> be passed to kernel as part of
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  271           * the kernel boot protocol.
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  272           */
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  273          if (status == EFI_SUCCESS)
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  274                  return new_fdt_addr;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  275
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  276          pr_efi_err(sys_table, "Failed
->>>> to update FDT and exit boot services\n");
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  277
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  278          efi_free(sys_table,
->>>> initrd_size, initrd_addr);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  279          efi_free(sys_table, fdt_size,
->>>> fdt_addr);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  280
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  281  fail_free_image:
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  282          efi_free(sys_table, image_size,
->>>> *image_addr);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  283          efi_free(sys_table,
->>>> reserve_size, reserve_addr);
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  284  fail_free_cmdline:
->>>> 7dbf2060ab3115 drivers/firmware/efi/libstub/arm-stub.c Atish
->>>> Patra     2019-11-18  285          //free_screen_info(sys_table,
->>>> si);
->>>> 2b5fe07a78a09a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2016-01-26  286          efi_free(sys_table,
->>>> cmdline_size, (unsigned long)cmdline_ptr);
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  287  fail:
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  288          return EFI_ERROR;
->>>> 3c7f255039a2ad drivers/firmware/efi/arm-stub.c         Mark
->>>> Salter     2014-04-15  289  }
->>>> f3cdfd239da56a drivers/firmware/efi/libstub/arm-stub.c Ard
->>>> Biesheuvel  2014-10-20  290
->>>>
->>>> :::::: The code at line 203 was first introduced by commit
->>>> :::::: 3d7ee348aa4127a7893c11261da9b76371a970e6 efi/libstub/arm:
->>>> Add opt-in Kconfig option for the DTB loader
->>>>
->>>> :::::: TO: Ard Biesheuvel <ard.biesheuvel@linaro.org>
->>>> :::::: CC: Ingo Molnar <mingo@kernel.org>
->>>>
->>>> ---
->>>> 0-DAY kernel test infrastructure                 Open Source
->>>> Technology Center
->>>> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel
->>>> Corporation
->>>
->
+arm:
+    allmodconfig: (gcc-8) FAIL
+    mps2_defconfig: (gcc-8) FAIL
+    pxa_defconfig: (gcc-8) FAIL
+    xcep_defconfig: (gcc-8) FAIL
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/07bd7e95-c28e-6890-96e6-1a1c3b97dbcd%40intel.com.
+mips:
+    cavium_octeon_defconfig: (gcc-8) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 2 warnings
+    axs103_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig (gcc-8): 2 warnings
+    hsdk_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 1 warning
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
+
+arm64:
+    allmodconfig (clang-8): 68 warnings
+    allmodconfig (gcc-8): 3 warnings
+
+arm:
+    allmodconfig (gcc-8): 1 error, 20 warnings
+    mps2_defconfig (gcc-8): 2 errors, 2 warnings
+    multi_v7_defconfig (gcc-8): 1 warning
+    pxa_defconfig (gcc-8): 1 error
+    xcep_defconfig (gcc-8): 2 errors, 2 warnings
+
+i386:
+    i386_defconfig (gcc-8): 2 warnings
+
+mips:
+    32r2el_defconfig (gcc-8): 1 warning
+    cavium_octeon_defconfig (gcc-8): 4 errors, 3 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    nlm_xlr_defconfig (gcc-8): 1 warning
+    rbtx49xx_defconfig (gcc-8): 1 warning
+
+riscv:
+    rv32_defconfig (gcc-8): 6 warnings
+
+x86_64:
+    allmodconfig (gcc-8): 5 warnings
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (gcc-8): 1 warning
+
+Errors summary:
+
+    2    fs/io_uring.c:1647:4: error: implicit declaration of function 'kun=
+map'; did you mean 'vunmap'? [-Werror=3Dimplicit-function-declaration]
+    2    fs/io_uring.c:1632:21: error: implicit declaration of function 'km=
+ap'; did you mean 'vmap'? [-Werror=3Dimplicit-function-declaration]
+    1    drivers/staging/octeon/ethernet.c:516:29: error: type of formal pa=
+rameter 2 is incomplete
+    1    drivers/staging/octeon/ethernet.c:499:30: error: storage size of '=
+link_info' isn't known
+    1    drivers/staging/octeon/ethernet.c:463:30: error: storage size of '=
+link_info' isn't known
+    1    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing poi=
+nter to incomplete type 'struct cvmx_wqe'
+    1    arch/arm/mach-pxa/icontrol.c:92:23: error: 'mcp251x_info' undeclar=
+ed here (not in a function); did you mean 'mcp251x_board_info'?
+    1    ERROR: "__bad_udelay" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undef=
+ined!
+
+Warnings summary:
+
+    20   <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    16   1 warning generated.
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    7    2 warnings generated.
+    5    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argu=
+ment of type 'long unsigned int', but argument 5 has type 'unsigned int' [-=
+Wformat=3D]
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    3    3 warnings generated.
+    2    security/integrity/platform_certs/load_uefi.c:17:19: warning: 'efi=
+_cert_sha256_guid' defined but not used [-Wunused-variable]
+    2    security/integrity/platform_certs/load_uefi.c:15:19: warning: 'efi=
+_cert_x509_sha256_guid' defined but not used [-Wunused-variable]
+    2    security/integrity/platform_certs/load_uefi.c:14:19: warning: 'efi=
+_cert_x509_guid' defined but not used [-Wunused-variable]
+    2    fs/io_uring.c:1632:19: warning: assignment to 'void *' from 'size_=
+t' {aka 'unsigned int'} makes pointer from integer without a cast [-Wint-co=
+nversion]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2561:80=
+: warning: suggest braces around initialization of subobject [-Wmissing-bra=
+ces]
+    2    cc1: some warnings being treated as errors
+    2    WARNING: "kvm_get_arch_capabilities" [vmlinux] is a static EXPORT_=
+SYMBOL_GPL
+    2    WARNING: "kvm_get_arch_capabilities" [arch/x86/kvm/kvm] is a stati=
+c EXPORT_SYMBOL_GPL
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:134: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable 'rtd' [-=
+Wunused-variable]
+    1    security/integrity/platform_certs/load_uefi.c:17:19: warning: unus=
+ed variable 'efi_cert_sha256_guid' [-Wunused-variable]
+    1    security/integrity/platform_certs/load_uefi.c:15:19: warning: unus=
+ed variable 'efi_cert_x509_sha256_guid' [-Wunused-variable]
+    1    security/integrity/platform_certs/load_uefi.c:14:19: warning: unus=
+ed variable 'efi_cert_x509_guid' [-Wunused-variable]
+    1    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitia=
+lized when used within its own initialization [-Wuninitialized]
+    1    net/netfilter/nf_flow_table_offload.c:80:21: warning: unsigned con=
+version from 'int' to '__be16' {aka 'short unsigned int'} changes value fro=
+m '327680' to '0' [-Woverflow]
+    1    net/netfilter/nf_flow_table_offload.c:369:2: warning: variable 'of=
+fset' is used uninitialized whenever switch default is taken [-Wsometimes-u=
+ninitialized]
+    1    net/netfilter/nf_flow_table_offload.c:358:12: note: initialize the=
+ variable 'offset' to silence this warning
+    1    net/netfilter/nf_flow_table_offload.c:342:2: warning: variable 'of=
+fset' is used uninitialized whenever switch default is taken [-Wsometimes-u=
+ninitialized]
+    1    net/netfilter/nf_flow_table_offload.c:331:12: note: initialize the=
+ variable 'offset' to silence this warning
+    1    mm/shmem.c:2741:35: warning: variable 'shmem_falloc_waitq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    include/linux/kernel.h:851:29: warning: comparison of distinct poi=
+nter types lacks a cast
+    1    include/linux/kern_levels.h:5:18: warning: format '%ld' expects ar=
+gument of type 'long int', but argument 5 has type 'size_t' {aka 'unsigned =
+int'} [-Wformat=3D]
+    1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    1    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized wh=
+en used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized =
+when used within its own initialization [-Wuninitialized]
+    1    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: 'union cv=
+mx_helper_link_info' declared inside parameter list will not be visible out=
+side of this definition or declaration
+    1    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable=
+ 'link_info' [-Wunused-variable]
+    1    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable=
+ 'link_info' [-Wunused-variable]
+    1    drivers/scsi/lpfc/lpfc_sli.c:11909:34: warning: variable 'done_q' =
+is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/lpfc/lpfc_scsi.c:4726:34: warning: variable 'waitq' i=
+s uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/net/usb/lan78xx.c:2665:34: warning: variable 'unlink_wakeu=
+p' is uninitialized when used within its own initialization [-Wuninitialize=
+d]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1082:2: warning: variable 'r=
+' is used uninitialized whenever 'while' loop exits because its condition i=
+s false [-Wsometimes-uninitialized]
+    1    drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1072:7: note: initialize the=
+ variable 'r' to silence this warning
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2559:53=
+: warning: suggest braces around initialization of subobject [-Wmissing-bra=
+ces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc.c:1971:25: warnin=
+g: expression which evaluates to zero treated as a null pointer constant of=
+ type 'struct dc_dsc_config *' [-Wnon-literal-null-conversion]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc.c:1965:26: warnin=
+g: expression which evaluates to zero treated as a null pointer constant of=
+ type 'struct dc_dsc_config *' [-Wnon-literal-null-conversion]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:303=
+:53: warning: suggest braces around initialization of subobject [-Wmissing-=
+braces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:112=
+:62: warning: suggest braces around initialization of subobject [-Wmissing-=
+braces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/bios_parser2.c:297:4=
+1: warning: suggest braces around initialization of subobject [-Wmissing-br=
+aces]
+    1    drivers/bus/fsl-mc/fsl-mc-bus.c:720:37: warning: suggest braces ar=
+ound initialization of subobject [-Wmissing-braces]
+    1    drivers/bus/fsl-mc/fsl-mc-bus.c:719:37: warning: suggest braces ar=
+ound initialization of subobject [-Wmissing-braces]
+    1    drivers/bus/fsl-mc/fsl-mc-bus.c:718:43: warning: suggest braces ar=
+ound initialization of subobject [-Wmissing-braces]
+    1    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/android/binderfs.c:657:41: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    1    /tmp/ccMGWUJi.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccMGWUJi.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1172:warning: override: UNWINDER_GUESS changes choice stat=
+e
+
+Section mismatches summary:
+
+    5    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3980): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x363c): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warnin=
+g, 0 section mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 68 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/android/binderfs.c:657:41: warning: suggest braces around initi=
+alization of subobject [-Wmissing-braces]
+    1 warning generated.
+    security/integrity/platform_certs/load_uefi.c:14:19: warning: unused va=
+riable 'efi_cert_x509_guid' [-Wunused-variable]
+    security/integrity/platform_certs/load_uefi.c:15:19: warning: unused va=
+riable 'efi_cert_x509_sha256_guid' [-Wunused-variable]
+    security/integrity/platform_certs/load_uefi.c:17:19: warning: unused va=
+riable 'efi_cert_sha256_guid' [-Wunused-variable]
+    3 warnings generated.
+    drivers/bus/fsl-mc/fsl-mc-bus.c:718:43: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    drivers/bus/fsl-mc/fsl-mc-bus.c:719:37: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    drivers/bus/fsl-mc/fsl-mc-bus.c:720:37: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    3 warnings generated.
+    mm/shmem.c:2741:35: warning: variable 'shmem_falloc_waitq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/base.c:1894:35: warning: variable 'wq' is uninitialized when us=
+ed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/namei.c:1644:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    fs/namei.c:3132:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    2 warnings generated.
+    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/cifs/readdir.c:83:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/nfs/dir.c:448:34: warning: variable 'wq' is uninitialized when used =
+within its own initialization [-Wuninitialized]
+    fs/nfs/dir.c:1499:34: warning: variable 'wq' is uninitialized when used=
+ within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1082:2: warning: variable 'r' is =
+used uninitialized whenever 'while' loop exits because its condition is fal=
+se [-Wsometimes-uninitialized]
+    drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1072:7: note: initialize the vari=
+able 'r' to silence this warning
+    1 warning generated.
+    drivers/net/usb/lan78xx.c:2665:34: warning: variable 'unlink_wakeup' is=
+ uninitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/scsi/lpfc/lpfc_sli.c:11909:34: warning: variable 'done_q' is un=
+initialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/scsi/lpfc/lpfc_scsi.c:4726:34: warning: variable 'waitq' is uni=
+nitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/netfilter/nf_flow_table_offload.c:342:2: warning: variable 'offset'=
+ is used uninitialized whenever switch default is taken [-Wsometimes-uninit=
+ialized]
+    net/netfilter/nf_flow_table_offload.c:331:12: note: initialize the vari=
+able 'offset' to silence this warning
+    net/netfilter/nf_flow_table_offload.c:369:2: warning: variable 'offset'=
+ is used uninitialized whenever switch default is taken [-Wsometimes-uninit=
+ialized]
+    net/netfilter/nf_flow_table_offload.c:358:12: note: initialize the vari=
+able 'offset' to silence this warning
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:112:62: =
+warning: suggest braces around initialization of subobject [-Wmissing-brace=
+s]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:303:53: =
+warning: suggest braces around initialization of subobject [-Wmissing-brace=
+s]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/bios_parser2.c:297:41: wa=
+rning: suggest braces around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc.c:1965:26: warning: ex=
+pression which evaluates to zero treated as a null pointer constant of type=
+ 'struct dc_dsc_config *' [-Wnon-literal-null-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc.c:1971:25: warning: ex=
+pression which evaluates to zero treated as a null pointer constant of type=
+ 'struct dc_dsc_config *' [-Wnon-literal-null-conversion]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2559:53: war=
+ning: suggest braces around initialization of subobject [-Wmissing-braces]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2561:80: war=
+ning: suggest braces around initialization of subobject [-Wmissing-braces]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2561:80: war=
+ning: suggest braces around initialization of subobject [-Wmissing-braces]
+    3 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    security/integrity/platform_certs/load_uefi.c:17:19: warning: 'efi_cert=
+_sha256_guid' defined but not used [-Wunused-variable]
+    security/integrity/platform_certs/load_uefi.c:15:19: warning: 'efi_cert=
+_x509_sha256_guid' defined but not used [-Wunused-variable]
+    security/integrity/platform_certs/load_uefi.c:14:19: warning: 'efi_cert=
+_x509_guid' defined but not used [-Wunused-variable]
+    WARNING: "kvm_get_arch_capabilities" [arch/x86/kvm/kvm] is a static EXP=
+ORT_SYMBOL_GPL
+    WARNING: "kvm_get_arch_capabilities" [arch/x86/kvm/kvm] is a static EXP=
+ORT_SYMBOL_GPL
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    security/integrity/platform_certs/load_uefi.c:17:19: warning: 'efi_cert=
+_sha256_guid' defined but not used [-Wunused-variable]
+    security/integrity/platform_certs/load_uefi.c:15:19: warning: 'efi_cert=
+_x509_sha256_guid' defined but not used [-Wunused-variable]
+    security/integrity/platform_certs/load_uefi.c:14:19: warning: 'efi_cert=
+_x509_guid' defined but not used [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 20 warnings, 0 section m=
+ismatches
+
+Errors:
+    ERROR: "__bad_udelay" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
+
+Warnings:
+    include/linux/kernel.h:851:29: warning: comparison of distinct pointer =
+types lacks a cast
+    /tmp/ccMGWUJi.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccMGWUJi.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+    net/netfilter/nf_flow_table_offload.c:80:21: warning: unsigned conversi=
+on from 'int' to '__be16' {aka 'short unsigned int'} changes value from '32=
+7680' to '0' [-Woverflow]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    include/linux/kern_levels.h:5:18: warning: format '%ld' expects argumen=
+t of type 'long int', but argument 5 has type 'size_t' {aka 'unsigned int'}=
+ [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 3 warnings,=
+ 0 section mismatches
+
+Errors:
+    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing pointer =
+to incomplete type 'struct cvmx_wqe'
+    drivers/staging/octeon/ethernet.c:463:30: error: storage size of 'link_=
+info' isn't known
+    drivers/staging/octeon/ethernet.c:499:30: error: storage size of 'link_=
+info' isn't known
+    drivers/staging/octeon/ethernet.c:516:29: error: type of formal paramet=
+er 2 is incomplete
+
+Warnings:
+    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: 'union cvmx_he=
+lper_link_info' declared inside parameter list will not be visible outside =
+of this definition or declaration
+    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable 'lin=
+k_info' [-Wunused-variable]
+    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable 'lin=
+k_info' [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3980): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x363c): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+    WARNING: "kvm_get_arch_capabilities" [vmlinux] is a static EXPORT_SYMBO=
+L_GPL
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:134: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 section=
+ mismatches
+
+Errors:
+    fs/io_uring.c:1632:21: error: implicit declaration of function 'kmap'; =
+did you mean 'vmap'? [-Werror=3Dimplicit-function-declaration]
+    fs/io_uring.c:1647:4: error: implicit declaration of function 'kunmap';=
+ did you mean 'vunmap'? [-Werror=3Dimplicit-function-declaration]
+
+Warnings:
+    fs/io_uring.c:1632:19: warning: assignment to 'void *' from 'size_t' {a=
+ka 'unsigned int'} makes pointer from integer without a cast [-Wint-convers=
+ion]
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
+warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warni=
+ng, 0 section mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format '%lu' expects argument =
+of type 'long unsigned int', but argument 5 has type 'unsigned int' [-Wform=
+at=3D]
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section m=
+ismatches
+
+Errors:
+    arch/arm/mach-pxa/icontrol.c:92:23: error: 'mcp251x_info' undeclared he=
+re (not in a function); did you mean 'mcp251x_board_info'?
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable 'rtd' [-Wunus=
+ed-variable]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1172:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warn=
+ing, 0 section mismatches
+
+Warnings:
+    WARNING: "kvm_get_arch_capabilities" [vmlinux] is a static EXPORT_SYMBO=
+L_GPL
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 section=
+ mismatches
+
+Errors:
+    fs/io_uring.c:1632:21: error: implicit declaration of function 'kmap'; =
+did you mean 'vmap'? [-Werror=3Dimplicit-function-declaration]
+    fs/io_uring.c:1647:4: error: implicit declaration of function 'kunmap';=
+ did you mean 'vunmap'? [-Werror=3Dimplicit-function-declaration]
+
+Warnings:
+    fs/io_uring.c:1632:19: warning: assignment to 'void *' from 'size_t' {a=
+ka 'unsigned int'} makes pointer from integer without a cast [-Wint-convers=
+ion]
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5ddb9998.1c69fb81.229d.b9b3%40mx.google.com.
