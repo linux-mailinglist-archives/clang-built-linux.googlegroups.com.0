@@ -1,137 +1,127 @@
-Return-Path: <clang-built-linux+bncBCX2JBVY5MBBBS4C6LXAKGQEMJQMAYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBIMI6LXAKGQEUQQLHVI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1038.google.com (mail-pj1-x1038.google.com [IPv6:2607:f8b0:4864:20::1038])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7A685109797
-	for <lists+clang-built-linux@lfdr.de>; Tue, 26 Nov 2019 02:35:09 +0100 (CET)
-Received: by mail-pj1-x1038.google.com with SMTP id t7sf8340845pjg.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 25 Nov 2019 17:35:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1574732108; cv=pass;
+Received: from mail-yw1-xc3b.google.com (mail-yw1-xc3b.google.com [IPv6:2607:f8b0:4864:20::c3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 051D410979D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 26 Nov 2019 02:47:16 +0100 (CET)
+Received: by mail-yw1-xc3b.google.com with SMTP id w139sf11454851ywa.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 25 Nov 2019 17:47:15 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1574732833; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qDr43jxG7zCR8r0JHHyWx5Hnt1K5JB4LJ4q8W5yeg+5pFneXuzhhFbQ6qMntG14V1W
-         ACQ0IgIK9vCxQXWz03v0q2+vRRJgareLnsvNJTYvr6UcCbqziB/mjWvfFYxdKH4WtkD2
-         TmEPIkNtfN23aYr3c821vHk9/e6gPM4AFG0INyo3k/9BaiEx4OT9WusIPgYqcqvxSFjd
-         Zf4zFufWpudqf0OOu92zLu1R/XJQswVK+Y6RlVE6cIqZcZKMcEv7cOusnDC/ui1m4jGL
-         Of0GilzXXR6r9UIVRTl/7Cngf9HAQ2XkzQfjl+zl4SbRZU7ttbcBMYrtIXyJ1bvDah2b
-         j6vw==
+        b=r/PcMWghjEEQ5FO/ZWJoC6XNh35tTyP1oMByUBqPHHeIjDshUv1jrVX0Pb+IYTpU/Z
+         AIdXZqcyeYaYf3/rZ/8ahx9m3MpuPaZrPW6gM+3CBQb6h5EHblGvdBK6FHa5V0yA56PT
+         NzFaQvrhKIW1WxyG/kvSHeY11oikuxPd0qGj6hi5wsRE9QmcyTQScSIHJfKoE9o4uLtK
+         VBnONWvSe4DZCT5JeEfVZ63iounm4/C7y9Bwc1V5qJxkISab8G6bANOTw0/Ghd9fVoZj
+         wXGenHy1Bwaz1WzpHIWBWlU58MzTdfa0/9FfVKlU+kjfU3PKZvKsi2lQmfzG7uSa5xCU
+         55Nw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=LsqES+UACMnU8OY08YogePFU3tBf5r5i1Le0cixJv94=;
-        b=RJb/AoBpO6oj7306QrBd+VXMmekJUDe2jgInJofqb3IRugcgWpnumXpGaMAp/CRxMR
-         EENCaaBz8ivhTAAD6/hpZ/3vuae+iz6tXNp/qDbmBszZGBIS//vRR/3kIF/ovv1i674o
-         QoSerCWwvqr+20gPlyEoSh8/LDNyAkyN/ALDRi9LR/gHeLVEbSxZ0Xguu5RLS/rIj/zF
-         WQl8daXc1HRkWwowzXRM5p/5kDLryL7GaK2egUtrMu7oMXf5/wrkKdM72FhEz8KC5qVq
-         6Aj4iJQGDj5p2pkpy9jYIeW4n1l7y79pv1bd6J/+P4h2ZLGGVpyJUGhFHkJF3puxP/AJ
-         AKVQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=5OvT0su4+PsRy2BU+4shrLPbQFhkBktS6rJVblbz/vs=;
+        b=XEaVP9YiuoILMMJTEcVhMkUgAxg7bf9MAPMb+6CiF+ZqFOEYnAurcnM+75+BtkWi0u
+         AOgJUFeKf7Kl8/lPBICQTQatg74BAX7LQvPOXrI97ufwUICRbBqw3Q4QCzSxSiSWkfM9
+         r0dKjMvgEfBPrwzYguEyLwYsZGGMm5dyrlS/NcLxhDZ1rV30VU4CbFcWeiETgO3c1fpy
+         gPP0M0W53qwCnJlV7LZ0NEC3oqMNJT+hFHwdNSJCPMT4Frw21ikXpyhOAJiFjxx+iM/r
+         BC6hOQTcZsp+2YPBUtTHro9+e51V/HnJGgXhcL9k2yU22e4Pe4X1BbPE1tn9vTcXlscS
+         FK4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=fKk7iNXT;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LsqES+UACMnU8OY08YogePFU3tBf5r5i1Le0cixJv94=;
-        b=rsr4nJOqrdGk0Hku6XGyXQfIEtsIxAvZdjyBYA0Pwiu6Lgse2Xg6DRcP8+2aNFCQlB
-         Woss73sKwpgqh2+sZ7aJR/MYB5XvBiC1rZKXrLqROWqNiD+gsml9aCL/8eAkzRPIlzZ8
-         97E2qNlUSG5dzVuVvMYj/UL2J0VYsQjDd8JwWzqw4OXkyLBGF/XnJjUzWkksdXaBixlV
-         RPCEcGwLytrqCsAEuFfef9UJgIEdaE1UsdLfZBpBMWLiyqOOo98+zo+RynqdAdVWohLR
-         Ww7HgPYfUckExm5wS2RtnepRtaCMDpTD4OFAX5TmdwbssUG0iCVJIchC9VfaD28pqPW8
-         A+6g==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5OvT0su4+PsRy2BU+4shrLPbQFhkBktS6rJVblbz/vs=;
+        b=k6hg9U/WcV+M+W96AMsK/zHpCa3QEVkX2CQ5W4rVBlXYlfxHF6I8s8X1B2h5WvjN4j
+         Tdqj5VwYgjiNtsmhENtX8tAWQSw3Y2X7tkJDqkz3KQHXUB1KTLnuScQEaETodqobqscV
+         LyF5tZqYGKlJkW7R4whYnmPOexSSUc3hSHMJ6b2K80SHCTSnV6I+6A6Nlzf4NvyhM2aB
+         2j0S6YiR1jLkZAmIwd9oAlvBu/hk3q3pFgkIVMMR/TOy/1MhQJ7YNfh3csvLybEffuKj
+         mSeJmLPHY9FECIss/CVKYRbM4BB+4x/x3LTRfxlGxLO6eKmo6EuzSaFTG1zRNQJLyvL+
+         oXXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=LsqES+UACMnU8OY08YogePFU3tBf5r5i1Le0cixJv94=;
-        b=gzGwaeFMTYRcYaXFuKGoXLXzw4SuQDlFM5soE8XBdBYBGXW/diNuUVCMmBP1kQ+5Sy
-         tTgHiGx9Nl3KUXPWF73htnTCeBAYctytywZxQHTUYI5/VxDkvi9Fymcqez2wez7UwEqK
-         wed9H5Zzw+sqdUHfVHUgIbCc5LpvKUbkIyoe8/7cXa2wroAHAjQtKJ4BLvnIZk+LwIly
-         5q6nUTnrDkGMWithnPd/K3CxFFJ+lyDsWkStyJG7JzABy8/AI8+hmZ7MMvONyO9g5lUc
-         LXNSwghua99Z+YfLusjoIgpqJkeATf8qpX5Ek9GKU63VPg6Zh/R3+y6Whk8yeCmGz6C7
-         aTKg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV2hhHBftwCS8/faOM0DoT53a8o/1uKgKZs7mquQCyT3aqJaID+
-	tTCfzWqw1UegjLk3PW2YwCA=
-X-Google-Smtp-Source: APXvYqxObmdWaTN8EKsGpKLV90MWmlInO1s/xv0j6JOTRAVBwnei6Pfb/T6x+gvQK2uy7bcgA3qWvQ==
-X-Received: by 2002:a17:90a:9741:: with SMTP id i1mr2904682pjw.41.1574732107861;
-        Mon, 25 Nov 2019 17:35:07 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5OvT0su4+PsRy2BU+4shrLPbQFhkBktS6rJVblbz/vs=;
+        b=bUxOqw0UsSGMD85DFr7R1zAwQeCYOexvW7ui1384DNk1LSrLuWAq/auaueEGWOYJsf
+         V43GiERzjBLQjIVnuTh3iBoVl3dEsqK5HJZPGk9IcELKvXXqRF/FPm8OEKETCv7rlWzU
+         HwUCAlV8W41ZP76Yf++949ujoOZO1RO+cWtW4mPDWN+l7sqBL1V/WtZiY4K4CSujvsWe
+         JjwE7gGwdG50eqcTJGbF+z2o8QyUfTp9vcJjeLtkcFx/fbix+LBkvU5Pipatahcs1cep
+         RJOkY5zWGF4eop9r8MXs+fAUHzljqN9/mKEE5WdgUIQFomD86Q65fUCbd01P7AadTym7
+         bT+Q==
+X-Gm-Message-State: APjAAAWMH0uBsx1sbvTThy58zgrS+sIJmw6xJL2n1RzVkwsRh4kNiiLl
+	hOWgn2LlUC1dfvs4HFkywJw=
+X-Google-Smtp-Source: APXvYqwbTHEpil6wjnj8NjJ9ZO3bNWuVoztLX5KGahplSkcjaJIyUgINeXChx2W5QiVz4LjMlVHKiQ==
+X-Received: by 2002:a25:2f4b:: with SMTP id v72mr26058269ybv.90.1574732833385;
+        Mon, 25 Nov 2019 17:47:13 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:9248:: with SMTP id 8ls4577307pfp.7.gmail; Mon, 25 Nov
- 2019 17:35:07 -0800 (PST)
-X-Received: by 2002:aa7:8006:: with SMTP id j6mr39490769pfi.182.1574732107402;
-        Mon, 25 Nov 2019 17:35:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1574732107; cv=none;
+Received: by 2002:a25:8406:: with SMTP id u6ls3220204ybk.8.gmail; Mon, 25 Nov
+ 2019 17:47:13 -0800 (PST)
+X-Received: by 2002:a25:e045:: with SMTP id x66mr26744080ybg.93.1574732832887;
+        Mon, 25 Nov 2019 17:47:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1574732832; cv=none;
         d=google.com; s=arc-20160816;
-        b=QjqswFEaf8twp2x8snRow4Gx01l1PUMMMYldIZeoLKp/bfu5D2Az/gZsWI27agjAPG
-         iNWFu96TEOnsEebSWxY3U/h4fwWRXkOBRgNhCyPwNY/osIGVWjYBVBwHQaYLZlnTf0do
-         jQ91b1T3OC1l+P0v6ZyUvBtiEIKKHSl8lGETO094PTXG+t96GDZP2PfGiMEUHGVR83VC
-         nUhvfbuztYFUw0dJ6NS972QpR7hjsBGW4cFMPEvQ6jzxcy2LYj2gU3GSqBlcKHNjr1uh
-         KGqiYo/YNMkOOn2btoSWyn9YESz46UdsBOnwRxbx/6tZEzvxva/YgvAVgcHdcl0DmU7f
-         uQcA==
+        b=CGgwAigVOzuP/DbAA347pcoUmR1J5ahbG5eSXWJIbu4aTihbqC6QbET6K9tLV7CpBW
+         oXk+2go1jSIm+G4JnvSgh1ZOP9ReNbB7I6gC5ss8trBokJSxPs/jm4yrnDlcyHB9Z8Ug
+         l9Tfha0rKRSXpuFTG/o2A2WmaBpMSiG3aJBGKrwTY9J8BGrExo+cmAL/SRSQWALiJ0tf
+         iu6Ya49PQ0AMeriRYJ9TDC1zTaYiwALQ3xQ6DYt4LgPT16uYyi4Q3qXek4fvZmuhgL9N
+         BdPm2cPni62/Exzn9QIEbobjb4Zq0a6P1jrhlvK/XKUNXtS8GB1akNtV0Yo8xhH+jp6Z
+         thyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=7vzoGMHhM/53AquPld7X8ebSTtbMirlQT1432pi/GBw=;
-        b=woUje66bTyxiEYxm/DjnRnfCRXUwen/BpUKeB3Jbggx5RRv+hdsT7U3tRPWGf29yaA
-         KD+rLfa/XnvmFcS4um4XjEFI99Csbs1u9Syu5YGOpGW3lCIBj6ay1eJ8Gq77k+QY+p3Y
-         3pYJMhOaYPDI4fwgmZtxTJFwkenOaRT2+SorS3vumajeE3ZjPoE5KQwSIscVgrLnKq2l
-         VHEcDZzdqDeT8nFUBMbrBKKl0Lig0jercN0jMlWRs4wevkzJcEq1E6xDzf4IvEMH9mXb
-         Ix5s/ZclerCJxXS5E8oRl2yGQpWt8LgA4RInNPzxpX/jzJKvvR2POuxkIdforXZ7UoR7
-         tjpQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=KkZGv+kaMOga5WARXycE1ZR6cg0tzVfNuWa+lDuB6eA=;
+        b=An5d4YylNVCHk9P1RtuZEe6nX3GEMVmM2LEkyspJP+XZ5S6ZJt50voP8bAkC8YvkpW
+         bpsutIm8pU/Hex8Fdb2PuC5T2wYuzESlEw9SuwBUXuRyW8vET/D2o6Pd+fXAI1uZnKgI
+         R2dw5YQYrC9QLs6my6EtZoU5y/JZgDoqsN/OFGYEMfsr/nnm8oT1Ig3iu2shI1r8C/TF
+         u7fqc8Kj3hqRQMIEnX8w0ZZub55uvNJsKCaYHXuq/+GtRWIC81lLc7AXdlxq8QyxWywr
+         e2OkbwZbOcbMuvFpsL4UEauR/Q5ffW6/xW7d+AMlScbtA9voBfvaoQF8lAfPo9kZPzOk
+         y5Ag==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=philip.li@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id v36si317049pgl.1.2019.11.25.17.35.07
+       dkim=pass header.i=@google.com header.s=20161025 header.b=fKk7iNXT;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id p187si469263ywe.1.2019.11.25.17.47.12
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 25 Nov 2019 17:35:07 -0800 (PST)
-Received-SPF: pass (google.com: domain of philip.li@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Nov 2019 17:35:06 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,243,1571727600"; 
-   d="scan'208";a="202561180"
-Received: from pl-dbox.sh.intel.com (HELO intel.com) ([10.239.13.128])
-  by orsmga008.jf.intel.com with ESMTP; 25 Nov 2019 17:35:03 -0800
-Date: Tue, 26 Nov 2019 09:42:10 +0800
-From: Philip Li <philip.li@intel.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Dennis Zhou <dennis@kernel.org>, Chen Rong <rong.a.chen@intel.com>,
-	kbuild@lists.01.org,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	kbuild test robot <lkp@intel.com>, kbuild-all@lists.01.org,
-	David Sterba <dsterba@suse.com>, Chris Mason <clm@fb.com>,
-	Josef Bacik <josef@toxicpanda.com>,
-	Omar Sandoval <osandov@osandov.com>, kernel-team@fb.com,
-	linux-btrfs@vger.kernel.org
-Subject: Re: [PATCH 05/22] btrfs: add the beginning of async discard, discard
- workqueue
-Message-ID: <20191126014209.GB21240@intel.com>
-References: <201911220351.HPI9gxNo%lkp@intel.com>
- <CAKwvOdn5j37AYzmoOsaSqyYdBkjqevbTrSyGQypB+G_NgxX0fQ@mail.gmail.com>
- <20191125185931.GA30548@dennisz-mbp.dhcp.thefacebook.com>
- <CAKwvOdnaiXo8qqK_tyiYvw5Fo4HvdFzrMxLU7k62qEWucC-58Q@mail.gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 25 Nov 2019 17:47:12 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
+Received: by mail-pf1-x443.google.com with SMTP id z4so8323803pfn.12
+        for <clang-built-linux@googlegroups.com>; Mon, 25 Nov 2019 17:47:12 -0800 (PST)
+X-Received: by 2002:a63:4c14:: with SMTP id z20mr27206083pga.10.1574732831450;
+ Mon, 25 Nov 2019 17:47:11 -0800 (PST)
 MIME-Version: 1.0
+References: <201911220351.HPI9gxNo%lkp@intel.com> <CAKwvOdn5j37AYzmoOsaSqyYdBkjqevbTrSyGQypB+G_NgxX0fQ@mail.gmail.com>
+ <20191125185931.GA30548@dennisz-mbp.dhcp.thefacebook.com> <CAKwvOdnaiXo8qqK_tyiYvw5Fo4HvdFzrMxLU7k62qEWucC-58Q@mail.gmail.com>
+ <20191126014209.GB21240@intel.com>
+In-Reply-To: <20191126014209.GB21240@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Mon, 25 Nov 2019 17:47:00 -0800
+Message-ID: <CAKwvOdnp6kjJkmnDj=bmnN-VaRrNunNCQ5ngUNbCEUXCqYvq5w@mail.gmail.com>
+Subject: Re: [PATCH 05/22] btrfs: add the beginning of async discard, discard workqueue
+To: Philip Li <philip.li@intel.com>
+Cc: Dennis Zhou <dennis@kernel.org>, Chen Rong <rong.a.chen@intel.com>, kbuild@lists.01.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>, 
+	kbuild-all@lists.01.org, David Sterba <dsterba@suse.com>, Chris Mason <clm@fb.com>, 
+	Josef Bacik <josef@toxicpanda.com>, Omar Sandoval <osandov@osandov.com>, kernel-team@fb.com, 
+	linux-btrfs@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdnaiXo8qqK_tyiYvw5Fo4HvdFzrMxLU7k62qEWucC-58Q@mail.gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: philip.li@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of philip.li@intel.com designates 134.134.136.20 as
- permitted sender) smtp.mailfrom=philip.li@intel.com;       dmarc=pass (p=NONE
- sp=NONE dis=NONE) header.from=intel.com
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=fKk7iNXT;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,56 +134,90 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Nov 25, 2019 at 11:39:08AM -0800, Nick Desaulniers wrote:
-> On Mon, Nov 25, 2019 at 10:59 AM Dennis Zhou <dennis@kernel.org> wrote:
-> >
-> > On Thu, Nov 21, 2019 at 08:27:43PM -0800, Nick Desaulniers wrote:
-> > > Hi Dennis,
-> > > Below is a 0day bot report from a build w/ Clang. Warning looks legit,
-> > > can you please take a look?
+On Mon, Nov 25, 2019 at 5:35 PM Philip Li <philip.li@intel.com> wrote:
+>
+> On Mon, Nov 25, 2019 at 11:39:08AM -0800, Nick Desaulniers wrote:
+> > On Mon, Nov 25, 2019 at 10:59 AM Dennis Zhou <dennis@kernel.org> wrote:
 > > >
+> > > On Thu, Nov 21, 2019 at 08:27:43PM -0800, Nick Desaulniers wrote:
+> > > > Hi Dennis,
+> > > > Below is a 0day bot report from a build w/ Clang. Warning looks legit,
+> > > > can you please take a look?
+> > > >
+> > >
+> > > Ah thanks for this! Yeah that was a miss when I switched from flags ->
+> > > an enum and didn't update the declaration properly. I'll be sending out
+> > > a v4 as another fix for arm has some rebase conflicts.
+> > >
+> > > Is there a way to enable so I get these emails directly?
 > >
-> > Ah thanks for this! Yeah that was a miss when I switched from flags ->
-> > an enum and didn't update the declaration properly. I'll be sending out
-> > a v4 as another fix for arm has some rebase conflicts.
+> > + Rong, Philip
 > >
-> > Is there a way to enable so I get these emails directly?
-> 
-> + Rong, Philip
-> 
-> The reports have only been sent to our mailing list where we've been
-> manually triaging them.  The issue with enabling them globally was
-> that the script to reproduce the warning still doesn't mention how to
-> build w/ Clang.
-Thanks Nick for continuous caring on this. One thing we initially worry
-is how to avoid duplicated reports to developer, like the one that can
-be same as gcc's finding. We haven't found a way to effectively handle
-this.
+> > The reports have only been sent to our mailing list where we've been
+> > manually triaging them.  The issue with enabling them globally was
+> > that the script to reproduce the warning still doesn't mention how to
+> > build w/ Clang.
+> Thanks Nick for continuous caring on this. One thing we initially worry
+> is how to avoid duplicated reports to developer, like the one that can
+> be same as gcc's finding. We haven't found a way to effectively handle
+> this.
 
-> 
-> In general the reports have been high value (I ignore most reports
-> with -Wimplicit-function-declaration, which is the most frequent as it
-> shows the patch was not compile tested at all).
-Do we mean the report with -Wimplicit-function-declaration can be duplicated
-to gcc, so we can ignore them to avoid duplication to developer?
+Thanks for maintaining an invaluable tool.
 
-> 
-> Rong, Philip, it's been a while since we talked about this last. Is
-> there a general timeline of when these reports will be turned on
-> globally?  Even if the directions to reproduce aren't quite right,
-For the timeline, it's not decided due to the duplication concern. We tend
-to look into next year after other priorities are solved for this year.
+How would the reports be duplicated? Does 0day bot build with GCC,
+then rebuild with Clang?
 
-> generally there's enough info in the existing bugs where authors can
-> rewrite their patch without even needing to rebuild with Clang (though
-> having correct directions to reproduce would be nice, we could wait
-> until someone asked for them explicitly).
-> 
-> -- 
-> Thanks,
-> ~Nick Desaulniers
+Regardless, does it matter? If I make a mistake, and get two build
+failure emails from 0day bot instead of one, does it matter? Sometimes
+developers may just get one, as some warnings are unique to each
+compiler.  Maybe it runs the risk of folks ignoring the email if the
+volume is too much, but do authors generally ignore 0day bot emails?
+(I'd hope not).
+
+>
+> >
+> > In general the reports have been high value (I ignore most reports
+> > with -Wimplicit-function-declaration, which is the most frequent as it
+> > shows the patch was not compile tested at all).
+> Do we mean the report with -Wimplicit-function-declaration can be duplicated
+> to gcc, so we can ignore them to avoid duplication to developer?
+
+Many of the warnings GCC has Clang does as well.
+-Wimplicit-function-declaration is the most common warning I see in
+triage, which developers would see regardless of toolchain had they
+compiled first before pushing.  It might be interesting to see maybe
+the intersection or common flags between GCC and Clang, and only email
+Clang reports for warnings unique to clang?  I think CFLAGS can even
+be passed into make invocations so you could do:
+$ make CC=clang KBUILD_CFLAGS=<list of flags common to GCC and Clang;
+-Wno-implicit-function-declaration -Wno-...>
+such that any resulting warnings were unique to Clang.  I'd expect
+such a list to quickly get stale over time though.
+
+>
+> >
+> > Rong, Philip, it's been a while since we talked about this last. Is
+> > there a general timeline of when these reports will be turned on
+> > globally?  Even if the directions to reproduce aren't quite right,
+> For the timeline, it's not decided due to the duplication concern. We tend
+> to look into next year after other priorities are solved for this year.
+>
+> > generally there's enough info in the existing bugs where authors can
+> > rewrite their patch without even needing to rebuild with Clang (though
+> > having correct directions to reproduce would be nice, we could wait
+> > until someone asked for them explicitly).
+> >
+> > --
+> > Thanks,
+> > ~Nick Desaulniers
+
+
+
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191126014209.GB21240%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnp6kjJkmnDj%3DbmnN-VaRrNunNCQ5ngUNbCEUXCqYvq5w%40mail.gmail.com.
