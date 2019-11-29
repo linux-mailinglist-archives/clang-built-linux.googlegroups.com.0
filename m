@@ -1,144 +1,140 @@
-Return-Path: <clang-built-linux+bncBDJI5MPT4AIBBE5CQPXQKGQE6B4AVXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS6NPVSS4JBBJE5Q3XQKGQEWA4XTWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2B71410D232
-	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Nov 2019 09:04:36 +0100 (CET)
-Received: by mail-wr1-x440.google.com with SMTP id c6sf15115536wrm.18
-        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Nov 2019 00:04:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575014675; cv=pass;
+Received: from mail-wm1-x33f.google.com (mail-wm1-x33f.google.com [IPv6:2a00:1450:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E52A10DAF7
+	for <lists+clang-built-linux@lfdr.de>; Fri, 29 Nov 2019 22:33:25 +0100 (CET)
+Received: by mail-wm1-x33f.google.com with SMTP id y133sf4623793wmd.8
+        for <lists+clang-built-linux@lfdr.de>; Fri, 29 Nov 2019 13:33:25 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575063204; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nX3iYC9YbcRUyCuJlh99M/RrmGQqvto+IgxS6RQjfbrdU5JoimaS9PsoiqgS/pFYS7
-         Th3CC0yVOYw41dPgyHnvdY1i9TyLhtqTJ8lAjVUVjddGh6WYQEFXcP1OUyg+ee1jjMI6
-         wOwof2qTSAG5uKxbTV8vrAADVNV9jMw3Z5XeD9Tmz67xX8Zg5ESd8ietJKPydbIbNe6T
-         D3S3w/USnUc1DvAzzWvIGAuznGnKMKbAqCVaIC9R8RTc5A/4CTnmdoilL0rDRBxoydHD
-         igXknd3rDs5MZHcd8gGxsJxvOVh4CaNIfTVSE4swWRDDP0ca6wGRNqaonSsuOvojUvPi
-         9CIw==
+        b=YBNp10w0E9ZnfsT0e0aEtfsBNgYteSpjx7e5xh7vHg2Ol3Mqa/U0wh2ugcumpXQgpm
+         EO1iGebMxc7PcyuNEyo2gEt9HrZMK5viqNWaoynWCuviZ90yThTYdgZgxlHIUA0EC4dX
+         drHMWqlTS+R9VjKSgE4VU90aFCKUGKPSI/KU/9akKIBaBPsdqWMofA7oaLR8/NcNM+nf
+         hZgzt/kEXbOApkxA0qwA9GiQngXBJA6k8JuUWLQt7ZddKm7zicy3QO4gs8A25OwG4RJA
+         m6msgI8IW30YIqzYgY9Je2inLWPWe05CBY/pCJNF/CJOpvgL5iU6W7jJ4wjD06kWOvD1
+         QEkg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=n2kDiodg6imfOcOuuehUxGRcXQtVeh/QsuH+MhWQu14=;
-        b=0fHmx1BxMxsYNJLDQnUb0HA8/NVitOlXD7LqxXF0/8Il8kB6jXCxC/0ki/aS5jdHTx
-         j45w3ZB9dgr/yX8oWq4TcyP+i9k2C5sRLbH+IxtQ9M0GAhtr3/mgnOBnPmsOfBw81oJG
-         dbrNgxWNnZSWilQt7Ku+RKS1zCT+JK9dn8ErKh4E/ic6oTZ5ICWK9ysLisOQWiC3wsf+
-         BiV0Mb4TYEELcdQ15xMCBpvWAwYjomwl86wFQ8T6KXo8v84tW+RcZnQKKpBwsFmQRVKS
-         2WUFQuA1XpXBWUxUAnkL/wTtudLFfElnfQVohvUOEOpO3VPHZh3+Elu+lWnsTYvCzInq
-         qw6w==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :message-id:in-reply-to:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=qVoj+StZniX3X9Ex2FzOqkxlcgRTYmTZd4jHuyraVAU=;
+        b=L3lgohWI3eNyzovOrV6DxEUcWv2pRJutz+Qxm4ds7DExbxRINoBFmMuPkx9fuZQrd6
+         N4bcqEOxwR1cw4/iGrqB/sNkk8vYnrgtyiJUiOY6B0bXFH6G3gdlEBZQw0bENcxFJ/9x
+         VJPyoddoBVqGQaYeZPugTjMbJYHgoRC+wYlcMcGL6qkBURJw0pDnciqxV2RtiZ1ybJ4i
+         cXSxeZIJqPKwT1ia0+pBtXH40HvBJ8dWg823Mg3I2AT0035V7+YiiZXsCde/guKPSYhF
+         FB9SKveEzUtr69545hdtOtvOZDGqb0VHD8gt1vwuamfZ7AsqNclewMT57dQ3fPWqOc3x
+         oCpg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 193.147.175.20 is neither permitted nor denied by best guess record for domain of pablo@netfilter.org) smtp.mailfrom=pablo@netfilter.org
+       dkim=pass header.i=@pobox.com header.s=sasl header.b=fJLIScTj;
+       dkim=temperror (no key for signature) header.i=@fluxnic.net header.s=2016-12.pbsmtp header.b=pZw+3rec;
+       spf=pass (google.com: domain of nico@fluxnic.net designates 173.228.157.52 as permitted sender) smtp.mailfrom=nico@fluxnic.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
+         :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=n2kDiodg6imfOcOuuehUxGRcXQtVeh/QsuH+MhWQu14=;
-        b=brg03zGEErl8qML0UvWVg6fehGbO62pNlwlDqBIYyIDWGP1muDVzPDSyIU/zKeyMNe
-         3IF+vYnK9S9AP/yRsxvcSi35RJmptqmNjSQiZSlEdhpa5B97kQM7k90GATjeu/bFa5Sj
-         anhvjStjfWcy/d0QEdnVQAicYf45qtv5sS2iPvvAXQeB9jrpQuT+f3iQ5nthQRRXzOMx
-         P4wt1+J4i6mDb4hYx5rsCCzwQMQaSq48vDP3sYNRD9DJytjSp1+4INNiNU85okk80/GP
-         qAdzxbU0wRpvEUmGWAGFej/yOMnS5uA3QoNTC2db38Zu1OcMvt3bVUzmXvDooH22Cbxs
-         zlpg==
+        bh=qVoj+StZniX3X9Ex2FzOqkxlcgRTYmTZd4jHuyraVAU=;
+        b=aLA+U0EQcH4z3Mw3+Bcuigid6yiQG9KTyKZoD+ls9BJ+R0WiHexi2WcQTdesuw73yK
+         p7aC/dUjkCkaT+zFvvzoj0oWozH5/efHk4+RKBRSdGhFEBz1REIxF4Pi0XH2qcSaEn+3
+         A6LFHqph7yfU/7XM26/xrK0mDsQmCBINKnsRRkSIjPw1IxK1Ky5uC/lEZ9DJxe4TJD+S
+         DE0PBK1gWVVoutngflp0JF1Dj2NGvQLmqoj2dU/Z8FyhG1apqA8iQXWthcqBvzFKM4Zu
+         OwDOUkd/mo6JBc/GevTUFHMyWVKRgiwHsbPhs9oo5gDPnk3/GYjDg5y2HfUG5SPJ3N3j
+         c9rQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=n2kDiodg6imfOcOuuehUxGRcXQtVeh/QsuH+MhWQu14=;
-        b=Ce3zAmJeq7kJ+FXL59TTC3TB3bTLCYbfmg1n+/1r1SmZRpldU1ibzLdEjnhMPEUNnc
-         ZQigWSVY2nmggMnnGeX4x5HAuM32iXufBtLgN/FcOxMXoSmmMTPTw4WtkX9Yx4ttA8XL
-         yn0IlVR6bXsjQpUu4MTI3XKHZUfLnFJY25iBADTK3werGIuMrfDOcvOJDr/Zn/K7DtmJ
-         MjLMbG4k301BMDMOtAyHnhS74KcH0ILu9vnpBFXyUVeTK7e4zsJvaRaI8L9zCTBdRGRQ
-         Ffc+wXHCJkA6g0fB5+NHrqDYsrYGf8R1Yt8lLSf8+v9rGESYflDPxsGJShSEaYsMyc9t
-         +Q0g==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
+         :message-id:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=qVoj+StZniX3X9Ex2FzOqkxlcgRTYmTZd4jHuyraVAU=;
+        b=Fday05CG9VY72m2Sw2v2/5EIdxNrsI8geNXT7da+QF9ED2KH6nAm4RqgBWZcX9vy4E
+         lKuWpqG6sVgvAhV9HyiWNoJ7cbbOYsCnlPG+5yOh2PvJVTvCT4IA2zRHVNGjmuJLz7K7
+         5cJNy9TkKDep/pYjq+mmXuTcyOaISrXhhawYsVqOG7yQadoCp9Ji+6Bm6spZfBWYdmmq
+         l2o3708MpUyCFR5gl5IT3piBfirc/bh4o74kGWgM3UJTOTxqr3gvMcZHY0RGqo0guRA6
+         Ai6dSiuWXszKMWtu6RlO5N4///lmwRt5o0TNGB5YuA7ZlmEN9nI+geKuQwWsKcN6ublX
+         mjFA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXrNBZi5WcShvbC64Mng75sNpvvLurWIaxIJnzEUAZiznQk+GoD
-	XWkPbZ7m7rBduuJlk3QtiqY=
-X-Google-Smtp-Source: APXvYqzEXiV2YWqI0zk1tf0+2wtDdYr2B/JQi3G2wZ0w/g3BZ83jXsqg1SZauF0XvdALlwUpPJZ/iw==
-X-Received: by 2002:adf:dd4d:: with SMTP id u13mr34317788wrm.394.1575014675851;
-        Fri, 29 Nov 2019 00:04:35 -0800 (PST)
+X-Gm-Message-State: APjAAAWAg/8aXV8VSr8JUDoyjZO3OcbByCOdS96c3606uRv5ephgxvQ2
+	3LqXejLKyXRixb6MhFKiiAk=
+X-Google-Smtp-Source: APXvYqwnmAlqkhvU3h2GoQZ1f/xri8HsOKo6o4tKmNxVMtwUrOcQ7K04nCrLOAfdmIfFlzdvmP7ykg==
+X-Received: by 2002:adf:806e:: with SMTP id 101mr4999559wrk.300.1575063204561;
+        Fri, 29 Nov 2019 13:33:24 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:ca52:: with SMTP id m18ls4915477wml.4.gmail; Fri, 29 Nov
- 2019 00:04:35 -0800 (PST)
-X-Received: by 2002:a7b:cb86:: with SMTP id m6mr13921286wmi.124.1575014675199;
-        Fri, 29 Nov 2019 00:04:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575014675; cv=none;
+Received: by 2002:adf:fc89:: with SMTP id g9ls3556571wrr.5.gmail; Fri, 29 Nov
+ 2019 13:33:23 -0800 (PST)
+X-Received: by 2002:adf:f885:: with SMTP id u5mr6415104wrp.359.1575063203938;
+        Fri, 29 Nov 2019 13:33:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575063203; cv=none;
         d=google.com; s=arc-20160816;
-        b=FC743AwJ22CYOSYV/e91EVxmU/cEV6gnkMbj9ttbkqh7Zp8Nv6z3YV1/Bpf/EtV0am
-         CNgF4J+wzvltUZPoE20YfSTuTS/3aGt8EUVzYaCz9lsSdP3WPWZzqj5bfjQlqqdraKzE
-         jv5OHdhXUORep8fNUZndx3jAjfU9/j6sv9X03Tibi3vdCtNTqLNFhpikV6GM+xnGa9J1
-         WvEVI+w/4aO0O0aqPiK7CwTm4z1R0Qemc5EWXCj9hjCPfWbSwdItCCIRs3d41kff1/kW
-         H401fZskVsL8nH52Q2auVCs6PnRq1eUjXfm/XlX3nlTh8rSV4w1C/G7+C9aSZxbFTVda
-         +hEw==
+        b=pn+/Th9qngMFLXBN6eE6n17RZ7bKE58Taurh9I5u9CVxoB+wJhbx0kpDIMsAXbMZ0t
+         1GyyVs+4GMOiYibiJuOwencq70PcwUUQ3FqSLFO3pk+W3MVp5/c9vVvD3VN+vy5HkPPJ
+         HUscOkqWH0r3QiZ2E/fhlqz73hyOgI+cW/OQeu+Ci712MMaFNsaZD6fDv3iTxkTuRSgs
+         karJF7GoOdczGl2ZkIQHfyrDz/+ieyP+zYbL4EGjchRtocCpHrTvKc5lMBTnk+ZUAyGv
+         CGJOxtEJj0ZS18bFHdO1LI+n6UKw0lqEk3CJktIxLUUO6Sc15aGuloQv3JTeIWP1RZuj
+         m7gw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date;
-        bh=q+WPOaxkmQOF8kMzMlKFC/xf4hN0NZ6TYFGYV52/vgk=;
-        b=x2DD3MhwoOhlw+mwksOl/8ynfqgj3dtY3zUxwIvF6gtI0bLOvsxmFTMGdChJvsVT+L
-         i9Ef/8ogILfktyfrcGqpCZUPZnqJfRv4lyo4UPDRRNR4LVQtqYM6f38+MbZjbZ9rQp5z
-         Nm7IYIUQDQwtRguAznYgBKgeoewzocHCQWGIGst3ilhGDkx3AwN5kxPjuVaWs97XdQj3
-         gWEz/MVWVxf8aLnxTWt4AytLYKXLvCdI00wHYTAlqVLWt3Q3eiwhaWnnbDgrrockYvzp
-         awPvbQyZAyEDZ1ubqVAB06b7VQZfkARLTvYq9v3hTD91tgMwf3KkD9gdk24+Tpq4rKrs
-         G4nQ==
+        h=mime-version:user-agent:references:message-id:in-reply-to:subject
+         :cc:to:from:date:dkim-signature:dkim-signature;
+        bh=8aaF5zej6tJ/kT+FcYywJ/FW8GABcIsWhNT/LEpiUsE=;
+        b=F/Vxa+Mnwry2PqTN/gyNoOUzAKGfs4Bs8Wgjkqi0qNnmUhXNMyAFaIhOgN9wVQ+zHD
+         2wHUBI7w6rj8t5s55fS2CPJXvGtvM5eD+X75mI+7w4zxbvfLFFLS7op3IbJEZvERl+xy
+         sAGSGBGKsIIaFoW1mrv4Hr1ItYLV4pvXEJ5msJomCDoc4h/pv3o2LV6hLu2rqgyjMKSI
+         lGVDAlDXhaeMbw/oJtiu6knrIfIQhzqR0im4ofpGSmHZghf/IIHUjBhLiFWUtbZRzKIt
+         5d6mj7OqpOJc4f8hLxqlvl5zNZQEeoxn4bDLwdjYsis9Cj+NOCYFkWmToc5Dv/y5c4Ae
+         OZ1A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 193.147.175.20 is neither permitted nor denied by best guess record for domain of pablo@netfilter.org) smtp.mailfrom=pablo@netfilter.org
-Received: from mail.us.es (correo.us.es. [193.147.175.20])
-        by gmr-mx.google.com with ESMTPS id k189si95633wma.0.2019.11.29.00.04.35
+       dkim=pass header.i=@pobox.com header.s=sasl header.b=fJLIScTj;
+       dkim=temperror (no key for signature) header.i=@fluxnic.net header.s=2016-12.pbsmtp header.b=pZw+3rec;
+       spf=pass (google.com: domain of nico@fluxnic.net designates 173.228.157.52 as permitted sender) smtp.mailfrom=nico@fluxnic.net
+Received: from pb-smtp20.pobox.com (pb-smtp20.pobox.com. [173.228.157.52])
+        by gmr-mx.google.com with ESMTPS id i1si980329wra.4.2019.11.29.13.33.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 29 Nov 2019 00:04:35 -0800 (PST)
-Received-SPF: neutral (google.com: 193.147.175.20 is neither permitted nor denied by best guess record for domain of pablo@netfilter.org) client-ip=193.147.175.20;
-Received: from antivirus1-rhel7.int (unknown [192.168.2.11])
-	by mail.us.es (Postfix) with ESMTP id 3E1E627F8D4
-	for <clang-built-linux@googlegroups.com>; Fri, 29 Nov 2019 09:04:33 +0100 (CET)
-Received: from antivirus1-rhel7.int (localhost [127.0.0.1])
-	by antivirus1-rhel7.int (Postfix) with ESMTP id 2FE9ADA70E
-	for <clang-built-linux@googlegroups.com>; Fri, 29 Nov 2019 09:04:33 +0100 (CET)
-Received: by antivirus1-rhel7.int (Postfix, from userid 99)
-	id 132B0DA714; Fri, 29 Nov 2019 09:04:33 +0100 (CET)
-X-Spam-Checker-Version: SpamAssassin 3.4.1 (2015-04-28) on antivirus1-rhel7.int
-X-Spam-Level: 
-X-Spam-Status: No, score=-108.2 required=7.5 tests=ALL_TRUSTED,BAYES_50,
-	SMTPAUTH_US2,USER_IN_WHITELIST autolearn=disabled version=3.4.1
-Received: from antivirus1-rhel7.int (localhost [127.0.0.1])
-	by antivirus1-rhel7.int (Postfix) with ESMTP id 0C517DA70E;
-	Fri, 29 Nov 2019 09:04:31 +0100 (CET)
-Received: from 192.168.1.97 (192.168.1.97)
- by antivirus1-rhel7.int (F-Secure/fsigk_smtp/550/antivirus1-rhel7.int);
- Fri, 29 Nov 2019 09:04:31 +0100 (CET)
-X-Virus-Status: clean(F-Secure/fsigk_smtp/550/antivirus1-rhel7.int)
-Received: from us.es (sys.soleta.eu [212.170.55.40])
+        Fri, 29 Nov 2019 13:33:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of nico@fluxnic.net designates 173.228.157.52 as permitted sender) client-ip=173.228.157.52;
+Received: from pb-smtp20.pobox.com (unknown [127.0.0.1])
+	by pb-smtp20.pobox.com (Postfix) with ESMTP id E7AA594B11;
+	Fri, 29 Nov 2019 16:33:21 -0500 (EST)
+	(envelope-from nico@fluxnic.net)
+Received: from pb-smtp20.sea.icgroup.com (unknown [127.0.0.1])
+	by pb-smtp20.pobox.com (Postfix) with ESMTP id CD3B694B10;
+	Fri, 29 Nov 2019 16:33:21 -0500 (EST)
+	(envelope-from nico@fluxnic.net)
+Received: from yoda.home (unknown [24.203.50.76])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	(Authenticated sender: 1984lsi)
-	by entrada.int (Postfix) with ESMTPSA id D0C0041E4802;
-	Fri, 29 Nov 2019 09:04:30 +0100 (CET)
-Date: Fri, 29 Nov 2019 09:04:32 +0100
-X-SMTPAUTHUS: auth mail.us.es
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Florian Westphal <fw@strlen.de>, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] netfilter: nf_flow_table_offload: Don't use offset
- uninitialized in flow_offload_port_{d,s}nat
-Message-ID: <20191129080432.jnsghajoenturr7v@salvia>
-References: <20191126201226.51857-1-natechancellor@gmail.com>
+	by pb-smtp20.pobox.com (Postfix) with ESMTPSA id C152294B0F;
+	Fri, 29 Nov 2019 16:33:18 -0500 (EST)
+	(envelope-from nico@fluxnic.net)
+Received: from xanadu.home (xanadu.home [192.168.2.2])
+	by yoda.home (Postfix) with ESMTPSA id E396D2DA01D7;
+	Fri, 29 Nov 2019 16:33:16 -0500 (EST)
+Date: Fri, 29 Nov 2019 16:33:16 -0500 (EST)
+From: Nicolas Pitre <nico@fluxnic.net>
+To: Nick Desaulniers <ndesaulniers@google.com>
+cc: Russell King - ARM Linux <linux@armlinux.org.uk>, 
+    clang-built-linux@googlegroups.com, manojgupta@google.com, 
+    natechancellor@gmail.com, Kees Cook <keescook@chromium.org>, 
+    stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+    linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm: explicitly place .fixup in .text
+In-Reply-To: <20191122185522.20582-1-ndesaulniers@google.com>
+Message-ID: <nycvar.YSQ.7.76.1911291614480.8537@knanqh.ubzr>
+References: <20191122185522.20582-1-ndesaulniers@google.com>
+User-Agent: Alpine 2.21 (LFD 202 2017-01-01)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20191126201226.51857-1-natechancellor@gmail.com>
-User-Agent: NeoMutt/20170113 (1.7.2)
-X-Virus-Scanned: ClamAV using ClamSMTP
-X-Original-Sender: pablo@netfilter.org
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 193.147.175.20 is neither permitted nor denied by best guess
- record for domain of pablo@netfilter.org) smtp.mailfrom=pablo@netfilter.org
+X-Pobox-Relay-ID: DC23B8F4-12EF-11EA-9534-B0405B776F7B-78420484!pb-smtp20.pobox.com
+X-Original-Sender: nico@fluxnic.net
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@pobox.com header.s=sasl header.b=fJLIScTj;       dkim=temperror (no
+ key for signature) header.i=@fluxnic.net header.s=2016-12.pbsmtp
+ header.b=pZw+3rec;       spf=pass (google.com: domain of nico@fluxnic.net
+ designates 173.228.157.52 as permitted sender) smtp.mailfrom=nico@fluxnic.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,30 +147,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Nov 26, 2019 at 01:12:26PM -0700, Nathan Chancellor wrote:
-> Clang warns (trimmed the second warning for brevity):
-> 
-> ../net/netfilter/nf_flow_table_offload.c:342:2: warning: variable
-> 'offset' is used uninitialized whenever switch default is taken
-> [-Wsometimes-uninitialized]
->         default:
->         ^~~~~~~
-> ../net/netfilter/nf_flow_table_offload.c:346:57: note: uninitialized use
-> occurs here
->         flow_offload_mangle(entry, flow_offload_l4proto(flow), offset,
->                                                                ^~~~~~
-> ../net/netfilter/nf_flow_table_offload.c:331:12: note: initialize the
-> variable 'offset' to silence this warning
->         u32 offset;
->                   ^
->                    = 0
-> 
-> Match what was done in the flow_offload_ipv{4,6}_{d,s}nat functions and
-> just return in the default case, since port would also be uninitialized.
+On Fri, 22 Nov 2019, Nick Desaulniers wrote:
 
-Applied, thanks.
+> From: Kees Cook <keescook@chromium.org>
+> 
+> There's an implicit dependency on the section ordering of the orphaned
+> section .fixup that can break arm_copy_from_user if the linker places
+> the .fixup section before the .text section. Since .fixup is not
+> explicitly placed in the existing ARM linker scripts, the linker is free
+> to order it anywhere with respect to the rest of the sections.
+> 
+> Multiple users from different distros (Raspbian, CrOS) reported kernel
+> panics executing seccomp() syscall with Linux kernels linked with LLD.
+> 
+> Documentation/x86/exception-tables.rst alludes to the ordering
+> dependency. The relevant quote:
+> 
+> ```
+> NOTE:
+> Due to the way that the exception table is built and needs to be ordered,
+> only use exceptions for code in the .text section.  Any other section
+> will cause the exception table to not be sorted correctly, and the
+> exceptions will fail.
+> 
+> Things changed when 64-bit support was added to x86 Linux. Rather than
+> double the size of the exception table by expanding the two entries
+> from 32-bits to 64 bits, a clever trick was used to store addresses
+> as relative offsets from the table itself. The assembly code changed
+> from::
+> 
+>     .long 1b,3b
+>   to:
+>           .long (from) - .
+>           .long (to) - .
+> 
+> and the C-code that uses these values converts back to absolute addresses
+> like this::
+> 
+>         ex_insn_addr(const struct exception_table_entry *x)
+>         {
+>                 return (unsigned long)&x->insn + x->insn;
+>         }
+> ```
+> 
+> Since the addresses stored in the __ex_table are RELATIVE offsets and
+> not ABSOLUTE addresses, ordering the fixup anywhere that's not
+> immediately preceding .text causes the relative offset of the faulting
+> instruction to be wrong, causing the wrong (or no) address of the fixup
+> handler to looked up in __ex_table.
+
+This explanation makes no sense.
+
+The above is valid only when ARCH_HAS_RELATIVE_EXTABLE is defined. On 
+ARM32 it is not, nor would it make sense to be.
+
+
+Nicolas
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191129080432.jnsghajoenturr7v%40salvia.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/nycvar.YSQ.7.76.1911291614480.8537%40knanqh.ubzr.
