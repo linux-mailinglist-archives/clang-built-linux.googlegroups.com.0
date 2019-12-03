@@ -1,139 +1,124 @@
-Return-Path: <clang-built-linux+bncBD26TVH6RINBBYOETDXQKGQECR4L2WQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCDITI7XW4DRBW6MTHXQKGQE3HL3CPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3d.google.com (mail-yw1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6056810FA35
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Dec 2019 09:52:51 +0100 (CET)
-Received: by mail-yw1-xc3d.google.com with SMTP id i70sf1800155ywe.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Dec 2019 00:52:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575363170; cv=pass;
+Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 21F4C10FF04
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Dec 2019 14:42:52 +0100 (CET)
+Received: by mail-wm1-x338.google.com with SMTP id l11sf1435794wmi.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Dec 2019 05:42:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575380571; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CVquQrLhbYMMI0KfqoWdxHbVrHpAX9GjPEy7FQNSbL7LOjbR+7Hqa8KqoqCTXaDIoY
-         iElJ/CDPfpEHCPh3fHqpZGwgUgwLRvIbcNZO5qebBn+7erk7BBDq7w/NalwqaB4aN9aA
-         xRAR8+DMCQJ3kKRJ8132j3WZeuQguPOYxzP5ewKkC3he3lIQImO6fE3cFdclkg2F2/fA
-         6/yA3RpBmth7CAEu+XKjqB8X2UmCagPVWUMEUIkBAGwTN4a8bc8zKVHj1bCmm5EPdvOR
-         GHnE03FviZoY5uf4kOOBkfiyYjh/lyqQ64FoSpe1rPON3ObvtzLL9wCAL6t6yGZDsiSo
-         8r7w==
+        b=tf3bFlKmeCl5KM5am8IjA86m/2ZVbgR8AfEgZ1mKu/+bSsGHT3U5B/6WoIjgTOyz1G
+         6q++49+2fJik06vas/vQJvSemBIly1B4E399NvhEFLUJVVuvjmhtem8y68bp7Aa0b6tz
+         n0+Z/iNlbRcRJ8qk3A7V/YZoCZ4L/L07T7qPED49Z34saxSHPlYy3cXGwE4f9Yzlxl60
+         pH8E/pKN6/HkFFC/yBw3VwuZzscecE2pyw4sipo1pSlnUYu5KfDW43TqIws+VWXMXKhW
+         PrG7ZWFxyxj3fuqNJWra9Y6osXUEvU/qgG+QPm5jTAi0DhR5JwPKFJqZLiZxQIoh/YhQ
+         Nl1g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language
-         :content-transfer-encoding:in-reply-to:mime-version:user-agent:date
-         :message-id:from:references:cc:to:subject:sender:dkim-signature;
-        bh=fQVHtb8T+qbgu3sAR0rG9WdpjqKjVaF+voLIKgYx8fw=;
-        b=uEZ7figoxz9+4LiMxAQI9XuWf9SH6ZYV903+jZ6Smohmf8XrH4r1x7rBkW+c/9EM5D
-         9YE8iZrV+hNp0ICS3k9bnkR4bF6tfY/U7NiQLx96T6Pz6QpBXvwg3xy/TQNmjZhgQx+G
-         WXDU+3s7Q84xIE16cHgw+hPuyal7Vjr8Xzhm1Klr5zbpVeTbYvMSuFulDSk4GETDc+je
-         D2lcVaXRK748N0tedOHmOGGlZFFAYWMYSdfUlHnO7/Cx9ybbtDrlfI+TDkaOPuP9PnEL
-         07vTH9gLcHEdEc1vMhdoEOSSVKEBwtOaxf9456LQZmWd+d4au6u2OdwhByULNo3GbDfU
-         nwCg==
+         :list-id:mailing-list:precedence:date:subject:user-agent:message-id
+         :references:cc:in-reply-to:from:to:mime-version:sender
+         :dkim-signature;
+        bh=CkAQYOMgsc7eKKock8tzlvftMHat7ndo4MQPUqCOT7s=;
+        b=xKqtfLaprrkXIAKu3fsXEGxXkkUE3xm0+wv2mqgAq/bUcIBeiQoirpSVZmMx2cRjQk
+         2IIuI7+gPjGZwmS4vbi0Gnj4jiO2OZHZjUuWST7HaXw3uEigbWwFT5UUGf6Gv3Tr75Pf
+         bHHofDB+xge4E70eqbULefJ9Q5SutQO759E7fMidZ+JMToTwrY0TTe4F3eUW6jAlO0sZ
+         7x3XLQyZJo2m/URkqSwvAX7Qcu99SgalG7Xk2vDKc4hb5EVjl6Y6ptSxogOHNA617VgI
+         lqdC2fnEk/N/2HNccs05COdbk9t24o8DZG/xS+h39dfBS3tFgYwcZEFZlv4f5xFojl0R
+         0SIg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-transfer-encoding:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=fQVHtb8T+qbgu3sAR0rG9WdpjqKjVaF+voLIKgYx8fw=;
-        b=b2e0iX8BpuIIb3yW69cMpH++6dofh994ItbeFsUxac32K2BNdcDPVclzH+ga4qLyaa
-         u3MUkdOopZg6wk7v2yKHdYaw+oC5nnT1OrnBA7F9Ugf7/MR21g2afStbQ2NT+LY0VcvY
-         oUSS3pkMglVhE/f/bHyJLezVGNCjOgO/GDAn5MVCu5/bZNxW94CMwFa1iyLjamUGSP4X
-         av4ykZ5oU7tCHZr9eR+F2ZDp1PSgqdhyWwCxkxmqJwTWOsvQDX4UkPitniZXrDHWxAl4
-         tQvDJzKfns9ipVXybys4UJAxBzNL0TslTBIlm4LkRTSMmjkwkIudGfJJ4B8PpL3tBaq+
-         uxzA==
+        h=sender:mime-version:to:from:in-reply-to:cc:references:message-id
+         :user-agent:subject:date:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=CkAQYOMgsc7eKKock8tzlvftMHat7ndo4MQPUqCOT7s=;
+        b=NMlzlB+uIAlMJ1mNMPj+uookbEcVvSiKmoIbTo6uxvf/5M9ZhO0DYcM3qhTFuQxggL
+         z7Z7E5KdaGGNhnfcuxKjp6lchXQoep2iYmS5k0Th88eC5U+Ft+bQH9AOfmT9o4Dx4zfU
+         43+xqXCRbB40qIWT/p07JsSlJsSShzrCekfkt9pcFsgq6fOc5kqAWBSjPcnnn2NR9vH/
+         oryqZUytHMGgGqOLBnFO3PqtzVTcAFvCR3jGPR8ybSGukCPE0Id7KspjUvd9nnYB9yeq
+         qN+/CXKKtC0+9/jVQpWpIcZH1JhWooOSssUfHI3zTu18aPz9/+2iUFPuuWwTLfooB45e
+         0koA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-transfer-encoding
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:mime-version:to:from:in-reply-to:cc
+         :references:message-id:user-agent:subject:date:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=fQVHtb8T+qbgu3sAR0rG9WdpjqKjVaF+voLIKgYx8fw=;
-        b=NkE7s421fGBfgxhzRjM6Ao/8MG8QJPlXKR/KQhZrDkVTn3SOX0rchUpLodsqOJd9zI
-         XDUVnEdJmiE7GdPGFIzzfi47Bt1UvcGW8lXFGAVE5o6oteupk3jAQaHI5zp/RJ2HDMgE
-         lCESFl2putUkAARymEKNg9DlOsUYA7AoiaE60ahVekjqqgvSlOxzu3rMh/Ys4e9904p/
-         8u1hhIAey0W1oQUveM0Hy9QWKizUUOFE1dnkrDgA5oqt28Zl7SART3LgG1otAHBXTUwZ
-         qnyYQJ9Jjd4BZOkpDvP8Xy3lDB32NN4F3NVlx24jq3ZkFqcaof35REF5gQyBljJciTzZ
-         BwMg==
+        bh=CkAQYOMgsc7eKKock8tzlvftMHat7ndo4MQPUqCOT7s=;
+        b=g75/u9vW6SpEGm3VTNDnHwPXwCoBCbOoPy1TS7Yl4h9BicgV1XrSCv5mWYUZRdy04a
+         qQvVUF5Yjgjr5xjUKyU/2F075/nk6IWdkim+quhXXEhrGJa1ZJjN67gnPghBYVkxXHkv
+         mGU+s1g9vst+TgmIhIvtohQT67vJaSKPKoRzcWE9IPMi3efiv67Pux2t2QFeKG74KpJM
+         Ru73J/A66u6/n9JS/Sd5Ln2atq268wzcWtw6szYn9DQ748eR5HLRJv2G1GD8Odch18mT
+         2ktynGgI0XJVtT3gdTyXpoBNYhODkxd6A84ktnqIVc+0DS70ggZHxOVslmf9WGVBtidm
+         wC7A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXpDcXKuQ24pGortKiOnofbYBKnjTK4NS5kgU5Ph9BKanJ2Oiat
-	eWpvgrAiozxpISalsk/Gp3I=
-X-Google-Smtp-Source: APXvYqzTqt65ZmykqFWC8KQVtXo9EkjPeVLBSHaeyOZu5NLkYQGQafqL0TdxCASP/a3fLIiKJQeByQ==
-X-Received: by 2002:a81:9c4e:: with SMTP id n14mr2824164ywa.237.1575363170056;
-        Tue, 03 Dec 2019 00:52:50 -0800 (PST)
+X-Gm-Message-State: APjAAAVFEcXAojwfOHRtye2jfoqWOB8kmdSIanhkUXrOSnrXLpEREL4Z
+	OcW8ljG7+UL7QJby4JurSXU=
+X-Google-Smtp-Source: APXvYqxlZyn8QZvfVzof1V9n1ExScT5fQtT4KJ2KcKBZMZ9nwHK1/XUOFOgaRX8E1gX+VRgJ97afpw==
+X-Received: by 2002:adf:fcc4:: with SMTP id f4mr5253541wrs.247.1575380571679;
+        Tue, 03 Dec 2019 05:42:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:6984:: with SMTP id e126ls414211ybc.15.gmail; Tue, 03
- Dec 2019 00:52:49 -0800 (PST)
-X-Received: by 2002:a25:948:: with SMTP id u8mr3571308ybm.110.1575363169683;
-        Tue, 03 Dec 2019 00:52:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575363169; cv=none;
+Received: by 2002:a5d:4fc2:: with SMTP id h2ls1167654wrw.2.gmail; Tue, 03 Dec
+ 2019 05:42:51 -0800 (PST)
+X-Received: by 2002:adf:f850:: with SMTP id d16mr5377724wrq.161.1575380571164;
+        Tue, 03 Dec 2019 05:42:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575380571; cv=none;
         d=google.com; s=arc-20160816;
-        b=qdCjgHpvC29DpEzIUSxklOqBd+hpayuQWaYv9HsdXdzlHgjJjAxWnXuTg4LWShqEQj
-         pozXVsgn/UuxsvgFzwTA1NIlHs33Vq2eRhOPFpB/ARtd8QqwAjAwc3x9w6NXua2xfsWP
-         iw4M3nQV4fG9Zw63kko/FlJpmlnmRDOFqM5P+w7rxNceabTN5QEkg6DBCht6ypkQxhzL
-         xP5pBFTSVnba8VieWDBqiL30HX9sdHqJOuwozYBH4JYRpYRIe/SOM5oV58e+UU1+TIdh
-         sODoAMKrp9N5krtxmg6bqZ5/ofrZoIzExpehq9fT2jG+Gwl6TJzpT2pdrTTkpsl0bXl3
-         L3Kw==
+        b=q/x+2hNe0iWt47mzbHv5zp9swtdyKePisqnNNpPkRg/Zhx3QoRX3UbnjP5P3O8waaj
+         jG885tYz8m/q/aRaYi6mxeMxRsWL+cOTDdEkR7VoOOC41Qhu4vnZJXJlVNTOIW4ik1O2
+         qrCL7RmJn1ijDkkkFk48xku3/JyvzQauue4p41qQFeyKuP38KXHBF/YFUWW6pV3O8iBk
+         FasDnW02R7nb18L0/gkhiEkpe7+3Q/Kloybi6VfBM0BcB7/FxYVvXkcwJ+Wkq/8/RxoS
+         91gUy5t4uZUn8p2kfUYsPWtlA/bBlrZuMzoqn/ywJHfvQLRURCRroByQsPWzbuafwCrS
+         VhGA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-language:content-transfer-encoding:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject;
-        bh=WPu0nnHbjC53jeSCKQH3hTvQZcDHfPmW+mVu66CUf3o=;
-        b=rRMttmYTlbruB9nfJB+Ma766VdbgQH4EvcRAF3DrdGBr6J4IQkrxygDbpwHBCGN5N9
-         A1Z9viVvvrXc3g09ksr74LKMC3td4PNtBBBDiT2EpzF/4noLUzHDoPgn9t+QSsK8131R
-         yR42wiKDls9LGAKbWqgK9yA4CnHuzAA7kbfe6MGCYNs+QFXu/huapo5ZLtawaprH2eh6
-         mjlCeks5+Zz9aFohKBzD+6k2abrn4k+MxEWJrG0/JUd46aXoGDBjeHCnFDP5/pDkXfxQ
-         gP8i1FphRshkqxi1yCXGKqtgVVGZRy5xc+aX/AqwUb2knj0hxP7h/utUUyhc+EbwaP8m
-         yCPA==
+        h=date:subject:user-agent:message-id:references:cc:in-reply-to:from
+         :to:content-transfer-encoding:mime-version;
+        bh=xh7BlmlNiAVj07jr95O0Z+7lOs+djjyk2yd9d9kptDY=;
+        b=cKN0MOBDJDQTzGDloJBG1jBjF7VIg8cUfTbZF/veenPGQLPCxhOHyPf1wbk4j7gwEx
+         WfYbihdBS4CdoCTn+3+7OrCRhhGEJ86Ny+28t8VuCcQ5TKINp/74D4/Z5pqp/Wv5PM3l
+         Kq41rUBIWqk4RiamZQXT/zUdYzPhrZ5Jj0Q8MNmWT89gqJlSQVh1Vt+DcTDzudv4yqlU
+         U7eMs+ODypyJUrBc2B5B9QWPkG/ha0CCZa4Th/83oU4GMhzbfk4ZrbYykZ3xOtIyGRqY
+         E3pYlzxod+fRxytqc2hQQUiaxbkzl/PBsuZg8NImaEEfb0lQZHY2/JsCUOT1gwfOcmAO
+         DJbQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=rong.a.chen@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id v64si76495ywa.4.2019.12.03.00.52.49
+       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+Received: from fireflyinternet.com (mail.fireflyinternet.com. [109.228.58.192])
+        by gmr-mx.google.com with ESMTPS id 80si209008wme.4.2019.12.03.05.42.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 03 Dec 2019 00:52:49 -0800 (PST)
-Received-SPF: pass (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 03 Dec 2019 00:52:48 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,272,1571727600"; 
-   d="scan'208";a="412107680"
-Received: from shao2-debian.sh.intel.com (HELO [10.239.13.6]) ([10.239.13.6])
-  by fmsmga006.fm.intel.com with ESMTP; 03 Dec 2019 00:52:46 -0800
-Subject: Re: [atishp04:efi_stub 1/1]
- drivers/firmware/efi/libstub/arm-stub.c:203:7: warning: variable
- 'secure_boot' is uninitialized when used here
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Atish Patra <Atish.Patra@wdc.com>, Philip Li <philip.li@intel.com>,
- "kbuild-all@lists.01.org" <kbuild-all@lists.01.org>,
- "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
- "kbuild@lists.01.org" <kbuild@lists.01.org>, "lkp@intel.com" <lkp@intel.com>
-References: <201911191421.oOPAr13c%lkp@intel.com>
- <CAKwvOd=2frrSGAh5a3NtbcXuCsn3B4xJYyFvLGftqaDmNj+AYQ@mail.gmail.com>
- <dfbc952f478c57bcc2b8ec41ef0542119785444b.camel@wdc.com>
- <CAKwvOdkntuMELqccE2UT9p0878OWnGLDWfqaxeB7wHSJNRXETw@mail.gmail.com>
- <07bd7e95-c28e-6890-96e6-1a1c3b97dbcd@intel.com>
- <CAKwvOdkoixg0D0_6F7v=PyhkgbR6UEe1CHKYM3M=5PrwtLkdgw@mail.gmail.com>
-From: Rong Chen <rong.a.chen@intel.com>
-Message-ID: <0960ae97-8758-628e-7c42-2d0f982c3759@intel.com>
-Date: Tue, 3 Dec 2019 16:52:20 +0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.6.1
+        Tue, 03 Dec 2019 05:42:51 -0800 (PST)
+Received-SPF: neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) client-ip=109.228.58.192;
+X-Default-Received-SPF: pass (skip=forwardok (res=PASS)) x-ip-name=78.156.65.138;
+Received: from localhost (unverified [78.156.65.138]) 
+	by fireflyinternet.com (Firefly Internet (M1)) with ESMTP (TLS) id 19443048-1500050 
+	for multiple; Tue, 03 Dec 2019 13:42:48 +0000
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-In-Reply-To: <CAKwvOdkoixg0D0_6F7v=PyhkgbR6UEe1CHKYM3M=5PrwtLkdgw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: quoted-printable
-Content-Language: en-US
-X-Original-Sender: rong.a.chen@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of rong.a.chen@intel.com designates 192.55.52.93 as
- permitted sender) smtp.mailfrom=rong.a.chen@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+To: Nick Desaulniers <ndesaulniers@google.com>
+From: Chris Wilson <chris@chris-wilson.co.uk>
+In-Reply-To: <CAKwvOdniXqn3xt3-W0Pqi-X1nWjJ2vUVofjCm1O-UPXZ7_4rXw@mail.gmail.com>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Nathan Chancellor <natechancellor@gmail.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>, intel-gfx@lists.freedesktop.org,
+ dri-devel <dri-devel@lists.freedesktop.org>,
+ LKML <linux-kernel@vger.kernel.org>,
+ clang-built-linux <clang-built-linux@googlegroups.com>
+References: <20191123195321.41305-1-natechancellor@gmail.com>
+ <157453950786.2524.16955749910067219709@skylake-alporthouse-com>
+ <CAKwvOdniXqn3xt3-W0Pqi-X1nWjJ2vUVofjCm1O-UPXZ7_4rXw@mail.gmail.com>
+Message-ID: <157538056769.7230.15356495786856166580@skylake-alporthouse-com>
+User-Agent: alot/0.6
+Subject: Re: [PATCH] drm/i915: Remove tautological compare in eb_relocate_vma
+Date: Tue, 03 Dec 2019 13:42:47 +0000
+X-Original-Sender: chris@chris-wilson.co.uk
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 109.228.58.192 is neither permitted nor denied by best guess
+ record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -146,55 +131,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Quoting Nick Desaulniers (2019-12-02 19:18:20)
+> On Sat, Nov 23, 2019 at 12:05 PM Chris Wilson <chris@chris-wilson.co.uk> wrote:
+> >
+> > Quoting Nathan Chancellor (2019-11-23 19:53:22)
+> > > -Wtautological-compare was recently added to -Wall in LLVM, which
+> > > exposed an if statement in i915 that is always false:
+> > >
+> > > ../drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:1485:22: warning:
+> > > result of comparison of constant 576460752303423487 with expression of
+> > > type 'unsigned int' is always false
+> > > [-Wtautological-constant-out-of-range-compare]
+> > >         if (unlikely(remain > N_RELOC(ULONG_MAX)))
+> > >             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+> > >
+> > > Since remain is an unsigned int, it can never be larger than UINT_MAX,
+> > > which is less than ULONG_MAX / sizeof(struct drm_i915_gem_relocation_entry).
+> > > Remove this statement to fix the warning.
+> >
+> > The check should remain as we do want to document the overflow
+> > calculation, and it should represent the types used -- it's much easier
+> 
+> What do you mean "represent the types used?"  Are you concerned that
+> the type of drm_i915_gem_exec_object2->relocation_count might change
+> in the future?
 
+We may want to change the restriction, yes.
+ 
+> > to review a stub than trying to find a missing overflow check. If the
+> > overflow cannot happen as the types are wide enough, no problem, the
+> > compiler can remove the known false branch.
+> 
+> What overflow are you trying to protect against here?
 
-On 11/26/19 2:11 AM, Nick Desaulniers wrote:
-> On Mon, Nov 25, 2019 at 12:11 AM Rong Chen <rong.a.chen@intel.com> wrote:
->> Hi Nick,
->>
->> On 11/22/19 3:10 AM, Nick Desaulniers wrote:
->>> On Wed, Nov 20, 2019 at 2:46 PM Atish Patra <Atish.Patra@wdc.com> wrote=
-:
->>>> On Mon, 2019-11-18 at 22:39 -0800, Nick Desaulniers wrote:
->>>>> Atish, below is a report from 0day bot from a build with Clang. The
->>>>> warning looks legit, can you please take a look?
->>>>>
->>>> Hi Nick,
->>>> Thanks for the email. This is a work in progress branch. Is there way
->>>> not to trigger kbuild tests on this branch ?
->>> That's a common question that Rong or Philip can answer (I forgot what
->>> the answer has been in the past).  Rong/Philip, it may be good to have
->>> a URL/link that I can point people to in the future, since it's a FAQ.
->> We have blacklisted "efi_stub" and "wip_.*" branches for Atish. In
->> general, branches named as ".*experimental.*" or ".*dont-build"
->> won't be tested by default. and we have a doc to introduce basic
->> configurations: https://github.com/intel/lkp-tests/wiki/Repo-Spec
-> Thanks for the link. Looks like it doesn't mention the `wip_`
-> convention, and it says `*experiment*` (more specifically).  Would you
-> mind either adding the note about `wip_` or a new wiki page saying "If
-> you don't want 0day bot to find/test your branches, please use the
-> following naming conventions when pushing branches: XXX."  That way in
-> the future when I nag someone, and it was just an experimental branch,
-> I can just send them the link to the wiki about the convention, and
-> don't have to nag you?
->
->
+These values are under user control, our validation steps should be
+clear and easy to check. If we have the types wrong, if the checks are
+wrong, we need to fix them. If the code is removed because it can be
+evaluated by the compiler to be redundant, it is much harder for us to
+verify that we have tried to validate user input.
 
-Hi Nick,
+> > Tautology here has a purpose for conveying information to the reader.
+> 
+> Well leaving a warning unaddressed is also not a solution.  Either
+> replace it with a comment or turn off the warning for your subdir.
 
-Sorry for the delay,=C2=A0 I just got the permission to write a doc in=20
-github, please see
+My personal preference would be to use a bunch of central macros for the
+various type/kmalloc overflows, and have the warnings suppressed there
+since they are very much about documenting user input validation.
+-Chris
 
-https://github.com/intel/lkp-tests/wiki/LKP-FAQ#is-there-a-way-not-to-trigg=
-er-kbuild-tests-on-a-specific-branch
-
-Best Regards,
-Rong Chen
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/0960ae97-8758-628e-7c42-2d0f982c3759%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157538056769.7230.15356495786856166580%40skylake-alporthouse-com.
