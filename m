@@ -1,124 +1,128 @@
-Return-Path: <clang-built-linux+bncBCDITI7XW4DRBW6MTHXQKGQE3HL3CPA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHNTTLXQKGQEBXWMKPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 21F4C10FF04
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Dec 2019 14:42:52 +0100 (CET)
-Received: by mail-wm1-x338.google.com with SMTP id l11sf1435794wmi.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Dec 2019 05:42:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575380571; cv=pass;
+Received: from mail-qv1-xf3d.google.com (mail-qv1-xf3d.google.com [IPv6:2607:f8b0:4864:20::f3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 19F7311034E
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Dec 2019 18:21:35 +0100 (CET)
+Received: by mail-qv1-xf3d.google.com with SMTP id 75sf2635768qva.8
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Dec 2019 09:21:35 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575393694; cv=pass;
         d=google.com; s=arc-20160816;
-        b=tf3bFlKmeCl5KM5am8IjA86m/2ZVbgR8AfEgZ1mKu/+bSsGHT3U5B/6WoIjgTOyz1G
-         6q++49+2fJik06vas/vQJvSemBIly1B4E399NvhEFLUJVVuvjmhtem8y68bp7Aa0b6tz
-         n0+Z/iNlbRcRJ8qk3A7V/YZoCZ4L/L07T7qPED49Z34saxSHPlYy3cXGwE4f9Yzlxl60
-         pH8E/pKN6/HkFFC/yBw3VwuZzscecE2pyw4sipo1pSlnUYu5KfDW43TqIws+VWXMXKhW
-         PrG7ZWFxyxj3fuqNJWra9Y6osXUEvU/qgG+QPm5jTAi0DhR5JwPKFJqZLiZxQIoh/YhQ
-         Nl1g==
+        b=UVsVq3ksm5qtVyl1K0K4nYQOsC40mfH1Ap4A+3pTjFHL7w3jm8UE41dmnH/KeL8rCd
+         gXpxwXy9kA568ZUbNXznrEvrLBICXyOaXR51adSdWvV2RE0kW0tVVjUAkCmgqDoClNce
+         kd/Kp/vTqDjSFRmQb1QXZiVHGlte0sudA+hIsNH6hgvVN9YPsiR6YH2bdj0ACrJtsZVp
+         Jw2Rc3a0KdsVL7S1Drf5ZNkxSEC9DHg2esOPO4tOBorQp2AS8ywRPlWrVVsnVz4k6Fyu
+         0kCYd5bwgFjGit7FAQIrNTsVqWn3dTzUZ2XBGx+Nu7cf5WnQrIjacos+3sUVje6hNIRP
+         moTw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:date:subject:user-agent:message-id
-         :references:cc:in-reply-to:from:to:mime-version:sender
-         :dkim-signature;
-        bh=CkAQYOMgsc7eKKock8tzlvftMHat7ndo4MQPUqCOT7s=;
-        b=xKqtfLaprrkXIAKu3fsXEGxXkkUE3xm0+wv2mqgAq/bUcIBeiQoirpSVZmMx2cRjQk
-         2IIuI7+gPjGZwmS4vbi0Gnj4jiO2OZHZjUuWST7HaXw3uEigbWwFT5UUGf6Gv3Tr75Pf
-         bHHofDB+xge4E70eqbULefJ9Q5SutQO759E7fMidZ+JMToTwrY0TTe4F3eUW6jAlO0sZ
-         7x3XLQyZJo2m/URkqSwvAX7Qcu99SgalG7Xk2vDKc4hb5EVjl6Y6ptSxogOHNA617VgI
-         lqdC2fnEk/N/2HNccs05COdbk9t24o8DZG/xS+h39dfBS3tFgYwcZEFZlv4f5xFojl0R
-         0SIg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=h1OEtqPfx5vNStYgux80LIwRii1eq1K6kiOOmUgox+k=;
+        b=RxZgxJkvmPacEUbf1YIPEBgt4ZaQpMz6siu/mEM26O8TAmdqA2W708ItBQ3DCITZY7
+         /ZuJbQvUZ+UyblUbfOfGQPhqM/Ga6oNH5UbPqkaNPWGaZLIopoSlOyViKJgf8oOOSHO3
+         szIACE+3Myuym1QmFkPm/JGqJkyQR4KOsjtvHAAwYGy9QVRWe+8znvvKi5+mJkAsfDg4
+         8YuMP6y+C0vWpyeqP2nMvL/FcRQFUqfc2Mxbm39AWEhmWgQymUhbbSI0tWgx2/dg5yRR
+         JB94hPl9AUbqHUzTnz4Sil6bTD/6fAuR7rz9xOhGT1SlYuKlCK4vVCZq/nweltANRZMn
+         3uWg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bWnRa3a3;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:to:from:in-reply-to:cc:references:message-id
-         :user-agent:subject:date:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=CkAQYOMgsc7eKKock8tzlvftMHat7ndo4MQPUqCOT7s=;
-        b=NMlzlB+uIAlMJ1mNMPj+uookbEcVvSiKmoIbTo6uxvf/5M9ZhO0DYcM3qhTFuQxggL
-         z7Z7E5KdaGGNhnfcuxKjp6lchXQoep2iYmS5k0Th88eC5U+Ft+bQH9AOfmT9o4Dx4zfU
-         43+xqXCRbB40qIWT/p07JsSlJsSShzrCekfkt9pcFsgq6fOc5kqAWBSjPcnnn2NR9vH/
-         oryqZUytHMGgGqOLBnFO3PqtzVTcAFvCR3jGPR8ybSGukCPE0Id7KspjUvd9nnYB9yeq
-         qN+/CXKKtC0+9/jVQpWpIcZH1JhWooOSssUfHI3zTu18aPz9/+2iUFPuuWwTLfooB45e
-         0koA==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=h1OEtqPfx5vNStYgux80LIwRii1eq1K6kiOOmUgox+k=;
+        b=J9+5GLMQwEvY6yCFYUgYYtLoteYd2tzehMvCMW+sTciVeQIWax7vPHFlWztRzXwxnV
+         QlhCh1fh9Wg9Ar1wY/MmqqEM7rmtP3ovprKZ5yykbcUk7JKDbRJYgNKuo6ld2CGHbIup
+         R7TFPtD5Q/2JY+ewTwPLgdrYL7zanGZQEhcmYUUH42P0eE35CBv6lMWF0vGI6t+dby8f
+         KpTX2Ml1unE/eESfvYdxyHlNfnkl8S9kQ+DthqaPEuEoCCyGvQQnZRd1x8642e8NsLCk
+         pyshbLm3dTSYuo/c5DpnbBi1+Wfy2gfleZ+dYQX/0WVcUGN+OQPIrilv9FwOeNqWzZ1f
+         F3pA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:to:from:in-reply-to:cc
-         :references:message-id:user-agent:subject:date:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=CkAQYOMgsc7eKKock8tzlvftMHat7ndo4MQPUqCOT7s=;
-        b=g75/u9vW6SpEGm3VTNDnHwPXwCoBCbOoPy1TS7Yl4h9BicgV1XrSCv5mWYUZRdy04a
-         qQvVUF5Yjgjr5xjUKyU/2F075/nk6IWdkim+quhXXEhrGJa1ZJjN67gnPghBYVkxXHkv
-         mGU+s1g9vst+TgmIhIvtohQT67vJaSKPKoRzcWE9IPMi3efiv67Pux2t2QFeKG74KpJM
-         Ru73J/A66u6/n9JS/Sd5Ln2atq268wzcWtw6szYn9DQ748eR5HLRJv2G1GD8Odch18mT
-         2ktynGgI0XJVtT3gdTyXpoBNYhODkxd6A84ktnqIVc+0DS70ggZHxOVslmf9WGVBtidm
-         wC7A==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVFEcXAojwfOHRtye2jfoqWOB8kmdSIanhkUXrOSnrXLpEREL4Z
-	OcW8ljG7+UL7QJby4JurSXU=
-X-Google-Smtp-Source: APXvYqxlZyn8QZvfVzof1V9n1ExScT5fQtT4KJ2KcKBZMZ9nwHK1/XUOFOgaRX8E1gX+VRgJ97afpw==
-X-Received: by 2002:adf:fcc4:: with SMTP id f4mr5253541wrs.247.1575380571679;
-        Tue, 03 Dec 2019 05:42:51 -0800 (PST)
+        bh=h1OEtqPfx5vNStYgux80LIwRii1eq1K6kiOOmUgox+k=;
+        b=Onl/euCz2oKvIIulJZHY7zRoQmCQw0tjUaWvVL8jOg89lHUzkTXV06gdJcvHhTlQo5
+         PIHIGOJqD2AkuvQ3uJhC4Q+AAdVA5mqDrHbBNVDrx8C8BzOlOadYPJHa5G/PQJmJvAFw
+         w8OJtg4iKISdw30mHA9Oomo5M3S7lI/ADvQy6vfoDo6QI+awy+hxHfoxJsvbf/xzZe+k
+         uYMDaBzBdmS9x6l8VPiucb1xBq+PfpLNPB+gLo0cl634zFqzg93nnjFJEbVgAFMyrWoj
+         TTsZlmfG8clYGPpPv68kcEKvDYdmiaj+X8ZRMCLR+PqL/D8Ww78mOlmLbofc5AaylVXR
+         Y3BQ==
+X-Gm-Message-State: APjAAAVcJsXLQxvCTzznXYvzcKvUzCF7vJscdZIBY4FIxYgjYep17kQs
+	LXa8OsnBCMe0nmiUmZj5r3w=
+X-Google-Smtp-Source: APXvYqwcfOXRu4/LILyDu/h97mKgiApzuGZfDOdVXJRdmN9RjORoc1/mmvy9hWWkDXC4TGwiJOnYDA==
+X-Received: by 2002:ac8:37b6:: with SMTP id d51mr6296480qtc.261.1575393693938;
+        Tue, 03 Dec 2019 09:21:33 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:4fc2:: with SMTP id h2ls1167654wrw.2.gmail; Tue, 03 Dec
- 2019 05:42:51 -0800 (PST)
-X-Received: by 2002:adf:f850:: with SMTP id d16mr5377724wrq.161.1575380571164;
-        Tue, 03 Dec 2019 05:42:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575380571; cv=none;
+Received: by 2002:a05:620a:1301:: with SMTP id o1ls1515102qkj.16.gmail; Tue,
+ 03 Dec 2019 09:21:33 -0800 (PST)
+X-Received: by 2002:ae9:e8d5:: with SMTP id a204mr6033433qkg.139.1575393693434;
+        Tue, 03 Dec 2019 09:21:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575393693; cv=none;
         d=google.com; s=arc-20160816;
-        b=q/x+2hNe0iWt47mzbHv5zp9swtdyKePisqnNNpPkRg/Zhx3QoRX3UbnjP5P3O8waaj
-         jG885tYz8m/q/aRaYi6mxeMxRsWL+cOTDdEkR7VoOOC41Qhu4vnZJXJlVNTOIW4ik1O2
-         qrCL7RmJn1ijDkkkFk48xku3/JyvzQauue4p41qQFeyKuP38KXHBF/YFUWW6pV3O8iBk
-         FasDnW02R7nb18L0/gkhiEkpe7+3Q/Kloybi6VfBM0BcB7/FxYVvXkcwJ+Wkq/8/RxoS
-         91gUy5t4uZUn8p2kfUYsPWtlA/bBlrZuMzoqn/ywJHfvQLRURCRroByQsPWzbuafwCrS
-         VhGA==
+        b=Eh0Vt5f3yiPU89HmrDl98zErQj+duU70B/86wAUvSapZbKaw83oQelXHQG7Utadfag
+         VyEuCcxgMthlLmq4JN3PQSdCOfXCzoEBE3Nk8ThnlJ9CjeeN0nNEg9jUCEPNWoh3oy2R
+         Buv6o1F9nkGJM5rH4Bz4EgHfQ3Yw82xE5pPC5D1WHYjCeefvNIz0xEsS2t/E61AtoJU3
+         CQIpW85/ciINMGRhDTJ6r/JROM+DjYeLQFxnuEoCixNHVSn3o+e5TePEKFkD4+NoxdDi
+         gZdvuLHQ5Tjc3xOIpfznvbpTevXsrvyZPnBoUNto6U2hrJft/oycxdzblTSh6zN9kS8+
+         6zzQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=date:subject:user-agent:message-id:references:cc:in-reply-to:from
-         :to:content-transfer-encoding:mime-version;
-        bh=xh7BlmlNiAVj07jr95O0Z+7lOs+djjyk2yd9d9kptDY=;
-        b=cKN0MOBDJDQTzGDloJBG1jBjF7VIg8cUfTbZF/veenPGQLPCxhOHyPf1wbk4j7gwEx
-         WfYbihdBS4CdoCTn+3+7OrCRhhGEJ86Ny+28t8VuCcQ5TKINp/74D4/Z5pqp/Wv5PM3l
-         Kq41rUBIWqk4RiamZQXT/zUdYzPhrZ5Jj0Q8MNmWT89gqJlSQVh1Vt+DcTDzudv4yqlU
-         U7eMs+ODypyJUrBc2B5B9QWPkG/ha0CCZa4Th/83oU4GMhzbfk4ZrbYykZ3xOtIyGRqY
-         E3pYlzxod+fRxytqc2hQQUiaxbkzl/PBsuZg8NImaEEfb0lQZHY2/JsCUOT1gwfOcmAO
-         DJbQ==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=wfgJ4vx5sVXzSvURinrwo1+oDzDNrhb1jlHhElHzG24=;
+        b=c2kl7orDLaOZLrtbtgoaDVCqEYm2/qUqfX5yaGurqSOXElRCBoG6vRUP3uEuzICe6C
+         TUUgoyIfRetLrS5q0RchtccFRMvfWrQbESWUH00n/Utw6sh7NqWGZmbkt2JQS9cZTVqB
+         0fmiJvd08bW5I15dTRrPfSdwdM30qbjcubuwPJCCTMS5o/ssLK3tet6lSQctR26f6YfK
+         T16TVj/cGOodTbPxVUzUotVyGBklRPYgMRKelZ4QeVACA0jBEwD83tT8uUTujvySMX6v
+         5HOuVqQtNGUDL5XrtAtVePAwhWKa8pXXgKjcwnxg5rRLE+qcFZcle8tYpRQGWQ6L2Bm+
+         Zafw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
-Received: from fireflyinternet.com (mail.fireflyinternet.com. [109.228.58.192])
-        by gmr-mx.google.com with ESMTPS id 80si209008wme.4.2019.12.03.05.42.51
+       dkim=pass header.i=@google.com header.s=20161025 header.b=bWnRa3a3;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::532 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pg1-x532.google.com (mail-pg1-x532.google.com. [2607:f8b0:4864:20::532])
+        by gmr-mx.google.com with ESMTPS id u8si179904qku.7.2019.12.03.09.21.33
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 03 Dec 2019 05:42:51 -0800 (PST)
-Received-SPF: neutral (google.com: 109.228.58.192 is neither permitted nor denied by best guess record for domain of chris@chris-wilson.co.uk) client-ip=109.228.58.192;
-X-Default-Received-SPF: pass (skip=forwardok (res=PASS)) x-ip-name=78.156.65.138;
-Received: from localhost (unverified [78.156.65.138]) 
-	by fireflyinternet.com (Firefly Internet (M1)) with ESMTP (TLS) id 19443048-1500050 
-	for multiple; Tue, 03 Dec 2019 13:42:48 +0000
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Dec 2019 09:21:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::532 as permitted sender) client-ip=2607:f8b0:4864:20::532;
+Received: by mail-pg1-x532.google.com with SMTP id q127so1958822pga.4
+        for <clang-built-linux@googlegroups.com>; Tue, 03 Dec 2019 09:21:33 -0800 (PST)
+X-Received: by 2002:a63:4c14:: with SMTP id z20mr6433361pga.10.1575393692339;
+ Tue, 03 Dec 2019 09:21:32 -0800 (PST)
 MIME-Version: 1.0
-To: Nick Desaulniers <ndesaulniers@google.com>
-From: Chris Wilson <chris@chris-wilson.co.uk>
-In-Reply-To: <CAKwvOdniXqn3xt3-W0Pqi-X1nWjJ2vUVofjCm1O-UPXZ7_4rXw@mail.gmail.com>
-Cc: Jani Nikula <jani.nikula@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Nathan Chancellor <natechancellor@gmail.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, intel-gfx@lists.freedesktop.org,
- dri-devel <dri-devel@lists.freedesktop.org>,
- LKML <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>
-References: <20191123195321.41305-1-natechancellor@gmail.com>
- <157453950786.2524.16955749910067219709@skylake-alporthouse-com>
- <CAKwvOdniXqn3xt3-W0Pqi-X1nWjJ2vUVofjCm1O-UPXZ7_4rXw@mail.gmail.com>
-Message-ID: <157538056769.7230.15356495786856166580@skylake-alporthouse-com>
-User-Agent: alot/0.6
-Subject: Re: [PATCH] drm/i915: Remove tautological compare in eb_relocate_vma
-Date: Tue, 03 Dec 2019 13:42:47 +0000
-X-Original-Sender: chris@chris-wilson.co.uk
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 109.228.58.192 is neither permitted nor denied by best guess
- record for domain of chris@chris-wilson.co.uk) smtp.mailfrom=chris@chris-wilson.co.uk
+References: <201911191421.oOPAr13c%lkp@intel.com> <CAKwvOd=2frrSGAh5a3NtbcXuCsn3B4xJYyFvLGftqaDmNj+AYQ@mail.gmail.com>
+ <dfbc952f478c57bcc2b8ec41ef0542119785444b.camel@wdc.com> <CAKwvOdkntuMELqccE2UT9p0878OWnGLDWfqaxeB7wHSJNRXETw@mail.gmail.com>
+ <07bd7e95-c28e-6890-96e6-1a1c3b97dbcd@intel.com> <CAKwvOdkoixg0D0_6F7v=PyhkgbR6UEe1CHKYM3M=5PrwtLkdgw@mail.gmail.com>
+ <0960ae97-8758-628e-7c42-2d0f982c3759@intel.com>
+In-Reply-To: <0960ae97-8758-628e-7c42-2d0f982c3759@intel.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Tue, 3 Dec 2019 09:21:21 -0800
+Message-ID: <CAKwvOdkJtEpd=_OVSY18nt4FBqUiJbLcOW0bB=0Qm0Tz5Va1mA@mail.gmail.com>
+Subject: Re: [atishp04:efi_stub 1/1] drivers/firmware/efi/libstub/arm-stub.c:203:7:
+ warning: variable 'secure_boot' is uninitialized when used here
+To: Rong Chen <rong.a.chen@intel.com>
+Cc: Atish Patra <Atish.Patra@wdc.com>, Philip Li <philip.li@intel.com>, 
+	"kbuild-all@lists.01.org" <kbuild-all@lists.01.org>, 
+	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
+	"kbuild@lists.01.org" <kbuild@lists.01.org>, "lkp@intel.com" <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b=bWnRa3a3;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::532
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,56 +135,56 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Quoting Nick Desaulniers (2019-12-02 19:18:20)
-> On Sat, Nov 23, 2019 at 12:05 PM Chris Wilson <chris@chris-wilson.co.uk> wrote:
+On Tue, Dec 3, 2019 at 12:52 AM Rong Chen <rong.a.chen@intel.com> wrote:
+>
+>
+>
+> On 11/26/19 2:11 AM, Nick Desaulniers wrote:
+> > On Mon, Nov 25, 2019 at 12:11 AM Rong Chen <rong.a.chen@intel.com> wrote:
+> >> Hi Nick,
+> >>
+> >> On 11/22/19 3:10 AM, Nick Desaulniers wrote:
+> >>> On Wed, Nov 20, 2019 at 2:46 PM Atish Patra <Atish.Patra@wdc.com> wrote:
+> >>>> On Mon, 2019-11-18 at 22:39 -0800, Nick Desaulniers wrote:
+> >>>>> Atish, below is a report from 0day bot from a build with Clang. The
+> >>>>> warning looks legit, can you please take a look?
+> >>>>>
+> >>>> Hi Nick,
+> >>>> Thanks for the email. This is a work in progress branch. Is there way
+> >>>> not to trigger kbuild tests on this branch ?
+> >>> That's a common question that Rong or Philip can answer (I forgot what
+> >>> the answer has been in the past).  Rong/Philip, it may be good to have
+> >>> a URL/link that I can point people to in the future, since it's a FAQ.
+> >> We have blacklisted "efi_stub" and "wip_.*" branches for Atish. In
+> >> general, branches named as ".*experimental.*" or ".*dont-build"
+> >> won't be tested by default. and we have a doc to introduce basic
+> >> configurations: https://github.com/intel/lkp-tests/wiki/Repo-Spec
+> > Thanks for the link. Looks like it doesn't mention the `wip_`
+> > convention, and it says `*experiment*` (more specifically).  Would you
+> > mind either adding the note about `wip_` or a new wiki page saying "If
+> > you don't want 0day bot to find/test your branches, please use the
+> > following naming conventions when pushing branches: XXX."  That way in
+> > the future when I nag someone, and it was just an experimental branch,
+> > I can just send them the link to the wiki about the convention, and
+> > don't have to nag you?
 > >
-> > Quoting Nathan Chancellor (2019-11-23 19:53:22)
-> > > -Wtautological-compare was recently added to -Wall in LLVM, which
-> > > exposed an if statement in i915 that is always false:
-> > >
-> > > ../drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:1485:22: warning:
-> > > result of comparison of constant 576460752303423487 with expression of
-> > > type 'unsigned int' is always false
-> > > [-Wtautological-constant-out-of-range-compare]
-> > >         if (unlikely(remain > N_RELOC(ULONG_MAX)))
-> > >             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
-> > >
-> > > Since remain is an unsigned int, it can never be larger than UINT_MAX,
-> > > which is less than ULONG_MAX / sizeof(struct drm_i915_gem_relocation_entry).
-> > > Remove this statement to fix the warning.
 > >
-> > The check should remain as we do want to document the overflow
-> > calculation, and it should represent the types used -- it's much easier
-> 
-> What do you mean "represent the types used?"  Are you concerned that
-> the type of drm_i915_gem_exec_object2->relocation_count might change
-> in the future?
+>
+> Hi Nick,
+>
+> Sorry for the delay,  I just got the permission to write a doc in
+> github, please see
+>
+> https://github.com/intel/lkp-tests/wiki/LKP-FAQ#is-there-a-way-not-to-trigger-kbuild-tests-on-a-specific-branch
 
-We may want to change the restriction, yes.
- 
-> > to review a stub than trying to find a missing overflow check. If the
-> > overflow cannot happen as the types are wide enough, no problem, the
-> > compiler can remove the known false branch.
-> 
-> What overflow are you trying to protect against here?
-
-These values are under user control, our validation steps should be
-clear and easy to check. If we have the types wrong, if the checks are
-wrong, we need to fix them. If the code is removed because it can be
-evaluated by the compiler to be redundant, it is much harder for us to
-verify that we have tried to validate user input.
-
-> > Tautology here has a purpose for conveying information to the reader.
-> 
-> Well leaving a warning unaddressed is also not a solution.  Either
-> replace it with a comment or turn off the warning for your subdir.
-
-My personal preference would be to use a bunch of central macros for the
-various type/kmalloc overflows, and have the warnings suppressed there
-since they are very much about documenting user input validation.
--Chris
+Thanks Rong, this is perfect. I've bookmarked it and will forward that
+link when someone asks me about blacklisting branches from 0day bot in
+the future.
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157538056769.7230.15356495786856166580%40skylake-alporthouse-com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkJtEpd%3D_OVSY18nt4FBqUiJbLcOW0bB%3D0Qm0Tz5Va1mA%40mail.gmail.com.
