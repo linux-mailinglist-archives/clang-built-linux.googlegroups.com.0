@@ -1,137 +1,129 @@
-Return-Path: <clang-built-linux+bncBDB63H54RYOBBYHSUDXQKGQEJ4S33NI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBOX5UDXQKGQEOARTH4Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0F6C1137DF
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Dec 2019 23:55:28 +0100 (CET)
-Received: by mail-wr1-x43d.google.com with SMTP id h30sf557359wrh.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Dec 2019 14:55:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575500128; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 18E61113808
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Dec 2019 00:18:20 +0100 (CET)
+Received: by mail-io1-xd3d.google.com with SMTP id t17sf1086088ioi.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Dec 2019 15:18:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575501499; cv=pass;
         d=google.com; s=arc-20160816;
-        b=TUrD4QRsr3YrZZxTENmw73EIOv3w6N7ZRyiCGbZYoJYzHCkLQhW2iDAQmelwQKOT2Z
-         UeyeE/WT+0mVwRAKHN7ZQGGv8tE3sXzPyChTHwu/69mMcc4uGjIax122VLpEvkD8exFs
-         Zd2GOWD/ODdQoiRK0AC4WImrN3wQCzMjx3CWaftVFS0Bh+qEiyTNqutXl2RnGtX6lOnT
-         VAigvJJNoFSACbWW/eWqigI+Q6VZjI5P/5WOI5wjUB+WTA9I8IeVQAGHPZ1IuHiheZnO
-         v6PTfaVWijvZ4qY6F508rfNqz5MpfsI/l+3wres9rXbYOQgb69LqNfBFgABJFp6MYnyd
-         zPZQ==
+        b=PXDcHh4KY3xs6sI1xUlbuefjFHUd1B/2SQDJWdsDisGldaos3kLtgK9M4Hf98MwKwH
+         pzVfcVriHRl2KFUhHdQXAFKAPYy+p+cyUjzeOp9MdlRH7qKmqFXFAIZN4dMAfjIfqrlC
+         18UyBMxBwRdAt0igRxw/phI65h4PhwPdTb0rlvb8j2i98wFe1MmryLofTRZilec4Y4YI
+         SfTr2vbBpQ2GIFnB1hil+J9GlP8n8fMjbmwe9DHItjGAHG86B0j6d+/dAGzVse6AGW80
+         fw1Yl9LsO3OGAh1kNl9FdhZ8r9wdiYu01yjgB7ywS4ZPsiIZSSzOJFG6NYI9DqSE3AhR
+         BSvA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=iM8CWONt2wPm+UQG0ocfh5GO+ge9dfi3zXxmF/1HxYA=;
-        b=TOl+iV8iZxZ+dyZWFvOAgvuVVahYV3w+9EYa4YYrA6QqG8E884yBmp2dAIRCm1I8I8
-         hFHGyyzGyeuS7usncY/dTP3ebckbVaAeJq/g/m/3MGnmBbCkVUxOD/QUV0DywpUuR+PH
-         kOMtI/bwTdMsuAA8BfqNq4eOkb7foUQ/7O7D8EG3xXwSn4h/Hh3las/jdfPps2QHz1rR
-         PR6cRygrbXPnajEwlhJzNuQ2yaD+cqE9mP2Bs4YTg5qF/MOmVvXFelRWMw+5FtpjqbUc
-         S9+gDUFd3xD54YVKvwhdjoBMq5X1WOiBO4HmeM69CIZeBDDwE51Dzjfo2I5rqi3PCB/L
-         oL2w==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=yCZVeodDzOGuLaNbVzJ4MnfrZn/EWpjiic5b8Pji3xI=;
+        b=Ex29h1gFGxu66nPMxf8mfJPTtWPaY1QLW4y6OcaHip7Y6iM6xZFtdhhG3jJ9chWK+A
+         JdrEKRAf4PkzWGAnff0wKG0q4Ip9eLLe8bagyizSuPdrwFDUqWnI9HUbepXmGzOmpt9N
+         jkV0hzlaL1F1GgYtxpZ8UURYqc6gkiY3Hj7KEHsrW9vQbvkB+uhlpjUp9jPNppczYTHk
+         ACaOEho+yVsnHDrK7bq2J+gfXqqrP9dtq8yrWhPIIVrMNTWTJZJHYiVmq40icZgTPnwE
+         1z60ZrpZ+jDqCH08WPmbHCwFLx65BJfjZeb3M2m2v0t8vvgG2FY9HU4GaqIRfBnLmoas
+         XT7Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@golovin.in header.s=mail header.b="jE0Xif/F";
-       spf=pass (google.com: domain of dima@golovin.in designates 2a02:6b8:0:801:2::107 as permitted sender) smtp.mailfrom=dima@golovin.in
+       dkim=pass header.i=@google.com header.s=20161025 header.b="MtSlA/Og";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=iM8CWONt2wPm+UQG0ocfh5GO+ge9dfi3zXxmF/1HxYA=;
-        b=WE1qIfEQ11fuEqVplWTy7knruuwUpmF2TOuYqVl3uMW0sN9H1IbGRzzSipAx8FWebi
-         JmMyN9EPy64saB6RGfv1JIqUNwho/+4qVl4Y+zkvHXydP2vWECzKB6FEN7Jb7cULh/KR
-         LepBY+oc0FLIch2Kea5ZS/Z4/8VLiRqzDDG7vyfrlwC3xfq8TbPyEIsVju8g1t0hvt8X
-         oteIkGbbQ+48BeQ0IFBvDknlAvj0GusGmRviX3MiV51tFuHlqwh9fuyVGB+RN9qM4LqB
-         io4Xt1iiKpFS4anIs0O90Dv+SXsDmPVAY6wfSeM41mMjfFvbXxm87wu62EK4R71rgoOe
-         eE0A==
+        bh=yCZVeodDzOGuLaNbVzJ4MnfrZn/EWpjiic5b8Pji3xI=;
+        b=m4LIa8A5luxxZGZAFAiKFqhOZZQWv2XbNCxkkS0G6N+iDkBijy0S5X80u1zmHHk8Vi
+         d4gbd6q7gxPYpg9z2mowjtVLaC6UdmjI2qcDkVQlrk1tmzG2hgCbW02HKQE9bs/+7nE+
+         hS1Tz+ZZUPa0m/4RdAoZjQFlPRbApZ3Y9C6qQRcy1Coov6fXXdll6PmpNkoV/DN3Zq3c
+         xvegbsYl8W5EOuNFjdJa/9leax5GqIoYjHKZtBgVXQEgoXKam7XS8nkCvG8g9j7oeT6V
+         4H0MVLJEa8eB376ZnWIly6jXFBi8Gv5FNRhKtdMegCbpoZqmZUQocpT1L3Jgnb+UpJ/E
+         Bafw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=iM8CWONt2wPm+UQG0ocfh5GO+ge9dfi3zXxmF/1HxYA=;
-        b=OXzRzzzhjBi/1rAEgdKw/NEGXI3sGLCdV+ps7RqjjS0XHJcUI7Z1iiJf57Ubx+d26j
-         dctImGOXJpxoxVBu2nr9MpkyCh8G+KSpjRjysaUfomaJNZ/934EXaiUsDhgdNWsSJrNk
-         H/UOcMY4tQ2QDq6dlZ8OWBxoNzNa2FL+8fccpPbYEnAHzo6aqXemDAZ4l3+/DHfGT0TH
-         409OwaP2o396cmIjmQ/AzcCOtTdfwohECAairf2LuZvmAj2XR0t3Amkzv9IPl69MIfdZ
-         Ww49TUnxCJY9iU5+vXLi9TzgdYBd+3NzUCukOjSDL1uds63227T8z9PS3hPkV9r/egw6
-         e8sA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUb7qkfeATuVTzbhTxXnGWWxKWXylPXfa/OWihp1c+c3E9uMNr+
-	l0CzFf2UT2O7v+EnuZasAQM=
-X-Google-Smtp-Source: APXvYqxlW6E4EVVbv2bAH8rakjcy5Yyc+E82W0Va507YMRNT3zhL6YghVzSox3Pq/1eYuX+ox9coew==
-X-Received: by 2002:a05:600c:d5:: with SMTP id u21mr1985714wmm.85.1575500128655;
-        Wed, 04 Dec 2019 14:55:28 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=yCZVeodDzOGuLaNbVzJ4MnfrZn/EWpjiic5b8Pji3xI=;
+        b=jYn2mjxmA2TRT3kuaV8rEp+1ZKJxk0fVHXrNDTn3k8Iio+IDlRgg6Bgt/MGX/q4a46
+         L45DKYO2a8P2QB4CeQ8hqUf7ebJgEj3gJfYRzEW2caz95DpIzZeS9sntI/fZWGbzKSts
+         T8yooNec1yJjs1JWlf1Mbg3/+8ic4m0OdoY3ZvYtiNsg/petlNreq5SX0+xBcNZSir8t
+         B8fs5Xmo47kQ3N7pF0iPXu2Vhb1iuyr991Iq80LcJhm9jZ/gIhruKj/SW3CaMa1JTn7+
+         WGLV25kfGdFIJiQq7DhNYV7w21uhyXgoOcHKrDZfYL6z1NaFXjKonpNcE6Yc2QpCmbc6
+         vCJg==
+X-Gm-Message-State: APjAAAWHN+92sBveaXDzZdHaOkKMWJexww4/V2o7JheJFHfKchPUDski
+	jjscTUgmEOVifFIC96vhyfY=
+X-Google-Smtp-Source: APXvYqyh4m21gq8ITpMGEu7hpYnVJm4UN91hY4LN9Crg+7RE1DwBHd16eNxeEY2/l7KUGaC6hGtVtA==
+X-Received: by 2002:a6b:f60e:: with SMTP id n14mr3990344ioh.147.1575501498998;
+        Wed, 04 Dec 2019 15:18:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:ed48:: with SMTP id u8ls425360wro.16.gmail; Wed, 04 Dec
- 2019 14:55:28 -0800 (PST)
-X-Received: by 2002:adf:f1c6:: with SMTP id z6mr6997534wro.279.1575500128148;
-        Wed, 04 Dec 2019 14:55:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575500128; cv=none;
+Received: by 2002:a92:3a1d:: with SMTP id h29ls211598ila.9.gmail; Wed, 04 Dec
+ 2019 15:18:18 -0800 (PST)
+X-Received: by 2002:a92:dd8e:: with SMTP id g14mr5698827iln.129.1575501498616;
+        Wed, 04 Dec 2019 15:18:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575501498; cv=none;
         d=google.com; s=arc-20160816;
-        b=X7ZKakehOPkxJgtlNymD7VIzkrIGk3fz63zCcyFeu8XQHmpboW1zaY7UYIUdqL9HqV
-         b4Y6IC1js/X8g5XZTcqT98JAFM9LSNBwG/9B8qXhiQwURCqXWkuVbokX/CmLypACJZKc
-         1Z0bMQLAKRYYUiz6q4QNsTwIxnz1tbxP/A/+MN8EcZRiCiNcrCDxkZAUh8gm/AaOwOXr
-         2/JD/2RToGDqJdYD8j/rpMZu3hHoKYLAc00VHDXbZ2CmitH8aWncHVzKufZ1j878Zi8G
-         p37T6qB0UarVSvEmy17MB7A92l523/OhNffcfCBmNifM4AhSJBc/btMqrG2R55HtdBGy
-         iguA==
+        b=Ut4fWkqpd8H0+WCFz9PtIU9a0LW87jO8EY8SIC5DXJHDmjLXq+kMNllk8vG+kCsGGg
+         WnAROweC20ArYjLj8gvGBHhVLesTPra6FftYYfy7HXNDmYbJnfedA0QyVTYhVHLM9NXC
+         ndN9l4aY4o5cvULXWprKTxagEtlhIJIlxc0IeDotmhCFZZ4PbBBWEGPFDzRKUR7GRkRV
+         IS7GNqd5eawqs/ND5zaDuMY7tx77k+imTFlliNyiBD8SSPayc/Nd2Y8xRl6qNVCxy28S
+         Exix6Kpp/JHjyrOO40zW4NL68o6gnMhkISs3oluw3HSXA1+F9QuU1kBFwNRR5LWyptlF
+         D5wA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature;
-        bh=A0Ogu7gZHOBeP65sd0xtu2h11UWTeto1NUvcxcTaNio=;
-        b=ZhAiJnSG7RvpaEeQdlBTEjN565kLn8NC2dlbHihwsWI7RmDm5oA2gcyhzeJtwc8HdO
-         Wf/d5/7Od4K6BAWuRwj/yJFndJxjrHyWKIckj8sBlfnUYzJXwLk5ydw3TVdaQ1xCkln4
-         +a7fgHIh9OZ2LQ3QVQHgutup8nCbMYgU1WbES0sbnF+gFp0YNb69eNZoDQqP1KYJ0eIl
-         V3y8bUe3Z9lSrsHG+KLDRuKzUGugovuPi9jo8aXcHT7PbBrEoXIzsujz4wC6LltL/slW
-         tJjTINZSC83iQWzLZTWDWiEDkfQ7eF/d5X0LO7+FDt1wJs6h+h1pwD3IY5eLiniASZ6B
-         m3mg==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=bMFgfwVDLyNfP+n9tPTAj8QY4bC2HsMSOAGKRA9gakw=;
+        b=0Aq77A5IFj4s78mGIIGzxcTLe44OKGQCXaKMQvf2gVIgbNT/J2+nGxqB4LrzO9sqRu
+         4kSsRYNO5VfckgylY9EBRfjob2w3KifgZIAEMzII2+RauahYpbIF1ylLy2yBxJrRCn9C
+         Hq/fcfdidtPsivL3cOurY9onP/bH36U5NcK1nSx8sw+jpabTEtWYrNzugIHSC1R9KrBa
+         Y4ix/mPXLqLXmOaJid/eT036Xq+Lbdy+IllHNuYp+q/gDckdlGt2L23hRmVuxA3RhPgM
+         3mZp2Pf13KqSbQa4Sc+t2wpIGaobgVlHwfbziG/moIhsPdyanq74mEmUmf/bl77m1OAU
+         xP5Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@golovin.in header.s=mail header.b="jE0Xif/F";
-       spf=pass (google.com: domain of dima@golovin.in designates 2a02:6b8:0:801:2::107 as permitted sender) smtp.mailfrom=dima@golovin.in
-Received: from forward104j.mail.yandex.net (forward104j.mail.yandex.net. [2a02:6b8:0:801:2::107])
-        by gmr-mx.google.com with ESMTPS id a138si447165wmd.1.2019.12.04.14.55.27
+       dkim=pass header.i=@google.com header.s=20161025 header.b="MtSlA/Og";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
+        by gmr-mx.google.com with ESMTPS id n202si316858iod.3.2019.12.04.15.18.18
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 04 Dec 2019 14:55:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of dima@golovin.in designates 2a02:6b8:0:801:2::107 as permitted sender) client-ip=2a02:6b8:0:801:2::107;
-Received: from mxback26o.mail.yandex.net (mxback26o.mail.yandex.net [IPv6:2a02:6b8:0:1a2d::77])
-	by forward104j.mail.yandex.net (Yandex) with ESMTP id 100914A0BFF;
-	Thu,  5 Dec 2019 01:55:27 +0300 (MSK)
-Received: from myt2-416899e1d7e0.qloud-c.yandex.net (myt2-416899e1d7e0.qloud-c.yandex.net [2a02:6b8:c00:1caf:0:640:4168:99e1])
-	by mxback26o.mail.yandex.net (mxback/Yandex) with ESMTP id CiCpCrHJu0-tQXeZx5L;
-	Thu, 05 Dec 2019 01:55:27 +0300
-Received: by myt2-416899e1d7e0.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id QEcSBchbvx-tOVumEJ1;
-	Thu, 05 Dec 2019 01:55:25 +0300
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(Client certificate not present)
-From: Dmitry Golovin <dima@golovin.in>
-To: 
-Cc: Dmitry Golovin <dima@golovin.in>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Michal Marek <michal.lkml@markovi.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org,
-	Bruce Ashfield <bruce.ashfield@gmail.com>,
-	Ross Philipson <ross.philipson@oracle.com>,
-	Ross Burton <ross.burton@intel.com>,
-	Chao Fan <fanc.fnst@cn.fujitsu.com>,
-	Daniel Kiper <daniel.kiper@oracle.com>,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] x86/boot: kbuild: allow readelf executable to be specified
-Date: Thu,  5 Dec 2019 00:54:41 +0200
-Message-Id: <20191204225446.202981-1-dima@golovin.in>
-X-Mailer: git-send-email 2.23.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Dec 2019 15:18:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
+Received: by mail-pl1-x643.google.com with SMTP id ay6so388938plb.0
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Dec 2019 15:18:18 -0800 (PST)
+X-Received: by 2002:a17:902:8216:: with SMTP id x22mr5812405pln.179.1575501497559;
+ Wed, 04 Dec 2019 15:18:17 -0800 (PST)
 MIME-Version: 1.0
-X-Original-Sender: dima@golovin.in
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@golovin.in header.s=mail header.b="jE0Xif/F";       spf=pass
- (google.com: domain of dima@golovin.in designates 2a02:6b8:0:801:2::107 as
- permitted sender) smtp.mailfrom=dima@golovin.in
+References: <20191204225446.202981-1-dima@golovin.in>
+In-Reply-To: <20191204225446.202981-1-dima@golovin.in>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 4 Dec 2019 15:18:05 -0800
+Message-ID: <CAKwvOdm-bhuJMRRN3tyNdb88+_TFd4m3b-7gX0-91VG4djzp+Q@mail.gmail.com>
+Subject: Re: [PATCH] x86/boot: kbuild: allow readelf executable to be specified
+To: Dmitry Golovin <dima@golovin.in>
+Cc: Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	"H. Peter Anvin" <hpa@zytor.com>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, Bruce Ashfield <bruce.ashfield@gmail.com>, 
+	Ross Philipson <ross.philipson@oracle.com>, Ross Burton <ross.burton@intel.com>, 
+	Chao Fan <fanc.fnst@cn.fujitsu.com>, Daniel Kiper <daniel.kiper@oracle.com>, 
+	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, tony.luck@intel.com, 
+	fenghua.yu@intel.com, linux-ia64@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: ndesaulniers@google.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@google.com header.s=20161025 header.b="MtSlA/Og";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -144,62 +136,91 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Introduce a new READELF variable to top-level Makefile, so the name of
-readelf binary can be specified.
+On Wed, Dec 4, 2019 at 2:55 PM Dmitry Golovin <dima@golovin.in> wrote:
+>
+> Introduce a new READELF variable to top-level Makefile, so the name of
+> readelf binary can be specified.
 
-Before this change the name of the binary was hardcoded to
-"$(CROSS_COMPILE)readelf" which might not be present for every
-toolchain.
+Thanks for the patch!
 
-This allows to build with LLVM Object Reader by using make parameter
-READELF=llvm-readelf.
+This is a general cleanup that should improve cross compilation
+(readelf should be treated as ever binary in the list like
+objcopy/objdump/etc), and allow us to use binutils substitutes for
+readelf that aren't called `readelf` (ie. `llvm-readelf`).
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/771
-Signed-off-by: Dmitry Golovin <dima@golovin.in>
-Cc: Nick Desaulniers <ndesaulniers@google.com>
----
- Makefile                          | 3 ++-
- arch/x86/boot/compressed/Makefile | 2 +-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+>
+> Before this change the name of the binary was hardcoded to
+> "$(CROSS_COMPILE)readelf" which might not be present for every
+> toolchain.
+>
+> This allows to build with LLVM Object Reader by using make parameter
+> READELF=llvm-readelf.
+>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/771
+> Signed-off-by: Dmitry Golovin <dima@golovin.in>
+> Cc: Nick Desaulniers <ndesaulniers@google.com>
 
-diff --git a/Makefile b/Makefile
-index 999a197d67d2..612a55d25442 100644
---- a/Makefile
-+++ b/Makefile
-@@ -414,6 +414,7 @@ STRIP		= $(CROSS_COMPILE)strip
- OBJCOPY		= $(CROSS_COMPILE)objcopy
- OBJDUMP		= $(CROSS_COMPILE)objdump
- OBJSIZE		= $(CROSS_COMPILE)size
-+READELF		= $(CROSS_COMPILE)readelf
- PAHOLE		= pahole
- LEX		= flex
- YACC		= bison
-@@ -472,7 +473,7 @@ GCC_PLUGINS_CFLAGS :=
- CLANG_FLAGS :=
- 
- export ARCH SRCARCH CONFIG_SHELL BASH HOSTCC KBUILD_HOSTCFLAGS CROSS_COMPILE AS LD CC
--export CPP AR NM STRIP OBJCOPY OBJDUMP OBJSIZE PAHOLE LEX YACC AWK INSTALLKERNEL
-+export CPP AR NM STRIP OBJCOPY OBJDUMP OBJSIZE READELF PAHOLE LEX YACC AWK INSTALLKERNEL
- export PERL PYTHON PYTHON2 PYTHON3 CHECK CHECKFLAGS MAKE UTS_MACHINE HOSTCXX
- export KBUILD_HOSTCXXFLAGS KBUILD_HOSTLDFLAGS KBUILD_HOSTLDLIBS LDFLAGS_MODULE
- 
-diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-index aa976adb7094..1dac210f7d44 100644
---- a/arch/x86/boot/compressed/Makefile
-+++ b/arch/x86/boot/compressed/Makefile
-@@ -103,7 +103,7 @@ vmlinux-objs-$(CONFIG_EFI_MIXED) += $(obj)/efi_thunk_$(BITS).o
- quiet_cmd_check_data_rel = DATAREL $@
- define cmd_check_data_rel
- 	for obj in $(filter %.o,$^); do \
--		${CROSS_COMPILE}readelf -S $$obj | grep -qF .rel.local && { \
-+		$(READELF) -S $$obj | grep -qF .rel.local && { \
- 			echo "error: $$obj has data relocations!" >&2; \
- 			exit 1; \
- 		} || true; \
+No need to explicitly CC me; I monitor our list like a hawk.
+
+> ---
+>  Makefile                          | 3 ++-
+>  arch/x86/boot/compressed/Makefile | 2 +-
+>  2 files changed, 3 insertions(+), 2 deletions(-)
+>
+> diff --git a/Makefile b/Makefile
+> index 999a197d67d2..612a55d25442 100644
+> --- a/Makefile
+> +++ b/Makefile
+> @@ -414,6 +414,7 @@ STRIP               = $(CROSS_COMPILE)strip
+>  OBJCOPY                = $(CROSS_COMPILE)objcopy
+>  OBJDUMP                = $(CROSS_COMPILE)objdump
+>  OBJSIZE                = $(CROSS_COMPILE)size
+> +READELF                = $(CROSS_COMPILE)readelf
+>  PAHOLE         = pahole
+>  LEX            = flex
+>  YACC           = bison
+> @@ -472,7 +473,7 @@ GCC_PLUGINS_CFLAGS :=
+>  CLANG_FLAGS :=
+>
+>  export ARCH SRCARCH CONFIG_SHELL BASH HOSTCC KBUILD_HOSTCFLAGS CROSS_COMPILE AS LD CC
+> -export CPP AR NM STRIP OBJCOPY OBJDUMP OBJSIZE PAHOLE LEX YACC AWK INSTALLKERNEL
+> +export CPP AR NM STRIP OBJCOPY OBJDUMP OBJSIZE READELF PAHOLE LEX YACC AWK INSTALLKERNEL
+>  export PERL PYTHON PYTHON2 PYTHON3 CHECK CHECKFLAGS MAKE UTS_MACHINE HOSTCXX
+>  export KBUILD_HOSTCXXFLAGS KBUILD_HOSTLDFLAGS KBUILD_HOSTLDLIBS LDFLAGS_MODULE
+>
+> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+> index aa976adb7094..1dac210f7d44 100644
+> --- a/arch/x86/boot/compressed/Makefile
+> +++ b/arch/x86/boot/compressed/Makefile
+> @@ -103,7 +103,7 @@ vmlinux-objs-$(CONFIG_EFI_MIXED) += $(obj)/efi_thunk_$(BITS).o
+>  quiet_cmd_check_data_rel = DATAREL $@
+>  define cmd_check_data_rel
+>         for obj in $(filter %.o,$^); do \
+> -               ${CROSS_COMPILE}readelf -S $$obj | grep -qF .rel.local && { \
+> +               $(READELF) -S $$obj | grep -qF .rel.local && { \
+
+Grepping the kernel sources for `READELF`, it looks like
+arch/ia64/Makefile makes the same mistake. Would you mind fixing both
+cases in the same patch (v2)?  I'm also curious about it's use in
+arch/ia64/scripts/unwcheck.py, and scripts/faddr2line. +ia64
+maintainers and list.
+
+I think if you simply remove the assignment on line 17 of
+arch/ia64/Makefile you should be fine.
+
+>                         echo "error: $$obj has data relocations!" >&2; \
+>                         exit 1; \
+>                 } || true; \
+> --
+> 2.23.0
+>
+
+
 -- 
-2.23.0
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191204225446.202981-1-dima%40golovin.in.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm-bhuJMRRN3tyNdb88%2B_TFd4m3b-7gX0-91VG4djzp%2BQ%40mail.gmail.com.
