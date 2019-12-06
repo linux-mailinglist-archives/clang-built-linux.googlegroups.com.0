@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBJ5FVPXQKGQE4XXA5CA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBKNFVPXQKGQE5OG2LDQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id E23661158F3
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Dec 2019 23:14:00 +0100 (CET)
-Received: by mail-io1-xd3a.google.com with SMTP id d1sf5838701ioe.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Dec 2019 14:14:00 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575670439; cv=pass;
+Received: from mail-il1-x140.google.com (mail-il1-x140.google.com [IPv6:2607:f8b0:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7F6C61158F4
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Dec 2019 23:14:03 +0100 (CET)
+Received: by mail-il1-x140.google.com with SMTP id l13sf6410857ils.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Dec 2019 14:14:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575670442; cv=pass;
         d=google.com; s=arc-20160816;
-        b=meCnvgKKM6Pkgz50SgvKM3SmxeaSXYppIyqcAfmTK6ShIJLjHUbqUyofxdAaPmxOi2
-         X/BNTnhv0HuOVjajWkkwYmtw0DRAiHfBTzbtzYbiJTKWVxKb1E1gLk/Dz5+goqCtfGSi
-         6fuhcy3DMRXObXM6ZRSdOrmYr3VuCgPpohmYF31nI01HdxGrKBjx+s24vuhhxcpETuxb
-         xbT9p+cjcclN0aUwSOuWHdE7J6xbrjBD6iHVvAkBlg8HRmfEsN0QtztP74ucO/88bv1P
-         I/dy2TKFF+lpXAUY8rRKlN1JuLUH/5hn2BDKP3JgczuxTAFn2Pid35gLKriWhjn6GtH1
-         6F9Q==
+        b=ITA3MFIoVaqfOBzSldWzlaaKneZQYJekuE7sbLzYnIm5VCyXU3I1b/zt9aVjSjrB66
+         1aZC+ieAoHo8GD8Y1h8dRrINAsxnRWXsm+5sai7TenB3amaynBNiASjIBTFcIhEOORTr
+         AkUfPaDnZpiBV6Kiwp+2wtDHynL632YvwLqYYUsmBCuTw3lV3Cp/TMNFOrFk2wGs/opt
+         aH9XjXxogKA87MKpnEBeciIV0LGdkmg/n54hOQrg6IwFu1FOOE/864t8OKxeruYo1dI+
+         ZKjQXV3w5afYxQf0vcFrgwUssAiEuravI0SELSGGDZHUjc6ptgfZVcAB27SRx66PMmYK
+         Ibhw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=l1GK+8T3O8GrviLufeFBzTyjc57K3U6nPIzC3umA534=;
-        b=OtWfScsV8ytnCzXgkK4rRWDS4nXzthbu+Q8OimTtR+wjlwM3N/fDDS0MwgJRA0lgm9
-         OUzXqvzAYqovRzk7Y+oeA1+Pnw2LORiLkV7oqeKqnGgJ1cCHz6eQC5bVVVyLer1PrmvJ
-         X0jMaPaBVraW4rgKBMgHN+0qYdcTSoqqCS2pEc6mnnzTI0W+qQugdVxEJQIPvQFFaHR9
-         XgIW6A3kiPbqYCkdbujh+TyJprwKlehf6Jud8sJmGvcYY0dVGRu82Q/a7SXEUmSa32BG
-         pNYqGkF1BwQtfeAr19BRq9BidMkYoPHCziKDcum+l1C182xDVGZnPiCytkY26x3b7WZW
-         ZYfQ==
+        bh=A8AHfdiOIcIFYn4cdLXmnVP1mtws737pc1/uoPvAhvE=;
+        b=G1JNFjBP/XuDdr6fzv5pab4Ua9yJQ+21bgsSASOCTQNG3G5BdeVi8TiU+gyJop1OMg
+         oRQ6qHwUOVOYJcUEVJKvg+/vDQmGbbl0p98mMtE3aXZVf+M9NovHJalMzJ+yV4f8ztt4
+         0cNNLaSUScs3OyXJTBJ/oBEk+1WJJNavgbO/fQWNdr79XZH4yBXoiCe55AdjuiehYBfa
+         b8KQVW4os1nnysF+Nugvp3cYcr8wGbt8hbFuXVMp+gA5q17eXkC4AmtCM/DPku7TEOMy
+         pqaPJsLvm+iyl4DhwUhiRCmJMt0wjkMzZ/R/havpY5c8UdQKUom+NvvAXPWr/ocNL7pH
+         sp2w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Sql0AUQx;
-       spf=pass (google.com: domain of 3ptlqxqwkaosfnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3ptLqXQwKAOsfNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CPqQmv4W;
+       spf=pass (google.com: domain of 3qnlqxqwkao0hpbxidakpctcvddvat.rdb@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3qNLqXQwKAO0hPbXidakPcTcVddVaT.Rdb@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=l1GK+8T3O8GrviLufeFBzTyjc57K3U6nPIzC3umA534=;
-        b=eyvzENda4s2x0FhqjyILywrn9oNyrBazqfEduP34eduTtSfvQC7GzEGzIAhDCM0P3/
-         eIkxytQSMOQmNhXto++Ho304gdrPmRbY4LQLDeMPlW6pMlVIT9pRpsRPGOvqhscPd3hf
-         zCrxBMaswEL/MDQHqbZDFbE0ijE9FrIVTj+uYC4mBmnHo+ao2eMF+F5kzwvUKpjVKQmo
-         XcwrQMzyCeIwqydMmy0JjqsQE8bVqjN+XEaZlog19a/LwiTYCbU5B2iR4yPRIR6GSYWi
-         V5YBgfWJljlNPA5PoAYajYuUp6lRcDYPgDLQSZD3XTsVmrW6vHdbEzOBIQPK+m/7nk5m
-         i3zA==
+        bh=A8AHfdiOIcIFYn4cdLXmnVP1mtws737pc1/uoPvAhvE=;
+        b=dekGSqVdBltvkraHOSWYwM7piumJOum8LO9JWovLZNBN9Wll1kg2wWuCujnuAxizFo
+         uVhEVEUmMJ7Bax0K+AvM8v17LkYmwR1Qh+KEN9/7HaPNSnNPt5By7QTpK63ueyEwciFD
+         teLO8uxWpO7DYZhAIJowOIruAcfmscEOWXhY25kRizmJk6YjsjBc5m5osr85Lyj89ygx
+         9MkfIPGNehntIkP9yhPWfNwJ2Sa9fq9RwAcTbIb5WBzmmW/6Y36kzonoQBxcKDeOH0p4
+         kq3zEv6s1qDX0GxiHY4rKDwgV06DIYYW9qjaOSVHDlEquy9/fcgEoa02iaEWx7ri3X9H
+         /gJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,63 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=l1GK+8T3O8GrviLufeFBzTyjc57K3U6nPIzC3umA534=;
-        b=nUqchL0ubqKC553eAJc76ASVQpSaU3birkq21AF8BIuzXs8lA0FT+zM+tWjuz26OBu
-         0MP5H3U+Lv5fQuNp42zPgkU7Lv4oqrww4CDlydkSMzdAeNTshYT81ee4/HRJs/ZHaduT
-         qSv/DF3A1K8l/81yGNFahajWRwpkLyzFBRpqietxfDpcjmYQIycQhBuJoGfbtV61xfXT
-         nC2vid36w/lFw8x7LcdEvyIRV1BA2In1zKLIky14zL6oEuFv5Rus77EOGPkSWJCkQNrT
-         jjSj46bQNNTVQn7eILSmUbLqfCWQDwj5jbVL0KLrTW5Eq6WMvHcF9OEQj9+DX9VTzTHM
-         ACeQ==
-X-Gm-Message-State: APjAAAUegnH21iLU/qnMw+s1F83sgjM3dLuFgmim0WDkJYJ09wpr+4Xe
-	clYzUk3PLrhA/Bacopu8YF0=
-X-Google-Smtp-Source: APXvYqxnGGQ8ZinCNcJdB7wki5hJ3B3FT8L0/oR0ssoVtekIJV4/YBfzcgz3IeUxRMj53nokkSgZ2Q==
-X-Received: by 2002:a6b:c84b:: with SMTP id y72mr11920986iof.87.1575670439564;
-        Fri, 06 Dec 2019 14:13:59 -0800 (PST)
+        bh=A8AHfdiOIcIFYn4cdLXmnVP1mtws737pc1/uoPvAhvE=;
+        b=qyzc7nwccYM1YhOk6WWaqd2v5omGErC2BX+/8mpjEds8Aw3GU9J1EpcrT064QR4Ttr
+         Q+dQz8jqdzSm3DJYRgSex5JzoXpdC1Ub5Ib1Uez8NsGx1+Dk5Xa9cb7beaCG+JPobm7l
+         mKCvmlqptPu+6XyZQf6UnyTvAvS8LHxKggWXq4sQQJy0gph7PguGzoC24yL6Lczt+g+0
+         2OYjISQkxfGFZk2MdcUKDWN8Em+/aa9kuR3K9box/07jj91TbU6d68BZhiizxOW+5ECJ
+         VrektrAS/6k677zxp8rXYi0mt3Yby+WYp1mz59Lw4UGr5B7DFcstC4xkxpsI2nFNSIlf
+         lNvQ==
+X-Gm-Message-State: APjAAAUwiNQYh1gUfeurYSZk9RWMPAEduls297nGp/Y8sJ44WNJm0lhU
+	kSDIwkYGuksu9LVgbhXecUw=
+X-Google-Smtp-Source: APXvYqzRiRxksk8j6YYNPak59ACdoX4SWo2alZVBzL4/pGZ8VT9PygQfnzSThf/OzHYw7IaAOp7+Sg==
+X-Received: by 2002:a92:45d2:: with SMTP id z79mr16583108ilj.76.1575670442013;
+        Fri, 06 Dec 2019 14:14:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:3c19:: with SMTP id j25ls1361981ila.12.gmail; Fri, 06
- Dec 2019 14:13:59 -0800 (PST)
-X-Received: by 2002:a92:5bdd:: with SMTP id c90mr17617031ilg.78.1575670439155;
-        Fri, 06 Dec 2019 14:13:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575670439; cv=none;
+Received: by 2002:a92:b648:: with SMTP id s69ls1365285ili.10.gmail; Fri, 06
+ Dec 2019 14:14:01 -0800 (PST)
+X-Received: by 2002:a92:c0c7:: with SMTP id t7mr17201550ilf.113.1575670441631;
+        Fri, 06 Dec 2019 14:14:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575670441; cv=none;
         d=google.com; s=arc-20160816;
-        b=vIIJcg/DwRGB5vLL7ibiGrOPFiWUDzdrtfkZSebQNb3/rIpJrlBDk0R2tdCDdSc+zl
-         etqOORb+CFFrgEXz5aBJOahw/nqYGF6DcFze50MpXpgJL1+IlBbCmvmhfY1cuTMX+aHq
-         41GhJ5d72LNTshTW8Z4OpHwIeKttSfW3+B6D7eapAUVAyNWsO8KdOssWmUe0q042Lriy
-         laAAify8NmbmmFsWGfapRLhJjbRm98NGN8KKaE9vDZirFI2cbTXW/vclEHZ8X25oxkIi
-         CJUXLeOOad5sN75Gehgy08cuIEcfnkHwVxRxWo2IXt7Fh3VmkzL97hN1KJE7ag5FcbNF
-         Wqzw==
+        b=zYURIa11vr6pn15T2wrKTGqUN5DGxXnScA9XYqIIFIIQUBpUi6gN8J9HD767k/PNnS
+         36PV894Qdt5x0N7431iDU3AqLQhrotNAi3o6NduFnB6h8M3oEMhgdoZhYqyBnAPy3wkj
+         cpuC5epiX1ApQ2dMbphTPmxvx16jOU8X7XJ/ollq0od3XmcabZvoWi4hO3QsdDdj3HDm
+         6K2A6wm39GW2J3NfOAbwjPP5d/eM3lfhNr0K4jftoPTxo9V/MNpF3uWBYiNzc/6Vszj3
+         PuTRo15VDaa4OHUp5HS+wFnV4MUweIoKoAjV+y+Qo/3hK9UwqYzwLExqQWZ2Oleh3S74
+         9/Bw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=Y+PZLTAB8cI7c6J3sLNCtDVk2nPLg4lB7Nz2OXbvgbI=;
-        b=rHJuHTru98lJ2XFdGh6u+vU6d3F5cJUmqgAHmIJysW4F7ATSZyV+3zNM/21stCe1dn
-         964jt3E8RQ2whmEGx2u/96SMQ12ED61HlZMPJOLbD0pOSd5e0rOsesh71caKEsJL97Pv
-         noRczKXGTGa7E9atn7+pU9VVe1fNyKTNcHAaffy7q8+JLAFJa3QDGefnQXeXlxEZs98C
-         pwxRNtbLm4UTVtsfxkf2ZYnMcm33LMzmuXsukNC4+lk7+SXryqppPcJLgtq+xxV5g+rA
-         OwEGjXHl1EA+c0pZYSNVG1YRIfGhrr4acwCJEZ+CyUSFH9ILdO36rhXwz0ztA+j6iXxE
-         mVlg==
+        bh=8cEo3bnB2JOErtud3GvPd9W0QqVJKhLYL3PxcgBL0pc=;
+        b=BgtjWwc84Fz8kFnTZZJaTfe3HbpIOHmrKpDHRwqT9rtfxYSie03+SnPoIy9D1amkqE
+         sGf1roIb7zYDhU1+V/PngSSDlUVaz3UpM3hqnbHdxxFxl/pXgsqVQE9lUVr/CuoszTOZ
+         KecqITNaztLXLJwIs+Aqh/c7VyLoCE6e0D9dRuMIdlZEKDzIcuEEFAvuwLx/O0hjompV
+         rmQcj5SCO7GfaO+SsQNuQTkIYHQxPEs/qv2byD+qNLYaw5ARppBVeaJH9KrwIVe9LrQu
+         +NBfk8AFz3T4nPCXT+p7Gp6sFGdaLWfJkQqnlCz08mNoJnAYkmScaFY6b/3KW/9Tvewy
+         NZlg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Sql0AUQx;
-       spf=pass (google.com: domain of 3ptlqxqwkaosfnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3ptLqXQwKAOsfNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CPqQmv4W;
+       spf=pass (google.com: domain of 3qnlqxqwkao0hpbxidakpctcvddvat.rdb@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3qNLqXQwKAO0hPbXidakPcTcVddVaT.Rdb@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x549.google.com (mail-pg1-x549.google.com. [2607:f8b0:4864:20::549])
-        by gmr-mx.google.com with ESMTPS id k25si674102iog.5.2019.12.06.14.13.59
+Received: from mail-pf1-x449.google.com (mail-pf1-x449.google.com. [2607:f8b0:4864:20::449])
+        by gmr-mx.google.com with ESMTPS id v3si968023ilq.0.2019.12.06.14.14.01
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Dec 2019 14:13:59 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3ptlqxqwkaosfnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::549 as permitted sender) client-ip=2607:f8b0:4864:20::549;
-Received: by mail-pg1-x549.google.com with SMTP id u14so4536735pgq.16
-        for <clang-built-linux@googlegroups.com>; Fri, 06 Dec 2019 14:13:59 -0800 (PST)
-X-Received: by 2002:a63:de4a:: with SMTP id y10mr5991658pgi.367.1575670438461;
- Fri, 06 Dec 2019 14:13:58 -0800 (PST)
-Date: Fri,  6 Dec 2019 14:13:37 -0800
+        Fri, 06 Dec 2019 14:14:01 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3qnlqxqwkao0hpbxidakpctcvddvat.rdb@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::449 as permitted sender) client-ip=2607:f8b0:4864:20::449;
+Received: by mail-pf1-x449.google.com with SMTP id b8so4785680pfr.17
+        for <clang-built-linux@googlegroups.com>; Fri, 06 Dec 2019 14:14:01 -0800 (PST)
+X-Received: by 2002:a63:184d:: with SMTP id 13mr6053846pgy.132.1575670440912;
+ Fri, 06 Dec 2019 14:14:00 -0800 (PST)
+Date: Fri,  6 Dec 2019 14:13:38 -0800
 In-Reply-To: <20191206221351.38241-1-samitolvanen@google.com>
-Message-Id: <20191206221351.38241-2-samitolvanen@google.com>
+Message-Id: <20191206221351.38241-3-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20191018161033.261971-1-samitolvanen@google.com> <20191206221351.38241-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.24.0.393.g34dc348eaf-goog
-Subject: [PATCH v6 01/15] arm64: mm: avoid x18 in idmap_kpti_install_ng_mappings
+Subject: [PATCH v6 02/15] arm64/lib: copy_page: avoid x18 register in
+ assembler code
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
@@ -119,9 +120,9 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Sql0AUQx;       spf=pass
- (google.com: domain of 3ptlqxqwkaosfnzvgbyinaratbbtyr.pbz@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::549 as permitted sender) smtp.mailfrom=3ptLqXQwKAOsfNZVgbYiNaRaTbbTYR.PbZ@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b=CPqQmv4W;       spf=pass
+ (google.com: domain of 3qnlqxqwkao0hpbxidakpctcvddvat.rdb@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::449 as permitted sender) smtp.mailfrom=3qNLqXQwKAO0hPbXidakPcTcVddVaT.Rdb@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -137,130 +138,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-idmap_kpti_install_ng_mappings uses x18 as a temporary register, which
-will result in a conflict when x18 is reserved. Use x16 and x17 instead
-where needed.
+From: Ard Biesheuvel <ard.biesheuvel@linaro.org>
 
+Register x18 will no longer be used as a caller save register in the
+future, so stop using it in the copy_page() code.
+
+Link: https://patchwork.kernel.org/patch/9836869/
+Signed-off-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+[Sami: changed the offset and bias to be explicit]
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 ---
- arch/arm64/mm/proc.S | 63 ++++++++++++++++++++++----------------------
- 1 file changed, 32 insertions(+), 31 deletions(-)
+ arch/arm64/lib/copy_page.S | 38 +++++++++++++++++++-------------------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index a1e0592d1fbc..fdabf40a83c8 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -250,15 +250,15 @@ ENTRY(idmap_kpti_install_ng_mappings)
- 	/* We're the boot CPU. Wait for the others to catch up */
- 	sevl
- 1:	wfe
--	ldaxr	w18, [flag_ptr]
--	eor	w18, w18, num_cpus
--	cbnz	w18, 1b
-+	ldaxr	w17, [flag_ptr]
-+	eor	w17, w17, num_cpus
-+	cbnz	w17, 1b
+diff --git a/arch/arm64/lib/copy_page.S b/arch/arm64/lib/copy_page.S
+index bbb8562396af..290dd3c5266c 100644
+--- a/arch/arm64/lib/copy_page.S
++++ b/arch/arm64/lib/copy_page.S
+@@ -34,45 +34,45 @@ alternative_else_nop_endif
+ 	ldp	x14, x15, [x1, #96]
+ 	ldp	x16, x17, [x1, #112]
  
- 	/* We need to walk swapper, so turn off the MMU. */
- 	pre_disable_mmu_workaround
--	mrs	x18, sctlr_el1
--	bic	x18, x18, #SCTLR_ELx_M
--	msr	sctlr_el1, x18
-+	mrs	x17, sctlr_el1
-+	bic	x17, x17, #SCTLR_ELx_M
-+	msr	sctlr_el1, x17
- 	isb
+-	mov	x18, #(PAGE_SIZE - 128)
++	add	x0, x0, #256
+ 	add	x1, x1, #128
+ 1:
+-	subs	x18, x18, #128
++	tst	x0, #(PAGE_SIZE - 1)
  
- 	/* Everybody is enjoying the idmap, so we can rewrite swapper. */
-@@ -281,9 +281,9 @@ skip_pgd:
- 	isb
+ alternative_if ARM64_HAS_NO_HW_PREFETCH
+ 	prfm	pldl1strm, [x1, #384]
+ alternative_else_nop_endif
  
- 	/* We're done: fire up the MMU again */
--	mrs	x18, sctlr_el1
--	orr	x18, x18, #SCTLR_ELx_M
--	msr	sctlr_el1, x18
-+	mrs	x17, sctlr_el1
-+	orr	x17, x17, #SCTLR_ELx_M
-+	msr	sctlr_el1, x17
- 	isb
+-	stnp	x2, x3, [x0]
++	stnp	x2, x3, [x0, #-256]
+ 	ldp	x2, x3, [x1]
+-	stnp	x4, x5, [x0, #16]
++	stnp	x4, x5, [x0, #16 - 256]
+ 	ldp	x4, x5, [x1, #16]
+-	stnp	x6, x7, [x0, #32]
++	stnp	x6, x7, [x0, #32 - 256]
+ 	ldp	x6, x7, [x1, #32]
+-	stnp	x8, x9, [x0, #48]
++	stnp	x8, x9, [x0, #48 - 256]
+ 	ldp	x8, x9, [x1, #48]
+-	stnp	x10, x11, [x0, #64]
++	stnp	x10, x11, [x0, #64 - 256]
+ 	ldp	x10, x11, [x1, #64]
+-	stnp	x12, x13, [x0, #80]
++	stnp	x12, x13, [x0, #80 - 256]
+ 	ldp	x12, x13, [x1, #80]
+-	stnp	x14, x15, [x0, #96]
++	stnp	x14, x15, [x0, #96 - 256]
+ 	ldp	x14, x15, [x1, #96]
+-	stnp	x16, x17, [x0, #112]
++	stnp	x16, x17, [x0, #112 - 256]
+ 	ldp	x16, x17, [x1, #112]
  
- 	/*
-@@ -353,46 +353,47 @@ skip_pte:
- 	b.ne	do_pte
- 	b	next_pmd
+ 	add	x0, x0, #128
+ 	add	x1, x1, #128
  
-+	.unreq	cpu
-+	.unreq	num_cpus
-+	.unreq	swapper_pa
-+	.unreq	cur_pgdp
-+	.unreq	end_pgdp
-+	.unreq	pgd
-+	.unreq	cur_pudp
-+	.unreq	end_pudp
-+	.unreq	pud
-+	.unreq	cur_pmdp
-+	.unreq	end_pmdp
-+	.unreq	pmd
-+	.unreq	cur_ptep
-+	.unreq	end_ptep
-+	.unreq	pte
-+
- 	/* Secondary CPUs end up here */
- __idmap_kpti_secondary:
- 	/* Uninstall swapper before surgery begins */
--	__idmap_cpu_set_reserved_ttbr1 x18, x17
-+	__idmap_cpu_set_reserved_ttbr1 x16, x17
+-	b.gt	1b
++	b.ne	1b
  
- 	/* Increment the flag to let the boot CPU we're ready */
--1:	ldxr	w18, [flag_ptr]
--	add	w18, w18, #1
--	stxr	w17, w18, [flag_ptr]
-+1:	ldxr	w16, [flag_ptr]
-+	add	w16, w16, #1
-+	stxr	w17, w16, [flag_ptr]
- 	cbnz	w17, 1b
+-	stnp	x2, x3, [x0]
+-	stnp	x4, x5, [x0, #16]
+-	stnp	x6, x7, [x0, #32]
+-	stnp	x8, x9, [x0, #48]
+-	stnp	x10, x11, [x0, #64]
+-	stnp	x12, x13, [x0, #80]
+-	stnp	x14, x15, [x0, #96]
+-	stnp	x16, x17, [x0, #112]
++	stnp	x2, x3, [x0, #-256]
++	stnp	x4, x5, [x0, #16 - 256]
++	stnp	x6, x7, [x0, #32 - 256]
++	stnp	x8, x9, [x0, #48 - 256]
++	stnp	x10, x11, [x0, #64 - 256]
++	stnp	x12, x13, [x0, #80 - 256]
++	stnp	x14, x15, [x0, #96 - 256]
++	stnp	x16, x17, [x0, #112 - 256]
  
- 	/* Wait for the boot CPU to finish messing around with swapper */
- 	sevl
- 1:	wfe
--	ldxr	w18, [flag_ptr]
--	cbnz	w18, 1b
-+	ldxr	w16, [flag_ptr]
-+	cbnz	w16, 1b
- 
- 	/* All done, act like nothing happened */
--	offset_ttbr1 swapper_ttb, x18
-+	offset_ttbr1 swapper_ttb, x16
- 	msr	ttbr1_el1, swapper_ttb
- 	isb
  	ret
- 
--	.unreq	cpu
--	.unreq	num_cpus
--	.unreq	swapper_pa
- 	.unreq	swapper_ttb
- 	.unreq	flag_ptr
--	.unreq	cur_pgdp
--	.unreq	end_pgdp
--	.unreq	pgd
--	.unreq	cur_pudp
--	.unreq	end_pudp
--	.unreq	pud
--	.unreq	cur_pmdp
--	.unreq	end_pmdp
--	.unreq	pmd
--	.unreq	cur_ptep
--	.unreq	end_ptep
--	.unreq	pte
- ENDPROC(idmap_kpti_install_ng_mappings)
- 	.popsection
- #endif
+ ENDPROC(copy_page)
 -- 
 2.24.0.393.g34dc348eaf-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191206221351.38241-2-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191206221351.38241-3-samitolvanen%40google.com.
