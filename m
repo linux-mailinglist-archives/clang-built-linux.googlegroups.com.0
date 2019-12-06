@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBLFFVPXQKGQEBI5S3NY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBLVFVPXQKGQESQCKYAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33e.google.com (mail-ot1-x33e.google.com [IPv6:2607:f8b0:4864:20::33e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 316611158F8
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Dec 2019 23:14:06 +0100 (CET)
-Received: by mail-ot1-x33e.google.com with SMTP id l21sf4530661ota.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Dec 2019 14:14:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575670444; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id A78491158F9
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Dec 2019 23:14:08 +0100 (CET)
+Received: by mail-pf1-x43d.google.com with SMTP id r2sf4808701pfl.2
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Dec 2019 14:14:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575670447; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PM6d+mYKuQaiuJ8LouIW3VMFiV8oHMYTDwIlply9UrHtgLp/YHfc5f2WXPWQ5FLIMf
-         5XQkrlNK9J+iUaufPl9ggDeRwxJBQLLZNTCW//5wqmqF8ZNqeyFx8wBryiCvTck42yTw
-         mRGsmS+wSQFZvG56S2FtJc3vWEnFWN7pmv8gSMSZKjddQg6xwSFRDGasgslZLJ53wjq2
-         D7cNpORovxRCt3cvDfI/9zzmBkZhI2D/HryD04GmD2c9YtLqKSeU7WI5bUFfxfyzvCdS
-         ugwdfjzfT8648RoisR2q5s0jXLDUqhW8xUMdo1Z7FeU6H0r5oso1k/0ADKYMlf2DMlag
-         HXMw==
+        b=d6BQK479mYNsmdFuPv3lZOZyF9YWL+gp8pE9DYImZPX0l+6OK7zizkXYwAo2ds6ana
+         bVPKscHry/UpMeGqcZXODDkqUPWfwWI8F/XLsUae15CCa8ZbRSOqNB0ZfiWjjOmU5LCV
+         u+bUn/CKnAPczknY2A2Esj0X+jFShcgLgJOb7tIlE0aI4l1faEIHM8//klHk4/0DeG+0
+         pxiIsyAFd8NHBLa3GRapYfgS2uWa3IWLG5E/Mq6Z56R9lSY44BUXtLpU04DddRkMTMK0
+         yFZAA5OQY/MhQQm8npvxodPHVHaDtNskTpirEVI79f4643QtaRghmZG4VyFUIQuge8mR
+         K51g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
          :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=GNfuq8cAbonufVGJWKSH73o66Gg4+pqlFp867fuCzDM=;
-        b=m2ERTSMvkWkhG/sjR4OT+NcFfbfhapA7E0eZ155Yb02yG6VMblSfkP9ISQ0y+gPcVB
-         Djh5Slf4DVxvPbT+1HRcDs8jeM0MsJQgcIo1fXfWRxgrVIHKqZ/wPATmHUCCUOmimiFd
-         tHGAEbv25jBo5ZC8k3Nndn8G9KuRGDAoY30yVNcu6H47h1p6kgwxxb0oaQNu/3rDyzQm
-         v2NHSNzoJkieceSzFF8bXMRpH9ATYf7rA7Agl9MVlaJ23naGC0vbcaTmI3h+qqaGVkZy
-         wJAskZBzirMnt3GwoXE6bcqaOorAWx73URrUwyLz4xcjcB25R1nxkMskHpEqJBplI4yL
-         vtZQ==
+        bh=hJqRbF+vvUZa+ozoJWhk7geMrLbjFeTehKG/rxfXW84=;
+        b=fp0ynS15Y1xDMb7Ab3JG0nVG0qCsRIE1ZtEAUYZOuCjojNQWZdNvpxFe7g3dfCh7go
+         gJlOxvB0s2NyTeMELXTgS3f6NsUCf6DFKOvINPdmPqfUZoK01rj9+Loei4ZGNruh56Bz
+         qidPhRqb18TgbKHp8703/j8zreXw5qcvlFL4Mhg/WBcNjER+RTjeHB3nG88BOID/BERw
+         dRQ+CXIRFN6y/blep90sUOBt/rrfy8BKzmLlT8YK9NmA9ohBA4ZmfwGoP/pz5oE4nKmO
+         V3mBLVWxwGlW259G6tKQRuhDGjnmcSMyPfo74Muq1vfV74vvM5k5kiGJeg/Ft1pG2Zcp
+         dYcg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=JVSCGAex;
-       spf=pass (google.com: domain of 3q9lqxqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=3q9LqXQwKAPAkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="JUnATL/q";
+       spf=pass (google.com: domain of 3rtlqxqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3rtLqXQwKAPMnVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GNfuq8cAbonufVGJWKSH73o66Gg4+pqlFp867fuCzDM=;
-        b=a/27FVyECp3y0JC44lQzs9Id3vAy75nVtSIOymyyDbBtkfMJe0KYP0QQK9rormS7NA
-         Qr1/VOfY3tQXEFwug9RyK5Wgshe35AlooWgGT09/XvC84WyN62vx30xWiqHgGGCSp6uf
-         CmvDJDT1y1WTAvtmyJVC6Lr/IXQkfs8EdDNRNg74jYjywoyoa5lsOrEKZBhyty06mXpy
-         zF7WGG83qFj9g4CQ2splXge+qfjeSeYFdvPUkAVHo/HELNoQq4JbPoFid5hqeVZs4r1Z
-         3d0A95ZuRsrOay9yy0Ce5V34Z3oVHveSDHsyP8gqrWUT8szEuYFblLPsXJinM7M7C11T
-         xPoQ==
+        bh=hJqRbF+vvUZa+ozoJWhk7geMrLbjFeTehKG/rxfXW84=;
+        b=g5hdGOBGCQVekdznAOpV+BvugCd0TvpYKdiBskF0HZp/C58Nu7ltLvmVrgJebdvXdQ
+         cAJ1vv3zonx+4TL3hTJhsSe4pE8NQuJXvhfgU//XEECLo/Rfz8m1Uvd1IbSohpQyIIa2
+         3uTD8vfTq3N8ElB4wEeTi/mjw2N9pEUWBHmqr3z8NGYeSgjeK33p+UTGOsK9BDB3jr0j
+         ckWmTuvw8HEIy9VZV68Wyw3vUx5mqNfiIRsM5osM7Vaeg1vr9RTGyE+EJ1GtaarFAekO
+         wG7CV++OjYn1ktRDI9WnL6DPGIibSpfl2JqE42WwVxXZMHjCsv3TzwCKdJWxvIrJyx2E
+         mJdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:date:in-reply-to:message-id:mime-version
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GNfuq8cAbonufVGJWKSH73o66Gg4+pqlFp867fuCzDM=;
-        b=aROOtqGe5q/hFAhffZTENsiNksVoWxsIgp45Cb3PIxTYBS0YjJwXg6SH8d4hWMKNtB
-         LrD2tj98mVogMt6Kl2UKsyw7s6HJYUbSdfEzUwQOFKC5UBUqSmJC/G4c/jX4F5pBlbYr
-         6S2hrwOAWD8qTnXeI4oX8E48UACEBC5d2V1fAHOqtGZlBcVDWX0vjcP5LGXw7U65XrwH
-         vhjMOkFKzKL5UcWpLJ4FY115AZCiLpeJZBKzfpQ7PEZ2v7VhVp9dnE0wUASvDuTunMVh
-         MFp6G1QKEvhW/9AuQVzJwjb7juRrdYt/GbD7333JMSpahxHaNf9jx3nd8ZnnricLmNjR
-         B46Q==
-X-Gm-Message-State: APjAAAXkogYjG1CERzrctLaWkY9ogx2UnbS+6xKHj1KR3c1L/09T7Ni0
-	vXsGS3RRqq0EiH49GVY0jOw=
-X-Google-Smtp-Source: APXvYqw/fuybg5Qm659tLODSLvP59+pYEtcTWsica5gjpU7eewdFJzGss+BgRODy4Bht7J/jVWKv1w==
-X-Received: by 2002:a9d:730e:: with SMTP id e14mr12333843otk.62.1575670444771;
-        Fri, 06 Dec 2019 14:14:04 -0800 (PST)
+        bh=hJqRbF+vvUZa+ozoJWhk7geMrLbjFeTehKG/rxfXW84=;
+        b=ioSnUocEUxpZ+0phfZMl/t0+ZqOOOU+Vbd9hEQgy7TAl7nG4cuNBXL1M7XahgXgCob
+         QtISvLse42rlSBzOcQ2LtrOsaW2X6hbOlqNXF5kDBqfWkR3r9wXHyL2ZN3zcWpoQlpzu
+         EhZVI02q10URESeu6UrtqyT6Kn1J5bIMDiWPDDwm10r8FT+M29GDAGCLJ7bIWCnMwKor
+         sAqB0Zz8WJK+rP6Fgn6g6/1Bn18VMhJ01s5TU+Ypz2aTx7FDBLknc+lZxpqIT1tOc/IR
+         5H/53400vApqcrUIlzsKCQziDKmzHitWQEC2dJKQpOYGyYCf9bBRc8QQRibjMtRjpcdg
+         4TgA==
+X-Gm-Message-State: APjAAAWt9ak+kE0sZgoSGCDtmFRrnS3g4i9oH56gcPee1p/hlJOiwg7t
+	2cgP/+0w4G9FordkqL7SRKM=
+X-Google-Smtp-Source: APXvYqyfwlZhCcYUoJNgFaXGNgTmo0awbeyFgrYL5rvoBRFen61L0rPd8r24xAV/TSI8YoX+5qwytw==
+X-Received: by 2002:a65:4345:: with SMTP id k5mr6094842pgq.252.1575670446983;
+        Fri, 06 Dec 2019 14:14:06 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:1a0d:: with SMTP id a13ls1555644oia.14.gmail; Fri, 06
- Dec 2019 14:14:04 -0800 (PST)
-X-Received: by 2002:a54:4e94:: with SMTP id c20mr7586350oiy.27.1575670444351;
-        Fri, 06 Dec 2019 14:14:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575670444; cv=none;
+Received: by 2002:a17:902:a70b:: with SMTP id w11ls1995547plq.3.gmail; Fri, 06
+ Dec 2019 14:14:06 -0800 (PST)
+X-Received: by 2002:a17:90a:a386:: with SMTP id x6mr4871048pjp.116.1575670446516;
+        Fri, 06 Dec 2019 14:14:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575670446; cv=none;
         d=google.com; s=arc-20160816;
-        b=lo8X/8ParaJh3xK6WX23uCND5bSRFa+/Kngb/bJcGL3HpogzkaUxfWZJXsUVTJqpi1
-         EbNnRf1w0rNB5nLNEpgOW2jPMCIzDuIP2ulf/7ikEVlA0l5Bw1sD/0EMqYtyKE8WfPC3
-         B0ComknQkxozPchvrbNgF80Phy/5Wy7pgFvXjT0DAqkyYh6NDnoi0qQHJm+c6t9lqY90
-         OEv8+ujcYlCfsTXBE7aNfy66aQ/oWSyECjvugPPo+pMmgm62DRRhUNrLwAtS91v2swZ8
-         ZvuODKrJzZXT0mqzvK2x5z7tauHK4py2hHJA83oxGOMgrLCjn3YqMv+YSJs8o4ukbJzo
-         EhYw==
+        b=MjtCuB3LcNQtk6EMjcoelkeP7fak51gUnwDF1DbZt97fnCO+VWktN39lZuSWh2v8UY
+         oJBt4ApctaMuTPog+jwf/XOHgUKBh/gnxQK2DFdXbkdiL/n91b4wiUiSVyA66oSXbBna
+         aPEPGTw9/SsCWs8cPr1e8jCw7pAQfSKqMLYNBvm0QhkT9wnCJxX+7uW8N7n42VmYr/QQ
+         j4I6hjrD7xoF1YEJxr2UPkyZ7bbu8+It5a1SD7GXzepxIOXJ/QPDhpXB+5hBE01ZFRUd
+         fYpbFSG+5Ul2FC0nNrNtTNZPBFK6anATnROnjHSgyAHPnWTpTrCV3dxDWAtDsjrK5z38
+         BP1A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:dkim-signature;
-        bh=uHQktI1tJwpSEASWzTTpFz8grSSRR6XNFC+ZxIDfRWA=;
-        b=uiDmJvbPCLCzWk4MfapvSDV1la8nZT6ybFliO5KPZPkccIetWRbDQIRCq6Jo03KypJ
-         dJpCb4hqv9sqPL6h2nZCB5SF54xUvEkrvNhguICSQFK2InOBT5W+7EZySoWmGqUPf954
-         ynvARbDgYuxhzTdjxXlpVTNOlrqK6170puIefATheoKtXhBO3I1VRaDURioPQOjFnYdQ
-         6cK5jG6AELiINlfU40F0LVZbHiTH1kZw2Ga/6YTwvfqj8XBDtKJmQJkTFjMOTKi8qBGZ
-         gJd+l1uIcuxRMtXBRnmx+hUoqfMpLXSx09e/ySoQtpM1Coax4hp/gwSZxEoRErD/waNf
-         ofUA==
+        bh=XVGcsXtiiPVE9a9TFllXGgGHEKcXDxSx20NO6hJScDc=;
+        b=Ew60OWNH52yPoXU5xEGbZbxGAvzUl4WAU+4XjCtE/obVGVOTOUNxCII+VH/vvrN2Ka
+         8PM1F8ooLE7eWgRad24w7/KiHAgMJp5ca8ih0+M49rQVlqEkkYTqgN77eZBKYFUql3Mv
+         G51H3CUi1umJwzalQQ8wzZM/RXZOrw2O92is2RKT+GV+4nK42n1Rlc5GpYOeth+iRmLc
+         sMklm4NMOedqecCHCMUJk+cRWTLdlVc+6/0I1PgobiZk/klvMy/BU68yKxNc6jWOSuSS
+         LCAaEk4XrgyrnJ9OVkms/wL4S1/gMMEHEjBwH9jreURCP7xsQi0Izn1nHD5HzFHZSq/t
+         qPjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=JVSCGAex;
-       spf=pass (google.com: domain of 3q9lqxqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=3q9LqXQwKAPAkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b="JUnATL/q";
+       spf=pass (google.com: domain of 3rtlqxqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3rtLqXQwKAPMnVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pj1-x1049.google.com (mail-pj1-x1049.google.com. [2607:f8b0:4864:20::1049])
-        by gmr-mx.google.com with ESMTPS id w63si867583oib.4.2019.12.06.14.14.04
+Received: from mail-pl1-x64a.google.com (mail-pl1-x64a.google.com. [2607:f8b0:4864:20::64a])
+        by gmr-mx.google.com with ESMTPS id f23si482827plr.0.2019.12.06.14.14.06
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Dec 2019 14:14:04 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3q9lqxqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::1049 as permitted sender) client-ip=2607:f8b0:4864:20::1049;
-Received: by mail-pj1-x1049.google.com with SMTP id z12so4348203pju.0
-        for <clang-built-linux@googlegroups.com>; Fri, 06 Dec 2019 14:14:04 -0800 (PST)
-X-Received: by 2002:a63:ed56:: with SMTP id m22mr5943958pgk.261.1575670443383;
- Fri, 06 Dec 2019 14:14:03 -0800 (PST)
-Date: Fri,  6 Dec 2019 14:13:39 -0800
+        Fri, 06 Dec 2019 14:14:06 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3rtlqxqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::64a as permitted sender) client-ip=2607:f8b0:4864:20::64a;
+Received: by mail-pl1-x64a.google.com with SMTP id be1so4281155plb.1
+        for <clang-built-linux@googlegroups.com>; Fri, 06 Dec 2019 14:14:06 -0800 (PST)
+X-Received: by 2002:a63:1c66:: with SMTP id c38mr5983922pgm.368.1575670446054;
+ Fri, 06 Dec 2019 14:14:06 -0800 (PST)
+Date: Fri,  6 Dec 2019 14:13:40 -0800
 In-Reply-To: <20191206221351.38241-1-samitolvanen@google.com>
-Message-Id: <20191206221351.38241-4-samitolvanen@google.com>
+Message-Id: <20191206221351.38241-5-samitolvanen@google.com>
 Mime-Version: 1.0
 References: <20191018161033.261971-1-samitolvanen@google.com> <20191206221351.38241-1-samitolvanen@google.com>
 X-Mailer: git-send-email 2.24.0.393.g34dc348eaf-goog
-Subject: [PATCH v6 03/15] arm64: kvm: stop treating register x18 as caller save
+Subject: [PATCH v6 04/15] arm64: kernel: avoid x18 in __cpu_soft_restart
 From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
 To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
@@ -119,9 +119,9 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>,
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=JVSCGAex;       spf=pass
- (google.com: domain of 3q9lqxqwkapaksealgdnsfwfyggydw.uge@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::1049 as permitted sender) smtp.mailfrom=3q9LqXQwKAPAkSealgdnSfWfYggYdW.Uge@flex--samitolvanen.bounces.google.com;
+ header.i=@google.com header.s=20161025 header.b="JUnATL/q";       spf=pass
+ (google.com: domain of 3rtlqxqwkapmnvhdojgqvizibjjbgz.xjh@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::64a as permitted sender) smtp.mailfrom=3rtLqXQwKAPMnVhdojgqViZibjjbgZ.Xjh@flex--samitolvanen.bounces.google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Sami Tolvanen <samitolvanen@google.com>
 Reply-To: Sami Tolvanen <samitolvanen@google.com>
@@ -139,128 +139,41 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Ard Biesheuvel <ard.biesheuvel@linaro.org>
 
-In preparation of reserving x18, stop treating it as caller save in
-the KVM guest entry/exit code. Currently, the code assumes there is
-no need to preserve it for the host, given that it would have been
-assumed clobbered anyway by the function call to __guest_enter().
-Instead, preserve its value and restore it upon return.
+The code in __cpu_soft_restart() uses x18 as an arbitrary temp register,
+which will shortly be disallowed. So use x8 instead.
 
-Link: https://patchwork.kernel.org/patch/9836891/
+Link: https://patchwork.kernel.org/patch/9836877/
 Signed-off-by: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-[Sami: updated commit message, switched from x18 to x29 for the guest context]
+[Sami: updated commit message]
 Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Reviewed-by: Marc Zyngier <maz@kernel.org>
 Reviewed-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Kees Cook <keescook@chromium.org>
 ---
- arch/arm64/kvm/hyp/entry.S | 45 ++++++++++++++++++++------------------
- 1 file changed, 24 insertions(+), 21 deletions(-)
+ arch/arm64/kernel/cpu-reset.S | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/entry.S b/arch/arm64/kvm/hyp/entry.S
-index e5cc8d66bf53..0c6832ec52b1 100644
---- a/arch/arm64/kvm/hyp/entry.S
-+++ b/arch/arm64/kvm/hyp/entry.S
-@@ -22,7 +22,12 @@
- 	.text
- 	.pushsection	.hyp.text, "ax"
+diff --git a/arch/arm64/kernel/cpu-reset.S b/arch/arm64/kernel/cpu-reset.S
+index 6ea337d464c4..32c7bf858dd9 100644
+--- a/arch/arm64/kernel/cpu-reset.S
++++ b/arch/arm64/kernel/cpu-reset.S
+@@ -42,11 +42,11 @@ ENTRY(__cpu_soft_restart)
+ 	mov	x0, #HVC_SOFT_RESTART
+ 	hvc	#0				// no return
  
-+/*
-+ * We treat x18 as callee-saved as the host may use it as a platform
-+ * register (e.g. for shadow call stack).
-+ */
- .macro save_callee_saved_regs ctxt
-+	str	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
- 	stp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
- 	stp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
- 	stp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
-@@ -32,6 +37,8 @@
- .endm
+-1:	mov	x18, x1				// entry
++1:	mov	x8, x1				// entry
+ 	mov	x0, x2				// arg0
+ 	mov	x1, x3				// arg1
+ 	mov	x2, x4				// arg2
+-	br	x18
++	br	x8
+ ENDPROC(__cpu_soft_restart)
  
- .macro restore_callee_saved_regs ctxt
-+	// We require \ctxt is not x18-x28
-+	ldr	x18,      [\ctxt, #CPU_XREG_OFFSET(18)]
- 	ldp	x19, x20, [\ctxt, #CPU_XREG_OFFSET(19)]
- 	ldp	x21, x22, [\ctxt, #CPU_XREG_OFFSET(21)]
- 	ldp	x23, x24, [\ctxt, #CPU_XREG_OFFSET(23)]
-@@ -48,7 +55,7 @@ ENTRY(__guest_enter)
- 	// x0: vcpu
- 	// x1: host context
- 	// x2-x17: clobbered by macros
--	// x18: guest context
-+	// x29: guest context
- 
- 	// Store the host regs
- 	save_callee_saved_regs x1
-@@ -67,31 +74,28 @@ alternative_else_nop_endif
- 	ret
- 
- 1:
--	add	x18, x0, #VCPU_CONTEXT
-+	add	x29, x0, #VCPU_CONTEXT
- 
- 	// Macro ptrauth_switch_to_guest format:
- 	// 	ptrauth_switch_to_guest(guest cxt, tmp1, tmp2, tmp3)
- 	// The below macro to restore guest keys is not implemented in C code
- 	// as it may cause Pointer Authentication key signing mismatch errors
- 	// when this feature is enabled for kernel code.
--	ptrauth_switch_to_guest x18, x0, x1, x2
-+	ptrauth_switch_to_guest x29, x0, x1, x2
- 
- 	// Restore guest regs x0-x17
--	ldp	x0, x1,   [x18, #CPU_XREG_OFFSET(0)]
--	ldp	x2, x3,   [x18, #CPU_XREG_OFFSET(2)]
--	ldp	x4, x5,   [x18, #CPU_XREG_OFFSET(4)]
--	ldp	x6, x7,   [x18, #CPU_XREG_OFFSET(6)]
--	ldp	x8, x9,   [x18, #CPU_XREG_OFFSET(8)]
--	ldp	x10, x11, [x18, #CPU_XREG_OFFSET(10)]
--	ldp	x12, x13, [x18, #CPU_XREG_OFFSET(12)]
--	ldp	x14, x15, [x18, #CPU_XREG_OFFSET(14)]
--	ldp	x16, x17, [x18, #CPU_XREG_OFFSET(16)]
--
--	// Restore guest regs x19-x29, lr
--	restore_callee_saved_regs x18
--
--	// Restore guest reg x18
--	ldr	x18,      [x18, #CPU_XREG_OFFSET(18)]
-+	ldp	x0, x1,   [x29, #CPU_XREG_OFFSET(0)]
-+	ldp	x2, x3,   [x29, #CPU_XREG_OFFSET(2)]
-+	ldp	x4, x5,   [x29, #CPU_XREG_OFFSET(4)]
-+	ldp	x6, x7,   [x29, #CPU_XREG_OFFSET(6)]
-+	ldp	x8, x9,   [x29, #CPU_XREG_OFFSET(8)]
-+	ldp	x10, x11, [x29, #CPU_XREG_OFFSET(10)]
-+	ldp	x12, x13, [x29, #CPU_XREG_OFFSET(12)]
-+	ldp	x14, x15, [x29, #CPU_XREG_OFFSET(14)]
-+	ldp	x16, x17, [x29, #CPU_XREG_OFFSET(16)]
-+
-+	// Restore guest regs x18-x29, lr
-+	restore_callee_saved_regs x29
- 
- 	// Do not touch any register after this!
- 	eret
-@@ -114,7 +118,7 @@ ENTRY(__guest_exit)
- 	// Retrieve the guest regs x0-x1 from the stack
- 	ldp	x2, x3, [sp], #16	// x0, x1
- 
--	// Store the guest regs x0-x1 and x4-x18
-+	// Store the guest regs x0-x1 and x4-x17
- 	stp	x2, x3,   [x1, #CPU_XREG_OFFSET(0)]
- 	stp	x4, x5,   [x1, #CPU_XREG_OFFSET(4)]
- 	stp	x6, x7,   [x1, #CPU_XREG_OFFSET(6)]
-@@ -123,9 +127,8 @@ ENTRY(__guest_exit)
- 	stp	x12, x13, [x1, #CPU_XREG_OFFSET(12)]
- 	stp	x14, x15, [x1, #CPU_XREG_OFFSET(14)]
- 	stp	x16, x17, [x1, #CPU_XREG_OFFSET(16)]
--	str	x18,      [x1, #CPU_XREG_OFFSET(18)]
- 
--	// Store the guest regs x19-x29, lr
-+	// Store the guest regs x18-x29, lr
- 	save_callee_saved_regs x1
- 
- 	get_host_ctxt	x2, x3
+ .popsection
 -- 
 2.24.0.393.g34dc348eaf-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191206221351.38241-4-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191206221351.38241-5-samitolvanen%40google.com.
