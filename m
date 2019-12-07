@@ -1,124 +1,127 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRB25AVTXQKGQEYZYD2XY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBOGQVXXQKGQEFS7QDMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 649DA115ABE
-	for <lists+clang-built-linux@lfdr.de>; Sat,  7 Dec 2019 03:37:32 +0100 (CET)
-Received: by mail-wm1-x338.google.com with SMTP id s25sf2273382wmj.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Dec 2019 18:37:32 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575686252; cv=pass;
+Received: from mail-lf1-x137.google.com (mail-lf1-x137.google.com [IPv6:2a00:1450:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id DD28A115B99
+	for <lists+clang-built-linux@lfdr.de>; Sat,  7 Dec 2019 09:52:08 +0100 (CET)
+Received: by mail-lf1-x137.google.com with SMTP id x79sf1662492lff.19
+        for <lists+clang-built-linux@lfdr.de>; Sat, 07 Dec 2019 00:52:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575708728; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EdeqMj+DMWx4AdEBbWnDeyWHj1FTwUeT1Gei72XnTYwx4+eMbgLCFpAKet4A7osdBE
-         dDjQSn1t6kwAOikcoj5955YokbKTpiY4mrrqOgGNZU7rK3llJ/HX/udiUkgAakiaDo/5
-         BoOU8HaR+lxZ3d2l8cPHx0s7HvhR3R+EM8buez5n+FTOp4riKSabjC9D9P1kgdH2JgvC
-         fkxIvyXv7xuNlNYpc9y34g0Cmm3vEKGPFVoGjgAZ1yQvLoXrUWq/YPbAfCobGDAq7zZo
-         45zdj2NdFlkov+xGWYI2NljrQR9VSQVIuLMww7HGZNWIo8BEw+no0IZNv46a+j9D+aYb
-         G3ZA==
+        b=YiHKf97pbQ36fIOo0aH/h/BXk5TYd0rcb1b93lvmjOtinWwHQxqlW8Zf6YEg1GARxO
+         NPCevdd9SCBh+K1aIjb4v0JST2EjwfnmFF036a2o5qhi5urpkvaNJgoLx0R0C8/SI6kV
+         elLCVUcw//DEUz1bjnWBSJ5YOAOwxmGqFmYJSNPICBez9dMGe9Ru0gRAqZXtedOsph2o
+         boaB+RTWKsw357JR2UP4rsL7GTueuvLuRnJ9ltKbmKS93EF8yCwJA6mLoKiQjH5oOPPH
+         Iqp2DlYAUSMSpSv0iyA8CMqcyWX6avlxPYYg3G63jAHOndRQJENKfedvLRZv6BgfzbSa
+         aawQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=EX4IE+nrRhKtiQe0VnquguLi8nzcBAIqeP56wWfeZP0=;
-        b=cXthJuRUVc9Ubj0hUmP6+f3k0+cMBWxdBCg1xq/JKI2uhQiKNQRjw1NzyJFGQBB2E4
-         mBlBAIY+y3UH/9perFPMc8Lw34Ff5AyVgfmMYG7QmBccctJ0ntjF+1pHQpU2jxmHhXeN
-         c+b7m9dWQnsw+7HHQjnKYLiro8PWYQJuCV1XPuViSt9WVpL48IwVKYuaOOvSPb+Ky5Rs
-         LxUQC2pKGk3NqaOqeSUIYQByTgRlZpxW45lz1BD8zZVTjhI5Cd0MC+jaAFU9By/+32M/
-         inUCnxGvToTph61PZ7fPAALxlReFZ2deUK4fca64e7hdr6yiHkqhTOly4nJQR4kFcwkj
-         6Cwg==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=UOR4I8ULA5SrB2NqNDlc07SkZN4+m9HGzxcHeIn18kQ=;
+        b=kyg4dd+w1YqGerMoVpyg4TU31iHlxMCdEE4WxddKg8tcgG2BnGo69S7a7OwU64whj7
+         Y2xqdvRqfWpXhVpb97TPsFR9U5eVIH7In8uMW1IWyfK0g3p7Iy/1SqUseUR11D1ihWSB
+         mUfQbyMtpS2IgtMF7hK20oAD6DDPh33iJjrBSr8716fXiI+lsENcicpdzWUGM8SHz58g
+         cPprbVQN5L8PFH338scBMWJy96zCxuHGdgdNGa30thZF1ThuvW3wttS0qM6NpiUVnlQj
+         tzpucQ8JG8UT8BtqGC98a+s4gpS5d7SMzP6dqBxpj8yqAxA8+GxN8QwMpdUXbZ87nmAp
+         Kezg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="yByDwR/1";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=qExEGMd1;
+       spf=neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=EX4IE+nrRhKtiQe0VnquguLi8nzcBAIqeP56wWfeZP0=;
-        b=rCOtnQ4060DWyf3i5QeEP4IbeTzI9bG/MkUUGjy76AHKSj4gJi+Laj8vFoNG5mOXmK
-         2znOxC1aI1UUsRGGZf2SLGGSyjwN6RJj6oqKlXsKJn3pZTx6UDu1C666SsYIw/meOvVh
-         uz+uHiaCpJFXOt4enfmuGoFSjAo6/KUpJ0dCG/7qobUbq97LXW2513RDvqV8yE/5DBDO
-         yomPVuI5DyLo85Qpkmg3gf4MSF+ao260i8lJiHWo0yH7sNwWb1dQ5v/SBlPCjS2WLrVx
-         XRSvMN9REUNkyU8m5SHMLYcvIpTJqYexPtJOVidUr7JCSK6aOFf0VjgftgNdIAbg5a4y
-         oF3Q==
+        bh=UOR4I8ULA5SrB2NqNDlc07SkZN4+m9HGzxcHeIn18kQ=;
+        b=pwsHiuSRkUJ6lW63YAwzSapL1OuTeUbBzEvhBUsIwZU1H2eHAGqty6xmcOVk6mxAsx
+         q2d1nPG+/+whvlfSR0vmoy5YRP+mt495aHCnZmSiP/fpHZVfLSGxFMGx840XpFaVXadA
+         RcTTxjOQPlua0BbYHLcgUUAiwPxrI/0V3XTM81KlJHZTq3kkJuXgNc39Rxn9dAnWvdor
+         LANG/hRihvhgKmSTp+2+mKJ4ou8WES8AnedWZ5O9qtJkrEvu4tLJYZgW9jeDXOtj15h2
+         dGD3R6ZC9riNpAG0wX02oxheZ9I2XGOilqTmYa4bFgVs8c+ca9XIjJLah2KmxWafnVEz
+         J/Yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=EX4IE+nrRhKtiQe0VnquguLi8nzcBAIqeP56wWfeZP0=;
-        b=WMhqrVctaVL7aL34180JTsgy3HxWnb19ir2npystPCuPQFCySY/nEFZTPkUApUFdVD
-         ZVQJyY/MRit3kXHxkuqNDbXwq8KgEJrr43kt1Urhv6nkdjl71jQ8VLOlOd7pHhYa44Jg
-         oxoTNjvd9hlFQF0r1V3wEEMZoVy2NScAPjWyNPnLSWmU+10bUDhrvlZKAs+b9Yjv0LAw
-         mefOlsIR3QrhRBGIW7T/pODvXN36kkeeAti3FSrzPcvNVKhPE6xSiiQQeqbO3qsKKHZ5
-         nU8VOPkicmyYhCwhzXRNHyezrjlqHgi5MxexgItAMOWMAlDppqEVUckLAYSngas4zS8e
-         fxRA==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=UOR4I8ULA5SrB2NqNDlc07SkZN4+m9HGzxcHeIn18kQ=;
+        b=RoNYABF8Og0wC1kVRwgTejSD4kxB0/Z1wrL3j34haLRyHYJG/lN18LWpjbdG/XGc4/
+         2jnX4CZoVEOc1cyg+cU/DE5T6X22lZDPCXfdEy7dnMAaOBT2THItXLCldleEWXea4tsE
+         D1NIB1W5asapKBn20aoCpyOhBdwrvX95zR4A+LiDN0+CwyuvYmR+Fgr5/FVJNQ/SdUAa
+         CGW4SiQDZve4p/l71a4cHoExyptVtUCHBYxCqxUhjHE9nSuBvusVIjljdhffVZPoJhlg
+         sZU1IGAiR0CZNG9390ZreXkZrmB+IOgYSvv5NkxPYplIy2FPW8U2zNfbyxRNwy0jYPwI
+         9BpA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVtyFYiXlnJqrJvYCzzoTLcTejXOCo5ENnMl88xCPTMEY2B5Gc3
-	22Q+mGd4QIXEGATvRkCr4So=
-X-Google-Smtp-Source: APXvYqzqPszamqjU9mtnhCcWW6UljVIekJzq8ONDL4jr/aQrzQA4LfSc0IcZ44C7HZkK4kwrXf7zVw==
-X-Received: by 2002:a1c:5448:: with SMTP id p8mr13412552wmi.70.1575686251973;
-        Fri, 06 Dec 2019 18:37:31 -0800 (PST)
+X-Gm-Message-State: APjAAAXn665XWwyT1x/kC+CTEB6S/wKHY0B6u/8SmwDLqEfvOKOwPI3K
+	bXNK1M+KMfUI6tn/ctc/zRY=
+X-Google-Smtp-Source: APXvYqy2iEJ4z+XGMZesOo3UMGE59GDujJ3+X9zuTN6LuHMh+z9zXTU4w30O9cen+eDS7GH0Smh2kA==
+X-Received: by 2002:a19:760a:: with SMTP id c10mr9646519lff.16.1575708728255;
+        Sat, 07 Dec 2019 00:52:08 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:bc0b:: with SMTP id m11ls1373168wmf.4.gmail; Fri, 06 Dec
- 2019 18:37:31 -0800 (PST)
-X-Received: by 2002:a1c:7f4e:: with SMTP id a75mr13631432wmd.128.1575686251404;
-        Fri, 06 Dec 2019 18:37:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575686251; cv=none;
+Received: by 2002:a2e:a179:: with SMTP id u25ls920267ljl.1.gmail; Sat, 07 Dec
+ 2019 00:52:07 -0800 (PST)
+X-Received: by 2002:a2e:9041:: with SMTP id n1mr11213064ljg.133.1575708727622;
+        Sat, 07 Dec 2019 00:52:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575708727; cv=none;
         d=google.com; s=arc-20160816;
-        b=bBM3lycYufIXZuuhQFm1gSs4GcwfzCdYlXrnNDX+35bmifXHc2+2MGeVBQieqdBkvn
-         yWNTsEJ+9x6o7gfufdMopdLRzMAdFUsqnZ56RLNzA8kUKNEFg/dD7lSi9vBmWyMTlD+H
-         lpP8p9VRcNRo5Yb+cPrIm2j14XRKVdz9SBLnkhteRhD7jyhWuerOtn2tpYE+yQs5QQxc
-         Rx7Lb1cjPmycOfE1KKErNHSdQVOHKhoWMV7e4xfTzVgSFqoR/6OUkhmcpvD4PUx2Dpij
-         ULKQwnKh19gZR1TerFnDHvVvgv5yUng/3v4qI59sVniPUZUrGDGjvGQ3jtYBRe34Le9P
-         nFyw==
+        b=vVj2xkIG8nZCO/AjrhUIss0jOZm8rQLoFEaODPEElHFAjwJcsUZ+FuD5+j/cbOtkQL
+         FXqmb4vu6Ln5b/nX6/cxSvWAYwHbYaFROFwk0e+mmz7A6sRoNffiDK1uqBgvB4iReLqD
+         JkTn9u3gHBszkHsAn/iC1mixu56kyEweDNw585c+HiICEVf4Yx+oXfLwlKCpYQfqi/qD
+         9KMHY7IrdmaL3pViHsvKGu1uGhdsbQISfPB+wH3Iyw3k6KSl2mxD7GrLEqzgDjmM7S/j
+         57s5Ti4AeQM3UySGT/WdbyYhBiAW5E440x67Z+EbDYU4cWmRiIJPnj1qXH1l5l1Pp9CT
+         tIUg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=ledr3c1pbTKAa2YBiFtUmzPgJRyR6EcFf/DokPVlyRA=;
-        b=y75vtNQW2dZLDzh95iQXG09fPoeQv7qwknPN6YDifqu5uk+yoetyhXJqiCkYFY8h4c
-         WL9Ub5KsfyDGjV4lPU28f1VVekx9cbnwSygqTCNy0GXJ/nTn0ckt2mlxU1iE1Amw54ud
-         9Mgvmk0lcIuQinw/41xhUazAH/r9FvpsWrQjpC4wgeV+Q9WA8TNCdcnB8I4gCHVURBXw
-         4prEK34C1Q2IeyX/+meAb4btQL4eq3JTt8GGDpfnQmYXkcIV64J8RIQFo+ZmcEcURbg8
-         Pb/5J4IVsApM770CBnYDDim8XWkpHGq/ma2JvSaVnWw5iDAddbiK8B5W26DsDBPVyowA
-         z6AA==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=T+dcfA08gImYVluCBfMHwNwHeoC/r9b54iQKtohgMZc=;
+        b=CrJG0QQ24Rg4PuEcGpIabpn4VkMVeeP1o7PN/pyKv09ETdd1K34LAjer8pnHymwIMa
+         PcMoqbyfCLF/QGqMWA3WXoddNR9G1QPaOYkfRouioDyXWOodP6LvgSLDSYII4VnESgek
+         giWDd2FKNLkXJW0ednhnfyZcL77CPPEtYp3OhDPv8J+BdynCoyOXQ3QlPhhfxOeq3IHC
+         40kbMgM5fuX/nRmF7UUa1sO8bwls+iFYLOcgVxhwGafQAQ1EYhp7YT0CnwDY/oil2q+2
+         V50slcT1Q72n8vUN0B3LSiAdkWNKOR6b9To+AjpJudWa9YqqPatwnUL/kaUcdcqVel3z
+         ylkQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b="yByDwR/1";
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x430.google.com (mail-wr1-x430.google.com. [2a00:1450:4864:20::430])
-        by gmr-mx.google.com with ESMTPS id m12si900481wrq.1.2019.12.06.18.37.31
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=qExEGMd1;
+       spf=neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id z18si777166lfh.1.2019.12.07.00.52.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Dec 2019 18:37:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430 as permitted sender) client-ip=2a00:1450:4864:20::430;
-Received: by mail-wr1-x430.google.com with SMTP id z3so9853939wru.3
-        for <clang-built-linux@googlegroups.com>; Fri, 06 Dec 2019 18:37:31 -0800 (PST)
-X-Received: by 2002:adf:eb46:: with SMTP id u6mr18996101wrn.239.1575686250845;
-        Fri, 06 Dec 2019 18:37:30 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id a84sm3568318wme.44.2019.12.06.18.37.30
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Fri, 06 Dec 2019 18:37:30 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Sat, 7 Dec 2019 02:37:29 +0000 (UTC)
-To: tcwg-validation@linaro.org, llvm@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <834965049.3754.1575686250379.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-lts-allyesconfig - Build # 27 - Successful!
+        Sat, 07 Dec 2019 00:52:07 -0800 (PST)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::341 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id c20so8206206wmb.0
+        for <clang-built-linux@googlegroups.com>; Sat, 07 Dec 2019 00:52:07 -0800 (PST)
+X-Received: by 2002:a7b:ce17:: with SMTP id m23mr13217313wmc.94.1575708725575;
+        Sat, 07 Dec 2019 00:52:05 -0800 (PST)
+Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
+        by smtp.gmail.com with ESMTPSA id 4sm5819127wmg.22.2019.12.07.00.52.04
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 07 Dec 2019 00:52:04 -0800 (PST)
+Message-ID: <5deb6834.1c69fb81.89b36.f76a@mx.google.com>
+Date: Sat, 07 Dec 2019 00:52:04 -0800 (PST)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_3753_1484981133.1575686249827"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Report-Type: build
+X-Kernelci-Kernel: next-20191207
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+Subject: next/master build: 214 builds: 2 failed, 212 passed, 5 errors,
+ 58 warnings (next-20191207)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b="yByDwR/1";       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=qExEGMd1;       spf=neutral (google.com: 2a00:1450:4864:20::341 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,256 +134,1506 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_3753_1484981133.1575686249827
-Content-Type: text/plain; charset="UTF-8"
+next/master build: 214 builds: 2 failed, 212 passed, 5 errors, 58 warnings =
+(next-20191207)
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-lts-allyesconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20191207/
 
-Culprit:
-<cut>
-commit db5739658467e20a52f20e769d3580412e13ff87
-Author: Sanjay Patel <spatel@rotateright.com>
-Date:   Fri Dec 6 10:43:23 2019 -0500
+Tree: next
+Branch: master
+Git Describe: next-20191207
+Git Commit: 558c2bf52f618ae884276d53ee03da9e45541ee3
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-    [InstCombine] reduce code duplication; NFC
-</cut>
+Build Failures Detected:
 
-First few errors in logs of first_bad:
-00:01:30 clang-10: error: unable to execute command: Aborted (core dumped)
-00:01:30 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
-00:01:30 clang-10: error: unable to execute command: Aborted (core dumped)
-00:01:30 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
-00:01:30 clang-10: error: unable to execute command: Aborted (core dumped)
-00:01:30 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
-00:01:31 make[2]: *** [kernel/rcu/srcutree.o] Error 254
-00:01:31 make[2]: *** [kernel/printk/printk.o] Error 254
-00:01:31 make[1]: *** [arch/arm64/kernel/hw_breakpoint.o] Error 254
-00:01:32 make[1]: *** [kernel/printk] Error 2
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
-rr[llvm_branch]="8b0780f795eb58fca0a2456e308adaaa1a0b5013"
+arm:
+    allmodconfig: (gcc-8) FAIL
 
-Results regressed to (for first_bad == db5739658467e20a52f20e769d3580412e13ff87)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-15871
+mips:
+    cavium_octeon_defconfig: (gcc-8) FAIL
 
-from (for last_good == 6bb62a9d970b677cbaee848d5e4800e1c3fb42c9)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-16048
+Errors and Warnings Detected:
 
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/build-db5739658467e20a52f20e769d3580412e13ff87/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/build-6bb62a9d970b677cbaee848d5e4800e1c3fb42c9/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 2 warnings
+    axs103_smp_defconfig (gcc-8): 2 warnings
+    haps_hs_defconfig (gcc-8): 2 warnings
+    haps_hs_smp_defconfig (gcc-8): 2 warnings
+    hsdk_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_defconfig (gcc-8): 2 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 1 warning
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
 
-Reproduce builds:
-<cut>
-mkdir investigate-llvm-db5739658467e20a52f20e769d3580412e13ff87
-cd investigate-llvm-db5739658467e20a52f20e769d3580412e13ff87
+arm64:
+    allmodconfig (gcc-8): 1 warning
 
-git clone https://git.linaro.org/toolchain/jenkins-scripts
+arm:
+    allmodconfig (gcc-8): 1 error, 20 warnings
+    multi_v7_defconfig (gcc-8): 1 warning
 
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
+i386:
+    i386_defconfig (gcc-8): 1 warning
 
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+mips:
+    32r2el_defconfig (gcc-8): 3 warnings
+    cavium_octeon_defconfig (gcc-8): 4 errors, 3 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
+    nlm_xlr_defconfig (gcc-8): 1 warning
+    rbtx49xx_defconfig (gcc-8): 1 warning
 
-cd llvm
+riscv:
+    rv32_defconfig (gcc-8): 6 warnings
 
-# Reproduce first_bad build
-git checkout --detach db5739658467e20a52f20e769d3580412e13ff87
-../artifacts/test.sh
+x86_64:
+    allmodconfig (gcc-8): 1 warning
+    tinyconfig (gcc-8): 1 warning
 
-# Reproduce last_good build
-git checkout --detach 6bb62a9d970b677cbaee848d5e4800e1c3fb42c9
-../artifacts/test.sh
+Errors summary:
 
-cd ..
-</cut>
+    1    drivers/staging/octeon/ethernet.c:516:29: error: type of formal pa=
+rameter 2 is incomplete
+    1    drivers/staging/octeon/ethernet.c:499:30: error: storage size of =
+=E2=80=98link_info=E2=80=99 isn=E2=80=99t known
+    1    drivers/staging/octeon/ethernet.c:463:30: error: storage size of =
+=E2=80=98link_info=E2=80=99 isn=E2=80=99t known
+    1    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing poi=
+nter to incomplete type =E2=80=98struct cvmx_wqe=E2=80=99
+    1    ERROR: "__bad_udelay" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undef=
+ined!
 
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
+Warnings summary:
 
-Bisect log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/bisect.log/*view*/
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/consoleText
+    20   <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    5    fs/btrfs/tree-checker.c:230:43: warning: format =E2=80=98%lu=E2=80=
+=99 expects argument of type =E2=80=98long unsigned int=E2=80=99, but argum=
+ent 5 has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    2    net/core/sysctl_net_core.c:292:1: warning: =E2=80=98proc_dointvec_=
+minmax_bpf_restricted=E2=80=99 defined but not used [-Wunused-function]
+    2    drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c:332:20: warnin=
+g: =E2=80=98n=E2=80=99 may be used uninitialized in this function [-Wmaybe-=
+uninitialized]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:134: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable =E2=80=
+=98rtd=E2=80=99 [-Wunused-variable]
+    1    net/netfilter/nf_flow_table_offload.c:91:21: warning: unsigned con=
+version from =E2=80=98int=E2=80=99 to =E2=80=98__be16=E2=80=99 {aka =E2=80=
+=98short unsigned int=E2=80=99} changes value from =E2=80=98327680=E2=80=99=
+ to =E2=80=980=E2=80=99 [-Woverflow]
+    1    include/linux/kernel.h:844:29: warning: comparison of distinct poi=
+nter types lacks a cast
+    1    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%ld=E2=
+=80=99 expects argument of type =E2=80=98long int=E2=80=99, but argument 5 =
+has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99} [-Wf=
+ormat=3D]
+    1    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: =E2=80=98=
+union cvmx_helper_link_info=E2=80=99 declared inside parameter list will no=
+t be visible outside of this definition or declaration
+    1    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable=
+ =E2=80=98link_info=E2=80=99 [-Wunused-variable]
+    1    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable=
+ =E2=80=98link_info=E2=80=99 [-Wunused-variable]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    /tmp/ccepS7VS.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccepS7VS.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1170:warning: override: UNWINDER_GUESS changes choice stat=
+e
 
-Full commit:
-<cut>
-commit db5739658467e20a52f20e769d3580412e13ff87
-Author: Sanjay Patel <spatel@rotateright.com>
-Date:   Fri Dec 6 10:43:23 2019 -0500
+Section mismatches summary:
 
-    [InstCombine] reduce code duplication; NFC
+    5    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    3    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in refe=
+rence from the function free_memmap() to the function .meminit.text:membloc=
+k_free()
+    1    WARNING: vmlinux.o(.text.unlikely+0x399c): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3680): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnin=
+gs, 0 section mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format =E2=80=98%lu=E2=80=99 e=
+xpects argument of type =E2=80=98long unsigned int=E2=80=99, but argument 5=
+ has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    net/core/sysctl_net_core.c:292:1: warning: =E2=80=98proc_dointvec_minma=
+x_bpf_restricted=E2=80=99 defined but not used [-Wunused-function]
+    net/core/sysctl_net_core.c:292:1: warning: =E2=80=98proc_dointvec_minma=
+x_bpf_restricted=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 20 warnings, 0 section m=
+ismatches
+
+Errors:
+    ERROR: "__bad_udelay" [drivers/gpu/drm/amd/amdgpu/amdgpu.ko] undefined!
+
+Warnings:
+    include/linux/kernel.h:844:29: warning: comparison of distinct pointer =
+types lacks a cast
+    /tmp/ccepS7VS.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccepS7VS.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    fs/btrfs/tree-checker.c:230:43: warning: format =E2=80=98%lu=E2=80=99 e=
+xpects argument of type =E2=80=98long unsigned int=E2=80=99, but argument 5=
+ has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    net/netfilter/nf_flow_table_offload.c:91:21: warning: unsigned conversi=
+on from =E2=80=98int=E2=80=99 to =E2=80=98__be16=E2=80=99 {aka =E2=80=98sho=
+rt unsigned int=E2=80=99} changes value from =E2=80=98327680=E2=80=99 to =
+=E2=80=980=E2=80=99 [-Woverflow]
+    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%ld=E2=80=99=
+ expects argument of type =E2=80=98long int=E2=80=99, but argument 5 has ty=
+pe =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99} [-Wformat=
+=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c:332:20: warning: =
+=E2=80=98n=E2=80=99 may be used uninitialized in this function [-Wmaybe-uni=
+nitialized]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.c:332:20: warning: =
+=E2=80=98n=E2=80=99 may be used uninitialized in this function [-Wmaybe-uni=
+nitialized]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 3 warnings,=
+ 0 section mismatches
+
+Errors:
+    drivers/staging/octeon/ethernet.c:177:21: error: dereferencing pointer =
+to incomplete type =E2=80=98struct cvmx_wqe=E2=80=99
+    drivers/staging/octeon/ethernet.c:463:30: error: storage size of =E2=80=
+=98link_info=E2=80=99 isn=E2=80=99t known
+    drivers/staging/octeon/ethernet.c:499:30: error: storage size of =E2=80=
+=98link_info=E2=80=99 isn=E2=80=99t known
+    drivers/staging/octeon/ethernet.c:516:29: error: type of formal paramet=
+er 2 is incomplete
+
+Warnings:
+    drivers/staging/octeon/octeon-ethernet.h:94:12: warning: =E2=80=98union=
+ cvmx_helper_link_info=E2=80=99 declared inside parameter list will not be =
+visible outside of this definition or declaration
+    drivers/staging/octeon/ethernet.c:463:30: warning: unused variable =E2=
+=80=98link_info=E2=80=99 [-Wunused-variable]
+    drivers/staging/octeon/ethernet.c:499:30: warning: unused variable =E2=
+=80=98link_info=E2=80=99 [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x399c): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3680): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x710): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format =E2=80=98%lu=E2=80=99 e=
+xpects argument of type =E2=80=98long unsigned int=E2=80=99, but argument 5=
+ has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x7c8): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:134: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
+warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warni=
+ng, 0 section mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format =E2=80=98%lu=E2=80=99 e=
+xpects argument of type =E2=80=98long unsigned int=E2=80=99, but argument 5=
+ has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/btrfs/tree-checker.c:230:43: warning: format =E2=80=98%lu=E2=80=99 e=
+xpects argument of type =E2=80=98long unsigned int=E2=80=99, but argument 5=
+ has type =E2=80=98unsigned int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x840): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable =E2=80=98rtd=
+=E2=80=99 [-Wunused-variable]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x8c4): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x84c): Section mismatch in reference=
+ from the function free_memmap() to the function .meminit.text:memblock_fre=
+e()
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1170:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
 ---
- .../Transforms/InstCombine/InstCombineCasts.cpp    | 78 +++++++++++-----------
- 1 file changed, 40 insertions(+), 38 deletions(-)
+For more info write to <info@kernelci.org>
 
-diff --git a/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp b/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp
-index 5112fb1a6c3..a3c1b2777e3 100644
---- a/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp
-+++ b/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp
-@@ -846,27 +846,32 @@ Instruction *InstCombiner::visitTrunc(TruncInst &CI) {
- 
- Instruction *InstCombiner::transformZExtICmp(ICmpInst *Cmp, ZExtInst &Zext,
-                                              bool DoTransform) {
-+  Value *Op0 = Cmp->getOperand(0);
-+  Value *Op1 = Cmp->getOperand(1);
-+  ICmpInst::Predicate Pred = Cmp->getPredicate();
-+  Type *ZType = Zext.getType();
-+  Type *CmpOpType = Op0->getType();
-+
-   // If we are just checking for a icmp eq of a single bit and zext'ing it
-   // to an integer, then shift the bit to the appropriate place and then
-   // cast to integer to avoid the comparison.
--  const APInt *Op1CV;
--  if (match(Cmp->getOperand(1), m_APInt(Op1CV))) {
--
-+  const APInt *Op1C;
-+  if (match(Op1, m_APInt(Op1C))) {
-     // zext (x <s  0) to i32 --> x>>u31      true if signbit set.
-     // zext (x >s -1) to i32 --> (x>>u31)^1  true if signbit clear.
--    if ((Cmp->getPredicate() == ICmpInst::ICMP_SLT && Op1CV->isNullValue()) ||
--        (Cmp->getPredicate() == ICmpInst::ICMP_SGT && Op1CV->isAllOnesValue())) {
-+    if ((Pred == ICmpInst::ICMP_SLT && Op1C->isNullValue()) ||
-+        (Pred == ICmpInst::ICMP_SGT && Op1C->isAllOnesValue())) {
-       if (!DoTransform) return Cmp;
- 
--      Value *In = Cmp->getOperand(0);
--      Value *Sh = ConstantInt::get(In->getType(),
--                                   In->getType()->getScalarSizeInBits() - 1);
--      In = Builder.CreateLShr(In, Sh, In->getName() + ".lobit");
--      if (In->getType() != Zext.getType())
--        In = Builder.CreateIntCast(In, Zext.getType(), false /*ZExt*/);
-+      Value *In = Op0;
-+      Value *ShAmt = ConstantInt::get(CmpOpType,
-+                                      CmpOpType->getScalarSizeInBits() - 1);
-+      In = Builder.CreateLShr(In, ShAmt, In->getName() + ".lobit");
-+      if (CmpOpType != ZType)
-+        In = Builder.CreateIntCast(In, ZType, false /*ZExt*/);
- 
--      if (Cmp->getPredicate() == ICmpInst::ICMP_SGT) {
--        Constant *One = ConstantInt::get(In->getType(), 1);
-+      if (Pred == ICmpInst::ICMP_SGT) {
-+        Constant *One = ConstantInt::get(CmpOpType, 1);
-         In = Builder.CreateXor(In, One, In->getName() + ".not");
-       }
- 
-@@ -881,42 +886,42 @@ Instruction *InstCombiner::transformZExtICmp(ICmpInst *Cmp, ZExtInst &Zext,
-     // zext (X != 0) to i32 --> X>>1     iff X has only the 2nd bit set.
-     // zext (X != 1) to i32 --> X^1      iff X has only the low bit set.
-     // zext (X != 2) to i32 --> (X>>1)^1 iff X has only the 2nd bit set.
--    if ((Op1CV->isNullValue() || Op1CV->isPowerOf2()) &&
-+    if ((Op1C->isNullValue() || Op1C->isPowerOf2()) &&
-         // This only works for EQ and NE
-         Cmp->isEquality()) {
-       // If Op1C some other power of two, convert:
--      KnownBits Known = computeKnownBits(Cmp->getOperand(0), 0, &Zext);
-+      KnownBits Known = computeKnownBits(Op0, 0, &Zext);
- 
-       APInt KnownZeroMask(~Known.Zero);
-       if (KnownZeroMask.isPowerOf2()) { // Exactly 1 possible 1?
-         if (!DoTransform) return Cmp;
- 
--        bool isNE = Cmp->getPredicate() == ICmpInst::ICMP_NE;
--        if (!Op1CV->isNullValue() && (*Op1CV != KnownZeroMask)) {
-+        bool isNE = Pred == ICmpInst::ICMP_NE;
-+        if (!Op1C->isNullValue() && (*Op1C != KnownZeroMask)) {
-           // (X&4) == 2 --> false
-           // (X&4) != 2 --> true
--          Constant *Res = ConstantInt::get(Zext.getType(), isNE);
-+          Constant *Res = ConstantInt::get(ZType, isNE);
-           return replaceInstUsesWith(Zext, Res);
-         }
- 
-         uint32_t ShAmt = KnownZeroMask.logBase2();
--        Value *In = Cmp->getOperand(0);
-+        Value *In = Op0;
-         if (ShAmt) {
-           // Perform a logical shr by shiftamt.
-           // Insert the shift to put the result in the low bit.
--          In = Builder.CreateLShr(In, ConstantInt::get(In->getType(), ShAmt),
-+          In = Builder.CreateLShr(In, ConstantInt::get(CmpOpType, ShAmt),
-                                   In->getName() + ".lobit");
-         }
- 
--        if (!Op1CV->isNullValue() == isNE) { // Toggle the low bit.
--          Constant *One = ConstantInt::get(In->getType(), 1);
-+        if (!Op1C->isNullValue() == isNE) { // Toggle the low bit.
-+          Constant *One = ConstantInt::get(CmpOpType, 1);
-           In = Builder.CreateXor(In, One);
-         }
- 
--        if (Zext.getType() == In->getType())
-+        if (ZType == CmpOpType)
-           return replaceInstUsesWith(Zext, In);
- 
--        Value *IntCast = Builder.CreateIntCast(In, Zext.getType(), false);
-+        Value *IntCast = Builder.CreateIntCast(In, ZType, false);
-         return replaceInstUsesWith(Zext, IntCast);
-       }
-     }
-@@ -925,32 +930,29 @@ Instruction *InstCombiner::transformZExtICmp(ICmpInst *Cmp, ZExtInst &Zext,
-   // icmp ne A, B is equal to xor A, B when A and B only really have one bit.
-   // It is also profitable to transform icmp eq into not(xor(A, B)) because that
-   // may lead to additional simplifications.
--  if (Cmp->isEquality() && Zext.getType() == Cmp->getOperand(0)->getType()) {
--    if (IntegerType *ITy = dyn_cast<IntegerType>(Zext.getType())) {
--      Value *LHS = Cmp->getOperand(0);
--      Value *RHS = Cmp->getOperand(1);
--
--      KnownBits KnownLHS = computeKnownBits(LHS, 0, &Zext);
--      KnownBits KnownRHS = computeKnownBits(RHS, 0, &Zext);
-+  if (Cmp->isEquality() && ZType == CmpOpType) {
-+    if (IntegerType *ITy = dyn_cast<IntegerType>(ZType)) {
-+      KnownBits KnownOp0 = computeKnownBits(Op0, 0, &Zext);
-+      KnownBits KnownOp1 = computeKnownBits(Op1, 0, &Zext);
- 
--      if (KnownLHS.Zero == KnownRHS.Zero && KnownLHS.One == KnownRHS.One) {
--        APInt KnownBits = KnownLHS.Zero | KnownLHS.One;
-+      if (KnownOp0.Zero == KnownOp1.Zero && KnownOp0.One == KnownOp1.One) {
-+        APInt KnownBits = KnownOp0.Zero | KnownOp0.One;
-         APInt UnknownBit = ~KnownBits;
-         if (UnknownBit.countPopulation() == 1) {
-           if (!DoTransform) return Cmp;
- 
--          Value *Result = Builder.CreateXor(LHS, RHS);
-+          Value *Result = Builder.CreateXor(Op0, Op1);
- 
-           // Mask off any bits that are set and won't be shifted away.
--          if (KnownLHS.One.uge(UnknownBit))
-+          if (KnownOp0.One.uge(UnknownBit))
-             Result = Builder.CreateAnd(Result,
--                                        ConstantInt::get(ITy, UnknownBit));
-+                                       ConstantInt::get(ITy, UnknownBit));
- 
-           // Shift the bit we're testing down to the lsb.
-           Result = Builder.CreateLShr(
--               Result, ConstantInt::get(ITy, UnknownBit.countTrailingZeros()));
-+              Result, ConstantInt::get(ITy, UnknownBit.countTrailingZeros()));
- 
--          if (Cmp->getPredicate() == ICmpInst::ICMP_EQ)
-+          if (Pred == ICmpInst::ICMP_EQ)
-             Result = Builder.CreateXor(Result, ConstantInt::get(ITy, 1));
-           Result->takeName(Cmp);
-           return replaceInstUsesWith(Zext, Result);
-</cut>
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/834965049.3754.1575686250379.JavaMail.javamailuser%40localhost.
-
-------=_Part_3753_1484981133.1575686249827--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5deb6834.1c69fb81.89b36.f76a%40mx.google.com.
