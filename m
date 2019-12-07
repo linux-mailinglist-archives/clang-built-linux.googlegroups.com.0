@@ -1,130 +1,124 @@
-Return-Path: <clang-built-linux+bncBC2ORX645YPRBS5FVPXQKGQE4CQUNXI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRB25AVTXQKGQEYZYD2XY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc38.google.com (mail-yw1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3204C11590E
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Dec 2019 23:14:36 +0100 (CET)
-Received: by mail-yw1-xc38.google.com with SMTP id n34sf6426520ywh.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Dec 2019 14:14:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575670475; cv=pass;
+Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
+	by mail.lfdr.de (Postfix) with ESMTPS id 649DA115ABE
+	for <lists+clang-built-linux@lfdr.de>; Sat,  7 Dec 2019 03:37:32 +0100 (CET)
+Received: by mail-wm1-x338.google.com with SMTP id s25sf2273382wmj.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Dec 2019 18:37:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575686252; cv=pass;
         d=google.com; s=arc-20160816;
-        b=CLnNmcItgC8mBfQ0mtIPBrS4G7oo2c/M9Ww+6RIWEfdWIp73II8TH9QVPvnwrRGkLG
-         JT+g1ntH99rqZ+F0NXPrb2KTBS6ebdOmgqI5Ia+26yb4acg7lcr4ttuqI6bfmvZFgDRM
-         hCnERXOUeUs0sFHsHqgF+uowdBTuErMrES5km+jxMeHPCBD6Ov69nqOEAjXAAtZIrnZ8
-         WBC5SzTtb1vjv62U4F1YqB4bK37rlTwycuSqoZ3v8RkgSYc6WiJnlF3s1Xj86gZALR4X
-         BsdFOg2sTKhIktyDss2Rbfosf19RkxTi+tX/k0JIssm8Nm9f8HzHr8OwGy4Dank+Absl
-         rY3A==
+        b=EdeqMj+DMWx4AdEBbWnDeyWHj1FTwUeT1Gei72XnTYwx4+eMbgLCFpAKet4A7osdBE
+         dDjQSn1t6kwAOikcoj5955YokbKTpiY4mrrqOgGNZU7rK3llJ/HX/udiUkgAakiaDo/5
+         BoOU8HaR+lxZ3d2l8cPHx0s7HvhR3R+EM8buez5n+FTOp4riKSabjC9D9P1kgdH2JgvC
+         fkxIvyXv7xuNlNYpc9y34g0Cmm3vEKGPFVoGjgAZ1yQvLoXrUWq/YPbAfCobGDAq7zZo
+         45zdj2NdFlkov+xGWYI2NljrQR9VSQVIuLMww7HGZNWIo8BEw+no0IZNv46a+j9D+aYb
+         G3ZA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
-         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
-        bh=QqOKI08Httfw/Iw9dNgpg6yb1TmUy7+rEb+whNNSZS4=;
-        b=xWSGJRRFeM96IfRbXWJofzXPEnUBL+Bek2fadKlDxbBX4KuKXaekwUEeIweTVSXKm3
-         i7kmEbUf910eU0HTHJRcbnLkZD+FJqTQu2a2Xl2z32u7gdG5umSkqBRs39PK9Cfzc6ji
-         wtDzZdn+OrsAS3NN0qLuiQvlWMlm1tNuzF+BBsC2flhT/tck7BDrrhm61yN/7vxoArV7
-         zmPleoC0KiVlV9Kdmq0va2rsPdlYl3eO1uD07shzfKN2x44dS3u1rcb+Ytr2Ug05tl6X
-         F4159KFRSRedZRr9CQL15t/iHSRs9XORMNs8IWOhw2/6Vdu4tvjaFRdCJaUXJcSddpW/
-         rjew==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=EX4IE+nrRhKtiQe0VnquguLi8nzcBAIqeP56wWfeZP0=;
+        b=cXthJuRUVc9Ubj0hUmP6+f3k0+cMBWxdBCg1xq/JKI2uhQiKNQRjw1NzyJFGQBB2E4
+         mBlBAIY+y3UH/9perFPMc8Lw34Ff5AyVgfmMYG7QmBccctJ0ntjF+1pHQpU2jxmHhXeN
+         c+b7m9dWQnsw+7HHQjnKYLiro8PWYQJuCV1XPuViSt9WVpL48IwVKYuaOOvSPb+Ky5Rs
+         LxUQC2pKGk3NqaOqeSUIYQByTgRlZpxW45lz1BD8zZVTjhI5Cd0MC+jaAFU9By/+32M/
+         inUCnxGvToTph61PZ7fPAALxlReFZ2deUK4fca64e7hdr6yiHkqhTOly4nJQR4kFcwkj
+         6Cwg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IKUt7ka9;
-       spf=pass (google.com: domain of 3ydlqxqwkaba8q2y941bq3u3w44w1u.s42@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3ydLqXQwKABA8q2y941Bq3u3w44w1u.s42@flex--samitolvanen.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@linaro.org header.s=google header.b="yByDwR/1";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QqOKI08Httfw/Iw9dNgpg6yb1TmUy7+rEb+whNNSZS4=;
-        b=FtY9wBeUNOa3qpqmrepui5eRCDlV3C/ZeUkxB//D4VuPkKnK30HbLOrHITnrzDS3VX
-         0VFV3ATvK0KmbtS7K6abaEOUI+PvNyyyLr8CCu8TT6PWRzyfEwoRC9xhcbDEEUx5bIPo
-         ETIMWKRbiP6Ev7W7RZ8tizeTo/m1BnLXOFC5UGExZ4HbLimhFtE4//im8XgKPQbj3Tee
-         HvtTdiwh0l9FZUmxq3xUkkQ+CnzWDI+lkoieesdv1dK+XGwwLWgKmmNlI+HJQNi2QyGF
-         6rOBumHtPxgqDPP+wLThLEiie43soxKUkxeLNKdNQgzJM9N1LwoPqcw3fRqufMz8Yuzq
-         Z5cg==
+        bh=EX4IE+nrRhKtiQe0VnquguLi8nzcBAIqeP56wWfeZP0=;
+        b=rCOtnQ4060DWyf3i5QeEP4IbeTzI9bG/MkUUGjy76AHKSj4gJi+Laj8vFoNG5mOXmK
+         2znOxC1aI1UUsRGGZf2SLGGSyjwN6RJj6oqKlXsKJn3pZTx6UDu1C666SsYIw/meOvVh
+         uz+uHiaCpJFXOt4enfmuGoFSjAo6/KUpJ0dCG/7qobUbq97LXW2513RDvqV8yE/5DBDO
+         yomPVuI5DyLo85Qpkmg3gf4MSF+ao260i8lJiHWo0yH7sNwWb1dQ5v/SBlPCjS2WLrVx
+         XRSvMN9REUNkyU8m5SHMLYcvIpTJqYexPtJOVidUr7JCSK6aOFf0VjgftgNdIAbg5a4y
+         oF3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
-         :references:subject:from:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=QqOKI08Httfw/Iw9dNgpg6yb1TmUy7+rEb+whNNSZS4=;
-        b=XFJ2u04N+gP3OqRGavB0hcVCk0X7s747+Ptd/U6FovJpC7CnXehoJOAR9gzPtix/mi
-         JLtZOI4ngif+e0EmgC44SLO538QedBrmp8vjSWTiqSUcpq+CJGcDTbcbhq03lcqeIuoN
-         8uSGWg8TkFccuH4qs7OYVdXIszeLDM1Sy1PqjeTb/bCbOw0QOmxKo2iyjlc27XxXuK5N
-         JR+wooRXQm7q3l2jUQm1iP4KEtU1tC2FhLhv+coqgPuHZKuKzMRJRly8hYEMI5ZzFh9w
-         l9DyVqosYYDpE55Mke7+zyzEajS19gbyaNU8mMOX9f+PAgUmRlVPTpWCJSb4a3nX9WWi
-         zpMQ==
-X-Gm-Message-State: APjAAAVkiBwnfeqP0g8BeEh1d7QUg8fU8YtXUctFx2NmnAgM79U8ZB0P
-	yeETpzLA5Ylm5CuAXfs68Ns=
-X-Google-Smtp-Source: APXvYqzor1qH7y4i6LDj1JFdsD0K2JkjibbrmqD33UaddBROQO5vfV2IHXhnARFRHS2t3kizR8fZMw==
-X-Received: by 2002:a25:b3c9:: with SMTP id x9mr11970393ybf.31.1575670475196;
-        Fri, 06 Dec 2019 14:14:35 -0800 (PST)
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=EX4IE+nrRhKtiQe0VnquguLi8nzcBAIqeP56wWfeZP0=;
+        b=WMhqrVctaVL7aL34180JTsgy3HxWnb19ir2npystPCuPQFCySY/nEFZTPkUApUFdVD
+         ZVQJyY/MRit3kXHxkuqNDbXwq8KgEJrr43kt1Urhv6nkdjl71jQ8VLOlOd7pHhYa44Jg
+         oxoTNjvd9hlFQF0r1V3wEEMZoVy2NScAPjWyNPnLSWmU+10bUDhrvlZKAs+b9Yjv0LAw
+         mefOlsIR3QrhRBGIW7T/pODvXN36kkeeAti3FSrzPcvNVKhPE6xSiiQQeqbO3qsKKHZ5
+         nU8VOPkicmyYhCwhzXRNHyezrjlqHgi5MxexgItAMOWMAlDppqEVUckLAYSngas4zS8e
+         fxRA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAVtyFYiXlnJqrJvYCzzoTLcTejXOCo5ENnMl88xCPTMEY2B5Gc3
+	22Q+mGd4QIXEGATvRkCr4So=
+X-Google-Smtp-Source: APXvYqzqPszamqjU9mtnhCcWW6UljVIekJzq8ONDL4jr/aQrzQA4LfSc0IcZ44C7HZkK4kwrXf7zVw==
+X-Received: by 2002:a1c:5448:: with SMTP id p8mr13412552wmi.70.1575686251973;
+        Fri, 06 Dec 2019 18:37:31 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:c842:: with SMTP id k2ls1073608ywl.7.gmail; Fri, 06 Dec
- 2019 14:14:34 -0800 (PST)
-X-Received: by 2002:a81:2ed3:: with SMTP id u202mr8163100ywu.506.1575670474725;
-        Fri, 06 Dec 2019 14:14:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575670474; cv=none;
+Received: by 2002:a1c:bc0b:: with SMTP id m11ls1373168wmf.4.gmail; Fri, 06 Dec
+ 2019 18:37:31 -0800 (PST)
+X-Received: by 2002:a1c:7f4e:: with SMTP id a75mr13631432wmd.128.1575686251404;
+        Fri, 06 Dec 2019 18:37:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575686251; cv=none;
         d=google.com; s=arc-20160816;
-        b=eK2ceBMJPe5DQo5o2IX7LEypeOj/pnrqlXKu2xgUNCosPh88oebD6C3VOAQ9Hkvzrw
-         b57FsaQ3M0DWu4GE9TI5eKhmxZO36Fxs0BeBffPKLpaPfvf6hMqBZmp+CCtYqpCtM+9j
-         MA+wZax+nljRW537JqUqnskYoYBTN3QdMdcVMEzSIjv2AeuaW8fWSKJFw6KkIHGDWvPJ
-         dRorEQAcpirnkH6jYUrRcKaLjWJQ+kXPx+4X2x/3ZwUIjtNTP3zkxK5WohX8RHUoomRM
-         mUv9rL7KgbyY8hWlpro5iD949FeY+mB5soeZIu139EzRsh+5uKs1wTfFp7N8qCCe5NEv
-         v01Q==
+        b=bBM3lycYufIXZuuhQFm1gSs4GcwfzCdYlXrnNDX+35bmifXHc2+2MGeVBQieqdBkvn
+         yWNTsEJ+9x6o7gfufdMopdLRzMAdFUsqnZ56RLNzA8kUKNEFg/dD7lSi9vBmWyMTlD+H
+         lpP8p9VRcNRo5Yb+cPrIm2j14XRKVdz9SBLnkhteRhD7jyhWuerOtn2tpYE+yQs5QQxc
+         Rx7Lb1cjPmycOfE1KKErNHSdQVOHKhoWMV7e4xfTzVgSFqoR/6OUkhmcpvD4PUx2Dpij
+         ULKQwnKh19gZR1TerFnDHvVvgv5yUng/3v4qI59sVniPUZUrGDGjvGQ3jtYBRe34Le9P
+         nFyw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
-         :date:dkim-signature;
-        bh=RFQeZBUfRbHmuBkixdwdHyK03/i2WwDYL6zKZ0PVNPE=;
-        b=Ga5hTXBPYJSbuqPUScfBWCh/Vf5XaIrwEe0f7QhPWMj4fs6rqQrlDdhKMlOSt0iPXW
-         jsI82mfyVYfSmm+PE1y0CLlSpaZhnGCHgoXZibylGXbrKbLiaOlJfdL57BqNhcslrfUB
-         CKAoCdMVU0XCN64FZeTe8elAhTxkCShjtBumw30ElyQcJv7gSgi87YCbjRO3RFA6OP/u
-         cgNckYqOQuuhs5NeYYkZWPMSdgx0ZYso37MUKKhbTRlN+GS+08Bzvo7Ht0D57BFsuvg3
-         2Blgw5n3Az0PxcbrSjycErMMLjlYRXmyMxQ7CguvjA8MgDctXQdlOG0VC93gmxuHgTGe
-         d6qA==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=ledr3c1pbTKAa2YBiFtUmzPgJRyR6EcFf/DokPVlyRA=;
+        b=y75vtNQW2dZLDzh95iQXG09fPoeQv7qwknPN6YDifqu5uk+yoetyhXJqiCkYFY8h4c
+         WL9Ub5KsfyDGjV4lPU28f1VVekx9cbnwSygqTCNy0GXJ/nTn0ckt2mlxU1iE1Amw54ud
+         9Mgvmk0lcIuQinw/41xhUazAH/r9FvpsWrQjpC4wgeV+Q9WA8TNCdcnB8I4gCHVURBXw
+         4prEK34C1Q2IeyX/+meAb4btQL4eq3JTt8GGDpfnQmYXkcIV64J8RIQFo+ZmcEcURbg8
+         Pb/5J4IVsApM770CBnYDDim8XWkpHGq/ma2JvSaVnWw5iDAddbiK8B5W26DsDBPVyowA
+         z6AA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=IKUt7ka9;
-       spf=pass (google.com: domain of 3ydlqxqwkaba8q2y941bq3u3w44w1u.s42@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3ydLqXQwKABA8q2y941Bq3u3w44w1u.s42@flex--samitolvanen.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x54a.google.com (mail-pg1-x54a.google.com. [2607:f8b0:4864:20::54a])
-        by gmr-mx.google.com with ESMTPS id g9si976420ywe.2.2019.12.06.14.14.34
+       dkim=pass header.i=@linaro.org header.s=google header.b="yByDwR/1";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x430.google.com (mail-wr1-x430.google.com. [2a00:1450:4864:20::430])
+        by gmr-mx.google.com with ESMTPS id m12si900481wrq.1.2019.12.06.18.37.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Dec 2019 14:14:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of 3ydlqxqwkaba8q2y941bq3u3w44w1u.s42@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::54a as permitted sender) client-ip=2607:f8b0:4864:20::54a;
-Received: by mail-pg1-x54a.google.com with SMTP id a4so4526842pgq.23
-        for <clang-built-linux@googlegroups.com>; Fri, 06 Dec 2019 14:14:34 -0800 (PST)
-X-Received: by 2002:a63:3484:: with SMTP id b126mr5874359pga.17.1575670473753;
- Fri, 06 Dec 2019 14:14:33 -0800 (PST)
-Date: Fri,  6 Dec 2019 14:13:51 -0800
-In-Reply-To: <20191206221351.38241-1-samitolvanen@google.com>
-Message-Id: <20191206221351.38241-16-samitolvanen@google.com>
-Mime-Version: 1.0
-References: <20191018161033.261971-1-samitolvanen@google.com> <20191206221351.38241-1-samitolvanen@google.com>
-X-Mailer: git-send-email 2.24.0.393.g34dc348eaf-goog
-Subject: [PATCH v6 15/15] arm64: scs: add shadow stacks for SDEI
-From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Mark Rutland <mark.rutland@arm.com>
-Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>, 
-	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Jann Horn <jannh@google.com>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>, clang-built-linux@googlegroups.com, 
-	kernel-hardening@lists.openwall.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: samitolvanen@google.com
+        Fri, 06 Dec 2019 18:37:31 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430 as permitted sender) client-ip=2a00:1450:4864:20::430;
+Received: by mail-wr1-x430.google.com with SMTP id z3so9853939wru.3
+        for <clang-built-linux@googlegroups.com>; Fri, 06 Dec 2019 18:37:31 -0800 (PST)
+X-Received: by 2002:adf:eb46:: with SMTP id u6mr18996101wrn.239.1575686250845;
+        Fri, 06 Dec 2019 18:37:30 -0800 (PST)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id a84sm3568318wme.44.2019.12.06.18.37.30
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Fri, 06 Dec 2019 18:37:30 -0800 (PST)
+From: ci_notify@linaro.org
+Date: Sat, 7 Dec 2019 02:37:29 +0000 (UTC)
+To: tcwg-validation@linaro.org, llvm@linaro.org, 
+	clang-built-linux@googlegroups.com
+Message-ID: <834965049.3754.1575686250379.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-aarch64-lts-allyesconfig - Build # 27 - Successful!
+MIME-Version: 1.0
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_3753_1484981133.1575686249827"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=IKUt7ka9;       spf=pass
- (google.com: domain of 3ydlqxqwkaba8q2y941bq3u3w44w1u.s42@flex--samitolvanen.bounces.google.com
- designates 2607:f8b0:4864:20::54a as permitted sender) smtp.mailfrom=3ydLqXQwKABA8q2y941Bq3u3w44w1u.s42@flex--samitolvanen.bounces.google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Sami Tolvanen <samitolvanen@google.com>
-Reply-To: Sami Tolvanen <samitolvanen@google.com>
+ header.i=@linaro.org header.s=google header.b="yByDwR/1";       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::430
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,231 +131,256 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This change adds per-CPU shadow call stacks for the SDEI handler.
-Similarly to how the kernel stacks are handled, we add separate shadow
-stacks for normal and critical events.
+------=_Part_3753_1484981133.1575686249827
+Content-Type: text/plain; charset="UTF-8"
 
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-lts-allyesconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
+
+Culprit:
+<cut>
+commit db5739658467e20a52f20e769d3580412e13ff87
+Author: Sanjay Patel <spatel@rotateright.com>
+Date:   Fri Dec 6 10:43:23 2019 -0500
+
+    [InstCombine] reduce code duplication; NFC
+</cut>
+
+First few errors in logs of first_bad:
+00:01:30 clang-10: error: unable to execute command: Aborted (core dumped)
+00:01:30 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
+00:01:30 clang-10: error: unable to execute command: Aborted (core dumped)
+00:01:30 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
+00:01:30 clang-10: error: unable to execute command: Aborted (core dumped)
+00:01:30 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
+00:01:31 make[2]: *** [kernel/rcu/srcutree.o] Error 254
+00:01:31 make[2]: *** [kernel/printk/printk.o] Error 254
+00:01:31 make[1]: *** [arch/arm64/kernel/hw_breakpoint.o] Error 254
+00:01:32 make[1]: *** [kernel/printk] Error 2
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
+rr[llvm_branch]="8b0780f795eb58fca0a2456e308adaaa1a0b5013"
+
+Results regressed to (for first_bad == db5739658467e20a52f20e769d3580412e13ff87)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+15871
+
+from (for last_good == 6bb62a9d970b677cbaee848d5e4800e1c3fb42c9)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+16048
+
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/build-db5739658467e20a52f20e769d3580412e13ff87/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/build-6bb62a9d970b677cbaee848d5e4800e1c3fb42c9/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/
+
+Reproduce builds:
+<cut>
+mkdir investigate-llvm-db5739658467e20a52f20e769d3580412e13ff87
+cd investigate-llvm-db5739658467e20a52f20e769d3580412e13ff87
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+cd llvm
+
+# Reproduce first_bad build
+git checkout --detach db5739658467e20a52f20e769d3580412e13ff87
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach 6bb62a9d970b677cbaee848d5e4800e1c3fb42c9
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
+
+Bisect log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/bisect.log/*view*/
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/27/consoleText
+
+Full commit:
+<cut>
+commit db5739658467e20a52f20e769d3580412e13ff87
+Author: Sanjay Patel <spatel@rotateright.com>
+Date:   Fri Dec 6 10:43:23 2019 -0500
+
+    [InstCombine] reduce code duplication; NFC
 ---
- arch/arm64/include/asm/scs.h |   2 +
- arch/arm64/kernel/entry.S    |  14 ++++-
- arch/arm64/kernel/scs.c      | 106 +++++++++++++++++++++++++++++------
- arch/arm64/kernel/sdei.c     |   7 +++
- 4 files changed, 112 insertions(+), 17 deletions(-)
+ .../Transforms/InstCombine/InstCombineCasts.cpp    | 78 +++++++++++-----------
+ 1 file changed, 40 insertions(+), 38 deletions(-)
 
-diff --git a/arch/arm64/include/asm/scs.h b/arch/arm64/include/asm/scs.h
-index c50d2b0c6c5f..8e327e14bc15 100644
---- a/arch/arm64/include/asm/scs.h
-+++ b/arch/arm64/include/asm/scs.h
-@@ -9,6 +9,7 @@
- #ifdef CONFIG_SHADOW_CALL_STACK
+diff --git a/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp b/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp
+index 5112fb1a6c3..a3c1b2777e3 100644
+--- a/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp
++++ b/llvm/lib/Transforms/InstCombine/InstCombineCasts.cpp
+@@ -846,27 +846,32 @@ Instruction *InstCombiner::visitTrunc(TruncInst &CI) {
  
- extern void scs_init_irq(void);
-+extern int scs_init_sdei(void);
+ Instruction *InstCombiner::transformZExtICmp(ICmpInst *Cmp, ZExtInst &Zext,
+                                              bool DoTransform) {
++  Value *Op0 = Cmp->getOperand(0);
++  Value *Op1 = Cmp->getOperand(1);
++  ICmpInst::Predicate Pred = Cmp->getPredicate();
++  Type *ZType = Zext.getType();
++  Type *CmpOpType = Op0->getType();
++
+   // If we are just checking for a icmp eq of a single bit and zext'ing it
+   // to an integer, then shift the bit to the appropriate place and then
+   // cast to integer to avoid the comparison.
+-  const APInt *Op1CV;
+-  if (match(Cmp->getOperand(1), m_APInt(Op1CV))) {
+-
++  const APInt *Op1C;
++  if (match(Op1, m_APInt(Op1C))) {
+     // zext (x <s  0) to i32 --> x>>u31      true if signbit set.
+     // zext (x >s -1) to i32 --> (x>>u31)^1  true if signbit clear.
+-    if ((Cmp->getPredicate() == ICmpInst::ICMP_SLT && Op1CV->isNullValue()) ||
+-        (Cmp->getPredicate() == ICmpInst::ICMP_SGT && Op1CV->isAllOnesValue())) {
++    if ((Pred == ICmpInst::ICMP_SLT && Op1C->isNullValue()) ||
++        (Pred == ICmpInst::ICMP_SGT && Op1C->isAllOnesValue())) {
+       if (!DoTransform) return Cmp;
  
- static __always_inline void scs_save(struct task_struct *tsk)
- {
-@@ -27,6 +28,7 @@ static inline void scs_overflow_check(struct task_struct *tsk)
- #else /* CONFIG_SHADOW_CALL_STACK */
+-      Value *In = Cmp->getOperand(0);
+-      Value *Sh = ConstantInt::get(In->getType(),
+-                                   In->getType()->getScalarSizeInBits() - 1);
+-      In = Builder.CreateLShr(In, Sh, In->getName() + ".lobit");
+-      if (In->getType() != Zext.getType())
+-        In = Builder.CreateIntCast(In, Zext.getType(), false /*ZExt*/);
++      Value *In = Op0;
++      Value *ShAmt = ConstantInt::get(CmpOpType,
++                                      CmpOpType->getScalarSizeInBits() - 1);
++      In = Builder.CreateLShr(In, ShAmt, In->getName() + ".lobit");
++      if (CmpOpType != ZType)
++        In = Builder.CreateIntCast(In, ZType, false /*ZExt*/);
  
- static inline void scs_init_irq(void) {}
-+static inline int scs_init_sdei(void) { return 0; }
- static inline void scs_save(struct task_struct *tsk) {}
- static inline void scs_overflow_check(struct task_struct *tsk) {}
+-      if (Cmp->getPredicate() == ICmpInst::ICMP_SGT) {
+-        Constant *One = ConstantInt::get(In->getType(), 1);
++      if (Pred == ICmpInst::ICMP_SGT) {
++        Constant *One = ConstantInt::get(CmpOpType, 1);
+         In = Builder.CreateXor(In, One, In->getName() + ".not");
+       }
  
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index 7aa2d366b2df..9327c3d21b64 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -1048,13 +1048,16 @@ ENTRY(__sdei_asm_handler)
+@@ -881,42 +886,42 @@ Instruction *InstCombiner::transformZExtICmp(ICmpInst *Cmp, ZExtInst &Zext,
+     // zext (X != 0) to i32 --> X>>1     iff X has only the 2nd bit set.
+     // zext (X != 1) to i32 --> X^1      iff X has only the low bit set.
+     // zext (X != 2) to i32 --> (X>>1)^1 iff X has only the 2nd bit set.
+-    if ((Op1CV->isNullValue() || Op1CV->isPowerOf2()) &&
++    if ((Op1C->isNullValue() || Op1C->isPowerOf2()) &&
+         // This only works for EQ and NE
+         Cmp->isEquality()) {
+       // If Op1C some other power of two, convert:
+-      KnownBits Known = computeKnownBits(Cmp->getOperand(0), 0, &Zext);
++      KnownBits Known = computeKnownBits(Op0, 0, &Zext);
  
- 	mov	x19, x1
+       APInt KnownZeroMask(~Known.Zero);
+       if (KnownZeroMask.isPowerOf2()) { // Exactly 1 possible 1?
+         if (!DoTransform) return Cmp;
  
-+#if defined(CONFIG_VMAP_STACK) || defined(CONFIG_SHADOW_CALL_STACK)
-+	ldrb	w4, [x19, #SDEI_EVENT_PRIORITY]
-+#endif
-+
- #ifdef CONFIG_VMAP_STACK
- 	/*
- 	 * entry.S may have been using sp as a scratch register, find whether
- 	 * this is a normal or critical event and switch to the appropriate
- 	 * stack for this CPU.
- 	 */
--	ldrb	w4, [x19, #SDEI_EVENT_PRIORITY]
- 	cbnz	w4, 1f
- 	ldr_this_cpu dst=x5, sym=sdei_stack_normal_ptr, tmp=x6
- 	b	2f
-@@ -1064,6 +1067,15 @@ ENTRY(__sdei_asm_handler)
- 	mov	sp, x5
- #endif
+-        bool isNE = Cmp->getPredicate() == ICmpInst::ICMP_NE;
+-        if (!Op1CV->isNullValue() && (*Op1CV != KnownZeroMask)) {
++        bool isNE = Pred == ICmpInst::ICMP_NE;
++        if (!Op1C->isNullValue() && (*Op1C != KnownZeroMask)) {
+           // (X&4) == 2 --> false
+           // (X&4) != 2 --> true
+-          Constant *Res = ConstantInt::get(Zext.getType(), isNE);
++          Constant *Res = ConstantInt::get(ZType, isNE);
+           return replaceInstUsesWith(Zext, Res);
+         }
  
-+#ifdef CONFIG_SHADOW_CALL_STACK
-+	/* Use a separate shadow call stack for normal and critical events */
-+	cbnz	w4, 3f
-+	ldr_this_cpu dst=x18, sym=sdei_shadow_call_stack_normal_ptr, tmp=x6
-+	b	4f
-+3:	ldr_this_cpu dst=x18, sym=sdei_shadow_call_stack_critical_ptr, tmp=x6
-+4:
-+#endif
-+
- 	/*
- 	 * We may have interrupted userspace, or a guest, or exit-from or
- 	 * return-to either of these. We can't trust sp_el0, restore it.
-diff --git a/arch/arm64/kernel/scs.c b/arch/arm64/kernel/scs.c
-index eaadf5430baa..dddb7c56518b 100644
---- a/arch/arm64/kernel/scs.c
-+++ b/arch/arm64/kernel/scs.c
-@@ -10,31 +10,105 @@
- #include <asm/pgtable.h>
- #include <asm/scs.h>
+         uint32_t ShAmt = KnownZeroMask.logBase2();
+-        Value *In = Cmp->getOperand(0);
++        Value *In = Op0;
+         if (ShAmt) {
+           // Perform a logical shr by shiftamt.
+           // Insert the shift to put the result in the low bit.
+-          In = Builder.CreateLShr(In, ConstantInt::get(In->getType(), ShAmt),
++          In = Builder.CreateLShr(In, ConstantInt::get(CmpOpType, ShAmt),
+                                   In->getName() + ".lobit");
+         }
  
--DEFINE_PER_CPU(unsigned long *, irq_shadow_call_stack_ptr);
-+#define DECLARE_SCS(name)						\
-+	DECLARE_PER_CPU(unsigned long *, name ## _ptr);			\
-+	DECLARE_PER_CPU(unsigned long [SCS_SIZE/sizeof(long)], name)
+-        if (!Op1CV->isNullValue() == isNE) { // Toggle the low bit.
+-          Constant *One = ConstantInt::get(In->getType(), 1);
++        if (!Op1C->isNullValue() == isNE) { // Toggle the low bit.
++          Constant *One = ConstantInt::get(CmpOpType, 1);
+           In = Builder.CreateXor(In, One);
+         }
  
--#ifndef CONFIG_SHADOW_CALL_STACK_VMAP
--DEFINE_PER_CPU(unsigned long [SCS_SIZE/sizeof(long)], irq_shadow_call_stack)
--	__aligned(SCS_SIZE);
-+#ifdef CONFIG_SHADOW_CALL_STACK_VMAP
-+#define DEFINE_SCS(name)						\
-+	DEFINE_PER_CPU(unsigned long *, name ## _ptr)
-+#else
-+/* Allocate a static per-CPU shadow stack */
-+#define DEFINE_SCS(name)						\
-+	DEFINE_PER_CPU(unsigned long *, name ## _ptr);			\
-+	DEFINE_PER_CPU(unsigned long [SCS_SIZE/sizeof(long)], name)	\
-+		__aligned(SCS_SIZE)
-+#endif /* CONFIG_SHADOW_CALL_STACK_VMAP */
-+
-+DECLARE_SCS(irq_shadow_call_stack);
-+DECLARE_SCS(sdei_shadow_call_stack_normal);
-+DECLARE_SCS(sdei_shadow_call_stack_critical);
-+
-+DEFINE_SCS(irq_shadow_call_stack);
-+#ifdef CONFIG_ARM_SDE_INTERFACE
-+DEFINE_SCS(sdei_shadow_call_stack_normal);
-+DEFINE_SCS(sdei_shadow_call_stack_critical);
- #endif
+-        if (Zext.getType() == In->getType())
++        if (ZType == CmpOpType)
+           return replaceInstUsesWith(Zext, In);
  
-+static int scs_alloc_percpu(unsigned long * __percpu *ptr, int cpu)
-+{
-+	unsigned long *p;
-+
-+	p = __vmalloc_node_range(PAGE_SIZE, SCS_SIZE,
-+				 VMALLOC_START, VMALLOC_END,
-+				 GFP_SCS, PAGE_KERNEL,
-+				 0, cpu_to_node(cpu),
-+				 __builtin_return_address(0));
-+
-+	if (!p)
-+		return -ENOMEM;
-+	per_cpu(*ptr, cpu) = p;
-+
-+	return 0;
-+}
-+
-+static void scs_free_percpu(unsigned long * __percpu *ptr, int cpu)
-+{
-+	unsigned long *p = per_cpu(*ptr, cpu);
-+
-+	if (p) {
-+		per_cpu(*ptr, cpu) = NULL;
-+		vfree(p);
-+	}
-+}
-+
-+static void scs_free_sdei(void)
-+{
-+	int cpu;
-+
-+	for_each_possible_cpu(cpu) {
-+		scs_free_percpu(&sdei_shadow_call_stack_normal_ptr, cpu);
-+		scs_free_percpu(&sdei_shadow_call_stack_critical_ptr, cpu);
-+	}
-+}
-+
- void scs_init_irq(void)
- {
- 	int cpu;
+-        Value *IntCast = Builder.CreateIntCast(In, Zext.getType(), false);
++        Value *IntCast = Builder.CreateIntCast(In, ZType, false);
+         return replaceInstUsesWith(Zext, IntCast);
+       }
+     }
+@@ -925,32 +930,29 @@ Instruction *InstCombiner::transformZExtICmp(ICmpInst *Cmp, ZExtInst &Zext,
+   // icmp ne A, B is equal to xor A, B when A and B only really have one bit.
+   // It is also profitable to transform icmp eq into not(xor(A, B)) because that
+   // may lead to additional simplifications.
+-  if (Cmp->isEquality() && Zext.getType() == Cmp->getOperand(0)->getType()) {
+-    if (IntegerType *ITy = dyn_cast<IntegerType>(Zext.getType())) {
+-      Value *LHS = Cmp->getOperand(0);
+-      Value *RHS = Cmp->getOperand(1);
+-
+-      KnownBits KnownLHS = computeKnownBits(LHS, 0, &Zext);
+-      KnownBits KnownRHS = computeKnownBits(RHS, 0, &Zext);
++  if (Cmp->isEquality() && ZType == CmpOpType) {
++    if (IntegerType *ITy = dyn_cast<IntegerType>(ZType)) {
++      KnownBits KnownOp0 = computeKnownBits(Op0, 0, &Zext);
++      KnownBits KnownOp1 = computeKnownBits(Op1, 0, &Zext);
  
- 	for_each_possible_cpu(cpu) {
--#ifdef CONFIG_SHADOW_CALL_STACK_VMAP
--		unsigned long *p;
-+		if (IS_ENABLED(CONFIG_SHADOW_CALL_STACK_VMAP))
-+			WARN_ON(scs_alloc_percpu(&irq_shadow_call_stack_ptr,
-+						 cpu));
-+		else
-+			per_cpu(irq_shadow_call_stack_ptr, cpu) =
-+				per_cpu(irq_shadow_call_stack, cpu);
-+	}
-+}
+-      if (KnownLHS.Zero == KnownRHS.Zero && KnownLHS.One == KnownRHS.One) {
+-        APInt KnownBits = KnownLHS.Zero | KnownLHS.One;
++      if (KnownOp0.Zero == KnownOp1.Zero && KnownOp0.One == KnownOp1.One) {
++        APInt KnownBits = KnownOp0.Zero | KnownOp0.One;
+         APInt UnknownBit = ~KnownBits;
+         if (UnknownBit.countPopulation() == 1) {
+           if (!DoTransform) return Cmp;
  
--		p = __vmalloc_node_range(PAGE_SIZE, SCS_SIZE,
--					 VMALLOC_START, VMALLOC_END,
--					 GFP_SCS, PAGE_KERNEL,
--					 0, cpu_to_node(cpu),
--					 __builtin_return_address(0));
-+int scs_init_sdei(void)
-+{
-+	int cpu;
+-          Value *Result = Builder.CreateXor(LHS, RHS);
++          Value *Result = Builder.CreateXor(Op0, Op1);
  
--		per_cpu(irq_shadow_call_stack_ptr, cpu) = p;
--#else
--		per_cpu(irq_shadow_call_stack_ptr, cpu) =
--			per_cpu(irq_shadow_call_stack, cpu);
--#endif /* CONFIG_SHADOW_CALL_STACK_VMAP */
-+	if (!IS_ENABLED(CONFIG_ARM_SDE_INTERFACE))
-+		return 0;
-+
-+	for_each_possible_cpu(cpu) {
-+		if (IS_ENABLED(CONFIG_SHADOW_CALL_STACK_VMAP)) {
-+			if (scs_alloc_percpu(
-+				&sdei_shadow_call_stack_normal_ptr, cpu) ||
-+			    scs_alloc_percpu(
-+				&sdei_shadow_call_stack_critical_ptr, cpu)) {
-+				scs_free_sdei();
-+				return -ENOMEM;
-+			}
-+		} else {
-+			per_cpu(sdei_shadow_call_stack_normal_ptr, cpu) =
-+				per_cpu(sdei_shadow_call_stack_normal, cpu);
-+			per_cpu(sdei_shadow_call_stack_critical_ptr, cpu) =
-+				per_cpu(sdei_shadow_call_stack_critical, cpu);
-+		}
- 	}
-+
-+	return 0;
- }
-diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
-index d6259dac62b6..2854b9f7760a 100644
---- a/arch/arm64/kernel/sdei.c
-+++ b/arch/arm64/kernel/sdei.c
-@@ -13,6 +13,7 @@
- #include <asm/kprobes.h>
- #include <asm/mmu.h>
- #include <asm/ptrace.h>
-+#include <asm/scs.h>
- #include <asm/sections.h>
- #include <asm/stacktrace.h>
- #include <asm/sysreg.h>
-@@ -162,6 +163,12 @@ unsigned long sdei_arch_get_entry_point(int conduit)
- 			return 0;
- 	}
+           // Mask off any bits that are set and won't be shifted away.
+-          if (KnownLHS.One.uge(UnknownBit))
++          if (KnownOp0.One.uge(UnknownBit))
+             Result = Builder.CreateAnd(Result,
+-                                        ConstantInt::get(ITy, UnknownBit));
++                                       ConstantInt::get(ITy, UnknownBit));
  
-+	if (scs_init_sdei()) {
-+		if (IS_ENABLED(CONFIG_VMAP_STACK))
-+			free_sdei_stacks();
-+		return 0;
-+	}
-+
- 	sdei_exit_mode = (conduit == SMCCC_CONDUIT_HVC) ? SDEI_EXIT_HVC : SDEI_EXIT_SMC;
+           // Shift the bit we're testing down to the lsb.
+           Result = Builder.CreateLShr(
+-               Result, ConstantInt::get(ITy, UnknownBit.countTrailingZeros()));
++              Result, ConstantInt::get(ITy, UnknownBit.countTrailingZeros()));
  
- #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
--- 
-2.24.0.393.g34dc348eaf-goog
+-          if (Cmp->getPredicate() == ICmpInst::ICMP_EQ)
++          if (Pred == ICmpInst::ICMP_EQ)
+             Result = Builder.CreateXor(Result, ConstantInt::get(ITy, 1));
+           Result->takeName(Cmp);
+           return replaceInstUsesWith(Zext, Result);
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191206221351.38241-16-samitolvanen%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/834965049.3754.1575686250379.JavaMail.javamailuser%40localhost.
+
+------=_Part_3753_1484981133.1575686249827--
