@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBHE3WTXQKGQEZ5CRX5Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB6PVWTXQKGQECDDFBHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E69D116273
-	for <lists+clang-built-linux@lfdr.de>; Sun,  8 Dec 2019 15:50:06 +0100 (CET)
-Received: by mail-pj1-x103b.google.com with SMTP id ci21sf5269043pjb.2
-        for <lists+clang-built-linux@lfdr.de>; Sun, 08 Dec 2019 06:50:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575816604; cv=pass;
+Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 520AA116345
+	for <lists+clang-built-linux@lfdr.de>; Sun,  8 Dec 2019 19:03:39 +0100 (CET)
+Received: by mail-oi1-x23a.google.com with SMTP id e22sf3289856oig.1
+        for <lists+clang-built-linux@lfdr.de>; Sun, 08 Dec 2019 10:03:39 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575828218; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AyBvIa2cSsFOOcTGGG9PK5wA/KjPAjs+6j4wqXpWpix4qyCMYQGWNHWvAfS8LJObGQ
-         XWWT3X0Ldds574+b6QlrzB25q4iW7FJbfMFVx6bYdzxL8qI1LDEJw+QiRN6iI3Z2A/Dt
-         TF5VztQasmEofCggDDdTR/myl2Wdd04kntfusAvKPL6o5zvEtiSW3p8EvcFc19NZTGGi
-         deN/TNEammjH4gFlA3oBUJi51i84+UIXOaDysCTqDbQqG2Px9oOf7JJ73dBKaDqbVB+1
-         Dhh4o6GMaVj8GYVbVBsdK25ncYDWMumPyrX62NWU02q7/WbT+/jPk3HTzd2nr6qdniCA
-         gEfg==
+        b=Doss6OFxihT68elm9AaI0mwntEFVSbwwKIfWYYBXtYpjdkps3oTejuLY/gwsE8+DC5
+         8uy0BzviaskSSvDoSj6R9h+Scmw3hJqZPzTPkBhHKFxxIOZoat/F1v3wZK+VOgcyxPQW
+         /zMhV7nmr0ab9uUQ3Vj6C712K1By+DAB23rnu5hLr6Kw/ij4AXrDxKMeeyvktdETqDej
+         PJcsyEV10+cU4qFqtMEuXQgCCz0z63IqOzzdYlWH6Zt3U3HtJ839zWVjbnzBqjKbR42u
+         oZsgFw1MKsIqqYcobTJZslIbEGhAsZ4xgrHx4U+dJIlHIbHsAJYwp3kHAobKqisAkUyx
+         N+zA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=qk1zNq7I22K6K7AvQNZplzRy4VNkHpZ50GCREdMcavk=;
-        b=K6ouJboPBqE2133uZP/FpMvPnlt8Btt2ah1iqlof9Qbxnk1fc+aldyIfpFaCiIx1hJ
-         /WO4fSvCwPj2RljQ5NxdVUd1HZCpyq/dsRtnxE6HG2bJYF3I4lxXPXqwiM2sbtZXXXUW
-         aXwl8B3/vswgAEP3LlqaiA0Dcuj13dDOY50NHeQWfSrB0MaNuS1lJoepn34JR8FsUYPY
-         ip20yeufwxvkhrrFuHg/8Og3Hg86I8fXgqpfmJ4C0HytpbouNqM1IoZdXJIlnatoajom
-         oGTbWxFQsBEgtRALNXRbbL2ol5IsDmzdHqHHdWo4dO5/KDVsXecIUMLIhZ39trrlUBC3
-         7pMA==
+        bh=BrizltkoDM30RfijwrSY/He5H/imYFpGu+2Io4A10go=;
+        b=TH/IltxX5fRH75FiBXTDY9gjtkBe6n2LQ+mcxggKe+CzrTwK2y4bHBiAvqe57nMr3A
+         C4nBs/JDXAGHGzmI5mzvcXsmNGR2cl9IjS55K1jN8IwDjFXZcY9f4KP7Ya0/AMH5RXMH
+         QfHhNvSSbPdTUEwdgsyHPY3569omypaj2NNL9CJI1lMau8NEnnZP/tTGG9ea2xfW9sAQ
+         sUGWUXFRd/WzlNls/NCu6GDuUfAkER8qT3B10N/8OQDYeprjCWWDHv48M4ZK+6zqS6Va
+         YSLxWjV9MsaOunaIsZFANTcEaOVuxUmGt9kt3AyRmmHVyznGejcsF3swbkG60jTL/wHj
+         hYfw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=qk1zNq7I22K6K7AvQNZplzRy4VNkHpZ50GCREdMcavk=;
-        b=P1xMQs6a5iCjSCyOk9Q3Zy1YFxDR23BNT/rYpTUqrykR3XaBadMPIDTo6nRq8jukEi
-         6XmqV6kntxmussu9C+IWMLuc1jWc38idK69Ar/9DW0htXmRAMiDi0KoX97RAMSd17Y8x
-         guZ8IawqaWSv/Y2JwXe8NXiYJ9rJ9Dugtqic4lgIzLkudyIf+azHDNCn0jx3gv3rBy6Q
-         ccSSoFf7iYOjfVG0nPQgucNJtGv1gryWH3YzKvpooh8cV9G43HCDY1YaYzpNkyjO9HUY
-         Ao00hj8u6rBez77LmPhzqtyIxwV+I1E6N/yATR574QlHlLC9jclifzhcNAA8PCmyK/ey
-         uqzA==
+        bh=BrizltkoDM30RfijwrSY/He5H/imYFpGu+2Io4A10go=;
+        b=iGLHPg1QTPoouLrihDVPYmhYAKCoy7AVVNCdXAB8ByV0l2MN3VJB1MXmcv+AqgO7zM
+         VYF0pqPvvizP1YBv0/XW+pfOa7qOfQ+Tc/FExJdCZNFbKkFN1jk6OgwDO2c817hdHmL7
+         ejdEvHBWAVtl/9OptCQ/p4wxZujAV6DVxN3TRedCKs9smCBWv/xaa6t2bsUmShxI8F85
+         I+b81yts+AVnTlAmBis4Kcb9koLvcZYj5kyYCxjIDw+2HBeG/LnGQepvk7gUYD24dquU
+         zLrDjAOF/HpJtUamPHTxeh1oyl7T/oG75Em6fFeMh7T2a4WfYPhKM3GtS+5gwSdRx4hL
+         7i+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=qk1zNq7I22K6K7AvQNZplzRy4VNkHpZ50GCREdMcavk=;
-        b=PpM3bPryFJ09wnbZw4IEWfy2l26p/xi95GqVtF8kdyomec5Sa7xGaiUGL/JI1NKlXK
-         7GJ+7lsx/t9FS0luaODeaJPEQ0f4rHAqMIOERFnPz1VduBTnGLYw7cMH687QpD7zI8gu
-         TdTd0CNwV99hxcZCqOi/fanLN3UnKYQkpdToz+6U4akhe+ThEOtvAG43rvPHLRNtihCF
-         u1YXqMooNj/qfmekBx7Z46QZSVnAyqRlE2L7zRX1vXf7fEz+rrl9N3fFQSWoGD40z/ZP
-         iMK0ucB9xBxFVvRnP9nOIQnEUqYnDmA5QBYZMUWJQ0306f6vrVczQdXojriODK/2BUdC
-         3Q7Q==
+        bh=BrizltkoDM30RfijwrSY/He5H/imYFpGu+2Io4A10go=;
+        b=W2r/Nyq4bEFKWknqXAADfsUR/4GZGgqIdbcBhjxwBBPmheyrYleTvzRPawef2jA9k0
+         uYoVpdwW8hENCwRrr1fn3K+Yo+kNnMjqRMIU1d/GRXEG8HAQ8yfT+EwnREHil5SPtm0a
+         Ws/gsnBBqIEll0e5LLvszr9ge2x/QBwEKDmUN5KoUy6Ef/OxS2oGkVJ1sR5l7eenC1bB
+         cImeV/73VxClwQlBm4cqBooKUbRCwiJDE9QI3DI8vPHerDMJUZCQVngVZ+spb3JbjTGJ
+         CSfMzx16OimLC5Qk3yhyzZcTCm+snGEZH1sbx3XLJKoVQ7W5tHNxH6HzMyZ2rrgHHNfD
+         D0Uw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUVHQHuUOQBlmX3+1FmN/jHB/pboUFfJhxMq8jcHYUoEMVPl4dK
-	Dq+ITLbdwb6YV1+sFF6234I=
-X-Google-Smtp-Source: APXvYqwVSMRM6MyW+ayAme4wm2SahEO3IbGkgmvmtHCrNIAlXOFV5hRbvNihsU4Xw7fAhjwKhGRVAg==
-X-Received: by 2002:a62:7c54:: with SMTP id x81mr6375335pfc.180.1575816604585;
-        Sun, 08 Dec 2019 06:50:04 -0800 (PST)
+X-Gm-Message-State: APjAAAVDlYIRxuz4TceAqS7B30fzLwkym3HVQa3YaX/yCq9CtB7eX1wZ
+	rPO8bdRPwvi6jna1Z3akjOU=
+X-Google-Smtp-Source: APXvYqwsCJIGDasgzZ11mJPXmaFozvaMK9/4kahYpBe8IMq0ZsNBOD96WmUDvSKP+Laj1DWpYPTZtA==
+X-Received: by 2002:a9d:6d06:: with SMTP id o6mr18947697otp.239.1575828217454;
+        Sun, 08 Dec 2019 10:03:37 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:9142:: with SMTP id l63ls2000623pge.6.gmail; Sun, 08 Dec
- 2019 06:50:04 -0800 (PST)
-X-Received: by 2002:a62:e210:: with SMTP id a16mr25517247pfi.123.1575816604173;
-        Sun, 08 Dec 2019 06:50:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575816604; cv=none;
+Received: by 2002:a05:6808:3b6:: with SMTP id n22ls2106505oie.13.gmail; Sun,
+ 08 Dec 2019 10:03:37 -0800 (PST)
+X-Received: by 2002:aca:4cc7:: with SMTP id z190mr21846308oia.10.1575828216999;
+        Sun, 08 Dec 2019 10:03:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575828216; cv=none;
         d=google.com; s=arc-20160816;
-        b=dBp5aruiMiFxAD+ZuFx+VmAL/uKL6ESPj/atmW2y6/9UkzFsy2RAYfDgikfShtZz3k
-         gbAQ3+G1/rO3Gsh6uIFFjogr8pFejkItSLBuEPnvo4sd2NQqHfvJM3G1Mlt8Ij/qZwG4
-         tuXp66b/LCaQh3Z01e9VvFtHChi12j98ojCn4em33v3mj4IHwdR00hOJRGq0guORu9Ug
-         q2b80SwdtgXiOeNReJcYkuw1l5FXAQY0/i4OKAkom9mCYnw4/IGvI3G51rEAPuviX/Ia
-         82j56kz8r1szQ13hJA0JdxIBuo7gmM+31ftJIblMDP0xw7owzhXVhvxd027DEMeco8XX
-         vvCA==
+        b=p1xL+VoQ95niELFRi0m1OSghNXyAi6j/p1i01ct5jU+USX+95ehYFiW6BksjLZSCId
+         TcvKD3ru8sccxjqN3a94ds0h2ja5w8qh4D5nHkedZTXBxtr45s6L5zdJzc2wyO+Hu3Ky
+         6VqNpfT/vOTxr23yy9qDRsTrn+7MBcpHZlyO4k80jMzqBCCkJpKqxxtCCFbf+zpnSUNk
+         QzQAi8vaysITVX2gwPSVGIQ6+BYty7GY+yNNK3miFX1/s3gxk+DANuyXvTzstjcppl7U
+         IMO3a22VweB4dKByXoRUoMvYY6s6QnFMzSDm5nX6FIv5H1SRepog7RvIz1zbSrHk8TSt
+         xrnQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=pb7KakGsjG7PH3r0cp2lZYaO12M/Z9TpUmzWEhhb97c=;
-        b=xK2EszgDjhg4kxOsOsY+h0jARqgmb4b6EOxAUOAokJzMet9nS5DRSm+ZGRrOJXCHzp
-         wJ11+8lA3kaSaEO6JEiFDNjEIc+qmZJDcSjDL0kSUKkjQqzF2emcQFnrUw9xdlvvXpJ1
-         Y57kbBZYtHFt3Zz2WXmTi4xx7HSbBwU3zV7jzXjKkGoBkF08RawWgnHne5x6pJnq5u4P
-         K0zCq692tkYxy76NB01AynD+IUkh71edsBTsCd5ZIqQs0qUJdySh23+EsVjoPWVMdmOF
-         OU2iJwRxAymt6AOSUHKkvIfCKQuxV9zLRnDUlvYXovSOF/qyGJqZQmjFkxdnIkYnLI7j
-         qy8Q==
+        bh=JxdOusr+Czx+HetdyNi9MD/HZ6TlXJrqbPO6xA/lNmo=;
+        b=pFDTa8ngwQBGj2kBEnzHjQAffueVNpdW0H5MPz+Cp/XFbr3WkDG6yCY5hWAE4bXmQ5
+         aKc6aGre0fV1BDtx0DCrOqWclkDSFB49FVVtfJBHlQ/e09xFjTNwZlAZtWLGtYmu8jYa
+         /4cGL4MMoaR+M9xHdvX/Rn0z2nY3W77tHWHx9A+RqcMu+iGrhulfJnlUu5MAINyj3T36
+         h1h6LT119CVxd9xaZsNXHrEwjq76AdRCnYZP2ApjuULuxc7KFTUge9hxEuITEh1X9Prv
+         VQG9RbX3w60gLImvNUOTMcdyWb7H0I3Zc1yZhyRjpiBlZ3IFY2Nqlj6sxDuovel/LYJ4
+         vRVA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id d12si487210pjv.0.2019.12.08.06.50.04
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id l1si411039otn.1.2019.12.08.10.03.36
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 08 Dec 2019 06:50:04 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+        Sun, 08 Dec 2019 10:03:36 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 08 Dec 2019 06:49:52 -0800
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 08 Dec 2019 10:03:34 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,292,1571727600"; 
-   d="gz'50?scan'50,208,50";a="237500156"
+   d="gz'50?scan'50,208,50";a="206671853"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 08 Dec 2019 06:49:51 -0800
+  by orsmga008.jf.intel.com with ESMTP; 08 Dec 2019 10:03:32 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1idxsc-0004CR-Mo; Sun, 08 Dec 2019 22:49:50 +0800
-Date: Sun, 8 Dec 2019 22:49:37 +0800
+	id 1ie0u4-000692-1U; Mon, 09 Dec 2019 02:03:32 +0800
+Date: Mon, 9 Dec 2019 02:03:15 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [sashal-linux-stable:queue-4.19 39/208]
- drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4480:35: error: too many arguments
- provided to function-like macro invocation
-Message-ID: <201912082235.8qfGmMMB%lkp@intel.com>
+Subject: [sashal-linux-stable:queue-4.19 94/208] Error:
+ arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:82.1-7 Label or path
+ codec not found
+Message-ID: <201912090213.f5tL7YU3%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="lho3p4o4tn34545h"
+Content-Type: multipart/mixed; boundary="a5p6lnsw4b4rzui6"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +138,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---lho3p4o4tn34545h
+--a5p6lnsw4b4rzui6
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -148,13 +148,13 @@ TO: Alexander Levin <alexander.levin@microsoft.com>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/sashal/linux-stable.git queue-4.19
 head:   2757e2f0189297425dc4f9af38477a41d7a2c0e5
-commit: 63800d97a14454975a90fd3261f3548cc3fb1b9a [39/208] pinctrl: sh-pfc: r8a7795: Fix VIN versioned groups
+commit: d1d6ca4e2a3d7eab2ae14574e49c7bcbf2eb26e4 [94/208] arm64: dts: allwinner: a64: enable sound on Pinebook
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project c49194969430f0ee817498a7000a979a7a0ded03)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 63800d97a14454975a90fd3261f3548cc3fb1b9a
+        git checkout d1d6ca4e2a3d7eab2ae14574e49c7bcbf2eb26e4
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -163,447 +163,11 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4480:35: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 8, _a),
-                                            ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
->> drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4480:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 8, _a),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4481:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 10, _a),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4481:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 10, _a),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4482:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 12, _a),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4482:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 12, _a),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4483:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 16, _a),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4483:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 16, _a),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4485:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 20, _a),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4485:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 20, _a),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4486:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 24, _a),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4486:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 24, _a),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4487:35: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 8, _b),
-                                            ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4487:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 8, _b),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4488:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 10, _b),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4488:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 10, _b),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4489:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 12, _b),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4489:2: error: use of undeclared identifier 'VIN_DATA_PIN_GROUP'
-           VIN_DATA_PIN_GROUP(vin4_data, 12, _b),
-           ^
-   drivers/pinctrl/sh-pfc/pfc-r8a7795.c:4490:36: error: too many arguments provided to function-like macro invocation
-           VIN_DATA_PIN_GROUP(vin4_data, 16, _b),
-                                             ^
-   drivers/pinctrl/sh-pfc/sh_pfc.h:63:9: note: macro 'VIN_DATA_PIN_GROUP' defined here
-   #define VIN_DATA_PIN_GROUP(n, s)                                \
-           ^
-   fatal error: too many errors emitted, stopping now [-ferror-limit=]
-   20 errors generated.
-
-vim +4480 drivers/pinctrl/sh-pfc/pfc-r8a7795.c
-
-  4159	
-  4160	static const struct sh_pfc_pin_group pinmux_groups[] = {
-  4161		SH_PFC_PIN_GROUP(audio_clk_a_a),
-  4162		SH_PFC_PIN_GROUP(audio_clk_a_b),
-  4163		SH_PFC_PIN_GROUP(audio_clk_a_c),
-  4164		SH_PFC_PIN_GROUP(audio_clk_b_a),
-  4165		SH_PFC_PIN_GROUP(audio_clk_b_b),
-  4166		SH_PFC_PIN_GROUP(audio_clk_c_a),
-  4167		SH_PFC_PIN_GROUP(audio_clk_c_b),
-  4168		SH_PFC_PIN_GROUP(audio_clkout_a),
-  4169		SH_PFC_PIN_GROUP(audio_clkout_b),
-  4170		SH_PFC_PIN_GROUP(audio_clkout_c),
-  4171		SH_PFC_PIN_GROUP(audio_clkout_d),
-  4172		SH_PFC_PIN_GROUP(audio_clkout1_a),
-  4173		SH_PFC_PIN_GROUP(audio_clkout1_b),
-  4174		SH_PFC_PIN_GROUP(audio_clkout2_a),
-  4175		SH_PFC_PIN_GROUP(audio_clkout2_b),
-  4176		SH_PFC_PIN_GROUP(audio_clkout3_a),
-  4177		SH_PFC_PIN_GROUP(audio_clkout3_b),
-  4178		SH_PFC_PIN_GROUP(avb_link),
-  4179		SH_PFC_PIN_GROUP(avb_magic),
-  4180		SH_PFC_PIN_GROUP(avb_phy_int),
-  4181		SH_PFC_PIN_GROUP_ALIAS(avb_mdc, avb_mdio),	/* Deprecated */
-  4182		SH_PFC_PIN_GROUP(avb_mdio),
-  4183		SH_PFC_PIN_GROUP(avb_mii),
-  4184		SH_PFC_PIN_GROUP(avb_avtp_pps),
-  4185		SH_PFC_PIN_GROUP(avb_avtp_match_a),
-  4186		SH_PFC_PIN_GROUP(avb_avtp_capture_a),
-  4187		SH_PFC_PIN_GROUP(avb_avtp_match_b),
-  4188		SH_PFC_PIN_GROUP(avb_avtp_capture_b),
-  4189		SH_PFC_PIN_GROUP(can0_data_a),
-  4190		SH_PFC_PIN_GROUP(can0_data_b),
-  4191		SH_PFC_PIN_GROUP(can1_data),
-  4192		SH_PFC_PIN_GROUP(can_clk),
-  4193		SH_PFC_PIN_GROUP(canfd0_data_a),
-  4194		SH_PFC_PIN_GROUP(canfd0_data_b),
-  4195		SH_PFC_PIN_GROUP(canfd1_data),
-  4196		SH_PFC_PIN_GROUP(drif0_ctrl_a),
-  4197		SH_PFC_PIN_GROUP(drif0_data0_a),
-  4198		SH_PFC_PIN_GROUP(drif0_data1_a),
-  4199		SH_PFC_PIN_GROUP(drif0_ctrl_b),
-  4200		SH_PFC_PIN_GROUP(drif0_data0_b),
-  4201		SH_PFC_PIN_GROUP(drif0_data1_b),
-  4202		SH_PFC_PIN_GROUP(drif0_ctrl_c),
-  4203		SH_PFC_PIN_GROUP(drif0_data0_c),
-  4204		SH_PFC_PIN_GROUP(drif0_data1_c),
-  4205		SH_PFC_PIN_GROUP(drif1_ctrl_a),
-  4206		SH_PFC_PIN_GROUP(drif1_data0_a),
-  4207		SH_PFC_PIN_GROUP(drif1_data1_a),
-  4208		SH_PFC_PIN_GROUP(drif1_ctrl_b),
-  4209		SH_PFC_PIN_GROUP(drif1_data0_b),
-  4210		SH_PFC_PIN_GROUP(drif1_data1_b),
-  4211		SH_PFC_PIN_GROUP(drif1_ctrl_c),
-  4212		SH_PFC_PIN_GROUP(drif1_data0_c),
-  4213		SH_PFC_PIN_GROUP(drif1_data1_c),
-  4214		SH_PFC_PIN_GROUP(drif2_ctrl_a),
-  4215		SH_PFC_PIN_GROUP(drif2_data0_a),
-  4216		SH_PFC_PIN_GROUP(drif2_data1_a),
-  4217		SH_PFC_PIN_GROUP(drif2_ctrl_b),
-  4218		SH_PFC_PIN_GROUP(drif2_data0_b),
-  4219		SH_PFC_PIN_GROUP(drif2_data1_b),
-  4220		SH_PFC_PIN_GROUP(drif3_ctrl_a),
-  4221		SH_PFC_PIN_GROUP(drif3_data0_a),
-  4222		SH_PFC_PIN_GROUP(drif3_data1_a),
-  4223		SH_PFC_PIN_GROUP(drif3_ctrl_b),
-  4224		SH_PFC_PIN_GROUP(drif3_data0_b),
-  4225		SH_PFC_PIN_GROUP(drif3_data1_b),
-  4226		SH_PFC_PIN_GROUP(du_rgb666),
-  4227		SH_PFC_PIN_GROUP(du_rgb888),
-  4228		SH_PFC_PIN_GROUP(du_clk_out_0),
-  4229		SH_PFC_PIN_GROUP(du_clk_out_1),
-  4230		SH_PFC_PIN_GROUP(du_sync),
-  4231		SH_PFC_PIN_GROUP(du_oddf),
-  4232		SH_PFC_PIN_GROUP(du_cde),
-  4233		SH_PFC_PIN_GROUP(du_disp),
-  4234		SH_PFC_PIN_GROUP(hdmi0_cec),
-  4235		SH_PFC_PIN_GROUP(hdmi1_cec),
-  4236		SH_PFC_PIN_GROUP(hscif0_data),
-  4237		SH_PFC_PIN_GROUP(hscif0_clk),
-  4238		SH_PFC_PIN_GROUP(hscif0_ctrl),
-  4239		SH_PFC_PIN_GROUP(hscif1_data_a),
-  4240		SH_PFC_PIN_GROUP(hscif1_clk_a),
-  4241		SH_PFC_PIN_GROUP(hscif1_ctrl_a),
-  4242		SH_PFC_PIN_GROUP(hscif1_data_b),
-  4243		SH_PFC_PIN_GROUP(hscif1_clk_b),
-  4244		SH_PFC_PIN_GROUP(hscif1_ctrl_b),
-  4245		SH_PFC_PIN_GROUP(hscif2_data_a),
-  4246		SH_PFC_PIN_GROUP(hscif2_clk_a),
-  4247		SH_PFC_PIN_GROUP(hscif2_ctrl_a),
-  4248		SH_PFC_PIN_GROUP(hscif2_data_b),
-  4249		SH_PFC_PIN_GROUP(hscif2_clk_b),
-  4250		SH_PFC_PIN_GROUP(hscif2_ctrl_b),
-  4251		SH_PFC_PIN_GROUP(hscif2_data_c),
-  4252		SH_PFC_PIN_GROUP(hscif2_clk_c),
-  4253		SH_PFC_PIN_GROUP(hscif2_ctrl_c),
-  4254		SH_PFC_PIN_GROUP(hscif3_data_a),
-  4255		SH_PFC_PIN_GROUP(hscif3_clk),
-  4256		SH_PFC_PIN_GROUP(hscif3_ctrl),
-  4257		SH_PFC_PIN_GROUP(hscif3_data_b),
-  4258		SH_PFC_PIN_GROUP(hscif3_data_c),
-  4259		SH_PFC_PIN_GROUP(hscif3_data_d),
-  4260		SH_PFC_PIN_GROUP(hscif4_data_a),
-  4261		SH_PFC_PIN_GROUP(hscif4_clk),
-  4262		SH_PFC_PIN_GROUP(hscif4_ctrl),
-  4263		SH_PFC_PIN_GROUP(hscif4_data_b),
-  4264		SH_PFC_PIN_GROUP(i2c1_a),
-  4265		SH_PFC_PIN_GROUP(i2c1_b),
-  4266		SH_PFC_PIN_GROUP(i2c2_a),
-  4267		SH_PFC_PIN_GROUP(i2c2_b),
-  4268		SH_PFC_PIN_GROUP(i2c6_a),
-  4269		SH_PFC_PIN_GROUP(i2c6_b),
-  4270		SH_PFC_PIN_GROUP(i2c6_c),
-  4271		SH_PFC_PIN_GROUP(intc_ex_irq0),
-  4272		SH_PFC_PIN_GROUP(intc_ex_irq1),
-  4273		SH_PFC_PIN_GROUP(intc_ex_irq2),
-  4274		SH_PFC_PIN_GROUP(intc_ex_irq3),
-  4275		SH_PFC_PIN_GROUP(intc_ex_irq4),
-  4276		SH_PFC_PIN_GROUP(intc_ex_irq5),
-  4277		SH_PFC_PIN_GROUP(msiof0_clk),
-  4278		SH_PFC_PIN_GROUP(msiof0_sync),
-  4279		SH_PFC_PIN_GROUP(msiof0_ss1),
-  4280		SH_PFC_PIN_GROUP(msiof0_ss2),
-  4281		SH_PFC_PIN_GROUP(msiof0_txd),
-  4282		SH_PFC_PIN_GROUP(msiof0_rxd),
-  4283		SH_PFC_PIN_GROUP(msiof1_clk_a),
-  4284		SH_PFC_PIN_GROUP(msiof1_sync_a),
-  4285		SH_PFC_PIN_GROUP(msiof1_ss1_a),
-  4286		SH_PFC_PIN_GROUP(msiof1_ss2_a),
-  4287		SH_PFC_PIN_GROUP(msiof1_txd_a),
-  4288		SH_PFC_PIN_GROUP(msiof1_rxd_a),
-  4289		SH_PFC_PIN_GROUP(msiof1_clk_b),
-  4290		SH_PFC_PIN_GROUP(msiof1_sync_b),
-  4291		SH_PFC_PIN_GROUP(msiof1_ss1_b),
-  4292		SH_PFC_PIN_GROUP(msiof1_ss2_b),
-  4293		SH_PFC_PIN_GROUP(msiof1_txd_b),
-  4294		SH_PFC_PIN_GROUP(msiof1_rxd_b),
-  4295		SH_PFC_PIN_GROUP(msiof1_clk_c),
-  4296		SH_PFC_PIN_GROUP(msiof1_sync_c),
-  4297		SH_PFC_PIN_GROUP(msiof1_ss1_c),
-  4298		SH_PFC_PIN_GROUP(msiof1_ss2_c),
-  4299		SH_PFC_PIN_GROUP(msiof1_txd_c),
-  4300		SH_PFC_PIN_GROUP(msiof1_rxd_c),
-  4301		SH_PFC_PIN_GROUP(msiof1_clk_d),
-  4302		SH_PFC_PIN_GROUP(msiof1_sync_d),
-  4303		SH_PFC_PIN_GROUP(msiof1_ss1_d),
-  4304		SH_PFC_PIN_GROUP(msiof1_ss2_d),
-  4305		SH_PFC_PIN_GROUP(msiof1_txd_d),
-  4306		SH_PFC_PIN_GROUP(msiof1_rxd_d),
-  4307		SH_PFC_PIN_GROUP(msiof1_clk_e),
-  4308		SH_PFC_PIN_GROUP(msiof1_sync_e),
-  4309		SH_PFC_PIN_GROUP(msiof1_ss1_e),
-  4310		SH_PFC_PIN_GROUP(msiof1_ss2_e),
-  4311		SH_PFC_PIN_GROUP(msiof1_txd_e),
-  4312		SH_PFC_PIN_GROUP(msiof1_rxd_e),
-  4313		SH_PFC_PIN_GROUP(msiof1_clk_f),
-  4314		SH_PFC_PIN_GROUP(msiof1_sync_f),
-  4315		SH_PFC_PIN_GROUP(msiof1_ss1_f),
-  4316		SH_PFC_PIN_GROUP(msiof1_ss2_f),
-  4317		SH_PFC_PIN_GROUP(msiof1_txd_f),
-  4318		SH_PFC_PIN_GROUP(msiof1_rxd_f),
-  4319		SH_PFC_PIN_GROUP(msiof1_clk_g),
-  4320		SH_PFC_PIN_GROUP(msiof1_sync_g),
-  4321		SH_PFC_PIN_GROUP(msiof1_ss1_g),
-  4322		SH_PFC_PIN_GROUP(msiof1_ss2_g),
-  4323		SH_PFC_PIN_GROUP(msiof1_txd_g),
-  4324		SH_PFC_PIN_GROUP(msiof1_rxd_g),
-  4325		SH_PFC_PIN_GROUP(msiof2_clk_a),
-  4326		SH_PFC_PIN_GROUP(msiof2_sync_a),
-  4327		SH_PFC_PIN_GROUP(msiof2_ss1_a),
-  4328		SH_PFC_PIN_GROUP(msiof2_ss2_a),
-  4329		SH_PFC_PIN_GROUP(msiof2_txd_a),
-  4330		SH_PFC_PIN_GROUP(msiof2_rxd_a),
-  4331		SH_PFC_PIN_GROUP(msiof2_clk_b),
-  4332		SH_PFC_PIN_GROUP(msiof2_sync_b),
-  4333		SH_PFC_PIN_GROUP(msiof2_ss1_b),
-  4334		SH_PFC_PIN_GROUP(msiof2_ss2_b),
-  4335		SH_PFC_PIN_GROUP(msiof2_txd_b),
-  4336		SH_PFC_PIN_GROUP(msiof2_rxd_b),
-  4337		SH_PFC_PIN_GROUP(msiof2_clk_c),
-  4338		SH_PFC_PIN_GROUP(msiof2_sync_c),
-  4339		SH_PFC_PIN_GROUP(msiof2_ss1_c),
-  4340		SH_PFC_PIN_GROUP(msiof2_ss2_c),
-  4341		SH_PFC_PIN_GROUP(msiof2_txd_c),
-  4342		SH_PFC_PIN_GROUP(msiof2_rxd_c),
-  4343		SH_PFC_PIN_GROUP(msiof2_clk_d),
-  4344		SH_PFC_PIN_GROUP(msiof2_sync_d),
-  4345		SH_PFC_PIN_GROUP(msiof2_ss1_d),
-  4346		SH_PFC_PIN_GROUP(msiof2_ss2_d),
-  4347		SH_PFC_PIN_GROUP(msiof2_txd_d),
-  4348		SH_PFC_PIN_GROUP(msiof2_rxd_d),
-  4349		SH_PFC_PIN_GROUP(msiof3_clk_a),
-  4350		SH_PFC_PIN_GROUP(msiof3_sync_a),
-  4351		SH_PFC_PIN_GROUP(msiof3_ss1_a),
-  4352		SH_PFC_PIN_GROUP(msiof3_ss2_a),
-  4353		SH_PFC_PIN_GROUP(msiof3_txd_a),
-  4354		SH_PFC_PIN_GROUP(msiof3_rxd_a),
-  4355		SH_PFC_PIN_GROUP(msiof3_clk_b),
-  4356		SH_PFC_PIN_GROUP(msiof3_sync_b),
-  4357		SH_PFC_PIN_GROUP(msiof3_ss1_b),
-  4358		SH_PFC_PIN_GROUP(msiof3_ss2_b),
-  4359		SH_PFC_PIN_GROUP(msiof3_txd_b),
-  4360		SH_PFC_PIN_GROUP(msiof3_rxd_b),
-  4361		SH_PFC_PIN_GROUP(msiof3_clk_c),
-  4362		SH_PFC_PIN_GROUP(msiof3_sync_c),
-  4363		SH_PFC_PIN_GROUP(msiof3_txd_c),
-  4364		SH_PFC_PIN_GROUP(msiof3_rxd_c),
-  4365		SH_PFC_PIN_GROUP(msiof3_clk_d),
-  4366		SH_PFC_PIN_GROUP(msiof3_sync_d),
-  4367		SH_PFC_PIN_GROUP(msiof3_ss1_d),
-  4368		SH_PFC_PIN_GROUP(msiof3_txd_d),
-  4369		SH_PFC_PIN_GROUP(msiof3_rxd_d),
-  4370		SH_PFC_PIN_GROUP(msiof3_clk_e),
-  4371		SH_PFC_PIN_GROUP(msiof3_sync_e),
-  4372		SH_PFC_PIN_GROUP(msiof3_ss1_e),
-  4373		SH_PFC_PIN_GROUP(msiof3_ss2_e),
-  4374		SH_PFC_PIN_GROUP(msiof3_txd_e),
-  4375		SH_PFC_PIN_GROUP(msiof3_rxd_e),
-  4376		SH_PFC_PIN_GROUP(pwm0),
-  4377		SH_PFC_PIN_GROUP(pwm1_a),
-  4378		SH_PFC_PIN_GROUP(pwm1_b),
-  4379		SH_PFC_PIN_GROUP(pwm2_a),
-  4380		SH_PFC_PIN_GROUP(pwm2_b),
-  4381		SH_PFC_PIN_GROUP(pwm3_a),
-  4382		SH_PFC_PIN_GROUP(pwm3_b),
-  4383		SH_PFC_PIN_GROUP(pwm4_a),
-  4384		SH_PFC_PIN_GROUP(pwm4_b),
-  4385		SH_PFC_PIN_GROUP(pwm5_a),
-  4386		SH_PFC_PIN_GROUP(pwm5_b),
-  4387		SH_PFC_PIN_GROUP(pwm6_a),
-  4388		SH_PFC_PIN_GROUP(pwm6_b),
-  4389		SH_PFC_PIN_GROUP(sata0_devslp_a),
-  4390		SH_PFC_PIN_GROUP(sata0_devslp_b),
-  4391		SH_PFC_PIN_GROUP(scif0_data),
-  4392		SH_PFC_PIN_GROUP(scif0_clk),
-  4393		SH_PFC_PIN_GROUP(scif0_ctrl),
-  4394		SH_PFC_PIN_GROUP(scif1_data_a),
-  4395		SH_PFC_PIN_GROUP(scif1_clk),
-  4396		SH_PFC_PIN_GROUP(scif1_ctrl),
-  4397		SH_PFC_PIN_GROUP(scif1_data_b),
-  4398		SH_PFC_PIN_GROUP(scif2_data_a),
-  4399		SH_PFC_PIN_GROUP(scif2_clk),
-  4400		SH_PFC_PIN_GROUP(scif2_data_b),
-  4401		SH_PFC_PIN_GROUP(scif3_data_a),
-  4402		SH_PFC_PIN_GROUP(scif3_clk),
-  4403		SH_PFC_PIN_GROUP(scif3_ctrl),
-  4404		SH_PFC_PIN_GROUP(scif3_data_b),
-  4405		SH_PFC_PIN_GROUP(scif4_data_a),
-  4406		SH_PFC_PIN_GROUP(scif4_clk_a),
-  4407		SH_PFC_PIN_GROUP(scif4_ctrl_a),
-  4408		SH_PFC_PIN_GROUP(scif4_data_b),
-  4409		SH_PFC_PIN_GROUP(scif4_clk_b),
-  4410		SH_PFC_PIN_GROUP(scif4_ctrl_b),
-  4411		SH_PFC_PIN_GROUP(scif4_data_c),
-  4412		SH_PFC_PIN_GROUP(scif4_clk_c),
-  4413		SH_PFC_PIN_GROUP(scif4_ctrl_c),
-  4414		SH_PFC_PIN_GROUP(scif5_data_a),
-  4415		SH_PFC_PIN_GROUP(scif5_clk_a),
-  4416		SH_PFC_PIN_GROUP(scif5_data_b),
-  4417		SH_PFC_PIN_GROUP(scif5_clk_b),
-  4418		SH_PFC_PIN_GROUP(scif_clk_a),
-  4419		SH_PFC_PIN_GROUP(scif_clk_b),
-  4420		SH_PFC_PIN_GROUP(sdhi0_data1),
-  4421		SH_PFC_PIN_GROUP(sdhi0_data4),
-  4422		SH_PFC_PIN_GROUP(sdhi0_ctrl),
-  4423		SH_PFC_PIN_GROUP(sdhi0_cd),
-  4424		SH_PFC_PIN_GROUP(sdhi0_wp),
-  4425		SH_PFC_PIN_GROUP(sdhi1_data1),
-  4426		SH_PFC_PIN_GROUP(sdhi1_data4),
-  4427		SH_PFC_PIN_GROUP(sdhi1_ctrl),
-  4428		SH_PFC_PIN_GROUP(sdhi1_cd),
-  4429		SH_PFC_PIN_GROUP(sdhi1_wp),
-  4430		SH_PFC_PIN_GROUP(sdhi2_data1),
-  4431		SH_PFC_PIN_GROUP(sdhi2_data4),
-  4432		SH_PFC_PIN_GROUP(sdhi2_data8),
-  4433		SH_PFC_PIN_GROUP(sdhi2_ctrl),
-  4434		SH_PFC_PIN_GROUP(sdhi2_cd_a),
-  4435		SH_PFC_PIN_GROUP(sdhi2_wp_a),
-  4436		SH_PFC_PIN_GROUP(sdhi2_cd_b),
-  4437		SH_PFC_PIN_GROUP(sdhi2_wp_b),
-  4438		SH_PFC_PIN_GROUP(sdhi2_ds),
-  4439		SH_PFC_PIN_GROUP(sdhi3_data1),
-  4440		SH_PFC_PIN_GROUP(sdhi3_data4),
-  4441		SH_PFC_PIN_GROUP(sdhi3_data8),
-  4442		SH_PFC_PIN_GROUP(sdhi3_ctrl),
-  4443		SH_PFC_PIN_GROUP(sdhi3_cd),
-  4444		SH_PFC_PIN_GROUP(sdhi3_wp),
-  4445		SH_PFC_PIN_GROUP(sdhi3_ds),
-  4446		SH_PFC_PIN_GROUP(ssi0_data),
-  4447		SH_PFC_PIN_GROUP(ssi01239_ctrl),
-  4448		SH_PFC_PIN_GROUP(ssi1_data_a),
-  4449		SH_PFC_PIN_GROUP(ssi1_data_b),
-  4450		SH_PFC_PIN_GROUP(ssi1_ctrl_a),
-  4451		SH_PFC_PIN_GROUP(ssi1_ctrl_b),
-  4452		SH_PFC_PIN_GROUP(ssi2_data_a),
-  4453		SH_PFC_PIN_GROUP(ssi2_data_b),
-  4454		SH_PFC_PIN_GROUP(ssi2_ctrl_a),
-  4455		SH_PFC_PIN_GROUP(ssi2_ctrl_b),
-  4456		SH_PFC_PIN_GROUP(ssi3_data),
-  4457		SH_PFC_PIN_GROUP(ssi349_ctrl),
-  4458		SH_PFC_PIN_GROUP(ssi4_data),
-  4459		SH_PFC_PIN_GROUP(ssi4_ctrl),
-  4460		SH_PFC_PIN_GROUP(ssi5_data),
-  4461		SH_PFC_PIN_GROUP(ssi5_ctrl),
-  4462		SH_PFC_PIN_GROUP(ssi6_data),
-  4463		SH_PFC_PIN_GROUP(ssi6_ctrl),
-  4464		SH_PFC_PIN_GROUP(ssi7_data),
-  4465		SH_PFC_PIN_GROUP(ssi78_ctrl),
-  4466		SH_PFC_PIN_GROUP(ssi8_data),
-  4467		SH_PFC_PIN_GROUP(ssi9_data_a),
-  4468		SH_PFC_PIN_GROUP(ssi9_data_b),
-  4469		SH_PFC_PIN_GROUP(ssi9_ctrl_a),
-  4470		SH_PFC_PIN_GROUP(ssi9_ctrl_b),
-  4471		SH_PFC_PIN_GROUP(tmu_tclk1_a),
-  4472		SH_PFC_PIN_GROUP(tmu_tclk1_b),
-  4473		SH_PFC_PIN_GROUP(tmu_tclk2_a),
-  4474		SH_PFC_PIN_GROUP(tmu_tclk2_b),
-  4475		SH_PFC_PIN_GROUP(usb0),
-  4476		SH_PFC_PIN_GROUP(usb1),
-  4477		SH_PFC_PIN_GROUP(usb2),
-  4478		SH_PFC_PIN_GROUP(usb2_ch3),
-  4479		SH_PFC_PIN_GROUP(usb30),
-> 4480		VIN_DATA_PIN_GROUP(vin4_data, 8, _a),
-  4481		VIN_DATA_PIN_GROUP(vin4_data, 10, _a),
-  4482		VIN_DATA_PIN_GROUP(vin4_data, 12, _a),
-  4483		VIN_DATA_PIN_GROUP(vin4_data, 16, _a),
-  4484		SH_PFC_PIN_GROUP(vin4_data18_a),
-  4485		VIN_DATA_PIN_GROUP(vin4_data, 20, _a),
-  4486		VIN_DATA_PIN_GROUP(vin4_data, 24, _a),
-  4487		VIN_DATA_PIN_GROUP(vin4_data, 8, _b),
-  4488		VIN_DATA_PIN_GROUP(vin4_data, 10, _b),
-  4489		VIN_DATA_PIN_GROUP(vin4_data, 12, _b),
-  4490		VIN_DATA_PIN_GROUP(vin4_data, 16, _b),
-  4491		SH_PFC_PIN_GROUP(vin4_data18_b),
-  4492		VIN_DATA_PIN_GROUP(vin4_data, 20, _b),
-  4493		VIN_DATA_PIN_GROUP(vin4_data, 24, _b),
-  4494		SH_PFC_PIN_GROUP(vin4_sync),
-  4495		SH_PFC_PIN_GROUP(vin4_field),
-  4496		SH_PFC_PIN_GROUP(vin4_clkenb),
-  4497		SH_PFC_PIN_GROUP(vin4_clk),
-  4498		SH_PFC_PIN_GROUP(vin5_data8),
-  4499		SH_PFC_PIN_GROUP(vin5_data10),
-  4500		SH_PFC_PIN_GROUP(vin5_data12),
-  4501		SH_PFC_PIN_GROUP(vin5_data16),
-  4502		SH_PFC_PIN_GROUP(vin5_sync),
-  4503		SH_PFC_PIN_GROUP(vin5_field),
-  4504		SH_PFC_PIN_GROUP(vin5_clkenb),
-  4505		SH_PFC_PIN_GROUP(vin5_clk),
-  4506	};
-  4507	
+>> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:82.1-7 Label or path codec not found
+>> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:86.1-14 Label or path codec_analog not found
+>> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:91.1-5 Label or path dai not found
+>> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:297.1-7 Label or path sound not found
+   FATAL ERROR: Syntax error parsing input tree
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -612,14 +176,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912082235.8qfGmMMB%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912090213.f5tL7YU3%25lkp%40intel.com.
 
---lho3p4o4tn34545h
+--a5p6lnsw4b4rzui6
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICIUK7V0AAy5jb25maWcAjDxJd+M20vf8Cr3kkhymo629zPd8AElQwoibAVCy+8Kn2OyO
+H4sICBQu7V0AAy5jb25maWcAjDxJd+M20vf8Cr3kkhymo629zPd8AElQwoibAVCy+8Kn2OyO
 v9hyjyx30v9+qgAuAAgqSfI6zarCXqgd+umHnybk/fT6sj89Peyfn79PvtSH+rg/1Y+Tz0/P
 9f9NonyS5XJCIyY/AHHydHj/69f98eViOVl+mF1/uLqabOrjoX6ehK+Hz09f3qHx0+vhh59+
 gP9+AuDLV+jn+O/Jw/P+8GXyrT6+AXoym36Afyc/f3k6/fvXX+HPl6fj8fX46/Pzt5fq6/H1
@@ -1364,4 +928,4 @@ ASvBnPU+nqkYxjSeUEQWyeAxDf8dUkPqCHQOnWxH3HGUJ8xfEzSsfFE2L6FI1Npwg4Vq1/kW
 w+yUsqAbMPcJlxkc77LCs6sZoicOsBQo3NPlBfed8DwQ6u60gITzRNymmM8VD8kkG/dpb2XH
 VCzyVhUPfZOnhf1sbj52coUlWUzo/wHXNfjzWakCAA==
 
---lho3p4o4tn34545h--
+--a5p6lnsw4b4rzui6--
