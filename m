@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB6PVWTXQKGQECDDFBHQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBSEFW3XQKGQE3INVO6I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 520AA116345
-	for <lists+clang-built-linux@lfdr.de>; Sun,  8 Dec 2019 19:03:39 +0100 (CET)
-Received: by mail-oi1-x23a.google.com with SMTP id e22sf3289856oig.1
-        for <lists+clang-built-linux@lfdr.de>; Sun, 08 Dec 2019 10:03:39 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575828218; cv=pass;
+Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
+	by mail.lfdr.de (Postfix) with ESMTPS id 584F111640F
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Dec 2019 00:10:02 +0100 (CET)
+Received: by mail-pj1-x1039.google.com with SMTP id e7sf6873683pjt.22
+        for <lists+clang-built-linux@lfdr.de>; Sun, 08 Dec 2019 15:10:02 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575846600; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Doss6OFxihT68elm9AaI0mwntEFVSbwwKIfWYYBXtYpjdkps3oTejuLY/gwsE8+DC5
-         8uy0BzviaskSSvDoSj6R9h+Scmw3hJqZPzTPkBhHKFxxIOZoat/F1v3wZK+VOgcyxPQW
-         /zMhV7nmr0ab9uUQ3Vj6C712K1By+DAB23rnu5hLr6Kw/ij4AXrDxKMeeyvktdETqDej
-         PJcsyEV10+cU4qFqtMEuXQgCCz0z63IqOzzdYlWH6Zt3U3HtJ839zWVjbnzBqjKbR42u
-         oZsgFw1MKsIqqYcobTJZslIbEGhAsZ4xgrHx4U+dJIlHIbHsAJYwp3kHAobKqisAkUyx
-         N+zA==
+        b=SocoPIOMCP8p9IVGESHc7ZiN3IhzF3uh+EkFOpZcHZtB8LhoG9yAEqfIaAl3ImJUeU
+         XKkDt7CzUiMpb62SrEVYxCpSJ/9q/6tSCeF281ZDVieMcDaQ22CAWvSK5svSPn+31IC4
+         PAd/+vSpYpl+8B3n9vp3SJEZMtT8fhgBBIO7nRHPnHQpdOvC8nCdkVpcRzpiUbufk0bt
+         2GvMhCDrfeutAIG3UY/F5FqRQwfrUl+6zJYND6jhaUgrrWrsDtTcyhXKeFvGaIDOklCl
+         cdMFwLMPiYIQkpv/D1cWDrfYhlgCYG1Z4dNZb6i0OnpJ08yS+kvQyxGB7JbArIwut6Y3
+         F6mg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=BrizltkoDM30RfijwrSY/He5H/imYFpGu+2Io4A10go=;
-        b=TH/IltxX5fRH75FiBXTDY9gjtkBe6n2LQ+mcxggKe+CzrTwK2y4bHBiAvqe57nMr3A
-         C4nBs/JDXAGHGzmI5mzvcXsmNGR2cl9IjS55K1jN8IwDjFXZcY9f4KP7Ya0/AMH5RXMH
-         QfHhNvSSbPdTUEwdgsyHPY3569omypaj2NNL9CJI1lMau8NEnnZP/tTGG9ea2xfW9sAQ
-         sUGWUXFRd/WzlNls/NCu6GDuUfAkER8qT3B10N/8OQDYeprjCWWDHv48M4ZK+6zqS6Va
-         YSLxWjV9MsaOunaIsZFANTcEaOVuxUmGt9kt3AyRmmHVyznGejcsF3swbkG60jTL/wHj
-         hYfw==
+        bh=nrRcwWKvnvLkGHjsSZenwjlRWV2d26CQ7TynIL2LCBk=;
+        b=kCHySOPxnw7v1RlBSMCoh7eZNxdK2tfQHDIb3GMv24YHZN3/t9MRBdopGDIPo0NPEz
+         luRwO1dWkauO9p10qCKGJ5dyZveauWwu7hG+R4BN75uVcGvenxteuEoxrZmsR/GPR89B
+         GI7NyUlembxqwTgUMfg8WcLmRUdag6/ObRyJdCj6Y8PEXXpNjoXFM4wJsHZTnhpmiyX1
+         hkEF6EJ3Na9QkyDM4+qJfPxOna13qTsqKsyyefFylc6k7rM45dDEEbbYzqMkf/94yLLJ
+         rRiozRNf2Lh3sNCFGAPB5ykZD45V7gZe/QR+OR2AH5g9I1WzSrdJVFOOFhRDxyruqRtt
+         EweA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=BrizltkoDM30RfijwrSY/He5H/imYFpGu+2Io4A10go=;
-        b=iGLHPg1QTPoouLrihDVPYmhYAKCoy7AVVNCdXAB8ByV0l2MN3VJB1MXmcv+AqgO7zM
-         VYF0pqPvvizP1YBv0/XW+pfOa7qOfQ+Tc/FExJdCZNFbKkFN1jk6OgwDO2c817hdHmL7
-         ejdEvHBWAVtl/9OptCQ/p4wxZujAV6DVxN3TRedCKs9smCBWv/xaa6t2bsUmShxI8F85
-         I+b81yts+AVnTlAmBis4Kcb9koLvcZYj5kyYCxjIDw+2HBeG/LnGQepvk7gUYD24dquU
-         zLrDjAOF/HpJtUamPHTxeh1oyl7T/oG75Em6fFeMh7T2a4WfYPhKM3GtS+5gwSdRx4hL
-         7i+A==
+        bh=nrRcwWKvnvLkGHjsSZenwjlRWV2d26CQ7TynIL2LCBk=;
+        b=K3ddh8uG59cKKyut31SSFcfGK2fc12Seto0KW2z6B4bffccywZN6kKJ3ecvrkK+1As
+         L5ardCKkpaWDOgCOQQegY0jYuJUftyCA+k5tOcjmEBjLQZStFKtaZPZ8ZsssE22tF00G
+         guCmFVWfHBqE0ncfrGR9qk1/nOoEh5exlthLHToeGRLUEORW34Dcc00gexSlu8hNtQ72
+         d23ZLehhTuqY7Puvo6MysQBIWr+qJkE/et3JjeFABrkf/ARBebciHBlYISSM6jdTDiHY
+         9kB9kkAP0YGd1Xt5lU267oS3dCMNiUKOSIanytc+yrekJAL6/IocZVo1xReLTXQ6vRpP
+         L0Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=BrizltkoDM30RfijwrSY/He5H/imYFpGu+2Io4A10go=;
-        b=W2r/Nyq4bEFKWknqXAADfsUR/4GZGgqIdbcBhjxwBBPmheyrYleTvzRPawef2jA9k0
-         uYoVpdwW8hENCwRrr1fn3K+Yo+kNnMjqRMIU1d/GRXEG8HAQ8yfT+EwnREHil5SPtm0a
-         Ws/gsnBBqIEll0e5LLvszr9ge2x/QBwEKDmUN5KoUy6Ef/OxS2oGkVJ1sR5l7eenC1bB
-         cImeV/73VxClwQlBm4cqBooKUbRCwiJDE9QI3DI8vPHerDMJUZCQVngVZ+spb3JbjTGJ
-         CSfMzx16OimLC5Qk3yhyzZcTCm+snGEZH1sbx3XLJKoVQ7W5tHNxH6HzMyZ2rrgHHNfD
-         D0Uw==
+        bh=nrRcwWKvnvLkGHjsSZenwjlRWV2d26CQ7TynIL2LCBk=;
+        b=avFqmwqerbUfMfymgcdDY+wQ14Sj45d9iox8ZBTk3dxEaohQu9mK2KuvkI0ya8Awrl
+         YL1ulkL7sr1VfAIZ4zAXnZ7CBbBelkSHE6YzpipE1WLfGyziBzwRFY30S22VNlxS3wy0
+         ysTY8LNYtrA7KlwbMUMkzelLvawJymkwQxEmxGX82CMw4JuiYuXOBA4QAs7nSLiwoS/h
+         HKkLBWANVJQQGcxUWsTNiyyZEz4tqNgRnX3A5iQvDiHS8ocQT4ctL/rVNghciBmKp7bI
+         k+YOfpp78eSTRPMEP5JcTYRw2YkumePQndHgiSv3qo1Ovr6kqXcET7XS9MoTu1CMo6+c
+         dsRA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVDlYIRxuz4TceAqS7B30fzLwkym3HVQa3YaX/yCq9CtB7eX1wZ
-	rPO8bdRPwvi6jna1Z3akjOU=
-X-Google-Smtp-Source: APXvYqwsCJIGDasgzZ11mJPXmaFozvaMK9/4kahYpBe8IMq0ZsNBOD96WmUDvSKP+Laj1DWpYPTZtA==
-X-Received: by 2002:a9d:6d06:: with SMTP id o6mr18947697otp.239.1575828217454;
-        Sun, 08 Dec 2019 10:03:37 -0800 (PST)
+X-Gm-Message-State: APjAAAUguR/10yxSLbMZcJIHn0fzmZtRJJvgXV53TeI/NstDRoJPi2+k
+	tclsAT3A7qLPHy9ZLAm8CvQ=
+X-Google-Smtp-Source: APXvYqy42P14nYec10UQQAFEBugxBqhrJOV7MTtUjUfguVxZ2D6l1PT0gB18zISrMAx1pVCNNfJswg==
+X-Received: by 2002:a62:1cd6:: with SMTP id c205mr26394052pfc.179.1575846600346;
+        Sun, 08 Dec 2019 15:10:00 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:3b6:: with SMTP id n22ls2106505oie.13.gmail; Sun,
- 08 Dec 2019 10:03:37 -0800 (PST)
-X-Received: by 2002:aca:4cc7:: with SMTP id z190mr21846308oia.10.1575828216999;
-        Sun, 08 Dec 2019 10:03:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575828216; cv=none;
+Received: by 2002:a62:ac0a:: with SMTP id v10ls3063144pfe.4.gmail; Sun, 08 Dec
+ 2019 15:09:59 -0800 (PST)
+X-Received: by 2002:a63:4948:: with SMTP id y8mr16444399pgk.333.1575846599803;
+        Sun, 08 Dec 2019 15:09:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575846599; cv=none;
         d=google.com; s=arc-20160816;
-        b=p1xL+VoQ95niELFRi0m1OSghNXyAi6j/p1i01ct5jU+USX+95ehYFiW6BksjLZSCId
-         TcvKD3ru8sccxjqN3a94ds0h2ja5w8qh4D5nHkedZTXBxtr45s6L5zdJzc2wyO+Hu3Ky
-         6VqNpfT/vOTxr23yy9qDRsTrn+7MBcpHZlyO4k80jMzqBCCkJpKqxxtCCFbf+zpnSUNk
-         QzQAi8vaysITVX2gwPSVGIQ6+BYty7GY+yNNK3miFX1/s3gxk+DANuyXvTzstjcppl7U
-         IMO3a22VweB4dKByXoRUoMvYY6s6QnFMzSDm5nX6FIv5H1SRepog7RvIz1zbSrHk8TSt
-         xrnQ==
+        b=rOOrZIvrLnhmHkMCBF4qnhRwWCvfjGHe81weW70kFyffpfzT/abxqcN221e0jF3FSp
+         6uxtpLG6GFbCTrd5d13RN07rc5v5QPvx+9nWwMWY7qKlqVkK6TH7MIHEDDrLoM4BpiJu
+         lXB8zAvsVQ4gZn3qM56rsevrJAEt+Jaxmh+fBQlK7qj76AosrVMJVOJvnzZu3/IMxcmu
+         4nZUCH/4z4A1SykZ+WBnfujCXE5tUCRiFJ5lJB8kBcBYEtd6N7ErhFLuBqNIwIOFb9Cm
+         XF6mfJQzFFCggT83sOQVeCpZW7+DgrXHULjAK82ByQ+Tcue3mgTMNHFoisxBvF/CrcTm
+         u9uA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=JxdOusr+Czx+HetdyNi9MD/HZ6TlXJrqbPO6xA/lNmo=;
-        b=pFDTa8ngwQBGj2kBEnzHjQAffueVNpdW0H5MPz+Cp/XFbr3WkDG6yCY5hWAE4bXmQ5
-         aKc6aGre0fV1BDtx0DCrOqWclkDSFB49FVVtfJBHlQ/e09xFjTNwZlAZtWLGtYmu8jYa
-         /4cGL4MMoaR+M9xHdvX/Rn0z2nY3W77tHWHx9A+RqcMu+iGrhulfJnlUu5MAINyj3T36
-         h1h6LT119CVxd9xaZsNXHrEwjq76AdRCnYZP2ApjuULuxc7KFTUge9hxEuITEh1X9Prv
-         VQG9RbX3w60gLImvNUOTMcdyWb7H0I3Zc1yZhyRjpiBlZ3IFY2Nqlj6sxDuovel/LYJ4
-         vRVA==
+        bh=aoDpSylr6LWa2+PJ0MfRNo2zSICYw6r9ZJ5pAsfE06g=;
+        b=tIHaWI6bprRJRutca1qCRPw5SvPjwY3t2cIhGYJUDQEmvilJ0JlEuBNKTPSunjbtoz
+         QqhWrrflaIlmmG1tKXYfswqx1FXNEQelw3fP0U1sF7eQDWeMcf7EAsoKU4o8YlICrOWM
+         GBREIETStSy8ynXOVG4185Iopx1upARPCN5krrBG9MGWSTjLfGFl6uEg4d/u65a2BYkz
+         XTEgJdwGGcLtRhyweXw+aK4G1nN7faWKLWfrJI2GI/5ak2Su1iHUIYKfcWNxf0bSDhZm
+         JtfWMDJwnoNwa/PZqnGZYhuEn+4fTX48ofFz5QbEmc2wQwxXo4hLNnVyWlX80gEpywn7
+         rxRw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id l1si411039otn.1.2019.12.08.10.03.36
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id cu4si445672pjb.1.2019.12.08.15.09.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 08 Dec 2019 10:03:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+        Sun, 08 Dec 2019 15:09:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 08 Dec 2019 10:03:34 -0800
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 08 Dec 2019 15:09:59 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,292,1571727600"; 
-   d="gz'50?scan'50,208,50";a="206671853"
+X-IronPort-AV: E=Sophos;i="5.69,293,1571727600"; 
+   d="gz'50?scan'50,208,50";a="264097257"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga008.jf.intel.com with ESMTP; 08 Dec 2019 10:03:32 -0800
+  by FMSMGA003.fm.intel.com with ESMTP; 08 Dec 2019 15:09:57 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ie0u4-000692-1U; Mon, 09 Dec 2019 02:03:32 +0800
-Date: Mon, 9 Dec 2019 02:03:15 +0800
+	id 1ie5gb-000DO6-5j; Mon, 09 Dec 2019 07:09:57 +0800
+Date: Mon, 9 Dec 2019 07:09:26 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [sashal-linux-stable:queue-4.19 94/208] Error:
- arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:82.1-7 Label or path
- codec not found
-Message-ID: <201912090213.f5tL7YU3%lkp@intel.com>
+Subject: [sashal-linux-stable:queue-4.19 112/208]
+ arch/arm64/net/bpf_jit_comp.c:633:9: error: implicit declaration of function
+ 'bpf_jit_get_func_addr'
+Message-ID: <201912090722.SXFMBdHX%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="a5p6lnsw4b4rzui6"
+Content-Type: multipart/mixed; boundary="cp6sgedcgvwe4j5i"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +138,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---a5p6lnsw4b4rzui6
+--cp6sgedcgvwe4j5i
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -148,13 +148,13 @@ TO: Alexander Levin <alexander.levin@microsoft.com>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/sashal/linux-stable.git queue-4.19
 head:   2757e2f0189297425dc4f9af38477a41d7a2c0e5
-commit: d1d6ca4e2a3d7eab2ae14574e49c7bcbf2eb26e4 [94/208] arm64: dts: allwinner: a64: enable sound on Pinebook
+commit: 636acf010bc7e8e5ff31886471a4c69d4ecc86fd [112/208] bpf, arm64: fix getting subprog addr from aux for calls
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project c49194969430f0ee817498a7000a979a7a0ded03)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout d1d6ca4e2a3d7eab2ae14574e49c7bcbf2eb26e4
+        git checkout 636acf010bc7e8e5ff31886471a4c69d4ecc86fd
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -163,11 +163,405 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:82.1-7 Label or path codec not found
->> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:86.1-14 Label or path codec_analog not found
->> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:91.1-5 Label or path dai not found
->> Error: arch/arm64/boot/dts/allwinner/sun50i-a64-pinebook.dts:297.1-7 Label or path sound not found
-   FATAL ERROR: Syntax error parsing input tree
+>> arch/arm64/net/bpf_jit_comp.c:633:9: error: implicit declaration of function 'bpf_jit_get_func_addr' [-Werror,-Wimplicit-function-declaration]
+                   ret = bpf_jit_get_func_addr(ctx->prog, insn, extra_pass,
+                         ^
+   1 error generated.
+
+vim +/bpf_jit_get_func_addr +633 arch/arm64/net/bpf_jit_comp.c
+
+   381	
+   382		switch (code) {
+   383		/* dst = src */
+   384		case BPF_ALU | BPF_MOV | BPF_X:
+   385		case BPF_ALU64 | BPF_MOV | BPF_X:
+   386			emit(A64_MOV(is64, dst, src), ctx);
+   387			break;
+   388		/* dst = dst OP src */
+   389		case BPF_ALU | BPF_ADD | BPF_X:
+   390		case BPF_ALU64 | BPF_ADD | BPF_X:
+   391			emit(A64_ADD(is64, dst, dst, src), ctx);
+   392			break;
+   393		case BPF_ALU | BPF_SUB | BPF_X:
+   394		case BPF_ALU64 | BPF_SUB | BPF_X:
+   395			emit(A64_SUB(is64, dst, dst, src), ctx);
+   396			break;
+   397		case BPF_ALU | BPF_AND | BPF_X:
+   398		case BPF_ALU64 | BPF_AND | BPF_X:
+   399			emit(A64_AND(is64, dst, dst, src), ctx);
+   400			break;
+   401		case BPF_ALU | BPF_OR | BPF_X:
+   402		case BPF_ALU64 | BPF_OR | BPF_X:
+   403			emit(A64_ORR(is64, dst, dst, src), ctx);
+   404			break;
+   405		case BPF_ALU | BPF_XOR | BPF_X:
+   406		case BPF_ALU64 | BPF_XOR | BPF_X:
+   407			emit(A64_EOR(is64, dst, dst, src), ctx);
+   408			break;
+   409		case BPF_ALU | BPF_MUL | BPF_X:
+   410		case BPF_ALU64 | BPF_MUL | BPF_X:
+   411			emit(A64_MUL(is64, dst, dst, src), ctx);
+   412			break;
+   413		case BPF_ALU | BPF_DIV | BPF_X:
+   414		case BPF_ALU64 | BPF_DIV | BPF_X:
+   415		case BPF_ALU | BPF_MOD | BPF_X:
+   416		case BPF_ALU64 | BPF_MOD | BPF_X:
+   417			switch (BPF_OP(code)) {
+   418			case BPF_DIV:
+   419				emit(A64_UDIV(is64, dst, dst, src), ctx);
+   420				break;
+   421			case BPF_MOD:
+   422				emit(A64_UDIV(is64, tmp, dst, src), ctx);
+   423				emit(A64_MUL(is64, tmp, tmp, src), ctx);
+   424				emit(A64_SUB(is64, dst, dst, tmp), ctx);
+   425				break;
+   426			}
+   427			break;
+   428		case BPF_ALU | BPF_LSH | BPF_X:
+   429		case BPF_ALU64 | BPF_LSH | BPF_X:
+   430			emit(A64_LSLV(is64, dst, dst, src), ctx);
+   431			break;
+   432		case BPF_ALU | BPF_RSH | BPF_X:
+   433		case BPF_ALU64 | BPF_RSH | BPF_X:
+   434			emit(A64_LSRV(is64, dst, dst, src), ctx);
+   435			break;
+   436		case BPF_ALU | BPF_ARSH | BPF_X:
+   437		case BPF_ALU64 | BPF_ARSH | BPF_X:
+   438			emit(A64_ASRV(is64, dst, dst, src), ctx);
+   439			break;
+   440		/* dst = -dst */
+   441		case BPF_ALU | BPF_NEG:
+   442		case BPF_ALU64 | BPF_NEG:
+   443			emit(A64_NEG(is64, dst, dst), ctx);
+   444			break;
+   445		/* dst = BSWAP##imm(dst) */
+   446		case BPF_ALU | BPF_END | BPF_FROM_LE:
+   447		case BPF_ALU | BPF_END | BPF_FROM_BE:
+   448	#ifdef CONFIG_CPU_BIG_ENDIAN
+   449			if (BPF_SRC(code) == BPF_FROM_BE)
+   450				goto emit_bswap_uxt;
+   451	#else /* !CONFIG_CPU_BIG_ENDIAN */
+   452			if (BPF_SRC(code) == BPF_FROM_LE)
+   453				goto emit_bswap_uxt;
+   454	#endif
+   455			switch (imm) {
+   456			case 16:
+   457				emit(A64_REV16(is64, dst, dst), ctx);
+   458				/* zero-extend 16 bits into 64 bits */
+   459				emit(A64_UXTH(is64, dst, dst), ctx);
+   460				break;
+   461			case 32:
+   462				emit(A64_REV32(is64, dst, dst), ctx);
+   463				/* upper 32 bits already cleared */
+   464				break;
+   465			case 64:
+   466				emit(A64_REV64(dst, dst), ctx);
+   467				break;
+   468			}
+   469			break;
+   470	emit_bswap_uxt:
+   471			switch (imm) {
+   472			case 16:
+   473				/* zero-extend 16 bits into 64 bits */
+   474				emit(A64_UXTH(is64, dst, dst), ctx);
+   475				break;
+   476			case 32:
+   477				/* zero-extend 32 bits into 64 bits */
+   478				emit(A64_UXTW(is64, dst, dst), ctx);
+   479				break;
+   480			case 64:
+   481				/* nop */
+   482				break;
+   483			}
+   484			break;
+   485		/* dst = imm */
+   486		case BPF_ALU | BPF_MOV | BPF_K:
+   487		case BPF_ALU64 | BPF_MOV | BPF_K:
+   488			emit_a64_mov_i(is64, dst, imm, ctx);
+   489			break;
+   490		/* dst = dst OP imm */
+   491		case BPF_ALU | BPF_ADD | BPF_K:
+   492		case BPF_ALU64 | BPF_ADD | BPF_K:
+   493			emit_a64_mov_i(is64, tmp, imm, ctx);
+   494			emit(A64_ADD(is64, dst, dst, tmp), ctx);
+   495			break;
+   496		case BPF_ALU | BPF_SUB | BPF_K:
+   497		case BPF_ALU64 | BPF_SUB | BPF_K:
+   498			emit_a64_mov_i(is64, tmp, imm, ctx);
+   499			emit(A64_SUB(is64, dst, dst, tmp), ctx);
+   500			break;
+   501		case BPF_ALU | BPF_AND | BPF_K:
+   502		case BPF_ALU64 | BPF_AND | BPF_K:
+   503			emit_a64_mov_i(is64, tmp, imm, ctx);
+   504			emit(A64_AND(is64, dst, dst, tmp), ctx);
+   505			break;
+   506		case BPF_ALU | BPF_OR | BPF_K:
+   507		case BPF_ALU64 | BPF_OR | BPF_K:
+   508			emit_a64_mov_i(is64, tmp, imm, ctx);
+   509			emit(A64_ORR(is64, dst, dst, tmp), ctx);
+   510			break;
+   511		case BPF_ALU | BPF_XOR | BPF_K:
+   512		case BPF_ALU64 | BPF_XOR | BPF_K:
+   513			emit_a64_mov_i(is64, tmp, imm, ctx);
+   514			emit(A64_EOR(is64, dst, dst, tmp), ctx);
+   515			break;
+   516		case BPF_ALU | BPF_MUL | BPF_K:
+   517		case BPF_ALU64 | BPF_MUL | BPF_K:
+   518			emit_a64_mov_i(is64, tmp, imm, ctx);
+   519			emit(A64_MUL(is64, dst, dst, tmp), ctx);
+   520			break;
+   521		case BPF_ALU | BPF_DIV | BPF_K:
+   522		case BPF_ALU64 | BPF_DIV | BPF_K:
+   523			emit_a64_mov_i(is64, tmp, imm, ctx);
+   524			emit(A64_UDIV(is64, dst, dst, tmp), ctx);
+   525			break;
+   526		case BPF_ALU | BPF_MOD | BPF_K:
+   527		case BPF_ALU64 | BPF_MOD | BPF_K:
+   528			emit_a64_mov_i(is64, tmp2, imm, ctx);
+   529			emit(A64_UDIV(is64, tmp, dst, tmp2), ctx);
+   530			emit(A64_MUL(is64, tmp, tmp, tmp2), ctx);
+   531			emit(A64_SUB(is64, dst, dst, tmp), ctx);
+   532			break;
+   533		case BPF_ALU | BPF_LSH | BPF_K:
+   534		case BPF_ALU64 | BPF_LSH | BPF_K:
+   535			emit(A64_LSL(is64, dst, dst, imm), ctx);
+   536			break;
+   537		case BPF_ALU | BPF_RSH | BPF_K:
+   538		case BPF_ALU64 | BPF_RSH | BPF_K:
+   539			emit(A64_LSR(is64, dst, dst, imm), ctx);
+   540			break;
+   541		case BPF_ALU | BPF_ARSH | BPF_K:
+   542		case BPF_ALU64 | BPF_ARSH | BPF_K:
+   543			emit(A64_ASR(is64, dst, dst, imm), ctx);
+   544			break;
+   545	
+   546		/* JUMP off */
+   547		case BPF_JMP | BPF_JA:
+   548			jmp_offset = bpf2a64_offset(i + off, i, ctx);
+   549			check_imm26(jmp_offset);
+   550			emit(A64_B(jmp_offset), ctx);
+   551			break;
+   552		/* IF (dst COND src) JUMP off */
+   553		case BPF_JMP | BPF_JEQ | BPF_X:
+   554		case BPF_JMP | BPF_JGT | BPF_X:
+   555		case BPF_JMP | BPF_JLT | BPF_X:
+   556		case BPF_JMP | BPF_JGE | BPF_X:
+   557		case BPF_JMP | BPF_JLE | BPF_X:
+   558		case BPF_JMP | BPF_JNE | BPF_X:
+   559		case BPF_JMP | BPF_JSGT | BPF_X:
+   560		case BPF_JMP | BPF_JSLT | BPF_X:
+   561		case BPF_JMP | BPF_JSGE | BPF_X:
+   562		case BPF_JMP | BPF_JSLE | BPF_X:
+   563			emit(A64_CMP(1, dst, src), ctx);
+   564	emit_cond_jmp:
+   565			jmp_offset = bpf2a64_offset(i + off, i, ctx);
+   566			check_imm19(jmp_offset);
+   567			switch (BPF_OP(code)) {
+   568			case BPF_JEQ:
+   569				jmp_cond = A64_COND_EQ;
+   570				break;
+   571			case BPF_JGT:
+   572				jmp_cond = A64_COND_HI;
+   573				break;
+   574			case BPF_JLT:
+   575				jmp_cond = A64_COND_CC;
+   576				break;
+   577			case BPF_JGE:
+   578				jmp_cond = A64_COND_CS;
+   579				break;
+   580			case BPF_JLE:
+   581				jmp_cond = A64_COND_LS;
+   582				break;
+   583			case BPF_JSET:
+   584			case BPF_JNE:
+   585				jmp_cond = A64_COND_NE;
+   586				break;
+   587			case BPF_JSGT:
+   588				jmp_cond = A64_COND_GT;
+   589				break;
+   590			case BPF_JSLT:
+   591				jmp_cond = A64_COND_LT;
+   592				break;
+   593			case BPF_JSGE:
+   594				jmp_cond = A64_COND_GE;
+   595				break;
+   596			case BPF_JSLE:
+   597				jmp_cond = A64_COND_LE;
+   598				break;
+   599			default:
+   600				return -EFAULT;
+   601			}
+   602			emit(A64_B_(jmp_cond, jmp_offset), ctx);
+   603			break;
+   604		case BPF_JMP | BPF_JSET | BPF_X:
+   605			emit(A64_TST(1, dst, src), ctx);
+   606			goto emit_cond_jmp;
+   607		/* IF (dst COND imm) JUMP off */
+   608		case BPF_JMP | BPF_JEQ | BPF_K:
+   609		case BPF_JMP | BPF_JGT | BPF_K:
+   610		case BPF_JMP | BPF_JLT | BPF_K:
+   611		case BPF_JMP | BPF_JGE | BPF_K:
+   612		case BPF_JMP | BPF_JLE | BPF_K:
+   613		case BPF_JMP | BPF_JNE | BPF_K:
+   614		case BPF_JMP | BPF_JSGT | BPF_K:
+   615		case BPF_JMP | BPF_JSLT | BPF_K:
+   616		case BPF_JMP | BPF_JSGE | BPF_K:
+   617		case BPF_JMP | BPF_JSLE | BPF_K:
+   618			emit_a64_mov_i(1, tmp, imm, ctx);
+   619			emit(A64_CMP(1, dst, tmp), ctx);
+   620			goto emit_cond_jmp;
+   621		case BPF_JMP | BPF_JSET | BPF_K:
+   622			emit_a64_mov_i(1, tmp, imm, ctx);
+   623			emit(A64_TST(1, dst, tmp), ctx);
+   624			goto emit_cond_jmp;
+   625		/* function call */
+   626		case BPF_JMP | BPF_CALL:
+   627		{
+   628			const u8 r0 = bpf2a64[BPF_REG_0];
+   629			bool func_addr_fixed;
+   630			u64 func_addr;
+   631			int ret;
+   632	
+ > 633			ret = bpf_jit_get_func_addr(ctx->prog, insn, extra_pass,
+   634						    &func_addr, &func_addr_fixed);
+   635			if (ret < 0)
+   636				return ret;
+   637			if (func_addr_fixed)
+   638				/* We can use optimized emission here. */
+   639				emit_a64_mov_i64(tmp, func_addr, ctx);
+   640			else
+   641				emit_addr_mov_i64(tmp, func_addr, ctx);
+   642			emit(A64_BLR(tmp), ctx);
+   643			emit(A64_MOV(1, r0, A64_R(0)), ctx);
+   644			break;
+   645		}
+   646		/* tail call */
+   647		case BPF_JMP | BPF_TAIL_CALL:
+   648			if (emit_bpf_tail_call(ctx))
+   649				return -EFAULT;
+   650			break;
+   651		/* function return */
+   652		case BPF_JMP | BPF_EXIT:
+   653			/* Optimization: when last instruction is EXIT,
+   654			   simply fallthrough to epilogue. */
+   655			if (i == ctx->prog->len - 1)
+   656				break;
+   657			jmp_offset = epilogue_offset(ctx);
+   658			check_imm26(jmp_offset);
+   659			emit(A64_B(jmp_offset), ctx);
+   660			break;
+   661	
+   662		/* dst = imm64 */
+   663		case BPF_LD | BPF_IMM | BPF_DW:
+   664		{
+   665			const struct bpf_insn insn1 = insn[1];
+   666			u64 imm64;
+   667	
+   668			imm64 = (u64)insn1.imm << 32 | (u32)imm;
+   669			emit_a64_mov_i64(dst, imm64, ctx);
+   670	
+   671			return 1;
+   672		}
+   673	
+   674		/* LDX: dst = *(size *)(src + off) */
+   675		case BPF_LDX | BPF_MEM | BPF_W:
+   676		case BPF_LDX | BPF_MEM | BPF_H:
+   677		case BPF_LDX | BPF_MEM | BPF_B:
+   678		case BPF_LDX | BPF_MEM | BPF_DW:
+   679			emit_a64_mov_i(1, tmp, off, ctx);
+   680			switch (BPF_SIZE(code)) {
+   681			case BPF_W:
+   682				emit(A64_LDR32(dst, src, tmp), ctx);
+   683				break;
+   684			case BPF_H:
+   685				emit(A64_LDRH(dst, src, tmp), ctx);
+   686				break;
+   687			case BPF_B:
+   688				emit(A64_LDRB(dst, src, tmp), ctx);
+   689				break;
+   690			case BPF_DW:
+   691				emit(A64_LDR64(dst, src, tmp), ctx);
+   692				break;
+   693			}
+   694			break;
+   695	
+   696		/* ST: *(size *)(dst + off) = imm */
+   697		case BPF_ST | BPF_MEM | BPF_W:
+   698		case BPF_ST | BPF_MEM | BPF_H:
+   699		case BPF_ST | BPF_MEM | BPF_B:
+   700		case BPF_ST | BPF_MEM | BPF_DW:
+   701			/* Load imm to a register then store it */
+   702			emit_a64_mov_i(1, tmp2, off, ctx);
+   703			emit_a64_mov_i(1, tmp, imm, ctx);
+   704			switch (BPF_SIZE(code)) {
+   705			case BPF_W:
+   706				emit(A64_STR32(tmp, dst, tmp2), ctx);
+   707				break;
+   708			case BPF_H:
+   709				emit(A64_STRH(tmp, dst, tmp2), ctx);
+   710				break;
+   711			case BPF_B:
+   712				emit(A64_STRB(tmp, dst, tmp2), ctx);
+   713				break;
+   714			case BPF_DW:
+   715				emit(A64_STR64(tmp, dst, tmp2), ctx);
+   716				break;
+   717			}
+   718			break;
+   719	
+   720		/* STX: *(size *)(dst + off) = src */
+   721		case BPF_STX | BPF_MEM | BPF_W:
+   722		case BPF_STX | BPF_MEM | BPF_H:
+   723		case BPF_STX | BPF_MEM | BPF_B:
+   724		case BPF_STX | BPF_MEM | BPF_DW:
+   725			emit_a64_mov_i(1, tmp, off, ctx);
+   726			switch (BPF_SIZE(code)) {
+   727			case BPF_W:
+   728				emit(A64_STR32(src, dst, tmp), ctx);
+   729				break;
+   730			case BPF_H:
+   731				emit(A64_STRH(src, dst, tmp), ctx);
+   732				break;
+   733			case BPF_B:
+   734				emit(A64_STRB(src, dst, tmp), ctx);
+   735				break;
+   736			case BPF_DW:
+   737				emit(A64_STR64(src, dst, tmp), ctx);
+   738				break;
+   739			}
+   740			break;
+   741	
+   742		/* STX XADD: lock *(u32 *)(dst + off) += src */
+   743		case BPF_STX | BPF_XADD | BPF_W:
+   744		/* STX XADD: lock *(u64 *)(dst + off) += src */
+   745		case BPF_STX | BPF_XADD | BPF_DW:
+   746			if (!off) {
+   747				reg = dst;
+   748			} else {
+   749				emit_a64_mov_i(1, tmp, off, ctx);
+   750				emit(A64_ADD(1, tmp, tmp, dst), ctx);
+   751				reg = tmp;
+   752			}
+   753			if (cpus_have_cap(ARM64_HAS_LSE_ATOMICS)) {
+   754				emit(A64_STADD(isdw, reg, src), ctx);
+   755			} else {
+   756				emit(A64_LDXR(isdw, tmp2, reg), ctx);
+   757				emit(A64_ADD(isdw, tmp2, tmp2, src), ctx);
+   758				emit(A64_STXR(isdw, tmp2, reg, tmp3), ctx);
+   759				jmp_offset = -3;
+   760				check_imm19(jmp_offset);
+   761				emit(A64_CBNZ(0, tmp3, jmp_offset), ctx);
+   762			}
+   763			break;
+   764	
+   765		default:
+   766			pr_err_once("unknown opcode %02x\n", code);
+   767			return -EINVAL;
+   768		}
+   769	
+   770		return 0;
+   771	}
+   772	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -176,14 +570,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912090213.f5tL7YU3%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912090722.SXFMBdHX%25lkp%40intel.com.
 
---a5p6lnsw4b4rzui6
+--cp6sgedcgvwe4j5i
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICBQu7V0AAy5jb25maWcAjDxJd+M20vf8Cr3kkhymo629zPd8AElQwoibAVCy+8Kn2OyO
+H4sICPl67V0AAy5jb25maWcAjDxJd+M20vf8Cr3kkhymo629zPd8AElQwoibAVCy+8Kn2OyO
 v9hyjyx30v9+qgAuAAgqSfI6zarCXqgd+umHnybk/fT6sj89Peyfn79PvtSH+rg/1Y+Tz0/P
 9f9NonyS5XJCIyY/AHHydHj/69f98eViOVl+mF1/uLqabOrjoX6ehK+Hz09f3qHx0+vhh59+
 gP9+AuDLV+jn+O/Jw/P+8GXyrT6+AXoym36Afyc/f3k6/fvXX+HPl6fj8fX46/Pzt5fq6/H1
@@ -928,4 +1322,4 @@ ASvBnPU+nqkYxjSeUEQWyeAxDf8dUkPqCHQOnWxH3HGUJ8xfEzSsfFE2L6FI1Npwg4Vq1/kW
 w+yUsqAbMPcJlxkc77LCs6sZoicOsBQo3NPlBfed8DwQ6u60gITzRNymmM8VD8kkG/dpb2XH
 VCzyVhUPfZOnhf1sbj52coUlWUzo/wHXNfjzWakCAA==
 
---a5p6lnsw4b4rzui6--
+--cp6sgedcgvwe4j5i--
