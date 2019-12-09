@@ -1,125 +1,149 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBTEPXHXQKGQEPEHYE7A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBU6DXLXQKGQE6H4N2ZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x437.google.com (mail-wr1-x437.google.com [IPv6:2a00:1450:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id BB3F7116DB2
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Dec 2019 14:10:36 +0100 (CET)
-Received: by mail-wr1-x437.google.com with SMTP id o6sf7455142wrp.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Dec 2019 05:10:36 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575897036; cv=pass;
+Received: from mail-ot1-x33f.google.com (mail-ot1-x33f.google.com [IPv6:2607:f8b0:4864:20::33f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 378941175F8
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Dec 2019 20:34:45 +0100 (CET)
+Received: by mail-ot1-x33f.google.com with SMTP id v4sf8243189otp.21
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Dec 2019 11:34:45 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575920083; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fwUv8wgi4e0ssy4Wruikn+hT2EbLaGgFE8E6e4zeh+fuhEmVEkIhrQS4zB4nK/yNxy
-         E+ge+BzpuZIoAk60ttco3J0TNU40KfGlfQmdVFypNPrPVf1DdA3PKYHOvTMGPYI64+ij
-         0WxSQ6/meJmvhI0u0pyNJ1VjBqX0uyYYZxjCcNuLLZYsdHWB5nSL1dk/zUp45xbXH+ZV
-         ckmGBg8aL6+N2OyEJpJcX5bhgib0rs99gQEejnp9fgry3YT1LP+Wpr3Su8blYsiG6Tha
-         okUYmnizM+fFeLzXZVXWEGQpkEKyKZDKSH7RMPqqKOcp480aNzu/KZseMlbgjYTBIUa1
-         5KcQ==
+        b=rxYhGQBdeGynB6HkbSoaf5gXWl2ZzTZUMI0PcL3iXUcTyba8HD5cSt5HCY7y+ZnsqX
+         Ex1uusXK24Vf+hs8DueZ6843oDzwbxz9MYd1qqSpB01aDJMKGIvwirR4yiQsUF2E7wr7
+         J7XzbdpG0wfPGTYVlun6oLlRp+iOEQw/YOaFtYJUed1jlXtOaC7rzPiKsTOazauqyD/N
+         B8pvSLbeXZeGTDTIoqrJNE3BqecxwAnBqyjUSBc2DZhyJ142bbkNAOUfw+WbhikX4JSG
+         mBuIOAQht+0VRZTbcRKi3oqoVrUxcD659cUNxnxG0Od5uAFOw/P4YCDCD66TclkDH+Ig
+         O87A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=ZA7lssJlst8d7qjAsj148EHRIWeX+e7QryX7zykkxlo=;
-        b=uwUG5XKntWGr1pCd9qGt10UDY8fnycW7O0kkJnLgAO1Sy+jv/YJPTEvaE5L74tH0kG
-         8JNKM/YC5Lbajmk44NE6d1Uh7Dd6/HmW2hGrkjlYwRvY3E/vIlKD+zZ1BuId1aRQHVzi
-         aAeLupPQVxEmgquNeo4BHwaOG1KTlYPR0kM/FUepYLIkp5O6vK51t+7WFUer3dgXARnH
-         /blMAsUYIcIj5pt0i1X1DwcGamcTp0gwf53H6IlZYqmsY+t79OwZb4dqyQncCDhvjJWh
-         +S8isnCRQjhIWwAoByEM7WJYg5vYm73CIhjfGgGI+5+0aw6dw/J7bYjYO9tR/mVl6YWN
-         MFcA==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=jtJ0GiM7VZjzrbhoLRT/UwT7LctRpOAu3O27LxQlK+0=;
+        b=dzcpeZzKPCUZB4Ccb/v9Ybm013TuwVNjT/2rUP9dAGm/OJMqfmHwcNndp602ICcPG+
+         tK7LHk2xUaJ0IPJXuX0QxZSrEth8KGAPxNCDkYbapG7KdXnjUOIE1WmcG6WIZviRY7Sc
+         acQ21U0bajUGjhsWMKHvqBiIBOXXfo+54xuA64w7ayozFe/qyIKEw9LmUxp2T7tOhjvh
+         iAN/8X4ytUmkP/OIRz9JnDVJCFfqtqVSbXABJAH1sYx+UxdFmMoA9EsaCXAG/0+6+6yp
+         B1naQ0emSzGQd156acbdJ4DepWnakB7yenOQMZQ1gvcmuvjsUdcuCaC3toFc+eWSwpUf
+         iVow==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=DqxYrmK0;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=l57bR7j5;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=ZA7lssJlst8d7qjAsj148EHRIWeX+e7QryX7zykkxlo=;
-        b=X+gY239aPpUkqFoVRNlFwXTx9ozGZKAUcT1NZLPppSvcrmoknf5fjA4vQRZ5vhzzUN
-         pVy/bYb4ANX9cyoc2aTta2fUUw2He7xfVc2WoO1in4BFmuNCx5XXdD7T7aWkGY7b1Asu
-         84ln5aBEl9EsmPbvfnLvSp3d3qxgI2D0ooHt8LroUmpPkUtcMJ6vUHYsu5ctXIBcQtk+
-         hgeKdZtfCUoVOjOUJY+T9pDWRrRmtn1AztgYPrwpDPQwT1r2We60TSab/l6D3xrepMx+
-         awixQ02uRiwfQJC5WZB5bO/KgiBzq1mTf/LniY0+QCMjv/afDw/QghWw2Mv5sdV7e7+Y
-         Y+jw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=jtJ0GiM7VZjzrbhoLRT/UwT7LctRpOAu3O27LxQlK+0=;
+        b=Rp3KuwE1l4hn2m+tWPk1FZrgIKUY25W9Ox2HNs5jh1nJsZN98XsND8CV5wfGS1x4ll
+         lN8EsZ5xmyMWhYPw1qx01h4y4bxIpKv5Snolvdmt2B08Cq8zKVWzQKjk/pMVX8LK10Bv
+         R1FKrceX6t9kyNA9m89D/sgIZmli6LS+DlOmwrpRgDptMxbCVrSuqzfhDr8RJHlawYhu
+         EFX2hRxHFuHT0ICv4HsxGSn5JtDlqRQZ9nkfN5MnDle5Mxnd5WZ2FQncVV/gHuVECgsn
+         K6XyJ4Ctarr8zY+IG0z/ZFrOAQthjyJXF5ON5Dk31sR8VORbibLJST8HNIwpKia6YJX1
+         2kzQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=jtJ0GiM7VZjzrbhoLRT/UwT7LctRpOAu3O27LxQlK+0=;
+        b=sv3ArMV0uSC3oJ0h1/Tlz4Bt+TMYmf2C7SWNvl5D4mwECXwmcobGmP6xb7rLMNpc5G
+         VvTKFaK9bK3ynmjkoOHpjMYoYZ8f1o7a7xFZLfTeyH1pLrWNqWTVQ0kEcdBWKNASebE6
+         yCCUiRrzpp4RWIl+0xSZELRPSKZVSRU0jJp0gTD461/N5Je6clqdzDKEo4F49QvH3QHJ
+         T9Zg10v/vuj1WGu42J2Rqy0f2Nzp/ib0pLTtMrf6Rka3EkXDzUokFSzTG0x9jmewS4j7
+         +4t+lTxbiWi7LRSA7vcl8yMsWa9oQrkX+fs8jikS+m7wp3/WdlB0S1uJyH8Xf/839srd
+         ZuDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ZA7lssJlst8d7qjAsj148EHRIWeX+e7QryX7zykkxlo=;
-        b=Ic0tuU4E8udBrZBQThA9k7gDIBQVhlN5BkdVdI7cPgXD+M7o+fwkMVR6fd0xC+HfEt
-         59rdBhMVQ3Dxn3zGtgrrNc8/t3cgcGaOOoXIIt7EYkQyRZt9zJ7Mfuir4KVOIQu4sBKA
-         XvOD9C+rGVOfVfzzXdRXxUMuh1sNfgL2pwYfqzKNCCIJKu82wPYYfpbcqo2Cyw7Rv+Tj
-         NanPV4JzeTFlKFgpqlov5obrx9U9X+0l+pMh7Drh0M7p4dpnyzbh8KUxphw1IQQplCXz
-         lODNfwqCfb3JPDBPgDNlxpFrs0gFDDnMHc75A9LL08KN6fsptYeCCDWdFYUOXTZ3D80+
-         t2ug==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=jtJ0GiM7VZjzrbhoLRT/UwT7LctRpOAu3O27LxQlK+0=;
+        b=Ylq70aCBQvPh5JjruUalEMnpJcCHocXBV01adijaHIA/xSM7JD38lqKOs/rorJJhIZ
+         fdGnYYp7oIcNFdaMx5j0VgYkLKF4RN0ThU/TaHFBZlDK5JN5lV9EnCAFYgMi7dM/J31X
+         OD2IYLJNfX5hrDCdnVJW2aVQwiaZTpn5yRtroOJmAoKRXefiiiKdYVzfq8rj5eubhMqa
+         zMhUXUA3Q4psmapbEF0GqKPV8Km6OYAKByTcrkKAUG8aaDrkpc2QoYVqKZcmQOpvvXJ/
+         /O5V5zttHJXzru1Ha1gA4mdgLZRP0M2Fw+/wY0OB2RRLTehoQyOk+Cs1lb3Yh/NEiEfE
+         wQ/w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWSdSMZ+7NxRQo/8ncFaIrnyUFjn/dSq60d7bp2IYFU4ZATjE3M
-	LmPyO2UzWEnZPJy9EMql9nE=
-X-Google-Smtp-Source: APXvYqx9meLO/+neS3khmz6hrUr1kfGtVaNMCy99x+CxSK/3t/gf5FO4ZBoWwohEgZELOBpLozNggA==
-X-Received: by 2002:adf:f64b:: with SMTP id x11mr2142796wrp.355.1575897036161;
-        Mon, 09 Dec 2019 05:10:36 -0800 (PST)
+X-Gm-Message-State: APjAAAV4ZPxXvbD8StEMSc7eN1cl3mm/V/iDNVxamf0QKzmunvjMOtcR
+	9SsO24Umhf3vJkZ0SmWREpI=
+X-Google-Smtp-Source: APXvYqyJmtLarAbd25GWdVdFzzO7kFO/500CkX5HgDRDnItWmbHs2uQ11JXmtSO/2bScOl2brXQYVg==
+X-Received: by 2002:aca:3012:: with SMTP id w18mr697043oiw.33.1575920083599;
+        Mon, 09 Dec 2019 11:34:43 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:4303:: with SMTP id h3ls1743333wrq.15.gmail; Mon, 09 Dec
- 2019 05:10:35 -0800 (PST)
-X-Received: by 2002:a5d:4651:: with SMTP id j17mr2149531wrs.237.1575897035492;
-        Mon, 09 Dec 2019 05:10:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575897035; cv=none;
+Received: by 2002:aca:aaca:: with SMTP id t193ls1484708oie.15.gmail; Mon, 09
+ Dec 2019 11:34:43 -0800 (PST)
+X-Received: by 2002:aca:bd42:: with SMTP id n63mr712691oif.70.1575920083274;
+        Mon, 09 Dec 2019 11:34:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575920083; cv=none;
         d=google.com; s=arc-20160816;
-        b=GNEOw35C4VXkfx3NPClVufVcv5fGO585Q3YJ03G0gm4q/U3DvJ8OmEd4YS42HHx9xL
-         l/40SP9eAqOKIaKz2Nh1rAB/lkWrd24p8ILX8ztniQ/G0c6uvd1onn5RMg6tGye8gkJt
-         XDBBAXKPp0KYExvlu7/yUddnquOL8YIosLQcKGNICvXG+HMAmFk47OqISyLy9s6tt59T
-         iQsGyhFZatXoxkbLb449O3AdW5dzcAPJLVUasA+aM9dr8Y9Ey5UlFwp/dc8VOi/I16Kc
-         oXuXYr1Sx/eGUsGBSlNRQb73/8o0kebz0FdxRMIk+JFhUOgO8U2c16/fxYDqz0xZtvce
-         W1Zg==
+        b=ix6AW4K7qEmf7VnYJ3G4KPWoHxCXrmrMOEQFfVMnggLixjR02+bgWDBszmpb4+e/bh
+         apwlUPcvvj0RrBaVGNt1x0vam4+bqYOO/LMDrCyPg+VTOUBLjnQqQYHDSikexXHAZKsI
+         30mzZ4lOXyYBIiZBoY/qW9zYmk1mJZ2abqahvJvg9enhIRCcdg/Bo8m/TGzoJr9bajIJ
+         K2+rtKBqbT1smETKT0PmfNMoZ26TWP3sApI7mXKuGr3KufUBzZyfhaLLSvweoRc3Y+MM
+         u/MzApny/HiTQrQXv/n58ZtkAduPw/kV5VVgaEzTNP5wqswlhBK+ICGY5+xzLqSSMaDL
+         0PTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=ydX/3ttrP0XwbZoUOEigvnBikBp/sLg+0SSj0g9w88g=;
-        b=0n8mDRLH3MwCH6ZMI4Gp1ImtUIqGhkUMXJCl6nFPImko9pNhn0RftN0XSBiZwbLUEU
-         iKBYLj9ycqBqOnmU3jqC8Q/NQH+eqKyFNwNBFTyR4EypV/itGgmaulCRQEiBpBNWsYN8
-         Nk2KqhoNCq+7mTy3hJmVp3NDCRhLd4XuGRo9Vkp6QUe/7e5FFE+f7ucMCt5a4aLQ+cFM
-         TPQcdSkokiW4s8FYQzwu3nP8JwaEhc6Ir7SVYQyjjCZstKk1khbynBCTNWBrMT5Qhi0a
-         NTUFcgvxxsGlihhXG/xmvGJ8gnfIqstLFOAjIVackSokUmLbgJBzwSum4b0fj2j03B0r
-         tA4A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=PFE1nWxTiyfBRgn/J6q9Y8I6dNPJrpPO2zwkS+e8TbI=;
+        b=cm45tp7TEw4oDyMgERoYxm6CAl9CcrnacYwt1THY1WxQ0cOAGB0H7wgtUBAaavggW6
+         6hDJWc9Wv9LUA7WnUVNIRsqWqfmCGwjC1ih8+imxd4R0+8PcvD1lSGqlCo7DYZWSXMIa
+         CAyLuCHXkBkHoWsLM/e0eFhSzS7NDt05lsjOaPYCLp60VGnZoGPRoJgvuYvdy90vtUVd
+         XyqVw1RkYM5vgQZSlwFeiNU+B3tT3uCF+kpRhF0FIsEFTBLaQs18HNt8/EaY67auTFuB
+         AJJzU4LRqtm1SiaiHebfd4wQ4jA2GW2zDX5Os6JM+4BN6PZgrpbj16uLuX9LgV3U4TgT
+         BVEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=DqxYrmK0;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id y185si557479wmd.2.2019.12.09.05.10.35
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=l57bR7j5;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id w63si57507oif.2.2019.12.09.11.34.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Dec 2019 05:10:35 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
-Received: by mail-wr1-x444.google.com with SMTP id z7so16037191wrl.13
-        for <clang-built-linux@googlegroups.com>; Mon, 09 Dec 2019 05:10:35 -0800 (PST)
-X-Received: by 2002:adf:a109:: with SMTP id o9mr2202729wro.189.1575897033885;
-        Mon, 09 Dec 2019 05:10:33 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id 16sm8248010wmi.0.2019.12.09.05.10.32
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Mon, 09 Dec 2019 05:10:32 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Mon, 9 Dec 2019 13:10:31 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
+        Mon, 09 Dec 2019 11:34:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
+Received: by mail-ot1-x341.google.com with SMTP id 59so13244294otp.12
+        for <clang-built-linux@googlegroups.com>; Mon, 09 Dec 2019 11:34:43 -0800 (PST)
+X-Received: by 2002:a9d:6a92:: with SMTP id l18mr23312145otq.37.1575920082851;
+        Mon, 09 Dec 2019 11:34:42 -0800 (PST)
+Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id x16sm296462oto.41.2019.12.09.11.34.42
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 09 Dec 2019 11:34:42 -0800 (PST)
+Date: Mon, 9 Dec 2019 12:34:40 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: linux-kernel@vger.kernel.org, Julio Faracco <jcfaracco@gmail.com>,
+	netdev@vger.kernel.org, davem@davemloft.net, jasowang@redhat.com,
+	virtualization@lists.linux-foundation.org, dnmendes76@gmail.com,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <jakub.kicinski@netronome.com>,
+	Shannon Nelson <snelson@pensando.io>,
+	Martin Habets <mhabets@solarflare.com>,
 	clang-built-linux@googlegroups.com
-Message-ID: <151282325.3957.1575897032958.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-release-aarch64-next-allmodconfig - Build # 45 -
- Successful!
+Subject: Re: [PATCH net-next v9 1/3] netdev: pass the stuck queue to the
+ timeout handler
+Message-ID: <20191209193440.GA15189@ubuntu-m2-xlarge-x86>
+References: <20191209162727.10113-1-mst@redhat.com>
+ <20191209162727.10113-2-mst@redhat.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_3956_1211396533.1575897032049"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-aarch64-next-allmodconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20191209162727.10113-2-mst@redhat.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=DqxYrmK0;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=l57bR7j5;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,1228 +156,73 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_3956_1211396533.1575897032049
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Hi Michael,
 
-Successfully identified regression in *linux* in CI configuration tcwg_kern=
-el/llvm-release-aarch64-next-allmodconfig.  So far, this commit has regress=
-ed CI configurations:
- - tcwg_kernel/gnu-release-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allmodconfig
+On Mon, Dec 09, 2019 at 11:29:03AM -0500, Michael S. Tsirkin wrote:
+> This allows incrementing the correct timeout statistic without any mess.
+> Down the road, devices can learn to reset just the specific queue.
+> 
+> The patch was generated with the following script:
+> 
+<snip>
+> 
+> where the list of files and functions is simply from:
+> 
+> git grep ndo_tx_timeout, with manual addition of headers
+> in the rare cases where the function is from a header,
+> then manually changing the few places which actually
+> call ndo_tx_timeout.
+> 
+> Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
+> Acked-by: Heiner Kallweit <hkallweit1@gmail.com>
+> Acked-by: Jakub Kicinski <jakub.kicinski@netronome.com>
+> Acked-by: Shannon Nelson <snelson@pensando.io>
+> Reviewed-by: Martin Habets <mhabets@solarflare.com>
+> 
+> changes from v8:
+> 	fix up a missing direct call to timeout
+> 	rebased on net-next
+> changes from v7:
+> 	fixup leftovers from v3 change
+> changes from v6:
+> 	fix typo in rtl driver
+> changes from v5:
+> 	add missing files (allow any net device argument name)
+> changes from v4:
+> 	add a missing driver header
+> changes from v3:
+>         change queue # to unsigned
+> Changes from v2:
+>         added headers
+> Changes from v1:
+>         Fix errors found by kbuild:
+>         generalize the pattern a bit, to pick up
+>         a couple of instances missed by the previous
+>         version.
+> ---
+<snip>
+> diff --git a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
+> index 6a9d12dad5d9..ad0ecebb1b34 100644
+> --- a/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
+> +++ b/drivers/net/ethernet/freescale/dpaa/dpaa_eth.c
+> @@ -288,7 +288,7 @@ static int dpaa_stop(struct net_device *net_dev)
+>  	return err;
+>  }
+>  
+> -static void dpaa_tx_timeout(struct net_device *net_dev)
+> +static void dpaa_tx_timeout(struct net_device *net_dev, int txqueue)
 
-Culprit:
-<cut>
-commit cad75ce11002e9880daf3dc9d2d9ded8f9a7e706
-Author: Michael S. Tsirkin <mst@redhat.com>
+This needs to be unsigned int, otherwise there is a build error:
 
-    netdev: pass the stuck queue to the timeout handler
-</cut>
+../drivers/net/ethernet/freescale/dpaa/dpaa_eth.c:2622:20: error: incompatible pointer types initializing 'void (*)(struct net_device *, unsigned int)' with an expression of type 'void (struct net_device *, int)' [-Werror,-Wincompatible-pointer-types]
+        .ndo_tx_timeout = dpaa_tx_timeout,
+                          ^~~~~~~~~~~~~~~
+1 error generated.
 
-First few errors in logs of first_bad:
-00:13:56 drivers/net/ethernet/freescale/dpaa/dpaa_eth.c:2622:20: error: inc=
-ompatible pointer types initializing 'void (*)(struct net_device *, unsigne=
-d int)' with an expression of type 'void (struct net_device *, int)' [-Werr=
-or,-Wincompatible-pointer-types]
-00:13:56 make[5]: *** [drivers/net/ethernet/freescale/dpaa/dpaa_eth.o] Erro=
-r 1
-00:13:56 make[4]: *** [drivers/net/ethernet/freescale/dpaa] Error 2
-00:15:21 make[3]: *** [drivers/net/ethernet/freescale] Error 2
-00:20:33 make[2]: *** [drivers/net/ethernet] Error 2
-00:20:33 make[1]: *** [drivers/net] Error 2
-00:20:33 make: *** [drivers] Error 2
-Configuration details:
-rr[llvm_url]=3D"https://github.com/llvm/llvm-project.git"
-rr[linux_url]=3D"https://git.kernel.org/pub/scm/linux/kernel/git/next/linux=
--next.git"
-rr[linux_branch]=3D"aedc0650f9135f3b92b39cbed1a8fe98d8088825"
+Cheers,
+Nathan
 
-Results regressed to (for first_bad =3D=3D cad75ce11002e9880daf3dc9d2d9ded8=
-f9a7e706)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-18909
-
-from (for last_good =3D=3D d72eb1b4f0b22ebfeb66e86f1289c1706d7d4174)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-25883
-linux build successful:
-all
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-=
-llvm-release-aarch64-next-allmodconfig/45/artifact/artifacts/build-cad75ce1=
-1002e9880daf3dc9d2d9ded8f9a7e706/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-=
-llvm-release-aarch64-next-allmodconfig/45/artifact/artifacts/build-d72eb1b4=
-f0b22ebfeb66e86f1289c1706d7d4174/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-rele=
-ase-aarch64-next-allmodconfig/45/
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-cad75ce11002e9880daf3dc9d2d9ded8f9a7e706
-cd investigate-linux-cad75ce11002e9880daf3dc9d2d9ded8f9a7e706
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcw=
-g_kernel-bisect-llvm-release-aarch64-next-allmodconfig/45/artifact/artifact=
-s/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/t=
-cwg_kernel-bisect-llvm-release-aarch64-next-allmodconfig/45/artifact/artifa=
-cts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm=
--release-aarch64-next-allmodconfig/45/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baselin=
-e.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach cad75ce11002e9880daf3dc9d2d9ded8f9a7e706
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach d72eb1b4f0b22ebfeb66e86f1289c1706d7d4174
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchai=
-n/ci/base-artifacts.git/log/?h=3Dlinaro-local/ci/tcwg_kernel/llvm-release-a=
-arch64-next-allmodconfig
-
-Bisect log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch=
-64-next-allmodconfig/45/artifact/artifacts/bisect.log/*view*/
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch6=
-4-next-allmodconfig/45/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch6=
-4-next-allmodconfig/45/consoleText
-
-Full commit:
-<cut>
-commit cad75ce11002e9880daf3dc9d2d9ded8f9a7e706
-Author: Michael S. Tsirkin <mst@redhat.com>
-Date:   Mon Nov 25 03:27:53 2019 -0500
-
-    netdev: pass the stuck queue to the timeout handler
-   =20
-    This allows incrementing the correct timeout statistic without any mess=
-.
-    Down the road, devices can learn to reset just the specific queue.
-   =20
-    The patch was generated with the following script:
-   =20
-    use strict;
-    use warnings;
-   =20
-    our $^I =3D '.bak';
-   =20
-    my @work =3D (
-    ["arch/m68k/emu/nfeth.c", "nfeth_tx_timeout"],
-    ["arch/um/drivers/net_kern.c", "uml_net_tx_timeout"],
-    ["arch/um/drivers/vector_kern.c", "vector_net_tx_timeout"],
-    ["arch/xtensa/platforms/iss/network.c", "iss_net_tx_timeout"],
-    ["drivers/char/pcmcia/synclink_cs.c", "hdlcdev_tx_timeout"],
-    ["drivers/infiniband/ulp/ipoib/ipoib_main.c", "ipoib_timeout"],
-    ["drivers/infiniband/ulp/ipoib/ipoib_main.c", "ipoib_timeout"],
-    ["drivers/message/fusion/mptlan.c", "mpt_lan_tx_timeout"],
-    ["drivers/misc/sgi-xp/xpnet.c", "xpnet_dev_tx_timeout"],
-    ["drivers/net/appletalk/cops.c", "cops_timeout"],
-    ["drivers/net/arcnet/arcdevice.h", "arcnet_timeout"],
-    ["drivers/net/arcnet/arcnet.c", "arcnet_timeout"],
-    ["drivers/net/arcnet/com20020.c", "arcnet_timeout"],
-    ["drivers/net/ethernet/3com/3c509.c", "el3_tx_timeout"],
-    ["drivers/net/ethernet/3com/3c515.c", "corkscrew_timeout"],
-    ["drivers/net/ethernet/3com/3c574_cs.c", "el3_tx_timeout"],
-    ["drivers/net/ethernet/3com/3c589_cs.c", "el3_tx_timeout"],
-    ["drivers/net/ethernet/3com/3c59x.c", "vortex_tx_timeout"],
-    ["drivers/net/ethernet/3com/3c59x.c", "vortex_tx_timeout"],
-    ["drivers/net/ethernet/3com/typhoon.c", "typhoon_tx_timeout"],
-    ["drivers/net/ethernet/8390/8390.h", "ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/8390.c", "ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/8390p.c", "eip_tx_timeout"],
-    ["drivers/net/ethernet/8390/ax88796.c", "ax_ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/axnet_cs.c", "axnet_tx_timeout"],
-    ["drivers/net/ethernet/8390/etherh.c", "__ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/hydra.c", "__ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/mac8390.c", "__ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/mcf8390.c", "__ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/lib8390.c", "__ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/ne2k-pci.c", "ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/pcnet_cs.c", "ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/smc-ultra.c", "ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/wd.c", "ei_tx_timeout"],
-    ["drivers/net/ethernet/8390/zorro8390.c", "__ei_tx_timeout"],
-    ["drivers/net/ethernet/adaptec/starfire.c", "tx_timeout"],
-    ["drivers/net/ethernet/agere/et131x.c", "et131x_tx_timeout"],
-    ["drivers/net/ethernet/allwinner/sun4i-emac.c", "emac_timeout"],
-    ["drivers/net/ethernet/alteon/acenic.c", "ace_watchdog"],
-    ["drivers/net/ethernet/amazon/ena/ena_netdev.c", "ena_tx_timeout"],
-    ["drivers/net/ethernet/amd/7990.h", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/7990.c", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/a2065.c", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/am79c961a.c", "am79c961_timeout"],
-    ["drivers/net/ethernet/amd/amd8111e.c", "amd8111e_tx_timeout"],
-    ["drivers/net/ethernet/amd/ariadne.c", "ariadne_tx_timeout"],
-    ["drivers/net/ethernet/amd/atarilance.c", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/au1000_eth.c", "au1000_tx_timeout"],
-    ["drivers/net/ethernet/amd/declance.c", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/lance.c", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/mvme147.c", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/ni65.c", "ni65_timeout"],
-    ["drivers/net/ethernet/amd/nmclan_cs.c", "mace_tx_timeout"],
-    ["drivers/net/ethernet/amd/pcnet32.c", "pcnet32_tx_timeout"],
-    ["drivers/net/ethernet/amd/sunlance.c", "lance_tx_timeout"],
-    ["drivers/net/ethernet/amd/xgbe/xgbe-drv.c", "xgbe_tx_timeout"],
-    ["drivers/net/ethernet/apm/xgene-v2/main.c", "xge_timeout"],
-    ["drivers/net/ethernet/apm/xgene/xgene_enet_main.c", "xgene_enet_timeou=
-t"],
-    ["drivers/net/ethernet/apple/macmace.c", "mace_tx_timeout"],
-    ["drivers/net/ethernet/atheros/ag71xx.c", "ag71xx_tx_timeout"],
-    ["drivers/net/ethernet/atheros/alx/main.c", "alx_tx_timeout"],
-    ["drivers/net/ethernet/atheros/atl1c/atl1c_main.c", "atl1c_tx_timeout"]=
-,
-    ["drivers/net/ethernet/atheros/atl1e/atl1e_main.c", "atl1e_tx_timeout"]=
-,
-    ["drivers/net/ethernet/atheros/atlx/atlx.c", "atlx_tx_timeout"],
-    ["drivers/net/ethernet/atheros/atlx/atl1.c", "atlx_tx_timeout"],
-    ["drivers/net/ethernet/atheros/atlx/atl2.c", "atl2_tx_timeout"],
-    ["drivers/net/ethernet/broadcom/b44.c", "b44_tx_timeout"],
-    ["drivers/net/ethernet/broadcom/bcmsysport.c", "bcm_sysport_tx_timeout"=
-],
-    ["drivers/net/ethernet/broadcom/bnx2.c", "bnx2_tx_timeout"],
-    ["drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.h", "bnx2x_tx_timeout"]=
-,
-    ["drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.c", "bnx2x_tx_timeout"]=
-,
-    ["drivers/net/ethernet/broadcom/bnx2x/bnx2x_main.c", "bnx2x_tx_timeout"=
-],
-    ["drivers/net/ethernet/broadcom/bnxt/bnxt.c", "bnxt_tx_timeout"],
-    ["drivers/net/ethernet/broadcom/genet/bcmgenet.c", "bcmgenet_timeout"],
-    ["drivers/net/ethernet/broadcom/sb1250-mac.c", "sbmac_tx_timeout"],
-    ["drivers/net/ethernet/broadcom/tg3.c", "tg3_tx_timeout"],
-    ["drivers/net/ethernet/calxeda/xgmac.c", "xgmac_tx_timeout"],
-    ["drivers/net/ethernet/cavium/liquidio/lio_main.c", "liquidio_tx_timeou=
-t"],
-    ["drivers/net/ethernet/cavium/liquidio/lio_vf_main.c", "liquidio_tx_tim=
-eout"],
-    ["drivers/net/ethernet/cavium/liquidio/lio_vf_rep.c", "lio_vf_rep_tx_ti=
-meout"],
-    ["drivers/net/ethernet/cavium/thunder/nicvf_main.c", "nicvf_tx_timeout"=
-],
-    ["drivers/net/ethernet/cirrus/cs89x0.c", "net_timeout"],
-    ["drivers/net/ethernet/cisco/enic/enic_main.c", "enic_tx_timeout"],
-    ["drivers/net/ethernet/cisco/enic/enic_main.c", "enic_tx_timeout"],
-    ["drivers/net/ethernet/cortina/gemini.c", "gmac_tx_timeout"],
-    ["drivers/net/ethernet/davicom/dm9000.c", "dm9000_timeout"],
-    ["drivers/net/ethernet/dec/tulip/de2104x.c", "de_tx_timeout"],
-    ["drivers/net/ethernet/dec/tulip/tulip_core.c", "tulip_tx_timeout"],
-    ["drivers/net/ethernet/dec/tulip/winbond-840.c", "tx_timeout"],
-    ["drivers/net/ethernet/dlink/dl2k.c", "rio_tx_timeout"],
-    ["drivers/net/ethernet/dlink/sundance.c", "tx_timeout"],
-    ["drivers/net/ethernet/emulex/benet/be_main.c", "be_tx_timeout"],
-    ["drivers/net/ethernet/ethoc.c", "ethoc_tx_timeout"],
-    ["drivers/net/ethernet/faraday/ftgmac100.c", "ftgmac100_tx_timeout"],
-    ["drivers/net/ethernet/fealnx.c", "fealnx_tx_timeout"],
-    ["drivers/net/ethernet/freescale/dpaa/dpaa_eth.c", "dpaa_tx_timeout"],
-    ["drivers/net/ethernet/freescale/fec_main.c", "fec_timeout"],
-    ["drivers/net/ethernet/freescale/fec_mpc52xx.c", "mpc52xx_fec_tx_timeou=
-t"],
-    ["drivers/net/ethernet/freescale/fs_enet/fs_enet-main.c", "fs_timeout"]=
-,
-    ["drivers/net/ethernet/freescale/gianfar.c", "gfar_timeout"],
-    ["drivers/net/ethernet/freescale/ucc_geth.c", "ucc_geth_timeout"],
-    ["drivers/net/ethernet/fujitsu/fmvj18x_cs.c", "fjn_tx_timeout"],
-    ["drivers/net/ethernet/google/gve/gve_main.c", "gve_tx_timeout"],
-    ["drivers/net/ethernet/hisilicon/hip04_eth.c", "hip04_timeout"],
-    ["drivers/net/ethernet/hisilicon/hix5hd2_gmac.c", "hix5hd2_net_timeout"=
-],
-    ["drivers/net/ethernet/hisilicon/hns/hns_enet.c", "hns_nic_net_timeout"=
-],
-    ["drivers/net/ethernet/hisilicon/hns3/hns3_enet.c", "hns3_nic_net_timeo=
-ut"],
-    ["drivers/net/ethernet/huawei/hinic/hinic_main.c", "hinic_tx_timeout"],
-    ["drivers/net/ethernet/i825xx/82596.c", "i596_tx_timeout"],
-    ["drivers/net/ethernet/i825xx/ether1.c", "ether1_timeout"],
-    ["drivers/net/ethernet/i825xx/lib82596.c", "i596_tx_timeout"],
-    ["drivers/net/ethernet/i825xx/sun3_82586.c", "sun3_82586_timeout"],
-    ["drivers/net/ethernet/ibm/ehea/ehea_main.c", "ehea_tx_watchdog"],
-    ["drivers/net/ethernet/ibm/emac/core.c", "emac_tx_timeout"],
-    ["drivers/net/ethernet/ibm/emac/core.c", "emac_tx_timeout"],
-    ["drivers/net/ethernet/ibm/ibmvnic.c", "ibmvnic_tx_timeout"],
-    ["drivers/net/ethernet/intel/e100.c", "e100_tx_timeout"],
-    ["drivers/net/ethernet/intel/e1000/e1000_main.c", "e1000_tx_timeout"],
-    ["drivers/net/ethernet/intel/e1000e/netdev.c", "e1000_tx_timeout"],
-    ["drivers/net/ethernet/intel/fm10k/fm10k_netdev.c", "fm10k_tx_timeout"]=
-,
-    ["drivers/net/ethernet/intel/i40e/i40e_main.c", "i40e_tx_timeout"],
-    ["drivers/net/ethernet/intel/iavf/iavf_main.c", "iavf_tx_timeout"],
-    ["drivers/net/ethernet/intel/ice/ice_main.c", "ice_tx_timeout"],
-    ["drivers/net/ethernet/intel/ice/ice_main.c", "ice_tx_timeout"],
-    ["drivers/net/ethernet/intel/igb/igb_main.c", "igb_tx_timeout"],
-    ["drivers/net/ethernet/intel/igbvf/netdev.c", "igbvf_tx_timeout"],
-    ["drivers/net/ethernet/intel/ixgb/ixgb_main.c", "ixgb_tx_timeout"],
-    ["drivers/net/ethernet/intel/ixgbe/ixgbe_debugfs.c", "adapter->netdev->=
-netdev_ops->ndo_tx_timeout(adapter->netdev);"],
-    ["drivers/net/ethernet/intel/ixgbe/ixgbe_main.c", "ixgbe_tx_timeout"],
-    ["drivers/net/ethernet/intel/ixgbevf/ixgbevf_main.c", "ixgbevf_tx_timeo=
-ut"],
-    ["drivers/net/ethernet/jme.c", "jme_tx_timeout"],
-    ["drivers/net/ethernet/korina.c", "korina_tx_timeout"],
-    ["drivers/net/ethernet/lantiq_etop.c", "ltq_etop_tx_timeout"],
-    ["drivers/net/ethernet/marvell/mv643xx_eth.c", "mv643xx_eth_tx_timeout"=
-],
-    ["drivers/net/ethernet/marvell/pxa168_eth.c", "pxa168_eth_tx_timeout"],
-    ["drivers/net/ethernet/marvell/skge.c", "skge_tx_timeout"],
-    ["drivers/net/ethernet/marvell/sky2.c", "sky2_tx_timeout"],
-    ["drivers/net/ethernet/marvell/sky2.c", "sky2_tx_timeout"],
-    ["drivers/net/ethernet/mediatek/mtk_eth_soc.c", "mtk_tx_timeout"],
-    ["drivers/net/ethernet/mellanox/mlx4/en_netdev.c", "mlx4_en_tx_timeout"=
-],
-    ["drivers/net/ethernet/mellanox/mlx4/en_netdev.c", "mlx4_en_tx_timeout"=
-],
-    ["drivers/net/ethernet/mellanox/mlx5/core/en_main.c", "mlx5e_tx_timeout=
-"],
-    ["drivers/net/ethernet/micrel/ks8842.c", "ks8842_tx_timeout"],
-    ["drivers/net/ethernet/micrel/ksz884x.c", "netdev_tx_timeout"],
-    ["drivers/net/ethernet/microchip/enc28j60.c", "enc28j60_tx_timeout"],
-    ["drivers/net/ethernet/microchip/encx24j600.c", "encx24j600_tx_timeout"=
-],
-    ["drivers/net/ethernet/natsemi/sonic.h", "sonic_tx_timeout"],
-    ["drivers/net/ethernet/natsemi/sonic.c", "sonic_tx_timeout"],
-    ["drivers/net/ethernet/natsemi/jazzsonic.c", "sonic_tx_timeout"],
-    ["drivers/net/ethernet/natsemi/macsonic.c", "sonic_tx_timeout"],
-    ["drivers/net/ethernet/natsemi/natsemi.c", "ns_tx_timeout"],
-    ["drivers/net/ethernet/natsemi/ns83820.c", "ns83820_tx_timeout"],
-    ["drivers/net/ethernet/natsemi/xtsonic.c", "sonic_tx_timeout"],
-    ["drivers/net/ethernet/neterion/s2io.h", "s2io_tx_watchdog"],
-    ["drivers/net/ethernet/neterion/s2io.c", "s2io_tx_watchdog"],
-    ["drivers/net/ethernet/neterion/vxge/vxge-main.c", "vxge_tx_watchdog"],
-    ["drivers/net/ethernet/netronome/nfp/nfp_net_common.c", "nfp_net_tx_tim=
-eout"],
-    ["drivers/net/ethernet/nvidia/forcedeth.c", "nv_tx_timeout"],
-    ["drivers/net/ethernet/nvidia/forcedeth.c", "nv_tx_timeout"],
-    ["drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c", "pch_gbe_tx_ti=
-meout"],
-    ["drivers/net/ethernet/packetengines/hamachi.c", "hamachi_tx_timeout"],
-    ["drivers/net/ethernet/packetengines/yellowfin.c", "yellowfin_tx_timeou=
-t"],
-    ["drivers/net/ethernet/pensando/ionic/ionic_lif.c", "ionic_tx_timeout"]=
-,
-    ["drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c", "netxen_tx_tim=
-eout"],
-    ["drivers/net/ethernet/qlogic/qla3xxx.c", "ql3xxx_tx_timeout"],
-    ["drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.c", "qlcnic_tx_timeout=
-"],
-    ["drivers/net/ethernet/qualcomm/emac/emac.c", "emac_tx_timeout"],
-    ["drivers/net/ethernet/qualcomm/qca_spi.c", "qcaspi_netdev_tx_timeout"]=
-,
-    ["drivers/net/ethernet/qualcomm/qca_uart.c", "qcauart_netdev_tx_timeout=
-"],
-    ["drivers/net/ethernet/rdc/r6040.c", "r6040_tx_timeout"],
-    ["drivers/net/ethernet/realtek/8139cp.c", "cp_tx_timeout"],
-    ["drivers/net/ethernet/realtek/8139too.c", "rtl8139_tx_timeout"],
-    ["drivers/net/ethernet/realtek/atp.c", "tx_timeout"],
-    ["drivers/net/ethernet/realtek/r8169_main.c", "rtl8169_tx_timeout"],
-    ["drivers/net/ethernet/renesas/ravb_main.c", "ravb_tx_timeout"],
-    ["drivers/net/ethernet/renesas/sh_eth.c", "sh_eth_tx_timeout"],
-    ["drivers/net/ethernet/renesas/sh_eth.c", "sh_eth_tx_timeout"],
-    ["drivers/net/ethernet/samsung/sxgbe/sxgbe_main.c", "sxgbe_tx_timeout"]=
-,
-    ["drivers/net/ethernet/seeq/ether3.c", "ether3_timeout"],
-    ["drivers/net/ethernet/seeq/sgiseeq.c", "timeout"],
-    ["drivers/net/ethernet/sfc/efx.c", "efx_watchdog"],
-    ["drivers/net/ethernet/sfc/falcon/efx.c", "ef4_watchdog"],
-    ["drivers/net/ethernet/sgi/ioc3-eth.c", "ioc3_timeout"],
-    ["drivers/net/ethernet/sgi/meth.c", "meth_tx_timeout"],
-    ["drivers/net/ethernet/silan/sc92031.c", "sc92031_tx_timeout"],
-    ["drivers/net/ethernet/sis/sis190.c", "sis190_tx_timeout"],
-    ["drivers/net/ethernet/sis/sis900.c", "sis900_tx_timeout"],
-    ["drivers/net/ethernet/smsc/epic100.c", "epic_tx_timeout"],
-    ["drivers/net/ethernet/smsc/smc911x.c", "smc911x_timeout"],
-    ["drivers/net/ethernet/smsc/smc9194.c", "smc_timeout"],
-    ["drivers/net/ethernet/smsc/smc91c92_cs.c", "smc_tx_timeout"],
-    ["drivers/net/ethernet/smsc/smc91x.c", "smc_timeout"],
-    ["drivers/net/ethernet/stmicro/stmmac/stmmac_main.c", "stmmac_tx_timeou=
-t"],
-    ["drivers/net/ethernet/sun/cassini.c", "cas_tx_timeout"],
-    ["drivers/net/ethernet/sun/ldmvsw.c", "sunvnet_tx_timeout_common"],
-    ["drivers/net/ethernet/sun/niu.c", "niu_tx_timeout"],
-    ["drivers/net/ethernet/sun/sunbmac.c", "bigmac_tx_timeout"],
-    ["drivers/net/ethernet/sun/sungem.c", "gem_tx_timeout"],
-    ["drivers/net/ethernet/sun/sunhme.c", "happy_meal_tx_timeout"],
-    ["drivers/net/ethernet/sun/sunqe.c", "qe_tx_timeout"],
-    ["drivers/net/ethernet/sun/sunvnet.c", "sunvnet_tx_timeout_common"],
-    ["drivers/net/ethernet/sun/sunvnet_common.c", "sunvnet_tx_timeout_commo=
-n"],
-    ["drivers/net/ethernet/sun/sunvnet_common.h", "sunvnet_tx_timeout_commo=
-n"],
-    ["drivers/net/ethernet/synopsys/dwc-xlgmac-net.c", "xlgmac_tx_timeout"]=
-,
-    ["drivers/net/ethernet/ti/cpmac.c", "cpmac_tx_timeout"],
-    ["drivers/net/ethernet/ti/cpsw.c", "cpsw_ndo_tx_timeout"],
-    ["drivers/net/ethernet/ti/davinci_emac.c", "emac_dev_tx_timeout"],
-    ["drivers/net/ethernet/ti/netcp_core.c", "netcp_ndo_tx_timeout"],
-    ["drivers/net/ethernet/ti/tlan.c", "tlan_tx_timeout"],
-    ["drivers/net/ethernet/toshiba/ps3_gelic_net.h", "gelic_net_tx_timeout"=
-],
-    ["drivers/net/ethernet/toshiba/ps3_gelic_net.c", "gelic_net_tx_timeout"=
-],
-    ["drivers/net/ethernet/toshiba/ps3_gelic_wireless.c", "gelic_net_tx_tim=
-eout"],
-    ["drivers/net/ethernet/toshiba/spider_net.c", "spider_net_tx_timeout"],
-    ["drivers/net/ethernet/toshiba/tc35815.c", "tc35815_tx_timeout"],
-    ["drivers/net/ethernet/via/via-rhine.c", "rhine_tx_timeout"],
-    ["drivers/net/ethernet/wiznet/w5100.c", "w5100_tx_timeout"],
-    ["drivers/net/ethernet/wiznet/w5300.c", "w5300_tx_timeout"],
-    ["drivers/net/ethernet/xilinx/xilinx_emaclite.c", "xemaclite_tx_timeout=
-"],
-    ["drivers/net/ethernet/xircom/xirc2ps_cs.c", "xirc_tx_timeout"],
-    ["drivers/net/fjes/fjes_main.c", "fjes_tx_retry"],
-    ["drivers/net/slip/slip.c", "sl_tx_timeout"],
-    ["include/linux/usb/usbnet.h", "usbnet_tx_timeout"],
-    ["drivers/net/usb/aqc111.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/asix_devices.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/asix_devices.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/asix_devices.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/ax88172a.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/ax88179_178a.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/catc.c", "catc_tx_timeout"],
-    ["drivers/net/usb/cdc_mbim.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/cdc_ncm.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/dm9601.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/hso.c", "hso_net_tx_timeout"],
-    ["drivers/net/usb/int51x1.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/ipheth.c", "ipheth_tx_timeout"],
-    ["drivers/net/usb/kaweth.c", "kaweth_tx_timeout"],
-    ["drivers/net/usb/lan78xx.c", "lan78xx_tx_timeout"],
-    ["drivers/net/usb/mcs7830.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/pegasus.c", "pegasus_tx_timeout"],
-    ["drivers/net/usb/qmi_wwan.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/r8152.c", "rtl8152_tx_timeout"],
-    ["drivers/net/usb/rndis_host.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/rtl8150.c", "rtl8150_tx_timeout"],
-    ["drivers/net/usb/sierra_net.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/smsc75xx.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/smsc95xx.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/sr9700.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/sr9800.c", "usbnet_tx_timeout"],
-    ["drivers/net/usb/usbnet.c", "usbnet_tx_timeout"],
-    ["drivers/net/vmxnet3/vmxnet3_drv.c", "vmxnet3_tx_timeout"],
-    ["drivers/net/wan/cosa.c", "cosa_net_timeout"],
-    ["drivers/net/wan/farsync.c", "fst_tx_timeout"],
-    ["drivers/net/wan/fsl_ucc_hdlc.c", "uhdlc_tx_timeout"],
-    ["drivers/net/wan/lmc/lmc_main.c", "lmc_driver_timeout"],
-    ["drivers/net/wan/x25_asy.c", "x25_asy_timeout"],
-    ["drivers/net/wimax/i2400m/netdev.c", "i2400m_tx_timeout"],
-    ["drivers/net/wireless/intel/ipw2x00/ipw2100.c", "ipw2100_tx_timeout"],
-    ["drivers/net/wireless/intersil/hostap/hostap_main.c", "prism2_tx_timeo=
-ut"],
-    ["drivers/net/wireless/intersil/hostap/hostap_main.c", "prism2_tx_timeo=
-ut"],
-    ["drivers/net/wireless/intersil/hostap/hostap_main.c", "prism2_tx_timeo=
-ut"],
-    ["drivers/net/wireless/intersil/orinoco/main.c", "orinoco_tx_timeout"],
-    ["drivers/net/wireless/intersil/orinoco/orinoco_usb.c", "orinoco_tx_tim=
-eout"],
-    ["drivers/net/wireless/intersil/orinoco/orinoco.h", "orinoco_tx_timeout=
-"],
-    ["drivers/net/wireless/intersil/prism54/islpci_dev.c", "islpci_eth_tx_t=
-imeout"],
-    ["drivers/net/wireless/intersil/prism54/islpci_eth.c", "islpci_eth_tx_t=
-imeout"],
-    ["drivers/net/wireless/intersil/prism54/islpci_eth.h", "islpci_eth_tx_t=
-imeout"],
-    ["drivers/net/wireless/marvell/mwifiex/main.c", "mwifiex_tx_timeout"],
-    ["drivers/net/wireless/quantenna/qtnfmac/core.c", "qtnf_netdev_tx_timeo=
-ut"],
-    ["drivers/net/wireless/quantenna/qtnfmac/core.h", "qtnf_netdev_tx_timeo=
-ut"],
-    ["drivers/net/wireless/rndis_wlan.c", "usbnet_tx_timeout"],
-    ["drivers/net/wireless/wl3501_cs.c", "wl3501_tx_timeout"],
-    ["drivers/net/wireless/zydas/zd1201.c", "zd1201_tx_timeout"],
-    ["drivers/s390/net/qeth_core.h", "qeth_tx_timeout"],
-    ["drivers/s390/net/qeth_core_main.c", "qeth_tx_timeout"],
-    ["drivers/s390/net/qeth_l2_main.c", "qeth_tx_timeout"],
-    ["drivers/s390/net/qeth_l2_main.c", "qeth_tx_timeout"],
-    ["drivers/s390/net/qeth_l3_main.c", "qeth_tx_timeout"],
-    ["drivers/s390/net/qeth_l3_main.c", "qeth_tx_timeout"],
-    ["drivers/staging/ks7010/ks_wlan_net.c", "ks_wlan_tx_timeout"],
-    ["drivers/staging/qlge/qlge_main.c", "qlge_tx_timeout"],
-    ["drivers/staging/rtl8192e/rtl8192e/rtl_core.c", "_rtl92e_tx_timeout"],
-    ["drivers/staging/rtl8192u/r8192U_core.c", "tx_timeout"],
-    ["drivers/staging/unisys/visornic/visornic_main.c", "visornic_xmit_time=
-out"],
-    ["drivers/staging/wlan-ng/p80211netdev.c", "p80211knetdev_tx_timeout"],
-    ["drivers/tty/n_gsm.c", "gsm_mux_net_tx_timeout"],
-    ["drivers/tty/synclink.c", "hdlcdev_tx_timeout"],
-    ["drivers/tty/synclink_gt.c", "hdlcdev_tx_timeout"],
-    ["drivers/tty/synclinkmp.c", "hdlcdev_tx_timeout"],
-    ["net/atm/lec.c", "lec_tx_timeout"],
-    ["net/bluetooth/bnep/netdev.c", "bnep_net_timeout"]
-    );
-   =20
-    for my $p (@work) {
-            my @pair =3D @$p;
-            my $file =3D $pair[0];
-            my $func =3D $pair[1];
-            print STDERR $file , ": ", $func,"\n";
-            our @ARGV =3D ($file);
-            while (<ARGV>) {
-                    if (m/($func\s*\(struct\s+net_device\s+\*[A-Za-z_]?[A-Z=
-a-z-0-9_]*)(\))/) {
-                            print STDERR "found $1+$2 in $file\n";
-                    }
-                    if (s/($func\s*\(struct\s+net_device\s+\*[A-Za-z_]?[A-Z=
-a-z-0-9_]*)(\))/$1, int txqueue$2/) {
-                            print STDERR "$func found in $file\n";
-                    }
-                    print;
-            }
-    }
-   =20
-    where the list of files and functions is simply from:
-   =20
-    git grep ndo_tx_timeout, with manual addition of headers
-    in the rare cases where the function is from a header,
-    then manually changing the few places which actually
-    call ndo_tx_timeout.
-   =20
-    Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
-    Acked-by: Heiner Kallweit <hkallweit1@gmail.com>
-    Acked-by: Jakub Kicinski <jakub.kicinski@netronome.com>
-    Acked-by: Shannon Nelson <snelson@pensando.io>
-    Reviewed-by: Martin Habets <mhabets@solarflare.com>
-   =20
-    changes from v8:
-            fix up more direct calls to timeout handlers in natsemi,ti,atl
-    changes from v7:
-            fixup leftovers from v3 change
-    changes from v6:
-            fix typo in rtl driver
-    changes from v5:
-            add missing files (allow any net device argument name)
-    changes from v4:
-            add a missing driver header
-    changes from v3:
-            change queue # to unsigned
-    Changes from v2:
-            added headers
-    Changes from v1:
-            Fix errors found by kbuild:
-            generalize the pattern a bit, to pick up
-            a couple of instances missed by the previous
-            version.
----
- arch/m68k/emu/nfeth.c                                 | 2 +-
- arch/um/drivers/net_kern.c                            | 2 +-
- arch/um/drivers/vector_kern.c                         | 2 +-
- arch/xtensa/platforms/iss/network.c                   | 2 +-
- drivers/char/pcmcia/synclink_cs.c                     | 2 +-
- drivers/infiniband/ulp/ipoib/ipoib_main.c             | 2 +-
- drivers/message/fusion/mptlan.c                       | 2 +-
- drivers/misc/sgi-xp/xpnet.c                           | 2 +-
- drivers/net/appletalk/cops.c                          | 4 ++--
- drivers/net/arcnet/arcdevice.h                        | 2 +-
- drivers/net/arcnet/arcnet.c                           | 2 +-
- drivers/net/ethernet/3com/3c509.c                     | 4 ++--
- drivers/net/ethernet/3com/3c515.c                     | 4 ++--
- drivers/net/ethernet/3com/3c574_cs.c                  | 4 ++--
- drivers/net/ethernet/3com/3c589_cs.c                  | 4 ++--
- drivers/net/ethernet/3com/3c59x.c                     | 4 ++--
- drivers/net/ethernet/3com/typhoon.c                   | 2 +-
- drivers/net/ethernet/8390/8390.c                      | 4 ++--
- drivers/net/ethernet/8390/8390.h                      | 2 +-
- drivers/net/ethernet/8390/8390p.c                     | 4 ++--
- drivers/net/ethernet/8390/axnet_cs.c                  | 4 ++--
- drivers/net/ethernet/8390/lib8390.c                   | 2 +-
- drivers/net/ethernet/adaptec/starfire.c               | 4 ++--
- drivers/net/ethernet/agere/et131x.c                   | 2 +-
- drivers/net/ethernet/allwinner/sun4i-emac.c           | 2 +-
- drivers/net/ethernet/alteon/acenic.c                  | 4 ++--
- drivers/net/ethernet/amazon/ena/ena_netdev.c          | 2 +-
- drivers/net/ethernet/amd/7990.c                       | 2 +-
- drivers/net/ethernet/amd/7990.h                       | 2 +-
- drivers/net/ethernet/amd/a2065.c                      | 2 +-
- drivers/net/ethernet/amd/am79c961a.c                  | 2 +-
- drivers/net/ethernet/amd/amd8111e.c                   | 2 +-
- drivers/net/ethernet/amd/ariadne.c                    | 2 +-
- drivers/net/ethernet/amd/atarilance.c                 | 4 ++--
- drivers/net/ethernet/amd/au1000_eth.c                 | 2 +-
- drivers/net/ethernet/amd/declance.c                   | 2 +-
- drivers/net/ethernet/amd/lance.c                      | 4 ++--
- drivers/net/ethernet/amd/ni65.c                       | 4 ++--
- drivers/net/ethernet/amd/nmclan_cs.c                  | 4 ++--
- drivers/net/ethernet/amd/pcnet32.c                    | 4 ++--
- drivers/net/ethernet/amd/sunlance.c                   | 2 +-
- drivers/net/ethernet/amd/xgbe/xgbe-drv.c              | 2 +-
- drivers/net/ethernet/apm/xgene-v2/main.c              | 2 +-
- drivers/net/ethernet/apm/xgene/xgene_enet_main.c      | 2 +-
- drivers/net/ethernet/apple/macmace.c                  | 4 ++--
- drivers/net/ethernet/atheros/ag71xx.c                 | 2 +-
- drivers/net/ethernet/atheros/alx/main.c               | 2 +-
- drivers/net/ethernet/atheros/atl1c/atl1c_main.c       | 2 +-
- drivers/net/ethernet/atheros/atl1e/atl1e_main.c       | 2 +-
- drivers/net/ethernet/atheros/atlx/atl2.c              | 2 +-
- drivers/net/ethernet/atheros/atlx/atlx.c              | 2 +-
- drivers/net/ethernet/broadcom/b44.c                   | 2 +-
- drivers/net/ethernet/broadcom/bcmsysport.c            | 2 +-
- drivers/net/ethernet/broadcom/bnx2.c                  | 2 +-
- drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.c       | 2 +-
- drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.h       | 2 +-
- drivers/net/ethernet/broadcom/bnxt/bnxt.c             | 2 +-
- drivers/net/ethernet/broadcom/genet/bcmgenet.c        | 2 +-
- drivers/net/ethernet/broadcom/sb1250-mac.c            | 4 ++--
- drivers/net/ethernet/broadcom/tg3.c                   | 2 +-
- drivers/net/ethernet/calxeda/xgmac.c                  | 2 +-
- drivers/net/ethernet/cavium/liquidio/lio_main.c       | 2 +-
- drivers/net/ethernet/cavium/liquidio/lio_vf_main.c    | 2 +-
- drivers/net/ethernet/cavium/liquidio/lio_vf_rep.c     | 4 ++--
- drivers/net/ethernet/cavium/thunder/nicvf_main.c      | 2 +-
- drivers/net/ethernet/cirrus/cs89x0.c                  | 2 +-
- drivers/net/ethernet/cisco/enic/enic_main.c           | 2 +-
- drivers/net/ethernet/cortina/gemini.c                 | 2 +-
- drivers/net/ethernet/davicom/dm9000.c                 | 2 +-
- drivers/net/ethernet/dec/tulip/de2104x.c              | 2 +-
- drivers/net/ethernet/dec/tulip/tulip_core.c           | 4 ++--
- drivers/net/ethernet/dec/tulip/winbond-840.c          | 4 ++--
- drivers/net/ethernet/dlink/dl2k.c                     | 4 ++--
- drivers/net/ethernet/dlink/sundance.c                 | 4 ++--
- drivers/net/ethernet/emulex/benet/be_main.c           | 2 +-
- drivers/net/ethernet/ethoc.c                          | 2 +-
- drivers/net/ethernet/faraday/ftgmac100.c              | 2 +-
- drivers/net/ethernet/fealnx.c                         | 4 ++--
- drivers/net/ethernet/freescale/dpaa/dpaa_eth.c        | 2 +-
- drivers/net/ethernet/freescale/fec_main.c             | 2 +-
- drivers/net/ethernet/freescale/fec_mpc52xx.c          | 2 +-
- drivers/net/ethernet/freescale/fs_enet/fs_enet-main.c | 2 +-
- drivers/net/ethernet/freescale/gianfar.c              | 2 +-
- drivers/net/ethernet/freescale/ucc_geth.c             | 2 +-
- drivers/net/ethernet/fujitsu/fmvj18x_cs.c             | 4 ++--
- drivers/net/ethernet/google/gve/gve_main.c            | 2 +-
- drivers/net/ethernet/hisilicon/hip04_eth.c            | 2 +-
- drivers/net/ethernet/hisilicon/hix5hd2_gmac.c         | 2 +-
- drivers/net/ethernet/hisilicon/hns/hns_enet.c         | 2 +-
- drivers/net/ethernet/hisilicon/hns3/hns3_enet.c       | 2 +-
- drivers/net/ethernet/huawei/hinic/hinic_main.c        | 2 +-
- drivers/net/ethernet/i825xx/82596.c                   | 4 ++--
- drivers/net/ethernet/i825xx/ether1.c                  | 4 ++--
- drivers/net/ethernet/i825xx/lib82596.c                | 4 ++--
- drivers/net/ethernet/i825xx/sun3_82586.c              | 4 ++--
- drivers/net/ethernet/ibm/ehea/ehea_main.c             | 2 +-
- drivers/net/ethernet/ibm/emac/core.c                  | 2 +-
- drivers/net/ethernet/ibm/ibmvnic.c                    | 2 +-
- drivers/net/ethernet/intel/e100.c                     | 2 +-
- drivers/net/ethernet/intel/e1000/e1000_main.c         | 4 ++--
- drivers/net/ethernet/intel/e1000e/netdev.c            | 2 +-
- drivers/net/ethernet/intel/fm10k/fm10k_netdev.c       | 2 +-
- drivers/net/ethernet/intel/i40e/i40e_main.c           | 2 +-
- drivers/net/ethernet/intel/iavf/iavf_main.c           | 2 +-
- drivers/net/ethernet/intel/ice/ice_main.c             | 2 +-
- drivers/net/ethernet/intel/igb/igb_main.c             | 4 ++--
- drivers/net/ethernet/intel/igbvf/netdev.c             | 2 +-
- drivers/net/ethernet/intel/ixgb/ixgb_main.c           | 4 ++--
- drivers/net/ethernet/intel/ixgbe/ixgbe_debugfs.c      | 4 +++-
- drivers/net/ethernet/intel/ixgbe/ixgbe_main.c         | 2 +-
- drivers/net/ethernet/intel/ixgbevf/ixgbevf_main.c     | 2 +-
- drivers/net/ethernet/jme.c                            | 2 +-
- drivers/net/ethernet/korina.c                         | 2 +-
- drivers/net/ethernet/lantiq_etop.c                    | 2 +-
- drivers/net/ethernet/marvell/mv643xx_eth.c            | 2 +-
- drivers/net/ethernet/marvell/pxa168_eth.c             | 2 +-
- drivers/net/ethernet/marvell/skge.c                   | 2 +-
- drivers/net/ethernet/marvell/sky2.c                   | 2 +-
- drivers/net/ethernet/mediatek/mtk_eth_soc.c           | 2 +-
- drivers/net/ethernet/mellanox/mlx4/en_netdev.c        | 2 +-
- drivers/net/ethernet/mellanox/mlx5/core/en_main.c     | 2 +-
- drivers/net/ethernet/micrel/ks8842.c                  | 2 +-
- drivers/net/ethernet/micrel/ksz884x.c                 | 2 +-
- drivers/net/ethernet/microchip/enc28j60.c             | 2 +-
- drivers/net/ethernet/microchip/encx24j600.c           | 2 +-
- drivers/net/ethernet/natsemi/natsemi.c                | 4 ++--
- drivers/net/ethernet/natsemi/ns83820.c                | 4 ++--
- drivers/net/ethernet/natsemi/sonic.c                  | 2 +-
- drivers/net/ethernet/natsemi/sonic.h                  | 2 +-
- drivers/net/ethernet/neterion/s2io.c                  | 2 +-
- drivers/net/ethernet/neterion/s2io.h                  | 2 +-
- drivers/net/ethernet/neterion/vxge/vxge-main.c        | 2 +-
- drivers/net/ethernet/netronome/nfp/nfp_net_common.c   | 2 +-
- drivers/net/ethernet/nvidia/forcedeth.c               | 2 +-
- drivers/net/ethernet/oki-semi/pch_gbe/pch_gbe_main.c  | 2 +-
- drivers/net/ethernet/packetengines/hamachi.c          | 4 ++--
- drivers/net/ethernet/packetengines/yellowfin.c        | 4 ++--
- drivers/net/ethernet/pensando/ionic/ionic_lif.c       | 2 +-
- drivers/net/ethernet/qlogic/netxen/netxen_nic_main.c  | 4 ++--
- drivers/net/ethernet/qlogic/qla3xxx.c                 | 2 +-
- drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.c      | 4 ++--
- drivers/net/ethernet/qualcomm/emac/emac.c             | 2 +-
- drivers/net/ethernet/qualcomm/qca_spi.c               | 2 +-
- drivers/net/ethernet/qualcomm/qca_uart.c              | 2 +-
- drivers/net/ethernet/rdc/r6040.c                      | 2 +-
- drivers/net/ethernet/realtek/8139cp.c                 | 2 +-
- drivers/net/ethernet/realtek/8139too.c                | 4 ++--
- drivers/net/ethernet/realtek/atp.c                    | 4 ++--
- drivers/net/ethernet/realtek/r8169_main.c             | 2 +-
- drivers/net/ethernet/renesas/ravb_main.c              | 2 +-
- drivers/net/ethernet/renesas/sh_eth.c                 | 2 +-
- drivers/net/ethernet/samsung/sxgbe/sxgbe_main.c       | 2 +-
- drivers/net/ethernet/seeq/ether3.c                    | 4 ++--
- drivers/net/ethernet/seeq/sgiseeq.c                   | 2 +-
- drivers/net/ethernet/sfc/efx.c                        | 2 +-
- drivers/net/ethernet/sfc/falcon/efx.c                 | 2 +-
- drivers/net/ethernet/sgi/ioc3-eth.c                   | 4 ++--
- drivers/net/ethernet/sgi/meth.c                       | 4 ++--
- drivers/net/ethernet/silan/sc92031.c                  | 2 +-
- drivers/net/ethernet/sis/sis190.c                     | 2 +-
- drivers/net/ethernet/sis/sis900.c                     | 4 ++--
- drivers/net/ethernet/smsc/epic100.c                   | 4 ++--
- drivers/net/ethernet/smsc/smc911x.c                   | 2 +-
- drivers/net/ethernet/smsc/smc9194.c                   | 4 ++--
- drivers/net/ethernet/smsc/smc91c92_cs.c               | 4 ++--
- drivers/net/ethernet/smsc/smc91x.c                    | 2 +-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c     | 2 +-
- drivers/net/ethernet/sun/cassini.c                    | 2 +-
- drivers/net/ethernet/sun/niu.c                        | 2 +-
- drivers/net/ethernet/sun/sunbmac.c                    | 2 +-
- drivers/net/ethernet/sun/sungem.c                     | 2 +-
- drivers/net/ethernet/sun/sunhme.c                     | 2 +-
- drivers/net/ethernet/sun/sunqe.c                      | 2 +-
- drivers/net/ethernet/sun/sunvnet_common.c             | 2 +-
- drivers/net/ethernet/sun/sunvnet_common.h             | 2 +-
- drivers/net/ethernet/synopsys/dwc-xlgmac-net.c        | 2 +-
- drivers/net/ethernet/ti/cpmac.c                       | 2 +-
- drivers/net/ethernet/ti/cpsw.c                        | 2 +-
- drivers/net/ethernet/ti/davinci_emac.c                | 2 +-
- drivers/net/ethernet/ti/netcp_core.c                  | 2 +-
- drivers/net/ethernet/ti/tlan.c                        | 6 +++---
- drivers/net/ethernet/toshiba/ps3_gelic_net.c          | 2 +-
- drivers/net/ethernet/toshiba/ps3_gelic_net.h          | 2 +-
- drivers/net/ethernet/toshiba/spider_net.c             | 2 +-
- drivers/net/ethernet/toshiba/tc35815.c                | 4 ++--
- drivers/net/ethernet/via/via-rhine.c                  | 4 ++--
- drivers/net/ethernet/wiznet/w5100.c                   | 2 +-
- drivers/net/ethernet/wiznet/w5300.c                   | 2 +-
- drivers/net/ethernet/xilinx/xilinx_emaclite.c         | 2 +-
- drivers/net/ethernet/xircom/xirc2ps_cs.c              | 4 ++--
- drivers/net/fjes/fjes_main.c                          | 4 ++--
- drivers/net/slip/slip.c                               | 2 +-
- drivers/net/usb/catc.c                                | 2 +-
- drivers/net/usb/hso.c                                 | 2 +-
- drivers/net/usb/ipheth.c                              | 2 +-
- drivers/net/usb/kaweth.c                              | 2 +-
- drivers/net/usb/lan78xx.c                             | 2 +-
- drivers/net/usb/pegasus.c                             | 2 +-
- drivers/net/usb/r8152.c                               | 2 +-
- drivers/net/usb/rtl8150.c                             | 2 +-
- drivers/net/usb/usbnet.c                              | 2 +-
- drivers/net/vmxnet3/vmxnet3_drv.c                     | 2 +-
- drivers/net/wan/cosa.c                                | 4 ++--
- drivers/net/wan/farsync.c                             | 2 +-
- drivers/net/wan/fsl_ucc_hdlc.c                        | 2 +-
- drivers/net/wan/lmc/lmc_main.c                        | 4 ++--
- drivers/net/wan/x25_asy.c                             | 2 +-
- drivers/net/wimax/i2400m/netdev.c                     | 2 +-
- drivers/net/wireless/intel/ipw2x00/ipw2100.c          | 2 +-
- drivers/net/wireless/intersil/hostap/hostap_main.c    | 2 +-
- drivers/net/wireless/intersil/orinoco/main.c          | 2 +-
- drivers/net/wireless/intersil/orinoco/orinoco.h       | 2 +-
- drivers/net/wireless/intersil/prism54/islpci_eth.c    | 2 +-
- drivers/net/wireless/intersil/prism54/islpci_eth.h    | 2 +-
- drivers/net/wireless/marvell/mwifiex/main.c           | 2 +-
- drivers/net/wireless/quantenna/qtnfmac/core.c         | 2 +-
- drivers/net/wireless/wl3501_cs.c                      | 2 +-
- drivers/net/wireless/zydas/zd1201.c                   | 2 +-
- drivers/s390/net/qeth_core.h                          | 2 +-
- drivers/s390/net/qeth_core_main.c                     | 2 +-
- drivers/staging/ks7010/ks_wlan_net.c                  | 4 ++--
- drivers/staging/qlge/qlge_main.c                      | 2 +-
- drivers/staging/rtl8192e/rtl8192e/rtl_core.c          | 2 +-
- drivers/staging/rtl8192u/r8192U_core.c                | 2 +-
- drivers/staging/unisys/visornic/visornic_main.c       | 2 +-
- drivers/staging/wlan-ng/p80211netdev.c                | 4 ++--
- drivers/tty/n_gsm.c                                   | 2 +-
- drivers/tty/synclink.c                                | 2 +-
- drivers/tty/synclink_gt.c                             | 2 +-
- drivers/tty/synclinkmp.c                              | 2 +-
- include/linux/netdevice.h                             | 5 +++--
- include/linux/usb/usbnet.h                            | 2 +-
- net/atm/lec.c                                         | 2 +-
- net/bluetooth/bnep/netdev.c                           | 2 +-
- net/sched/sch_generic.c                               | 2 +-
- 235 files changed, 296 insertions(+), 293 deletions(-)
-
-diff --git a/arch/m68k/emu/nfeth.c b/arch/m68k/emu/nfeth.c
-index a4ebd2445eda..d2875e32abfc 100644
---- a/arch/m68k/emu/nfeth.c
-+++ b/arch/m68k/emu/nfeth.c
-@@ -167,7 +167,7 @@ static int nfeth_xmit(struct sk_buff *skb, struct net_d=
-evice *dev)
- 	return 0;
- }
-=20
--static void nfeth_tx_timeout(struct net_device *dev)
-+static void nfeth_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	dev->stats.tx_errors++;
- 	netif_wake_queue(dev);
-diff --git a/arch/um/drivers/net_kern.c b/arch/um/drivers/net_kern.c
-index 327b728f7244..35ebeebfc1a8 100644
---- a/arch/um/drivers/net_kern.c
-+++ b/arch/um/drivers/net_kern.c
-@@ -247,7 +247,7 @@ static void uml_net_set_multicast_list(struct net_devic=
-e *dev)
- 	return;
- }
-=20
--static void uml_net_tx_timeout(struct net_device *dev)
-+static void uml_net_tx_timeout(struct net_device *dev, unsigned int txqueu=
-e)
- {
- 	netif_trans_update(dev);
- 	netif_wake_queue(dev);
-diff --git a/arch/um/drivers/vector_kern.c b/arch/um/drivers/vector_kern.c
-index 769ffbd9e9a6..ae930f0bfd51 100644
---- a/arch/um/drivers/vector_kern.c
-+++ b/arch/um/drivers/vector_kern.c
-@@ -1298,7 +1298,7 @@ static void vector_net_set_multicast_list(struct net_=
-device *dev)
- 	return;
- }
-=20
--static void vector_net_tx_timeout(struct net_device *dev)
-+static void vector_net_tx_timeout(struct net_device *dev, unsigned int txq=
-ueue)
- {
- 	struct vector_private *vp =3D netdev_priv(dev);
-=20
-diff --git a/arch/xtensa/platforms/iss/network.c b/arch/xtensa/platforms/is=
-s/network.c
-index fa9f3893b002..4986226a5ab2 100644
---- a/arch/xtensa/platforms/iss/network.c
-+++ b/arch/xtensa/platforms/iss/network.c
-@@ -455,7 +455,7 @@ static void iss_net_set_multicast_list(struct net_devic=
-e *dev)
- {
- }
-=20
--static void iss_net_tx_timeout(struct net_device *dev)
-+static void iss_net_tx_timeout(struct net_device *dev, unsigned int txqueu=
-e)
- {
- }
-=20
-diff --git a/drivers/char/pcmcia/synclink_cs.c b/drivers/char/pcmcia/syncli=
-nk_cs.c
-index 82f9a6a814ae..e342daa73d1b 100644
---- a/drivers/char/pcmcia/synclink_cs.c
-+++ b/drivers/char/pcmcia/synclink_cs.c
-@@ -4169,7 +4169,7 @@ static int hdlcdev_ioctl(struct net_device *dev, stru=
-ct ifreq *ifr, int cmd)
-  *
-  * dev  pointer to network device structure
-  */
--static void hdlcdev_tx_timeout(struct net_device *dev)
-+static void hdlcdev_tx_timeout(struct net_device *dev, unsigned int txqueu=
-e)
- {
- 	MGSLPC_INFO *info =3D dev_to_port(dev);
- 	unsigned long flags;
-diff --git a/drivers/infiniband/ulp/ipoib/ipoib_main.c b/drivers/infiniband=
-/ulp/ipoib/ipoib_main.c
-index ac0583ff280d..b86dbdc37b83 100644
---- a/drivers/infiniband/ulp/ipoib/ipoib_main.c
-+++ b/drivers/infiniband/ulp/ipoib/ipoib_main.c
-@@ -1182,7 +1182,7 @@ static netdev_tx_t ipoib_start_xmit(struct sk_buff *s=
-kb, struct net_device *dev)
- 	return NETDEV_TX_OK;
- }
-=20
--static void ipoib_timeout(struct net_device *dev)
-+static void ipoib_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	struct ipoib_dev_priv *priv =3D ipoib_priv(dev);
-=20
-diff --git a/drivers/message/fusion/mptlan.c b/drivers/message/fusion/mptla=
-n.c
-index ebc00d47abf5..7d3784aa20e5 100644
---- a/drivers/message/fusion/mptlan.c
-+++ b/drivers/message/fusion/mptlan.c
-@@ -552,7 +552,7 @@ mpt_lan_close(struct net_device *dev)
- /*=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=
-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D-=3D=
--=3D*/
- /* Tx timeout handler. */
- static void
--mpt_lan_tx_timeout(struct net_device *dev)
-+mpt_lan_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	struct mpt_lan_priv *priv =3D netdev_priv(dev);
- 	MPT_ADAPTER *mpt_dev =3D priv->mpt_dev;
-diff --git a/drivers/misc/sgi-xp/xpnet.c b/drivers/misc/sgi-xp/xpnet.c
-index f7d610a22347..ada94e6a3c91 100644
---- a/drivers/misc/sgi-xp/xpnet.c
-+++ b/drivers/misc/sgi-xp/xpnet.c
-@@ -496,7 +496,7 @@ xpnet_dev_hard_start_xmit(struct sk_buff *skb, struct n=
-et_device *dev)
-  * Deal with transmit timeouts coming from the network layer.
-  */
- static void
--xpnet_dev_tx_timeout(struct net_device *dev)
-+xpnet_dev_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	dev->stats.tx_errors++;
- }
-diff --git a/drivers/net/appletalk/cops.c b/drivers/net/appletalk/cops.c
-index b3c63d2f16aa..18428e104445 100644
---- a/drivers/net/appletalk/cops.c
-+++ b/drivers/net/appletalk/cops.c
-@@ -189,7 +189,7 @@ static int  cops_nodeid (struct net_device *dev, int no=
-deid);
-=20
- static irqreturn_t cops_interrupt (int irq, void *dev_id);
- static void cops_poll(struct timer_list *t);
--static void cops_timeout(struct net_device *dev);
-+static void cops_timeout(struct net_device *dev, unsigned int txqueue);
- static void cops_rx (struct net_device *dev);
- static netdev_tx_t  cops_send_packet (struct sk_buff *skb,
- 					    struct net_device *dev);
-@@ -844,7 +844,7 @@ static void cops_rx(struct net_device *dev)
-         netif_rx(skb);
- }
-=20
--static void cops_timeout(struct net_device *dev)
-+static void cops_timeout(struct net_device *dev, unsigned int txqueue)
- {
-         struct cops_local *lp =3D netdev_priv(dev);
-         int ioaddr =3D dev->base_addr;
-diff --git a/drivers/net/arcnet/arcdevice.h b/drivers/net/arcnet/arcdevice.=
-h
-index b0f5bc07aef5..22a49c6d7ae6 100644
---- a/drivers/net/arcnet/arcdevice.h
-+++ b/drivers/net/arcnet/arcdevice.h
-@@ -356,7 +356,7 @@ int arcnet_open(struct net_device *dev);
- int arcnet_close(struct net_device *dev);
- netdev_tx_t arcnet_send_packet(struct sk_buff *skb,
- 			       struct net_device *dev);
--void arcnet_timeout(struct net_device *dev);
-+void arcnet_timeout(struct net_device *dev, unsigned int txqueue);
-=20
- /* I/O equivalents */
-=20
-diff --git a/drivers/net/arcnet/arcnet.c b/drivers/net/arcnet/arcnet.c
-index 553776cc1d29..e04efc0a5c97 100644
---- a/drivers/net/arcnet/arcnet.c
-+++ b/drivers/net/arcnet/arcnet.c
-@@ -763,7 +763,7 @@ static int go_tx(struct net_device *dev)
- }
-=20
- /* Called by the kernel when transmit times out */
--void arcnet_timeout(struct net_device *dev)
-+void arcnet_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	unsigned long flags;
- 	struct arcnet_local *lp =3D netdev_priv(dev);
-diff --git a/drivers/net/ethernet/3com/3c509.c b/drivers/net/ethernet/3com/=
-3c509.c
-index 3da97996bdf3..8cafd06ff0c4 100644
---- a/drivers/net/ethernet/3com/3c509.c
-+++ b/drivers/net/ethernet/3com/3c509.c
-@@ -196,7 +196,7 @@ static struct net_device_stats *el3_get_stats(struct ne=
-t_device *dev);
- static int el3_rx(struct net_device *dev);
- static int el3_close(struct net_device *dev);
- static void set_multicast_list(struct net_device *dev);
--static void el3_tx_timeout (struct net_device *dev);
-+static void el3_tx_timeout (struct net_device *dev, unsigned int txqueue);
- static void el3_down(struct net_device *dev);
- static void el3_up(struct net_device *dev);
- static const struct ethtool_ops ethtool_ops;
-@@ -689,7 +689,7 @@ el3_open(struct net_device *dev)
- }
-=20
- static void
--el3_tx_timeout (struct net_device *dev)
-+el3_tx_timeout (struct net_device *dev, unsigned int txqueue)
- {
- 	int ioaddr =3D dev->base_addr;
-=20
-diff --git a/drivers/net/ethernet/3com/3c515.c b/drivers/net/ethernet/3com/=
-3c515.c
-index b15752267c8d..1e233e2f0a5a 100644
---- a/drivers/net/ethernet/3com/3c515.c
-+++ b/drivers/net/ethernet/3com/3c515.c
-@@ -371,7 +371,7 @@ static void corkscrew_timer(struct timer_list *t);
- static netdev_tx_t corkscrew_start_xmit(struct sk_buff *skb,
- 					struct net_device *dev);
- static int corkscrew_rx(struct net_device *dev);
--static void corkscrew_timeout(struct net_device *dev);
-+static void corkscrew_timeout(struct net_device *dev, unsigned int txqueue=
-);
- static int boomerang_rx(struct net_device *dev);
- static irqreturn_t corkscrew_interrupt(int irq, void *dev_id);
- static int corkscrew_close(struct net_device *dev);
-@@ -961,7 +961,7 @@ static void corkscrew_timer(struct timer_list *t)
- #endif				/* AUTOMEDIA */
- }
-=20
--static void corkscrew_timeout(struct net_device *dev)
-+static void corkscrew_timeout(struct net_device *dev, unsigned int txqueue=
-)
- {
- 	int i;
- 	struct corkscrew_private *vp =3D netdev_priv(dev);
-diff --git a/drivers/net/ethernet/3com/3c574_cs.c b/drivers/net/ethernet/3c=
-om/3c574_cs.c
-index 3044a6f35f04..ef1c3151fbb2 100644
---- a/drivers/net/ethernet/3com/3c574_cs.c
-+++ b/drivers/net/ethernet/3com/3c574_cs.c
-@@ -234,7 +234,7 @@ static void update_stats(struct net_device *dev);
- static struct net_device_stats *el3_get_stats(struct net_device *dev);
- static int el3_rx(struct net_device *dev, int worklimit);
- static int el3_close(struct net_device *dev);
--static void el3_tx_timeout(struct net_device *dev);
-+static void el3_tx_timeout(struct net_device *dev, unsigned int txqueue);
- static int el3_ioctl(struct net_device *dev, struct ifreq *rq, int cmd);
- static void set_rx_mode(struct net_device *dev);
- static void set_multicast_list(struct net_device *dev);
-@@ -690,7 +690,7 @@ static int el3_open(struct net_device *dev)
- 	return 0;
- }
-=20
--static void el3_tx_timeout(struct net_device *dev)
-+static void el3_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	unsigned int ioaddr =3D dev->base_addr;
- =09
-diff --git a/drivers/net/ethernet/3com/3c589_cs.c b/drivers/net/ethernet/3c=
-om/3c589_cs.c
-index 2b2695311bda..d47cde6c5f08 100644
---- a/drivers/net/ethernet/3com/3c589_cs.c
-+++ b/drivers/net/ethernet/3com/3c589_cs.c
-@@ -173,7 +173,7 @@ static void update_stats(struct net_device *dev);
- static struct net_device_stats *el3_get_stats(struct net_device *dev);
- static int el3_rx(struct net_device *dev);
- static int el3_close(struct net_device *dev);
--static void el3_tx_timeout(struct net_device *dev);
-+static void el3_tx_timeout(struct net_device *dev, unsigned int txqueue);
- static void set_rx_mode(struct net_device *dev);
- static void set_multicast_list(struct net_device *dev);
- static const struct ethtool_ops netdev_ethtool_ops;
-@@ -526,7 +526,7 @@ static int el3_open(struct net_device *dev)
- 	return 0;
- }
-=20
--static void el3_tx_timeout(struct net_device *dev)
-+static void el3_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	unsigned int ioaddr =3D dev->base_addr;
-=20
-diff --git a/drivers/net/ethernet/3com/3c59x.c b/drivers/net/ethernet/3com/=
-3c59x.c
-index 8785c2ff3825..fc046797c0ea 100644
---- a/drivers/net/ethernet/3com/3c59x.c
-+++ b/drivers/net/ethernet/3com/3c59x.c
-@@ -776,7 +776,7 @@ static void set_rx_mode(struct net_device *dev);
- #ifdef CONFIG_PCI
- static int vortex_ioctl(struct net_device *dev, struct ifreq *rq, int cmd)=
-;
- #endif
--static void vortex_tx_timeout(struct net_device *dev);
-+static void vortex_tx_timeout(struct net_device *dev, unsigned int txqueue=
-);
- static void acpi_set_WOL(struct net_device *dev);
- static const struct ethtool_ops vortex_ethtool_ops;
- static void set_8021q_mode(struct net_device *dev, int enable);
-@@ -1877,7 +1877,7 @@ vortex_timer(struct timer_list *t)
- 		iowrite16(FakeIntr, ioaddr + EL3_CMD);
- }
-=20
--static void vortex_tx_timeout(struct net_device *dev)
-+static void vortex_tx_timeout(struct net_device *dev, unsigned int txqueue=
-)
- {
- 	struct vortex_private *vp =3D netdev_priv(dev);
- 	void __iomem *ioaddr =3D vp->ioaddr;
-diff --git a/drivers/net/ethernet/3com/typhoon.c b/drivers/net/ethernet/3co=
-m/typhoon.c
-index be823c186517..14fce6658106 100644
---- a/drivers/net/ethernet/3com/typhoon.c
-+++ b/drivers/net/ethernet/3com/typhoon.c
-@@ -2013,7 +2013,7 @@ typhoon_stop_runtime(struct typhoon *tp, int wait_typ=
-e)
- }
-=20
- static void
--typhoon_tx_timeout(struct net_device *dev)
-+typhoon_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	struct typhoon *tp =3D netdev_priv(dev);
-=20
-diff --git a/drivers/net/ethernet/8390/8390.c b/drivers/net/ethernet/8390/8=
-390.c
-index 78f3e532c600..0e0aa4016858 100644
---- a/drivers/net/ethernet/8390/8390.c
-+++ b/drivers/net/ethernet/8390/8390.c
-@@ -36,9 +36,9 @@ void ei_set_multicast_list(struct net_device *dev)
- }
- EXPORT_SYMBOL(ei_set_multicast_list);
-=20
--void ei_tx_timeout(struct net_device *dev)
-+void ei_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
--	__ei_tx_timeout(dev);
-+	__ei_tx_timeout(dev, txqueue);
- }
- EXPORT_SYMBOL(ei_tx_timeout);
-=20
-diff --git a/drivers/net/ethernet/8390/8390.h b/drivers/net/ethernet/8390/8=
-390.h
-index 3e2f2c2e7b58..6d55015fa361 100644
---- a/drivers/net/ethernet/8390/8390.h
-+++ b/drivers/net/ethernet/8390/8390.h
-@@ -32,7 +32,7 @@ void NS8390_init(struct net_device *dev, int startp);
- int ei_open(struct net_device *dev);
- int ei_close(struct net_device *dev);
- irqreturn_t ei_interrupt(int irq, void *dev_id);
--void ei_tx_timeout(struct net_device *dev);
-+void ei_tx_timeout(struct net_device *dev, unsigned int txqueue);
- netdev_tx_t ei_start_xmit(struct sk_buff *skb, struct net_device *dev);
- void ei_set_multicast_list(struct net_device *dev);
- struct net_device_stats *ei_get_stats(struct net_device *dev);
-diff --git a/drivers/net/ethernet/8390/8390p.c b/drivers/net/ethernet/8390/=
-8390p.c
-index 6cf36992a2c6..6834742057b3 100644
---- a/drivers/net/ethernet/8390/8390p.c
-+++ b/drivers/net/ethernet/8390/8390p.c
-@@ -41,9 +41,9 @@ void eip_set_multicast_list(struct net_device *dev)
- }
- EXPORT_SYMBOL(eip_set_multicast_list);
-=20
--void eip_tx_timeout(struct net_device *dev)
-+void eip_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
--	__ei_tx_timeout(dev);
-+	__ei_tx_timeout(dev, txqueue);
- }
- EXPORT_SYMBOL(eip_tx_timeout);
-=20
-diff --git a/drivers/net/ethernet/8390/axnet_cs.c b/drivers/net/ethernet/83=
-90/axnet_cs.c
-index 0b6bbf63f7ca..aeae7966a082 100644
---- a/drivers/net/ethernet/8390/axnet_cs.c
-+++ b/drivers/net/ethernet/8390/axnet_cs.c
-@@ -83,7 +83,7 @@ static netdev_tx_t axnet_start_xmit(struct sk_buff *skb,
- 					  struct net_device *dev);
- static struct net_device_stats *get_stats(struct net_device *dev);
- static void set_multicast_list(struct net_device *dev);
--static void axnet_tx_timeout(struct net_device *dev);
-+static void axnet_tx_timeout(struct net_device *dev, unsigned int txqueue)=
-;
- static irqreturn_t ei_irq_wrapper(int irq, void *dev_id);
- static void ei_watchdog(struct timer_list *t);
- static void axnet_reset_8390(struct net_device *dev);
-@@ -903,7 +903,7 @@ static int ax_close(struct net_device *dev)
-  * completed (or failed) - i.e. never posted a Tx related interrupt.
-  */
-=20
--static void axnet_tx_timeout(struct net_device *dev)
-+static void axnet_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	long e8390_base =3D dev->base_addr;
- 	struct ei_device *ei_local =3D netdev_priv(dev);
-diff --git a/drivers/net/ethernet/8390/lib8390.c b/drivers/net/ethernet/839=
-0/lib8390.c
-index c9c55c9eab9f..babc92e2692e 100644
---- a/drivers/net/ethernet/8390/lib8390.c
-+++ b/drivers/net/ethernet/8390/lib8390.c
-@@ -251,7 +251,7 @@ static int __ei_close(struct net_device *dev)
-  * completed (or failed) - i.e. never posted a Tx related interrupt.
-  */
-=20
--static void __ei_tx_timeout(struct net_device *dev)
-+static void __ei_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	unsigned long e8390_base =3D dev->base_addr;
- 	struct ei_device *ei_local =3D netdev_priv(dev);
-diff --git a/drivers/net/ethernet/adaptec/starfire.c b/drivers/net/ethernet=
-/adaptec/starfire.c
-index 816540e6beac..165d18405b0c 100644
---- a/drivers/net/ethernet/adaptec/starfire.c
-+++ b/drivers/net/ethernet/adaptec/starfire.c
-@@ -576,7 +576,7 @@ static int	mdio_read(struct net_device *dev, int phy_id=
-, int location);
- static void	mdio_write(struct net_device *dev, int phy_id, int location, i=
-nt value);
- static int	netdev_open(struct net_device *dev);
- static void	check_duplex(struct net_device *dev);
--static void	tx_timeout(struct net_device *dev);
-+static void	tx_timeout(struct net_device *dev, unsigned int txqueue);
- static void	init_ring(struct net_device *dev);
- static netdev_tx_t start_tx(struct sk_buff *skb, struct net_device *dev);
- static irqreturn_t intr_handler(int irq, void *dev_instance);
-@@ -1105,7 +1105,7 @@ static void check_duplex(struct net_device *dev)
- }
-=20
-=20
--static void tx_timeout(struct net_device *dev)
-+static void tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	struct netdev_private *np =3D netdev_priv(dev);
- 	void __iomem *ioaddr =3D np->base;
-diff --git a/drivers/net/ethernet/agere/et131x.c b/drivers/net/ethernet/age=
-re/et131x.c
-index 174344c450af..3c51d8c502ed 100644
---- a/drivers/net/ethernet/agere/et131x.c
-+++ b/drivers/net/ethernet/agere/et131x.c
-@@ -3811,7 +3811,7 @@ static netdev_tx_t et131x_tx(struct sk_buff *skb, str=
-uct net_device *netdev)
-  * specified by the 'tx_timeo" element in the net_device structure (see
-  * et131x_alloc_device() to see how this value is set).
-  */
--static void et131x_tx_timeout(struct net_device *netdev)
-+static void et131x_tx_timeout(struct net_device *netdev, unsigned int txqu=
-eue)
- {
- 	struct et131x_adapter *adapter =3D netdev_priv(netdev);
- 	struct tx_ring *tx_ring =3D &adapter->tx_ring;
-diff --git a/drivers/net/ethernet/allwinner/sun4i-emac.c b/drivers/net/ethe=
-rnet/allwinner/sun4i-emac.c
-index 0537df06a9b5..5ea806423e4c 100644
---- a/drivers/net/ethernet/allwinner/sun4i-emac.c
-+++ b/drivers/net/ethernet/allwinner/sun4i-emac.c
-@@ -407,7 +407,7 @@ static void emac_init_device(struct net_device *dev)
- }
-=20
- /* Our watchdog timed out. Called by the networking layer */
--static void emac_timeout(struct net_device *dev)
-+static void emac_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	struct emac_board_info *db =3D netdev_priv(dev);
- 	unsigned long flags;
-diff --git a/drivers/net/ethernet/alteon/acenic.c b/drivers/net/ethernet/al=
-teon/acenic.c
-</cut>
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/151282325.3957.1575897032958.JavaMail.javamailuser%40loca=
-lhost.
-
-------=_Part_3956_1211396533.1575897032049--
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191209193440.GA15189%40ubuntu-m2-xlarge-x86.
