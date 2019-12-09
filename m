@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBMXUXLXQKGQEVI32HBY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBM7WXLXQKGQEA5RJZ3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93c.google.com (mail-ua1-x93c.google.com [IPv6:2607:f8b0:4864:20::93c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2DC5811783A
-	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Dec 2019 22:18:43 +0100 (CET)
-Received: by mail-ua1-x93c.google.com with SMTP id x2sf4124862uaj.21
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Dec 2019 13:18:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1575926322; cv=pass;
+Received: from mail-pg1-x53c.google.com (mail-pg1-x53c.google.com [IPv6:2607:f8b0:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id A88AB117856
+	for <lists+clang-built-linux@lfdr.de>; Mon,  9 Dec 2019 22:23:00 +0100 (CET)
+Received: by mail-pg1-x53c.google.com with SMTP id l13sf9328003pgt.5
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Dec 2019 13:23:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1575926579; cv=pass;
         d=google.com; s=arc-20160816;
-        b=o63kyxwfBGyd1i1K3Tagq2WPPw3KC8LJIay0Kb+/wko8NwHPdTMVl2rb4wm+DYV5fW
-         GicaPfUIrRfg5hPXYoTQxDzBKVw5czc4yQFupcq4UUaWZUwJ0jz8jYtRFZ0/ECSohSUU
-         yimsdTKjVesRsobnNtW9H++f2jW2UiJlJ0c9JoZSZU/HH5pGcZal/H1BhaZWhVWnk+3h
-         zpXzM0K8j8jGsB884fjt6gu1z36v6AbRQemDI5y2GYun5UL+p8yNE4lBtatK/YTft43L
-         lGQ92JKyRKoSv0urt1NelBtc6erXyDpHn+rIB3OwWpR24PbWPTEQIXhWS32rC2VVKttB
-         F1mQ==
+        b=jji61XgweOtcJ4SrtypFdHXLHaXqoybYY8oWi/83avgiTeG6UK/NjKltQVs/QXimri
+         /zWox7XoLRZYyd2SI2Z5UQ7UgGnkJHPtSbynej96XKj7BysBAAUl8lni3aLPPx4W8x3M
+         4CivB4RCfE9DvXtyWwqKFbielNdjD/s9oCIvuVtOB/sde5q1hcZ77YqF/OXWQx64O787
+         OI6Vvl+TuSR1jFcWowTNpdrn5lCtiVyuN0HjkTpGVEC7B1ai3iiPOnr/vRpLl1uFPgCv
+         0sBYxZAk4pEstq6aKHxa7EmPPM8l8dpTb2TuKSSc7MXdZ1q/P8AnUVfYvavuxZKPCmrC
+         Ddzw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=x8+CZoF3titwzZt4ZVs435KjJlU/wDfrh8Zp32eexZw=;
-        b=LsbRCEaAOv56fyMJvSqeV7Z+aqByuOVarMq3sgxXScMv7fyBYgiPE5oz6ft/R98WxN
-         1QDkkbomFTC50KQSVhi6iG80vWztJ58ANggoTLtedHiGnUiGOrb5+3/D2hhZNxDg6cjv
-         9u65mLcaQIdq7/hI/A6ctIWlK0UJCoFr753n2JuhtuaiTUFOYImaSaB4RPaC16yy5Bjk
-         EYbE5q6Ie4hfRn1ZUqS7CvdNNNl3TBhqUx4Q3y9fvvpmT8N9N7Qt9awt61Ut9Y/V4HWp
-         J4J0j4do7kg+sJPPhnfQAFpKfBeyitj1cbbGDMT4bnnUmaPA2t1FLJEUgZKH8nrlrKii
-         u3Kg==
+        bh=UkDQVSEZedT8hxE9+rZE6zIdI+kAw5gEmqvt9klL5Uk=;
+        b=WE9PjZS3ThqS0C1j/lQWYbQE9SrBrK8ouSlFO3zb8B5uuoiqOoL14rV04Hzjq8k+lp
+         2jAE7RNhA1KPCQAnO0+Oz2itEJ7zZwIWxKN32WDE9JsJldSkR+eKNCcjBIX2eR3rKUfx
+         iYp4ZwQfcj5+IsaFmYrurxPqqdkUAPhi747MQz0GaeGM1G3VhYHdMorta09ZhnWbIwNt
+         Th/56g0rtpAQJ+plKwrhyVlAgdTkVgieoiz7qh/bZWIa11UKbmlFExyZhuKKip8nvKHG
+         O/vVJm4pZ0/V4xrkUSPJDB1i8iToY5+Nl8ftMEcgAZdJYnsDeO8/R+XvwkvfUpNH7u7q
+         W9Qw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=uW7KM0kd;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=tIfUwUlu;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=x8+CZoF3titwzZt4ZVs435KjJlU/wDfrh8Zp32eexZw=;
-        b=IcRTZsSU0HbuQwjz+wLqt0T7EAMEDpXy72AUM68veGm+i9EbteEESREfV3ClgkTW0o
-         umvWdWgNiEtR8LTvEhmmxYBveuFqhzJqjryUJTz7MZ4vTi56pZuCvtTHYm0XgczjS+eD
-         u9IC0K4e6cA2XkZUS+FPJrCuvV7eVZPUHxGGjnvmgwLjsksE0aT0aOawc5/RuNFJYRnz
-         lnPY8HLoU3Z/E8X/b+lqdQeujwNVqoZbdM2QP56WUklj56d8bOQyaEgu806rB6K4wwZr
-         Ll3dx3Hic3R1JoikS0W4WlMj2MIEr8U1nFlnWf6X4OjKCXaQ9zpxt6Pc/XDXqh2UXmjO
-         ZRfA==
+        bh=UkDQVSEZedT8hxE9+rZE6zIdI+kAw5gEmqvt9klL5Uk=;
+        b=I+zTGYyOBT8tvnWsu2c34tuEpdNVOVRg5FnQVNQt2Wv3tQ4nN/Wpz838GL7ZMoHGKY
+         /K0TCtINtJHa+xxnatw9BkbsCBThGRGt7mPcjXDKLWSRQgYqAcyxoGIsvwT6uX1epQFK
+         vCu2P0RVS1NjbQiO56k+bnG6l62KHmuaCLQWhi62eWXEDlQQB/+Log+CvQNFb3VD1Vgz
+         +g9uwsgBfJ8qRl4Y0FzCb6gW3iFutfN/ttWxYIakwHrjCKKvaArbADkAD5QRg6MrQbsv
+         SCoXJmDBLhNXGQfHEtGEYOnhGsbuOqPZAhC0I2l5znIpCBc6kt/myDWyKEUhwG44L2+2
+         7w9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,72 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=x8+CZoF3titwzZt4ZVs435KjJlU/wDfrh8Zp32eexZw=;
-        b=k4nwYFqYfoX0DJ3+st7y7GMuGlh8Nh0GqKTSy6aOletUIxHLmPaRD4ZA6jeZLKS0BR
-         E/Qyc1odcHNQ+7kD4f810vepTTq2wjCp+Oq3dTGqNgb0roUgOje5P+6/kogCGgTwKW6V
-         F98xIdvEcczg/8/tXInFN6mDvoLDx8HlljUUsPBlkBH7p6s8H6EjirMaOOpLFW7TMVXe
-         qLs6ScL+iZyBQZB+3zS3jqgzUbCUKrdDFVIC0QnJlSPixApanZSTA3+/oDaFteAenZc+
-         Ttlnb6B1zknmSxwYUED9PeVwnFmDIVI3K6xOLqmBp56u+wf3+a4O0PWHeHuoaLlwQ+7W
-         9Wew==
-X-Gm-Message-State: APjAAAWmENpHbOhV1qRTw5jGCVwnxIOYSNlAy7UzjMgH8iml7dkatA6N
-	LHA3LRRl2a1G9Pk8SMbC0NU=
-X-Google-Smtp-Source: APXvYqz4MvyiROrw+u+oD4YxC6BPW8zO4JOMH8TrTlTuKyiVvf/ew03PRZmdpwDAlQv+iAcirNzmjg==
-X-Received: by 2002:a67:7904:: with SMTP id u4mr22299163vsc.155.1575926322213;
-        Mon, 09 Dec 2019 13:18:42 -0800 (PST)
+        bh=UkDQVSEZedT8hxE9+rZE6zIdI+kAw5gEmqvt9klL5Uk=;
+        b=f33CVMzCTCgdPhfrWcZLwEcQmdmJrd95/S3biQrUmltzmxj6jAdhZ2L8UCvy3UgmKp
+         dqnQloPzebFLq8HYL/P42QFGrgWpwDfolz+cup78t9SK3ju0ImwvBA7Q6x6+O8dTxgzz
+         wIGodhOn3CFKScY/i8n2cN2a3JJvvRTaKTIWpsUWwhA6DD6l4p4VOrObhcQXvlvE8ttH
+         VQivCb9ce5QWuS96+BQuyYR/GZkmxEw1y6hk9mF/Uz64oP8qyJNAAO9YZxyTjNxk2EAq
+         0hAkxWGoYeLHV77EXPBASwdQxUGibbtmvBGedh2BmEOTSwyUbzt6XnnIvPTgRYP63rXf
+         y3nQ==
+X-Gm-Message-State: APjAAAWOspskYaO2+G6OrS1HhMT9MGhdNqn3nsGlRZAEIK3tGXsVdrCv
+	z8psHY+bR2oMRpHTepMASuA=
+X-Google-Smtp-Source: APXvYqwFOydRCAkbMuIfNljbK3/2EPTV4w91wZY8aSjJbTwPtV3EOim/l16pAxuEqeJDtnx7iNWe5g==
+X-Received: by 2002:a17:90a:2351:: with SMTP id f75mr1228792pje.133.1575926579201;
+        Mon, 09 Dec 2019 13:22:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:e991:: with SMTP id b17ls1651253vso.4.gmail; Mon, 09 Dec
- 2019 13:18:41 -0800 (PST)
-X-Received: by 2002:a67:c097:: with SMTP id x23mr23299313vsi.164.1575926321883;
-        Mon, 09 Dec 2019 13:18:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575926321; cv=none;
+Received: by 2002:a62:e701:: with SMTP id s1ls3866412pfh.6.gmail; Mon, 09 Dec
+ 2019 13:22:58 -0800 (PST)
+X-Received: by 2002:a63:2cc9:: with SMTP id s192mr20411300pgs.396.1575926578672;
+        Mon, 09 Dec 2019 13:22:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575926578; cv=none;
         d=google.com; s=arc-20160816;
-        b=D/uP40EMEmQyr1JYsx6Ua8RI3AoJ06sbzK2zTmLdGud+lLHQ5833IRQ19y1lZ9Jvux
-         tAER7qkmuaXgV+aovwA8gcz+LchrtY0pWRhu/xBFCs3DLJ3WBCtep/1+VPru2CCURVb8
-         OCNoy2hTqij9OvQFdqpJYn/U7JfEp+hBWM3lTdzceSrDq8U8hL9ZqBszWBFo4b+iYgI5
-         gK/t4eqUJ5+obgvpkI12GlwrQ2wpsYDPztBD4drTD87kVbLeAiJGb3eMJ0kobqmb8J+S
-         tblZtJn8vygNq0Y//CrblgxE/Wx+aAQZNZS9QfaIipjb+VF0bQbDIII6MMVrFKEBk0JO
-         sp3w==
+        b=G3ylrxWo7cmc/ZsdmJX4W6NzOrn8wUNdcrp2jBP6IpTBQrh9TUeWHUM//ZOeK/RJC3
+         jEwuXAgWECVZqVqxKNw0s27up4iedZzIgyUdeBZSxDhL+101sI7s27J3plKOaSD3lfj3
+         KJXBEDeJ4LT6yVwHlgN3oq+oOGR8cXffS8CZ+OzSPzR0QRj60RF4Cza6vESgUouAqJ1g
+         DyiumdC0A4QTO8g0aGQutCiP24ZigP+MsKnJa3c5yBXfOywPmOfY92rB5pMPH6CrWRX5
+         ZiKlrsnCI5vhvIm3IazpQ4LzM2tIJ+0dr6bqJxp3KKN5CY8DzRZe1ayKU1D/RMb56Wgl
+         Z6TQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=8sHrzINyOkYNGQIQ9XXaLWKRmil7He9/vhOTZUxiLLw=;
-        b=xkwNROKrNnNb8kRURhJdRGtbiCWfnkFPabPZTZnLZh44UL95tzq7rD3yyvL0KzUN7L
-         xAEKuhdqtg9Y+8+9UFXrjgH7AXwdqU/Ct7TNi9pk+DWaCnz7EPAOjc/txGLSbxK7QdtA
-         RR23y/HFSNXN80k3h07OBvatHUyBjv3TxmE4jwe34tFpeKv0HrZJvKpLad9s7koJMuxs
-         eSKPtr6Wp5+wt9SKM1F3NEzPFFvSJThMloMLgZjBsBe65772gGMXOTR3WLAg+HuDYjWj
-         ys9qVWHE5AwZ7G/wJlBCf6iv88lxJ8ilaKwK8J1iLB2c8z1qYrDPE3LJ/boFx10AIbNV
-         ULqA==
+        bh=ZYKN4XMxSrLNdiW1K9zMIVb1AY7QEckrYyQGFO3gO7U=;
+        b=mmp/ZtUUl54TKVdtC3H/I5jk1VUABIEEA2gf2jCXB8oF+DF1lEEdGdInGIVoxjpTxP
+         PCbPXljlLgXAZY3iOzXcyO/5rUjYaz2bb7PY1wTC4BczMA4t5AFJ2b7tIMeiNLe5TOfm
+         1/hhYU31HNxaEzVEbKqBA8z8SMTQcFUYYg7RDmcRtwoIZlz6x1N5wTbNAZcuNsLyoEZI
+         0ps+M2dnnOtposcrTaeNVdnH1m8ByMz6XSxZb3ZLUSBF6x8Mhd/DuH1MMIsByKCv3Y3o
+         d0WxrspqfPL5QgTXTmRcPbjsTiw/8SkoFTCyznDZFKk4rR5u2v1bEROFUBEfTlIt31F6
+         lfxw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=uW7KM0kd;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=tIfUwUlu;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id j9si90950vki.3.2019.12.09.13.18.41
+Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
+        by gmr-mx.google.com with ESMTPS id d14si40005pfo.4.2019.12.09.13.22.58
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Dec 2019 13:18:41 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id s18so7860963pfd.8
-        for <clang-built-linux@googlegroups.com>; Mon, 09 Dec 2019 13:18:41 -0800 (PST)
-X-Received: by 2002:aa7:9151:: with SMTP id 17mr31823690pfi.3.1575926320653;
- Mon, 09 Dec 2019 13:18:40 -0800 (PST)
+        Mon, 09 Dec 2019 13:22:58 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
+Received: by mail-pl1-x643.google.com with SMTP id x13so6314482plr.9
+        for <clang-built-linux@googlegroups.com>; Mon, 09 Dec 2019 13:22:58 -0800 (PST)
+X-Received: by 2002:a17:902:8b86:: with SMTP id ay6mr18228675plb.223.1575926577921;
+ Mon, 09 Dec 2019 13:22:57 -0800 (PST)
 MIME-Version: 1.0
-References: <20191209205010.4115-1-natechancellor@gmail.com> <20191209210328.18866-1-natechancellor@gmail.com>
-In-Reply-To: <20191209210328.18866-1-natechancellor@gmail.com>
+References: <20191209211623.44166-1-natechancellor@gmail.com>
+In-Reply-To: <20191209211623.44166-1-natechancellor@gmail.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 9 Dec 2019 13:18:29 -0800
-Message-ID: <CAKwvOd=GYWaoxQg_xH-gOHfqKeTZ_qaw35ucjFxcjd69AK+pyw@mail.gmail.com>
-Subject: Re: [PATCH v2] mtd: onenand_base: Adjust indentation in onenand_read_ops_nolock
+Date: Mon, 9 Dec 2019 13:22:46 -0800
+Message-ID: <CAKwvOd=UgY8+w9MVjJa-xpZ-08K9zrn79226otp2=TOCFT6MnQ@mail.gmail.com>
+Subject: Re: [PATCH] net: tulip: Adjust indentation in {dmfe,uli526x}_init_module
 To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Kyungmin Park <kyungmin.park@samsung.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Richard Weinberger <richard@nod.at>, linux-mtd@lists.infradead.org, 
-	LKML <linux-kernel@vger.kernel.org>, 
+Cc: "David S. Miller" <davem@davemloft.net>, Network Development <netdev@vger.kernel.org>, 
+	linux-parisc@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
 	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=uW7KM0kd;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
+ header.i=@google.com header.s=20161025 header.b=tIfUwUlu;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -131,171 +130,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Dec 9, 2019 at 1:04 PM Nathan Chancellor
+On Mon, Dec 9, 2019 at 1:16 PM Nathan Chancellor
 <natechancellor@gmail.com> wrote:
 >
 > Clang warns:
 >
-> ../drivers/mtd/nand/onenand/onenand_base.c:1269:3: warning: misleading
+> ../drivers/net/ethernet/dec/tulip/uli526x.c:1812:3: warning: misleading
 > indentation; statement is not part of the previous 'if'
 > [-Wmisleading-indentation]
->         while (!ret) {
+>         switch (mode) {
 >         ^
-> ../drivers/mtd/nand/onenand/onenand_base.c:1266:2: note: previous
+> ../drivers/net/ethernet/dec/tulip/uli526x.c:1809:2: note: previous
 > statement is here
->         if (column + thislen > writesize)
+>         if (cr6set)
 >         ^
 > 1 warning generated.
 >
-> This warning occurs because there is a space before the tab of the while
-> loop. There are spaces at the beginning of a lot of the lines in this
-> block, remove them so that the indentation is consistent with the Linux
+> ../drivers/net/ethernet/dec/tulip/dmfe.c:2217:3: warning: misleading
+> indentation; statement is not part of the previous 'if'
+> [-Wmisleading-indentation]
+>         switch(mode) {
+>         ^
+> ../drivers/net/ethernet/dec/tulip/dmfe.c:2214:2: note: previous
+> statement is here
+>         if (cr6set)
+>         ^
+> 1 warning generated.
+>
+> This warning occurs because there is a space before the tab on these
+> lines. Remove them so that the indentation is consistent with the Linux
 > kernel coding style and clang no longer warns.
 >
-> Fixes: a8de85d55700 ("[MTD] OneNAND: Implement read-while-load")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/794
+> While we are here, adjust the default block in dmfe_init_module to have
+> a proper break between the label and assignment and add a space between
+> the switch and opening parentheses to avoid a checkpatch warning.
+>
+> Fixes: e1c3e5014040 ("[PATCH] initialisation cleanup for ULI526x-net-driver")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/795
 > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+
+/^ \t
+in vim turns up a few more cases that I think should be fixed (in both files)
+
 > ---
+>  drivers/net/ethernet/dec/tulip/dmfe.c    | 7 ++++---
+>  drivers/net/ethernet/dec/tulip/uli526x.c | 4 ++--
+>  2 files changed, 6 insertions(+), 5 deletions(-)
 >
-> v1 -> v2:
+> diff --git a/drivers/net/ethernet/dec/tulip/dmfe.c b/drivers/net/ethernet/dec/tulip/dmfe.c
+> index 0efdbd1a4a6f..32d470d4122a 100644
+> --- a/drivers/net/ethernet/dec/tulip/dmfe.c
+> +++ b/drivers/net/ethernet/dec/tulip/dmfe.c
+> @@ -2214,15 +2214,16 @@ static int __init dmfe_init_module(void)
+>         if (cr6set)
+>                 dmfe_cr6_user_set = cr6set;
 >
-> * Clean up the block before the one that warns, which was added as part
->   of the fixes commit (Nick).
+> -       switch(mode) {
+> -       case DMFE_10MHF:
+> +       switch (mode) {
+> +       case DMFE_10MHF:
+>         case DMFE_100MHF:
+>         case DMFE_10MFD:
+>         case DMFE_100MFD:
+>         case DMFE_1M_HPNA:
+>                 dmfe_media_mode = mode;
+>                 break;
+> -       default:dmfe_media_mode = DMFE_AUTO;
+> +       default:
+> +               dmfe_media_mode = DMFE_AUTO;
+>                 break;
+>         }
 >
->  drivers/mtd/nand/onenand/onenand_base.c | 80 ++++++++++++-------------
->  1 file changed, 40 insertions(+), 40 deletions(-)
+> diff --git a/drivers/net/ethernet/dec/tulip/uli526x.c b/drivers/net/ethernet/dec/tulip/uli526x.c
+> index b1f30b194300..117ffe08800d 100644
+> --- a/drivers/net/ethernet/dec/tulip/uli526x.c
+> +++ b/drivers/net/ethernet/dec/tulip/uli526x.c
+> @@ -1809,8 +1809,8 @@ static int __init uli526x_init_module(void)
+>         if (cr6set)
+>                 uli526x_cr6_user_set = cr6set;
 >
-> diff --git a/drivers/mtd/nand/onenand/onenand_base.c b/drivers/mtd/nand/onenand/onenand_base.c
-> index 77bd32a683e1..13c69eb021a6 100644
-> --- a/drivers/mtd/nand/onenand/onenand_base.c
-> +++ b/drivers/mtd/nand/onenand/onenand_base.c
-> @@ -1248,44 +1248,44 @@ static int onenand_read_ops_nolock(struct mtd_info *mtd, loff_t from,
->
->         stats = mtd->ecc_stats;
->
-> -       /* Read-while-load method */
-> +       /* Read-while-load method */
->
-> -       /* Do first load to bufferRAM */
-> -       if (read < len) {
-> -               if (!onenand_check_bufferram(mtd, from)) {
-> +       /* Do first load to bufferRAM */
-> +       if (read < len) {
-> +               if (!onenand_check_bufferram(mtd, from)) {
->                         this->command(mtd, ONENAND_CMD_READ, from, writesize);
-> -                       ret = this->wait(mtd, FL_READING);
-> -                       onenand_update_bufferram(mtd, from, !ret);
-> +                       ret = this->wait(mtd, FL_READING);
-> +                       onenand_update_bufferram(mtd, from, !ret);
->                         if (mtd_is_eccerr(ret))
->                                 ret = 0;
-> -               }
-> -       }
-> +               }
-> +       }
->
->         thislen = min_t(int, writesize, len - read);
->         column = from & (writesize - 1);
->         if (column + thislen > writesize)
->                 thislen = writesize - column;
->
-> -       while (!ret) {
-> -               /* If there is more to load then start next load */
-> -               from += thislen;
-> -               if (read + thislen < len) {
-> +       while (!ret) {
-> +               /* If there is more to load then start next load */
-> +               from += thislen;
-> +               if (read + thislen < len) {
->                         this->command(mtd, ONENAND_CMD_READ, from, writesize);
-> -                       /*
-> -                        * Chip boundary handling in DDP
-> -                        * Now we issued chip 1 read and pointed chip 1
-> +                       /*
-> +                        * Chip boundary handling in DDP
-> +                        * Now we issued chip 1 read and pointed chip 1
->                          * bufferram so we have to point chip 0 bufferram.
-> -                        */
-> -                       if (ONENAND_IS_DDP(this) &&
-> -                           unlikely(from == (this->chipsize >> 1))) {
-> -                               this->write_word(ONENAND_DDP_CHIP0, this->base + ONENAND_REG_START_ADDRESS2);
-> -                               boundary = 1;
-> -                       } else
-> -                               boundary = 0;
-> -                       ONENAND_SET_PREV_BUFFERRAM(this);
-> -               }
-> -               /* While load is going, read from last bufferRAM */
-> -               this->read_bufferram(mtd, ONENAND_DATARAM, buf, column, thislen);
-> +                        */
-> +                       if (ONENAND_IS_DDP(this) &&
-> +                           unlikely(from == (this->chipsize >> 1))) {
-> +                               this->write_word(ONENAND_DDP_CHIP0, this->base + ONENAND_REG_START_ADDRESS2);
-> +                               boundary = 1;
-> +                       } else
-> +                               boundary = 0;
-> +                       ONENAND_SET_PREV_BUFFERRAM(this);
-> +               }
-> +               /* While load is going, read from last bufferRAM */
-> +               this->read_bufferram(mtd, ONENAND_DATARAM, buf, column, thislen);
->
->                 /* Read oob area if needed */
->                 if (oobbuf) {
-> @@ -1302,23 +1302,23 @@ static int onenand_read_ops_nolock(struct mtd_info *mtd, loff_t from,
->                 }
->
->                 /* See if we are done */
-
-With this applied, I see a missed instance right here ^ (L1304).
-In vim:
-
-
-^ \t
-
-In my .vimrc, I set:
-https://github.com/nickdesaulniers/dotfiles/blob/37359525f5a403b4ed2d3f9d1bbbee2da8ec8115/.vimrc#L35-L41
-to make tabs glaringly visible.
-
-> -               read += thislen;
-> -               if (read == len)
-> -                       break;
-> -               /* Set up for next read from bufferRAM */
-> -               if (unlikely(boundary))
-> -                       this->write_word(ONENAND_DDP_CHIP1, this->base + ONENAND_REG_START_ADDRESS2);
-> -               ONENAND_SET_NEXT_BUFFERRAM(this);
-> -               buf += thislen;
-> +               read += thislen;
-> +               if (read == len)
-> +                       break;
-> +               /* Set up for next read from bufferRAM */
-> +               if (unlikely(boundary))
-> +                       this->write_word(ONENAND_DDP_CHIP1, this->base + ONENAND_REG_START_ADDRESS2);
-> +               ONENAND_SET_NEXT_BUFFERRAM(this);
-> +               buf += thislen;
->                 thislen = min_t(int, writesize, len - read);
-> -               column = 0;
-> -               cond_resched();
-> -               /* Now wait for load */
-> -               ret = this->wait(mtd, FL_READING);
-> -               onenand_update_bufferram(mtd, from, !ret);
-> +               column = 0;
-> +               cond_resched();
-> +               /* Now wait for load */
-> +               ret = this->wait(mtd, FL_READING);
-> +               onenand_update_bufferram(mtd, from, !ret);
->                 if (mtd_is_eccerr(ret))
->                         ret = 0;
-> -       }
-> +       }
->
->         /*
->          * Return success, if no ECC failures, else -EBADMSG
+> -       switch (mode) {
+> -       case ULI526X_10MHF:
+> +       switch (mode) {
+> +       case ULI526X_10MHF:
+>         case ULI526X_100MHF:
+>         case ULI526X_10MFD:
+>         case ULI526X_100MFD:
 > --
 > 2.24.0
 >
 > --
 > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191209210328.18866-1-natechancellor%40gmail.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191209211623.44166-1-natechancellor%40gmail.com.
 
 
 
@@ -306,4 +233,4 @@ Thanks,
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DGYWaoxQg_xH-gOHfqKeTZ_qaw35ucjFxcjd69AK%2Bpyw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DUgY8%2Bw9MVjJa-xpZ-08K9zrn79226otp2%3DTOCFT6MnQ%40mail.gmail.com.
