@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBBMVYDXQKGQE2LZRCZA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBEUVYDXQKGQESVKDTKQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf37.google.com (mail-qv1-xf37.google.com [IPv6:2607:f8b0:4864:20::f37])
-	by mail.lfdr.de (Postfix) with ESMTPS id 64675119393
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 22:13:42 +0100 (CET)
-Received: by mail-qv1-xf37.google.com with SMTP id g15sf7708669qvk.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 13:13:42 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576012421; cv=pass;
+Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
+	by mail.lfdr.de (Postfix) with ESMTPS id CFE8E119398
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 22:13:55 +0100 (CET)
+Received: by mail-io1-xd40.google.com with SMTP id e15sf14249902ioh.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 13:13:55 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576012434; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yq8k1+K3BIczm6ZcRr+SsTksdcivJwIlFsAV5wvZz1cIQNoPmRPBVotQFTmBuT39d1
-         Agy7RizVsgJ0gnwUj9DfigXFBR1jt9VYX3WC+z82AWtZGne1JwJJMETgLG5VpOs3xBC1
-         i7BfmHRF3QglkDCpuB+hyZEZOjYp4wDK9nskQOacHzQ0QmoXhRdZ07fH8xGFKHf+aIWo
-         Vt5heATrcjj58Ov//TCR67wlcLUYHJ04W2MkLUnR6Z4uXfkERoNtFEgXBUK+Fu7p88Z5
-         DDnbK7TfU3JQB6gXgq5kO1mKXj7Oj39ozZaJhnk4XkkgQIEu/CaWLlHAk6DmvJE/sscD
-         sgvQ==
+        b=EAr3eZf9wV04CLL6jeUAdUfurljALFeQhGVm4JL7SyuLl+fHF2sCQlsLleNTQ9zY8M
+         OrY9xmeQYElIQLVXonhdpzL1T+zm5U8bOlxefLAtmhi4XqvAdPJCN4sB6DvZoTWDtHl0
+         obY9j6cS1mmBe/D9qa5BgFdDmcyxXHHxXxqc8p4RhT/UbEZCQK4JI/JeQ8VZbH9LuZgv
+         opkWNDa24OfIE1bR7LAg4Dab9cp0oYXZn5UdEVKpU4Hviog7ciehuOmm8B25Tflx0C3x
+         wvvTUaLqeF4HUpm3hXAM+kUIfICRNmK/SiAXeAX3yWYRtYhsuTGbGtPzFcbPFXlJSR07
+         KuAQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=D7IIHAYDjWwaii76lZJ6gWYPjgUj/9Dz8CA1E/mOFCA=;
-        b=WQDOVrSxL6PZOqkIOBmtJLnFkvi5QyJ32e+DPr9KmPAi3+1I7jNpBb+TFBi4q7xfU2
-         /M8HFk/8zJcsn8JZ4ccv+jrcgeXWwMmaDjIJ1XqVg5PjzG4W7FBQM70L4hZbV205yTIn
-         /zYsZMKTnG0sRjUsvKn/oit0RFZPWQ/IFcHd3g21ReI+aBrV+kHfGteDisRz2Sxi3GYK
-         rBS+nVcCiPDLIEpyb0AjaUYeXnzgNyGOOG89VnYWiOtCK6ZpsJZ1jlYMuaUtPLrc39IZ
-         HEHOITdYME0/D2VgWVHYeS95+NvAz7evOYa5dBb7gIb+Cci7pfDc2+DZrBhM7XAJERfu
-         6fGg==
+        bh=H43ft46Y7PPeSrKE9dgqdZ3ECsDDhk01CyRoxVHAWqk=;
+        b=Q/ahmBfKJuFW2zhPfdIcKUfNZ+d/ev8bGsN0A2pm7Vaueik9r7gB9skvtLVWwdm1zZ
+         nFMkIkIWWNe/TWmqbArNDFZ4gUUSBxAIPB0uzBTwrWmojqUnUU3WoiqQwhmYeXDmuT4w
+         lSq2W5FgbSaPbp03uBu4zJbvWa2ndyLWA3e/XgBhrLEocbD8oTu9Uy6XSD1buPA1xWGT
+         /Z2WE7Yzwf0pGaVKtOEgDCyPTMWoPDELE10lcN4Mj0Ta200L8fkdswWkvhy5Dsp3dIs+
+         Sodl0MsbhjlcSUJ+L7gjsZHuJoFlPTWtqfzJJ7SLwCcx1bkDxoHBN1eiO7DJppv0nIA/
+         wLVg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=atDT7Oq6;
+       dkim=pass header.i=@kernel.org header.s=default header.b=npsbdZeJ;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=D7IIHAYDjWwaii76lZJ6gWYPjgUj/9Dz8CA1E/mOFCA=;
-        b=op/+/bL7//RvHWr9T0OlfaSEKCOXcQLm2YgccuGYy2/JHcnuBnwIT0ygHIt8f369sS
-         yEJE8C94QGQn08Rl+F6JFBi/cBxNr3JnZObuGJtLHbT8VYjiwl4aARw3s0+oiw/I5G3x
-         sI6Vya3h4JzdejsJ9ptkJL20E3ybdI8/lWmMmadgkug7EbmAo4V9TBwMAj+0AsEgRdt6
-         8I5VJwVuawXExvQCTnzxVHXXoRsTBSsAgpWslSb1tlCxxQRkXEZcZWG4AzQX8aetf4Xt
-         QPMuoQcS0ViU9taFVsYMD9WaBLVDlr4+l40H/L1dq+umnvnuSiN4MPwPxMn3Iu69g5Fc
-         /Jbg==
+        bh=H43ft46Y7PPeSrKE9dgqdZ3ECsDDhk01CyRoxVHAWqk=;
+        b=qtojfYsFpWrD46lmkl4x+t9V/7a1fMt6+LOJVCj/745ZSNnmLCqE6OC119RPAjvASy
+         FjL0wNtlbQvfmr40/z6giJPHN5tsze/GSgBM1lYK2a3jlWBtz2ja2T5KFF6R1+y79c7T
+         V3a0U9jMdyIRZ4V6Be71iCXBh4zE+uWeiIlt7+yFSvhxmbmFt7osvdkFqbP144huljOl
+         BbPxZbO7asKfDc0Ngn8f4AzXvUsNli14aVg832FP749qem9LWT8odVE5HOBNxTNYLOn3
+         CAxDb9rkhu7ww9nTQtSeDTP1BuwzSGs02+VnyxWuXajWRhr8l2Na1W2xU6+SbHQcxn1y
+         PUmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,75 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=D7IIHAYDjWwaii76lZJ6gWYPjgUj/9Dz8CA1E/mOFCA=;
-        b=elcz8IgVK4Vim/wwHYxwET1NXS2Ak1/2sRBcA40EOKHYLZ50NGD3gBopXAxlQeR4UJ
-         kPicO+gdCZOp5cJ2ipId2e5QgFmtGfW8mO42YOLql7DmIq4qDL0xMtTwkXQWbfheKes6
-         8IjkI7J59m9hYoawD+Dhc+Hi5XwM9PQIvNB++kpwlM0t40fmAlWPmU2RAwEXl1hF8zDo
-         lQ+VqtBp2t48/QbX2i7KLwA//8+NYXFSAkJKffMowd/s+hc4feLbC7QQHonlwd+QIFIT
-         cDblDtbevWwvu8gsSawl/aey6FCcxCbqW0b8/+tatFik7X9WpLJuYzlgkhk9WtzVGfha
-         3IbA==
+        bh=H43ft46Y7PPeSrKE9dgqdZ3ECsDDhk01CyRoxVHAWqk=;
+        b=NX4EoPgE1YqLzdItImntXnsL8OMjRTEWcB1xP2Nlqvb+9jwxtxTeRK1/w8CgKXZIVa
+         feM0+scgb4+MjOXMz4LO09ySFwpkEm1pRSrXK5QKYH9tK8PEcr0fto1tOQZGTZukt122
+         j/5QS0ikj+vqmm0jeoReF6fKoBwnA1poG6MkvXxFrM4Zzx/J/WWP3A0rfXrZGqhmyluR
+         kqiG+0jqrj1opBLw8C4c6KBwkTDHA1W782nsTJsKiTf3iZlUSA4MC0otDbT2CdON4PE5
+         rQ84x8y+nkWzZujG1/YCjKnfp2IDmEkKWIoIi4Pf/331fyVFpKm9FTun+Ar5jGsIgs5v
+         fJaw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXBejjTrsl7ATHobITFlo0xk0TpZf9yGbi2jJWZA2azJjVfdidR
-	0trH/eh7Pi8czmZEIub5Ea4=
-X-Google-Smtp-Source: APXvYqws4m3j8ftBOBeQsq6ntuWT3rX8lDj48jfwHG8mIVJjQpjGZuD5TOGhkGvRH4N3+20m7BKyzQ==
-X-Received: by 2002:a37:4dc1:: with SMTP id a184mr12842317qkb.62.1576012421373;
-        Tue, 10 Dec 2019 13:13:41 -0800 (PST)
+X-Gm-Message-State: APjAAAXpjfkOMYtkaHbEs6zVxml4sjxWbNiZYjtSAUEe7kxkXR966djQ
+	F9Wb2JW2CYYmXSLRmjL/evA=
+X-Google-Smtp-Source: APXvYqxLawGQXXy09KayCTRHks/I1Lknsn0L3R2ay7XEFrXgDUk0ZfecFe9zu8ufXfHk6a/3e8CwSg==
+X-Received: by 2002:a02:cdcb:: with SMTP id m11mr35055210jap.125.1576012434698;
+        Tue, 10 Dec 2019 13:13:54 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:2ba4:: with SMTP id e33ls4953qtd.2.gmail; Tue, 10 Dec
- 2019 13:13:41 -0800 (PST)
-X-Received: by 2002:ac8:387b:: with SMTP id r56mr11663971qtb.364.1576012421025;
-        Tue, 10 Dec 2019 13:13:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576012421; cv=none;
+Received: by 2002:a92:5a92:: with SMTP id b18ls1036714ilg.15.gmail; Tue, 10
+ Dec 2019 13:13:54 -0800 (PST)
+X-Received: by 2002:a92:af08:: with SMTP id n8mr34699538ili.217.1576012434350;
+        Tue, 10 Dec 2019 13:13:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576012434; cv=none;
         d=google.com; s=arc-20160816;
-        b=t8hjBJuCpDsjreY83ftc6rtL0PORrEWUiE769ZPqs8xnCe8j82vo9cCkEJngalys2u
-         aSzInQl+D1gNS8v/0miIjH+npODJxB0eGZAFu9u+BgED2w1lL/KuN13Mvb4WBEflkqiH
-         9iXqVna4JTCEEAF+WeFtvjitqB6ssweaDuK70YTtbWvn1lfJdebv19Z+iEaQ4tTA1G15
-         S46rQAL3j7fOAZOk3+foyUQYABUzF14ixzbpP8v+bf1nK3NrfU1qfcCF06ZXLACb8GHF
-         xYAvY/iY91UhzjaU0miQ1Oi6R9FgXw2Q9V4jhtMEtNylkMC9sBjk4HxBhBBDG+pPtlFy
-         4SGA==
+        b=UAbbKDzoTc3lq7yM95n8DfsN8wjwf3JYZGolcYuils/4xOBult9yP6BXfqXwf01Sdx
+         ZDNRyah8geE5ybU89yL37INVA3D7Npt3u3czMnfd+fB03uG5iauLEErbXh8R84ZUpMYC
+         hA5jM2YDJxtFOGKbOEqC80aedoV9M7mpdsCWepkU1LvvFtkc+Zicvy+4YFrVdW6cWtDp
+         2I8iD1VMSZK1yZvuS75MqaUyrDz/OIlrPkLoXDNcmpkua+tmx1gu8uM6VRe5VuXN3NrI
+         QwUz+jddUenpOtyDPntGGv1gghREZw9mICBlnAp0ct0rCnQDPLhMos21WRO0wvWJi73B
+         yv4Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Ge+Rz0f9u4wsXLsoxEnN9I9riBoHwCnZcaAJ6dvlc6g=;
-        b=O4l3bdXuPV57dHwuHZIXttG5TkGDTlgJh95McJHaqFA0pdjVdHqDq3khbyRg1LgSyH
-         WqNcoTdjwuUjKOuUXIbXOBgEn2LJVhvEOYg0vFE2P1p5RmA3UqhK08sQ5g/5swTZEhkv
-         lILvluwKBxfK6cDDavA9fza0aD/CQN0nELMDxfrOa/jZC5LjZTcKY3TKNBYjciMqfG8l
-         x1BySioMSKtFoiPIUQ/deglfTL44gX8UuI2idvpTsA3QivcZ0XVCG49iNCi18/xJh7U7
-         fV3z+mmr2eqEbFl6BQTi9RG56cjeUxYyQB/9IWtDzXydKcivaTP7yV5RjnGHQHjbD/WV
-         eEjQ==
+        bh=v/hAbNz3/LUIUAxgP8bIdEL7aLYNLebN7YJSy+E5a9A=;
+        b=yYl6R6HCueFzxNDhGBq5b4Wqw9bDn/p2liUIdN0ECwrLGNVxqRMfzR2F7c1M2FDu6H
+         wmhIQWEFyWvLHmJe6zstdOa7Xe0Urm/3+zoSVDy5dCQvPNzoeeauzHxffiE4dvU2Ar51
+         kJY47lpAyxyeHTIqG66LtrpqLa8wANFMdg/FnCR33NkirSToNOPgs25I240I78NQ8CrK
+         jvwvPiENt/ayeJjfzJc2+sQ9PmL8GmuhPKKsxrGrXXTuNZZYXnrSi2XQ9yBch5yLvE6q
+         co5KqchL0uJnDbDxthyGGuSctMdJoCaHQpvzzax+aSg4J2ErcQuNmrs7QHdBLl+/v91D
+         ng/w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=atDT7Oq6;
+       dkim=pass header.i=@kernel.org header.s=default header.b=npsbdZeJ;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w10si143298qtn.1.2019.12.10.13.13.40
+        by gmr-mx.google.com with ESMTPS id h4si311071ilf.3.2019.12.10.13.13.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Dec 2019 13:13:41 -0800 (PST)
+        Tue, 10 Dec 2019 13:13:54 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id CEF97214D8;
-	Tue, 10 Dec 2019 21:13:38 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id D4E6E214D8;
+	Tue, 10 Dec 2019 21:13:52 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ian Rogers <irogers@google.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	Jin Yao <yao.jin@linux.intel.com>,
-	Jiri Olsa <jolsa@redhat.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Stephane Eranian <eranian@google.com>,
-	clang-built-linux@googlegroups.com,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH AUTOSEL 5.4 335/350] perf parse: Fix potential memory leak when handling tracepoint errors
-Date: Tue, 10 Dec 2019 16:07:20 -0500
-Message-Id: <20191210210735.9077-296-sashal@kernel.org>
+Cc: Yonghong Song <yhs@fb.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.4 346/350] bpf: Provide better register bounds after jmp32 instructions
+Date: Tue, 10 Dec 2019 16:07:31 -0500
+Message-Id: <20191210210735.9077-307-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191210210735.9077-1-sashal@kernel.org>
 References: <20191210210735.9077-1-sashal@kernel.org>
@@ -126,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=atDT7Oq6;       spf=pass
+ header.i=@kernel.org header.s=default header.b=npsbdZeJ;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -143,87 +137,136 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Ian Rogers <irogers@google.com>
+From: Yonghong Song <yhs@fb.com>
 
-[ Upstream commit 4584f084aa9d8033d5911935837dbee7b082d0e9 ]
+[ Upstream commit 581738a681b6faae5725c2555439189ca81c0f1f ]
 
-An error may be in place when tracepoint_error is called, use
-parse_events__handle_error to avoid a memory leak and to capture the
-first and last error. Error detected by LLVM's libFuzzer using the
-following event:
+With latest llvm (trunk https://github.com/llvm/llvm-project),
+test_progs, which has +alu32 enabled, failed for strobemeta.o.
+The verifier output looks like below with edit to replace large
+decimal numbers with hex ones.
+ 193: (85) call bpf_probe_read_user_str#114
+   R0=inv(id=0)
+ 194: (26) if w0 > 0x1 goto pc+4
+   R0_w=inv(id=0,umax_value=0xffffffff00000001)
+ 195: (6b) *(u16 *)(r7 +80) = r0
+ 196: (bc) w6 = w0
+   R6_w=inv(id=0,umax_value=0xffffffff,var_off=(0x0; 0xffffffff))
+ 197: (67) r6 <<= 32
+   R6_w=inv(id=0,smax_value=0x7fffffff00000000,umax_value=0xffffffff00000000,
+            var_off=(0x0; 0xffffffff00000000))
+ 198: (77) r6 >>= 32
+   R6=inv(id=0,umax_value=0xffffffff,var_off=(0x0; 0xffffffff))
+ ...
+ 201: (79) r8 = *(u64 *)(r10 -416)
+   R8_w=map_value(id=0,off=40,ks=4,vs=13872,imm=0)
+ 202: (0f) r8 += r6
+   R8_w=map_value(id=0,off=40,ks=4,vs=13872,umax_value=0xffffffff,var_off=(0x0; 0xffffffff))
+ 203: (07) r8 += 9696
+   R8_w=map_value(id=0,off=9736,ks=4,vs=13872,umax_value=0xffffffff,var_off=(0x0; 0xffffffff))
+ ...
+ 255: (bf) r1 = r8
+   R1_w=map_value(id=0,off=9736,ks=4,vs=13872,umax_value=0xffffffff,var_off=(0x0; 0xffffffff))
+ ...
+ 257: (85) call bpf_probe_read_user_str#114
+ R1 unbounded memory access, make sure to bounds check any array access into a map
 
-$ perf stat -e 'msr/event/,f:e'
-event syntax error: 'msr/event/,f:e'
-                     \___ can't access trace events
+The value range for register r6 at insn 198 should be really just 0/1.
+The umax_value=0xffffffff caused later verification failure.
 
-Error:  No permissions to read /sys/kernel/debug/tracing/events/f/e
-Hint:   Try 'sudo mount -o remount,mode=755 /sys/kernel/debug/tracing/'
+After jmp instructions, the current verifier already tried to use just
+obtained information to get better register range. The current mechanism is
+for 64bit register only. This patch implemented to tighten the range
+for 32bit sub-registers after jmp32 instructions.
+With the patch, we have the below range ranges for the
+above code sequence:
+ 193: (85) call bpf_probe_read_user_str#114
+   R0=inv(id=0)
+ 194: (26) if w0 > 0x1 goto pc+4
+   R0_w=inv(id=0,smax_value=0x7fffffff00000001,umax_value=0xffffffff00000001,
+            var_off=(0x0; 0xffffffff00000001))
+ 195: (6b) *(u16 *)(r7 +80) = r0
+ 196: (bc) w6 = w0
+   R6_w=inv(id=0,umax_value=0xffffffff,var_off=(0x0; 0x1))
+ 197: (67) r6 <<= 32
+   R6_w=inv(id=0,umax_value=0x100000000,var_off=(0x0; 0x100000000))
+ 198: (77) r6 >>= 32
+   R6=inv(id=0,umax_value=1,var_off=(0x0; 0x1))
+ ...
+ 201: (79) r8 = *(u64 *)(r10 -416)
+   R8_w=map_value(id=0,off=40,ks=4,vs=13872,imm=0)
+ 202: (0f) r8 += r6
+   R8_w=map_value(id=0,off=40,ks=4,vs=13872,umax_value=1,var_off=(0x0; 0x1))
+ 203: (07) r8 += 9696
+   R8_w=map_value(id=0,off=9736,ks=4,vs=13872,umax_value=1,var_off=(0x0; 0x1))
+ ...
+ 255: (bf) r1 = r8
+   R1_w=map_value(id=0,off=9736,ks=4,vs=13872,umax_value=1,var_off=(0x0; 0x1))
+ ...
+ 257: (85) call bpf_probe_read_user_str#114
+ ...
 
-Initial error:
-event syntax error: 'msr/event/,f:e'
-                                \___ no value assigned for term
-Run 'perf list' for a list of valid events
+At insn 194, the register R0 has better var_off.mask and smax_value.
+Especially, the var_off.mask ensures later lshift and rshift
+maintains proper value range.
 
- Usage: perf stat [<options>] [<command>]
-
-    -e, --event <event>   event selector. use 'perf list' to list available events
-
-Signed-off-by: Ian Rogers <irogers@google.com>
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Andi Kleen <ak@linux.intel.com>
-Cc: Jin Yao <yao.jin@linux.intel.com>
-Cc: Jiri Olsa <jolsa@redhat.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Stephane Eranian <eranian@google.com>
-Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20191120180925.21787-1-irogers@google.com
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Suggested-by: Alexei Starovoitov <ast@kernel.org>
+Signed-off-by: Yonghong Song <yhs@fb.com>
+Signed-off-by: Alexei Starovoitov <ast@kernel.org>
+Link: https://lore.kernel.org/bpf/20191121170650.449030-1-yhs@fb.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/perf/util/parse-events.c | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ kernel/bpf/verifier.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 422ad1888e74f..9a958ec5a096d 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -480,6 +480,7 @@ int parse_events_add_cache(struct list_head *list, int *idx,
- static void tracepoint_error(struct parse_events_error *e, int err,
- 			     const char *sys, const char *name)
- {
-+	const char *str;
- 	char help[BUFSIZ];
- 
- 	if (!e)
-@@ -493,18 +494,18 @@ static void tracepoint_error(struct parse_events_error *e, int err,
- 
- 	switch (err) {
- 	case EACCES:
--		e->str = strdup("can't access trace events");
-+		str = "can't access trace events";
- 		break;
- 	case ENOENT:
--		e->str = strdup("unknown tracepoint");
-+		str = "unknown tracepoint";
- 		break;
- 	default:
--		e->str = strdup("failed to add tracepoint");
-+		str = "failed to add tracepoint";
- 		break;
- 	}
- 
- 	tracing_path__strerror_open_tp(err, help, sizeof(help), sys, name);
--	e->help = strdup(help);
-+	parse_events__handle_error(e, 0, strdup(str), strdup(help));
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 87181cd5bafd7..df033c5877cbe 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -978,6 +978,17 @@ static void __reg_bound_offset(struct bpf_reg_state *reg)
+ 						 reg->umax_value));
  }
  
- static int add_tracepoint(struct list_head *list, int *idx,
++static void __reg_bound_offset32(struct bpf_reg_state *reg)
++{
++	u64 mask = 0xffffFFFF;
++	struct tnum range = tnum_range(reg->umin_value & mask,
++				       reg->umax_value & mask);
++	struct tnum lo32 = tnum_cast(reg->var_off, 4);
++	struct tnum hi32 = tnum_lshift(tnum_rshift(reg->var_off, 32), 32);
++
++	reg->var_off = tnum_or(hi32, tnum_intersect(lo32, range));
++}
++
+ /* Reset the min/max bounds of a register */
+ static void __mark_reg_unbounded(struct bpf_reg_state *reg)
+ {
+@@ -5433,6 +5444,10 @@ static void reg_set_min_max(struct bpf_reg_state *true_reg,
+ 	/* We might have learned some bits from the bounds. */
+ 	__reg_bound_offset(false_reg);
+ 	__reg_bound_offset(true_reg);
++	if (is_jmp32) {
++		__reg_bound_offset32(false_reg);
++		__reg_bound_offset32(true_reg);
++	}
+ 	/* Intersecting with the old var_off might have improved our bounds
+ 	 * slightly.  e.g. if umax was 0x7f...f and var_off was (0; 0xf...fc),
+ 	 * then new var_off is (0; 0x7f...fc) which improves our umax.
+@@ -5542,6 +5557,10 @@ static void reg_set_min_max_inv(struct bpf_reg_state *true_reg,
+ 	/* We might have learned some bits from the bounds. */
+ 	__reg_bound_offset(false_reg);
+ 	__reg_bound_offset(true_reg);
++	if (is_jmp32) {
++		__reg_bound_offset32(false_reg);
++		__reg_bound_offset32(true_reg);
++	}
+ 	/* Intersecting with the old var_off might have improved our bounds
+ 	 * slightly.  e.g. if umax was 0x7f...f and var_off was (0; 0xf...fc),
+ 	 * then new var_off is (0; 0x7f...fc) which improves our umax.
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191210210735.9077-296-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191210210735.9077-307-sashal%40kernel.org.
