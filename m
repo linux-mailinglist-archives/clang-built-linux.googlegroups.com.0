@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBPF2YDXQKGQEXMEK2VQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB752YDXQKGQEKA5KFBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 846DD119CC5
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 23:33:33 +0100 (CET)
-Received: by mail-yb1-xb3b.google.com with SMTP id d131sf15274029ybb.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 14:33:33 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576017212; cv=pass;
+Received: from mail-pg1-x540.google.com (mail-pg1-x540.google.com [IPv6:2607:f8b0:4864:20::540])
+	by mail.lfdr.de (Postfix) with ESMTPS id 79CD1119CCE
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 23:34:41 +0100 (CET)
+Received: by mail-pg1-x540.google.com with SMTP id r2sf11465669pgl.4
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 14:34:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576017280; cv=pass;
         d=google.com; s=arc-20160816;
-        b=E1ROELWWZxJLdUoFsQ/8Rj0XKXbHh8HZ51KpemqyEKRZNNDsCGfoXGNGqgelFBtbK0
-         oTkOvXZd5J0KAD1f/k0CUFPq0lkuNiJ9FArWEhccwrcjVpTKMjO/Nbj/7W9ywWMqx8sT
-         pQ/GXK7/qQ3YXWCpiGem3MKR93Q+UrB4yfzVnD6+2UD9fJRTj9F9TwX3lXvqLw+JRJwF
-         VMbjKZQ99qUqA9H7WwAKMZg/KkAg05cSfq3TVwReADjRxe5MBQcj/zcj25gU9KoiZSSc
-         j/TmJSbjhxQrMACVVhvLQpL0xAr7X8iPLCx64q/Xde0AXNuxtcFa3r8SrYFLFqpbdBZX
-         nb4A==
+        b=EKFcMbddg5RIQQ932E7IVo/yOQqD7jE53KcNShuv202Yv6HGFfazkLHU6ypPg6b7O7
+         wiK9uhas6un2pHdt1e1SsWiA1o6VtLHc7p+JA8iKN7EtR2kPxuqOzSGe7fNE70+LFfZc
+         YUpb15/VHRluJlB2c+JzHT9pJQjj2eVC3OnLjXKgUtbQTdfTy8/6VNlAsU9Iw1BetJhg
+         MaR0QWXUw0LJiMFFWjaI8p82syi3q+6UJTi//wi5UrfM9iJq1NTu7V6ciyAZRksFm93H
+         1WKw38iSvY0iOp2HqZyTWjmvxJ7F8+HjIcp47ErmBbeQeHTD12gjmzBcgJYc8KutAU9H
+         ck/w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=HmkghWBKdVczBpwi00NP77O7Yrdh8aCc5uebb1FfMGI=;
-        b=kJucYsYz5HrMWYz2B2dOwRZAPL7ulbGMrE63KWEiEJgjacoWtKUOjZYb2DejiTnrsp
-         CAv27UqgdiNsXdxyAXl2bSRccBtUMR+Ef7XJ0fiVa2MU71B3iXNTTsbonJ1+XmUrCV/h
-         ViAc9fpZI8dwFXLZGzEUB/8yEtgBYRxDHyrlQty+mmzimG2RDToRAfPAj0xd1vJ8ZOeB
-         RBpXWQvyR+19FWUsypBKFuju/vilt4ZMWQTzXCLZoG0Jr8AJAP1bJ+CndcfSdqu2SF+h
-         TY+XX5zm4e/N2iQGFUrvS/Sv5Ni+v6FEfSA94TVtfhz+RDsQ9HmYBKNU6O4A3qJ3J15j
-         TyWQ==
+        bh=kFk7z+m1frY5HWYFuCe2KXFr02yH+K79a0w8G33WQHc=;
+        b=YxhmfjBtAvEIubeSAXptphtRFsIqGwTq9b4UNV3U7wSO1bNPoqt4U7D125BIiN3VSQ
+         oC7MYNbqgF80+2KTy2CqENWXxpU43HBvjyZCQqR+JUQAMAylv5FB4VO5aygKk3tcauBk
+         IgTzDPuppkfdP9VP8TcvaLKFdRrmhAa59GIJlbpfS8cXpiVnJfBiDYZnPeNrbfldwgWd
+         67e4dIt7YzHD1YeulMF8Yh8gfQa7AU6wUch4ct0KoF5acXKlYuAK+6jmobyAo7tNiY3W
+         PEc+Y7SkNjEfjsILrAs4Ra1Cx4GlAEJ/Lb3cA6opy/UrvxmwYUyMkx40o/9KavDsN4hX
+         T9hA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="AjGZeC/4";
+       dkim=pass header.i=@kernel.org header.s=default header.b=1nfTAUtC;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HmkghWBKdVczBpwi00NP77O7Yrdh8aCc5uebb1FfMGI=;
-        b=B0aEBDJOGF8f/coS2FBTNnBcz5CRzrBTiIsCFczknoMslgoVeQaQafG/5GJbTykynv
-         pojnFLjc5PnPAnvTCqHMjSr3VdSGGvIVLwHKwfdrjNmokooOiMhVn/vkCoHYXIwQQpbJ
-         VEqAZMbimMoXaH5lNJw+M7PCv69YMIH3z47gIUwqJPa5RuzbQ+WpqqsaROnjp7Wz9AEs
-         DgVerjM9RWIzRhKDpgvIQtT3zNSF63Kx/lRWqvg4lnxZ4XrtgPk0Ai+9JP/ia0bseGSs
-         zy31nceCc+QH63hHBzhWj7Pp+b7WKrorW68hHhybGBy2b7CpfUBlZQzwusjnIHWVQ+lD
-         WT8g==
+        bh=kFk7z+m1frY5HWYFuCe2KXFr02yH+K79a0w8G33WQHc=;
+        b=BUY64H/I6N40f+8WF8XGG68p7bC4QtXgaxeBn/vlOErNGKXcDiwT/bERUp65NRVqFG
+         6RK4R0ui3AvjrUsyCliYsTYVdHvjN0H418T2ywTYflXMK6iqtnRWLLrZEgCIueiFflJz
+         GZnHTAA9i7m1Hwu7hygWZvkTc9Kv9YI6nDnSo1J4LY4mtMCAO0BHB2zdxaSaYfRbUZM4
+         Q9mEL7Kx6+Ztl2NgCZho4Z8wNokMTW2coqwyQyDvWjFjdLYfOhKTrC9Dbtk+K9PrYwcG
+         8erWggwcEhekqxK81fEJhXWlOS4+CKNPRYPPBK2eAiOkyuEURVNPF5uAAduZ3eSMtOp5
+         6KCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,75 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=HmkghWBKdVczBpwi00NP77O7Yrdh8aCc5uebb1FfMGI=;
-        b=KG/oDJ0OUeE+UiFBsUHnNteUGjh+0rWommkSl6Pv3CjhHuYvw7OJrUH9WtjUVT4fqX
-         S6syZzZFcl1YrwFHngDPtcAKUTu7FxNcCiDHYQ35W7JS1yzk7VBJqFzwlY0ouv2Pdqjb
-         9MQkA++7y+s66250Y7Ktx46rfQb9Nn1ukeUHkcuEYDgXhH027ZoV573O9Zk4QdM5VZN+
-         O1Rc7z3MzmcqymtW3CS26GBsvKYPthjl6x+M5pF7CQ1LBdKzHB3dh6yW9CZIujFmORvU
-         egf4bb/SSEyrmKmCP7dkRw3whDiPWfVHTKdZRPFJ3N/HcmvciXAdG8Y4s6Ilmc+WM+Xk
-         KcXw==
+        bh=kFk7z+m1frY5HWYFuCe2KXFr02yH+K79a0w8G33WQHc=;
+        b=Z/wRdIniOhgxdNcY3y7wZe7KEsWN4cu2u+pAdzJDCptK9xDVbwc0DKExExFMYHbP5a
+         r5/JUMVDidga5xclq9cY8mxBE+hGlPpkTlHf+VSL3shCiIpDVFz5H2X+CObmu+uhgpe6
+         mGThn3SrYN8/DW0rGymMbJoP+cCBIIywiqkE0/YdR3Kvuv2qZQ8WqtXem9lwpfEr1aLs
+         r6ykqVVcWBQPm9FhQIKRW5aLJQHQYK3d/PPZtKgRiv1B7verFqBIsZExACOShRTZe+94
+         C0ntwCu/2SPCaT6b9lbpUR8yOVa35eSxndLocP41Da9hC76WIJS7RHb2Vc3Vr8zzedxt
+         4qcw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWRayH1Klm7d2zrBcgClXoxUz71N/ilutYCRMlnfelhdG2MWxiZ
-	aT0sG3vZsvMWZcr7cqQEcY4=
-X-Google-Smtp-Source: APXvYqzcW0+I+abLxtg86Bo5N2GNTIHm+KrmYrZrtpXlD+BmzSPtX6S1uoPD990qum377dAlQSMGfg==
-X-Received: by 2002:a0d:c303:: with SMTP id f3mr26678880ywd.364.1576017212510;
-        Tue, 10 Dec 2019 14:33:32 -0800 (PST)
+X-Gm-Message-State: APjAAAWA5uMH/HexvSG5AOgKuN6Wr8HtziZaqun8ANifaREEOykM/6fk
+	zKjERkkzD34wOxP+Q6pwb/8=
+X-Google-Smtp-Source: APXvYqxVYzXp7BLBDpvHh4YXlM0/IJmaU67hx8MWdE3fdTPPvuM1Go6fjaLMqyGwiOlmh/KbqFT1Mw==
+X-Received: by 2002:a17:902:bb93:: with SMTP id m19mr12885178pls.37.1576017279996;
+        Tue, 10 Dec 2019 14:34:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a0d:cc05:: with SMTP id o5ls2794344ywd.1.gmail; Tue, 10 Dec
- 2019 14:33:32 -0800 (PST)
-X-Received: by 2002:a81:1289:: with SMTP id 131mr28055426yws.74.1576017212139;
-        Tue, 10 Dec 2019 14:33:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576017212; cv=none;
+Received: by 2002:a17:902:9a92:: with SMTP id w18ls4792516plp.7.gmail; Tue, 10
+ Dec 2019 14:34:39 -0800 (PST)
+X-Received: by 2002:a17:902:9348:: with SMTP id g8mr33081503plp.323.1576017279516;
+        Tue, 10 Dec 2019 14:34:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576017279; cv=none;
         d=google.com; s=arc-20160816;
-        b=XERiaFhkZZvhN5fFMvFhxNYo36SMqq1rrLnesgIv32romyUIW5/Km+zngVE38gsdgY
-         HmcTsfD8aZw9U67H4z47Hxp7UubF6DIqooUGQFPhUsQuU/ojg7g8xIGqofC++FLC2ka9
-         rB8s0kL50NqgSkx0k/lt2/Le7jTesEsiBByLSESALeRvlrnzERRi+mlnoV1BJ0LqHdDS
-         dTfrwKgRbqj8k35csj/2sfoPsmZvtfuSJP0+RSCBEJefyaEh7sb10U83AAhlRlfQb1yV
-         dMwKPvFCI6HZX5wS2M/lQwPvYSsfCNR1sd7URqRkoVgBQR0LnXIzXOmcc4PHSa08XbFV
-         bgAg==
+        b=AKAtLufgWkM66YdJVhHYbzk6wRuMUxInccGhtfb2mb9fi5zSCS13PHSNIO4GSjKIFL
+         RE9tbn3J2Odh/wrdNVj/e6zzD2zSl964kpI6LzOiR11Womin7nlf8PNBRf0hLFMcEbGl
+         7CyFttyG1Z9fsYdehguK43veYLVZjCgqggl8GOIRGi8xwEgE0nL/ryPG6FcMI52q3wXn
+         hDeAFtqnP+Sz+ZU/r10FhMKDSFrOohHzg71k940iOFZDb2dhBMzT8ftbwPrsYBElm2m/
+         2xMhqnulqcNPDSM8iQpSdLY2SxycwyoPnCMFIvEMAkWa5MyWiDwersdxyZ6TMeBClOAI
+         6FYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=9qrOR+mx705pxJz0uRyyD6jbGf1D4frEmZV//hcIhZY=;
-        b=wVYZszProCxpAU+tuoBXkLzKky2CsqlfZ0VVZ0OXy1THS4LO/ik7dKtd7iEgab1cOn
-         RkX87D9GKOma980QraJcSWEFLB/N4ZnOsRXbZHTovmLTi/tQHuC/rmXv3v2Fk5iV8azs
-         M/GepVArj8aeyOskcXLpwFLEL0PbCX1P2XxQCUnPi4wKEmeNTznU8eYEyqEmBUgAMfxt
-         HEYkABKuINfLn4kars/oYthJK10uq8MG8yLmFkBWcngQ8LIFSpy2NKlW2lU0ebQUVRle
-         PYvs0LcNAvJQ0b5r6XMhI/IzOw2D2gNqRxdNfWUuMsQO3ig6uEXx/qrg6k539kdHIUpc
-         2U5w==
+        bh=VRpoyCsrx4YSsoWfusOeaj7JJ6v6RCVM7fgiExLsI7c=;
+        b=lldsNrqhm63K0HwZHQ8gQoiOdnTJoT7nuNtIjqTkTdURVXLcXHnh6Szw9DFCCvYBWr
+         yt/+/E4GFA8T4paoepP6S6mJPcHeLELB//Hw8XcrGKU3xopDS0BQLEQ/da3mhSGLhpII
+         5A3iO3QHRw+JrPhSbi7g7y6L2hTtdj41Nb8bmiOF/esasMqj1+3/NOMXCDJMfNPkP4S9
+         RHCVBv8Xz7pY1nkC+Yzwlbt05yvMoxofpBJEW+Okiprzp0iRdU0DxnOo7mIYeEHhwuaI
+         qaKQ36nUYA90EJhiozhnFkkmzHdKvt2+BfDIA9ij5uVh9xq+Uc0ivrFHs/ol6+NnvpbO
+         iU6g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="AjGZeC/4";
+       dkim=pass header.i=@kernel.org header.s=default header.b=1nfTAUtC;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id p187si6318ywe.1.2019.12.10.14.33.32
+        by gmr-mx.google.com with ESMTPS id n20si9298pgl.1.2019.12.10.14.34.39
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Dec 2019 14:33:32 -0800 (PST)
+        Tue, 10 Dec 2019 14:34:39 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 7F572207FF;
-	Tue, 10 Dec 2019 22:33:30 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id E5A352073D;
+	Tue, 10 Dec 2019 22:34:37 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Sasha Levin <sashal@kernel.org>,
-	linux-pm@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.4 12/71] tools/power/cpupower: Fix initializer override in hsw_ext_cstates
-Date: Tue, 10 Dec 2019 17:32:17 -0500
-Message-Id: <20191210223316.14988-12-sashal@kernel.org>
+Cc: Ian Rogers <irogers@google.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Andi Kleen <ak@linux.intel.com>,
+	Jin Yao <yao.jin@linux.intel.com>,
+	Jiri Olsa <jolsa@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Stephane Eranian <eranian@google.com>,
+	clang-built-linux@googlegroups.com,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.4 69/71] perf parse: Fix potential memory leak when handling tracepoint errors
+Date: Tue, 10 Dec 2019 17:33:14 -0500
+Message-Id: <20191210223316.14988-69-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191210223316.14988-1-sashal@kernel.org>
 References: <20191210223316.14988-1-sashal@kernel.org>
@@ -119,7 +126,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="AjGZeC/4";       spf=pass
+ header.i=@kernel.org header.s=default header.b=1nfTAUtC;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -136,65 +143,87 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Ian Rogers <irogers@google.com>
 
-[ Upstream commit 7e5705c635ecfccde559ebbbe1eaf05b5cc60529 ]
+[ Upstream commit 4584f084aa9d8033d5911935837dbee7b082d0e9 ]
 
-When building cpupower with clang, the following warning appears:
+An error may be in place when tracepoint_error is called, use
+parse_events__handle_error to avoid a memory leak and to capture the
+first and last error. Error detected by LLVM's libFuzzer using the
+following event:
 
- utils/idle_monitor/hsw_ext_idle.c:42:16: warning: initializer overrides
- prior initialization of this subobject [-Winitializer-overrides]
-                 .desc                   = N_("Processor Package C2"),
-                                              ^~~~~~~~~~~~~~~~~~~~~~
- ./utils/helpers/helpers.h:25:33: note: expanded from macro 'N_'
- #define N_(String) gettext_noop(String)
-                                 ^~~~~~
- ./utils/helpers/helpers.h:23:30: note: expanded from macro
- 'gettext_noop'
- #define gettext_noop(String) String
-                              ^~~~~~
- utils/idle_monitor/hsw_ext_idle.c:41:16: note: previous initialization
- is here
-                 .desc                   = N_("Processor Package C9"),
-                                              ^~~~~~~~~~~~~~~~~~~~~~
- ./utils/helpers/helpers.h:25:33: note: expanded from macro 'N_'
- #define N_(String) gettext_noop(String)
-                                 ^~~~~~
- ./utils/helpers/helpers.h:23:30: note: expanded from macro
- 'gettext_noop'
- #define gettext_noop(String) String
-                             ^~~~~~
- 1 warning generated.
+$ perf stat -e 'msr/event/,f:e'
+event syntax error: 'msr/event/,f:e'
+                     \___ can't access trace events
 
-This appears to be a copy and paste or merge mistake because the name
-and id fields both have PC9 in them, not PC2. Remove the second
-assignment to fix the warning.
+Error:  No permissions to read /sys/kernel/debug/tracing/events/f/e
+Hint:   Try 'sudo mount -o remount,mode=755 /sys/kernel/debug/tracing/'
 
-Fixes: 7ee767b69b68 ("cpupower: Add Haswell family 0x45 specific idle monitor to show PC8,9,10 states")
-Link: https://github.com/ClangBuiltLinux/linux/issues/718
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Shuah Khan <skhan@linuxfoundation.org>
+Initial error:
+event syntax error: 'msr/event/,f:e'
+                                \___ no value assigned for term
+Run 'perf list' for a list of valid events
+
+ Usage: perf stat [<options>] [<command>]
+
+    -e, --event <event>   event selector. use 'perf list' to list available events
+
+Signed-off-by: Ian Rogers <irogers@google.com>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Andi Kleen <ak@linux.intel.com>
+Cc: Jin Yao <yao.jin@linux.intel.com>
+Cc: Jiri Olsa <jolsa@redhat.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Stephane Eranian <eranian@google.com>
+Cc: clang-built-linux@googlegroups.com
+Link: http://lore.kernel.org/lkml/20191120180925.21787-1-irogers@google.com
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c | 1 -
- 1 file changed, 1 deletion(-)
+ tools/perf/util/parse-events.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c b/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c
-index ebeaba6571a38..475e18e043187 100644
---- a/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c
-+++ b/tools/power/cpupower/utils/idle_monitor/hsw_ext_idle.c
-@@ -40,7 +40,6 @@ static cstate_t hsw_ext_cstates[HSW_EXT_CSTATE_COUNT] = {
- 	{
- 		.name			= "PC9",
- 		.desc			= N_("Processor Package C9"),
--		.desc			= N_("Processor Package C2"),
- 		.id			= PC9,
- 		.range			= RANGE_PACKAGE,
- 		.get_count_percent	= hsw_ext_get_count_percent,
+diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+index 9351738df7039..004f28a041238 100644
+--- a/tools/perf/util/parse-events.c
++++ b/tools/perf/util/parse-events.c
+@@ -398,6 +398,7 @@ int parse_events_add_cache(struct list_head *list, int *idx,
+ static void tracepoint_error(struct parse_events_error *e, int err,
+ 			     char *sys, char *name)
+ {
++	const char *str;
+ 	char help[BUFSIZ];
+ 
+ 	if (!e)
+@@ -411,18 +412,18 @@ static void tracepoint_error(struct parse_events_error *e, int err,
+ 
+ 	switch (err) {
+ 	case EACCES:
+-		e->str = strdup("can't access trace events");
++		str = "can't access trace events";
+ 		break;
+ 	case ENOENT:
+-		e->str = strdup("unknown tracepoint");
++		str = "unknown tracepoint";
+ 		break;
+ 	default:
+-		e->str = strdup("failed to add tracepoint");
++		str = "failed to add tracepoint";
+ 		break;
+ 	}
+ 
+ 	tracing_path__strerror_open_tp(err, help, sizeof(help), sys, name);
+-	e->help = strdup(help);
++	parse_events__handle_error(e, 0, strdup(str), strdup(help));
+ }
+ 
+ static int add_tracepoint(struct list_head *list, int *idx,
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191210223316.14988-12-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191210223316.14988-69-sashal%40kernel.org.
