@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBC4UYDXQKGQEWR2PY7Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBMMUYDXQKGQEOUPKSNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 03E7D11936C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 22:11:41 +0100 (CET)
-Received: by mail-il1-x13b.google.com with SMTP id h87sf15421483ild.11
-        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 13:11:40 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576012299; cv=pass;
+Received: from mail-qv1-xf3a.google.com (mail-qv1-xf3a.google.com [IPv6:2607:f8b0:4864:20::f3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90101119372
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 22:12:18 +0100 (CET)
+Received: by mail-qv1-xf3a.google.com with SMTP id c22sf7729973qvc.1
+        for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 13:12:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576012337; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zlBlG/xcNb1O0aE6TJrkk4yTpmcQPezdzaEydaZwB08xQLA5JUDlFOb5VpmFDFHw7Q
-         X5+pGtDjDtWtdC6xAHPBq1dwcSROw0lE+YqSK6sUHrqS2J0B2QbdzBGPzByRLnt5x68b
-         u9Bh/2ivbsQGZmPZuDzbK3Q3VM3OwWHMgFtAiBIMyYyW1PQXakxEOB09R44RX01SepuJ
-         2sfHvv++ZdL+q+8iWTOLPPz1P66W05tOPxzetw+elxr/2Pn/4/VeYSikY7PzdqrwexTV
-         pIRtKieArMR94aHihXuxxV/YHr1ED5aGvbxKLb7IEfFJNmqTkFqQcdOYVzdu16aX+BpI
-         VLpg==
+        b=g4tS988ZcJscFuk2F0CiJMxB9zNry4wkuTZq/EF7U4sWYHJltMP6NnV8PRYCMNVwyM
+         pxB5AFU+vB6pzahZq5xSYRBnlKDzJNvkI2MvHHj7bPKW3eoFER6C8TYXe0KreNtk8oQn
+         oQgfWShdNw5IeTUBRheRkAidxdkQGWzfB9kYML9PYJDnuwpIRyYgVv+MfM8bSgeMVs+j
+         BrpuTwWVjEa23DNdj9axnJmrEhzF90xi+NoHshqy+5yIjHnWkzX7tcxqzuYrq9x9SZV0
+         ONT18lGbzH2bWeZaUUj8qJwP6JgZj40uz8ghnvUFwviw1gBo/H/Cv/xHHiH2hukNcq2f
+         wY+Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=UCmKRVwGOXZRQeT72DuIIu30knc1r4pfV/I0stUBtc0=;
-        b=uKWEvZJVWEPCe026a8Rtlw0wkcl2MikEutlNiPi8lXpAgoBopi1sled1cRk8JRcWLA
-         kSz5ZQHafpHY/N26ficCtB/CUmB1iJxekLHjYa/6+xOCK1XbucFx22fk70aUoXh+f0YH
-         VJfkFHVe1r0Jt191tLjQxKZpaDOJsXLeVTB4WBJF+1skPeGfElsx+Np/SsGKcT/bgWUt
-         0WxU/mibPVxRmMfM35L3+Lrsvsso6E9ipkVspcwgW6qI2tvKK651btbaiJ7gIQnxPVO/
-         7MEBpYhZE8zJNRyU9kub38ZPworP8oUMFEtefEdh0JmrU2TsKuSwKqHyRSEHgUsxisD4
-         wwbQ==
+        bh=kfcl299MBPNYVfQxQDwa7arWdkCmaV3KhB0y5sLfD9o=;
+        b=gTlStDf0I04K+ah7i15oI+zLJIEoUI2OE7TeQaJzreS8sbTUArOZS1tgKypNYPyl+0
+         ZXpJNyv3KzUSO4le3jGylFLwnXTJrUGQfV3d2yczHmWqQG+ncJzKO708YRTCTBnBlie7
+         a0O8MdlHB+wpN7XorWurE0Br8qifHtZfquwkZXIe/nX16FxiKE9NfDbdwGHWCheqHv3J
+         DIae1FjmjCzHD4U18pQMVvrL01Fd+LIdGeEIgR0THxESHUPegmh428aJbPbmw4JKjmBi
+         lwMEIuHsOaG1zDoiI6k8tIvUcfP3bCINjFobI5OO19Ugc+waWS0+hxDYeNVGXBrx54sV
+         b8tQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=qVORyjm7;
+       dkim=pass header.i=@kernel.org header.s=default header.b=FkWtwiQO;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UCmKRVwGOXZRQeT72DuIIu30knc1r4pfV/I0stUBtc0=;
-        b=fVXSUrpb3TKSbGu8BD0uNPmLRw3M5Oy/HfeqGj89CugJK4GTG3OO8cNqIZfbM48vLD
-         eFmnhsW621IG0QRnV5hexJ11lnCN2PUR7tM75DuILfHZnF5dW4gBXcI6cCDfl6zokbCC
-         Lkmj44RnOjh/kdD/B7SVYxYWyCGJKnoJF+qhN+x5nHKIQ9F0waBi/7lrChHWvTjCHySp
-         D+pFdgocrXp2vJiUv3a2duS7YYkg2rbtoZC8aSGBlY+qhky2nxsXmvVe3mizCGsvLFRA
-         lm8UMm9RbaMkMiAoYxXGu/Eq7ZXaYk+fbEQzvJZulDBbml+ML5NjfJ6onhVYqxqEQiw/
-         4NZw==
+        bh=kfcl299MBPNYVfQxQDwa7arWdkCmaV3KhB0y5sLfD9o=;
+        b=YGd9W4W+CWVHlI9R1UuDsUG7L1l3/Sysx2CRWNUUeOJqfD8UUu/RnT93jpe7ixAMLk
+         uWnl9t5ke/A4MflJgXfrr5ZqBHCzcFSQzVxtyyY+WnBN8C5xVmKDJTGTSjkvTKMdDGxR
+         VuyEz/33JjSThOH3yap0gpuq8wgG/vLY0RXIjz8/Uur3AYHQtUV8RQjVieET/LkbGQ8M
+         Y6AKKKJvtDqSiCLhXA7mQw19dpxwoZVJPpLJIyW/FRu4fEHSe0dLJUbGywI7LGcoMca8
+         15YsSYJxx/vIywtMmJ0KaUhcOpyPYttlzC9yf0aFcQ1jKTd4jXQY3j3fUDfWVR+YSuJG
+         A+OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,85 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UCmKRVwGOXZRQeT72DuIIu30knc1r4pfV/I0stUBtc0=;
-        b=NW8rq473L+KSgr7oSwP7oVJpJd6/jlgGZpkcxNB71gbEZFkpOyVNOluo42hG9+ByE3
-         3LR9re+Hh2iPOrJ/vIcYJ/VGNi1CdY6k2lNgC2XGDNCf8tvvQQ89cwLQmEiUjXzbfa3b
-         tt6Nr4E4kc2TGwmKEgRqL/J2mehw1E84OHVVFnNsRNOmZRWWtUxAkzfztSw0Y/8YNOMj
-         iHjx46jx9ZnttlCKPgiCt8qVGrv8aGMxCy3LJBFxPoBNDj4UjaYbRqDwKvLTBAl7e8vQ
-         HJGguqyT/jmRbzWCaVOMiFILrn/1CUFfmIohOpSbcyA1NH7+YMynUD0KA+KhICpVW4BO
-         N91w==
+        bh=kfcl299MBPNYVfQxQDwa7arWdkCmaV3KhB0y5sLfD9o=;
+        b=XjWLsQqcdEwpY2ftFmPnmOE5YcZaoK5gmNyOg/jSlj+o69QnukELysHMOX2K1G7BCv
+         JowJAjblVJ5nMCW2XdLr0KgZxtNhy9CokO2A5Z8sPmr04AilO1ogIRaVSDFHuEJdH/2P
+         LEo5fdW6ybMz3ZZtarsOURfBWgdbuAdnjL+kEkKrtfa2pyK9lILc8ZpSU/KaX9VEb/Xe
+         AbC/BSN1jGN7gSC6naacg9FDgh8cNprsR9zRWilHDdV+X2OFEL3+q4WbsUbYqIJfCWrO
+         uzXjDe8IX6IxIPs9aBigf1JawelpSgF8LQixNLdACM2V3lBVykCWmJd7YBkVtxSKn226
+         JdpA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUxAiKHv01GCTt1EV2d7yVKRj4bP2eYu7X2yVypUi0XxO3ZOhkX
-	xnt+M1Ftdx/YJzmOEJ2daMk=
-X-Google-Smtp-Source: APXvYqxy49es61YI87787yd6JHrnuzfZj1DnPjqD84KMPgyWRg/5hG8fpVNPVZgYjPYEGVXbOTJ7Tg==
-X-Received: by 2002:a92:d30e:: with SMTP id x14mr36687606ila.108.1576012299523;
-        Tue, 10 Dec 2019 13:11:39 -0800 (PST)
+X-Gm-Message-State: APjAAAXavPzbyMGQqwpfJJ8DoLTfCGzk9fwy5FyrGjlZca3NDhy4Cb8H
+	RgvgWY7KEUrKmxwg3+Lafhk=
+X-Google-Smtp-Source: APXvYqxL+dbRi7JCARGPSFbKhPftws95DGBSlqWmc/ThKCLoJKFUtwj9NHQT9XEzBT3XxwViPyzhiw==
+X-Received: by 2002:a05:620a:1307:: with SMTP id o7mr11499553qkj.312.1576012337137;
+        Tue, 10 Dec 2019 13:12:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:7205:: with SMTP id n5ls909641ioc.3.gmail; Tue, 10 Dec
- 2019 13:11:39 -0800 (PST)
-X-Received: by 2002:a5e:c20b:: with SMTP id v11mr103463iop.56.1576012299105;
-        Tue, 10 Dec 2019 13:11:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576012299; cv=none;
+Received: by 2002:a37:47ca:: with SMTP id u193ls6673291qka.7.gmail; Tue, 10
+ Dec 2019 13:12:16 -0800 (PST)
+X-Received: by 2002:ae9:e50d:: with SMTP id w13mr3575226qkf.458.1576012336778;
+        Tue, 10 Dec 2019 13:12:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576012336; cv=none;
         d=google.com; s=arc-20160816;
-        b=SX19FJ+NjKf6o3b2I+/NLqJ+h76sjkaczwI7eeyDI+QnilP59ydqeYvYZ6PFNIre1u
-         Y+Ks8kBswUWbnjCMBbZ6cJGgUZhejqH9PqTEPzmO8dadvXyaC0IRx1iHU7rdjHQM0dOT
-         N52UfbCM0MIov1i474cSiBiaLFFuN0AvKy3C6g1STILDnL4a3YXHQKrVQ8Un+TI7/Zlz
-         btGypKFgWg9qMxWYi5pzWQ6rlmrRSIC24YfbDiSAuyMpoTSj19I4YRmoUCLDCWxxYbnf
-         QmUYsZzUyM8irjt+BATAfD/ZuCeHpI0W4f2BXRxpmcJPnxgaaZpz/vsUKSPr94cg+Rfy
-         BD9A==
+        b=NpJ86InwxScxzRpvX29Zk3/NLVKmkNjOgB4gJyPp/XXdrVEGziQxUtCEmWv84tHox5
+         jfwvrv22sTF0Ce5T3XJc7iBBzsXd52vbbNuxJvfieNG9fdqqEVWFkXcVzl+Gt3Yz83MM
+         WAekm76dXi9SknTPn0E1N0fkH1tD+qBnD3QsnmGDF8ZMvQEpQf0wsytXcC0P/6JrvZi8
+         2xMUZSvYzwbCHwufGcLt7Q6+/kErPYNNasKGsF62ZyVbtNfQJ34OdVKVl9ZchFH1U14W
+         1nOc/vPbj5ZekrKxOw/onqHCkbN9uSzvTOI7TQ/6p+S9S/AvlmtTSV8d5pvIIDe4CkfD
+         avxQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=nS+lFtKk4jlNUbzm34kvfqRzI4T75Xr9R3CNZAiECz8=;
-        b=L8M1fj43gy9zfFowQbkD1Ld0fVV/pYeFPZFrSs7V9dfW1Gh3pOsl9XQG4eqQ1t79J8
-         yYBppPZwOovtyDPs0/hNZFxoYfxwJJoab7VSs/RR/jlRlizGmG+/Jfu6rDFdOfrpp9bf
-         WgwnY3Wx3d/bbFlPJQcTCdYJht304WFUCNNfwlK2faXRI1Lx6l3+6H2XhFXhNAiFOqmE
-         JzvrZAChwS7bIeJmRNCSppY2smC/PJs8hdfM9DhpxlAMcNRTvAnO5MVOdSq1b2BT2oxC
-         EsZGQ0CBP4c5BLS46F+2Pq5rc2JXlfihf9Wbp3sPBnAYg5Ni10EMXjH6lxOpmZbkb/1P
-         Vscg==
+        bh=YVT0JmvryBd5QAVqtkXaftLF8Ar2WaddKrpH64C+neY=;
+        b=VgTg7v5cpdQyoI9hpcX/SQD8ov+knPMOaQwrKwarOo2N9pD6MDFNpkxu7bVZEu2MAd
+         zRvg+uZbYftcqdafMlL0W+NCkzE1/j7oN691BAp9BGiuXfsE8C/I3jxbsaEnUP+dLw3l
+         N0FhP4RbhmZkxrjxCASIBo/bKx0vAgVy8nEDzdIBnPtXj9W35sIa8AQWzUobPxDSsVOx
+         Ja/z+ZV8OTGAf6Yjd85Ui4rLHUJR113zMFyYhgbFiZLaeYrC8LQLww9vr411CSd/GUtY
+         I7VipOk7l9kaJQAT8JCaGBBB0wl8F+uGbw5nn9lZ3yhZopDjVvJjmp6no+A8qRympx+I
+         htKQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=qVORyjm7;
+       dkim=pass header.i=@kernel.org header.s=default header.b=FkWtwiQO;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id g10si257231ilb.2.2019.12.10.13.11.39
+        by gmr-mx.google.com with ESMTPS id d16si159863qtp.5.2019.12.10.13.12.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 10 Dec 2019 13:11:39 -0800 (PST)
+        Tue, 10 Dec 2019 13:12:16 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 2E9E3246AE;
-	Tue, 10 Dec 2019 21:11:36 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id E0EAE24697;
+	Tue, 10 Dec 2019 21:12:14 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ian Rogers <irogers@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andi Kleen <ak@linux.intel.com>,
+Cc: Yonghong Song <yhs@fb.com>,
 	Daniel Borkmann <daniel@iogearbox.net>,
-	Jin Yao <yao.jin@linux.intel.com>,
-	John Garry <john.garry@huawei.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Martin KaFai Lau <kafai@fb.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
 	Song Liu <songliubraving@fb.com>,
-	Stephane Eranian <eranian@google.com>,
-	Yonghong Song <yhs@fb.com>,
-	bpf@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
+	Sasha Levin <sashal@kernel.org>,
+	linux-kselftest@vger.kernel.org,
 	netdev@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH AUTOSEL 5.4 235/350] perf parse: If pmu configuration fails free terms
-Date: Tue, 10 Dec 2019 16:05:40 -0500
-Message-Id: <20191210210735.9077-196-sashal@kernel.org>
+	bpf@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: [PATCH AUTOSEL 5.4 267/350] bpf, testing: Workaround a verifier failure for test_progs
+Date: Tue, 10 Dec 2019 16:06:12 -0500
+Message-Id: <20191210210735.9077-228-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20191210210735.9077-1-sashal@kernel.org>
 References: <20191210210735.9077-1-sashal@kernel.org>
@@ -136,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=qVORyjm7;       spf=pass
+ header.i=@kernel.org header.s=default header.b=FkWtwiQO;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -153,64 +139,120 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Ian Rogers <irogers@google.com>
+From: Yonghong Song <yhs@fb.com>
 
-[ Upstream commit 38f2c4226e6bc3e8c41c318242821ba5dc825aba ]
+[ Upstream commit b7a0d65d80a0c5034b366392624397a0915b7556 ]
 
-Avoid a memory leak when the configuration fails.
+With latest llvm compiler, running test_progs will have the following
+verifier failure for test_sysctl_loop1.o:
 
-Signed-off-by: Ian Rogers <irogers@google.com>
-Acked-by: Jiri Olsa <jolsa@kernel.org>
-Cc: Adrian Hunter <adrian.hunter@intel.com>
-Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Alexei Starovoitov <ast@kernel.org>
-Cc: Andi Kleen <ak@linux.intel.com>
-Cc: Daniel Borkmann <daniel@iogearbox.net>
-Cc: Jin Yao <yao.jin@linux.intel.com>
-Cc: John Garry <john.garry@huawei.com>
-Cc: Kan Liang <kan.liang@linux.intel.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Martin KaFai Lau <kafai@fb.com>
-Cc: Namhyung Kim <namhyung@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Song Liu <songliubraving@fb.com>
-Cc: Stephane Eranian <eranian@google.com>
-Cc: Yonghong Song <yhs@fb.com>
-Cc: bpf@vger.kernel.org
-Cc: clang-built-linux@googlegroups.com
-Cc: netdev@vger.kernel.org
-Link: http://lore.kernel.org/lkml/20191030223448.12930-9-irogers@google.com
-Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+  libbpf: load bpf program failed: Permission denied
+  libbpf: -- BEGIN DUMP LOG ---
+  libbpf:
+  invalid indirect read from stack var_off (0x0; 0xff)+196 size 7
+  ...
+  libbpf: -- END LOG --
+  libbpf: failed to load program 'cgroup/sysctl'
+  libbpf: failed to load object 'test_sysctl_loop1.o'
+
+The related bytecode looks as below:
+
+  0000000000000308 LBB0_8:
+      97:       r4 = r10
+      98:       r4 += -288
+      99:       r4 += r7
+     100:       w8 &= 255
+     101:       r1 = r10
+     102:       r1 += -488
+     103:       r1 += r8
+     104:       r2 = 7
+     105:       r3 = 0
+     106:       call 106
+     107:       w1 = w0
+     108:       w1 += -1
+     109:       if w1 > 6 goto -24 <LBB0_5>
+     110:       w0 += w8
+     111:       r7 += 8
+     112:       w8 = w0
+     113:       if r7 != 224 goto -17 <LBB0_8>
+
+And source code:
+
+     for (i = 0; i < ARRAY_SIZE(tcp_mem); ++i) {
+             ret = bpf_strtoul(value + off, MAX_ULONG_STR_LEN, 0,
+                               tcp_mem + i);
+             if (ret <= 0 || ret > MAX_ULONG_STR_LEN)
+                     return 0;
+             off += ret & MAX_ULONG_STR_LEN;
+     }
+
+Current verifier is not able to conclude that register w0 before '+'
+at insn 110 has a range of 1 to 7 and thinks it is from 0 - 255. This
+leads to more conservative range for w8 at insn 112, and later verifier
+complaint.
+
+Let us workaround this issue until we found a compiler and/or verifier
+solution. The workaround in this patch is to make variable 'ret' volatile,
+which will force a reload and then '&' operation to ensure better value
+range. With this patch, I got the below byte code for the loop:
+
+  0000000000000328 LBB0_9:
+     101:       r4 = r10
+     102:       r4 += -288
+     103:       r4 += r7
+     104:       w8 &= 255
+     105:       r1 = r10
+     106:       r1 += -488
+     107:       r1 += r8
+     108:       r2 = 7
+     109:       r3 = 0
+     110:       call 106
+     111:       *(u32 *)(r10 - 64) = r0
+     112:       r1 = *(u32 *)(r10 - 64)
+     113:       if w1 s< 1 goto -28 <LBB0_5>
+     114:       r1 = *(u32 *)(r10 - 64)
+     115:       if w1 s> 7 goto -30 <LBB0_5>
+     116:       r1 = *(u32 *)(r10 - 64)
+     117:       w1 &= 7
+     118:       w1 += w8
+     119:       r7 += 8
+     120:       w8 = w1
+     121:       if r7 != 224 goto -21 <LBB0_9>
+
+Insn 117 did the '&' operation and we got more precise value range
+for 'w8' at insn 120. The test is happy then:
+
+  #3/17 test_sysctl_loop1.o:OK
+
+Signed-off-by: Yonghong Song <yhs@fb.com>
+Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
+Acked-by: Song Liu <songliubraving@fb.com>
+Link: https://lore.kernel.org/bpf/20191107170045.2503480-1-yhs@fb.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/perf/util/parse-events.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ tools/testing/selftests/bpf/progs/test_sysctl_loop1.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index d5ea043d3fc4c..422ad1888e74f 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -1365,8 +1365,15 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
- 	if (get_config_terms(head_config, &config_terms))
- 		return -ENOMEM;
+diff --git a/tools/testing/selftests/bpf/progs/test_sysctl_loop1.c b/tools/testing/selftests/bpf/progs/test_sysctl_loop1.c
+index 608a06871572d..d22e438198cf7 100644
+--- a/tools/testing/selftests/bpf/progs/test_sysctl_loop1.c
++++ b/tools/testing/selftests/bpf/progs/test_sysctl_loop1.c
+@@ -44,7 +44,10 @@ int sysctl_tcp_mem(struct bpf_sysctl *ctx)
+ 	unsigned long tcp_mem[TCP_MEM_LOOPS] = {};
+ 	char value[MAX_VALUE_STR_LEN];
+ 	unsigned char i, off = 0;
+-	int ret;
++	/* a workaround to prevent compiler from generating
++	 * codes verifier cannot handle yet.
++	 */
++	volatile int ret;
  
--	if (perf_pmu__config(pmu, &attr, head_config, parse_state->error))
-+	if (perf_pmu__config(pmu, &attr, head_config, parse_state->error)) {
-+		struct perf_evsel_config_term *pos, *tmp;
-+
-+		list_for_each_entry_safe(pos, tmp, &config_terms, list) {
-+			list_del_init(&pos->list);
-+			free(pos);
-+		}
- 		return -EINVAL;
-+	}
- 
- 	evsel = __add_event(list, &parse_state->idx, &attr,
- 			    get_config_name(head_config), pmu,
+ 	if (ctx->write)
+ 		return 0;
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191210210735.9077-196-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191210210735.9077-228-sashal%40kernel.org.
