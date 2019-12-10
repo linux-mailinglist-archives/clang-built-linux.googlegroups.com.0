@@ -1,24 +1,24 @@
-Return-Path: <clang-built-linux+bncBDCIDJ4RTAOBBJN6XTXQKGQE4O4I3AY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDCIDJ4RTAOBBRV7XTXQKGQEN46HHIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13a.google.com (mail-lf1-x13a.google.com [IPv6:2a00:1450:4864:20::13a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 93E6D117F02
-	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 05:29:26 +0100 (CET)
-Received: by mail-lf1-x13a.google.com with SMTP id y21sf3567211lfl.11
-        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Dec 2019 20:29:26 -0800 (PST)
+Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C298117F05
+	for <lists+clang-built-linux@lfdr.de>; Tue, 10 Dec 2019 05:32:06 +0100 (CET)
+Received: by mail-wr1-x43d.google.com with SMTP id l20sf8451541wrc.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 09 Dec 2019 20:32:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:message-id:to:cc:subject:from:in-reply-to:references
          :mime-version:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nhfVuUfyp9mFbbHARm/6+tkUl+vQB4ryZpc6UlBu2/I=;
-        b=f8bpvN+3voxghRvfp6FpFNF6SglTdfm5zXzRyPB4c6XbvaHIaw+52rreUOia99aXf0
-         ju3I+tuNth1g2PhxOReMuW5+7sbWwcSDt5rVuDC55L97uHFKcG2MaW5hNeTCpEkDFfj3
-         //aEHx8VYtJHLYjerpvsduRFu/B4Y37G2Mka93NAjEVIg2GZKBfh0x0WT+f6Uy/C1VBT
-         Wpb7VQlvdvbHmhW32W7dT6hYYiwrMqM2mergkxdE8bOjADpXYowtoZX0GiyySSn9JD5q
-         kQOS0Y1LmnGht6U6+uMwpwdMHl90NzY2bxtgaXg2SqRo5J0J2ZIaooA0pCghP1Aou9sF
-         g9PQ==
+        bh=KcB8+ll6HasYCPv5EkHipszJViGKdMautGe00Jqym6g=;
+        b=AvRQewWtFN+hFg5Uk0rtIaM2UDvUZX/b9pHiBBVL9S31aChIKRu2CmU4qO60nIuPDr
+         IiGIQHHStRTY4Q/pi+4uY1iAAFOU8s1o26IKMfj9jhg0BAfV8CCDSEpzfR64kDZ+mhIy
+         CrLNMQvWsyQ4AzNPFb42tEp5zY9TTKbvjecrcqgedrLhjL8TCDjnbXNABunDAtsVqM8D
+         nRCQUPMGPJ5XrNBvcKKftOTKMpp0oerpiaAglpEr3QrT83XuCmTKz9cq9LQTTEMzVGUB
+         aqj6DUdcUdsI4L6KUX6oamtrS/wVgg0NSVLV+E8+zwgm78cBrV/XSh/f5zlcrbrswIhC
+         hCTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:message-id:to:cc:subject:from
@@ -26,71 +26,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=nhfVuUfyp9mFbbHARm/6+tkUl+vQB4ryZpc6UlBu2/I=;
-        b=qOQE3+kcYq6ie05UBuPGDhlxrfVsPjyweLVCQLqSHE2vL90TGgzbLBErpE+4XocfjN
-         5lpx1URy/FxYE2ux2T1U5kPwQwN1vsqHRmaD3IrdNHLVwwAb1DjN0sprkf/4ZMt3Kd6h
-         AyNtUXFgfF08pm2ehR18pjeYCykSZ86Z1LeB3gIvhJS0iaUMWbd5Hv8LxjoXKyjNDpjj
-         l5zzbpmQddvYUdyIuJSVvDqcGsRb2kL+RP8M6KoOK7I49yr6mBZFsoyOUYoVRl+8Vqmo
-         o+B6ogynkV/PvtpfgkTYA3iweE5x+kmECGvBTfPyuaTBJYX6v6zk800/gvBYZm56Qcxn
-         5u2g==
+        bh=KcB8+ll6HasYCPv5EkHipszJViGKdMautGe00Jqym6g=;
+        b=kZH9wHBZoztsKWg+SQ0IKHKHQLrxlUVOyOWo4miIu0EdpDfsIABFTRAThtoKpG2YQy
+         NP+KCSyxxNIZVOdT4TpTTfarxIHQpYYsmjf/VFjzWrugej2BnCEbcwZvOmwBSa5eV9X5
+         5+yDoADn4VjKZ0hrXrGSun3vMWpiNGerYeHJD/9mn3V6UQ/ALB8kgaBfdb7jZ74HGWaN
+         vmuf13gTbA8ySr1V8A4UN/N76hVN14eU9HErk2Z5wOgxCSoEWfgr06Qt43pDnvCGMTtf
+         TPhlDNtKqV8+TF2QVqedccwJ6M9L/GV7fGWn3+JuIHmB4h4469+lW35WR8g3tFRwCyR/
+         rlbQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWsz8MEDN0f60dCnk6V6f2fEr2ltIAaYjb0wdq9urmj6zSClNFc
-	jljUOzX87S8m2O+3X/P7r5s=
-X-Google-Smtp-Source: APXvYqyfEfs2Uvpc63WwWx+sGXT+MQqWoDbHa7OKWzTEmPUXRPo4uYKeMiMX7XlmKhrIPkS6Fk+Nvw==
-X-Received: by 2002:a2e:3a13:: with SMTP id h19mr19627462lja.16.1575952166074;
-        Mon, 09 Dec 2019 20:29:26 -0800 (PST)
+X-Gm-Message-State: APjAAAXMKcbXw1onpzXTVyTqF///yHQtkqrOkLZbKON1XcdM0EjXkVLv
+	W9lv7+bwlvYrw3vI5UsCb24=
+X-Google-Smtp-Source: APXvYqyaalTUajgVLJIcbWd0MFrsWt41ZOVVip+oZBDOgx2tDDnLE+oevaPkEgQiWyoGUKCg+jj6mA==
+X-Received: by 2002:adf:e3d0:: with SMTP id k16mr590413wrm.241.1575952326120;
+        Mon, 09 Dec 2019 20:32:06 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b5d9:: with SMTP id g25ls824962ljn.9.gmail; Mon, 09 Dec
- 2019 20:29:25 -0800 (PST)
-X-Received: by 2002:a2e:9b55:: with SMTP id o21mr17648305ljj.147.1575952165427;
-        Mon, 09 Dec 2019 20:29:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1575952165; cv=none;
+Received: by 2002:a1c:5446:: with SMTP id p6ls241213wmi.2.canary-gmail; Mon,
+ 09 Dec 2019 20:32:05 -0800 (PST)
+X-Received: by 2002:a1c:6707:: with SMTP id b7mr2759308wmc.54.1575952325518;
+        Mon, 09 Dec 2019 20:32:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1575952325; cv=none;
         d=google.com; s=arc-20160816;
-        b=dKCAFCHdY9HsCsZe0QDMRPxz0SzpfyFzH6uAl9vQOzGElablJXbEzEPn4AM7UoWMXN
-         Y+kxWxki846+2u2xRw/UDK47uZKpABf5L55vVGgYgHDgsEr1LCjeJ79LeaX526UCIH8Z
-         Li8CQnEna0ZSsioYwNS/aYQXctQ+hN5odSmLUxkQlBJC0dnMcUvmcL4Y8UgHmsq9WjFY
-         HTZwEigLMOupTItTqbwBRDKLlDEYDiesMMgEXlgzoGSqnqysalvfFuvuxN9ij0okB3ZO
-         R8GS28qTxUk6jvjm/M4BjZPOCt9G1yg3z8Dc4s+JNvKzNubuYfmcsC8E3kobMsNfyRgX
-         CFrg==
+        b=jH0VRvM0Cm/tml+D5aW/k4iB9PLaUWqga5r2jjegHhMrPRgvZzVRDe76yJXu2rgvVn
+         ItgZik5P45H1BRtbJdwUX7kvtTl/nAmceWYo4P9BKf+uC/vUicdVJo/S/XTwPgUtn25S
+         8IRMutHSrqIOUIPVmeIddZvc13pRb0386vuJTBUWgI9Altxs5mvnLy1eQQpXBbnOIkiU
+         rDNGrqQVEbKGXlz9m9pJk2ZkUmNASb0eHUPNpZvErlyGiETkw0ksJTPbbKMhGGlVDWEG
+         kZYg44ubcW2SYkRFoTD/MiCQDjs2g8e5qPXdmeTQJT32Nmle6EBepISTvHP+XzeuDYfw
+         JqiQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to:from
          :subject:cc:to:message-id:date;
-        bh=nhfVuUfyp9mFbbHARm/6+tkUl+vQB4ryZpc6UlBu2/I=;
-        b=rEadLpoaixZldD2bXkgiabL3ER67YiWTNk+PuGP6RGjJOnkI6hcrCYx2eJu5a1GTg4
-         Rj7uU1Os3mHI0hmRcfxiKnBQbFcJvaxM2QJGexJRwxqzqy/sdlHmUhhatO6+4O7BNNxH
-         G3tA3sHjcMie8aRrlc8R/ALiR6dNgV8PhezsA+m+bsxeNXayyHCaYrquKocEb0gpWkQI
-         pXbnh+rAUCVZMZX29eQQGpIku5JiauSrxkgAtwGAIGKOoBj8dR9cHCDchZYtBma+EnhR
-         6zu61IDgxYND2dSoQ9Oi0hN9MJoV/TapNdbp0jg2kBrhupuPH1dinbcwJcgGlPpe4uqN
-         Y1cg==
+        bh=KcB8+ll6HasYCPv5EkHipszJViGKdMautGe00Jqym6g=;
+        b=XI1K3jt3EGKhfTq/9PnVdqJumo2/DCl86iEqzZkH6nqKWP+gX4LUUw4KZiLjTyoI0t
+         IEfjuyX2otg81EHqwr7xmTur7xQfXc1L+WzvnglOgZ1LQKuoXzBYtQy5OQpa/5dpxbZM
+         ociFiWc+U4rw3KQPKjFdVbnEHoSfidcC43h4U90wNM/15ZZ2cjhy+3Gj+FexooT42G2p
+         Y5RcX/6uulYSmZz7KmBdvaWWGHKoLu+Oj0laXEGbfbS9UwNXseP2vaTHunx4psTUUMwK
+         8i9RhWyGUGLXhD5tS3R0P3hs0/f0HbzmddZRCVdOLM8Hr80unbIc0cpmp6ZaPars85JV
+         vO9g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) smtp.mailfrom=davem@davemloft.net
 Received: from shards.monkeyblade.net (shards.monkeyblade.net. [2620:137:e000::1:9])
-        by gmr-mx.google.com with ESMTPS id b5si95462ljo.0.2019.12.09.20.29.24
+        by gmr-mx.google.com with ESMTPS id a138si48027wmd.1.2019.12.09.20.32.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 09 Dec 2019 20:29:25 -0800 (PST)
+        Mon, 09 Dec 2019 20:32:05 -0800 (PST)
 Received-SPF: neutral (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess record for domain of davem@davemloft.net) client-ip=2620:137:e000::1:9;
 Received: from localhost (unknown [IPv6:2601:601:9f00:1c3::3d5])
 	(using TLSv1 with cipher AES256-SHA (256/256 bits))
 	(Client did not present a certificate)
 	(Authenticated sender: davem-davemloft)
-	by shards.monkeyblade.net (Postfix) with ESMTPSA id 49291154F0CC5;
-	Mon,  9 Dec 2019 20:29:21 -0800 (PST)
-Date: Mon, 09 Dec 2019 20:29:20 -0800 (PST)
-Message-Id: <20191209.202920.1031568566965416683.davem@davemloft.net>
+	by shards.monkeyblade.net (Postfix) with ESMTPSA id 48685154F0CD6;
+	Mon,  9 Dec 2019 20:32:03 -0800 (PST)
+Date: Mon, 09 Dec 2019 20:32:02 -0800 (PST)
+Message-Id: <20191209.203202.180894312618501297.davem@davemloft.net>
 To: natechancellor@gmail.com
-Cc: netdev@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] net: tulip: Adjust indentation in
- {dmfe,uli526x}_init_module
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] net: smc911x: Adjust indentation in
+ smc911x_phy_configure
 From: David Miller <davem@davemloft.net>
-In-Reply-To: <20191209211623.44166-1-natechancellor@gmail.com>
-References: <20191209211623.44166-1-natechancellor@gmail.com>
+In-Reply-To: <20191209215027.10222-1-natechancellor@gmail.com>
+References: <20191209215027.10222-1-natechancellor@gmail.com>
 X-Mailer: Mew version 6.8 on Emacs 26.1
 Mime-Version: 1.0
 Content-Type: Text/Plain; charset=us-ascii
 Content-Transfer-Encoding: 7bit
-X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.5.12 (shards.monkeyblade.net [149.20.54.216]); Mon, 09 Dec 2019 20:29:21 -0800 (PST)
+X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.5.12 (shards.monkeyblade.net [149.20.54.216]); Mon, 09 Dec 2019 20:32:03 -0800 (PST)
 X-Original-Sender: davem@davemloft.net
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
  (google.com: 2620:137:e000::1:9 is neither permitted nor denied by best guess
@@ -108,44 +108,27 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 From: Nathan Chancellor <natechancellor@gmail.com>
-Date: Mon,  9 Dec 2019 14:16:23 -0700
+Date: Mon,  9 Dec 2019 14:50:27 -0700
 
 > Clang warns:
 > 
-> ../drivers/net/ethernet/dec/tulip/uli526x.c:1812:3: warning: misleading
+> ../drivers/net/ethernet/smsc/smc911x.c:939:3: warning: misleading
 > indentation; statement is not part of the previous 'if'
 > [-Wmisleading-indentation]
->         switch (mode) {
->         ^
-> ../drivers/net/ethernet/dec/tulip/uli526x.c:1809:2: note: previous
-> statement is here
->         if (cr6set)
+>          if (!lp->ctl_rfduplx)
+>          ^
+> ../drivers/net/ethernet/smsc/smc911x.c:936:2: note: previous statement
+> is here
+>         if (lp->ctl_rspeed != 100)
 >         ^
 > 1 warning generated.
 > 
-> ../drivers/net/ethernet/dec/tulip/dmfe.c:2217:3: warning: misleading
-> indentation; statement is not part of the previous 'if'
-> [-Wmisleading-indentation]
->         switch(mode) {
->         ^
-> ../drivers/net/ethernet/dec/tulip/dmfe.c:2214:2: note: previous
-> statement is here
->         if (cr6set)
->         ^
-> 1 warning generated.
+> This warning occurs because there is a space after the tab on this line.
+> Remove it so that the indentation is consistent with the Linux kernel
+> coding style and clang no longer warns.
 > 
-> This warning occurs because there is a space before the tab on these
-> lines. Remove them so that the indentation is consistent with the Linux
-> kernel coding style and clang no longer warns.
-> 
-> While we are here, adjust the default block in dmfe_init_module to have
-> a proper break between the label and assignment and add a space between
-> the switch and opening parentheses to avoid a checkpatch warning.
-> 
-> Fixes: e1c3e5014040 ("[PATCH] initialisation cleanup for ULI526x-net-driver")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/795
+> Fixes: 0a0c72c9118c ("[PATCH] RE: [PATCH 1/1] net driver: Add support for SMSC LAN911x line of ethernet chips")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/796
 > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 
-Applied, but it's really crummy that the tool gets tripped up by the
-fact that a space preceeds the TAB.  It's what the code visually looks
-like, not what exact kinds of SPACE characters were used to get there.
+Applied.
