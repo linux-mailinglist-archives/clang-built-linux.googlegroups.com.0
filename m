@@ -1,125 +1,121 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBOFL2DXQKGQEIJ4P6NQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABB74W2LXQKGQEM3DUV7Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3FC1311EDFE
-	for <lists+clang-built-linux@lfdr.de>; Fri, 13 Dec 2019 23:50:33 +0100 (CET)
-Received: by mail-wr1-x440.google.com with SMTP id d8sf174472wrq.12
-        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Dec 2019 14:50:33 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576277433; cv=pass;
+Received: from mail-ed1-f55.google.com (mail-ed1-f55.google.com [209.85.208.55])
+	by mail.lfdr.de (Postfix) with ESMTPS id C221B11F0AE
+	for <lists+clang-built-linux@lfdr.de>; Sat, 14 Dec 2019 08:13:03 +0100 (CET)
+Received: by mail-ed1-f55.google.com with SMTP id g20sf630977edt.18
+        for <lists+clang-built-linux@lfdr.de>; Fri, 13 Dec 2019 23:13:03 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576307583; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KmaoyWQa8GoxDAnHwRbMRD3WdPtFdUouhW/K56UCYvuYBfsSx4BVE6DXA4y8cCXsQp
-         tn12NJ2kugL9sIoqQTiEEsR1mTT16qBH1l9TZLQr3CrnizUPioN/Fy9ZKFPM9njvhP78
-         c15XkCzTbUa2aF6JBs4Bgxz387VnjZ4VS0jCQWgKrocRy0snvxxVEW+lsJoeNYBp9IGR
-         pEGDT2hLBmde3Ik43Vq8Cc3A5ELX1x0xnXoflvfq6sVkGsBzwGXQRRkumvshO6jRO4Nk
-         YvH4vm6QaioQmLRqDFxRb61I5PtZD0IdDtD+5YviZQjuLVZ2wjwLfTwsa7vT/pKlxM2n
-         +Lkw==
+        b=BpD+Czi0vLbGJTm71KUphmYaG4ZkwVNo4FuVi0y8nocxjfGc68nl6xatGYrEUahRtz
+         t31UnjBP1g0exAC7m5UpgPpsvEo3pPuHolY884THHwsPLVZnjSmJUyfpV4DLYrCPGXST
+         BdqySKkEtKimc0B8JhvvLWN1+s9yIDCzYE1jbJN5Ur8KfYa+wIr1wz7VgL1GCIMSJj/t
+         EK+OFrAUCwQ/NunFB2exdfQ5PJVQvLJVMk3uduLQwNbQo0lSTwuJNBrKlfNGMh1ootwS
+         4DgR0s+ZR496OovuPCG7Zvve+tcAoM30z5kwA3gZuADPbl2os7EJqt6gbgblORodghgq
+         qqGA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=5DKHA+bxJN+q91O9Ck66TzQG5aV6qxz4Ey2D3u1rAig=;
-        b=VauJJR9zRq1PA9uHFQIRP15RsqBSIbhIjsNH4tYimH+A6OyP4pRxRMX9/xruxR9i8s
-         OqZpj73+mGAeXQyo8U7dJO6LGudI2yzaHPjy7uMiNklITF6V1jW+W7jjACyoR5rZsvrb
-         SuUO52tyb8BlMs3E5qFcib6/H8P+SqPh9RYeTi+WxeS3URWUaPMMyocBMHL5SateM0nK
-         My02LJZ+6ub87V0rf2GkYEvQ7HVrh9gtLHxnmD8o0ETAznYk80BkGK6kxk7OyPY40kIf
-         GVxOJB2VhLubuQAriC2hqgnmyQERarETK2rRHoSiZjlx4V/g3bzPp/p8uEBbp6a1if4y
-         QK9A==
+         :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:date;
+        bh=5dIS6AvBNxgcns2TCPwFMZncScHbnGNJJxwG9IoxguM=;
+        b=mwdtHc3zmson0FEuKdtrDNJ85pcnIxRqGZw8hGxHkYvqlxbfJlXzs7PPSqCc5wtraG
+         FXH5//NgPseKOnDvOTby5bwTD7eFa+GvTKxJkH3aIEvP3E2DJ/3PrpgTTmusLz3k7vtl
+         7dXpwGiiwwiulo4j33+zYDqVkWVzbuOytFvZ+H2NextROvLVKhUxbTWSclioYgIeqbmU
+         7k3PjDnv79sxDKlDAdOlymfLwvc0te320fxylCxkSC0pwqjKnpteCCrur/vqa/aTmGBW
+         dNLiGxgzL4Kuf6YZRyUHHvhDW3C8Bvg5dC6twmC5wsmQAB8PXbPZcw8yom5Tm5QtGWyr
+         bzgA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=rPx5vPgi;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::335 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5DKHA+bxJN+q91O9Ck66TzQG5aV6qxz4Ey2D3u1rAig=;
-        b=LSckoo4zprLOmOi8DYBmKohIQvx6jLwIxv+yapsyJPEk901TC/3xNuLGDg9tkDs5Ca
-         Vtdre6E5XS7oacOw6eLg2aHQuGNTFh6cxO5MBUFTtXAB68enCpgFigR8scOEg54AfLUn
-         nEtqckq8FEwHNSB60o9S0qeQsdZGoJHE1DrwRhokZ/H+TZjoDoV8PCVBNWx8febHIngL
-         87PE9MRYTI0puDs2SQ6jPPdf60Nmg4PiQQ7vMzqh/zpS21X1oZSmLmN1JzBzoKl6rYyU
-         8duw/E4szBk6hd827+IeMeaqI3sw+T0CcH/OrMVfmcjhT5K4P6GtUaeui0dP8/yp4Szq
-         bNMA==
+       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5DKHA+bxJN+q91O9Ck66TzQG5aV6qxz4Ey2D3u1rAig=;
-        b=a7ZEMWM6HUuMr+ZyEWbd7vK+F0rZLLJcmUIw/Mst8ZKw0sYca35BQ5nWPjK+664JH+
-         drGxe6LSU7E4Sh07jSzcNhrwFhARLiMioTT0kp19MKQxzroDCsCYrFmR3SL5WIyuAW9+
-         dQONAjisAlxrg2EyhWahtAvgw+OcqT59Y8len4RMwcEP/8gbbTJA5LdPvpK3QkS9wPrw
-         x88U3gfb+itdalwTV1SyEq5X+QCejkv1tykkct8ur7De52APFiCaF+yy1f3vIJi5unOr
-         NjA2yBebNzxYaH4AHQiyQSyufPSaA8u12dK3ulw0IUXjCMG9aiOjfl7zfjh+VZwhtkPh
-         ++RA==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWQPFX52M7HdBk6Yp2lxkFJZHdtDu38g6aUXFPwTrUOZ+qU4RRN
-	TXqoeTj3h+PzjKlEQ7zk8Pc=
-X-Google-Smtp-Source: APXvYqyCUSG7HtBk4OB8Q5zWrPsw0GN3wix9rZBo/BCFXAq5qRQhKcFXnpmJVlajW7vocCL7QDLBCg==
-X-Received: by 2002:adf:e74f:: with SMTP id c15mr15837888wrn.274.1576277432925;
-        Fri, 13 Dec 2019 14:50:32 -0800 (PST)
+        h=x-gm-message-state:date:from:sender:reply-to:to:subject:cc
+         :in-reply-to:references:mime-version:message-id:robot-id
+         :robot-unsubscribe:precedence:x-original-sender
+         :x-original-authentication-results:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5dIS6AvBNxgcns2TCPwFMZncScHbnGNJJxwG9IoxguM=;
+        b=n2egFz9pj3FLyxyaO2fc7wQ+ZkLYvVlrsOZ7cG2z6O2xdrkO5uhmHNuApZskBJTouP
+         x0PuLmtDmgDe8UfhYA+XlL08wU0muTEUoSTXjmcd4cDMp00pw3OkTKW2owdIOPUbpAdV
+         acE+gVRsaplzpQsAoz5kr7zJx9CwyrZgJnAyFy+mMKq+UPLmtpoP2EJSiOMayyGMH+WO
+         4EvoEHOGaGhLK8cvad0+yROvDdq/Qqrz4DalXJG0xyw41MCSA3o3E60VjbXUP9dkskhc
+         g/S50/53RL1yqxWxy0R5PM3R4KeCzRW0Yi2bAR0OL8lw3kvKPLQuTKGSvLlHnt2H4ePo
+         6lbQ==
+X-Gm-Message-State: APjAAAUwOc1NeuKw2tgyjBNkROFBrH1yTN6WoMiKT1bE0pNT5msIzXRo
+	tb4cS9ki1+Se4dq/1mezP6A=
+X-Google-Smtp-Source: APXvYqzrAPS9qMfPvg0ts8BBUWSimVBw5MLDBFvaDOwLw3NO8H9IcbGL8+TdJ+pQ7bfCFLIKSaSWfQ==
+X-Received: by 2002:aa7:da84:: with SMTP id q4mr20558042eds.152.1576307583507;
+        Fri, 13 Dec 2019 23:13:03 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:c76b:: with SMTP id x11ls5493331wmk.3.gmail; Fri, 13 Dec
- 2019 14:50:32 -0800 (PST)
-X-Received: by 2002:a05:600c:220e:: with SMTP id z14mr6172215wml.114.1576277432421;
-        Fri, 13 Dec 2019 14:50:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576277432; cv=none;
+Received: by 2002:a05:6402:3d0:: with SMTP id t16ls2664602edw.1.gmail; Fri, 13
+ Dec 2019 23:13:03 -0800 (PST)
+X-Received: by 2002:a50:fb96:: with SMTP id e22mr20178567edq.18.1576307582979;
+        Fri, 13 Dec 2019 23:13:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576307582; cv=none;
         d=google.com; s=arc-20160816;
-        b=zGakQ7ZoZ5j4YfcOLltY5DxUZ8xSGcveVyKoWd/JfWmrjed22vITA5nO7zImBN1yJB
-         AKv2/knMYSLb0h83zPkWfYZOjqdhe3zjk1zKhhfoQDpFGuKGcIeZHNtj3jim5sXrl/4l
-         dh5HHp5eXSOKqhJVP9S8ArxGOQzja7uq38cMXw9Sg2HaYsQSJJRPW7C4vPyc7AZzK2ZO
-         /FaJroNP3188p4rlCpv9EGkIbmJjPN8sOvtitSCH7y9jZqaEBUgYy683TWlw7bQnIW1s
-         bcecnKj8gNbWBM05QOQ1xcEcdCFO9j9aROCwny8yrEgVyUoz497gJreZeMqIglvkwVAy
-         fgUA==
+        b=lmKwdVb06Ske6+mSx76Jqcuo4hdbKpa6Cq1BWCSfZkpJlTJSU3pwBHrWo999FLIyv7
+         i352AH6DCzCUlWWWjX33w2Ba+crtVxqACKoQyXibIPgnUWq7V0YQTNE0mxtOmKmI88k4
+         6kgDDesJLAYeifgq/S4gON3oiBj43q9YVZoT6iMXONOUysaNkliCmxrYc+vMbZoZVobo
+         CXM3zbebhmHyH8hxYpCRB8N6IdNEiBy6A3LBkjF3jHeoE2mm5VfYgjjhzOlIfZaljaAw
+         xOr8a64bk1eOLOH2A5MRDOUZ85IJtvzwipOucklgfpnvERPQVBKTQP2nNdNkBWgsU90+
+         rCuA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=g6AbRSmCrL1ObbyP3WHtMdUO+TNyoiEvHpbC6nteBnE=;
-        b=U/kLIw+KnviMQ9OsKU2OQSRN0sPvfH/WC61g83o3SqbAF1RZM4Sd9lBFUvRBQ19pAj
-         BmI+dR5EJMrsWQyphDav+9aVpLDBnGmClhUAhI7UNqGnYc/4b7yaeLMJjv1hMr6/+olw
-         hES6qGSnRwR8meAShGokmqBaxIn9e1SmcXXCggNUmb5oIYDdKXwFV9iECQfzGqEDEcIC
-         fOTlmslPF++z4Q2rkH9c6M8leYGJKyxuZfIS0UPFJsZ87YBA7VUr+RieHUnUkB1H9pfM
-         fim2t7wFtwbDSZ5yshtEmzUzyQNU+OzyKftDq09MuaJbcfzpYckNjHVinlffkVn0CHR/
-         ejqQ==
+        h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
+         :message-id:mime-version:references:in-reply-to:cc:subject:to
+         :reply-to:sender:from:date;
+        bh=/WmoL/r2ZRJfAfYtH/niJm6RNQFodUirFhpaS505jow=;
+        b=CSy943EKrldeTUSBn6Nbz4HsfFMGHwxqbnUUkZ5PLz2ojmJFoAvwBfbEzNkzTkggUX
+         Leb+z8VkcI2SmHq8CjfvxZwIAfe3UnT05V/yw/dXPXmxDOCAohgefDYHEeg9x5Lvu/up
+         ZMqx+Fd3uT09o8LIaAKCwJOR4ZJKyH7e4D27envKcJMXgiTCd7aR3gnNninkuj0IhUon
+         V142BDHO68ddBdL5JG9IFtpX6q4PWIfaC+i7LVBx61UEy5HDlcUwkkvqQBYSTERNwbHx
+         0Lgv2tXA/cd0k9zgwNqcMcuGEBG9fIEygh2sg9y0bl9AuNp4wd1vgmswNlmTE3pEVie8
+         OtzA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=rPx5vPgi;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::335 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x335.google.com (mail-wm1-x335.google.com. [2a00:1450:4864:20::335])
-        by gmr-mx.google.com with ESMTPS id g3si429438wrw.5.2019.12.13.14.50.32
+       spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
+Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
+        by gmr-mx.google.com with ESMTPS id n21si488585eja.0.2019.12.13.23.13.02
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 13 Dec 2019 14:50:32 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::335 as permitted sender) client-ip=2a00:1450:4864:20::335;
-Received: by mail-wm1-x335.google.com with SMTP id p9so446705wmc.2
-        for <clang-built-linux@googlegroups.com>; Fri, 13 Dec 2019 14:50:32 -0800 (PST)
-X-Received: by 2002:a7b:cb0a:: with SMTP id u10mr16844453wmj.104.1576277432031;
-        Fri, 13 Dec 2019 14:50:32 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id n14sm11904598wmi.26.2019.12.13.14.50.31
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Fri, 13 Dec 2019 14:50:31 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Fri, 13 Dec 2019 22:50:30 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <77801322.4576.1576277431492.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-arm-next-allyesconfig - Build # 54 - Successful!
+        (version=TLS1_2 cipher=AES128-SHA bits=128/128);
+        Fri, 13 Dec 2019 23:13:02 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) client-ip=2a0a:51c0:0:12e:550::1;
+Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
+	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
+	(Exim 4.80)
+	(envelope-from <tip-bot2@linutronix.de>)
+	id 1ig1bm-0003Fj-M6; Sat, 14 Dec 2019 08:12:58 +0100
+Received: from [127.0.1.1] (localhost [IPv6:::1])
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 1D2691C047B;
+	Sat, 14 Dec 2019 08:12:56 +0100 (CET)
+Date: Sat, 14 Dec 2019 07:12:55 -0000
+From: "tip-bot2 for Ilie Halip" <tip-bot2@linutronix.de>
+Sender: tip-bot2@linutronix.de
+Reply-to: linux-kernel@vger.kernel.org
+To: linux-tip-commits@vger.kernel.org
+Subject: [tip: x86/boot] x86/boot: Discard .eh_frame sections
+Cc: Borislav Petkov <bp@alien8.de>, Ilie Halip <ilie.halip@gmail.com>,
+ Borislav Petkov <bp@suse.de>, Nick Desaulniers <ndesaulniers@google.com>,
+ Andy Lutomirski <luto@kernel.org>, clang-built-linux@googlegroups.com,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Thomas Gleixner <tglx@linutronix.de>, "x86-ml" <x86@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+In-Reply-To: <20191126144545.19354-1-ilie.halip@gmail.com>
+References: <20191126144545.19354-1-ilie.halip@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_4575_1701068315.1576277430492"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-next-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=rPx5vPgi;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::335
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Message-ID: <157630757591.30329.774656997098904968.tip-bot2@tip-bot2>
+X-Mailer: tip-git-log-daemon
+Robot-ID: <tip-bot2.linutronix.de>
+Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
 Precedence: list
+Content-Type: text/plain; charset="UTF-8"
+X-Linutronix-Spam-Score: -1.0
+X-Linutronix-Spam-Level: -
+X-Linutronix-Spam-Status: No , -1.0 points, 5.0 required,  ALL_TRUSTED=-1,SHORTCIRCUIT=-0.0001
+X-Original-Sender: tip-bot2@linutronix.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of tip-bot2@linutronix.de
+ designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
 X-Spam-Checked-In-Group: clang-built-linux@googlegroups.com
@@ -131,80 +127,80 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_4575_1701068315.1576277430492
-Content-Type: text/plain; charset="UTF-8"
+The following commit has been merged into the x86/boot branch of tip:
 
-Could not identify regression in *linux* in CI configuration tcwg_kernel/llvm-master-arm-next-allyesconfig.  See 'Bisect log' in the links below for bisection details.
+Commit-ID:     163159aad74d3763b350861b879b41e8f64121fc
+Gitweb:        https://git.kernel.org/tip/163159aad74d3763b350861b879b41e8f64121fc
+Author:        Ilie Halip <ilie.halip@gmail.com>
+AuthorDate:    Tue, 26 Nov 2019 16:45:44 +02:00
+Committer:     Borislav Petkov <bp@suse.de>
+CommitterDate: Fri, 13 Dec 2019 11:45:59 +01:00
 
-First few errors in logs of bad:
-00:34:31 hdcp2_execution.c:(.text+0x9b0): undefined reference to `__bad_udelay'
-00:34:31 hdcp2_execution.c:(.text+0x1bc0): undefined reference to `__bad_udelay'
-00:34:31 hdcp2_execution.c:(.text+0x1c18): undefined reference to `__bad_udelay'
-00:34:31 hdcp2_execution.c:(.text+0x1c68): undefined reference to `__bad_udelay'
-00:34:31 hdcp2_execution.c:(.text+0x1cb8): undefined reference to `__bad_udelay'
-00:34:35 make: *** [vmlinux] Error 1
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="78adcacd4edbd6795e164bbda9a4b2b7e51666a7"
+x86/boot: Discard .eh_frame sections
 
-Results regressed to (for bad == 32b8acf85223448973ca0bf0ee8149a01410f3a0)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-18292
+When using GCC as compiler and LLVM's lld as linker, linking setup.elf
+fails:
 
-from (for baseline_rev == 37d4e84f765bb3038ddfeebdc5d1cfd7e1ef688f)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-18317
+   LD      arch/x86/boot/setup.elf
+  ld.lld: error: init sections too big!
 
-Artifacts of bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/artifact/artifacts/build-32b8acf85223448973ca0bf0ee8149a01410f3a0/
-Artifacts of baseline_rev build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/artifact/artifacts/build-37d4e84f765bb3038ddfeebdc5d1cfd7e1ef688f/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/
+This happens because GCC generates .eh_frame sections for most of the
+files in that directory, then ld.lld places the merged section before
+__end_init, triggering an assert in the linker script.
 
-Reproduce builds:
-<cut>
-mkdir investigate-linux-32b8acf85223448973ca0bf0ee8149a01410f3a0
-cd investigate-linux-32b8acf85223448973ca0bf0ee8149a01410f3a0
+Fix this by discarding the .eh_frame sections, as suggested by Boris.
+The kernel proper linker script discards them too.
 
-git clone https://git.linaro.org/toolchain/jenkins-scripts
+ [ bp: Going back in history, 64-bit kernel proper has been discarding
+   .eh_frame since 2002:
 
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
+    commit acca80acefe20420e69561cf55be64f16c34ea97
+    Author: Andi Kleen <ak@muc.de>
+    Date:   Tue Oct 29 23:54:35 2002 -0800
 
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+      [PATCH] x86-64 updates for 2.5.44
 
-cd linux
+      ...
 
-# Reproduce bad build
-git checkout --detach 32b8acf85223448973ca0bf0ee8149a01410f3a0
-../artifacts/test.sh
+    - Remove the .eh_frame on linking. This saves several hundred KB in the
+      bzImage
+ ]
 
-# Reproduce baseline_rev build
-git checkout --detach 37d4e84f765bb3038ddfeebdc5d1cfd7e1ef688f
-../artifacts/test.sh
+Suggested-by: Borislav Petkov <bp@alien8.de>
+Signed-off-by: Ilie Halip <ilie.halip@gmail.com>
+Signed-off-by: Borislav Petkov <bp@suse.de>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: clang-built-linux@googlegroups.com
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: x86-ml <x86@kernel.org>
+Link: https://lore.kernel.org/lkml/20191118175223.GM6363@zn.tnic/
+Link: https://github.com/ClangBuiltLinux/linux/issues/760
+Link: https://lkml.kernel.org/r/20191126144545.19354-1-ilie.halip@gmail.com
+---
+ arch/x86/boot/setup.ld | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-next-allyesconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/54/consoleText
+diff --git a/arch/x86/boot/setup.ld b/arch/x86/boot/setup.ld
+index 0149e41..3da1c37 100644
+--- a/arch/x86/boot/setup.ld
++++ b/arch/x86/boot/setup.ld
+@@ -51,7 +51,10 @@ SECTIONS
+ 	. = ALIGN(16);
+ 	_end = .;
+ 
+-	/DISCARD/ : { *(.note*) }
++	/DISCARD/	: {
++		*(.eh_frame)
++		*(.note*)
++	}
+ 
+ 	/*
+ 	 * The ASSERT() sink to . is intentional, for binutils 2.14 compatibility:
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/77801322.4576.1576277431492.JavaMail.javamailuser%40localhost.
-
-------=_Part_4575_1701068315.1576277430492--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157630757591.30329.774656997098904968.tip-bot2%40tip-bot2.
