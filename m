@@ -1,143 +1,130 @@
-Return-Path: <clang-built-linux+bncBAABBQEM4HXQKGQEUH7WF3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCWZBO5OREMRB7HR4HXQKGQEHJ6TK7A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
-	by mail.lfdr.de (Postfix) with ESMTPS id CE364122258
-	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 04:06:41 +0100 (CET)
-Received: by mail-yb1-xb39.google.com with SMTP id q189sf1834470ybg.17
-        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Dec 2019 19:06:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576552000; cv=pass;
+Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id D4C9F1224E9
+	for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 07:43:08 +0100 (CET)
+Received: by mail-wr1-x438.google.com with SMTP id y7sf3584314wrm.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 16 Dec 2019 22:43:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576564988; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jcGjC0DxvbmaL+g6ofZCUuS6qbZwdBgddxL3wlEDkHORRshmeG7UQq2u4m6fcIwW1x
-         lLu9ENnDjlBjANuiaIZqRaYjgx6TLsFJRFYvQxRapc1c3MwMC9zUinxztHo5EOXLka7F
-         +VAa5ruySXxU0Ei2UIkkQjGV29XvgMj1xqOJq+iFxkspOxVzwpKbKVr7atg8UX6lFWf0
-         /SpHL5/+neKxMVYDtE/IyIqxFrLf0bHMME0kmI3m2hKsyKDQaWRqwuz92Ft7R2/h40xo
-         zNH71+yR3z5AECRLFlD1/LycIkkKb2wUn/NnGSHxiW91RSP4y/Dtbg+WicrKmSmTE477
-         4wiA==
+        b=To5YFBXFYYC+2aVQjAk04L/HFnd9DWee2JrH3ncSHAwUxnH5H7GerFKWlefRQeaz37
+         Q9gv25RgJenv5EteaMWZp22ZAAof69ed+xMkpaeZu0Y/IgcoMgL1Kh/aTN6Cy14SJFSf
+         f1I2m4Lr9yAh4voGbCNQ5gjiZ9YxRy2mbg7aRKwcecVt3uUG2q3i1WjPYhImUu4cCSBa
+         XRlhCJW2MGfa5QTV/p8GB7ntgQ5SPf6OYiM8M6j2pjsc8pkB9HqYjcjc3SqMlfmvzleF
+         /hTnXT335jlbIhmO8+aM2OFjn+SglqArHNU3H5p/uy8SVTkWABEjCd5rvXeZO9qjappo
+         EjyQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=nXgOkVuFuc1b5pCSj6d02LIe9WRWwKRauKqJdikRuwg=;
-        b=Xu5FkAgG86PKcIBUU/g9bXFKUgz1XMBTWtxUpfSb0CipJCu0jWQ3GdmIPoWT3UvTH5
-         qi5sik3dQnqfVQ7oQskSaBkb0lU+cB74eR+sjz3x1OzF/YFOw/GxVez4qWX7dM5Vul//
-         sTVytscpkkjteXCR7zFy8gNbc3gn/i+ZOwm2jX3A1RZ0cA+9oKQOkATFjOfzvX4Mp1Pw
-         1AdqHnp3wNyEBHP5UrXkSl91zT3n6PYtP1GASiir+zBBuPMqP+Ws527WDGDnO1WG38O8
-         hjOOp4uEqW4rW2IxroqielVoi0OIczMiHBrEdpCVjsU9XyeLG+2EWoRz8iArzkjziueS
-         YqoA==
+        bh=8KTPo9OQGgrgiTnFC52JhkwGEM2FhmjOpluJczCm0Cw=;
+        b=djk1XG4w12CeF8Tp8kSlfG+atf0QPOVz1uLPpMm0nNbxo7ihYJpl7Oa27zd8w5JEuZ
+         krox0JCXLy1BSwy3yMFJ7imaf55cDz5pn4x4az++8vPEyE8fH5X8cGUdMe+lOREwdEsK
+         8dPv7Np8i4rEPyQNdJxXT84IaqjyAl9ZQP8M3JoVltE6bLFRfMsVpcYeSnAUytJwFXvK
+         ux9bsXD/KQaa8K87AmAtaLv9CPtFfNe8gxucAao55q2dgTrmMElV0kkSz67sPxNM7w6c
+         5uUSNNFTyRXnKZDa0OeevIEhmL+QRxmZlnoJbyOaqwW/1pPTFn9gcEgdm79RLn+6o4qP
+         xGeA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=XG0jL4Z9;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       spf=neutral (google.com: 136.243.71.142 is neither permitted nor denied by best guess record for domain of linux@dominikbrodowski.net) smtp.mailfrom=linux@dominikbrodowski.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=nXgOkVuFuc1b5pCSj6d02LIe9WRWwKRauKqJdikRuwg=;
-        b=ULxcNRDgr1dk6HxPVvvnHwYVGTacM1juFLiBpYyKYKvAgicmhVEjW7juQgTFmZ7wYg
-         NF8j9YPc4bt/1ngwQrOs5inQZPMeoMQrBpCRz9lRK3Jtop4opFmKWztgm+VZnmQqvMot
-         xTrNpLhDpp2+TAr/sqVZU/kAjE/rkfPVFFXXX4daC+O4CGSSaDH7K7vi/33jOFVi1w4G
-         6eLEW5ZTxoKKamDEeN87ZRO/+QKGKzffI+Mnqswepex1qvDPw10uwKg16FvY0Mrky6OB
-         fJ6jigew6B64IRWXLl3WqNnfonFNw0qEw7z7cW1HpUTVF//w/xE2gXBAobqMuu/GfWD8
-         A2Lg==
+        bh=8KTPo9OQGgrgiTnFC52JhkwGEM2FhmjOpluJczCm0Cw=;
+        b=r9GKdw1PovRmjB3ill5oiN91KGbheLHNtob/XI0DPXy5g6+lJ4ABhI0WkW72bj7rlf
+         f8xIQBHqOWaSL1muFTnjgEPzfJwaLunzcPzw73IIUL4Qx6N0qOmJyyM7Haioa4Nza+fm
+         /9l1RuOXKvmrhROiH9JPvvQnZiyJhyIX5VCCqQ5sh8ykJ4YdAaDXeCuws7eq1nDlW071
+         72BqsrExCfskUTRWS3/3Pp2P90yRhyaijPpKZ2geMjG/ggdGQEhZ7iYQNhpG+H8h428c
+         63GXzV4+2ec+x0/P+jbXBH4b9s6nb8Kd1xSTC27O44hU7WltO77c3H2qV2U4nUjy6u6L
+         YntA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=nXgOkVuFuc1b5pCSj6d02LIe9WRWwKRauKqJdikRuwg=;
-        b=AmfH0fmHJFhoiIaZfAkfmqU/sj3y3OQSpZ8WaMZ/ITLrTa/uVdhUT3c41f2q9EUDVm
-         1DP/zH3IeOWz6CTR3nwa8z6U69rprJsxQgf9x3ifY/MxqZ+R+XG32cK+JSrTPkowaj8z
-         BB0MrUacmK2dJOmNbx/dlashGldqnOTPeuzuoFvOtWFPzRcSngjW4KSJAFKL4pdbsA4b
-         M1ux3C3VsDbF5Y49xAKUIH/bMN4sG7CCQw+u+lZAHeoZVxqUbDo3u/53XBQ3YdE35Eg6
-         8snbjZMQenHeqc2tGfepxMWDEaU+Bxg2cONOxcJUZjY8T2z62OtUpHwU1JZNnj4HdbHU
-         CZgA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=8KTPo9OQGgrgiTnFC52JhkwGEM2FhmjOpluJczCm0Cw=;
+        b=JVer833SNwW+MWqxBPmW9VAicHWyvBxLDUOwLT92vnUMjHeC0r+FE4kEQ5PO2itAkL
+         IbeiwkW7GgXnbA8Bb1655svq8hGSylXmjlvMuysECTeL0UV0gM5sY6k56oKWIUt75Ll1
+         Bwb4yAbagTGjpt66MBfkhMR6VlK4NcP+2KgQloWbqaSo9X7vx5OWB/BFkNMgTd92YoTz
+         nNdCUX+EKxkVynas4qELgn1yboK4xO9Z6eZWKDkL2rbOpQ9wZdbh7TpziOWtbtVC3o67
+         Mb/6M5i//e6MXA6XPngSwyPKRizztfcBUiAFnfE/5601QvjkOHQaonAtRZKUuRPiSZSF
+         s88A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWqw30QHeHS6J7QvKMgYok2wN/9xg8GHZ6bApPVY7rFAYSHrNVB
-	rCrRFJ26oYPW8KLattgGEKc=
-X-Google-Smtp-Source: APXvYqyTjUu8U7VSJgMszoUmDXhsrP9G6qToEWeWXJGTnAvKi6EDgwwi5CfcluWCmIIwj5GhNGt/gg==
-X-Received: by 2002:a81:4c95:: with SMTP id z143mr7910616ywa.101.1576552000507;
-        Mon, 16 Dec 2019 19:06:40 -0800 (PST)
+X-Gm-Message-State: APjAAAX8UMBbsalr71IiC01KZ8TGxd5OLpa+4xR3i9S5qwE0ZXUNnk2p
+	dTB8Rxg9I5yX4tHcFrgHdYw=
+X-Google-Smtp-Source: APXvYqw4TY/1llEgNuOHRYQOtuiIjTZHJ0ZCTFE7LDILxz877rE7kKmoml7rA22rnsUtlD+hKzG2jQ==
+X-Received: by 2002:a5d:548e:: with SMTP id h14mr37833833wrv.380.1576564988533;
+        Mon, 16 Dec 2019 22:43:08 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:eb0b:: with SMTP id d11ls447832ybs.11.gmail; Mon, 16 Dec
- 2019 19:06:40 -0800 (PST)
-X-Received: by 2002:a25:b6c3:: with SMTP id f3mr23505062ybm.446.1576552000077;
-        Mon, 16 Dec 2019 19:06:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576552000; cv=none;
+Received: by 2002:a7b:cf15:: with SMTP id l21ls686666wmg.0.canary-gmail; Mon,
+ 16 Dec 2019 22:43:08 -0800 (PST)
+X-Received: by 2002:a1c:145:: with SMTP id 66mr3544561wmb.11.1576564987985;
+        Mon, 16 Dec 2019 22:43:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576564987; cv=none;
         d=google.com; s=arc-20160816;
-        b=qspJGWMcULQWlDKZmJWrKY9ABxuujiHw/JkeJhbUPvKtODRT0pwYBk0eI42seTbIrz
-         Rt6nF8HCB3OZMt8zvZB4AI+ydqfVIORIqrriDkK0SJsU37JfrM4RR1eXLPRbWaLzOtrJ
-         r7pWwhLkcggZPai0T23n4exbbH9ci/gP1xtgANeGOt1FgV5VwQJfw6P9xfydM9Pu4d6t
-         Hz2jidMTj3DaB33ckA7GRhoGtKqVqAxadieTjHNye5ZjnM5Ll0A9JUcBpdNf+annxH+J
-         rWO+7hyjT3Ass4z2vlT6HJh6WBZvFW9dSEQw9qyyePe5DBlTDnJJa6vSqHxHJpkeEmZ8
-         SFow==
+        b=pUvahXXKyCA0v5+6arWNUf6fHQdQxB+3Dr5r8m/XojSg3peZPM1Pjc8N57tEQw6Wpn
+         AYvPRWCr0G5HdNvC9phQmyOhmOm8PZ0BO6SGIRVg8i7/UCWNJEJEsxwbC8HfK+XK4yVe
+         NLgg+zrW8LIaQRDrf2VDv6VDjwoRetgylExMcCR5r6dTmteRP6tZhbjliMPDONUZqxcK
+         zCE0ka8Vgzgg0PiG+BXRDF9lKgj+55E51H2zn9eXlSP7Ba/RNkRqdaohFhbkqdXgwLMA
+         1hZshnDXuyLe71HmgNT3DZJw/i1GJ3v113KZCfYtjZb45jVxA6O1GLurD/Nyy3WwT0BO
+         y3TQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=pugGGjF7UoSjVUlbexS6sMjOLhQht+PE5aPlQbu3gZI=;
-        b=WHHLWq9V8YXwscofyNUkt6XRLC1AWXLFACwE/OrVBMhl1oI1ozG8a+1WW3dYEVmadS
-         0lRU7gHKLYb8nIqVf0rpVV058mkAkmqbraqHdKqd8WIk0Pz8T2qESZed7sx8zl/LDrLB
-         5J3kpRqleZN9h5QKEPXjTmfgPd+5rN/Dww6FuQHbdig84uBIoOWebi9xEvDjRbzbtVh9
-         T5s2oFER7klVC3AXhIZNCkrCtghEFkUUrfJxD2BwJKu0tqzl0Q4RRqr4cFi5mBYNBxRb
-         QBVAtsbUrC+ddGYGF5qUQlxSiMTjtI1vGuAIBfyE5/dTtGz0aMeEir45bSyVX9gNH5Gv
-         Oq0g==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date;
+        bh=gjZWyZxBwWEuNpHUgKqYdEHTzAK2WpDSApayf+fapL4=;
+        b=JuCkh1njU1xV9a1zPsWhKu1YOvb3Er+MuQ9WGpkBy7TrN7PLGO4RKIfSkyNnINbCVS
+         3J79YY90N46o9FFJ+DJTYAaFlC90wq/U6hF8DS2hPGgo8K3b5TFtrkRWW18kyAHky0uJ
+         2w1l/2+3sLpY2sUA+c/VTHhb1w9QmfShD0Y1oSxGp3/+Q5xhrvj+k0l2+Y4mcIQzMlYb
+         tdJsgufgfAy7b5TmEEmMk33bqlFprJ6/VeGFfw6guG/kwes+Cd9QuUCUxeh7mEq/T0rF
+         8veMjfPPs/6z52O9+doSQfD5ugCF7kbRBm3unmx9ywGGABkZyRjUV8iH7ZE6yzIgxkiD
+         zqdQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=XG0jL4Z9;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-02.nifty.com (conssluserg-02.nifty.com. [210.131.2.81])
-        by gmr-mx.google.com with ESMTPS id v64si1011933ywa.4.2019.12.16.19.06.39
+       spf=neutral (google.com: 136.243.71.142 is neither permitted nor denied by best guess record for domain of linux@dominikbrodowski.net) smtp.mailfrom=linux@dominikbrodowski.net
+Received: from isilmar-4.linta.de (isilmar-4.linta.de. [136.243.71.142])
+        by gmr-mx.google.com with ESMTPS id y185si46391wmg.0.2019.12.16.22.43.07
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Dec 2019 19:06:40 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) client-ip=210.131.2.81;
-Received: from mail-vk1-f178.google.com (mail-vk1-f178.google.com [209.85.221.178]) (authenticated)
-	by conssluserg-02.nifty.com with ESMTP id xBH36CRs003403
-	for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 12:06:13 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com xBH36CRs003403
-X-Nifty-SrcIP: [209.85.221.178]
-Received: by mail-vk1-f178.google.com with SMTP id w67so2282247vkf.1
-        for <clang-built-linux@googlegroups.com>; Mon, 16 Dec 2019 19:06:13 -0800 (PST)
-X-Received: by 2002:a1f:8cd5:: with SMTP id o204mr1689010vkd.66.1576551972298;
- Mon, 16 Dec 2019 19:06:12 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 16 Dec 2019 22:43:07 -0800 (PST)
+Received-SPF: neutral (google.com: 136.243.71.142 is neither permitted nor denied by best guess record for domain of linux@dominikbrodowski.net) client-ip=136.243.71.142;
+X-isilmar-external: YES
+X-isilmar-external: YES
+X-isilmar-external: YES
+X-isilmar-external: YES
+X-isilmar-external: YES
+X-isilmar-external: YES
+X-isilmar-external: YES
+X-isilmar-external: YES
+X-isilmar-external: YES
+Received: from light.dominikbrodowski.net (brodo.linta [10.1.0.102])
+	by isilmar-4.linta.de (Postfix) with ESMTPSA id 4E1DA20074B;
+	Tue, 17 Dec 2019 06:43:06 +0000 (UTC)
+Received: by light.dominikbrodowski.net (Postfix, from userid 1000)
+	id 488A120AFD; Tue, 17 Dec 2019 07:38:46 +0100 (CET)
+Date: Tue, 17 Dec 2019 07:38:46 +0100
+From: Dominik Brodowski <linux@dominikbrodowski.net>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: akpm@linux-foundation.org, gregkh@linuxfoundation.org,
+	linux-kernel@vger.kernel.org, mingo@kernel.org, rafael@kernel.org,
+	torvalds@linux-foundation.org, viro@zeniv.linux.org.uk,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH 3/3] init: use do_mount() instead of ksys_mount()
+Message-ID: <20191217063846.GA3247@light.dominikbrodowski.net>
+References: <20191212135724.331342-4-linux@dominikbrodowski.net>
+ <20191216211228.153485-1-ndesaulniers@google.com>
 MIME-Version: 1.0
-References: <20191204225446.202981-1-dima@golovin.in> <CAKwvOdm-bhuJMRRN3tyNdb88+_TFd4m3b-7gX0-91VG4djzp+Q@mail.gmail.com>
- <23883331575506134@vla1-3991b5027d7d.qloud-c.yandex.net>
-In-Reply-To: <23883331575506134@vla1-3991b5027d7d.qloud-c.yandex.net>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Tue, 17 Dec 2019 12:05:36 +0900
-X-Gmail-Original-Message-ID: <CAK7LNATRWgfnP_C68aiOLacR_Bhz2oL6DgyUE76gENWfOvvGbQ@mail.gmail.com>
-Message-ID: <CAK7LNATRWgfnP_C68aiOLacR_Bhz2oL6DgyUE76gENWfOvvGbQ@mail.gmail.com>
-Subject: Re: [PATCH] x86/boot: kbuild: allow readelf executable to be specified
-To: Dmitry Golovin <dima@golovin.in>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-        Michal Marek <michal.lkml@markovi.net>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
-        "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-        Bruce Ashfield <bruce.ashfield@gmail.com>,
-        Ross Philipson <ross.philipson@oracle.com>,
-        Ross Burton <ross.burton@intel.com>,
-        Chao Fan <fanc.fnst@cn.fujitsu.com>,
-        Daniel Kiper <daniel.kiper@oracle.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        LKML <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        "tony.luck@intel.com" <tony.luck@intel.com>,
-        "fenghua.yu@intel.com" <fenghua.yu@intel.com>,
-        "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=XG0jL4Z9;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Content-Disposition: inline
+In-Reply-To: <20191216211228.153485-1-ndesaulniers@google.com>
+X-Original-Sender: linux@dominikbrodowski.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 136.243.71.142 is neither permitted nor denied by best guess
+ record for domain of linux@dominikbrodowski.net) smtp.mailfrom=linux@dominikbrodowski.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,32 +137,23 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Dec 5, 2019 at 9:41 AM Dmitry Golovin <dima@golovin.in> wrote:
->
-> 05.12.2019, 01:18, "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>:
-> >
-> > Grepping the kernel sources for `READELF`, it looks like
-> > arch/ia64/Makefile makes the same mistake. Would you mind fixing both
-> > cases in the same patch (v2)? I'm also curious about it's use in
-> > arch/ia64/scripts/unwcheck.py, and scripts/faddr2line. +ia64
-> > maintainers and list.
-> >
-> > I think if you simply remove the assignment on line 17 of
-> > arch/ia64/Makefile you should be fine.
->
-> Perhaps something should be done to NM on line 16 of this file as well. Also
-> found similar invocation of `objcopy` in arch/riscv/kernel/vdso/Makefile.
-> I think IA64 and RISC-V changes should be made as separate commits.
->
-> -- Dmitry
+On Mon, Dec 16, 2019 at 01:12:28PM -0800, Nick Desaulniers wrote:
+> Shouldn't patches bake for a while in -next? (That way we catch regressions
+> before they hit mainline?)
+> 
+> This lit up our CI this morning.
+> 
+> https://travis-ci.com/ClangBuiltLinux/continuous-integration/builds
+> 
+> (Apologies for missing context, replying via lore.kernel.org directions.)
+> https://lore.kernel.org/lkml/20191212135724.331342-4-linux@dominikbrodowski.net/
 
-Applied to linux-kbuid. Thanks.
+A fix for this issue is already upstream, 7de7de7ca0ae .
 
--- 
-Best Regards
-Masahiro Yamada
+Thanks,
+	Dominik
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNATRWgfnP_C68aiOLacR_Bhz2oL6DgyUE76gENWfOvvGbQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191217063846.GA3247%40light.dominikbrodowski.net.
