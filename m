@@ -1,201 +1,138 @@
-Return-Path: <clang-built-linux+bncBCJ355F66EHRBVE643XQKGQEHW7I7QQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBFND43XQKGQEYAAJNSI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x139.google.com (mail-il1-x139.google.com [IPv6:2607:f8b0:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id 48840123D22
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 03:30:45 +0100 (CET)
-Received: by mail-il1-x139.google.com with SMTP id x2sf552356ilk.18
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 18:30:45 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1576636244; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id E08A5123D30
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 03:40:22 +0100 (CET)
+Received: by mail-pg1-x53b.google.com with SMTP id c8sf247047pgl.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 18:40:22 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576636821; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y+UodRLMct0Fq1k7bzHZQMBRHw32w0G2IyyMbNsZ82b9N7BZDjnYDjJv0M5WiMi5wV
-         1jp9+TIJejcfHGblQu5dMkQX0PbPYRaJdBk2Vpg10QBmuvTlH6doZDbuNGAuJuYtxsDN
-         aIHC4qtrG3FHvDcwOrWWT58pX9nWUwStT53Fg6yJ22gZO29uwzv+EHQ/slyJS3nlGqfH
-         91DwVnGeCOoY6zvVP01L9MsUCqhBi8WLn/Vl0lnjt9fujcWSFdYtn1pfDe9IkCKBC8Ld
-         2xYYj3kniI7Q7Mr11jCeMd1Izv4u2SWl87eiO5sdqsN6/fgDVdRlfOQxxKWd4k1vtYCL
-         YoDA==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=O47gi4VRiPRhD4UjPtSiust2lxuaHkvpbZUhBfVDXtdDvYQfNm9S+pTG+5+5/7rwbo
+         00Yp+FCn4+lEC7oHOECaWs+zy3bBOLcf0S+v78cqm6EvyyypJ4qMI1xv3GRHTMn4v99o
+         z1vNdzS6SJK3sQ1FWyeEq4KJD8ulYSf9u7p97egJUuJGhhVVgU5sDR0tQ67FOgc9yBof
+         6s8v/rciAnUmeeSQgHfu/t6s5GvBC+w9DV9RqeJpF27rcpeFcmDgLxV+4FeqPj40Wig5
+         4NjZb4rxGtwGAK3CmYEAYRJp8zH0gexDUbG3NE+T4hUDm1CcO+OMxycksLFD51CnKKdt
+         49fw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:dlp-product
-         :dlp-version:dlp-reaction:content-language:accept-language
-         :in-reply-to:references:message-id:date:thread-index:thread-topic
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=BlR9ryRNTQy9bc8GXBNeHHnD0IRt0r5d6zzMg1mZrXI=;
-        b=UBUje/iAWYKcIDWxdqJSU8MW/dE9pOzi+/EoQRoU7jZA6bXfCHsoZ0K0+8AjRw2zSB
-         9UmU0YBg0eoKwJf3aEga83GOCZPlvhC7JlrPlwgQh/28K4aK31ij16FrZq9yqlH1toxK
-         xqCOkJJ2gsoIkxAfWDzAJsdL3xXMnLTg7iI51nWh7Y/pM9NUcMqWQ6s7LD3YHZAJyytP
-         AJxDx3hCoOlleDclAMRo7dxcpyfAkto9meW7DTNTbn7HSdSs8Oittma61J7898Ht5vgX
-         26JI2SUZ9okg6I7OsPsOnuf/7UH3HC8XawpU4EQ3dJG/S/RNjdSobPbOxFgsAShPgpe5
-         v+ZA==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@intel.onmicrosoft.com header.s=selector2-intel-onmicrosoft-com header.b=mdUel7xq;
-       arc=pass (i=1 spf=pass spfdomain=intel.com dkim=pass dkdomain=intel.com dmarc=pass fromdomain=intel.com);
-       spf=pass (google.com: domain of ley.foon.tan@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=ley.foon.tan@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
+        bh=QpO6Vx39F5HI699v7q1aPaepYeY89TxfzRr1RtVlyiI=;
+        b=c5RFgMScJdxX+Z5ojEIIStxxpfnTwzmHaBLRXZn/T5PGubwmRclPYcaBuht+Oiqs5v
+         BGMEi4nuJoJpXED2z6o65yn1lSNvtJekjzo9YN5coQg+lyzp87IQmdfOog2NGpljU3xm
+         i6DHOqn85DGHBMdmAtwiblgtlxmn4PGUjhenwbDMeu909aJZN1N8I7rpARtp+WyqPOIU
+         sd1KMauXhYSTka2YMqYeaYoMaLE1wwZQZsq7gILlxqQ5osb3yKv0dyJKU1fb+zyBeQy3
+         1LHdz0dKKjXT0oK89LwvYGFfZWsN/GOniZCtxkQ1zgZaRineFNr5gSJ+WPYbcEjoOaxq
+         wmDA==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Ua9B3XHd;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :dlp-reaction:dlp-version:dlp-product:mime-version:x-original-sender
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QpO6Vx39F5HI699v7q1aPaepYeY89TxfzRr1RtVlyiI=;
+        b=d4bGxqcVAT8/JADbluL/lpwEQtB2WthWb+lrwvGnp6yMs3o//sUu6+Lf/fr2C23KjK
+         AqHEvHYEzW+qNZSQkgdnGlkCRMy5ukhpNHGYnM3rcZUwZB60YKf+WnfbT2MLg/XHCj6I
+         Sl3Pf4DBrLcCNyuEwXaJPWTrDFUiE2CeIOc4A1MHmaTA7PY5epj6bxSWe135JqiWa21T
+         a2OOBH1Q1Pi33Z2V8H/j0eDH8r4r5Uuh10Oq3xPzegLbSaHzH7PAfe866luV/6fCoZqz
+         ekwi0ehDeWZXHZ0+DKrx1vc25Ev/Q7fRzdBdlN3i1d+EUFeXZ+dv8GLcp3YpniEkJnlr
+         IbAw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=BlR9ryRNTQy9bc8GXBNeHHnD0IRt0r5d6zzMg1mZrXI=;
-        b=ltyxS97Ep9qQq5DxIAhwMRzW2JzwiRTAe9VERSKXVDSlzvAfFL6PPtLv9ztR+a4M5Z
-         +PcMCd7XRQ44OlXPNWqjSi/jZOn3mx9CxFOXumjOAWaQngthY3Te/AxMua8ySPWk2RaY
-         8wMZzYDK2Arjjc2xyb/7tmBWPwBW5BS+fd3mjufaZc2QNE9aeS1c5KhWDX2G/PWWj5Yc
-         7WaRGRz1z03bSelK9aLMNDeV1qsOB9N49peuoelJ6WXreIPi1V80V05juC7UynPTNIDg
-         4rwB8slVQbfQtRvW1SmBt7FEusKEhbUsGVxTs/JQ3M9W6/oWZy4qSCZH6AN+fKeljwi1
-         xc/Q==
+        bh=QpO6Vx39F5HI699v7q1aPaepYeY89TxfzRr1RtVlyiI=;
+        b=PWUC8xfKs+HYdRGN4T/SiTlmxKb/USi02zzTGXWc5V4ykTaoKiysX1ZnUxlYLzXUuQ
+         wX23PM7krdOpuqlA+csScei4olgXIR0TEpRLQPZ4Uoi3j7q6aei4IaKizfE3X47tssTU
+         tLGw3zgsfvJonDA69Blc6PkHjYRsucMEKZK4EAG5Yqx9/OfaIpTZToUg6Bva7h8Tc5ak
+         OoBdRo9bA7dhRYJY9PxMCA95Zkzrs4fgy484s3J+Umq+As98CtYlhXoOhaeyL0IBzjds
+         9TNp0iRuYTv1ULqioqFPOpjx13oBfu9qE2vh1PUN4gHc5svTizCz0vLuo54SaQJv5DP0
+         NiRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:dlp-reaction:dlp-version:dlp-product:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=BlR9ryRNTQy9bc8GXBNeHHnD0IRt0r5d6zzMg1mZrXI=;
-        b=iK6vwpJf54xcrBgYezMNFi9AFN9Au49FANo7RP2LsNyLCjCTRjwDpNyYu7y5+fyeM4
-         AD+T3F9kNT00v6rdb8SyMcz4/OJJwTCn30Kg7MHslyShtEg9FrVhsn+MbOmg0+XEw2fg
-         +bhzWP6V2GiizFrdECKfT+14bwyQI0N9iO1ThU/UtVOIjaqIiEgRqM7CzojGiZy9wlbd
-         SzaEupMOG0KizRAOpZgG7ilkNML7r9oGME10fuZTqZra8KYURp1SPSWceI5cNV7aTUPT
-         11gbSTH0y+OFod0eIZjVLaOP3Cnm7MGcs96HmVW71QXyLsE9uJAYAQlO7n8XsegKQxJO
-         I8GA==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=QpO6Vx39F5HI699v7q1aPaepYeY89TxfzRr1RtVlyiI=;
+        b=Dk3R9zutVLSM+ErgNIaBoaXqdhFcIRI5Ho29rPFTgnYWPf4HCY08EXn3ID05Z3e9YD
+         2aPaiw7DK8+Pf6xLVuGlX3S073qYCFiaxavk1N4w8RvIDEvXc95wTsjo1t7Bq1H/747P
+         Hr7oUtYW4gm2Xx0E4HcJd7pHzwj6dYWjYYqH/fSe20P2x3JKzwnWy4As7CseE669qJku
+         zkvreqadQJhIBXaKFTS9A86qM/kHr1UTUzRDHhtKIe/N1d0hUwRg3saiy9pXFnOpvmFu
+         Uc69edCaeFXHn8nZrrjEfOQ/SB8UrvfWELZCYF/PML895eoXo0TlpZitq2HFPjAkHfwN
+         oIKw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVCk4rBfPcSOztQNi9uxh9yeJNK8TSDpeLMsec5TsX8ViGuSHnC
-	LEfqtdxieNOepnCRWVo3Ysg=
-X-Google-Smtp-Source: APXvYqxy7pnV95m6+vsJXFtw/YN9WLf96NIL6J55HCxEOy+TJdTTblNzfn/CPkphrXuL6vk5OKM2DA==
-X-Received: by 2002:a92:980f:: with SMTP id l15mr955535ili.152.1576636244140;
-        Tue, 17 Dec 2019 18:30:44 -0800 (PST)
+X-Gm-Message-State: APjAAAVozl/qZF1Qo+umfC3sTg54bpntlj+EiF8MTI3mvS9VSN1eNcpg
+	kRnTRRqq7imr3s6dAxLBktM=
+X-Google-Smtp-Source: APXvYqx7x0leTKahRhyr+ESZL005fNKc3v/0BsSg6SKlbUI0vkNOWuW9Z1H7WLCsnqnnQrRQ5/8dOw==
+X-Received: by 2002:a62:f94d:: with SMTP id g13mr321658pfm.60.1576636821389;
+        Tue, 17 Dec 2019 18:40:21 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5d90:: with SMTP id e16ls81054ilg.4.gmail; Tue, 17 Dec
- 2019 18:30:43 -0800 (PST)
-X-Received: by 2002:a92:1d98:: with SMTP id g24mr526817ile.307.1576636243740;
-        Tue, 17 Dec 2019 18:30:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576636243; cv=pass;
+Received: by 2002:a17:90a:d988:: with SMTP id d8ls95035pjv.5.gmail; Tue, 17
+ Dec 2019 18:40:21 -0800 (PST)
+X-Received: by 2002:a17:90a:2004:: with SMTP id n4mr380235pjc.20.1576636821042;
+        Tue, 17 Dec 2019 18:40:21 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576636821; cv=none;
         d=google.com; s=arc-20160816;
-        b=dL/S6WRQDR/AYZwc8dIgIT49tmQS5aKK43U/R2lzS4Fy5elbaEeVFZHlZfRnLh9/iN
-         et6358rMRUqMvsHke6aD6soOBwttp0yHPavALPh9BV00EDPc6Umu3n0w7FI1w76nwl/h
-         Yj0OoOugwEX4jKkhbIBEIlJ5sOLVoE3unhl0CS5arf/LPHw8Frk58NMkS7YGF+6JWNHn
-         7qPm6MlLHqbNP9+lpcO66r+45UZDilyHWn4V/r8wjdwOhtJAu6TlVD8CeWF6ISEZuYyU
-         PMM55EcnsAkBeDB1wo/2h3zVGTDapGRdBgahxU+t/aZ4jKRVaxHd19cXl6jMoLkcdmwa
-         5Imw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:dlp-product:dlp-version
-         :dlp-reaction:content-language:accept-language:in-reply-to
-         :references:message-id:date:thread-index:thread-topic:subject:cc:to
-         :from:dkim-signature;
-        bh=6c4rRW+5srLLSVTHfEJEBHhSWTNAO6+YdRUmMlKx5D0=;
-        b=JMe/Yle/spPuD5CdMAcuSGI+2nnwQ+dHjcQ9HX24+yr3vclQ4tB6+eC+zXoOKm9+6s
-         EtqcMky7H2wBCMUH00W/XiHN1vi2oavkZBdduhTcn5OmGVO8EwiiAi92MQm3JCLdm+KE
-         yIMR41VVkFhJPxGL82HM16XrSM0OmxZp5Pm2xHr6K4WDSFCvm0CditS2Ewiu8HlRjH1s
-         I3CScf/H+tL6fK9XLb8HRoE9whZdMr+Yu9J/cIbKLwek+g1PcEdeEcd3hSIpe9HW/mXW
-         zeDxxKBVjcmr68nxTLaWUx7pjs9JPFdWGW0KkTzZIa0YaSeYOwgPYN8+fAiJNrQTpTMa
-         otmg==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@intel.onmicrosoft.com header.s=selector2-intel-onmicrosoft-com header.b=mdUel7xq;
-       arc=pass (i=1 spf=pass spfdomain=intel.com dkim=pass dkdomain=intel.com dmarc=pass fromdomain=intel.com);
-       spf=pass (google.com: domain of ley.foon.tan@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=ley.foon.tan@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id z20si51733ill.5.2019.12.17.18.30.43
+        b=MgYfe54j/QKDUWSBWTxEN5ng93xkP9U0Zg3yZUKPlBgphqbXPYTG+tEyZdyEAnYehC
+         +WujtIEv9LqqYCT3cF3ie3xsddZyEV99i+ZjUo14G8nlNKpokD4DYggRW01FlebiIqt7
+         CFh8GLC+O/gx77O9eEB0zuho/CIlYXLZE+ugQBEaBMdmQjKKHhvT/gg1AfFH9eq5LqVJ
+         GBW0t1q0AlzvNtwPw17tWAmbBNGvOidID0pSwKqRW8DA/XhMEuXX6b0EvgLuKjg63ABf
+         F877N9v3HUwT51KH1F/RsvGx/JYrjcLMJzy5EoGx4miDFehW2Hf0X2Mne16zlVDW2XH5
+         borg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=sqEP7gqkrCGOJNW3vRMCvtaiD1RqfKXzjUhoLGSDR0Q=;
+        b=QUrZHrgz01iF8dTUdAaU/iLuzLZOeZymO7ObgI/0rS7pkarbeI52kdt1bZ7guJ1N57
+         9rBzu2/FFyzqf6iS0jlxzIWccbiRNOefHjr+DAipSbqedDnl7T/4BdmdOrf17DblU7mw
+         j5Ts9Dkia3CXuj/uwF3w8S0p2q4S3XfZHdWVZASBvADNu3jxmSCrs9Hh9YclA9eTOaut
+         +t1aa31skWjLO/U6XCPWfjfr9EFa7tHZC5pB9vaVvMb8uB3mq8jDzGF9ukWG63lF1BFG
+         0jDFAKifOdXqwLY/fbegmIYevSaW2VfWscHceqSEYu7VU5MYDuooHaTfbXtZ9rOZBymQ
+         J57A==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Ua9B3XHd;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
+        by gmr-mx.google.com with ESMTPS id cu4si146620pjb.1.2019.12.17.18.40.21
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Dec 2019 18:30:43 -0800 (PST)
-Received-SPF: pass (google.com: domain of ley.foon.tan@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 17 Dec 2019 18:30:42 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,327,1571727600"; 
-   d="scan'208";a="205690459"
-Received: from fmsmsx104.amr.corp.intel.com ([10.18.124.202])
-  by orsmga007.jf.intel.com with ESMTP; 17 Dec 2019 18:30:42 -0800
-Received: from fmsmsx156.amr.corp.intel.com (10.18.116.74) by
- fmsmsx104.amr.corp.intel.com (10.18.124.202) with Microsoft SMTP Server (TLS)
- id 14.3.439.0; Tue, 17 Dec 2019 18:30:42 -0800
-Received: from FMSEDG001.ED.cps.intel.com (10.1.192.133) by
- fmsmsx156.amr.corp.intel.com (10.18.116.74) with Microsoft SMTP Server (TLS)
- id 14.3.439.0; Tue, 17 Dec 2019 18:30:41 -0800
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.48) by
- edgegateway.intel.com (192.55.55.68) with Microsoft SMTP Server (TLS) id
- 14.3.439.0; Tue, 17 Dec 2019 18:30:41 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=cU5pqH+PWrW0xZ+ln0dn4v5dbY/VYbS/CkFTZ2ObwkyVTSICZT+cM/9hcoOzOi9A5h5DK/hY12ltuCVCe0PbhtgfCQf6+3Pd3/cXS+lidNVja1hgMwTQ/Vj5ObRwFOWe3FoMQic417XGiwY6Xrz5rpLjHzMi+z176HPeW+FZiBjQlr9DeeYHU5SbWXKQKq2CiKkk2gobgZpUXHlC/tFsUCPDnG+tiWAUhxsAMzaGXvUX70h163LeTZFQELIloCZ/9qj/hmIQnRhKzzQb0EfGEM0j10/+6E7dgUolHux3roCNnmGSyECmsG6H/jOxBdmyMO7VJ4RzLV9Fd7jqCKMuxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6c4rRW+5srLLSVTHfEJEBHhSWTNAO6+YdRUmMlKx5D0=;
- b=gNReFJOz15gCwonRdN9zWA0j7guq14ohTumz8yw/gj7mWdczYGwEmb02umS1L6ZxYn4NWbHJ9rIk0XRckMaRRxiKg/0eL/rF7mN+Ftgu0dbrW3dxp2NeITiQawDWVmxfgobQDwByePolOX8Bw1qu+QWq8+U5uMF8WDCwj3oCHVWWF9hX1oI8lXLdq3hyY264JeBAke4U9rXv1ZLxM7Z516zId0sdZX3aUM3gXKdbYLf7jokLSM1cPMCGdYHqK1BZF/9pDpP8o9w2Kx34yeBgMRXhnkDVSEE6MLKSA0fY8/m77fdu5zO71xiCUpQJnp638JLg1BbiiO2EfiBaRWFG6g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Received: from MN2PR11MB4509.namprd11.prod.outlook.com (52.135.39.90) by
- MN2PR11MB3694.namprd11.prod.outlook.com (20.178.253.214) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2559.14; Wed, 18 Dec 2019 02:30:40 +0000
-Received: from MN2PR11MB4509.namprd11.prod.outlook.com
- ([fe80::bd81:f020:90e3:a12d]) by MN2PR11MB4509.namprd11.prod.outlook.com
- ([fe80::bd81:f020:90e3:a12d%7]) with mapi id 15.20.2538.019; Wed, 18 Dec 2019
- 02:30:40 +0000
-From: "Tan, Ley Foon" <ley.foon.tan@intel.com>
-To: Nathan Chancellor <natechancellor@gmail.com>, Lorenzo Pieralisi
-	<lorenzo.pieralisi@arm.com>, Bjorn Helgaas <bhelgaas@google.com>
-CC: Andrew Murray <andrew.murray@arm.com>, "rfi@lists.rocketboards.org"
-	<rfi@lists.rocketboards.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "clang-built-linux@googlegroups.com"
-	<clang-built-linux@googlegroups.com>
-Subject: RE: [PATCH] PCI: altera: Adjust indentation in
- altera_pcie_valid_device
-Thread-Topic: [PATCH] PCI: altera: Adjust indentation in
- altera_pcie_valid_device
-Thread-Index: AQHVtUKDuQwl3+EaE0qjwoEcgXzj7Ke/K4Ew
-Date: Wed, 18 Dec 2019 02:30:40 +0000
-Message-ID: <MN2PR11MB450901255175CCA4C7CDBF3BCC530@MN2PR11MB4509.namprd11.prod.outlook.com>
-References: <20191218012752.47054-1-natechancellor@gmail.com>
-In-Reply-To: <20191218012752.47054-1-natechancellor@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-titus-metadata-40: eyJDYXRlZ29yeUxhYmVscyI6IiIsIk1ldGFkYXRhIjp7Im5zIjoiaHR0cDpcL1wvd3d3LnRpdHVzLmNvbVwvbnNcL0ludGVsMyIsImlkIjoiNTdiZTJhZWYtNGJjNC00NTU2LTkzNzctZTA0OTQ2Yzc1ZGYzIiwicHJvcHMiOlt7Im4iOiJDVFBDbGFzc2lmaWNhdGlvbiIsInZhbHMiOlt7InZhbHVlIjoiQ1RQX05UIn1dfV19LCJTdWJqZWN0TGFiZWxzIjpbXSwiVE1DVmVyc2lvbiI6IjE3LjEwLjE4MDQuNDkiLCJUcnVzdGVkTGFiZWxIYXNoIjoiNnIwUHBYaVhRUTZzYVlkTG0zUXdqcVprQnB4WUE4aHhDd3M1REZSV0RyK3A3U2swU0tlQUFNM2pWNVdTdllPNCJ9
-dlp-reaction: no-action
-dlp-version: 11.2.0.6
-dlp-product: dlpe-windows
-x-ctpclassification: CTP_NT
-x-originating-ip: [192.198.147.213]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 853fbec0-9503-4c05-e91d-08d78362467c
-x-ms-traffictypediagnostic: MN2PR11MB3694:
-x-microsoft-antispam-prvs: <MN2PR11MB36941A9F6850F34E917B8D97CC530@MN2PR11MB3694.namprd11.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:8882;
-x-forefront-prvs: 0255DF69B9
-x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(366004)(39860400002)(346002)(376002)(136003)(396003)(199004)(189003)(13464003)(66556008)(316002)(53546011)(54906003)(966005)(8936002)(66476007)(71200400001)(8676002)(26005)(2906002)(33656002)(52536014)(6506007)(66446008)(64756008)(66946007)(81166006)(81156014)(76116006)(5660300002)(478600001)(7696005)(186003)(86362001)(9686003)(110136005)(4326008)(55016002);DIR:OUT;SFP:1102;SCL:1;SRVR:MN2PR11MB3694;H:MN2PR11MB4509.namprd11.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: aUzrOQiCD/8f6qBI4aEuviHLdoC4JH4jo6ndw6irCncLdCIUxCZmEEX+zWp21wER8eApKBxlvYqSywxQ4x3soyHTqHGv5m+N/4cxiYfx9a1KKc9nwI+ucNbX5MH4X4uBNbctdDpnTqks3Q1KwMVzmz2++my2cXNwDT1IMjc+3K4H6Dxfn+OATXTCOJ91qxOjmgInD1wH0BdIM8ULcid4+DPJ3QsyV65+dlDxBcflcuS5hTsZu6VZEI1CJPqdOzBbTeS1zJYIMZ/XaRHUvyiSewDzH0eYoZz2JZjOOQIVitIUBpGfbPPZZ+LDQu7in0hthVEMNKCcHOcZT1S8ryagbhMxjCgZeiBCIIps9rxR8vHcJwl5z8GV3wWYk2RGDYcqE5OTt3id2x5HyGaABciltoHjeDopaikoKQlV+q+QMpdOGNIEA4mD5vWY85WZjvHKj9gyPXsPBl50maQOJxNmCS74d4LTSo1ZIH2mgpyauPFsPUGsrCI7meqeSXPWnVXHJgfx/o41+K9IQivbamSPSUEuOU8QX3b+p5HIjH6kIuE=
-x-ms-exchange-transport-forked: True
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Dec 2019 18:40:21 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
+Received: by mail-oi1-x242.google.com with SMTP id 6so322167oix.7
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 18:40:21 -0800 (PST)
+X-Received: by 2002:aca:4712:: with SMTP id u18mr126536oia.93.1576636818831;
+        Tue, 17 Dec 2019 18:40:18 -0800 (PST)
+Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id n22sm282267otj.36.2019.12.17.18.40.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Dec 2019 18:40:18 -0800 (PST)
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jslaby@suse.com>
+Cc: linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <natechancellor@gmail.com>
+Subject: [PATCH] tty: synclink_gt: Adjust indentation in several functions
+Date: Tue, 17 Dec 2019 19:39:13 -0700
+Message-Id: <20191218023912.13827-1-natechancellor@gmail.com>
+X-Mailer: git-send-email 2.24.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: 853fbec0-9503-4c05-e91d-08d78362467c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Dec 2019 02:30:40.5981
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7IXFqQhGs47JgWE03vsbgnRnQNn3+Z8dYWhSLpGHV/YRaWz64b0QoJi1FtQJgRpiDRExyfU2MZ4Q83TigImfjw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB3694
-X-OriginatorOrg: intel.com
-X-Original-Sender: ley.foon.tan@intel.com
+X-Patchwork-Bot: notify
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@intel.onmicrosoft.com header.s=selector2-intel-onmicrosoft-com
- header.b=mdUel7xq;       arc=pass (i=1 spf=pass spfdomain=intel.com dkim=pass
- dkdomain=intel.com dmarc=pass fromdomain=intel.com);       spf=pass
- (google.com: domain of ley.foon.tan@intel.com designates 134.134.136.20 as
- permitted sender) smtp.mailfrom=ley.foon.tan@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+ header.i=@gmail.com header.s=20161025 header.b=Ua9B3XHd;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -208,79 +145,119 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+Clang warns:
 
+../drivers/tty/synclink_gt.c:1337:3: warning: misleading indentation;
+statement is not part of the previous 'if' [-Wmisleading-indentation]
+        if (C_CRTSCTS(tty)) {
+        ^
+../drivers/tty/synclink_gt.c:1335:2: note: previous statement is here
+        if (I_IXOFF(tty))
+        ^
+../drivers/tty/synclink_gt.c:2563:3: warning: misleading indentation;
+statement is not part of the previous 'if' [-Wmisleading-indentation]
+        if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
+        ^
+../drivers/tty/synclink_gt.c:2561:2: note: previous statement is here
+        if (I_INPCK(info->port.tty))
+        ^
+../drivers/tty/synclink_gt.c:3221:3: warning: misleading indentation;
+statement is not part of the previous 'else' [-Wmisleading-indentation]
+        set_signals(info);
+        ^
+../drivers/tty/synclink_gt.c:3219:2: note: previous statement is here
+        else
+        ^
+3 warnings generated.
 
-> -----Original Message-----
-> From: Nathan Chancellor <natechancellor@gmail.com>
-> Sent: Wednesday, December 18, 2019 9:28 AM
-> To: Ley Foon Tan <lftan@altera.com>; Lorenzo Pieralisi
-> <lorenzo.pieralisi@arm.com>; Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Andrew Murray <andrew.murray@arm.com>; rfi@lists.rocketboards.org;
-> linux-pci@vger.kernel.org; linux-kernel@vger.kernel.org; clang-built-
-> linux@googlegroups.com; Nathan Chancellor <natechancellor@gmail.com>
-> Subject: [PATCH] PCI: altera: Adjust indentation in altera_pcie_valid_device
-> 
-> Clang warns:
-> 
-> ../drivers/pci/controller/pcie-altera.c:196:3: warning: misleading indentation;
-> statement is not part of the previous 'if'
-> [-Wmisleading-indentation]
->          return true;
->          ^
-> ../drivers/pci/controller/pcie-altera.c:193:2: note: previous statement is here
->         if (bus->number == pcie->root_bus_nr && dev > 0)
->         ^
-> 1 warning generated.
-> 
-> This warning occurs because there is a space after the tab on this line.
-> Remove it so that the indentation is consistent with the Linux kernel coding
-> style and clang no longer warns.
-> 
-> Fixes: eaa6111b70a7 ("PCI: altera: Add Altera PCIe host controller driver")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/815
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+The indentation on these lines is not at all consistent, tabs and spaces
+are mixed together. Convert to just using tabs to be consistent with the
+Linux kernel coding style and eliminate these warnings from clang.
 
-Reviewed-by: Ley Foon Tan <ley.foon.tan@intel.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/822
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+---
 
-Thanks.
+NOTE: There are several more instances of mixing spaces with tabs in
+this file but I didn't want to do every instance because that would be a
+lot of churn. I took the conservative approach of fixing the warnings
+and the few instances I saw around them.
 
-Regards
-Ley Foon
+ drivers/tty/synclink_gt.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-> ---
->  drivers/pci/controller/pcie-altera.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-altera.c b/drivers/pci/controller/pcie-
-> altera.c
-> index b447c3e4abad..24cb1c331058 100644
-> --- a/drivers/pci/controller/pcie-altera.c
-> +++ b/drivers/pci/controller/pcie-altera.c
-> @@ -193,7 +193,7 @@ static bool altera_pcie_valid_device(struct
-> altera_pcie *pcie,
->         if (bus->number == pcie->root_bus_nr && dev > 0)
->                 return false;
-> 
-> -        return true;
-> +       return true;
->  }
-> 
->  static int tlp_read_packet(struct altera_pcie *pcie, u32 *value)
-> --
-> 2.24.1
-> 
-> 
-> ________________________________
-> 
-> Confidentiality Notice.
-> This message may contain information that is confidential or otherwise
-> protected from disclosure. If you are not the intended recipient, you are
-> hereby notified that any use, disclosure, dissemination, distribution, or
-> copying of this message, or any attachments, is strictly prohibited. If you
-> have received this message in error, please advise the sender by reply e-mail,
-> and delete the message and any attachments. Thank you.
+diff --git a/drivers/tty/synclink_gt.c b/drivers/tty/synclink_gt.c
+index 5d59e2369c8a..57ca38df7a8b 100644
+--- a/drivers/tty/synclink_gt.c
++++ b/drivers/tty/synclink_gt.c
+@@ -1334,10 +1334,10 @@ static void throttle(struct tty_struct * tty)
+ 	DBGINFO(("%s throttle\n", info->device_name));
+ 	if (I_IXOFF(tty))
+ 		send_xchar(tty, STOP_CHAR(tty));
+- 	if (C_CRTSCTS(tty)) {
++	if (C_CRTSCTS(tty)) {
+ 		spin_lock_irqsave(&info->lock,flags);
+ 		info->signals &= ~SerialSignal_RTS;
+-	 	set_signals(info);
++		set_signals(info);
+ 		spin_unlock_irqrestore(&info->lock,flags);
+ 	}
+ }
+@@ -1359,10 +1359,10 @@ static void unthrottle(struct tty_struct * tty)
+ 		else
+ 			send_xchar(tty, START_CHAR(tty));
+ 	}
+- 	if (C_CRTSCTS(tty)) {
++	if (C_CRTSCTS(tty)) {
+ 		spin_lock_irqsave(&info->lock,flags);
+ 		info->signals |= SerialSignal_RTS;
+-	 	set_signals(info);
++		set_signals(info);
+ 		spin_unlock_irqrestore(&info->lock,flags);
+ 	}
+ }
+@@ -2560,8 +2560,8 @@ static void change_params(struct slgt_info *info)
+ 	info->read_status_mask = IRQ_RXOVER;
+ 	if (I_INPCK(info->port.tty))
+ 		info->read_status_mask |= MASK_PARITY | MASK_FRAMING;
+- 	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
+- 		info->read_status_mask |= MASK_BREAK;
++	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
++		info->read_status_mask |= MASK_BREAK;
+ 	if (I_IGNPAR(info->port.tty))
+ 		info->ignore_status_mask |= MASK_PARITY | MASK_FRAMING;
+ 	if (I_IGNBRK(info->port.tty)) {
+@@ -3192,7 +3192,7 @@ static int tiocmset(struct tty_struct *tty,
+ 		info->signals &= ~SerialSignal_DTR;
+ 
+ 	spin_lock_irqsave(&info->lock,flags);
+- 	set_signals(info);
++	set_signals(info);
+ 	spin_unlock_irqrestore(&info->lock,flags);
+ 	return 0;
+ }
+@@ -3203,7 +3203,7 @@ static int carrier_raised(struct tty_port *port)
+ 	struct slgt_info *info = container_of(port, struct slgt_info, port);
+ 
+ 	spin_lock_irqsave(&info->lock,flags);
+- 	get_signals(info);
++	get_signals(info);
+ 	spin_unlock_irqrestore(&info->lock,flags);
+ 	return (info->signals & SerialSignal_DCD) ? 1 : 0;
+ }
+@@ -3218,7 +3218,7 @@ static void dtr_rts(struct tty_port *port, int on)
+ 		info->signals |= SerialSignal_RTS | SerialSignal_DTR;
+ 	else
+ 		info->signals &= ~(SerialSignal_RTS | SerialSignal_DTR);
+- 	set_signals(info);
++	set_signals(info);
+ 	spin_unlock_irqrestore(&info->lock,flags);
+ }
+ 
+-- 
+2.24.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/MN2PR11MB450901255175CCA4C7CDBF3BCC530%40MN2PR11MB4509.namprd11.prod.outlook.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218023912.13827-1-natechancellor%40gmail.com.
