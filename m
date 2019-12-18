@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBP5G43XQKGQEMEPGH3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBPFJ43XQKGQEW7SC6RA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id B9565123D6E
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 03:47:28 +0100 (CET)
-Received: by mail-io1-xd39.google.com with SMTP id d128sf380822iog.23
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 18:47:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576637247; cv=pass;
+Received: from mail-vk1-xa3e.google.com (mail-vk1-xa3e.google.com [IPv6:2607:f8b0:4864:20::a3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id D2005123D85
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 03:53:49 +0100 (CET)
+Received: by mail-vk1-xa3e.google.com with SMTP id z24sf399468vkn.0
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 18:53:49 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576637629; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dGT0/eYxd6cQqe+yGTqwKzIN95UnbnbavJOxM+Tpyoh2L9E2LiMIk96KDJhhBXdALq
-         1XzUrqhiJeRNUU3V6oqG/NsMUVOfdWZiOiyHelNW4VDf6MgyQ07pkfmXBe9qHGmMHg9z
-         5BDcuzu0UzO7pep9sV6Qt+VvVeZv2iuEuc2q4U7So0/W4xuTLpBWcDRrFba3C4haqvZo
-         1gmo+gskdiQ09rzieIjoVh4DEbaiVwqUMq/PbaGOA/R4yPvUQSnHa5I+92DRnTsiF6fC
-         C3e5HAfqdg+tUULEmNcp0BFfkaA7ywMmJ143vFjmNH54dUOf+NeOge5hGfRy9WYcCmHa
-         Seuw==
+        b=SzPiLtnGLE2UcAxpo4pk4Kb1Q1YWXsE0GGd7sTmNGgf1MKjW7bVW0IyUqzQY2eYTRe
+         PD8eMfxlx+K0erRW4fLYITvt77y82xbKcR7Z56EQj2Z0NuleNkz43nHXYhQFG7mDwf0v
+         jxUh8m5AyM8awecWbZ0RE1O0ef9/lYZaSxlH+lTxbO8RgEeIrBonTdcONtkC71QyJjcC
+         zjK5J9jWy0MdyOnRYC0jqNyamOrOxHw4fi50qT/SEArxYlUt7Ey9WOUMNLVJUZgFdFb2
+         I/IFbwI59FJxWCuqywV/rQ7J+LFwog8V7+kHnKW0GoMEFGptbyQVEgnbKF7mRD1GsNu8
+         dSZg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=TDajvvl7mYcH+aiq8vTx4FeJLc6p0gWPXCmqGgDhcDA=;
-        b=fm6Taeh5N1qQXa2iJjlLEONAs3eZ7J3KZ1mpPcqmH32KA9PWH7M/Yy0Xf3o0wdH2+M
-         Ev9ymIIECvF3UPPJL8qCW/63ZYx951JDAyHAOP3YQuDVuEsZtcUsi6bxGbO/d2yjVald
-         nS+aTHYkBwxhhua5pR5YT0ZCHKZarBInbV9IpgJqisDdC90VOKCZgftNpW5916C3DAmI
-         XMXfC/fDd32h9+Uxtn8vs9IGzBiSAjZQ7ZDF5RVF6cJt5pvve3lPSNpj0vyfpEDgpUld
-         PBsf8kz2vCFpiz08zQDo9yo2IbQwsj1h/ngi60s+1HhMAHsEY4mn531VfV8aWpXCJuW+
-         TONg==
+        bh=g5FoJ6Br48NQ1JWiGmoFRt+dzwVTmGDj8UcVsFRY9oQ=;
+        b=Ek15u3mro819g5ngtYEbPs3QQ1tPYMXG8aK5pM6X3YeTGwmtptyiUHZlBN8kMOmXou
+         FX96wH3u74ON65VerlJ9bw+nimWqh0i2HcXLP6oeCe/QqNUqVsMHutgLzLNRXDLpBHre
+         AQGRVAAgIhPIThu1Nu2VzrWUQvElZm+8mjdGMtzny5SI30r79j7STWNh8XYQc5nth/rQ
+         6Ix0qJUSfgqqKwJfCSwjtsbVqcFL6E2XfVdSC4d8Kn2WSqf3x9END+pKCRaZ4gGdxvqN
+         dyELgU6YL/uF0cmNs4xbE66CgmFxe5tTHcHAkZ3chYNTxvRix59/9nx9fX70seRkxGSH
+         UZBg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SYiYtFoM;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hs0MAylM;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,102 +35,103 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=TDajvvl7mYcH+aiq8vTx4FeJLc6p0gWPXCmqGgDhcDA=;
-        b=jppcYhYHi2xkLp3OK+9ncmVIG2CVoot7iaCchVGWTwV+211PkoDdk3+iRSrbBskrbF
-         IvSkHMwyxXsTuwI1VR7eKaIYJByKhrbc9QmSHb5Pz4O0AKwsu63wQ/tK/wg8CxTNj8EW
-         QtsKjLGPdmXR06Of0mfUsgIxC9k89YNLHL/KdwHRKjmVyzaiwwQSUAVKwpvPxt+92F7E
-         Rpcn/L4Lfl6d8HQYVyitI8/RyL4/xPcPVVquVJn2f7r1QFlP2KopGdryXYQLpn8R3qXL
-         E0bls8q6L5VofKXPYk78NyoAkMknQ/dLPPzJUQYFI4hOx0oW64ahIAXx2deGolgbLa2H
-         fhcA==
+        bh=g5FoJ6Br48NQ1JWiGmoFRt+dzwVTmGDj8UcVsFRY9oQ=;
+        b=sNc56tKk0yZyQK2WBWefzz2k0ASNpCeqvEwrkU1RcIldeOhz7c07oESXfeCBxjhdX7
+         s0jXJIGF5An8ZcLf9o3PESzjv7uZzz4GCivkNX48Nhv4qPavyQvc1ChPwXltjokmTba8
+         YKUhkFuoGVMR58Dyc03EDxizX+K7AP/WIpJqS+jJk47ebbNmFAGBD7SukQEPH6CRYTjk
+         KtJ+O6sdgHHEsgU/Uxchppwf7n7jQY8UOiOjx5ehWuq8jF40rmoRwVif6Oqfr8VY+kpz
+         kxJC+nJEUsyIrOK3+E72cMzI/3xj952cjWuX22fjTVlg444f4K++8zfhNYdY43/EuaeM
+         T9HQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=TDajvvl7mYcH+aiq8vTx4FeJLc6p0gWPXCmqGgDhcDA=;
-        b=AgOGJliKVTzd0oC8xeZMKyinA1OT6paZOLApJTzVZBw4bNWerWn1tNNyMphkUM3Hg0
-         +uQhcN62Fbo5RLsHINOy2zO2uRQOuLdoReM7qp5tEyrfpJIT8XP/yOVhCr2SUYhHCVzi
-         AMyi7dxZDmJZM/Jd7besyZGrHG8FuxvAJSy9pOo9zoDgC0mbeATo7hI+DLOY7/dYBs9A
-         qF81MziB1LW0KtaCIaVaBpw/mql69v2WS0E9wzv3dBzQQuclEo526v+QFDecXffyfX5r
-         ctc7ilkEPR4jyLd+lK3eY0VFKiH7WGkRqJSh8Sl4Zm03YToHfi5pCPSzhMBn6/3NBQz3
-         mq2g==
+        bh=g5FoJ6Br48NQ1JWiGmoFRt+dzwVTmGDj8UcVsFRY9oQ=;
+        b=HjPRCp/cLCtSY9pESjaHqtMrEfKY8tjMya36n7EOrMeQtvXMESNcsuBtIl4GjRwu+7
+         ruDEM6OWaGkPLXTH11tzRn4y5+RZ/9YDKOZxSzt1xAciS2SGZ/Hy2/+zD0FgWHSneC0c
+         YknVZS/SRIOMBhg9XzxkglYAfWgqlOz9WLErf9QxelolIOyMS+NfF4rfQPa+981nl6nm
+         qLLwDMHxOlGOOhwTScj7F+29SeSMZj0DlEBdQYxDwLF6CgjBS8uXoV45iPxUpqztDj2L
+         7Kwn4cklqI8zybEWWQWvT9+cib7466Z3Ozb/0rJ5F7hLbIlTt/aCNWqOfMqRKfOnrJ9F
+         ZDqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=TDajvvl7mYcH+aiq8vTx4FeJLc6p0gWPXCmqGgDhcDA=;
-        b=ryi5X7j153+xKrvWB1ghpLdB5GhcS75UI8XNHzdTV+Wm5XwHqUG1kAjOOL74ndhVsl
-         SV8MMh+RJrFVvx0hCcKYlbIB4TauEARr40tEY4t5bGT0XNhKixDmeLPjXkbZiMHiW2dg
-         lc1J4FOEYEPzV3TW/veCVThe3iL/mpxayaJFKpOlDMWhxRNfOctAPoHLBE+6qjP9naM5
-         G5dukBMTn+QB+coWHlzq8IJYPrZ9K1Y2eWrlBeDBG9SlTphTE0OWxOEmA2hvg3FojnEz
-         CnErwigp2xcGbaDqwE1DHnAwE8/ypiPFfLtejoH17AUQsG4RLvcVRggXUvpMH36FefG4
-         hOnQ==
+        bh=g5FoJ6Br48NQ1JWiGmoFRt+dzwVTmGDj8UcVsFRY9oQ=;
+        b=QSpex5NuWTn7fVGqebOu29tXrgB+mfpMuvdnyXZSVk26P2xA46pS27EysPu+iUfz0U
+         hIVyCdRr9kLamYvGHMg4oJBDCFJU1z3qUKsVtTxVl+ELU6/YLZt8l0KMi7GS7EdXu/ym
+         QeYMjaeNiLVdOZu2PMVQPnYUd+M3uJuGRsOVhu4kfDLKx/lmRgaxylwWOsl7ge+i5wHl
+         ltoCuiHR5tzGBeylwhzkljH8OaxJ2S6hNguToE40sMDnHkNdJz6R444hA41dZH4JmuzL
+         b9KT/4UI9LAVoFj2htzZqhvsvRCxB1U6dFSSVzEEJF1OrEyZ3reFnpYLN0YEpd0p3sff
+         QcVw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVHMUnz+qvmcUyHgtrCCeRQMWw9UL6qIDB6yC0iuUpZcWaY6+UR
-	YPAjBBj8z3RuEMyiq5WF3w4=
-X-Google-Smtp-Source: APXvYqzkWnXT/J+nBZT4eaDNx3W9+rWW60O3/Lu23UT7WUzwyCUkYZKzq1SIXpGGAfAKg32h7qiYlQ==
-X-Received: by 2002:a92:350d:: with SMTP id c13mr1034528ila.205.1576637247419;
-        Tue, 17 Dec 2019 18:47:27 -0800 (PST)
+X-Gm-Message-State: APjAAAWz0SgOuuG+hij30/I/tXm/tss3Ixspi2BDYSHBv9xdoD91raxa
+	52PpGefWarrH0rQgkq7w3rE=
+X-Google-Smtp-Source: APXvYqzVfecSJnfpHKyfpbnnx2OcG0p2yQUzIAwLANLFutqTsr4x9BAHiAY9wgcNiMv8xOJsqczeLQ==
+X-Received: by 2002:a67:fb58:: with SMTP id e24mr1452vsr.55.1576637628854;
+        Tue, 17 Dec 2019 18:53:48 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:90f:: with SMTP id t15ls70414ioi.15.gmail; Tue, 17 Dec
- 2019 18:47:27 -0800 (PST)
-X-Received: by 2002:a05:6602:150:: with SMTP id v16mr867182iot.289.1576637247019;
-        Tue, 17 Dec 2019 18:47:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576637247; cv=none;
+Received: by 2002:a05:6102:517:: with SMTP id l23ls45746vsa.11.gmail; Tue, 17
+ Dec 2019 18:53:48 -0800 (PST)
+X-Received: by 2002:a05:6102:2337:: with SMTP id b23mr21860vsa.48.1576637628570;
+        Tue, 17 Dec 2019 18:53:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576637628; cv=none;
         d=google.com; s=arc-20160816;
-        b=lvC8TttayG2CeUmBx4sy+71cNI8Evg0kxVS0sk/OVgwPHP3Z6Wo27yeL0U6/qUjFqk
-         pm0uTCGsgNw6Dy8zDSh/VfXS85cVo/dbC9YT3R/GqZpUDSxodtOompFLAEkuio3hx0j5
-         5iCutrpRvLbpLLmFlS7EZrnZivQ99sqxFFx32LYy2Fbhpn6TcROLvTFGnrTWTRJ7HcwY
-         4kUoPe/4o1dyk+0UXAgPpaW2R0hn+hliMFJfSOc88eh6auImbalMXjnA09tL5siXFtpp
-         ehucjwIisNl0NQRsSEBM/eqj6HksUmlHJZqFGIc6dHbUjfLJMvNHlPRnxkqwSEIKrF2a
-         cNfw==
+        b=m5HkZtOrE9ki9i/QVy24pr936oEqVrRE9e5DZyg3uDcJSxwNuxn8g05dYrOpXKpM4d
+         RgUBcqfJ25D+df9sieazmY08oc+eXU5gJyOMv/2Ol2q0/+2G4WbgJyCbWPWO2pj3PAET
+         hwcPKNZjwoJYy9hPRxO3/CnJO6KY//r2LHohYRwXQmexSOmi5KgIjp58w+bK+Yim1hNE
+         n82GNTwXXgE+ogK7IJac4Zbu3pfaVzBaV8FE9eH6u8bH9mi7bWppfThZ5iuUfRuLLbT1
+         VdWHs6Td8eWdbAdbdHV2nbk8WS4ChbKPmchpAAgXQnedmQ1kA7p+Z8MHxmShIXKirkL7
+         Y6xg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=JUUYBsrF3PEDxG8ARCfxoW9cEQCOft8fjzh1KUsCN4M=;
-        b=yMDC8BM2icYouMtlV5yhbnbu6djfreo43Enz2T6uHFjPGIWLMD4mFK9OO0awGwnTXS
-         HiaCzUTZaeKtrOSi05GscxeIRm9tT3x0r4BtkhW4oY8YTqeBQgW3SKfImi8TjNhvXuL7
-         XTyCqCscvriZrzEYirIEhTjre3Wk3xk1RTOqjmzDiFdcS7tv96cGOCV8bsfrXaJxkJhh
-         XIJyNaAqwUQ76DrMyI7Z9Qz5Bm3fcI3JRWdBfZqjXgDDWe7YEp2Mg8Cj3KNoILPSWfSu
-         9CHVaXgfs0efxFQZf5B4RjS4A87ltqvK4OBIxnJSTjBxHLT53B+nuYYPG3jpTLs0l5XF
-         6P9g==
+        bh=napGSWjNbtalCcb/TGth7a+gCE4XiYyJESJ2KzfJmU8=;
+        b=sm4bmxhXZQngr/ZHFLBBPTOEX0IKJQkt6TLTfOKs6rXIpTBQmWaAjW45WDMSilOjni
+         yOyvY0Pm28gwlrLWFFNoiBFBw2f+lO0tcZvnNrjz2srzwi89F5ki4IZPzD/fLHTczYAp
+         MLU2Hn7YdCw2LHOVi/Qw2hfqDFf5bo6qjE4sL3XzusfdANa9OCmB41kVWuzpZ5rX0bBk
+         u4RTXzPjEgPbvnRxVX8Gu3QZc5hP7ZTM8Jb4YIPbSbwP44HT/xEbJ4dUWw69djACqkPp
+         iMEu8yZZHKtS9Kkqy04nx3hs3Ioqf0EliPs3DIKGSaNU5NRlTMHsKJDjjC1XVbrqyQ0C
+         MA4A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=SYiYtFoM;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=hs0MAylM;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id m12si53166ilb.2.2019.12.17.18.47.27
+Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id o19si31007vka.4.2019.12.17.18.53.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Dec 2019 18:47:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
-Received: by mail-ot1-x342.google.com with SMTP id c22so454532otj.13
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 18:47:27 -0800 (PST)
-X-Received: by 2002:a9d:7:: with SMTP id 7mr33016ota.26.1576637246547;
-        Tue, 17 Dec 2019 18:47:26 -0800 (PST)
+        Tue, 17 Dec 2019 18:53:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
+Received: by mail-ot1-x341.google.com with SMTP id h20so503416otn.5
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 18:53:48 -0800 (PST)
+X-Received: by 2002:a05:6830:2361:: with SMTP id r1mr51151oth.88.1576637627813;
+        Tue, 17 Dec 2019 18:53:47 -0800 (PST)
 Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id w201sm320997oif.29.2019.12.17.18.47.25
+        by smtp.gmail.com with ESMTPSA id q16sm279817otl.74.2019.12.17.18.53.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2019 18:47:26 -0800 (PST)
+        Tue, 17 Dec 2019 18:53:47 -0800 (PST)
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jslaby@suse.com>
-Cc: linux-kernel@vger.kernel.org,
+To: Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-fbdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH] tty: synclinkmp: Adjust indentation in several functions
-Date: Tue, 17 Dec 2019 19:47:20 -0700
-Message-Id: <20191218024720.3528-1-natechancellor@gmail.com>
+Subject: [PATCH] fbcon: Adjust indentation in set_con2fb_map
+Date: Tue, 17 Dec 2019 19:53:37 -0700
+Message-Id: <20191218025337.35044-1-natechancellor@gmail.com>
 X-Mailer: git-send-email 2.24.1
 MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=SYiYtFoM;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=hs0MAylM;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -147,152 +148,92 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 Clang warns:
 
-../drivers/tty/synclinkmp.c:1456:3: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-        if (C_CRTSCTS(tty)) {
+../drivers/video/fbdev/core/fbcon.c:915:3: warning: misleading
+indentation; statement is not part of the previous 'if'
+[-Wmisleading-indentation]
+        return err;
         ^
-../drivers/tty/synclinkmp.c:1453:2: note: previous statement is here
-        if (I_IXOFF(tty))
+../drivers/video/fbdev/core/fbcon.c:912:2: note: previous statement is
+here
+        if (!search_fb_in_map(info_idx))
         ^
-../drivers/tty/synclinkmp.c:2473:8: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-                                                info->port.tty->hw_stopped = 0;
-                                                ^
-../drivers/tty/synclinkmp.c:2471:7: note: previous statement is here
-                                                if ( debug_level >= DEBUG_LEVEL_ISR )
-                                                ^
-../drivers/tty/synclinkmp.c:2482:8: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-                                                info->port.tty->hw_stopped = 1;
-                                                ^
-../drivers/tty/synclinkmp.c:2480:7: note: previous statement is here
-                                                if ( debug_level >= DEBUG_LEVEL_ISR )
-                                                ^
-../drivers/tty/synclinkmp.c:2809:3: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-        if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-        ^
-../drivers/tty/synclinkmp.c:2807:2: note: previous statement is here
-        if (I_INPCK(info->port.tty))
-        ^
-../drivers/tty/synclinkmp.c:3246:3: warning: misleading indentation;
-statement is not part of the previous 'else' [-Wmisleading-indentation]
-        set_signals(info);
-        ^
-../drivers/tty/synclinkmp.c:3244:2: note: previous statement is here
-        else
-        ^
-5 warnings generated.
+1 warning generated.
 
-The indentation on these lines is not at all consistent, tabs and spaces
-are mixed together. Convert to just using tabs to be consistent with the
-Linux kernel coding style and eliminate these warnings from clang.
+This warning occurs because there is a space before the tab on this
+line. This happens on several lines in this function; normalize them
+so that the indentation is consistent with the Linux kernel coding
+style and clang no longer warns.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/823
+This warning was introduced before the beginning of git history so no
+fixes tab.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/824
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 ---
- drivers/tty/synclinkmp.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ drivers/video/fbdev/core/fbcon.c | 27 +++++++++++++--------------
+ 1 file changed, 13 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/tty/synclinkmp.c b/drivers/tty/synclinkmp.c
-index 33181fa6eb18..517a0d172239 100644
---- a/drivers/tty/synclinkmp.c
-+++ b/drivers/tty/synclinkmp.c
-@@ -1453,10 +1453,10 @@ static void throttle(struct tty_struct * tty)
- 	if (I_IXOFF(tty))
- 		send_xchar(tty, STOP_CHAR(tty));
+diff --git a/drivers/video/fbdev/core/fbcon.c b/drivers/video/fbdev/core/fbcon.c
+index c9235a2f42f8..9d2c43e345a4 100644
+--- a/drivers/video/fbdev/core/fbcon.c
++++ b/drivers/video/fbdev/core/fbcon.c
+@@ -866,7 +866,7 @@ static int set_con2fb_map(int unit, int newidx, int user)
+ 	int oldidx = con2fb_map[unit];
+ 	struct fb_info *info = registered_fb[newidx];
+ 	struct fb_info *oldinfo = NULL;
+- 	int found, err = 0;
++	int found, err = 0;
  
-- 	if (C_CRTSCTS(tty)) {
-+	if (C_CRTSCTS(tty)) {
- 		spin_lock_irqsave(&info->lock,flags);
- 		info->serial_signals &= ~SerialSignal_RTS;
--	 	set_signals(info);
-+		set_signals(info);
- 		spin_unlock_irqrestore(&info->lock,flags);
+ 	WARN_CONSOLE_UNLOCKED();
+ 
+@@ -888,31 +888,30 @@ static int set_con2fb_map(int unit, int newidx, int user)
+ 
+ 	con2fb_map[unit] = newidx;
+ 	if (!err && !found)
+- 		err = con2fb_acquire_newinfo(vc, info, unit, oldidx);
+-
++		err = con2fb_acquire_newinfo(vc, info, unit, oldidx);
+ 
+ 	/*
+ 	 * If old fb is not mapped to any of the consoles,
+ 	 * fbcon should release it.
+ 	 */
+- 	if (!err && oldinfo && !search_fb_in_map(oldidx))
+- 		err = con2fb_release_oldinfo(vc, oldinfo, info, unit, oldidx,
+- 					     found);
++	if (!err && oldinfo && !search_fb_in_map(oldidx))
++		err = con2fb_release_oldinfo(vc, oldinfo, info, unit, oldidx,
++					     found);
+ 
+- 	if (!err) {
+- 		int show_logo = (fg_console == 0 && !user &&
+- 				 logo_shown != FBCON_LOGO_DONTSHOW);
++	if (!err) {
++		int show_logo = (fg_console == 0 && !user &&
++				 logo_shown != FBCON_LOGO_DONTSHOW);
+ 
+- 		if (!found)
+- 			fbcon_add_cursor_timer(info);
+- 		con2fb_map_boot[unit] = newidx;
+- 		con2fb_init_display(vc, info, unit, show_logo);
++		if (!found)
++			fbcon_add_cursor_timer(info);
++		con2fb_map_boot[unit] = newidx;
++		con2fb_init_display(vc, info, unit, show_logo);
  	}
- }
-@@ -1482,10 +1482,10 @@ static void unthrottle(struct tty_struct * tty)
- 			send_xchar(tty, START_CHAR(tty));
- 	}
  
-- 	if (C_CRTSCTS(tty)) {
-+	if (C_CRTSCTS(tty)) {
- 		spin_lock_irqsave(&info->lock,flags);
- 		info->serial_signals |= SerialSignal_RTS;
--	 	set_signals(info);
-+		set_signals(info);
- 		spin_unlock_irqrestore(&info->lock,flags);
- 	}
- }
-@@ -2470,7 +2470,7 @@ static void isr_io_pin( SLMP_INFO *info, u16 status )
- 					if (status & SerialSignal_CTS) {
- 						if ( debug_level >= DEBUG_LEVEL_ISR )
- 							printk("CTS tx start...");
--			 			info->port.tty->hw_stopped = 0;
-+						info->port.tty->hw_stopped = 0;
- 						tx_start(info);
- 						info->pending_bh |= BH_TRANSMIT;
- 						return;
-@@ -2479,7 +2479,7 @@ static void isr_io_pin( SLMP_INFO *info, u16 status )
- 					if (!(status & SerialSignal_CTS)) {
- 						if ( debug_level >= DEBUG_LEVEL_ISR )
- 							printk("CTS tx stop...");
--			 			info->port.tty->hw_stopped = 1;
-+						info->port.tty->hw_stopped = 1;
- 						tx_stop(info);
- 					}
- 				}
-@@ -2806,8 +2806,8 @@ static void change_params(SLMP_INFO *info)
- 	info->read_status_mask2 = OVRN;
- 	if (I_INPCK(info->port.tty))
- 		info->read_status_mask2 |= PE | FRME;
-- 	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-- 		info->read_status_mask1 |= BRKD;
-+	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-+		info->read_status_mask1 |= BRKD;
- 	if (I_IGNPAR(info->port.tty))
- 		info->ignore_status_mask2 |= PE | FRME;
- 	if (I_IGNBRK(info->port.tty)) {
-@@ -3177,7 +3177,7 @@ static int tiocmget(struct tty_struct *tty)
-  	unsigned long flags;
+ 	if (!search_fb_in_map(info_idx))
+ 		info_idx = newidx;
  
- 	spin_lock_irqsave(&info->lock,flags);
-- 	get_signals(info);
-+	get_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- 
- 	result = ((info->serial_signals & SerialSignal_RTS) ? TIOCM_RTS : 0) |
-@@ -3215,7 +3215,7 @@ static int tiocmset(struct tty_struct *tty,
- 		info->serial_signals &= ~SerialSignal_DTR;
- 
- 	spin_lock_irqsave(&info->lock,flags);
-- 	set_signals(info);
-+	set_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- 
- 	return 0;
-@@ -3227,7 +3227,7 @@ static int carrier_raised(struct tty_port *port)
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&info->lock,flags);
-- 	get_signals(info);
-+	get_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- 
- 	return (info->serial_signals & SerialSignal_DCD) ? 1 : 0;
-@@ -3243,7 +3243,7 @@ static void dtr_rts(struct tty_port *port, int on)
- 		info->serial_signals |= SerialSignal_RTS | SerialSignal_DTR;
- 	else
- 		info->serial_signals &= ~(SerialSignal_RTS | SerialSignal_DTR);
-- 	set_signals(info);
-+	set_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
+- 	return err;
++	return err;
  }
  
+ /*
 -- 
 2.24.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218024720.3528-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218025337.35044-1-natechancellor%40gmail.com.
