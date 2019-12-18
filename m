@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBS734XXQKGQEZJKI7CQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBNP64XXQKGQEGRQYN5Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6F942123C46
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 02:15:57 +0100 (CET)
-Received: by mail-pf1-x43c.google.com with SMTP id d127sf215300pfa.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 17:15:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576631755; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E838123C5F
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 02:21:59 +0100 (CET)
+Received: by mail-pl1-x63d.google.com with SMTP id 30sf194961plc.23
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 17:21:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576632117; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PoLz6ggapX30XDc+rTovPwky+YVmbrv5jq9IQ4SyhmIrK/6c0+eWXgTcjWZDaL6wnS
-         6ZqjmPCOQEKvro4TCLrOjh9QnKAVqxpMV/snRR02p4swmqtnLAmTzzNMaZ7tLEcHeyp8
-         90QBCzhRFVb1RZYRZzWJqoB6D4ihm0nvBpxpeZFRaZoFRYjQ6KfZwD2QTF+GObvTgnkL
-         g/1t48wqrqLbXNteAniTaEd2QFt9Nu6fwz4giP+oQ+T0qQqJYuYAKZhbm3+OrT/5d12t
-         F8ctKnGJtI+4mitTCeEvfxkXs9Wg8p1SkRkKl4Aci0axk9o0T71UP6HEjkEJI2wWsU5k
-         J+Vw==
+        b=htnPTyX1XGH6syTcw70hWm4B7//rFRjiItm7nxB6XB4UP970k9t3dy4pQCSc5bohtE
+         CgQa8UOIMuOQCyWq/bX/h5z5cvHyFXrwXzzk/xBB+/p4HBomYwMQ3jXfBN8AtWkwdPBU
+         Srk/EoK3VSfX8caBN4/O6gRyXGF+hIFJgH/MXkjevAUPkm7QW38Y75y+ZYV6l4womvYp
+         h2zo3fMXZ1IZ+7+PjgiIOKm9dk8AERehdtt/uc8qdKB9L03tmPZQz1WLJ8jhuGxBGCFZ
+         i1wZmRDKtB6WbMcRKIdHvqHWxgILbRWobFuDF9R2OFTs3DNIjupUCfuhfZ+CxkMHTXd1
+         mowQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:message-id:date
          :subject:cc:to:from:sender:dkim-signature:dkim-signature;
-        bh=A/JSTKKYGEelwkpa3sZLNfFWeHMrThvwsxTLuoqXAuM=;
-        b=Ycrpn8lCVWZn6Wf87fY2HMh7csMKB9gUyl4Dq0eil+DOp1aUZ883uJAWo6hb6tZyhI
-         9d59yVC1PzqyKG2qV6y4KbJAGZnFS20oMiBOWu1348M7ftOLGvYSgxwbuN4q3jwfgy76
-         v07igKmGKx1iZOIa4bwoaYs3LmZDIbYU1Vg/JytCZUrnS9w1i4do0ce4NzknSEY1Z8Zb
-         x7o/6jg1XHblonQgny52juDu+Ok+WMtoq5SoQuZodT6fffB5kVQWPU1xN35NnIryuNTN
-         qiD8GUSeLOMYMWOTmrzalnSt7yl5e7SjFJWUjGT2VLdAiTX0NvKD8/G4Zr+wbOMJi0vz
-         +DLA==
+        bh=+96aBB7kH9yoXnBjClP1b4Vi6bbsqwmaTNuqk4vWSVM=;
+        b=IxW4rlfET9tXi8FZ7hpm1o09mZ3DbSYHFuPWJPTfWPeWJ1zjj2dCwCBLTmVlA794q/
+         cFA7Q40yJSMr3zTjQHNEZeTB09yQzSHhulZA5BcNMAsT/FM9rgkApc0pnTEwkL1uK8k6
+         Y0NJ8urrrtjwS+kbCD6D3q8j6d/S5IT/G9T1w6pfVnwRH0TgxHSFZWVBAPXyTtJ2X9G8
+         6rTAJ1G9dkdkBSyAc8yBSbIWOXCyd/8R5QH4jLL/Rf05DJIUzjtG1KizfIoG4oxl8dm+
+         CT30EmmwPbLK3Jz46y9NnaFNfwhfiU8fcSWuqA8fUwTz23AbLc2aabBxEQxIAXqUuAa1
+         ys/Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=klfD6iko;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ewGSI+bn;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,103 +35,102 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=A/JSTKKYGEelwkpa3sZLNfFWeHMrThvwsxTLuoqXAuM=;
-        b=khJZMbeAj5svfpCXJaPWhjKoSI+jV5+2r/rv3ZxjOaP6oS3zlrFfKX4ye9Pc/og1vE
-         0MP7x4l139tHYj3CLewHOwcLIQz83qjJvhRtUHnLDz9KyLtkrSrGBBl8Y9RQfpdapFzM
-         mhPuxo+rMboQA9U45sLbXiLsFcx3EmVorzmUzNCXeq2E+K8Ql10e/0QYafiArRNTragy
-         ER8Fy8tAieVFZK+EL5ht3nj9bSNGVv/mS1h0Mp+lgy/87yzSjtmQXE3rBQ85RBKAFdY5
-         p+jP445n/2Ynww/DyVY8aJ1ladEbVPaR+HAB7RFnublNjYFDvBk78jJwqOC0pH7d1as0
-         N8ig==
+        bh=+96aBB7kH9yoXnBjClP1b4Vi6bbsqwmaTNuqk4vWSVM=;
+        b=lgzrE2MWYMgTqTgYkey5qj0MvN8NVOSsev7pMlnjaGvWZlAVQ495MiAbmkfCq9iA+K
+         D/dvQahqDvHcm1B9IK8AV8DFYfc3HcaE0pQbXAgrRqeZRRPbij8koeb+Uty3yXDL7HVZ
+         /OKQxd+z4tM5HYThFzySSmRpNPEaw8HMxhUebvD4L/fiE4eJhA4l47J6v3Ut+rgWXEOe
+         B5VzfcQWu9S+HwCHpYf+MyStsTIyuvVrjmUnCwVetQwZmAi2uHLi9g3RQdY7wOnw3sA5
+         zXwqqIjiWSKzdQ9GSXKCSybEACQPtwjZaiGojaaIvUGy6kaVynvJZhTDxTpYzhXleYdt
+         KM2g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=A/JSTKKYGEelwkpa3sZLNfFWeHMrThvwsxTLuoqXAuM=;
-        b=jX9XdRT7EZEdhcrFP1om9TQRwGKZA0hv9OpiNqaa2t5RsZloLwvs/9AO7TB42sMjTX
-         3v7cdjN7HH096Fom9clFeSgn8g55yUqE1jLjspk6Q66a6g1mm/B7Nr039JxJoDIQjwDx
-         fnvAahj8fKMvAWc6+v+xsChUeAWfR8nJ3/YTI4dZ/euvp6emz5UhRYAQSdDyhnrG9E2Z
-         JyGYVgCOiUYggIk/dHM6B1aI/WwyqU0v5X4DdQjJFgjipCGc6dkaDGzFHufci+3DLxl1
-         fdoopN+UF9LwNri6NVzQtLivS+PwaLNAezbeU9c6kY4zLK4/skN3M7FBqrge/sC5OU3D
-         QhBw==
+        bh=+96aBB7kH9yoXnBjClP1b4Vi6bbsqwmaTNuqk4vWSVM=;
+        b=ugeJdjJpdXxtti6FWtAvceSdgKobeDNZPDYLDiDEDQJpPejGwc6c2HG/cp6skChwLy
+         HtvQU9T6j4uUzyDYujTwYBe1KNahVPmAkilvAALKr1MMi9xm8hu3vvPeIN6L78QIDsYX
+         MsJiFZ2Duf4Ofc3iUiWER2EqIBkNe6E35jw4G4XBkMvKJA8qsbIBlanDO9lt+HBEtglL
+         zYQGLGFI0JLUpDsUcVci1dh1u8TyTR1lyDXdR+eSYRU86C4JmvDH1HeFClcM4nyB0cqg
+         z7gm6itqyXgoR57AuQhVrR9VxD0Gz53+x9adwLJE7aoZPmOP1hVcWUZ7thqQ/HfigbNX
+         yKvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=A/JSTKKYGEelwkpa3sZLNfFWeHMrThvwsxTLuoqXAuM=;
-        b=DNX04B0ScaQ1oLNC6GFXOSh7chgxp1htoSMz/QMxidYNpPNqI82TWLU95s91yiyP92
-         /0pERv4xUA489vqAdHtNEc3We2vypXK7gzzG8nUqf17S4mfIYeK6/5KgObam07H9q76Y
-         wRYxtg3Nz+ON9IFxe19UZTbX/fvgin910MV3N5EbHdmlnPtScZ/qNEKDVrhLj95imtGj
-         QOCon5uw4GJWWMTs2t6PHsUpchIuQM5n8ym7zwtSlkoxSlI/kQdv7oOdlCvis2HM67Cg
-         8/qXP0DS0nJlX5eqEqMd13eMMVyx+nNjj8du9+nZXcfMqIIYREHf6zPUNLz/0D+YIBqt
-         6uLw==
+        bh=+96aBB7kH9yoXnBjClP1b4Vi6bbsqwmaTNuqk4vWSVM=;
+        b=Ayolz1WvMYOTlHeWuMj3meyWoCKZ9wqZ58WWenZ3AmPnRA3VAkqmCey1OL5DAqIj42
+         BcTvHhzYQiZh8+q4TQa/2ow/IErcAh7htdtc/foM5ezKxjNyRs6nOUO5JLWSo4YxHekk
+         9gemrndQ+zfMzdtm41Vk1Xg8PyvXwJl2Uzh4xpqtf+v9311duuGTW7beC5nuAW4RZGT0
+         c51UFcgCjUq9nN5mz16LmcLlqXPB0B+YUcnfzua5adiZqbdEENMwpz17VJxmM8jNnKA7
+         zEzjCdIfvFtzC3mursWVOEZ4Qsy0yVqpTCpy2F290P5VozkSm4qzDe7leyHbWMW2UCVn
+         tKvw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVlvj7jZDwNC0sTDTPvV+HUX6+BN/jnX8W40ORdw9457Act9jUl
-	oMS/8vbVELqcVoaPPPgRn0s=
-X-Google-Smtp-Source: APXvYqwrNv7VcM9Fj7ibZ8VhretvtSc6bgOHLhgAT2yUGs69x/F8frgZOLJSrHOspxRzikk87Yrnuw==
-X-Received: by 2002:a17:90a:c795:: with SMTP id gn21mr299734pjb.95.1576631755562;
-        Tue, 17 Dec 2019 17:15:55 -0800 (PST)
+X-Gm-Message-State: APjAAAWUcHokjIks6hRSjNGuhlrxBcFW1EDDORAzIv6rCdjew8qd1Nf5
+	9421KLXtK8JfbojMEXxbBLc=
+X-Google-Smtp-Source: APXvYqyhLCKgak+S3wwg7pt+Ijd705H2pxNonFH7CmzL5M/IHHtyqtXOnxwgHOLVTYF9+C8lQOFhpg==
+X-Received: by 2002:a17:902:ff0c:: with SMTP id f12mr1208423plj.226.1576632117595;
+        Tue, 17 Dec 2019 17:21:57 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:3421:: with SMTP id o30ls41165pjb.1.canary-gmail;
- Tue, 17 Dec 2019 17:15:55 -0800 (PST)
-X-Received: by 2002:a17:902:6a8a:: with SMTP id n10mr1207767plk.9.1576631755078;
-        Tue, 17 Dec 2019 17:15:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576631755; cv=none;
+Received: by 2002:a63:208:: with SMTP id 8ls66734pgc.16.gmail; Tue, 17 Dec
+ 2019 17:21:57 -0800 (PST)
+X-Received: by 2002:aa7:8b55:: with SMTP id i21mr809827pfd.249.1576632117239;
+        Tue, 17 Dec 2019 17:21:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576632117; cv=none;
         d=google.com; s=arc-20160816;
-        b=A28+noa207vi/2WAoHSg03KQ11YbA1NwnMsatdC8gUOD/4mykJD21823s1b+wDYSrC
-         vNQiHf1/mjC3KWqMDWQb+0Wuc4mYdxm0/2T/FFtnkrYpPqDbgPOuZmROQFiDcNV7Vq0w
-         fYzKS9Mz7XXfBB2w4qk/aFOfmeeMl8tN8IfYX2NF5W5ODqzmAsGmNVp3GvdWkbW+Dk43
-         KuCHk+PHMdSRjCWB2BmCUeGiC1wrjZ1IGEEmmwGfsC+Lk0zxLtYJryD6zjPAYZ2ynLnq
-         21CihBd27dFIJMnTewcwuay14Ve/Z7xiMSvf+IgSt3bzqBnpCdXCpy1vi8nxG3DdWVrt
-         Eb3g==
+        b=o06XiDAzOCPSzfTqzApVGJidB1hbzTOdGs9cuWTnKse5iUeWXQmuQOJW3W2iavoQHT
+         Pfkbc4drNs42W3tBCRNkzcS2cjyeP4inzStWVvx/4NfyYT5p1imdFLGkD/Q0I67K6VYz
+         X3Afe+4R5uRr7olhyOReVD7IF7z9N2NZYXc83Mj8lgei7ll1TlWYYEhldxhEJOXmyCql
+         BwEwIwmyoNFdzOslE16XG8R67DbGy2h2ZUGp2HAmW4ybFwWZGfPk7GyhNeOKreBW/mv/
+         H487A9yoMNJ/V407SfaCfvHj+oG19T/3jD5yKFr9E8py+jf4tdEG/EJGKogjtQg0hPUe
+         YdFg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:dkim-signature;
-        bh=d+ndbyvc/xD98taLiNNXwi7PgRFqCDT7vLcEGC7qSs0=;
-        b=TtUGslPh2qzAjZmiG7BDoRijpHG4JEYOHQPnxTWN68+arC4JVMcB4vtaLwF07mIZ1A
-         uH2lz0tFVf96XdQL9j01Io+JGgzGgWNIO3Dr5nwv0iCNpapHE3A0h/EotSZjCG0dhaxp
-         l5V4jenlyGLiqnL8P6KC00pElIDudiS2hEsA1J8jH23erTChiv9asw4JeKPD4TJofHTq
-         JNR4UuNfkjbuycdr9r2/nv9dffxYS+HLRYQ0P6Xh1Y0AyL3darFWDNGH7rwK4IVu8VTf
-         wfW7R77WBnpVDAE666BckfduwHFr+ZUVzf8+HGKoBF90f20F6C8w2YBQBZ9rO8YUGHAv
-         fQ3Q==
+        bh=ZcjIbQOSWhikOPzlHM6ZEWQw/5oRTb6+fvho9ILg6nc=;
+        b=o5J6OUqY1jQjOK7OQa+wtaPrkGlncLwnAjGUDx25hLW1+Qh84PTh02kZZcs5/FumAl
+         8MO5kZIBrtGEsqqbNurmN1i7zGDGrPOBsMGLP0YQOHIWC6zv8Dx6OixkHQAkxCFiiy0Y
+         9C7pxeakwnZnUZN/tsDZ7CVSxYjqM36MccW+It0vGbk0KKYRbRVW8horyASZp/h3DjNE
+         NOZ7idGoBo2Dft70pB+/dJ6/AavGk0ZN6Edk/mLPU9d97SdePjqxHEJlfXwkfcsps0Yi
+         za/rlC7rfhlHBMoDNcD0w1AbAzZdnn8DPoeR4tj5Ok4PFWvj485OrvU0AOmUodNiMXQe
+         Xytg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=klfD6iko;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ewGSI+bn;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id x12si25926plv.3.2019.12.17.17.15.55
+Received: from mail-oi1-x241.google.com (mail-oi1-x241.google.com. [2607:f8b0:4864:20::241])
+        by gmr-mx.google.com with ESMTPS id g17si25470plq.0.2019.12.17.17.21.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Dec 2019 17:15:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id k14so274864otn.4
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 17:15:55 -0800 (PST)
-X-Received: by 2002:a05:6830:1e84:: with SMTP id n4mr115298otr.267.1576631754206;
-        Tue, 17 Dec 2019 17:15:54 -0800 (PST)
+        Tue, 17 Dec 2019 17:21:57 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) client-ip=2607:f8b0:4864:20::241;
+Received: by mail-oi1-x241.google.com with SMTP id v140so270474oie.0
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 17:21:57 -0800 (PST)
+X-Received: by 2002:aca:c415:: with SMTP id u21mr34515oif.49.1576632116439;
+        Tue, 17 Dec 2019 17:21:56 -0800 (PST)
 Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id w12sm186001otk.75.2019.12.17.17.15.53
+        by smtp.gmail.com with ESMTPSA id p184sm240395oic.40.2019.12.17.17.21.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2019 17:15:53 -0800 (PST)
+        Tue, 17 Dec 2019 17:21:55 -0800 (PST)
 From: Nathan Chancellor <natechancellor@gmail.com>
-To: Kalle Valo <kvalo@codeaurora.org>
-Cc: linux-wireless@vger.kernel.org,
-	netdev@vger.kernel.org,
+To: "David S. Miller" <davem@davemloft.net>
+Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH] hostap: Adjust indentation in prism2_hostapd_add_sta
-Date: Tue, 17 Dec 2019 18:15:46 -0700
-Message-Id: <20191218011545.40557-1-natechancellor@gmail.com>
+Subject: [PATCH] NFC: pn544: Adjust indentation in pn544_hci_check_presence
+Date: Tue, 17 Dec 2019 18:21:52 -0700
+Message-Id: <20191218012152.15570-1-natechancellor@gmail.com>
 X-Mailer: git-send-email 2.24.1
 MIME-Version: 1.0
 X-Patchwork-Bot: notify
 X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=klfD6iko;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=ewGSI+bn;       spf=pass
  (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+ 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Precedence: list
@@ -146,52 +145,45 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang warns:
+Clang warns
 
-../drivers/net/wireless/intersil/hostap/hostap_ap.c:2511:3: warning:
-misleading indentation; statement is not part of the previous 'if'
-[-Wmisleading-indentation]
-        if (sta->tx_supp_rates & WLAN_RATE_5M5)
-        ^
-../drivers/net/wireless/intersil/hostap/hostap_ap.c:2509:2: note:
-previous statement is here
-        if (sta->tx_supp_rates & WLAN_RATE_2M)
-        ^
+../drivers/nfc/pn544/pn544.c:696:4: warning: misleading indentation;
+statement is not part of the previous 'if' [-Wmisleading-indentation]
+                 return nfc_hci_send_cmd(hdev, NFC_HCI_RF_READER_A_GATE,
+                 ^
+../drivers/nfc/pn544/pn544.c:692:3: note: previous statement is here
+                if (target->nfcid1_len != 4 && target->nfcid1_len != 7 &&
+                ^
 1 warning generated.
 
-This warning occurs because there is a space before the tab on this
-line. Remove it so that the indentation is consistent with the Linux
-kernel coding style and clang no longer warns.
+This warning occurs because there is a space after the tab on this line.
+Remove it so that the indentation is consistent with the Linux kernel
+coding style and clang no longer warns.
 
-Fixes: ff1d2767d5a4 ("Add HostAP wireless driver.")
-Link: https://github.com/ClangBuiltLinux/linux/issues/813
+Fixes: da052850b911 ("NFC: Add pn544 presence check for different targets")
+Link: https://github.com/ClangBuiltLinux/linux/issues/814
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
 ---
-
-Sorry for sending a patch for an "Obselete" driver (especially one as
-trivial as this) but it is still a warning from clang and shows up on
-all{yes,mod}config.
-
- drivers/net/wireless/intersil/hostap/hostap_ap.c | 2 +-
+ drivers/nfc/pn544/pn544.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/intersil/hostap/hostap_ap.c b/drivers/net/wireless/intersil/hostap/hostap_ap.c
-index 0094b1d2b577..3ec46f48cfde 100644
---- a/drivers/net/wireless/intersil/hostap/hostap_ap.c
-+++ b/drivers/net/wireless/intersil/hostap/hostap_ap.c
-@@ -2508,7 +2508,7 @@ static int prism2_hostapd_add_sta(struct ap_data *ap,
- 		sta->supported_rates[0] = 2;
- 	if (sta->tx_supp_rates & WLAN_RATE_2M)
- 		sta->supported_rates[1] = 4;
-- 	if (sta->tx_supp_rates & WLAN_RATE_5M5)
-+	if (sta->tx_supp_rates & WLAN_RATE_5M5)
- 		sta->supported_rates[2] = 11;
- 	if (sta->tx_supp_rates & WLAN_RATE_11M)
- 		sta->supported_rates[3] = 22;
+diff --git a/drivers/nfc/pn544/pn544.c b/drivers/nfc/pn544/pn544.c
+index cda996f6954e..2b83156efe3f 100644
+--- a/drivers/nfc/pn544/pn544.c
++++ b/drivers/nfc/pn544/pn544.c
+@@ -693,7 +693,7 @@ static int pn544_hci_check_presence(struct nfc_hci_dev *hdev,
+ 		    target->nfcid1_len != 10)
+ 			return -EOPNOTSUPP;
+ 
+-		 return nfc_hci_send_cmd(hdev, NFC_HCI_RF_READER_A_GATE,
++		return nfc_hci_send_cmd(hdev, NFC_HCI_RF_READER_A_GATE,
+ 				     PN544_RF_READER_CMD_ACTIVATE_NEXT,
+ 				     target->nfcid1, target->nfcid1_len, NULL);
+ 	} else if (target->supported_protocols & (NFC_PROTO_JEWEL_MASK |
 -- 
 2.24.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218011545.40557-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218012152.15570-1-natechancellor%40gmail.com.
