@@ -1,143 +1,129 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBOPM43XQKGQEM67SKXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2JZN6WSAHRBNUO47XQKGQEDFHJXAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x53d.google.com (mail-pg1-x53d.google.com [IPv6:2607:f8b0:4864:20::53d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B24B9123EBE
-	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 06:16:42 +0100 (CET)
-Received: by mail-pg1-x53d.google.com with SMTP id u14sf456566pgq.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 21:16:42 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576646201; cv=pass;
+Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id B288C123F8F
+	for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 07:29:11 +0100 (CET)
+Received: by mail-pf1-x43c.google.com with SMTP id x199sf656234pfc.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 17 Dec 2019 22:29:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576650550; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lIYUmIiET8SiZdpOisRY+QSI01uuhG/azyJVxGZmJgpxWdA/507lr2XZJR7+BB1pdp
-         AXiRPKTA+OsoVrxVve1BJZWxAdIWTj6x60FuQRuj/oPpPsKQHw4swJPAqBG9zQvgYsS+
-         JuLypJHdIgUOhOu2eijBIkG7JKf7c2bMp7peOwTiUOvh5zvfgymC8pFL3hCzCk4xSXs5
-         gl3JByD95kB9pTlLj1lsbEk6Cvr5i7OfQ3CImm44eNUo9LuI7aI/bKLQT38AYWuStB1F
-         WbQopAMNwqgbOxuVk2Viw8mM+2jvEX4t0kX4MPx8BHpMPjilGEtDNqpgv0ktxoNBWQXT
-         AHAw==
+        b=Brf2+WXGMa7ihJ0Ml7NBiLFn6oMo/UJGdxpgWzi/DUvokRuugcWAMst3pDHjqlSnX4
+         mqbk+/O2YHoEV+jSYkeTh1D2zYSsS2qIVRRD1DwU7dXovwO0lPGQHqrzsQ0D1bUpIYng
+         9hVL+8MqsJna82aJ++Z+/7AuoJm6E9P2WS5ZMX0OiWjBQl0vDci3p2jB0yYWsfkal6Sz
+         e/m7T8iM+AHQR121XTNasygGeoB18PQ3EAflKQTFS7tLtFKOie6kXg1mRBq5IOcW2w5V
+         RrcI4bW2ZZ3NGxztaopj8iTSeXd0HxpcMy0C4vZOJpV4oAWwUKZc3xkZGeCcx39RSNE7
+         uSEA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature
-         :dkim-signature;
-        bh=28hdOZYF/BzKZyOduqq5cJdOkqDck4XnVnwsyUoXNnw=;
-        b=uKwIfn/OW22fQNSOWF1eqC/8o8iSWkMmxUH6Sz6aVkbjro8JCLSu9za65ceczXsBsV
-         5CXo4VVbDuMROjI1hi1w1kgbTQNIZ5UKci8XiolvbKUrq4Ge5N8BenkCNYoC74cG2Oeo
-         6PWCH0mFt2I+Px0croLMKFckxO2YLw74Sp2wGuNvo4pu3FNMG9CH8hd1TBHtgR8SI8hg
-         ZiZcxH7lz7Q2z2a11Fi3I9htIUm0MovlW0Zph/303l84Vzw4F/ZJsWZSMUo85xncPZd4
-         tUoBuUaY/pWLBmZlvI3Fis6bngaQeJOMwxPifXmLZcTwB7VWgIcgXO4lnMo5mOo+3MiJ
-         Gh2A==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=2H0QhWYktk/1rP7pIieebxQUFRTfnU26Xe3TlEjh/Rk=;
+        b=YVy/XFXlghw5Mi693C70fIwQu0GKp5b7+AaJ3va9T8sPULriMjvVhzpwe8Qq0TMApO
+         wQJy1ale7DCxXPEek4EmxHKy/Ue+PeyZFmiE8z9USyVNxHW7TxnKOTfVbOl4zQR3Ehb4
+         y1QLyw9QQ4ThFn59S1lsuG4zhAB5qm8KnVWvKvWd4RhbBTU3uVjTMoKygF9PQqbSOs0q
+         GN6L152rSV9tl0sRzfAqkw9uA54oDb9qJaVYWCufZDC4uZ9IKVyq6AmpxSRZwjGQS+Ug
+         2EigHxiqsZGjyXsbCimRxb4rZgpYOjdJcgm4xu1n2BKjA5VJfzWr/bUNYb4BFipXs6d4
+         Lv0A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AoMZzl4p;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=NZAI8qdS;
+       spf=pass (google.com: domain of bjorn.andersson@linaro.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=bjorn.andersson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=28hdOZYF/BzKZyOduqq5cJdOkqDck4XnVnwsyUoXNnw=;
-        b=Vd48urgD1TRuXUkFjzOHgXaP6EszrdVlUvGE68lKkkwBdt/WCCZs7XFIfpUyZMWhoR
-         zp3ursC5ruC1Hl/fLZfNm7afahF0LRFi3+HWLI9DfuZ6rJoaRF/BmxQl55hbxDYgnM1Q
-         9i3wXa62qGxVezJ0Wxhp/2m74swjVVE45fO+RsMQAsbctEyuud9iIrLYQMDDa1uSdLuK
-         LlpZ7158uGOpMZwVycVWvZ/f4umZpGV8PcjzN/m0141Iwxf4nc6nLz7F26u+FF26q05/
-         N7PZL2cgYQLHX+FGRh0LB/EGcUMBqwbRqBJLBufpHMBqt+dF3IeavahJrW+tn2VCmYhL
-         y5EQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=28hdOZYF/BzKZyOduqq5cJdOkqDck4XnVnwsyUoXNnw=;
-        b=MnTN2wdadD+xQjUlwdMPHXSchWLB3QOgRExAT48EAh52ybktDfqzjFTizvjbzflbnQ
-         F8UZjheOVZ2fkSyPzENwh74tSIz7wikTrRSSBiLw84GqzIfx8qh3kat/IKx13kP/7wE7
-         LWO7jDxDD261QqNEwsI/6eDk5wQD+Cdi7amZRYF4/52btPjN+WzZPpY6U97ONr68DAfF
-         Zeq6LW4dhpE7eNR+m8d7EkEa/nRVljrlV0C4W9pzHElbeTQUBJfZgQPxL4iYoAsSskIM
-         LEk4Fi9crXMHL6t1nP9d9HhLLWmQd1lbA9QxCXF68JUWUZ0mfleJsgn9Zz4f7rACfNfN
-         5bhw==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=2H0QhWYktk/1rP7pIieebxQUFRTfnU26Xe3TlEjh/Rk=;
+        b=SpIpxujVqvVKhpAxh/6PtDUDDef2wqhoD76UK9foCvT2xC3w7ykBvbuu0GYPEIH+1L
+         UWPHE/wDOXzf67YetDxKuslLZFitXsMZt0qvPCgpyri+G+t2us78UhVKOKFVM4xqZ+Fx
+         RPcXcGB26e7YKOgqm2sy/O7l+ovQIWUdUXbx648l1j93bnENhu+pOBIJX9KnteHol4PH
+         ddLERDvD+mRKSy9cRxtt7QfLvyFNIOVVz90cjXYTxrr80HavlrqMHN1s+ieVuVIdxrrZ
+         2rcCtwLaGn4oB7zmmDmIT7Xw/2u1YqGwVXAxvEc1h23H8an9Y2aprGpPfb06+BQ2RxHM
+         L7QA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=28hdOZYF/BzKZyOduqq5cJdOkqDck4XnVnwsyUoXNnw=;
-        b=OvHPvWF3Mkf4pc9sF4oGGNcECL3XTt/4bZRHzHT2xj0koanv2JB28/CmW4xIiW/rZ0
-         vLR1pybcLdGSf6Ye9dDYJdmThG1DglQtWV0wgCPmYP8b3ZIsWJ+zailBVwDIlPMX80/X
-         T9wZQSPDdhvgOU12NiGKyFts8QMbyvU7UFSssTRcO7qzjWH6t8XoG7tc/WapBeaSOWbZ
-         uwo2P4p/0/S/mQNkA/baoRIFsSvnKSWyrG1pQpD3064vUAOmec3lAVHS14xKL9ffcOlw
-         L206pLltOPJbK3fKmEAJRqTpOgSXn2wJUgP+/PjbURvhsYfv2Z9xxqAkQS4mMLlc4yOy
-         vpnw==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=2H0QhWYktk/1rP7pIieebxQUFRTfnU26Xe3TlEjh/Rk=;
+        b=OrfZe+deEcbdEqipzzikuGAj/f96cLhHIqXLmjcXwe1dzoQT4teiG4leFjH9F7A3U2
+         taWUlD2K5TABQ5E4t+YoQS7ze4Ae3TfRpT5ro4fzo0Rh22E6J/e1K36X1YV6b8IwUW1v
+         PGNR343bm2if5qoRsuBWwjqwLBckr/uwci0nGmWiB/RLxEBpUf1ZReL0ZXYQjEQMtK9j
+         CGxC0/C1YcnWNNfjU7mWuYAKi/aeoWNUprq7y7HCA+MEFt9ZuOjAedMlY6o2zr9jj8W3
+         QvtFxNbNT8avG/zCG6qoGaLr+wGdwT3aFRhPu0kNgYfjMtK9rk8iGPg/4TIPI92065Bs
+         JSNA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVWbOb6DUJ8ja9wm7m0kY9y39kYM1RdkAJUeDgKh6Asj010udhD
-	7kc+whOthMrlXHVV5g/gBW4=
-X-Google-Smtp-Source: APXvYqxLRJd6vh5Zx/gZa2xlIKzmSYgczCoEZTQI0n1P7tJs/DE0UJnL+3Tj8Vl7Vl3i2QXFfxHnwg==
-X-Received: by 2002:a65:4c8b:: with SMTP id m11mr880137pgt.208.1576646201335;
-        Tue, 17 Dec 2019 21:16:41 -0800 (PST)
+X-Gm-Message-State: APjAAAUlVifVcQxMhp2cbzYYTRFC+nFP2Cwfi8TZrgiGnrUC+jX+YGgL
+	/6/+TSMzpJ8Xvnzj6GGY37k=
+X-Google-Smtp-Source: APXvYqzV1ZkuN/jzCWdIvU3whtPyB1NhqGilBF/x3ETCjGyQEfH3/IXoewDu+PDYI4Nb2x7uzCGQTQ==
+X-Received: by 2002:a17:902:6b03:: with SMTP id o3mr886930plk.252.1576650550327;
+        Tue, 17 Dec 2019 22:29:10 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:2646:: with SMTP id m67ls219469pgm.2.gmail; Tue, 17 Dec
- 2019 21:16:40 -0800 (PST)
-X-Received: by 2002:a63:da4d:: with SMTP id l13mr909527pgj.106.1576646200853;
-        Tue, 17 Dec 2019 21:16:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576646200; cv=none;
+Received: by 2002:a63:b1d:: with SMTP id 29ls266221pgl.10.gmail; Tue, 17 Dec
+ 2019 22:29:09 -0800 (PST)
+X-Received: by 2002:aa7:95a9:: with SMTP id a9mr1210700pfk.15.1576650549944;
+        Tue, 17 Dec 2019 22:29:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576650549; cv=none;
         d=google.com; s=arc-20160816;
-        b=enCw8uXV216YZbBYFG0iYq4R9eYhYeXeMGbO5n8xDV/uj+mCzzcVH8Sf9Vl1J//Hwx
-         stItiNHeiBajCU2Z3W/ZCHoyhRybSgZV/TkaI7uJ5CKvIA8MnXU2kY6QJnyfOdzbfkpR
-         PgNRSd/ZrGNk71B5Ha6LXjM9MqnPBF/tl44Obi/4LLlwkymWuGMtbhY/leLlJh7zhcWI
-         sinijn4BiH/7rcF2r8mHGFGUt+DOx8M/q91jGU2QOrUo5DzHtS/gpxb90F+Nb+6RqLs0
-         iKbnxI/XmQpShZGVTdCNHuvYFajac3W9R3yBLfVpFyGr5vU4y3IGd9C2rEBHVeSxT6Xs
-         DA2w==
+        b=NkaGPz1WRP9Qf0M/LgZA8QKEGg6XMf3xl10XgXXeESIHFohVoknBxEOHSakiuSYARC
+         oAw6cn8RAoPu1S5Ku9+5iYOUiA7bOupCMxWb0Jant+LEl4PcmhZt76+MXk9dRTcTROnn
+         1q5+UVoZoV887LjwxuLZoTODk7/JOU4DT9H62do55GQ4IaS0coNnXTHFgWsiVo2ECb2X
+         J5MYA20mqEI6GuSlrVd6X/6iLhaeBO8LqAz3ErclS4U5P/xRw/YOIgxgEUlmcxYMxs/0
+         rOggRAI8L1eoqqzwEexcRCy+mtW3Wkz1/F7EPcC+sAAcMJz84qbm9GQdbGxzh3ZdcT+J
+         R7zg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=jxIZEY/aFZUkloIpwcQQE/QdtpYBJOYCZWZIB95mXbs=;
-        b=ojCHqvp1GJAnBEaWLwyCYTL7kmZkoejux52Na04M5OdK3FkIQFIBmuubXVL6W/6eVc
-         smmShKWk49blp1HrMf8jyku+BuWUos4YhxVfPM9H28YvuvJg2CJKLfeBE1BLjM+oghMG
-         /WSSSM4z7FaGKhODyPkHfHzx9nKyUAqixpbK5Nbu//m+oyg8QRQKFUulOoLm9cEC101a
-         e8UZU9JTJEQowLcE01vPkO9nm9aZzb3eNBvP4ZKrb2oTv2q12g2Si37D9wYqye70q8IK
-         0iOY2wORn+eXmXQByyqd4J2mieiWpwJf9fN7nNqhVbTLnawd5waLTfSC5C/8Y3ySWTwq
-         kH3A==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=/by+L4g/+C5m3XNVzRHVEspKs3Iozq+e4I5ji8Ems7w=;
+        b=s54o7MhK6iDTBfjn/8bC7Anz8BgWemK4bimuyZPcDS61yeSJYJJc56iuaKf9lmSw2y
+         QXisJjGXRrguXNjsd1eMGJ7DL2YppovGf303ufmsDTg5mZUIxJxCVVo75/TvA+8oEv6g
+         KabBAoGKYumCz5HLJ24Kq5+Qat6xNG9orSK0Gow35LMI5YTdoah5FMmhS/02OKkK2d6r
+         NaxzqQQ1iAo9IjOoJPZIlO8/gL/Ny7szqpIikemqV/cxiidcV/oNkrdoWV59mdtBc/N3
+         BN2sJJjwBCnvc/MD7irrprCyc5V7LigD969uBcQWv/Gaiqi0YaWeszIs7A/o3+sNHKZq
+         wXOQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AoMZzl4p;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id cu4si162597pjb.1.2019.12.17.21.16.40
+       dkim=pass header.i=@linaro.org header.s=google header.b=NZAI8qdS;
+       spf=pass (google.com: domain of bjorn.andersson@linaro.org designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=bjorn.andersson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
+        by gmr-mx.google.com with ESMTPS id 17si14035pjb.2.2019.12.17.22.29.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Dec 2019 21:16:40 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id i15so874129oto.7
-        for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 21:16:40 -0800 (PST)
-X-Received: by 2002:a9d:590b:: with SMTP id t11mr596526oth.161.1576646200046;
-        Tue, 17 Dec 2019 21:16:40 -0800 (PST)
-Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id a65sm411947otb.68.2019.12.17.21.16.38
+        Tue, 17 Dec 2019 22:29:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of bjorn.andersson@linaro.org designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
+Received: by mail-pl1-x642.google.com with SMTP id g6so522508plt.2
+        for <clang-built-linux@googlegroups.com>; Tue, 17 Dec 2019 22:29:09 -0800 (PST)
+X-Received: by 2002:a17:90a:a416:: with SMTP id y22mr878859pjp.114.1576650549590;
+        Tue, 17 Dec 2019 22:29:09 -0800 (PST)
+Received: from builder (104-188-17-28.lightspeed.sndgca.sbcglobal.net. [104.188.17.28])
+        by smtp.gmail.com with ESMTPSA id h9sm1328913pfo.139.2019.12.17.22.29.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Dec 2019 21:16:39 -0800 (PST)
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>
-Subject: [PATCH v2] vfs: Adjust indentation in remap_verify_area
-Date: Tue, 17 Dec 2019 22:16:35 -0700
-Message-Id: <20191218051635.38347-1-natechancellor@gmail.com>
-X-Mailer: git-send-email 2.24.1
-In-Reply-To: <20191218035055.GG4203@ZenIV.linux.org.uk>
-References: <20191218035055.GG4203@ZenIV.linux.org.uk>
+        Tue, 17 Dec 2019 22:29:08 -0800 (PST)
+Date: Tue, 17 Dec 2019 22:29:06 -0800
+From: Bjorn Andersson <bjorn.andersson@linaro.org>
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Andy Gross <agross@kernel.org>, Kishon Vijay Abraham I <kishon@ti.com>,
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] phy: qualcomm: Adjust indentation in read_poll_timeout
+Message-ID: <20191218062906.GB3755841@builder>
+References: <20191218013637.29123-1-natechancellor@gmail.com>
 MIME-Version: 1.0
-X-Patchwork-Bot: notify
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=AoMZzl4p;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20191218013637.29123-1-natechancellor@gmail.com>
+User-Agent: Mutt/1.12.2 (2019-09-21)
+X-Original-Sender: bjorn.andersson@linaro.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@linaro.org header.s=google header.b=NZAI8qdS;       spf=pass
+ (google.com: domain of bjorn.andersson@linaro.org designates
+ 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=bjorn.andersson@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,39 +136,53 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Clang's -Wmisleading-indentation caught an instance in remap_verify_area
-where there was a trailing space after a tab. Remove it to get rid of
-the warning.
+On Tue 17 Dec 17:36 PST 2019, Nathan Chancellor wrote:
 
-Fixes: 04b38d601239 ("vfs: pull btrfs clone API to vfs layer")
-Link: https://github.com/ClangBuiltLinux/linux/issues/828
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
----
+> Clang warns:
+> 
+> ../drivers/phy/qualcomm/phy-qcom-apq8064-sata.c:83:4: warning:
+> misleading indentation; statement is not part of the previous 'if'
+> [-Wmisleading-indentation]
+>                  usleep_range(DELAY_INTERVAL_US, DELAY_INTERVAL_US + 50);
+>                  ^
+> ../drivers/phy/qualcomm/phy-qcom-apq8064-sata.c:80:3: note: previous
+> statement is here
+>                 if (readl_relaxed(addr) & mask)
+>                 ^
+> 1 warning generated.
+> 
+> This warning occurs because there is a space after the tab on this line.
+> Remove it so that the indentation is consistent with the Linux kernel
+> coding style and clang no longer warns.
+> 
 
-v1 -> v2:
+Reviewed-by: Bjorn Andersson <bjorn.andersson@linaro.org>
 
-* Trim warning and simplify patch explanation.
-
- fs/read_write.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/fs/read_write.c b/fs/read_write.c
-index 5bbf587f5bc1..c71e863163bd 100644
---- a/fs/read_write.c
-+++ b/fs/read_write.c
-@@ -1757,7 +1757,7 @@ static int remap_verify_area(struct file *file, loff_t pos, loff_t len,
- 	if (unlikely(pos < 0 || len < 0))
- 		return -EINVAL;
- 
--	 if (unlikely((loff_t) (pos + len) < 0))
-+	if (unlikely((loff_t) (pos + len) < 0))
- 		return -EINVAL;
- 
- 	if (unlikely(inode->i_flctx && mandatory_lock(inode))) {
--- 
-2.24.1
+> Fixes: 1de990d8a169 ("phy: qcom: Add driver for QCOM APQ8064 SATA PHY")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/816
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> ---
+>  drivers/phy/qualcomm/phy-qcom-apq8064-sata.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c b/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c
+> index 42bc5150dd92..febe0aef68d4 100644
+> --- a/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c
+> +++ b/drivers/phy/qualcomm/phy-qcom-apq8064-sata.c
+> @@ -80,7 +80,7 @@ static int read_poll_timeout(void __iomem *addr, u32 mask)
+>  		if (readl_relaxed(addr) & mask)
+>  			return 0;
+>  
+> -		 usleep_range(DELAY_INTERVAL_US, DELAY_INTERVAL_US + 50);
+> +		usleep_range(DELAY_INTERVAL_US, DELAY_INTERVAL_US + 50);
+>  	} while (!time_after(jiffies, timeout));
+>  
+>  	return (readl_relaxed(addr) & mask) ? 0 : -ETIMEDOUT;
+> -- 
+> 2.24.1
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218051635.38347-1-natechancellor%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218062906.GB3755841%40builder.
