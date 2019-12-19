@@ -1,195 +1,135 @@
-Return-Path: <clang-built-linux+bncBAABBZ5B5TXQKGQEAIFASPI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRBTFG5TXQKGQEWOPEBOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id 33C70125B0A
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 06:55:53 +0100 (CET)
-Received: by mail-qt1-x838.google.com with SMTP id o18sf3006200qtt.19
-        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 21:55:53 -0800 (PST)
-ARC-Seal: i=3; a=rsa-sha256; t=1576734952; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id D2723125B35
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 07:06:05 +0100 (CET)
+Received: by mail-yb1-xb39.google.com with SMTP id 63sf3276807ybz.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 18 Dec 2019 22:06:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576735564; cv=pass;
         d=google.com; s=arc-20160816;
-        b=P+QV6rd8Rimrjkxu2SLMlocXqa/Utl0xcnFh6MiAF7JnM3Iokhe+xvrFk76YTBcul3
-         Jq/hsCIbVRCF1mLr29ErVkz3vHSVH+htwWjlZrL9IdeVClyYMKB+tmHGwSJ/OaqR/SIN
-         +V+RVwIF1/bjdh5CjaPSJJ7t1ndqCIqiC91NykSVLk/Ze8x7E7CtM32PCsMBuH/IurkX
-         q1G/WvxJerJ3Y01wmQmrvafHMU2Yhv817ENmQlxmn2QIVlnFoX9I5cbHfFxkHEKsLQwA
-         KVgLO9r4EjOI51ZWUXS82h3YxvHz0T+8IXyaKK5QnGrifmO9mFYUMNqb5ff9LOGV22V/
-         tO7w==
-ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=i/ywczMDILkAq9QK0HfNgmeTpNd4bq9yu9SipdqmC2A4O3R93nSd0wbIjChbTgQaXi
+         tVb58O7xnm2y1LwWOPoxyifTu5hqm1CtJJq4gAhhSG2Y4x0echNgXVjExSJMzUfNkeEp
+         8F27QqZXZFG75edyC+yPj0yyGBNxD2+aUVTPwP+kiOWI65FXevfAPpaIMmN2SZxyCVgg
+         hsQb3BhPPW9RAoNCn3wk1OaiRwF9Djtn5wdiN5XXPOTSzNrhjvQ855FT9tzdmFSsPdYS
+         3UmZG2/6vm1RxUYHxomMBKvDmpLGeM2Sf+6FQB0JjiC965dVZghzsf4AeT6yk5H6f1sM
+         cRkA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=hqCwUMaBMtXuE94baUzGyrclZ/C25XQQcUXk03BfP10=;
-        b=SD55XdsAFlZLz6LdTgDMuQ3dHXRLJu8WSKnXwT7+uPO2PWfJ2M/aeMjbM8x9zgp0ko
-         /s6fr4K8UYFZelsUmk/r0r0zFSrLuEYR2F+40tfNSIprDRG36qRRFQD0cYROpvzvyp+O
-         tsUhuvaIEU9gwknxM0x7CcWRRL6jCLv0k89uj1UJCBzbYPjA72qkX6SCjcnGuCqeURp4
-         6BCUAKQYQnBQsDOcpWgvoCKkO2ao07g7ukKk+kheeGJY2+qkZTUkU52TfFhiscvRImxo
-         cNWhgnuRFWLH4GkCbsmF2eaCEYTBu0Xd0Jgbp1nLx0dw5+0OQkVGzIZu2gQsdXY8oxFu
-         IZgw==
-ARC-Authentication-Results: i=3; gmr-mx.google.com;
-       dkim=pass header.i=@marvell.com header.s=pfpt0818 header.b="qB/TGdCa";
-       dkim=pass header.i=@marvell.onmicrosoft.com header.s=selector1-marvell-onmicrosoft-com header.b=Wlgampbx;
-       arc=pass (i=1 spf=pass spfdomain=marvell.com dkim=pass dkdomain=marvell.com dmarc=pass fromdomain=marvell.com);
-       spf=pass (google.com: domain of prvs=9256fe81bd=mrangankar@marvell.com designates 67.231.148.174 as permitted sender) smtp.mailfrom="prvs=9256fe81bd=mrangankar@marvell.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=marvell.com
+         :list-id:mailing-list:precedence:to:references:message-id
+         :content-transfer-encoding:cc:date:in-reply-to:from:subject
+         :mime-version:sender:dkim-signature;
+        bh=WfCI8UG0x8VU24xpDjI8kcEtcHAKkufGSoyIO6FkvOw=;
+        b=tnaCsyg9sF4O8QhNVIV6H+cTemrsSzY0JURuuz+WTdrF5kk9cmqjLcfIjkUJGXOAL+
+         LqlM3ZPFmJjyYfOXoC2Q6wwXYD6mLQkt9Scbt/oQGiOxhcv1qIrnC5FOvqDa/ZFB4g6p
+         1lq43xiSevtC7G5CEvMWw3fJI+LoPXeX+EA1IEwZiHGqAUNiasEEp6KaPJvngagezoLe
+         C1lWVI/GjNr4msZhXvPhk27wJvxhX/9mB7qaMCHpLeZBovEWV/5dZVingJm25xUq6P8r
+         /eeLwbEk5yKY3kUI8XQ70/HGMAJljmMaZFUdRSEwAXSq3oNnxND+nNWZFC77JclQ57bp
+         zZ8w==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@lca.pw header.s=google header.b=R53bfuj7;
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=cai@lca.pw
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:mime-version:subject:from:in-reply-to:date:cc
+         :content-transfer-encoding:message-id:references:to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=hqCwUMaBMtXuE94baUzGyrclZ/C25XQQcUXk03BfP10=;
-        b=IAfAHXY3vjaqH1O4So/RtOtlaMTs8Rh8Vb4Sb7Q4GRTLRboKiBltRfa4fbNbgRM5GX
-         KG9UDyYiZuzzBjTterqxu0LIbjMWl5tkcL5x4JNnwgcYKGp1fKN12sEwtrltrK5jqyTM
-         kSlzSqyGSdmIqA3HN08LCqGG7BJfOGwJDaaYb3wvZkFBzqsdTS+To191jdjiZz8j7Yw3
-         FddmxViz/h1TcrEWUUXex0MD44qlk9mQzw0Hz833PD4VMZQEBEf3mbsW9URsuoZZ6iIr
-         X2B3O7jC/d9kumRnR4NN4f+Bv2Dt3atS8UDgxt2ua0rVIoWAmDvpSa7qkyxEAkJXbWQE
-         sSPQ==
+        bh=WfCI8UG0x8VU24xpDjI8kcEtcHAKkufGSoyIO6FkvOw=;
+        b=nRK3c0kM77kp7jsB0USR/KYC57NVkifhXlEcmk2agsYEPYepP1m+X4ANak0GwuVxwZ
+         m7r4oT3uzd7Cr+zA2ObfFS3hX9+Y3E8OVti2zwToLbuwBWDb9HpJV4fCFcAxDIyw1Bxg
+         DCzx0COCGlvox77edJYd2xrZBg79fFnfmFRvfBnerVzAG3KvZyDbQrhCjEsgfLcC50D0
+         GR0NEaoUjoGyMgkBxAeD47It+ujNWrt0tQiPS/1m7KdRDuUOcw0ikREzSj9ckOzahU2l
+         faK7OFGAynNosQuIINNWcNzYbdFH4nyUD4LVkTgIB3zx1L3FtzWkhDZlNzWepNlsARbA
+         8rjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=hqCwUMaBMtXuE94baUzGyrclZ/C25XQQcUXk03BfP10=;
-        b=g39iutzQKeGskj1X+7CnxixiZBJa9Atn8lp/dR0WtOygFQQN1kijQB6pWISkw+h7M0
-         e/s3fDYr0RIaN23Xb3JEq2dohoFnpbVI5JGPHDqPwvGDkY9CuYYty6KcBS3oiGCSBT7h
-         QHEwvWAQ0GqrVdRm7bjYrAmzEiNJ/bntpo1qJfOdESokFimdyRmICuvvIMduue2us694
-         Jk8wrvH9zdmUCyD6q4/FUeFTXFWYXFwodmbklQiWUhy8FJ3eApYrtmXWfwYW/NoANEwj
-         r1sKbKYm2urbXgXce0h0OqLLzMwHgL8SqXmqV9z73KfNtnMdVUgGHO0ffZpjfWdHsf4T
-         b71A==
+        h=sender:x-gm-message-state:mime-version:subject:from:in-reply-to
+         :date:cc:content-transfer-encoding:message-id:references:to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=WfCI8UG0x8VU24xpDjI8kcEtcHAKkufGSoyIO6FkvOw=;
+        b=ebF1AYbKvZpODT+BH1FVRgsEL6SX2sHrVsZtY7mAQ4dzQIA3FDwWj9ZAe5WzeceZeg
+         uGm20qSTdQ9Nvn+qzwrfddItcg5sQ6TFa+d6/xozYvnwB/quH6dC9VqwCyJq4tvXAFpl
+         bpuyQi9PYFTL7ghBbBl5CUx9DmdNdx5OohAUIVNYr1p1u2kjlFuCqrdgCCHe/9UBqKes
+         78t/PMkcBeS6zmF7D1Iw68aHnpE6C5xt+kHczphSvJGYvLVSacHHa6EhPwYeh818jCp3
+         LJq4Sv7RQjeNdwmAp+A3Os1wr/JgtvJDYxlJ3Cs3ArJ+ltzUrbwsh43vGDIGBPncBizE
+         D+Eg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW3D07GqSQRKeg+bxxiJoqIWkaHEKpwrhTtc8fOlahgX7/QFyvf
-	DPRcIEpOBVy+5LsbDjRfuCw=
-X-Google-Smtp-Source: APXvYqwJz2b60zoeXrl/vVMRD8GRkG4m5naPwtS5SY/2jryW0xNyn7qmmnpYPfTXOTAKynfSqkf5sg==
-X-Received: by 2002:ad4:514e:: with SMTP id g14mr6122411qvq.196.1576734951849;
-        Wed, 18 Dec 2019 21:55:51 -0800 (PST)
+X-Gm-Message-State: APjAAAVy7vF4W2iiIeXun8WCYkBMXWRZwVm4+gSvWiiS683t/NojMz0j
+	YYZVSiNM/UaLegfHXSD2Scc=
+X-Google-Smtp-Source: APXvYqzabCYl5YXLmYxWyfaMk0i1nO7RdJy4dWV4dSJ/mTKnoGyl5T1ItWX9FDeI0r+zn4+lWlSyHg==
+X-Received: by 2002:a25:4188:: with SMTP id o130mr5062806yba.150.1576735564623;
+        Wed, 18 Dec 2019 22:06:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6214:18e9:: with SMTP id ep9ls753504qvb.2.gmail; Wed, 18
- Dec 2019 21:55:51 -0800 (PST)
-X-Received: by 2002:a0c:8a93:: with SMTP id 19mr6138073qvv.157.1576734951488;
-        Wed, 18 Dec 2019 21:55:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576734951; cv=pass;
+Received: by 2002:a81:8644:: with SMTP id w65ls666713ywf.3.gmail; Wed, 18 Dec
+ 2019 22:06:04 -0800 (PST)
+X-Received: by 2002:a81:980a:: with SMTP id p10mr5119563ywg.132.1576735564190;
+        Wed, 18 Dec 2019 22:06:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576735564; cv=none;
         d=google.com; s=arc-20160816;
-        b=dgJVWi0Kim+Ibse58IBYPe9Z9v+NIa3phGohIpxY2ajOJBXJBIP3/mgEPZchkwZnSf
-         OgRawrZJWlWw0x9QSaJtJgARu58HPwVyoQSE4mh70VW3cz3k0+9Tzl5KJpwCvkF3Q6Yi
-         //wMRA3VEGoYHhaC/HqOUrmf35QfS/CKQpWWPtGErGyYgSSm45wtdMcaOqNBKBKi4LQv
-         XfWZjRmkW4UktNDAD4wlN2mgcP4KWxRy+XuoI/QJSsf5M+mryC0Pk24X5AFjHc7LPvTh
-         jy8nH1O+Mq1e4qH1yJoT88pKwSt+hwzAcBwE0afkd46cfxE/kWj/ObGmy9RF8SMucpsY
-         oIqA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature:dkim-signature;
-        bh=qw5oUp9krnNDjUaPn+q6MTYZm2jYH6NJzEZ2HyyXoQM=;
-        b=vCLvrLe/KDbOxUic+axUnZXo5AYVLu0x5SFDKuIKYddXqjVsIAu0hIY9zgUSvJVaBL
-         0COuHvnkxT8E1kNen/3CZlW0gZZOwCei0VuHOuSY6PCUfvnQpx79bWISbcjLBoLUWcea
-         TG96q1z16xjbsHk6oGdlX3K74xZl+UR+9Ow6ODKy8531HJkUFns3+H8AlDT2117aVYCr
-         Ahfl/x2LWKaLCt2zI09Wd4YSAur2CCDuOayaNEvY5H7ut1CkGD/WI6k6ddZAfLIHz+0m
-         Sgoxk8zUJzZD4f2Z7cSO4JTJDwN0KTtXz0A9TWhVhJNpMtU4wZpLgysHgQ1Btp4koDgl
-         KBWQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@marvell.com header.s=pfpt0818 header.b="qB/TGdCa";
-       dkim=pass header.i=@marvell.onmicrosoft.com header.s=selector1-marvell-onmicrosoft-com header.b=Wlgampbx;
-       arc=pass (i=1 spf=pass spfdomain=marvell.com dkim=pass dkdomain=marvell.com dmarc=pass fromdomain=marvell.com);
-       spf=pass (google.com: domain of prvs=9256fe81bd=mrangankar@marvell.com designates 67.231.148.174 as permitted sender) smtp.mailfrom="prvs=9256fe81bd=mrangankar@marvell.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=marvell.com
-Received: from mx0b-0016f401.pphosted.com (mx0a-0016f401.pphosted.com. [67.231.148.174])
-        by gmr-mx.google.com with ESMTPS id z17si219972qkg.3.2019.12.18.21.55.51
+        b=Y+yiBn4kZLDOVYFRs32N3+/2CCvuoz7NPGNHqqEnvBTYpvXjeEOzut4G6Roxdc3cDA
+         uQX0iYjhEU5xVPIUNTcaf1XBkO9NBg2/li2Dv+n3xc0/WopJuAm1l0YQP9jhrT+2ajHZ
+         2cQzEeknPUQzl4gnCm3tcEJdpkl7zuRwKVV180lo6CHrmFzhdUtOO9v0Tz8rePO9KSaM
+         foLQ2kCdk7Bh1GiiFsEgUWghYiRSpNXAWbZTQpI8P/PwJSJdEyVnGRYNKPxnRWKoX1Ax
+         GCFytqUZ613dKueJGWIXU4tr39Q2fZmefbP7B0yTRHHYxWFCYc/WXyMa6g+aC3Vvpxkp
+         d6Pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:dkim-signature;
+        bh=hh8KccvDtoxQ5iuVrGchqXmublC0voHoq882to+xc8w=;
+        b=0NRoRNqRYkn4AYHmBvadG21xyUc1KSTGCJh4ewdz6iEKYZU9x3vSW7NjIJEG0WahfI
+         QzuCC4DEmd2NaqNL3S5YxpHjCa/WHGcgM6AdyTq/lJYd+4eTRtzpjlEurfrgksSRPdtL
+         p+JXKtblH8RuxcOMKCHrlJvCXAZLG7IOqkG/D/YGuy9EufdHm56FSlefCCvOqFwo6bR4
+         K6SBr2no3KMWzUtNxXywU1oK6WqZLc1GJHYir1ScTfUtWoTq8Vp0eiQaSapZ7hRVhBAL
+         kBe7LLgPIPQW68sNHgHokvpvRrbTsrKlFiPYmXCWtq2orF5SpKD0P3edbjE8yaxP209I
+         iMiQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       dkim=pass header.i=@lca.pw header.s=google header.b=R53bfuj7;
+       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=cai@lca.pw
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id z5si253099ywg.5.2019.12.18.22.06.04
         for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Dec 2019 22:06:04 -0800 (PST)
+Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id d71so4107314qkc.0
+        for <clang-built-linux@googlegroups.com>; Wed, 18 Dec 2019 22:06:04 -0800 (PST)
+X-Received: by 2002:a37:7c6:: with SMTP id 189mr6850205qkh.408.1576735563755;
+        Wed, 18 Dec 2019 22:06:03 -0800 (PST)
+Received: from [192.168.1.153] (pool-71-184-117-43.bstnma.fios.verizon.net. [71.184.117.43])
+        by smtp.gmail.com with ESMTPSA id 4sm1453127qki.51.2019.12.18.22.06.02
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Dec 2019 21:55:51 -0800 (PST)
-Received-SPF: pass (google.com: domain of prvs=9256fe81bd=mrangankar@marvell.com designates 67.231.148.174 as permitted sender) client-ip=67.231.148.174;
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id xBJ5tn8R019697;
-	Wed, 18 Dec 2019 21:55:49 -0800
-Received: from sc-exch02.marvell.com ([199.233.58.182])
-	by mx0a-0016f401.pphosted.com with ESMTP id 2wxneb1s4v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-SHA384 bits=256 verify=NOT);
-	Wed, 18 Dec 2019 21:55:49 -0800
-Received: from SC-EXCH01.marvell.com (10.93.176.81) by SC-EXCH02.marvell.com
- (10.93.176.82) with Microsoft SMTP Server (TLS) id 15.0.1497.2; Wed, 18 Dec
- 2019 21:55:47 -0800
-Received: from NAM10-BN7-obe.outbound.protection.outlook.com (104.47.70.106)
- by SC-EXCH01.marvell.com (10.93.176.81) with Microsoft SMTP Server (TLS) id
- 15.0.1497.2 via Frontend Transport; Wed, 18 Dec 2019 21:55:47 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=EKTmPq1TTb7iNR31vnJTCZ/AZAAQEAlW3uANFAg9f8Zzi+ln5++4aQgt0/l6EgYhkQ2jJT5ODcPbXS4fmntNGFWETteJhNo3L0hnN9sNSq1SR+bW8K9lakT2IYSSvs64ELUOkvXROCqZB1UG41KCMMJ1MkuO2+oTUPfs/b87hgLxLkbT6GNt7Jj8BGDLfGObidcL5hJV3V4h1SP09n4hOREzgVdy9Gqz07a0sbzxroGlbSVQ+vY08XpABAEBIKo0uJqYzPaBeWiViZGXxE5yZ1mGM0e/1nnN3LR5/TcFNSUltNINtCzBFS4E7HyCuvUkiA1zILdV/4Qk+QR75+IkXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qw5oUp9krnNDjUaPn+q6MTYZm2jYH6NJzEZ2HyyXoQM=;
- b=KYM2RCByGe+dILEO0ThNVts0eB2gvoNh3Iy/1bHYQZWyYEp1KXtK82gEUQDDe9qIFBxIjb7Z8Dtj0YNUdqlTuiaWki+Bq0ZxOzZokzi/faYv6MmFgkZe4A7UsEs2Zh7AekfUB4HpNqnLEnfbiHjOQ0IfuiLM4BAhdr4Do1Ecxp/tHBReTPaXv1RxmprJiWmG2kETuXpEQuPvxijX78patmkIyX+I1rZgNl7G58UhVSbiLOSQo8c0aENozHgQzXbGO73ImMPW8CnrybTz+y5eLGwUCKa30w5dwPeyBYr2jZ7lQIOcaRibCnatMwGqM8Q8FU4VVg1EqgRYJjV3Hg2K7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
- dkim=pass header.d=marvell.com; arc=none
-Received: from MN2PR18MB3022.namprd18.prod.outlook.com (20.179.81.79) by
- MN2PR18MB2814.namprd18.prod.outlook.com (20.179.23.20) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2559.14; Thu, 19 Dec 2019 05:55:46 +0000
-Received: from MN2PR18MB3022.namprd18.prod.outlook.com
- ([fe80::71b6:15a6:296b:d72e]) by MN2PR18MB3022.namprd18.prod.outlook.com
- ([fe80::71b6:15a6:296b:d72e%5]) with mapi id 15.20.2538.022; Thu, 19 Dec 2019
- 05:55:45 +0000
-From: Manish Rangankar <mrangankar@marvell.com>
-To: Nathan Chancellor <natechancellor@gmail.com>,
-        "QLogic-Storage-Upstream@qlogic.com" <QLogic-Storage-Upstream@qlogic.com>,
-        "James E.J. Bottomley" <jejb@linux.ibm.com>,
-        "Martin K. Petersen"
-	<martin.petersen@oracle.com>
-CC: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>
-Subject: RE: [PATCH] scsi: qla4xxx: Adjust indentation in qla4xxx_mem_free
-Thread-Topic: [PATCH] scsi: qla4xxx: Adjust indentation in qla4xxx_mem_free
-Thread-Index: AQHVtUXiqoQyQCCWl0SuaAvTA+GDZ6fA9vfw
-Date: Thu, 19 Dec 2019 05:55:45 +0000
-Message-ID: <MN2PR18MB30227FB22733182ACF0BEFD8D8520@MN2PR18MB3022.namprd18.prod.outlook.com>
-References: <20191218015252.20890-1-natechancellor@gmail.com>
-In-Reply-To: <20191218015252.20890-1-natechancellor@gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [114.143.185.87]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 30dbd85b-fc7c-4c20-0958-08d784481747
-x-ms-traffictypediagnostic: MN2PR18MB2814:
-x-microsoft-antispam-prvs: <MN2PR18MB28140AD3B1D71450D9FCBFE3D8520@MN2PR18MB2814.namprd18.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:79;
-x-forefront-prvs: 0256C18696
-x-forefront-antispam-report: SFV:NSPM;SFS:(10009020)(4636009)(366004)(136003)(396003)(39850400004)(376002)(346002)(199004)(189003)(13464003)(33656002)(19627235002)(9686003)(52536014)(81156014)(71200400001)(7696005)(54906003)(110136005)(81166006)(8676002)(4326008)(66476007)(64756008)(76116006)(316002)(5660300002)(966005)(478600001)(66556008)(66446008)(66946007)(26005)(2906002)(186003)(8936002)(55016002)(86362001)(53546011)(6506007)(32563001);DIR:OUT;SFP:1101;SCL:1;SRVR:MN2PR18MB2814;H:MN2PR18MB3022.namprd18.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
-received-spf: None (protection.outlook.com: marvell.com does not designate
- permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: lRmnKY7r/tf/Ag7blQCG1S81wxE7TQJvJK2ViY7afZ8YR0MxeRbanz4qG/CguEkVDQ/HFAd8BebfGxVFPgTSU68A8KXrWegTlhfIGIjLbc0GwCUD/wEDHcDyq2jYWnbg/lHvJGzGm29in/PluJYEYs2uXYnBg78Tn4yT3zz7+rldipzB2ncLT3cgwf2kkdUNtnzDFYPhJs0XcBonYwESa2tg3dpgLeChKXXyxTCPZy+UFWy+CBJyXNlr3NiG6HWnR5qzPUtzeWKyw/ccSpJNxLqNQe5OlzOfSsovTbBeZ+ZdHa791n1snt58p8QnfpEdRbwiT7s49AfOVyiWofI68Y370wQ80dLt89vNeIJRT084Qnm0UbWSBfoQd4Typc5gaUJLqWmsg7nnarXbVMKEYfeuQlpoB0WHawiO1rJtVx31T6YADtE/XqLi0N7Umi18Vj8BM7gSNF7F1g/+NqsY+zthSz0tIv+l4yIAc1Uvyao7iyyZA4YWHWEPZrAr7tXwBvUUteNsx2IUQsh6bN3QueMuHLRmOKXvpFnRGKt61xE=
-x-ms-exchange-transport-forked: True
+        Wed, 18 Dec 2019 22:06:03 -0800 (PST)
 Content-Type: text/plain; charset="UTF-8"
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-Network-Message-Id: 30dbd85b-fc7c-4c20-0958-08d784481747
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Dec 2019 05:55:45.7328
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3kcUL4iNB2bZCLVsMPcCbIJ5EHnQ/71kuZ6TOXyu8dEkdKAnh5esrrdZ5dWdhkAXdio6i12oPeTeOIhw85ocCw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR18MB2814
-X-OriginatorOrg: marvell.com
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.95,18.0.572
- definitions=2019-12-18_08:2019-12-17,2019-12-18 signatures=0
-X-Original-Sender: mrangankar@marvell.com
+Mime-Version: 1.0 (Mac OS X Mail 13.0 \(3608.40.2.2.4\))
+Subject: Re: "ftrace: Rework event_create_dir()" triggers boot error messages
+From: Qian Cai <cai@lca.pw>
+In-Reply-To: <20191218233101.73044ce3@rorschach.local.home>
+Date: Thu, 19 Dec 2019 01:06:02 -0500
+Cc: Peter Zijlstra <peterz@infradead.org>,
+ clang-built-linux@googlegroups.com,
+ Alexei Starovoitov <ast@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <7CC42C4D-8DD3-48E5-BB68-752BAB98DB56@lca.pw>
+References: <0FA8C6E3-D9F5-416D-A1B0-5E4CD583A101@lca.pw>
+ <20191218233101.73044ce3@rorschach.local.home>
+To: Steven Rostedt <rostedt@goodmis.org>
+X-Mailer: Apple Mail (2.3608.40.2.2.4)
+X-Original-Sender: cai@lca.pw
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@marvell.com header.s=pfpt0818 header.b="qB/TGdCa";       dkim=pass
- header.i=@marvell.onmicrosoft.com header.s=selector1-marvell-onmicrosoft-com
- header.b=Wlgampbx;       arc=pass (i=1 spf=pass spfdomain=marvell.com
- dkim=pass dkdomain=marvell.com dmarc=pass fromdomain=marvell.com);
-       spf=pass (google.com: domain of prvs=9256fe81bd=mrangankar@marvell.com
- designates 67.231.148.174 as permitted sender) smtp.mailfrom="prvs=9256fe81bd=mrangankar@marvell.com";
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=marvell.com
+ header.i=@lca.pw header.s=google header.b=R53bfuj7;       spf=pass
+ (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::741 as
+ permitted sender) smtp.mailfrom=cai@lca.pw
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -203,66 +143,117 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
-> -----Original Message-----
-> From: linux-scsi-owner@vger.kernel.org <linux-scsi-
-> owner@vger.kernel.org> On Behalf Of Nathan Chancellor
-> Sent: Wednesday, December 18, 2019 7:23 AM
-> To: QLogic-Storage-Upstream@qlogic.com; James E.J. Bottomley
-> <jejb@linux.ibm.com>; Martin K. Petersen <martin.petersen@oracle.com>
-> Cc: linux-scsi@vger.kernel.org; linux-kernel@vger.kernel.org; clang-built-
-> linux@googlegroups.com; Nathan Chancellor <natechancellor@gmail.com>
-> Subject: [PATCH] scsi: qla4xxx: Adjust indentation in qla4xxx_mem_free
-> 
-> Clang warns:
-> 
-> ../drivers/scsi/qla4xxx/ql4_os.c:4148:3: warning: misleading indentation;
-> statement is not part of the previous 'if'
-> [-Wmisleading-indentation]
->          if (ha->fw_dump)
->          ^
-> ../drivers/scsi/qla4xxx/ql4_os.c:4144:2: note: previous statement is here
->         if (ha->queues)
->         ^
-> 1 warning generated.
-> 
-> This warning occurs because there is a space after the tab on this line.
-> Remove it so that the indentation is consistent with the Linux kernel coding
-> style and clang no longer warns.
-> 
-> Fixes: 068237c87c64 ("[SCSI] qla4xxx: Capture minidump for ISP82XX on
-> firmware failure")
-> Link: https://urldefense.proofpoint.com/v2/url?u=https-
-> 3A__github.com_ClangBuiltLinux_linux_issues_819&d=DwIDAg&c=nKjWec
-> 2b6R0mOyPaz7xtfQ&r=At6ko6G2bmE5NMB-
-> 6KMSliwRneAzZrOmmK21YHGCrqw&m=uRvAonUUcyFaz2S6vZ8po-
-> QrrPYNB3gw84QZKl9wS78&s=t3EPVR3mOgGj_emNe0i_rdomyiK4K9noSBB
-> WMFBt2Ag&e=
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> ---
->  drivers/scsi/qla4xxx/ql4_os.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/scsi/qla4xxx/ql4_os.c b/drivers/scsi/qla4xxx/ql4_os.c
-> index 2323432a0edb..5504ab11decc 100644
-> --- a/drivers/scsi/qla4xxx/ql4_os.c
-> +++ b/drivers/scsi/qla4xxx/ql4_os.c
-> @@ -4145,7 +4145,7 @@ static void qla4xxx_mem_free(struct
-> scsi_qla_host *ha)
->  		dma_free_coherent(&ha->pdev->dev, ha->queues_len, ha-
-> >queues,
->  				  ha->queues_dma);
-> 
-> -	 if (ha->fw_dump)
-> +	if (ha->fw_dump)
->  		vfree(ha->fw_dump);
-> 
->  	ha->queues_len = 0;
-> --
 
-Thanks
-Acked-by: Manish Rangankar <mrangankar@marvell.com>
+> On Dec 18, 2019, at 11:31 PM, Steven Rostedt <rostedt@goodmis.org> wrote:
+>=20
+> On Wed, 18 Dec 2019 22:58:23 -0500
+> Qian Cai <cai@lca.pw> wrote:
+>=20
+>> The linux-next commit "ftrace: Rework event_create_dir()=E2=80=9D [1] tr=
+iggers boot warnings
+>> for Clang-build (Clang version 8.0.1) kernels (reproduced on both arm64 =
+and powerpc).
+>> Reverted it (with trivial conflict fixes) on the top of today=E2=80=99s =
+linux-next fixed the issue.
+>>=20
+>> configs:
+>> https://raw.githubusercontent.com/cailca/linux-mm/master/arm64.config
+>> https://raw.githubusercontent.com/cailca/linux-mm/master/powerpc.config
+>>=20
+>> [1] https://lore.kernel.org/lkml/20191111132458.342979914@infradead.org/
+>>=20
+>> [  115.799327][    T1] Registered efivars operations
+>> [  115.849770][    T1] clocksource: Switched to clocksource arch_sys_cou=
+nter
+>> [  115.901145][    T1] Could not initialize trace point events/sys_enter=
+_rt_sigreturn
+>> [  115.908854][    T1] Could not create directory for event sys_enter_rt=
+_sigreturn
+>> [  115.998949][    T1] Could not initialize trace point events/sys_enter=
+_restart_syscall
+>> [  116.006802][    T1] Could not create directory for event sys_enter_re=
+start_syscall
+>> [  116.062702][    T1] Could not initialize trace point events/sys_enter=
+_getpid
+>> [  116.069828][    T1] Could not create directory for event sys_enter_ge=
+tpid
+>> [  116.078058][    T1] Could not initialize trace point events/sys_enter=
+_gettid
+>> [  116.085181][    T1] Could not create directory for event sys_enter_ge=
+ttid
+>> [  116.093405][    T1] Could not initialize trace point events/sys_enter=
+_getppid
+>> [  116.100612][    T1] Could not create directory for event sys_enter_ge=
+tppid
+>> [  116.108989][    T1] Could not initialize trace point events/sys_enter=
+_getuid
+>> [  116.116058][    T1] Could not create directory for event sys_enter_ge=
+tuid
+>> [  116.124250][    T1] Could not initialize trace point events/sys_enter=
+_geteuid
+>> [  116.131457][    T1] Could not create directory for event sys_enter_ge=
+teuid
+>> [  116.139840][    T1] Could not initialize trace point events/sys_enter=
+_getgid
+>> [  116.146908][    T1] Could not create directory for event sys_enter_ge=
+tgid
+>> [  116.155163][    T1] Could not initialize trace point events/sys_enter=
+_getegid
+>> [  116.162370][    T1] Could not create directory for event sys_enter_ge=
+tegid
+>> [  116.178015][    T1] Could not initialize trace point events/sys_enter=
+_setsid
+>> [  116.185138][    T1] Could not create directory for event sys_enter_se=
+tsid
+>> [  116.269307][    T1] Could not initialize trace point events/sys_enter=
+_sched_yield
+>> [  116.276811][    T1] Could not create directory for event sys_enter_sc=
+hed_yield
+>> [  116.527652][    T1] Could not initialize trace point events/sys_enter=
+_munlockall
+>> [  116.535126][    T1] Could not create directory for event sys_enter_mu=
+nlockall
+>> [  116.622096][    T1] Could not initialize trace point events/sys_enter=
+_vhangup
+>> [  116.629307][    T1] Could not create directory for event sys_enter_vh=
+angup
+>> [  116.783867][    T1] Could not initialize trace point events/sys_enter=
+_sync
+>> [  116.790819][    T1] Could not create directory for event sys_enter_sy=
+nc
+>> [  117.723402][    T1] pnp: PnP ACPI init
+>=20
+> I noticed that all of the above have zero parameters. Does the
+> following patch fix it?
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/MN2PR18MB30227FB22733182ACF0BEFD8D8520%40MN2PR18MB3022.namprd18.prod.outlook.com.
+Yes, it works.
+
+>=20
+> (note, I prefer "ret" and "i" on different lines anyway)
+>=20
+> -- Steve
+>=20
+> diff --git a/kernel/trace/trace_syscalls.c b/kernel/trace/trace_syscalls.=
+c
+> index 53935259f701..abb70c71fe60 100644
+> --- a/kernel/trace/trace_syscalls.c
+> +++ b/kernel/trace/trace_syscalls.c
+> @@ -269,7 +269,8 @@ static int __init syscall_enter_define_fields(struct =
+trace_event_call *call)
+> 	struct syscall_trace_enter trace;
+> 	struct syscall_metadata *meta =3D call->data;
+> 	int offset =3D offsetof(typeof(trace), args);
+> -	int ret, i;
+> +	int ret =3D 0;
+> +	int i;
+>=20
+> 	for (i =3D 0; i < meta->nb_args; i++) {
+> 		ret =3D trace_define_field(call, meta->types[i],
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/7CC42C4D-8DD3-48E5-BB68-752BAB98DB56%40lca.pw.
