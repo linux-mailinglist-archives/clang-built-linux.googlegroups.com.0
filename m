@@ -1,122 +1,124 @@
-Return-Path: <clang-built-linux+bncBCQYFH77QIORBVXX5XXQKGQETJL5QJY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBK6453XQKGQEJZ5NNSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-f187.google.com (mail-oi1-f187.google.com [209.85.167.187])
-	by mail.lfdr.de (Postfix) with ESMTPS id 524D612638C
-	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 14:32:08 +0100 (CET)
-Received: by mail-oi1-f187.google.com with SMTP id u16sf2756914oic.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 05:32:08 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576762327; cv=pass;
+Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4DE3A1267A8
+	for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 18:06:52 +0100 (CET)
+Received: by mail-yb1-xb3e.google.com with SMTP id b194sf4496490yba.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 09:06:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576775211; cv=pass;
         d=google.com; s=arc-20160816;
-        b=byEKlzu6urSylLZrWnOvF878qAYqSgmk2ZazeWDxL3USoJ631UXo0WvJV4yM82+XsZ
-         ayV11pO6ZMW5B4Wj7JQgP+3DN3zJz0131/4IYVU++x3NXo/qvMJuwKmHGb+RokkStZ7U
-         mNBD0JvrEw6whTZNqeDNgc/HEN293audtE6t6y+9x0uZytOaefQd/CLSvWvBTA27NHQd
-         q6DOL5Fs0ObR0kexc4Z0BA9g81planAGTMg7cK10o0L91HIUHvI+BpBnSejKEki1p9rF
-         6W/9Y73UisYiv6MTo5Qhj6A5fSyWbqURssurJMi1DvXZ8UX+TaBAHE8LFSjhWuNVaeYS
-         ExIA==
+        b=VRykZEk6yXD7XHvq7on4dYxH4DgnI1P6khU7leqT+K88+laDOHP2OasN9r5E217uUl
+         BYhF9ywBCpINvlQyV6e54Mhb2DxEtdmZKWIajVyzxIjYcSdTQYLxrpwOBbQ0BASEeM4J
+         igiQ0oZN+XmTlHAVAib9rj/qL+k+of6il+XdcLUNx9/IoKuUbyLPX+l2xJ7xMQyY1Lvr
+         JSW77eliytzgob2KSHaMpdnwfDw2C/kkmeHu1jJSgY05TLOidYl4NrK9jO09wUXmK0lJ
+         ezMLsOtIDnRib2FcSNOkEdnrkOzvgeGtCZfYlYNu9GSKZUy5PywSoH6Sx7N+I/z3KyzC
+         h/BA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:message-id
-         :in-reply-to:date:references:subject:cc:to:from:dmarc-filter:sender;
-        bh=Bw7vkCa/gGx6MvQvtVO+r5I1JcDvMIQi8gLH1Rrt870=;
-        b=uaFdOZ3pjFjE5COQS7Cl9Nfr0T8mrcA6VFX1UF+UbqmLQGQx/ibFwyY7pK3tonYm4M
-         wQo6+1UuhszHcyPMjyPR+2gd+PF8/5czwR+hhE6oihU9Y6TYoLwdTfU/NS71v4HEXwlN
-         a1DyPXOanQmE4aUpmY6iheD+lzhoIFZNpUSU7+I95PAToEa5SuhKJnzB4kmOtQkk+qce
-         +J2BfgePl6rqC/VmsZJ6f5w60p+DLXVE39qiHowePYkoeHgas07u2JbHUIdsYg8JZiLq
-         Fg73GTSGJqBht9D7woY0QigrGG7wubJ0jgUMlHHG8nT9wUm/G5F7NzPR4f4W3yiwL4a9
-         j3WQ==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=eNOnwQoh3vlwbm//AiHS2Q33S7qilocsNw07fH5r62w=;
+        b=DKkawO3n7OndYugLSzWvoclaXBVT/hwCD2qNmHzfLBIS8oRyj/gKm+q78taRTfgUu/
+         6VlvNvb5LJ2+WyrdlbfrTCRlNc5DNJroVnA3C2q6Obbc+AD6TTYIx9s7QuTH2h1p5bU1
+         MRIPcyyY9espvDwic4PgtfedtPOiiHZiOMAfNX+8Fa+nL7VMjcj59ccGbdkXSUW3mhOR
+         lJLO0AGnoAJVKgXLZFcn/dQVJZUaVeDsyy3qBRFspvw6ExQYOAAYWFk8LaTQSkntA7hS
+         /8tlaAwEmcwfzO2C9xzMR7V/Y1vSdRHhwMBU6gT6VgcPzsTt/s0oLNBuFsxBqoUIEl2Q
+         AOFw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b="Tp/uSIfh";
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.122.25 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+       dkim=pass header.i=@google.com header.s=20161025 header.b="r/pPQutH";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eNOnwQoh3vlwbm//AiHS2Q33S7qilocsNw07fH5r62w=;
+        b=l4wnqHYCUi8nEH112iVO9dWRDLtV4N0nwE/PYs5N2wFRifQ45uHdzqgiQQN3iMPkUx
+         vhrdCREbmHAGE0ysBMXvVD1mNM9+6jjTEGCnvV+UBBS7TdwGVukettPGdJ16tcSVpiy0
+         bmNp4F++nttqQKO605BCDH1vPY0QXxe5BEQXOQhIIOKa8A35PjuAQGotQEfuEuORwbgm
+         ZbCLrCMy+c6+2l9d3WWYHYRZ7DDz+ECOMKUYOoz1P1qD+l1bPTZKSeSUgSWCCbqV17sG
+         JGrvkysSeC80+UIhV2y5Ma5nV+pBgeuuBONFylnI0gT0Q6Qj3ZqrEld7KokUoyhy4pSb
+         S98w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:dmarc-filter:from:to:cc:subject
-         :references:date:in-reply-to:message-id:user-agent:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=Bw7vkCa/gGx6MvQvtVO+r5I1JcDvMIQi8gLH1Rrt870=;
-        b=gxtm7zo4TJVBzwUSVMc7USZ7kGIbZSkBDKtBW1Wz6aqb9gxq+uDYmfphbUuobFnb9Q
-         KZRFygZ1eawwCJcXzRar7pae0EEm87GWwRX98vO81eEGL20IRjpR4ZjGfDi4yNs6mV12
-         i7dRiHZwqFOngs6YzEyW6n1aAo78iRk4UGGiePD+Voq48rJxs1W1FEeItrfUQMzK1dsM
-         0Wh3+a6CRcvOLoELBZ5oD2JwrpbZyi2GkhybWOz8KnZp4Qo9s2VTU8fA2BsxjlWC4Tce
-         zi3DN107fJDm2ZefcySON/BWBelEkM5YmTbCb5AN742t2gNMcqqmdygz/qt+9nkQ8RBw
-         oujg==
-X-Gm-Message-State: APjAAAXowhhAmxVosTuQljJy8ox9Z3HcUXabdMjr527EECKdmG7w5UFv
-	VC8ga/ocH46zTaRdOEWT7Ss=
-X-Google-Smtp-Source: APXvYqwprCcVJzfVxd1TsK2x64b0bPbeBFHIK+wMQJV2eSGT4QJdgvJ4wzl3wX9KTRZws9HEo5L55A==
-X-Received: by 2002:aca:1011:: with SMTP id 17mr2137523oiq.72.1576762326861;
-        Thu, 19 Dec 2019 05:32:06 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eNOnwQoh3vlwbm//AiHS2Q33S7qilocsNw07fH5r62w=;
+        b=PYGHZQN1pLvZYIv7uAp71aZCVHiaugVujYKODCTMENV5QPrVkschMQnazq9Nm/6LNA
+         +3C/J7dh65Uxugu4qzGzo/goEKHNhtwmL4aX73ZwXlV1jvpxLKqOMJvLWCIPu007Mzse
+         WaEBOvGC3H2SDU6RoiPzsvVFuntxt49cjV9KVw3ZJgfwaqVA9jPXprWhdwZ+avvtY7Ap
+         8BNm3ozU4jZcDrJpqTdFNWU0y1xyq42H2H9/7rlT+nZaWqdV7KS9EASdfyoAawLKBOgE
+         fiHwwKeaxGaaixaa4nt3U+TSRDYe6yaAoVSuSARCdnxukM5WXp8CzoKikvltEDgZgVXl
+         WnVA==
+X-Gm-Message-State: APjAAAUJGBrom6bi3ygZC/5Sn7CJhOGU9oluUOnczTd16U9DSxoxZyKx
+	d+4OemOexyjb158c73t+nrE=
+X-Google-Smtp-Source: APXvYqyV89j0W+rX9iQtFZEyy4GbkxEdgeruZQIBw6gamkCLsepYtSD8bc1UUpcPM3a3H0QM8v6r4A==
+X-Received: by 2002:a25:54e:: with SMTP id 75mr798528ybf.215.1576775211229;
+        Thu, 19 Dec 2019 09:06:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:6081:: with SMTP id m1ls1723355otj.0.gmail; Thu, 19 Dec
- 2019 05:32:06 -0800 (PST)
-X-Received: by 2002:a05:6830:13d3:: with SMTP id e19mr8929018otq.135.1576762326487;
-        Thu, 19 Dec 2019 05:32:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576762326; cv=none;
+Received: by 2002:a25:b792:: with SMTP id n18ls943300ybh.15.gmail; Thu, 19 Dec
+ 2019 09:06:50 -0800 (PST)
+X-Received: by 2002:a25:4b42:: with SMTP id y63mr7171098yba.385.1576775210812;
+        Thu, 19 Dec 2019 09:06:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576775210; cv=none;
         d=google.com; s=arc-20160816;
-        b=bfkfRsEIW7eirmlL7b34Vl8GnODrVh8xOte+6bOjhKhwKwmYrRNSa5RTNQBzrvkCM1
-         o8swYkXHQuM4TF1l/R8++nXrmStu8hJwnJdMlNOV0BR84MfxEOlsDckOCWDz8h17z0qN
-         omN4v72KCyG15r7SLLpWDAjPJc7oFl5by659VNj4IzRuOa9Y5oXfF2XiPkZL44lvWa5K
-         t+E+Vb8EAU+Ew6od0fM6kMEyjJWqXJ2G9AKFYmlI2Ot1i3zdLQiewMYBLvq4+gXg3L3G
-         2U6SbUy18Ad60y50n5OFmBMm0vKWn4UM6hzCveUi+2zAJCoWrT2PvvF1uCMUTcvnG4VB
-         5PJQ==
+        b=fUtLU3MvB2Bb/pto4oM864kKrfhLR6RmPqu4UKD1lyu8mS2gfHoK/ZxRi9ELlU1ETl
+         0d4leCBrt7xbQS8heCp9asmwLBQkJ3iMsdqPhoGmpeM969lW+iFjuPz1JcB4HZMUxBCX
+         zNQZlnLSJulsIy0gZGRWJZiZm1sRjGTliqt/LO9CQ6/CpY3Ywbj0afWCM3mHbeQ+1idO
+         74p0m9AHalIXt6Pj5l96FA1Xt9Oetgr22xqKSeRrMRXQexE7tuZOWnr6W7qJl/zoe7Ch
+         +Nl98X7NCpqpwV6++k+h5A446agkdUkCFqWyqAT0Az2ffywFUWDfVcD7HOVBZBdADZFG
+         Atow==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:message-id:in-reply-to:date:references
-         :subject:cc:to:from:dmarc-filter:sender:dkim-signature;
-        bh=41W5xZgEpVmLUelbR692YUsa8fLldV9N+l6CsEx5uLU=;
-        b=Okb4XX+CmHrvUWp83jYtOphcEXDPyY7sCGBVGFeu9CaaEid9NblTr2W/w3m+mlO2Y+
-         FgAVb5O3CzWf8SN7pwe84qj13skzWgCUHD7xGA/Lr+n2bkYbq6rvSSqHL7JVlWZqFjhd
-         L7pn4hniALnEBtWLVxUvjIdz5M/TlFVHh22DsmgjYItmAW9sRAv9gmCeDb+73Q4kAwsK
-         noy1bisiMGEO3l1hrBv5pBc2QkFUs1KV9XqyyeUohAGWErWS5ybeThivo4NP14gy8Jdc
-         tsTjcJ3a9VJfsVbfra0nTVBnuFuxaY1z61iEPVePHpFDhDCeeY9+xLsFkqI7HlgHEuHO
-         +9KA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=ggI/u1Hdyu9CCu5/c+HTrd/ZpT0m9d7Vzr8WRuTSKCk=;
+        b=Zvr9NJibY9Ex9rNX5bzlZPDg0AykhsHwSR4JOuVDTjg+9u4quEZY+OihLcVn89RbRz
+         m4YmOgJwbJYDvrNh0fONGEEkhS7BuGjVLjxVxaHA4pmczNOdIzIEknVn2A8VYIj9ii0Z
+         +EyNqgoEuPpXmejmNcvrIRDEby9dskHjdhcdJgUzyWzMsifpmbFuFfiIjszgFu4JxQam
+         m8K0QzPpLw4feP+BcQ9VBMT6iGX35V+3e8QLY4bf1lc0r/6Z9+WJfNxxbEkwZxkebBi3
+         wUiNz21B+H9h0+xA5HUNU/6N9WObbG5te+Vd2HJiuSRdr689ZP9ZGH0dogfxmcipv4GV
+         5DVw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b="Tp/uSIfh";
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.122.25 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
-Received: from mail25.static.mailgun.info (mail25.static.mailgun.info. [104.130.122.25])
-        by gmr-mx.google.com with UTF8SMTPS id 13si235021oin.1.2019.12.19.05.32.05
+       dkim=pass header.i=@google.com header.s=20161025 header.b="r/pPQutH";
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id s64si378358ywf.0.2019.12.19.09.06.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2019 05:32:06 -0800 (PST)
-Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.122.25 as permitted sender) client-ip=104.130.122.25;
-X-Mailgun-Sending-Ip: 104.130.122.25
-X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
-Sender: kvalo=codeaurora.org@mg.codeaurora.org
-Received: from smtp.codeaurora.org (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171])
- by mxa.mailgun.org with ESMTP id 5dfb7bd3.7fa22417cae8-smtp-out-n02;
- Thu, 19 Dec 2019 13:32:03 -0000 (UTC)
-Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id 98362C4479D; Thu, 19 Dec 2019 13:32:03 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=-1.0 required=2.0 tests=ALL_TRUSTED,SPF_NONE
-	autolearn=unavailable autolearn_force=no version=3.4.0
-Received: from potku.adurom.net (88-114-240-156.elisa-laajakaista.fi [88.114.240.156])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	(Authenticated sender: kvalo)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id 84FA8C433A2;
-	Thu, 19 Dec 2019 13:32:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org 84FA8C433A2
-From: Kalle Valo <kvalo@codeaurora.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>,  Network Development <netdev@vger.kernel.org>,  linux-wireless@vger.kernel.org,  LKML <linux-kernel@vger.kernel.org>,  clang-built-linux <clang-built-linux@googlegroups.com>,  ath11k@lists.infradead.org
-Subject: Re: [PATCH] ath11k: Remove unnecessary enum scan_priority
-References: <20191211192252.35024-1-natechancellor@gmail.com>
-	<CAKwvOdmQp+Rjgh49kbTp1ocLCjv4SUACEO4+tX5vz4stX-pPpg@mail.gmail.com>
-Date: Thu, 19 Dec 2019 15:31:59 +0200
-In-Reply-To: <CAKwvOdmQp+Rjgh49kbTp1ocLCjv4SUACEO4+tX5vz4stX-pPpg@mail.gmail.com>
-	(Nick Desaulniers's message of "Thu, 12 Dec 2019 11:34:42 -0800")
-Message-ID: <87a77o786o.fsf@kamboji.qca.qualcomm.com>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/24.5 (gnu/linux)
+        Thu, 19 Dec 2019 09:06:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id d5so2807299pjz.5
+        for <clang-built-linux@googlegroups.com>; Thu, 19 Dec 2019 09:06:50 -0800 (PST)
+X-Received: by 2002:a17:902:6948:: with SMTP id k8mr9829302plt.223.1576775209535;
+ Thu, 19 Dec 2019 09:06:49 -0800 (PST)
 MIME-Version: 1.0
+References: <20191211192252.35024-1-natechancellor@gmail.com>
+ <CAKwvOdmQp+Rjgh49kbTp1ocLCjv4SUACEO4+tX5vz4stX-pPpg@mail.gmail.com> <87a77o786o.fsf@kamboji.qca.qualcomm.com>
+In-Reply-To: <87a77o786o.fsf@kamboji.qca.qualcomm.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 19 Dec 2019 09:06:37 -0800
+Message-ID: <CAKwvOdk3EPurHLMf81VHowauRYZ4FZXxNg98hJvp8CLgu=SSPw@mail.gmail.com>
+Subject: Re: [PATCH] ath11k: Remove unnecessary enum scan_priority
+To: Kalle Valo <kvalo@codeaurora.org>
+Cc: Nathan Chancellor <natechancellor@gmail.com>, Network Development <netdev@vger.kernel.org>, 
+	linux-wireless@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, ath11k@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: kvalo@codeaurora.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b="Tp/uSIfh";       spf=pass
- (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
- designates 104.130.122.25 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+ header.i=@google.com header.s=20161025 header.b="r/pPQutH";       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1042
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -129,44 +131,31 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nick Desaulniers <ndesaulniers@google.com> writes:
-
-> On Wed, Dec 11, 2019 at 11:23 AM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
->>
->> Clang warns:
->>
->> drivers/net/wireless/ath/ath11k/wmi.c:1827:23: warning: implicit
->> conversion from enumeration type 'enum wmi_scan_priority' to different
->> enumeration type 'enum scan_priority' [-Wenum-conversion]
->>         arg->scan_priority = WMI_SCAN_PRIORITY_LOW;
->>                            ~ ^~~~~~~~~~~~~~~~~~~~~
->> 1 warning generated.
->>
->> wmi_scan_priority and scan_priority have the same values but the wmi one
->> has WMI prefixed to the names. Since that enum is already being used,
->> get rid of scan_priority and switch its one use to wmi_scan_priority to
->> fix this warning.
->>
->> Fixes: d5c65159f289 ("ath11k: driver for Qualcomm IEEE 802.11ax devices")
->> Link: https://github.com/ClangBuiltLinux/linux/issues/808
->> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+On Thu, Dec 19, 2019 at 5:32 AM Kalle Valo <kvalo@codeaurora.org> wrote:
 >
-> Further, it looks like the member `scan_priority` in `struct
-> wmi_start_scan_arg` and `struct wmi_start_scan_cmd` should probably
-> use `enum wmi_scan_priority`, rather than `u32`.
+> Nick Desaulniers <ndesaulniers@google.com> writes:
+>
+> > On Wed, Dec 11, 2019 at 11:23 AM Nathan Chancellor
+> > <natechancellor@gmail.com> wrote:
+> >> wmi_scan_priority and scan_priority have the same values but the wmi one
+> >> has WMI prefixed to the names. Since that enum is already being used,
+> >> get rid of scan_priority and switch its one use to wmi_scan_priority to
+> >> fix this warning.
+> >>
+> > Also, I don't know if the more concisely named enum is preferable?
+>
+> I didn't get this comment.
 
-struct wmi_start_scan_cmd is sent to firmware and that's why it has u32
-to make sure that the size is exactly 32 bits.
-
-> Also, I don't know if the more concisely named enum is preferable?
-
-I didn't get this comment.
-
+Given two enums with the same values:
+enum scan_priority
+enum wmi_scan_priority
+wouldn't you prefer to type wmi_ a few times less?  Doesn't really
+matter, but that was the point I was making.
 -- 
-https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/87a77o786o.fsf%40kamboji.qca.qualcomm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk3EPurHLMf81VHowauRYZ4FZXxNg98hJvp8CLgu%3DSSPw%40mail.gmail.com.
