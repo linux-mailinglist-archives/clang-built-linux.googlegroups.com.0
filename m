@@ -1,144 +1,125 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBOF26TXQKGQEHFKSUNQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBZOG6TXQKGQEEGUBKUI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id B6F6812829F
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 20:12:57 +0100 (CET)
-Received: by mail-ot1-x340.google.com with SMTP id z13sf5120789otp.7
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 11:12:57 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576869176; cv=pass;
+Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id C4E671282CE
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 20:39:17 +0100 (CET)
+Received: by mail-lj1-x238.google.com with SMTP id 126sf1437124ljj.10
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 11:39:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576870757; cv=pass;
         d=google.com; s=arc-20160816;
-        b=L6AtfANWLpqHI1lRkWwepcMbOt02mQ3A5+95bA6Zw8sz1gI3BqOTT7VqQ9GQVKjAYZ
-         kcmkF1yxO/RWReLPoFdJD4BTy+s6yd20+ecS/C5WWU2fonLlomff0IauFUnnBHRM5e/q
-         3yiB5zvCnFuujQAml87lN6eZU8EohRNJpi/6ok9nqXTIvPbEz+kem0Q/vchKbnRO4hs7
-         UldBYZJMQPpRq6dRGUGM1WSQsaZdHwxVX8BEOaVVLMS47XPkJ8eN2bi8nRZ4yPLlmJak
-         SzLxWsECVlpyVujtNGgiN2mwiKuy7AElIFIy4clbrqDPEDWqKJbETJKFAt8kPPF3ABlj
-         2XDg==
+        b=qIyj1D+kzXSNQ8O/9GlzGclFzOrdsj5VAv8ThJbZ/NkholN6gOcSyuwJRRtkQ5jH7i
+         rpdRXdzBNACu0h7Sw5+15KvoN4kRBDNax8Z7fw7JdJyEFiyWDvtOeBs6/QXmg1rv0pHh
+         aZiMlcwiPstx1SkdP4aPK0uKZV8/fwom9f3gn2JrxHn8pUGJVW/vZ1/ClX5w5HYdv4rU
+         SF5+bNc21EYRyVFWHWabAJjq2aLSc3M4JhCAue9r8Ruj06/i+3RNfdwP5w6oudkIKub0
+         pd4vBTcyM2QZWlLURxuLMlmCQp3qsemssZkWcpDAo6A0xZsUZVosx9FSEhJ08GLbdlOr
+         id9g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
-        b=eH/+10+lVl0dBpazVlx2F4HSFGerAPeF54V6b41Rn8g3WHW8HZfNQeb6u6c51k18Mh
-         xqzytBsIlTuzt/k1j2u2V7QtSWipTJ1XnzwnWTvbs8Ko52WmijbVeY7mQqqk6Qddl6Kc
-         itfxU0VjODi7Ui4QwKxstKpDVtx7qp0m8Z4jOFIl8g7aiy8HjjI3hZe7ateCp1rwAuFC
-         PRc/U4dg9aPEqACN1l64koQUKaPfJCzUmWqd83F7EKa2sTt+yYxWRu0Obmj3QFj2Br4C
-         wyoahMHCKEAkXEl1QW421yrY8klNrdFf6OZHGL8Oc52wkr5aaX2U4qNFPFM+xst/lEoU
-         8gfQ==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=ROSgZojqKKjObC6TWX4DKOyaHhSGMFBELlXRQM2+7KQ=;
+        b=iMNITCwa9yComcxzArOl0xPmvvGBRP3sGdfON0MQhXUOxKwrUuk/8oAnJwKmzPEp7k
+         ZRZJOHv5Mae72bIJfbLJ5jPLQjSLjepPfVluypNzRuaVcgiHMp/NXwySNl7jdZh9KQgE
+         uwN25w3veXyNGmWmFFRoNP0tFQp4Ed2xcCyH78CbiTcxEXAjljX66xLnH6PPJnRoAIoU
+         QlBsBKIvUzAyzC/3kAPozFyHG9zeXAzQgWkPmOwDL5xj5Cmc8e/DS2E9+FZZG1lOCkPu
+         h+5eP7gSUqnI6dlvMEvuvn/tIgtag8u+5mpUqqLtRaQwm2y6mPAoY5jMkJAXEDmktQO+
+         yWzA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Pbqu7Uup;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b="O/fHwvm5";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
-        b=YtopYOWUcXK0Zsa0j7vYL+QlMeO0MHmSFe4U6kfuqpPcosrVXHEc4/hrYFfkDk9EbK
-         AhI6B8Ot855EnBbc4Ayp3F5wxOW3utMu0N5TPcF0WyJVK+7MhdvYs9uPpfsqIrn5WRYq
-         wjKO1/2ULsxrx0q/pZr+3fjSeDaPagAyiKenQ1xflMTsX0uq5ObkTVT0x+JHHLwqrDXI
-         PsKswqIBO+9y0qkEpHxjsw3TJr4Jj3HMqaDFl8BCjDoYrTCMtg2Y6jE2acblxvdk60/n
-         sVDVJfdIao0/qj34moA2pyGtXHSaKPmWOkJ0ewHZvZJM1qxg1YwI/7lVgWUNsEhRn4VL
-         nL1Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
-        b=L6X/Mn6lC4LwiI9GdeGiIJodWAgDuY2dZCmyZZzN5esnuSMZWcXVjqOcXRWnR/SdXO
-         N0/1TMArFXizJEoPOLMOkC76vIPo/0F8/FFcsq62NR5OKiDYNFj0u/L46G2Z1hWDsaMY
-         29/1PWX11M+FXNq1g6sHTkxxj9c1ThyumwD1NJEyJp1P6TG7T0Iwo9TXEZfp7AknCCD3
-         bDpRTuH53wKxn4G2ZghhVdy4ne4W22xeB13I9c4WP12ZRYR+VKl9A7U96HTqkA8QYVvr
-         onG6CeeV5EsrgKetnw1gvk7vwVEPESQP2Q/5wkjofAkQ5X7gvZEU/RT07uBrC9OC1kz9
-         YliA==
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=ROSgZojqKKjObC6TWX4DKOyaHhSGMFBELlXRQM2+7KQ=;
+        b=SY9WD/W8+jjGGyTNIHD+L3iarF/MJpbOfnu0knMrvBtUU84GKnzcfViaZ9mkDAGOpK
+         CzaQkM634h0lyJmmEQnJ3HWKlBtU9lozr/twhBtSXYpYH3bWhp9CYGUqdU7fFJAuTkSq
+         hpTMLF2JslLmtL2PvBanmmpsxBa7kIynQfi9XB1GR2YJPPaCPR2rnKfZcfLWT2o2pCrU
+         pcn8w9crirfgAQOc8Prkm9RnL5o6PeJuNFJ6BhypCGO2+2FzgmKYmARPECJ4++I3h3eh
+         Zcc/nN3EKNvweuEbx1zmmAc5LaNqZZfnzCrAKWHC5TKZtJQM1lx0HadcyVZawjiqeEKE
+         05MA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
-        b=BfRIKN2O2DzHAoBimJN6jVq+wQMZi4VRKDnQGFvBc89/fqWfGfxWq9zdI1lofYiPE5
-         PgCv76tDFD8+LPrhSlM8m1/s6TPekrzi2tCHWuE12br+b7TqS9fVzmthzhl0lrFA//Lq
-         ISdEw4LxYhZZWiKz9Q3ax66SVWew4GSbleifVtugSIV038UhKtvrS7BxMylraIS+zTtt
-         BYoXLRZ0X2QpAk/rSEFrO6yHuj3Gwmz2Ka0siNd5vfFXR3MvU644MfDx/kT7lzYgvADD
-         coeLKhY23uge75nyZG6OdULpzGt4OD/I9TIlqszXvKSSsItXD2JlehxekBT0skRpP5ZN
-         sukg==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ROSgZojqKKjObC6TWX4DKOyaHhSGMFBELlXRQM2+7KQ=;
+        b=FPoXdaH12Uh8iDnEp03EEZNvLBL6LZR7IV828x4+hx+Uvb1vaJ4GpHHxPpFvD4KkvD
+         bjtlTLs+yVmfz+rxtN+/nD7h570L0ZKXKOOB7hHDMNp+XxOMELLTHKgn1CyoJo060fUY
+         NzS2NCrkN1pmLt3mPxePY9o6hPui2PkmXsKl+LPX9napiB1C1RMJhE7DiV5mYBbW7fYB
+         fJoyzxkAsCJKy9+E9E9RJd/Ncif4tuf30Q3+gB3aReDFExmCHdNNM7Cwxo5FQz7ZkWeg
+         J4UMCs2RPTMknIXfDmfB/p3z8ulbroOrnQEztvpeSB++NijuTHvVCNXchE+E6YPngpZD
+         ISrA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWglple5uiDo6cCcReG3GfFtkHVXaQZ8N4Bnf9waPsKvmsG9yMz
-	QgLlgTkocMs3nDUTI52B7KM=
-X-Google-Smtp-Source: APXvYqya/QxBUn6z80L2z6T5tFdmbwZwIlywHqkQjBZr3hTYYtFhJNBrGOb2EndxgVI/cXk4Mf1CCA==
-X-Received: by 2002:aca:d4c1:: with SMTP id l184mr4668603oig.172.1576869176146;
-        Fri, 20 Dec 2019 11:12:56 -0800 (PST)
+X-Gm-Message-State: APjAAAWNiFIKaw2p0xa0uv9A6UeS1FAAI/VieC26UlG+noK+/trZ9Bho
+	+i3XzB01pvSaKs25AT3hbLg=
+X-Google-Smtp-Source: APXvYqzhuSCkn7fox3mCcwnyzG8PPRI5xI11beD/DfskNk3ECyDOjmBZKvepKNTkfbceV3biM6jhbA==
+X-Received: by 2002:a2e:6c06:: with SMTP id h6mr10427874ljc.246.1576870757170;
+        Fri, 20 Dec 2019 11:39:17 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:d615:: with SMTP id n21ls624485oig.5.gmail; Fri, 20 Dec
- 2019 11:12:55 -0800 (PST)
-X-Received: by 2002:a05:6808:5d0:: with SMTP id d16mr4695741oij.45.1576869175773;
-        Fri, 20 Dec 2019 11:12:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576869175; cv=none;
+Received: by 2002:a2e:7512:: with SMTP id q18ls1453276ljc.7.gmail; Fri, 20 Dec
+ 2019 11:39:16 -0800 (PST)
+X-Received: by 2002:a2e:81c3:: with SMTP id s3mr10988916ljg.168.1576870756373;
+        Fri, 20 Dec 2019 11:39:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576870756; cv=none;
         d=google.com; s=arc-20160816;
-        b=0vojnnaC4srwj4dPw7zMACnlHDQMxKZF6KcJAYqxb4WzJxH6RV81bgSPh8JM//yeId
-         lWVNu1DU65Vf55miwn+Tx7rhcbgv/VxAy/QEVUbHnvFPSE9sSGpq1ha1jav/WFYRrvvF
-         5x42GYWQC1anpWoBgIsOIGA7UZkUs74aHl/jBLBsJgrpSy3FbEKqoEovKuKiC4bUwS7f
-         UhT1Er0DQKu7DXGsRGg9EVedfAemKHR9TN3fmZ3mxQF3Kh5fQ5O5Jb9agcXzxCDVsqpZ
-         uq0F/G06eYzSJWyWqwJM52PucQqIt9szX8osbCkUUNHvu2YN6hRY/AYC5BUmFLnN1ZHl
-         11QQ==
+        b=R948xfWxHj3kV1TcH92ghbb0UvhKdcp/OpjFNPSmJq3q9SzyZ8tbN+1kQibungQRr4
+         HuLkVvxN9F6s29q8EuZM2NXovN46OcwtzL0Eo119FwhUE1aLIOTQ8N4TtJE8sA+ADxrv
+         cuviPjdmANU9SXS/9rImUflEqYxiyPz9XZJcCbvPuM8/HX7kJKFnYw7lE0iA6x8MlkGk
+         OWivTWaMuxEJm12XusLh5T/VieWNZm7086Fp3XdBPkKOY25YQEJBfx5EqxWH/SwRp4F1
+         7l7wHOBeblwo4TYiuggxQ819KYhG7/9bhPgiVSh5tDxDuW90lSvKWrI8aZYdBEB2YgSt
+         Gdkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=AQWMjzoLCchFmkZQ8yhMwAYAhwyzEvr1a64rPKNFxB4=;
-        b=k7bWAfrtd1tefc/7PexBYrMAEBD54ljBXg4SbGS6S7QmBGivQFeSudWGWyj0zHL8wM
-         lnjPDfHkPqOXY4UPjJaqSli3Nk48RkQxXa/NOiHDGSMCIEPMNG3cYEr1HoKAZHuiuggS
-         CpaCQSu6Q4ekROhDkEAiqljibyGto0mH3PuMxr5KapooQM4c93mpbYwhvw/TgEHHZrdp
-         uR/wff2ky/51+ARNlARmRKe4l5KCi5eNuwHkgHNIphgZcGNgzL9sYk41Vn2h+N+K49ku
-         B+V8qO54DHRzgP8vmoMP93rFOLoHow80hMTTb378Q+y2NUDgUeXsD4QLOCsXJNA9rdFc
-         9M2A==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=43gYMtqfgHFtlYkgKBqFkZtottxdrUDIAunE0Wof4Jk=;
+        b=hqucG3dufk1HEYKbcErtMuHMOVXD7FaBdsSEehPiXAvKK83PYrUyGQYxBI6VJ2GgnP
+         B1XvMYd9AErY7EyTPMF9ZQiKax/8lR9R0izg8UORJBlfmY2CrXqbw8kjxDvrleX+WHz5
+         hnSHH1lNxfWJzaQsJJQkeXmz/qh2C0HxH4NoDLSG7u6xcv6JmYM4myxjE7cwv4TyDGIV
+         W+rnDDJLXJ1lqyxyH5UZbfYlUunXp8EoKspRQRMMSh5wyW5rglCXf0qW55XLNpzHeS6S
+         +7cyehItuvuCPIs/wJrGhvCRQvzH+EMX3t/O8DiO1hlxMLqykymagqynuuOrw8vSZzxj
+         PZ2g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Pbqu7Uup;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
-        by gmr-mx.google.com with ESMTPS id w63si412326oif.2.2019.12.20.11.12.55
+       dkim=pass header.i=@linaro.org header.s=google header.b="O/fHwvm5";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x334.google.com (mail-wm1-x334.google.com. [2a00:1450:4864:20::334])
+        by gmr-mx.google.com with ESMTPS id j30si554453lfp.5.2019.12.20.11.39.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2019 11:12:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
-Received: by mail-ot1-x344.google.com with SMTP id k14so13047500otn.4
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Dec 2019 11:12:55 -0800 (PST)
-X-Received: by 2002:a05:6830:11d2:: with SMTP id v18mr408027otq.151.1576869175365;
-        Fri, 20 Dec 2019 11:12:55 -0800 (PST)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id r23sm3476683oij.38.2019.12.20.11.12.54
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Fri, 20 Dec 2019 11:12:54 -0800 (PST)
-Date: Fri, 20 Dec 2019 12:12:52 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jiri Slaby <jslaby@suse.com>, LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Subject: Re: [PATCH] tty: synclink: Adjust indentation and style in several
- functions
-Message-ID: <20191220191252.GA48729@ubuntu-m2-xlarge-x86>
-References: <20191218022758.53697-1-natechancellor@gmail.com>
- <CAKwvOdnOYUy7M0upKsknwPJOa6iYwtaqZAafrxdb4z_=vDmuXw@mail.gmail.com>
+        Fri, 20 Dec 2019 11:39:16 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334 as permitted sender) client-ip=2a00:1450:4864:20::334;
+Received: by mail-wm1-x334.google.com with SMTP id c127so2486866wme.1
+        for <clang-built-linux@googlegroups.com>; Fri, 20 Dec 2019 11:39:16 -0800 (PST)
+X-Received: by 2002:a05:600c:24d1:: with SMTP id 17mr17838097wmu.136.1576870755345;
+        Fri, 20 Dec 2019 11:39:15 -0800 (PST)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id t25sm10259409wmj.19.2019.12.20.11.39.13
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Fri, 20 Dec 2019 11:39:14 -0800 (PST)
+From: ci_notify@linaro.org
+Date: Fri, 20 Dec 2019 19:39:12 +0000 (UTC)
+To: tcwg-validation@linaro.org, llvm@linaro.org, 
+	clang-built-linux@googlegroups.com
+Message-ID: <877869795.6207.1576870754573.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-arm-mainline-allmodconfig - Build # 26 -
+ Successful!
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <CAKwvOdnOYUy7M0upKsknwPJOa6iYwtaqZAafrxdb4z_=vDmuXw@mail.gmail.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_6206_1525697286.1576870752900"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-mainline-allmodconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Pbqu7Uup;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linaro.org header.s=google header.b="O/fHwvm5";       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::334
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,126 +132,605 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Dec 20, 2019 at 10:04:02AM -0800, Nick Desaulniers wrote:
-> On Tue, Dec 17, 2019 at 6:28 PM Nathan Chancellor
-> <natechancellor@gmail.com> wrote:
-> >
-> > Clang warns:
-> >
-> > ../drivers/tty/synclink.c:1167:3: warning: misleading indentation;
-> > statement is not part of the previous 'if' [-Wmisleading-indentation]
-> >         if ( (status & RXSTATUS_ABORT_RECEIVED) &&
-> >         ^
-> > ../drivers/tty/synclink.c:1163:2: note: previous statement is here
-> >         if ( debug_level >= DEBUG_LEVEL_ISR )
-> >         ^
-> > ../drivers/tty/synclink.c:1973:3: warning: misleading indentation;
-> > statement is not part of the previous 'if' [-Wmisleading-indentation]
-> >         if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-> >         ^
-> > ../drivers/tty/synclink.c:1971:2: note: previous statement is here
-> >         if (I_INPCK(info->port.tty))
-> >         ^
-> > ../drivers/tty/synclink.c:3229:3: warning: misleading indentation;
-> > statement is not part of the previous 'else' [-Wmisleading-indentation]
-> >         usc_set_serial_signals(info);
-> >         ^
-> > ../drivers/tty/synclink.c:3227:2: note: previous statement is here
-> >         else
-> >         ^
-> > ../drivers/tty/synclink.c:4918:4: warning: misleading indentation;
-> > statement is not part of the previous 'else' [-Wmisleading-indentation]
-> >                 if ( info->params.clock_speed )
-> >                 ^
-> > ../drivers/tty/synclink.c:4901:3: note: previous statement is here
-> >                 else
-> >                 ^
-> > 4 warnings generated.
-> >
-> > The indentation on these lines is not at all consistent, tabs and spaces
-> > are mixed together. Convert to just using tabs to be consistent with the
-> > Linux kernel coding style and eliminate these warnings from clang.
-> >
-> > Additionally, clean up some of lines touched by the indentation shift to
-> > eliminate checkpatch warnings and leave this code in a better condition
-> > than when it was left.
-> 
-> Indeed, this file is kind of a mess.
-> 
-> >
-> > -:10: ERROR: trailing whitespace
-> > -:10: ERROR: that open brace { should be on the previous line
-> > -:10: ERROR: space prohibited after that open parenthesis '('
-> > -:14: ERROR: space prohibited before that close parenthesis ')'
-> > -:82: ERROR: trailing whitespace
-> > -:87: WARNING: Block comments use a trailing */ on a separate line
-> > -:88: ERROR: that open brace { should be on the previous line
-> > -:88: ERROR: space prohibited after that open parenthesis '('
-> > -:88: ERROR: space prohibited before that close parenthesis ')'
-> > -:99: ERROR: else should follow close brace '}'
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/821
-> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> > ---
-> >  drivers/tty/synclink.c | 55 ++++++++++++++++++++----------------------
-> >  1 file changed, 26 insertions(+), 29 deletions(-)
-> >
-> > diff --git a/drivers/tty/synclink.c b/drivers/tty/synclink.c
-> > index 61dc6b4a43d0..586810defb21 100644
-> > --- a/drivers/tty/synclink.c
-> > +++ b/drivers/tty/synclink.c
-> > @@ -1164,21 +1164,20 @@ static void mgsl_isr_receive_status( struct mgsl_struct *info )
-> >                 printk("%s(%d):mgsl_isr_receive_status status=%04X\n",
-> >                         __FILE__,__LINE__,status);
-> >
-> > -       if ( (status & RXSTATUS_ABORT_RECEIVED) &&
-> > +       if ((status & RXSTATUS_ABORT_RECEIVED) &&
-> >                 info->loopmode_insert_requested &&
-> > -               usc_loopmode_active(info) )
-> > -       {
-> > +               usc_loopmode_active(info)) {
-> >                 ++info->icount.rxabort;
-> > -               info->loopmode_insert_requested = false;
-> > -
-> > -               /* clear CMR:13 to start echoing RxD to TxD */
-> > +               info->loopmode_insert_requested = false;
-> > +
-> > +               /* clear CMR:13 to start echoing RxD to TxD */
-> >                 info->cmr_value &= ~BIT13;
-> > -               usc_OutReg(info, CMR, info->cmr_value);
-> > -
-> > +               usc_OutReg(info, CMR, info->cmr_value);
-> > +
-> >                 /* disable received abort irq (no longer required) */
-> > -               usc_OutReg(info, RICR,
-> > -                       (usc_InReg(info, RICR) & ~RXSTATUS_ABORT_RECEIVED));
-> > -       }
-> > +               usc_OutReg(info, RICR,
-> > +                       (usc_InReg(info, RICR) & ~RXSTATUS_ABORT_RECEIVED));
-> > +       }
-> >
-> >         if (status & (RXSTATUS_EXITED_HUNT | RXSTATUS_IDLE_RECEIVED)) {
-> >                 if (status & RXSTATUS_EXITED_HUNT)
-> > @@ -1970,8 +1969,8 @@ static void mgsl_change_params(struct mgsl_struct *info)
-> 
-> I'm surprised the next hunk isn't mgsl_isr_transmit_status() in
-> L1211-L1268?  I don't mind reformatting this file, but would you mind:
-> 1. splitting the changes that fix the warning and reformatting the
-> rest of the file in two?  That way the warning fix is more likely to
-> merge back cleanly to LTS branches with less risk of merge conflict?
-> Warning fix first, then reformat.
-> 2. reformat the whole thing, not just most of it.
+------=_Part_6206_1525697286.1576870752900
+Content-Type: text/plain; charset="UTF-8"
 
-Yes, I will go ahead and break down these three TTY commits into six
-(first three fixing the Clang warnings then the next three fixing all of
-the indentation and spacing warnings).
+Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-arm-mainline-allmodconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/llvm-master-arm-mainline-allmodconfig
+ - tcwg_kernel/llvm-master-arm-mainline-allyesconfig
+ - tcwg_kernel/llvm-master-arm-next-allmodconfig
+ - tcwg_kernel/llvm-master-arm-next-defconfig
 
-I should be able to do this tonight or tomorrow at some point.
+Culprit:
+<cut>
+commit bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
+Author: Victor Campos <Victor.Campos@arm.com>
 
-Cheers,
-Nathan
+    [ARM] Improve codegen of volatile load/store of i64
+</cut>
+
+First few errors in logs of first_bad:
+00:05:30 clang-10: error: unable to execute command: Aborted (core dumped)
+00:05:30 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
+00:05:31 make[1]: *** [lib/test_ubsan.o] Error 254
+00:06:29 make: *** [lib] Error 2
+00:26:14 clang-10: error: unable to execute command: Aborted (core dumped)
+00:26:14 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
+00:26:14 make[2]: *** [drivers/scsi/ipr.o] Error 254
+00:26:33 make[1]: *** [drivers/scsi] Error 2
+00:31:00 make: *** [drivers] Error 2
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
+rr[llvm_branch]="aaa5a5e7ff1aee632aae75311e7c044f710dd0a0"
+
+Results regressed to (for first_bad == bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+20058
+
+from (for last_good == eca0c97a6bca49b493f3387dbd88ad60c852320f)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+27412
+linux build successful:
+all
+
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/artifact/artifacts/build-bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/artifact/artifacts/build-eca0c97a6bca49b493f3387dbd88ad60c852320f/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/
+
+Reproduce builds:
+<cut>
+mkdir investigate-llvm-bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
+cd investigate-llvm-bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+cd llvm
+
+# Reproduce first_bad build
+git checkout --detach bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach eca0c97a6bca49b493f3387dbd88ad60c852320f
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-mainline-allmodconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/26/consoleText
+
+Full commit:
+<cut>
+commit bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
+Author: Victor Campos <Victor.Campos@arm.com>
+Date:   Mon Dec 16 14:22:15 2019 +0000
+
+    [ARM] Improve codegen of volatile load/store of i64
+    
+    Summary:
+    Instead of generating two i32 instructions for each load or store of a volatile
+    i64 value (two LDRs or STRs), now emit LDRD/STRD.
+    
+    These improvements cover architectures implementing ARMv5TE or Thumb-2.
+    
+    Reviewers: dmgreen, efriedma, john.brawn
+    
+    Reviewed By: efriedma
+    
+    Subscribers: kristof.beyls, hiraditya, llvm-commits
+    
+    Tags: #llvm
+    
+    Differential Revision: https://reviews.llvm.org/D70072
+---
+ llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp     |  18 +++
+ llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp          |  49 ++++++++
+ llvm/lib/Target/ARM/ARMISelLowering.cpp          |  57 ++++++++-
+ llvm/lib/Target/ARM/ARMISelLowering.h            |   8 +-
+ llvm/lib/Target/ARM/ARMInstrInfo.td              |  23 ++++
+ llvm/lib/Target/ARM/ARMInstrThumb2.td            |   9 +-
+ llvm/test/CodeGen/ARM/i64_volatile_load_store.ll | 153 +++++++++++++++++++++++
+ 7 files changed, 311 insertions(+), 6 deletions(-)
+
+diff --git a/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp b/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp
+index de4377ec5a4..2c3ac816219 100644
+--- a/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp
++++ b/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp
+@@ -1952,6 +1952,24 @@ bool ARMExpandPseudo::ExpandMI(MachineBasicBlock &MBB,
+       MI.eraseFromParent();
+       return true;
+     }
++    case ARM::LOADDUAL:
++    case ARM::STOREDUAL: {
++      Register PairReg = MI.getOperand(0).getReg();
++
++      MachineInstrBuilder MIB =
++          BuildMI(MBB, MBBI, MI.getDebugLoc(),
++                  TII->get(Opcode == ARM::LOADDUAL ? ARM::LDRD : ARM::STRD))
++              .addReg(TRI->getSubReg(PairReg, ARM::gsub_0),
++                      Opcode == ARM::LOADDUAL ? RegState::Define : 0)
++              .addReg(TRI->getSubReg(PairReg, ARM::gsub_1),
++                      Opcode == ARM::LOADDUAL ? RegState::Define : 0);
++      for (unsigned i = 1; i < MI.getNumOperands(); i++)
++        MIB.add(MI.getOperand(i));
++      MIB.add(predOps(ARMCC::AL));
++      MIB.cloneMemRefs(MI);
++      MI.eraseFromParent();
++      return true;
++    }
+   }
+ }
+ 
+diff --git a/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp b/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp
+index 1f998defbd1..dcdec779bbe 100644
+--- a/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp
++++ b/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp
+@@ -145,6 +145,8 @@ public:
+ 
+   // Thumb 2 Addressing Modes:
+   bool SelectT2AddrModeImm12(SDValue N, SDValue &Base, SDValue &OffImm);
++  template <unsigned Shift>
++  bool SelectT2AddrModeImm8(SDValue N, SDValue &Base, SDValue &OffImm);
+   bool SelectT2AddrModeImm8(SDValue N, SDValue &Base,
+                             SDValue &OffImm);
+   bool SelectT2AddrModeImm8Offset(SDNode *Op, SDValue N,
+@@ -1294,6 +1296,33 @@ bool ARMDAGToDAGISel::SelectT2AddrModeImm12(SDValue N,
+   return true;
+ }
+ 
++template <unsigned Shift>
++bool ARMDAGToDAGISel::SelectT2AddrModeImm8(SDValue N, SDValue &Base,
++                                           SDValue &OffImm) {
++  if (N.getOpcode() == ISD::SUB || CurDAG->isBaseWithConstantOffset(N)) {
++    int RHSC;
++    if (isScaledConstantInRange(N.getOperand(1), 1 << Shift, -255, 256, RHSC)) {
++      Base = N.getOperand(0);
++      if (Base.getOpcode() == ISD::FrameIndex) {
++        int FI = cast<FrameIndexSDNode>(Base)->getIndex();
++        Base = CurDAG->getTargetFrameIndex(
++            FI, TLI->getPointerTy(CurDAG->getDataLayout()));
++      }
++
++      if (N.getOpcode() == ISD::SUB)
++        RHSC = -RHSC;
++      OffImm =
++          CurDAG->getTargetConstant(RHSC * (1 << Shift), SDLoc(N), MVT::i32);
++      return true;
++    }
++  }
++
++  // Base only.
++  Base = N;
++  OffImm = CurDAG->getTargetConstant(0, SDLoc(N), MVT::i32);
++  return true;
++}
++
+ bool ARMDAGToDAGISel::SelectT2AddrModeImm8(SDValue N,
+                                            SDValue &Base, SDValue &OffImm) {
+   // Match simple R - imm8 operands.
+@@ -3486,6 +3515,26 @@ void ARMDAGToDAGISel::Select(SDNode *N) {
+     CurDAG->RemoveDeadNode(N);
+     return;
+   }
++  case ARMISD::LDRD: {
++    if (Subtarget->isThumb2())
++      break; // TableGen handles isel in this case.
++    SDValue Base, RegOffset, ImmOffset;
++    const SDValue &Chain = N->getOperand(0);
++    const SDValue &Addr = N->getOperand(1);
++    SelectAddrMode3(Addr, Base, RegOffset, ImmOffset);
++    SDValue Ops[] = {Base, RegOffset, ImmOffset, Chain};
++    SDNode *New = CurDAG->getMachineNode(ARM::LOADDUAL, dl,
++                                         {MVT::Untyped, MVT::Other}, Ops);
++    SDValue Lo = CurDAG->getTargetExtractSubreg(ARM::gsub_0, dl, MVT::i32,
++                                                SDValue(New, 0));
++    SDValue Hi = CurDAG->getTargetExtractSubreg(ARM::gsub_1, dl, MVT::i32,
++                                                SDValue(New, 0));
++    ReplaceUses(SDValue(N, 0), Lo);
++    ReplaceUses(SDValue(N, 1), Hi);
++    ReplaceUses(SDValue(N, 2), SDValue(New, 1));
++    CurDAG->RemoveDeadNode(N);
++    return;
++  }
+   case ARMISD::LOOP_DEC: {
+     SDValue Ops[] = { N->getOperand(1),
+                       N->getOperand(2),
+diff --git a/llvm/lib/Target/ARM/ARMISelLowering.cpp b/llvm/lib/Target/ARM/ARMISelLowering.cpp
+index 0b4d39ec308..67d436fb8fa 100644
+--- a/llvm/lib/Target/ARM/ARMISelLowering.cpp
++++ b/llvm/lib/Target/ARM/ARMISelLowering.cpp
+@@ -1070,6 +1070,8 @@ ARMTargetLowering::ARMTargetLowering(const TargetMachine &TM,
+   setOperationAction(ISD::SRA,       MVT::i64, Custom);
+   setOperationAction(ISD::INTRINSIC_VOID, MVT::Other, Custom);
+   setOperationAction(ISD::INTRINSIC_WO_CHAIN, MVT::i64, Custom);
++  setOperationAction(ISD::LOAD, MVT::i64, Custom);
++  setOperationAction(ISD::STORE, MVT::i64, Custom);
+ 
+   // MVE lowers 64 bit shifts to lsll and lsrl
+   // assuming that ISD::SRL and SRA of i64 are already marked custom
+@@ -1593,6 +1595,9 @@ const char *ARMTargetLowering::getTargetNodeName(unsigned Opcode) const {
+ 
+   case ARMISD::PRELOAD:       return "ARMISD::PRELOAD";
+ 
++  case ARMISD::LDRD:          return "ARMISD::LDRD";
++  case ARMISD::STRD:          return "ARMISD::STRD";
++
+   case ARMISD::WIN__CHKSTK:   return "ARMISD::WIN__CHKSTK";
+   case ARMISD::WIN__DBZCHK:   return "ARMISD::WIN__DBZCHK";
+ 
+@@ -9081,6 +9086,24 @@ static SDValue LowerPredicateLoad(SDValue Op, SelectionDAG &DAG) {
+   return DAG.getMergeValues({Pred, Load.getValue(1)}, dl);
+ }
+ 
++void ARMTargetLowering::LowerLOAD(SDNode *N, SmallVectorImpl<SDValue> &Results,
++                                  SelectionDAG &DAG) const {
++  LoadSDNode *LD = cast<LoadSDNode>(N);
++  EVT MemVT = LD->getMemoryVT();
++  assert(LD->isUnindexed() && "Loads should be unindexed at this point.");
++
++  if (MemVT == MVT::i64 && Subtarget->hasV5TEOps() &&
++      !Subtarget->isThumb1Only() && LD->isVolatile()) {
++    SDLoc dl(N);
++    SDValue Result = DAG.getMemIntrinsicNode(
++        ARMISD::LDRD, dl, DAG.getVTList({MVT::i32, MVT::i32, MVT::Other}),
++        {LD->getChain(), LD->getBasePtr()}, MemVT, LD->getMemOperand());
++    SDValue Pair = DAG.getNode(ISD::BUILD_PAIR, dl, MVT::i64,
++                               Result.getValue(0), Result.getValue(1));
++    Results.append({Pair, Result.getValue(2)});
++  }
++}
++
+ static SDValue LowerPredicateStore(SDValue Op, SelectionDAG &DAG) {
+   StoreSDNode *ST = cast<StoreSDNode>(Op.getNode());
+   EVT MemVT = ST->getMemoryVT();
+@@ -9110,6 +9133,34 @@ static SDValue LowerPredicateStore(SDValue Op, SelectionDAG &DAG) {
+       ST->getMemOperand());
+ }
+ 
++static SDValue LowerSTORE(SDValue Op, SelectionDAG &DAG,
++                          const ARMSubtarget *Subtarget) {
++  StoreSDNode *ST = cast<StoreSDNode>(Op.getNode());
++  EVT MemVT = ST->getMemoryVT();
++  assert(ST->isUnindexed() && "Stores should be unindexed at this point.");
++
++  if (MemVT == MVT::i64 && Subtarget->hasV5TEOps() &&
++      !Subtarget->isThumb1Only() && ST->isVolatile()) {
++    SDNode *N = Op.getNode();
++    SDLoc dl(N);
++
++    SDValue Lo = DAG.getNode(ISD::EXTRACT_ELEMENT, dl, MVT::i32, ST->getValue(),
++                             DAG.getTargetConstant(0, dl, MVT::i32));
++    SDValue Hi = DAG.getNode(ISD::EXTRACT_ELEMENT, dl, MVT::i32, ST->getValue(),
++                             DAG.getTargetConstant(1, dl, MVT::i32));
++
++    return DAG.getMemIntrinsicNode(ARMISD::STRD, dl, DAG.getVTList(MVT::Other),
++                                   {ST->getChain(), Lo, Hi, ST->getBasePtr()},
++                                   MemVT, ST->getMemOperand());
++  } else if (Subtarget->hasMVEIntegerOps() &&
++             ((MemVT == MVT::v4i1 || MemVT == MVT::v8i1 ||
++               MemVT == MVT::v16i1))) {
++    return LowerPredicateStore(Op, DAG);
++  }
++
++  return SDValue();
++}
++
+ static bool isZeroVector(SDValue N) {
+   return (ISD::isBuildVectorAllZeros(N.getNode()) ||
+           (N->getOpcode() == ARMISD::VMOVIMM &&
+@@ -9297,7 +9348,7 @@ SDValue ARMTargetLowering::LowerOperation(SDValue Op, SelectionDAG &DAG) const {
+   case ISD::LOAD:
+     return LowerPredicateLoad(Op, DAG);
+   case ISD::STORE:
+-    return LowerPredicateStore(Op, DAG);
++    return LowerSTORE(Op, DAG, Subtarget);
+   case ISD::MLOAD:
+     return LowerMLOAD(Op, DAG);
+   case ISD::ATOMIC_LOAD:
+@@ -9399,7 +9450,9 @@ void ARMTargetLowering::ReplaceNodeResults(SDNode *N,
+   case ISD::ABS:
+      lowerABS(N, Results, DAG);
+      return ;
+-
++  case ISD::LOAD:
++    LowerLOAD(N, Results, DAG);
++    break;
+   }
+   if (Res.getNode())
+     Results.push_back(Res);
+diff --git a/llvm/lib/Target/ARM/ARMISelLowering.h b/llvm/lib/Target/ARM/ARMISelLowering.h
+index afb4750ee35..a63217ed87b 100644
+--- a/llvm/lib/Target/ARM/ARMISelLowering.h
++++ b/llvm/lib/Target/ARM/ARMISelLowering.h
+@@ -278,7 +278,11 @@ class VectorType;
+       VST4_UPD,
+       VST2LN_UPD,
+       VST3LN_UPD,
+-      VST4LN_UPD
++      VST4LN_UPD,
++
++      // Load/Store of dual registers
++      LDRD,
++      STRD
+     };
+ 
+   } // end namespace ARMISD
+@@ -731,6 +735,8 @@ class VectorType;
+     SDValue LowerINT_TO_FP(SDValue Op, SelectionDAG &DAG) const;
+     void lowerABS(SDNode *N, SmallVectorImpl<SDValue> &Results,
+                   SelectionDAG &DAG) const;
++    void LowerLOAD(SDNode *N, SmallVectorImpl<SDValue> &Results,
++                   SelectionDAG &DAG) const;
+ 
+     Register getRegisterByName(const char* RegName, EVT VT,
+                                const MachineFunction &MF) const override;
+diff --git a/llvm/lib/Target/ARM/ARMInstrInfo.td b/llvm/lib/Target/ARM/ARMInstrInfo.td
+index 1cab1747ff4..ba374e8f07d 100644
+--- a/llvm/lib/Target/ARM/ARMInstrInfo.td
++++ b/llvm/lib/Target/ARM/ARMInstrInfo.td
+@@ -243,6 +243,12 @@ def ARMqsub8b       : SDNode<"ARMISD::QSUB8b", SDT_ARMAnd, []>;
+ def ARMqadd16b      : SDNode<"ARMISD::QADD16b", SDT_ARMAnd, []>;
+ def ARMqsub16b      : SDNode<"ARMISD::QSUB16b", SDT_ARMAnd, []>;
+ 
++def SDT_ARMldrd     : SDTypeProfile<2, 1, [SDTCisVT<0, i32>, SDTCisSameAs<0, 1>, SDTCisPtrTy<2>]>;
++def ARMldrd         : SDNode<"ARMISD::LDRD", SDT_ARMldrd, [SDNPHasChain, SDNPMayLoad, SDNPMemOperand]>;
++
++def SDT_ARMstrd     : SDTypeProfile<0, 3, [SDTCisVT<0, i32>, SDTCisSameAs<0, 1>, SDTCisPtrTy<2>]>;
++def ARMstrd         : SDNode<"ARMISD::STRD", SDT_ARMstrd, [SDNPHasChain, SDNPMayStore, SDNPMemOperand]>;
++
+ // Vector operations shared between NEON and MVE
+ 
+ def ARMvdup      : SDNode<"ARMISD::VDUP", SDTypeProfile<1, 1, [SDTCisVec<0>]>>;
+@@ -2695,6 +2701,12 @@ let mayLoad = 1, hasSideEffects = 0, hasExtraDefRegAllocReq = 1 in {
+              Requires<[IsARM, HasV5TE]>;
+ }
+ 
++let mayLoad = 1, hasSideEffects = 0, hasNoSchedulingInfo = 1 in {
++def LOADDUAL : ARMPseudoInst<(outs GPRPairOp:$Rt), (ins addrmode3:$addr),
++                             64, IIC_iLoad_d_r, []>,
++               Requires<[IsARM, HasV5TE]>;
++}
++
+ def LDA : AIldracq<0b00, (outs GPR:$Rt), (ins addr_offset_none:$addr),
+                     NoItinerary, "lda", "\t$Rt, $addr", []>;
+ def LDAB : AIldracq<0b10, (outs GPR:$Rt), (ins addr_offset_none:$addr),
+@@ -2970,6 +2982,17 @@ let mayStore = 1, hasSideEffects = 0, hasExtraSrcRegAllocReq = 1 in {
+   }
+ }
+ 
++let mayStore = 1, hasSideEffects = 0, hasNoSchedulingInfo = 1 in {
++def STOREDUAL : ARMPseudoInst<(outs), (ins GPRPairOp:$Rt, addrmode3:$addr),
++                              64, IIC_iStore_d_r, []>,
++                Requires<[IsARM, HasV5TE]>;
++}
++
++let Predicates = [IsARM, HasV5TE] in {
++def : Pat<(ARMstrd GPR:$Rt, GPR:$Rt2, addrmode3:$addr),
++          (STOREDUAL (REG_SEQUENCE GPRPair, GPR:$Rt, gsub_0, GPR:$Rt2, gsub_1), addrmode3:$addr)>;
++}
++
+ // Indexed stores
+ multiclass AI2_stridx<bit isByte, string opc,
+                       InstrItinClass iii, InstrItinClass iir> {
+diff --git a/llvm/lib/Target/ARM/ARMInstrThumb2.td b/llvm/lib/Target/ARM/ARMInstrThumb2.td
+index 7044c92a7f1..00921930e71 100644
+--- a/llvm/lib/Target/ARM/ARMInstrThumb2.td
++++ b/llvm/lib/Target/ARM/ARMInstrThumb2.td
+@@ -270,7 +270,8 @@ def t2am_imm8_offset : MemOperand,
+ 
+ // t2addrmode_imm8s4  := reg +/- (imm8 << 2)
+ def MemImm8s4OffsetAsmOperand : AsmOperandClass {let Name = "MemImm8s4Offset";}
+-class T2AddrMode_Imm8s4 : MemOperand {
++class T2AddrMode_Imm8s4 : MemOperand,
++                          ComplexPattern<i32, 2, "SelectT2AddrModeImm8<2>", []> {
+   let EncoderMethod = "getT2AddrModeImm8s4OpValue";
+   let DecoderMethod = "DecodeT2AddrModeImm8s4";
+   let ParserMatchClass = MemImm8s4OffsetAsmOperand;
+@@ -1412,7 +1413,8 @@ let mayLoad = 1, hasSideEffects = 0, hasExtraDefRegAllocReq = 1 in {
+ // Load doubleword
+ def t2LDRDi8  : T2Ii8s4<1, 0, 1, (outs rGPR:$Rt, rGPR:$Rt2),
+                         (ins t2addrmode_imm8s4:$addr),
+-                        IIC_iLoad_d_i, "ldrd", "\t$Rt, $Rt2, $addr", "", []>,
++                        IIC_iLoad_d_i, "ldrd", "\t$Rt, $Rt2, $addr", "",
++                        [(set rGPR:$Rt, rGPR:$Rt2, (ARMldrd t2addrmode_imm8s4:$addr))]>,
+                  Sched<[WriteLd]>;
+ } // mayLoad = 1, hasSideEffects = 0, hasExtraDefRegAllocReq = 1
+ 
+@@ -1593,7 +1595,8 @@ defm t2STRH:T2I_st<0b01,"strh", IIC_iStore_bh_i, IIC_iStore_bh_si,
+ let mayStore = 1, hasSideEffects = 0, hasExtraSrcRegAllocReq = 1 in
+ def t2STRDi8 : T2Ii8s4<1, 0, 0, (outs),
+                        (ins rGPR:$Rt, rGPR:$Rt2, t2addrmode_imm8s4:$addr),
+-               IIC_iStore_d_r, "strd", "\t$Rt, $Rt2, $addr", "", []>,
++               IIC_iStore_d_r, "strd", "\t$Rt, $Rt2, $addr", "",
++               [(ARMstrd rGPR:$Rt, rGPR:$Rt2, t2addrmode_imm8s4:$addr)]>,
+                Sched<[WriteST]>;
+ 
+ // Indexed stores
+diff --git a/llvm/test/CodeGen/ARM/i64_volatile_load_store.ll b/llvm/test/CodeGen/ARM/i64_volatile_load_store.ll
+new file mode 100644
+index 00000000000..7461d3651eb
+--- /dev/null
++++ b/llvm/test/CodeGen/ARM/i64_volatile_load_store.ll
+@@ -0,0 +1,153 @@
++; RUN: llc -mtriple=armv5e-arm-none-eabi %s -o - | FileCheck %s --check-prefixes=CHECK-ARMV5TE,CHECK
++; RUN: llc -mtriple=thumbv6t2-arm-none-eabi %s -o - | FileCheck %s --check-prefixes=CHECK-T2,CHECK
++; RUN: llc -mtriple=armv4t-arm-none-eabi %s -o - | FileCheck %s --check-prefixes=CHECK-ARMV4T,CHECK
++
++@x = common dso_local global i64 0, align 8
++@y = common dso_local global i64 0, align 8
++
++define void @test() {
++entry:
++; CHECK-LABEL: test:
++; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
++; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
++; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
++; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
++; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
++; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
++; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
++; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
++; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
++; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #4]
++; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #4]
++; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]]]
++  %0 = load volatile i64, i64* @x, align 8
++  store volatile i64 %0, i64* @y, align 8
++  ret void
++}
++
++define void @test_offset() {
++entry:
++; CHECK-LABEL: test_offset:
++; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #-4]
++; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #-4]
++; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
++; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
++; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
++; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
++; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #-4]
++; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #-4]
++; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #-4]
++; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
++; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]]]
++; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #-4]
++  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 -4) to i64*), align 8
++  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 -4) to i64*), align 8
++  ret void
++}
++
++define void @test_offset_1() {
++; CHECK-LABEL: test_offset_1:
++; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #255]
++; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #255]
++; CHECK-T2:           adds [[ADDR0:r[0-9]+]], #255
++; CHECK-T2-NEXT:      adds [[ADDR1:r[0-9]+]], #255
++; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
++; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
++; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #255]
++; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #259]
++; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #259]
++; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #255]
++entry:
++  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 255) to i64*), align 8
++  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 255) to i64*), align 8
++  ret void
++}
++
++define void @test_offset_2() {
++; CHECK-LABEL: test_offset_2:
++; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: mov [[OFFSET0:r[0-9]+]], #256
++; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], [[OFFSET0]]]
++; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], [[OFFSET0]]]
++; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
++; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
++; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
++; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
++; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #256]
++; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #256]
++; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #256]
++; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #260]
++; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #260]
++; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #256]
++entry:
++  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 256) to i64*), align 8
++  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 256) to i64*), align 8
++  ret void
++}
++
++define void @test_offset_3() {
++; CHECK-LABEL: test_offset_3:
++; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: mov [[OFFSET0:r[0-9]+]], #1020
++; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], [[OFFSET0]]]
++; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], [[OFFSET0]]]
++; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
++; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
++; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
++; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
++; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #1020]
++; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #1020]
++; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #1020]
++; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #1024]
++; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #1024]
++; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #1020]
++entry:
++  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 1020) to i64*), align 8
++  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 1020) to i64*), align 8
++  ret void
++}
++
++define void @test_offset_4() {
++; CHECK-LABEL: test_offset_4:
++; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: mov [[OFFSET0:r[0-9]+]], #1024
++; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], [[OFFSET0]]]
++; CHECK-ARMV5TE:      ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], [[OFFSET0]]]
++; CHECK-T2:           movw [[ADDR1:r[0-9]+]], :lower16:y
++; CHECK-T2-NEXT:      movw [[ADDR0:r[0-9]+]], :lower16:x
++; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
++; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
++; CHECK-T2-NEXT:      add.w [[ADDR0]], [[ADDR0]], #1024
++; CHECK-T2-NEXT:      add.w [[ADDR1]], [[ADDR1]], #1024
++; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
++; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
++; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
++; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #1024]
++; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #1028]
++; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #1028]
++; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #1024]
++entry:
++  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 1024) to i64*), align 8
++  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 1024) to i64*), align 8
++  ret void
++}
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191220191252.GA48729%40ubuntu-m2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/877869795.6207.1576870754573.JavaMail.javamailuser%40localhost.
+
+------=_Part_6206_1525697286.1576870752900--
