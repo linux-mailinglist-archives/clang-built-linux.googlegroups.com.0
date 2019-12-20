@@ -1,123 +1,144 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB4446TXQKGQEZARKC6A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBOF26TXQKGQEHFKSUNQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 893881281F2
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 19:09:56 +0100 (CET)
-Received: by mail-pf1-x43c.google.com with SMTP id p126sf868468pfb.9
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 10:09:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576865395; cv=pass;
+Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
+	by mail.lfdr.de (Postfix) with ESMTPS id B6F6812829F
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 20:12:57 +0100 (CET)
+Received: by mail-ot1-x340.google.com with SMTP id z13sf5120789otp.7
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 11:12:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576869176; cv=pass;
         d=google.com; s=arc-20160816;
-        b=AfAdizD9IiXK38wsrsKYgJNQHttE6Tju57KwX3xCtnVeHpNvvYj/qSBquiqzL8AeUx
-         oqMEXPZ0Ti8IA8/loVB5tsY6DGfrt5t/0zi9aGoTupybyjwKRiJ8xiTwG0q6h4YptJnO
-         +JaMgSYBVLwFfkWGEuBKu20HhA2AxW77XbX/lGRPQN7zyrFWxshxc5jK7kCx83wDaEkS
-         LL51irMyb9iFhCegj/kveeiZv9Yift0TByWrK0DD8MtWktPW6YhkJxuNWPkOBbYrMlZg
-         Tko69875qXrw+ojNOKX9mQfx5yoO+LaM4DTEOaz0KUVYcLbiiF6/izOLqaYNoBkQFltN
-         ghJA==
+        b=L6AtfANWLpqHI1lRkWwepcMbOt02mQ3A5+95bA6Zw8sz1gI3BqOTT7VqQ9GQVKjAYZ
+         kcmkF1yxO/RWReLPoFdJD4BTy+s6yd20+ecS/C5WWU2fonLlomff0IauFUnnBHRM5e/q
+         3yiB5zvCnFuujQAml87lN6eZU8EohRNJpi/6ok9nqXTIvPbEz+kem0Q/vchKbnRO4hs7
+         UldBYZJMQPpRq6dRGUGM1WSQsaZdHwxVX8BEOaVVLMS47XPkJ8eN2bi8nRZ4yPLlmJak
+         SzLxWsECVlpyVujtNGgiN2mwiKuy7AElIFIy4clbrqDPEDWqKJbETJKFAt8kPPF3ABlj
+         2XDg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=Q1Lh3yTnyndZlBFwUiqpbzUTeq+OLCNJ/25L6oh+zK0=;
-        b=gMzmpTi99y6RSebiD9QHBEdVildHg1eAcLG/dM/ZIpKtDcjUZwbnGBSCo2llJgEfQn
-         Hp9lKFafu/gPY3RWbf17e/1du8i6fGA6RvCPOZdOlvaXa14LS2Dl5WI5BJEF7Kz0js93
-         OCZkQUvsk3Mr9V6CFvLf9ax7P7gLmBMLOLMomdZTse5HrbSjrDzqDabFenzj8HcE442j
-         4lEO0JSlNTGHdipMmas6F3ISRdFDmdluB/zMQBZaGuB0r5LUSycpTva667xI0lV3mL4d
-         TKY5D1pFASoFWpVZAnveUg6goHI+M48he6iGd8ud+mRcsUWeury/Ew83D5H+Tg25FI7j
-         Xf8Q==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
+        b=eH/+10+lVl0dBpazVlx2F4HSFGerAPeF54V6b41Rn8g3WHW8HZfNQeb6u6c51k18Mh
+         xqzytBsIlTuzt/k1j2u2V7QtSWipTJ1XnzwnWTvbs8Ko52WmijbVeY7mQqqk6Qddl6Kc
+         itfxU0VjODi7Ui4QwKxstKpDVtx7qp0m8Z4jOFIl8g7aiy8HjjI3hZe7ateCp1rwAuFC
+         PRc/U4dg9aPEqACN1l64koQUKaPfJCzUmWqd83F7EKa2sTt+yYxWRu0Obmj3QFj2Br4C
+         wyoahMHCKEAkXEl1QW421yrY8klNrdFf6OZHGL8Oc52wkr5aaX2U4qNFPFM+xst/lEoU
+         8gfQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=G64k8noT;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Pbqu7Uup;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Q1Lh3yTnyndZlBFwUiqpbzUTeq+OLCNJ/25L6oh+zK0=;
-        b=jOlp94EzQz9BrnMjX8LjPUBocsy9boc9cVFvjz3wt5s6VlQ0wh8FQIAM3Zen5ow0m4
-         3SnJhGLI47QRxVoNbUWVn0AdnwIWtPMCiPuhiGeaKOpui0a0luK5IVsk4kuKteBLu6kH
-         xxc3SGkUiFxM4UULZHYfv0orzeV/LKK+7zNTlV6hHpE0Y9xCqt2K8t0ttbDQGVeAb3bn
-         cVr9C1iwxUpmG3FH0ZBAE7xQFhX/LiGQVYgBTFWxrgXoobMrOrX8IbA/ELtqQ0w4Hv9K
-         +bpr/hvQtYPu+LmzXeQRpxnE3d6LjTFtmr9QBZzg+6EWcir7fLEVtLNVfdHAJPU7mjyj
-         vPlQ==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
+        b=YtopYOWUcXK0Zsa0j7vYL+QlMeO0MHmSFe4U6kfuqpPcosrVXHEc4/hrYFfkDk9EbK
+         AhI6B8Ot855EnBbc4Ayp3F5wxOW3utMu0N5TPcF0WyJVK+7MhdvYs9uPpfsqIrn5WRYq
+         wjKO1/2ULsxrx0q/pZr+3fjSeDaPagAyiKenQ1xflMTsX0uq5ObkTVT0x+JHHLwqrDXI
+         PsKswqIBO+9y0qkEpHxjsw3TJr4Jj3HMqaDFl8BCjDoYrTCMtg2Y6jE2acblxvdk60/n
+         sVDVJfdIao0/qj34moA2pyGtXHSaKPmWOkJ0ewHZvZJM1qxg1YwI/7lVgWUNsEhRn4VL
+         nL1Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
+        b=L6X/Mn6lC4LwiI9GdeGiIJodWAgDuY2dZCmyZZzN5esnuSMZWcXVjqOcXRWnR/SdXO
+         N0/1TMArFXizJEoPOLMOkC76vIPo/0F8/FFcsq62NR5OKiDYNFj0u/L46G2Z1hWDsaMY
+         29/1PWX11M+FXNq1g6sHTkxxj9c1ThyumwD1NJEyJp1P6TG7T0Iwo9TXEZfp7AknCCD3
+         bDpRTuH53wKxn4G2ZghhVdy4ne4W22xeB13I9c4WP12ZRYR+VKl9A7U96HTqkA8QYVvr
+         onG6CeeV5EsrgKetnw1gvk7vwVEPESQP2Q/5wkjofAkQ5X7gvZEU/RT07uBrC9OC1kz9
+         YliA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=Q1Lh3yTnyndZlBFwUiqpbzUTeq+OLCNJ/25L6oh+zK0=;
-        b=esjSzq6e+L0AJ5pKzDUbV+86iIrEfWXNvvICC2wXdhZVh3OgxSbvL1rKqnRsNniwuL
-         UlUuEc/cNcQbUR4MuB9F8XfFH3FJGM8XNs67YZyWzGctHoQj+Bg6qYLI26HI5qDK+dwI
-         YU434vcyRPdlcrxSylRoAYPdb61i69JHi1wXLAVFRld0o9vpJXDnKfp2n6FB1tSlm3fx
-         sDCjDoK2uxMqUd3PRocFsrdRCakUH7S0kXMYerc3zPrR028WekIdynJ2KOtiLjlRxmyw
-         KdpUw10bvWYhmjZMBmf6o1D/3YZMMvEgIBz8f000WHjO/u1QpaFflJDtjNsFT1k9M+dm
-         CQJQ==
-X-Gm-Message-State: APjAAAUMhtxfPu0Syp7hxYAYJUuLaIwETIzg9687jgkI58oyRCAyWcmy
-	nmknvWdFshUd3kT6S0zv5bk=
-X-Google-Smtp-Source: APXvYqyF+SqoO25XHl6uUkfbCVjyBcKzQv/nsyGc+diw+m7lyrcwyH0zMFw+qifu9yOgJ+ERZHgzbg==
-X-Received: by 2002:aa7:8708:: with SMTP id b8mr1799317pfo.184.1576865395154;
-        Fri, 20 Dec 2019 10:09:55 -0800 (PST)
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=vM38kgLtk1qRD2Rz9l5AbgutYAtrL0/JNWaE8lZB+Ek=;
+        b=BfRIKN2O2DzHAoBimJN6jVq+wQMZi4VRKDnQGFvBc89/fqWfGfxWq9zdI1lofYiPE5
+         PgCv76tDFD8+LPrhSlM8m1/s6TPekrzi2tCHWuE12br+b7TqS9fVzmthzhl0lrFA//Lq
+         ISdEw4LxYhZZWiKz9Q3ax66SVWew4GSbleifVtugSIV038UhKtvrS7BxMylraIS+zTtt
+         BYoXLRZ0X2QpAk/rSEFrO6yHuj3Gwmz2Ka0siNd5vfFXR3MvU644MfDx/kT7lzYgvADD
+         coeLKhY23uge75nyZG6OdULpzGt4OD/I9TIlqszXvKSSsItXD2JlehxekBT0skRpP5ZN
+         sukg==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAWglple5uiDo6cCcReG3GfFtkHVXaQZ8N4Bnf9waPsKvmsG9yMz
+	QgLlgTkocMs3nDUTI52B7KM=
+X-Google-Smtp-Source: APXvYqya/QxBUn6z80L2z6T5tFdmbwZwIlywHqkQjBZr3hTYYtFhJNBrGOb2EndxgVI/cXk4Mf1CCA==
+X-Received: by 2002:aca:d4c1:: with SMTP id l184mr4668603oig.172.1576869176146;
+        Fri, 20 Dec 2019 11:12:56 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:3421:: with SMTP id o30ls2659736pjb.1.canary-gmail;
- Fri, 20 Dec 2019 10:09:54 -0800 (PST)
-X-Received: by 2002:a17:902:b690:: with SMTP id c16mr16411041pls.72.1576865394700;
-        Fri, 20 Dec 2019 10:09:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576865394; cv=none;
+Received: by 2002:aca:d615:: with SMTP id n21ls624485oig.5.gmail; Fri, 20 Dec
+ 2019 11:12:55 -0800 (PST)
+X-Received: by 2002:a05:6808:5d0:: with SMTP id d16mr4695741oij.45.1576869175773;
+        Fri, 20 Dec 2019 11:12:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576869175; cv=none;
         d=google.com; s=arc-20160816;
-        b=BsuZS7GoARZPs1NJzx6RMprH69qzANHU4uIxBVyM09cicwFzIQ0XSkEs2tlFKWvqNu
-         ukkNXYX+na72ZCM1+HIsLEPpxpQzIoxQDAmJT/17Pes9/eE4a/6OhNQbrUZVziqG1Fih
-         TO5rL/+DnQEmR0/VH9L0dcmVo129J1j0i7FTL4AnTjMBgTMm91i9LStUQEfTEsn1VO63
-         11gZNdAHWAg7OMRcbnHeb+YiZ6Dvir3zNwKHsyDXnKs9ul/DmwhmiRkLU98exlyQJo6x
-         l+pnikXTwpxvirNcQJc7IS9swd8Ux17GI4wlfCHXP9PhIZYdjSJWJd9sFc9LifkkPyoo
-         XDsQ==
+        b=0vojnnaC4srwj4dPw7zMACnlHDQMxKZF6KcJAYqxb4WzJxH6RV81bgSPh8JM//yeId
+         lWVNu1DU65Vf55miwn+Tx7rhcbgv/VxAy/QEVUbHnvFPSE9sSGpq1ha1jav/WFYRrvvF
+         5x42GYWQC1anpWoBgIsOIGA7UZkUs74aHl/jBLBsJgrpSy3FbEKqoEovKuKiC4bUwS7f
+         UhT1Er0DQKu7DXGsRGg9EVedfAemKHR9TN3fmZ3mxQF3Kh5fQ5O5Jb9agcXzxCDVsqpZ
+         uq0F/G06eYzSJWyWqwJM52PucQqIt9szX8osbCkUUNHvu2YN6hRY/AYC5BUmFLnN1ZHl
+         11QQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1NoYeCvzhEf2ThmFbvrz2tyjWvGOYahfq+FFDczVt3k=;
-        b=TBkCm1V2PhxVYTKct3PAXA9pS0OcIn+ax/wIEOd7FlO5LQVS7WOl3xqMpflO7x0SUF
-         wVtYQZVB2zvD1zOJVhcDvnj1GGH0tsDnBEAkZFjxXZSgyXS7h6QdlHnUg11xPyMmTyCl
-         OMr6hgVdPxqreFTYBJx5LeyUMkwSc4A/tLAPlaGJgz2kh0HIDlIUV9Z7KYkn1rwlzCJ2
-         3hHONvP6KvI5dV2y9Sb8+f1SAf1MMhjMK7hjFZE4rFNx+oqBUF6b8/ZsWWVPwYI6hcBA
-         kCZc0249RIw5ojhNZRbMCJtM4ih5s0WZrPNWmSyThzFdNDtjvkODrusILDY+lYMin9X1
-         dVEw==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=AQWMjzoLCchFmkZQ8yhMwAYAhwyzEvr1a64rPKNFxB4=;
+        b=k7bWAfrtd1tefc/7PexBYrMAEBD54ljBXg4SbGS6S7QmBGivQFeSudWGWyj0zHL8wM
+         lnjPDfHkPqOXY4UPjJaqSli3Nk48RkQxXa/NOiHDGSMCIEPMNG3cYEr1HoKAZHuiuggS
+         CpaCQSu6Q4ekROhDkEAiqljibyGto0mH3PuMxr5KapooQM4c93mpbYwhvw/TgEHHZrdp
+         uR/wff2ky/51+ARNlARmRKe4l5KCi5eNuwHkgHNIphgZcGNgzL9sYk41Vn2h+N+K49ku
+         B+V8qO54DHRzgP8vmoMP93rFOLoHow80hMTTb378Q+y2NUDgUeXsD4QLOCsXJNA9rdFc
+         9M2A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=G64k8noT;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id k1si489521pgj.0.2019.12.20.10.09.54
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Pbqu7Uup;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x344.google.com (mail-ot1-x344.google.com. [2607:f8b0:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id w63si412326oif.2.2019.12.20.11.12.55
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2019 10:09:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
-Received: by mail-pf1-x444.google.com with SMTP id l127so5636497pfl.1
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Dec 2019 10:09:54 -0800 (PST)
-X-Received: by 2002:a63:590e:: with SMTP id n14mr15983487pgb.10.1576865394047;
- Fri, 20 Dec 2019 10:09:54 -0800 (PST)
-MIME-Version: 1.0
-References: <20191218030025.10064-1-natechancellor@gmail.com>
-In-Reply-To: <20191218030025.10064-1-natechancellor@gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 20 Dec 2019 10:09:43 -0800
-Message-ID: <CAKwvOdk0hz-Eu00yRwRT6MFDmxPWdgnuYZWxGxASicCq68NivQ@mail.gmail.com>
-Subject: Re: [PATCH] fbmem: Adjust indentation in fb_prepare_logo and fb_blank
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Bartlomiej Zolnierkiewicz <b.zolnierkie@samsung.com>, dri-devel <dri-devel@lists.freedesktop.org>, 
-	linux-fbdev@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
+        Fri, 20 Dec 2019 11:12:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::344 as permitted sender) client-ip=2607:f8b0:4864:20::344;
+Received: by mail-ot1-x344.google.com with SMTP id k14so13047500otn.4
+        for <clang-built-linux@googlegroups.com>; Fri, 20 Dec 2019 11:12:55 -0800 (PST)
+X-Received: by 2002:a05:6830:11d2:: with SMTP id v18mr408027otq.151.1576869175365;
+        Fri, 20 Dec 2019 11:12:55 -0800 (PST)
+Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id r23sm3476683oij.38.2019.12.20.11.12.54
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Fri, 20 Dec 2019 11:12:54 -0800 (PST)
+Date: Fri, 20 Dec 2019 12:12:52 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jslaby@suse.com>, LKML <linux-kernel@vger.kernel.org>,
 	clang-built-linux <clang-built-linux@googlegroups.com>
+Subject: Re: [PATCH] tty: synclink: Adjust indentation and style in several
+ functions
+Message-ID: <20191220191252.GA48729@ubuntu-m2-xlarge-x86>
+References: <20191218022758.53697-1-natechancellor@gmail.com>
+ <CAKwvOdnOYUy7M0upKsknwPJOa6iYwtaqZAafrxdb4z_=vDmuXw@mail.gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdnOYUy7M0upKsknwPJOa6iYwtaqZAafrxdb4z_=vDmuXw@mail.gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=G64k8noT;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::444
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=Pbqu7Uup;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::344 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,124 +151,126 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Dec 17, 2019 at 7:00 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
-> Clang warns:
->
-> ../drivers/video/fbdev/core/fbmem.c:665:3: warning: misleading
-> indentation; statement is not part of the previous 'else'
-> [-Wmisleading-indentation]
->         if (fb_logo.depth > 4 && depth > 4) {
->         ^
-> ../drivers/video/fbdev/core/fbmem.c:661:2: note: previous statement is
-> here
->         else
->         ^
-> ../drivers/video/fbdev/core/fbmem.c:1075:3: warning: misleading
-> indentation; statement is not part of the previous 'if'
-> [-Wmisleading-indentation]
->         return ret;
->         ^
-> ../drivers/video/fbdev/core/fbmem.c:1072:2: note: previous statement is
-> here
->         if (!ret)
->         ^
-> 2 warnings generated.
->
-> This warning occurs because there are spaces before the tabs on these
-> lines. Normalize the indentation in these functions so that it is
-> consistent with the Linux kernel coding style and clang no longer warns.
->
-> Fixes: 1692b37c99d5 ("fbdev: Fix logo if logo depth is less than framebuffer depth")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/825
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+On Fri, Dec 20, 2019 at 10:04:02AM -0800, Nick Desaulniers wrote:
+> On Tue, Dec 17, 2019 at 6:28 PM Nathan Chancellor
+> <natechancellor@gmail.com> wrote:
+> >
+> > Clang warns:
+> >
+> > ../drivers/tty/synclink.c:1167:3: warning: misleading indentation;
+> > statement is not part of the previous 'if' [-Wmisleading-indentation]
+> >         if ( (status & RXSTATUS_ABORT_RECEIVED) &&
+> >         ^
+> > ../drivers/tty/synclink.c:1163:2: note: previous statement is here
+> >         if ( debug_level >= DEBUG_LEVEL_ISR )
+> >         ^
+> > ../drivers/tty/synclink.c:1973:3: warning: misleading indentation;
+> > statement is not part of the previous 'if' [-Wmisleading-indentation]
+> >         if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
+> >         ^
+> > ../drivers/tty/synclink.c:1971:2: note: previous statement is here
+> >         if (I_INPCK(info->port.tty))
+> >         ^
+> > ../drivers/tty/synclink.c:3229:3: warning: misleading indentation;
+> > statement is not part of the previous 'else' [-Wmisleading-indentation]
+> >         usc_set_serial_signals(info);
+> >         ^
+> > ../drivers/tty/synclink.c:3227:2: note: previous statement is here
+> >         else
+> >         ^
+> > ../drivers/tty/synclink.c:4918:4: warning: misleading indentation;
+> > statement is not part of the previous 'else' [-Wmisleading-indentation]
+> >                 if ( info->params.clock_speed )
+> >                 ^
+> > ../drivers/tty/synclink.c:4901:3: note: previous statement is here
+> >                 else
+> >                 ^
+> > 4 warnings generated.
+> >
+> > The indentation on these lines is not at all consistent, tabs and spaces
+> > are mixed together. Convert to just using tabs to be consistent with the
+> > Linux kernel coding style and eliminate these warnings from clang.
+> >
+> > Additionally, clean up some of lines touched by the indentation shift to
+> > eliminate checkpatch warnings and leave this code in a better condition
+> > than when it was left.
+> 
+> Indeed, this file is kind of a mess.
+> 
+> >
+> > -:10: ERROR: trailing whitespace
+> > -:10: ERROR: that open brace { should be on the previous line
+> > -:10: ERROR: space prohibited after that open parenthesis '('
+> > -:14: ERROR: space prohibited before that close parenthesis ')'
+> > -:82: ERROR: trailing whitespace
+> > -:87: WARNING: Block comments use a trailing */ on a separate line
+> > -:88: ERROR: that open brace { should be on the previous line
+> > -:88: ERROR: space prohibited after that open parenthesis '('
+> > -:88: ERROR: space prohibited before that close parenthesis ')'
+> > -:99: ERROR: else should follow close brace '}'
+> >
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/821
+> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+> > ---
+> >  drivers/tty/synclink.c | 55 ++++++++++++++++++++----------------------
+> >  1 file changed, 26 insertions(+), 29 deletions(-)
+> >
+> > diff --git a/drivers/tty/synclink.c b/drivers/tty/synclink.c
+> > index 61dc6b4a43d0..586810defb21 100644
+> > --- a/drivers/tty/synclink.c
+> > +++ b/drivers/tty/synclink.c
+> > @@ -1164,21 +1164,20 @@ static void mgsl_isr_receive_status( struct mgsl_struct *info )
+> >                 printk("%s(%d):mgsl_isr_receive_status status=%04X\n",
+> >                         __FILE__,__LINE__,status);
+> >
+> > -       if ( (status & RXSTATUS_ABORT_RECEIVED) &&
+> > +       if ((status & RXSTATUS_ABORT_RECEIVED) &&
+> >                 info->loopmode_insert_requested &&
+> > -               usc_loopmode_active(info) )
+> > -       {
+> > +               usc_loopmode_active(info)) {
+> >                 ++info->icount.rxabort;
+> > -               info->loopmode_insert_requested = false;
+> > -
+> > -               /* clear CMR:13 to start echoing RxD to TxD */
+> > +               info->loopmode_insert_requested = false;
+> > +
+> > +               /* clear CMR:13 to start echoing RxD to TxD */
+> >                 info->cmr_value &= ~BIT13;
+> > -               usc_OutReg(info, CMR, info->cmr_value);
+> > -
+> > +               usc_OutReg(info, CMR, info->cmr_value);
+> > +
+> >                 /* disable received abort irq (no longer required) */
+> > -               usc_OutReg(info, RICR,
+> > -                       (usc_InReg(info, RICR) & ~RXSTATUS_ABORT_RECEIVED));
+> > -       }
+> > +               usc_OutReg(info, RICR,
+> > +                       (usc_InReg(info, RICR) & ~RXSTATUS_ABORT_RECEIVED));
+> > +       }
+> >
+> >         if (status & (RXSTATUS_EXITED_HUNT | RXSTATUS_IDLE_RECEIVED)) {
+> >                 if (status & RXSTATUS_EXITED_HUNT)
+> > @@ -1970,8 +1969,8 @@ static void mgsl_change_params(struct mgsl_struct *info)
+> 
+> I'm surprised the next hunk isn't mgsl_isr_transmit_status() in
+> L1211-L1268?  I don't mind reformatting this file, but would you mind:
+> 1. splitting the changes that fix the warning and reformatting the
+> rest of the file in two?  That way the warning fix is more likely to
+> merge back cleanly to LTS branches with less risk of merge conflict?
+> Warning fix first, then reformat.
+> 2. reformat the whole thing, not just most of it.
 
-Thanks for the patch!
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Yes, I will go ahead and break down these three TTY commits into six
+(first three fixing the Clang warnings then the next three fixing all of
+the indentation and spacing warnings).
 
-> ---
->  drivers/video/fbdev/core/fbmem.c | 36 ++++++++++++++++----------------
->  1 file changed, 18 insertions(+), 18 deletions(-)
->
-> diff --git a/drivers/video/fbdev/core/fbmem.c b/drivers/video/fbdev/core/fbmem.c
-> index 0662b61fdb50..bf63cc0e6b65 100644
-> --- a/drivers/video/fbdev/core/fbmem.c
-> +++ b/drivers/video/fbdev/core/fbmem.c
-> @@ -662,20 +662,20 @@ int fb_prepare_logo(struct fb_info *info, int rotate)
->                 fb_logo.depth = 1;
->
->
-> -       if (fb_logo.depth > 4 && depth > 4) {
-> -               switch (info->fix.visual) {
-> -               case FB_VISUAL_TRUECOLOR:
-> -                       fb_logo.needs_truepalette = 1;
-> -                       break;
-> -               case FB_VISUAL_DIRECTCOLOR:
-> -                       fb_logo.needs_directpalette = 1;
-> -                       fb_logo.needs_cmapreset = 1;
-> -                       break;
-> -               case FB_VISUAL_PSEUDOCOLOR:
-> -                       fb_logo.needs_cmapreset = 1;
-> -                       break;
-> -               }
-> -       }
-> +       if (fb_logo.depth > 4 && depth > 4) {
-> +               switch (info->fix.visual) {
-> +               case FB_VISUAL_TRUECOLOR:
-> +                       fb_logo.needs_truepalette = 1;
-> +                       break;
-> +               case FB_VISUAL_DIRECTCOLOR:
-> +                       fb_logo.needs_directpalette = 1;
-> +                       fb_logo.needs_cmapreset = 1;
-> +                       break;
-> +               case FB_VISUAL_PSEUDOCOLOR:
-> +                       fb_logo.needs_cmapreset = 1;
-> +                       break;
-> +               }
-> +       }
->
->         height = fb_logo.logo->height;
->         if (fb_center_logo)
-> @@ -1060,19 +1060,19 @@ fb_blank(struct fb_info *info, int blank)
->         struct fb_event event;
->         int ret = -EINVAL;
->
-> -       if (blank > FB_BLANK_POWERDOWN)
-> -               blank = FB_BLANK_POWERDOWN;
-> +       if (blank > FB_BLANK_POWERDOWN)
-> +               blank = FB_BLANK_POWERDOWN;
->
->         event.info = info;
->         event.data = &blank;
->
->         if (info->fbops->fb_blank)
-> -               ret = info->fbops->fb_blank(blank, info);
-> +               ret = info->fbops->fb_blank(blank, info);
->
->         if (!ret)
->                 fb_notifier_call_chain(FB_EVENT_BLANK, &event);
->
-> -       return ret;
-> +       return ret;
->  }
->  EXPORT_SYMBOL(fb_blank);
->
-> --
-> 2.24.1
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191218030025.10064-1-natechancellor%40gmail.com.
+I should be able to do this tonight or tomorrow at some point.
 
-
-
--- 
-Thanks,
-~Nick Desaulniers
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdk0hz-Eu00yRwRT6MFDmxPWdgnuYZWxGxASicCq68NivQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191220191252.GA48729%40ubuntu-m2-xlarge-x86.
