@@ -1,127 +1,130 @@
-Return-Path: <clang-built-linux+bncBDT6TV45WMPRB2UT6LXQKGQEGUNP4HI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBCVK6LXQKGQE2QGMSFI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id AEA3B127765
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 09:44:26 +0100 (CET)
-Received: by mail-wr1-x438.google.com with SMTP id f15sf3547225wrr.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 00:44:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576831466; cv=pass;
+Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id A6515127824
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 10:31:56 +0100 (CET)
+Received: by mail-pf1-x43d.google.com with SMTP id c23sf5765232pfn.5
+        for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 01:31:56 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576834315; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EBdD2EFSenvNZVPA/Zyvp148lI146yqD3u20769NzNibglCdhmwLCiCopvkmqCN3hf
-         wUehN0LQ/kigIrAEL3CfQlcwxi2uP5rgNufsstDOuXZzxnKS0ILZ02irxLNWbpwf3LDK
-         v7jC/70xvHSpFxOPxJMp4J+cfaFN/4tBRfyFRXVj4LFTw4GZFMDGUGir/KPWRiQl6MDg
-         Cwr2L9U/ieev2WKgxfce8IEuJNQQjFKb10pARmULC88SpFSJqRJcUfFDfGeyykqPZAQo
-         za5BZpoCCt+gdfupM7N2kMeFblSowljrodv3xWHtcJ8DJ9l+5q4VX67yB1zOaJSAH4Yf
-         Pq2A==
+        b=Xf9V8el5B2vAWeopFKlSKSaBPM2d1WfR1qaI2p9MwqoLYkM/zAhL+QoM8jjuSdKrUO
+         vqZmwbmpTJOYy991cA1xRSyQrEd25Oo750ILO08Lfeax7PXBrGTIR5Fzf6RIKJDOTcQV
+         8Z5KxiWObP0mZnQi1S5kspcC2UNSegKG+GFUJw1cnc602AVY5I1Gi2iDdAoXr9tR6eQR
+         wYErQlTxxLlSAK8tzifbyEyku+5twZfHWrKyywh/YZf3r8EeB4YEUUEHAsuPq1lPRb8r
+         rZGELn3xa4rbk4Owh6ijzHSfSJzQ8Kiqsh3tEfDwH1Q6co9EPlOVIQE8lE2lK45jkbfz
+         Blmw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:from:to:subject
-         :content-transfer-encoding:mime-version:date:message-id:sender
+         :list-id:mailing-list:precedence:user-agent:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=cB9sPyrJojp/TgfRuYmE8wgsLn02JX2NncdXA2ywubw=;
-        b=VTAwhDv2WckZui9h9pi/g1VJRCCHBuAcck/Y03xFI3asObsgzfG7AR7TKprqYKfwo5
-         rKG0dRboD0xeDYIYO6GvlqtsZCryyJffJg3FkqpP1fhZh5x7O9JDW39GAMvCd1Uc2QJ5
-         UG5rDV+vYvEGIHhG5J/hgMpBocTbxed/haAAl1PWPnAUCNAGvLYvBFNBy37dkA3lL9TP
-         FN+eYLjt1HY3lWdxUrkxRPHeu7L+iH1mq0hwZb1Gdp9K4rne+UsC8PSlVAwij3o13uEr
-         WP/wxKpiTXGZkYwstJun9Xbs+PLU45jwKlBAY+jb0qzRQaJYmdZf9IH7JXsmND2qNGyt
-         kJwQ==
+        bh=SlBmvTkQtICQiBbflCMCtlDX1SMr4pi2dKk/5MJ/lzk=;
+        b=nHAgYxLBUS9NcwoJ2Fb0yTJ8aeU2XPMhDobDXNxvW+fz78uxB5ZxAclK7t/r410Wve
+         cKYoI2aRgvBnoBD9jXjQqmyz+GVuw+DnsLhF/ZJAwNFf827+s9KkWIVbK59g1+TkUd7+
+         IV+2r03NxpwCNYALcnc7WrtCGfcj+Wjx/c/Zlex9AV3CInwcaT2nI05mmngumgnjvIBV
+         JC9LGjtxisWEqTUHJ69kYRQcGIUgOU5idiwdx1BeKo28aQxnek9KAkT8J3cbLZuC04Pa
+         aAxZavBUPjuMi1LKWbmP+u6YFfAyk3xPruILrSpTryiCiwjZvv5YUAXQDOOfW4azMXw+
+         yl+g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=seSBIZgV;
-       spf=neutral (google.com: 2a00:1450:4864:20::342 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:date:mime-version:content-transfer-encoding
-         :subject:to:from:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=cB9sPyrJojp/TgfRuYmE8wgsLn02JX2NncdXA2ywubw=;
-        b=Myp/WJhKA3CKopnEFO8zTniu314cjuL7wYGjUHjP4tAHQEIVEu9+jd1cBOX8tmfpLH
-         wDwHlo5YOQqmami0N7k8hMuody3OUz5DhLRNQ3t3EvmKvsO570t8WWto+mGZmX1OZpl4
-         Eb+IHY4bikHHMZUC9zbnYAgwDiMECUk8kTTC/DC/HWOVbeL1f1wtYqwzHb28/SUWIDaP
-         H6cXcY4d/hfqU2Y1jTDObfWXH4l2XKlG4mjyuUEG0yBCOpGqCKJhh7X0D5zM4N1GyuzX
-         +hSRz3dZq3Iz7nCUnKesMJ2jhBYjxnYvZoIu2fCPWlSjTjEq3EyI6TwJ3QGPmlcP0ZtM
-         lksg==
+        h=sender:date:from:to:cc:subject:message-id:mime-version
+         :content-disposition:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=SlBmvTkQtICQiBbflCMCtlDX1SMr4pi2dKk/5MJ/lzk=;
+        b=ahZLMTZoGVlrjvONlCyOnDicNrmoeCDMmfVwoQ2qHWXeicmniNpmXyzZ8V9pELa8Qp
+         4Eu3rfMvdkvGcfEogx+rRKHkEEbE0erzWjRWhF/DGPPjGB8JCt4o2oClYCg/NcQCn9X+
+         1J0o2DhWN3dPaIvALauDIqGYpjqYF0saSvvS9NAgo6sIwOudaSVWCGs/a5xqU22Pj/us
+         WI/fgZfGxGsxvD+xjYKkjEovk81UWUKaIdDZ4INfydcrqglhrEbh4zVh/2g8z9iCohNO
+         mgjQyJnRax9TdLweqMG6fQgmOs1F0+901K/RMXdB7hRcxw0H5l4yJPONvWisvM3KMlyG
+         +6ig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:date:mime-version
-         :content-transfer-encoding:subject:to:from:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :mime-version:content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cB9sPyrJojp/TgfRuYmE8wgsLn02JX2NncdXA2ywubw=;
-        b=Bf8E93guqN/w41BWPp+SwVNoZglJuweZy0GagUqt96rzZoQHaMdn6ioBqnz7fNGiXl
-         7qWmS9KHMSMjroE+0DE4p+NrWcYlutwhzIKj493iUl/tHLpJ9bDlSBNg5Q5Dfdj4/akC
-         igzid7aDZDahFUnZXZIg7Qh7q8RLAav649fYsZEHY95Vby3PnvTL+boRofyeHcrkD5gN
-         Rx4iOJovBM3jA00mwwn2klXjpGXWAstSm5Xqk6HHCk8jvJeDfo7knLtgzx7IOibEg+db
-         PWFF9GSKPPwJKKWkH3Nf9RaGj4B3BTZ7DJAZZ5uJkf+FYvfROK1c9aR/B7qwdJ6vr/Yh
-         CABg==
+        bh=SlBmvTkQtICQiBbflCMCtlDX1SMr4pi2dKk/5MJ/lzk=;
+        b=OjZhxY6wg4dOX0uvKE3QaqSnY34ej9YT7UQvC2hH7rUbBmgLNxU9X/Ex2jlSn9fBT3
+         GW7hWKYpHhZ2y9NgVxHZ04966gelf9AaQu4hR4hH42dfKbOb64iwlCLZcYaoENaS1FP2
+         +Zd5BP6Z0jmNyvX0U80sYi7QvediDv/e0XCxy3HQ+cy1FHsm2C5dfNhsSiZmNqi7vkJB
+         9TGV+TeCKhZF90DlSEw7h9pW2T1ieI6el/j/GnneZZ7zQQJhT4VpR6chdD1nUO8zkAsu
+         zWgbAQYxaHhHYHCwHmVmn+EUDq2N1PWec0Y7fshavgc7xQRcnT7KZWk+7W5XxVVtb8fu
+         Eatg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVBsgYz8plQCIqwWKKc8JPFmZMmUhBaD81ABvd/umDdm4slwfB4
-	IpeMpflAXdRERfUZ3uQr6u8=
-X-Google-Smtp-Source: APXvYqyMf++D2G0YbETqc7sKrahLFW84ABK+/oSGCJRlmzeiBu2SniWXWqkOscJi+BVOekiP6t3RIw==
-X-Received: by 2002:a7b:c7d4:: with SMTP id z20mr16061854wmk.42.1576831466210;
-        Fri, 20 Dec 2019 00:44:26 -0800 (PST)
+X-Gm-Message-State: APjAAAW+fREuIeStl61J+jeGov237xJIGqfUghQ8G4lbQmfE+x2mz4b5
+	dNiBEQMyu178BrM8k7GX6fI=
+X-Google-Smtp-Source: APXvYqxrUf1pFcA3RGapqqG4f6gWtxqlKO6cZJQntU/WaFl1r26WQfCVAqheU+Blqc8t8BIguOi2CQ==
+X-Received: by 2002:a65:488f:: with SMTP id n15mr14602236pgs.61.1576834314750;
+        Fri, 20 Dec 2019 01:31:54 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:e913:: with SMTP id q19ls2737785wmc.3.canary-gmail; Fri,
- 20 Dec 2019 00:44:25 -0800 (PST)
-X-Received: by 2002:a05:600c:22d1:: with SMTP id 17mr15543821wmg.23.1576831465570;
-        Fri, 20 Dec 2019 00:44:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576831465; cv=none;
+Received: by 2002:a62:ab0b:: with SMTP id p11ls2313065pff.0.gmail; Fri, 20 Dec
+ 2019 01:31:54 -0800 (PST)
+X-Received: by 2002:a63:2d44:: with SMTP id t65mr14700365pgt.112.1576834314225;
+        Fri, 20 Dec 2019 01:31:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576834314; cv=none;
         d=google.com; s=arc-20160816;
-        b=fzY6sqeFqPuZc7zxHWpdKrlzYwDt8z+onbH+cyuI7jiMCLJ6C2RhJusZbkqBLlAWkb
-         yREBwwiRCa1lLvjmRX3tkbUCUD7AN01s2bPtMOxw3IuTcAHtBn/7qhBNjOqXGmd3Y5lf
-         OGsdfOJrazbCHbSMr1ebZJwN/Ag0v9wxbGhUh3o0fWJQ8ayRtPundC/wVlbELn1pHGGT
-         rh7jtylcJf8nLNNKHhqGxIOEo6rBSQRU8xY9iJ3rkaZf/8CK8BQ4QmEWrAaTzx4HpmLh
-         wWqVbAQrvaI1afb8yjE2TIFNJUCYSLkegCsH3tk2kt+8dHg+IBwdp2xOJUId2Z6iu6aO
-         N+yg==
+        b=vM+pWIe8GrR9j9QXSBB2a+CYNm/trTF2ZdVAYoc7unE4XewPxUVYhyy1WGUTdJExLf
+         uIU/qeefgdDRtzPZ6KlmTwPKjQ/7xFhgGEXO4RMUNp8C4o9u2Hk7Zv+/aaYdCn2FBopd
+         JjUtAADIHFi53sAhvbvxIXA5L5qYO7AYDr68OGaFAvbIsPgEQgNnh1y6Z5udV//iVFdX
+         MvPC4kaG25xBbtVKWTkGNTKM/fO/9FoQZKcKb3nBtK22LwYwWt/GmGoOiWTdfQRg7ZoH
+         P4PJW1KyjGj2lLRtDIilF2Gd2zxf/YyUnK8rky9u9rzu5F3wa2yx//AnJgI3GxotTk+8
+         UDtw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=from:to:subject:content-transfer-encoding:mime-version:date
-         :message-id:dkim-signature;
-        bh=QIrcmNIlFXt8QIvRIx7e7+7FI6uDYrYLzcGJBXFQgOY=;
-        b=FwnVl1Y8u/SUzCZz/jrqIG9AMIwWSMqSF/4z85wuttlLKcC0bIKtK7XFWlWA17qSHL
-         Dy/oARghIjeBkNyqx60kPdR8YE4UdFm0GgjGq6Gya4Yi0KcGJJ8c+Oi9Bh3iD4xnsMBs
-         CbUjcNaz3UyWo1AU6a1jWsACFZhgFWd3/w/8SzAKMOhoyN/v42EIccG4JlQkl97cgJSa
-         +LCXkT5c0FsRpk3204hbEQAve6m/BlPhPZsKSPbp44gA6UT4qCfmBnJUKwssCHa8a279
-         qA3B5ZlYGK6Quq72jRzJr9DwxcEExkfsTA2cEwLTZ6ZqsUyOG7eF/xXkSbea9H/T6/nz
-         z2yg==
+        h=user-agent:content-disposition:mime-version:message-id:subject:cc
+         :to:from:date;
+        bh=2pFjj/hj6AKZVD4kmONj3FVt1O9ahV/qNWB/ZNn4BeQ=;
+        b=O236SJ7jBezzJap83E+7uFjHBVhLzuyEQrH59s3AXX9LHmKo9E9wZXz5WiPeue0Gjh
+         0YrUQNntS6AyyDFFbgLh1TlErbZxraf5rVSVtGpPRCfxryLhLvtuStlswaDFSpu6Pogr
+         bdA9MQtm/cMR2EhrGzCTLfhfsqRoZSO8wjSRRr4EqNCaF/bUTf/GrqDRj6Qkc9XrwBv5
+         HfBMBadQ0bzfsgf09VlMAI/gaJe9oUazgahEV0E5P2qN1fYah1onCe08RrlFpJzYjXec
+         /VSiSbv06A25dvsjq+FwOIeXQnNQ80jvTJep17XhaXRaDvC6TqGd2ywNULa5PldMn+zT
+         c8tw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=seSBIZgV;
-       spf=neutral (google.com: 2a00:1450:4864:20::342 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
-Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id u9si428645wri.3.2019.12.20.00.44.25
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id m11si203894pjb.0.2019.12.20.01.31.54
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 20 Dec 2019 00:44:25 -0800 (PST)
-Received-SPF: neutral (google.com: 2a00:1450:4864:20::342 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2a00:1450:4864:20::342;
-Received: by mail-wm1-x342.google.com with SMTP id p17so8343225wmb.0
-        for <clang-built-linux@googlegroups.com>; Fri, 20 Dec 2019 00:44:25 -0800 (PST)
-X-Received: by 2002:a1c:9e58:: with SMTP id h85mr15229979wme.77.1576831463320;
-        Fri, 20 Dec 2019 00:44:23 -0800 (PST)
-Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
-        by smtp.gmail.com with ESMTPSA id i10sm9094963wru.16.2019.12.20.00.44.21
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 20 Dec 2019 00:44:22 -0800 (PST)
-Message-ID: <5dfc89e6.1c69fb81.b8ff3.e095@mx.google.com>
-Date: Fri, 20 Dec 2019 00:44:22 -0800 (PST)
-Content-Type: text/plain; charset="UTF-8"
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 20 Dec 2019 01:31:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+X-Amp-Result: UNKNOWN
+X-Amp-Original-Verdict: FILE UNKNOWN
+X-Amp-File-Uploaded: False
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 20 Dec 2019 01:31:52 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.69,335,1571727600"; 
+   d="gz'50?scan'50,208,50";a="210764385"
+Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 20 Dec 2019 01:31:50 -0800
+Received: from kbuild by lkp-server01 with local (Exim 4.89)
+	(envelope-from <lkp@intel.com>)
+	id 1iiEdS-0002Y9-BS; Fri, 20 Dec 2019 17:31:50 +0800
+Date: Fri, 20 Dec 2019 17:31:19 +0800
+From: kbuild test robot <lkp@intel.com>
+To: kbuild@lists.01.org
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	clang-built-linux@googlegroups.com
+Subject: [superna9999:amlogic/v5.6/dw-hdmi-yuv420 24/24]
+ drivers/gpu/drm/meson/meson_dw_hdmi.c:775:57: error: no member named 'fmt'
+ in 'struct drm_bus_cfg'
+Message-ID: <201912201716.kU5t8oVh%lkp@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Kernelci-Report-Type: build
-X-Kernelci-Kernel: next-20191220
-X-Kernelci-Tree: next
-X-Kernelci-Branch: master
-Subject: next/master build: 214 builds: 3 failed, 211 passed, 7 errors,
- 185 warnings (next-20191220)
-To: clang-built-linux@googlegroups.com
-From: "kernelci.org bot" <bot@kernelci.org>
-X-Original-Sender: bot@kernelci.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
- header.b=seSBIZgV;       spf=neutral (google.com: 2a00:1450:4864:20::342 is
- neither permitted nor denied by best guess record for domain of
- bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Content-Type: multipart/mixed; boundary="raghuc2fvxibirx5"
+Content-Disposition: inline
+User-Agent: NeoMutt/20170113 (1.7.2)
+X-Original-Sender: lkp@intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,2123 +137,917 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-next/master build: 214 builds: 3 failed, 211 passed, 7 errors, 185 warnings=
- (next-20191220)
 
-Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
-xt-20191220/
-
-Tree: next
-Branch: master
-Git Describe: next-20191220
-Git Commit: 7ddd09fc4b745fb1d8942f95389583e08412e0cd
-Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
-Built: 7 unique architectures
-
-Build Failures Detected:
-
-arm64:
-    allmodconfig: (gcc-8) FAIL
-
-arm:
-    allmodconfig: (gcc-8) FAIL
-
-mips:
-    db1xxx_defconfig: (gcc-8) FAIL
-
-Errors and Warnings Detected:
-
-arc:
-    allnoconfig (gcc-8): 2 warnings
-    axs103_defconfig (gcc-8): 2 warnings
-    axs103_smp_defconfig (gcc-8): 2 warnings
-    haps_hs_defconfig (gcc-8): 2 warnings
-    haps_hs_smp_defconfig (gcc-8): 2 warnings
-    hsdk_defconfig (gcc-8): 2 warnings
-    nsimosci_hs_defconfig (gcc-8): 2 warnings
-    nsimosci_hs_smp_defconfig (gcc-8): 2 warnings
-    tinyconfig (gcc-8): 1 warning
-    vdk_hs38_defconfig (gcc-8): 1 warning
-    vdk_hs38_smp_defconfig (gcc-8): 1 warning
-
-arm64:
-    allmodconfig (gcc-8): 3 errors, 2 warnings
-    allnoconfig (gcc-8): 1 warning
-    defconfig (gcc-8): 1 warning
-    defconfig (gcc-8): 1 warning
-    defconfig (gcc-8): 1 warning
-
-arm:
-    allmodconfig (gcc-8): 3 errors, 20 warnings
-    allnoconfig (gcc-8): 1 warning
-    am200epdkit_defconfig (gcc-8): 1 warning
-    assabet_defconfig (gcc-8): 1 warning
-    axm55xx_defconfig (gcc-8): 1 warning
-    badge4_defconfig (gcc-8): 1 warning
-    cerfcube_defconfig (gcc-8): 1 warning
-    clps711x_defconfig (gcc-8): 1 warning
-    cm_x2xx_defconfig (gcc-8): 1 warning
-    cm_x300_defconfig (gcc-8): 1 warning
-    cns3420vb_defconfig (gcc-8): 1 warning
-    colibri_pxa270_defconfig (gcc-8): 1 warning
-    colibri_pxa300_defconfig (gcc-8): 1 warning
-    collie_defconfig (gcc-8): 1 warning
-    corgi_defconfig (gcc-8): 1 warning
-    davinci_all_defconfig (gcc-8): 1 warning
-    dove_defconfig (gcc-8): 1 warning
-    ebsa110_defconfig (gcc-8): 1 warning
-    em_x270_defconfig (gcc-8): 1 warning
-    ep93xx_defconfig (gcc-8): 1 warning
-    eseries_pxa_defconfig (gcc-8): 1 warning
-    footbridge_defconfig (gcc-8): 1 warning
-    gemini_defconfig (gcc-8): 1 warning
-    h3600_defconfig (gcc-8): 1 warning
-    h5000_defconfig (gcc-8): 1 warning
-    hackkit_defconfig (gcc-8): 1 warning
-    hisi_defconfig (gcc-8): 1 warning
-    integrator_defconfig (gcc-8): 1 warning
-    iop32x_defconfig (gcc-8): 1 warning
-    ixp4xx_defconfig (gcc-8): 1 warning
-    jornada720_defconfig (gcc-8): 1 warning
-    lart_defconfig (gcc-8): 1 warning
-    lpd270_defconfig (gcc-8): 1 warning
-    lubbock_defconfig (gcc-8): 1 warning
-    magician_defconfig (gcc-8): 1 warning
-    mainstone_defconfig (gcc-8): 1 warning
-    mini2440_defconfig (gcc-8): 1 warning
-    mmp2_defconfig (gcc-8): 1 warning
-    multi_v4t_defconfig (gcc-8): 1 warning
-    multi_v5_defconfig (gcc-8): 1 warning
-    mvebu_v5_defconfig (gcc-8): 1 warning
-    neponset_defconfig (gcc-8): 1 warning
-    netwinder_defconfig (gcc-8): 1 warning
-    nhk8815_defconfig (gcc-8): 1 warning
-    orion5x_defconfig (gcc-8): 1 warning
-    palmz72_defconfig (gcc-8): 1 warning
-    pcm027_defconfig (gcc-8): 1 warning
-    pleb_defconfig (gcc-8): 1 warning
-    prima2_defconfig (gcc-8): 1 warning
-    pxa168_defconfig (gcc-8): 1 warning
-    pxa255-idp_defconfig (gcc-8): 1 warning
-    pxa3xx_defconfig (gcc-8): 1 warning
-    pxa910_defconfig (gcc-8): 1 warning
-    realview_defconfig (gcc-8): 1 warning
-    rpc_defconfig (gcc-8): 1 warning
-    s3c2410_defconfig (gcc-8): 1 warning
-    s3c6400_defconfig (gcc-8): 1 warning
-    s5pv210_defconfig (gcc-8): 1 warning
-    sama5_defconfig (gcc-8): 1 warning
-    shannon_defconfig (gcc-8): 1 warning
-    simpad_defconfig (gcc-8): 1 warning
-    spear13xx_defconfig (gcc-8): 1 warning
-    spear3xx_defconfig (gcc-8): 1 warning
-    spear6xx_defconfig (gcc-8): 1 warning
-    spitz_defconfig (gcc-8): 1 warning
-    sunxi_defconfig (gcc-8): 1 warning
-    tango4_defconfig (gcc-8): 1 warning
-    tct_hammer_defconfig (gcc-8): 1 warning
-    trizeps4_defconfig (gcc-8): 1 warning
-    u300_defconfig (gcc-8): 1 warning
-    u8500_defconfig (gcc-8): 1 warning
-    versatile_defconfig (gcc-8): 1 warning
-    vf610m4_defconfig (gcc-8): 1 warning
-    viper_defconfig (gcc-8): 1 warning
-    vt8500_v6_v7_defconfig (gcc-8): 1 warning
-    xcep_defconfig (gcc-8): 1 warning
-    zeus_defconfig (gcc-8): 1 warning
-    zx_defconfig (gcc-8): 1 warning
-
-i386:
-    allnoconfig (gcc-8): 1 warning
-
-mips:
-    32r2el_defconfig (gcc-8): 2 warnings
-    allnoconfig (gcc-8): 1 warning
-    ar7_defconfig (gcc-8): 1 warning
-    ath79_defconfig (gcc-8): 1 warning
-    bcm63xx_defconfig (gcc-8): 1 warning
-    bigsur_defconfig (gcc-8): 1 warning
-    bmips_be_defconfig (gcc-8): 1 warning
-    bmips_stb_defconfig (gcc-8): 1 warning
-    capcella_defconfig (gcc-8): 1 warning
-    cavium_octeon_defconfig (gcc-8): 1 warning
-    cobalt_defconfig (gcc-8): 1 warning
-    db1xxx_defconfig (gcc-8): 1 error, 1 warning
-    decstation_64_defconfig (gcc-8): 1 warning
-    decstation_defconfig (gcc-8): 1 warning
-    decstation_r4k_defconfig (gcc-8): 1 warning
-    e55_defconfig (gcc-8): 1 warning
-    gcw0_defconfig (gcc-8): 1 warning
-    ip22_defconfig (gcc-8): 1 warning
-    ip27_defconfig (gcc-8): 1 warning
-    ip28_defconfig (gcc-8): 1 warning
-    jazz_defconfig (gcc-8): 1 warning
-    jmr3927_defconfig (gcc-8): 1 warning
-    lasat_defconfig (gcc-8): 1 warning
-    loongson3_defconfig (gcc-8): 1 warning
-    malta_defconfig (gcc-8): 1 warning
-    malta_kvm_guest_defconfig (gcc-8): 1 warning
-    malta_qemu_32r6_defconfig (gcc-8): 2 warnings
-    maltaaprp_defconfig (gcc-8): 1 warning
-    maltasmvp_defconfig (gcc-8): 1 warning
-    maltasmvp_eva_defconfig (gcc-8): 1 warning
-    maltaup_defconfig (gcc-8): 1 warning
-    maltaup_xpa_defconfig (gcc-8): 1 warning
-    markeins_defconfig (gcc-8): 1 warning
-    mips_paravirt_defconfig (gcc-8): 1 warning
-    mpc30x_defconfig (gcc-8): 1 warning
-    msp71xx_defconfig (gcc-8): 1 warning
-    pnx8335_stb225_defconfig (gcc-8): 1 warning
-    qi_lb60_defconfig (gcc-8): 1 warning
-    rb532_defconfig (gcc-8): 1 warning
-    rbtx49xx_defconfig (gcc-8): 2 warnings
-    rm200_defconfig (gcc-8): 1 warning
-    sb1250_swarm_defconfig (gcc-8): 1 warning
-    tb0219_defconfig (gcc-8): 1 warning
-    tb0226_defconfig (gcc-8): 1 warning
-    tb0287_defconfig (gcc-8): 1 warning
-    workpad_defconfig (gcc-8): 1 warning
-
-riscv:
-    allnoconfig (gcc-8): 1 warning
-    defconfig (gcc-8): 1 warning
-    rv32_defconfig (gcc-8): 7 warnings
-
-x86_64:
-    allnoconfig (gcc-8): 3 warnings
-    tinyconfig (gcc-8): 1 warning
-
-Errors summary:
-
-    2    drivers/scsi/ufs/ufs-mediatek.c:93:23: error: storage size of =E2=
-=80=98res=E2=80=99 isn=E2=80=99t known
-    2    drivers/scsi/ufs/ufs-mediatek.c:21:2: error: implicit declaration =
-of function =E2=80=98arm_smccc_smc=E2=80=99 [-Werror=3Dimplicit-function-de=
-claration]
-    2    drivers/scsi/ufs/ufs-mediatek.c:21:16: error: =E2=80=98MTK_SIP_UFS=
-_CONTROL=E2=80=99 undeclared (first use in this function); did you mean =E2=
-=80=98TX_HIBERN8_CONTROL=E2=80=99?
-    1    file.c:(.text+0x352c): undefined reference to `__udivdi3'
-
-Warnings summary:
-
-    134  kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=
-=99 may be used uninitialized in this function [-Wmaybe-uninitialized]
-    20   <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
--Wcpp]
-    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
-m integer of different size [-Wint-to-pointer-cast]
-    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
-m integer of different size [-Wint-to-pointer-cast]
-    2    drivers/scsi/ufs/ufs-mediatek.c:93:23: warning: unused variable =
-=E2=80=98res=E2=80=99 [-Wunused-variable]
-    2    cc1: some warnings being treated as errors
-    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
--Wcpp]
-    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
-d [-Wcpp]
-    1    {standard input}:141: Warning: macro instruction expanded into mul=
-tiple instructions
-    1    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable =E2=80=
-=98rtd=E2=80=99 [-Wunused-variable]
-    1    net/netfilter/nf_flow_table_offload.c:91:21: warning: unsigned con=
-version from =E2=80=98int=E2=80=99 to =E2=80=98__be16=E2=80=99 {aka =E2=80=
-=98short unsigned int=E2=80=99} changes value from =E2=80=98327680=E2=80=99=
- to =E2=80=980=E2=80=99 [-Woverflow]
-    1    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%ld=E2=
-=80=99 expects argument of type =E2=80=98long int=E2=80=99, but argument 5 =
-has type =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99} [-Wf=
-ormat=3D]
-    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
-integer of different size [-Wpointer-to-int-cast]
-    1    arch/x86/kernel/unwind_orc.c:210:12: warning: =E2=80=98orc_sort_cm=
-p=E2=80=99 defined but not used [-Wunused-function]
-    1    arch/x86/kernel/unwind_orc.c:190:13: warning: =E2=80=98orc_sort_sw=
-ap=E2=80=99 defined but not used [-Wunused-function]
-    1    /tmp/ccCmEjPt.s:18191: Warning: using r15 results in unpredictable=
- behaviour
-    1    /tmp/ccCmEjPt.s:18119: Warning: using r15 results in unpredictable=
- behaviour
-    1    .config:1173:warning: override: UNWINDER_GUESS changes choice stat=
-e
-
-Section mismatches summary:
-
-    5    WARNING: vmlinux.o(.text.unlikely+0x95c): Section mismatch in refe=
-rence from the function free_memmap() to the function .meminit.text:membloc=
-k_free()
-    3    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in refe=
-rence from the function free_memmap() to the function .meminit.text:membloc=
-k_free()
-    3    WARNING: vmlinux.o(.text.unlikely+0x8d8): Section mismatch in refe=
-rence from the function free_memmap() to the function .meminit.text:membloc=
-k_free()
-    1    WARNING: vmlinux.o(.text.unlikely+0x97c): Section mismatch in refe=
-rence from the function free_memmap() to the function .meminit.text:membloc=
-k_free()
-    1    WARNING: vmlinux.o(.text.unlikely+0x860): Section mismatch in refe=
-rence from the function free_memmap() to the function .meminit.text:membloc=
-k_free()
-    1    WARNING: vmlinux.o(.text.unlikely+0x7a4): Section mismatch in refe=
-rence from the function free_memmap() to the function .meminit.text:membloc=
-k_free()
-    1    WARNING: vmlinux.o(.text.unlikely+0x3a98): Section mismatch in ref=
-erence from the function pmax_setup_memory_region() to the function .init.t=
-ext:add_memory_region()
-    1    WARNING: vmlinux.o(.text.unlikely+0x3740): Section mismatch in ref=
-erence from the function pmax_setup_memory_region() to the function .init.t=
-ext:add_memory_region()
-
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-
-Detailed per-defconfig build reports:
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnin=
-gs, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm64, gcc-8) =E2=80=94 FAIL, 3 errors, 2 warnings, 0 section=
- mismatches
-
-Errors:
-    drivers/scsi/ufs/ufs-mediatek.c:93:23: error: storage size of =E2=80=98=
-res=E2=80=99 isn=E2=80=99t known
-    drivers/scsi/ufs/ufs-mediatek.c:21:2: error: implicit declaration of fu=
-nction =E2=80=98arm_smccc_smc=E2=80=99 [-Werror=3Dimplicit-function-declara=
-tion]
-    drivers/scsi/ufs/ufs-mediatek.c:21:16: error: =E2=80=98MTK_SIP_UFS_CONT=
-ROL=E2=80=99 undeclared (first use in this function); did you mean =E2=80=
-=98TX_HIBERN8_CONTROL=E2=80=99?
-
-Warnings:
-    drivers/scsi/ufs/ufs-mediatek.c:93:23: warning: unused variable =E2=80=
-=98res=E2=80=99 [-Wunused-variable]
-    cc1: some warnings being treated as errors
-
----------------------------------------------------------------------------=
------
-allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 3 errors, 20 warnings, 0 section =
-mismatches
-
-Errors:
-    drivers/scsi/ufs/ufs-mediatek.c:93:23: error: storage size of =E2=80=98=
-res=E2=80=99 isn=E2=80=99t known
-    drivers/scsi/ufs/ufs-mediatek.c:21:2: error: implicit declaration of fu=
-nction =E2=80=98arm_smccc_smc=E2=80=99 [-Werror=3Dimplicit-function-declara=
-tion]
-    drivers/scsi/ufs/ufs-mediatek.c:21:16: error: =E2=80=98MTK_SIP_UFS_CONT=
-ROL=E2=80=99 undeclared (first use in this function); did you mean =E2=80=
-=98TX_HIBERN8_CONTROL=E2=80=99?
-
-Warnings:
-    /tmp/ccCmEjPt.s:18119: Warning: using r15 results in unpredictable beha=
-viour
-    /tmp/ccCmEjPt.s:18191: Warning: using r15 results in unpredictable beha=
-viour
-    net/netfilter/nf_flow_table_offload.c:91:21: warning: unsigned conversi=
-on from =E2=80=98int=E2=80=99 to =E2=80=98__be16=E2=80=99 {aka =E2=80=98sho=
-rt unsigned int=E2=80=99} changes value from =E2=80=98327680=E2=80=99 to =
-=E2=80=980=E2=80=99 [-Woverflow]
-    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
-er of different size [-Wpointer-to-int-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
-eger of different size [-Wint-to-pointer-cast]
-    include/linux/kern_levels.h:5:18: warning: format =E2=80=98%ld=E2=80=99=
- expects argument of type =E2=80=98long int=E2=80=99, but argument 5 has ty=
-pe =E2=80=98size_t=E2=80=99 {aka =E2=80=98unsigned int=E2=80=99} [-Wformat=
-=3D]
-    drivers/scsi/ufs/ufs-mediatek.c:93:23: warning: unused variable =E2=80=
-=98res=E2=80=99 [-Wunused-variable]
-    cc1: some warnings being treated as errors
-
----------------------------------------------------------------------------=
------
-allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
-smatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
-ismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
-smatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-    arch/x86/kernel/unwind_orc.c:210:12: warning: =E2=80=98orc_sort_cmp=E2=
-=80=99 defined but not used [-Wunused-function]
-    arch/x86/kernel/unwind_orc.c:190:13: warning: =E2=80=98orc_sort_swap=E2=
-=80=99 defined but not used [-Wunused-function]
-
----------------------------------------------------------------------------=
------
-allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section mi=
-smatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
-ismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x95c): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
-ection mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
-0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
-0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
-0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x8d8): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-db1xxx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
-
-Errors:
-    file.c:(.text+0x352c): undefined reference to `__udivdi3'
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
-0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x3a98): Section mismatch in referenc=
-e from the function pmax_setup_memory_region() to the function .init.text:a=
-dd_memory_region()
-
----------------------------------------------------------------------------=
------
-decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
- 0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x3740): Section mismatch in referenc=
-e from the function pmax_setup_memory_region() to the function .init.text:a=
-dd_memory_region()
-
----------------------------------------------------------------------------=
------
-defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
-matches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
-, 1 warning, 0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x7a4): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
-ection mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x8d8): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x95c): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
- mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x860): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x95c): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
-
----------------------------------------------------------------------------=
------
-loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
-, 0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warning=
-s, 0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-    {standard input}:141: Warning: macro instruction expanded into multiple=
- instructions
-
----------------------------------------------------------------------------=
------
-maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
-0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
-
----------------------------------------------------------------------------=
------
-mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
-0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
-
----------------------------------------------------------------------------=
------
-mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
- errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
-=94 PASS, 0 errors, 0 warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
-warnings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warni=
-ngs, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x95c): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings=
-, 0 section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
-
----------------------------------------------------------------------------=
------
-pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x8d8): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
- 0 section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
-
----------------------------------------------------------------------------=
------
-qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
-
----------------------------------------------------------------------------=
------
-qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-    sound/soc/txx9/txx9aclc.c:54:30: warning: unused variable =E2=80=98rtd=
-=E2=80=99 [-Wunused-variable]
-
----------------------------------------------------------------------------=
------
-realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
-ismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x97c): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
-on mismatches
-
-Warnings:
-    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
-]
-    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
-cpp]
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
- section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x95c): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
-Section mismatches:
-    WARNING: vmlinux.o(.text.unlikely+0x8e4): Section mismatch in reference=
- from the function free_memmap() to the function .meminit.text:memblock_fre=
-e()
-
----------------------------------------------------------------------------=
------
-socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
-
----------------------------------------------------------------------------=
------
-spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
-n mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
-ction mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
-atches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
-matches
-
----------------------------------------------------------------------------=
------
-tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
-smatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
-
----------------------------------------------------------------------------=
------
-tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
-ismatches
-
-Warnings:
-    .config:1173:warning: override: UNWINDER_GUESS changes choice state
-
----------------------------------------------------------------------------=
------
-trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
-]
-
----------------------------------------------------------------------------=
------
-versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
-tion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
-on mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
-
----------------------------------------------------------------------------=
------
-vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
-section mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
-ion mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
-ings, 0 section mismatches
-
----------------------------------------------------------------------------=
------
-xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
-
----------------------------------------------------------------------------=
------
-zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
-mismatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
-
----------------------------------------------------------------------------=
------
-zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
-smatches
-
-Warnings:
-    kernel/time/timer.c:969:20: warning: =E2=80=98timer.expires=E2=80=99 ma=
-y be used uninitialized in this function [-Wmaybe-uninitialized]
+--raghuc2fvxibirx5
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+
+CC: kbuild-all@lists.01.org
+TO: Neil Armstrong <narmstrong@baylibre.com>
+
+tree:   https://github.com/superna9999/linux amlogic/v5.6/dw-hdmi-yuv420
+head:   4e6af20304fb86402e61f4f8e11082a947638af9
+commit: 4e6af20304fb86402e61f4f8e11082a947638af9 [24/24] drm/meson: Add YUV420 output support
+config: arm64-defconfig (attached as .config)
+compiler: clang version 10.0.0 (git://gitmirror/llvm_project 50c3bd9e71254d623ed4f0b449d5620f4e965bfe)
+reproduce:
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        git checkout 4e6af20304fb86402e61f4f8e11082a947638af9
+        # save the attached .config to linux build tree
+        make.cross ARCH=arm64 
+
+If you fix the issue, kindly add following tag
+Reported-by: kbuild test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+>> drivers/gpu/drm/meson/meson_dw_hdmi.c:775:57: error: no member named 'fmt' in 'struct drm_bus_cfg'
+           dw_hdmi->output_bus_fmt = bridge_state->output_bus_cfg.fmt;
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ^
+   1 error generated.
+
+vim +775 drivers/gpu/drm/meson/meson_dw_hdmi.c
+
+   767	
+   768	static int meson_venc_hdmi_encoder_atomic_check(struct drm_bridge *bridge,
+   769						struct drm_bridge_state *bridge_state,
+   770						struct drm_crtc_state *crtc_state,
+   771						struct drm_connector_state *conn_state)
+   772	{
+   773		struct meson_dw_hdmi *dw_hdmi = bridge_to_meson_dw_hdmi(bridge);
+   774	
+ > 775		dw_hdmi->output_bus_fmt = bridge_state->output_bus_cfg.fmt;
+   776	
+   777		DRM_DEBUG_DRIVER("output_bus_fmt %lx\n", dw_hdmi->output_bus_fmt);
+   778	
+   779		return 0;
+   780	}
+   781	
 
 ---
-For more info write to <info@kernelci.org>
+0-DAY kernel test infrastructure                 Open Source Technology Center
+https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/5dfc89e6.1c69fb81.b8ff3.e095%40mx.google.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912201716.kU5t8oVh%25lkp%40intel.com.
+
+--raghuc2fvxibirx5
+Content-Type: application/gzip
+Content-Disposition: attachment; filename=".config.gz"
+Content-Transfer-Encoding: base64
+
+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
+FgMA
+
+--raghuc2fvxibirx5--
