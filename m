@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBTW76DXQKGQEIL673GI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBR546HXQKGQES6LD4ZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
-	by mail.lfdr.de (Postfix) with ESMTPS id D7CFB127369
-	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 03:19:58 +0100 (CET)
-Received: by mail-lj1-x239.google.com with SMTP id z18sf2508909ljm.22
-        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 18:19:58 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576808398; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id C0ABF12755D
+	for <lists+clang-built-linux@lfdr.de>; Fri, 20 Dec 2019 06:38:15 +0100 (CET)
+Received: by mail-wr1-x440.google.com with SMTP id z10sf1018829wrt.21
+        for <lists+clang-built-linux@lfdr.de>; Thu, 19 Dec 2019 21:38:15 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576820295; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kp73cTVUGUb2h5V4BhiVYik1gX55XOX8YdfO90PGM3fcfP/P1IOQgg40Hr5/U3k5iH
-         PxtwoBESYmlxyPDNNdpo5OseDspDepsW4DtFquPPwsVy5us3S2mB7iIIOXMJbvkcwZNR
-         H2T7Lyrsmf+2dhpfl9bWAgkrb4H4SUBSKg53cLOWxK3HP7kqFHNQuoPbyIzB32HKJFtL
-         2UCpGB9mMS5wHzk4VOW3ETZAo8gRzB7e68RnzisUsOy542GiPuh6EjsYdydq0jgZ7o3p
-         jGtzu1/wRqu0v7axvM+qIAXyTFSHfZr75ld8/SpDYFqTQP+dxyk9ZFljfXzmwys/RUIv
-         FbFw==
+        b=TlczNqe5DaqLYj77pJCg0bTLoj3La/6kGvJgNUU+ri9w39TGWvQCxwUmm4/27RvxwB
+         EsoSmiFpVNUfbZvliium4oSPUUToNJFWrKAB4tCQsLtLvSQkDUpTHBnuDTKTNBXsmtdF
+         rf4SxSRs7pAmFWAauNA9awDDVjyuFrGlaBG1OgAnPhzYW4kjvG0Fo+Ty5Y7lQdVVsuPB
+         KtCKsV68xpQ3IqBU16g43KBtzdF8qhlG9XU722fksxnJCQYJgpiMBh44Mj73ttkncatg
+         IyKuXR1jJC/G+xnuI0LZN0dt/byjbf1lQXjS25rup1zpybj2J/AohCyPGdkEgqg/i90+
+         V6cQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:subject:message-id:to
          :date:from:sender:dkim-signature;
-        bh=Nohx/KLxlcX1w1jl+dJCku+M1z3mzxewGDePRCqHv/E=;
-        b=yii6Ye2QcI0ukho7BRfU8b/8DTCfdOKR9P3MoTdSI4gWzloPYm2ucaD9N5fsAWgiH6
-         9/gm5nSxnf0J8KkE2d0vzAdqScs0dcAiE4ujQdiuauZcnIC4mM51O/sRyXmy8zgVIhR0
-         rIQY8+H07Rh4PmfH73pnlenjwUgymu9o6o9F5wTMr4lwoUGsTSaiUfyXntNwMYIzhnxZ
-         SLSIcqzlIaz6Z2kmDISbaYF6agDobyKFVM6Ppk57FJSNAgI7w6/+C6OOmIA7pHSQgDzn
-         zUPsXN7dQn4veKDV5piJT3ffID/8sNMlHUoS9UYiqVajW8HOR5NxkG7DUxFugQ0H6R2Y
-         6Wcg==
+        bh=ISX5rE3dKwAnKbzCfwAhuWChhMwlVHgmeMK5Pfiy3Xc=;
+        b=vkHe0FN2mJ5OlNM9E+vgks44TlKG2JHZGGrrtr6Koi8WYwayd9Iba3WNU6qbglGDYn
+         Q7fl1b/CreALxEE613Y9qmpLHyAiIUckDDj8zq7utyuDY8uV+lu0jitzUK1SwmJNhoZ7
+         gp1xBIn2QL967GNvDj5dOkQ3nBK7t9abOK6mkETdSG5pUZYe8oXRad5gN6R0b+XL67zk
+         bY/DbtHfQgudTIg4kuK/c0SgMYVMdTnLzlyCZOyA1HjLaSu9Bt1Hq1TxxJX5dr4uF6Sj
+         /Eit/iFLsb11qnLMzT8Cbf+bho615lJWNkQuGNMmeJYk31bo51yZ4hGHH3YVyq9pOja3
+         C5xQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=VtAyEWmv;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::433 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=izrqYnT2;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32f as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,88 +35,88 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Nohx/KLxlcX1w1jl+dJCku+M1z3mzxewGDePRCqHv/E=;
-        b=pXe2GLKb4x7HV5ZVK/WyUnjCZCbXdYhXFRpZLofO0Q8PXOGo6gC46CXg/xH3zSy6yY
-         p/h5NJPXJZcrpagbnpg65nfihWKZIZ7lJ0csBIK4e0zDVHt8hNYScvYzU6c8qtPou1JJ
-         TSiVZi5EpuUJ5iSuJmnoP3hIO9iutBK8akNhqeSl+AH5VziIwrqTYde5uWy0mrBNnjpW
-         7qPoTyKlQTrxEwE/Bx1VOhz6GP38rgv1TCASr0qiV0D+JDCw5yhI3UgSKX6joqfUyUMp
-         fWLPWfdrwZGmDn7XNDP4jF+jX7nubLr75cpgyyxsB25K3bzc/a2+//KSEy24DGtxoPo3
-         pFOw==
+        bh=ISX5rE3dKwAnKbzCfwAhuWChhMwlVHgmeMK5Pfiy3Xc=;
+        b=ACU9TFqJ04nRBhKVtuBmLdGJYaDfESWCS6G9+kMQuS54Xme1yt1zKOQCprvKmtcNhf
+         y1yKJDEQVTnCgHdRBzRUcz3ch0OsywfzAETm+GIXYdzYWbr7sGE87h3TAFDzIBGH7ZIF
+         uc+myihyNoFnLunL25EzKZ/GegwG/B5+13EAv7ceUufteS4H5yfI0VphnvgglQqvF1+j
+         JKkCTcMm/NRp6XEqqBrYxbZ8mDVgAAhpoBO08oco2ogy756QcvsClcJkcYcYy366Ue2b
+         /G0H6OZwnRiI3K4mVPDSxUFq+ORDfuAKPlWK8XviT2rwDOLpKfsVxyvFlWJD4KYFlTJe
+         0ULQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:date:to:message-id:subject
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Nohx/KLxlcX1w1jl+dJCku+M1z3mzxewGDePRCqHv/E=;
-        b=cei911Buq2oSlg4QkviLYPr95Oht0ruIW5WAFogenixeUmTL9mwzreiuG1hKxjD3NK
-         OQx3hfAK0sAXEQoZ0+XVJWIRFJ7H7wCiwpBQJh0zlQLlAwarp1EzzfsOaGK8S1f12pGT
-         1jKmLgrSwkuEnlxpyTUANrjTKvqRRkZtRAbD7R35r0DyEsq3vR2ON1edZBIr5tf0nAuU
-         F8zpA+y3MybfJXbo/1iLwzchwcsIb8aGTkUtpEQy+aPyPBWHIWBlu9fxWREn7LVEnwkY
-         OzfMaUWjg6TFpH6xBplp5J1qZ0leCMVL8+mUMal683ngVp19CUQUXiKsuno4XThb8vut
-         q8Ig==
+        bh=ISX5rE3dKwAnKbzCfwAhuWChhMwlVHgmeMK5Pfiy3Xc=;
+        b=aj5MaKIonup3J9W+f4nIkWxxdog8moKhFmBIE6GBuVgBu2kK3hq4lQdaAoLoAppDYE
+         /fGx7/MN3vjyyWxl4hdSoiDfzsjxoWsMOVZgtVX1JVIYCeNhsQhV8ypaAMQmonUt0x4o
+         op0ylr+f0hVDcvkbejuhS4z4KzEn1XyWmmA+eJmJ/J2FCYmtBoKE29mWcSUy4Yxicl6l
+         9z8D8sdIhLPGrmNIj+wLbvG1Mg7VzjH6z2005wTlKFnyCP5a7CcgtKOHdR2ZJkEBA6iL
+         +jL6ALFrV0tQzN+T6akrudUm2axodmhpcnwDVbyijh3xly1cGgM10FwOr5WGRvExjnjh
+         QiPA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWxyVDH4m5PeRvmrdUOjgbiAWAPB+U3+2Thz38U7yqVDaPDv5pl
-	XAgMaBjOQIUwSG8n7dxiWnA=
-X-Google-Smtp-Source: APXvYqxqWJKGKFMLB8SRRwOHn5VQwlxh3h4e9BBZTwKfbuSxtgB840gsMl2Qk/E+Bn8hXQx3K6LXSQ==
-X-Received: by 2002:a2e:9806:: with SMTP id a6mr7999010ljj.178.1576808398347;
-        Thu, 19 Dec 2019 18:19:58 -0800 (PST)
+X-Gm-Message-State: APjAAAXDAx+yAO3XfUOP9Cht5A73vtQf54CdKxRXXZBEmj2rI2kbYoEF
+	0EEx6SR7Da8MuQGOlRocV1A=
+X-Google-Smtp-Source: APXvYqyexUiqsVd7s+lL7Z2NMeK+QjNwBFyP+ZF54JsGKJ043Sf7df+fNd2YwP0SqdXhDSUf3JwzRg==
+X-Received: by 2002:adf:fa50:: with SMTP id y16mr13228176wrr.183.1576820295355;
+        Thu, 19 Dec 2019 21:38:15 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:651c:1b6:: with SMTP id c22ls1067587ljn.14.gmail; Thu,
- 19 Dec 2019 18:19:57 -0800 (PST)
-X-Received: by 2002:a2e:9806:: with SMTP id a6mr7998990ljj.178.1576808397726;
-        Thu, 19 Dec 2019 18:19:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576808397; cv=none;
+Received: by 2002:adf:eb4c:: with SMTP id u12ls2143899wrn.6.gmail; Thu, 19 Dec
+ 2019 21:38:14 -0800 (PST)
+X-Received: by 2002:a05:6000:1044:: with SMTP id c4mr13563318wrx.204.1576820294819;
+        Thu, 19 Dec 2019 21:38:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576820294; cv=none;
         d=google.com; s=arc-20160816;
-        b=KCHFsk59964KNfKxLCCu0+mZCpn/J+qrlOj4CWhb941AcUpJBzY76zD1RjxaHGU5oe
-         c5URRgtamGt6s0NAIWmjtsgi5HrNCoRxv4/A6Rtr6cjE9oNkTvFAK32t9J+NtuoTWFg2
-         fxJZf5YDKxMhr+nH2MsMNCWw+ysjdLYZbtB80FIgBpvEdrt45Mo21aDcjis/8dCwho48
-         EE+zJRaV6ZLJ+Amgchoynr1Thj6hT9uWKi7q6WI5zzB4K+iW8BMZByk/KBNWUzQypWXJ
-         G0MU0bhDFhnIqHntGERkh6guFMyDXeM5X5z90FocIEWMaw1pcn2tkQmqZSBoKJ79i7LL
-         PoQw==
+        b=QrEc2fMcHeDN3V6pN+x61lk8FU+5UcVAfJelGp0d/S4gEkINfvzeRRaS0sg/jCWUTU
+         xJiaRa7NmGu9utBZ2SJzva253BsParj+i7j4ToqkqI+I9TZVEU3Aq46qo7nmqBMpaUaB
+         0gCkUFWIwhVE0kXH6KUkxDma/Ht4v4QBRXignWg3HX93HqlcSAVspQXwqbKyAbMGcDlk
+         YY/HiA4DyX7hZiT6Bvuz2MxyImONiRISvPRpV/7uLvi7UHof39Eq+rLjx5VGzvGf3nXW
+         MJnxmGfIJXXAFe7IGpzyhgsBkSlMN/ka8xUW2OyNmoq+JagoPMAO/TGennlTNZOCgDcb
+         E93Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=gEV4EdP9K3Ya9EbuKxMwiRMT+g6A1ZycxIUdZzzUVOU=;
-        b=EwLJ5SS/5kCYTRucPr5r62HjnEJG7fztmA/70aaFiRejHes5lYVp68sWFYYwcbEkrN
-         KkDDU2uVYVDQ8OTl4DN5L1aqFholCWYEh/erhAZMdjztzF2yAiyVUDvf1cjs775IvBYH
-         t1cHrKiIub+oITr5UarToddlTaIx5PZZVUGzPRNdraUgW9NahPvYjcGPI1wZ5oHNrgz9
-         mXYOHKKzM4KV5tO2sYHIzxzPDBkJgISFBeuB2S4qPYAuillhlwedTNBpMYB4jBTPRkFn
-         IWF6AWy3v2VeMrktHZBnxjo21ASZd+1Rvaxghmi5xASUM8H/CUE8J7Sol4yWmEH5FF+8
-         LJ1A==
+        bh=BsxbgCovSbPuvwn2gzBWdE60qAbf/E+cB0kyNzBpCv0=;
+        b=A240fDfnpQqcmOAub8/yKhN10DuvjgskGDTiM41/odSjToVCkU5VSVJ5qsGUOZPdVD
+         Hniz+/S4ZUjQM2ttV2+uwnq1hcMwXl2TrAt1PYXVS2dO5Km0EA63Llv5QxF29cl5oGpE
+         vfrp9g7caMjbbPsxdGV5y8PpCGkQ0sACNqt7dt+fCxF3XaZomksyWz88P9kPhCbbvZ32
+         wNRKYDYVBQbPFQiKcBrKY44vRnxjx4pYAuZZ6qGyS/3gwljQ439LGNFJgh2IK6gi/XDo
+         /bCd9JSCf0ZJaSNXX5bmzQXB2Ts0xco18kviXgimUrlnLCt0dPqQLg/SseBa5InxkQvB
+         Na1A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=VtAyEWmv;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::433 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b=izrqYnT2;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32f as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x433.google.com (mail-wr1-x433.google.com. [2a00:1450:4864:20::433])
-        by gmr-mx.google.com with ESMTPS id e3si291819ljg.2.2019.12.19.18.19.57
+Received: from mail-wm1-x32f.google.com (mail-wm1-x32f.google.com. [2a00:1450:4864:20::32f])
+        by gmr-mx.google.com with ESMTPS id m2si580751wmi.3.2019.12.19.21.38.14
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 19 Dec 2019 18:19:57 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::433 as permitted sender) client-ip=2a00:1450:4864:20::433;
-Received: by mail-wr1-x433.google.com with SMTP id z3so7923774wru.3
-        for <clang-built-linux@googlegroups.com>; Thu, 19 Dec 2019 18:19:57 -0800 (PST)
-X-Received: by 2002:a05:6000:1241:: with SMTP id j1mr13177480wrx.26.1576808396430;
-        Thu, 19 Dec 2019 18:19:56 -0800 (PST)
+        Thu, 19 Dec 2019 21:38:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32f as permitted sender) client-ip=2a00:1450:4864:20::32f;
+Received: by mail-wm1-x32f.google.com with SMTP id m24so7645254wmc.3
+        for <clang-built-linux@googlegroups.com>; Thu, 19 Dec 2019 21:38:14 -0800 (PST)
+X-Received: by 2002:a7b:c5cd:: with SMTP id n13mr13790002wmk.172.1576820294260;
+        Thu, 19 Dec 2019 21:38:14 -0800 (PST)
 Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id i5sm8222691wrv.34.2019.12.19.18.19.55
+        by smtp.gmail.com with ESMTPSA id k19sm8352250wmi.42.2019.12.19.21.38.12
         (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Thu, 19 Dec 2019 18:19:55 -0800 (PST)
+        Thu, 19 Dec 2019 21:38:13 -0800 (PST)
 From: ci_notify@linaro.org
-Date: Fri, 20 Dec 2019 02:19:55 +0000 (UTC)
+Date: Fri, 20 Dec 2019 05:38:12 +0000 (UTC)
 To: tcwg-validation@linaro.org, llvm@linaro.org, 
 	clang-built-linux@googlegroups.com
-Message-ID: <953534913.6000.1576808395849.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect tcwg_kernel/llvm-master-arm-next-defconfig
- - Build # 17 - Successful!
+Message-ID: <1039530165.6040.1576820293557.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-aarch64-lts-allyesconfig - Build # 28 - Successful!
 MIME-Version: 1.0
 Content-Type: multipart/mixed; 
-	boundary="----=_Part_5999_1502980670.1576808395293"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-next-defconfig
+	boundary="----=_Part_6039_1028004989.1576820292474"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
 X-Jenkins-Result: SUCCESS
 X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=VtAyEWmv;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::433
+ header.i=@linaro.org header.s=google header.b=izrqYnT2;       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::32f
  as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
@@ -131,67 +131,75 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_5999_1502980670.1576808395293
+------=_Part_6039_1028004989.1576820292474
 Content-Type: text/plain; charset="UTF-8"
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-arm-next-defconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-arm-mainline-allyesconfig
- - tcwg_kernel/llvm-master-arm-next-defconfig
+Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-lts-allyesconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
 
 Culprit:
 <cut>
-commit bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
-Author: Victor Campos <Victor.Campos@arm.com>
+commit 2520bef865329d4c04e2de30c222ad0d5ad13ccc
+Author: Jonas Paulsson <paulsson@linux.vnet.ibm.com>
+Date:   Tue Dec 17 12:00:43 2019 -0800
 
-    [ARM] Improve codegen of volatile load/store of i64
+    [Clang FE, SystemZ]  Recognize -mrecord-mcount CL option.
+    
+    Recognize -mrecord-mcount from the command line and add a function attribute
+    "mrecord-mcount" when passed.
+    
+    Only valid on SystemZ (when used with -mfentry).
+    
+    Review: Ulrich Weigand
+    https://reviews.llvm.org/D71627
 </cut>
 
 First few errors in logs of first_bad:
-00:01:45 clang-10: error: unable to execute command: Aborted (core dumped)
-00:01:45 clang-10: error: clang frontend command failed due to signal (use -v to see invocation)
-00:01:46 make[2]: *** [sound/core/pcm_native.o] Error 254
-00:01:52 make[1]: *** [sound/core] Error 2
-00:03:48 make: *** [sound] Error 2
+00:01:00 error: option '-mrecord-mcount' cannot be specified on this target
+00:01:00 error: option '-mrecord-mcount' cannot be specified without '-mfentry'
+00:01:00 make[2]: *** [scripts/mod/devicetable-offsets.s] Error 1
+00:01:01 error: option '-mrecord-mcount' cannot be specified on this target
+00:01:01 error: option '-mrecord-mcount' cannot be specified without '-mfentry'
+00:01:01 make[1]: *** [kernel/bounds.s] Error 1
+00:01:01 make: *** [prepare0] Error 2
+00:01:02 make[1]: *** [scripts/mod] Error 2
+00:01:02 make: *** [scripts] Error 2
 Configuration details:
 rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[llvm_branch]="e67462a719368ae83d8c84986b7028649833eb5c"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
+rr[llvm_branch]="406b6019cd2bd50924be11c634b058c01053fbd3"
 
-Results regressed to (for first_bad == bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce)
+Results regressed to (for first_bad == 2520bef865329d4c04e2de30c222ad0d5ad13ccc)
 reset_artifacts:
 -10
 build_llvm:
 -1
 linux_n_obj:
-5815
+19
 
-from (for last_good == eca0c97a6bca49b493f3387dbd88ad60c852320f)
+from (for last_good == a116f28a0d71c221c1dc023908b180beaf22799d)
 reset_artifacts:
 -10
 build_llvm:
 -1
 linux_n_obj:
-6375
-linux build successful:
-all
-linux boot successful:
-boot
+16048
 
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/artifact/artifacts/build-bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/artifact/artifacts/build-eca0c97a6bca49b493f3387dbd88ad60c852320f/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/artifact/artifacts/build-2520bef865329d4c04e2de30c222ad0d5ad13ccc/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/artifact/artifacts/build-a116f28a0d71c221c1dc023908b180beaf22799d/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/
 
 Reproduce builds:
 <cut>
-mkdir investigate-llvm-bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
-cd investigate-llvm-bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
+mkdir investigate-llvm-2520bef865329d4c04e2de30c222ad0d5ad13ccc
+cd investigate-llvm-2520bef865329d4c04e2de30c222ad0d5ad13ccc
 
 git clone https://git.linaro.org/toolchain/jenkins-scripts
 
 mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/artifact/artifacts/test.sh
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/artifact/artifacts/test.sh
 chmod +x artifacts/test.sh
 
 # Reproduce the baseline build (build all pre-requisites)
@@ -200,532 +208,155 @@ chmod +x artifacts/test.sh
 cd llvm
 
 # Reproduce first_bad build
-git checkout --detach bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
+git checkout --detach 2520bef865329d4c04e2de30c222ad0d5ad13ccc
 ../artifacts/test.sh
 
 # Reproduce last_good build
-git checkout --detach eca0c97a6bca49b493f3387dbd88ad60c852320f
+git checkout --detach a116f28a0d71c221c1dc023908b180beaf22799d
 ../artifacts/test.sh
 
 cd ..
 </cut>
 
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-next-defconfig
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
 
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-defconfig/17/consoleText
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-allyesconfig/28/consoleText
 
 Full commit:
 <cut>
-commit bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce
-Author: Victor Campos <Victor.Campos@arm.com>
-Date:   Mon Dec 16 14:22:15 2019 +0000
+commit 2520bef865329d4c04e2de30c222ad0d5ad13ccc
+Author: Jonas Paulsson <paulsson@linux.vnet.ibm.com>
+Date:   Tue Dec 17 12:00:43 2019 -0800
 
-    [ARM] Improve codegen of volatile load/store of i64
+    [Clang FE, SystemZ]  Recognize -mrecord-mcount CL option.
     
-    Summary:
-    Instead of generating two i32 instructions for each load or store of a volatile
-    i64 value (two LDRs or STRs), now emit LDRD/STRD.
+    Recognize -mrecord-mcount from the command line and add a function attribute
+    "mrecord-mcount" when passed.
     
-    These improvements cover architectures implementing ARMv5TE or Thumb-2.
+    Only valid on SystemZ (when used with -mfentry).
     
-    Reviewers: dmgreen, efriedma, john.brawn
-    
-    Reviewed By: efriedma
-    
-    Subscribers: kristof.beyls, hiraditya, llvm-commits
-    
-    Tags: #llvm
-    
-    Differential Revision: https://reviews.llvm.org/D70072
+    Review: Ulrich Weigand
+    https://reviews.llvm.org/D71627
 ---
- llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp     |  18 +++
- llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp          |  49 ++++++++
- llvm/lib/Target/ARM/ARMISelLowering.cpp          |  57 ++++++++-
- llvm/lib/Target/ARM/ARMISelLowering.h            |   8 +-
- llvm/lib/Target/ARM/ARMInstrInfo.td              |  23 ++++
- llvm/lib/Target/ARM/ARMInstrThumb2.td            |   9 +-
- llvm/test/CodeGen/ARM/i64_volatile_load_store.ll | 153 +++++++++++++++++++++++
- 7 files changed, 311 insertions(+), 6 deletions(-)
+ clang/include/clang/Basic/CodeGenOptions.def |  1 +
+ clang/include/clang/Driver/Options.td        |  2 ++
+ clang/lib/CodeGen/CodeGenFunction.cpp        | 11 +++++++++++
+ clang/lib/Driver/ToolChains/Clang.cpp        |  3 +++
+ clang/lib/Frontend/CompilerInvocation.cpp    |  1 +
+ clang/test/CodeGen/mrecord-mcount.c          | 26 ++++++++++++++++++++++++++
+ 6 files changed, 44 insertions(+)
 
-diff --git a/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp b/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp
-index de4377ec5a4..2c3ac816219 100644
---- a/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp
-+++ b/llvm/lib/Target/ARM/ARMExpandPseudoInsts.cpp
-@@ -1952,6 +1952,24 @@ bool ARMExpandPseudo::ExpandMI(MachineBasicBlock &MBB,
-       MI.eraseFromParent();
-       return true;
-     }
-+    case ARM::LOADDUAL:
-+    case ARM::STOREDUAL: {
-+      Register PairReg = MI.getOperand(0).getReg();
+diff --git a/clang/include/clang/Basic/CodeGenOptions.def b/clang/include/clang/Basic/CodeGenOptions.def
+index c6700333c13..7f26ca8b4d6 100644
+--- a/clang/include/clang/Basic/CodeGenOptions.def
++++ b/clang/include/clang/Basic/CodeGenOptions.def
+@@ -113,6 +113,7 @@ VALUE_CODEGENOPT(XRayInstructionThreshold , 32, 200)
+ CODEGENOPT(InstrumentForProfiling , 1, 0) ///< Set when -pg is enabled.
+ CODEGENOPT(CallFEntry , 1, 0) ///< Set when -mfentry is enabled.
+ CODEGENOPT(MNopMCount , 1, 0) ///< Set when -mnop-mcount is enabled.
++CODEGENOPT(RecordMCount , 1, 0) ///< Set when -mrecord-mcount is enabled.
+ CODEGENOPT(PackedStack , 1, 0) ///< Set when -mpacked-stack is enabled.
+ CODEGENOPT(LessPreciseFPMAD  , 1, 0) ///< Enable less precise MAD instructions to
+                                      ///< be generated.
+diff --git a/clang/include/clang/Driver/Options.td b/clang/include/clang/Driver/Options.td
+index 2a72b87355d..86aee334436 100644
+--- a/clang/include/clang/Driver/Options.td
++++ b/clang/include/clang/Driver/Options.td
+@@ -2477,6 +2477,8 @@ def mfentry : Flag<["-"], "mfentry">, HelpText<"Insert calls to fentry at functi
+   Flags<[CC1Option]>, Group<m_Group>;
+ def mnop_mcount : Flag<["-"], "mnop-mcount">, HelpText<"Generate mcount/__fentry__ calls as nops. To activate they need to be patched in.">,
+   Flags<[CC1Option]>, Group<m_Group>;
++def mrecord_mcount : Flag<["-"], "mrecord-mcount">, HelpText<"Generate a __mcount_loc section entry for each __fentry__ call.">,
++  Flags<[CC1Option]>, Group<m_Group>;
+ def mpacked_stack : Flag<["-"], "mpacked-stack">, HelpText<"Use packed stack layout (SystemZ only).">,
+   Flags<[CC1Option]>, Group<m_Group>;
+ def mips16 : Flag<["-"], "mips16">, Group<m_mips_Features_Group>;
+diff --git a/clang/lib/CodeGen/CodeGenFunction.cpp b/clang/lib/CodeGen/CodeGenFunction.cpp
+index 89ce31e9b45..6f7e06b773d 100644
+--- a/clang/lib/CodeGen/CodeGenFunction.cpp
++++ b/clang/lib/CodeGen/CodeGenFunction.cpp
+@@ -968,6 +968,17 @@ void CodeGenFunction::StartFunction(GlobalDecl GD, QualType RetTy,
+             << "-mnop-mcount" << "-mfentry";
+         Fn->addFnAttr("mnop-mcount");
+       }
 +
-+      MachineInstrBuilder MIB =
-+          BuildMI(MBB, MBBI, MI.getDebugLoc(),
-+                  TII->get(Opcode == ARM::LOADDUAL ? ARM::LDRD : ARM::STRD))
-+              .addReg(TRI->getSubReg(PairReg, ARM::gsub_0),
-+                      Opcode == ARM::LOADDUAL ? RegState::Define : 0)
-+              .addReg(TRI->getSubReg(PairReg, ARM::gsub_1),
-+                      Opcode == ARM::LOADDUAL ? RegState::Define : 0);
-+      for (unsigned i = 1; i < MI.getNumOperands(); i++)
-+        MIB.add(MI.getOperand(i));
-+      MIB.add(predOps(ARMCC::AL));
-+      MIB.cloneMemRefs(MI);
-+      MI.eraseFromParent();
-+      return true;
-+    }
-   }
- }
- 
-diff --git a/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp b/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp
-index 1f998defbd1..dcdec779bbe 100644
---- a/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp
-+++ b/llvm/lib/Target/ARM/ARMISelDAGToDAG.cpp
-@@ -145,6 +145,8 @@ public:
- 
-   // Thumb 2 Addressing Modes:
-   bool SelectT2AddrModeImm12(SDValue N, SDValue &Base, SDValue &OffImm);
-+  template <unsigned Shift>
-+  bool SelectT2AddrModeImm8(SDValue N, SDValue &Base, SDValue &OffImm);
-   bool SelectT2AddrModeImm8(SDValue N, SDValue &Base,
-                             SDValue &OffImm);
-   bool SelectT2AddrModeImm8Offset(SDNode *Op, SDValue N,
-@@ -1294,6 +1296,33 @@ bool ARMDAGToDAGISel::SelectT2AddrModeImm12(SDValue N,
-   return true;
- }
- 
-+template <unsigned Shift>
-+bool ARMDAGToDAGISel::SelectT2AddrModeImm8(SDValue N, SDValue &Base,
-+                                           SDValue &OffImm) {
-+  if (N.getOpcode() == ISD::SUB || CurDAG->isBaseWithConstantOffset(N)) {
-+    int RHSC;
-+    if (isScaledConstantInRange(N.getOperand(1), 1 << Shift, -255, 256, RHSC)) {
-+      Base = N.getOperand(0);
-+      if (Base.getOpcode() == ISD::FrameIndex) {
-+        int FI = cast<FrameIndexSDNode>(Base)->getIndex();
-+        Base = CurDAG->getTargetFrameIndex(
-+            FI, TLI->getPointerTy(CurDAG->getDataLayout()));
++      if (CGM.getCodeGenOpts().RecordMCount) {
++        if (getContext().getTargetInfo().getTriple().getArch() !=
++            llvm::Triple::systemz)
++          CGM.getDiags().Report(diag::err_opt_not_valid_on_target)
++            << "-mrecord-mcount";
++        if (!CGM.getCodeGenOpts().CallFEntry)
++          CGM.getDiags().Report(diag::err_opt_not_valid_without_opt)
++            << "-mrecord-mcount" << "-mfentry";
++        Fn->addFnAttr("mrecord-mcount");
 +      }
-+
-+      if (N.getOpcode() == ISD::SUB)
-+        RHSC = -RHSC;
-+      OffImm =
-+          CurDAG->getTargetConstant(RHSC * (1 << Shift), SDLoc(N), MVT::i32);
-+      return true;
-+    }
-+  }
-+
-+  // Base only.
-+  Base = N;
-+  OffImm = CurDAG->getTargetConstant(0, SDLoc(N), MVT::i32);
-+  return true;
-+}
-+
- bool ARMDAGToDAGISel::SelectT2AddrModeImm8(SDValue N,
-                                            SDValue &Base, SDValue &OffImm) {
-   // Match simple R - imm8 operands.
-@@ -3486,6 +3515,26 @@ void ARMDAGToDAGISel::Select(SDNode *N) {
-     CurDAG->RemoveDeadNode(N);
-     return;
+     }
    }
-+  case ARMISD::LDRD: {
-+    if (Subtarget->isThumb2())
-+      break; // TableGen handles isel in this case.
-+    SDValue Base, RegOffset, ImmOffset;
-+    const SDValue &Chain = N->getOperand(0);
-+    const SDValue &Addr = N->getOperand(1);
-+    SelectAddrMode3(Addr, Base, RegOffset, ImmOffset);
-+    SDValue Ops[] = {Base, RegOffset, ImmOffset, Chain};
-+    SDNode *New = CurDAG->getMachineNode(ARM::LOADDUAL, dl,
-+                                         {MVT::Untyped, MVT::Other}, Ops);
-+    SDValue Lo = CurDAG->getTargetExtractSubreg(ARM::gsub_0, dl, MVT::i32,
-+                                                SDValue(New, 0));
-+    SDValue Hi = CurDAG->getTargetExtractSubreg(ARM::gsub_1, dl, MVT::i32,
-+                                                SDValue(New, 0));
-+    ReplaceUses(SDValue(N, 0), Lo);
-+    ReplaceUses(SDValue(N, 1), Hi);
-+    ReplaceUses(SDValue(N, 2), SDValue(New, 1));
-+    CurDAG->RemoveDeadNode(N);
-+    return;
-+  }
-   case ARMISD::LOOP_DEC: {
-     SDValue Ops[] = { N->getOperand(1),
-                       N->getOperand(2),
-diff --git a/llvm/lib/Target/ARM/ARMISelLowering.cpp b/llvm/lib/Target/ARM/ARMISelLowering.cpp
-index 0b4d39ec308..67d436fb8fa 100644
---- a/llvm/lib/Target/ARM/ARMISelLowering.cpp
-+++ b/llvm/lib/Target/ARM/ARMISelLowering.cpp
-@@ -1070,6 +1070,8 @@ ARMTargetLowering::ARMTargetLowering(const TargetMachine &TM,
-   setOperationAction(ISD::SRA,       MVT::i64, Custom);
-   setOperationAction(ISD::INTRINSIC_VOID, MVT::Other, Custom);
-   setOperationAction(ISD::INTRINSIC_WO_CHAIN, MVT::i64, Custom);
-+  setOperationAction(ISD::LOAD, MVT::i64, Custom);
-+  setOperationAction(ISD::STORE, MVT::i64, Custom);
  
-   // MVE lowers 64 bit shifts to lsll and lsrl
-   // assuming that ISD::SRL and SRA of i64 are already marked custom
-@@ -1593,6 +1595,9 @@ const char *ARMTargetLowering::getTargetNodeName(unsigned Opcode) const {
+diff --git a/clang/lib/Driver/ToolChains/Clang.cpp b/clang/lib/Driver/ToolChains/Clang.cpp
+index a79c96d25d9..6b93dc2939e 100644
+--- a/clang/lib/Driver/ToolChains/Clang.cpp
++++ b/clang/lib/Driver/ToolChains/Clang.cpp
+@@ -4990,6 +4990,9 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
+   if (TC.SupportsProfiling())
+     Args.AddLastArg(CmdArgs, options::OPT_mnop_mcount);
  
-   case ARMISD::PRELOAD:       return "ARMISD::PRELOAD";
- 
-+  case ARMISD::LDRD:          return "ARMISD::LDRD";
-+  case ARMISD::STRD:          return "ARMISD::STRD";
++  if (TC.SupportsProfiling())
++    Args.AddLastArg(CmdArgs, options::OPT_mrecord_mcount);
 +
-   case ARMISD::WIN__CHKSTK:   return "ARMISD::WIN__CHKSTK";
-   case ARMISD::WIN__DBZCHK:   return "ARMISD::WIN__DBZCHK";
+   Args.AddLastArg(CmdArgs, options::OPT_mpacked_stack);
  
-@@ -9081,6 +9086,24 @@ static SDValue LowerPredicateLoad(SDValue Op, SelectionDAG &DAG) {
-   return DAG.getMergeValues({Pred, Load.getValue(1)}, dl);
- }
+   if (Args.getLastArg(options::OPT_fapple_kext) ||
+diff --git a/clang/lib/Frontend/CompilerInvocation.cpp b/clang/lib/Frontend/CompilerInvocation.cpp
+index d68244dce5c..93193edff9c 100644
+--- a/clang/lib/Frontend/CompilerInvocation.cpp
++++ b/clang/lib/Frontend/CompilerInvocation.cpp
+@@ -1104,6 +1104,7 @@ static bool ParseCodeGenArgs(CodeGenOptions &Opts, ArgList &Args, InputKind IK,
+   Opts.InstrumentForProfiling = Args.hasArg(OPT_pg);
+   Opts.CallFEntry = Args.hasArg(OPT_mfentry);
+   Opts.MNopMCount = Args.hasArg(OPT_mnop_mcount);
++  Opts.RecordMCount = Args.hasArg(OPT_mrecord_mcount);
+   Opts.PackedStack = Args.hasArg(OPT_mpacked_stack);
+   Opts.EmitOpenCLArgMetadata = Args.hasArg(OPT_cl_kernel_arg_info);
  
-+void ARMTargetLowering::LowerLOAD(SDNode *N, SmallVectorImpl<SDValue> &Results,
-+                                  SelectionDAG &DAG) const {
-+  LoadSDNode *LD = cast<LoadSDNode>(N);
-+  EVT MemVT = LD->getMemoryVT();
-+  assert(LD->isUnindexed() && "Loads should be unindexed at this point.");
-+
-+  if (MemVT == MVT::i64 && Subtarget->hasV5TEOps() &&
-+      !Subtarget->isThumb1Only() && LD->isVolatile()) {
-+    SDLoc dl(N);
-+    SDValue Result = DAG.getMemIntrinsicNode(
-+        ARMISD::LDRD, dl, DAG.getVTList({MVT::i32, MVT::i32, MVT::Other}),
-+        {LD->getChain(), LD->getBasePtr()}, MemVT, LD->getMemOperand());
-+    SDValue Pair = DAG.getNode(ISD::BUILD_PAIR, dl, MVT::i64,
-+                               Result.getValue(0), Result.getValue(1));
-+    Results.append({Pair, Result.getValue(2)});
-+  }
-+}
-+
- static SDValue LowerPredicateStore(SDValue Op, SelectionDAG &DAG) {
-   StoreSDNode *ST = cast<StoreSDNode>(Op.getNode());
-   EVT MemVT = ST->getMemoryVT();
-@@ -9110,6 +9133,34 @@ static SDValue LowerPredicateStore(SDValue Op, SelectionDAG &DAG) {
-       ST->getMemOperand());
- }
- 
-+static SDValue LowerSTORE(SDValue Op, SelectionDAG &DAG,
-+                          const ARMSubtarget *Subtarget) {
-+  StoreSDNode *ST = cast<StoreSDNode>(Op.getNode());
-+  EVT MemVT = ST->getMemoryVT();
-+  assert(ST->isUnindexed() && "Stores should be unindexed at this point.");
-+
-+  if (MemVT == MVT::i64 && Subtarget->hasV5TEOps() &&
-+      !Subtarget->isThumb1Only() && ST->isVolatile()) {
-+    SDNode *N = Op.getNode();
-+    SDLoc dl(N);
-+
-+    SDValue Lo = DAG.getNode(ISD::EXTRACT_ELEMENT, dl, MVT::i32, ST->getValue(),
-+                             DAG.getTargetConstant(0, dl, MVT::i32));
-+    SDValue Hi = DAG.getNode(ISD::EXTRACT_ELEMENT, dl, MVT::i32, ST->getValue(),
-+                             DAG.getTargetConstant(1, dl, MVT::i32));
-+
-+    return DAG.getMemIntrinsicNode(ARMISD::STRD, dl, DAG.getVTList(MVT::Other),
-+                                   {ST->getChain(), Lo, Hi, ST->getBasePtr()},
-+                                   MemVT, ST->getMemOperand());
-+  } else if (Subtarget->hasMVEIntegerOps() &&
-+             ((MemVT == MVT::v4i1 || MemVT == MVT::v8i1 ||
-+               MemVT == MVT::v16i1))) {
-+    return LowerPredicateStore(Op, DAG);
-+  }
-+
-+  return SDValue();
-+}
-+
- static bool isZeroVector(SDValue N) {
-   return (ISD::isBuildVectorAllZeros(N.getNode()) ||
-           (N->getOpcode() == ARMISD::VMOVIMM &&
-@@ -9297,7 +9348,7 @@ SDValue ARMTargetLowering::LowerOperation(SDValue Op, SelectionDAG &DAG) const {
-   case ISD::LOAD:
-     return LowerPredicateLoad(Op, DAG);
-   case ISD::STORE:
--    return LowerPredicateStore(Op, DAG);
-+    return LowerSTORE(Op, DAG, Subtarget);
-   case ISD::MLOAD:
-     return LowerMLOAD(Op, DAG);
-   case ISD::ATOMIC_LOAD:
-@@ -9399,7 +9450,9 @@ void ARMTargetLowering::ReplaceNodeResults(SDNode *N,
-   case ISD::ABS:
-      lowerABS(N, Results, DAG);
-      return ;
--
-+  case ISD::LOAD:
-+    LowerLOAD(N, Results, DAG);
-+    break;
-   }
-   if (Res.getNode())
-     Results.push_back(Res);
-diff --git a/llvm/lib/Target/ARM/ARMISelLowering.h b/llvm/lib/Target/ARM/ARMISelLowering.h
-index afb4750ee35..a63217ed87b 100644
---- a/llvm/lib/Target/ARM/ARMISelLowering.h
-+++ b/llvm/lib/Target/ARM/ARMISelLowering.h
-@@ -278,7 +278,11 @@ class VectorType;
-       VST4_UPD,
-       VST2LN_UPD,
-       VST3LN_UPD,
--      VST4LN_UPD
-+      VST4LN_UPD,
-+
-+      // Load/Store of dual registers
-+      LDRD,
-+      STRD
-     };
- 
-   } // end namespace ARMISD
-@@ -731,6 +735,8 @@ class VectorType;
-     SDValue LowerINT_TO_FP(SDValue Op, SelectionDAG &DAG) const;
-     void lowerABS(SDNode *N, SmallVectorImpl<SDValue> &Results,
-                   SelectionDAG &DAG) const;
-+    void LowerLOAD(SDNode *N, SmallVectorImpl<SDValue> &Results,
-+                   SelectionDAG &DAG) const;
- 
-     Register getRegisterByName(const char* RegName, EVT VT,
-                                const MachineFunction &MF) const override;
-diff --git a/llvm/lib/Target/ARM/ARMInstrInfo.td b/llvm/lib/Target/ARM/ARMInstrInfo.td
-index 1cab1747ff4..ba374e8f07d 100644
---- a/llvm/lib/Target/ARM/ARMInstrInfo.td
-+++ b/llvm/lib/Target/ARM/ARMInstrInfo.td
-@@ -243,6 +243,12 @@ def ARMqsub8b       : SDNode<"ARMISD::QSUB8b", SDT_ARMAnd, []>;
- def ARMqadd16b      : SDNode<"ARMISD::QADD16b", SDT_ARMAnd, []>;
- def ARMqsub16b      : SDNode<"ARMISD::QSUB16b", SDT_ARMAnd, []>;
- 
-+def SDT_ARMldrd     : SDTypeProfile<2, 1, [SDTCisVT<0, i32>, SDTCisSameAs<0, 1>, SDTCisPtrTy<2>]>;
-+def ARMldrd         : SDNode<"ARMISD::LDRD", SDT_ARMldrd, [SDNPHasChain, SDNPMayLoad, SDNPMemOperand]>;
-+
-+def SDT_ARMstrd     : SDTypeProfile<0, 3, [SDTCisVT<0, i32>, SDTCisSameAs<0, 1>, SDTCisPtrTy<2>]>;
-+def ARMstrd         : SDNode<"ARMISD::STRD", SDT_ARMstrd, [SDNPHasChain, SDNPMayStore, SDNPMemOperand]>;
-+
- // Vector operations shared between NEON and MVE
- 
- def ARMvdup      : SDNode<"ARMISD::VDUP", SDTypeProfile<1, 1, [SDTCisVec<0>]>>;
-@@ -2695,6 +2701,12 @@ let mayLoad = 1, hasSideEffects = 0, hasExtraDefRegAllocReq = 1 in {
-              Requires<[IsARM, HasV5TE]>;
- }
- 
-+let mayLoad = 1, hasSideEffects = 0, hasNoSchedulingInfo = 1 in {
-+def LOADDUAL : ARMPseudoInst<(outs GPRPairOp:$Rt), (ins addrmode3:$addr),
-+                             64, IIC_iLoad_d_r, []>,
-+               Requires<[IsARM, HasV5TE]>;
-+}
-+
- def LDA : AIldracq<0b00, (outs GPR:$Rt), (ins addr_offset_none:$addr),
-                     NoItinerary, "lda", "\t$Rt, $addr", []>;
- def LDAB : AIldracq<0b10, (outs GPR:$Rt), (ins addr_offset_none:$addr),
-@@ -2970,6 +2982,17 @@ let mayStore = 1, hasSideEffects = 0, hasExtraSrcRegAllocReq = 1 in {
-   }
- }
- 
-+let mayStore = 1, hasSideEffects = 0, hasNoSchedulingInfo = 1 in {
-+def STOREDUAL : ARMPseudoInst<(outs), (ins GPRPairOp:$Rt, addrmode3:$addr),
-+                              64, IIC_iStore_d_r, []>,
-+                Requires<[IsARM, HasV5TE]>;
-+}
-+
-+let Predicates = [IsARM, HasV5TE] in {
-+def : Pat<(ARMstrd GPR:$Rt, GPR:$Rt2, addrmode3:$addr),
-+          (STOREDUAL (REG_SEQUENCE GPRPair, GPR:$Rt, gsub_0, GPR:$Rt2, gsub_1), addrmode3:$addr)>;
-+}
-+
- // Indexed stores
- multiclass AI2_stridx<bit isByte, string opc,
-                       InstrItinClass iii, InstrItinClass iir> {
-diff --git a/llvm/lib/Target/ARM/ARMInstrThumb2.td b/llvm/lib/Target/ARM/ARMInstrThumb2.td
-index 7044c92a7f1..00921930e71 100644
---- a/llvm/lib/Target/ARM/ARMInstrThumb2.td
-+++ b/llvm/lib/Target/ARM/ARMInstrThumb2.td
-@@ -270,7 +270,8 @@ def t2am_imm8_offset : MemOperand,
- 
- // t2addrmode_imm8s4  := reg +/- (imm8 << 2)
- def MemImm8s4OffsetAsmOperand : AsmOperandClass {let Name = "MemImm8s4Offset";}
--class T2AddrMode_Imm8s4 : MemOperand {
-+class T2AddrMode_Imm8s4 : MemOperand,
-+                          ComplexPattern<i32, 2, "SelectT2AddrModeImm8<2>", []> {
-   let EncoderMethod = "getT2AddrModeImm8s4OpValue";
-   let DecoderMethod = "DecodeT2AddrModeImm8s4";
-   let ParserMatchClass = MemImm8s4OffsetAsmOperand;
-@@ -1412,7 +1413,8 @@ let mayLoad = 1, hasSideEffects = 0, hasExtraDefRegAllocReq = 1 in {
- // Load doubleword
- def t2LDRDi8  : T2Ii8s4<1, 0, 1, (outs rGPR:$Rt, rGPR:$Rt2),
-                         (ins t2addrmode_imm8s4:$addr),
--                        IIC_iLoad_d_i, "ldrd", "\t$Rt, $Rt2, $addr", "", []>,
-+                        IIC_iLoad_d_i, "ldrd", "\t$Rt, $Rt2, $addr", "",
-+                        [(set rGPR:$Rt, rGPR:$Rt2, (ARMldrd t2addrmode_imm8s4:$addr))]>,
-                  Sched<[WriteLd]>;
- } // mayLoad = 1, hasSideEffects = 0, hasExtraDefRegAllocReq = 1
- 
-@@ -1593,7 +1595,8 @@ defm t2STRH:T2I_st<0b01,"strh", IIC_iStore_bh_i, IIC_iStore_bh_si,
- let mayStore = 1, hasSideEffects = 0, hasExtraSrcRegAllocReq = 1 in
- def t2STRDi8 : T2Ii8s4<1, 0, 0, (outs),
-                        (ins rGPR:$Rt, rGPR:$Rt2, t2addrmode_imm8s4:$addr),
--               IIC_iStore_d_r, "strd", "\t$Rt, $Rt2, $addr", "", []>,
-+               IIC_iStore_d_r, "strd", "\t$Rt, $Rt2, $addr", "",
-+               [(ARMstrd rGPR:$Rt, rGPR:$Rt2, t2addrmode_imm8s4:$addr)]>,
-                Sched<[WriteST]>;
- 
- // Indexed stores
-diff --git a/llvm/test/CodeGen/ARM/i64_volatile_load_store.ll b/llvm/test/CodeGen/ARM/i64_volatile_load_store.ll
+diff --git a/clang/test/CodeGen/mrecord-mcount.c b/clang/test/CodeGen/mrecord-mcount.c
 new file mode 100644
-index 00000000000..7461d3651eb
+index 00000000000..eecee0e24cd
 --- /dev/null
-+++ b/llvm/test/CodeGen/ARM/i64_volatile_load_store.ll
-@@ -0,0 +1,153 @@
-+; RUN: llc -mtriple=armv5e-arm-none-eabi %s -o - | FileCheck %s --check-prefixes=CHECK-ARMV5TE,CHECK
-+; RUN: llc -mtriple=thumbv6t2-arm-none-eabi %s -o - | FileCheck %s --check-prefixes=CHECK-T2,CHECK
-+; RUN: llc -mtriple=armv4t-arm-none-eabi %s -o - | FileCheck %s --check-prefixes=CHECK-ARMV4T,CHECK
++++ b/clang/test/CodeGen/mrecord-mcount.c
+@@ -0,0 +1,26 @@
++// RUN: %clang_cc1 -pg -mfentry -mrecord-mcount -triple s390x-ibm-linux -emit-llvm \
++// RUN:   -o - %s 2>&1 | FileCheck  %s
++// RUN: not %clang_cc1 -pg -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - \
++// RUN:   %s 2>&1 | FileCheck -check-prefix=NOMFENTRY %s
++// RUN: %clang_cc1 -mfentry -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - \
++// RUN:   %s 2>&1 | FileCheck -check-prefix=NOPG %s
++// RUN: %clang_cc1 -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - %s \
++// RUN:   2>&1 | FileCheck -check-prefix=NOPG %s
++// RUN: not %clang_cc1 -pg -mfentry -mrecord-mcount -triple x86_64-linux-gnu \
++// RUN:   -emit-llvm -o - %s 2>&1 | FileCheck -check-prefix=X86 %s
 +
-+@x = common dso_local global i64 0, align 8
-+@y = common dso_local global i64 0, align 8
-+
-+define void @test() {
-+entry:
-+; CHECK-LABEL: test:
-+; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
-+; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
-+; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
-+; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
-+; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
-+; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
-+; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
-+; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
-+; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
-+; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #4]
-+; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #4]
-+; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]]]
-+  %0 = load volatile i64, i64* @x, align 8
-+  store volatile i64 %0, i64* @y, align 8
-+  ret void
++int foo(void) {
++  return 0;
 +}
 +
-+define void @test_offset() {
-+entry:
-+; CHECK-LABEL: test_offset:
-+; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #-4]
-+; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #-4]
-+; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
-+; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
-+; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
-+; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
-+; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #-4]
-+; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #-4]
-+; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #-4]
-+; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
-+; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]]]
-+; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #-4]
-+  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 -4) to i64*), align 8
-+  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 -4) to i64*), align 8
-+  ret void
++int __attribute__((no_instrument_function)) no_instrument(void) {
++  return foo();
 +}
 +
-+define void @test_offset_1() {
-+; CHECK-LABEL: test_offset_1:
-+; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #255]
-+; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #255]
-+; CHECK-T2:           adds [[ADDR0:r[0-9]+]], #255
-+; CHECK-T2-NEXT:      adds [[ADDR1:r[0-9]+]], #255
-+; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
-+; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
-+; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #255]
-+; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #259]
-+; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #259]
-+; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #255]
-+entry:
-+  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 255) to i64*), align 8
-+  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 255) to i64*), align 8
-+  ret void
-+}
-+
-+define void @test_offset_2() {
-+; CHECK-LABEL: test_offset_2:
-+; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: mov [[OFFSET0:r[0-9]+]], #256
-+; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], [[OFFSET0]]]
-+; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], [[OFFSET0]]]
-+; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
-+; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
-+; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
-+; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
-+; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #256]
-+; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #256]
-+; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #256]
-+; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #260]
-+; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #260]
-+; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #256]
-+entry:
-+  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 256) to i64*), align 8
-+  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 256) to i64*), align 8
-+  ret void
-+}
-+
-+define void @test_offset_3() {
-+; CHECK-LABEL: test_offset_3:
-+; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: mov [[OFFSET0:r[0-9]+]], #1020
-+; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], [[OFFSET0]]]
-+; CHECK-ARMV5TE-NEXT: ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], [[OFFSET0]]]
-+; CHECK-T2:           movw [[ADDR0:r[0-9]+]], :lower16:x
-+; CHECK-T2-NEXT:      movw [[ADDR1:r[0-9]+]], :lower16:y
-+; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
-+; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
-+; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #1020]
-+; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]], #1020]
-+; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #1020]
-+; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #1024]
-+; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #1024]
-+; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #1020]
-+entry:
-+  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 1020) to i64*), align 8
-+  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 1020) to i64*), align 8
-+  ret void
-+}
-+
-+define void @test_offset_4() {
-+; CHECK-LABEL: test_offset_4:
-+; CHECK-ARMV5TE:      ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: mov [[OFFSET0:r[0-9]+]], #1024
-+; CHECK-ARMV5TE-NEXT: ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]], [[OFFSET0]]]
-+; CHECK-ARMV5TE:      ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV5TE-NEXT: strd [[R0]], [[R1]], {{\[}}[[ADDR1]], [[OFFSET0]]]
-+; CHECK-T2:           movw [[ADDR1:r[0-9]+]], :lower16:y
-+; CHECK-T2-NEXT:      movw [[ADDR0:r[0-9]+]], :lower16:x
-+; CHECK-T2-NEXT:      movt [[ADDR1]], :upper16:y
-+; CHECK-T2-NEXT:      movt [[ADDR0]], :upper16:x
-+; CHECK-T2-NEXT:      add.w [[ADDR0]], [[ADDR0]], #1024
-+; CHECK-T2-NEXT:      add.w [[ADDR1]], [[ADDR1]], #1024
-+; CHECK-T2-NEXT:      ldrd [[R0:r[0-9]+]], [[R1:r[0-9]+]], {{\[}}[[ADDR0]]]
-+; CHECK-T2-NEXT:      strd [[R0]], [[R1]], {{\[}}[[ADDR1]]]
-+; CHECK-ARMV4T:       ldr [[ADDR0:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[ADDR1:r[0-9]+]]
-+; CHECK-ARMV4T-NEXT:  ldr [[R0:r[0-9]+]], {{\[}}[[ADDR0]], #1024]
-+; CHECK-ARMV4T-NEXT:  ldr [[R1:r[0-9]+]], {{\[}}[[ADDR0]], #1028]
-+; CHECK-ARMV4T-NEXT:  str [[R1]], {{\[}}[[ADDR1]], #1028]
-+; CHECK-ARMV4T-NEXT:  str [[R0]], {{\[}}[[ADDR1]], #1024]
-+entry:
-+  %0 = load volatile i64, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @x to i8*), i32 1024) to i64*), align 8
-+  store volatile i64 %0, i64* bitcast (i8* getelementptr (i8, i8* bitcast (i64* @y to i8*), i32 1024) to i64*), align 8
-+  ret void
-+}
++//CHECK: attributes #0 = { {{.*}}"mrecord-mcount"{{.*}} }
++//CHECK: attributes #1 = { {{.*}} }
++//CHECK-NOT: attributes #1 = { {{.*}}"mrecord-mcount"{{.*}} }
++//NOMFENTRY: error: option '-mrecord-mcount' cannot be specified without '-mfentry'
++//NOPG-NOT: attributes #0 = { {{.*}}"mrecord-mcount"{{.*}} }
++//NOPG-NOT: attributes #1 = { {{.*}}"mrecord-mcount"{{.*}} }
++//X86: error: option '-mrecord-mcount' cannot be specified on this target
 </cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/953534913.6000.1576808395849.JavaMail.javamailuser%40localhost.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1039530165.6040.1576820293557.JavaMail.javamailuser%40localhost.
 
-------=_Part_5999_1502980670.1576808395293--
+------=_Part_6039_1028004989.1576820292474--
