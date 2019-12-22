@@ -1,125 +1,137 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBFVL73XQKGQEMFZTBKQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCJ2P7PB6YPRBPF673XQKGQERQW3HHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7D44128ED2
-	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 17:11:02 +0100 (CET)
-Received: by mail-wr1-x439.google.com with SMTP id b13sf6688569wrx.22
-        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 08:11:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577031062; cv=pass;
+Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
+	by mail.lfdr.de (Postfix) with ESMTPS id B87AB128EEF
+	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 17:52:13 +0100 (CET)
+Received: by mail-oi1-x23a.google.com with SMTP id m7sf6433111oim.14
+        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 08:52:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577033532; cv=pass;
         d=google.com; s=arc-20160816;
-        b=s8//3ENUUcll+tl/fRA1W+MFzsWiYH8pqnNDZE6uU1/tEPPm/4O9mzORGOkFfP1nJi
-         sJsASoodqrxzYp+OxcJyK6eJ5nbQ3JSrvn6QuO+mjIfAspmKzFGQDiReJFC3VGkEfNS3
-         S7uvLErImTZav4WeouUMk6q0CHRpvhJx3eoUbL9ktvLewf2LRMf8/luRrS8ZFFCER63r
-         u5l8TklSh68uDq/sdLm7xSXahVG0fpn+2EbfzlXpTGtJEBUJWRztnal0/3AWddiVPizM
-         QyHpRaihitglt3blbPZilc5MVm6QWOdBiL1UVjg8w2M7SNoPS2IcFgKL6gBR/kbVwYiX
-         XR0w==
+        b=bcHBWoz3PbehDDXN3CEGDjHzrYHzT4WP33SrLDR0HZ6wcp2/N2NzmWiGY/2o4mY5M1
+         ihUo1cPdbau/6tyihbY3e9saaQLWHaV9LhYkUbS8oZ7o8M+hb35hBFViPJEXKr5X36Fj
+         r7JKZHbyR0i4c4Oa0h+JsimWr92/5FSpyVu5hM2D1R9ZNz4Cv9rBOpzKUZZZYWKALJLR
+         iz0wX3pFKR+WmAIZvvuVK2aln9HGvWj/2Td4lmqv5EdOLU9SUUpFoHDt/y57q0e7TPgH
+         qHKZi3Y+52ne8LZkXgSxanGHjIXzp9Zk3AzRyadMMTlJQd4v0y8CIswUV7qfc6MQEfGn
+         XnjA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=SGZJ1+l259uSxzeeQuauaz4AGYcMMumzBq2eG6Hmrtg=;
-        b=pkVg87ZSndUI4n6r4s5lCSJClpX31JsAHeJE6ZaCZ7tuPOvePdB/xN3q9dsoqti8JP
-         3aDNM5ggOVrdDS/O5u7OSIf+t3aAHArLccA7FfFEFOJ/3ngUtRbcKLUDqp4m5R0W2aeU
-         Zl/J+VOwYtekyNcICIVZ3E4n3Cr7m4Sfn/MCp+OBzg3OGrPVgO0aIc0aEJE+0hKkkcTw
-         nd75TmGpjVHEHHkUrRW7oGPQ4w5LoWYlVjcjNNKuSAXbSKFVAeEK9l6ub2IIOjtm4A8J
-         ejZVrn0yV94jRXt2R5xWZ9ZlsUYg1gJbXBKVY6PIOzOGnqOn/hGbqeqGzkBrlQVpcPw7
-         /Fuw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=jbxGENBJdzucv9DAF1/z/272woOq3RNjSKGYSvJ1vb4=;
+        b=pDKbWm4mVZE/yRna0kyU5LiIyBGfhHUFeE8R7WAkvi4vSh+8gt9XW6L6g+WK7ki3Cz
+         6obrjyBNBPzC+yvi8tmUumU87Icvmnl0f6JhKp/wtA4+ZgeuFQ/hGVp6uD9SCfGlxS7g
+         /zKtPXvkMWwQP6K/YVwSVv2qwrceEtOM3wXm4cbexAEUjLDkjjRDp2PGI5YfLy0J4TE2
+         nB3mfCqVIhJeExYybMqI6t59rEh86wdcuIvWrtjYd52rhzdfPVtYW/nZDEPcfUo8Rc7d
+         8xKCcg5yy634K++DGiK2RGLI82ce1MFqinOU6RBnyyL4+DonPux81v83pBXYdJ9D+uAC
+         Ryig==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=eimGbTjX;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FGIU1RJS;
+       spf=pass (google.com: domain of alexander.duyck@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=alexander.duyck@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=jbxGENBJdzucv9DAF1/z/272woOq3RNjSKGYSvJ1vb4=;
+        b=i+OmpeE3WokWX+AbuIQJaKQdOz3VotaEv23/fGjjGc204QJHVVkYGgkIq9uqNbUjkR
+         dF/malMRRl0U1m0bGj4zvXxCty7XTHMLtO5AbXDVCSzFBHWuOt5rnw3JSXB3qkiOymRV
+         KlFh1jp9qyMgjLMH3hTwtfa268BkMJGzFfE3dSWx5BdW02jm2c4fo36NWbjcuu0ih9cr
+         SNBbrjmyU9BJND3uH4INFtz8zkKBFooG+qLWjFKqSgxdkmhg3qG0TnuK7ro8xyPW+fvH
+         fXF93a9IrTflWVHH6T7x2H3iHeaEwjbQ14QHxPRcB8/LmQDfBXxox5Km2Obwyawi6XjW
+         gZ0A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=SGZJ1+l259uSxzeeQuauaz4AGYcMMumzBq2eG6Hmrtg=;
-        b=OOtAsbjfev4NjwhHAQA+SyzcuS3p38xSDA8eQcRc3dQsKf0r2+R1eJ/HlZWDk8R6vW
-         612cq6Hv8RujCl+pbn5dTVk72br0rPOR5W+MffB06XQaSNzA8iUE3ffHYAz3p+e3KmQl
-         WhaLEVjX8w2Z3oPIdIMP6HGRn/3uLut2qq3g4AI0gvzbLXZ8mjsKkGSZbN588byG0TLs
-         9huDFYf4SnD32iPnRbcjb7jc4yNkEEJvgCzgECSc/9pBiPMqlzm12vXWGpxfiKUsgJiT
-         n+R1aEh/KxF1hky5hOekp0uTKIvfa/1dlnTyK+9mfnCo8C7kZovVN2NLpsIwwjcI1+fm
-         Hxlw==
+        bh=jbxGENBJdzucv9DAF1/z/272woOq3RNjSKGYSvJ1vb4=;
+        b=a0mWWTwIVFBHptHMC2+Ehlz3yPJvQLFgPXOT/PKCbS+e8dV3JCUTXRSQQyltiCyRxN
+         QdtfjnS0XUrx56niHI8nhhjHpDor7vezIQXp2FFokTfWmWu3Y3C7wuNO1kGGTq9oBXwp
+         uo5p4cEcA6HnJs3T+MNGy3G94nBlVCwuuT69HF0hdk+7+JeRq9NK5MIjzQwvWiEj13Xz
+         dSg8Oi4M2cD5Oo2A/DGSXLq5aEiLNu8AehWkr9BJRxJqI2w4QNqra9HqViDwwoR7XdRt
+         RJIRrGfsfs20Su/ncj4rEJlKfS/oWJI96El3ono3qYBWFVRaPpkhJw3e9gNmQRtDb849
+         suZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SGZJ1+l259uSxzeeQuauaz4AGYcMMumzBq2eG6Hmrtg=;
-        b=t/ZVPgqK902zKczDf8RjWvaIiPW69B+mbm0ZsB3b466DejgcUDWgk7uyxaAK6NmXmW
-         0Akiti35qrAd+I2yHGELBR3zrZIFAjbl2JiBSbrWV2B8z8RSBjwCktm2OJWN+hUHGYfb
-         cf3WKKB4N5dB2gi1s6j7iv3SSWIVNKdXZCsMwkNeoSNz5+aiFCkXU+ifCWo9N91FYmIH
-         4om+cB1zBNXHPrpfdoXqikno6bnsIm5rPiUKhddZZ0QxRT4MDPvnR4agytsHkipbn0aW
-         4LYUCsAf1K2rB4R4DYMbhKvUK9+BH4NJBhQG5PMX2Nd2erVkDSeoleZkyCF8ZxoKJI1+
-         ERMQ==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=jbxGENBJdzucv9DAF1/z/272woOq3RNjSKGYSvJ1vb4=;
+        b=etPz3Tr9u1/Qj5eYJK++BRoXw35PmbsRb0LxROXldDsF+rNAXd6rb/uOGI2arFUV7v
+         04ofezwQuI+F1XIHtEakOt4E2JTSSM+d1H43yC8jvh2kyuhqECmdXnP6I9RhCYN4wZ2t
+         IsvOBXW7pTegqpseq+t8LU1vtR6Sb6AXdUz0qHrSl+bJzsIQDng5A/5TPlOFjgeRyrxW
+         GDT0rPDBmKwcwdUR13WfDL22l7CBSXNrAGkNjpZjTa+OH+gyO95LYBL+tHfo6hPILq1k
+         gbDaNkEihPR0Vu3wpHv1PLFYKTGk3EcOvOLI5+fbCBhdfSzlvhQvs2INSnTh1yOnIn12
+         whtw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVv/X8QYcEI2e3BLqH1VFED9+KCDvHqnklUG8ibGNaEZEkhL+pz
-	deiAMYTixhwD77pwRiECUhA=
-X-Google-Smtp-Source: APXvYqyKOexR+g7RNkXIZ6uTTcdf8xLW6TBTopJEW33Rh5zNe6MzbQk6+jzwO8iMz1FPXeZfKtkEWQ==
-X-Received: by 2002:adf:ee82:: with SMTP id b2mr27274835wro.194.1577031062295;
-        Sun, 22 Dec 2019 08:11:02 -0800 (PST)
+X-Gm-Message-State: APjAAAWZQGvIhXvXidQozxp6qsRWVg3xyj18ksu5CSlPIqh0bc5M51UG
+	+ck2N8rqMmj2d/IcZASCQAI=
+X-Google-Smtp-Source: APXvYqx4tkp5CDonH/o0cjgfrJCXaNZZ2YhdouE2yDUabQal6ZLfd4K2ZJQPAKv1CPruV8ata5gS4Q==
+X-Received: by 2002:aca:5588:: with SMTP id j130mr5297368oib.122.1577033532320;
+        Sun, 22 Dec 2019 08:52:12 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:9dd4:: with SMTP id g203ls4671864wme.1.gmail; Sun, 22
- Dec 2019 08:11:01 -0800 (PST)
-X-Received: by 2002:a7b:cc81:: with SMTP id p1mr27582145wma.62.1577031061800;
-        Sun, 22 Dec 2019 08:11:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577031061; cv=none;
+Received: by 2002:a9d:469a:: with SMTP id z26ls2222145ote.8.gmail; Sun, 22 Dec
+ 2019 08:52:11 -0800 (PST)
+X-Received: by 2002:a9d:6f85:: with SMTP id h5mr27746691otq.19.1577033531967;
+        Sun, 22 Dec 2019 08:52:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577033531; cv=none;
         d=google.com; s=arc-20160816;
-        b=MIa5VkkwkjpDRRVgIxMXX92yyMJSqCIU//uj6x01zjJThCCzJ4Fc0DfIDZzAOhvA08
-         4Kqw5nsA57FSAtQ3oeBK1GKelvyHCNXrE0dwfaMCgVM4/soOK/Nj3rIAlFytsndpEYg3
-         gy/N0YptReYxCnIoyAfjUAjUe2dQrIWj/L+Q1WCl+n3VixLXGdLbR/97BurAU5qAtCFw
-         kjxuBE7C0mKuuv6o86cvQGLWT11uDlmY1if/4vrVaPSiXDcVqU2SISkMRTwIyOKF0eCt
-         lZIY0Yx6EmM69YQF1UBsYCyVW8jN8g9LGBcoPmrXwCYBmW3Jsc7cr2W11SZYjSEr9Th0
-         /ghQ==
+        b=tHHHo//fPCfy9ovaPw+AznaffXH1J+jvY3EdWnzNQKr8FVMeQI5rRCPFSiX2Rfh4QZ
+         A/v0+NSTNEcj4ykoDKfSRWYs8ihwogOpDJJZ0roS7PX0tyLIDAuVYklVdTbtCQwp2uuQ
+         nxfhZbei1YeVaV8nDqPJpkAzMtJ1kDG+D46Zi7mbFJ9mh/7AewJypPqy6f2736nZiKbq
+         ZXQyWH4aYajvqNHYg8zDAqheJIcdbIi3H52PLPEjT8c2nxtkCkck+FuGpmSjjrhdayUO
+         bHoX2PEpDO7qXafcr2wVqcZ3AsHTfJMPw9IBfWHHGGYwq2jgjWo9YK/O2nViAEIpasB0
+         2B9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=bkgalOkxuBgrgVJLcjOQX2RPufdkna4vyTXq40zPqMw=;
-        b=xNDwWxGBdHELvt0HpYtaxi6z5x/o02RVgODOw2dPGD4KoPUKkEvalCaAAKAgLUs0Pr
-         GpIK/NzX1tg6dQJhZVzL715Bp8+OTvr7SiR1eeD8D+Hqk/cS4u2GkGFhV+Y6qdb0a+qx
-         m81dfYWT42p6ju4TKnZb8cA1c7f4Mel39g5/+d+TqdtammsaOCf/eK45ECzrVx8vvHj4
-         rOalRnyksJan4bV0WxB5th7bxGRxfbzPV25236mrTA4M//DWOa38W9NYBSBjqutzkjmN
-         CFW7nepY4Cxv4lSu3pFzbUap3Q0i7OK2BYNeENkOFoaPSGly+iErRCQv+WycW2dzxT9T
-         6rPA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=r+q+0cCzz/RomIT1h762ErUkI/mh0yOGLAaQS6h5Vvw=;
+        b=gqVIsQHgdH9hnsHzBgeDhwyf/+uPiOE3X2AXwRAm7JLU7SgakExyMi4RyrWSjPg5Jg
+         EuVCC7voqmKIMPUX904Hi9K9ZR9JPEMFXHenCaN9kIY5UlX9aLPmCSZ824UQReM9V945
+         IUkv7dxwdF7W3GxfwSXM88KavfyaIySOmMJFj59NVlkyjcN1/DWXm8AeYtyowpizq7y/
+         5Z0qdHHRWDFBMC6MojN8SRlYVXI+nGaZ6Try20VmWnMWG+9BSD4OChiB5gQI8ep5WrAD
+         r/yMDAXtZO2RyVhw/r5BbTDQXD6F4mz+mucGdQFs/lqA3Zio3fQnc02LYyjf5beU1fdl
+         dUjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=eimGbTjX;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id b9si558383wrw.2.2019.12.22.08.11.01
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FGIU1RJS;
+       spf=pass (google.com: domain of alexander.duyck@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=alexander.duyck@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-io1-xd42.google.com (mail-io1-xd42.google.com. [2607:f8b0:4864:20::d42])
+        by gmr-mx.google.com with ESMTPS id p189si568064oig.3.2019.12.22.08.52.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Dec 2019 08:11:01 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
-Received: by mail-wm1-x341.google.com with SMTP id t14so13838494wmi.5
-        for <clang-built-linux@googlegroups.com>; Sun, 22 Dec 2019 08:11:01 -0800 (PST)
-X-Received: by 2002:a1c:1b44:: with SMTP id b65mr19386800wmb.11.1577031061284;
-        Sun, 22 Dec 2019 08:11:01 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id m126sm16846975wmf.7.2019.12.22.08.11.00
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Sun, 22 Dec 2019 08:11:00 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Sun, 22 Dec 2019 16:10:59 +0000 (UTC)
-To: tcwg-validation@linaro.org, llvm@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <838735936.6788.1577031060615.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-arm-mainline-allmodconfig - Build # 27 -
- Successful!
+        Sun, 22 Dec 2019 08:52:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of alexander.duyck@gmail.com designates 2607:f8b0:4864:20::d42 as permitted sender) client-ip=2607:f8b0:4864:20::d42;
+Received: by mail-io1-xd42.google.com with SMTP id v18so14116226iol.2
+        for <clang-built-linux@googlegroups.com>; Sun, 22 Dec 2019 08:52:11 -0800 (PST)
+X-Received: by 2002:a6b:4e08:: with SMTP id c8mr16425050iob.64.1577033531424;
+ Sun, 22 Dec 2019 08:52:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_6787_314967696.1577031059740"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-mainline-allmodconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+References: <201912220313.FgL3fS3o%lkp@intel.com> <20191222032542.GA44059@ubuntu-m2-xlarge-x86>
+In-Reply-To: <20191222032542.GA44059@ubuntu-m2-xlarge-x86>
+From: Alexander Duyck <alexander.duyck@gmail.com>
+Date: Sun, 22 Dec 2019 08:52:00 -0800
+Message-ID: <CAKgT0UdgFyzADHTp7AEpdbF+XZsd8YhrxcPOVSa-05t5vdBjSA@mail.gmail.com>
+Subject: Re: [jkirsher-net-queue:dev-queue 5/5] drivers/net/ethernet/intel/e1000e/netdev.c:7604:7:
+ warning: address of function 'down' will always evaluate to 'true'
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Jeff Kirsher <jeffrey.t.kirsher@intel.com>, kbuild@lists.01.org, 
+	Nick Desaulniers <ndesaulniers@google.com>, clang-built-linux@googlegroups.com, 
+	kbuild test robot <lkp@intel.com>, Netdev <netdev@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Original-Sender: Alexander.Duyck@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=eimGbTjX;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=FGIU1RJS;       spf=pass
+ (google.com: domain of alexander.duyck@gmail.com designates
+ 2607:f8b0:4864:20::d42 as permitted sender) smtp.mailfrom=alexander.duyck@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,228 +144,145 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_6787_314967696.1577031059740
-Content-Type: text/plain; charset="UTF-8"
+Yes, it looks like the patch called out below reverted part of my earlier patch:
+commit daee5598e491d8d3979bd4ad6c447d89ce57b446
+Author: Alexander Duyck <alexander.h.duyck@linux.intel.com>
+Date:   Fri Oct 11 08:34:59 2019 -0700
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-arm-mainline-allmodconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-aarch64-lts-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-mainline-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-stable-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-stable-allyesconfig
- - tcwg_kernel/llvm-master-arm-mainline-allmodconfig
- - tcwg_kernel/llvm-master-arm-mainline-allyesconfig
- - tcwg_kernel/llvm-master-arm-next-allmodconfig
- - tcwg_kernel/llvm-master-arm-next-allyesconfig
+    e1000e: Drop unnecessary __E1000_DOWN bit twiddling
 
-Culprit:
-<cut>
-commit 2520bef865329d4c04e2de30c222ad0d5ad13ccc
-Author: Jonas Paulsson <paulsson@linux.vnet.ibm.com>
+    Since we no longer check for __E1000_DOWN in e1000e_close we can drop the
+    spot where we were restoring the bit. This saves us a bit of unnecessary
+    complexity.
 
-    [Clang FE, SystemZ]  Recognize -mrecord-mcount CL option.
-</cut>
+    Signed-off-by: Alexander Duyck <alexander.h.duyck@linux.intel.com>
+    Tested-by: Aaron Brown <aaron.f.brown@intel.com>
+    Signed-off-by: Jeff Kirsher <jeffrey.t.kirsher@intel.com>
 
-First few errors in logs of first_bad:
-00:01:44 error: option '-mrecord-mcount' cannot be specified on this target
-00:01:44 error: option '-mrecord-mcount' cannot be specified without '-mfentry'
-00:01:44 make[1]: *** [scripts/mod/devicetable-offsets.s] Error 1
-00:01:45 make: *** [prepare0] Error 2
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
-rr[llvm_branch]="bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce"
-
-Results regressed to (for first_bad == 2520bef865329d4c04e2de30c222ad0d5ad13ccc)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-25
-
-from (for last_good == a116f28a0d71c221c1dc023908b180beaf22799d)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-20058
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/artifact/artifacts/build-2520bef865329d4c04e2de30c222ad0d5ad13ccc/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/artifact/artifacts/build-a116f28a0d71c221c1dc023908b180beaf22799d/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/
-
-Reproduce builds:
-<cut>
-mkdir investigate-llvm-2520bef865329d4c04e2de30c222ad0d5ad13ccc
-cd investigate-llvm-2520bef865329d4c04e2de30c222ad0d5ad13ccc
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd llvm
-
-# Reproduce first_bad build
-git checkout --detach 2520bef865329d4c04e2de30c222ad0d5ad13ccc
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach a116f28a0d71c221c1dc023908b180beaf22799d
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-mainline-allmodconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allmodconfig/27/consoleText
-
-Full commit:
-<cut>
-commit 2520bef865329d4c04e2de30c222ad0d5ad13ccc
-Author: Jonas Paulsson <paulsson@linux.vnet.ibm.com>
-Date:   Tue Dec 17 12:00:43 2019 -0800
-
-    [Clang FE, SystemZ]  Recognize -mrecord-mcount CL option.
-    
-    Recognize -mrecord-mcount from the command line and add a function attribute
-    "mrecord-mcount" when passed.
-    
-    Only valid on SystemZ (when used with -mfentry).
-    
-    Review: Ulrich Weigand
-    https://reviews.llvm.org/D71627
----
- clang/include/clang/Basic/CodeGenOptions.def |  1 +
- clang/include/clang/Driver/Options.td        |  2 ++
- clang/lib/CodeGen/CodeGenFunction.cpp        | 11 +++++++++++
- clang/lib/Driver/ToolChains/Clang.cpp        |  3 +++
- clang/lib/Frontend/CompilerInvocation.cpp    |  1 +
- clang/test/CodeGen/mrecord-mcount.c          | 26 ++++++++++++++++++++++++++
- 6 files changed, 44 insertions(+)
-
-diff --git a/clang/include/clang/Basic/CodeGenOptions.def b/clang/include/clang/Basic/CodeGenOptions.def
-index c6700333c13..7f26ca8b4d6 100644
---- a/clang/include/clang/Basic/CodeGenOptions.def
-+++ b/clang/include/clang/Basic/CodeGenOptions.def
-@@ -113,6 +113,7 @@ VALUE_CODEGENOPT(XRayInstructionThreshold , 32, 200)
- CODEGENOPT(InstrumentForProfiling , 1, 0) ///< Set when -pg is enabled.
- CODEGENOPT(CallFEntry , 1, 0) ///< Set when -mfentry is enabled.
- CODEGENOPT(MNopMCount , 1, 0) ///< Set when -mnop-mcount is enabled.
-+CODEGENOPT(RecordMCount , 1, 0) ///< Set when -mrecord-mcount is enabled.
- CODEGENOPT(PackedStack , 1, 0) ///< Set when -mpacked-stack is enabled.
- CODEGENOPT(LessPreciseFPMAD  , 1, 0) ///< Enable less precise MAD instructions to
-                                      ///< be generated.
-diff --git a/clang/include/clang/Driver/Options.td b/clang/include/clang/Driver/Options.td
-index 2a72b87355d..86aee334436 100644
---- a/clang/include/clang/Driver/Options.td
-+++ b/clang/include/clang/Driver/Options.td
-@@ -2477,6 +2477,8 @@ def mfentry : Flag<["-"], "mfentry">, HelpText<"Insert calls to fentry at functi
-   Flags<[CC1Option]>, Group<m_Group>;
- def mnop_mcount : Flag<["-"], "mnop-mcount">, HelpText<"Generate mcount/__fentry__ calls as nops. To activate they need to be patched in.">,
-   Flags<[CC1Option]>, Group<m_Group>;
-+def mrecord_mcount : Flag<["-"], "mrecord-mcount">, HelpText<"Generate a __mcount_loc section entry for each __fentry__ call.">,
-+  Flags<[CC1Option]>, Group<m_Group>;
- def mpacked_stack : Flag<["-"], "mpacked-stack">, HelpText<"Use packed stack layout (SystemZ only).">,
-   Flags<[CC1Option]>, Group<m_Group>;
- def mips16 : Flag<["-"], "mips16">, Group<m_mips_Features_Group>;
-diff --git a/clang/lib/CodeGen/CodeGenFunction.cpp b/clang/lib/CodeGen/CodeGenFunction.cpp
-index 89ce31e9b45..6f7e06b773d 100644
---- a/clang/lib/CodeGen/CodeGenFunction.cpp
-+++ b/clang/lib/CodeGen/CodeGenFunction.cpp
-@@ -968,6 +968,17 @@ void CodeGenFunction::StartFunction(GlobalDecl GD, QualType RetTy,
-             << "-mnop-mcount" << "-mfentry";
-         Fn->addFnAttr("mnop-mcount");
-       }
-+
-+      if (CGM.getCodeGenOpts().RecordMCount) {
-+        if (getContext().getTargetInfo().getTriple().getArch() !=
-+            llvm::Triple::systemz)
-+          CGM.getDiags().Report(diag::err_opt_not_valid_on_target)
-+            << "-mrecord-mcount";
-+        if (!CGM.getCodeGenOpts().CallFEntry)
-+          CGM.getDiags().Report(diag::err_opt_not_valid_without_opt)
-+            << "-mrecord-mcount" << "-mfentry";
-+        Fn->addFnAttr("mrecord-mcount");
-+      }
-     }
-   }
- 
-diff --git a/clang/lib/Driver/ToolChains/Clang.cpp b/clang/lib/Driver/ToolChains/Clang.cpp
-index a79c96d25d9..6b93dc2939e 100644
---- a/clang/lib/Driver/ToolChains/Clang.cpp
-+++ b/clang/lib/Driver/ToolChains/Clang.cpp
-@@ -4990,6 +4990,9 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
-   if (TC.SupportsProfiling())
-     Args.AddLastArg(CmdArgs, options::OPT_mnop_mcount);
- 
-+  if (TC.SupportsProfiling())
-+    Args.AddLastArg(CmdArgs, options::OPT_mrecord_mcount);
-+
-   Args.AddLastArg(CmdArgs, options::OPT_mpacked_stack);
- 
-   if (Args.getLastArg(options::OPT_fapple_kext) ||
-diff --git a/clang/lib/Frontend/CompilerInvocation.cpp b/clang/lib/Frontend/CompilerInvocation.cpp
-index d68244dce5c..93193edff9c 100644
---- a/clang/lib/Frontend/CompilerInvocation.cpp
-+++ b/clang/lib/Frontend/CompilerInvocation.cpp
-@@ -1104,6 +1104,7 @@ static bool ParseCodeGenArgs(CodeGenOptions &Opts, ArgList &Args, InputKind IK,
-   Opts.InstrumentForProfiling = Args.hasArg(OPT_pg);
-   Opts.CallFEntry = Args.hasArg(OPT_mfentry);
-   Opts.MNopMCount = Args.hasArg(OPT_mnop_mcount);
-+  Opts.RecordMCount = Args.hasArg(OPT_mrecord_mcount);
-   Opts.PackedStack = Args.hasArg(OPT_mpacked_stack);
-   Opts.EmitOpenCLArgMetadata = Args.hasArg(OPT_cl_kernel_arg_info);
- 
-diff --git a/clang/test/CodeGen/mrecord-mcount.c b/clang/test/CodeGen/mrecord-mcount.c
-new file mode 100644
-index 00000000000..eecee0e24cd
---- /dev/null
-+++ b/clang/test/CodeGen/mrecord-mcount.c
-@@ -0,0 +1,26 @@
-+// RUN: %clang_cc1 -pg -mfentry -mrecord-mcount -triple s390x-ibm-linux -emit-llvm \
-+// RUN:   -o - %s 2>&1 | FileCheck  %s
-+// RUN: not %clang_cc1 -pg -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - \
-+// RUN:   %s 2>&1 | FileCheck -check-prefix=NOMFENTRY %s
-+// RUN: %clang_cc1 -mfentry -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - \
-+// RUN:   %s 2>&1 | FileCheck -check-prefix=NOPG %s
-+// RUN: %clang_cc1 -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - %s \
-+// RUN:   2>&1 | FileCheck -check-prefix=NOPG %s
-+// RUN: not %clang_cc1 -pg -mfentry -mrecord-mcount -triple x86_64-linux-gnu \
-+// RUN:   -emit-llvm -o - %s 2>&1 | FileCheck -check-prefix=X86 %s
-+
-+int foo(void) {
-+  return 0;
-+}
-+
-+int __attribute__((no_instrument_function)) no_instrument(void) {
-+  return foo();
-+}
-+
-+//CHECK: attributes #0 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//CHECK: attributes #1 = { {{.*}} }
-+//CHECK-NOT: attributes #1 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//NOMFENTRY: error: option '-mrecord-mcount' cannot be specified without '-mfentry'
-+//NOPG-NOT: attributes #0 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//NOPG-NOT: attributes #1 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//X86: error: option '-mrecord-mcount' cannot be specified on this target
-</cut>
+On Sat, Dec 21, 2019 at 7:37 PM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
+>
+> Hi Jeff,
+>
+> We received this build report from the 0day team with clang, seems
+> legit. Mind taking a look into it?
+>
+> Cheers,
+> Nathan
+>
+> On Sun, Dec 22, 2019 at 03:36:15AM +0800, kbuild test robot wrote:
+> > CC: kbuild-all@lists.01.org
+> > CC: intel-wired-lan@lists.osuosl.org
+> > TO: Jeff Kirsher <jeffrey.t.kirsher@intel.com>
+> >
+> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/jkirsher/net-queue.git dev-queue
+> > head:   831655569c70675c1622f8c52ed271dc7fdce42f
+> > commit: 831655569c70675c1622f8c52ed271dc7fdce42f [5/5] e1000e: Revert "e1000e: Make watchdog use delayed work"
+> > config: arm64-defconfig (attached as .config)
+> > compiler: clang version 10.0.0 (git://gitmirror/llvm_project 3ced23976aa8a86a17017c87821c873b4ca80bc2)
+> > reproduce:
+> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+> >         chmod +x ~/bin/make.cross
+> >         git checkout 831655569c70675c1622f8c52ed271dc7fdce42f
+> >         # save the attached .config to linux build tree
+> >         make.cross ARCH=arm64
+> >
+> > If you fix the issue, kindly add following tag
+> > Reported-by: kbuild test robot <lkp@intel.com>
+> >
+> > All warnings (new ones prefixed by >>):
+> >
+> > >> drivers/net/ethernet/intel/e1000e/netdev.c:7604:7: warning: address of function 'down' will always evaluate to 'true' [-Wpointer-bool-conversion]
+> >            if (!down)
+> >                ~^~~~
+> >    drivers/net/ethernet/intel/e1000e/netdev.c:7604:7: note: prefix with the address-of operator to silence this warning
+> >            if (!down)
+> >                 ^
+> >                 &
+> >    1 warning generated.
+> >
+> > vim +7604 drivers/net/ethernet/intel/e1000e/netdev.c
+> >
+> >   7584
+> >   7585        /**
+> >   7586         * e1000_remove - Device Removal Routine
+> >   7587         * @pdev: PCI device information struct
+> >   7588         *
+> >   7589         * e1000_remove is called by the PCI subsystem to alert the driver
+> >   7590         * that it should release a PCI device.  The could be caused by a
+> >   7591         * Hot-Plug event, or because the driver is going to be removed from
+> >   7592         * memory.
+> >   7593         **/
+> >   7594        static void e1000_remove(struct pci_dev *pdev)
+> >   7595        {
+> >   7596                struct net_device *netdev = pci_get_drvdata(pdev);
+> >   7597                struct e1000_adapter *adapter = netdev_priv(netdev);
+> >   7598
+> >   7599                e1000e_ptp_remove(adapter);
+> >   7600
+> >   7601                /* The timers may be rescheduled, so explicitly disable them
+> >   7602                 * from being rescheduled.
+> >   7603                 */
+> > > 7604                if (!down)
+> >   7605                        set_bit(__E1000_DOWN, &adapter->state);
+> >   7606                del_timer_sync(&adapter->watchdog_timer);
+> >   7607                del_timer_sync(&adapter->phy_info_timer);
+> >   7608
+> >   7609                cancel_work_sync(&adapter->reset_task);
+> >   7610                cancel_work_sync(&adapter->watchdog_task);
+> >   7611                cancel_work_sync(&adapter->downshift_task);
+> >   7612                cancel_work_sync(&adapter->update_phy_task);
+> >   7613                cancel_work_sync(&adapter->print_hang_task);
+> >   7614
+> >   7615                if (adapter->flags & FLAG_HAS_HW_TIMESTAMP) {
+> >   7616                        cancel_work_sync(&adapter->tx_hwtstamp_work);
+> >   7617                        if (adapter->tx_hwtstamp_skb) {
+> >   7618                                dev_consume_skb_any(adapter->tx_hwtstamp_skb);
+> >   7619                                adapter->tx_hwtstamp_skb = NULL;
+> >   7620                        }
+> >   7621                }
+> >   7622
+> >   7623                unregister_netdev(netdev);
+> >   7624
+> >   7625                if (pci_dev_run_wake(pdev))
+> >   7626                        pm_runtime_get_noresume(&pdev->dev);
+> >   7627
+> >   7628                /* Release control of h/w to f/w.  If f/w is AMT enabled, this
+> >   7629                 * would have already happened in close and is redundant.
+> >   7630                 */
+> >   7631                e1000e_release_hw_control(adapter);
+> >   7632
+> >   7633                e1000e_reset_interrupt_capability(adapter);
+> >   7634                kfree(adapter->tx_ring);
+> >   7635                kfree(adapter->rx_ring);
+> >   7636
+> >   7637                iounmap(adapter->hw.hw_addr);
+> >   7638                if ((adapter->hw.flash_address) &&
+> >   7639                    (adapter->hw.mac.type < e1000_pch_spt))
+> >   7640                        iounmap(adapter->hw.flash_address);
+> >   7641                pci_release_mem_regions(pdev);
+> >   7642
+> >   7643                free_netdev(netdev);
+> >   7644
+> >   7645                /* AER disable */
+> >   7646                pci_disable_pcie_error_reporting(pdev);
+> >   7647
+> >   7648                pci_disable_device(pdev);
+> >   7649        }
+> >   7650
+> >
+> > ---
+> > 0-DAY kernel test infrastructure                 Open Source Technology Center
+> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
+> >
+> > --
+> > You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> > To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> > To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912220313.FgL3fS3o%25lkp%40intel.com.
+>
+>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/838735936.6788.1577031060615.JavaMail.javamailuser%40localhost.
-
-------=_Part_6787_314967696.1577031059740--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKgT0UdgFyzADHTp7AEpdbF%2BXZsd8YhrxcPOVSa-05t5vdBjSA%40mail.gmail.com.
