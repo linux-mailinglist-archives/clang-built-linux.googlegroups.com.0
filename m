@@ -1,125 +1,152 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBCXJ7LXQKGQEL4EJ42I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBXV47PXQKGQET5QWGYI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53f.google.com (mail-ed1-x53f.google.com [IPv6:2a00:1450:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3A984128C12
-	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 01:10:51 +0100 (CET)
-Received: by mail-ed1-x53f.google.com with SMTP id v24sf6907293edb.15
-        for <lists+clang-built-linux@lfdr.de>; Sat, 21 Dec 2019 16:10:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1576973451; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8A8DD128C6C
+	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 04:09:20 +0100 (CET)
+Received: by mail-pf1-x440.google.com with SMTP id x21sf5105486pfp.12
+        for <lists+clang-built-linux@lfdr.de>; Sat, 21 Dec 2019 19:09:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1576984159; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lS+5TitjFGnUx7RoJuzF4OJu3zU8JQ9lzWA6OBCRPQVUM97U7THyd1hgTrSnw/Ukaw
-         WzPeySlcXHA6UlhI+ydlclNbWAKH83/0XG/wf6OnUbBpK3PBRzA/HlyshWP1/XOJk0rT
-         jzi3KY6MdQZK5FcnrtHlXCgtYmvM9QAx+ct2aMsV16Ogk8hkIzYyEwzXXnJh1luwBEEs
-         FMW0htwhqlbzSI+m6jWgA4YNvXBNlX7XRD6jEbR7OLcvJw77PtsgeKm+AEkYfywulT4x
-         PLIwsmDSPfPeZvRhIorFabOn/hVPiTiZ7UEUjJRQ7Gwyu4vijWSelnkFIUbu/4lKS4YX
-         UJ7w==
+        b=abmcAgPOz3uerlsWh0fyX6FhQKJ/Yw50ZVQzprESR4Icu5PJamI7jt3pC5CJRMM6Th
+         0LshbQlnIeHwKPfZ9igszjKJtBgSlxWUMcR2sWvA6Le5LLJJaBRPuoi+nCC98i89c+fG
+         U6nCN0zo/oDC7vyJBasaNqz1ogX5jxlkMDWnPDHU2P7d16Lisr5MUVcDIHM6KFyg1fPe
+         /0UzZ+k4obhvwbw/TFy/CilAX+Jsp5/8djeY7fOMAks7rmcz2HeEHmInq2gX8CDO4uGW
+         jtIV7LgD5wFID96bcNoqTPI+OEZnJQfuqbL1szM0EgZz9cvhdNYe147uwnuG8PopSlod
+         tJKg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=K8oiChZN6WI71MNwv+av+E1ZYXJVR5NEwBc6GcBSC9I=;
-        b=Z1UNjYI+Pp/G5ipL40cCSo0yooN/rbavcti1Wrdwd+1onyedy3H7gKFqvIR7h1bT5o
-         ROwMdMFFyOynrSQVo/X5Rl9X0cugTgBlQzdFjATaLi567LHfxtsC0W7Emy+paDbfS1ck
-         QCXwomiMfcZis21eIEyv9sbe84myn5Pn+y5ujnJ9eS8FOpVE08NJQLVGK3Zhdk8NGwWy
-         TyW5rL2AKply84hiMl/0lv7SQEMCYzBpZB6cIjm35YjY2Ef0GfVWrW6mDRpjOSoMyeWk
-         nyqNlV/kYNpTlJ8PQeUwYRCjmKNYQatQWsyvzarG/2JrkVHQ4oqtXI/uP1htbNSuGxAe
-         jLgg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature:dkim-signature;
+        bh=AsS1ioB5m0qYbygsOg092hb+djp79zZhQ45uLWkyp9w=;
+        b=sfVnLVI8VTFmueyJVLEHjfa5ibTwm7jQ3Ki1zoweQeBalAi5nslzvw4ch4v7Mvif7n
+         P3QBPiHcnWEmt+86ZYmpcRp6qe15IOAwKbhPpiXyPjUlDvf8zk/HoiBv7eukhNQpuxGk
+         paNqQbmn6k3/32esyrmGyX8c8EtCnPVpc0PUuG+g9mTCZ6Gnf51Y6UjADj+HOdDjon5J
+         DQw/msGQ6iVByjMWBDEXpj2p+8J9XnUpuoZYlKauMN5IMVMpXYRr+lm2fOw/iVQgcUwv
+         oG7KiNRmy6LHdcH52GfV626AywHRNAnv18cGJipn6RYi1eQdJWDku5dXG8OAq1X6+mnh
+         SKnA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=GGGMbt5T;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="J//ypFVJ";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=K8oiChZN6WI71MNwv+av+E1ZYXJVR5NEwBc6GcBSC9I=;
-        b=Qaq/J/odBeM69Z9GBmtyInfUl2pLB+0lxfZJ8qZEKt5++XB2eoJaWkYecHJFAdBM3j
-         ys2Y4NKS5tBwx3HgAmhMuqwO4cGtgz3AzkMNhGgpj2BvQl0XpdMIqUzA2NqhAWajzEPc
-         XwI673PHgUsD9zCuOXzo/AfOUye6Ul534tKAOr0S+XLdD6TxpTYS+n044dwLDRQM8tEN
-         l4o6vGVRlJB39ezRTfOrCyTuW4YUYRhl7HXsyLZ7wT0mQWOv2922qbHykOK3gaA7/EJD
-         USXV3HotNPb+yKrw9bLzQn76ISCMuHXcWffllWcE13gWQ/lBoi5qnN8PUSR8oISo7O6w
-         U3ZA==
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=AsS1ioB5m0qYbygsOg092hb+djp79zZhQ45uLWkyp9w=;
+        b=YKwG4dA5C+boElwkmsMlNaxnZHxn7frkmNr/azshTuS6dM6z+E1wYavlkdz05QDsLT
+         +rSb0fYz55q+lqt3WwKwkqffEZqrsNI4iBgmRu8LEB7qJCNr9D8XZiSl/HBGLdgFrC5T
+         kNDKBmcbBy+rJ27gRPK0WrrD4FUskSzidhfqbGLLpVSnNjAL9gFW57xqZnfoqyrlznE0
+         nk3ezGki9w4xxjyTNCf3vgrrbuNvZUb5ZhDDoHIP5SlL1mDrASxZtQ1tZH0OQKwlKssF
+         99qd4t8IhfGFsm1juS3CuS2DX3qa0RGbD5PfemyDm/OxwaKB0lNX5xD2i/XwZ8ykcjCf
+         l3zQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=AsS1ioB5m0qYbygsOg092hb+djp79zZhQ45uLWkyp9w=;
+        b=fK6ixETWY6fOm988Uo4JCJj9ZA2TBHyPVJfZx2p0xFW4LQMgf5b71f442+/eQ0zyJh
+         4RO7Ade0on/5PjXym/WnRfJtd3QFFzsr3LxZPfZ7yIw1cio7ag/azKziEl9z5f3JbtAs
+         kYJNTsHfLJFTR2ul1nR8vcAh0cRwSt+r5Xo14tpfqaTK4tUhzvBZkBN7F2buVS0SBbMN
+         fUph5Dp7b9afxJlmvQSlpcfn9a3y8PdM12+MRV3aROvETOjnIAIoXCTEiitSBLcghYjI
+         4WlTjUg4rfWunZSIK2WaFAE1bS7UXsG+r8Vh0nhiLBM/mglVMDlFyU+Ysmm+rtcNOY9l
+         Wn4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=K8oiChZN6WI71MNwv+av+E1ZYXJVR5NEwBc6GcBSC9I=;
-        b=gHM+krAZIKMx8OGjvCS5J3tJZsr+SGAW+jdte3wxaAg6mUGqYVvqqAKAmJ+ZOliYeo
-         NS8fokLG7Sffo0lk6/iNg9nhEti13SJehU4jDWh7mxgcKZ31sQWBP545RW85ORhTnX8D
-         zdTp9NOajCu65+v97N76IrL4R61cGqVo3XCLe/7Kkk4uzGkoLSQOCD0G9A6RdKnGCug9
-         PMubOeI1TAKw3fCNY1Pgzf0y06Cncv8dkPIsMj/QexsOJoM9lvyOMssvwGN/Gdj2UFHB
-         DhSyYpBnTaJ49jydan7yhdmCXNDIN9TaIYM6arRaQkwqAv6uZ1xHUW+qFpSv5g/JnvA/
-         MyUQ==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=AsS1ioB5m0qYbygsOg092hb+djp79zZhQ45uLWkyp9w=;
+        b=P1LcuKnYesXQKp3Wfdm2p+vYKoeDVs3FIT9i2uAokua1WJ5yELnd91aqUhKllJ7H2d
+         eEOYehC7isDkA4Awi+STaoyjaRuZGxDqiaOp1aBkb7ggM4sm05DHbMxdTc/3jpPbZxFh
+         kL2pnZuRbgY5HnDyk9e5OZXS7gCPe8OUwk/mzkj/cYHLntXE/4hc8zskhPGXkC2+Szgy
+         fOobp1MF5fsRkF3u+KiUzOIBetcA66gY5wSEu2cvcxXHlKmQm4NGuwcdstoM8izD9zsE
+         GV46kXlguSQMHizSdYPt5jCi75VTox66+A/iEDm9MqmUWpIEAgFAatGd45ZM18soMNse
+         Tz/g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVsgsp0qPLVP4okLVepNSJQeJ1heF5GhXD5RaER3Jp2HYzZY6jD
-	X/wyZ2oOGDPgegypCD+4vhk=
-X-Google-Smtp-Source: APXvYqwnBXYqPea0TQU3YnRlu/0bU8lkujlYwpObOzVt3vrNlpVG5U+T+8j3ZNtq5Cu5xCQJP4clSQ==
-X-Received: by 2002:a05:6402:3047:: with SMTP id bu7mr24734699edb.44.1576973450767;
-        Sat, 21 Dec 2019 16:10:50 -0800 (PST)
+X-Gm-Message-State: APjAAAXKgCWAcCv9Y8exgR/U2084rX2OXR+Q1XdtNToLQulFSJAmSCYO
+	Ujxmt+FUyvW9pT+CLgDRJxs=
+X-Google-Smtp-Source: APXvYqypry69Ctep/ckZ5PrzmkZaZZ5Kut1/cEsVlW4NtVkmk9Hkx5m1P/Dgp+Z70fhqx4FOcfX8Qg==
+X-Received: by 2002:a63:4e22:: with SMTP id c34mr23775184pgb.214.1576984158854;
+        Sat, 21 Dec 2019 19:09:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:906:bfe7:: with SMTP id vr7ls3916381ejb.1.gmail; Sat, 21
- Dec 2019 16:10:50 -0800 (PST)
-X-Received: by 2002:a17:906:c40d:: with SMTP id u13mr24820944ejz.178.1576973450261;
-        Sat, 21 Dec 2019 16:10:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1576973450; cv=none;
+Received: by 2002:aa7:8d43:: with SMTP id s3ls3499359pfe.14.gmail; Sat, 21 Dec
+ 2019 19:09:18 -0800 (PST)
+X-Received: by 2002:a65:4d0b:: with SMTP id i11mr25222927pgt.340.1576984158424;
+        Sat, 21 Dec 2019 19:09:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1576984158; cv=none;
         d=google.com; s=arc-20160816;
-        b=YlJA0ZzVh3phsJIs/OHpvz1C3E4SixlrIX/LiAm21HIq69sWcqeMtcFBuXH1OhJXJh
-         dg378l7+8IAjiAkUMmFb4vb29KCYY9Ow2ibiAa7H8PSeCUjXPnw7dCYvUFKjfm5I2ZMs
-         xxRGeHgWecUbKExY41ELDe+gLYpqKZuix6wgzamebms3d80kli1cFRsMN9WuCDCObSIC
-         TFqIxdudSSbTRCwXaF4AQgbKAn7NPT8wkzYpT3qR5jSEhnntMkBBfGftfv0H/9PdL+KT
-         x11L2sT9Wx6bUduqiiKhZrf8shHPuJh92Y0FkBQ1BFxwCXvZJ2oyOohy22EI0b7ikg1B
-         QHZA==
+        b=wOfWYSxz/BXlIk8uRwZZcDC9Z/5cHqM14PoQCDOhrfxBYt0PDmao6Nd/MpmmBMuqh+
+         kWmDqRSc76O+Px7TroJowp3WgETIioVWjXmGxZgqBE8x/GDjJGbBS8xLobxQk5NDgbfi
+         rC0iTh/nlHqYu1SQ5oc0RytNk4mPekFj/Sj6+oVQAKTc3PsTq34CtVEOwWW+sqqhZHru
+         jIbZgTiZGm2bpkJtT7vTvi84bwmQeBUSxfH97gDgIsq6OY+pqtgIXLnAE1Ifp+f+MmZx
+         QZylvsRnjOTXZUt1X+4QZB7tx/D6THeHGhs0NRIuZTV/SwZ6Ma3tuzZxKXZ+rOUQR4Vk
+         TPiw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=IVcCrUaLAtHrR6PQHGn3E7dIN5ounnmTpM1SizyAXbY=;
-        b=Qo7yNf+LWMgZQS+doFrubzqIx1bY6P1z5ua9KuXfBIkYsbCm0+Af0q/dYbDG18Qr/a
-         p/I/Ej8AS2LZrJo2QFUIeR0IJmMdso4TCMyYMA3BcY7Mboe+L8yVEvJ2p3WEsW3MtDHN
-         M72yHceWgQSpU4+fX3pzc+i5eN9CrG5OgNY1b1lKnLb7b+ffkAHs9aNc2pICPBsAyOZp
-         LlrniDGyjAsgsSUGjkizzzzR3V0CYeOOtdAzW0C7sWeFNXLvkaU7xLNsonY4I5CRI+m3
-         b7WEW6njdBUcmn8i+WCzAqUQPr6LmGq7g6XoeYYfzHfgWrpA/7CqAmMzVquTUrezmyYr
-         S+Hg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=FLxLMHWzhvsAyc7YSZ1UcqmlBwxpr3w938KiSSxaokg=;
+        b=peq4hHgQ9djMmpnhOlBgEmge9Gx2UT3PWp4TPs4tlXLNx6gl1W8aMoxvh2wmCMmo+W
+         qr6cTgXSdzo7TWP9FhZ141VXmu/GHQC2b3js9MbCGDJI9FTSmGIHW+lnKNBySS+A1VlV
+         ZfYdzgrq2QZEmKq/rcL1CK5xAYoGDXJ2ZNzN32MsXUlwxqV5bNLN8qZOjOBbX82MuqCQ
+         e0g86Y4GDlIu5/s8HO2WM+BjlVw1hhuXQRvpVBlhB/Y0vbauBPgJF7Iln48loaMYV5Hq
+         63/qcrfp3lGjWd1DOg6rKaLmD70Y7BAEnAJLxVQqXxVNEUuDUfcBzduFeF174UCK7AUi
+         HS7g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=GGGMbt5T;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id n21si630628eja.0.2019.12.21.16.10.50
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b="J//ypFVJ";
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id v13si619113pga.4.2019.12.21.19.09.18
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 21 Dec 2019 16:10:50 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
-Received: by mail-wm1-x341.google.com with SMTP id t14so12734786wmi.5
-        for <clang-built-linux@googlegroups.com>; Sat, 21 Dec 2019 16:10:50 -0800 (PST)
-X-Received: by 2002:a05:600c:28d:: with SMTP id 13mr22795045wmk.52.1576973449800;
-        Sat, 21 Dec 2019 16:10:49 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id s128sm14969929wme.39.2019.12.21.16.10.48
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Sat, 21 Dec 2019 16:10:49 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Sun, 22 Dec 2019 00:10:48 +0000 (UTC)
-To: tcwg-validation@linaro.org, llvm@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <721741517.6560.1576973449252.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-arm-mainline-allyesconfig - Build # 22 -
- Successful!
+        Sat, 21 Dec 2019 19:09:18 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
+Received: by mail-ot1-x342.google.com with SMTP id w21so9596036otj.7
+        for <clang-built-linux@googlegroups.com>; Sat, 21 Dec 2019 19:09:18 -0800 (PST)
+X-Received: by 2002:a05:6830:1cd3:: with SMTP id p19mr8523090otg.70.1576984157645;
+        Sat, 21 Dec 2019 19:09:17 -0800 (PST)
+Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id 47sm5494666otf.54.2019.12.21.19.09.16
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Sat, 21 Dec 2019 19:09:16 -0800 (PST)
+Date: Sat, 21 Dec 2019 20:09:15 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Chris Wilson <chris@chris-wilson.co.uk>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	intel-gfx@lists.freedesktop.org,
+	dri-devel <dri-devel@lists.freedesktop.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Kees Cook <keescook@chromium.org>
+Subject: Re: [PATCH] drm/i915: Remove tautological compare in eb_relocate_vma
+Message-ID: <20191222030915.GA27679@ubuntu-m2-xlarge-x86>
+References: <20191123195321.41305-1-natechancellor@gmail.com>
+ <157453950786.2524.16955749910067219709@skylake-alporthouse-com>
+ <CAKwvOdniXqn3xt3-W0Pqi-X1nWjJ2vUVofjCm1O-UPXZ7_4rXw@mail.gmail.com>
+ <157538056769.7230.15356495786856166580@skylake-alporthouse-com>
+ <CAKwvOd=ov789Lixdq8QE+MVXeYyh=W_sODSuj++4T8uF-hpVMw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_6559_1040269871.1576973448597"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-mainline-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=ov789Lixdq8QE+MVXeYyh=W_sODSuj++4T8uF-hpVMw@mail.gmail.com>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=GGGMbt5T;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::341
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b="J//ypFVJ";       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,226 +159,69 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_6559_1040269871.1576973448597
-Content-Type: text/plain; charset="UTF-8"
+On Tue, Dec 03, 2019 at 10:45:22AM -0800, Nick Desaulniers wrote:
+> On Tue, Dec 3, 2019 at 5:42 AM Chris Wilson <chris@chris-wilson.co.uk> wrote:
+> >
+> > Quoting Nick Desaulniers (2019-12-02 19:18:20)
+> > > On Sat, Nov 23, 2019 at 12:05 PM Chris Wilson <chris@chris-wilson.co.uk> wrote:
+> > > >
+> > > > Quoting Nathan Chancellor (2019-11-23 19:53:22)
+> > > > > -Wtautological-compare was recently added to -Wall in LLVM, which
+> > > > > exposed an if statement in i915 that is always false:
+> > > > >
+> > > > > ../drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:1485:22: warning:
+> > > > > result of comparison of constant 576460752303423487 with expression of
+> > > > > type 'unsigned int' is always false
+> > > > > [-Wtautological-constant-out-of-range-compare]
+> > > > >         if (unlikely(remain > N_RELOC(ULONG_MAX)))
+> > > > >             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+> > > > >
+> > > > > Since remain is an unsigned int, it can never be larger than UINT_MAX,
+> > > > > which is less than ULONG_MAX / sizeof(struct drm_i915_gem_relocation_entry).
+> > > > > Remove this statement to fix the warning.
+> > > >
+> > > > The check should remain as we do want to document the overflow
+> > > > calculation, and it should represent the types used -- it's much easier
+> > >
+> > > What do you mean "represent the types used?"  Are you concerned that
+> > > the type of drm_i915_gem_exec_object2->relocation_count might change
+> > > in the future?
+> >
+> > We may want to change the restriction, yes.
+> >
+> > > > to review a stub than trying to find a missing overflow check. If the
+> > > > overflow cannot happen as the types are wide enough, no problem, the
+> > > > compiler can remove the known false branch.
+> > >
+> > > What overflow are you trying to protect against here?
+> >
+> > These values are under user control, our validation steps should be
+> > clear and easy to check. If we have the types wrong, if the checks are
+> > wrong, we need to fix them. If the code is removed because it can be
+> > evaluated by the compiler to be redundant, it is much harder for us to
+> > verify that we have tried to validate user input.
+> >
+> > > > Tautology here has a purpose for conveying information to the reader.
+> > >
+> > > Well leaving a warning unaddressed is also not a solution.  Either
+> > > replace it with a comment or turn off the warning for your subdir.
+> >
+> > My personal preference would be to use a bunch of central macros for the
+> > various type/kmalloc overflows, and have the warnings suppressed there
+> > since they are very much about documenting user input validation.
+> > -Chris
+> 
+> Is kmalloc_array what you're looking for?  Looks like it has the
+> `check_mul_overflow` call in it.
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-arm-mainline-allyesconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/llvm-master-aarch64-lts-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-mainline-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-stable-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-stable-allyesconfig
- - tcwg_kernel/llvm-master-arm-mainline-allyesconfig
- - tcwg_kernel/llvm-master-arm-next-allmodconfig
- - tcwg_kernel/llvm-master-arm-next-allyesconfig
+I don't think kmalloc_array is right because we are not validating an
+allocation. I am not sure that any of these overflow macros are correct,
+we would probably need something new but I am not sure.
 
-Culprit:
-<cut>
-commit 2520bef865329d4c04e2de30c222ad0d5ad13ccc
-Author: Jonas Paulsson <paulsson@linux.vnet.ibm.com>
-
-    [Clang FE, SystemZ]  Recognize -mrecord-mcount CL option.
-</cut>
-
-First few errors in logs of first_bad:
-00:01:03 error: option '-mrecord-mcount' cannot be specified on this target
-00:01:03 error: option '-mrecord-mcount' cannot be specified without '-mfentry'
-00:01:03 make[1]: *** [scripts/mod/devicetable-offsets.s] Error 1
-00:01:04 make: *** [prepare0] Error 2
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
-rr[llvm_branch]="23c28c40436143006be740533375c036d11c92cd"
-
-Results regressed to (for first_bad == 2520bef865329d4c04e2de30c222ad0d5ad13ccc)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-25
-
-from (for last_good == a116f28a0d71c221c1dc023908b180beaf22799d)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-18249
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/artifact/artifacts/build-2520bef865329d4c04e2de30c222ad0d5ad13ccc/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/artifact/artifacts/build-a116f28a0d71c221c1dc023908b180beaf22799d/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/
-
-Reproduce builds:
-<cut>
-mkdir investigate-llvm-2520bef865329d4c04e2de30c222ad0d5ad13ccc
-cd investigate-llvm-2520bef865329d4c04e2de30c222ad0d5ad13ccc
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd llvm
-
-# Reproduce first_bad build
-git checkout --detach 2520bef865329d4c04e2de30c222ad0d5ad13ccc
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach a116f28a0d71c221c1dc023908b180beaf22799d
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-mainline-allyesconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-mainline-allyesconfig/22/consoleText
-
-Full commit:
-<cut>
-commit 2520bef865329d4c04e2de30c222ad0d5ad13ccc
-Author: Jonas Paulsson <paulsson@linux.vnet.ibm.com>
-Date:   Tue Dec 17 12:00:43 2019 -0800
-
-    [Clang FE, SystemZ]  Recognize -mrecord-mcount CL option.
-    
-    Recognize -mrecord-mcount from the command line and add a function attribute
-    "mrecord-mcount" when passed.
-    
-    Only valid on SystemZ (when used with -mfentry).
-    
-    Review: Ulrich Weigand
-    https://reviews.llvm.org/D71627
----
- clang/include/clang/Basic/CodeGenOptions.def |  1 +
- clang/include/clang/Driver/Options.td        |  2 ++
- clang/lib/CodeGen/CodeGenFunction.cpp        | 11 +++++++++++
- clang/lib/Driver/ToolChains/Clang.cpp        |  3 +++
- clang/lib/Frontend/CompilerInvocation.cpp    |  1 +
- clang/test/CodeGen/mrecord-mcount.c          | 26 ++++++++++++++++++++++++++
- 6 files changed, 44 insertions(+)
-
-diff --git a/clang/include/clang/Basic/CodeGenOptions.def b/clang/include/clang/Basic/CodeGenOptions.def
-index c6700333c13..7f26ca8b4d6 100644
---- a/clang/include/clang/Basic/CodeGenOptions.def
-+++ b/clang/include/clang/Basic/CodeGenOptions.def
-@@ -113,6 +113,7 @@ VALUE_CODEGENOPT(XRayInstructionThreshold , 32, 200)
- CODEGENOPT(InstrumentForProfiling , 1, 0) ///< Set when -pg is enabled.
- CODEGENOPT(CallFEntry , 1, 0) ///< Set when -mfentry is enabled.
- CODEGENOPT(MNopMCount , 1, 0) ///< Set when -mnop-mcount is enabled.
-+CODEGENOPT(RecordMCount , 1, 0) ///< Set when -mrecord-mcount is enabled.
- CODEGENOPT(PackedStack , 1, 0) ///< Set when -mpacked-stack is enabled.
- CODEGENOPT(LessPreciseFPMAD  , 1, 0) ///< Enable less precise MAD instructions to
-                                      ///< be generated.
-diff --git a/clang/include/clang/Driver/Options.td b/clang/include/clang/Driver/Options.td
-index 2a72b87355d..86aee334436 100644
---- a/clang/include/clang/Driver/Options.td
-+++ b/clang/include/clang/Driver/Options.td
-@@ -2477,6 +2477,8 @@ def mfentry : Flag<["-"], "mfentry">, HelpText<"Insert calls to fentry at functi
-   Flags<[CC1Option]>, Group<m_Group>;
- def mnop_mcount : Flag<["-"], "mnop-mcount">, HelpText<"Generate mcount/__fentry__ calls as nops. To activate they need to be patched in.">,
-   Flags<[CC1Option]>, Group<m_Group>;
-+def mrecord_mcount : Flag<["-"], "mrecord-mcount">, HelpText<"Generate a __mcount_loc section entry for each __fentry__ call.">,
-+  Flags<[CC1Option]>, Group<m_Group>;
- def mpacked_stack : Flag<["-"], "mpacked-stack">, HelpText<"Use packed stack layout (SystemZ only).">,
-   Flags<[CC1Option]>, Group<m_Group>;
- def mips16 : Flag<["-"], "mips16">, Group<m_mips_Features_Group>;
-diff --git a/clang/lib/CodeGen/CodeGenFunction.cpp b/clang/lib/CodeGen/CodeGenFunction.cpp
-index 89ce31e9b45..6f7e06b773d 100644
---- a/clang/lib/CodeGen/CodeGenFunction.cpp
-+++ b/clang/lib/CodeGen/CodeGenFunction.cpp
-@@ -968,6 +968,17 @@ void CodeGenFunction::StartFunction(GlobalDecl GD, QualType RetTy,
-             << "-mnop-mcount" << "-mfentry";
-         Fn->addFnAttr("mnop-mcount");
-       }
-+
-+      if (CGM.getCodeGenOpts().RecordMCount) {
-+        if (getContext().getTargetInfo().getTriple().getArch() !=
-+            llvm::Triple::systemz)
-+          CGM.getDiags().Report(diag::err_opt_not_valid_on_target)
-+            << "-mrecord-mcount";
-+        if (!CGM.getCodeGenOpts().CallFEntry)
-+          CGM.getDiags().Report(diag::err_opt_not_valid_without_opt)
-+            << "-mrecord-mcount" << "-mfentry";
-+        Fn->addFnAttr("mrecord-mcount");
-+      }
-     }
-   }
- 
-diff --git a/clang/lib/Driver/ToolChains/Clang.cpp b/clang/lib/Driver/ToolChains/Clang.cpp
-index a79c96d25d9..6b93dc2939e 100644
---- a/clang/lib/Driver/ToolChains/Clang.cpp
-+++ b/clang/lib/Driver/ToolChains/Clang.cpp
-@@ -4990,6 +4990,9 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
-   if (TC.SupportsProfiling())
-     Args.AddLastArg(CmdArgs, options::OPT_mnop_mcount);
- 
-+  if (TC.SupportsProfiling())
-+    Args.AddLastArg(CmdArgs, options::OPT_mrecord_mcount);
-+
-   Args.AddLastArg(CmdArgs, options::OPT_mpacked_stack);
- 
-   if (Args.getLastArg(options::OPT_fapple_kext) ||
-diff --git a/clang/lib/Frontend/CompilerInvocation.cpp b/clang/lib/Frontend/CompilerInvocation.cpp
-index d68244dce5c..93193edff9c 100644
---- a/clang/lib/Frontend/CompilerInvocation.cpp
-+++ b/clang/lib/Frontend/CompilerInvocation.cpp
-@@ -1104,6 +1104,7 @@ static bool ParseCodeGenArgs(CodeGenOptions &Opts, ArgList &Args, InputKind IK,
-   Opts.InstrumentForProfiling = Args.hasArg(OPT_pg);
-   Opts.CallFEntry = Args.hasArg(OPT_mfentry);
-   Opts.MNopMCount = Args.hasArg(OPT_mnop_mcount);
-+  Opts.RecordMCount = Args.hasArg(OPT_mrecord_mcount);
-   Opts.PackedStack = Args.hasArg(OPT_mpacked_stack);
-   Opts.EmitOpenCLArgMetadata = Args.hasArg(OPT_cl_kernel_arg_info);
- 
-diff --git a/clang/test/CodeGen/mrecord-mcount.c b/clang/test/CodeGen/mrecord-mcount.c
-new file mode 100644
-index 00000000000..eecee0e24cd
---- /dev/null
-+++ b/clang/test/CodeGen/mrecord-mcount.c
-@@ -0,0 +1,26 @@
-+// RUN: %clang_cc1 -pg -mfentry -mrecord-mcount -triple s390x-ibm-linux -emit-llvm \
-+// RUN:   -o - %s 2>&1 | FileCheck  %s
-+// RUN: not %clang_cc1 -pg -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - \
-+// RUN:   %s 2>&1 | FileCheck -check-prefix=NOMFENTRY %s
-+// RUN: %clang_cc1 -mfentry -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - \
-+// RUN:   %s 2>&1 | FileCheck -check-prefix=NOPG %s
-+// RUN: %clang_cc1 -mrecord-mcount -triple s390x-ibm-linux -emit-llvm -o - %s \
-+// RUN:   2>&1 | FileCheck -check-prefix=NOPG %s
-+// RUN: not %clang_cc1 -pg -mfentry -mrecord-mcount -triple x86_64-linux-gnu \
-+// RUN:   -emit-llvm -o - %s 2>&1 | FileCheck -check-prefix=X86 %s
-+
-+int foo(void) {
-+  return 0;
-+}
-+
-+int __attribute__((no_instrument_function)) no_instrument(void) {
-+  return foo();
-+}
-+
-+//CHECK: attributes #0 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//CHECK: attributes #1 = { {{.*}} }
-+//CHECK-NOT: attributes #1 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//NOMFENTRY: error: option '-mrecord-mcount' cannot be specified without '-mfentry'
-+//NOPG-NOT: attributes #0 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//NOPG-NOT: attributes #1 = { {{.*}}"mrecord-mcount"{{.*}} }
-+//X86: error: option '-mrecord-mcount' cannot be specified on this target
-</cut>
+Cheers,
+Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/721741517.6560.1576973449252.JavaMail.javamailuser%40localhost.
-
-------=_Part_6559_1040269871.1576973448597--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191222030915.GA27679%40ubuntu-m2-xlarge-x86.
