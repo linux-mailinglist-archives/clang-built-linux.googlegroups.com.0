@@ -1,125 +1,197 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBAXH77XQKGQEPIJSLRQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDL3F4G2ZAIBBFELQDYAKGQEAHCCSQQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53f.google.com (mail-ed1-x53f.google.com [IPv6:2a00:1450:4864:20::53f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 454FE129035
-	for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 23:51:47 +0100 (CET)
-Received: by mail-ed1-x53f.google.com with SMTP id n18sf1489670edo.17
-        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 14:51:47 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577055107; cv=pass;
+Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 10C6A12906E
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Dec 2019 01:08:54 +0100 (CET)
+Received: by mail-pf1-x438.google.com with SMTP id j7sf10704635pfa.19
+        for <lists+clang-built-linux@lfdr.de>; Sun, 22 Dec 2019 16:08:53 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577059732; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GJPmyDT/YZg7kQdz9ElNT01bItYamfxh8Psj073uDKA0FlpoO/vD28wVgi8l4xX++i
-         upED2xR6C4NJZE4qo6mjle/vaIr1B+LieULaXAUk7r+tod2UvwT0lfVp2flgr4wYrGUr
-         HIcJ2lxG/3YQ7IHc8JY09g47i7IasycRYsR9NbTeEsfUfgkKT8h7h5H2VhELe7hi/En/
-         h7K0esAJZcvXA2KWLnyIe6HlcDVU53B8nF46hGjBTdTJyJsfhioNb080aSy6yZ/YSP8U
-         4fDq+scWbQ0Nyu38PtPVE7WAnDBamGe8y8FFPuCUD9QQfYvr/ADz7RkiKN1g5kOGTqhW
-         OcTA==
+        b=C4FCwrubnEIaypB/DNXbACU7Dprk5vdV+s4yTQwhIluujiupGgDvIAz+XUxkchaEYL
+         UaKV0Qa2uWDWlW5C7ArTJITWZIpXF9y1d0NQ5Ryoxii2yT32C4txbxbTv88slZF1wVXK
+         jnqzo92goTLB4qVinvlruQFbRJJyyNtYiMVrZO/7Bo2JHYzbRHeK3vzMoUb0WGAIEdV7
+         vFYgyh5zY4O1cNc2HpynsZC9nwAfUlrwoXK8C1n4IZAfWAz7qEswy8jY/lsyIueY3hf5
+         JlVk6fJDznpFoc+fzr2cRGcf8B3VcWeZPRRco8Yu4P3krqHBuTyGAvpnejQHcd4mofRZ
+         UEcA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=0FEXmYyFSGKQlOFJ5WK2NXY+jmRNQkBAkqaaGrnGpOs=;
-        b=e3LtNSoAFnUDRRNUMBYBtESmdq3XcmCKstiNMXyoMNfv1A/4fijjmtic7w+v+sa/Wo
-         2YVltkJ7bIDk2I5PIPNZ3obC3wm0tCazsw45SIxKOdK++nTdKQjBz8yOv8q+kwVFHfqJ
-         h2pu4FczwRlf2HgNaCaAlORzxDcgDShAtIznv9C7UbLPXo22ciLDFnYQRpgoqOluaMBY
-         pj3ramZwWxvuNt9k+uIFL3DrSkMZsv4YEnY91s72O7c2VdiRj4nOykV/JabFUIFBCiIY
-         /xewlQccO+bnfexaYsHnRq045Lv+NKcPyVVQ7RTS1ZS8sLkKxkoc+Lg20meB7fARXsiV
-         HFLA==
+         :list-id:mailing-list:precedence:references:dlp-filter:cms-type
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:organization:from:cc:to:subject:dkim-filter:sender
+         :dkim-signature;
+        bh=6+nm6aTNzHJFlMJNjNmU0onWYi5zKHLXAcjYzS6q22A=;
+        b=JEeYBVHAvDGU4ZzowlXO18PgW0QAEf3YjMWrWzq6UznnAxoH+9suO+9l5gstzfvNBh
+         JexUWJfSSG6C8Owt1xaw9b7YDvAmqdqk4iJBQyh9rsQMHtfPM+ft+XMiX7uVt7hc+vqY
+         0Nz2OMjjF5hyd86SeTHCofWhNRwrcK3kZ7+6mZ/5VJDcA7b7JEvyrHpXmaDqznQ2xs72
+         Eyv9pNTZQIWs5yRVnqolkR0DeRrHLrQ1TNYML+mN0Ttl3QvvV8wVnXUrV67A/r/YZQRS
+         eCwfD8hXTvcgsCy/I6sUsWyV7Yk1aep+5p1bPza/UBH+/AC60gz4l4Ewidukhjt+cdhY
+         J71g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=sY1SgkbS;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@samsung.com header.s=mail20170921 header.b=WXixDTvH;
+       spf=pass (google.com: domain of cw00.choi@samsung.com designates 203.254.224.34 as permitted sender) smtp.mailfrom=cw00.choi@samsung.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=samsung.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=0FEXmYyFSGKQlOFJ5WK2NXY+jmRNQkBAkqaaGrnGpOs=;
-        b=diQVRSfN8BJ2iPp3IBWqCE4rVP0zNfufEgEmQcfEsaLbngI5+isYrCM26AAMfIWQef
-         KyHiJ/YGmFfjX2LBoE7RYRDA/2UK61+lJ5YXh6vth4IcmTD1bvtRqeGXcWjTUaZqRbQr
-         Wd7Q89XSCRdQQ5wiMviY24rGp59j9Kt8xoLcQ0x9CLUqiaUHkd4yslR562T1VQc+VrGq
-         P2ilLHGxoyc4fC97pNex6RvVSOZVLUHnce3zNmGc2EC0Jpi9zbUrqtfz2p9AvpMNnKKH
-         Eq1VxaQz8w0qp80/cUpu6Eh1s8k+keXexDd2QRgaECbXechgE/tXFxGpRcKlgUeKbJGF
-         B5vg==
+        h=sender:dkim-filter:subject:to:cc:from:organization:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language:cms-type
+         :dlp-filter:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=6+nm6aTNzHJFlMJNjNmU0onWYi5zKHLXAcjYzS6q22A=;
+        b=MCWZwgqsBWsEZqdwLE01RCYb7YE/4TsJvsLFAcMUKsH/omAFVcdJC1BmdDd545L+hR
+         lnwjrDUvjKIgpEYXIfqlbU3VfzaHcbJcjlLAe5zt7NOR0NwBkZi3f+7BM6SBchIISQ9Q
+         YXnKJm0ldAqyu1tKnu4lwukli9rbpfKdvZvUUPUvY00vcjih0Mzjx7FQpFog1pAbP+7Y
+         qv2YRTUwy6Feh453uQHTm7ryePaLnYnQ05cK1JRud4p4NJ31J4cZS9eUKmYBupm2g/zn
+         nRV36jTTSfhF0McAUinVfAma32/0Ij1C1vhLLwfOvkc4libGAIL9wcojLD+DExrnfVBM
+         nuIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0FEXmYyFSGKQlOFJ5WK2NXY+jmRNQkBAkqaaGrnGpOs=;
-        b=Hp1kG/SHEdPf+nQ5NQNCQvp7wEqz8L3v63NbaYP3M0NKWGDEXqcqUqXzipyZ2SfwiC
-         m4nah+9YVaSNV/TKtaswjVRI5nNz4LuQyrAy+YNlTKx0t+1wPCQbq4/omHSslGoqMGoK
-         vSRD+5Z1FJzzlRbOu2j7U3ZtyMLBsjX9KwzHDO1If64Kzm4/nYI+anmBwLf+At+VDQH8
-         N2shpBkP3qovR+ucxPb6MAw8OINUeEMbDHeN8dHLMNTLJWKkzwkVC4hO7KceAI/mtHUg
-         3k5FRdYHVNIsY9zQp5ExSxiPu6dXgpITEqwhokfZiHfM+lmdfophcDuHfAnUNLSUybZe
-         aFbw==
+        h=sender:x-gm-message-state:dkim-filter:subject:to:cc:from
+         :organization:message-id:date:user-agent:mime-version:in-reply-to
+         :content-language:cms-type:dlp-filter:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=6+nm6aTNzHJFlMJNjNmU0onWYi5zKHLXAcjYzS6q22A=;
+        b=Hxov/3kBO/BZL4r6UM+rkrGDAGCsUJgu9ywfLMpnl1Bp3Yky4eo3dL1fJJ3lG+YvXV
+         qXgk1EqbsTC0WmKv+SWsKThstG1L/T0e6j6+/p49CVQmGeuPB8SeLfBRMMlV4bsPQcaa
+         q71OX22gw/kl+37aq0rTQ4EOE5npo/9GfX6jjPC9ecGWSmxpCI9j6PRW/zUFdyqgdSKq
+         5bTuUln5WgR+UrG1Tls80KeZekIei851u/hjvW7w/lWmjDLaU0FDXWuFngBt2//HFAc1
+         b0MslMTPIxK6NH7f+qZZos6ogFgWtNsHbbkrqto6H1uygtIXvT1QIg3WkTwEfgbjrbM/
+         66wg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVxm/TVghtb1tITl6aJSxum3eTeWvUvGAu09Rhv7caHOn3wUPds
-	2aRH8b+mdsSaovMiB0Q8rG4=
-X-Google-Smtp-Source: APXvYqw5F+UZD3F9GNppMsfvSgt50A5eacY6u+Lxtm+5JY4cbJqEV2owrLzQmeOsKWSKKhdcDCKaLw==
-X-Received: by 2002:a17:906:c44a:: with SMTP id ck10mr28789817ejb.149.1577055106685;
-        Sun, 22 Dec 2019 14:51:46 -0800 (PST)
+X-Gm-Message-State: APjAAAXw7q1rEC+pMk9KzG7SI59A8AKzAcPYDw5QvUn8chLNLYlOBWa4
+	HJWU1bZdWZti1ezzZdgH2OY=
+X-Google-Smtp-Source: APXvYqy4yxLHcnG5evtnJx/OhRmkk7f87ivQzhQ9q2cueIGyaG8Rt8j/4U6V3ExeBIp1qFA99u4RFg==
+X-Received: by 2002:a17:90a:8a12:: with SMTP id w18mr30586537pjn.68.1577059732165;
+        Sun, 22 Dec 2019 16:08:52 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:907:4120:: with SMTP id nw24ls1542301ejb.16.gmail; Sun,
- 22 Dec 2019 14:51:46 -0800 (PST)
-X-Received: by 2002:a17:906:2892:: with SMTP id o18mr16560251ejd.312.1577055106011;
-        Sun, 22 Dec 2019 14:51:46 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577055106; cv=none;
+Received: by 2002:a17:902:7292:: with SMTP id d18ls1377079pll.6.gmail; Sun, 22
+ Dec 2019 16:08:51 -0800 (PST)
+X-Received: by 2002:a17:90a:bd82:: with SMTP id z2mr31735227pjr.17.1577059731681;
+        Sun, 22 Dec 2019 16:08:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577059731; cv=none;
         d=google.com; s=arc-20160816;
-        b=zz60gzrdTqHyRp2fgMMCNJuegYncdrRv0Ird2NRjnStx9jHe0oKArSvQylJEklQshn
-         U+EZw4Sg7duHYN5XQsz2sXg0sAjBAEw8BLgSR5o+Zi82wXCG9/V2J2CYA0e9jBS8U1XT
-         D8M7R20QW6ikZCWC3WBJ9ILVpVxYYU/bSiyWCGcxQhzPvMHLVjeduWc2voO9IxqPoH4+
-         2DLARbh7c2/8tT0CRDUnSP9vBb0YD/HWC8MORV3WPLmGDjEptajhY5N7+5cncsqX7CCT
-         WbqhRAqeoG5Yl00zby0/XaogzHW6Dqi4cR463T+SaSBHYhfVJRh0vj2UZjWoxdFj2x3d
-         xuog==
+        b=TbyVvSIHszrQ950NpK/jiSaRDG5J0X3KcnkST0g74edNd3WZ9juvG5eJEVgxdchO7A
+         QV2bU4Wf4TrU1WjJdARsZ51mGEsfbwtVJlpBx34+7VmAaIKAIEOu8+eJADhWvtxH1hkI
+         ARC1Xi7DbLHKqLNBQWOGxR4MxnTtFBgbsMsBE5LOJP7HXhOr9m81x4yiqqQnpZTPpGWB
+         Ln6nL08N2+a6z8Xvw+MV1zJJW3ExqjTDEgspj8eD9+QbWyP221gpNJ45HBqh5WRGwKYt
+         GqtJZnKoJUCZ8MQQogI4L+tUF1lqlAHQmxepCMpJZcEfVJj6bqHCQSefw8a8i9wqLEwY
+         jdbA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=GgFJXhlQ7ySAkdkzxZmkoMeOPKrAkKlv42+BHTLpbEA=;
-        b=EbTsGK1nYFXnBAk+9xt6J+9L2ES869CKLis7fqLFNA++yTGiZXKIubPLFNPZcku+j4
-         YCeqLYPZ39EawgKWmwSw5epYNY+m2BTL2iqnIBhNSmBTqpM4LQGNlncKV03SuVunJQYT
-         BFMznRFiJwt6e5Zrj+rDx5RQ7REQx00uzy+GccpZOPfJ8cXx1wYu1Fz/nS6ye9NEEZ6X
-         Vmweb6S9k14z5Uui8gU8lljT8fYjzuLVK/xByEYi6T4/J5gmTk7qIvsainIGvrMdRbs3
-         hZMmoVcqi9Mw/lbkRcOFDuqibOzRpzLc60YPVuYk3DCnv9sVfR8goQaoC3+OGD8sqT4J
-         dG+A==
+        h=references:dlp-filter:cms-type:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:organization:from:cc:to:subject:dkim-signature
+         :dkim-filter;
+        bh=M1Iq+Y5Ufr76PHYhoPqMteFv+x5lpEehF/zCyfTYiCA=;
+        b=ZQph3GoI3FqWNGd9dJy+WTV4U3WMVAxKbR9nbiEKky8IR+h89666IliacpU5WTPRZW
+         IXx1jalUi3zPu8YRd3NVtPS1WkLM/Ox15qwwW0jjIo9OXFXp/dUno7KVd53NyfEhb+F2
+         JlIghsWmmIGqSsy6pL02FseA6F7bw9wAb553HbEKLJcNzVC5/OxnVxs+MHulKMFxlwYA
+         z9A0DEhjsfy5vZs8JGntwRZTayHjWNEvtw5io6x44F+nPcBKPy9nQs49KnT+xYV8gLI+
+         We4tsutDqlC/bW9BYSIZdP4N3jcpv4o+hNM5HnpBaFSEEiOIer3CXPgWw15UYk9Zf08g
+         6JDg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=sY1SgkbS;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id x18si593530eds.2.2019.12.22.14.51.45
+       dkim=pass header.i=@samsung.com header.s=mail20170921 header.b=WXixDTvH;
+       spf=pass (google.com: domain of cw00.choi@samsung.com designates 203.254.224.34 as permitted sender) smtp.mailfrom=cw00.choi@samsung.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=samsung.com
+Received: from mailout4.samsung.com (mailout4.samsung.com. [203.254.224.34])
+        by gmr-mx.google.com with ESMTPS id h18si580965pju.1.2019.12.22.16.08.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Dec 2019 14:51:45 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id b19so14194869wmj.4
-        for <clang-built-linux@googlegroups.com>; Sun, 22 Dec 2019 14:51:45 -0800 (PST)
-X-Received: by 2002:a7b:c392:: with SMTP id s18mr29177487wmj.169.1577055105133;
-        Sun, 22 Dec 2019 14:51:45 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id c68sm17502650wme.13.2019.12.22.14.51.44
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Sun, 22 Dec 2019 14:51:44 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Sun, 22 Dec 2019 22:51:43 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <472791538.6883.1577055104643.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-release-aarch64-next-allyesconfig - Build # 44 -
- Successful!
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 22 Dec 2019 16:08:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of cw00.choi@samsung.com designates 203.254.224.34 as permitted sender) client-ip=203.254.224.34;
+Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20191223000849epoutp04a788e0b296eaacbdac2c738213dae483~i13fMkgvs3247932479epoutp04H
+	for <clang-built-linux@googlegroups.com>; Mon, 23 Dec 2019 00:08:49 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20191223000849epoutp04a788e0b296eaacbdac2c738213dae483~i13fMkgvs3247932479epoutp04H
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20191223000848epcas1p2013b6ecc95fef3174d4456a1a025fcb5~i13ert8WF0288202882epcas1p2_;
+	Mon, 23 Dec 2019 00:08:48 +0000 (GMT)
+Received: from epsmges1p2.samsung.com (unknown [182.195.40.152]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 47h07c73hVzMqYkg; Mon, 23 Dec
+	2019 00:08:44 +0000 (GMT)
+Received: from epcas1p4.samsung.com ( [182.195.41.48]) by
+	epsmges1p2.samsung.com (Symantec Messaging Gateway) with SMTP id
+	64.01.48498.785000E5; Mon, 23 Dec 2019 09:08:39 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas1p4.samsung.com (KnoxPortal) with ESMTPA id
+	20191223000838epcas1p4418297651206f6aac31eb5ed62faee3e~i13VvWCAR2707227072epcas1p4i;
+	Mon, 23 Dec 2019 00:08:38 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20191223000838epsmtrp2416b2bab4d4d23d347790b7352ec27eb~i13VsFT332783127831epsmtrp2U;
+	Mon, 23 Dec 2019 00:08:38 +0000 (GMT)
+X-AuditID: b6c32a36-ea9ad9c00001bd72-fc-5e0005873f01
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	15.6C.06569.685000E5; Mon, 23 Dec 2019 09:08:38 +0900 (KST)
+Received: from [10.113.221.102] (unknown [10.113.221.102]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20191223000838epsmtip2521c79d03d711f51178563545144a0bc~i13VhDmuf2268622686epsmtip2J;
+	Mon, 23 Dec 2019 00:08:38 +0000 (GMT)
+Subject: Re: [chanwoo:devfreq-testing 29/29]
+ drivers//devfreq/devfreq.c:426:38: warning: variable 'freq' is uninitialized
+ when used here
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: kbuild@lists.01.org, clang-built-linux
+	<clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>,
+	kbuild-all@lists.01.org
+From: Chanwoo Choi <cw00.choi@samsung.com>
+Organization: Samsung Electronics
+Message-ID: <5fd56f03-41c6-25a2-3911-349d3b6d121c@samsung.com>
+Date: Mon, 23 Dec 2019 09:15:24 +0900
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:59.0) Gecko/20100101
+	Thunderbird/59.0
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_6882_537488375.1577055104083"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-aarch64-next-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+In-Reply-To: <CAKwvOd=-G48735M_AMBc3_8993kaLMg0DN1YiBBov7PFVb80Hw@mail.gmail.com>
+Content-Language: en-US
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Sa0hTYRjHe3e207Fava2yJz+Unuiiou04ZzO0ouuiCCUKSswO7k3N3Tpn
+	ky5EQytLBQs/ZNNoWJKXsjLReamFBTG6WhmRWGIKZRelG0GlbecU+e33PP/nz8P/eV+G0pym
+	w5gcq4MIVt7M0pOUzbcjtTGFqgk7tflHowx9Hypow4Pi58hQ77qqMAwV9NOGkZNjipUqo6fR
+	aew45aeN5zveKYzFFaPKFOWO3KRswpuIEE6smTZTjjUrmd24JWN1hj5By8VwiYalbLiVt5Bk
+	ds2mlJh1OebAXjY8jzc7A60UXhTZJcuTBJvTQcKzbaIjmSV2k9meaI8VeYvotGbFZtosyzit
+	Nk4fGNyVmz1y/Z7K3jV3X30V60LloUWIYQDHQ/VNtghNYjTYi8A12qySi88IBq7VUnLxHcHX
+	vouoCIVIjrpuL5KFGwh6H3uUcjGM4NbgK0mZgUsQfLjwRbLMxLGQ7xtWBAUKlyJoeV9JBwUa
+	R4Hv7QuJp+EI6P7xRjKo8XLoqS2W+kq8AJ5UlVJBnoW3gb/5yN+Z6eA/M6AMcghOhcEajzRD
+	4dnwcuCcQuZ50PKxUgoBuIcG79B1Sg6xBiqH+//yDBi62zRR5jD48ukGLfNBqPXfoWXzcQRN
+	vscqWdCBr7pMEbwfhSPhStsSuR0BrT/PInnxVPj0rUQln1gNx49p5JH58LSvVyHzHDhfeII+
+	iVj3uDjucRHc4yK4/y/zIGUdCiV20ZJFRM4eN/65G5H0KaMSvKjq4aZOhBnETlEz7rF0jYrP
+	E/dbOhEwFDtT3X7od7pGbeL3HyCCLUNwmonYifSBa5+iwmZl2gJf3OrI4PRxOp3OEM8l6DmO
+	na1mfnSla3AW7yC5hNiJ8M+nYELCXGitpmTvg/xM+6qt9zue9adVRX87Nrpz11ia0LL4qe6r
+	tyu6Ok+8vDBVz0WElvb6SgoeHU6qn/bidXxiavl2d8/6NHJg0eaCzhVa4Uh5xOqrlxpJ02TW
+	779ipI5ugzJD6xTXr7R7NxmmZqSspvt1v6lhd2HDhhUQ3T7oadu8B+f8YpViNs9FUYLI/wGY
+	JVEAqgMAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmpikeLIzCtJLcpLzFFi42LZdlhJXreNlSHOYNI7PYsHb2azWZztvsZo
+	sbphA5PFq+ZHbBYfJvxncmD1WLCp1GPPxJNsHov3vGTy6J79jyWAJYrLJiU1J7MstUjfLoEr
+	48Pm06wFF+UqVi9SamCcIdbFyMkhIWAiserqDsYuRi4OIYHdjBIX1y5mgkhISky7eJS5i5ED
+	yBaWOHy4GKLmLaPEjaOtrCCOsEAPo8SbJZ8ZQRpEBPQkmva/ZwJJMAv0M0p8ntfNDtFyhlHi
+	2P5JYGPZBLQk9r+4wQZi8wsoSlz98Rism1fATuL2ym6wOIuAqsSlRf3MILaoQJjEziWPmSBq
+	BCVOznzCAmJzCgRKPF2xAKyGWUBd4s+8S1C2uMStJ/OZIGx5ie1v5zBPYBSehaR9FpKWWUha
+	ZiFpWcDIsopRMrWgODc9t9iwwCgvtVyvODG3uDQvXS85P3cTIzhmtLR2MJ44EX+IUYCDUYmH
+	l2PW/1gh1sSy4srcQ4wSHMxKIry7a//GCvGmJFZWpRblxxeV5qQWH2KU5mBREueVzz8WKSSQ
+	nliSmp2aWpBaBJNl4uCUamAUm7rD/3GC8c8PZ2//L5BhTOizLqjvW1Dz3put5//M458ro2Zk
+	CC/py5WNfukgUrErwL01a+sysfcl7evLbyjdP3e/hmOFSfdEh6QGowkK/Rredkq9q7r6pFw7
+	C4+xHVtvY6c3/cKZVJmIS2VOwv6asizv3kTMkDpd5p7XNf3Rl+f+nTql8UosxRmJhlrMRcWJ
+	ADrWSSKVAgAA
+X-CMS-MailID: 20191223000838epcas1p4418297651206f6aac31eb5ed62faee3e
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="UTF-8"
+X-Sendblock-Type: SVC_REQ_APPROVE
+CMS-TYPE: 101P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20191220174426epcas1p45704fba72a78fcdabf5d76868b25e7bd
+References: <201912201959.QalWUTrz%lkp@intel.com>
+	<CGME20191220174426epcas1p45704fba72a78fcdabf5d76868b25e7bd@epcas1p4.samsung.com>
+	<CAKwvOd=-G48735M_AMBc3_8993kaLMg0DN1YiBBov7PFVb80Hw@mail.gmail.com>
+X-Original-Sender: cw00.choi@samsung.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=sY1SgkbS;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::343
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@samsung.com header.s=mail20170921 header.b=WXixDTvH;       spf=pass
+ (google.com: domain of cw00.choi@samsung.com designates 203.254.224.34 as
+ permitted sender) smtp.mailfrom=cw00.choi@samsung.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=samsung.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,1103 +204,102 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_6882_537488375.1577055104083
-Content-Type: text/plain; charset="UTF-8"
+Hi Nick,
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-release-aarch64-next-allyesconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/gnu-release-aarch64-next-allmodconfig
- - tcwg_kernel/gnu-release-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-arm-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-release-arm-next-allmodconfig
+On 12/21/19 2:44 AM, Nick Desaulniers wrote:
+> Hi Chanwoo,
+> The below warning from a 0day bot build w/ Clang looks legit, can you
+> please take a look?
 
-Culprit:
-<cut>
-commit 51466b3fd2725bfb0de629f71c0854ff276d50ae
-Author: Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
+Sorry for late behavior. I'll fix it.
 
-    drm/amd/display: Add execution and transition states for HDCP2.2
-</cut>
+> 
+> On Fri, Dec 20, 2019 at 3:29 AM kbuild test robot <lkp@intel.com> wrote:
+>>
+>> CC: kbuild-all@lists.01.org
+>> TO: Chanwoo Choi <cw00.choi@samsung.com>
+>>
+>> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/chanwoo/linux.git devfreq-testing
+>> head:   b5402cddb67cb59901cb74992831ef3015aed1a7
+>> commit: b5402cddb67cb59901cb74992831ef3015aed1a7 [29/29] PM / devfreq: passive: Add missing getting freq_range
+>> config: arm64-defconfig (attached as .config)
+>> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 50c3bd9e71254d623ed4f0b449d5620f4e965bfe)
+>> reproduce:
+>>         wget https://protect2.fireeye.com/url?k=573ddd83-0aee8697-573c56cc-0cc47a31ce4e-8f6c69829de1654d&u=https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>>         chmod +x ~/bin/make.cross
+>>         git checkout b5402cddb67cb59901cb74992831ef3015aed1a7
+>>         # save the attached .config to linux build tree
+>>         make.cross ARCH=arm64
+>>
+>> If you fix the issue, kindly add following tag
+>> Reported-by: kbuild test robot <lkp@intel.com>
+>>
+>> All warnings (new ones prefixed by >>):
+>>
+>>    drivers//devfreq/devfreq.c:416:6: warning: unused variable 'flags' [-Wunused-variable]
+>>            u32 flags = 0;
+>>                ^
+>>    drivers//devfreq/devfreq.c:415:6: warning: unused variable 'err' [-Wunused-variable]
+>>            int err = 0;
+>>                ^
+>>    drivers//devfreq/devfreq.c:414:32: warning: unused variable 'max_freq' [-Wunused-variable]
+>>            unsigned long freq, min_freq, max_freq;
+>>                                          ^
+>>    drivers//devfreq/devfreq.c:414:22: warning: unused variable 'min_freq' [-Wunused-variable]
+>>            unsigned long freq, min_freq, max_freq;
+>>                                ^
+>>>> drivers//devfreq/devfreq.c:426:38: warning: variable 'freq' is uninitialized when used here [-Wuninitialized]
+>>            return devfreq_update_freq(devfreq, freq);
+>>                                                ^~~~
+>>    drivers//devfreq/devfreq.c:414:20: note: initialize the variable 'freq' to silence this warning
+>>            unsigned long freq, min_freq, max_freq;
+>>                              ^
+>>                               = 0
+>>    5 warnings generated.
+>>
+>> vim +/freq +426 drivers//devfreq/devfreq.c
+>>
+>>    404
+>>    405  /**
+>>    406   * update_devfreq() - Reevaluate the device and configure frequency.
+>>    407   * @devfreq:    the devfreq instance.
+>>    408   *
+>>    409   * Note: Lock devfreq->lock before calling update_devfreq
+>>    410   *       This function is exported for governors.
+>>    411   */
+>>    412  int update_devfreq(struct devfreq *devfreq)
+>>    413  {
+>>    414          unsigned long freq, min_freq, max_freq;
+>>  > 415          int err = 0;
+>>    416          u32 flags = 0;
+>>    417
+>>    418          if (!mutex_is_locked(&devfreq->lock)) {
+>>    419                  WARN(true, "devfreq->lock must be locked by the caller.\n");
+>>    420                  return -EINVAL;
+>>    421          }
+>>    422
+>>    423          if (!devfreq->governor)
+>>    424                  return -EINVAL;
+>>    425
+>>  > 426          return devfreq_update_freq(devfreq, freq);
+>>    427  }
+>>    428  EXPORT_SYMBOL(update_devfreq);
+>>    429
+>>
+>> ---
+>> 0-DAY kernel test infrastructure                 Open Source Technology Center
+>> https://protect2.fireeye.com/url?k=ab89e7da-f65abcce-ab886c95-0cc47a31ce4e-8670feeedcf0eaab&u=https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
+> 
+> 
+> 
 
-First few errors in logs of first_bad:
-00:03:04 drivers/gpu/drm/amd/amdgpu/../display/modules/hdcp/hdcp2_execution.c:162:4: error: implicit declaration of function 'udelay' [-Werror,-Wimplicit-function-declaration]
-00:03:04 drivers/gpu/drm/amd/amdgpu/../display/modules/hdcp/hdcp2_execution.c:472:3: error: implicit declaration of function 'udelay' [-Werror,-Wimplicit-function-declaration]
-00:03:04 make[4]: *** [drivers/gpu/drm/amd/amdgpu/../display/modules/hdcp/hdcp2_execution.o] Error 1
-00:03:05 make[3]: *** [drivers/gpu/drm/amd/amdgpu] Error 2
-00:03:23 make[2]: *** [drivers/gpu/drm] Error 2
-00:03:23 make[1]: *** [drivers/gpu] Error 2
-00:04:28 make: *** [drivers] Error 2
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="9f8535c5f75f0e23359962527dbfd31478b2cf16"
 
-Results regressed to (for first_bad == 51466b3fd2725bfb0de629f71c0854ff276d50ae)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-17335
-
-from (for last_good == eff682f83c9c2030761e7536c5d97e1b20f71c15)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-17406
-linux build successful:
-all
-
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/artifact/artifacts/build-51466b3fd2725bfb0de629f71c0854ff276d50ae/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/artifact/artifacts/build-eff682f83c9c2030761e7536c5d97e1b20f71c15/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/
-
-Reproduce builds:
-<cut>
-mkdir investigate-linux-51466b3fd2725bfb0de629f71c0854ff276d50ae
-cd investigate-linux-51466b3fd2725bfb0de629f71c0854ff276d50ae
-
-git clone https://git.linaro.org/toolchain/jenkins-scripts
-
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
-
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
-
-cd linux
-
-# Reproduce first_bad build
-git checkout --detach 51466b3fd2725bfb0de629f71c0854ff276d50ae
-../artifacts/test.sh
-
-# Reproduce last_good build
-git checkout --detach eff682f83c9c2030761e7536c5d97e1b20f71c15
-../artifacts/test.sh
-
-cd ..
-</cut>
-
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-release-aarch64-next-allyesconfig
-
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-aarch64-next-allyesconfig/44/consoleText
-
-Full commit:
-<cut>
-commit 51466b3fd2725bfb0de629f71c0854ff276d50ae
-Author: Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
-Date:   Wed Sep 18 11:18:15 2019 -0400
-
-    drm/amd/display: Add execution and transition states for HDCP2.2
-    
-    The module works like a state machine
-    
-                                        +-------------+
-                                ------> | Execution.c | ------
-                                |       +-------------+       |
-                                |                             V
-        +----+              +--------+                 +--------------+
-        | DM |    ----->    | Hdcp.c |  <------------  | Transition.c |
-        +----+    <-----    +--------+                 +--------------+
-    
-    This patch adds the execution and transition files for 2.2
-    
-    Signed-off-by: Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
-    Reviewed-by: Harry Wentland <harry.wentland@amd.com>
-    Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
----
- drivers/gpu/drm/amd/display/modules/hdcp/Makefile  |   3 +-
- drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c    |  86 +-
- drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h    | 127 +++
- .../drm/amd/display/modules/hdcp/hdcp2_execution.c | 881 +++++++++++++++++++++
- .../amd/display/modules/hdcp/hdcp2_transition.c    | 674 ++++++++++++++++
- drivers/gpu/drm/amd/display/modules/inc/mod_hdcp.h |   2 +
- 6 files changed, 1764 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/Makefile b/drivers/gpu/drm/amd/display/modules/hdcp/Makefile
-index 1c3c6d47973a..904424da01b5 100644
---- a/drivers/gpu/drm/amd/display/modules/hdcp/Makefile
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/Makefile
-@@ -24,7 +24,8 @@
- #
- 
- HDCP = hdcp_ddc.o hdcp_log.o hdcp_psp.o hdcp.o \
--		hdcp1_execution.o hdcp1_transition.o
-+		hdcp1_execution.o hdcp1_transition.o \
-+		hdcp2_execution.o hdcp2_transition.o
- 
- AMD_DAL_HDCP = $(addprefix $(AMDDALPATH)/modules/hdcp/,$(HDCP))
- #$(info ************  DAL-HDCP_MAKEFILE ************)
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c
-index d7ac445dec6f..a74812977963 100644
---- a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c
-@@ -37,24 +37,52 @@ static void push_error_status(struct mod_hdcp *hdcp,
- 		HDCP_ERROR_TRACE(hdcp, status);
- 	}
- 
--	hdcp->connection.hdcp1_retry_count++;
-+	if (is_hdcp1(hdcp)) {
-+		hdcp->connection.hdcp1_retry_count++;
-+	} else if (is_hdcp2(hdcp)) {
-+		hdcp->connection.hdcp2_retry_count++;
-+	}
- }
- 
- static uint8_t is_cp_desired_hdcp1(struct mod_hdcp *hdcp)
- {
--	int i, display_enabled = 0;
-+	int i, is_auth_needed = 0;
- 
--	/* if all displays on the link are disabled, hdcp is not desired */
-+	/* if all displays on the link don't need authentication,
-+	 * hdcp is not desired
-+	 */
- 	for (i = 0; i < MAX_NUM_OF_DISPLAYS; i++) {
- 		if (hdcp->connection.displays[i].state != MOD_HDCP_DISPLAY_INACTIVE &&
- 				!hdcp->connection.displays[i].adjust.disable) {
--			display_enabled = 1;
-+			is_auth_needed = 1;
- 			break;
- 		}
- 	}
- 
- 	return (hdcp->connection.hdcp1_retry_count < MAX_NUM_OF_ATTEMPTS) &&
--			display_enabled && !hdcp->connection.link.adjust.hdcp1.disable;
-+			is_auth_needed &&
-+			!hdcp->connection.link.adjust.hdcp1.disable;
-+}
-+
-+static uint8_t is_cp_desired_hdcp2(struct mod_hdcp *hdcp)
-+{
-+	int i, is_auth_needed = 0;
-+
-+	/* if all displays on the link don't need authentication,
-+	 * hdcp is not desired
-+	 */
-+	for (i = 0; i < MAX_NUM_OF_DISPLAYS; i++) {
-+		if (hdcp->connection.displays[i].state != MOD_HDCP_DISPLAY_INACTIVE &&
-+				!hdcp->connection.displays[i].adjust.disable) {
-+			is_auth_needed = 1;
-+			break;
-+		}
-+	}
-+
-+	return (hdcp->connection.hdcp2_retry_count < MAX_NUM_OF_ATTEMPTS) &&
-+			is_auth_needed &&
-+			!hdcp->connection.link.adjust.hdcp2.disable &&
-+			!hdcp->connection.is_hdcp2_revoked;
- }
- 
- static enum mod_hdcp_status execution(struct mod_hdcp *hdcp,
-@@ -82,6 +110,11 @@ static enum mod_hdcp_status execution(struct mod_hdcp *hdcp,
- 	} else if (is_in_hdcp1_dp_states(hdcp)) {
- 		status = mod_hdcp_hdcp1_dp_execution(hdcp,
- 				event_ctx, &input->hdcp1);
-+	} else if (is_in_hdcp2_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_execution(hdcp, event_ctx, &input->hdcp2);
-+	} else if (is_in_hdcp2_dp_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_dp_execution(hdcp,
-+				event_ctx, &input->hdcp2);
- 	}
- out:
- 	return status;
-@@ -99,7 +132,10 @@ static enum mod_hdcp_status transition(struct mod_hdcp *hdcp,
- 
- 	if (is_in_initialized_state(hdcp)) {
- 		if (is_dp_hdcp(hdcp))
--			if (is_cp_desired_hdcp1(hdcp)) {
-+			if (is_cp_desired_hdcp2(hdcp)) {
-+				callback_in_ms(0, output);
-+				set_state_id(hdcp, output, D2_A0_DETERMINE_RX_HDCP_CAPABLE);
-+			} else if (is_cp_desired_hdcp1(hdcp)) {
- 				callback_in_ms(0, output);
- 				set_state_id(hdcp, output, D1_A0_DETERMINE_RX_HDCP_CAPABLE);
- 			} else {
-@@ -107,7 +143,10 @@ static enum mod_hdcp_status transition(struct mod_hdcp *hdcp,
- 				set_state_id(hdcp, output, HDCP_CP_NOT_DESIRED);
- 			}
- 		else if (is_hdmi_dvi_sl_hdcp(hdcp))
--			if (is_cp_desired_hdcp1(hdcp)) {
-+			if (is_cp_desired_hdcp2(hdcp)) {
-+				callback_in_ms(0, output);
-+				set_state_id(hdcp, output, H2_A0_KNOWN_HDCP2_CAPABLE_RX);
-+			} else if (is_cp_desired_hdcp1(hdcp)) {
- 				callback_in_ms(0, output);
- 				set_state_id(hdcp, output, H1_A0_WAIT_FOR_ACTIVE_RX);
- 			} else {
-@@ -126,6 +165,12 @@ static enum mod_hdcp_status transition(struct mod_hdcp *hdcp,
- 	} else if (is_in_hdcp1_dp_states(hdcp)) {
- 		status = mod_hdcp_hdcp1_dp_transition(hdcp,
- 				event_ctx, &input->hdcp1, output);
-+	} else if (is_in_hdcp2_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_transition(hdcp,
-+				event_ctx, &input->hdcp2, output);
-+	} else if (is_in_hdcp2_dp_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_dp_transition(hdcp,
-+				event_ctx, &input->hdcp2, output);
- 	} else {
- 		status = MOD_HDCP_STATUS_INVALID_STATE;
- 	}
-@@ -139,9 +184,13 @@ static enum mod_hdcp_status reset_authentication(struct mod_hdcp *hdcp,
- 	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
- 
- 	if (is_hdcp1(hdcp)) {
--		if (hdcp->auth.trans_input.hdcp1.create_session != UNKNOWN)
-+		if (hdcp->auth.trans_input.hdcp1.create_session != UNKNOWN) {
-+			/* TODO - update psp to unify create session failure
-+			 * recovery between hdcp1 and 2.
-+			 */
- 			mod_hdcp_hdcp1_destroy_session(hdcp);
- 
-+		}
- 		if (hdcp->auth.trans_input.hdcp1.add_topology == PASS) {
- 			status = mod_hdcp_remove_display_topology(hdcp);
- 			if (status != MOD_HDCP_STATUS_SUCCESS) {
-@@ -154,6 +203,27 @@ static enum mod_hdcp_status reset_authentication(struct mod_hdcp *hdcp,
- 		memset(&hdcp->auth, 0, sizeof(struct mod_hdcp_authentication));
- 		memset(&hdcp->state, 0, sizeof(struct mod_hdcp_state));
- 		set_state_id(hdcp, output, HDCP_INITIALIZED);
-+	} else if (is_hdcp2(hdcp)) {
-+		if (hdcp->auth.trans_input.hdcp2.create_session == PASS) {
-+			status = mod_hdcp_hdcp2_destroy_session(hdcp);
-+			if (status != MOD_HDCP_STATUS_SUCCESS) {
-+				output->callback_needed = 0;
-+				output->watchdog_timer_needed = 0;
-+				goto out;
-+			}
-+		}
-+		if (hdcp->auth.trans_input.hdcp2.add_topology == PASS) {
-+			status = mod_hdcp_remove_display_topology(hdcp);
-+			if (status != MOD_HDCP_STATUS_SUCCESS) {
-+				output->callback_needed = 0;
-+				output->watchdog_timer_needed = 0;
-+				goto out;
-+			}
-+		}
-+		HDCP_TOP_RESET_AUTH_TRACE(hdcp);
-+		memset(&hdcp->auth, 0, sizeof(struct mod_hdcp_authentication));
-+		memset(&hdcp->state, 0, sizeof(struct mod_hdcp_state));
-+		set_state_id(hdcp, output, HDCP_INITIALIZED);
- 	} else if (is_in_cp_not_desired_state(hdcp)) {
- 		status = mod_hdcp_remove_display_topology(hdcp);
- 		if (status != MOD_HDCP_STATUS_SUCCESS) {
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h
-index d83f0ab1cadb..9887c5ea6d5f 100644
---- a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h
-@@ -44,11 +44,13 @@
- #define BINFO_MAX_DEVS_EXCEEDED_MASK_DP			0x0080
- #define BINFO_MAX_CASCADE_EXCEEDED_MASK_DP		0x0800
- 
-+#define VERSION_HDCP2_MASK				0x04
- #define RXSTATUS_MSG_SIZE_MASK				0x03FF
- #define RXSTATUS_READY_MASK				0x0400
- #define RXSTATUS_REAUTH_REQUEST_MASK			0x0800
- #define RXIDLIST_DEVICE_COUNT_LOWER_MASK		0xf0
- #define RXIDLIST_DEVICE_COUNT_UPPER_MASK		0x01
-+#define RXCAPS_BYTE2_HDCP2_VERSION_DP			0x02
- #define RXCAPS_BYTE0_HDCP_CAPABLE_MASK_DP		0x02
- #define RXSTATUS_READY_MASK_DP				0x0001
- #define RXSTATUS_H_P_AVAILABLE_MASK_DP			0x0002
-@@ -92,8 +94,52 @@ struct mod_hdcp_transition_input_hdcp1 {
- 	uint8_t stream_encryption_dp;
- };
- 
-+struct mod_hdcp_transition_input_hdcp2 {
-+	uint8_t hdcp2version_read;
-+	uint8_t hdcp2_capable_check;
-+	uint8_t add_topology;
-+	uint8_t create_session;
-+	uint8_t ake_init_prepare;
-+	uint8_t ake_init_write;
-+	uint8_t rxstatus_read;
-+	uint8_t ake_cert_available;
-+	uint8_t ake_cert_read;
-+	uint8_t ake_cert_validation;
-+	uint8_t stored_km_write;
-+	uint8_t no_stored_km_write;
-+	uint8_t h_prime_available;
-+	uint8_t h_prime_read;
-+	uint8_t pairing_available;
-+	uint8_t pairing_info_read;
-+	uint8_t h_prime_validation;
-+	uint8_t lc_init_prepare;
-+	uint8_t lc_init_write;
-+	uint8_t l_prime_available_poll;
-+	uint8_t l_prime_read;
-+	uint8_t l_prime_validation;
-+	uint8_t eks_prepare;
-+	uint8_t eks_write;
-+	uint8_t enable_encryption;
-+	uint8_t reauth_request_check;
-+	uint8_t rx_id_list_read;
-+	uint8_t device_count_check;
-+	uint8_t rx_id_list_validation;
-+	uint8_t repeater_auth_ack_write;
-+	uint8_t prepare_stream_manage;
-+	uint8_t stream_manage_write;
-+	uint8_t stream_ready_available;
-+	uint8_t stream_ready_read;
-+	uint8_t stream_ready_validation;
-+
-+	uint8_t rx_caps_read_dp;
-+	uint8_t content_stream_type_write;
-+	uint8_t link_integrity_check_dp;
-+	uint8_t stream_encryption_dp;
-+};
-+
- union mod_hdcp_transition_input {
- 	struct mod_hdcp_transition_input_hdcp1 hdcp1;
-+	struct mod_hdcp_transition_input_hdcp2 hdcp2;
- };
- 
- struct mod_hdcp_message_hdcp1 {
-@@ -150,8 +196,10 @@ struct mod_hdcp_connection {
- 	struct mod_hdcp_display displays[MAX_NUM_OF_DISPLAYS];
- 	uint8_t is_repeater;
- 	uint8_t is_km_stored;
-+	uint8_t is_hdcp2_revoked;
- 	struct mod_hdcp_trace trace;
- 	uint8_t hdcp1_retry_count;
-+	uint8_t hdcp2_retry_count;
- };
- 
- /* contains values per authentication cycle */
-@@ -219,6 +267,50 @@ enum mod_hdcp_hdcp1_dp_state_id {
- 	HDCP1_DP_STATE_END = D1_A7_READ_KSV_LIST,
- };
- 
-+enum mod_hdcp_hdcp2_state_id {
-+	HDCP2_STATE_START = HDCP1_DP_STATE_END,
-+	H2_A0_KNOWN_HDCP2_CAPABLE_RX,
-+	H2_A1_SEND_AKE_INIT,
-+	H2_A1_VALIDATE_AKE_CERT,
-+	H2_A1_SEND_NO_STORED_KM,
-+	H2_A1_READ_H_PRIME,
-+	H2_A1_READ_PAIRING_INFO_AND_VALIDATE_H_PRIME,
-+	H2_A1_SEND_STORED_KM,
-+	H2_A1_VALIDATE_H_PRIME,
-+	H2_A2_LOCALITY_CHECK,
-+	H2_A3_EXCHANGE_KS_AND_TEST_FOR_REPEATER,
-+	H2_ENABLE_ENCRYPTION,
-+	H2_A5_AUTHENTICATED,
-+	H2_A6_WAIT_FOR_RX_ID_LIST,
-+	H2_A78_VERIFY_RX_ID_LIST_AND_SEND_ACK,
-+	H2_A9_SEND_STREAM_MANAGEMENT,
-+	H2_A9_VALIDATE_STREAM_READY,
-+	HDCP2_STATE_END = H2_A9_VALIDATE_STREAM_READY,
-+};
-+
-+enum mod_hdcp_hdcp2_dp_state_id {
-+	HDCP2_DP_STATE_START = HDCP2_STATE_END,
-+	D2_A0_DETERMINE_RX_HDCP_CAPABLE,
-+	D2_A1_SEND_AKE_INIT,
-+	D2_A1_VALIDATE_AKE_CERT,
-+	D2_A1_SEND_NO_STORED_KM,
-+	D2_A1_READ_H_PRIME,
-+	D2_A1_READ_PAIRING_INFO_AND_VALIDATE_H_PRIME,
-+	D2_A1_SEND_STORED_KM,
-+	D2_A1_VALIDATE_H_PRIME,
-+	D2_A2_LOCALITY_CHECK,
-+	D2_A34_EXCHANGE_KS_AND_TEST_FOR_REPEATER,
-+	D2_SEND_CONTENT_STREAM_TYPE,
-+	D2_ENABLE_ENCRYPTION,
-+	D2_A5_AUTHENTICATED,
-+	D2_A6_WAIT_FOR_RX_ID_LIST,
-+	D2_A78_VERIFY_RX_ID_LIST_AND_SEND_ACK,
-+	D2_A9_SEND_STREAM_MANAGEMENT,
-+	D2_A9_VALIDATE_STREAM_READY,
-+	HDCP2_DP_STATE_END = D2_A9_VALIDATE_STREAM_READY,
-+	HDCP_STATE_END = HDCP2_DP_STATE_END,
-+};
-+
- /* hdcp1 executions and transitions */
- typedef enum mod_hdcp_status (*mod_hdcp_action)(struct mod_hdcp *hdcp);
- uint8_t mod_hdcp_execute_and_set(
-@@ -239,6 +331,22 @@ enum mod_hdcp_status mod_hdcp_hdcp1_dp_transition(struct mod_hdcp *hdcp,
- 	struct mod_hdcp_transition_input_hdcp1 *input,
- 	struct mod_hdcp_output *output);
- 
-+/* hdcp2 executions and transitions */
-+enum mod_hdcp_status mod_hdcp_hdcp2_execution(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input);
-+enum mod_hdcp_status mod_hdcp_hdcp2_dp_execution(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input);
-+enum mod_hdcp_status mod_hdcp_hdcp2_transition(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input,
-+	struct mod_hdcp_output *output);
-+enum mod_hdcp_status mod_hdcp_hdcp2_dp_transition(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input,
-+	struct mod_hdcp_output *output);
-+
- /* log functions */
- void mod_hdcp_dump_binary_message(uint8_t *msg, uint32_t msg_size,
- 		uint8_t *buf, uint32_t buf_size);
-@@ -289,6 +397,7 @@ enum mod_hdcp_status mod_hdcp_read_binfo(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_write_aksv(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_write_ainfo(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_write_an(struct mod_hdcp *hdcp);
-+enum mod_hdcp_status mod_hdcp_read_hdcp2version(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_read_rxcaps(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_read_rxstatus(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_read_ake_cert(struct mod_hdcp *hdcp);
-@@ -352,11 +461,28 @@ static inline uint8_t is_in_hdcp1_dp_states(struct mod_hdcp *hdcp)
- 			current_state(hdcp) <= HDCP1_DP_STATE_END);
- }
- 
-+static inline uint8_t is_in_hdcp2_states(struct mod_hdcp *hdcp)
-+{
-+	return (current_state(hdcp) > HDCP2_STATE_START &&
-+			current_state(hdcp) <= HDCP2_STATE_END);
-+}
-+
-+static inline uint8_t is_in_hdcp2_dp_states(struct mod_hdcp *hdcp)
-+{
-+	return (current_state(hdcp) > HDCP2_DP_STATE_START &&
-+			current_state(hdcp) <= HDCP2_DP_STATE_END);
-+}
-+
- static inline uint8_t is_hdcp1(struct mod_hdcp *hdcp)
- {
- 	return (is_in_hdcp1_states(hdcp) || is_in_hdcp1_dp_states(hdcp));
- }
- 
-+static inline uint8_t is_hdcp2(struct mod_hdcp *hdcp)
-+{
-+	return (is_in_hdcp2_states(hdcp) || is_in_hdcp2_dp_states(hdcp));
-+}
-+
- static inline uint8_t is_in_cp_not_desired_state(struct mod_hdcp *hdcp)
- {
- 	return current_state(hdcp) == HDCP_CP_NOT_DESIRED;
-@@ -481,6 +607,7 @@ static inline struct mod_hdcp_display *get_empty_display_container(
- static inline void reset_retry_counts(struct mod_hdcp *hdcp)
- {
- 	hdcp->connection.hdcp1_retry_count = 0;
-+	hdcp->connection.hdcp2_retry_count = 0;
- }
- 
- #endif /* HDCP_H_ */
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp2_execution.c b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp2_execution.c
-new file mode 100644
-index 000000000000..c93c8098d972
---- /dev/null
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp2_execution.c
-@@ -0,0 +1,881 @@
-+/*
-+ * Copyright 2018 Advanced Micro Devices, Inc.
-+ *
-+ * Permission is hereby granted, free of charge, to any person obtaining a
-+ * copy of this software and associated documentation files (the "Software"),
-+ * to deal in the Software without restriction, including without limitation
-+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
-+ * and/or sell copies of the Software, and to permit persons to whom the
-+ * Software is furnished to do so, subject to the following conditions:
-+ *
-+ * The above copyright notice and this permission notice shall be included in
-+ * all copies or substantial portions of the Software.
-+ *
-+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
-+ * THE COPYRIGHT HOLDER(S) OR AUTHOR(S) BE LIABLE FOR ANY CLAIM, DAMAGES OR
-+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-+ * OTHER DEALINGS IN THE SOFTWARE.
-+ *
-+ * Authors: AMD
-+ *
-+ */
-+
-+#include "hdcp.h"
-+
-+static inline enum mod_hdcp_status check_receiver_id_list_ready(struct mod_hdcp *hdcp)
-+{
-+	uint8_t is_ready = 0;
-+
-+	if (is_dp_hdcp(hdcp))
-+		is_ready = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_READY_MASK_DP) ? 1 : 0;
-+	else
-+		is_ready = ((hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_READY_MASK) &&
-+				(hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK)) ? 1 : 0;
-+	return is_ready ? MOD_HDCP_STATUS_SUCCESS :
-+			MOD_HDCP_STATUS_HDCP2_RX_ID_LIST_NOT_READY;
-+}
-+
-+static inline enum mod_hdcp_status check_hdcp2_capable(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+
-+	if (is_dp_hdcp(hdcp))
-+		status = ((hdcp->auth.msg.hdcp2.rxcaps_dp[2] &
-+						RXCAPS_BYTE0_HDCP_CAPABLE_MASK_DP) &&
-+				(hdcp->auth.msg.hdcp2.rxcaps_dp[0] ==
-+						RXCAPS_BYTE2_HDCP2_VERSION_DP)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_NOT_CAPABLE;
-+	else
-+		status = (hdcp->auth.msg.hdcp2.hdcp2version_hdmi & VERSION_HDCP2_MASK) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_NOT_CAPABLE;
-+	return status;
-+}
-+
-+static inline enum mod_hdcp_status check_reauthentication_request(
-+		struct mod_hdcp *hdcp)
-+{
-+	uint8_t ret = 0;
-+
-+	if (is_dp_hdcp(hdcp))
-+		ret = (hdcp->auth.msg.hdcp2.rxstatus &
-+				RXSTATUS_REAUTH_REQUEST_MASK_DP) ?
-+				MOD_HDCP_STATUS_HDCP2_REAUTH_REQUEST :
-+				MOD_HDCP_STATUS_SUCCESS;
-+	else
-+		ret = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_REAUTH_REQUEST_MASK) ?
-+				MOD_HDCP_STATUS_HDCP2_REAUTH_REQUEST :
-+				MOD_HDCP_STATUS_SUCCESS;
-+	return ret;
-+}
-+
-+static inline enum mod_hdcp_status check_link_integrity_failure_dp(
-+		struct mod_hdcp *hdcp)
-+{
-+	return (hdcp->auth.msg.hdcp2.rxstatus &
-+			RXSTATUS_LINK_INTEGRITY_FAILURE_MASK_DP) ?
-+			MOD_HDCP_STATUS_HDCP2_REAUTH_LINK_INTEGRITY_FAILURE :
-+			MOD_HDCP_STATUS_SUCCESS;
-+}
-+
-+static enum mod_hdcp_status check_ake_cert_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint16_t size;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = MOD_HDCP_STATUS_SUCCESS;
-+	} else {
-+		status = mod_hdcp_read_rxstatus(hdcp);
-+		if (status == MOD_HDCP_STATUS_SUCCESS) {
-+			size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+			status = (size == sizeof(hdcp->auth.msg.hdcp2.ake_cert)) ?
-+					MOD_HDCP_STATUS_SUCCESS :
-+					MOD_HDCP_STATUS_HDCP2_AKE_CERT_PENDING;
-+		}
-+	}
-+	return status;
-+}
-+
-+static enum mod_hdcp_status check_h_prime_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+
-+	status = mod_hdcp_read_rxstatus(hdcp);
-+	if (status != MOD_HDCP_STATUS_SUCCESS)
-+		goto out;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_H_P_AVAILABLE_MASK_DP) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_H_PRIME_PENDING;
-+	} else {
-+		size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+		status = (size == sizeof(hdcp->auth.msg.hdcp2.ake_h_prime)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_H_PRIME_PENDING;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status check_pairing_info_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+
-+	status = mod_hdcp_read_rxstatus(hdcp);
-+	if (status != MOD_HDCP_STATUS_SUCCESS)
-+		goto out;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_PAIRING_AVAILABLE_MASK_DP) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_PAIRING_INFO_PENDING;
-+	} else {
-+		size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+		status = (size == sizeof(hdcp->auth.msg.hdcp2.ake_pairing_info)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_PAIRING_INFO_PENDING;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status poll_l_prime_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+	uint16_t max_wait = 20000; // units of us
-+	uint16_t num_polls = 5;
-+	uint16_t wait_time = max_wait / num_polls;
-+
-+	if (is_dp_hdcp(hdcp))
-+		status = MOD_HDCP_STATUS_INVALID_OPERATION;
-+	else
-+		for (; num_polls; num_polls--) {
-+			udelay(wait_time);
-+
-+			status = mod_hdcp_read_rxstatus(hdcp);
-+			if (status != MOD_HDCP_STATUS_SUCCESS)
-+				break;
-+
-+			size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+			status = (size == sizeof(hdcp->auth.msg.hdcp2.lc_l_prime)) ?
-+					MOD_HDCP_STATUS_SUCCESS :
-+					MOD_HDCP_STATUS_HDCP2_L_PRIME_PENDING;
-+			if (status == MOD_HDCP_STATUS_SUCCESS)
-+				break;
-+		}
-+	return status;
-+}
-+
-+static enum mod_hdcp_status check_stream_ready_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = MOD_HDCP_STATUS_INVALID_OPERATION;
-+	} else {
-+		status = mod_hdcp_read_rxstatus(hdcp);
-+		if (status != MOD_HDCP_STATUS_SUCCESS)
-+			goto out;
-+		size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+		status = (size == sizeof(hdcp->auth.msg.hdcp2.repeater_auth_stream_ready)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_STREAM_READY_PENDING;
-+	}
-+out:
-+	return status;
-+}
-+
-+static inline uint8_t get_device_count(struct mod_hdcp *hdcp)
-+{
-+	return ((hdcp->auth.msg.hdcp2.rx_id_list[2] & RXIDLIST_DEVICE_COUNT_LOWER_MASK) >> 4) +
-+		((hdcp->auth.msg.hdcp2.rx_id_list[1] & RXIDLIST_DEVICE_COUNT_UPPER_MASK) << 4);
-+}
-+
-+static enum mod_hdcp_status check_device_count(struct mod_hdcp *hdcp)
-+{
-+	/* device count must be greater than or equal to tracked hdcp displays */
-+	return (get_device_count(hdcp) < get_added_display_count(hdcp)) ?
-+			MOD_HDCP_STATUS_HDCP2_DEVICE_COUNT_MISMATCH_FAILURE :
-+			MOD_HDCP_STATUS_SUCCESS;
-+}
-+
-+static uint8_t process_rxstatus(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input,
-+		enum mod_hdcp_status *status)
-+{
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_rxstatus,
-+			&input->rxstatus_read, status,
-+			hdcp, "rxstatus_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(check_reauthentication_request,
-+			&input->reauth_request_check, status,
-+			hdcp, "reauth_request_check"))
-+		goto out;
-+	if (is_dp_hdcp(hdcp)) {
-+		if (!mod_hdcp_execute_and_set(check_link_integrity_failure_dp,
-+				&input->link_integrity_check_dp, status,
-+				hdcp, "link_integrity_check_dp"))
-+			goto out;
-+	}
-+	if (hdcp->connection.is_repeater)
-+		if (check_receiver_id_list_ready(hdcp) ==
-+				MOD_HDCP_STATUS_SUCCESS) {
-+			HDCP_INPUT_PASS_TRACE(hdcp, "rx_id_list_ready");
-+			event_ctx->rx_id_list_ready = 1;
-+			if (is_dp_hdcp(hdcp))
-+				hdcp->auth.msg.hdcp2.rx_id_list_size =
-+						sizeof(hdcp->auth.msg.hdcp2.rx_id_list);
-+			else
-+				hdcp->auth.msg.hdcp2.rx_id_list_size =
-+						hdcp->auth.msg.hdcp2.rxstatus & 0x3FF;
-+		}
-+out:
-+	return (*status == MOD_HDCP_STATUS_SUCCESS);
-+}
-+
-+static enum mod_hdcp_status known_hdcp2_capable_rx(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_hdcp2version,
-+			&input->hdcp2version_read, &status,
-+			hdcp, "hdcp2version_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(check_hdcp2_capable,
-+			&input->hdcp2_capable_check, &status,
-+			hdcp, "hdcp2_capable"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status send_ake_init(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_add_display_topology,
-+			&input->add_topology, &status,
-+			hdcp, "add_topology"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_create_session,
-+			&input->create_session, &status,
-+			hdcp, "create_session"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_prepare_ake_init,
-+			&input->ake_init_prepare, &status,
-+			hdcp, "ake_init_prepare"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_ake_init,
-+			&input->ake_init_write, &status,
-+			hdcp, "ake_init_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status validate_ake_cert(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (is_hdmi_dvi_sl_hdcp(hdcp))
-+		if (!mod_hdcp_execute_and_set(check_ake_cert_available,
-+				&input->ake_cert_available, &status,
-+				hdcp, "ake_cert_available"))
-+			goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_ake_cert,
-+			&input->ake_cert_read, &status,
-+			hdcp, "ake_cert_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_ake_cert,
-+			&input->ake_cert_validation, &status,
-+			hdcp, "ake_cert_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status send_no_stored_km(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_no_stored_km,
-+			&input->no_stored_km_write, &status,
-+			hdcp, "no_stored_km_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status read_h_prime(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(check_h_prime_available,
-+			&input->h_prime_available, &status,
-+			hdcp, "h_prime_available"))
-+		goto out;
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_h_prime,
-+			&input->h_prime_read, &status,
-+			hdcp, "h_prime_read"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status read_pairing_info_and_validate_h_prime(
-+		struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(check_pairing_info_available,
-+			&input->pairing_available, &status,
-+			hdcp, "pairing_available"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_pairing_info,
-+			&input->pairing_info_read, &status,
-+			hdcp, "pairing_info_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_h_prime,
-+			&input->h_prime_validation, &status,
-+			hdcp, "h_prime_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status send_stored_km(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_stored_km,
-+			&input->stored_km_write, &status,
-+			hdcp, "stored_km_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status validate_h_prime(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(check_h_prime_available,
-+			&input->h_prime_available, &status,
-+			hdcp, "h_prime_available"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_h_prime,
-+			&input->h_prime_read, &status,
-+			hdcp, "h_prime_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_h_prime,
-+			&input->h_prime_validation, &status,
-+			hdcp, "h_prime_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status locality_check(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_prepare_lc_init,
-+			&input->lc_init_prepare, &status,
-+			hdcp, "lc_init_prepare"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_lc_init,
-+			&input->lc_init_write, &status,
-+			 hdcp, "lc_init_write"))
-+		goto out;
-+	if (is_dp_hdcp(hdcp))
-+		udelay(16000);
-+	else
-+		if (!mod_hdcp_execute_and_set(poll_l_prime_available,
-+				&input->l_prime_available_poll, &status,
-+				hdcp, "l_prime_available_poll"))
-+			goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_l_prime,
-+			&input->l_prime_read, &status,
-+			hdcp, "l_prime_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_l_prime,
-+			&input->l_prime_validation, &status,
-+			hdcp, "l_prime_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status exchange_ks_and_test_for_repeater(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_prepare_eks,
-+			&input->eks_prepare, &status,
-+			hdcp, "eks_prepare"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_eks,
-+			&input->eks_write, &status,
-+			hdcp, "eks_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status enable_encryption(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+	if (event_ctx->event == MOD_HDCP_EVENT_CPIRQ) {
-+		process_rxstatus(hdcp, event_ctx, input, &status);
-+		goto out;
-+	}
-+
-+	if (is_hdmi_dvi_sl_hdcp(hdcp)) {
-+		if (!process_rxstatus(hdcp, event_ctx, input, &status))
-+			goto out;
-+		if (event_ctx->rx_id_list_ready)
-+			goto out;
-+	}
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_enable_encryption,
-+			&input->enable_encryption, &status,
-+			hdcp, "enable_encryption"))
-+		goto out;
-+	if (is_dp_mst_hdcp(hdcp)) {
-+		if (!mod_hdcp_execute_and_set(
-+				mod_hdcp_hdcp2_enable_dp_stream_encryption,
-+				&input->stream_encryption_dp, &status,
-+				hdcp, "stream_encryption_dp"))
-+			goto out;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status authenticated(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!process_rxstatus(hdcp, event_ctx, input, &status))
-+		goto out;
-+	if (event_ctx->rx_id_list_ready)
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status wait_for_rx_id_list(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!process_rxstatus(hdcp, event_ctx, input, &status))
-+		goto out;
-+	if (!event_ctx->rx_id_list_ready) {
-+		status = MOD_HDCP_STATUS_HDCP2_RX_ID_LIST_NOT_READY;
-+		goto out;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status verify_rx_id_list_and_send_ack(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-</cut>
+-- 
+Best Regards,
+Chanwoo Choi
+Samsung Electronics
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/472791538.6883.1577055104643.JavaMail.javamailuser%40localhost.
-
-------=_Part_6882_537488375.1577055104083--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5fd56f03-41c6-25a2-3911-349d3b6d121c%40samsung.com.
