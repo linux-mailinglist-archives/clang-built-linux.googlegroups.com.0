@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBYFNQLYAKGQETKIQBNA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBYWZQLYAKGQE66E6GMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x13b.google.com (mail-lf1-x13b.google.com [IPv6:2a00:1450:4864:20::13b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5E28F129435
-	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Dec 2019 11:28:49 +0100 (CET)
-Received: by mail-lf1-x13b.google.com with SMTP id i5sf1394995lfo.7
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Dec 2019 02:28:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577096929; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id A6A071295CA
+	for <lists+clang-built-linux@lfdr.de>; Mon, 23 Dec 2019 13:02:42 +0100 (CET)
+Received: by mail-wr1-x440.google.com with SMTP id z14sf7951091wrs.4
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Dec 2019 04:02:42 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577102562; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aBEvclhwjBhXPpcXAOJlUVPTK8u9RMkQVpmjT0P9cLs4QEecI+PY1T4ac/05e+y8S3
-         I3q2j5fEGxR5oHjrkZxJvwpNUFsISIfUgP7JGMC2zkF9iy5y9QXiSkSrwRMozA3F/jZt
-         ikWPh4XRDn/CmO96YvqZufWyrc2DLp5rW2KcQd55eRZHVe0E9q4rdMrFbDFkpbkEVTxG
-         ZBl/FRvoG3HHZzISSp4MHKU1NJIrD1qpVk2WumKLOCF24aPuDIyp1mnZy9q7vtPpLMuK
-         4WCjJwC0uZ/eXq37Use8T3fck2yK6yYHbmR4a4n1M0gUN5VR3v+JwLspVRFaaeqt9ZL9
-         uWvw==
+        b=iLyBtQYAti0Q7P9Y3zN3kI1MJoGaI5s8+GPX732sP/h4+cdIYdsgguQBhjQRHnFazp
+         M+xInigzNavFD2U9gVjt5A9Usntw1Uz5UkmEtqHrEsPiK2TQ6SEe4JWuh317Yn2kXbB4
+         8R5Ur7mI6rD2DdETeqWk6C+xMJCazsl0ccau5sEAkmRpBpRkiqjsdh6iJeqPfuZmOYhd
+         q8cJSEEGnjA/yU3TRokP1D9s8lBfjhgRB//O6cb1rbkmFF2gUj30ULzS4VQ3lYy8zBKe
+         PgmwmDpD8rXlkllykbI1BN3dGWpxaITeydRLOGG47L5B2dgDH/u9D1iSqDHcvMQAXoGV
+         8+SA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:subject:message-id:to
          :date:from:sender:dkim-signature;
-        bh=UNEmou1XmjDHwmT2TZUihCBOwQiLU0BEgjFwCL/l6Xg=;
-        b=xcXVlqMHa6Us5sMOEe4XrAuV5rTDK7SeVDgj7jY6JOY84EHYifbE4UzCxEbguJvwyI
-         gXHMtJ/1vJl8SgqrhhIQ7pF+KbvdHVT5KXRUDYD03JNb97L+VpKhZGteYss2DwtmBfNR
-         bmEohuZSOW4UAV3iNyyw5iLNwPzhs3iE/3XwfQUMFUvSZZRqUbHEGtfJ3RBFfq32WVSJ
-         g/SjFhOVQZ/V7X/zX2jmoByviQwHdT6fsgVfim6hqZOiaH0ngvSNaCfse+t8RldpGeNn
-         yYhUv0ghMorKISVkaa35pDb0Cbd256e/KAtV0vXoVzQabDj2Vrqx8WkhQpgVm1a0x/V8
-         pNUA==
+        bh=2yadt9W/q9d+ccGC/wvNHiwriEvwJmpoyLIibPgf0Bc=;
+        b=DHc3Hvt1oXri7Oap4sIZlSi0M0w/REd24CMzWS9nEDV9pw4zhBcdeIxlNYSqhl4Xil
+         GY6t7bWi8VoTf0gFj9x74MfwzqsecLVTPJ5YwWEcDRd9gbwYtw/nj0AwF48j3zqI3nDz
+         7vV/vixYzTdqikxdDrrewZOqyC7B63ScAwq+6ka85M1Ku2yfDDbrQx7fTVHztPyTPtWg
+         +aqnIkgjoJJB1tlZZ5B92/Pghqp0ZA4T/dMvLEB8ithYUCpv27QYe6bHq8KG9fpbkqbd
+         jlydJBBvThJSfEz1/pwCvHgqANhLbX5KzSF1QT8FoRYQfE4I35tteBNU/5CxF8JyqDJA
+         XaNQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=kb7osjeJ;
+       dkim=pass header.i=@linaro.org header.s=google header.b="BwC6yq9/";
        spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,87 +35,88 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=UNEmou1XmjDHwmT2TZUihCBOwQiLU0BEgjFwCL/l6Xg=;
-        b=kpj9ADS039SVdb2oIZdNJ7bJ/7QqMeRKxTNpA9aRsuxkl58vXTrgitr31kfxlnydss
-         1cDLL/CbqRtOuLfEAWKtqVNyt9lHyW+e8n9dPv+o+vkoPd8/q3i+TrjTDoAsWUMRYVU9
-         +TKdUBJs/YfYwAeFlrJ5bTeK83AWiURPiSinn5u070MZcxGMfPyoa3nEORvZSBECr+F9
-         JtG9j/t5Jy+Yu67YtDed0rg+4+1lv2eaDZklGIeMiYgXRQHYO1vTO9OxhjLCsMZ5gLVL
-         p134uBczfAwuBcO2sHfA2IOrE6MVLfjdrmMDU4cGhJwkZkrTxTahIc4SD0M4SGig3ho0
-         9E6Q==
+        bh=2yadt9W/q9d+ccGC/wvNHiwriEvwJmpoyLIibPgf0Bc=;
+        b=UBDQIUIFIW0DFGVAxCNgvUUceFkmadHJ11Lpdg8Vv4ZcfsnWdxmgkHEBxROVpRjHHU
+         VFnJQbBAqh9jqjtZ/3rwkZnwD2v0evr8/i9X40zuyf0m333ClO654RPdy3ZPXmZyiXoK
+         4TmQh/mhGBodhykogmxXQL0gPInvCsyL3BiOw6HO7qbtUYZYCP2sTFcjAfabQklHb7bO
+         3956Htn9sErgypQ/LuzW1JDVAAObTkB8ZYWkRbzz/i+IvYPvpScQJpkw1AIRP8XH0Bgt
+         pOuSymBgAdkC7pHX3yysjSlWTF9mbgxmXyg+2WUSIXrcU4PM5PRfce+942Dx7RlhIoe+
+         zklQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:date:to:message-id:subject
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=UNEmou1XmjDHwmT2TZUihCBOwQiLU0BEgjFwCL/l6Xg=;
-        b=XN1V4LyLXkDqtu1Et1ii1Q6lbRJWG1lLwyPJeXWGp4guR8l5Yj7m70fb7GGy8cbOAg
-         Ag0ZGmOSQIiAzl3I8mjU5sytFxEyIWvdy9fC3aj5gskrqfVnFLCyRSFUEWLCM/Ng3un8
-         RmzqIPQI3wyosix872sOuWcsRYcQudo5MiGK63luMt35MQYK9W/94QZscT1VdzbsBJ+I
-         EdFsq3El5+MUWuWgYaNn2G3Rs00e/agn5aQy6KntdYi2oML44wgnrn4szLq2wRfU+Gao
-         +5QDtcJz3ePpvBwQNJ5XmpgBJxnp/AUrpLOOK8B9LNWxuypMS8EFKRvIcWgkoI2pGGXZ
-         hU1w==
+        bh=2yadt9W/q9d+ccGC/wvNHiwriEvwJmpoyLIibPgf0Bc=;
+        b=nzpKJoJEMaNfTO+QjZ01GIVqfL7aZuk9UUhXsjp/ec8rczHTAhEicfBnKV97QVEIn1
+         IFu6v0oZXmwxBTzpBoXzrBW7tlpt54Z7A1rLWRJqCIoNmj8wRgFosrngImGtGrehCHsZ
+         mzpAP+h2pEu5s+tFCk+5Fb3V/6H2p0u2uoRzm/xU34KozX0W43daH9JzHxaTAxh7JJ0e
+         8UGmACqfFMWWeZQIIUBf04a9q9c5qjh7vxYZe4n//28mDYU5edHGBO93M29PyD9jLemB
+         oCzoMDhlFnZpUB+hpRzZRmAsNyQ3LVkns3ojPKtS8qxp1Xuplfy+qObatmp6oZK9/roN
+         pCOQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWnWBpxUj5A8dssa01kQPofzi4X5JiPUzk7J/AwQX2sZuKLV+6V
-	sB5Q5nDNTBQ8gxVLHp1Nb4Q=
-X-Google-Smtp-Source: APXvYqz+4dwk5q6T+0JpsCCfJNK1/txsTxi1ZfSHg1eoYX18M2XAgmncGxA7ajhhoLbX4pfRIWQd+A==
-X-Received: by 2002:ac2:5287:: with SMTP id q7mr16957204lfm.66.1577096928859;
-        Mon, 23 Dec 2019 02:28:48 -0800 (PST)
+X-Gm-Message-State: APjAAAUbvBJj5+jEUX+o9FMoK76TsCDckwbFy6GtuqRonapuGU1c4+cf
+	WdutZvF+1ZGMTKETge8SUN4=
+X-Google-Smtp-Source: APXvYqz+nCeMzXhS76oNNCIKSK5QfFJ1bhy9ldEpRT4ndxrlH0S3oT8M9dk8smKS7ycOgTqYCRVxQA==
+X-Received: by 2002:a5d:65c5:: with SMTP id e5mr29568458wrw.311.1577102562278;
+        Mon, 23 Dec 2019 04:02:42 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a19:5056:: with SMTP id z22ls1453795lfj.2.gmail; Mon, 23 Dec
- 2019 02:28:48 -0800 (PST)
-X-Received: by 2002:a19:c3cc:: with SMTP id t195mr16866114lff.144.1577096928280;
-        Mon, 23 Dec 2019 02:28:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577096928; cv=none;
+Received: by 2002:adf:ecc5:: with SMTP id s5ls4291787wro.12.gmail; Mon, 23 Dec
+ 2019 04:02:41 -0800 (PST)
+X-Received: by 2002:a5d:4b88:: with SMTP id b8mr29538507wrt.343.1577102561482;
+        Mon, 23 Dec 2019 04:02:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577102561; cv=none;
         d=google.com; s=arc-20160816;
-        b=OuIKjT15rh2xQIzuKjtAOAra7AkFNxXWERdA6UspBJmseZvtPa/7xCbqA9DL7HRkVo
-         fMx80TUZ2uTw63uCKRZ1k3pPVXwQGCfMjUxHm81u+PgLpkIRCEPfVG2EQ+etokXShILT
-         PK/izoRxKjiNOBop3oUO+Ameyn9Kx3im8Da47zL6uvIwg+00WIWJP0mO0U+usDWrvT0n
-         34S1Llxbm/mG9k3P/8hPBP0MFTc6z7gXSU/zcMv8gz1vTxSKtCDvsirPdVZxfF4UeQSp
-         3Lt8dDnutJX2Fl4OHYlAiFhDRtEH7cAQHW0Imv1Y4obIAPZ8Hx6lAmRmGa7pcJSmn7Gq
-         jCaQ==
+        b=boD0+DKQs4tHReD0xoI7Y5c9pskpdz2LmPjP+XcQzAnjq6YPc8nm71+kaUCZtuzVde
+         ESboQmUL3Pa87iAXDJhdDG+TbH5G2VXWiQjpGrWFfUOw1G8t3cxAR4lNAYyw9rMszmYW
+         n+2XAimfeCye/oZonXRnp8zafhfIE8hnVxwrhw+CealfUG3UhWeHufr494PqxAL1m8JR
+         dPZGMG47Uji6VWp26/0cjAqTq0PBOxfwgjHdm8knvH/0c6Pwx8+NB7SnTcIdsUCRWd4f
+         7FjxJ8J0AQtPA3iF0Jtb/eIWqcIfsulcAwC3IM9ZtogSdWaRRm/CWZO+Y2j7g/fGQQLs
+         IIOQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=mWqiiCSqU+HlGHuwtPBx8COvXtUJZrMSMzEdyHm2uEg=;
-        b=PGPGTqLlIjZFFrhsVqdZzOZ9MUNfAgYmSftSF409at/MC9wBtNtxIJk332DpVVt6jU
-         VAIrW9qrttvF+rXFGYFbBz3fSYFlH+pc/mX53XNCHWV1yd4DBK51J4Y9ixPUswtPe/6H
-         a76Tkf3v7OUljAfbtjOYZRjhD1/x1WSPwZIjO5FKXCpoERQoKO27mvGWplpLfYBVgOMp
-         VpuGlhdublWj+TJLBvFwbKUOxL3dlYVuv4FCgdde5FW7HdRUD0mkeqoW6BXtiJcsXdo5
-         gyUBfG82BwslKgQE3yZhIRsh7LenXCJMyHVbCOOtj4W2jBdJn1o8MXSELu1euVdXpOAS
-         KTAQ==
+        bh=mBs0lJ1oSYJ57Tel2HAiaL3Jad5gxkafgXaGJeBpViE=;
+        b=pCC6ayxgOpgxPZnPAYygkoQSqWL7HwC/iKPLvORZ85XksajXMxJdyWcMkEEN2AW32c
+         kM/r4wM9bRNa9OPZe55LjM8NMOxT22E12FQ2FO9GqIwUYe6HwMVZVW5TypkC/OprVzdw
+         4shDWQVbOI9n5dH6uYbRS6FlXz7ePEDAY8xFXlhwS6dbMXzL2vYOA651k2U4qWg9q2wY
+         tiO8WqS26xvt95vENsfoB+BMrZKxUHQb+lLtTqUVhMl4j+8SNNKnN+aAzQvZz0R/65e4
+         A2i4WUkC7ywXl5MrGtW6Cml0Nw4xb/JUjO3SnoiIxy7wJgFAUDRCeaE+l0tHz7cOahZz
+         RYCg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=kb7osjeJ;
+       dkim=pass header.i=@linaro.org header.s=google header.b="BwC6yq9/";
        spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Received: from mail-wr1-x444.google.com (mail-wr1-x444.google.com. [2a00:1450:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id j30si928652lfp.5.2019.12.23.02.28.48
+        by gmr-mx.google.com with ESMTPS id g3si686427wrw.5.2019.12.23.04.02.41
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Dec 2019 02:28:48 -0800 (PST)
+        Mon, 23 Dec 2019 04:02:41 -0800 (PST)
 Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444 as permitted sender) client-ip=2a00:1450:4864:20::444;
-Received: by mail-wr1-x444.google.com with SMTP id c14so16063786wrn.7
-        for <clang-built-linux@googlegroups.com>; Mon, 23 Dec 2019 02:28:48 -0800 (PST)
-X-Received: by 2002:adf:fa0b:: with SMTP id m11mr28882347wrr.98.1577096927492;
-        Mon, 23 Dec 2019 02:28:47 -0800 (PST)
+Received: by mail-wr1-x444.google.com with SMTP id y11so16348730wrt.6
+        for <clang-built-linux@googlegroups.com>; Mon, 23 Dec 2019 04:02:41 -0800 (PST)
+X-Received: by 2002:adf:c147:: with SMTP id w7mr30648989wre.389.1577102560956;
+        Mon, 23 Dec 2019 04:02:40 -0800 (PST)
 Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id p18sm11361967wmg.4.2019.12.23.02.28.46
+        by smtp.gmail.com with ESMTPSA id n3sm19991957wmc.27.2019.12.23.04.02.40
         (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Mon, 23 Dec 2019 02:28:47 -0800 (PST)
+        Mon, 23 Dec 2019 04:02:40 -0800 (PST)
 From: ci_notify@linaro.org
-Date: Mon, 23 Dec 2019 10:28:46 +0000 (UTC)
+Date: Mon, 23 Dec 2019 12:02:39 +0000 (UTC)
 To: tcwg-validation@linaro.org, llvm@linaro.org, 
 	clang-built-linux@googlegroups.com
-Message-ID: <1149138159.7058.1577096927026.JavaMail.javamailuser@localhost>
+Message-ID: <1675856796.7072.1577102560450.JavaMail.javamailuser@localhost>
 Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-arm-stable-allmodconfig - Build # 10 - Successful!
+ tcwg_kernel/llvm-master-aarch64-next-allmodconfig - Build # 68 -
+ Successful!
 MIME-Version: 1.0
 Content-Type: multipart/mixed; 
-	boundary="----=_Part_7057_345737823.1577096926402"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-stable-allmodconfig
+	boundary="----=_Part_7071_1040057392.1577102559724"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allmodconfig
 X-Jenkins-Result: SUCCESS
 X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=kb7osjeJ;       spf=pass
+ header.i=@linaro.org header.s=google header.b="BwC6yq9/";       spf=pass
  (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::444
  as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
@@ -131,14 +132,15 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_7057_345737823.1577096926402
+------=_Part_7071_1040057392.1577102559724
 Content-Type: text/plain; charset="UTF-8"
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-arm-stable-allmodconfig.  So far, this commit has regressed CI configurations:
+Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allmodconfig.  So far, this commit has regressed CI configurations:
  - tcwg_kernel/llvm-master-aarch64-lts-allmodconfig
  - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
  - tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
  - tcwg_kernel/llvm-master-aarch64-mainline-allyesconfig
+ - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
  - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
  - tcwg_kernel/llvm-master-aarch64-stable-allmodconfig
  - tcwg_kernel/llvm-master-aarch64-stable-allyesconfig
@@ -158,14 +160,14 @@ Author: Jonas Paulsson <paulsson@linux.vnet.ibm.com>
 </cut>
 
 First few errors in logs of first_bad:
-00:01:15 error: option '-mrecord-mcount' cannot be specified on this target
-00:01:15 error: option '-mrecord-mcount' cannot be specified without '-mfentry'
-00:01:15 make[1]: *** [scripts/mod/devicetable-offsets.s] Error 1
-00:01:16 make: *** [prepare0] Error 2
+00:01:12 error: option '-mrecord-mcount' cannot be specified on this target
+00:01:12 error: option '-mrecord-mcount' cannot be specified without '-mfentry'
+00:01:12 make[1]: *** [scripts/mod/devicetable-offsets.s] Error 1
+00:01:13 make: *** [prepare0] Error 2
 Configuration details:
 rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
-rr[llvm_branch]="bbcf1c3496ce2bd1ed87e8fb15ad896e279633ce"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+rr[llvm_branch]="86acaa9457d3957cbe303e1e801f1e727f66ca89"
 
 Results regressed to (for first_bad == 2520bef865329d4c04e2de30c222ad0d5ad13ccc)
 reset_artifacts:
@@ -173,7 +175,7 @@ reset_artifacts:
 build_llvm:
 -1
 linux_n_obj:
-24
+25
 
 from (for last_good == a116f28a0d71c221c1dc023908b180beaf22799d)
 reset_artifacts:
@@ -181,11 +183,15 @@ reset_artifacts:
 build_llvm:
 -1
 linux_n_obj:
-19655
+26874
+linux build successful:
+all
+linux boot successful:
+boot
 
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/artifact/artifacts/build-2520bef865329d4c04e2de30c222ad0d5ad13ccc/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/artifact/artifacts/build-a116f28a0d71c221c1dc023908b180beaf22799d/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/artifact/artifacts/build-2520bef865329d4c04e2de30c222ad0d5ad13ccc/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/artifact/artifacts/build-a116f28a0d71c221c1dc023908b180beaf22799d/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/
 
 Reproduce builds:
 <cut>
@@ -195,9 +201,9 @@ cd investigate-llvm-2520bef865329d4c04e2de30c222ad0d5ad13ccc
 git clone https://git.linaro.org/toolchain/jenkins-scripts
 
 mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/artifact/artifacts/test.sh
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/artifact/artifacts/test.sh
 chmod +x artifacts/test.sh
 
 # Reproduce the baseline build (build all pre-requisites)
@@ -216,10 +222,10 @@ git checkout --detach a116f28a0d71c221c1dc023908b180beaf22799d
 cd ..
 </cut>
 
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-stable-allmodconfig
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allmodconfig
 
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-stable-allmodconfig/10/consoleText
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/68/consoleText
 
 Full commit:
 <cut>
@@ -355,6 +361,6 @@ index 00000000000..eecee0e24cd
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1149138159.7058.1577096927026.JavaMail.javamailuser%40localhost.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1675856796.7072.1577102560450.JavaMail.javamailuser%40localhost.
 
-------=_Part_7057_345737823.1577096926402--
+------=_Part_7071_1040057392.1577102559724--
