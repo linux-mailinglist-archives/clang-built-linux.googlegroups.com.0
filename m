@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBWH6RDYAKGQEMJZBRFQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBT47RHYAKGQENKGCLMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe38.google.com (mail-vs1-xe38.google.com [IPv6:2607:f8b0:4864:20::e38])
-	by mail.lfdr.de (Postfix) with ESMTPS id A4A5412A33C
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Dec 2019 17:39:53 +0100 (CET)
-Received: by mail-vs1-xe38.google.com with SMTP id n14sf1872900vsa.8
-        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Dec 2019 08:39:53 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577205592; cv=pass;
+Received: from mail-yb1-xb38.google.com (mail-yb1-xb38.google.com [IPv6:2607:f8b0:4864:20::b38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 43DE512A3B0
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Dec 2019 18:50:09 +0100 (CET)
+Received: by mail-yb1-xb38.google.com with SMTP id i68sf3176308yba.6
+        for <lists+clang-built-linux@lfdr.de>; Tue, 24 Dec 2019 09:50:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577209808; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ZBsXjUsuSZWh7y4f+/3Kvf9o7qRXwqTIY1BbHa7YUFSyzxZfyWPzoVxw3CtUNx6K15
-         lB6qL87BNxQaMzAnk76YLZaoIFTx4N88K5U2Q3PpD9L5CLJSWlmrlaquN9+UU2ulGIRY
-         RWVS6Gro79teJCY2MUlemejSanLyzrTKmj1293saxdosxjI3am7rBSU+bvJ8iy8SOcdu
-         lzlXFGnWsDqTKjsyM4v8ibWZtWi6aJJiLdiYMZ3wfwTTlVm9qfffyQ8erFD0PNq3ckMJ
-         veQM6dJ8VZFSR7aeQfhwQC7gSHjR8lRtvhHc4zqTnMG/L+5Dq5I2V52hkteFDz6zADob
-         Qksg==
+        b=TQi/xDykRg+YWJnRYjpg35OCOU2ECZ5eVb/b9xwNzjPbYPSeSjLrbPdM4uJBAaO3ur
+         4r1J1Ci5MlQVtmSzbt5xxD3bbT4Q1MLnLtT6zoq3At84LSB84+NYzQGCuRJOOA7QiqMz
+         aBFrhTExkexsnm+zd7rowAgktwhv8IwhZbgZ7zM1Mp90WqW2By2XeMOE/F4JZchwZoak
+         K5I5UTTXlbXp3kg40NCwpD6JvXngH0WPvWexI+H6Wosr8VvCjfMvfzod1sUJKoAD6pMO
+         blodcx2oCASZoqcc3wyYCgS7Gd8GBeYgLChHA3tr1lu0rwvYeZgf4FcuZHslUkjQqRRL
+         ZODA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=z8Wli1E5N4fe0nX6WduT10Il4snA4x3A3mp4l16UkkA=;
-        b=U7BHl6Mg4GtPOG4OjoMMZaBfSPHUvr0wWlmpzderM2apfxbOkVJAaWmGekED2lo5En
-         nyTLAXftsPXWa4nAVWo2sxVQ7a6Hd9Hz1x703z8tMYGluUrRbrDQWB4Dofgl3mCj8+ce
-         tNVWWm118Iald+/mighCMb43IboSlBp/69Xa5ZMf+MIW07/9O2s8uHvlFLLi1EorL57l
-         3poICOKM+NjUpb2b8BNSCFKrhAsz9q0YwGsqh89mrVvOePXeUs+bwuEPPx517bcC5Evg
-         43iywEE8wxc3TT96e/6idU8lbfSAeoAheSuR/2VxNSBv2eRpOKpUXkVuNPCKduMh2q/Q
-         tCkg==
+        bh=RMptanNeNEalbqnGf77LmlnT9voqSt57qkcY3XAXCJs=;
+        b=v1rxH2PIwHEln7wDT2OGeHkWXAZt4V5WDRrUVzlXxDm7IeATKXCPrfWtcn1GFo7Ana
+         nsvUPw4FOT+uho+P93Xby0um4VCuBIYq+48AxUKfUwvfe2N+arC/Qh0RqKWE/ORbmGiZ
+         t5WfFezM/4jYcFCaoQS7i1QZimDrlKjORfbxigv3ohoYWJ47HII4sicXOrSa4+EfNxRa
+         DwzOOBznR6UphfKb8K9BX6/Vglx+N/Bpt2/BywCCH5j8Nr88PJRzer9Zc/cC1cQ7orpf
+         +DKExfQDA9a7tnpY9I5TIzKNBm8QsVqNQ8u35FzFoZbuYLIKiYl4JzXr73MoCMrsa3pq
+         xs7A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=z8Wli1E5N4fe0nX6WduT10Il4snA4x3A3mp4l16UkkA=;
-        b=imWJQEywoWs/arZxGOrZGmj/vM3P5+NxZY2Z2o4hPzkx9kusJBa4uCbugUiIHVZ1wV
-         Tr3kZRLGcXwg6u54zDo9QRIvkMTBMGgQBHv/7noH/m2di3wCSNMoDTmqqRdIE7lZbwt9
-         iRTzM4vyz4D3NAf1ImyFsZPvlhl9CGKHSDpC34OJhdNDtvmQdOCJ2Wjcza2MTeXsD8+u
-         YupL66fqZ3/71Y+ruA24oBmld1+8JFC4LebXsQ8WMwE6err01PDBFBtSIeuAUidHtIVZ
-         FlPuWyvTWIP3Ez0GvTvpWbB1lu0UCKInQ2XXSGhkAGyYwtEHWyI93XjqXptEsByG0xsH
-         YjsA==
+        bh=RMptanNeNEalbqnGf77LmlnT9voqSt57qkcY3XAXCJs=;
+        b=ggDr7sTj2dbJTegtTxIH7t+9P5UqzK4ASRq4dzdRZDaynLhNv4/DSK3ieONO7plyw6
+         FrAMRKUN8gIuL/dTzWtHixB16HAJXog9Ok6T+b/7u55f3tx8THLrDHfchWlEXhsbj2uL
+         JEmONfx9lyFf5BeBUpmX7nYve4M39VzsJ7arFsnbSZ2IKdhPSJmCJwYAFFYgC4tnxIT6
+         Erh/+621QvkKUx9vBlvspuTbRYFfZroI/mQEVVwDtEgLmbnjvVHjnGL766P9ZrY868wz
+         ONP5NgsOMNHReMjMCCMhkgmN4k8jCS8FaCTC3MmFXR2/KMik1sFaZ6aA9ska+hXb0lA5
+         cucA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,78 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=z8Wli1E5N4fe0nX6WduT10Il4snA4x3A3mp4l16UkkA=;
-        b=gZYNyx7Omul98ZWSehH/AWPy4Qiqnv6LJNycoFEKUYvQ5hNcTvnjYEZw/DsWU5ialr
-         TzoiaJ3oVQgS9Pt/I2mWLo5TFCnMPKGQg7aZLEkNV3el9tWuxotPxNZ9i2NhVAtN0vt6
-         iV28NxHNWYYDaOLqUSnBXyOlzWwl5Q7DkJK4JITlNijgDbp6Jn5buS9ieKRqWFTQlfm7
-         M6PGDS7F2HwpWPY/MtCS9FMa1c1PyxLKgT1W/2m3jZfKyrF33bzP1FnUxcwJ/5r4zc+/
-         FkjJNVJuiGq0RdF2mOIpxy2cJCguhc6zQTHXZQk1o/YavMco9XgWYdcgHvjsvVT84k2i
-         gg4g==
+        bh=RMptanNeNEalbqnGf77LmlnT9voqSt57qkcY3XAXCJs=;
+        b=dKAJgZahVbfoz6Krz2BTz4zHDr4rdmSmB7QrFK596T/ByB9KB54MatLExSf3xKun11
+         YgF7zl2qxccU/J8sjSZ6I43G/4Mot5oAaumDprCEamwEq217aZXW2QfEExAN1g2Hky7O
+         AJR2/anLjhO6tgA9WDKt469uuCVFcrUskkRbkN7eUw9CPt+f7g49AE+81430FknMNefl
+         IqDAsvRhpsFP4HbdUTwzQsgZ596oQcziZug6lNLz4Ld87de2CTLluioad0Q/TvmPsfP4
+         bADS8LHfU7c8HbZyEdytf83YKpmaEZ3wIOma+cFuc20fk6DFCA7DFQqcCAFXPyAOOvHq
+         BigQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV7+Ugo8r60kDdkf8pf6CUH5oOiosqNPPBa14fw7yUeVS+vBi4n
-	m+ComvRFQkh9K8TilkOpIbU=
-X-Google-Smtp-Source: APXvYqxksTWfoXkMgJgGOa6VXUn8472MZHzzLbbMVJF5MqdsyYHmK6zXdLnuYg0ZwHUPXyqX4pBLWg==
-X-Received: by 2002:ab0:133:: with SMTP id 48mr20553182uak.38.1577205592182;
-        Tue, 24 Dec 2019 08:39:52 -0800 (PST)
+X-Gm-Message-State: APjAAAWXu+87EyIZUNVArqIbWg645Tm26XM/Ajwgkqhir3vVOhw5DH+i
+	f5f0r65Gi9Mw406/0zXjwq4=
+X-Google-Smtp-Source: APXvYqy2o/Vg3obqQWh9aJin5wJbardwmLu9MaSVknMkFzXRxyp67bykNgSKGgVlFpeT0LK8sBhm5A==
+X-Received: by 2002:a5b:542:: with SMTP id r2mr24738664ybp.307.1577209807971;
+        Tue, 24 Dec 2019 09:50:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:4196:: with SMTP id o144ls833267vka.0.gmail; Tue, 24 Dec
- 2019 08:39:51 -0800 (PST)
-X-Received: by 2002:a1f:d5c5:: with SMTP id m188mr22139903vkg.7.1577205591641;
-        Tue, 24 Dec 2019 08:39:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577205591; cv=none;
+Received: by 2002:a81:844f:: with SMTP id u76ls2958042ywf.15.gmail; Tue, 24
+ Dec 2019 09:50:07 -0800 (PST)
+X-Received: by 2002:a81:3bd4:: with SMTP id i203mr17458881ywa.448.1577209807346;
+        Tue, 24 Dec 2019 09:50:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577209807; cv=none;
         d=google.com; s=arc-20160816;
-        b=pIt1n1QoxlV+Dfq6bC02UvG6mSGAyxDqD7nIKdl/cUaX0zjhemuviPyV8qJmK+9PLB
-         uYsSu1njFLwWc2U6jnmFMWPhN7YvHfBAedqIS6k2sIWCYgFC2U/JiJAhcJh8q3YftD2Y
-         geyF3zzmHiQDWAc5MRcrmGhAHysn6iVAsgMLe5o27vjc21TJG2n3lz+19oh4hNJ7NL6o
-         kMFTCLqVENSN5OTNR1CEs4Tpcyb4fX9pParHRVzdeObAbvXwT+Ukegfc5idSq/gJF7Qc
-         x3mT7aiJDD1eIm8HzD3wt/3E0BWd85DWjt/Ho5c3QXzeFq1QEIB9721b44FM2Khz1cEO
-         KVCw==
+        b=WiIM8gb5v5LrxmcmWNCzIk2J3xoWxx5WmXRVUvxQMzfwBLTyGjuRJ1gIiigZGwkDQA
+         jvHTzm5jhWiRUKFg4TnXOhpy1H5oAVRHrpSaELhDwQfQapJPD2mejL9BsKlCi6fDniMh
+         ZxzMg5zSetB1P7ASCFM9Sz9I6zPriWQdRrM+oUWzxgDxLD7Mni874PALiQiatXIvjly8
+         4tlBttuu5wYKu2KVwU2LPrm1INE8sYqbH/uG7vxCPHPye014Huab4YlRbEYg2D9PO+Op
+         dhlys80ZJbob+fc7YL7AHEibh5OJpL9vMA6oV+mMLqxLt+WSUO7I0IOJDKBhLlaQMgFl
+         cnWg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=d1C/bcdTwP62gHuZTBmNC1BQs5DZdf0RAEbonkd5mZI=;
-        b=hjgrPE8L2Knrz12QqI+mPlwkR+/4HZh5M1pg8pt/wHFkb74lTBcpfYwQIX+QcG8a5y
-         uPFeMQKwRZYDjbYqAUuOGZVNbBl0rIa4SWJfwjb82J056upftDFqevVZj209TrqW5GSV
-         dAA0uW1pkPJKMkYy0japnv4g8otlBbPb1QlSNS/koEHHIULFfg+aPcx7S36JceTh74/p
-         JvdKrMYeoGLDN9cDK1JdvnXkzt++J+csY+Gg4I0TCp5xShaWkPqmkPx+qII5olUUKbHG
-         5GOC7kmLb08X3FInxtCSL42eHSsfZ9K9Xs1ibE/dvKehd2Cn3FWS78fMFvAPjaSvNwPt
-         XIxA==
+        bh=Meu4Dxp/H/jj4uz1p4CPt7Qvq9ESIbWYs3Yz69rFvFg=;
+        b=zfz1m+jS2iwsrNadNHjIbj8XVecdavxORtIbgQv9Wd34Id1qcj6TqPJjJxHo3/5BFR
+         7M3hXr4HdWH8eRE5/Rjb6lYI6VDjWiCGsh3GOTy1ACZf8TFkpCxkTP3uezyQ8eA2NbvU
+         CQrk2eBrWmQkUNr7rclUqtLG64/nAuNZM6Qh6Rc2ykQBgqDZQ5xdJAmLEXFFoFGxkh3D
+         IHDXduz7xzoJKgvGX7+VRvnB/JBdL82kl5tCxc8U1Cyikovcs3Z0q8MqqokNW1ii0AwX
+         nSrSq2yk9/XC/OtPTQNUWZGrRoQ+EIWH1omOQqdk9RT39eUpu/ZrsSMpxPiVOiH6PWNY
+         QIuw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id y126si725643vkc.5.2019.12.24.08.39.50
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id r1si1173963ybr.3.2019.12.24.09.50.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Dec 2019 08:39:51 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+        Tue, 24 Dec 2019 09:50:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Dec 2019 08:39:49 -0800
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Dec 2019 09:50:03 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,352,1571727600"; 
-   d="gz'50?scan'50,208,50";a="419037766"
+   d="gz'50?scan'50,208,50";a="417616376"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 24 Dec 2019 08:39:47 -0800
+  by fmsmga005.fm.intel.com with ESMTP; 24 Dec 2019 09:50:01 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ijnDn-000Frc-As; Wed, 25 Dec 2019 00:39:47 +0800
-Date: Wed, 25 Dec 2019 00:39:42 +0800
+	id 1ijoJk-0001Lz-NX; Wed, 25 Dec 2019 01:50:00 +0800
+Date: Wed, 25 Dec 2019 01:49:00 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH bpf-next v2 05/11] bpf: Introduce BPF_PROG_TYPE_STRUCT_OPS
-Message-ID: <201912250025.HBtPqkIp%lkp@intel.com>
+Subject: Re: [PATCH bpf-next v2 06/11] bpf: Introduce BPF_MAP_TYPE_STRUCT_OPS
+Message-ID: <201912250115.zPUnVQHH%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="xwzlxcuxencrfaqo"
+Content-Type: multipart/mixed; boundary="moitt7ipaoq3pq5n"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -136,13 +136,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---xwzlxcuxencrfaqo
+--moitt7ipaoq3pq5n
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191221062606.1182939-1-kafai@fb.com>
-References: <20191221062606.1182939-1-kafai@fb.com>
+In-Reply-To: <20191221062608.1183091-1-kafai@fb.com>
+References: <20191221062608.1183091-1-kafai@fb.com>
 TO: Martin KaFai Lau <kafai@fb.com>
 CC: bpf@vger.kernel.org
 CC: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, David Miller <davem@davemloft.net>, kernel-team@fb.com, netdev@vger.kernel.org
@@ -170,89 +170,326 @@ reproduce:
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All error/warnings (new ones prefixed by >>):
 
->> kernel/bpf/bpf_struct_ops.c:86:8: error: implicit declaration of function 'btf_distill_func_proto' [-Werror,-Wimplicit-function-declaration]
+   kernel/bpf/bpf_struct_ops.c:176:8: error: implicit declaration of function 'btf_distill_func_proto' [-Werror,-Wimplicit-function-declaration]
                                btf_distill_func_proto(&log, _btf_vmlinux,
                                ^
-   kernel/bpf/bpf_struct_ops.c:86:8: note: did you mean 'btf_type_is_func_proto'?
-   include/linux/btf.h:94:20: note: 'btf_type_is_func_proto' declared here
+   kernel/bpf/bpf_struct_ops.c:176:8: note: did you mean 'btf_type_is_func_proto'?
+   include/linux/btf.h:100:20: note: 'btf_type_is_func_proto' declared here
    static inline bool btf_type_is_func_proto(const struct btf_type *t)
                       ^
-   1 error generated.
+>> kernel/bpf/bpf_struct_ops.c:408:2: error: implicit declaration of function 'bpf_map_inc' [-Werror,-Wimplicit-function-declaration]
+           bpf_map_inc(map);
+           ^
+   kernel/bpf/bpf_struct_ops.c:408:2: note: did you mean 'bpf_map_put'?
+   include/linux/bpf.h:1213:20: note: 'bpf_map_put' declared here
+   static inline void bpf_map_put(struct bpf_map *map)
+                      ^
+>> kernel/bpf/bpf_struct_ops.c:468:2: error: implicit declaration of function 'bpf_map_area_free' [-Werror,-Wimplicit-function-declaration]
+           bpf_map_area_free(st_map->progs);
+           ^
+>> kernel/bpf/bpf_struct_ops.c:515:8: error: implicit declaration of function 'bpf_map_charge_init' [-Werror,-Wimplicit-function-declaration]
+           err = bpf_map_charge_init(&mem, map_total_size);
+                 ^
+>> kernel/bpf/bpf_struct_ops.c:519:11: error: implicit declaration of function 'bpf_map_area_alloc' [-Werror,-Wimplicit-function-declaration]
+           st_map = bpf_map_area_alloc(st_map_size, NUMA_NO_NODE);
+                    ^
+>> kernel/bpf/bpf_struct_ops.c:519:9: warning: incompatible integer to pointer conversion assigning to 'struct bpf_struct_ops_map *' from 'int' [-Wint-conversion]
+           st_map = bpf_map_area_alloc(st_map_size, NUMA_NO_NODE);
+                  ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> kernel/bpf/bpf_struct_ops.c:521:3: error: implicit declaration of function 'bpf_map_charge_finish' [-Werror,-Wimplicit-function-declaration]
+                   bpf_map_charge_finish(&mem);
+                   ^
+   kernel/bpf/bpf_struct_ops.c:521:3: note: did you mean 'bpf_map_charge_init'?
+   kernel/bpf/bpf_struct_ops.c:515:8: note: 'bpf_map_charge_init' declared here
+           err = bpf_map_charge_init(&mem, map_total_size);
+                 ^
+>> kernel/bpf/bpf_struct_ops.c:527:17: warning: incompatible integer to pointer conversion assigning to 'struct bpf_struct_ops_value *' from 'int' [-Wint-conversion]
+           st_map->uvalue = bpf_map_area_alloc(vt->size, NUMA_NO_NODE);
+                          ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> kernel/bpf/bpf_struct_ops.c:528:16: warning: incompatible integer to pointer conversion assigning to 'struct bpf_prog **' from 'int' [-Wint-conversion]
+           st_map->progs =
+                         ^
+   kernel/bpf/bpf_struct_ops.c:538:3: error: implicit declaration of function 'bpf_map_charge_finish' [-Werror,-Wimplicit-function-declaration]
+                   bpf_map_charge_finish(&mem);
+                   ^
+>> kernel/bpf/bpf_struct_ops.c:545:2: error: implicit declaration of function 'bpf_map_init_from_attr' [-Werror,-Wimplicit-function-declaration]
+           bpf_map_init_from_attr(map, attr);
+           ^
+>> kernel/bpf/bpf_struct_ops.c:546:2: error: implicit declaration of function 'bpf_map_charge_move' [-Werror,-Wimplicit-function-declaration]
+           bpf_map_charge_move(&map->memory, &mem);
+           ^
+   kernel/bpf/bpf_struct_ops.c:546:2: note: did you mean 'bpf_map_charge_init'?
+   kernel/bpf/bpf_struct_ops.c:515:8: note: 'bpf_map_charge_init' declared here
+           err = bpf_map_charge_init(&mem, map_total_size);
+                 ^
+   3 warnings and 9 errors generated.
 
-vim +/btf_distill_func_proto +86 kernel/bpf/bpf_struct_ops.c
+vim +/bpf_map_inc +408 kernel/bpf/bpf_struct_ops.c
 
-    37	
-    38	void bpf_struct_ops_init(struct btf *_btf_vmlinux)
-    39	{
-    40		const struct btf_member *member;
-    41		struct bpf_struct_ops *st_ops;
-    42		struct bpf_verifier_log log = {};
-    43		const struct btf_type *t;
-    44		const char *mname;
-    45		s32 type_id;
-    46		u32 i, j;
-    47	
-    48		for (i = 0; i < ARRAY_SIZE(bpf_struct_ops); i++) {
-    49			st_ops = bpf_struct_ops[i];
-    50	
-    51			type_id = btf_find_by_name_kind(_btf_vmlinux, st_ops->name,
-    52							BTF_KIND_STRUCT);
-    53			if (type_id < 0) {
-    54				pr_warn("Cannot find struct %s in btf_vmlinux\n",
-    55					st_ops->name);
-    56				continue;
-    57			}
-    58			t = btf_type_by_id(_btf_vmlinux, type_id);
-    59			if (btf_type_vlen(t) > BPF_STRUCT_OPS_MAX_NR_MEMBERS) {
-    60				pr_warn("Cannot support #%u members in struct %s\n",
-    61					btf_type_vlen(t), st_ops->name);
-    62				continue;
-    63			}
-    64	
-    65			for_each_member(j, t, member) {
-    66				const struct btf_type *func_proto;
-    67	
-    68				mname = btf_name_by_offset(_btf_vmlinux,
-    69							   member->name_off);
-    70				if (!*mname) {
-    71					pr_warn("anon member in struct %s is not supported\n",
-    72						st_ops->name);
-    73					break;
-    74				}
-    75	
-    76				if (btf_member_bitfield_size(t, member)) {
-    77					pr_warn("bit field member %s in struct %s is not supported\n",
-    78						mname, st_ops->name);
-    79					break;
-    80				}
-    81	
-    82				func_proto = btf_type_resolve_func_ptr(_btf_vmlinux,
-    83								       member->type,
-    84								       NULL);
-    85				if (func_proto &&
-  > 86				    btf_distill_func_proto(&log, _btf_vmlinux,
-    87							   func_proto, mname,
-    88							   &st_ops->func_models[j])) {
-    89					pr_warn("Error in parsing func ptr %s in struct %s\n",
-    90						mname, st_ops->name);
-    91					break;
-    92				}
-    93			}
-    94	
-    95			if (j == btf_type_vlen(t)) {
-    96				if (st_ops->init(_btf_vmlinux)) {
-    97					pr_warn("Error in init bpf_struct_ops %s\n",
-    98						st_ops->name);
-    99				} else {
-   100					st_ops->type_id = type_id;
-   101					st_ops->type = t;
-   102				}
-   103			}
-   104		}
-   105	}
-   106	
+   289	
+   290	static int bpf_struct_ops_map_update_elem(struct bpf_map *map, void *key,
+   291						  void *value, u64 flags)
+   292	{
+   293		struct bpf_struct_ops_map *st_map = (struct bpf_struct_ops_map *)map;
+   294		const struct bpf_struct_ops *st_ops = st_map->st_ops;
+   295		struct bpf_struct_ops_value *uvalue, *kvalue;
+   296		const struct btf_member *member;
+   297		const struct btf_type *t = st_ops->type;
+   298		void *udata, *kdata;
+   299		int prog_fd, err = 0;
+   300		void *image;
+   301		u32 i;
+   302	
+   303		if (flags)
+   304			return -EINVAL;
+   305	
+   306		if (*(u32 *)key != 0)
+   307			return -E2BIG;
+   308	
+   309		uvalue = (struct bpf_struct_ops_value *)value;
+   310		if (uvalue->state || refcount_read(&uvalue->refcnt))
+   311			return -EINVAL;
+   312	
+   313		uvalue = (struct bpf_struct_ops_value *)st_map->uvalue;
+   314		kvalue = (struct bpf_struct_ops_value *)&st_map->kvalue;
+   315	
+   316		spin_lock(&st_map->lock);
+   317	
+   318		if (kvalue->state != BPF_STRUCT_OPS_STATE_INIT) {
+   319			err = -EBUSY;
+   320			goto unlock;
+   321		}
+   322	
+   323		memcpy(uvalue, value, map->value_size);
+   324	
+   325		udata = &uvalue->data;
+   326		kdata = &kvalue->data;
+   327		image = st_map->image;
+   328	
+   329		for_each_member(i, t, member) {
+   330			const struct btf_type *mtype, *ptype;
+   331			struct bpf_prog *prog;
+   332			u32 moff;
+   333	
+   334			moff = btf_member_bit_offset(t, member) / 8;
+   335			mtype = btf_type_by_id(btf_vmlinux, member->type);
+   336			ptype = btf_type_resolve_ptr(btf_vmlinux, member->type, NULL);
+   337			if (ptype == module_type) {
+   338				*(void **)(kdata + moff) = BPF_MODULE_OWNER;
+   339				continue;
+   340			}
+   341	
+   342			err = st_ops->init_member(t, member, kdata, udata);
+   343			if (err < 0)
+   344				goto reset_unlock;
+   345	
+   346			/* The ->init_member() has handled this member */
+   347			if (err > 0)
+   348				continue;
+   349	
+   350			/* If st_ops->init_member does not handle it,
+   351			 * we will only handle func ptrs and zero-ed members
+   352			 * here.  Reject everything else.
+   353			 */
+   354	
+   355			/* All non func ptr member must be 0 */
+   356			if (!btf_type_resolve_func_ptr(btf_vmlinux, member->type,
+   357						       NULL)) {
+   358				u32 msize;
+   359	
+   360				mtype = btf_resolve_size(btf_vmlinux, mtype,
+   361							 &msize, NULL, NULL);
+   362				if (IS_ERR(mtype)) {
+   363					err = PTR_ERR(mtype);
+   364					goto reset_unlock;
+   365				}
+   366	
+   367				if (memchr_inv(udata + moff, 0, msize)) {
+   368					err = -EINVAL;
+   369					goto reset_unlock;
+   370				}
+   371	
+   372				continue;
+   373			}
+   374	
+   375			prog_fd = (int)(*(unsigned long *)(udata + moff));
+   376			/* Similar check as the attr->attach_prog_fd */
+   377			if (!prog_fd)
+   378				continue;
+   379	
+   380			prog = bpf_prog_get(prog_fd);
+   381			if (IS_ERR(prog)) {
+   382				err = PTR_ERR(prog);
+   383				goto reset_unlock;
+   384			}
+   385			st_map->progs[i] = prog;
+   386	
+   387			if (prog->type != BPF_PROG_TYPE_STRUCT_OPS ||
+   388			    prog->aux->attach_btf_id != st_ops->type_id ||
+   389			    prog->expected_attach_type != i) {
+   390				err = -EINVAL;
+   391				goto reset_unlock;
+   392			}
+   393	
+   394			err = arch_prepare_bpf_trampoline(image,
+   395							  &st_ops->func_models[i], 0,
+   396							  &prog, 1, NULL, 0, NULL);
+   397			if (err < 0)
+   398				goto reset_unlock;
+   399	
+   400			*(void **)(kdata + moff) = image;
+   401			image += err;
+   402	
+   403			/* put prog_id to udata */
+   404			*(unsigned long *)(udata + moff) = prog->aux->id;
+   405		}
+   406	
+   407		refcount_set(&kvalue->refcnt, 1);
+ > 408		bpf_map_inc(map);
+   409	
+   410		err = st_ops->reg(kdata);
+   411		if (!err) {
+   412			/* Pair with smp_load_acquire() during lookup */
+   413			smp_store_release(&kvalue->state, BPF_STRUCT_OPS_STATE_INUSE);
+   414			goto unlock;
+   415		}
+   416	
+   417		/* Error during st_ops->reg() */
+   418		bpf_map_put(map);
+   419	
+   420	reset_unlock:
+   421		bpf_struct_ops_map_put_progs(st_map);
+   422		memset(uvalue, 0, map->value_size);
+   423		memset(kvalue, 0, map->value_size);
+   424	
+   425	unlock:
+   426		spin_unlock(&st_map->lock);
+   427		return err;
+   428	}
+   429	
+   430	static int bpf_struct_ops_map_delete_elem(struct bpf_map *map, void *key)
+   431	{
+   432		enum bpf_struct_ops_state prev_state;
+   433		struct bpf_struct_ops_map *st_map;
+   434	
+   435		st_map = (struct bpf_struct_ops_map *)map;
+   436		prev_state = cmpxchg(&st_map->kvalue.state,
+   437				     BPF_STRUCT_OPS_STATE_INUSE,
+   438				     BPF_STRUCT_OPS_STATE_TOBEFREE);
+   439		if (prev_state == BPF_STRUCT_OPS_STATE_INUSE) {
+   440			st_map->st_ops->unreg(&st_map->kvalue.data);
+   441			if (refcount_dec_and_test(&st_map->kvalue.refcnt))
+   442				bpf_map_put(map);
+   443		}
+   444	
+   445		return 0;
+   446	}
+   447	
+   448	static void bpf_struct_ops_map_seq_show_elem(struct bpf_map *map, void *key,
+   449						     struct seq_file *m)
+   450	{
+   451		void *value;
+   452	
+   453		value = bpf_struct_ops_map_lookup_elem(map, key);
+   454		if (!value)
+   455			return;
+   456	
+   457		btf_type_seq_show(btf_vmlinux, map->btf_vmlinux_value_type_id,
+   458				  value, m);
+   459		seq_puts(m, "\n");
+   460	}
+   461	
+   462	static void bpf_struct_ops_map_free(struct bpf_map *map)
+   463	{
+   464		struct bpf_struct_ops_map *st_map = (struct bpf_struct_ops_map *)map;
+   465	
+   466		if (st_map->progs)
+   467			bpf_struct_ops_map_put_progs(st_map);
+ > 468		bpf_map_area_free(st_map->progs);
+   469		bpf_jit_free_exec(st_map->image);
+   470		bpf_map_area_free(st_map->uvalue);
+   471		bpf_map_area_free(st_map);
+   472	}
+   473	
+   474	static int bpf_struct_ops_map_alloc_check(union bpf_attr *attr)
+   475	{
+   476		if (attr->key_size != sizeof(unsigned int) || attr->max_entries != 1 ||
+   477		    attr->map_flags || !attr->btf_vmlinux_value_type_id)
+   478			return -EINVAL;
+   479		return 0;
+   480	}
+   481	
+   482	static struct bpf_map *bpf_struct_ops_map_alloc(union bpf_attr *attr)
+   483	{
+   484		const struct bpf_struct_ops *st_ops;
+   485		size_t map_total_size, st_map_size;
+   486		struct bpf_struct_ops_map *st_map;
+   487		const struct btf_type *t, *vt;
+   488		struct bpf_map_memory mem;
+   489		struct bpf_map *map;
+   490		int err;
+   491	
+   492		if (!capable(CAP_SYS_ADMIN))
+   493			return ERR_PTR(-EPERM);
+   494	
+   495		st_ops = bpf_struct_ops_find_value(attr->btf_vmlinux_value_type_id);
+   496		if (!st_ops)
+   497			return ERR_PTR(-ENOTSUPP);
+   498	
+   499		vt = st_ops->value_type;
+   500		if (attr->value_size != vt->size)
+   501			return ERR_PTR(-EINVAL);
+   502	
+   503		t = st_ops->type;
+   504	
+   505		st_map_size = sizeof(*st_map) +
+   506			/* kvalue stores the
+   507			 * struct bpf_struct_ops_tcp_congestions_ops
+   508			 */
+   509			(vt->size - sizeof(struct bpf_struct_ops_value));
+   510		map_total_size = st_map_size +
+   511			/* uvalue */
+   512			sizeof(vt->size) +
+   513			/* struct bpf_progs **progs */
+   514			 btf_type_vlen(t) * sizeof(struct bpf_prog *);
+ > 515		err = bpf_map_charge_init(&mem, map_total_size);
+   516		if (err < 0)
+   517			return ERR_PTR(err);
+   518	
+ > 519		st_map = bpf_map_area_alloc(st_map_size, NUMA_NO_NODE);
+   520		if (!st_map) {
+ > 521			bpf_map_charge_finish(&mem);
+   522			return ERR_PTR(-ENOMEM);
+   523		}
+   524		st_map->st_ops = st_ops;
+   525		map = &st_map->map;
+   526	
+ > 527		st_map->uvalue = bpf_map_area_alloc(vt->size, NUMA_NO_NODE);
+ > 528		st_map->progs =
+   529			bpf_map_area_alloc(btf_type_vlen(t) * sizeof(struct bpf_prog *),
+   530					   NUMA_NO_NODE);
+   531		/* Each trampoline costs < 64 bytes.  Ensure one page
+   532		 * is enough for max number of func ptrs.
+   533		 */
+   534		BUILD_BUG_ON(PAGE_SIZE / 64 < BPF_STRUCT_OPS_MAX_NR_MEMBERS);
+   535		st_map->image = bpf_jit_alloc_exec(PAGE_SIZE);
+   536		if (!st_map->uvalue || !st_map->progs || !st_map->image) {
+   537			bpf_struct_ops_map_free(map);
+   538			bpf_map_charge_finish(&mem);
+   539			return ERR_PTR(-ENOMEM);
+   540		}
+   541	
+   542		spin_lock_init(&st_map->lock);
+   543		set_vm_flush_reset_perms(st_map->image);
+   544		set_memory_x((long)st_map->image, 1);
+ > 545		bpf_map_init_from_attr(map, attr);
+ > 546		bpf_map_charge_move(&map->memory, &mem);
+   547	
+   548		return map;
+   549	}
+   550	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -261,14 +498,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912250025.HBtPqkIp%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912250115.zPUnVQHH%25lkp%40intel.com.
 
---xwzlxcuxencrfaqo
+--moitt7ipaoq3pq5n
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICBUwAl4AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPPS8z0fQBKUEHFrApRkX/gUt7rj
+H4sICFxJAl4AAy5jb25maWcAnDxJd+M20vf8Cr3kkhySaPPS8z0fQBKUEHFrApRkX/gUt7rj
 iZce2e6k//1UAVwKIOj0N1mbVYW9UDv0w3c/TNjry9PD4eXu9nB//3Xy6fh4PB1ejh8mH+/u
 j/83ifJJlqsJj4T6BYiTu8fXv389nB7Ol5OzX85+mf58up1NNsfT4/F+Ej49frz79ArN754e
 v/vhO/jnBwA+fIaeTv+a3N4fHj9NvhxPz4CezKa/wN+THz/dvfzr11/hvw93p9PT6df7+y8P
@@ -1130,4 +1367,4 @@ VTP75BasPtVa16QPb6QlkDhz2GDY3dLDqxZsosLcPj+enYaVGNGUwEnqFtkEC/rY4yo5GmMk
 0PFNtSxsWXJ3rKaiiwtxe7VYaDmnEW7CfMPo/ej4Mp6euW9KzNqMskOsgqjz5Sqsvk8WyBOS
 QYH4f2m9rs7LIwMA
 
---xwzlxcuxencrfaqo--
+--moitt7ipaoq3pq5n--
