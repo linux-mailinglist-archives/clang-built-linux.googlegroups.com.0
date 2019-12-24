@@ -1,143 +1,135 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBEGLQ3YAKGQEEWDJJ6I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBV6NQ3YAKGQEYGLQTWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
-	by mail.lfdr.de (Postfix) with ESMTPS id D29D0129DE0
-	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Dec 2019 06:43:46 +0100 (CET)
-Received: by mail-qk1-x73d.google.com with SMTP id i135sf11823805qke.14
-        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Dec 2019 21:43:46 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577166225; cv=pass;
+Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 23E86129DE7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 24 Dec 2019 06:49:13 +0100 (CET)
+Received: by mail-yb1-xb3b.google.com with SMTP id w201sf14649864ybg.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 23 Dec 2019 21:49:13 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577166552; cv=pass;
         d=google.com; s=arc-20160816;
-        b=pIUQyGEiBZNhT0KQDwwsx0XSAWNLk4DQ9LlSN/Lr57+/1WderFusv6v+fyGikE6FAq
-         dndm3rfWgnlKBJeYqLpOwtuNF9fNLAl6HLZvoXO+nxSv7MQkXDir4hi4YZ0FWlsgoxYT
-         tIUAtrv8sbdrgbcxhCo9tkNo0oGpL8iucZX6iCEU7+vIR/2kYZsKVsb8B2S3oilu0EFP
-         OIrSreE2tpv+/lT83UnU8f2KJ+WyQ7GNjZs6nc65jowMS6Oyvl05JoUWouWOK1luZ1oP
-         qm/j9sFW4UGPLBQGbbB8YJp/EICL+JeQNw2rJCgZRDuFQicTNAv240d/0JaEv8dLI1is
-         wWDQ==
+        b=xV1HatiLGyeotyDveoGlD/u8DY6eWLxMaT4N2LFDZrG/rjzHjqm6GAaLvg5Qv6Jgxb
+         bl9nmtSYWOkdnbMKkDFMhkehYS8f2wfj495HgAKECbjTYFUs1D6xZQNZ+xiQNJJEUKdT
+         Y+71EDv64hdQKt8nDAfIL+IY3JaghszJD9iypVl/78lJGMk4hmZI2NAhxToxZ7e4Pimr
+         CeriBHeUV1jkL9hSUgAm88HDNIqXUQfUEzTCG/tTI+8eahQT8BlkMRjNSvS8tLqhDcY0
+         Locl2ndCfDptc6Kv6ubpNy7koyQuxKSTGpr3ngczwh7v1iPVV/lNtW8vEUADzLO0EavI
+         1aeQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=VjeIC4VwBzuweP0ambMVG+6GMOnMmnYE7nIvhA2MbgM=;
-        b=yuoIwiKqW1NXzFirEk9XYtv3ffuwpAXDiNFL5/uYQJxUmUtrHCC10uLpmnvk2ErBAg
-         2LL3mwVyoxsvAt6+/D42ULGX7hJy6BgJGSt3Fx/M4XdV9qwWBpFKp7AY+SSES01Pq6zK
-         Apru6XjKW3GgIdlkhpbYyYj/SWD6ddhxYnZRsDpASlZ/kuuTDAa02zigVF4q7YJCoypt
-         r26m2MWPHo3ThfKGBYeSXpRyrSyD/NR9rmhHjyWt/aMOjqrJMtQHu/vho2c35kCLzdUx
-         29EMkU0vLBZ+bwMCDk0wgEOoWAjTeMVGG5W0OVe6KixVCg2Q2ZREvMpA+xQ6Ug8dUEJs
-         kSlg==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=p1UB22inXhDEAI6YfvlbQJEaPFKUM969S8FuF2/dVe4=;
+        b=y55OqTm7QnBf1QJvd4PYe5Hzi1XVeQmzWog1st1MV2/JWzt1ny7YxGtANnjyJm2NHI
+         sckdZMU80Nm4qsF43N+3xqqvkYr4SMlpsvahA/r41PxRT1x4GV0RwbHY0Z8xD60pDcyX
+         rYPPPjy46VEtCxAA1biE0C7e0qV12wq9vZis3ttYF0QqAWvr2or29dsZXuxu8QUJVM5L
+         wW6MoJvRM6vcdDOXmTJ6ryCeeuwTMKg+tpikmP3E+kMCcEjaD4qWoeG1gHhK32KAjAqG
+         cQeYLBHFxzMfP4cS/q3rih6djsSJgyO8kyBfOE5pUEl446o4cAmWBZBx1K/4eHU040I3
+         eqTg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="Xk8/entG";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       spf=pass (google.com: best guess record for domain of rahul.tanwar@linux.intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=rahul.tanwar@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VjeIC4VwBzuweP0ambMVG+6GMOnMmnYE7nIvhA2MbgM=;
-        b=EdHk5GQ1pISN5fER3FbISdVJJQf9RTIs+wt0kAWm/zgN9Ty8iOKOKPdFGFOSs0BW8g
-         7pz2sbxkAZSxrQ465yw0m4IyMazKf4REKZBQsqszoYgYFZNsh2UB7QhtdtOUnEr0/lAz
-         2PRYVl+yN0esyyO3qHEePS91xAOQzhtIWvGnjhGO7rfpFoUR0l6EYBqMI+t6Xc9jpiF2
-         Qs6S7k9eKQO17FvtF59NKNH425fy03ceU/5VCAUmI75+eju7pBIH3y33j0Pfc4CPFXsr
-         wJh8zLfuzKbNgaE12od8c4Cs5sRPbUfti8LrpS7r7Md7+G8gO0uW5TRXMyLBbnLNa1aF
-         aPDw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=VjeIC4VwBzuweP0ambMVG+6GMOnMmnYE7nIvhA2MbgM=;
-        b=gZWS887AI3MLRVQ7efiyVreeMLKfTSKtybdOSup0bRr5UhLSrbhtTnQ3VwdDPsXhIm
-         Cml5b44VNOzI27x5EimD89zfXMFpPCe7Wn7KPwbcIR9eUhouF5ntShWMhW13dHivCNoB
-         rc+omhLkmYiFt42skmylqjWiTaaA9pmuyRb9iG2Tvx3mO9C7ZxHoF7ydOfTAfRVcZqTx
-         9dnvY5G+eBB6S/OEBOQpaCofgAR0JMcBt7AiSkxkEizXF4l08t12xxDF9Q6p63mZ5Z4Y
-         iFcw09B8S8sF+427CJ+sVOTmpuM8ZAutgNvm1w5ciwSyZ+ZsRLq63Ow2svtdvVUugdvR
-         JZLg==
+        bh=p1UB22inXhDEAI6YfvlbQJEaPFKUM969S8FuF2/dVe4=;
+        b=ZtCnF7NyVqD3SVhv1fmpqVrWaYpwVUgYuMCzsBqZczZh6anlMqVEDqqIx2oT9QlNlD
+         1VcVPYQCIpGGDuL3Qs4Qa01kXvXb1ggzmsSPnUHS1cBo7jG+U0m4mRKN6cKQP67O6KO0
+         Q0xdG7lLKLiWC3Njt0ApkcPKghhbdc73AYaUxHVJr3b8Cndo6/48jq6q3TU3YsuLA5XO
+         J/nlluAtYdSbOhXMhzdQpnvNEDOSgrjzroQ38nW2mT3BmNcSCD29IrtFFpw8/OGFYHe6
+         ocAQ88uP1HYBybQFiDykBCOzVUFwNt4+wzc2ziS6btvbN77A3d8g79vpzRCEh1Tgm7HH
+         xrDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=VjeIC4VwBzuweP0ambMVG+6GMOnMmnYE7nIvhA2MbgM=;
-        b=GncNLoJsO8GukVjCjCuVa902v+Jzg9dfFGiBObDqmDjgcqrt4IapXAdfyoLVLpe9uF
-         1+iNHVqwmEiJXgSuLxo3yvwvKPvQmIQ8AEKTrxMeakKbb5t+org6lZTvQISSk7X2PUo2
-         fx8/mBCZTBD07nB7eh4PaJ+p4pDrl1ImcF4xMsTuqDpEszMq84beD+Rz1shIsR11TEZP
-         C+R25hA+gUfNofvRMp/TgI2++wLfuFQbNfMLWGxVzRRZPSV144Sg7ep36LeZkM136vrA
-         4hnTAn1PBHWtpXqLuAADJk9MkB9bRFO564qhWK/DjdBDJo34WPGXw+6h1cNsGTwcDGrX
-         9Jkg==
+        bh=p1UB22inXhDEAI6YfvlbQJEaPFKUM969S8FuF2/dVe4=;
+        b=B5BtQcryzCZTsUDgZrQ4+J36W7rmcva/RNlmhuJnPvoh637GSas7CCiOC3Wr4hCurM
+         Bp3vcVfOesN936yYETXD/yc+Y33AwzRAGJCbg8xqJJydL2unLoKo/MdVEl6wnkD2ssFc
+         i9q3n3S4bfpT5WrzJslESrLJ7H1PsyjQtCrgACMk9nTmN4MViB485eMdJJA+TOX2jV0h
+         thtYLCtuwpIgwmkX8KU7lXg2pXNk0DOQKpZGGs3etXQa7w1ab8DtQH5pyKLLgN5TCXuC
+         iXeDxK7m1J/jgYOx8OqbnTiyVjGGFT+DEbLO69D2FNif99wJEgHbq79naCtkY/TYPhlx
+         BL4A==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVYBSZ9vaeqejAX2OZ6zPMObA5iQ40qGejIKtLP7Vy7uKBjSBIG
-	kfR3/G98exwQQqRxeVUV8nk=
-X-Google-Smtp-Source: APXvYqww6OsjxsWnTheV5LX+pDDLdrnrV8ZQXqlEbLpt7IDv7qTzJI32mB5jGNIHsK9ewYni1GVZBA==
-X-Received: by 2002:ad4:4e6b:: with SMTP id ec11mr27130693qvb.149.1577166224168;
-        Mon, 23 Dec 2019 21:43:44 -0800 (PST)
+X-Gm-Message-State: APjAAAXvYH5dGHu6GGD1nbfK/YqrBPXBrpC/bzIVvfoAORtxGzAcpgqT
+	h+KeaixBcj+S8qVHo0k+ko8=
+X-Google-Smtp-Source: APXvYqy1+I6T9tLriZkwAaC87oMPJ+K7UhJMbCj5NFyABXCWn6avNTAqkWPkk+qaVJ6bLjBEk29jUg==
+X-Received: by 2002:a0d:ebcd:: with SMTP id u196mr25407046ywe.338.1577166551760;
+        Mon, 23 Dec 2019 21:49:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aed:279b:: with SMTP id a27ls4804249qtd.9.gmail; Mon, 23 Dec
- 2019 21:43:43 -0800 (PST)
-X-Received: by 2002:ac8:27ed:: with SMTP id x42mr11242107qtx.299.1577166223800;
-        Mon, 23 Dec 2019 21:43:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577166223; cv=none;
+Received: by 2002:a81:9444:: with SMTP id l65ls2754812ywg.5.gmail; Mon, 23 Dec
+ 2019 21:49:11 -0800 (PST)
+X-Received: by 2002:a81:1913:: with SMTP id 19mr24686648ywz.17.1577166551433;
+        Mon, 23 Dec 2019 21:49:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577166551; cv=none;
         d=google.com; s=arc-20160816;
-        b=EXcZ3TgEmSUteLPslNdtdMuWhVBImmGbaVfMtB2xO6clGpNmtWQtJ3Waur3Fm9UVH3
-         AIf54vfZdhqOZgrGV+fX1IsjUQ8MOsHT1S3vpIkk9y43pl81LBFyXfMEznF9YAK58ckL
-         go/Q2im18UrkuXyeJxgR1p9trkUuWJ5kYgForOJliEDO105+clKCc1hdtYSRNVzVoBS+
-         E7V/xJbPLnjPipIpHuLPmQ4TFo/cvX2l8q2k1/I9hDdxB2jtvwCosPFdPqG69On3UKlI
-         DYYPb+XbphK9A6Rb1jkosWkfjg+/gT3S0flF342W+4GrochcOwB+O/MiSeP5OVRT+Utk
-         r7bQ==
+        b=ctPHPm7VsHNoriL7KH5v+umKdiD7XQVvHNMhf3SScJ+c6UR7vJ5GpQJFHGSK51Kt1T
+         s8dSufWFg6YFPJYGpBw2w2YvSt56amzLNjoOO26oVbUWo5tsXkj4B/HngZOgdCFJdkHR
+         QaxTiy9h2MMWoDfatiy501U2tCoGRBmCugD8WxxpQvpuSNtGCb/eW68jEeL3Yzrjvcnf
+         GaJDPPJVNhQeCExAwbRWVhRQn9ipFzzM9YFhACzV9wcR2fQPVAV6ezqLuTCziMnDGETr
+         8Hnlbn+qRkOJw5I7/JPjr5W6IONu948C14NosEFFe79zjT6gsAJYiPYwpK1n+CmLDXxC
+         HaUw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=X9kKOIlHeT2ihB72YT665o/9Gpkm00ecVAFub60YPaE=;
-        b=XK1AK6j13GNfZiO840i3sablSJgjIR8tyoFn66vR2EJWNHRdwcyTZV273cr4VJqUDv
-         LvqsqZs4pYBiRvdBxBqHrpy7PrWfNrXzETTySlalSbVQpkhtlM+RCuzUgVtryQIsFESK
-         rNkCafs9HVmwLfjrNxIz9rX8L0Gjsp0GKys83NfIYx/zzadTNcsNK+5uA3u1yHhkJhoC
-         oEZROkHJoAT3f6tM1w7GIdJSS5KyPnLeOSz4TdthsGM1kQLDMKKbUzMHV0+vLZl5hpw4
-         Pul/T2jbQaM1iKBfiIMfJh7bvJLNAsW/79nMA3OfUHmTE7+xR5mys47FgesOK16OFGHR
-         5BcA==
+        h=content-language:content-transfer-encoding:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=Lv95wMDQUVR5W7IGvfu+z4xh7nEJ79f1Cm2txBNPjnw=;
+        b=YJVzkTybGi2Ss3kkyaSADHwuR8/TtAtOiXWRs2LkGg3rxbk42fyf/s8H1OwSvQhC9Z
+         +6VoNQs97EXypmEHgcCJ8pVkVfSgzIwpIJiIHgPWdtnXnbi900tWdmn5VDTT9Ou7Gr7M
+         dg5o4lxzYNTCtyVNg6Aput7MAJyRNZEJidfp3bknQe8gOwQ2qY9lDSE7hD/ZrQzGT+cm
+         HUF09hpPi8qwaeLjUcvrjZEir6/3Ucyed+fT/0ABySERsOqSFcLcGWAIEe95cWLLCqNM
+         Y54CCeuaC5agigE1g4bBpxr/+UBOg324g6ooJA4lMQgE7JMF8/0Kl4J4vVYJI8JZRz8u
+         KFeg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b="Xk8/entG";
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id g2si769681qtv.3.2019.12.23.21.43.43
+       spf=pass (google.com: best guess record for domain of rahul.tanwar@linux.intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=rahul.tanwar@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
+        by gmr-mx.google.com with ESMTPS id z5si964578ywg.5.2019.12.23.21.49.11
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Dec 2019 21:43:43 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
-Received: by mail-ot1-x342.google.com with SMTP id 59so24979087otp.12
-        for <clang-built-linux@googlegroups.com>; Mon, 23 Dec 2019 21:43:43 -0800 (PST)
-X-Received: by 2002:a9d:1d02:: with SMTP id m2mr34329276otm.45.1577166223191;
-        Mon, 23 Dec 2019 21:43:43 -0800 (PST)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id q18sm7416914otk.38.2019.12.23.21.43.42
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 23 Dec 2019 21:43:42 -0800 (PST)
-Date: Mon, 23 Dec 2019 22:43:40 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Suganath Prabu S <suganath-prabu.subramani@broadcom.com>
-Cc: linux-scsi@vger.kernel.org, martin.petersen@oracle.com,
-	sreekanth.reddy@broadcom.com, sathya.prakash@broadcom.com,
-	kashyap.desai@broadcom.com, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 02/10] mpt3sas: Add support for NVMe shutdown.
-Message-ID: <20191224054340.GA55348@ubuntu-m2-xlarge-x86>
-References: <20191220103210.43631-1-suganath-prabu.subramani@broadcom.com>
- <20191220103210.43631-3-suganath-prabu.subramani@broadcom.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 23 Dec 2019 21:49:11 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of rahul.tanwar@linux.intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from fmsmga004.fm.intel.com ([10.253.24.48])
+  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 23 Dec 2019 21:49:09 -0800
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.69,350,1571727600"; 
+   d="scan'208";a="242421618"
+Received: from linux.intel.com ([10.54.29.200])
+  by fmsmga004.fm.intel.com with ESMTP; 23 Dec 2019 21:49:09 -0800
+Received: from [10.226.38.1] (unknown [10.226.38.1])
+	by linux.intel.com (Postfix) with ESMTP id A898E58046E;
+	Mon, 23 Dec 2019 21:49:06 -0800 (PST)
+Subject: Re: [PATCH v2 1/2] clk: intel: Add CGU clock driver for a new SoC
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh+dt@kernel.org,
+ mark.rutland@arm.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, andriy.shevchenko@intel.com,
+ yixin.zhu@linux.intel.com, qi-ming.wu@intel.com,
+ rtanwar <rahul.tanwar@intel.com>, clang-built-linux@googlegroups.com
+References: <cover.1576811332.git.rahul.tanwar@linux.intel.com>
+ <ee8a8a0f0c882e22361895b2663870c8037c422f.1576811332.git.rahul.tanwar@linux.intel.com>
+ <20191224052947.GA54145@ubuntu-m2-xlarge-x86>
+From: "Tanwar, Rahul" <rahul.tanwar@linux.intel.com>
+Message-ID: <c61235a7-969f-f534-e25f-e3990b9c8d11@linux.intel.com>
+Date: Tue, 24 Dec 2019 13:49:05 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
+In-Reply-To: <20191224052947.GA54145@ubuntu-m2-xlarge-x86>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20191220103210.43631-3-suganath-prabu.subramani@broadcom.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b="Xk8/entG";       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Language: en-US
+X-Original-Sender: rahul.tanwar@linux.intel.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: best guess record for domain of rahul.tanwar@linux.intel.com
+ designates 134.134.136.31 as permitted sender) smtp.mailfrom=rahul.tanwar@linux.intel.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,114 +142,39 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Dec 20, 2019 at 05:32:02AM -0500, Suganath Prabu S wrote:
-<snip>
 
-Hi Suganath,
 
-We received an email from the 0day bot about this patch (see below)
-about this patch. Would you look into addressing it?
+On 24/12/2019 1:29 PM, Nathan Chancellor wrote:
+> On Fri, Dec 20, 2019 at 11:31:07AM +0800, Rahul Tanwar wrote:
+>> From: rtanwar <rahul.tanwar@intel.com>
+>>
+>> Clock Generation Unit(CGU) is a new clock controller IP of a forthcoming
+>> Intel network processor SoC. It provides programming interfaces to control
+>> & configure all CPU & peripheral clocks. Add common clock framework based
+>> clock controller driver for CGU.
+>>
+>> Signed-off-by: Rahul Tanwar <rahul.tanwar@linux.intel.com>
+> Hi Rahul,
+>
+> The 0day bot reported this warning with clang with your patch, mind
+> taking a look at it since it seems like you will need to do a v2 based
+> on other comments?
+>
+> It seems like the check either needs to be something different or the
+> check should just be removed.
+>
+> Cheers,
+> Nathan
 
-> diff --git a/drivers/scsi/mpt3sas/mpt3sas_scsih.c b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-> index a038be8..c451e57 100644
-> --- a/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-> +++ b/drivers/scsi/mpt3sas/mpt3sas_scsih.c
-> @@ -1049,6 +1049,34 @@ mpt3sas_get_pdev_by_handle(struct MPT3SAS_ADAPTER *ioc, u16 handle)
->  	return pcie_device;
->  }
->  
-> +/**
-> + * _scsih_set_nvme_max_shutdown_latency - Update max_shutdown_latency.
-> + * @ioc: per adapter object
-> + * Context: This function will acquire ioc->pcie_device_lock
-> + *
-> + * Update ioc->max_shutdown_latency to that NVMe drives RTD3 Entry Latency
-> + * which has reported maximum among all available NVMe drives.
-> + * Minimum max_shutdown_latency will be six seconds.
-> + */
-> +static void
-> +_scsih_set_nvme_max_shutdown_latency(struct MPT3SAS_ADAPTER *ioc)
-> +{
-> +	struct _pcie_device *pcie_device;
-> +	unsigned long flags;
-> +	u16 shutdown_latency = IO_UNIT_CONTROL_SHUTDOWN_TIMEOUT;
-> +
-> +	spin_lock_irqsave(&ioc->pcie_device_lock, flags);
-> +	list_for_each_entry(pcie_device, &ioc->pcie_device_list, list) {
-> +		if (pcie_device->shutdown_latency) {
-> +			if (shutdown_latency < pcie_device->shutdown_latency)
-> +				shutdown_latency =
-> +					pcie_device->shutdown_latency;
-> +		}
-> +	}
-> +	ioc->max_shutdown_latency = shutdown_latency;
-> +	spin_unlock_irqrestore(&ioc->pcie_device_lock, flags);
-> +}
-> +
->  /**
->   * _scsih_pcie_device_remove - remove pcie_device from list.
->   * @ioc: per adapter object
-> @@ -1063,6 +1091,7 @@ _scsih_pcie_device_remove(struct MPT3SAS_ADAPTER *ioc,
->  {
->  	unsigned long flags;
->  	int was_on_pcie_device_list = 0;
-> +	u8 update_latency;
+Hi Nathan,
 
-This should be initialized to 0 like the remove_by_handle function
-below.
+Yes sure, i will fix it in v3. I anyways need to post v3 to address review
+comments received from few reviewers. Thanks.
 
-Cheers,
-Nathan
-
-On Tue, Dec 24, 2019 at 05:13:52AM +0800, kbuild test robot wrote:
-> CC: kbuild-all@lists.01.org
-> In-Reply-To: <20191220103210.43631-3-suganath-prabu.subramani@broadcom.com>
-> References: <20191220103210.43631-3-suganath-prabu.subramani@broadcom.com>
-> TO: Suganath Prabu S <suganath-prabu.subramani@broadcom.com>
-> CC: linux-scsi@vger.kernel.org, martin.petersen@oracle.com
-> CC: sreekanth.reddy@broadcom.com, sathya.prakash@broadcom.com, kashyap.desai@broadcom.com, Suganath Prabu S <suganath-prabu.subramani@broadcom.com>
-> 
-> Hi Suganath,
-> 
-> I love your patch! Perhaps something to improve:
-> 
-> [auto build test WARNING on scsi/for-next]
-> [also build test WARNING on mkp-scsi/for-next v5.5-rc3 next-20191220]
-> [if your patch is applied to the wrong git tree, please drop us a note to help
-> improve the system. BTW, we also suggest to use '--base' option to specify the
-> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
-> 
-> url:    https://github.com/0day-ci/linux/commits/Suganath-Prabu-S/mpt3sas-Enhancements-of-phase14/20191223-182859
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/jejb/scsi.git for-next
-> config: arm64-defconfig (attached as .config)
-> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 891e25b02d760d0de18c7d46947913b3166047e7)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # save the attached .config to linux build tree
->         make.cross ARCH=arm64 
-> 
-> If you fix the issue, kindly add following tag
-> Reported-by: kbuild test robot <lkp@intel.com>
-> 
-> All warnings (new ones prefixed by >>):
-> 
-> >> drivers/scsi/mpt3sas/mpt3sas_scsih.c:1114:6: warning: variable 'update_latency' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
->            if (pcie_device->shutdown_latency == ioc->max_shutdown_latency)
->                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/scsi/mpt3sas/mpt3sas_scsih.c:1128:6: note: uninitialized use occurs here
->            if (update_latency)
->                ^~~~~~~~~~~~~~
->    drivers/scsi/mpt3sas/mpt3sas_scsih.c:1114:2: note: remove the 'if' if its condition is always true
->            if (pcie_device->shutdown_latency == ioc->max_shutdown_latency)
->            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->    drivers/scsi/mpt3sas/mpt3sas_scsih.c:1094:19: note: initialize the variable 'update_latency' to silence this warning
->            u8 update_latency;
->                             ^
->                              = '\0'
->    1 warning generated.
+Regards,
+Rahul
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191224054340.GA55348%40ubuntu-m2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/c61235a7-969f-f534-e25f-e3990b9c8d11%40linux.intel.com.
