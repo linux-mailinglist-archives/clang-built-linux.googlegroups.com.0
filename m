@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBBN4R3YAKGQEAMKY6TI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVWJR3YAKGQECQACY5A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3d.google.com (mail-yw1-xc3d.google.com [IPv6:2607:f8b0:4864:20::c3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 36ECB12A8AF
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 18:36:07 +0100 (CET)
-Received: by mail-yw1-xc3d.google.com with SMTP id u199sf10616160ywc.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 09:36:07 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577295366; cv=pass;
+Received: from mail-yw1-xc40.google.com (mail-yw1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id B32D712A8C1
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 19:05:11 +0100 (CET)
+Received: by mail-yw1-xc40.google.com with SMTP id z7sf17627161ywd.21
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 10:05:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577297110; cv=pass;
         d=google.com; s=arc-20160816;
-        b=yTliE43V56MYaxjeGR1Svzv76ce6vGVbmedeGU1BixdR7IiKI/RX6Czouf5C9FY/Rv
-         j8H3oIhRZb1DKxCOhOE12ZZUBVPzGCS8F+VGe4IXT7QWNjYmzrvThGnJxTPUhDJscKhh
-         s/8GYR8eFD6kCTEc43HtMUKw3SR4QWJFgd03cbqjIxzBJlWk2CvPmQYXZk1Te4KqZV1t
-         AY6I4y6A4y11bYi1bZ59ec78ChGuyDlhotkCn3mvAMio+YEkMHkS4YM+WFvc0m4Sdgze
-         9GzRVFAB9GOJEKSeFgLqoQHfnRxP+ZmHWkOUDV9QRnfCz+hLRYpLon8isn6Oqz3hHYSt
-         ZILw==
+        b=OXxrWWUX4WZy9LbSZYxglMrshCPOwcNhwdCWxCNdSzuxW7ubxmOHblWMcXrgNhKSt/
+         vESJopSK/bXKCHFeVaN30+EOOIwslbucoJD8PiX7ECTEiG1pHFWltfyo2L431XKQkZ7I
+         Ha3KE9eq7dEiKVCaDN9PLClaQTJobltBrEwmsjqO8aQAb/mzBesrWPuZtKxFftOwk+eK
+         RQqJQkCXT0tv1tMnBzzqOz/9v++dmb8NGTl8Ub4CZWazA6y589J1xr9DCzX40MbZYxpN
+         AnGt6Iuh7Obds55Y/wIGiLhjimm8xafD6dY71C+zypkj9d9mh7GTKM444zifsvYsvsiC
+         k5bw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=ijKmQZ1P34yT08xrzGTfsWBmowAAkP1FPB44ocvY7N4=;
-        b=GJ9cMf+CahmGJN0Etz2Nv7mPgQMT4gVZKj6vCZtKR2EBDhC92pTaxUy7BcM1Sil16x
-         1qQKd6BiwDwDUF3mhA/f6CaO97Wm4QpNItBOR0Qs+5I/N96ITTPzc2kMLtKDDQ6wCQGJ
-         Q4qFbuvg1j4/wGeHwZy1dPcbL1HwhNicYM1Yw8LN2YAVPGSRiz7PoJdlXCSkOD1dRpHB
-         ctuUNJlfQlvOJv6nl3l+t2Lads1Rd73j6/sa8MYnFDKNrTIJk831FTpVnagsXvqKfl1l
-         BaFzgYnUBeEiXLgH3NQKJqeCljNYn26JwuNh9zyv967HUur7fOfQgS8SGlcnQw5TyBX3
-         3GGg==
+        bh=1nP09fjDJWRVFyGlHJEmRi5xWUu0eNfrpMrzxW1Z9rI=;
+        b=nTe021NARo67g2yRz4zVXjkYc9NoKAEd1sq/Mp1RXzTXjSW1ApK9J8nl/UAzsSittP
+         WOEGcBZgjOiw+F9X2tTLpbclmeED5yFj33KhrOKv8LK3kKvehjGFPJkgbqzwOIAnRVzH
+         XXwVdO6fLjDZsfOSehnw6fVGq1iVWJYcgUJZ1ED5RzAE6d34/GWp4uUd1/DElopHcMad
+         ejXkJlOyPwCBj+oZTf+/G8jKe/u+nPTLfBJaGT8oaOIlOFLfxvUc54kkFYSJ6e7Gm8af
+         HEfmc4/fkIGIutHr20tr5jQ55wVQQPp6M1PJ2ErGfofdqN2M8L1MlivJuDi213V8UBWx
+         muDA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ijKmQZ1P34yT08xrzGTfsWBmowAAkP1FPB44ocvY7N4=;
-        b=mZJgDCLix6qgZFHOU/B9ooSI+WuZfWxEjapXc8enalYiaVe8+IGjaJlF+YP8wk9YRz
-         vTxaWV5PD/tbauuIRwqvajqe5akdu11oPzrQWCCYw0G5TnpIBfEXjr4dJnY5Py3CIQCo
-         BgaxHMbzCYtoqDAlu9MMJ5UhW6mxvRp/3gxkHjRivMzE/ilHsO2nS9VjxOXAhGfeg0T2
-         O032b/IYg7BCnmRECdniGJk1+dv1fJldrMPnKV1JELrlK+C+Qzbw5luNZq1RA+SutHgz
-         VIja79jrYC270mUYhccKVRbzOOMBnE07q/2+uVULUaok7um5AGn28zGGIJ0E2nkfPpT8
-         WOGw==
+        bh=1nP09fjDJWRVFyGlHJEmRi5xWUu0eNfrpMrzxW1Z9rI=;
+        b=kNDOXbqQ500pcZzaRlzoeZFmTDO7Tb35g4lxY4lZiOLA7gyyojemC81Cz6LWsMTPw1
+         m42t8CGhgeo713dMRso8/cymxaCSyemd9YYw6IUX0wJjXhfhcHGYd4qx0lWoxwaUVdJr
+         bJ9BhsWJuiSn/JkOSnPtJIixVanNZORCuXFL0altQXPWDlvzxAaTNNFutQPReL7jGlj7
+         qNxLf9iit8ZMxs+S/hSCAR+YqEXyr2lM28oVhZJUL71sm+d1+HJRg363cHu8xKICata4
+         wBDIXdIMKtznqGWZeJUficCYKihqUbd61LLHTNAeZlvpTuKamAa9AVqNrUY7q/mHhGNt
+         84kA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ijKmQZ1P34yT08xrzGTfsWBmowAAkP1FPB44ocvY7N4=;
-        b=pM576G5kNKV5ms6gkI0vYLouwQAOm9UqmjLiq1IJS8j4J/0NaKDjY4pIQaYVVblCYd
-         Y5IHveTkT/B33VrU9sL4znfxMzUSAyBYHrXC6Ol7LwHNLi/CnE1znJTNz2I4FNku9hgR
-         49c9b7oSSrY0CjG1t8yH1ajHw8myiK7uPLnnGboRx68Te0GF2kKQU0Y/6PE/JKwh/sr8
-         +/GchM6j6DxAqco4hT2wj7F5xMneFHJVIDwf7fDOAChA0fgqUwZSxRwlTW+GHFELaHuS
-         sWBXhUzqdw7H09OPPStLLIgv1P28n+JKhIWuSMWapAJSiggX5HBa528sXA6O11sHcOWB
-         vIfg==
+        bh=1nP09fjDJWRVFyGlHJEmRi5xWUu0eNfrpMrzxW1Z9rI=;
+        b=ibgsebSmIdv6KZ1/BeVCY/ZU9yT7LuUXCK4c2xAMAg04d9pfTv6PME+oiDtMuWt4rN
+         QGbTIYFAFUJu/kMEMA5CNiJ9xiTBbuYHcSsCT+9opJvk4RPHeJuiHgD/curhrcu7dH73
+         2Dv481a7yp0sYa/Y3fKCAMBjDDsZp/NT/ZQkjNK4K9OGdXOGOCdAdFnyeSGwKtTxujtu
+         bAlMn2demzy1QSkdS1p8cLHJXqPFB+bqR1ESubM6qpm7NXJe9+MrC7AufMfz7F5itlbZ
+         h6bD+5It6ZDkpOcFFRZHeWNacUfoUnknBCCkOb+yudgBXFfv//OHAc6zMl7wzFmwu13d
+         OQNw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVtBC7WfNtO094KgWn/dLJFS6ZBpxFAaLHawC0PVny3dkoko7FA
-	T8oSpHgtjAdYMko4nUARAjc=
-X-Google-Smtp-Source: APXvYqzRPKqcwWNijf6wXDIyUEyORaBphBW1ep3bR3rDGjx0EUH2dXL4AuQHGfyv6JrgZasPgRdXWg==
-X-Received: by 2002:a25:790f:: with SMTP id u15mr10012307ybc.181.1577295365722;
-        Wed, 25 Dec 2019 09:36:05 -0800 (PST)
+X-Gm-Message-State: APjAAAXGaP8MjcFLJxd08Zj5FEdbAzUDTrnNLoAFNqu2xdYhMHD7lSoj
+	5cCV2SFcPp9tryzgzuztWc8=
+X-Google-Smtp-Source: APXvYqy3UQd8tew/1WS+qLQpw0Snb5rvvBtQzSyWHzNMK+zPN6aIPZKvFPn2ccBJgIyqgN9U/8NwMA==
+X-Received: by 2002:a25:ce94:: with SMTP id x142mr28726846ybe.312.1577297110573;
+        Wed, 25 Dec 2019 10:05:10 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:8644:: with SMTP id w65ls3259989ywf.3.gmail; Wed, 25 Dec
- 2019 09:36:05 -0800 (PST)
-X-Received: by 2002:a81:2781:: with SMTP id n123mr32786307ywn.70.1577295365227;
-        Wed, 25 Dec 2019 09:36:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577295365; cv=none;
+Received: by 2002:a81:5f04:: with SMTP id t4ls3260885ywb.12.gmail; Wed, 25 Dec
+ 2019 10:05:10 -0800 (PST)
+X-Received: by 2002:a81:4ed7:: with SMTP id c206mr31930711ywb.58.1577297110088;
+        Wed, 25 Dec 2019 10:05:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577297110; cv=none;
         d=google.com; s=arc-20160816;
-        b=CNtDZ1LelhOmKs1QXNl0lxwBVOYVd+/ytlVcf+TFz6L3+pndIkippMUrvGjcXA3YVZ
-         iQcnz6QRtwy2hYBm93t7yLZDsno/uGbnePMKIhaSml0g/odbF0M+pkELqtaTo2C9NIoO
-         ZoeuAiYO1TtL07eC25XFeciN6XugS1nT8KawFnPinhcMNIBjTToxdH2pch3WkEY1VEvp
-         iSRsvsam96HsKNmsqs/4qncM/YMfrPjlB+6JtTZeFvH4hLWnFiqg1tenrNguz7BQQJo1
-         BFSq18BhEEkjj9CBfJDbEN8uls/oSULhxKhChcHrMkObvHktz49gFqWmN7dB+GlQmrmE
-         ompQ==
+        b=EqI962ZNC60aTUJCtMyPjHHDjEfcca2FRysnPWmveWI/MGTXlZyWME4OqaFAW8nZ1J
+         rRsY1nwZxzvr1Z2J2OqueJgYONE8wu8+cvvhX8uu1pyXo6w71VwDf1fw97iP+zW1kiPP
+         fsjHEk0OlE1vCrH+EN+3jHTXFKZdGOhHOOikEsE6M4HIlX6ZzSQ8d4QQOnMAdcd9F8GX
+         KfTaPAqyUSUhP2eEPuYe2gVb+uBhRTgUPsoBKU5Z07tjmiyZ7r84YAC5jz+o5HWGVQ85
+         QIU02FUcBDpnUjvIbzsME9gM7sxctSrNYWMzbs9s2JuqU9WNFlmveNb4Rw5uqZyctW5c
+         Pr8Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=vPY22L/k3/vxBjSfcaQXd9m+tK6/zCZdd2i4UVXGRpA=;
-        b=wrNbB0UgkNkuI9S0FO0pGTyDrgTRVe9MhOcDrzV2yIi7Mb2qF4Y6IqMFfQJ7a02otH
-         ctSoDDcF7WWX8BondHrdYhOPAW55+gNHTofItXmd67tPV0IyzwQdN9lPC/7ADZV1Aa9y
-         55nzOqTItHDfyCwLTaesjPNV9DTFwh244diS7/bJUN5zGzoptHpJZrnoxwcY7yBbLPQ3
-         RrRCWzC5kYlUVMiWAZdx3+LTcyoDA4DXnBU5MVFc/QnlHA+LB1OdadQpQPmRl1+jvOTv
-         MEa+aRR1q2ZsZKiFDdE5RsOnA1DE2z4zQGTomOGstWblrGliXnsEWD5oIXeHLNUAtx+H
-         HXpw==
+        bh=8vPBrQvTqIaJBIBIY2pvijAmxdIXzWWP3gP9eEC+SXs=;
+        b=z9qZ5tGJp+AlcCMaAKPP5KA4Ksuqq8t88tn30iY9eANYZY1kzsDs4GUAbnyPcrKFrn
+         LNlwRPxz5PydXgel/b4H+YPwG2dauldT25wcZCfZOXmicKHqXqAHolcpZ3si92Qgbbv0
+         pZ2HHe3wQVDe70RO4pGpaBM4FprIF9/JwE8J4RDXzA+QJK3k9ClWhX+plWYTZ1TGAj5m
+         QgAwY/hixEyxRtHHrMjcvsdkurqvhV37ksS/STSRdw4g0kKE0WEPcgjThtYJ0EqitOm0
+         jhERnM4mHxI8Q7MyTwyvmAhCEikIUrD+VPnn/y5/ns+TA9wj9CkUU2AtPUpZOFUI4H4w
+         MrMg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id s64si1266404ywf.0.2019.12.25.09.36.04
+Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
+        by gmr-mx.google.com with ESMTPS id f8si988738ybg.2.2019.12.25.10.05.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Dec 2019 09:36:04 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+        Wed, 25 Dec 2019 10:05:10 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Dec 2019 09:36:02 -0800
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Dec 2019 10:05:07 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,355,1571727600"; 
-   d="gz'50?scan'50,208,50";a="250142219"
+X-IronPort-AV: E=Sophos;i="5.69,356,1571727600"; 
+   d="gz'50?scan'50,208,50";a="214786002"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 25 Dec 2019 09:36:00 -0800
+  by fmsmga008.fm.intel.com with ESMTP; 25 Dec 2019 10:05:06 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ikAZk-000Hfb-1q; Thu, 26 Dec 2019 01:36:00 +0800
-Date: Thu, 26 Dec 2019 01:35:41 +0800
+	id 1ikB1t-000FxH-QO; Thu, 26 Dec 2019 02:05:05 +0800
+Date: Thu, 26 Dec 2019 02:04:12 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [RFC PATCH v2 01/10] lib: vdso: ensure all arches have 32bit
- fallback
-Message-ID: <201912260119.n14N1g9X%lkp@intel.com>
+Subject: Re: [RFC PATCH v2 02/10] lib: vdso: move call to fallback out of
+ common code.
+Message-ID: <201912260256.rkT7vzSV%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="c4byfdwovsoqzr3x"
+Content-Type: multipart/mixed; boundary="hdrsivsufbjnbir2"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,13 +137,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---c4byfdwovsoqzr3x
+--hdrsivsufbjnbir2
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <47701b5fb73cf536db074031db8e6e3fa3695168.1577111365.git.christophe.leroy@c-s.fr>
-References: <47701b5fb73cf536db074031db8e6e3fa3695168.1577111365.git.christophe.leroy@c-s.fr>
+In-Reply-To: <de073962c1a5911343e13c183fbbdef0fe95449e.1577111365.git.christophe.leroy@c-s.fr>
+References: <de073962c1a5911343e13c183fbbdef0fe95449e.1577111365.git.christophe.leroy@c-s.fr>
 TO: Christophe Leroy <christophe.leroy@c-s.fr>
 
 Hi Christophe,
@@ -170,31 +170,78 @@ Reported-by: kbuild test robot <lkp@intel.com>
 All errors (new ones prefixed by >>):
 
    In file included from arch/x86/entry/vdso/vclock_gettime.c:15:
-   In file included from arch/x86/entry/vdso/../../../../lib/vdso/gettimeofday.c:26:
->> arch/x86/include/asm/vdso/gettimeofday.h:101:35: error: use of undeclared identifier 'clock'
+   In file included from arch/x86/entry/vdso/../../../../lib/vdso/gettimeofday.c:23:
+   arch/x86/include/asm/vdso/gettimeofday.h:101:35: error: use of undeclared identifier 'clock'
            int ret = clock_gettime_fallback(clock, &ts);
                                             ^
    arch/x86/include/asm/vdso/gettimeofday.h:114:34: error: use of undeclared identifier 'clock'
            int ret = clock_getres_fallback(clock, &ts);
                                            ^
-   2 errors generated.
+>> arch/x86/entry/vdso/vclock_gettime.c:62:34: error: use of undeclared identifier 'clock_id'
+           int ret =  __cvdso_clock_getres(clock_id, res);
+                                           ^
+   3 errors generated.
 
-vim +/clock +101 arch/x86/include/asm/vdso/gettimeofday.h
+vim +/clock_id +62 arch/x86/entry/vdso/vclock_gettime.c
 
-    96	
-    97	static __always_inline
-    98	long clock_gettime32_fallback(clockid_t _clkid, struct old_timespec32 *_ts)
-    99	{
-   100		struct __kernel_timespec ts;
- > 101		int ret = clock_gettime_fallback(clock, &ts);
-   102	
-   103		if (likely(!ret)) {
-   104			_ts->tv_sec = ts.tv_sec;
-   105			_ts->tv_nsec = ts.tv_nsec;
-   106		}
-   107		return ret;
-   108	}
-   109	
+    14	
+  > 15	#include "../../../../lib/vdso/gettimeofday.c"
+    16	
+    17	extern int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz);
+    18	extern __kernel_old_time_t __vdso_time(__kernel_old_time_t *t);
+    19	
+    20	int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
+    21	{
+    22		int ret = __cvdso_gettimeofday(tv, tz);
+    23	
+    24		if (likely(!ret))
+    25			return ret;
+    26	
+    27		return gettimeofday_fallback(tv, tz);
+    28	}
+    29	
+    30	int gettimeofday(struct __kernel_old_timeval *, struct timezone *)
+    31		__attribute__((weak, alias("__vdso_gettimeofday")));
+    32	
+    33	__kernel_old_time_t __vdso_time(__kernel_old_time_t *t)
+    34	{
+    35		return __cvdso_time(t);
+    36	}
+    37	
+    38	__kernel_old_time_t time(__kernel_old_time_t *t)	__attribute__((weak, alias("__vdso_time")));
+    39	
+    40	
+    41	#if defined(CONFIG_X86_64) && !defined(BUILD_VDSO32_64)
+    42	/* both 64-bit and x32 use these */
+    43	extern int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts);
+    44	extern int __vdso_clock_getres(clockid_t clock, struct __kernel_timespec *res);
+    45	
+    46	int __vdso_clock_gettime(clockid_t clock, struct __kernel_timespec *ts)
+    47	{
+    48		int ret = __cvdso_clock_gettime(clock, ts);
+    49	
+    50		if (likely(!ret))
+    51			return ret;
+    52	
+    53		return clock_gettime_fallback(clock, ts);
+    54	}
+    55	
+    56	int clock_gettime(clockid_t, struct __kernel_timespec *)
+    57		__attribute__((weak, alias("__vdso_clock_gettime")));
+    58	
+    59	int __vdso_clock_getres(clockid_t clock,
+    60				struct __kernel_timespec *res)
+    61	{
+  > 62		int ret =  __cvdso_clock_getres(clock_id, res);
+    63	
+    64		if (likely(!ret))
+    65			return ret;
+    66	
+    67		return clock_getres_fallback(clock, res);
+    68	}
+    69	int clock_getres(clockid_t, struct __kernel_timespec *)
+    70		__attribute__((weak, alias("__vdso_clock_getres")));
+    71	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -203,14 +250,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912260119.n14N1g9X%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912260256.rkT7vzSV%25lkp%40intel.com.
 
---c4byfdwovsoqzr3x
+--hdrsivsufbjnbir2
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHWaA14AAy5jb25maWcAlDzZdtw2su/5ij7JS/KQWJJl2Z57/ACSYDfcJMEAYKvbLzyy
+H4sICKWgA14AAy5jb25maWcAlDzZdtw2su/5ij7JS/KQWJJl2Z57/ACSYDfcJMEAYKvbLzyy
 3HJ0ryx5tGTsv79VAJfC0oonM8c2qwp7oXb0Lz/9smBPj3dfLh6vLy9ubr4vPu9v9/cXj/tP
 i6vrm/3/LAq5aKRZ8EKYP4C4ur59+vbi25uz/ux08eqPV38c/X5/+XKx3t/f7m8W+d3t1fXn
 J2h/fXf70y8/wf9/AeCXr9DV/b8WlzcXt58Xf+/vHwC9OD76A/63+PXz9eO/XryAP79c39/f
@@ -1527,4 +1574,4 @@ e18SdWagfPo+8g6uEhtBY/pVqS7HNrQYZTMOPT/pkL7CBieC1se0oybq3+KKos39KcH6vM7S
 zkegchesXi/wxq3zMrIg+zqJF4Q+xWD7KR13GjG0iStlTsFztQ15hnrh+SddTodCnAsr3h+r
 a5hxm0FW0mOpg2u444KNv3VQ55oqKi964ipDJaVRfv8f8AVN7OaGBAA=
 
---c4byfdwovsoqzr3x--
+--hdrsivsufbjnbir2--
