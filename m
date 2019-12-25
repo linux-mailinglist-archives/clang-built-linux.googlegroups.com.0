@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBN4FR7YAKGQEM6I4QAY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVN7R7YAKGQEGLJ2RTY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3d.google.com (mail-yb1-xb3d.google.com [IPv6:2607:f8b0:4864:20::b3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2F2C912A911
-	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 21:12:41 +0100 (CET)
-Received: by mail-yb1-xb3d.google.com with SMTP id j82sf17712352ybj.16
-        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 12:12:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577304760; cv=pass;
+Received: from mail-qk1-x73e.google.com (mail-qk1-x73e.google.com [IPv6:2607:f8b0:4864:20::73e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6A45112A932
+	for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 23:16:54 +0100 (CET)
+Received: by mail-qk1-x73e.google.com with SMTP id 143sf15305637qkg.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 25 Dec 2019 14:16:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577312213; cv=pass;
         d=google.com; s=arc-20160816;
-        b=zfdEE76Oei5EzwxfjLuECc0JeLz3Aa47g3l5sQzD87moU/HHk2wzE+hN7lByroWoEH
-         iuLGZvqfInHu2rFdYxcqG+bK0v449nu3cESPMkifGukKP2iTUjKWS5BoONj9ITFgHAkb
-         CmdyGGJ+NNUORMBSN0WwMaU1wENnJHqY1qRbuTc54vtArj7ehsaGi6k+x3MKQ4Ibkadp
-         bUQmHqzrLVwcf3ruFwdn8110+FkDtQwsCTR0NFA5DYbu6LZXnctbJCiQJZXm8Pp0mdL8
-         bHlZYgmwNo1viE3crEMuFGhm+XlxjwvqEjIChtl2zgzZeL5XlxsgTRdfXwkLFu76IdL1
-         bcJA==
+        b=raGJ7JXlGt74W9pbpZnSlKSGoMnhtidCB9Nt1Y7qD76wwE+mfB2ohOtiQ4Z+RrDSRK
+         OsEq9e09YXaU9O/JHHzfkBPee27QSu6sY5GSR7E/k3cJSdaPnNJHoNzwejABK2nbo0rh
+         uMXagbc4vpCzECbTcTAFOb61Wgd9eyAUn/QW6Sh0UJNBzT24MkmZjW1D1KUr2iq8XS8T
+         rsQH/QRjdYSZhA01wJhESYB5bsxHiD3IaYaK1zZGLsPQld81624aJPtI0W2shdPaLblr
+         k5lrmAc1Nqmupni8YdSEpulkCPYiYcE76sG6qqZueIq69UTBqTIp+BLrvOxxKAJ5JqCU
+         TLIQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=2MWt2mzXHs44F0OfvLQg2VuCed8O3Nmk1j/xYOehZ0A=;
-        b=jBO4bUvTKDcE+S4NhKMGGSlt6uhyVPX5C4OIN2cNS5ltAAhZebgEFK5ferankis+ZF
-         UgxRrPJJYPx4Fk4DJocr0p2ptdcjuQqzNmNnLgJUvPzDkiG2zwRyiu1p7VbsCYwPqYt6
-         6gIlJUiTvCdRmcc6XknBCmvMMyMj9RXUG4BKSYl+vUoAb4/34kan/ZST/IZp1XFnbyA6
-         GAyQw2NG4M9bccPvXKiSCktoW2qaDEXl+3NXK37CdnTZqRL1FOpZzPPMnFiULQzrDVF5
-         EiDpYdV8o+INOYrxpSI2Qc9GEogi6Y6umXMOEEJtMiKCdIoiZd3FLqCp57gdaCB85R2G
-         Gwdw==
+        bh=+JU5y6wKgM0AVqUnjNvW523AGKBMb63OXLDh6BAWSuM=;
+        b=HdPZWLVt3T8DkfQAzuiHAMHxQehj7HeeAsKUURBwPWs3SjKb2XlIkcRHMmwqXOSXmW
+         oodA+HnMNTGHpnGz3UyxkicH/7U8H0PJ7p5o+3Z5sH5HJWUvGtAyi39Z+uEu9wJwehTT
+         VXPbqXJbKSKWFulHEEHWvfLl9nKAPNQzc/UqxmodByTCY5iS/43X63em3d+YnbJ5wiqf
+         +K19zawTURzZjY9zSgo+BIN1Q2b9ez5GhKV1CkdJrum27HzYmfayQUOx1EcnO0eA/vk/
+         Qu/vt0ibr3MS5cnS1uczyUZW9b3U50cE9vCosSAXtbMf/snTm8chX30JPtLRuM+261Jz
+         MpaA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=2MWt2mzXHs44F0OfvLQg2VuCed8O3Nmk1j/xYOehZ0A=;
-        b=PrjpQM+SDsGo57JNhoWQqhcvWYGLo/Wd+NH+pnXO5wffz8dQAiPoVpDiTnOM5fxWwf
-         OFlMAEL/ciLfuwx+IAIkMTWxzOfjwFEh6PGT2Pa9ce8IEVqVkJjbd4SbN+EgIPhFjVjJ
-         OLEVfuHdtjrWJAi/KFfhzLkdIGb0PZzGHZrX4vcRstNSJV58O8BlczoDb5zz3vEjeRTB
-         VhtNw7aD6fYNJaNOxMoPJ8Nz8JW8Lcr8wsTZ95RtG29VjPR985Ut4OpJgidRHYLFjOfK
-         ZXCX70yYgxtn460pBkKVD6v59B0ty8UUh5ADbI10RwOpIQB2ibDho+BNzazEWkZuDJIu
-         B0Kw==
+        bh=+JU5y6wKgM0AVqUnjNvW523AGKBMb63OXLDh6BAWSuM=;
+        b=LgLw6EcjSzLgVYzbjY8MerjbozC9SPcewU5h3CVOvcCZ34C+MV/wU6mnlwGpucU6kP
+         zu25WNRqNyjAd/lleO30enn3hcqwlpmvc+ANfiPvSMnTW/3JLBXRQ3SFaZeEyChiSVqN
+         DNlMBTf744cGN9ofK4fX1thLOixguk1C5zvUDcSd+xwf6/ZfW1ZkCsfVAFmexBGaFA/g
+         y50BwfbCtO9QU+X5mrKKL9hivB4uLfDEPuGozokRZAEo4YFjmFVSpZyylLDzCxDzMhWx
+         keHT+G+78yy51vjAjZXk7NtY2ZcWVJtD5vwUvIKtzYEvs176OP2hCKms7ZlpUj4KG0kL
+         9FAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,78 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=2MWt2mzXHs44F0OfvLQg2VuCed8O3Nmk1j/xYOehZ0A=;
-        b=Kixej4mkxo/kwz3ky6JKD793q733aKVZzWP0L1KI70E7pGvBolwSqm9HJNEAqQCNpW
-         ZglgYThDl4eOq2S2r5/Xwm6/TE6HKjzsHM7MVHtdvfoqRtS6eaK/x4y0IxdMFUTj0daA
-         Bl6Yy8qn/2E3ZN4INrXYpwUb8T5vtFkRapaQZ2pCVIOheRt8+3TdMW5xpoE+72OWObk0
-         35FEQJ2ZrRBkJBjPjRCa44G5NYs1CezthEyBMlgOQRme2v5HbsJW0ZVM+udEy9Jep53B
-         xXUfrn91m9j7e1cdxzAfb3mYb0VaFUz2G7nOyXEM6kZDlPQaduGEeA58oF9ZUW23WjNZ
-         Vbvg==
+        bh=+JU5y6wKgM0AVqUnjNvW523AGKBMb63OXLDh6BAWSuM=;
+        b=ZEe5EHyDu9UryBv0qvilIMsnAFHKOAXaBpvOH6yRreRVSsQuo/XQT/Bwi+0ePuJJVA
+         1CJtKLeBMumW9Ze5UXYi7Po/25X4sA+Cpf5yc7yThUPPGTXQTEn4nZZ1Bmq/3kKoldko
+         pbZJb7g4Lsqq+Z9cQKE376DqrGEzcxRXEaqtIjI6hVhjcEuRkvL1XIlsd1BtWyLBZVcE
+         gyDHNgeRlW67ChsLk/QJyvXtk3aDICi+l52hBLlsWGw8RPEIkmszSWlbRg9oT04sw4p5
+         4YKESmyiMJ+8JEZSRm3OxYmIn2CXTXjKC9omE2IULC37KXpC47m0qPoARZCz0d8Af1nK
+         XlBQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUzfJO6bhoUFwF2NzhqHv9tL19+UJjXm9JOyUlBxJtLI2nKrxyZ
-	KC0RFaUuvQ+L8m7byqs1gTE=
-X-Google-Smtp-Source: APXvYqwknHGOZOJCXwue/ssGtLPjY4cvw5JJKDE7o12BkzUrkNNSxINoRflsn0bRDJepKmMXA2vO8A==
-X-Received: by 2002:a81:1292:: with SMTP id 140mr30747659yws.108.1577304759907;
-        Wed, 25 Dec 2019 12:12:39 -0800 (PST)
+X-Gm-Message-State: APjAAAUKGLsAb/FiETCRPzS6F8vNUJMI6diJV6CXLaFRHGSVOj3k+nT1
+	mY7/cy1OJ4XVXzzr9A1NsxY=
+X-Google-Smtp-Source: APXvYqwHxopYvpRz3qhWvkunVVBnAFk1MXoTAQzNeGLFcpMcWBgAATVoReqekGGrsZ17azAon6/Flg==
+X-Received: by 2002:a05:620a:5f0:: with SMTP id z16mr36550097qkg.59.1577312213126;
+        Wed, 25 Dec 2019 14:16:53 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:5f04:: with SMTP id t4ls3283936ywb.12.gmail; Wed, 25 Dec
- 2019 12:12:39 -0800 (PST)
-X-Received: by 2002:a81:3208:: with SMTP id y8mr26690408ywy.231.1577304759439;
-        Wed, 25 Dec 2019 12:12:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577304759; cv=none;
+Received: by 2002:a37:9f92:: with SMTP id i140ls1049372qke.11.gmail; Wed, 25
+ Dec 2019 14:16:52 -0800 (PST)
+X-Received: by 2002:a05:620a:a5c:: with SMTP id j28mr27276420qka.218.1577312212577;
+        Wed, 25 Dec 2019 14:16:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577312212; cv=none;
         d=google.com; s=arc-20160816;
-        b=HbJz0yTgQ5xK5iY9ywkJFYLaGvpl7m4orHRIwUJraP9ngBTPgKPrUTQZV/Mp580dIE
-         g3HDaXmynaRX0sHmP6V4EDmDwFsUQ+F3vO9hXs5soTX0wyn+Z9qKqsnneZTHbxi1VBaU
-         9f+iJirIHsffrAVXinTIfja0RnW1Sg6+GZhFbrNNeJ/b7Zo2+/j8t00yvDLFC52S12Ps
-         QyZwMXzI3F79kPypOC4q5MqFETv5nUiQSsp9HY8fdpVwd+QyI3szgAUxOPxmg92km4q+
-         r3OsZpW/W/Rg+NhUX4ePOOySMIil01asS1VIjlKTrUysnQqw5WbfLpy4T4Rr4i7tkF5g
-         RMZA==
+        b=es7XGk3nWxhWj8PG3sJ9gP3r1svhivWUu/nWAVFIudkrMkY8H4Co/WXoKgP6HYnuO0
+         Q1k/4+AHtkQSLFmukUohQ99HZx+8AjkfsLET28r5YMZmKwsRhvj1zK7d7YHzJ3WE0joD
+         E2+k081yT0pJdENDyNo+HAS7zFfvMGlQ7I1PO+gseHkpr1roBRASt5MDAViyGOAISj9t
+         9/4WlhKoCK937UHJ7Rdy7GWdPnMKF5t4eGqA/+v/1xxRDW1tYFSd3u0P6oIDZsoj6+2x
+         R0e85zEmT0e5Zw4P97t1ACxv/g9cg5BI1qP34PIRkAi9lSEWMh9hYYwLeL02M4ROHJfB
+         LFVA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=5s4F+QgMxOoobsK4ItvCwYgdrc6Q3ANQmWb/QmbgoSw=;
-        b=boqMa5q/64eE/SitDDV07HskHRNZdxtYHunvc64Zo7ykaF+051Nt1AMg+igBt9J6lL
-         kOoJEjwKYoC5sFrliuLo8vO/juJjH0HBmVC92HfNaU5+jmGhRuHPqp2QPLnQMVMZQ6yJ
-         REjAOibzDMzEnH9/iMJE/S8IJNlaJMOpVoK3iYBIO97iI3CP9+ic1sj200Vse6xVRK9m
-         zYbELki+Q2yvdH6g99wepe0z+3nIYbwkhTL2YYizb+Ppy4/pz+U7TdKNpoyTBzUlR7Ss
-         Lkaw617lpAoZKjqVe73QOOpgYXl28wGhKXTAWIFB1wTeRqlRIn3IwNbhswBY3imJn/IO
-         1LBg==
+        bh=fTX+MxWtJLhc1UtA76EfgUOLH0mNw+qjBxAAuxdaeG8=;
+        b=axBNFBwjWoJf36oNCwYHKj9xwYErrawV8A8EVCl4WVMMLeuQBw67LHxkmZf4VdhbaP
+         PxVO+LiVRkmdR+sctCf2KltvFStHINLj3YVxQtR+oc5qL/oEpcbGtffHzEd6n3y/FBAb
+         5s+9RNTE+cRjDCrs0YCnAs/MzBeTKdEM6EG33I0SZ93N9EeyXFuUHxGCKo0irHH2WhPj
+         j7T81PpjFc/8MCt58UKh21KVuwE6GWV76ApzGVXhhPm/vveoWvMd/ZDCJ5pNZlrk4QMI
+         3uzGcMmRSlFM3I+FfLYI05JoG4iRvLFUavm1S6wDci3yX2G/mO+Ktt3N8FaSoi0M86d4
+         9OiA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id s64si1280927ywf.0.2019.12.25.12.12.38
+Received: from mga14.intel.com (mga14.intel.com. [192.55.52.115])
+        by gmr-mx.google.com with ESMTPS id h17si1136999qtm.0.2019.12.25.14.16.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 25 Dec 2019 12:12:38 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
+        Wed, 25 Dec 2019 14:16:52 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted sender) client-ip=192.55.52.115;
+X-Amp-Result: UNSCANNABLE
 X-Amp-File-Uploaded: False
-Received: from fmsmga008.fm.intel.com ([10.253.24.58])
-  by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Dec 2019 12:12:36 -0800
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Dec 2019 14:16:50 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,356,1571727600"; 
-   d="gz'50?scan'50,208,50";a="214801239"
+   d="gz'50?scan'50,208,50";a="392195507"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga008.fm.intel.com with ESMTP; 25 Dec 2019 12:12:34 -0800
+  by orsmga005.jf.intel.com with ESMTP; 25 Dec 2019 14:16:48 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ikD1F-0002FW-Oi; Thu, 26 Dec 2019 04:12:33 +0800
-Date: Thu, 26 Dec 2019 04:12:17 +0800
+	id 1ikExT-00019J-G5; Thu, 26 Dec 2019 06:16:47 +0800
+Date: Thu, 26 Dec 2019 06:16:43 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 01/12] pm80xx : Increase request sg length.
-Message-ID: <201912260309.WtW4w53c%lkp@intel.com>
+Subject: Re: [PATCH 09/12] pm80xx : IOCTL functionality for SGPIO.
+Message-ID: <201912260547.jCLcrf9B%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="fvszcwbb6kx5abrt"
+Content-Type: multipart/mixed; boundary="ajeuap5qvascdhww"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.115 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -136,14 +135,14 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---fvszcwbb6kx5abrt
+--ajeuap5qvascdhww
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191224044143.8178-2-deepak.ukey@microchip.com>
-References: <20191224044143.8178-2-deepak.ukey@microchip.com>
+In-Reply-To: <20191224044143.8178-10-deepak.ukey@microchip.com>
+References: <20191224044143.8178-10-deepak.ukey@microchip.com>
 TO: Deepak Ukey <deepak.ukey@microchip.com>
 CC: linux-scsi@vger.kernel.org
 CC: Vasanthalakshmi.Tharmarajan@microchip.com, Viswas.G@microchip.com, deep=
@@ -180,9 +179,9 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
-   In file included from drivers/scsi/pm8001/pm8001_init.c:42:
+   In file included from drivers/scsi/pm8001/pm8001_ctl.c:43:
    In file included from drivers/scsi/pm8001/pm8001_sas.h:58:
->> drivers/scsi/pm8001/pm8001_defs.h:102:9: warning: 'CONFIG_SCSI_PM8001_MA=
+   drivers/scsi/pm8001/pm8001_defs.h:102:9: warning: 'CONFIG_SCSI_PM8001_MA=
 X_DMA_SG' macro redefined [-Wmacro-redefined]
    #define CONFIG_SCSI_PM8001_MAX_DMA_SG   528
            ^
@@ -190,30 +189,91 @@ X_DMA_SG' macro redefined [-Wmacro-redefined]
 e
    #define CONFIG_SCSI_PM8001_MAX_DMA_SG 128
            ^
-   1 warning generated.
+>> drivers/scsi/pm8001/pm8001_ctl.c:1049:6: warning: variable 'timeout' is =
+uninitialized when used here [-Wuninitialized]
+           if (timeout < 2000)
+               ^~~~~~~
+   drivers/scsi/pm8001/pm8001_ctl.c:1020:23: note: initialize the variable =
+'timeout' to silence this warning
+           unsigned long timeout;
+                                ^
+                                 =3D 0
+   2 warnings generated.
 
-vim +/CONFIG_SCSI_PM8001_MAX_DMA_SG +102 drivers/scsi/pm8001/pm8001_defs.h
+vim +/timeout +1049 drivers/scsi/pm8001/pm8001_ctl.c
 
-    95=09
-    96	#define USI_MAX_MEMCNT_BASE	5
-    97	#define IB			(USI_MAX_MEMCNT_BASE + 1)
-    98	#define CI			(IB + PM8001_MAX_SPCV_INB_NUM)
-    99	#define OB			(CI + PM8001_MAX_SPCV_INB_NUM)
-   100	#define PI			(OB + PM8001_MAX_SPCV_OUTB_NUM)
-   101	#define USI_MAX_MEMCNT		(PI + PM8001_MAX_SPCV_OUTB_NUM)
- > 102	#define	CONFIG_SCSI_PM8001_MAX_DMA_SG	528
-   103	#define PM8001_MAX_DMA_SG	CONFIG_SCSI_PM8001_MAX_DMA_SG
-   104	enum memory_region_num {
-   105		AAP1 =3D 0x0, /* application acceleration processor */
-   106		IOP,	    /* IO processor */
-   107		NVMD,	    /* NVM device */
-   108		DEV_MEM,    /* memory for devices */
-   109		CCB_MEM,    /* memory for command control block */
-   110		FW_FLASH,    /* memory for fw flash update */
-   111		FORENSIC_MEM  /* memory for fw forensic data */
-   112	};
-   113	#define	PM8001_EVENT_LOG_SIZE	 (128 * 1024)
-   114=09
+  1011=09
+  1012	static long pm8001_sgpio_ioctl(struct pm8001_hba_info *pm8001_ha,
+  1013			unsigned long arg)
+  1014	{
+  1015		struct sgpio_buffer buffer;
+  1016		struct read_write_req_resp *req =3D &buffer.sgpio_req;
+  1017		struct sgpio_req payload;
+  1018		struct sgpio_ioctl_resp *sgpio_resp;
+  1019		DECLARE_COMPLETION_ONSTACK(completion);
+  1020		unsigned long timeout;
+  1021		u32 ret =3D 0, i;
+  1022=09
+  1023		if (copy_from_user(&buffer, (struct sgpio_buffer *)arg,
+  1024			sizeof(struct sgpio_buffer))) {
+  1025			return ADPT_IOCTL_CALL_FAILED;
+  1026		}
+  1027		mutex_lock(&pm8001_ha->ioctl_mutex);
+  1028		pm8001_ha->ioctl_completion =3D &completion;
+  1029=09
+  1030		payload.func_reg_index =3D cpu_to_le32((req->register_index << 24) =
+|
+  1031				(req->register_type << 16) | (req->function << 8) |
+  1032				SMP_FRAME_REQ);
+  1033		payload.count =3D req->register_count;
+  1034=09
+  1035		if (req->function =3D=3D WRITE_SGPIO_REGISTER) {
+  1036			if (req->register_count > MAX_SGPIO_REQ_PAYLOAD) {
+  1037				ret =3D ADPT_IOCTL_CALL_FAILED;
+  1038				goto exit;
+  1039			}
+  1040			for (i =3D 0; i < req->register_count; i++)
+  1041				payload.value[i] =3D req->read_write_data[i];
+  1042		}
+  1043=09
+  1044		ret =3D PM8001_CHIP_DISP->sgpio_req(pm8001_ha, &payload);
+  1045		if (ret !=3D 0) {
+  1046			ret =3D ADPT_IOCTL_CALL_FAILED;
+  1047			goto exit;
+  1048		}
+> 1049		if (timeout < 2000)
+  1050			timeout =3D 2000;
+  1051=09
+  1052		timeout =3D wait_for_completion_timeout(&completion,
+  1053				msecs_to_jiffies(timeout));
+  1054		if (timeout =3D=3D 0) {
+  1055			ret =3D ADPT_IOCTL_CALL_TIMEOUT;
+  1056			goto exit;
+  1057		}
+  1058=09
+  1059		sgpio_resp =3D &pm8001_ha->sgpio_resp;
+  1060		req->frame_type		=3D sgpio_resp->func_result & 0xff;
+  1061		req->function		=3D (sgpio_resp->func_result >> 8) & 0xff;
+  1062		req->function_result	=3D (sgpio_resp->func_result >> 16) & 0xff;
+  1063		if (req->function =3D=3D READ_SGPIO_REGISTER) {
+  1064			for (i =3D 0; i < req->register_count; i++)
+  1065				req->read_write_data[i] =3D sgpio_resp->value[i];
+  1066		}
+  1067		ret =3D ADPT_IOCTL_CALL_SUCCESS;
+  1068	exit:
+  1069		spin_lock_irq(&pm8001_ha->ioctl_lock);
+  1070		pm8001_ha->ioctl_completion =3D NULL;
+  1071		spin_unlock_irq(&pm8001_ha->ioctl_lock);
+  1072		buffer.header.return_code =3D ret;
+  1073		if (copy_to_user((void *)arg, (void *)&buffer,
+  1074				sizeof(struct sgpio_buffer))) {
+  1075			ret =3D ADPT_IOCTL_CALL_FAILED;
+  1076		}
+  1077		mutex_unlock(&pm8001_ha->ioctl_mutex);
+  1078=09
+  1079		return ret;
+  1080	}
+  1081=09
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Cen=
@@ -227,14 +287,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/201912260309.WtW4w53c%25lkp%40intel.com.
+clang-built-linux/201912260547.jCLcrf9B%25lkp%40intel.com.
 
---fvszcwbb6kx5abrt
+--ajeuap5qvascdhww
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICKqUA14AAy5jb25maWcAlDzZdtw2su/5ij7JS/KQWJJl2Z57/ACSYDfcJMEAYKvbLzyy
+H4sICEDMA14AAy5jb25maWcAlDzZdtw2su/5ij7JS/KQWJJl2Z57/ACSYDfcJMEAYKvbLzyy
 3HJ0ryx5tGTsv79VAJfC0oonM8c2qwp7oXb0Lz/9smBPj3dfLh6vLy9ubr4vPu9v9/cXj/tP
 i6vrm/3/LAq5aKRZ8EKYP4C4ur59+vbi25uz/ux08eqPV38c/X5/ebJY7+9v9zeL/O726vrz
 E7S/vrv96Zef4P+/APDLV+jq/l+Ly5uL28+Lv/f3D4BeHB/9Af9b/Pr5+vFfL17An1+u7+/v
@@ -1552,4 +1612,4 @@ jlGpR1WaypNXtFh6EuBn+l1EnXngt6pWufvn/q0mAskrSftq2VoxC815BFm+o7KDuW7dPprz
 e9M3OpUTOVZzWycE5vQsT4VNBPaHUYPoaU+lpj2uafYXumKLkVfrvqxD2hojro1DlAofW97r
 jMbER/bYD9ewoG0GVUTQsERtakitDjZVrF50xVWGStnBtvo/5J6TZuyHBAA=
 
---fvszcwbb6kx5abrt--
+--ajeuap5qvascdhww--
