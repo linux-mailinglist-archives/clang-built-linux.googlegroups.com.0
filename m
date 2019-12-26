@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBVNWSPYAKGQEBDJ3OGA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBEGTSTYAKGQE7GM2QIA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF50012AD60
-	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Dec 2019 17:09:59 +0100 (CET)
-Received: by mail-io1-xd40.google.com with SMTP id t17sf12551302ioi.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 26 Dec 2019 08:09:59 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577376598; cv=pass;
+Received: from mail-qk1-x740.google.com (mail-qk1-x740.google.com [IPv6:2607:f8b0:4864:20::740])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7943812AEFA
+	for <lists+clang-built-linux@lfdr.de>; Thu, 26 Dec 2019 22:43:45 +0100 (CET)
+Received: by mail-qk1-x740.google.com with SMTP id f124sf16846802qkb.22
+        for <lists+clang-built-linux@lfdr.de>; Thu, 26 Dec 2019 13:43:45 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577396624; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SjrNAlAkpNMQI1TOpopaZ8mTONfVzgWGjF4Lyf5939DkiJQ03OetE+gzWjpZTj0ubQ
-         gNN1oXE9K2ebGmp1y8QDaMcaI2QIKrPAAbwHOK55iqX7KpqlU3/FSgkZ0Gc6u5VjU2mF
-         drjYr5Bkkcr8I7usPapBQZcoxdwFghVccBfjZaN4DjYh61dYCClVWcGuncPCVr+S2XkM
-         7vFgUQtUJHQaljW9FQrRv129JVZEuWNPevjSyT/Y6LNLOIoukiGn4POnDMBmy2+Mu1+7
-         wAnogwnG/pyB9C8BB3kgup3Kbjm2R0VCLNax/qqLevWNSZWVrFnfNZ4VFiFBqfZwV1m0
-         5EfA==
+        b=FnRfTsSRq/vlglslmuWVmWH7v79iLTvNKllCWusDjLIl2RNGciEzvXDarpp/J9MpDB
+         auJWyQsy8OAYMWrwMKAFp1Ec0GxF/v9VmeUxk+RdXaGu2+Nh3pcRQtWUDQmU4UTf9Nwg
+         RxXnA8ebj2ThMwGTcrlm/KAs+SwCB6oCJOtqhoIgjZvaT1vmlVzIzGD0GjNCajDwKW5+
+         QQBrQypqrM9HHYZG1Bdma/Y3fWnvftyRM+sWBK2bxD9sYbonpmZcsvEvpQVXr0r5JXaj
+         13kCd6rY26VflSU85ArOz5OZe/nNKAOYia3o3AE0jy6O+5peBo+n6PS42AcOjeHTJC9f
+         gpdA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=AQjG+lQ+L2FpT/jdUAKZX1aA8cb7lPO6FwA2pZUYWpY=;
-        b=dyhfXkJ2BGnESxrxq4vcwHlYpOqjPi/Ft+G4TVjYomdBkDP7qrzbQ2APuEiSQGhfnt
-         QplcDzLkbEBIt/DCiRwKBbHR9AJhebmlTKeoPSXK7oWQcW7ytg5vuPcqaftZUydG/+Bs
-         LIjCYeBvzPOVU0qKSSrgjlQp0/ZWn7HJABruhvG4apYf1QY0Pi5Lic8FJkst6X9GMYIk
-         pArXjRvqIPyUQwtsGDXafe1dFiPFH2O5BMKTgoXxD6RokHCMJoJ1hMGnscogw7X27j0N
-         7oXUf0RIzt4ITSDqDO6q4gm2gFpi5pyS+jQs/em1nYVI0NlrNQ3BOg3frCfkA/W96o5c
-         nRCw==
+        bh=9lq+gyzTJHHAjR7/KqjhWfHSj3AgjSy8WLJQNZ0BlKQ=;
+        b=aUrB2RBN3qpCoMm39l6dJrsugUqzM/8rTtE8UJT6wtGsvy5HEXVnyLqXZFTyaap4qW
+         Y1z6tp9bul3WRhBJPHC0D+7By7hxU+mZaf3UHgMD7EJ1wf1MTONpWyS9fr6+huLDue2w
+         JEamb/+QVeRntu9ejqBE1Dr+WhuANEENHoXyLtuVbY7LiPYecEyy+VtB2Pm+yAQF9i6A
+         VovlIuxFsI3Vnus2rNzqRBwIFzbVQxxUcUUXzpSTtGQGFV7XGQJ1YwCRNP8QwmVtpqFM
+         P+E5j3jcKNl4CxpK2nCRhCgZeMMmO+6JU/HzV9TRMLd2p4ZSTIPmML4EdXEkiIXwkUg7
+         12Pw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=AQjG+lQ+L2FpT/jdUAKZX1aA8cb7lPO6FwA2pZUYWpY=;
-        b=Ol7s8NGHmehRpccLQMQqtkU2CRx883RXwvPKe4AjETd5JBhPtvfN0l8mPIf9/QEHjd
-         b+4+p39w92QwKQQ5wQkinMm4HpUp6uXdbG2WeyhElJzPa37isWASZ7ntCTtm6Tm6SiqB
-         /2QEXOGcg/LM1rO/R7CLdhb1k8159oI2c2eOofe3CI3+lD0mX95tlF9M6BEFvRTmRylK
-         DnO718PgY9EqNs1N76pIQvXAvR22xNfcheExUQTJKbqQwHwFuqDXILYP7FRLknpmaEpp
-         PVRXRkCOI9yh+JkS1WRggBFdcYD1FqNWHu93XjyJz3mXE+dMLkwv4Vafbxq22iM7K6W2
-         74Ag==
+        bh=9lq+gyzTJHHAjR7/KqjhWfHSj3AgjSy8WLJQNZ0BlKQ=;
+        b=hMXluLtI7WtqLGEmMOr+EKOen6jIQJWbh/RmhNqWsM9CfypHU6WnFQUWctNInKRLP3
+         riIBQ9PHKhb01dZM8uSi6M2Do6I9tJdAIh1NdRXIPgO3wraNw1Fk2ce/CwoP1QNZPAqV
+         osl/s0kcXvLRSTg1Jo2MWyx21mAg+XytZzTBsPPl+JDlTLnMel9mpdCcPMJU6lpak4xY
+         HkCUBJn/CqaO1YwC5u7x/k+3MVXYA0ckVVHdUUK0aFlzVGi8PmbeGqPNcwHCjaH0g2Jr
+         b8y9Nrqzp+GYDjgpzAsjC5mfSC5Xzy5gcOY0VyDxww2/RjvpJuVInlcC6zMwrywgN3Lz
+         j+7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,78 +49,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=AQjG+lQ+L2FpT/jdUAKZX1aA8cb7lPO6FwA2pZUYWpY=;
-        b=Rxnv8J9am8Yl/Ln97mKFNV1dKD2rfwUy2TKMWQbhpilz9FtcLM1f0Vzsx3gsLY9bJZ
-         6FCJ/6aZoV7vOWGz6t9esaFiMfe48xfTFrN+A6K4ipwvTO7xbl9/muqnPmkPb0sPzG3Y
-         t3LogkNAyGMuBLo7pp+oJH3aFIwxy7nzMv56FrQ/IkRazC/qSf6XCJKMUNJMqNr8cb5B
-         3Bpe3WdjSr+dZDnhLWdRno6WEvXT57Sadv6WysWIFJNi+DqazwxfsBdGvE1QlPMXEpav
-         V273jYccF5ifF0v2kOnimGXLr6uD4ls0p+0zxJDcU2cYLDXjxuL3C6mysRoYfyK1K4uh
-         nBCQ==
+        bh=9lq+gyzTJHHAjR7/KqjhWfHSj3AgjSy8WLJQNZ0BlKQ=;
+        b=ThB9euaSRXyDzfOxLZAzl5qfLsJu2NKL0p/ex6VATLYO35KAGPT33t0z0ZOK90Iof5
+         q8ve/ZyA6C49yZaYYV3XF8IKqmE3RK20J3vGQpXF1opPN9/plho5ofPnpXvohw6KN7hR
+         biTfeMLAJMQjhot46p3LHHv9SSo81PbGk8yWo0jUaMFAJS6MM+lTwnU6OsdOJ7zrSWFM
+         FiFbWd/ZnXqmCNs1KT0WYD+eQpj16xmJuCFf/N6oWijCOhWW+1RbLJ/uYXQffs4qFKX1
+         70E2ykETYjWq4bb+5GLso9ASg2VImH1VW3tekxWJCRkM4ZykKY4kqRqfVXnC1JNVLH45
+         mDLg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUP1SDKUKeudvMM0u03vWly/Ed25TROrLXETVxyYnlFAgi91Nzc
-	EwoHgjF2Nh4VUxrm185C86w=
-X-Google-Smtp-Source: APXvYqz/H3bP3WBj9+vJIGmJxq+wk48kGCY7+LWTQz5kcwIZC/UKQ7dRHl7l1994oLXknAkLQ1r3mQ==
-X-Received: by 2002:a5d:84d6:: with SMTP id z22mr29930415ior.54.1577376597364;
-        Thu, 26 Dec 2019 08:09:57 -0800 (PST)
+X-Gm-Message-State: APjAAAVJ119AVjzPrLNlVI9M00bLjJEiv2kbL3Xn778AAOn3NIAijgu6
+	5heHa221Z88VoLLY+x56G3M=
+X-Google-Smtp-Source: APXvYqyKA0veEynjsLefWDIs1/9B18ppxOFuaWAsiX8hgtZy6SulujfpNf294IXSnbJXLPTvQ6YO8Q==
+X-Received: by 2002:ad4:49cc:: with SMTP id j12mr37622965qvy.188.1577396624112;
+        Thu, 26 Dec 2019 13:43:44 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:8789:: with SMTP id f9ls3055683ion.9.gmail; Thu, 26 Dec
- 2019 08:09:57 -0800 (PST)
-X-Received: by 2002:a5d:9452:: with SMTP id x18mr18013088ior.16.1577376596914;
-        Thu, 26 Dec 2019 08:09:56 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577376596; cv=none;
+Received: by 2002:ac8:34c1:: with SMTP id x1ls6669491qtb.12.gmail; Thu, 26 Dec
+ 2019 13:43:43 -0800 (PST)
+X-Received: by 2002:ac8:6d2b:: with SMTP id r11mr36368700qtu.166.1577396623694;
+        Thu, 26 Dec 2019 13:43:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577396623; cv=none;
         d=google.com; s=arc-20160816;
-        b=ZFrMQIMIcNUpCxTwVvjq/L06eZ3MKcb07BKycAMLmWIAvPBljS7c6Ftk24eJIvPPW3
-         s/Vg36NBg8dSmBnhjDv026WB+UsYHFw7mpdfm96CawTddRZBWvfKJrjcwcApqMIYpoxk
-         IX4Gez5VxC0NQR0luFHncs3GwGSME8J10L2gm+ugaVPTR8hD/LKG0nfprEk1gnJXM78p
-         RQDd6V4l2KxDVcYLpMuES5QxiZksjGJwOK0/pCUfqesFEzm4j29Hfz1zvUcJ05gSTg1B
-         N3lh6p4NcEvVY+pv0Ry9zLD1w8SzPXi4ywrRQCxi8JQ9gmYLwpXHTW8E4JmT50YK3cMl
-         ZgAg==
+        b=Y2xS54JyNYUdh7slIfM6RmDrI2ap7SRzQFXFmjD1xEG3J8T7HFd0c+CinBXcSkuow/
+         3E7ODmzyeV4T/NsyHmtxPlq95/ImjnchVuWo2TiGIg3Wkmfv3EnWUYYDmv9w+IumF2+p
+         YrC6ut6la9ylcn8t+KIcyYkrQOdGsRHlcfNQPvbPXVd0NpP16rLTfSn6bN9ihGSdxt01
+         pE8IYn6oleSGgUs+f9un79onX5dGCl4/4tmhHd/UJe9l3Ptv/+UfvGF4g7+uOkKi3ESQ
+         yEiPSaGv1eOZdtozgah2Iaj5Jz2QzSonYlbTOZkoPviQfmdzG6ivIDXbnOp9QJAdkpfL
+         MoXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=aeQnqKkCCKpKGcMATrELiItjzNidBaJbCTiIGIn6hQM=;
-        b=tDi6KDayHJcvfy0UNUb9xi/QNA15J3qhAg/eWWVVrKqvSVQgAZg4mJGw//RtCknAs2
-         33hTWH1Y7DSCDRaFqCmj3YV0TvJF675j1jNmIhQoLPaoxtSotkagQT46DZYM4FOT5Oe/
-         6vvR//195pU+UIB+MmswJoVnQVWUjRgpyAxK68/0maHRfKz4GHOGAEsUmxxQi4Qq9ZWJ
-         EO960Pf2eyziD7y+AiEcarOlzEZKy7DraCn2RefTNyzdbBMFeyMUkMjhRwD3YOiyMzuy
-         irWJyflLZYbkn4Q0OQ2YCgDdhQevr6k3QtszzsZ/OubsKb31DyR7c2IAT+wax2RHiL9X
-         4uyQ==
+        bh=PWDM7H25hafbnyUE3hIGWN+ieoyeMiADMqFWAQI/amo=;
+        b=krg/woIOrmePkDB/MPr+6wsEdgg8h88f59mA2ImobU6VXn56wHIw4Z5UbhLddPTRMt
+         jtzZV9fpKwpbYBTOaAXT8e7SsEC55PMwHEw9+civeK+RWK/Nnu1UQI7Ob1ruP9nQsYnD
+         fHs4+o/eBvFnb0oS4q1Gr+NdC0xcEM37qyA6HHrGxBNFQICt+NKeuxelUFBYkod2a7ht
+         z7Lo79tTLj6DInHxcn91/CS4Cdau3S4NG9073YpLbF/OHYr17EYGOILqmuPp1RVtE0Dq
+         FzK7qLzEiK/asoWFIRz4rgalYG1GWvj1ev0eXzzjzBk7+vVknLhiXOD4XBn5K1YUAdo/
+         DLnQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
-        by gmr-mx.google.com with ESMTPS id a1si1149467iod.3.2019.12.26.08.09.56
+Received: from mga17.intel.com (mga17.intel.com. [192.55.52.151])
+        by gmr-mx.google.com with ESMTPS id g23si1229570qki.4.2019.12.26.13.43.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 26 Dec 2019 08:09:56 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
+        Thu, 26 Dec 2019 13:43:43 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted sender) client-ip=192.55.52.151;
 X-Amp-Result: UNSCANNABLE
 X-Amp-File-Uploaded: False
-Received: from fmsmga006.fm.intel.com ([10.253.24.20])
-  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 26 Dec 2019 08:09:55 -0800
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga107.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 26 Dec 2019 13:43:41 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,359,1571727600"; 
-   d="gz'50?scan'50,208,50";a="419497013"
+X-IronPort-AV: E=Sophos;i="5.69,360,1571727600"; 
+   d="gz'50?scan'50,208,50";a="212478125"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga006.fm.intel.com with ESMTP; 26 Dec 2019 08:09:54 -0800
+  by orsmga008.jf.intel.com with ESMTP; 26 Dec 2019 13:43:39 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ikVhx-000J1t-Sb; Fri, 27 Dec 2019 00:09:53 +0800
-Date: Fri, 27 Dec 2019 00:08:58 +0800
+	id 1ikaux-000Eje-FI; Fri, 27 Dec 2019 05:43:39 +0800
+Date: Fri, 27 Dec 2019 05:43:14 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH RFC v4 19/42] kmsan: x86/asm: softirq: add KMSAN IRQ
- entry hooks
-Message-ID: <201912270058.OEFKY6hD%lkp@intel.com>
+Subject: Re: [PATCH RFC v4 31/42] kmsan: hooks for copy_to_user() and friends
+Message-ID: <201912270504.TKBh6akV%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="dvm7bmcohljngz4d"
+Content-Type: multipart/mixed; boundary="funnzcskucvll6os"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.151 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -136,19 +135,19 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---dvm7bmcohljngz4d
+--funnzcskucvll6os
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20191220184955.223741-20-glider@google.com>
-References: <20191220184955.223741-20-glider@google.com>
+In-Reply-To: <20191220184955.223741-32-glider@google.com>
+References: <20191220184955.223741-32-glider@google.com>
 TO: glider@google.com
 
 Hi,
 
 [FYI, it's a private test report for your RFC patch.]
-[auto build test ERROR on linus/master]
+[auto build test WARNING on linus/master]
 [cannot apply to tip/x86/core tip/x86/mm efi/next v5.5-rc3 next-20191220]
 [if your patch is applied to the wrong git tree, please drop us a note to help
 improve the system. BTW, we also suggest to use '--base' option to specify the
@@ -167,45 +166,83 @@ reproduce:
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> kernel/softirq.c:606:3: error: implicit declaration of function 'kmsan_context_enter' [-Werror,-Wimplicit-function-declaration]
-                   kmsan_context_enter();
-                   ^
-   kernel/softirq.c:606:3: note: did you mean 'kmsan_softirq_enter'?
-   include/linux/kmsan.h:322:20: note: 'kmsan_softirq_enter' declared here
-   static inline void kmsan_softirq_enter(void) {}
-                      ^
->> kernel/softirq.c:608:3: error: implicit declaration of function 'kmsan_context_exit' [-Werror,-Wimplicit-function-declaration]
-                   kmsan_context_exit();
-                   ^
-   kernel/softirq.c:608:3: note: did you mean 'kmsan_context_enter'?
-   kernel/softirq.c:606:3: note: 'kmsan_context_enter' declared here
-                   kmsan_context_enter();
-                   ^
-   2 errors generated.
+   In file included from lib/iov_iter.c:4:
+   In file included from include/linux/uio.h:10:
+   In file included from include/crypto/hash.h:11:
+   In file included from include/linux/crypto.h:21:
+   include/linux/uaccess.h:150:6: warning: variable 'res' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+           if (access_ok(to, n)) {
+               ^~~~~~~~~~~~~~~~
+   arch/arm64/include/asm/uaccess.h:95:31: note: expanded from macro 'access_ok'
+   #define access_ok(addr, size)   __range_ok(addr, size)
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:155:9: note: uninitialized use occurs here
+           return res;
+                  ^~~
+   include/linux/uaccess.h:150:2: note: remove the 'if' if its condition is always true
+           if (access_ok(to, n)) {
+           ^~~~~~~~~~~~~~~~~~~~~~
+   include/linux/uaccess.h:147:19: note: initialize the variable 'res' to silence this warning
+           unsigned long res;
+                            ^
+                             = 0
+>> lib/iov_iter.c:142:6: warning: variable 'res' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+           if (access_ok(to, n)) {
+               ^~~~~~~~~~~~~~~~
+   arch/arm64/include/asm/uaccess.h:95:31: note: expanded from macro 'access_ok'
+   #define access_ok(addr, size)   __range_ok(addr, size)
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+   lib/iov_iter.c:147:9: note: uninitialized use occurs here
+           return res;
+                  ^~~
+   lib/iov_iter.c:142:2: note: remove the 'if' if its condition is always true
+           if (access_ok(to, n)) {
+           ^~~~~~~~~~~~~~~~~~~~~~
+   lib/iov_iter.c:140:9: note: initialize the variable 'res' to silence this warning
+           int res;
+                  ^
+                   = 0
+   lib/iov_iter.c:154:6: warning: variable 'res' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+           if (access_ok(from, n)) {
+               ^~~~~~~~~~~~~~~~~~
+   arch/arm64/include/asm/uaccess.h:95:31: note: expanded from macro 'access_ok'
+   #define access_ok(addr, size)   __range_ok(addr, size)
+                                   ^~~~~~~~~~~~~~~~~~~~~~
+   lib/iov_iter.c:159:9: note: uninitialized use occurs here
+           return res;
+                  ^~~
+   lib/iov_iter.c:154:2: note: remove the 'if' if its condition is always true
+           if (access_ok(from, n)) {
+           ^~~~~~~~~~~~~~~~~~~~~~~~
+   lib/iov_iter.c:152:12: note: initialize the variable 'res' to silence this warning
+           size_t res;
+                     ^
+                      = 0
+   3 warnings generated.
 
-vim +/kmsan_context_enter +606 kernel/softirq.c
+vim +142 lib/iov_iter.c
 
-   597	
-   598	static void run_ksoftirqd(unsigned int cpu)
-   599	{
-   600		local_irq_disable();
-   601		if (local_softirq_pending()) {
-   602			/*
-   603			 * We can safely run softirq on inline stack, as we are not deep
-   604			 * in the task stack here.
-   605			 */
- > 606			kmsan_context_enter();
-   607			__do_softirq();
- > 608			kmsan_context_exit();
-   609			local_irq_enable();
-   610			cond_resched();
-   611			return;
-   612		}
-   613		local_irq_enable();
-   614	}
-   615	
+7ce2a91e51288f mm/iov_iter.c  Al Viro           2014-11-27  137  
+09fc68dc66f759 lib/iov_iter.c Al Viro           2017-06-29  138  static int copyout(void __user *to, const void *from, size_t n)
+09fc68dc66f759 lib/iov_iter.c Al Viro           2017-06-29  139  {
+d0db0a6134ffc5 lib/iov_iter.c glider@google.com 2019-12-20  140  	int res;
+d0db0a6134ffc5 lib/iov_iter.c glider@google.com 2019-12-20  141  
+96d4f267e40f95 lib/iov_iter.c Linus Torvalds    2019-01-03 @142  	if (access_ok(to, n)) {
+09fc68dc66f759 lib/iov_iter.c Al Viro           2017-06-29  143  		kasan_check_read(from, n);
+d0db0a6134ffc5 lib/iov_iter.c glider@google.com 2019-12-20  144  		res = raw_copy_to_user(to, from, n);
+d0db0a6134ffc5 lib/iov_iter.c glider@google.com 2019-12-20  145  		kmsan_copy_to_user(to, from, n, res);
+09fc68dc66f759 lib/iov_iter.c Al Viro           2017-06-29  146  	}
+d0db0a6134ffc5 lib/iov_iter.c glider@google.com 2019-12-20  147  	return res;
+09fc68dc66f759 lib/iov_iter.c Al Viro           2017-06-29  148  }
+09fc68dc66f759 lib/iov_iter.c Al Viro           2017-06-29  149  
+
+:::::: The code at line 142 was first introduced by commit
+:::::: 96d4f267e40f9509e8a66e2b39e8b95655617693 Remove 'type' argument from access_ok() function
+
+:::::: TO: Linus Torvalds <torvalds@linux-foundation.org>
+:::::: CC: Linus Torvalds <torvalds@linux-foundation.org>
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -214,14 +251,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912270058.OEFKY6hD%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/201912270504.TKBh6akV%25lkp%40intel.com.
 
---dvm7bmcohljngz4d
+--funnzcskucvll6os
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICEPKBF4AAy5jb25maWcAnDzJduO2svv7FTzJJlkk0eQh9x0vQBKkEHFqAJRkb3gUW93x
+H4sICHf3BF4AAy5jb25maWcAnDzJduO2svv7FTzJJlkk0eQh9x0vQBKkEHFqAJRkb3gUW93x
 i4e+st1J//2tAjgAIOj0exmbVYW5UDP0/b++D8jb6/Pj4fX+9vDw8DX4dHw6ng6vx7vg4/3D
 8X+CuAyKUgY0ZvJnIM7un97+/uVwejxfBWc/n/08++l0uww2x9PT8SGInp8+3n96g+b3z0//
 +v5f8M/3AHz8DD2d/h3cPhyePgVfjqcXQAfz2c/wd/DDp/vXf//yC/z38f50ej798vDw5bH5
@@ -1088,4 +1125,4 @@ c/A5XkcO+U0VtoB58hhHHkz15xVsYsuPsWErvHcC3u1nDEWd4S4cEW3U26JoK7BVIwvFhUwj
 85ldW7kHkioThOtF0KGsZOREgIRKQQeMUgcFoAXY6tiJi6DBAEEM0ysW5eSz5HK+kPw/BzVs
 0I0oAwA=
 
---dvm7bmcohljngz4d--
+--funnzcskucvll6os--
