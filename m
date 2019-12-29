@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBIWPUPYAKGQEWTJ5HWQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBMOPUPYAKGQES2IADAA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 453F912C60B
-	for <lists+clang-built-linux@lfdr.de>; Sun, 29 Dec 2019 18:51:32 +0100 (CET)
-Received: by mail-pj1-x103c.google.com with SMTP id g12sf12024517pje.5
-        for <lists+clang-built-linux@lfdr.de>; Sun, 29 Dec 2019 09:51:32 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1577641891; cv=pass;
+Received: from mail-vk1-xa3f.google.com (mail-vk1-xa3f.google.com [IPv6:2607:f8b0:4864:20::a3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id D598912C60D
+	for <lists+clang-built-linux@lfdr.de>; Sun, 29 Dec 2019 18:51:46 +0100 (CET)
+Received: by mail-vk1-xa3f.google.com with SMTP id l4sf12823645vkn.2
+        for <lists+clang-built-linux@lfdr.de>; Sun, 29 Dec 2019 09:51:46 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1577641906; cv=pass;
         d=google.com; s=arc-20160816;
-        b=FcncqdDzUbOAGkzLBWhPSJg5fawqNgZ4gNT61BNrrhh2RlD7Y+b6PPd1LKvZNMw6s3
-         FuRQI3ae3PgXalsb9NoZuY0Unec9SXVDwYyhkRQ0pZo5mhNeF7wwUZc3UXleTqk7Fb/o
-         w5guevwGlvrjge/c6MtkQlFoJlLHyqcqZGAltdu2TsE8A8STaYjmhCLmSAHNMjV2vIUd
-         oi7SjH3tMBw9ZL87i4neeJ5xPLL1aebiTL0mhS5wihYr6qUEUnRnwMwAvJJgAPlXkVAJ
-         FOQGtPMOXU/a9itkNJTaUU9GzbiSma99khKIzC0kpXwJEBWbkaGFVHMARKUS6wSBjebd
-         z+QA==
+        b=B56/i3VZ0D2eLT6IkbYmKO1kdmoG4c8/IctcCWI/JQYA2+o82E3eKypCBzn3GXxSlS
+         KANhJsbLg4UgSSEH/BW8/j1bUWaJ7kgbVsywpP/v6Op89ekBVrvcrpRVblgkcRfcjWiL
+         SI7moSuGuzO2eosUQyoqsUkicVUFhYxwQfiQyz6Bte6qdrl2ryr9uI6YHSqc/Xcpb0KV
+         3NmcyPPjKcNaKTsMlHAWn903PCUlyewYkvXPa/Rm0ChXphT0HgBu7LQp5BdCRoslSU8e
+         5gZJ02Zhn9o2MToPfKU5kU97W7v92QYukvEg/qe05S3JkZPgIWSEi4Uma6XSqy0Z7qQT
+         e0Hw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:user-agent:references
          :in-reply-to:message-id:date:subject:cc:to:from:sender
          :dkim-signature;
-        bh=aLiY8llEXzvdw8Obwc9gtgxT5zGG4Mo94WNwN+Dw8WI=;
-        b=traCP/dbZe/c5pm/TIYpDdlvyBez6/0C0rZrks0sPGbk56cyhSsBhbsg4L5d+wbYro
-         BMvROmgIkKq0tubv0d1MBCqY5sOrBpDeeUVpwF7javXbrKlA/AxZF1FemdmhW2WvIZFw
-         lMeBpvAc4jG3pVft0+IlNrXS4Eou/ZD+ReM87GWsmKO7ZmRkClXckyHBOqHRsFqCPTYX
-         A6JYfBNsZuEaYWtpY45eHCvf1N4WaR9OLk5ZbdJfyDxqf0lR/rk8RXXvxNB2WdyVQH0J
-         fYqzFFJO0n6h559sdXiEw+az7hPUQXAHkjCWsoQ6Rgj5EWv6LO7WfW+n2qXZs0nvGp6Y
-         6p6w==
+        bh=yVmi/f9yDg5dBPya+oohXdwArR+Tu0o4wrz3YwQyXOQ=;
+        b=cab5x70PctyWSgZDUutfeT+f+uhM5IS5XEqK6IAQxITNTXQO7wMlnpee+3EqN3ClbL
+         8EjjyX34ONxMf1nJv3tTDnTX8k+64YaAiCNo1Vu5S/kmdRphjexMev3BM9gWT2isSA3d
+         RtNY2TiYeegeXL7H+9FdCzi/jfj2hB+Gd2PFmxAVkD63CajcimKG8i4EioBXD/GEjEIw
+         NvSvHVseOLypd/yeiTtcIEigvzksfEMKCJrj+Qji2tiZi9s0VdyWiLsTgU86MGrUQX6b
+         perZ4WFiQyLidRibRTyPhNyJpcMun3dJGKZw/+UK6GP+fBxgy7EATV1NlfRdcqnhea6R
+         WPhQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="Vqvc/Bz6";
+       dkim=pass header.i=@kernel.org header.s=default header.b=BVVXO7oh;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=aLiY8llEXzvdw8Obwc9gtgxT5zGG4Mo94WNwN+Dw8WI=;
-        b=GPrTaFThP4r6/obKDLDwJj1ivhMQmRcf/NdYD8rRsMpGKM1Y7jYpYGU3b+4JI+8HDo
-         tCIbfWGuuDd4eF8lCwIOQdHN/tA5SglPrZh+tbEzASJUvotXOzsiUQdrEl55D+VtzsOx
-         wmHL2EpXK/kfzUV8hox9o61GnV2ajjHJp3CEpEwelPR+m6tM9xZw0EnZBvCnOw4Psn5J
-         +0gGxEQBw+U0wWoIu7oHqgel7ru33rhxz18cCbtKlk9Wc7UYUw3+y/KAlxLzfcTBdm2d
-         uIm/ADz0cD3F8PTL3Q6yVGkO8XZo9xTW447GN1mwJuF92dvEKw9j8Dxlq6I+XRlNBgPK
-         FY0w==
+        bh=yVmi/f9yDg5dBPya+oohXdwArR+Tu0o4wrz3YwQyXOQ=;
+        b=GAE1tInKr3VlXQAgfwuXvOmW6lcr0RLYOlvgS5ZPbyMoybV5Hp3YrNTptveYjdZySr
+         Dv/tXu9JQRfP513Go3Ym6FgkG9MRXXasi2waAUk6F6ZB+pPrxu86kiAO45fdcrHkAQ1H
+         Z+MZJM4mFK2L7Ht1uITldUEbYRgzlQHSOGoHhr9KQitCRdOhcc5jC36FbK7V1XKhqBUT
+         hnZhP8GNfvguBLg9gjkPyJc/2BvnUOcOZx15RKgfLzR728V3xANzV2L8xYDeDJW7yNRS
+         Y5fZ3DTIEtMQLVNYvnpPc5tRVLHWaNtisvP04arsl+cG65AYe9cDaXhrN24xqRGKe3G8
+         cPmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,56 +49,56 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=aLiY8llEXzvdw8Obwc9gtgxT5zGG4Mo94WNwN+Dw8WI=;
-        b=NDX81D92pUX7gfXzYLGJIAX48jyt9pOBmkASSLGdQcdMUSe/0msUuJsSBhwWkV4OuG
-         EsP1AkeeOZfiTkUwOeQKfR8VIaUjSTsEfxoM2e/+uh+YHqdaL7vTr/vhzas/lP41sUcl
-         x8Z5NKQEA6wjD3GLunjOtv6hi4PvTTV2ybqvFjT1FKb/JfU5wP5GE+2bPm1+GaowI7Vw
-         vfi62acMXCIHHoNhTrZuESCYIiSdPXWEUe2dJ91DUb03oy3YZR6Jr9YKtrZLPxJ3WILF
-         l08vxXD13v0H5SjSa2WNqc56LgqZw8AO0Cj8JElzg+ckg9wKEtUnfbmeawOR46EFtfz5
-         uz6g==
+        bh=yVmi/f9yDg5dBPya+oohXdwArR+Tu0o4wrz3YwQyXOQ=;
+        b=pDzuFmKS9lz1CNnfwhpHexdLewXtkItBPD6mxF3ebWzf9MLKvYkMefdHndZ+QiXBAL
+         /v1ZjZ+wp43Lai0CkR34QUgo8c5QkM9dmWM0uZuESFEtw46gw4a/+P30UgHOdLzivJYl
+         qxAvDWxXRxmeg88vShbq2fwQrQ8z1V8zpaiUJGU0sarHP5cghr++XUQDUsMglXJBmfzJ
+         qaOn5BgDYd+6HHHqYKX3zQKSjC3ZfKE/lD4iGmxE8MRKcW3QBjp6/8MLkB/s9E9+Rs89
+         um8sJNRDaNFLMKZa6RJ5dPj7X7kc111xZQil35seVc/2rv6jKH3e4MDdC+I2G8f2aw3p
+         Y4ag==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV9s/aAMEhtVro4hISV7SswchLN85ihnqWGmaD76cT5prJjTng/
-	3ydKx6qVbX3LGwwgHQ8SJGQ=
-X-Google-Smtp-Source: APXvYqwwZwKwdB+kjUb1Jqd1nPq9T9FsqUYCDWosIC9pJHGyPpe40KgnYeQcC8ER9QCUhmjEoC2/9A==
-X-Received: by 2002:a17:902:407:: with SMTP id 7mr8708811ple.226.1577641890712;
-        Sun, 29 Dec 2019 09:51:30 -0800 (PST)
+X-Gm-Message-State: APjAAAUywRHZkh9E3NAy/E7dP7gpAZwye3D4noL/AELazxa5aSYVh4Io
+	DgRDeHnM9DtvWoyXJiQPsGo=
+X-Google-Smtp-Source: APXvYqyfU+JNKPcmDRU6gl4mS8oZ52eF5HtfvnMeB8d5oXclLMAkFDClRdLu2/NcXhhVOJFaB8xuNQ==
+X-Received: by 2002:a67:2e47:: with SMTP id u68mr27861936vsu.205.1577641905866;
+        Sun, 29 Dec 2019 09:51:45 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:82c3:: with SMTP id w186ls9426767pfd.16.gmail; Sun, 29
- Dec 2019 09:51:30 -0800 (PST)
-X-Received: by 2002:aa7:870d:: with SMTP id b13mr46936800pfo.212.1577641890375;
-        Sun, 29 Dec 2019 09:51:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1577641890; cv=none;
+Received: by 2002:a9f:2883:: with SMTP id d3ls1642220uad.6.gmail; Sun, 29 Dec
+ 2019 09:51:45 -0800 (PST)
+X-Received: by 2002:ab0:66d6:: with SMTP id d22mr35845687uaq.92.1577641905381;
+        Sun, 29 Dec 2019 09:51:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1577641905; cv=none;
         d=google.com; s=arc-20160816;
-        b=EjT0uvnp2onymy+6nLzgn9PjAizMS+9KG4PJbDQmIlKm2hlTPnG5G9wp23lhTeM7ue
-         l566Zc50HfWge8Dbi4d61kEZYi0liVOy0Rzb00DhB18fhTOCZbAOjysF3RLKV9TqpWUr
-         rfp02ELuRFKdtSIilYbs9sg6H+ZFcpvYxKv2wyRYrw20vYAcvZwA0RPB36EUdujqmg7L
-         giFAzRJMywUtVt2QW/xbQm40yJAdv4jYJENY4K1O/1/1P++omViIPqsFaVbya7gNgeQX
-         SqNDQp2ALp33ksiWlTM1CwndYHDT0YHAw0oYQxmm54RXSdMYF9oAalpREzDp96J3kiCI
-         Ok3A==
+        b=UL5+HFNrInjGB8RjJ+KHwjubXbucLHWdP6xnMqKQKpg/jYkIo6fzsw+hLNDHZEiL6y
+         1lZbJDeg2Ck6dviGvdv8jvJMT1rnwpeFTx37n3AOJe1iE42oQ9hsp24VyyZj3CXnQcYS
+         lh/GdhWAt4fgHU+b3MC9k0ntdZXbxAM2fWYzKfb9CylqHwAbQbkOnKRpkxHWWw2csOgz
+         X3t7tASuL1OWm8zQ3QqWibAl287Kt2DbKbWO9RFgDU/QqSz84GZ8NeN9y5N1OdKW2TGg
+         pjB4feGlfaXJeSo2ZP1UXTBgMKqwZQOu8ZqDDuRHztkkOOQMY3WDMdQIhnCzNyBkQ2qI
+         eZsw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:user-agent:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=QHkNnSU2N1eZbiF8vcz5fgArtpRMxW7aG5SfoMummyo=;
-        b=NexR6J0uiEkXLKLeq7hPek60YTNCo9pEalIj2XGfyHQgFslmZKQgBvKAM9pW67p7FL
-         KCp4XX2jResqIz6OeROi608UXZFmuPgWOLpX9Dv++cgQmfjC2JZbMFl9XaG+kagCPee3
-         9TEsOpdD0eV982coYQcCi2X49ZIAyc3VtqLvgLt1Op3OACNPxM/7psebm366n2FrkuPI
-         cw59ooaYL9V22tUTEicFQbzYSItK8iLgumK/hCMJWLft/IkswtE3vN1IfyYkFw0mep1C
-         b/nIX2WvFfQM6irGL3y9d1XiD1PLCXYfz/vcFHWI61mxqBCUaPO9taq2njT4jvnrHYuC
-         xsRw==
+        bh=lpiDZUrWKlcFVCDNczj3lCkZ65EXdbJauDDpykar0PQ=;
+        b=ec85y8l0brEe0iH0huoO8DGdif6GKNuNA93CD2HS2uZg35q4+8jcpz8P85g2DKUWB0
+         IpmxF+JwD56jPikbR5VkVO7ifgn8VzUEpWMjWBfvjk5kYKNgEMM4NfwGUHfx9oqhiLAe
+         WXjcOFkl6tACn7TAkvzoAfCrOK4p8X0xvIEkJCF2X1Wp1k53G8F7iwvNsu/TZnaeLhI6
+         gW4ZykFlAOTlO+nlysBOpwLyAWH3/7mYV05AaU6u3PJS2NEvPsW+Ew0+rIIQmSRHP9Io
+         ErtsPom/PBvxvsuy4R4WnlGKU4iz41Iiz3PBKEu6FOULdvmglWR85rN77Z9OHHOPC+8S
+         f3tQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="Vqvc/Bz6";
+       dkim=pass header.i=@kernel.org header.s=default header.b=BVVXO7oh;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id h19si989650pfn.1.2019.12.29.09.51.30
+        by gmr-mx.google.com with ESMTPS id h7si1022008vsm.1.2019.12.29.09.51.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 29 Dec 2019 09:51:30 -0800 (PST)
+        Sun, 29 Dec 2019 09:51:45 -0800 (PST)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl [83.86.89.107])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id A802A208C4;
-	Sun, 29 Dec 2019 17:51:29 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id CF47A207FF;
+	Sun, 29 Dec 2019 17:51:43 +0000 (UTC)
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -125,9 +125,9 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	netdev@vger.kernel.org,
 	Arnaldo Carvalho de Melo <acme@redhat.com>,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.4 254/434] perf tools: Splice events onto evlist even on error
-Date: Sun, 29 Dec 2019 18:25:07 +0100
-Message-Id: <20191229172718.795111361@linuxfoundation.org>
+Subject: [PATCH 5.4 260/434] perf parse: If pmu configuration fails free terms
+Date: Sun, 29 Dec 2019 18:25:13 +0100
+Message-Id: <20191229172719.205964752@linuxfoundation.org>
 X-Mailer: git-send-email 2.24.1
 In-Reply-To: <20191229172702.393141737@linuxfoundation.org>
 References: <20191229172702.393141737@linuxfoundation.org>
@@ -136,7 +136,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="Vqvc/Bz6";       spf=pass
+ header.i=@kernel.org header.s=default header.b=BVVXO7oh;       spf=pass
  (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 Precedence: list
@@ -153,13 +153,9 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Ian Rogers <irogers@google.com>
 
-[ Upstream commit 8e8714c3d157568b7a769917a5e05573bbaf5af0 ]
+[ Upstream commit 38f2c4226e6bc3e8c41c318242821ba5dc825aba ]
 
-If event parsing fails the event list is leaked, instead splice the list
-onto the out result and let the caller cleanup.
-
-An example input for parse_events found by libFuzzer that reproduces
-this memory leak is 'm{'.
+Avoid a memory leak when the configuration fails.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 Acked-by: Jiri Olsa <jolsa@kernel.org>
@@ -181,44 +177,34 @@ Cc: Yonghong Song <yhs@fb.com>
 Cc: bpf@vger.kernel.org
 Cc: clang-built-linux@googlegroups.com
 Cc: netdev@vger.kernel.org
-Link: http://lore.kernel.org/lkml/20191025180827.191916-5-irogers@google.com
+Link: http://lore.kernel.org/lkml/20191030223448.12930-9-irogers@google.com
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- tools/perf/util/parse-events.c | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
+ tools/perf/util/parse-events.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
 diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index b5e2adef49de..d5ea043d3fc4 100644
+index d5ea043d3fc4..422ad1888e74 100644
 --- a/tools/perf/util/parse-events.c
 +++ b/tools/perf/util/parse-events.c
-@@ -1927,15 +1927,20 @@ int parse_events(struct evlist *evlist, const char *str,
+@@ -1365,8 +1365,15 @@ int parse_events_add_pmu(struct parse_events_state *parse_state,
+ 	if (get_config_terms(head_config, &config_terms))
+ 		return -ENOMEM;
  
- 	ret = parse_events__scanner(str, &parse_state, PE_START_EVENTS);
- 	perf_pmu__parse_cleanup();
+-	if (perf_pmu__config(pmu, &attr, head_config, parse_state->error))
++	if (perf_pmu__config(pmu, &attr, head_config, parse_state->error)) {
++		struct perf_evsel_config_term *pos, *tmp;
 +
-+	if (!ret && list_empty(&parse_state.list)) {
-+		WARN_ONCE(true, "WARNING: event parser found nothing\n");
-+		return -1;
++		list_for_each_entry_safe(pos, tmp, &config_terms, list) {
++			list_del_init(&pos->list);
++			free(pos);
++		}
+ 		return -EINVAL;
 +	}
-+
-+	/*
-+	 * Add list to the evlist even with errors to allow callers to clean up.
-+	 */
-+	perf_evlist__splice_list_tail(evlist, &parse_state.list);
-+
- 	if (!ret) {
- 		struct evsel *last;
  
--		if (list_empty(&parse_state.list)) {
--			WARN_ONCE(true, "WARNING: event parser found nothing\n");
--			return -1;
--		}
--
--		perf_evlist__splice_list_tail(evlist, &parse_state.list);
- 		evlist->nr_groups += parse_state.nr_groups;
- 		last = evlist__last(evlist);
- 		last->cmdline_group_boundary = true;
+ 	evsel = __add_event(list, &parse_state->idx, &attr,
+ 			    get_config_name(head_config), pmu,
 -- 
 2.20.1
 
@@ -227,4 +213,4 @@ index b5e2adef49de..d5ea043d3fc4 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191229172718.795111361%40linuxfoundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20191229172719.205964752%40linuxfoundation.org.
