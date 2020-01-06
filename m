@@ -1,125 +1,211 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWXWZ3YAKGQEOGWDJCQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDNMJTNWWEEBB3HWZ3YAKGQE7QLJBAQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id B8570131BE5
-	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Jan 2020 23:57:31 +0100 (CET)
-Received: by mail-io1-xd3a.google.com with SMTP id n26sf31841604ioj.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Jan 2020 14:57:31 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578351450; cv=pass;
+Received: from mail-qk1-x739.google.com (mail-qk1-x739.google.com [IPv6:2607:f8b0:4864:20::739])
+	by mail.lfdr.de (Postfix) with ESMTPS id CB733131BE6
+	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Jan 2020 23:57:49 +0100 (CET)
+Received: by mail-qk1-x739.google.com with SMTP id 143sf30240118qkg.12
+        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Jan 2020 14:57:49 -0800 (PST)
+ARC-Seal: i=3; a=rsa-sha256; t=1578351469; cv=pass;
         d=google.com; s=arc-20160816;
-        b=dKyNHYcqyuyN1Y+GkPFBJXIhIhMwvGI0cdPkE374MvnM9hiqk4A6YYrP8Ov4ji+1QZ
-         jv/0jgGfqthum5gsiU9YyFeYTnprq4HRBwxPH95pd5Zh/YjbdBzfTKhf7gYBTPN0DSxq
-         M2xxpirKc/eBCMtHgyBWekHgHiBE99oBiMWFN7TAn5QfkQZuWUW54fLcYIu4d1P8pwSt
-         tE5zjBpISyjUf7n5m8benBGGKxX8lMMgdc41qyXdmRytU61ud4RE1DZP47NqNEZ3WDwW
-         wuq77I0rploFLhw+tcni8Ex5fjCsagUXzFajUKRgP4UNd/8QpzmvjnmFlk6/b2O3hF2s
-         6Ifw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        b=X+Gxenz8g2MVrPYEhfeYTTGCx0aaA84wPkdydAQkelm+DO1irHdu83wZgX1t/uYx1I
+         zSrQIPnfGNT5jXEnPZzWdlstsUq8Esb6lJdy4qOYjsZ0bPQ8Acemd/QfNWIVZLixD7YX
+         bB29vePcyxPDGmkw+Q3tBThmACFVm5v9QLbowYXCPM7nTmWHmHCa0L+ujnMGQqRxnYHq
+         +vRv1kEnJJ7tFMm6gM/GjcBY2QsbCIJgE0AtpSceGGO6XzTGV/ZS7G1SfIeqLHlJjgb7
+         ypfpgAeZt6SoRbmY4d1+C/kjpHWrCTyrsL7+thhBWjVCmzvkrQwVUIi0wTfHB0vVEYqv
+         HnIA==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=m4aVZ72B5K595JWx3M6gxyGz1NNplR7z9zez0VJfMeU=;
-        b=g9oLlq0qy+0dTDLzlq6/ncuN/9H8aekSzRNkCIg2loTk2vWSdqNudp/ebi/NnLWAO7
-         2h/P/wKiAFXLab7tsCYJV1YKRCQfHZelUnNyae6f2vWumzy2UnqMRO+fRNB4JTxIXnRa
-         bV3+TZ0rTaf865PEoSp1rrggJM8+F63XyTIduvHt0/7l/L2pCYUOieaTX35CxT4omLhn
-         fhazHZoxO7gtkSV7mhwsGihm3l8NrbOKi4eZbHEZsNrP8uXD3GHlbsTqY7qsw+MtbBvI
-         xDeUJm4reuiFHOPcymcRuy+ynWbKOQdg6FPtA3uR512BlWX3IrmiC8sJWk9a8NWq93+I
-         w3QQ==
-ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Igmr8huJ;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+         :list-id:mailing-list:precedence:mime-version:content-id
+         :content-language:accept-language:in-reply-to:references:message-id
+         :date:thread-index:thread-topic:subject:cc:to:from:sender
+         :dkim-signature;
+        bh=/D4L5KiaPQ90SzJDREbyAo7K35620WbUxdC12GEkIEE=;
+        b=w+hT4vDkMMg6yYnrnY/IL7IBW41of9hQS8bQVQ0UiNvQCYbPqduL4y27s1hcNfjrfG
+         A/US9Kr+xlABDGcYSK6E/iUb2u3xlMl8IPFXMAlQQu2jV1Kf4rEfbkvsLcSpaaGAXXsu
+         DPTXQkHLbSDOeRFgTS/r9ZADlP+8OasS0YAtGdhGcktM2xahpECy4uyqYTfbRx33FOR+
+         8wWxt5qOgW64ojce6HVc7q7OOWiYuOwvJXyav5m3Y/GVK6vNtqXr9CtiiRdhemReHl9s
+         JmeBRcIWswYRdyii0d3eqQMyQo1M/7IMJsjO0hx9cUunIDaHfDV5riBa8FFYTEJVuizP
+         4beA==
+ARC-Authentication-Results: i=3; gmr-mx.google.com;
+       dkim=pass header.i=@fb.com header.s=facebook header.b=AmVFGLkC;
+       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=C01K7EsI;
+       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
+       spf=pass (google.com: domain of prvs=827429c2f5=guro@fb.com designates 67.231.153.30 as permitted sender) smtp.mailfrom="prvs=827429c2f5=guro@fb.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fb.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=m4aVZ72B5K595JWx3M6gxyGz1NNplR7z9zez0VJfMeU=;
-        b=ZZlNlLOybPEbnjNoLh3/lyZqy0nlfaOQBBk6VEepwlbqB9O63kDS2olvwcKP/z47o/
-         PFVW2HDb+wgYqAaXc7dQh1A/RJfhldtDCB9Sk+BmXmkrRYrDjsw/TBD65H3dUNNVBZup
-         WW2KLH30lyCiU6Pena/kXXzzjIXsyahxZ9bpRgauljkQdJgwaKhTPBLG0CUayGW5GHbC
-         jfxHKRgOASkjqtVFyY49ZpKhWFFIeBmJao5X2xgcgYe8TLKWCo7+1Gp5amCaH/DRQnS3
-         9oZ+tNsuQblhGdVHii9BTJn4+DeYY+Vcy6sgVjTYIMqND6CLMfZ2dxMNDpnpqLSngGxX
-         5BBA==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language:content-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=/D4L5KiaPQ90SzJDREbyAo7K35620WbUxdC12GEkIEE=;
+        b=lCtahEYA82m2cXl+8SmSpY4FB9WF1MJ76PEFkbg4KJJfr5u2ZDhe8MUMQHubqJ+/1B
+         QmmZnuiJiE4CgLKWaHk6AmHfVzDYIQhY2xWhdrrl7rEoZJ8BLmxpF59wu6zzcqpq7+r8
+         QNPZnH+SKqonltFi2lOssULpfSvOj53DSnYBJ+SKRGjUjYUgONobKYJdRPZra8Y2uXNY
+         DnyxY0UVTo/2WK9mK0/RmR56lxoCHa0QLNfPRmV+hqzNfF7xckU9VcoZC7xrUFlwNv/c
+         eXI45ItorKtVmPVhgtGcHEayppHc1RzMDwWeTgi9e//qe0hLWoTulOKpjuDdDEWAPY2u
+         RUOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=m4aVZ72B5K595JWx3M6gxyGz1NNplR7z9zez0VJfMeU=;
-        b=HWdjYlrzauBJ8aSuLa/qswv2crofz/VG23R1bJrEDrR6PiLZwiL+qqKNTNwGt3fmd6
-         hOypiZBzTq/T55UwjD+KtBYvLE51ToPHBoRk67IsDhn//K3BjQzolYKu0qO8fQPUMYeQ
-         z5UsPB3SS0hSO6Xh4VYIkllqI7cDO4dqKaTE9B80PM+QN8jjqcKbC9c8BTxt66mbgwky
-         2RHCXqSSt1H3VckMVTfD21qfjjv7etSfn4FbfCTP5awChYYJgJtOno1ZPgPyjtLS0IuW
-         OAJDvLWvY80N7jt/c8E8gO+ThjVPrUZg9FJ9oud2s74ny9AqU/WDfuQE18m7RUIviaLh
-         S3zA==
-X-Gm-Message-State: APjAAAVr3ghCSPXeQnRLGykMkz9gqqYLDZ3qWoCgG7eXD6y2Pw/5t6wc
-	TiUkrBzQBBkO8JNKcaA/i3Y=
-X-Google-Smtp-Source: APXvYqylhp+Weue5SRxoTR6nAgBFWrkZF1VJKZYnyuVEZ23cp6gvGsKUdpiyOOlwPQmasuPAc0pVyA==
-X-Received: by 2002:a02:84eb:: with SMTP id f98mr78187296jai.36.1578351450559;
-        Mon, 06 Jan 2020 14:57:30 -0800 (PST)
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:content-id:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=/D4L5KiaPQ90SzJDREbyAo7K35620WbUxdC12GEkIEE=;
+        b=nnQjeRdy7blMh0Q3JnrBTPNnVIl/Tib68IT7/EpQV7KlUhowHBg/n4uPtQvG2PMtPV
+         Jf6YH+trDSn2Ke/GUpmS0klP1DCsMzUef44XU5EQrgo61fCY5GzpSdoOc3lgrPCe1Noi
+         SYOKuvYbnYZfw8nGVPJT2EhKTp2lzzJeryzVaptuE6YkV/7xjbrPJsehCocf7QdYP4F1
+         js9OMuW/jN6OXbtyZWROaaIn6kKbuG/RuHhDX83MFgdFLa56Q4Z6XE+CsrTAlbhbctP8
+         TxavmvZ3x7wNHCj7Zthw79x3Fp7MOe94s2BwYeeJ1BunJFXYrPHBGLgBwhICUe4JKUqr
+         mBmQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAX6jC0pa0WgRPcHAt7fx3qhue3vFxt5VDDeCq6M+3aXg0gYUGG4
+	1QPcjcxBMORhWutU8fOcNAc=
+X-Google-Smtp-Source: APXvYqyh1xZJwIIC5A33y9Y+HEyYTmYaGoGG+BKNcZe9kCuXTwIQW0CmCAapG1RGc0DjbeoC2sg8Ig==
+X-Received: by 2002:ac8:4616:: with SMTP id p22mr78253549qtn.368.1578351468855;
+        Mon, 06 Jan 2020 14:57:48 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:39c5:: with SMTP id h66ls8048606ilf.11.gmail; Mon, 06
- Jan 2020 14:57:30 -0800 (PST)
-X-Received: by 2002:a92:844d:: with SMTP id l74mr91368711ild.16.1578351450271;
-        Mon, 06 Jan 2020 14:57:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578351450; cv=none;
+Received: by 2002:ac8:3690:: with SMTP id a16ls6882356qtc.8.gmail; Mon, 06 Jan
+ 2020 14:57:48 -0800 (PST)
+X-Received: by 2002:aed:204d:: with SMTP id 71mr78303277qta.116.1578351468549;
+        Mon, 06 Jan 2020 14:57:48 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578351468; cv=pass;
         d=google.com; s=arc-20160816;
-        b=GyqoDZ5y7GrPMgkUgclOHcSiI09CzBnB1UKgIDducbbG7pY/z4wXzEk4GXrd34Y+h2
-         U3dqdNWSUJE/TeV50/OoDHpYnLdwxKUMUAo1uo5G63B0fIl1F+dGACcH5JsSrGUGSg13
-         ej3FZNqJul7Vm1Cq/NAdmS0cMX7ymo2oXXITQEHhQNiGFZPf8tPBUZDf2FV3G2cmf2us
-         8BDumCNfEOPy/kFrl1MIw3f7Pji4dmNM2ahjcVjc2gwlhs1HW+7EAcmTNoLpkT+ioOCg
-         Mcla5Zeyhi93/Wh/bIDlm1LV8Bwl9G3oZ7z2U75rVh5yxsNIQG599loR7wDOadbOX1j/
-         eqHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Gq7bJYL61FS3H1GY5kYu/qEzW3M5hPRCG4KZebXYr50=;
-        b=YHFLZza4cPgnSS5idDbeqLnl+Wy4lelUp9rwk315FpgGOVpCr+Qdm6eutUbR3hMxHF
-         1eFw1nc6ztL2X5ojXJGAIm+IDW2ooz7P6nBRvdVg+2XnVhXLuHz8aMujckJgtazXnbBd
-         1eMMmyw/xvaXvlI5vNrHuT9Pdig32mjIpHp2A/B76iiJeyCJZkbGbME8O5Ky0ONlnD3f
-         7cC+2oUZnxu/HkHgTBa1x88BINppkl7mfhQwXPnSZCH7qg55VC9m14N6hPrBq9HORbLw
-         eyrxdKUQoQ/HIfJS32IGKVpofrevDol+x6BojPVs/023LpacUROyeiZqlfZTCs4/EivL
-         5CYw==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Igmr8huJ;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x62b.google.com (mail-pl1-x62b.google.com. [2607:f8b0:4864:20::62b])
-        by gmr-mx.google.com with ESMTPS id h4si3542603ilf.3.2020.01.06.14.57.30
+        b=Fv46DmvfMshhCKyUPmscIJrkdXt5H8Tjp5aLoYjZsvM4WI8I5VVsjV2ML7tV+xJszO
+         uowTcU5yivxqI39Sl4RJhuA9fYS0ZnOPyH/dqi6BHAny+aZNawZK4KNKWq+e6oCfEFKL
+         2+wrn/o+R/Tknp2AUzuWHNluxqnILVxWlU2YDCyvq4xtAw2V+tkJ9KWJMb0FrMKNhesu
+         xzH47Qzh2iwbxwYWNF/5Bd7OUVplHx+WYlet+KL276xg0o6JNNiF5KqZRqyx/uDdyMkr
+         mI68LBjWtudkb7UQYT25DSCLABIC68aeOZPh8DjbuLLDMhfqaVNF0hUphth+/NiIcdq5
+         bp3w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:content-transfer-encoding:content-id:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:dkim-signature:dkim-signature;
+        bh=t8yI2ZiE2vxGpbSGuCa8BaFSd21/gp0OJnt9ta6V4gM=;
+        b=GDftiWcfJ+csoA2rYiO27ppfSqH1hEAu+RITuaEsyOTHJN/mN7GfG5ZHqo+tjp9M+2
+         H2LDJS85KoqMjWgtH/r8Ybqlfi75aNYL4gI5TIRWmrJ7o7kAW8DLETKGRASZQVC/01Xw
+         HaS/Sth8n6geCh345CWY584D6NJZvW2aHOdJgB2Hu8WZd+Yk0nL+tQYygSdqmaviqfgj
+         FANuWD+U1fR7NOQ0GkVi8jcARpgfEOsg4LE9ZfiQ+WCbpdrtcxO6qyjV+eCgoe51A56o
+         9DwpMHL9urOc+P4fOebI/fnSlMdVL5PXoT31Tg8R6GvBviZ2TkNBszzH7jbyVdfV+dXv
+         wJQQ==
+ARC-Authentication-Results: i=2; gmr-mx.google.com;
+       dkim=pass header.i=@fb.com header.s=facebook header.b=AmVFGLkC;
+       dkim=pass header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com header.b=C01K7EsI;
+       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass dkdomain=fb.com dmarc=pass fromdomain=fb.com);
+       spf=pass (google.com: domain of prvs=827429c2f5=guro@fb.com designates 67.231.153.30 as permitted sender) smtp.mailfrom="prvs=827429c2f5=guro@fb.com";
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=fb.com
+Received: from mx0a-00082601.pphosted.com (mx0b-00082601.pphosted.com. [67.231.153.30])
+        by gmr-mx.google.com with ESMTPS id w10si2360145qtn.1.2020.01.06.14.57.48
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jan 2020 14:57:30 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b as permitted sender) client-ip=2607:f8b0:4864:20::62b;
-Received: by mail-pl1-x62b.google.com with SMTP id g6so22406693plt.2
-        for <clang-built-linux@googlegroups.com>; Mon, 06 Jan 2020 14:57:30 -0800 (PST)
-X-Received: by 2002:a17:90a:77c1:: with SMTP id e1mr46040647pjs.134.1578351449421;
- Mon, 06 Jan 2020 14:57:29 -0800 (PST)
-MIME-Version: 1.0
-References: <68970e42-1632-4894-a2ad-c9e68ed5192d@googlegroups.com>
-In-Reply-To: <68970e42-1632-4894-a2ad-c9e68ed5192d@googlegroups.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 6 Jan 2020 14:57:18 -0800
-Message-ID: <CAKwvOdmTzoQon6x3izX8CTXMm2tmah+NHb9d+5csKO9Wa0euXw@mail.gmail.com>
-Subject: Re: Compile qualcomm qcm2150 android kernel driver module with
- scan-build,report Error: no such instruction: `cbnz %di,1b'
-To: yan <hyouyan@126.com>
-Cc: Clang Built Linux <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 06 Jan 2020 14:57:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of prvs=827429c2f5=guro@fb.com designates 67.231.153.30 as permitted sender) client-ip=67.231.153.30;
+Received: from pps.filterd (m0001303.ppops.net [127.0.0.1])
+	by m0001303.ppops.net (8.16.0.42/8.16.0.42) with SMTP id 006Mrxsg031753;
+	Mon, 6 Jan 2020 14:57:47 -0800
+Received: from maileast.thefacebook.com ([163.114.130.16])
+	by m0001303.ppops.net with ESMTP id 2xbje9f2k9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 06 Jan 2020 14:57:47 -0800
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (100.104.31.183)
+ by o365-in.thefacebook.com (100.104.35.175) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.1713.5; Mon, 6 Jan 2020 14:57:46 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=I8tte/1/BB7et1KdM3MuwTf1MCKxb0nEyJIVBYAPphDBQIGI8ExIfYD5/ZqFxFq3Ttx3SCaz8atW+XXHQlZPeiPm7tTOBfkJ47hZxQ4WEFl/T6dGMkgbKjBdOwOcefpbsxlV1RaqxI1mAXX/b4evXXyZMV3gQEiBrOIzMfg5o3HrglyMUmRweOHpvBihGwNCGobpdlX9oahsWJqWoBf1dhEMmItFZ29IBfvdplk+UhTLw7zDF0mVig1usMFkulLjS0r6lbLbVRq+0guPH8h37RPED8h7rsMl47VM0tSX6/HvqPn9s9bmL4dMutVivDle1TYqxHiDG7GdkdGKQk6s6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t8yI2ZiE2vxGpbSGuCa8BaFSd21/gp0OJnt9ta6V4gM=;
+ b=QaaoMRkr/ftMi/+KHxUGX0gI7bPiTF2shoZXoB33YSbhnnuD0u2Mk3KPV5ZGVCFq9oarLDYh0I2K4RhhIE2aClu3AMgGUwMl263uhgUQMiFp4RVIKJgpPAnw6TcatIdeJx9avOVXAIq2YTiybnIDANq6cgsv0YWlYyT71QrkXnmBEJIDOJN5eTrxuRnXPm7Kmhe650y0jmMIH8ttBP0GMioXOw+ZlVp0MjrffFJF+YtGFu5RhkfE9hHLvltKrGVux3GJDtvsf+DjEEEsH5Rr4tUQWV9DTbPYPUjSutbxxRnKEutTgeyxZv+afvEaSZT4i+JSawW6WVXNW/1VGeEF+w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=fb.com; dmarc=pass action=none header.from=fb.com; dkim=pass
+ header.d=fb.com; arc=none
+Received: from BYAPR15MB2631.namprd15.prod.outlook.com (20.179.155.147) by
+ BYAPR15MB3381.namprd15.prod.outlook.com (20.179.59.12) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.2602.13; Mon, 6 Jan 2020 22:57:44 +0000
+Received: from BYAPR15MB2631.namprd15.prod.outlook.com
+ ([fe80::ccb6:a331:77d8:d308]) by BYAPR15MB2631.namprd15.prod.outlook.com
+ ([fe80::ccb6:a331:77d8:d308%7]) with mapi id 15.20.2602.015; Mon, 6 Jan 2020
+ 22:57:44 +0000
+Received: from tower.DHCP.thefacebook.com (2620:10d:c090:200::1:3c1) by CO1PR15CA0073.namprd15.prod.outlook.com (2603:10b6:101:20::17) with Microsoft SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2602.10 via Frontend Transport; Mon, 6 Jan 2020 22:57:44 +0000
+From: Roman Gushchin <guro@fb.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+CC: "kbuild@lists.01.org" <kbuild@lists.01.org>,
+        clang-built-linux
+	<clang-built-linux@googlegroups.com>,
+        "kbuild-all@lists.01.org"
+	<kbuild-all@lists.01.org>,
+        Philip Li <philip.li@intel.com>, kbuild test robot
+	<lkp@intel.com>
+Subject: Re: [rgushchin:new_slab.1.1 3/23] kernel/fork.c:400:30: warning:
+ implicit conversion from enumeration type 'enum memcg_stat_item' to different
+ enumeration type 'enum node_stat_item'
+Thread-Topic: [rgushchin:new_slab.1.1 3/23] kernel/fork.c:400:30: warning:
+ implicit conversion from enumeration type 'enum memcg_stat_item' to different
+ enumeration type 'enum node_stat_item'
+Thread-Index: AQHVxOD/6NdJxUaGEUGowPS0WrOA0afeP6OA
+Date: Mon, 6 Jan 2020 22:57:44 +0000
+Message-ID: <20200106225741.GA23914@tower.DHCP.thefacebook.com>
+References: <202001050316.ZKXmkO5U%lkp@intel.com>
+ <CAKwvOdm_B+fpPq_-j3Rf=nJBFj0tWY=7sp85dsrUyrxQo82C=A@mail.gmail.com>
+In-Reply-To: <CAKwvOdm_B+fpPq_-j3Rf=nJBFj0tWY=7sp85dsrUyrxQo82C=A@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-clientproxiedby: CO1PR15CA0073.namprd15.prod.outlook.com
+ (2603:10b6:101:20::17) To BYAPR15MB2631.namprd15.prod.outlook.com
+ (2603:10b6:a03:150::19)
+x-ms-exchange-messagesentrepresentingtype: 1
+x-originating-ip: [2620:10d:c090:200::1:3c1]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: df0dfa5d-f21e-4afb-a780-08d792fbd770
+x-ms-traffictypediagnostic: BYAPR15MB3381:
+x-microsoft-antispam-prvs: <BYAPR15MB33819BBAFF472871CE62DCBDBE3C0@BYAPR15MB3381.namprd15.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-forefront-prvs: 0274272F87
+x-forefront-antispam-report: SFV:NSPM;SFS:(10019020)(396003)(346002)(376002)(136003)(39860400002)(366004)(199004)(189003)(478600001)(9686003)(2906002)(55016002)(54906003)(66946007)(16526019)(66476007)(316002)(1076003)(86362001)(4326008)(71200400001)(33656002)(4744005)(186003)(66446008)(66556008)(64756008)(81156014)(81166006)(52116002)(8676002)(7696005)(5660300002)(6506007)(8936002)(6916009);DIR:OUT;SFP:1102;SCL:1;SRVR:BYAPR15MB3381;H:BYAPR15MB2631.namprd15.prod.outlook.com;FPR:;SPF:None;LANG:en;PTR:InfoNoRecords;A:1;MX:1;
+received-spf: None (protection.outlook.com: fb.com does not designate
+ permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: UyPtr7C6k1L7rPuKsyymHgwG82puih7sWrLHv9M5N2lXV0qOtvLE+Yzwff4x2q2Z7WE18KwmqFUGzW3zCAuUE7uwBa3oufVTZxcrNmTHiqppbeOgnq+9y4jIDZUiX5OWgeWCUqHs+VxEhvXcN04UeJek87LO0eA6HzUroqWk9Q+/zUORZdxj9FUBGqPQwGiGQLdxmJcgCepgFHvj52C3tGEIQZxjxa+aAbGtXRLLQtz7ZCFdwzfOlkTPL1JNQzZKX9Hg/smxRRasq46jsPWhXqNmmVVDeW7srcxUIhe5g5aD/jqRStQAXopg8nXshY2SAmCjGgbnDfDvt7B/LEeTjmkQlEutRb+rTReLox5bVgZkK9pf8HLLxjwzoONTuUWyjTTDUUhbxhIZ5/L/KDjwoWiZIhh1mV6BcBIkdk405nX/ItJ4Ky4VQvynA2w4ewyQ
+x-ms-exchange-transport-forked: True
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+Content-ID: <3105584C22D78A409CE4E4ECBEC40E5B@namprd15.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-Network-Message-Id: df0dfa5d-f21e-4afb-a780-08d792fbd770
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Jan 2020 22:57:44.7044
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 8ae927fe-1255-47a7-a2af-5f3a069daaa2
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: P2qtaByJOWpbUyd5umHrB2U30fmlcYVlO5Dgk5Dhf8gKTT6R0lund8PAIYZHtQxS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR15MB3381
+X-OriginatorOrg: fb.com
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.95,18.0.572
+ definitions=2020-01-06_07:2020-01-06,2020-01-06 signatures=0
+X-Proofpoint-Spam-Details: rule=fb_default_notspam policy=fb_default score=0 lowpriorityscore=0
+ bulkscore=0 clxscore=1011 suspectscore=0 malwarescore=0 priorityscore=1501
+ adultscore=0 spamscore=0 impostorscore=0 mlxlogscore=478 phishscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-1910280000 definitions=main-2001060186
+X-FB-Internal: deliver
+X-Original-Sender: guro@fb.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Igmr8huJ;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::62b
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@fb.com header.s=facebook header.b=AmVFGLkC;       dkim=pass
+ header.i=@fb.onmicrosoft.com header.s=selector2-fb-onmicrosoft-com
+ header.b=C01K7EsI;       arc=pass (i=1 spf=pass spfdomain=fb.com dkim=pass
+ dkdomain=fb.com dmarc=pass fromdomain=fb.com);       spf=pass (google.com:
+ domain of prvs=827429c2f5=guro@fb.com designates 67.231.153.30 as permitted
+ sender) smtp.mailfrom="prvs=827429c2f5=guro@fb.com";       dmarc=pass (p=NONE
+ sp=NONE dis=NONE) header.from=fb.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -132,110 +218,21 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Youyan,
-Thanks for the report, sorry I haven't responded sooner (holidays).
-If you run `make` with `V=3D1`,  you should be able to see how Clang is
-being invoked.  It should be invoked with `-no-integrated-as`.
-Another thing to check is that `--target` is being set correctly. I
-suspect the absolute $PATH for $CROSS_COMPILE is to blame (try setting
-$PATH then using the more concise/relative $CROSS_COMPILE).
+On Mon, Jan 06, 2020 at 02:30:46PM -0800, Nick Desaulniers wrote:
+> Roman,
+> Apologies if it was already reported (working backwards through emails
+> missed during the holidays), but this warning looks legit. Can you
+> please take a look?
 
-On Mon, Dec 23, 2019 at 7:35 PM yan <hyouyan@126.com> wrote:
->
-> Hi all:
->        I want to use clang static analyzer to check my linux driver on qu=
-alcomm qcm2150. I have successfully build my driver use clang, but when I u=
-se scan-build, report a lot of error(no such instruction):
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h: Assembler messages:
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:292: Error: no such instruction: `prfm pstl1strm,%rax'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:293: Error: no such instruction: `ldxr %si,%rax'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:294: Error: no such instruction: `eor %di,%si,%dx'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:295: Error: no such instruction: `cbnz %di,2f'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:296: Error: no such instruction: `stlxr %di,%cx,%rax'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:297: Error: no such instruction: `cbnz %di,1b'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:298: Error: no such instruction: `dmb ish'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:292: Error: no such instruction: `prfm pstl1strm,%rax'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:293: Error: no such instruction: `ldxr %r9w,%rax'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:294: Error: no such instruction: `eor %dx,%r9w,%si'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:295: Error: no such instruction: `cbnz %dx,2f'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:296: Error: no such instruction: `stlxr %dx,%cx,%rax'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:297: Error: no such instruction: `cbnz %dx,1b'
-> /home/workspace/huangyy/qcm2150/kernel/msm-4.9/arch/arm64/include/asm/ato=
-mic_ll_sc.h:298: Error: no such instructio
->
-> I compile ti use module build solution:
-> the makefile:
-> ifeq ($(obj),)
-> obj=3D.
-> endif
->
-> ifeq ($(KDIR),)
-> KDIR :=3D /home/huangyy/workspace/qcm2150/out/target/product/msm8937_64/o=
-bj/KERNEL_OBJ
-> endif
-> include $(KDIR)/.config
->
-> obj-m +=3D se_driver.o
->
-> PWD :=3D $(shell pwd)
->
-> all:
-> $(MAKE) ARCH=3Darm64 CROSS_COMPILE=3D/home/huangyy/workspace/qcm2150/preb=
-uilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-and=
-roid- REAL_CC=3D/home/workspace/huangyy/qcm2150/vendor/qcom/proprietary/llv=
-m-arm-toolchain-ship/8.0/bin/clang CLANG_TRIPLE=3Daarch64-linux-gnu- -C $(K=
-DIR) SUBDIRS=3D$(PWD) modules
->
-> clean:
-> $(MAKE) -C $(KDIR) M=3D`pwd` clean
->
->
-> build command:
-> ./vendor/qcom/proprietary/llvm-arm-toolchain-ship/8.0/bin/scan-build make=
- -C kernel/msm-4.9/drivers/misc/se_driver/
->
-> How can I fix it?
->
->
->
->
-> thanks and best regards
-> youyan
->
-> --
-> You received this message because you are subscribed to the Google Groups=
- "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgi=
-d/clang-built-linux/68970e42-1632-4894-a2ad-c9e68ed5192d%40googlegroups.com=
-.
+Hello, Nick!
 
+I'll definitely take a look, however it's my private repo, so I really
+didn't expect that anyone except me will be noticed. Maybe something
+has been changed on the lkp side. Sorry for bothering.
 
+Thanks!
 
---=20
-Thanks,
-~Nick Desaulniers
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdmTzoQon6x3izX8CTXMm2tmah%2BNHb9d%2B5csKO9Wa0euXw%4=
-0mail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200106225741.GA23914%40tower.DHCP.thefacebook.com.
