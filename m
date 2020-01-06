@@ -1,135 +1,127 @@
-Return-Path: <clang-built-linux+bncBCD3NZ4T2IKRB6ORZXYAKGQEPCBSTVQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCU73AEHRQBBB3HIZXYAKGQEWUMIZTY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 25A00131671
-	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Jan 2020 18:06:03 +0100 (CET)
-Received: by mail-ua1-x93d.google.com with SMTP id m8sf2562268uaq.1
-        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Jan 2020 09:06:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578330362; cv=pass;
+Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 90939131719
+	for <lists+clang-built-linux@lfdr.de>; Mon,  6 Jan 2020 18:54:54 +0100 (CET)
+Received: by mail-pl1-x63d.google.com with SMTP id p16sf19416384plq.10
+        for <lists+clang-built-linux@lfdr.de>; Mon, 06 Jan 2020 09:54:54 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578333293; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MmGZTy4HM9/IlAgflngqyFuMv2vOiTRXA2kViv/N4CUulpqQi2w/f7GC+eRTSzu6Bs
-         KaT/xERwvRrvpfDZXrjG//8LOA4EglBG0g58ghWa5EAewJKZntLwqfw0X6z7qaWR8N9w
-         IrTWmMdIBvTOd/Ky5J45wRC3CXfBb3w0vjTsFnAyh1e7Tg2Uku9TKlfgPjLnyGf2I38P
-         T2d+h6ziVbd2gYltId/SnDAEV99b0M9jtRZy05DaLateU0ROga113qcgtqnFPWbC3LQa
-         6Fkm1DQ4Tc/MGBp+yrVygnr284h3Mvpz1GMHUjIOPgSFxIOPB4s0p19LkiF+DFp3fb4z
-         neTw==
+        b=p252SQV1n1hRSRrNs0MOjDKYWkb+RoZ1RbTIKDDQBFI3NXxnZC0lLjiiDUSIubum+0
+         Uz74503wIQjG7KuFeCIIiO4IEE1Dfd0cwwAcjTqEdtE/RPssfK+olOGRL5Pzyfd72Nwc
+         59GhCjig5hpdMCrHAIxRUDfnns7AMdlAYIj3z6bojWvsxh5rTBWNjSaAHR8JlACXo6sN
+         rAuUr4nkBnD1IoA1t63RIlGa9oubNoZkYN2awymLwyeZdw5PFpVt+QidXKNaZNQsoOqF
+         bqXEa6he8fyV0gwv/Wpxtxk1s4kgvXjyTzxySCO+dzXlh1QeyOjQUBCNvUycYROtmtV9
+         /b3Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:to:references:message-id
-         :content-transfer-encoding:cc:date:in-reply-to:from:subject
-         :mime-version:sender:dkim-signature;
-        bh=iZqVRcqFF2DQhiyJAJsmXS5ZovHJp8TRW7iTb+Z2A7U=;
-        b=JJBeLvnVPNjYNnxdl7qlhB9QnuE2CUtbcTJGAoN4necZgEdGEB1Vq6JFtw7wK8wSvR
-         qSOqreE5Inyt/IZp1AieFV8yE+cTpxbBwXpuayvaxr3zIK5m0N7dNpCIyD+upmV46nG+
-         ehRGv61dN/SCEL04wuaIwWkchziMfMF3cZovECi98EdepXImLOqpbjhuEZ/xACEcJJ3f
-         sO1XAhbcPJkfX3K4BUUiz+6neyPx3tcUbNpJzwn3vsEACvTXR8UiXFGq0ZW4XG3Ylolz
-         eYdC7e45YrCeR/F/1grhVfoj9BJZlzIp2eUPr1YrqEwsjcRilWwPI+YKOevlGAhx4o2s
-         6JwA==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:subject:cc:to:from
+         :date:sender:dkim-signature;
+        bh=3Yjf7z0zF69EqbIEiGeDLXKpg5lajezrEvLxMXK/14Q=;
+        b=pU2WKb6u+HX1ImS18NrEtcNYJFecW9t8j9R5K+s+QcecDbV/YfY0wKII6AjHqtzFoD
+         WJa3Ns5Nba/8+sfmIZFC1f44Zg6cDKP6lyUMDs36L/7jxH0y2NBv32uyr8gdU740eWqM
+         qxNi8j2B/VgzqRm8qIeV78/cbdPsVQCJQXeu4BatR1a6RKUmorrPdxtIbtbu0nyF0lFA
+         oiy7dpv8/F2JfZCBkjcu/HUYC8ctaej/04vI7ikYnfDAVEAo8XQNqCsruRTtnHoJsuqZ
+         IH/FBVPCTkQzcPY3F5xN1+HEgJQlrei7VX0KYYQvVu3UkcnD4rDlHCjBMhTl3eSKzvnw
+         RR9Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=Q5qXUAWv;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=cai@lca.pw
+       spf=pass (google.com: domain of srs0=ipd8=23=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=IpD8=23=goodmis.org=rostedt@kernel.org"
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:subject:from:in-reply-to:date:cc
-         :content-transfer-encoding:message-id:references:to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iZqVRcqFF2DQhiyJAJsmXS5ZovHJp8TRW7iTb+Z2A7U=;
-        b=iZdDb9sHGe2LcOesahveD9b2i2L94bH088KaGRePoHbdR+NFcgtXGaQX7ATyULM/vh
-         iVpNQkoeTeokl/fYySuCGHT/AD0+KeprnjzV2h6V3GPDEzVxP+65a2tYkjLlgPVjQQpp
-         1g7SRecoXKIM7i7P9IxmsYz+VKTYVT8Sc5hXIzknzX5/rJFo347Uu29UNqnOyoIvDgF3
-         ZGFZaKsnFC+9NRyGjYl7PMCI8H59cKVuWH6tnsxiogflbfgATu1H2dz3o34+E0zygMcc
-         +WdYlDsKHIsDL0CrciC43KZbf/RC4gFCL0yKijRdzQPa96h/3rfFVv1cPOTdA/g9JuGy
-         7lig==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=3Yjf7z0zF69EqbIEiGeDLXKpg5lajezrEvLxMXK/14Q=;
+        b=s6oWeNX+8tOKVikyxrfc3LukOCb7oZYqDUUrpUfRezJ4SEItBZXILKd+YNbKhPqFbL
+         y/hnq1YVI2B7k9oFnalWNOdoE3sMH0Cg9bzurbe9tgLaJUk3u2hBTGJ54MPqKbUA8SJ/
+         dDWSSBhBWAVGHAtc3vUd6QFKlTydSxue0o46/jyhTZRJzDS9TIPLV0UbRr8JxpCFNIaI
+         ZWAdsDqrmVWaiWPvh4QSgQduo7EvX6MkA5dKrRaGxG+2I9wmpBj1vddigAKHaTaHob9/
+         WEpD45ARAtaQnUroNhx2Hz4am9uB6iv/p4GzAP9KZKWt37tfMDjBGGeXbkTaGCjEJcfZ
+         KZ3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:subject:from:in-reply-to
-         :date:cc:content-transfer-encoding:message-id:references:to
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:mime-version:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=iZqVRcqFF2DQhiyJAJsmXS5ZovHJp8TRW7iTb+Z2A7U=;
-        b=hQ7ZF52atPDucKoVRO55KDLYKjRtZ5aC3CetHsRmnng8MMjbmGBf7ziX8uKoBwxkaz
-         5d52Tm5Cf45siKbtDl/o5Y6+1DZuGSs8HbpWJS3q/RfVxlR4HlB2E8MCxvcsKUJ2dCx8
-         XoaBAFNfsJhEqD4n0KmILZ2Po23to9//3/QwSa4T8VbbLBWB98qDBggTt6UUtQncsg89
-         bRma9BIZZPoTtl1Dq1zvcWYSPJU2DuEed/QWPD2zZyEZkCO7RZvTEyX8Q65kwPC3xxV8
-         wQtRbgIMrLnMoty6loJi2gmHdCgEU20Jw/3AeAkm1180iNpVlEmrMlqFSqaHM25+tSan
-         vqiQ==
+        bh=3Yjf7z0zF69EqbIEiGeDLXKpg5lajezrEvLxMXK/14Q=;
+        b=PN0gAxb5w+66c2S93hGOXOvM4O9uGLnEGkHYewrhIuSO20pYOynUzRgIgJyp+Hb70E
+         wfI9aATCdyhS6WPpur2k9QrHePfFb1qwbrZLUjrgnAZv3XZSGTJKAFTHtSBCL1T2lFoE
+         bvYbA/PmwKix4wrLfORpoeqtS2t0ZgE5uMAQlEmLgIfjSNF073pOIQAr02ZK0VcOyxml
+         wczMVevBpCpXhpuie6dzRiQzasAkXQTcYpYQCffT0am9aN+5NzyhnfchnJNtL0T+WvFJ
+         oIljPGqEn9zxD+pu+y03AJb8fb+ZL7jEycBirvtrlPDzQgVktU00+bMyZDHUD07X2AdY
+         8AGg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWdekUBYlbO9R4oOOIxiDpRWaX+1J9esoq7tdUA8WI0pj53lRnS
-	yWZqHLiZz5AUr0mtnIVqYJ8=
-X-Google-Smtp-Source: APXvYqw1amP8aGgqQxwdUlpTb1DN5FoxaKWowDvURWQl1iHkT2oZXFZwg4ys2NH1I2EYiZWczmdDLQ==
-X-Received: by 2002:a67:fe50:: with SMTP id m16mr56836262vsr.114.1578330362134;
-        Mon, 06 Jan 2020 09:06:02 -0800 (PST)
+X-Gm-Message-State: APjAAAWvd+o/NRQLgyB2JIMscIdwUdNz35ue4AWIfzLceiWG8xkhTuWz
+	0cIvVRhGICau8bOSGGK2lOk=
+X-Google-Smtp-Source: APXvYqzH8OaPPEAZwfzlA+anmYmqlw0pK073TOTx3ZVuWM2dyNvCfGK8mjXFqlXmqpjMMpkHO9vYVg==
+X-Received: by 2002:a17:902:d204:: with SMTP id t4mr108417233ply.167.1578333292699;
+        Mon, 06 Jan 2020 09:54:52 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:fd78:: with SMTP id h24ls4131363vsa.0.gmail; Mon, 06 Jan
- 2020 09:06:01 -0800 (PST)
-X-Received: by 2002:a67:6282:: with SMTP id w124mr52699444vsb.191.1578330361706;
-        Mon, 06 Jan 2020 09:06:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578330361; cv=none;
+Received: by 2002:aa7:90ca:: with SMTP id k10ls10615943pfk.12.gmail; Mon, 06
+ Jan 2020 09:54:52 -0800 (PST)
+X-Received: by 2002:a65:68ca:: with SMTP id k10mr114273496pgt.222.1578333292095;
+        Mon, 06 Jan 2020 09:54:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578333292; cv=none;
         d=google.com; s=arc-20160816;
-        b=zH0uoy3jBJ/URDwO2UnC/84cgDTMSIlsXAwQPVcGuirREDmJcVi45OOD6OpDOuhGuw
-         IcKcXoCfMLaOg4E3C+pDZE/NQH4N8t9LP7b3Ia1VGywupdIy9Bm0I06VVHhi4f4l2XwY
-         3waaBAAZ6RhaMasB0w8RzAOM6eYm+bpW/sG0hlQJn7M26/N2Hu1mlPnU4yy4whmQ4zYQ
-         Qd7F08/yq27DLL/B37I+Jjqanb2xTvWTF5G2VQBpo1GeeMSx0tHZ+yW1oiC3GP1YDqWR
-         gX5FCClmPRt/DUotf0oqPrgCSAZd8Tzz0dwnwAYOA0Dpp1qzOShYUDejLmBzie2t9YJ3
-         EbGQ==
+        b=v8a9ulhpTFyK9nqUozmm5EA2Qx/FLYx87CxbLdzHneDNcMpf+F30g8GyFfFM9btiuz
+         qMnq869i5ik375+/J9B83fBWrM7SIwAFY2hw8sK2CLe9V0a2u/wGCsP4BwlSNxj+KPeS
+         gtmahcyt8C10LDvDsTnP/OtrRwrIRd+25OPd+fOVEF0P5gGR10KFBdVkdCb6Pl0oJhxH
+         Kd1K7skmczrE7QDVJvvRXxFOWf4wbuxq/mr5n6FoNmBSW14RR+aE/CPsaj7Yw34IKusu
+         VZzU2M8vLsYA4nif/Xg8Q6yxlfytbTWUgEeZBrTOjGXRw2Cv0G27u0dyTII0+2ZJ5rSG
+         Lu5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:dkim-signature;
-        bh=EwZ+SLXyd+u2b7lSTZL/WS+X23E/iu51rmn5Dj8RxnU=;
-        b=ICo2iD/zC/BoaBlZ9HXmAa2dWxcCxZiM59bIpLGKnUd3hVXfUg0TlECplGzGTbXkbp
-         AlDETS+4ihcqWtBCRN/tDYF91iGLPgZOYHboH2L83EUJxqXxwTr6xrrUJVVzViEiWuF7
-         rCrnqNE2gHSORDWCc055U+KG4vQhtqJU/p1HYjOK/TmTlDCxO7tF5k7L04h1k3AQeBjJ
-         Lb21PbQ48Rc7HAG9g9lQ2e1zFSHXWzcjb7Xh0kuJO6znfXwNjPwSqcNLtt6tBeSIoZwa
-         NwSfmhIY+NtrwVUP95v8gD9jLmWAvMBKbMnDMPC5qO5GDh/KkLV69OmHMIDhe0Djrb0t
-         sWxg==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date;
+        bh=lRqSss4SqAXMQhfDnzJg17qBZ/Lw6fyEDMuW/S0jatI=;
+        b=MEZzYJvm2lq+Bw+C9ytRaPAiJGM3shj0XatKyImdAz6F2cBolwWjMlVKqWXauajwIV
+         S8IH6OgGQe9FyOAcgSUsdW9Rss1UNtW1Xe4IK3RLOlTRfOE8aWYwrYv/7iBkQu6tfvva
+         yvn49B9vj+0X2vrdU5TbMJAOzGwtMnLd/WnQMHYewcGp97wpEJiIFZyVPpZ4ekiB0S/1
+         GZJ6oyjm0Bj9LZEJKEK6JEED0T+gA+QOefLbdnPkUkDzNVfXwB7yFlfUDK0eOKT0shWQ
+         Tv6Sh4DbNERoK3h6vG427NN7qIqTUoD4xGq8SUTkcAS16rLOcaRd0YbnnO6DjAi4kpMw
+         Kxsw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@lca.pw header.s=google header.b=Q5qXUAWv;
-       spf=pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=cai@lca.pw
-Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
-        by gmr-mx.google.com with ESMTPS id w4si2511705vse.2.2020.01.06.09.06.01
+       spf=pass (google.com: domain of srs0=ipd8=23=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=IpD8=23=goodmis.org=rostedt@kernel.org"
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id d12si928928pjv.0.2020.01.06.09.54.51
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jan 2020 09:06:01 -0800 (PST)
-Received-SPF: pass (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
-Received: by mail-qk1-x744.google.com with SMTP id r14so40008244qke.13
-        for <clang-built-linux@googlegroups.com>; Mon, 06 Jan 2020 09:06:01 -0800 (PST)
-X-Received: by 2002:a05:620a:78f:: with SMTP id 15mr9230475qka.295.1578330361188;
-        Mon, 06 Jan 2020 09:06:01 -0800 (PST)
-Received: from [192.168.1.153] (pool-71-184-117-43.bstnma.fios.verizon.net. [71.184.117.43])
-        by smtp.gmail.com with ESMTPSA id w25sm17147166qts.91.2020.01.06.09.06.00
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 06 Jan 2020 09:06:00 -0800 (PST)
-Content-Type: text/plain; charset="UTF-8"
-Mime-Version: 1.0 (Mac OS X Mail 13.0 \(3608.40.2.2.4\))
-Subject: Re: "ftrace: Rework event_create_dir()" triggers boot error messages
-From: Qian Cai <cai@lca.pw>
-In-Reply-To: <20191218233101.73044ce3@rorschach.local.home>
-Date: Mon, 6 Jan 2020 12:05:58 -0500
+        Mon, 06 Jan 2020 09:54:52 -0800 (PST)
+Received-SPF: pass (google.com: domain of srs0=ipd8=23=goodmis.org=rostedt@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from gandalf.local.home (cpe-66-24-58-225.stny.res.rr.com [66.24.58.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id A93EC2146E;
+	Mon,  6 Jan 2020 17:54:50 +0000 (UTC)
+Date: Mon, 6 Jan 2020 12:54:49 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Qian Cai <cai@lca.pw>
 Cc: Peter Zijlstra <peterz@infradead.org>,
- clang-built-linux@googlegroups.com,
- Alexei Starovoitov <ast@kernel.org>,
- Ingo Molnar <mingo@kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Michael Ellerman <mpe@ellerman.id.au>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
+ clang-built-linux@googlegroups.com, Alexei Starovoitov <ast@kernel.org>,
+ Ingo Molnar <mingo@kernel.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <3F343134-63CB-4D99-97AD-F512B8760C94@lca.pw>
+Subject: Re: "ftrace: Rework event_create_dir()" triggers boot error
+ messages
+Message-ID: <20200106125449.563a2047@gandalf.local.home>
+In-Reply-To: <3F343134-63CB-4D99-97AD-F512B8760C94@lca.pw>
 References: <0FA8C6E3-D9F5-416D-A1B0-5E4CD583A101@lca.pw>
- <20191218233101.73044ce3@rorschach.local.home>
-To: Steven Rostedt <rostedt@goodmis.org>
-X-Mailer: Apple Mail (2.3608.40.2.2.4)
-X-Original-Sender: cai@lca.pw
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@lca.pw header.s=google header.b=Q5qXUAWv;       spf=pass
- (google.com: domain of cai@lca.pw designates 2607:f8b0:4864:20::744 as
- permitted sender) smtp.mailfrom=cai@lca.pw
+	<20191218233101.73044ce3@rorschach.local.home>
+	<3F343134-63CB-4D99-97AD-F512B8760C94@lca.pw>
+X-Mailer: Claws Mail 3.17.3 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: rostedt@goodmis.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of srs0=ipd8=23=goodmis.org=rostedt@kernel.org designates
+ 198.145.29.99 as permitted sender) smtp.mailfrom="SRS0=IpD8=23=goodmis.org=rostedt@kernel.org"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,113 +134,34 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+On Mon, 6 Jan 2020 12:05:58 -0500
+Qian Cai <cai@lca.pw> wrote:
 
+> > diff --git a/kernel/trace/trace_syscalls.c b/kernel/trace/trace_syscall=
+s.c
+> > index 53935259f701..abb70c71fe60 100644
+> > --- a/kernel/trace/trace_syscalls.c
+> > +++ b/kernel/trace/trace_syscalls.c
+> > @@ -269,7 +269,8 @@ static int __init syscall_enter_define_fields(struc=
+t trace_event_call *call)
+> > 	struct syscall_trace_enter trace;
+> > 	struct syscall_metadata *meta =3D call->data;
+> > 	int offset =3D offsetof(typeof(trace), args);
+> > -	int ret, i;
+> > +	int ret =3D 0;
+> > +	int i;
+> >=20
+> > 	for (i =3D 0; i < meta->nb_args; i++) {
+> > 		ret =3D trace_define_field(call, meta->types[i], =20
+>=20
+> Steve, those errors are still there in today=E2=80=99s linux-next. Is thi=
+s patch on the way to the linux-next?
 
-> On Dec 18, 2019, at 11:31 PM, Steven Rostedt <rostedt@goodmis.org> wrote:
->=20
-> On Wed, 18 Dec 2019 22:58:23 -0500
-> Qian Cai <cai@lca.pw> wrote:
->=20
->> The linux-next commit "ftrace: Rework event_create_dir()=E2=80=9D [1] tr=
-iggers boot warnings
->> for Clang-build (Clang version 8.0.1) kernels (reproduced on both arm64 =
-and powerpc).
->> Reverted it (with trivial conflict fixes) on the top of today=E2=80=99s =
-linux-next fixed the issue.
->>=20
->> configs:
->> https://raw.githubusercontent.com/cailca/linux-mm/master/arm64.config
->> https://raw.githubusercontent.com/cailca/linux-mm/master/powerpc.config
->>=20
->> [1] https://lore.kernel.org/lkml/20191111132458.342979914@infradead.org/
->>=20
->> [  115.799327][    T1] Registered efivars operations
->> [  115.849770][    T1] clocksource: Switched to clocksource arch_sys_cou=
-nter
->> [  115.901145][    T1] Could not initialize trace point events/sys_enter=
-_rt_sigreturn
->> [  115.908854][    T1] Could not create directory for event sys_enter_rt=
-_sigreturn
->> [  115.998949][    T1] Could not initialize trace point events/sys_enter=
-_restart_syscall
->> [  116.006802][    T1] Could not create directory for event sys_enter_re=
-start_syscall
->> [  116.062702][    T1] Could not initialize trace point events/sys_enter=
-_getpid
->> [  116.069828][    T1] Could not create directory for event sys_enter_ge=
-tpid
->> [  116.078058][    T1] Could not initialize trace point events/sys_enter=
-_gettid
->> [  116.085181][    T1] Could not create directory for event sys_enter_ge=
-ttid
->> [  116.093405][    T1] Could not initialize trace point events/sys_enter=
-_getppid
->> [  116.100612][    T1] Could not create directory for event sys_enter_ge=
-tppid
->> [  116.108989][    T1] Could not initialize trace point events/sys_enter=
-_getuid
->> [  116.116058][    T1] Could not create directory for event sys_enter_ge=
-tuid
->> [  116.124250][    T1] Could not initialize trace point events/sys_enter=
-_geteuid
->> [  116.131457][    T1] Could not create directory for event sys_enter_ge=
-teuid
->> [  116.139840][    T1] Could not initialize trace point events/sys_enter=
-_getgid
->> [  116.146908][    T1] Could not create directory for event sys_enter_ge=
-tgid
->> [  116.155163][    T1] Could not initialize trace point events/sys_enter=
-_getegid
->> [  116.162370][    T1] Could not create directory for event sys_enter_ge=
-tegid
->> [  116.178015][    T1] Could not initialize trace point events/sys_enter=
-_setsid
->> [  116.185138][    T1] Could not create directory for event sys_enter_se=
-tsid
->> [  116.269307][    T1] Could not initialize trace point events/sys_enter=
-_sched_yield
->> [  116.276811][    T1] Could not create directory for event sys_enter_sc=
-hed_yield
->> [  116.527652][    T1] Could not initialize trace point events/sys_enter=
-_munlockall
->> [  116.535126][    T1] Could not create directory for event sys_enter_mu=
-nlockall
->> [  116.622096][    T1] Could not initialize trace point events/sys_enter=
-_vhangup
->> [  116.629307][    T1] Could not create directory for event sys_enter_vh=
-angup
->> [  116.783867][    T1] Could not initialize trace point events/sys_enter=
-_sync
->> [  116.790819][    T1] Could not create directory for event sys_enter_sy=
-nc
->> [  117.723402][    T1] pnp: PnP ACPI init
->=20
-> I noticed that all of the above have zero parameters. Does the
-> following patch fix it?
->=20
-> (note, I prefer "ret" and "i" on different lines anyway)
->=20
-> -- Steve
->=20
-> diff --git a/kernel/trace/trace_syscalls.c b/kernel/trace/trace_syscalls.=
-c
-> index 53935259f701..abb70c71fe60 100644
-> --- a/kernel/trace/trace_syscalls.c
-> +++ b/kernel/trace/trace_syscalls.c
-> @@ -269,7 +269,8 @@ static int __init syscall_enter_define_fields(struct =
-trace_event_call *call)
-> 	struct syscall_trace_enter trace;
-> 	struct syscall_metadata *meta =3D call->data;
-> 	int offset =3D offsetof(typeof(trace), args);
-> -	int ret, i;
-> +	int ret =3D 0;
-> +	int i;
->=20
-> 	for (i =3D 0; i < meta->nb_args; i++) {
-> 		ret =3D trace_define_field(call, meta->types[i],
+No, because this bug is not in my tree.
 
-Steve, those errors are still there in today=E2=80=99s linux-next. Is this =
-patch on the way to the linux-next?
+I'll send a proper patch to the tip folks.
+
+-- Steve
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -256,4 +169,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/3F343134-63CB-4D99-97AD-F512B8760C94%40lca.pw.
+clang-built-linux/20200106125449.563a2047%40gandalf.local.home.
