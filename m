@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIUG4LYAKGQE3UFV6TA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBSMK4LYAKGQEQ6LYWXQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x339.google.com (mail-ot1-x339.google.com [IPv6:2607:f8b0:4864:20::339])
-	by mail.lfdr.de (Postfix) with ESMTPS id DBF85136EDE
-	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jan 2020 14:58:59 +0100 (CET)
-Received: by mail-ot1-x339.google.com with SMTP id i22sf1043018otr.6
-        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jan 2020 05:58:59 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578664738; cv=pass;
+Received: from mail-qk1-x738.google.com (mail-qk1-x738.google.com [IPv6:2607:f8b0:4864:20::738])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9A9D6136EFC
+	for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jan 2020 15:08:10 +0100 (CET)
+Received: by mail-qk1-x738.google.com with SMTP id g28sf1240092qkl.6
+        for <lists+clang-built-linux@lfdr.de>; Fri, 10 Jan 2020 06:08:10 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578665289; cv=pass;
         d=google.com; s=arc-20160816;
-        b=c+THPuY1skJZMIkEMMkSxjjOYHkRA6NcqlyjpzOQRrg4cYsEKS18fEkt797C//SFbv
-         4KUOnYbq6plEjZ3kB1M1ahLyCF87bXXWZNl6O0tRDGetYon5o12RlORDi41hfMilzHeL
-         Xv8p1dgM4K7mMo1f0yITHKws7ObgU0SxfXVLaPDhUUA63rW5DuPCv0IujsK6wA2eh2P/
-         5BeGBfBLieeOxj6vwHgsAg2l0wc1ayOqv0FOukUhFikKRn2tQRQxG74jxWTzuJZb19nd
-         wx5fbXNClDpV0PeLnzM3MM8iRaFRJtOh1vwjlC44mBUd3UMatoYMCNPHlQ0rRC+OdZTF
-         61WA==
+        b=WeiDk5OTu76cAS0Jg6n+RbxIznmxqYgskNVwvFFE6D+UcrsuMRY9IAIxBVmH5dkvk4
+         CIUwezLA1SFiyoijIotjNVTEzTCNQIvOu/orCasrR2weTwxZyjKCtf4XDmWDhQllFwc5
+         OZvHHRl73y+YDBGBsJW0iKPI/XncDMpkQhGEbZbreWPA3B5qVVA3Tb4BiCl1kHLXDE44
+         ERMFTKjylu4yKX5AmNT1i8M2Bi1BYWmrGgsvY0SCa7U0KZqE9kxjX2aJv2e33TzVNhQO
+         LXnEXbsgzlrGebXL10PBycXTHsJnHIB8ej5QT7D2Utj7CYFwhAlspOe889UHy8ogRSOr
+         JL1A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=Swl4UMXWw2k/99uCFDR0ellNT7W7KT9ZDD+A+zpD210=;
-        b=xwI2adh2Nc3JQmNceUeF9uT4JhnA/DPuLoRaND4PdC7C9x9dMSK0Dh17CutIXpRFkk
-         ZDOq6iIpFmpwROlrD56yzrqbp1zYfeSrY3kJGgx96KpQxqiGUbhz/QJ82Vth3TGhZ5oV
-         QiwfW+ad5u9J3w+HHSZhVzD+ArRrJzBKImSA3TVMiuKFG+YYhihPTRFYm+mKyLZzHaPQ
-         PYgAJ9frcao4XNbluYB5YurjkH5arh7tEfCPPb0FKJfWATOP+pJbmvsHITFfeWUtNjnc
-         4ctlbegnp760frRBrWr7aKGY3gkhA2rO1G94HQFJvlxqWUV0AzqhyM2Ozpn/bsFjti1f
-         n7nw==
+        bh=gXOE0XArmXD0s//lX8bZ6t8d+QlpujUysOubXldmut8=;
+        b=M94GxyJyR7fSE1Htly4bjtyHFGQNmgHmqvC1mIhz8LYKQ8PVE7KhcUISHHg1+JV3Rk
+         3Z8ZZvfUBsbQZfRUjood88XGAeJouVfDro1GhLQsLmF8N1nsaZmTgHMFW+azGXbwzp69
+         qYqfE9zfcFTDnTzqe3iQzggKT0g0o+pX+6mUobMKl6IA85kSCb6X7BRhxFpZ45Lska1e
+         JgTdsu5R7O2tYh/dLf2xcl64W2TAvtdL0a3C+CNGW6tcZWwbpET4wpSWdjqQHKHPke0m
+         0BPXZsM7bjf0dN49aqSek9w4Y+nB8PLfjWsSYJ688toLydWdHSwWmsTgKJzXUQkyN10E
+         bytA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Swl4UMXWw2k/99uCFDR0ellNT7W7KT9ZDD+A+zpD210=;
-        b=dW3Uw59IyHOget4bSP5nHL/44lCKKfupJA2xsnzbWUrh4llkvmlivx3d02YjQAWmG8
-         yLeCFGNZCkPZ1HD87zNSAfAiX5YAlkeSFBKdBjGhZKcdPU2F7mTVPp8Kz6bsfwGVYgJJ
-         i+fbT0p6P3oMnQmYiXL/EFougnVZy7Vs2ArUQ7EjOO3a2oAShph0Kjlks2ardBNpCV6i
-         gPlnJiM18r7Qkm4MV04oaKqTKE2qv271altTyIfyU4LnVBtKY3pOjQeN7cdBQqBLOfOn
-         Bep4xBN727oQOqbBNQvSQGqjoCapb9BNftRrnPRvHBwQv4G65dRvIkRtgRi3rKY1f1UO
-         XtmA==
+        bh=gXOE0XArmXD0s//lX8bZ6t8d+QlpujUysOubXldmut8=;
+        b=QttBl/T6AznVGs/9Sd83CCD1wIYkKLyTelG/M9qEZjnw/iFigdYWMCO1KU2Ylhl31Z
+         GpvFIH2dNlsrD8pkkwMlUfjd+csxDrIhfjVKzLsuI7qlfRdTIz+e1M6Dj4RCq3DzACc3
+         +mXPJXebDUyTV+E1WPNEz6Q0c73U8GhXHbTi0Vn7RZkIHEzpteoFNSjVyaKHBhA8gYWA
+         easQ2K7yLf61jtPhF6R1TOpngvqf/dGjcFdTlXNACDFvJvoTtkWSZcxNWjFt6z7AMpQP
+         OxOeEbawpaY3OzD9+R1ZNaxi23H+wLpmBd9rT4WiiSd1BafioPtTzZthokdvHni2d7vo
+         2PVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Swl4UMXWw2k/99uCFDR0ellNT7W7KT9ZDD+A+zpD210=;
-        b=Dj6KfqrcP9plwRcvGj+ln/HSPNM6qP19mv0a3sxFoLicQPeDvChApGMsamdm9lWYtb
-         TB6odKqROJUlA/j2G6t9iyKtbtk4JFxayMtRtBh+1jaBpWIs0yXadd2rDVYK2KpxKaPV
-         eGtdgi2BbXjNZPQR3YGOamYOowh6RiMHGBrTF/Hc4FslgT1UBxH99zxywyrgf8NtlyXF
-         FUIU8bjSZMRmLZyZTNa1EvVfgvargpEBb7qYSmNHSbKTYUVCjJ6zrS523mGh58ULPb9R
-         wZUJfAUbSZ7NL7rNH387OaBzb6H6fTmIMLOShKNt0h/m6B3nttd7N5Vi5LRKMS9/VNIu
-         U52g==
+        bh=gXOE0XArmXD0s//lX8bZ6t8d+QlpujUysOubXldmut8=;
+        b=lRzKH5PRGpfsiwtI0Xnduc/4fktk9V/OYCNLFniUqOtrBmbydn6M8Dt9dioa1gftWn
+         emnF43lKVzxVy4qKj35MAFYirV0EmGV/nHJ8U5mjtbbIevJDxJbcbWQ5Hi10hYwZEbA7
+         0IvRc2YYOy7MyNf8XeeamyKDv5gGm3F0FkSHxfOF+KaZQABLaTCJ1e63NqGzG5QtthHW
+         0jNVppvSgFEGcwkRsPg6cDfp63ZIxKhYc4QGBoDzQYyd1HI5/fyuI/ZfwhDK+O/l1Bse
+         7Xh3swjZLTrWvpp+QB1tR/9afpZrHLRO5KC1vdLKaFOGBeWn8ukvq1PeqjjofhmOeZQJ
+         7H0g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX/fcmd0gR2v0u8scOgxpyE70bD40hK6JyTBlsQ6t9IvpeoldwL
-	VBK2DByQzhsa70gG1Yc5hfI=
-X-Google-Smtp-Source: APXvYqwJgIxI31kXYxkZs1y7I07KQuIt94XzIfroFTeg1o+9mQEIbAQNbJFunO2xDTekW6wbTt6f4g==
-X-Received: by 2002:a9d:62c2:: with SMTP id z2mr2794423otk.309.1578664738547;
-        Fri, 10 Jan 2020 05:58:58 -0800 (PST)
+X-Gm-Message-State: APjAAAX3unCMTXjksIrK3HpEUg7mZBpIX0Twfk5eDLzdhFWp2qKtSC7R
+	cej1zgeGkNlgRYBZe64mwa8=
+X-Google-Smtp-Source: APXvYqymdfptQ6Os8VRJqDM3BYFkBtA9sc9unb02FDFABQFL9/S+JpCJUHJjO4j0UMrR1xUK2ab8VQ==
+X-Received: by 2002:ad4:5349:: with SMTP id v9mr2912089qvs.177.1578665289260;
+        Fri, 10 Jan 2020 06:08:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:5051:: with SMTP id e78ls1003683oib.13.gmail; Fri, 10
- Jan 2020 05:58:58 -0800 (PST)
-X-Received: by 2002:aca:dc45:: with SMTP id t66mr2392192oig.39.1578664738064;
-        Fri, 10 Jan 2020 05:58:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578664738; cv=none;
+Received: by 2002:a37:9f92:: with SMTP id i140ls2131333qke.11.gmail; Fri, 10
+ Jan 2020 06:08:08 -0800 (PST)
+X-Received: by 2002:ae9:efc5:: with SMTP id d188mr3308321qkg.178.1578665288761;
+        Fri, 10 Jan 2020 06:08:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578665288; cv=none;
         d=google.com; s=arc-20160816;
-        b=UUmrLRUgP+brkW9A02eZMKHm6jRthOGmx5mz0PM7X5frAqrwojH65FaLblPLIyP6Ql
-         pwDAfFpa++iYnCP6sh3wI0Y5bmCS47RuI/WS7WKu1gagEFLz6qAepJb6B96+fbWKxpDC
-         /sNaGiC93XNoLHlYe8Rsbc8Oa9vAk9q1ek3IOssYeQSozKR6/fGWiTSYwF0ybSTN7kAK
-         5oS2yyDEANBQYQUKgfjbz9Lv6Jtcj0UBCcJ6MgYyNRBjxMx2U/AofTvnEru0dJXk2+zN
-         0FCL+qOrHjUtbLvKHjji4GUj/guRksOVcvoKgahREUCoBR4+xmRDBWG6QNfHr7vL9zU+
-         UcWw==
+        b=PBFcblBfV//edSATh5mxYp/iPlK0JmGIn88waFu5VVk93UMF/T+ILfYHzLTdo7P1aL
+         Whh+T7erpJRcytyUE6DYhGlxfCR75zGUiPtu4hItcbHlxbx8wxpfJASIwy0fntjfOelr
+         PRZ3pMOSzSbq8VUHBh+lAOubR1DzKpZQqPVzucL+s/YMDKuTF0DMmJ4xZCtBAb9eJfCH
+         UsvMc3e3l5L/V9qFOu7Og9w5NfnF4Uio4yUCGWNa9bEk5PoWjhXHQ/jKWlryo92EYaPR
+         uWuZGYJP1cxedpTTNW3FL+sqjqii+RennPvS/L/ltzCNZ9r1lzEWqQhhBsL02OW0GW9j
+         60Mw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=vQVhAyLa11D/VI3l89N8Xlr4mx3tTNFI/8IG7GrcezQ=;
-        b=Ml+eA2vMYS/WbTEUYtt04epxzDymzoFz9BlwQi8w2ADPrxV+yC00jKIvqra8jwQt2q
-         fnU0J09QSHttCsWCwYEZbwBemUKlRwxWZhl/yQfoCGRE97cPU7h3lZf63yP3ruAQIkme
-         XLw0i60dvkxww1+dTtUl1B1ujOe7vRmCFUCL/UjaVGCj1t1GTViSjUzT43/zmz5xA9ZV
-         pWctL0HUdIdM5YXpMsixhBiUn++dUj9n/EMhFQKC3S57CGIaURdoHyfUmU09VpJaLYEQ
-         j3aDrc0wACV2dOmXtOPR0t03k9wHo79sADcC73PjoQc0y9s9hTXbbSF2k3jjn1RV8Xa+
-         S5dg==
+        bh=eucOVjRSXU0XyCEoNo63DsMhYw2Gp8S7VGSwS4ydEcQ=;
+        b=jddDka8PI47hOl/2XLoivZGZgCvMAsTLmzK4g9rph3XeuWx2MtrI/L1I1HSUxFTPki
+         RyfSVcSdwct8j9QN1hyp/J4qNx/FOs7i8Obk2O4RqbS26QQ5deX3agdvqUUpR2Fw18Md
+         GLggoV53cK0RNe65wZjsdEw1QCYm+JHOZ6T3t5eZp9u+JXKubMLY0raelCHRh3427d/E
+         8s3QbVznLmtkvUsDsaHmYwvtx9b7fgYwPqSHuEGCjK4d5DHTZfM1JjyVsy5EJ/nvrIhp
+         ELNtlKEn+daFt96ECEU9d8XLK8d5uJyJRPb9zYj1Sub3NC40zMSB5Jxv46RVfJhibzga
+         PSNg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
-        by gmr-mx.google.com with ESMTPS id e14si108365otr.1.2020.01.10.05.58.57
+Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
+        by gmr-mx.google.com with ESMTPS id 145si71285qkf.1.2020.01.10.06.08.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 10 Jan 2020 05:58:58 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
+        Fri, 10 Jan 2020 06:08:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Jan 2020 05:58:53 -0800
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 10 Jan 2020 06:08:07 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,417,1571727600"; 
-   d="gz'50?scan'50,208,50";a="255020807"
+   d="gz'50?scan'50,208,50";a="224206269"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 10 Jan 2020 05:58:51 -0800
+  by orsmga003.jf.intel.com with ESMTP; 10 Jan 2020 06:08:05 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ipuoN-000J7L-8a; Fri, 10 Jan 2020 21:58:51 +0800
-Date: Fri, 10 Jan 2020 21:58:32 +0800
+	id 1ipuxJ-0008lj-59; Fri, 10 Jan 2020 22:08:05 +0800
+Date: Fri, 10 Jan 2020 22:07:01 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] Init: fixed an error caused by using __initdata instead
- of __initconst
-Message-ID: <202001102149.VLPMDmae%lkp@intel.com>
+Subject: [brgl-linux:at24/for-next 4/6] drivers/nvmem/core.c:354:10: warning:
+ incompatible integer to pointer conversion returning 'long' from a function
+ with result type 'struct nvmem_device *'
+Message-ID: <202001102258.AzvVhhyC%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="kxfbpgsd4sx43xsa"
+Content-Type: multipart/mixed; boundary="c67ogz45c3tqx7wf"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,74 +138,155 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---kxfbpgsd4sx43xsa
+--c67ogz45c3tqx7wf
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20200106020217.13234-1-carlosteniswarrior@gmail.com>
-References: <20200106020217.13234-1-carlosteniswarrior@gmail.com>
-TO: carlosteniswarrior@gmail.com
-CC: akpm@linux-foundation.org, linux-kernel@vger.kernel.org, Carlos Guerrero Alvarez <carlosteniswarrior@gmail.com>, linux-kernel@vger.kernel.org, Carlos Guerrero Alvarez <carlosteniswarrior@gmail.com>
-CC: linux-kernel@vger.kernel.org, Carlos Guerrero Alvarez <carlosteniswarrior@gmail.com>
+TO: Khouloud Touil <ktouil@baylibre.com>
+CC: Bartosz Golaszewski <bgolaszewski@baylibre.com>
+CC: Linus Walleij <linus.walleij@linaro.org>
 
-Hi,
-
-Thank you for the patch! Yet something to improve:
-
-[auto build test ERROR on linux/master]
-[also build test ERROR on linus/master v5.5-rc5 next-20200109]
-[if your patch is applied to the wrong git tree, please drop us a note to help
-improve the system. BTW, we also suggest to use '--base' option to specify the
-base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
-
-url:    https://github.com/0day-ci/linux/commits/carlosteniswarrior-gmail-com/Init-fixed-an-error-caused-by-using-__initdata-instead-of-__initconst/20200109-034253
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 1522d9da40bdfe502c91163e6d769332897201fa
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git at24/for-next
+head:   1c89074bf85068d1b86f2e0f0c2110fdd9b83c9f
+commit: 2a127da461a9d8d97782d6e82b227041393eb4d2 [4/6] nvmem: add support for the write-protect pin
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 4ebb589629b0d3de0827cab179338836ebb3a8b6)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
+        git checkout 2a127da461a9d8d97782d6e82b227041393eb4d2
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
->> init/main.c:983:20: error: 'initcall_level_names' causes a section type conflict with '__setup_str_set_reset_devices'
-   static const char *initcall_level_names[] __initconst = {
-                      ^
-   init/main.c:171:1: note: declared here
-   __setup("reset_devices", set_reset_devices);
-   ^
-   include/linux/init.h:262:2: note: expanded from macro '__setup'
-           __setup_param(str, fn, fn, 0)
-           ^
-   include/linux/init.h:254:20: note: expanded from macro '__setup_param'
-           static const char __setup_str_##unique_id[] __initconst         \
-                             ^
-   <scratch space>:144:1: note: expanded from here
-   __setup_str_set_reset_devices
-   ^
-   1 error generated.
+>> drivers/nvmem/core.c:354:10: warning: incompatible integer to pointer conversion returning 'long' from a function with result type 'struct nvmem_device *' [-Wint-conversion]
+                   return PTR_ERR(nvmem->wp_gpio);
+                          ^~~~~~~~~~~~~~~~~~~~~~~
+   1 warning generated.
 
-vim +983 init/main.c
+vim +354 drivers/nvmem/core.c
 
-   981	
-   982	/* Keep these in sync with initcalls in include/linux/init.h */
- > 983	static const char *initcall_level_names[] __initconst = {
-   984		"pure",
-   985		"core",
-   986		"postcore",
-   987		"arch",
-   988		"subsys",
-   989		"fs",
-   990		"device",
-   991		"late",
-   992	};
-   993	
+   320	
+   321	/**
+   322	 * nvmem_register() - Register a nvmem device for given nvmem_config.
+   323	 * Also creates an binary entry in /sys/bus/nvmem/devices/dev-name/nvmem
+   324	 *
+   325	 * @config: nvmem device configuration with which nvmem device is created.
+   326	 *
+   327	 * Return: Will be an ERR_PTR() on error or a valid pointer to nvmem_device
+   328	 * on success.
+   329	 */
+   330	
+   331	struct nvmem_device *nvmem_register(const struct nvmem_config *config)
+   332	{
+   333		struct nvmem_device *nvmem;
+   334		int rval;
+   335	
+   336		if (!config->dev)
+   337			return ERR_PTR(-EINVAL);
+   338	
+   339		nvmem = kzalloc(sizeof(*nvmem), GFP_KERNEL);
+   340		if (!nvmem)
+   341			return ERR_PTR(-ENOMEM);
+   342	
+   343		rval  = ida_simple_get(&nvmem_ida, 0, 0, GFP_KERNEL);
+   344		if (rval < 0) {
+   345			kfree(nvmem);
+   346			return ERR_PTR(rval);
+   347		}
+   348		if (config->wp_gpio)
+   349			nvmem->wp_gpio = config->wp_gpio;
+   350		else
+   351			nvmem->wp_gpio = gpiod_get_optional(config->dev, "wp",
+   352							    GPIOD_OUT_HIGH);
+   353		if (IS_ERR(nvmem->wp_gpio))
+ > 354			return PTR_ERR(nvmem->wp_gpio);
+   355	
+   356	
+   357		kref_init(&nvmem->refcnt);
+   358		INIT_LIST_HEAD(&nvmem->cells);
+   359	
+   360		nvmem->id = rval;
+   361		nvmem->owner = config->owner;
+   362		if (!nvmem->owner && config->dev->driver)
+   363			nvmem->owner = config->dev->driver->owner;
+   364		nvmem->stride = config->stride ?: 1;
+   365		nvmem->word_size = config->word_size ?: 1;
+   366		nvmem->size = config->size;
+   367		nvmem->dev.type = &nvmem_provider_type;
+   368		nvmem->dev.bus = &nvmem_bus_type;
+   369		nvmem->dev.parent = config->dev;
+   370		nvmem->priv = config->priv;
+   371		nvmem->type = config->type;
+   372		nvmem->reg_read = config->reg_read;
+   373		nvmem->reg_write = config->reg_write;
+   374		if (!config->no_of_node)
+   375			nvmem->dev.of_node = config->dev->of_node;
+   376	
+   377		if (config->id == -1 && config->name) {
+   378			dev_set_name(&nvmem->dev, "%s", config->name);
+   379		} else {
+   380			dev_set_name(&nvmem->dev, "%s%d",
+   381				     config->name ? : "nvmem",
+   382				     config->name ? config->id : nvmem->id);
+   383		}
+   384	
+   385		nvmem->read_only = device_property_present(config->dev, "read-only") ||
+   386				   config->read_only || !nvmem->reg_write;
+   387	
+   388		nvmem->dev.groups = nvmem_sysfs_get_groups(nvmem, config);
+   389	
+   390		device_initialize(&nvmem->dev);
+   391	
+   392		dev_dbg(&nvmem->dev, "Registering nvmem device %s\n", config->name);
+   393	
+   394		rval = device_add(&nvmem->dev);
+   395		if (rval)
+   396			goto err_put_device;
+   397	
+   398		if (config->compat) {
+   399			rval = nvmem_sysfs_setup_compat(nvmem, config);
+   400			if (rval)
+   401				goto err_device_del;
+   402		}
+   403	
+   404		if (config->cells) {
+   405			rval = nvmem_add_cells(nvmem, config->cells, config->ncells);
+   406			if (rval)
+   407				goto err_teardown_compat;
+   408		}
+   409	
+   410		rval = nvmem_add_cells_from_table(nvmem);
+   411		if (rval)
+   412			goto err_remove_cells;
+   413	
+   414		rval = nvmem_add_cells_from_of(nvmem);
+   415		if (rval)
+   416			goto err_remove_cells;
+   417	
+   418		blocking_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
+   419	
+   420		return nvmem;
+   421	
+   422	err_remove_cells:
+   423		nvmem_device_remove_all_cells(nvmem);
+   424	err_teardown_compat:
+   425		if (config->compat)
+   426			nvmem_sysfs_remove_compat(nvmem, config);
+   427	err_device_del:
+   428		device_del(&nvmem->dev);
+   429	err_put_device:
+   430		put_device(&nvmem->dev);
+   431	
+   432		return ERR_PTR(rval);
+   433	}
+   434	EXPORT_SYMBOL_GPL(nvmem_register);
+   435	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -213,14 +295,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001102149.VLPMDmae%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001102258.AzvVhhyC%25lkp%40intel.com.
 
---kxfbpgsd4sx43xsa
+--c67ogz45c3tqx7wf
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICG9WGF4AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0WTZue94AZIghYiTAVCSveFRbLnj
+H4sICI1mGF4AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0WTZue94AZIghYiTAVCSveFRbLnj
 Fw99ZbuT/vtbBXAAQNDp9zI2qwpzoWbo+399PyHvby9Ph7eH28Pj49fJp+Pz8XR4O95N7h8e
 j/8ziYpJXsgJjZj8GYjTh+f3v385nJ5Wy8nZz2c/T3863c4mm+Pp+fg4CV+e7x8+vUPzh5fn
 f33/L/jnewA+fYaeTv+e3D4enj9NvhxPr4CezKY/w9+THz49vP37l1/gv08Pp9PL6ZfHxy9P
@@ -1028,64 +1110,64 @@ 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
-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
-ouIQi+8qsVyFzwFmE+QpyaBC/D8fIA2VQSoDAA==
+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
+dogZd2W5XIWNf2+AHCEZFIj/B/gg3I42KgMA
 
---kxfbpgsd4sx43xsa--
+--c67ogz45c3tqx7wf--
