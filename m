@@ -1,123 +1,124 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBNOC47YAKGQE6GMW5DQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIWV47YAKGQEUOO57JI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id F0BCA1381AC
-	for <lists+clang-built-linux@lfdr.de>; Sat, 11 Jan 2020 15:52:38 +0100 (CET)
-Received: by mail-pf1-x43e.google.com with SMTP id x18sf3288189pfo.8
-        for <lists+clang-built-linux@lfdr.de>; Sat, 11 Jan 2020 06:52:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578754357; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id BA606138209
+	for <lists+clang-built-linux@lfdr.de>; Sat, 11 Jan 2020 16:32:52 +0100 (CET)
+Received: by mail-pl1-x63c.google.com with SMTP id s4sf2500087plp.17
+        for <lists+clang-built-linux@lfdr.de>; Sat, 11 Jan 2020 07:32:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578756771; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BPShRsWFYhJR+rDeToa9VMc28JcdpxcWe7h1Hy3Tyn0lX5qFQ7wr+YUvqtY6WghNty
-         DupUs04F6/EFpbQ0aXuBZj+LJyXPrkWgqXzivNgPGN1hoSqq0AEz/AJwRxSiq/5Gxz8H
-         AU10Tr3r3pNwSxtKqlX6h6i4FGKYqHFTfPYTf+NlerJUAVojcRYRcsVz6AOgZ2MwXCK+
-         U50kDlxxCvWB7MzyfeUGxRsx7baI1EqlAmKB/gyHtFiGSzpkcDs8ybjkr0l+raZV9sfA
-         uUQzrHt+WTQAaLBx+O7AYoPL8WL6f1vrjxapN4QhO5PRNjm3ao9hHzhAY5DdZKlXMEYB
-         TWJw==
+        b=BaapNj1+qSK41+SAzIdTYi37jznKgW1+TplP/aIb03OZdRwBDC/coUY8KicE45uvbO
+         Hi7ZdcuyEy7cFScf5wRKMvbHSR+SaM2CGdKzbSVnxKQEW4eilQHi6SFTMJMq7ARKqdRU
+         RsDZm5P1ozc1CT6ixMOsaep2Jnj5un3pnIY4kSp3duTKdTYoDlAughVEc56NqEPqd17q
+         BwizmfyQPDny63R/4WFbU1ulqampG1DzWDVbVDGLHBmzYLtBH6n1GOSHFhmPz+LTmIbq
+         +D/edFH5r9NybTwANP6q9qV6kmHcSfdqddPFs+FZKL+0J2m6Zf0P3QKIR/eD9cu4Rc97
+         RWEg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=aHamGT3SyYhE7Ga4ZcB1TnQ5e8HfnAVBtpxN2NP9/v8=;
-        b=wPqRNYUXlGQywIUZZpcE//iGi8NMYz2u1A4zugcf9/ysG9cjiF7FkpuKo9pclD+IDI
-         Ma8vfaYE5Y2BVbcTiKH9rp+t1xvd7tu99f08y8sgZS0X5qkgJi5Gqs5CzHzfd/XdHzHJ
-         wQVrwHhmcgLz2cZK5PsIlYGDr8rit1AviI3vhbdeT36vBJZfztuo6OyI9nw4a+YMxOo6
-         qfPt4nIa2acjEntg3tsKTLdXiV2tl2Yk4d3MGJK9oKj4hhC2W/kJRQ0hZfkPjrSnclP2
-         siX0BqQmx8uUphjA3I52OIqtQVihzJUYkg3g8HCEUiZHLH8yiIjOG/Lud0TBXWdczHSB
-         FQTA==
+         :list-id:mailing-list:precedence:user-agent
+         :content-transfer-encoding:content-disposition:mime-version
+         :message-id:subject:cc:to:from:date:sender:dkim-signature;
+        bh=cDAyzf7UbXXwth7UHm/S/gaJSDmyUSwhYKceo9tLnS4=;
+        b=D3eKTw+ravw43tSZURS485SJ9J2Uv0DhzyG2UVVTJ80UXGgrLMSuTQaoT25mtyMPNw
+         9jYvTHBIOIZbG+qXaFtYVuVFyfDwCBQrlVTduFkPr+IaVJg3gwEQHKUCr4njPYbjw8FD
+         IoOVbxNy63OYZj+0ZpBdvfOtKTNS3fcA3okYldxFQHINMwzWc662SLSgWvfamCgYSTJf
+         3LkJK63D4RoZqlyURa/8Qqi1c8MKLIPVMRFhR8liGHT6kVPX39UKJOB/+rQtIQtnC1is
+         OmFb96ZBIq355XQbFhNt585C6MLUwnxXA8jX6nygkzI0RnTT8mRXFYGMUTw+96aq1Rhv
+         lDdw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=aHamGT3SyYhE7Ga4ZcB1TnQ5e8HfnAVBtpxN2NP9/v8=;
-        b=KSYRn+cj50UE28nuqOs+Ae+wAeCPPD0x19m5IBfYl0lILBff/4z9i/EzW90NpSgkO2
-         b4UI8YE2Kzog7HmBQb79QFpprI4d0vNaOB4Lzbc6YVFCqIMiPq81X7UT+3fSGjIM5sX2
-         tl8WtXXGgcFv2ShN3kmlkZJ2YU747MbVTcS6jhttaACMafPmis+HZwLTvX0XJh3CooY8
-         51MMHFe7O5qJwTjOB3Ts+cePaaKWPsOYp05TNA/gKSsVl/586nzvHPhk2aCMN5iU4yz4
-         uUPj9bpEmlm74uvJsnQpSBKu8Tpmk2dvxQbG7Sx+uvpjcuNm7JqvsD6o94mj1vd3SVAz
-         zRmw==
+         :content-disposition:content-transfer-encoding:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cDAyzf7UbXXwth7UHm/S/gaJSDmyUSwhYKceo9tLnS4=;
+        b=nimJm3Qn4QU8ySuzb3bRHXInz7f03zugWFosmrIhU7tI/+kCqZMe8zgE2fKcum555v
+         mSMwnwzD9JRUijdAfrmKicN4emqMQd9c+Wmcy8qxHUGhpc1z0EaKVQ4m6oY9xS/U1Loh
+         +l9W+x5ogg3GDmPQpQyfIMchbo6xVN+yDiQEmAgLWjLCzyKoi29GVfPllkbNJIEeuKWu
+         1kC1l9290K2agR3YSndRka8b9EZTegjawkmVeUc2fZsTjPzra5OM+F328UcXEypjEYnq
+         ooOj14jAZxBtcJ3rLAtvPRNTWSbK2e47vbfvqjT0zn/cBQqkzYyY1+mYry5BKcYMgzrj
+         E+kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=aHamGT3SyYhE7Ga4ZcB1TnQ5e8HfnAVBtpxN2NP9/v8=;
-        b=g3KnDbvEvU8/MaSPKLlS69/GG7q96Adie9oDN66FOT5BFOIRW2iJwSMh09TpA45HL2
-         plytP/ALACVnDv+zjZ/gCQSHpySmCfvCrpIOOhUuTWh3zX5RYUVmfFNBs4dw+PRmTmft
-         r1V0SF/ycJqC3DBRHbHULAcBVP5coPZrAQ2osbu8BG4CPmq8WLnh2g/qisb8IrQdEDFn
-         Vl5K8WhwaZu+WKbdnwxJTFVfBLDD1xE//UfZoW76aqXQ2wSE10NSgRAqVTO3OZRxRmAl
-         gCga+36t0cSa8A7vLlC0bF2pjqndqBmU0CulMdgvRCjI9HGzBgk8ymPPC+wpwg6hmWYn
-         ND4g==
+         :mime-version:content-disposition:content-transfer-encoding
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=cDAyzf7UbXXwth7UHm/S/gaJSDmyUSwhYKceo9tLnS4=;
+        b=ZWvAHlENBaoeMwT746eVRvJKkLAe4JGovUWiFMAxSwEMTiOBKwfwpZsYd45JypgyR9
+         ZH1SZNZiFPDalqZSYxgGGhJlivX8FxnH5JinWD7g7AjxWoJeTdkM2NDbfe/maiARuPhe
+         csxOwor/xJyOmZQy7ytDfBX2PruvsCyCyxNbDfyRfc+ok1BSIi1Lvl293c78huoYPy91
+         wQCUpOj30BnYsp0cBoh+qpCNSZn2qouv2BaTLHjfX6ftRtrtBK9KQyiNQ1vqQ2sziaY5
+         S8wB1tFLJshOx4ac7TlMeemMvDAtSIhnQWawb67Y7fnQVwYXTtBj1ngrnnPFvjWMUHYs
+         vzqQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW2ZFiMUm9JkwmcZu62jIfBOkY2uXnBfX9C2NqeQ3gYDSGaOgXd
-	r1xOMoncFl38OCfOG2KIU7o=
-X-Google-Smtp-Source: APXvYqxwCr4xU3p3EEV4JbbWLLwfX1YnZ5DLVqAQ0yA0sAapOuZnMUN7PkDeFCcI9mRgQ17kQqtClw==
-X-Received: by 2002:a17:90a:ec0f:: with SMTP id l15mr11859453pjy.39.1578754357409;
-        Sat, 11 Jan 2020 06:52:37 -0800 (PST)
+X-Gm-Message-State: APjAAAVB0QFySXhwdw8cw60nhBGI6yHzZcrvu9pP+ZOPjuH2Ki8HEO1v
+	vN/k0E6SnbfdvEyorK+0mqk=
+X-Google-Smtp-Source: APXvYqzjo5NKGB64rFO/na4Oj18vo+ivGaCZaTw4YutxwAQxmJM49OwbfCYNw5uX9foyLFoMBVQ1fw==
+X-Received: by 2002:aa7:87cf:: with SMTP id i15mr10904010pfo.114.1578756771004;
+        Sat, 11 Jan 2020 07:32:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:5e03:: with SMTP id s3ls2550179pfb.8.gmail; Sat, 11 Jan
- 2020 06:52:37 -0800 (PST)
-X-Received: by 2002:a63:c652:: with SMTP id x18mr11493490pgg.211.1578754356856;
-        Sat, 11 Jan 2020 06:52:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578754356; cv=none;
+Received: by 2002:a63:c244:: with SMTP id l4ls2261752pgg.2.gmail; Sat, 11 Jan
+ 2020 07:32:50 -0800 (PST)
+X-Received: by 2002:a62:8247:: with SMTP id w68mr11130075pfd.2.1578756770529;
+        Sat, 11 Jan 2020 07:32:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578756770; cv=none;
         d=google.com; s=arc-20160816;
-        b=r0ns7ybfr15EizRk5ed8wquqyf8leRDi+8WrQlFOYz8hynIpYqz4hFsKoukrXU6cDh
-         HHxqaZiJiXUsZGcl7raxCKc0HIHiDAcjpUGVE10pkj01yhO68h+Ev9WRXwJV1YlfNyQm
-         jc+CXe7UWeUT6K7bfFFNWKurYzayYnzpByU497+CNbRMnn/eLygrg6TskjTEptAyYFDv
-         2/SE/I7EDRyHTz3L+HVh1aDfTfSqd8YCQgeR5I0/oCKg+dLCC50pH4n/jC1YOrZg9jZ9
-         v5bpy9+ajzXXLRDouewfRwK0MrF8UMc3oVOlefS9KqYbQslrqmqL7Y2jC92kpdwqozcb
-         CDsw==
+        b=EK7LUzYEWg7tBJT0JXM9Oq9LzIcLbE8gcocv9g38K6UvLEHrUzfsIMqFqS6cxGibvw
+         33BlqKzzC5L05WYBcPNiNQZV/sCA8P8g+5SsRn7FLL1RBhIDp1+XiW6gRh7nh5p+/7yd
+         dvxjbg5Rr4ct0khmJxGsqE+4r6srtNUiLjeedfgYKUvEsUBJowanmb6nuzUvFP//kiEA
+         MlrQJbvniRa/fDXMjLLRizui61pYq/Ejz1kl+lqkomI3b3uOLdAWlKTgTzl9eq/sxozs
+         OM9QGk4xV7IBCCgXOoX0gPRt1crtGPrHYne9kJobRLiXWHUynoiw3dXRQC65dqvV3s58
+         h1Zw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date;
-        bh=BaWJFnVHDG5LE+/x7nhxzp0OFX8fYu9+D2jfS8c20NA=;
-        b=1GuXgwWomRqCKzzA8F2cZdEyPrjVVa/3M9X6R5M/UCiqmOxKgL3CoGwnqaOWmMut/g
-         Xuto6vMBa7NxJMgwqFbB+pAsAZO7Gru6WlR7vJdGJs70lJxNY13rpFAW04XKSLcTtqjc
-         3R6MSlo7amM7/yYvk+Puv6tMvAtIUVLmOFTauBptsQN4slnYiEsVxFDjlMCSNcWhtM6+
-         WHkVDgJAGElMB+MXB7P2fo0OjpaizH+S9WKqFkGA8O2cGNJFnSJaEg2Ufjb89jqwI4e4
-         UpBUFuY1wTvzTEPdkM8ufXwqBB3LTk7znHU4/2cA2ydi1PPdCOrsspQYCK4HTO2O0dcj
-         rdpQ==
+        h=user-agent:content-transfer-encoding:content-disposition
+         :mime-version:message-id:subject:cc:to:from:date;
+        bh=MMlgjCOkTQAnpGZ/vqBtkyUihY9WIp2yUfVas6kb++k=;
+        b=ibLlAZ8PR/T8fN3H0b3OMIrLwfaT3HRTo3mD1XnKF4xUwhBaq/5JxVSGgKQs4FuMzP
+         ChE4GpqYoHTi2TV1iDrlIM/eK1xe7w0fGbaD89wQBPkO9fejm6UhpndzF+3sqvwauhk1
+         vSeIgdt8PrcD445W9G6hp55fnOImN2tpVtTY8dGPtiYauGyncsNGUeN0lvPoxAIrLQnb
+         rZjTULBMw6SQSD7VlGWw/BT3mqFHi2oR7C6t8wQBudmXw2uIUgRTpx2fOWa5QhuZP8nE
+         LmSYCFpDjCsWa9MtH0eESb9le5NijvBBhZxtU+p5EGXZ4Mmrw9Mj3lUwU75bp2r7ipPZ
+         4Rjg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
-        by gmr-mx.google.com with ESMTPS id c24si180780pjr.2.2020.01.11.06.52.36
+        by gmr-mx.google.com with ESMTPS id r18si232346pfc.2.2020.01.11.07.32.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sat, 11 Jan 2020 06:52:36 -0800 (PST)
+        Sat, 11 Jan 2020 07:32:50 -0800 (PST)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
-  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 11 Jan 2020 06:52:35 -0800
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 11 Jan 2020 07:32:49 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.69,421,1571727600"; 
-   d="gz'50?scan'50,208,50";a="304447845"
+   d="gz'50?scan'50,208,50";a="218324646"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga001.jf.intel.com with ESMTP; 11 Jan 2020 06:52:34 -0800
+  by fmsmga007.fm.intel.com with ESMTP; 11 Jan 2020 07:32:47 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iqI7t-0004zT-IT; Sat, 11 Jan 2020 22:52:33 +0800
-Date: Sat, 11 Jan 2020 22:52:18 +0800
+	id 1iqIkp-000DUL-Ez; Sat, 11 Jan 2020 23:32:47 +0800
+Date: Sat, 11 Jan 2020 23:32:40 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v3 12/21] KVM: X86: Implement ring-based dirty memory
- tracking
-Message-ID: <202001112205.w0Hq5W9O%lkp@intel.com>
+Subject: Re: [PATCH] KVM: remove unused guest_enter/exit
+Message-ID: <202001112343.WpFma1hC%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="bnyqzik5crw5lgkp"
+Content-Type: multipart/mixed; boundary="gzfhvhtgwrskugm6"
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
@@ -137,31 +138,31 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---bnyqzik5crw5lgkp
+--gzfhvhtgwrskugm6
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20200109145729.32898-13-peterx@redhat.com>
-References: <20200109145729.32898-13-peterx@redhat.com>
-TO: Peter Xu <peterx@redhat.com>
-CC: kvm@vger.kernel.org, linux-kernel@vger.kernel.org
-CC: Christophe de Dinechin <dinechin@redhat.com>, "Michael S . Tsirkin" <ms=
-t@redhat.com>, Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <se=
-an.j.christopherson@intel.com>, Yan Zhao <yan.y.zhao@intel.com>, Alex Willi=
-amson <alex.williamson@redhat.com>, Jason Wang <jasowang@redhat.com>, Kevin=
- Kevin <kevin.tian@intel.com>, Vitaly Kuznetsov <vkuznets@redhat.com>, pete=
-rx@redhat.com, "Dr . David Alan Gilbert" <dgilbert@redhat.com>, Lei Cao <le=
-i.cao@stratus.com>
+In-Reply-To: <1578626036-118506-1-git-send-email-alex.shi@linux.alibaba.com=
+>
+References: <1578626036-118506-1-git-send-email-alex.shi@linux.alibaba.com>
+TO: Alex Shi <alex.shi@linux.alibaba.com>
+CC: Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.o=
+rg>, Ingo Molnar <mingo@kernel.org>, Frederic Weisbecker <frederic@kernel.o=
+rg>, linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>, Pet=
+er Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@kernel.org>, Frederi=
+c Weisbecker <frederic@kernel.org>, linux-kernel@vger.kernel.org
+CC: Paolo Bonzini <pbonzini@redhat.com>, Peter Zijlstra <peterz@infradead.o=
+rg>, Ingo Molnar <mingo@kernel.org>, Frederic Weisbecker <frederic@kernel.o=
+rg>, linux-kernel@vger.kernel.org
 
-Hi Peter,
+Hi Alex,
 
-Thank you for the patch! Yet something to improve:
+I love your patch! Yet something to improve:
 
 [auto build test ERROR on kvm/linux-next]
-[also build test ERROR on next-20200110]
-[cannot apply to kvmarm/next vfio/next v5.5-rc5]
+[also build test ERROR on linux/master linus/master v5.5-rc5 next-20200110]
 [if your patch is applied to the wrong git tree, please drop us a note to h=
 elp
 improve the system. BTW, we also suggest to use '--base' option to specify =
@@ -169,8 +170,8 @@ the
 base tree in git format-patch, please see https://stackoverflow.com/a/37406=
 982]
 
-url:    https://github.com/0day-ci/linux/commits/Peter-Xu/KVM-Dirty-ring-in=
-terface/20200110-152053
+url:    https://github.com/0day-ci/linux/commits/Alex-Shi/KVM-remove-unused=
+-guest_enter-exit/20200111-004903
 base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git linux-next
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 016bf03ef6fcd9=
@@ -187,42 +188,347 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`kvm_vcpu_init':
->> kvm_main.c:(.text+0x1940): undefined reference to `kvm_dirty_ring_alloc'
->> aarch64-linux-gnu-ld: kvm_main.c:(.text+0x197c): undefined reference to =
-`kvm_dirty_ring_free'
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`kvm_vcpu_uninit':
->> kvm_main.c:(.text+0x19e4): undefined reference to `kvm_dirty_ring_free'
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`kvm_vcpu_mark_page_dirty':
->> kvm_main.c:(.text+0x45c4): undefined reference to `kvm_dirty_ring_get'
->> aarch64-linux-gnu-ld: kvm_main.c:(.text+0x45d0): undefined reference to =
-`kvm_dirty_ring_push'
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`kvm_write_guest_page':
-   kvm_main.c:(.text+0x52e4): undefined reference to `kvm_dirty_ring_get'
-   aarch64-linux-gnu-ld: kvm_main.c:(.text+0x52f0): undefined reference to =
-`kvm_dirty_ring_push'
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`kvm_vcpu_write_guest_page':
-   kvm_main.c:(.text+0x54d8): undefined reference to `kvm_dirty_ring_get'
-   aarch64-linux-gnu-ld: kvm_main.c:(.text+0x54e4): undefined reference to =
-`kvm_dirty_ring_push'
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`kvm_write_guest_offset_cached':
-   kvm_main.c:(.text+0x5984): undefined reference to `kvm_dirty_ring_get'
-   aarch64-linux-gnu-ld: kvm_main.c:(.text+0x5990): undefined reference to =
-`kvm_dirty_ring_push'
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`mark_page_dirty':
-   kvm_main.c:(.text+0x5e00): undefined reference to `kvm_dirty_ring_get'
-   aarch64-linux-gnu-ld: kvm_main.c:(.text+0x5e0c): undefined reference to =
-`kvm_dirty_ring_push'
-   aarch64-linux-gnu-ld: arch/arm64/../../virt/kvm/kvm_main.o: in function =
-`kvm_vm_ioctl':
->> kvm_main.c:(.text+0x9bd8): undefined reference to `kvm_dirty_ring_reset'
+>> arch/arm64/kvm/../../../virt/kvm/arm/arm.c:861:3: error: implicit declar=
+ation of function 'guest_exit' [-Werror,-Wimplicit-function-declaration]
+                   guest_exit();
+                   ^
+   1 error generated.
+
+vim +/guest_exit +861 arch/arm64/kvm/../../../virt/kvm/arm/arm.c
+
+0592c005622582 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  687 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  688  /**
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  689   * kvm=
+_arch_vcpu_ioctl_run - the main VCPU run function to execute guest code
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  690   * @vc=
+pu:	The VCPU pointer
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  691   * @ru=
+n:	The kvm_run structure pointer used for userspace state exchange
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  692   *
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  693   * Thi=
+s function is called through the VCPU_RUN ioctl called from user space. It
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  694   * wil=
+l execute VM code in a loop until the time slice for the process is used
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  695   * or =
+some emulation is needed from user space in which case the function will
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  696   * ret=
+urn with return value 0 and with the kvm_run structure filled in with the
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  697   * req=
+uired data for the requested emulation.
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  698   */
+749cf76c5a363e arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  699  int kv=
+m_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu, struct kvm_run *run)
+749cf76c5a363e arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  700  {
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  701  	int r=
+et;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  702 =20
+e8180dcaa8470c arch/arm/kvm/arm.c Andre Przywara    2013-05-09  703  	if (u=
+nlikely(!kvm_vcpu_initialized(vcpu)))
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  704  		retu=
+rn -ENOEXEC;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  705 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  706  	ret =
+=3D kvm_vcpu_first_run_init(vcpu);
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  707  	if (r=
+et)
+829a58635497d7 virt/kvm/arm/arm.c Christoffer Dall  2017-11-29  708  		retu=
+rn ret;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  709 =20
+45e96ea6b36953 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  710  	if (r=
+un->exit_reason =3D=3D KVM_EXIT_MMIO) {
+45e96ea6b36953 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  711  		ret =
+=3D kvm_handle_mmio_return(vcpu, vcpu->run);
+45e96ea6b36953 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  712  		if (=
+ret)
+829a58635497d7 virt/kvm/arm/arm.c Christoffer Dall  2017-11-29  713  			ret=
+urn ret;
+accb757d798c9b virt/kvm/arm/arm.c Christoffer Dall  2017-12-04  714  	}
+1eb591288b956b virt/kvm/arm/arm.c Alex Benn=C3=A9e       2017-11-16  715 =
+=20
+829a58635497d7 virt/kvm/arm/arm.c Christoffer Dall  2017-11-29  716  	if (r=
+un->immediate_exit)
+829a58635497d7 virt/kvm/arm/arm.c Christoffer Dall  2017-11-29  717  		retu=
+rn -EINTR;
+45e96ea6b36953 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  718 =20
+829a58635497d7 virt/kvm/arm/arm.c Christoffer Dall  2017-11-29  719  	vcpu_=
+load(vcpu);
+460df4c1fc7c00 arch/arm/kvm/arm.c Paolo Bonzini     2017-02-08  720 =20
+20b7035c66bacc virt/kvm/arm/arm.c Jan H. Sch=C3=B6nherr  2017-11-24  721  	=
+kvm_sigset_activate(vcpu);
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  722 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  723  	ret =
+=3D 1;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  724  	run->=
+exit_reason =3D KVM_EXIT_UNKNOWN;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  725  	while=
+ (ret > 0) {
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  726  		/*
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  727  		 * C=
+heck conditions before entering the guest
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  728  		 */
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  729  		cond=
+_resched();
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  730 =20
+e329fb75d519e3 virt/kvm/arm/arm.c Christoffer Dall  2018-12-11  731  		upda=
+te_vmid(&vcpu->kvm->arch.vmid);
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  732 =20
+0592c005622582 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  733  		chec=
+k_vcpu_requests(vcpu);
+0592c005622582 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  734 =20
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  735  		/*
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  736  		 * P=
+reparing the interrupts to be injected also
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  737  		 * i=
+nvolves poking the GIC, which must be done in a
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  738  		 * n=
+on-preemptible context.
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  739  		 */
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  740  		pree=
+mpt_disable();
+328e5664794491 arch/arm/kvm/arm.c Christoffer Dall  2016-03-24  741 =20
+b02386eb7dac75 arch/arm/kvm/arm.c Shannon Zhao      2016-02-26  742  		kvm_=
+pmu_flush_hwstate(vcpu);
+328e5664794491 arch/arm/kvm/arm.c Christoffer Dall  2016-03-24  743 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  744  		loca=
+l_irq_disable();
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  745 =20
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  746  		kvm_=
+vgic_flush_hwstate(vcpu);
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  747 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  748  		/*
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  749  		 * E=
+xit if we have a signal pending so that we can deliver the
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  750  		 * s=
+ignal to user space.
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  751  		 */
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  752  		if (=
+signal_pending(current)) {
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  753  			ret=
+ =3D -EINTR;
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  754  			run=
+->exit_reason =3D KVM_EXIT_INTR;
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  755  		}
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  756 =20
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  757  		/*
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  758  		 * I=
+f we're using a userspace irqchip, then check if we need
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  759  		 * t=
+o tell a userspace irqchip about timer or PMU level
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  760  		 * c=
+hanges and if so, exit to userspace (the actual level
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  761  		 * s=
+tate gets updated in kvm_timer_update_run and
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  762  		 * k=
+vm_pmu_update_run below).
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  763  		 */
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  764  		if (=
+static_branch_unlikely(&userspace_irqchip_in_use)) {
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  765  			if =
+(kvm_timer_should_notify_user(vcpu) ||
+3dbbdf78636e66 arch/arm/kvm/arm.c Christoffer Dall  2017-02-01  766  			   =
+ kvm_pmu_should_notify_user(vcpu)) {
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  767  				re=
+t =3D -EINTR;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  768  				ru=
+n->exit_reason =3D KVM_EXIT_INTR;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  769  			}
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  770  		}
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  771 =20
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  772  		/*
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  773  		 * E=
+nsure we set mode to IN_GUEST_MODE after we disable
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  774  		 * i=
+nterrupts and before the final VCPU requests check.
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  775  		 * S=
+ee the comment in kvm_vcpu_exiting_guest_mode() and
+2f5947dfcaecb9 virt/kvm/arm/arm.c Christoph Hellwig 2019-07-24  776  		 * D=
+ocumentation/virt/kvm/vcpu-requests.rst
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  777  		 */
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  778  		smp_=
+store_mb(vcpu->mode, IN_GUEST_MODE);
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  779 =20
+e329fb75d519e3 virt/kvm/arm/arm.c Christoffer Dall  2018-12-11  780  		if (=
+ret <=3D 0 || need_new_vmid_gen(&vcpu->kvm->arch.vmid) ||
+424c989b1a664a virt/kvm/arm/arm.c Andrew Jones      2017-06-04  781  		    =
+kvm_request_pending(vcpu)) {
+6a6d73be12fbe4 virt/kvm/arm/arm.c Andrew Jones      2017-06-04  782  			vcp=
+u->mode =3D OUTSIDE_GUEST_MODE;
+771621b0e2f806 virt/kvm/arm/arm.c Christoffer Dall  2017-10-04  783  			isb=
+(); /* Ensure work in x_flush_hwstate is committed */
+b02386eb7dac75 arch/arm/kvm/arm.c Shannon Zhao      2016-02-26  784  			kvm=
+_pmu_sync_hwstate(vcpu);
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  785  			if =
+(static_branch_unlikely(&userspace_irqchip_in_use))
+4b4b4512da2a84 arch/arm/kvm/arm.c Christoffer Dall  2015-08-30  786  				kv=
+m_timer_sync_hwstate(vcpu);
+1a89dd9113badd arch/arm/kvm/arm.c Marc Zyngier      2013-01-21  787  			kvm=
+_vgic_sync_hwstate(vcpu);
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  788  			loc=
+al_irq_enable();
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  789  			pre=
+empt_enable();
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  790  			con=
+tinue;
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  791  		}
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  792 =20
+56c7f5e77f797f arch/arm/kvm/arm.c Alex Benn=C3=A9e       2015-07-07  793  	=
+	kvm_arm_setup_debug(vcpu);
+56c7f5e77f797f arch/arm/kvm/arm.c Alex Benn=C3=A9e       2015-07-07  794 =
+=20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  795  		/***=
+***********************************************************
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  796  		 * E=
+nter the guest
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  797  		 */
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  798  		trac=
+e_kvm_entry(*vcpu_pc(vcpu));
+6edaa5307f3f51 arch/arm/kvm/arm.c Paolo Bonzini     2016-06-15  799  		gues=
+t_enter_irqoff();
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  800 =20
+3f5c90b890acfa virt/kvm/arm/arm.c Christoffer Dall  2017-10-03  801  		if (=
+has_vhe()) {
+3f5c90b890acfa virt/kvm/arm/arm.c Christoffer Dall  2017-10-03  802  			kvm=
+_arm_vhe_guest_enter();
+3f5c90b890acfa virt/kvm/arm/arm.c Christoffer Dall  2017-10-03  803  			ret=
+ =3D kvm_vcpu_run_vhe(vcpu);
+4f5abad9e826bd virt/kvm/arm/arm.c James Morse       2018-01-15  804  			kvm=
+_arm_vhe_guest_exit();
+3f5c90b890acfa virt/kvm/arm/arm.c Christoffer Dall  2017-10-03  805  		} el=
+se {
+7aa8d14641651a virt/kvm/arm/arm.c Marc Zyngier      2019-01-05  806  			ret=
+ =3D kvm_call_hyp_ret(__kvm_vcpu_run_nvhe, vcpu);
+3f5c90b890acfa virt/kvm/arm/arm.c Christoffer Dall  2017-10-03  807  		}
+3f5c90b890acfa virt/kvm/arm/arm.c Christoffer Dall  2017-10-03  808 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  809  		vcpu=
+->mode =3D OUTSIDE_GUEST_MODE;
+b19e6892a90e7c arch/arm/kvm/arm.c Amit Tomar        2015-11-26  810  		vcpu=
+->stat.exits++;
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  811  		/*
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  812  		 * B=
+ack from guest
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  813  		 ***=
+**********************************************************/
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  814 =20
+56c7f5e77f797f arch/arm/kvm/arm.c Alex Benn=C3=A9e       2015-07-07  815  	=
+	kvm_arm_clear_debug(vcpu);
+56c7f5e77f797f arch/arm/kvm/arm.c Alex Benn=C3=A9e       2015-07-07  816 =
+=20
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  817  		/*
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  818  		 * W=
+e must sync the PMU state before the vgic state so
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  819  		 * t=
+hat the vgic can properly sample the updated state of the
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  820  		 * i=
+nterrupt line.
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  821  		 */
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  822  		kvm_=
+pmu_sync_hwstate(vcpu);
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  823 =20
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  824  		/*
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  825  		 * S=
+ync the vgic state before syncing the timer state because
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  826  		 * t=
+he timer code needs to know if the virtual timer
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  827  		 * i=
+nterrupts are active.
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  828  		 */
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  829  		kvm_=
+vgic_sync_hwstate(vcpu);
+ee9bb9a1e3c6e4 virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  830 =20
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  831  		/*
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  832  		 * S=
+ync the timer hardware state before enabling interrupts as
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  833  		 * w=
+e don't want vtimer interrupts to race with syncing the
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  834  		 * t=
+imer virtual interrupt state.
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  835  		 */
+61bbe380273347 virt/kvm/arm/arm.c Christoffer Dall  2017-10-27  836  		if (=
+static_branch_unlikely(&userspace_irqchip_in_use))
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  837  			kvm=
+_timer_sync_hwstate(vcpu);
+b103cc3f10c06f virt/kvm/arm/arm.c Christoffer Dall  2016-10-16  838 =20
+e6b673b741ea0d virt/kvm/arm/arm.c Dave Martin       2018-04-06  839  		kvm_=
+arch_vcpu_ctxsync_fp(vcpu);
+e6b673b741ea0d virt/kvm/arm/arm.c Dave Martin       2018-04-06  840 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  841  		/*
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  842  		 * W=
+e may have taken a host interrupt in HYP mode (ie
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  843  		 * w=
+hile executing the guest). This interrupt is still
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  844  		 * p=
+ending, as we haven't serviced it yet!
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  845  		 *
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  846  		 * W=
+e're now back in SVC mode, with interrupts
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  847  		 * d=
+isabled.  Enabling the interrupts now will have
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  848  		 * t=
+he effect of taking the interrupt again, in SVC
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  849  		 * m=
+ode this time.
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  850  		 */
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  851  		loca=
+l_irq_enable();
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  852 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  853  		/*
+6edaa5307f3f51 arch/arm/kvm/arm.c Paolo Bonzini     2016-06-15  854  		 * W=
+e do local_irq_enable() before calling guest_exit() so
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  855  		 * t=
+hat if a timer interrupt hits while running the guest we
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  856  		 * a=
+ccount that tick as being spent in the guest.  We enable
+6edaa5307f3f51 arch/arm/kvm/arm.c Paolo Bonzini     2016-06-15  857  		 * p=
+reemption after calling guest_exit() so that if we get
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  858  		 * p=
+reempted we make sure ticks after that is not counted as
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  859  		 * g=
+uest time.
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  860  		 */
+6edaa5307f3f51 arch/arm/kvm/arm.c Paolo Bonzini     2016-06-15 @861  		gues=
+t_exit();
+b5905dc12ed425 arch/arm/kvm/arm.c Christoffer Dall  2015-08-30  862  		trac=
+e_kvm_exit(ret, kvm_vcpu_trap_get_class(vcpu), *vcpu_pc(vcpu));
+1b3d546daf85ed arch/arm/kvm/arm.c Christoffer Dall  2015-05-28  863 =20
+3368bd809764d3 virt/kvm/arm/arm.c James Morse       2018-01-15  864  		/* E=
+xit types that need handling before we can be preempted */
+3368bd809764d3 virt/kvm/arm/arm.c James Morse       2018-01-15  865  		hand=
+le_exit_early(vcpu, run, ret);
+3368bd809764d3 virt/kvm/arm/arm.c James Morse       2018-01-15  866 =20
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  867  		pree=
+mpt_enable();
+abdf58438356c7 arch/arm/kvm/arm.c Marc Zyngier      2015-06-08  868 =20
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  869  		ret =
+=3D handle_exit(vcpu, run, ret);
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  870  	}
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  871 =20
+d9e1397783765a arch/arm/kvm/arm.c Alexander Graf    2016-09-27  872  	/* Te=
+ll userspace about in-kernel device output levels */
+3dbbdf78636e66 arch/arm/kvm/arm.c Christoffer Dall  2017-02-01  873  	if (u=
+nlikely(!irqchip_in_kernel(vcpu->kvm))) {
+d9e1397783765a arch/arm/kvm/arm.c Alexander Graf    2016-09-27  874  		kvm_=
+timer_update_run(vcpu);
+3dbbdf78636e66 arch/arm/kvm/arm.c Christoffer Dall  2017-02-01  875  		kvm_=
+pmu_update_run(vcpu);
+3dbbdf78636e66 arch/arm/kvm/arm.c Christoffer Dall  2017-02-01  876  	}
+d9e1397783765a arch/arm/kvm/arm.c Alexander Graf    2016-09-27  877 =20
+20b7035c66bacc virt/kvm/arm/arm.c Jan H. Sch=C3=B6nherr  2017-11-24  878  	=
+kvm_sigset_deactivate(vcpu);
+20b7035c66bacc virt/kvm/arm/arm.c Jan H. Sch=C3=B6nherr  2017-11-24  879 =
+=20
+accb757d798c9b virt/kvm/arm/arm.c Christoffer Dall  2017-12-04  880  	vcpu_=
+put(vcpu);
+f7ed45be3ba524 arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  881  	retur=
+n ret;
+749cf76c5a363e arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  882  }
+749cf76c5a363e arch/arm/kvm/arm.c Christoffer Dall  2013-01-20  883 =20
+
+:::::: The code at line 861 was first introduced by commit
+:::::: 6edaa5307f3f51e4e56dc4c63f68a69d88c6ddf5 KVM: remove kvm_guest_enter=
+/exit wrappers
+
+:::::: TO: Paolo Bonzini <pbonzini@redhat.com>
+:::::: CC: Paolo Bonzini <pbonzini@redhat.com>
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Cen=
@@ -236,14 +542,14 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/202001112205.w0Hq5W9O%25lkp%40intel.com.
+clang-built-linux/202001112343.WpFma1hC%25lkp%40intel.com.
 
---bnyqzik5crw5lgkp
+--gzfhvhtgwrskugm6
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICBS5GV4AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0WTZue94AZIghYiTAVCSveFRbLnj
+H4sICG3aGV4AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0WTZue94AZIghYiTAVCSveFRbLnj
 Fw99ZbuT/vtbBXAAQNDp9zI2qwpzoWbo+399PyHvby9Ph7eH28Pj49fJp+Pz8XR4O95N7h8e
 j/8ziYpJXsgJjZj8GYjTh+f3v385nJ5Wy8nZz2c/T3863Z5NNsfT8/FxEr483z98eofmDy/P
 //r+X/DP9wB8+gw9nf49uX08PH+afDmeXgE9mU1/hr8nP3x6ePv3L7/Af58eTqeX0y+Pj1+e
@@ -1051,64 +1357,64 @@ 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
-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
+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
 
---bnyqzik5crw5lgkp--
+--gzfhvhtgwrskugm6--
