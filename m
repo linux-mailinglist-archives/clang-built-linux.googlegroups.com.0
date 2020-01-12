@@ -1,143 +1,125 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBFNY5PYAKGQEJPU2S3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBPHD5PYAKGQEL4RYHXQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33c.google.com (mail-ot1-x33c.google.com [IPv6:2607:f8b0:4864:20::33c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 969C113859A
-	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 09:43:02 +0100 (CET)
-Received: by mail-ot1-x33c.google.com with SMTP id a20sf4353990otl.11
-        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 00:43:02 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578818581; cv=pass;
+Received: from mail-wr1-x43a.google.com (mail-wr1-x43a.google.com [IPv6:2a00:1450:4864:20::43a])
+	by mail.lfdr.de (Postfix) with ESMTPS id B28EE1385C6
+	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 11:15:24 +0100 (CET)
+Received: by mail-wr1-x43a.google.com with SMTP id z14sf3505346wrs.4
+        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 02:15:24 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578824124; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Vr74htNlkJMIS9iOAp/yh20pwMQTmLzxwXYuLEuXLaMk7gYpyiPqh4RlHEZCGnjIiT
-         rb6iufePiu5o1rNHvDXzQP7ZTHg513TF7sWHjupWLUlW6NvLrm2K9sEjE4UtROQP6RXA
-         7cwJDUlZIgOsTCv/2+TpgdDCFJ77f0vn3FXGq289zFb/NPEXeicCkDClLQKrK6+DHVNq
-         2Pzu0Bnq8WdW9YB2eSVt3KKLq22Ao/xH+lv3idkhleK3tHym2Mmh5jUyJBl6Z7H0/O0g
-         kSZsESbCIztSiC3g/2eAXcm/ModgPqMUORfqWuabxxVh3OspBBBtNhBC79hulWsTLnXL
-         vcDg==
+        b=goTBwRLR191kXpFqGd75McM9AzSijPqvX/13xZys1l9MOHT5Pb7aNmHYNUzTBe/va2
+         2dyhptEWJpAEpirSWeH0kDIT+HDyXPluCmqz8cJHx+2UtrI+AXd6QcCTwXwBFZxLS56y
+         BSjQbW19jBOAJ0lbks/6co/PI0ww0GwZkxt0JpzCJc/k7ISGDTEAC+glCsAXay7I1pw4
+         ILfejNCMrOSn/911ZJE21uyCI2C89eKOYSRf+YOMz3Ffz64MaMoAZBFVsGMPx/KgH0bB
+         +R9RUWgPEgp4pbwJWBd7T4Kjf6RIOpuXd20hLqOWZM4cPC6VHjZiUYCzEikiu41SAdYf
+         lCcw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature:dkim-signature;
-        bh=NEymYXRE5YtE0TxgjlVhBXYKKoRk64gFIkBUGnNjhkw=;
-        b=sQc1G+GFYyB1MRPdi7A5utFbDinaJvZKva1YvpquVIQxQw1zVwXhm4MP51tyZ3SMnE
-         4EBpE4ez3DWdtp/tnqNEbUTboEEsDDAIwEPj3VzryDMqjMV9xvXk/w1JUZSuQjtYF8vR
-         h2f19aqd85lWiW34LO5yZbXJspsV5b/xeGgjt6LrXDn3ru4kPKIeH1h1+HpPFFelKr/m
-         WoFXkddYJCQZQ+v+FfO2nWF13jsiIAA5pBuAH0Ct5n8vIpMmpN2tHXNgBL14YNiTZv9K
-         YEI6PYjLVJduGzm8I0ebSrgT/7zynLWyCPxY0/jBL30OnZh2BVR1qzrvFO15c4vRBmif
-         BqsQ==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=MdxmELG0TNU0P1b7M63n7IJmk23KJYO+bFc3ZGP6sh8=;
+        b=egJh+UR8HU7pWFeg9VSsqqSN7LAhghR27LC35anSTVVamHSX/VJFuQvX4Ku6guE8Ok
+         ncJW+AplZRT7lJvltmj4f6afkl/G1HcMLE+ofmaDgOiPADXfMMJM3FyGPB6qRz4JnXjS
+         t6rX5y3dQQ+v439jVNxEofXRLtuZNzpCs3lpkBqQVDDVWVDn8xjlZXQeqFj5OQ28Lfnc
+         MfkBX9B+Mn2hUgUvw8bfKU8dErGan04ZyVsz7zjJwH9R2sO4/dglYeLb7LThaxJVxw/m
+         2nztriCSa4zyKMgqid1akTfYqMijeR529LE5C1iNAOLYfSmJRJo3bxs1xbvFt3Pft6gu
+         104g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=s7AHUzKj;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b="xU+s4jU/";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=NEymYXRE5YtE0TxgjlVhBXYKKoRk64gFIkBUGnNjhkw=;
-        b=Niti5NNeatxLOTFR4rSAlOKqYrI2QtVPW4TDj7UyHIyCHgIB9w1Y2RqS9o11jnbsHi
-         P5khfNLQsRX6Cbt7tSqWgdhjxIO34Ag/zZNFFPppcL0+G1DHrJhd9Y3pkTpNDc+HsK5B
-         nVvOdZ8ylC3vdcYf3jLD3hHiRFaFZAcGxxcKTX3S9NXfNjMkSGuVNhJto3ST/cFHvJ5H
-         9MbAkc/+rXMqdUTxUF9snfm8xrCkD4Mc6dTabkni2pRLmWIbexzu2lt1tfJziHRvHTX2
-         jITpyevLXyvtzr02fGsQ5Axix8l+tRhsD5k0RkOy9/sbONv2eFflsMd0Hv4XavNl2il8
-         x4Zg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=NEymYXRE5YtE0TxgjlVhBXYKKoRk64gFIkBUGnNjhkw=;
-        b=CWMiuFABOLGvO3pvi9Bic9glpPEtCxHjI1pieZ8vKWx/Owc8lrrs4XhFP8ix9Jejsz
-         4sTUD5/vS4MnSIeCpbZhCFIJuDIa2KKXS/LaZp239YQbdK6ADtH/4ZuU4YvW6Tc4Nc7a
-         BajXTql5vd/60/T4KCjV/J3OaP0NyUt6SV5T6iMhOOZ+A1REQggPb6gCC9jY29XddhS4
-         eJ6r1vICT7rigJVnraADPfB5ludYcFcIhlag/2nMMwJcs6wCEcOe9QiEg4KOv3hk9EOB
-         yxrBt5nfWmdsuLq3fhZxrbraHTqq6i9qqSFYHqYB1k7Oo6ZtQAfcMVV8kTQXVa/AQYor
-         Sy/A==
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=MdxmELG0TNU0P1b7M63n7IJmk23KJYO+bFc3ZGP6sh8=;
+        b=ATxIRW2nyS/VcD+uv22ryL5blTaONSud/POh2tKqbwz+vKPUIAhTVsM+79p94uqQmk
+         +vUMTCLcqZzd8dBA0b/A76c+uBrqxj6BTWXuGhsXylFR3ugS8xsoMXfqrbpIIfZfRiqm
+         H0rRycb+9QyzJkwK0/dPWOfdjvx2q4YryBsRyL1kNAcxSIxew5Lq8gYP01yL6g5+HxGV
+         hiFN4zK5+hUdAi1AWWrHrDa3R1nI6Jn722r47NPhgefHc0IR00yNacX/LzBq+CKiMItj
+         ja3m1/0qM9Bsx/HWTqn0JenWa3SXuuHYJ2cWPrvY6pBc8mOmp2oitD22W0fNfVWs/5k1
+         rBXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=NEymYXRE5YtE0TxgjlVhBXYKKoRk64gFIkBUGnNjhkw=;
-        b=Z+qOB7gp2N6sfz++4bZ+dJspBWbcMqZxBIBCP2s242g+Qwj7/Mvg0ZadsLzLuC4lsE
-         cnB94s350xsvvs84axaTWDGC8sjbPZlLR6tcdYDTIXxszdFmw/CzZ4+ZFBiFbsXNvJCd
-         tyv5I9YLlsVAXIgx4Xj3YIe+D6koOkObIvDQBKk/W8bGD76IPtVm1ubtOJBkUJTKB0jC
-         PLNFsAU9zo/n0x3Inm21Tq/1VUhdzmvLi0NaQ2lPIh/OmZ8oeVbbgJmNk/cfOfHBsdkD
-         M/quNI5lPfVM/vjrymP+Zp/KFmxvA0eOvlelU53hD8inWiroGn2b0/Ra/hT3ktpTg4Yj
-         WKIg==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=MdxmELG0TNU0P1b7M63n7IJmk23KJYO+bFc3ZGP6sh8=;
+        b=p2Md9ykpCDIoHuCV6PYKMnw+HEFrgdKZ8W3AJSD0MK11eqYoHojbwpqj9w9HVnxUd8
+         VZ1yTNEH534HZVFWrZN+hxmBQU35DphHwV4cOTohtR11PP4+owBgEr9nt5ncWWj5xDmZ
+         sFN/qN5w9FS2C72v086F9W3MCFpqXOIIpNJBjY4rdvP4RXNGU6RhUK2Iqo4cTyvmyVJy
+         YLSKPHx63uZYFiFt7uOuANGBEiwXsa9oRlNhESyUQAeck+QQ0eLNuroJd8UnTgwqepyk
+         odoXo5nO0ywUFOpOrZ6tb+DjAGXyS8Z8Fa/Aep6xn9fHWrFKQr6AAAydtI4vQTb6Hrdc
+         imNg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV4qmQB9uVntyeqUVHJFd1KERxmOXbWvk5doQjGw7S6/8vP/32i
-	xsLiZbGOKwL5RgtL5o3r6Q4=
-X-Google-Smtp-Source: APXvYqxd7QW1q+r+3T7iFmm6x0D57tG/fQ5Pd1+FGce76My744aYGyGqyVuiXF9+PTPcTx1F04+0lA==
-X-Received: by 2002:aca:c494:: with SMTP id u142mr9106857oif.86.1578818581297;
-        Sun, 12 Jan 2020 00:43:01 -0800 (PST)
+X-Gm-Message-State: APjAAAW+HtI5YFu8AQkoaIgf4svqlGDJOWtIIx7wap7hcx/7PgtVGrHi
+	hhCQauODUVfKlFol7UWNxEc=
+X-Google-Smtp-Source: APXvYqwTeqmwh/ppxj0DIo/GaSucVz/7Vf57nPJONtm7m2Rz4xd4n9/Ow10Cu2a0CCyLrmsgIoS0tw==
+X-Received: by 2002:a5d:6703:: with SMTP id o3mr13386071wru.235.1578824124293;
+        Sun, 12 Jan 2020 02:15:24 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:60d0:: with SMTP id b16ls1741479otk.0.gmail; Sun, 12 Jan
- 2020 00:43:00 -0800 (PST)
-X-Received: by 2002:a05:6830:4ca:: with SMTP id s10mr9354596otd.268.1578818580931;
-        Sun, 12 Jan 2020 00:43:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578818580; cv=none;
+Received: by 2002:a1c:9dd4:: with SMTP id g203ls4684422wme.1.gmail; Sun, 12
+ Jan 2020 02:15:23 -0800 (PST)
+X-Received: by 2002:a1c:f20c:: with SMTP id s12mr14678829wmc.173.1578824123753;
+        Sun, 12 Jan 2020 02:15:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578824123; cv=none;
         d=google.com; s=arc-20160816;
-        b=vJJJbxsbwnb9ecuyCsitvLcl6Q75RvpLp2RaMfxB8tPHrm+KDXtHTeiSBkZZ7oqvaS
-         qy3FImu/x5Gd+iNQTUtXqbmTII20da7neLjhlfb6ReCZrjMVa6PEUwl1Lo649Lf9EJV3
-         aji1uhoX2V0yprImQk6e6IRYo6XiT0YCNTDztVfuAMjbJDxd1/wa29CrwGjk53XJhTmI
-         B1Qg8YM8s6teFt10YVHrm4oATlIS/vzsYHizsoSYRyR7cbKCAMq4sBficJsxvjbE2Weh
-         0Z7gw4ULd1GM0Tw5QMNAwdkcD7Kvv51v65tusoc0AsWDCQTyDRLNJF/AwZe7dwB/wNlF
-         BvAg==
+        b=tGFnYI1azBbv16EvxvTLk0RLGhwbeydfx4BLfAFzEqsQLsMFcA5hvnFmXRIyOZlvPE
+         tcAIIlUMe+LFPGmq6QBaspbTXtHpDOQGx+kj3eaVpgUkMRBw+6rxWn93fEs+x2D5WO0u
+         YUSMGB1uVv1c8kh61KjIw67H2MiJn/aiOO4x6jx+HnYFHxlXY/FiPlryKfoUdz8INesQ
+         lYcsAvHFp+40Hiz96nzAXOCTCGr7OHpuTLtPurM+EWy2vcZpv+mdrYXfGvjMexsDTAhu
+         /mZePOg72mTqURWQV7Iv6aPRINTlVbW2EOkwvn8g5I2n5JFjf2fwUXMb3Kt+Z70/C9K9
+         Yoew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=Xmx0tpI9VECbWS87RMJi3tvMEfC97nidqqr7BCeTGD0=;
-        b=iMXGDqFFLCOg8DsayDQk2z2h5XYBFLwDw9z+ZEj6l3vSGAQNDbGLdJyW3mHXQ1re3a
-         j4RTHL5OfPg3lN/kdm/o5Zas4cMzbW4O9xUkP0GySaiW9FO+w+3UPMtXV3melIOt8GLC
-         8YpZUl925qR2li4rXR09jXGayJdvSM21dzSgOKkydY3Ks2+sTUMvGpeJsMncVCtGO7FF
-         qLVfG3TulYvivwty94lEoCOQp7DD9AEVlkDOmq895fKw+CfHWxXg9837ppsSo07O8y6O
-         bOZqAB2iC2JBnMESzNA0DnGmRcO9v4ePkPi6jD6LbI8zqfJeF7zaOgBe0PkILFJaEUKg
-         mSLg==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=itSDc9mjnUb76gSECP/kYKG6jwgzRQJjE05spBFfTSw=;
+        b=vSVqazKeeQX8ydUwi95LwENdWOikvW5gjY1NXURdRw+iuOZl2qdqvEKACly80rzBkE
+         w6h0QYwYshiSiYfIXhCzHEmLwgRXQx2/7GE+Jl6U6fDnPQgjUPaC7kgwl4HsIZGuu9K4
+         MJ6n6+M8JGprphW+uIX0Dtp7rxRiXVHVW/48rUad8UceAm8fWw2HNf/ClciPzkIVYXoU
+         A3ORGP2Vys+lPBCX5078DsfHBkJyEoitduAgOrcY4OdCcF2T2Fax9MezVnvdifMCrU12
+         0MNm6ynN0EO651NIDQN1/jSaX8elTapch3jOP/prZ2omPJBfQLJnhA0Kn/9lxJPO4uSm
+         FNzw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=s7AHUzKj;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-oi1-x242.google.com (mail-oi1-x242.google.com. [2607:f8b0:4864:20::242])
-        by gmr-mx.google.com with ESMTPS id p5si317291oip.3.2020.01.12.00.43.00
+       dkim=pass header.i=@linaro.org header.s=google header.b="xU+s4jU/";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x344.google.com (mail-wm1-x344.google.com. [2a00:1450:4864:20::344])
+        by gmr-mx.google.com with ESMTPS id m12si393570wrq.1.2020.01.12.02.15.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 12 Jan 2020 00:43:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::242 as permitted sender) client-ip=2607:f8b0:4864:20::242;
-Received: by mail-oi1-x242.google.com with SMTP id n16so5637244oie.12
-        for <clang-built-linux@googlegroups.com>; Sun, 12 Jan 2020 00:43:00 -0800 (PST)
-X-Received: by 2002:a54:468b:: with SMTP id k11mr8358515oic.134.1578818580380;
-        Sun, 12 Jan 2020 00:43:00 -0800 (PST)
-Received: from ubuntu-x2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id s145sm2357598oie.44.2020.01.12.00.42.59
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Sun, 12 Jan 2020 00:42:59 -0800 (PST)
-Date: Sun, 12 Jan 2020 01:42:58 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: Julien Thierry <jthierry@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	jpoimboe@redhat.com, peterz@infradead.org, raphael.gault@arm.com,
-	catalin.marinas@arm.com, will@kernel.org,
+        Sun, 12 Jan 2020 02:15:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344 as permitted sender) client-ip=2a00:1450:4864:20::344;
+Received: by mail-wm1-x344.google.com with SMTP id p17so6470740wmb.0
+        for <clang-built-linux@googlegroups.com>; Sun, 12 Jan 2020 02:15:23 -0800 (PST)
+X-Received: by 2002:a1c:62c1:: with SMTP id w184mr14700761wmb.150.1578824123184;
+        Sun, 12 Jan 2020 02:15:23 -0800 (PST)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id q68sm10290870wme.14.2020.01.12.02.15.22
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Sun, 12 Jan 2020 02:15:22 -0800 (PST)
+From: ci_notify@linaro.org
+Date: Sun, 12 Jan 2020 10:15:22 +0000 (UTC)
+To: tcwg-validation@linaro.org, llvm@linaro.org, 
 	clang-built-linux@googlegroups.com
-Subject: Re: [RFC v5 00/57] objtool: Add support for arm64
-Message-ID: <20200112084258.GA44004@ubuntu-x2-xlarge-x86>
-References: <20200109160300.26150-1-jthierry@redhat.com>
+Message-ID: <2141407937.12644.1578824122748.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-aarch64-next-allmodconfig - Build # 70 -
+ Successful!
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200109160300.26150-1-jthierry@redhat.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_12643_980821318.1578824122199"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=s7AHUzKj;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::242 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@linaro.org header.s=google header.b="xU+s4jU/";       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::344
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -150,328 +132,282 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 09, 2020 at 04:02:03PM +0000, Julien Thierry wrote:
-> Hi,
-> 
-> This patch series is the continuation of Raphael's work [1]. All the
-> patches can be retrieved from:
-> git clone -b arm64-objtool-v5 https://github.com/julien-thierry/linux.git
-> 
-> There still are some outstanding issues but the series is starting to
-> get pretty big so it is probably good to start having some discussions
-> on the current state of things.
-> 
-> It felt necessary to split some of the patches (especially the arm64
-> decoder). In order to give Raphael credit for his work I used the
-> "Suggested-by" tag. If this is not the right way to give credit or if
-> it should be present on more patches do let me know.
-> 
-> There still are some shortcomings. On defconfig here are the remaining
-> warnings:
-> * arch/arm64/crypto/crct10dif-ce-core.o: warning: objtool: crc_t10dif_pmull_p8()+0xf0: unsupported intra-function call
-> * arch/arm64/kernel/cpu_errata.o: warning: objtool: qcom_link_stack_sanitization()+0x4: unsupported intra-function call
-> Objtool currently does not support bl from a procedure to itself. This
-> is also an issue with retpolines. I need to investigate more to figure
-> out whether something can be done for this or if this file should not be
-> validated by objtool.
-> 
-> * arch/arm64/kernel/efi-entry.o: warning: objtool: entry()+0xb0: sibling call from callable instruction with modified stack frame
-> The EFI entry jumps to code mapped by EFI. Objtool cannot know statically where the code flow is going.
-> 
-> * arch/arm64/kernel/entry.o: warning: objtool: .entry.tramp.text+0x404: unsupported intra-function call
-> Need to figure out what is needed to handle aarch64 trampolines. x86
-> explicitly annotates theirs with ANNOTATE_NOSPEC_ALTERNATIVE and
-> patching them as alternatives.
-> 
-> * arch/arm64/kernel/head.o: warning: objtool: .head.text+0x58: can't find jump dest instruction at .head.text+0x80884
-> This is actually a constant that turns out to be a valid branch opcode.
-> A possible solution could be to introduce a marco that explicitly
-> annotates constants placed in code sections.
-> 
-> * arch/arm64/kernel/hibernate-asm.o: warning: objtool: el1_sync()+0x4: unsupported instruction in callable function
-> Symbols el<x>_* shouldn't be considered as callable functions. Should we
-> use SYM_CODE_END instead of PROC_END?
-> 
-> * arch/arm64/kvm/hyp/hyp-entry.o: warning: objtool: .hyp.text: empty alternative at end of section
-> This is due to the arm64 alternative_cb. Currently, the feature
-> corresponding to the alternative_cb is defined as the current number of
-> features supported by the kernel, meaning the identifier is not fixed
-> accross kernel versions. This makes it a bit hard to detect these
-> alternative_cb for external tools.
-> 
-> Would it be acceptable to set a fixed identifier for alternative_cb?
-> (probably 0xFF so it is always higher than the number of real features)
-> 
-> * drivers/ata/libata-scsi.o: warning: objtool: ata_sas_queuecmd() falls through to next function ata_scsi_scan_host()
-> This is due to a limitation in the switch table metadata interpretation.
-> The compiler might create a table of unsigned offsets and then
-> compute the final offset as follows:
-> 
-> 	ldrb    offset_reg, [<offset_table>, <offset_idx>, uxtw]
-> 	adr     base_reg, <base_addr>
-> 	add     res_addr, base_reg, offset_reg, sxtb #2
-> 
-> Effectively using the loaded offset as a signed value.
-> I don't have a simple way to solve this at the moment, I'd like to
-> avoid decoding the instructions to check which ones might sign extend
-> the loaded offset.
-> 
-> * kernel/bpf/core.o: warning: objtool: ___bpf_prog_run()+0x44: sibling call from callable instruction with modified stack frame
-> This is because the function uses a C jump table which differ from
-> basic jump tables. Also, the code generated for C jump tables on arm64
-> does not follow the same form as the one for x86. So the existing x86 objtool
-> code handling C jump tables can't be used.
-> 
-> I'll focus on understanding the arm64 pattern so objtool can handle them.
-> 
-> 
-> In the mean time, any feedback on the current state is appreciated.
-> 
-> * Patches 1 to 18 adapts the current objtool code to make it easier to
->   support new architectures.
-> * Patches 19 to 45 add the support for arm64 architecture to objtool.
-> * Patches 46 to 57 fix warnings reported by objtool on the existing
->   arm64 code.
-> 
-> Changes since RFCv4[1]:
-> * Rebase on v5.5-rc5
-> * Misc cleanup/bug fixes
-> * Fix some new objtool warnings reported on arm64 objects
-> * Make ORC subcommand optional since arm64 does not currently support it
-> * Support branch instructions in alternative sections when they jump
->   within the same set of alternative instructions
-> * Replace the "extra" stack_op with a list of stack_op
-> * Split the decoder into multiple patches to ease review
-> * Mark constants generated by load literal instructions as bytes that
->   should not be reached by execution flow
-> * Rework the switch table handling
-> 
-> [1] https://lkml.org/lkml/2019/8/16/400
-> 
-> Thanks,
-> 
-> Julien
-> 
-> -->
-> 
-> Julien Thierry (43):
->   objtool: check: Remove redundant checks on operand type
->   objtool: check: Clean instruction state before each function
->     validation
->   objtool: check: Use arch specific values in restore_reg()
->   objtool: check: Ignore empty alternative groups
->   objtool: Give ORC functions consistent name
->   objtool: Make ORC support optional
->   objtool: Split generic and arch specific CFI definitions
->   objtool: Abstract alternative special case handling
->   objtool: check: Allow jumps from an alternative group to itself
->   objtool: Do not look for STT_NOTYPE symbols
->   objtool: Support addition to set frame pointer
->   objtool: Support restoring BP from the stack without POP
->   objtool: Make stack validation more generic
->   objtool: Support multiple stack_op per instruction
->   objtool: arm64: Decode unknown instructions
->   objtool: arm64: Decode simple data processing instructions
->   objtool: arm64: Decode add/sub immediate instructions
->   objtool: arm64: Decode logical data processing instructions
->   objtool: arm64: Decode system instructions not affecting the flow
->   objtool: arm64: Decode calls to higher EL
->   objtool: arm64: Decode brk instruction
->   objtool: arm64: Decode instruction triggering context switch
->   objtool: arm64: Decode branch instructions with PC relative immediates
->   objtool: arm64: Decode branch to register instruction
->   objtool: arm64: Decode basic load/stores
->   objtool: arm64: Decode load/store with register offset
->   objtool: arm64: Decode load/store register pair instructions
->   objtool: arm64: Decode FP/SIMD load/store instructions
->   objtool: arm64: Decode load/store exclusive
->   objtool: arm64: Decode atomic load/store
->   objtool: arm64: Decode pointer auth load instructions
->   objtool: arm64: Decode load acquire/store release
->   objtool: arm64: Decode load/store with memory tag
->   objtool: arm64: Decode load literal
->   objtool: arm64: Decode register data processing instructions
->   objtool: arm64: Decode FP/SIMD data processing instructions
->   objtool: arm64: Decode SVE instructions
->   objtool: arm64: Implement functions to add switch tables alternatives
->   arm64: Generate no-ops to pad executable section
->   arm64: Move constant to rodata
->   arm64: Mark sigreturn32.o as containing non standard code
->   arm64: entry: Avoid empty alternatives entries
->   arm64: crypto: Remove redundant branch
-> 
-> Raphael Gault (14):
->   objtool: Add abstraction for computation of symbols offsets
->   objtool: orc: Refactor ORC API for other architectures to implement.
->   objtool: Move registers and control flow to arch-dependent code
->   objtool: Refactor switch-tables code to support other architectures
->   objtool: arm64: Add required implementation for supporting the aarch64
->     architecture in objtool.
->   gcc-plugins: objtool: Add plugin to detect switch table on arm64
->   objtool: arm64: Enable stack validation for arm64
->   arm64: alternative: Mark .altinstr_replacement as containing
->     executable instructions
->   arm64: assembler: Add macro to annotate asm function having non
->     standard stack-frame.
->   arm64: sleep: Prevent stack frame warnings from objtool
->   arm64: kvm: Annotate non-standard stack frame functions
->   arm64: kernel: Add exception on kuser32 to prevent stack analysis
->   arm64: crypto: Add exceptions for crypto object to prevent stack
->     analysis
->   arm64: kernel: Annotate non-standard stack frame functions
-> 
->  arch/arm64/Kconfig                            |    2 +
->  arch/arm64/crypto/Makefile                    |    3 +
->  arch/arm64/crypto/sha1-ce-core.S              |    3 +-
->  arch/arm64/crypto/sha2-ce-core.S              |    3 +-
->  arch/arm64/crypto/sha3-ce-core.S              |    3 +-
->  arch/arm64/crypto/sha512-ce-core.S            |    3 +-
->  arch/arm64/include/asm/alternative.h          |    2 +-
->  arch/arm64/kernel/Makefile                    |    4 +
->  arch/arm64/kernel/entry.S                     |    4 +-
->  arch/arm64/kernel/hyp-stub.S                  |    3 +
->  arch/arm64/kernel/relocate_kernel.S           |    5 +
->  arch/arm64/kernel/sleep.S                     |    5 +
->  arch/arm64/kvm/hyp-init.S                     |    3 +
->  arch/arm64/kvm/hyp/entry.S                    |    3 +
->  include/linux/frame.h                         |   19 +-
->  scripts/Makefile.gcc-plugins                  |    2 +
->  scripts/gcc-plugins/Kconfig                   |    4 +
->  .../arm64_switch_table_detection_plugin.c     |   94 +
->  tools/objtool/Build                           |    4 +-
->  tools/objtool/Makefile                        |   13 +-
->  tools/objtool/arch.h                          |   14 +-
->  tools/objtool/arch/arm64/Build                |    5 +
->  tools/objtool/arch/arm64/arch_special.c       |  262 ++
->  tools/objtool/arch/arm64/bit_operations.c     |   69 +
->  tools/objtool/arch/arm64/decode.c             | 2866 +++++++++++++++++
->  .../objtool/arch/arm64/include/arch_special.h |   23 +
->  .../arch/arm64/include/bit_operations.h       |   31 +
->  tools/objtool/arch/arm64/include/cfi_regs.h   |   44 +
->  .../objtool/arch/arm64/include/insn_decode.h  |  206 ++
->  tools/objtool/arch/x86/Build                  |    3 +
->  tools/objtool/arch/x86/arch_special.c         |  182 ++
->  tools/objtool/arch/x86/decode.c               |   29 +-
->  tools/objtool/arch/x86/include/arch_special.h |   28 +
->  tools/objtool/arch/x86/include/cfi_regs.h     |   25 +
->  tools/objtool/{ => arch/x86}/orc_dump.c       |    4 +-
->  tools/objtool/{ => arch/x86}/orc_gen.c        |  114 +-
->  tools/objtool/cfi.h                           |   21 +-
->  tools/objtool/check.c                         |  461 +--
->  tools/objtool/check.h                         |   13 +-
->  tools/objtool/elf.c                           |    3 +-
->  tools/objtool/objtool.c                       |    2 +
->  tools/objtool/orc.h                           |   38 +-
->  tools/objtool/special.c                       |   44 +-
->  tools/objtool/special.h                       |   13 +
->  44 files changed, 4282 insertions(+), 400 deletions(-)
->  create mode 100644 scripts/gcc-plugins/arm64_switch_table_detection_plugin.c
->  create mode 100644 tools/objtool/arch/arm64/Build
->  create mode 100644 tools/objtool/arch/arm64/arch_special.c
->  create mode 100644 tools/objtool/arch/arm64/bit_operations.c
->  create mode 100644 tools/objtool/arch/arm64/decode.c
->  create mode 100644 tools/objtool/arch/arm64/include/arch_special.h
->  create mode 100644 tools/objtool/arch/arm64/include/bit_operations.h
->  create mode 100644 tools/objtool/arch/arm64/include/cfi_regs.h
->  create mode 100644 tools/objtool/arch/arm64/include/insn_decode.h
->  create mode 100644 tools/objtool/arch/x86/arch_special.c
->  create mode 100644 tools/objtool/arch/x86/include/arch_special.h
->  create mode 100644 tools/objtool/arch/x86/include/cfi_regs.h
->  rename tools/objtool/{ => arch/x86}/orc_dump.c (98%)
->  rename tools/objtool/{ => arch/x86}/orc_gen.c (62%)
-> 
-> --
-> 2.21.0
-> 
+------=_Part_12643_980821318.1578824122199
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Julien,
+Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allmodconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/llvm-master-aarch64-mainline-allmodconfig
+ - tcwg_kernel/llvm-master-aarch64-mainline-allyesconfig
+ - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
 
-The 0day bot reported a couple of issues with clang with this series;
-the full report is available here (clang reports are only sent to our
-mailing lists for manual triage for the time being):
+Culprit:
+<cut>
+commit f17ae668a96eeb69f0664f126cf672e1a05754d2
+Author: Fangrui Song <maskray@google.com>
 
-https://groups.google.com/d/msg/clang-built-linux/MJbl_xPxawg/mWjgDgZgBwAJ
+    [Driver][CodeGen] Add -fpatchable-function-entry=N[,0]
+</cut>
 
-The first obvious issue is that this series appears to depend on a GCC
-plugin? I'll be quite honest, objtool and everything it does is rather
-over my head but I see this warning during configuration (allyesconfig):
+First few errors in logs of first_bad:
+00:01:34 clang-10: error: assembler command failed with exit code 1 (use -v to see invocation)
+00:01:34 make[1]: *** [init/calibrate.o] Error 1
+00:01:35 clang-10: error: assembler command failed with exit code 1 (use -v to see invocation)
+00:01:35 make[1]: *** [certs/system_keyring.o] Error 1
+00:01:35 clang-10: error: assembler command failed with exit code 1 (use -v to see invocation)
+00:01:35 make[2]: *** [arch/arm64/xen/../../arm/xen/grant-table.o] Error 1
+00:01:35 clang-10: error: assembler command failed with exit code 1 (use -v to see invocation)
+00:01:35 make[1]: *** [certs/blacklist.o] Error 1
+00:01:35 make: *** [certs] Error 2
+00:01:35 clang-10: error: assembler command failed with exit code 1 (use -v to see invocation)
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+rr[llvm_branch]="bdd88b7ed3956534a0a71b1ea2bc88c69d48f9b7"
 
-WARNING: unmet direct dependencies detected for GCC_PLUGIN_SWITCH_TABLES
-  Depends on [n]: GCC_PLUGINS [=n] && ARM64 [=y]
-    Selected by [y]:
-      - ARM64 [=y] && STACK_VALIDATION [=y]
+Results regressed to (for first_bad == f17ae668a96eeb69f0664f126cf672e1a05754d2)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+609
 
-Followed by the actual error:
+from (for last_good == a44c434b68e515ce9f2627367c83ff6b22328261)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+19819
 
-error: unable to load plugin
-'./scripts/gcc-plugins/arm64_switch_table_detection_plugin.so':
-'./scripts/gcc-plugins/arm64_switch_table_detection_plugin.so: cannot
-open shared object file: No such file or directory'
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/artifact/artifacts/build-f17ae668a96eeb69f0664f126cf672e1a05754d2/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/artifact/artifacts/build-a44c434b68e515ce9f2627367c83ff6b22328261/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/
 
-If this plugin is absolutely necessary and can't be implemented in
-another way so that clang can be used, seems like STACK_VALIDATION
-should only be selected on ARM64 when CONFIG_CC_IS_GCC is not zero.
+Reproduce builds:
+<cut>
+mkdir investigate-llvm-f17ae668a96eeb69f0664f126cf672e1a05754d2
+cd investigate-llvm-f17ae668a96eeb69f0664f126cf672e1a05754d2
 
-The second issue I see is the -Wenum-conversion warnings; they are
-pretty trivial to fix (see commit e7e83dd3ff1d ("objtool: Fix Clang
-enum conversion warning") upstream and the below diff).
+git clone https://git.linaro.org/toolchain/jenkins-scripts
 
-Would you mind addressing these in a v6 if you happen to do one?
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
 
-Cheers,
-Nathan
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
 
-diff --git a/tools/objtool/arch/arm64/decode.c b/tools/objtool/arch/arm64/decode.c
-index 5a5f82b5cb81..1ed6bf0c85ce 100644
---- a/tools/objtool/arch/arm64/decode.c
-+++ b/tools/objtool/arch/arm64/decode.c
-@@ -1518,7 +1518,7 @@ int arm_decode_ld_st_regs_unsc_imm(u32 instr, enum insn_type *type,
- 		op->dest.type = OP_DEST_REG_INDIRECT;
- 		op->dest.reg = rn;
- 		op->dest.offset = SIGN_EXTEND(imm9, 9);
--		op->src.type = OP_DEST_REG;
-+		op->src.type = OP_SRC_REG;
- 		op->src.reg = rt;
- 		op->src.offset = 0;
- 		break;
-@@ -1605,7 +1605,7 @@ int arm_decode_ld_st_regs_unsigned(u32 instr, enum insn_type *type,
- 		op->dest.type = OP_DEST_REG_INDIRECT;
- 		op->dest.reg = rn;
- 		op->dest.offset = imm12;
--		op->src.type = OP_DEST_REG;
-+		op->src.type = OP_SRC_REG;
- 		op->src.reg = rt;
- 		op->src.offset = 0;
- 	}
-@@ -1772,7 +1772,7 @@ int arm_decode_ld_st_imm_unpriv(u32 instr, enum insn_type *type,
- 		op->dest.type = OP_DEST_REG_INDIRECT;
- 		op->dest.reg = rn;
- 		op->dest.offset = SIGN_EXTEND(imm9, 9);
--		op->src.type = OP_DEST_REG;
-+		op->src.type = OP_SRC_REG;
- 		op->src.reg = rt;
- 		op->src.offset = 0;
- 		break;
-@@ -1852,7 +1852,7 @@ int arm_decode_atomic(u32 instr, enum insn_type *type,
- 	list_add_tail(&op->list, ops_list);
+cd llvm
+
+# Reproduce first_bad build
+git checkout --detach f17ae668a96eeb69f0664f126cf672e1a05754d2
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach a44c434b68e515ce9f2627367c83ff6b22328261
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/70/consoleText
+
+Full commit:
+<cut>
+commit f17ae668a96eeb69f0664f126cf672e1a05754d2
+Author: Fangrui Song <maskray@google.com>
+Date:   Sat Jan 4 16:58:11 2020 -0800
+
+    [Driver][CodeGen] Add -fpatchable-function-entry=N[,0]
+    
+    In the backend, this feature is implemented with the function attribute
+    "patchable-function-entry". Both the attribute and XRay use
+    TargetOpcode::PATCHABLE_FUNCTION_ENTER, so the two features are
+    incompatible.
+    
+    Reviewed By: ostannard, MaskRay
+    
+    Differential Revision: https://reviews.llvm.org/D72222
+---
+ clang/include/clang/Basic/CodeGenOptions.def       |  2 ++
+ clang/include/clang/Basic/DiagnosticDriverKinds.td |  2 ++
+ clang/include/clang/Driver/Options.td              |  2 ++
+ clang/lib/CodeGen/CodeGenFunction.cpp              |  3 +++
+ clang/lib/Driver/ToolChains/Clang.cpp              | 18 ++++++++++++++++++
+ clang/lib/Driver/XRayArgs.cpp                      |  7 +++++++
+ clang/lib/Frontend/CompilerInvocation.cpp          |  2 ++
+ clang/test/CodeGen/patchable-function-entry.c      |  5 +++++
+ clang/test/Driver/fpatchable-function-entry.c      | 17 +++++++++++++++++
+ 9 files changed, 58 insertions(+)
+
+diff --git a/clang/include/clang/Basic/CodeGenOptions.def b/clang/include/clang/Basic/CodeGenOptions.def
+index 7f26ca8b4d6..cf8fbe251b3 100644
+--- a/clang/include/clang/Basic/CodeGenOptions.def
++++ b/clang/include/clang/Basic/CodeGenOptions.def
+@@ -110,6 +110,8 @@ CODEGENOPT(XRayAlwaysEmitTypedEvents , 1, 0)
+ ///< XRay instrumentation.
+ VALUE_CODEGENOPT(XRayInstructionThreshold , 32, 200)
  
- 	op->src.reg = rn;
--	op->src.type = OP_DEST_REG_INDIRECT;
-+	op->src.type = OP_SRC_REG_INDIRECT;
- 	op->src.offset = 0;
- 	op->dest.type = OP_DEST_REG;
- 	op->dest.reg = rt;
-@@ -2187,7 +2187,7 @@ int arm_decode_ldapr_stlr_unsc_imm(u32 instr, enum insn_type *type,
- 		break;
- 	default:
- 		/* store */
--		op->dest.type = OP_SRC_REG_INDIRECT;
-+		op->dest.type = OP_DEST_REG_INDIRECT;
- 		op->dest.reg = rn;
- 		op->dest.offset = SIGN_EXTEND(imm9, 9);
- 		op->src.type = OP_SRC_REG;
++VALUE_CODEGENOPT(PatchableFunctionEntryCount , 32, 0) ///< Number of NOPs at function entry
++
+ CODEGENOPT(InstrumentForProfiling , 1, 0) ///< Set when -pg is enabled.
+ CODEGENOPT(CallFEntry , 1, 0) ///< Set when -mfentry is enabled.
+ CODEGENOPT(MNopMCount , 1, 0) ///< Set when -mnop-mcount is enabled.
+diff --git a/clang/include/clang/Basic/DiagnosticDriverKinds.td b/clang/include/clang/Basic/DiagnosticDriverKinds.td
+index 39242c972ea..752ed2d255b 100644
+--- a/clang/include/clang/Basic/DiagnosticDriverKinds.td
++++ b/clang/include/clang/Basic/DiagnosticDriverKinds.td
+@@ -404,6 +404,8 @@ def err_drv_unsupported_indirect_jump_opt : Error<
+   "'-mindirect-jump=%0' is unsupported with the '%1' architecture">;
+ def err_drv_unknown_indirect_jump_opt : Error<
+   "unknown '-mindirect-jump=' option '%0'">;
++def err_drv_unsupported_fpatchable_function_entry_argument : Error<
++  "the second argument of '-fpatchable-function-entry' must be 0 or omitted">;
+ 
+ def warn_drv_unable_to_find_directory_expected : Warning<
+   "unable to find %0 directory, expected to be in '%1'">,
+diff --git a/clang/include/clang/Driver/Options.td b/clang/include/clang/Driver/Options.td
+index 33b331fd877..dd673737b97 100644
+--- a/clang/include/clang/Driver/Options.td
++++ b/clang/include/clang/Driver/Options.td
+@@ -1703,6 +1703,8 @@ def fmax_type_align_EQ : Joined<["-"], "fmax-type-align=">, Group<f_Group>, Flag
+ def fno_max_type_align : Flag<["-"], "fno-max-type-align">, Group<f_Group>;
+ def fpascal_strings : Flag<["-"], "fpascal-strings">, Group<f_Group>, Flags<[CC1Option]>,
+   HelpText<"Recognize and construct Pascal-style string literals">;
++def fpatchable_function_entry_EQ : Joined<["-"], "fpatchable-function-entry=">, Group<f_Group>, Flags<[CC1Option]>,
++  HelpText<"Generate N NOPs at function entry">;
+ def fpcc_struct_return : Flag<["-"], "fpcc-struct-return">, Group<f_Group>, Flags<[CC1Option]>,
+   HelpText<"Override the default ABI to return all structs on the stack">;
+ def fpch_preprocess : Flag<["-"], "fpch-preprocess">, Group<f_Group>;
+diff --git a/clang/lib/CodeGen/CodeGenFunction.cpp b/clang/lib/CodeGen/CodeGenFunction.cpp
+index e59fe060738..a976005e2e4 100644
+--- a/clang/lib/CodeGen/CodeGenFunction.cpp
++++ b/clang/lib/CodeGen/CodeGenFunction.cpp
+@@ -824,6 +824,9 @@ void CodeGenFunction::StartFunction(GlobalDecl GD, QualType RetTy,
+       // Attr->getStart is currently ignored.
+       Fn->addFnAttr("patchable-function-entry",
+                     std::to_string(Attr->getCount()));
++    } else if (unsigned Count = CGM.getCodeGenOpts().PatchableFunctionEntryCount) {
++      Fn->addFnAttr("patchable-function-entry",
++                    std::to_string(Count));
+     }
+   }
+ 
+diff --git a/clang/lib/Driver/ToolChains/Clang.cpp b/clang/lib/Driver/ToolChains/Clang.cpp
+index fbb772bb370..8fdf1f23e28 100644
+--- a/clang/lib/Driver/ToolChains/Clang.cpp
++++ b/clang/lib/Driver/ToolChains/Clang.cpp
+@@ -5002,6 +5002,24 @@ void Clang::ConstructJob(Compilation &C, const JobAction &JA,
+   const XRayArgs &XRay = TC.getXRayArgs();
+   XRay.addArgs(TC, Args, CmdArgs, InputType);
+ 
++  if (Arg *A = Args.getLastArg(options::OPT_fpatchable_function_entry_EQ)) {
++    StringRef S0 = A->getValue(), S = S0;
++    unsigned Size, Start = 0;
++    if (!Triple.isAArch64() && Triple.getArch() != llvm::Triple::x86 &&
++        Triple.getArch() != llvm::Triple::x86_64)
++      D.Diag(diag::err_drv_unsupported_opt_for_target)
++          << A->getAsString(Args) << TripleStr;
++    else if (S.consumeInteger(10, Size) ||
++             (!S.empty() && (!S.consume_front(",") ||
++                             S.consumeInteger(10, Start) || !S.empty())))
++      D.Diag(diag::err_drv_invalid_argument_to_option)
++          << S0 << A->getOption().getName();
++    else if (Start)
++      D.Diag(diag::err_drv_unsupported_fpatchable_function_entry_argument);
++    else
++      CmdArgs.push_back(Args.MakeArgString(A->getSpelling() + Twine(Size)));
++  }
++
+   if (TC.SupportsProfiling()) {
+     Args.AddLastArg(CmdArgs, options::OPT_pg);
+ 
+diff --git a/clang/lib/Driver/XRayArgs.cpp b/clang/lib/Driver/XRayArgs.cpp
+index 6011deaccc1..a2dd63f9eb7 100644
+--- a/clang/lib/Driver/XRayArgs.cpp
++++ b/clang/lib/Driver/XRayArgs.cpp
+@@ -70,6 +70,13 @@ XRayArgs::XRayArgs(const ToolChain &TC, const ArgList &Args) {
+       D.Diag(diag::err_drv_clang_unsupported)
+           << (std::string(XRayInstrumentOption) + " on " + Triple.str());
+     }
++
++    // Both XRay and -fpatchable-function-entry use
++    // TargetOpcode::PATCHABLE_FUNCTION_ENTER.
++    if (Arg *A = Args.getLastArg(options::OPT_fpatchable_function_entry_EQ))
++      D.Diag(diag::err_drv_argument_not_allowed_with)
++          << "-fxray-instrument" << A->getSpelling();
++
+     XRayInstrument = true;
+     if (const Arg *A =
+             Args.getLastArg(options::OPT_fxray_instruction_threshold_,
+diff --git a/clang/lib/Frontend/CompilerInvocation.cpp b/clang/lib/Frontend/CompilerInvocation.cpp
+index 6f6f43ca284..c1841138741 100644
+--- a/clang/lib/Frontend/CompilerInvocation.cpp
++++ b/clang/lib/Frontend/CompilerInvocation.cpp
+@@ -1101,6 +1101,8 @@ static bool ParseCodeGenArgs(CodeGenOptions &Opts, ArgList &Args, InputKind IK,
+       parseXRayInstrumentationBundle("-fxray-instrumentation-bundle=", A, Args,
+                                      Diags, Opts.XRayInstrumentationBundle);
+ 
++  Opts.PatchableFunctionEntryCount =
++      getLastArgIntValue(Args, OPT_fpatchable_function_entry_EQ, 0, Diags);
+   Opts.InstrumentForProfiling = Args.hasArg(OPT_pg);
+   Opts.CallFEntry = Args.hasArg(OPT_mfentry);
+   Opts.MNopMCount = Args.hasArg(OPT_mnop_mcount);
+diff --git a/clang/test/CodeGen/patchable-function-entry.c b/clang/test/CodeGen/patchable-function-entry.c
+index 678d90ff78f..50b96ea883a 100644
+--- a/clang/test/CodeGen/patchable-function-entry.c
++++ b/clang/test/CodeGen/patchable-function-entry.c
+@@ -1,4 +1,5 @@
+ // RUN: %clang_cc1 -triple aarch64 -emit-llvm %s -o - | FileCheck %s
++// RUN: %clang_cc1 -triple x86_64 -emit-llvm %s -fpatchable-function-entry=1 -o - | FileCheck --check-prefixes=CHECK,OPT %s
+ 
+ // CHECK: define void @f0() #0
+ __attribute__((patchable_function_entry(0))) void f0() {}
+@@ -16,6 +17,10 @@ __attribute__((patchable_function_entry(2, 0))) void f20() {}
+ __attribute__((patchable_function_entry(2, 0))) void f20decl();
+ void f20decl() {}
+ 
++// OPT: define void @f() #2
++void f() {}
++
+ /// M in patchable_function_entry(N,M) is currently ignored.
+ // CHECK: attributes #0 = { {{.*}} "patchable-function-entry"="0"
+ // CHECK: attributes #1 = { {{.*}} "patchable-function-entry"="2"
++// OPT:   attributes #2 = { {{.*}} "patchable-function-entry"="1"
+diff --git a/clang/test/Driver/fpatchable-function-entry.c b/clang/test/Driver/fpatchable-function-entry.c
+new file mode 100644
+index 00000000000..36076dc393c
+--- /dev/null
++++ b/clang/test/Driver/fpatchable-function-entry.c
+@@ -0,0 +1,17 @@
++// RUN: %clang -target i386 %s -fpatchable-function-entry=1 -c -### 2>&1 | FileCheck %s
++// RUN: %clang -target x86_64 %s -fpatchable-function-entry=1 -c -### 2>&1 | FileCheck %s
++// RUN: %clang -target aarch64 %s -fpatchable-function-entry=1 -c -### 2>&1 | FileCheck %s
++// RUN: %clang -target aarch64 %s -fpatchable-function-entry=1,0 -c -### 2>&1 | FileCheck %s
++// CHECK: "-fpatchable-function-entry=1"
++
++// RUN: not %clang -target ppc64 -fsyntax-only %s -fpatchable-function-entry=1 2>&1 | FileCheck --check-prefix=TARGET %s
++// TARGET: error: unsupported option '-fpatchable-function-entry=1' for target 'ppc64'
++
++// RUN: not %clang -target i386 -fsyntax-only %s -fpatchable-function-entry=1,1 2>&1 | FileCheck --check-prefix=NONZERO %s
++// NONZERO: error: the second argument of '-fpatchable-function-entry' must be 0 or omitted
++
++// RUN: not %clang -target x86_64 -fsyntax-only %s -fpatchable-function-entry=1,0, 2>&1 | FileCheck --check-prefix=EXCESS %s
++// EXCESS: error: invalid argument '1,0,' to -fpatchable-function-entry=
++
++// RUN: not %clang -target aarch64-linux -fsyntax-only %s -fxray-instrument -fpatchable-function-entry=1 2>&1 | FileCheck --check-prefix=XRAY %s
++// XRAY: error: invalid argument '-fxray-instrument' not allowed with '-fpatchable-function-entry='
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200112084258.GA44004%40ubuntu-x2-xlarge-x86.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2141407937.12644.1578824122748.JavaMail.javamailuser%40localhost.
+
+------=_Part_12643_980821318.1578824122199--
