@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBE4N5XYAKGQES66HLRQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB2ON53YAKGQERT45MKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13d.google.com (mail-il1-x13d.google.com [IPv6:2607:f8b0:4864:20::13d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7616138704
-	for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 17:17:24 +0100 (CET)
-Received: by mail-il1-x13d.google.com with SMTP id t2sf6121496ilp.3
-        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 08:17:24 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578845843; cv=pass;
+Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
+	by mail.lfdr.de (Postfix) with ESMTPS id BA6451388AE
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jan 2020 00:08:27 +0100 (CET)
+Received: by mail-yw1-xc39.google.com with SMTP id j9sf9456183ywg.14
+        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 15:08:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578870506; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0mGR+hcjxWH2ycTIkM9YZ/0JXx3qD5E+5Qo0HNMT94PTEcPcEHqm3kRVlucRce0UTT
-         DT5ix/iJ6Ls5Ad8sO6vwzwn5VA4ngrTa8BjpNSQTmYCyMdRbEUMmqXWLbI0u3xZcDbtr
-         H5boe5B5o7feeis970As86r5IcPS5pS3Gr+NbUEes6wbwU3qMlEoGydMw6JWSGe/l2V0
-         cUJSZ3k0CBOJYC9FL17vw/MGfDA7RqO43e1hOr5PmF7V1mWDnKEGXWztaz+jS7oSg6Pb
-         ZfelxbwT092tq+FBUZF2hCeFOOVy1rhrYz4Q8B6j8E93BsAG0Aaan1E/OGQjDRn3blt5
-         kzug==
+        b=BQ8j7n1dUnDUHA2pJccvp905D4GwXKFNA8wDFkUlD03boAbtSIupGRiA5seBrv41Ln
+         pWrPCKpr1k/EziyUS9nGVnjO6eN0P1iYMJT4U6uegQvgBVyf3YUeRnUtiY05QKixZumV
+         lbA/W2wE0NGQAg5+X4QlXYwaBDczzdgoJaDu3rgk+P1vkSV1VMF1vJKx9QrAVb3OU/tg
+         2GE6CCD/Q8NgUDlha7rnOlMQ/wiYuh90rUj5uwQIK0FkptZqT0ICnhovTn6SQmPDLZ4s
+         s+e3lBMTXzauVL126pym3iItQduZcDEhtdlcI7ug7Rdy0cU4ugQJfshtLy6oBaejbecj
+         +FVw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=3DWsnaeIG11ZnwnIvbdczOqmvYnGq1Npsi5y1NgBFPU=;
-        b=hy3a1laHrVaJU1zG/jwKGxSgH4rmHJcKng4jsuD3ElVvLcB6kYCiBjoW2r1TFlA9fh
-         pUU+KAhCaVnOUi/eU4kyKFVe8hMds6KrgRiAiU1MvlcMU5vGueeLXQhXAeQaLCyRlm51
-         JwAzIrwhL2TZ35rfX40nk1WVywoeeamtIk7//L+V45bxOEcmPWydgn/Ddyrv7NIfbYbP
-         qsIM62UwYa4K2Er4AXBVd+FwAz2OZBJZZnZKTaAp+krESsYgnMnXxkPkUVvkCPq32T0L
-         wXVOHg5PWfflSNes+TU2zrpZldTMwjN1vhylXU5WR2PfnMcoQRwoHTNwjCAb2jsU2e2o
-         pM8Q==
+        bh=RxPZpmhEfjDGtpLBPXBWwmwlVKToz2gFrlZEljkdoaI=;
+        b=swpG6ds35rluz0uBtreFKHIhlloqPOIIWmtRdnsrbl/B934EVPcxrtuhqoLhna+YY2
+         dvRu18E6ZP9rUIhJEt6Sri7VTe9PDh7mAmqOAVVsU3+g+pNP7ZGZU3Nw6VDbeWopaQjV
+         FFHmRaz+hAZYLprovxXIsVyXB+bG/HxuNycGZyx6ZFeJFMAxVBqKdtTctbB38XIEzcCg
+         RFkzq228LTqN6bsis5O3R3aIBMWYW4VCIfuC6q0aPYzidaHoQaDvMhf1qQPPKe6yWUo8
+         qWGYLleEEvlrBDQTYcCOx2f5rMVN/aR+ljq0CWhSehudEMHJJRrYa2bfG9p5761dosSU
+         J6BQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=3DWsnaeIG11ZnwnIvbdczOqmvYnGq1Npsi5y1NgBFPU=;
-        b=b3V1E9uIQ4/RZgsRm2vjDY4Mu70NIbHKEoQHQcXDuzw6oknMwYHjn2x0BC0QaOjjyO
-         Ye6Xqo0tJNp5TrBqEMhLElNlS9ya/cp02tZvWN8lTOWMX0jO8KzGPftyxfmqVJ9lFDok
-         sedAKfiNTIsXhNgoHsLRtNpnYHLOwCZNWQ6N9dZx2qOBMEyMPWJshUJ1G1MSap779AOF
-         KxkiZORcICReEKR9BU9iU7AbZhNBGXgBpHKLPhsU4UUzJgNdehENxpWq882HuAJbZKJR
-         eZxFb8sSI1TeSbp9OsX5iSlko8/TqqVShnB9UcGHLLNNMaR/hD8UgKhZaBRE9XIHj+Og
-         pg2w==
+        bh=RxPZpmhEfjDGtpLBPXBWwmwlVKToz2gFrlZEljkdoaI=;
+        b=IHK2HI8qBuH7AK9qstZGdkFyYTQQdXL8xZwvxcCNpnaweYiVh6WRcC/Ze28l8XG+BQ
+         auUJhpOrA0lqKpn1cvwf1Bqztkaz241fC5QYXE8ucqejxersvjBzwmE7lSSkOozHAreY
+         E3v602UIzrBo0NGO6rx0hK4XMiMd3boSWXillkN0f0YyhwJ5POGbFzUCi+B5n7ahtxGh
+         buVFtWyuwOsNbX5WMUfmgxLdNeLe0pBj5m0OgZxPdRRTJYsZaLErpP2fH2Z6mB3BrjEa
+         g8CWpGbxpPAoGZdl48DTR5Tl2JedPZKABYFHwikFjTGVpWCjt0IWcIZxYH0mG2TiLNBJ
+         O1fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,74 +49,74 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=3DWsnaeIG11ZnwnIvbdczOqmvYnGq1Npsi5y1NgBFPU=;
-        b=l3/Xeiqwcoqy2/AG7s7MBjkz5Yk/EInGAts2K3InDPX/BZUpANc5Zeo9An8CDcgl9d
-         dodfOfRVTSSXFsJACcAQ6NjaavXua1RcVmKmiTapJB0sGkiJvC0zkwIV7hcaiOhYU9nq
-         JfMdld8dVHGVM0I1eEqBje1P/hCebW1tXsSkaw89bmdMZN4aW5IWeC8mmYL34UKVcmVU
-         IEj9ru5hKyYac0yCCGAAzutCmvL+iA+C6tzCfVMGMsrJ6zE9WhH4oXGhElN+LUA0iuP+
-         7fU/C+Gvam6j4JRTJ9ogmKytc3UR8k4qSAuxkozO5SuqswweLLzbsX3jR/UtNRdwBwX4
-         ztRw==
+        bh=RxPZpmhEfjDGtpLBPXBWwmwlVKToz2gFrlZEljkdoaI=;
+        b=sTPxV5Voyp1BVsXCErf7UUZSIAWjmnh8F7w6f8BVB7hBl93i/vuUgIjGPhyx7u5+xY
+         yLBC49fjpDlbfbdJWUYHz+jgt5wu02zCeALvM5E0aBho42UL/TuL0SuWbX/oe0ympf+V
+         mEvFi7zLU314IlkaN4QHsUwqXRR42TecF5Ln8rmJnWAg8S/TDw0a3aS7WfFwn/neVmwx
+         Jd7ELtq0cxY+4q4R1J2m6PkNl9QMBiqsTiCB3NLSIpR+wuP7QsDzTuUsvjGn3g5UQWya
+         H8Y5++UkIg3aH+zO4SZXUxz5jHb4D6aChRey6/B3DGFnvh/qnTiUdHKw8JgPigRF32lL
+         Il1w==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXt5cxgQXUdrEUTFwY9HuY5o4wBCfWmKXzbPT/b0eF1CyieV1LY
-	roTaMCIkAZWePvMn709Dzjs=
-X-Google-Smtp-Source: APXvYqxQbNfWWWClmJnVxWUCcXqgrGOXfqepuLYcA8w16ctpgW3lpz5DLnJCOa09Rn3lVSJem0QzFA==
-X-Received: by 2002:a92:5a16:: with SMTP id o22mr11736581ilb.229.1578845843551;
-        Sun, 12 Jan 2020 08:17:23 -0800 (PST)
+X-Gm-Message-State: APjAAAUBQ5okw6q2TbvIgyavIWvVri8ObXRCwaAI+SgXalKJWRjRP5bT
+	7tu/3GnE/DPuGu8DxrysuVE=
+X-Google-Smtp-Source: APXvYqznmP7XbyeHlzFy8OMjdr6QT327mBSYZNicApqjqe1ZFM0+bQXIOzXRIfvt8caThAdVzrGSaw==
+X-Received: by 2002:a25:c584:: with SMTP id v126mr11314973ybe.171.1578870506039;
+        Sun, 12 Jan 2020 15:08:26 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:5c56:: with SMTP id q83ls1671338ilb.0.gmail; Sun, 12 Jan
- 2020 08:17:23 -0800 (PST)
-X-Received: by 2002:a92:1d95:: with SMTP id g21mr11458637ile.291.1578845843188;
-        Sun, 12 Jan 2020 08:17:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578845843; cv=none;
+Received: by 2002:a81:cd7:: with SMTP id 206ls1684817ywm.4.gmail; Sun, 12 Jan
+ 2020 15:08:25 -0800 (PST)
+X-Received: by 2002:a0d:c243:: with SMTP id e64mr11637060ywd.12.1578870505459;
+        Sun, 12 Jan 2020 15:08:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578870505; cv=none;
         d=google.com; s=arc-20160816;
-        b=RYvURHCmoQRoesNlzFBwLu7Vkw9TJNfXFsk8H2nZRVVy/Mmt9DYK9LDiag8ReUAljN
-         xSlCYCIEZ+SdEVXk2i/+BidaILMhTaaRzlAcQnXdjHPSSmIbuYgviBct07C2y+p97fe4
-         OeY6IlqDY4dPKV7RBytqp7o9QV4Udan7ZsLlKyJIEgMLhV79OTRv9zlIeSwJV6JYVqqM
-         UOyTdpygl6UqU+mZtCN4wy4+ILnieNoy2w/0VAJd5VZe/rKxn2LrpCjgBjnaaCA3ZXZo
-         drpAcSgmL0JhGxgCNtBTxn/duLTQMF2WNeSXO4cIugq2u2Lqv8pLDhsQyI95hm75Mor+
-         7YhA==
+        b=Rwd/9nYkrIWhZUYilBDqJkM1xZD7a2jNrxcIm4kBa+9/v/ZORbpPabjeZ1dBE88i/i
+         iJXP4+0R9M0pJx0RO4snYAYoCMNPHaoO4KV3NLJ4y5ucPrGMPcBgRQrVh9faa0kQGQ7b
+         nbbysGSnBXiPsmASpn+7M15dOvKSJUrPWfEivkxVEmQnkawYZ8fpTDpTkimS5ZkSOPBM
+         JqwYfdfNW8d9i0IWyA6MChdJClNfYhclUP0yJFLJn9eN5lH9ySJD3CR9dYeojOXFGzUs
+         kcHRmwhzdcW+UUZe9rBYDstM5IasAsuvOUAXxo/WEsNGVPEa7f71x99wb4m2wWWlSdk4
+         guxQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=trx4/hrE8eeVxCatE/stTi55eZ5bW+MzINBC0zhyHjo=;
-        b=h+evYjbLSraRB0bCjUf0uz0VBLspDXpF0nkcgWhG42sO37OQ1PvyBaoWJU+x2SDTC7
-         1o74PvyfFL7t3ZXHesmGCLTK0jvmnSrEAJHnFjjm1BbY21OmGjaIYGV9wiWsmHraqUgT
-         yX+MuPXqunVFLDof+TlAwTqjfqxhgBxxylg372iCg2BmIpvLcNfjPNfNB4y2IdOZ0bWW
-         X/tSRVeaOnz/jLtSPXATmNdrP/a58vvn5dDQBeTq+F5Mn3HFbke2wTf+sF1qHjBbbZ+Z
-         YIvoBlJegfUXGxgLZIqMkGgUVVzLi6SEyYS1YBkifsTBVK5OpoAPIIrhBHdlRJNRPj6V
-         aOhA==
+        bh=/CsAmEifsVH7AEAG28d5UhMQPbl+VCUDFaRRnbT60s8=;
+        b=deQ5H9kPH+GDlGTZ1G5+sHmeBaKmGoeEMB13q1zYR/roZUsiTrT+6FGeMwEti5HyDw
+         ylltt9ua8gOjedlaSQILIdpYQSu/1GUDGbBIgtkwkyx/DeY2vxvxPHHCdZWgKjChY4qZ
+         p2fmlpfD0b/Y2Z92LoWFRQcaIS7BWlqHZpi/Z2tK6j3tT+r8OyLxUlbZp7rMcfEFrkA1
+         JPpVOza3Ev+ksaaabVouLkYCkVuz3Inz/Y5GXH7KATC69pX2yi+dAURkaTh9HJxYkFs3
+         tcs2Lb+kl0EMBBnc/46iInosBJA26GWTDDJraOqOXDvdqsBrPoQqPJmG129iYc0M0p5X
+         9uDA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id z20si335516ill.5.2020.01.12.08.17.22
+        by gmr-mx.google.com with ESMTPS id p136si336634ybc.4.2020.01.12.15.08.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 12 Jan 2020 08:17:22 -0800 (PST)
+        Sun, 12 Jan 2020 15:08:25 -0800 (PST)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Jan 2020 08:17:21 -0800
+Received: from fmsmga005.fm.intel.com ([10.253.24.32])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Jan 2020 15:08:23 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,425,1571727600"; 
-   d="gz'50?scan'50,208,50";a="212764581"
+X-IronPort-AV: E=Sophos;i="5.69,426,1571727600"; 
+   d="gz'50?scan'50,208,50";a="422638215"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 12 Jan 2020 08:17:19 -0800
+  by fmsmga005.fm.intel.com with ESMTP; 12 Jan 2020 15:08:21 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iqfvT-000AdC-23; Mon, 13 Jan 2020 00:17:19 +0800
-Date: Mon, 13 Jan 2020 00:17:07 +0800
+	id 1iqmLF-000COJ-AI; Mon, 13 Jan 2020 07:08:21 +0800
+Date: Mon, 13 Jan 2020 07:07:24 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [radeon-alex:amd-19.50 2055/2687] include/kcl/kcl_drm.h:571:20:
- error: static declaration of 'drm_dev_put' follows non-static declaration
-Message-ID: <202001130003.ldRgNCYo%lkp@intel.com>
+Subject: [radeon-alex:amd-19.50 2081/2687] include/kcl/kcl_mm.h:53:28: error:
+ redefinition of 'memalloc_nofs_save'
+Message-ID: <202001130721.JrT7fGgx%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="7a7wi3xk72rlan4x"
+Content-Type: multipart/mixed; boundary="tv5e2tipb63axfol"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
@@ -137,30 +137,30 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---7a7wi3xk72rlan4x
+--tv5e2tipb63axfol
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
 CC: dri-devel@lists.freedesktop.org
-TO: Prike Liang <Prike.Liang@amd.com>
+TO: Slava Grigorev <slava.grigorev@amd.com>
 CC: Flora Cui <flora.cui@amd.com>
+CC: Yifan Zhang <yifan1.zhang@amd.com>
 CC: Jack Gui <Jack.Gui@amd.com>
-CC: Adam Yang <Adam1.Yang@amd.com>
 
-Hi Prike,
+Hi Slava,
 
 FYI, the error/warning still remains.
 
 tree:   git://people.freedesktop.org/~agd5f/linux.git amd-19.50
 head:   02692309efa6ad48d47894e40fcb3832ace49c4c
-commit: 8d660d16d64cb75fab00f3e78409a93394cb7d29 [2055/2687] drm/amdkcl: Test whether drm_dev_put is available
+commit: efcd1418868bc7be0eb22a57497ac20eeb831ff1 [2081/2687] drm/amdkcl: Test whether memalloc_nofs_save() and memalloc_nofs_restore() functions are available
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 016bf03ef6fcd9dce43b0c17971f76323f07a684)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 8d660d16d64cb75fab00f3e78409a93394cb7d29
+        git checkout efcd1418868bc7be0eb22a57497ac20eeb831ff1
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -169,15 +169,6 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   In file included from <built-in>:4:
-   In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   include/kcl/kcl_drm.h:104:1: error: conflicting types for 'drm_fb_helper_remove_conflicting_framebuffers'
-   drm_fb_helper_remove_conflicting_framebuffers(struct apertures_struct *a,
-   ^
-   include/drm/drm_fb_helper.h:589:1: note: previous definition is here
-   drm_fb_helper_remove_conflicting_framebuffers(struct apertures_struct *a,
-   ^
-   In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    include/kcl/kcl_drm.h:214:17: error: too few arguments to function call, expected at least 5, have 4
                             encoder_type);
@@ -220,7 +211,7 @@ All errors (new ones prefixed by >>):
    ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   include/kcl/kcl_drm.h:303:8: error: redefinition of 'drm_format_name_buf'
+   include/kcl/kcl_drm.h:269:8: error: redefinition of 'drm_format_name_buf'
    struct drm_format_name_buf {
           ^
    include/drm/drm_fourcc.h:142:8: note: previous definition is here
@@ -228,27 +219,27 @@ All errors (new ones prefixed by >>):
           ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   include/kcl/kcl_drm.h:335:9: error: implicit declaration of function 'drm_gem_object_unreference_unlocked' [-Werror,-Wimplicit-function-declaration]
+   include/kcl/kcl_drm.h:301:9: error: implicit declaration of function 'drm_gem_object_unreference_unlocked' [-Werror,-Wimplicit-function-declaration]
            return drm_gem_object_unreference_unlocked(obj);
                   ^
-   include/kcl/kcl_drm.h:335:9: note: did you mean 'drm_gem_object_put_unlocked'?
+   include/kcl/kcl_drm.h:301:9: note: did you mean 'drm_gem_object_put_unlocked'?
    include/drm/drm_gem.h:367:6: note: 'drm_gem_object_put_unlocked' declared here
    void drm_gem_object_put_unlocked(struct drm_gem_object *obj);
         ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   include/kcl/kcl_drm.h:335:2: error: void function 'kcl_drm_gem_object_put_unlocked' should not return a value [-Wreturn-type]
+   include/kcl/kcl_drm.h:301:2: error: void function 'kcl_drm_gem_object_put_unlocked' should not return a value [-Wreturn-type]
            return drm_gem_object_unreference_unlocked(obj);
            ^      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/kcl/kcl_drm.h:359:43: error: member reference type 'struct __drm_crtcs_state' is not a pointer; did you mean to use '.'?
+   include/kcl/kcl_drm.h:325:43: error: member reference type 'struct __drm_crtcs_state' is not a pointer; did you mean to use '.'?
            return state->crtcs[drm_crtc_index(crtc)]->state;
                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
                                                     .
-   include/kcl/kcl_drm.h:394:43: error: member reference type 'struct __drm_crtcs_state' is not a pointer; did you mean to use '.'?
+   include/kcl/kcl_drm.h:360:43: error: member reference type 'struct __drm_crtcs_state' is not a pointer; did you mean to use '.'?
            return state->crtcs[drm_crtc_index(crtc)]->state;
                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
                                                     .
-   include/kcl/kcl_drm.h:499:8: error: redefinition of 'drm_printer'
+   include/kcl/kcl_drm.h:465:8: error: redefinition of 'drm_printer'
    struct drm_printer {
           ^
    include/drm/drm_print.h:70:8: note: previous definition is here
@@ -256,7 +247,7 @@ All errors (new ones prefixed by >>):
           ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
->> include/kcl/kcl_drm.h:571:20: error: static declaration of 'drm_dev_put' follows non-static declaration
+   include/kcl/kcl_drm.h:537:20: error: static declaration of 'drm_dev_put' follows non-static declaration
    static inline void drm_dev_put(struct drm_device *dev)
                       ^
    include/drm/drm_drv.h:739:6: note: previous declaration is here
@@ -264,21 +255,37 @@ All errors (new ones prefixed by >>):
         ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
->> include/kcl/kcl_drm.h:573:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
+   include/kcl/kcl_drm.h:539:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
            return drm_dev_unref(dev);
                   ^
-   include/kcl/kcl_drm.h:573:9: note: did you mean 'drm_dev_enter'?
+   include/kcl/kcl_drm.h:539:9: note: did you mean 'drm_dev_enter'?
    include/drm/drm_drv.h:741:6: note: 'drm_dev_enter' declared here
    bool drm_dev_enter(struct drm_device *dev, int *idx);
         ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
->> include/kcl/kcl_drm.h:573:2: error: void function 'drm_dev_put' should not return a value [-Wreturn-type]
+   include/kcl/kcl_drm.h:539:2: error: void function 'drm_dev_put' should not return a value [-Wreturn-type]
            return drm_dev_unref(dev);
            ^      ~~~~~~~~~~~~~~~~~~
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
-   include/kcl/kcl_mm.h:65:21: error: redefinition of 'kvmalloc'
+>> include/kcl/kcl_mm.h:53:28: error: redefinition of 'memalloc_nofs_save'
+   static inline unsigned int memalloc_nofs_save(void)
+                              ^
+   include/linux/sched/mm.h:248:28: note: previous definition is here
+   static inline unsigned int memalloc_nofs_save(void)
+                              ^
+   In file included from <built-in>:4:
+   In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
+>> include/kcl/kcl_mm.h:58:20: error: redefinition of 'memalloc_nofs_restore'
+   static inline void memalloc_nofs_restore(unsigned int flags)
+                      ^
+   include/linux/sched/mm.h:263:20: note: previous definition is here
+   static inline void memalloc_nofs_restore(unsigned int flags)
+                      ^
+   In file included from <built-in>:4:
+   In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
+   include/kcl/kcl_mm.h:64:21: error: redefinition of 'kvmalloc'
    static inline void *kvmalloc(size_t size, gfp_t flags)
                        ^
    include/linux/mm.h:635:21: note: previous definition is here
@@ -286,7 +293,7 @@ All errors (new ones prefixed by >>):
                        ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
-   include/kcl/kcl_mm.h:75:21: error: redefinition of 'kvzalloc'
+   include/kcl/kcl_mm.h:74:21: error: redefinition of 'kvzalloc'
    static inline void *kvzalloc(size_t size, gfp_t flags)
                        ^
    include/linux/mm.h:643:21: note: previous definition is here
@@ -294,41 +301,36 @@ All errors (new ones prefixed by >>):
                        ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
-   include/kcl/kcl_mm.h:85:20: error: static declaration of 'kvfree' follows non-static declaration
+   include/kcl/kcl_mm.h:84:20: error: static declaration of 'kvfree' follows non-static declaration
    static inline void kvfree(const void *addr)
                       ^
    include/linux/mm.h:663:13: note: previous declaration is here
    extern void kvfree(const void *addr);
                ^
-   In file included from <built-in>:4:
-   In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
-   include/kcl/kcl_mm.h:105:21: error: redefinition of 'kvmalloc_array'
-   static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
-                       ^
-   include/linux/mm.h:648:21: note: previous definition is here
-   static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
-                       ^
-   In file included from <built-in>:4:
-   In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
-   include/kcl/kcl_mm.h:118:21: error: redefinition of 'kvcalloc'
-   static inline void *kvcalloc(size_t n, size_t size, gfp_t flags)
-                       ^
-   include/linux/mm.h:658:21: note: previous definition is here
-   static inline void *kvcalloc(size_t n, size_t size, gfp_t flags)
-                       ^
    fatal error: too many errors emitted, stopping now [-ferror-limit=]
    20 errors generated.
 
-vim +/drm_dev_put +571 include/kcl/kcl_drm.h
+vim +/memalloc_nofs_save +53 include/kcl/kcl_mm.h
 
-   569	
-   570	#ifndef HAVE_DRM_DEV_PUT
- > 571	static inline void drm_dev_put(struct drm_device *dev)
-   572	{
- > 573		return drm_dev_unref(dev);
-   574	}
-   575	#endif
-   576	
+b4f7d254be169a Junwei Zhang   2016-12-23  50  
+b4f7d254be169a Junwei Zhang   2016-12-23  51  
+efcd1418868bc7 Slava Grigorev 2019-07-11  52  #if !defined(HAVE_MEMALLOC_NOFS_SAVE)
+b4f7d254be169a Junwei Zhang   2016-12-23 @53  static inline unsigned int memalloc_nofs_save(void)
+b4f7d254be169a Junwei Zhang   2016-12-23  54  {
+b4f7d254be169a Junwei Zhang   2016-12-23  55  		return current->flags;
+b4f7d254be169a Junwei Zhang   2016-12-23  56  }
+b4f7d254be169a Junwei Zhang   2016-12-23  57  
+b4f7d254be169a Junwei Zhang   2016-12-23 @58  static inline void memalloc_nofs_restore(unsigned int flags)
+b4f7d254be169a Junwei Zhang   2016-12-23  59  {
+b4f7d254be169a Junwei Zhang   2016-12-23  60  }
+b4f7d254be169a Junwei Zhang   2016-12-23  61  #endif
+b4f7d254be169a Junwei Zhang   2016-12-23  62  
+
+:::::: The code at line 53 was first introduced by commit
+:::::: b4f7d254be169a27d8759eff4cdc418427ad10a3 drm/amdkcl: [4.6] fix kcl_get_user_pages()
+
+:::::: TO: Junwei Zhang <Jerry.Zhang@amd.com>
+:::::: CC: Chengming Gui <Jack.Gui@amd.com>
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -337,14 +339,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001130003.ldRgNCYo%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001130721.JrT7fGgx%25lkp%40intel.com.
 
---7a7wi3xk72rlan4x
+--tv5e2tipb63axfol
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICFAdG14AAy5jb25maWcAnDxJd+M20vf8Cr70JTkk0WbZPd/zASRBERE3E6Bk+8KntuWO
+H4sICAGiG14AAy5jb25maWcAnDxJd+M20vf8Cr70JTkk0WbZPd/zASRBERE3E6Bk+8KntuWO
 J156ZLmT/vdTBXABQFDpbzKZTrMKa6FQO/Thhw8eeT++Pu+Oj3e7p6dv3uf9y/6wO+7vvYfH
 p/3/eWHuZbnwaMjEr9A4eXx5//u33eF5ufDOfp39OvnlcDf11vvDy/7JC15fHh4/v0P3x9eX
 Hz78AP9+AODzFxjp8C/v7mn38tn7uj+8AdqbTn6F/3k/fX48/uu33+DP58fD4fXw29PT1+f6
@@ -1167,4 +1169,4 @@ gJr0GW7XsxT3dEDx/5tA8HTcZVjxvxe9Lg2HbGiBhzTQ4boLYZmqDJdRW95ZSex30nl2Yqfy
 uysUvJSSZUT5NL5NraDpGir1pJ7GGbpHTK7VzT0ijGHTStY4GplmmU6cOjAA2OcQwtR5ntS3
 royylwy25ByJ98yOPjpbE6Mx1YRrdFVvpcoD/wGwQiSVEf0CAA==
 
---7a7wi3xk72rlan4x--
+--tv5e2tipb63axfol--
