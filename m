@@ -1,125 +1,120 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWWJ6LYAKGQE7YHGMQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBM6K6LYAKGQE2H7MMUA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 35899139733
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jan 2020 18:11:56 +0100 (CET)
-Received: by mail-qk1-x73c.google.com with SMTP id 65sf6331147qkl.23
-        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jan 2020 09:11:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578935515; cv=pass;
+Received: from mail-io1-xd3d.google.com (mail-io1-xd3d.google.com [IPv6:2607:f8b0:4864:20::d3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 55963139745
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jan 2020 18:13:25 +0100 (CET)
+Received: by mail-io1-xd3d.google.com with SMTP id 13sf6164850iof.14
+        for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jan 2020 09:13:25 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578935604; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EYQcB9C5FjnAs7o1gMmjJBvI286wssT4WdS0236XHSNHRfCgOcGCZ/unEE8iOFfCUd
-         f5P0aBnYhUlSydnuznW4Y9GSkzwVBllJgUMfI0L8cFTpixAfHS9Dp0l9rUe5C8fa5Tq3
-         aRalu4xNABuc2BQUvdHWMjaehWwwTMOzEQCBPDA5Jt2PV9kUw9sGnl8iFWiw20P1MN+x
-         ImWth25MZ3+/uNACW0d4yQ89KG9NOcbaj431EwKdWmipQtNrL/LLxjitb7vxYKBOgvRV
-         w3SYJhM8Exn0FTmBY2BsnZrx9JR5OUETMQFqvxivZgTxQUEcdT1JLHlsiQZlm2sB2fBK
-         cIIg==
+        b=Ra3hZKsxHm1Jd9nQ7TJvEv9NnLEkrX8fOsNrxY+v1Bqr5KXm45d/D6MOrrC8Adc3g+
+         Ye/79LND1oTQ941quo+1bNjqhqTTA3UyUVHue3YELuscpl/onMB23WyGAYBWvy3kF4R1
+         Ul2eHLCu9+/tCJcZTv9lGgHQMkq19IHsOmUFbzzJSIn5sAyxMzjHzAW1KcYUvxZoTW6d
+         9+Fo3YCi8kudbaFY/FxwanB3FdDgL66+RNLyLy12sb024dYt3nYAjTuy1UeDHJGDj3F3
+         74L4DKG8FtM8Mf++9n8khxmuWQ1d3WeM5Nkxy0oZhkQQjyS/4s9yWH1RwGQJbUOT2b4D
+         H+WQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=yBBjOjKaLHhN2UlOLzjLL9XwA4UDmMsZpcF3x9cf48I=;
-        b=DPivT5tqxtUFKTnR1RMNqo6W7z4UtkyAQhl0BdoiecJsqcyOXfL702DFg7Fcz7/mU7
-         iO1VZwX1Mvyct2s3911j4yvq72NhDT/sG5+MyzkOxA73eg4GYd7iNuTgx7dvvTzuGi99
-         kDQ94H88pSb6IOwqX7kZtSATgESNF7WagNpfrfN6laYBwL1HQfjNKMZp+jUkljFoXAA4
-         2XMT3kCn5JWJWKgD/WmeBvLpIMlV6oTMZ2KLfiwd9hVSKT9LypTjws5vgGS1TICaK1dB
-         PP1/gDJMot37KizqAjvRvWj6GHKlXuLAqZObYAHtEx09z2x3Bnqk7mZxh+LbP1lOBAXC
-         mkwg==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=5Bx/uqM7bKsAOwAJzV+AaSj6GEcbHueaNQzD/dt9l6Q=;
+        b=nPf6mU71Pb+/wZs2Hvkdh/npRtw4LNEtYrvOnzbX1HVGPH2yCIARzYg11QPrqMIs+E
+         rgvZpRbZML49X4Pf6xjWHvAGDskXL2z4r+7QkzWozT6tGt+RKJJCXsOii6AcUtissTWF
+         0vIsOilim2s2AgJp5PMwJBANnC9M116/4A3xY5ZQVaiJyz50X/70jGq0uHFxLJc0D/93
+         tzigMCY+u4Lg0ugiKL84WvxdYm1cn5RKuBk6xeUJjGvWGHUKrrUoZLcoJ/cIh9zQEony
+         LfAEBNCjWfpXqEAPH61VEwIEXJQlbscf5NOsfsAUy7ce89+wAACsRIyt9uEORClcje50
+         7oJw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="tSgRZ//k";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uk7ZlSy8;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=yBBjOjKaLHhN2UlOLzjLL9XwA4UDmMsZpcF3x9cf48I=;
-        b=lQnR8GtYdTWzNkFZtMC7K6gC00IWxVyDKzFvc3dh0hrjo5qtQPi4lW2fl/BwSl8Vy7
-         0wE29OTB2w/IKV24Ajxa4NGTFm3zrSaUIsUcr/tqBlI1Mrqwi2DMhWgwfOiJUPM0XBEG
-         bfPtBlwA6L4uZo+UIjm3Zk99giRVQmiz6R9Grtf2GyymE4rJFQEUITVAbIoDlpdqSBq5
-         nA/yqd2LlfelNRX0juUZsAxsA3m4f/Sm7q8Z7Kl1JQL4UXh/OyNyO6AmwyzTUnFTmX1X
-         E8xvqXOQ2wIICwHzUrsJ8B4WAls9ZAWnNz8mrn8qShwSePfM7GLuMfmgIkz2Nov813An
-         Os0Q==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5Bx/uqM7bKsAOwAJzV+AaSj6GEcbHueaNQzD/dt9l6Q=;
+        b=FTZOu9RA1hcUqce0mLAP6RrYL5ioYifkjPJJxec5V9NqXzwi/Bk/ki76HRPt+TDJUG
+         QfcD/gdhGgJ7GhlLZjTsnRoOLSJCB35OKFKUciMxgEb27ebboco9ia3mCIZrzZ9rqUXC
+         d1h4qWNXwqN8g3RqjlD/T+50wIe84jVC9A+8+RF2mXwUIatOoQ0MP5J5WngJO834JSeA
+         PKNU4X36AZCMXvC6AsuLxd34/QBREZAOLXNut6ZqS12Fuj88MrNZ+PtEPSJ/RL/4Wd02
+         /DAF4ZujvvzJqN1Z8EbutNgbHrUnEias1M3EOWg2tUHeZKQjbPZ8uWXlkgAnYmlnP2mM
+         UqHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yBBjOjKaLHhN2UlOLzjLL9XwA4UDmMsZpcF3x9cf48I=;
-        b=UseFPSo7LdON5qEcn1WF9R5L1L9dyPpUdgneL6MgEWatc2NZEQ4RV4DQTyCpARSqhn
-         XLTNKS379EVLly7XQBw0OHv/NhuBTGkzls9bWk2IDVXdShrifu2tGUFLg29I0sJmtKz7
-         9adOWO7b7BigTK3ovumJldL6Bai3sKYDpjrgvXYH3HaWIVIuKVqaci62npAx/fLu1bhM
-         mtVrQ4WECHqKfDG48klmB7y96WI96+LolOpnetCsixPprz1/jkpO1VtohkzPpo63fE1q
-         IQ7WVBpD714bwgwOupI7gNAcmG7RKEN4dF7A/x8qMPOtVjpiZqKIliclsvBoy9E9Vz3H
-         DXOQ==
-X-Gm-Message-State: APjAAAVi2McoUyHRI9PGDFgYcAE9RURSqYI2YvWUsTm3coRtw6oBefMW
-	MJfvj2oledfcgU9S7z6rRHc=
-X-Google-Smtp-Source: APXvYqyBfUbRTUNuVyeiCUYVpI6SGxGsaCxdiu211p78MIpZSeZyF/Be1n+HZTIqgPWCDg3GOyBlDQ==
-X-Received: by 2002:ac8:5457:: with SMTP id d23mr10523035qtq.93.1578935514940;
-        Mon, 13 Jan 2020 09:11:54 -0800 (PST)
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=5Bx/uqM7bKsAOwAJzV+AaSj6GEcbHueaNQzD/dt9l6Q=;
+        b=p5qzeNMvgr5Ch7pDCTgQZs7VAaC1DSQJPfVTiy00rn9uz67N789zBOfAsbZG9DuMe/
+         W1kK/ZhCgOdbo+UWEbFVnRlwsATMEiy8Dv/VhgyS4GHInOrNUiCN1PkElIF3BreZZ9j0
+         nPBzQ6+QdN17T+nNCmXp1wP3blogD1lNwKiKvnmbG68S9PuNBqsWulVj9m4v85hcMSMN
+         l3xSvnFlUyw86bfKP4QkKlDFm57dgbWHt/bDI2fsq99ZHhLKQ4NOez6k2oLGyKQH3U1c
+         RhPXUQURv+FiuSkYKXifU/jWbY1b4V78mtBsATpwKpiHuopySN4LqL0/p36ls16fJXAx
+         7UAg==
+X-Gm-Message-State: APjAAAUmPf0mafw90Ayb8gLDmMfJSBQcnI/FwcQDl7uCon1J1AR6i7I6
+	rjpGfYG77aZzqrjrF1Hy3jM=
+X-Google-Smtp-Source: APXvYqy5UYDEPEiT/+5VZHlcUr/5Ug8XE+cmF5Z8KlpFrtbM3l0IfNrcxAlYbC0BwsuUnspfe07/4Q==
+X-Received: by 2002:a92:b06:: with SMTP id b6mr14938996ilf.127.1578935603949;
+        Mon, 13 Jan 2020 09:13:23 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:350c:: with SMTP id y12ls1236807qtb.10.gmail; Mon, 13
- Jan 2020 09:11:54 -0800 (PST)
-X-Received: by 2002:aed:2202:: with SMTP id n2mr15544339qtc.4.1578935514507;
-        Mon, 13 Jan 2020 09:11:54 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578935514; cv=none;
+Received: by 2002:a6b:8d49:: with SMTP id p70ls1927900iod.1.gmail; Mon, 13 Jan
+ 2020 09:13:23 -0800 (PST)
+X-Received: by 2002:a6b:3b49:: with SMTP id i70mr13729107ioa.106.1578935603514;
+        Mon, 13 Jan 2020 09:13:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578935603; cv=none;
         d=google.com; s=arc-20160816;
-        b=jw0rhrpwpSt91p3vjt4n3NqllB7cUr5qaQxqueHIxn4XEOOMNeabndR2ntSei/r5Ox
-         mFtbTeipYYAd9Z1StZXk5jOi/geXa4Hu+7x9MCJxQr7TBLMJLiHpWDJ1vzzu4iGslEXo
-         qITWeXgbsZUOZlhJH8BCZOVeuGqs5/GtIJsUcFVoKhk1k3cW83YKzrwrBEnWg2T3MQ3X
-         Ni7ky6GhYk+bZcFMexvAWCuec9RBKu2sZex4mH9dtyk7v9dIcaR/W0GC3jyoZ9c4trwQ
-         J0fVIhUTbBUv1ILGOxQ/7nBmR3aDi8JGoh8Ivi+qz2TK1aZ/fTZFWKTn+UpWL6lqDN4a
-         f89g==
+        b=YCDxsOD+Ao996Lx5cq8mnxbq0JRIGCF57pOqkN2dBD3Y8sDcJlO4qMEGtE6ezgBpAd
+         8Wqf/znG6/J4jAgQy7A0XHrMyQT+GFxACKJ/L9ajsB3Ul87DP4qjJJDfutiJG1yOPa78
+         s6cbvm6CB292IsErOg/GdCzKs9SrZRxw9sMDid7ZwSVunR9VXbTQomGwfCM1RfSM+Dk5
+         vQS5e1hMQvVatgtlxGeHhNDN3ft9xwvTdc46fwwYyAdbRnt75VeOCgLznExM/dD5piFL
+         N8DT7KXG7Cr9/yV16EIvBOY8rc5UQzI8kCk4GaqVNmwxCidVNjAWhgYTca5zhhjVWjaW
+         xceQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=TxozZcV9sMOrMojIFRq55NmVEWRnbpuMmipG2qFs8v0=;
-        b=KGOp5vKQBt9BE/nZ8dGzEuZLa7KF/A5sJt3Cwbx/1CAuSyXNL+wVfDqZiq1WAIFpt2
-         Qri7v6mJBsFLpreHji6ALTKl2dE1aNj3w+ihXRzfdA/t5FtkitVShKZUeIz5qh4stEfD
-         6bIimmcL0TAbO21gJmGd+7dYJIIGgNbYyanlmFgVF5VXFRA1EzoeDK1v6JMQFgrzAdaa
-         hqw0O9VCRFi2Ym06Bt98ab3DhagVaZE10zsP/UTS0bopxEzt6bcQlDSAp2g/muoLvPmZ
-         3B6sZDBdlw8LSdfLDyi5Bkjvi4edoN3YfONA4jWWeTZ11ZRh7DvGEOYXUBsslnHJxnI/
-         XVtA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=1TrMHfEWDxOV19ckxwyqlB8KbVcyydx7FgNXDmFt87o=;
+        b=Vzh9mCZHYLLuJgIoK2DbswBsnomPE3IeWb7D/36v+pN4/sqdckyS9TDu14dDx7Shcg
+         GISK85r7xa0Ivu34z4oxzJVaO2g4QFjdSFLWT/m3RC66JJHAIr+vVMJ+8DB0rEv2FDQS
+         HwQh5aPhBhMlSUfzLc6wMql15Y/sbQcCztVObhTNQhTGMuDcsBQOFAB7fRcqCu6FBqUH
+         5FQeB2IaUR1m4JEM8U53DOB7ogRzeKOx9QcKmbATaaLVmkY7y3Sxy3InFPWLZiV4hVaf
+         OyCrsnuHcgxy4CT5VqBPlaflzzDfuZmvEQQpj6+7tRBPHGhbNXd3LGzCIyfTqQwoBxQn
+         ltUQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="tSgRZ//k";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=uk7ZlSy8;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id i53si545608qte.2.2020.01.13.09.11.54
+Received: from mail-pl1-x643.google.com (mail-pl1-x643.google.com. [2607:f8b0:4864:20::643])
+        by gmr-mx.google.com with ESMTPS id g12si393548iok.4.2020.01.13.09.13.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Jan 2020 09:11:54 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
-Received: by mail-pf1-x442.google.com with SMTP id 195so5146040pfw.11
-        for <clang-built-linux@googlegroups.com>; Mon, 13 Jan 2020 09:11:54 -0800 (PST)
-X-Received: by 2002:a63:590e:: with SMTP id n14mr21403612pgb.10.1578935513283;
- Mon, 13 Jan 2020 09:11:53 -0800 (PST)
+        Mon, 13 Jan 2020 09:13:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643 as permitted sender) client-ip=2607:f8b0:4864:20::643;
+Received: by mail-pl1-x643.google.com with SMTP id f20so4056258plj.5
+        for <clang-built-linux@googlegroups.com>; Mon, 13 Jan 2020 09:13:23 -0800 (PST)
+X-Received: by 2002:a17:902:bd05:: with SMTP id p5mr14380545pls.119.1578935602536;
+ Mon, 13 Jan 2020 09:13:22 -0800 (PST)
 MIME-Version: 1.0
-References: <202001112351.gy4c3aUU%lkp@intel.com>
-In-Reply-To: <202001112351.gy4c3aUU%lkp@intel.com>
+References: <202001110924.mDLWOBnu%lkp@intel.com>
+In-Reply-To: <202001110924.mDLWOBnu%lkp@intel.com>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 13 Jan 2020 09:11:41 -0800
-Message-ID: <CAKwvOdnRhSXviJ3VGUJbB7XEjSXuTTKJOT8O1crOE6F0F=oJmA@mail.gmail.com>
-Subject: Re: [PATCH v3] xen-pciback: optionally allow interrupt enable flag writes
-To: marmarek@invisiblethingslab.com
-Cc: kbuild@lists.01.org, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kbuild test robot <lkp@intel.com>, 
-	kbuild-all@lists.01.org, xen-devel@lists.xenproject.org, jbeulich@suse.com, 
-	simon@invisiblethingslab.com, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
-	Juergen Gross <jgross@suse.com>, sstabellini@kernel.org, yuehaibing@huawei.com, 
-	LKML <linux-kernel@vger.kernel.org>
+Date: Mon, 13 Jan 2020 09:13:11 -0800
+Message-ID: <CAKwvOdnMeLaA2n3yVgP+RPO6dBOQPPUtmo99JhbseDYMekWbOg@mail.gmail.com>
+Subject: Re: [linux-rt-devel:linux-5.4.y-rt 206/261] drivers/gpu/drm/i915/display/intel_sprite.c:84:30:
+ warning: unused variable 'pipe_update_lock'
+To: umgwanakikbuti@gmail.com
+Cc: kbuild@lists.01.org, kbuild test robot <lkp@intel.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Thomas Gleixner <tglx@linutronix.de>, kbuild-all@lists.01.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="tSgRZ//k";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442
+ header.i=@google.com header.s=20161025 header.b=uk7ZlSy8;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::643
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -136,211 +131,59 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hi Marek,
-Below is a report from 0day bot build w/ Clang. The warning looks
-legit, can you please take a look? Apologies if this has already been
-reported.
+Hi Mike,
+Below is a report from a 0day bot build w/ Clang. Can you please take
+a look? Apologies if this has already been reported.
 
-On Sat, Jan 11, 2020 at 7:48 AM kbuild test robot <lkp@intel.com> wrote:
+
+On Fri, Jan 10, 2020 at 5:53 PM kbuild test robot <lkp@intel.com> wrote:
 >
 > CC: kbuild-all@lists.01.org
-> In-Reply-To: <20200111034347.5270-1-marmarek@invisiblethingslab.com>
-> References: <20200111034347.5270-1-marmarek@invisiblethingslab.com>
-> TO: "Marek Marczykowski-G=C3=B3recki" <marmarek@invisiblethingslab.com>
-> CC: xen-devel@lists.xenproject.org, "Marek Marczykowski-G=C3=B3recki" <ma=
-rmarek@invisiblethingslab.com>, Jan Beulich <jbeulich@suse.com>, Simon Gais=
-er <simon@invisiblethingslab.com>, Boris Ostrovsky <boris.ostrovsky@oracle.=
-com>, Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kern=
-el.org>, YueHaibing <yuehaibing@huawei.com>, open list <linux-kernel@vger.k=
-ernel.org>, "Marek Marczykowski-G=C3=B3recki" <marmarek@invisiblethingslab.=
-com>, Jan Beulich <jbeulich@suse.com>, Simon Gaiser <simon@invisiblethingsl=
-ab.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross <jgros=
-s@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, YueHaibing <yueha=
-ibing@huawei.com>, open list <linux-kernel@vger.kernel.org>
-> CC: "Marek Marczykowski-G=C3=B3recki" <marmarek@invisiblethingslab.com>, =
-Jan Beulich <jbeulich@suse.com>, Simon Gaiser <simon@invisiblethingslab.com=
->, Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross <jgross@suse=
-.com>, Stefano Stabellini <sstabellini@kernel.org>, YueHaibing <yuehaibing@=
-huawei.com>, open list <linux-kernel@vger.kernel.org>
+> TO: Mike Galbraith <umgwanakikbuti@gmail.com>
+> CC: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+> CC: Thomas Gleixner <tglx@linutronix.de>
 >
-> Hi "Marek,
+> Hi Mike,
 >
-> Thank you for the patch! Perhaps something to improve:
+> FYI, the error/warning still remains.
 >
-> [auto build test WARNING on xen-tip/linux-next]
-> [also build test WARNING on linux/master linus/master v5.5-rc5 next-20200=
-110]
-> [if your patch is applied to the wrong git tree, please drop us a note to=
- help
-> improve the system. BTW, we also suggest to use '--base' option to specif=
-y the
-> base tree in git format-patch, please see https://stackoverflow.com/a/374=
-06982]
->
-> url:    https://github.com/0day-ci/linux/commits/Marek-Marczykowski-G-rec=
-ki/xen-pciback-optionally-allow-interrupt-enable-flag-writes/20200111-16224=
-3
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/xen/tip.git linux=
--next
-> config: x86_64-allyesconfig (attached as .config)
-> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 016bf03ef6fc=
-d9dce43b0c17971f76323f07a684)
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git linux-5.4.y-rt
+> head:   1fbcaa9506f953b1f054c0d1ae79776fb77887b3
+> commit: f5bcd1ba26d178d80c1424195832325a2daa923b [206/261] drm,i915: Use local_lock/unlock_irq() in intel_pipe_update_start/end()
+> config: x86_64-defconfig (attached as .config)
+> compiler: clang version 10.0.0 (git://gitmirror/llvm_project 016bf03ef6fcd9dce43b0c17971f76323f07a684)
 > reproduce:
+>         git checkout f5bcd1ba26d178d80c1424195832325a2daa923b
 >         # save the attached .config to linux build tree
->         make ARCH=3Dx86_64
+>         make ARCH=x86_64
 >
 > If you fix the issue, kindly add following tag
 > Reported-by: kbuild test robot <lkp@intel.com>
 >
 > All warnings (new ones prefixed by >>):
 >
-> >> drivers/xen/xen-pciback/conf_space_header.c:121:19: warning: variable =
-'val' is uninitialized when used here [-Wuninitialized]
->                    if ((cmd->val ^ val) & PCI_COMMAND_INTX_DISABLE) {
->                                    ^~~
->    drivers/xen/xen-pciback/conf_space_header.c:65:9: note: initialize the=
- variable 'val' to silence this warning
->            u16 val;
->                   ^
->                    =3D 0
+> >> drivers/gpu/drm/i915/display/intel_sprite.c:84:30: warning: unused variable 'pipe_update_lock' [-Wunused-const-variable]
+>    static DEFINE_LOCAL_IRQ_LOCK(pipe_update_lock);
+>                                 ^
 >    1 warning generated.
 >
-> vim +/val +121 drivers/xen/xen-pciback/conf_space_header.c
+> vim +/pipe_update_lock +84 drivers/gpu/drm/i915/display/intel_sprite.c
 >
->     60
->     61  static int command_write(struct pci_dev *dev, int offset, u16 val=
-ue, void *data)
->     62  {
->     63          struct xen_pcibk_dev_data *dev_data;
->     64          int err;
->     65          u16 val;
->     66          struct pci_cmd_info *cmd =3D data;
->     67
->     68          dev_data =3D pci_get_drvdata(dev);
->     69          if (!pci_is_enabled(dev) && is_enable_cmd(value)) {
->     70                  if (unlikely(verbose_request))
->     71                          printk(KERN_DEBUG DRV_NAME ": %s: enable\=
-n",
->     72                                 pci_name(dev));
->     73                  err =3D pci_enable_device(dev);
->     74                  if (err)
->     75                          return err;
->     76                  if (dev_data)
->     77                          dev_data->enable_intx =3D 1;
->     78          } else if (pci_is_enabled(dev) && !is_enable_cmd(value)) =
-{
->     79                  if (unlikely(verbose_request))
->     80                          printk(KERN_DEBUG DRV_NAME ": %s: disable=
-\n",
->     81                                 pci_name(dev));
->     82                  pci_disable_device(dev);
->     83                  if (dev_data)
->     84                          dev_data->enable_intx =3D 0;
->     85          }
->     86
->     87          if (!dev->is_busmaster && is_master_cmd(value)) {
->     88                  if (unlikely(verbose_request))
->     89                          printk(KERN_DEBUG DRV_NAME ": %s: set bus=
- master\n",
->     90                                 pci_name(dev));
->     91                  pci_set_master(dev);
->     92          } else if (dev->is_busmaster && !is_master_cmd(value)) {
->     93                  if (unlikely(verbose_request))
->     94                          printk(KERN_DEBUG DRV_NAME ": %s: clear b=
-us master\n",
->     95                                 pci_name(dev));
->     96                  pci_clear_master(dev);
->     97          }
->     98
->     99          if (!(cmd->val & PCI_COMMAND_INVALIDATE) &&
->    100              (value & PCI_COMMAND_INVALIDATE)) {
->    101                  if (unlikely(verbose_request))
->    102                          printk(KERN_DEBUG
->    103                                 DRV_NAME ": %s: enable memory-writ=
-e-invalidate\n",
->    104                                 pci_name(dev));
->    105                  err =3D pci_set_mwi(dev);
->    106                  if (err) {
->    107                          pr_warn("%s: cannot enable memory-write-i=
-nvalidate (%d)\n",
->    108                                  pci_name(dev), err);
->    109                          value &=3D ~PCI_COMMAND_INVALIDATE;
->    110                  }
->    111          } else if ((cmd->val & PCI_COMMAND_INVALIDATE) &&
->    112                     !(value & PCI_COMMAND_INVALIDATE)) {
->    113                  if (unlikely(verbose_request))
->    114                          printk(KERN_DEBUG
->    115                                 DRV_NAME ": %s: disable memory-wri=
-te-invalidate\n",
->    116                                 pci_name(dev));
->    117                  pci_clear_mwi(dev);
->    118          }
->    119
->    120          if (dev_data && dev_data->allow_interrupt_control) {
->  > 121                  if ((cmd->val ^ val) & PCI_COMMAND_INTX_DISABLE) =
-{
->    122                          if (value & PCI_COMMAND_INTX_DISABLE) {
->    123                                  pci_intx(dev, 0);
->    124                          } else {
->    125                                  /* Do not allow enabling INTx tog=
-ether with MSI or MSI-X. */
->    126                                  switch (xen_pcibk_get_interrupt_t=
-ype(dev)) {
->    127                                  case INTERRUPT_TYPE_NONE:
->    128                                  case INTERRUPT_TYPE_INTX:
->    129                                          pci_intx(dev, 1);
->    130                                          break;
->    131                                  default:
->    132                                          return PCIBIOS_SET_FAILED=
-;
->    133                                  }
->    134                          }
->    135                  }
->    136          }
->    137
->    138          cmd->val =3D value;
->    139
->    140          if (!xen_pcibk_permissive && (!dev_data || !dev_data->per=
-missive))
->    141                  return 0;
->    142
->    143          /* Only allow the guest to control certain bits. */
->    144          err =3D pci_read_config_word(dev, offset, &val);
->    145          if (err || val =3D=3D value)
->    146                  return err;
->    147
->    148          value &=3D PCI_COMMAND_GUEST;
->    149          value |=3D val & ~PCI_COMMAND_GUEST;
->    150
->    151          return pci_write_config_word(dev, offset, value);
->    152  }
->    153
+>     83
+>   > 84  static DEFINE_LOCAL_IRQ_LOCK(pipe_update_lock);
+>     85
 >
 > ---
-> 0-DAY kernel test infrastructure                 Open Source Technology C=
-enter
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corpor=
-ation
->
-> --
-> You received this message because you are subscribed to the Google Groups=
- "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgi=
-d/clang-built-linux/202001112351.gy4c3aUU%25lkp%40intel.com.
+> 0-DAY kernel test infrastructure                 Open Source Technology Center
+> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 
 
 
---=20
+-- 
 Thanks,
 ~Nick Desaulniers
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdnRhSXviJ3VGUJbB7XEjSXuTTKJOT8O1crOE6F0F%3DoJmA%40m=
-ail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnMeLaA2n3yVgP%2BRPO6dBOQPPUtmo99JhbseDYMekWbOg%40mail.gmail.com.
