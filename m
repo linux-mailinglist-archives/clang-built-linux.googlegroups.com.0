@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB2ON53YAKGQERT45MKA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBENE6DYAKGQEZAVZ73A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id BA6451388AE
-	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jan 2020 00:08:27 +0100 (CET)
-Received: by mail-yw1-xc39.google.com with SMTP id j9sf9456183ywg.14
-        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 15:08:27 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1578870506; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 977DF138BF2
+	for <lists+clang-built-linux@lfdr.de>; Mon, 13 Jan 2020 07:45:39 +0100 (CET)
+Received: by mail-pj1-x103e.google.com with SMTP id z12sf5654041pju.0
+        for <lists+clang-built-linux@lfdr.de>; Sun, 12 Jan 2020 22:45:39 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1578897938; cv=pass;
         d=google.com; s=arc-20160816;
-        b=BQ8j7n1dUnDUHA2pJccvp905D4GwXKFNA8wDFkUlD03boAbtSIupGRiA5seBrv41Ln
-         pWrPCKpr1k/EziyUS9nGVnjO6eN0P1iYMJT4U6uegQvgBVyf3YUeRnUtiY05QKixZumV
-         lbA/W2wE0NGQAg5+X4QlXYwaBDczzdgoJaDu3rgk+P1vkSV1VMF1vJKx9QrAVb3OU/tg
-         2GE6CCD/Q8NgUDlha7rnOlMQ/wiYuh90rUj5uwQIK0FkptZqT0ICnhovTn6SQmPDLZ4s
-         s+e3lBMTXzauVL126pym3iItQduZcDEhtdlcI7ug7Rdy0cU4ugQJfshtLy6oBaejbecj
-         +FVw==
+        b=c9X8+BPDzjFZLKXc16bu/Eh5/KhDe4RGgYXq4mBQ0cwoEp6/SP+Jgw3dpmvu6UpO7d
+         EnSVl2euQoTa+DXeeZg65Us2WbthUXbnE8A6XQNko9zkzitQ5Qt5w3AY411+EZbqH2OL
+         LVPCqE7crM3YIUKkwQ3XjCwL6CnIN8S3YjdjMFYojEzTpMcgsFimB9KGGM53FsS3EJO2
+         LCnwUBffZtjThZxq59dS5to8AVt9ICEFkG/Jvnpi0IRj0/fxXSMSjAxGv5QPamLsn+Ma
+         qmF7bGE3p0GjBzIZ/uBgYSjxtIPsHHPby7jl3lxSBDhWxenIdu/vH6MInzP31uBnMm1K
+         gqKg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=RxPZpmhEfjDGtpLBPXBWwmwlVKToz2gFrlZEljkdoaI=;
-        b=swpG6ds35rluz0uBtreFKHIhlloqPOIIWmtRdnsrbl/B934EVPcxrtuhqoLhna+YY2
-         dvRu18E6ZP9rUIhJEt6Sri7VTe9PDh7mAmqOAVVsU3+g+pNP7ZGZU3Nw6VDbeWopaQjV
-         FFHmRaz+hAZYLprovxXIsVyXB+bG/HxuNycGZyx6ZFeJFMAxVBqKdtTctbB38XIEzcCg
-         RFkzq228LTqN6bsis5O3R3aIBMWYW4VCIfuC6q0aPYzidaHoQaDvMhf1qQPPKe6yWUo8
-         qWGYLleEEvlrBDQTYcCOx2f5rMVN/aR+ljq0CWhSehudEMHJJRrYa2bfG9p5761dosSU
-         J6BQ==
+        bh=7GzSDgHvuHFddjM0P4tKGj12JfMlih3p8Cu6o2JwPVw=;
+        b=EyBhVRMaXUzh2LYL87Zh73xuVRUJ9PBFXG9V66PrLdTYsvInITP9zftEaLhaymroMZ
+         WKOC/oq3kpqVT5xDOe1qODEj0ZEGrK76GP4SWFmorv+DtBS8XvDw9T8NRTOEZixGpe+K
+         eSxKSRbQ58d4vOWhpogQ5NrNYlfy7uEhGQuu3KKAVfMEXErJDJMmSi7c8pdfk+jaeecB
+         UQqhD71nD2RiVMq5+Lhm/K1xFfR1ig7faEY+Ewbq50XU9ZVI6B9SmYInZU4o+OQDaoAg
+         wG+oUPDenz1qiY1oGFm0mCU3PI1lGMwCEEilvK2SQHxr+egfRJazMW29H3g/fO30ENef
+         wh2w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RxPZpmhEfjDGtpLBPXBWwmwlVKToz2gFrlZEljkdoaI=;
-        b=IHK2HI8qBuH7AK9qstZGdkFyYTQQdXL8xZwvxcCNpnaweYiVh6WRcC/Ze28l8XG+BQ
-         auUJhpOrA0lqKpn1cvwf1Bqztkaz241fC5QYXE8ucqejxersvjBzwmE7lSSkOozHAreY
-         E3v602UIzrBo0NGO6rx0hK4XMiMd3boSWXillkN0f0YyhwJ5POGbFzUCi+B5n7ahtxGh
-         buVFtWyuwOsNbX5WMUfmgxLdNeLe0pBj5m0OgZxPdRRTJYsZaLErpP2fH2Z6mB3BrjEa
-         g8CWpGbxpPAoGZdl48DTR5Tl2JedPZKABYFHwikFjTGVpWCjt0IWcIZxYH0mG2TiLNBJ
-         O1fw==
+        bh=7GzSDgHvuHFddjM0P4tKGj12JfMlih3p8Cu6o2JwPVw=;
+        b=SVN+a3Jz8Rb8CdsKjrQ88KkPqLh2HsH+rXZ0xFLZ2WKLACU79C6CrrTjSKCRCL5HS5
+         T1YaNPBsP6A87naUUARNoJiGclsPfWC9dQ50KaQwvuFIBJGqq74rfxZ3sQ6qZfS2r9Xw
+         IKw4QaoImb2hEgTXy4rsUnFSGR0x9yCcev8LH0nrc0a/OmO2NjG919FrMLJl4x5BCGQA
+         BAGoFFmqpEmCGsm7mqiKR+jzInP9ypAZHpqhZ24fbQnDqaVS7SaZH42FsJBUpuLf6EMC
+         lFOa9wv84MdlV/BUvQMUtHUJE7Lfw5aUs2RveKsbHa7zv0Gjn8ZeOV01jNxtl19qA6jt
+         piOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=RxPZpmhEfjDGtpLBPXBWwmwlVKToz2gFrlZEljkdoaI=;
-        b=sTPxV5Voyp1BVsXCErf7UUZSIAWjmnh8F7w6f8BVB7hBl93i/vuUgIjGPhyx7u5+xY
-         yLBC49fjpDlbfbdJWUYHz+jgt5wu02zCeALvM5E0aBho42UL/TuL0SuWbX/oe0ympf+V
-         mEvFi7zLU314IlkaN4QHsUwqXRR42TecF5Ln8rmJnWAg8S/TDw0a3aS7WfFwn/neVmwx
-         Jd7ELtq0cxY+4q4R1J2m6PkNl9QMBiqsTiCB3NLSIpR+wuP7QsDzTuUsvjGn3g5UQWya
-         H8Y5++UkIg3aH+zO4SZXUxz5jHb4D6aChRey6/B3DGFnvh/qnTiUdHKw8JgPigRF32lL
-         Il1w==
+        bh=7GzSDgHvuHFddjM0P4tKGj12JfMlih3p8Cu6o2JwPVw=;
+        b=DLOly+XZ2aiu/AtCO5pgwdbcCOXfTdevlxgx98w1DevVsgVm9/NVDazC+z3Hte2Q5j
+         j8Fm2FKg/K9dV74DW70B0to/kB1gFFwbmSvcapXbEvGWVmf8+K6mrTw5kAkEasZpiOlY
+         YTCBXVof/2tSBJ6cMAEAKMaxE2jEjTb7ahNQUmrxaazvXdEAmVMamV2L8QxV8Vum78WJ
+         CYjFt4hFhRvjHWMBsPjT1tQ3ABOOZzueYwVfpGUvQHuF4t0JqgbfB7/WRcvj4GezWl3B
+         FmP+w97Kf5QMaG2wLVoUu5norrKqO8gobpR6Ho8mBkN2lEv3PIAfEEiQy37As2XORNIQ
+         lnAw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUBQ5okw6q2TbvIgyavIWvVri8ObXRCwaAI+SgXalKJWRjRP5bT
-	7tu/3GnE/DPuGu8DxrysuVE=
-X-Google-Smtp-Source: APXvYqznmP7XbyeHlzFy8OMjdr6QT327mBSYZNicApqjqe1ZFM0+bQXIOzXRIfvt8caThAdVzrGSaw==
-X-Received: by 2002:a25:c584:: with SMTP id v126mr11314973ybe.171.1578870506039;
-        Sun, 12 Jan 2020 15:08:26 -0800 (PST)
+X-Gm-Message-State: APjAAAWlTzzGVqEkkWGhn788/4MjYc/Z2HggbYopXInzoe4Zc0JQ8BP8
+	9oPEiI9t6Vk/UWu9ww+cOIk=
+X-Google-Smtp-Source: APXvYqyVYFnA+ym9nyCCi+V+E5pNUH5oz1Z5wkkh525nJVnAaufMjdNvOO9rtPYoIeCpG8UdC7gjjA==
+X-Received: by 2002:a05:6a00:5b:: with SMTP id i27mr18342589pfk.112.1578897937821;
+        Sun, 12 Jan 2020 22:45:37 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:cd7:: with SMTP id 206ls1684817ywm.4.gmail; Sun, 12 Jan
- 2020 15:08:25 -0800 (PST)
-X-Received: by 2002:a0d:c243:: with SMTP id e64mr11637060ywd.12.1578870505459;
-        Sun, 12 Jan 2020 15:08:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1578870505; cv=none;
+Received: by 2002:a63:208:: with SMTP id 8ls3339586pgc.16.gmail; Sun, 12 Jan
+ 2020 22:45:37 -0800 (PST)
+X-Received: by 2002:aa7:8f3d:: with SMTP id y29mr18576627pfr.183.1578897937277;
+        Sun, 12 Jan 2020 22:45:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1578897937; cv=none;
         d=google.com; s=arc-20160816;
-        b=Rwd/9nYkrIWhZUYilBDqJkM1xZD7a2jNrxcIm4kBa+9/v/ZORbpPabjeZ1dBE88i/i
-         iJXP4+0R9M0pJx0RO4snYAYoCMNPHaoO4KV3NLJ4y5ucPrGMPcBgRQrVh9faa0kQGQ7b
-         nbbysGSnBXiPsmASpn+7M15dOvKSJUrPWfEivkxVEmQnkawYZ8fpTDpTkimS5ZkSOPBM
-         JqwYfdfNW8d9i0IWyA6MChdJClNfYhclUP0yJFLJn9eN5lH9ySJD3CR9dYeojOXFGzUs
-         kcHRmwhzdcW+UUZe9rBYDstM5IasAsuvOUAXxo/WEsNGVPEa7f71x99wb4m2wWWlSdk4
-         guxQ==
+        b=bQ47U5vJR4BnuCF+WnCMFPswQ4IWGmqmQ+7a4z5yIcqK7/8l1CBgENLWnEbU1LO495
+         CUu7lYWZU/UKur/35aa7lpgptPNqnybTQvV6JJkAo2LnCIwJVgRx+QlJIsfRLdSeAlXN
+         ERuse722p2524A5Aa63sm1tzsXzBUsUVS1j4lvwmLcO1EQlkGZwJKjTHzaMxUv2UCBR0
+         M1phR3wQ1mtgojpg0eEwP23D6Z6cDL5lD3CGR7Z0EGcX6YZWxOEwF65IDmp5wKdY5szu
+         bY60/0jftrkL29V+WCDkfkqjcEW9Cn7I86ue0Fe+QRlanQQ+HngJ1wShRhgY6LgcN0/3
+         bO5Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=/CsAmEifsVH7AEAG28d5UhMQPbl+VCUDFaRRnbT60s8=;
-        b=deQ5H9kPH+GDlGTZ1G5+sHmeBaKmGoeEMB13q1zYR/roZUsiTrT+6FGeMwEti5HyDw
-         ylltt9ua8gOjedlaSQILIdpYQSu/1GUDGbBIgtkwkyx/DeY2vxvxPHHCdZWgKjChY4qZ
-         p2fmlpfD0b/Y2Z92LoWFRQcaIS7BWlqHZpi/Z2tK6j3tT+r8OyLxUlbZp7rMcfEFrkA1
-         JPpVOza3Ev+ksaaabVouLkYCkVuz3Inz/Y5GXH7KATC69pX2yi+dAURkaTh9HJxYkFs3
-         tcs2Lb+kl0EMBBnc/46iInosBJA26GWTDDJraOqOXDvdqsBrPoQqPJmG129iYc0M0p5X
-         9uDA==
+        bh=cHCQqBv9QIPj/4nBW40hZsN8TaclqplNXyrUlL6Z2OA=;
+        b=rDV53MfuiQfvQS/O4abii4Fz+/Obpw5mDvGzUkhmDK5HVLzfCU9jCanbF0dfZhDRsH
+         hBhzSfOcqJDPtghowuLqAAmLq4biItyCaHp6og72VUEV62yqx0CJBMjVPbB1J6D1Fzay
+         hXeMdk9ImNBokTgxFunaCYNoKb9fDTQyZ2cOfnKpeqgymNKZ5qGr84Z5SodypikhUhBp
+         +PuEhQQzanLbTnwLPJmCfs96JdgOgD1v2vhwmaHBrYsydSZHDIapm0UAF7p3Xjd7JVa7
+         4BKNfRIdeinUhoX3xzzjcoDk24pTYk45vamictlW2hjTXbBk9g9UzFxsyOhBXdfW5fRs
+         hYvQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
-        by gmr-mx.google.com with ESMTPS id p136si336634ybc.4.2020.01.12.15.08.25
+Received: from mga05.intel.com (mga05.intel.com. [192.55.52.43])
+        by gmr-mx.google.com with ESMTPS id g17si417551plq.0.2020.01.12.22.45.37
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 12 Jan 2020 15:08:25 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
+        Sun, 12 Jan 2020 22:45:37 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted sender) client-ip=192.55.52.43;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Jan 2020 15:08:23 -0800
+Received: from orsmga005.jf.intel.com ([10.7.209.41])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 12 Jan 2020 22:45:36 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.69,426,1571727600"; 
-   d="gz'50?scan'50,208,50";a="422638215"
+X-IronPort-AV: E=Sophos;i="5.69,428,1571727600"; 
+   d="gz'50?scan'50,208,50";a="397069122"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 12 Jan 2020 15:08:21 -0800
+  by orsmga005.jf.intel.com with ESMTP; 12 Jan 2020 22:45:34 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iqmLF-000COJ-AI; Mon, 13 Jan 2020 07:08:21 +0800
-Date: Mon, 13 Jan 2020 07:07:24 +0800
+	id 1iqtTh-0007Pn-LI; Mon, 13 Jan 2020 14:45:33 +0800
+Date: Mon, 13 Jan 2020 14:44:49 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [radeon-alex:amd-19.50 2081/2687] include/kcl/kcl_mm.h:53:28: error:
- redefinition of 'memalloc_nofs_save'
-Message-ID: <202001130721.JrT7fGgx%lkp@intel.com>
+Subject: [radeon-alex:amd-19.50 2114/2687] include/kcl/kcl_drm.h:486:34:
+ error: redefinition of 'drm_debug_printer'
+Message-ID: <202001131442.z65GqHRV%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="tv5e2tipb63axfol"
+Content-Type: multipart/mixed; boundary="kufnsqfif3lrimw4"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.43 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,30 +137,31 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---tv5e2tipb63axfol
+--kufnsqfif3lrimw4
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
 CC: dri-devel@lists.freedesktop.org
-TO: Slava Grigorev <slava.grigorev@amd.com>
+TO: Yifan Zhang <yifan1.zhang@amd.com>
 CC: Flora Cui <flora.cui@amd.com>
-CC: Yifan Zhang <yifan1.zhang@amd.com>
+CC: Feifei Xu <Feifei.Xu@amd.com>
 CC: Jack Gui <Jack.Gui@amd.com>
+CC: Slava Grigorev <slava.grigorev@amd.com>
 
-Hi Slava,
+Hi Yifan,
 
 FYI, the error/warning still remains.
 
 tree:   git://people.freedesktop.org/~agd5f/linux.git amd-19.50
 head:   02692309efa6ad48d47894e40fcb3832ace49c4c
-commit: efcd1418868bc7be0eb22a57497ac20eeb831ff1 [2081/2687] drm/amdkcl: Test whether memalloc_nofs_save() and memalloc_nofs_restore() functions are available
+commit: 57d7e98d0257bd9795dd3f438d19aa5476554685 [2114/2687] drm/amdkcl: Test whether drm_{mm_print/debug_printer} is available
 config: arm64-defconfig (attached as .config)
 compiler: clang version 10.0.0 (git://gitmirror/llvm_project 016bf03ef6fcd9dce43b0c17971f76323f07a684)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout efcd1418868bc7be0eb22a57497ac20eeb831ff1
+        git checkout 57d7e98d0257bd9795dd3f438d19aa5476554685
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -169,6 +170,15 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
+   In file included from <built-in>:4:
+   In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
+   include/kcl/kcl_drm.h:104:1: error: conflicting types for 'drm_fb_helper_remove_conflicting_framebuffers'
+   drm_fb_helper_remove_conflicting_framebuffers(struct apertures_struct *a,
+   ^
+   include/drm/drm_fb_helper.h:589:1: note: previous definition is here
+   drm_fb_helper_remove_conflicting_framebuffers(struct apertures_struct *a,
+   ^
+   In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
    include/kcl/kcl_drm.h:214:17: error: too few arguments to function call, expected at least 5, have 4
                             encoder_type);
@@ -239,15 +249,15 @@ All errors (new ones prefixed by >>):
            return state->crtcs[drm_crtc_index(crtc)]->state;
                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
                                                     .
-   include/kcl/kcl_drm.h:465:8: error: redefinition of 'drm_printer'
-   struct drm_printer {
-          ^
-   include/drm/drm_print.h:70:8: note: previous definition is here
-   struct drm_printer {
-          ^
+>> include/kcl/kcl_drm.h:486:34: error: redefinition of 'drm_debug_printer'
+   static inline struct drm_printer drm_debug_printer(const char *prefix)
+                                    ^
+   include/drm/drm_print.h:219:34: note: previous definition is here
+   static inline struct drm_printer drm_debug_printer(const char *prefix)
+                                    ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   include/kcl/kcl_drm.h:537:20: error: static declaration of 'drm_dev_put' follows non-static declaration
+   include/kcl/kcl_drm.h:561:20: error: static declaration of 'drm_dev_put' follows non-static declaration
    static inline void drm_dev_put(struct drm_device *dev)
                       ^
    include/drm/drm_drv.h:739:6: note: previous declaration is here
@@ -255,21 +265,21 @@ All errors (new ones prefixed by >>):
         ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   include/kcl/kcl_drm.h:539:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
+   include/kcl/kcl_drm.h:563:9: error: implicit declaration of function 'drm_dev_unref' [-Werror,-Wimplicit-function-declaration]
            return drm_dev_unref(dev);
                   ^
-   include/kcl/kcl_drm.h:539:9: note: did you mean 'drm_dev_enter'?
+   include/kcl/kcl_drm.h:563:9: note: did you mean 'drm_dev_enter'?
    include/drm/drm_drv.h:741:6: note: 'drm_dev_enter' declared here
    bool drm_dev_enter(struct drm_device *dev, int *idx);
         ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:6:
-   include/kcl/kcl_drm.h:539:2: error: void function 'drm_dev_put' should not return a value [-Wreturn-type]
+   include/kcl/kcl_drm.h:563:2: error: void function 'drm_dev_put' should not return a value [-Wreturn-type]
            return drm_dev_unref(dev);
            ^      ~~~~~~~~~~~~~~~~~~
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
->> include/kcl/kcl_mm.h:53:28: error: redefinition of 'memalloc_nofs_save'
+   include/kcl/kcl_mm.h:53:28: error: redefinition of 'memalloc_nofs_save'
    static inline unsigned int memalloc_nofs_save(void)
                               ^
    include/linux/sched/mm.h:248:28: note: previous definition is here
@@ -277,7 +287,7 @@ All errors (new ones prefixed by >>):
                               ^
    In file included from <built-in>:4:
    In file included from drivers/gpu/drm/ttm/backport/backport.h:8:
->> include/kcl/kcl_mm.h:58:20: error: redefinition of 'memalloc_nofs_restore'
+   include/kcl/kcl_mm.h:58:20: error: redefinition of 'memalloc_nofs_restore'
    static inline void memalloc_nofs_restore(unsigned int flags)
                       ^
    include/linux/sched/mm.h:263:20: note: previous definition is here
@@ -310,27 +320,191 @@ All errors (new ones prefixed by >>):
    fatal error: too many errors emitted, stopping now [-ferror-limit=]
    20 errors generated.
 
-vim +/memalloc_nofs_save +53 include/kcl/kcl_mm.h
+vim +/drm_debug_printer +486 include/kcl/kcl_drm.h
 
-b4f7d254be169a Junwei Zhang   2016-12-23  50  
-b4f7d254be169a Junwei Zhang   2016-12-23  51  
-efcd1418868bc7 Slava Grigorev 2019-07-11  52  #if !defined(HAVE_MEMALLOC_NOFS_SAVE)
-b4f7d254be169a Junwei Zhang   2016-12-23 @53  static inline unsigned int memalloc_nofs_save(void)
-b4f7d254be169a Junwei Zhang   2016-12-23  54  {
-b4f7d254be169a Junwei Zhang   2016-12-23  55  		return current->flags;
-b4f7d254be169a Junwei Zhang   2016-12-23  56  }
-b4f7d254be169a Junwei Zhang   2016-12-23  57  
-b4f7d254be169a Junwei Zhang   2016-12-23 @58  static inline void memalloc_nofs_restore(unsigned int flags)
-b4f7d254be169a Junwei Zhang   2016-12-23  59  {
-b4f7d254be169a Junwei Zhang   2016-12-23  60  }
-b4f7d254be169a Junwei Zhang   2016-12-23  61  #endif
-b4f7d254be169a Junwei Zhang   2016-12-23  62  
-
-:::::: The code at line 53 was first introduced by commit
-:::::: b4f7d254be169a27d8759eff4cdc418427ad10a3 drm/amdkcl: [4.6] fix kcl_get_user_pages()
-
-:::::: TO: Junwei Zhang <Jerry.Zhang@amd.com>
-:::::: CC: Chengming Gui <Jack.Gui@amd.com>
+   315	
+   316	static inline struct drm_crtc_state *
+   317	kcl_drm_atomic_get_old_crtc_state_before_commit(struct drm_atomic_state *state,
+   318						    struct drm_crtc *crtc)
+   319	{
+   320	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   321		return drm_atomic_get_old_crtc_state(state, crtc);
+   322	#elif defined(HAVE_DRM_CRTCS_STATE_MEMBER)
+   323		return state->crtcs[drm_crtc_index(crtc)].ptr->state;
+   324	#else
+ > 325		return state->crtcs[drm_crtc_index(crtc)]->state;
+   326	#endif
+   327	}
+   328	
+   329	static inline struct drm_crtc_state *
+   330	kcl_drm_atomic_get_old_crtc_state_after_commit(struct drm_atomic_state *state,
+   331					  struct drm_crtc *crtc)
+   332	{
+   333	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   334		return drm_atomic_get_old_crtc_state(state, crtc);
+   335	#else
+   336		return drm_atomic_get_existing_crtc_state(state, crtc);
+   337	#endif
+   338	}
+   339	
+   340	static inline struct drm_crtc_state *
+   341	kcl_drm_atomic_get_new_crtc_state_before_commit(struct drm_atomic_state *state,
+   342					  struct drm_crtc *crtc)
+   343	{
+   344	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   345		return drm_atomic_get_new_crtc_state(state,crtc);
+   346	#else
+   347		return drm_atomic_get_existing_crtc_state(state, crtc);
+   348	#endif
+   349	}
+   350	
+   351	static inline struct drm_crtc_state *
+   352	kcl_drm_atomic_get_new_crtc_state_after_commit(struct drm_atomic_state *state,
+   353						    struct drm_crtc *crtc)
+   354	{
+   355	#if defined(HAVE_DRM_ATOMIC_GET_CRTC_STATE)
+   356		return drm_atomic_get_new_crtc_state(state,crtc);
+   357	#elif defined(HAVE_DRM_CRTCS_STATE_MEMBER)
+   358		return state->crtcs[drm_crtc_index(crtc)].ptr->state;
+   359	#else
+   360		return state->crtcs[drm_crtc_index(crtc)]->state;
+   361	#endif
+   362	}
+   363	
+   364	static inline struct drm_plane_state *
+   365	kcl_drm_atomic_get_new_plane_state_before_commit(struct drm_atomic_state *state,
+   366								struct drm_plane *plane)
+   367	{
+   368	#if defined(HAVE_DRM_ATOMIC_GET_NEW_PLANE_STATE)
+   369		return drm_atomic_get_new_plane_state(state, plane);
+   370	#else
+   371		return drm_atomic_get_existing_plane_state(state, plane);
+   372	#endif
+   373	}
+   374	
+   375	#if !defined(HAVE_DRM_ATOMIC_HELPER_CONNECTOR_RESET)
+   376	extern void
+   377	__kcl_drm_atomic_helper_connector_reset(struct drm_connector *connector,
+   378					    struct drm_connector_state *conn_state);
+   379	#endif
+   380	
+   381	static inline void
+   382	kcl_drm_atomic_helper_connector_reset(struct drm_connector *connector,
+   383					    struct drm_connector_state *conn_state)
+   384	{
+   385	#if !defined(HAVE_DRM_ATOMIC_HELPER_CONNECTOR_RESET)
+   386		return __kcl_drm_atomic_helper_connector_reset(connector, conn_state);
+   387	#else
+   388		return __drm_atomic_helper_connector_reset(connector, conn_state);
+   389	#endif
+   390	}
+   391	
+   392	#if !defined(HAVE_DRM_GET_MAX_IOMEM)
+   393	u64 drm_get_max_iomem(void);
+   394	#endif
+   395	
+   396	#ifndef DRM_MODE_FMT
+   397	#define DRM_MODE_FMT	"%d:\"%s\" %d %d %d %d %d %d %d %d %d %d 0x%x 0x%x"
+   398	#endif
+   399	#ifndef DRM_MODE_ARG
+   400	#define DRM_MODE_ARG(m)	\
+   401		(m)->base.id, (m)->name, (m)->vrefresh, (m)->clock, \
+   402		(m)->hdisplay, (m)->hsync_start, (m)->hsync_end, (m)->htotal, \
+   403		(m)->vdisplay, (m)->vsync_start, (m)->vsync_end, (m)->vtotal, \
+   404		(m)->type, (m)->flags
+   405	#endif
+   406	
+   407	#ifndef DRM_RECT_FMT
+   408	#define DRM_RECT_FMT	"%dx%d%+d%+d"
+   409	#endif
+   410	#ifndef DRM_RECT_ARG
+   411	#define DRM_RECT_ARG(r) drm_rect_width(r), drm_rect_height(r), (r)->x1, (r)->y1
+   412	#endif
+   413	
+   414	#ifndef DRM_RECT_FP_FMT
+   415	#define DRM_RECT_FP_FMT	"%d.%06ux%d.%06u%+d.%06u%+d.%06u"
+   416	#endif
+   417	#ifndef DRM_RECT_FP_ARG
+   418	#define DRM_RECT_FP_ARG(r) \
+   419		drm_rect_width(r) >> 16, ((drm_rect_width(r) & 0xffff) * 15625) >> 10, \
+   420		drm_rect_height(r) >> 16, ((drm_rect_height(r) & 0xffff) * 15625) >> 10, \
+   421		(r)->x1 >> 16, (((r)->x1 & 0xffff) * 15625) >> 10, \
+   422		(r)->y1 >> 16, (((r)->y1 & 0xffff) * 15625) >> 10
+   423	#endif
+   424	
+   425	#if DRM_VERSION_CODE < DRM_VERSION(4, 10, 0)
+   426	static inline struct drm_rect
+   427	drm_plane_state_src(const struct drm_plane_state *state)
+   428	{
+   429		struct drm_rect src = {
+   430			.x1 = state->src_x,
+   431			.y1 = state->src_y,
+   432			.x2 = state->src_x + state->src_w,
+   433			.y2 = state->src_y + state->src_h,
+   434		};
+   435		return src;
+   436	}
+   437	
+   438	static inline struct drm_rect
+   439	drm_plane_state_dest(const struct drm_plane_state *state)
+   440	{
+   441		struct drm_rect dest = {
+   442			.x1 = state->crtc_x,
+   443			.y1 = state->crtc_y,
+   444			.x2 = state->crtc_x + state->crtc_w,
+   445			.y2 = state->crtc_y + state->crtc_h,
+   446		};
+   447		return dest;
+   448	}
+   449	
+   450	void __drm_printfn_info(struct drm_printer *p, struct va_format *vaf);
+   451	
+   452	static inline struct drm_printer drm_info_printer(struct device *dev)
+   453	{
+   454		struct drm_printer p = {
+   455			.printfn = __drm_printfn_info,
+   456	#if !defined(HAVE_DRM_PRINTF)
+   457			.prefix = prefix
+   458	#endif
+   459			.arg = dev,
+   460		};
+   461		return p;
+   462	}
+   463	
+   464	void drm_state_dump(struct drm_device *dev, struct drm_printer *p);
+   465	#endif
+   466	
+   467	#if !defined(HAVE_DRM_PRINTER)
+   468	struct drm_printer {
+   469		void (*printfn)(struct drm_printer *p, struct va_format *vaf);
+   470		void *arg;
+   471		const char *prefix;
+   472	};
+   473	
+   474	void drm_printf(struct drm_printer *p, const char *f, ...);
+   475	#endif
+   476	
+   477	#if !defined(HAVE_DRM_DEBUG_PRINTER)
+   478	extern void __drm_printfn_debug(struct drm_printer *p, struct va_format *vaf);
+   479	/**
+   480	 * drm_debug_printer - construct a &drm_printer that outputs to pr_debug()
+   481	 * @prefix: debug output prefix
+   482	 *
+   483	 * RETURNS:
+   484	 * The &drm_printer object
+   485	 */
+ > 486	static inline struct drm_printer drm_debug_printer(const char *prefix)
+   487	{
+   488		struct drm_printer p = {
+   489			.printfn = __drm_printfn_debug,
+   490	#if !defined(HAVE_DRM_PRINTER)
+   491			.prefix = prefix
+   492	#endif
+   493		};
+   494		return p;
+   495	}
+   496	#endif
+   497	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -339,14 +513,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001130721.JrT7fGgx%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001131442.z65GqHRV%25lkp%40intel.com.
 
---tv5e2tipb63axfol
+--kufnsqfif3lrimw4
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICAGiG14AAy5jb25maWcAnDxJd+M20vf8Cr70JTkk0WbZPd/zASRBERE3E6Bk+8KntuWO
+H4sICNPbG14AAy5jb25maWcAnDxJd+M20vf8Cr70JTkk0WbZPd/zASRBERE3E6Bk+8KntuWO
 J156ZLmT/vdTBXABQFDpbzKZTrMKa6FQO/Thhw8eeT++Pu+Oj3e7p6dv3uf9y/6wO+7vvYfH
 p/3/eWHuZbnwaMjEr9A4eXx5//u33eF5ufDOfp39OvnlcDf11vvDy/7JC15fHh4/v0P3x9eX
 Hz78AP9+AODzFxjp8C/v7mn38tn7uj+8AdqbTn6F/3k/fX48/uu33+DP58fD4fXw29PT1+f6
@@ -1169,4 +1343,4 @@ gJr0GW7XsxT3dEDx/5tA8HTcZVjxvxe9Lg2HbGiBhzTQ4boLYZmqDJdRW95ZSex30nl2Yqfy
 uysUvJSSZUT5NL5NraDpGir1pJ7GGbpHTK7VzT0ijGHTStY4GplmmU6cOjAA2OcQwtR5ntS3
 royylwy25ByJ98yOPjpbE6Mx1YRrdFVvpcoD/wGwQiSVEf0CAA==
 
---tv5e2tipb63axfol--
+--kufnsqfif3lrimw4--
