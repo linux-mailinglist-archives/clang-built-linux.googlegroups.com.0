@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBD5NPEPNXUNRBYW27TYAKGQE5VUQVTI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD5NPEPNXUNRB6W37TYAKGQE5BAXZXI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3a.google.com (mail-yw1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id D21DB13C738
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 16:18:59 +0100 (CET)
-Received: by mail-yw1-xc3a.google.com with SMTP id 199sf19810312ywe.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 07:18:59 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579101539; cv=pass;
+Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
+	by mail.lfdr.de (Postfix) with ESMTPS id 20A1913C750
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 16:21:32 +0100 (CET)
+Received: by mail-pj1-x1037.google.com with SMTP id d6sf95483pjs.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 07:21:32 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579101690; cv=pass;
         d=google.com; s=arc-20160816;
-        b=d6l2IPxKcNL9fy9XuxHmhOuAVTUb39OEbywIofPY8V1IJ5xJG7E9JBD7N9B8aOr4cF
-         vSSgcmt+Dt26+aU+d7EmA7X+w6O36MAd2zXLxj1Xepc/SJ14dwMoAuFY2kkn1b5+ieYa
-         aYDBc1P7T2Stn50FOsLE2ZHhQ8BFYLAb5q3McTZz1vSbA3VtiNWjeMprtX5e1DXteyuJ
-         f87U0sW+jDUUzxufhgpAF0JHJxu78Bb2qpPbdC16FulnmL2YybSS0XlAg0NPcBRk3hoX
-         ZhlsAVliikh001BKNgC+MuQp+d8IygthJwx6ETYhCryM0PrOVUta2kISp24NVTCKYkU/
-         AJng==
+        b=uPXS0D8ntGpBowuZ9ygwi/WWVtNlBa8r/JfYGNusPVpqqIPgZCmLPJDqQtMaaKxVvS
+         ed2Rv1oeHrggssgF8TmzYwyKfrvTqooUz8EwCaArMs/SpcJfjB2GmxLXeI+dtO15QGkV
+         83UYBrZC02tlxL3DazI0bOcyxroqO5z6Ayi2vCy8ZTryGQ2qUSuqk/LvWfEQU8lYu6Bb
+         9TXe89NdwRotnfdyuzc9Reazr9p5vcGJiSNpVQVOuBWJ8lwgJcRc0Mrfq2cq7aR0iOnN
+         Yyl2p2CuPOMbdChxXfQZddZqATiXkvnrJE9oiRlfkkVdgUwgcZ1/U+hFvylxape+0yH3
+         z/FA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-transfer-encoding
          :mime-version:references:in-reply-to:message-id:subject:cc:to:from
          :date:sender:dkim-signature;
-        bh=ucCepWuUbW31YiDu+PFFAYcaayUTewsUSIXA6O+7CHY=;
-        b=VMEKrUIjUJNh7ma6XQWZDSlXyV3Mgvuag01AvaxPhUTualS5VtEDqadyvAVQC6lwQk
-         1xzPljdik9/MVU/YSDA6iyREEalR9iIk5htc0DAtjzBuU6w9pzobjLmmsBe3TQZHK9Ee
-         pWCnQDuNb7nRYAaXUeQ87Q/KyT5WJZapjuKhlCoRuWJHfx+m95EAdc89n+rDVWyjWVJu
-         yTpZApkOoDGoaQIVxC6o98weotGt4WkB7ekwOscopgz3LV5naOLNIX8jIBI1LSFGOEoU
-         Ap1CjIwQbZ0L6OGeT4N2EFHq+Y8uYDsgMyVb+7K7yzySyYnPklYPyn0nF/PSi2+g36bQ
-         klYA==
+        bh=LQmqEbZHRRlQ/rc9QraVQRylVbwp1HPkzmicFjwtasY=;
+        b=cutNXm8/b3RgCHVq5XFN+J400AVCvpQwnZvW+pIVwGHIjmkF/QH5bnS3fHdg5vTEt0
+         7z8i0VYV6KWrL+qJUpTi86s6u3GmatRCn/rzQVvp8NyfBmWfiNu/lKxPLAEuedklUxf2
+         RbsxWZQlK2Zfyr8Q6TWg3t+ljzkkPpj7sApywQU0zeCzt2Gf05wNXKP9QTvEVsW/zzos
+         +ejZW0PfqmUpj30G6DdFL/N833rYdmEpL+8Xo5rQ60jJ/8mTkajbg1CflkwtSQJ2Xk9Y
+         87BsEYIKy3/+YmmPJUAof6d3wW/td6irTfvwx3Bjz6elCRofU4iJ0IVUHpxlPoVaq8/K
+         99Hw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=F69sbxVl;
-       spf=pass (google.com: domain of brouer@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=brouer@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KyBFHK4t;
+       spf=pass (google.com: domain of brouer@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=brouer@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ucCepWuUbW31YiDu+PFFAYcaayUTewsUSIXA6O+7CHY=;
-        b=CRKEhbjDdSSKxE8XX71QH5ieIFYakZ1GPEoyEmjgZgsg+9Wb+cgwNNWmXycyEWsXN5
-         BVQw50KUPphG+UvS6hJ5vAcqWqgThe3FcY6wwArA/h+0eZGauWMEeTQPiydsr+YdZxqk
-         eulL+orDVAqhNoHjp7xJJPybR7mTAn6We7dxcGbbN0TIYzNl79hQnx71sodQB9kVbaqB
-         VDXiZtS20A0YoHwbSk71dy0/pbtncENQHQDauL2p+Jwi5FmFd3eXvbDTcXLaWWHKRhlq
-         t2VMJQ64To+GZpkP0sMm8zkLpp3nRuiWuomyfDsHa38pfeCDRtBUa2yT4+dkhPdOWFH8
-         3F3w==
+        bh=LQmqEbZHRRlQ/rc9QraVQRylVbwp1HPkzmicFjwtasY=;
+        b=kSxyqsXCOBVdsA6OBrv9MIW0DFwCrk7R5abQ7qLGpUiBU7YIoa9yhTXBOif9vESrfC
+         Ube15YTSYw4eqprH6pXAiMjWwa5fjSbZcIh9WMfwWtTdT7tH1czFIn6R4iO8HicP78ZO
+         r5PbQ+WvaSTmNiBRCRyuDnE8t8G4twkFHZlfLkNggz/WS8+vX0/1ROdRjPyrgfauA/+d
+         h9LvNf+qSAc0NBAvU9ere+Sq6Sa3/RNrkZeMkgf9r1GdJ9k8xWUirLHoKOnZJeSJGEpQ
+         vCUlmJW3BH8KRnepb8o/hVUFynVIQRNnD4gBTKDaQ4/F3e3adKo1Xx4o8I9SdjwOmQdQ
+         SGLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,65 +50,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=ucCepWuUbW31YiDu+PFFAYcaayUTewsUSIXA6O+7CHY=;
-        b=uHlWZWetgjopZDtlb8bX7RC1sGkwdFvBM3wniJ5m7uVyUEDFFhEb6bGWb48iT0x8vM
-         ccTrB5c32qpRxmGIypD/E7iO3QDXIURWbu7f/G1E1oSnXA0lPGVhZLek0qR6SSfkD9MB
-         pqmbSQK3Dmnrr45/QkdP0IrQ5U3eRSEx6zIdJAToqACOybxXhJkaqJ6zAePXC9dMbSNi
-         sr0qwM33RJ7U8xY7I7EEhldX9JdG13dg2h0yaOujq/ayTBbKDMiTc7k+son3WeabI3YM
-         8BEBXhbmIxaKt9ksElgfwgzLhoMy0jCmi/9Xdbxqw3AvVU3Ecl/ySNbkajSN8oDUZRRP
-         +rqg==
+        bh=LQmqEbZHRRlQ/rc9QraVQRylVbwp1HPkzmicFjwtasY=;
+        b=J8jPptQzl4WzcL6s46+SxEMzxyC+6AsZU5X2it29XUdhBerN21Mk37GxUWM81xSrtA
+         cTEx0kY4Igzz2gQ0TsbxamMiMioxAZTL+GQ5rrq3mHMixWMIAM6peyrsqRw3SnyAMWVA
+         Bn+DYVFDf1jlSNHJWNp/rqxV8rONQQAjcMK+reUeMCpFY+u+hYc6xs3eBrc1nTAefugB
+         rCWTi/v8HJmMAHEdxE7e0FzkNM0/5i9phHdjfTxLgKOIBEI2bJNXRxGMFXZkM9wtuSFj
+         it5LJv8+7Jry0VEtkffUH3XVIKrQJTcrNCt+dzaeX/3SH1zI+2bmtqNOoGNXY2g0ft1J
+         Qvig==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUWk2SEw+0UV4l7oToCvltepPDnijDsU0JFD9qW2Gapde91eVKc
-	OeJ5nZ/HV4YinTj/z2ohjdo=
-X-Google-Smtp-Source: APXvYqxKrGs2U9862AsV2yFYrMNVA3yE7QVXqehu8d1zettlbYqILRgDlc4+OyWVpTxxm/DH1if9WA==
-X-Received: by 2002:a25:ca51:: with SMTP id a78mr20592180ybg.42.1579101538772;
-        Wed, 15 Jan 2020 07:18:58 -0800 (PST)
+X-Gm-Message-State: APjAAAVddDL8szuS2x6Q6KQAGYtz3YaCcDKrjMz1o4vSOZQMoRSgJB3v
+	TzMHFWi7qBNwV8848oBJifU=
+X-Google-Smtp-Source: APXvYqz16QI0zWX8cXw9g3DiWyn0QVt0HCU77dBM0n80MVp3Fbq1N8jKy7zFPxs2w9HYjEOpUbwOzw==
+X-Received: by 2002:aa7:9908:: with SMTP id z8mr30489947pff.68.1579101690747;
+        Wed, 15 Jan 2020 07:21:30 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:2f58:: with SMTP id v85ls3033553ywv.11.gmail; Wed, 15
- Jan 2020 07:18:58 -0800 (PST)
-X-Received: by 2002:a0d:d954:: with SMTP id b81mr22968425ywe.123.1579101538415;
-        Wed, 15 Jan 2020 07:18:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579101538; cv=none;
+Received: by 2002:a17:902:ba8b:: with SMTP id k11ls5308466pls.13.gmail; Wed,
+ 15 Jan 2020 07:21:30 -0800 (PST)
+X-Received: by 2002:a17:90a:f88:: with SMTP id 8mr352946pjz.72.1579101690251;
+        Wed, 15 Jan 2020 07:21:30 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579101690; cv=none;
         d=google.com; s=arc-20160816;
-        b=lYXSU8wqeqIZlDy6o05QtqF9dMNLGs6dLjzywhS67E3tm19pbYgu/cK9HXBQIUVKh/
-         lVG3PIgTfFv2udAnjNmflGIl4Vykob0q7afjUgQl3leafOKw27qKKlc5Hv5BvuLZU8Iy
-         pm+vduN9KnhNh1HT1iOHE0X8Xjk3+/T5OUz7XaTp8FrYTRQx3CBj3kCawrZ32VVYcVzQ
-         jhv5jxulwe2jYrwblZfb256xPJSjkODqObvxnds/PjXMAIOTbLQSD2O9f9ANbfov5KOD
-         fpHXka4k1qJKqXKdJxfLCsRL92HpRCPdRi5UqV6M96Y15dYAWXZ7k04QfvZNgKgZaGeK
-         TWZg==
+        b=t6S/wd7hMI1mIeJDdTx17W+ZVV6SRNQyVi9WkfLHJyEzbloKqgoy4itNyZ5I7/ChsY
+         IcoGblduyk75QH56St618dd3RQJ0pYkA6TBXdMeYpUxIyWm+HG774NQVxyeO3L09gYsf
+         0+uShmEtWtALUyvakg+U+LbH3PJkuZBbSL9cZ7xjhxr/oN+rd0CgSBiHB3C4TT5ER7aB
+         ac3f60Msscv9blc6IVoqLWa1eqJOxu7Qk7+aKMBqPMtOoVDrOofT298j9X6kPFdzsAuy
+         eg2noBvoBc1qgonYM5jLMHvJqLuvVk/+bMD86Pru7otUEBpV/2y1kJ27QkIjg0vSALpt
+         MYnA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=O28pugdE3ji8Z7d58Dp1KejMSWnJ7EsYgUczW6n+9NY=;
-        b=OgQsWo1T0pCZmiNJXWUQ8HO8tQhLu4kON9LnFuVxuctGe7Z6AEp4MKILuo4Rbrg8MG
-         oZNJu4OaAcaUg6mUzX8amoH6I4+qi6mbH/94EnPreeQf7aQ6Ca/dqZM1tmi61VbmIMTT
-         b1tbgETwLsMlEgPx44c2RRuEZo03Goo4jpYYWMRzWdKtztK1fZy5xP9GMbmKamvERX+D
-         R7MuZSF9CDCzWJx743Cp4/oSIkTn1cS3ZT6rpOqN5rPYFKSdLxVbyKN/a5yGLiOHF4eU
-         lwgV3M4FZR8sOHPlZgkcblIxjTEhfoH1JSp2G2lT9Y6XQAxsr/sYzoU/h01zNKyHG82K
-         8oeQ==
+        bh=zTA4sx+gNFDojMXAsEt7yLk4iNXaE/P+y/1BDCCWUNA=;
+        b=T9B70IzhPUw98U82/ffmFkhq+NoKRoOWWO2dKdQzJ2ildVrk4idiOeyUtcppbSz2MK
+         PIFhoyiNn06czFO4jm4UUUOWDJo5jwvgXl4ouP/VY9DbgNKX2fKe24AqCR/gvtwwyf7c
+         3JNi9TpNv6P/UL+0U9RD7JmtYfUnC+GcwZYWGlbdlNgzVmDFNa1eThiW67HJTo4BkYgn
+         Ow8SllcxGn8qZ+imxMXyrLEgLW8TrIXsDFqpslG3MaokRtMQGF9IFXOJWckamsyv9yPB
+         iyVkZmKseovVwjXSC4anldWAvtQQj2xNvxUQjp1j2WfCb2T/pu7jqUyWB78k/g7CBlWI
+         fh6g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=F69sbxVl;
-       spf=pass (google.com: domain of brouer@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=brouer@redhat.com;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=KyBFHK4t;
+       spf=pass (google.com: domain of brouer@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=brouer@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by gmr-mx.google.com with ESMTPS id n67si1021025ywd.3.2020.01.15.07.18.58
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [207.211.31.81])
+        by gmr-mx.google.com with ESMTPS id n20si821764pgl.1.2020.01.15.07.21.29
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 15 Jan 2020 07:18:58 -0800 (PST)
-Received-SPF: pass (google.com: domain of brouer@redhat.com designates 207.211.31.120 as permitted sender) client-ip=207.211.31.120;
+        Wed, 15 Jan 2020 07:21:30 -0800 (PST)
+Received-SPF: pass (google.com: domain of brouer@redhat.com designates 207.211.31.81 as permitted sender) client-ip=207.211.31.81;
 Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
  [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-177-q6bYgGs4Pb6_ldebLaXl3g-1; Wed, 15 Jan 2020 10:18:54 -0500
-X-MC-Unique: q6bYgGs4Pb6_ldebLaXl3g-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.phx2.redhat.com [10.5.11.16])
+ us-mta-171-YiC0dQjHOfKz--2joi_dgQ-1; Wed, 15 Jan 2020 10:21:25 -0500
+X-MC-Unique: YiC0dQjHOfKz--2joi_dgQ-1
+Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.phx2.redhat.com [10.5.11.23])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id F20318F8A0F;
-	Wed, 15 Jan 2020 15:18:49 +0000 (UTC)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9A3A71136DFF;
+	Wed, 15 Jan 2020 15:21:19 +0000 (UTC)
 Received: from carbon (ovpn-200-25.brq.redhat.com [10.40.200.25])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id A1E6A66842;
-	Wed, 15 Jan 2020 15:18:26 +0000 (UTC)
-Date: Wed, 15 Jan 2020 16:18:25 +0100
+	by smtp.corp.redhat.com (Postfix) with ESMTP id D09DE196AE;
+	Wed, 15 Jan 2020 15:21:07 +0000 (UTC)
+Date: Wed, 15 Jan 2020 16:21:05 +0100
 From: Jesper Dangaard Brouer <brouer@redhat.com>
 To: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@redhat.com>
 Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
@@ -125,21 +125,21 @@ Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
  netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-rdma@vger.kernel.org, linux-kselftest@vger.kernel.org,
  clang-built-linux@googlegroups.com, brouer@redhat.com
-Subject: Re: [PATCH bpf-next v2 07/10] samples/bpf: Use consistent include
- paths for libbpf
-Message-ID: <20200115161825.351ebf23@carbon>
-In-Reply-To: <157909757639.1192265.16930011370158657444.stgit@toke.dk>
+Subject: Re: [PATCH bpf-next v2 01/10] samples/bpf: Don't try to remove
+ user's homedir on clean
+Message-ID: <20200115162105.51c2847a@carbon>
+In-Reply-To: <157909756981.1192265.5504476164632952530.stgit@toke.dk>
 References: <157909756858.1192265.6657542187065456112.stgit@toke.dk>
-	<157909757639.1192265.16930011370158657444.stgit@toke.dk>
+	<157909756981.1192265.5504476164632952530.stgit@toke.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.16
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.23
 X-Original-Sender: brouer@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=F69sbxVl;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=KyBFHK4t;
        spf=pass (google.com: domain of brouer@redhat.com designates
- 207.211.31.120 as permitted sender) smtp.mailfrom=brouer@redhat.com;
+ 207.211.31.81 as permitted sender) smtp.mailfrom=brouer@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -153,35 +153,46 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 15 Jan 2020 15:12:56 +0100
+On Wed, 15 Jan 2020 15:12:49 +0100
 Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com> wrote:
 
 > From: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
 >=20
-> Fix all files in samples/bpf to include libbpf header files with the bpf/
-> prefix, to be consistent with external users of the library. Also ensure
-> that all includes of exported libbpf header files (those that are exporte=
-d
-> on 'make install' of the library) use bracketed includes instead of quote=
-d.
+> The 'clean' rule in the samples/bpf Makefile tries to remove backup
+> files (ending in ~). However, if no such files exist, it will instead try
+> to remove the user's home directory. While the attempt is mostly harmless=
+,
+> it does lead to a somewhat scary warning like this:
 >=20
-> To make sure no new files are introduced that doesn't include the bpf/
-> prefix in its include, remove tools/lib/bpf from the include path entirel=
-y,
-> and use tools/lib instead.
+> rm: cannot remove '~': Is a directory
 >=20
-> Fixes: 6910d7d3867a ("selftests/bpf: Ensure bpf_helper_defs.h are taken f=
-rom selftests dir")
+> Fix this by using find instead of shell expansion to locate any actual
+> backup files that need to be removed.
+>=20
+> Fixes: b62a796c109c ("samples/bpf: allow make to be run from samples/bpf/=
+ directory")
 > Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
 
-I like this change. Maybe the reason so many samples/bpf/ files
-still included "libbpf.h" was that once-upon-a-time we had a "eBPF mini
-library" in the file samples/bpf/libbpf.h that were included.
-
-The file was removed/renamed in:
- https://git.kernel.org/torvalds/c/8d93045077ae
+Kind of scary make clean command!
 
 Acked-by: Jesper Dangaard Brouer <brouer@redhat.com>
+
+
+> ---
+>  samples/bpf/Makefile |    2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
+> index 5b89c0370f33..f86d713a17a5 100644
+> --- a/samples/bpf/Makefile
+> +++ b/samples/bpf/Makefile
+> @@ -254,7 +254,7 @@ all:
+> =20
+>  clean:
+>  	$(MAKE) -C ../../ M=3D$(CURDIR) clean
+> -	@rm -f *~
+> +	@find $(CURDIR) -type f -name '*~' -delete
+
 
 --=20
 Best regards,
@@ -195,4 +206,4 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200115161825.351ebf23%40carbon.
+clang-built-linux/20200115162105.51c2847a%40carbon.
