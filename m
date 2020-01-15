@@ -1,150 +1,149 @@
-Return-Path: <clang-built-linux+bncBCGYFYHOWEFRBWM373YAKGQER77GTEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBVNF73YAKGQEZRCWELY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd39.google.com (mail-io1-xd39.google.com [IPv6:2607:f8b0:4864:20::d39])
-	by mail.lfdr.de (Postfix) with ESMTPS id CEF2813CFCB
-	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 23:10:34 +0100 (CET)
-Received: by mail-io1-xd39.google.com with SMTP id m5sf11393019iol.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 14:10:34 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579126233; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id C5C1A13D01E
+	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 23:31:50 +0100 (CET)
+Received: by mail-il1-x137.google.com with SMTP id e4sf14562503ilm.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 14:31:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579127509; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EpIugHHwRG65Q9Efm5zd+HG973z40+a7LSsS/1wXmSicq9gr0bznp0ToE6/8fME7/K
-         ejChlcsrE7/OnhExaEi3sPB9agdJTFRCdBp9yXJyzk1uEltePxwvkY/Fl222Gp1iO4Ag
-         JsTAbCr+DBjo4q8rOovHU4rbY2mAIZS3oyLuDMYttV8uShRB11DyYWri6RRXv+M1TCL8
-         0kavarHlWZjkBgjEYnXYwFOgSkPM4Jobl1o3I/guXKI3LZuHnXpJk5F4SHeFy5gHHz6L
-         N+AmHB5MpEECNmybrMx//TO7HmEVCh9uayQde/OhbE+Rzby557OYhuZYD7VkHHqxPAcK
-         naKQ==
+        b=x5JWXYHdLm1sy3a1pylqDU9lku88/hLAof+ta4O7MQstXTv2Oj5hsoCkB99ByeePd4
+         4GhZUOXVvXOP/6hS8K/oXIDQoTsl/4KHwcVg9b0bs+GFFkrXQ1S3yAX9GjF7R33JYggO
+         2zysx1BDj1vSyENqHDVgcSdl2ptSO+OeomVDgQRfiLcjZcsWtr5C4CPj37+YY46L6BU9
+         FtPBDAnD0776fhQzVxwKP8C454wnduNlbRVzrWWfOcjOgsX9Gzjb/9yuVtV3VB2Hwdtx
+         XEW+lUxaI3xXbZZe2JB3gytFtIxAONn2nOOv357iDcGIHIWEUm6J+MVcqodX9p8XlSVm
+         MIjQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=w71ehFVNQ1ojQk6AdxN8awcSD4JwLPhVcVYC3n+7YIQ=;
-        b=DXQ0idrD/mKHhRkSYFV5o1/x5BwJsUSv4SFusv9OIqGawonNS0QTGjcUdTeOZZ0qdW
-         XA/o7MQxP5YiNpCw26HgSydkKCD0lrVAIWO+to4uhwKk460ZNIvriqZ1GMxEWTELqmPd
-         VeEIypfxbkO9a/raPIUmpGD2vMFH9bJ/gZol545wtkZiEyf5CPrBD5BN+ApY5Bvw6LWj
-         tt+d/xUjcmD+jOA5yKka+1xF5SsXeewbYH2/QzyiOyaDTzHBEo7raF8LHz2ezQR/x7MS
-         ltg4L+HjIz+2VljTIGI+KstPVGKVX4C4vS+t3g27M+S+CZs1joVtjSDghH/0g05+YXbF
-         sAzw==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:in-reply-to:references:mime-version
+         :sender:dkim-signature:dkim-signature;
+        bh=RhfpBxuAu6L7CQne/7WjXCegrpwJmwlB+Jk8pZOl7rM=;
+        b=uX9IezlYfmmLLjvQZJfGFLWp0BOiwXzcWmfbHbT5ZRNEsFa9yhbqGSurukwAQfbZY8
+         IIxyWj0xDwwKjBotNHfDubg3mv/v64IU2jGUr9shYS8kjXCA7dvAXIGXC7+67ceu76FV
+         gxKqBXNEI2mR2FMCplsyCVIrCb9OiNaY3EqIrtQH9Se8AiSqXTvJDwKkS+L9h7nTwFpT
+         fEJJMqgGOwK4BE8Hd8/SHQwxNlPFRrJO75XBlC0VInrinWJ4teLW1TlsJKl035mMEL/Z
+         G8FrnpersuMCiu1YSWdb35gYsn9U2y5iVYadRvvVcKb3EKxN+sC+0yYHs97YBRKGIq+L
+         N8pg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=coPNMhCT;
-       spf=pass (google.com: domain of toke@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=toke@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cNt51iDc;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:content-transfer-encoding:x-original-sender
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=w71ehFVNQ1ojQk6AdxN8awcSD4JwLPhVcVYC3n+7YIQ=;
-        b=Hq2VljY29e27bEsSq1+b/JUl0nPv7Mu//QEDpQh6IVhQUvczU/ACFFK8TvCo3kGtNK
-         x04Apm47Md+AMQudPYDFNraTc94rTIUbVN+liq0DL/g10rCvz31gSeGP0N5VvbRfpjy9
-         bEQx9ue9nk7cYtQMC0oDGhTIg6M77tN13XJwObqScjeHd4t8NH4Pmw9FAgAo7i/4xnrm
-         sSDSqKGSjwAM0ftlqH0RE9bbi3+M92KQVTIS++iIl7iLmMyJIcB1EfY/igOSX6DACOSM
-         G0XryZP+r+yb51Kv3hdCo3vccgay7suu6PBiqoTVsMwSJ7pCuTm9hL4gJpXQZ+60qTMJ
-         ZIoQ==
+        bh=RhfpBxuAu6L7CQne/7WjXCegrpwJmwlB+Jk8pZOl7rM=;
+        b=Z48ArawplXf5zczQE16AMDioaEw2IcsRcdRhGLkDD3XomdbxLSYkUy0se/WM1vPFEx
+         E3PgwmnShF46OX4j+6TgY20iISzW5wQtB3wrnDKgQlzBuOAlLwqSs6XgR5v5fSKKsM1m
+         3yLikJhYnP37igQFzTlo1Kxx4rP9TQZXJJQoe/ES8ipsChDTOoDInh6Pubq1wJgLwtTX
+         nSwYcacO83qhuQPitBf+wn/n1rG0blbA2oIC2K6HKZBcFpLz0+gPfBNadKKDoEpZbBfr
+         jtL+qdwuoO8/16BhVb7haPDBjuDgzetrhuZEGoiaxw3FXEW0GZM/QXhSLLELXQNu5xYC
+         Dynw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RhfpBxuAu6L7CQne/7WjXCegrpwJmwlB+Jk8pZOl7rM=;
+        b=YTbB3FN8HClWSo3cFfYKJ4xxSrxjI28Sg20UIfph3gvY1z5FO9UFxB4YJM8qaeYn49
+         vRwJJ5izBDTj2D1RajviLxJK7e7vCbJ4T5+HIxA/tijCCqlXzmoB610anieqV6xzEz3D
+         THMaCud4UGAj1fjOs196Ood8AMmup3W3JkiiXwKanEIdXg6suNLI2106vzeTwxx37WgR
+         qF7sT7xVerU5JPbzMz8JJc1XzTIpmVuDMjsSjpMc7gEl4ykYRIfxQ6F1xgvJqQS3HuAy
+         7vIxttT9K9HAhvQoVmU3/CCv/V7Bigus+InGsR7gM9oRT4p4eys1maLAlBQtUE0TbI4C
+         S7HA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:content-transfer-encoding
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:content-transfer-encoding
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=w71ehFVNQ1ojQk6AdxN8awcSD4JwLPhVcVYC3n+7YIQ=;
-        b=qAAdY3G/CCwta+vUlXs4KsjZ3LBG3vq/8mlOD9z3QndY4Bvw7ULXOGLvQwOiWftt3G
-         8q9EfqjRTmf+mpZj8zVgnaRsL3MC+2PhlJBmqvLOGKwcyVVxGylhk58A/LqI86zDyVPF
-         h2R7wonjeS02qkta5rxezJFPqp64j494SA9gF2xcN2kG5P4wKuG/v1maf9V+cqZbDRIm
-         qz2jraB/KOp/om53YjuDP2ISY8lAzQcaNN6BmnD+oWzQY1V1Tn03g7YjKNU+gXgcATUX
-         JxgG3fPEn1bld74vb4Na1UJA0kUbAKaMpNEToWHLZcPZGXWECcNsXRObYa5kBHJWbBYW
-         vhgw==
+        bh=RhfpBxuAu6L7CQne/7WjXCegrpwJmwlB+Jk8pZOl7rM=;
+        b=D2chz5Y6eGRAUVVZ+FXtyP23HTv9Ela9xgJ3tXr4NpMfZPpSLCdSDFH7myrVn0rwSO
+         wupURI8B9pvC8b9nXGcgFKzizHMENAkjwNZVAMiEJZCOQQcCbe7kEJZK9OGeVr0/ZLpn
+         jFmF8dYe+wxILk2rDl4bCnOniC67UFEA1hR769hiKrvJxtvBAxxs2r841KZHtGjgs+hM
+         /QAqlyUY8H1IwUhiW3Mh8MrGrsc5vrUL7qBrrnKz6ycI225FtP3O6Fbb40PDGIfe6Lyl
+         OTSfepUrQxc18W2HRZEMj+fpowltnvZyArCoCNHs07Wn47UFw0aHRcDF8c6+OtFetzsc
+         4Qqg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVHkwafXtks6X3mTHn+XvvDN1EftfH+PCnk5gwQEsy7sVqhozT8
-	FxbiSUs/OrHje/NGNeHPo8U=
-X-Google-Smtp-Source: APXvYqzB/LPY7nYICht2c/1nalSUM7ITs4aHlbezi9ZQ5/nDZP+xGCAlbKrlyJR2eHWskhX5GtpLQQ==
-X-Received: by 2002:a6b:6f06:: with SMTP id k6mr24401277ioc.204.1579126233742;
-        Wed, 15 Jan 2020 14:10:33 -0800 (PST)
+X-Gm-Message-State: APjAAAXOS9/KfUE+RuAp0WGP5ZN26DV3UQyEjAGwKe/mBHK8vuosqmFR
+	I6Cl8LzmKEuEdxtRmFkkHKw=
+X-Google-Smtp-Source: APXvYqyefMQ7uO62bSDHgxscCx3IEENkU9fwzqawqCuIWbkVjV5pNx/XoF2xX9YDGqIi0tUt0a4o3Q==
+X-Received: by 2002:a92:8893:: with SMTP id m19mr807354ilh.4.1579127509323;
+        Wed, 15 Jan 2020 14:31:49 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:bbd6:: with SMTP id x83ls3614108ilk.10.gmail; Wed, 15
- Jan 2020 14:10:33 -0800 (PST)
-X-Received: by 2002:a92:7509:: with SMTP id q9mr664970ilc.67.1579126233449;
-        Wed, 15 Jan 2020 14:10:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579126233; cv=none;
+Received: by 2002:a92:39c5:: with SMTP id h66ls3624405ilf.11.gmail; Wed, 15
+ Jan 2020 14:31:49 -0800 (PST)
+X-Received: by 2002:a92:ca8b:: with SMTP id t11mr783981ilo.227.1579127509025;
+        Wed, 15 Jan 2020 14:31:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579127509; cv=none;
         d=google.com; s=arc-20160816;
-        b=PYlVzD2XNKo9nXDtoViu80xmqBc4SjOyCOVmZVpKY3OB2G/tCMYi73qey9qwH4nyDK
-         ZKaca48b+JGCn8D0kHBS0rWRt85tXqFWtaBJRDoqFQxdHgt8ZLAur171UV7rYMuMCf99
-         3jP0gmWbTl2FlmgeZGQ8n8FZoM5bhSP8iQkRTZXG0SQ8S3BhAvneUHvka8ivjw98yv+3
-         6oe1mdCdd90TNb7/y6oJSa9GKuaQ2fPCajzzHgLeOVZDLu1igyWJeerh6rJF0sWHdP6m
-         5io7cBaY5qmlUntZORG3XYqXu+2K0i6a/VHUBNeYb+2utY4jNm+cVuZd4UNFXOMO6D/k
-         al8Q==
+        b=uCz4BJcRWu2NO0nFOkpAiJoeGkhQRAD+ZAboIrR2yx9oMCt49PAqpBuWmXnVqdcoCG
+         nUXj5DUswSSQxQGgKAcapT5ZwnVaqynHDKS5XOIg2L1xA6TD9+HD542z/jhfsZgOo/qQ
+         alXatTgEIz2s0JeTnWB7XolanxCg5ywyWFiVT7SwgRE9Ej65tOl3YUQ0ptidcatFQ9vz
+         DTwWi/ThJ7E2Y8VC3g9PkUie1YgI2MmhfApwqhwe/oKn8oTi2gtvq/dN5GVyug7rEdzF
+         teiROUou/LwxoA5fsI8J4xmZveIVH+hQIqdwR4+5GPZZJ/BG1Q2Fy/mHMeT7okWLkHuR
+         V52A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:dkim-signature;
-        bh=k3juEqvOdpZBoFHF9pJH7aVo4DZcrDHO5B6F+UQ5MYw=;
-        b=v5969ACUZWHz41NJOhRLb4Ijzt+WTHiikM8SDN7j+cRBLn7z0bmchsIDXpWqG+Fp3C
-         I4pNaj5Bg180rpLlzprjLtHiQpBwLqxIyF6+F3aZueTdXeZ3lYRiz19LfV1YOe/anD54
-         iuqGKs2yk/9GsW9DrotTZ2wxKUWBH06KucMIdcQDtpPZW6Mifhh8/vX2a7xl5GURj3Ig
-         8fw5MgSi4eaeNHyx9g4ZUwLVgAC908pA/4NJeHbpBKF1tCbLFXoV04oFvYmnbYBkzB9J
-         rd/zRFu3oVqZW3A8PBa/QDThNEfTxqTmqK2GIhLBPlNQyBIySOh/nCubLdOIODMty6Pr
-         skjQ==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=m3ykeEiv2DWhC3YDv/3M+ztOkLKwpMGFjEqD6cnUt4s=;
+        b=uw3Pk/buIpxqTfWYsRuflfd/2oCMNWVLmK0kmUW9nQSkA+f0woTMYEcFIi4GvgjTid
+         4QN/ji3uZb3MtKI60yDiKeka0jmhYgZ/VJ3nM/jGmCkQUt+PDvkdxA+K/WmyyFdPz4AN
+         WHLf7Tbzt83MfDrX8S6XdAa9DFM/hWrknU6u6jIu+As6rdvh62WU7IiKTme5UtUTtlLD
+         uuw2dGfhvcIcKWTW8faaJwu7bCFciUwhP25X1IeY81tKTVMPmqpSe4gudqlVggWOkXVp
+         RxiTeR8gDJWH+cLpzzIxGR76hzPlcai/VdoUx8/ggCZ8d/tXN3Hiu+Yv3EK+RAVd4KCA
+         8gPw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=coPNMhCT;
-       spf=pass (google.com: domain of toke@redhat.com designates 205.139.110.61 as permitted sender) smtp.mailfrom=toke@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com. [205.139.110.61])
-        by gmr-mx.google.com with ESMTPS id h4si1040965ilf.3.2020.01.15.14.10.33
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=cNt51iDc;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
+        by gmr-mx.google.com with ESMTPS id a1si991006iod.3.2020.01.15.14.31.49
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 15 Jan 2020 14:10:33 -0800 (PST)
-Received-SPF: pass (google.com: domain of toke@redhat.com designates 205.139.110.61 as permitted sender) client-ip=205.139.110.61;
-Received: from mail-lj1-f200.google.com (mail-lj1-f200.google.com
- [209.85.208.200]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-410-kPDPS0AVO4yoF3vDtH7k6A-1; Wed, 15 Jan 2020 17:10:31 -0500
-Received: by mail-lj1-f200.google.com with SMTP id y15so4458479lji.1
-        for <clang-built-linux@googlegroups.com>; Wed, 15 Jan 2020 14:10:31 -0800 (PST)
-X-Received: by 2002:a05:651c:102c:: with SMTP id w12mr309532ljm.53.1579126230100;
-        Wed, 15 Jan 2020 14:10:30 -0800 (PST)
-X-Received: by 2002:a05:651c:102c:: with SMTP id w12mr309523ljm.53.1579126229909;
-        Wed, 15 Jan 2020 14:10:29 -0800 (PST)
-Received: from alrua-x1.borgediget.toke.dk ([2a0c:4d80:42:443::2])
-        by smtp.gmail.com with ESMTPSA id y1sm9734405ljm.12.2020.01.15.14.10.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2020 14:10:29 -0800 (PST)
-Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
-	id A09761804D6; Wed, 15 Jan 2020 23:10:28 +0100 (CET)
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>, Song Liu
- <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, Andrii Nakryiko
- <andriin@fb.com>, Doug Ledford <dledford@redhat.com>, Jason Gunthorpe
- <jgg@ziepe.ca>, "David S. Miller" <davem@davemloft.net>, Jakub Kicinski
- <jakub.kicinski@netronome.com>, Jesper Dangaard Brouer
- <brouer@redhat.com>, John Fastabend <john.fastabend@gmail.com>, Peter
- Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, Arnaldo
- Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa
- <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>, Shuah Khan
- <shuah@kernel.org>, Networking <netdev@vger.kernel.org>, bpf
- <bpf@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>,
- linux-rdma@vger.kernel.org, "open list\:KERNEL SELFTEST FRAMEWORK"
- <linux-kselftest@vger.kernel.org>, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH bpf-next v2 00/10] tools: Use consistent libbpf include paths everywhere
-In-Reply-To: <CAEf4Bza+dNoD7HbVQGtXBq=raz4DQg0yTShKZHRbCo+zHYfoSA@mail.gmail.com>
-References: <157909756858.1192265.6657542187065456112.stgit@toke.dk> <CAEf4Bza+dNoD7HbVQGtXBq=raz4DQg0yTShKZHRbCo+zHYfoSA@mail.gmail.com>
-X-Clacks-Overhead: GNU Terry Pratchett
-Date: Wed, 15 Jan 2020 23:10:28 +0100
-Message-ID: <87o8v4tlpn.fsf@toke.dk>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 15 Jan 2020 14:31:49 -0800 (PST)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
+Received: by mail-qk1-x744.google.com with SMTP id c17so17314428qkg.7
+        for <clang-built-linux@googlegroups.com>; Wed, 15 Jan 2020 14:31:48 -0800 (PST)
+X-Received: by 2002:ae9:e809:: with SMTP id a9mr13631663qkg.92.1579127508368;
+ Wed, 15 Jan 2020 14:31:48 -0800 (PST)
 MIME-Version: 1.0
-X-MC-Unique: kPDPS0AVO4yoF3vDtH7k6A-1
-X-Mimecast-Spam-Score: 0
+References: <157909756858.1192265.6657542187065456112.stgit@toke.dk>
+ <157909757089.1192265.9038866294345740126.stgit@toke.dk> <CAEf4BzbqY8zivZy637Xy=iTECzBAYQ7vo=M7TvsLM2Yp12bJpg@mail.gmail.com>
+ <87v9pctlvn.fsf@toke.dk>
+In-Reply-To: <87v9pctlvn.fsf@toke.dk>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 15 Jan 2020 14:31:37 -0800
+Message-ID: <CAEf4BzZpGe-1S5_iwS8GBw9iiyFJmDUkOaO+2qaftRn_iy5cNA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 02/10] tools/bpf/runqslower: Fix override
+ option for VMLINUX_BTF
+To: =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+	Andrii Nakryiko <andriin@fb.com>, Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <jakub.kicinski@netronome.com>, 
+	Jesper Dangaard Brouer <brouer@redhat.com>, John Fastabend <john.fastabend@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
+	open list <linux-kernel@vger.kernel.org>, linux-rdma@vger.kernel.org, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: toke@redhat.com
+X-Original-Sender: andrii.nakryiko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=coPNMhCT;
-       spf=pass (google.com: domain of toke@redhat.com designates
- 205.139.110.61 as permitted sender) smtp.mailfrom=toke@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+ header.i=@gmail.com header.s=20161025 header.b=cNt51iDc;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -157,72 +156,110 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Andrii Nakryiko <andrii.nakryiko@gmail.com> writes:
-
-> On Wed, Jan 15, 2020 at 6:13 AM Toke H=C3=B8iland-J=C3=B8rgensen <toke@re=
-dhat.com> wrote:
->>
->> The recent commit 6910d7d3867a ("selftests/bpf: Ensure bpf_helper_defs.h=
- are
->> taken from selftests dir") broke compilation against libbpf if it is ins=
-talled
->> on the system, and $INCLUDEDIR/bpf is not in the include path.
->>
->> Since having the bpf/ subdir of $INCLUDEDIR in the include path has neve=
-r been a
->> requirement for building against libbpf before, this needs to be fixed. =
-One
->> option is to just revert the offending commit and figure out a different=
- way to
->> achieve what it aims for. However, this series takes a different approac=
-h:
->> Changing all in-tree users of libbpf to consistently use a bpf/ prefix i=
-n
->> #include directives for header files from libbpf.
->>
->> This turns out to be a somewhat invasive change in the number of files t=
-ouched;
->> however, the actual changes to files are fairly trivial (most of them ar=
-e simply
->> made with 'sed'). Also, this approach has the advantage that it makes ex=
-ternal
->> and internal users consistent with each other, and ensures no future cha=
-nges
->> breaks things in the same way as the commit referenced above.
->>
->> The series is split to make the change for one tool subdir at a time, wh=
-ile
->> trying not to break the build along the way. It is structured like this:
->>
->> - Patch 1-2: Trivial fixes to Makefiles for issues I discovered while ch=
-anging
->>   the include paths.
->>
->> - Patch 3-7: Change the include directives to use the bpf/ prefix, and u=
-pdates
->>   Makefiles to make sure tools/lib/ is part of the include path, but wit=
-hout
->>   removing tools/lib/bpf
->>
->> - Patch 8: Change the bpf_helpers file in libbpf itself to use the bpf/ =
-prefix
->>   when including (the original source of breakage).
->>
->> - Patch 9-10: Remove tools/lib/bpf from include paths to make sure we do=
-n't
->>   inadvertently re-introduce includes without the bpf/ prefix.
->>
->> ---
+On Wed, Jan 15, 2020 at 2:06 PM Toke H=C3=B8iland-J=C3=B8rgensen <toke@redh=
+at.com> wrote:
 >
-> Thanks, Toke, for this clean up! I tested it locally for my set up:
-> runqslower, bpftool, libbpf, and selftests all build fine, so it looks
-> good. My only concern is with selftests/bpf Makefile, we shouldn't
-> build anything outside of selftests/bpf. Let's fix that. Thanks!
+> Andrii Nakryiko <andrii.nakryiko@gmail.com> writes:
+>
+> > On Wed, Jan 15, 2020 at 6:13 AM Toke H=C3=B8iland-J=C3=B8rgensen <toke@=
+redhat.com> wrote:
+> >>
+> >> From: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+> >>
+> >> The runqslower tool refuses to build without a file to read vmlinux BT=
+F
+> >> from. The build fails with an error message to override the location b=
+y
+> >> setting the VMLINUX_BTF variable if autodetection fails. However, the
+> >> Makefile doesn't actually work with that override - the error message =
+is
+> >> still emitted.
+> >
+> > Do you have example command with VMLINUX_BTF override that didn't work
+> > (and what error message was emitted)?
+>
+> Before this patch:
+>
+> $ cd ~/build/linux/tools/bpf/runqslower
+> $ make
+> Makefile:18: *** "Can't detect kernel BTF, use VMLINUX_BTF to specify it =
+explicitly".  Stop.
+>
+> $ make VMLINUX_BTF=3D~/build/linux/vmlinux
+> Makefile:18: *** "Can't detect kernel BTF, use VMLINUX_BTF to specify it =
+explicitly".  Stop.
 
-Great, thanks for testing! I'll fix up your comments (and Alexei's) and
-submit another version tomorrow.
+Ok, so this is strange. Try make clean and run with V=3D1, it might help
+to debug this. This could happen if ~/build/linux/vmlinux doesn't
+exist, but I assume you double-checked that. It works for me just fine
+(Makefile won't do VMLINUX_BTF :=3D assignment, if it's defined through
+make invocation, so your change should be a no-op in that regard):
 
--Toke
+$ make clean
+$ make VMLINUX_BTF=3D~/linux-build/default/vmlinux V=3D1
+...
+.output/sbin/bpftool btf dump file ~/linux-build/default/vmlinux
+format c > .output/vmlinux.h
+...
+
+Wonder what your output looks like?
+
+>
+> >> Fix this by only doing auto-detection if no override is set. And while
+> >> we're at it, also look for a vmlinux file in the current kernel build =
+dir
+> >> if none if found on the running kernel.
+> >>
+> >> Fixes: 9c01546d26d2 ("tools/bpf: Add runqslower tool to tools/bpf")
+> >> Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+> >> ---
+> >>  tools/bpf/runqslower/Makefile |   16 ++++++++++------
+> >>  1 file changed, 10 insertions(+), 6 deletions(-)
+> >>
+> >> diff --git a/tools/bpf/runqslower/Makefile b/tools/bpf/runqslower/Make=
+file
+> >> index cff2fbcd29a8..fb93ce2bf2fe 100644
+> >> --- a/tools/bpf/runqslower/Makefile
+> >> +++ b/tools/bpf/runqslower/Makefile
+> >> @@ -10,12 +10,16 @@ CFLAGS :=3D -g -Wall
+> >>
+> >>  # Try to detect best kernel BTF source
+> >>  KERNEL_REL :=3D $(shell uname -r)
+> >> -ifneq ("$(wildcard /sys/kernel/btf/vmlinux)","")
+> >> -VMLINUX_BTF :=3D /sys/kernel/btf/vmlinux
+> >> -else ifneq ("$(wildcard /boot/vmlinux-$(KERNEL_REL))","")
+> >> -VMLINUX_BTF :=3D /boot/vmlinux-$(KERNEL_REL)
+> >> -else
+> >> -$(error "Can't detect kernel BTF, use VMLINUX_BTF to specify it expli=
+citly")
+> >> +ifeq ("$(VMLINUX_BTF)","")
+> >> +  ifneq ("$(wildcard /sys/kernel/btf/vmlinux)","")
+> >> +  VMLINUX_BTF :=3D /sys/kernel/btf/vmlinux
+> >> +  else ifneq ("$(wildcard /boot/vmlinux-$(KERNEL_REL))","")
+> >> +  VMLINUX_BTF :=3D /boot/vmlinux-$(KERNEL_REL)
+> >> +  else ifneq ("$(wildcard $(abspath ../../../vmlinux))","")
+> >> +  VMLINUX_BTF :=3D $(abspath ../../../vmlinux)
+> >
+> > I'm planning to mirror runqslower into libbpf Github repo and this
+> > ../../../vmlinux piece will be completely out of place in that
+> > context. Also it only will help when building kernel in-tree. So I'd
+> > rather not add this.
+>
+> Well building the kernel in-tree is something people sometimes want to do=
+ ;)
+>
+> Specifically, the selftests depend on this, so we should at least fix
+> those; but I guess it could work to just pass in VMLINUX_BTF as part of
+> the make -C from the selftests dir? I'll try that...
+
+Yes, it can be handled through VMLINUX_BTF override for selftests. As
+I said, this will be a self-contained example in libbpf's Github repo,
+so this "in kernel tree" assumption doesn't stand there.
+
+
+>
+> -Toke
+>
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -230,4 +267,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/87o8v4tlpn.fsf%40toke.dk.
+clang-built-linux/CAEf4BzZpGe-1S5_iwS8GBw9iiyFJmDUkOaO%2B2qaftRn_iy5cNA%40m=
+ail.gmail.com.
