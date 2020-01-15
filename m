@@ -1,33 +1,33 @@
 Return-Path: <clang-built-linux+bncBCGYFYHOWEFRB3N37TYAKGQEMNBB4EQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id B696713C513
+Received: from mail-vs1-xe38.google.com (mail-vs1-xe38.google.com [IPv6:2607:f8b0:4864:20::e38])
+	by mail.lfdr.de (Postfix) with ESMTPS id B4F1C13C512
 	for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 15:13:02 +0100 (CET)
-Received: by mail-oi1-x23d.google.com with SMTP id q204sf6326738oic.12
+Received: by mail-vs1-xe38.google.com with SMTP id s62sf1352225vss.13
         for <lists+clang-built-linux@lfdr.de>; Wed, 15 Jan 2020 06:13:02 -0800 (PST)
 ARC-Seal: i=2; a=rsa-sha256; t=1579097581; cv=pass;
         d=google.com; s=arc-20160816;
-        b=k1FpMDvDyccq44w9qsOW8WokA8W4AAlnLz8RIO0iWrUd4O2ygpnf0SU3OPjeLXwBWn
-         fKXVkot8o+o78vHHZM7B0QuLeOe0f4EKr5ifEcAJ93UtnpXQmZf1DpTtZQxHlJFgpMlR
-         AupBc/TrM/9XFEa4yWcexkbwmnujBQUw/Eh35nRPTfJoNsz/aocDZ1M6CxkJR50s7ob5
-         /Q4YcJ7UT4bypSx5t8hCEAzj0S/ezRJzve61fLDjCc4RUC2CRDRxuH/QSOqyUzT/Yw+q
-         5vE/eixL5s+2hJmw5BCW/q2iZb2Sc+cc5AAEx2uQHIHMmIfcSmWy8aUti1WbUYwz81E/
-         Z2qg==
+        b=JU5zbNiTdEAMEns/WHu+93lAJhnhpOFAg9G2yEsRAEgct1CoYY8zY2DniudWmXt1yp
+         +tqnHtqY3+jGC6Dg182uD9OIu+bq33lygHITMG9t34bbPksTxWTp1pIS205OI5hQ4Fql
+         9zoMrHXxoc3GZGunx+H6yKUkKiEzGRt/fgHm7FacqzeXljw1Yxd6WdhlJ2KqVvcem2vx
+         D7PoX/4Kjf5QeEc/o6qxn3jFk7yhE7K0XPCsX51XBVy0HWP+uF6ZjJKQzwcTenSxwa/Z
+         aqe9+e4bs81zlTqL5eDDDfHc1t6n6X69021+mtfSV4YHxWFHwpH8hAmo79Uo5sOFUDCL
+         YZsw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-transfer-encoding
          :mime-version:user-agent:references:in-reply-to:message-id:date:cc
          :to:from:subject:sender:dkim-signature;
-        bh=QxE2WGaIThy5JXhtw9G2CqjoiFx0UaBeYfmVJoJUrQg=;
-        b=hylob2aIyQCGtWJ90WVeVkrg5lzBTMOS136nsp3buqW+iqOROjrbea4mgtzDU2Vi/s
-         m6jBj0qUNO02LvUBs7+M3smc1Xw6C8hViMmRK4kSUJfMwoNuzslQEJ4XQEz13q3Qq0ox
-         hSt/NVlv9Zv4V0l9q1aJh3OKFuCjHiZ+l6BjZrI+ezNqv0eyIRQ4MrhWzTB6WviMRD5Y
-         BfAYcyQR13EkQ2m6m9qvLctIb6laRSlKkXO8EG4kKbk2MtwlsG8iCQS6HRwC6wwhbM72
-         h7J19Ed9E3Ql1oNcOHXAYd7tp3b0Kb7HD+ic3jUYM9bZarFuQCaNN5CNWUSpInpKURqq
-         udkA==
+        bh=wuNwoooZjkMYhlpes7rp5sIqi0EolcNuR6JiUfStZZU=;
+        b=tVg7szSgeDwJ/4d4UKeQ73HTxtL1xYdVu7J6BrCDRaFPjUTCi6/s1woP+vjjQVlMKs
+         69MGx7aWZ9u4VosebvrEBJ0RmR8Ouhz17JP9wYAQ5srZfZvaEc7jdPKVoo1Z9x4SLa1C
+         EbH8KImbiOmUSWasHEhiVNKZwtHbmn7cRIUTsCoQCayHWWk46iENg0Dyldm6wIMnUg/M
+         CWoU4yWenOeLQEaXVAG8FQQYxTiF1ieGZoZ9lHC97+YXrPBL5Xhz3wD37K+79W59vc0d
+         SVOhJduJe9ntqrgWBcnCftM7I06UEs8oEytv4Ew3qn9fvhqCSqk/3+bHBQ+jHNAq0eh9
+         MJfw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=JUzKSRte;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=TfqbiJ9u;
        spf=pass (google.com: domain of toke@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=toke@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :user-agent:mime-version:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=QxE2WGaIThy5JXhtw9G2CqjoiFx0UaBeYfmVJoJUrQg=;
-        b=td0HSShUdEXA1Fm+YNRGLdgpJfIkDkvAe3xNiX39WA3OoL9FuYS/nSorRhuiuDw1nd
-         AZzhSJ/bwpXOCxtxu/R6cY6VPFUxrrHahkuvuMllR1XreIBT4SEUVI8W4IlIeJkoLgrA
-         cfAWLEOpe3vaIA1p7Ww89CkO1CGqTf6dHgcf2lEUFgLhQcNe4c43zJaDeIdfOW0MI2Fp
-         bWNwEYW8gC0NOIrD6i46lXtssUr4PNxA/jv/Zqp0lby1AnmwqlJMygt7KcnsT/xwyr/C
-         0khfwWdgl7Y8H0tqxesO8gBJTXWqumhyMwH+CZy0LuJ9FMmIU90sWSSHwEn40hMwRffz
-         G/3w==
+        bh=wuNwoooZjkMYhlpes7rp5sIqi0EolcNuR6JiUfStZZU=;
+        b=qal73/Vi55oJWcNIe0Su4n4YjM0EJVLLWim6v0DkeX3csyrInufAu8SYEJm+8nb1D4
+         YBPeAl6MhVIWCl0eccWTR9sDodxAm6DaXoQW1nGF0ithSrsFoBmF1DhX/9eoSUmoC/wD
+         dQm+9UC+TQSy+2VjnfrTgQC5bgf08bdqjafBiQ2Yj3v6LGY5iKDlLT4g/Uz9053O8zmS
+         bTaAunKGr1oqekcxk+d0Oob7zf2T+DU5Mk9wl/crFy8tYJ6hoZ6o8T2e4wQIj0/QBFDQ
+         7mOs/UvAJrn36qSzZRtxveimc1dFviRWSdwCZn/HbDSYXP2YQtKC4lyTXZEbvn9WwMww
+         q3Wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:subject:from:to:cc:date:message-id
@@ -51,68 +51,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QxE2WGaIThy5JXhtw9G2CqjoiFx0UaBeYfmVJoJUrQg=;
-        b=Go1hOYjgMWS5cQNamqnA6fDQz5Cxv8aGXePneRppH6SQTzkxZolEbAfk1V8bYXbrL7
-         IPIEj6O+yZEfSp/ZWwRBk4UiF9oMC1ilI/PmKBih24goWBFBFxOvvd4TCn8G9Cvnhdqs
-         EJfwBvZIwQBhWSr6L7IdGMxdv7CXJedwgvm6hHiYdkM6gRdbAqY0CEgD92iuA+ckn86Y
-         CBsm/ODJbC9QJhyfXF4ulXeCS6p26YZEADVFiQ7QbBLL937boxu1NsGcCc5ZDiII+VOs
-         MA4D0VcC726UiTrBdBFjS9qWfbbL+BuxhxGPfzjSkoFntCn5GIEPfifHuS+2VyATwd+l
-         bP+A==
+        bh=wuNwoooZjkMYhlpes7rp5sIqi0EolcNuR6JiUfStZZU=;
+        b=L2Slxai4jWrOOXq82OyyqYZ1s3GUJ2SHrD9owWSAF4SthhMuP/sluDvlAkqcNW7arS
+         8jzhNfYFKcrbNbhJ2md4rBCuj7VGkVbGAH888DmN9UMu43k/vvvxu0Qz+uXnJlAD5naR
+         FgiPO/OVHfnaAz8oDXZPu5WCjy3p8STKerIXhRP03Zc6tfOh/B2Ag1ykf53Xy7y881RT
+         WzwWOjKWhEWOl+c0CQOiHh0rzO05CP8b+Iy1MS16VCnKfXSeSyqsNGmCscuEAAhATPO7
+         E711Zz9eH0F/KDpUZX9+7GtG4tmlLGzKnUPYYUJM7TD/lA36G0ipV+615eDnebsBn8LF
+         wJ+g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUlxZOiX9xeyPCcKSF1+FX2btR+Aqt2UNRkmyQfxLfP9ps/Y06a
-	ch0khBPsFpb3sc5Mcr/l1Bs=
-X-Google-Smtp-Source: APXvYqwZ3r7lLPiB722JGH0aS3INSc64r+Gitnqc/pdEpx/4dWch3BAVgqb62c68C4SoZhRKaW2/bA==
-X-Received: by 2002:aca:b187:: with SMTP id a129mr21481114oif.175.1579097581270;
+X-Gm-Message-State: APjAAAU4nxG10H2HiGl2n7N43tI4sdCzXPPzi2tQPNIAeC34pTtiCdSp
+	DmOBU9KN/CJ7XAYKarlqSt4=
+X-Google-Smtp-Source: APXvYqx2YMNc4r9INUCQB8hHRsErI9w9o9444WgssnpTrQfZb/KpIZvxdaGUMnyOHXZP9ia2Nh+ZXA==
+X-Received: by 2002:a67:bd07:: with SMTP id y7mr4614388vsq.144.1579097581482;
         Wed, 15 Jan 2020 06:13:01 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:5051:: with SMTP id e78ls3381885oib.13.gmail; Wed, 15
- Jan 2020 06:13:00 -0800 (PST)
-X-Received: by 2002:aca:f305:: with SMTP id r5mr21870778oih.174.1579097580862;
-        Wed, 15 Jan 2020 06:13:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579097580; cv=none;
+Received: by 2002:a05:6102:201d:: with SMTP id p29ls530179vsr.5.gmail; Wed, 15
+ Jan 2020 06:13:01 -0800 (PST)
+X-Received: by 2002:a67:e954:: with SMTP id p20mr4563247vso.3.1579097581114;
+        Wed, 15 Jan 2020 06:13:01 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579097581; cv=none;
         d=google.com; s=arc-20160816;
-        b=qhPgILaJBm48ul7n/KOLEIQYHMitZLsw9vX54+hiF2uQbkcvepHOv0xsIuhi22uVXV
-         /aUPJR0pcgTpgluCWFinRkvybTcJu5s/Nwwh7f9p2GXtFYsB2FXZIqs53MJO7cGZKZMY
-         NEuSTEtefCPgTIZxismOdySNH9dYwC1aYPJS05V/O8LJH6rNMXl1PuX24L2cDzQHjvTO
-         xdXSfM2GuO9beW6f1qoQ8D41y6ivmjcsgZOGl4MkRwsr1gUp5yC6C5JkgnOsuryp1S49
-         SCCdvlB377SbV/v+iMg6oVwz6rdhBasLHwNrFs4QUcT6OZynp7de7mkBb2CnOet+N7UK
-         tJbQ==
+        b=iI4aJvVTqkx3A/3aV7MjSKzFTBBgIJxllx4ubJwacNRedLye7YN8fOj1Ei3WmtUvfp
+         mjGZCVQ3C6EAx0r7Hxmy3i0YxsBCF4rgDiQSI5Bt+4m0ZNPHQd6O6BT2ty9ncgOLC2IR
+         sXfMIJMBJFTPzBZU5VM9OoBIMELhVVrSyuDmKAmyBjBH/KokyMQUy+g85Ur9WjAqGlkb
+         aocAv3O7P3Ib2wh+7FGgjBjBwvqJQ8ZgOcmDXlLRYh/kmU58TRGSnnQUJZ5pfW38bMr6
+         o4sBkBzTfV6umidFVqqpRZYpampTekRv+3e9eTZ7VMpSKisLSonVYQPsDgryo1gguM6/
+         3lmw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:user-agent:references
          :in-reply-to:message-id:date:cc:to:from:subject:dkim-signature;
-        bh=srcYLyIp+WBgJtVa2IOthNkBumVC6U7rXZ0IMnT/9Ng=;
-        b=kEH41O9CMZY6OVD1wrwQgW1f2+k2rPRPELslJKSfYZAcvk2AlX068qOZXzPvwyy/36
-         nREwJPvWPbL9WJkE7YIk3Vhj10NENVzn0PfGRH4rB07SAWIYTlNviMwzTo7+XLmtEL/y
-         0XZTOFT0HqaDBUJmTi2cTR6ad6irmicKghfWsmndnjozABYxXPWIn4aPQVvJuuKv3i6M
-         +eHaG4cqPAQ4B1d2tKQRjV9KpSIbO+4sT1+KgYCYbz7cUPK0ufrn3yY/x5AOWIw1XIBM
-         hTCCByzW+ftdE8tWSq4SiZ3WlLRDpm5ukoncmySJyUai7onSYyhRRMdbK6XvVkb/eMoB
-         6/XA==
+        bh=qLUS27Kyh+/rAh4xS+yf7+ESHdYodw3RMYrLyb5ghUs=;
+        b=l5Q3BYroAMU7duTeCROvNzPInCNqtaxcMsVBiLxTEdlTaM2ULElKlF1byGoHaVO4MP
+         EYJbKDWKhkWjy9ShTs3cSaQVplnFxatpT62apd+HqrXdVDtolvJ7jk/SUEvvEsqEhXwE
+         NIn3QxSMVUwz/9Eur2PidymwKCwvzajahJ/KMsS9OUCkZDtfRNWY9QitHwJcwh/PLI5I
+         KKW0Ei9upk3REaiy1hcIZCTxvJgojqBeZ80/0htqO9BpyiaUGXOU2T1gTO7D5Rf3YG6W
+         vJa86Da41pbkE4OCpKDHjpdMaHgva2y1Fm1bexY5u4kW6uEFOVyDcDsgKPPxWsqgLzdL
+         YPUw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=JUzKSRte;
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=TfqbiJ9u;
        spf=pass (google.com: domain of toke@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=toke@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by gmr-mx.google.com with ESMTPS id e14si985104otr.1.2020.01.15.06.13.00
+        by gmr-mx.google.com with ESMTPS id x127si702426vkc.0.2020.01.15.06.13.00
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
         Wed, 15 Jan 2020 06:13:00 -0800 (PST)
 Received-SPF: pass (google.com: domain of toke@redhat.com designates 207.211.31.120 as permitted sender) client-ip=207.211.31.120;
 Received: from mail-lj1-f198.google.com (mail-lj1-f198.google.com
  [209.85.208.198]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-187-gcX0REyiOhCBHrK-5HGxBg-1; Wed, 15 Jan 2020 09:12:59 -0500
-Received: by mail-lj1-f198.google.com with SMTP id j23so4190038lji.23
+ us-mta-255-p3LY6pRgNIaTNDjfn9LG3g-1; Wed, 15 Jan 2020 09:12:59 -0500
+Received: by mail-lj1-f198.google.com with SMTP id b15so4182634ljp.7
         for <clang-built-linux@googlegroups.com>; Wed, 15 Jan 2020 06:12:58 -0800 (PST)
-X-Received: by 2002:a19:f00d:: with SMTP id p13mr4985141lfc.37.1579097576649;
-        Wed, 15 Jan 2020 06:12:56 -0800 (PST)
-X-Received: by 2002:a19:f00d:: with SMTP id p13mr4985119lfc.37.1579097576366;
-        Wed, 15 Jan 2020 06:12:56 -0800 (PST)
+X-Received: by 2002:a2e:9587:: with SMTP id w7mr1910156ljh.42.1579097577654;
+        Wed, 15 Jan 2020 06:12:57 -0800 (PST)
+X-Received: by 2002:a2e:9587:: with SMTP id w7mr1910116ljh.42.1579097577147;
+        Wed, 15 Jan 2020 06:12:57 -0800 (PST)
 Received: from alrua-x1.borgediget.toke.dk ([45.145.92.2])
-        by smtp.gmail.com with ESMTPSA id u16sm9134697ljo.22.2020.01.15.06.12.54
+        by smtp.gmail.com with ESMTPSA id t9sm8960034lfl.51.2020.01.15.06.12.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 15 Jan 2020 06:12:55 -0800 (PST)
+        Wed, 15 Jan 2020 06:12:56 -0800 (PST)
 Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
-	id 4A1171804D8; Wed, 15 Jan 2020 15:12:54 +0100 (CET)
-Subject: [PATCH bpf-next v2 05/10] bpftool: Use consistent include paths for
+	id 5F6421804D6; Wed, 15 Jan 2020 15:12:55 +0100 (CET)
+Subject: [PATCH bpf-next v2 06/10] perf: Use consistent include paths for
  libbpf
 From: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
 To: Alexei Starovoitov <ast@kernel.org>
@@ -131,19 +131,19 @@ Cc: Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <kafai@fb.com>,
  Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, bpf@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
  linux-kselftest@vger.kernel.org, clang-built-linux@googlegroups.com
-Date: Wed, 15 Jan 2020 15:12:54 +0100
-Message-ID: <157909757421.1192265.7677168164515639742.stgit@toke.dk>
+Date: Wed, 15 Jan 2020 15:12:55 +0100
+Message-ID: <157909757530.1192265.16430056843174690136.stgit@toke.dk>
 In-Reply-To: <157909756858.1192265.6657542187065456112.stgit@toke.dk>
 References: <157909756858.1192265.6657542187065456112.stgit@toke.dk>
 User-Agent: StGit/0.21
 MIME-Version: 1.0
-X-MC-Unique: gcX0REyiOhCBHrK-5HGxBg-1
+X-MC-Unique: p3LY6pRgNIaTNDjfn9LG3g-1
 X-Mimecast-Spam-Score: 0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: toke@redhat.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=JUzKSRte;
+ header.i=@redhat.com header.s=mimecast20190719 header.b=TfqbiJ9u;
        spf=pass (google.com: domain of toke@redhat.com designates
  207.211.31.120 as permitted sender) smtp.mailfrom=toke@redhat.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
@@ -161,346 +161,99 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
 
-Fix bpftool to include libbpf header files with the bpf/ prefix, to be
-consistent with external users of the library. Also ensure that all
-includes of exported libbpf header files (those that are exported on 'make
-install' of the library) use bracketed includes instead of quoted.
+Fix perf to include libbpf header files with the bpf/ prefix, to
+be consistent with external users of the library.
 
-To make sure no new files are introduced that doesn't include the bpf/
-prefix in its include, remove tools/lib/bpf from the include path entirely,
-and use tools/lib instead.
-
-Fixes: 6910d7d3867a ("selftests/bpf: Ensure bpf_helper_defs.h are taken fro=
-m selftests dir")
 Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
 ---
- tools/bpf/bpftool/Documentation/bpftool-gen.rst |    2 +-
- tools/bpf/bpftool/Makefile                      |    2 +-
- tools/bpf/bpftool/btf.c                         |    8 ++++----
- tools/bpf/bpftool/btf_dumper.c                  |    2 +-
- tools/bpf/bpftool/cgroup.c                      |    2 +-
- tools/bpf/bpftool/common.c                      |    4 ++--
- tools/bpf/bpftool/feature.c                     |    4 ++--
- tools/bpf/bpftool/gen.c                         |   10 +++++-----
- tools/bpf/bpftool/jit_disasm.c                  |    2 +-
- tools/bpf/bpftool/main.c                        |    4 ++--
- tools/bpf/bpftool/map.c                         |    4 ++--
- tools/bpf/bpftool/map_perf_ring.c               |    4 ++--
- tools/bpf/bpftool/net.c                         |    8 ++++----
- tools/bpf/bpftool/netlink_dumper.c              |    4 ++--
- tools/bpf/bpftool/perf.c                        |    2 +-
- tools/bpf/bpftool/prog.c                        |    6 +++---
- tools/bpf/bpftool/xlated_dumper.c               |    2 +-
- 17 files changed, 35 insertions(+), 35 deletions(-)
+ tools/perf/examples/bpf/5sec.c             |    2 +-
+ tools/perf/examples/bpf/empty.c            |    2 +-
+ tools/perf/examples/bpf/sys_enter_openat.c |    2 +-
+ tools/perf/include/bpf/pid_filter.h        |    2 +-
+ tools/perf/include/bpf/stdio.h             |    2 +-
+ tools/perf/include/bpf/unistd.h            |    2 +-
+ 6 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/tools/bpf/bpftool/Documentation/bpftool-gen.rst b/tools/bpf/bp=
-ftool/Documentation/bpftool-gen.rst
-index 86a87da97d0b..94d91322895a 100644
---- a/tools/bpf/bpftool/Documentation/bpftool-gen.rst
-+++ b/tools/bpf/bpftool/Documentation/bpftool-gen.rst
-@@ -196,7 +196,7 @@ and global variables.
-   #define __EXAMPLE_SKEL_H__
-=20
-   #include <stdlib.h>
--  #include <libbpf.h>
-+  #include <bpf/libbpf.h>
-=20
-   struct example {
-   	struct bpf_object_skeleton *skeleton;
-diff --git a/tools/bpf/bpftool/Makefile b/tools/bpf/bpftool/Makefile
-index 39bc6f0f4f0b..c4e810335810 100644
---- a/tools/bpf/bpftool/Makefile
-+++ b/tools/bpf/bpftool/Makefile
-@@ -45,7 +45,7 @@ CFLAGS +=3D -DPACKAGE=3D'"bpftool"' -D__EXPORTED_HEADERS_=
-_ \
- 	-I$(srctree)/kernel/bpf/ \
- 	-I$(srctree)/tools/include \
- 	-I$(srctree)/tools/include/uapi \
--	-I$(srctree)/tools/lib/bpf \
-+	-I$(srctree)/tools/lib \
- 	-I$(srctree)/tools/perf
- CFLAGS +=3D -DBPFTOOL_VERSION=3D'"$(BPFTOOL_VERSION)"'
- ifneq ($(EXTRA_CFLAGS),)
-diff --git a/tools/bpf/bpftool/btf.c b/tools/bpf/bpftool/btf.c
-index 60c75be0666d..4ba90d81b6a1 100644
---- a/tools/bpf/bpftool/btf.c
-+++ b/tools/bpf/bpftool/btf.c
-@@ -8,15 +8,15 @@
- #include <stdio.h>
- #include <string.h>
- #include <unistd.h>
--#include <bpf.h>
--#include <libbpf.h>
-+#include <bpf/bpf.h>
-+#include <bpf/btf.h>
-+#include <bpf/libbpf.h>
- #include <linux/btf.h>
- #include <linux/hashtable.h>
- #include <sys/types.h>
- #include <sys/stat.h>
- #include <unistd.h>
-=20
--#include "btf.h"
- #include "json_writer.h"
- #include "main.h"
-=20
-@@ -532,7 +532,7 @@ static int do_dump(int argc, char **argv)
- 		if (IS_ERR(btf)) {
- 			err =3D PTR_ERR(btf);
- 			btf =3D NULL;
--			p_err("failed to load BTF from %s: %s",=20
-+			p_err("failed to load BTF from %s: %s",
- 			      *argv, strerror(err));
- 			goto done;
- 		}
-diff --git a/tools/bpf/bpftool/btf_dumper.c b/tools/bpf/bpftool/btf_dumper.=
+diff --git a/tools/perf/examples/bpf/5sec.c b/tools/perf/examples/bpf/5sec.=
 c
-index d66131f69689..eb4a142016a0 100644
---- a/tools/bpf/bpftool/btf_dumper.c
-+++ b/tools/bpf/bpftool/btf_dumper.c
-@@ -8,8 +8,8 @@
- #include <linux/bitops.h>
- #include <linux/btf.h>
- #include <linux/err.h>
-+#include <bpf/btf.h>
+index b9c203219691..49f4f84da485 100644
+--- a/tools/perf/examples/bpf/5sec.c
++++ b/tools/perf/examples/bpf/5sec.c
+@@ -39,7 +39,7 @@
+    Copyright (C) 2018 Red Hat, Inc., Arnaldo Carvalho de Melo <acme@redhat=
+.com>
+ */
 =20
--#include "btf.h"
- #include "json_writer.h"
- #include "main.h"
+-#include <bpf.h>
++#include <bpf/bpf.h>
 =20
-diff --git a/tools/bpf/bpftool/cgroup.c b/tools/bpf/bpftool/cgroup.c
-index 2f017caa678d..62c6a1d7cd18 100644
---- a/tools/bpf/bpftool/cgroup.c
-+++ b/tools/bpf/bpftool/cgroup.c
+ int probe(hrtimer_nanosleep, rqtp->tv_sec)(void *ctx, int err, long sec)
+ {
+diff --git a/tools/perf/examples/bpf/empty.c b/tools/perf/examples/bpf/empt=
+y.c
+index 3776d26db9e7..7d7fb0c9fe76 100644
+--- a/tools/perf/examples/bpf/empty.c
++++ b/tools/perf/examples/bpf/empty.c
+@@ -1,3 +1,3 @@
+-#include <bpf.h>
++#include <bpf/bpf.h>
+=20
+ license(GPL);
+diff --git a/tools/perf/examples/bpf/sys_enter_openat.c b/tools/perf/exampl=
+es/bpf/sys_enter_openat.c
+index 9cd124b09392..c4481c390d23 100644
+--- a/tools/perf/examples/bpf/sys_enter_openat.c
++++ b/tools/perf/examples/bpf/sys_enter_openat.c
 @@ -14,7 +14,7 @@
- #include <sys/types.h>
- #include <unistd.h>
-=20
--#include <bpf.h>
-+#include <bpf/bpf.h>
-=20
- #include "main.h"
-=20
-diff --git a/tools/bpf/bpftool/common.c b/tools/bpf/bpftool/common.c
-index 88264abaa738..b75b8ec5469c 100644
---- a/tools/bpf/bpftool/common.c
-+++ b/tools/bpf/bpftool/common.c
-@@ -20,8 +20,8 @@
- #include <sys/stat.h>
- #include <sys/vfs.h>
-=20
--#include <bpf.h>
--#include <libbpf.h> /* libbpf_num_possible_cpus */
-+#include <bpf/bpf.h>
-+#include <bpf/libbpf.h> /* libbpf_num_possible_cpus */
-=20
- #include "main.h"
-=20
-diff --git a/tools/bpf/bpftool/feature.c b/tools/bpf/bpftool/feature.c
-index 94735d968c34..446ba891f1e2 100644
---- a/tools/bpf/bpftool/feature.c
-+++ b/tools/bpf/bpftool/feature.c
-@@ -12,8 +12,8 @@
- #include <linux/filter.h>
- #include <linux/limits.h>
-=20
--#include <bpf.h>
--#include <libbpf.h>
-+#include <bpf/bpf.h>
-+#include <bpf/libbpf.h>
- #include <zlib.h>
-=20
- #include "main.h"
-diff --git a/tools/bpf/bpftool/gen.c b/tools/bpf/bpftool/gen.c
-index 7ce09a9a6999..b0695aa543d2 100644
---- a/tools/bpf/bpftool/gen.c
-+++ b/tools/bpf/bpftool/gen.c
-@@ -12,15 +12,15 @@
- #include <stdio.h>
- #include <string.h>
- #include <unistd.h>
--#include <bpf.h>
--#include <libbpf.h>
-+#include <bpf/bpf.h>
-+#include <bpf/libbpf.h>
- #include <sys/types.h>
- #include <sys/stat.h>
- #include <sys/mman.h>
- #include <unistd.h>
-+#include <bpf/btf.h>
-=20
--#include "btf.h"
--#include "libbpf_internal.h"
-+#include "bpf/libbpf_internal.h"
- #include "json_writer.h"
- #include "main.h"
-=20
-@@ -333,7 +333,7 @@ static int do_skeleton(int argc, char **argv)
- 		#define %2$s						    \n\
- 									    \n\
- 		#include <stdlib.h>					    \n\
--		#include <libbpf.h>					    \n\
-+		#include <bpf/libbpf.h>				    \n\
- 									    \n\
- 		struct %1$s {						    \n\
- 			struct bpf_object_skeleton *skeleton;		    \n\
-diff --git a/tools/bpf/bpftool/jit_disasm.c b/tools/bpf/bpftool/jit_disasm.=
-c
-index bfed711258ce..f7f5885aa3ba 100644
---- a/tools/bpf/bpftool/jit_disasm.c
-+++ b/tools/bpf/bpftool/jit_disasm.c
-@@ -24,7 +24,7 @@
- #include <dis-asm.h>
- #include <sys/stat.h>
- #include <limits.h>
--#include <libbpf.h>
-+#include <bpf/libbpf.h>
-=20
- #include "json_writer.h"
- #include "main.h"
-diff --git a/tools/bpf/bpftool/main.c b/tools/bpf/bpftool/main.c
-index 1fe91c558508..6d41bbfc6459 100644
---- a/tools/bpf/bpftool/main.c
-+++ b/tools/bpf/bpftool/main.c
-@@ -9,8 +9,8 @@
- #include <stdlib.h>
- #include <string.h>
-=20
--#include <bpf.h>
--#include <libbpf.h>
-+#include <bpf/bpf.h>
-+#include <bpf/libbpf.h>
-=20
- #include "main.h"
-=20
-diff --git a/tools/bpf/bpftool/map.c b/tools/bpf/bpftool/map.c
-index c01f76fa6876..30f06f50e8bb 100644
---- a/tools/bpf/bpftool/map.c
-+++ b/tools/bpf/bpftool/map.c
-@@ -15,9 +15,9 @@
- #include <sys/types.h>
- #include <sys/stat.h>
-=20
--#include <bpf.h>
-+#include <bpf/bpf.h>
-+#include <bpf/btf.h>
-=20
--#include "btf.h"
- #include "json_writer.h"
- #include "main.h"
-=20
-diff --git a/tools/bpf/bpftool/map_perf_ring.c b/tools/bpf/bpftool/map_perf=
-_ring.c
-index 4c5531d1a450..d9b29c17fbb8 100644
---- a/tools/bpf/bpftool/map_perf_ring.c
-+++ b/tools/bpf/bpftool/map_perf_ring.c
-@@ -6,7 +6,7 @@
+  * the return value.
   */
- #include <errno.h>
- #include <fcntl.h>
--#include <libbpf.h>
-+#include <bpf/libbpf.h>
- #include <poll.h>
- #include <signal.h>
- #include <stdbool.h>
-@@ -21,7 +21,7 @@
- #include <sys/mman.h>
- #include <sys/syscall.h>
-=20
--#include <bpf.h>
-+#include <bpf/bpf.h>
- #include <perf-sys.h>
-=20
- #include "main.h"
-diff --git a/tools/bpf/bpftool/net.c b/tools/bpf/bpftool/net.c
-index d93bee298e54..c5e3895b7c8b 100644
---- a/tools/bpf/bpftool/net.c
-+++ b/tools/bpf/bpftool/net.c
-@@ -7,7 +7,8 @@
- #include <stdlib.h>
- #include <string.h>
- #include <unistd.h>
--#include <libbpf.h>
-+#include <bpf/bpf.h>
-+#include <bpf/libbpf.h>
- #include <net/if.h>
- #include <linux/if.h>
- #include <linux/rtnetlink.h>
-@@ -16,9 +17,8 @@
- #include <sys/stat.h>
- #include <sys/types.h>
-=20
--#include <bpf.h>
--#include <nlattr.h>
--#include "libbpf_internal.h"
-+#include "bpf/nlattr.h"
-+#include "bpf/libbpf_internal.h"
- #include "main.h"
- #include "netlink_dumper.h"
-=20
-diff --git a/tools/bpf/bpftool/netlink_dumper.c b/tools/bpf/bpftool/netlink=
-_dumper.c
-index 550a0f537eed..5f65140b003b 100644
---- a/tools/bpf/bpftool/netlink_dumper.c
-+++ b/tools/bpf/bpftool/netlink_dumper.c
-@@ -3,11 +3,11 @@
-=20
- #include <stdlib.h>
- #include <string.h>
--#include <libbpf.h>
-+#include <bpf/libbpf.h>
- #include <linux/rtnetlink.h>
- #include <linux/tc_act/tc_bpf.h>
-=20
--#include <nlattr.h>
-+#include "bpf/nlattr.h"
- #include "main.h"
- #include "netlink_dumper.h"
-=20
-diff --git a/tools/bpf/bpftool/perf.c b/tools/bpf/bpftool/perf.c
-index b2046f33e23f..3341aa14acda 100644
---- a/tools/bpf/bpftool/perf.c
-+++ b/tools/bpf/bpftool/perf.c
-@@ -13,7 +13,7 @@
- #include <unistd.h>
- #include <ftw.h>
 =20
 -#include <bpf.h>
 +#include <bpf/bpf.h>
 =20
- #include "main.h"
-=20
-diff --git a/tools/bpf/bpftool/prog.c b/tools/bpf/bpftool/prog.c
-index 47a61ac42dc0..a3521deca869 100644
---- a/tools/bpf/bpftool/prog.c
-+++ b/tools/bpf/bpftool/prog.c
-@@ -17,9 +17,9 @@
- #include <linux/err.h>
- #include <linux/sizes.h>
+ struct syscall_enter_openat_args {
+ 	unsigned long long unused;
+diff --git a/tools/perf/include/bpf/pid_filter.h b/tools/perf/include/bpf/p=
+id_filter.h
+index 6e61c4bdf548..607189a315b2 100644
+--- a/tools/perf/include/bpf/pid_filter.h
++++ b/tools/perf/include/bpf/pid_filter.h
+@@ -3,7 +3,7 @@
+ #ifndef _PERF_BPF_PID_FILTER_
+ #define _PERF_BPF_PID_FILTER_
 =20
 -#include <bpf.h>
--#include <btf.h>
--#include <libbpf.h>
 +#include <bpf/bpf.h>
-+#include <bpf/btf.h>
-+#include <bpf/libbpf.h>
 =20
- #include "cfg.h"
- #include "main.h"
-diff --git a/tools/bpf/bpftool/xlated_dumper.c b/tools/bpf/bpftool/xlated_d=
-umper.c
-index 5b91ee65a080..8608cd68cdd0 100644
---- a/tools/bpf/bpftool/xlated_dumper.c
-+++ b/tools/bpf/bpftool/xlated_dumper.c
-@@ -7,7 +7,7 @@
- #include <stdlib.h>
- #include <string.h>
- #include <sys/types.h>
--#include <libbpf.h>
-+#include <bpf/libbpf.h>
+ #define pid_filter(name) pid_map(name, bool)
 =20
- #include "disasm.h"
- #include "json_writer.h"
+diff --git a/tools/perf/include/bpf/stdio.h b/tools/perf/include/bpf/stdio.=
+h
+index 316af5b2ff35..7ca6fa5463ee 100644
+--- a/tools/perf/include/bpf/stdio.h
++++ b/tools/perf/include/bpf/stdio.h
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0
+=20
+-#include <bpf.h>
++#include <bpf/bpf.h>
+=20
+ struct bpf_map SEC("maps") __bpf_stdout__ =3D {
+        .type =3D BPF_MAP_TYPE_PERF_EVENT_ARRAY,
+diff --git a/tools/perf/include/bpf/unistd.h b/tools/perf/include/bpf/unist=
+d.h
+index ca7877f9a976..d1a35b6c649d 100644
+--- a/tools/perf/include/bpf/unistd.h
++++ b/tools/perf/include/bpf/unistd.h
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: LGPL-2.1
+=20
+-#include <bpf.h>
++#include <bpf/bpf.h>
+=20
+ static int (*bpf_get_current_pid_tgid)(void) =3D (void *)BPF_FUNC_get_curr=
+ent_pid_tgid;
+=20
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -508,4 +261,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/157909757421.1192265.7677168164515639742.stgit%40toke.dk.
+clang-built-linux/157909757530.1192265.16430056843174690136.stgit%40toke.dk=
+.
