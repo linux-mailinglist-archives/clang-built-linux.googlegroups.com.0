@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB2NRQLYQKGQEANBMYBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB3VRQLYQKGQESBHJDJQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6447013E4A8
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:03 +0100 (CET)
-Received: by mail-pl1-x63c.google.com with SMTP id t12sf9026005plo.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579194602; cv=pass;
+Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3AD6913E4A9
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:08 +0100 (CET)
+Received: by mail-pf1-x43e.google.com with SMTP id x21sf13310488pfp.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579194607; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Xh6V4ym/Z7VvaqL30uyxIW6nVxtD97cZEI80DWfck/IxZnOV1+Tv69Ex43+XZ386VH
-         h2mf545SnXXU5H2Rs8MXw8uVkKgF30zr7h8LUEVj5H0lRmZ9uGv895pwXsR+gGdwWtPR
-         ekLd8KIzuLIJXARUPPuLHxQYV2PEK8xFtElpRqwz/b46c7rtdngVla5JnwbBRuJpbbim
-         Gl5xqqXrWttMYnd+uw6H5YW+tFA8bekzplVTNtGls+o+4Swjk/F049myf48USbkgR+EB
-         zQOjkC6+g2EyLhSWxZSct/uoRMmhExFLcJLNKySFa1ygiER6o7rXRKninrlVAjur8ziQ
-         t5wQ==
+        b=MxkgB1RejIUXFVDRwIPFj8CnNWolsO973waxfPHcIG0raXPysRZe2/nzKIUVTjRUIe
+         nNLh7Ur22nIIXRZGugZ99iIOCyJaZTWeLqGs4G0PKga/T6cPrFiMmNjrh03XrMZX+EZm
+         RfxNUay+thO0EazCQZwNzqRAM0SYoLWmjaKyVqda8XsmERlsDN3X12Smp9u16WAQoepH
+         jclnRuYR7+K3PJb8AqUL6qTvggvHZjn/2nOgvu4uXO5IFfvpUPqDoubDDfy8D1MJ6i9A
+         V52U0QrUdg7FVkyngnrBskHXJMTXYQ3MHzU2D7QtoRlsRtV+8oMCddaKEiD74LtQnij2
+         w08A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=nBd2OLjaz+yH8s6Z8QzqSS5QnHSlGjJ2oEDaxfJfStc=;
-        b=HT4pQWQcCKgWgBAAtyrS9ZuJSgRqAYfG1RL80IUTVbuaLAvNzwnuwkIgsl9IYGuIAt
-         hVv1a7FzNiaUSACh/ry3yYJiZ24Ax7ZFZrlMyNr3TNH2aBqeN9jHwW49Z12OFrKrOZJa
-         RuufV+urLkWmXAl7bCHLjGgIaebR+ZM9CeTJuXkfU2YC9GzRLTORFTgkr9gbohQwTjVw
-         R4yG0VrZ9VAHxRDm4FabJVFNNIeiUJTS+8U1S5RNvuDKrneg+KKnFf5BoKQBcWTDFp9K
-         LYP3ZEzL9DB4C+DNw7lZDhmgN/ck7uOlprGEwnxvEQXNIM9ED4etWUTb5A5b/k9onSge
-         q2Lw==
+        bh=GR0M8XyZ0J0jArn00pjSqwNxoa2f21sMLraYR4zQ7hg=;
+        b=u1AkfQ6BAyU41USfz8xjnTeJHeump6VjKj14AzUsYIUKNADr5BBQP0+UAqvfC+I/VT
+         ZXCjneF6oVdUpda0wfvwfziNyRGzLxyrv3+I62wP1uuV0gyGy0oQ/yF4J4HYHbtXVLgP
+         WulQTKTvJBX7JJZ4l3LsljSI2L+kUo4UiQ+utdgSNOL+0bHd1XZRWnvQL7yxvGlH3EeM
+         KKhmvpnLCEQGSWJVNwfDxmWd9QjHhZdkaufXLVOc+sQY6T0HO7l0oIKKgjFWVY5zVL16
+         yNWPhLruLJ1yVObPVPAwE+33Sl7KzjtAglNCOnkAKrgPeQTD0M+pyF/xHCZsTOybdGjq
+         /Fvg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kCv0lB1L;
+       dkim=pass header.i=@kernel.org header.s=default header.b=hIFmJVhf;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nBd2OLjaz+yH8s6Z8QzqSS5QnHSlGjJ2oEDaxfJfStc=;
-        b=RfbP5h62xVB1IuFOLcmomY2U/RQX95D5Qatv6A5j7bqgiTNl8vet14Y2exNfkspveq
-         yjswxNKXrdjaDpSM9iPvKSLg2m0oqeT/dkAewDoJ5kdgBnNHqA4WgvH8FM0rm1ICP8TQ
-         SjNIkOowFRn3jrcCBEJuNNqcO8WPTXZ1R6Qsy2lv1RYhT9UdaOPmwiqvIahPai6cbI+T
-         gX9tFecPHrw6WfcJ6XTihWRZh68SDvgpOVVUUPX3BsrqB59hT+iJH8ksqNNq4nip0WOm
-         tnZGVkekzwAYsRHwKU7pMdbVGwfMYurPbo/0oqYbOrJFiuPpGX6PAxYowf3a9dQhwkJI
-         Tufw==
+        bh=GR0M8XyZ0J0jArn00pjSqwNxoa2f21sMLraYR4zQ7hg=;
+        b=UOAydQ3/2g15oytEXycbMtRsdZnQqrX+NGIMadca/aPtcW28Px6sSTf9EpwY9/UFy0
+         TNngwOhsWzfHJVosmtJ6Es13U3MwuK8NuE7c+SZzX7zs2pXBitgjuY/ddcQm7t4N6Xc6
+         KQK8UNjn7g3TCx9SQEiE0yJcPhEHDjVbkbmmfKl42JH7qMLaRg/0eEt8hSuDX0BiUVnm
+         xXjvC6mh1cWHHpN12KM15zsjU97aTh0zLBZURvnWwHwnPk+TdvcP4HFa9dTO83E2ixFE
+         8ixTW7VHUKjacf9Bb+Sg2L3ff3Se+GuIPxz37KW1LcDodYDmuHJxbChnHNCHA+YsRLDN
+         W6DQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,67 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=nBd2OLjaz+yH8s6Z8QzqSS5QnHSlGjJ2oEDaxfJfStc=;
-        b=egRIYxbZ3QCGgKIvCHD8YYhwPaQlfEBxchjqLhUVUB4NHPo6RvLrpB7BBSEBeT70uo
-         oB+yLw6nbLtIiFNVhSgK9A5Hcku1gUfch/OSo6mhMHSsPhAYvARgTQqtiERsSMAP5QdJ
-         ZXZ0aZ28LA5syCGfXD+pO48ie6M+thLO8nN1cUy5/N8atqND2g1R4Su0LPQeT9QlLu/l
-         FwGmTaxLScjNzDFxWJWWB9wpkqG0cUnQPz9yCmeJP3sUXYi+9z2QvnNm1hBAImHRF5iY
-         US4+mX1K6VH2XZCj+EVl8oytg8xYAEjvoVwi1vT4Mr2bGkxlGOWXL4rrcKN2kkXs6zBw
-         5gfg==
+        bh=GR0M8XyZ0J0jArn00pjSqwNxoa2f21sMLraYR4zQ7hg=;
+        b=UYMlzCu4pHZXSNUdoMYfMzToQ535BQHZdnVheS/D+yEwWr9PvDdMfQqM8FjniM3Mm9
+         uURqSBEwSqn25DT0Uyo1kEMzNIKUOEp+Ek/PoaC89K6nXrosgnvLeX9Mrh3MMgvJRUT8
+         n1P5eH+gGTFny9wrXfZ9wDsSf56CVW368DQuwQP/oyEkJulqAAcHbwBh/GRN5GWcUVav
+         zL7+V6mztgrSwfOQKmMicOgD7m9ilFInNkEwBa2P7R6JxBB12v43Hnapu4AnfffI6WPt
+         CMu1MAzKxrjW7P6Nj8vH4j4PR1++N5KI3ys/5QhWyhcZdk3mAXlcqAbbtwD6Cct3TMQ2
+         MjzQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUjgH0+5GFAF/wjtP9QG5Ad7OipGSuYJElV3vM6WzWOt+p0hB+W
-	Nhg+44eZ9m8OTb7AgC6vV4c=
-X-Google-Smtp-Source: APXvYqxhJSJv9uQFiC+0GZLfBP6deo3iQG423QOh+0EhgcfSCPXrJZkGcJP6PVQS4V7Ij4qJtp9Iaw==
-X-Received: by 2002:a65:55cd:: with SMTP id k13mr38882463pgs.197.1579194601990;
-        Thu, 16 Jan 2020 09:10:01 -0800 (PST)
+X-Gm-Message-State: APjAAAWrsGcXioRF68bYokwXrijt5PaB+rhbO7/HB1BTxZsJloFj8nMS
+	lQWym58CZPPz00+AB5OhkdU=
+X-Google-Smtp-Source: APXvYqzinz9OsTHVXCSsovsTsG1gZYE0u5Hn8J5TBLgnQgAy8Hv5TV3dKX4rUBG82YiIC2b2J0nQUA==
+X-Received: by 2002:a17:902:7c0f:: with SMTP id x15mr33779795pll.267.1579194606840;
+        Thu, 16 Jan 2020 09:10:06 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:208:: with SMTP id 8ls6114825pgc.16.gmail; Thu, 16 Jan
- 2020 09:10:01 -0800 (PST)
-X-Received: by 2002:aa7:988e:: with SMTP id r14mr38686736pfl.126.1579194601629;
-        Thu, 16 Jan 2020 09:10:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579194601; cv=none;
+Received: by 2002:a62:8744:: with SMTP id i65ls6796070pfe.11.gmail; Thu, 16
+ Jan 2020 09:10:05 -0800 (PST)
+X-Received: by 2002:a63:8eca:: with SMTP id k193mr40115192pge.293.1579194605738;
+        Thu, 16 Jan 2020 09:10:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579194605; cv=none;
         d=google.com; s=arc-20160816;
-        b=v795wkpo+h8Sziax1ytchPyUIwE2CBvSqda2RXb49gfvQfhvf/Ja4JYcxAxQQTUWZ8
-         DrhGgAx34bXg+coJliEMdnQCRWaFgWJ4UHN6cN8LmD4owonX0hUOpKQe9NFOhL5l0ZYP
-         efHv42ro3/zGdih9RSRBABXMBBwn94CGURlYzKKQ9cxilksLGwOAgm8p35tJyNVbA7Eo
-         x1xnzsRvkRH5JHnUn/BQTOoDG2XODMO4EPJg60wOiPlLValCPnlP4FZlMISK9AMfY6IR
-         SKW9pUDjkQbvt1r7FMQ629ypJ+DdE3p8n5NjGHzeFGOzX/+C3JfFYzhn8ry+AIQD1NMD
-         p5rg==
+        b=hYx5HLl1W82EIU2Bv9GUrlJdxi3gN6UwD+nZSZ6DkBamdfJrJpCRTCS7a4Fa4wPzy9
+         l/qSh4p5MI5nSSDwDaCQ6g9HymeS/d1hxJiBLfhVBEZTOTwfuf9uOSP3iLMoEQep6jjy
+         OZUCJQRXIF3wnvl92hXBGif5EQyL9SiIMxCXDfNXC9/q35k/sgrsQ5kVlMbs0cijzxBt
+         kkALMyMgGSqDSXMCa26g5twBrhxTt6DV1bjGzbePhwxOWC5sZlteFTs46FQsDHmliDVe
+         JTQXEW8YJhlctB6CrHK1E0si1uNe+E6FZ/QJf2H7FXzGAEqKeyma5DnOEe3CBtt+O4qc
+         tOyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=XqUr/jAdRitsy29V8q3VjkadbtANVLpaohrAHX1BvG0=;
-        b=Ncyn1NAxa9eXBnrP2ddeZX970GlHM8C/2Kl/d50LIkyAixYdLTsKUnduzlfUwQWDm1
-         LDbaYnp5pR547ffrToc0F746h4hd7QLWznx8XWbBvQtAT0kzo5wJqfldhlkE8DgmqRDO
-         ol1Dr6iQq/4p+0FE8CVrmecVBlDVkqJRxyitvf6dpJjXwkQyUhi8EVF0zIDoEerPN6tA
-         /0peee6/Kr1rfI7e7sw3g5W83g1DAwPUD80E44sMCfQow0lh5YxCF4BdDxY5TnCGvNfr
-         qkN66ITPl4yUw/wP6YDrPEQzsswZoeWZC5ejPDdE6rzz6laRXXzd9xaN5UM2nZUpqd6P
-         BI/w==
+        bh=fg77dg9SF3zAKeqm5ePrQDANb0RBwxXZZVSKA+URPO4=;
+        b=g9FgyVBaB4m3QlwjX3/anjwt3ygzX3ycbpabBwffJeTBtaI4QTanGdMWvfENz3e3Pt
+         ip7Ak3PMvxjkgJmfAl5TyP1bHng2fh3HziKx0s8Yi0na/vAXdaUgHUxyiZ3aRTHVIZ3E
+         QPClX47tglMr0WJIkmo6DXqIfd++sb7fVIU5YfyDslV8sI8Ml+Z/fml7MRPlxv5UfjRP
+         S7U1nbNJMphfkDQD+hfg2VHJM+ZbmhLAlHgnKsRr/3B1oaZ4HT230nUnJUr3KjHD9Yrn
+         if8OQqjBo6MAy9/VghizX4kqA+Uhc9tEF8NYFglLJ3M7YO7x6X+QHYqFAUDYe/Mw2FOb
+         jtlw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=kCv0lB1L;
+       dkim=pass header.i=@kernel.org header.s=default header.b=hIFmJVhf;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id c4si884484plr.4.2020.01.16.09.10.01
+        by gmr-mx.google.com with ESMTPS id x12si898826plv.3.2020.01.16.09.10.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2020 09:10:01 -0800 (PST)
+        Thu, 16 Jan 2020 09:10:05 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 9848924687;
-	Thu, 16 Jan 2020 17:10:00 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id BA996205F4;
+	Thu, 16 Jan 2020 17:10:04 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	"David S . Miller" <davem@davemloft.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Sasha Levin <sashal@kernel.org>,
-	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 469/671] qed: reduce maximum stack frame size
-Date: Thu, 16 Jan 2020 12:01:47 -0500
-Message-Id: <20200116170509.12787-206-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 472/671] mic: avoid statically declaring a 'struct device'.
+Date: Thu, 16 Jan 2020 12:01:50 -0500
+Message-Id: <20200116170509.12787-209-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200116170509.12787-1-sashal@kernel.org>
 References: <20200116170509.12787-1-sashal@kernel.org>
@@ -119,7 +118,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=kCv0lB1L;       spf=pass
+ header.i=@kernel.org header.s=default header.b=hIFmJVhf;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,103 +137,118 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 7c116e02a4a7575c8c62bfd2106e3e3ec8fb99dc ]
+[ Upstream commit bc83f79bd2119230888fb8574639d5a51b38f903 ]
 
-clang warns about an overly large stack frame in one function
-when it decides to inline all __qed_get_vport_*() functions into
-__qed_get_vport_stats():
+Generally, declaring a platform device as a static variable is
+a bad idea and can cause all kinds of problems, in particular
+with the DMA configuration and lifetime rules.
 
-drivers/net/ethernet/qlogic/qed/qed_l2.c:1889:13: error: stack frame size of 1128 bytes in function '_qed_get_vport_stats' [-Werror,-Wframe-larger-than=]
+A specific problem we hit here is from a bug in clang that warns
+about certain (otherwise valid) macros when used in static variables:
 
-Use a noinline_for_stack annotation to prevent clang from inlining
-these, which keeps the maximum stack usage at around half of that
-in the worst case, similar to what we get with gcc.
+drivers/misc/mic/card/mic_x100.c:285:27: warning: shift count >= width of type [-Wshift-count-overflow]
+static u64 mic_dma_mask = DMA_BIT_MASK(64);
+                          ^~~~~~~~~~~~~~~~
+include/linux/dma-mapping.h:141:54: note: expanded from macro 'DMA_BIT_MASK'
+ #define DMA_BIT_MASK(n) (((n) == 64) ? ~0ULL : ((1ULL<<(n))-1))
+                                                     ^ ~~~
 
-Fixes: 86622ee75312 ("qed: Move statistics to L2 code")
+A slightly better way here is to create the platform device dynamically
+and set the dma mask in the probe function.
+This avoids the warning and some other problems, but is still not ideal
+because the device creation should really be separated from the driver,
+and the fact that the device has no parent means we have to force
+the dma mask rather than having it set up from the bus that the device
+is actually on.
+
+Fixes: dd8d8d44df64 ("misc: mic: MIC card driver specific changes to enable SCIF")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+Link: https://lore.kernel.org/r/20190712092426.872625-1-arnd@arndb.de
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/ethernet/qlogic/qed/qed_l2.c | 34 +++++++++++-------------
- 1 file changed, 15 insertions(+), 19 deletions(-)
+ drivers/misc/mic/card/mic_x100.c | 28 ++++++++++++----------------
+ 1 file changed, 12 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/net/ethernet/qlogic/qed/qed_l2.c b/drivers/net/ethernet/qlogic/qed/qed_l2.c
-index 64ac95ca4df2..d921b991dbdb 100644
---- a/drivers/net/ethernet/qlogic/qed/qed_l2.c
-+++ b/drivers/net/ethernet/qlogic/qed/qed_l2.c
-@@ -1631,10 +1631,9 @@ static void __qed_get_vport_pstats_addrlen(struct qed_hwfn *p_hwfn,
+diff --git a/drivers/misc/mic/card/mic_x100.c b/drivers/misc/mic/card/mic_x100.c
+index b9f0710ffa6b..4007adc666f3 100644
+--- a/drivers/misc/mic/card/mic_x100.c
++++ b/drivers/misc/mic/card/mic_x100.c
+@@ -249,6 +249,9 @@ static int __init mic_probe(struct platform_device *pdev)
+ 	mdrv->dev = &pdev->dev;
+ 	snprintf(mdrv->name, sizeof(mic_driver_name), mic_driver_name);
+ 
++	/* FIXME: use dma_set_mask_and_coherent() and check result */
++	dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
++
+ 	mdev->mmio.pa = MIC_X100_MMIO_BASE;
+ 	mdev->mmio.len = MIC_X100_MMIO_LEN;
+ 	mdev->mmio.va = devm_ioremap(&pdev->dev, MIC_X100_MMIO_BASE,
+@@ -294,18 +297,6 @@ static void mic_platform_shutdown(struct platform_device *pdev)
+ 	mic_remove(pdev);
+ }
+ 
+-static u64 mic_dma_mask = DMA_BIT_MASK(64);
+-
+-static struct platform_device mic_platform_dev = {
+-	.name = mic_driver_name,
+-	.id   = 0,
+-	.num_resources = 0,
+-	.dev = {
+-		.dma_mask = &mic_dma_mask,
+-		.coherent_dma_mask = DMA_BIT_MASK(64),
+-	},
+-};
+-
+ static struct platform_driver __refdata mic_platform_driver = {
+ 	.probe = mic_probe,
+ 	.remove = mic_remove,
+@@ -315,6 +306,8 @@ static struct platform_driver __refdata mic_platform_driver = {
+ 	},
+ };
+ 
++static struct platform_device *mic_platform_dev;
++
+ static int __init mic_init(void)
+ {
+ 	int ret;
+@@ -328,9 +321,12 @@ static int __init mic_init(void)
+ 
+ 	request_module("mic_x100_dma");
+ 	mic_init_card_debugfs();
+-	ret = platform_device_register(&mic_platform_dev);
++
++	mic_platform_dev = platform_device_register_simple(mic_driver_name,
++							   0, NULL, 0);
++	ret = PTR_ERR_OR_ZERO(mic_platform_dev);
+ 	if (ret) {
+-		pr_err("platform_device_register ret %d\n", ret);
++		pr_err("platform_device_register_full ret %d\n", ret);
+ 		goto cleanup_debugfs;
  	}
+ 	ret = platform_driver_register(&mic_platform_driver);
+@@ -341,7 +337,7 @@ static int __init mic_init(void)
+ 	return ret;
+ 
+ device_unregister:
+-	platform_device_unregister(&mic_platform_dev);
++	platform_device_unregister(mic_platform_dev);
+ cleanup_debugfs:
+ 	mic_exit_card_debugfs();
+ done:
+@@ -351,7 +347,7 @@ static int __init mic_init(void)
+ static void __exit mic_exit(void)
+ {
+ 	platform_driver_unregister(&mic_platform_driver);
+-	platform_device_unregister(&mic_platform_dev);
++	platform_device_unregister(mic_platform_dev);
+ 	mic_exit_card_debugfs();
  }
  
--static void __qed_get_vport_pstats(struct qed_hwfn *p_hwfn,
--				   struct qed_ptt *p_ptt,
--				   struct qed_eth_stats *p_stats,
--				   u16 statistics_bin)
-+static noinline_for_stack void
-+__qed_get_vport_pstats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
-+		       struct qed_eth_stats *p_stats, u16 statistics_bin)
- {
- 	struct eth_pstorm_per_queue_stat pstats;
- 	u32 pstats_addr = 0, pstats_len = 0;
-@@ -1661,10 +1660,9 @@ static void __qed_get_vport_pstats(struct qed_hwfn *p_hwfn,
- 	    HILO_64_REGPAIR(pstats.error_drop_pkts);
- }
- 
--static void __qed_get_vport_tstats(struct qed_hwfn *p_hwfn,
--				   struct qed_ptt *p_ptt,
--				   struct qed_eth_stats *p_stats,
--				   u16 statistics_bin)
-+static noinline_for_stack void
-+__qed_get_vport_tstats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
-+		       struct qed_eth_stats *p_stats, u16 statistics_bin)
- {
- 	struct tstorm_per_port_stat tstats;
- 	u32 tstats_addr, tstats_len;
-@@ -1709,10 +1707,9 @@ static void __qed_get_vport_ustats_addrlen(struct qed_hwfn *p_hwfn,
- 	}
- }
- 
--static void __qed_get_vport_ustats(struct qed_hwfn *p_hwfn,
--				   struct qed_ptt *p_ptt,
--				   struct qed_eth_stats *p_stats,
--				   u16 statistics_bin)
-+static noinline_for_stack
-+void __qed_get_vport_ustats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
-+			    struct qed_eth_stats *p_stats, u16 statistics_bin)
- {
- 	struct eth_ustorm_per_queue_stat ustats;
- 	u32 ustats_addr = 0, ustats_len = 0;
-@@ -1751,10 +1748,9 @@ static void __qed_get_vport_mstats_addrlen(struct qed_hwfn *p_hwfn,
- 	}
- }
- 
--static void __qed_get_vport_mstats(struct qed_hwfn *p_hwfn,
--				   struct qed_ptt *p_ptt,
--				   struct qed_eth_stats *p_stats,
--				   u16 statistics_bin)
-+static noinline_for_stack void
-+__qed_get_vport_mstats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
-+		       struct qed_eth_stats *p_stats, u16 statistics_bin)
- {
- 	struct eth_mstorm_per_queue_stat mstats;
- 	u32 mstats_addr = 0, mstats_len = 0;
-@@ -1780,9 +1776,9 @@ static void __qed_get_vport_mstats(struct qed_hwfn *p_hwfn,
- 	    HILO_64_REGPAIR(mstats.tpa_coalesced_bytes);
- }
- 
--static void __qed_get_vport_port_stats(struct qed_hwfn *p_hwfn,
--				       struct qed_ptt *p_ptt,
--				       struct qed_eth_stats *p_stats)
-+static noinline_for_stack void
-+__qed_get_vport_port_stats(struct qed_hwfn *p_hwfn, struct qed_ptt *p_ptt,
-+			   struct qed_eth_stats *p_stats)
- {
- 	struct qed_eth_stats_common *p_common = &p_stats->common;
- 	struct port_stats port_stats;
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-206-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-209-sashal%40kernel.org.
