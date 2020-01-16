@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB7F6QLYQKGQEJQ3W2SQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBA57QLYQKGQEHW2D3KQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
-	by mail.lfdr.de (Postfix) with ESMTPS id ECF8313E966
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:38:05 +0100 (CET)
-Received: by mail-ua1-x93a.google.com with SMTP id 33sf3379805uaj.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:38:05 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579196285; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 89BC113E967
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:38:12 +0100 (CET)
+Received: by mail-pg1-x53f.google.com with SMTP id a4sf12647237pgq.23
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:38:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579196291; cv=pass;
         d=google.com; s=arc-20160816;
-        b=y5a7olgjG0mh/epGUJ11XV6mfwT8YQcGwBplZHtgBFluqbdDhh5UXHZtez8JbsEeGq
-         HfMhrAWmnA2mW/TB1YHKF/wlNwaPDvzZ4saOvEavSHH4rR+8pqVxwzqtA4wnguhBbn5h
-         /FaIW5KpOl2VEDfeeeLtMXcX7fO/s90+Wv0LoPIoh+y3t4H++aRTOOltBYglEXFOFmcz
-         VKDg/obyHz6A/EdLqIkcta2/CP2rIpEqb/kfbykgx4F1Wy5Q1tiPkf4uIS9DHTGHbiis
-         a0+4mb6AdbcSUpEVb9tNA1ZqscOy3PRU9Wp0ef1FLLU3efEVVEKxdZ591FdfDBGc9EW7
-         z6PQ==
+        b=hWGS8bBHkxnwq8BFVtBV8+dU6ixWYNcf4ZgHHQ935Er9DzeqX4s/JpwmVZBEc2NwUD
+         HZblc3m8mS+W6G74T/7OWGaEG2poKR2jmsgDRannyeGn13C2bKbLvyEHcNAsTYoirUBh
+         nS7ZquPbnPCwVLLP2aHMK1WCjL/oUnMDXwqB16U3zzF3N0Sl0qrV79hNG8eSNuE+dENn
+         /ggC6q7FV+/+34OGFKRW5dqc7J52uoajEFXaRzJTkQKpA0yROe0yfjfuX4s5vo+XuBk1
+         JqmfyMTKWkacvguqAeGmMhNtVlHyJC0X6U3mXpgJ/PEb+fthv2iCR4uvTcUgfCOs+YrB
+         xQyQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=8RT8iAvo/AnKPE0ADlEKzoAGipadvUyOPvkxxGpJ8zk=;
-        b=x+ozjmPsX3qjpjFKEE3lAn9AoH11nicJBrCgc2erZMWAFBb9WCICJKsaukib+1iFS8
-         sHadAgARbucvrUDyT1jbLni/bX8j6hthNlJnJN6+gSW5LvW0WgymlDsdS7OwstSvsGE+
-         sWWs2xGpnaz0hDRHUVU6lxmfmjZ+edGdriElkBLKt5KFXQRfHBjRAGzir81/jnvzn0mz
-         Dz007NSqtEyTJE0u9Fv0nfv8l8o5wkQuyZlPqCh+Gk4M8w9pf1hA2Zsadd/+5Xm8kwqZ
-         3l6ok3Q5AU77CL0eNDbZIKOlzDgIWqqD7f58UgiWGU4tngbwDdzGcU4paFz6jSjrQl++
-         AV1w==
+        bh=PzDTF/DgQPOElncspIngaOKkNsLzkPwxDWBrQ0YeIPU=;
+        b=MQxf1pqC5JoQwMuyoLUHLTMsbgyOE2iu+cJcOMpNSuNK34ww2H1zZ2MoXdRxCvyNaE
+         pzgUmCAWFrBwEQfc2zjxCtIh/Ag/TgNo/6hYIJIoaMualZkvhU7PfQyxKBA5UvC92INZ
+         y/SPwvKW0ksEqm8aFLWhS9S0mpIV6JpJjl+Xls3pRT8w5fdBLQ6BdczHUJylwjT6hguw
+         zMHSC0kkq0yGvwtwmfklMbMSWubAr1WuN4GvaTuD+ndBofLqioWr72Ylwcwd+4AIi6Aq
+         ooaMxUW3y9EJFzwtTy8IGygJ3IAH5hfyJq+UTaBceKZWEPsGtNoSV+OE1DoXn7OVcZgO
+         Bdmg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="i+4rR/2m";
+       dkim=pass header.i=@kernel.org header.s=default header.b=QK1imqXp;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8RT8iAvo/AnKPE0ADlEKzoAGipadvUyOPvkxxGpJ8zk=;
-        b=isAZX1SGJnhGyAG+Fccs3WlYh1OULJJOilwxgApy+v5NEuH9gDLbz3SacuqI5Ve2wK
-         4wmCbdLtXc0hGTqdnztuDRTj1Qj5YM8P4MHW6rn0vgXI2vO9K34jTPmVu43UTKVDO70t
-         +TfB2WwP/CglmhXmuRGkK/R/YB2AMujmx5MXZUeoXmV8xtot4rP8hSe9XUAU2KgE/fgV
-         q7LUHOZ8ABMiTHYUh30aMDtzH3erKu6Km0dZX5xXVqjCWnU6/KI9nsnZq5u+0SxqCt+S
-         dODaNuGAOAb1karZrSqE9LWcTJqkzkV/OoH99WH0Jn1a/bqcf9lmQNJvi9B6E3dO/937
-         LgzQ==
+        bh=PzDTF/DgQPOElncspIngaOKkNsLzkPwxDWBrQ0YeIPU=;
+        b=cnfYb2KlO1jPdmpSykqr+EIpwmQDa+qfJDPy98EPZQ6TPMyCKlg+2v5q2xdGLwzzu7
+         0BTrwwn4i7GMC4b2Ujc2qVH/kkTnCx3WOAyV3LNSFWWodBcYNrzsXPeoX6qeKuwbrXOl
+         rFmTS4Cm9m87hfcUwjqXR0GVOy0bZdGduBSZZpIG80Ch7PCtUdrd6mubQ8twuh9al78O
+         DzwjVJEGhGPGt+TgkN6m9bpp8jSvIIGX0qI1NyKzr067N2uH/7xzBebA02dlJeGbjGn+
+         fPEsoty3O3AUQ6zbKWn/ctAPykCBzRArbqSPJ8Rr3JRbaYl6riPLhtM52WM7PQPQTOfe
+         0Y4w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8RT8iAvo/AnKPE0ADlEKzoAGipadvUyOPvkxxGpJ8zk=;
-        b=b9uuvKEQgdBrYW4z4NbeZn+lSxh08IoYcw2hINvRC4txAaG4hZGcmzzYJlMs5YndJv
-         sKg79tsUzhfxp9PJDE29VUNwXmjgYvauLuMpor2DmI5Z1S982M0Pu23BbXbWfyHGNyqr
-         xevjbZ+n13R1RkCxs/qAoMDlsEInsRO1DINHQGSsbkXwyMW+OGw7thmPyBvfRG81TLEV
-         WQSAlTk1YvJvHLSsjoyzFyJeOv6IvxlV88rG/lWX/9c0iYEWz9KZZ581YkOvUZjqNmjh
-         OyH13CFzlWu37euVOEbAyolARezsgB16sF3aME/m9w/iXLnaDpY4DLXZY4JsIrn9jo6I
-         A0xA==
+        bh=PzDTF/DgQPOElncspIngaOKkNsLzkPwxDWBrQ0YeIPU=;
+        b=QCiQEu5TIQ9NANjrXRYzM4yMUl30WrC05IrHexiJiojaxw33Tcm2ntb2cJkstoWM/i
+         4CgiKoVmWmDX4sZ3MQtu8iLwURKn0/aD0k7oIfrscBN0GVl4V1LNT1QBXk+GwseSPAwH
+         fLBYN+5pxs0QTOKZozYIJZjLBtoDe2XyZG+nLf4eAfP8QsIw4ifYyQBi6X9mNFhdYV67
+         kQQoix0pnbPqyHtSFdocfYvA2mBaw/qfKEOkCY3L37JWqLSx3zVare+h07shSMA23+jZ
+         62VYr5Xw+Od79mzw8YPZ3bXLH1mIqM9oxOoQBI47vAvSwOCZNkYmzi5xvk+6ppPM5+f8
+         ImyA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUHEWoFEi8pBzBhHerviqIEwcI7YQLGEdoVKlPGttvc8/oWV/8r
-	0t+j2LMxsuW/cTySmwX49yk=
-X-Google-Smtp-Source: APXvYqzQSotlmr9qwFhEr86ZTn5YxlQUnH+vRhLJ8msaU3EPUM9ZKYrwYxSpnKG9HgeB7JWjCfp4Tg==
-X-Received: by 2002:a67:fbcb:: with SMTP id o11mr2283590vsr.109.1579196284984;
-        Thu, 16 Jan 2020 09:38:04 -0800 (PST)
+X-Gm-Message-State: APjAAAVlBJn0FdL4EiY+kd9OKeTeum33P9pVlqhhA8EZn8/KCdYTyoq+
+	q4e4227jIzq8CSiQDrrZrGE=
+X-Google-Smtp-Source: APXvYqwFoGz1ZbU5hto5seAA0zYuBAXZpyYwVEu0e4dPViYEM2PQQk4M9BPG5O6WfDBj+YUkQgWDkw==
+X-Received: by 2002:a62:f247:: with SMTP id y7mr38186905pfl.5.1579196291280;
+        Thu, 16 Jan 2020 09:38:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:b41:: with SMTP id 62ls2001439vsl.9.gmail; Thu, 16 Jan
- 2020 09:38:04 -0800 (PST)
-X-Received: by 2002:a67:15c7:: with SMTP id 190mr2282012vsv.178.1579196284600;
-        Thu, 16 Jan 2020 09:38:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579196284; cv=none;
+Received: by 2002:aa7:93cc:: with SMTP id y12ls6812549pff.7.gmail; Thu, 16 Jan
+ 2020 09:38:10 -0800 (PST)
+X-Received: by 2002:a65:55cc:: with SMTP id k12mr41495897pgs.184.1579196290876;
+        Thu, 16 Jan 2020 09:38:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579196290; cv=none;
         d=google.com; s=arc-20160816;
-        b=MYCsv9gODyAQWhVtTwXenIpYpPvjHTCvM//EuS/0nPHCGBL/3B2n069LY9xeS7hTp+
-         XEuUM4qKPUsJax8v03ypfLWDbH72MeoaDK5CkPBiVeK0KOTL9EcD0/vPnFfSCiubaWnZ
-         xQ3EzdsjTq3k5z+ANT6DTGr3bp/+7XXCP9l7xaTcrz+iCLpXpIhzrLNLD/gBWyaHSWDI
-         yGbM9eRLHHvobWX/5E1eFLi9j1M0BC6ymR0yDgUa9Z8fEJEeNfwIZhm8Ff2DIe0l/RzV
-         3OrzoVJkF5KEEh6EqHSLQnGvKcZxPRfh5HEeFz5KXXBYAiFd2T4wgmiOfjO0+gew7TdO
-         GlZQ==
+        b=bCLU9TgWMx5MYUyFPbhBv0AmleA5uSyRnwA1f9CwZQTg6NLX8LsyWY96bWfzbIG9VB
+         Dj/wvFD1vdQ6Fsz070hGM8lJvj8xqW1Km/g4njaeXJojLVjOgeSHQ1zYbKeRQSgIhj++
+         YJbckcwQIqL2sE0QQSlNu3yCRuJ33yJrg389ZTWRd/W9rwm5PFh2CfcnaaEZuXnCSmSx
+         J5N0at1fRqrx72czyIeQSuR1FoQSihvPoH030B4nqUGoaoaWrgQaTihQf0CdsE6fb91r
+         REuAfx/o4WI1mk2XLwxjDNRo2LnfS4z3FYruL83EMKOWcGksUvW3PNvvA4MyvY08FFGc
+         dKWw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=5bPypwg+7dMwR9StokpS3KX8gfsdHDEjwTzX+dm8d9M=;
-        b=qtU2tvRbrJGCHQmer7fTCl414/rOqBP92T7JDjw6uBBXNETGAEEkvixXH2aC6d1+au
-         y/t/fo9ct3UZ4IiSiQdTlvW9MHlAf/JBhRq+nad3EFPQ0KY28r6RB8a2TX+P11mrjNFt
-         xYj6MN5jnHZdWDF88KIb8yXuv3RTF67oAUkubMDQA/Ro2XILZwn43AQRJmrRde5r4jLg
-         OHG6WDPHs8nkSJZ2Yz4XohNzbWp+JyT8W/a6ivhPHdTVQbkeN1/+aCdLHQjsa4fkRcT8
-         /XIavZZA5VGsxiT/k+vHBDNyh87oKFd0qDTOEa8LTnlYUUo21Np9qivn2c9c1/IXjRo0
-         EcIw==
+        bh=RjzLeAgibMTsaMa4dYwRNJF7IgeaCKCa6hcLWyiT1xI=;
+        b=POmKFCnGi8wYmgLupTIsu784T0m++OdR4Fe1YGD2e+JTGUu4VpBQE+OUhYmWaKPw9+
+         uIi7uW+/qgwrb76IEl+h2TEJY2bAbKI4TI1ZuFOLW/vxohxHTesAhfx8Wy2H47kp6jGV
+         45RDYIckgbdvYx1YVG5yhW+O5J5hI7Ghl3U/QBG8AsdglLK4CiiAxMjHQeueM0Q7VzLH
+         em55NvyCf4wEHHXOODWe8M0gmJAJ4VRV/oJNalr/eEznaE9BJ5eCc8TPdZUUalWR5FAa
+         vaH1YUGEX1tLVbBP3AIqNkmQf/GSEhnGfDaZfiOoWz/+/1pkh2OOzPdo+LfS1BgsQG/K
+         acpg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="i+4rR/2m";
+       dkim=pass header.i=@kernel.org header.s=default header.b=QK1imqXp;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id k26si1085929uao.0.2020.01.16.09.38.04
+        by gmr-mx.google.com with ESMTPS id cx5si107123pjb.1.2020.01.16.09.38.10
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2020 09:38:04 -0800 (PST)
+        Thu, 16 Jan 2020 09:38:10 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 9F178246D6;
-	Thu, 16 Jan 2020 17:38:02 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 8E05A246C3;
+	Thu, 16 Jan 2020 17:38:09 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Jon Maloy <jon.maloy@ericsson.com>,
+Cc: Arnd Bergmann <arnd@arndb.de>,
 	Nathan Chancellor <natechancellor@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
+	Lad Prabhakar <prabhakar.csengg@gmail.com>,
+	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+	Mauro Carvalho Chehab <mchehab+samsung@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	netdev@vger.kernel.org,
-	tipc-discussion@lists.sourceforge.net,
+	linux-media@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.9 102/251] tipc: tipc clang warning
-Date: Thu, 16 Jan 2020 12:34:11 -0500
-Message-Id: <20200116173641.22137-62-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.9 105/251] media: davinci-isif: avoid uninitialized variable use
+Date: Thu, 16 Jan 2020 12:34:14 -0500
+Message-Id: <20200116173641.22137-65-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200116173641.22137-1-sashal@kernel.org>
 References: <20200116173641.22137-1-sashal@kernel.org>
@@ -121,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="i+4rR/2m";       spf=pass
+ header.i=@kernel.org header.s=default header.b=QK1imqXp;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,65 +139,74 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Jon Maloy <jon.maloy@ericsson.com>
+From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 737889efe9713a0f20a75fd0de952841d9275e6b ]
+[ Upstream commit 0e633f97162c1c74c68e2eb20bbd9259dce87cd9 ]
 
-When checking the code with clang -Wsometimes-uninitialized we get the
-following warning:
+clang warns about a possible variable use that gcc never
+complained about:
 
-if (!tipc_link_is_establishing(l)) {
-    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-net/tipc/node.c:847:46: note: uninitialized use occurs here
-      tipc_bearer_xmit(n->net, bearer_id, &xmitq, maddr);
+drivers/media/platform/davinci/isif.c:982:32: error: variable 'frame_size' is uninitialized when used here
+      [-Werror,-Wuninitialized]
+                dm365_vpss_set_pg_frame_size(frame_size);
+                                             ^~~~~~~~~~
+drivers/media/platform/davinci/isif.c:887:2: note: variable 'frame_size' is declared here
+        struct vpss_pg_frame_size frame_size;
+        ^
+1 error generated.
 
-net/tipc/node.c:831:2: note: remove the 'if' if its condition is always
-true
-if (!tipc_link_is_establishing(l)) {
-    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-net/tipc/node.c:821:31: note: initialize the variable 'maddr' to silence
-this warning
-struct tipc_media_addr *maddr;
+There is no initialization for this variable at all, and there
+has never been one in the mainline kernel, so we really should
+not put that stack data into an mmio register.
 
-We fix this by initializing 'maddr' to NULL. For the matter of clarity,
-we also test if 'xmitq' is non-empty before we use it and 'maddr'
-further down in the  function. It will never happen that 'xmitq' is non-
-empty at the same time as 'maddr' is NULL, so this is a sufficient test.
+On the other hand, I suspect that gcc checks the condition
+more closely and notices that the global
+isif_cfg.bayer.config_params.test_pat_gen flag is initialized
+to zero and never written to from any code path, so anything
+depending on it can be eliminated.
 
-Fixes: 598411d70f85 ("tipc: make resetting of links non-atomic")
-Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Jon Maloy <jon.maloy@ericsson.com>
-Signed-off-by: David S. Miller <davem@davemloft.net>
+To shut up the clang warning, just remove the dead code manually,
+it has probably never been used because any attempt to do so
+would have resulted in undefined behavior.
+
+Fixes: 63e3ab142fa3 ("V4L/DVB: V4L - vpfe capture - source for ISIF driver on DM365")
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+Acked-by: Lad Prabhakar <prabhakar.csengg@gmail.com>
+Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+Signed-off-by: Mauro Carvalho Chehab <mchehab+samsung@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- net/tipc/node.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ drivers/media/platform/davinci/isif.c | 9 ---------
+ 1 file changed, 9 deletions(-)
 
-diff --git a/net/tipc/node.c b/net/tipc/node.c
-index db8fbc076e1a..fe7b0ad1d6f3 100644
---- a/net/tipc/node.c
-+++ b/net/tipc/node.c
-@@ -688,10 +688,10 @@ static void __tipc_node_link_down(struct tipc_node *n, int *bearer_id,
- static void tipc_node_link_down(struct tipc_node *n, int bearer_id, bool delete)
+diff --git a/drivers/media/platform/davinci/isif.c b/drivers/media/platform/davinci/isif.c
+index 78e37cf3470f..b51b875c5a61 100644
+--- a/drivers/media/platform/davinci/isif.c
++++ b/drivers/media/platform/davinci/isif.c
+@@ -890,9 +890,7 @@ static int isif_set_hw_if_params(struct vpfe_hw_if_param *params)
+ static int isif_config_ycbcr(void)
  {
- 	struct tipc_link_entry *le = &n->links[bearer_id];
-+	struct tipc_media_addr *maddr = NULL;
- 	struct tipc_link *l = le->link;
--	struct tipc_media_addr *maddr;
--	struct sk_buff_head xmitq;
- 	int old_bearer_id = bearer_id;
-+	struct sk_buff_head xmitq;
+ 	struct isif_ycbcr_config *params = &isif_cfg.ycbcr;
+-	struct vpss_pg_frame_size frame_size;
+ 	u32 modeset = 0, ccdcfg = 0;
+-	struct vpss_sync_pol sync;
  
- 	if (!l)
- 		return;
-@@ -713,7 +713,8 @@ static void tipc_node_link_down(struct tipc_node *n, int bearer_id, bool delete)
- 	tipc_node_write_unlock(n);
- 	if (delete)
- 		tipc_mon_remove_peer(n->net, n->addr, old_bearer_id);
--	tipc_bearer_xmit(n->net, bearer_id, &xmitq, maddr);
-+	if (!skb_queue_empty(&xmitq))
-+		tipc_bearer_xmit(n->net, bearer_id, &xmitq, maddr);
- 	tipc_sk_rcv(n->net, &le->inputq);
+ 	dev_dbg(isif_cfg.dev, "\nStarting isif_config_ycbcr...");
+ 
+@@ -980,13 +978,6 @@ static int isif_config_ycbcr(void)
+ 		/* two fields are interleaved in memory */
+ 		regw(0x00000249, SDOFST);
+ 
+-	/* Setup test pattern if enabled */
+-	if (isif_cfg.bayer.config_params.test_pat_gen) {
+-		sync.ccdpg_hdpol = params->hd_pol;
+-		sync.ccdpg_vdpol = params->vd_pol;
+-		dm365_vpss_set_sync_pol(sync);
+-		dm365_vpss_set_pg_frame_size(frame_size);
+-	}
+ 	return 0;
  }
  
 -- 
@@ -205,4 +215,4 @@ index db8fbc076e1a..fe7b0ad1d6f3 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116173641.22137-62-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116173641.22137-65-sashal%40kernel.org.
