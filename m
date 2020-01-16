@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB3VRQLYQKGQESBHJDJQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB4FRQLYQKGQE6ZL2HLA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3AD6913E4A9
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:08 +0100 (CET)
-Received: by mail-pf1-x43e.google.com with SMTP id x21sf13310488pfp.12
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:08 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579194607; cv=pass;
+Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
+	by mail.lfdr.de (Postfix) with ESMTPS id ED3FA13E4AD
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:09 +0100 (CET)
+Received: by mail-pj1-x103e.google.com with SMTP id u10sf2281792pjy.2
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579194608; cv=pass;
         d=google.com; s=arc-20160816;
-        b=MxkgB1RejIUXFVDRwIPFj8CnNWolsO973waxfPHcIG0raXPysRZe2/nzKIUVTjRUIe
-         nNLh7Ur22nIIXRZGugZ99iIOCyJaZTWeLqGs4G0PKga/T6cPrFiMmNjrh03XrMZX+EZm
-         RfxNUay+thO0EazCQZwNzqRAM0SYoLWmjaKyVqda8XsmERlsDN3X12Smp9u16WAQoepH
-         jclnRuYR7+K3PJb8AqUL6qTvggvHZjn/2nOgvu4uXO5IFfvpUPqDoubDDfy8D1MJ6i9A
-         V52U0QrUdg7FVkyngnrBskHXJMTXYQ3MHzU2D7QtoRlsRtV+8oMCddaKEiD74LtQnij2
-         w08A==
+        b=Ow62BzW3gOUAFbIQnhi+r+etSFxWzEiKpxVe7BxiuPW4qELxayZyvbE0Tol65XmQax
+         ahRj9M86bp/SbFMObYirjlRTVEjyT9n3ijGmdnvNhedzTFaylEnFwC4g5+f4vEGYU8if
+         JpNqRNXzlKQ0h1j8I5EtPsKOFzFmx8muCnCLmxsbyPPLG6O8tN4CUieXO1kBXlTl1JIl
+         GQp7ZZBRGlyggNySbQMZjMwWHhxjlprRFbsCob2mbuuIWoKoR0j/3lC0yuMVdFXHoArQ
+         +VFVua+N88jxrJyBIh6f3hwzTxZZSbZ+J9Y4Iw3qwmpCT64+Rr/sb17j7CbKoR/XCkfh
+         zo9A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=GR0M8XyZ0J0jArn00pjSqwNxoa2f21sMLraYR4zQ7hg=;
-        b=u1AkfQ6BAyU41USfz8xjnTeJHeump6VjKj14AzUsYIUKNADr5BBQP0+UAqvfC+I/VT
-         ZXCjneF6oVdUpda0wfvwfziNyRGzLxyrv3+I62wP1uuV0gyGy0oQ/yF4J4HYHbtXVLgP
-         WulQTKTvJBX7JJZ4l3LsljSI2L+kUo4UiQ+utdgSNOL+0bHd1XZRWnvQL7yxvGlH3EeM
-         KKhmvpnLCEQGSWJVNwfDxmWd9QjHhZdkaufXLVOc+sQY6T0HO7l0oIKKgjFWVY5zVL16
-         yNWPhLruLJ1yVObPVPAwE+33Sl7KzjtAglNCOnkAKrgPeQTD0M+pyF/xHCZsTOybdGjq
-         /Fvg==
+        bh=QpGMqANy60aEOyjNctlCDR2XIHGeOi5ey/OwXWCYKiE=;
+        b=VGq4W9kiTqNGZzsy0r0JBCL1SSITqHKiZoA5IDg25y5JCfq9k6OCjQjsr9q7+1eaBM
+         Iq+rE0IrvXOAtU+ns3xlJGC2g6ZSBYmXHaVKhjGEfjEHcQQGNN0vUiEk5meec0kStSQI
+         PpR241G3pbYy/qET6l/pvjTwhuQUXLV75c65dGpRG69l8NTK4hAl4sm0l/ST+eN/8hmF
+         h20HQ5xCBB99QH7kkBYBfcTVv06pkUz+bh4XiIcF84cCkNMWnfFti2zg3JmR0GpSD83H
+         M1EdEId1dH7ZP8aoLaZZS7gSRNjma1HINS46GJKt5053IuSqDy2ipZIDNfWbAx6p/uTU
+         XUyg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=hIFmJVhf;
+       dkim=pass header.i=@kernel.org header.s=default header.b=HwkOcHM5;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GR0M8XyZ0J0jArn00pjSqwNxoa2f21sMLraYR4zQ7hg=;
-        b=UOAydQ3/2g15oytEXycbMtRsdZnQqrX+NGIMadca/aPtcW28Px6sSTf9EpwY9/UFy0
-         TNngwOhsWzfHJVosmtJ6Es13U3MwuK8NuE7c+SZzX7zs2pXBitgjuY/ddcQm7t4N6Xc6
-         KQK8UNjn7g3TCx9SQEiE0yJcPhEHDjVbkbmmfKl42JH7qMLaRg/0eEt8hSuDX0BiUVnm
-         xXjvC6mh1cWHHpN12KM15zsjU97aTh0zLBZURvnWwHwnPk+TdvcP4HFa9dTO83E2ixFE
-         8ixTW7VHUKjacf9Bb+Sg2L3ff3Se+GuIPxz37KW1LcDodYDmuHJxbChnHNCHA+YsRLDN
-         W6DQ==
+        bh=QpGMqANy60aEOyjNctlCDR2XIHGeOi5ey/OwXWCYKiE=;
+        b=iPxzoxYsb7gJJ8BZiWwn715j5lsTKTlI5HOEBxYbg5ehoFGMF0ERHr+Yq3zcKq3dAD
+         PmNR42cTCeQt1N6dpGXBGcJSqHkDmkvqv1cO6sWPKBJO/5WtjzPJ+orkVg31OAn7MAw6
+         Y3Y/j6nVuS3oHfPm/1TYyHYKXJT+1jGVynhaO820C/QcDID9pGx3BqkvZWV0cwRylcI2
+         rP+IDoKzhzP+jUpKBrpnF56x5z87HF7WFMAb9jAZbz1ZoMW0NTCRILPSIyvHSiARVtLb
+         oZ9g/4NeUoYq8JhszWX/cxz/ipReGddXCOHePD3gpprdm1ztGSO9WyZxMrreH9DH5T0+
+         m/Pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,67 +49,68 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=GR0M8XyZ0J0jArn00pjSqwNxoa2f21sMLraYR4zQ7hg=;
-        b=UYMlzCu4pHZXSNUdoMYfMzToQ535BQHZdnVheS/D+yEwWr9PvDdMfQqM8FjniM3Mm9
-         uURqSBEwSqn25DT0Uyo1kEMzNIKUOEp+Ek/PoaC89K6nXrosgnvLeX9Mrh3MMgvJRUT8
-         n1P5eH+gGTFny9wrXfZ9wDsSf56CVW368DQuwQP/oyEkJulqAAcHbwBh/GRN5GWcUVav
-         zL7+V6mztgrSwfOQKmMicOgD7m9ilFInNkEwBa2P7R6JxBB12v43Hnapu4AnfffI6WPt
-         CMu1MAzKxrjW7P6Nj8vH4j4PR1++N5KI3ys/5QhWyhcZdk3mAXlcqAbbtwD6Cct3TMQ2
-         MjzQ==
+        bh=QpGMqANy60aEOyjNctlCDR2XIHGeOi5ey/OwXWCYKiE=;
+        b=ZR7sGOGZk18oQPZAevnC5iS4b4R3mI5eFd15ApsXduix9hA0V9R82c+vAESmgGjrfH
+         Ik+BLjqkmplsM1Q2eU8lzfoJaGBAlojevyvxEzOT4vHhPzdniaxLxV4aVACN0FS+iQ/D
+         ucS4tFpxm7HozMEMmspNRb4gbL7lyULcyHNgH935LmT6/dQaYvdSWQkxqxqL6zeSMxpZ
+         vTNsa0CSI1lrceh08KHK4b3jnvH7BcbqHqfkNUq3ZzlnzTuGn26iRPaoKCgukV7939c4
+         8sQp0SG0mZRR17hSIhTSC8/KmMQWKlc3QxXimeU3duZJ/D9Lno2XYsBAoqjnG9y3HDp3
+         FJbg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWrsGcXioRF68bYokwXrijt5PaB+rhbO7/HB1BTxZsJloFj8nMS
-	lQWym58CZPPz00+AB5OhkdU=
-X-Google-Smtp-Source: APXvYqzinz9OsTHVXCSsovsTsG1gZYE0u5Hn8J5TBLgnQgAy8Hv5TV3dKX4rUBG82YiIC2b2J0nQUA==
-X-Received: by 2002:a17:902:7c0f:: with SMTP id x15mr33779795pll.267.1579194606840;
-        Thu, 16 Jan 2020 09:10:06 -0800 (PST)
+X-Gm-Message-State: APjAAAVfP6XnTaSbATGeBSmzHmOV19rDc30mk8W+yJPLDTsSUxNxHhH3
+	pVL4XdouQIwqP4j+jwydFUc=
+X-Google-Smtp-Source: APXvYqwxNo8CctY2sLxhOnmwuQhtHIPwsEYTp7y/zK71P18K/rdZ5LPIaqfCBbjEFIKBXXneRqEc3g==
+X-Received: by 2002:a63:4f05:: with SMTP id d5mr39514139pgb.341.1579194608555;
+        Thu, 16 Jan 2020 09:10:08 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:8744:: with SMTP id i65ls6796070pfe.11.gmail; Thu, 16
- Jan 2020 09:10:05 -0800 (PST)
-X-Received: by 2002:a63:8eca:: with SMTP id k193mr40115192pge.293.1579194605738;
-        Thu, 16 Jan 2020 09:10:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579194605; cv=none;
+Received: by 2002:a63:d007:: with SMTP id z7ls6115608pgf.9.gmail; Thu, 16 Jan
+ 2020 09:10:08 -0800 (PST)
+X-Received: by 2002:a63:b64a:: with SMTP id v10mr41448905pgt.145.1579194608147;
+        Thu, 16 Jan 2020 09:10:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579194608; cv=none;
         d=google.com; s=arc-20160816;
-        b=hYx5HLl1W82EIU2Bv9GUrlJdxi3gN6UwD+nZSZ6DkBamdfJrJpCRTCS7a4Fa4wPzy9
-         l/qSh4p5MI5nSSDwDaCQ6g9HymeS/d1hxJiBLfhVBEZTOTwfuf9uOSP3iLMoEQep6jjy
-         OZUCJQRXIF3wnvl92hXBGif5EQyL9SiIMxCXDfNXC9/q35k/sgrsQ5kVlMbs0cijzxBt
-         kkALMyMgGSqDSXMCa26g5twBrhxTt6DV1bjGzbePhwxOWC5sZlteFTs46FQsDHmliDVe
-         JTQXEW8YJhlctB6CrHK1E0si1uNe+E6FZ/QJf2H7FXzGAEqKeyma5DnOEe3CBtt+O4qc
-         tOyA==
+        b=n8qo4PerBTnT8lCo6WtCm3kVcUM5FZiP6ic4xtxuzaNkgi4d2ZZRuHeyofdDwDmdXD
+         Ei+yyYSAR/SQeL3/2E7dhoJyFfa28SBzV2aFY9vq2t3OORVGy5coFpARmgdrl7TYfP73
+         JxrqY8Z+iW2f7XuofdKShQQfaw0FbtMBnmwm8tUwO3RWePJTk66FpkgST/QCX2cgaTdk
+         KcfHSQfCXV5diCMRjLY2ulkeGeLvbiqHX/SbYKiD/1Ua2jzdvRra3JZCPyBAzonbDXN4
+         4pXZRKvTfZN5Hd8DjwJyU/E1YttQFRCufjzg8fPAQKb2aUva3SoL/8dJT5tlJxTsjC9N
+         kl+Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=fg77dg9SF3zAKeqm5ePrQDANb0RBwxXZZVSKA+URPO4=;
-        b=g9FgyVBaB4m3QlwjX3/anjwt3ygzX3ycbpabBwffJeTBtaI4QTanGdMWvfENz3e3Pt
-         ip7Ak3PMvxjkgJmfAl5TyP1bHng2fh3HziKx0s8Yi0na/vAXdaUgHUxyiZ3aRTHVIZ3E
-         QPClX47tglMr0WJIkmo6DXqIfd++sb7fVIU5YfyDslV8sI8Ml+Z/fml7MRPlxv5UfjRP
-         S7U1nbNJMphfkDQD+hfg2VHJM+ZbmhLAlHgnKsRr/3B1oaZ4HT230nUnJUr3KjHD9Yrn
-         if8OQqjBo6MAy9/VghizX4kqA+Uhc9tEF8NYFglLJ3M7YO7x6X+QHYqFAUDYe/Mw2FOb
-         jtlw==
+        bh=rAWEeOxHQ9jiwuGpyW3MTuoVN8XOtXz90B8hmgMLOZY=;
+        b=Nc2+PVT5aQ9JPoKXkVvlCMdSiUQcfrjyFHfAuwiINzQ/zu5DVM1TOpFU9znmUvnEIK
+         LAWaFk46VzYHV5e9OhmJFz0JM5HaUN9pxOAE7Ja8FS4bXy0RO7v04hKc6+g7ySHIlD4T
+         E2WlnQaVH04hdGDMn3jMmGHJf4xouJC9W9RhdXdjO2bZ7vLGZa8BPa+l6VRVeL5A1DyH
+         wNwBwHSjAd/C8iJMawF65ajvQq1M+XI6rXoRc/yQr2TlkXiuYxmxKvcnJD0AqJuLiZVC
+         4OJqPOrBYYdfL3OBqbiiaiLN+P7muOs/gv1BRk7F2tnu8VFUHKXagjM99Uw/jn5E4n2b
+         WbNw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=hIFmJVhf;
+       dkim=pass header.i=@kernel.org header.s=default header.b=HwkOcHM5;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x12si898826plv.3.2020.01.16.09.10.05
+        by gmr-mx.google.com with ESMTPS id d12si469172pjv.0.2020.01.16.09.10.08
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2020 09:10:05 -0800 (PST)
+        Thu, 16 Jan 2020 09:10:08 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id BA996205F4;
-	Thu, 16 Jan 2020 17:10:04 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 0B92724689;
+	Thu, 16 Jan 2020 17:10:06 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	Sasha Levin <sashal@kernel.org>,
+	linux-crypto@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 472/671] mic: avoid statically declaring a 'struct device'.
-Date: Thu, 16 Jan 2020 12:01:50 -0500
-Message-Id: <20200116170509.12787-209-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 474/671] crypto: ccp - Reduce maximum stack usage
+Date: Thu, 16 Jan 2020 12:01:52 -0500
+Message-Id: <20200116170509.12787-211-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200116170509.12787-1-sashal@kernel.org>
 References: <20200116170509.12787-1-sashal@kernel.org>
@@ -118,7 +119,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=hIFmJVhf;       spf=pass
+ header.i=@kernel.org header.s=default header.b=HwkOcHM5;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -137,118 +138,178 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit bc83f79bd2119230888fb8574639d5a51b38f903 ]
+[ Upstream commit 72c8117adfced37df101c8c0b3f363e0906f83f0 ]
 
-Generally, declaring a platform device as a static variable is
-a bad idea and can cause all kinds of problems, in particular
-with the DMA configuration and lifetime rules.
+Each of the operations in ccp_run_cmd() needs several hundred
+bytes of kernel stack. Depending on the inlining, these may
+need separate stack slots that add up to more than the warning
+limit, as shown in this clang based build:
 
-A specific problem we hit here is from a bug in clang that warns
-about certain (otherwise valid) macros when used in static variables:
+drivers/crypto/ccp/ccp-ops.c:871:12: error: stack frame size of 1164 bytes in function 'ccp_run_aes_cmd' [-Werror,-Wframe-larger-than=]
+static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
 
-drivers/misc/mic/card/mic_x100.c:285:27: warning: shift count >= width of type [-Wshift-count-overflow]
-static u64 mic_dma_mask = DMA_BIT_MASK(64);
-                          ^~~~~~~~~~~~~~~~
-include/linux/dma-mapping.h:141:54: note: expanded from macro 'DMA_BIT_MASK'
- #define DMA_BIT_MASK(n) (((n) == 64) ? ~0ULL : ((1ULL<<(n))-1))
-                                                     ^ ~~~
+The problem may also happen when there is no warning, e.g. in the
+ccp_run_cmd()->ccp_run_aes_cmd()->ccp_run_aes_gcm_cmd() call chain with
+over 2000 bytes.
 
-A slightly better way here is to create the platform device dynamically
-and set the dma mask in the probe function.
-This avoids the warning and some other problems, but is still not ideal
-because the device creation should really be separated from the driver,
-and the fact that the device has no parent means we have to force
-the dma mask rather than having it set up from the bus that the device
-is actually on.
+Mark each individual function as 'noinline_for_stack' to prevent
+this from happening, and move the calls to the two special cases for aes
+into the top-level function. This will keep the actual combined stack
+usage to the mimimum: 828 bytes for ccp_run_aes_gcm_cmd() and
+at most 524 bytes for each of the other cases.
 
-Fixes: dd8d8d44df64 ("misc: mic: MIC card driver specific changes to enable SCIF")
+Fixes: 63b945091a07 ("crypto: ccp - CCP device driver and interface support")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Link: https://lore.kernel.org/r/20190712092426.872625-1-arnd@arndb.de
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/misc/mic/card/mic_x100.c | 28 ++++++++++++----------------
- 1 file changed, 12 insertions(+), 16 deletions(-)
+ drivers/crypto/ccp/ccp-ops.c | 52 +++++++++++++++++++++---------------
+ 1 file changed, 31 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/misc/mic/card/mic_x100.c b/drivers/misc/mic/card/mic_x100.c
-index b9f0710ffa6b..4007adc666f3 100644
---- a/drivers/misc/mic/card/mic_x100.c
-+++ b/drivers/misc/mic/card/mic_x100.c
-@@ -249,6 +249,9 @@ static int __init mic_probe(struct platform_device *pdev)
- 	mdrv->dev = &pdev->dev;
- 	snprintf(mdrv->name, sizeof(mic_driver_name), mic_driver_name);
- 
-+	/* FIXME: use dma_set_mask_and_coherent() and check result */
-+	dma_coerce_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(64));
-+
- 	mdev->mmio.pa = MIC_X100_MMIO_BASE;
- 	mdev->mmio.len = MIC_X100_MMIO_LEN;
- 	mdev->mmio.va = devm_ioremap(&pdev->dev, MIC_X100_MMIO_BASE,
-@@ -294,18 +297,6 @@ static void mic_platform_shutdown(struct platform_device *pdev)
- 	mic_remove(pdev);
+diff --git a/drivers/crypto/ccp/ccp-ops.c b/drivers/crypto/ccp/ccp-ops.c
+index 4b48b8523a40..330853a2702f 100644
+--- a/drivers/crypto/ccp/ccp-ops.c
++++ b/drivers/crypto/ccp/ccp-ops.c
+@@ -458,8 +458,8 @@ static int ccp_copy_from_sb(struct ccp_cmd_queue *cmd_q,
+ 	return ccp_copy_to_from_sb(cmd_q, wa, jobid, sb, byte_swap, true);
  }
  
--static u64 mic_dma_mask = DMA_BIT_MASK(64);
--
--static struct platform_device mic_platform_dev = {
--	.name = mic_driver_name,
--	.id   = 0,
--	.num_resources = 0,
--	.dev = {
--		.dma_mask = &mic_dma_mask,
--		.coherent_dma_mask = DMA_BIT_MASK(64),
--	},
--};
--
- static struct platform_driver __refdata mic_platform_driver = {
- 	.probe = mic_probe,
- 	.remove = mic_remove,
-@@ -315,6 +306,8 @@ static struct platform_driver __refdata mic_platform_driver = {
- 	},
- };
- 
-+static struct platform_device *mic_platform_dev;
-+
- static int __init mic_init(void)
+-static int ccp_run_aes_cmac_cmd(struct ccp_cmd_queue *cmd_q,
+-				struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_aes_cmac_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
  {
- 	int ret;
-@@ -328,9 +321,12 @@ static int __init mic_init(void)
- 
- 	request_module("mic_x100_dma");
- 	mic_init_card_debugfs();
--	ret = platform_device_register(&mic_platform_dev);
-+
-+	mic_platform_dev = platform_device_register_simple(mic_driver_name,
-+							   0, NULL, 0);
-+	ret = PTR_ERR_OR_ZERO(mic_platform_dev);
- 	if (ret) {
--		pr_err("platform_device_register ret %d\n", ret);
-+		pr_err("platform_device_register_full ret %d\n", ret);
- 		goto cleanup_debugfs;
- 	}
- 	ret = platform_driver_register(&mic_platform_driver);
-@@ -341,7 +337,7 @@ static int __init mic_init(void)
+ 	struct ccp_aes_engine *aes = &cmd->u.aes;
+ 	struct ccp_dm_workarea key, ctx;
+@@ -614,8 +614,8 @@ static int ccp_run_aes_cmac_cmd(struct ccp_cmd_queue *cmd_q,
  	return ret;
- 
- device_unregister:
--	platform_device_unregister(&mic_platform_dev);
-+	platform_device_unregister(mic_platform_dev);
- cleanup_debugfs:
- 	mic_exit_card_debugfs();
- done:
-@@ -351,7 +347,7 @@ static int __init mic_init(void)
- static void __exit mic_exit(void)
- {
- 	platform_driver_unregister(&mic_platform_driver);
--	platform_device_unregister(&mic_platform_dev);
-+	platform_device_unregister(mic_platform_dev);
- 	mic_exit_card_debugfs();
  }
  
+-static int ccp_run_aes_gcm_cmd(struct ccp_cmd_queue *cmd_q,
+-			       struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_aes_gcm_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_aes_engine *aes = &cmd->u.aes;
+ 	struct ccp_dm_workarea key, ctx, final_wa, tag;
+@@ -897,7 +897,8 @@ static int ccp_run_aes_gcm_cmd(struct ccp_cmd_queue *cmd_q,
+ 	return ret;
+ }
+ 
+-static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_aes_engine *aes = &cmd->u.aes;
+ 	struct ccp_dm_workarea key, ctx;
+@@ -907,12 +908,6 @@ static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ 	bool in_place = false;
+ 	int ret;
+ 
+-	if (aes->mode == CCP_AES_MODE_CMAC)
+-		return ccp_run_aes_cmac_cmd(cmd_q, cmd);
+-
+-	if (aes->mode == CCP_AES_MODE_GCM)
+-		return ccp_run_aes_gcm_cmd(cmd_q, cmd);
+-
+ 	if (!((aes->key_len == AES_KEYSIZE_128) ||
+ 	      (aes->key_len == AES_KEYSIZE_192) ||
+ 	      (aes->key_len == AES_KEYSIZE_256)))
+@@ -1080,8 +1075,8 @@ static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ 	return ret;
+ }
+ 
+-static int ccp_run_xts_aes_cmd(struct ccp_cmd_queue *cmd_q,
+-			       struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_xts_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_xts_aes_engine *xts = &cmd->u.xts;
+ 	struct ccp_dm_workarea key, ctx;
+@@ -1280,7 +1275,8 @@ static int ccp_run_xts_aes_cmd(struct ccp_cmd_queue *cmd_q,
+ 	return ret;
+ }
+ 
+-static int ccp_run_des3_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_des3_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_des3_engine *des3 = &cmd->u.des3;
+ 
+@@ -1476,7 +1472,8 @@ static int ccp_run_des3_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ 	return ret;
+ }
+ 
+-static int ccp_run_sha_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_sha_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_sha_engine *sha = &cmd->u.sha;
+ 	struct ccp_dm_workarea ctx;
+@@ -1820,7 +1817,8 @@ static int ccp_run_sha_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ 	return ret;
+ }
+ 
+-static int ccp_run_rsa_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_rsa_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_rsa_engine *rsa = &cmd->u.rsa;
+ 	struct ccp_dm_workarea exp, src, dst;
+@@ -1951,8 +1949,8 @@ static int ccp_run_rsa_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ 	return ret;
+ }
+ 
+-static int ccp_run_passthru_cmd(struct ccp_cmd_queue *cmd_q,
+-				struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_passthru_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_passthru_engine *pt = &cmd->u.passthru;
+ 	struct ccp_dm_workarea mask;
+@@ -2083,7 +2081,8 @@ static int ccp_run_passthru_cmd(struct ccp_cmd_queue *cmd_q,
+ 	return ret;
+ }
+ 
+-static int ccp_run_passthru_nomap_cmd(struct ccp_cmd_queue *cmd_q,
++static noinline_for_stack int
++ccp_run_passthru_nomap_cmd(struct ccp_cmd_queue *cmd_q,
+ 				      struct ccp_cmd *cmd)
+ {
+ 	struct ccp_passthru_nomap_engine *pt = &cmd->u.passthru_nomap;
+@@ -2424,7 +2423,8 @@ static int ccp_run_ecc_pm_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ 	return ret;
+ }
+ 
+-static int ccp_run_ecc_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
++static noinline_for_stack int
++ccp_run_ecc_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ {
+ 	struct ccp_ecc_engine *ecc = &cmd->u.ecc;
+ 
+@@ -2461,7 +2461,17 @@ int ccp_run_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+ 
+ 	switch (cmd->engine) {
+ 	case CCP_ENGINE_AES:
+-		ret = ccp_run_aes_cmd(cmd_q, cmd);
++		switch (cmd->u.aes.mode) {
++		case CCP_AES_MODE_CMAC:
++			ret = ccp_run_aes_cmac_cmd(cmd_q, cmd);
++			break;
++		case CCP_AES_MODE_GCM:
++			ret = ccp_run_aes_gcm_cmd(cmd_q, cmd);
++			break;
++		default:
++			ret = ccp_run_aes_cmd(cmd_q, cmd);
++			break;
++		}
+ 		break;
+ 	case CCP_ENGINE_XTS_AES_128:
+ 		ret = ccp_run_xts_aes_cmd(cmd_q, cmd);
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-209-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-211-sashal%40kernel.org.
