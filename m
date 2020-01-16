@@ -1,147 +1,125 @@
-Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBJONQPYQKGQEHC7PV3I@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBJ6OQPYQKGQEM4IVACQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103c.google.com (mail-pj1-x103c.google.com [IPv6:2607:f8b0:4864:20::103c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8436413FC43
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 23:41:43 +0100 (CET)
-Received: by mail-pj1-x103c.google.com with SMTP id bg6sf2818648pjb.5
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 14:41:43 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579214502; cv=pass;
+Received: from mail-yw1-xc3c.google.com (mail-yw1-xc3c.google.com [IPv6:2607:f8b0:4864:20::c3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id C22A513FC4B
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 23:43:52 +0100 (CET)
+Received: by mail-yw1-xc3c.google.com with SMTP id r189sf23677050ywf.13
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 14:43:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579214631; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SnmI/8KyqJ7JnqHwhAeEH6VLYTwleqfJtc/0Jh8F+0hr9cr/1/5lZZ34KhyTGIxwT3
-         SHJeG4CtpULnuokLUPtxW9GC4F+mJQ+hvFIJ2QNXZfyP+O1VVnZbNKU+FbYv4gdXP/sw
-         uPHwvTnlY5xnYMXueQD6Y0FJwGpmMu92KlI6oe7XwoWVcV+6tOD2uQT3HepcI9OZrbnL
-         h0x4TmkaXiLefQAnTsBHbMDAEdB+gzGMkw5SAA3cMWDq2cqNTGNr7nO/5S2hD2SF3HVx
-         m3e2CjOKtuYhHWubzStCQW6PEH8XyCJU9b+CoTx0wDyDNJ+DYZzBhUQ+CtTcwkU6Bz2P
-         doNw==
+        b=06r6fpyzOH2/hh5gjV/MOl37rZcYenJJSAO8MKq2ZsGTLc0gaWCIDjmLkXo5gAtpWd
+         xxIwl1v4TW5U99XpvlxCZUYmZi0Xsf7ZP4CzFh6+3IwF7/T4jIlqMdgcJYdQMDrZH3dN
+         o80194/jBFVGN7V/ktVC+mRC46ZpSlmGq7cCgyFlWCXVAQDxCOALgiZravX7I6cpb0jM
+         1JIUSgYlm6k/4vnrFfNYlZu/zUhsFtJ3pIFW8Rljt9qS8vmIegR8vmpBuHeOkMCZjU3V
+         xqJFbfE8mtGg+szq6vPuMF1EsSWj5UKikWfXwoLbddqaxAq9bXsJ4zykCrb+ZLaxWGy9
+         CEcw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
-         :subject:message-id:date:from:in-reply-to:references:mime-version
-         :sender:dkim-signature:dkim-signature;
-        bh=pbOTidvsHYPW+T90y3XrcapspgnCZbD5yF0bYA7iVXo=;
-        b=TrUe08ROI2SqU+a6V3DOPU02uauS/xXBHn4Tu39yRhKRyViTjpX/+/Kn7HxIwh+LfE
-         M0uFXpyy54P/19XwSSn2QL+iensm5YizEdfMAYAyO4ugeAmY7EcDF1RSfOzZOltvx3Iw
-         798FAHeUL2dO2gUsgTySf8MGdoLoFP1Mt+s0J0Zu4a+quOLjdgX0VraCs0gatTOjqA3N
-         BJhWI6wLmefagXmFsohMrdgyluWbKMSS3xk6kXw7e0WwnWtG/a8vS8X/593W0WMtREqn
-         3MOYH4i/YxYAbcgzmyyNOrBvFkGfCwoxuJBnm94ulkiEffennAB6vIaimtwyNoshwTC5
-         dtbA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=eHGLhhaiyQBMGvhpY/oB8bRYsY4DquyxIxc9YEUXfPs=;
+        b=bwNxvnE2Omj+xXJ5pGAz4CNSZPDr2Xq8VeKVbdoVxrpc6fyu01naFAgK61gPLRMh2T
+         qsQ1tZKXD4AH1iEnQ/qdKf+GypUlz/1sdHaYgp466bUAB0u5OOJQktpiHWwCJcspnVqy
+         F/gyTZe0ah4sSGiUEOirx9yxChu5AHJzLLCkh31NeSfGfU/J6GRySitwHPGNECt/0w8a
+         nVDpWbyyUQHkDrQ0K2I06wHnVF3YepkbnRMJfbv0OLtwWMDmDNHImb2NK+wTTMCI1WEu
+         WHijSZdch3jAQZbHm8mrWGTG4K1SJLuQubmyOMiS/hGPRpYqDeQ7jxwJaEvirvgo8Z5U
+         0orw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=O0cAJfcH;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=iyzctcpZ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pbOTidvsHYPW+T90y3XrcapspgnCZbD5yF0bYA7iVXo=;
-        b=HadlgFcnlPJ3b2/BkAHVTBZ+M/272vaMNtAVR0/puNpYamtiNwjAU1XGlXcK1n+DgX
-         Xz5AIqh9KkuL+IgdcHJEfJPcNgglqXAGAdrPoqAqA9w13rg9oRYrAUnzLGUu5qrBcjHQ
-         R4t9zlozWevCAlQV/TPQVt4QwZApc2ieHFapNgX9b0PSoqXSA39fGsj/RSxUN0ZKanP4
-         fA87QoDHu6U7tJdv36DrmUN4pvqxVrJuSIJdrfSPpipsOQqThP0z3l1nSWdL5tR3V9l6
-         SJusA6TXb8OlHBp6kH0Gqsc8nvt2PW0A3fgfLU8JYhBhKGH2Mxt4Img2xp2A/t07b/lq
-         XdEw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pbOTidvsHYPW+T90y3XrcapspgnCZbD5yF0bYA7iVXo=;
-        b=afRnkENEiSXLcaQNuSqe4HniXU+CZkEN879P15q2tA9OTsFIzcLnjC6wiKuBML2UKz
-         Ybgo7/j0sAONMHyVhz7a8n3dbZEstxZ5IsoRZHCFuP8hz1LQqj6DaU0QzVm9lUIDc+3Q
-         v0GYrb4vLsHHiOfpgcMEP69XOICaUO0zdYoorgRYPJU3LZQUIN1tK99iUafJyFBzRkml
-         ynUcWI4V0ROSK2L8nYtFA/D3n6m6Q04Nl+BJp6UkgmrvDIFdRbnWK1QFzyzt7uHiUIZK
-         lUPoiAwKXNxiUrQ/In0E4waXpmGbndUX4w1j4AbaSRk+OhKegwlQwHx4hoxZxAFWlXd7
-         xc1A==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eHGLhhaiyQBMGvhpY/oB8bRYsY4DquyxIxc9YEUXfPs=;
+        b=L5ywpyP5bqnYH/cTq4w92wZ6cH5vUaCze71Du57c3LxQksG/ypA6IvMnrnbqR7u01t
+         /EdnZ8rLfEP1c2mLqO2QycP002uIqOJZ3TAygy8TavnpRpWkr0qpKeZE52io12aE2Lmd
+         bbisXUmPAo/UD9ntCPuF/jR+RN0EBz285sFT1sq3Uo130j3q/h9sEYjQPsMENTYA9kwC
+         h6zs3S79Ncjq0/F2eMWfUnFqlh8AYhtSRN9c+aIUbJPd9M54Ov4hH2IVAKYVsVhcxp/b
+         MCwEEx4C8H1XBXL+zzNerFyfj+RwiqrmVtqb3Bgih9GGZG7/R8F+Uzw58GRyVmDu4Mx1
+         1jiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=pbOTidvsHYPW+T90y3XrcapspgnCZbD5yF0bYA7iVXo=;
-        b=AzHHNQbL35jKVoeUoSSzl8fTdKPLRtDAKwkCkYe497HTchUD1QsIpKFvIs7Uh6DAu4
-         K9Cf2Kxgn4zNA+iRccp4LnAwlLod/6NSQJqDEiOaGZHJKT/wRuzkKaBLm7TIckRJZXEa
-         E3hnsvs+L1zWniRmLTJ0Th6TPo9tHHikita5ZuOiu54TfaxCimLAiF99IJwC7Txsu60k
-         HQqEzPnUS+4mPca0iyzy/n+XDF17iYPhho5wPgyWKOHvL/DKVVPo14AyrAavmUn77Dmk
-         0C2ISiDOaSf6JTAoiiy75AtuTeheY2MvvHSs30k1SQzaMOygpV2ZNP8A45yoYL+3uu/U
-         nebw==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAV0PgedkGB478sRct+XBGKYWz1Lz47jr3M7/XD8VdV/fIz/cL7w
-	yGUPF543SjAeAUkQxglTR/A=
-X-Google-Smtp-Source: APXvYqwXwGQ98p8oM/sAIRHPDWzqBszQzlnbGw+Lh7Z0vDsy9fsPaNjfY8qXiLiPUXGD7AM4ST9iQA==
-X-Received: by 2002:a17:902:9009:: with SMTP id a9mr40550059plp.124.1579214501840;
-        Thu, 16 Jan 2020 14:41:41 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=eHGLhhaiyQBMGvhpY/oB8bRYsY4DquyxIxc9YEUXfPs=;
+        b=pT9NvkuOzoC1UD9vr5PTbyji49I9JGd7xNf1La4IvyRKmeaKoW9NNexMJZ8uNK0q4J
+         qB8ahGLj6+PD+Ne42a0QUmf7nKY/Cg3ij2tDHOSUK0Z13yXuOHKar0A8ojc74+L089w5
+         epZyb7X0ducwwZ09lj2ktf8LjGkqgnWVDu+73VvWP6I54d6N1C4AfZ6r5cpCDhD01usd
+         McBKn9GCzA1xyuGd+UQ01P6SQnQIKIRHEMWvm5/Tk8nKNb8xv8l/xnapox5ctP27DN5f
+         dWwi2UK9lDy8nwYVOPzDVW1EfMFuZtHH+rOYrfUEc9hynfDa6eX8vaifOEqqyx6OKn0Q
+         3qjw==
+X-Gm-Message-State: APjAAAVEB3flm9tqDvPNChellcDvrI1CRiPQeHAce6kS6EykBZZH8CEf
+	k+RYo1+NY5ZOfC8x6aWyfbo=
+X-Google-Smtp-Source: APXvYqyyx7xa2SE6Hfs9nyDaJ9vHF8vcBHiI3FZfaFJ2Cpty/9mmPsQxIiM0NUhxYr+7jQw5OoWtlg==
+X-Received: by 2002:a05:6902:68f:: with SMTP id i15mr27532633ybt.279.1579214631769;
+        Thu, 16 Jan 2020 14:43:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:208:: with SMTP id 8ls6445346pgc.16.gmail; Thu, 16 Jan
- 2020 14:41:41 -0800 (PST)
-X-Received: by 2002:a65:55cc:: with SMTP id k12mr42936710pgs.184.1579214501351;
-        Thu, 16 Jan 2020 14:41:41 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579214501; cv=none;
+Received: by 2002:a0d:cc05:: with SMTP id o5ls3825971ywd.1.gmail; Thu, 16 Jan
+ 2020 14:43:51 -0800 (PST)
+X-Received: by 2002:a81:5746:: with SMTP id l67mr28677885ywb.265.1579214631383;
+        Thu, 16 Jan 2020 14:43:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579214631; cv=none;
         d=google.com; s=arc-20160816;
-        b=ipJ+n5VnkG+UEACnt2KYHqfNVsSv3B+IQFGwOO9iiPBkQ/GayW/Y8GEny7HOZ7enAB
-         iqZNNOSfafuif7372xypeEVUAc73y0zWOH5xpdH43oa1ei4lACKA67Ktcf3IXtXeLz9Y
-         fsghZp5E0P9OXpgD6Vq067a2LJKAX5PvUEy5aMOvoOxmyhmLZqJwYyvMKZni7RHfotOz
-         bIBhwIHYvcBJfXPbLsrHGLr22BrsrPQ1VljrFG8xeYxqwFAreQsTRc/2Rp3l/oXy3gD+
-         Le4iekoLpuc95LynjX/4q7sW+AczIyPANWSj2a28RcmLWHUH0MhE2aeOLgWwt0m5kJ4B
-         HNWQ==
+        b=F6RDP2k3ackNGnUqZ5ZzYcVlyVDWsDNqrrPkpp36QuXvKUr9MEUosrvmO6N1wvqSUC
+         dVCYCrS6lt73HTjl7MLDz2uObQIPU7Djr+RxlVgqDRP5CDMdYrGWAi1K4AqsxAGj1E1W
+         FsPuQOUXG0boY9jLTi6x9iCpSut1cpH5PUlx2yFHLvZCOMrFfDEY7QyflUnyBM/gLVki
+         ShLZgBbtELCNjjIJS2ja0MQI4X+xDY9IwO7h+4uBvm3yzVkAMc94wwgG3Lvj+NvKB2Nm
+         7vE9A0M5fk+ipnYHAXljXrsfusdxs5DpoCZBTk9ZyTH/n892fDBtdLo4YDQO9wqfH2zh
+         Y/+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CvIccACVJOu+2bdMdFsFdYMzg33aY8K8AC76wN0kDto=;
-        b=cemhBZceVnQps95Ngjz/6fCfE4dbAnXfO4gnTUehH7gnp/esKjBzv7VbAfNtk1HXty
-         mRHQTdUJ6FeO9NPT+Wq3EDixo6A0yq2GOSmArpg3qZnbfUjPKnEfWb0KC/bVPL0MIO5u
-         l5CuTOtZJ8NsVLzcZrr/ATtFeAijA4xvNQnt8e8UrKvH/fXnLYF/XkQIyPGDMXVuzrgy
-         voZjshRM+mgjCs+ARh436lQevNO38q/Mjd1qN/l929UFEIqqtA0jU0qrJrww1PlOt/2l
-         kl+Yi3CoYDYS89Y8kkmqitEanx7TRuW0bKitvafZRhB/7wzsHl7j4WqgtPggFaOaHNFY
-         /rEA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=StK6mCQeojQYfSNaCJiF94BEEGS98R/vhelyaxbgu6A=;
+        b=gMn3ZG7Mg/V91fv6tOEkOuiGpd0rIr+SxT+Hhl/6uc0BzdLzgMZiRakU39QbbTw8J9
+         SpKTEGrabTdual3UAgR8wp+kyuAC6aC0xqDMUabXcy9/rlChDmJoRsIK3Ns214KO1bU3
+         DiCDDFFKrQl5O9NVNwSbVqTuWc72cHYsfwhbb5xnRVypWxLtrltEWPiWa+oyyrEcUB1g
+         gk7OcCs1JAWl4H0CUxsmEOe2jFTxVH3VBnb4dKzP2pH3ot28buGCIvKYjipizjLROvRg
+         /zWPv6AYkxbwf9yc6ATVYhlTCQ1M7L+Nj60P3iHNKW0VF9qgtQotKdceZ+ySFSxuP1l2
+         flMw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=O0cAJfcH;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qv1-xf43.google.com (mail-qv1-xf43.google.com. [2607:f8b0:4864:20::f43])
-        by gmr-mx.google.com with ESMTPS id cx5si139128pjb.1.2020.01.16.14.41.41
+       dkim=pass header.i=@google.com header.s=20161025 header.b=iyzctcpZ;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id v64si1314066ywa.4.2020.01.16.14.43.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jan 2020 14:41:41 -0800 (PST)
-Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) client-ip=2607:f8b0:4864:20::f43;
-Received: by mail-qv1-xf43.google.com with SMTP id dp13so9880856qvb.7
-        for <clang-built-linux@googlegroups.com>; Thu, 16 Jan 2020 14:41:41 -0800 (PST)
-X-Received: by 2002:ad4:54d3:: with SMTP id j19mr4814230qvx.247.1579214500294;
- Thu, 16 Jan 2020 14:41:40 -0800 (PST)
+        Thu, 16 Jan 2020 14:43:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
+Received: by mail-pf1-x443.google.com with SMTP id 4so10954729pfz.9
+        for <clang-built-linux@googlegroups.com>; Thu, 16 Jan 2020 14:43:51 -0800 (PST)
+X-Received: by 2002:a62:e215:: with SMTP id a21mr40193966pfi.3.1579214630106;
+ Thu, 16 Jan 2020 14:43:50 -0800 (PST)
 MIME-Version: 1.0
-References: <157918093154.1357254.7616059374996162336.stgit@toke.dk> <157918094179.1357254.14428494370073273452.stgit@toke.dk>
-In-Reply-To: <157918094179.1357254.14428494370073273452.stgit@toke.dk>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Thu, 16 Jan 2020 14:41:29 -0800
-Message-ID: <CAEf4Bzba5FHN_iN52qRiGisRcauur1FqDY545EwE+RVR-nFvQA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 09/11] selftests: Remove tools/lib/bpf from
- include path
-To: =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
-Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
-	Andrii Nakryiko <andriin@fb.com>, Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Jesper Dangaard Brouer <brouer@redhat.com>, John Fastabend <john.fastabend@gmail.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
-	Namhyung Kim <namhyung@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
-	open list <linux-kernel@vger.kernel.org>, linux-rdma@vger.kernel.org, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, clang-built-linux@googlegroups.com
+References: <20200116222658.5285-1-natechancellor@gmail.com>
+In-Reply-To: <20200116222658.5285-1-natechancellor@gmail.com>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Thu, 16 Jan 2020 14:43:39 -0800
+Message-ID: <CAKwvOdmFbojiubviQYqwJLLpCLky_bpOH4jYjy4WCbOinPRYuA@mail.gmail.com>
+Subject: Re: [PATCH] IB/hfi1: Fix logical condition in msix_request_irq
+To: Nathan Chancellor <natechancellor@gmail.com>
+Cc: Mike Marciniszyn <mike.marciniszyn@intel.com>, 
+	Dennis Dalessandro <dennis.dalessandro@intel.com>, Doug Ledford <dledford@redhat.com>, 
+	Jason Gunthorpe <jgg@ziepe.ca>, linux-rdma@vger.kernel.org, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: andrii.nakryiko@gmail.com
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=O0cAJfcH;       spf=pass
- (google.com: domain of andrii.nakryiko@gmail.com designates
- 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@google.com header.s=20161025 header.b=iyzctcpZ;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,228 +132,48 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 16, 2020 at 5:28 AM Toke H=C3=B8iland-J=C3=B8rgensen <toke@redh=
-at.com> wrote:
+On Thu, Jan 16, 2020 at 2:27 PM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
 >
-> From: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+> Clang warns:
 >
-> To make sure no new files are introduced that doesn't include the bpf/
-> prefix in its #include, remove tools/lib/bpf from the include path
-> entirely.
+> drivers/infiniband/hw/hfi1/msix.c:136:22: warning: overlapping
+> comparisons always evaluate to false [-Wtautological-overlap-compare]
+>         if (type < IRQ_SDMA && type >= IRQ_OTHER)
+>             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+> 1 warning generated.
 >
-> Instead, we introduce a new header files directory under the scratch tool=
-s/
-> dir, and add a rule to run the 'install_headers' rule from libbpf to have=
- a
-> full set of consistent libbpf headers in $(OUTPUT)/tools/include/bpf, and
-> then use $(OUTPUT)/tools/include as the include path for selftests.
+> It is impossible for something to be less than 0 (IRQ_SDMA) and greater
+> than or equal to 3 (IRQ_OTHER) at the same time. A logical OR should
+> have been used to keep the same logic as before.
 >
-> For consistency we also make sure we put all the scratch build files from
-> other bpftool and libbpf into tools/build/, so everything stays within
-> selftests/.
->
-> Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/841
+> Fixes: 13d2a8384bd9 ("IB/hfi1: Decouple IRQ name from type")
+> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+
+Thanks for the patch. LGTM.
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+
 > ---
->  tools/testing/selftests/bpf/.gitignore |    1 +
->  tools/testing/selftests/bpf/Makefile   |   50 +++++++++++++++++++-------=
-------
->  2 files changed, 31 insertions(+), 20 deletions(-)
+>  drivers/infiniband/hw/hfi1/msix.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/tools/testing/selftests/bpf/.gitignore b/tools/testing/selft=
-ests/bpf/.gitignore
-> index 1d14e3ab70be..849be9990ad2 100644
-> --- a/tools/testing/selftests/bpf/.gitignore
-> +++ b/tools/testing/selftests/bpf/.gitignore
-> @@ -40,3 +40,4 @@ test_cpp
->  /bpf_gcc
->  /tools
->  bpf_helper_defs.h
-> +/include/bpf
+> diff --git a/drivers/infiniband/hw/hfi1/msix.c b/drivers/infiniband/hw/hfi1/msix.c
+> index 4a620cf80588..db82db497b2c 100644
+> --- a/drivers/infiniband/hw/hfi1/msix.c
+> +++ b/drivers/infiniband/hw/hfi1/msix.c
+> @@ -133,7 +133,7 @@ static int msix_request_irq(struct hfi1_devdata *dd, void *arg,
+>         if (nr == dd->msix_info.max_requested)
+>                 return -ENOSPC;
+>
+> -       if (type < IRQ_SDMA && type >= IRQ_OTHER)
+> +       if (type < IRQ_SDMA || type >= IRQ_OTHER)
 
-Isn't the real path (within selftests/bpf) a tools/include/bpf, which
-is already ignored through /tools rule?
+-- 
+Thanks,
+~Nick Desaulniers
 
-> diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftes=
-ts/bpf/Makefile
-> index 1fd7da49bd56..c3fa695bb028 100644
-> --- a/tools/testing/selftests/bpf/Makefile
-> +++ b/tools/testing/selftests/bpf/Makefile
-> @@ -20,8 +20,8 @@ CLANG         ?=3D clang
->  LLC            ?=3D llc
->  LLVM_OBJCOPY   ?=3D llvm-objcopy
->  BPF_GCC                ?=3D $(shell command -v bpf-gcc;)
-> -CFLAGS +=3D -g -Wall -O2 $(GENFLAGS) -I$(CURDIR) -I$(APIDIR) -I$(LIBDIR)=
-  \
-> -         -I$(BPFDIR) -I$(GENDIR) -I$(TOOLSINCDIR)                      \
-> +CFLAGS +=3D -g -Wall -O2 $(GENFLAGS) -I$(CURDIR) -I$(APIDIR)            =
-  \
-> +         -I$(INCLUDE_DIR) -I$(GENDIR) -I$(LIBDIR) -I$(TOOLSINCDIR)     \
->           -Dbpf_prog_load=3Dbpf_prog_test_load                           =
- \
->           -Dbpf_load_program=3Dbpf_test_load_program
->  LDLIBS +=3D -lcap -lelf -lz -lrt -lpthread
-> @@ -97,11 +97,15 @@ OVERRIDE_TARGETS :=3D 1
->  override define CLEAN
->         $(call msg,CLEAN)
->         $(RM) -r $(TEST_GEN_PROGS) $(TEST_GEN_PROGS_EXTENDED) $(TEST_GEN_=
-FILES) $(EXTRA_CLEAN)
-> -       $(MAKE) -C $(BPFDIR) OUTPUT=3D$(OUTPUT)/ clean
->  endef
->
->  include ../lib.mk
->
-> +SCRATCH_DIR :=3D $(OUTPUT)/tools
-> +BUILD_DIR :=3D $(SCRATCH_DIR)/build
-> +INCLUDE_DIR :=3D $(SCRATCH_DIR)/include
-> +INCLUDE_BPF :=3D $(INCLUDE_DIR)/bpf/bpf.h
-> +
->  # Define simple and short `make test_progs`, `make test_sysctl`, etc tar=
-gets
->  # to build individual tests.
->  # NOTE: Semicolon at the end is critical to override lib.mk's default st=
-atic
-> @@ -120,7 +124,7 @@ $(OUTPUT)/urandom_read: urandom_read.c
->         $(call msg,BINARY,,$@)
->         $(CC) -o $@ $< -Wl,--build-id
->
-> -$(OUTPUT)/test_stub.o: test_stub.c
-> +$(OUTPUT)/test_stub.o: test_stub.c $(INCLUDE_BPF)
->         $(call msg,CC,,$@)
->         $(CC) -c $(CFLAGS) -o $@ $<
->
-> @@ -129,7 +133,7 @@ $(OUTPUT)/runqslower: force
->         $(Q)$(MAKE) $(submake_extras) -C $(TOOLSDIR)/bpf/runqslower      =
-     \
->                     OUTPUT=3D$(CURDIR)/tools/ VMLINUX_BTF=3D$(abspath ../=
-../../../vmlinux)
->
-> -BPFOBJ :=3D $(OUTPUT)/libbpf.a
-> +BPFOBJ :=3D $(BUILD_DIR)/libbpf/libbpf.a
->
->  $(TEST_GEN_PROGS) $(TEST_GEN_PROGS_EXTENDED): $(OUTPUT)/test_stub.o $(BP=
-FOBJ)
->
-> @@ -155,17 +159,23 @@ force:
->  DEFAULT_BPFTOOL :=3D $(OUTPUT)/tools/sbin/bpftool
->  BPFTOOL ?=3D $(DEFAULT_BPFTOOL)
->
-> -$(DEFAULT_BPFTOOL): force
-> -       $(Q)$(MAKE) $(submake_extras)  -C $(BPFTOOLDIR)                  =
-     \
-> +$(BUILD_DIR)/libbpf $(BUILD_DIR)/bpftool $(INCLUDE_DIR):
-> +       $(call msg,MKDIR,,$@)
-> +       mkdir -p $@
-> +
-> +$(DEFAULT_BPFTOOL): force $(BUILD_DIR)/bpftool
-
-directories should be included as order-only dependencies (after | )
-
-> +       $(Q)$(MAKE) $(submake_extras)  -C $(BPFTOOLDIR)         \
-> +                   OUTPUT=3D$(BUILD_DIR)/bpftool/                       =
- \
->                     prefix=3D DESTDIR=3D$(OUTPUT)/tools/ install
->
-> -$(BPFOBJ): force
-> -       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR) OUTPUT=3D$(OUTPUT)/
-> +$(BPFOBJ): force $(BUILD_DIR)/libbpf
-
-same
-
-> +       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR) \
-> +               OUTPUT=3D$(BUILD_DIR)/libbpf/
->
-> -BPF_HELPERS :=3D $(OUTPUT)/bpf_helper_defs.h $(wildcard $(BPFDIR)/bpf_*.=
-h)
-> -$(OUTPUT)/bpf_helper_defs.h: $(BPFOBJ)
-> -       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR)                       =
-     \
-> -                   OUTPUT=3D$(OUTPUT)/ $(OUTPUT)/bpf_helper_defs.h
-> +BPF_HELPERS :=3D $(wildcard $(BPFDIR)/bpf_*.h) $(INCLUDE_BPF)
-
-Shouldn't all BPF_HELPERS come from $(INCLUDE_DIR)/bpf now?
-
-> +$(INCLUDE_BPF): force $(BPFOBJ)
-
-And this can be more properly a $(BPF_HELPERS): force $(BPFOBJ)?
-
-> +       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR) install_headers \
-> +               OUTPUT=3D$(BUILD_DIR)/libbpf/ DESTDIR=3D$(SCRATCH_DIR) pr=
-efix=3D
->
->  # Get Clang's default includes on this system, as opposed to those seen =
-by
->  # '-target bpf'. This fixes "missing" files on some architectures/distro=
-s,
-> @@ -185,8 +195,8 @@ MENDIAN=3D$(if $(IS_LITTLE_ENDIAN),-mlittle-endian,-m=
-big-endian)
->
->  CLANG_SYS_INCLUDES =3D $(call get_sys_includes,$(CLANG))
->  BPF_CFLAGS =3D -g -D__TARGET_ARCH_$(SRCARCH) $(MENDIAN)                 =
- \
-> -            -I$(OUTPUT) -I$(CURDIR) -I$(CURDIR)/include/uapi           \
-> -            -I$(APIDIR) -I$(LIBDIR) -I$(BPFDIR) -I$(abspath $(OUTPUT)/..=
-/usr/include)
-> +            -I$(INCLUDE_DIR) -I$(CURDIR) -I$(CURDIR)/include/uapi      \
-> +            -I$(APIDIR) -I$(abspath $(OUTPUT)/../usr/include)
->
->  CLANG_CFLAGS =3D $(CLANG_SYS_INCLUDES) \
->                -Wno-compare-distinct-pointer-types
-> @@ -306,7 +316,7 @@ $(TRUNNER_TEST_OBJS): $(TRUNNER_OUTPUT)/%.test.o:    =
-               \
->                       $(TRUNNER_EXTRA_HDRS)                             \
->                       $(TRUNNER_BPF_OBJS)                               \
->                       $(TRUNNER_BPF_SKELS)                              \
-> -                     $$(BPFOBJ) | $(TRUNNER_OUTPUT)
-> +                     $$(BPFOBJ) $$(INCLUDE_BPF) | $(TRUNNER_OUTPUT)
-
-singling out $(INCLUDE_BPF) looks weird? But I think $(BPFOBJ)
-achieves the same effect, so this change can be probably dropped? Same
-below.
-
->         $$(call msg,TEST-OBJ,$(TRUNNER_BINARY),$$@)
->         cd $$(@D) && $$(CC) $$(CFLAGS) -c $(CURDIR)/$$< $$(LDLIBS) -o $$(=
-@F)
->
-> @@ -314,7 +324,7 @@ $(TRUNNER_EXTRA_OBJS): $(TRUNNER_OUTPUT)/%.o:        =
-                       \
->                        %.c                                              \
->                        $(TRUNNER_EXTRA_HDRS)                            \
->                        $(TRUNNER_TESTS_HDR)                             \
-> -                      $$(BPFOBJ) | $(TRUNNER_OUTPUT)
-> +                      $$(BPFOBJ) $$(INCLUDE_BPF) | $(TRUNNER_OUTPUT)
->         $$(call msg,EXT-OBJ,$(TRUNNER_BINARY),$$@)
->         $$(CC) $$(CFLAGS) -c $$< $$(LDLIBS) -o $$@
->
-> @@ -326,7 +336,7 @@ ifneq ($2,)
->  endif
->
->  $(OUTPUT)/$(TRUNNER_BINARY): $(TRUNNER_TEST_OBJS)                      \
-> -                            $(TRUNNER_EXTRA_OBJS) $$(BPFOBJ)           \
-> +                            $(TRUNNER_EXTRA_OBJS) $$(BPFOBJ) $$(INCLUDE_=
-BPF)           \
->                              | $(TRUNNER_BINARY)-extras
->         $$(call msg,BINARY,,$$@)
->         $$(CC) $$(CFLAGS) $$(filter %.a %.o,$$^) $$(LDLIBS) -o $$@
-> @@ -388,7 +398,7 @@ $(OUTPUT)/test_cpp: test_cpp.cpp $(OUTPUT)/test_core_=
-extern.skel.h $(BPFOBJ)
->         $(call msg,CXX,,$@)
->         $(CXX) $(CFLAGS) $^ $(LDLIBS) -o $@
->
-> -EXTRA_CLEAN :=3D $(TEST_CUSTOM_PROGS)                                   =
- \
-> +EXTRA_CLEAN :=3D $(TEST_CUSTOM_PROGS) $(SCRATCH_DIR)                    =
- \
->         prog_tests/tests.h map_tests/tests.h verifier/tests.h           \
->         feature                                                         \
-> -       $(addprefix $(OUTPUT)/,*.o *.skel.h no_alu32 bpf_gcc tools)
-> +       $(addprefix $(OUTPUT)/,*.o *.skel.h no_alu32 bpf_gcc)
->
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAEf4Bzba5FHN_iN52qRiGisRcauur1FqDY545EwE%2BRVR-nFvQA%40m=
-ail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmFbojiubviQYqwJLLpCLky_bpOH4jYjy4WCbOinPRYuA%40mail.gmail.com.
