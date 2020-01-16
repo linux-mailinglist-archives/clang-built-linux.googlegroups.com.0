@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBONSQLYQKGQEFPTNMZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBRNTQLYQKGQECP47YAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3AC5913E4DB
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:11:23 +0100 (CET)
-Received: by mail-pj1-x103e.google.com with SMTP id h2sf2291048pji.1
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:11:23 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579194682; cv=pass;
+Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id 532CA13E53C
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:13:43 +0100 (CET)
+Received: by mail-pf1-x437.google.com with SMTP id d85sf13346236pfd.4
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:13:43 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579194822; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wcTmHlTMwr1jcZ1msisuhn5Oqfj7WixeIKqVaZjM2rkHzl8RGwV4lSyY9m+HgGCEau
-         CLYojnt1kEQdVJa3LmhASPJ7/PLsRd3/RILqsbaKpnT/KxXgjVUhGYmzoyZfxSEtLypt
-         5mc/ucxO5o7Q/1OU2a7j7VYbtAQ5y8qC6D27CBEPIYrs1LjFerQ1RMDD+aSUbSQ/rhqR
-         m4d3IvCz7SH9lp9zIaVkRgGj/ZdGBc9LLM3Pa+W4hXcv+hEJ0GyFdXrobbPyKsHX2vDu
-         A4XnUgf98Veiqv8wxROxSGjsSFXMbfhqnQWxwVcV44Gpv2NYMDclYNAdCmg0nU+vNEao
-         iBXQ==
+        b=K8XMQwLgk8G3QMIBiegf9V7bRR8TuX3pySvlaA9KZLMlrtIlROgSxa509SDc3PZC/g
+         V2+CAwHZGQ/Vq5BRSqZlopo5MlNrZajJmx2vrG8f3t54qDvMXWqBaLY5soDmrCnsHOtO
+         EtQbhVUxDF/xbRdTm5VD4bi8DL4seoTXA4aCQ2nBlLhRnrHfquMiWoPAJ6mMwG4QMPwU
+         Lg8mEB56Her9Nl3Rq6+Mg9joo4iK7F9cffvQaMdD+zLUPFas/pDHBPt+sEyVQg/yAGKt
+         g1ReQdwe9ogyscwDllfQqVrTi/1sKSikYzWHjcghjcg7BtOlYQQFyZ6AG1Q+6EGMZyOF
+         CpyA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=gEynFTdRxucJxUbvMxlNhFLa30QeAG67mKyuS15Sw50=;
-        b=JMENApIDwANI34br1tTqVssXfkx2J8Gv9C7Zcur327EMsEo/2TwJpzy6lotv6DwhAG
-         yjNdqwrGsuG1c0ACWyvuce9Si+DqYTd05afi1p1krl0hge35HrW3H8zaU60tA6kdbKpy
-         8E+0yClALwyC3AWcSeitTmlsOVTqMZ56OmciOKtsp/kMnxFXEmH1rLRFvJNpqINrSQvq
-         8DFJJy5EjpRHFvkZzU0UZEuTgPxH8/J6NmlJisZKpMaW0xRfwp3GWXSnlASeiD9rBAvG
-         hlhLym7KjvfG9euvqXD4YkChaSwRmObxKS342Zs2GQWXwvz5tEY0gmRuyHsRf0+zHa8Y
-         fRdw==
+        bh=ZFHrPaLis73SxuoJonGw7F6bFMzwQFKZiTldr3FJHM4=;
+        b=kSXRXrDmbz6YMFFr1regH+Sr7RW4YtnrXEyTDG/J7rleLPxS7UbXP1Oc/4QZtMocPH
+         SPZQuNSAxKTuvp+vb20IHe5cNWuZHBGsCR8kQ7mrMZiub+9zgcgNW6AxX55DwOF5sFhm
+         G+bo8i7Yz1xoR1m4zWR0Dk9ip930bAcvLg+d6wcFUHQ5mnAwJkKY1SVyq0DVR+8QxROw
+         mo0v66TXOpe6FmgLcHMucFF4uwXNuqDBl6fdthrpkWW90g4FU9h3JMKRVkCuLa7NF9C3
+         faSziaXpNMFjQKP2FuZcYc4ePKIIeHi1/e427s1EvA9OvefeTXRWILosFL7Oi7VSUMgG
+         OkYw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=Dj1A0PeX;
+       dkim=pass header.i=@kernel.org header.s=default header.b=QVDhz4Gc;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gEynFTdRxucJxUbvMxlNhFLa30QeAG67mKyuS15Sw50=;
-        b=iYWcc/l0a1yU/TqzSlzCnCSfYBr786g6ecTqlW1n7wNqpiIrfU1S5as1E2V6Iiyj4K
-         EcEnbNlzVpGBlICheyOeKIblzfBoIY0U1np36MZ8DPLO6jHSUNk/YOI2HeldXiO9EIIE
-         hr9uQ87//OBQ3DjmcS/HxZ8yjAkzpX66YY5Fn7tXwryvcQ42vtHdiwKOlCpU5lQcNpRg
-         djkZ6OHEoZWJ7OfbIeG7JjIlMRWiJtAljZDl/bh+UIBieM5bERCTV53ypu9+CV93vl4S
-         RTfavYLUAlaj8mCCw6/j4XCiB72zcyRGkCdZu9mscCNY2ZCFBwQlwC3cQApKq2YHMdHG
-         aKKA==
+        bh=ZFHrPaLis73SxuoJonGw7F6bFMzwQFKZiTldr3FJHM4=;
+        b=FQTRtM7WA0B9vQEHD4vIZQqSV2DL9fp4W3aoeaXfXfuP0GtxhMJ2jYyvpmDfqWmrDt
+         IFnDnG3WN/5rKO8q14XTXLgUtW9l6MLPLMexBax0hpfByrSZOTZ83v/tk+tjUouj92mm
+         BD3ZG80ud0p2FkUXo1p11H6ZKpqP3VlWH0ISlfdwINTRWVcJ/ln9osm5ubAfZEO1QHpH
+         ypOVlY3RU+RXTC8sHw0C40RAk8usF2F7e+s3aQwAZPeSc6C53AhpW02evwwvjoz0tciB
+         HIeSYIr+HCC6nxxqzRGi/pj+cUSGpjQyuWQYyfpSS/yATnS2U2uoSfUN8LTZY+7hh/Ic
+         EYUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=gEynFTdRxucJxUbvMxlNhFLa30QeAG67mKyuS15Sw50=;
-        b=XB1ws0tTWY6+0G0j9vYc7XxF/sSu+3diDxLdsSGVj7pgpVGhKQ4nGMYs5WmOkEIxig
-         JBAd2XTLiQNWq7jI1RO+n5s0wGPPL8Xu5zYyUw40bdkEzWQzBrEc2qX0ADPbzEyUPNq/
-         beq70ZFzyiigsm2YbqljHicpYZX0gT4aCBscMvgxIRK5aU9EFfLdnP7n8LxEb8ElEfyf
-         x6z5dax5FZa9PclXOWy2wi/zqFKHF31agjkvXwfe8plA8uugxwTcm8lTjjzsWI1d4059
-         Vkwx7GiZmowemmryOy61ckoLuI1jDjFVMu7Lt3fNXooyd4ek93RNzCUYnFDXVajRnPEi
-         Mnwg==
+        bh=ZFHrPaLis73SxuoJonGw7F6bFMzwQFKZiTldr3FJHM4=;
+        b=XQy/et2InVSGHO+aPhBwZywhPkmaQmNUI23nBRjz6wkSW/tp75oSJO6tcoR27H3Jfo
+         5SsPyq36rsNVZo59vFpx8cDCzJbIvbfzkqICjhowCLjKj7pBXCI2to+zQnSaWLf6ujwP
+         chhLTM7smy3X4xWT3JKCewfwDvBE3/UCEOkTUb8vo8sVcAUSaRd7PUFhg5Marn9eW1BB
+         Ik2w+MpdhcKTorA7MnnHWJ5+tCbfX0CQjiNz+UpMWJenwnVYZ2wSbJ12uUj+Ho+N1Y8v
+         wCZvfkxopfsReMRgK/5v4JL6k7tR/vFsq2jETB/+h3QXYeE5p8KEmaUq6A6rfKxwa7rt
+         /zSQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWJw5Rxc6g35IfimY3vHqznuOtHWO+1L46aytlJ26btprK8Kpsj
-	/49sJJ9wLAWnZ+PGM+Azt4g=
-X-Google-Smtp-Source: APXvYqxSWO6PL++UQauHEFeeAVDYsX0CpnQHunYlRekOY9W/gO3Q/C3frvnY7L5/U5MXOVpwTdr62Q==
-X-Received: by 2002:a17:902:aa0b:: with SMTP id be11mr24304543plb.181.1579194681851;
-        Thu, 16 Jan 2020 09:11:21 -0800 (PST)
+X-Gm-Message-State: APjAAAXDzeKneUliNKlu8Sd2xIjdlIyUyaaA4R9TQMIxk8cSwUUwZVno
+	QV3H+9vmLUY8RfpIEQ+ekgw=
+X-Google-Smtp-Source: APXvYqyO6+gOXiD0awDEO9B1mkqhu2DJtr2RXHjPdiE+4PAoJezI5UTC8PtbU+W1+KWC5wUNubNHUg==
+X-Received: by 2002:a17:90a:fa88:: with SMTP id cu8mr33601pjb.141.1579194821999;
+        Thu, 16 Jan 2020 09:13:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a65:6389:: with SMTP id h9ls6113009pgv.10.gmail; Thu, 16 Jan
- 2020 09:11:21 -0800 (PST)
-X-Received: by 2002:a65:56c6:: with SMTP id w6mr41457804pgs.167.1579194681363;
-        Thu, 16 Jan 2020 09:11:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579194681; cv=none;
+Received: by 2002:a17:902:9887:: with SMTP id s7ls3699345plp.9.gmail; Thu, 16
+ Jan 2020 09:13:40 -0800 (PST)
+X-Received: by 2002:a17:902:a614:: with SMTP id u20mr33371228plq.107.1579194820682;
+        Thu, 16 Jan 2020 09:13:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579194820; cv=none;
         d=google.com; s=arc-20160816;
-        b=gqwvigktMEfFzzl9Q7mRC5gBspxZLIZcgkqy3Bxk31EjHI3BPv9rYd96nRxSHjLtAQ
-         8AsAWnxeBRYg37zhi9eKkDAGBUxH+hvVUhjfhalwM1WrQJLNIDrZ02ts4ns0SihhqGPO
-         Wn25fcq4FmyKDcG6CwfDzySYXjSIaThnzNCz6pMmxB5/Bf7MwNnTJfCglAs+zKyONmSS
-         3errlkjqqNJv3v65NB0myWHWv4pf+b3FbG+rxmf4ZGt/cKsi7KtsqM86I0pNO65ULI96
-         EUxN4LrOQt9WIbVDswrB7mwYU07CMkm/Es4nZe1+ZbQab7eowYpi9f0czXKkfJkTDsSE
-         rcww==
+        b=cWho1prZujkVHQ24VJk71dp6jPrOC8YjsLZkO+QZEppE6YCb8vayhiDCtlNboF+dgd
+         E2UbarX5ZdB6RVEYdF36xW8ZPc1ka/AzN4U+MxrBORraimSkOb4cu2ZSH+k8iV/5jFsJ
+         12+0CVIBPZI2YKllCNUG+bWTZlZCszqMSDEHVHfoDy/Jky8mlM/PWJMuWMskaMj5JeB7
+         9clGU0G0NuMY+lSJ9gW+CE787IQ6TfMY1Vozczdnj7himcvDbn3a/COMU2Ms0HKnHQyR
+         7G4z/Sh2prnCoUh+Qv/1rnflAfRIuRR0rC7KrT14QlQtByjmj1mc5GFMkvFN8LHNW5Nx
+         wREg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=+QgjAW0LNA02QfnyuFgnE/NJ1Ws0VsezSKlsPB2eigo=;
-        b=eojUUSkJnAOyGMSw0e1E7Qkd19qfq1in4+3Nbo5Xyu4Cw7CoQVMJkNiTSYEiSl3f36
-         FrfI8P6uZw49bvF9g5BqsZo77hUQKp0aTq98zsdBkkggMhm83BFT5AW1/XHuEMkXpNWL
-         fjhX8Nt1zmlySCjCJvFfztNUzC2FZMZ1sv9D03VeusWjxs6TkwpB2v3STvEcai7EPJcj
-         YX8+kIFfoP325rNiB4qQ+7nLqQiflW6MuzlRUUjyDL/zqhK+vXlvrPxwmPiBQCRY9JMN
-         9AExKIjF/+ZM91e/rCkcaxNbOBK5WZOyCTmCcegZU5J90skP3KIyV78nxzL8RZ/9AlG2
-         VQTw==
+        bh=zwXVprwRFD40JdalIrc6O7Spmv++G2YUu47pbv3vkvI=;
+        b=kGPzPnm6COI4IJxcAYigjFuvMmW6tui4yH77rArZ47gYWALtEjnPtzhLFmGjM9ACf1
+         E4mDgehtA+rfxI0eHP5nHyFpdrplMPRE38W4NjmAZTEB2oIPpb4D7FmHSUyIwXn6YI5u
+         r7t5PFlt/Odie6ZBP2ILFzS9CgHWgzjAEOskzAzzAwN3qXDrmsbH2mKXYQ9iVRnsYDl4
+         dSNWoAahMtYv0jeeFwgOD1lJ0eqkyyB4/Z7s5zW2wQ6L772FIWSxjaZ7EyJqKWrSht5d
+         dMetbLSSN5Ht3Gx0hHccVFjBD8HuBUhbIfYz+zszcX1FGaCZH5oS0ByclaXLGHNWdXCW
+         IzLQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=Dj1A0PeX;
+       dkim=pass header.i=@kernel.org header.s=default header.b=QVDhz4Gc;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id 36si896383plf.2.2020.01.16.09.11.21
+        by gmr-mx.google.com with ESMTPS id d14si1120215pfo.4.2020.01.16.09.13.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2020 09:11:21 -0800 (PST)
+        Thu, 16 Jan 2020 09:13:40 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id DDC4C24690;
-	Thu, 16 Jan 2020 17:11:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 71FDA20684;
+	Thu, 16 Jan 2020 17:13:39 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Ping-Ke Shih <pkshih@realtek.com>,
 	Kalle Valo <kvalo@codeaurora.org>,
 	Sasha Levin <sashal@kernel.org>,
-	wcn36xx@lists.infradead.org,
 	linux-wireless@vger.kernel.org,
 	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 526/671] wcn36xx: use dynamic allocation for large variables
-Date: Thu, 16 Jan 2020 12:02:44 -0500
-Message-Id: <20200116170509.12787-263-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 625/671] rtlwifi: Remove unnecessary NULL check in rtl_regd_init
+Date: Thu, 16 Jan 2020 12:04:23 -0500
+Message-Id: <20200116170509.12787-362-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200116170509.12787-1-sashal@kernel.org>
 References: <20200116170509.12787-1-sashal@kernel.org>
@@ -121,7 +121,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=Dj1A0PeX;       spf=pass
+ header.i=@kernel.org header.s=default header.b=QVDhz4Gc;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,347 +138,57 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 355cf31912014e6ff1bb1019ae4858cad12c68cf ]
+[ Upstream commit 091c6e9c083f7ebaff00b37ad13562d51464d175 ]
 
-clang triggers a warning about oversized stack frames that gcc does not
-notice because of slightly different inlining decisions:
+When building with Clang + -Wtautological-pointer-compare:
 
-ath/wcn36xx/smd.c:1409:5: error: stack frame size of 1040 bytes in function 'wcn36xx_smd_config_bss' [-Werror,-Wframe-larger-than=]
-ath/wcn36xx/smd.c:640:5: error: stack frame size of 1032 bytes in function 'wcn36xx_smd_start_hw_scan' [-Werror,-Wframe-larger-than=]
+drivers/net/wireless/realtek/rtlwifi/regd.c:389:33: warning: comparison
+of address of 'rtlpriv->regd' equal to a null pointer is always false
+[-Wtautological-pointer-compare]
+        if (wiphy == NULL || &rtlpriv->regd == NULL)
+                              ~~~~~~~~~^~~~    ~~~~
+1 warning generated.
 
-Basically the wcn36xx_hal_start_scan_offload_req_msg,
-wcn36xx_hal_config_bss_req_msg_v1, and wcn36xx_hal_config_bss_req_msg
-structures are too large to be put on the kernel stack, but small
-enough that gcc does not warn about them.
+The address of an array member is never NULL unless it is the first
+struct member so remove the unnecessary check. This was addressed in
+the staging version of the driver in commit f986978b32b3 ("Staging:
+rtlwifi: remove unnecessary NULL check").
 
-Use kzalloc() to allocate them all. There are similar structures in other
-parts of this driver, but they are all smaller, with the next largest
-stack frame at 480 bytes for wcn36xx_smd_send_beacon.
+While we are here, fix the following checkpatch warning:
 
-Fixes: 8e84c2582169 ("wcn36xx: mac80211 driver for Qualcomm WCN3660/WCN3680 hardware")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+CHECK: Comparison to NULL could be written "!wiphy"
+35: FILE: drivers/net/wireless/realtek/rtlwifi/regd.c:389:
++       if (wiphy == NULL)
+
+Fixes: 0c8173385e54 ("rtl8192ce: Add new driver")
+Link:https://github.com/ClangBuiltLinux/linux/issues/750
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Acked-by: Ping-Ke Shih <pkshih@realtek.com>
 Signed-off-by: Kalle Valo <kvalo@codeaurora.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/wireless/ath/wcn36xx/smd.c | 186 ++++++++++++++-----------
- 1 file changed, 105 insertions(+), 81 deletions(-)
+ drivers/net/wireless/realtek/rtlwifi/regd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/ath/wcn36xx/smd.c b/drivers/net/wireless/ath/wcn36xx/smd.c
-index 00098f24116d..6cd113b3b3e4 100644
---- a/drivers/net/wireless/ath/wcn36xx/smd.c
-+++ b/drivers/net/wireless/ath/wcn36xx/smd.c
-@@ -641,52 +641,58 @@ int wcn36xx_smd_start_hw_scan(struct wcn36xx *wcn, struct ieee80211_vif *vif,
- 			      struct cfg80211_scan_request *req)
- {
- 	struct wcn36xx_vif *vif_priv = wcn36xx_vif_to_priv(vif);
--	struct wcn36xx_hal_start_scan_offload_req_msg msg_body;
-+	struct wcn36xx_hal_start_scan_offload_req_msg *msg_body;
- 	int ret, i;
+diff --git a/drivers/net/wireless/realtek/rtlwifi/regd.c b/drivers/net/wireless/realtek/rtlwifi/regd.c
+index 1bf3eb25c1da..72ca370331fb 100644
+--- a/drivers/net/wireless/realtek/rtlwifi/regd.c
++++ b/drivers/net/wireless/realtek/rtlwifi/regd.c
+@@ -427,7 +427,7 @@ int rtl_regd_init(struct ieee80211_hw *hw,
+ 	struct wiphy *wiphy = hw->wiphy;
+ 	struct country_code_to_enum_rd *country = NULL;
  
- 	if (req->ie_len > WCN36XX_MAX_SCAN_IE_LEN)
+-	if (wiphy == NULL || &rtlpriv->regd == NULL)
++	if (!wiphy)
  		return -EINVAL;
  
- 	mutex_lock(&wcn->hal_mutex);
--	INIT_HAL_MSG(msg_body, WCN36XX_HAL_START_SCAN_OFFLOAD_REQ);
-+	msg_body = kzalloc(sizeof(*msg_body), GFP_KERNEL);
-+	if (!msg_body) {
-+		ret = -ENOMEM;
-+		goto out;
-+	}
- 
--	msg_body.scan_type = WCN36XX_HAL_SCAN_TYPE_ACTIVE;
--	msg_body.min_ch_time = 30;
--	msg_body.max_ch_time = 100;
--	msg_body.scan_hidden = 1;
--	memcpy(msg_body.mac, vif->addr, ETH_ALEN);
--	msg_body.bss_type = vif_priv->bss_type;
--	msg_body.p2p_search = vif->p2p;
-+	INIT_HAL_MSG((*msg_body), WCN36XX_HAL_START_SCAN_OFFLOAD_REQ);
- 
--	msg_body.num_ssid = min_t(u8, req->n_ssids, ARRAY_SIZE(msg_body.ssids));
--	for (i = 0; i < msg_body.num_ssid; i++) {
--		msg_body.ssids[i].length = min_t(u8, req->ssids[i].ssid_len,
--						sizeof(msg_body.ssids[i].ssid));
--		memcpy(msg_body.ssids[i].ssid, req->ssids[i].ssid,
--		       msg_body.ssids[i].length);
-+	msg_body->scan_type = WCN36XX_HAL_SCAN_TYPE_ACTIVE;
-+	msg_body->min_ch_time = 30;
-+	msg_body->max_ch_time = 100;
-+	msg_body->scan_hidden = 1;
-+	memcpy(msg_body->mac, vif->addr, ETH_ALEN);
-+	msg_body->bss_type = vif_priv->bss_type;
-+	msg_body->p2p_search = vif->p2p;
-+
-+	msg_body->num_ssid = min_t(u8, req->n_ssids, ARRAY_SIZE(msg_body->ssids));
-+	for (i = 0; i < msg_body->num_ssid; i++) {
-+		msg_body->ssids[i].length = min_t(u8, req->ssids[i].ssid_len,
-+						sizeof(msg_body->ssids[i].ssid));
-+		memcpy(msg_body->ssids[i].ssid, req->ssids[i].ssid,
-+		       msg_body->ssids[i].length);
- 	}
- 
--	msg_body.num_channel = min_t(u8, req->n_channels,
--				     sizeof(msg_body.channels));
--	for (i = 0; i < msg_body.num_channel; i++)
--		msg_body.channels[i] = req->channels[i]->hw_value;
-+	msg_body->num_channel = min_t(u8, req->n_channels,
-+				     sizeof(msg_body->channels));
-+	for (i = 0; i < msg_body->num_channel; i++)
-+		msg_body->channels[i] = req->channels[i]->hw_value;
- 
--	msg_body.header.len -= WCN36XX_MAX_SCAN_IE_LEN;
-+	msg_body->header.len -= WCN36XX_MAX_SCAN_IE_LEN;
- 
- 	if (req->ie_len > 0) {
--		msg_body.ie_len = req->ie_len;
--		msg_body.header.len += req->ie_len;
--		memcpy(msg_body.ie, req->ie, req->ie_len);
-+		msg_body->ie_len = req->ie_len;
-+		msg_body->header.len += req->ie_len;
-+		memcpy(msg_body->ie, req->ie, req->ie_len);
- 	}
- 
--	PREPARE_HAL_BUF(wcn->hal_buf, msg_body);
-+	PREPARE_HAL_BUF(wcn->hal_buf, (*msg_body));
- 
- 	wcn36xx_dbg(WCN36XX_DBG_HAL,
- 		    "hal start hw-scan (channels: %u; ssids: %u; p2p: %s)\n",
--		    msg_body.num_channel, msg_body.num_ssid,
--		    msg_body.p2p_search ? "yes" : "no");
-+		    msg_body->num_channel, msg_body->num_ssid,
-+		    msg_body->p2p_search ? "yes" : "no");
- 
--	ret = wcn36xx_smd_send_and_wait(wcn, msg_body.header.len);
-+	ret = wcn36xx_smd_send_and_wait(wcn, msg_body->header.len);
- 	if (ret) {
- 		wcn36xx_err("Sending hal_start_scan_offload failed\n");
- 		goto out;
-@@ -698,6 +704,7 @@ int wcn36xx_smd_start_hw_scan(struct wcn36xx *wcn, struct ieee80211_vif *vif,
- 		goto out;
- 	}
- out:
-+	kfree(msg_body);
- 	mutex_unlock(&wcn->hal_mutex);
- 	return ret;
- }
-@@ -1257,96 +1264,104 @@ int wcn36xx_smd_config_sta(struct wcn36xx *wcn, struct ieee80211_vif *vif,
- static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn,
- 			const struct wcn36xx_hal_config_bss_req_msg *orig)
- {
--	struct wcn36xx_hal_config_bss_req_msg_v1 msg_body;
--	struct wcn36xx_hal_config_bss_params_v1 *bss = &msg_body.bss_params;
--	struct wcn36xx_hal_config_sta_params_v1 *sta = &bss->sta;
-+	struct wcn36xx_hal_config_bss_req_msg_v1 *msg_body;
-+	struct wcn36xx_hal_config_bss_params_v1 *bss;
-+	struct wcn36xx_hal_config_sta_params_v1 *sta;
-+	int ret;
-+
-+	msg_body = kzalloc(sizeof(*msg_body), GFP_KERNEL);
-+	if (!msg_body)
-+		return -ENOMEM;
-+
-+	INIT_HAL_MSG((*msg_body), WCN36XX_HAL_CONFIG_BSS_REQ);
- 
--	INIT_HAL_MSG(msg_body, WCN36XX_HAL_CONFIG_BSS_REQ);
-+	bss = &msg_body->bss_params;
-+	sta = &bss->sta;
- 
- 	/* convert orig to v1 */
--	memcpy(&msg_body.bss_params.bssid,
-+	memcpy(&msg_body->bss_params.bssid,
- 	       &orig->bss_params.bssid, ETH_ALEN);
--	memcpy(&msg_body.bss_params.self_mac_addr,
-+	memcpy(&msg_body->bss_params.self_mac_addr,
- 	       &orig->bss_params.self_mac_addr, ETH_ALEN);
- 
--	msg_body.bss_params.bss_type = orig->bss_params.bss_type;
--	msg_body.bss_params.oper_mode = orig->bss_params.oper_mode;
--	msg_body.bss_params.nw_type = orig->bss_params.nw_type;
-+	msg_body->bss_params.bss_type = orig->bss_params.bss_type;
-+	msg_body->bss_params.oper_mode = orig->bss_params.oper_mode;
-+	msg_body->bss_params.nw_type = orig->bss_params.nw_type;
- 
--	msg_body.bss_params.short_slot_time_supported =
-+	msg_body->bss_params.short_slot_time_supported =
- 		orig->bss_params.short_slot_time_supported;
--	msg_body.bss_params.lla_coexist = orig->bss_params.lla_coexist;
--	msg_body.bss_params.llb_coexist = orig->bss_params.llb_coexist;
--	msg_body.bss_params.llg_coexist = orig->bss_params.llg_coexist;
--	msg_body.bss_params.ht20_coexist = orig->bss_params.ht20_coexist;
--	msg_body.bss_params.lln_non_gf_coexist =
-+	msg_body->bss_params.lla_coexist = orig->bss_params.lla_coexist;
-+	msg_body->bss_params.llb_coexist = orig->bss_params.llb_coexist;
-+	msg_body->bss_params.llg_coexist = orig->bss_params.llg_coexist;
-+	msg_body->bss_params.ht20_coexist = orig->bss_params.ht20_coexist;
-+	msg_body->bss_params.lln_non_gf_coexist =
- 		orig->bss_params.lln_non_gf_coexist;
- 
--	msg_body.bss_params.lsig_tx_op_protection_full_support =
-+	msg_body->bss_params.lsig_tx_op_protection_full_support =
- 		orig->bss_params.lsig_tx_op_protection_full_support;
--	msg_body.bss_params.rifs_mode = orig->bss_params.rifs_mode;
--	msg_body.bss_params.beacon_interval = orig->bss_params.beacon_interval;
--	msg_body.bss_params.dtim_period = orig->bss_params.dtim_period;
--	msg_body.bss_params.tx_channel_width_set =
-+	msg_body->bss_params.rifs_mode = orig->bss_params.rifs_mode;
-+	msg_body->bss_params.beacon_interval = orig->bss_params.beacon_interval;
-+	msg_body->bss_params.dtim_period = orig->bss_params.dtim_period;
-+	msg_body->bss_params.tx_channel_width_set =
- 		orig->bss_params.tx_channel_width_set;
--	msg_body.bss_params.oper_channel = orig->bss_params.oper_channel;
--	msg_body.bss_params.ext_channel = orig->bss_params.ext_channel;
-+	msg_body->bss_params.oper_channel = orig->bss_params.oper_channel;
-+	msg_body->bss_params.ext_channel = orig->bss_params.ext_channel;
- 
--	msg_body.bss_params.reserved = orig->bss_params.reserved;
-+	msg_body->bss_params.reserved = orig->bss_params.reserved;
- 
--	memcpy(&msg_body.bss_params.ssid,
-+	memcpy(&msg_body->bss_params.ssid,
- 	       &orig->bss_params.ssid,
- 	       sizeof(orig->bss_params.ssid));
- 
--	msg_body.bss_params.action = orig->bss_params.action;
--	msg_body.bss_params.rateset = orig->bss_params.rateset;
--	msg_body.bss_params.ht = orig->bss_params.ht;
--	msg_body.bss_params.obss_prot_enabled =
-+	msg_body->bss_params.action = orig->bss_params.action;
-+	msg_body->bss_params.rateset = orig->bss_params.rateset;
-+	msg_body->bss_params.ht = orig->bss_params.ht;
-+	msg_body->bss_params.obss_prot_enabled =
- 		orig->bss_params.obss_prot_enabled;
--	msg_body.bss_params.rmf = orig->bss_params.rmf;
--	msg_body.bss_params.ht_oper_mode = orig->bss_params.ht_oper_mode;
--	msg_body.bss_params.dual_cts_protection =
-+	msg_body->bss_params.rmf = orig->bss_params.rmf;
-+	msg_body->bss_params.ht_oper_mode = orig->bss_params.ht_oper_mode;
-+	msg_body->bss_params.dual_cts_protection =
- 		orig->bss_params.dual_cts_protection;
- 
--	msg_body.bss_params.max_probe_resp_retry_limit =
-+	msg_body->bss_params.max_probe_resp_retry_limit =
- 		orig->bss_params.max_probe_resp_retry_limit;
--	msg_body.bss_params.hidden_ssid = orig->bss_params.hidden_ssid;
--	msg_body.bss_params.proxy_probe_resp =
-+	msg_body->bss_params.hidden_ssid = orig->bss_params.hidden_ssid;
-+	msg_body->bss_params.proxy_probe_resp =
- 		orig->bss_params.proxy_probe_resp;
--	msg_body.bss_params.edca_params_valid =
-+	msg_body->bss_params.edca_params_valid =
- 		orig->bss_params.edca_params_valid;
- 
--	memcpy(&msg_body.bss_params.acbe,
-+	memcpy(&msg_body->bss_params.acbe,
- 	       &orig->bss_params.acbe,
- 	       sizeof(orig->bss_params.acbe));
--	memcpy(&msg_body.bss_params.acbk,
-+	memcpy(&msg_body->bss_params.acbk,
- 	       &orig->bss_params.acbk,
- 	       sizeof(orig->bss_params.acbk));
--	memcpy(&msg_body.bss_params.acvi,
-+	memcpy(&msg_body->bss_params.acvi,
- 	       &orig->bss_params.acvi,
- 	       sizeof(orig->bss_params.acvi));
--	memcpy(&msg_body.bss_params.acvo,
-+	memcpy(&msg_body->bss_params.acvo,
- 	       &orig->bss_params.acvo,
- 	       sizeof(orig->bss_params.acvo));
- 
--	msg_body.bss_params.ext_set_sta_key_param_valid =
-+	msg_body->bss_params.ext_set_sta_key_param_valid =
- 		orig->bss_params.ext_set_sta_key_param_valid;
- 
--	memcpy(&msg_body.bss_params.ext_set_sta_key_param,
-+	memcpy(&msg_body->bss_params.ext_set_sta_key_param,
- 	       &orig->bss_params.ext_set_sta_key_param,
- 	       sizeof(orig->bss_params.acvo));
- 
--	msg_body.bss_params.wcn36xx_hal_persona =
-+	msg_body->bss_params.wcn36xx_hal_persona =
- 		orig->bss_params.wcn36xx_hal_persona;
--	msg_body.bss_params.spectrum_mgt_enable =
-+	msg_body->bss_params.spectrum_mgt_enable =
- 		orig->bss_params.spectrum_mgt_enable;
--	msg_body.bss_params.tx_mgmt_power = orig->bss_params.tx_mgmt_power;
--	msg_body.bss_params.max_tx_power = orig->bss_params.max_tx_power;
-+	msg_body->bss_params.tx_mgmt_power = orig->bss_params.tx_mgmt_power;
-+	msg_body->bss_params.max_tx_power = orig->bss_params.max_tx_power;
- 
- 	wcn36xx_smd_convert_sta_to_v1(wcn, &orig->bss_params.sta,
--				      &msg_body.bss_params.sta);
-+				      &msg_body->bss_params.sta);
- 
--	PREPARE_HAL_BUF(wcn->hal_buf, msg_body);
-+	PREPARE_HAL_BUF(wcn->hal_buf, (*msg_body));
- 
- 	wcn36xx_dbg(WCN36XX_DBG_HAL,
- 		    "hal config bss v1 bssid %pM self_mac_addr %pM bss_type %d oper_mode %d nw_type %d\n",
-@@ -1358,7 +1373,10 @@ static int wcn36xx_smd_config_bss_v1(struct wcn36xx *wcn,
- 		    sta->bssid, sta->action, sta->sta_index,
- 		    sta->bssid_index, sta->aid, sta->type, sta->mac);
- 
--	return wcn36xx_smd_send_and_wait(wcn, msg_body.header.len);
-+	ret = wcn36xx_smd_send_and_wait(wcn, msg_body->header.len);
-+	kfree(msg_body);
-+
-+	return ret;
- }
- 
- 
-@@ -1410,16 +1428,21 @@ int wcn36xx_smd_config_bss(struct wcn36xx *wcn, struct ieee80211_vif *vif,
- 			   struct ieee80211_sta *sta, const u8 *bssid,
- 			   bool update)
- {
--	struct wcn36xx_hal_config_bss_req_msg msg;
-+	struct wcn36xx_hal_config_bss_req_msg *msg;
- 	struct wcn36xx_hal_config_bss_params *bss;
- 	struct wcn36xx_hal_config_sta_params *sta_params;
- 	struct wcn36xx_vif *vif_priv = wcn36xx_vif_to_priv(vif);
- 	int ret;
- 
- 	mutex_lock(&wcn->hal_mutex);
--	INIT_HAL_MSG(msg, WCN36XX_HAL_CONFIG_BSS_REQ);
-+	msg = kzalloc(sizeof(*msg), GFP_KERNEL);
-+	if (!msg) {
-+		ret = -ENOMEM;
-+		goto out;
-+	}
-+	INIT_HAL_MSG((*msg), WCN36XX_HAL_CONFIG_BSS_REQ);
- 
--	bss = &msg.bss_params;
-+	bss = &msg->bss_params;
- 	sta_params = &bss->sta;
- 
- 	WARN_ON(is_zero_ether_addr(bssid));
-@@ -1514,11 +1537,11 @@ int wcn36xx_smd_config_bss(struct wcn36xx *wcn, struct ieee80211_vif *vif,
- 		    sta_params->mac);
- 
- 	if (!wcn36xx_is_fw_version(wcn, 1, 2, 2, 24)) {
--		ret = wcn36xx_smd_config_bss_v1(wcn, &msg);
-+		ret = wcn36xx_smd_config_bss_v1(wcn, msg);
- 	} else {
--		PREPARE_HAL_BUF(wcn->hal_buf, msg);
-+		PREPARE_HAL_BUF(wcn->hal_buf, (*msg));
- 
--		ret = wcn36xx_smd_send_and_wait(wcn, msg.header.len);
-+		ret = wcn36xx_smd_send_and_wait(wcn, msg->header.len);
- 	}
- 	if (ret) {
- 		wcn36xx_err("Sending hal_config_bss failed\n");
-@@ -1534,6 +1557,7 @@ int wcn36xx_smd_config_bss(struct wcn36xx *wcn, struct ieee80211_vif *vif,
- 		goto out;
- 	}
- out:
-+	kfree(msg);
- 	mutex_unlock(&wcn->hal_mutex);
- 	return ret;
- }
+ 	/* init country_code from efuse channel plan */
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-263-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-362-sashal%40kernel.org.
