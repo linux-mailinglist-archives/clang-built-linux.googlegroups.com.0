@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB4FRQLYQKGQE6ZL2HLA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBGNSQLYQKGQEMKGATOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103e.google.com (mail-pj1-x103e.google.com [IPv6:2607:f8b0:4864:20::103e])
-	by mail.lfdr.de (Postfix) with ESMTPS id ED3FA13E4AD
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:09 +0100 (CET)
-Received: by mail-pj1-x103e.google.com with SMTP id u10sf2281792pjy.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579194608; cv=pass;
+Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 02C9513E4C6
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:51 +0100 (CET)
+Received: by mail-pl1-x63c.google.com with SMTP id g16sf9035225plo.14
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579194649; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ow62BzW3gOUAFbIQnhi+r+etSFxWzEiKpxVe7BxiuPW4qELxayZyvbE0Tol65XmQax
-         ahRj9M86bp/SbFMObYirjlRTVEjyT9n3ijGmdnvNhedzTFaylEnFwC4g5+f4vEGYU8if
-         JpNqRNXzlKQ0h1j8I5EtPsKOFzFmx8muCnCLmxsbyPPLG6O8tN4CUieXO1kBXlTl1JIl
-         GQp7ZZBRGlyggNySbQMZjMwWHhxjlprRFbsCob2mbuuIWoKoR0j/3lC0yuMVdFXHoArQ
-         +VFVua+N88jxrJyBIh6f3hwzTxZZSbZ+J9Y4Iw3qwmpCT64+Rr/sb17j7CbKoR/XCkfh
-         zo9A==
+        b=jU9dA8CW4hhjbqSbIb4uOCpUKlEJT58cmjWsbabxYxPqY2qYjR8WrQ3LgWCF/nNdX8
+         LAf3rpx13zoM37Dn2HyFsWAYJiixoO7Qtml98oNsNFWLpZHWDEO/EFfD7xnIyp4aVebz
+         XRR1XqYdsKIsaZmW8mOgkL4xxkM/ueHX9WHwleC+XR0eu+/kcuu49nKcTnto7S4jCG3P
+         tPuWEz/I2V8JC8AGNIogOAvRJ3cKqwo2hSVQsOMChsum0CSmSDm7gq++XDStxn3uIQPe
+         MyzHloaF/faMNCu9HOLpbf+xDMp/33qhKWpNS9VU4VcE5g9fruvsS5SVDuWHJUhNFuT6
+         y9EQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=QpGMqANy60aEOyjNctlCDR2XIHGeOi5ey/OwXWCYKiE=;
-        b=VGq4W9kiTqNGZzsy0r0JBCL1SSITqHKiZoA5IDg25y5JCfq9k6OCjQjsr9q7+1eaBM
-         Iq+rE0IrvXOAtU+ns3xlJGC2g6ZSBYmXHaVKhjGEfjEHcQQGNN0vUiEk5meec0kStSQI
-         PpR241G3pbYy/qET6l/pvjTwhuQUXLV75c65dGpRG69l8NTK4hAl4sm0l/ST+eN/8hmF
-         h20HQ5xCBB99QH7kkBYBfcTVv06pkUz+bh4XiIcF84cCkNMWnfFti2zg3JmR0GpSD83H
-         M1EdEId1dH7ZP8aoLaZZS7gSRNjma1HINS46GJKt5053IuSqDy2ipZIDNfWbAx6p/uTU
-         XUyg==
+        bh=niaNqp8j0R5ZbOm50BDas/SjES2D0oVornjZeYg2Xzg=;
+        b=jyyPG2ZwXBRoMPYN5n6wdiOjd0ZWCiQZVyBQO+ubkWC2oNkZO+kzw4dzrWxd3xYGJP
+         ARkus01G5PFNElRp7xj1MAJuLnJH5SLxX/Qowomn2z46smoRYobVQV2n8DJSofcrSqww
+         Hx+Gg9IBeyoR85zeu+oUxsQb+qRujgrArafSrqPG61gJcf9PgNde/FPvwXlcSErYVUQ4
+         okDhX1vhXBqt07yexL2wK0nEZ+ybWimdXoFNcOidtIi7Iqyl7O4WCfHWbFtnr11gWaXz
+         oAM8Ydu9vHPy6Qp6D72TqKCzyu0xLGDTYZNCALmWjhCmbphiJr21tOz+WEeqyOGrsZ8C
+         QXBg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=HwkOcHM5;
+       dkim=pass header.i=@kernel.org header.s=default header.b=BZl+O7vX;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QpGMqANy60aEOyjNctlCDR2XIHGeOi5ey/OwXWCYKiE=;
-        b=iPxzoxYsb7gJJ8BZiWwn715j5lsTKTlI5HOEBxYbg5ehoFGMF0ERHr+Yq3zcKq3dAD
-         PmNR42cTCeQt1N6dpGXBGcJSqHkDmkvqv1cO6sWPKBJO/5WtjzPJ+orkVg31OAn7MAw6
-         Y3Y/j6nVuS3oHfPm/1TYyHYKXJT+1jGVynhaO820C/QcDID9pGx3BqkvZWV0cwRylcI2
-         rP+IDoKzhzP+jUpKBrpnF56x5z87HF7WFMAb9jAZbz1ZoMW0NTCRILPSIyvHSiARVtLb
-         oZ9g/4NeUoYq8JhszWX/cxz/ipReGddXCOHePD3gpprdm1ztGSO9WyZxMrreH9DH5T0+
-         m/Pg==
+        bh=niaNqp8j0R5ZbOm50BDas/SjES2D0oVornjZeYg2Xzg=;
+        b=m0rtAwAVEv5vuKNUtc8zLE49qzdXxZ/iwHhljSRc8OiE3CNWCunQq0Uieyyqw9bb9V
+         o/MoQlxAFNLu2apFnlLrQpQ6JeEzKXhrH6qhe1309Lxf5z3DyeWhWBFkGLj/gLi5Z8FW
+         viC6nY5XAxdecuuqNgjPz38ahwklJLWQZ1n5rID+IXg/Vu+PPbnKRlF7tY7wB7PWuZ1k
+         +FPwg6TAXwWoq2vfJRq/K9RZ8c2cQf7cccqfK82Nj74aiMyILSJZXzagQOh1NNFIZIhM
+         auvtuyvy+y4cOyS7Jng87fTTsAHUkTvkX8NvEvFym3vCe7r3W/4ZvrTrzVJWdow2piDh
+         e1bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,68 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QpGMqANy60aEOyjNctlCDR2XIHGeOi5ey/OwXWCYKiE=;
-        b=ZR7sGOGZk18oQPZAevnC5iS4b4R3mI5eFd15ApsXduix9hA0V9R82c+vAESmgGjrfH
-         Ik+BLjqkmplsM1Q2eU8lzfoJaGBAlojevyvxEzOT4vHhPzdniaxLxV4aVACN0FS+iQ/D
-         ucS4tFpxm7HozMEMmspNRb4gbL7lyULcyHNgH935LmT6/dQaYvdSWQkxqxqL6zeSMxpZ
-         vTNsa0CSI1lrceh08KHK4b3jnvH7BcbqHqfkNUq3ZzlnzTuGn26iRPaoKCgukV7939c4
-         8sQp0SG0mZRR17hSIhTSC8/KmMQWKlc3QxXimeU3duZJ/D9Lno2XYsBAoqjnG9y3HDp3
-         FJbg==
+        bh=niaNqp8j0R5ZbOm50BDas/SjES2D0oVornjZeYg2Xzg=;
+        b=oe5wPqtlhKuCKyimmjcsLfn5kAjMnkxQoOV8vM8MxtF9IJOSL9GJJwlmkLbU2ob6cN
+         g9rcphn85pbOh8/5A1bKrNdd6Aj4dMWmMA6B9BgPsICVDC/517Lih7GhTFlyn7BfO7L/
+         ho/d97a0HENe6pSSjHfIFDmZJhF54y+k1/vzC4Zn7jqey9xXkNyyEmnuF+QHNjF+BkG9
+         BJBp7+DYl8wskXaTSfLa9D5XkEtBZNB5Nck4/D6tdfCo4L7/TibKXsZ40fKQQXZ9gqYs
+         txoedN73LOr8s1FZTlOP4CdQZHSSPuMDezxsoA8YXq8ahmBz4yEBxwOjzUNbuo37I7wc
+         GxWQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVfP6XnTaSbATGeBSmzHmOV19rDc30mk8W+yJPLDTsSUxNxHhH3
-	pVL4XdouQIwqP4j+jwydFUc=
-X-Google-Smtp-Source: APXvYqwxNo8CctY2sLxhOnmwuQhtHIPwsEYTp7y/zK71P18K/rdZ5LPIaqfCBbjEFIKBXXneRqEc3g==
-X-Received: by 2002:a63:4f05:: with SMTP id d5mr39514139pgb.341.1579194608555;
-        Thu, 16 Jan 2020 09:10:08 -0800 (PST)
+X-Gm-Message-State: APjAAAUwg9E2Nq/AAhihZArZyoEKMziU4Iq3SsOWMiFNQHOgfHPu5Lsr
+	6u158utGtTpyP+xdVA2nXHs=
+X-Google-Smtp-Source: APXvYqzJVH6M9qT1B8AMwMcqWoP7WgKmCJ1ELB8fb1huI38WjD/4MZcoDEbxShT169qqhMWUZOx8Lg==
+X-Received: by 2002:aa7:91c1:: with SMTP id z1mr39737421pfa.182.1579194649729;
+        Thu, 16 Jan 2020 09:10:49 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:d007:: with SMTP id z7ls6115608pgf.9.gmail; Thu, 16 Jan
- 2020 09:10:08 -0800 (PST)
-X-Received: by 2002:a63:b64a:: with SMTP id v10mr41448905pgt.145.1579194608147;
-        Thu, 16 Jan 2020 09:10:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579194608; cv=none;
+Received: by 2002:a17:90a:3421:: with SMTP id o30ls1033769pjb.1.canary-gmail;
+ Thu, 16 Jan 2020 09:10:49 -0800 (PST)
+X-Received: by 2002:a17:90b:8ce:: with SMTP id ds14mr51919pjb.57.1579194649338;
+        Thu, 16 Jan 2020 09:10:49 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579194649; cv=none;
         d=google.com; s=arc-20160816;
-        b=n8qo4PerBTnT8lCo6WtCm3kVcUM5FZiP6ic4xtxuzaNkgi4d2ZZRuHeyofdDwDmdXD
-         Ei+yyYSAR/SQeL3/2E7dhoJyFfa28SBzV2aFY9vq2t3OORVGy5coFpARmgdrl7TYfP73
-         JxrqY8Z+iW2f7XuofdKShQQfaw0FbtMBnmwm8tUwO3RWePJTk66FpkgST/QCX2cgaTdk
-         KcfHSQfCXV5diCMRjLY2ulkeGeLvbiqHX/SbYKiD/1Ua2jzdvRra3JZCPyBAzonbDXN4
-         4pXZRKvTfZN5Hd8DjwJyU/E1YttQFRCufjzg8fPAQKb2aUva3SoL/8dJT5tlJxTsjC9N
-         kl+Q==
+        b=Y/FM7cErMnTSVMXcelFPysbymCKtW08eN7nV75WpULUf3T+L06idRwU82Fm5i8bKW1
+         dvcnuPSCr24oxp14Ci/fflJvHTcn2J5I7X4iZfiLPE0/e8PlYdCOK0Qhafo4l1ePV7lt
+         Oqr0FquxnAALrFkVKmXcgjab/1hU1Xnn78ua+vazdBUfUB3dM3ndHbjBE+ejEijCW2jm
+         ebZ+Hr/XVfPX5DJ1QEexkN/fFKKtgjXj6HDIgr/Iu07f35b5PxEO5ARRVoxWZA7WnsXh
+         VdS4iu8om7FZYPB9eDWI/24UlyieNZcZUqUT9wpc3hFM378+anUYNsrOuY+hD5pjF1pE
+         UkpA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=rAWEeOxHQ9jiwuGpyW3MTuoVN8XOtXz90B8hmgMLOZY=;
-        b=Nc2+PVT5aQ9JPoKXkVvlCMdSiUQcfrjyFHfAuwiINzQ/zu5DVM1TOpFU9znmUvnEIK
-         LAWaFk46VzYHV5e9OhmJFz0JM5HaUN9pxOAE7Ja8FS4bXy0RO7v04hKc6+g7ySHIlD4T
-         E2WlnQaVH04hdGDMn3jMmGHJf4xouJC9W9RhdXdjO2bZ7vLGZa8BPa+l6VRVeL5A1DyH
-         wNwBwHSjAd/C8iJMawF65ajvQq1M+XI6rXoRc/yQr2TlkXiuYxmxKvcnJD0AqJuLiZVC
-         4OJqPOrBYYdfL3OBqbiiaiLN+P7muOs/gv1BRk7F2tnu8VFUHKXagjM99Uw/jn5E4n2b
-         WbNw==
+        bh=v5oWODXwFq0JMSODFR1UUIR1P9YFcegsaWfnl15u91s=;
+        b=DT66pGPoNSPIHPOAMplCI4+OQvoEs/zeIXB5AaPgjXDTGbdO9LprbhHIsKOZLegFfY
+         p9y1JWzpUsYF21h1m9LbOOYEfwHpahnf2IlR+nEHyauVFRr8cDThmEGnjzR3GuWYka2L
+         9tPHONddfAjDuCchwC2uhKYjQh+i+GtK0OrjAgRvx5cAHdQ2LJrY+OsyHE7us96oloO0
+         a+f5UQpgXFb5pTb26HnMe5Duu0wJakEx09gophV63tEhG50JrLqNNDKk/9kR9XfvrDeN
+         /Iz2J4ut3aG5F8Mq78C4y5B8WSxe4zUeWR/czICKw/SWj2KeGCyfoDn8ik0sOBOzsMWp
+         9lvw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=HwkOcHM5;
+       dkim=pass header.i=@kernel.org header.s=default header.b=BZl+O7vX;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id d12si469172pjv.0.2020.01.16.09.10.08
+        by gmr-mx.google.com with ESMTPS id t34si366761pjb.3.2020.01.16.09.10.49
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2020 09:10:08 -0800 (PST)
+        Thu, 16 Jan 2020 09:10:49 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 0B92724689;
-	Thu, 16 Jan 2020 17:10:06 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id CA08124685;
+	Thu, 16 Jan 2020 17:10:47 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Arnd Bergmann <arnd@arndb.de>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
+	Andrew Bowers <andrewx.bowers@intel.com>,
+	Jeff Kirsher <jeffrey.t.kirsher@intel.com>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-crypto@vger.kernel.org,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 474/671] crypto: ccp - Reduce maximum stack usage
-Date: Thu, 16 Jan 2020 12:01:52 -0500
-Message-Id: <20200116170509.12787-211-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 504/671] i40e: reduce stack usage in i40e_set_fc
+Date: Thu, 16 Jan 2020 12:02:22 -0500
+Message-Id: <20200116170509.12787-241-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200116170509.12787-1-sashal@kernel.org>
 References: <20200116170509.12787-1-sashal@kernel.org>
@@ -119,7 +121,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=HwkOcHM5;       spf=pass
+ header.i=@kernel.org header.s=default header.b=BZl+O7vX;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,178 +140,166 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-[ Upstream commit 72c8117adfced37df101c8c0b3f363e0906f83f0 ]
+[ Upstream commit 33b165684ab70867d4545643f550a5d48d3ddc57 ]
 
-Each of the operations in ccp_run_cmd() needs several hundred
-bytes of kernel stack. Depending on the inlining, these may
-need separate stack slots that add up to more than the warning
-limit, as shown in this clang based build:
+The functions i40e_aq_get_phy_abilities_resp() and i40e_set_fc() both
+have giant structure on the stack, which makes each one use stack frames
+larger than 500 bytes.
 
-drivers/crypto/ccp/ccp-ops.c:871:12: error: stack frame size of 1164 bytes in function 'ccp_run_aes_cmd' [-Werror,-Wframe-larger-than=]
-static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+As clang decides one function into the other, we get a warning for
+exceeding the frame size limit on 32-bit architectures:
 
-The problem may also happen when there is no warning, e.g. in the
-ccp_run_cmd()->ccp_run_aes_cmd()->ccp_run_aes_gcm_cmd() call chain with
-over 2000 bytes.
+drivers/net/ethernet/intel/i40e/i40e_common.c:1654:23: error: stack frame size of 1116 bytes in function 'i40e_set_fc' [-Werror,-Wframe-larger-than=]
 
-Mark each individual function as 'noinline_for_stack' to prevent
-this from happening, and move the calls to the two special cases for aes
-into the top-level function. This will keep the actual combined stack
-usage to the mimimum: 828 bytes for ccp_run_aes_gcm_cmd() and
-at most 524 bytes for each of the other cases.
+When building with gcc, the inlining does not happen, but i40e_set_fc()
+calls i40e_aq_get_phy_abilities_resp() anyway, so they add up on the
+kernel stack just as much.
 
-Fixes: 63b945091a07 ("crypto: ccp - CCP device driver and interface support")
+The parts that actually use large stacks don't overlap, so make sure
+each one is a separate function, and mark them as noinline_for_stack to
+prevent the compilers from combining them again.
+
+Fixes: 0a862b43acc6 ("i40e/i40evf: Add module_types and update_link_info")
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
+Tested-by: Andrew Bowers <andrewx.bowers@intel.com>
+Signed-off-by: Jeff Kirsher <jeffrey.t.kirsher@intel.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/crypto/ccp/ccp-ops.c | 52 +++++++++++++++++++++---------------
- 1 file changed, 31 insertions(+), 21 deletions(-)
+ drivers/net/ethernet/intel/i40e/i40e_common.c | 91 +++++++++++--------
+ 1 file changed, 51 insertions(+), 40 deletions(-)
 
-diff --git a/drivers/crypto/ccp/ccp-ops.c b/drivers/crypto/ccp/ccp-ops.c
-index 4b48b8523a40..330853a2702f 100644
---- a/drivers/crypto/ccp/ccp-ops.c
-+++ b/drivers/crypto/ccp/ccp-ops.c
-@@ -458,8 +458,8 @@ static int ccp_copy_from_sb(struct ccp_cmd_queue *cmd_q,
- 	return ccp_copy_to_from_sb(cmd_q, wa, jobid, sb, byte_swap, true);
+diff --git a/drivers/net/ethernet/intel/i40e/i40e_common.c b/drivers/net/ethernet/intel/i40e/i40e_common.c
+index 85f75b5978fc..eb0ae6ab01e2 100644
+--- a/drivers/net/ethernet/intel/i40e/i40e_common.c
++++ b/drivers/net/ethernet/intel/i40e/i40e_common.c
+@@ -1668,25 +1668,15 @@ enum i40e_status_code i40e_aq_set_phy_config(struct i40e_hw *hw,
+ 	return status;
  }
  
--static int ccp_run_aes_cmac_cmd(struct ccp_cmd_queue *cmd_q,
--				struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_aes_cmac_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
+-/**
+- * i40e_set_fc
+- * @hw: pointer to the hw struct
+- * @aq_failures: buffer to return AdminQ failure information
+- * @atomic_restart: whether to enable atomic link restart
+- *
+- * Set the requested flow control mode using set_phy_config.
+- **/
+-enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
+-				  bool atomic_restart)
++static noinline_for_stack enum i40e_status_code
++i40e_set_fc_status(struct i40e_hw *hw,
++		   struct i40e_aq_get_phy_abilities_resp *abilities,
++		   bool atomic_restart)
  {
- 	struct ccp_aes_engine *aes = &cmd->u.aes;
- 	struct ccp_dm_workarea key, ctx;
-@@ -614,8 +614,8 @@ static int ccp_run_aes_cmac_cmd(struct ccp_cmd_queue *cmd_q,
- 	return ret;
- }
+-	enum i40e_fc_mode fc_mode = hw->fc.requested_mode;
+-	struct i40e_aq_get_phy_abilities_resp abilities;
+ 	struct i40e_aq_set_phy_config config;
+-	enum i40e_status_code status;
++	enum i40e_fc_mode fc_mode = hw->fc.requested_mode;
+ 	u8 pause_mask = 0x0;
  
--static int ccp_run_aes_gcm_cmd(struct ccp_cmd_queue *cmd_q,
--			       struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_aes_gcm_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_aes_engine *aes = &cmd->u.aes;
- 	struct ccp_dm_workarea key, ctx, final_wa, tag;
-@@ -897,7 +897,8 @@ static int ccp_run_aes_gcm_cmd(struct ccp_cmd_queue *cmd_q,
- 	return ret;
- }
- 
--static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_aes_engine *aes = &cmd->u.aes;
- 	struct ccp_dm_workarea key, ctx;
-@@ -907,12 +908,6 @@ static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- 	bool in_place = false;
- 	int ret;
- 
--	if (aes->mode == CCP_AES_MODE_CMAC)
--		return ccp_run_aes_cmac_cmd(cmd_q, cmd);
+-	*aq_failures = 0x0;
 -
--	if (aes->mode == CCP_AES_MODE_GCM)
--		return ccp_run_aes_gcm_cmd(cmd_q, cmd);
--
- 	if (!((aes->key_len == AES_KEYSIZE_128) ||
- 	      (aes->key_len == AES_KEYSIZE_192) ||
- 	      (aes->key_len == AES_KEYSIZE_256)))
-@@ -1080,8 +1075,8 @@ static int ccp_run_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- 	return ret;
- }
- 
--static int ccp_run_xts_aes_cmd(struct ccp_cmd_queue *cmd_q,
--			       struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_xts_aes_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_xts_aes_engine *xts = &cmd->u.xts;
- 	struct ccp_dm_workarea key, ctx;
-@@ -1280,7 +1275,8 @@ static int ccp_run_xts_aes_cmd(struct ccp_cmd_queue *cmd_q,
- 	return ret;
- }
- 
--static int ccp_run_des3_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_des3_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_des3_engine *des3 = &cmd->u.des3;
- 
-@@ -1476,7 +1472,8 @@ static int ccp_run_des3_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- 	return ret;
- }
- 
--static int ccp_run_sha_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_sha_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_sha_engine *sha = &cmd->u.sha;
- 	struct ccp_dm_workarea ctx;
-@@ -1820,7 +1817,8 @@ static int ccp_run_sha_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- 	return ret;
- }
- 
--static int ccp_run_rsa_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_rsa_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_rsa_engine *rsa = &cmd->u.rsa;
- 	struct ccp_dm_workarea exp, src, dst;
-@@ -1951,8 +1949,8 @@ static int ccp_run_rsa_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- 	return ret;
- }
- 
--static int ccp_run_passthru_cmd(struct ccp_cmd_queue *cmd_q,
--				struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_passthru_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_passthru_engine *pt = &cmd->u.passthru;
- 	struct ccp_dm_workarea mask;
-@@ -2083,7 +2081,8 @@ static int ccp_run_passthru_cmd(struct ccp_cmd_queue *cmd_q,
- 	return ret;
- }
- 
--static int ccp_run_passthru_nomap_cmd(struct ccp_cmd_queue *cmd_q,
-+static noinline_for_stack int
-+ccp_run_passthru_nomap_cmd(struct ccp_cmd_queue *cmd_q,
- 				      struct ccp_cmd *cmd)
- {
- 	struct ccp_passthru_nomap_engine *pt = &cmd->u.passthru_nomap;
-@@ -2424,7 +2423,8 @@ static int ccp_run_ecc_pm_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- 	return ret;
- }
- 
--static int ccp_run_ecc_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
-+static noinline_for_stack int
-+ccp_run_ecc_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- {
- 	struct ccp_ecc_engine *ecc = &cmd->u.ecc;
- 
-@@ -2461,7 +2461,17 @@ int ccp_run_cmd(struct ccp_cmd_queue *cmd_q, struct ccp_cmd *cmd)
- 
- 	switch (cmd->engine) {
- 	case CCP_ENGINE_AES:
--		ret = ccp_run_aes_cmd(cmd_q, cmd);
-+		switch (cmd->u.aes.mode) {
-+		case CCP_AES_MODE_CMAC:
-+			ret = ccp_run_aes_cmac_cmd(cmd_q, cmd);
-+			break;
-+		case CCP_AES_MODE_GCM:
-+			ret = ccp_run_aes_gcm_cmd(cmd_q, cmd);
-+			break;
-+		default:
-+			ret = ccp_run_aes_cmd(cmd_q, cmd);
-+			break;
-+		}
+ 	switch (fc_mode) {
+ 	case I40E_FC_FULL:
+ 		pause_mask |= I40E_AQ_PHY_FLAG_PAUSE_TX;
+@@ -1702,6 +1692,48 @@ enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
  		break;
- 	case CCP_ENGINE_XTS_AES_128:
- 		ret = ccp_run_xts_aes_cmd(cmd_q, cmd);
+ 	}
+ 
++	memset(&config, 0, sizeof(struct i40e_aq_set_phy_config));
++	/* clear the old pause settings */
++	config.abilities = abilities->abilities & ~(I40E_AQ_PHY_FLAG_PAUSE_TX) &
++			   ~(I40E_AQ_PHY_FLAG_PAUSE_RX);
++	/* set the new abilities */
++	config.abilities |= pause_mask;
++	/* If the abilities have changed, then set the new config */
++	if (config.abilities == abilities->abilities)
++		return 0;
++
++	/* Auto restart link so settings take effect */
++	if (atomic_restart)
++		config.abilities |= I40E_AQ_PHY_ENABLE_ATOMIC_LINK;
++	/* Copy over all the old settings */
++	config.phy_type = abilities->phy_type;
++	config.phy_type_ext = abilities->phy_type_ext;
++	config.link_speed = abilities->link_speed;
++	config.eee_capability = abilities->eee_capability;
++	config.eeer = abilities->eeer_val;
++	config.low_power_ctrl = abilities->d3_lpan;
++	config.fec_config = abilities->fec_cfg_curr_mod_ext_info &
++			    I40E_AQ_PHY_FEC_CONFIG_MASK;
++
++	return i40e_aq_set_phy_config(hw, &config, NULL);
++}
++
++/**
++ * i40e_set_fc
++ * @hw: pointer to the hw struct
++ * @aq_failures: buffer to return AdminQ failure information
++ * @atomic_restart: whether to enable atomic link restart
++ *
++ * Set the requested flow control mode using set_phy_config.
++ **/
++enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
++				  bool atomic_restart)
++{
++	struct i40e_aq_get_phy_abilities_resp abilities;
++	enum i40e_status_code status;
++
++	*aq_failures = 0x0;
++
+ 	/* Get the current phy config */
+ 	status = i40e_aq_get_phy_capabilities(hw, false, false, &abilities,
+ 					      NULL);
+@@ -1710,31 +1742,10 @@ enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
+ 		return status;
+ 	}
+ 
+-	memset(&config, 0, sizeof(struct i40e_aq_set_phy_config));
+-	/* clear the old pause settings */
+-	config.abilities = abilities.abilities & ~(I40E_AQ_PHY_FLAG_PAUSE_TX) &
+-			   ~(I40E_AQ_PHY_FLAG_PAUSE_RX);
+-	/* set the new abilities */
+-	config.abilities |= pause_mask;
+-	/* If the abilities have changed, then set the new config */
+-	if (config.abilities != abilities.abilities) {
+-		/* Auto restart link so settings take effect */
+-		if (atomic_restart)
+-			config.abilities |= I40E_AQ_PHY_ENABLE_ATOMIC_LINK;
+-		/* Copy over all the old settings */
+-		config.phy_type = abilities.phy_type;
+-		config.phy_type_ext = abilities.phy_type_ext;
+-		config.link_speed = abilities.link_speed;
+-		config.eee_capability = abilities.eee_capability;
+-		config.eeer = abilities.eeer_val;
+-		config.low_power_ctrl = abilities.d3_lpan;
+-		config.fec_config = abilities.fec_cfg_curr_mod_ext_info &
+-				    I40E_AQ_PHY_FEC_CONFIG_MASK;
+-		status = i40e_aq_set_phy_config(hw, &config, NULL);
++	status = i40e_set_fc_status(hw, &abilities, atomic_restart);
++	if (status)
++		*aq_failures |= I40E_SET_FC_AQ_FAIL_SET;
+ 
+-		if (status)
+-			*aq_failures |= I40E_SET_FC_AQ_FAIL_SET;
+-	}
+ 	/* Update the link info */
+ 	status = i40e_update_link_info(hw);
+ 	if (status) {
+@@ -2563,7 +2574,7 @@ i40e_status i40e_get_link_status(struct i40e_hw *hw, bool *link_up)
+  * i40e_updatelink_status - update status of the HW network link
+  * @hw: pointer to the hw struct
+  **/
+-i40e_status i40e_update_link_info(struct i40e_hw *hw)
++noinline_for_stack i40e_status i40e_update_link_info(struct i40e_hw *hw)
+ {
+ 	struct i40e_aq_get_phy_abilities_resp abilities;
+ 	i40e_status status = 0;
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-211-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-241-sashal%40kernel.org.
