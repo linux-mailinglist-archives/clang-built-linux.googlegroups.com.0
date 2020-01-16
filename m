@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBGNSQLYQKGQEMKGATOI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBINSQLYQKGQEG4SCPGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63c.google.com (mail-pl1-x63c.google.com [IPv6:2607:f8b0:4864:20::63c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 02C9513E4C6
-	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:51 +0100 (CET)
-Received: by mail-pl1-x63c.google.com with SMTP id g16sf9035225plo.14
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:50 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579194649; cv=pass;
+Received: from mail-io1-xd3c.google.com (mail-io1-xd3c.google.com [IPv6:2607:f8b0:4864:20::d3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3E53713E4CA
+	for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 18:10:58 +0100 (CET)
+Received: by mail-io1-xd3c.google.com with SMTP id w22sf8361407ior.6
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 09:10:58 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579194657; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jU9dA8CW4hhjbqSbIb4uOCpUKlEJT58cmjWsbabxYxPqY2qYjR8WrQ3LgWCF/nNdX8
-         LAf3rpx13zoM37Dn2HyFsWAYJiixoO7Qtml98oNsNFWLpZHWDEO/EFfD7xnIyp4aVebz
-         XRR1XqYdsKIsaZmW8mOgkL4xxkM/ueHX9WHwleC+XR0eu+/kcuu49nKcTnto7S4jCG3P
-         tPuWEz/I2V8JC8AGNIogOAvRJ3cKqwo2hSVQsOMChsum0CSmSDm7gq++XDStxn3uIQPe
-         MyzHloaF/faMNCu9HOLpbf+xDMp/33qhKWpNS9VU4VcE5g9fruvsS5SVDuWHJUhNFuT6
-         y9EQ==
+        b=DijB9Ovbni/nxXlWY/rfvBi8tj16oxVWKScG+kLg9GO0bCOpsSlPZCRFzKSCixjVws
+         1xXxIlBHlrHVKu0jLe2HpiReGv2S7l0g1sWgUO2rpNYtLMOmI59HG4FAZo67xYamvcgG
+         jHWE+QpIJyj8cra0gPaMDiyHvM0FO7m9Y0C7FP1CjqEuEOJ/T/ie2I2n3QmkLwhnu1rX
+         GphGJD/X6tJs3+09vwuzU1Yf7oqh+O2/h1ph/CTQrytAdspbnqD/bboe3YgVG0RyMYte
+         5YaNoPpl7nU39hJcXFzbeXAPHEmZmJj2dnf5IqObuTZeZLVI+73WUqCydHHpOulNbXuI
+         bjog==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=niaNqp8j0R5ZbOm50BDas/SjES2D0oVornjZeYg2Xzg=;
-        b=jyyPG2ZwXBRoMPYN5n6wdiOjd0ZWCiQZVyBQO+ubkWC2oNkZO+kzw4dzrWxd3xYGJP
-         ARkus01G5PFNElRp7xj1MAJuLnJH5SLxX/Qowomn2z46smoRYobVQV2n8DJSofcrSqww
-         Hx+Gg9IBeyoR85zeu+oUxsQb+qRujgrArafSrqPG61gJcf9PgNde/FPvwXlcSErYVUQ4
-         okDhX1vhXBqt07yexL2wK0nEZ+ybWimdXoFNcOidtIi7Iqyl7O4WCfHWbFtnr11gWaXz
-         oAM8Ydu9vHPy6Qp6D72TqKCzyu0xLGDTYZNCALmWjhCmbphiJr21tOz+WEeqyOGrsZ8C
-         QXBg==
+        bh=IaFZWqFLLSI4aFwBzkbj9UK5IEljsSrp2ZnoO+ISAOA=;
+        b=UCyiv5r7RuMK5mheBxLtU2GJwcAFtt0FZ6k056AmLvpwQfhHqRlhxe9+TwnEPKI8PX
+         fEHqr4HQn1uk/idzZJFuOODKA7FEiEpcnfBUjgpDJtTpiZdUjzV1hOmDVQsInM6C8fqd
+         LieAVhop9uRTqjnv1Fd4la4sq+AO4+sCbnQdzEO2Yfzeqi3R05lbr7LvW+7iTc1v2m92
+         RZu2n6h+aN71c/UfV3d/IFjVXSdXqlfv/8qUOvj9e0aKeG+dp+tHRC+qYxWoSgK5POFe
+         73hiYpvdL0osaVxzrS/2WrxAjowWPr9ua+y/X9qGRmxWqLkHEuS8rzQl39oGXnsSbWIv
+         0tyQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=BZl+O7vX;
+       dkim=pass header.i=@kernel.org header.s=default header.b=g0fpha4z;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=niaNqp8j0R5ZbOm50BDas/SjES2D0oVornjZeYg2Xzg=;
-        b=m0rtAwAVEv5vuKNUtc8zLE49qzdXxZ/iwHhljSRc8OiE3CNWCunQq0Uieyyqw9bb9V
-         o/MoQlxAFNLu2apFnlLrQpQ6JeEzKXhrH6qhe1309Lxf5z3DyeWhWBFkGLj/gLi5Z8FW
-         viC6nY5XAxdecuuqNgjPz38ahwklJLWQZ1n5rID+IXg/Vu+PPbnKRlF7tY7wB7PWuZ1k
-         +FPwg6TAXwWoq2vfJRq/K9RZ8c2cQf7cccqfK82Nj74aiMyILSJZXzagQOh1NNFIZIhM
-         auvtuyvy+y4cOyS7Jng87fTTsAHUkTvkX8NvEvFym3vCe7r3W/4ZvrTrzVJWdow2piDh
-         e1bg==
+        bh=IaFZWqFLLSI4aFwBzkbj9UK5IEljsSrp2ZnoO+ISAOA=;
+        b=ojAPARYUZOt/a6ba1D/rVRQfImC7cIk9lJ+kS0SXCD8PzqzSwuVuWWWEedsWPt7z3A
+         jo8oc52QcnwdkkJM5BHof14LYdt2NTaCEaGimKhr3lVO5EOc+FQUHLNVb9RMA/jSyKa+
+         Kt36tgUAHZj9Bc+o1X9vNjiNOaeacS51rHjuY+g0Yhxk9TwPQFXtR7WImDoaY0JcZ6Qu
+         eJLDuhN4JP05vN8+NLNLCukSwVabtiuksLQqmbdlJ15HMWVHxKuSaWow0xjQ0eVxiq8r
+         X4C5ie4964RnmtrDcVaSNhFptmRf2m4FuzhlpIxPQK6AYvm+ZP6gd5978MFg9JG/Q/RB
+         yIeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,70 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=niaNqp8j0R5ZbOm50BDas/SjES2D0oVornjZeYg2Xzg=;
-        b=oe5wPqtlhKuCKyimmjcsLfn5kAjMnkxQoOV8vM8MxtF9IJOSL9GJJwlmkLbU2ob6cN
-         g9rcphn85pbOh8/5A1bKrNdd6Aj4dMWmMA6B9BgPsICVDC/517Lih7GhTFlyn7BfO7L/
-         ho/d97a0HENe6pSSjHfIFDmZJhF54y+k1/vzC4Zn7jqey9xXkNyyEmnuF+QHNjF+BkG9
-         BJBp7+DYl8wskXaTSfLa9D5XkEtBZNB5Nck4/D6tdfCo4L7/TibKXsZ40fKQQXZ9gqYs
-         txoedN73LOr8s1FZTlOP4CdQZHSSPuMDezxsoA8YXq8ahmBz4yEBxwOjzUNbuo37I7wc
-         GxWQ==
+        bh=IaFZWqFLLSI4aFwBzkbj9UK5IEljsSrp2ZnoO+ISAOA=;
+        b=FP5u+ngdfHsC9sbX7eR0jPwaQ7lwO3WpNNYaZFy6+bYtDc4y0/QBRPo3XmHuZJWrZp
+         gcMyAxg4sNGrWXlcUvTyah33rbAIiUh+B74u6h/ZThigpIjlp7kQRs55JL5uet97h02J
+         BC2ql1DM5J+8VsSxO+dIXmhtXJzjMN/+nAuDsUTIWI2RHmw77CTGtAnJI6YkYBuu6Yap
+         5X5uHWlO/vduQUhpEDmPWA/DepQd9J8BqTP1xrciaexcy96EXK6paULWoSjMtXen+rGo
+         z3J7W+fE0OFhwvBs8urHif0TpsiRRG3gBZgWInUQ+GtMS9ikjc0Yc2za31NBPmlyN5MN
+         XNPQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUwg9E2Nq/AAhihZArZyoEKMziU4Iq3SsOWMiFNQHOgfHPu5Lsr
-	6u158utGtTpyP+xdVA2nXHs=
-X-Google-Smtp-Source: APXvYqzJVH6M9qT1B8AMwMcqWoP7WgKmCJ1ELB8fb1huI38WjD/4MZcoDEbxShT169qqhMWUZOx8Lg==
-X-Received: by 2002:aa7:91c1:: with SMTP id z1mr39737421pfa.182.1579194649729;
-        Thu, 16 Jan 2020 09:10:49 -0800 (PST)
+X-Gm-Message-State: APjAAAXErmO/4oj9pLvtHOoLy5gHoevjLOG1fb3TT7Lhv/Umru5kr9tR
+	YDqy6RZVKXMdJms8ErFXYL8=
+X-Google-Smtp-Source: APXvYqz7rIBt0AUCuw6wlR7Cvl0N1lsEvGwMPjopJ4DAH8GRqtqtBqDckq7PGBTe5NMCePhLqrvd5A==
+X-Received: by 2002:a5e:c205:: with SMTP id v5mr27529570iop.41.1579194657125;
+        Thu, 16 Jan 2020 09:10:57 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:3421:: with SMTP id o30ls1033769pjb.1.canary-gmail;
- Thu, 16 Jan 2020 09:10:49 -0800 (PST)
-X-Received: by 2002:a17:90b:8ce:: with SMTP id ds14mr51919pjb.57.1579194649338;
-        Thu, 16 Jan 2020 09:10:49 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579194649; cv=none;
+Received: by 2002:a6b:5109:: with SMTP id f9ls2922804iob.9.gmail; Thu, 16 Jan
+ 2020 09:10:56 -0800 (PST)
+X-Received: by 2002:a6b:c848:: with SMTP id y69mr26966074iof.24.1579194656582;
+        Thu, 16 Jan 2020 09:10:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579194656; cv=none;
         d=google.com; s=arc-20160816;
-        b=Y/FM7cErMnTSVMXcelFPysbymCKtW08eN7nV75WpULUf3T+L06idRwU82Fm5i8bKW1
-         dvcnuPSCr24oxp14Ci/fflJvHTcn2J5I7X4iZfiLPE0/e8PlYdCOK0Qhafo4l1ePV7lt
-         Oqr0FquxnAALrFkVKmXcgjab/1hU1Xnn78ua+vazdBUfUB3dM3ndHbjBE+ejEijCW2jm
-         ebZ+Hr/XVfPX5DJ1QEexkN/fFKKtgjXj6HDIgr/Iu07f35b5PxEO5ARRVoxWZA7WnsXh
-         VdS4iu8om7FZYPB9eDWI/24UlyieNZcZUqUT9wpc3hFM378+anUYNsrOuY+hD5pjF1pE
-         UkpA==
+        b=cd83Q1Ar+63dnhjBqf6g/uC2oMs4FJprxeWiM6w7zVRIF+xxT47L4MCejTkVm9n0QJ
+         UMEeYn8XLkV3XOR2ccAD1EuLPo0QC/e+6O2E1ebMVqIxs8mUf5R3pzCzCII9bLra9wg7
+         c6Gv0F0nTZTXvt2EWymOPt8diJGHzM/X6xFc5JAmFzM1MSP1ujbwxWGLq2BLQapnfDY+
+         r9gEJZCD+lCCDVtM9F9JrkfksxFnhcK1WwRclmlOuAlF1WZ1HY7Lm2cVhxdog9FCVgs5
+         nz/t822EByv5ob6NhTNJo/NJbroFR4Dcv5hLwVdhavD0LXjWh2J0Oq+/P+FYDyjKZCTR
+         M3HQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=v5oWODXwFq0JMSODFR1UUIR1P9YFcegsaWfnl15u91s=;
-        b=DT66pGPoNSPIHPOAMplCI4+OQvoEs/zeIXB5AaPgjXDTGbdO9LprbhHIsKOZLegFfY
-         p9y1JWzpUsYF21h1m9LbOOYEfwHpahnf2IlR+nEHyauVFRr8cDThmEGnjzR3GuWYka2L
-         9tPHONddfAjDuCchwC2uhKYjQh+i+GtK0OrjAgRvx5cAHdQ2LJrY+OsyHE7us96oloO0
-         a+f5UQpgXFb5pTb26HnMe5Duu0wJakEx09gophV63tEhG50JrLqNNDKk/9kR9XfvrDeN
-         /Iz2J4ut3aG5F8Mq78C4y5B8WSxe4zUeWR/czICKw/SWj2KeGCyfoDn8ik0sOBOzsMWp
-         9lvw==
+        bh=rG1RdM8+lOt4ISmWjZKxd1TiM/Fta12YzlE5fRjs1q0=;
+        b=EXOVktTowo/3+rw/TFigYTJPP9m06G0gVbVg6kj/crAEfEGQ/NM73pEV/lEn7O0p/f
+         PXRbnmoVdBh17aGhI4bVZfElt4HClYTeBXYL1yzPhrH9Xc8Lfd16RaxZLsH12EVMJmrx
+         Iai5llu/9scFihJXl+y6VYa/yaeF5/i4vtYqgArlMY2QIJAPlTevg+3/AcXoqKD7UOck
+         ZVCS740A5y/0jsxrBTOfwTsjqbVZwE/DwElSLv5gQAugL2v3UAtH75H+fkLaMeQw8vA/
+         0OU4USpEnZdhEYknX6SxqrHrrJHAdb3D2IU0k1xZOCmafIbyu2KC/m6GV46QrMB7/l+S
+         SGLw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=BZl+O7vX;
+       dkim=pass header.i=@kernel.org header.s=default header.b=g0fpha4z;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id t34si366761pjb.3.2020.01.16.09.10.49
+        by gmr-mx.google.com with ESMTPS id v82si1099992ili.0.2020.01.16.09.10.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2020 09:10:49 -0800 (PST)
+        Thu, 16 Jan 2020 09:10:56 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id CA08124685;
-	Thu, 16 Jan 2020 17:10:47 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id A0E0B2468C;
+	Thu, 16 Jan 2020 17:10:53 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Andrew Bowers <andrewx.bowers@intel.com>,
-	Jeff Kirsher <jeffrey.t.kirsher@intel.com>,
-	Sasha Levin <sashal@kernel.org>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.19 504/671] i40e: reduce stack usage in i40e_set_fc
-Date: Thu, 16 Jan 2020 12:02:22 -0500
-Message-Id: <20200116170509.12787-241-sashal@kernel.org>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Eli Friedman <efriedma@quicinc.com>,
+	Paul Burton <paul.burton@mips.com>,
+	ralf@linux-mips.org,
+	jhogan@kernel.org,
+	"Maciej W . Rozycki" <macro@linux-mips.org>,
+	Hassan Naveed <hnaveed@wavecomp.com>,
+	Stephen Kitt <steve@sk2.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Mike Rapoport <rppt@linux.ibm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Michal Hocko <mhocko@suse.com>,
+	linux-mips@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 508/671] mips: avoid explicit UB in assignment of mips_io_port_base
+Date: Thu, 16 Jan 2020 12:02:26 -0500
+Message-Id: <20200116170509.12787-245-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200116170509.12787-1-sashal@kernel.org>
 References: <20200116170509.12787-1-sashal@kernel.org>
@@ -121,7 +130,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=BZl+O7vX;       spf=pass
+ header.i=@kernel.org header.s=default header.b=g0fpha4z;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -138,168 +147,105 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Arnd Bergmann <arnd@arndb.de>
+From: Nick Desaulniers <ndesaulniers@google.com>
 
-[ Upstream commit 33b165684ab70867d4545643f550a5d48d3ddc57 ]
+[ Upstream commit 12051b318bc3ce5b42d6d786191008284b067d83 ]
 
-The functions i40e_aq_get_phy_abilities_resp() and i40e_set_fc() both
-have giant structure on the stack, which makes each one use stack frames
-larger than 500 bytes.
+The code in question is modifying a variable declared const through
+pointer manipulation.  Such code is explicitly undefined behavior, and
+is the lone issue preventing malta_defconfig from booting when built
+with Clang:
 
-As clang decides one function into the other, we get a warning for
-exceeding the frame size limit on 32-bit architectures:
+If an attempt is made to modify an object defined with a const-qualified
+type through use of an lvalue with non-const-qualified type, the
+behavior is undefined.
 
-drivers/net/ethernet/intel/i40e/i40e_common.c:1654:23: error: stack frame size of 1116 bytes in function 'i40e_set_fc' [-Werror,-Wframe-larger-than=]
+LLVM is removing such assignments. A simple fix is to not declare
+variables const that you plan on modifying.  Limiting the scope would be
+a better method of preventing unwanted writes to such a variable.
 
-When building with gcc, the inlining does not happen, but i40e_set_fc()
-calls i40e_aq_get_phy_abilities_resp() anyway, so they add up on the
-kernel stack just as much.
+Further, the code in question mentions "compiler bugs" without any links
+to bug reports, so it is difficult to know if the issue is resolved in
+GCC. The patch was authored in 2006, which would have been GCC 4.0.3 or
+4.1.1. The minimal supported version of GCC in the Linux kernel is
+currently 4.6.
 
-The parts that actually use large stacks don't overlap, so make sure
-each one is a separate function, and mark them as noinline_for_stack to
-prevent the compilers from combining them again.
+For what its worth, there was UB before the commit in question, it just
+added a barrier and got lucky IRT codegen. I don't think there's any
+actual compiler bugs related, just runtime bugs due to UB.
 
-Fixes: 0a862b43acc6 ("i40e/i40evf: Add module_types and update_link_info")
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-Tested-by: Andrew Bowers <andrewx.bowers@intel.com>
-Signed-off-by: Jeff Kirsher <jeffrey.t.kirsher@intel.com>
+Link: https://github.com/ClangBuiltLinux/linux/issues/610
+Fixes: 966f4406d903 ("[MIPS] Work around bad code generation for <asm/io.h>.")
+Reported-by: Nathan Chancellor <natechancellor@gmail.com>
+Debugged-by: Nathan Chancellor <natechancellor@gmail.com>
+Suggested-by: Eli Friedman <efriedma@quicinc.com>
+Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
+Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+Tested-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Paul Burton <paul.burton@mips.com>
+Cc: ralf@linux-mips.org
+Cc: jhogan@kernel.org
+Cc: Maciej W. Rozycki <macro@linux-mips.org>
+Cc: Hassan Naveed <hnaveed@wavecomp.com>
+Cc: Stephen Kitt <steve@sk2.org>
+Cc: Serge Semin <fancer.lancer@gmail.com>
+Cc: Mike Rapoport <rppt@linux.ibm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: linux-mips@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: clang-built-linux@googlegroups.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/ethernet/intel/i40e/i40e_common.c | 91 +++++++++++--------
- 1 file changed, 51 insertions(+), 40 deletions(-)
+ arch/mips/include/asm/io.h | 14 ++------------
+ arch/mips/kernel/setup.c   |  2 +-
+ 2 files changed, 3 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/i40e/i40e_common.c b/drivers/net/ethernet/intel/i40e/i40e_common.c
-index 85f75b5978fc..eb0ae6ab01e2 100644
---- a/drivers/net/ethernet/intel/i40e/i40e_common.c
-+++ b/drivers/net/ethernet/intel/i40e/i40e_common.c
-@@ -1668,25 +1668,15 @@ enum i40e_status_code i40e_aq_set_phy_config(struct i40e_hw *hw,
- 	return status;
+diff --git a/arch/mips/include/asm/io.h b/arch/mips/include/asm/io.h
+index 54c730aed327..df1eaa365279 100644
+--- a/arch/mips/include/asm/io.h
++++ b/arch/mips/include/asm/io.h
+@@ -62,21 +62,11 @@
+  * instruction, so the lower 16 bits must be zero.  Should be true on
+  * on any sane architecture; generic code does not use this assumption.
+  */
+-extern const unsigned long mips_io_port_base;
++extern unsigned long mips_io_port_base;
+ 
+-/*
+- * Gcc will generate code to load the value of mips_io_port_base after each
+- * function call which may be fairly wasteful in some cases.  So we don't
+- * play quite by the book.  We tell gcc mips_io_port_base is a long variable
+- * which solves the code generation issue.  Now we need to violate the
+- * aliasing rules a little to make initialization possible and finally we
+- * will need the barrier() to fight side effects of the aliasing chat.
+- * This trickery will eventually collapse under gcc's optimizer.  Oh well.
+- */
+ static inline void set_io_port_base(unsigned long base)
+ {
+-	* (unsigned long *) &mips_io_port_base = base;
+-	barrier();
++	mips_io_port_base = base;
  }
  
--/**
-- * i40e_set_fc
-- * @hw: pointer to the hw struct
-- * @aq_failures: buffer to return AdminQ failure information
-- * @atomic_restart: whether to enable atomic link restart
-- *
-- * Set the requested flow control mode using set_phy_config.
-- **/
--enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
--				  bool atomic_restart)
-+static noinline_for_stack enum i40e_status_code
-+i40e_set_fc_status(struct i40e_hw *hw,
-+		   struct i40e_aq_get_phy_abilities_resp *abilities,
-+		   bool atomic_restart)
- {
--	enum i40e_fc_mode fc_mode = hw->fc.requested_mode;
--	struct i40e_aq_get_phy_abilities_resp abilities;
- 	struct i40e_aq_set_phy_config config;
--	enum i40e_status_code status;
-+	enum i40e_fc_mode fc_mode = hw->fc.requested_mode;
- 	u8 pause_mask = 0x0;
+ /*
+diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
+index 8aaaa42f91ed..e87c98b8a72c 100644
+--- a/arch/mips/kernel/setup.c
++++ b/arch/mips/kernel/setup.c
+@@ -76,7 +76,7 @@ static char __initdata builtin_cmdline[COMMAND_LINE_SIZE] = CONFIG_CMDLINE;
+  * mips_io_port_base is the begin of the address space to which x86 style
+  * I/O ports are mapped.
+  */
+-const unsigned long mips_io_port_base = -1;
++unsigned long mips_io_port_base = -1;
+ EXPORT_SYMBOL(mips_io_port_base);
  
--	*aq_failures = 0x0;
--
- 	switch (fc_mode) {
- 	case I40E_FC_FULL:
- 		pause_mask |= I40E_AQ_PHY_FLAG_PAUSE_TX;
-@@ -1702,6 +1692,48 @@ enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
- 		break;
- 	}
- 
-+	memset(&config, 0, sizeof(struct i40e_aq_set_phy_config));
-+	/* clear the old pause settings */
-+	config.abilities = abilities->abilities & ~(I40E_AQ_PHY_FLAG_PAUSE_TX) &
-+			   ~(I40E_AQ_PHY_FLAG_PAUSE_RX);
-+	/* set the new abilities */
-+	config.abilities |= pause_mask;
-+	/* If the abilities have changed, then set the new config */
-+	if (config.abilities == abilities->abilities)
-+		return 0;
-+
-+	/* Auto restart link so settings take effect */
-+	if (atomic_restart)
-+		config.abilities |= I40E_AQ_PHY_ENABLE_ATOMIC_LINK;
-+	/* Copy over all the old settings */
-+	config.phy_type = abilities->phy_type;
-+	config.phy_type_ext = abilities->phy_type_ext;
-+	config.link_speed = abilities->link_speed;
-+	config.eee_capability = abilities->eee_capability;
-+	config.eeer = abilities->eeer_val;
-+	config.low_power_ctrl = abilities->d3_lpan;
-+	config.fec_config = abilities->fec_cfg_curr_mod_ext_info &
-+			    I40E_AQ_PHY_FEC_CONFIG_MASK;
-+
-+	return i40e_aq_set_phy_config(hw, &config, NULL);
-+}
-+
-+/**
-+ * i40e_set_fc
-+ * @hw: pointer to the hw struct
-+ * @aq_failures: buffer to return AdminQ failure information
-+ * @atomic_restart: whether to enable atomic link restart
-+ *
-+ * Set the requested flow control mode using set_phy_config.
-+ **/
-+enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
-+				  bool atomic_restart)
-+{
-+	struct i40e_aq_get_phy_abilities_resp abilities;
-+	enum i40e_status_code status;
-+
-+	*aq_failures = 0x0;
-+
- 	/* Get the current phy config */
- 	status = i40e_aq_get_phy_capabilities(hw, false, false, &abilities,
- 					      NULL);
-@@ -1710,31 +1742,10 @@ enum i40e_status_code i40e_set_fc(struct i40e_hw *hw, u8 *aq_failures,
- 		return status;
- 	}
- 
--	memset(&config, 0, sizeof(struct i40e_aq_set_phy_config));
--	/* clear the old pause settings */
--	config.abilities = abilities.abilities & ~(I40E_AQ_PHY_FLAG_PAUSE_TX) &
--			   ~(I40E_AQ_PHY_FLAG_PAUSE_RX);
--	/* set the new abilities */
--	config.abilities |= pause_mask;
--	/* If the abilities have changed, then set the new config */
--	if (config.abilities != abilities.abilities) {
--		/* Auto restart link so settings take effect */
--		if (atomic_restart)
--			config.abilities |= I40E_AQ_PHY_ENABLE_ATOMIC_LINK;
--		/* Copy over all the old settings */
--		config.phy_type = abilities.phy_type;
--		config.phy_type_ext = abilities.phy_type_ext;
--		config.link_speed = abilities.link_speed;
--		config.eee_capability = abilities.eee_capability;
--		config.eeer = abilities.eeer_val;
--		config.low_power_ctrl = abilities.d3_lpan;
--		config.fec_config = abilities.fec_cfg_curr_mod_ext_info &
--				    I40E_AQ_PHY_FEC_CONFIG_MASK;
--		status = i40e_aq_set_phy_config(hw, &config, NULL);
-+	status = i40e_set_fc_status(hw, &abilities, atomic_restart);
-+	if (status)
-+		*aq_failures |= I40E_SET_FC_AQ_FAIL_SET;
- 
--		if (status)
--			*aq_failures |= I40E_SET_FC_AQ_FAIL_SET;
--	}
- 	/* Update the link info */
- 	status = i40e_update_link_info(hw);
- 	if (status) {
-@@ -2563,7 +2574,7 @@ i40e_status i40e_get_link_status(struct i40e_hw *hw, bool *link_up)
-  * i40e_updatelink_status - update status of the HW network link
-  * @hw: pointer to the hw struct
-  **/
--i40e_status i40e_update_link_info(struct i40e_hw *hw)
-+noinline_for_stack i40e_status i40e_update_link_info(struct i40e_hw *hw)
- {
- 	struct i40e_aq_get_phy_abilities_resp abilities;
- 	i40e_status status = 0;
+ static struct resource code_resource = { .name = "Kernel code", };
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-241-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200116170509.12787-245-sashal%40kernel.org.
