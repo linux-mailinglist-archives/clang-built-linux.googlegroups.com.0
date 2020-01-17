@@ -1,165 +1,132 @@
-Return-Path: <clang-built-linux+bncBCUY5FXDWACRBLPJQTYQKGQE4TM5MEI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCW73DN2RYFBB66CQXYQKGQEQVNTRVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
-	by mail.lfdr.de (Postfix) with ESMTPS id 59C961402D2
-	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Jan 2020 05:14:38 +0100 (CET)
-Received: by mail-yw1-xc39.google.com with SMTP id r189sf24237860ywf.13
-        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 20:14:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579234477; cv=pass;
+Received: from mail-lj1-x239.google.com (mail-lj1-x239.google.com [IPv6:2a00:1450:4864:20::239])
+	by mail.lfdr.de (Postfix) with ESMTPS id 06AB4140473
+	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Jan 2020 08:25:48 +0100 (CET)
+Received: by mail-lj1-x239.google.com with SMTP id a19sf5928935ljp.15
+        for <lists+clang-built-linux@lfdr.de>; Thu, 16 Jan 2020 23:25:48 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579245947; cv=pass;
         d=google.com; s=arc-20160816;
-        b=e2r+Z7VxgsY0dkGGHcAl6jTFazuvAnqqFEY/UNmMEsjvYnTxmtmrih/XMUkFB03Ext
-         T2+z++uW/TrNQKLq/QPZvIDmWMHb1C+3qirDGIPk2kgaUBcHa715+/wbU5MuP6wjh3Ok
-         0ACeapFcAh1TnwScdTcD0H+NXXmqlJ6Hw2HhM1Nf20frweLvg5RN6Mj00Wq3ogJ6ZEW0
-         dBLLBU5iM+mhi3uBHz7tpkZ9VYS7HjVyAyIPjnte4wfdpsbHQuWqF8JQWUZqwnRLNjwZ
-         yYKbfZ4CJXRg+25wUzvgYtQecB7yDQ+7ZNo/eH8dpCYQi+w+WxQWefzIsxTHlXD1xyFL
-         XkNQ==
+        b=BXtFi9XCjtYEsHyp13ni06GI8I8hUeo8ZaSXXQOmzNSN514WNZVczFKjIKBDaCIdPB
+         +ZZ07NuBGt42g2tyudOJHQpcYHWQm8P4QW/LI1hbwGgqyBjK8+EEZEpEXYs5Oii6PVg2
+         gZ1sofcUOc2vynOLtLtJc0SkMYw0gAsRG0b4vVNa7MRHSRRHpFKHFb9jDkLX1+Ko8GG9
+         GlzkC49UQ4yPCmsD5xChvgOt3yZLYryaCWG46qKcNE/7GLgTXExNsYNL7lf7aUq+k6tx
+         Rvc+9m5TkxdeDfj6bK4FfiTPh/1z3GhALVCdnt0JYAYtv6z9hmzgSbz6y2V0+6vNL5tz
+         FAuA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-transfer-encoding:content-disposition:mime-version
-         :references:message-id:subject:cc:to:from:date:sender:dkim-signature
-         :dkim-signature;
-        bh=+gowMiPEWCtLV6ClJItQLFjeKAWZE/tCXftTJoPshwU=;
-        b=mI4sK1g49ZvVlEBFG34nicEL/Xo9bLIDoLWVWbgumXYKybqn+HylIfxL7DoEmn6DRW
-         YoWJBhapJ7tok9E+VXpfUnlTx/tLRA7XLNRW/r0XHIB40gj2CTvxQ6KrXMYGmVILfzsX
-         iOFqnHXBScSgszv8MNl0yCqSmSU1+SQ7ui8odsR8DXM+dZ5ovIJVh2mTh9eJRkeQ6rKh
-         LpB/FaGGMN0qEXecRnsVc7JxdDhrKk1B6iCF398eFlApwfysSrlyb65zFF0XJMXg53dl
-         X0/v91h/eqG4fRGlO6hiyEQr2YfbAb98T4cZC13Gtis5nGeUpukNgtGLwjzGJ6bF4BdU
-         v9Uw==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=oWfTMTJyjoBe0BjckQBA+PYX41/bmdRYC294Tc3lKow=;
+        b=POZrAh660dR2mJg8Sg/wAeo80uUyzhnfkvEajCJmmwHJw9d3OnzVn8o6vDcJE0jj6+
+         1mCEJqbZhCE2XnCuIA10gUfCFi3W4M5s1rJkyOUILBzjfBZsatyIryFbkRgfrn8T84vY
+         sbmwgJLxuhPW1Q2bXNgWdOgEfZUFQxMWz3p2ahp55XblYNsw36sFb9LkmjIuzPRncVPj
+         Bi1PYSi1PaE6uU1TVtUk6ABiteb+miDIryyZy48Sm961FU4HOWMRdKMC95ClVVhZoedT
+         EBjvUWD1XAX1kfGym+IHN7YKg33RB5LYF6xrc0GS0snyBm7w7S8hXnOFWx5lO1GJpT8h
+         HJhg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BSzmU+mW;
-       spf=pass (google.com: domain of alexei.starovoitov@gmail.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=alexei.starovoitov@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@xs4all.nl header.s=s1 header.b=NV9b5sVh;
+       spf=pass (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.21 as permitted sender) smtp.mailfrom=hverkuil@xs4all.nl
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :user-agent:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=+gowMiPEWCtLV6ClJItQLFjeKAWZE/tCXftTJoPshwU=;
-        b=rUM6lJy1fz+k0gwyVJ3sxHdpR1LD4h/6Ln8D18Ikoq35pxuah+17Zx4W8Z8iKMNdJK
-         NPSSrHnWWoGkbq4UyM366OLJ9imfs+XCDUCu6hqsd+IvibjmggTQIO0qUl2KEO8ieoKc
-         Hp7Z+1Z/U4DoIHrPCSP8CT2xu3/H7B5NiiIi3+BNhGK2tA4iaUUbGKcjVTUX0q+HVM47
-         smaGTGolgLz2uW4tQQ0IlTfhx0S8Js92mymscSYuLSVVd26p7mmRJgLyCNNy62nN0yAt
-         4NVtwRSsXiq9qYohs6iTcUWzDVc0gPQ2qSq/GPzSUfxrKsrQZQdn0kOVBAtqNTICs+Hs
-         2BrQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to
-         :user-agent:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=+gowMiPEWCtLV6ClJItQLFjeKAWZE/tCXftTJoPshwU=;
-        b=XHtsgWj7EX4j8YzLgyppe/KgGFYQpqrYsPj+UO0wt3TxpBWd60UjRMxC+NIxLyfxLd
-         KHiISnx+7sJ9cjFxjdGOOZShNzSyo+9h0vDgc56c122SfLs5F8AXR2ep8ir6wDR8frQL
-         i+Qgt+k8IuMsC/pWyUmLAAsADvRIke5ayDPamMrW77oYL5N/FNZFZYZWgp0524Vci8Lx
-         siJx4BTw0lrjOhcE4D3hOZ3OSwFP4qwRu+/JZF0VcvluDN8kku1mzp/3dPKKbTlgmfFn
-         CtlEwOz918JfYUGZw3VmdvdBDRxM27xAQqi0gXKovY94Z/KaRI90+jkAhQ59ejjc9rHh
-         CQOA==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=oWfTMTJyjoBe0BjckQBA+PYX41/bmdRYC294Tc3lKow=;
+        b=hDjkoAArzwjq48ztNZDFB78PB5wZuPebwBUjIjtbF9+kaq3RgjoiLIo1/0Iv84mu1h
+         nYyaCG5snofMpWKzD4yutqovuIay9H5igbE2Hiq/7i+Thqc12nZkLuhzU2WC7wLHQfV/
+         X+F9XziRVL2LIFcvXwOLicnZkrItENnFzrDWOF6BRdzIilwYg/W+ltl+rNpG3olBlyks
+         soOHruv3TXJaV3lGrqfuY+g9ujy77j3rvt/v5gL4girDeWrj2BqCdMiTv5Kwd/qiYE1z
+         ZvJVwqZHU3f7IcghIjryH6P+RMXXzOM2XN7QuZFSK1g3Yr+XenIURRSk/iRjaypzNSYP
+         mlbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition
-         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=+gowMiPEWCtLV6ClJItQLFjeKAWZE/tCXftTJoPshwU=;
-        b=b9kNED6qbBPRQo8L5NFlPWYCgD3jaquTh3ClaQ2yDmLo22pW7eEXyMIa2/Cb4yDRpi
-         fZBTHzikoYbDtoHu8PoNaIiRar+K7YNbzfwgd1g1v2g1YtEy+ZFE2Z4dB1KqULn0avjp
-         hu8avszBpIm1ebWDGsq/6b65pQcktAyI0veTT53p847S7vUPO8V/FfLU4Ywu2a6dvRSU
-         mNBcSQoupyu63Mx2eZljDN8/mcq1iEBC/D7am/tC2lh9iIDmWuqVa00YBHcpzKKB0pHr
-         v4udQRQ1oA8EQbOxAcx9sY+gr/x0L7GbqtpVok63AxQMcrGaZ9IrMQ0ZcODBIDpWVK7m
-         aC+A==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=oWfTMTJyjoBe0BjckQBA+PYX41/bmdRYC294Tc3lKow=;
+        b=KNIgLsUCr5b9uhBAk3ZBofHJdMEELrXO/xUYpGH7f2VQEa30pPiGGuLZWcO7Dxi+l7
+         Ja6HYhPpPPbd9fo0Wd5FYtWTQpW+HuM5+PkUf4SYgS3YNbFUCMZrZORMSmJRpCYhzlzR
+         CQz8C82dVwirOIEH/Dp+Tc5KgeJh3C3ABbvBGoBSxE65zAryRRYScMN1+PC5W16KMxx0
+         2klzzMy3FfiMsPAjOtKZHfzt3NF8ZcHmJ7AQPjLuhcQ4z9Mtfg7gXYt1zBRHrmrSTXI/
+         oILuAywzkY55iZ6UuR0gOQkWlyFQyrPxZ9a9nkXRtuP3BbqrBvBSjrIdF/Nu/2n7vT8T
+         9Ccw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWfUGVovVXaCb4sfG9Ji8mf65VYmkxI1Ure2VBE7NhehhtZk8kp
-	sQjJZ2vG0JIr5ONuzVaz3g0=
-X-Google-Smtp-Source: APXvYqxd7mSXtBbO8IAEtOdwK6JLMKyyZSRTcML29JZC8rlxCb10TedVwVQc872lzBHypTp84ummaQ==
-X-Received: by 2002:a25:e703:: with SMTP id e3mr23564846ybh.55.1579234477323;
-        Thu, 16 Jan 2020 20:14:37 -0800 (PST)
+X-Gm-Message-State: APjAAAWdNPWgf+TotG6WBE5gRQ6vInDA+nlxFO2ol0Yu000hYErkp/Vo
+	YK5PdxHM5Pp/zpm/bC1x9vI=
+X-Google-Smtp-Source: APXvYqzA2uf7XNUdq9sjMCmCONVI4XeSEf4F7fhioKtgOQPIVu8V+leoghE+6dnEyjYQ6X0Hs4Zptw==
+X-Received: by 2002:a2e:95c4:: with SMTP id y4mr4809650ljh.38.1579245947469;
+        Thu, 16 Jan 2020 23:25:47 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d447:: with SMTP id m68ls2537244ybf.6.gmail; Thu, 16 Jan
- 2020 20:14:36 -0800 (PST)
-X-Received: by 2002:a25:7302:: with SMTP id o2mr28322801ybc.521.1579234476910;
-        Thu, 16 Jan 2020 20:14:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579234476; cv=none;
+Received: by 2002:a2e:730c:: with SMTP id o12ls3399382ljc.12.gmail; Thu, 16
+ Jan 2020 23:25:46 -0800 (PST)
+X-Received: by 2002:a2e:580c:: with SMTP id m12mr4936675ljb.150.1579245946832;
+        Thu, 16 Jan 2020 23:25:46 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579245946; cv=none;
         d=google.com; s=arc-20160816;
-        b=nQmawCowYub6/4EW8ug+y7pDipfrCjSAqG54++LHHiEqJZTLNvgOpdRHE5/ahhYfDa
-         /KH2fEb4XWKGYh6OHr5mIj9NZBdhbQxEKUV4LZYMRK+6s7Y4Rx4226jTbb1wPtQBchUB
-         PXWFzBPDSZ+wPWd1K6YTHCGdcsWbSS0/Au/kMQIR5AIJevMgty7BiY1bpyn2e4YyMgGR
-         kSgb2YViKVYowZFb9wQbKXxO/LbWTi+MmHBHrFK1oU5Vrc4WoVPDetvg1zaYtgg4X5U1
-         ZHystH7ajo+3AllvPIRz3cupxOrUe/s63sgO9Di6exKyQSh6E111aT7W0bIVERfsOG27
-         jjSg==
+        b=RxZLU/BSZhKt8tSrxVuaj6Sn6xTwKUYhY+iFxuR5rnMcfWb7iNW/mAL7ZzwZA3HWbR
+         ouC3hZc5xGe9GW4ieH1DPan9w84RTjURkX5XK6p5M9BrpnZxAq23m26KYYMc3q1CxTTG
+         eiuyZqyIDQSJetKuzqCCh4qH816O86xdBLCVlieZGVpSaeqj2NhD8eT01OY9hDtmoe3f
+         T5h7YC/5C/zWCgqbB4TMGAKTWk6JDkRkotoTp3E5SbDtNuOKh8peHdqxJiUenz6PQBHf
+         GD7jbF2uJfdPmIOP/IQAr+KqVE2Sg9Yp4wLzNRdWnQjhEHJoKuyK41483pVbI+xMWTdN
+         /KLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-transfer-encoding
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:dkim-signature;
-        bh=twnxve9B2urmxTvx/xi2EnR9KZMdG4EBxb61wIeJtkM=;
-        b=CJ60ATSzrpNEmK+OxQnWfS0E6JbM+48tmZOt4nvbfejPMs3lXMuVpgxrGu9CMucztr
-         tTb1MhIM01QOXkrs8spbbOm91UjVYu4wf4U3LYpvZlZo5HnpN8G/sqOsm+Fac+MfP2Bo
-         48pKUO0TAPkOaGyHTmvshg5Oqj/p2Ga5r42QNHOVVKTGUDFVb749mSGPnQdhEOUcaKzo
-         t5JVigoiiiY1sqi4SLGUZ7Yn0DpWUHObkNyCwed+HOQXVFlqNs4IcN2M7ZG6Lez9iKIN
-         e1F2A9G2YB95BaODB6x8aIFsF+NJVzRE44Jhf5p930VKeNDYH4mOy+A8+AuakJlG+tdG
-         qcuw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=UeKBLZ/CdLAZrnCykhZrVadqCwYfx67m4+oSWoKkHOs=;
+        b=raOlZtcB0fokx3pFWiwlJgi2CPiqmmsBNSl+LLr6TzqoH6mxpOI+dpMRUIRDc8rcaW
+         0OaPiQMFz9MH/MLWpV7NtLwijc+8uIb4wSDvCJTohUrWgOF/yMtPKf0cXeef/F3/hhHH
+         /m04dAtiFbYj9gNFy5vuZyjWFVlfu0TM4atlg+HmTkzRu6+pIEnJGLIL4PQDNOJJXYjL
+         cZbdLz0RT9ceDcK85mX2nNEx4AK8cQkcFbO15KbSve9lDxk1+JG0c5vjogBeKcayPQUR
+         9lUImXU/q+dRO5pQKZQmGQHAoRLiBPavLemGy/sjk0cnIm8BgCbZgegfCYACbpn0ipEf
+         7JwQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=BSzmU+mW;
-       spf=pass (google.com: domain of alexei.starovoitov@gmail.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=alexei.starovoitov@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
-        by gmr-mx.google.com with ESMTPS id e186si256052yba.4.2020.01.16.20.14.36
+       dkim=pass header.i=@xs4all.nl header.s=s1 header.b=NV9b5sVh;
+       spf=pass (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.21 as permitted sender) smtp.mailfrom=hverkuil@xs4all.nl
+Received: from lb1-smtp-cloud8.xs4all.net (lb1-smtp-cloud8.xs4all.net. [194.109.24.21])
+        by gmr-mx.google.com with ESMTPS id v16si1295950lfd.2.2020.01.16.23.25.46
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 16 Jan 2020 20:14:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of alexei.starovoitov@gmail.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
-Received: by mail-pj1-x1044.google.com with SMTP id m13so2683938pjb.2
-        for <clang-built-linux@googlegroups.com>; Thu, 16 Jan 2020 20:14:36 -0800 (PST)
-X-Received: by 2002:a17:90a:2223:: with SMTP id c32mr3474800pje.15.1579234476283;
-        Thu, 16 Jan 2020 20:14:36 -0800 (PST)
-Received: from ast-mbp.dhcp.thefacebook.com ([2620:10d:c090:180::98ac])
-        by smtp.gmail.com with ESMTPSA id h128sm28232584pfe.172.2020.01.16.20.14.33
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 16 Jan 2020 20:14:35 -0800 (PST)
-Date: Thu, 16 Jan 2020 20:14:32 -0800
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-To: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-	Yonghong Song <yhs@fb.com>, Andrii Nakryiko <andriin@fb.com>,
-	Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <brouer@redhat.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>,
-	Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rdma@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH bpf-next v3 00/11] tools: Use consistent libbpf include
- paths everywhere
-Message-ID: <20200117041431.h7vvc32fungenyhg@ast-mbp.dhcp.thefacebook.com>
-References: <157918093154.1357254.7616059374996162336.stgit@toke.dk>
+        Thu, 16 Jan 2020 23:25:46 -0800 (PST)
+Received-SPF: pass (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.21 as permitted sender) client-ip=194.109.24.21;
+Received: from [192.168.2.10] ([62.249.185.68])
+	by smtp-cloud8.xs4all.net with ESMTPA
+	id sM0jicDxnpLtbsM0nithAZ; Fri, 17 Jan 2020 08:25:46 +0100
+Subject: Re: [PATCH] media: i2c: adv748x: Fix unsafe macros
+To: Nathan Chancellor <natechancellor@gmail.com>,
+ "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+Cc: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Hans Verkuil <hans.verkuil@cisco.com>, Dmitry Vyukov <dvyukov@google.com>,
+ linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+References: <20191022132522.GA12072@embeddedor>
+ <20200113231413.GA23583@ubuntu-x2-xlarge-x86>
+From: Hans Verkuil <hverkuil@xs4all.nl>
+Message-ID: <a729415d-1304-9722-2433-129bd2255188@xs4all.nl>
+Date: Fri, 17 Jan 2020 08:25:41 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
+In-Reply-To: <20200113231413.GA23583@ubuntu-x2-xlarge-x86>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <157918093154.1357254.7616059374996162336.stgit@toke.dk>
-User-Agent: NeoMutt/20180223
-X-Original-Sender: alexei.starovoitov@gmail.com
+Content-Language: en-US
+X-CMAE-Envelope: MS4wfKyK/rzVjxnvkwsMf1qYMwClCWjHZYQSwtv4fCa+bjIiWSl35QLfhQTLEONgzTrvuzo0nGXVqfWPv/Y6XZ995571exmOIxPjek+cZCzNbC28LzOJfMqM
+ 0nSdK8oWqIs1T5UXeaBBYdAEUH1uhV7hhY4xZn9Y0TjDuPEdBRAB0YMZdVVTou6DkAFZEZnj9wNdod9kVwWSyLOL9BfFnMXG91wu+AtPMa0LYcKjd00tJOEp
+ XQ038SezE5EVrQL0W1/dVPM7cq16wOPgK8zqlWyOdEqpDD9PsHJuhzDFsBtJ7pDThdN+9qL+LNIwESEMBvkIUNQ+emUJ7j/BNJzrbfBElA8sQ3nHQSPNXvP3
+ 5H6qWMqBPvU9R/QBy+bdtfjHanwosQvKO12HvC1gSuwJ+9wvZBjfdDW+ZFaxuKCEw8dHP+3sIqolOg16zwYU1epGkTO/HdJ71zYqEHmT+qWrm+LoiXcC/4xc
+ QwWJEaKCXCDb7o61ShAHaNzfmIxbuqogodSs3g==
+X-Original-Sender: hverkuil@xs4all.nl
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=BSzmU+mW;       spf=pass
- (google.com: domain of alexei.starovoitov@gmail.com designates
- 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=alexei.starovoitov@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@xs4all.nl header.s=s1 header.b=NV9b5sVh;       spf=pass
+ (google.com: domain of hverkuil@xs4all.nl designates 194.109.24.21 as
+ permitted sender) smtp.mailfrom=hverkuil@xs4all.nl
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -172,48 +139,76 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Jan 16, 2020 at 02:22:11PM +0100, Toke H=C3=B8iland-J=C3=B8rgensen =
-wrote:
-> The recent commit 6910d7d3867a ("selftests/bpf: Ensure bpf_helper_defs.h =
-are
-> taken from selftests dir") broke compilation against libbpf if it is inst=
-alled
-> on the system, and $INCLUDEDIR/bpf is not in the include path.
->=20
-> Since having the bpf/ subdir of $INCLUDEDIR in the include path has never=
- been a
-> requirement for building against libbpf before, this needs to be fixed. O=
-ne
-> option is to just revert the offending commit and figure out a different =
-way to
-> achieve what it aims for.=20
+On 1/14/20 12:14 AM, Nathan Chancellor wrote:
+> On Tue, Oct 22, 2019 at 08:25:22AM -0500, Gustavo A. R. Silva wrote:
+>> Enclose multiple macro parameters in parentheses in order to
+>> make such macros safer and fix the Clang warning below:
+>>
+>> drivers/media/i2c/adv748x/adv748x-afe.c:452:12: warning: operator '?:'
+>> has lower precedence than '|'; '|' will be evaluated first
+>> [-Wbitwise-conditional-parentheses]
+>>
+>> ret = sdp_clrset(state, ADV748X_SDP_FRP, ADV748X_SDP_FRP_MASK, enable
+>> ? ctrl->val - 1 : 0);
+>>
+>> Fixes: 3e89586a64df ("media: i2c: adv748x: add adv748x driver")
+>> Reported-by: Dmitry Vyukov <dvyukov@google.com>
+>> Signed-off-by: Gustavo A. R. Silva <gustavo@embeddedor.com
+> 
+> It doesn't look like this was picked up? I still see this warning on
+> 5.5-rc6 and next-20200113.
 
-The offending commit has been in the tree for a week. So I applied Andrii's
-revert of that change. It reintroduced the build dependency issue, but we l=
-ived
-with it for long time, so we can take time to fix it cleanly.
-I suggest to focus on that build dependency first.
+It's been picked up some time ago and will appear in 5.6.
 
-> However, this series takes a different approach:
-> Changing all in-tree users of libbpf to consistently use a bpf/ prefix in
-> #include directives for header files from libbpf.
+Regards,
 
-I'm not sure it's a good idea. It feels nice, but think of a message we're
-sending to everyone. We will get spamed with question: does bpf community
-require all libbpf users to use bpf/ prefix ? What should be our answer?
-Require or recommend? If require.. what for? It works as-is. If recommend t=
-hen
-why suddenly we're changing all files in selftests and samples?
-There is no good answer here. I think we should leave the things as-is.
-And fix build dep differently.
+	Hans
 
-Patches 1-3 are still worth doing.
+> 
+> If it helps:
+> 
+> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> 
+>> ---
+>>  drivers/media/i2c/adv748x/adv748x.h | 8 ++++----
+>>  1 file changed, 4 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/drivers/media/i2c/adv748x/adv748x.h b/drivers/media/i2c/adv748x/adv748x.h
+>> index 5042f9e94aee..fccb388ce179 100644
+>> --- a/drivers/media/i2c/adv748x/adv748x.h
+>> +++ b/drivers/media/i2c/adv748x/adv748x.h
+>> @@ -394,10 +394,10 @@ int adv748x_write_block(struct adv748x_state *state, int client_page,
+>>  
+>>  #define io_read(s, r) adv748x_read(s, ADV748X_PAGE_IO, r)
+>>  #define io_write(s, r, v) adv748x_write(s, ADV748X_PAGE_IO, r, v)
+>> -#define io_clrset(s, r, m, v) io_write(s, r, (io_read(s, r) & ~m) | v)
+>> +#define io_clrset(s, r, m, v) io_write(s, r, (io_read(s, r) & ~(m)) | (v))
+>>  
+>>  #define hdmi_read(s, r) adv748x_read(s, ADV748X_PAGE_HDMI, r)
+>> -#define hdmi_read16(s, r, m) (((hdmi_read(s, r) << 8) | hdmi_read(s, r+1)) & m)
+>> +#define hdmi_read16(s, r, m) (((hdmi_read(s, r) << 8) | hdmi_read(s, (r)+1)) & (m))
+>>  #define hdmi_write(s, r, v) adv748x_write(s, ADV748X_PAGE_HDMI, r, v)
+>>  
+>>  #define repeater_read(s, r) adv748x_read(s, ADV748X_PAGE_REPEATER, r)
+>> @@ -405,11 +405,11 @@ int adv748x_write_block(struct adv748x_state *state, int client_page,
+>>  
+>>  #define sdp_read(s, r) adv748x_read(s, ADV748X_PAGE_SDP, r)
+>>  #define sdp_write(s, r, v) adv748x_write(s, ADV748X_PAGE_SDP, r, v)
+>> -#define sdp_clrset(s, r, m, v) sdp_write(s, r, (sdp_read(s, r) & ~m) | v)
+>> +#define sdp_clrset(s, r, m, v) sdp_write(s, r, (sdp_read(s, r) & ~(m)) | (v))
+>>  
+>>  #define cp_read(s, r) adv748x_read(s, ADV748X_PAGE_CP, r)
+>>  #define cp_write(s, r, v) adv748x_write(s, ADV748X_PAGE_CP, r, v)
+>> -#define cp_clrset(s, r, m, v) cp_write(s, r, (cp_read(s, r) & ~m) | v)
+>> +#define cp_clrset(s, r, m, v) cp_write(s, r, (cp_read(s, r) & ~(m)) | (v))
+>>  
+>>  #define tx_read(t, r) adv748x_read(t->state, t->page, r)
+>>  #define tx_write(t, r, v) adv748x_write(t->state, t->page, r, v)
+>> -- 
+>> 2.23.0
+>>
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200117041431.h7vvc32fungenyhg%40ast-mbp.dhcp.thefaceboo=
-k.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/a729415d-1304-9722-2433-129bd2255188%40xs4all.nl.
