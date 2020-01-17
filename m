@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBBGPRDYQKGQEMO7R4XA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBA6SRDYQKGQEMALETIQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43c.google.com (mail-pf1-x43c.google.com [IPv6:2607:f8b0:4864:20::43c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2DFF214131C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Jan 2020 22:30:46 +0100 (CET)
-Received: by mail-pf1-x43c.google.com with SMTP id h16sf15857697pfn.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Jan 2020 13:30:46 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579296644; cv=pass;
+Received: from mail-yb1-xb39.google.com (mail-yb1-xb39.google.com [IPv6:2607:f8b0:4864:20::b39])
+	by mail.lfdr.de (Postfix) with ESMTPS id 036E8141339
+	for <lists+clang-built-linux@lfdr.de>; Fri, 17 Jan 2020 22:37:09 +0100 (CET)
+Received: by mail-yb1-xb39.google.com with SMTP id 201sf4292973ybd.19
+        for <lists+clang-built-linux@lfdr.de>; Fri, 17 Jan 2020 13:37:08 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579297028; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SqeBfLR2XaFfv2aMfY8+dtCHib4Rrgewj+GeN2uATDhNGpTW0zEgQMggHZJR7zhvyZ
-         ZHN9d5QTZn5Ba406eLzNvz1y06jDnpfUkQ0hvlzYTA4ur4DMR9pqwne/FqiKP4Z37t9O
-         8pQxfWzUaxYA6lWngLpsTQdc4ZqTHJkTtTDzAupgAhCV54N3k3ig9/VZaoXQggJmuV3G
-         TWuQNoz1zTpAup/Kr+ovZQXcs0hG3UYXhy8Z8JB65wHpaX3UxJGBx2NG3qFcrMWkeA+d
-         b/et5j90frBPiT80vE6M5ibRZ+Bqk5Ykt1yGxH8y6GUwlIB1MnDA62OL9MqD1FAA9Si1
-         tyFA==
+        b=ItXPOe5kEx2IvGMsGJhN2/0T7zsBMx8NgzpI8q2r4cenwNTjfFWdAw3vl4AawgnI4B
+         kox1/cxi08aMEi6XhGluj+i9GODr3n48tqwo26aXCoyJ3SlR6FdjQpfK7z+1v/NgG1p7
+         fr7P76PL2rqC15mBciP8kSIuYkAdIeU33Vvl/XzijFvgj+5hhrG1Wa25OQw54G67fbiN
+         n+s/RmwHiflRFNdgdNobxv8B4xsSX+kXIS9hyA3LbPJmaCqLs0iHKsX5cU6DioYZivD8
+         eZeefH7JgPVqSfO1RN6Gbp9VENrboUL8qrN1ZMLN4QWZ6dfMVpWVfTCbszZGxdKmQ0Xj
+         pAMw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
          :subject:message-id:date:from:in-reply-to:references:mime-version
          :sender:dkim-signature:dkim-signature;
-        bh=RSNv09G2pkCy83WKsvhVgpjehFFYyfET11NJXJbQ9z4=;
-        b=UEdqbyp1/ViH1dLFyYmqSTIC4OA4GYKHsnGE2287t2SdNljlLgj/Vdm/JO8Eqyzh+4
-         tDhyV9M6H3KTdcBKtb5ArHD8KkPEztwr/cE/rZVxU/lyzoAhmnbQ8ZVNxi1V7FXKjn09
-         GE8bfzYlVY+vUN/tvAA3qtLOo9RlrMd/am8aP3jBiURcZ3RtElVsG1XfUxZPQPZsFAep
-         iaryXE9Numv0bmTLv9FEhl2vx701gBxfZjG0KlDNRXeE5qGG4AsLH/QsvlFz7FKYKzSh
-         xCYVsEiKIiemowjP8cKDgHYDiwe6J0jRMb9tCSAbP/mFoThFChq6BH4Nv3MOatgZPRtc
-         /8zA==
+        bh=0svHqteU44aqBVYIDsrXItpjZaFTnlV/hIE3K7ORyTM=;
+        b=prBpSwpr4CcSHFJpMHYmAZm454UNRKVPWHhPb5GGmKNoSyJaLE0D/tnKf1wv7eFSJh
+         k/9BeU15Jh5+Fvrkwlfdimhe+mJ9fv33xOeICJsfENjlj7KVBS6iKDFN4IGXSn8nAt3S
+         qYSUpLq1fJfo/Lsax2K58ZHr4bkWV/DdN0V+t7XtUxUl/kwaTyotDdO39e/mb64zBKkY
+         a8ZH3Pu5MgyeqcLyDI4AlHds49leNJVyHoN0B+CYRq5LFG+knpSIDPFOXs2AXuFskgcx
+         OoJ3K9YFM7xKyoVYB6cWDVSIZZX607FC0lQd0gI9bQ3DSj4S2heqoV+OuGo720Ow7Vxp
+         5yzQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ZtisCfjA;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::842 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=di2yyj+z;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,26 +36,26 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :subject:to:cc:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RSNv09G2pkCy83WKsvhVgpjehFFYyfET11NJXJbQ9z4=;
-        b=snq0Y+Opuq1mprMAEf4r6evCkvRpSNh1IH23XxOXUqsVGNamcIAa5kIQtYT6z7B4xr
-         xDrdpEMlIu1un5DSFtF1KMSElezoqZK9kXZDXPeoXpd+Emywn2Tba7QvjWnQznN0tWPx
-         dNUlaN8ea6Pudl4SqvPZ/yBeem7C4kuMByKOxvNR/vyeItNWK2+vyFlIZz1PbmRg5fDf
-         DmCKDiBCRVRuZhalWPMsZHD+Cqvuvni1E8Tq8tmR6r/qNRHX6s099Ki9bgGRticKJzoa
-         U/hrmwsUfTbQKQP6wWleafuuPpeprvuwX3BIVGkkUsKb/Z90PVFQiKNHCFzqno59StXb
-         Cgpg==
+        bh=0svHqteU44aqBVYIDsrXItpjZaFTnlV/hIE3K7ORyTM=;
+        b=ii2E+xuxI6lFLEMxztDke2tVgkM+CBiJiMmONUoIp+EiSv0S8y7s68Z4Oa6GXHpcQr
+         52k5WpWF7mfkmUNlBIve3SyHNBPiEPMYLpPFHHibq0g765hAyziXquVAUNOCdZ/s0BjY
+         g3YBSK4v24sgIk/a1sAfwWbPPO57yLasg1mD2seRhh+5v3eoIhSQBJfuwXXfO4nJBHNC
+         HXE+SQ0Y4jXCRmu/c/St4uAVr5lGh5+OhnxM5KTmnwgE50Wj+v7ciSvnNCejGhdg/T9Q
+         iq0OqGbZs/mlIMGQReLrcCM8R+kJlf4clX+z7AyhaLrjO2ckIDXliKJiFB0Taxuw4+Zv
+         Su1Q==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc:content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=RSNv09G2pkCy83WKsvhVgpjehFFYyfET11NJXJbQ9z4=;
-        b=Rh/kvnl8Ut189lJqJ4ypGRVZkD82uPlZX//+jaO02MiARU9Z+mU3SC8fOUNSV4cx+k
-         ajR1STyre1iMpQOfw/E1FcK7sRUi7mpokT7NfPbercyjBFDiH8dWMr8go+ONhAaXrbMD
-         qqOwOe1tjXfID/dLbpv8TqwPONmk7yz/De1xio+nQ/VizDXOK2dfhmkPIyGnKwbho6Wu
-         4zEszxHFG30R9y1DfklzxLw0zjODuAUGLDjZKi+jrh2JuCKcbc+F7Gy9ReHOPIcHhTHz
-         MCak7ExtEpLTDNn5Mzjf6kKsQpNnyAnTavpry4oS8kWmbauyLxoaRVnfmr5naVP9m19B
-         fZpw==
+        bh=0svHqteU44aqBVYIDsrXItpjZaFTnlV/hIE3K7ORyTM=;
+        b=QHzsN/FGYyYtgRpck+r0tZqFeqISxpYSsADMwzbGQxpeD4/RkEft6mImcmhQpn53Jx
+         uf3+Whn8TYXjkYfXDovOk0psQ1Z7W1vjXoMvJIkca7jaqyyJ9IrtxIxHaowbsMenXK90
+         LW9h826W+KAVtDAmY56wH/hMbNjDBJkBFUBBJKsGelqYEQjUCwRm4qXd8Ecakc0v2Bqr
+         mPsSIJ31vaAb7SWHnWOWXGTp4tOIShUS4oA1G/yNqnwQufc43WWFwWQGolkin8k6PMpZ
+         vEb5NQ7HheJx2ze9cJgkcLHGiMVaRAA1atNNW7VqfFlftf+xRVMODAZg1sK1lNWyL1L5
+         7QSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -63,64 +63,64 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=RSNv09G2pkCy83WKsvhVgpjehFFYyfET11NJXJbQ9z4=;
-        b=fANVCo4UI+39eFLGqnY7TU2N+3QkNpkgL8lGqgITZZZ8nvWKt1xAnjrLyD5zlY9gKS
-         RWJlXqZVF0oPVNgNcZPQUQCI0VlQT/rCVox5FBebnCn1luVdvAArTX/yoWNjhzG9eiKN
-         e6O+QwgE7bIxN+MmUUh5kuTZ/FVTUIXfRG9zEB09GpVok5o1h1kvf5QyJVNwXHh1rxbg
-         LqNCn8nEr9LZz95PzJnypMWPCFxc65l/WNswQpilVBCScjM6tHVS0dmo4lNnSIpu3hWt
-         6aitIOn3nrDLEnfaL3W+ZWwOHGa0e7md5cEPFvyZe1Tt4mbfSsJjeqn00DZ1P4UIR7jS
-         wsUw==
+        bh=0svHqteU44aqBVYIDsrXItpjZaFTnlV/hIE3K7ORyTM=;
+        b=cmbQZrKn+bVgVAZb6lyK08aUl+XV+Va6OsaJxdzWh3gjJgOSvOqL2lc+obapYLv7X9
+         vm5ydQPxzhAQbwKRv/GKJQUjDKQvNBnG2YkVYkEG7ivmlGMjKmEC3QC65Nn9djM74a5Z
+         oI658khQBZgSZUTy1nyPbkVraZj87yfNyXF+5kzC8eZ0IzsiaeskZgSKVCij7NK39Jx6
+         evv+Lg4orRbJ+TP3CFGfzyRAbDAlCUvTmsmBN/O7z4wOKKfe+81emsSa4g8TEQcG7VbF
+         n9/lWQBLQUzpEy0tyDQImQc7JJ3iUlJDIuqpN3kT4g65n4cWPVLkX+2qYTiJDpegiPmu
+         8uXw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUK+V8zqa0L3UBomgJs1HCn0BShtjSrWtvg0CaywTBNrjORVgJc
-	oHCmLtA12veGGy+Xbm2FB+U=
-X-Google-Smtp-Source: APXvYqx5jz+ZCNJxQ5VNLjBBEGsbPSq5Xj0MTcdhT+5RNLQSMsoCc28hccYiXcf6kCuuKovvBrQ0KA==
-X-Received: by 2002:a65:4381:: with SMTP id m1mr48466730pgp.68.1579296644378;
-        Fri, 17 Jan 2020 13:30:44 -0800 (PST)
+X-Gm-Message-State: APjAAAWFcOGumptfiv8l5qyWcI6ko9y2B0uA3D6u/I3JlaxBxyMtwuAh
+	ljqxctm0zFoK+IrSRWE/oC4=
+X-Google-Smtp-Source: APXvYqxz5Ne47eC+MYo7JRgGWVmkD2zCHNFQuISD0htNfl2OX4hDK+hhzqFHom3Cnvsl15Awm1OGAQ==
+X-Received: by 2002:a25:5586:: with SMTP id j128mr32065105ybb.186.1579297027982;
+        Fri, 17 Jan 2020 13:37:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:cd83:: with SMTP id o125ls8070172pfg.5.gmail; Fri, 17
- Jan 2020 13:30:43 -0800 (PST)
-X-Received: by 2002:a65:6898:: with SMTP id e24mr49365472pgt.59.1579296643830;
-        Fri, 17 Jan 2020 13:30:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579296643; cv=none;
+Received: by 2002:a25:cfcf:: with SMTP id f198ls3319962ybg.5.gmail; Fri, 17
+ Jan 2020 13:37:07 -0800 (PST)
+X-Received: by 2002:a25:3308:: with SMTP id z8mr31620228ybz.485.1579297027506;
+        Fri, 17 Jan 2020 13:37:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579297027; cv=none;
         d=google.com; s=arc-20160816;
-        b=SUsB5JbAlPGBsIXDm8SVTXZHcsHdxrFhZbUP2noCKa/5IMPL4Jwp/WpAuzl8VtL+dd
-         OfDeS+ONKyPZL0L0KK+M7E0Kikd1fFSshbMwx7ve5qbsJtPDNL8KaZ/64rv02SjUmYnU
-         lkka6UvNNQhYdrP0OsP8tDeT+B0YGIUvC1Q09shEfpjopMPuiWEnnBOvu7fVpC++jNEG
-         eaK7yXb+VPuD3DjOJ6defIIHaibs5QPdPcjhPdtFNXewjIamU0lj4TrOFm8loDTgFJIl
-         7yZbv7zg1ow5u13Q9yxa2R1D3i8xHMs7U2K5jXB0PmKmPp5kwWRy+PLrMr5gnbCQXigW
-         aOyQ==
+        b=kDUfibwmM8afHz6utpjwagNRFAjUAt5WyRWBRuTrxdi4TU2SNkhTlP9BoVA1fiR+QY
+         FYTA4rxToqnVUuvjQYWCPaDiQe5EQQJCUMxuaFmRUSD8Zu40iohHn6zHHJTPJ/pHEjGO
+         CQOr3r085CEz9xTl2qeV9yT9HeZgBBPH9ULGEop+cS8v4l1MPZjwPu8OCthllG0ZQfLD
+         MmpYStxmdVa0eOamCySrauY2WSk1QrY1bL5Votvrn2j8qpv4A+KeTav72R77YdjBJx7L
+         J8JR39xT8+cP3BvhhylFf01loYXHyAI1pmrgYyuqxcg30ew/v1Wrdb2U03TwuA7D81NH
+         Tg1g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=oKpJrpMP/WbiwVT8VF9eF4TKH+tXOjUsUEulh6dUpSw=;
-        b=Eg25Ay79jUBcwoHRXAZI1OYmALwu+WylCyRNe4CZD7s5Sd9pBCYrV1+32yPJYV9B6s
-         5SH93tL9/Bf6gTmE/Ddx/YxXz7QtgvQ8siqVZVdoBypEBAelwalu9nw2/HfD89WIstw1
-         ITfGdVD5rbJJ+FXL7kjB5lRq86E4KicnGDSgbHxIEr8YvoBp501QtjzFwovceBhyVAQC
-         rBlR+biL5InoOreKxjlx29XVCcbHjMQUSFoUdwXIWufgq2DzWVRg2Viy2JTFR19QEarV
-         aAuY9tH4rUaBygJWy2K8wMV8quT8OdG0ZY6Xl3Efo7QnXyH/qLid9/xbrCYoouoatTP3
-         9jrQ==
+        bh=2JWxiBrKzgX6c58K05T7Uj8uthaAPk9I0HG0fUbgl2Q=;
+        b=JPtdMk8sgJjNpvwSkzHL5lMyTi3oyq9XPzwnV+IlsQIVsWb+0m5ZLbjZ6bgbfLQsX3
+         7nNRpMUybf/mYjuAAeRpwi7Xd74tj3+05Uf8PMqGj8aEO9Yc4zlIs54oMaVgqzUte18E
+         AS0egUrb0t/D4WOZlIb9TyU5+WXhmQy/gY5WU9BSkYl3Pj7Btj24AAOs7HRV9nGpu4dB
+         951ycOtidn6FMrlDakQR5GClevLvdatiLpNLsX0ssBZHM4LD2+2fFxXMvQJd+IF+XceZ
+         7G0QQLyUCIdanJigOvKknsilNX+h8pk02mV2uams8S2Z/feOhkQjvz4tCc64l1wK60ZM
+         PA7Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=ZtisCfjA;
-       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::842 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=di2yyj+z;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-qt1-x842.google.com (mail-qt1-x842.google.com. [2607:f8b0:4864:20::842])
-        by gmr-mx.google.com with ESMTPS id t34si501837pjb.3.2020.01.17.13.30.43
+Received: from mail-qk1-x744.google.com (mail-qk1-x744.google.com. [2607:f8b0:4864:20::744])
+        by gmr-mx.google.com with ESMTPS id f8si1041363ybg.2.2020.01.17.13.37.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 17 Jan 2020 13:30:43 -0800 (PST)
-Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::842 as permitted sender) client-ip=2607:f8b0:4864:20::842;
-Received: by mail-qt1-x842.google.com with SMTP id d5so22927883qto.0
-        for <clang-built-linux@googlegroups.com>; Fri, 17 Jan 2020 13:30:43 -0800 (PST)
-X-Received: by 2002:ac8:7b29:: with SMTP id l9mr9287898qtu.141.1579296642749;
- Fri, 17 Jan 2020 13:30:42 -0800 (PST)
+        Fri, 17 Jan 2020 13:37:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::744 as permitted sender) client-ip=2607:f8b0:4864:20::744;
+Received: by mail-qk1-x744.google.com with SMTP id w127so24146261qkb.11
+        for <clang-built-linux@googlegroups.com>; Fri, 17 Jan 2020 13:37:07 -0800 (PST)
+X-Received: by 2002:a37:a685:: with SMTP id p127mr37379374qke.449.1579297027145;
+ Fri, 17 Jan 2020 13:37:07 -0800 (PST)
 MIME-Version: 1.0
-References: <157926819690.1555735.10756593211671752826.stgit@toke.dk> <157926819920.1555735.13051810516683828343.stgit@toke.dk>
-In-Reply-To: <157926819920.1555735.13051810516683828343.stgit@toke.dk>
+References: <157926819690.1555735.10756593211671752826.stgit@toke.dk> <157926820025.1555735.5663814379544078154.stgit@toke.dk>
+In-Reply-To: <157926820025.1555735.5663814379544078154.stgit@toke.dk>
 From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 17 Jan 2020 13:30:31 -0800
-Message-ID: <CAEf4BzY3RM3LS3bvU4dHY+8U27RaezeaC9rfuW1YLAcFQEQKEA@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v4 02/10] tools/bpf/runqslower: Fix override
- option for VMLINUX_BTF
+Date: Fri, 17 Jan 2020 13:36:55 -0800
+Message-ID: <CAEf4BzafS0FCsjJwG13eCEsE_TSLhg=wNY3RGfUnDwuP1KCz=w@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v4 03/10] selftests: Pass VMLINUX_BTF to
+ runqslower Makefile
 To: =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
 Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
 	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
@@ -138,9 +138,9 @@ Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: andrii.nakryiko@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=ZtisCfjA;       spf=pass
+ header.i=@gmail.com header.s=20161025 header.b=di2yyj+z;       spf=pass
  (google.com: domain of andrii.nakryiko@gmail.com designates
- 2607:f8b0:4864:20::842 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+ 2607:f8b0:4864:20::744 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
@@ -159,77 +159,62 @@ at.com> wrote:
 >
 > From: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
 >
-> The runqslower tool refuses to build without a file to read vmlinux BTF
-> from. The build fails with an error message to override the location by
-> setting the VMLINUX_BTF variable if autodetection fails. However, the
-> Makefile doesn't actually work with that override - the error message is
-> still emitted.
+> Add a VMLINUX_BTF variable with the locally-built path when calling the
+> runqslower Makefile from selftests. This makes sure a simple 'make'
+> invocation in the selftests dir works even when there is no BTF informati=
+on
+> for the running kernel. Do a wildcard expansion and include the same path=
+s
+> for BTF for the running kernel as in the runqslower Makefile, to make it
+> possible to build selftests without having a vmlinux in the local tree.
 >
-> Fix this by including the value of VMLINUX_BTF in the expansion, and only
-> emitting the error message if the *result* is empty. Also permit running
-> 'make clean' even though no VMLINUX_BTF is set.
+> Also fix the make invocation to use $(OUTPUT)/tools as the destination
+> directory instead of $(CURDIR)/tools.
 >
-> Fixes: 9c01546d26d2 ("tools/bpf: Add runqslower tool to tools/bpf")
+> Fixes: 3a0d3092a4ed ("selftests/bpf: Build runqslower from selftests")
 > Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
 > ---
 
-approach looks good, thanks, few nits below
+With formatting fixes:
 
->  tools/bpf/runqslower/Makefile |   18 +++++++++---------
->  1 file changed, 9 insertions(+), 9 deletions(-)
+Acked-by: Andrii Nakryiko <andriin@fb.com>
+
+>  tools/testing/selftests/bpf/Makefile |    8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
 >
-> diff --git a/tools/bpf/runqslower/Makefile b/tools/bpf/runqslower/Makefil=
-e
-> index cff2fbcd29a8..b62fc9646c39 100644
-> --- a/tools/bpf/runqslower/Makefile
-> +++ b/tools/bpf/runqslower/Makefile
-> @@ -10,13 +10,9 @@ CFLAGS :=3D -g -Wall
+> diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftes=
+ts/bpf/Makefile
+> index 246d09ffb296..dcc8dbb1510b 100644
+> --- a/tools/testing/selftests/bpf/Makefile
+> +++ b/tools/testing/selftests/bpf/Makefile
+> @@ -124,10 +124,14 @@ $(OUTPUT)/test_stub.o: test_stub.c
+>         $(call msg,CC,,$@)
+>         $(CC) -c $(CFLAGS) -o $@ $<
 >
->  # Try to detect best kernel BTF source
->  KERNEL_REL :=3D $(shell uname -r)
-> -ifneq ("$(wildcard /sys/kernel/btf/vmlinux)","")
-> -VMLINUX_BTF :=3D /sys/kernel/btf/vmlinux
-> -else ifneq ("$(wildcard /boot/vmlinux-$(KERNEL_REL))","")
-> -VMLINUX_BTF :=3D /boot/vmlinux-$(KERNEL_REL)
-> -else
-> -$(error "Can't detect kernel BTF, use VMLINUX_BTF to specify it explicit=
-ly")
-> -endif
-> +VMLINUX_BTF_PATHS :=3D /sys/kernel/btf/vmlinux /boot/vmlinux-$(KERNEL_RE=
-L)
-> +VMLINUX_BTF_PATH :=3D $(abspath $(or $(VMLINUX_BTF),$(firstword \
-> +       $(wildcard $(VMLINUX_BTF_PATHS)))))
+> +VMLINUX_BTF_PATHS :=3D $(abspath ../../../../vmlinux)                   =
+ \
+> +                       /sys/kernel/btf/vmlinux                 \
+> +                       /boot/vmlinux-$(shell uname -r)
 
-you can drop abspath, relative path for VMLINUX_BTF would work just fine
+it's not 100% consistent in this Makefile, unfortunately, but usually
+(and similarly to function arguments) we align items for such
+multi-line statements
 
+> +VMLINUX_BTF:=3D $(firstword $(wildcard $(VMLINUX_BTF_PATHS)))
+>  .PHONY: $(OUTPUT)/runqslower
+>  $(OUTPUT)/runqslower: force
+> -       $(Q)$(MAKE) $(submake_extras) -C $(TOOLSDIR)/bpf/runqslower      =
+     \
+> -                   OUTPUT=3D$(CURDIR)/tools/
+> +       $(Q)$(MAKE) $(submake_extras) -C $(TOOLSDIR)/bpf/runqslower     \
+> +                   OUTPUT=3D$(OUTPUT)/tools/ VMLINUX_BTF=3D$(VMLINUX_BTF=
+)
 >
->  abs_out :=3D $(abspath $(OUTPUT))
->  ifeq ($(V),1)
-> @@ -67,9 +63,13 @@ $(OUTPUT):
->         $(call msg,MKDIR,$@)
->         $(Q)mkdir -p $(OUTPUT)
+
+please, keep \ alignment, it's all over the place
+
+>  BPFOBJ :=3D $(OUTPUT)/libbpf.a
 >
-> -$(OUTPUT)/vmlinux.h: $(VMLINUX_BTF) | $(OUTPUT) $(BPFTOOL)
-> +$(OUTPUT)/vmlinux.h: $(VMLINUX_BTF_PATH) | $(OUTPUT) $(BPFTOOL)
->         $(call msg,GEN,$@)
-> -       $(Q)$(BPFTOOL) btf dump file $(VMLINUX_BTF) format c > $@
-> +       @if [ ! -e "$(VMLINUX_BTF_PATH)" ] ; then \
-
-$(Q), not @
-
-> +               echo "Couldn't find kernel BTF; set VMLINUX_BTF to specif=
-y its location."; \
-> +               exit 1;\
-
-nit: please align \'s (same above for VMLONUX_BTF_PATH) at the right
-edge as it's done everywhere in this Makefile
-
-> +       fi
-> +       $(Q)$(BPFTOOL) btf dump file $(VMLINUX_BTF_PATH) format c > $@
->
->  $(OUTPUT)/libbpf.a: | $(OUTPUT)
->         $(Q)$(MAKE) $(submake_extras) -C $(LIBBPF_SRC)                   =
-      \
 >
 
 --=20
@@ -238,5 +223,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAEf4BzY3RM3LS3bvU4dHY%2B8U27RaezeaC9rfuW1YLAcFQEQKEA%40m=
-ail.gmail.com.
+clang-built-linux/CAEf4BzafS0FCsjJwG13eCEsE_TSLhg%3DwNY3RGfUnDwuP1KCz%3Dw%4=
+0mail.gmail.com.
