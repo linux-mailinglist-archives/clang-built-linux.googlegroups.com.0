@@ -1,31 +1,31 @@
 Return-Path: <clang-built-linux+bncBAABBEUTTLYQKGQEI6MYE6A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-f55.google.com (mail-qv1-f55.google.com [209.85.219.55])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9638814367F
+Received: from mail-qv1-f62.google.com (mail-qv1-f62.google.com [209.85.219.62])
+	by mail.lfdr.de (Postfix) with ESMTPS id 9006B14367E
 	for <lists+clang-built-linux@lfdr.de>; Tue, 21 Jan 2020 06:18:11 +0100 (CET)
-Received: by mail-qv1-f55.google.com with SMTP id v3sf911233qvm.2
+Received: by mail-qv1-f62.google.com with SMTP id dw11sf888295qvb.16
         for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jan 2020 21:18:11 -0800 (PST)
 ARC-Seal: i=2; a=rsa-sha256; t=1579583890; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X+42yU4YJ23YtGVGog01iUeed4SHxaK6Gdvo5H4CP07pK/fF5c1X83j6Nr5Zi1AS35
-         ehd0mPbq1wQxbSqN6IV+JqxG/k93kfrrgucjJlrKiS+f52ZbeqKA+Pdak0SnZYIIbXPk
-         AdDAkDVnloCqFXWW6Ezu8xt9HGD/udGBYiVt9Jsag+8oEnwvt2Gi+EJVgEjpgagzRpul
-         JsWx+7zbNHShNky1366RGtE1trkSmHwoVVw/jj1c29t4TKsRjcMsda+DegxEzoJAIoK+
-         igcrlrBl59/wCfoadoTLWGH6i0YSL9yzvXzAS9JiZNZb6ka3qdteIebbVSy3/pgK/OJS
-         kR3w==
+        b=A4QlnT+EYDLFNhTjlYNky570KF0AimIWYTPGpiEIZjeMZT3wmrk9F+1Ysn0cQIJpxq
+         sOMBlyfAawfkfOkOJUVTjLmWOCNrg9e7f4C08Z9gTS1VAiXtIXVvK7mDxHya8M+kpzUE
+         Q3KOt8vHoYwH0z0gfchvqYRY0FJfIdentYzjtb+RZMKatY2afDTybH4ZSvtj3kC1kh0O
+         1YqwNDuRxCvb7vX342m9qL3IhhV1lVoGJ2wAGNUPyLFFXhy9KXx75XbNQFRtOOWZQgrd
+         JMnD6UXnxzQzO0YNBWdlTo37rtvRgdVdHwDiBu4gK+eekKMBZrwMpVDUrs09Dbr8nnHo
+         PzLw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=ngecSeC++N5E7PoUGa10J0m5MJWWMAGCDHLtACRR7Cc=;
-        b=ECoHE7LDfFKXU5XP31Rs5JUtLT7fAue69nNePr+c/xt1s3QBibg9bkINAN/SSFm2eX
-         CsnzFw5Yac48vdo48tUmlVAvfhwrzo76O4qSOqtugZG/yrR8fEPBv4MMZ4tE4TlkaVS4
-         GQaCTY0pdKixrEOdyFjGavKmEwyjxStadEsTtObQze33j1TVFu5qTvC+GAkusI91JVd2
-         KCCnxBipXYPxkcIvICmUm6q3CfIFumRQvlT1H28d97EiKcouAwGPsAEBn4edJt3hh9GT
-         v7ZmxTqVxuzpH+e/cOsbVhsu4cX99nMcU+LF3eIe0NVhhIUycOJIeJ7FHDbY/i4e8aBA
-         A4UA==
+        bh=HmSLRvGGtDbI0HJU9I+yjQYN+vrqSh+aMSS+DYB7ukg=;
+        b=K2vyg5OhDjCKs6eDjhupDHV4Ae1lr2zFJJ4pLMze8kBlWMoLBGFNVCSU+sXcB1EDLn
+         xqq/Ih7+JOojOr9ZPvGE/qMLoiSaz5mcptnHtbd5yJPFqJXBvQ8W4F+WWaiWyq+zOTIW
+         VHLrhpOOcDCgjXxP5IeHs1amB6dCzlSWSpm5Csf5ZDLtGJiK4g4G0+1UC9XczewT8Qki
+         yNmB2NQ8bMG4i42W9OKGsl54pD+iXRolTY3Clc3mqypkvr8O99Cnz7hav5qvv+cXMvIn
+         Q/kwb5IltG6Qh2mcsMxLPeO8kHoDGeFING9QnWb56POWhlp8J2H7j2gw3SRCl1XE8yR4
+         eJVA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,50 +35,50 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :robot-unsubscribe:precedence:x-original-sender
          :x-original-authentication-results:mailing-list:list-id:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ngecSeC++N5E7PoUGa10J0m5MJWWMAGCDHLtACRR7Cc=;
-        b=Z7UIyL5xoyOuNQZVCIISCfn2SV4FTG5rEFPfOD9dtAfJ9erUjZZe6qOPHdnnmcmaFt
-         +B7E18JX9/qiR9Grv5Bq2Levl53k57EJuh/oMDlSBw4mikvHaN94CrQczACyAeEvZ0LL
-         bHesM19TDVefJoGLrhp6EvrLr44Ya83jeV0NIRSSan5qCBpmtv8gBtItneHTedV8AeqV
-         QN/QVVkgdKyEEaU83fhv+GNVHfZ76LNuDq29qtqaR340D1DVS7x99OLFBRqvhHFzYklF
-         4J7/e2Nb1+wQmuj7BCG1vPCXwpTbsUWTTPs6N2cffW+YzmpPeivTSaCxY7DkcMC3WrQO
-         DBkw==
-X-Gm-Message-State: APjAAAWrAmriaSE4InXAG+vki1smRCZcdqcYLFQGx+BOPP87pjSUnx0E
-	59dvSj7/HI66yJ+fJVAQvFE=
-X-Google-Smtp-Source: APXvYqyqLMlsi+yD8RtN5ZfwX6hNMfmjFyL1FE7OvLthHbkGsyxzEA8VDTkMwjVna3Jf+65Nse05IQ==
-X-Received: by 2002:a05:6214:16ce:: with SMTP id d14mr3035740qvz.151.1579583890253;
+        bh=HmSLRvGGtDbI0HJU9I+yjQYN+vrqSh+aMSS+DYB7ukg=;
+        b=s6gNuWX37JDg8iILznX6CWVe6mbCzOJRY4/RGsc9ERZbs2kaK+srdNG5FAR4BCFMM1
+         dS8XM/Rmo5evLPqOZIiuGmBRSdVieeOUktFqs0IXi5TfXo0JXZ/4J791BVijLgxZWDZC
+         XK9Fu/mkJYiG9EVDT6XBnXMs7sVF4p6LNYOdDPdcG3f32OU/YWbxc1rboN/hxV2pqUZt
+         4pXMjSfbz3jIYkf2iVDWBPDFC2Y5wzC6++9S+0jOzvRzmyt2wrRAzjev17neXLIxcULV
+         Kw78ba0Td6HkTOmjKgbNh2VPVuGzwdpkJZ/1KKEjO4TgvN/cVYrSmDhfYWiC5E7p2EXf
+         2X9w==
+X-Gm-Message-State: APjAAAWUkd4mecI3XMDa7jMVqMg16TRs2k5P1UG1YlbDD91mz+1nMUib
+	u4qmc75qxnGe5nSdcqh8+1c=
+X-Google-Smtp-Source: APXvYqx5qaL8tAe4BBXwl+d8u+eUXuArci8UArJaIMwLTcjTDj4Vyu4HFqHmGC51VRWrVU12WjPfXg==
+X-Received: by 2002:ac8:187b:: with SMTP id n56mr2827039qtk.173.1579583890370;
         Mon, 20 Jan 2020 21:18:10 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:19a7:: with SMTP id u36ls191787qtj.7.gmail; Mon, 20 Jan
- 2020 21:18:10 -0800 (PST)
-X-Received: by 2002:ac8:689a:: with SMTP id m26mr2908785qtq.68.1579583889943;
+Received: by 2002:ac8:2712:: with SMTP id g18ls192273qtg.3.gmail; Mon, 20 Jan
+ 2020 21:18:09 -0800 (PST)
+X-Received: by 2002:ac8:7501:: with SMTP id u1mr2836517qtq.149.1579583889907;
         Mon, 20 Jan 2020 21:18:09 -0800 (PST)
-Received: by 2002:a05:620a:13b4:0:0:0:0 with SMTP id m20msqki;
-        Mon, 20 Jan 2020 00:27:17 -0800 (PST)
-X-Received: by 2002:adf:edc4:: with SMTP id v4mr6465225wro.336.1579508837392;
+Received: by 2002:a05:620a:22eb:0:0:0:0 with SMTP id p11msqki;
+        Mon, 20 Jan 2020 00:27:18 -0800 (PST)
+X-Received: by 2002:a17:907:375:: with SMTP id rs21mr19705088ejb.351.1579508837807;
         Mon, 20 Jan 2020 00:27:17 -0800 (PST)
 ARC-Seal: i=1; a=rsa-sha256; t=1579508837; cv=none;
         d=google.com; s=arc-20160816;
-        b=WjzF9VrWMuE+i/PRykT7jjNnuuM95espb29Ve4Vc5p9XyotuzpbVGIkZWzrqRQe3Gt
-         NMcsw08keyXBY2LYGG+6V2KyUDleOFIWbgNApu+7Qy3vCehfc5S6RPluBHeFApFR2l4k
-         k0+LGXQ4m+KTBXAAzoLi/zlKBkHwHoDYYoFERJ8a+N8t0T4nJwawwQTeO5GQqjVcCXB6
-         E1s6rPznMp83dN+wi8n/awAvgVvsj4S8pCq+WuXfpwbPWkmRQOV6Pr4dL4wCtI1/Vm92
-         k8y3/R9ZWzf4JvPoPO1pS/msRVVnJsx6poWDOsNvPIg2Qt6g8bZrcvV8P3PxD0v6MSxL
-         tAyg==
+        b=ozIKcUOq53RCO0FXjnp7igwHe6K00WmEA4jAc2u2AUt/JWu7bulccIYLNkmZlBEJzp
+         q3UPKRcj0QV1I1d/OrtcPs9gAzkM3H5piv5ndl0DSDySZJ/vfsQLLObl/cS4wrJ1ZRYt
+         Kfb74GcPLT9m/aohhegXA+rttSAOoiUqfcdm42A27WWhbixATh5ynmZ9w6lTYOuPMOpm
+         EP8EETWRBX870Nv4wBBLkkEl4J0LyudEfYHUKV0R+otB/cdv75IZLcdgBK/Aw2tQYR22
+         sAHS5fqOtdrX5G3e6iZpWJ3pOGZBuZTfQH5u+69ztcJSyA/UYugCY0FOp732RDExmV7Z
+         URqg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:precedence:robot-unsubscribe:robot-id
          :message-id:mime-version:references:in-reply-to:cc:subject:to
          :reply-to:sender:from:date;
-        bh=ZsFOYgCAEeb6oh9l/xVT+wRgqDnE98OG0lO0OpMzKx8=;
-        b=YZe8dn5XsePfOLe5gicXPHCodee18ohIQD1+9AXcFtFISyHvjlmVsXNisaMq9FAWuc
-         R7n2w1cPVlpx937M4XqChS5seBYuvBIGynMgTijsI69cgeY8/u3tW4mt8OUH89ZvoASn
-         2Wcf9S33pZLzSYJRW1PVBdAi1091ItEFvmbU0Po9RSaTVPKtLCAZz7bD2gilV5br2dXR
-         1G0/0hDcFJK85VzALvzrO7XjF/gkhyK5nCRahfooJ7ahTWlwylyCmiE73rwonur+euhz
-         Y2CMYhV1xl8AikjBa8522X45wgPCyxJNbKGZoKfjOke46VAUrgEpLvmhmJYt0hbzjulQ
-         agSg==
+        bh=W2Rnnzs0kiQy+BG0cqC3sO+eou9c2S4tkpdjtsLWdL8=;
+        b=yNiG0xRpaG9jj+f3/cfWblhezHJvJsV2ev0u3hTAkoYMLl/cxx5HpLH8sb/TKRj4zf
+         tpIaCrcEianFnkdhcwyUpXLxZt4gHjJjtRtijqPn1ebRN+VJ8Zw0MDAJ9Th3BaYqau0I
+         CR9Yq0T7VInk6MmeK8OQtuxu9s08HqEKaW4CNu0BBcbBqqm+Q/jZCVgR3xXMiArLjW6P
+         5v5uZgl8C0QKT7FIDJYCrGHHm8BSFDmU9lpZeSJkJPf4ws97tzT1nebBruJbzXpLIQTT
+         6A5ryOWT/eLieY8ifgV/JD7MV5t+NwLcIA5yxPLkuwIGdIWazNBxsaa4k/qte7A65ZYf
+         +Xqw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: best guess record for domain of tip-bot2@linutronix.de designates 2a0a:51c0:0:12e:550::1 as permitted sender) smtp.mailfrom=tip-bot2@linutronix.de
 Received: from Galois.linutronix.de (Galois.linutronix.de. [2a0a:51c0:0:12e:550::1])
-        by gmr-mx.google.com with ESMTPS id t83si411986wmb.4.2020.01.20.00.27.17
+        by gmr-mx.google.com with ESMTPS id d29si1482786edj.0.2020.01.20.00.27.17
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=AES128-SHA bits=128/128);
         Mon, 20 Jan 2020 00:27:17 -0800 (PST)
@@ -87,28 +87,29 @@ Received: from [5.158.153.53] (helo=tip-bot2.lab.linutronix.de)
 	by Galois.linutronix.de with esmtpsa (TLS1.2:DHE_RSA_AES_256_CBC_SHA256:256)
 	(Exim 4.80)
 	(envelope-from <tip-bot2@linutronix.de>)
-	id 1itSOx-0002uo-Db; Mon, 20 Jan 2020 09:27:15 +0100
+	id 1itSOy-0002up-QL; Mon, 20 Jan 2020 09:27:16 +0100
 Received: from [127.0.1.1] (localhost [IPv6:::1])
-	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 135B91C1A3E;
+	by tip-bot2.lab.linutronix.de (Postfix) with ESMTP id 68C631C1A3F;
 	Mon, 20 Jan 2020 09:27:15 +0100 (CET)
-Date: Mon, 20 Jan 2020 08:27:14 -0000
+Date: Mon, 20 Jan 2020 08:27:15 -0000
 From: "tip-bot2 for Maciej S. Szmigiero" <tip-bot2@linutronix.de>
 Sender: tip-bot2@linutronix.de
 Reply-to: linux-kernel@vger.kernel.org
 To: linux-tip-commits@vger.kernel.org
-Subject: [tip: perf/core] tools build: Fix test-clang.cpp with Clang 8+
+Subject: [tip: perf/core] perf clang: Fix build with Clang 9
 Cc: "Maciej S. Szmigiero" <mail@maciej.szmigiero.name>,
+ Dennis Schridde <devurandom@gmx.net>,
  Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Denis Pronin <dannftk@yandex.ru>, Dennis Schridde <devurandom@gmx.net>,
+ clang-built-linux@googlegroups.com, Denis Pronin <dannftk@yandex.ru>,
  Jiri Olsa <jolsa@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
  Namhyung Kim <namhyung@kernel.org>, Naohiro Aota <naota@elisp.net>,
- Peter Zijlstra <peterz@infradead.org>, clang-built-linux@googlegroups.com,
+ Peter Zijlstra <peterz@infradead.org>,
  Arnaldo Carvalho de Melo <acme@redhat.com>, x86 <x86@kernel.org>,
  LKML <linux-kernel@vger.kernel.org>
-In-Reply-To: <20191228171314.946469-1-mail@maciej.szmigiero.name>
-References: <20191228171314.946469-1-mail@maciej.szmigiero.name>
+In-Reply-To: <20191228171314.946469-2-mail@maciej.szmigiero.name>
+References: <20191228171314.946469-2-mail@maciej.szmigiero.name>
 MIME-Version: 1.0
-Message-ID: <157950883490.396.9434688341680423539.tip-bot2@tip-bot2>
+Message-ID: <157950883517.396.18261374196273837423.tip-bot2@tip-bot2>
 X-Mailer: tip-git-log-daemon
 Robot-ID: <tip-bot2.linutronix.de>
 Robot-Unsubscribe: Contact <mailto:tglx@linutronix.de> to get blacklisted from these emails
@@ -133,58 +134,52 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 The following commit has been merged into the perf/core branch of tip:
 
-Commit-ID:     d8007772a5541b4711d1286b788ad4295b2c7eaa
-Gitweb:        https://git.kernel.org/tip/d8007772a5541b4711d1286b788ad4295b2c7eaa
+Commit-ID:     411c0ec0b8131457cf52812de29f11dcbf491ce6
+Gitweb:        https://git.kernel.org/tip/411c0ec0b8131457cf52812de29f11dcbf491ce6
 Author:        Maciej S. Szmigiero <mail@maciej.szmigiero.name>
-AuthorDate:    Sat, 28 Dec 2019 18:13:13 +01:00
+AuthorDate:    Sat, 28 Dec 2019 18:13:14 +01:00
 Committer:     Arnaldo Carvalho de Melo <acme@redhat.com>
 CommitterDate: Tue, 14 Jan 2020 12:02:19 -03:00
 
-tools build: Fix test-clang.cpp with Clang 8+
+perf clang: Fix build with Clang 9
 
-LLVM rL344140 (included in Clang 8+) moved VFS from Clang to LLVM, so
-paths to its include files have changed.
-
-This broke the Clang test in tools/build - let's fix it.
+LLVM D59377 (included in Clang 9) refactored Clang VFS construction a
+bit, which broke perf clang build.  Let's fix it.
 
 Signed-off-by: Maciej S. Szmigiero <mail@maciej.szmigiero.name>
+Reviewed-by: Dennis Schridde <devurandom@gmx.net>
 Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: clang-built-linux@googlegroups.com
 Cc: Denis Pronin <dannftk@yandex.ru>
-Cc: Dennis Schridde <devurandom@gmx.net>
 Cc: Jiri Olsa <jolsa@redhat.com>
 Cc: Mark Rutland <mark.rutland@arm.com>
 Cc: Namhyung Kim <namhyung@kernel.org>
 Cc: Naohiro Aota <naota@elisp.net>
 Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: clang-built-linux@googlegroups.com
-Link: http://lore.kernel.org/lkml/20191228171314.946469-1-mail@maciej.szmigiero.name
+Link: http://lore.kernel.org/lkml/20191228171314.946469-2-mail@maciej.szmigiero.name
 Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 ---
- tools/build/feature/test-clang.cpp | 6 ++++++
- 1 file changed, 6 insertions(+)
+ tools/perf/util/c++/clang.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/tools/build/feature/test-clang.cpp b/tools/build/feature/test-clang.cpp
-index a2b3f09..7d87075 100644
---- a/tools/build/feature/test-clang.cpp
-+++ b/tools/build/feature/test-clang.cpp
-@@ -1,9 +1,15 @@
- // SPDX-License-Identifier: GPL-2.0
-+#include "clang/Basic/Version.h"
-+#if CLANG_VERSION_MAJOR < 8
- #include "clang/Basic/VirtualFileSystem.h"
-+#endif
- #include "clang/Driver/Driver.h"
- #include "clang/Frontend/TextDiagnosticPrinter.h"
- #include "llvm/ADT/IntrusiveRefCntPtr.h"
- #include "llvm/Support/ManagedStatic.h"
-+#if CLANG_VERSION_MAJOR >= 8
-+#include "llvm/Support/VirtualFileSystem.h"
-+#endif
- #include "llvm/Support/raw_ostream.h"
+diff --git a/tools/perf/util/c++/clang.cpp b/tools/perf/util/c++/clang.cpp
+index fc361c3..c8885df 100644
+--- a/tools/perf/util/c++/clang.cpp
++++ b/tools/perf/util/c++/clang.cpp
+@@ -71,7 +71,11 @@ getModuleFromSource(llvm::opt::ArgStringList CFlags,
+ 	CompilerInstance Clang;
+ 	Clang.createDiagnostics();
  
- using namespace clang;
++#if CLANG_VERSION_MAJOR < 9
+ 	Clang.setVirtualFileSystem(&*VFS);
++#else
++	Clang.createFileManager(&*VFS);
++#endif
+ 
+ #if CLANG_VERSION_MAJOR < 4
+ 	IntrusiveRefCntPtr<CompilerInvocation> CI =
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157950883490.396.9434688341680423539.tip-bot2%40tip-bot2.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/157950883517.396.18261374196273837423.tip-bot2%40tip-bot2.
