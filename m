@@ -1,147 +1,147 @@
-Return-Path: <clang-built-linux+bncBCYIFQES4IBBBT56STYQKGQEOVIHXQQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTYRDEG7MGBBU4NSXYQKGQEULYFTSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23d.google.com (mail-oi1-x23d.google.com [IPv6:2607:f8b0:4864:20::23d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 61C641421FF
-	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jan 2020 04:32:33 +0100 (CET)
-Received: by mail-oi1-x23d.google.com with SMTP id d9sf11698547oij.4
-        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Jan 2020 19:32:33 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579491152; cv=pass;
+Received: from mail-vk1-xa3a.google.com (mail-vk1-xa3a.google.com [IPv6:2607:f8b0:4864:20::a3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4D25E14232B
+	for <lists+clang-built-linux@lfdr.de>; Mon, 20 Jan 2020 07:21:09 +0100 (CET)
+Received: by mail-vk1-xa3a.google.com with SMTP id i123sf12565131vkg.8
+        for <lists+clang-built-linux@lfdr.de>; Sun, 19 Jan 2020 22:21:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579501268; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RbreDc6kdgqaG1CaA2dYN6l2yxDrIrwLeNxHqf6UhtTCLX1k9b5WSn3qcnT3ew48XK
-         cDzlCWrHtNkzf+rSb+jr3kj7NrJc4qmwI9JthGPXcUfAR6e43KUhYMZifuxEYQvjTc/V
-         4DWcJCr1HKQ5ExJWsu3rBFjmwPu0qWet/mmjAeWGaDtQfIEjYO+63Htr5qa5AlXESV3S
-         yLkPCThuTsdvVH+AFNSxggFaRAa0H1TNaG4VcsSDKxIgfQT9eitLpzZnuwP9ihuQxMYn
-         gCgWm1QUAmtoyBIFyfHOJWQTm1I2w9PiXvAdGQX67fpYwoHm3jxwaLovcUJGaLK0o3uG
-         B+aA==
+        b=gyiSsiCddIetBqab3dNIq15W+zzNshLSpaeBWuZ3Jo0uMFvh7hqjZRRerZOE75sdkU
+         ShIw2Fsn5WwwbLnl9LZtQcNJB7wZ8OXC/dc3/zYOp1lflTkcHkR5s7Qe4qwjmcmi+gMb
+         /sKllTzL65CC4kQyUFGIWGZLG/kfhxOmQQ3iJY9OeyTvBJWhVwpa03ruBAvXt1gKwvIP
+         EHBhu/BJF2/MUTdIGJF6Zh70tCT/OIc66Ubd7zxzKXCi/JKsm6lfWBqToeNbAVN6X8Ry
+         TaIXykFtphtok2JAtXXTQH6/jVWnRCSnBk/JgRpIzVWN3pg35BPvvfsGoEoPzfpVRPj+
+         hwpw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature
-         :dkim-signature;
-        bh=sWxu88eja/AvuSLyLkWobp6XokzXVEC/udyIb/cmeSQ=;
-        b=gJd0zVk57nV1g7+iD5g9ApBq8SZDNxhHqq3PZwaoYNN1pMInb4wOaXbsEX0xhnlCw/
-         QrMGxCN0F/hIUrmRqV5Vts9SDpjz7dgsJ1Mx6aUzVfETAx+UztzCZ/ChiagPIs4nVXYh
-         1t1a5Pu/w8Emu5j55fzxFldd/f81mZbIpcQbdZnJlDy3m4Ij26AkM7SNn7gQBt97gxuJ
-         oSyaRm0gUAcdX62ni3BN1MXfdUSLJwXB9jqO3O0qZbRwNtrhpfFrkzlWixwUaOlagYyB
-         lG0AZEAi6z5txmAwVtyvJLhsVWdyw0Nv2jhhTke/4Tnhnm1W460z4LSezumpXfuPF88d
-         xqGw==
+         :list-id:mailing-list:precedence:content-transfer-encoding:cc:to
+         :subject:message-id:date:from:in-reply-to:references:mime-version
+         :sender:dkim-signature:dkim-signature;
+        bh=kKD8hpmQHUYSzJZkmDKidMn9j0GdX6mMgNws5P1x4Tg=;
+        b=SAtf4Da3r/r7nMzCFNRJSYbMB1aNs3wqlJWhfmPlWWuKea2z4fVaMcUehDKcVde/6s
+         krlPNhDjBzq3K2CzDaaMw9sW3EItPlSyEBcMOmGf+HSmYISOyPIDg0S1Tm8WzgBW3lhZ
+         QoYEhx9KVO/WtoEwTg0IjYbWxm5h/TcE1/q2v/KYvYIBQEfZ1zJ3Rq7jBJ51qb1tDYCV
+         ACQ1sbctmZKgGq5LCZFm4wNInBy64qrRQ4Mwx5q5wND65dnPrrshrx2R7ZCDiaAA03pL
+         PlhbH7rftdSuO8cKsQdB4a0ZGzBGCUd9YsO9JqZeYhWsKDGwYZ78dj0vR6Bn3ST8ZcBe
+         F5Fw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FoJD4gJL;
-       spf=pass (google.com: domain of zhang.lyra@gmail.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=zhang.lyra@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CvqTeXhX;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sWxu88eja/AvuSLyLkWobp6XokzXVEC/udyIb/cmeSQ=;
-        b=JgW/J3/5qF1Axt/fYRmvB9XekQROxbAyqzPljIjbgeq8WwCcvkpoEyjGVnD8t7azdK
-         eCYg6BI4UoFgtXBkVf3QStXr8eAeh2XpuIGJqCkzPyUqeoFP+YRsFO8i+Lh6v2z3oin9
-         NMZ6Eqz4FlWJqoUURlNRMbSG+G6NOFQ2q6efSWB8PQHl7u4oftduCRCqo1WvrEEtshEK
-         Pgfyy4q/umnsy9tCqOoKN+yS785nFqflSwglBdlcGDZKzFK+H40hyG1HT26A0GdRa1w1
-         I2zXPN64nAACQvUJsA5NbAMaOaqLF/4cdNFD3/JXfdPpmRKcWCQhd0wyPZO6+bWXhYPK
-         ZcQw==
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kKD8hpmQHUYSzJZkmDKidMn9j0GdX6mMgNws5P1x4Tg=;
+        b=ohWLRBTOG7haEkFEY3nTuNk+uzdHU+DvvY/X0syuy8XktCHbl1iGllnAy1p3YwyfGC
+         gSyctQTv28RnK4QSza/Qyp385hy+ct0w0cKwLMQY+v32mZlTIhBoS1/F3JLkneZFdU7z
+         Ayj+ICxPgN2XLNYqhNrdOGOXNFrXKUv7U9cP0SkPzTUiwXxEtaPuaohnd9kz8hsfXKzv
+         0Z2zcNukJcrawEbb5zVkeIQnPZ4gL/2hP8hIlywtV35ECUm8fmpd816VyMNgXJWy04fM
+         sDpEHF7W+RDj8dlOE+Qg0O+PRP+UkearHFHhm6G9dKdLLad9DO1sq9qDwiQbYtafp4YL
+         tamg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sWxu88eja/AvuSLyLkWobp6XokzXVEC/udyIb/cmeSQ=;
-        b=aJe8COkXBBT1IQt/HCiKObY7GlkGEHYRjVo0X2Z9JAoGDJq/F7LMZvAJLmhZ4ruFvz
-         Nu6ja9rwxA6BhwqmDIvTfP/V4coRtcB0oq1HE/yeyDwrhaQbWRUumsWk+6rCt8T6xZBL
-         FcBWq0qw5fkQ+qysc5RVgFdasbDe5cvkIzPMNU7pDmZe5zTAGnraaZ00ZFnU/WJ+REEr
-         tojHXUwJcSW43r9K/IuPzs9YHUbjL/kmW1YuepfDRE2FRrL1SPk8cMupFBNVd7IFc5P2
-         wiVzuwxkDaNysa6EuM0MbUSqEP4p76zhKBvsbtss/dijGjviq2tom8wEfrZ/MHfb+ntM
-         E3AA==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=kKD8hpmQHUYSzJZkmDKidMn9j0GdX6mMgNws5P1x4Tg=;
+        b=O75MaKQ/bBa7omiohJyiu7qXRlskIZcHRBIdKXdPLvmPbXMUGX9f01P8HCW23OP2pF
+         AuSypmyWSrMeYZ/9vEXFilDjW3+fkMR8y6iqnqL6kuPby7fKQ8TxxFX6VIoFYOksY4yt
+         sYoUKn1ei2WSBXwWNkb5tRD1tS1L3IPr67y+lDmbGg0dFcrdRqRF/mij+Q3KhQ8BJ+Ax
+         8YPJn1bZRJkQO42lb5eI3rWiLrpO7cYO2WK/8wRP0P+jcQMmZsy1JpfDzUmdcaEopTLu
+         k0jh/i23cJvTrn68/qbopRz4wcFhz3d36mane9p4lD6wGFoU/1QLR3BKr7lBxkQWYHgh
+         5+VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=sWxu88eja/AvuSLyLkWobp6XokzXVEC/udyIb/cmeSQ=;
-        b=jlL1Y+Yt/Ev9iyO21TogjhXsiUkJo1OEyu2cMHbeqzvRS0b1ekytWPnG4OwOvXuQN+
-         9UOsFZXflH4m6SVS9jYK2D4Pgqzuahnd/3+hb2UcrEf9QoK1jNrCdRBn7oliAwiv3l2/
-         nGrAS/hEh9llJflj5mztZ+NrpF6i8+ZPWe4DvJAM4s07YK1/jTrN5/HFwkRMqtBS2pKj
-         J0l+acbMkJcEk4vHJA/+aIYgITLE1WeslLJzYQn0+zuJ4zuVQ7FEl4kMhX+0jMls0zxf
-         2DTS89hG7WsGptTOGKfPtl8Slv8xqBvablaIctVgK33wCWGVslPyX5xWZOnbqd9CYyHG
-         QEsA==
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=kKD8hpmQHUYSzJZkmDKidMn9j0GdX6mMgNws5P1x4Tg=;
+        b=VLKvqKRuoo9fZn64FiQOkaSunHvx83ZmHvEueP4tbeJ+NWhjtPDxGiLymrRlS54GjI
+         j43Lc+FgaNuONBALE7FhT8XyA+lMxN3vey/cg7+hfd0fJsJYefZ4eY7KOMotYGzXwpf+
+         /zvmEQmg5sFdCYhrON4V+an1Y3Az/ly0WgV0pkPhvKxplE7EoKF+D+4JOPtt35kLK9TM
+         FfHk0xAi5kKBdMep9VYRffyimjlpSPtaIlx0k1ZYzPLiepZeGMBJTNVtWaWTvuYuRmNJ
+         qgwwa5u3uGKvXSE8m8YZCZ2F/tX2h9A9IS0XIMKdxaC2U/ymaBUtcr3W0qlRLLdOLS9d
+         fpmQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXvmnBUC5N0+lZDnXfdKv9J+20KCP3WvowUzbDaH93n/qm9GFYa
-	lqPshA4V7l+UuNtgDXmLY/A=
-X-Google-Smtp-Source: APXvYqwV+cVI/nn1fRx//+VFV+W9BOwsYIFxinhxUnZ8+lYDdnLOBMcwrcJO9kv1xJVwkwHnf6OOWA==
-X-Received: by 2002:a9d:1c95:: with SMTP id l21mr14374207ota.271.1579491151717;
-        Sun, 19 Jan 2020 19:32:31 -0800 (PST)
+X-Gm-Message-State: APjAAAXUeW6G89S15uwb9mk0/kMEKn3/kJtSeI1TCxN546bSkrWJXdx/
+	X01YxqEQ4STP0QfBlHjbQYc=
+X-Google-Smtp-Source: APXvYqxv4MPlX2X0ZOuG+dLiKGapl9hFOnfN7IWElUpf0wN6T659mJJHL2rkyvbJcaoT2TQ7F7GaiA==
+X-Received: by 2002:a05:6102:2408:: with SMTP id j8mr11392602vsi.124.1579501267858;
+        Sun, 19 Jan 2020 22:21:07 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:c694:: with SMTP id w142ls5564116oif.6.gmail; Sun, 19
- Jan 2020 19:32:31 -0800 (PST)
-X-Received: by 2002:a05:6808:2ce:: with SMTP id a14mr11639874oid.82.1579491151334;
-        Sun, 19 Jan 2020 19:32:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579491151; cv=none;
+Received: by 2002:a05:6102:201d:: with SMTP id p29ls1678615vsr.5.gmail; Sun,
+ 19 Jan 2020 22:21:07 -0800 (PST)
+X-Received: by 2002:a05:6102:7d8:: with SMTP id y24mr11378541vsg.78.1579501267440;
+        Sun, 19 Jan 2020 22:21:07 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579501267; cv=none;
         d=google.com; s=arc-20160816;
-        b=VrISYKyGu+YmnTdMi3UK+wpv498cBn3ZN6qYikTq/tOQ3fPZ+0WNue1drljWuR0Te4
-         MGUw2Ro/y5fgFc+8PmK5lSj3ABp343Iiw0nahIHepRqs8UxGiy4EeMBHqyxV8zqbErdf
-         7UoGmbw5RHzttfhSaf1kWNiOZTsg6tQMgkMuburhUtpL33QUUxBK5mkJoUO+aGL8qT2l
-         vL8Tz75qMftpsGi5RjWkJaMS6d1f8/GFEEJr+ez25RSygSaQntaD8eGYnieCm7+FYq4Q
-         ppYHN0ddHd82aoMUE2192qKxPREE8i11vyN/3ukQiQ8fMqXVp1Nsclsrc52nmig063Pc
-         bvNw==
+        b=ycZvIClwf0I+MVKNd1VvVBR2B962l9cMlaU2zawSGU6ILJ8XdsZRtrWH8QBQoIEstg
+         GrXW6oZw9kB8KtYMx0jEmpjw+kdpsVOxMZHvOH4zm4AhcUwfbDCdADMTMP7rTC1dyd3r
+         TI+zuonoMC510uWHesL04uRnRUZGEzQiGIMOwH8huxWMK3K91sjP+clkUy+ImIGohar0
+         I3YZLOCxfg+BZQF7JE8tCD04C1hdLkdcHNoi/7LXLYWAn1JirA1Ztxfzey4ryrYn0iAd
+         L3ZQpbOWkNgaSebORQjUr8MeW9JXmKrg7Zdaq/WJfPCy29ovj9g1rqFxqOXVhIoyaA9X
+         0RSw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=kaVyaqcx1+XyBwYscJJnTfM3SI5pH5G1DrO35gYdNN4=;
-        b=JPuEbaY5LHYHNILr8xLgwER5Zl/sTcD0mhS1gY/CC+sKw1zNAJehruWJYE7iWlMUSL
-         OpWNHDHiawVh+kvfrkjHR8ol3ak+Negz5AWckfB8QdgTt9hd2GIdw0cyaet2pYqg67sx
-         qLwiyJpmXxotG+youoeqngVfgp3gx02ChboxHiFzXklIZ2DonVnDAyB4KH77qajC/nmh
-         zPVEJmcyaWSTcftUZvSoEHpY957/uvSHbsMYZ+eV58z28A8TAoticSUjem1lx7JI4Cla
-         wlTlU7oqEGXt/Vj1mou3NR5Zeon+Cc5Fpb8lT/r3OzarW/7z6PvbagLTWFqHzVnuXh9C
-         iurw==
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=HzgwQjk23FH9alWYUZE6q0CWsQkjBSTe2jUKbbfrMf8=;
+        b=NfqEGPsUG60/xBWDqyLzdir81etkWBxoSy4/r9tpHUSe0XGFMACPaUtjHMPCUSDVzS
+         6kX5iNrQe6h5S5mw93h7Hb+F1uK8sJKrI6ugSH7Y4Fam2PZg7bocDBSEF4KDiy1o3ZA9
+         XEGB7qnEr7Wf0WWa0nUANTDa0C0zTdoAli4VoiqOmYqwUX8SMnLNqmxZK3Wrn8bMDJXw
+         xCBez8x/sTvPKB7o/8bu1b/cmIo4BB9KmdujNIT80ZQ0cZfjNr5WaBYQMgEg33w1JMzJ
+         mAicPRwQId3rTBkhQN3y1jiTZ1Q0Ymk+tGf2wg14TYYp8V2rQnwNFYaDcMak/Bevbken
+         h2Rw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FoJD4gJL;
-       spf=pass (google.com: domain of zhang.lyra@gmail.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=zhang.lyra@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=CvqTeXhX;
+       spf=pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id a21si674357oto.2.2020.01.19.19.32.31
+Received: from mail-qk1-x741.google.com (mail-qk1-x741.google.com. [2607:f8b0:4864:20::741])
+        by gmr-mx.google.com with ESMTPS id y126si1163317vkc.5.2020.01.19.22.21.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 19 Jan 2020 19:32:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of zhang.lyra@gmail.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id x6so15099166pfo.10
-        for <clang-built-linux@googlegroups.com>; Sun, 19 Jan 2020 19:32:31 -0800 (PST)
-X-Received: by 2002:a63:1204:: with SMTP id h4mr56608273pgl.288.1579491150642;
-        Sun, 19 Jan 2020 19:32:30 -0800 (PST)
-Received: from ubt.spreadtrum.com ([117.18.48.82])
-        by smtp.gmail.com with ESMTPSA id d4sm14746798pjz.12.2020.01.19.19.32.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 19 Jan 2020 19:32:29 -0800 (PST)
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>
-Cc: Faiz Abbas <faiz_abbas@ti.com>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Chunyan Zhang <zhang.chunyan@linaro.org>,
-	linux-mmc@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	kbuild test robot <lkp@intel.com>
-Subject: [PATCH v2] mmc: sdhci: fix an issue of mixing different types
-Date: Mon, 20 Jan 2020 11:32:23 +0800
-Message-Id: <20200120033223.897-1-zhang.chunyan@linaro.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20200120031023.32482-1-zhang.chunyan@linaro.org>
-References: <20200120031023.32482-1-zhang.chunyan@linaro.org>
+        Sun, 19 Jan 2020 22:21:07 -0800 (PST)
+Received-SPF: pass (google.com: domain of andrii.nakryiko@gmail.com designates 2607:f8b0:4864:20::741 as permitted sender) client-ip=2607:f8b0:4864:20::741;
+Received: by mail-qk1-x741.google.com with SMTP id w127so29055557qkb.11
+        for <clang-built-linux@googlegroups.com>; Sun, 19 Jan 2020 22:21:07 -0800 (PST)
+X-Received: by 2002:a05:620a:5ae:: with SMTP id q14mr46460647qkq.437.1579501266863;
+ Sun, 19 Jan 2020 22:21:06 -0800 (PST)
 MIME-Version: 1.0
-X-Original-Sender: zhang.lyra@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=FoJD4gJL;       spf=pass
- (google.com: domain of zhang.lyra@gmail.com designates 2607:f8b0:4864:20::443
- as permitted sender) smtp.mailfrom=zhang.lyra@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+References: <157926819690.1555735.10756593211671752826.stgit@toke.dk> <157926820677.1555735.5437255599683298212.stgit@toke.dk>
+In-Reply-To: <157926820677.1555735.5437255599683298212.stgit@toke.dk>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Sun, 19 Jan 2020 22:20:55 -0800
+Message-ID: <CAEf4Bzb9zUmhxTyYahJqySJzgfyB-zMEd+o4ybv=a8-t+iZS4w@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v4 09/10] selftests: Remove tools/lib/bpf from
+ include path
+To: =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+	Andrii Nakryiko <andriin@fb.com>, Doug Ledford <dledford@redhat.com>, Jason Gunthorpe <jgg@ziepe.ca>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Jesper Dangaard Brouer <brouer@redhat.com>, John Fastabend <john.fastabend@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
+	Namhyung Kim <namhyung@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
+	open list <linux-kernel@vger.kernel.org>, linux-rdma@vger.kernel.org, 
+	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, clang-built-linux@googlegroups.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-Original-Sender: andrii.nakryiko@gmail.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@gmail.com header.s=20161025 header.b=CvqTeXhX;       spf=pass
+ (google.com: domain of andrii.nakryiko@gmail.com designates
+ 2607:f8b0:4864:20::741 as permitted sender) smtp.mailfrom=andrii.nakryiko@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -154,48 +154,217 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Fix an issue reported by sparse, since mixed types of parameters are
-used on calling dmaengine_prep_slave_sg().
+On Fri, Jan 17, 2020 at 5:43 AM Toke H=C3=B8iland-J=C3=B8rgensen <toke@redh=
+at.com> wrote:
+>
+> From: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+>
+> To make sure no new files are introduced that doesn't include the bpf/
+> prefix in its #include, remove tools/lib/bpf from the include path
+> entirely.
+>
+> Instead, we introduce a new header files directory under the scratch tool=
+s/
+> dir, and add a rule to run the 'install_headers' rule from libbpf to have=
+ a
+> full set of consistent libbpf headers in $(OUTPUT)/tools/include/bpf, and
+> then use $(OUTPUT)/tools/include as the include path for selftests.
+>
+> For consistency we also make sure we put all the scratch build files from
+> other bpftool and libbpf into tools/build/, so everything stays within
+> selftests/.
+>
+> Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+> ---
+>  tools/testing/selftests/bpf/.gitignore |    2 +
+>  tools/testing/selftests/bpf/Makefile   |   49 +++++++++++++++++++++-----=
+------
+>  2 files changed, 33 insertions(+), 18 deletions(-)
+>
+> diff --git a/tools/testing/selftests/bpf/.gitignore b/tools/testing/selft=
+ests/bpf/.gitignore
+> index 1d14e3ab70be..8c9eac626996 100644
+> --- a/tools/testing/selftests/bpf/.gitignore
+> +++ b/tools/testing/selftests/bpf/.gitignore
+> @@ -39,4 +39,4 @@ test_cpp
+>  /no_alu32
+>  /bpf_gcc
+>  /tools
+> -bpf_helper_defs.h
 
-Fixes: 36e1da441fec (mmc: sdhci: add support for using external DMA devices)
-Reported-by: kbuild test robot <lkp@intel.com>
-Signed-off-by: Chunyan Zhang <zhang.chunyan@linaro.org>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
----
-Changes from v1:
-* address comments from Nathan Chancellor
-- define a new variable to avoid type conversions.
----
- drivers/mmc/host/sdhci.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+can you please also drop libbpf.pc and libbpf.so.* rules from .gitignore?
 
-diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
-index 30b5a624b50e..f9e0b5f2c692 100644
---- a/drivers/mmc/host/sdhci.c
-+++ b/drivers/mmc/host/sdhci.c
-@@ -1201,6 +1201,7 @@ static int sdhci_external_dma_setup(struct sdhci_host *host,
- 				    struct mmc_command *cmd)
- {
- 	int ret, i;
-+	enum dma_transfer_direction dir;
- 	struct dma_async_tx_descriptor *desc;
- 	struct mmc_data *data = cmd->data;
- 	struct dma_chan *chan;
-@@ -1234,8 +1235,8 @@ static int sdhci_external_dma_setup(struct sdhci_host *host,
- 	if (sg_cnt <= 0)
- 		return -EINVAL;
- 
--	desc = dmaengine_prep_slave_sg(chan, data->sg, data->sg_len,
--				       mmc_get_dma_dir(data),
-+	dir = data->flags & MMC_DATA_WRITE ? DMA_MEM_TO_DEV : DMA_DEV_TO_MEM;
-+	desc = dmaengine_prep_slave_sg(chan, data->sg, data->sg_len, dir,
- 				       DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
- 	if (!desc)
- 		return -EINVAL;
--- 
-2.20.1
+> +
+> diff --git a/tools/testing/selftests/bpf/Makefile b/tools/testing/selftes=
+ts/bpf/Makefile
+> index 858d4e3369ad..ac0292a82fdc 100644
+> --- a/tools/testing/selftests/bpf/Makefile
+> +++ b/tools/testing/selftests/bpf/Makefile
+> @@ -20,8 +20,8 @@ CLANG         ?=3D clang
+>  LLC            ?=3D llc
+>  LLVM_OBJCOPY   ?=3D llvm-objcopy
+>  BPF_GCC                ?=3D $(shell command -v bpf-gcc;)
+> -CFLAGS +=3D -g -Wall -O2 $(GENFLAGS) -I$(CURDIR) -I$(APIDIR) -I$(LIBDIR)=
+  \
+> -         -I$(BPFDIR) -I$(GENDIR) -I$(TOOLSINCDIR)                      \
+> +CFLAGS +=3D -g -Wall -O2 $(GENFLAGS) -I$(CURDIR) -I$(APIDIR)            =
+  \
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200120033223.897-1-zhang.chunyan%40linaro.org.
+extra space here
+
+> +         -I$(INCLUDE_DIR) -I$(GENDIR) -I$(LIBDIR) -I$(TOOLSINCDIR)     \
+>           -Dbpf_prog_load=3Dbpf_prog_test_load                           =
+ \
+>           -Dbpf_load_program=3Dbpf_test_load_program
+>  LDLIBS +=3D -lcap -lelf -lz -lrt -lpthread
+> @@ -97,11 +97,15 @@ OVERRIDE_TARGETS :=3D 1
+>  override define CLEAN
+>         $(call msg,CLEAN)
+>         $(RM) -r $(TEST_GEN_PROGS) $(TEST_GEN_PROGS_EXTENDED) $(TEST_GEN_=
+FILES) $(EXTRA_CLEAN)
+> -       $(MAKE) -C $(BPFDIR) OUTPUT=3D$(OUTPUT)/ clean
+>  endef
+>
+>  include ../lib.mk
+>
+> +SCRATCH_DIR :=3D $(OUTPUT)/tools
+> +BUILD_DIR :=3D $(SCRATCH_DIR)/build
+> +INCLUDE_DIR :=3D $(SCRATCH_DIR)/include
+> +INCLUDE_BPF :=3D $(INCLUDE_DIR)/bpf
+> +
+>  # Define simple and short `make test_progs`, `make test_sysctl`, etc tar=
+gets
+>  # to build individual tests.
+>  # NOTE: Semicolon at the end is critical to override lib.mk's default st=
+atic
+> @@ -120,7 +124,7 @@ $(OUTPUT)/urandom_read: urandom_read.c
+>         $(call msg,BINARY,,$@)
+>         $(CC) -o $@ $< -Wl,--build-id
+>
+> -$(OUTPUT)/test_stub.o: test_stub.c
+> +$(OUTPUT)/test_stub.o: test_stub.c $(INCLUDE_BPF)
+>         $(call msg,CC,,$@)
+>         $(CC) -c $(CFLAGS) -o $@ $<
+>
+> @@ -133,7 +137,7 @@ $(OUTPUT)/runqslower: force
+>         $(Q)$(MAKE) $(submake_extras) -C $(TOOLSDIR)/bpf/runqslower     \
+>                     OUTPUT=3D$(OUTPUT)/tools/ VMLINUX_BTF=3D$(VMLINUX_BTF=
+)
+>
+> -BPFOBJ :=3D $(OUTPUT)/libbpf.a
+> +BPFOBJ :=3D $(BUILD_DIR)/libbpf/libbpf.a
+>
+>  $(TEST_GEN_PROGS) $(TEST_GEN_PROGS_EXTENDED): $(OUTPUT)/test_stub.o $(BP=
+FOBJ)
+>
+> @@ -159,17 +163,28 @@ force:
+>  DEFAULT_BPFTOOL :=3D $(OUTPUT)/tools/sbin/bpftool
+>  BPFTOOL ?=3D $(DEFAULT_BPFTOOL)
+>
+> -$(DEFAULT_BPFTOOL): force
+> -       $(Q)$(MAKE) $(submake_extras)  -C $(BPFTOOLDIR)                  =
+     \
+> +$(BUILD_DIR)/libbpf $(BUILD_DIR)/bpftool $(INCLUDE_DIR):
+> +       $(call msg,MKDIR,,$@)
+> +       mkdir -p $@
+> +
+> +$(DEFAULT_BPFTOOL): force | $(BUILD_DIR)/bpftool
+> +       $(Q)$(MAKE) $(submake_extras)  -C $(BPFTOOLDIR)         \
+
+slash alignment
+
+
+> +                   OUTPUT=3D$(BUILD_DIR)/bpftool/                       =
+ \
+>                     prefix=3D DESTDIR=3D$(OUTPUT)/tools/ install
+>
+> -$(BPFOBJ): force
+> -       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR) OUTPUT=3D$(OUTPUT)/
+> +$(BPFOBJ): force | $(BUILD_DIR)/libbpf
+> +       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR) \
+> +               OUTPUT=3D$(BUILD_DIR)/libbpf/
+> +
+> +$(INCLUDE_BPF): $(BPFOBJ) | $(INCLUDE_DIR)
+> +       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR) install_headers \
+> +               OUTPUT=3D$(BUILD_DIR)/libbpf/ DESTDIR=3D$(SCRATCH_DIR) pr=
+efix=3D
+> +
+> +BPF_HELPERS :=3D $(or $(wildcard $(INCLUDE_BPF)/bpf_*.h),$(INCLUDE_BPF))
+> +ifneq ($(BPF_HELPERS),$(INCLUDE_BPF))
+> +$(BPF_HELPERS): $(INCLUDE_BPF)
+> +endif
+>
+> -BPF_HELPERS :=3D $(OUTPUT)/bpf_helper_defs.h $(wildcard $(BPFDIR)/bpf_*.=
+h)
+> -$(OUTPUT)/bpf_helper_defs.h: $(BPFOBJ)
+> -       $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR)                       =
+     \
+> -                   OUTPUT=3D$(OUTPUT)/ $(OUTPUT)/bpf_helper_defs.h
+>
+
+I really-really didn't like this alternating dependency on directory
+or a set of file, depending on current state of those temporary
+directories. Then also this ugly check to avoid circular dependency.
+All that seemed wrong. So I played a bit with how to achieve the same
+differently, and here's what I came up with, which I like a bit
+better. What do you think?
+
+$(BPFOBJ): $(wildcard $(BPFDIR)/*.c $(BPFDIR)/*.h $(BPFDIR)/Makefile)      =
+    \
+           ../../../include/uapi/linux/bpf.h                               =
+    \
+           | $(INCLUDE_DIR) $(BUILD_DIR)/libbpf
+        $(Q)$(MAKE) $(submake_extras) -C $(BPFDIR) OUTPUT=3D$(BUILD_DIR)/li=
+bbpf/ \
+                    DESTDIR=3D$(SCRATCH_DIR) prefix=3D all install_headers
+
+So, essentially, just make sure that we install local copies of
+headers whenever libbpf.a needs to be re-built.
+../../../include/uapi/linux/bpf.h ensures we don't miss uapi header
+changes as well. Now anything that uses libbpf headers will need to
+depend on $(BPFOBJ) and will automatically get up-to-date local copies
+of headers.
+
+This seems much simpler. Please give it a try, thanks!
+
+>  # Get Clang's default includes on this system, as opposed to those seen =
+by
+>  # '-target bpf'. This fixes "missing" files on some architectures/distro=
+s,
+> @@ -189,8 +204,8 @@ MENDIAN=3D$(if $(IS_LITTLE_ENDIAN),-mlittle-endian,-m=
+big-endian)
+>
+>  CLANG_SYS_INCLUDES =3D $(call get_sys_includes,$(CLANG))
+>  BPF_CFLAGS =3D -g -D__TARGET_ARCH_$(SRCARCH) $(MENDIAN)                 =
+ \
+> -            -I$(OUTPUT) -I$(CURDIR) -I$(CURDIR)/include/uapi           \
+> -            -I$(APIDIR) -I$(LIBDIR) -I$(BPFDIR) -I$(abspath $(OUTPUT)/..=
+/usr/include)
+> +            -I$(INCLUDE_DIR) -I$(CURDIR) -I$(CURDIR)/include/uapi      \
+> +            -I$(APIDIR) -I$(abspath $(OUTPUT)/../usr/include)
+>
+>  CLANG_CFLAGS =3D $(CLANG_SYS_INCLUDES) \
+>                -Wno-compare-distinct-pointer-types
+> @@ -392,7 +407,7 @@ $(OUTPUT)/test_cpp: test_cpp.cpp $(OUTPUT)/test_core_=
+extern.skel.h $(BPFOBJ)
+>         $(call msg,CXX,,$@)
+>         $(CXX) $(CFLAGS) $^ $(LDLIBS) -o $@
+>
+> -EXTRA_CLEAN :=3D $(TEST_CUSTOM_PROGS)                                   =
+ \
+> +EXTRA_CLEAN :=3D $(TEST_CUSTOM_PROGS) $(SCRATCH_DIR)                    =
+ \
+>         prog_tests/tests.h map_tests/tests.h verifier/tests.h           \
+>         feature                                                         \
+> -       $(addprefix $(OUTPUT)/,*.o *.skel.h no_alu32 bpf_gcc tools)
+> +       $(addprefix $(OUTPUT)/,*.o *.skel.h no_alu32 bpf_gcc)
+>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAEf4Bzb9zUmhxTyYahJqySJzgfyB-zMEd%2Bo4ybv%3Da8-t%2BiZS4w=
+%40mail.gmail.com.
