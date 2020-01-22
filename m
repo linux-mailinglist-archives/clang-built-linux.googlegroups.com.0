@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBFN5T3YQKGQEA5BGXXA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBY6BT3YQKGQE62QBB3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43d.google.com (mail-pf1-x43d.google.com [IPv6:2607:f8b0:4864:20::43d])
-	by mail.lfdr.de (Postfix) with ESMTPS id EC5C2144929
-	for <lists+clang-built-linux@lfdr.de>; Wed, 22 Jan 2020 02:00:07 +0100 (CET)
-Received: by mail-pf1-x43d.google.com with SMTP id q5sf2754651pfh.1
-        for <lists+clang-built-linux@lfdr.de>; Tue, 21 Jan 2020 17:00:07 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579654806; cv=pass;
+Received: from mail-pf1-x440.google.com (mail-pf1-x440.google.com [IPv6:2607:f8b0:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id BDE54144935
+	for <lists+clang-built-linux@lfdr.de>; Wed, 22 Jan 2020 02:09:56 +0100 (CET)
+Received: by mail-pf1-x440.google.com with SMTP id 6sf2770493pfv.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 21 Jan 2020 17:09:56 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579655395; cv=pass;
         d=google.com; s=arc-20160816;
-        b=KHqCgOUBjH6Qggy7033MLADlBdl661jhKGdkF2utHlV6dbNrpGp4HpaJeDQuRxD1qd
-         8XsL7b+xdS6DnsE1hRo6MjezGbBTF+mjHNb69OU9FUdEQLAKPlVxnf4ahmilTGJwvTqt
-         D+p+NHkpFzuUK7YpxvfZDF9LL2xQuJ7Iy2LbXaRnYhe9iT0N1y9CFgZDggFY4DxUVaKM
-         hz5vepr8mWOaGqj5GcBDqP2hJXlaqKKOy/IpsWB1r1ZM4X/05DSDb128ut8224JwfUa4
-         HQblxv84b7ABTX2yPFq+4gICttXNoX1gyLt8bAkUpx1O5KG01EBu02FGxxZftJBrnGye
-         RGtg==
+        b=alWmiRep4qWspVxZ13Mzs5YiH7tTHl4GM8pNr7cu7SNVRepTYGyb4OgmIwx7H9LPSn
+         q7BGvqwDW8QDZg8uVgMkvCeD88//LEK5GMF7TgHWifpiYhIzx9S9wibC1iU6WWZJlGW+
+         SzpMYrJ2SWojjAr/7YOkKpmJ5mn/sCXF+kgXc7OozBE8XlqIaytPEhlUiEn6u22FEuAW
+         6U45vl6SN3VShuxuQumCML/H/sR8OmRAIPpF+lpTEtlIhMDt8klaHfFf1NfiRX3WHwer
+         P7vi2+9Xux3lPMatotLySioClUjnFRJgsuCxK3wzfCrjDDSnOePWQoNYnBsNUSnS4rKp
+         BPhw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=vAd4GET46ncYAybMwjrG9re7seMgw9ELeQ6VAbFMkG4=;
-        b=vFciPHr/OGEcdmyljP/djeRPmgIx5QVEAr5NbQlpCsfdiulIsxXLj70k3vrkhl77JF
-         ycvlLGnemdk2wEwxncIGru4oWAYDMjFksHeqK1nEfLlhGn9J4MVq2WpsKdWXJVhHKjdY
-         CnP/rMyGyyYuWcOuiZGxhNmrFblImKbJZ86fai7N8hBqQs/XjvmiLPUI9xkrmCgWlIoJ
-         y1wRSp5R01o73cXvQf+Q/CsO2Wt2aLHeH6HCRJtNx0lIOj1WnZaUYNS7wx1HTJ/aUKXC
-         1hxqkSDjb1/EHlyGqTZwrQO9EQnsWT5+UKI24Zgy8y9vA6SexPABtf552JmIs/lC/HTy
-         TOQQ==
+        bh=DPMVuJUT0NvjF6JFwE1PMHUe0xYBwd/5YRS0odk6ujA=;
+        b=sxxbiOMxOgNxqFnRGZ/GELGTigpga2HooUZwsLlMFPKtm4sw0Aa2v54zNr14zUMH2Q
+         ndwHTRBnattB+ittx+EDIe6qiH9CLxcHGSAyqpslRBn7NjdtLIX0CCIv4V7YNnY8FXRq
+         8ZuEbm5Wxfo1g4555LdSIPE2qDQIhi2hQhwH3mYh1A9Ge8E5uw2Vhcc4uxkDWdQKngOL
+         n5K72vY3SorBxtEM8aKEDmqXOCWYlnhsRCw16Zbm+tHl+khaH6Pc2Z/mdghAjt8OxziT
+         iZvn97e3qcn8dm15PudV3dX8qMGZe1jOMaL1Ia9U+cQXikueUu0f9MqdGTjTn8zOxkEw
+         iqLQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=vAd4GET46ncYAybMwjrG9re7seMgw9ELeQ6VAbFMkG4=;
-        b=U+wY1fz72SzKAHwldBEpOwnMNfIh9yDJ3a75G4fdXGBBgdAUQRuZk81T2m5idx4rTv
-         /JhipFUdb1kMk3sBKxkpoMyUYsk9uNNbWJ1U4KDeL47wCRvQYuB5uUgsvn8GWzduUdL/
-         dkqkChRVq570fwPFgNpS3ucW98I6flRiFhQ3H9bkXg4C4OwTO4DiC/U4z+CmxEFJ+P3I
-         BVZBnPSm1Gsc1cDcNmBCOlignqRVIycyAzoICfofPMiv/UzIkI9vW/rBwjPYbGCKACCf
-         JGbHOsmo697MXxGbnj3U283ASi/sONpTTmoiMZatRvn/inBmryFq+ng5Iwa3QEU04zUk
-         yTZw==
+        bh=DPMVuJUT0NvjF6JFwE1PMHUe0xYBwd/5YRS0odk6ujA=;
+        b=qlvMSVGjPqirKB0MSgYtgKqsrrjEnZd0U2V+EgV/lKiXWPklzQdhgh2tdkzjAHFx70
+         hcQZ9SxEAHxtq6efT9nlaIB0lJZUOmgW4L3y5UPwb+6uLalVonPKHAvX6k8vsA3y4tFK
+         8VJvT9PD4KducTrpoCm2bD/q7p9avZY22ag4c+/zeZH1DI6mUXMLAkdXASzOUdEv3F9g
+         WNhYiPrVF6yCaCOvLUgB4wL5GNcjeo06E8hg9H+aN83yQ+FsOt9i2EK6/vDhE3sJtWbe
+         wxpsrvBBzWmLk5ZwQSfsjkcAiYk8qS9xDxleufuv9NanAPqTFJb6qVkDTXQ3QP3MR+B+
+         RRrw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=vAd4GET46ncYAybMwjrG9re7seMgw9ELeQ6VAbFMkG4=;
-        b=LIV1UgWeWOd1xAsDfae8QGTNVFKuKWgVef/R/xLFO/y9mHqc4guCTNsgqpfAcTmkWb
-         30TtNmxNB3XZ3oNd9NaL3Z2woFVbioDTYUp1LVqem4yNbkhx+JN4m1IwbZqHyBEksZs+
-         fN9fVeNwoNbcGyI7iZei21h16Fq+8qop/smDBuCZN3/vEiW0oLtBc1bPdiZiaJqwM0iJ
-         FInQfDx1SHnpjEYtGIhlYFFS5NKmCWpScpJsxZAQXgxR7xR4LpW/BS4Qu9lJ4GKgZuJq
-         5NzvnS/88CNhiNa90/6E47ZaP4VYEi/OMBFFWjDIU/DSsb+15Id8KHhYpvviNOTiRQ4/
-         1C/g==
+        bh=DPMVuJUT0NvjF6JFwE1PMHUe0xYBwd/5YRS0odk6ujA=;
+        b=dNB263WOmsIJkJ+7DHR1YYQ045AzIkkvEZL63UusESZxoEHuKrYmOZQrIrQoBD33YH
+         xQ+/rErXWO7UYsoZqCqo0cPsrKutrGavLZbP54U83yvr9W9YroB6aMXwBvX213dgKwUe
+         sXMf/vqs/0QolO4Wr6EToerDuemBX4EvCwAUAkavJlOMu9M9PDQlZyPEh+N05SLTiT8p
+         xbw1iFhDWhULtPJA3YxmZcdGIvmbRgOjWfKKLAbLrQP67N9L/yX7jbdCmz91s5mX9uLH
+         tEEmwTjFLpe1kN7Jq7AEkNed5BIJvrWE+uOWANE/c8j0FV7aboSjH5G3iy1goKaFuasv
+         vLQw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUuBGNxhQCUOzxozzE0TjjT+tslqCsqQ0pvDS2mqpmLKxvf2Whq
-	D0xORPu6Y/KNAsVdeEOA/+4=
-X-Google-Smtp-Source: APXvYqzlYc+kpiIUu1weNukSD/OuhKEFGAjCR/8KQ5Er9eJqC4s8nh/IVDfqO8x7RAF2Zn9JPu/Hhw==
-X-Received: by 2002:a63:4a0e:: with SMTP id x14mr8229454pga.360.1579654805999;
-        Tue, 21 Jan 2020 17:00:05 -0800 (PST)
+X-Gm-Message-State: APjAAAWSzELeTRw4kW7YFWHgsLB9jEwV1Tlwa3VF4kyqYVHBG51d5nYR
+	btKM7Clo/nW48997+ih3D4g=
+X-Google-Smtp-Source: APXvYqyuY5R5Hl6OvanjmXldyUgT3AhqrM785lYUYdMscPPbioYyYFB7uQqapCZarxqx6b57wKxMdQ==
+X-Received: by 2002:a17:90a:2486:: with SMTP id i6mr20718pje.9.1579655395363;
+        Tue, 21 Jan 2020 17:09:55 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:90ca:: with SMTP id k10ls12124602pfk.12.gmail; Tue, 21
- Jan 2020 17:00:05 -0800 (PST)
-X-Received: by 2002:a63:f410:: with SMTP id g16mr8312555pgi.193.1579654805398;
-        Tue, 21 Jan 2020 17:00:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579654805; cv=none;
+Received: by 2002:a63:c5c:: with SMTP id 28ls11392049pgm.12.gmail; Tue, 21 Jan
+ 2020 17:09:54 -0800 (PST)
+X-Received: by 2002:a63:fc01:: with SMTP id j1mr8861478pgi.220.1579655394711;
+        Tue, 21 Jan 2020 17:09:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579655394; cv=none;
         d=google.com; s=arc-20160816;
-        b=zi6ztUG0uYXn8Lzk1ihEOxkFT2Dq4gh/Z/G65idtGY/aOPO/6vSGlg9SbqAvKvpD8o
-         ldRnSfeCZkv75scI+xrRTwtBGnnjF09jiLXze92d2hw9wosh4cV02pjRslmwDykX/Go6
-         5MKQm/gC/kTp4uyX1KEw3778ATDtN6tTT5NOW77826S/rWW9uoKF3+G+yhF8DwPyrXnL
-         5igqj3UP507tXZ/qYh/a8XFnonCMaudcgoYxdscfOMDyP+mx+Epj0lejegSJvR7By+ZN
-         wmX61ezaTgiYCndYVYu5aulfxD6ookddkpG2KAKOkKr6V+6lyURLSAr9BuTUVSqBy61F
-         0OwA==
+        b=mzvmDf2axy3Jw/3h+/cwPioRPshvy9WMh6d8whc6KBsbCm40Ne3EhKRmajbZT2kmsA
+         K+HC/XN1BkUUqmYGJ6ATjVaz8A1TGWq5yN79NJvmlGKZ25FSj+1O+XOfwOP+5c2a4DPY
+         hy8nUfruwoAv5CR27Hw1vTABoAm0GqjRXcHnxFD5952zAXeeZI4a3RU7ek6QaLfTKgkz
+         CDJeoMLRmHKfeowgHRTgJpC5dHHUidMSk3AJLFJSH4p2xP+yJ+0ZeOTMo7h1yA51xSPR
+         8q0gpYHQLsI3kH5/0S7F4TxJ6UIQzjWf6faoMecYvgcWVFWtQmJnhzQ2N3p6uWQDo19W
+         QO4A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=Zl91I5EXWBGnM1EBlhubapltY0f1I81LUqRxbGa2ghM=;
-        b=vODwMwpXve6/qXeXemopdUPGZPUu41w4YOzRkRd7hu/1rMZ49fi/GGQ0yg7Sb4VZJw
-         m2/gntgQXulPDh8gYQzt6C6JNUa1V+oQueJj0WDA9pkoo6mHws0QJBWC+nVleeSExUZ4
-         DeumP75AQNuuD9e1oUzm+tfMiYlfl/5ko54Qm17NVq3jbnSsReYPseArQeO+2JEcgoQM
-         R9+/zrALqNJcpVZ7ITOs+bgCS3AwgS6rJuIwE3sy5Nxe8H8dMARy14rJ8hQcFOOyPpKs
-         AP5qUqXaF0EebG+3TdMfPcc2Qu+xe40uLE0T++AZHbO8/2VxqwhGBFHJccakPApmTKH+
-         1Mxg==
+        bh=zI6q03KN6CWi7KfelISASr9GtNRZ3hOi74EtEKfSFf4=;
+        b=Z3IT1GM7BYfkf2p/7q/a4udI8TwuP0tDMMsP109u9XwlnJf6krgWJJEiHX5s5/nZK6
+         KNZcz2AwYvNiR9BEetFkwz7c7Mg1y2hwnVNn7Bl7Kbnhc4NRRWIj4smQaTP7TCxkndsn
+         OZB5j1SA/KJRPX9GAZVbtjD4J8TkFMMmGhn7W6W6qkNR/K/Mu2756hFwwGCq2h6+NXzt
+         1JWJhn94Fot1vjP70/ekkU3Cru6oj0gyHE+BwrwNzSOT47gQoO5eAvcQWuqNzccwYnxI
+         wOiAczlovN2u2ZVkGEcToD7QDBRkZUXg2DzV7XkgMPcdkzXPTf6zC1lq83JPA+7jgbRz
+         WXcg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id y3si781507plr.1.2020.01.21.17.00.05
+Received: from mga07.intel.com (mga07.intel.com. [134.134.136.100])
+        by gmr-mx.google.com with ESMTPS id o9si1989010pfp.0.2020.01.21.17.09.54
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 21 Jan 2020 17:00:05 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+        Tue, 21 Jan 2020 17:09:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted sender) client-ip=134.134.136.100;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga007.jf.intel.com ([10.7.209.58])
-  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 21 Jan 2020 16:59:39 -0800
+Received: from fmsmga006.fm.intel.com ([10.253.24.20])
+  by orsmga105.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 21 Jan 2020 17:09:53 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.70,347,1574150400"; 
-   d="gz'50?scan'50,208,50";a="215730986"
+   d="gz'50?scan'50,208,50";a="427249568"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga007.jf.intel.com with ESMTP; 21 Jan 2020 16:59:38 -0800
+  by fmsmga006.fm.intel.com with ESMTP; 21 Jan 2020 17:09:52 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iu4Mr-000ApD-LY; Wed, 22 Jan 2020 08:59:37 +0800
-Date: Wed, 22 Jan 2020 08:59:07 +0800
+	id 1iu4Wl-000Aui-Lc; Wed, 22 Jan 2020 09:09:51 +0800
+Date: Wed, 22 Jan 2020 09:09:36 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [georgi.djakov:icc-tegra 24/41] include/soc/tegra/mc.h:201:1: error:
- expected identifier or '('
-Message-ID: <202001220806.JvIQuG9J%lkp@intel.com>
+Subject: [georgi.djakov:icc-tegra 28/41]
+ drivers/memory/tegra/tegra124.c:1103:15: error: use of undeclared identifier
+ 'tegra124_mc_icc_nodes'; did you mean 'tegra124_mc_clients'?
+Message-ID: <202001220933.eP2jd8RA%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="bhi5httfhq3tjyzz"
+Content-Type: multipart/mixed; boundary="xmtbbvxbile3r3xi"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.100 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,7 +138,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---bhi5httfhq3tjyzz
+--xmtbbvxbile3r3xi
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -147,13 +148,13 @@ CC: Georgi Djakov <georgi.djakov@linaro.org>
 
 tree:   https://git.linaro.org/people/georgi.djakov/linux.git icc-tegra
 head:   e5ac142a10a0e939010b6e471d2c1941151c7a27
-commit: 7fa226c3b77d0546835bad3f66fc1befecc90076 [24/41] interconnect: Add memory interconnection providers for NVIDIA Tegra SoCs
+commit: ed51bfd90b834af6aea90c81b4329a9b253e64bf [28/41] memory: tegra: Add interconnect nodes for Terga124 display controllers
 config: arm64-defconfig (attached as .config)
 compiler: clang version 11.0.0 (git://gitmirror/llvm_project 7b771ed448487705237868f705da17b40c6bfe82)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout 7fa226c3b77d0546835bad3f66fc1befecc90076
+        git checkout ed51bfd90b834af6aea90c81b4329a9b253e64bf
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
@@ -162,26 +163,98 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
-   In file included from drivers/memory/tegra/tegra124.c:11:
+   In file included from drivers/memory/tegra/tegra124.c:12:
    In file included from drivers/memory/tegra/mc.h:13:
->> include/soc/tegra/mc.h:201:1: error: expected identifier or '('
+   include/soc/tegra/mc.h:201:1: error: expected identifier or '('
    {
    ^
-   1 error generated.
+>> drivers/memory/tegra/tegra124.c:1103:15: error: use of undeclared identifier 'tegra124_mc_icc_nodes'; did you mean 'tegra124_mc_clients'?
+           .icc_nodes = tegra124_mc_icc_nodes,
+                        ^~~~~~~~~~~~~~~~~~~~~
+                        tegra124_mc_clients
+   drivers/memory/tegra/tegra124.c:14:37: note: 'tegra124_mc_clients' declared here
+   static const struct tegra_mc_client tegra124_mc_clients[] = {
+                                       ^
+   drivers/memory/tegra/tegra124.c:1104:30: error: use of undeclared identifier 'tegra124_mc_icc_nodes'; did you mean 'tegra124_mc_clients'?
+           .num_icc_nodes = ARRAY_SIZE(tegra124_mc_icc_nodes),
+                                       ^~~~~~~~~~~~~~~~~~~~~
+                                       tegra124_mc_clients
+   include/linux/kernel.h:47:33: note: expanded from macro 'ARRAY_SIZE'
+   #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
+                                   ^
+   drivers/memory/tegra/tegra124.c:14:37: note: 'tegra124_mc_clients' declared here
+   static const struct tegra_mc_client tegra124_mc_clients[] = {
+                                       ^
+   drivers/memory/tegra/tegra124.c:1104:30: error: use of undeclared identifier 'tegra124_mc_icc_nodes'; did you mean 'tegra124_mc_clients'?
+           .num_icc_nodes = ARRAY_SIZE(tegra124_mc_icc_nodes),
+                                       ^~~~~~~~~~~~~~~~~~~~~
+                                       tegra124_mc_clients
+   include/linux/kernel.h:47:48: note: expanded from macro 'ARRAY_SIZE'
+   #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
+                                                  ^
+   drivers/memory/tegra/tegra124.c:14:37: note: 'tegra124_mc_clients' declared here
+   static const struct tegra_mc_client tegra124_mc_clients[] = {
+                                       ^
+   drivers/memory/tegra/tegra124.c:1104:30: error: use of undeclared identifier 'tegra124_mc_icc_nodes'; did you mean 'tegra124_mc_clients'?
+           .num_icc_nodes = ARRAY_SIZE(tegra124_mc_icc_nodes),
+                                       ^~~~~~~~~~~~~~~~~~~~~
+                                       tegra124_mc_clients
+   include/linux/kernel.h:47:75: note: expanded from macro 'ARRAY_SIZE'
+   #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
+                                                                             ^
+   include/linux/compiler.h:357:59: note: expanded from macro '__must_be_array'
+   #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
+                                                                  ^
+   include/linux/compiler_types.h:220:63: note: expanded from macro '__same_type'
+   #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
+                                                                 ^
+   include/linux/build_bug.h:16:62: note: expanded from macro 'BUILD_BUG_ON_ZERO'
+   #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+                                                                ^
+   drivers/memory/tegra/tegra124.c:14:37: note: 'tegra124_mc_clients' declared here
+   static const struct tegra_mc_client tegra124_mc_clients[] = {
+                                       ^
+   drivers/memory/tegra/tegra124.c:1104:30: error: use of undeclared identifier 'tegra124_mc_icc_nodes'; did you mean 'tegra124_mc_clients'?
+           .num_icc_nodes = ARRAY_SIZE(tegra124_mc_icc_nodes),
+                                       ^~~~~~~~~~~~~~~~~~~~~
+                                       tegra124_mc_clients
+   include/linux/kernel.h:47:75: note: expanded from macro 'ARRAY_SIZE'
+   #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]) + __must_be_array(arr))
+                                                                             ^
+   include/linux/compiler.h:357:65: note: expanded from macro '__must_be_array'
+   #define __must_be_array(a)      BUILD_BUG_ON_ZERO(__same_type((a), &(a)[0]))
+                                                                        ^
+   include/linux/compiler_types.h:220:74: note: expanded from macro '__same_type'
+   #define __same_type(a, b) __builtin_types_compatible_p(typeof(a), typeof(b))
+                                                                            ^
+   include/linux/build_bug.h:16:62: note: expanded from macro 'BUILD_BUG_ON_ZERO'
+   #define BUILD_BUG_ON_ZERO(e) ((int)(sizeof(struct { int:(-!!(e)); })))
+                                                                ^
+   drivers/memory/tegra/tegra124.c:14:37: note: 'tegra124_mc_clients' declared here
+   static const struct tegra_mc_client tegra124_mc_clients[] = {
+                                       ^
+>> drivers/memory/tegra/tegra124.c:1103:15: error: incompatible pointer types initializing 'const struct tegra_mc_icc_node *' with an expression of type 'const struct tegra_mc_client [67]' [-Werror,-Wincompatible-pointer-types]
+           .icc_nodes = tegra124_mc_icc_nodes,
+                        ^~~~~~~~~~~~~~~~~~~~~
+   7 errors generated.
 
-vim +201 include/soc/tegra/mc.h
+vim +1103 drivers/memory/tegra/tegra124.c
 
-   194	
-   195	#ifdef CONFIG_INTERCONNECT_TEGRA
-   196	int tegra_icc_mc_setup_interconnect(struct tegra_mc *mc);
-   197	int tegra_icc_emc_setup_interconnect(struct device *emc_dev,
-   198					     unsigned int dram_data_bus_width_bytes);
-   199	#else
-   200	static inline int tegra_icc_mc_setup_interconnect(struct tegra_mc *mc);
- > 201	{
-   202		return 0;
-   203	}
-   204	
+  1089	
+  1090	const struct tegra_mc_soc tegra132_mc_soc = {
+  1091		.clients = tegra124_mc_clients,
+  1092		.num_clients = ARRAY_SIZE(tegra124_mc_clients),
+  1093		.num_address_bits = 34,
+  1094		.atom_size = 32,
+  1095		.client_id_mask = 0x7f,
+  1096		.smmu = &tegra132_smmu_soc,
+  1097		.intmask = MC_INT_DECERR_MTS | MC_INT_SECERR_SEC | MC_INT_DECERR_VPR |
+  1098			   MC_INT_INVALID_APB_ASID_UPDATE | MC_INT_INVALID_SMMU_PAGE |
+  1099			   MC_INT_SECURITY_VIOLATION | MC_INT_DECERR_EMEM,
+  1100		.reset_ops = &tegra_mc_reset_ops_common,
+  1101		.resets = tegra124_mc_resets,
+  1102		.num_resets = ARRAY_SIZE(tegra124_mc_resets),
+> 1103		.icc_nodes = tegra124_mc_icc_nodes,
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -190,14 +263,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001220806.JvIQuG9J%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001220933.eP2jd8RA%25lkp%40intel.com.
 
---bhi5httfhq3tjyzz
+--xmtbbvxbile3r3xi
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICHWZJ14AAy5jb25maWcAnDzJltu2svv7FTrJJlnE0dRD7ju9AElQQsTJBCipe8Mjd8tO
+H4sICFefJ14AAy5jb25maWcAnDzJltu2svv7FTrJJlnE0dRD7ju9AElQQsTJBCipe8Mjd8tO
 v/Tgq2478d/fKoBDAQQ7fi8nccyqwlyoGfrxXz9O2JfX58fD6/3t4eHh2+TT8el4Orwe7yYf
 7x+O/zOJ8kmWqwmPhHoHxMn905e/fz2cHs+Xk7N3Z++mv5xu55PN8fR0fJiEz08f7z99geb3
 z0//+vFf8O+PAHz8DD2d/j25fTg8fZp8PZ5eAD2Zzd5N300nP326f/33r7/Cn4/3p9Pz6deH
@@ -1059,4 +1132,4 @@ T3XYNanNG2kJJM4qNhh2t/QoqwWbaDq3z49np2FdRzQlcJK6RTbB+kDs4ZUcbTaS+/jeWhY2
 QLk71mbRE4a4vVostJxTHDdhvmHMA/SPGYfQ3DclZnRG2SFWSNT5chXW8icL5AnJoED8P7LB
 coWKIwMA
 
---bhi5httfhq3tjyzz--
+--xmtbbvxbile3r3xi--
