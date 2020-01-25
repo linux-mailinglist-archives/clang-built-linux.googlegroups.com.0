@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBB75VXYQKGQEXCSWJPY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB25GV7YQKGQEOH62WOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id DD242149216
-	for <lists+clang-built-linux@lfdr.de>; Sat, 25 Jan 2020 00:32:25 +0100 (CET)
-Received: by mail-pj1-x1040.google.com with SMTP id d3sf730775pjl.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 24 Jan 2020 15:32:25 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1579908744; cv=pass;
+Received: from mail-io1-xd3a.google.com (mail-io1-xd3a.google.com [IPv6:2607:f8b0:4864:20::d3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 465F11493B3
+	for <lists+clang-built-linux@lfdr.de>; Sat, 25 Jan 2020 06:34:37 +0100 (CET)
+Received: by mail-io1-xd3a.google.com with SMTP id d13sf2702747ioo.23
+        for <lists+clang-built-linux@lfdr.de>; Fri, 24 Jan 2020 21:34:37 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1579930476; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YXctq1JA/9eXdCppxDMqKrGbgnY1CBpQiLmYqQFAeArOhrUHaezrjCemWRPDKnJQ7V
-         keV2XBWBqocBxvuHMvcaUrzzLYzhUnOTGCRsU4FMSn/ibGh2pS/l29mKC4aWdVcPP2eZ
-         xLN4WYLp3uxBK2/I5pdrWxsAJtKq4SBQHvme0sep+d79C3mJfryg6rVbB3H/7IR/+Mgw
-         f7HPhMJrPsr2J3SxHRW/wxaSF2jGP63nDw81j7ferq4meuuhMX8CLfuG6DHqbjiH8oym
-         umMLg7jAH++Zz30g8fC2EgCva4R5RdmciatNrwQUZTX3SWyI0lGizdudhOFthQP6BGfr
-         Kwew==
+        b=tgyJ9+8t3enNOBhW4YzldCqxwDNqS0w4GOmzn/5w0mjNhm4c1trhdYxhj9YADSsPMc
+         cdjlS7lsuY+rMcu9lL48TQ61RdLCziikO8tniVymEfyoQyZAGnAObql5pMJgSGIfKjHD
+         JSS2x4KVE9aTTkcC0JdT0eX2ryTKy/iXCmrEuZtdR/xU+PbqxXcrtd4D4iReLuVbMaF8
+         z0Dz7ICoWkPv8ju4Or51UkZmQdtsCzfeCjKQGzkklbBEXwpP3rOl1+bb9PjbatTwvd3L
+         32kFaBI56Y3Hq6SP5OQKVMhm0RLJ91unQqC6bFJPYMOuqqKkCa2TWabxuN0G1l7ftanp
+         VFQQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=Wus/e3TxD/OikrKfZQPCJEQSE1ONJG0JPPypZiSlMpY=;
-        b=uvQA/ihVkFoCAqzJHz5GqnH2kGZ9zOPQaH5OpIXA4Cja9cin/tvDzWOIkTax9ELoei
-         77qrRZtt1vEPubsm3rd6KEksj9X4b0uGFynUOXtaLVHIxoQEow3VDIZLZ201NpoI0dO1
-         4ksz+WDaZnwv4PnLMFuIQ/QaknSVJUCDcuIvdxl9/E7Ush4n5fRYvG9uxQgFaOz18hrw
-         Tc5AEkXTXQ5xVdBXxlxUu/I8O8Li+YfnkMMvGbdrY20D5RZa866l7ZaknsXUqRJqooE8
-         1EvamCIFpVUBjFMSD5cdx60wJDLBQxJBRB7FptzIO7iVuZkPS6aYDtldQ9wmvkjZ8cOc
-         DDmQ==
+        bh=y3aFNPPCdBXBfqDO/Sa4anVPVncvLrI8pWAnGBMLa1I=;
+        b=M2vf4kc1kPgouKmVrBEYk85opWaZ2gmGtXQKlW0hFKZ/+0n0sRvD7rYs52T2Fzjl8d
+         yvPBAv4sjj6ORMSW7epi1tMJrEfpHxk7AQmojjIzyH/Q2ciKjpZYaVPSPFigOVoURIkf
+         qJiUHdDTMa30FkVOVQ5moVvNfqEodhJfNf/UJWjaWzS7cug4rWVfcmYS7/jrNaTZdQRt
+         vAtiRv4vxR7+m1LfNkdl0ddWTK/JnfstJ+DA4NGTSAKT9yHBTkhz8Y3zZuyMAybr7f05
+         rohrtZT7mHn/KS1Scc2H7MjHqFqr3kH8EwaCbWXQBkV8c2JIIb7BPnufPRctn+7a/yML
+         aqRA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=Wus/e3TxD/OikrKfZQPCJEQSE1ONJG0JPPypZiSlMpY=;
-        b=i+Ni3IhQcx1SI/EvNkpn95860gWxbVayd0V8nJHLbDXVFzQAT05LaCO5bK1rmIN5TV
-         g+tCQBiEOgK7z07RsnU2CLiRiLBlKHcTex/95vAV9/ldE07PrUqj2HPShxOFWdA1W9g4
-         IDajZvrrzHUDBOOsrKR2DIDMPI3BHwxB25k5UuKdyKolGJ70CYUhez2FxU109Uuuzv7g
-         wjpM4ydKIpqUzVvPj25SO8rGGdxBXO4YFDtI3GEDOnVtgW+VU6X52v/BrCi9pWZpHuVL
-         sb+fgvdNL8i2PBUpKicD7NjeHZM0bpCqyIQDh6BN8YekDbWfj0tE8H/MWKcNk2bAjilC
-         +hZQ==
+        bh=y3aFNPPCdBXBfqDO/Sa4anVPVncvLrI8pWAnGBMLa1I=;
+        b=JRxsN+1wl3YStk6vMX9Jxi1GrpMeWvyNzNzYFpO1zNuT72yI24u6i907k1Z3qMQ8QX
+         UL/ZGClZ2QuSapaiXjZviW84tnmW7Tg2A6OJQg3VceDiEBw2YQYvBUcdP7ka3tzujWbU
+         1/okelgkiTxj5ugqwXm11SR6Gip+KkvrIZDFNz3O2MO5QfzoSOslfTlMZ6KYjR01yVp6
+         4aClPDQZhVQW6D5DQ9YHGW/OgKr1cA3/HGSdzGAGig4e3mrK8l0eMyMCYpPxfoY29osw
+         AQwCU2Q36bMOsDt/i81raZVHVNXsw+gVO0xWBs3KU+mAIYDqTkGrc8I2HSvK4v6Z1oIa
+         TzKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,79 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=Wus/e3TxD/OikrKfZQPCJEQSE1ONJG0JPPypZiSlMpY=;
-        b=BMgOHDBZtbZXz91AEbDyb4QfWYibINEhndVsneY7ICXuFLqVwk7SOKKec+Vrgcpt6T
-         pMaQSLmqzvqakRc4w05gk5Df2eDGnhDsrefwGZywCLeQaKP/+egrVSRA3jK67r6ySebe
-         gGsQJUqIESUFZET/7RKDKZACNjBlfC9tQrzjOW6keIMGmeIeuoHQ/5ksc5VUB1sy8v3U
-         4Ghgc0SdF8BrPBBnWr/Nu/QnrSQ9iJCFJxx3hXlZRI/BqmlaxYQZNjS/vTbvwm5eGUjO
-         4hacnGosD6sm/NemLimwwohjMF2EBPa/n4XWxNfMZl+H0G+3PamNz76MM1TMa5hCrv46
-         0MbA==
+        bh=y3aFNPPCdBXBfqDO/Sa4anVPVncvLrI8pWAnGBMLa1I=;
+        b=OoHjCtHgekbvAqlKLRc+IhViuqGUUNgyTCyUA1TZD09zOmi/NkzjkSLDFPg9OJcZcJ
+         zCd3oqh7RecaVMjNW6ZnXLEMIW52PsE9lx1k16AkfFwoM2JGzqqEaor9T5UJZ7iFo+bM
+         warks6sLJsKKG5syIVkilAapiJKU8cyoslfVC9AM31SDcsBsw7ZqZgw50fekUZcu8UBF
+         eYnK+b7idcF5AxzyfGRDv+5TB6d8GskJuPIDlKcyi+M5EZhnTGxt5wej1iMyz7sXA7VS
+         9F9oowBD+4w8gSEnJNz5kpT3s02LfyTDQrqN/i4TescFIu6RLU5qM4L/r3Q5uD1RtOlH
+         Jcpw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWMJwzje3BRPdcsKnmrdz2oSvK3NC886GXV3xTykS+vDgMx8KPZ
-	80xxmwPiTRHI2XKzqoUtI+k=
-X-Google-Smtp-Source: APXvYqyD2eIBK+iWa6L/8eBuNfqI7RSFMeUd5wZ4YfHpKs20+267bIOWnsmjdzcCkDAKa8q9Y5s+FQ==
-X-Received: by 2002:a65:66c4:: with SMTP id c4mr6956012pgw.429.1579908744014;
-        Fri, 24 Jan 2020 15:32:24 -0800 (PST)
+X-Gm-Message-State: APjAAAXH8QMYo0hs92P+BgMFQVz6aDSqcTAMm5etOJKCuZV4qDsd/iW7
+	TpwrmXFWQIHbOHOTppDynXE=
+X-Google-Smtp-Source: APXvYqx+RttDTeC0mJ/v7DrLq+2X3m5udJkW3FobC1F/v7cFwTnz5j/Sj4HadgjWRXXtZ9iYLZ60Ug==
+X-Received: by 2002:a02:a48d:: with SMTP id d13mr5328453jam.141.1579930475804;
+        Fri, 24 Jan 2020 21:34:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:c244:: with SMTP id l4ls1608835pgg.2.gmail; Fri, 24 Jan
- 2020 15:32:23 -0800 (PST)
-X-Received: by 2002:a65:56c6:: with SMTP id w6mr7041266pgs.167.1579908743401;
-        Fri, 24 Jan 2020 15:32:23 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1579908743; cv=none;
+Received: by 2002:a92:3d8b:: with SMTP id k11ls865319ilf.10.gmail; Fri, 24 Jan
+ 2020 21:34:35 -0800 (PST)
+X-Received: by 2002:a92:9603:: with SMTP id g3mr6488194ilh.231.1579930475230;
+        Fri, 24 Jan 2020 21:34:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1579930475; cv=none;
         d=google.com; s=arc-20160816;
-        b=sR+02jd58xjbJNrg5+vjHljuYCMI4D7idAHAAtDoH2GtZJM5uFKQRTNv111np7VsgD
-         Ib+gpUuM/sLlpNdCMlnDucHWjLVd876UwvwYWxLslG3XfT0F69KG9xLGy+casMrm50oL
-         91nBPDF9WlsLplCKju+0Cw9EMxSmDt//CX92R4QxeuoBf/pdeOdlX3MDvalaRrh1nFbu
-         cS8hcwPquUlrFs1bdwqfU0VxwHZQCdAwSNQvPRtkw4Y4duzLX5gy65pIFx7ggb2XF4Fm
-         LYh7qWV9thkPBO2WbQwOaXontLCmmJA7vMODYaiJ40Ki8ol/tXtOrt3RPMQh+PJFHp5E
-         iUBQ==
+        b=CaW9zPVGMgeKqRZqfK/48ahzDTxfeP+j4HqwROdMClXWOitjQSxFFlHnP2VT/urh9P
+         hhRkbsePtAluYrbI8q4P4jy3U+q4RZvqubfEQsXbCmhRwflkvKxr75Ee3gcyNwIySIi8
+         JjTYfPxnllBpWGMTISnLJhJziNUWRnhdvX/sybg0QkahQEpLJ8SgBQCkrnkoqpBgcwfe
+         D/kjOWpqw5FQgKf2bZJ99EgzrFdsq+goOdQP3oQyaEgzx9c+hd8bEIxbVC7XlV3fB6dr
+         qk+OE8YI1F73MNjlVsbfF1H08EGwudyooo4S3zd0nGLrLytxUPeoEYkjmT6nIISaG4Z4
+         YBFg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=VRRNXTbIQyFkLCVNiu8tNKkuNFTUCIjkj/AaQCXJFVQ=;
-        b=RNoH/ng4mWXwzPiYWMF04JuYZuUNk61BmjK3wcNwPfiW/eG6pr72N6fF8UuOzD90PG
-         yyBaP6obHE9ltjHiIGGfiH3VWpo21mcxPv4JrpPhG19/UsCcJd5iiTgBs7JaoyFlbUv9
-         9dp6aR1W+qUfrAhz7q2uR8H1cfLaIbTu/anA1cNbkF481fMM2+f2Imbl416IeyjOkKLF
-         9maaP5FzakBNh/I4986NGAy1w5ZxrpgyF2ZFjN67chR99wSEmPluxqF+DpTadS7unVAK
-         8knUMLYx5+G1E03hslrqPnlccpT9+Dl87zv//foREIxo/6KrJNqG/mJ3pfA8jcNzTAaF
-         N2rQ==
+        bh=sl9QiRvB/6LYg9FsaNR+6rkXNI2eQl7QpLtoZCBlFoc=;
+        b=gwIG6v0GUwD2FvdKXEAbMW460lDGODRXDdhN5k+IDF2k91qWU3iCMrvDx4CuIWLIF0
+         tyDXbkprj3LxX6t/hwrEsf7jcqAorIkNMsJ9RzAtorHUq8/ujB+rocV3vHyJ9uYv8KvP
+         xCn4TIxcE8U89ok8vZCfvC4XnZ9/7QJf1b7MKKthHU5dHidMe6U+Cr99Jmk7Kzol0aSa
+         /1nOl+mlOrIyFt4eZ/M4LFFNKm9cNxi3XTX47dMTzwL8mmrYbP1J2vSqOhht5k9855Mz
+         Sp6oO0N9KR0k3Hl2W2Fn08Te8o6fOoSRwazWwnycrFQe0x/srYE6WFno5QaHsW994ZMZ
+         pV+w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id r18si373601pfc.2.2020.01.24.15.32.23
+Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
+        by gmr-mx.google.com with ESMTPS id g12si292369iok.4.2020.01.24.21.34.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 24 Jan 2020 15:32:23 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
+        Fri, 24 Jan 2020 21:34:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Jan 2020 15:31:54 -0800
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 24 Jan 2020 21:34:33 -0800
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,359,1574150400"; 
-   d="gz'50?scan'50,208,50";a="228451818"
+X-IronPort-AV: E=Sophos;i="5.70,360,1574150400"; 
+   d="gz'50?scan'50,208,50";a="375698637"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga003.jf.intel.com with ESMTP; 24 Jan 2020 15:31:52 -0800
+  by orsmga004.jf.intel.com with ESMTP; 24 Jan 2020 21:34:30 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iv8Qa-000Duj-0D; Sat, 25 Jan 2020 07:31:52 +0800
-Date: Sat, 25 Jan 2020 07:31:45 +0800
+	id 1ivE5W-0007gZ-8G; Sat, 25 Jan 2020 13:34:30 +0800
+Date: Sat, 25 Jan 2020 13:34:19 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [RFC v6 1/5] sched: Introduce switch to enable TurboSched for
- task packing
-Message-ID: <202001250708.1G3YnhAv%lkp@intel.com>
+Subject: Re: [RFC v6 2/5] sched/core: Update turbo_sched count only when
+ required
+Message-ID: <202001251304.Qv4wTk6D%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="jas5rly27ac2ztof"
+Content-Type: multipart/mixed; boundary="z33sgcucvnvzus3c"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,13 +137,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---jas5rly27ac2ztof
+--z33sgcucvnvzus3c
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20200121063307.17221-2-parth@linux.ibm.com>
-References: <20200121063307.17221-2-parth@linux.ibm.com>
+In-Reply-To: <20200121063307.17221-3-parth@linux.ibm.com>
+References: <20200121063307.17221-3-parth@linux.ibm.com>
 TO: Parth Shah <parth@linux.ibm.com>
 
 Hi Parth,
@@ -170,29 +170,167 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> kernel//sched/core.c:98:6: error: redefinition of 'turbo_sched_get'
+   kernel//sched/core.c:98:6: error: redefinition of 'turbo_sched_get'
    void turbo_sched_get(void) { return ; }
         ^
    kernel//sched/core.c:97:6: note: previous definition is here
    void turbo_sched_get(void) { return ; }
         ^
-   1 error generated.
+>> kernel//sched/core.c:3272:16: error: no member named 'latency_nice' in 'struct task_struct'
+                   if (unlikely(is_bg_task(prev)))
+                       ~~~~~~~~~^~~~~~~~~~~~~~~~~
+   kernel//sched/sched.h:2484:45: note: expanded from macro 'is_bg_task'
+   #define is_bg_task(p)           (bgtask_latency((p)->latency_nice))
+                                                        ^
+   kernel//sched/sched.h:2483:31: note: expanded from macro 'bgtask_latency'
+   #define bgtask_latency(lat)     ((lat) == MAX_LATENCY_NICE)
+                                     ^
+   include/linux/compiler.h:78:42: note: expanded from macro 'unlikely'
+   # define unlikely(x)    __builtin_expect(!!(x), 0)
+                                               ^
+>> kernel//sched/core.c:3272:16: error: use of undeclared identifier 'MAX_LATENCY_NICE'
+   kernel//sched/sched.h:2484:25: note: expanded from macro 'is_bg_task'
+   #define is_bg_task(p)           (bgtask_latency((p)->latency_nice))
+                                    ^
+   kernel//sched/sched.h:2483:39: note: expanded from macro 'bgtask_latency'
+   #define bgtask_latency(lat)     ((lat) == MAX_LATENCY_NICE)
+                                             ^
+>> kernel//sched/core.c:4801:44: error: no member named 'sched_latency_nice' in 'struct sched_attr'
+           bool attr_leniency = bgtask_latency(attr->sched_latency_nice);
+                                               ~~~~  ^
+   kernel//sched/sched.h:2483:31: note: expanded from macro 'bgtask_latency'
+   #define bgtask_latency(lat)     ((lat) == MAX_LATENCY_NICE)
+                                     ^~~
+   kernel//sched/core.c:4801:23: error: use of undeclared identifier 'MAX_LATENCY_NICE'
+           bool attr_leniency = bgtask_latency(attr->sched_latency_nice);
+                                ^
+   kernel//sched/sched.h:2483:39: note: expanded from macro 'bgtask_latency'
+   #define bgtask_latency(lat)     ((lat) == MAX_LATENCY_NICE)
+                                             ^
+   kernel//sched/core.c:5018:6: error: no member named 'latency_nice' in 'struct task_struct'
+           if (is_bg_task(p) != attr_leniency)
+               ^~~~~~~~~~~~~
+   kernel//sched/sched.h:2484:45: note: expanded from macro 'is_bg_task'
+   #define is_bg_task(p)           (bgtask_latency((p)->latency_nice))
+                                    ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+   kernel//sched/sched.h:2483:31: note: expanded from macro 'bgtask_latency'
+   #define bgtask_latency(lat)     ((lat) == MAX_LATENCY_NICE)
+                                     ^~~
+   kernel//sched/core.c:5018:6: error: use of undeclared identifier 'MAX_LATENCY_NICE'
+   kernel//sched/sched.h:2484:25: note: expanded from macro 'is_bg_task'
+   #define is_bg_task(p)           (bgtask_latency((p)->latency_nice))
+                                    ^
+   kernel//sched/sched.h:2483:39: note: expanded from macro 'bgtask_latency'
+   #define bgtask_latency(lat)     ((lat) == MAX_LATENCY_NICE)
+                                             ^
+   7 errors generated.
 
-vim +/turbo_sched_get +98 kernel//sched/core.c
+vim +3272 kernel//sched/core.c
 
-    88	
-    89	void turbo_sched_put(void)
-    90	{
-    91		mutex_lock(&turbo_sched_lock);
-    92		if (!--turbo_sched_count)
-    93			static_branch_disable(&__turbo_sched_enabled);
-    94		mutex_unlock(&turbo_sched_lock);
-    95	}
-    96	#else
-    97	void turbo_sched_get(void) { return ; }
-  > 98	void turbo_sched_get(void) { return ; }
-    99	#endif
-   100	
+  3190	
+  3191	/**
+  3192	 * finish_task_switch - clean up after a task-switch
+  3193	 * @prev: the thread we just switched away from.
+  3194	 *
+  3195	 * finish_task_switch must be called after the context switch, paired
+  3196	 * with a prepare_task_switch call before the context switch.
+  3197	 * finish_task_switch will reconcile locking set up by prepare_task_switch,
+  3198	 * and do any other architecture-specific cleanup actions.
+  3199	 *
+  3200	 * Note that we may have delayed dropping an mm in context_switch(). If
+  3201	 * so, we finish that here outside of the runqueue lock. (Doing it
+  3202	 * with the lock held can cause deadlocks; see schedule() for
+  3203	 * details.)
+  3204	 *
+  3205	 * The context switch have flipped the stack from under us and restored the
+  3206	 * local variables which were saved when this task called schedule() in the
+  3207	 * past. prev == current is still correct but we need to recalculate this_rq
+  3208	 * because prev may have moved to another CPU.
+  3209	 */
+  3210	static struct rq *finish_task_switch(struct task_struct *prev)
+  3211		__releases(rq->lock)
+  3212	{
+  3213		struct rq *rq = this_rq();
+  3214		struct mm_struct *mm = rq->prev_mm;
+  3215		long prev_state;
+  3216	
+  3217		/*
+  3218		 * The previous task will have left us with a preempt_count of 2
+  3219		 * because it left us after:
+  3220		 *
+  3221		 *	schedule()
+  3222		 *	  preempt_disable();			// 1
+  3223		 *	  __schedule()
+  3224		 *	    raw_spin_lock_irq(&rq->lock)	// 2
+  3225		 *
+  3226		 * Also, see FORK_PREEMPT_COUNT.
+  3227		 */
+  3228		if (WARN_ONCE(preempt_count() != 2*PREEMPT_DISABLE_OFFSET,
+  3229			      "corrupted preempt_count: %s/%d/0x%x\n",
+  3230			      current->comm, current->pid, preempt_count()))
+  3231			preempt_count_set(FORK_PREEMPT_COUNT);
+  3232	
+  3233		rq->prev_mm = NULL;
+  3234	
+  3235		/*
+  3236		 * A task struct has one reference for the use as "current".
+  3237		 * If a task dies, then it sets TASK_DEAD in tsk->state and calls
+  3238		 * schedule one last time. The schedule call will never return, and
+  3239		 * the scheduled task must drop that reference.
+  3240		 *
+  3241		 * We must observe prev->state before clearing prev->on_cpu (in
+  3242		 * finish_task), otherwise a concurrent wakeup can get prev
+  3243		 * running on another CPU and we could rave with its RUNNING -> DEAD
+  3244		 * transition, resulting in a double drop.
+  3245		 */
+  3246		prev_state = prev->state;
+  3247		vtime_task_switch(prev);
+  3248		perf_event_task_sched_in(prev, current);
+  3249		finish_task(prev);
+  3250		finish_lock_switch(rq);
+  3251		finish_arch_post_lock_switch();
+  3252		kcov_finish_switch(current);
+  3253	
+  3254		fire_sched_in_preempt_notifiers(current);
+  3255		/*
+  3256		 * When switching through a kernel thread, the loop in
+  3257		 * membarrier_{private,global}_expedited() may have observed that
+  3258		 * kernel thread and not issued an IPI. It is therefore possible to
+  3259		 * schedule between user->kernel->user threads without passing though
+  3260		 * switch_mm(). Membarrier requires a barrier after storing to
+  3261		 * rq->curr, before returning to userspace, so provide them here:
+  3262		 *
+  3263		 * - a full memory barrier for {PRIVATE,GLOBAL}_EXPEDITED, implicitly
+  3264		 *   provided by mmdrop(),
+  3265		 * - a sync_core for SYNC_CORE.
+  3266		 */
+  3267		if (mm) {
+  3268			membarrier_mm_sync_core_before_usermode(mm);
+  3269			mmdrop(mm);
+  3270		}
+  3271		if (unlikely(prev_state == TASK_DEAD)) {
+> 3272			if (unlikely(is_bg_task(prev)))
+  3273				turbo_sched_put();
+  3274	
+  3275			if (prev->sched_class->task_dead)
+  3276				prev->sched_class->task_dead(prev);
+  3277	
+  3278			/*
+  3279			 * Remove function-return probe instances associated with this
+  3280			 * task and put them back on the free list.
+  3281			 */
+  3282			kprobe_flush_task(prev);
+  3283	
+  3284			/* Task is done with its stack. */
+  3285			put_task_stack(prev);
+  3286	
+  3287			put_task_struct_rcu_user(prev);
+  3288		}
+  3289	
+  3290		tick_nohz_task_switch();
+  3291		return rq;
+  3292	}
+  3293	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -201,14 +339,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001250708.1G3YnhAv%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001251304.Qv4wTk6D%25lkp%40intel.com.
 
---jas5rly27ac2ztof
+--z33sgcucvnvzus3c
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICBBIK14AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0WS1c9/xAiRBCRGnJkBJ9oZHsdUd
+H4sICCybK14AAy5jb25maWcAnDzJduO2svv7FTrJJlkk0WS1c9/xAiRBCRGnJkBJ9oZHsdUd
 v3joK7s76b+/VQCHAgg6/V5O0mlWFeZCzdD3//p+wj6/Pj8eX+9vjw8PXycfT0+n8/H1dDf5
 cP9w+p9JlE+yXE14JNTPQJzcP33++5fj+XG1nFz8fPHz9Kfz7WKyPZ2fTg+T8Pnpw/3Hz9D8
 /vnpX9//C/79HoCPn6Cn878ntw/Hp4+TL6fzC6Ans9nP05+nkx8+3r/++5df4M/H+/P5+fzL
@@ -1072,4 +1210,4 @@ azIByC64CNPZujpLBx7O/D7ThGiaQMQrUfnCKUzHtJYLkHRhRIXXrTWagWYGPORbS9Q08UsO
 EzYgG4akUO5wgD0xZa5mOAJ2qFgAY85+BM8FAbHaVTIGGDJQEGFb3mYl+SQal68G/g8gU5n1
 ciQDAA==
 
---jas5rly27ac2ztof--
+--z33sgcucvnvzus3c--
