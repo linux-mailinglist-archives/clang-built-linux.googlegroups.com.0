@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBSEBW7YQKGQEETVMJDI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBMMUW7YQKGQEACOGHMQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
 Received: from mail-qt1-x838.google.com (mail-qt1-x838.google.com [IPv6:2607:f8b0:4864:20::838])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7854F149BE7
-	for <lists+clang-built-linux@lfdr.de>; Sun, 26 Jan 2020 17:39:38 +0100 (CET)
-Received: by mail-qt1-x838.google.com with SMTP id p12sf4713704qtu.6
-        for <lists+clang-built-linux@lfdr.de>; Sun, 26 Jan 2020 08:39:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580056777; cv=pass;
+	by mail.lfdr.de (Postfix) with ESMTPS id 6F970149C10
+	for <lists+clang-built-linux@lfdr.de>; Sun, 26 Jan 2020 18:19:46 +0100 (CET)
+Received: by mail-qt1-x838.google.com with SMTP id g26sf400656qts.16
+        for <lists+clang-built-linux@lfdr.de>; Sun, 26 Jan 2020 09:19:46 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580059185; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YOJKsXarHZX1+4qmTuy2mraDUH8r/C+EfOSooAElFNQv6A+KGuNp5bH3Uj6yaXCuvA
-         dlPdjITQgdjujMMLk/QgjYK4+koYU/KytegzCGj1V/QD05GbnWiFygrynKlP7FpUgtVf
-         bHd8e86w76jYq4eTF0YwgGiNbhvTu3yANSx+mX9j0eD0SntDC4+d4JA+CD5y8sFkqoX7
-         iCAhT5ZKFI6ENryXa5fl+OQidkMOt80+HzkiFY8lMDAR85+sNiHS+tUUidgH4oWhXK2G
-         ceiE7yJTVSCw0+x24qznKQQvaIzjkHcbehSmyw53c8iPxaptkww7uitBX74C+NG4ykvT
-         QgrQ==
+        b=Wi3zUDlKE/bCPT0v5NhtqZhO+Dss9xbrMf//rop7VCW2OAuchBZx2EXzx5zkAf0H6T
+         VllRTUCcq8jt8VN3b+ssvQXFzKv1/FNXP2Yj9SBlNGPSpOaU6FGkH431JyQ2DigHy+HX
+         aTW2LcuVOU10URW1sUFtj7hfip6hDqaAISla7xLRnsUk/DHFVfE+ZSv5BhZQUBkREZiZ
+         WGPwaEdMi6qP4cvgbbMkCvUdiPIaIxohCgX7WfFU7bS3VyInQ94803/Gi+diCA1pdh1t
+         fXpLEEwvxB/x/4FZayZAxh0X+XUur7Qy3lnTzzGUlEaAGfTfVoT+YaiazMX9hiVgCPM/
+         WJcw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=unEasolxAphLFJOro1CgH40QKlcKRiWWaZ6FCXtld34=;
-        b=AUdyEEXwuJusGkwHlKGXs7T7QGtpYfD3EDcORWksx2kdcFsor8XMujVM+o8jbtUiIH
-         N57wc7SAvBZU61lr5/kNR9UxyFQ3CN9dsneybP0xWksn0RpQ0epmXO6cOZcE3QAykzsJ
-         r8tDx9nHIFoNgEYcG07gf3eGwTALnbTFFdq70ZOHlPoWnV/sBlEc6tvjYy3hU+5w8T9D
-         izAk7DBVUU0ZNxULKFr8SJJ05Itl/uzgRZZg6FNlUiynJHSQqPM0PMZB+dORNTC4vrXc
-         7wGgnfH63Apn1/R+zS71AMD9ft/vckbw6GLFd+F/MnePqAyyKOahe/Zh4+uBVBP07Gd+
-         Q9Mg==
+        bh=KFLP3pR/UJVsMjLa4CC84zetoI0G9l0lSoznkr/co1Y=;
+        b=ya2dbfQQT0AIoPYmxlbMK1oJRMSelglvAKCZlyd52yecNQFDHil6ZKYIWLWt5UmeVP
+         diVPb41sNNIB5sl2H4sytTIjMgFsDaFWFhHHatz5fhoNKEc9qCm5Uu4/vfL1SEu3Acp4
+         2E9Sso9F/wcWd4QpLPHJxzyEr1OWFFuf12MwEXcar/oU4g5g8xRbjwzf3+tsSpJnaG30
+         7gGdq5ABjNLPgkEFGhajSRbD/Mqeq8pGaQ3E4sjul56gU2ghLsqtyS3xCvfJgJhBaVuQ
+         WCOywtCIabAeniSrXi9j2H/qwkf5MdWZxzvWmim2+0Q9Np+gxkVIqVSBGdxYIO2pZTvY
+         HbKQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=unEasolxAphLFJOro1CgH40QKlcKRiWWaZ6FCXtld34=;
-        b=VCsBs747c41+nWNbyt3EQ9wJTmmUin9lT2spjwaJyFXvn03czO66w+VVsaKjUh7uTT
-         Hl82M9O+tbqkjxWtRqa4el65OMu7ikcREQWP1uPOv5LfdKjOTPbWH/NnjBBP78gNvosm
-         M8t/x8M7UhTnCoEEaD7vDVqRMtbitIFdaa6Ppy45exAX/ovUYucXmRWynugmMhZvnZB7
-         1xj+G4HO8rf1YLYNDwTfXKZ0qyv4u/yY7IlM1d6laHeH0wCXRpAE5tMi3mr/XcHDieiZ
-         1bG4mxzvcsaH3JsdezoJXwKGfJY8Oy/bHaWjDiMAEQvKWEilPVT5vyg6+f3McGYug0fH
-         y31A==
+        bh=KFLP3pR/UJVsMjLa4CC84zetoI0G9l0lSoznkr/co1Y=;
+        b=JMJMX+uqQ6quQf1mzJnr+kiJVW6zstj/aXPsIkUS/axfpv+pSc+uj6fDh/cwcPfoYb
+         tdpEP9Bwp3H2pNMLw1lpMCpA3WQgckkELMa5LcXkvpbpYK5Opf2vfZ8qAZ5JsRv5ZrO6
+         g4hPZ7SEolgDNr7ugsyndM7h8K+fwDrqm0r+AMmReTtJZfFdOccoe2WrRQYtMWQQ/9m5
+         e94gt0FmCz6P7Qz8tPbEySErM1TAN0Gi/vnKIgf8u0Sg6ylc1vymfIT4k3s2iwwqZxMp
+         TcvZD/b8SEPollAmqkpBynT6Zs/c5+5Nfzpdh0e7likcZAo1mMZ7fs7UyCyY5pV4MtuW
+         hWIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,80 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=unEasolxAphLFJOro1CgH40QKlcKRiWWaZ6FCXtld34=;
-        b=L9jaqByuAog9Xn9bBLaiu1oM9nNFqPziBG4kUzGcUi9RMP76KGqwllkz2oomGxBV5u
-         BC+M6HKm7dW80HeEhLPIvlkl8nmmc3Adn80pNvMe4YDkMj6EPwRwv0LUyk4G99YGL/I4
-         9ZK4iqHG42zv7TMu3Fk4qiL4zOLobu1mjZTqp+VuX3tCz+HEGVOlp6E3WT+fB/9Neraq
-         f5r2Q3naWLcgybT0Q/DwLn+7AQwPKnu6TYUT+qZEYxGtpX2GVhqj5Jy3fF/05KlFGlsr
-         xafOONEUkfr7rZMeJn2hc1eUCya6rOo4UTiLtI8d8eebrQIxI45KVC/vXxZCYZ+Kj3Vk
-         rMWw==
+        bh=KFLP3pR/UJVsMjLa4CC84zetoI0G9l0lSoznkr/co1Y=;
+        b=XoZlby6IfmNMGivT/yFguzOWGALisSZbETL3J5RarCBkaHN/45oH4XZT+o+irlYve0
+         NHDH+Y6s/N5pcAD+Bxi4u0OUnm0dlxIEHKBcwz7quEtBVGSB51SU7CkjIf+5eYJCDLH9
+         vwi8mxWuIpGz3cnKrGjFKQiBvjFUwfHO5DlBxkZwb/fzWSAgbsL1Mr695sqN8Zb6co2J
+         qAF4cP5L+R/O4ZD0PgtLk7aYAIxZoikezzdbo+r8qAfA6JV5WN/WMWVeHZR5uEhvzLh6
+         ODxyuiGHUf77/TYqhT9EFNyspYVHVGyojUOlf8LxHTpoug8nPOx/YzSdTLXG6lz5ckDn
+         pR0g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWMP6+s09nbLbeNgI+NG4QkY5XggkyENt6OsQ4YRkVI2JsWnfIX
-	mjF3IWkRfUDN2pzUR85Tgjc=
-X-Google-Smtp-Source: APXvYqzQ+Nb5Z69JNaV2JdC42mg1crmLKhOSGjP7R4fDpI5X7NpvS78LVLpVkqMTkUNxSdYI7QSKKA==
-X-Received: by 2002:ac8:4351:: with SMTP id a17mr5071960qtn.133.1580056777106;
-        Sun, 26 Jan 2020 08:39:37 -0800 (PST)
+X-Gm-Message-State: APjAAAUkutHXBU2Hp4oghyvnArQ1gEUfDxrTNZCrsCOaGqAy38N/z9Ga
+	ZfsIX1yBlUcIcqqojZSiHKU=
+X-Google-Smtp-Source: APXvYqzUym/7EPAtrh4A6+CxwiW96ugjJ39hi9+KFVmJZbQbcHSn2NI3nPZ8NDiiAXg91bIyZHlKlA==
+X-Received: by 2002:a0c:c28e:: with SMTP id b14mr13453782qvi.72.1580059185398;
+        Sun, 26 Jan 2020 09:19:45 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6381:: with SMTP id x123ls2097100qkb.1.gmail; Sun, 26
- Jan 2020 08:39:36 -0800 (PST)
-X-Received: by 2002:a05:620a:98c:: with SMTP id x12mr13513504qkx.100.1580056776529;
-        Sun, 26 Jan 2020 08:39:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580056776; cv=none;
+Received: by 2002:a0c:cd13:: with SMTP id b19ls1501560qvm.5.gmail; Sun, 26 Jan
+ 2020 09:19:45 -0800 (PST)
+X-Received: by 2002:ad4:4e50:: with SMTP id eb16mr1305508qvb.34.1580059184872;
+        Sun, 26 Jan 2020 09:19:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580059184; cv=none;
         d=google.com; s=arc-20160816;
-        b=SBXfTt4fHhBSaP1KZQridbMiSSGJvA1aaHXhL0beCZSnNOETL1TkYRccmbiuDkp4yM
-         0MPLmwAHioZu9CDy+hmvVk7qcqo0Kz/GrFE24HUHqZbvLnz4sv3dM1CatX6AUn6fhmrl
-         t2mZ8CLo1P+beGj+fL9TFBqePJ0ECAJ81WwFLpJlmz5Ee/017hY/M9gKq5Nvx7BB8EQn
-         SrMzBcz6b21M5Gdu/C2dETpcT46Qwh9PdwtN40K/Egd7YYlLwLAX6QavqA3ucvWOrYSN
-         kRimduv3DtwOiFhb12QJGUOIP3D1gWVUAlxr7Dffn5xwHzUUqfkvTYL7JgcRr9gk3ugv
-         uKnw==
+        b=HLB1QEIoijxqaFzjCEMtC3/80Jr7fVvoORaD/J7BauYrTBaHHCbiHq5FiYbO/F7OyZ
+         vHRjUCOZXRUZHTq3NePo0sWg+i30eog4PvTRplsCxrbpENQ+C84ELBVLRTUwSwITAOJI
+         q6igdpMP1yX7z5KUDEY6UVO89TWzVrT8EY/sxhUrsF1WiqOXecRyEGahveRHFi1hLFsi
+         WrygKOBuQCHlUPlp+LRwikfskS5VrtgI57h3hn4gXeFDZeCQ3xKYgc0/ryBSTP5+d6hL
+         7NWgKr0UTS45C1BVBjFxQjYzoF2JRKt42dA7v+92ozUHLgnfVTPsBrmjraw9VcNlqgOH
+         4FQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=XpMG5p4bbYxC24VG4JtJuTlyIlSB1+4nlLlqp3ICFrk=;
-        b=cW7EebXSG95+BoK78Um4ppCo1IaYaZ6iDIs9m1SRdDjswRLwXRmBLQdGbl3etfNS3q
-         QBI0esBt229FzkZqzYyyBDkufoJcTHgxvW2UduBIWl+fFNAcwiQR8RBtLH2cbpJ0JrNE
-         FmOr6/4I17glAqwEfjZjMKmyiwyjMfeFBjvr4ubuxgztL0PQY4+LvjPwU13CFuZB8M1h
-         1Po6VjdHPlMTnmpXorxvJyFrVEyuTI9SjIPh8ZwsPMARAePHQZoK+no/kcTwq62BjyEo
-         lMP4gnL5yLKC8n/dKAQAT/ykcjCuxSDXOepeSUERuAVlU3NpLqk7FqDqxKtBI25o4jVJ
-         +N5A==
+        bh=pthE1FA3U1LsoYk3qbTwPCsOOARbcIAKujqldfmcCh8=;
+        b=t64zY2T1Brx9XQQTeqrNCM0WgO0CxFvKyHYrADZh+lOzIqL3jJ2Fc6bvBtGTUU7X4M
+         iImxwfkWsSPhUBxw7SLqGY6tFYdmPOplg3Uh1Q8cMZWkML/FYSbNrsqRkDXzMn4hKr9f
+         XlaWlV8L9+eLrYE88ca+niXzfceuPgvguqBk1RJ3WZLYunzUP6TnbVLhp+gTlyggZ0JH
+         bDPlCXa1uOi4RB1mmCVfnvHpTDg05eXb1zUwQ+iEfUFF1VgUK40nVoYht1TvnBD8jJlR
+         iuiAMz7sfTnHThaTR55VKzdB/mgCSPFFM3/MzUyfKw5p+uM5+azlYf1BRrqkx/K2cfUm
+         GOzA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga06.intel.com (mga06.intel.com. [134.134.136.31])
-        by gmr-mx.google.com with ESMTPS id l9si587422qkg.5.2020.01.26.08.39.35
+Received: from mga11.intel.com (mga11.intel.com. [192.55.52.93])
+        by gmr-mx.google.com with ESMTPS id 145si379141qkf.1.2020.01.26.09.19.43
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 26 Jan 2020 08:39:35 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted sender) client-ip=134.134.136.31;
+        Sun, 26 Jan 2020 09:19:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted sender) client-ip=192.55.52.93;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by orsmga104.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 26 Jan 2020 08:39:08 -0800
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 26 Jan 2020 09:19:40 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.70,366,1574150400"; 
-   d="gz'50?scan'50,208,50";a="427077548"
+   d="gz'50?scan'50,208,50";a="276742318"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 26 Jan 2020 08:39:06 -0800
+  by FMSMGA003.fm.intel.com with ESMTP; 26 Jan 2020 09:19:38 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1ivkwD-000Aui-HD; Mon, 27 Jan 2020 00:39:05 +0800
-Date: Mon, 27 Jan 2020 00:38:43 +0800
+	id 1ivlZS-0009s9-CW; Mon, 27 Jan 2020 01:19:38 +0800
+Date: Mon, 27 Jan 2020 01:19:17 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [hwmon:hwmon-playground 37/44]
- drivers/hwmon/pmbus/ibm-cffps.c:250:32: error: too few arguments to function
- call, expected 3, have 2
-Message-ID: <202001270030.OFkjVniD%lkp@intel.com>
+Subject: [hwmon:hwmon-playground 38/44]
+ drivers/hwmon/pmbus/pmbus_core.c:160:12: error: no member named 'pages' in
+ 'struct pmbus_data'
+Message-ID: <202001270116.45xyAflV%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="tzzz6xnw6o7mduya"
+Content-Type: multipart/mixed; boundary="w2uhho737fx7zpxy"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.31 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.93 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -138,7 +138,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---tzzz6xnw6o7mduya
+--w2uhho737fx7zpxy
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -148,11 +148,11 @@ TO: Guenter Roeck <linux@roeck-us.net>
 
 tree:   https://git.kernel.org/pub/scm/linux/kernel/git/groeck/linux-staging.git hwmon-playground
 head:   e8dc30cf9ae936e93319687fa88ed45c55797807
-commit: 81a9e2ca8e40ffd25ae444bdd943dba8d3454ffe [37/44] hwmon: (pmbus) Add 'phase' parameter where needed for multi-phase support
+commit: e9036c751c0918fdac1a927e8b52d5fb4e4d926a [38/44] hwmon: (pmbus) Implement multi-phase support
 config: x86_64-allyesconfig (attached as .config)
 compiler: clang version 11.0.0 (git://gitmirror/llvm_project 0b83c5a78fae96dd66150e7a14c8c6d0292de01d)
 reproduce:
-        git checkout 81a9e2ca8e40ffd25ae444bdd943dba8d3454ffe
+        git checkout e9036c751c0918fdac1a927e8b52d5fb4e4d926a
         # save the attached .config to linux build tree
         make ARCH=x86_64 
 
@@ -161,72 +161,53 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/hwmon/pmbus/ibm-cffps.c:250:32: error: too few arguments to function call, expected 3, have 2
-                   pmbus_set_page(psu->client, 0);
-                   ~~~~~~~~~~~~~~               ^
-   drivers/hwmon/pmbus/pmbus.h:461:1: note: 'pmbus_set_page' declared here
-   int pmbus_set_page(struct i2c_client *client, int page, int phase);
-   ^
-   drivers/hwmon/pmbus/ibm-cffps.c:351:63: error: too few arguments to function call, expected 4, have 3
-                   rc = pmbus_read_word_data(client, page, CFFPS_12VCS_VOUT_CMD);
-                        ~~~~~~~~~~~~~~~~~~~~                                   ^
-   drivers/hwmon/pmbus/pmbus.h:462:1: note: 'pmbus_read_word_data' declared here
-   int pmbus_read_word_data(struct i2c_client *client, int page, int phase,
-   ^
+>> drivers/hwmon/pmbus/pmbus_core.c:160:12: error: no member named 'pages' in 'struct pmbus_data'
+               data->pages > 1 & page != data->currpage) {
+               ~~~~  ^
+>> drivers/hwmon/pmbus/pmbus_core.c:174:12: error: no member named 'phases' in 'struct pmbus_data'
+           if (data->phases && data->currphase != phase &&
+               ~~~~  ^
    2 errors generated.
---
->> drivers/hwmon/pmbus/max20730.c:168:21: error: incompatible pointer types initializing 'int (*)(struct i2c_client *, int, int, int)' with an expression of type 'int (struct i2c_client *, int, int)' [-Werror,-Wincompatible-pointer-types]
-                   .read_word_data = max20730_read_word_data,
-                                     ^~~~~~~~~~~~~~~~~~~~~~~
-   drivers/hwmon/pmbus/max20730.c:206:21: error: incompatible pointer types initializing 'int (*)(struct i2c_client *, int, int, int)' with an expression of type 'int (struct i2c_client *, int, int)' [-Werror,-Wincompatible-pointer-types]
-                   .read_word_data = max20730_read_word_data,
-                                     ^~~~~~~~~~~~~~~~~~~~~~~
-   drivers/hwmon/pmbus/max20730.c:234:21: error: incompatible pointer types initializing 'int (*)(struct i2c_client *, int, int, int)' with an expression of type 'int (struct i2c_client *, int, int)' [-Werror,-Wincompatible-pointer-types]
-                   .read_word_data = max20730_read_word_data,
-                                     ^~~~~~~~~~~~~~~~~~~~~~~
-   3 errors generated.
 
-vim +250 drivers/hwmon/pmbus/ibm-cffps.c
+vim +160 drivers/hwmon/pmbus/pmbus_core.c
 
-d6bb645a1704cb Edward A. James 2017-12-11  237  
-abe508b66d23cf Eddie James     2019-12-19  238  static ssize_t ibm_cffps_debugfs_write(struct file *file,
-abe508b66d23cf Eddie James     2019-12-19  239  				       const char __user *buf, size_t count,
-abe508b66d23cf Eddie James     2019-12-19  240  				       loff_t *ppos)
-abe508b66d23cf Eddie James     2019-12-19  241  {
-abe508b66d23cf Eddie James     2019-12-19  242  	u8 data;
-abe508b66d23cf Eddie James     2019-12-19  243  	ssize_t rc;
-abe508b66d23cf Eddie James     2019-12-19  244  	int *idxp = file->private_data;
-abe508b66d23cf Eddie James     2019-12-19  245  	int idx = *idxp;
-abe508b66d23cf Eddie James     2019-12-19  246  	struct ibm_cffps *psu = to_psu(idxp, idx);
-abe508b66d23cf Eddie James     2019-12-19  247  
-abe508b66d23cf Eddie James     2019-12-19  248  	switch (idx) {
-abe508b66d23cf Eddie James     2019-12-19  249  	case CFFPS_DEBUGFS_ON_OFF_CONFIG:
-abe508b66d23cf Eddie James     2019-12-19 @250  		pmbus_set_page(psu->client, 0);
-abe508b66d23cf Eddie James     2019-12-19  251  
-abe508b66d23cf Eddie James     2019-12-19  252  		rc = simple_write_to_buffer(&data, 1, ppos, buf, count);
-d9c8ae69b99621 Eddie James     2020-01-07  253  		if (rc <= 0)
-abe508b66d23cf Eddie James     2019-12-19  254  			return rc;
-abe508b66d23cf Eddie James     2019-12-19  255  
-abe508b66d23cf Eddie James     2019-12-19  256  		rc = i2c_smbus_write_byte_data(psu->client,
-abe508b66d23cf Eddie James     2019-12-19  257  					       PMBUS_ON_OFF_CONFIG, data);
-abe508b66d23cf Eddie James     2019-12-19  258  		if (rc)
-abe508b66d23cf Eddie James     2019-12-19  259  			return rc;
-abe508b66d23cf Eddie James     2019-12-19  260  
-abe508b66d23cf Eddie James     2019-12-19  261  		rc = 1;
-abe508b66d23cf Eddie James     2019-12-19  262  		break;
-abe508b66d23cf Eddie James     2019-12-19  263  	default:
-abe508b66d23cf Eddie James     2019-12-19  264  		return -EINVAL;
-abe508b66d23cf Eddie James     2019-12-19  265  	}
-abe508b66d23cf Eddie James     2019-12-19  266  
-abe508b66d23cf Eddie James     2019-12-19  267  	return rc;
-abe508b66d23cf Eddie James     2019-12-19  268  }
-abe508b66d23cf Eddie James     2019-12-19  269  
-
-:::::: The code at line 250 was first introduced by commit
-:::::: abe508b66d23cf2ed18c991c200b957e92f4bfbc hwmon: (pmbus/ibm-cffps) Add new manufacturer debugfs entries
-
-:::::: TO: Eddie James <eajames@linux.ibm.com>
-:::::: CC: Guenter Roeck <linux@roeck-us.net>
+   150	
+   151	int pmbus_set_page(struct i2c_client *client, int page, int phase)
+   152	{
+   153		struct pmbus_data *data = i2c_get_clientdata(client);
+   154		int rv;
+   155	
+   156		if (page < 0)
+   157			return 0;
+   158	
+   159		if (!(data->info->func[page] & PMBUS_PAGE_VIRTUAL) &&
+ > 160		    data->pages > 1 & page != data->currpage) {
+   161			rv = i2c_smbus_write_byte_data(client, PMBUS_PAGE, page);
+   162			if (rv < 0)
+   163				return rv;
+   164	
+   165			rv = i2c_smbus_read_byte_data(client, PMBUS_PAGE);
+   166			if (rv < 0)
+   167				return rv;
+   168	
+   169			if (rv != page)
+   170				return -EIO;
+   171		}
+   172		data->currpage = page;
+   173	
+ > 174		if (data->phases && data->currphase != phase &&
+   175		    !(data->info->pfunc[phase] & PMBUS_PHASE_VIRTUAL)) {
+   176			rv = i2c_smbus_write_byte_data(client, PMBUS_PHASE,
+   177						       phase);
+   178			if (rv)
+   179				return rv;
+   180		}
+   181		data->currphase = phase;
+   182	
+   183		return 0;
+   184	}
+   185	EXPORT_SYMBOL_GPL(pmbus_set_page);
+   186	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -235,14 +216,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001270030.OFkjVniD%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202001270116.45xyAflV%25lkp%40intel.com.
 
---tzzz6xnw6o7mduya
+--w2uhho737fx7zpxy
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICDW7LV4AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oIjuO4+6z8gCSoISIJFgAlKW8cKm2
+H4sICCTFLV4AAy5jb25maWcAlDzbdtu2su/9Cq30pX1oIjuO4+6z8gCSoISIJFgAlKW8cKm2
 nPocx86W7e7k788MwMsAhNzsrK4mnBncB3OHfv7p5xl7fnr4snu6vdrd3X2ffd7f7w+7p/31
 7Ob2bv8/s0zOKmlmPBPmNRAXt/fP3958uzhvz89m716/ez3/7XD1frbaH+73d7P04f7m9vMz
 tL99uP/p55/gv58B+OUrdHX41+zqbnf/efb3/vAI6NnJyev56/nsl8+3T/968wb+/+X2cHg4
@@ -1558,4 +1539,4 @@ Ul2ObWgxymYcen7SIX2FDU4ErY9pR03Uv8UVRZv7U4L1eZ2lnY9A5S5YvV7gjVvnZWRB9nUS
 Lwh9isH2UzruNGJoE1fKnILnahvyDPXC80+6nA6FOBdWvD9W1zDjNoOspMdSB9dwxwUbf+ug
 zjVVVF70xFWGSkqj/P5/x93O0muGBAA=
 
---tzzz6xnw6o7mduya--
+--w2uhho737fx7zpxy--
