@@ -1,132 +1,136 @@
-Return-Path: <clang-built-linux+bncBCZNXZV44IJBBQWLXLYQKGQES3IZIIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCTJ7DM3WQOBBBEKXPYQKGQETB24Q4A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43a.google.com (mail-pf1-x43a.google.com [IPv6:2607:f8b0:4864:20::43a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 00A6B14A048
-	for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 09:56:36 +0100 (CET)
-Received: by mail-pf1-x43a.google.com with SMTP id c185sf952953pfb.13
-        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 00:56:35 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580115394; cv=pass;
+Received: from mail-lj1-x23e.google.com (mail-lj1-x23e.google.com [IPv6:2a00:1450:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 91F8914A2A6
+	for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 12:09:56 +0100 (CET)
+Received: by mail-lj1-x23e.google.com with SMTP id w11sf1090893ljj.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 03:09:56 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580123396; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qkGQNhIOc6S8iawGvvDTRa1qOqcfRu2hHtcZELnNrQujbpTNlsjRF7lDBBxHeLKRk/
-         2SQPk/gKxMGXH5Vh9RWQr/V06RdXKKlitsvzABCtrLI1VWCUt9lzos789nwM/9ukQrMX
-         IQVvoMeYS7MWsArIzMhyQjsN4HEizcoMDPv4d4ZDir5iuAQnYf3Hw43rBvpd+2B8wKRd
-         Yfpyvzra8BUvTGdkm1kl6UdUw94Zrmmmd9sphvWggKhdq9+XMO1b6W/ArboyFgP+WUYl
-         8WKd2P59gW8i9NPtr9Hpqd7+bixEOxIQSnR1noF6FEWUCmIxfD4RWK8ybHu07LUmaR/k
-         r5Rg==
+        b=P9l7MUmn1isydANB6Dqlhi0gPGO5R0KT/fqqxCXhkoqDd9the+9G8d/7ObT995mrM/
+         QUGpk60pecyH5XaN0UYRXBAy4+wIQgn8Pj4BpiCPpAesKQBycGolDLoXD/ZCnob7LdjV
+         L98N/sjrEDvJ/6Etzw1nCyKP8LGyirgqww7gL5mdPdaXJoJbsKS0r/Dfx+hrASNpd+4z
+         /g5JRvF98RRdUgr6SQqBqWj+7oH5mG4S1EJzK7xTZsSkjaapdRtKFhjEl9TfAngXW1KQ
+         KKjZ32km//oi9cMHUWQ456eCvVLzNaittx30vnYqAG+HCWyqv1iIGBF/oZbUkbv9gtB6
+         130w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:message-id:date
-         :references:in-reply-to:subject:cc:to:from:sender:dkim-signature;
-        bh=JJyB9zvDeuXeKB/tUDt8T8ohcmvC09mCwRyUDaRNQxo=;
-        b=LDMjXuL8CYWEBhTwgFNOs52shfMCOWBAmSWmBDcAFwbX+KxeS+H77oiJ21Qa7KmwLK
-         TC9x/u8OK32QZUnbFbUSaIvd8OfW3NpqjtkvLUOMYS2Ud3evgIShrKXaamHRin3hZVVc
-         t51LnA+U6cPYfZg90NQOaAsAXWhLFnxicYfHoTFCmf5UF+AHZQlgvTBAoXU/lrVK4qC+
-         4p64vdQUZ6W8rS4TDM/SVdkK3Iolb5N0c3RD35UFUsYRbFPd7mY5nxhAfzn6fr1GnB61
-         y6npPOjnBV7AgMb4cnjOTwQQfuSfnlkPQ3plMVvNkvHgZokZJ5YqEzabDxsngHcpX2Uj
-         G5Yg==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:sender:dkim-signature;
+        bh=icABHPLXzd9fobxiLTbk9RE2DrPTC8Slho4m8RL+tck=;
+        b=IMz1d+N/K/JZHFyKoI9GCBseFIOveE1UA+8h8xi/RS+GL3j30cLcoFSVrhp01FrW0Z
+         2Zf+xQ2N+sYWA/pZ13WGmtFf5ooqQxAgctWaf4Rmqb3AQ8DlPADCTgObvURWOd1uFYi7
+         Q7ol3GjugyQLK7+RBRDRga7PMmhIefMWFZY5OJ0Wu95bl1noSLLHxJe6VBBh+Jz/fZzR
+         /RnLKIeWI6fmSo9hvKr52/XbCFQHoFGgBn0l0rlSXV+wDUr1T2xlrCvlV8FWeRM/7hmE
+         P9hk54+GbRJJ344UrVloiK6Dy0Li65oPYZ8nZShBkz7wXrat51BksgtzsBnf+UUfHo1K
+         4+tg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=HmIJmAvr;
-       spf=pass (google.com: domain of vkuznets@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=vkuznets@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:references:date:message-id
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=JJyB9zvDeuXeKB/tUDt8T8ohcmvC09mCwRyUDaRNQxo=;
-        b=cV5JWPI/az3XgBOtIaeh3FBfwshZx8soHf6O+P6GOP+RGysSBUWtAOPJXU/FhnJQUO
-         hgJC0pX711Q8UHOJM76UMiJtwXzxWvdT0FO+3F+JDsKLuicl85OqzSz1/7i2qJ2Lz3eb
-         ISpH7WLR4AzaDP15zaOU/5OCLA+eo/0SQNWQ7XFJOtc8pfEmaMlZWx/CS6Y19KR4EDKx
-         CYuzoD+OGuLUlv+ha8BGdzlOFGXmcbO1o94Hu3v7yEpOZ6BNXrbr4ilsBedVk5wRLIjq
-         PYkDmhdJYgBt2QroWRO4rmhnkrVfu76aLsKd93AXlDGoIqaV8ku9Dr2hOou/K1OMX/OV
-         orbA==
+        bh=icABHPLXzd9fobxiLTbk9RE2DrPTC8Slho4m8RL+tck=;
+        b=Typf0FjTl2jRdWzncnLCzSr8cABasnD2etEEuB7T89sSwFBf2m/5IXzVSSaHPC5VQT
+         It6SK/EPOhqdgGeEnVWPLZQMp6e0/GK6HiXu+4+pllk+I2FvFIRbHJ9SI2pBK2kzW1Y9
+         NHgmVjWfd7qclyksoZG6i2CbvmxlkMaavJBNFlLN0h+tnSTX7XQy8ZjhMopWJMZIVup7
+         XnGeY2PDUKjLHfZpWRt8ymj5he1ni9lZ7hDXPD3aFwUUawmEQ8HRPyImHoRhweSjK1e0
+         yflE98mfdKAOCuWB+Qs9JTmiaxnpSfXUeem0zlVbohCh5sb9W3fOPtkAdiVAc6JOCBPf
+         QWUA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to:references
-         :date:message-id:mime-version:x-original-sender
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=JJyB9zvDeuXeKB/tUDt8T8ohcmvC09mCwRyUDaRNQxo=;
-        b=N/TgOnkL1IPpF+/zZSBQJxO19axL3flal9DbIjDI0gehslC+ZYyC9UPqOnlRxn9kLr
-         eyCGlohNrsUKCUteVfG4O3rz+SnzdfR/pzejsdVORs8N+YEVttmICCs2iFOYVQCJiVip
-         3Gr872D4IdC7B+ObOPFvBotLfGi/BrEK93rb1oNXZ/Co2KquvREvijE6SKL3t17juSIt
-         4ObfHLT4skq6urQduo/NA1gVkiw3PAE9X/iw1KhVvbYhpVr6efFBKfoEefBvmYhCQJxV
-         Tg4XMo/8cQFGJkVqxUT/ZMGKmB/LZ/MEoIl6ycuuCpJ3/7bEoJG7sqQid+zNaj1xZs16
-         EHpA==
+        bh=icABHPLXzd9fobxiLTbk9RE2DrPTC8Slho4m8RL+tck=;
+        b=clZ42g1lWy5AiyFxq9iBMcE7/jcWGz/EfJb7rXJT6fGktypME/BGChcnUS6hjBvfUG
+         oB1iL2nCSfxb5Uw6KI5lMUOyCFySUMS6Mujz5sSsSp1j7zuK3ufbqSEkhtlTGOWp1C5q
+         ucBP9qpLguE+fjwPlAQGbTmp0GG4G7/hpeR8K9ITiNBFOFhCyL5Ax2PdSgLMmCYuYNwm
+         FMk63jdITXrvHHI7870vPUljSL/npSONe+3xNO5LOm109Q170d+yLCWLampgp8gL4oNO
+         8dIuFpkmX38hfuVmX/AoicdXZ6VmGE0k0MdxlNK3hTSWT0fGgCyV8xJ4UOBmkKGYYpiE
+         twXg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXa7GUbEOBAok9FXJ0sjXHLJ0psjgXmgnDEOdjFBGTUEHsNMN4z
-	ckLYm5vA9r92Ouaksu84ap0=
-X-Google-Smtp-Source: APXvYqwwUSEy8tXBeAIT/5b9OlY3q24dL09vzos2l0WWwC6wyEFvJZt/CgNbNoYskE/+6/ioq0P6CQ==
-X-Received: by 2002:a17:90a:a60f:: with SMTP id c15mr13525197pjq.61.1580115394157;
-        Mon, 27 Jan 2020 00:56:34 -0800 (PST)
+X-Gm-Message-State: APjAAAVkydi/OLaJbO1+SEKO52hrH6TVAUwLzKzy57NlTgF0buKMQA2A
+	xse3j18qk027BLHQCu9Z5NM=
+X-Google-Smtp-Source: APXvYqzNhaRaKuX0kEDw0YCyk7bD7VRIp1Bc7bn8FT68+r8XFOwAUvqVZf/kG/xsVygYA6HfbiS/4w==
+X-Received: by 2002:ac2:44a3:: with SMTP id c3mr7889385lfm.1.1580123396079;
+        Mon, 27 Jan 2020 03:09:56 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:9f95:: with SMTP id g21ls4095660plq.5.gmail; Mon, 27
- Jan 2020 00:56:33 -0800 (PST)
-X-Received: by 2002:a17:90a:191:: with SMTP id 17mr5203240pjc.88.1580115393616;
-        Mon, 27 Jan 2020 00:56:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580115393; cv=none;
+Received: by 2002:ac2:532f:: with SMTP id f15ls919663lfh.9.gmail; Mon, 27 Jan
+ 2020 03:09:55 -0800 (PST)
+X-Received: by 2002:ac2:5f59:: with SMTP id 25mr7786718lfz.195.1580123395519;
+        Mon, 27 Jan 2020 03:09:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580123395; cv=none;
         d=google.com; s=arc-20160816;
-        b=BESKDaygA7f2mUFcviDPpM12L5UJIQ9aE/WFP+p29HFloeo1Fnnfzo3gfks2tXZgI8
-         LYGcaFXVrJAUORSpXVexfLJSxRi8GenE7HRHKCdQm7GRoZghRs4lA62xNO4LGzFTuvTD
-         9mhuueoIk4I37ge7Xro0ZWZxtp479gENP5EiNJrUgYVjSDsq+OJwJnAinBjb8mqIgtJN
-         JKvYrUp8+JtUT+LMY8/oPkUK8tJZ/PpHgUeZFd4tLd+QvC03OJGYlPc8atHiV2zK4UUP
-         Ku/T9N5EHCFE8ImYuEmVvzLZdONp7xAJZLkw/tmNoXmhHtiU+u4V0yesen7EBJKhGsIc
-         r7Ng==
+        b=NLuZyqDj6vJ0BSp8zLWxXQNCr+ppAi/TOMO2ra2Gga6Iug2N4nscaqCoFnRHLHmx0p
+         X4cn85RuevfARg8wE1wrydJmnjPpaSoqPcnX+KEPw+ggZi2vIbK7ooptClDklPBDvCXP
+         HpnQT7A7eZRjQN5jFQ4sUfpGnXkFoEVQzhS3qUSgf5YFy53lheRRomZ+IT1id63aBvvS
+         7FurFf8yARAMeLMrNFKKoMR422FjD4cjgIDUbtdCDSL808eVtuZjjBNcIGaWBAfNtroi
+         qn3PkS1+wCznvDP7hZet9SpUP6JKs9nbiIR1OGuefabTUcuqArju8BjsVbV/w2KWmIpl
+         n8Ag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :in-reply-to:subject:cc:to:from:dkim-signature;
-        bh=O/wJHvKGJ99zGghffHWt42LgckKDsXjbe/P3oAtbAtI=;
-        b=fjWFjcLRwDFJ3iklfz3ZrmrLGQz2HA90jp05cY844B8xa3FA5cE0Uxja1ZRzCWmEh+
-         po0tZk3j8oAUCM4ZEcYroDooJkDDWLNfotRVd8pmAA+9SxWYaZ6Mog7ipmFmVh4/Q+NP
-         uusDquEzXvp2U/W/+VacLxX41TLZ+QJVFh+PC6QRy3hbj+KI8FVUzW9mpF8cmle4+wJO
-         wfljg96WAJKyr31+lfdLmhgpuIqlreKcT7efHpI5XCiAk0D0/1SWrwdz62MnqKjqvfe4
-         fuPTt9WR79J9a3hpvAOFStuIts+nQmuqFsax2+tqaTylTPnALExihVaur6JMHrUxfrsK
-         kglQ==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=ct9EXffNhYV79DpOZoHIW3hhaZNQ6+18s75dI4RnA0Q=;
+        b=fiF54SAUmTp+gmGS9HCFRTAlZFmLEcBFHBYfPZom7reAV4n6Phxy0sys02NLfxqc9a
+         gUWM+k7AEwYjDianJSOJvpXJlHEbCAtTpVMjxmujaDoWERoYrg/0xZlZ0k9KB+ozwTW5
+         1eiC9DQ63Kj8io/VKwSfoBwNcejYx/HZGFTlEj+fIbIMfuI8XaM9TGMBAAfEiNyCfief
+         W7sm346lrSarhO76I51c0NOjkObtRywypI+11iwLDeR8tp+m6trJqyiPJWGtNEfmbB2z
+         evK1oTeQTXa0mN9BnYCxoXFuLrzytsFLokKALQE0xNm5tG95UEeYTwLF0rxePaMkDbEZ
+         nwEg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=HmIJmAvr;
-       spf=pass (google.com: domain of vkuznets@redhat.com designates 207.211.31.120 as permitted sender) smtp.mailfrom=vkuznets@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
-Received: from us-smtp-1.mimecast.com (us-smtp-delivery-1.mimecast.com. [207.211.31.120])
-        by gmr-mx.google.com with ESMTPS id 186si637540pgd.5.2020.01.27.00.56.33
+       spf=pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) smtp.mailfrom=daniel@iogearbox.net
+Received: from www62.your-server.de (www62.your-server.de. [213.133.104.62])
+        by gmr-mx.google.com with ESMTPS id j30si679277lfp.5.2020.01.27.03.09.55
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 27 Jan 2020 00:56:33 -0800 (PST)
-Received-SPF: pass (google.com: domain of vkuznets@redhat.com designates 207.211.31.120 as permitted sender) client-ip=207.211.31.120;
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-341-4yTpZWD4OlKLNRRxUIPPwQ-1; Mon, 27 Jan 2020 03:56:26 -0500
-Received: by mail-wm1-f71.google.com with SMTP id f25so1245502wmb.1
-        for <clang-built-linux@googlegroups.com>; Mon, 27 Jan 2020 00:56:26 -0800 (PST)
-X-Received: by 2002:adf:fa43:: with SMTP id y3mr20078531wrr.65.1580115385278;
-        Mon, 27 Jan 2020 00:56:25 -0800 (PST)
-X-Received: by 2002:adf:fa43:: with SMTP id y3mr20078506wrr.65.1580115384981;
-        Mon, 27 Jan 2020 00:56:24 -0800 (PST)
-Received: from vitty.brq.redhat.com ([195.39.4.224])
-        by smtp.gmail.com with ESMTPSA id d23sm19860017wra.30.2020.01.27.00.56.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2020 00:56:24 -0800 (PST)
-From: Vitaly Kuznetsov <vkuznets@redhat.com>
-To: Nick Desaulniers <nick.desaulniers@gmail.com>
-Cc: Sean Christopherson <sean.j.christopherson@intel.com>, Wanpeng Li <wanpengli@tencent.com>, Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>, "H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com, pbonzini@redhat.com, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de
-Subject: Re: [PATCH] dynamically allocate struct cpumask
-In-Reply-To: <20200127071602.11460-1-nick.desaulniers@gmail.com>
-References: <20200127071602.11460-1-nick.desaulniers@gmail.com>
-Date: Mon, 27 Jan 2020 09:56:26 +0100
-Message-ID: <871rrlnupx.fsf@vitty.brq.redhat.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 27 Jan 2020 03:09:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as permitted sender) client-ip=213.133.104.62;
+Received: from sslproxy06.your-server.de ([78.46.172.3])
+	by www62.your-server.de with esmtpsa (TLSv1.2:DHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.89_1)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1iw2H7-0000Fy-9E; Mon, 27 Jan 2020 12:09:49 +0100
+Received: from [2001:1620:665:0:5795:5b0a:e5d5:5944] (helo=linux-3.fritz.box)
+	by sslproxy06.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <daniel@iogearbox.net>)
+	id 1iw2H6-00054j-PT; Mon, 27 Jan 2020 12:09:48 +0100
+Subject: Re: [PATCH] selftests/bpf: Elide a check for LLVM versions that can't
+ compile it
+To: =?UTF-8?Q?Toke_H=c3=b8iland-J=c3=b8rgensen?= <toke@redhat.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>, linux-kselftest@vger.kernel.org,
+ netdev@vger.kernel.org, bpf@vger.kernel.org
+Cc: shuah@kernel.org, ast@kernel.org, kafai@fb.com, songliubraving@fb.com,
+ yhs@fb.com, andriin@fb.com, john.fastabend@gmail.com,
+ linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com,
+ kernel-team@android.com, Jesper Dangaard Brouer <brouer@redhat.com>
+References: <20200124180839.185837-1-palmerdabbelt@google.com>
+ <87ftg4fvmo.fsf@toke.dk>
+From: Daniel Borkmann <daniel@iogearbox.net>
+Message-ID: <dcbed741-a16f-0057-6589-e2d2e41e9bfc@iogearbox.net>
+Date: Mon, 27 Jan 2020 12:09:47 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
 MIME-Version: 1.0
-X-MC-Unique: 4yTpZWD4OlKLNRRxUIPPwQ-1
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: vkuznets@redhat.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@redhat.com header.s=mimecast20190719 header.b=HmIJmAvr;
-       spf=pass (google.com: domain of vkuznets@redhat.com designates
- 207.211.31.120 as permitted sender) smtp.mailfrom=vkuznets@redhat.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+In-Reply-To: <87ftg4fvmo.fsf@toke.dk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: quoted-printable
+X-Authenticated-Sender: daniel@iogearbox.net
+X-Virus-Scanned: Clear (ClamAV 0.101.4/25707/Sun Jan 26 12:40:28 2020)
+X-Original-Sender: daniel@iogearbox.net
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of daniel@iogearbox.net designates 213.133.104.62 as
+ permitted sender) smtp.mailfrom=daniel@iogearbox.net
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,69 +143,47 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nick Desaulniers <nick.desaulniers@gmail.com> writes:
+On 1/24/20 9:27 PM, Toke H=C3=B8iland-J=C3=B8rgensen wrote:
+> Palmer Dabbelt <palmerdabbelt@google.com> writes:
+>=20
+>> The current stable LLVM BPF backend fails to compile the BPF selftests
+>> due to a compiler bug.  The bug has been fixed in trunk, but that fix
+>> hasn't landed in the binary packages I'm using yet (Fedora arm64).
+>> Without this workaround the tests don't compile for me.
+>>
+>> This patch triggers a preprocessor warning on LLVM versions that
+>> definitely have the bug.  The test may be conservative (ie, I'm not sure
+>> if 9.1 will have the fix), but it should at least make the current set
+>> of stable releases work together.
+>>
+>> See https://reviews.llvm.org/D69438 for more information on the fix.  I
+>> obtained the workaround from
+>> https://lore.kernel.org/linux-kselftest/aed8eda7-df20-069b-ea14-f0662898=
+4566@gmail.com/T/
+>>
+>> Fixes: 20a9ad2e7136 ("selftests/bpf: add CO-RE relocs array tests")
+>> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
+>=20
+> Having to depend on the latest trunk llvm to compile the selftests is
+> definitely unfortunate. I believe there are some tests that won't work
+> at all without trunk llvm (the fentry/fexit stuff comes to mind;
+> although I'm not sure if they'll fail to compile, just fail to run?).
+> Could we extend this type of checking to any such case?
 
-> This helps avoid avoid a potentially large stack allocation.
->
-> When building with:
-> $ make CC=clang arch/x86/ CFLAGS=-Wframe-larger-than=1000
-> The following warning is observed:
-> arch/x86/kernel/kvm.c:494:13: warning: stack frame size of 1064 bytes in
-> function 'kvm_send_ipi_mask_allbutself' [-Wframe-larger-than=]
-> static void kvm_send_ipi_mask_allbutself(const struct cpumask *mask, int
-> vector)
->             ^
-> Debugging with:
-> https://github.com/ClangBuiltLinux/frame-larger-than
-> via:
-> $ python3 frame_larger_than.py arch/x86/kernel/kvm.o \
->   kvm_send_ipi_mask_allbutself
-> points to the stack allocated `struct cpumask newmask` in
-> `kvm_send_ipi_mask_allbutself`. The size of a `struct cpumask` is
-> potentially large, as it's CONFIG_NR_CPUS divided by BITS_PER_LONG for
-> the target architecture. CONFIG_NR_CPUS for X86_64 can be as high as
-> 8192, making a single instance of a `struct cpumask` 1024 B.
->
-> Signed-off-by: Nick Desaulniers <nick.desaulniers@gmail.com>
-> ---
->  arch/x86/kernel/kvm.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c
-> index 32ef1ee733b7..d41c0a0d62a2 100644
-> --- a/arch/x86/kernel/kvm.c
-> +++ b/arch/x86/kernel/kvm.c
-> @@ -494,13 +494,15 @@ static void kvm_send_ipi_mask(const struct cpumask *mask, int vector)
->  static void kvm_send_ipi_mask_allbutself(const struct cpumask *mask, int vector)
->  {
->  	unsigned int this_cpu = smp_processor_id();
-> -	struct cpumask new_mask;
-> +	struct cpumask *new_mask;
->  	const struct cpumask *local_mask;
->  
-> -	cpumask_copy(&new_mask, mask);
-> -	cpumask_clear_cpu(this_cpu, &new_mask);
-> -	local_mask = &new_mask;
-> +	new_mask = kmalloc(sizeof(*new_mask), GFP_KERNEL);
+Yeah, Palmer, are you saying that with this fix you're able to run through
+all of the BPF test suite on bpf-next with clang/llvm 9.0?
 
-You could've used alloc_cpumask_var() instead, however, I think that
-memory allocation on this path is undesireable. We can always
-pre-allocate 1 cpumask variable per cpu and use it every time, e.g. we
-do this for Hyper-V.
+So far policy has been that tests run always on latest trunk to also cover
+llvm changes in BPF backend to make sure there are no regressions there. OT=
+:
+perhaps we should have a 'make deps' target in BPF selftests to make it eas=
+ier
+for developers to spin up a latest test env to run selftests in.
 
-> +	cpumask_copy(new_mask, mask);
-> +	cpumask_clear_cpu(this_cpu, new_mask);
-> +	local_mask = new_mask;
->  	__send_ipi_mask(local_mask, vector);
-> +	kfree(new_mask);
->  }
->  
->  /*
-
--- 
-Vitaly
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/871rrlnupx.fsf%40vitty.brq.redhat.com.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/dcbed741-a16f-0057-6589-e2d2e41e9bfc%40iogearbox.net.
