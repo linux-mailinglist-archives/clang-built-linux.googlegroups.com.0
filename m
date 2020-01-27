@@ -1,146 +1,133 @@
-Return-Path: <clang-built-linux+bncBDZ3F5UE24FRBQU4XLYQKGQEX6DTDBQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCV5TUXXRUIBBWNVXLYQKGQEAXGCT7I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 558DA149F26
-	for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 08:16:19 +0100 (CET)
-Received: by mail-ot1-x337.google.com with SMTP id e22sf5738786otj.13
-        for <lists+clang-built-linux@lfdr.de>; Sun, 26 Jan 2020 23:16:19 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580109378; cv=pass;
+Received: from mail-wr1-x43d.google.com (mail-wr1-x43d.google.com [IPv6:2a00:1450:4864:20::43d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 03226149F7F
+	for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 09:10:07 +0100 (CET)
+Received: by mail-wr1-x43d.google.com with SMTP id v17sf5657748wrm.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 00:10:07 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580112601; cv=pass;
         d=google.com; s=arc-20160816;
-        b=niITsxyn8BBq9Zb0dolegQeId5mtAMeQGjeSg4Dy9xcHOgwRaXWEECtdzdr6z3qncI
-         Lb6mATzHBf2gqjdTS5HPOwIuiKDBS4LzQzE5iQNAhkxTBg+RKs/uFknBUqXCZpR9Xr4h
-         FO39b4/MaPUgUWoA2w6Yojy/Y4TXxg341CKeJq1bAqZy1N0VGnarUsTMMk1PDYQ//8KY
-         7N6ICKg+3I1ZHMQZnPl3uK4ahC6bd5aYDgLAShPKhyLNN4WjnYD8VhaJJ9ev5NV5/NNp
-         UyUammP3QJEX0oSvRFmXp8/VzfJLRCHPjW7Ljn9GXUGQ2RRYBS1ytuP5wRKhsFEBN/Zw
-         L3WA==
+        b=XGDn3QTv2IZxxtFNuqGWF+wriE46m7HO2yxfQQOOSLhPcAvyaPy7+xWFHdHi5SBC/o
+         lct0w8dK6sUZcu+OSrVupxSWxu49UeIu/v1vEBN/UtMdNPQclfdvpuyGZGdUT9m2xcJ5
+         1chi1SFkgNzC18jFccCtGF+XlAdW5qzR1uqqgc9xjtBZQbwjvajPvUS+z6UPiNglA+Hs
+         uGzjia61nP0KYiTiVpPcfZvsyE9s73DxsRqNjGfyjUaHPcr3Lz6gEVf8JpOmDPuQw/WF
+         1rkW3E+GdEfDIxq95hXx6UpWwmcvv8lztCvhcIJhQYI8sThNKOvRESpIdStrbIBoe6CD
+         03ng==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :mime-version:sender:dkim-signature:dkim-signature;
-        bh=dLhKTjll6Q7D3s+YNfyVtXvRDtltZ3W6q9s9e3wi6PA=;
-        b=YmV//+GwrUJ6ANP24KJcu9JMnF596QzTXX4S5h6TQSm1VozPzNfbHFKAFYLog5KlqP
-         Mao+5+dUflfIgWqBT/TB7MX7I49hUrCO3Hql+VoTDSMKrxP2Np9EObQrY/5IcnSutCOp
-         EQCXl9stuRWZb1t7o6zYWntgpxoVNAajn+PyZMPejX5PtaS/VM39wzBcMvsfth05ebc3
-         anQe4TnsLNO90o4nVJ7s2m8E5OrdmVGZNRQYgdMBUibRgnMb5oLswfyykIYIrjulXCG7
-         u+x+rze6HkkpWiELQ5xQFEG25IV5fuCi2HYIO/p680uoif64CuLgdqYya66lJbnZwE38
-         jk0Q==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:sender:dkim-signature;
+        bh=e4xNHHiF3g2i0mjIQ92EjWbPQ6yhzsYnK9nW7ylxXiI=;
+        b=pBL2YOjZDphHFn9ypoL97MXwKS+wWWBFCI7Man7NKhoEbsUt1WSRHxm50p5uaEd27o
+         4fraqCvV1k6jHkblcVhLB+5wO7w6ZJzCVBgjUfYwzu56mcN6IIvU5vuJv57lyEtvL6mn
+         cLAyc01gTKdRdKZzICTS1zPVNOLiHTi+1VNtkmYafADXwOOthoNDdVc85RLICdbPTGx3
+         uV4h7dPjlUpsOcdsD1mogMFOGMv3/0QVyS1qSTv6QqTZsi33RPLW0d5R9+2rLw/kG1mt
+         iQpx2brqwEAmQnWq8TVJw17uKRLsZP1POvdtVwWVOMLzglFNDeIVEmBpC3SF0P2WD72u
+         3Beg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tsfuDBGT;
-       spf=pass (google.com: domain of nick.desaulniers@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=nick.desaulniers@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=F4hAZJLK;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=dLhKTjll6Q7D3s+YNfyVtXvRDtltZ3W6q9s9e3wi6PA=;
-        b=X6Li9WKbLXpIKtZRQqQ6siNtES6Yuo2EZmiQ4Qz5mn9llkPSnfiU+RyZ7d2pSpimPl
-         mtrShUQyP1u5XltMaFwuUW3wwnYIXxUUW3zkAjoewDtqrdc4NBAyu9CZ6ECNcd8D4Y4e
-         Flk1OmQWQN/uKH1XhQtUrNbOkNhNbpLkbCUIGO2umj7Wq0b3UOa3gufN34R4o5EsVmvm
-         mO/31X6Pe9Ci0yIaheqYRpiQ6sFe1bBaR/VovFVVgbLTG2phq+53nEi+dE4qImeM3J4R
-         xCG4Sqew0hZZLTWf932KlwkYXrLWHOcJjqmTd2SL0Xpfv9xN7T/w/tNi5JkmRPu40EXp
-         pp3A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=mime-version:from:to:cc:subject:date:message-id:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dLhKTjll6Q7D3s+YNfyVtXvRDtltZ3W6q9s9e3wi6PA=;
-        b=m2p3E0OOIWua+MWklv1U9sKNDaXCEl5ScxbTYMdpRqXhb5VrqLuXqPFepHHZhy501o
-         Sp9BV3zKwLDki1XoniYPWm7Ih/G6YwTtlwtjDz7noyT19sXct0AWzOpEu9gCV47vr9Vg
-         vseV7akayAVKT3xMr+K//FLN0Ujj8mLpUra+JB0Gi6EMzr/KWdUCPAlBksGTkJdPalpy
-         y3Sr6k9WJQjupBycFB2v/peyeXmCx9OwUzA2kIB0NUa4oqj3QEgZ5rC8VHk1McfI6KjT
-         LjO+soquMT70GkJAxWP5zY0hDcEJaK+XQG3BMl8zn0RNslrSZIdKo2C6lUBgPjZ2hRBY
-         th5A==
+        bh=e4xNHHiF3g2i0mjIQ92EjWbPQ6yhzsYnK9nW7ylxXiI=;
+        b=I+Kt1idC84lpifJN5GErjR+28UCZnJ3sTgNEyns/zCrDKRSiSLySJYkMT12p4wJveA
+         WAHyk5+8qhzW+i9VBjBsXjjQdYSvtLpOXPzoDvBTJHjhzge6v8K5+AncLovmICBScMqY
+         P9hn26MTN/8mLOdbP+wZVdqsKeb15pMSaR37zDBOLEK9IEq6zetkFi4RS6NX834UKCdE
+         ZpeN2CR2mCxuY5G9BsLPvhGw5ZWKGidkTv6FsfIDnyBKRpx4cZciABCRDZzcSglIWn0/
+         /zinnwS1GzFTXqdPOU6f2fLB5En+cHjgocxQp2Jkl3ajAYnd+aaWW4oH2lNuLSkOWsgg
+         WR/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:from:to:cc:subject:date
-         :message-id:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dLhKTjll6Q7D3s+YNfyVtXvRDtltZ3W6q9s9e3wi6PA=;
-        b=M1VXNkRzVqt56h351k00gedGR364wJrpmoEABN+NW8hs9YjD7XTKohKKQPaQT/CpVK
-         Ja2NbADLxOH2m/7bg14cQARuSGjzO4xeL4wm6GekaAcsden07rwtBfVE5wgownkMctPT
-         qd+TWShk7jlgWn14oIFMu/9T1ZgCk1+aj14SGr8Jh7q062UMRZM2I2JE5yIJQHKtr0MY
-         Fg3WiV33PfmBJKLBK+oKpkVR7aymJ54o14nWfU4Yj7QrhfH5LBLi4IKpF+73GWPD8wIU
-         iAEyvvm5bnTOi50wVcMpRYhv7O7Fw72rUcmofuFHPUsNI3jJDStUbAet9lRufewWzFh2
-         uVFA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=e4xNHHiF3g2i0mjIQ92EjWbPQ6yhzsYnK9nW7ylxXiI=;
+        b=Ix1Yq2L8up+dtoz4cs9wdrPslbhMDd2se6AtRqCsytP0lFH09R3T8aaURNz5TA/pLE
+         8j8nKS8NGE04cMlU3FNM2JU+aj5+M2ktXrT10kZJvvbtyhvbWoW55cylbSfFhTNQDPyo
+         JYrWjWBmf6ume2iKWMYTqUbZprc5xaufQwEPjRZurINmESJo/5OH6E+z7UMtDgekJzFQ
+         TQmmGtbzVdBQZtn3P0uEh4SAQYf1WQRCARXmZovyVQJUdDyPyVn6I77AlWFN1wf49N5H
+         vHe3RUStqgZWXoeSel/Y26cteK/BITUq9KR5zKAQJgWm4aDRYZTxYBoZyu+U1epzxeFo
+         YMfQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUkevkT3W6SDeLh0Ny47SKi0VGQJTvOkNpv+uq3seHjJDiLFm+/
-	tNunzWZkyJQgAl/Q7OO0PZI=
-X-Google-Smtp-Source: APXvYqxneky4E7bVcr1mP2sT9/Qj1fSi63H+i/BTMKlVXYzRhF9qTzW5TY6PCMd39Kib0NDb9I29OQ==
-X-Received: by 2002:aca:cd92:: with SMTP id d140mr6588139oig.68.1580109378310;
-        Sun, 26 Jan 2020 23:16:18 -0800 (PST)
-MIME-Version: 1.0
+X-Gm-Message-State: APjAAAUaGj+Z9N2vRpFLbrF3fQxV0IarQaDv7Yxl+4pc0ByRpyXaDUHM
+	qm6WTjdUuNU6y2TWZePOQUM=
+X-Google-Smtp-Source: APXvYqxBrkNWCXqeAGR7Nyf5j8mXNklsd3bOYwiTWjFSygTcgJyfGmHDfrH+0AC7l/PVvOUXN4lf4w==
+X-Received: by 2002:a7b:c93a:: with SMTP id h26mr13020227wml.83.1580112601678;
+        Mon, 27 Jan 2020 00:10:01 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:4a4:: with SMTP id l4ls1889086otd.11.gmail; Sun, 26
- Jan 2020 23:16:17 -0800 (PST)
-X-Received: by 2002:a9d:6d10:: with SMTP id o16mr11750315otp.28.1580109377711;
-        Sun, 26 Jan 2020 23:16:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580109377; cv=none;
+Received: by 2002:a7b:c4d0:: with SMTP id g16ls4053109wmk.2.canary-gmail; Mon,
+ 27 Jan 2020 00:10:00 -0800 (PST)
+X-Received: by 2002:a05:600c:22d3:: with SMTP id 19mr12182598wmg.20.1580112600902;
+        Mon, 27 Jan 2020 00:10:00 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580112600; cv=none;
         d=google.com; s=arc-20160816;
-        b=FHLFKn56dnVaGYBWoPAdVSBBp98x2wa++21UgdOLXDxMzIZ+hORIzswI1laRh+PWZt
-         bUXvWQPp7CTcwf5kXcqMPkZNYgA//f3bYf8ypvSKsgartvGFFxHxsw1ogt68h48Gx61X
-         LpK7mUtzIy49YblUGhP1GOp+yyWxVs5DhwMWbSPMNTIVt7YIagQQtM1CucGh/ghxYi3H
-         QkW1fG7lr9ZxM9bhjWqc5gttJs2dR2WHLZ9qRP2PGxVo0npzsg+3rs3lNGSrqV5RvQR/
-         2xdUMM983/NSQAphmmBrSfM5lQSKBx56ml4VlswtRQMkqnMme34QiRRcv8USxGMGWPg5
-         X7tw==
+        b=nsoEcB6Oih1ybKrAjhDiwzoIeOD+ZgP9PbTHBh99GlUogMi6TbhKFJ9Ag+tHWWN9pn
+         cnYDrgjAjHslLuqnoGFMQigIxuBzy925qC6ogFRLxUHHvxU9VstSYMxQ61dOMsLbT1l4
+         /K+s6sbhO5hMLFXnodfzHi0n46gZq7Xgz7/zFcR4oUDVXndAkKBaIXH0bdCjheMxiAoh
+         AjevybU9Ns5OxptkEs1uNsPHbeGmeJzm5xTXgIKW8ojbIndt97PUbEOP7UA3QfQGc5KK
+         bDxCvsZq8OjMxQDORB/tXFtVoOP1VzYVb3id4QRjG1rgwlVVr+Dirs09VVyfhC6IPygl
+         ZcIQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature;
-        bh=ZTshCe94WzSsfXve6ziu+qTyps0fLQU+BDDkCbT6Bso=;
-        b=pOvpeIXEEJQLIYcf7ZkRYEqb4cjL8DiVuR2932cSH032MAWTVLNkQeuVmEx909TF71
-         sElxG7qJIJAyoGiGKoNeUYDC/2rhiIni5ketHPTJvQ8kRfMbu+Yrgz63oMcObE2S8XB4
-         QRzCjpihD4DbuHLqYIYVfFHNSQ9t8YhViq01276fYjavXLItoGYIbn1TBZg+6r8Gr/YE
-         Hiedirv+8cC16+iCrGE7UTSh3iMExEUDEO97WYZnCV+FYX1bwcdjCb4k1uPFiXK82VpA
-         bSXKnRbY+T/vTHnnlcINp6MNdmfN1iNwVjz3FfNzykNO4w67MKDwwJDWb8z040m6wbI3
-         LCcg==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:dkim-signature;
+        bh=NSkXKOkLVFSqskr8Fv8C50qKSUgO0Fch8+tEjDsF97E=;
+        b=NzT29hlg53gIA+El9Sn56SWbEFuHVKfQFFJFJTEo7cZksjNJnAua2Xquqhbtqphxj4
+         JtUlPnwkjSuSq+AFFnZmuAG60jExw0MVrwXP9RkY44dkCiGGCq9y6lq2YaXV5sdE2jgu
+         DjmK9H6C5Zvdi3r6VtSwe3kdg+vDcat4s85qFYPbau/X9c8/VCSF7o5Mne3IwTNy0obJ
+         TgcrsbwpvxXhQr9karH21+Odh2Ja8wqFQRI43G/I6EGQRyZEYby5rui4UFHo9zs471Ps
+         7w9kjFwVuEXWZsS7wdxW76S+J9j9++xxuY8TNMwZwbfps/x7QjU+oKNoUsgtc1Ti8+jd
+         YG0w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=tsfuDBGT;
-       spf=pass (google.com: domain of nick.desaulniers@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=nick.desaulniers@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x343.google.com (mail-ot1-x343.google.com. [2607:f8b0:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id d16si391104oij.1.2020.01.26.23.16.17
+       dkim=pass header.i=@infradead.org header.s=merlin.20170209 header.b=F4hAZJLK;
+       spf=pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
+Received: from merlin.infradead.org (merlin.infradead.org. [2001:8b0:10b:1231::1])
+        by gmr-mx.google.com with ESMTPS id p16si539597wre.4.2020.01.27.00.10.00
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Jan 2020 23:16:17 -0800 (PST)
-Received-SPF: pass (google.com: domain of nick.desaulniers@gmail.com designates 2607:f8b0:4864:20::343 as permitted sender) client-ip=2607:f8b0:4864:20::343;
-Received: by mail-ot1-x343.google.com with SMTP id i6so3556899otr.7
-        for <clang-built-linux@googlegroups.com>; Sun, 26 Jan 2020 23:16:17 -0800 (PST)
-X-Received: by 2002:a9d:729c:: with SMTP id t28mr8584637otj.66.1580109377176;
-        Sun, 26 Jan 2020 23:16:17 -0800 (PST)
-Received: from nick-Blade-Stealth.attlocal.net (23-121-157-107.lightspeed.sntcca.sbcglobal.net. [23.121.157.107])
-        by smtp.googlemail.com with ESMTPSA id n25sm4500248oic.6.2020.01.26.23.16.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 26 Jan 2020 23:16:16 -0800 (PST)
-From: Nick Desaulniers <nick.desaulniers@gmail.com>
-To: pbonzini@redhat.com,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de
-Cc: Nick Desaulniers <nick.desaulniers@gmail.com>,
+        Mon, 27 Jan 2020 00:10:00 -0800 (PST)
+Received-SPF: pass (google.com: best guess record for domain of peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) client-ip=2001:8b0:10b:1231::1;
+Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
+	by merlin.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
+	id 1ivzSk-0004Vq-1F; Mon, 27 Jan 2020 08:09:38 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 437B2300F4B;
+	Mon, 27 Jan 2020 09:07:54 +0100 (CET)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 08180203CF5D4; Mon, 27 Jan 2020 09:09:36 +0100 (CET)
+Date: Mon, 27 Jan 2020 09:09:36 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Nick Desaulniers <nick.desaulniers@gmail.com>
+Cc: pbonzini@redhat.com, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
 	Sean Christopherson <sean.j.christopherson@intel.com>,
 	Vitaly Kuznetsov <vkuznets@redhat.com>,
 	Wanpeng Li <wanpengli@tencent.com>,
-	Jim Mattson <jmattson@google.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org,
-	kvm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Jim Mattson <jmattson@google.com>, Joerg Roedel <joro@8bytes.org>,
+	"H. Peter Anvin" <hpa@zytor.com>, x86@kernel.org,
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH] dynamically allocate struct cpumask
-Date: Sun, 26 Jan 2020 23:16:02 -0800
-Message-Id: <20200127071602.11460-1-nick.desaulniers@gmail.com>
-X-Mailer: git-send-email 2.17.1
-X-Original-Sender: Nick.Desaulniers@gmail.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=tsfuDBGT;       spf=pass
- (google.com: domain of nick.desaulniers@gmail.com designates
- 2607:f8b0:4864:20::343 as permitted sender) smtp.mailfrom=nick.desaulniers@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Subject: Re: [PATCH] dynamically allocate struct cpumask
+Message-ID: <20200127080935.GH14914@hirez.programming.kicks-ass.net>
+References: <20200127071602.11460-1-nick.desaulniers@gmail.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+In-Reply-To: <20200127071602.11460-1-nick.desaulniers@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: peterz@infradead.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@infradead.org header.s=merlin.20170209 header.b=F4hAZJLK;
+       spf=pass (google.com: best guess record for domain of
+ peterz@infradead.org designates 2001:8b0:10b:1231::1 as permitted sender) smtp.mailfrom=peterz@infradead.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,60 +140,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This helps avoid avoid a potentially large stack allocation.
+On Sun, Jan 26, 2020 at 11:16:02PM -0800, Nick Desaulniers wrote:
+> This helps avoid avoid a potentially large stack allocation.
+> 
+> When building with:
+> $ make CC=clang arch/x86/ CFLAGS=-Wframe-larger-than=1000
+> The following warning is observed:
+> arch/x86/kernel/kvm.c:494:13: warning: stack frame size of 1064 bytes in
+> function 'kvm_send_ipi_mask_allbutself' [-Wframe-larger-than=]
+> static void kvm_send_ipi_mask_allbutself(const struct cpumask *mask, int
+> vector)
+>             ^
+> Debugging with:
+> https://github.com/ClangBuiltLinux/frame-larger-than
+> via:
+> $ python3 frame_larger_than.py arch/x86/kernel/kvm.o \
+>   kvm_send_ipi_mask_allbutself
+> points to the stack allocated `struct cpumask newmask` in
+> `kvm_send_ipi_mask_allbutself`. The size of a `struct cpumask` is
+> potentially large, as it's CONFIG_NR_CPUS divided by BITS_PER_LONG for
+> the target architecture. CONFIG_NR_CPUS for X86_64 can be as high as
+> 8192, making a single instance of a `struct cpumask` 1024 B.
+> 
+> Signed-off-by: Nick Desaulniers <nick.desaulniers@gmail.com>
+> ---
+>  arch/x86/kernel/kvm.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c
+> index 32ef1ee733b7..d41c0a0d62a2 100644
+> --- a/arch/x86/kernel/kvm.c
+> +++ b/arch/x86/kernel/kvm.c
+> @@ -494,13 +494,15 @@ static void kvm_send_ipi_mask(const struct cpumask *mask, int vector)
+>  static void kvm_send_ipi_mask_allbutself(const struct cpumask *mask, int vector)
+>  {
+>  	unsigned int this_cpu = smp_processor_id();
+> -	struct cpumask new_mask;
 
-When building with:
-$ make CC=clang arch/x86/ CFLAGS=-Wframe-larger-than=1000
-The following warning is observed:
-arch/x86/kernel/kvm.c:494:13: warning: stack frame size of 1064 bytes in
-function 'kvm_send_ipi_mask_allbutself' [-Wframe-larger-than=]
-static void kvm_send_ipi_mask_allbutself(const struct cpumask *mask, int
-vector)
-            ^
-Debugging with:
-https://github.com/ClangBuiltLinux/frame-larger-than
-via:
-$ python3 frame_larger_than.py arch/x86/kernel/kvm.o \
-  kvm_send_ipi_mask_allbutself
-points to the stack allocated `struct cpumask newmask` in
-`kvm_send_ipi_mask_allbutself`. The size of a `struct cpumask` is
-potentially large, as it's CONFIG_NR_CPUS divided by BITS_PER_LONG for
-the target architecture. CONFIG_NR_CPUS for X86_64 can be as high as
-8192, making a single instance of a `struct cpumask` 1024 B.
+Right, on stack cpumask is definitely dodgy.
 
-Signed-off-by: Nick Desaulniers <nick.desaulniers@gmail.com>
----
- arch/x86/kernel/kvm.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+> +	struct cpumask *new_mask;
+>  	const struct cpumask *local_mask;
+>  
+> -	cpumask_copy(&new_mask, mask);
+> -	cpumask_clear_cpu(this_cpu, &new_mask);
+> -	local_mask = &new_mask;
+> +	new_mask = kmalloc(sizeof(*new_mask), GFP_KERNEL);
+> +	cpumask_copy(new_mask, mask);
+> +	cpumask_clear_cpu(this_cpu, new_mask);
+> +	local_mask = new_mask;
+>  	__send_ipi_mask(local_mask, vector);
+> +	kfree(new_mask);
+>  }
 
-diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c
-index 32ef1ee733b7..d41c0a0d62a2 100644
---- a/arch/x86/kernel/kvm.c
-+++ b/arch/x86/kernel/kvm.c
-@@ -494,13 +494,15 @@ static void kvm_send_ipi_mask(const struct cpumask *mask, int vector)
- static void kvm_send_ipi_mask_allbutself(const struct cpumask *mask, int vector)
- {
- 	unsigned int this_cpu = smp_processor_id();
--	struct cpumask new_mask;
-+	struct cpumask *new_mask;
- 	const struct cpumask *local_mask;
- 
--	cpumask_copy(&new_mask, mask);
--	cpumask_clear_cpu(this_cpu, &new_mask);
--	local_mask = &new_mask;
-+	new_mask = kmalloc(sizeof(*new_mask), GFP_KERNEL);
-+	cpumask_copy(new_mask, mask);
-+	cpumask_clear_cpu(this_cpu, new_mask);
-+	local_mask = new_mask;
- 	__send_ipi_mask(local_mask, vector);
-+	kfree(new_mask);
- }
- 
- /*
--- 
-2.17.1
+One alternative approach is adding the inverse of cpu_bit_bitmap. I'm
+not entirely sure how often we need the all-but-self mask, but ISTR
+there were other places too.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200127071602.11460-1-nick.desaulniers%40gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200127080935.GH14914%40hirez.programming.kicks-ass.net.
