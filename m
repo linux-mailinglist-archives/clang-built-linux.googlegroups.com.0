@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBNEHYHYQKGQEICYWAHY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBP4CYHYQKGQEW5CY2EI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x43e.google.com (mail-pf1-x43e.google.com [IPv6:2607:f8b0:4864:20::43e])
-	by mail.lfdr.de (Postfix) with ESMTPS id AE28B14B82A
-	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 15:22:45 +0100 (CET)
-Received: by mail-pf1-x43e.google.com with SMTP id e62sf8630273pfh.14
-        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 06:22:45 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580221364; cv=pass;
+Received: from mail-qt1-x83a.google.com (mail-qt1-x83a.google.com [IPv6:2607:f8b0:4864:20::83a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 85FD914B729
+	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 15:12:16 +0100 (CET)
+Received: by mail-qt1-x83a.google.com with SMTP id k27sf8519187qtu.12
+        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 06:12:16 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580220735; cv=pass;
         d=google.com; s=arc-20160816;
-        b=fVXtlTLl8EILMTaXXgNnXPxlzW0DryWH59qbosiPozw+bLLcLOucq1jhA8wDQ4nYBO
-         ngYT6hAKMnQVaPcjdApdiisDXWJK3hslKhCkSVUWPBHSvGeHQwwjgeSBX/aGYjQOYoG/
-         2M/FNJHhp0lowPGhG/qM1cCWHzkorXIf4p25eKOaqvFeHlSdmSBfppW1+mcgdNdWFAGW
-         HYhpajawS1SNzR8COupuYT7lkA/ljbklYrqjQBttl9w1QSY5jaFN40FEzilL25E539As
-         ijLtxZoL35yc1C5dg0izTfXQfk3rkf3zIn+MIa8N1bXAnmr3BlxDSorygc+GyywEEQCj
-         OrjA==
+        b=ttDPFw3P/zlBrHPf3e8thlYlxWMtKy2p6JKmKxZa45heE1obQVOnulj6jc7Yu8ghSZ
+         aq5s/8b6Bg/9dDMintZZ8xVOrzsSRNC83oGtPI8XLDMmoDVjTQiLCv/baAHAx8rvmcQN
+         dv7tydt118d3q3waOf9PuIXg2eWFWUxt9WduK22j9GU2S/lFeqKwATwHhaBFb9Y5W3Qt
+         AOw5kottm167zCrzy9HfrxAivFG4wjb682iNoJ1c8yfSUA3ZTuKTkiQpHuPwNzukoqtB
+         1MfqJ2acv85iYYFJ+9Zz0eGumFYm+E48OV6URAvTfY+CWaN117o5guj524R1ky7/Nt3r
+         DKNQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:user-agent:references
          :in-reply-to:message-id:date:subject:cc:to:from:sender
          :dkim-signature;
-        bh=52L7zfupaMC4jdUYJ7xGEcwsJjNU6cJkHWLaJ7DErtE=;
-        b=DvWBH18TH2vYpjY9901T500da4FLMLKXJfwWWl9I5zOsZTcq1vnOOlRSMAmRAnLJIg
-         F1X8lY3sE3TxfuZ2/t69GFt/1XpDnouzW69iVUhZkRCIo+31/VpRwiFfoetrvQ6Hl5ic
-         ipgb0a9Ee0Ul7kKXIMLpD5MeU051wKYPkjLQ63xA7+Jr+g4bNSKv1hRo6esQw21Z9da8
-         jaR/JV1b5Zf7vBpe52jfpafmQ/rW4VBaGtLn1ieZZlZ6U9ayozk4UMikENgmJtqm7Iuv
-         NJTmIZhOdA9TSZNkX7zewjcIku/eiuWNi1rkouZl4saHNwj1yxDFyOeio8g+bT7UR5ic
-         UIaQ==
+        bh=pW43J1RVy+Pw8lg27EeKu1XrkUZgm5EF7yM/1fnWoS0=;
+        b=ZDpZlsUQGbYnOChqEXq43fkjP0HCG0WtqXCVaI6E1pm+vH1eqx01EhTA9wEWkKTbuN
+         18a8OtZzfq/XFpdlvf5Xneu2jZytGpb3xr+p7mlQcDzqSDcd4r8/oT9y7UUBD9lKyNnG
+         xwZfcStVWuAwi0S/dr82eUDx9S9bFmDPNyhTBIBLwYK6mRcXxW7QTWzAYEuhNRx20JJJ
+         i58E+pmvvHMUdWSTswj998frrPlVef+DU1lTh0X/FEzUZcvBfXJ9bc1o0s9+1WWDCTFd
+         RH5TGTyd/479U23Y3OAVqcFXcq0BOs/pEM39gWxB/ZeTS7XgAC1dUKxJEURKfTB+cqsA
+         vEcw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=lfySTc3X;
+       dkim=pass header.i=@kernel.org header.s=default header.b=cB7ACNL6;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :user-agent:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=52L7zfupaMC4jdUYJ7xGEcwsJjNU6cJkHWLaJ7DErtE=;
-        b=QPlUcJwbl+35GaEUaHYd3Tdk/gJNUe0MvRl1m4D5PFrraFu5LTQvPuezImrsm1Nzpm
-         BhMNWz6nWKH/wy18w27Jcy6hfzbTOicmcHXeZdhuK+n9Xy6YR4B4ry5xIM6dpPlB5Jij
-         R5j96jCxrSd16+STzJSakOjH6vy4EBCGlfjp59pAILnndzmr5K8hXHihUdh0DfiO/R1p
-         9OAFfyxTpfIpu/S46LA+DwbceHJJ8PtHR/doJzObeqtant8j1oBpx8BiSgX23J5a5k0x
-         trouJYN/KN++YbuD4vSQDldyFkZK7FcTlVLkoYV5MkchIujuTEjrWd/YUSWIVKNxMI4f
-         9Ukw==
+        bh=pW43J1RVy+Pw8lg27EeKu1XrkUZgm5EF7yM/1fnWoS0=;
+        b=GS9y0eQZfVZOZ1urbsjEdsJDIewtJXydUmxUAuPN9xhBy9xPHm6sAuBcwVQNwvZxZp
+         Th4tl2bGc7LXequU0T32DGnU63lWSlioTEigRB7V3KYxPC7corQK3npD9FQ8bu6UigJL
+         aIOIQZRirW5rs+6cmDEVpFjfqNfTu0aQ4cOVKKQb6AhKyFiYJ9t+RHpIMBCrhBJ5qHsN
+         C5iMTToHle3CLrSokASew/15eNdeILAQBENuX9K7BiuXUH+p4VZyS9KNPTwhjcr5dh88
+         WyE6K6oasUVf6hA43wf8APuWvsSlRbp5eqv4DMckiekyPnFEt36BHsvTB3YAo4CHq24g
+         pCRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,56 +49,56 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=52L7zfupaMC4jdUYJ7xGEcwsJjNU6cJkHWLaJ7DErtE=;
-        b=KE8OGbciRR3N0Z/iVMSy1zS70T5TFw8ZiU4k7/NsfUPm/w8AFcY2N5GCwFZTt8rwkt
-         u9y1jIyYnx6x769EmJww/sl42pOJ/VIhRIdjTyZOVASto0xkA0owpGa/UiVfRwRsgxPX
-         e2GCDG5b4fqqMdR1HUv7yLs+7gv5KdiG+Fqpm4Zqp0VzLUShoe2eFtiWzZY/9UhBE1JJ
-         hcRIgNHQTnS7SWvMKUtPdnhngZ51Kn9hN0GoZNmsWqsxesq7O7XQe3EIEUqIFa4uuXts
-         2Bk0A6XfIjELdR7I5ldkXzLYGScAtspPI+7iGU9WlQQaQT5ZbLUTDgLFUisnuy4/0Hz5
-         EFeQ==
+        bh=pW43J1RVy+Pw8lg27EeKu1XrkUZgm5EF7yM/1fnWoS0=;
+        b=aCL7KIgHtJ2IbwJ0d23fJBJiRAOF7wJ7veipmMoBC9+O040ZMdGtw46Jr55a+ahrVh
+         1oNz9PBCufs5h101W2nsrkrIvJI2jjvoorPd/80i7ZzVQ5fPmc9AN7AdmYDj7U2Pskea
+         o9nMcSUdQOFbK9xnEaNU/tNhd5E7ox7E6kluO4bkWzBKP8T9I7MGgFuDG8I3QnXwPmZP
+         YZPw0Hy1WnHuSgTY9vxxrHdg4bncFdNsFNhCgbCbQq8pcB+CuFvuMrlSHOiBXbQYy9da
+         fvQppu5cHQktYNblEJV22sxVARw0m1+Q4fnHUNowaBiYy9jLnyl+djU9gYZv8R3dlQ8p
+         iyIg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUJgr9+Mw137JdtsKYqgGRWviqzm2CsMcjlaWgQ2/J1rJjO/dhS
-	80An+Q+nVm8C35yOA2Rhxsw=
-X-Google-Smtp-Source: APXvYqx4Uk453fUGwcb3DlgndN3UGw7h0ExfbtM2yKAZac7THlOtTkwN5Cqz6/FCMD8ebPDtwJj8Xg==
-X-Received: by 2002:a63:480f:: with SMTP id v15mr24647725pga.201.1580221364139;
-        Tue, 28 Jan 2020 06:22:44 -0800 (PST)
+X-Gm-Message-State: APjAAAWNsvrMSi3+7QnUn8yA/k/o64bcnaeRLvTSQJIkA4JBDSk/qfiz
+	xcjbMAh1eZRrfR7EnHtUZ5g=
+X-Google-Smtp-Source: APXvYqyWZGqOhLmPk6v9jT3LwJX0ZuRw27lnWrPikVyDxkMzJuaCetRMtWQSMQds8DW6KMkISOZLZA==
+X-Received: by 2002:ac8:1206:: with SMTP id x6mr21827521qti.55.1580220735407;
+        Tue, 28 Jan 2020 06:12:15 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aa7:81ca:: with SMTP id c10ls6123300pfn.8.gmail; Tue, 28 Jan
- 2020 06:22:43 -0800 (PST)
-X-Received: by 2002:a62:7c58:: with SMTP id x85mr4210394pfc.76.1580221363643;
-        Tue, 28 Jan 2020 06:22:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580221363; cv=none;
+Received: by 2002:ac8:1818:: with SMTP id q24ls867348qtj.0.gmail; Tue, 28 Jan
+ 2020 06:12:15 -0800 (PST)
+X-Received: by 2002:ac8:71c2:: with SMTP id i2mr7305347qtp.249.1580220734648;
+        Tue, 28 Jan 2020 06:12:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580220734; cv=none;
         d=google.com; s=arc-20160816;
-        b=OTki+HVXNnVqnM/yxVeTx/WL90j+wFIQmrWpqC+ZGEBgnuju661qo+MTu6gmgsNyrI
-         GAo94V6H8l5phe62Q1t27LGEKAMv0Wj0xwxjoJM6aSbXSfU0HnMaxeNFXNvD11I0xc0m
-         MiGBXGaf0VL4JqrFUG+hrtHYDdFJiXbkcqObFRTH4orn3jPtAK8oEYeFu/ePRofyTVDC
-         A+f2ueQ5lXDzv2DOL6unhIN9ZEHYUyhxtKpnOyezYlbL3MGQ2pceuXvTHB43u6P1Zzen
-         yr/JHWLTbOm2hf/kahiCXudTYEOwXRj9/v9fyHGWwvU/G9WMH7H7luZ+USRbwRr5PCi4
-         JLQA==
+        b=Wc4MOJ5UJz1zvIlv44R4QMTPo+NUVFouPCSQTlt3hKUlXyWB47eSCnvoeEylnufxUb
+         PQEjiRMIyC0ep29ejCI9LKxg2pkjJj/TPmkABFbI/7/0MmYouYeX9rmXNDXa0Y610F2x
+         9965r614/8W4qfsTL6wWzG6L+T01J9EkwQvS4IY1ty2JMYgeDo1xc43tqqq5hZit2AyO
+         oxuSpKrZRUUWPnGy1Lmb5HpFJb5+m8BEX/qqd+dvZR6WMrh1kBYDqAqMGgcpmcL1CuuP
+         uQ42x7TjJrzZ6G8agd67BbkTzwLZwq5NlAqny8xOksFQHTp/psl0PYTaEXEfYQYa0sIS
+         ltJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:user-agent:references
          :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=FmPyGCw24mfbAt0RCwDqFY9hL1iM74rAyanynR9MV3E=;
-        b=bOfj1rcYZiwncBvX7HdxsBTjAj4fDSL8byg0PSKg5C8NfYCRbi8UdOqaxJ1pqYrGig
-         nIewF5hzhEDbrmTpWTdu6jx4cHpni4ID/THfX035TNvxVoKsyaC7o9nA7KGf3x4RS5OO
-         recVxj7mijUm87fc63HNvmh8yo3MeIjJgLBsiXL+8MO9v8RF1G8VGUV1Jrj0mZLsAI0K
-         +Tnqyyjfd6/K2fLjsxdqzdfx5axZz/5NCs6+9V6uSG3Bzni8Xm1RELv3Yd2UyndqZNUb
-         O6HO2/li8L48hmekjjWehiZFHZz6pWyHMxQ6TQopQv1Mx9floMLcP/83ABFtBIuKWe1c
-         QCYw==
+        bh=12COV/XxHPeRM/n5ZZeOOxGpoKgLr23uDeBTh4YR4KE=;
+        b=IDZGqg9tMVpS4m3lBoVvlPshsNqjaX8oE8ORghTnABFC3bOVlo2oMoEyvFwjTPTg3M
+         r77pE0AV1FbD7o8QzRWY+PPQQeoBjzSDaGcZA5AHJeOxFeXRl4VkaWUIR7wTipRzwDKB
+         Mmvr0SofnHY9TfLUi+Ka6fDcXJEO7WjkhGFDfzcPKaNUdVa4DvHoEiMkiBxAEkPAItRg
+         L84EeSVvCl9bGShie6CHLxHN70WlWYM6rz04y5JVK+8Se2gjfsNhUl48ZInveSNuykvh
+         XvQOMUebDLyeAAdLPKOZDm3cH/eomlzwWBwaIFRNhTMwMnlAsDU+GOQntIDtvbsOh+/s
+         x1Ww==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=lfySTc3X;
+       dkim=pass header.i=@kernel.org header.s=default header.b=cB7ACNL6;
        spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id j123si676090pfd.5.2020.01.28.06.22.43
+        by gmr-mx.google.com with ESMTPS id w9si882738qkb.3.2020.01.28.06.12.14
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 28 Jan 2020 06:22:43 -0800 (PST)
+        Tue, 28 Jan 2020 06:12:14 -0800 (PST)
 Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl [83.86.89.107])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id D16B524681;
-	Tue, 28 Jan 2020 14:22:42 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 3305224685;
+	Tue, 28 Jan 2020 14:12:13 +0000 (UTC)
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
 Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -119,18 +119,18 @@ Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	linux-mips@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 4.9 187/271] mips: avoid explicit UB in assignment of mips_io_port_base
-Date: Tue, 28 Jan 2020 15:05:36 +0100
-Message-Id: <20200128135906.492399637@linuxfoundation.org>
+Subject: [PATCH 4.4 126/183] mips: avoid explicit UB in assignment of mips_io_port_base
+Date: Tue, 28 Jan 2020 15:05:45 +0100
+Message-Id: <20200128135842.463604020@linuxfoundation.org>
 X-Mailer: git-send-email 2.25.0
-In-Reply-To: <20200128135852.449088278@linuxfoundation.org>
-References: <20200128135852.449088278@linuxfoundation.org>
+In-Reply-To: <20200128135829.486060649@linuxfoundation.org>
+References: <20200128135829.486060649@linuxfoundation.org>
 User-Agent: quilt/0.66
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 X-Original-Sender: gregkh@linuxfoundation.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=lfySTc3X;       spf=pass
+ header.i=@kernel.org header.s=default header.b=cB7ACNL6;       spf=pass
  (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
 Precedence: list
@@ -200,7 +200,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  2 files changed, 3 insertions(+), 13 deletions(-)
 
 diff --git a/arch/mips/include/asm/io.h b/arch/mips/include/asm/io.h
-index 06049b6b3dddb..5dfae80264b9b 100644
+index ab1df19b09571..60604b26fa72c 100644
 --- a/arch/mips/include/asm/io.h
 +++ b/arch/mips/include/asm/io.h
 @@ -60,21 +60,11 @@
@@ -228,10 +228,10 @@ index 06049b6b3dddb..5dfae80264b9b 100644
  
  /*
 diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
-index 695950361d2a7..7cc1d29334ee1 100644
+index 4f9f1ae492138..fadc946b306d2 100644
 --- a/arch/mips/kernel/setup.c
 +++ b/arch/mips/kernel/setup.c
-@@ -74,7 +74,7 @@ static char __initdata builtin_cmdline[COMMAND_LINE_SIZE] = CONFIG_CMDLINE;
+@@ -80,7 +80,7 @@ static char __initdata builtin_cmdline[COMMAND_LINE_SIZE] = CONFIG_CMDLINE;
   * mips_io_port_base is the begin of the address space to which x86 style
   * I/O ports are mapped.
   */
@@ -248,4 +248,4 @@ index 695950361d2a7..7cc1d29334ee1 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200128135906.492399637%40linuxfoundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200128135842.463604020%40linuxfoundation.org.
