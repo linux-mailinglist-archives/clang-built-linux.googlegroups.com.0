@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCP7VQF36ABBBJFSX3YQKGQEJOA2KZI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCP7VQF36ABBBKNSX3YQKGQEUSS3RZQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
-	by mail.lfdr.de (Postfix) with ESMTPS id D41C114ADFB
-	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 03:15:01 +0100 (CET)
-Received: by mail-il1-x138.google.com with SMTP id i67sf9282083ilf.5
-        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 18:15:01 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580177701; cv=pass;
+Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E5F114ADFC
+	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 03:15:07 +0100 (CET)
+Received: by mail-pj1-x103b.google.com with SMTP id h6sf489755pju.3
+        for <lists+clang-built-linux@lfdr.de>; Mon, 27 Jan 2020 18:15:06 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580177705; cv=pass;
         d=google.com; s=arc-20160816;
-        b=SfsElUt/SgcJ9VoPxvSHDZqgLWLr56G2nw8CPLE1PvBLDMKac3zJnJaYWvooZkYVHC
-         Rl/Vg5jNnaWhhcpNgLXX3Wu+E0aa6fIsqsgV552Ekm6OrngjnuQHYvHHOzHqqVZtCMsu
-         w5ZefDxqDVnUw83F4lnEV57xpkFE0AeskwBUP/P11gNnoDKQt8NHt6T7o8rVz67CnYAb
-         SLP/1PqUFZEGHrSevS3UHFwNMLQMQwe/z8vnzDdY0jRs9+6h4aEmxuOwdQFvf3IWTJeW
-         T8g3Kkkqv3jB2HWjrKnyjIbQYwKUgkHD/q8eVbT5FxcFzeeA5sZG5dCB38lZrtyO2oLT
-         PctQ==
+        b=cWqv2ig5pc8O7ROa6uE8A/iB2WHuICBrpe77tP2NtbkeildqOvdf6D4CPsECevOzEi
+         Xtae+ybD8LMvxQg064BNUfUqZpiX3I8hjwX+xIrXqICJX/0Vvu5WjRCWNpZodqxdhol9
+         2S9s4KH4OlVR0VjLfn6oGsfqJkhzYpWGlc7yF+cBsEo+CiWw0r62QYfr4nY3D+LFEPAO
+         iB0cKI05vRDHF8lbQnfxSs0QF7xb+fBWFPxxdGuUuVh1iSsmGQFU2ltID0CM8l5ztQXX
+         Sib4QwRm7mcux4WkOxS85sfRe0Wxeha82VsXUTfMZLHVCrAaoBs70vtIdbC76uj5cWLw
+         JYXw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:references:in-reply-to:to
          :from:cc:mime-version:message-id:date:subject:dkim-signature;
-        bh=oqPAJbQGNqjETZby5JAumRkmfnctuu/WAlxGlCWviZg=;
-        b=IGcGKuQ13Xrpinlu3rtlu2d7mogjrVrNQoTK5c/zU/hUeT99XNQQuqNTiBB7da64Oh
-         2LrJkwCAnuiLvl3vtpEj4Mfo8vX35uW56+/7unzy1ktYnvC/RNtK4ebd0OcEWS60q47M
-         UKBwQzh8ftfmacN/JIuCOi/z04ZfYSh9DOe6ZibtX0zfzfxk5xspI/gvE7w/bYIHiRDN
-         PTWr+9CuVTFBaN7fyCFySP7JL/BxOfOu0v/k1QaLkvXv1t8on6bR2Pzu5vPMrKc/xa0T
-         SrsrC1/+w0ji6AmFDCLuU8d9r8zwxBalNgBM3yc94vPXiqmQuTn6Vz4KE57iByb37G4o
-         9MkA==
+        bh=ki2VSvg22w5E72dxHYgjbzDeIx+TRjKv7lyqw8o89yE=;
+        b=ES2f/5reEU+XYWtpaEflEMGkvaLD5LwtQO9Z7FO+9UXTIotSh5Na0nYtYVFSm+Rpnb
+         bfEQGBnVymUBapeqQCH1pbLM0JQdUus4c6cZ3v87+8IMFdjpLK/158Z/GQ/7NnyeJUH8
+         ItIlogzUhYXdCdNgI/5BOEBSjsGI+irp1mYDiKTAXkcMofufIxFgGZycc2oz8zdDfT6l
+         TRcxx93QNfxvWxbxJ2l7ZNuXIr2yzolBpV3U+Niv36hAJHMa+On+Qe+H/SROSOet6Ez4
+         Q4v+Mvj4Y8L2CnhvKdpxKHO8VVzYPpbl+B9KWHBtsALU26Och7sT5iuFk/s3YDtzLoHr
+         napw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=u2lemWY+;
-       spf=pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=t6Fkbs2B;
+       spf=pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :references:x-original-sender:x-original-authentication-results
          :reply-to:precedence:mailing-list:list-id:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=oqPAJbQGNqjETZby5JAumRkmfnctuu/WAlxGlCWviZg=;
-        b=GS5dsCI5EzE/n5mUUhaIaao2OulvVC2g/Zfpp8QLc7hUeOZ+vNdlhcH6VBCfNFPkXN
-         gquA4d2cvk3FCFIaqCCRpuTeUI52yXu+i2XOW8Wqp9wfImazCGvMMJo9CwLPRbvr47Hf
-         pRSRCuo+KInG5YxXPbPNVc49f3yrQVvhAMTm3gSpIj/wfoKGZyvR8TtHe5Dr6PgQKpDw
-         YHdiRE49s9S8OFJ6LjD6rVP5odT8hId0Hujy3RakgSIeOxcWyFwoslCERhSJz2Q7mcpj
-         dEv3kWM4PbkE1NDxv3thYRaoKXL8ao/cAywzWxxsbM2qIXkOBjx/0I61OeBOVSH2OGk1
-         dLhA==
+        bh=ki2VSvg22w5E72dxHYgjbzDeIx+TRjKv7lyqw8o89yE=;
+        b=M1RgRYjXkqO7BXPPP68sTCrIkhXcbVdnPKVa/6osaYlS1ZficzVHdjS1g4oF5P6iq7
+         S8OD2SOl8R34ZJ+hswjXcFBSRBVn2WXKwqzIny/9CRwUobwdicYdKxJ+uKxSnlB+l396
+         s1SksCQOxalJoDOM4SfMPGbdry6xqYiXhk/wvfkauRNybB8fEwluTsAi+17y6yZiakVT
+         ZZSK5Dx9mPYkAx8oE20ACYPTiawm0kyQMZVbT1s3DFhfF/EFhSv4cXy5Z4RXelsRaTJz
+         B/DjJZnBKNWU9h4PkxlkYVM6wOj+OKod4pxdildLhTNHBnVTfuNuJmk/4o+tCLsWJp8u
+         o4Ng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:subject:date:message-id:mime-version:cc:from:to
@@ -49,62 +49,62 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=oqPAJbQGNqjETZby5JAumRkmfnctuu/WAlxGlCWviZg=;
-        b=lLx5n4YmRl/nwetknhsQuP8b6NSkxDjXJpuCRPxDTGUwhPBEhRQFFG7wrSxdmhmAY0
-         8LPVz0vO6lsZlUECInzc6WbmuN8UkMkG2AygeXU3q2zqIR755OkkF28BF7FNwIuU/9oX
-         XxTHfmE0nvLXJZ5CSOpTr1YJTe4Vs8LnJNW+lS/F+AqJaN1mEq4HiO/3QRpV+Ubqvhp9
-         W2FBdAoxTG9libwTua0hU3nvJcrW4hakXDqSENGyXSmKjMIwcn8EeGPqw530kjDzCVJX
-         /r6FsXo6I+V6OfHTHivcIxbdkqJv/nPiiEs5SEAWz/mq6jhF6w6Ki7C87jquMwAkgbze
-         SZZA==
-X-Gm-Message-State: APjAAAXhduBHozZOlQ8cvfP2hYtyfEIXo2LG1DnNkHICQS8A7wQiMpjC
-	zisKS73pBTqNS75MuOy3MUw=
-X-Google-Smtp-Source: APXvYqwF/fpepPG7xD25IcI2PNpP8fZD4tHb2yWwgZYjGJrY6QkuxeqW3BHNo/twB77b1p3WB2s2RQ==
-X-Received: by 2002:a02:9469:: with SMTP id a96mr16177219jai.52.1580177700785;
-        Mon, 27 Jan 2020 18:15:00 -0800 (PST)
+        bh=ki2VSvg22w5E72dxHYgjbzDeIx+TRjKv7lyqw8o89yE=;
+        b=FCbJDRRvrpRRXRfEIqFkt2XvLFxIUYgaIn14QJvZCTmVh/HvJ2m6b/plyLtCCqJcUz
+         iM5OAWz5cOBPEtTyTiH0mDRyLAhyZlDNSrwTcqulJMPGizglIsrC/qRpfOwORnPXLmFY
+         hfbflaKOSPLV+pTRB3VPBZRgY5M0DW9kakQbc7iss28gx66RkQLqd0+WWwj5QhiqcLxS
+         DbIdlXZZPcoqXY96hpKE+TvkDXRyocKP61xm1WaPDKSSCMIjIlKMA8KkzZHdTZm5o16P
+         uFpY2dH5ZqmloF8aA6yDKJyG08k7bVAdgJ+uyq0r3qGke2jwK4Ct7tjpVN5suMPEur9S
+         qfhg==
+X-Gm-Message-State: APjAAAU2iWjuonPAfj8HdqSfJZ/YnFvXPR6WilJBZaXyC6w+jfhtIRP7
+	tiY/muX+ainB4eeyFlnN7wU=
+X-Google-Smtp-Source: APXvYqy4fYGBGX8nfo8VLKpcmyhmnp3hySSO7m8Hi0jz1FZeeSnUWTMKh1H33XrgEjCQJDnSd1HdTA==
+X-Received: by 2002:a63:e956:: with SMTP id q22mr21698159pgj.433.1580177705675;
+        Mon, 27 Jan 2020 18:15:05 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6e02:f13:: with SMTP id x19ls1554191ilj.0.gmail; Mon, 27
- Jan 2020 18:15:00 -0800 (PST)
-X-Received: by 2002:a92:5845:: with SMTP id m66mr17998033ilb.257.1580177700377;
-        Mon, 27 Jan 2020 18:15:00 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580177700; cv=none;
+Received: by 2002:aa7:8547:: with SMTP id y7ls1384217pfn.10.gmail; Mon, 27 Jan
+ 2020 18:15:05 -0800 (PST)
+X-Received: by 2002:a63:8f55:: with SMTP id r21mr787283pgn.422.1580177705241;
+        Mon, 27 Jan 2020 18:15:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580177705; cv=none;
         d=google.com; s=arc-20160816;
-        b=pKBn8BARo4KDXWURGgHQeqRnP1zMNfG+Tg0/ATDzwXc5ny/7OzV0xOQUYAxaGSKo/+
-         KryWTk28c7+L4FxPJEJQEm+ra8u6EHldmn1q38QDoBCa76AkSK1ggrOiPx/pqAYqkybI
-         ybpboEHkEnI+DSEcjxTBtPlhV0L/RcRRx4USdtEWrqme3T1e3rIHC3a2QCEA0W4tieqg
-         QNUgx5PmzbcN1i0xQr5EpGUBot8j/jPgD1n413qrUTOxHwgIcu5buuaS3iUocfMg34XL
-         rHN2thaU2C582rdEd+1Xo2rWukab8m27yCbK/Dwt8zfKHEVE77+mzeDWTh6cANAcEyWt
-         YNDA==
+        b=KAK/1JJQ3kj2713pErTfLqUD0QHsq+Eg7rrlwDkSVX+XE9He6WjjE6pEMwBHj1xpim
+         AkGh9FoI/lS9fxh8osI2u7R7Hkv3El1TOqgEdp6SZJbHz+eZbmy/I2b/JFWghXiS4nPu
+         De/TtRZOcH2ymEljEoocxgyCPe7ApX9cPKWj31WbOWaYK0hpr5BCPBn6Fdo9moqWa195
+         DA9V7EjifVr14SWyxVs5tV0a+mJOKH9VWYzDjW8WO54DbplIGX0NiHthMlkWaBZLM3di
+         t0BWq5hRuyfw6dUg5PcND8LYSKJ3bRJw7mY6TBmj135lO0CrIpIXjHdfGkNM1r6vrt3i
+         P2ww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=references:in-reply-to:to:from:cc:content-transfer-encoding
          :mime-version:message-id:date:subject:dkim-signature;
-        bh=jKrDfwDIxQNTXTrn+zwyb0TImugf3AGUmYGjhKrNRfc=;
-        b=AG6n7SvlvxgYHmJs9fuqGlYjZs+25x5LXtgZ4VgWjjHz9MFdnriEF6HtHwdnvQ6i9A
-         KV4qC9I5EtuEKOPCC8Se/eEeZvxOOqXMVVxxSJvxrDkvFeD0BASobYjy+3nhwDkCQT49
-         6WxUAqxKS/rgJdValAbaiLSPpq/SY9aOTGolcNziblctjKuijsHUjkX9Hx/HEo2kVxkB
-         QMCYd8g32P4iJV1dgtS6zagI9iVRzJLOIDg3EONXbAlot/NSH4p4d4yHA3NwDLVvdDaV
-         EBpyPklNHOkgcftKmdC/1PLPJxGpVX3XYueOE4ozDuoMxFkeZJJmrX+8JyE1i7Ea/w9o
-         /nRg==
+        bh=LUiKWI3Cf+9+n0Mf0T0uSDtpI14DkFl6R/zPz6oE4kA=;
+        b=SnOy1gnOQNRmEcooUnzkzprnWfGqh/vVs5GvyhlGsrQlIK691a5e+kXopbnFXDOig2
+         ZUzrOHtlOgK41kjHsH6QytpVMe0wA9DRwvWummCBCHr0CjA0fETy19gUWfZmKMb5R+Zn
+         rktRKfRYRi0MfKEf7vmW4ESRc9vCp8e3FsBDZnrX+2wViiUoEBnq4AgfFoBeFLRdOo/M
+         jhKuj0g2gKv0wupWU7lpkicijOuWqDt6MFtIcN8J6Kx2byl9uLbj6OFv52m1MITG/qn0
+         OTqEaiPPMXiPqagopfMuDR6WKkfVQMoJq+X3KVEeidkKrYim8jQVwAl9DNDN/r/nuxHZ
+         TMTg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=u2lemWY+;
-       spf=pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=t6Fkbs2B;
+       spf=pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x444.google.com (mail-pf1-x444.google.com. [2607:f8b0:4864:20::444])
-        by gmr-mx.google.com with ESMTPS id z6si721180iof.2.2020.01.27.18.15.00
+Received: from mail-pj1-x1044.google.com (mail-pj1-x1044.google.com. [2607:f8b0:4864:20::1044])
+        by gmr-mx.google.com with ESMTPS id d14si929912pfo.4.2020.01.27.18.15.05
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Jan 2020 18:15:00 -0800 (PST)
-Received-SPF: pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::444 as permitted sender) client-ip=2607:f8b0:4864:20::444;
-Received: by mail-pf1-x444.google.com with SMTP id i23so5834108pfo.2
-        for <clang-built-linux@googlegroups.com>; Mon, 27 Jan 2020 18:15:00 -0800 (PST)
-X-Received: by 2002:a63:6d8d:: with SMTP id i135mr22565833pgc.90.1580177699348;
-        Mon, 27 Jan 2020 18:14:59 -0800 (PST)
-Received: from localhost ([216.9.110.7])
-        by smtp.gmail.com with ESMTPSA id k1sm10222394pfg.66.2020.01.27.18.14.58
+        Mon, 27 Jan 2020 18:15:05 -0800 (PST)
+Received-SPF: pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::1044 as permitted sender) client-ip=2607:f8b0:4864:20::1044;
+Received: by mail-pj1-x1044.google.com with SMTP id r67so322053pjb.0
+        for <clang-built-linux@googlegroups.com>; Mon, 27 Jan 2020 18:15:05 -0800 (PST)
+X-Received: by 2002:a17:902:9a09:: with SMTP id v9mr19976280plp.341.1580177704696;
+        Mon, 27 Jan 2020 18:15:04 -0800 (PST)
+Received: from localhost ([216.9.110.11])
+        by smtp.gmail.com with ESMTPSA id o17sm393828pjq.1.2020.01.27.18.15.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jan 2020 18:14:58 -0800 (PST)
-Subject: [PATCH 3/4] arm64: bpf: Split the read and write halves of dst
-Date: Mon, 27 Jan 2020 18:11:44 -0800
-Message-Id: <20200128021145.36774-4-palmerdabbelt@google.com>
+        Mon, 27 Jan 2020 18:15:04 -0800 (PST)
+Subject: [PATCH 4/4] arm64: bpf: Elide some moves to a0 after calls
+Date: Mon, 27 Jan 2020 18:11:45 -0800
+Message-Id: <20200128021145.36774-5-palmerdabbelt@google.com>
 X-Mailer: git-send-email 2.25.0.341.g760bfbb309-goog
 MIME-Version: 1.0
 Cc: daniel@iogearbox.net, ast@kernel.org, zlim.lnx@gmail.com,
@@ -119,9 +119,9 @@ In-Reply-To: <20200128021145.36774-1-palmerdabbelt@google.com>
 References: <20200128021145.36774-1-palmerdabbelt@google.com>
 X-Original-Sender: palmerdabbelt@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=u2lemWY+;       spf=pass
+ header.i=@google.com header.s=20161025 header.b=t6Fkbs2B;       spf=pass
  (google.com: domain of palmerdabbelt@google.com designates
- 2607:f8b0:4864:20::444 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
+ 2607:f8b0:4864:20::1044 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Palmer Dabbelt <palmerdabbelt@google.com>
 Reply-To: Palmer Dabbelt <palmerdabbelt@google.com>
@@ -138,338 +138,155 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-This patch is intended to change no functionality, it just allows me to do
-register renaming later.
+On arm64, the BPF function ABI doesn't match the C function ABI.  Specifically,
+arm64 encodes calls as `a0 = f(a0, a1, ...)` while BPF encodes calls as
+`BPF_REG_0 = f(BPF_REG_1, BPF_REG_2, ...)`.  This discrepancy results in
+function calls being encoded as a two operations sequence that first does a C
+ABI calls and then moves the return register into the right place.  This
+results in one extra instruction for every function call.
+
+This patch adds an optimization to the arm64 BPF JIT backend that aims to avoid
+some of these moves.
+
+I've done no benchmarking to determine if this is correct.  I ran the BPF
+selftests before and after the change on arm64 in QEMU and found that I had a
+single failure both before and after.  I'm not at all confident this code
+actually works as it's my first time doing anything with both ARM64 and BPF and
+I didn't even open the documentation for either of these.  I was particularly
+surprised that the code didn't fail any tests -- I was kind of assuming this
+would fail the tests, get put on the backburner, sit long enough for me to stop
+caring, and then get deleted.
 
 Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
 ---
- arch/arm64/net/bpf_jit_comp.c | 107 +++++++++++++++++-----------------
- 1 file changed, 54 insertions(+), 53 deletions(-)
+ arch/arm64/net/bpf_jit_comp.c | 71 +++++++++++++++++++++++++++++++++--
+ 1 file changed, 68 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 8eee68705056..fba5b1b00cd7 100644
+index fba5b1b00cd7..48d900cc7258 100644
 --- a/arch/arm64/net/bpf_jit_comp.c
 +++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -348,7 +348,8 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+@@ -58,10 +58,14 @@ struct jit_ctx {
+ 	int *offset;
+ 	__le32 *image;
+ 	u32 stack_size;
++	int reg0_in_reg1;
+ };
+ 
+ static inline int bpf2a64(struct jit_ctx *ctx, int bpf_reg)
+ {
++	if (ctx->reg0_in_reg1 && bpf_reg == BPF_REG_0)
++		bpf_reg = BPF_REG_1;
++
+ 	return bpf2a64_default[bpf_reg];
+ }
+ 
+@@ -338,6 +342,47 @@ static void build_epilogue(struct jit_ctx *ctx)
+ 	emit(A64_RET(A64_LR), ctx);
+ }
+ 
++static int dead_register(const struct jit_ctx *ctx, int offset, int bpf_reg)
++{
++	const struct bpf_prog *prog = ctx->prog;
++	int i;
++
++	for (i = offset; i < prog->len; ++i) {
++		const struct bpf_insn *insn = &prog->insnsi[i];
++		const u8 code = insn->code;
++		const u8 bpf_dst = insn->dst_reg;
++		const u8 bpf_src = insn->src_reg;
++		const int writes_dst = !((code & BPF_ST) || (code & BPF_STX)
++					 || (code & BPF_JMP32) || (code & BPF_JMP));
++		const int reads_dst  = !((code & BPF_LD));
++		const int reads_src  = true;
++
++		/* Calls are a bit special in that they clobber a bunch of regisers. */
++		if ((code & (BPF_JMP | BPF_CALL)) || (code & (BPF_JMP | BPF_TAIL_CALL)))
++			if ((bpf_reg >= BPF_REG_0) && (bpf_reg <= BPF_REG_5))
++				return false;
++
++		/* Registers that are read before they're written are alive.
++		 * Most opcodes are of the form DST = DEST op SRC, but there
++		 * are some exceptions.*/
++		if (bpf_src == bpf_reg && reads_src)
++			return false;
++
++		if (bpf_dst == bpf_reg && reads_dst)
++			return false;
++		
++		if (bpf_dst == bpf_reg && writes_dst)
++			return true;
++
++		/* Most BPF instructions are 8 bits long, but some ar 16 bits
++		 * long. */
++		if (code & (BPF_LD | BPF_IMM | BPF_DW))
++			++i;
++	}
++
++	return true;
++}
++
+ /* JITs an eBPF instruction.
+  * Returns:
+  * 0  - successfully JITed an 8-byte eBPF instruction.
+@@ -348,7 +393,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
  		      bool extra_pass)
  {
  	const u8 code = insn->code;
--	const u8 dst = bpf2a64(ctx, insn->dst_reg);
-+	const u8 dstw = bpf2a64(ctx, insn->dst_reg);
-+	const u8 dstr = bpf2a64(ctx, insn->dst_reg);
+-	const u8 dstw = bpf2a64(ctx, insn->dst_reg);
++	u8 dstw;
+ 	const u8 dstr = bpf2a64(ctx, insn->dst_reg);
  	const u8 src = bpf2a64(ctx, insn->src_reg);
  	const u8 tmp = bpf2a64(ctx, TMP_REG_1);
- 	const u8 tmp2 = bpf2a64(ctx, TMP_REG_2);
-@@ -377,32 +378,32 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+@@ -374,6 +419,27 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ #define check_imm19(imm) check_imm(19, imm)
+ #define check_imm26(imm) check_imm(26, imm)
+ 
++	/* Handle BPF_REG_0, which may be in the wrong place because the ARM64
++	 * ABI doesn't match the BPF ABI for function calls. */
++	if (ctx->reg0_in_reg1) {
++		/* If we're writing BPF_REG_0 then we don't need to do any
++		 * extra work to get the registers back in their correct
++		 * locations. */
++		if (insn->dst_reg == BPF_REG_0)
++			ctx->reg0_in_reg1 = false;
++
++		/* If we're writing to BPF_REG_1 then we need to save BPF_REG_0
++		 * into the correct location if it's still alive, as otherwise
++		 * it will be clobbered. */
++		if (insn->dst_reg == BPF_REG_1) {
++			if (!dead_register(ctx, off + 1, BPF_REG_0))
++				emit(A64_MOV(1, A64_R(7), A64_R(0)), ctx);
++			ctx->reg0_in_reg1 = false;
++		}
++	}
++
++	dstw = bpf2a64(ctx, insn->dst_reg);
++
+ 	switch (code) {
  	/* dst = src */
  	case BPF_ALU | BPF_MOV | BPF_X:
- 	case BPF_ALU64 | BPF_MOV | BPF_X:
--		emit(A64_MOV(is64, dst, src), ctx);
-+		emit(A64_MOV(is64, dstw, src), ctx);
- 		break;
- 	/* dst = dst OP src */
- 	case BPF_ALU | BPF_ADD | BPF_X:
- 	case BPF_ALU64 | BPF_ADD | BPF_X:
--		emit(A64_ADD(is64, dst, dst, src), ctx);
-+		emit(A64_ADD(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_SUB | BPF_X:
- 	case BPF_ALU64 | BPF_SUB | BPF_X:
--		emit(A64_SUB(is64, dst, dst, src), ctx);
-+		emit(A64_SUB(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_AND | BPF_X:
- 	case BPF_ALU64 | BPF_AND | BPF_X:
--		emit(A64_AND(is64, dst, dst, src), ctx);
-+		emit(A64_AND(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_OR | BPF_X:
- 	case BPF_ALU64 | BPF_OR | BPF_X:
--		emit(A64_ORR(is64, dst, dst, src), ctx);
-+		emit(A64_ORR(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_XOR | BPF_X:
- 	case BPF_ALU64 | BPF_XOR | BPF_X:
--		emit(A64_EOR(is64, dst, dst, src), ctx);
-+		emit(A64_EOR(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_MUL | BPF_X:
- 	case BPF_ALU64 | BPF_MUL | BPF_X:
--		emit(A64_MUL(is64, dst, dst, src), ctx);
-+		emit(A64_MUL(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_DIV | BPF_X:
- 	case BPF_ALU64 | BPF_DIV | BPF_X:
-@@ -410,30 +411,30 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 	case BPF_ALU64 | BPF_MOD | BPF_X:
- 		switch (BPF_OP(code)) {
- 		case BPF_DIV:
--			emit(A64_UDIV(is64, dst, dst, src), ctx);
-+			emit(A64_UDIV(is64, dstw, dstr, src), ctx);
- 			break;
- 		case BPF_MOD:
--			emit(A64_UDIV(is64, tmp, dst, src), ctx);
--			emit(A64_MSUB(is64, dst, dst, tmp, src), ctx);
-+			emit(A64_UDIV(is64, tmp, dstr, src), ctx);
-+			emit(A64_MSUB(is64, dstw, dstr, tmp, src), ctx);
- 			break;
- 		}
- 		break;
- 	case BPF_ALU | BPF_LSH | BPF_X:
- 	case BPF_ALU64 | BPF_LSH | BPF_X:
--		emit(A64_LSLV(is64, dst, dst, src), ctx);
-+		emit(A64_LSLV(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_RSH | BPF_X:
- 	case BPF_ALU64 | BPF_RSH | BPF_X:
--		emit(A64_LSRV(is64, dst, dst, src), ctx);
-+		emit(A64_LSRV(is64, dstw, dstr, src), ctx);
- 		break;
- 	case BPF_ALU | BPF_ARSH | BPF_X:
- 	case BPF_ALU64 | BPF_ARSH | BPF_X:
--		emit(A64_ASRV(is64, dst, dst, src), ctx);
-+		emit(A64_ASRV(is64, dstw, dstr, src), ctx);
- 		break;
- 	/* dst = -dst */
- 	case BPF_ALU | BPF_NEG:
- 	case BPF_ALU64 | BPF_NEG:
--		emit(A64_NEG(is64, dst, dst), ctx);
-+		emit(A64_NEG(is64, dstw, dstr), ctx);
- 		break;
- 	/* dst = BSWAP##imm(dst) */
- 	case BPF_ALU | BPF_END | BPF_FROM_LE:
-@@ -447,16 +448,16 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- #endif
- 		switch (imm) {
- 		case 16:
--			emit(A64_REV16(is64, dst, dst), ctx);
-+			emit(A64_REV16(is64, dstw, dstr), ctx);
- 			/* zero-extend 16 bits into 64 bits */
--			emit(A64_UXTH(is64, dst, dst), ctx);
-+			emit(A64_UXTH(is64, dstw, dstr), ctx);
- 			break;
- 		case 32:
--			emit(A64_REV32(is64, dst, dst), ctx);
-+			emit(A64_REV32(is64, dstw, dstr), ctx);
- 			/* upper 32 bits already cleared */
- 			break;
- 		case 64:
--			emit(A64_REV64(dst, dst), ctx);
-+			emit(A64_REV64(dstw, dstr), ctx);
- 			break;
- 		}
- 		break;
-@@ -464,11 +465,11 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 		switch (imm) {
- 		case 16:
- 			/* zero-extend 16 bits into 64 bits */
--			emit(A64_UXTH(is64, dst, dst), ctx);
-+			emit(A64_UXTH(is64, dstw, dstr), ctx);
- 			break;
- 		case 32:
- 			/* zero-extend 32 bits into 64 bits */
--			emit(A64_UXTW(is64, dst, dst), ctx);
-+			emit(A64_UXTW(is64, dstw, dstr), ctx);
- 			break;
- 		case 64:
- 			/* nop */
-@@ -478,61 +479,61 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 	/* dst = imm */
- 	case BPF_ALU | BPF_MOV | BPF_K:
- 	case BPF_ALU64 | BPF_MOV | BPF_K:
--		emit_a64_mov_i(is64, dst, imm, ctx);
-+		emit_a64_mov_i(is64, dstw, imm, ctx);
- 		break;
- 	/* dst = dst OP imm */
- 	case BPF_ALU | BPF_ADD | BPF_K:
- 	case BPF_ALU64 | BPF_ADD | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_ADD(is64, dst, dst, tmp), ctx);
-+		emit(A64_ADD(is64, dstw, dstr, tmp), ctx);
- 		break;
- 	case BPF_ALU | BPF_SUB | BPF_K:
- 	case BPF_ALU64 | BPF_SUB | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_SUB(is64, dst, dst, tmp), ctx);
-+		emit(A64_SUB(is64, dstw, dstr, tmp), ctx);
- 		break;
- 	case BPF_ALU | BPF_AND | BPF_K:
- 	case BPF_ALU64 | BPF_AND | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_AND(is64, dst, dst, tmp), ctx);
-+		emit(A64_AND(is64, dstw, dstr, tmp), ctx);
- 		break;
- 	case BPF_ALU | BPF_OR | BPF_K:
- 	case BPF_ALU64 | BPF_OR | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_ORR(is64, dst, dst, tmp), ctx);
-+		emit(A64_ORR(is64, dstw, dstr, tmp), ctx);
- 		break;
- 	case BPF_ALU | BPF_XOR | BPF_K:
- 	case BPF_ALU64 | BPF_XOR | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_EOR(is64, dst, dst, tmp), ctx);
-+		emit(A64_EOR(is64, dstw, dstr, tmp), ctx);
- 		break;
- 	case BPF_ALU | BPF_MUL | BPF_K:
- 	case BPF_ALU64 | BPF_MUL | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_MUL(is64, dst, dst, tmp), ctx);
-+		emit(A64_MUL(is64, dstw, dstr, tmp), ctx);
- 		break;
- 	case BPF_ALU | BPF_DIV | BPF_K:
- 	case BPF_ALU64 | BPF_DIV | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_UDIV(is64, dst, dst, tmp), ctx);
-+		emit(A64_UDIV(is64, dstw, dstr, tmp), ctx);
- 		break;
- 	case BPF_ALU | BPF_MOD | BPF_K:
- 	case BPF_ALU64 | BPF_MOD | BPF_K:
- 		emit_a64_mov_i(is64, tmp2, imm, ctx);
--		emit(A64_UDIV(is64, tmp, dst, tmp2), ctx);
--		emit(A64_MSUB(is64, dst, dst, tmp, tmp2), ctx);
-+		emit(A64_UDIV(is64, tmp, dstr, tmp2), ctx);
-+		emit(A64_MSUB(is64, dstw, dstr, tmp, tmp2), ctx);
- 		break;
- 	case BPF_ALU | BPF_LSH | BPF_K:
- 	case BPF_ALU64 | BPF_LSH | BPF_K:
--		emit(A64_LSL(is64, dst, dst, imm), ctx);
-+		emit(A64_LSL(is64, dstw, dstr, imm), ctx);
- 		break;
- 	case BPF_ALU | BPF_RSH | BPF_K:
- 	case BPF_ALU64 | BPF_RSH | BPF_K:
--		emit(A64_LSR(is64, dst, dst, imm), ctx);
-+		emit(A64_LSR(is64, dstw, dstr, imm), ctx);
- 		break;
- 	case BPF_ALU | BPF_ARSH | BPF_K:
- 	case BPF_ALU64 | BPF_ARSH | BPF_K:
--		emit(A64_ASR(is64, dst, dst, imm), ctx);
-+		emit(A64_ASR(is64, dstw, dstr, imm), ctx);
- 		break;
- 
- 	/* JUMP off */
-@@ -562,7 +563,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 	case BPF_JMP32 | BPF_JSLT | BPF_X:
- 	case BPF_JMP32 | BPF_JSGE | BPF_X:
- 	case BPF_JMP32 | BPF_JSLE | BPF_X:
--		emit(A64_CMP(is64, dst, src), ctx);
-+		emit(A64_CMP(is64, dstr, src), ctx);
- emit_cond_jmp:
- 		jmp_offset = bpf2a64_offset(i + off, i, ctx);
- 		check_imm19(jmp_offset);
-@@ -605,7 +606,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 		break;
- 	case BPF_JMP | BPF_JSET | BPF_X:
- 	case BPF_JMP32 | BPF_JSET | BPF_X:
--		emit(A64_TST(is64, dst, src), ctx);
-+		emit(A64_TST(is64, dstr, src), ctx);
- 		goto emit_cond_jmp;
- 	/* IF (dst COND imm) JUMP off */
- 	case BPF_JMP | BPF_JEQ | BPF_K:
-@@ -629,12 +630,12 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 	case BPF_JMP32 | BPF_JSGE | BPF_K:
- 	case BPF_JMP32 | BPF_JSLE | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_CMP(is64, dst, tmp), ctx);
-+		emit(A64_CMP(is64, dstr, tmp), ctx);
- 		goto emit_cond_jmp;
- 	case BPF_JMP | BPF_JSET | BPF_K:
- 	case BPF_JMP32 | BPF_JSET | BPF_K:
- 		emit_a64_mov_i(is64, tmp, imm, ctx);
--		emit(A64_TST(is64, dst, tmp), ctx);
-+		emit(A64_TST(is64, dstr, tmp), ctx);
- 		goto emit_cond_jmp;
+@@ -640,7 +706,6 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
  	/* function call */
  	case BPF_JMP | BPF_CALL:
-@@ -676,7 +677,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 		u64 imm64;
- 
- 		imm64 = (u64)insn1.imm << 32 | (u32)imm;
--		emit_a64_mov_i64(dst, imm64, ctx);
-+		emit_a64_mov_i64(dstw, imm64, ctx);
- 
- 		return 1;
+ 	{
+-		const u8 r0 = bpf2a64(ctx, BPF_REG_0);
+ 		bool func_addr_fixed;
+ 		u64 func_addr;
+ 		int ret;
+@@ -651,7 +716,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
+ 			return ret;
+ 		emit_addr_mov_i64(tmp, func_addr, ctx);
+ 		emit(A64_BLR(tmp), ctx);
+-		emit(A64_MOV(1, r0, A64_R(0)), ctx);
++		ctx->reg0_in_reg1 = true;
+ 		break;
  	}
-@@ -689,16 +690,16 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 		emit_a64_mov_i(1, tmp, off, ctx);
- 		switch (BPF_SIZE(code)) {
- 		case BPF_W:
--			emit(A64_LDR32(dst, src, tmp), ctx);
-+			emit(A64_LDR32(dstw, src, tmp), ctx);
- 			break;
- 		case BPF_H:
--			emit(A64_LDRH(dst, src, tmp), ctx);
-+			emit(A64_LDRH(dstw, src, tmp), ctx);
- 			break;
- 		case BPF_B:
--			emit(A64_LDRB(dst, src, tmp), ctx);
-+			emit(A64_LDRB(dstw, src, tmp), ctx);
- 			break;
- 		case BPF_DW:
--			emit(A64_LDR64(dst, src, tmp), ctx);
-+			emit(A64_LDR64(dstw, src, tmp), ctx);
- 			break;
- 		}
- 		break;
-@@ -713,16 +714,16 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 		emit_a64_mov_i(1, tmp, imm, ctx);
- 		switch (BPF_SIZE(code)) {
- 		case BPF_W:
--			emit(A64_STR32(tmp, dst, tmp2), ctx);
-+			emit(A64_STR32(tmp, dstr, tmp2), ctx);
- 			break;
- 		case BPF_H:
--			emit(A64_STRH(tmp, dst, tmp2), ctx);
-+			emit(A64_STRH(tmp, dstr, tmp2), ctx);
- 			break;
- 		case BPF_B:
--			emit(A64_STRB(tmp, dst, tmp2), ctx);
-+			emit(A64_STRB(tmp, dstr, tmp2), ctx);
- 			break;
- 		case BPF_DW:
--			emit(A64_STR64(tmp, dst, tmp2), ctx);
-+			emit(A64_STR64(tmp, dstr, tmp2), ctx);
- 			break;
- 		}
- 		break;
-@@ -735,16 +736,16 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 		emit_a64_mov_i(1, tmp, off, ctx);
- 		switch (BPF_SIZE(code)) {
- 		case BPF_W:
--			emit(A64_STR32(src, dst, tmp), ctx);
-+			emit(A64_STR32(src, dstr, tmp), ctx);
- 			break;
- 		case BPF_H:
--			emit(A64_STRH(src, dst, tmp), ctx);
-+			emit(A64_STRH(src, dstr, tmp), ctx);
- 			break;
- 		case BPF_B:
--			emit(A64_STRB(src, dst, tmp), ctx);
-+			emit(A64_STRB(src, dstr, tmp), ctx);
- 			break;
- 		case BPF_DW:
--			emit(A64_STR64(src, dst, tmp), ctx);
-+			emit(A64_STR64(src, dstr, tmp), ctx);
- 			break;
- 		}
- 		break;
-@@ -754,10 +755,10 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 	/* STX XADD: lock *(u64 *)(dst + off) += src */
- 	case BPF_STX | BPF_XADD | BPF_DW:
- 		if (!off) {
--			reg = dst;
-+			reg = dstr;
- 		} else {
- 			emit_a64_mov_i(1, tmp, off, ctx);
--			emit(A64_ADD(1, tmp, tmp, dst), ctx);
-+			emit(A64_ADD(1, tmp, tmp, dstr), ctx);
- 			reg = tmp;
- 		}
- 		if (cpus_have_cap(ARM64_HAS_LSE_ATOMICS)) {
+ 	/* tail call */
 -- 
 2.25.0.341.g760bfbb309-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200128021145.36774-4-palmerdabbelt%40google.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200128021145.36774-5-palmerdabbelt%40google.com.
