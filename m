@@ -1,138 +1,130 @@
-Return-Path: <clang-built-linux+bncBCUJ7YGL3QFBBP4CYHYQKGQEW5CY2EI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRBREEYLYQKGQESMNPNRQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83a.google.com (mail-qt1-x83a.google.com [IPv6:2607:f8b0:4864:20::83a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 85FD914B729
-	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 15:12:16 +0100 (CET)
-Received: by mail-qt1-x83a.google.com with SMTP id k27sf8519187qtu.12
-        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 06:12:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580220735; cv=pass;
+Received: from mail-pg1-x53f.google.com (mail-pg1-x53f.google.com [IPv6:2607:f8b0:4864:20::53f])
+	by mail.lfdr.de (Postfix) with ESMTPS id C5AF714C02D
+	for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 19:49:41 +0100 (CET)
+Received: by mail-pg1-x53f.google.com with SMTP id y15sf9118696pgk.20
+        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 10:49:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580237380; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ttDPFw3P/zlBrHPf3e8thlYlxWMtKy2p6JKmKxZa45heE1obQVOnulj6jc7Yu8ghSZ
-         aq5s/8b6Bg/9dDMintZZ8xVOrzsSRNC83oGtPI8XLDMmoDVjTQiLCv/baAHAx8rvmcQN
-         dv7tydt118d3q3waOf9PuIXg2eWFWUxt9WduK22j9GU2S/lFeqKwATwHhaBFb9Y5W3Qt
-         AOw5kottm167zCrzy9HfrxAivFG4wjb682iNoJ1c8yfSUA3ZTuKTkiQpHuPwNzukoqtB
-         1MfqJ2acv85iYYFJ+9Zz0eGumFYm+E48OV6URAvTfY+CWaN117o5guj524R1ky7/Nt3r
-         DKNQ==
+        b=nNbarK9uePyOXIf+zXsmhfmmaMgWBBh3+/MtFr+M8qaUNOBDSnFJ6Exs4r+YZ5dqxJ
+         PdM7aQ8bbOVBHqmGRxLsRSnuGhcHO435NKbO8eX1L2fhB0dErROvXkC7DXu++tZZbB1Z
+         TKobbknD/D/hkqwr6e+cMUGYEbo24dD9bKo4Q3dlccDxgTCRpSFEkWg0fQAA75bXlDQM
+         +43qeI3LYI3Nqic9XDkCsrqUuVhTM/HfPG42YFPDNZ6Bd0AqtSaQGMhA5sys/w2yK9BR
+         EVFF7YO1pLsxUsdoKP8SrVBclWEsDEXSnXXkH2tptnTV/jopDVFiFHQuNGOVRrfM6bhW
+         uA1g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:sender
-         :dkim-signature;
-        bh=pW43J1RVy+Pw8lg27EeKu1XrkUZgm5EF7yM/1fnWoS0=;
-        b=ZDpZlsUQGbYnOChqEXq43fkjP0HCG0WtqXCVaI6E1pm+vH1eqx01EhTA9wEWkKTbuN
-         18a8OtZzfq/XFpdlvf5Xneu2jZytGpb3xr+p7mlQcDzqSDcd4r8/oT9y7UUBD9lKyNnG
-         xwZfcStVWuAwi0S/dr82eUDx9S9bFmDPNyhTBIBLwYK6mRcXxW7QTWzAYEuhNRx20JJJ
-         i58E+pmvvHMUdWSTswj998frrPlVef+DU1lTh0X/FEzUZcvBfXJ9bc1o0s9+1WWDCTFd
-         RH5TGTyd/479U23Y3OAVqcFXcq0BOs/pEM39gWxB/ZeTS7XgAC1dUKxJEURKfTB+cqsA
-         vEcw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:from:subject
+         :references:mime-version:message-id:in-reply-to:date:dkim-signature;
+        bh=HgPUYS256Hd9EchaT0Lc4ULcowNVudk6XVB+T7fNl68=;
+        b=ppO9opz6ePkBH+o2rSIMYlolVeF8PUqR7RPqWNp8Wzl5v4qkfSU+rkIOGRF8NpEpLb
+         3SMD6CU3x1b0hAm0mnI9CIuIWN543BgLteFWHv0ovF3XldBAmWyR5RtX6p+L26Wl1CIt
+         GHbAyG+A3sKQiAGZ+N5YqqgElI1XsjQEJXKohsQ5ZQMOvo+h+2KGA8MxtoKzuWjJj7EO
+         GWHEO/zh2mOGd9bofSpmXDnh8f5ZWSgCpCN/vNbh3Mj4C63l8PgESZHdCvSCVNDWog2J
+         uMucBAbwRNf3LllEjlStUFRe7E212j8fMbtmZLaLBn5+dvSiTnXBrlVlMuNGRDSYv0cR
+         48Fw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=cB7ACNL6;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=JH4Ntoko;
+       spf=pass (google.com: domain of 3qoiwxgwkaaetbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3QoIwXgwKAAEtbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=pW43J1RVy+Pw8lg27EeKu1XrkUZgm5EF7yM/1fnWoS0=;
-        b=GS9y0eQZfVZOZ1urbsjEdsJDIewtJXydUmxUAuPN9xhBy9xPHm6sAuBcwVQNwvZxZp
-         Th4tl2bGc7LXequU0T32DGnU63lWSlioTEigRB7V3KYxPC7corQK3npD9FQ8bu6UigJL
-         aIOIQZRirW5rs+6cmDEVpFjfqNfTu0aQ4cOVKKQb6AhKyFiYJ9t+RHpIMBCrhBJ5qHsN
-         C5iMTToHle3CLrSokASew/15eNdeILAQBENuX9K7BiuXUH+p4VZyS9KNPTwhjcr5dh88
-         WyE6K6oasUVf6hA43wf8APuWvsSlRbp5eqv4DMckiekyPnFEt36BHsvTB3YAo4CHq24g
-         pCRg==
+        h=date:in-reply-to:message-id:mime-version:references:subject:from:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=HgPUYS256Hd9EchaT0Lc4ULcowNVudk6XVB+T7fNl68=;
+        b=COQO8MA/uRK7R4t7k8/hQ4ScZEDJM80L1NRfFUREOWt+Z2ZKilXFN/E/gIcb1WD45u
+         6VoCYcjRkOwkA42+pngEO0YT4i3+kzlIu71QpiZQGqhQRM4rAWspi7wMWq/wlFaWAGXY
+         tNIYwICIynD16UOfeaM0K6xDjVH6DwPcroyX5yS9fxBc3JMzB+kJvrzshyfowxFZ2yWK
+         rJxyBJPa0PkegFOlsQrC6YxpBxtk72SWDHfITYtbIItdeyAhFV1rKQ0S7r21c275dJfI
+         6KgcmcDy8UDY81SJeSSJ1NQq8q0vxtjkW05kTyXFsTfPk5rMyZSkbtM8AQjahlLAZSnb
+         wmNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
+        h=x-gm-message-state:date:in-reply-to:message-id:mime-version
+         :references:subject:from:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=pW43J1RVy+Pw8lg27EeKu1XrkUZgm5EF7yM/1fnWoS0=;
-        b=aCL7KIgHtJ2IbwJ0d23fJBJiRAOF7wJ7veipmMoBC9+O040ZMdGtw46Jr55a+ahrVh
-         1oNz9PBCufs5h101W2nsrkrIvJI2jjvoorPd/80i7ZzVQ5fPmc9AN7AdmYDj7U2Pskea
-         o9nMcSUdQOFbK9xnEaNU/tNhd5E7ox7E6kluO4bkWzBKP8T9I7MGgFuDG8I3QnXwPmZP
-         YZPw0Hy1WnHuSgTY9vxxrHdg4bncFdNsFNhCgbCbQq8pcB+CuFvuMrlSHOiBXbQYy9da
-         fvQppu5cHQktYNblEJV22sxVARw0m1+Q4fnHUNowaBiYy9jLnyl+djU9gYZv8R3dlQ8p
-         iyIg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWNsvrMSi3+7QnUn8yA/k/o64bcnaeRLvTSQJIkA4JBDSk/qfiz
-	xcjbMAh1eZRrfR7EnHtUZ5g=
-X-Google-Smtp-Source: APXvYqyWZGqOhLmPk6v9jT3LwJX0ZuRw27lnWrPikVyDxkMzJuaCetRMtWQSMQds8DW6KMkISOZLZA==
-X-Received: by 2002:ac8:1206:: with SMTP id x6mr21827521qti.55.1580220735407;
-        Tue, 28 Jan 2020 06:12:15 -0800 (PST)
+        bh=HgPUYS256Hd9EchaT0Lc4ULcowNVudk6XVB+T7fNl68=;
+        b=gPd6YY8hrknLHlCTCjsMPJGGyF21AYv9NTOp/jqkmjYK5a1SnfyyrK0jIpSoIeRVI7
+         whqXL4asVA/uy2VhqokCvIQn9j8gEnt2Pk24E1gZHfakUuBtE+PZq4cAgxB1r0RGFLjb
+         V/RN4oVInhRkTRIPtWVSMDBsMGLQTfxyWcrkV+104jVGk895jSTAuh15jgAwCzPcI+hb
+         nZF0NTOAoXcHt83dXjNoFM2b54bl3xxE8LSp7u8wGmQLsR0iHEqsEmsDSHZEcmiS6/S+
+         us5pgXs5UQ5oEC12Ed0rueD2RJjFOvNS1LZfsnhsxSh+5Jysmoubdyz5rJDxMRZ3Or3d
+         0hLw==
+X-Gm-Message-State: APjAAAXXDwzqvzRoTZ2AKW6LFVJEBOLttU6OOFjdypgl7PsGoWJFBC+K
+	yHbl1qDUwPWMaQlFvaY2r6I=
+X-Google-Smtp-Source: APXvYqyuAkuvfbw4sYdh0J29Xr5FK1M3xVCvsa6f0efx/JSMguSsQyXIke10amtEgy6mTxYUhhlqyQ==
+X-Received: by 2002:a62:160a:: with SMTP id 10mr5474633pfw.7.1580237380314;
+        Tue, 28 Jan 2020 10:49:40 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac8:1818:: with SMTP id q24ls867348qtj.0.gmail; Tue, 28 Jan
- 2020 06:12:15 -0800 (PST)
-X-Received: by 2002:ac8:71c2:: with SMTP id i2mr7305347qtp.249.1580220734648;
-        Tue, 28 Jan 2020 06:12:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580220734; cv=none;
+Received: by 2002:a17:90a:ad06:: with SMTP id r6ls1792529pjq.3.canary-gmail;
+ Tue, 28 Jan 2020 10:49:39 -0800 (PST)
+X-Received: by 2002:a17:90a:2ec7:: with SMTP id h7mr6388498pjs.107.1580237379766;
+        Tue, 28 Jan 2020 10:49:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580237379; cv=none;
         d=google.com; s=arc-20160816;
-        b=Wc4MOJ5UJz1zvIlv44R4QMTPo+NUVFouPCSQTlt3hKUlXyWB47eSCnvoeEylnufxUb
-         PQEjiRMIyC0ep29ejCI9LKxg2pkjJj/TPmkABFbI/7/0MmYouYeX9rmXNDXa0Y610F2x
-         9965r614/8W4qfsTL6wWzG6L+T01J9EkwQvS4IY1ty2JMYgeDo1xc43tqqq5hZit2AyO
-         oxuSpKrZRUUWPnGy1Lmb5HpFJb5+m8BEX/qqd+dvZR6WMrh1kBYDqAqMGgcpmcL1CuuP
-         uQ42x7TjJrzZ6G8agd67BbkTzwLZwq5NlAqny8xOksFQHTp/psl0PYTaEXEfYQYa0sIS
-         ltJg==
+        b=meSQEwSo3sU5cHPZTi1erpMtYZ1YoJyktAKv0JUPIxpDyRSKVVmV63ucD+jUckYAL9
+         +6yXGkCboiKz+bHYLi6eDhMpW59hSFL/JYKEUq59fI2Grfo4i4Te6sJoHX+pyJ3jZQVw
+         nV02N16Z01rXoB1pzRYYv89rTV/zmUvM/MnMkjUhq9zVcM95WsNOEIXe/0GR4GQ4xUSG
+         2eDEEgTC2g2zKxtbPP7Uv1Nsq1PMVOOgVT+9LTJouASIx/SPm1c/SzbXCpbOWd2O0Big
+         uw2lZpe7Fg/jZWLeFNxCvtqAiGUkZ1+BTVpVo+jIgni1zWqLea/ZrHi64DshNkU523km
+         H0YA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:message-id:date:subject:cc:to:from:dkim-signature;
-        bh=12COV/XxHPeRM/n5ZZeOOxGpoKgLr23uDeBTh4YR4KE=;
-        b=IDZGqg9tMVpS4m3lBoVvlPshsNqjaX8oE8ORghTnABFC3bOVlo2oMoEyvFwjTPTg3M
-         r77pE0AV1FbD7o8QzRWY+PPQQeoBjzSDaGcZA5AHJeOxFeXRl4VkaWUIR7wTipRzwDKB
-         Mmvr0SofnHY9TfLUi+Ka6fDcXJEO7WjkhGFDfzcPKaNUdVa4DvHoEiMkiBxAEkPAItRg
-         L84EeSVvCl9bGShie6CHLxHN70WlWYM6rz04y5JVK+8Se2gjfsNhUl48ZInveSNuykvh
-         XvQOMUebDLyeAAdLPKOZDm3cH/eomlzwWBwaIFRNhTMwMnlAsDU+GOQntIDtvbsOh+/s
-         x1Ww==
+        h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
+         :date:dkim-signature;
+        bh=5NrTkJC9S7I2hhj4XJ8xHV8Qq0f8F627XO3WJbo8N6M=;
+        b=Hd1D5PRc5d6oPqTQ65fAEc79uJBkYqtOVhntVj+jeEgag6kmZax0vJ5kfBXubF6PwW
+         TNekynK3Q6ER5g2g88ggHmXVIxrTmWBwFcHof8nqDOVX802USNvDVe/c2PoSVvDlxdrB
+         zSGHJXXUp7qMiEhZryTV9POUQKQoexBvZDf5tKNJPOyRBCSDu80mDMVTrqfgfBKm8m8w
+         VlO80wpbL6tM4JTxNb6c6FNrshrN9GgYJJzkeqwsupjUvBF9P+ruTDti8bfpqoP3D48/
+         hE+w5PBGUmMP5/7eW0Wpr1lZ6MGfK6wB82gH5jyqeRuvHjk31aaWl+885nZYFZHFng52
+         7O/A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=cB7ACNL6;
-       spf=pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w9si882738qkb.3.2020.01.28.06.12.14
+       dkim=pass header.i=@google.com header.s=20161025 header.b=JH4Ntoko;
+       spf=pass (google.com: domain of 3qoiwxgwkaaetbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3QoIwXgwKAAEtbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qt1-x84a.google.com (mail-qt1-x84a.google.com. [2607:f8b0:4864:20::84a])
+        by gmr-mx.google.com with ESMTPS id x13si1091259pgt.3.2020.01.28.10.49.39
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 28 Jan 2020 06:12:14 -0800 (PST)
-Received-SPF: pass (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost (83-86-89-107.cable.dynamic.v4.ziggo.nl [83.86.89.107])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 3305224685;
-	Tue, 28 Jan 2020 14:12:13 +0000 (UTC)
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: linux-kernel@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Eli Friedman <efriedma@quicinc.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Paul Burton <paul.burton@mips.com>,
-	ralf@linux-mips.org,
-	jhogan@kernel.org,
-	"Maciej W. Rozycki" <macro@linux-mips.org>,
-	Hassan Naveed <hnaveed@wavecomp.com>,
-	Stephen Kitt <steve@sk2.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Mike Rapoport <rppt@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Michal Hocko <mhocko@suse.com>,
-	linux-mips@vger.kernel.org,
-	clang-built-linux@googlegroups.com,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 4.4 126/183] mips: avoid explicit UB in assignment of mips_io_port_base
-Date: Tue, 28 Jan 2020 15:05:45 +0100
-Message-Id: <20200128135842.463604020@linuxfoundation.org>
-X-Mailer: git-send-email 2.25.0
-In-Reply-To: <20200128135829.486060649@linuxfoundation.org>
-References: <20200128135829.486060649@linuxfoundation.org>
-User-Agent: quilt/0.66
-MIME-Version: 1.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 28 Jan 2020 10:49:39 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3qoiwxgwkaaetbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com designates 2607:f8b0:4864:20::84a as permitted sender) client-ip=2607:f8b0:4864:20::84a;
+Received: by mail-qt1-x84a.google.com with SMTP id t4so9133183qtd.3
+        for <clang-built-linux@googlegroups.com>; Tue, 28 Jan 2020 10:49:39 -0800 (PST)
+X-Received: by 2002:a37:9ce:: with SMTP id 197mr24284571qkj.194.1580237378796;
+ Tue, 28 Jan 2020 10:49:38 -0800 (PST)
+Date: Tue, 28 Jan 2020 10:49:23 -0800
+In-Reply-To: <20191018161033.261971-1-samitolvanen@google.com>
+Message-Id: <20200128184934.77625-1-samitolvanen@google.com>
+Mime-Version: 1.0
+References: <20191018161033.261971-1-samitolvanen@google.com>
+X-Mailer: git-send-email 2.25.0.341.g760bfbb309-goog
+Subject: [PATCH v7 00/11] add support for Clang's Shadow Call Stack
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, Mark Rutland <mark.rutland@arm.com>, james.morse@arm.com
+Cc: Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>, 
+	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Jann Horn <jannh@google.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Masahiro Yamada <yamada.masahiro@socionext.com>, clang-built-linux@googlegroups.com, 
+	kernel-hardening@lists.openwall.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Sami Tolvanen <samitolvanen@google.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: gregkh@linuxfoundation.org
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=cB7ACNL6;       spf=pass
- (google.com: domain of gregkh@linuxfoundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=gregkh@linuxfoundation.org
+ header.i=@google.com header.s=20161025 header.b=JH4Ntoko;       spf=pass
+ (google.com: domain of 3qoiwxgwkaaetbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com
+ designates 2607:f8b0:4864:20::84a as permitted sender) smtp.mailfrom=3QoIwXgwKAAEtbnjupmwbofohpphmf.dpn@flex--samitolvanen.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,107 +137,175 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nick Desaulniers <ndesaulniers@google.com>
+This patch series adds support for Clang's Shadow Call Stack
+(SCS) mitigation, which uses a separately allocated shadow stack
+to protect against return address overwrites. More information
+can be found here:
 
-[ Upstream commit 12051b318bc3ce5b42d6d786191008284b067d83 ]
+  https://clang.llvm.org/docs/ShadowCallStack.html
 
-The code in question is modifying a variable declared const through
-pointer manipulation.  Such code is explicitly undefined behavior, and
-is the lone issue preventing malta_defconfig from booting when built
-with Clang:
+SCS provides better protection against traditional buffer
+overflows than CONFIG_STACKPROTECTOR_*, but it should be noted
+that SCS security guarantees in the kernel differ from the ones
+documented for user space. The kernel must store addresses of
+shadow stacks used by inactive tasks and interrupt handlers in
+memory, which means an attacker capable reading and writing
+arbitrary memory may be able to locate them and hijack control
+flow by modifying shadow stacks that are not currently in use.
 
-If an attempt is made to modify an object defined with a const-qualified
-type through use of an lvalue with non-const-qualified type, the
-behavior is undefined.
+SCS is currently supported only on arm64, where the compiler
+requires the x18 register to be reserved for holding the current
+task's shadow stack pointer.
 
-LLVM is removing such assignments. A simple fix is to not declare
-variables const that you plan on modifying.  Limiting the scope would be
-a better method of preventing unwanted writes to such a variable.
+With -fsanitize=shadow-call-stack, the compiler injects
+instructions to all non-leaf C functions to store the return
+address to the shadow stack, and unconditionally load it again
+before returning. As a result, SCS is currently incompatible
+with features that rely on modifying function return addresses
+in the kernel stack to alter control flow, such as function
+graph tracing, although it may be possible to later change these
+features to modify the shadow stack instead. A copy of the return
+address is still kept in the kernel stack for compatibility with
+stack unwinding, for example.
 
-Further, the code in question mentions "compiler bugs" without any links
-to bug reports, so it is difficult to know if the issue is resolved in
-GCC. The patch was authored in 2006, which would have been GCC 4.0.3 or
-4.1.1. The minimal supported version of GCC in the Linux kernel is
-currently 4.6.
+SCS has a minimal performance overhead, but allocating
+shadow stacks increases kernel memory usage. The feature is
+therefore mostly useful on hardware that lacks support for PAC
+instructions.
 
-For what its worth, there was UB before the commit in question, it just
-added a barrier and got lucky IRT codegen. I don't think there's any
-actual compiler bugs related, just runtime bugs due to UB.
+Changes in v7:
+ - Changed irq_stack_entry/exit to store the shadow stack pointer
+   in x24 instead of x20 as kernel_entry uses x20-x23 to store
+   data that can be used later. Updated the comment as well.
+ - Changed the Makefile in arch/arm64/kvm/hyp to also filter out
+   -ffixed-x18.
+ - Changed SHADOW_CALL_STACK to depend on !FUNCTION_GRAPH_TRACER
+   instead of not selecting HAVE_FUNCTION_GRAPH_TRACER with SCS.
+ - Removed ifdefs from the EFI wrapper and updated the comment to
+   explain why we are restoring x18.
+ - Rebased as Ard's x18 patches that were part of this series have
+   already been merged.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/610
-Fixes: 966f4406d903 ("[MIPS] Work around bad code generation for <asm/io.h>.")
-Reported-by: Nathan Chancellor <natechancellor@gmail.com>
-Debugged-by: Nathan Chancellor <natechancellor@gmail.com>
-Suggested-by: Eli Friedman <efriedma@quicinc.com>
-Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-Tested-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Paul Burton <paul.burton@mips.com>
-Cc: ralf@linux-mips.org
-Cc: jhogan@kernel.org
-Cc: Maciej W. Rozycki <macro@linux-mips.org>
-Cc: Hassan Naveed <hnaveed@wavecomp.com>
-Cc: Stephen Kitt <steve@sk2.org>
-Cc: Serge Semin <fancer.lancer@gmail.com>
-Cc: Mike Rapoport <rppt@linux.ibm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Michal Hocko <mhocko@suse.com>
-Cc: linux-mips@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: clang-built-linux@googlegroups.com
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/mips/include/asm/io.h | 14 ++------------
- arch/mips/kernel/setup.c   |  2 +-
- 2 files changed, 3 insertions(+), 13 deletions(-)
+Changes in v6:
+ - Updated comment in the EFI RT wrapper to include the
+   explanation from the commit message.
+ - Fixed the SHADOW_CALL_STACK_VMAP config option and the
+   compilation errors in scs_init_irq()
+ - Updated the comment in entry.S to Mark's suggestion
+ - Fixed the WARN_ON in scs_init() to trip only when the return
+   value for cpuhp_setup_state() is < 0.
+ - Removed ifdefs from the code in arch/arm64/kernel/scs.c and
+   added separate shadow stacks for the SDEI handler
 
-diff --git a/arch/mips/include/asm/io.h b/arch/mips/include/asm/io.h
-index ab1df19b09571..60604b26fa72c 100644
---- a/arch/mips/include/asm/io.h
-+++ b/arch/mips/include/asm/io.h
-@@ -60,21 +60,11 @@
-  * instruction, so the lower 16 bits must be zero.  Should be true on
-  * on any sane architecture; generic code does not use this assumption.
-  */
--extern const unsigned long mips_io_port_base;
-+extern unsigned long mips_io_port_base;
- 
--/*
-- * Gcc will generate code to load the value of mips_io_port_base after each
-- * function call which may be fairly wasteful in some cases.  So we don't
-- * play quite by the book.  We tell gcc mips_io_port_base is a long variable
-- * which solves the code generation issue.  Now we need to violate the
-- * aliasing rules a little to make initialization possible and finally we
-- * will need the barrier() to fight side effects of the aliasing chat.
-- * This trickery will eventually collapse under gcc's optimizer.  Oh well.
-- */
- static inline void set_io_port_base(unsigned long base)
- {
--	* (unsigned long *) &mips_io_port_base = base;
--	barrier();
-+	mips_io_port_base = base;
- }
- 
- /*
-diff --git a/arch/mips/kernel/setup.c b/arch/mips/kernel/setup.c
-index 4f9f1ae492138..fadc946b306d2 100644
---- a/arch/mips/kernel/setup.c
-+++ b/arch/mips/kernel/setup.c
-@@ -80,7 +80,7 @@ static char __initdata builtin_cmdline[COMMAND_LINE_SIZE] = CONFIG_CMDLINE;
-  * mips_io_port_base is the begin of the address space to which x86 style
-  * I/O ports are mapped.
-  */
--const unsigned long mips_io_port_base = -1;
-+unsigned long mips_io_port_base = -1;
- EXPORT_SYMBOL(mips_io_port_base);
- 
- static struct resource code_resource = { .name = "Kernel code", };
+Changes in v5:
+ - Updated the comment in __scs_base() to Mark's suggestion
+ - Changed all instances of uintptr_t to unsigned long
+ - Added allocation poisoning for KASAN to catch unintentional
+   shadow stack accesses; moved set_set_magic before poisoning
+   and switched scs_used() and scs_corrupted() to access the
+   buffer using READ_ONCE_NOCHECK() instead
+ - Changed scs_free() to check for NULL instead of zero
+ - Renamed SCS_CACHE_SIZE to NR_CACHED_SCS
+ - Added a warning if cpuhp_setup_state fails in scs_init()
+ - Dropped patches disabling kretprobes after confirming there's
+   no functional conflict with SCS instrumentation
+ - Added an explanation to the commit message why function graph
+   tracing and SCS are incompatible
+ - Removed the ifdefs from arch/arm64/mm/proc.S and added
+   comments explaining why we are saving and restoring x18
+ - Updated scs_check_usage format to include process information
+
+Changes in v4:
+ - Fixed authorship for Ard's patches
+ - Added missing commit messages
+ - Commented code that clears SCS from thread_info
+ - Added a comment about SCS_END_MAGIC being non-canonical
+
+Changes in v3:
+ - Switched to filter-out for removing SCS flags in Makefiles
+ - Changed the __noscs attribute to use __no_sanitize__("...")
+   instead of no_sanitize("...")
+ - Cleaned up inline function definitions and moved task_scs()
+   into a macro
+ - Cleaned up scs_free() and scs_magic()
+ - Moved SCS initialization into dup_task_struct() and removed
+   the now unused scs_task_init()
+ - Added comments to __scs_base() and scs_task_reset() to better
+   document design choices
+ - Changed copy_page to make the offset and bias explicit
+
+Changes in v2:
+ - Changed Ard's KVM patch to use x29 instead of x18 for the
+   guest context, which makes restore_callee_saved_regs cleaner
+ - Updated help text (and commit messages) to point out
+   differences in security properties compared to user space SCS
+ - Cleaned up config options: removed the ROP protection choice,
+   replaced the CC_IS_CLANG dependency with an arch-specific
+   cc-option test, and moved disabling of incompatible config
+   options to an arch-specific Kconfig
+ - Added CC_FLAGS_SCS, which are filtered out where needed
+   instead of using DISABLE_SCS
+ - Added a __has_feature guard around __noscs for older clang
+   versions
+
+Sami Tolvanen (11):
+  add support for Clang's Shadow Call Stack (SCS)
+  scs: add accounting
+  scs: add support for stack usage debugging
+  scs: disable when function graph tracing is enabled
+  arm64: reserve x18 from general allocation with SCS
+  arm64: preserve x18 when CPU is suspended
+  arm64: efi: restore x18 if it was corrupted
+  arm64: vdso: disable Shadow Call Stack
+  arm64: disable SCS for hypervisor code
+  arm64: implement Shadow Call Stack
+  arm64: scs: add shadow stacks for SDEI
+
+ Makefile                             |   6 +
+ arch/Kconfig                         |  35 ++++
+ arch/arm64/Kconfig                   |   5 +
+ arch/arm64/Makefile                  |   4 +
+ arch/arm64/include/asm/scs.h         |  39 +++++
+ arch/arm64/include/asm/suspend.h     |   2 +-
+ arch/arm64/include/asm/thread_info.h |   3 +
+ arch/arm64/kernel/Makefile           |   1 +
+ arch/arm64/kernel/asm-offsets.c      |   3 +
+ arch/arm64/kernel/efi-rt-wrapper.S   |  11 +-
+ arch/arm64/kernel/entry.S            |  46 ++++-
+ arch/arm64/kernel/head.S             |   9 +
+ arch/arm64/kernel/irq.c              |   2 +
+ arch/arm64/kernel/process.c          |   2 +
+ arch/arm64/kernel/scs.c              | 114 +++++++++++++
+ arch/arm64/kernel/sdei.c             |   7 +
+ arch/arm64/kernel/smp.c              |   4 +
+ arch/arm64/kernel/vdso/Makefile      |   2 +-
+ arch/arm64/kvm/hyp/Makefile          |   3 +
+ arch/arm64/mm/proc.S                 |  14 ++
+ drivers/base/node.c                  |   6 +
+ fs/proc/meminfo.c                    |   4 +
+ include/linux/compiler-clang.h       |   6 +
+ include/linux/compiler_types.h       |   4 +
+ include/linux/mmzone.h               |   3 +
+ include/linux/scs.h                  |  57 +++++++
+ init/init_task.c                     |   8 +
+ kernel/Makefile                      |   1 +
+ kernel/fork.c                        |   9 +
+ kernel/sched/core.c                  |   2 +
+ kernel/scs.c                         | 246 +++++++++++++++++++++++++++
+ mm/page_alloc.c                      |   6 +
+ mm/vmstat.c                          |   3 +
+ 33 files changed, 661 insertions(+), 6 deletions(-)
+ create mode 100644 arch/arm64/include/asm/scs.h
+ create mode 100644 arch/arm64/kernel/scs.c
+ create mode 100644 include/linux/scs.h
+ create mode 100644 kernel/scs.c
+
+
+base-commit: b0be0eff1a5ab77d588b76bd8b1c92d5d17b3f73
 -- 
-2.20.1
-
-
+2.25.0.341.g760bfbb309-goog
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200128135842.463604020%40linuxfoundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200128184934.77625-1-samitolvanen%40google.com.
