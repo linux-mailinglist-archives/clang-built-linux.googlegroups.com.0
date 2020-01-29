@@ -1,124 +1,127 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBEOWYPYQKGQESQUMQVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBCPTYXYQKGQEVGCL23Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8369114C48E
-	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jan 2020 03:16:49 +0100 (CET)
-Received: by mail-wm1-x338.google.com with SMTP id d4sf172997wmd.7
-        for <lists+clang-built-linux@lfdr.de>; Tue, 28 Jan 2020 18:16:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580264209; cv=pass;
+Received: from mail-wr1-x43c.google.com (mail-wr1-x43c.google.com [IPv6:2a00:1450:4864:20::43c])
+	by mail.lfdr.de (Postfix) with ESMTPS id AC86C14CAC9
+	for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jan 2020 13:24:41 +0100 (CET)
+Received: by mail-wr1-x43c.google.com with SMTP id 90sf9948032wrq.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 29 Jan 2020 04:24:41 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580300681; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ERqvWLKjCPj9wGHl0Xh+nEHH+nRNyoyDfmpDL+KzG2TTTfxdoCEM5EMiA8ajGNPsIq
-         hWJjMJM5stg+OQ3JVC5fuHJj8dLab7Gt3Q2Dhvf/RilmR8ebbTmTw20slPyh1DYTcmat
-         7HY4hYCly57kUkUwswougwESLM4yFh++QZWWKvjLCM5k14mSIuyNUGO9bYSC+DQgAPwM
-         dYL1Pf1Slc/OCLxUmmrXOg7hMgIG8tBnjVMH+liDZQ3htslIq7andTUQKu0LUyGZ2dWZ
-         qCTQmKumXKGc4PC65serwuZSwQB192ExLAxctGlkc21XFHeTGBwrfmsz58SRQb745uq0
-         jiWw==
+        b=zOFR4iOmyBZvt+fRzgu0ERV+7Tlktrv+vAqRm5UXmTRVx1wMurMthfkTbEiVpEQwmh
+         kHytYsULVoJK2P2N5g3PW3kAg+sn56KxkxbFjDcU76T7EluV6AUuXv8PhEQnk0yunIl1
+         Xw2lEISVxgfE+P43kjq6Bsnreoc2OPdooWsscUuCkzFEJcqala9y5ZUAZtilA5QgWxNO
+         uiU6LTQGNUdt4MhtI6BsDOIHj0uxmqf3ezpDn8cOJnr5iRVidIOWSp62az9FPA+cqBuv
+         2Sc4q03EVr3ab1sHCFXKTaEeFXklVzD0vn3LpUpZbHD1z4NrkDogCqTBIlDAHiJxSP06
+         aGzw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=IiB0VMf/9jpc8dOnWX5k0BfP5YvDHMLjwwLp0sSFPXc=;
-        b=FPB0W5J+6+ewVAwVqQ+T22tPGqpcGc0t0/gwjmdVT7VtQpjxgKiR0FniFM2FEDoQpO
-         E99AcaopC7mBuR8e8amhiJ65/pEHBXPasRFiLq6AkHEiFEqB2X6+RQlWo/G7Ei7qbPnt
-         RGbBqo8EnBuW0NCUR/3va0L8bUzryqAocD3YSlg0Hs0Zw/TOrZdsgwp3/MuUROScd6o2
-         gr23yTJCo8JyLMXhdNrQhRXOl+WUlxicRdPoMUnipklKXMnjh2FtbcwKprAfIy4tSE19
-         Ru0VT+guGcGzkIHtu2fTW5OoyIqkgwMqDxWbialPymFKz7Vg7bYy5Ts+ZuEPw3IKPIBb
-         oqSg==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=osJqehJMs/daQE9PhXBkvvq8mp8qavaQ3tGmP3vb6Vg=;
+        b=VM+Sl1ADsNpZHtos62Qy6SeEQfovKjsFW7aRHZA5wSX/4GS7GWvDjTNDmn8ucgnHLX
+         eMBo8ALeyWR3lfREXi/jwQMfIMLNxnJ0H4VGnBytk6ajzQBtUq3GcNygzSXUfGjJbxUO
+         QUScDzQj3aCblem0AEZpdMfY8ebbf4cCOx7bbh3Ny3tviiHqSnO7YJF0xyp6grL0cdxh
+         H+frPMG5YMy5wfUjftjP6zW9irbXkREBz/CApPH0kR+EmjG5ceBrsbgm913Mg9VY6lAJ
+         6njnoQT+iFMzxBUIxKWPzSkakALdtOqicKI7XcRpYYxiGJgx4wXlkLx+PqdU93uMWI68
+         W7LA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=JLhxfKsh;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=K6yN5dGF;
+       spf=neutral (google.com: 2a00:1450:4864:20::441 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=IiB0VMf/9jpc8dOnWX5k0BfP5YvDHMLjwwLp0sSFPXc=;
-        b=szaxGhs9i8/e1nZU9PPWo7emLTPok4mShG7PR9QQb4OI8rRAfPsuIPJtNgCKOilbl4
-         jvXs8nNpGBH8duQuNuVMKWBbu8rsr9BNn0pJCgXan5u/WlVSgHqtNI5kv78Gnc3mo8D8
-         /LO1GsEE47I5kLJ3/b49hdphLMhPX65UCMEnPtDRn5aSLgQ/BFZYGGoyke8ywToR7Tiv
-         G0GrvGUta9YU3nzy17hB/5PnK34qul1l+gZFnSdhTAfXObopnis0dpsIp2rvNsmEMiE0
-         5+AemDpPTWNLODbLOYD6b6TOCoK9DMnnI9e0pHkj6PsB/xxOPklSswptylki6zQKW17R
-         JeAg==
+        bh=osJqehJMs/daQE9PhXBkvvq8mp8qavaQ3tGmP3vb6Vg=;
+        b=oa/Q9CWhYQ5ug2EofLSH9H8g6pgI9D3adjP8loUGKWqbJ3EQU7rZlspXf/tBtauEwG
+         H1lomFYN6wXwGeXi0AGsFs8G3tQnPZOE99/8SEz5zn/t8/mCJQb3F2jPF1VWazNwFAuA
+         xLKwUEyU/ogupbVKClNGsBcfRXVwrYF50zomENVwd4TxEmTmhGY5zMIncXX2VFa7bve+
+         31ClADkNqNbI8d5UZRVCXU2ojOdlVHOe1t/ycwDZJ92fifGOQglo7HeY7Yb1Z5foFDC5
+         gSnEkafYY/fInQZcU7S8rdE0MGRlwF26G4a89Z1y2Ko7eQAe+DEkrcHRdQEbC6wIjyI3
+         P5Sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=IiB0VMf/9jpc8dOnWX5k0BfP5YvDHMLjwwLp0sSFPXc=;
-        b=ODu9H//GQDYC261kw2atUFyTaCsJ0gib0xCT1KcDzzqweqWwfE5uIPgPntf/jpXkGh
-         BOVlUZQy1+yGJEcdSxyW5CDm7P48reVNfQ1YXRB4ZG2xudQu2OQrQeNvjgBoDTQInIN1
-         ldqOIvS/a3F39oMhBofXs9sha6yu8uTsrzbPVNRWtqtX3Uw/kiXhodoymhE9BTVhxJ0M
-         vIL+r1bt5D65hiYT/UWJyvQoXAiUi6YgJbgdygAf7DxlzKpyyf1sfLE8S6LGOmvA0TVK
-         l6c1O9KKU1s0np0DLZG1Rpm3wF2fc66b9r2CBSnq8GH4l+nh6uKasopQS2uWIgpJTZ5y
-         pKug==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=osJqehJMs/daQE9PhXBkvvq8mp8qavaQ3tGmP3vb6Vg=;
+        b=hIct4zjSzv0AEq7ZIKnotpwrX25kWhwu/+yslrV4wchVF9xVb9ju5PpJLHWVeCww6h
+         qKHFr10M2XIevViof5J+zZ2EeAnif2fFc0R+qDExcxdlG8RzkEhWyaxPzI11AzR/W7jC
+         Ioyj8J3Th6fNAHfDweapy1EThWHEUPjBRlAu3WTNBqM4ja+I/C0LS7+yZqWBmlM7ZHze
+         69Z1W6t+9nYJSg2hon11ps8ts6eTzkpXgHxDeAuGXpyuNnRIzN1KP04DWPFAT6aRrDc+
+         R8ZtOBKhYAlJgo4UQwAfPoCUMbo5nmRxLzSdkBOWVz7DICu90N7MO9Pu4IgmTUPdLi68
+         27sA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUGerBoSXOOrYd3Sy0tYsrWUtMBVWmWr9oIyG69KWAckWOXBHfd
-	bNJ9b3WgOrTTLSEDu0rdjx0=
-X-Google-Smtp-Source: APXvYqwap1TgA6P6AEQsdNShnd68xc7gnF5LC6iS8jWtV8q+13hdM9+vGHVq79yPE7K7PozuGhu1TQ==
-X-Received: by 2002:a05:600c:2187:: with SMTP id e7mr8143887wme.11.1580264209054;
-        Tue, 28 Jan 2020 18:16:49 -0800 (PST)
+X-Gm-Message-State: APjAAAWAL63PdFXIAmaK3HEUxKq117QHmmY4WXgjtU29h9cbJTQqJpD5
+	wjI6uJNOGJkHanB/I5zsRyI=
+X-Google-Smtp-Source: APXvYqyrTEbTtCSTbfixMzC9q1WTJpB5RnTkQ2zORndjvTD2Q/UEa6B32xOImd+6Pr8HISE5LxqwDg==
+X-Received: by 2002:a5d:68c5:: with SMTP id p5mr34393692wrw.193.1580300681346;
+        Wed, 29 Jan 2020 04:24:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:adf:ea84:: with SMTP id s4ls10928635wrm.11.gmail; Tue, 28
- Jan 2020 18:16:48 -0800 (PST)
-X-Received: by 2002:a05:6000:11c6:: with SMTP id i6mr33393729wrx.178.1580264208402;
-        Tue, 28 Jan 2020 18:16:48 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580264208; cv=none;
+Received: by 2002:adf:f403:: with SMTP id g3ls11994080wro.3.gmail; Wed, 29 Jan
+ 2020 04:24:40 -0800 (PST)
+X-Received: by 2002:adf:f802:: with SMTP id s2mr37222158wrp.201.1580300680696;
+        Wed, 29 Jan 2020 04:24:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580300680; cv=none;
         d=google.com; s=arc-20160816;
-        b=GYbrE/X2EtalxkLnSI5+welGr0+MD73SRPHir6jqXh7hRqocy4jgBexTXW0gd2YR1j
-         1VBJHOPNgW/e65xbgbyAR3ZLqHZDDLePqOJXBY+PErlJ1OwmoomC7VWceh5EEhcTxa6t
-         51c9d4lTEvD62qoJXfVe6Hx2juNTfu1+977VXUhgSRoU9TO+kj841mm92J9OU0yDsYqu
-         BOqEOHV6Gi9HHLf5nMUJNBHNDm1bHw35jb5taYxDLbx9EWBHPmfZQz/Hc8+XT+v7C36s
-         qwt94Hc/QWuTFWVlNwNWfDmgvmG4lvpdJXO60zl0LjLGfXxHu4nEzDkFNUjaUmFG6CZQ
-         yo8g==
+        b=pSxfn1ZSwk3IC/9GLa4tdNjzfmiHijahuUV1RkAnVFgHzA5L/nmHeEEEI+RGraO3Ij
+         uJe2oYwEKjsd1H1fa6MbG9EU8FOtSNHj8LOw/U2Z+Bh9fyfqJFAyD6Zz177f6jeG7E7C
+         QtQpcaZnSKCLksmJUvHNmophNIp5gkVuNkvPYeFTTMLY1F8dQzZeuJllfBmo1JFmw02x
+         DR+zebnPHsQsCSYra7luxPhDBMnoRSfRtg0C5xa+I/t64pwLI8LgxbhTh2ArnD9GmLUG
+         uLf3isTMcXLCWmaXyyavKgVTruMbu7AQQhF9zvR4LwToKgwGhHECr1so5X3/fGCAOAjU
+         0F7w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=NW+tHY53I0cjvBMIFjDfzgPm1T2Z8zvRYRHLHez4q7A=;
-        b=E1237xt6Fu65Dkc55CSAs+zEQxS0zBkyaobgAJPc8yVzv4+y70eWpz/TyIYR76GNRj
-         XOm+Zp9rBdClfdaRc/kaCLxhm3oLzYeU74d08o32j6XLKjgD8Oj/XkIfPsk0VsVA+Djy
-         ZjHm4VHU00t6TLadVF1hMuW9NXyjd4Pw4Bnkv1XvRjSQjKPrdvzM0eqBbatBvxZhV1he
-         A3kFW/C/EJm0d0wrvWj+Y5jd4+GKheCzb2JQFnh8zR45vjS665qlXCOe9cz7Vfa2onCS
-         D/VXQYWwExlmDuz5+xInbtyHbNGHHs/cDrM/upxzcsWXtmbjo5uvhn23q9DqzDaZrAYj
-         gPOg==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=ZGUUgEG9CRFoAjgdtkLdsxhTxCDPgJtaXy522Shb2Ac=;
+        b=bsMclT9tFNN6ZnsvIU98AmQbLffszwiW/alUw9Ygc4vZXtJNQnu/67hgb0RjgVdP4N
+         8krCXmZRzFKBPAKhOFWY7uyNYHrbw6q85GwvHHCW8PA4+636Tyn6fTb1PeiPZYXb9XS1
+         5Dy1gqAN/EKkkDRtIgzT7VVG+3iPM7wFEXIyWOxWxf1XE8PbHcanu022eVjvrY6p86kK
+         SkfN+7PLQAkVWZqWAPdjLT4TGC9LgwBgDCwI6HyrM4cN14lIepJ9gN17JA0iVy6TCJoW
+         7uJul0C1xqS7b6j5KeJFgLw2iTPNAVyQ98tC+P+gbZDFHLZnOlTL2rykVCNOn/FeNH+X
+         OFSQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=JLhxfKsh;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wm1-x342.google.com (mail-wm1-x342.google.com. [2a00:1450:4864:20::342])
-        by gmr-mx.google.com with ESMTPS id m2si220098wmi.3.2020.01.28.18.16.48
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=K6yN5dGF;
+       spf=neutral (google.com: 2a00:1450:4864:20::441 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-wr1-x441.google.com (mail-wr1-x441.google.com. [2a00:1450:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id t131si60504wmb.1.2020.01.29.04.24.40
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 28 Jan 2020 18:16:48 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342 as permitted sender) client-ip=2a00:1450:4864:20::342;
-Received: by mail-wm1-x342.google.com with SMTP id t14so4679788wmi.5
-        for <clang-built-linux@googlegroups.com>; Tue, 28 Jan 2020 18:16:48 -0800 (PST)
-X-Received: by 2002:a1c:5445:: with SMTP id p5mr8121390wmi.75.1580264207295;
-        Tue, 28 Jan 2020 18:16:47 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id e16sm809790wro.67.2020.01.28.18.16.46
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Tue, 28 Jan 2020 18:16:46 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Wed, 29 Jan 2020 02:16:46 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <46612481.1836.1580264206749.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-arm-next-allmodconfig - Build # 65 - Successful!
+        Wed, 29 Jan 2020 04:24:40 -0800 (PST)
+Received-SPF: neutral (google.com: 2a00:1450:4864:20::441 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2a00:1450:4864:20::441;
+Received: by mail-wr1-x441.google.com with SMTP id y11so19932866wrt.6
+        for <clang-built-linux@googlegroups.com>; Wed, 29 Jan 2020 04:24:40 -0800 (PST)
+X-Received: by 2002:a5d:6406:: with SMTP id z6mr35186839wru.294.1580300679376;
+        Wed, 29 Jan 2020 04:24:39 -0800 (PST)
+Received: from [148.251.42.114] ([2a01:4f8:201:9271::2])
+        by smtp.gmail.com with ESMTPSA id s65sm2237372wmf.48.2020.01.29.04.24.38
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 29 Jan 2020 04:24:38 -0800 (PST)
+Message-ID: <5e317986.1c69fb81.ee174.a427@mx.google.com>
+Date: Wed, 29 Jan 2020 04:24:38 -0800 (PST)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_1835_783573416.1580264206194"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-next-allmodconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+X-Kernelci-Kernel: next-20200129
+X-Kernelci-Report-Type: build
+Subject: next/master build: 198 builds: 2 failed, 196 passed, 3 errors,
+ 75 warnings (next-20200129)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=JLhxfKsh;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::342
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=K6yN5dGF;       spf=neutral (google.com: 2a00:1450:4864:20::441 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,1103 +134,1330 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_1835_783573416.1580264206194
-Content-Type: text/plain; charset="UTF-8"
+next/master build: 198 builds: 2 failed, 196 passed, 3 errors, 75 warnings =
+(next-20200129)
 
-Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-arm-next-allmodconfig.  So far, this commit has regressed CI configurations:
- - tcwg_kernel/gnu-release-aarch64-next-allmodconfig
- - tcwg_kernel/gnu-release-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-master-arm-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allmodconfig
- - tcwg_kernel/llvm-release-aarch64-next-allyesconfig
- - tcwg_kernel/llvm-release-arm-next-allmodconfig
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200129/
 
-Culprit:
-<cut>
-commit 51466b3fd2725bfb0de629f71c0854ff276d50ae
-Author: Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
+Tree: next
+Branch: master
+Git Describe: next-20200129
+Git Commit: 335e1cb5b8c0f961767537c3bb8db47b8fcb5671
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-    drm/amd/display: Add execution and transition states for HDCP2.2
-</cut>
+Build Failures Detected:
 
-First few errors in logs of first_bad:
-00:04:10 drivers/gpu/drm/amd/amdgpu/../display/modules/hdcp/hdcp2_execution.c:162:4: error: implicit declaration of function 'udelay' [-Werror,-Wimplicit-function-declaration]
-00:04:10 drivers/gpu/drm/amd/amdgpu/../display/modules/hdcp/hdcp2_execution.c:472:3: error: implicit declaration of function 'udelay' [-Werror,-Wimplicit-function-declaration]
-00:04:10 make[4]: *** [drivers/gpu/drm/amd/amdgpu/../display/modules/hdcp/hdcp2_execution.o] Error 1
-00:04:13 make[3]: *** [drivers/gpu/drm/amd/amdgpu] Error 2
-00:04:41 make[2]: *** [drivers/gpu/drm] Error 2
-00:04:41 make[1]: *** [drivers/gpu] Error 2
-00:05:18 make: *** [drivers] Error 2
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="702ccea170f07783bd002055a353a0866c062267"
+arm:
+    allmodconfig: (gcc-8) FAIL
 
-Results regressed to (for first_bad == 51466b3fd2725bfb0de629f71c0854ff276d50ae)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-19891
+mips:
+    malta_kvm_defconfig: (gcc-8) FAIL
 
-from (for last_good == eff682f83c9c2030761e7536c5d97e1b20f71c15)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-27178
-linux build successful:
-all
+Errors and Warnings Detected:
 
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/artifact/artifacts/build-51466b3fd2725bfb0de629f71c0854ff276d50ae/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/artifact/artifacts/build-eff682f83c9c2030761e7536c5d97e1b20f71c15/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/
+arc:
 
-Reproduce builds:
-<cut>
-mkdir investigate-linux-51466b3fd2725bfb0de629f71c0854ff276d50ae
-cd investigate-linux-51466b3fd2725bfb0de629f71c0854ff276d50ae
+arm64:
 
-git clone https://git.linaro.org/toolchain/jenkins-scripts
+arm:
+    allmodconfig (gcc-8): 1 error, 16 warnings
+    cm_x300_defconfig (gcc-8): 1 warning
+    imx_v4_v5_defconfig (gcc-8): 7 warnings
+    lpc32xx_defconfig (gcc-8): 2 warnings
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    mini2440_defconfig (gcc-8): 2 warnings
+    multi_v7_defconfig (gcc-8): 1 warning
+    mv78xx0_defconfig (gcc-8): 1 warning
+    mvebu_v5_defconfig (gcc-8): 4 warnings
+    mxs_defconfig (gcc-8): 3 warnings
+    orion5x_defconfig (gcc-8): 3 warnings
+    pxa3xx_defconfig (gcc-8): 1 warning
+    s3c2410_defconfig (gcc-8): 2 warnings
+    tango4_defconfig (gcc-8): 2 warnings
+    tegra_defconfig (gcc-8): 2 warnings
 
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
+i386:
+    i386_defconfig (gcc-8): 17 warnings
 
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+mips:
+    32r2el_defconfig (gcc-8): 1 warning
+    malta_kvm_defconfig (gcc-8): 2 errors, 1 warning
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
 
-cd linux
+riscv:
+    rv32_defconfig (gcc-8): 6 warnings
 
-# Reproduce first_bad build
-git checkout --detach 51466b3fd2725bfb0de629f71c0854ff276d50ae
-../artifacts/test.sh
+x86_64:
+    tinyconfig (gcc-8): 1 warning
 
-# Reproduce last_good build
-git checkout --detach eff682f83c9c2030761e7536c5d97e1b20f71c15
-../artifacts/test.sh
+Errors summary:
 
-cd ..
-</cut>
+    1    arch/mips/kvm/mips.c:303:43: error: =E2=80=98kvm_mips_comparecount=
+_wakeup=E2=80=99 undeclared (first use in this function); did you mean =E2=
+=80=98kvm_mips_count_timeout=E2=80=99?
+    1    arch/mips/kvm/mips.c:1224:29: error: =E2=80=98kvm_mips_comparecoun=
+t_wakeup=E2=80=99 defined but not used [-Werror=3Dunused-function]
+    1    ERROR: "__aeabi_uldivmod" [drivers/net/ethernet/mellanox/mlxsw/mlx=
+sw_spectrum.ko] undefined!
 
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-next-allmodconfig
+Warnings summary:
 
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allmodconfig/65/consoleText
+    31   include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_=
+lookup_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    16   arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width o=
+f type [-Wshift-count-overflow]
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    2    kernel/bpf/bpf_struct_ops.c:197:1: warning: the frame size of 1192=
+ bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    1    {standard input}:141: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    kernel/bpf/bpf_struct_ops.c:197:1: warning: the frame size of 1184=
+ bytes is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    cc1: all warnings being treated as errors
+    1    /tmp/ccVAvHIj.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccVAvHIj.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1163:warning: override: UNWINDER_GUESS changes choice stat=
+e
 
-Full commit:
-<cut>
-commit 51466b3fd2725bfb0de629f71c0854ff276d50ae
-Author: Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
-Date:   Wed Sep 18 11:18:15 2019 -0400
+Section mismatches summary:
 
-    drm/amd/display: Add execution and transition states for HDCP2.2
-    
-    The module works like a state machine
-    
-                                        +-------------+
-                                ------> | Execution.c | ------
-                                |       +-------------+       |
-                                |                             V
-        +----+              +--------+                 +--------------+
-        | DM |    ----->    | Hdcp.c |  <------------  | Transition.c |
-        +----+    <-----    +--------+                 +--------------+
-    
-    This patch adds the execution and transition files for 2.2
-    
-    Signed-off-by: Bhawanpreet Lakha <Bhawanpreet.Lakha@amd.com>
-    Reviewed-by: Harry Wentland <harry.wentland@amd.com>
-    Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
+    1    WARNING: vmlinux.o(.text.unlikely+0x3a78): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3718): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warnin=
+g, 0 section mismatches
+
+Warnings:
+    kernel/bpf/bpf_struct_ops.c:197:1: warning: the frame size of 1184 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 16 warnings, 0 section m=
+ismatches
+
+Errors:
+    ERROR: "__aeabi_uldivmod" [drivers/net/ethernet/mellanox/mlxsw/mlxsw_sp=
+ectrum.ko] undefined!
+
+Warnings:
+    /tmp/ccVAvHIj.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccVAvHIj.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3a78): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3718): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 17 warning=
+s, 0 section mismatches
+
+Warnings:
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    arch/x86/kvm/x86.h:363:16: warning: right shift count >=3D width of typ=
+e [-Wshift-count-overflow]
+    kernel/bpf/bpf_struct_ops.c:197:1: warning: the frame size of 1192 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warning, 0 se=
+ction mismatches
+
+Errors:
+    arch/mips/kvm/mips.c:303:43: error: =E2=80=98kvm_mips_comparecount_wake=
+up=E2=80=99 undeclared (first use in this function); did you mean =E2=80=98=
+kvm_mips_count_timeout=E2=80=99?
+    arch/mips/kvm/mips.c:1224:29: error: =E2=80=98kvm_mips_comparecount_wak=
+eup=E2=80=99 defined but not used [-Werror=3Dunused-function]
+
+Warnings:
+    cc1: all warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:141: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 =
+warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warni=
+ng, 0 section mismatches
+
+Warnings:
+    kernel/bpf/bpf_struct_ops.c:197:1: warning: the frame size of 1192 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section =
+mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/mfd/syscon.h:54:23: warning: =E2=80=98syscon_regmap_looku=
+p_by_phandle_args=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1163:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
 ---
- drivers/gpu/drm/amd/display/modules/hdcp/Makefile  |   3 +-
- drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c    |  86 +-
- drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h    | 127 +++
- .../drm/amd/display/modules/hdcp/hdcp2_execution.c | 881 +++++++++++++++++++++
- .../amd/display/modules/hdcp/hdcp2_transition.c    | 674 ++++++++++++++++
- drivers/gpu/drm/amd/display/modules/inc/mod_hdcp.h |   2 +
- 6 files changed, 1764 insertions(+), 9 deletions(-)
+For more info write to <info@kernelci.org>
 
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/Makefile b/drivers/gpu/drm/amd/display/modules/hdcp/Makefile
-index 1c3c6d47973a..904424da01b5 100644
---- a/drivers/gpu/drm/amd/display/modules/hdcp/Makefile
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/Makefile
-@@ -24,7 +24,8 @@
- #
- 
- HDCP = hdcp_ddc.o hdcp_log.o hdcp_psp.o hdcp.o \
--		hdcp1_execution.o hdcp1_transition.o
-+		hdcp1_execution.o hdcp1_transition.o \
-+		hdcp2_execution.o hdcp2_transition.o
- 
- AMD_DAL_HDCP = $(addprefix $(AMDDALPATH)/modules/hdcp/,$(HDCP))
- #$(info ************  DAL-HDCP_MAKEFILE ************)
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c
-index d7ac445dec6f..a74812977963 100644
---- a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.c
-@@ -37,24 +37,52 @@ static void push_error_status(struct mod_hdcp *hdcp,
- 		HDCP_ERROR_TRACE(hdcp, status);
- 	}
- 
--	hdcp->connection.hdcp1_retry_count++;
-+	if (is_hdcp1(hdcp)) {
-+		hdcp->connection.hdcp1_retry_count++;
-+	} else if (is_hdcp2(hdcp)) {
-+		hdcp->connection.hdcp2_retry_count++;
-+	}
- }
- 
- static uint8_t is_cp_desired_hdcp1(struct mod_hdcp *hdcp)
- {
--	int i, display_enabled = 0;
-+	int i, is_auth_needed = 0;
- 
--	/* if all displays on the link are disabled, hdcp is not desired */
-+	/* if all displays on the link don't need authentication,
-+	 * hdcp is not desired
-+	 */
- 	for (i = 0; i < MAX_NUM_OF_DISPLAYS; i++) {
- 		if (hdcp->connection.displays[i].state != MOD_HDCP_DISPLAY_INACTIVE &&
- 				!hdcp->connection.displays[i].adjust.disable) {
--			display_enabled = 1;
-+			is_auth_needed = 1;
- 			break;
- 		}
- 	}
- 
- 	return (hdcp->connection.hdcp1_retry_count < MAX_NUM_OF_ATTEMPTS) &&
--			display_enabled && !hdcp->connection.link.adjust.hdcp1.disable;
-+			is_auth_needed &&
-+			!hdcp->connection.link.adjust.hdcp1.disable;
-+}
-+
-+static uint8_t is_cp_desired_hdcp2(struct mod_hdcp *hdcp)
-+{
-+	int i, is_auth_needed = 0;
-+
-+	/* if all displays on the link don't need authentication,
-+	 * hdcp is not desired
-+	 */
-+	for (i = 0; i < MAX_NUM_OF_DISPLAYS; i++) {
-+		if (hdcp->connection.displays[i].state != MOD_HDCP_DISPLAY_INACTIVE &&
-+				!hdcp->connection.displays[i].adjust.disable) {
-+			is_auth_needed = 1;
-+			break;
-+		}
-+	}
-+
-+	return (hdcp->connection.hdcp2_retry_count < MAX_NUM_OF_ATTEMPTS) &&
-+			is_auth_needed &&
-+			!hdcp->connection.link.adjust.hdcp2.disable &&
-+			!hdcp->connection.is_hdcp2_revoked;
- }
- 
- static enum mod_hdcp_status execution(struct mod_hdcp *hdcp,
-@@ -82,6 +110,11 @@ static enum mod_hdcp_status execution(struct mod_hdcp *hdcp,
- 	} else if (is_in_hdcp1_dp_states(hdcp)) {
- 		status = mod_hdcp_hdcp1_dp_execution(hdcp,
- 				event_ctx, &input->hdcp1);
-+	} else if (is_in_hdcp2_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_execution(hdcp, event_ctx, &input->hdcp2);
-+	} else if (is_in_hdcp2_dp_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_dp_execution(hdcp,
-+				event_ctx, &input->hdcp2);
- 	}
- out:
- 	return status;
-@@ -99,7 +132,10 @@ static enum mod_hdcp_status transition(struct mod_hdcp *hdcp,
- 
- 	if (is_in_initialized_state(hdcp)) {
- 		if (is_dp_hdcp(hdcp))
--			if (is_cp_desired_hdcp1(hdcp)) {
-+			if (is_cp_desired_hdcp2(hdcp)) {
-+				callback_in_ms(0, output);
-+				set_state_id(hdcp, output, D2_A0_DETERMINE_RX_HDCP_CAPABLE);
-+			} else if (is_cp_desired_hdcp1(hdcp)) {
- 				callback_in_ms(0, output);
- 				set_state_id(hdcp, output, D1_A0_DETERMINE_RX_HDCP_CAPABLE);
- 			} else {
-@@ -107,7 +143,10 @@ static enum mod_hdcp_status transition(struct mod_hdcp *hdcp,
- 				set_state_id(hdcp, output, HDCP_CP_NOT_DESIRED);
- 			}
- 		else if (is_hdmi_dvi_sl_hdcp(hdcp))
--			if (is_cp_desired_hdcp1(hdcp)) {
-+			if (is_cp_desired_hdcp2(hdcp)) {
-+				callback_in_ms(0, output);
-+				set_state_id(hdcp, output, H2_A0_KNOWN_HDCP2_CAPABLE_RX);
-+			} else if (is_cp_desired_hdcp1(hdcp)) {
- 				callback_in_ms(0, output);
- 				set_state_id(hdcp, output, H1_A0_WAIT_FOR_ACTIVE_RX);
- 			} else {
-@@ -126,6 +165,12 @@ static enum mod_hdcp_status transition(struct mod_hdcp *hdcp,
- 	} else if (is_in_hdcp1_dp_states(hdcp)) {
- 		status = mod_hdcp_hdcp1_dp_transition(hdcp,
- 				event_ctx, &input->hdcp1, output);
-+	} else if (is_in_hdcp2_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_transition(hdcp,
-+				event_ctx, &input->hdcp2, output);
-+	} else if (is_in_hdcp2_dp_states(hdcp)) {
-+		status = mod_hdcp_hdcp2_dp_transition(hdcp,
-+				event_ctx, &input->hdcp2, output);
- 	} else {
- 		status = MOD_HDCP_STATUS_INVALID_STATE;
- 	}
-@@ -139,9 +184,13 @@ static enum mod_hdcp_status reset_authentication(struct mod_hdcp *hdcp,
- 	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
- 
- 	if (is_hdcp1(hdcp)) {
--		if (hdcp->auth.trans_input.hdcp1.create_session != UNKNOWN)
-+		if (hdcp->auth.trans_input.hdcp1.create_session != UNKNOWN) {
-+			/* TODO - update psp to unify create session failure
-+			 * recovery between hdcp1 and 2.
-+			 */
- 			mod_hdcp_hdcp1_destroy_session(hdcp);
- 
-+		}
- 		if (hdcp->auth.trans_input.hdcp1.add_topology == PASS) {
- 			status = mod_hdcp_remove_display_topology(hdcp);
- 			if (status != MOD_HDCP_STATUS_SUCCESS) {
-@@ -154,6 +203,27 @@ static enum mod_hdcp_status reset_authentication(struct mod_hdcp *hdcp,
- 		memset(&hdcp->auth, 0, sizeof(struct mod_hdcp_authentication));
- 		memset(&hdcp->state, 0, sizeof(struct mod_hdcp_state));
- 		set_state_id(hdcp, output, HDCP_INITIALIZED);
-+	} else if (is_hdcp2(hdcp)) {
-+		if (hdcp->auth.trans_input.hdcp2.create_session == PASS) {
-+			status = mod_hdcp_hdcp2_destroy_session(hdcp);
-+			if (status != MOD_HDCP_STATUS_SUCCESS) {
-+				output->callback_needed = 0;
-+				output->watchdog_timer_needed = 0;
-+				goto out;
-+			}
-+		}
-+		if (hdcp->auth.trans_input.hdcp2.add_topology == PASS) {
-+			status = mod_hdcp_remove_display_topology(hdcp);
-+			if (status != MOD_HDCP_STATUS_SUCCESS) {
-+				output->callback_needed = 0;
-+				output->watchdog_timer_needed = 0;
-+				goto out;
-+			}
-+		}
-+		HDCP_TOP_RESET_AUTH_TRACE(hdcp);
-+		memset(&hdcp->auth, 0, sizeof(struct mod_hdcp_authentication));
-+		memset(&hdcp->state, 0, sizeof(struct mod_hdcp_state));
-+		set_state_id(hdcp, output, HDCP_INITIALIZED);
- 	} else if (is_in_cp_not_desired_state(hdcp)) {
- 		status = mod_hdcp_remove_display_topology(hdcp);
- 		if (status != MOD_HDCP_STATUS_SUCCESS) {
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h
-index d83f0ab1cadb..9887c5ea6d5f 100644
---- a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp.h
-@@ -44,11 +44,13 @@
- #define BINFO_MAX_DEVS_EXCEEDED_MASK_DP			0x0080
- #define BINFO_MAX_CASCADE_EXCEEDED_MASK_DP		0x0800
- 
-+#define VERSION_HDCP2_MASK				0x04
- #define RXSTATUS_MSG_SIZE_MASK				0x03FF
- #define RXSTATUS_READY_MASK				0x0400
- #define RXSTATUS_REAUTH_REQUEST_MASK			0x0800
- #define RXIDLIST_DEVICE_COUNT_LOWER_MASK		0xf0
- #define RXIDLIST_DEVICE_COUNT_UPPER_MASK		0x01
-+#define RXCAPS_BYTE2_HDCP2_VERSION_DP			0x02
- #define RXCAPS_BYTE0_HDCP_CAPABLE_MASK_DP		0x02
- #define RXSTATUS_READY_MASK_DP				0x0001
- #define RXSTATUS_H_P_AVAILABLE_MASK_DP			0x0002
-@@ -92,8 +94,52 @@ struct mod_hdcp_transition_input_hdcp1 {
- 	uint8_t stream_encryption_dp;
- };
- 
-+struct mod_hdcp_transition_input_hdcp2 {
-+	uint8_t hdcp2version_read;
-+	uint8_t hdcp2_capable_check;
-+	uint8_t add_topology;
-+	uint8_t create_session;
-+	uint8_t ake_init_prepare;
-+	uint8_t ake_init_write;
-+	uint8_t rxstatus_read;
-+	uint8_t ake_cert_available;
-+	uint8_t ake_cert_read;
-+	uint8_t ake_cert_validation;
-+	uint8_t stored_km_write;
-+	uint8_t no_stored_km_write;
-+	uint8_t h_prime_available;
-+	uint8_t h_prime_read;
-+	uint8_t pairing_available;
-+	uint8_t pairing_info_read;
-+	uint8_t h_prime_validation;
-+	uint8_t lc_init_prepare;
-+	uint8_t lc_init_write;
-+	uint8_t l_prime_available_poll;
-+	uint8_t l_prime_read;
-+	uint8_t l_prime_validation;
-+	uint8_t eks_prepare;
-+	uint8_t eks_write;
-+	uint8_t enable_encryption;
-+	uint8_t reauth_request_check;
-+	uint8_t rx_id_list_read;
-+	uint8_t device_count_check;
-+	uint8_t rx_id_list_validation;
-+	uint8_t repeater_auth_ack_write;
-+	uint8_t prepare_stream_manage;
-+	uint8_t stream_manage_write;
-+	uint8_t stream_ready_available;
-+	uint8_t stream_ready_read;
-+	uint8_t stream_ready_validation;
-+
-+	uint8_t rx_caps_read_dp;
-+	uint8_t content_stream_type_write;
-+	uint8_t link_integrity_check_dp;
-+	uint8_t stream_encryption_dp;
-+};
-+
- union mod_hdcp_transition_input {
- 	struct mod_hdcp_transition_input_hdcp1 hdcp1;
-+	struct mod_hdcp_transition_input_hdcp2 hdcp2;
- };
- 
- struct mod_hdcp_message_hdcp1 {
-@@ -150,8 +196,10 @@ struct mod_hdcp_connection {
- 	struct mod_hdcp_display displays[MAX_NUM_OF_DISPLAYS];
- 	uint8_t is_repeater;
- 	uint8_t is_km_stored;
-+	uint8_t is_hdcp2_revoked;
- 	struct mod_hdcp_trace trace;
- 	uint8_t hdcp1_retry_count;
-+	uint8_t hdcp2_retry_count;
- };
- 
- /* contains values per authentication cycle */
-@@ -219,6 +267,50 @@ enum mod_hdcp_hdcp1_dp_state_id {
- 	HDCP1_DP_STATE_END = D1_A7_READ_KSV_LIST,
- };
- 
-+enum mod_hdcp_hdcp2_state_id {
-+	HDCP2_STATE_START = HDCP1_DP_STATE_END,
-+	H2_A0_KNOWN_HDCP2_CAPABLE_RX,
-+	H2_A1_SEND_AKE_INIT,
-+	H2_A1_VALIDATE_AKE_CERT,
-+	H2_A1_SEND_NO_STORED_KM,
-+	H2_A1_READ_H_PRIME,
-+	H2_A1_READ_PAIRING_INFO_AND_VALIDATE_H_PRIME,
-+	H2_A1_SEND_STORED_KM,
-+	H2_A1_VALIDATE_H_PRIME,
-+	H2_A2_LOCALITY_CHECK,
-+	H2_A3_EXCHANGE_KS_AND_TEST_FOR_REPEATER,
-+	H2_ENABLE_ENCRYPTION,
-+	H2_A5_AUTHENTICATED,
-+	H2_A6_WAIT_FOR_RX_ID_LIST,
-+	H2_A78_VERIFY_RX_ID_LIST_AND_SEND_ACK,
-+	H2_A9_SEND_STREAM_MANAGEMENT,
-+	H2_A9_VALIDATE_STREAM_READY,
-+	HDCP2_STATE_END = H2_A9_VALIDATE_STREAM_READY,
-+};
-+
-+enum mod_hdcp_hdcp2_dp_state_id {
-+	HDCP2_DP_STATE_START = HDCP2_STATE_END,
-+	D2_A0_DETERMINE_RX_HDCP_CAPABLE,
-+	D2_A1_SEND_AKE_INIT,
-+	D2_A1_VALIDATE_AKE_CERT,
-+	D2_A1_SEND_NO_STORED_KM,
-+	D2_A1_READ_H_PRIME,
-+	D2_A1_READ_PAIRING_INFO_AND_VALIDATE_H_PRIME,
-+	D2_A1_SEND_STORED_KM,
-+	D2_A1_VALIDATE_H_PRIME,
-+	D2_A2_LOCALITY_CHECK,
-+	D2_A34_EXCHANGE_KS_AND_TEST_FOR_REPEATER,
-+	D2_SEND_CONTENT_STREAM_TYPE,
-+	D2_ENABLE_ENCRYPTION,
-+	D2_A5_AUTHENTICATED,
-+	D2_A6_WAIT_FOR_RX_ID_LIST,
-+	D2_A78_VERIFY_RX_ID_LIST_AND_SEND_ACK,
-+	D2_A9_SEND_STREAM_MANAGEMENT,
-+	D2_A9_VALIDATE_STREAM_READY,
-+	HDCP2_DP_STATE_END = D2_A9_VALIDATE_STREAM_READY,
-+	HDCP_STATE_END = HDCP2_DP_STATE_END,
-+};
-+
- /* hdcp1 executions and transitions */
- typedef enum mod_hdcp_status (*mod_hdcp_action)(struct mod_hdcp *hdcp);
- uint8_t mod_hdcp_execute_and_set(
-@@ -239,6 +331,22 @@ enum mod_hdcp_status mod_hdcp_hdcp1_dp_transition(struct mod_hdcp *hdcp,
- 	struct mod_hdcp_transition_input_hdcp1 *input,
- 	struct mod_hdcp_output *output);
- 
-+/* hdcp2 executions and transitions */
-+enum mod_hdcp_status mod_hdcp_hdcp2_execution(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input);
-+enum mod_hdcp_status mod_hdcp_hdcp2_dp_execution(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input);
-+enum mod_hdcp_status mod_hdcp_hdcp2_transition(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input,
-+	struct mod_hdcp_output *output);
-+enum mod_hdcp_status mod_hdcp_hdcp2_dp_transition(struct mod_hdcp *hdcp,
-+	struct mod_hdcp_event_context *event_ctx,
-+	struct mod_hdcp_transition_input_hdcp2 *input,
-+	struct mod_hdcp_output *output);
-+
- /* log functions */
- void mod_hdcp_dump_binary_message(uint8_t *msg, uint32_t msg_size,
- 		uint8_t *buf, uint32_t buf_size);
-@@ -289,6 +397,7 @@ enum mod_hdcp_status mod_hdcp_read_binfo(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_write_aksv(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_write_ainfo(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_write_an(struct mod_hdcp *hdcp);
-+enum mod_hdcp_status mod_hdcp_read_hdcp2version(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_read_rxcaps(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_read_rxstatus(struct mod_hdcp *hdcp);
- enum mod_hdcp_status mod_hdcp_read_ake_cert(struct mod_hdcp *hdcp);
-@@ -352,11 +461,28 @@ static inline uint8_t is_in_hdcp1_dp_states(struct mod_hdcp *hdcp)
- 			current_state(hdcp) <= HDCP1_DP_STATE_END);
- }
- 
-+static inline uint8_t is_in_hdcp2_states(struct mod_hdcp *hdcp)
-+{
-+	return (current_state(hdcp) > HDCP2_STATE_START &&
-+			current_state(hdcp) <= HDCP2_STATE_END);
-+}
-+
-+static inline uint8_t is_in_hdcp2_dp_states(struct mod_hdcp *hdcp)
-+{
-+	return (current_state(hdcp) > HDCP2_DP_STATE_START &&
-+			current_state(hdcp) <= HDCP2_DP_STATE_END);
-+}
-+
- static inline uint8_t is_hdcp1(struct mod_hdcp *hdcp)
- {
- 	return (is_in_hdcp1_states(hdcp) || is_in_hdcp1_dp_states(hdcp));
- }
- 
-+static inline uint8_t is_hdcp2(struct mod_hdcp *hdcp)
-+{
-+	return (is_in_hdcp2_states(hdcp) || is_in_hdcp2_dp_states(hdcp));
-+}
-+
- static inline uint8_t is_in_cp_not_desired_state(struct mod_hdcp *hdcp)
- {
- 	return current_state(hdcp) == HDCP_CP_NOT_DESIRED;
-@@ -481,6 +607,7 @@ static inline struct mod_hdcp_display *get_empty_display_container(
- static inline void reset_retry_counts(struct mod_hdcp *hdcp)
- {
- 	hdcp->connection.hdcp1_retry_count = 0;
-+	hdcp->connection.hdcp2_retry_count = 0;
- }
- 
- #endif /* HDCP_H_ */
-diff --git a/drivers/gpu/drm/amd/display/modules/hdcp/hdcp2_execution.c b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp2_execution.c
-new file mode 100644
-index 000000000000..c93c8098d972
---- /dev/null
-+++ b/drivers/gpu/drm/amd/display/modules/hdcp/hdcp2_execution.c
-@@ -0,0 +1,881 @@
-+/*
-+ * Copyright 2018 Advanced Micro Devices, Inc.
-+ *
-+ * Permission is hereby granted, free of charge, to any person obtaining a
-+ * copy of this software and associated documentation files (the "Software"),
-+ * to deal in the Software without restriction, including without limitation
-+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
-+ * and/or sell copies of the Software, and to permit persons to whom the
-+ * Software is furnished to do so, subject to the following conditions:
-+ *
-+ * The above copyright notice and this permission notice shall be included in
-+ * all copies or substantial portions of the Software.
-+ *
-+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
-+ * THE COPYRIGHT HOLDER(S) OR AUTHOR(S) BE LIABLE FOR ANY CLAIM, DAMAGES OR
-+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-+ * OTHER DEALINGS IN THE SOFTWARE.
-+ *
-+ * Authors: AMD
-+ *
-+ */
-+
-+#include "hdcp.h"
-+
-+static inline enum mod_hdcp_status check_receiver_id_list_ready(struct mod_hdcp *hdcp)
-+{
-+	uint8_t is_ready = 0;
-+
-+	if (is_dp_hdcp(hdcp))
-+		is_ready = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_READY_MASK_DP) ? 1 : 0;
-+	else
-+		is_ready = ((hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_READY_MASK) &&
-+				(hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK)) ? 1 : 0;
-+	return is_ready ? MOD_HDCP_STATUS_SUCCESS :
-+			MOD_HDCP_STATUS_HDCP2_RX_ID_LIST_NOT_READY;
-+}
-+
-+static inline enum mod_hdcp_status check_hdcp2_capable(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+
-+	if (is_dp_hdcp(hdcp))
-+		status = ((hdcp->auth.msg.hdcp2.rxcaps_dp[2] &
-+						RXCAPS_BYTE0_HDCP_CAPABLE_MASK_DP) &&
-+				(hdcp->auth.msg.hdcp2.rxcaps_dp[0] ==
-+						RXCAPS_BYTE2_HDCP2_VERSION_DP)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_NOT_CAPABLE;
-+	else
-+		status = (hdcp->auth.msg.hdcp2.hdcp2version_hdmi & VERSION_HDCP2_MASK) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_NOT_CAPABLE;
-+	return status;
-+}
-+
-+static inline enum mod_hdcp_status check_reauthentication_request(
-+		struct mod_hdcp *hdcp)
-+{
-+	uint8_t ret = 0;
-+
-+	if (is_dp_hdcp(hdcp))
-+		ret = (hdcp->auth.msg.hdcp2.rxstatus &
-+				RXSTATUS_REAUTH_REQUEST_MASK_DP) ?
-+				MOD_HDCP_STATUS_HDCP2_REAUTH_REQUEST :
-+				MOD_HDCP_STATUS_SUCCESS;
-+	else
-+		ret = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_REAUTH_REQUEST_MASK) ?
-+				MOD_HDCP_STATUS_HDCP2_REAUTH_REQUEST :
-+				MOD_HDCP_STATUS_SUCCESS;
-+	return ret;
-+}
-+
-+static inline enum mod_hdcp_status check_link_integrity_failure_dp(
-+		struct mod_hdcp *hdcp)
-+{
-+	return (hdcp->auth.msg.hdcp2.rxstatus &
-+			RXSTATUS_LINK_INTEGRITY_FAILURE_MASK_DP) ?
-+			MOD_HDCP_STATUS_HDCP2_REAUTH_LINK_INTEGRITY_FAILURE :
-+			MOD_HDCP_STATUS_SUCCESS;
-+}
-+
-+static enum mod_hdcp_status check_ake_cert_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint16_t size;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = MOD_HDCP_STATUS_SUCCESS;
-+	} else {
-+		status = mod_hdcp_read_rxstatus(hdcp);
-+		if (status == MOD_HDCP_STATUS_SUCCESS) {
-+			size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+			status = (size == sizeof(hdcp->auth.msg.hdcp2.ake_cert)) ?
-+					MOD_HDCP_STATUS_SUCCESS :
-+					MOD_HDCP_STATUS_HDCP2_AKE_CERT_PENDING;
-+		}
-+	}
-+	return status;
-+}
-+
-+static enum mod_hdcp_status check_h_prime_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+
-+	status = mod_hdcp_read_rxstatus(hdcp);
-+	if (status != MOD_HDCP_STATUS_SUCCESS)
-+		goto out;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_H_P_AVAILABLE_MASK_DP) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_H_PRIME_PENDING;
-+	} else {
-+		size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+		status = (size == sizeof(hdcp->auth.msg.hdcp2.ake_h_prime)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_H_PRIME_PENDING;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status check_pairing_info_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+
-+	status = mod_hdcp_read_rxstatus(hdcp);
-+	if (status != MOD_HDCP_STATUS_SUCCESS)
-+		goto out;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = (hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_PAIRING_AVAILABLE_MASK_DP) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_PAIRING_INFO_PENDING;
-+	} else {
-+		size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+		status = (size == sizeof(hdcp->auth.msg.hdcp2.ake_pairing_info)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_PAIRING_INFO_PENDING;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status poll_l_prime_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+	uint16_t max_wait = 20000; // units of us
-+	uint16_t num_polls = 5;
-+	uint16_t wait_time = max_wait / num_polls;
-+
-+	if (is_dp_hdcp(hdcp))
-+		status = MOD_HDCP_STATUS_INVALID_OPERATION;
-+	else
-+		for (; num_polls; num_polls--) {
-+			udelay(wait_time);
-+
-+			status = mod_hdcp_read_rxstatus(hdcp);
-+			if (status != MOD_HDCP_STATUS_SUCCESS)
-+				break;
-+
-+			size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+			status = (size == sizeof(hdcp->auth.msg.hdcp2.lc_l_prime)) ?
-+					MOD_HDCP_STATUS_SUCCESS :
-+					MOD_HDCP_STATUS_HDCP2_L_PRIME_PENDING;
-+			if (status == MOD_HDCP_STATUS_SUCCESS)
-+				break;
-+		}
-+	return status;
-+}
-+
-+static enum mod_hdcp_status check_stream_ready_available(struct mod_hdcp *hdcp)
-+{
-+	enum mod_hdcp_status status;
-+	uint8_t size;
-+
-+	if (is_dp_hdcp(hdcp)) {
-+		status = MOD_HDCP_STATUS_INVALID_OPERATION;
-+	} else {
-+		status = mod_hdcp_read_rxstatus(hdcp);
-+		if (status != MOD_HDCP_STATUS_SUCCESS)
-+			goto out;
-+		size = hdcp->auth.msg.hdcp2.rxstatus & RXSTATUS_MSG_SIZE_MASK;
-+		status = (size == sizeof(hdcp->auth.msg.hdcp2.repeater_auth_stream_ready)) ?
-+				MOD_HDCP_STATUS_SUCCESS :
-+				MOD_HDCP_STATUS_HDCP2_STREAM_READY_PENDING;
-+	}
-+out:
-+	return status;
-+}
-+
-+static inline uint8_t get_device_count(struct mod_hdcp *hdcp)
-+{
-+	return ((hdcp->auth.msg.hdcp2.rx_id_list[2] & RXIDLIST_DEVICE_COUNT_LOWER_MASK) >> 4) +
-+		((hdcp->auth.msg.hdcp2.rx_id_list[1] & RXIDLIST_DEVICE_COUNT_UPPER_MASK) << 4);
-+}
-+
-+static enum mod_hdcp_status check_device_count(struct mod_hdcp *hdcp)
-+{
-+	/* device count must be greater than or equal to tracked hdcp displays */
-+	return (get_device_count(hdcp) < get_added_display_count(hdcp)) ?
-+			MOD_HDCP_STATUS_HDCP2_DEVICE_COUNT_MISMATCH_FAILURE :
-+			MOD_HDCP_STATUS_SUCCESS;
-+}
-+
-+static uint8_t process_rxstatus(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input,
-+		enum mod_hdcp_status *status)
-+{
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_rxstatus,
-+			&input->rxstatus_read, status,
-+			hdcp, "rxstatus_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(check_reauthentication_request,
-+			&input->reauth_request_check, status,
-+			hdcp, "reauth_request_check"))
-+		goto out;
-+	if (is_dp_hdcp(hdcp)) {
-+		if (!mod_hdcp_execute_and_set(check_link_integrity_failure_dp,
-+				&input->link_integrity_check_dp, status,
-+				hdcp, "link_integrity_check_dp"))
-+			goto out;
-+	}
-+	if (hdcp->connection.is_repeater)
-+		if (check_receiver_id_list_ready(hdcp) ==
-+				MOD_HDCP_STATUS_SUCCESS) {
-+			HDCP_INPUT_PASS_TRACE(hdcp, "rx_id_list_ready");
-+			event_ctx->rx_id_list_ready = 1;
-+			if (is_dp_hdcp(hdcp))
-+				hdcp->auth.msg.hdcp2.rx_id_list_size =
-+						sizeof(hdcp->auth.msg.hdcp2.rx_id_list);
-+			else
-+				hdcp->auth.msg.hdcp2.rx_id_list_size =
-+						hdcp->auth.msg.hdcp2.rxstatus & 0x3FF;
-+		}
-+out:
-+	return (*status == MOD_HDCP_STATUS_SUCCESS);
-+}
-+
-+static enum mod_hdcp_status known_hdcp2_capable_rx(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_hdcp2version,
-+			&input->hdcp2version_read, &status,
-+			hdcp, "hdcp2version_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(check_hdcp2_capable,
-+			&input->hdcp2_capable_check, &status,
-+			hdcp, "hdcp2_capable"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status send_ake_init(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_add_display_topology,
-+			&input->add_topology, &status,
-+			hdcp, "add_topology"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_create_session,
-+			&input->create_session, &status,
-+			hdcp, "create_session"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_prepare_ake_init,
-+			&input->ake_init_prepare, &status,
-+			hdcp, "ake_init_prepare"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_ake_init,
-+			&input->ake_init_write, &status,
-+			hdcp, "ake_init_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status validate_ake_cert(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (is_hdmi_dvi_sl_hdcp(hdcp))
-+		if (!mod_hdcp_execute_and_set(check_ake_cert_available,
-+				&input->ake_cert_available, &status,
-+				hdcp, "ake_cert_available"))
-+			goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_ake_cert,
-+			&input->ake_cert_read, &status,
-+			hdcp, "ake_cert_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_ake_cert,
-+			&input->ake_cert_validation, &status,
-+			hdcp, "ake_cert_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status send_no_stored_km(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_no_stored_km,
-+			&input->no_stored_km_write, &status,
-+			hdcp, "no_stored_km_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status read_h_prime(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(check_h_prime_available,
-+			&input->h_prime_available, &status,
-+			hdcp, "h_prime_available"))
-+		goto out;
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_h_prime,
-+			&input->h_prime_read, &status,
-+			hdcp, "h_prime_read"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status read_pairing_info_and_validate_h_prime(
-+		struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(check_pairing_info_available,
-+			&input->pairing_available, &status,
-+			hdcp, "pairing_available"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_pairing_info,
-+			&input->pairing_info_read, &status,
-+			hdcp, "pairing_info_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_h_prime,
-+			&input->h_prime_validation, &status,
-+			hdcp, "h_prime_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status send_stored_km(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_stored_km,
-+			&input->stored_km_write, &status,
-+			hdcp, "stored_km_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status validate_h_prime(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(check_h_prime_available,
-+			&input->h_prime_available, &status,
-+			hdcp, "h_prime_available"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_h_prime,
-+			&input->h_prime_read, &status,
-+			hdcp, "h_prime_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_h_prime,
-+			&input->h_prime_validation, &status,
-+			hdcp, "h_prime_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status locality_check(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_prepare_lc_init,
-+			&input->lc_init_prepare, &status,
-+			hdcp, "lc_init_prepare"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_lc_init,
-+			&input->lc_init_write, &status,
-+			 hdcp, "lc_init_write"))
-+		goto out;
-+	if (is_dp_hdcp(hdcp))
-+		udelay(16000);
-+	else
-+		if (!mod_hdcp_execute_and_set(poll_l_prime_available,
-+				&input->l_prime_available_poll, &status,
-+				hdcp, "l_prime_available_poll"))
-+			goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_read_l_prime,
-+			&input->l_prime_read, &status,
-+			hdcp, "l_prime_read"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_validate_l_prime,
-+			&input->l_prime_validation, &status,
-+			hdcp, "l_prime_validation"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status exchange_ks_and_test_for_repeater(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_prepare_eks,
-+			&input->eks_prepare, &status,
-+			hdcp, "eks_prepare"))
-+		goto out;
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_write_eks,
-+			&input->eks_write, &status,
-+			hdcp, "eks_write"))
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status enable_encryption(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+	if (event_ctx->event == MOD_HDCP_EVENT_CPIRQ) {
-+		process_rxstatus(hdcp, event_ctx, input, &status);
-+		goto out;
-+	}
-+
-+	if (is_hdmi_dvi_sl_hdcp(hdcp)) {
-+		if (!process_rxstatus(hdcp, event_ctx, input, &status))
-+			goto out;
-+		if (event_ctx->rx_id_list_ready)
-+			goto out;
-+	}
-+	if (!mod_hdcp_execute_and_set(mod_hdcp_hdcp2_enable_encryption,
-+			&input->enable_encryption, &status,
-+			hdcp, "enable_encryption"))
-+		goto out;
-+	if (is_dp_mst_hdcp(hdcp)) {
-+		if (!mod_hdcp_execute_and_set(
-+				mod_hdcp_hdcp2_enable_dp_stream_encryption,
-+				&input->stream_encryption_dp, &status,
-+				hdcp, "stream_encryption_dp"))
-+			goto out;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status authenticated(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!process_rxstatus(hdcp, event_ctx, input, &status))
-+		goto out;
-+	if (event_ctx->rx_id_list_ready)
-+		goto out;
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status wait_for_rx_id_list(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-+{
-+	enum mod_hdcp_status status = MOD_HDCP_STATUS_SUCCESS;
-+
-+	if (event_ctx->event != MOD_HDCP_EVENT_CALLBACK &&
-+			event_ctx->event != MOD_HDCP_EVENT_CPIRQ &&
-+			event_ctx->event != MOD_HDCP_EVENT_WATCHDOG_TIMEOUT) {
-+		event_ctx->unexpected_event = 1;
-+		goto out;
-+	}
-+
-+	if (!process_rxstatus(hdcp, event_ctx, input, &status))
-+		goto out;
-+	if (!event_ctx->rx_id_list_ready) {
-+		status = MOD_HDCP_STATUS_HDCP2_RX_ID_LIST_NOT_READY;
-+		goto out;
-+	}
-+out:
-+	return status;
-+}
-+
-+static enum mod_hdcp_status verify_rx_id_list_and_send_ack(struct mod_hdcp *hdcp,
-+		struct mod_hdcp_event_context *event_ctx,
-+		struct mod_hdcp_transition_input_hdcp2 *input)
-</cut>
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/46612481.1836.1580264206749.JavaMail.javamailuser%40localhost.
-
-------=_Part_1835_783573416.1580264206194--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5e317986.1c69fb81.ee174.a427%40mx.google.com.
