@@ -1,31 +1,31 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB3GY3LYQKGQEMLDM2NI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBAPT3LYQKGQEIPK6OHQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3a.google.com (mail-vk1-xa3a.google.com [IPv6:2607:f8b0:4864:20::a3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id E445E14FCC3
-	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Feb 2020 12:03:09 +0100 (CET)
-Received: by mail-vk1-xa3a.google.com with SMTP id u7sf3857059vkb.1
-        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Feb 2020 03:03:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580641389; cv=pass;
+Received: from mail-ua1-x940.google.com (mail-ua1-x940.google.com [IPv6:2607:f8b0:4864:20::940])
+	by mail.lfdr.de (Postfix) with ESMTPS id 5A9C014FCF5
+	for <lists+clang-built-linux@lfdr.de>; Sun,  2 Feb 2020 12:58:59 +0100 (CET)
+Received: by mail-ua1-x940.google.com with SMTP id j16sf3097722uak.16
+        for <lists+clang-built-linux@lfdr.de>; Sun, 02 Feb 2020 03:58:59 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580644738; cv=pass;
         d=google.com; s=arc-20160816;
-        b=DC5Et2dGGO96FqAKNP81Cj7+8iHnqu5H92aVD7eaB/jpRqfbtPdtDTvQLE9XelGvl8
-         rNYGBYH++oRLhqEQI8LJ1FglZqGQYl16tl9ftYiUwMlSIF7cO/BCCgZxYMh7YvMYsMqu
-         MYDYDnFRViSvBpmjoAfcx4DkH381aqvPjHOFKCRf7bPefCqWZHp3DxABcVyts2ApdT49
-         Hr0JSSIhG1qQux6gj7ZXqyc0rtHwVPkHzk6yuT0busXgrzlcL72AGzQt2JIK8BmxAyF/
-         WJ8hghaNZ1IP775JVMxZ6UwNAxlcJ2VlvXLLhOSd/rU5WyuUxdxiWbNnIJYoVdwUPF5W
-         QTcg==
+        b=0+gPI13gs+9mFoAgmm5dzDgMzOsMfdR3ewDseNDsye59qoNXe4zVFtlB0LO36V00uL
+         wjgwblIHo58LGPWT7zJINqKtajuxguGp078vZWGm8S9isrnYSZbehZfStA3l1seU2Pmh
+         Pp6VH/Iq4gci6Di/rTafSKgMesybAuLcuNPowpkyXV+LM93NbWPYT3PJO5WCrEKEaTnm
+         jiZXZFybXp+kYheWWJmlTiiwGKcECi18fZukjIdCiDiSzZfppSQjHaPsczrlZhTG8pGW
+         g+nft3H6iytoSWA51kD1Ezp4YTY+u61gMjRUMKf5sz0LYDHoJ1LnfamR+ATO39NJDDjV
+         sGTQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=65iaj7IvbInKOe2TS8UYtQKk0J60zOFFwF92ktI0tJQ=;
-        b=E8CMWqPY87x0XYlWx/8zHVLB+xe+zauKU6/uu7zTcd3g/OHHpLNv+atj9Dy2YefxwE
-         DmEunjczJ4obA5Q/WvPua0M5aMpTQBuBlEjVbc/TWuSyfA+HZn5rzBHjVXGMxes/F5c9
-         hwDhCT671rwvQqDpKCFeITpm48w4/hA+q0YdUlmuvccb2y8dXnDP3QmFQrRvKVFYRc86
-         yQQlluLFn0RcYtn++1egLKGT9CanKmcmBVKLYQB3qv8XdbHAFA7nXVpE6oGw4Bw+ZrIk
-         yz0eZ1gCIxnm6udFOAIzbOkNsobbP7jGhY07TvsPHvgMRxw5Y7ou3wWynnn+ptUDWLJe
-         1Blg==
+        bh=i+JU/HV4+ygWSlQ+snTFT4ZuTxwxTVqf/YRFC06WIIk=;
+        b=UnV6AqwB+Juru5VJCPW1Oj41S1lxlbKDpNSQ8OC0cYi4+IFxj8XjUM2vidGtb6lBrQ
+         CChGF6aZihelAtPKubwZsT4WeuPIRzDzFE0arJuARyzv9g2SMp7ib8/FvNstOcECZtmn
+         I9/v/swOMXUhHK4xQFxqVcZDV0RpCx0F/XAY4wbXce7HPQ0BW+FKf8i0Lai6WhAQbSZE
+         ddYEEtwVUl5tIeZ3aRCow7pnTtyr/NxIDKcWtilX3Pz2kP/JvpQCRkxLw55r9PFLdAaP
+         a49lTBtX3MRZSAB4iFRc2VloDJ21dpEYtZlbXS/5MCTzgQvTU9eZwdGxMpVAa/2ccx+Z
+         PzJw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=65iaj7IvbInKOe2TS8UYtQKk0J60zOFFwF92ktI0tJQ=;
-        b=KwWIofV7ndjvd9Z5QfZlizDIkawdqq9iR24ya1ruGj0DaWBVdJFqWvA8JO17bP7Eac
-         m+Ze9BArhV3bhtHEgVEEDYJ6aSihBmsKct4oIdZxSDp4o2fYZLwS5dGGdWhsj1lh8u8N
-         /K+sgG7lSBrAOQ05YyN+Gw3ujg5MPCybeagPu7UlJxc50N3C73uqrX+DaH5Vt4o+kco8
-         MkmY3O2dd1BygLp77iGYArwzc1t+XsJ7wCWGaJIwzEDB7oBrEjTiCma3jy/pp4IMs1ra
-         7p0aoTZ3CiTMzOV2CsLHYnTrHUTwwHrC+9K8NES/dUOkBCyATmCekxi4o5t/0UW/USEj
-         +Hwg==
+        bh=i+JU/HV4+ygWSlQ+snTFT4ZuTxwxTVqf/YRFC06WIIk=;
+        b=ep52n46KhybuUGJtnmLeIvICOR0y273UB9voNMfjTao+OThSJBvqyWVjIXZyW1QThL
+         QXzRDqWGW2k3vjjpAFLl2zKnl+4fRh32mC6hMY3SYVNz5xBSVdZtnyNe1KgjelcJ4x61
+         SVStpcBt1auJrbA4GN+AzEgImVeq7QaiVFelK9tWyERdhXNKN2uBLLSu1jrnNTf2t0zu
+         4bDNn1aURHMVC6thxmNROBpSKRMTk4hkCS4MehWhVpfqbkOY1YRrCfdjod/4vDAfyeYk
+         CZj+qWMw5LfFsM+0VTEZiNwj/z4WctIIKnJHTXn7a0EcSiHRgLmqI8WEzesypYENE6B2
+         8mKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,73 +49,73 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=65iaj7IvbInKOe2TS8UYtQKk0J60zOFFwF92ktI0tJQ=;
-        b=FKnTgnvTwiw5rRAS9Q/jru1ZX9nRzNIKr+RW/cZ7PSd4PINa+M7cONvtvgDM6mXTgj
-         T3eeEgFsXeQSv7inSLJMxXEdhaFZMuFP5HU+OBUrRz1Ze7wtjVradRUiLXBbaSzs4Gu0
-         Z8Y1KXP95IStsLEkV0zEjrjOj0wA9K2jKe1YgA19EE+lqZMVEmbRZ+5R3Ku5Rvg3mY8Z
-         7CG/H2prsyOlDEBk0eP4yz8XN6KJpgqZCudPRhC+Kl89t6eAD6q7q71J8DFGQzUD6dsi
-         BOUp72yTa2CvDWv55OCzBOHtzo5cAua46gT2QGR3BxbeZYM783FeFQzBqQuDRkJYa+YM
-         23Tw==
+        bh=i+JU/HV4+ygWSlQ+snTFT4ZuTxwxTVqf/YRFC06WIIk=;
+        b=oPwA/F4rDdD4jkwt24GCSVcVPVUl2o/Oh7nz/Ulk0o9n1cvW8/zfjEhL7qnpPGh9xk
+         ACVln3vajv/KV1R+GQ2JfcMQkpPqjp/k4QDCVrIqW9ESh/6tnokwYXn1ItdJL0JAS7I1
+         Ysq1e0HYSCvrdsrv5Yq9DmcS8UzDlwmdwaN8mt7EQ+d05jk172Np9NrWWbWUujsTdwTW
+         /twVMsfBsGkXDvsBBGGNzTYNZhZxusjVhQR5LJBZhO2R81if/+B1JQvrxF3d3WFtQ7ON
+         Tdrmbj0tLKalKFfqdk7iddkjGFg1Ts/saDOD4U0rn8wDQpMDldJ5SsgtD8aMjHKqJkaS
+         veHw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWfB7hTTUtBO9vN1aJfBg3CSDUvQrRfn2riZXLuZ0CwH7YvyRqz
-	qaCx7HZ/f5nlmbIktTgsPjc=
-X-Google-Smtp-Source: APXvYqw7DjEocnTS8JpzcRvLLntHsusidY+Hedt9kQjG1mpKW8Oq9hnOmjzoV4ts4b7PPRrddYIb8A==
-X-Received: by 2002:a1f:7dcd:: with SMTP id y196mr11880089vkc.29.1580641388572;
-        Sun, 02 Feb 2020 03:03:08 -0800 (PST)
+X-Gm-Message-State: APjAAAWziRFEO8PO2C8hVngPxRTWUaMCdRTSGXQvdU1DAumlevdnlUjP
+	AaI99RVnYKgF3Q0Ol1Z4Q/U=
+X-Google-Smtp-Source: APXvYqxNUycxJEfLqRpwF5FJndOZL+F+T5SqdB8BntS446TokTFrDbptAJ8xzEPbCHFLSAtR/AnRyw==
+X-Received: by 2002:a1f:6012:: with SMTP id u18mr11196234vkb.77.1580644737881;
+        Sun, 02 Feb 2020 03:58:57 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ab0:4e02:: with SMTP id g2ls808696uah.0.gmail; Sun, 02 Feb
- 2020 03:03:08 -0800 (PST)
-X-Received: by 2002:ab0:6258:: with SMTP id p24mr10901544uao.24.1580641388093;
-        Sun, 02 Feb 2020 03:03:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580641388; cv=none;
+Received: by 2002:a67:d38b:: with SMTP id b11ls1345677vsj.9.gmail; Sun, 02 Feb
+ 2020 03:58:57 -0800 (PST)
+X-Received: by 2002:a67:f30d:: with SMTP id p13mr12161765vsf.112.1580644737339;
+        Sun, 02 Feb 2020 03:58:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580644737; cv=none;
         d=google.com; s=arc-20160816;
-        b=ppjecqLnNfpLVYz3RvSzuWJWyJoFz/UKGQE3gUzOqJDOoBQuNdza+YqFHx41ggCMe8
-         y54M1KgoSjcmDdEFMPuL0XvKM9C9tMsmFZyT88TVnsNJnZ1VpsjsaPjeZGbzOQwJ+DPC
-         np8Z/Y4tWo0maARmAGXJBzYt3YHxWxBH+Md1zn4mwqHOVZPoxVuLZcqjaMm9Kio4pbgV
-         Lm1px2S32JEM6SHASSNPowBhRgTQ/odBoK3KH/P/AyJNug/IssAkrsA2EpEh7cQmO0ZJ
-         nIk4bdrC97R2T7sarHeRob9/rr/6zSw9fclqHrxlJbNiqC/eGTWYA93BK9l1uFsHi/s/
-         aPXw==
+        b=WBK+0JtKt2BQTUvPF9EW4Cc6cjoswj0564TcI7FryXwt0Unwzwc97Zs1ii6rQ44ts6
+         gBnUNBNBsTPYdMNWQX6kwgz0Ah7ReH/Lqkt9ROeChO37wTCJNoATyVAuNwndorfo+efY
+         B/e4TP2FjEtzV0SoRrkANDYhKGThO9Xjxtxl6iWA17VdwZSs4tekVKrh7Ranoi87Y5A8
+         4bJbDpIaEbuRVAkEWOMn26G7RbdG7kRiwTsIEvH7D9OFyfaVbuO/Id5ygRDkk3UikIqg
+         k5zIzlp1C7Xisn25EVOi6Di4naFsjaBJYDr6BZCsgoonIGT8POBg+Lo5pSKyeF4dWi9t
+         M/oQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=iqIqczERsUnSmZnjL0WxzeLYLOyxbDwvrT9yBovzHg8=;
-        b=T6c0H7Rhbho+BktFtwbwDJZR4hwaDBA3RK2YjQPQkFt+n4iG9BFSlx2fvHMfmVThCS
-         qh5IzdGuOaeCpjIrW+zJIf7MoJAxCVMUHkuOt2XsnF19jrQ+mQj0Rcg9ENdIQKZWF9RU
-         LseSyMxXn1AGM0P1e6i6gVLywC7xvslJh5MsvkDaZUoKtzUJY1ClyA6WT/fKZEtPI8Js
-         4x2R21w217DFyNUvwQdxXDjnmaAL8P64JBM8GAShJYkmdOq6oA7VJy/4ICkrlZmb+1Gn
-         SZBIpYCJg/k+oC9S16rSwvRIB6mrwgznAtRPnmmEYxwIhZ7lxgX0qH/KHHHGh2/QM3vo
-         YZ0Q==
+        bh=ARX0FaYZrScj8hYnnEEmzlDxb5m82FXEORhIHNds0zw=;
+        b=DRLqLufDlRaehI+WItSk/UzCmvz+usWbrScW6arIr1TIA0iuyfiUOIakdgMb36PyS3
+         HTFvGd5dNhKQCgWKhUlbf3PlbvXqD2hWgONdSgdArSKH3M4UJd1uHww9hOJd05rSvv+t
+         HNzfw4CuXORL068F36MDQFJeRIJCDp87UBIU6cz8fgI1cDqOqNmZM3mwlGi1tbxjgjIE
+         vtL08MMpFtvIJBF3LnoWqiJPcv6Kyui1c+6fXW3bMc83ZXLCn2y3QcKQdukrZ4rGVvBR
+         D2b2/UruoYlGFvGs1NfyQj6Mtp4J22E3J6TFXydaMtYQJdacnfkxmqdr7kgEvvNDugGC
+         q4Dw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 Received: from mga09.intel.com (mga09.intel.com. [134.134.136.24])
-        by gmr-mx.google.com with ESMTPS id h6si1038542vkc.3.2020.02.02.03.03.07
+        by gmr-mx.google.com with ESMTPS id n5si427234vsm.0.2020.02.02.03.58.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 02 Feb 2020 03:03:07 -0800 (PST)
+        Sun, 02 Feb 2020 03:58:56 -0800 (PST)
 Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.24 as permitted sender) client-ip=134.134.136.24;
 X-Amp-Result: UNSCANNABLE
 X-Amp-File-Uploaded: False
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
-  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 02 Feb 2020 03:03:05 -0800
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga102.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 02 Feb 2020 03:58:54 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.70,393,1574150400"; 
-   d="gz'50?scan'50,208,50";a="263079710"
+   d="gz'50?scan'50,208,50";a="224909362"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga002.fm.intel.com with ESMTP; 02 Feb 2020 03:03:03 -0800
+  by fmsmga008.fm.intel.com with ESMTP; 02 Feb 2020 03:58:52 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1iyD1r-000AG8-AP; Sun, 02 Feb 2020 19:03:03 +0800
-Date: Sun, 2 Feb 2020 19:02:42 +0800
+	id 1iyDts-000HWi-9Y; Sun, 02 Feb 2020 19:58:52 +0800
+Date: Sun, 2 Feb 2020 19:58:17 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: [zen-kernel-zen-kernel:5.5/muqss 9/22] kernel/sysctl.c:1129:15:
- error: use of undeclared identifier 'one'
-Message-ID: <202002021938.NUNFkvbP%lkp@intel.com>
+Subject: [zen-kernel-zen-kernel:5.5/muqss 22/22] kernel/sched/wait.c:14:9:
+ warning: 'WF_MIGRATED' macro redefined
+Message-ID: <202002021939.yaHm7qPy%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="ohbh3cjxvi4gscmx"
+Content-Type: multipart/mixed; boundary="cpcznpiezaqqlnmy"
 Content-Disposition: inline
 User-Agent: NeoMutt/20170113 (1.7.2)
 X-Original-Sender: lkp@intel.com
@@ -136,391 +136,48 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---ohbh3cjxvi4gscmx
+--cpcznpiezaqqlnmy
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-TO: Con Kolivas <kernel@kolivas.org>
-CC: Steven Barrett <steven@liquorix.net>
+TO: Steven Barrett <steven@liquorix.net>
 
 tree:   https://github.com/zen-kernel/zen-kernel 5.5/muqss
 head:   bf569053d0fe08b3615793a0105afff3d28f3676
-commit: fc0355925085383ffdcbec9d4ecc2a17ca2547e3 [9/22] Make hrtimer granularity and minimum hrtimeout configurable in sysctl. Set default granularity to 100us and min timeout to 500us.
+commit: bf569053d0fe08b3615793a0105afff3d28f3676 [22/22] muqss: Re-define WF_* wake flags in wait.c
 config: arm64-defconfig (attached as .config)
 compiler: clang version 11.0.0 (git://gitmirror/llvm_project ba8110161dfb096bbc63039afd87ff6417328f91)
 reproduce:
         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
         chmod +x ~/bin/make.cross
-        git checkout fc0355925085383ffdcbec9d4ecc2a17ca2547e3
+        git checkout bf569053d0fe08b3615793a0105afff3d28f3676
         # save the attached .config to linux build tree
         make.cross ARCH=arm64 
 
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-Note: the zen-kernel-zen-kernel/5.5/muqss HEAD bf569053d0fe08b3615793a0105afff3d28f3676 builds fine.
-      It only hurts bisectibility.
+All warnings (new ones prefixed by >>):
 
-All error/warnings (new ones prefixed by >>):
+>> kernel/sched/wait.c:14:9: warning: 'WF_MIGRATED' macro redefined [-Wmacro-redefined]
+   #define WF_MIGRATED     0x04            /* internal use, task got migrated */
+           ^
+   kernel/sched/sched.h:1659:9: note: previous definition is here
+   #define WF_MIGRATED             0x4             /* Internal use, task got migrated */
+           ^
+   1 warning generated.
 
->> kernel/sysctl.c:1129:15: error: use of undeclared identifier 'one'
-                   .extra1         = &one,
-                                      ^
-   kernel/sysctl.c:1138:15: error: use of undeclared identifier 'one'
-                   .extra1         = &one,
-                                      ^
->> kernel/sysctl.c:329:25: warning: tentative array definition assumed to have one element
-   static struct ctl_table kern_table[] = {
-                           ^
-   1 warning and 2 errors generated.
+vim +/WF_MIGRATED +14 kernel/sched/wait.c
 
-vim +/one +1129 kernel/sysctl.c
-
-  1020	
-  1021	#if defined(CONFIG_X86_LOCAL_APIC) && defined(CONFIG_X86)
-  1022		{
-  1023			.procname       = "unknown_nmi_panic",
-  1024			.data           = &unknown_nmi_panic,
-  1025			.maxlen         = sizeof (int),
-  1026			.mode           = 0644,
-  1027			.proc_handler   = proc_dointvec,
-  1028		},
-  1029	#endif
-  1030	#if defined(CONFIG_X86)
-  1031		{
-  1032			.procname	= "panic_on_unrecovered_nmi",
-  1033			.data		= &panic_on_unrecovered_nmi,
-  1034			.maxlen		= sizeof(int),
-  1035			.mode		= 0644,
-  1036			.proc_handler	= proc_dointvec,
-  1037		},
-  1038		{
-  1039			.procname	= "panic_on_io_nmi",
-  1040			.data		= &panic_on_io_nmi,
-  1041			.maxlen		= sizeof(int),
-  1042			.mode		= 0644,
-  1043			.proc_handler	= proc_dointvec,
-  1044		},
-  1045	#ifdef CONFIG_DEBUG_STACKOVERFLOW
-  1046		{
-  1047			.procname	= "panic_on_stackoverflow",
-  1048			.data		= &sysctl_panic_on_stackoverflow,
-  1049			.maxlen		= sizeof(int),
-  1050			.mode		= 0644,
-  1051			.proc_handler	= proc_dointvec,
-  1052		},
-  1053	#endif
-  1054		{
-  1055			.procname	= "bootloader_type",
-  1056			.data		= &bootloader_type,
-  1057			.maxlen		= sizeof (int),
-  1058			.mode		= 0444,
-  1059			.proc_handler	= proc_dointvec,
-  1060		},
-  1061		{
-  1062			.procname	= "bootloader_version",
-  1063			.data		= &bootloader_version,
-  1064			.maxlen		= sizeof (int),
-  1065			.mode		= 0444,
-  1066			.proc_handler	= proc_dointvec,
-  1067		},
-  1068		{
-  1069			.procname	= "io_delay_type",
-  1070			.data		= &io_delay_type,
-  1071			.maxlen		= sizeof(int),
-  1072			.mode		= 0644,
-  1073			.proc_handler	= proc_dointvec,
-  1074		},
-  1075	#endif
-  1076	#if defined(CONFIG_MMU)
-  1077		{
-  1078			.procname	= "randomize_va_space",
-  1079			.data		= &randomize_va_space,
-  1080			.maxlen		= sizeof(int),
-  1081			.mode		= 0644,
-  1082			.proc_handler	= proc_dointvec,
-  1083		},
-  1084	#endif
-  1085	#ifdef CONFIG_SCHED_MUQSS
-  1086		{
-  1087			.procname	= "rr_interval",
-  1088			.data		= &rr_interval,
-  1089			.maxlen		= sizeof (int),
-  1090			.mode		= 0644,
-  1091			.proc_handler	= &proc_dointvec_minmax,
-  1092			.extra1		= &one,
-  1093			.extra2		= &one_thousand,
-  1094		},
-  1095		{
-  1096			.procname	= "interactive",
-  1097			.data		= &sched_interactive,
-  1098			.maxlen		= sizeof(int),
-  1099			.mode		= 0644,
-  1100			.proc_handler	= &proc_dointvec_minmax,
-  1101			.extra1		= &zero,
-  1102			.extra2		= &one,
-  1103		},
-  1104		{
-  1105			.procname	= "iso_cpu",
-  1106			.data		= &sched_iso_cpu,
-  1107			.maxlen		= sizeof (int),
-  1108			.mode		= 0644,
-  1109			.proc_handler	= &proc_dointvec_minmax,
-  1110			.extra1		= &zero,
-  1111			.extra2		= &one_hundred,
-  1112		},
-  1113		{
-  1114			.procname	= "yield_type",
-  1115			.data		= &sched_yield_type,
-  1116			.maxlen		= sizeof (int),
-  1117			.mode		= 0644,
-  1118			.proc_handler	= &proc_dointvec_minmax,
-  1119			.extra1		= &zero,
-  1120			.extra2		= &two,
-  1121		},
-  1122	#endif
-  1123		{
-  1124			.procname	= "hrtimer_granularity_us",
-  1125			.data		= &hrtimer_granularity_us,
-  1126			.maxlen		= sizeof(int),
-  1127			.mode		= 0644,
-  1128			.proc_handler	= &proc_dointvec_minmax,
-> 1129			.extra1		= &one,
-  1130			.extra2		= &ten_thousand,
-  1131		},
-  1132		{
-  1133			.procname	= "hrtimeout_min_us",
-  1134			.data		= &hrtimeout_min_us,
-  1135			.maxlen		= sizeof(int),
-  1136			.mode		= 0644,
-  1137			.proc_handler	= &proc_dointvec_minmax,
-  1138			.extra1		= &one,
-  1139			.extra2		= &ten_thousand,
-  1140		},
-  1141	#if defined(CONFIG_S390) && defined(CONFIG_SMP)
-  1142		{
-  1143			.procname	= "spin_retry",
-  1144			.data		= &spin_retry,
-  1145			.maxlen		= sizeof (int),
-  1146			.mode		= 0644,
-  1147			.proc_handler	= proc_dointvec,
-  1148		},
-  1149	#endif
-  1150	#if	defined(CONFIG_ACPI_SLEEP) && defined(CONFIG_X86)
-  1151		{
-  1152			.procname	= "acpi_video_flags",
-  1153			.data		= &acpi_realmode_flags,
-  1154			.maxlen		= sizeof (unsigned long),
-  1155			.mode		= 0644,
-  1156			.proc_handler	= proc_doulongvec_minmax,
-  1157		},
-  1158	#endif
-  1159	#ifdef CONFIG_SYSCTL_ARCH_UNALIGN_NO_WARN
-  1160		{
-  1161			.procname	= "ignore-unaligned-usertrap",
-  1162			.data		= &no_unaligned_warning,
-  1163			.maxlen		= sizeof (int),
-  1164		 	.mode		= 0644,
-  1165			.proc_handler	= proc_dointvec,
-  1166		},
-  1167	#endif
-  1168	#ifdef CONFIG_IA64
-  1169		{
-  1170			.procname	= "unaligned-dump-stack",
-  1171			.data		= &unaligned_dump_stack,
-  1172			.maxlen		= sizeof (int),
-  1173			.mode		= 0644,
-  1174			.proc_handler	= proc_dointvec,
-  1175		},
-  1176	#endif
-  1177	#ifdef CONFIG_DETECT_HUNG_TASK
-  1178		{
-  1179			.procname	= "hung_task_panic",
-  1180			.data		= &sysctl_hung_task_panic,
-  1181			.maxlen		= sizeof(int),
-  1182			.mode		= 0644,
-  1183			.proc_handler	= proc_dointvec_minmax,
-  1184			.extra1		= SYSCTL_ZERO,
-  1185			.extra2		= SYSCTL_ONE,
-  1186		},
-  1187		{
-  1188			.procname	= "hung_task_check_count",
-  1189			.data		= &sysctl_hung_task_check_count,
-  1190			.maxlen		= sizeof(int),
-  1191			.mode		= 0644,
-  1192			.proc_handler	= proc_dointvec_minmax,
-  1193			.extra1		= SYSCTL_ZERO,
-  1194		},
-  1195		{
-  1196			.procname	= "hung_task_timeout_secs",
-  1197			.data		= &sysctl_hung_task_timeout_secs,
-  1198			.maxlen		= sizeof(unsigned long),
-  1199			.mode		= 0644,
-  1200			.proc_handler	= proc_dohung_task_timeout_secs,
-  1201			.extra2		= &hung_task_timeout_max,
-  1202		},
-  1203		{
-  1204			.procname	= "hung_task_check_interval_secs",
-  1205			.data		= &sysctl_hung_task_check_interval_secs,
-  1206			.maxlen		= sizeof(unsigned long),
-  1207			.mode		= 0644,
-  1208			.proc_handler	= proc_dohung_task_timeout_secs,
-  1209			.extra2		= &hung_task_timeout_max,
-  1210		},
-  1211		{
-  1212			.procname	= "hung_task_warnings",
-  1213			.data		= &sysctl_hung_task_warnings,
-  1214			.maxlen		= sizeof(int),
-  1215			.mode		= 0644,
-  1216			.proc_handler	= proc_dointvec_minmax,
-  1217			.extra1		= &neg_one,
-  1218		},
-  1219	#endif
-  1220	#ifdef CONFIG_RT_MUTEXES
-  1221		{
-  1222			.procname	= "max_lock_depth",
-  1223			.data		= &max_lock_depth,
-  1224			.maxlen		= sizeof(int),
-  1225			.mode		= 0644,
-  1226			.proc_handler	= proc_dointvec,
-  1227		},
-  1228	#endif
-  1229		{
-  1230			.procname	= "poweroff_cmd",
-  1231			.data		= &poweroff_cmd,
-  1232			.maxlen		= POWEROFF_CMD_PATH_LEN,
-  1233			.mode		= 0644,
-  1234			.proc_handler	= proc_dostring,
-  1235		},
-  1236	#ifdef CONFIG_KEYS
-  1237		{
-  1238			.procname	= "keys",
-  1239			.mode		= 0555,
-  1240			.child		= key_sysctls,
-  1241		},
-  1242	#endif
-  1243	#ifdef CONFIG_PERF_EVENTS
-  1244		/*
-  1245		 * User-space scripts rely on the existence of this file
-  1246		 * as a feature check for perf_events being enabled.
-  1247		 *
-  1248		 * So it's an ABI, do not remove!
-  1249		 */
-  1250		{
-  1251			.procname	= "perf_event_paranoid",
-  1252			.data		= &sysctl_perf_event_paranoid,
-  1253			.maxlen		= sizeof(sysctl_perf_event_paranoid),
-  1254			.mode		= 0644,
-  1255			.proc_handler	= proc_dointvec,
-  1256		},
-  1257		{
-  1258			.procname	= "perf_event_mlock_kb",
-  1259			.data		= &sysctl_perf_event_mlock,
-  1260			.maxlen		= sizeof(sysctl_perf_event_mlock),
-  1261			.mode		= 0644,
-  1262			.proc_handler	= proc_dointvec,
-  1263		},
-  1264		{
-  1265			.procname	= "perf_event_max_sample_rate",
-  1266			.data		= &sysctl_perf_event_sample_rate,
-  1267			.maxlen		= sizeof(sysctl_perf_event_sample_rate),
-  1268			.mode		= 0644,
-  1269			.proc_handler	= perf_proc_update_handler,
-  1270			.extra1		= SYSCTL_ONE,
-  1271		},
-  1272		{
-  1273			.procname	= "perf_cpu_time_max_percent",
-  1274			.data		= &sysctl_perf_cpu_time_max_percent,
-  1275			.maxlen		= sizeof(sysctl_perf_cpu_time_max_percent),
-  1276			.mode		= 0644,
-  1277			.proc_handler	= perf_cpu_time_max_percent_handler,
-  1278			.extra1		= SYSCTL_ZERO,
-  1279			.extra2		= &one_hundred,
-  1280		},
-  1281		{
-  1282			.procname	= "perf_event_max_stack",
-  1283			.data		= &sysctl_perf_event_max_stack,
-  1284			.maxlen		= sizeof(sysctl_perf_event_max_stack),
-  1285			.mode		= 0644,
-  1286			.proc_handler	= perf_event_max_stack_handler,
-  1287			.extra1		= SYSCTL_ZERO,
-  1288			.extra2		= &six_hundred_forty_kb,
-  1289		},
-  1290		{
-  1291			.procname	= "perf_event_max_contexts_per_stack",
-  1292			.data		= &sysctl_perf_event_max_contexts_per_stack,
-  1293			.maxlen		= sizeof(sysctl_perf_event_max_contexts_per_stack),
-  1294			.mode		= 0644,
-  1295			.proc_handler	= perf_event_max_stack_handler,
-  1296			.extra1		= SYSCTL_ZERO,
-  1297			.extra2		= &one_thousand,
-  1298		},
-  1299	#endif
-  1300		{
-  1301			.procname	= "panic_on_warn",
-  1302			.data		= &panic_on_warn,
-  1303			.maxlen		= sizeof(int),
-  1304			.mode		= 0644,
-  1305			.proc_handler	= proc_dointvec_minmax,
-  1306			.extra1		= SYSCTL_ZERO,
-  1307			.extra2		= SYSCTL_ONE,
-  1308		},
-  1309	#if defined(CONFIG_SMP) && defined(CONFIG_NO_HZ_COMMON)
-  1310		{
-  1311			.procname	= "timer_migration",
-  1312			.data		= &sysctl_timer_migration,
-  1313			.maxlen		= sizeof(unsigned int),
-  1314			.mode		= 0644,
-  1315			.proc_handler	= timer_migration_handler,
-  1316			.extra1		= SYSCTL_ZERO,
-  1317			.extra2		= SYSCTL_ONE,
-  1318		},
-  1319	#endif
-  1320	#ifdef CONFIG_BPF_SYSCALL
-  1321		{
-  1322			.procname	= "unprivileged_bpf_disabled",
-  1323			.data		= &sysctl_unprivileged_bpf_disabled,
-  1324			.maxlen		= sizeof(sysctl_unprivileged_bpf_disabled),
-  1325			.mode		= 0644,
-  1326			/* only handle a transition from default "0" to "1" */
-  1327			.proc_handler	= proc_dointvec_minmax,
-  1328			.extra1		= SYSCTL_ONE,
-  1329			.extra2		= SYSCTL_ONE,
-  1330		},
-  1331		{
-  1332			.procname	= "bpf_stats_enabled",
-  1333			.data		= &bpf_stats_enabled_key.key,
-  1334			.maxlen		= sizeof(bpf_stats_enabled_key),
-  1335			.mode		= 0644,
-  1336			.proc_handler	= proc_do_static_key,
-  1337		},
-  1338	#endif
-  1339	#if defined(CONFIG_TREE_RCU) || defined(CONFIG_PREEMPT_RCU)
-  1340		{
-  1341			.procname	= "panic_on_rcu_stall",
-  1342			.data		= &sysctl_panic_on_rcu_stall,
-  1343			.maxlen		= sizeof(sysctl_panic_on_rcu_stall),
-  1344			.mode		= 0644,
-  1345			.proc_handler	= proc_dointvec_minmax,
-  1346			.extra1		= SYSCTL_ZERO,
-  1347			.extra2		= SYSCTL_ONE,
-  1348		},
-  1349	#endif
-  1350	#ifdef CONFIG_STACKLEAK_RUNTIME_DISABLE
-  1351		{
-  1352			.procname	= "stack_erasing",
-  1353			.data		= NULL,
-  1354			.maxlen		= sizeof(int),
-  1355			.mode		= 0600,
-  1356			.proc_handler	= stack_erasing_sysctl,
-  1357			.extra1		= SYSCTL_ZERO,
-  1358			.extra2		= SYSCTL_ONE,
-  1359		},
-  1360	#endif
-  1361		{ }
-  1362	};
-  1363	
+     8	
+     9	/*
+    10	 * wake flags
+    11	 */
+    12	#define WF_SYNC		0x01		/* waker goes to sleep after wakeup */
+    13	#define WF_FORK		0x02		/* child wakeup after fork */
+  > 14	#define WF_MIGRATED	0x04		/* internal use, task got migrated */
+    15	
 
 ---
 0-DAY kernel test infrastructure                 Open Source Technology Center
@@ -529,14 +186,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org Intel Corporation
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002021938.NUNFkvbP%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002021939.yaHm7qPy%25lkp%40intel.com.
 
---ohbh3cjxvi4gscmx
+--cpcznpiezaqqlnmy
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICP2iNl4AAy5jb25maWcAnDzJduO2svt8hU6ySRY30WS1+77jBUiCFCJOBkBJ9oZHbcsd
+H4sICDthNl4AAy5jb25maWcAnDzJduO2svt8hU6ySRY30WS1+77jBUiCFCJOBkBJ9oZHbcsd
 v3joK9ud9N/fKoADAIJOv5eTdJpVhblQM/TTDz9NyNvr8+Ph9f7m8PDwbfL5+HQ8HV6Pt5O7
 +4fj/0yiYpIXckIjJn8F4vT+6e3v3w6nx9Vycvbr2a/TyeZ4ejo+TMLnp7v7z2/Q9P756Yef
 foB/fwLg4xfo5fTvyc3D4enz5Ovx9ALoyWz26xSa/vz5/vXfv/0Gfz7en07Pp98eHr4+1l9O
@@ -1398,4 +1055,4 @@ ovNnZsFjsZoEzbOw5GA6Xs8Q+VUZt2958hivGU2p5RWs55YfYzBW6PcF2R0WDHmV4S6MoRLx
 3hZ5U4L5ObNQXA5wZj5xt7EhSMoAjudlE1GWaoYiQEOlAghz9iN4GoiI1aETH8GAAYIYtr9t
 VpJPkjj5QuD/ONDwv9EjAwA=
 
---ohbh3cjxvi4gscmx--
+--cpcznpiezaqqlnmy--
