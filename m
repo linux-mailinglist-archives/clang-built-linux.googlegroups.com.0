@@ -1,134 +1,125 @@
-Return-Path: <clang-built-linux+bncBDQ2L75W5QGBB4FO5LYQKGQEOQPZUUA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBUWC5LYQKGQE66HQDAI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4153215290A
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Feb 2020 11:22:41 +0100 (CET)
-Received: by mail-wm1-x337.google.com with SMTP id y125sf1777186wmg.1
-        for <lists+clang-built-linux@lfdr.de>; Wed, 05 Feb 2020 02:22:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580898161; cv=pass;
+Received: from mail-wm1-x33a.google.com (mail-wm1-x33a.google.com [IPv6:2a00:1450:4864:20::33a])
+	by mail.lfdr.de (Postfix) with ESMTPS id D4B61152999
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Feb 2020 12:04:50 +0100 (CET)
+Received: by mail-wm1-x33a.google.com with SMTP id t17sf832562wmi.7
+        for <lists+clang-built-linux@lfdr.de>; Wed, 05 Feb 2020 03:04:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580900690; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pdq1qUSWkBGSqS1gg8Frl2M/uksd41ENWWZnjXeZiJ0TZ4f3vHiuxGMLFmOCp+rWMW
-         xLznhBLo+uD+nQrwmUeuonvuVqJ3D3XmP88aLo76PiXjOB4lkGnxgjIU6yGDHCQgCXjX
-         OQUDZ9gX29JrDyGlNbHzUa+OE/MvMDZ6XokCBPi1EEGvkGZ++j5p2c0d86Q5AfO1tT5H
-         ER2O/codb4KJkWG7f34jaZdsTuKeMZG7aM0M6tfZzWbn6eGZbtvF9AyAXt4Zervuig6N
-         BTOt6taPGj4nPJwhVkvBXZ5nDWOCeERJgxWgiwT5qiNyIH5QZ8TMg2D0Hh60/Z0ueBSf
-         1Bzw==
+        b=TLy4pYyflBrLV23gttJS2prYtpCv4ovujK+SmfF6aWvHd54h+Q2Nng7HARisjlUzpc
+         CEj4KjWKD4+qDBPuicENlbSqkWAVGPo4irvFCC6kQBUlNfx2nPIh3qCFXv6xE4lh+ZW7
+         lNcxOh5jFLXJ3i5gmLPPtTGjHwWSttV64v9BemdFymkvRxdWIowhYuwlBFs5GHrinED5
+         DxhDv6edzFhHFr4pwA5NbXqFjxdmSkTZX/3BpLnZeFmsdZJSB+bhb9kP0o6UJtJciOIO
+         BVfIKt56NXMeOcDMHjNAPowy3WH9fBRbi11bHhd67+K+52tM1ImKbBD/ZQIUrwHEDRX0
+         uzug==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:from:date:sender:dkim-signature;
-        bh=E6Ob69zolhIwi7iaqQt390iNVtnOIS1Qo+ZOvngUV7g=;
-        b=dj/BhWcTnXmifo1YxGYxEymimAOHFrJIS6a7n5X7vJa005wNXST+ZazBSXqoYBXs4I
-         SrQOcBAHuUY1E0+FakiqXifd5cRsedR6xbtQ/SL6trZE7yKaSBsp7skJXzDCq/iwVqma
-         ao5pAG1rn31Lw4Dkq0og9KoBDRAOnBrza4UzoixgfgMpdoxyA5cWWPxn0J/cty80jrrV
-         Z35epWDjglqrSaqfjIOcf5H7cWEZrQgynZ0c7/gOuXVcHo5TKujEw6qMBkLoLg1wrpZT
-         t5dR4yfH3d+38Z15IwYE7TZTEAkozwiR31OjlV+Dm3XXkgiDZarIbeiZXQewOCVLcz2f
-         SI2w==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=CWXIShlPIoTM9/AkeRL9PuSI83Mjr49oDSlKqkat/no=;
+        b=ytNAfpDAxEAQYTEdGcjpg21g2S4YBHQWfhIW9+edIQbLdqq/rlmDDsoDeuf+ezdMsA
+         f68rBMWIezS6BAEQ9MyaWLmAsI9u8r/ZwTA6MNeoXwL+Ut5jbWHH+n8ofYmqjp4LyOyc
+         8mzFYE7qi4Mt+S3O97kM8mht1Umm3Hym8GcAqTnWqCdBB4L54ZmiUmqShNQcLZxSJ/92
+         9ClTnqI3kvkp9KUK2dwq5kOlL1JDRWK5EQ1BCH8mfYJHWpeQP9r85GOMIPLFduwh/v9S
+         d+zmi7gZKrVi9h13W43r6IXxmWSUWHUKdlBCGl5jAAqqmb2ByC+sY8yxytk/yb8nomEQ
+         uhnw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=P27fPpAO;
-       spf=pass (google.com: best guess record for domain of broonie@sirena.org.uk designates 172.104.155.198 as permitted sender) smtp.mailfrom=broonie@sirena.org.uk;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@linaro.org header.s=google header.b=Ie4xnLF6;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=E6Ob69zolhIwi7iaqQt390iNVtnOIS1Qo+ZOvngUV7g=;
-        b=NiD/zhSR4zu73xX3gwnIshhyMjqwSbb48zawaQmrENUKxyqpY7k7WyaPeIl80e5yMV
-         jMibjF/I8jscbDAx8gLEC/0acHiv4z3KRq+K/RfhN62pwTmkzgviGKhS6XrUaRsDcH31
-         X6ddunEDFknRYlyOZfZVP+XOGY0Tn0H7NHpxG7F9YhBrl9r7xdRDTTEo1CiEYVWBi9C3
-         L40mzSmCVNLL5X2WmmP7I/V7jU+znp3ORgrHAnFhL6JCUDyzGEQbXwBWf9JSIw4eur7H
-         dtDAAQNkcx7EXuP4gaiaYqAg16Op7BJqj8qeyCGVBFJHmpPneSBcs67cwBAV+nZOtDlp
-         klAA==
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=CWXIShlPIoTM9/AkeRL9PuSI83Mjr49oDSlKqkat/no=;
+        b=qqVal8xKbTMCYV+J6BcDBk+BnPNR9eprgXtwykTGnSmCIhaVLz/cp/UqLGGmXsxhY5
+         Mf1VX+tS4ftjcniOYhLCPI0V/aYruGdOz96NUbQStgGMtGfkDTqoa0QbEPLO8a/xApaA
+         rkh83XYW/kE9p2EtZD4LRPkYhe+CjO0TqImOhyxC25I+0Ey+toSQpY6sk5MimsTzB+Y5
+         O8djtNb9a9mOarTpIv/oYclx6Ccjam9ibTRTMozIIYqD0n/2gDt9nkDiFNlDkoo+UuLs
+         dTmEoUONsJwFX9yBTANkSW1kCj7BtotM3i1H+hs84IwKXWVOM6xhtWL2ekYDiUnMTiL7
+         9NyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=E6Ob69zolhIwi7iaqQt390iNVtnOIS1Qo+ZOvngUV7g=;
-        b=rEYcyUqwIa8TwNlraZ4jfUa9Afro7ULDwbaEh6HqPU7k8Tbbxam+zaV+QBjPvOWgiZ
-         9aTkzPSorUZXYU2xgi3hQivd50EkSVEUCAWAeqH/uzg2KuZgxX7YCQlbZuTaU1H0zpAR
-         wsKbhf0cr6aiGF04OIpurNABtmUkq2tgiYmkAw9yLKYDKm8FLjXZsNd1pMdTZpDQ/tSH
-         9yptE6jpfzzKMzLmrXX6XLxrCv1AvZN1bWDStv0qFMGEMNw2E4XBzuy6mS6QXS6My5/P
-         4htpyKhwG5fFsQvIwXCk+RUAWaDYyjSOV1xoBSb3btQ/Cqgd4ypmaueRSaPsTTlfkGFC
-         4flg==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=CWXIShlPIoTM9/AkeRL9PuSI83Mjr49oDSlKqkat/no=;
+        b=E22SU/Z+B575KysPZ/0axWkUWqPrayK+RjSW7m6KjnjsUXuxQ9tHWeYvQM4e2pHges
+         Fdy8ZF+sSVLe/ugEaP9LgysUzHDTQYfIoUhqWFd8p9Iz+vdAJQeYsO5B3cRgxJWs5GLz
+         wgPbK31L8ul8IQGrT2/3v+xgKv0PuoR27F0du4/6TMn/9jabHz4AJteMgTaIRZuHE/ti
+         Z+VissNN6FOf34gNqg45XgsCEZuktPNQYdMLt8KK/oFJFHpbB72DXj7QDmWUhhmBCN/2
+         KPI3xwHZF9K1rDCRID+NRNZu3NQN6+IsK1vtiQUi09Cp4CRvvhpZrRRB/HEiBkaReZh+
+         8lPg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXfMMBozJSopbvqfXBRpITm+SiMktM1Ahvbz4hyCYYdPZvLti0l
-	M8/PkYFUsX7/XoemY6jNCJk=
-X-Google-Smtp-Source: APXvYqwHo6jDzXOCmjOAPyispG4vQVPr+UOKmbk3+A6rmGoixqKpn9BJOiRju/hcYPdb9v72PYsHaQ==
-X-Received: by 2002:a1c:9a56:: with SMTP id c83mr5022894wme.79.1580898160941;
-        Wed, 05 Feb 2020 02:22:40 -0800 (PST)
+X-Gm-Message-State: APjAAAWmNcfVex9SiqsJ1pcpVv8KdCGWbxOyOTM42ETyxPNf7M3Fo5lg
+	4dKMUs9OwBomFcha4ptxSAI=
+X-Google-Smtp-Source: APXvYqx/bCoSWfkHl3mGUFRyal9KsuWJfdb+NeSWfkY6tTatbmuq4yzqbPNguTxolhosZnnmYdY4Bg==
+X-Received: by 2002:a5d:5007:: with SMTP id e7mr23201869wrt.228.1580900690616;
+        Wed, 05 Feb 2020 03:04:50 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1c:6385:: with SMTP id x127ls1097544wmb.2.gmail; Wed, 05
- Feb 2020 02:22:40 -0800 (PST)
-X-Received: by 2002:a1c:4d08:: with SMTP id o8mr5080899wmh.86.1580898160203;
-        Wed, 05 Feb 2020 02:22:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580898160; cv=none;
+Received: by 2002:adf:fc89:: with SMTP id g9ls678500wrr.5.gmail; Wed, 05 Feb
+ 2020 03:04:50 -0800 (PST)
+X-Received: by 2002:a5d:55c1:: with SMTP id i1mr30478401wrw.347.1580900690130;
+        Wed, 05 Feb 2020 03:04:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580900690; cv=none;
         d=google.com; s=arc-20160816;
-        b=N4VhaTk4JoDZwHYwJSnTq8DmQiPkXAlimVtROrmbsMsxd7pEZCiQ4qC6ouSjQQ5fWn
-         Oz6SwRLQv92ZGiOWcGeuWmfJ57WQhjVBo/whmxPZ/tkY/5ouOWhWMoK/8l+h6/84aVuL
-         yQZmf86u5XeqPS2V0JmnrIHzLnpuaPXp9KEC4eEA07f4+SFfAQw8K7UUqrNp5H3r+Q5J
-         NZvcmTbIYmCnl5ZDYPG3luS07nMAV4VPGV4Kq4icpliVs5CcApRRbQctSatKl2aEov6O
-         2qxOrdYOo33f6AGKkscJOOtZJptpQFD+zJl40VECFoHF+bRlS58zQCA+aRPsEG6ipeh1
-         OqmQ==
+        b=j0Ix8oDf//UehM6LMmtKXUySUEeAkdF6/QSa+Jy7rKpWjUJW5fnNRLIwaG7oQx9051
+         J5ibTf+octtvc3qZQUWAHVQ6945hwA8cqGiBC0VGGupevSUUD+eepy7vjiMblUx5U4of
+         WOSAH5KAdbGGXs6FyjRjCVvAP5OqYLsIvSdNb9zzCUV59/Ejhhe/5DtQVZ/odeXAAk2x
+         60peACsyPGvj121338PuT6mnaaeBHFqFV1Og0jD75gMAVyIdwkbE2QvWUJUDeqYvO8iT
+         B/2Nd5XNmu7FHUsejJemg2EpmES5iVDMNEox7heuwax+cSQc7m81TLO5WTWyJIBuAB5U
+         8tLQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=/rtlxdlFXFw6Im6mj5PCy/VNag7UxeRqSrkOJffVA38=;
-        b=xnhNJRvImf2FntDdAeX2MB30YlD/PPeGW2xUGsXnumcj+lBGa4VoMkfjoFWDxG69jt
-         Aejv17ahtKoddsNswrgqdoiW0OSV+XzTVOUFzrnz9XWalPCTHtBlcbXKbD1MHHa0+Mcf
-         5OElLOqoq/4kXG/MyGB+JTlJD8826WCP3k2LAixflviqQHkshNyrG4LChjE2w0XPM3Z2
-         MGaOkUbFEf+YcKb6xbUAGhY1MT1gz7K86SOhVpf6PDdLMU0e5WYhqeYHYSIv2G6uczlg
-         kCuXIOb1Bj0raDUbLW4eT79gg66X5KkmRIvwmRWxG/zHqyWQBKi7NCZvtIokNmwOpDsN
-         NJ8w==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=DjgGjJ8uUCaiwgcLy62ARzPyUltKDViChKAKuvzX7u8=;
+        b=A/vLTlqVywdVUTVHb7VOzuyG74sHN1I9VTz6CE+WFJtwYZpJrnBYho4jIYwiDilSJy
+         ZdVAKk8XUEP+CuKr2gHZdVoHLWEkLtyE2J3ClwomdutDJTP+uPkxGv4aHt4a284fsMrs
+         jqXdc4uwfrAyWcEoqFf0C6lU1/ZYul+PHwFDGVJ0WKVWxMT3v17aTcufmwq1xgg0Tagf
+         QfNTbgCjuihy6pFQXH86+07+e0wDgUSDkM77PtXJt1I8nHm+9okrb0k6MePrnbC3bQai
+         E45EMqqQgDsbKV6AkjaJ2QOLmEnAFuLB7ba6k9qRSJukZjb4PgBSrqd4cX3QqGBQuaLc
+         yhHA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=P27fPpAO;
-       spf=pass (google.com: best guess record for domain of broonie@sirena.org.uk designates 172.104.155.198 as permitted sender) smtp.mailfrom=broonie@sirena.org.uk;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from heliosphere.sirena.org.uk (heliosphere.sirena.org.uk. [172.104.155.198])
-        by gmr-mx.google.com with ESMTPS id p16si1015210wre.4.2020.02.05.02.22.40
+       dkim=pass header.i=@linaro.org header.s=google header.b=Ie4xnLF6;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id y185si251360wmg.0.2020.02.05.03.04.50
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Feb 2020 02:22:40 -0800 (PST)
-Received-SPF: pass (google.com: best guess record for domain of broonie@sirena.org.uk designates 172.104.155.198 as permitted sender) client-ip=172.104.155.198;
-Received: from fw-tnat-cam3.arm.com ([217.140.106.51] helo=fitzroy.sirena.org.uk)
-	by heliosphere.sirena.org.uk with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <broonie@sirena.org.uk>)
-	id 1izHpP-0003xE-BT; Wed, 05 Feb 2020 10:22:39 +0000
-Received: by fitzroy.sirena.org.uk (Postfix, from userid 1000)
-	id 07415D01D7F; Wed,  5 Feb 2020 10:22:39 +0000 (GMT)
-Date: Wed, 5 Feb 2020 10:22:38 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	alsa-devel@alsa-project.org, linux-kernel@vger.kernel.org,
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Feb 2020 03:04:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
+Received: by mail-wr1-x442.google.com with SMTP id a6so2122351wrx.12
+        for <clang-built-linux@googlegroups.com>; Wed, 05 Feb 2020 03:04:50 -0800 (PST)
+X-Received: by 2002:adf:d850:: with SMTP id k16mr27263664wrl.216.1580900689695;
+        Wed, 05 Feb 2020 03:04:49 -0800 (PST)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id r1sm11152099wrx.11.2020.02.05.03.04.48
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Wed, 05 Feb 2020 03:04:49 -0800 (PST)
+From: ci_notify@linaro.org
+Date: Wed, 5 Feb 2020 11:04:48 +0000 (UTC)
+To: tcwg-validation@linaro.org, arnd@linaro.org, 
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] ASoC: wcd934x: Remove some unnecessary NULL checks
-Message-ID: <20200205102238.GG3897@sirena.org.uk>
-References: <20200204060143.23393-1-natechancellor@gmail.com>
- <20200204100039.GX3897@sirena.org.uk>
- <20200204193215.GA44094@ubuntu-x2-xlarge-x86>
+Message-ID: <1260715223.1847.1580900689209.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-master-aarch64-next-allyesconfig - Build # 52 -
+ Successful!
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mOr7kNv8EL30+EI+"
-Content-Disposition: inline
-In-Reply-To: <20200204193215.GA44094@ubuntu-x2-xlarge-x86>
-X-Cookie: Programming is an unnatural act.
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: broonie@kernel.org
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1846_1911581384.1580900688522"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allyesconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@sirena.org.uk header.s=20170815-heliosphere header.b=P27fPpAO;
-       spf=pass (google.com: best guess record for domain of
- broonie@sirena.org.uk designates 172.104.155.198 as permitted sender)
- smtp.mailfrom=broonie@sirena.org.uk;       dmarc=fail (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@linaro.org header.s=google header.b=Ie4xnLF6;       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::442
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -141,58 +132,263 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-
---mOr7kNv8EL30+EI+
+------=_Part_1846_1911581384.1580900688522
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
 
-On Tue, Feb 04, 2020 at 12:32:15PM -0700, Nathan Chancellor wrote:
-> On Tue, Feb 04, 2020 at 10:00:39AM +0000, Mark Brown wrote:
+Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allyesconfig.  So far, this commit has regressed CI configurations:
+ - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
 
-> > I'm not convincd this is a sensible warning, at the use site a
-> > pointer to an array in a struct looks identical to an array
-> > embedded in the struct so it's not such a bad idea to check and
-> > refactoring of the struct could easily introduce problems.
+Culprit:
+<cut>
+commit 2fe4750e8506da0f23ab80390b762b0d44a04fc5
+Author: Hawking Zhang <Hawking.Zhang@amd.com>
+Date:   Mon Dec 23 16:51:42 2019 +0800
 
-> Other static checkers like smatch will warn about this as well (since I
-> am sure that is how Dan Carpenter found the same issue in the wcd9335
-> driver). Isn't an antipattern in the kernel to do things "just in
-> case we do something later"? There are plenty of NULL checks removed
-> from the kernel because they do not do anything now.
+    drm/amdgpu: move xgmi init/fini to xgmi_add/remove_device call
+    
+    For sriov, psp ip block has to be initialized before
+    ih block for the dynamic register programming interface
+    that needed for vf ih ring buffer. On the other hand,
+    current psp ip block hw_init function will initialize
+    xgmi session which actaully depends on interrupt to
+    return session context. This results an empty xgmi ta
+    session id and later failures on all the xgmi ta cmd
+    invoked from vf. xgmi ta session initialization has to
+    be done after ih ip block hw_init call.
+    
+    to unify xgmi session init/fini for both bare-metal
+    sriov virtualization use scenario, move xgmi ta init
+    to xgmi_add_device call, and accordingly terminate xgmi
+    ta session in xgmi_remove_device call.
+    
+    The existing suspend/resume sequence will not be changed.
+    
+    Signed-off-by: Hawking Zhang <Hawking.Zhang@amd.com>
+    Reviewed-by: Frank Min <Frank.Min@amd.com>
+    Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
+</cut>
 
-I'm not convinced it is an antipattern - adding the checks would
-be a bit silly but with the way C works the warnings feel like
-false positives.  If the compiler were able to warn about missing
-NULL checks in the case where the thing in the struct is a
-pointer I'd be a lot happier with this.
+First few errors in logs of first_bad:
+00:01:38 drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c:466:3: error: non-void function 'amdgpu_xgmi_remove_device' should return a value [-Wreturn-type]
+00:01:38 drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c:470:3: error: non-void function 'amdgpu_xgmi_remove_device' should return a value [-Wreturn-type]
+00:01:38 make[4]: *** [drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.o] Error 1
+00:02:38 make[3]: *** [drivers/gpu/drm/amd/amdgpu] Error 2
+00:03:17 make[2]: *** [drivers/gpu/drm] Error 2
+00:03:17 make[1]: *** [drivers/gpu] Error 2
+00:03:36 make: *** [drivers] Error 2
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+rr[linux_branch]="cee5a42837d4a6c4189f06f7bf355b97a24c3c93"
 
-> I'd be fine with changing the check to something else that keeps the
-> same logic but doesn't create a warning; I am not exactly sure what that
-> would be because that is more of a specific driver logic thing, which I
-> am not familiar with.
+Results regressed to (for first_bad == 2fe4750e8506da0f23ab80390b762b0d44a04fc5)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+18047
 
-I've queued the change to be applied since it's shuts the
-compiler up but I'm really not convinced the compiler is helping
-here.
+from (for last_good == 18348c5a4f2137db45a3348e59296b2f1d6aca5a)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+18122
+linux build successful:
+all
+
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/artifact/artifacts/build-2fe4750e8506da0f23ab80390b762b0d44a04fc5/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/artifact/artifacts/build-18348c5a4f2137db45a3348e59296b2f1d6aca5a/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/
+
+Reproduce builds:
+<cut>
+mkdir investigate-linux-2fe4750e8506da0f23ab80390b762b0d44a04fc5
+cd investigate-linux-2fe4750e8506da0f23ab80390b762b0d44a04fc5
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+cd linux
+
+# Reproduce first_bad build
+git checkout --detach 2fe4750e8506da0f23ab80390b762b0d44a04fc5
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach 18348c5a4f2137db45a3348e59296b2f1d6aca5a
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allyesconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/52/consoleText
+
+Full commit:
+<cut>
+commit 2fe4750e8506da0f23ab80390b762b0d44a04fc5
+Author: Hawking Zhang <Hawking.Zhang@amd.com>
+Date:   Mon Dec 23 16:51:42 2019 +0800
+
+    drm/amdgpu: move xgmi init/fini to xgmi_add/remove_device call
+    
+    For sriov, psp ip block has to be initialized before
+    ih block for the dynamic register programming interface
+    that needed for vf ih ring buffer. On the other hand,
+    current psp ip block hw_init function will initialize
+    xgmi session which actaully depends on interrupt to
+    return session context. This results an empty xgmi ta
+    session id and later failures on all the xgmi ta cmd
+    invoked from vf. xgmi ta session initialization has to
+    be done after ih ip block hw_init call.
+    
+    to unify xgmi session init/fini for both bare-metal
+    sriov virtualization use scenario, move xgmi ta init
+    to xgmi_add_device call, and accordingly terminate xgmi
+    ta session in xgmi_remove_device call.
+    
+    The existing suspend/resume sequence will not be changed.
+    
+    Signed-off-by: Hawking Zhang <Hawking.Zhang@amd.com>
+    Reviewed-by: Frank Min <Frank.Min@amd.com>
+    Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
+---
+ drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c  | 18 ++----------------
+ drivers/gpu/drm/amd/amdgpu/amdgpu_psp.h  |  2 ++
+ drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c | 11 ++++++++++-
+ drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.h |  2 +-
+ 4 files changed, 15 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
+index 3a1570dafe34..939a114605c0 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.c
+@@ -558,7 +558,7 @@ int psp_xgmi_invoke(struct psp_context *psp, uint32_t ta_cmd_id)
+ 	return psp_ta_invoke(psp, ta_cmd_id, psp->xgmi_context.session_id);
+ }
+ 
+-static int psp_xgmi_terminate(struct psp_context *psp)
++int psp_xgmi_terminate(struct psp_context *psp)
+ {
+ 	int ret;
+ 
+@@ -579,7 +579,7 @@ static int psp_xgmi_terminate(struct psp_context *psp)
+ 	return 0;
+ }
+ 
+-static int psp_xgmi_initialize(struct psp_context *psp)
++int psp_xgmi_initialize(struct psp_context *psp)
+ {
+ 	struct ta_xgmi_shared_memory *xgmi_cmd;
+ 	int ret;
+@@ -1420,16 +1420,6 @@ static int psp_load_fw(struct amdgpu_device *adev)
+ 		return ret;
+ 	}
+ 
+-	if (adev->gmc.xgmi.num_physical_nodes > 1) {
+-		ret = psp_xgmi_initialize(psp);
+-		/* Warning the XGMI seesion initialize failure
+-		 * Instead of stop driver initialization
+-		 */
+-		if (ret)
+-			dev_err(psp->adev->dev,
+-				"XGMI: Failed to initialize XGMI session\n");
+-	}
+-
+ 	if (psp->adev->psp.ta_fw) {
+ 		ret = psp_ras_initialize(psp);
+ 		if (ret)
+@@ -1494,10 +1484,6 @@ static int psp_hw_fini(void *handle)
+ 	void *tmr_buf;
+ 	void **pptr;
+ 
+-	if (adev->gmc.xgmi.num_physical_nodes > 1 &&
+-	    psp->xgmi_context.initialized == 1)
+-                psp_xgmi_terminate(psp);
+-
+ 	if (psp->adev->psp.ta_fw) {
+ 		psp_ras_terminate(psp);
+ 		psp_dtm_terminate(psp);
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.h b/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.h
+index 611021514c52..c77e1abb538a 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.h
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_psp.h
+@@ -362,6 +362,8 @@ int psp_gpu_reset(struct amdgpu_device *adev);
+ int psp_update_vcn_sram(struct amdgpu_device *adev, int inst_idx,
+ 			uint64_t cmd_gpu_addr, int cmd_size);
+ 
++int psp_xgmi_initialize(struct psp_context *psp);
++int psp_xgmi_terminate(struct psp_context *psp);
+ int psp_xgmi_invoke(struct psp_context *psp, uint32_t ta_cmd_id);
+ 
+ int psp_ras_invoke(struct psp_context *psp, uint32_t ta_cmd_id);
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c
+index a97af422575a..78989e9560d1 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.c
+@@ -365,6 +365,13 @@ int amdgpu_xgmi_add_device(struct amdgpu_device *adev)
+ 		return 0;
+ 
+ 	if (amdgpu_device_ip_get_ip_block(adev, AMD_IP_BLOCK_TYPE_PSP)) {
++		ret = psp_xgmi_initialize(&adev->psp);
++		if (ret) {
++			dev_err(adev->dev,
++				"XGMI: Failed to initialize xgmi session\n");
++			return ret;
++		}
++
+ 		ret = psp_xgmi_get_hive_id(&adev->psp, &adev->gmc.xgmi.hive_id);
+ 		if (ret) {
+ 			dev_err(adev->dev,
+@@ -451,7 +458,7 @@ int amdgpu_xgmi_add_device(struct amdgpu_device *adev)
+ 	return ret;
+ }
+ 
+-void amdgpu_xgmi_remove_device(struct amdgpu_device *adev)
++int amdgpu_xgmi_remove_device(struct amdgpu_device *adev)
+ {
+ 	struct amdgpu_hive_info *hive;
+ 
+@@ -471,6 +478,8 @@ void amdgpu_xgmi_remove_device(struct amdgpu_device *adev)
+ 		amdgpu_xgmi_sysfs_rem_dev_info(adev, hive);
+ 		mutex_unlock(&hive->hive_lock);
+ 	}
++
++	return psp_xgmi_terminate(&adev->psp);
+ }
+ 
+ int amdgpu_xgmi_ras_late_init(struct amdgpu_device *adev)
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.h b/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.h
+index 74011fbc2251..c62a4acf4c14 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.h
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.h
+@@ -40,7 +40,7 @@ struct amdgpu_hive_info {
+ struct amdgpu_hive_info *amdgpu_get_xgmi_hive(struct amdgpu_device *adev, int lock);
+ int amdgpu_xgmi_update_topology(struct amdgpu_hive_info *hive, struct amdgpu_device *adev);
+ int amdgpu_xgmi_add_device(struct amdgpu_device *adev);
+-void amdgpu_xgmi_remove_device(struct amdgpu_device *adev);
++int amdgpu_xgmi_remove_device(struct amdgpu_device *adev);
+ int amdgpu_xgmi_set_pstate(struct amdgpu_device *adev, int pstate);
+ int amdgpu_xgmi_get_hops_count(struct amdgpu_device *adev,
+ 		struct amdgpu_device *peer_adev);
+</cut>
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200205102238.GG3897%40sirena.org.uk.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1260715223.1847.1580900689209.JavaMail.javamailuser%40localhost.
 
---mOr7kNv8EL30+EI+
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAl46l24ACgkQJNaLcl1U
-h9AAXAf+MO8n4UxQtouGrNdxFiwPsOIGewJMPd4vN1NCZTVDUBP55eWyQ4naXCsN
-+BfzAWdmmwJn142SlhZV1P6qThjGkZwZft+PMVDW58zVRibxqmypybMitrQXPvQM
-hzX56yshLBEYtaeps5/as2Iv0SU07tYFJ7g+ir1K0s8XOkYusOBWTGViOpO4JkH2
-Js8aho28jbWGq8UaK8aH2eDhtLVPTmjYpN5Xk7qfbGvy5+Pq+HOmpLW0sM56uw9Q
-nYPZOJbkFU+fIKXw8ZmxuuXs/vFeZHUqIdLAqcz+vIdxj6pxNnt9lk0uA6idJ+iH
-+UdbUJ0BPsFyvzLEriFJEgwNnbTN0w==
-=B63k
------END PGP SIGNATURE-----
-
---mOr7kNv8EL30+EI+--
+------=_Part_1846_1911581384.1580900688522--
