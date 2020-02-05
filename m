@@ -1,126 +1,123 @@
-Return-Path: <clang-built-linux+bncBDY3NC743AGBBHMO5XYQKGQEA7RB44Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCEJHTXX7MFBBD4R5XYQKGQEGI6RTYA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 59698153B71
-	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Feb 2020 23:52:15 +0100 (CET)
-Received: by mail-io1-xd40.google.com with SMTP id t12sf2577315iog.12
-        for <lists+clang-built-linux@lfdr.de>; Wed, 05 Feb 2020 14:52:15 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1580943134; cv=pass;
+Received: from mail-lf1-x140.google.com (mail-lf1-x140.google.com [IPv6:2a00:1450:4864:20::140])
+	by mail.lfdr.de (Postfix) with ESMTPS id 2E715153B8A
+	for <lists+clang-built-linux@lfdr.de>; Wed,  5 Feb 2020 23:58:24 +0100 (CET)
+Received: by mail-lf1-x140.google.com with SMTP id w72sf987837lff.20
+        for <lists+clang-built-linux@lfdr.de>; Wed, 05 Feb 2020 14:58:24 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1580943503; cv=pass;
         d=google.com; s=arc-20160816;
-        b=0IhAWC7ZbQsxfyppnDvRgzNxeuIVXLbOEN4TKVZ4Wkdcq+FTBqArucxjiEz/V+4+kl
-         GCtLMLgT0qet3u9NDuOsIQNA4gQWgGdsvdNw1N6DyMT+Pf2gYgMy99YuCcTV2DI1rpon
-         Io/nY1KtLHmbNg8ZnFsRcCJftvGFwbyEi2UdZhXIkxxaixIzIyZLjAzIePVBpuPbaTso
-         7aGdZ4TZiUOgSn/5zoRae0T92gV+CgauA4vz6GBznZGqM8lmfAh2PGTALoIK5L2mD9ph
-         znaWX8ZZ+QP19jmtj+tPm7Gi2Qqad+rHZONiCVyjrt8kz6ZFv8tjYncs8HoVG9+Ktepw
-         +2vA==
+        b=z0M8Rd6ooqaS+L0IPEIC330wKmEmwKATt755W/EJUDSBVcm49Yp9woHxLuB+f4+C7G
+         bnqjscn5dnX6kecW9NEeDRGUrTT4gP9e/RZcCY5sTqiennAa80C4eXn4GFRtCbxRM460
+         3I1m+QqLqFT77RBdCqlq1nEhMLinhrd3RqPwhn+7PjMdIt6KePt/D8oBRN94RZnlA17V
+         8B0aU/S2JIDTRdfp2aF9QbAKXw0qeHbzlImdVcum0eh08wuZm3ON/p0FhiKk12gMZnU2
+         Ksqf88eIOJs1xgbTH5erGSBSVp507szEF3HUcQQpDBjq2+sDHm4L/bXennqM/q3mg2Yd
+         Fbkw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :list-id:mailing-list:precedence:message-id:user-agent:references
+         :in-reply-to:subject:cc:to:from:date:mime-version:sender
          :dkim-signature;
-        bh=ChoJjI0JFhT56NGy7fhqdYGValkYRcpUuu9cILIReFY=;
-        b=MAQ998yGDqpyy78mTmtLyDr4T09NkCGodgeaiNhoJ24Mj46OSQyJ1sLwfvSQK4EGAi
-         LwfgwMm33v3vC+fOV7l6VpFl55bc83KSyWQcK2G1slvv17RQDrWYhEH8jDc7Zzs61ckY
-         M89OVG888IMODIEQuUlkYkSqV22SM1YP03Sd7z5S1650GS8Gsvp4LhTQREjQtbRC8RMg
-         RH/m2SbC06a2JBIoQAZ9MDvVUIUI0dBwT25kNcJwsb7rriDP2aWV7smHMCdcoemEEhqp
-         yxfNiP8soRWDdonqnvfrBsoxj6JINA4LBoigHp4ZdUxGlGkBSp0hUug/CiFr0lorCUXn
-         SpGQ==
+        bh=iB/oJgXXIPEJOJUdy/DzkopDfz+W6i5NEuHzfODKE/s=;
+        b=aT/czFZfIVIBQSznKFIFRyuhWbiBGwOJpaU/NXC24vrMAvY7tqgLyy67YbVd6lYwNf
+         Ph9LLWs/srrXIRHdBeOTipN3N+bpOSBa4frOoNNRPXeyGdz0xACVfy06TVr/nvTzi0sT
+         4wvo3B6q21JEkp2NUmS07/s9tDKe6VRVhjqN6YJ+9YUd/gYZe/QuNM6KuSaOC9h0axHs
+         khkc5pM2B4yqjUgqs3H2SEZDIhDudB4oG3ucJyBj8VYCkCWtliw9/OQ/1V6BaPIIpxFu
+         nCwkeWjEMBR6vWtby6j5/wzNi2HPc2U3yV5ftQSnmSG0OEoaWRbh+i49+qYUl/bHC1nH
+         gkzQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.200 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+       dkim=pass header.i=@agner.ch header.s=dkim header.b=ZFeVZv5C;
+       spf=pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) smtp.mailfrom=stefan@agner.ch
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
-         :user-agent:mime-version:x-original-sender
+        h=sender:mime-version:date:from:to:cc:subject:in-reply-to:references
+         :user-agent:message-id:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ChoJjI0JFhT56NGy7fhqdYGValkYRcpUuu9cILIReFY=;
-        b=gSyZs5MKn2Rw0R5rgNFAGdmvY0jrG/+vH278D3hMjhWPSlxhjUBTHf26EHj7kCKy/y
-         295vjqwRhZnRVujAPLqLj+yMu2iMTMqpf2zs2M8kBfRn6jrYbxTfOxEPPF7Zsatpa5yH
-         C2m5VK2iK1yFBeF4inqp7utBKdiHsZzG8y5aKny6YKlijNNqWLj+/lyHkIGEC3XCLiWe
-         PDK1xm7oOwlVS3nCbGoEDyDO01Ge+7CvSX059uJoyo7ACpiN1dEXljM6+8HUlAzzl3qM
-         1iCYdbZoOQueM2oKRKvRDLLNclgoAVQaskfnQqqlj91Ob0/HrMoVZQD6qeVKLfz9vpoX
-         nnsg==
+        bh=iB/oJgXXIPEJOJUdy/DzkopDfz+W6i5NEuHzfODKE/s=;
+        b=qaMxjhLhbGV9bkMnG6PWBI9NI1OJXfXGsWATBd+lfi8QjEcrDGcyn4UCdJg4Yvl9gh
+         EE1rtWj6LDO0BDqdjR+cK68gyE+aZenAGK2ZOExrJfJca+jjnDhBCjvwU1osjBjWueHH
+         XyCdelTsclp83JXz+0UTL/Jaybu30+YKXQvYQ7okAHs9rA1CfsPEBVxS1xWC7E/Smrpb
+         ASIo8tYLsyBrYQ1QwZFdUArBUMLn+Q7b+esyYqq6IpTWL3jctbaBnR2ol9DH2+UcGC6F
+         b3ECHXsS/ftQjy6wvF2+CO9hPNPzPVMwI1B3bV64WPTCLVDKHgYWMOYXH1DYTG+S8aoz
+         q3zQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
-         :in-reply-to:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:mime-version:date:from:to:cc:subject
+         :in-reply-to:references:user-agent:message-id:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ChoJjI0JFhT56NGy7fhqdYGValkYRcpUuu9cILIReFY=;
-        b=KDCBrFstZDxvvsBEb+Tokwkp5Gt1wiYyur3IadYiAo7KO/L1Pkuxo2pndO/ZCPjkJJ
-         r+zOHqhyN0er4CzA5GJfSqDj7SMnE7yzXSTqxaVyWZNDJKlU9FiMAshtv+qUQaaD3Z2/
-         9t7lVCFQ7QwW3qA7G4qmL2WD/Mdp4dxF1j7xgfDO1IuhDErqzIUq7neXkGgkn4VSQC3H
-         q6KhBAhmqFXwxdEveUXgRv+KEO+qDvS3cBpj7mknFDSgiYKALsi3re7KU8ZABhSNc8hC
-         3YGj3hPJTah4L8pdzCw4gc5kE1JUFvV/Va7gxXn5r0S1evvdaBP27odygAM0qjg57XGF
-         jLPA==
+        bh=iB/oJgXXIPEJOJUdy/DzkopDfz+W6i5NEuHzfODKE/s=;
+        b=RFmD7pAdXEseWi/3UtB5nW71i0PEilGXtCunypa/A6T2K9sZMUEjRflj4t5UpeVKVK
+         m2b2MfcSa2IDNigLA1BA3TSay/pFGoV5LKtMcWxTNO207P5ksfTzeIRnLkr2i+3dBT2d
+         gudeVCeQt4x6sVxnehh6LRbiMpaHUXyb50SeGXmlrnq2Itt/iWhLk1j/Exs0X7DsGLtn
+         jHD/V3hgA3IQXeCVFZsPkXqtx3DzHiuaGOHLQ8aXlC31J2oYCpN6pd8m+Bh0VvvncA/M
+         O7ulFxhrAi8nNgtvRRqieW8oH+xrI/6QCNr7WuqZT1KjXyt6LTvy5KWYbqi6H5qNK05L
+         6a/Q==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUBmNsEbLg8bTJyDTN9Bqoll5hUECDlWXxs6ZHoIKERMRFTsBDR
-	aKwrpvDL/2tUO5KboKsHYBM=
-X-Google-Smtp-Source: APXvYqwKYv2B+uKv5vGHE0qnxp2p9kWnwvs5NZ3AbV64DwBNixrgelGUQWGSDOZghHe1UR9zlwh8sA==
-X-Received: by 2002:a6b:7b0d:: with SMTP id l13mr29405648iop.147.1580943134084;
-        Wed, 05 Feb 2020 14:52:14 -0800 (PST)
+X-Gm-Message-State: APjAAAXI2oa7b/SU/MeQXin9/Sa2xKVEy6LN4DHaY9ZupfL97jgvuian
+	3J66RzQKhq0qCMA/DbJc/10=
+X-Google-Smtp-Source: APXvYqzJpD7VWcOCbm48Va1q010D0FPs7O/ZFzGsZCik/3XatF+wth0T77XMJwO4h1PO7ukuMfxByA==
+X-Received: by 2002:a2e:a36a:: with SMTP id i10mr95706ljn.107.1580943503609;
+        Wed, 05 Feb 2020 14:58:23 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:aad5:: with SMTP id p82ls970764ill.9.gmail; Wed, 05 Feb
- 2020 14:52:13 -0800 (PST)
-X-Received: by 2002:a92:81cf:: with SMTP id q76mr503844ilk.303.1580943133663;
-        Wed, 05 Feb 2020 14:52:13 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1580943133; cv=none;
+Received: by 2002:a2e:8544:: with SMTP id u4ls706421ljj.6.gmail; Wed, 05 Feb
+ 2020 14:58:22 -0800 (PST)
+X-Received: by 2002:a2e:9b05:: with SMTP id u5mr101810lji.59.1580943502558;
+        Wed, 05 Feb 2020 14:58:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1580943502; cv=none;
         d=google.com; s=arc-20160816;
-        b=WOrddF7Aen3uppppFI0AYOgBU2TqtiBB6T51WEvP+0zXsXYJXvB2Z0EuIWNu3P+++u
-         7f/srPx22OIWxTtdQkYKLJc8VF/VpEZjKNJHHuhO9q4GsuNOwDAhseEh8zZ6TpDsp2iQ
-         ojHZp8xhScF+/r3LJOexdJP6cZK8sKyfpDdu6JngYk2bNIAM6vwJFSBhxEelxBOLA4Fe
-         gPtMZnPax3BMcWYmCna5ujE3q5/CZRcJQHipQ1vjn/1ZyDVEgdrgdy884ESfMAZJZNtB
-         Fk2c9FTSNfsa1a841JGcP4ph8TZLaQB/k0lU4kzSKgQ6g0m+Popsl7UzB1fL5B3T7v2x
-         yV3Q==
+        b=Vt3T5n6wPcW/luLkuoIjxBnZFFq70atuVWUHiGQM49GDPrSKX6TQrSYjmymOOa8H3a
+         rP/zB60j90PAPzw+2usAd6W2mZobrwjhw8aFjMmKS/hW3j+07w90PJ/rY1PJGNHdv71+
+         RpwLjijhu6TLGciahq6UZgSzj58Qlo7DyFSvwQq+YTwTDp0gh9NKCadVA4LnTb82hIQu
+         CwA/l3KjAudjy07Xjlp1P6cmF7lgfKDBwWxM+H8uMl+6lMd3/I2aFu70/5dNXHpPy1M5
+         ehOxEp3UoJ+OD4rDRjhuhAK0g8mdVa9Iqfr1bLcmpo3Nhy/8OJKZf+Ren7WM72Ii2a4b
+         00Pw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:user-agent:references
-         :in-reply-to:date:cc:to:from:subject:message-id;
-        bh=BQnWh4EYfAbivkvqSzu2uuCagvH8Q5hqZRB/OLnWvks=;
-        b=mJGUBkd1mSb8WyweQxefrxNtPDIcCBxX6n6Q1OlH24tk0fDkEMcNuoprb9eLsMGWfs
-         zi9K2U33a3T6PY4g1HrbAroYWKfHEqcgYDil+BJTWV2aTt+TZmcHSJQBo7dcC/8a2Y1R
-         77nArq0wOWXqvU05uq9KB8pFxGKU7pkXkBbh322SU5SXhsZi8RYmf/8Y5x8LDNku0UzS
-         lx7Ahb0cUCWA4cc47DwrSpHv2iO4BxQymml3tCh6Nat10YBeQ5Qu8rOhsQ8XxXh4Gs5k
-         fjfmmhzZSGFjoewh0HfbZOaQA7MRwCWDOCcHirGyEB3AGRWHkhLPUKNrxpDTjz5lbz9m
-         Hw/Q==
+        h=message-id:user-agent:references:in-reply-to:subject:cc:to:from
+         :date:content-transfer-encoding:mime-version:dkim-signature;
+        bh=3VcufrJgxcsnT3S/lhbayM64sOm4ET3fTVcPeVl2zZQ=;
+        b=wi3VbkvmyQQhhQLWtzDawIeiKF6CbadijkPI9PEohwjIpKUCwx1LAlHTwQ9vuilwfZ
+         NjQILTWMU+ATWqwkBRrqhneoZjNDK1zPckVYHIGvdRprIHY9ShmFfRxpCBfk4Wlspkjz
+         XEgJvuLDuLGsC1OBOC7kMz1RnrwkXYkrPQISHNAXHomr9aNMNq0tCLBt5a6GeVjz/Qbr
+         Ee8SHUANrfud5HO4aTeiqYLHIHV+f59ZmgMZL+LsYfXt4i3CJnsWfD1se58Um1PT+fBf
+         Gf6xWvMHiwW9yhRfBhEm6h1RNhGZW/yOJ2oXQ5Z2Y+pwuamD/oPbS3WLZ8i+YQybJwGR
+         eLbA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=neutral (google.com: 216.40.44.200 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
-Received: from smtprelay.hostedemail.com (smtprelay0200.hostedemail.com. [216.40.44.200])
-        by gmr-mx.google.com with ESMTPS id p9si72935iog.5.2020.02.05.14.52.13
+       dkim=pass header.i=@agner.ch header.s=dkim header.b=ZFeVZv5C;
+       spf=pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) smtp.mailfrom=stefan@agner.ch
+Received: from mail.kmu-office.ch (mail.kmu-office.ch. [2a02:418:6a02::a2])
+        by gmr-mx.google.com with ESMTPS id b10si53569lfi.1.2020.02.05.14.58.21
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 05 Feb 2020 14:52:13 -0800 (PST)
-Received-SPF: neutral (google.com: 216.40.44.200 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.200;
-Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
-	by smtprelay02.hostedemail.com (Postfix) with ESMTP id C02BD3AB6;
-	Wed,  5 Feb 2020 22:52:12 +0000 (UTC)
-X-Session-Marker: 6A6F6540706572636865732E636F6D
-X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::::::::,RULES_HIT:41:355:379:599:800:960:966:967:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:2196:2199:2393:2525:2553:2560:2563:2682:2685:2828:2859:2902:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3352:3622:3865:3866:3867:3868:3870:3871:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4362:4385:4605:5007:7903:9025:10004:10400:10848:11026:11232:11233:11658:11914:12043:12048:12262:12297:12438:12555:12679:12740:12760:12895:12986:13069:13311:13357:13439:14096:14097:14181:14659:14721:21080:21365:21451:21611:21627:21740:21811:21939:30012:30054:30064:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:3,LUA_SUMMARY:none
-X-HE-Tag: order36_1316b577d5b11
-X-Filterd-Recvd-Size: 2066
-Received: from XPS-9350.home (unknown [47.151.135.224])
-	(Authenticated sender: joe@perches.com)
-	by omf16.hostedemail.com (Postfix) with ESMTPA;
-	Wed,  5 Feb 2020 22:52:11 +0000 (UTC)
-Message-ID: <5a14078affad5e26330627d91df394da990ba301.camel@perches.com>
-Subject: Re: [PATCH] drm: Add missing newline after comment
-From: Joe Perches <joe@perches.com>
-To: Stefan Agner <stefan@agner.ch>, maarten.lankhorst@linux.intel.com, 
- mripard@kernel.org, sean@poorly.run, airlied@linux.ie,
- daniel.vetter@ffwll.ch
-Cc: airlied@redhat.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Date: Wed, 05 Feb 2020 14:50:59 -0800
-In-Reply-To: <586aab08af596120f48858005bb6784c83035d59.1580941448.git.stefan@agner.ch>
-References: <586aab08af596120f48858005bb6784c83035d59.1580941448.git.stefan@agner.ch>
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.34.1-2
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Feb 2020 14:58:21 -0800 (PST)
+Received-SPF: pass (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as permitted sender) client-ip=2a02:418:6a02::a2;
+Received: from webmail.kmu-office.ch (unknown [IPv6:2a02:418:6a02::a3])
+	by mail.kmu-office.ch (Postfix) with ESMTPSA id 92A8D5C406B;
+	Wed,  5 Feb 2020 23:58:20 +0100 (CET)
 MIME-Version: 1.0
-X-Original-Sender: joe@perches.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
- (google.com: 216.40.44.200 is neither permitted nor denied by best guess
- record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Content-Type: text/plain; charset="UTF-8"
+Date: Wed, 05 Feb 2020 23:58:20 +0100
+From: Stefan Agner <stefan@agner.ch>
+To: Joe Perches <joe@perches.com>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org, sean@poorly.run,
+ airlied@linux.ie, daniel.vetter@ffwll.ch, airlied@redhat.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] drm: Add missing newline after comment
+In-Reply-To: <5a14078affad5e26330627d91df394da990ba301.camel@perches.com>
+References: <586aab08af596120f48858005bb6784c83035d59.1580941448.git.stefan@agner.ch>
+ <5a14078affad5e26330627d91df394da990ba301.camel@perches.com>
+User-Agent: Roundcube Webmail/1.4.1
+Message-ID: <75de5f45061e2d13268479d43cb84625@agner.ch>
+X-Sender: stefan@agner.ch
+X-Original-Sender: stefan@agner.ch
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@agner.ch header.s=dkim header.b=ZFeVZv5C;       spf=pass
+ (google.com: domain of stefan@agner.ch designates 2a02:418:6a02::a2 as
+ permitted sender) smtp.mailfrom=stefan@agner.ch
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,35 +130,43 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 2020-02-05 at 23:26 +0100, Stefan Agner wrote:
-> Clang prints a warning:
-> drivers/gpu/drm/drm_lock.c:363:6: warning: misleading indentation;
-> statement is not part of the previous 'if' [-Wmisleading-indentation]
->          */     mutex_lock(&dev->struct_mutex);
->                 ^
-> drivers/gpu/drm/drm_lock.c:357:2: note: previous statement is here
->         if (!drm_core_check_feature(dev, DRIVER_LEGACY))
->         ^
+On 2020-02-05 23:50, Joe Perches wrote:
+> On Wed, 2020-02-05 at 23:26 +0100, Stefan Agner wrote:
+>> Clang prints a warning:
+>> drivers/gpu/drm/drm_lock.c:363:6: warning: misleading indentation;
+>> statement is not part of the previous 'if' [-Wmisleading-indentation]
+>>          */     mutex_lock(&dev->struct_mutex);
+>>                 ^
+>> drivers/gpu/drm/drm_lock.c:357:2: note: previous statement is here
+>>         if (!drm_core_check_feature(dev, DRIVER_LEGACY))
+>>         ^
+>>
+>> Fix this by adding a newline after the multi-line comment.
 > 
-> Fix this by adding a newline after the multi-line comment.
+> Thanks, already in -next
 
-Thanks, already in -next
+Whoops, sorry for the duplication. Searched for "indentation" which did
+not bring that one up.
 
-commit 5b99cad6966b92f757863ff9b6688051633fde9a
-Author: Dan Carpenter <dan.carpenter@oracle.com>
-Date:   Wed Jan 8 08:43:12 2020 +0300
+--
+Stefan
 
-    gpu/drm: clean up white space in drm_legacy_lock_master_cleanup()
-    
-    We moved this code to a different file and accidentally deleted a
-    newline.
-    
-    Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
-    Signed-off-by: Daniel Vetter <daniel.vetter@ffwll.ch>
-    Link: https://patchwork.freedesktop.org/patch/msgid/20200108054312.yzlj5wmbdktejgob@kili.mountain
-
+> 
+> commit 5b99cad6966b92f757863ff9b6688051633fde9a
+> Author: Dan Carpenter <dan.carpenter@oracle.com>
+> Date:   Wed Jan 8 08:43:12 2020 +0300
+> 
+>     gpu/drm: clean up white space in drm_legacy_lock_master_cleanup()
+>     
+>     We moved this code to a different file and accidentally deleted a
+>     newline.
+>     
+>     Signed-off-by: Dan Carpenter <dan.carpenter@oracle.com>
+>     Signed-off-by: Daniel Vetter <daniel.vetter@ffwll.ch>
+>     Link:
+> https://patchwork.freedesktop.org/patch/msgid/20200108054312.yzlj5wmbdktejgob@kili.mountain
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/5a14078affad5e26330627d91df394da990ba301.camel%40perches.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/75de5f45061e2d13268479d43cb84625%40agner.ch.
