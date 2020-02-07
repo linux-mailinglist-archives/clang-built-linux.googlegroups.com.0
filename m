@@ -1,138 +1,153 @@
-Return-Path: <clang-built-linux+bncBDTIRUHU4QLBBOW26LYQKGQEHDNEIBI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBRUN6TYQKGQE42LT77Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF10F154FAF
-	for <lists+clang-built-linux@lfdr.de>; Fri,  7 Feb 2020 01:20:11 +0100 (CET)
-Received: by mail-lf1-x139.google.com with SMTP id b22sf40111lfa.16
-        for <lists+clang-built-linux@lfdr.de>; Thu, 06 Feb 2020 16:20:11 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581034811; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id E941315527F
+	for <lists+clang-built-linux@lfdr.de>; Fri,  7 Feb 2020 07:42:15 +0100 (CET)
+Received: by mail-pl1-x639.google.com with SMTP id bg1sf773729plb.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 06 Feb 2020 22:42:15 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581057734; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aApDiS7+QdfwPXtjCjQspKn6e5YWvSxklYSgW8P83dFpVjo9mGLU2Hz8+PrVFevqNx
-         M/CL1orgj52eZUTGmkSwuPeEwcmaPc9Kz93/OsiZt/IgQrtz+jlJ5UpE37PVbMd0CDr4
-         Yy3+rGzPqEVw/89ZofVtPfHek/KURXNsnhU52+vmwsDTiCPOssMiJclWuNcgfQjajclq
-         qnVzXF+LcQQ17lWsM/eswY2apNnsw9+D+KBVLJqjZWwFB7R+VAZbkoNVgxMHxCyQ73TO
-         5NhFcQSkONFBNjqqFZQj6xwNhlCoW4c4RpclOa4JV71c+NhfXt3yoTkO0xcd40kV1bdi
-         VP4Q==
+        b=AllMECQrnfcQTyAq+Vb09NOKAXJYSEF9882ZjNG9MzsN8OzywV8Ldg59Xq2SVdLqgY
+         Ul4uklLS98VVJmu/OTnt1OObLlq+RluRsqJ7Mzl7ogC7Iu4FsZC8XGv9FApLj5KOTqpq
+         Gefyd4GmmfKNrhOJm/d3M2RwSEnn/sL9hixC8uZ7MLrLUmQnaa4dMg3gTSkmqrmFekw6
+         cLJX0K82lER/BxIuVC0CDglzwAO6UVzV4T2ydg/Gj1/TQorX3vtVHFDRYp3275AagAnZ
+         PvwOHPNztm0sR24Jm6yM90i4ecCRbWU5fZpX5q9Eq+RReSTHxndpDwhoI3it4ILkZEuv
+         s7sg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-transfer-encoding:content-disposition:mime-version
+         :references:message-id:subject:cc:to:from:date:sender:dkim-signature
          :dkim-signature;
-        bh=ud0oC769DbSwzxPIegTKSMkMXVbZmKEFNM8ALpwzIEc=;
-        b=fX7q0zU5ZtIV3PqEwafVznRMS9aIcO0esHWbn78dlaL851WSYFZ8Q7tc36dz+ilbCe
-         C38n+ebHaiQInE5nXPz+IwuVqylePuuma6IOOZREhJDURHyXtAeNlSAqDqKGxiSU/T2C
-         z0SYnnn+RL7VPUKcxmOlvY4or8+yT+gW2VYWeW2sWPzrm0NLqhQ9oEh76Wg9eOmMv6qh
-         xKV4h1Cio10ASLs023Cv11YllZQkaMzMkc7lE/OOb6i8GEz9vhjv0dkl3LauwGF/cl+2
-         boXXO4LzFckMJoT/4HLEZrjUlaSHHpxlH4jOpeN40qblWGsuEhWkCGDsLG/DHLKDNUPT
-         r59Q==
+        bh=sOuJ3mUEjy2Ox6EBPcIkROw3HzADN6svI+nTyM5oloc=;
+        b=iqx/AYVEmskdsDzLQFtzJRdNQaBefaLfOG+7W+FbhyCKPJ/hyPrGRgZfCOvjBbVBem
+         CDpHMvRUNEJJJEm9AKpE3p6KnW5+KUX4WFlG2ip5X61G6S6oSWr7YlxPxHF+DGPCTYOu
+         or7556Dtce3dzymHQSKYZeK6y2XJQ/Y2sTpekmENXLhEqqnUu5OcrwK3X1RRxHig6eqT
+         9672hWORAD1HjfP2EU2LoYJiQCMscXQXRP8TNnXzn1VIK3MY0kz6/eNxGOJZEdK7KSqm
+         CAQbcBxyAPepPPicmzxqglFyIGKsJnD27enrTwf5ig4CHD7IJzCvQ+PZvHKDxCoQT7KC
+         T7Bg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qj3OJ5o+;
-       spf=pass (google.com: domain of caij2003@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=caij2003@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Vs8xRFTr;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ud0oC769DbSwzxPIegTKSMkMXVbZmKEFNM8ALpwzIEc=;
-        b=S7SFuybW6EUu3EYw+XOioTxA5TMGsovqLKHkUcGX5SlbBPCwbBgAp6ulynJPjbhZUD
-         yw3KGyfcZJkppXPMq9WCUvpNHIaQH2lcQAtaSLjZsGy/HTpJT87mpv102PHjwzVhQNMZ
-         n2WLjYf+XSz0WDdSmqR1YK5CGhrVS+58hzKCy7/WJfJwRA7xY2RXrS1RZg+pVOt4pan2
-         GSKO0k7JnAa/aggBSOMF+ec5Kv43fFA2cIIiZd8t7TZzeszevnxksPkWwWO8guIwFd4T
-         Hzox6XSSAXe1cNBUkDKWR3Z1HHpgJGijozWz0APhaIrijmxg/zhJ8kf9XXdqO1ol3I5j
-         qPHQ==
+        bh=sOuJ3mUEjy2Ox6EBPcIkROw3HzADN6svI+nTyM5oloc=;
+        b=BNKrXAMD+61PB/dvlkPiMzU0ej7txZAp81GNdEKjhKsI1xZxRfB713waRcUsYhbVll
+         Lcy2SzD6AM5VKb3L5JYQWCMHLujJ2fxNbVUQWGrZcqRJV6ABBp7/gNsfrwm7S4M2cNBa
+         AjnZoxNjAH6dTxD8xtjqQBU4rWyAsXVfDir5GLDfmxYt7QarNDWQFpzqFY0AA5ypLvhN
+         iwgSC/VXzO87ArULaQ6Dro/tlwr9kU+VGT7mGcYS9IbuFBntiIWidDIR7XZ8DMNNkAl7
+         F9qX2BHLkw81k7mUYxzXrwA5dsOGACVJdwac75ntM4JR96DPwjTvuc1nl4P+chD4akm5
+         IfCg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:content-transfer-encoding:in-reply-to
+         :user-agent:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ud0oC769DbSwzxPIegTKSMkMXVbZmKEFNM8ALpwzIEc=;
-        b=qr4SO4jfVG9LYcTtgsuuJDOjSKoNgqoHv5fLBdbShezspPJKK5SFoudpkkDPtKL0mn
-         jFPinxQFGGv/zgmLS9LKTBSBWW2Crtr3LhGPYaZT4dD7w8pRin+c7q6afqykoRjC9Os9
-         G4h4WoAALP6KRaBOITo1RrmkewTyQ9zpOU1PzWtr+/owBxDfLHBe8684nODaCdoFUAtj
-         S9JQfyF/IRl7ABNxN78PSOkXJ6jmsnmfaKfD4HyWFB68xYsbz1plmVFOCQuWUHhWEqdW
-         nzG2k6zniANCHbwNr23JV5mVAEamAq9vEeOZFJ4w+K2ZmhU3Q+vHCHpiad1CdjTbXBmG
-         oqqA==
+        bh=sOuJ3mUEjy2Ox6EBPcIkROw3HzADN6svI+nTyM5oloc=;
+        b=vb2AdzRlwFfyupxD6p0oj43T/goz6orXbz+NfFWgKm9GoLRLzpXfE6LyzLc5t6vQIL
+         tw/h8yyMXlbCqI+QCFVLqOqIDLWSwFCWxsTqM0CqniSnywmLNxp2+t9HNow5t6aEm8JG
+         NfJEvzPrHgv8J8tOyQsJ/10nPxTTAWiuG1QSFmFRktFnpbxCVEP6CQEsl9JN1CMZbipM
+         OiOv/S4K9VIcZqrtU0lbcRvHCLgRcgp02VvDys6tZHZBDKZ1memdsYaMNBjJLLh/HZdy
+         QWv2EVKLXgMIvG8/RJfuDvRatrJaSucJeTIec7o4A9i411TRpIpjrIaWcOe8Rucp1CMR
+         3mIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition
+         :content-transfer-encoding:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ud0oC769DbSwzxPIegTKSMkMXVbZmKEFNM8ALpwzIEc=;
-        b=soUSUdCKczTV3iH/CnvDCDnBYCs0AZepu2fnZUORPLqwxxisUmeM6/l0bkI1YO7ojd
-         csyanMnqIXOBK8M+MZWVjEuVFQqqV36KLZK/ViTSF0S00TnADpnL2DHnLF17GqM31Exl
-         soya6Z9eE73ZdfbtTqrqpzMN4Uba76Jsm+i8bzKtRx4msUW1BhYraVau4hWE7bfWYA/1
-         KpdQ7UtmWkk9+TcsmNISidq/32hTNrIL2raaX5EdDZUhQFngAQSAk1tlf6KR+RUgCy9s
-         abNXTcA1PAW6rc3Om6EUv14hSQLgNwNfbH++6jEQ80hPs+TXW5kqf7bson/I2JAJHO7R
-         D1Jw==
+        bh=sOuJ3mUEjy2Ox6EBPcIkROw3HzADN6svI+nTyM5oloc=;
+        b=dMOYfkeYUoy127Efb0guI2Yqm6h+0soalyjceMx1+lIQL+wFo/G6FMnGNAq2qH5vXJ
+         AX+jgxgkp+sUQ9oFBymxauvtJj+Oqt0NZgRH8sgX3qjEdYbBaAtD10dzGTVQMgLROR6d
+         VyPMsqaEHZT4wvrhFpQaegG64Yok3A67/b4R9CleP5KexktDjYukt3Ib8Zl/img9pV1h
+         O0GEYNQgQspWtmA3v1TlgAjEcFx27k2uegd5rMZ2y+H59pkI6nXa4uCCesfaJ+DuarxH
+         ao8ugrjt+S2QouJPEcJOluvF01B79NFpnjOjNV/U7XmFQUkTI0YXIU1Z8mXi4i96bU5g
+         8glw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWfQ+8KffmUTaJ6aK+FYmXcTjekq5FoaYSGbxk8UBQ6vwvqaoDT
-	m9PU/UdyL0O9b0Hsfzuf6pY=
-X-Google-Smtp-Source: APXvYqxKIz3dMxoa20vhVJIgv9uoIVDz0t95oB8UiH7YoSBZ46FqQg1g2IN654EVIi8yOZqd3lrDAQ==
-X-Received: by 2002:a2e:8591:: with SMTP id b17mr3613233lji.249.1581034811173;
-        Thu, 06 Feb 2020 16:20:11 -0800 (PST)
+X-Gm-Message-State: APjAAAVp9PcFp0p3WqgECFIFtM60STIvKOR6kZHAQZcqXFdhVg8xUQA7
+	WkrQsZvuiL3u9MzXUNLQ4e4=
+X-Google-Smtp-Source: APXvYqzxvJv0p5IR0kXxsH7QFr79dA6ePyszdYSWdEoCqZGtScuScRwGk0Snyg2Sy3zNqk8Li3O0Iw==
+X-Received: by 2002:a63:610a:: with SMTP id v10mr8115520pgb.211.1581057734165;
+        Thu, 06 Feb 2020 22:42:14 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:9786:: with SMTP id y6ls1748556lji.4.gmail; Thu, 06 Feb
- 2020 16:20:10 -0800 (PST)
-X-Received: by 2002:a2e:96c6:: with SMTP id d6mr3702739ljj.4.1581034810240;
-        Thu, 06 Feb 2020 16:20:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581034810; cv=none;
+Received: by 2002:a17:90a:3ae2:: with SMTP id b89ls4808849pjc.2.canary-gmail;
+ Thu, 06 Feb 2020 22:42:13 -0800 (PST)
+X-Received: by 2002:a17:90a:ba91:: with SMTP id t17mr2161777pjr.74.1581057733657;
+        Thu, 06 Feb 2020 22:42:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581057733; cv=none;
         d=google.com; s=arc-20160816;
-        b=Sl5kOYfUgqhYR3yUcR7F2Orn1YfU90Ani55uAaTovFotR4mtmP3Hu3W8C373/AhqeK
-         AqdgxeEOq06tRkRvZDxHDGLElqYPajWVW9J/o/u1jVTDVfsTLYjZ7CaaQVEEmTbeSvdt
-         s/rEEyP1bxL61qDgBmRLK+29CR4gRWqwOn4Ik02dduvScpFDmDkzZehb/VBkwXxoXmKw
-         cU89zQ9Sbql//z6NKKlj6/GNEjGFE0XGh/gBgfAS/Tgo74NZilhnNg+mDeXUT4k1zo3p
-         S+h8Sss3KN+SmbLHBFT32SjJu24jltQiwVV2P9F0vcie8DIwECCNASTTMYlOK1vNeZ7q
-         qhzQ==
+        b=l4eJy2K1rCvDySWawWU5Y6bJKQB+mVDZno3dNOp44sQ3zosRuX23ncMrmBbVn80vHN
+         nlN//OKRc/+PIJBbFWQ5zy8ej1A5iAaC77paLJIqeGlDMkuiiOuJlWfjlL20JGRs6+8v
+         5KZvL+yTkyQTzWsBPRFkzQxVG+D5g/Fs+HAmGH3YYT2aasL0k+j7N0SoMeUafOEZKQJh
+         JCnVIQeWRoethqAHD+w7a3bghNx0wXNV+pS7aQfcDCmhXOW07ZNdO3l2M1TvtHUFSLyc
+         tOvLc6T8mCI2kehabG7xaf8UfguHTuLWLdgw9RiRZ/loU3xk63/MVmOwMMdL1NdrNU4P
+         Rx4Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=CoKbncYciVD/U0lXsVtX7zMw7+64OYjcPIBvVRn+6s0=;
-        b=kHXI4GNEbCPPPzVUmmWDEAeuJa/vS1FvEcP0kPJHTt/9XjIgXt3qg67VEmyhL6pf9d
-         2UIyPJZLyanDV9/dgN91gqyyQIUlatH1uBQhrffE5+L6pgNWXUa/cLa1xQbaDFE7vnEZ
-         EsovnCI4slcavHSUAwXtuAVaXYT32PAIwTYTkEjnOEIv7W+IdCqAGO2fpHsn50AYI8IA
-         1+MH9inb9utTF6DCIn6mWc0otulYdTzk6DTEX85ht+L3jqwsp+gm0QwrsGk3rcOOl59M
-         E+08XFwRowxXw7wRljq4ImUadnOps4sw1ryk/qVM9pBDbhKq1ShIb8meGQ20CB5ER0Zc
-         IhFQ==
+        h=user-agent:in-reply-to:content-transfer-encoding
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=nS5JPWneySiodQp4hbvudj9hL13ty2+PLssqsVAS96w=;
+        b=RZsfrVlCOXjWKC9u6A0rSSnNHJRePl6y3YfdknM4jsXVWDqzqRMoYkuD5phga2tkzP
+         yIC/vzqYFXswWxYle53NIsWSAohjT6+B3EdIcMYLGU1iEiZRZL1xs49yKQleCXxnTYfs
+         NbEvaRKzDc2vlUjoXogXX1pANiKGuWda4zl+TTbP/u3Lm+9Od+YPuXzbXH3vbM2Cy/i4
+         2TEV7e5KBtlJLL38klrzblR4s+aUeiqaoOg4ac88eoK0Q1Lnu2a4WFRGRrsNOSm2gBIB
+         aJP3C72NQNrYEKxcEIxh83X4+ix9gjPoOFZV/o7SqAB44XjkMPbkxzJS1LYKjXtRKmP0
+         d4ug==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Qj3OJ5o+;
-       spf=pass (google.com: domain of caij2003@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) smtp.mailfrom=caij2003@gmail.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=Vs8xRFTr;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
        dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-wm1-x343.google.com (mail-wm1-x343.google.com. [2a00:1450:4864:20::343])
-        by gmr-mx.google.com with ESMTPS id h8si56009ljj.3.2020.02.06.16.20.10
+Received: from mail-ot1-x342.google.com (mail-ot1-x342.google.com. [2607:f8b0:4864:20::342])
+        by gmr-mx.google.com with ESMTPS id a4si569533pje.1.2020.02.06.22.42.13
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Feb 2020 16:20:10 -0800 (PST)
-Received-SPF: pass (google.com: domain of caij2003@gmail.com designates 2a00:1450:4864:20::343 as permitted sender) client-ip=2a00:1450:4864:20::343;
-Received: by mail-wm1-x343.google.com with SMTP id q9so748118wmj.5
-        for <clang-built-linux@googlegroups.com>; Thu, 06 Feb 2020 16:20:10 -0800 (PST)
-X-Received: by 2002:a1c:964f:: with SMTP id y76mr454472wmd.62.1581034809466;
- Thu, 06 Feb 2020 16:20:09 -0800 (PST)
+        Thu, 06 Feb 2020 22:42:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::342 as permitted sender) client-ip=2607:f8b0:4864:20::342;
+Received: by mail-ot1-x342.google.com with SMTP id 66so1120257otd.9
+        for <clang-built-linux@googlegroups.com>; Thu, 06 Feb 2020 22:42:13 -0800 (PST)
+X-Received: by 2002:a05:6830:12c3:: with SMTP id a3mr1569040otq.341.1581057732875;
+        Thu, 06 Feb 2020 22:42:12 -0800 (PST)
+Received: from ubuntu-x2-xlarge-x86 ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id z21sm777102oto.52.2020.02.06.22.42.11
+        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+        Thu, 06 Feb 2020 22:42:12 -0800 (PST)
+Date: Thu, 6 Feb 2020 23:42:10 -0700
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Christophe Leroy <christophe.leroy@c-s.fr>
+Cc: Fangrui Song <maskray@google.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com
+Subject: Re: [PATCH] powerpc/vdso32: mark __kernel_datapage_offset as
+ STV_PROTECTED
+Message-ID: <20200207064210.GA13125@ubuntu-x2-xlarge-x86>
+References: <20200205005054.k72fuikf6rwrgfe4@google.com>
+ <10e3d362-ec29-3816-88ff-8415d5c78e3b@c-s.fr>
 MIME-Version: 1.0
-References: <20200206200345.175344-1-caij2003@gmail.com> <20200206232840.227705-1-ndesaulniers@google.com>
- <CAOHxzjGiO54BwUDR4zz6MwvFT3-XXDx830cQcQAcVUPA1N_emA@mail.gmail.com> <CAKwvOdkaQJrXt3y_QDyZpQpeJqB0nYsV_p21h63SS1k2Q3Da=w@mail.gmail.com>
-In-Reply-To: <CAKwvOdkaQJrXt3y_QDyZpQpeJqB0nYsV_p21h63SS1k2Q3Da=w@mail.gmail.com>
-From: Jian Cai <caij2003@gmail.com>
-Date: Thu, 6 Feb 2020 16:19:58 -0800
-Message-ID: <CAOHxzjGmqM2F=U23M7hFm6+dumsdDi8g1HFm3t3vQV2fozFz+w@mail.gmail.com>
-Subject: Re: [PATCH] ASoC: soc-core: fix an uninitialized use
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: alsa-devel@alsa-project.org, Mark Brown <broonie@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
-Content-Type: multipart/alternative; boundary="000000000000322242059df15a3a"
-X-Original-Sender: caij2003@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <10e3d362-ec29-3816-88ff-8415d5c78e3b@c-s.fr>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=Qj3OJ5o+;       spf=pass
- (google.com: domain of caij2003@gmail.com designates 2a00:1450:4864:20::343
- as permitted sender) smtp.mailfrom=caij2003@gmail.com;       dmarc=pass
- (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+ header.i=@gmail.com header.s=20161025 header.b=Vs8xRFTr;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::342 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -145,191 +160,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
---000000000000322242059df15a3a
-Content-Type: text/plain; charset="UTF-8"
+On Wed, Feb 05, 2020 at 07:25:59AM +0100, Christophe Leroy wrote:
+>=20
+>=20
+> Le 05/02/2020 =C3=A0 01:50, Fangrui Song a =C3=A9crit=C2=A0:
+> > A PC-relative relocation (R_PPC_REL16_LO in this case) referencing a
+> > preemptible symbol in a -shared link is not allowed.  GNU ld's powerpc
+> > port is permissive and allows it [1], but lld will report an error afte=
+r
+> > https://git.kernel.org/pub/scm/linux/kernel/git/powerpc/linux.git/commi=
+t/?id=3Dec0895f08f99515194e9fcfe1338becf6f759d38
+>=20
+> Note that there is a series whose first two patches aim at dropping
+> __kernel_datapage_offset . See
+> https://patchwork.ozlabs.org/project/linuxppc-dev/list/?series=3D156045 a=
+nd
+> especially patches https://patchwork.ozlabs.org/patch/1231467/ and
+> https://patchwork.ozlabs.org/patch/1231461/
+>=20
+> Those patches can be applied independentely of the rest.
+>=20
+> Christophe
 
-Thanks for the pointers. You are absolutely right (despite working late),
-this is not an issue upstream anymore. I was looking at 4.14 and 4.19 on
-ChromeOS. I did double check the upstream code but stopped right after
-seeing 'ret' was still uninitialized. Thanks again for the information.
+If that is the case, it would be nice if those could be fast tracked to
+5.6 because as it stands now, all PowerPC builds that were working with
+ld.lld are now broken. Either that or take this patch and rebase that
+series on this one.
 
-On Thu, Feb 6, 2020 at 4:04 PM Nick Desaulniers <ndesaulniers@google.com>
-wrote:
+Cheers,
+Nathan
 
-> On Fri, Feb 7, 2020 at 12:55 AM Jian Cai <caij2003@gmail.com> wrote:
-> >
-> > Hi Nick,
-> >
-> > 'ret' is only defined in if branches and for loops (e.g.
-> for_each_component_dais). If none of these branches or loops get executed,
-> then eventually we end up having
->
-> https://elixir.bootlin.com/linux/latest/source/sound/soc/soc-core.c#L1276
-> and
-> https://elixir.bootlin.com/linux/latest/source/sound/soc/soc-core.c#L1287
-> both assign to `ret` before any `goto` is taken.  Are you perhaps
-> looking at an older branch of the LTS tree, but not the master branch
-> of the mainline tree? (Or it's possible that it's 1am here in Zurich,
-> and I should go to bed).
->
->
-> >
-> > int ret;
-> >
-> > err_probe:
-> >         if (ret < 0)
-> >                 soc_cleanup_component(component);
-> >
-> > With -ftrivial-auto-var-init=pattern, this code becomes
-> >
-> > int ret;
-> >
-> > err_probe:
-> >        ret = 0xAAAAAAAA;
-> >         if (ret < 0)
-> >                 soc_cleanup_component(component);
-> >
-> > So soc_cleanup_component gets called unintentionally this case, which
-> causes the built kernel to miss some files.
-> >
-> >
-> >
-> > On Thu, Feb 6, 2020 at 3:28 PM Nick Desaulniers <ndesaulniers@google.com>
-> wrote:
-> >>
-> >> > Fixed the uninitialized use of a signed integer variable ret in
-> >> > soc_probe_component when all its definitions are not executed. This
-> >> > caused  -ftrivial-auto-var-init=pattern to initialize the variable to
-> >> > repeated 0xAA (i.e. a negative value) and triggered the following code
-> >> > unintentionally.
-> >>
-> >> > Signed-off-by: Jian Cai <caij2003@gmail.com>
-> >>
-> >> Hi Jian,
-> >> I don't quite follow; it looks like `ret` is assigned to multiple times
-> in
-> >> `soc_probe_component`. Are one of the return values of one of the
-> functions
-> >> that are called then assigned to `ret` undefined? What control flow
-> path leaves
-> >> `ret` unitialized?
->
->
->
-> --
-> Thanks,
-> ~Nick Desaulniers
->
-
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAOHxzjGmqM2F%3DU23M7hFm6%2BdumsdDi8g1HFm3t3vQV2fozFz%2Bw%40mail.gmail.com.
-
---000000000000322242059df15a3a
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">Thanks for the pointers. You are absolutely=C2=A0right (de=
-spite working late), this is not an issue upstream anymore. I was looking a=
-t 4.14 and 4.19 on ChromeOS. I did double check the upstream code but stopp=
-ed right after seeing &#39;ret&#39; was still uninitialized. Thanks again f=
-or the information.</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cl=
-ass=3D"gmail_attr">On Thu, Feb 6, 2020 at 4:04 PM Nick Desaulniers &lt;<a h=
-ref=3D"mailto:ndesaulniers@google.com">ndesaulniers@google.com</a>&gt; wrot=
-e:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0=
-.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">On Fri, Feb 7=
-, 2020 at 12:55 AM Jian Cai &lt;<a href=3D"mailto:caij2003@gmail.com" targe=
-t=3D"_blank">caij2003@gmail.com</a>&gt; wrote:<br>
-&gt;<br>
-&gt; Hi Nick,<br>
-&gt;<br>
-&gt; &#39;ret&#39; is only defined in if branches and for loops (e.g. for_e=
-ach_component_dais). If none of these branches or loops get executed, then =
-eventually we end up having<br>
-<br>
-<a href=3D"https://elixir.bootlin.com/linux/latest/source/sound/soc/soc-cor=
-e.c#L1276" rel=3D"noreferrer" target=3D"_blank">https://elixir.bootlin.com/=
-linux/latest/source/sound/soc/soc-core.c#L1276</a><br>
-and<br>
-<a href=3D"https://elixir.bootlin.com/linux/latest/source/sound/soc/soc-cor=
-e.c#L1287" rel=3D"noreferrer" target=3D"_blank">https://elixir.bootlin.com/=
-linux/latest/source/sound/soc/soc-core.c#L1287</a><br>
-both assign to `ret` before any `goto` is taken.=C2=A0 Are you perhaps<br>
-looking at an older branch of the LTS tree, but not the master branch<br>
-of the mainline tree? (Or it&#39;s possible that it&#39;s 1am here in Zuric=
-h,<br>
-and I should go to bed).<br>
-<br>
-<br>
-&gt;<br>
-&gt; int ret;<br>
-&gt;<br>
-&gt; err_probe:<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0if (ret &lt; 0)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0soc_clean=
-up_component(component);<br>
-&gt;<br>
-&gt; With -ftrivial-auto-var-init=3Dpattern, this code becomes<br>
-&gt;<br>
-&gt; int ret;<br>
-&gt;<br>
-&gt; err_probe:<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =3D 0xAAAAAAAA;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0if (ret &lt; 0)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0soc_clean=
-up_component(component);<br>
-&gt;<br>
-&gt; So soc_cleanup_component gets called unintentionally this case, which =
-causes the built kernel to miss some files.<br>
-&gt;<br>
-&gt;<br>
-&gt;<br>
-&gt; On Thu, Feb 6, 2020 at 3:28 PM Nick Desaulniers &lt;<a href=3D"mailto:=
-ndesaulniers@google.com" target=3D"_blank">ndesaulniers@google.com</a>&gt; =
-wrote:<br>
-&gt;&gt;<br>
-&gt;&gt; &gt; Fixed the uninitialized use of a signed integer variable ret =
-in<br>
-&gt;&gt; &gt; soc_probe_component when all its definitions are not executed=
-. This<br>
-&gt;&gt; &gt; caused=C2=A0 -ftrivial-auto-var-init=3Dpattern to initialize =
-the variable to<br>
-&gt;&gt; &gt; repeated 0xAA (i.e. a negative value) and triggered the follo=
-wing code<br>
-&gt;&gt; &gt; unintentionally.<br>
-&gt;&gt;<br>
-&gt;&gt; &gt; Signed-off-by: Jian Cai &lt;<a href=3D"mailto:caij2003@gmail.=
-com" target=3D"_blank">caij2003@gmail.com</a>&gt;<br>
-&gt;&gt;<br>
-&gt;&gt; Hi Jian,<br>
-&gt;&gt; I don&#39;t quite follow; it looks like `ret` is assigned to multi=
-ple times in<br>
-&gt;&gt; `soc_probe_component`. Are one of the return values of one of the =
-functions<br>
-&gt;&gt; that are called then assigned to `ret` undefined? What control flo=
-w path leaves<br>
-&gt;&gt; `ret` unitialized?<br>
-<br>
-<br>
-<br>
--- <br>
-Thanks,<br>
-~Nick Desaulniers<br>
-</blockquote></div>
-
-<p></p>
-
--- <br />
-You received this message because you are subscribed to the Google Groups &=
-quot;Clang Built Linux&quot; group.<br />
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
-lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
-To view this discussion on the web visit <a href=3D"https://groups.google.c=
-om/d/msgid/clang-built-linux/CAOHxzjGmqM2F%3DU23M7hFm6%2BdumsdDi8g1HFm3t3vQ=
-V2fozFz%2Bw%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https:=
-//groups.google.com/d/msgid/clang-built-linux/CAOHxzjGmqM2F%3DU23M7hFm6%2Bd=
-umsdDi8g1HFm3t3vQV2fozFz%2Bw%40mail.gmail.com</a>.<br />
-
---000000000000322242059df15a3a--
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20200207064210.GA13125%40ubuntu-x2-xlarge-x86.
