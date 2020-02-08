@@ -1,124 +1,126 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBYW27PYQKGQENC7MJJA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDY3NC743AGBBHFP7TYQKGQED7YPZSY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x238.google.com (mail-oi1-x238.google.com [IPv6:2607:f8b0:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 17DA61565B8
-	for <lists+clang-built-linux@lfdr.de>; Sat,  8 Feb 2020 18:18:28 +0100 (CET)
-Received: by mail-oi1-x238.google.com with SMTP id k6sf2648097oij.8
-        for <lists+clang-built-linux@lfdr.de>; Sat, 08 Feb 2020 09:18:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581182307; cv=pass;
+Received: from mail-qv1-xf3f.google.com (mail-qv1-xf3f.google.com [IPv6:2607:f8b0:4864:20::f3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 999481567AC
+	for <lists+clang-built-linux@lfdr.de>; Sat,  8 Feb 2020 21:18:37 +0100 (CET)
+Received: by mail-qv1-xf3f.google.com with SMTP id l1sf2018279qvu.13
+        for <lists+clang-built-linux@lfdr.de>; Sat, 08 Feb 2020 12:18:37 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581193116; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jUNdYDzm4Bphsw5N9BDJ5RV4q4SMfuGEJlygb//9aHFRWVA2o+oUmIkiEnBKsXyGPV
-         srZbiShxDkIIAuhyp81+ziL588wv5UaG1e6zRvVHfph9D7nx/NHoC5SzqhOotW/fRFkF
-         jVc3kd8FEBxRaREVD3wGMWEGtZ7rePWCsOsaqcpbc+R/2/L8llwhS4DsKovJ9kJqggiA
-         JBX7dU53w/rRiJmclMdDaZU9Ue8wdivfNZYB26/gotiyNcH66DPI8UlUNkiqjsq3PLYa
-         hhM5NIUR0FVYZbJPmr0dUHhQOl4qz15tBYKf59ANAk3quFTgYIhhkFaWetp2x9cypv/X
-         83wQ==
+        b=RMCQgH6Ab5XFEzvvk6aCLqDHZCqsenwoUVrM75yoMihIVPJ+hf+GuuSuVoVSJ6em0g
+         faSrYWZ9+Ew9tJP9u9PkYlGpLoM3IrSJ8WJqvfiGm2psQ8tB9UoIhkQBoaKKuZuolZEt
+         +2QcRQYot19bPmhxuBupC0r9NQyoMpbsMUzxNCbyw9VeVUvuU5zauJFHUPesLvphIJ7+
+         kZBfwHw/sI0S2fpSXVdCnrRZUDU8oDXvqwos2Q4m40I6ipjmNHyLbKtzBiQ2P6iIWMlw
+         WSCPIB2RzdktyAgFdD92JQa4YgiyZOMEbF3woKTm0q2scG2chxFaWD4RmlKPI4oo7wZO
+         YKBQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=2SH5doYFlpYaOve5+azvTLSCROay5zTbj5bTjSrxkxU=;
-        b=SvFkMZqEXIPGbZekbKCqX0mwpMksq7hYQ1+bTjGB6X7nmOMzbR9u2qLrQMCGNjl8rf
-         QVGU/oHmIA0XmkwPxBp2G77yzv93V8+td5C4sRUzYLy1s+8smVifDuNQbtAGZ42SVX1X
-         bns1Bvz5pL7Ffi3xyMdKqVwRPYM8Oa5WpE2CKRKcrGf5U9uUsVVTJ2SAdv8XGKCSsxi2
-         EJxBu+bNhN8rFxuOslKfdrprPKCH8Q2mwY9LBVsVoLayYp4UkjD1tUTPLvi2HayH1CiL
-         UFe0pkqNvxZlRnAHO50mQH/4cY3goj2+yj87yEtGS8fZDHW2citvLQdNKThicDjvzlLY
-         f8Ug==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=O98IVDxyS9uBM80Q2sTl9CNPIaB3FzxJmP4g/MYH9iQ=;
+        b=N1MEgAAlPjNVDCHts113VzEhA3vK8mRun707c4eg4pfB98Rdtt/cp4469pmunrsTzF
+         wjNWkN70scWGt3RaHopIDDP2VrZ8gq+cRWhFi7elc1wx/oRt1wzKZfePGKV2IEny8vRO
+         9/H6H8NS6JrffalI04sbBYa6rEk5tLGqYlgb+Yi39Qkb13AuWE8tEyqoGe/eKj/7Zatq
+         4pvGLB3dj/XdAlyDpBqfbEDZZb8DoFcY1j95iMg0zoJ0y+ciXk4KzE+ujyVfA9lPOoEe
+         sL1B6yIsGWFFMiLZC3w/EUTA3rsuLD/uZZUDNLrCxrMZznO/+nvnEmumDpuCH9Se/mFT
+         TK4w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=MJhcoM0S;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=neutral (google.com: 216.40.44.52 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=2SH5doYFlpYaOve5+azvTLSCROay5zTbj5bTjSrxkxU=;
-        b=PFWCx07qgr2ZTQ8KM3NchOV2Vjr8LfgUHQWGRdMgrw5roRgJ4xt+ULcxUk1nXbi2+m
-         hvAseqRSfggSbZu4UQ0Z6i4eUgo098l/kQOjg9ulZYDgdqH4BUMULwJPEHtoZUQmUwDu
-         dqb0cb69bcKS882TTMaN8truyj7QgBeqzLlLVBXFBye6Csrp6La5tjEciffNNBq/u74O
-         UfiQbjcXwtAU+qt0VW94WSpYIlAnWdhXBu6e8LVzPUAbpgPc3Sh9yJVtCmbS5PSeGVtK
-         /3GG2RnSTnmoxHsdYlRz2/wRmV79zN0AoltkSWTi9RPn0W84Wmbrja7av7Q1vDKCSW0a
-         SZLQ==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=O98IVDxyS9uBM80Q2sTl9CNPIaB3FzxJmP4g/MYH9iQ=;
+        b=PupAK39jlTnKr2a4alLwr+XVGFlrS4Qb35Z3CrH4CSzGAR9ubjladpitWOptStYqN/
+         3Ycl0dO58Gn0EbPj18qntJYmq69MC20cMI95kFSCDKzsNhkvJxm58YZW8D3OIgk91KS+
+         IhxNYUzbDGkqt9rGVQEkvur8w4Tf881VqIUciRBBLdZLeJN7JaepZfpdjRxdmBlCN7TG
+         KpBGTuetx8rnF7YUYfpHgcVrHnrJqBQpGdGhto0uWVz2qmfdKxxgyHIE7NvZmRX2c7+I
+         UI9ctGX8pf1xUJ7TRk1kCmZ1BBgoLsQGvq9SvXJdBQEohPcR8Ew4jt61KLX5j1bq9XPz
+         rZiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=2SH5doYFlpYaOve5+azvTLSCROay5zTbj5bTjSrxkxU=;
-        b=n3zk9dwdWz6vM1lQ2VQIXQc+BrpHA4v2E0r8XJweptpycKvjMoNU7qDknokuHf6YRm
-         ZsXuRQnb9EY2bsdBUmOzmIl4UiPipFZKvtRQ/KRXYXatAza/dnA6+/k3a4cEhzdqTkgN
-         cFSQPzOmHUABsIbS75MWDChHh8quP5BA+S2p7UDNbI2x72BMJir8ZeGTfnp12Y8K/wOq
-         ex2y4Y/ksZj9Q7+z5oVgVQRgPwc84uHx7qsFA29E33XnfqcnSaYR5yuttxVh6Ndx9ryK
-         VMZ4cg7hh/CKenbRsjx3wATsAOrCbKM0Imht3bbg9/Ja5ha6aDHJOxtHMz6p5vKB3K6q
-         rXog==
-X-Gm-Message-State: APjAAAWcc5+6H48uWdCxyfhj9lBZFlvvOxdBi4mCwZNUnslGXMwfNW9t
-	YRdIS/DwATc8jbVzrgqUCw0=
-X-Google-Smtp-Source: APXvYqy5igkhHd7zu/hhng4x6CGhEDB7FTca02Nw3Fr5XUp7o2SvAjeYF8z/7YwDOwpoiIDCIBe0vQ==
-X-Received: by 2002:a05:6830:1db3:: with SMTP id z19mr4187081oti.292.1581182306896;
-        Sat, 08 Feb 2020 09:18:26 -0800 (PST)
+        bh=O98IVDxyS9uBM80Q2sTl9CNPIaB3FzxJmP4g/MYH9iQ=;
+        b=iZIyuUYaAgKplOLix3JmPnNgI0bCLv1F2v5axlAdouW/Ti2zwsHWwqzGc76ap4zhK2
+         imombnvVL3HOdPP/1tyCwT8k0vb1h+BqVzRtRlTq5WHqKqnspvuZK3CIg7EjWVKmYnhs
+         0YM1KEigfma/K4Gf+APMWaOMdaWl4qFfhrAmXn+g4xnDL+mHZdtEFPU9foqjNUE9cGV+
+         EgjDM6xuNqMDx8hXGFKHaJZEsaqDaFngPXtFRjrgKnsqEjZW1fBjcO3OGj9xcrUVEjDT
+         WPfiz/YgtmJH0j82mRj44yNZ5//hrEa5EsJWboROywEEd4L1NQpxG42KyeHTHrvKdyg3
+         y3OA==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAWviWr73YTgPpT2BJXB2VSVyXR5ccw1I4/MERQrwqs5CiVOO6sZ
+	ct4sl+ouJ9zJInqFfLgeo8M=
+X-Google-Smtp-Source: APXvYqwJD3MAr9tAWBdbehB6Vi/1xglMQHCtto/dHEUDZXhy0YO+WQtQx5Os2HhiVtihteq2aLazBQ==
+X-Received: by 2002:ac8:42d7:: with SMTP id g23mr4016483qtm.206.1581193116322;
+        Sat, 08 Feb 2020 12:18:36 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7999:: with SMTP id h25ls773969otm.2.gmail; Sat, 08 Feb
- 2020 09:18:26 -0800 (PST)
-X-Received: by 2002:a05:6830:1bd5:: with SMTP id v21mr4340442ota.154.1581182306466;
-        Sat, 08 Feb 2020 09:18:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581182306; cv=none;
+Received: by 2002:a37:f507:: with SMTP id l7ls1363240qkk.0.gmail; Sat, 08 Feb
+ 2020 12:18:36 -0800 (PST)
+X-Received: by 2002:ae9:f016:: with SMTP id l22mr4616462qkg.101.1581193115973;
+        Sat, 08 Feb 2020 12:18:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581193115; cv=none;
         d=google.com; s=arc-20160816;
-        b=TYNbs4/PYBt827lsoFQi1KsoQlzquuGzFJXh6291RJbQYcO21Bxu5S4jIDlc/ixfTT
-         AheRA8LjUWTzeIzLOMERDrqdLZcAwEyDSg9PdXMU2tdBr0+oE/JWRnDOoLyZTBYWVTPg
-         upB3sHPusmYgjyAqR8vpSHlUYnvcIaY7THsch++SFt0t2yRzmBFc6QV87I/G6zp1nS0N
-         VXou8C2jSqEEBZI3pSxJ9BkYsskqyj/leKU4/qOvl8jqsobtzyi3i7xR5T+5dt4GmO6s
-         L3G6uNDRJZXcLNS+yMHO4yrUvVG5HuDXKf5AfIjRJ0c0svG4N1xTjCW1pVDPJRRarNAe
-         V96w==
+        b=TYOxbCD4So+54xFmiqfpD22x7qLtt9C07HGnPswu5xJCRs+IpbztmevgSPneS3poyb
+         4N/gs/DWfNpm6C1Fedaqr0Rx2DNloAsCZmXCIk/brFaBi/DMOuRBxn7SKU1bWjbr7rMm
+         kME+ybeeliTpe/1/DozY3tn2JFrcUcKehMs8fn6VUB2Qg/xkdx6jslP/tTYvoTwK+nbW
+         kHUA5ERiTAGiFNV2chut6V7d7D88ga0zO/dQcYvgZpIeP+YYTx1Baaf3gfCIqr1ByViV
+         XhGfmk3DWQeLG0jvjS0Tw9zBXgUNjcVx1ZS/HJBfZ6MsXRM9q7beXtrzDjXSYmDf1yn7
+         LgJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=97bjEOo8NHHV0loxcFn46KhJrhrQDZe2/hrTKBrxCbU=;
-        b=usFSap4yoWerxXD4MrDbJfySBz52DeoiUlumKzSyVtcQgOMiNiNThrKmzSdBtulRK2
-         TTl67f8CrC6EO95DeS2fTAcGyrghtgpoc+rJKH8Y3o9tKnO3vqWi+P+bkPFFUMzo7aLj
-         BFVMK2Cq1X/9UzkVNIUa1nYL0IT4eCxs1GAuUgvgZ6jPZDax8e/rJLdf3KCEQRBk8oqn
-         vNc6NKSxmiZXJEvX791jIbQ5z3EAj5jFsIo2AthnSgori12NscwbYxVGOOotI21Z8F+U
-         bl+QE/lbC1qHJFOmEBADKFWXKPtYSSet/V5pVofndm1Z0ukH02Aepk8eSizgEhKvbre7
-         WbbQ==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=CG7FjdJhO3Zge8j7N7vQJ22RjB2OH2/c7n/YvlpogSM=;
+        b=RAAR3V7Wz/drnxuyLzlPc0UTTuNWzl50NTLljvKQFkHCoZuF+4HhI1IJsZM4p7thwW
+         1e915C1+DRsWcllo6Hfvw4qHkrONQ16I6eirXfMshJ2cefD8f28ZopZKXO1dakccZjvp
+         C4sRwMUjvI2YG5suzTasWyOHjMua3J4p3Qd+kTLGrVXTor90NvBACmx7PVuVoZAmnOX3
+         jG91TKSCRZwDHNdi+7/jzspxm6EMqIlLTal1RVsJ1rbErLbcxmIKjVO3Pn7Jxa1X6quO
+         vsgAyIY45NMT2+Ix2ycyoLIKYaBX1jKVZ55wfl/qakeSmvzUvoG8AuSMMqdIgAgknWaC
+         bL1Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=MJhcoM0S;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id s10si96542oth.2.2020.02.08.09.18.26
+       spf=neutral (google.com: 216.40.44.52 is neither permitted nor denied by best guess record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
+Received: from smtprelay.hostedemail.com (smtprelay0052.hostedemail.com. [216.40.44.52])
+        by gmr-mx.google.com with ESMTPS id r62si163621qkc.6.2020.02.08.12.18.35
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Feb 2020 09:18:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id i6so1449448pfc.1
-        for <clang-built-linux@googlegroups.com>; Sat, 08 Feb 2020 09:18:26 -0800 (PST)
-X-Received: by 2002:a63:d249:: with SMTP id t9mr5721230pgi.263.1581182305426;
- Sat, 08 Feb 2020 09:18:25 -0800 (PST)
-MIME-Version: 1.0
-References: <20200208140858.47970-1-natechancellor@gmail.com>
-In-Reply-To: <20200208140858.47970-1-natechancellor@gmail.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Sat, 8 Feb 2020 17:18:13 +0000
-Message-ID: <CAKwvOdkLy9iKyJUqjgX8K8F98xS6Bz-O8OT_jdxZCzpSrfni8A@mail.gmail.com>
-Subject: Re: [PATCH] s390/time: Fix clk type in get_tod_clock
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Heiko Carstens <heiko.carstens@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@de.ibm.com>, linux-s390 <linux-s390@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sat, 08 Feb 2020 12:18:35 -0800 (PST)
+Received-SPF: neutral (google.com: 216.40.44.52 is neither permitted nor denied by best guess record for domain of joe@perches.com) client-ip=216.40.44.52;
+Received: from filter.hostedemail.com (clb03-v110.bra.tucows.net [216.40.38.60])
+	by smtprelay07.hostedemail.com (Postfix) with ESMTP id 675AE181D3026;
+	Sat,  8 Feb 2020 20:18:35 +0000 (UTC)
+X-Session-Marker: 6A6F6540706572636865732E636F6D
+X-Spam-Summary: 50,0,0,,d41d8cd98f00b204,joe@perches.com,:::::::::::::,RULES_HIT:41:355:379:599:800:960:967:968:973:988:989:1260:1277:1311:1313:1314:1345:1359:1437:1515:1516:1518:1534:1541:1593:1594:1711:1730:1747:1777:1792:1801:2393:2525:2560:2563:2682:2685:2828:2859:2902:2933:2937:2939:2942:2945:2947:2951:2954:3022:3138:3139:3140:3141:3142:3353:3622:3865:3866:3867:3868:3870:3871:3934:3936:3938:3941:3944:3947:3950:3953:3956:3959:4321:4605:5007:6119:7514:8957:9025:9149:10004:10400:10848:11026:11232:11473:11658:11914:12043:12048:12297:12555:12740:12760:12895:12986:13069:13311:13357:13439:14096:14097:14181:14659:14721:21080:21433:21451:21611:21627:21939:30003:30054:30070:30091,0,RBL:none,CacheIP:none,Bayesian:0.5,0.5,0.5,Netcheck:none,DomainCache:0,MSF:not bulk,SPF:,MSBL:0,DNSBL:none,Custom_rules:0:0:0,LFtime:1,LUA_SUMMARY:none
+X-HE-Tag: sort14_109d5eb21af35
+X-Filterd-Recvd-Size: 2794
+Received: from XPS-9350.home (unknown [47.151.143.254])
+	(Authenticated sender: joe@perches.com)
+	by omf05.hostedemail.com (Postfix) with ESMTPA;
+	Sat,  8 Feb 2020 20:18:34 +0000 (UTC)
+Message-ID: <ba371a74412c07c30eeb26fa25c94c25468599a9.camel@perches.com>
+Subject: Re: [PATCH] s390/kaslr: Fix casts in get_random
+From: Joe Perches <joe@perches.com>
+To: Nathan Chancellor <natechancellor@gmail.com>, Heiko Carstens
+	 <heiko.carstens@de.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Christian
+	Borntraeger <borntraeger@de.ibm.com>
+Cc: linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	clang-built-linux@googlegroups.com
+Date: Sat, 08 Feb 2020 12:17:20 -0800
+In-Reply-To: <20200208141052.48476-1-natechancellor@gmail.com>
+References: <20200208141052.48476-1-natechancellor@gmail.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=MJhcoM0S;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+User-Agent: Evolution 3.34.1-2
+MIME-Version: 1.0
+X-Original-Sender: joe@perches.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=neutral
+ (google.com: 216.40.44.52 is neither permitted nor denied by best guess
+ record for domain of joe@perches.com) smtp.mailfrom=joe@perches.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,79 +133,55 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sat, Feb 8, 2020 at 3:10 PM Nathan Chancellor
-<natechancellor@gmail.com> wrote:
->
+On Sat, 2020-02-08 at 07:10 -0700, Nathan Chancellor wrote:
 > Clang warns:
->
-> In file included from ../arch/s390/boot/startup.c:3:
-> In file included from ../include/linux/elf.h:5:
-> In file included from ../arch/s390/include/asm/elf.h:132:
-> In file included from ../include/linux/compat.h:10:
-> In file included from ../include/linux/time.h:74:
-> In file included from ../include/linux/time32.h:13:
-> In file included from ../include/linux/timex.h:65:
-> ../arch/s390/include/asm/timex.h:160:20: warning: passing 'unsigned char
-> [16]' to parameter of type 'char *' converts between pointers to integer
+> 
+> ../arch/s390/boot/kaslr.c:78:25: warning: passing 'char *' to parameter
+> of type 'const u8 *' (aka 'const unsigned char *') converts between
+> pointers to integer
 > types with different sign [-Wpointer-sign]
->         get_tod_clock_ext(clk);
->                           ^~~
-> ../arch/s390/include/asm/timex.h:149:44: note: passing argument to
-> parameter 'clk' here
-> static inline void get_tod_clock_ext(char *clk)
->                                            ^
->
-> Change clk's type to just be char so that it matches what happens in
-> get_tod_clock_ext.
->
-> Fixes: 57b28f66316d ("[S390] s390_hypfs: Add new attributes")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/861
+>                                   (char *) entropy, (char *) entropy,
+>                                                     ^~~~~~~~~~~~~~~~
+> ../arch/s390/include/asm/cpacf.h:280:28: note: passing argument to
+> parameter 'src' here
+>                             u8 *dest, const u8 *src, long src_len)
+>                                                 ^
+> 2 warnings generated.
+> 
+> Fix the cast to match what else is done in this function.
+> 
+> Fixes: b2d24b97b2a9 ("s390/kernel: add support for kernel address space layout randomization (KASLR)")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/862
 > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-
-First time I've seen a `typedef` in a function. I wonder if that makes
-its definition have function scope? (re: get_tod_clock_ext())
-
 > ---
->
-> Alternatively, changing the clk type in get_tod_clock_ext to unsigned
-> which is what it was in the early 2000s.
-
-Yeah, it doesn't really matter for this case, it looks like. Either way,
-
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
->
->  arch/s390/include/asm/timex.h | 2 +-
+>  arch/s390/boot/kaslr.c | 2 +-
 >  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/s390/include/asm/timex.h b/arch/s390/include/asm/timex.h
-> index 670f14a228e5..6bf3a45ccfec 100644
-> --- a/arch/s390/include/asm/timex.h
-> +++ b/arch/s390/include/asm/timex.h
-> @@ -155,7 +155,7 @@ static inline void get_tod_clock_ext(char *clk)
->
->  static inline unsigned long long get_tod_clock(void)
->  {
-> -       unsigned char clk[STORE_CLOCK_EXT_SIZE];
-> +       char clk[STORE_CLOCK_EXT_SIZE];
->
->         get_tod_clock_ext(clk);
->         return *((unsigned long long *)&clk[1]);
-> --
-> 2.25.0
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200208140858.47970-1-natechancellor%40gmail.com.
+> 
+> diff --git a/arch/s390/boot/kaslr.c b/arch/s390/boot/kaslr.c
+> index 5d12352545c5..5591243d673e 100644
+> --- a/arch/s390/boot/kaslr.c
+> +++ b/arch/s390/boot/kaslr.c
+> @@ -75,7 +75,7 @@ static unsigned long get_random(unsigned long limit)
+>  		*(unsigned long *) prng.parm_block ^= seed;
+>  		for (i = 0; i < 16; i++) {
+>  			cpacf_kmc(CPACF_KMC_PRNG, prng.parm_block,
+> -				  (char *) entropy, (char *) entropy,
+> +				  (u8 *) entropy, (u8 *) entropy,
 
+Why not change the function to take void *?
 
+static inline int cpacf_kmc(unsigned long func, void *param,
+			    u8 *dest, const u8 *src, long src_len)
 
--- 
-Thanks,
-~Nick Desaulniers
+vs:
+
+static inline int cpacf_kmc(unsigned long func, void *param,
+			    void *dest, const void *src, long src_len)
+
+and remove the casts?
+
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkLy9iKyJUqjgX8K8F98xS6Bz-O8OT_jdxZCzpSrfni8A%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/ba371a74412c07c30eeb26fa25c94c25468599a9.camel%40perches.com.
