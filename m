@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBQ4PQ3ZAKGQEHUHSXJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDAZZCVNSYPBBAERQ3ZAKGQEIM7V3PI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc38.google.com (mail-yw1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
-	by mail.lfdr.de (Postfix) with ESMTPS id 74CC8157FF9
-	for <lists+clang-built-linux@lfdr.de>; Mon, 10 Feb 2020 17:41:40 +0100 (CET)
-Received: by mail-yw1-xc38.google.com with SMTP id a190sf6576772ywe.15
-        for <lists+clang-built-linux@lfdr.de>; Mon, 10 Feb 2020 08:41:40 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581352899; cv=pass;
+Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
+	by mail.lfdr.de (Postfix) with ESMTPS id D75E6158004
+	for <lists+clang-built-linux@lfdr.de>; Mon, 10 Feb 2020 17:44:49 +0100 (CET)
+Received: by mail-qk1-x73c.google.com with SMTP id e3sf3646350qkf.7
+        for <lists+clang-built-linux@lfdr.de>; Mon, 10 Feb 2020 08:44:49 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581353089; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ABSe+9kbGrX7k+GtNRko3PAPo13GcOQozFWi6uQvqUFJAjf1V4vB6yK/MtUOugoT6S
-         iEt6Fic459NcpiIO2z18gNakwCq3pf3oKzDkOuvtFOn6F3yZKA2SeIvw0oYpE9+Fkkxq
-         F+o4OqGcHCLrKCyh+0qC6Wi5/eszpb1Td9W5eJV/G2Yd23sAPg3OZZuI4XD1VRvpWEj1
-         lHJndI+WBAsDESDX7BqqlT+wUYvoEJFdG2RBiU40E4GAm3fMnSq1okBHGjtKtUDso3a/
-         rK2V2awWf4cmnx9gNWGnjzHEPCF12DAiUZto1SoKMsVOYFb3ZnJ/cSpT27IA4wM8FXSz
-         xjVw==
+        b=eAK4QL/Pus0ZphlA0X0x+jafWY4to90ChJUpb+x3i29gRM/NZeEgPHGghfMsSWS7gn
+         IKvJX+aDpbgDdt77yBRqQDK88hV4qWRPJtfwA/fhLqFUqa04mhOoi35933pTkHntNENL
+         fgP+mkFN9+OPgcHgm/T/dhbzlGFERwQgD6be0o6WCWSsvosIFGaf1/uQM7Ci28MggyVY
+         RH+iigifpKCH/uy+9WA17/A9WOo43GemRZIS98GlU+/QwC9X9dMbS3bif7YgQfG2o+yl
+         0rRHIT2LC09h69ZZbKgyzwwaJ3VJ+UgHJBruzrL9BuueTupWZLYppv26QCBZ71y33yMp
+         3AFg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=YE1wgyD/0ppi15RMaLLVSOSZzVmHjdWuAENsyiLwqk8=;
-        b=OUAlSiv0+n9vVQQuY6kT40TR04hNaEJYm8G75/FrEVlfNeXiSS2ao24Pp0AN7SbCTD
-         Q9adlb0CLB2HEsjya9R8CY+d5lxBt//hYKblySOIHLN9qrdqlrQAX/sYi6HnlfNE2X7T
-         An9W8tnS621j0debJXfTzxx+8zzhDJuG9mPFWLKi5PAK1rbG9+DxgeGpZoWIKfgQ29ns
-         Px07j/eD4xoVy2IztZzEi3NYbrj1A3DHsSQUiUENUXdEV+3l53t68sRg7i2QxzqMZZeF
-         Q4+XHfFXpyHlg7dZifPzJKA4Ns0vm2Y1U04gh4uzPrIzvmKK15vvCpEzkpfJKEk4pNEL
-         EG4w==
+        bh=1tPZyFChyGC3uzuUZDfpU74b7jAIGx9x/41RwYo+atU=;
+        b=ySXSHtS+mi2giMfiZ2XXoHMPdCJPYOrcBvEUhR3Z39byXqhmqgXxA+V7ZlWx07IDh7
+         yfA88U6ScDSdxXsrn71PQBCNvTcjKL0SERUzzh/h9CujmSlkpXvITCrcEsuzMEUIdX4q
+         03Xbj7sN6dovVa3Monugpa807kk15hHd7CYb7vExOI9SWdbNGwGyJXQPr/MT+j812MVB
+         iz9uMDhz9mBoxGoBC/TLGHaqICf+OxQEkiHdS0EdF44RUSo9p+qyvlFTsBFZNFQh/D19
+         epYFMovnlQgqCnz83jseCJhMykyZkDvlOkJFbd4l3Drkkl+yW8muoEGG2L63yeXEu1fk
+         Ivpw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xZ9yor3P;
+       dkim=pass header.i=@kernel.org header.s=default header.b=2VwzkEdp;
        spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=YE1wgyD/0ppi15RMaLLVSOSZzVmHjdWuAENsyiLwqk8=;
-        b=d96A0T9zw6xcQST5XDbK8k1MNDWx685XMK46P5YI5r7ebgqkRHsp14w9chKkRGrWDB
-         u/RdtAfhwyMJoMQhcbsKS0jiqkoFx9dkn6w6Rw9tk6kexnrrDSyjmXiz3sYMh2loHPnC
-         T8F8C1AIu0Hf4LVX80G9ch9i3KEQpSGvtHv7gkmBY7D3jgH1NV+vW9FiN46KqoY0kquq
-         G9FaLXagryJwVzBe0BsIhjsPcWpUPmT8LIgQeCjtLc1m5ZYZXt+Fmj49FhW8aJPOrHjz
-         mwNUOhbYpTj61+CqVNNw4eaK9D4Gb44iUTUEhHDB4TpYC77oo8C1v+Weur/1oxkrcjJf
-         DPCA==
+        bh=1tPZyFChyGC3uzuUZDfpU74b7jAIGx9x/41RwYo+atU=;
+        b=Gal62vRvvi+L1aIhuOSUo4qb988p6t6wFy3Zb/t13Uj10xMGDb7zyOBG2ztaNjIxPo
+         7GwLDZXRSdBPrpX89J5nEdGEXJHvU5TypgPuUwoRGNx2kCkl4vtveA9W/bYy0NRvGhRG
+         b0kFYWFj3eRwnH4JV9eSsvvVAwcS9VhL1iaF1ZJpcKxXlSsZ48hpmKHJp9bbLllv/TeJ
+         D4L/cpjCjvvyDj443eloUCTVFSRAn59jl3nt2v4mj6k0WgPPpKGBNaJrVPmgAGl5N1Sd
+         ISVXkZue8w/wVTPkhfIiPm6Neeb2fGa+xl/60bRck2ufGKnV2/lMTpB6hPdczOLbwCMM
+         musw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,58 +50,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=YE1wgyD/0ppi15RMaLLVSOSZzVmHjdWuAENsyiLwqk8=;
-        b=FC3EOCUhCTzfU+OzOXM/Ub+12IxWUrcT5mnyX8Cv/AoGxXBR2qzBHi33EbG9pFF6fA
-         inUwG9w/31HiuiVkrIULPrJRgMSAlsSPAgXKOmMl6wC/ot7/XLJo4NnIkC3hdhrIpgVD
-         njGgO796v/cryjfGryKQjoMWgewvgb6re7azoJsLSS7ONwUhfzWRMyfu2pKyoH+nKG0R
-         GIBiWFednnyDxcQntkeRj2BT+zi0xfeMkLX6WwqZZhNG8s+wnYZAcp2zdzhg9qiuuI1U
-         T5E9Dg8OxqAioUqV4CXZUjiGD5Bqcq/a8fFfH+QLf+CJy4RBnULf6lnuncavFRsOPYMO
-         0e3A==
+        bh=1tPZyFChyGC3uzuUZDfpU74b7jAIGx9x/41RwYo+atU=;
+        b=QvsnaperlrR2bHNk6Ti9yGBHSupqqNMzrFaDbww+mjWeBedXWrtbrPGaZAwlmB8nAg
+         DIXULKU4cu4YRsEkGS1V50lbvUtIpKMk24BjJjlqgXHt7sexwrWSOOqWfkSEtg4w/QeO
+         0Ec1fPDd1SDfSUKc1ZVUZYsGVN7z0fBJ0N7kJ/DYlR9cPqAQckGEsLokfp2n6O5WQql4
+         d9Y4+KqQnLdIAq2a7H+0zU/rXcoEc2qlJyi+O92uInIPPmb9MqYCg6LcuaL/SQmx2XM9
+         zjsai+X5ywJ3dkbChtmo8QMYOvmoqvEc20vxdYcEoBdjQHmUUlQaHn25Dc4WMuMba+gV
+         aXgQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVjZOiFZAUYpfdoqkm+X9FREziwLmM1X00lztJIH3mF0vK2leJY
-	ZqdAY+gGeui2Nraip6nNqTU=
-X-Google-Smtp-Source: APXvYqyRdF7OdIqhJwdr0O/JI+YrKpMsUui9IIPg1FQAgpxLyMr+FvEkuNCwM6VgV+rnG3HBmMqk4Q==
-X-Received: by 2002:a5b:80a:: with SMTP id x10mr2146062ybp.385.1581352899528;
-        Mon, 10 Feb 2020 08:41:39 -0800 (PST)
+X-Gm-Message-State: APjAAAWFGo+J3andsETkMlzQ4DeuGRypwLaIgyr9UNBiuvxG7WcqSCDp
+	woOPh5RGhskr4RZCbLHgutU=
+X-Google-Smtp-Source: APXvYqwLTYev2NqJdSpMpmLD6dCuJuzo0g+6kWchthoTZtD2sMzV/VcPYdV333ia6UJNuGpHMD1nTA==
+X-Received: by 2002:ac8:3f88:: with SMTP id d8mr10725624qtk.382.1581353088934;
+        Mon, 10 Feb 2020 08:44:48 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:ca8c:: with SMTP id a134ls1731368ybg.0.gmail; Mon, 10
- Feb 2020 08:41:39 -0800 (PST)
-X-Received: by 2002:a25:d24b:: with SMTP id j72mr2189212ybg.374.1581352899140;
-        Mon, 10 Feb 2020 08:41:39 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581352899; cv=none;
+Received: by 2002:ac8:72c4:: with SMTP id o4ls2876648qtp.10.gmail; Mon, 10 Feb
+ 2020 08:44:48 -0800 (PST)
+X-Received: by 2002:aed:2d01:: with SMTP id h1mr10859894qtd.239.1581353088063;
+        Mon, 10 Feb 2020 08:44:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581353088; cv=none;
         d=google.com; s=arc-20160816;
-        b=vzGbI9aWGsfAEo8Na6Pl9Fu1b3iAApQNGFD7Y6LnFE/EykiJ05tW3eEoFRq5KS6wO6
-         hW/BzY2PD77Jq1mWbREvScFnUMjghsi49TBtQHra1ItupzqaKxjWzTOuhoigYi2MslVb
-         hALcItog1RGvZ1tWDHoXy0ROulZTf1chihJLIUi1eqzjdMM9+wwfREuT8L4GQgOH1fgo
-         DCHWawGCS+1941L+ed00faTd3ogvlPvh83UccrknRPsjQhaD2v6LgGuBT2zafOxeu9Ie
-         4G4HxZlX8ibzUcEWZbxVV1MRlZTGbe4ykOO0G+Nb2VVI7eeEOWTYiNM3a0ge4uyDqexD
-         RRIQ==
+        b=pUQ7LYMIC/uE5mIXZSdI4dTUrI1PodzkyXDfpSG0I1zCQLXOSm0T64YlFpesLFTBX4
+         8gaAE3r/NjoOKeY+VDjMuYPPj/xDrjetWOv7eD+7REJF6CHm8HK79ndLC7NtrUEcMsh6
+         SeM57UzLJRww/nVNXpJFphwqc94UAsGUSNlkjTkvb917NUbbOBYzSu+tCVJtDpy9VOgJ
+         A/+cWn5vGdkv+7zoj7o3jVHjJnbSZbv0FhV7yThviNb/zULOOdfhmmrsjofQHrvpFmnF
+         2UqGHwM6zIS5icj/aWUdSYW/4YqJnsbIIlIvSnO9SFU04Uf2AsgZdr9AXQPZjPtfOkOT
+         Z7EA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=UzFWUwmM7Kyr+D+u1TSdxz0P0X+m0J0l2uRRiNemYOQ=;
-        b=QjNJTIcmUBW+Cv2nPDtXRIfj0yoVAvJOb+RwlDUJ8P9NO6prZql3XDU5GVCZ2Xfkd2
-         k6RQIrS20lPIwLHKHAJe2eYJz5q3xGsW3t5W/bxMX7R+Nsuj1NY4iBAFGfjdN58J8FA8
-         REjGAzsQ2cYF6UvEz1iClargxczo+nBVzPm5+P4zCV3aZq4bIyAGxPmq7wI+So0EVUuE
-         xEb6ldSAfbDN44e2j6NA0vuoNI3bJN9qk5Ng6EcwbnKR7Iy09DwlhYjNv12FbKhdHwqx
-         RC8K7D+ITGH2BlWhDjOLE/UF5j5X2JTDsO6dqUfxMTJu9tceXdzkaFIGlargy9K0015V
-         1FBg==
+        bh=oBROvwLUgAfU6aozQ6Dd6OZkk3kSeI6RsZ5fd6Dc4e4=;
+        b=DAAH3xaIbbyNxkr4HPCSi5amU1uUfrVlC5n/0bMTp6mWvk41xk5ntZLAYdanTFYLlK
+         7fgE2M4yRDk3uhPijUTWfyEx3gAVUorFaeaWXWh5rZCmyC8c8TFtbiGf6os8UTbC+yRj
+         Ys4XjTUqAuJ13O8UmOtODuE6ouBfdSW4t5ZftugPn2KqShWTkBLfVb2fGyUKUeDGW/71
+         XITVWLPSTrua28oAzlClhxbTjexU2IMObBKRAFlu3TAnfukoeXVvm4yo9a5vqMW3kuNW
+         I5MBNrURjudGApPwoVYrcu2Lw0kOceCBjWZN2VnA8JW0pEKvJnfUjT6wqqzTNFKO1FUA
+         AxBA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=xZ9yor3P;
+       dkim=pass header.i=@kernel.org header.s=default header.b=2VwzkEdp;
        spf=pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=will@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id g196si57769ybf.5.2020.02.10.08.41.39
+        by gmr-mx.google.com with ESMTPS id g23si29016qki.4.2020.02.10.08.44.47
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 10 Feb 2020 08:41:39 -0800 (PST)
+        Mon, 10 Feb 2020 08:44:48 -0800 (PST)
 Received-SPF: pass (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from willie-the-truck (236.31.169.217.in-addr.arpa [217.169.31.236])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 3926920733;
-	Mon, 10 Feb 2020 16:41:35 +0000 (UTC)
-Date: Mon, 10 Feb 2020 16:41:32 +0000
+	by mail.kernel.org (Postfix) with ESMTPSA id 1346120733;
+	Mon, 10 Feb 2020 16:44:43 +0000 (UTC)
+Date: Mon, 10 Feb 2020 16:44:41 +0000
 From: Will Deacon <will@kernel.org>
 To: Sami Tolvanen <samitolvanen@google.com>
 Cc: Catalin Marinas <catalin.marinas@arm.com>,
@@ -119,19 +119,19 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	clang-built-linux@googlegroups.com,
 	kernel-hardening@lists.openwall.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 07/11] arm64: efi: restore x18 if it was corrupted
-Message-ID: <20200210164131.GB21900@willie-the-truck>
+Subject: Re: [PATCH v7 09/11] arm64: disable SCS for hypervisor code
+Message-ID: <20200210164440.GC21900@willie-the-truck>
 References: <20191018161033.261971-1-samitolvanen@google.com>
  <20200128184934.77625-1-samitolvanen@google.com>
- <20200128184934.77625-8-samitolvanen@google.com>
+ <20200128184934.77625-10-samitolvanen@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200128184934.77625-8-samitolvanen@google.com>
+In-Reply-To: <20200128184934.77625-10-samitolvanen@google.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: will@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=xZ9yor3P;       spf=pass
+ header.i=@kernel.org header.s=default header.b=2VwzkEdp;       spf=pass
  (google.com: domain of will@kernel.org designates 198.145.29.99 as permitted
  sender) smtp.mailfrom=will@kernel.org;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=kernel.org
@@ -147,38 +147,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Jan 28, 2020 at 10:49:30AM -0800, Sami Tolvanen wrote:
-> If we detect a corrupted x18, restore the register before jumping back
-> to potentially SCS instrumented code. This is safe, because the wrapper
-> is called with preemption disabled and a separate shadow stack is used
-> for interrupt handling.
+On Tue, Jan 28, 2020 at 10:49:32AM -0800, Sami Tolvanen wrote:
+> Filter out CC_FLAGS_SCS and -ffixed-x18 for code that runs at a
+> different exception level.
 > 
+> Suggested-by: Steven Rostedt (VMware) <rostedt@goodmis.org>
 > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
 > Reviewed-by: Kees Cook <keescook@chromium.org>
+> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 > ---
->  arch/arm64/kernel/efi-rt-wrapper.S | 11 ++++++++++-
->  1 file changed, 10 insertions(+), 1 deletion(-)
+>  arch/arm64/kvm/hyp/Makefile | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> diff --git a/arch/arm64/kernel/efi-rt-wrapper.S b/arch/arm64/kernel/efi-rt-wrapper.S
-> index 3fc71106cb2b..6ca6c0dc11a1 100644
-> --- a/arch/arm64/kernel/efi-rt-wrapper.S
-> +++ b/arch/arm64/kernel/efi-rt-wrapper.S
-> @@ -34,5 +34,14 @@ ENTRY(__efi_rt_asm_wrapper)
->  	ldp	x29, x30, [sp], #32
->  	b.ne	0f
->  	ret
-> -0:	b	efi_handle_corrupted_x18	// tail call
-> +0:
-> +	/*
-> +	 * With CONFIG_SHADOW_CALL_STACK, the kernel uses x18 to store a
-> +	 * shadow stack pointer, which we need to restore before returning to
-> +	 * potentially instrumented code. This is safe because the wrapper is
-> +	 * called with preemption disabled and a separate shadow stack is used
-> +	 * for interrupts.
-> +	 */
-> +	mov	x18, x2
-> +	b	efi_handle_corrupted_x18	// tail call
->  ENDPROC(__efi_rt_asm_wrapper)
+> diff --git a/arch/arm64/kvm/hyp/Makefile b/arch/arm64/kvm/hyp/Makefile
+> index ea710f674cb6..5843adef9ef6 100644
+> --- a/arch/arm64/kvm/hyp/Makefile
+> +++ b/arch/arm64/kvm/hyp/Makefile
+> @@ -28,3 +28,6 @@ GCOV_PROFILE	:= n
+>  KASAN_SANITIZE	:= n
+>  UBSAN_SANITIZE	:= n
+>  KCOV_INSTRUMENT	:= n
+> +
+> +# remove the SCS flags from all objects in this directory
+> +KBUILD_CFLAGS := $(filter-out -ffixed-x18 $(CC_FLAGS_SCS), $(KBUILD_CFLAGS))
 
 Acked-by: Will Deacon <will@kernel.org>
 
@@ -187,4 +178,4 @@ Will
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200210164131.GB21900%40willie-the-truck.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200210164440.GC21900%40willie-the-truck.
