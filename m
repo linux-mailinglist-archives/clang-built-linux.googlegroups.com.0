@@ -1,129 +1,120 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBA7BRPZAKGQEEZ4B5NA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBYXQRPZAKGQEJEUBLOA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x340.google.com (mail-ot1-x340.google.com [IPv6:2607:f8b0:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id B294C15983F
-	for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 19:20:52 +0100 (CET)
-Received: by mail-ot1-x340.google.com with SMTP id b21sf7441376otq.16
-        for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 10:20:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581445251; cv=pass;
+Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
+	by mail.lfdr.de (Postfix) with ESMTPS id CDD9C159933
+	for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 19:54:26 +0100 (CET)
+Received: by mail-lj1-x238.google.com with SMTP id t11sf4150025ljo.13
+        for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 10:54:26 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581447266; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Krq0qF484Lom4CVoXrgee3IfAFCBIZWozIgZHiAadRp/OpqIU7Z387De+Yxwr7aoIY
-         0uMa8A9bkx0hrUoXo209CYBGa5ODoIsacPR2z45soyx9CvFDGx0r6556W20l1MUJibIW
-         n+8xjBwisZx0Sh+FqxTz37hSge+o3a1Z/ncDWMmjWc2jv93vFript5DXr3alqB5yHW26
-         JiIehBYIdqY6d8QOuZZc8+hBiUoluApnhWDD577dmcl9jnBotb3EQ7yHJ1rOyjj6Wn/C
-         kHlTHQ26DEVF16tMLNq4UIjHMqbbgaMGkXH09t7Q/+wwZQgG10DkQObGYCgxQ0j2dHm+
-         dKng==
+        b=wRZFwkP36zU+wryt5BMXogw/dX+AFb6iudNwqlBBc0+WvWAL51GkcfglDPrpgFhlbe
+         sMjCR46dsRWFBbLR0GyhQE3/TQvHvUlT8RS3Z6P5q3RdUnT4rmzl81v9Y3DRu+p6yV4B
+         NaogqQOoIr+1zz4dUuPqyWXHiXoowvP4zMtSmpngk4v4HtEGhgrMPpyvNJlNr3S5p+ws
+         JS6QpZuHmZkPuyTIsdgvRD/eKCPb/8vhP6F4FsH1BS7HMSkMnrbwOt3iNNEAQiAGfTuV
+         Zp4/bJKwZU88C1M9G/exd+rVX/uQwDVbLIgJag8pOV2/hrIwwwpMWaK4wSmmk/F1aoUe
+         yXjw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=VBLRQFUNwCVmQt/U0+pNRD1LgO2SoiS3uerHN4Jhq+k=;
-        b=DJET6tT43lgwpThxpgJmqsjgY2uiELssdmg8NR1Y7bUJDIm3MXGrZxnLsJyNZES0H4
-         uB3oc/Am5840K7wxzxDtsergNeoPkLASl3H4mSv4Htp5Cq3YJnAy34cG8NFn/1Jun0kS
-         d3p0wPF3FTD1Mf5FuUgZ0gqXEizUprQJfHgMIaKAqhjwlhIaiAsbAZO6j76yjIPJWAzx
-         +4K0hPC3HDGWtkxzRcNAM1cdwcc/6/5i9LyUiiYxT9IJMI5batsdkf7Tz1cnnbmWFiE5
-         FptJoL9ppXcdAXCjWOiaxLX1CRR4pziOWu7BZ0cFt34NikeFt66XJXHJlYB82bqfxmbw
-         jjMQ==
+         :list-id:mailing-list:precedence:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id:sender
+         :dkim-signature;
+        bh=obg6rEGISmZvy95gRDh20x9iH6a7NWz+n+urIeUjyTE=;
+        b=ih779bxBDNxslbN/bZLyF9CZHZt5FHFa0tulAUa3eFHmCCaVOx94ay2M36VdGhyH9u
+         oQ9F6Qh//EENygzYw8EJY5Q82PCPu3w2HDhDBxV2dvg1313KIHBcsfLhdzuVT3wfZqvr
+         9Hh53yqKLaHhc80bFjhwDO9OrJdpi2lm3EMgN79+NI5ln6Ecadzq8W1mVKlIIEu3Q6vj
+         JVOm+BYxwmdrRrQCYRFTppcJ2m5y642UfoIN2Wyjg/MM9DAOh8GgAbggDS8ijhysxMPP
+         LPN/WW/RMKhtLZaEWNfCZDaXG2ASBpS8fShMkQzyNqE9KYm/RMlSO4EcJ292zS5LtJgd
+         Ygbw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lDSRjevb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       spf=pass (google.com: domain of mpdesouza@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=mpdesouza@suse.de
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=VBLRQFUNwCVmQt/U0+pNRD1LgO2SoiS3uerHN4Jhq+k=;
-        b=O/Rb4LfPRvWamS/6sZrnOTSaSqODrl6oeGm6yz9SPVwXuWorKMz9Nlk2Qh9pogLLCM
-         ZHrzRSMY4Mkb/r1Dc89Lzp7jBiJfIS5QfvZx2GpsuWbPAeBu97nwOOGIUdFo3v/NK7Oy
-         Fzm9D/Lnt12c2Q8vP5eY71cpt6a8iRJvFDtBJZAudGDSXWouAFmwOI5Ssm4POL8nfFyM
-         Ux6O0WkCN8h5WshRLrNsnXGmWNFEYXmKELNAnYqUJNs58c4qP9GAF0bGa6LMW1jXn0ya
-         jh9J14A5A8r/PNYQYmWFFXpBgqZQdtkwbSqpLbpCFuZZUWeIJpqIAGkU5eif9r9c7vF5
-         lVTQ==
+        h=sender:message-id:subject:from:to:cc:date:in-reply-to:references
+         :user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=obg6rEGISmZvy95gRDh20x9iH6a7NWz+n+urIeUjyTE=;
+        b=WoAmZ3CdCQu+dzRfXADPCmn6kfuOVg6TRe3ScFcxMntMie6+pOORviZAEHHiFL4n9/
+         g/hL2YJ2cGnyMqFHZOc7rvSmCeX0WmIe3GSsStC9qP8Q3oYNLmOtm/5wFOWco9ugBo2x
+         ugKbS9FxsVMWy3aDc5leYgdUHX5ABQTkgWvjeXo62A6NkJk9Fiv4Zm1T2Ejk2jjj88Yz
+         TxsHXT1TgFvWk5dmC5vBY4ngV52yVbYXQvrD2X/1DQNb6m5GdeQyhGAoZOLqE2wvzjup
+         Zd6GcZFNo+HjXb8Ssc/ILq2gIogpIN5BZExXGYznoa9vXtIdjCuU2bxeo3EYybPMkpDI
+         zAaw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:message-id:subject:from:to:cc:date
+         :in-reply-to:references:user-agent:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=VBLRQFUNwCVmQt/U0+pNRD1LgO2SoiS3uerHN4Jhq+k=;
-        b=WOh+M2QfEuk3Di4X0YQrGbh/nKwKzPy8sS0P48CG73Z5Rvo4NuriyGGdYTo5VS1vsL
-         DKq6pQlM59xxqui7J3PhtGdYaDVSksXhluaWIz9qDjsww6pW1dtfbH5Dmq+DrVmBQ3wK
-         p7agrp/6TgCHU+41TkqeNFb3wuT+Eoua/tVdww32vdNPfw41YuuCgynDw9/ikV7R4ulU
-         YZVpHsOCCkQlY2kPjkUoWhBGdji7d/ktHqyoBTF5WTSaXDpjr7gOEM/htDaeUHo3iWHT
-         A13OP4aZV7jEMozGHN+fIP8ECU5vsz3KBR5uxcPnwrf2Xm9hVnnDUIeBvJIvjIrqFPuD
-         mUCQ==
-X-Gm-Message-State: APjAAAWt+XeSAsM3at6x7u2+VYIK77Djg1sBD9xSBZ59Z5eAPPzBliil
-	xaRDJakZZlSKHT2x68DpsWE=
-X-Google-Smtp-Source: APXvYqzXgXV0+9R3Hthqk3jEVobAvf5EFFA5vjQgMOG0TneweJjX4gl6QRYcLSiw85sblRdhD10oHA==
-X-Received: by 2002:a05:6830:1db3:: with SMTP id z19mr6371375oti.292.1581445251372;
-        Tue, 11 Feb 2020 10:20:51 -0800 (PST)
+        bh=obg6rEGISmZvy95gRDh20x9iH6a7NWz+n+urIeUjyTE=;
+        b=B6vxQlLNY05mggolQ1ANdiolQsnov4OZxJgy1fghGtSW6a1s4XjlgEhswimswcZKY3
+         8W2XgyLdbb/Em23WP9wx8ROX+Fw2nCrhyZaMVXshb74ksNTjsDxDSanp1Edo/7xQjclw
+         oQAj9BP9ZLb7L3oqtkfcnV36b+a+VAUvrf41iM33uT6bZ5NhIqZUcs7o0Setr0SdDHwW
+         pCoZWZFiFqRyWdQa81ILoHNWve9+XU3ajTEmmXVML6satPFGK08AsbLGEoc/ViDJzeBw
+         pDV+vM9TRjpVVxFbLGN6nEFz1Yp57vnwgj+CsZmekjRI4wQrb3phHwvOO5lmqg3fdZdU
+         CRaQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAViq7J9f6sDKRr8v+oMei7uJgOZhMu2iU6fWKni26jGlHXxzKEh
+	1GLjQDTf7M1aRmQTdKxd9Co=
+X-Google-Smtp-Source: APXvYqzL1r3OdpAkXUOsec2jLCrwDpjnAT71N30wr8KM7jw0Kr9Y8asnzZ5adxariTKJzh+sH5EXEQ==
+X-Received: by 2002:a19:4849:: with SMTP id v70mr4456791lfa.30.1581447266222;
+        Tue, 11 Feb 2020 10:54:26 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7999:: with SMTP id h25ls3645885otm.2.gmail; Tue, 11 Feb
- 2020 10:20:51 -0800 (PST)
-X-Received: by 2002:a05:6830:231d:: with SMTP id u29mr6433925ote.185.1581445250945;
-        Tue, 11 Feb 2020 10:20:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581445250; cv=none;
+Received: by 2002:a2e:6809:: with SMTP id c9ls2647034lja.1.gmail; Tue, 11 Feb
+ 2020 10:54:25 -0800 (PST)
+X-Received: by 2002:a2e:2283:: with SMTP id i125mr5353709lji.244.1581447265681;
+        Tue, 11 Feb 2020 10:54:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581447265; cv=none;
         d=google.com; s=arc-20160816;
-        b=a3a9sAMpcqbmHfAEw8CPn3yVxhWBxYmesR3xQ7wnzFu8TXljwO4mnUf3XwNsq4oXwr
-         ZoIFNrn92rltgluavhzkLQASHXATS0aQNoRySNfJwl4QX1QnwsrWLtXxDO+ID4K4y0h0
-         yMw+4BUog75mEqLDhxZeUfYFqFj7b1t5wwYajREbKERRZyWc3elWHza8bSlIITYGxNTB
-         +kbY758i3i/V3wUzFoUIF3psM+lVfW0fXYrddYXSHhEDQpE1t8xbGupFmAS8y9wp6e2V
-         e0ef7PwHMhSxXxVCLB372L+vU6B6kao37o0AILfAl+Ayp+86aPm10KVadLrcnDir/tlm
-         +7Kg==
+        b=khdKdff9HkcNtkDhrn6ZNXfP8RDfEPuOwcIFxLIDhnGC+YBswDJedfDhC5s+Cbn/cP
+         loOE1MqYTeZXtMPot5jzy88qJC75JZmpV52Iqgd+c5MIizxqzwQi0xEWjIc8QUQih5mx
+         wjAL1BvFaOJE+JHBTMUFEFmWbDDK7VpBFErzfiDqGDL+gb0JsaTy9FwtiHGCIMUafE7u
+         8gEzy7hV9erMPPm3ZKykuF6wOrAMCzu6TexicBeEqsG6VPQTjOBd2buR5n1kTy5xfoE/
+         6hvM5q+PP1XkdRL7f+HE4K9pdSTwmB/Jn9FziMM7ZUUBsGzGoMJjJO0J9DwVqNgrkzas
+         AXww==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=4OgG0hetIsP1V38kbC307zOjczZWs0KOp5Ez5Rl0KME=;
-        b=XY8exFkyGPxotQCxg65fRkWt1QXaPY9wcAW/1Aiy652Jo6wCgfh7AAEUJASXAD9e5C
-         V0QdNwzgPJD8ivLM6kFquA2Y0Tmy1bTBLeuymzssuxz9REre5BAY2PA2onDJzuYQ52x5
-         rKlJ0z3s3bpj85IEU/MJwWzmDgHL8DE4hAGHKr7yl+auUqNybyXL3fP7jD+PsJho10qy
-         uAR++1zb3oNJPQ57bkB57otPnrCbwrfZUVsErFHsoNTEXWdS+d1E1IG1PqSvAuUTziRJ
-         T5Jag4YYKoYbPqJNjihtgh2N/ZnAcUFz1eCXzY6Au6ee/CrYeda/DNtV5ZIEo3Iou4UP
-         HrjA==
+        h=content-transfer-encoding:mime-version:user-agent:references
+         :in-reply-to:date:cc:to:from:subject:message-id;
+        bh=0eR5hHAORtFHEojpj1uomWIZYraMsnPBVa2WcnUmSVs=;
+        b=B6+gwGSlPmZaWMzWzZQN0go1J4dQAGh948ImsxMxSEyZPne+RaP8RJHzIFS/ZILGIs
+         QaTJCmFcTFcZH5/v3IkuSQZmchwD0LTqbIIeeMoAUvZIhkzhHDwSe+ubZDu0IBPT32b/
+         4ZkvYIz628+V2OimwlgtBLTqd4jAlMdAMt5/VWR6jK02sXErAk62SO2a+KBnyy/JEfsB
+         d0Fq/+gBws1b5DADyKQADLSWZD+VLKZFLjyrOI2tD0BTF1KSVz4hYdJKyFLNsTkxk3Wa
+         gMvHBApzqoARyQjE4+b2zk7MnpKvbyVfmc2WMNFmMJHl/LNmZ/hHWKQGPbSMZwbIUDXx
+         7fvA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=lDSRjevb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id d16si248364oij.1.2020.02.11.10.20.50
+       spf=pass (google.com: domain of mpdesouza@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=mpdesouza@suse.de
+Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
+        by gmr-mx.google.com with ESMTPS id b29si278773lfo.2.2020.02.11.10.54.25
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2020 10:20:50 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
-Received: by mail-pf1-x442.google.com with SMTP id s1so5869730pfh.10
-        for <clang-built-linux@googlegroups.com>; Tue, 11 Feb 2020 10:20:50 -0800 (PST)
-X-Received: by 2002:a62:1615:: with SMTP id 21mr4402234pfw.84.1581445249952;
- Tue, 11 Feb 2020 10:20:49 -0800 (PST)
-MIME-Version: 1.0
-References: <20200128021145.36774-1-palmerdabbelt@google.com> <20200128021145.36774-2-palmerdabbelt@google.com>
-In-Reply-To: <20200128021145.36774-2-palmerdabbelt@google.com>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 11 Feb 2020 18:20:39 +0000
-Message-ID: <CAKwvOdnPu8-0O5kLDY2t=wq1rqWNX7v0CSrRmomPYLA1=BX=GQ@mail.gmail.com>
-Subject: Re: [PATCH 1/4] selftests/bpf: Elide a check for LLVM versions that
- can't compile it
-To: Palmer Dabbelt <palmerdabbelt@google.com>
-Cc: Bjorn Topel <bjorn.topel@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Alexei Starovoitov <ast@kernel.org>, zlim.lnx@gmail.com, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, andriin@fb.com, 
-	Shuah Khan <shuah@kernel.org>, Network Development <netdev@vger.kernel.org>, bpf@vger.kernel.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, kernel-team <kernel-team@android.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 11 Feb 2020 10:54:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of mpdesouza@suse.de designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
+X-Virus-Scanned: by amavisd-new at test-mx.suse.de
+Received: from relay2.suse.de (unknown [195.135.220.254])
+	by mx2.suse.de (Postfix) with ESMTP id CD296AF00;
+	Tue, 11 Feb 2020 18:54:24 +0000 (UTC)
+Message-ID: <45c807f4298b22eaa1a89741bee67721fa0b0f80.camel@suse.de>
+Subject: Re: [PATCHv3] btrfs: Introduce new BTRFS_IOC_SNAP_DESTROY_V2 ioctl
+From: Marcos Paulo de Souza <mpdesouza@suse.de>
+To: Nathan Chancellor <natechancellor@gmail.com>, Marcos Paulo de Souza
+	 <marcos.souza.org@gmail.com>
+Cc: dsterba@suse.com, wqu@suse.com, linux-btrfs@vger.kernel.org, 
+ hch@infradead.org, josef@toxicpanda.com, Marcos Paulo de Souza
+ <mpdesouza@suse.com>,  clang-built-linux@googlegroups.com
+Date: Tue, 11 Feb 2020 15:57:21 -0300
+In-Reply-To: <20200210234158.GA37636@ubuntu-x2-xlarge-x86>
+References: <20200207130546.6771-1-marcos.souza.org@gmail.com>
+	 <20200210234158.GA37636@ubuntu-x2-xlarge-x86>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=lDSRjevb;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::442
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+User-Agent: Evolution 3.34.2
+MIME-Version: 1.0
+X-Original-Sender: mpdesouza@suse.de
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mpdesouza@suse.de designates 195.135.220.15 as
+ permitted sender) smtp.mailfrom=mpdesouza@suse.de
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,75 +127,453 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Jan 27, 2020 at 6:14 PM 'Palmer Dabbelt' via Clang Built Linux
-<clang-built-linux@googlegroups.com> wrote:
->
-> The current stable LLVM BPF backend fails to compile the BPF selftests
-> due to a compiler bug.  The bug has been fixed in trunk, but that fix
-> hasn't landed in the binary packages I'm using yet (Fedora arm64).
-> Without this workaround the tests don't compile for me.
->
-> This patch triggers a preprocessor warning on LLVM versions that
-> definitely have the bug.  The test may be conservative (ie, I'm not sure
-> if 9.1 will have the fix), but it should at least make the current set
-> of stable releases work together.
+On Mon, 2020-02-10 at 16:41 -0700, Nathan Chancellor wrote:
+> On Fri, Feb 07, 2020 at 10:05:46AM -0300, Marcos Paulo de Souza
+> wrote:
+> > From: Marcos Paulo de Souza <mpdesouza@suse.com>
+> > 
+> > This ioctl will be responsible for deleting a subvolume using it's
+> id.
+> > This can be used when a system has a file system mounted from a
+> > subvolume, rather than the root file system, like below:
+> > 
+> > /
+> > |- @subvol1
+> > |- @subvol2
+> > \- @subvol_default
+> > 
+> > If only @subvol_default is mounted, we have no path to reach
+> > @subvol1 and @subvol2, thus no way to delete them. Current
+> subvolume
+> > delete ioctl takes a file handler point as argument, and if
+> > @subvol_default is mounted, we can't reach @subvol1 and @subvol2
+> from
+> > the same mount point.
+> > 
+> > This patch introduces a new flag to allow BTRFS_IOC_SNAP_DESTROY_V2
+> > to delete subvolume using subvolid.
+> > 
+> > Now, we can use this new ioctl specifying the subvolume id and
+> refer to
+> > the same mount point. It doesn't matter which subvolume was
+> mounted,
+> > since we can reach to the desired one using the subvolume id, and
+> then
+> > delete it.
+> > 
+> > Also in this patch:
+> > * export get_subvol_name_from_objectid, adding btrfs suffix
+> > * add BTRFS_SUBVOL_SPEC_BY_ID flag
+> > * add subvolid as a union member in struct btrfs_ioctl_vol_args_v2.
+> > 
+> > Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
+> > ---
+> > 
+> >  Changes from v2:
+> >  * Commit message improved, explaining how to use the new ioctl
+> (David)
+> >  * Moved subvolid member to the union which already contained devid
+> and name
+> >    (David)
+> >  * Changed name_ptr to subvol_name_ptr, since it'll point to the
+> "full"
+> >    subvolume name, but we need the basename of this char, which was
+> also renamed
+> >    to subvol_name (David).
+> >  * Change the check for a valid subvolid to be >=
+> BTRFS_FIRST_FREE_OBJECTID
+> >    (David)
+> >  * Now BTRFS_IOC_SNAP_DESTROY_V2 can handle both cases where the
+> user uses the
+> >    subvolid and just the subvolume name (David)
+> >  * Changed BTRFS_SUBVOL_DELETE_BY_ID to BTRFS_SUBVOL_SPEC_BY_ID,
+> since this flag
+> >    can be used for other actions rather than deleting a subvolume
+> (David, Christoph)
+> >  * Rewritten comment about the getting/releasing the dentry before
+> doing the
+> >    lookup, explaining why this dentry can be released in order to
+> get a new one
+> >    from lookup (David)
+> >  * Moved mnt_want_write_file call sites right after the flag
+> validation (David)
+> > 
+> >  Changes from v1:
+> >  * make btrfs_ioctl_snap_destroy handle both SNAP_DESTROY and
+> SNAP_DESTROY_V2
+> >    (suggested by Josef)
+> >  * Change BTRFS_SUBVOL_DELETE_BY_ID to BTRFS_SUBVOL_BY_ID (David)
+> >  * Send patches for btrfs-progs and xfstests along this change
+> > 
+> >  fs/btrfs/ctree.h           |   2 +
+> >  fs/btrfs/export.c          |   4 +-
+> >  fs/btrfs/export.h          |   5 ++
+> >  fs/btrfs/ioctl.c           | 128 +++++++++++++++++++++++++++++++
+> ------
+> >  fs/btrfs/super.c           |   4 +-
+> >  include/uapi/linux/btrfs.h |   8 ++-
+> >  6 files changed, 127 insertions(+), 24 deletions(-)
+> > 
+> > diff --git a/fs/btrfs/ctree.h b/fs/btrfs/ctree.h
+> > index 54efb21c2727..2d56517c4bca 100644
+> > --- a/fs/btrfs/ctree.h
+> > +++ b/fs/btrfs/ctree.h
+> > @@ -2963,6 +2963,8 @@ int btrfs_defrag_leaves(struct
+> btrfs_trans_handle *trans,
+> >  int btrfs_parse_options(struct btrfs_fs_info *info, char *options,
+> >  			unsigned long new_flags);
+> >  int btrfs_sync_fs(struct super_block *sb, int wait);
+> > +char *btrfs_get_subvol_name_from_objectid(struct btrfs_fs_info
+> *fs_info,
+> > +					   u64 subvol_objectid);
+> >  
+> >  static inline __printf(2, 3) __cold
+> >  void btrfs_no_printk(const struct btrfs_fs_info *fs_info, const
+> char *fmt, ...)
+> > diff --git a/fs/btrfs/export.c b/fs/btrfs/export.c
+> > index 72e312cae69d..027411cdbae7 100644
+> > --- a/fs/btrfs/export.c
+> > +++ b/fs/btrfs/export.c
+> > @@ -57,7 +57,7 @@ static int btrfs_encode_fh(struct inode *inode,
+> u32 *fh, int *max_len,
+> >  	return type;
+> >  }
+> >  
+> > -static struct dentry *btrfs_get_dentry(struct super_block *sb, u64
+> objectid,
+> > +struct dentry *btrfs_get_dentry(struct super_block *sb, u64
+> objectid,
+> >  				       u64 root_objectid, u32
+> generation,
+> >  				       int check_generation)
+> >  {
+> > @@ -152,7 +152,7 @@ static struct dentry *btrfs_fh_to_dentry(struct
+> super_block *sb, struct fid *fh,
+> >  	return btrfs_get_dentry(sb, objectid, root_objectid,
+> generation, 1);
+> >  }
+> >  
+> > -static struct dentry *btrfs_get_parent(struct dentry *child)
+> > +struct dentry *btrfs_get_parent(struct dentry *child)
+> >  {
+> >  	struct inode *dir = d_inode(child);
+> >  	struct btrfs_fs_info *fs_info = btrfs_sb(dir->i_sb);
+> > diff --git a/fs/btrfs/export.h b/fs/btrfs/export.h
+> > index 57488ecd7d4e..f981e8103d64 100644
+> > --- a/fs/btrfs/export.h
+> > +++ b/fs/btrfs/export.h
+> > @@ -18,4 +18,9 @@ struct btrfs_fid {
+> >  	u64 parent_root_objectid;
+> >  } __attribute__ ((packed));
+> >  
+> > +struct dentry *btrfs_get_dentry(struct super_block *sb, u64
+> objectid,
+> > +				       u64 root_objectid, u32
+> generation,
+> > +				       int check_generation);
+> > +struct dentry *btrfs_get_parent(struct dentry *child);
+> > +
+> >  #endif
+> > diff --git a/fs/btrfs/ioctl.c b/fs/btrfs/ioctl.c
+> > index 12ae31e1813e..be5350582955 100644
+> > --- a/fs/btrfs/ioctl.c
+> > +++ b/fs/btrfs/ioctl.c
+> > @@ -28,6 +28,7 @@
+> >  #include <linux/iversion.h>
+> >  #include "ctree.h"
+> >  #include "disk-io.h"
+> > +#include "export.h"
+> >  #include "transaction.h"
+> >  #include "btrfs_inode.h"
+> >  #include "print-tree.h"
+> > @@ -2836,7 +2837,8 @@ static int
+> btrfs_ioctl_get_subvol_rootref(struct file *file, void __user *argp)
+> >  }
+> >  
+> >  static noinline int btrfs_ioctl_snap_destroy(struct file *file,
+> > -					     void __user *arg)
+> > +					     void __user *arg,
+> > +					     bool destroy_v2)
+> >  {
+> >  	struct dentry *parent = file->f_path.dentry;
+> >  	struct btrfs_fs_info *fs_info = btrfs_sb(parent->d_sb);
+> > @@ -2845,34 +2847,114 @@ static noinline int
+> btrfs_ioctl_snap_destroy(struct file *file,
+> >  	struct inode *inode;
+> >  	struct btrfs_root *root = BTRFS_I(dir)->root;
+> >  	struct btrfs_root *dest = NULL;
+> > -	struct btrfs_ioctl_vol_args *vol_args;
+> > -	int namelen;
+> > +	struct btrfs_ioctl_vol_args *vol_args = NULL;
+> > +	struct btrfs_ioctl_vol_args_v2 *vol_args2 = NULL;
+> > +	char *subvol_name, *subvol_name_ptr = NULL;
+> > +	int subvol_namelen;
+> >  	int err = 0;
+> > +	bool destroy_parent = false;
+> >  
+> > -	if (!S_ISDIR(dir->i_mode))
+> > -		return -ENOTDIR;
+> > +	if (destroy_v2) {
+> > +		vol_args2 = memdup_user(arg, sizeof(*vol_args2));
+> > +		if (IS_ERR(vol_args2))
+> > +			return PTR_ERR(vol_args2);
+> >  
+> > -	vol_args = memdup_user(arg, sizeof(*vol_args));
+> > -	if (IS_ERR(vol_args))
+> > -		return PTR_ERR(vol_args);
+> > +		/*
+> > +		 * If SPEC_BY_ID is not set, we are looking for the
+> subvolume by
+> > +		 * name, same as v1 currently does.
+> > +		 */
+> > +		if (!(vol_args2->flags & BTRFS_SUBVOL_SPEC_BY_ID)) {
+> > +			vol_args2->name[BTRFS_PATH_NAME_MAX] = '\0';
+> > +			subvol_name = vol_args2->name;
+> >  
+> > -	vol_args->name[BTRFS_PATH_NAME_MAX] = '\0';
+> > -	namelen = strlen(vol_args->name);
+> > -	if (strchr(vol_args->name, '/') ||
+> > -	    strncmp(vol_args->name, "..", namelen) == 0) {
+> > -		err = -EINVAL;
+> > -		goto out;
+> > +			err = mnt_want_write_file(file);
+> > +			if (err)
+> > +				goto out;
+> > +		} else {
+> > +			if (vol_args2->subvolid <
+> BTRFS_FIRST_FREE_OBJECTID) {
+> > +				err = -EINVAL;
+> > +				goto out;
+> > +			}
+> > +
+> > +			err = mnt_want_write_file(file);
+> > +			if (err)
+> > +				goto out;
+> > +
+> > +			dentry = btrfs_get_dentry(fs_info->sb,
+> > +					BTRFS_FIRST_FREE_OBJECTID,
+> > +					vol_args2->subvolid, 0, 0);
+> > +			if (IS_ERR(dentry)) {
+> > +				err = PTR_ERR(dentry);
+> > +				goto out_drop_write;
+> > +			}
+> > +
+> > +			/*
+> > +			 * Change the default parent since the
+> subvolume being
+> > +			 * deleted can be outside of the current mount
+> point.
+> > +			 */
+> > +			parent = btrfs_get_parent(dentry);
+> > +
+> > +			/*
+> > +			 * At this point dentry->d_name can point to
+> '/' if the
+> > +			 * subvolume we want to destroy is outsite of
+> the
+> > +			 * current mount point, so we need to released
+> the
+> > +			 * current dentry and execute the lookup to
+> return a new
+> > +			 * one with ->d_name pointing to the
+> > +			 * <mount point>/subvol_name.
+> > +			 */
+> > +			dput(dentry);
+> > +			if (IS_ERR(parent)) {
+> > +				err = PTR_ERR(parent);
+> > +				goto out_drop_write;
+> > +			}
+> > +			dir = d_inode(parent);
+> > +
+> > +			/* If v2 was used with SPEC_BY_ID, a new parent
+> was
+> > +			 * allocated since the subvolume can be outside
+> of the
+> > +			 * current moutn point. Later on we need to
+> release this
+> > +			 * new parent dentry.
+> > +			 */
+> > +			destroy_parent = true;
+> > +
+> > +			subvol_name_ptr =
+> btrfs_get_subvol_name_from_objectid(fs_info,
+> > +					vol_args2->subvolid);
+> > +			if (IS_ERR(subvol_name_ptr)) {
+> > +				err = PTR_ERR(subvol_name_ptr);
+> > +				goto free_parent;
+> > +			}
+> > +			/* subvol_name_ptr is already NULL termined */
+> > +			subvol_name = (char
+> *)kbasename(subvol_name_ptr);
+> > +		}
+> > +	} else {
+> > +		vol_args = memdup_user(arg, sizeof(*vol_args));
+> > +		if (IS_ERR(vol_args))
+> > +			return PTR_ERR(vol_args);
+> > +
+> > +		vol_args->name[BTRFS_PATH_NAME_MAX] = '\0';
+> > +		subvol_name = vol_args->name;
+> > +
+> > +		err = mnt_want_write_file(file);
+> > +		if (err)
+> > +			goto out;
+> >  	}
+> >  
+> > -	err = mnt_want_write_file(file);
+> > -	if (err)
+> > -		goto out;
+> > +	subvol_namelen = strlen(subvol_name);
+> >  
+> > +	if (strchr(subvol_name, '/') ||
+> > +	    strncmp(subvol_name, "..", subvol_namelen) == 0) {
+> > +		err = -EINVAL;
+> > +		goto free_subvol_name;
+> > +	}
+> > +
+> > +	if (!S_ISDIR(dir->i_mode)) {
+> > +		err = -ENOTDIR;
+> > +		goto free_subvol_name;
+> > +	}
+> >  
+> >  	err = down_write_killable_nested(&dir->i_rwsem,
+> I_MUTEX_PARENT);
+> >  	if (err == -EINTR)
+> >  		goto out_drop_write;
+> > -	dentry = lookup_one_len(vol_args->name, parent, namelen);
+> > +	dentry = lookup_one_len(subvol_name, parent, subvol_namelen);
+> >  	if (IS_ERR(dentry)) {
+> >  		err = PTR_ERR(dentry);
+> >  		goto out_unlock_dir;
+> > @@ -2941,9 +3023,15 @@ static noinline int
+> btrfs_ioctl_snap_destroy(struct file *file,
+> >  	dput(dentry);
+> >  out_unlock_dir:
+> >  	inode_unlock(dir);
+> > +free_subvol_name:
+> > +	kfree(subvol_name_ptr);
+> > +free_parent:
+> > +	if (destroy_parent)
+> > +		dput(parent);
+> >  out_drop_write:
+> >  	mnt_drop_write_file(file);
+> >  out:
+> > +	kfree(vol_args2);
+> >  	kfree(vol_args);
+> >  	return err;
+> >  }
+> > @@ -5464,7 +5552,9 @@ long btrfs_ioctl(struct file *file, unsigned
+> int
+> >  	case BTRFS_IOC_SUBVOL_CREATE_V2:
+> >  		return btrfs_ioctl_snap_create_v2(file, argp, 1);
+> >  	case BTRFS_IOC_SNAP_DESTROY:
+> > -		return btrfs_ioctl_snap_destroy(file, argp);
+> > +		return btrfs_ioctl_snap_destroy(file, argp, false);
+> > +	case BTRFS_IOC_SNAP_DESTROY_V2:
+> > +		return btrfs_ioctl_snap_destroy(file, argp, true);
+> >  	case BTRFS_IOC_SUBVOL_GETFLAGS:
+> >  		return btrfs_ioctl_subvol_getflags(file, argp);
+> >  	case BTRFS_IOC_SUBVOL_SETFLAGS:
+> > diff --git a/fs/btrfs/super.c b/fs/btrfs/super.c
+> > index f452a94abdc3..649531e92a1d 100644
+> > --- a/fs/btrfs/super.c
+> > +++ b/fs/btrfs/super.c
+> > @@ -1005,7 +1005,7 @@ static int btrfs_parse_subvol_options(const
+> char *options, char **subvol_name,
+> >  	return error;
+> >  }
+> >  
+> > -static char *get_subvol_name_from_objectid(struct btrfs_fs_info
+> *fs_info,
+> > +char *btrfs_get_subvol_name_from_objectid(struct btrfs_fs_info
+> *fs_info,
+> >  					   u64 subvol_objectid)
+> >  {
+> >  	struct btrfs_root *root = fs_info->tree_root;
+> > @@ -1417,7 +1417,7 @@ static struct dentry *mount_subvol(const char
+> *subvol_name, u64 subvol_objectid,
+> >  				goto out;
+> >  			}
+> >  		}
+> > -		subvol_name =
+> get_subvol_name_from_objectid(btrfs_sb(mnt->mnt_sb),
+> > +		subvol_name =
+> btrfs_get_subvol_name_from_objectid(btrfs_sb(mnt->mnt_sb),
+> >  							    subvol_obje
+> ctid);
+> >  		if (IS_ERR(subvol_name)) {
+> >  			root = ERR_CAST(subvol_name);
+> > diff --git a/include/uapi/linux/btrfs.h
+> b/include/uapi/linux/btrfs.h
+> > index 7a8bc8b920f5..280f6ded2104 100644
+> > --- a/include/uapi/linux/btrfs.h
+> > +++ b/include/uapi/linux/btrfs.h
+> > @@ -42,11 +42,14 @@ struct btrfs_ioctl_vol_args {
+> >  
+> >  #define BTRFS_DEVICE_SPEC_BY_ID		(1ULL << 3)
+> >  
+> > +#define BTRFS_SUBVOL_SPEC_BY_ID	(1ULL << 4)
+> > +
+> >  #define BTRFS_VOL_ARG_V2_FLAGS_SUPPORTED		\
+> >  			(BTRFS_SUBVOL_CREATE_ASYNC |	\
+> >  			BTRFS_SUBVOL_RDONLY |		\
+> >  			BTRFS_SUBVOL_QGROUP_INHERIT |	\
+> > -			BTRFS_DEVICE_SPEC_BY_ID)
+> > +			BTRFS_DEVICE_SPEC_BY_ID |	\
+> > +			BTRFS_SUBVOL_SPEC_BY_ID)
+> >  
+> >  #define BTRFS_FSID_SIZE 16
+> >  #define BTRFS_UUID_SIZE 16
+> > @@ -120,6 +123,7 @@ struct btrfs_ioctl_vol_args_v2 {
+> >  	};
+> >  	union {
+> >  		char name[BTRFS_SUBVOL_NAME_MAX + 1];
+> > +		__u64 subvolid;
+> >  		__u64 devid;
+> >  	};
+> >  };
+> > @@ -949,5 +953,7 @@ enum btrfs_err_code {
+> >  				struct
+> btrfs_ioctl_get_subvol_rootref_args)
+> >  #define BTRFS_IOC_INO_LOOKUP_USER _IOWR(BTRFS_IOCTL_MAGIC, 62, \
+> >  				struct
+> btrfs_ioctl_ino_lookup_user_args)
+> > +#define BTRFS_IOC_SNAP_DESTROY_V2 _IOW(BTRFS_IOCTL_MAGIC, 63, \
+> > +				struct btrfs_ioctl_vol_args_v2)
+> >  
+> >  #endif /* _UAPI_LINUX_BTRFS_H */
+> > -- 
+> > 2.24.0
+> > 
+> 
+> Hi Marcos,
+> 
+> We received a build report from the 0day bot when building with clang
+> that appears legitimate if I am reading everything correctly.
+> 
+> ../fs/btrfs/ioctl.c:2867:4: warning: array index 4087 is past the end
+> of the array (which contains 4040 elements) [-Warray-bounds]
+>                         vol_args2->name[BTRFS_PATH_NAME_MAX] = '\0';
+>                         ^               ~~~~~~~~~~~~~~~~~~~
+> ../include/uapi/linux/btrfs.h:125:3: note: array 'name' declared here
+>                 char name[BTRFS_SUBVOL_NAME_MAX + 1];
+>                 ^
+> 1 warning generated.
 
-Do older versions of clang still work? Should there be a lower bounds?
+Sure, I will send a new patch to address this warning after this one
+gets merged, since this problem existed before this change. Thanks for
+the report!
 
->
-> See https://reviews.llvm.org/D69438 for more information on the fix.  I
-> obtained the workaround from
-> https://lore.kernel.org/linux-kselftest/aed8eda7-df20-069b-ea14-f06628984566@gmail.com/T/
->
-> Fixes: 20a9ad2e7136 ("selftests/bpf: add CO-RE relocs array tests")
-> Signed-off-by: Palmer Dabbelt <palmerdabbelt@google.com>
-> ---
->  .../testing/selftests/bpf/progs/test_core_reloc_arrays.c  | 8 ++++++++
->  1 file changed, 8 insertions(+)
->
-> diff --git a/tools/testing/selftests/bpf/progs/test_core_reloc_arrays.c b/tools/testing/selftests/bpf/progs/test_core_reloc_arrays.c
-> index bf67f0fdf743..c9a3e0585a84 100644
-> --- a/tools/testing/selftests/bpf/progs/test_core_reloc_arrays.c
-> +++ b/tools/testing/selftests/bpf/progs/test_core_reloc_arrays.c
-> @@ -40,15 +40,23 @@ int test_core_arrays(void *ctx)
->         /* in->a[2] */
->         if (BPF_CORE_READ(&out->a2, &in->a[2]))
->                 return 1;
-> +#if defined(__clang__) && (__clang_major__ < 10) && (__clang_minor__ < 1)
-> +# warning "clang 9.0 SEGVs on multidimensional arrays, see https://reviews.llvm.org/D69438"
-> +#else
->         /* in->b[1][2][3] */
->         if (BPF_CORE_READ(&out->b123, &in->b[1][2][3]))
->                 return 1;
-> +#endif
->         /* in->c[1].c */
->         if (BPF_CORE_READ(&out->c1c, &in->c[1].c))
->                 return 1;
-> +#if defined(__clang__) && (__clang_major__ < 10) && (__clang_minor__ < 1)
-> +# warning "clang 9.0 SEGVs on multidimensional arrays, see https://reviews.llvm.org/D69438"
-> +#else
->         /* in->d[0][0].d */
->         if (BPF_CORE_READ(&out->d00d, &in->d[0][0].d))
->                 return 1;
-> +#endif
->
->         return 0;
->  }
-> --
-> 2.25.0.341.g760bfbb309-goog
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200128021145.36774-2-palmerdabbelt%40google.com.
-
-
-
--- 
-Thanks,
-~Nick Desaulniers
+> 
+> The full report can be viewed here:
+> 
+> https://groups.google.com/d/msg/clang-built-linux/YFcXVkPdkTY/EhB6grZ2BQAJ
+> 
+> Mind taking a look at it?
+> 
+> Cheers,
+> Nathan
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdnPu8-0O5kLDY2t%3Dwq1rqWNX7v0CSrRmomPYLA1%3DBX%3DGQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/45c807f4298b22eaa1a89741bee67721fa0b0f80.camel%40suse.de.
