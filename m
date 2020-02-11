@@ -1,126 +1,117 @@
-Return-Path: <clang-built-linux+bncBCQYFH77QIORBJHSRLZAKGQEPACVJLA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQ2L75W5QGBBH42RPZAKGQEGQLYEMY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-f187.google.com (mail-pf1-f187.google.com [209.85.210.187])
-	by mail.lfdr.de (Postfix) with ESMTPS id C4C5F1591C9
-	for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 15:24:38 +0100 (CET)
-Received: by mail-pf1-f187.google.com with SMTP id z26sf7387630pfr.9
-        for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 06:24:38 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581431077; cv=pass;
+Received: from mail-wr1-x438.google.com (mail-wr1-x438.google.com [IPv6:2a00:1450:4864:20::438])
+	by mail.lfdr.de (Postfix) with ESMTPS id 33E3B1593AB
+	for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 16:49:52 +0100 (CET)
+Received: by mail-wr1-x438.google.com with SMTP id m15sf7030175wrs.22
+        for <lists+clang-built-linux@lfdr.de>; Tue, 11 Feb 2020 07:49:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581436192; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Ehd6tRWLTXN8Bt0jkhuYiek+SNMz8iSFhtQd0mND71CU8NTvrAmyNHd4rRcjvFNsNI
-         iaCls9A7aoLBBjxW+niaI1XmpcRyu9G98H8kSiKpbhzhjSQfVJsM4OqNUJUG6bAceiQN
-         m4EL9kecSmV3aIa7o/VafwpM/2E4GVGk7cxswx4HOkccQrx45F/WoPGlF5OClmsuqxdl
-         0xoe97P6oUtcRjtrBaeG6zWr073oFODYnYbnwyeuFZSxuzGGXfEBDDZsMUlxmBSIpAl8
-         BX7Qu1ZQ29k/mVI+EZOmBTFL+lAEpmyX3M/RqEH92wRP0jxCDz8EkFZ72L/I/8M6JRe0
-         WU8g==
+        b=YiiO9vmZrIRrSvDVuEYWnrA/hX+vNfEWu3qFqbr5PvsjoFDH9OQGKbpq7qp1fnAzb7
+         4C9Vu4N9Zj9ZKoG7eD2TDuK7GQEufk1gtbFVyfCWnARg1jOlra8RHeOgGwIUq4j7TZp0
+         yIpXUufhE9PtWQx8tc6wYo+WK/GvJha2Cs127bEWnmE/O6NzNcFocEkDH6s+xuEqWg6r
+         V/QlSVOctVU+GAUMCUkdYJl9A8qJwAtg35EPv+1CwKk+W50Nr+S7tJQOZ1uGVb1IzCF/
+         /Jkbz52VFsQ3FJxTPPHQua+ZkVQ+26CYk6QKqCFUrxeui1nirIdv5HbdpRfFeLmS7mZ5
+         ywAg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:date:message-id:user-agent:cc:to
-         :references:in-reply-to:from:subject:mime-version:dmarc-filter
-         :sender;
-        bh=s23hiok/3FJ1oZvaVMWs9Mzg9NMPBJKXFVj03ED+ojY=;
-        b=fz9ncXvmJveSgUkI1rry0jpmFZorlD2zt0Riq4a9B7ALKtWnDDjK9HaQ7vRyACPHln
-         45ul1ZNOEPACGBeUgVGJZl4RtOiP3lht76ouaK/2zkQKLc7kOHzl21DTt4ORuynlh6Yw
-         gAhRLUafIbB5CjT+rJ+3Qq2DoF6dr8G82jFR1YmZnPCgV4x/d/EEtRwKtN5bpzaUYOke
-         gNQudwfjIYYF0W7iEtD6wCeDYVpc+zgWv8SmyyMNRQveiNSpNrQk1rlk+xyR8PbsOKG3
-         LaqvbBLaNJaUmzaoW5T/xz+th3eBYmeRHi0uGkcv0s4hwAsE+6lWVcQf32w2DfN2qptc
-         w0rg==
+         :list-id:mailing-list:precedence:message-id:in-reply-to:subject:cc
+         :to:from:date:mime-version:sender:dkim-signature;
+        bh=mFElH56IPQvGoSjEMD1obdfxBqasaEDgvqmErqxU00k=;
+        b=fyQyqzsMsQv1R2gQj+dzLoH9dYOfXYRILgAP456tNWRQJtGcmeatATHhRujmf9iS6T
+         fl74Zoh0LpWFSw5yxOaX/kB3o/UULSV50U63GH88XqTBMy0xuIdIykQCGQ9RYf1J4FmH
+         NkjFPL5oSkp5R93kE30OUBDqbyipQaplK0EN54v8pi+gmf08IuUYvP3NnyPONInx+55H
+         +NBRkE9AAIR0sXhL5o8QJMKjdVVAckpD0Nxz5xpwcAtlQkBLEfwymNBwbnsFAERf3Rty
+         7p+51JMoZ6E2MZmWay/4qoLri3YIUOCeO33vDX2lyFo3cdah7tGDKfz3AKqMLCgQ+dzP
+         4D7Q==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=KIuOuPxv;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.122.25 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+       spf=pass (google.com: domain of mark.brown@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.brown@arm.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlegroups.com; s=20161025;
+        h=sender:mime-version:date:from:to:cc:subject:in-reply-to:message-id
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mFElH56IPQvGoSjEMD1obdfxBqasaEDgvqmErqxU00k=;
+        b=B3AjYSkLDgh9IijDKcbobBhTODs2NqvRu7J9/ap99c8gdm59Lda02cyFC4oeo3SGfI
+         lZh8NvTdCWgfSw7pNkIt10Y8ggX3H+O6lvdEW7zUwofyrOgYBSB/EOq9fZUdbLUuyEVr
+         LsRUrU9rxUAz0Xr+IgFjT7O76NUnHpc7keB8WzO1g1JpwUUAEhaLIEmpgZmjyDooDa+c
+         HSxFJYn3tKDC4qKteJ+gUI2VzIl/73KuIAydeuWTSgjK6Z9hYpQA4KYyK+C718cTs1Bq
+         mhE95GFe6o+Fw8X02ExuKHCPQmVQnv5uwlLYyWEyzyfJIcZAPFKlurrsqYDuY5A9/RX+
+         c49g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:dmarc-filter:mime-version:subject:from
-         :in-reply-to:references:to:cc:user-agent:message-id:date
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=s23hiok/3FJ1oZvaVMWs9Mzg9NMPBJKXFVj03ED+ojY=;
-        b=TfEqoxio++W6gxeidQZTwkcIHj4oRW/Ci6RXJ0wo49pLU8j/f/GmMFP/AtambQjH0w
-         gYdgQ34f6C1p5Cm7dHXzCmDFfNP2RMa5hG1Uk22yCEqhJD/hkeuJskcDCXTZBaxrx/zY
-         S/peccyeCbFGxGhoH/JdAht4AByr4IocVFvW2WRSRFpRV5/oJJFmMKn7tjpiNGr6HvzX
-         L+r2v2PD14gKQYOJlIITB4N2/UPYFmBsZYbCFwyFn+ld8zGdh4GBILUYIwOqPVbG5QwC
-         IYYPQjdZS642CY+DzIgc5AYl2w5pZB3ZVB90edyJXmD/y5hJUiJgh2a1xP1IEytNqdxl
-         A7Wg==
-X-Gm-Message-State: APjAAAVLsxey8M8JoYponQ/0px0MDir/5HpoFtWfw9T6Wj4vLMCz1MkI
-	E/tbHswn94QNgpY/8atks8c=
-X-Google-Smtp-Source: APXvYqxzy92MT6shmUCVY5FNu/ar7SwbnDtTYQbkgz59ac4Ev43lWUMFB3rpwSdm3lyAZbOeZXsE1w==
-X-Received: by 2002:a17:90b:f0f:: with SMTP id br15mr3910462pjb.138.1581431076936;
-        Tue, 11 Feb 2020 06:24:36 -0800 (PST)
-X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:bb88:: with SMTP id m8ls5773401pls.6.gmail; Tue, 11
- Feb 2020 06:24:36 -0800 (PST)
-X-Received: by 2002:a17:90b:4004:: with SMTP id ie4mr3963319pjb.49.1581431076342;
-        Tue, 11 Feb 2020 06:24:36 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581431076; cv=none;
-        d=google.com; s=arc-20160816;
-        b=i+Lch7G098iXwh3mExOP1a6khhfk8pePfv1dlSiOEJVQHRHL0XP8JwWYSi/JcFkEx7
-         n/+UqVp7BRdNUjSl60uOJGfzfu3s30uVBzhrxC+Nboj5IVGA/0OnkZCM3gIxRhzRXQCu
-         Obo0hyYes3JpwROw9AOQk3hnrLH3KNBOmkQFcJIKLRoTjFMBw01Gspcf5PL/OaZ70K0c
-         PgzIy8bPmc04nZ9EklNVmIb+9WQBTuIS8Y/BHiU92O3Hw7iEIu3JTx+4rNS3xXZnDqUQ
-         CYR0Yp8RAzS7LuRBTaCh1cr7V2t69b3A0nXcTI5goVdi95Swdha3BM1Z/OFmZKpheZEu
-         1BiQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=date:message-id:user-agent:cc:to:references:in-reply-to:from
-         :subject:content-transfer-encoding:mime-version:dmarc-filter:sender
-         :dkim-signature;
-        bh=q1NnbfY5scviQ81WhVjeiiyH3xhw4C/A+lxpopfw2dM=;
-        b=SGErZmPe5StHCO8EAtaoBnGhvhxpQvspTMI8gEvvxhTPUdCTLpyiXiWylcBzYarXKW
-         LyYkrz4karTceEpcDU6Xe9YW8221/QV3/M0AMcMTlD/mA+R8lxLRsUk2aG7l1+nUoTam
-         1aExa3ldUbxsFTaXbIQqs66pLuZs4BGPJTPxbRXVSudObrqCRQZKiEpsof5fDZBK+7bU
-         wyDuL8syOYKrvuojLFu3a34rZ9DlvIBhEq93bFrlppRYRK06+1Py9FxWH2E7vMVZKMS9
-         MaMMektle4DAB2zMmmrfdTeBjm6mp1umFc/qsh2BJS9yjJ2cHAAIpY4TTDwaU+WyYmlw
-         FwGA==
-ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@mg.codeaurora.org header.s=smtp header.b=KIuOuPxv;
-       spf=pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.122.25 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
-Received: from mail25.static.mailgun.info (mail25.static.mailgun.info. [104.130.122.25])
-        by gmr-mx.google.com with UTF8SMTPS id h2si118334pju.2.2020.02.11.06.24.34
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Feb 2020 06:24:36 -0800 (PST)
-Received-SPF: pass (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org designates 104.130.122.25 as permitted sender) client-ip=104.130.122.25;
-X-Mailgun-Sending-Ip: 104.130.122.25
-X-Mailgun-Sid: WyIyMWUwOCIsICJjbGFuZy1idWlsdC1saW51eEBnb29nbGVncm91cHMuY29tIiwgImJlOWU0YSJd
-Sender: kvalo=codeaurora.org@mg.codeaurora.org
-Received: from smtp.codeaurora.org (ec2-35-166-182-171.us-west-2.compute.amazonaws.com [35.166.182.171])
- by mxa.mailgun.org with ESMTP id 5e42b91f.7f5205684fb8-smtp-out-n01;
- Tue, 11 Feb 2020 14:24:31 -0000 (UTC)
-Received: by smtp.codeaurora.org (Postfix, from userid 1001)
-	id 243E6C433A2; Tue, 11 Feb 2020 14:24:31 +0000 (UTC)
-X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
-	aws-us-west-2-caf-mail-1.web.codeaurora.org
-X-Spam-Level: 
-X-Spam-Status: No, score=0.5 required=2.0 tests=ALL_TRUSTED,MISSING_DATE,
-	MISSING_MID,SPF_NONE autolearn=no autolearn_force=no version=3.4.0
-Received: from potku.adurom.net (88-114-240-156.elisa-laajakaista.fi [88.114.240.156])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: kvalo)
-	by smtp.codeaurora.org (Postfix) with ESMTPSA id E7677C43383;
-	Tue, 11 Feb 2020 14:24:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.3.2 smtp.codeaurora.org E7677C43383
-Content-Type: text/plain; charset="UTF-8"
+        h=sender:x-gm-message-state:mime-version:date:from:to:cc:subject
+         :in-reply-to:message-id:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mFElH56IPQvGoSjEMD1obdfxBqasaEDgvqmErqxU00k=;
+        b=um+niFD4i3bZPvTwEknhHFx5HDF5zcjaAc0Q0eXP11nt9WdNOETSU7DtFUmuixkkjV
+         z17lUVH3r/kDFwo0j5al782t6+DzDwuO6Y7WPTv4MRIfZRAfcdPNjUvZYmkTAtGgUej2
+         zchSrrGhbE6WNKUOBLsOfOCSpZsYQ4Ug8UZg4x0JtcD5N3Wacg/z9eqV/e3e6rPlvV4G
+         Ix9Q2zS/zh+fwtu46jdikHqNmL3+xV7NyotBrT7VxRH/2g0cZ/YeDqX8KBC8PA4vPy+d
+         qCHefjlKJYY/79MnA9QmyfwGNdansSmoHUdEZ6ADwRC+IJUXsQw9bEDjelzyF0W5K4zZ
+         Ba1w==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAUVj/Df0FAzyM/lplinNZ+d7s9lloV781UJ6H1qVEKt7dDRfsAm
+	7hjzIDpi/PyXcgBTPySBFOU=
+X-Google-Smtp-Source: APXvYqyXMrboaAGTGRFyHV3nNnAwwsma0YX82m2x9vSdNONfkoc3QFVvn0Vp/j8lL0k1m1FeFusaiQ==
+X-Received: by 2002:a5d:4651:: with SMTP id j17mr9324698wrs.237.1581436191968;
+        Tue, 11 Feb 2020 07:49:51 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [PATCH] ath11k: Silence clang -Wsometimes-uninitialized in
- ath11k_update_per_peer_stats_from_txcompl
-From: Kalle Valo <kvalo@codeaurora.org>
-In-Reply-To: <20200130015905.18610-1-natechancellor@gmail.com>
-References: <20200130015905.18610-1-natechancellor@gmail.com>
+X-BeenThere: clang-built-linux@googlegroups.com
+Received: by 2002:a7b:c0d9:: with SMTP id s25ls3663830wmh.0.gmail; Tue, 11 Feb
+ 2020 07:49:51 -0800 (PST)
+X-Received: by 2002:a1c:a5c7:: with SMTP id o190mr14574wme.183.1581436191374;
+        Tue, 11 Feb 2020 07:49:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581436191; cv=none;
+        d=google.com; s=arc-20160816;
+        b=A9nLnOPWRNm6J7UCfYpO90O38g8Mn6CP/UeRLW57HpB0IwHj9+lxq2RdgeqZqlXucw
+         uG2Ds2oP+tG1Q9buzgYZFcT9EapDU1XlTtKd4gyfIl/qG75n6/H1i1dRSssOZmAvTQ9K
+         H1HdLB0Ln/IYKdWrHLloaVs05zLQt93w3oJLZ/0zQGzy+xpMCudMLSeuDwX4TCwIRTFd
+         /kbmJaHve5g4RpAgPy89D2MlpetsCVog42U5el9Oj8/9Sod5gT6BrZbrmM4HIvDkaa8f
+         atO/GEh66SkysUIMTYG9/+XwPXLP+DjyWlF1sCK/Sf5VHaWkN2Rweeqry8SiXtPjcGy2
+         sRSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:in-reply-to:subject:cc:to:from:date;
+        bh=l4Xp+pTWD/GMITREYjH2DlIy6cLykrWunZ5z04MX+JA=;
+        b=E3KaBgA3I3GE4g+Qoki7jkTlaRlDGImWg3lopByjrS2e/a5NzgosfDvBSYQsSwttkV
+         8na7KZvcZg0Tr9QT0H+NZs68YzwilwsAXWMVGBasFW+txDujfUy9w+NHHpvk6o069dbV
+         YNvWQygXMx0bkOSPi6MyaYLOo7tcMudHbh4Knur1BjGRUwimX7lFmTFzvfU/7sWHT5tW
+         xO64/6dos6KO0o/Gv9v+y76K0YXyAx02lzBd32UdfYZuyMhBaFRKHgvqpBj+qviLKc35
+         QU6OCz+lQ76n9pRQNNlEwGAYRmOGWOGjp8+JwZ6YPbLtrCMLXW1F+1L+cIGf/QTp1f5U
+         JWjQ==
+ARC-Authentication-Results: i=1; gmr-mx.google.com;
+       spf=pass (google.com: domain of mark.brown@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=mark.brown@arm.com;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id 202si113460wme.0.2020.02.11.07.49.51
+        for <clang-built-linux@googlegroups.com>;
+        Tue, 11 Feb 2020 07:49:51 -0800 (PST)
+Received-SPF: pass (google.com: domain of mark.brown@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DA5C143D;
+	Tue, 11 Feb 2020 07:49:50 -0800 (PST)
+Received: from localhost (unknown [10.37.6.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 01DC13F68E;
+	Tue, 11 Feb 2020 07:49:49 -0800 (PST)
+Date: Tue, 11 Feb 2020 15:49:48 +0000
+From: Mark Brown <broonie@kernel.org>
 To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: ath11k@lists.infradead.org, linux-wireless@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- clang-built-linux@googlegroups.com,
- Nathan Chancellor <natechancellor@gmail.com>, ci_notify@linaro.org
-User-Agent: pwcli/0.0.0-git (https://github.com/kvalo/pwcli/) Python/2.7.12
-Message-Id: <20200211142431.243E6C433A2@smtp.codeaurora.org>
-Date: Tue, 11 Feb 2020 14:24:31 +0000 (UTC)
-X-Original-Sender: kvalo@codeaurora.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@mg.codeaurora.org header.s=smtp header.b=KIuOuPxv;       spf=pass
- (google.com: domain of bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org
- designates 104.130.122.25 as permitted sender) smtp.mailfrom="bounce+a1e0a8.be9e4a-clang-built-linux=googlegroups.com@mg.codeaurora.org"
+Cc: alsa-devel@alsa-project.org, clang-built-linux@googlegroups.com, Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+Subject: Applied "ASoC: wcd934x: Remove some unnecessary NULL checks" to the asoc tree
+In-Reply-To: <20200204060143.23393-1-natechancellor@gmail.com>
+Message-Id: <applied-20200204060143.23393-1-natechancellor@gmail.com>
+X-Patchwork-Hint: ignore
+X-Original-Sender: broonie@kernel.org
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of mark.brown@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=mark.brown@arm.com;       dmarc=fail (p=NONE
+ sp=NONE dis=NONE) header.from=kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,40 +124,99 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Nathan Chancellor <natechancellor@gmail.com> wrote:
+The patch
 
-> Clang warns a few times (trimmed for brevity):
-> 
-> ../drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning:
-> variable 'rate_idx' is used uninitialized whenever 'if' condition is
-> false [-Wsometimes-uninitialized]
-> 
-> It is not wrong, rate_idx is only initialized in the first if block.
-> However, this is not necessarily an issue in practice because rate_idx
-> will only be used when initialized because
-> ath11k_accumulate_per_peer_tx_stats only uses rate_idx when flags is not
-> set to RATE_INFO_FLAGS_HE_MCS, RATE_INFO_FLAGS_VHT_MCS, or
-> RATE_INFO_FLAGS_MCS. Still, it is not good to stick uninitialized values
-> into another function so initialize it to zero to prevent any issues
-> down the line.
-> 
-> Fixes: d5c65159f289 ("ath11k: driver for Qualcomm IEEE 802.11ax devices")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/832
-> Reported-by: ci_notify@linaro.org
-> Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Signed-off-by: Kalle Valo <kvalo@codeaurora.org>
+   ASoC: wcd934x: Remove some unnecessary NULL checks
 
-Patch applied to ath-next branch of ath.git, thanks.
+has been applied to the asoc tree at
 
-df57acc415b1 ath11k: Silence clang -Wsometimes-uninitialized in ath11k_update_per_peer_stats_from_txcompl
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-5.7
 
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.  
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
+From 918d0aba86ed8c1f4ff7f39e39e5c1b46fff2bc2 Mon Sep 17 00:00:00 2001
+From: Nathan Chancellor <natechancellor@gmail.com>
+Date: Mon, 3 Feb 2020 23:01:44 -0700
+Subject: [PATCH] ASoC: wcd934x: Remove some unnecessary NULL checks
+
+Clang warns:
+
+../sound/soc/codecs/wcd934x.c:1886:11: warning: address of array
+'wcd->rx_chs' will always evaluate to 'true' [-Wpointer-bool-conversion]
+        if (wcd->rx_chs) {
+        ~~  ~~~~~^~~~~~
+../sound/soc/codecs/wcd934x.c:1894:11: warning: address of array
+'wcd->tx_chs' will always evaluate to 'true' [-Wpointer-bool-conversion]
+        if (wcd->tx_chs) {
+        ~~  ~~~~~^~~~~~
+2 warnings generated.
+
+Arrays that are in the middle of a struct are never NULL so they don't
+need a check like this.
+
+Fixes: a61f3b4f476e ("ASoC: wcd934x: add support to wcd9340/wcd9341 codec")
+Link: https://github.com/ClangBuiltLinux/linux/issues/854
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Link: https://lore.kernel.org/r/20200204060143.23393-1-natechancellor@gmail.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ sound/soc/codecs/wcd934x.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
+
+diff --git a/sound/soc/codecs/wcd934x.c b/sound/soc/codecs/wcd934x.c
+index 158e878abd6c..e780ecd554d2 100644
+--- a/sound/soc/codecs/wcd934x.c
++++ b/sound/soc/codecs/wcd934x.c
+@@ -1883,20 +1883,16 @@ static int wcd934x_set_channel_map(struct snd_soc_dai *dai,
+ 		return -EINVAL;
+ 	}
+ 
+-	if (wcd->rx_chs) {
+-		wcd->num_rx_port = rx_num;
+-		for (i = 0; i < rx_num; i++) {
+-			wcd->rx_chs[i].ch_num = rx_slot[i];
+-			INIT_LIST_HEAD(&wcd->rx_chs[i].list);
+-		}
++	wcd->num_rx_port = rx_num;
++	for (i = 0; i < rx_num; i++) {
++		wcd->rx_chs[i].ch_num = rx_slot[i];
++		INIT_LIST_HEAD(&wcd->rx_chs[i].list);
+ 	}
+ 
+-	if (wcd->tx_chs) {
+-		wcd->num_tx_port = tx_num;
+-		for (i = 0; i < tx_num; i++) {
+-			wcd->tx_chs[i].ch_num = tx_slot[i];
+-			INIT_LIST_HEAD(&wcd->tx_chs[i].list);
+-		}
++	wcd->num_tx_port = tx_num;
++	for (i = 0; i < tx_num; i++) {
++		wcd->tx_chs[i].ch_num = tx_slot[i];
++		INIT_LIST_HEAD(&wcd->tx_chs[i].list);
+ 	}
+ 
+ 	return 0;
 -- 
-https://patchwork.kernel.org/patch/11357331/
-
-https://wireless.wiki.kernel.org/en/developers/documentation/submittingpatches
+2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200211142431.243E6C433A2%40smtp.codeaurora.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/applied-20200204060143.23393-1-natechancellor%40gmail.com.
