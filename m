@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRB2W7SLZAKGQEIMHMMIQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBI77SLZAKGQEUNIBOMA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x43f.google.com (mail-wr1-x43f.google.com [IPv6:2a00:1450:4864:20::43f])
-	by mail.lfdr.de (Postfix) with ESMTPS id D3ECF15B700
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 03:09:46 +0100 (CET)
-Received: by mail-wr1-x43f.google.com with SMTP id j4sf1685743wrs.13
-        for <lists+clang-built-linux@lfdr.de>; Wed, 12 Feb 2020 18:09:46 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581559786; cv=pass;
+Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8F3DB15B7A0
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 04:16:51 +0100 (CET)
+Received: by mail-ed1-x538.google.com with SMTP id y23sf3697466edt.2
+        for <lists+clang-built-linux@lfdr.de>; Wed, 12 Feb 2020 19:16:51 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581563811; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kpnKJHFPkOaK4sF6fPg4PW66rUblEeIkk3hAuLqR8t25iwgZlDu9LK2VvOelOnFUdn
-         ejw3c/ScKg2mAKfpy48n+6vc9K2RI5lWyCWcdh+B+2e1cpRtQu+hSPzvA40guzTum1mp
-         mhyrz8xVOINLGbCU/ynzpI+t9y3hA/oaN04GAglkXbq1YHfFL3z0vfJEoTEmhPojepdc
-         0v8+ykYhW7fL+LUwFMe19NG2smENlhggDNyh4LzDoVeV9ccQrLVZJ4MxE/8cvHOswJGZ
-         HSIsiRSiz1OQ3PkIRbWAr71nkaekgipSY0KcKhw5NDACZwEgBDFR3c07923+jfeJqK52
-         OTBA==
+        b=kzLApQVBld380pAOXKt5lmvKkylcfnYrpdgKLv0pkNzPC7aemOpHl+4bS3wKvOgnPS
+         nVpmwSKRIUVX2qH86aL538RalcIUIem+To1sHF+TOL0diyMWPe8YtnMHqRfudyf400eD
+         dK5P/Uoqvf8Rs8S4fFcLbzUPW6xQuwilQxs6q/yNBa0gVszM2XnYR71Xk+9BtyzuG74h
+         W6OlTDLYb9S8MvXzKjOk6gWa62eD8ebTxzIObM5dRC9soj9nMfq9W5l6SZZdf6CVomkZ
+         OfJvMQkVUNzpYPJB1UiZ9B3hE/I1vy6cMIVCC6I7yjBrZpI+a1k3UtUK/Z6qzxIv9Bu6
+         sPEA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:subject:message-id:to
          :date:from:sender:dkim-signature;
-        bh=DzAsjsTYhQSfL6AUX31Zr1rvUQJe4BsIvpy7Dr+yJXE=;
-        b=U6kQPc344xng3lVgthpSkDcQR85gdAeHwpd0dV0lOBvszQxJkE7VI4H6or54IYi+qA
-         YyJVMuhw6q2eV4KNBH1gHA6R7ZdjhkZLLQpWoVyk8cXq4dkQUBM0t8j0IxHvbIjiRRc4
-         kGT09XrwxkwaTSDKHvRi+tKBPyVUsysH8Q0BqbnmvBJ+hCYtevX31TbjLzKxtWWloe/8
-         XNNvJdJXZVdEex7tQpxHNMhBGfDt4Z3Ab+vO0urKAQdP387rKEBdbvS6Xfi2uRwIYnoN
-         H+hdw5zl/ri1rwS07Kg0fFNFIKO9IQmHRVCf+E8o07zKreUBbPUZOUr/aBHTJjEYWh4M
-         7EZw==
+        bh=Gum5f2iug8clLfX+NIAiTZsxa8jPjyV2/3j+c1DfhL8=;
+        b=tVbIUpFQUyS1NVVu4u3MW1zO0dMkRLItRTeLt6lQiLY1aZNf/M6/1JWobLGbGM3CAf
+         8gFjkCu4hwv1OHV6qEAEZrlDvf5/sa8qm5dbBhWhTq3rbhZD3buz3h4/FhB/tsZ1BAud
+         1fz5gemLpYK05ybazhbKaRXEnYpdOGsysIuFSnZ8Zsm2inpH9cRhggko8URiDX6p07gp
+         EJtx1XkSud4RRCFwjpX1dZfpNGyzJyTlCUtC4f9lkwwHRtVOz4QBfiutB58QI9uzeoE5
+         yxqPqKygyMxLdqezvUE2DDFpQjOAyal/kyenUhDyGwyvx4iU5V3myatvxOKpPIbuueIx
+         cBEQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=bo5juvuX;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42f as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b="gq/hX+3C";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,89 +35,88 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DzAsjsTYhQSfL6AUX31Zr1rvUQJe4BsIvpy7Dr+yJXE=;
-        b=SG8b/Kki8nAMoQlmJYA77B0AJVyFDlWQKCNd1Ajw850y+ZQdXaomEKCNV38tocjH25
-         eNM+7oNdhZ/IpPFll5ZGsSp/Tq8GM5kKrrl/XZ3xS5Sz6AoYo4D+jL7j1RCxfcj2F6en
-         4J2rx4SYD0+C9u9f2HCpJVz4nvDO/conYFmZVjvgAMaqX6r9jMJsOtS+Le9Agg1NqCT0
-         Php1LbmtLbj9o7S/j7IBLcfQWYLab/vog1zvV2IdnlG+v1V2NagNh+6ntJQSBm0lqYk8
-         B/MxvSDcIVTmqclRV+BcPLyWtyrqRvfWNPJU8RRvWt46DXvo6ygqD9Zu9Lv8QUcLJKSh
-         t8yA==
+        bh=Gum5f2iug8clLfX+NIAiTZsxa8jPjyV2/3j+c1DfhL8=;
+        b=ZybJUCertqEHrhQA/lw6OI0ha5XJdEeEvwOklyYiSZsrOZZ8pEHWD7vxpKhjTyWfwl
+         +UQuFSoMetcVDnvxpFurdQ+nD3dNkqvEG649JBGkKhKhprMeq4UsRPpTbTFcff6v+4BD
+         tsGLC1xwHmueMl2ArpLQV3e3jbLJMUcBdvNqn22OpDQfOffsTpaws6ZmaAhclj8c5MB9
+         thbpUMP3R76xiBtkiA6tAVA1Qff2tt2z5lEZsAi3FboE5AuS7yu36WrRN4lJLio8KGrP
+         lopy8NEhG/oCk9cgL66w0YMdTb0C+Eyn6M+4UvNXmOnkcHEIeb35MTIw2xnV/UGLsz/L
+         uOwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:date:to:message-id:subject
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
          :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=DzAsjsTYhQSfL6AUX31Zr1rvUQJe4BsIvpy7Dr+yJXE=;
-        b=bjYPTe9aFPK1SiDeRMglAi/m1LM1hELDaYS/IcVp5GXiRRYJkcRPM+16yFX2+00cNL
-         uUETBVTz1/3fJ4FBjECPTpwWPkAbGFnGsKkkNCb55CzVTq0WNWFy16UX2k39wyLxI57v
-         fV5ZfIQykI9R55ksbn1wj/nz6oqhGAloO1q/GiM4lz6dOOFJkVzAwFdqGn5CfPfAKj1p
-         uIwNH8ARKnNDq1srIrh65LM2y8lvffovCVH1Ud4T129xVvEZOaUaP1QPCBaoi37JPren
-         xwROKeHwpAkgZ69YuULUWx0eNOTpsmfHR16lY6OGoWaDxcecKCdgYKZoVOu/Hu77Gdco
-         pIlg==
+        bh=Gum5f2iug8clLfX+NIAiTZsxa8jPjyV2/3j+c1DfhL8=;
+        b=RAORfGDgjfEvW0EK6wgWC9KqzbMPaI3NVl/2N+Q15OUcTReK4UJWeOwZtj0uzxdBrE
+         KOwDAO2CR0vE0fWDaAG8Zla7YGTAx5ACBEdYV8nbk6ulklrIwFFTC4PiE2SAF3Uq8qmb
+         D3a/+lEmCtaIsvUb9vNswY0hC/QGOO4xCujLwWrmocvX42ywVp22sX72ZKkI1VnBf+p5
+         tRNpXSjMncQE7V//3U6WgwSn6pvU2nkG7q1BoLu9pmZESVaN1b+8VvkJ6Y0S8SPfdxTt
+         xdUd2YIDKejaIVHh6BoIATSoXv+rCX8JTg9Rot8gXdCxTiZTiHaUwe1a5mY7LdNZZ5X3
+         dPhw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAX/0v97GiEEbh5EXOyzntOJfxZ5yIyBPdOhauGfm9AG1dgk55z9
-	s0I0gmSOjwgskoqgFXYkYKs=
-X-Google-Smtp-Source: APXvYqzQbOBrit1VDysY/M127irTayt23yc8aDidr2me0gX73cvKa6RF9Xq84J+qKgM1XEk3o5mExg==
-X-Received: by 2002:a5d:4e0a:: with SMTP id p10mr19528784wrt.229.1581559786473;
-        Wed, 12 Feb 2020 18:09:46 -0800 (PST)
+X-Gm-Message-State: APjAAAVylT1Kj4DX8yiFRAgZpp2vaCPxzh1/wytPB8fc3uMxhOisGhKs
+	ic0N8bwLzkEL4uE2kFSdq4A=
+X-Google-Smtp-Source: APXvYqx943zgmPWN/5bpYRKjXa4XvmxJu8JJKXFeB4p7RmGNZVYmk3qAyBvbBSR4sBAYrYtsICsUzw==
+X-Received: by 2002:a05:6402:17f2:: with SMTP id t18mr13777439edy.9.1581563811134;
+        Wed, 12 Feb 2020 19:16:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a7b:cf15:: with SMTP id l21ls1517084wmg.0.canary-gmail; Wed,
- 12 Feb 2020 18:09:45 -0800 (PST)
-X-Received: by 2002:a1c:7c18:: with SMTP id x24mr2449699wmc.185.1581559785893;
-        Wed, 12 Feb 2020 18:09:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581559785; cv=none;
+Received: by 2002:a17:907:405c:: with SMTP id ns20ls10887256ejb.3.gmail; Wed,
+ 12 Feb 2020 19:16:50 -0800 (PST)
+X-Received: by 2002:a17:906:ce4a:: with SMTP id se10mr13905841ejb.157.1581563810509;
+        Wed, 12 Feb 2020 19:16:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581563810; cv=none;
         d=google.com; s=arc-20160816;
-        b=imUkcqvrcJfMzqG4ncqYgb3J3cOIPmsKYpHDIJqkYVoPJUPtdGy+Q73SMhPx0Il/wH
-         vym9cXLTSmCf/xPw8ImREqtAZiz0iepomLCfyjNZ4NCY+b5hHu11usblFRTaqT2MA+0g
-         uCyOIKA0GmDHE+TFU6vYmFJs0MNazYkTBECvOtbsDOIcMIft89dhw96oHrVLP/kH3XVM
-         LKXrzkuB1cmB2I+cJnuwQxoGaSBEWIIbKMMFBFbZ7Ha0DmfYOft6DgozL84ZSRoI1/7S
-         bz3c+kmPZ2GC0Y4vxdAQ7W3AhHhMd357bPYhx+VG+VT+njBSTYnsgb95O5BiQaReT9t6
-         3gBA==
+        b=fgvOFJcu4nYskbJXB1aY0kg6To5u/tjjCBpNjxQ2xaYHDDLhsG3b6u/5Q7jwOTCt/a
+         94HrIO8tm7srTQ6AZ0BGGOflZiSQtu9IXzcepzTPF1Rehj8neYH/7EpjulXFyPYdMMWb
+         +SLKR5ddMtOdYcNt492V9Kel1z5MGmuQ7AQZ/XTIbNaCo5gCZzWapISx/yjibdSySjFU
+         FUvShA60qZu+pl/HDRw9hed/ncms96+Aozum1JlYgLGvAjPecS6vRLuIDVQsKp7YYmOT
+         bQ5DFBB9qhLAsHzjzLFkb8rFZ5xxsza1XJxEPmxpawJHfHc/GJJl5mnEMmF+Rg0KzsFk
+         oghg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=MPuz81LzrVA5fXsRDHwYKpo8Bjwx6oaMSFVBx/FZFXQ=;
-        b=nIYIzR6AvSAM/Jh9GMojN3PQvgO5kw1Kx42cm2BNLBvZg68/wrVd0kinaQIm89bP/C
-         h63T8WRxrRs1ciBj/1lpllaoZn6v/Q0kHY89nDelKvlkLcmEvmNv7eKXkzuJCBXyoIY1
-         uzif+Q7C0ggBATEXrK8l+nvZ8ljL8BPo0UBGNZ17v5vCjqB7cD4aTt+MbsDzRko7lwcv
-         kfw96mp/efaRR5cOWPiyDGTOUWl6fHBEku4+sXZbE85/Rp2qAlnnBk3Ue2XlV7N1CeSA
-         rCycyNWvxVm2sMomxD0I0AHvPUJZno7hJhuEW8erZTkFX5dvHAD1REP/NCBiU9zZlnJv
-         owCg==
+        bh=I42oRy21vHLR6fHNk3gUGdlJLEcud60Hv5lOZhnNFWk=;
+        b=pBcw8r7HAYRqignR71/tQ51teH55HZmUdUfGSmMZ9/Wz75aYVTGbCQhLkQTtYQnJqY
+         V0gwSTC/XzFVREQbuojguQnyKH3ghkNVfa1pxgh3BHFJabo0UmkHX1XHIKiDqn26ytGg
+         ThTNg077x/LsTULOuVbGW92vv4zf5WlI9lXEgc4W2+hIV88XtoO27X/4pGhTB10uu9nB
+         HYxFpiATxCXdiw8OV0sOsVKp9WEukpqro2T5VxFPkC+hbqAxX8Xm5j3XwTrhlptIrAVb
+         Gr1XR6oRq9wzyKvmJEXJIJG0Ip5tFTDGfg8NMwDAfvw+piZ4UCo8RU6WWwS5dAAePCXg
+         YLeA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=bo5juvuX;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42f as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dkim=pass header.i=@linaro.org header.s=google header.b="gq/hX+3C";
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x42f.google.com (mail-wr1-x42f.google.com. [2a00:1450:4864:20::42f])
-        by gmr-mx.google.com with ESMTPS id 202si39592wme.0.2020.02.12.18.09.45
+Received: from mail-wr1-x42c.google.com (mail-wr1-x42c.google.com. [2a00:1450:4864:20::42c])
+        by gmr-mx.google.com with ESMTPS id d29si44422edj.0.2020.02.12.19.16.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Feb 2020 18:09:45 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42f as permitted sender) client-ip=2a00:1450:4864:20::42f;
-Received: by mail-wr1-x42f.google.com with SMTP id k11so4723264wrd.9
-        for <clang-built-linux@googlegroups.com>; Wed, 12 Feb 2020 18:09:45 -0800 (PST)
-X-Received: by 2002:a5d:4dc5:: with SMTP id f5mr19009748wru.114.1581559784637;
-        Wed, 12 Feb 2020 18:09:44 -0800 (PST)
+        Wed, 12 Feb 2020 19:16:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) client-ip=2a00:1450:4864:20::42c;
+Received: by mail-wr1-x42c.google.com with SMTP id y11so4850365wrt.6
+        for <clang-built-linux@googlegroups.com>; Wed, 12 Feb 2020 19:16:50 -0800 (PST)
+X-Received: by 2002:adf:82ee:: with SMTP id 101mr18401451wrc.130.1581563809178;
+        Wed, 12 Feb 2020 19:16:49 -0800 (PST)
 Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id s23sm887379wra.15.2020.02.12.18.09.43
+        by smtp.gmail.com with ESMTPSA id b16sm1014548wmj.39.2020.02.12.19.16.48
         (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Wed, 12 Feb 2020 18:09:44 -0800 (PST)
+        Wed, 12 Feb 2020 19:16:48 -0800 (PST)
 From: ci_notify@linaro.org
-Date: Thu, 13 Feb 2020 02:09:43 +0000 (UTC)
+Date: Thu, 13 Feb 2020 03:16:48 +0000 (UTC)
 To: tcwg-validation@linaro.org, llvm@linaro.org, 
 	clang-built-linux@googlegroups.com
-Message-ID: <432693110.1431.1581559784099.JavaMail.javamailuser@localhost>
+Message-ID: <1724772215.1440.1581563808665.JavaMail.javamailuser@localhost>
 Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-aarch64-next-allyesconfig - Build # 53 -
- Successful!
+ tcwg_kernel/llvm-master-aarch64-lts-defconfig - Build # 10 - Successful!
 MIME-Version: 1.0
 Content-Type: multipart/mixed; 
-	boundary="----=_Part_1430_351990292.1581559783434"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allyesconfig
+	boundary="----=_Part_1439_950111981.1581563808117"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-aarch64-lts-defconfig
 X-Jenkins-Result: SUCCESS
 X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=bo5juvuX;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42f
+ header.i=@linaro.org header.s=google header.b="gq/hX+3C";       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c
  as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
@@ -132,12 +131,13 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_1430_351990292.1581559783434
+------=_Part_1439_950111981.1581563808117
 Content-Type: text/plain; charset="UTF-8"
 
-Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allyesconfig.  So far, this commit has regressed CI configurations:
+Successfully identified regression in *llvm* in CI configuration tcwg_kernel/llvm-master-aarch64-lts-defconfig.  So far, this commit has regressed CI configurations:
  - tcwg_kernel/llvm-master-aarch64-lts-allmodconfig
  - tcwg_kernel/llvm-master-aarch64-lts-allyesconfig
+ - tcwg_kernel/llvm-master-aarch64-lts-defconfig
  - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
  - tcwg_kernel/llvm-master-aarch64-next-allyesconfig
  - tcwg_kernel/llvm-master-aarch64-next-defconfig
@@ -160,14 +160,14 @@ Author: Florian Hahn <flo@fhahn.com>
 </cut>
 
 First few errors in logs of first_bad:
-00:12:22 clang-11: error: clang frontend command failed due to signal (use -v to see invocation)
-00:12:23 make[2]: *** [net/mac80211/sta_info.o] Error 134
-00:16:39 make[1]: *** [net/mac80211] Error 2
-00:21:44 make: *** [net] Error 2
+00:02:27 clang-11: error: clang frontend command failed due to signal (use -v to see invocation)
+00:02:27 make[2]: *** [net/mac80211/sta_info.o] Error 134
+00:03:25 make[1]: *** [net/mac80211] Error 2
+00:03:47 make: *** [net] Error 2
 Configuration details:
 rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[llvm_branch]="5afd9fd916beab15b8fe2e269b3c7466c9ffa574"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
+rr[llvm_branch]="d4c7ade1280f4c8adf9b9404c6323da73c18b612"
 
 Results regressed to (for first_bad == aadb635e04854220064b77cc10d0e6772f5492fd)
 reset_artifacts:
@@ -175,7 +175,7 @@ reset_artifacts:
 build_llvm:
 -1
 linux_n_obj:
-18281
+4886
 
 from (for last_good == 6b0ed508fa3947ec1f3a1bd87a08b598e98423e3)
 reset_artifacts:
@@ -183,13 +183,15 @@ reset_artifacts:
 build_llvm:
 -1
 linux_n_obj:
-18355
+5310
 linux build successful:
 all
+linux boot successful:
+boot
 
-Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/artifact/artifacts/build-aadb635e04854220064b77cc10d0e6772f5492fd/
-Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/artifact/artifacts/build-6b0ed508fa3947ec1f3a1bd87a08b598e98423e3/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/artifact/artifacts/build-aadb635e04854220064b77cc10d0e6772f5492fd/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/artifact/artifacts/build-6b0ed508fa3947ec1f3a1bd87a08b598e98423e3/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/
 
 Reproduce builds:
 <cut>
@@ -199,9 +201,9 @@ cd investigate-llvm-aadb635e04854220064b77cc10d0e6772f5492fd
 git clone https://git.linaro.org/toolchain/jenkins-scripts
 
 mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/artifact/artifacts/test.sh
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/artifact/artifacts/test.sh
 chmod +x artifacts/test.sh
 
 # Reproduce the baseline build (build all pre-requisites)
@@ -220,10 +222,10 @@ git checkout --detach 6b0ed508fa3947ec1f3a1bd87a08b598e98423e3
 cd ..
 </cut>
 
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allyesconfig
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-lts-defconfig
 
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allyesconfig/53/consoleText
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-lts-defconfig/10/consoleText
 
 Full commit:
 <cut>
@@ -1232,6 +1234,6 @@ index 7fdcd556dae..e2a4268596f 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/432693110.1431.1581559784099.JavaMail.javamailuser%40localhost.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/1724772215.1440.1581563808665.JavaMail.javamailuser%40localhost.
 
-------=_Part_1430_351990292.1581559783434--
+------=_Part_1439_950111981.1581563808117--
