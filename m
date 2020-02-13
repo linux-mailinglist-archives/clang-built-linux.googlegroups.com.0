@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBAPNSXZAKGQEOPWI3VQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBBPNSXZAKGQE4GBS7UI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3254715C7A5
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 17:17:06 +0100 (CET)
-Received: by mail-ed1-x53c.google.com with SMTP id k6sf5222435edq.8
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 08:17:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581610626; cv=pass;
+Received: from mail-lj1-x23f.google.com (mail-lj1-x23f.google.com [IPv6:2a00:1450:4864:20::23f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 283B015C7A7
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 17:17:10 +0100 (CET)
+Received: by mail-lj1-x23f.google.com with SMTP id g10sf2285162ljg.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 08:17:10 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581610629; cv=pass;
         d=google.com; s=arc-20160816;
-        b=a2j0GPJ8T/DakgBV0UsYAHtP/RrH6LtojlFHO2aw/deNAQEXWEQoysD99HSbPEHkbG
-         nXS3m51evz2hOBP6CRYmz1ey9eZU/eKNUjucBTd1lCMMe1nD2MgpIMFlaPLQ1V+Ny9D4
-         vhygN8iQG2WNR6D3Btcl4uFi+l1lrHq+Lbwp0wYxWZtkDQ1C7/74ERSdvEzCW1bpza+M
-         06F2KpEQ76MR6E/eN5FeJ/Hm6S7uq8kYy/ssi9UcUAJ3pU619OzCr//I49n3EF3rMYC8
-         +b0MIKepz3ToJcjN0R6HetGEdrF5msysVpMzq39ZlVW3Q1N9qMMyDVTze1Q2jSwq4AZa
-         jFgA==
+        b=O7Qexz2ChlwN6heWZdI2l9vNnt4vpZNURh3QqL/gF8IAGD+n1mOE3atogbbBQh84Ay
+         mVCs1TCNs4YQBoMyq6Fn/f+hM/bua42mBg+JEhxlsMzKUm7Hqy98zWfbGsTaxeUEhI2z
+         kTNiylzR/nTUjTUelhPm6jbpMIQTnwtEn15pS+BOER0DpJsE/G9k4TnDFoDJ1wci+D9U
+         YqeE2ony0h0YFHrYaYRrs3nCXtCzcbpF6bYepkxaK2rHCUCvn8M+N7TUqxjjmi5wMzIf
+         tH0KMVfPb2G1r3wGX1GhDxtsp6NgmGTl/t70STKdGAm5sJWfDODVeAnzndfDdB/p27Ix
+         Rs+w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=cs5XdoPqaaIsBy6dhyNfu4+wrWjzlOOIdhUxkfK4WHk=;
-        b=LogxeJW/90PFdD3wfuCKRboaeYF2ewdwdyA9varF0r/hIw9szbaUWTFaLGt5zqG0VK
-         VwJ1CYYGryWCqc/EIGcWaf9zbxOXtFBM+P8oNkXuGD4PbAl4apCLbFwXpWEbARlmmI34
-         HOncDqT2Ip1aXgjWnAfxSbDjSdwjA6b5stqxdpzjr0qC5aT9pQWln2EyeKaqunvwR/2j
-         N41tqj3FgYD8qNne4Lz7YO6ocIAWLzZ2eXEY0vmvcWk/Xh2hxDDPh/r4eUlIcs2myaj8
-         UE8KvfTmElXTC7XCvkM2MzSZqYEc3IBOjhduvzlhnitZn0kbVK65WtxcMsPCkxeHxccH
-         tn8A==
+        bh=mmQypP0wqtfe9GkF1twMQm+pTDqISVtxYtV1/mzBsTE=;
+        b=CSrYeEgBLvkAifVNAg3giVsSY46lGMWqaO1WamHhXnsbeyQ7LsoVdJGXEL6CTc8ijZ
+         IVUuiLuTgOn0zL+zo8uVyVidIlCRMoCTmd0tSoL5ANCNzePfE78Hvagj8CsaNekEKY3f
+         jyFhViRn3wHp8hCD6VWVbmTaVvHyzWCKfCIcMWemizOOm+XUWjX/k6CNBH2T8TBQasuQ
+         tgBjHALcmB9SA1K3GagGvA+JYg3y9VM+lcJVV/2DIIjp4HI7DiAZlkrtNI42AuHMP124
+         EcJYPfhu8x1iso4arIBLfrKL+whFmQV9tbbo8oOcsC5hD8imbgfQ3Tfnq3YCpLd5xUJi
+         PQEg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cs5XdoPqaaIsBy6dhyNfu4+wrWjzlOOIdhUxkfK4WHk=;
-        b=V5lyhsx3XQMvTFayHVE55VzIGHa85keoOlP9ZgNjImbc4q6+jfNd0wUd0GJywX9toI
-         fXy04Vdh1g/FeVIki/3RiiQMcVVDRTu79XCcNnjpI8JqLR9vdOYidSi/f6EI3PzPFsDr
-         sw81EO+ocwf46l5+VkKxjhJO63LgKB9gT3KwGlZKV9qQr6efm1ZRLHY4rnjj9x/+wfjm
-         gzrUUSQA2EjVPdnsNSBMxyIQJ0pdQ697bREolcsCZvJfNhRn/S+mtLdiGJ1CU/FFRkj8
-         hP4tAAb0AdI8Y9TbJlunK7PVt7Z77A/K+QQT517tU2Nd8zmLDE7RnZ2BxFg3FZNHBBGR
-         jvNQ==
+        bh=mmQypP0wqtfe9GkF1twMQm+pTDqISVtxYtV1/mzBsTE=;
+        b=QczamQm0UDcDiQuGNBuhcX5mH0rAV8IAg7N+7jmlYZx+HcHqTBz/ogjhyNIXo0wtqd
+         WGvdvW1QcXkZJgRiTPcGrKdOz2MBUNpmsACegkbvY9iqPsQxt7nJcQJPvMY+8eneaGpB
+         XJteEh8BvF0n4YXFGORRQb9Ct9i7tzAqzqJ4ce1aEKydm7W0BsxHcP/Q13Ktc5k+VmOI
+         1WEMvK+7fkDMTiApe03pUguKN/iNgyqHzLvHMAAG6msEB/k007iuCp+6iGrtm66VKS6A
+         A7b9t4X53HJA/9EcaqBeib8vkDdJu5slBJJYd+Z4hQeai0Ii/RdKzxy8YJHaKqD8/KMH
+         PvgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,55 +47,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=cs5XdoPqaaIsBy6dhyNfu4+wrWjzlOOIdhUxkfK4WHk=;
-        b=fQR82MXBoL5P99d5/2QIqtxTVhzCCx7HCQz66Wu2ovLlK66geKumVECHEmzuumqTte
-         jATcXukRB3o+Lpr5ZmSf/Dat4PiGf4jPL/qsTV9/+FVX5Q6z/G0B6af7B80HnBuRRge8
-         eVkIXHbENnV6kAc85PHFTuVIgVTEc0DDIALA66iOqhmb5o9tg6LGvyAje6rBKrmxstWq
-         LKYwsVXH9978aFTwSQOf3sR41p6mrTx/lx5sgUXt3HIUFco49Y/zOyc8Ss4mBO6a8iKA
-         j0mXdsZZRQm32vulBGJbp8AuZD03vDS/5P+d5XMTdFZdfUC9LaVutQIUrLteJeaYfotD
-         xg9Q==
+        bh=mmQypP0wqtfe9GkF1twMQm+pTDqISVtxYtV1/mzBsTE=;
+        b=m15y6C74kAyKjDYHuDmi7VIb61gDes592nxpt0UNphElIxohSpxAG4qtn9xoILVK9x
+         +y02+uLJn+A2vV2rFKaaTuEUjl9JiU4rFcNx6oj+MKuVNnHAlNAeswrLAaN5LpQcbmuZ
+         3r41A7GNcoqCq/9oSGP7MOg6w046jDIMBB1JkieYYIQY4NIlsokIJGsD6m/Gx/gb3ZBu
+         d6CodYte+Eq7TtqUlayAp8f33f6GJMeyPzxZlJlJv9LQDfBNVkYRnKLZO7svLlMmTVwt
+         KUJUFJtdyflWDz+zb6Okd5s4ySa8U0Fly/f4Mm2qo/x1r4J0eixWSkGqtVrR7ZuHxu0S
+         ZYYQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVSWQx8spNlP1vN3RnhTZRKF7s4iggyNzYvILkXzmRiPy2FLPqu
-	U6tnrwaqLTJBRiIhNlttkpQ=
-X-Google-Smtp-Source: APXvYqwR3/DpzjpcNT/iybhiXu9gUvvOUZBKbfLCiT2deO3v3ddjrT5hFo25rfnTcx7SV19vqReP4Q==
-X-Received: by 2002:a17:906:eda9:: with SMTP id sa9mr17092931ejb.297.1581610625933;
-        Thu, 13 Feb 2020 08:17:05 -0800 (PST)
+X-Gm-Message-State: APjAAAXgvwDcx3P43uAzyOfjeuH/Wl42+xRDg0zi8wgQammh3AhvkchG
+	hlF1pGctaYoGuoNdRuxUOvk=
+X-Google-Smtp-Source: APXvYqzazZqJWSkEQc/cCE9/8JmXCnDImZeZJssnhrxE1pgoNWyXFfWbJdKLpy6df4Tg+FamkTp4fg==
+X-Received: by 2002:a19:f006:: with SMTP id p6mr9718526lfc.94.1581610629069;
+        Thu, 13 Feb 2020 08:17:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6402:1b06:: with SMTP id by6ls11300464edb.1.gmail; Thu,
- 13 Feb 2020 08:17:05 -0800 (PST)
-X-Received: by 2002:aa7:d505:: with SMTP id y5mr16586539edq.370.1581610625577;
-        Thu, 13 Feb 2020 08:17:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581610625; cv=none;
+Received: by 2002:ac2:518f:: with SMTP id u15ls2753835lfi.3.gmail; Thu, 13 Feb
+ 2020 08:17:08 -0800 (PST)
+X-Received: by 2002:a19:4ad0:: with SMTP id x199mr9719828lfa.13.1581610628517;
+        Thu, 13 Feb 2020 08:17:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581610628; cv=none;
         d=google.com; s=arc-20160816;
-        b=ttTHL1fLxMo8umtceDZFv6b3Rw7GAJaFJDwdzBD7UNyBXs6/4ufy2unMw3k9xIvzJJ
-         bb0ACqRtmpVt1+1Y1UWjlSp5N56vrjOcIuwEVJ+SECmfs5z/7eQCXiLc5uKYt3ZuzCOU
-         N2W81Do1g/sLCWiyW545qAs9hVfNovblAdRfWQOQXi7YSWkwMatSyo2owKmXbQ7P/bpv
-         WQu63AXJ8kwMw+veWLpO9SO4a4YaPK1wP+ho0DnD/FseK4WKw0DS9wKizw66pt5v/1hL
-         K6XwI7ki5Ex0+d+f2GhAMihVtJpSj2jtKt/8AHQH0PSHsAHtJh6MkC3Z2vUKqgpQhVo6
-         0fLw==
+        b=rkn+GBXvRp8q242CthQKmObvtFU0vRbyIYfkgdhusKqP85pjfDRW+uL53n28t2qqNh
+         JuazfAncJU7b+NxutxQBoyoDY5n07H/EcH4o329Rr+WICEsn4j7PffEOFqbxfFHLPuL7
+         h402//3HNJHu+N/wfO+cadJHDoUwvjR9vsRAc/VXFpPU+cOduybYN04HIWa/1K0CntIV
+         tGMyvo12q2a1asWOx+p7RiM4+cUbOQiyqox4C30Aoekpx9C7VzvbMmsTvG20Hqk3gGu1
+         Dxn953CHlaVAtOaac+Aktqvn2PBQGjLRxN2KDo7Hh/BCaoyPbUlLof11Ov9pMUQbg/ER
+         uhrQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=l8LWI6Wp3IDme2PXUKnq47DRbem1KjOCbamco4ggwYo=;
-        b=Jmv2cMdyVe3M6X7PRPuYO1OXEIB9csvsuY98PTfL2OBTkYX4iqdN7u4yobak5S19cs
-         amUX2VkqR1cJ5nyXGoLNS9zyumnWxuKxW1hIFcnh3c43hXNRdNaYbO43NhkhLH+pB0A3
-         0c3mmZjGCPhxxyxkN1nxegXdkQPWdJQD0e8gUPhoWVbGasltPoHuC4TzM/eBBrogNOOA
-         A6roLW8CPYj8EOfEDT/kBJcrkjqu5EqMIRFuC6Xs7E6zi/0z4bZYPNSdWwvf9kelNYMF
-         hVOWV9KKXVyZUu7WO5/1D48SQ1y1lBeOQOfLPYfey9yPFh4pgNME7J9X/MAgD2kZGKbP
-         MZBw==
+        bh=ay+M0siFWpPGgsahzGd4AI9vlnK+2XPYQ08YSQmBusE=;
+        b=0Vd45NC0XwzIOpgcD/c+TTFPVkUjjyqVCZwPeB/DROU7xCwniLZGhA5MjJaQTxgTnH
+         JEAXHzt9Nm4rE1+ov7KEGl1L10FE80FesQWJaa42EypcjaNQynsFB0bYu7bXns0sshKi
+         LKi5GvG6HzKMpET4Q6TNN7TEhedxJewrUYg8jmJG3kDpOepOf5A1jDcpOchu/cOtXz9N
+         XLIoYP//czs2iRYkGpX3wvA2UVUYjYIB2BD31fNLXC+Cqj6S11ESfh84CEfu3ooBZ0Yh
+         rZUfZX/Ww7P6GvVfDyLwgSGvWQF66VXgeJ6CNWos9xrrMfvm04kV2yClq0d88vTFSNtn
+         Ra4Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id x18si125715eds.2.2020.02.13.08.17.05
+        by gmr-mx.google.com with ESMTP id p12si144252lji.1.2020.02.13.08.17.08
         for <clang-built-linux@googlegroups.com>;
-        Thu, 13 Feb 2020 08:17:05 -0800 (PST)
+        Thu, 13 Feb 2020 08:17:08 -0800 (PST)
 Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE8CC106F;
-	Thu, 13 Feb 2020 08:17:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0142328;
+	Thu, 13 Feb 2020 08:17:07 -0800 (PST)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5D74E3F6CF;
-	Thu, 13 Feb 2020 08:17:02 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F5E43F6CF;
+	Thu, 13 Feb 2020 08:17:05 -0800 (PST)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -118,9 +118,9 @@ Cc: catalin.marinas@arm.com,
 	0x7f454c46@gmail.com,
 	ndesaulniers@google.com,
 	avagin@openvz.org
-Subject: [PATCH 08/19] linux/jiffies.h: Extract common header for vDSO
-Date: Thu, 13 Feb 2020 16:16:03 +0000
-Message-Id: <20200213161614.23246-9-vincenzo.frascino@arm.com>
+Subject: [PATCH 09/19] linux/ktime.h: Extract common header for vDSO
+Date: Thu, 13 Feb 2020 16:16:04 +0000
+Message-Id: <20200213161614.23246-10-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.25.0
 In-Reply-To: <20200213161614.23246-1-vincenzo.frascino@arm.com>
 References: <20200213161614.23246-1-vincenzo.frascino@arm.com>
@@ -147,59 +147,62 @@ a userspace library (UAPI and a minimal set of kernel headers). To make
 this possible it is necessary to isolate from the kernel headers the
 common parts that are strictly necessary to build the library.
 
-Split jiffies.h into linux and common headers to make the latter suitable
+Split ktime.h into linux and common headers to make the latter suitable
 for inclusion in the vDSO library.
 
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- include/common/jiffies.h | 11 +++++++++++
- include/linux/jiffies.h  |  4 +---
- 2 files changed, 12 insertions(+), 3 deletions(-)
- create mode 100644 include/common/jiffies.h
+ include/common/ktime.h | 16 ++++++++++++++++
+ include/linux/ktime.h  |  9 +--------
+ 2 files changed, 17 insertions(+), 8 deletions(-)
+ create mode 100644 include/common/ktime.h
 
-diff --git a/include/common/jiffies.h b/include/common/jiffies.h
+diff --git a/include/common/ktime.h b/include/common/ktime.h
 new file mode 100644
-index 000000000000..ff0207f00550
+index 000000000000..4dd6c6762ad4
 --- /dev/null
-+++ b/include/common/jiffies.h
-@@ -0,0 +1,11 @@
++++ b/include/common/ktime.h
+@@ -0,0 +1,16 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __COMMON_JIFFIES_H
-+#define __COMMON_JIFFIES_H
++#ifndef __COMMON_KTIME_H
++#define __COMMON_KTIME_H
 +
-+#include <asm/param.h>			/* for HZ */
-+#include <common/time64.h>
-+
-+/* TICK_NSEC is the time between ticks in nsec assuming SHIFTED_HZ */
-+#define TICK_NSEC ((NSEC_PER_SEC+HZ/2)/HZ)
-+
-+#endif /* __COMMON_JIFFIES_H */
-diff --git a/include/linux/jiffies.h b/include/linux/jiffies.h
-index e3279ef24d28..710539d1e39b 100644
---- a/include/linux/jiffies.h
-+++ b/include/linux/jiffies.h
-@@ -8,6 +8,7 @@
- #include <linux/types.h>
- #include <linux/time.h>
- #include <linux/timex.h>
 +#include <common/jiffies.h>
- #include <asm/param.h>			/* for HZ */
- #include <generated/timeconst.h>
++
++/*
++ * The resolution of the clocks. The resolution value is returned in
++ * the clock_getres() system call to give application programmers an
++ * idea of the (in)accuracy of timers. Timer values are rounded up to
++ * this resolution values.
++ */
++#define LOW_RES_NSEC		TICK_NSEC
++#define KTIME_LOW_RES		(LOW_RES_NSEC)
++
++#endif /* __COMMON_KTIME_H */
+diff --git a/include/linux/ktime.h b/include/linux/ktime.h
+index b2bb44f87f5a..0e1fadeb23c3 100644
+--- a/include/linux/ktime.h
++++ b/include/linux/ktime.h
+@@ -253,14 +253,7 @@ static inline __must_check bool ktime_to_timespec64_cond(const ktime_t kt,
+ 	}
+ }
  
-@@ -59,9 +60,6 @@
+-/*
+- * The resolution of the clocks. The resolution value is returned in
+- * the clock_getres() system call to give application programmers an
+- * idea of the (in)accuracy of timers. Timer values are rounded up to
+- * this resolution values.
+- */
+-#define LOW_RES_NSEC		TICK_NSEC
+-#define KTIME_LOW_RES		(LOW_RES_NSEC)
++#include <common/ktime.h>
  
- extern int register_refined_jiffies(long clock_tick_rate);
- 
--/* TICK_NSEC is the time between ticks in nsec assuming SHIFTED_HZ */
--#define TICK_NSEC ((NSEC_PER_SEC+HZ/2)/HZ)
--
- /* TICK_USEC is the time between ticks in usec assuming SHIFTED_HZ */
- #define TICK_USEC ((USEC_PER_SEC + HZ/2) / HZ)
- 
+ static inline ktime_t ns_to_ktime(u64 ns)
+ {
 -- 
 2.25.0
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200213161614.23246-9-vincenzo.frascino%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200213161614.23246-10-vincenzo.frascino%40arm.com.
