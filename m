@@ -1,127 +1,133 @@
-Return-Path: <clang-built-linux+bncBCLMHO6ARMORBDUQS7ZAKGQE6WF6VZQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCSJ7B6JQALRBIMWS7ZAKGQERXDSIFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x438.google.com (mail-pf1-x438.google.com [IPv6:2607:f8b0:4864:20::438])
-	by mail.lfdr.de (Postfix) with ESMTPS id 533F015CDB8
-	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 23:05:04 +0100 (CET)
-Received: by mail-pf1-x438.google.com with SMTP id x10sf4560948pfn.4
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 14:05:04 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581631502; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id 498EF15CDFD
+	for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 23:18:11 +0100 (CET)
+Received: by mail-il1-x137.google.com with SMTP id w62sf5875603ila.22
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 14:18:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581632290; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ejgygRf+CtVnKX6zH2MVkW1yooyigro3xZGnSwU7fMaJADGT5xHTtFX10SwjfABmwt
-         u8jrQu/vnJ4kaIIEc+9lckpAJj7WWXOrUMZtpsrJGMO7vdzMHxMU5421e/63eTOrvN1N
-         xrzg+rv05jKHmCypNKxTboybGjpXuyddHLAKH67ulZl9UmXc/Oo4voGBX3xSz55d1vzM
-         R9bdjhaWNfJrKR1tikkJaGdaijnAigNvPjMttgGkCXR5cox6wwoIj/p0xcWVyMQQNGSx
-         fpzR/EFJ6ma3gqgCB7PYJtrI6gcIwHOQdtcFYqtdav9AthhuzP3A/SPEe4cJTdpbkBw0
-         Es6g==
+        b=WsJPfNRvze4e+wel1qdOrTWw01Gg0QXj5WhJorYEfy/cnJ5uLU3YNDB3SLK8rKqDvo
+         2L/O8cxyzbiQvwIQEWurzA6dviqSvB+QqtJffCC22sQsP9hcWwKnQDK7o1mZf831wQvz
+         PgSIm7wYEN2r9rhxPMUKE3PaVqANql7kZ7HoE8XQpHXEeYo7Ao5fTgkHSJv5ES0b9zxS
+         +SIlCAfzoT1lyQHuVjxSGDAFdHd/kYqrMyAXBFTZJ3jDLEirf0pwSd+LbXNooSgblOiP
+         kNKpYqAgti+xgE9UYomxFyq51hVy5XM9RyS/5JhLfv8tgHMqUuMMEABDZCShg3MPZg6k
+         S3AA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:message-id:date:references:organization:in-reply-to
-         :subject:cc:to:from:sender:dkim-signature;
-        bh=5/4IbzOENHJvV1aaIr0TL0GNl4kJqKbvmQKI8ajXV/c=;
-        b=QEh8i77yWzo5q6xmtpntN+6FeRuPMvaEVPBPHWxEZl3YYPQ5+7IuTA4EQsnuXD2fJB
-         B0pywgp341Zid+e8ojRxqLdiG336HSUFdR5nGgIOJPfMalfqBGwfg3Q1ZX+GuJ0iHOGA
-         BSoRNjW71GRBkCmQFtpXYwMIkP+kvb3amiPXg4MpGsYnGmffgfyzRCbhbSLPTL0+BAuM
-         wRiP7xMwvnpXmzJdxMH03gv1eNW8fajhIfzk+uEnPuoPwrHRGH1D30Vp0tFsTv13fLTP
-         CvCjf2VdgF6lj2RdD1U5eBG7DmiHaSBuba85em9t11j98VAy6jGlEYARztRvdbOU4rhj
-         XoWQ==
+         :list-id:mailing-list:precedence:in-reply-to:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=ocwtwXa1g0ijKaQI5fi4MBjC2hkfXVoaW+OJJFfznqE=;
+        b=OxvW50r9aDsENXCAqlGccXiopQaJtb64nTK81DaDOKmUhENVx+qexSSOhoJ53/RI91
+         3TFT35qdNylpAk+t4L9CKMINSKMM0iWK1xUkqSh7bCsYFX+Nu6bAGVJJztFyfOkVPTZP
+         uSy50DK3bGowELgALEEfCVtK6hCHPibrvwE0t/0KhMa6JskVR9HbjaeFLUt/RNeRqVwP
+         U+gy5x46asLH7dPIsD2XFIx1VJHST7vWLSzQg7Vz18lM3U0Vhh2XXtCNEagyMjtwALEc
+         +WYRLvJbwyS8aRaCjHG1YhHrkBUM3t6Yc01UrEU1IQZkb/XsDq3m7V3lexNhfpQnUNmT
+         Dcag==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Lrn+CPnW;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:in-reply-to:organization:references:date
-         :message-id:mime-version:content-transfer-encoding:x-original-sender
+        h=sender:date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=5/4IbzOENHJvV1aaIr0TL0GNl4kJqKbvmQKI8ajXV/c=;
-        b=pq701KZom0xB95Oar/szctFbMEPzUiubFyagv/58n6z+dPPYJeVFATY9B0om0HeIzo
-         A3XyeIvpv88snYas4WtzVkOagZFXhkySiJVr5HTsMljJ5+zeJHIvru8HOdCt0Iv3pV7Y
-         68dqTQvN0tttkonI500BfBwReQUH8Yzfv/oTE/I5odqdyUTJ+9TLhMkcBKT2kEiCxyyA
-         WSm092cH1bRKabqtuHF2P7+v3z1cXUZHc50RbTTGBSz4J1tbyns0PtrRIkfD+EyBP2zG
-         YgZZWBWWiJCrTgbq4d/IDr4ZwmhVjT8e2DdJgcD7H8dLbi5GiGMIW74PJio9uZsgqOH5
-         AbBw==
+        bh=ocwtwXa1g0ijKaQI5fi4MBjC2hkfXVoaW+OJJFfznqE=;
+        b=Lth4A3Zl8HbNLdaf6/VVMV7Uk4/zhkxcfAb4G84a5oxEbmgjndpfO2JS29v2AaWPMe
+         i5H+ozuRCKqTLOx2ct2c8PcY7iOLo25AXUVMyUOiEIt9lLLGKULMPO7JxFrVRExWfdq+
+         imLAGuIHNDLdoTLitgyEIOCDMBaWkwOut/Ok4wEE0X0t44iTT/OwEbVaIM3thXanA8DN
+         r+beXC5WqG/INJsWB8CXY/gsinILhyPDUPuKIQgX5+Vc1XI9TCi5sedTaY2OY1D7b2KD
+         XbJzY2f1JBip9Zr8M0Lp7PPEu6ASR5qtargP2yj392U8k+cEI3ScDcdbqoHvyp9Ax64h
+         4Ulw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:in-reply-to
-         :organization:references:date:message-id:mime-version
-         :content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5/4IbzOENHJvV1aaIr0TL0GNl4kJqKbvmQKI8ajXV/c=;
-        b=pgTBZK8kKqU8x30QdV5r1WK5u/D8JdEqrJzWk+n20s3mxJsQ7jv0b6Uuef43sFn1T3
-         kb3hHQsQawAtXRdQagP60yQPl5QKg5cMKXaAdz/R2zTW4XQovv2RUx3xYLHorKHSOEn6
-         S0+p8+CScqlB/gzfku5ipytHeR1//8kZK20OOC4TEau6QYqTqLVM+qmr5LjDazEsLFeh
-         gkStMjPhp0ICmo7cs7ED0dEjI6CbWPImg7YzwHFSSDPz7qI7eUYSYTstlzzM6VC186f6
-         WMwiK2juZ0er3KFW70zulwbOhhnoPiWZihhUBQ9hoyAAdMeSZCJlwZjf8oulN//XIn7h
-         JqBA==
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ocwtwXa1g0ijKaQI5fi4MBjC2hkfXVoaW+OJJFfznqE=;
+        b=F31UpoJb4aJB6HM8luTUaRLSWJ4wYiIQOns8ZnBR0pdFBUbI5nSIpInKJJjMY2mER2
+         ULmh5YqiihNMqey+DiXhNdjkVvOXRJo7M92On6aE1HRfNx3nv4D+w07nu6BGZCJ/sicb
+         ap5daODLF5A+F3B8XDJ2RwSM9PbvfWMBkJTd2+7Lq5k8YThTSGjwqgb4Sz8Qzd+mAQ9w
+         ciUJst6FMDUR34xfkBvjFZIbM+c4BZJ7nL+HySUA94fKRNFIOj37EbM4IfzIXay1KVRU
+         85SmnYvwi9KNWPe2mMIZn6rt4rsj+sR7AQpdB6hD84RydVtO8jgq9tL6oCT2R2M4xzLY
+         qW0g==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUXoDOjOlJqFVOLy5psViNirCnTh4OAbLJ82pzL0Hjvs6h5ZAjq
-	VBS0EvNfK6dODT1KLy37dwM=
-X-Google-Smtp-Source: APXvYqza5b57RBZU3nROnlUjZXSNWwjRkgxR38b+Ks54lHuoUGwfsODFO0lljYY1jXhq+Ck8pcI+zg==
-X-Received: by 2002:a17:902:7006:: with SMTP id y6mr45665plk.84.1581631502474;
-        Thu, 13 Feb 2020 14:05:02 -0800 (PST)
+X-Gm-Message-State: APjAAAXSErfM11YF1OTttOdk7mdmvYE6zaq3iSCzQFakdmvawGOZkqfe
+	2o5O2C/eFggxTAlF0hxSIJY=
+X-Google-Smtp-Source: APXvYqxJA+TPYP06ini+TSYkJDPRcL1Fkr6WpkdItvFNWFQtvWjroLg4XljjX/Hu7YqQAMhtZvCLGg==
+X-Received: by 2002:a92:1fda:: with SMTP id f87mr116179ilf.225.1581632289954;
+        Thu, 13 Feb 2020 14:18:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:7c94:: with SMTP id x142ls9677466pfc.3.gmail; Thu, 13
- Feb 2020 14:05:02 -0800 (PST)
-X-Received: by 2002:aa7:8bda:: with SMTP id s26mr16216741pfd.194.1581631502040;
-        Thu, 13 Feb 2020 14:05:02 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581631502; cv=none;
+Received: by 2002:a02:cd85:: with SMTP id l5ls20725jap.6.gmail; Thu, 13 Feb
+ 2020 14:18:09 -0800 (PST)
+X-Received: by 2002:a02:a60e:: with SMTP id c14mr139820jam.80.1581632289624;
+        Thu, 13 Feb 2020 14:18:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581632289; cv=none;
         d=google.com; s=arc-20160816;
-        b=FyLp7JoJJbQauwNJLYE/Q33xasrf8LfHKc+LkpDQAn8tw5Foaic6EvBH5Ltw4ax7TD
-         +P4JMXGn3W2TR1yXxPgNFDaBYFCDefb37k8ULRKX35b72Ub4P7rryHl2mHCGdxPhdWXF
-         lEgHZ0p8LhR5C+8NnzI76w2LHeGwP10brQ1h2WZ7g1pv/tVXSDNO1J8Ypr8bD2Gyfllv
-         Y9LomTjnJV0wggbbrhepFZq7f8OHDla/i+n437KQD6lwuG+5TQXluXrhqkawL07aYFsq
-         5FwUtbq+gtzzGnVCpzPpPfE+bPsgBWs0uEFJvoHGea0IwUl9WGnlwF/0DGpUfMOwxT72
-         Uk2g==
+        b=R23fcpoC9riHC9ZL3DVeS2UxNw8htxE7YGTqpq9hp87nAKMEUWc0tVyvMU7T1SgnHF
+         gvoKWyqWhGV+noLq99Qu6XYN4KYyQlg0chHk/Tl6zTptsvFj6/AUQceeXQndsCPk6NRX
+         AJVuhSCcxtwgOeUTUccNn6pP6NCYECmFhskJD31zmgUkFM6lmcXfCJ4gCnhaAiIkl85Y
+         De43nA8R/cRNF5yqWMBV4RxcojmbOG4jMFnF7iCEr//KS+xQhqlZVJX8lesiSkgxMrOZ
+         +Va9yR347BpB6r6j6qil+VgZ0V1CuMxLoJUvnp64v6pU4XnIQt7FzKUtqBGDFprGiCDp
+         ntfA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:message-id:date:references
-         :organization:in-reply-to:subject:cc:to:from;
-        bh=1AzpIjMfk9FvRwhZajt5Cuk5Ki1oH3ePepjfRBCgGcg=;
-        b=mXOR9LknvVCxzh77B9zvOT9hoNwu2CYLud8OnUMdmX3H+kKC5PUvrHLqa03Rk5ChlU
-         v8wHSxehsZmpOXHDp5C0K4uvNsP4tGQujqehL1/dfORvZoHvprVnH/UlYx/WtiXhHoGu
-         Q1YsJBbZb/xvsz3Fee2GSVRq0IFqhHOMlynJwgvDSADJ69OS/Jk6ufh3TGa7HUg44Q7u
-         zn9WKkXg+vc4MqJmBl7dOMTP9kzfGdEDRWD7ffou9gV4XBw0gvuq6VsTnHZaysz2fPI8
-         KvKaemGsv4GZhrwcRpEd/iaii2sP6PfwqrGUawdW0D5C6/Lf718Ishry2dSwsa0bD6Y1
-         vzvQ==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=Qi71n+eauOK1OSXi8ZkVfgUb7+wXkbcDfLtR5AJoSms=;
+        b=JYFEP2R323w3glZYK8c5yFaZFmEZS7i5nlVq9kGtZqPRL41vtsezOdi7bVeqsEvb75
+         m5D7UaLRyCNPkL37ZROEWjsYhjNgOMt7E6k7x30sLdh5Nvn4TJxaLDKUR2+KAc90buZl
+         VAnmHXpK4oXgJ7pVWYAydodjmG2kpcyxFxpB/4tmbM9MZyP/tBC7rjJ6NAh1bXwNK6wA
+         erB+4zQa9Y3eIz+g/3xvokknehAjYYxZW6rbFdcpgVP6Ad7EGVzUU2t/H3UQeOBVVXVn
+         ya+Q63OeJoirWd+6pB2NB+c2hpG8dRupomUYlqFK0uyFZSccXhkcXu1yjALxNwgWPsBA
+         oKqw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=jani.nikula@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id 59si175928ple.2.2020.02.13.14.05.01
+       dkim=pass header.i=@redhat.com header.s=mimecast20190719 header.b=Lrn+CPnW;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates 207.211.31.81 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
+Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com. [207.211.31.81])
+        by gmr-mx.google.com with ESMTPS id k18si201183ilg.0.2020.02.13.14.18.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 13 Feb 2020 14:05:02 -0800 (PST)
-Received-SPF: pass (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
-X-Amp-Result: SKIPPED(no attachment in message)
-X-Amp-File-Uploaded: False
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 13 Feb 2020 14:05:01 -0800
-X-IronPort-AV: E=Sophos;i="5.70,438,1574150400"; 
-   d="scan'208";a="227391043"
-Received: from unknown (HELO localhost) ([10.252.53.8])
-  by orsmga008-auth.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 13 Feb 2020 14:04:58 -0800
-From: Jani Nikula <jani.nikula@linux.intel.com>
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Michel =?utf-8?Q?D=C3=A4nzer?= <michel@daenzer.net>,
- clang-built-linux@googlegroups.com, intel-gfx@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [Intel-gfx] [PATCH v2] drm/i915: Disable -Wtautological-constant-out-of-range-compare
-In-Reply-To: <20200213214812.GA7980@ubuntu-m2-xlarge-x86>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-References: <20200211050808.29463-1-natechancellor@gmail.com> <20200211061338.23666-1-natechancellor@gmail.com> <4c806435-f32d-1559-9563-ffe3fa69f0d1@daenzer.net> <20200211203935.GA16176@ubuntu-m2-xlarge-x86> <f3a6346b-2abf-0b6a-3d84-66e12f700b2b@daenzer.net> <20200212170734.GA16396@ubuntu-m2-xlarge-x86> <d81a2cfe-79b6-51d4-023e-0960c0593856@daenzer.net> <877e0qy2n8.fsf@intel.com> <20200213214812.GA7980@ubuntu-m2-xlarge-x86>
-Date: Fri, 14 Feb 2020 00:05:24 +0200
-Message-ID: <87mu9mw3bv.fsf@intel.com>
+        Thu, 13 Feb 2020 14:18:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of jpoimboe@redhat.com designates 207.211.31.81 as permitted sender) client-ip=207.211.31.81;
+Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
+ [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-229-DupnYgKvNvSJ6uPJg0My1A-1; Thu, 13 Feb 2020 17:18:05 -0500
+X-MC-Unique: DupnYgKvNvSJ6uPJg0My1A-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.phx2.redhat.com [10.5.11.22])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 9B2E318A6EC0;
+	Thu, 13 Feb 2020 22:18:03 +0000 (UTC)
+Received: from treble (ovpn-121-12.rdu2.redhat.com [10.10.121.12])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 47C1C1001B28;
+	Thu, 13 Feb 2020 22:18:01 +0000 (UTC)
+Date: Thu, 13 Feb 2020 16:17:58 -0600
+From: Josh Poimboeuf <jpoimboe@redhat.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: peterz@infradead.org, clang-built-linux@googlegroups.com,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Fangrui Song <maskray@google.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] objtool: ignore .L prefixed local symbols
+Message-ID: <20200213221758.i6pchz4gsiy2lsyc@treble>
+References: <20200213184708.205083-1-ndesaulniers@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: jani.nikula@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of jani.nikula@intel.com designates 192.55.52.88 as
- permitted sender) smtp.mailfrom=jani.nikula@intel.com;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=intel.com
+Content-Disposition: inline
+In-Reply-To: <20200213184708.205083-1-ndesaulniers@google.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.11.22
+X-Original-Sender: jpoimboe@redhat.com
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@redhat.com header.s=mimecast20190719 header.b=Lrn+CPnW;
+       spf=pass (google.com: domain of jpoimboe@redhat.com designates
+ 207.211.31.81 as permitted sender) smtp.mailfrom=jpoimboe@redhat.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=redhat.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,102 +140,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 13 Feb 2020, Nathan Chancellor <natechancellor@gmail.com> wrote:
-> On Thu, Feb 13, 2020 at 04:37:15PM +0200, Jani Nikula wrote:
->> On Wed, 12 Feb 2020, Michel D=C3=A4nzer <michel@daenzer.net> wrote:
->> > On 2020-02-12 6:07 p.m., Nathan Chancellor wrote:
->> >> On Wed, Feb 12, 2020 at 09:52:52AM +0100, Michel D=C3=A4nzer wrote:
->> >>> On 2020-02-11 9:39 p.m., Nathan Chancellor wrote:
->> >>>> On Tue, Feb 11, 2020 at 10:41:48AM +0100, Michel D=C3=A4nzer wrote:
->> >>>>> On 2020-02-11 7:13 a.m., Nathan Chancellor wrote:
->> >>>>>> A recent commit in clang added -Wtautological-compare to -Wall, w=
-hich is
->> >>>>>> enabled for i915 so we see the following warning:
->> >>>>>>
->> >>>>>> ../drivers/gpu/drm/i915/gem/i915_gem_execbuffer.c:1485:22: warnin=
-g:
->> >>>>>> result of comparison of constant 576460752303423487 with expressi=
-on of
->> >>>>>> type 'unsigned int' is always false
->> >>>>>> [-Wtautological-constant-out-of-range-compare]
->> >>>>>>         if (unlikely(remain > N_RELOC(ULONG_MAX)))
->> >>>>>>             ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
->> >>>>>>
->> >>>>>> This warning only happens on x86_64 but that check is relevant fo=
-r
->> >>>>>> 32-bit x86 so we cannot remove it.
->> >>>>>
->> >>>>> That's suprising. AFAICT N_RELOC(ULONG_MAX) works out to the same =
-value
->> >>>>> in both cases, and remain is a 32-bit value in both cases. How can=
- it be
->> >>>>> larger than N_RELOC(ULONG_MAX) on 32-bit (but not on 64-bit)?
->> >>>>>
->> >>>>
->> >>>> Hi Michel,
->> >>>>
->> >>>> Can't this condition be true when UINT_MAX =3D=3D ULONG_MAX?
->> >>>
->> >>> Oh, right, I think I was wrongly thinking long had 64 bits even on 3=
-2-bit.
->> >>>
->> >>>
->> >>> Anyway, this suggests a possible better solution:
->> >>>
->> >>> #if UINT_MAX =3D=3D ULONG_MAX
->> >>> 	if (unlikely(remain > N_RELOC(ULONG_MAX)))
->> >>> 		return -EINVAL;
->> >>> #endif
->> >>>
->> >>>
->> >>> Or if that can't be used for some reason, something like
->> >>>
->> >>> 	if (unlikely((unsigned long)remain > N_RELOC(ULONG_MAX)))
->> >>> 		return -EINVAL;
->> >>>
->> >>> should silence the warning.
->> >>=20
->> >> I do like this one better than the former.
->> >
->> > FWIW, one downside of this one compared to all alternatives (presumabl=
-y)
->> > is that it might end up generating actual code even on 64-bit, which
->> > always ends up skipping the return.
->>=20
->> I like this better than the UINT_MAX =3D=3D ULONG_MAX comparison because
->> that creates a dependency on the type of remain.
->>=20
->> Then again, a sufficiently clever compiler could see through the cast,
->> and flag the warning anyway...
->
-> Would you prefer a patch that adds that cast rather than silencing the
-> warning outright? It does appear to work for clang.
+On Thu, Feb 13, 2020 at 10:47:08AM -0800, Nick Desaulniers wrote:
+> Top of tree LLVM has optimizations related to
+> -fno-semantic-interposition to avoid emitting PLT relocations for
+> references to symbols located in the same translation unit, where it
+> will emit "local symbol" references.
+> 
+> Clang builds fall back on GNU as for assembling, currently. It appears a
+> bug in GNU as introduced around 2.31 is keeping around local labels in
+> the symbol table, despite the documentation saying:
+> 
+> "Local symbols are defined and used within the assembler, but they are
+> normally not saved in object files."
+> 
+> When objtool searches for a symbol at a given offset, it's finding the
+> incorrectly kept .L<symbol>$local symbol that should have been discarded
+> by the assembler.
+> 
+> A patch for GNU as has been authored.  For now, objtool should not treat
+> local symbols as the expected symbol for a given offset when iterating
+> the symbol table.
+> 
+> commit 644592d32837 ("objtool: Fail the kernel build on fatal errors")
+> exposed this issue.
 
-I'd take the cast.
+Since I'm going to be dropping 644592d32837 ("objtool: Fail the kernel
+build on fatal errors") anyway, I wonder if this patch is still needed?
 
-If that fails for whatever reason, per-file
+At least the error will be downgraded to a warning.  And while the
+warning could be more user friendly, it still has value because it
+reveals a toolchain bug.
 
-CFLAGS_gem/i915_gem_execbuffer.o =3D $(call cc-disable-warning, tautologica=
-l-constant-out-of-range-compare)
+-- 
+Josh
 
-over subdir-ccflags-y would be preferrable I think.
-
-BR,
-Jani.
-
-
-
->
-> Cheers,
-> Nathan
-
---=20
-Jani Nikula, Intel Open Source Graphics Center
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/87mu9mw3bv.fsf%40intel.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200213221758.i6pchz4gsiy2lsyc%40treble.
