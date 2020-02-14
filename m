@@ -1,132 +1,132 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBX4KTPZAKGQEW7WTWOI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBYUKTPZAKGQEOZXLXWY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id CD3C715DED4
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 17:05:52 +0100 (CET)
-Received: by mail-yb1-xb3e.google.com with SMTP id x5sf8055645ybm.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 08:05:52 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581696352; cv=pass;
+Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
+	by mail.lfdr.de (Postfix) with ESMTPS id 50E9015DED5
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 17:05:55 +0100 (CET)
+Received: by mail-yb1-xb3f.google.com with SMTP id d14sf8116155ybj.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 08:05:55 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581696354; cv=pass;
         d=google.com; s=arc-20160816;
-        b=YxMLXNJxVIXmTbSXuVneiod05yAeA5ozntcavZFMaQSClr+rlpAFSF7QTGTstVDcXG
-         fPyaMFt26DEaCybjzk7LJv5gNxiZzMzVNQ8DYDTT3FZ8qua5doRQRxrl4zcdXw2CjW6M
-         0RprNTnEe4h9UxBWtpBgnOh3EgJT8gRarEXu37TUROqaDfW+7PM+oy9/pKOBBdefrqRJ
-         VMFkWxeCO6RvetYhU9pBecTWQBsB8xKxhJXs22CT4edxU8HrNrZe4G14u+i6A6p3mh37
-         bhatdmRIG2BdaAb3aF8wqa56ErfVbXNiG9iYMKo1Rc4sIpG1ViM10pTGm2+QUy4tW+NR
-         wT3A==
+        b=lYbujHJuQYSC0BDaN5muYJC1kEHeSqIF8PzXXGo9CVW/J9GMC0mAsL5ScKZqID/W+D
+         2tLii24b7SdXmRc0ml1Dsp/SOWDObjvvUDb3N/5svRFz/uafYoapz+hgLnisaB80KYE5
+         7uqIOptUkjW5Ec+cxQOL/kDQDEKsiUE9I81HYHwhpbz0tJh14UwiXmXSh8Z6L0GpXrfg
+         s1quzVYMUMh1g+daxn+lxH2fY4ATP/IyUw+yeuv8yMIPkqWAYxUi3cVDkB3RfHd9rkhM
+         aMoh50ArakqTSf+4OCuQ3H7tfU38wXi+SG7+qtyEdrqvzsCyrR9KI6DZe7KbmHvD5Dt4
+         /eCg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=qRu7jRNq2KL8Rewci05VwlZaiufliVFdtwPBdam/7O4=;
-        b=byibVGPO1kRhifyIKrQgqoutyefD0DzmxvD0Il2Mc4iIhPQf2ClNNG3XH4SMBJ9ETR
-         SmYYTa0uu2CnP6ujMbXF/4LdUETrePifIcUuFPkmoDimTEncTyo9arS6Xy7yrbgzUNYc
-         Z4yvbChqXyX64yWMuOZQOiCAT9RfPcuhd2fCGGg2LdsxZlSoYIqfBrx1FYkgxyLbj2Ej
-         VYaUwc3pmvjVnZi7m9+5D2aogIFP+0AbAcLczgjdMKAy8XVVWMP99d5sfZseObBCJd8D
-         bdLu2MD8H5Re5dToK16GHP5GXvIouG0fGnsE3XBtuiHViGrFe/3Dwe47XghgIxIpmgb6
-         jxjg==
+         :list-id:mailing-list:precedence:content-transfer-encoding
+         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:sender:dkim-signature;
+        bh=7fbiT2OwgLplwW4mpQCfNohZIaPgwVPlTSFmkYNWIpA=;
+        b=seWhSslRlAUUw3Ln/dCO7jrrdvdE2ODKv33Ai/MtrEeki3zDhFuScJrUHJkh8TeIdx
+         nFMpAGacDpZd7sksvAp3+uOVic37z9vlddGzPsfsPKSS6zOs0Csjk7EC0oJNSgsGtCfE
+         nY7T1IBM18ThYgZ3cdaVvi2LrINcSZKPpWht2ed5J6Qj6ZTvEYmPqg837XlXghAXncHZ
+         tZswIUPNvLskPscMDm580xhnpb46gdMGy+uouKtR7/XM7sNjDiDmgk7Kf1YTJwLFsjfc
+         WukGhNMSDoSwBcERVnZFuy3Ret/tw7vr0aHAxoOtViV6GIiZDygNelC7bC5/h76j+ybT
+         tcqg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=1RgJajr8;
+       dkim=pass header.i=@kernel.org header.s=default header.b=mNYCcxQ0;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qRu7jRNq2KL8Rewci05VwlZaiufliVFdtwPBdam/7O4=;
-        b=RJqMntmvAYdncv60yrmQK3/Zj3OkjZQoPUs6pKBogX7WrQ4u4u0T27WeizPoIHPOzw
-         c2Xzq8HZ8AKN2xpVBdjsVZNRyGLa/7KFi0seYxRISlBI5diKTYVKXTNvDy+0edBu1tKT
-         Skm63l+8yyzdKhvQhn9+VGdTpofMCB1XWoqz3e3MdKwQCNf9jjYM58tLqj+VUImOWaHW
-         cma/6UelzffuCuBJfkpSase50ZqnJFwFjsfDZ7iUG83rI40l0/H3ypKEkqwDbWY0+Sjb
-         JAGG03ca+lWYgYipHYWiNxK0bv3OHdQ0IhpgPWePh70lE9gAOV2Xzb362yFqQoE1Psj8
-         QGTw==
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=7fbiT2OwgLplwW4mpQCfNohZIaPgwVPlTSFmkYNWIpA=;
+        b=BMgGou7OTrQgYPWSmKh4c2vtkiSHbfpbr7CxrUFHi/bbe6gK/tzLMoMZZS8I4OZwQW
+         mS+Sv6FIl1LXq4rVSgKlncvrrMzUrYtR4cVa2sgKYz96ud58E+OSTU2a7w6tL4gwla2X
+         ADwZhBT0bkpsoqRr1uj4bVEK08TbQEchsR5ZnV3cxCILleg5GgHW3HS/y1V4gcwBa7Zl
+         6h6gi06aSIFllq2pRvF9T+higwLTk+suoNgwUhyoFyhnQjD9HePwy2nPrH2NlQewnvAz
+         2QuF5UW0/g3QMvqIdx4lp7geQy5uxFb5JsMHFpFREqEH0vsyOSWIlaQd8AB9VYaJnZiD
+         ll3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=qRu7jRNq2KL8Rewci05VwlZaiufliVFdtwPBdam/7O4=;
-        b=Sei22zi6rcFh2pYPg87OFLPezm0am63U2A6yDDUuzsQ8JNnUMQDfW2k8WQQtuS9APn
-         nTP/G933oJx36yjdX7ugZcA1kATxWTUWUU3An1ZroJ4bhX+F05XLzd+fUHciULAegy0X
-         2+5uxi+x4oEjY611rCusaTZsFz/izaIGuFLkgzm0OSiK2jCEbafLtCNLyX+4cIGYM2qw
-         9gVj8yGuR2f3L2XTp4dKgHEHpz00Q8NH0/7cPolMArOc7uQVPT3al26tUStfulBQ7Aaq
-         S6xXS1Mz1UKkLyVQ5YeYMsd5ux21Zi7l9NVzNjWdg+rz6y3TcqBKzKiJ9QuzrFYnISYu
-         NlbQ==
+         :in-reply-to:references:mime-version:content-transfer-encoding
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=7fbiT2OwgLplwW4mpQCfNohZIaPgwVPlTSFmkYNWIpA=;
+        b=Lk3wDFe6B7k1A3ueO1vQxyW8tL+MuyavR2WdvuOb9mqGZ7ElbJ96Gm7xatW+iE7NDa
+         4TQxs3v2l5mAKOiWrL/tEVuz53gpXJ8Nvm7desNJ/nTD3LR6nC5xxhmQvolFmt8lGwrD
+         P1hbn/DiCgVdOf0xE9eG5p8eZXb5LblPE9Y42npq68WvX9n/imd7Z1qVdGJk3aLPC/Hu
+         44zdpxQ6ewrRFneBMhMi41JPoXYkgr5CqEkUCFIXVFABcrpdv37X/fjDgCW+gbsPXGSx
+         Ouao3ZRwXwx/y6Mpqf3ygj1Z3Yga15eFng/2iPGj19nR4RmsE4l833Qs1u5Ds2xKPuQD
+         Rdvg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAU4NjACfYINmFGIYOW6J5LLbudFOXgH93X4VTU+S+E2KsYNQ9oy
-	l3apJChuA12s4XIPOcOrxSs=
-X-Google-Smtp-Source: APXvYqwvZ0lx6UDFQQ0+Nd84NY6upYUbNp8+jeQerzeHKmUlB386g5F8PL3WwqAwmFIj3Xvb0hEnHA==
-X-Received: by 2002:a81:ec01:: with SMTP id j1mr3064751ywm.274.1581696351835;
-        Fri, 14 Feb 2020 08:05:51 -0800 (PST)
+X-Gm-Message-State: APjAAAWbe7lP43bRgHRTphNBm+5wrqILXhDOOVw2LTmsbGW1r6vJq/no
+	C77osJzjjj7ajB9wuUkyvTQ=
+X-Google-Smtp-Source: APXvYqxOVE3LQ1dfnf2stplHxiWXLUJeU5zx8cOfaerQ5l2sb5NzNXCmqkM57L5X7RXL/WSggWXOaQ==
+X-Received: by 2002:a81:4b42:: with SMTP id y63mr3218655ywa.502.1581696354348;
+        Fri, 14 Feb 2020 08:05:54 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:bd4a:: with SMTP id p10ls521596ybm.4.gmail; Fri, 14 Feb
- 2020 08:05:51 -0800 (PST)
-X-Received: by 2002:a25:8389:: with SMTP id t9mr3491157ybk.294.1581696351498;
-        Fri, 14 Feb 2020 08:05:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581696351; cv=none;
+Received: by 2002:a25:69c1:: with SMTP id e184ls524949ybc.1.gmail; Fri, 14 Feb
+ 2020 08:05:53 -0800 (PST)
+X-Received: by 2002:a25:c693:: with SMTP id k141mr3566458ybf.252.1581696353792;
+        Fri, 14 Feb 2020 08:05:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581696353; cv=none;
         d=google.com; s=arc-20160816;
-        b=sD2enJpmm2EdvSzmGAacz2kNUT2jRGLoqA15vBrloGg9a3+sx8zLyYvfp5W4u+fwWn
-         jcpvk/6ZgjqPlzAR7UaUuLrycOttqGqDH4mY5fyCDxOI6X3iNStxzyS/xdZtblbGGH7U
-         bje8XcGD9Hav1miNMszpwgdk5vAOyU2Ejh/USjmzksbodN2OQ3dwhtTcO4eKPWvwdWTL
-         GvAv3AtxCTIGAYOrvX7SW62OGfD/T65rzzThHlBBPsq7bC8ht1pXpyfk//rh9rGOCajB
-         HtnwhiPI0HF1gBbiYfrHfnztTuPeEq0AVZaCQZ5ubrtEfF7BfuYG9y/bRTB9hJj3CDes
-         n5AA==
+        b=OWipKZoZ21lK7FO6UGnuqlEATdToV4DZLaBnRHxqNJnswheQQDzGbx/sbUe8ghEHN0
+         kuGSAw3T7b/T2KYsl49OH68i3XbVEsSVlQlOLMyOC5ZZS6mR68C1bQ0gnAZkpCgsPWFk
+         q4xNBpyv4zgkISJLPZ/yi0hqq99pUX1Uu5mmkxXfc9yGVDV0dcUOrs3azrn9uS/Wr9gY
+         u20y4ID70L+UQp6llEQZBHPu6JJnS3Ab7o3z9yBFbcELh0m5pMgz+bsR17RaVghzf6db
+         nQadzZj3WGjjAT+SRup4ssDXi+OmmoVGeujbb9gxUXdDSqkrF+9li+/tlW7xSGdjFf1W
+         xkVQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=xTGzonfSISWSkENILip2H34yohMzN4/+14PKqrjOaT0=;
-        b=ZpMZrF1KwIZYN40DLxTBa+vnT6oCdsVZQ7+3gY3ylTEl5pCtWORDKNrVsEO3sEeC71
-         UTxiYaJlDIzu9wA7MFjZ/uX1yLwATliyhnmvPIFMzyiLo1Yz1JQI70Ux1jLWqQxDXu0z
-         AJLeLzJToGzPA4iLgqiqCg+EKy2Ibl71gLB3oxBbsZ9sS78vcU3OvhqA6Yu/vXIPHXYj
-         4OWHPTiZTOZewbHNFsdcpzWFiPGXi4HcUSoLU4jKvwyx3M1ZTB5Frztv2NxS22xZLblt
-         HeD4bSFek6FuvkNJtdhahrn9NDg/9Kkikmpbb1QqtnB3HP1NxVuYn44CTM2BSbdEYtt0
-         XNdA==
+        bh=J4DLDqWNG/KUip6CXwP8DUGuOB1PvftfI46EX/7EVYM=;
+        b=A5G3qf4Kkt14sp7WiqJZZUGMJYNpdGv2VD8N2RG88d20GzeLAf2KBxS874UAaGUeDB
+         +uU62neUQQ4RzINSYkQGo4lxdmTPMajBNpGIlf2Tpnjm4kRH0HTNP+bzxRSa4JOTTIQ2
+         VEcUQXOpQ1HBybfZ5tK62koX4SjAltyTcpagzn07Q9ZCPutxukYVT2MjTrY0RqPdKkbj
+         ih+LHKHsPL+LoJrBAw41INFuXfyUOVDlXN2pAu61mOSTGt2s2WhMkWkV2BcPYR6DmQU9
+         t9bVMluhfwdy1mCfT/IWqqzzQJikK48ZXcAYqjJq9DUByDxgsMqDxpp2ke1n4nTepyZ1
+         Uw8A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=1RgJajr8;
+       dkim=pass header.i=@kernel.org header.s=default header.b=mNYCcxQ0;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id x10si357879ybs.1.2020.02.14.08.05.51
+        by gmr-mx.google.com with ESMTPS id l1si301642ybt.2.2020.02.14.08.05.53
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 Feb 2020 08:05:51 -0800 (PST)
+        Fri, 14 Feb 2020 08:05:53 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 9741D2187F;
-	Fri, 14 Feb 2020 16:05:49 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 0FF122082F;
+	Fri, 14 Feb 2020 16:05:51 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Ezequiel Garcia <ezequiel@collabora.com>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+Cc: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+	Alexei Starovoitov <ast@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-media@vger.kernel.org,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.4 184/459] media: v4l2-device.h: Explicitly compare grp{id,mask} to zero in v4l2_device macros
-Date: Fri, 14 Feb 2020 10:57:14 -0500
-Message-Id: <20200214160149.11681-184-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 186/459] samples/bpf: Set -fno-stack-protector when building BPF programs
+Date: Fri, 14 Feb 2020 10:57:16 -0500
+Message-Id: <20200214160149.11681-186-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200214160149.11681-1-sashal@kernel.org>
 References: <20200214160149.11681-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 X-stable: review
 X-Patchwork-Hint: Ignore
+Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=1RgJajr8;       spf=pass
+ header.i=@kernel.org header.s=default header.b=mNYCcxQ0;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,95 +139,50 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
 
-[ Upstream commit afb34781620274236bd9fc9246e22f6963ef5262 ]
+[ Upstream commit 450278977acbf494a20367c22fbb38729772d1fc ]
 
-When building with Clang + -Wtautological-constant-compare, several of
-the ivtv and cx18 drivers warn along the lines of:
+It seems Clang can in some cases turn on stack protection by default, which
+doesn't work with BPF. This was reported once before[0], but it seems the
+flag to explicitly turn off the stack protector wasn't added to the
+Makefile, so do that now.
 
- drivers/media/pci/cx18/cx18-driver.c:1005:21: warning: converting the
- result of '<<' to a boolean always evaluates to true
- [-Wtautological-constant-compare]
-                         cx18_call_hw(cx, CX18_HW_GPIO_RESET_CTRL,
-                                         ^
- drivers/media/pci/cx18/cx18-cards.h:18:37: note: expanded from macro
- 'CX18_HW_GPIO_RESET_CTRL'
- #define CX18_HW_GPIO_RESET_CTRL         (1 << 6)
-                                           ^
- 1 warning generated.
+The symptom of this is compile errors like the following:
 
-This warning happens because the shift operation is implicitly converted
-to a boolean in v4l2_device_mask_call_all before being negated. This can
-be solved by just comparing the mask result to 0 explicitly so that
-there is no boolean conversion. The ultimate goal is to enable
--Wtautological-compare globally because there are several subwarnings
-that would be helpful to have.
+error: <unknown>:0:0: in function bpf_prog1 i32 (%struct.__sk_buff*): A cal=
+l to built-in function '__stack_chk_fail' is not supported.
 
-For visual consistency and avoidance of these warnings in the future,
-all of the implicitly boolean conversions in the v4l2_device macros
-are converted to explicit ones as well.
+[0] https://www.spinics.net/lists/netdev/msg556400.html
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/752
-
-Reviewed-by: Ezequiel Garcia <ezequiel@collabora.com>
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+Signed-off-by: Alexei Starovoitov <ast@kernel.org>
+Link: https://lore.kernel.org/bpf/20191216103819.359535-1-toke@redhat.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- include/media/v4l2-device.h | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ samples/bpf/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/include/media/v4l2-device.h b/include/media/v4l2-device.h
-index e0b8f2602670d..a0e93f0ef62a1 100644
---- a/include/media/v4l2-device.h
-+++ b/include/media/v4l2-device.h
-@@ -371,7 +371,7 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
- 		struct v4l2_subdev *__sd;				\
- 									\
- 		__v4l2_device_call_subdevs_p(v4l2_dev, __sd,		\
--			!(grpid) || __sd->grp_id == (grpid), o, f ,	\
-+			(grpid) == 0 || __sd->grp_id == (grpid), o, f ,	\
- 			##args);					\
- 	} while (0)
- 
-@@ -403,7 +403,7 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
- ({									\
- 	struct v4l2_subdev *__sd;					\
- 	__v4l2_device_call_subdevs_until_err_p(v4l2_dev, __sd,		\
--			!(grpid) || __sd->grp_id == (grpid), o, f ,	\
-+			(grpid) == 0 || __sd->grp_id == (grpid), o, f ,	\
- 			##args);					\
- })
- 
-@@ -431,8 +431,8 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
- 		struct v4l2_subdev *__sd;				\
- 									\
- 		__v4l2_device_call_subdevs_p(v4l2_dev, __sd,		\
--			!(grpmsk) || (__sd->grp_id & (grpmsk)), o, f ,	\
--			##args);					\
-+			(grpmsk) == 0 || (__sd->grp_id & (grpmsk)), o,	\
-+			f , ##args);					\
- 	} while (0)
- 
- /**
-@@ -462,8 +462,8 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
- ({									\
- 	struct v4l2_subdev *__sd;					\
- 	__v4l2_device_call_subdevs_until_err_p(v4l2_dev, __sd,		\
--			!(grpmsk) || (__sd->grp_id & (grpmsk)), o, f ,	\
--			##args);					\
-+			(grpmsk) == 0 || (__sd->grp_id & (grpmsk)), o,	\
-+			f , ##args);					\
- })
- 
- 
--- 
+diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
+index e7ad48c605e0f..6d1df7117e117 100644
+--- a/samples/bpf/Makefile
++++ b/samples/bpf/Makefile
+@@ -219,6 +219,7 @@ BTF_LLVM_PROBE :=3D $(shell echo "int main() { return 0=
+; }" | \
+ 			  readelf -S ./llvm_btf_verify.o | grep BTF; \
+ 			  /bin/rm -f ./llvm_btf_verify.o)
+=20
++BPF_EXTRA_CFLAGS +=3D -fno-stack-protector
+ ifneq ($(BTF_LLVM_PROBE),)
+ 	EXTRA_CFLAGS +=3D -g
+ else
+--=20
 2.20.1
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214160149.11681-184-sashal%40kernel.org.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/20200214160149.11681-186-sashal%40kernel.org.
