@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBL4KTPZAKGQEGMP3Q2Q@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBX4KTPZAKGQEW7WTWOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9395615DE73
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 17:05:04 +0100 (CET)
-Received: by mail-vk1-xa3d.google.com with SMTP id m72sf3467164vka.20
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 08:05:04 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581696303; cv=pass;
+Received: from mail-yb1-xb3e.google.com (mail-yb1-xb3e.google.com [IPv6:2607:f8b0:4864:20::b3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id CD3C715DED4
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 17:05:52 +0100 (CET)
+Received: by mail-yb1-xb3e.google.com with SMTP id x5sf8055645ybm.8
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 08:05:52 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581696352; cv=pass;
         d=google.com; s=arc-20160816;
-        b=xEnOVcT3baBls7H/1Sn98zm6gukZ+/MSpkUcN1Wi+r2NBcRtGiJPno+on+JV2Id/e4
-         1f7mxESkxX9ETv4fXT/Oiinqn0P4bOhIt+ealsmihHxWSDcE1/Cw6ZQGbYdZ/1BNlEBT
-         S5cxAc3qVPHhoYxbSnETj7i4XjQ4KkCU0aydlAjSQiKeXUT62PkgngLSxLtrNV5tmPNJ
-         FV4e4Bb/mKo1I+wLL65Y5J+Eg21/xhNCXkA8SIzgRdfb4KSJDVriTJSE6PXUHm0Ti20K
-         Bc1XZuqNt46QD1k1CTMYonApCaoiaxIRC7up4y9Jt9l9d7Ir8UMJSmjLhvNzukt5X0qB
-         vylg==
+        b=YxMLXNJxVIXmTbSXuVneiod05yAeA5ozntcavZFMaQSClr+rlpAFSF7QTGTstVDcXG
+         fPyaMFt26DEaCybjzk7LJv5gNxiZzMzVNQ8DYDTT3FZ8qua5doRQRxrl4zcdXw2CjW6M
+         0RprNTnEe4h9UxBWtpBgnOh3EgJT8gRarEXu37TUROqaDfW+7PM+oy9/pKOBBdefrqRJ
+         VMFkWxeCO6RvetYhU9pBecTWQBsB8xKxhJXs22CT4edxU8HrNrZe4G14u+i6A6p3mh37
+         bhatdmRIG2BdaAb3aF8wqa56ErfVbXNiG9iYMKo1Rc4sIpG1ViM10pTGm2+QUy4tW+NR
+         wT3A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=h15/9+XVxBHzVTPVLgyfe1t5By0iS3pMQmvVyYkcSQg=;
-        b=SCJ9SArkJOJta3h6gK1R9bw0VRoi3ef/gPuTUvXJzuF3/v73z+r71WhjiBK7F380I+
-         X/8pNv2MWnimlJsESoAf96XTt6Yn504egN8OFQvxQKyleGK/LjrNAPqUllqso1tT2mqX
-         ud2CqNpiFCHbZcWgbSsLeNNIimxJEzOtgtL7B8LyrOujRyF5EUHyfTd2BnpHp21bwwVy
-         HkUXv7FASH/mIO6g+JoTtmhBwNoKlCG5bxG6dLJmffUTM83zgWwuBeszlFN+zemFIYkG
-         7FPu3kj+aTsSf1yElADJ0Yx+AyqJKLolqjV2zdP2voI/6PbvBfCXjjfCWtdaGtBuYC4t
-         B0ZQ==
+        bh=qRu7jRNq2KL8Rewci05VwlZaiufliVFdtwPBdam/7O4=;
+        b=byibVGPO1kRhifyIKrQgqoutyefD0DzmxvD0Il2Mc4iIhPQf2ClNNG3XH4SMBJ9ETR
+         SmYYTa0uu2CnP6ujMbXF/4LdUETrePifIcUuFPkmoDimTEncTyo9arS6Xy7yrbgzUNYc
+         Z4yvbChqXyX64yWMuOZQOiCAT9RfPcuhd2fCGGg2LdsxZlSoYIqfBrx1FYkgxyLbj2Ej
+         VYaUwc3pmvjVnZi7m9+5D2aogIFP+0AbAcLczgjdMKAy8XVVWMP99d5sfZseObBCJd8D
+         bdLu2MD8H5Re5dToK16GHP5GXvIouG0fGnsE3XBtuiHViGrFe/3Dwe47XghgIxIpmgb6
+         jxjg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="c5//FEUU";
+       dkim=pass header.i=@kernel.org header.s=default header.b=1RgJajr8;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=h15/9+XVxBHzVTPVLgyfe1t5By0iS3pMQmvVyYkcSQg=;
-        b=tiC3s4JH4PsJbeuw807QBS64IFY1QWLKqTB+XZ2Z3eD6Jf+6Koh2ElWC16PaKIYXOE
-         SEZyCoickNSXYYKo7mqLcDnLpO1HMkXr4doaPCICo4jGv46MQKDbkZpuh49Yt7LPpAYA
-         6TBIA8bYWESgJWoaK/6GxdHD4+5fovmwfR2t+oYFAHPUr7/5ZlHCrBgL4OJ1D80IEIiB
-         LtWmZs6dsBicPmt0En7KnTCKxGJRcF4ATcIgnQhDXixRaHSC+UxtdtrnxmgHrzZKEKgL
-         YYietVQ42DW7F/s+JTwFvcpwReT9BxkI6oWO2mvdisz+O5gy0pJF7DXSCwtYzAFcylJg
-         Vl1g==
+        bh=qRu7jRNq2KL8Rewci05VwlZaiufliVFdtwPBdam/7O4=;
+        b=RJqMntmvAYdncv60yrmQK3/Zj3OkjZQoPUs6pKBogX7WrQ4u4u0T27WeizPoIHPOzw
+         c2Xzq8HZ8AKN2xpVBdjsVZNRyGLa/7KFi0seYxRISlBI5diKTYVKXTNvDy+0edBu1tKT
+         Skm63l+8yyzdKhvQhn9+VGdTpofMCB1XWoqz3e3MdKwQCNf9jjYM58tLqj+VUImOWaHW
+         cma/6UelzffuCuBJfkpSase50ZqnJFwFjsfDZ7iUG83rI40l0/H3ypKEkqwDbWY0+Sjb
+         JAGG03ca+lWYgYipHYWiNxK0bv3OHdQ0IhpgPWePh70lE9gAOV2Xzb362yFqQoE1Psj8
+         QGTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,69 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=h15/9+XVxBHzVTPVLgyfe1t5By0iS3pMQmvVyYkcSQg=;
-        b=rakbf8mh8mgvQF6GTVewKYVSj6mqvcZlYm/1u99es7CAiyS2q7VU8kGBKwG4DGaJUr
-         w3P8rwjS0UTcPnskOU7OX/E12Svu68GZp+wPQLmwB+rb+JvsA3FwzYpVB7pCRoa8X6qo
-         xyvCgwdwCaV+6mY7+gqEyURfroQFlP5Fi80zEc1t+3p1jKMNaERCvNyBaRzHyiqNGxBN
-         eN45NVXOIVZ2JmjLUT1qNYlPX/FeTAWmP3JYSKwF+WFvTQ7TQkDiPca4orBMNdhgKz+V
-         /Ud54rFJO3Fastimnu8FcnIWIMQry73c5Nw6mElEn4aq7rylUV0E+LVuqqw2hsmXNcnl
-         8Z3A==
+        bh=qRu7jRNq2KL8Rewci05VwlZaiufliVFdtwPBdam/7O4=;
+        b=Sei22zi6rcFh2pYPg87OFLPezm0am63U2A6yDDUuzsQ8JNnUMQDfW2k8WQQtuS9APn
+         nTP/G933oJx36yjdX7ugZcA1kATxWTUWUU3An1ZroJ4bhX+F05XLzd+fUHciULAegy0X
+         2+5uxi+x4oEjY611rCusaTZsFz/izaIGuFLkgzm0OSiK2jCEbafLtCNLyX+4cIGYM2qw
+         9gVj8yGuR2f3L2XTp4dKgHEHpz00Q8NH0/7cPolMArOc7uQVPT3al26tUStfulBQ7Aaq
+         S6xXS1Mz1UKkLyVQ5YeYMsd5ux21Zi7l9NVzNjWdg+rz6y3TcqBKzKiJ9QuzrFYnISYu
+         NlbQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUIcir334zATvnEnF1U4Ao1BpMEtDhnFA/X7qFnXVkYhrMcgKzw
-	J3IAwe75IiAV+X5mSYWL6Z8=
-X-Google-Smtp-Source: APXvYqzV1H+T6Hf/sM8JKPXUNO93roxwQlZf81R3ygE+LeVAanQAeUFUXbdFeOcGllFO6iNV1nygKA==
-X-Received: by 2002:a1f:d583:: with SMTP id m125mr2082730vkg.17.1581696303614;
-        Fri, 14 Feb 2020 08:05:03 -0800 (PST)
+X-Gm-Message-State: APjAAAU4NjACfYINmFGIYOW6J5LLbudFOXgH93X4VTU+S+E2KsYNQ9oy
+	l3apJChuA12s4XIPOcOrxSs=
+X-Google-Smtp-Source: APXvYqwvZ0lx6UDFQQ0+Nd84NY6upYUbNp8+jeQerzeHKmUlB386g5F8PL3WwqAwmFIj3Xvb0hEnHA==
+X-Received: by 2002:a81:ec01:: with SMTP id j1mr3064751ywm.274.1581696351835;
+        Fri, 14 Feb 2020 08:05:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:2b51:: with SMTP id r78ls139224vkr.6.gmail; Fri, 14 Feb
- 2020 08:05:03 -0800 (PST)
-X-Received: by 2002:a1f:4541:: with SMTP id s62mr2068129vka.59.1581696303281;
-        Fri, 14 Feb 2020 08:05:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581696303; cv=none;
+Received: by 2002:a25:bd4a:: with SMTP id p10ls521596ybm.4.gmail; Fri, 14 Feb
+ 2020 08:05:51 -0800 (PST)
+X-Received: by 2002:a25:8389:: with SMTP id t9mr3491157ybk.294.1581696351498;
+        Fri, 14 Feb 2020 08:05:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581696351; cv=none;
         d=google.com; s=arc-20160816;
-        b=lfs8DNX5FvwwNgxWczzKwpFQd3aoQn+cV5Dv0A2BvpgdxPnswrjdFLY+0XwMt5Nj0j
-         BuluthV7siD7OOyihama5xPnjFoG9pdJ8CvALxNFvdkYrZbhW+rMOL2zkcntLABnBAtK
-         NEsL+YBEy5iB0u7n42WVuGtrI0+p6/fet2vFi95wXjjWm650ItlYrnMRM6RUAWaRTtPn
-         TD4XGSCuQatLstSd+B0Ni6Ea0CA5T7Xdi2oSHkSsWdky8hijcgmoYOJonm2etQ58FT2Y
-         RZER1rl5vbrvIn35Vtf3zNNUGfCCb1cca5bGwV8vPU/LIPKho9FN5YqhgBklLPKjZVvx
-         PS3Q==
+        b=sD2enJpmm2EdvSzmGAacz2kNUT2jRGLoqA15vBrloGg9a3+sx8zLyYvfp5W4u+fwWn
+         jcpvk/6ZgjqPlzAR7UaUuLrycOttqGqDH4mY5fyCDxOI6X3iNStxzyS/xdZtblbGGH7U
+         bje8XcGD9Hav1miNMszpwgdk5vAOyU2Ejh/USjmzksbodN2OQ3dwhtTcO4eKPWvwdWTL
+         GvAv3AtxCTIGAYOrvX7SW62OGfD/T65rzzThHlBBPsq7bC8ht1pXpyfk//rh9rGOCajB
+         HtnwhiPI0HF1gBbiYfrHfnztTuPeEq0AVZaCQZ5ubrtEfF7BfuYG9y/bRTB9hJj3CDes
+         n5AA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=wyLFvHthmbP3L6cx7Yu6kcCTofsKg3MBizphFrfuopk=;
-        b=wWcApzn+zQxn0+kZQZhOWV3Rir3kGkjdeQ/Da7V8gktN26+HlSveZhcal7I9yHLrXJ
-         gCQ8Z3BzQ2+tw/Km+PiKyDEmEI3uElrn2pIgyzBF6agKRQ8BY9hmNQEVBiNnGDvu0E7S
-         Y+HyxmIrxXZmLusYvaUUqwKu8I6w/BO6zf/JGOPV/8N0dCk9VJ8Ol1Fck3ZG9egYLkX9
-         jdVn+X8zConIrsWySxyNBq09FDzdS6uxiHJaolg7s4NhshwgYZOX8OQoSZKYjW0cVlAx
-         esGYla80n27XC31eQnA5seeH2gSpb/DS7JdEaZJXp2iUc0dyACSPSgF2yWgL9J68FyP/
-         X/Qw==
+        bh=xTGzonfSISWSkENILip2H34yohMzN4/+14PKqrjOaT0=;
+        b=ZpMZrF1KwIZYN40DLxTBa+vnT6oCdsVZQ7+3gY3ylTEl5pCtWORDKNrVsEO3sEeC71
+         UTxiYaJlDIzu9wA7MFjZ/uX1yLwATliyhnmvPIFMzyiLo1Yz1JQI70Ux1jLWqQxDXu0z
+         AJLeLzJToGzPA4iLgqiqCg+EKy2Ibl71gLB3oxBbsZ9sS78vcU3OvhqA6Yu/vXIPHXYj
+         4OWHPTiZTOZewbHNFsdcpzWFiPGXi4HcUSoLU4jKvwyx3M1ZTB5Frztv2NxS22xZLblt
+         HeD4bSFek6FuvkNJtdhahrn9NDg/9Kkikmpbb1QqtnB3HP1NxVuYn44CTM2BSbdEYtt0
+         XNdA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="c5//FEUU";
+       dkim=pass header.i=@kernel.org header.s=default header.b=1RgJajr8;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id i27si238677uat.1.2020.02.14.08.05.03
+        by gmr-mx.google.com with ESMTPS id x10si357879ybs.1.2020.02.14.08.05.51
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 Feb 2020 08:05:03 -0800 (PST)
+        Fri, 14 Feb 2020 08:05:51 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 53E0C24676;
-	Fri, 14 Feb 2020 16:05:01 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 9741D2187F;
+	Fri, 14 Feb 2020 16:05:49 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
 Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
+	Ezequiel Garcia <ezequiel@collabora.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	amd-gfx@lists.freedesktop.org,
-	dri-devel@lists.freedesktop.org,
+	linux-media@vger.kernel.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.4 146/459] drm/amdgpu: Ensure ret is always initialized when using SOC15_WAIT_ON_RREG
-Date: Fri, 14 Feb 2020 10:56:36 -0500
-Message-Id: <20200214160149.11681-146-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 184/459] media: v4l2-device.h: Explicitly compare grp{id,mask} to zero in v4l2_device macros
+Date: Fri, 14 Feb 2020 10:57:14 -0500
+Message-Id: <20200214160149.11681-184-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200214160149.11681-1-sashal@kernel.org>
 References: <20200214160149.11681-1-sashal@kernel.org>
@@ -120,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="c5//FEUU";       spf=pass
+ header.i=@kernel.org header.s=default header.b=1RgJajr8;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,68 +141,93 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
 
 From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit a63141e31764f8daf3f29e8e2d450dcf9199d1c8 ]
+[ Upstream commit afb34781620274236bd9fc9246e22f6963ef5262 ]
 
-Commit b0f3cd3191cd ("drm/amdgpu: remove unnecessary JPEG2.0 code from
-VCN2.0") introduced a new clang warning in the vcn_v2_0_stop function:
+When building with Clang + -Wtautological-constant-compare, several of
+the ivtv and cx18 drivers warn along the lines of:
 
-../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1082:2: warning: variable 'r'
-is used uninitialized whenever 'while' loop exits because its condition
-is false [-Wsometimes-uninitialized]
-        SOC15_WAIT_ON_RREG(VCN, 0, mmUVD_STATUS, UVD_STATUS__IDLE, 0x7, r);
-        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/gpu/drm/amd/amdgpu/../amdgpu/soc15_common.h:55:10: note:
-expanded from macro 'SOC15_WAIT_ON_RREG'
-                while ((tmp_ & (mask)) != (expected_value)) {   \
-                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1083:6: note: uninitialized use
-occurs here
-        if (r)
-            ^
-../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1082:2: note: remove the
-condition if it is always true
-        SOC15_WAIT_ON_RREG(VCN, 0, mmUVD_STATUS, UVD_STATUS__IDLE, 0x7, r);
-        ^
-../drivers/gpu/drm/amd/amdgpu/../amdgpu/soc15_common.h:55:10: note:
-expanded from macro 'SOC15_WAIT_ON_RREG'
-                while ((tmp_ & (mask)) != (expected_value)) {   \
-                       ^
-../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1072:7: note: initialize the
-variable 'r' to silence this warning
-        int r;
-             ^
-              = 0
-1 warning generated.
+ drivers/media/pci/cx18/cx18-driver.c:1005:21: warning: converting the
+ result of '<<' to a boolean always evaluates to true
+ [-Wtautological-constant-compare]
+                         cx18_call_hw(cx, CX18_HW_GPIO_RESET_CTRL,
+                                         ^
+ drivers/media/pci/cx18/cx18-cards.h:18:37: note: expanded from macro
+ 'CX18_HW_GPIO_RESET_CTRL'
+ #define CX18_HW_GPIO_RESET_CTRL         (1 << 6)
+                                           ^
+ 1 warning generated.
 
-To prevent warnings like this from happening in the future, make the
-SOC15_WAIT_ON_RREG macro initialize its ret variable before the while
-loop that can time out. This macro's return value is always checked so
-it should set ret in both the success and fail path.
+This warning happens because the shift operation is implicitly converted
+to a boolean in v4l2_device_mask_call_all before being negated. This can
+be solved by just comparing the mask result to 0 explicitly so that
+there is no boolean conversion. The ultimate goal is to enable
+-Wtautological-compare globally because there are several subwarnings
+that would be helpful to have.
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/776
+For visual consistency and avoidance of these warnings in the future,
+all of the implicitly boolean conversions in the v4l2_device macros
+are converted to explicit ones as well.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/752
+
+Reviewed-by: Ezequiel Garcia <ezequiel@collabora.com>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
+Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
+Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/gpu/drm/amd/amdgpu/soc15_common.h | 1 +
- 1 file changed, 1 insertion(+)
+ include/media/v4l2-device.h | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/gpu/drm/amd/amdgpu/soc15_common.h b/drivers/gpu/drm/amd/amdgpu/soc15_common.h
-index 839f186e1182a..19e870c798967 100644
---- a/drivers/gpu/drm/amd/amdgpu/soc15_common.h
-+++ b/drivers/gpu/drm/amd/amdgpu/soc15_common.h
-@@ -52,6 +52,7 @@
- 		uint32_t old_ = 0;	\
- 		uint32_t tmp_ = RREG32(adev->reg_offset[ip##_HWIP][inst][reg##_BASE_IDX] + reg); \
- 		uint32_t loop = adev->usec_timeout;		\
-+		ret = 0;					\
- 		while ((tmp_ & (mask)) != (expected_value)) {	\
- 			if (old_ != tmp_) {			\
- 				loop = adev->usec_timeout;	\
+diff --git a/include/media/v4l2-device.h b/include/media/v4l2-device.h
+index e0b8f2602670d..a0e93f0ef62a1 100644
+--- a/include/media/v4l2-device.h
++++ b/include/media/v4l2-device.h
+@@ -371,7 +371,7 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
+ 		struct v4l2_subdev *__sd;				\
+ 									\
+ 		__v4l2_device_call_subdevs_p(v4l2_dev, __sd,		\
+-			!(grpid) || __sd->grp_id == (grpid), o, f ,	\
++			(grpid) == 0 || __sd->grp_id == (grpid), o, f ,	\
+ 			##args);					\
+ 	} while (0)
+ 
+@@ -403,7 +403,7 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
+ ({									\
+ 	struct v4l2_subdev *__sd;					\
+ 	__v4l2_device_call_subdevs_until_err_p(v4l2_dev, __sd,		\
+-			!(grpid) || __sd->grp_id == (grpid), o, f ,	\
++			(grpid) == 0 || __sd->grp_id == (grpid), o, f ,	\
+ 			##args);					\
+ })
+ 
+@@ -431,8 +431,8 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
+ 		struct v4l2_subdev *__sd;				\
+ 									\
+ 		__v4l2_device_call_subdevs_p(v4l2_dev, __sd,		\
+-			!(grpmsk) || (__sd->grp_id & (grpmsk)), o, f ,	\
+-			##args);					\
++			(grpmsk) == 0 || (__sd->grp_id & (grpmsk)), o,	\
++			f , ##args);					\
+ 	} while (0)
+ 
+ /**
+@@ -462,8 +462,8 @@ static inline bool v4l2_device_supports_requests(struct v4l2_device *v4l2_dev)
+ ({									\
+ 	struct v4l2_subdev *__sd;					\
+ 	__v4l2_device_call_subdevs_until_err_p(v4l2_dev, __sd,		\
+-			!(grpmsk) || (__sd->grp_id & (grpmsk)), o, f ,	\
+-			##args);					\
++			(grpmsk) == 0 || (__sd->grp_id & (grpmsk)), o,	\
++			f , ##args);					\
+ })
+ 
+ 
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214160149.11681-146-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214160149.11681-184-sashal%40kernel.org.
