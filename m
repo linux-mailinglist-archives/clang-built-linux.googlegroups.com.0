@@ -1,131 +1,123 @@
-Return-Path: <clang-built-linux+bncBCIO53XE7YHBBTMMTTZAKGQERWFK7SA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBNFDTTZAKGQEIUZGIAY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pl1-x63d.google.com (mail-pl1-x63d.google.com [IPv6:2607:f8b0:4864:20::63d])
-	by mail.lfdr.de (Postfix) with ESMTPS id BD05A15F7DE
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 21:42:54 +0100 (CET)
-Received: by mail-pl1-x63d.google.com with SMTP id p19sf5841143plr.8
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 12:42:54 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581712973; cv=pass;
+Received: from mail-yw1-xc38.google.com (mail-yw1-xc38.google.com [IPv6:2607:f8b0:4864:20::c38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 97FC915F8BA
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 22:31:33 +0100 (CET)
+Received: by mail-yw1-xc38.google.com with SMTP id j9sf7540945ywg.14
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 13:31:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581715892; cv=pass;
         d=google.com; s=arc-20160816;
-        b=wzinO9TlRfrddDgcgUxiHOInGJxuh7lGPYkyhZdkphXavIp5JiiSX7vPfTSx8cYRBV
-         ITr1ljAa3OJHxcMJRTbZvZfiLzDOn7ONLfTThmzA0V5IMFhS0LlLRqqkjkpapGI2MAGS
-         Teb0NmkzjVNgW86twCGzA5lfw7JRlFAJxEPcac98ig2DOhRkRGzacqmySpyJmKNBo1Ra
-         vlfk7U9ncoOfAjTUOVAU31/Jman78xrzD+cJhUOkKLL89tYIW5dSZtnjkCUpWmpXZgtl
-         hzaz/CCJ8Al1CWOhg/zTzNKSFXuo+nZy3CZfU77VTh9XF8SFI1YMkW4cE20m5nGi3y2B
-         V2Pg==
+        b=sHZCnZiJ6lm4GbLQCavi7iaZWbuct5l4ZbjVhbOI+TnKmmUhyIrp6tRzFQVSi8fDKM
+         TNI9w27xMOG9/5v4YM3cL04//avgrsaNmf2p+kFxStSg9ycdGKuRzmAlmMxVghsMxAst
+         Uxos3MHjOg3uuIcnjHTiUQuGZAAapBvZQxm0JAldQWGmP9gUaF20iovzquh5E+4jW+h0
+         JI1nGtVIU8x8jbLrvGNUvUL4MzZcUn3Cfw+O4YNt+THWjtcrRe3hGumKtdiXW7d7CGRa
+         NPOTfI+Pmu7cbX35rr5DHDs55aJ2JUIaW7bCoidLaUhvoUqBl8vUauGw8FJBLGEcSWo1
+         8oDA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:in-reply-to
-         :content-disposition:mime-version:references:message-id:subject:cc
-         :to:date:from:sender:dkim-signature;
-        bh=yTU40MrUNPoNoxleqG8cAVzJ1s/ZoSdilzfHy3+x3ic=;
-        b=a4xCUBvht85cIrQVIKgU+fU13+2ehwQTag8oGatgUZgistrJxDcz1iKE4lu9l+bWQE
-         2f8w/Li9i2bD21T9qmW0Z/HVBBS4MZQ0RDQioeYDjsxfBe8oaFkTn3CgJa/2ZG77bE8B
-         1jWUnJRvC4PjWtGyuHtZx87D0ZyBbIf91Nx4sIxwrDnnwSzEcxuUpYwXORk22yJ1qA0X
-         jC8ciqnS8ROkHTbtYVrhaxNtECzH34y5Balia7xzEREOfiH4GhMZT6q//ZHOc2Uw2Rpg
-         Ns4BVXOkoHFTaqKkk8G3RjHvZfCJ1I5x/C70eBJvvlwOZuQjj7RxICQ+sNyscsTdaox5
-         0gzA==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=mXw0Pe7DhTS/G/soDPY5ADfEVy++rpSz/zWnyr1hcKM=;
+        b=ECNRxHx7jaEsp5dkmUP2qCfX01E+g/Z4wsOEqdO/71/Me4umj09egvFUH/PZn5MHWl
+         kI4MTEjYYUcZYCBYpC63Pluc++IUiUT/QSW9lXZqh5RiueExR4b8Rl1eeo2AOFQy8M/O
+         YlO74fZBYgdiPvfc1AMQ04MkMwZQq5BPpkDswApm7Yy9xqVGxLZGJAUUj0uE2n1Bi8Be
+         r9e1TNX5Cf0XIBvRD1Zht3FN/hXMc0pI7ZWPIMQfmpw1JI6pfvl/BRdRcy7AiVujToiB
+         rApm0553KDPrlkSuqUXWGU4FDJ7Yt09/Pksw6VR+F+K9sX+vZOFS8E0tOMnAFDQI6A1m
+         NhMg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=swshXf0S;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+       dkim=pass header.i=@google.com header.s=20161025 header.b=iaixtzgq;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1036 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=sender:from:date:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=yTU40MrUNPoNoxleqG8cAVzJ1s/ZoSdilzfHy3+x3ic=;
-        b=VNOo+Uf8lyjrzUMsueKF1iLToHZQH+6XcqjQ5+awb+XzY83nTyW2G7SDIM/xCnaeKB
-         6Nb2azoozPhykkD21fTLKk6sEFF5VqIGrimQzGOcvEFdn+IvsQLw+gJGTYOP7i70ukzx
-         eM4hrSRR82HGrWBJPR/XUNHzNj4SYxUG35lTxl2GjpId/Mqw5/YUPDUmTtWIsaUfGPjl
-         NqcJw0oDQswDPwiN2dKsxvXZh6i421uPMlW0TE40JEkM/KKhw+vWY+G+LBz6VN+2Sawy
-         PGBuvA4N52t7SP3D32Z3/CDOkHfTey+KGzcC7ZkEjqijKxWDn9m0g6fOuYMHxoZWKjuE
-         ghKg==
+        d=googlegroups.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mXw0Pe7DhTS/G/soDPY5ADfEVy++rpSz/zWnyr1hcKM=;
+        b=J5UEv75dOWeeX6SiTMCYXKzN07O2nUUh4oAZwKWIRPU0IHtuc0UZygYqfwtb0F60Iu
+         7HxHxahdqYU6/z8Zf01sGkZeuxGaLDxVnHm4FvqmwY7qxAUzEVVT6zkdrkXzoNm7eMZj
+         nTxLYX4XpTqOzIoib4pIM5Onjg6wNxsSjo6HOMf2xbs5fSOmS0eV/vRj+mZDp5nkA00J
+         nc1rREb0MmZeeSEEXGheCHWiBsJN55yOk3sP4JEdlz/fcWpZBADCAIgGrz29WKoIaLQ1
+         8blf9aJuhVA8Zc07bDOIgCplbxTWsoYhDvk1Gy0OM3vHKURfaAZ8cA8rlM0cNK9fjDkc
+         UuJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=yTU40MrUNPoNoxleqG8cAVzJ1s/ZoSdilzfHy3+x3ic=;
-        b=kZS+ftTpnhEvdyQCSQFJGaApbPIY5GwG9gUR+hQFidLdSSPBx4IrYibS6FjQJ0L02q
-         zTGSRQidbounCWuxoO/Q8oWrxvrc8neHsR2MeUN3xDJ/fkJH1taDjSpBiz4riTL/RygF
-         0SgJ7Ds7bawByJUsTrEHb9eBN/v4ml1cdsADI7WvsMcU57PvIcnpbsN/rcFltZhxjEX6
-         40BivVIVIflN0J3XKPmO+RAEXDh/MI08/H904wMpw3Q/CrYxDEhrMl6RS64D+pQPkaIH
-         BOjVwTLhp/7NAMD3cHuDxoYH9mVQ1Tt/brBYYdMSD/UzX+MpS7fKGYJ9Y8dFcdaVTF+7
-         rQew==
-X-Gm-Message-State: APjAAAVZouP5bK+Gu4bkcUic+cE3G67QjDbwEpEQKq8qjWzQGxVeX4F5
-	vDAZpPScY8hBjKnXdWxtPWs=
-X-Google-Smtp-Source: APXvYqzdivefACpKk2IAma8Y7a+2xAsQdBaphJY5rgS+7csCJ/8V9+vvYmEjAKfRoea+NzdnSkFUsw==
-X-Received: by 2002:a63:fc51:: with SMTP id r17mr5383669pgk.292.1581712973459;
-        Fri, 14 Feb 2020 12:42:53 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=mXw0Pe7DhTS/G/soDPY5ADfEVy++rpSz/zWnyr1hcKM=;
+        b=rDxqJNLMuifmNj/VnlXsj4oIZXKsulFtrOZwIBTORWTy6684vFjTw99l6TVTQ2q7ms
+         qYmt6lTtSPWn3/Q1pgUwlWqmBsDmSAFL0zhnnIy2HUaMiLhqZv5qRpRSUtCajdBedWd1
+         x7QE/2E9/yTiMnihmH8YTgYytN8FB7H3KxGbr3lj7vMgOt4JlChMNWJ2viy5OA6THs1l
+         AJQZd3Ly1kK8RB5CT3XvnFJSAX4Pb0+HUnAgv7U5REQifeVE162ekCChAOXaZRrpjcVa
+         wTrntfVOO1Yvuj0IZyfgX59NE+ptDxGERafn+BmSu1PVZPNBa8TvtJ9PTuA1lNV/hBdE
+         jMpg==
+X-Gm-Message-State: APjAAAW19JbYZcjuct7QabQMzm85YIHQPTUGPN6S6VyeYlrjPN6wcbsi
+	SbBTtI50HFGOu7hx518Pp34=
+X-Google-Smtp-Source: APXvYqxo7BsdJOMzeF8rGXLzef7qVFv03heg1XPexqtyXsW4hPOEJWJuTX9N2VYt0eiD2I5oyLN0cA==
+X-Received: by 2002:a81:17cd:: with SMTP id 196mr4454582ywx.153.1581715892584;
+        Fri, 14 Feb 2020 13:31:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:ad06:: with SMTP id r6ls2465254pjq.3.canary-gmail;
- Fri, 14 Feb 2020 12:42:53 -0800 (PST)
-X-Received: by 2002:a17:902:8542:: with SMTP id d2mr5213288plo.200.1581712972996;
-        Fri, 14 Feb 2020 12:42:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581712972; cv=none;
+Received: by 2002:a25:cb42:: with SMTP id b63ls746864ybg.6.gmail; Fri, 14 Feb
+ 2020 13:31:32 -0800 (PST)
+X-Received: by 2002:a25:ab41:: with SMTP id u59mr4895005ybi.396.1581715892161;
+        Fri, 14 Feb 2020 13:31:32 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581715892; cv=none;
         d=google.com; s=arc-20160816;
-        b=OhLmyjgMD43dJOtcY6DurwW8KDWcfmC2UO6+E/tGKmaYloGc/74My4wPKVFpits/pp
-         9nMQLniTfymdYHhJGCGYmXSRDg/UXrUfZDQ3fGV7NGHhr2t1Nu6ykhA6PtINveuJCBIF
-         ROA005Ck8SBMJ9CklKJOLyIlI7p5cqZ+x6v8iUEtIcIbVT4FOBcbSMI0cWiFtcO85qS1
-         o2xTtEZt6WBIhZu07zv186OfDzXwK5AUmXtya2M0cR8awaKtOV4kf0BIiobfsZYdVjRJ
-         yRVtHgSfszPyyp/91CKaagkB9jqpAijdZI2FRDkevsMtOYSc+4jVwk3izKUtHl38SMfF
-         wpvw==
+        b=ryzx/DeOhFzWPk2xzaweh3ShCKnDdnIySiNKhf9i7La3kVAXHsOC7M/+8KdIiYhwzs
+         QBzlLWBnXfRb+WTDS+evmiUS+P90pi24aQQ5zgjDZFXpLhHw1USYxNzGcgdMz82XVbfF
+         h+bnApUcsLXUMW8WM9GjeIhhCc61GTe8AeAENTk+T6A+LBdDNZ8vyCDqmAUwRH0Gs8Hj
+         nR8wn96IGRxqlkI/hkB4sNRkQLoYj0B6GwLNSK31Kmqf+BACw1nSukPeokKQg3Yd+dNA
+         TVx7q13WA2O6UeBfoPW/h34Vki0IwlLu5kii0OIEhPJ5qAi1+IHYTjVE//JneYHfsH8r
+         +O0A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:date:from:sender:dkim-signature;
-        bh=nO59hUcE7IAJE3zl0mbNkPEwvhdB+UVqeIgDKUs84Ak=;
-        b=W+BrHxkcMewogEwzXMoCxPfopPYy49YLJ5CXWU7/LGrgoxCfCrNi20z4whYmqOXf5+
-         e3W9KkT/K5xuU8nPj+cHsaNVDI2OmsXQ6El5bDzJFzHOcJ/gYzTBy1TJ9Qk4n0opCsRJ
-         xoABMp+8Sy6gx5YA/J1ZPaEu/el7Da+Y1yVn1z7IVL8LfP4wYodB9ZfpCn5mbPkRjtly
-         I41MYlLP0XhjSgs4cJUOnNyoBYS096cYdeb5D0TB6Jtf8AQ4n3drZYMGK2hlxwQboheB
-         5oV1B7j5aoe5OjwZb2dePjlyIChXc/CcQmLg3WJtJnPXzohyrXt5CRcWma7YV8lG/snr
-         EG6g==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=2efwVtB3Bw+e5D6BlLT5B2VW8dSHegKrHhTNhWIF12Y=;
+        b=Lh1giYGoU6q/Kni/8Ur3PxB82GVphs2VLsIpsVzzrfXL6Fla0/gxDd3GDmu7QNxKn0
+         gVUsHFeX2PeVEgNUzEuNupc/IbEt7JtfDe6uwDgaAHQWvNiYAC0EtmZdKA4tcFgByHeK
+         IjnMQcnUUh5u9fAZ6Tw+jdTXNmXqFDW/1DF+4++nVpz2Q7kcVX2m/u+boZK7kqgkq4zl
+         3t3fol8SF7Bm4pjQmfa7zDYg5Plw01DuxpHuSX/+re5l7d4pb9sQAuZhWrbW+K3RW4k4
+         sXnRmcRuAFHo404iLFUIl7xNy6Eog0E4LK6rUTLA2sMOkMWzRIQpoztIQAMgCcZDklgK
+         i7Gg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=swshXf0S;
-       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
-Received: from mail-qk1-x743.google.com (mail-qk1-x743.google.com. [2607:f8b0:4864:20::743])
-        by gmr-mx.google.com with ESMTPS id 8si429365pfn.1.2020.02.14.12.42.52
+       dkim=pass header.i=@google.com header.s=20161025 header.b=iaixtzgq;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1036 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pj1-x1036.google.com (mail-pj1-x1036.google.com. [2607:f8b0:4864:20::1036])
+        by gmr-mx.google.com with ESMTPS id e81si60454ybf.5.2020.02.14.13.31.32
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Feb 2020 12:42:52 -0800 (PST)
-Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::743 as permitted sender) client-ip=2607:f8b0:4864:20::743;
-Received: by mail-qk1-x743.google.com with SMTP id o28so9170481qkj.9
-        for <clang-built-linux@googlegroups.com>; Fri, 14 Feb 2020 12:42:52 -0800 (PST)
-X-Received: by 2002:a37:a84f:: with SMTP id r76mr4303279qke.115.1581712971940;
-        Fri, 14 Feb 2020 12:42:51 -0800 (PST)
-Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
-        by smtp.gmail.com with ESMTPSA id n191sm4033808qkn.6.2020.02.14.12.42.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2020 12:42:51 -0800 (PST)
-Sender: Arvind Sankar <niveditas98@gmail.com>
-From: Arvind Sankar <nivedita@alum.mit.edu>
-Date: Fri, 14 Feb 2020 15:42:49 -0500
-To: Fangrui Song <maskray@google.com>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>,
-	Nick Desaulniers <ndesaulniers@google.com>, jpoimboe@redhat.com,
-	peterz@infradead.org, clang-built-linux@googlegroups.com,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] objtool: ignore .L prefixed local symbols
-Message-ID: <20200214204249.GA3624438@rani.riverdale.lan>
-References: <20200213184708.205083-1-ndesaulniers@google.com>
- <20200213192055.23kn5pp3s6gwxamq@google.com>
- <20200214061654.GA3136404@rani.riverdale.lan>
- <20200214180527.z44b4bmzn336mff2@google.com>
+        Fri, 14 Feb 2020 13:31:32 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1036 as permitted sender) client-ip=2607:f8b0:4864:20::1036;
+Received: by mail-pj1-x1036.google.com with SMTP id m7so1044367pjs.0
+        for <clang-built-linux@googlegroups.com>; Fri, 14 Feb 2020 13:31:32 -0800 (PST)
+X-Received: by 2002:a17:90a:be06:: with SMTP id a6mr5974169pjs.73.1581715890856;
+ Fri, 14 Feb 2020 13:31:30 -0800 (PST)
 MIME-Version: 1.0
+References: <2010268003.1897.1581700376697.JavaMail.javamailuser@localhost>
+In-Reply-To: <2010268003.1897.1581700376697.JavaMail.javamailuser@localhost>
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Fri, 14 Feb 2020 13:31:19 -0800
+Message-ID: <CAKwvOdmedWw24vjA86MX6GOH0wimjMfJ9-72G3YgJOy9bgYdMQ@mail.gmail.com>
+Subject: Re: [CI-NOTIFY]: TCWG Bisect tcwg_kernel/llvm-master-arm-next-allyesconfig
+ - Build # 60 - Successful!
+To: CI Notify <ci_notify@linaro.org>, Maxim Kuvyrkov <maxim.kuvyrkov@linaro.org>
+Cc: TCWG Validation <tcwg-validation@linaro.org>, Arnd Bergmann <arnd@linaro.org>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200214180527.z44b4bmzn336mff2@google.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: nivedita@alum.mit.edu
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=swshXf0S;       spf=pass
- (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::743
- as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+ header.i=@google.com header.s=20161025 header.b=iaixtzgq;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::1036
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,91 +130,89 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Fri, Feb 14, 2020 at 10:05:27AM -0800, Fangrui Song wrote:
-> I know little about objtool, but if it may be used by other
-> architectures, hope the following explanations don't appear to be too
-> off-topic:)
-> 
-> On 2020-02-14, Arvind Sankar wrote:
-> >Can you describe what case the clang change is supposed to optimize?
-> >AFAICT, it kicks in when the symbol is known by the compiler to be local
-> >to the DSO and defined in the same translation unit.
-> >
-> >But then there are two cases:
-> >(a) we have call foo, where foo is defined in the same section as the
-> >call instruction. In this case the assembler should be able to fully
-> >resolve foo and not generate any relocation, regardless of whether foo
-> >is global or local.
-> 
-> If foo is STB_GLOBAL or STB_WEAK, the assembler cannot fully resolve a
-> reference to foo in the same section, unless the assembler can assume
-> (the codegen tells it) the call to foo cannot be interposed by another
-> foo definition at runtime.
+Hi Max!
+I noticed that HOSTCC=gcc; if your clang builds have all backends
+enabled, could you please change these to HOSTCC=clang? Also,
+LD=ld.lld might be interesting to test. (Everything but AS=clang
+should work with LLVM).
 
-I was testing with hidden/protected visibility, I see you want this for
-the no-semantic-interposition case. Actually a bit more testing shows
-some peculiarities even with hidden visibility. With the below, the call
-and lea create relocations in the object file, but the jmp doesn't. ld
-does avoid creating a plt for this though.
+On Fri, Feb 14, 2020 at 9:12 AM <ci_notify@linaro.org> wrote:
+>
+> Could not identify regression in *linux* in CI configuration tcwg_kernel/llvm-master-arm-next-allyesconfig.  See 'Bisect log' in the links below for bisection details.
+>
+> First few errors in logs of bad:
+> 00:29:55 make: *** [vmlinux] Error 1
+> Configuration details:
+> rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+> rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+> rr[linux_branch]="0bf999f9c5e74c7ecf9dafb527146601e5c848b9"
+>
+> Results regressed to (for bad == 9f01828e9e1655836fea88d0c8225d648850b33a)
+> reset_artifacts:
+> -10
+> build_llvm:
+> -1
+> linux_n_obj:
+> 18431
+>
+> from (for baseline_rev == 0bf999f9c5e74c7ecf9dafb527146601e5c848b9)
+> reset_artifacts:
+> -10
+> build_llvm:
+> -1
+> linux_n_obj:
+> 18457
+>
+> Artifacts of bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/artifact/artifacts/build-9f01828e9e1655836fea88d0c8225d648850b33a/
+> Artifacts of baseline_rev build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/artifact/artifacts/build-0bf999f9c5e74c7ecf9dafb527146601e5c848b9/
+> Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/
+>
+> Reproduce builds:
+> <cut>
+> mkdir investigate-linux-9f01828e9e1655836fea88d0c8225d648850b33a
+> cd investigate-linux-9f01828e9e1655836fea88d0c8225d648850b33a
+>
+> git clone https://git.linaro.org/toolchain/jenkins-scripts
+>
+> mkdir -p artifacts/manifests
+> curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/artifact/artifacts/manifests/build-baseline.sh
+> curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/artifact/artifacts/manifests/build-parameters.sh
+> curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/artifact/artifacts/test.sh
+> chmod +x artifacts/test.sh
+>
+> # Reproduce the baseline build (build all pre-requisites)
+> ./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+>
+> cd linux
+>
+> # Reproduce bad build
+> git checkout --detach 9f01828e9e1655836fea88d0c8225d648850b33a
+> ../artifacts/test.sh
+>
+> # Reproduce baseline_rev build
+> git checkout --detach 0bf999f9c5e74c7ecf9dafb527146601e5c848b9
+> ../artifacts/test.sh
+>
+> cd ..
+> </cut>
+>
+> History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-next-allyesconfig
+>
+> Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/artifact/artifacts/
+> Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/60/consoleText
+>
+> --
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/2010268003.1897.1581700376697.JavaMail.javamailuser%40localhost.
 
-	.text
-	.globl foo, bar
-	.hidden foo
-	bar:
-		call	foo
-		leaq	foo(%rip), %rax
-		jmp	foo
 
-	foo:	ret
 
-> 
-> >(b) we have call foo, where foo is defined in a different section from
-> >the call instruction. In this case the assembler must generate a
-> >relocation regardless of whether foo is global or local, and the linker
-> >should eliminate it.
-> >In what case does does replacing call foo with call .Lfoo$local help?
-> 
-> For -fPIC -fno-semantic-interposition, the assembly emitter can perform
-> the following optimization:
-> 
->    void foo() {}
->    void bar() { foo(); }
-> 
->    .globl foo, bar
->    foo:
->    .Lfoo$local:
->      ret
->    bar:
->      call foo  --> call .Lfoo$local
->      ret
-> 
-> call foo generates an R_X86_64_PLT32. In a -shared link, it creates an
-> unneeded PLT entry for foo.
-> 
-> call .Lfoo$local generates an R_X86_64_PLT32. In a -shared link, .Lfoo$local is
-> non-preemptible => no PLT entry is created.
-> 
-> For -fno-PIC and -fPIE, the final link is expected to be -no-pie or
-> -pie. This optimization does not save anything, because PLT entries will
-> not be generated. With clang's integrated assembler, it may increase the
-> number of STT_SECTION symbols (because .Lfoo$local will be turned to a
-> STT_SECTION relative relocation), but the size increase is very small.
-> 
-> 
-> I want to teach clang -fPIC to use -fno-semantic-interposition by
-> default. (It is currently an LLVM optimization, not realized in clang.)
-> clang traditionally makes various -fno-semantic-interposition
-> assumptions and can perform interprocedural optimizations even if the
-> strict ELF rule disallows them.
-
-FWIW, gcc with no-semantic-interposition also uses local aliases, but
-rather than using .L labels, it creates a local alias by
-	.set foo.localalias, foo
-This makes the type of foo.localalias the same as foo, which I gather
-should placate objtool as it'll still see an STT_FUNC no matter whether
-it picks up foo.localalias or foo.
+-- 
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214204249.GA3624438%40rani.riverdale.lan.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdmedWw24vjA86MX6GOH0wimjMfJ9-72G3YgJOy9bgYdMQ%40mail.gmail.com.
