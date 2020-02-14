@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB7UCTPZAKGQEFBSGYSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBQUETPZAKGQEZJ74T4Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id B300C15DB82
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 16:49:20 +0100 (CET)
-Received: by mail-pj1-x1037.google.com with SMTP id dw15sf6082027pjb.2
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 07:49:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581695359; cv=pass;
+Received: from mail-ua1-x93a.google.com (mail-ua1-x93a.google.com [IPv6:2607:f8b0:4864:20::93a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 042CE15DC18
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 16:52:36 +0100 (CET)
+Received: by mail-ua1-x93a.google.com with SMTP id b18sf2349209uaj.3
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 07:52:35 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581695555; cv=pass;
         d=google.com; s=arc-20160816;
-        b=X6WWnSho8OtuspQpE7H0YWqa6qIrZRKBp/t06OLbCoPqfp9Wm9dC4Ekcds93McZ1uw
-         s2kxuqJ0f6xlWD2hJi4Hmc7I630qMfFkVYinMmsn1l4rlaF0PDeDInqO3Iv3/16Fr2/N
-         XrGtyoTG7iEz31vHYADXldz1ZXOaYJk29LIFuH6ycOToftaHNHwraRtUbp0fcSb9rYxJ
-         Z0nfNuNbP8amHd7cFYSh/IDVfZOc7K24i9fQYQ384segA+0FaM7kZomeoeCHAgWkSKCO
-         jCt+e32y2gpb7d3/isBZQvLCRNZeg8l8dXUqYN7c08DrjxrtNajAcL0zSI6PKMgT/zHg
-         NCgg==
+        b=movxgwYqrNEP+oqYYYo2xJi0frl7BoO7O0EUG7dGMZNfACTDXCE6AtpmjNW7AIMDo1
+         IXUs3Neovc1ePuXY2QmHFbO12HSf0EuuSu+kPQFVC7ZKcxv+Q0lA3pLRHYbAQ9uY2FK1
+         +cAinDj13HcHmT6+gkm+iqbxBJqLukL3pLoVcjHT+KOWTjKmC1OV9MrxIrZjJ4rKhPYP
+         Ac8GgXWyd7hfye5SY5Sg0xA585ewIBbllgsc22hvSIW9GlD4SRdvlimO+fH7JXI5TFxB
+         NIKmlPgXhQ/aLfsCkdqvmfml+xHCtiyVxGszi/bmLU7BdBttQrCrQemlO/5e2qBYcqqy
+         VeZw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=DjwRamgFKWAgGqZJlqWOMUd5VTCaF14+wm6JrqLWw5c=;
-        b=Tfgok7G/bKxMY/T6PbCwLXVZqqsXtIEHaOmw8g+V4iorwlK21J+LqrYb7+v3afPfGo
-         mGhsjy67MAKytslq8pPzmE0JmaSGVDy9yC6XMktUGHwCwnwwlLzWpez/CFu74ivf4C3+
-         l1QGi80JzJmu+vumk5PTamuey0SGqWV1+CfE9b9A7Zc6aUVonHZzaYVRo/2pEimV+pDy
-         Mx/7UlrmKn4IVt5sOd7aQDN2ftrp0bmyFERPaFmsOtdjsHbFsJGVW+/MOhU5DYz4oPwt
-         2Qy3kz9MeL9DCHHZMrIfLMEG8xASnNlUOwNBX/LiVbSuoL5cOZ3EyeitSZX65kqQyER8
-         Dfpw==
+        bh=aVvE86fElk7PKRLiavpMtTTA55hoLtS2njqU8vCy14M=;
+        b=fxGHHOJq9iwsaNLNnAgAQmuV1PHQuwEPp76Eelemsq4fuN6f2/RmkKNsPxtKLz+XyT
+         Tu8kH4A/t/18t7Zle8vS1tuyfxgUwJL2owFa19oee5VafFNfOzmEQnfy911FuytkXf7v
+         bBWO75lKvn/0vjZkGVGK+1jEx7Et9mqV5t5rL31fCi01sgiRgiXCtFwFc+JNxXR48ICR
+         ADA2EzMIFFATt0HJXaKrq4bi/BH8tAKehk0XPSTS4ckJzk+JJbvpK53IFSKZPjoYSKW7
+         O5E/FySWoz6a7S+klzIPl5blJBlSeSkRCAf+Hfst/8+kYX7B4CQBykrxeS/b4+SynvOa
+         nBfA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="OOI/+e1O";
+       dkim=pass header.i=@kernel.org header.s=default header.b=hYQAZYsH;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DjwRamgFKWAgGqZJlqWOMUd5VTCaF14+wm6JrqLWw5c=;
-        b=EsLmn+wDn90a5j//W5Ohvqwn6EJyc0wp0IWCOFw+6HrGP3sQawl7AF6/5fsJ5bcKaI
-         0Bb6pBenhyU6I+DUGIlxLsiSaNQUTKCrorUUMAIm/DI3wmSTdjQmv0Iq1huB6y+h/24g
-         bK9f/brx32c+q8lGvS38Lyc8Rckk63LvuYyEpzPbv6IrtZ6lG44l5Uf+Q3AQomIZDBaU
-         onS22Pv4Kq01D8tcgYDayA2MHwW/2S7P3PsyQ2CgW8nfNN4BGrB+Y3zXkHsGHnI71Z7G
-         P5M/PN8J3aZp9owunGmwCnRpaM3DXK2lV9l8z1+2HnbtepIoOzFUmL6KyY4hE246ogLl
-         icRw==
+        bh=aVvE86fElk7PKRLiavpMtTTA55hoLtS2njqU8vCy14M=;
+        b=ItPSMnhVHFv4TxaWLhLmuKZwgNSuO0t9EhUnn7nJW/ZFrS8fkuL+nCbNk8iW0ERQbB
+         z1hhT2fTwhQSVHtX/jcajB14X7H458Z7AFOrVDOdmAItKES8rmdI/VsMZ0cS0rv7fELT
+         scY/soZLjr6lNrIw+sqnU3yiE+ZJ2egZ172MYmqnu+wD/Mh2be28ja9e6X+XgytyV0CZ
+         BX2blvWtaqgk7Uo8vxlToZvObJz36KNLrQOTTp8H5WgJ3ER5coujzt99HcfPDyNncQV8
+         mUMrntZzp4+qrSvjhRXSrAwd9kB4H11WJFb+/HN8VBpWmFOTKNDNesDH1ycPnHWpUJrT
+         NBNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,71 +49,69 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=DjwRamgFKWAgGqZJlqWOMUd5VTCaF14+wm6JrqLWw5c=;
-        b=bEat392Z6B0LNpbUoKDGQT04R/JsMZ3d4HF7NTVtfH7F/8QioFPDsH43ZoJdyuuL2Z
-         k9DPzGO3ZZ2hlQinBsl5f1rVLfXi3xsf/q6wo/9mR39+rWHrxIf3XnagcSUh1/Y0wlyP
-         VpznnD02R8akkPVYc0FTrIU1r3jo32yf9RgdNqrP29HlanUe99lyqYb7rBL4/SzRcIhm
-         0od/aKSCBjD3Xh64TJmYZZIJSBZpYpSypWouIs+vnm1vtSfI+EXIJtxcdWSh5kqfQyQ2
-         8wGNs1hd6PBM/drKzNBBc2Fupn7W2+jVlMwrirEyffcM8ViuTyFWPzaTU92ly62ifPBm
-         yFIA==
+        bh=aVvE86fElk7PKRLiavpMtTTA55hoLtS2njqU8vCy14M=;
+        b=rQSiKAjglo8rQ+U0GdltI3SJzQ3lPetyHfb8aqnPE1B98DVXCINGmknZpXIfDisYLo
+         QErZPSPyiaPwGtqFYCdPqfTYW44RY6SIQPdrDyGosF2fqT6bfaiRSHsa0iJmO971y9pT
+         kET97EfdFlvhVPii0cJp6qhhhhDkkt6YMcyp+P0OxCPQUOynGQ1Rzn9AJCcn6i43Qee7
+         n862jYFRODkLGguGIhBGYdVl0IqXpv/CWG5YS6Kd3DSerQUZqYEAKtmz5LNuFXsponqF
+         pKyiBJRTPorqiy6XzUNWaPsZB+tQSRQiMP7vT7NhCDH5JaF5djJXZuMRxGmmfzHC73Ro
+         FrgA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXCDAiamPdtX+IUBAzk+CmpwN87r32fmJ1ejeANmf/ap3+XOR2j
-	7X0FQ9HbvZNslC018uLDzhQ=
-X-Google-Smtp-Source: APXvYqzZ0JQhREZs3wYRjodAA+RE95nyoAHvykBAlopJJLS756y2XxxfRYuYsROvlSdB31OeI8RDeQ==
-X-Received: by 2002:a62:be0a:: with SMTP id l10mr4315932pff.110.1581695358817;
-        Fri, 14 Feb 2020 07:49:18 -0800 (PST)
+X-Gm-Message-State: APjAAAXOuwsqbzBp6x0QLxf9Ub5HDwny5A29vt38pgPrz4ehVNUl2frK
+	rC9xFxo09wbeA720wptBvd8=
+X-Google-Smtp-Source: APXvYqx6WK0Ctt8jT2jCLqXYxASc/CjO2F8qRP8ExrbCfHZUDw95DQDj4tZx4tNMuB2atkdFB3ul0A==
+X-Received: by 2002:ac5:cdcd:: with SMTP id u13mr2139267vkn.0.1581695554894;
+        Fri, 14 Feb 2020 07:52:34 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a63:c244:: with SMTP id l4ls1735331pgg.2.gmail; Fri, 14 Feb
- 2020 07:49:18 -0800 (PST)
-X-Received: by 2002:a63:7c16:: with SMTP id x22mr4178841pgc.335.1581695358426;
-        Fri, 14 Feb 2020 07:49:18 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581695358; cv=none;
+Received: by 2002:a67:fc8b:: with SMTP id x11ls313133vsp.7.gmail; Fri, 14 Feb
+ 2020 07:52:34 -0800 (PST)
+X-Received: by 2002:a67:ec41:: with SMTP id z1mr1843493vso.197.1581695554501;
+        Fri, 14 Feb 2020 07:52:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581695554; cv=none;
         d=google.com; s=arc-20160816;
-        b=O1LdGf4R4u3EVRL/2Q2rE2rrRfsPDrYRWLEePJy1/l43gn/w2LpTQ0Y2JB6n5m9X7l
-         0syR1nWIpju74Vj7MA1xOVSrD8pr62BxUgH963G3um5K5KSwdcr1HGEOYgQ1GuROAQME
-         mZFnc4mQs3pzF6+6PqQo3B6eqvRf5EOFRtFrMzfgW5crqThIyxao4YujVfchEmrGpeJV
-         i0QY2vx4x2yWDmIYakHhDrZP0AeVcMDycWgQW5Tj+WcP6POzlv55ept02VCC5MjFO7tZ
-         nKAVpL6nWULbdZGyGI89F43C76ZzRZ5AcuzzbPzUoSwSOGqm9eEArKC6q4jpD3kFAsj6
-         HcUA==
+        b=LaIC6uwKbXBb9yrLxmZjzexOUIrT3tUwLM6RADRxHb9a/RseoCIZrKGL7QfoBA5vig
+         96WbIdKkKYMQOPEikd+nS1C6tcNH45k98qNZTSBL28+r5U7PUy2JohhHFM1J+PeCHuU8
+         zsqoeJzLSldZsW361rK0duxRHk18fEOzSUkYZ+rVuSPwuZRWCrxtfsEOc/BrJMZ7CWiU
+         Sg8gGEFqqQlKT5ufEQdEHLGpZTqhxv/fJjFDQbXdkimtN3IcSPm2ltkhnPmQhk8gxhmH
+         r4gcazYf6WhktLWJsXpFJHIMgcbW/8Jf4rmrDbWtm6XHs+Y/gyaPj5Q8EHnyCu2qMbI4
+         xZoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=Z6soo++sfLgGCwqbraXSMYUd48dUolqCMORSObaxvtQ=;
-        b=SQRWZDSoyTDHy2v0VTnaPnmygIMd3sO2syaUHAcOWlFteGPAbOuCt+xinmrsoHrmmM
-         XZyZ7fzNXgzxKZDR0YYFDriQJVL1XetscvdnFPNQsk5HUBsgg4awLhwaJdpYLhq+rMkM
-         8zsXMRudmfSM30SeY6zgwwvIFuRp+3KuUoOwt8B2bUnwoIJBf2iGBBipB8OMGQtnjMrw
-         nfhIoFhoGNFgi7fkmzH9NOvrS0ACZ4nA16R73oQiNdSgXs4A1B7Q7DxGHag1OiG3K+Om
-         YqA/f6yxwCnyrMn8LHOm/0wYqsFk6V0jqf7XzA9b0uJG+Y5D3gPKiGqGnMjdtW9Qnp/s
-         6FDw==
+        bh=wyLFvHthmbP3L6cx7Yu6kcCTofsKg3MBizphFrfuopk=;
+        b=QP9+sslaPwah9VZ9RFEURIncy2WcWlWR/WANPqd6LZRPKxsMEqbV921H/BW/MgezCP
+         rMyf9bSY5e/EwIvIJZFaVNGJS/XxJlxoKHuiQ1Rr4rENHKF6BWpvfNYmKxlUsDGW6WRn
+         MtohsxGMEFaFK9/AFCJiSnl5cyZ9/pVaqdjTmbDBoGiVmM+nhwPIS2ywVNIJutzQuJtJ
+         vmk38iuYfG9qA1D8GaKT78YYnbIldYh1eWDgvrIO19EAkLGgrpaUwRAE6DS6KSr/Xl1n
+         h9rvjfN26dkfjw7HKq5CYIqm8wsc3T+eMTA4Z98rHxcRj1nSIzgt6tHRyMm+tTB/agY0
+         Wvwg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b="OOI/+e1O";
+       dkim=pass header.i=@kernel.org header.s=default header.b=hYQAZYsH;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id s6si324247pgq.4.2020.02.14.07.49.18
+        by gmr-mx.google.com with ESMTPS id s5si344387vka.2.2020.02.14.07.52.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 Feb 2020 07:49:18 -0800 (PST)
+        Fri, 14 Feb 2020 07:52:34 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 1E45824650;
-	Fri, 14 Feb 2020 15:49:17 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 8D9392467E;
+	Fri, 14 Feb 2020 15:52:32 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: "Gustavo A. R. Silva" <gustavo@embeddedor.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>,
-	Hans Verkuil <hverkuil-cisco@xs4all.nl>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+Cc: Nathan Chancellor <natechancellor@gmail.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-media@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org,
+	dri-devel@lists.freedesktop.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.5 018/542] media: i2c: adv748x: Fix unsafe macros
-Date: Fri, 14 Feb 2020 10:40:10 -0500
-Message-Id: <20200214154854.6746-18-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.5 168/542] drm/amdgpu: Ensure ret is always initialized when using SOC15_WAIT_ON_RREG
+Date: Fri, 14 Feb 2020 10:42:40 -0500
+Message-Id: <20200214154854.6746-168-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200214154854.6746-1-sashal@kernel.org>
 References: <20200214154854.6746-1-sashal@kernel.org>
@@ -122,7 +120,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b="OOI/+e1O";       spf=pass
+ header.i=@kernel.org header.s=default header.b=hYQAZYsH;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -139,66 +137,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
+From: Nathan Chancellor <natechancellor@gmail.com>
 
-[ Upstream commit 0d962e061abcf1b9105f88fb850158b5887fbca3 ]
+[ Upstream commit a63141e31764f8daf3f29e8e2d450dcf9199d1c8 ]
 
-Enclose multiple macro parameters in parentheses in order to
-make such macros safer and fix the Clang warning below:
+Commit b0f3cd3191cd ("drm/amdgpu: remove unnecessary JPEG2.0 code from
+VCN2.0") introduced a new clang warning in the vcn_v2_0_stop function:
 
-drivers/media/i2c/adv748x/adv748x-afe.c:452:12: warning: operator '?:'
-has lower precedence than '|'; '|' will be evaluated first
-[-Wbitwise-conditional-parentheses]
+../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1082:2: warning: variable 'r'
+is used uninitialized whenever 'while' loop exits because its condition
+is false [-Wsometimes-uninitialized]
+        SOC15_WAIT_ON_RREG(VCN, 0, mmUVD_STATUS, UVD_STATUS__IDLE, 0x7, r);
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/drm/amd/amdgpu/../amdgpu/soc15_common.h:55:10: note:
+expanded from macro 'SOC15_WAIT_ON_RREG'
+                while ((tmp_ & (mask)) != (expected_value)) {   \
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1083:6: note: uninitialized use
+occurs here
+        if (r)
+            ^
+../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1082:2: note: remove the
+condition if it is always true
+        SOC15_WAIT_ON_RREG(VCN, 0, mmUVD_STATUS, UVD_STATUS__IDLE, 0x7, r);
+        ^
+../drivers/gpu/drm/amd/amdgpu/../amdgpu/soc15_common.h:55:10: note:
+expanded from macro 'SOC15_WAIT_ON_RREG'
+                while ((tmp_ & (mask)) != (expected_value)) {   \
+                       ^
+../drivers/gpu/drm/amd/amdgpu/vcn_v2_0.c:1072:7: note: initialize the
+variable 'r' to silence this warning
+        int r;
+             ^
+              = 0
+1 warning generated.
 
-ret = sdp_clrset(state, ADV748X_SDP_FRP, ADV748X_SDP_FRP_MASK, enable
-? ctrl->val - 1 : 0);
+To prevent warnings like this from happening in the future, make the
+SOC15_WAIT_ON_RREG macro initialize its ret variable before the while
+loop that can time out. This macro's return value is always checked so
+it should set ret in both the success and fail path.
 
-Fixes: 3e89586a64df ("media: i2c: adv748x: add adv748x driver")
-Reported-by: Dmitry Vyukov <dvyukov@google.com>
-Signed-off-by: Gustavo A. R. Silva <gustavo@embeddedor.com>
-Reviewed-by: Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
-Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+Link: https://github.com/ClangBuiltLinux/linux/issues/776
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/media/i2c/adv748x/adv748x.h | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/amd/amdgpu/soc15_common.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/media/i2c/adv748x/adv748x.h b/drivers/media/i2c/adv748x/adv748x.h
-index 5042f9e94aee2..fccb388ce179f 100644
---- a/drivers/media/i2c/adv748x/adv748x.h
-+++ b/drivers/media/i2c/adv748x/adv748x.h
-@@ -394,10 +394,10 @@ int adv748x_write_block(struct adv748x_state *state, int client_page,
- 
- #define io_read(s, r) adv748x_read(s, ADV748X_PAGE_IO, r)
- #define io_write(s, r, v) adv748x_write(s, ADV748X_PAGE_IO, r, v)
--#define io_clrset(s, r, m, v) io_write(s, r, (io_read(s, r) & ~m) | v)
-+#define io_clrset(s, r, m, v) io_write(s, r, (io_read(s, r) & ~(m)) | (v))
- 
- #define hdmi_read(s, r) adv748x_read(s, ADV748X_PAGE_HDMI, r)
--#define hdmi_read16(s, r, m) (((hdmi_read(s, r) << 8) | hdmi_read(s, r+1)) & m)
-+#define hdmi_read16(s, r, m) (((hdmi_read(s, r) << 8) | hdmi_read(s, (r)+1)) & (m))
- #define hdmi_write(s, r, v) adv748x_write(s, ADV748X_PAGE_HDMI, r, v)
- 
- #define repeater_read(s, r) adv748x_read(s, ADV748X_PAGE_REPEATER, r)
-@@ -405,11 +405,11 @@ int adv748x_write_block(struct adv748x_state *state, int client_page,
- 
- #define sdp_read(s, r) adv748x_read(s, ADV748X_PAGE_SDP, r)
- #define sdp_write(s, r, v) adv748x_write(s, ADV748X_PAGE_SDP, r, v)
--#define sdp_clrset(s, r, m, v) sdp_write(s, r, (sdp_read(s, r) & ~m) | v)
-+#define sdp_clrset(s, r, m, v) sdp_write(s, r, (sdp_read(s, r) & ~(m)) | (v))
- 
- #define cp_read(s, r) adv748x_read(s, ADV748X_PAGE_CP, r)
- #define cp_write(s, r, v) adv748x_write(s, ADV748X_PAGE_CP, r, v)
--#define cp_clrset(s, r, m, v) cp_write(s, r, (cp_read(s, r) & ~m) | v)
-+#define cp_clrset(s, r, m, v) cp_write(s, r, (cp_read(s, r) & ~(m)) | (v))
- 
- #define tx_read(t, r) adv748x_read(t->state, t->page, r)
- #define tx_write(t, r, v) adv748x_write(t->state, t->page, r, v)
+diff --git a/drivers/gpu/drm/amd/amdgpu/soc15_common.h b/drivers/gpu/drm/amd/amdgpu/soc15_common.h
+index 839f186e1182a..19e870c798967 100644
+--- a/drivers/gpu/drm/amd/amdgpu/soc15_common.h
++++ b/drivers/gpu/drm/amd/amdgpu/soc15_common.h
+@@ -52,6 +52,7 @@
+ 		uint32_t old_ = 0;	\
+ 		uint32_t tmp_ = RREG32(adev->reg_offset[ip##_HWIP][inst][reg##_BASE_IDX] + reg); \
+ 		uint32_t loop = adev->usec_timeout;		\
++		ret = 0;					\
+ 		while ((tmp_ & (mask)) != (expected_value)) {	\
+ 			if (old_ != tmp_) {			\
+ 				loop = adev->usec_timeout;	\
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214154854.6746-18-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214154854.6746-168-sashal%40kernel.org.
