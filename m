@@ -1,146 +1,124 @@
-Return-Path: <clang-built-linux+bncBD4NDKWHQYDRBA6XTDZAKGQEO6GR3PQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBC7CTDZAKGQEFQT7AFY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qv1-xf40.google.com (mail-qv1-xf40.google.com [IPv6:2607:f8b0:4864:20::f40])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0A05915D15C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 06:09:25 +0100 (CET)
-Received: by mail-qv1-xf40.google.com with SMTP id c1sf4992856qvw.17
-        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 21:09:24 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581656963; cv=pass;
+Received: from mail-wm1-x33c.google.com (mail-wm1-x33c.google.com [IPv6:2a00:1450:4864:20::33c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 484E015D1AD
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 06:33:00 +0100 (CET)
+Received: by mail-wm1-x33c.google.com with SMTP id p2sf2911461wmi.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 13 Feb 2020 21:33:00 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581658380; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qINw126HtlcTU916yd3Rlt43k/7nfi+I4uw7c41nY+js8xu+Tlx7PtfxltOwxu4WPA
-         HaZ8liUKlUaqIThEwy5w71OgDOxwxjOiE94wD4N05soxdNVmfUoSWNmIXMs8u/e1Gnsd
-         U4fYyZhli/4shyZepfrGlxKju1lc4UDdGnoNesFmd6E+EztXK3JGp/5wFBW/+FilM+UP
-         KVr+Wd4Y73TSGJmW1nToJGcK8o2PZSfedshZ1x0+AVNxW/Hey/5h3SCzl0Zg49i7aNVi
-         EBK4NGjHK9VLnBUq3sVdR1B+cOT6vcYwDIzjMZOHr5NltxtoY/y6J0Ep+4DND7a/W24f
-         XG2g==
+        b=kEOkPUXaK+8tyQSV986v1zUCjNEFfe3raIsXB+UmXt+rfKwn3xgWu4XOTksm5E0x8R
+         107g+cvFumBnxAoKAvf1QIp41Zj1rAf12957/BffkW/bke1oIbvW83+QpTisudWMyBmX
+         X3QEeEKblQ0V6hM46iN/3O5PkTYQYJY+nRlXJlrZQPdKH7Wnz8TP44aB9TtN8ONylOg7
+         i9FVyJ0Dqi4q+47eAJkuOGxzmQ9cAMYtKTI5bOSVGYPZ4hnbSo4dN6GHdbI01xLm3Fdj
+         UGn9vwjTPXpXSz+CYkBZ5ZlhgDZn8cPj08512XsAlPxyY5QzBABFpKaI/CCKBKRounun
+         Pyuw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:sender:dkim-signature
-         :dkim-signature;
-        bh=5qmPxV178HYREO9IxciNEltx85urld84gJIqaTt0D48=;
-        b=zCMzPgdGoRJyrdgAdEg3Byp0G2oFPutVYIE62+X8gOl2RjrdtvT9xSsbJOpnAwSwHd
-         mvcTKxi36aei5WIL3x2Q2RhFvRiO/JMOTEDO20dS+OwR+nfxL01DjJI7mOsXGLGXyuYA
-         vXe5Ymi4bmmboyTs2+4h0hSNwgze1L8BcAOQdmeIo5aJ5Y/ygywvmPRVWH5cbgN5IJDR
-         PTZag83OlOZ/yur3Td83jKjDtv4KucqWx6oBNXWA6KpZYZcaFafW6SHp7Gl0R5grfzYk
-         uMa4QLiZipDSO8rGZMS4Ju9RZTU6slV/ZzZv4RYn68GZvZ+0jAIi1JINsX2PcU845Esq
-         HLrg==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=zPEuaadQt0kTQw+Gk2oWg403XP69gJ1DxhZuhlr0pBQ=;
+        b=h+vNCKtppqNMB6C0uwXTDN0hSbbQiKNi/o9PCmTPNc58MH2dn0y3f8WpGVLmRmGhSx
+         mN6cGND5AwPZaYWJ7G/6rVvqEOGUKezTF6ydsr52VJExnGN1wqM/PcKMOqFewnWFAy8K
+         BW+rBxwfoGO2AUd7tgGs3441ZMwMcrJRmVpd7rxcmFc/HR7g6W3lTf3PI5lEwaXeyw/g
+         4SJ/IlXLKMgKOmLjnblCSj6UphpzkOFXtGzpbupLUWCZEloeNYgUUlYQt/dCjCkkbWW0
+         oXHI7JCFeGt83qx9znZsf5xyDrTMJzzOF6JW7Sug6sqw47H6jPjztEJ+YyKEG1HkvnrM
+         gvdA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GEZ7pu78;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+       dkim=pass header.i=@linaro.org header.s=google header.b=ToroVCFm;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::330 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:content-transfer-encoding
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=5qmPxV178HYREO9IxciNEltx85urld84gJIqaTt0D48=;
-        b=qTUjL7hZpIMzf6LHiSSTK+VMDakSb5f2gg2aJZ18lz7Am7FXt65fwTfn6AY3oOj+O/
-         NZVQE9I11baWC8VI+JPVbQUxKypRo7kea1uoj5tPLB2Eio35RHPDyt+cnUlXhLWgKsFH
-         q/2GtloETspiCeNjVIETVQPw8g8BElEAIgqpmfWktmIP+UazencpxCG9S9BlLRWkPNBz
-         RBMd8rdO9L3MexdhO/BWzw6qbjAFL0ggtvRgKoC3rsIcGeSaTl7XINkJYX64T6A46J4D
-         4ysDpfp1p5O4rntmaNuc6/cjfbSQD5Fz+mOlbSVSJgUUvZpRRJ50ajG4bpO7MIQJreoz
-         ZyWw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20161025;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:user-agent:x-original-sender
-         :x-original-authentication-results:content-transfer-encoding
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5qmPxV178HYREO9IxciNEltx85urld84gJIqaTt0D48=;
-        b=XuX4gWezXnxhxnGhnBEtLNgPcyeLF5+ylOy5mXvttrXjtTvS8W9weYiHz46Hu7/Jw2
-         6l0RRS0Rb08KOVkAIqYYy6/cJ+1HLT0J6Ogo7tgNjTg/CgXg8Kqgn+Bqj3Kz/RIC+1Ym
-         Vjt+ncqzyjuksVHaxYkipCZu2T/MV2pxXQ5wYYCxiSM6od14RKEEliY4YA5Luir0yKe/
-         BGzyUr8lVss4bboERImhFHiprNQYxXFafElAYfNRvc8rRwjBbBvgzWF4CVOY794J2lIo
-         def34eeEu7kGb7TXubejcvBznzeB8HRWotesuAeQt5NzjmqUPTtqOfAN2z6RsPvocvO+
-         s52g==
+        bh=zPEuaadQt0kTQw+Gk2oWg403XP69gJ1DxhZuhlr0pBQ=;
+        b=Zl6TbXIsKz+Dnk9mM1JT5oAgW3ojo9sT3jUrllA1tIoGzbRxR5NsWgB8kU7v4m2zdl
+         7fzB9UBe4350YE574oXLbq3jJiEP3OSDLzd7I7sDAbWY/mNiloe+fC520RhliZAJV45T
+         +2rl/MaGRwOIBJpAuhW3VdwchxJSfLqKX14fORB5f6a+3Ohfqt0RllfSGBsmCGUidnr/
+         2OMphJY/jQFD9zfQI61suVOgO8eGxkPJBgoFa05GamtwOqoQ4oNWKsVkpuiOwY6RObEY
+         MbelQ/7Dfit8hgE0qBg5EJ5yXcmSRaRgPLSYpin/eJrEOdRKKaR/6E9XDoukd8MBlne8
+         fNhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to:user-agent
-         :x-original-sender:x-original-authentication-results
-         :content-transfer-encoding:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=5qmPxV178HYREO9IxciNEltx85urld84gJIqaTt0D48=;
-        b=gDtznGSrKVdyZz+Vu3Qro6DuxXf2yblB8OmCw4BelUJO6l2voJGRW20/qOVpLQHLfN
-         7yJVDPqrMXGxRenDhDe3ESuKmgYFRNuzA/jNP9yZldxI/TRBiyxmDs0b7flnRUkBel75
-         RcDTRoVxp7B6tnLY08j1d+p0ZWNTJJXE50CQPNVWDwbIAxrswVjwTHEcdwE3wBnvMwE+
-         ZWrs88vTbFNsYKkSYLoUXr/zjsd28JcwxvDVKfRFZynrXwKzc3fzHoDIRkgH7hdxRQlC
-         1rURwhbnuudOZk/WSxoT2gg+MbfS9+0qHk13graEM7hLCKjBiHwFmmEwJ3Lpy8tUfInz
-         AEKA==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=zPEuaadQt0kTQw+Gk2oWg403XP69gJ1DxhZuhlr0pBQ=;
+        b=r3av3I/Fy5cAj6aZ3ptPyniafzvrLsURU642m8QQ8jS2cA+XxBDVsoOtMCIwaYGi3h
+         D9CouSmQkTMhPX8y2Ho6uzplE9QidP4P4L6jEoZNuHnPeQ0k3emIJar+7gIiT7n4v2Uf
+         PzmOS2TVut76+oMTjmbuhHwDf8D1fa6BPHiFbdSaQxspA+tdcT2/m8Um5NXLJJ6WjgSk
+         NZCzf1L2BrGHM8HJdFSAsJTd0vbL8zSVb3jKJiVpoVSznqH0SJOexFlLuFYM0IKEdnHk
+         tGksFSacGlbW/9aCdG3l95YdxtMq+9/dSfL400WSONaXQKfdzN0tbPOW8C82ulP2flRl
+         SZYw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVULGCoEgZXisbLPxcA+bDvKrJP1XAfkAb5Iwy0tnNyZiwv4qj0
-	MIeLJCe/M89H6LgiNDSJ+0I=
-X-Google-Smtp-Source: APXvYqxiE5vBp2wl19NE+PHIOR3xboi6+zJ9NDKwxQoVsZ1oOiO04Yk4PCdV1gLnsrTywbrMu2o2IQ==
-X-Received: by 2002:ae9:e10e:: with SMTP id g14mr938313qkm.430.1581656963387;
-        Thu, 13 Feb 2020 21:09:23 -0800 (PST)
+X-Gm-Message-State: APjAAAUVU6+s/gFFphOcfJBRTaS4WUCAPqAd2hzLS3jI3zkUdMpqLpqy
+	O5l0h1nGuR7d8kSyFgy6yXY=
+X-Google-Smtp-Source: APXvYqyqmsAE255X7Utix8tKJqALbQIbjsfp2Yw76xEP5/he4G6jji1qBY3TXRZYoq0Cg49BdTMCdg==
+X-Received: by 2002:a5d:62d1:: with SMTP id o17mr1768366wrv.9.1581658379959;
+        Thu, 13 Feb 2020 21:32:59 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ad4:5441:: with SMTP id h1ls144115qvt.8.gmail; Thu, 13 Feb
- 2020 21:09:23 -0800 (PST)
-X-Received: by 2002:ad4:50d2:: with SMTP id e18mr730380qvq.9.1581656962898;
-        Thu, 13 Feb 2020 21:09:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581656962; cv=none;
+Received: by 2002:a05:600c:247:: with SMTP id 7ls510950wmj.3.canary-gmail;
+ Thu, 13 Feb 2020 21:32:59 -0800 (PST)
+X-Received: by 2002:a7b:c19a:: with SMTP id y26mr2375725wmi.152.1581658379474;
+        Thu, 13 Feb 2020 21:32:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581658379; cv=none;
         d=google.com; s=arc-20160816;
-        b=Lt1sIq76ShhCc8Df2iaBFGqX/MSmXYrsPD8A+zzzjD1AlaR5RP4zkq/botfJe02gJh
-         ku974wkakWJ0uW7vFHK/lKztOLccjEUh4EJX1wKmTAwXSGxSpXHyVmOl+I+KCOs9Sllk
-         ZpSTJK8BGbxHO5ooW3qpOHBdzBmHHshk7iWCdUiGw/rtcNr1aKqBxLNqBI2MAl9DMxyk
-         CrdeBtkXStf9Z64itSxWQwT/Padqq6iU+FxTus4xj7OvQzcHVvd3E9xPZ8mV1BPMKAH2
-         MGPt0ddleD0UY5vtJs+ENerk5I5tK4a6FwfS1rI3GSN4A39dOwF9PygLve2Ij4jXPQF/
-         vSCg==
+        b=loGKYg11WO/XYzT9XUzKj40J9UoNs+JfNzeUH43M9nr1EyVT+wzOPjXFarVsjr5cOO
+         BF+YEWbx6edihXaUlDBRxOFJ3lviAfsQpuU/rNPN6259egXX0J/gWtKdE9fojiSI3UTc
+         d/zYNIZngncqhqSK+LnIVNAzK1KDrMmwimLs1W2R36+BPVZg9SVyZSPxRe159RmtZrEw
+         t2MIMsUm9+X8mDGvWHfnUb6B3KRGCYsRJtdtQ/zgSlqRot30U/w8P+0qpjKN3hK4vlnW
+         GJqVgxSkK2b6ZArS5jTA8dywWkhblONlMwEWT7EzgUz0gEprtCanxsqR/TxcKx2UJ24x
+         W7VA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=hh76UOBzxy4768QMqBIFnRzj8JqhZHoU2J347BXRupM=;
-        b=hAENXm/QvhksH5LhSUBgUnIDH2hlr72oKTl7jMa46hHzLaGR3YlJZErz0VawGaNUXZ
-         LTjHL7nwbEfljTg1Iao3JoeEXr1L4f0PXhZ/YQsdMYmQVDjQqTbDrbsfbrzfc2Fggay4
-         +VaUYQym003s4BWnFzhFlr7wKyO2mgyYKtV53a2F11jwAQbfIvCXYDRv/C4yQosOUtW3
-         e0RPs8apNsRRybfL0Zh92OETTQlK3c5a9vSlgpFsHy6G02Pg9+FVXdhqT55dpryV+hz9
-         7r+tOtx5C+BUeAGQ/FN95y4c2dYGNG8kFk7cr1yLX/hC7lhFBx5Ok8T8yO8+zq9ru6w7
-         SjpA==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=Abl7YeXorrIzcTuKjooots6eY6ax1eTluvnd+VYdepA=;
+        b=oIU1nIjWzbVxLBTIG8Wd2MkhRT7P87ln6iOqvhaWX2OdG7a6OP1arW9OblHBsOfqF8
+         yKcb44WsyfJ18VijST4UEbV/yuysxnIevmvVW1TilQ3AOxTqiJO24S3y3hAQRvth73Iz
+         iq229SmpSa3WlhvyRD/FAxS5GrDaxFvkfPzCSZqXEBSxjATBQKhCFoHAF/bj7qF0Usm2
+         p7XK3Z7Yu2ZV/IBm5m2X8MCNK9vleaT9cx+1xHXYaCxO+j3HQTH8TmovmEPtRcrCFSMn
+         07fjQTrBtN1aj7bxMjwheaxwixBqmz7CF+Dof6l1oyYlJTjglUClNy6SlULyW/aPa0ax
+         9p7g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@gmail.com header.s=20161025 header.b=GEZ7pu78;
-       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Received: from mail-ot1-x341.google.com (mail-ot1-x341.google.com. [2607:f8b0:4864:20::341])
-        by gmr-mx.google.com with ESMTPS id o21si282486qtb.3.2020.02.13.21.09.22
+       dkim=pass header.i=@linaro.org header.s=google header.b=ToroVCFm;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::330 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wm1-x330.google.com (mail-wm1-x330.google.com. [2a00:1450:4864:20::330])
+        by gmr-mx.google.com with ESMTPS id p23si215229wma.1.2020.02.13.21.32.59
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2020 21:09:22 -0800 (PST)
-Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::341 as permitted sender) client-ip=2607:f8b0:4864:20::341;
-Received: by mail-ot1-x341.google.com with SMTP id j16so8023517otl.1
-        for <clang-built-linux@googlegroups.com>; Thu, 13 Feb 2020 21:09:22 -0800 (PST)
-X-Received: by 2002:a05:6830:2154:: with SMTP id r20mr881893otd.131.1581656962292;
-        Thu, 13 Feb 2020 21:09:22 -0800 (PST)
-Received: from ubuntu-m2-xlarge-x86 ([2604:1380:4111:8b00::1])
-        by smtp.gmail.com with ESMTPSA id i36sm1773935ota.0.2020.02.13.21.09.21
-        (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
-        Thu, 13 Feb 2020 21:09:21 -0800 (PST)
-Date: Thu, 13 Feb 2020 22:09:20 -0700
-From: Nathan Chancellor <natechancellor@gmail.com>
-To: kbuild test robot <lkp@intel.com>
-Cc: kbuild@lists.01.org, Nick Desaulniers <ndesaulniers@google.com>,
+        Thu, 13 Feb 2020 21:32:59 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::330 as permitted sender) client-ip=2a00:1450:4864:20::330;
+Received: by mail-wm1-x330.google.com with SMTP id p9so8661346wmc.2
+        for <clang-built-linux@googlegroups.com>; Thu, 13 Feb 2020 21:32:59 -0800 (PST)
+X-Received: by 2002:a05:600c:214a:: with SMTP id v10mr2376725wml.182.1581658379142;
+        Thu, 13 Feb 2020 21:32:59 -0800 (PST)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id a198sm5666540wme.12.2020.02.13.21.32.58
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Thu, 13 Feb 2020 21:32:58 -0800 (PST)
+From: ci_notify@linaro.org
+Date: Fri, 14 Feb 2020 05:32:57 +0000 (UTC)
+To: tcwg-validation@linaro.org, arnd@linaro.org, 
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] media: dvb_dummy_fe.c: lose TS lock on bad snr
-Message-ID: <20200214050920.GB28843@ubuntu-m2-xlarge-x86>
-References: <202002132100.mmvXlwSW%lkp@intel.com>
+Message-ID: <463174850.1826.1581658378539.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-release-arm-next-allyesconfig - Build # 57 - Fixed!
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <202002132100.mmvXlwSW%lkp@intel.com>
-User-Agent: Mutt/1.9.4 (2018-02-28)
-X-Original-Sender: natechancellor@gmail.com
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_1825_1497536127.1581658377844"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-arm-next-allyesconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@gmail.com header.s=20161025 header.b=GEZ7pu78;       spf=pass
- (google.com: domain of natechancellor@gmail.com designates
- 2607:f8b0:4864:20::341 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
-       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
-Content-Transfer-Encoding: quoted-printable
+ header.i=@linaro.org header.s=google header.b=ToroVCFm;       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::330
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -153,249 +131,75 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 13, 2020 at 09:11:29PM +0800, kbuild test robot wrote:
-> CC: kbuild-all@lists.01.org
-> In-Reply-To: <20200210154555.156283-1-dwlsalmeida@gmail.com>
-> References: <20200210154555.156283-1-dwlsalmeida@gmail.com>
-> TO: "Daniel W. S. Almeida" <dwlsalmeida@gmail.com>
-> CC: mchehab@kernel.org, sean@mess.org, tglx@linutronix.de, gregkh@linuxfo=
-undation.org, "Daniel W. S. Almeida" <dwlsalmeida@gmail.com>, linux-media@v=
-ger.kernel.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, li=
-nux-kernel-mentees@lists.linuxfoundation.org, "Daniel W. S. Almeida" <dwlsa=
-lmeida@gmail.com>, linux-media@vger.kernel.org, linux-kernel@vger.kernel.or=
-g, skhan@linuxfoundation.org, linux-kernel-mentees@lists.linuxfoundation.or=
-g
-> CC: "Daniel W. S. Almeida" <dwlsalmeida@gmail.com>, linux-media@vger.kern=
-el.org, linux-kernel@vger.kernel.org, skhan@linuxfoundation.org, linux-kern=
-el-mentees@lists.linuxfoundation.org
->=20
-> Hi "Daniel,
->=20
-> Thank you for the patch! Perhaps something to improve:
->=20
-> [auto build test WARNING on linuxtv-media/master]
-> [also build test WARNING on v5.6-rc1 next-20200213]
-> [if your patch is applied to the wrong git tree, please drop us a note to=
- help
-> improve the system. BTW, we also suggest to use '--base' option to specif=
-y the
-> base tree in git format-patch, please see https://stackoverflow.com/a/374=
-06982]
->=20
-> url:    https://github.com/0day-ci/linux/commits/Daniel-W-S-Almeida/media=
--dvb_dummy_fe-c-lose-TS-lock-on-bad-snr/20200213-034953
-> base:   git://linuxtv.org/media_tree.git master
-> config: arm64-allyesconfig (attached as .config)
-> compiler: clang version 11.0.0 (git://gitmirror/llvm_project a58017e5cae5=
-be948fd1913b68d46553e87aa622)
-> reproduce:
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbi=
-n/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # save the attached .config to linux build tree
->         make.cross ARCH=3Darm64=20
->=20
-> If you fix the issue, kindly add following tag
-> Reported-by: kbuild test robot <lkp@intel.com>
->=20
-> All warnings (new ones prefixed by >>):
->=20
-> >> drivers/media//dvb-frontends/dvb_dummy_fe.c:50:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 13=
-.5 to 13 [-Wliteral-conversion]
->            { QPSK,  FEC_9_10, 13.5, 16.5},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:50:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 16=
-.5 to 16 [-Wliteral-conversion]
->            { QPSK,  FEC_9_10, 13.5, 16.5},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:51:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 14=
-.5 to 14 [-Wliteral-conversion]
->            { PSK_8, FEC_2_3,  14.5, 17.5},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:51:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 17=
-.5 to 17 [-Wliteral-conversion]
->            { PSK_8, FEC_2_3,  14.5, 17.5},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:53:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 17=
-.5 to 17 [-Wliteral-conversion]
->            { PSK_8, FEC_5_6,  17.5, 20.5},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:53:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 20=
-.5 to 20 [-Wliteral-conversion]
->            { PSK_8, FEC_5_6,  17.5, 20.5},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:59:22: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 4.=
-1 to 4 [-Wliteral-conversion]
->            {   QPSK, FEC_1_2,  4.1,  5.9},
->            ~                   ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:59:28: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 5.=
-9 to 5 [-Wliteral-conversion]
->            {   QPSK, FEC_1_2,  4.1,  5.9},
->            ~                         ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:60:22: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 6.=
-1 to 6 [-Wliteral-conversion]
->            {   QPSK, FEC_2_3,  6.1,  9.6},
->            ~                   ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:60:28: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 9.=
-599999999999999 to 9 [-Wliteral-conversion]
->            {   QPSK, FEC_2_3,  6.1,  9.6},
->            ~                         ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:61:22: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 7.=
-2 to 7 [-Wliteral-conversion]
->            {   QPSK, FEC_3_4,  7.2, 12.4},
->            ~                   ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:61:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 12=
-.4 to 12 [-Wliteral-conversion]
->            {   QPSK, FEC_3_4,  7.2, 12.4},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:62:22: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 8.=
-5 to 8 [-Wliteral-conversion]
->            {   QPSK, FEC_5_6,  8.5, 15.6},
->            ~                   ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:62:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 15=
-.6 to 15 [-Wliteral-conversion]
->            {   QPSK, FEC_5_6,  8.5, 15.6},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:63:22: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 9.=
-199999999999999 to 9 [-Wliteral-conversion]
->            {   QPSK, FEC_7_8,  9.2, 17.5},
->            ~                   ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:63:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 17=
-.5 to 17 [-Wliteral-conversion]
->            {   QPSK, FEC_7_8,  9.2, 17.5},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:65:22: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 9.=
-800000000000001 to 9 [-Wliteral-conversion]
->            { QAM_16, FEC_1_2,  9.8, 11.8},
->            ~                   ^~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:65:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 11=
-.8 to 11 [-Wliteral-conversion]
->            { QAM_16, FEC_1_2,  9.8, 11.8},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:66:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 12=
-.1 to 12 [-Wliteral-conversion]
->            { QAM_16, FEC_2_3, 12.1, 15.3},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:66:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 15=
-.3 to 15 [-Wliteral-conversion]
->            { QAM_16, FEC_2_3, 12.1, 15.3},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:67:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 13=
-.4 to 13 [-Wliteral-conversion]
->            { QAM_16, FEC_3_4, 13.4, 18.1},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:67:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 18=
-.1 to 18 [-Wliteral-conversion]
->            { QAM_16, FEC_3_4, 13.4, 18.1},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:68:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 14=
-.8 to 14 [-Wliteral-conversion]
->            { QAM_16, FEC_5_6, 14.8, 21.3},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:68:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 21=
-.3 to 21 [-Wliteral-conversion]
->            { QAM_16, FEC_5_6, 14.8, 21.3},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:69:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 15=
-.7 to 15 [-Wliteral-conversion]
->            { QAM_16, FEC_7_8, 15.7, 23.6},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:69:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 23=
-.6 to 23 [-Wliteral-conversion]
->            { QAM_16, FEC_7_8, 15.7, 23.6},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:72:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 19=
-.9 to 19 [-Wliteral-conversion]
->            { QAM_64, FEC_2_3, 19.9, 25.4},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:72:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 25=
-.4 to 25 [-Wliteral-conversion]
->            { QAM_64, FEC_2_3, 19.9, 25.4},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:73:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 24=
-.9 to 24 [-Wliteral-conversion]
->            { QAM_64, FEC_3_4, 24.9, 27.9},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:73:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 27=
-.9 to 27 [-Wliteral-conversion]
->            { QAM_64, FEC_3_4, 24.9, 27.9},
->            ~                        ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:74:21: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 21=
-.3 to 21 [-Wliteral-conversion]
->            { QAM_64, FEC_5_6, 21.3, 23.3},
->            ~                  ^~~~
->    drivers/media//dvb-frontends/dvb_dummy_fe.c:74:27: warning: implicit c=
-onversion from 'double' to 'u32' (aka 'unsigned int') changes value from 23=
-.3 to 23 [-Wliteral-conversion]
->            { QAM_64, FEC_5_6, 21.3, 23.3},
->            ~                        ^~~~
->    32 warnings generated.
->=20
-> vim +50 drivers/media//dvb-frontends/dvb_dummy_fe.c
->=20
->     42=09
->     43	struct dvb_dummy_fe_cnr_to_qual_s dvb_s2_cnr_2_qual[] =3D {
->     44		/* from libdvbv5 source code */
->     45		{ QPSK,  FEC_1_2,   9.,  12.},
->     46		{ QPSK,  FEC_2_3,  11.,  14.},
->     47		{ QPSK,  FEC_3_4,  12.,  15.},
->     48		{ QPSK,  FEC_5_6,  12.,  15.},
->     49		{ QPSK,  FEC_8_9,  13.,  16.},
->   > 50		{ QPSK,  FEC_9_10, 13.5, 16.5},
->     51		{ PSK_8, FEC_2_3,  14.5, 17.5},
->     52		{ PSK_8, FEC_3_4,  16.,  19.},
->     53		{ PSK_8, FEC_5_6,  17.5, 20.5},
->     54		{ PSK_8, FEC_8_9,  19.,  22.},
->     55	};
->     56=09
->=20
-> ---
-> 0-DAY CI Kernel Test Service, Intel Corporation
-> https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
->=20
+------=_Part_1825_1497536127.1581658377844
+Content-Type: text/plain; charset="UTF-8"
 
-Reported to LKML:
+Could not identify regression in *linux* in CI configuration tcwg_kernel/llvm-release-arm-next-allyesconfig.  See 'Bisect log' in the links below for bisection details.
 
-https://lore.kernel.org/lkml/20200214050813.GA37036@ubuntu-m2-xlarge-x86/
+First few errors in logs of bad:
+00:29:31 make: *** [vmlinux] Error 1
+Configuration details:
+rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+rr[linux_branch]="12975989976505c36ae24229eff0cff35dc5b61a"
 
-Cheers,
-Nathan
+Results regressed to (for bad == 9f01828e9e1655836fea88d0c8225d648850b33a)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+18431
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/20200214050920.GB28843%40ubuntu-m2-xlarge-x86.
+from (for baseline_rev == 0bf999f9c5e74c7ecf9dafb527146601e5c848b9)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+18464
+
+Artifacts of bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/artifact/artifacts/build-9f01828e9e1655836fea88d0c8225d648850b33a/
+Artifacts of baseline_rev build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/artifact/artifacts/build-0bf999f9c5e74c7ecf9dafb527146601e5c848b9/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/
+
+Reproduce builds:
+<cut>
+mkdir investigate-linux-9f01828e9e1655836fea88d0c8225d648850b33a
+cd investigate-linux-9f01828e9e1655836fea88d0c8225d648850b33a
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/artifact/artifacts/manifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/artifact/artifacts/manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+
+cd linux
+
+# Reproduce bad build
+git checkout --detach 9f01828e9e1655836fea88d0c8225d648850b33a
+../artifacts/test.sh
+
+# Reproduce baseline_rev build
+git checkout --detach 0bf999f9c5e74c7ecf9dafb527146601e5c848b9
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-release-arm-next-allyesconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-next-allyesconfig/57/consoleText
+
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/463174850.1826.1581658378539.JavaMail.javamailuser%40localhost.
+
+------=_Part_1825_1497536127.1581658377844--
