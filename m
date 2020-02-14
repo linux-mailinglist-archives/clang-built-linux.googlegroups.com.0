@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBIMGTPZAKGQEF3B5U6Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBXEGTPZAKGQE6LV7ZKA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93d.google.com (mail-ua1-x93d.google.com [IPv6:2607:f8b0:4864:20::93d])
-	by mail.lfdr.de (Postfix) with ESMTPS id E821C15DCC6
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 16:56:18 +0100 (CET)
-Received: by mail-ua1-x93d.google.com with SMTP id b15sf2331859uas.23
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 07:56:18 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581695778; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 81D1B15DD07
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 16:57:17 +0100 (CET)
+Received: by mail-yb1-xb3a.google.com with SMTP id 10sf7958842ybj.16
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 07:57:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581695836; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Fo7XuveTW+sCtlKiMYDDO00m662IqBKhoQl8psHmd6bxjIxLwQbbiBB+V1fpWDBB5x
-         IWfipHHpj1q4mAYC6yDmmXO4/4G2AmFXAuZ2eiE8M2l8l8j1DtuE7HpKlNODLEsberEI
-         j8bnlh2r8tpQ3lw8Lv8toNDTCpeuK2xE1o5e4TJFf0PzD5DJsH2MkiD6jqpq2gAR/gt7
-         TVYDc66YMiSY/4V4kOMt3XdlqWxj3aOLzPbLt+Nc+8uTy0zxrOjE8wsnAiE4dV26YDXB
-         jocEIoc8a+SXPPqVBMphrOvpB0bkkNceQRseEBpZ13/XdAApR4AZuU0lUn3E8PhwXon2
-         0ulw==
+        b=IpTQrUZ/uAPF+FPdx6J8+PYr/Q+ip1HVereZd4EkufE0987ClTaREG/lmiqD2qoLU+
+         Sjtry0gH3cFeuvMEOQtvv8kDQMXdT2dUuRoPS/jtvgmca2ePPFX7+ZpiFvzPLD78+A+g
+         6Eu2WG4fMpD+6+C5nFQ73UsmqRCk4FMqf+shF8+ve9oHHJQxNeIQkAsjIY3Pj6a6aWkZ
+         pbU8IvMKWD/aIYJ6dBXFyDGk03l6c+/cn6o8dXJLOLo5cfKhkM/5R8JiM5SfihJw1qLx
+         nNFPP/67jp0HU1YhkpZbTBArEzBzkU2qEwgZy4Bpyp4ogyeKqvVU+mAOP4Tc17HSneKD
+         d6FA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=dhC3zM1x1pbH0JxUx0r1kZ1QNMj8/d9UE1FiGVvOEUw=;
-        b=fTd9tHkiKxOKmWIOAA3AogAslltuIXTg2/s3qpZIoj79x6fW+gqMYA5WBe3dkAbGg/
-         NpWZSngSciy4f4ns7plJF9Pi+As1wMQCt9yy+RBQWDV/KtCTQLl6iciG+8+f4NZ4mHFm
-         KeRhAhFeDS91guM3WEWF816NwOLDn1L8SQcasJU9JQYX93eol5XhDiWapfPacf5t+rF6
-         xio9vj9e9ZgRPUKn7bxrZm3VoYGDjD3ZpELgzEEkgQx4Tn89gSf7lVRAoUzN09ucQRpm
-         vHRNCcKAD0jVjde/vcHcNPO0nHR/APe9kwDv8fe24+ttTzFaVZ8w8Uz+OCzyTAOVwOy/
-         tfaQ==
+        bh=or0LIb8SyvPw6LMe5kB/npwNKeIEuj98rGVZS4WC2Sg=;
+        b=ojaCaTBt8J+FQozRIUkwlBD5tSirp3thYSeXWeuF8qPndkXdAJtPxEYh2Pq5OIoNGH
+         SHschWWBacnHV7P+ntSKxWCkTFGMD5Ok1oJNiHiy3RWmlCRo+yZNZe0EhoxRckabqcR1
+         eco7Q+u5pPcbjI38yijAr1Kuw8NAdTGuxVLJna4TXopgFFTiQf7SLzb4Nl9NjtfrluDa
+         DDy2F2PH/makX8KYUZTVo+CRgJ3Kn30wSMZfdcKVAUES7n7sqK4MITK7QksoRxIFg53b
+         1ujJlU0WxkgoqF6Pw0Ek9sCvUhhvLmpHRdXe9mtSjszGmw1JaoVoZ4aiEtBPjCunzC5o
+         fLnw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=csEYfO49;
+       dkim=pass header.i=@kernel.org header.s=default header.b="HY6i/X4M";
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dhC3zM1x1pbH0JxUx0r1kZ1QNMj8/d9UE1FiGVvOEUw=;
-        b=QIgy3nrkrJJX+cyUTnn4LFfso1U685D4xSocl2Ch0Au0A8w4UT7XQwIFpCVXialoXb
-         qLZLQjZQXZc+eYFJQbeaxeWDCIhtePVYS8GNFR2Y4JYeMZKIk+XTNZpEyEUQjhxXaLd3
-         1HEuQG85e3jRmQ8O3PVkEmJ+0l/UGQvsHsufCbuX0i+ze+15Lv9Ivf6H6Om14zScBIeA
-         9z8V6ehf0mCnQYu1997lfD+HUVeaNgc6rP5cToKmtVWuvpeWOPLtg1bEOhwzMPOXc6zI
-         3ReSNmIJ9KnJGj3qL0XmlOXzyzBeq3ekHDpXd+CioWDVhu2wiLpCXB3Ep99bq+ixJMK/
-         FnGw==
+        bh=or0LIb8SyvPw6LMe5kB/npwNKeIEuj98rGVZS4WC2Sg=;
+        b=bkGw5eIXfioZDlt6Wyk97VsNrMkRUBeU1oqvVrVOPsRRN3aR0Iusj45uBvRMXkdBPI
+         PtgKW0aADWZBdeIKYN4ek6yRxmf2BHeZkOkqme1GCDGCql+6Zt+nGAA1eIKxrJbcCqzg
+         Dq5raHAWvMXxAJBbofer48VaHmqzF0jaQdhIp4kVvP0cxAAMTMoZsya3SAeFuOTnE38v
+         w+8TCWlzk1tWql6hY+BecLdlRTyvdbjJlH81T0JlRINAv0gBhnb1kzwmZLHZ77ObApki
+         pJPhGk8r9U23TZ3cTPz88WDxOmgC9QqV3itmGiPFcdsoToc4YTPqBJlSzdRb7YKQ3TGV
+         chDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,67 +49,71 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dhC3zM1x1pbH0JxUx0r1kZ1QNMj8/d9UE1FiGVvOEUw=;
-        b=WG+eUTh3iX2XVsnVMNzhuYsBEhafCZufaXSjQDEbUq7PdJcHOq3l/f1+L/zh/lLoYA
-         eHyUvKW0PYUzaV5sbvSDdDsiWCblBCSq33S16GrChi6Y/lmtejq+Ue1RYitc+nRn93C7
-         H/Jp4DM859AauWrjoCXI/YoqY4RMRaTn7vMHbdw9/gGHCJsNHlRyALnQextCQYpRmEgm
-         30th28OCZYynupP+aiNVyUkFCE4Dc6pcEPqPhxeSy2vgxxWSfL61kre+kWhYG668Zl/n
-         nGeqYni31R8MJljHrmmcKhhXWmzYxga/a5+ZKdDzXGWL5i0UHyrZvxgcZkwqKncRneuA
-         YsXg==
+        bh=or0LIb8SyvPw6LMe5kB/npwNKeIEuj98rGVZS4WC2Sg=;
+        b=Lm9OL84KMh5PboPJDH3XaORoHG0iG/VkdwjkN2vgNtx4EizakPdABMKEFNW4a141sr
+         QFJ/W+11WFxA2aVzD0TVDHV0ajU2+koaq3b4scOz2Pgt9Pgb3SO1JOTDFTehHKSsZCmj
+         E4Lycwb0K1RNCSKqfoLPdOqI16IxXj/EFZIBW6/grsw4+h6b+gqzHeSR93oW46/1aZFz
+         p4ZL4vRMtx/Ox4nEEnL5Eh2atWkT6R0Y1VNK5vNDHvSgwqYsLUHofhT+L9XhTNOmiPlq
+         3Yvo3WD0WdUDLDHyFzLYymXIgtsm/xcXOFJVnEowsvQJ5MZTkMz+ch+YBe05z5nYAP4R
+         /HlA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVZBO4tyolW1SOqoXo2aOIbbXGRwYUb4F3NSS6sB65dBCERXP77
-	AxFfAgPTeQD9JghQZx8qhOk=
-X-Google-Smtp-Source: APXvYqyggTIpbTaOqbwFcFXKHh14w3VswY0xm0SxY6xjOCy9xvCe5HbnZn3pJJ58oQ/MXn0kJNq15g==
-X-Received: by 2002:a1f:b6d7:: with SMTP id g206mr2103012vkf.8.1581695777930;
-        Fri, 14 Feb 2020 07:56:17 -0800 (PST)
+X-Gm-Message-State: APjAAAXo7NaQuhls+OD5xsr0C7HSfaLE04AGVsPIN9LEC7QmV37EKq0N
+	X+WR1hEL9ZX0HEQmJybIh1U=
+X-Google-Smtp-Source: APXvYqyYF40FypaV1weNQFKDJ3YXHTj8YCTMZ4Kf0DYzDqb41be1kPGleuzWjFcfM3TnIgNgjlG85w==
+X-Received: by 2002:a25:2c3:: with SMTP id 186mr3623808ybc.191.1581695836513;
+        Fri, 14 Feb 2020 07:57:16 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:ac5:cd2a:: with SMTP id a10ls138192vkm.4.gmail; Fri, 14 Feb
- 2020 07:56:17 -0800 (PST)
-X-Received: by 2002:a1f:9d8a:: with SMTP id g132mr2099868vke.39.1581695777474;
-        Fri, 14 Feb 2020 07:56:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581695777; cv=none;
+Received: by 2002:a25:bd4a:: with SMTP id p10ls514279ybm.4.gmail; Fri, 14 Feb
+ 2020 07:57:16 -0800 (PST)
+X-Received: by 2002:a25:ba46:: with SMTP id z6mr3588456ybj.227.1581695836142;
+        Fri, 14 Feb 2020 07:57:16 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581695836; cv=none;
         d=google.com; s=arc-20160816;
-        b=TWOhOd1f0d32hDXjUS7bi34k6QfQyECC6N85Wf5vL0/Vc+4bwqBon6z2pU6xHw+br8
-         rFTmiRyrvXqMfrvhjouDhVjEMdVY2+0h7tNS2RLlZzKBSYmgMwNZ4EmkvWNYKc5qUOgv
-         gPW4IfMkLMBv+NeC4O6gN33n12b/Qxm39GLTBeSiQ3wLuOHSonLIoxs91g5kl057n1Cx
-         vgALzFggcaRdTP2ThncJPo0QbGawoML0ur46lrB9/l5FCxVAnGekzMF5uiLoqQk75PiF
-         cNFCyQviNZi0Btip41JVgrnRS3vUqlj8qHncv7Qda2bsg1qThRlaI4QH2K0JYtNx0/cS
-         QS5w==
+        b=JhnfGRsx0v7RnVZqAKQs/VOu8Qjlf1OnIsrbQVZj05J0jOeV8qwsG3GuWgscG2uJwM
+         eJ9ewp150mXjKoV4V2AllDMAOjwXBwdVeruToGM2IbG19aQ7DamSr9bBK2cFeZwLEwlh
+         ZXPFXEUl21j3BPFOzCm0OjpBsF8qTSJqoLOjy52QBg0IzjCLkv5iAZNQ/qRE8dGtntx4
+         tojN69CjH4+dfNr1sMcDuZ2x1wiKoPVNVPLgMaWPBG06TP78ypqUv/Tsa1nq0JCje6fh
+         R0dAzQml4gU8k+3/qj+ORwctoacH73gwdj8O03rhhIlQuZnEsqG5mOHmipbXAIXTaB6k
+         +iJg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=VbKaMT4xc2ByhWNZgrCG3ZwxPTFPhlv8NULV1YSJJC8=;
-        b=cfzw1LfH5GwGRdIONbJcyVyrq933dj14eUMBEmBAUErKGI1Yvv43XiQ5Y2i84WFogL
-         HVXJ5gvF+UY/Bqhy6gQb1B00EbCk7dIlpTbz5RH+eRq7saKG0ombGqlp4R9QUI5vBKDf
-         s2y/DaGfkxl8J6SGGBaIXIYV9u99INqLKdJRBVWkxkwYL9OHzqEswXEuLW7IQjKdFWci
-         pQdtgQ8O7dqUziCOrnu6lU/Qj4EyzxWksh1+tIpfzeOd2XCSl6FBnz9+M3+lCEwsRfEk
-         +6J0BnCB0RpRb1tKnzeSIoo+wNuU4bFRJMHrAjNHpw4F2dX3MPM6EfsdOjXXvcDJrXig
-         YssA==
+        bh=2SR3+8u5XJTPhz/p/1IeQfnBm+JwvPVObWZNMJ/fBKE=;
+        b=GCo5VRFWJVhlah2MSp0PzMDldOiwEjvbdFrG8B6jLCocCJxVPZl4cVKtYNy71vqpFh
+         V5DZtWYgfjaktVXwVGnsY3os1a/RT/EutlvvgRezzbuS98PaLUUhFxho8PyxuLb3Oyzs
+         oBmF+NPMLVl/rkIt0q5JJ9DQcx4J7MihkxiynxNep7wanabutLUws81XJAsJIT3SaQBe
+         r2cYAApvY/kCo9MRlhC10GbBGeMgqSZpElC5uXBi97tIVF2l/dhXs+iZu+dAJETPtr27
+         ZYIeAMkyy7Kv6IgdoxqrZnGT4hq6BMaTfNTenpaZq2X0WFnhgaO1EViUoLUEc/Gqzh8u
+         b8gg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=csEYfO49;
+       dkim=pass header.i=@kernel.org header.s=default header.b="HY6i/X4M";
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id y126si275695vkc.5.2020.02.14.07.56.17
+        by gmr-mx.google.com with ESMTPS id x10si356189ybs.1.2020.02.14.07.57.16
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 Feb 2020 07:56:17 -0800 (PST)
+        Fri, 14 Feb 2020 07:57:16 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id B2F6B24654;
-	Fri, 14 Feb 2020 15:56:15 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id 3792C24680;
+	Fri, 14 Feb 2020 15:57:14 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Andrew Murray <andrew.murray@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 5.5 341/542] tty: synclink_gt: Adjust indentation in several functions
-Date: Fri, 14 Feb 2020 10:45:33 -0500
-Message-Id: <20200214154854.6746-341-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.5 387/542] arm64: lse: fix LSE atomics with LLVM's integrated assembler
+Date: Fri, 14 Feb 2020 10:46:19 -0500
+Message-Id: <20200214154854.6746-387-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200214154854.6746-1-sashal@kernel.org>
 References: <20200214154854.6746-1-sashal@kernel.org>
@@ -118,7 +122,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=csEYfO49;       spf=pass
+ header.i=@kernel.org header.s=default header.b="HY6i/X4M";       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -135,115 +139,218 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Sami Tolvanen <samitolvanen@google.com>
 
-[ Upstream commit 446e76873b5e4e70bdee5db2f2a894d5b4a7d081 ]
+[ Upstream commit e0d5896bd356cd577f9710a02d7a474cdf58426b ]
 
-Clang warns:
+Unlike gcc, clang considers each inline assembly block to be independent
+and therefore, when using the integrated assembler for inline assembly,
+any preambles that enable features must be repeated in each block.
 
-../drivers/tty/synclink_gt.c:1337:3: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-        if (C_CRTSCTS(tty)) {
-        ^
-../drivers/tty/synclink_gt.c:1335:2: note: previous statement is here
-        if (I_IXOFF(tty))
-        ^
-../drivers/tty/synclink_gt.c:2563:3: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-        if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-        ^
-../drivers/tty/synclink_gt.c:2561:2: note: previous statement is here
-        if (I_INPCK(info->port.tty))
-        ^
-../drivers/tty/synclink_gt.c:3221:3: warning: misleading indentation;
-statement is not part of the previous 'else' [-Wmisleading-indentation]
-        set_signals(info);
-        ^
-../drivers/tty/synclink_gt.c:3219:2: note: previous statement is here
-        else
-        ^
-3 warnings generated.
+This change defines __LSE_PREAMBLE and adds it to each inline assembly
+block that has LSE instructions, which allows them to be compiled also
+with clang's assembler.
 
-The indentation on these lines is not at all consistent, tabs and spaces
-are mixed together. Convert to just using tabs to be consistent with the
-Linux kernel coding style and eliminate these warnings from clang.
-
-Link: https://github.com/ClangBuiltLinux/linux/issues/822
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Link: https://lore.kernel.org/r/20191218023912.13827-1-natechancellor@gmail.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Link: https://github.com/ClangBuiltLinux/linux/issues/671
+Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+Tested-by: Andrew Murray <andrew.murray@arm.com>
+Tested-by: Kees Cook <keescook@chromium.org>
+Reviewed-by: Andrew Murray <andrew.murray@arm.com>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/tty/synclink_gt.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/atomic_lse.h | 19 +++++++++++++++++++
+ arch/arm64/include/asm/lse.h        |  6 +++---
+ 2 files changed, 22 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/tty/synclink_gt.c b/drivers/tty/synclink_gt.c
-index e8a9047de4516..36f1a4d870eb1 100644
---- a/drivers/tty/synclink_gt.c
-+++ b/drivers/tty/synclink_gt.c
-@@ -1334,10 +1334,10 @@ static void throttle(struct tty_struct * tty)
- 	DBGINFO(("%s throttle\n", info->device_name));
- 	if (I_IXOFF(tty))
- 		send_xchar(tty, STOP_CHAR(tty));
-- 	if (C_CRTSCTS(tty)) {
-+	if (C_CRTSCTS(tty)) {
- 		spin_lock_irqsave(&info->lock,flags);
- 		info->signals &= ~SerialSignal_RTS;
--	 	set_signals(info);
-+		set_signals(info);
- 		spin_unlock_irqrestore(&info->lock,flags);
- 	}
- }
-@@ -1359,10 +1359,10 @@ static void unthrottle(struct tty_struct * tty)
- 		else
- 			send_xchar(tty, START_CHAR(tty));
- 	}
-- 	if (C_CRTSCTS(tty)) {
-+	if (C_CRTSCTS(tty)) {
- 		spin_lock_irqsave(&info->lock,flags);
- 		info->signals |= SerialSignal_RTS;
--	 	set_signals(info);
-+		set_signals(info);
- 		spin_unlock_irqrestore(&info->lock,flags);
- 	}
- }
-@@ -2560,8 +2560,8 @@ static void change_params(struct slgt_info *info)
- 	info->read_status_mask = IRQ_RXOVER;
- 	if (I_INPCK(info->port.tty))
- 		info->read_status_mask |= MASK_PARITY | MASK_FRAMING;
-- 	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-- 		info->read_status_mask |= MASK_BREAK;
-+	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-+		info->read_status_mask |= MASK_BREAK;
- 	if (I_IGNPAR(info->port.tty))
- 		info->ignore_status_mask |= MASK_PARITY | MASK_FRAMING;
- 	if (I_IGNBRK(info->port.tty)) {
-@@ -3192,7 +3192,7 @@ static int tiocmset(struct tty_struct *tty,
- 		info->signals &= ~SerialSignal_DTR;
+diff --git a/arch/arm64/include/asm/atomic_lse.h b/arch/arm64/include/asm/atomic_lse.h
+index 574808b9df4c8..da3280f639cd7 100644
+--- a/arch/arm64/include/asm/atomic_lse.h
++++ b/arch/arm64/include/asm/atomic_lse.h
+@@ -14,6 +14,7 @@
+ static inline void __lse_atomic_##op(int i, atomic_t *v)			\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ "	" #asm_op "	%w[i], %[v]\n"					\
+ 	: [i] "+r" (i), [v] "+Q" (v->counter)				\
+ 	: "r" (v));							\
+@@ -30,6 +31,7 @@ ATOMIC_OP(add, stadd)
+ static inline int __lse_atomic_fetch_##op##name(int i, atomic_t *v)	\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ "	" #asm_op #mb "	%w[i], %w[i], %[v]"				\
+ 	: [i] "+r" (i), [v] "+Q" (v->counter)				\
+ 	: "r" (v)							\
+@@ -58,6 +60,7 @@ static inline int __lse_atomic_add_return##name(int i, atomic_t *v)	\
+ 	u32 tmp;							\
+ 									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	ldadd" #mb "	%w[i], %w[tmp], %[v]\n"			\
+ 	"	add	%w[i], %w[i], %w[tmp]"				\
+ 	: [i] "+r" (i), [v] "+Q" (v->counter), [tmp] "=&r" (tmp)	\
+@@ -77,6 +80,7 @@ ATOMIC_OP_ADD_RETURN(        , al, "memory")
+ static inline void __lse_atomic_and(int i, atomic_t *v)
+ {
+ 	asm volatile(
++	__LSE_PREAMBLE
+ 	"	mvn	%w[i], %w[i]\n"
+ 	"	stclr	%w[i], %[v]"
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)
+@@ -87,6 +91,7 @@ static inline void __lse_atomic_and(int i, atomic_t *v)
+ static inline int __lse_atomic_fetch_and##name(int i, atomic_t *v)	\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	mvn	%w[i], %w[i]\n"					\
+ 	"	ldclr" #mb "	%w[i], %w[i], %[v]"			\
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)				\
+@@ -106,6 +111,7 @@ ATOMIC_FETCH_OP_AND(        , al, "memory")
+ static inline void __lse_atomic_sub(int i, atomic_t *v)
+ {
+ 	asm volatile(
++	__LSE_PREAMBLE
+ 	"	neg	%w[i], %w[i]\n"
+ 	"	stadd	%w[i], %[v]"
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)
+@@ -118,6 +124,7 @@ static inline int __lse_atomic_sub_return##name(int i, atomic_t *v)	\
+ 	u32 tmp;							\
+ 									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	neg	%w[i], %w[i]\n"					\
+ 	"	ldadd" #mb "	%w[i], %w[tmp], %[v]\n"			\
+ 	"	add	%w[i], %w[i], %w[tmp]"				\
+@@ -139,6 +146,7 @@ ATOMIC_OP_SUB_RETURN(        , al, "memory")
+ static inline int __lse_atomic_fetch_sub##name(int i, atomic_t *v)	\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	neg	%w[i], %w[i]\n"					\
+ 	"	ldadd" #mb "	%w[i], %w[i], %[v]"			\
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)				\
+@@ -159,6 +167,7 @@ ATOMIC_FETCH_OP_SUB(        , al, "memory")
+ static inline void __lse_atomic64_##op(s64 i, atomic64_t *v)		\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ "	" #asm_op "	%[i], %[v]\n"					\
+ 	: [i] "+r" (i), [v] "+Q" (v->counter)				\
+ 	: "r" (v));							\
+@@ -175,6 +184,7 @@ ATOMIC64_OP(add, stadd)
+ static inline long __lse_atomic64_fetch_##op##name(s64 i, atomic64_t *v)\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ "	" #asm_op #mb "	%[i], %[i], %[v]"				\
+ 	: [i] "+r" (i), [v] "+Q" (v->counter)				\
+ 	: "r" (v)							\
+@@ -203,6 +213,7 @@ static inline long __lse_atomic64_add_return##name(s64 i, atomic64_t *v)\
+ 	unsigned long tmp;						\
+ 									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	ldadd" #mb "	%[i], %x[tmp], %[v]\n"			\
+ 	"	add	%[i], %[i], %x[tmp]"				\
+ 	: [i] "+r" (i), [v] "+Q" (v->counter), [tmp] "=&r" (tmp)	\
+@@ -222,6 +233,7 @@ ATOMIC64_OP_ADD_RETURN(        , al, "memory")
+ static inline void __lse_atomic64_and(s64 i, atomic64_t *v)
+ {
+ 	asm volatile(
++	__LSE_PREAMBLE
+ 	"	mvn	%[i], %[i]\n"
+ 	"	stclr	%[i], %[v]"
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)
+@@ -232,6 +244,7 @@ static inline void __lse_atomic64_and(s64 i, atomic64_t *v)
+ static inline long __lse_atomic64_fetch_and##name(s64 i, atomic64_t *v)	\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	mvn	%[i], %[i]\n"					\
+ 	"	ldclr" #mb "	%[i], %[i], %[v]"			\
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)				\
+@@ -251,6 +264,7 @@ ATOMIC64_FETCH_OP_AND(        , al, "memory")
+ static inline void __lse_atomic64_sub(s64 i, atomic64_t *v)
+ {
+ 	asm volatile(
++	__LSE_PREAMBLE
+ 	"	neg	%[i], %[i]\n"
+ 	"	stadd	%[i], %[v]"
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)
+@@ -263,6 +277,7 @@ static inline long __lse_atomic64_sub_return##name(s64 i, atomic64_t *v)	\
+ 	unsigned long tmp;						\
+ 									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	neg	%[i], %[i]\n"					\
+ 	"	ldadd" #mb "	%[i], %x[tmp], %[v]\n"			\
+ 	"	add	%[i], %[i], %x[tmp]"				\
+@@ -284,6 +299,7 @@ ATOMIC64_OP_SUB_RETURN(        , al, "memory")
+ static inline long __lse_atomic64_fetch_sub##name(s64 i, atomic64_t *v)	\
+ {									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	neg	%[i], %[i]\n"					\
+ 	"	ldadd" #mb "	%[i], %[i], %[v]"			\
+ 	: [i] "+&r" (i), [v] "+Q" (v->counter)				\
+@@ -305,6 +321,7 @@ static inline s64 __lse_atomic64_dec_if_positive(atomic64_t *v)
+ 	unsigned long tmp;
  
- 	spin_lock_irqsave(&info->lock,flags);
-- 	set_signals(info);
-+	set_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- 	return 0;
- }
-@@ -3203,7 +3203,7 @@ static int carrier_raised(struct tty_port *port)
- 	struct slgt_info *info = container_of(port, struct slgt_info, port);
+ 	asm volatile(
++	__LSE_PREAMBLE
+ 	"1:	ldr	%x[tmp], %[v]\n"
+ 	"	subs	%[ret], %x[tmp], #1\n"
+ 	"	b.lt	2f\n"
+@@ -332,6 +349,7 @@ __lse__cmpxchg_case_##name##sz(volatile void *ptr,			\
+ 	unsigned long tmp;						\
+ 									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	mov	%" #w "[tmp], %" #w "[old]\n"			\
+ 	"	cas" #mb #sfx "\t%" #w "[tmp], %" #w "[new], %[v]\n"	\
+ 	"	mov	%" #w "[ret], %" #w "[tmp]"			\
+@@ -379,6 +397,7 @@ __lse__cmpxchg_double##name(unsigned long old1,				\
+ 	register unsigned long x4 asm ("x4") = (unsigned long)ptr;	\
+ 									\
+ 	asm volatile(							\
++	__LSE_PREAMBLE							\
+ 	"	casp" #mb "\t%[old1], %[old2], %[new1], %[new2], %[v]\n"\
+ 	"	eor	%[old1], %[old1], %[oldval1]\n"			\
+ 	"	eor	%[old2], %[old2], %[oldval2]\n"			\
+diff --git a/arch/arm64/include/asm/lse.h b/arch/arm64/include/asm/lse.h
+index 80b3882781496..73834996c4b6d 100644
+--- a/arch/arm64/include/asm/lse.h
++++ b/arch/arm64/include/asm/lse.h
+@@ -6,6 +6,8 @@
  
- 	spin_lock_irqsave(&info->lock,flags);
-- 	get_signals(info);
-+	get_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- 	return (info->signals & SerialSignal_DCD) ? 1 : 0;
- }
-@@ -3218,7 +3218,7 @@ static void dtr_rts(struct tty_port *port, int on)
- 		info->signals |= SerialSignal_RTS | SerialSignal_DTR;
- 	else
- 		info->signals &= ~(SerialSignal_RTS | SerialSignal_DTR);
-- 	set_signals(info);
-+	set_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- }
+ #if defined(CONFIG_AS_LSE) && defined(CONFIG_ARM64_LSE_ATOMICS)
+ 
++#define __LSE_PREAMBLE	".arch armv8-a+lse\n"
++
+ #include <linux/compiler_types.h>
+ #include <linux/export.h>
+ #include <linux/jump_label.h>
+@@ -14,8 +16,6 @@
+ #include <asm/atomic_lse.h>
+ #include <asm/cpucaps.h>
+ 
+-__asm__(".arch_extension	lse");
+-
+ extern struct static_key_false cpu_hwcap_keys[ARM64_NCAPS];
+ extern struct static_key_false arm64_const_caps_ready;
+ 
+@@ -34,7 +34,7 @@ static inline bool system_uses_lse_atomics(void)
+ 
+ /* In-line patching at runtime */
+ #define ARM64_LSE_ATOMIC_INSN(llsc, lse)				\
+-	ALTERNATIVE(llsc, lse, ARM64_HAS_LSE_ATOMICS)
++	ALTERNATIVE(llsc, __LSE_PREAMBLE lse, ARM64_HAS_LSE_ATOMICS)
+ 
+ #else	/* CONFIG_AS_LSE && CONFIG_ARM64_LSE_ATOMICS */
  
 -- 
 2.20.1
@@ -251,4 +358,4 @@ index e8a9047de4516..36f1a4d870eb1 100644
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214154854.6746-341-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214154854.6746-387-sashal%40kernel.org.
