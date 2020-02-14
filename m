@@ -1,32 +1,32 @@
-Return-Path: <clang-built-linux+bncBDTZTRGMXIFBB6ESTPZAKGQEKPZ56BI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDTZTRGMXIFBBB4TTPZAKGQEYMSXXZY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pg1-x538.google.com (mail-pg1-x538.google.com [IPv6:2607:f8b0:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id 036EC15E25A
-	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 17:23:22 +0100 (CET)
-Received: by mail-pg1-x538.google.com with SMTP id 37sf6389239pgq.0
-        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 08:23:21 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581697400; cv=pass;
+Received: from mail-vk1-xa3d.google.com (mail-vk1-xa3d.google.com [IPv6:2607:f8b0:4864:20::a3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3FA1815E264
+	for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 17:23:36 +0100 (CET)
+Received: by mail-vk1-xa3d.google.com with SMTP id s205sf3483289vka.17
+        for <lists+clang-built-linux@lfdr.de>; Fri, 14 Feb 2020 08:23:36 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581697415; cv=pass;
         d=google.com; s=arc-20160816;
-        b=NM3Q35VZmQY+DNejewEbGrb+yQxnmNTdwk9nu+DCIqTSeCx+rwljZmd3xWnfBFMFMi
-         Kw3hzemHs1H+YfGYEHEQKyQM9J8P9Zf1xR3hyE4qtMrRWfBwBhSimDjspEp5+lAPUEd+
-         8TFJGXPHKnfKu+GQ12NsfXr+fd1RuaSgpgoZFwWUWI08HqOXep5/tCTY86qNKskXgWKF
-         gFjl1l0edxrgc8DKueAFVKu1BiTLKUVh5STDyBKTIr+PJSdvW4hKqkmF6W2Q2nJsXQ64
-         SbhEVQ92tRe7LOD7L3Gu8x3QbH2g+7JVhx0s+2Q+LVVgTL1qUEQHIJ8Eg+wrd/66tPxS
-         GKRg==
+        b=MsPLctXkkK4aPq3RBgPgB8f6NPQ1Jo5CW8gUA3upmCcyCQM6gEB3ieqvOm41sEv5im
+         KJI3YMhSBaQHwHhahcasC3K5TjIS/Ld87UJ/BObFNJBVSgxZfiLpVnde3KjiQHdBpSSl
+         kL9jW3nBEbmJRVsvSSZzJ6qoP5aZaM0Gt0Y9KmqoqPf1WuADOeIzMfcRor1fpicAYGIu
+         W/HlQ52xBXDjQn4b/x6l69kn5Fd5CXE1AutmRvsZ1BZAHiaXUHtgkOZ2+sZlBAPglq6b
+         qHx3TSzr8tBEndRAZQqJlM2q8/ocXp9gEbRN7/VdsnJgcZsWerk4ncRl03onMNwB9oFM
+         X7jg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=ftHIzCN6ci9mDrXsYsavaaw/LKGuIWSotlvjFxWmC+k=;
-        b=SW4uFfvzktO05tfayX7QehlYcHC8au/jKUgJNL3sPSrzxq6eFNucbx/kcns6uOluMj
-         pMFbFKAApNbzb/rHgW7Zwuqn2Q0V68bjLqa0xMXNWPLf9izfZsvjm8Izf6fApZxcy2ft
-         cwUttyxkgKrdkxBy/DWQSrWzW7TmtHu1rUhzVR52lYhQ5hKn1IlTDFVZtz5AE/O+PWjj
-         kdoviRWcDC5bZUMJnSyJ8BAfH2eCSWY8tQY17IsV/6h5WniipXJKXPZK3sT40Fu+60hQ
-         sUQHY6KNxs2fUbjUKJbncQ1IL7rW32xG5Xre+sIfX3rbwSevzU9ErqlNzYdF+Tw1gtDN
-         Su5g==
+        bh=F1G3RgCx8vaH4GA2nTuB17EtvG8i/b/tfp/gGNBNgCk=;
+        b=m4TctgJn4lza1qj9nFlUW2XWklV9nT7ChvhjU2SG/E8bV/HnWa33XjZCFj5c49Q2E5
+         +E5i8EZnipoF7ms8qXQkMtv6mKZF86pDPAUfSslN7sXknGVNXivzqPKwAFpxStlRaRer
+         +UEhO3uHZuVaVWZjtvD2ltiuYVYyndwA8AbK/0PdxswwOAfPaJXQUgyQHv5D5aDD9+XU
+         9zZyJIy4Kr0e9JDbEKuqjoZVENg3YjxFstQyMll096+Gs5eTrj8b8QmfISHXE+ZdvScG
+         0HdPz9PnUpqjtd1x6QsbuE27CfuTGg/ES8/Lt8aAOyhgeoLAu4XKs2KcBz9jUkLv3Tty
+         FlIQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=mMTek149;
+       dkim=pass header.i=@kernel.org header.s=default header.b=wwbJU1AK;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ftHIzCN6ci9mDrXsYsavaaw/LKGuIWSotlvjFxWmC+k=;
-        b=mCJ5d6+3OvBlXDKT4Zvvz5t58M9ItAtPW3qPHlDp0Bu4K4qaAEiEMSwS6l7e6w65Y8
-         gomSHSzpBWLli2sgOUgIDPflZzDjcAZZciDiRXAJYGbAc5rZhg1YD4kAcRWDfbwgZCxe
-         m+WLJTni5YQXhnd85sgGFKOYUHQ2JegKNVKMATAuEmhkoGhE9XhJLG1GG/sm1irrBKZR
-         84JZyAxDcKdSSXQO8Vdz6C3BxmaZ0YLwN/e7PeSNuHvy5akEfl73w40FcXKQsYLRR4/v
-         7tD7l0zsArlBaD6rFvayohE0kHP9XnMTvSFeknNWtmQmkWKlmDRTrih1zCkkv9T+BbIl
-         gAhQ==
+        bh=F1G3RgCx8vaH4GA2nTuB17EtvG8i/b/tfp/gGNBNgCk=;
+        b=fQAZJ8JfmCAl2BHmKQf1sJVF8Kn39Qla7FX1NIu1akaRHEWf2wk1B5XNY3egBrZILh
+         L6TvUKwf45jSx82u44MjBfei+pLFOjszAa8EVPk5/2iO24UuSfEOvsQNp5uRdO/fNvMf
+         vYpe4f+uFZWF2Bphj9OTm4oQkzFeMNKquJBYiDYkFnl+QwE/6p8/PW8vZwrARGJWeeHE
+         FhjiT3BVhoToLeqSZcHuIf5B/VgSEYP1KvEltcqV3/9YhlSblScD/T5HpCwifWxk/ohM
+         8CRGQGgG1gJzXj2ZpYnASXBXC9A8g4RCXCiqYKuC81bmqRQZJP8TUjEuDTQ8+STOzpor
+         40uw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,67 +49,70 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=ftHIzCN6ci9mDrXsYsavaaw/LKGuIWSotlvjFxWmC+k=;
-        b=OZwhyNYSCtTtcP1DSCRCVY5f+Ht1v7N1Vij/MZGACn0rk8gFJT/hgQzhap9wk/BaP6
-         lc1UGW64BtfUfmdw7YeYYGzWxxaDC6XNkCfp+b5fLT+mXn24r/fsSZHnWuantixDck1X
-         4aXvP8GDSSjOfV6+FHdU45i5g6m4cBJFL0UItMGQl2no4j2qXD2nQSplk30mHtkd1nk+
-         ygu5cGUHw0Oy0pbL6iZqmM/KFJENAHg/HYkTqcTJ0DVzUi4qaQm4OvEKpgEOSp/dWwj5
-         YT/Tgh0R/lYhMFw5hY2Im+0davw/M1cknA+4tWyoPqwIXR4jAVfm9fkXhEgTqTllGIFy
-         dGIg==
+        bh=F1G3RgCx8vaH4GA2nTuB17EtvG8i/b/tfp/gGNBNgCk=;
+        b=KgV1QddOU24y90FZS7w7ItgOeUUDLPYPh26PXM59+zkQPwTBRUV4pKqkSUiL3IZluC
+         sRuF/P9FWxzRHMt82g138ETTcRWcB1Jkl7pYYzfLTzU8bmx6Ud4ubXS2Ft3JmUYNwUdI
+         tNzhamIvj3Cjmy8Ch5qwq2cU1i9aDrWclYMWSFtXAyv+ndcaJZYjPq6oJIyKNmqP+9Vz
+         fNZhQRNC1pChTDDjL0OwIRFz71G7ljfnTc130fmT9HoFz3R7/gKLPCv4sy1R7XVNC2A4
+         PbLVTYyOk67TMZs620gK4TKkHFkQQKVTefI8R252Jw12li5PyiNFiptJ01h1Dn1yYXFP
+         /YTA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXqoxSUsdbZI7TCCQr7XP7quIl6RnRQgBzl+44nJ7XXw1w92u03
-	z/wNIiaMkIhQ5guPqjtEnvo=
-X-Google-Smtp-Source: APXvYqz+kURRD9i2irolZZ+Edrsg7PZrlZQjYuq78daHu61Krxwhz8mvlM8oWZ8X17TzLihraH3tRQ==
-X-Received: by 2002:a62:7c96:: with SMTP id x144mr4428497pfc.7.1581697400638;
-        Fri, 14 Feb 2020 08:23:20 -0800 (PST)
+X-Gm-Message-State: APjAAAUWV1jqKi8k+iGXqGo8rmL/vYHCxxerML+gkbfydTY1PKQf2UgF
+	CYr5VoCWKu0v+MvFELCGDlc=
+X-Google-Smtp-Source: APXvYqyFY29vnDubNHuGIXiq5Jy55KkD7NEKxLN1m5LUGtasXlIDsL1Bj2roCsgss9MZZMhkY6SKQw==
+X-Received: by 2002:a1f:dc42:: with SMTP id t63mr2167415vkg.5.1581697415279;
+        Fri, 14 Feb 2020 08:23:35 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:b601:: with SMTP id b1ls1647248pls.3.gmail; Fri, 14
- Feb 2020 08:23:20 -0800 (PST)
-X-Received: by 2002:a17:90a:5285:: with SMTP id w5mr4615802pjh.77.1581697400185;
-        Fri, 14 Feb 2020 08:23:20 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581697400; cv=none;
+Received: by 2002:ab0:644e:: with SMTP id j14ls170260uap.8.gmail; Fri, 14 Feb
+ 2020 08:23:34 -0800 (PST)
+X-Received: by 2002:ab0:4aca:: with SMTP id t10mr2079676uae.89.1581697414737;
+        Fri, 14 Feb 2020 08:23:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581697414; cv=none;
         d=google.com; s=arc-20160816;
-        b=r0l5ZbeVNIi+RV6mf0/3XGkiRVHYDXbUZD/I/tGJgyk1xcTcH5RieHG7wRFrvja5zV
-         wvSlPXb8aKeCH/vfnwRisAE2FTaIVUWA2MhLtI9rSmzH/jJwyvik8t9uPiuJEOgoq/4D
-         mvucYbTD/2Wjll9O/v2R9bNcxfUs/h6iUcvmTdRWZrjcPNQ1ZtqV8+8UBvCfSu7b1IE5
-         MoJt+0j5Z55rUyIsMI/rCKdzpVqMNSqts6fzGqLiS/iCchyzJgMGsFAwa77v8HbVTJIX
-         3P8zt8TVrk07QcmziZ4gzfzoaueegxU4RiuubNcrjCQ64N2IbNR7+xYhRtndIUdAthAS
-         xFTQ==
+        b=KHI0l5w/R25QGEtKc2o11MCivg32K9Qvr8koC+/3axy4NM2VevWePU86RLvNUNG8kS
+         IxB2mVjR/wYGdC66bEzNBBqv0Ouq6tFAEwb4PfIEJW/2RD+fzidAiPXBD3BK5SFwpNoo
+         uGNBHo8wOcGU+P7bRXK2YSV82KSqfvfoDkMpc+6wdWKGTWmfekzMzcEK6avfrkgGaVn7
+         gWamZeoH8z4swjM1ln3PP6eyaKzRdrdkUveh6LaVKpEYFjuaPhE0wIQ9NzZMyo9/xxFZ
+         iymvh/puXp6nFTOloJkfA71Hn4lTNTd4J4fsJm0TDYeb0TGW9GudIYuBlkh4TexIJwQS
+         F8yQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=/ADEd+oC5Do2K1psRjHgKMXoPQhfB9OWxgJ0Zao4hKE=;
-        b=bivG8QFePBDBXDdI0rmItYdiSBf5C6PaLQzVz2HvIrFyqXYufucGGTFYBNUG2hu5Vy
-         xldrJ8OwJ+WYVbWqCxdBr5US+1jtqFPRSY53YUOgSuNjyfR62NP28xjrn6+E/hRzwOEV
-         YPTLIiLt4QNnVNYeuauZyvjBTZMjxv+K6Kq1IOlV2h28IuFuHafVJznmXlukSPyOcfe/
-         YWPz4xAR2Ck/6vNz12gqqzNf0pGY3mr8t8InlbOGLFvQ6rfXvByQSUB6y43o7Mjd0xMB
-         eq9NyRo1oHmsl5TbX+0g8alKxlytxkkNkEzQ+q/446q2H9JRc3Yy15otKOHSBIUzvKHN
-         5lKA==
+        bh=26e4Gl6HyuXH10D/TrxqxJTDnFM/q2djaEQI5bxneZY=;
+        b=EMq6vJ0ilUaceSF3llFTUedKfabeOsDR2a42H9tGs+CJMo642oYUXIwG9/gH3DRhfb
+         tQTIsJ4ahBOVXjqUH0MM9iegfJncgY+T+8sr41ZrOdEHVaU7cUdgg8xX1pZoiVnldMD6
+         TLbv5wUvKXcjW09q9xMls25dpATLusOBmwdDnyUWu4ghKo1BM9jDQFOkwcDJmuJTUeIw
+         wLcA2HKb6OrlytSV1hCHWXllvyS3fjfVp7ZxRSSrd2hXzt8rhuOdH7GS0y89dZR8OezG
+         wgBGoMQC/aeMZc7tXUtcG3vsFxaXOEl3bfR6UUb+u5SlBe6efuefS4imt6T1lw2pr5bD
+         zH7g==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=mMTek149;
+       dkim=pass header.i=@kernel.org header.s=default header.b=wwbJU1AK;
        spf=pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=sashal@kernel.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id k1si269018pgj.0.2020.02.14.08.23.20
+        by gmr-mx.google.com with ESMTPS id i27si241162uat.1.2020.02.14.08.23.34
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 14 Feb 2020 08:23:20 -0800 (PST)
+        Fri, 14 Feb 2020 08:23:34 -0800 (PST)
 Received-SPF: pass (google.com: domain of sashal@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
 Received: from sasha-vm.mshome.net (c-73-47-72-35.hsd1.nh.comcast.net [73.47.72.35])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
 	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 376D02477A;
-	Fri, 14 Feb 2020 16:23:19 +0000 (UTC)
+	by mail.kernel.org (Postfix) with ESMTPSA id B408524780;
+	Fri, 14 Feb 2020 16:23:32 +0000 (UTC)
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: Sami Tolvanen <samitolvanen@google.com>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	clang-built-linux@googlegroups.com
-Subject: [PATCH AUTOSEL 4.9 093/141] tty: synclink_gt: Adjust indentation in several functions
-Date: Fri, 14 Feb 2020 11:20:33 -0500
-Message-Id: <20200214162122.19794-93-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.9 104/141] arm64: fix alternatives with LLVM's integrated assembler
+Date: Fri, 14 Feb 2020 11:20:44 -0500
+Message-Id: <20200214162122.19794-104-sashal@kernel.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200214162122.19794-1-sashal@kernel.org>
 References: <20200214162122.19794-1-sashal@kernel.org>
@@ -118,7 +121,7 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-Original-Sender: sashal@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=mMTek149;       spf=pass
+ header.i=@kernel.org header.s=default header.b=wwbJU1AK;       spf=pass
  (google.com: domain of sashal@kernel.org designates 198.145.29.99 as
  permitted sender) smtp.mailfrom=sashal@kernel.org;       dmarc=pass (p=NONE
  sp=NONE dis=NONE) header.from=kernel.org
@@ -135,120 +138,121 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-From: Nathan Chancellor <natechancellor@gmail.com>
+From: Sami Tolvanen <samitolvanen@google.com>
 
-[ Upstream commit 446e76873b5e4e70bdee5db2f2a894d5b4a7d081 ]
+[ Upstream commit c54f90c2627cc316d365e3073614731e17dbc631 ]
 
-Clang warns:
+LLVM's integrated assembler fails with the following error when
+building KVM:
 
-../drivers/tty/synclink_gt.c:1337:3: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-        if (C_CRTSCTS(tty)) {
-        ^
-../drivers/tty/synclink_gt.c:1335:2: note: previous statement is here
-        if (I_IXOFF(tty))
-        ^
-../drivers/tty/synclink_gt.c:2563:3: warning: misleading indentation;
-statement is not part of the previous 'if' [-Wmisleading-indentation]
-        if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-        ^
-../drivers/tty/synclink_gt.c:2561:2: note: previous statement is here
-        if (I_INPCK(info->port.tty))
-        ^
-../drivers/tty/synclink_gt.c:3221:3: warning: misleading indentation;
-statement is not part of the previous 'else' [-Wmisleading-indentation]
-        set_signals(info);
-        ^
-../drivers/tty/synclink_gt.c:3219:2: note: previous statement is here
-        else
-        ^
-3 warnings generated.
+  <inline asm>:12:6: error: expected absolute expression
+   .if kvm_update_va_mask == 0
+       ^
+  <inline asm>:21:6: error: expected absolute expression
+   .if kvm_update_va_mask == 0
+       ^
+  <inline asm>:24:2: error: unrecognized instruction mnemonic
+          NOT_AN_INSTRUCTION
+          ^
+  LLVM ERROR: Error parsing inline asm
 
-The indentation on these lines is not at all consistent, tabs and spaces
-are mixed together. Convert to just using tabs to be consistent with the
-Linux kernel coding style and eliminate these warnings from clang.
+These errors come from ALTERNATIVE_CB and __ALTERNATIVE_CFG,
+which test for the existence of the callback parameter in inline
+assembly using the following expression:
 
-Link: https://github.com/ClangBuiltLinux/linux/issues/822
-Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-Link: https://lore.kernel.org/r/20191218023912.13827-1-natechancellor@gmail.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+  " .if " __stringify(cb) " == 0\n"
+
+This works with GNU as, but isn't supported by LLVM. This change
+splits __ALTERNATIVE_CFG and ALTINSTR_ENTRY into separate macros
+to fix the LLVM build.
+
+Link: https://github.com/ClangBuiltLinux/linux/issues/472
+Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
+Tested-by: Nick Desaulniers <ndesaulniers@google.com>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/tty/synclink_gt.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/alternative.h | 32 ++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/tty/synclink_gt.c b/drivers/tty/synclink_gt.c
-index e645ee1cfd989..7446ce29f6770 100644
---- a/drivers/tty/synclink_gt.c
-+++ b/drivers/tty/synclink_gt.c
-@@ -1349,10 +1349,10 @@ static void throttle(struct tty_struct * tty)
- 	DBGINFO(("%s throttle\n", info->device_name));
- 	if (I_IXOFF(tty))
- 		send_xchar(tty, STOP_CHAR(tty));
-- 	if (C_CRTSCTS(tty)) {
-+	if (C_CRTSCTS(tty)) {
- 		spin_lock_irqsave(&info->lock,flags);
- 		info->signals &= ~SerialSignal_RTS;
--	 	set_signals(info);
-+		set_signals(info);
- 		spin_unlock_irqrestore(&info->lock,flags);
- 	}
- }
-@@ -1374,10 +1374,10 @@ static void unthrottle(struct tty_struct * tty)
- 		else
- 			send_xchar(tty, START_CHAR(tty));
- 	}
-- 	if (C_CRTSCTS(tty)) {
-+	if (C_CRTSCTS(tty)) {
- 		spin_lock_irqsave(&info->lock,flags);
- 		info->signals |= SerialSignal_RTS;
--	 	set_signals(info);
-+		set_signals(info);
- 		spin_unlock_irqrestore(&info->lock,flags);
- 	}
- }
-@@ -2576,8 +2576,8 @@ static void change_params(struct slgt_info *info)
- 	info->read_status_mask = IRQ_RXOVER;
- 	if (I_INPCK(info->port.tty))
- 		info->read_status_mask |= MASK_PARITY | MASK_FRAMING;
-- 	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-- 		info->read_status_mask |= MASK_BREAK;
-+	if (I_BRKINT(info->port.tty) || I_PARMRK(info->port.tty))
-+		info->read_status_mask |= MASK_BREAK;
- 	if (I_IGNPAR(info->port.tty))
- 		info->ignore_status_mask |= MASK_PARITY | MASK_FRAMING;
- 	if (I_IGNBRK(info->port.tty)) {
-@@ -3208,7 +3208,7 @@ static int tiocmset(struct tty_struct *tty,
- 		info->signals &= ~SerialSignal_DTR;
+diff --git a/arch/arm64/include/asm/alternative.h b/arch/arm64/include/asm/alternative.h
+index 7e842dcae4509..3626655175a2e 100644
+--- a/arch/arm64/include/asm/alternative.h
++++ b/arch/arm64/include/asm/alternative.h
+@@ -29,13 +29,16 @@ typedef void (*alternative_cb_t)(struct alt_instr *alt,
+ void __init apply_alternatives_all(void);
+ void apply_alternatives(void *start, size_t length);
  
- 	spin_lock_irqsave(&info->lock,flags);
-- 	set_signals(info);
-+	set_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- 	return 0;
- }
-@@ -3219,7 +3219,7 @@ static int carrier_raised(struct tty_port *port)
- 	struct slgt_info *info = container_of(port, struct slgt_info, port);
+-#define ALTINSTR_ENTRY(feature,cb)					      \
++#define ALTINSTR_ENTRY(feature)					              \
+ 	" .word 661b - .\n"				/* label           */ \
+-	" .if " __stringify(cb) " == 0\n"				      \
+ 	" .word 663f - .\n"				/* new instruction */ \
+-	" .else\n"							      \
++	" .hword " __stringify(feature) "\n"		/* feature bit     */ \
++	" .byte 662b-661b\n"				/* source len      */ \
++	" .byte 664f-663f\n"				/* replacement len */
++
++#define ALTINSTR_ENTRY_CB(feature, cb)					      \
++	" .word 661b - .\n"				/* label           */ \
+ 	" .word " __stringify(cb) "- .\n"		/* callback */	      \
+-	" .endif\n"							      \
+ 	" .hword " __stringify(feature) "\n"		/* feature bit     */ \
+ 	" .byte 662b-661b\n"				/* source len      */ \
+ 	" .byte 664f-663f\n"				/* replacement len */
+@@ -56,15 +59,14 @@ void apply_alternatives(void *start, size_t length);
+  *
+  * Alternatives with callbacks do not generate replacement instructions.
+  */
+-#define __ALTERNATIVE_CFG(oldinstr, newinstr, feature, cfg_enabled, cb)	\
++#define __ALTERNATIVE_CFG(oldinstr, newinstr, feature, cfg_enabled)	\
+ 	".if "__stringify(cfg_enabled)" == 1\n"				\
+ 	"661:\n\t"							\
+ 	oldinstr "\n"							\
+ 	"662:\n"							\
+ 	".pushsection .altinstructions,\"a\"\n"				\
+-	ALTINSTR_ENTRY(feature,cb)					\
++	ALTINSTR_ENTRY(feature)						\
+ 	".popsection\n"							\
+-	" .if " __stringify(cb) " == 0\n"				\
+ 	".pushsection .altinstr_replacement, \"a\"\n"			\
+ 	"663:\n\t"							\
+ 	newinstr "\n"							\
+@@ -72,17 +74,25 @@ void apply_alternatives(void *start, size_t length);
+ 	".popsection\n\t"						\
+ 	".org	. - (664b-663b) + (662b-661b)\n\t"			\
+ 	".org	. - (662b-661b) + (664b-663b)\n"			\
+-	".else\n\t"							\
++	".endif\n"
++
++#define __ALTERNATIVE_CFG_CB(oldinstr, feature, cfg_enabled, cb)	\
++	".if "__stringify(cfg_enabled)" == 1\n"				\
++	"661:\n\t"							\
++	oldinstr "\n"							\
++	"662:\n"							\
++	".pushsection .altinstructions,\"a\"\n"				\
++	ALTINSTR_ENTRY_CB(feature, cb)					\
++	".popsection\n"							\
+ 	"663:\n\t"							\
+ 	"664:\n\t"							\
+-	".endif\n"							\
+ 	".endif\n"
  
- 	spin_lock_irqsave(&info->lock,flags);
-- 	get_signals(info);
-+	get_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- 	return (info->signals & SerialSignal_DCD) ? 1 : 0;
- }
-@@ -3234,7 +3234,7 @@ static void dtr_rts(struct tty_port *port, int on)
- 		info->signals |= SerialSignal_RTS | SerialSignal_DTR;
- 	else
- 		info->signals &= ~(SerialSignal_RTS | SerialSignal_DTR);
-- 	set_signals(info);
-+	set_signals(info);
- 	spin_unlock_irqrestore(&info->lock,flags);
- }
+ #define _ALTERNATIVE_CFG(oldinstr, newinstr, feature, cfg, ...)	\
+-	__ALTERNATIVE_CFG(oldinstr, newinstr, feature, IS_ENABLED(cfg), 0)
++	__ALTERNATIVE_CFG(oldinstr, newinstr, feature, IS_ENABLED(cfg))
  
+ #define ALTERNATIVE_CB(oldinstr, cb) \
+-	__ALTERNATIVE_CFG(oldinstr, "NOT_AN_INSTRUCTION", ARM64_CB_PATCH, 1, cb)
++	__ALTERNATIVE_CFG_CB(oldinstr, ARM64_CB_PATCH, 1, cb)
+ #else
+ 
+ #include <asm/assembler.h>
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214162122.19794-93-sashal%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200214162122.19794-104-sashal%40kernel.org.
