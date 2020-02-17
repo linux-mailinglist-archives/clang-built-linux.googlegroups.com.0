@@ -1,152 +1,140 @@
-Return-Path: <clang-built-linux+bncBCGKXZM6QULRBC7CVPZAKGQEG5M4V3A@googlegroups.com>
+Return-Path: <clang-built-linux+bncBD4NDKWHQYDRB67VVPZAKGQEK5Y52UA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-io1-xd40.google.com (mail-io1-xd40.google.com [IPv6:2607:f8b0:4864:20::d40])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7527161C10
-	for <lists+clang-built-linux@lfdr.de>; Mon, 17 Feb 2020 21:01:16 +0100 (CET)
-Received: by mail-io1-xd40.google.com with SMTP id z201sf12334325iof.8
-        for <lists+clang-built-linux@lfdr.de>; Mon, 17 Feb 2020 12:01:16 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1581969675; cv=pass;
+Received: from mail-qt1-x83e.google.com (mail-qt1-x83e.google.com [IPv6:2607:f8b0:4864:20::83e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8E526161C67
+	for <lists+clang-built-linux@lfdr.de>; Mon, 17 Feb 2020 21:43:40 +0100 (CET)
+Received: by mail-qt1-x83e.google.com with SMTP id m8sf11662029qta.20
+        for <lists+clang-built-linux@lfdr.de>; Mon, 17 Feb 2020 12:43:40 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1581972219; cv=pass;
         d=google.com; s=arc-20160816;
-        b=RScMPRsl0aQuEdebsiDtyUdYHWzR9JKR7skR0egqxhjuPOhjCkVIqHAbNmOvEwvqAS
-         5g0dYqUbp0OzZC/xd1pNsFWS2hC1+4uYfu/VAalXehhUZ2dY+cBxzi+u9aJsQYaXcRll
-         f8VCnFWJBQsEirMz7cBm8jGWTRzw1UMRMbRltJp+gmxi7MDaIuCB/s8laC4F3lm+LTo+
-         O4b+6YD4dh8eEoge7aKzgrPPrr2ZLMROk/F/rtVSCMU1y8HoZHMMgDOEe0edVBKA0aul
-         +rYyxvxput3axQV+iIbWKV9GO50Qlnv+tlfKo2pUA3J+vwv0Wuvw2OoLV6gul/H7TKgV
-         7/ag==
+        b=Ry13XVMO/+nQzgVWUpYlQBDFWPChkCIbebfdiwffA90MT4tsTC+/iQ/tnSFrgeytjf
+         JLaJNkXtzuUNMBsAdMRpHi20VEnAGDtoaUrgAOj814HpA/vQUowBgMZwwzhhBjWk8rrj
+         ncN3/sWzhH9t7/XpS8eTpMK5XgTaxT0tgnp1oF2Ll2qVqFgTv+Atb3BjmdA+EiDIeUeo
+         RZQNLuNqDUSVCd92ZX5Tlatx/l2j6BqSo04pNBtd7dNcMbFU1K4cVCeYchDDEy1MQ4LJ
+         S5QoPzPVe6O6Z85gtbY2eViR/RqF8lvmk5hDuSvY5nTuseMKHx4ez6HsSLjVsZXCEdx5
+         z51Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version
-         :content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:sender:dkim-signature;
-        bh=ychGwncE5vqx1UHcLKYdAG3/hof7tCM3A3DW12zINgQ=;
-        b=o9aOVuK+ZAJ+X7gJTm81l3H/c+vMhvmAL6x2fEPLamU31rzeBH6CJcuvb9ivzLpDH2
-         75741P42yYpGK/6bEWa5FI3mjg+kyYtK+qwy8AhGJwGtHAKrt6T/5oNYRTb7jKsQXoWr
-         uZCiaPZPpOZClZ81Ps+os/YQ/oBAeAM6hB6M4L/rThUMrzO2oOyB9uGjP4l5Bw57FqT/
-         w/a4Dfi9muQ1aGB37lOXhKpCBhdYs7a3/pb7zVmKQeWI8kNO+iS3M9HFrfI0bc4N4llQ
-         WPyIPCDRkGDC8p+3erCK7QK0yucCqHuCnl75crALlKxuSHzg/fDOjJN4BfgsDZcyyZ/q
-         m48A==
+         :list-id:mailing-list:precedence:mime-version:message-id:date
+         :subject:cc:to:from:sender:dkim-signature:dkim-signature;
+        bh=I/WTETaNDKFxXSS6VK9ON7iA12/CGUV++k9xA88QB6w=;
+        b=Zlmf/j3egNaOgt/IiVajOJdQgUJjWWLfr+ugELNLr4gftI9aOu7PQVm0V078Ek3PHH
+         RBwlG9JGorTWoz34J9fnDhvvWqy03GvyNpo+AL5fqG4XbJolBGhlwX1i5Q2qNEUXIh1d
+         RxGJW504Kkyg3Ftbmk85LUR7nBQgqGHqTBVFQ1m1ojGnW7plocvQ9tWu2hOG6L6KxNkp
+         2Nz2spp4wldR6R6Wdg62V6l8nJgj/Ms6/el3vwAYNJTa4yaOX7UpgJPVOZr6hsfgfhTa
+         NAfEJ/OZ1+6Jtv5OtcIHI1wy4+MoWwZMzBHBDiv/1vuxe5UzvCoLfWgIHe9G59ksonJ4
+         hyzQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@alliedtelesis.co.nz header.s=mail181024 header.b=YrmI6q0g;
-       spf=pass (google.com: domain of chris.packham@alliedtelesis.co.nz designates 202.36.163.20 as permitted sender) smtp.mailfrom=Chris.Packham@alliedtelesis.co.nz;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alliedtelesis.co.nz
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NSM1P5Sb;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
-         :references:in-reply-to:accept-language:content-language:content-id
-         :content-transfer-encoding:mime-version:x-original-sender
+        h=sender:from:to:cc:subject:date:message-id:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=I/WTETaNDKFxXSS6VK9ON7iA12/CGUV++k9xA88QB6w=;
+        b=FT9CF4B21oxodu9+DRJ0lvp7nKbQdy3PRzdBURWFrrwWhlEQf4bRQq3HWWQ7LSsoqk
+         JfX5kcpr9KrYUoXLvSxa/UC4wLmtHSQmJ0z7m5nadZ8eUQHLG9y7DQ9UzzVy3z2hDTsO
+         AU6U6j1RpJXh9a+ogWC+wYeJHvgvJaAgMrMpFHwvhwYqBSVGzrb9V+QDJ7A5GN5Xa8A/
+         vsa9ArvXnFqo7LIAJFF6eDXxOKaygi9/RkHF1okgGvzpH/1hSrpRcY9wlISFQ7dIDalq
+         RXtev6zfH7OZ697W47z9e6Az7wbkLIRNXFiPRb+lkVb1TIsbhvpNUP9C2siN2aBa1RUn
+         gq+g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=from:to:cc:subject:date:message-id:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=ychGwncE5vqx1UHcLKYdAG3/hof7tCM3A3DW12zINgQ=;
-        b=bXCJapzZKcPSt7NY6hyvoCJT39TAQ9XoUAC0KJ6Aw/521UgIDj86uyT2A15MgeyKnB
-         Zy6c8Qw6N2KxbFCaXIEo5NpvPDcEOkBlVi6qyum6O6QW7E7cftoOTfJWRHRDZYqONnl8
-         m+1rdFVJxc3Ue2PeIZAt/K6JVOSy5tKlEkQRCx4mFGbwrjYTHPKzr0+YIK6dNyCJM3Cj
-         jDutiv0ql7Tcn/gyC1jOoxPx7SaIS53w3Bd489CKa8xufmzcFYkqFjueay/QKOV9er14
-         HyJe+HYuwJMcRp6BnRbuGLfo1zxs71lXbYeVKZghUk3hcWiDHhbpmde0aEiubx4ReXVF
-         9hYg==
+        bh=I/WTETaNDKFxXSS6VK9ON7iA12/CGUV++k9xA88QB6w=;
+        b=bEtmVCu06gusGx7iLFYcvX18sr9N160EhHprBlVXJ9gExc+p+VzSrI2sBr0aUadEGa
+         Nw5hV8y2ccDwlJgmNVWfSqpO/UgUU9LyJVHZxaaqDFWX0iJ9csasAx/UHX65ELG7jO+t
+         82fbhaQK5BCoeS4pX0Qd7eRQZu+QQbuWf0FD4Nh4k1ytWivel6GCRK2XwZIeXMYBgzs9
+         6jv5xpu8FFx2UbZWq2YogFATMZxnUTxrhuQtGA24AoCfZHb8fypnjfA26gWIBL/uSZMP
+         7qNGWZ7HlIPkAlBdIrQHum/OIL5k02HasNqf+YmQBEpMObJ+1o5Cwz7FjhvCpj19gId0
+         eduA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
-         :thread-index:date:message-id:references:in-reply-to:accept-language
-         :content-language:content-id:content-transfer-encoding:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=ychGwncE5vqx1UHcLKYdAG3/hof7tCM3A3DW12zINgQ=;
-        b=RCC/pesk+F93Dix2bG9tfrDUtZGCm3ewgjzLONig4hpj8EOWywO2DZEt199+csrMmh
-         Q2dtvPK0OWqQe9zrfmEKnQvzI27dXVaBeckjFX6xnMxTKjxlTbb5L1wPbhStkh/6GGht
-         6UD4XzIHDSN8al8dv8jV+ZLJAQDwCHJcE2SJonL7elXB+RVf0iQbL9BfFjFYsTMSYevl
-         MSKRMF4VNAHcgP83n5C3MPcegHkZu5S0l/Z9kZPQ/k3K4y6LPCwiwzcYt7+LaE2yEpKC
-         lTqeZn3aVsoZV7w5cWKjkpAtlAPTgtKb8q3eLOncgktqShcskN4LZWOG3ToMfjgT8lY+
-         B9LQ==
+        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=I/WTETaNDKFxXSS6VK9ON7iA12/CGUV++k9xA88QB6w=;
+        b=rzWJGsHM5rXQtwyj1UEJbXUb8hbwdIobpqhFMqmx7eEoZeCuRAwXN8x8Nq5YxcBhNy
+         IrDd72I7kcPWjToQL8DH3ODCSaMNljsBRAFfl8ihmzOw7xd3zhCTDFrM5j/aMoCAo3DL
+         lXEVJ/C7ChysHXyg1dO4LrwHGqalsSB5hwDuUouPkNAdgAX8V2z1lx24nl10x4A8HcLx
+         XC3xulK0WCk1cGvE4+mkEYUdE9fuLIB3SelHikXw8nl9mzVgC9z+Q3ULdO0mHaSi+mdq
+         WVw1EnuGVgZYdHQbJwMLuYEhG1oncDjSOM+wc9Mft8E+6SuLZq/rN24qtnJIanDNtr45
+         AgRg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWXMJzEqnpxtDfHMc4DWpGb5y+o06FG0z/zEZTxCgeWYePM/xqO
-	EUDq1b4A50I/sBgk0FhMKJc=
-X-Google-Smtp-Source: APXvYqzGOh74I+tLmyojU11VH8qTULoOY39I40YxhbBWPlLoUhqfyfIS3hT08kVVT9XWAGw34t3HRQ==
-X-Received: by 2002:a02:cdd9:: with SMTP id m25mr13616010jap.123.1581969675109;
-        Mon, 17 Feb 2020 12:01:15 -0800 (PST)
+X-Gm-Message-State: APjAAAVqEVPss2DOdgiEKOnHtYaP7rHPGGS3UAlcqDdqRUTCbu3wLBA/
+	EbqM6bNERZ40JWzsbBbhM2o=
+X-Google-Smtp-Source: APXvYqzGKVqhi7ey8p0hyPQS+fpAEHlATcvPegKyslCA8kZqnfztBPF4wcc0mNf1ENzETutj3yL9kw==
+X-Received: by 2002:a05:6214:707:: with SMTP id b7mr13701861qvz.97.1581972219118;
+        Mon, 17 Feb 2020 12:43:39 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a92:1d89:: with SMTP id g9ls2538838ile.3.gmail; Mon, 17 Feb
- 2020 12:01:14 -0800 (PST)
-X-Received: by 2002:a92:8f4b:: with SMTP id j72mr16787111ild.1.1581969674767;
-        Mon, 17 Feb 2020 12:01:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1581969674; cv=none;
+Received: by 2002:ac8:72c4:: with SMTP id o4ls4057740qtp.10.gmail; Mon, 17 Feb
+ 2020 12:43:38 -0800 (PST)
+X-Received: by 2002:ac8:130c:: with SMTP id e12mr14699288qtj.233.1581972218766;
+        Mon, 17 Feb 2020 12:43:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1581972218; cv=none;
         d=google.com; s=arc-20160816;
-        b=yMZjean0bJE31R/d8VeB1cZNIH34A4Yads6fSLkYbHmKsHwWfptYBokUhaAgh2Umz7
-         xal7cHf4z6RFMY+3ClgVKERK42OPzoKDV0cDNUCIenU/pS+JErrCdlJFi8Ej4o73xu26
-         RN8t3mSGyWE6CJuj+2khhZ0g+IUiExPZdkcJ0Cvf/zSxUkrpZvl48sNbdKOUAp+XQFUD
-         m52gMkDRILlkHM8MV2T8mOtx0MHrlSTTd9WpWE62xOkseHfVJ9Eu3gKTINlOxSxsELPR
-         /PxqjAsRcGjW/OF+0MBYV2Mw1+Th2X4GMk4ETIrtgyn8uui5aLWtK58aDYBnjbvII4oi
-         s2GQ==
+        b=VYiUIm781PXBCRBm0G1jInGEFFF12pz62q5+tCX/8A8PkqQU/yEjT8ec+XbtMj/3zi
+         gxodcXxNyIDld1JUpWFH++UhIW43RVszdYHoIL9TIidEt6pSiPudlagfoYeoBB54FiHD
+         B6e4mGZZmOxkJIQl4H8qrPTuLlMwbEgsQRwdWT+wPS9Qq8Jct7XSoY07azwNd3wK5EDo
+         S5JTA3qCtQ8F8BktJ6o6yZIcD9jCEbOlyYoi5DHH5fX29IsZeNCW1ZD82ZuMGFSCHGkq
+         9KZ9Jh48mOKke/OKAif3JUgsQnHStNaZysoIK6uLBI4cCKJU7GTymDSecfHSOuwhHofk
+         uWmQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:content-transfer-encoding:content-id:content-language
-         :accept-language:in-reply-to:references:message-id:date:thread-index
-         :thread-topic:subject:cc:to:from:dkim-signature;
-        bh=QBZPpGPjuA/DDMDV0sM2afefWCRCvpxYLsolO5GIkv0=;
-        b=w6CDtsvTbUiPra79xCIkSgNLgOpHFzImF7WDfj7akAnP9+QwAQCh/9tR11sTBcEuKA
-         YcAfH+bQk1h/RxUf8uVzFqSHNauV7vRr2SycBCKsmmg+HLMF2y5EvpeFxatHP9jF9qvK
-         7A/uTsrZa+QBwdo5uyCMCXQ1NT6tyRLqx1GRBE+crNz8rFuw7m06d0xSZvGuhrKiHvuM
-         YPV0I16B+4/g360kl38aBo/K2Jz1EpKm/TioelW6zgOtikCk2ZWwg+fpVmOimwZWLaHu
-         gIhQPaFGLS+QuPLiamgTl7/CSvIZBxLktIhoYxVbxhen7Wq3PZx4o04Be0oYfPheop+Q
-         IpSg==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature;
+        bh=mt8KEiHVFXt+VI7oyaRToYaExGUPicwbfI4j6wwtPQE=;
+        b=CbUSpUI9hCsOBMrZZypwKyFCNtPZftWVr+kUC3El22JF5FARZnh7vzzNpXJwBdhmyK
+         hqcgs2Lud8etzEyI1tQSYcxYItFC5PXUxgLN6gVQjUJjtn62BbU0FBEyDqkv6hep/RnI
+         jJ9d2WCKby4jilupeHi0eI/Zjpm8DUuDF5xMsKSU9YkyhU0Jr9HpUSv0/jS6I2+Zn+Il
+         dk5L3yjw+ONLUNf3ppPvKYOIfd1+SyVxw3dpoYcE+uXFp/8tWp8ARz0uR/4iOU3VCsBO
+         1fyd2qCbzSymzsT/ZyZ+NOCSN8vIVM0mW1M5cbAOZnW6mGwFW487CA6JzYksN4aycACL
+         RGdg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@alliedtelesis.co.nz header.s=mail181024 header.b=YrmI6q0g;
-       spf=pass (google.com: domain of chris.packham@alliedtelesis.co.nz designates 202.36.163.20 as permitted sender) smtp.mailfrom=Chris.Packham@alliedtelesis.co.nz;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alliedtelesis.co.nz
-Received: from gate2.alliedtelesis.co.nz (gate2.alliedtelesis.co.nz. [202.36.163.20])
-        by gmr-mx.google.com with ESMTPS id z7si79492ilz.1.2020.02.17.12.01.12
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=NSM1P5Sb;
+       spf=pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-oi1-x241.google.com (mail-oi1-x241.google.com. [2607:f8b0:4864:20::241])
+        by gmr-mx.google.com with ESMTPS id s25si83502qtc.0.2020.02.17.12.43.38
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 17 Feb 2020 12:01:12 -0800 (PST)
-Received-SPF: pass (google.com: domain of chris.packham@alliedtelesis.co.nz designates 202.36.163.20 as permitted sender) client-ip=202.36.163.20;
-Received: from mmarshal3.atlnz.lc (mmarshal3.atlnz.lc [10.32.18.43])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(Client did not present a certificate)
-	by gate2.alliedtelesis.co.nz (Postfix) with ESMTPS id 4808F8011F;
-	Tue, 18 Feb 2020 09:01:07 +1300 (NZDT)
-Received: from svr-chch-ex1.atlnz.lc (Not Verified[10.32.16.77]) by mmarshal3.atlnz.lc with Trustwave SEG (v7,5,8,10121)
-	id <B5e4af1030000>; Tue, 18 Feb 2020 09:01:07 +1300
-Received: from svr-chch-ex1.atlnz.lc (2001:df5:b000:bc8:409d:36f5:8899:92e8)
- by svr-chch-ex1.atlnz.lc (2001:df5:b000:bc8:409d:36f5:8899:92e8) with
- Microsoft SMTP Server (TLS) id 15.0.1473.3; Tue, 18 Feb 2020 09:01:07 +1300
-Received: from svr-chch-ex1.atlnz.lc ([fe80::409d:36f5:8899:92e8]) by
- svr-chch-ex1.atlnz.lc ([fe80::409d:36f5:8899:92e8%12]) with mapi id
- 15.00.1473.005; Tue, 18 Feb 2020 09:01:07 +1300
-From: Chris Packham <Chris.Packham@alliedtelesis.co.nz>
-To: Mark Tomlinson <Mark.Tomlinson@alliedtelesis.co.nz>, "f4bug@amsat.org"
-	<f4bug@amsat.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>,
-	"paulburton@kernel.org" <paulburton@kernel.org>, "linux-mips@vger.kernel.org"
-	<linux-mips@vger.kernel.org>
-Subject: Re: [PATCH] MIPS: cavium_octeon: Fix syncw generation.
-Thread-Topic: [PATCH] MIPS: cavium_octeon: Fix syncw generation.
-Thread-Index: AQHV4SHSo52AlyiF50aUibwtU28qqagdtJQAgABM4QCAAPxTAA==
-Date: Mon, 17 Feb 2020 20:01:06 +0000
-Message-ID: <8cb14684e2f774d9573c062f2d82ad5348c5fee7.camel@alliedtelesis.co.nz>
-References: <20200211212455.3307-1-mark.tomlinson@alliedtelesis.co.nz>
-	 <CAAdtpL5Tf-8O=xMKO33DWDs=2_Hsdk=FQSNO5Gsrx=9hWvENdg@mail.gmail.com>
-	 <8e852d84c8b0c6b35faa3b3f2a1034d93a6e8967.camel@alliedtelesis.co.nz>
-In-Reply-To: <8e852d84c8b0c6b35faa3b3f2a1034d93a6e8967.camel@alliedtelesis.co.nz>
-Accept-Language: en-NZ, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: Evolution 3.28.5-0ubuntu0.18.04.1
-x-ms-exchange-messagesentrepresentingtype: 1
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [2001:df5:b000:22:cd0e:b78d:99a2:dcbf]
-Content-Type: text/plain; charset="UTF-8"
-Content-ID: <3503B8CCE2A3E142B2D2FF8E27366A7A@atlnz.lc>
-Content-Transfer-Encoding: quoted-printable
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Feb 2020 12:43:38 -0800 (PST)
+Received-SPF: pass (google.com: domain of natechancellor@gmail.com designates 2607:f8b0:4864:20::241 as permitted sender) client-ip=2607:f8b0:4864:20::241;
+Received: by mail-oi1-x241.google.com with SMTP id c16so17966992oic.3
+        for <clang-built-linux@googlegroups.com>; Mon, 17 Feb 2020 12:43:38 -0800 (PST)
+X-Received: by 2002:aca:530e:: with SMTP id h14mr505712oib.105.1581972218092;
+        Mon, 17 Feb 2020 12:43:38 -0800 (PST)
+Received: from localhost.localdomain ([2604:1380:4111:8b00::1])
+        by smtp.gmail.com with ESMTPSA id w20sm545592otj.21.2020.02.17.12.43.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2020 12:43:37 -0800 (PST)
+From: Nathan Chancellor <natechancellor@gmail.com>
+To: Doug Ledford <dledford@redhat.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Leon Romanovsky <leon@kernel.org>,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	clang-built-linux@googlegroups.com,
+	Nathan Chancellor <natechancellor@gmail.com>
+Subject: [PATCH] RDMA/core: Fix use of logical OR in get_new_pps
+Date: Mon, 17 Feb 2020 13:43:18 -0700
+Message-Id: <20200217204318.13609-1-natechancellor@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Original-Sender: chris.packham@alliedtelesis.co.nz
+X-Patchwork-Bot: notify
+X-Original-Sender: natechancellor@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@alliedtelesis.co.nz header.s=mail181024 header.b=YrmI6q0g;
-       spf=pass (google.com: domain of chris.packham@alliedtelesis.co.nz
- designates 202.36.163.20 as permitted sender) smtp.mailfrom=Chris.Packham@alliedtelesis.co.nz;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=alliedtelesis.co.nz
+ header.i=@gmail.com header.s=20161025 header.b=NSM1P5Sb;       spf=pass
+ (google.com: domain of natechancellor@gmail.com designates
+ 2607:f8b0:4864:20::241 as permitted sender) smtp.mailfrom=natechancellor@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Content-Type: text/plain; charset="UTF-8"
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -159,97 +147,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 2020-02-17 at 17:58 +1300, Mark Tomlinson wrote:
-> Hi Phil,
->=20
-> On Mon, 2020-02-17 at 01:22 +0100, Philippe Mathieu-Daud=C3=A9 wrote:
-> > Hi Mark,
-> >=20
-> > On Tue, Feb 11, 2020 at 10:42 PM Mark Tomlinson
-> > <mark.tomlinson@alliedtelesis.co.nz> wrote:
-> > >=20
-> > > The Cavium Octeon CPU uses a special sync instruction for implementin=
-g
-> > > wmb, and due to a CPU bug, the instruction must appear twice. A macro
-> > > had been defined to hide this:
-> > >=20
-> > >  #define __SYNC_rpt(type)     (1 + (type =3D=3D __SYNC_wmb))
-> > >=20
-> > > which was intended to evaluate to 2 for __SYNC_wmb, and 1 for any oth=
-er
-> > > type of sync. However, this expression is evaluated by the assembler,
-> > > and not the compiler, and the result of '=3D=3D' in the assembler is =
-0 or
-> > > -1, not 0 or 1 as it is in C. The net result was wmb() producing no c=
-ode
-> > > at all. The simple fix in this patch is to change the '+' to '-'.
-> >=20
-> > Isn't this particular to the assembler implementation?
-> > Can you explicit the assembler you are using in the commit description?
-> > Assuming we have to look at your commit in 3 years from now, we'll
-> > wonder what assembler you were using.
-> >=20
-> > Thanks,
-> >=20
-> > Phil.
->=20
-> Yes, it is tied to the assembler. But the Linux kernel is tied to GCC,
-> and GCC (I believe) is tied to GNU as. I can't see the specification of
-> GNU as changing, since that could break anything written for it.
->=20
+Clang warns:
 
-There is an effort underway to build the kernel with clang[1]. I'm not
-sure what that ends up using for an assembler or if it'll even be able
-to target mips64 anytime soon.
+../drivers/infiniband/core/security.c:351:41: warning: converting the
+enum constant to a boolean [-Wint-in-bool-context]
+        if (!(qp_attr_mask & (IB_QP_PKEY_INDEX || IB_QP_PORT)) && qp_pps) {
+                                               ^
+1 warning generated.
 
-For reference the relevant section from the GNU as manual[2] says "A
-true results has a value of -1 whereas a false result has a value of
-0".
+A bitwise OR should have been used instead.
 
-[1] - https://clangbuiltlinux.github.io/
-[2] - https://sourceware.org/binutils/docs/as/Infix-Ops.html#Infix-Ops
+Fixes: 1dd017882e01 ("RDMA/core: Fix protection fault in get_pkey_idx_qp_list")
+Link: https://github.com/ClangBuiltLinux/linux/issues/889
+Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+---
+ drivers/infiniband/core/security.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/infiniband/core/security.c b/drivers/infiniband/core/security.c
+index 2b4d80393bd0..b9a36ea244d4 100644
+--- a/drivers/infiniband/core/security.c
++++ b/drivers/infiniband/core/security.c
+@@ -348,7 +348,7 @@ static struct ib_ports_pkeys *get_new_pps(const struct ib_qp *qp,
+ 	if ((qp_attr_mask & IB_QP_PKEY_INDEX) && (qp_attr_mask & IB_QP_PORT))
+ 		new_pps->main.state = IB_PORT_PKEY_VALID;
+ 
+-	if (!(qp_attr_mask & (IB_QP_PKEY_INDEX || IB_QP_PORT)) && qp_pps) {
++	if (!(qp_attr_mask & (IB_QP_PKEY_INDEX | IB_QP_PORT)) && qp_pps) {
+ 		new_pps->main.port_num = qp_pps->main.port_num;
+ 		new_pps->main.pkey_index = qp_pps->main.pkey_index;
+ 		if (qp_pps->main.state != IB_PORT_PKEY_NOT_VALID)
+-- 
+2.25.1
 
-
->=20
-> > > Fixes: bf92927251b3 ("MIPS: barrier: Add __SYNC() infrastructure")
-> > > Signed-off-by: Mark Tomlinson <mark.tomlinson@alliedtelesis.co.nz>
-> > > ---
-> > >  arch/mips/include/asm/sync.h | 4 +++-
-> > >  1 file changed, 3 insertions(+), 1 deletion(-)
-> > >=20
-> > > diff --git a/arch/mips/include/asm/sync.h b/arch/mips/include/asm/syn=
-c.h
-> > > index 7c6a1095f5..aabd097933 100644
-> > > --- a/arch/mips/include/asm/sync.h
-> > > +++ b/arch/mips/include/asm/sync.h
-> > > @@ -155,9 +155,11 @@
-> > >   * effective barrier as noted by commit 6b07d38aaa52 ("MIPS: Octeon:=
- Use
-> > >   * optimized memory barrier primitives."). Here we specify that the =
-affected
-> > >   * sync instructions should be emitted twice.
-> > > + * Note that this expression is evaluated by the assembler (not the =
-compiler),
-> > > + * and that the assembler evaluates '=3D=3D' as 0 or -1, not 0 or 1.
-> > >   */
-> > >  #ifdef CONFIG_CPU_CAVIUM_OCTEON
-> > > -# define __SYNC_rpt(type)      (1 + (type =3D=3D __SYNC_wmb))
-> > > +# define __SYNC_rpt(type)      (1 - (type =3D=3D __SYNC_wmb))
-> > >  #else
-> > >  # define __SYNC_rpt(type)      1
-> > >  #endif
-> > > --
-> > > 2.25.0
-> > >=20
->=20
->=20
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/8cb14684e2f774d9573c062f2d82ad5348c5fee7.camel%40alliedte=
-lesis.co.nz.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200217204318.13609-1-natechancellor%40gmail.com.
