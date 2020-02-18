@@ -1,130 +1,131 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBWG5WDZAKGQE65LP6PQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCP7VQF36ABBBT7VWDZAKGQEKDVRWBY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1AD97162EB0
-	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Feb 2020 19:37:15 +0100 (CET)
-Received: by mail-pj1-x1037.google.com with SMTP id ev1sf594737pjb.5
-        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Feb 2020 10:37:15 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582051033; cv=pass;
+Received: from mail-vk1-xa3c.google.com (mail-vk1-xa3c.google.com [IPv6:2607:f8b0:4864:20::a3c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0F2B1162FED
+	for <lists+clang-built-linux@lfdr.de>; Tue, 18 Feb 2020 20:28:17 +0100 (CET)
+Received: by mail-vk1-xa3c.google.com with SMTP id v188sf8594633vkf.10
+        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Feb 2020 11:28:17 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582054095; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Y7ZC5iHgpfn+YN5nd2+sSjspgc481TC35OFwrrp4nW3Rw2Objolbgbl0o1xuhDzg8K
-         302lY/6Eyqg6x/ELN/I5pXCltmGZCwOKn5zq2nOqXErzgjT5wt/U6cMr5pVgMsDVHP+k
-         KxEQJbxgdg6BrvCOvGYoQT8kLcdJ41voUogSGboLAJcO6CptdQhSPUbcXssQprx36+uv
-         XvDUgDLS66dPrxWaTJ1Y2DOpYzKDMioS8gpIaRW0iU1uocSC8O/3navV1N3A2luOU2/D
-         tMyMt8CV5o2pI4FxMArOMMpHceiC52cbEp964X6ureGdexhe9GSct9+JNNmsKLamH/eA
-         Bx4g==
+        b=oKEOw3eLhd2woBmGBpn6kLkphcRCvFw870sgP1xeUQb8HuH4oLP7FxYCGrCv3xpJKQ
+         1tcCvE2tjCT6U4tdEBxsE/hrNqUhTJS/5PX4RKmNRBE+8ObFtRamOxw7viDIHKKM0kSN
+         22NEEjxuk8shl1tKAVUpeHzysPpUfZDRhMuKqxIs2P6zOtxWCv7tujj5TRh6nWy5x0Fh
+         e7/4SHC/u0x6GA+k7rbO9txOwRZIL3JGyacuDD/Uv9qc0VwSeb/NTg92eaH2iHXAiol1
+         1qeIaCgYtcap9PwKXGuyjB6T3SHJj5Lru7NFcK7bcu/CQ7C0kBc/pY2pcxHNJYlHgATm
+         oDmw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=bPXXnQlo5IvvMihz1Ikz77sLi79ow6YolEL9j7PENng=;
-        b=nas+oai2igBvIMzRI6c8QdG7CRY7M9C+tlo0xQ9wjJ+5xD/KnxJ6mHOicpUqDig2eU
-         5nfJz5tzTFQ8VNWgHYPM+C2W6J6xS6NKLLcqKts7oSNknOn3dFe3e+o5E9wOSj0SWSzb
-         HNDiiS9A64vtyvJ1smRGGZBCxDEcKmawV8bl75wV9aMZdZl338VXUxF2+ezu2O4A3lc2
-         z41e1bHliDcQ2mYjR74ovhTODPjZU34fZ2CON9pbYBX3EL4jiYUSIuaLA/Dhl4pS4hB9
-         Xyn6e6UNuXxn6Vs+rIzedC+Phb61x+F3DW+zj2ORpCb2ehtsYWSaOqghGpBSl/gbsPoQ
-         DMNw==
+         :mime-version:message-id:to:from:cc:in-reply-to:subject:date
+         :dkim-signature;
+        bh=uWgBZRANoH1H6GOjRIcOzYPQpMWqVXLhBuSp8VeR0SY=;
+        b=bTYHM9LzCRNdadKIERAALtQPXuGBwE2Zi0tp2wtrPyj5rwyLjLBrxIE6AJW3J34N3l
+         bIMPy54R0rK0EjaTFolYHh6/DAMw7iBxjJ5z5Kst+HkpAH8wGN83Rrem7Lrr7bomVb0E
+         TPZmV9B221VabdDJPc8RdDhyKcMCOEiuqbNHSNrrg+IZVl4SjZJJUIZVT1bFMCt8nsOa
+         i7+6Ala0YKtna4NAyFl9ioQ4ayuJ3eR1rb+cbOyMy1yAich4pY+c/+NrNaHNl1Rbte3q
+         d9B0eyQ5BoOhIWVT17KoMiGQBo+uvgnZIO6C/IN3gJO6CAc1wvKuVNFpNw9hOAVZ7JD6
+         +GqQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=WuPXMTek;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=DvmqpHrn;
+       spf=pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::433 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
+        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :content-transfer-encoding:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:list-post:list-help:list-archive:list-subscribe
          :list-unsubscribe;
-        bh=bPXXnQlo5IvvMihz1Ikz77sLi79ow6YolEL9j7PENng=;
-        b=WgsQzds2WV9huKa46Jm5H7jhy2nRrcenV0KsC77TCETDSt18S1AqgppTbpaRs30QPi
-         VScstJQVMXpLfLAGdYes0UfJ+aCBRHDSkX4wKpvO9aONBUk0U8XVjmJnDLj9BnlYozUz
-         BYMO8pykOpjw33/qDIA85Kldv2zGaziiE4FtT//YMuHMP2YKCliJABcH1RfFQ8wmfUUf
-         6WBVK/A3TNajCdR263Jiel//5957wpTdThoV8hpnoWADjHEEgquP1XAREbe+81KoUrYM
-         sskk5+ol5O/slLQZl5nKiRrDL8GIhX0pA4pd9uSy4Y7ibAX0NmoBBbaDEeMnwgsdEizh
-         wVMA==
+        bh=uWgBZRANoH1H6GOjRIcOzYPQpMWqVXLhBuSp8VeR0SY=;
+        b=qpd+c37JEzyMhl+oTSovmN9A8F4boLurUnBRAwKAFKMtZZTTeo3agd51AHRG/TRloC
+         Oh7cHtcA2Ipvl/Ay40SlM8eRYzDFD+PWy0Uvx6sv43V1m2NmM8lQkmhPefvltCC8QKvl
+         8hKpqAZ2lr7Qa1jgoTDMCohf8I9Bnpdo5bk5HV0rm/gBRd8vO5cQabj5efU3PU9mMy/f
+         6OVcXc1QZh13d19MSwyys1nzz7DQ4WN5MmwgzAWVPeZSB6mjahKIhvv8mAHr7Gd0Y3lh
+         9XqPV3DVBCyMt5+usyZXxyJ5u4gxj2Dd2YKdey/29XfpyOw6IFce3XhmpgyNxThQ9Yy/
+         a1cA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=bPXXnQlo5IvvMihz1Ikz77sLi79ow6YolEL9j7PENng=;
-        b=pCexeVoDMUcrY35iuB0SnWtDFaD1Sz8XhS4OqWvacn3cZTVAzuR9aVubrk3KiFHEHB
-         6+8yw/eI+WWO4f3D7r2jh1I9AybgJbGDUvTIU1x6Y4BCCSyBZpMKq2Xas3OJuZ/wfPoh
-         ACGj9r9HyAB4tVCnTrVEGCg6GQFkse2GHmKvvjeZTUxiHphrrP8UiwHeACg/Xt+rW/An
-         c4dHADJt0iY79B9elpgXr4be/tueqaSxSUweOhqGrkoC0sqBfQIci6oRB6LuxCyjPdSa
-         rLwOI9KVoAPlswO9UEtzRj6OcSuuR3dqI+Ud7EeSkj2V0tXmN5Bkp/Eh6z4dTS3Nwdcw
-         jP3g==
-X-Gm-Message-State: APjAAAXpQHY2x9SQYqJypI6tpG5UZuFJOVFxZHd5mJpgBg96IwWBP4Xm
-	/BWgnN/FhsFdDkVbnN/bzxM=
-X-Google-Smtp-Source: APXvYqzJ3fMSnZeCDC+urm5elQ/qddTAw1zQNHIZ+ElsF/YB4X5FOH/WGpOQlHZpOKqv5TlUYtkixw==
-X-Received: by 2002:a17:902:a40c:: with SMTP id p12mr22303275plq.3.1582051032788;
-        Tue, 18 Feb 2020 10:37:12 -0800 (PST)
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+         :mime-version:content-transfer-encoding:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=uWgBZRANoH1H6GOjRIcOzYPQpMWqVXLhBuSp8VeR0SY=;
+        b=XqHHPLtu3hgYbTUOEl0zvFjCq+6DMvtlPJazV5OzYW4rNNjXZrWn2xi1Vhii0sryc4
+         cclGL8AlBA0Gyzvk21KU0vc80Fcm1Gxm5WOdgdu7jVCdOgq0RMdNeR+1BJy5oudRXVPt
+         W0C/260+GAoSZM+SWzKooiJpRzLFYryql0xrvf67sQB3HLJqZtfMwHMGJQRO5pMf3k4H
+         eREh/ys09CZI6/VQ0Ykq+1sCj+zeGLF6b8g9N24x5sbQnQ2LV5Z7HjleVXP4t8cmln3u
+         six3oEySOUyJ9wWgy4+tjL7JIyU9zBlafKDzAvjSOpiDznN+5AAJlwV8X5TDn5viCfxN
+         v4KQ==
+X-Gm-Message-State: APjAAAVPnS6LdAxAJzcQ/TNzpqFqELv+LgI8jeAt83m+RO91CiBtzb/g
+	NL24cz/maZtSy6MrsthBlwA=
+X-Google-Smtp-Source: APXvYqzSyouN/ZaP4ZOHiH8I7V42QPlFDU6IthqW2/uMInckrQcz3JYZ0XlrWw3euiwE/oGx29Dg6A==
+X-Received: by 2002:a67:e912:: with SMTP id c18mr11528033vso.72.1582054095657;
+        Tue, 18 Feb 2020 11:28:15 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:567:: with SMTP id 94ls6297365plf.8.gmail; Tue, 18
- Feb 2020 10:37:12 -0800 (PST)
-X-Received: by 2002:a17:90a:d103:: with SMTP id l3mr4440106pju.116.1582051032381;
-        Tue, 18 Feb 2020 10:37:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582051032; cv=none;
+Received: by 2002:ab0:20a9:: with SMTP id y9ls1012386ual.9.gmail; Tue, 18 Feb
+ 2020 11:28:15 -0800 (PST)
+X-Received: by 2002:ab0:2ea6:: with SMTP id y6mr11450808uay.25.1582054095149;
+        Tue, 18 Feb 2020 11:28:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582054095; cv=none;
         d=google.com; s=arc-20160816;
-        b=vQ3eLeuML/RjD/Ns4SiHrvHxbWEBFIclwSAP7MgDnoquaj4E7mXd1ZXryqe24LO43J
-         djr2y1vSJPW2jL8pw2g3Qb4vDH+oUH7R3CBNDs5p9RHJsu9+i7hM5odaRTd/S+nS6lf3
-         hXugmYSJZTE0hcNhZaxWESqMweKa5PzIZ/iGP42K04Jk3S1ZfiXP5br7V1CkX4Dt/gyU
-         nj9wyeQofAt79+nu875cFN2VY+9CzTbQWvQxkP/2eRBortJPM91nbfJxsEGir7CD4dOD
-         S6z8smbJpgE9nDaBsuVR67X3Jq4TCXiwobt0qwn6Cx0Kk7M3EodrPapvooQLvrh3YBVC
-         jERA==
+        b=coIZSnCcBgsSCo1x8sSICkW9ohBnNgBRYrJBcGJt6c4lX/RQsbLDXWevYDL8EVCWBL
+         /UF+Kh8kqE6BGyd4dEO9bcQEstpkRuPfpyXP+bZ7M67CBp7I0fMTtxtST9B/34LL2aEW
+         QLvtq/PYeXZmgdv50YBJqF4yypPUAmTLAvVGM8LB8sQookW+yMN0CfaW0EE4/pV5h/MX
+         GQs/sOHm9L1PQ0perEYxjbB/vu6H+Um7BD/pSldsLSSPYh3PxbPC+ibsaN1Ecjysk4M3
+         DwurnKycl/bB4RlzwJnFuk0oP4XpHPgpNbIIdwyZiIpBwZu6p4Hec7rA9JJZZKVUPhOv
+         lieg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ccXZcPHgblgsQ7szhI146C2Fb020S8Uq8EN9Auab0l4=;
-        b=FYP/WcMKDxkHP61Zi6iV6sh1Q3L+1W08bxzWKcSMW3CVQ0tC073C+zGhaIDc8hJ/8C
-         kcnY0wSFlP/6zqbYY/Hq2IMBn6tFWGfnuLnNJqp6y5pvuNC7N43xC3Wsb2EIKr9sZ8wJ
-         k0u1qhfvb33b5nrurCKOjAvWZhWCB+WZkoU5q1UecYJD43+1O8J/gNKAid3GgGnyvQcj
-         B2wLXWnTZ/xF/2Jovm6gTfKSQH/WG9JHCIpUgk4atT1/L5y+f7cQnF8bOTCH0uRUyo9n
-         +3LKfKNHO0e+06OHj3OFu94M+/7B05UiiN+eF3kbCq1hYYvCpFdos9erAf6ABkh3zLwH
-         aO8w==
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:dkim-signature;
+        bh=zhYJCkJXlPxXtgjObEVr42uyGuLn0+lKW2wKfP/UpCE=;
+        b=YVSX4ZnDLKXbbuiRk+RQIeVlhpgx43OVcanZe2c5VKqKaBBQ7kpnuj0OAY/mwWUOu5
+         tUaNjlF9+Nb21BvSt41nZoC2oKOrVPiAx4R6/uQDftXxkh/346D/Zj0ynrk7oEwso4Cl
+         K9gzDRHgMi8TBcUMRYsBz+LOoNpAemDN7I7f4J4JAmC0tAeLXgd4f2vcN9I1wz4BQQwM
+         /89JVZSh7XKH/W55dvPrfXY/V2O2eSRzMNxTllgzMMJC+NIohExxIBNEK/9x0aP9BdqG
+         9ksdskAnxQmcnYdLzMqTB177UFjzv/W1U1hmiGtC85NkNvtKvresJmmao1WzcsNbyGP3
+         v/Eg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=WuPXMTek;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=DvmqpHrn;
+       spf=pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::433 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id k1si289398pgj.0.2020.02.18.10.37.12
+Received: from mail-pf1-x433.google.com (mail-pf1-x433.google.com. [2607:f8b0:4864:20::433])
+        by gmr-mx.google.com with ESMTPS id n5si230840vsm.0.2020.02.18.11.28.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Feb 2020 10:37:12 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id g6so8425479plt.2
-        for <clang-built-linux@googlegroups.com>; Tue, 18 Feb 2020 10:37:12 -0800 (PST)
-X-Received: by 2002:a17:902:760e:: with SMTP id k14mr20968051pll.119.1582051031642;
- Tue, 18 Feb 2020 10:37:11 -0800 (PST)
-MIME-Version: 1.0
-References: <20200211212455.3307-1-mark.tomlinson@alliedtelesis.co.nz>
- <CAAdtpL5Tf-8O=xMKO33DWDs=2_Hsdk=FQSNO5Gsrx=9hWvENdg@mail.gmail.com>
- <8e852d84c8b0c6b35faa3b3f2a1034d93a6e8967.camel@alliedtelesis.co.nz> <8cb14684e2f774d9573c062f2d82ad5348c5fee7.camel@alliedtelesis.co.nz>
-In-Reply-To: <8cb14684e2f774d9573c062f2d82ad5348c5fee7.camel@alliedtelesis.co.nz>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Tue, 18 Feb 2020 10:37:00 -0800
-Message-ID: <CAKwvOdkaLRE0Ek3PnmqE2P3Urn4+pwfAp-qQdsLurwERcqNXfQ@mail.gmail.com>
-Subject: Re: [PATCH] MIPS: cavium_octeon: Fix syncw generation.
-To: Chris Packham <Chris.Packham@alliedtelesis.co.nz>
-Cc: Mark Tomlinson <Mark.Tomlinson@alliedtelesis.co.nz>, "f4bug@amsat.org" <f4bug@amsat.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"clang-built-linux@googlegroups.com" <clang-built-linux@googlegroups.com>, 
-	"paulburton@kernel.org" <paulburton@kernel.org>, 
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+        Tue, 18 Feb 2020 11:28:15 -0800 (PST)
+Received-SPF: pass (google.com: domain of palmerdabbelt@google.com designates 2607:f8b0:4864:20::433 as permitted sender) client-ip=2607:f8b0:4864:20::433;
+Received: by mail-pf1-x433.google.com with SMTP id k29so11125819pfp.13
+        for <clang-built-linux@googlegroups.com>; Tue, 18 Feb 2020 11:28:15 -0800 (PST)
+X-Received: by 2002:a62:cfc1:: with SMTP id b184mr22611022pfg.55.1582054093924;
+        Tue, 18 Feb 2020 11:28:13 -0800 (PST)
+Received: from localhost ([2620:0:1000:2514:23a5:d584:6a92:3e3c])
+        by smtp.gmail.com with ESMTPSA id q12sm4931028pfh.158.2020.02.18.11.28.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2020 11:28:13 -0800 (PST)
+Date: Tue, 18 Feb 2020 11:28:13 -0800 (PST)
+Subject: Re: arm64: bpf: Elide some moves to a0 after calls
+In-Reply-To: <5e39d509c9edc_63882ad0d49345c08@john-XPS-13-9370.notmuch>
+CC: Bjorn Topel <bjorn.topel@gmail.com>, daniel@iogearbox.net, ast@kernel.org,
+  zlim.lnx@gmail.com, catalin.marinas@arm.com, will@kernel.org, kafai@fb.com, songliubraving@fb.com,
+  yhs@fb.com, andriin@fb.com, shuah@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+  clang-built-linux@googlegroups.com, kernel-team@android.com
+From: "'Palmer Dabbelt' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: john.fastabend@gmail.com
+Message-ID: <mhng-eae623ac-3032-4327-9b23-af9838e3e979@palmerdabbelt-glaptop1>
+Mime-Version: 1.0 (MHng)
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: quoted-printable
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: palmerdabbelt@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=WuPXMTek;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@google.com header.s=20161025 header.b=DvmqpHrn;       spf=pass
+ (google.com: domain of palmerdabbelt@google.com designates
+ 2607:f8b0:4864:20::433 as permitted sender) smtp.mailfrom=palmerdabbelt@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Palmer Dabbelt <palmerdabbelt@google.com>
+Reply-To: Palmer Dabbelt <palmerdabbelt@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,85 +138,109 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Feb 17, 2020 at 12:01 PM Chris Packham
-<Chris.Packham@alliedtelesis.co.nz> wrote:
+On Tue, 04 Feb 2020 12:33:13 PST (-0800), john.fastabend@gmail.com wrote:
+> Bj=C3=B6rn T=C3=B6pel wrote:
+>> On Tue, 28 Jan 2020 at 03:14, Palmer Dabbelt <palmerdabbelt@google.com> =
+wrote:
+>> >
+>> > There's four patches here, but only one of them actually does anything=
+.  The
+>> > first patch fixes a BPF selftests build failure on my machine and has =
+already
+>> > been sent to the list separately.  The next three are just staged such=
+ that
+>> > there are some patches that avoid changing any functionality pulled ou=
+t from
+>> > the whole point of those refactorings, with two cleanups and then the =
+idea.
+>> >
+>> > Maybe this is an odd thing to say in a cover letter, but I'm not actua=
+lly sure
+>> > this patch set is a good idea.  The issue of extra moves after calls c=
+ame up as
+>> > I was reviewing some unrelated performance optimizations to the RISC-V=
+ BPF JIT.
+>> > I figured I'd take a whack at performing the optimization in the conte=
+xt of the
+>> > arm64 port just to get a breath of fresh air, and I'm not convinced I =
+like the
+>> > results.
+>> >
+>> > That said, I think I would accept something like this for the RISC-V p=
+ort
+>> > because we're already doing a multi-pass optimization for shrinking fu=
+nction
+>> > addresses so it's not as much extra complexity over there.  If we do t=
+hat we
+>> > should probably start puling some of this code into the shared BPF com=
+piler,
+>> > but we're also opening the doors to more complicated BPF JIT optimizat=
+ions.
+>> > Given that the BPF JIT appears to have been designed explicitly to be
+>> > simple/fast as opposed to perform complex optimization, I'm not sure t=
+his is a
+>> > sane way to move forward.
+>> >
+>>=20
+>> Obviously I can only speak for myself and the RISC-V JIT, but given
+>> that we already have opened the door for more advanced translations
+>> (branch relaxation e.g.), I think that this makes sense. At the same
+>> time we don't want to go all JVM on the JITs. :-P
 >
-> On Mon, 2020-02-17 at 17:58 +1300, Mark Tomlinson wrote:
-> > Hi Phil,
-> >
-> > On Mon, 2020-02-17 at 01:22 +0100, Philippe Mathieu-Daud=C3=A9 wrote:
-> > > Hi Mark,
-> > >
-> > > On Tue, Feb 11, 2020 at 10:42 PM Mark Tomlinson
-> > > <mark.tomlinson@alliedtelesis.co.nz> wrote:
-> > > >
-> > > > The Cavium Octeon CPU uses a special sync instruction for implement=
-ing
-> > > > wmb, and due to a CPU bug, the instruction must appear twice. A mac=
-ro
-> > > > had been defined to hide this:
-> > > >
-> > > >  #define __SYNC_rpt(type)     (1 + (type =3D=3D __SYNC_wmb))
-> > > >
-> > > > which was intended to evaluate to 2 for __SYNC_wmb, and 1 for any o=
-ther
-> > > > type of sync. However, this expression is evaluated by the assemble=
-r,
-> > > > and not the compiler, and the result of '=3D=3D' in the assembler i=
-s 0 or
-> > > > -1, not 0 or 1 as it is in C. The net result was wmb() producing no=
- code
-> > > > at all. The simple fix in this patch is to change the '+' to '-'.
-> > >
-> > > Isn't this particular to the assembler implementation?
-> > > Can you explicit the assembler you are using in the commit descriptio=
-n?
-> > > Assuming we have to look at your commit in 3 years from now, we'll
-> > > wonder what assembler you were using.
-> > >
-> > > Thanks,
-> > >
-> > > Phil.
-> >
-> > Yes, it is tied to the assembler. But the Linux kernel is tied to GCC,
-> > and GCC (I believe) is tied to GNU as. I can't see the specification of
-> > GNU as changing, since that could break anything written for it.
-> >
+> I'm not against it although if we start to go this route I would want som=
+e
+> way to quantify how we are increasing/descreasing load times.
 >
-> There is an effort underway to build the kernel with clang[1]. I'm not
-> sure what that ends up using for an assembler or if it'll even be able
-> to target mips64 anytime soon.
+>>=20
+>> > I figured I'd send the patch set out as more of a question than anythi=
+ng else.
+>> > Specifically:
+>> >
+>> > * How should I go about measuring the performance of these sort of
+>> >   optimizations?  I'd like to balance the time it takes to run the JIT=
+ with the
+>> >   time spent executing the program, but I don't have any feel for what=
+ real BPF
+>> >   programs look like or have any benchmark suite to run.  Is there som=
+ething
+>> >   out there this should be benchmarked against?  (I'd also like to kno=
+w that to
+>> >   run those benchmarks on the RISC-V port.)
+>>=20
+>> If you run the selftests 'test_progs' with -v it'll measure/print the
+>> execution time of the programs. I'd say *most* BPF program invokes a
+>> helper (via call). It would be interesting to see, for say the
+>> selftests, how often the optimization can be performed.
+>>=20
+>> > * Is this the sort of thing that makes sense in a BPF JIT?  I guess I'=
+ve just
+>> >   realized I turned "review this patch" into a way bigger rabbit hole =
+than I
+>> >   really want to go down...
+>> >
+>>=20
+>> I'd say 'yes'. My hunch, and the workloads I've seen, BPF programs are
+>> usually loaded, and then resident for a long time. So, the JIT time is
+>> not super critical. The FB/Cilium folks can definitely provide a
+>> better sample point, than my hunch. ;-)
 >
-> For reference the relevant section from the GNU as manual[2] says "A
-> true results has a value of -1 whereas a false result has a value of
-> 0".
+> In our case the JIT time can be relevant because we are effectively holdi=
+ng
+> up a kubernetes pod load waiting for programs to load. However, we can
+> probably work-around it by doing more aggressive dynamic linking now that
+> this is starting to land.
 >
-> [1] - https://clangbuiltlinux.github.io/
-> [2] - https://sourceware.org/binutils/docs/as/Infix-Ops.html#Infix-Ops
+> It would be interesting to have a test to measure load time in selftests
+> or selftests/benchmark/ perhaps. We have some of these out of tree we
+> could push in I think if there is interest.
 
-Chris, thanks for CC'ing us.
+I'd be interested in some sort of benchmark suite for BPF.  Something like
+selftests/bpf/benchmarks/ seems like a reasonable place to me.
 
-Mark, we're building 32 bit MIPS kernels with Clang under CI (just
-added big endian builds this morning).  We're actively looking into
-supporting 64b MIPS.
-
-The kernel uses GCC by default, but supports using any compiler via
-`make CC=3D<foo>`.  There is extensive support in the kernel for
-building with Clang.
-
-GCC and Clang (when doing kernel builds, for clang we set
-`-no-integrated-as`) will invoke GAS for inline assembly, but you can
-set `AS=3Dclang` for example for the out of line assembly files.  If the
-C source files don't contain inline assembly (or `-no-integrated-as`
-wasn't set) then Clang will skip invoking the assembler and stream out
-an object file.
-
-If you're actively supporting 64b mips, and want to give a Clang build
-a try, we'd appreciate the bug reports:
-https://github.com/ClangBuiltLinux/linux/issues
---=20
-Thanks,
-~Nick Desaulniers
+>
+>>=20
+>>=20
+>> Bj=C3=B6rn
 
 --=20
 You received this message because you are subscribed to the Google Groups "=
@@ -223,5 +248,5 @@ Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an e=
 mail to clang-built-linux+unsubscribe@googlegroups.com.
 To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdkaLRE0Ek3PnmqE2P3Urn4%2BpwfAp-qQdsLurwERcqNXfQ%40m=
-ail.gmail.com.
+clang-built-linux/mhng-eae623ac-3032-4327-9b23-af9838e3e979%40palmerdabbelt=
+-glaptop1.
