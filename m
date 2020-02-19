@@ -1,126 +1,118 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRB6XAW3ZAKGQE6NRSCSI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBNEXW7ZAKGQENMGQBWQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3f.google.com (mail-yb1-xb3f.google.com [IPv6:2607:f8b0:4864:20::b3f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 07EF816520D
-	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 23:02:36 +0100 (CET)
-Received: by mail-yb1-xb3f.google.com with SMTP id n71sf1662729ybf.0
-        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 14:02:35 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582149755; cv=pass;
+Received: from mail-il1-x138.google.com (mail-il1-x138.google.com [IPv6:2607:f8b0:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 34C3C165345
+	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 00:58:46 +0100 (CET)
+Received: by mail-il1-x138.google.com with SMTP id w6sf1614264ill.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 15:58:46 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582156725; cv=pass;
         d=google.com; s=arc-20160816;
-        b=qlK1wHXmIn6hesUZ3IYlWGXROgwrHa37Ef41NX2BgKTu5UbCuTDzmM1w+uN++uTMXj
-         L+o0SqW7ORN70De1KvIRnZfn9KYiOhh24N7XIecZ3y04515VjE1B0mYQiZO7yN1SK5iH
-         BWF6SfoHaGzVwcGXkTAjm/yY09P0/xRSq3Tlx+DPQ403EvXMc+L/cvxkUVFebQ8GWsvx
-         oqxPNbJmxpXvyUsSDhXc13TkymK9va1Qkt97Qo2a0FMTTIbTKuS5/mcUljUBmq+Iv78f
-         XmvI3RpHDSv2VXgJzyoeizeNdy8mqeImLPhUqnSoMhA57wC59govQXcc0MY3OSmdKUZ+
-         Yb4Q==
+        b=zoKBsgFuVUhwYDcBuTFKuAqk5y93SXkG0aM7UYuBQHIP6APSDvX7GtmjRZfp4BEbs7
+         lwCuBaGQX50kqq62BaTwa+CvimZSBvxKaiOnICWyuqWSrx6SSYUCNsY4+vKBzGz/XGf9
+         5qKOsLEt/AQFWZIM+EmmPWkWe5u06SyD+uyY4DYhYRR5z+yNlkkMJPN1guMVlZb7ZO7s
+         anemkTsHIXPVuAvN3auMSvW+G8/6V1n/MblppHlo/iYc1MpWjlFb+EBb4DLIe720WGUf
+         n8/91/KXJ0aS98xX3hJxbYR/zT5mVmcFa0tXOg7Pi+aTyv5ArmwBu4PL/RyPBbhG9BOX
+         W6rQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-disposition:mime-version
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=tsm3Ns1hsl6g0q5levITiXin5pfyXvq/trFHaUQNx3Q=;
-        b=YR9XbwxdfIHmqeMYmifwIIVfE4hqrvrKJ61nYwExRl6atUrOsJe2I0dG7HCUaUUxhX
-         e3e9Yc2gkkZ7TTg+z7egIZ84BGgzU6sEP2FnPx0Pn/5CrQcoLuGajfJg6MOurhqfFnHd
-         Q6CaFLBuW9zjy3XtYpevcG7bZiUBTeYUVAbps32t/B9CbCmU8rYp2DuW35ChttvgwoRU
-         7B1L6S58KfFcFowX3fZ5gQz4v7VglBWu0qnoWlegfMXTULG97PTws5HRrTIM18iXu8XN
-         Vadsnmmd7j2OyqcHDpF3mLs+BGNiot26B6plw6tb+Y7koFF3VO0+rYQcxoH8I9Kdr5Vd
-         Lkmw==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:mime-version:dkim-signature;
+        bh=LthkoCUWQwkTXB5JZh/l0PTTes6QxezJ3UKH/mH+sRQ=;
+        b=OyNXPzWbbyozWVOGKgenLEDSbh38DC928jBAOVyE7gL/rhjv7zMxFSL0MUSK8zXakf
+         W5Q1tlSj7ifxsBRc2wb/t/uBeyc84p17rOiUObQvMJSvUpt4ELTbv/WQYONIwsyzYbpR
+         QMwI5PVu09/SkN1iTUe1wRWFUN87566jSuax5e37D+aUXj65suZbBmtPdzN0e2RRR6lC
+         +2r/LMjR/uj6gRIxKJDSuyxNywNk7N+jQDjAUhke0EjkRKZ8jlx4NJld0LwI+M58Opto
+         CJoJTa8bznQpNbnudq/AMUctoiRkZ9QsSyDWb5R6d0/xaUYQ2sVYONoLD780F3SQFoJv
+         l3+g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=fCODj54Q;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YI49sziO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=tsm3Ns1hsl6g0q5levITiXin5pfyXvq/trFHaUQNx3Q=;
-        b=U2qx7QLsURJd9+prOJpIVuFVrww1+7vxIZm74athGieLrVYUjFpML7RukyHYK7I4k3
-         bLxcaGGY70xiNmibudvaUgOxMBkjlmqzKnRLFcXS895EYLdqGGjsFCMKOK55J/boeb2n
-         ANtRq8i5FEvx7JNOMoJ1onInAeUUFuOxIQeKYQ+Be6+aAlrah2PVYIjfo6GujPigsntO
-         mC74r1qdZn1pWgLB9ZIUY8vuM+6J5qIRdt8CWVrq3awe24fOPxCdjRmBWfS2tklITwUn
-         vyzVm15J2EtS5PmBPU4Km3Z1D7VlTqsifnyZkYukAPgBklfsxB5WArP1ID2vbQwirqve
-         +iOA==
+        h=mime-version:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=LthkoCUWQwkTXB5JZh/l0PTTes6QxezJ3UKH/mH+sRQ=;
+        b=aCqHW3tDILYYU8DNpIMryAuxSkyk8uTz48WRZ5JC1wnmmwXh6MDFA2eHvIU29+H3Hr
+         nNPl/sYxTCp7ovc8MqLT1d5QCEd8GlXRHveKpZovVizM4OJNFrnN8NsgpirUsreZfcLc
+         oiixK75sVpWwMFMRYvZTa+Sdj/wd2nSk+AagJrhTQM+3xAi4vVKEjV1gKzbKOWP0ikFd
+         o5gBEkS4uLgmZIg7VT3Qfj8DSLGwKcM8sHqCs5wBuQk8smGoBwuTJz3x1yZpdL8v2Cdk
+         ZJQ4VjQUxvnrFVUMwR/8PS0a0e297qx+RVo5kLMHYBfKq5J4akGg9XHpOzA+ghmdiqpL
+         lC6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=tsm3Ns1hsl6g0q5levITiXin5pfyXvq/trFHaUQNx3Q=;
-        b=ICDRA7+kJ8NQIlV68i8pOqQ7I4TqjamodrQ89F9NQdofKlbwYhWicVru7w9DufZtCN
-         fohuYSoVlV2Cf0RUO+RAmbeiwi2kh05TH3sshVmZeSOVvVjJx9lbhIVSSHwdAHyFQtyL
-         HAAYUUIEwaCgIci/uf6wdGKbWekJwVT0I6uIymU+WEXnBX0ZHs23nDSVtpStsVQdj1wd
-         Bj0DdRPlCTzr+ipgCL9XAoZaikxTXgsetA1j2eIPJGo+oTQ5vXq7raJutyBHQ7sMt7mT
-         LOFTaGrUyo/igFYZoS1gOod6AI9kuvz0CsdRxSoP6XW2bogIUWSOKgsxRXsbV+mYy7At
-         IAPg==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW1iZikicS70EtJ0L7Sex/39RMiFWxAqthCLv+aRrAcBImtRxQ6
-	L3dQXMqt/Ab1WjS+0kr0QAQ=
-X-Google-Smtp-Source: APXvYqw0kx4mz+EfFoHHc+UOAokdoAu8EvGqNaZWGvXY/AUXpoGFkFcn1Ad7xaFmdCxH2QbXrGXryw==
-X-Received: by 2002:a25:dbd1:: with SMTP id g200mr27304724ybf.171.1582149755013;
-        Wed, 19 Feb 2020 14:02:35 -0800 (PST)
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc
+         :x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=LthkoCUWQwkTXB5JZh/l0PTTes6QxezJ3UKH/mH+sRQ=;
+        b=Lcw2qvd9zlhqvHrh26MTjNzKt3aUh4nQa6FHH67q/rdCVmJVUm6NcRe+NQo0NhgWLc
+         2F3F5IKmSG8LA9vn9B4z650o8gZWLQM7mO/IiO18Gg9k2uwHzzwdIwcWGMYe/LJVrnVB
+         q9IsFsZ4jQJ3lhy6A+7jkoVR8mzAMxBSy/c+/bLb66CLYSQ2dhGYDlKiswbHnPSh+jRb
+         t/BH6Ef66RfrfDLl2iIE12TcDCncnAbxeW2NAfghQQxCcuJ9shuyc5TP+iBBYfqcVQZN
+         EdJ8ZvAJyq9Y+SHB9TWrtvYPuhTsSCo6kXM0t1qc5/SRcjqjhzPUJzPFb2I6CfgXBmMq
+         vxSw==
+X-Gm-Message-State: APjAAAX3/loqL9vH5RG4UyB2B5o8zyduJQwBinNSVA1Ko3VAQv8kHKcc
+	ynEY1k6de8GjOF3RNoW/lWo=
+X-Google-Smtp-Source: APXvYqzvCsi+xqs6UW8b4B3n/f5adZOL8eWXQ+S4b9ySCoNXeo7633ynLyG8b4WJYhQqklkKfXIJTA==
+X-Received: by 2002:a92:ba8d:: with SMTP id t13mr26277470ill.207.1582156724916;
+        Wed, 19 Feb 2020 15:58:44 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:bd4a:: with SMTP id p10ls239845ybm.4.gmail; Wed, 19 Feb
- 2020 14:02:34 -0800 (PST)
-X-Received: by 2002:a25:8747:: with SMTP id e7mr27293341ybn.137.1582149754675;
-        Wed, 19 Feb 2020 14:02:34 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582149754; cv=none;
+Received: by 2002:a92:2907:: with SMTP id l7ls319988ilg.8.gmail; Wed, 19 Feb
+ 2020 15:58:44 -0800 (PST)
+X-Received: by 2002:a05:6e02:df2:: with SMTP id m18mr25916208ilj.56.1582156724524;
+        Wed, 19 Feb 2020 15:58:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582156724; cv=none;
         d=google.com; s=arc-20160816;
-        b=K1udIVn17CorQ2J1Rkak64qeKyVNgkN1EsoFIIS7wa2DTtL/S2yuOQ4QPmRI2L0Q46
-         ockjl34wI0w/cbRyQCmqCucABHyEDZG7RNQrwwlwDnBJC+YtDYr019jCOZtkAMz72SZB
-         4e8IZb5Npk/1GHONvs+AXA9Qgi9IXdngrougaAiKFsWNiYTQUWoKR8ekSGAxa50wr45O
-         vgSHylKNV+i9FHz5euqs62brAvzR5WJbgALYUu27L2HVeBt5MDvMEZwWPBlao53VYNC+
-         4uS1GXj39tHhVN1H41rbLPJJUTvchqornrEEPFNgl57dxXbJ19x6c+0PtOTO9krHvErI
-         KXrw==
+        b=h1rdu4mM1/ZsbswtHIf2FnpgfqCChfrJ0vPm8bTPsML4/597v1qjc1vWtcCf3qtZK4
+         kO6Jo2YqMcSUNY/+amr4WDT7sJqReXWKNdw3vYKgJmg0VVRGLZBATpjWy1FcBqDHlrGT
+         EXXtFcvU2jXA6tSt37xVjvDep5bIV/O52cZkBdI4gynzkcWaq5TWUs1u4t1qU107Sx3i
+         AUHurIaJn10H3Si1+DiaWoryMlsSgtZNKYSl8JSkxfvSp0Lq6p/9shfhLWXjizN3kpcC
+         PYnTvUIuY9YopPMRU0y3ipBgL/fukckyxiIGcKj79qW0hDqU/PNxTurdK94EuISKRNrd
+         bmNA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :dkim-signature;
-        bh=BHUkyaNS57rnl1EShz+sW2LkBqKJsXPNkmOK4nC4xww=;
-        b=f/wJ3/UH6AC54zmbXOrsGCJIkI419wTtwut8pG+IedJARCDIJYJvPJkjElYfrhis89
-         K0LsX3Adx9q56z61aeb5ZqHdxJBUUbWQvqGyHNPNRQMhs8dvni7nGneC1AJXUl6Ed+7J
-         c93Rh0+906BCXiHyLEYWTgUNmSnJnWYVUcZUbwZW5qi3SIJIdqOqz0xxvPR1p7j3AXIo
-         vpkSI+Lh1iu3cDFP9cVo7rfhXkYDaZB+JW02sZHhTofSJEpcplMRG6OIvxBP5s+r/igY
-         hYTJzM7hKzkkytsZ0tDTJwPpAS4rdFVjFT+A4MHiv34d39KR1MQTduQXNfmW7/eCpwSm
-         4vag==
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=K6MvtpDUCgJGN+cW2GJPhwgrkHb7UrABIM7vJPo4cNY=;
+        b=yPDdaV1nXQCR2XGhkoMI7p8EdWo7SKbnB6cdQHa4cnCiPVNobQhjZS90LY4jJ684au
+         LLAdwYqDU2Av8OabXZK1dbLzyXdLyiVEglBqyZBWrKjN+q6Y0gZeRq+2ICfwBYL4H2qY
+         LTotczhJftgFYBCdMV55m48WIymzW/QpMaaMlZU5aVWUAot8EynVMAd2oIT+rMCb0WgA
+         Qyq+be5e91nYmCxsDk37xkbL6S/9bIIMqSU46xp/0d5E7whTP/5GvKrkKEw45ux9zG3F
+         DSZs6rKajxLl+lfO/LA3F+mBjkIZ+odlzikiVa4NEfW7x3zX/b+yr9oW+v3BM7/sz2Wi
+         SsIg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=fCODj54Q;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pl1-x641.google.com (mail-pl1-x641.google.com. [2607:f8b0:4864:20::641])
-        by gmr-mx.google.com with ESMTPS id d78si130466ybh.3.2020.02.19.14.02.34
+       dkim=pass header.i=@google.com header.s=20161025 header.b=YI49sziO;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-pf1-x42b.google.com (mail-pf1-x42b.google.com. [2607:f8b0:4864:20::42b])
+        by gmr-mx.google.com with ESMTPS id z6si87422iof.2.2020.02.19.15.58.44
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2020 14:02:34 -0800 (PST)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641 as permitted sender) client-ip=2607:f8b0:4864:20::641;
-Received: by mail-pl1-x641.google.com with SMTP id j7so654548plt.1
-        for <clang-built-linux@googlegroups.com>; Wed, 19 Feb 2020 14:02:34 -0800 (PST)
-X-Received: by 2002:a17:90a:8902:: with SMTP id u2mr11310547pjn.79.1582149754268;
-        Wed, 19 Feb 2020 14:02:34 -0800 (PST)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id l25sm660753pgt.85.2020.02.19.14.02.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2020 14:02:33 -0800 (PST)
-Date: Wed, 19 Feb 2020 14:02:32 -0800
-From: Kees Cook <keescook@chromium.org>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Potapenko <glider@google.com>,
-	Jann Horn <jannh@google.com>,
-	Ard Biesheuvel <ard.biesheuvel@linaro.org>,
-	clang-built-linux@googlegroups.com
-Subject: [PATCH] lib: test_stackinit.c: XFAIL switch variable init tests
-Message-ID: <202002191358.2897A07C6@keescook>
+        Wed, 19 Feb 2020 15:58:44 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b as permitted sender) client-ip=2607:f8b0:4864:20::42b;
+Received: by mail-pf1-x42b.google.com with SMTP id 185so929237pfv.3
+        for <clang-built-linux@googlegroups.com>; Wed, 19 Feb 2020 15:58:44 -0800 (PST)
+X-Received: by 2002:a62:1615:: with SMTP id 21mr29029534pfw.84.1582156723472;
+ Wed, 19 Feb 2020 15:58:43 -0800 (PST)
 MIME-Version: 1.0
+From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 19 Feb 2020 15:58:32 -0800
+Message-ID: <CAKwvOdm9Uumj9dFJkuvcZwiVf67s7OOQdO_VKjPhLeEqXFkfpg@mail.gmail.com>
+Subject: Tuxbuild initial impressions
+To: Dan Rue <dan.rue@linaro.org>
+Cc: Randy Linnell <randy.linnell@linaro.org>, tuxbuild@linaro.org, 
+	Stephen Hines <srhines@google.com>, Todd Kjos <tkjos@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-X-Original-Sender: keescook@chromium.org
+X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=fCODj54Q;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::641
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@google.com header.s=20161025 header.b=YI49sziO;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::42b
+ as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
+Reply-To: Nick Desaulniers <ndesaulniers@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,110 +125,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The tests for initializing a variable defined between a switch
-statement's test and its first "case" statement are currently not
-initialized in Clang[1] nor the proposed auto-initialization feature in
-GCC.
+(bcc clang-built-linux@googlegroups.com, our public mailing list)
 
-We should retain the test (so that we can evaluate compiler fixes),
-but mark it as an "expected fail". The rest of the kernel source will
-be adjusted to avoid this corner case.
+Hey Dan,
+I had some time today to give tuxbuild a shot.  Just jotting my notes
+on my experience.
 
-Also disable -Wswitch-unreachable for the test so that the intentionally
-broken code won't trigger warnings for GCC (nor future Clang) when
-initialization happens this unhandled place.
+Looks like --git-ref is required.  Could maybe default to master if
+not specified then be optional?  Useful for LTS tree which has
+different branches, but torvalds/mainline is master.
 
-[1] https://bugs.llvm.org/show_bug.cgi?id=44916
+Error: [Errno 2] No such file or directory:
+'/usr/local/google/home/ndesaulniers/.config/tuxbuild/config.ini'
 
-Suggested-by: Alexander Potapenko <glider@google.com>
-Signed-off-by: Kees Cook <keescook@chromium.org>
----
- lib/Makefile         |  1 +
- lib/test_stackinit.c | 28 ++++++++++++++++++----------
- 2 files changed, 19 insertions(+), 10 deletions(-)
+Maybe config.ini should be created for me after prompting for my token?
 
-diff --git a/lib/Makefile b/lib/Makefile
-index 611872c06926..08c2b6d32900 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -86,6 +86,7 @@ obj-$(CONFIG_TEST_KMOD) += test_kmod.o
- obj-$(CONFIG_TEST_DEBUG_VIRTUAL) += test_debug_virtual.o
- obj-$(CONFIG_TEST_MEMCAT_P) += test_memcat_p.o
- obj-$(CONFIG_TEST_OBJAGG) += test_objagg.o
-+CFLAGS_test_stackinit.o += $(call cc-disable-warning, switch-unreachable)
- obj-$(CONFIG_TEST_STACKINIT) += test_stackinit.o
- obj-$(CONFIG_TEST_BLACKHOLE_DEV) += test_blackhole_dev.o
- obj-$(CONFIG_TEST_MEMINIT) += test_meminit.o
-diff --git a/lib/test_stackinit.c b/lib/test_stackinit.c
-index 2d7d257a430e..f93b1e145ada 100644
---- a/lib/test_stackinit.c
-+++ b/lib/test_stackinit.c
-@@ -92,8 +92,9 @@ static bool range_contains(char *haystack_start, size_t haystack_size,
-  * @var_type: type to be tested for zeroing initialization
-  * @which: is this a SCALAR, STRING, or STRUCT type?
-  * @init_level: what kind of initialization is performed
-+ * @xfail: is this test expected to fail?
-  */
--#define DEFINE_TEST_DRIVER(name, var_type, which)		\
-+#define DEFINE_TEST_DRIVER(name, var_type, which, xfail)	\
- /* Returns 0 on success, 1 on failure. */			\
- static noinline __init int test_ ## name (void)			\
- {								\
-@@ -139,13 +140,14 @@ static noinline __init int test_ ## name (void)			\
- 	for (sum = 0, i = 0; i < target_size; i++)		\
- 		sum += (check_buf[i] == 0xFF);			\
- 								\
--	if (sum == 0)						\
-+	if (sum == 0) {						\
- 		pr_info(#name " ok\n");				\
--	else							\
--		pr_warn(#name " FAIL (uninit bytes: %d)\n",	\
--			sum);					\
--								\
--	return (sum != 0);					\
-+		return 0;					\
-+	} else {						\
-+		pr_warn(#name " %sFAIL (uninit bytes: %d)\n",	\
-+			(xfail) ? "X" : "", sum);		\
-+		return (xfail) ? 0 : 1;				\
-+	}							\
- }
- #define DEFINE_TEST(name, var_type, which, init_level)		\
- /* no-op to force compiler into ignoring "uninitialized" vars */\
-@@ -189,7 +191,7 @@ static noinline __init int leaf_ ## name(unsigned long sp,	\
- 								\
- 	return (int)buf[0] | (int)buf[sizeof(buf) - 1];		\
- }								\
--DEFINE_TEST_DRIVER(name, var_type, which)
-+DEFINE_TEST_DRIVER(name, var_type, which, 0)
- 
- /* Structure with no padding. */
- struct test_packed {
-@@ -326,8 +328,14 @@ static noinline __init int leaf_switch_2_none(unsigned long sp, bool fill,
- 	return __leaf_switch_none(2, fill);
- }
- 
--DEFINE_TEST_DRIVER(switch_1_none, uint64_t, SCALAR);
--DEFINE_TEST_DRIVER(switch_2_none, uint64_t, SCALAR);
-+/*
-+ * These are expected to fail for most configurations because neither
-+ * GCC nor Clang have a way to perform initialization of variables in
-+ * non-code areas (i.e. in a switch statement before the first "case").
-+ * https://bugs.llvm.org/show_bug.cgi?id=44916
-+ */
-+DEFINE_TEST_DRIVER(switch_1_none, uint64_t, SCALAR, 1);
-+DEFINE_TEST_DRIVER(switch_2_none, uint64_t, SCALAR, 1);
- 
- static int __init test_stackinit_init(void)
- {
+Error: error: Unexpected argument for target_arch, 'x86_64' needs to
+be one of ('i386', 'x86', 'arm', 'arm64', 'mips', 'riscv', 'arc')
+
+No help menu for the list of target architectures.  `tuxbuild build
+--help` prints list of supported toolchain, maybe supported target
+arch could be added to the help menu. Missing powerpc and s390 which
+we are building.
+
+first build took ~20 minutes (which is great from a starting point):
+$ tuxbuild build --git-repo
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+--git-ref master --target-arch x86 --kconfig defconfig --toolchain
+clang-9
+
+For comparison, our x86 mainline build from last night on our CI took
+40 minutes:
+https://travis-ci.com/ClangBuiltLinux/continuous-integration/jobs/288815480
+
+On my workstation, I can do such a build in 50s (without ccache, with
+bfd), for reference.  ccache+lld in 18s.
+
+I forgot to add `--json-out` so I had to go off the url printed for
+artifacts. Maybe a json could be created by default in /tmp and it's
+path printed out?
+
+http://builds.tuxbuild.com/16_CEDdBZxfUGoz76Xa9bw/ were my artifacts.
+Kernel version has an error string:
+http://builds.tuxbuild.com/16_CEDdBZxfUGoz76Xa9bw/build_definition.json
+which looks like a bug.
+
+I was able to fetch the bzImage in 0.8s, so time downloading the image
+doesn't look like a concern.
+
+Looks like the --toolchain arg just swaps out the compiler; we should
+probably think through how we might do an all LLVM build, since our CI
+is using LLD as the linker, and a handful of other LLVM utilities in
+place of the GNU ones from binutils.  I'm trying to simplify this
+upstream now.
+
+(initramfs) cat /proc/version
+Linux version 5.6.0-rc2+ (TuxBuild@6a494879f5b4) (clang version
+9.0.1-2) #1 SMP Wed Feb 19 22:57:0
+
+Overall, it looks pretty polished; really nice work.
 -- 
-2.20.1
-
-
--- 
-Kees Cook
+Thanks,
+~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002191358.2897A07C6%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm9Uumj9dFJkuvcZwiVf67s7OOQdO_VKjPhLeEqXFkfpg%40mail.gmail.com.
