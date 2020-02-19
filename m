@@ -1,124 +1,130 @@
-Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBZMAW3ZAKGQEREA5TYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCWYVWVBVIEBBHEBW3ZAKGQEPQ7PWZA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x338.google.com (mail-wm1-x338.google.com [IPv6:2a00:1450:4864:20::338])
-	by mail.lfdr.de (Postfix) with ESMTPS id 23E98164DBE
-	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 19:37:26 +0100 (CET)
-Received: by mail-wm1-x338.google.com with SMTP id d4sf582503wmd.7
-        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 10:37:26 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582137446; cv=pass;
+Received: from mail-ed1-x53c.google.com (mail-ed1-x53c.google.com [IPv6:2a00:1450:4864:20::53c])
+	by mail.lfdr.de (Postfix) with ESMTPS id 55545164DC2
+	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 19:38:20 +0100 (CET)
+Received: by mail-ed1-x53c.google.com with SMTP id v11sf793471edw.11
+        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 10:38:20 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582137500; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LRGgS+iKUb/k4ZBwCMC0BEtrcDJrEQXIK8tBjUWOy+i4t5JuF9s9hf1l5JxAa+OBe1
-         kQrdS92sjfHZ4KZQv1LoN1gfLznOw1qApUvymOccWFg7h+8V4QfVhf31xGr5T+9dspRk
-         lcbWKlKbEmFq2gftL5Dju1uw58v/4WM7z0LAuQTWXup/E0D289PeSxk/pCdqKsbZUmuH
-         qDcw6TjJSU2VXVv4OtzsmVlPQvmZ4Msx78sBSIPAKS59zhRWqHU2ZNBNgX62xq08ynHR
-         1g8wxWo6zeKyJBf0Gyyopqah7NjQLas8Fhix05DZF1KLBZHWtEYL5mqdkrMW4k4nj2MJ
-         DOXw==
+        b=MvRyVBa1vD9EiXeccrOsqVlRcqoprbPKJ9i4++MC9KTygqfMjdd3VuuUzG0TVxOEM5
+         rJjmdPErG6RICAwRzr3J5ToimsChV5V8R6WHTnL1FYl5n7/l+2ILO32pQ64TsF7wYk+X
+         H+14cJWxQt4v9SFekdUhQcby5xACgHqGCHeSith9jv2VhLh6S/39dmaDH4A3U8C9/k5y
+         BFS4b+i4PYAzma+IDwEZZv+yrb6AdSDAsxPyiu0fVlUUlaghsQTNrsSVtxDW9fHJZUXD
+         IYXpM3GN1s8CcuVkb6L7IFQB4rffVSW0P3n/elS1iVBcxl2j2qtL/COea/CKl3GCGHbl
+         yNhw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
-         :date:from:sender:dkim-signature;
-        bh=mIK1nkphHC0qJvVd6+nKfz5EK9/PbvlDXGDYU9Q0HXk=;
-        b=mz9qUJwXU2sDTeCOe0q00MPHCfnbzTYQaMPsISTjVm4uVxOXg5fxAeCdB4l7U8FzV7
-         IwnU1xSU6wVYmwKO62yYgbPMlCj4ulU0+n7Ekx9OJqiIh/kniI43z5dbg0Zuj4zkDc0d
-         cmK+8LPj4nO/gqhySxfJvozurML4sCGiMeil1JVZR4Gpk2EPD2NysgDJlKTu0u2sURnt
-         otBuj4weHCFjwxyUUCGyFEJ+CMiMIs/9dmmXlRvwTekSiD8oUugBZE4TFBFgZaXnXZsx
-         Ltn/xcNU67Ao97LYXWrhQ7oKv8IKa/9ySA6g8Jbsag1UUpITLCUhWy2RmsCVw4y94lZ3
-         XSaA==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=ic+X5CyYsOzp6oQedImZtmubw5x72cidvKdPuJ9Bujg=;
+        b=kRQBJcwm4dnYjlXPUPD/JI4T9b9UrjKNXhDsGRvzS6al8lxRt4i1JWmCehTEOn3A7h
+         LP32dlp6mDvG6vyOSGXmb6aMM0orXnfcHqqokRASm/NCm/PUXzrCD4tI+qou7M3pn36u
+         wkyYkr7PUQgg27v4Bhrt5lRT/vfek97AxtuUmJ/1Nwl0/e94pG3G9HBYbxXHkD4sRGrN
+         uOSpbFsyzEqv3qawt8ZthH8afXl29dA1Lsj0i+iD1/2yuLbSAgKC805bNyX2uk1LokUK
+         YtVTbWtd8RC4yUHDl0kvz8vAOzE3UBD66D7hubIV4sRIJVAxwqEOSKGfSbR/WNaLZixr
+         COCQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=ErAK2LFp;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       spf=pass (google.com: domain of james.morse@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=james.morse@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:date:to:message-id:subject:mime-version
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=mIK1nkphHC0qJvVd6+nKfz5EK9/PbvlDXGDYU9Q0HXk=;
-        b=Lk7GLZq224ff60zqlm/5icIfR5tQ7wrPx2p3zG7DC5am+bQLdrgSZBrVke0j/4qvMR
-         nKHt85fXIEvdbk0swJ/cDOdyN4btPpVQbDODaKoe9RilboizHPyNDYtKVsxzTWovm7aq
-         UaK2XPpEoSW7UIPbrekMx56TuYzggfynLavWEgpdJW4As45jj58ujIZ2TPo9QlcRKcPV
-         Dg4Zgfa20Af8CSGruIIHJepxP8xGRbcc3+NAEdxu0FKBpEkAIxmlos4Uva0oxFhkksho
-         aqhhwNKG7aGxfBuQ9kUlcoG/puJ8CsntcR0dwGcaVRPKccQVZZAFNjTrs67nf1e45eJU
-         o0jw==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=ic+X5CyYsOzp6oQedImZtmubw5x72cidvKdPuJ9Bujg=;
+        b=kWMj1CHli8BtbFGuknJWD72BLxaxOy73h0GU30/J9xVEdSyt29kjLro++t3vquFZz1
+         jcvcaBCbmni+qOl54bGP951h5uQTwMpMgsAOfe02h09Aa0WFl3Tt1WpRV+G71KH13RLM
+         dufxfVh3Aq7jRAzxXWXtB70QxDDboDdY1Mr+fmLV7dsjrToteunGaPZ9EFBMSX7uhZ7Z
+         G1frvdMdGRJeayi18w4nkjufzHyl9qEbZdL579iZOtOBr6yrAe1XjBvB87jAuLQfUhjF
+         XsHFJNqgWw0bXWQEUW6QEhdB71YPK0xCepqQFOD2qAEZ5Uns5wNa3+jCS9zTQDBt7vhV
+         d+2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:date:to:message-id:subject
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=mIK1nkphHC0qJvVd6+nKfz5EK9/PbvlDXGDYU9Q0HXk=;
-        b=liL4Pcz8CtwnZpKcRbnbWwJh9SYSycHYirtGjJtLb29G7lgNwT24/VQTguQ4SYwJcK
-         71mUcP0oioZxwJViwGYwWC4FmzTnK2Kj/fvFBoNF/BS8/hw3aCTsPdHXDsWiUe25crAM
-         f+/FqvUzxsGq1LfU67A+V+sGeI5Mn9S+8PmgeiTAaIIWiJmrsmmKBrFMDmE1zzcaTO2I
-         m+UupxqVrqMAtjnUV55HXkhQtdq23Tr/JKzpeVG8xPJjhXa3xP5EU5mwvPnA1Ee8znFb
-         9JLa2FEQaV66YctaxwvrEFNDctns0E1jg4HEr/McLEN53xjh9eFcgqXpbE2lpML5JMhH
-         fQwg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ic+X5CyYsOzp6oQedImZtmubw5x72cidvKdPuJ9Bujg=;
+        b=lAU7Zfx/Y2dT9I9WXYEh6n8vZqkEy0A/eAnIpBUhzqNNL8Hhqxy19ReQD8KWYNmT86
+         7sGVIkFn09FMQNYU10LK8h4J4m19k5n4zHsYQTENnnEGNgwD8KqHaz/JevRCOi2Mj/xC
+         fDrsDeO5gDfF5YhFIYFt36gxx7xVhl1xVA77jAE4XNbt+k/K/rtIb+JRjjllHmqNI3uY
+         W0az/o5IllL01vmrOdb4vSiSlMH0RSSJYsy6s24qnvUSHsdWiDmmU9y1sOb2I3Q5xMWn
+         pv+fBpzTLK58/U0OyLurizyVD97R+qMT+N1XnaeoUBV+/6HNn8cRUb9eyLaXfW/RfwJd
+         0VfQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVK0W+zSamrKpzZnA6ms174/1j2qrXHQUhwpObs82bfAsAlZF9f
-	m3IXDifdBspq/+/8TTwaZc4=
-X-Google-Smtp-Source: APXvYqxWhb/MXU/eUHHDTs+P3t1QpC1Dpi3bBIMm1qHaTxtmvnLwzUti1yhl/ow1xbhonFpL+nXQDg==
-X-Received: by 2002:adf:e2c5:: with SMTP id d5mr36910469wrj.165.1582137445866;
-        Wed, 19 Feb 2020 10:37:25 -0800 (PST)
+X-Gm-Message-State: APjAAAWeysg8cnlZ/uXQtwkQnjB4nmaS2dOWRF5tRKUsbWJFuPkr+4eP
+	vNRo/EMRDqc7jQMdl7tfGD0=
+X-Google-Smtp-Source: APXvYqz/YOlOF9wm+1Vus+nDYqyfjzEVF0jKTcm/07mxipK/YqjbBeYk1H2caL1ffsTQgP1HmMwN2A==
+X-Received: by 2002:a05:6402:211:: with SMTP id t17mr25652210edv.288.1582137500087;
+        Wed, 19 Feb 2020 10:38:20 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:4141:: with SMTP id c1ls10225008wrq.8.gmail; Wed, 19 Feb
- 2020 10:37:25 -0800 (PST)
-X-Received: by 2002:a05:6000:1201:: with SMTP id e1mr37869955wrx.386.1582137445332;
-        Wed, 19 Feb 2020 10:37:25 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582137445; cv=none;
+Received: by 2002:a50:9558:: with SMTP id v24ls8948430eda.2.gmail; Wed, 19 Feb
+ 2020 10:38:19 -0800 (PST)
+X-Received: by 2002:a05:6402:38c:: with SMTP id o12mr25379687edv.273.1582137499586;
+        Wed, 19 Feb 2020 10:38:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582137499; cv=none;
         d=google.com; s=arc-20160816;
-        b=0P4a5KBbRgZFoihd82SXyOmZlC9lH39hsvjsVShmCPfSN9QKmY53/0DmBBQspVJ3Jj
-         NAIAzn3QxY1Dw9FV4CELUE1GqTywSxHL05xLrhj103DlvnAN4M5BqtcIpz0SrRm0mrWJ
-         cT5cwCxXRlTyzo0HDGB466j359a+BJWbd6sY7Hwsc/FP23IjzUdWrd2bic32VlS3PmJv
-         RgS5dIpPq3qP6cJW3T5KHp3DyGw//bP96OjJDylVxuROk9VbaUK8GD/zk/Z4iYmLUPAF
-         LW4Bo+WQ72hO4uTk/7J7xNE3xWdR6BdKa5wbypgRmMZf6gViHPxTZCboA6kRao+HsC74
-         8hsQ==
+        b=AGDSpMe4kqLjxOWDRErvColpgsqDFb722v0CRr/Ecy5eu8G9EgYdy+54rQWzwnw+Yd
+         RNpEM1luHDeB3uGDuAby0wLEj7pxNtUTrbSAUfDZArXUX7+R/K9Kq2mfYAGKquTD9lEU
+         Dsqj9AN1KOzMKiiBk8MPxI4ePOgjydIuml828QS5NpTSb7Zpq9ePxmuU/GnXWzZxXD69
+         /ztZAahu4fTO/ZegS8Hgd9Q8swXgrS/1O2esZFh55gB1CpeQE0mvMICs1Q7wCkZ8sK3T
+         UuiEtLhaxLnW/klb0hZQzWccFneYKbzBBCBg/cVZIj6p2I7enrt1BkILzwBibUkjttnl
+         U4xQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:subject:message-id:to:date:from:dkim-signature;
-        bh=avig6XHBdLYGDgh7tbZJuGBdTU+Bbbq/bjeHotWY3xs=;
-        b=ce0cn4hJQGje+CbJBaxFNHltHf+DgTcNbD3C6rrezTlRUeVQ60SYyHJrhfLBJU3j4B
-         NJXux0OH5RWq4+1C3KRUyrBjDu2yI0zRlb+YxvW6YfshCsl3a+erMeDeUssD6bM10Ls/
-         8evEBY296R95gV4Iic6rkKD1WvPGuTCOheoc9QU9ULdyUpqVtPychO/7AUj8tfvWwd9w
-         RMk2Rxtw2EOt0qFQi6ulI7JZ/LCWkOvAVU4uPs6QsuQRKCuXZLzTs8/PkhKamaMzUCRb
-         9AMh/w71UHCAn9Vej6iesZ3LnQL+QhAVXDke57QnTaZJkQ7/Q9Ut7A/eW5McmWr/PUKS
-         5Vyw==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=SajVzS0a0WELtgqOp+qpGmJmG7cO1YdVpKCu4ERlR+A=;
+        b=gj01j7oJJZOwaeRrOo6GxQ2v2IarNzaTeTUy5aStdNYjiQpvOEmxc8lZ5aZE5YLj9i
+         0tLyBfGsCJdjYpHZNzCNQW4f1wrOvpyqaObq97g1COvuc3H8zH417ejA42phk1XXpt7L
+         glgQIDGDcBpNg52LIHODFGNNTjXNOH/3Ftfmy9hzp0QNfpkSw7cWdWg1hWTES6dVj+Gz
+         BMm/i/3oHxzXBOqczMq3oVgu+8ehSGS2Vx+445qwFoa9rC0vQI0xPaksySGOrcNrF3L5
+         commBUDe5O7DDJg4NwRwZufoQt0o1JRkSlfSZi+36Wh1Nb0c8oLa6jaMZKpvMN/UyXH2
+         BCJQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=ErAK2LFp;
-       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x42c.google.com (mail-wr1-x42c.google.com. [2a00:1450:4864:20::42c])
-        by gmr-mx.google.com with ESMTPS id e21si26492wme.1.2020.02.19.10.37.25
-        for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2020 10:37:25 -0800 (PST)
-Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c as permitted sender) client-ip=2a00:1450:4864:20::42c;
-Received: by mail-wr1-x42c.google.com with SMTP id z3so1770404wru.3
-        for <clang-built-linux@googlegroups.com>; Wed, 19 Feb 2020 10:37:25 -0800 (PST)
-X-Received: by 2002:a5d:6191:: with SMTP id j17mr35634544wru.427.1582137445012;
-        Wed, 19 Feb 2020 10:37:25 -0800 (PST)
-Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
-        by smtp.gmail.com with ESMTPSA id w13sm808737wru.38.2020.02.19.10.37.24
-        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
-        Wed, 19 Feb 2020 10:37:24 -0800 (PST)
-From: ci_notify@linaro.org
-Date: Wed, 19 Feb 2020 18:37:23 +0000 (UTC)
-To: tcwg-validation@linaro.org, arnd@linaro.org, 
-	clang-built-linux@googlegroups.com
-Message-ID: <479216940.2727.1582137444451.JavaMail.javamailuser@localhost>
-Subject: [CI-NOTIFY]: TCWG Bisect
- tcwg_kernel/llvm-master-arm-next-allyesconfig - Build # 61 - Successful!
+       spf=pass (google.com: domain of james.morse@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=james.morse@arm.com
+Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
+        by gmr-mx.google.com with ESMTP id s16si40710edy.3.2020.02.19.10.38.19
+        for <clang-built-linux@googlegroups.com>;
+        Wed, 19 Feb 2020 10:38:19 -0800 (PST)
+Received-SPF: pass (google.com: domain of james.morse@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B807031B;
+	Wed, 19 Feb 2020 10:38:18 -0800 (PST)
+Received: from [10.1.196.105] (eglon.cambridge.arm.com [10.1.196.105])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CE273F703;
+	Wed, 19 Feb 2020 10:38:16 -0800 (PST)
+Subject: Re: [PATCH v8 00/12] add support for Clang's Shadow Call Stack
+To: Sami Tolvanen <samitolvanen@google.com>, Marc Zyngier <maz@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Ard Biesheuvel <ard.biesheuvel@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>, Dave Martin <Dave.Martin@arm.com>,
+ Kees Cook <keescook@chromium.org>, Laura Abbott <labbott@redhat.com>,
+ Marc Zyngier <maz@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
+ Jann Horn <jannh@google.com>, Miguel Ojeda
+ <miguel.ojeda.sandonis@gmail.com>,
+ Masahiro Yamada <yamada.masahiro@socionext.com>,
+ clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20200219000817.195049-1-samitolvanen@google.com>
+From: James Morse <james.morse@arm.com>
+Message-ID: <0386ecad-f3d6-f1dc-90da-7f05b2793839@arm.com>
+Date: Wed, 19 Feb 2020 18:38:15 +0000
+User-Agent: Mozilla/5.0 (X11; Linux aarch64; rv:60.0) Gecko/20100101
+ Thunderbird/60.9.0
 MIME-Version: 1.0
-Content-Type: multipart/mixed; 
-	boundary="----=_Part_2726_525614844.1582137443789"
-X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-master-arm-next-allyesconfig
-X-Jenkins-Result: SUCCESS
-X-Original-Sender: ci_notify@linaro.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=ErAK2LFp;       spf=pass
- (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::42c
- as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+In-Reply-To: <20200219000817.195049-1-samitolvanen@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Language: en-GB
+X-Original-Sender: james.morse@arm.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of james.morse@arm.com designates 217.140.110.172 as
+ permitted sender) smtp.mailfrom=james.morse@arm.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,75 +137,116 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-------=_Part_2726_525614844.1582137443789
-Content-Type: text/plain; charset="UTF-8"
+Hi Sami,
 
-Could not identify regression in *linux* in CI configuration tcwg_kernel/llvm-master-arm-next-allyesconfig.  See 'Bisect log' in the links below for bisection details.
+(CC: +Marc)
 
-First few errors in logs of bad:
-00:40:48 make: *** [vmlinux] Error 1
-Configuration details:
-rr[llvm_url]="https://github.com/llvm/llvm-project.git"
-rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
-rr[linux_branch]="02815e777db630e3c183718cab73752b48a5053e"
+On 19/02/2020 00:08, Sami Tolvanen wrote:
+> This patch series adds support for Clang's Shadow Call Stack
+> (SCS) mitigation, which uses a separately allocated shadow stack
+> to protect against return address overwrites.
 
-Results regressed to (for bad == 1d7f85df0f9c0456520ae86dc597bca87980d253)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-18434
+I took this for a spin on some real hardware. cpu-idle, kexec hibernate etc all work
+great... but starting a KVM guest causes the CPU to get stuck in EL2.
 
-from (for baseline_rev == b1da3acc781ce445445d959b41064d209a27bc2d)
-reset_artifacts:
--10
-build_llvm:
--1
-linux_n_obj:
-18437
+With CONFIG_SHADOW_CALL_STACK disabled, this doesn't happen ... so its something about the
+feature being enabled.
 
-Artifacts of bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/artifact/artifacts/build-1d7f85df0f9c0456520ae86dc597bca87980d253/
-Artifacts of baseline_rev build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/artifact/artifacts/build-b1da3acc781ce445445d959b41064d209a27bc2d/
-Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/
 
-Reproduce builds:
-<cut>
-mkdir investigate-linux-1d7f85df0f9c0456520ae86dc597bca87980d253
-cd investigate-linux-1d7f85df0f9c0456520ae86dc597bca87980d253
+I'm using clang-9 from debian bullseye/sid. (I tried to build tip of tree ... that doesn't
+go so well on arm64)
 
-git clone https://git.linaro.org/toolchain/jenkins-scripts
+KVM takes an instruction abort from EL2 to EL2, because some of the code it runs is not
+mapped at EL2:
 
-mkdir -p artifacts/manifests
-curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/artifact/artifacts/manifests/build-baseline.sh
-curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/artifact/artifacts/manifests/build-parameters.sh
-curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/artifact/artifacts/test.sh
-chmod +x artifacts/test.sh
+| ffffa00011588308 <__kvm_tlb_flush_local_vmid>:
+| ffffa00011588308:       d10103ff        sub     sp, sp, #0x40
+| ffffa0001158830c:       f90013f3        str     x19, [sp, #32]
+| ffffa00011588310:       a9037bfd        stp     x29, x30, [sp, #48]
+| ffffa00011588314:       9100c3fd        add     x29, sp, #0x30
+| ffffa00011588318:       97ae18bf        bl      ffffa0001010e614 <__kern_hyp_va>
 
-# Reproduce the baseline build (build all pre-requisites)
-./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+INSTRUCTION ABORT!
 
-cd linux
+| ffffa0001158831c:       f9400000        ldr     x0, [x0]
+| ffffa00011588320:       97ae18bd        bl      ffffa0001010e614 <__kern_hyp_va>
+| ffffa00011588324:       aa0003f3        mov     x19, x0
+| ffffa00011588328:       97ae18c1        bl      ffffa0001010e62c <has_vhe>
 
-# Reproduce bad build
-git checkout --detach 1d7f85df0f9c0456520ae86dc597bca87980d253
-../artifacts/test.sh
 
-# Reproduce baseline_rev build
-git checkout --detach b1da3acc781ce445445d959b41064d209a27bc2d
-../artifacts/test.sh
+__kern_hyp_va() is static-inline which is patched wherever it appears at boot with the EL2
+ASLR values, it converts a kernel linear-map address to its EL2 KVM alias:
 
-cd ..
-</cut>
+| ffffa0001010dc5c <__kern_hyp_va>:
+| ffffa0001010dc5c:       92400000        and     x0, x0, #0x1
+| ffffa0001010dc60:       93c00400        ror     x0, x0, #1
+| ffffa0001010dc64:       91000000        add     x0, x0, #0x0
+| ffffa0001010dc68:       91400000        add     x0, x0, #0x0, lsl #12
+| ffffa0001010dc6c:       93c0fc00        ror     x0, x0, #63
+| ffffa0001010dc70:       d65f03c0        ret
 
-History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-arm-next-allyesconfig
 
-Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/artifact/artifacts/
-Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-arm-next-allyesconfig/61/consoleText
+The problem here is where __kern_hyp_va() is. Its outside the __hyp_text section:
+| morse@eglon:~/kernel/linux-pigs$ nm -s vmlinux | grep hyp_text
+| ffffa0001158b800 T __hyp_text_end
+| ffffa000115838a0 T __hyp_text_start
+
+
+If I disable CONFIG_SHADOW_CALL_STACK in Kconfig, I get:
+| ffffa00011527fe0 <__kvm_tlb_flush_local_vmid>:
+| ffffa00011527fe0:       d100c3ff        sub     sp, sp, #0x30
+| ffffa00011527fe4:       a9027bfd        stp     x29, x30, [sp, #32]
+| ffffa00011527fe8:       910083fd        add     x29, sp, #0x20
+| ffffa00011527fec:       92400000        and     x0, x0, #0x1
+| ffffa00011527ff0:       93c00400        ror     x0, x0, #1
+| ffffa00011527ff4:       91000000        add     x0, x0, #0x0
+| ffffa00011527ff8:       91400000        add     x0, x0, #0x0, lsl #12
+| ffffa00011527ffc:       93c0fc00        ror     x0, x0, #63
+| ffffa00011528000:       f9400000        ldr     x0, [x0]
+| ffffa00011528004:       910023e1        add     x1, sp, #0x8
+| ffffa00011528008:       92400000        and     x0, x0, #0x1
+| ffffa0001152800c:       93c00400        ror     x0, x0, #1
+| ffffa00011528010:       91000000        add     x0, x0, #0x0
+| ffffa00011528014:       91400000        add     x0, x0, #0x0, lsl #12
+| ffffa00011528018:       93c0fc00        ror     x0, x0, #63
+| ffffa0001152801c:       97ffff78        bl      ffffa00011527dfc <__tlb_switch_>
+| ffffa00011528020:       d508871f        tlbi    vmalle1
+| ffffa00011528024:       d503201f        nop
+
+
+This looks like reserving x18 is causing Clang to not-inline the __kern_hyp_va() calls,
+losing the vitally important section information. (I can see why the compiler thinks this
+is fair)
+
+Is this a known, er, thing, with clang-9?
+
+From eyeballing the disassembly __always_inline on __kern_hyp_va() is enough of a hint to
+stop this, ... with this configuration of clang-9. But KVM still doesn't work, so it isn't
+the only inlining decision KVM relies on that is changed by SCS.
+
+I suspect repainting all KVM's 'inline' with __always_inline will fix it. (yuck!) I'll try
+tomorrow.
+
+I don't think keeping the compiler-flags as they are today for KVM is the right thing to
+do, it could lead to x18 getting corrupted with the shared vhe/non-vhe code. Splitting
+that code up would lead to duplication.
+
+(hopefully objtool will be able to catch these at build time)
+
+
+Thanks,
+
+James
+
+> SCS is currently supported only on arm64, where the compiler
+> requires the x18 register to be reserved for holding the current
+> task's shadow stack pointer.
+
+> Changes in v8:
+>  - Added __noscs to __hyp_text instead of filtering SCS flags from
+>    the entire arch/arm64/kvm/hyp directory
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/479216940.2727.1582137444451.JavaMail.javamailuser%40localhost.
-
-------=_Part_2726_525614844.1582137443789--
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/0386ecad-f3d6-f1dc-90da-7f05b2793839%40arm.com.
