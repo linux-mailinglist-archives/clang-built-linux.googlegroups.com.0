@@ -1,132 +1,145 @@
-Return-Path: <clang-built-linux+bncBDYNJBOFRECBBDONWPZAKGQE5QHFM3Y@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBPWRWPZAKGQEAQD7BFA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wm1-x340.google.com (mail-wm1-x340.google.com [IPv6:2a00:1450:4864:20::340])
-	by mail.lfdr.de (Postfix) with ESMTPS id F090F163DF9
-	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 08:41:01 +0100 (CET)
-Received: by mail-wm1-x340.google.com with SMTP id z7sf1035594wmi.0
-        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Feb 2020 23:41:01 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582098061; cv=pass;
+Received: from mail-il1-x137.google.com (mail-il1-x137.google.com [IPv6:2607:f8b0:4864:20::137])
+	by mail.lfdr.de (Postfix) with ESMTPS id C8AA9163E21
+	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 08:50:23 +0100 (CET)
+Received: by mail-il1-x137.google.com with SMTP id h87sf19251774ild.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 18 Feb 2020 23:50:23 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582098622; cv=pass;
         d=google.com; s=arc-20160816;
-        b=i1ogxCO5a8IR9fD0GS8eqK6aN8IpG7x+23RT9wcXgaNrpPTleEgrDY/t6O3/OebDZh
-         DwsIpVD/XoQLFBF0Q8xTU30qM5YmnHrTbTD33xxswu2TfqxxRL8dJ1uSt5s3swHppsxz
-         CfDNMH7T+asKix9sNOTq9MMpifUedpbVRZxp7V7C9yIvyz4diCxpqrVDbY+kUozxDfTb
-         Vp+QGbf75YStc+Kv4QZSvQpFNjHc+1Rfnw6cfHMVcsp1tS+g0Ux/gknBc7K4OkRrcAtn
-         1uWBTFgLUHI8Y1fC95gDmb41LVO4gRHIHfUPsaLY36oLVm6fPRNx3rVddt6ApUEEa2q/
-         KQrQ==
+        b=pzTNGUz1mB0nG0krS1LuibtbVxw35OPhSlAO0LxwEuf3cRQ2Xqxy7JUxyxl6gzKvL5
+         tts9qzPHhfYtSl0bKWYmyl7lssIKnvGSvY9nKO0djxGBpoaIs7024QhZKfpmy/v/p4Lr
+         ZTUABVXV30xkISGqxRaIcQeRsBHK3RV9v9ojvMUJwAI9kNV/HVQJ0jjfcLlbYkBzKdI0
+         FaoLuP9wlJzGaT/llZwuARQvZpn4RPTb5rVqmvgjgyFjnHdBl4TrZvvswzU8KOZSHy6u
+         5FecchuVSjsxY7RosYZhD6VgdxIhbiJyMh442P8ePaTalCO9F3P212CXb1RMIMT3TRVY
+         ffxw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=8tUSvQ2ULmz0tEyUr922dqraWz7CllKV7K9hrCdhgTo=;
-        b=i7h0Xsx6Xhu8G5KtWhr7wPiqsveCWUKh1fgO0vJVhHa1ebLptnfN/vMPsgN2a1ocXw
-         oXHeSjf9kQMaC0NNiMbOiZWX1iI4DDzlLjVxR3p+Cw/fH5Hmck5NizJKaapb5PibY78N
-         ttf3hEqnbb1Qh78ThiKFh1bKbZqLWiFQXZDsMZ283/e3ZuAlF+cjt+bBZXN3BLw8HpQn
-         Pls0k2+q0s7MUXE/e/VeWKWGcTlpvPXicRTTljFm2yN2PcOnKXd1we/fznuAgf4fDAQS
-         NXcYycm6KRp1HycFjCG1Mh6IwPf42WZrwQvw1bVjFtwZmjxqDwaxhNBaHdTqmV85ZZ/V
-         +GZg==
+         :list-id:mailing-list:precedence:mime-version:organization
+         :references:in-reply-to:message-id:subject:cc:to:from:date:sender
+         :dkim-signature;
+        bh=RN2PkISORl3FfBJeVnJOplu/Tqyd+NRo1Y/mwkyGyQI=;
+        b=w5DfN2LOsZtTuH/c01iSs3YeAmTawG6rWIQen9N/3c7YPBZXP8C3bt5QzszdOf3lUx
+         xdwG4ejpEGFpj//8cUU4xV1bIZ7As+Y8YP3eNlwxyZOamkd4RebcugVZRp8p5aT4AxJn
+         UP+xHSRM9tTYQTe3c9HETC3TDjfRxdwtMHt3T+ctxlStwNosDevV+Gaz9n31DC9jrutk
+         2ptztuduKSRYiq42p9IuJTKCWCunA8a9GwoxoOhbR+nxo1M1N9P/b0bnFqJEojmKIAQb
+         Duz20HeFbnv/gL6T08vy++rWgQFtnjVkZX3I5l7l2tiE3jtzT+yi8ys+VvMyxFSf1FrG
+         1nWQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=kTNAFKeN;
-       spf=pass (google.com: domain of ard.biesheuvel@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ard.biesheuvel@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@kernel.org header.s=default header.b=vDMncoWz;
+       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:mime-version:references:in-reply-to:from:date:message-id
-         :subject:to:cc:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=8tUSvQ2ULmz0tEyUr922dqraWz7CllKV7K9hrCdhgTo=;
-        b=SyS1sqBLluXTgPpjaFrBQAYfEtDVL6PdZHFAQWjlknKQwM537NpSzVm5vdIj4GpWsk
-         lG7lyrY0fhClTyPkf6pf+5Tj3sgdxsWgtaNbtc8t7dasPwDbuKuL8gfUNX1py4tccnVK
-         sHOTC7T1ovOdU62ophvFeKLWvldtxPdI0IsZaZ2F50KMgFkEVYkF/ZyC6f7HNPfYL6Sp
-         drxKOvloYo1BoahTQ7oUp5c8+Hm637SBtxzcB7WnGCqo0QnDsPF54J4S9L5edgtdp7pM
-         XL1poeOrov6nYdDl/3ApptByJVEaLDuXp189YFCzpLv5LJkh9bKh6Cm+zABwEQrfTCMU
-         Ny2Q==
+        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
+         :organization:mime-version:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RN2PkISORl3FfBJeVnJOplu/Tqyd+NRo1Y/mwkyGyQI=;
+        b=spfQGSu0Vn4sUTYBjil469KR/GRkK/xhzmBKKdayb2jdyfUh/uPf7W6xxiSyF8OwUf
+         Ni/BWRW6237UkHmevrP0KwnA6+zouDwflgtLsZAEfBKYBXSUgAqhjOToN/jOuwp/hs6+
+         m98SK25tZkR/sb8qv5jPrtnG2e8qIt1uabayByy1v9n4AqvGn9OTiI80J5VdGunM44P2
+         +ftQLqidb2N/CWAcQM/JqDHPnd/q7vpjz7Ff1g8Ex0YmrDd4b+EtjuON0v1ccE90rcxj
+         J1gtK6VwPax/fEPDjCG1yIfCikYp/LIl6EZbMRwagZIYDci4z6iU6ROerUsSHP+VHi8z
+         qwsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
-         :date:message-id:subject:to:cc:x-original-sender
+        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
+         :in-reply-to:references:organization:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=8tUSvQ2ULmz0tEyUr922dqraWz7CllKV7K9hrCdhgTo=;
-        b=Mggl/d72uDNFZ8gO4wBZh4q7rgNyTFXlLsxmOYDfTBbURbNYM9og/Hdjsjf+vooaJD
-         tVKSa2gqNtIzLzKt8qcwqvb3mzGMSQOvESh/KMffS2BS0k8+R6MYZVPxCHcA2eJLlZI8
-         /2CMENZ3fEcA16ze72r5d7SiHgKZ5B1wbe9qtA3RKtfXdNOoUu8hDXaRVj89yGr0FkPL
-         Xqx1eIzNLAitKNjWHrc5lzgyu+da8s6Pi0m/yFaYVSu4MM5aLx/CzawtqNKIluMxKseo
-         tel/7SplAGPRZ1R2824ChrX44CaLiNFMABMlpnyauGBAPJcDvU89r6HDkfYDpOiM6/kZ
-         s3Zw==
+        bh=RN2PkISORl3FfBJeVnJOplu/Tqyd+NRo1Y/mwkyGyQI=;
+        b=YZk/cW8wfiyZdQeWZcIo0zlmdsdcgodnX2bQuXZ+ZrdgVUUsXc0BFg6f7QQkJB6Hoe
+         QDKwKfMV5V/rZGcF7CNAT4rRON9Yh6jPJwUKL7NoF5Y2u5uQW2gqatYsZ1kM4mgl0E02
+         C8Vc96suisvdod3KTi6148dO21cwQCOPiA0s9IfcnkopYS7w+C5F5wwkn3FA258jg5r6
+         qxvO/UxJ/5TJSH904hr7m94JRTINZtiifeTpzw3wHnzPNHcY/cXrjgc7E061aO4qvjvf
+         GNZwZGj1Y/ooJ359VQbvu9k0m1khoEMxGrK4d8/HTNpUG1e5GHjDH6keo6SLu8wp/DfJ
+         4RdQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVDVmAERoA/PYkn1XT9hAjJ0sanF0ylzbCApvvf8ThopMi/083H
-	VDDvddl0sIeguq1A3FJOZc0=
-X-Google-Smtp-Source: APXvYqwqqwejQJvis+ZnikcblNnJnELmQ0l1AgxGscpeU0fuBW6b+aYqTrPNQHAe/ZqtzekEp/kVVw==
-X-Received: by 2002:a1c:f003:: with SMTP id a3mr8461700wmb.41.1582098061621;
-        Tue, 18 Feb 2020 23:41:01 -0800 (PST)
+X-Gm-Message-State: APjAAAV1GOdeQijY7LSKWvwetDtOyzc6MnsHCGNyxxV9iCQYb2VOIhhN
+	AlEDNG5ppxW6QOm7eSnYz5A=
+X-Google-Smtp-Source: APXvYqxBcBljqEmJZRjYaWxkhz9sTNrVIf+Bixy2DiGyuEpLwe48PitMbZaobp9LKq634aMlPp7/5Q==
+X-Received: by 2002:a92:5cda:: with SMTP id d87mr23795159ilg.100.1582098622552;
+        Tue, 18 Feb 2020 23:50:22 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a5d:638b:: with SMTP id p11ls153309wru.3.gmail; Tue, 18 Feb
- 2020 23:41:01 -0800 (PST)
-X-Received: by 2002:adf:f707:: with SMTP id r7mr33067113wrp.194.1582098061073;
-        Tue, 18 Feb 2020 23:41:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582098061; cv=none;
+Received: by 2002:a6b:7205:: with SMTP id n5ls3385113ioc.3.gmail; Tue, 18 Feb
+ 2020 23:50:22 -0800 (PST)
+X-Received: by 2002:a6b:b745:: with SMTP id h66mr18413379iof.128.1582098622238;
+        Tue, 18 Feb 2020 23:50:22 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582098622; cv=none;
         d=google.com; s=arc-20160816;
-        b=ddmgmBHjTzwi57akfv95AVMjIRFXJWAwsYBIJjbhJ+VupO5g8FO5wX83rUNDkA7ueE
-         BcizLvDNAnC87vGXA2LaBX3dIayqAMkBzYwFuaaAbswP825iNLejDiUGQ0ju9b2TXWGD
-         WgmJ4nv5hnRutouR3EQHcL6drGCJ0C+A6rwx8ZAjg7iwNV+PboS5OkP741+xlDuvNUoU
-         Rtn1F/jloXiTjhrTxgHzfBu15VEVrtu+vprZcIBptE8/SOLu9O6OLu07eT89XJ7njR8W
-         q84IivutjHb2XbaA7AUFlvRgsHsXe6DRO90DK880Njqtk9f5263dmw9XlxPMHBough/z
-         RBLw==
+        b=iEwF9I0wlDtKEKHwHv6tCewSkkYV4RrVD7UvzsPwyxApkpkqcAH1GFI6Jzz0hDbr54
+         iTdoTfzj0DgUB5/iRtZALisSb8C7MR5rK2O5zvoUnZl/pYLVN5Cd6uLDVJTRSjCtRyfN
+         0fl5ulfH2drhM29DqfXYsyXKFfM5IQXlKZIMCyXxp0OF3aAftD5aGv0waS/dmr7DNHZ6
+         GGfoanvWhkv54xKHfsN9vUk+fItEfvo5SqAygkqNK1233Lysbryft+OY/3SfLHEKwaq6
+         8XKa9xkGM+yt1NUW4ZAzsvGR3aOf0zJk88XL6tpFOu24nQ0p4RPdgXbu84tV7f6mn+hT
+         z+pA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=+GRLqrD8FueaUCHAoE5W7lTJg+Amhm25j14mDfWmjkA=;
-        b=UpJGWopkUIABNRfx9CP+uPV4A5jvmwQ4ry9SXuP2DZkArp4TkGNCctiJi8rJ0RbMj7
-         NCeVNh/1bLlnCBpIMtpSLxJsLKdAf12N0x11TMeotJQMyf7W1W9FnbkGVN5eD49jwan4
-         HIYSp2HtWSLCGvUfMORKkPSHASNxOoQbkFVJihnvH2Hjei4qYzxfKIZJ0mPk1LjzNvJP
-         W/q3R1/ig/QqOUvFkV2m0P5wF+3RIKcKyXtJ5UK7GqHK7aFbjg+ZZbRn/t1P6O0nu3tj
-         aGfNNxe2eGZKe9+xg2WQdUzXLWxbw1flpUzlUGr/aohdgybc0Adi6E2YrrfVcMUyLB6x
-         dMXA==
+        h=content-transfer-encoding:mime-version:organization:references
+         :in-reply-to:message-id:subject:cc:to:from:date:dkim-signature;
+        bh=3Qtr9accashv+3SHmlGEGEl1T0BeqrhqUAYTZaMeg1c=;
+        b=JZunyreFIGLrf1yFWKlDvxb5MRSAnId9u+CLWWVcA/rHV4qCeyyZR9VKuRQEYqUs58
+         7YLRnakmaLnrEB534JBgIJNEJ3ExoeBdBIBOMylsu9fhUEu5CqOr+d5VjBo/Y0Z+zbFU
+         5eF3Z4lSnSU0rXVNdam0EPQ0B2MkPs6GIj+IwqdUWoh+b5kFKKJeqRM2YSNx7rjhiMKj
+         agjmw3OrKswKvSvS9BcNYqzThobTcvE0yyEDZTjPMTD7APvAa8mpay6vC/bHthzfLYRm
+         6H9JWBee1GbVREdoelQPEEvDm5ED5jD84TvQF1URtuH1cx915Z+dtsTebHcTlQ6Ns628
+         9UEQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=kTNAFKeN;
-       spf=pass (google.com: domain of ard.biesheuvel@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ard.biesheuvel@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-wr1-x442.google.com (mail-wr1-x442.google.com. [2a00:1450:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id d16si61764wrv.4.2020.02.18.23.41.01
+       dkim=pass header.i=@kernel.org header.s=default header.b=vDMncoWz;
+       spf=pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=maz@kernel.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
+        by gmr-mx.google.com with ESMTPS id p9si44509iog.5.2020.02.18.23.50.22
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Feb 2020 23:41:01 -0800 (PST)
-Received-SPF: pass (google.com: domain of ard.biesheuvel@linaro.org designates 2a00:1450:4864:20::442 as permitted sender) client-ip=2a00:1450:4864:20::442;
-Received: by mail-wr1-x442.google.com with SMTP id z7so26910558wrl.13
-        for <clang-built-linux@googlegroups.com>; Tue, 18 Feb 2020 23:41:01 -0800 (PST)
-X-Received: by 2002:a5d:5188:: with SMTP id k8mr34117209wrv.151.1582098060684;
- Tue, 18 Feb 2020 23:41:00 -0800 (PST)
-MIME-Version: 1.0
-References: <20191018161033.261971-1-samitolvanen@google.com>
- <20200219000817.195049-1-samitolvanen@google.com> <20200219000817.195049-13-samitolvanen@google.com>
-In-Reply-To: <20200219000817.195049-13-samitolvanen@google.com>
-From: Ard Biesheuvel <ard.biesheuvel@linaro.org>
-Date: Wed, 19 Feb 2020 08:40:47 +0100
-Message-ID: <CAKv+Gu9HpKBO-r+Ker47sPxvHBWLa6NAHe4P71x=K4Wiy2ybwQ@mail.gmail.com>
-Subject: Re: [PATCH v8 12/12] efi/libstub: disable SCS
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 18 Feb 2020 23:50:22 -0800 (PST)
+Received-SPF: pass (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
+Received: from disco-boy.misterjones.org (disco-boy.misterjones.org [51.254.78.96])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mail.kernel.org (Postfix) with ESMTPSA id 46494208E4;
+	Wed, 19 Feb 2020 07:50:21 +0000 (UTC)
+Received: from 78.163-31-62.static.virginmediabusiness.co.uk ([62.31.163.78] helo=why)
+	by disco-boy.misterjones.org with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <maz@kernel.org>)
+	id 1j4K7f-006RxB-Dt; Wed, 19 Feb 2020 07:50:19 +0000
+Date: Wed, 19 Feb 2020 07:50:17 +0000
+From: Marc Zyngier <maz@kernel.org>
 To: Sami Tolvanen <samitolvanen@google.com>
-Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, James Morse <james.morse@arm.com>, 
-	Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>, 
-	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Jann Horn <jannh@google.com>, 
-	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
-	Masahiro Yamada <yamada.masahiro@socionext.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, 
-	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Steven Rostedt <rostedt@goodmis.org>, Masami
+ Hiramatsu <mhiramat@kernel.org>, Ard Biesheuvel
+ <ard.biesheuvel@linaro.org>, Mark Rutland <mark.rutland@arm.com>,
+ james.morse@arm.com, Dave Martin <Dave.Martin@arm.com>, Kees Cook
+ <keescook@chromium.org>, Laura Abbott <labbott@redhat.com>, Nick
+ Desaulniers <ndesaulniers@google.com>, Jann Horn <jannh@google.com>, Miguel
+ Ojeda <miguel.ojeda.sandonis@gmail.com>, Masahiro Yamada
+ <yamada.masahiro@socionext.com>, clang-built-linux@googlegroups.com,
+ kernel-hardening@lists.openwall.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 09/12] arm64: disable SCS for hypervisor code
+Message-ID: <20200219075017.41e17f08@why>
+In-Reply-To: <20200219000817.195049-10-samitolvanen@google.com>
+References: <20191018161033.261971-1-samitolvanen@google.com>
+	<20200219000817.195049-1-samitolvanen@google.com>
+	<20200219000817.195049-10-samitolvanen@google.com>
+Organization: Approximate
+X-Mailer: Claws Mail 3.17.4 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ard.biesheuvel@linaro.org
+X-SA-Exim-Connect-IP: 62.31.163.78
+X-SA-Exim-Rcpt-To: samitolvanen@google.com, will@kernel.org, catalin.marinas@arm.com, rostedt@goodmis.org, mhiramat@kernel.org, ard.biesheuvel@linaro.org, mark.rutland@arm.com, james.morse@arm.com, Dave.Martin@arm.com, keescook@chromium.org, labbott@redhat.com, ndesaulniers@google.com, jannh@google.com, miguel.ojeda.sandonis@gmail.com, yamada.masahiro@socionext.com, clang-built-linux@googlegroups.com, kernel-hardening@lists.openwall.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-Original-Sender: maz@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=kTNAFKeN;       spf=pass
- (google.com: domain of ard.biesheuvel@linaro.org designates
- 2a00:1450:4864:20::442 as permitted sender) smtp.mailfrom=ard.biesheuvel@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@kernel.org header.s=default header.b=vDMncoWz;       spf=pass
+ (google.com: domain of maz@kernel.org designates 198.145.29.99 as permitted
+ sender) smtp.mailfrom=maz@kernel.org;       dmarc=pass (p=NONE sp=NONE
+ dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -139,45 +152,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, 19 Feb 2020 at 01:09, Sami Tolvanen <samitolvanen@google.com> wrote:
->
-> Disable SCS for the EFI stub and allow x18 to be used.
->
+On Tue, 18 Feb 2020 16:08:14 -0800
+Sami Tolvanen <samitolvanen@google.com> wrote:
+
+> Disable SCS for code that runs at a different exception level by
+> adding __noscs to __hyp_text.
+> 
 > Suggested-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-> ---
->  drivers/firmware/efi/libstub/Makefile | 3 +++
->  1 file changed, 3 insertions(+)
->
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index 98a81576213d..dff9fa5a3f1c 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -30,6 +30,9 @@ KBUILD_CFLAGS                 := $(cflags-y) -DDISABLE_BRANCH_PROFILING \
->                                    $(call cc-option,-fno-stack-protector) \
->                                    -D__DISABLE_EXPORTS
->
-> +#  remove SCS flags from all objects in this directory
-> +KBUILD_CFLAGS := $(filter-out -ffixed-x18 $(CC_FLAGS_SCS), $(KBUILD_CFLAGS))
-> +
 
-I don't see why you'd need to remove -ffixed-x18 again here. Not using
-x18 anywhere in the kernel is a much more maintainable approach.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-In fact, now that I think of it, the EFI AArch64 platform binding
-forbids the use of x18, so it would be better to add the -ffixed-x18
-unconditionally for arm64 (even though the reason it forbids it is to
-ensure compatibility with an OS using it as a platform register, and
-so nothing is actually broken atm).
-
->  GCOV_PROFILE                   := n
->  KASAN_SANITIZE                 := n
->  UBSAN_SANITIZE                 := n
-> --
-> 2.25.0.265.gbab2e86ba0-goog
->
+	M.
+-- 
+Jazz is not dead. It just smells funny...
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKv%2BGu9HpKBO-r%2BKer47sPxvHBWLa6NAHe4P71x%3DK4Wiy2ybwQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200219075017.41e17f08%40why.
