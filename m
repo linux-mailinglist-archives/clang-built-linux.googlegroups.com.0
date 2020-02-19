@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBDHIWXZAKGQEJLHCFYQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC2ORX645YPRB5XPWXZAKGQEE6R2BPI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qt1-x83b.google.com (mail-qt1-x83b.google.com [IPv6:2607:f8b0:4864:20::83b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 54EAF164C61
-	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 18:44:45 +0100 (CET)
-Received: by mail-qt1-x83b.google.com with SMTP id z25sf661989qto.8
-        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 09:44:45 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582134284; cv=pass;
+Received: from mail-yb1-xb3a.google.com (mail-yb1-xb3a.google.com [IPv6:2607:f8b0:4864:20::b3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id DC647164D38
+	for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 19:01:27 +0100 (CET)
+Received: by mail-yb1-xb3a.google.com with SMTP id g7sf1016850ybo.14
+        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 10:01:27 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582135287; cv=pass;
         d=google.com; s=arc-20160816;
-        b=OKP+5iPkKEGDIewT1qDTBefH9H6M3YI9MRJM5p9qHsuRoxOpItWwi2MjiYXJHq+Kcp
-         2xpWQXJluhOQDUAw8siCde+86g9Wx0DCC9Bkt0esRIf2NkrKur4zpi1jVorz2RiPlmnl
-         IjuATPxg5drwCSlo6pz77Hsn1T5MsJwyIIvaeW8Ml73fpGzD9QTC/vxRV8CeVBNla4PP
-         gKA1Z7ZVxWb5jtar8dTtqOQzphqFP7A/1P5usixGOxyN+vXrzUvz5CFdLTVFqbz8vKpt
-         cGD1kpX92CBE87Q2H908eogj6ce5UQN8+XI6W0jsryCBkcWn9ffrBHM5dqgpIii6+mja
-         dG0A==
+        b=km47gAMKy2oLKei2Umr0p6cHm+oqXdaJJVtoESsGRoA20DK+DR5U4rYRlnwowx/qta
+         jT+0KMdXbzDO0CwofCa03EkELT3Xdbosgr5HAAlsHlNq+Pb+rWroZFcPHJjQff8BAcMo
+         HX2+JQOZFPNedumDvY7NHMkmLIKfpW4VaHe2eNP6wriu/C74nUJV/5zcwBSrJddRUTyp
+         KxZVDpqkdbxt4c/RHJJuGNvEorasyYxkpIJVL2Pa/PcYl9lnr2NojCjX0QUAZuaMeOYl
+         Hyu4V+ziVn7w8t2MyhECtu8iM2qySPdzjWH24CvBnFvuQLLAXnY3waJfk0ByRrvpyE3H
+         6MeQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=OJtf3cad8lQCaHFI9duMheI2lTMIfJA7hhuJhy7QiwQ=;
-        b=RazjUhScJU6oqSLPHjbHKfgw4LXHrqvPucUwzJa21slEsUag2Y5APR+ePyHatLmDtX
-         M7epIvCKOWxiN40kkSXc6F67EIMnWQVza5LoeXuEzfrqrT2aH9DpmnxUaPMXE39DtrwV
-         N+EIB4beSeuXqEZFzo5YQUY3c64j0oL3KFuxakYaOhbxZns3oze/EnqdWffLZua/wVuN
-         YDuJeKARYYEK9rbMJSZcTbLM6TplQGllbe3XaLqZRmiRtC6lm49H/EThnJVI60ClFfdh
-         Ch1jnPZmqGGRVFGoS/YccloOLcbS14MCtHn4Typcqabr5DlSbEyQaunN2yel1UHYil0q
-         2S4A==
+        bh=ODxexuQfoGzzsX/jIW3Tb3k8IwKla9CUrNp0nOG7Q64=;
+        b=Wk89Bx3dCcNCmlkrYdM3I67JoKlCg2rjXnr3LLmIkzT6n2WOROYAFuYiVi4QNjo1bL
+         AH/CB5DrJKDOl3l1BlZGPgtv7trMv4PUjH3aqYVgTkvFjKiDFmKlLkgjPR/qvW8IHzKF
+         OUCXsrgmC6AN2+9CuotqVTmc4aot4X5OFQEOK0pGFA3eKOjbxEtaH6XiCjkgAe1haxsh
+         ESxA9f6hdJhwMrBzGfJ08xH0tX2GEgzpYE/xYvbX+geiCzAQdQyYVF4bUVm9DAhGh807
+         G091WVww1x59bX1EPrnQkh6ftzHCw7mrPkEPp7c/NMHArgkwV18IByKz01NQqBaZX1ax
+         Y6Qw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ezxabv3h;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=gh6t3G5B;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e41 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :cc:x-original-sender:x-original-authentication-results:reply-to
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OJtf3cad8lQCaHFI9duMheI2lTMIfJA7hhuJhy7QiwQ=;
-        b=HZn+38WqW1H7N9aOPAAYktaVR7yUBZDatVd2KpKZgKU5muWEOBg+UY8KYROQ62USZu
-         gOriz5W1QuqaDal6I8oPOPMnrNunSerNOfyQk88JOU473T7NpF7gsPkZIjm3wYfJRige
-         cUccUPIBRITgr63qEQum4MguwbXSXPHF6QfdGJz+V6NUg+rWhtlPkNV7rvYA44D96Tkm
-         fYKp3E2vVkngrQV2Hlk56deM2Ym5x378f2J3MTkeMJd7bbEdGwLw831M0vFhiOKztIPT
-         K0T9XH/XqmHeyAAhOLVSs5zRdAAawIhradvh2IvNDi7tbBbwSW54uU+Qo34UgwiRVRnf
-         nl8w==
+        bh=ODxexuQfoGzzsX/jIW3Tb3k8IwKla9CUrNp0nOG7Q64=;
+        b=CTC1gpu3j/4LhtM/NAmQjQ1/bIFcoHzWQm7hTm1euu40wRVIN8K34XB0x8LX5vWkYV
+         czZ5zFhpj8KYD/lAP2+AFaxGRbXrY/OwDdviJrDJzRaUMdSTthb/iTemZ2z1fuwYFJIR
+         qwXHN9HI1WDvKCskip6MVJXY9fqI12amtycOFz0Li+gGfegNWzQkj0QCCm601aYutfiL
+         tHiM72RBlysupeG+LdOJCFqUAqpyhUM/YwCY1bPngvNP6zDRbUDDJryd5cFicoKk+G2o
+         zMNHqkLjJZSZJTugoOK8xzf3srU2fJEgDam4jY4MdQ9RVecEZ8eCIwUivsdg8sfY7jOW
+         MZsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
@@ -49,80 +49,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=OJtf3cad8lQCaHFI9duMheI2lTMIfJA7hhuJhy7QiwQ=;
-        b=BVPFC4JOmwZ9m6Tbwxwvuk1QbQ/pcFdixuymCIK7txgQ7bYqGID39pFKum6xcRsQPs
-         jbyxyo0Bv1FhiM1rCbTFINIq18JhTt3n92e+wIRDTmTFiyU7c25/xie34ZyNlDVu/AYp
-         KV7JwAV/Xgx4PlZwKg80I/lka/qujmVFlaPzsn4mCY/ODoTvUNLtnUDq3xZlkFtuynkG
-         eBDPOtjVXLKIqiMWwvPuXvAY5EfkPFDafLEfRZmOesBSdpAkpddNxq24C28jINbe2i5L
-         zKLBqSzsyAqQJuDVkgpMwCvst9OI2uIocLXfBtSTl0kArKfrMhQt53i/5W1FNtIDjsmX
-         IBBw==
-X-Gm-Message-State: APjAAAWh+C5bIxR2x0NYgPC8Eu41EuyGBagAaybhA8t9gXFnbVM91/k0
-	Rh2dNUU8wmZiIZNoBhPvsuY=
-X-Google-Smtp-Source: APXvYqwVunKV03/KnnSpvp34PUBKWtuvRnOlsEtkdudEYfWif8/g3fI6Mzgq7+PjE6WInKjABg2q2g==
-X-Received: by 2002:a0c:e4cc:: with SMTP id g12mr22015953qvm.237.1582134284427;
-        Wed, 19 Feb 2020 09:44:44 -0800 (PST)
+        bh=ODxexuQfoGzzsX/jIW3Tb3k8IwKla9CUrNp0nOG7Q64=;
+        b=KAjy5FIQifWc3tAB0VwG57HdrxiN3nHTJV8f96cXOROwWE/B+Yp65zpi8OtOs97Voq
+         f9/4907ZtrBjh0eDz88gha9iIJ9u6K8rHSF04+W21z5la3Yk6rJxJFMH1Z0OckMMvUYy
+         wik7wdGu4G3AsNzMsQYyvGY/xg5uzPc4GoDah09qXmcBtcYXzW63HtBBAlUM/UkBM7ru
+         s1jTwK1MkMU2WAgtysG+4sHBje9nwjDh98ilzj1ui/opEFG0G60fyGoFX5hoXRaJJbYj
+         0+ey2J7x3Eq84CSr1B0G98vGU9iZazcbR1w1O03AjF+0mvMe+P+R05bgs/jyYl0+e/EH
+         bHXQ==
+X-Gm-Message-State: APjAAAXyv1aO5lyXcTi624BkrAe9r9xyHJ1KWdd4B/kKi2tFPA5VvFfa
+	cU3jQRAZgfWAcyo9bJdfr9U=
+X-Google-Smtp-Source: APXvYqwo8tfTgbT7Gp2GTmgqf+tQU0OW+1ozq1sukonXboS8ZFcxt+DG4RMe58hwdTjoZMAXOITEqg==
+X-Received: by 2002:a25:2d48:: with SMTP id s8mr24622272ybe.79.1582135286940;
+        Wed, 19 Feb 2020 10:01:26 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:620a:74d:: with SMTP id i13ls117681qki.4.gmail; Wed, 19
- Feb 2020 09:44:44 -0800 (PST)
-X-Received: by 2002:a05:620a:b06:: with SMTP id t6mr25525627qkg.373.1582134284099;
-        Wed, 19 Feb 2020 09:44:44 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582134284; cv=none;
+Received: by 2002:a25:6849:: with SMTP id d70ls72312ybc.8.gmail; Wed, 19 Feb
+ 2020 10:01:26 -0800 (PST)
+X-Received: by 2002:a25:b8cc:: with SMTP id g12mr25568104ybm.485.1582135286513;
+        Wed, 19 Feb 2020 10:01:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582135286; cv=none;
         d=google.com; s=arc-20160816;
-        b=XpW+gMOsYuXFzaDxlzvjpfQmM26YjEOPwfNe/RifgLhkTfTZfbCg2JGYmQC3MJUvM7
-         vtMTSCZVqoa9739PVNP5GjWIh0Km2CinNuMFfb+aYCGEorrXRaTk37mEvvfP4MQ82hDc
-         SKFWVqhrU0g7/2CaeFWpqk/i11n1+EfjihuqapWnzIimP1agcvkKNHtgQsqxd1LzaYo8
-         FFnExdwWgV8koNjXzQmkkMEpKYsV00aisFGLASwyZr0osn0qerYKb2ncAtfKvMDJZYVH
-         vHU0sp7Wc/n/2yTQfPxGZrKUJINsLJwgb/NV464daoArybpnuwi/LzOm20S3HKNQ3uEo
-         +qkA==
+        b=f6n2Ddu6tCmAAIlzIpz1erGle+ONqidB0RnLHrdxdUo5RU9MP5hhHibYyHDj0tgK9D
+         2CeJDfDU29hfbqSntV+6z9fTiUhnTSS3QqgVr5AE/yEryp3+ng9bdZLpbyU2RGwXUlZz
+         csrbFCSujZUvCUQ7SIjAU/EdOqcRF3xNPR4De745Vy9wsU7WyJlRYweUhWlpkZWPJCl6
+         WQCCsS7AFqSmCNbONsFIvd7wjcPD3kIhqfKc2yeOf5XBxLfE5XvsquhTOFfxLPZv4cb2
+         fU/UqpAUo1ib9idaS3qoDRtrmYgRJ9WCLiylQa/q5uEpvflN45Xgr+a8QbhdfgEZE6pH
+         cQeQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=1Zerwr5LVoD9w0G00G1YsmnKd+u52a5G2yVAzT73CuQ=;
-        b=NCIMX5ETD2wxyzYJZ+GtqKOIOi+bqNtjNq01uGktGpQYheGZNd87DOK1wZeQeTjw3I
-         usJHv0BBgnnNaxw0QYBWOJOTw67xciLDoIdcZFFRNpzJdxQjzOiKeeARlAjMzDwtKPtH
-         A6Lrnr4URM76po7u12jYGW9a83iotcCmT/AhLZ5ou2IjmsYByl9OfR1FZ6yvFan4udl7
-         Y3qPtRa6Un9ApO8Ei8VEJaD70M89kUDib0wWZUb3FCn76djmlRbynGMkMtj7F9/IXUL4
-         3DtS4mPMumZCa4XY9ERJglxt26993AEPGlk7oM9dhlZUYXFKP22ChMfHaxLDEzwpxYUb
-         YVQQ==
+        bh=lkHXwFRTyqTPxv+c/LKoXDAeY6A/OlAl/xcBXxo2cgo=;
+        b=q34Sado2eQTkI4han+SMZOyJBflwBokYrOs1xcSjZm+TxmDm/plcaIOAi6igqRCK+4
+         53eC4gMKAyx6agZ8jHaF+3i6gvs+soibO4fZlB1mSkbQ3rc6183bpNu9+5PXi7574T0K
+         W7lO7J3MqUT8x2l6q/7HZCu5gkjkNeRl6WdJtPL6R8CuWlb3/0TLfretpUzfp1dY8UJO
+         Yrg3GNABWnWLBzFPIZGCBJoBR7hzHlbnTIPfwAXna5YkCOmCHng+1E/7hh8PesUc7Csu
+         ILQNEqIYzYsmudyKu5+8xdW36KmXCbRNi8a4/rWEJPRReePJQvtF8juUGS5Y7BhRb/YI
+         3S2A==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ezxabv3h;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=gh6t3G5B;
+       spf=pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e41 as permitted sender) smtp.mailfrom=samitolvanen@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pl1-x642.google.com (mail-pl1-x642.google.com. [2607:f8b0:4864:20::642])
-        by gmr-mx.google.com with ESMTPS id m18si56665qkm.0.2020.02.19.09.44.44
+Received: from mail-vs1-xe41.google.com (mail-vs1-xe41.google.com. [2607:f8b0:4864:20::e41])
+        by gmr-mx.google.com with ESMTPS id l1si75571ybt.2.2020.02.19.10.01.26
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2020 09:44:44 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642 as permitted sender) client-ip=2607:f8b0:4864:20::642;
-Received: by mail-pl1-x642.google.com with SMTP id b22so346367pls.12
-        for <clang-built-linux@googlegroups.com>; Wed, 19 Feb 2020 09:44:44 -0800 (PST)
-X-Received: by 2002:a17:902:8a88:: with SMTP id p8mr26529137plo.179.1582134282820;
- Wed, 19 Feb 2020 09:44:42 -0800 (PST)
+        Wed, 19 Feb 2020 10:01:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e41 as permitted sender) client-ip=2607:f8b0:4864:20::e41;
+Received: by mail-vs1-xe41.google.com with SMTP id k188so880809vsc.8
+        for <clang-built-linux@googlegroups.com>; Wed, 19 Feb 2020 10:01:26 -0800 (PST)
+X-Received: by 2002:a05:6102:1c8:: with SMTP id s8mr6086880vsq.44.1582135285718;
+ Wed, 19 Feb 2020 10:01:25 -0800 (PST)
 MIME-Version: 1.0
-References: <20200219045423.54190-1-natechancellor@gmail.com>
- <20200219045423.54190-4-natechancellor@gmail.com> <20200219093445.386f1c09@gandalf.local.home>
-In-Reply-To: <20200219093445.386f1c09@gandalf.local.home>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Wed, 19 Feb 2020 09:44:31 -0800
-Message-ID: <CAKwvOdm-N1iX0SMxGDV5Vf=qS5uHPdH3S-TRs-065BuSOdKt1w@mail.gmail.com>
-Subject: Re: [PATCH 3/6] tracing: Wrap section comparison in
- tracer_alloc_buffers with COMPARE_SECTIONS
-To: Steven Rostedt <rostedt@goodmis.org>, Nathan Chancellor <natechancellor@gmail.com>
-Cc: Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>, 
-	Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@redhat.com>, Jason Baron <jbaron@akamai.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>, clang-built-linux <clang-built-linux@googlegroups.com>
+References: <20191018161033.261971-1-samitolvanen@google.com>
+ <20200219000817.195049-1-samitolvanen@google.com> <20200219000817.195049-5-samitolvanen@google.com>
+ <20200219113351.GA14462@lakrids.cambridge.arm.com>
+In-Reply-To: <20200219113351.GA14462@lakrids.cambridge.arm.com>
+From: "'Sami Tolvanen' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 19 Feb 2020 10:01:14 -0800
+Message-ID: <CABCJKufsYiBX6a0cmaX4D+3RDDKLLeRLAuTZgxO4=QryHYUptQ@mail.gmail.com>
+Subject: Re: [PATCH v8 04/12] scs: disable when function graph tracing is enabled
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Ard Biesheuvel <ard.biesheuvel@linaro.org>, James Morse <james.morse@arm.com>, 
+	Dave Martin <Dave.Martin@arm.com>, Kees Cook <keescook@chromium.org>, 
+	Laura Abbott <labbott@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>, Jann Horn <jannh@google.com>, 
+	Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>, 
+	Masahiro Yamada <yamada.masahiro@socionext.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Kernel Hardening <kernel-hardening@lists.openwall.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: samitolvanen@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=ezxabv3h;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::642
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=gh6t3G5B;       spf=pass
+ (google.com: domain of samitolvanen@google.com designates 2607:f8b0:4864:20::e41
+ as permitted sender) smtp.mailfrom=samitolvanen@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+X-Original-From: Sami Tolvanen <samitolvanen@google.com>
+Reply-To: Sami Tolvanen <samitolvanen@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -135,97 +140,42 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Feb 19, 2020 at 6:34 AM Steven Rostedt <rostedt@goodmis.org> wrote:
+On Wed, Feb 19, 2020 at 3:34 AM Mark Rutland <mark.rutland@arm.com> wrote:
+> Fangrui Song has implemented `-fpatchable-function-entry` in LLVM (for
+> 10.x onwards), so we can support this when DYNAMIC_FTRACE_WITH_REGS is
+> selected.
 >
-> On Tue, 18 Feb 2020 21:54:20 -0700
-> Nathan Chancellor <natechancellor@gmail.com> wrote:
+> This can be:
 >
-> > Clang warns:
-> >
-> > ../kernel/trace/trace.c:9335:33: warning: array comparison always
-> > evaluates to true [-Wtautological-compare]
-> >         if (__stop___trace_bprintk_fmt != __start___trace_bprintk_fmt)
-> >                                        ^
-> > 1 warning generated.
-> >
-> > These are not true arrays, they are linker defined symbols, which are
-> > just addresses so there is not a real issue here. Use the
-> > COMPARE_SECTIONS macro to silence this warning by casting the linker
-> > defined symbols to unsigned long, which keeps the logic the same.
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/765
-> > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
-> > ---
-> >  kernel/trace/trace.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/kernel/trace/trace.c b/kernel/trace/trace.c
-> > index c797a15a1fc7..e1f3b16e457b 100644
-> > --- a/kernel/trace/trace.c
-> > +++ b/kernel/trace/trace.c
-> > @@ -9332,7 +9332,7 @@ __init static int tracer_alloc_buffers(void)
-> >               goto out_free_buffer_mask;
-> >
-> >       /* Only allocate trace_printk buffers if a trace_printk exists */
-> > -     if (__stop___trace_bprintk_fmt != __start___trace_bprintk_fmt)
-> > +     if (COMPARE_SECTIONS(__stop___trace_bprintk_fmt, !=, __start___trace_bprintk_fmt))
+>         depends on DYNAMIC_FTRACE_WITH_REGS || !FUNCTION_GRAPH_TRACER
 >
-> Sorry, but this is really ugly and unreadable. Please find some other
-> solution to fix this.
+> ... and we can update the commit message to something like:
 >
-> NAK-by: Steven Rostedt
+> | With SCS the return address is taken from the shadow stack and the
+> | value in the frame record has no effect. The mcount based graph tracer
+> | hooks returns by modifying frame records on the (regular) stack, and
+> | thus is not compatible. The patchable-function-entry graph tracer
+> | used for DYNAMIC_FTRACE_WITH_REGS modifies the LR before it is saved
+> | to the shadow stack, and is compatible.
+> |
+> | Modifying the mcount based graph tracer to work with SCS would require
+> | a mechanism to determine the corresponding slot on the shadow stack
+> | (and to pass this through the ftrace infrastructure), and we expect
+> | that everyone will eventually move to the patchable-function-entry
+> | based graph tracer anyway, so for now let's disable SCS when the
+> | mcount-based graph tracer is enabled.
+> |
+> | SCS and patchable-function-entry are both supported from LLVM 10.x.
 >
+> Assuming you're happy with that:
+>
+> Reviewed-by: Mark Rutland <mark.rutland@arm.com>
 
-Hey Nathan,
-Thanks for the series; enabling the warning will help us find more
-bugs.  Revisiting what the warning is about, I checked on this
-"referring to symbols defined in linker scripts from C" pattern.  This
-document [0] (by no means definitive, but I think it has a good idea)
-says:
+Great, thanks for pointing that out! This looks good to me, I'll use this in v9.
 
-Linker symbols that represent a data address: In C code, declare the
-variable as an extern variable. Then, refer to the value of the linker
-symbol using the & operator. Because the variable is at a valid data
-address, we know that a data pointer can represent the value.
-Linker symbols for an arbitrary address: In C code, declare this as an
-extern symbol. The type does not matter. If you are using GCC
-extensions, declare it as "extern void".
-
-Indeed, it seems that Clang is happier with that pattern:
-https://godbolt.org/z/sW3t5W
-
-Looking at __stop___trace_bprintk_fmt in particular:
-
-kernel/trace/trace.h
-1923:extern const char *__stop___trace_bprintk_fmt[];
-
-(Should be `extern const void __stop___trace_bprintk_fmt;` void since
-we don't access any data or function from that symbol, just compare
-its address)
-
-kernel/trace/trace_printk.c
-260: start_index = __stop___trace_bprintk_fmt - __start___trace_bprintk_fmt;
-
-(Should be `start_index = (uintptr_t)__stop___trace_bprintk_fmt -
-(uintptr_t)__start___trace_bprintk_fmt;`) (storing the result in an
-int worries me a little, but maybe that refactoring can be saved for
-another day)
-
-kernel/trace/trace.c
-9335: if (__stop___trace_bprintk_fmt != __start___trace_bprintk_fmt)
-
-(Should be `if (&__stop___trace_bprintk_fmt -
-&__start___trace_bprintk_fmt)`.  That's not a significant change to
-the existing code, and is quite legible IMO)
-
-Steven, thoughts?
-
-[0] http://downloads.ti.com/docs/esd/SPRUI03/using-linker-symbols-in-c-c-applications-slau1318080.html
--- 
-Thanks,
-~Nick Desaulniers
+Sami
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm-N1iX0SMxGDV5Vf%3DqS5uHPdH3S-TRs-065BuSOdKt1w%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CABCJKufsYiBX6a0cmaX4D%2B3RDDKLLeRLAuTZgxO4%3DQryHYUptQ%40mail.gmail.com.
