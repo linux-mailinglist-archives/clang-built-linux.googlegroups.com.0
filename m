@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBIELXPZAKGQERHWP4GQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBXNRXPZAKGQEHFQ7D2Q@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x33b.google.com (mail-ot1-x33b.google.com [IPv6:2607:f8b0:4864:20::33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2ACB716653D
-	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 18:45:06 +0100 (CET)
-Received: by mail-ot1-x33b.google.com with SMTP id d16sf2537598otq.19
-        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 09:45:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582220705; cv=pass;
+Received: from mail-vk1-xa3b.google.com (mail-vk1-xa3b.google.com [IPv6:2607:f8b0:4864:20::a3b])
+	by mail.lfdr.de (Postfix) with ESMTPS id AB37C1666D6
+	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 20:07:10 +0100 (CET)
+Received: by mail-vk1-xa3b.google.com with SMTP id z24sf1779842vkn.0
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 11:07:10 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582225629; cv=pass;
         d=google.com; s=arc-20160816;
-        b=LD+VhGp0y6SIRvePTz+Lgq1YpqdQjWypZXPLKYEx/E/7H7uAbmUj6rc4FB4EVL13A3
-         n43Saxk9W9c5Jz3EKVbhUB2Isi6EHY1Jadfl9c7JfmeaLzvo3M7QbtpZ4ktlElC6BVD3
-         UwlwoBMM452/CDtaKEzEBO91ABA3yU/wWrXhMPFT0rrlkZ8OXVsUNDw+hQB01elI5s2B
-         WBE5bTlOjpUV4UMYuft7czQIQc+fdG7Et7XljQApp1b9QdIQfBhGRVpiV7pDtUXdzr4H
-         /gAZ531e1fiox7KExyaUkS1pMcj/sZ6PQjvfTJgodGh/D6encMVHSoExsEWd/gUGm+uM
-         DK5g==
+        b=TAzdTJaAHhLMsbI0WJywxPmJiSNubjsPA9nQWUFdUstg/KI8cnrlfYysyEtLDuWUlJ
+         l3oYKl/WOyG/gvzNAPGwrSL9J/bamdVlFQF+wMEiLiK66YpHEXJnhB18zfWfFASkBUrL
+         EPEsb+ggqOKXqK8eIG4tZfZZLXtSx7TZ/xJp+/gsJXHC98e/H6VDNI3RhvKd4EZKeJsu
+         gZQERulUX56FxEPmoFXE0KewvZcOQ2ojSHjGdwmMTtiwBRGaRQItoTt+lsmWbtrqvPIe
+         3TeXhnthEuog/vCFMV1YH8nR/yh1/XFg68PykgvQyKWm7VbqfX2LO+qDOaTbQIrtsV1q
+         dRRA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=h/OjFnHBi1BzDLay3bKkcj9Nlny6u5YGigsx2+urDtw=;
-        b=eyPXZwabqcMcHJ9nG7/Sh9nL7LYPK6oPEow16ejaQdn8cf3FH7SmX3rsD0avrbJPrg
-         P45cfh/k9Ee26pkaUjciK+M4YedJx4Bq1ItUa6Ng2D5CLR9xZjqe7fgYFZkUoGXBeSZE
-         PYwfoGMum38Yxv8vgxnBypn5DtgBZQ+7wFlhuSaMrCdpq9I+TJo0wIoBpglqdtKVWlKw
-         fvMByQMZuZZTkxo8tbSr+HetsVDQatWS+OUHuduFOdOGLJNtixH1VeF5dtFHkejF0AOG
-         knqwo6FOOHUlIE+fzTUryOyHcIYFF5SwYzcZvJOHjqiV4fmzBs2JM+E2ltc7qw7oH8et
-         EQjw==
+        bh=SYiikFwtFFAdFMQtjyNQNiQsfT25fC3AF7Hod3VDJUo=;
+        b=LoXCczx/lwRGnx/hx7j5HrNslD48foiXwxUkF/NocdVng1Bp3ROrpmXS8IoQJ7Da36
+         YK/xTYM5HpRzfL8n3cDqbakzHxWYV4GkHc6tBlIdl1e/9ecVl7xaWZcf8y/mrDpDkO6c
+         7S49mKyz6L2+p9q/tzETTKUTbRziUYt0EvmIW+15EEP87iFIeGuAsOSx6V3T4XgFZUFl
+         S2UI7G/EOgVoR1DO08ocYeEfG5wkL36zx81/bgJRv9CJlOGH+tdn598Q7a/4iXTkPlUp
+         Q3TavpQhuS3p77wnwcWV7nio1R0eQkfnI9fSJ2sxkD66FS3kyjBRKTa6w4igNpNDXUA+
+         9RaQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=h/OjFnHBi1BzDLay3bKkcj9Nlny6u5YGigsx2+urDtw=;
-        b=ndJfE/ZA8rif3nBELVq9yzZIveBQkPN0Aaqql3Nb1ZP3/MgzdnkTFc1W+DNxl/5B5E
-         gZhmCWdPWyjdTvGIKpKQ1rtd10xX9eezt0m28x8EO7hRL3+sc5QH++fJGKPrjbVfvP2i
-         ot1WMNTcumFTn0yj5sYMemarMKq8ElLF2nP3RaDfXA5nkFRrZxdoy+QJN3XAJJDpycZF
-         qfza93dBl2fr9+aCW6mHR62NxbBhp1e3LTYHsLcs4XmVRogQkjhC21C9d8i3P5LNhxue
-         EyvUlCJL6TWYIacBYlFvYFOP03QRoaZHyKehOAt5eoFYSpKpZ6FYBkMsRdqZE1D8Vt5j
-         uE0g==
+        bh=SYiikFwtFFAdFMQtjyNQNiQsfT25fC3AF7Hod3VDJUo=;
+        b=Z/SrOCpJYck9g+YZPLJokIET/XGfocGYvT/xhUMXcPG2MeBjMcFR5Ta4E2ADIksU7K
+         xHuK5x3QrJuHWPJcCHdc72yDvE/Ugvy+CcqRDnvOZb8ZiHW+6CqEm4xN3srq4ArZm583
+         +3cBCEcLhunbYOVcaxJ/Tulg5nFrbBG9XrEkhp/kwk3FVfYoLAI3vqS08WWqIofJ8Hc3
+         +eME31ApsgTFepBdaLDicRq/3tak/qHAVH0tAYrZXF5Ve7Xb/ZuvErrjGDk/fOgVejwZ
+         Rquut/BOx5vcbJyaPu8zL7M2B9d6/1nVSke+h6FOFAqQUTHG0XJxjUmMI/EuIGHS11uD
+         ctVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,78 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=h/OjFnHBi1BzDLay3bKkcj9Nlny6u5YGigsx2+urDtw=;
-        b=SxEr9oLAJl81LS86w0KGEDokSokDHcWF1dYojnXlkgDdzjOAbif4pfQoNJvRiOoZcm
-         h2yWy3S1TXzv+JHzT/7ohOvej5AzQzdKOE8cwx1xwrfwMTE4orHGi8feRiagccaeZhyE
-         XN5rs6+qXtx8aZC+frG3nN4M5EHqw1NQEIjTSgPC8c85nxvPQld/dMgIdeZVsTrKq7a0
-         pQniSPGfucARMZC5pLTnpJHlSjE+ysBjRgn35I7DsKooWPKdea43PtLTat5RsmsHE85f
-         lAqrJ25f5IG7elFV0Tk3z8bUz2IJDmKrZkxvhazKRa4Iz4v/VAMGJEfmo84UGLRLdGYI
-         Xbjw==
+        bh=SYiikFwtFFAdFMQtjyNQNiQsfT25fC3AF7Hod3VDJUo=;
+        b=CRGqq5btZuifXp+9hrDtgXes439jFC9T0j76jMzgXjzhSfzg9nDuUvCrAi8ezHPows
+         RrlQ0pUyBH8z3YwD0zt32eBZ39M4H3bHDqkq9Qo6zPL/FY5/IEyjfMBLbu3KTa+wPPUC
+         1T1KmPCzCvL+F4GmKDRGMWT24rD+L4sBV23CZz7pu5VKdWoiUopFIZ5F/03ok68vFQ/L
+         d1MeT8LDyfLoYsWNwsNvJ3ks3nW56iEqlLV2tsJx+qXiHzRHMtSQTpvc7CYh18e7MgBH
+         gIoUwBLiIed2OoIgKDshJb4iPB93LSTbZkE1/bnVq3f8NswsYnz0Hpwhe7FOPwxiVS84
+         mnSw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXzPuJR1cdCNT/DQNi2cLJt1eiouzM58Nw/2Who0vSdEZqrPdXo
-	u1XAccqgLauH0hl01b8KIO0=
-X-Google-Smtp-Source: APXvYqwCALH0I3EJGqVChwCcW+2TmtCHM7rntk+tdWdpeVONJp1FCPT01ENmZHG4qCf9IV5BWluWKw==
-X-Received: by 2002:a05:6830:1d7a:: with SMTP id l26mr23813812oti.138.1582220704905;
-        Thu, 20 Feb 2020 09:45:04 -0800 (PST)
+X-Gm-Message-State: APjAAAWCAUkxhdNMN8W5Xjg5L4DnAlRt2w8timvHUSc1yy2yp+MDaog6
+	DyD0nXE5BVFc413zQ0pBT6o=
+X-Google-Smtp-Source: APXvYqwRaBtAni/7tdmxGm+Tb7Z5yQBdkedLH8rGJXXY9qBINgCT/qFvm3New7HDM+giH2jNhlLv+A==
+X-Received: by 2002:a67:b107:: with SMTP id w7mr18595229vsl.128.1582225629292;
+        Thu, 20 Feb 2020 11:07:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6830:4a4:: with SMTP id l4ls692166otd.11.gmail; Thu, 20
- Feb 2020 09:45:04 -0800 (PST)
-X-Received: by 2002:a9d:4c06:: with SMTP id l6mr25300788otf.161.1582220704433;
-        Thu, 20 Feb 2020 09:45:04 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582220704; cv=none;
+Received: by 2002:ab0:20a9:: with SMTP id y9ls1551450ual.9.gmail; Thu, 20 Feb
+ 2020 11:07:08 -0800 (PST)
+X-Received: by 2002:ab0:6881:: with SMTP id t1mr16356392uar.88.1582225628733;
+        Thu, 20 Feb 2020 11:07:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582225628; cv=none;
         d=google.com; s=arc-20160816;
-        b=VBGDrSmkXNtjlut9NNRCBfovUWUxCce3+Zi9I5KwqX2e3IjWCVO4Jqt9NgdNl7Jy++
-         LTKII90O/QBzTsEucU7YYbRqKT7kFmTZ0Qp+2n/yQ2s9T1U2FK3v5BwRln409++/VRb/
-         kIrn+liHXeuj+Y2U7xgLuWBHzOTM9yyDjiQXMzyVpDLFXgN98PPlblPh3/1cSS2GPvSt
-         AMj5OXgPN1q4m6QrMx1ZKMAuV54gmIQoTIuNY8YFrNSGo4Xk+oLRqxwDbLFu0SQiFdQm
-         IBW7gpMDbYSs+njEJHZEMm5Wh5vgI797KY12IduacKrz9aaIKFJLAQV+ac7Gozy0AmC3
-         FznQ==
+        b=1I1ArzEqQwhiUvWOixufP1z17hjHpU2rzF/pAjqNVnBM5QKss79xk3qfYkGYU2XK64
+         euOlJmb+JoCWHTXkJfv9L6w2OAUG1ORGG7By1D2RfqMeW/RfDXri8lbiSAGC9kxh7Ge2
+         pPCNxlevz2AdoikBEDHroEnd+FAVLP21k4m1eQtMqSpM81yAltIYyhGIRxFdIMBbz2Gl
+         q8gnST/8Iy3uYSuqmCAWbYz9laJYkZ8lypbhv5614NCMYPD5QEuKPdmdiNcLvwsbWUWh
+         6irlgN0Erm23v8guI/i99haLWLBtnhJHPzKdhysSo4eFiBJaR5KS8Fo3YwYE78hIzkmY
+         L9Pw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=cCnhIkjRQRsJKdpf7qpUx+ltLWeeC142ZA2dP0NY+Xo=;
-        b=i5Q4XQTtIm7bbnhX7xgPX0a+aV4rdOWqlMwtKfOaI/sNWe9NbUltn+MIjjU+k3THhY
-         nvXgUBDlkhIr+k86mdn7RmsT29oI3z9WZb6jKdoleVZSlwLvyKlRWaAInm9HdsV1Kcrz
-         M1ysp3Q67VPvTMgKbdepmxlTQHlvnDxj6uu8X6l9JXRM+bp+ktIdTRfjY+4CwW40SoSK
-         IluDQoP9RjgH0HnxhRT9O5Bl619KqguefpJ1uj10LgR54bJH4hOjb0phRUU7QWHF8dLs
-         eML4h0KA7It9xhBvBzXMrU8otfHO2KsT0hRYaTUrdLlVXPZnndcNvjCdoO2Q/NeCQLcz
-         WUXw==
+        bh=TooZskLNbUY5ATOn1xDGFRSTipZyoLzR6LFbrYd5yeU=;
+        b=Gt2lgQrxk6sWmYkF0sEYOaFdGYcToUADcblRcDOIxMUPNZpWOTl3unVEiBFSTsg6SM
+         vGDkPR7QLtMSf3AuWCgvR4JoSvZftak/BENFCEzdHBAvqY86o1KDtXrYqDe171fp22fL
+         WW77/wOH43+5QaP29yFVW0mY9cNxSyejwg1uitb5vZ9XyXz3j9+4RSTJZqpcoXq5Slvq
+         //WWGRJkMai4aE0MiXN3rSrAaE62rw0uDpZOk930u4+rORpJj8cZt0W7JL1dwdGubHsU
+         MIhDVedv2iAQLu4DQq1rJBSH+4WDynqlkvX8R0hAvfsIJayxSzJClF2JWDPzQ7sUepFn
+         eHAQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga03.intel.com (mga03.intel.com. [134.134.136.65])
-        by gmr-mx.google.com with ESMTPS id 14si18663oty.3.2020.02.20.09.45.04
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id y126si10758vkc.5.2020.02.20.11.07.07
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 20 Feb 2020 09:45:04 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted sender) client-ip=134.134.136.65;
+        Thu, 20 Feb 2020 11:07:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
-  by orsmga103.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 20 Feb 2020 09:45:02 -0800
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 20 Feb 2020 11:07:02 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.70,465,1574150400"; 
-   d="gz'50?scan'50,208,50";a="315801816"
+   d="gz'50?scan'50,208,50";a="228987510"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga001.jf.intel.com with ESMTP; 20 Feb 2020 09:45:00 -0800
+  by fmsmga007.fm.intel.com with ESMTP; 20 Feb 2020 11:06:58 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1j4psi-000IOp-1d; Fri, 21 Feb 2020 01:45:00 +0800
-Date: Fri, 21 Feb 2020 01:44:24 +0800
+	id 1j4rA2-000AzA-55; Fri, 21 Feb 2020 03:06:58 +0800
+Date: Fri, 21 Feb 2020 03:06:17 +0800
 From: kbuild test robot <lkp@intel.com>
 To: kbuild@lists.01.org
 Cc: Nick Desaulniers <ndesaulniers@google.com>,
 	clang-built-linux@googlegroups.com
-Subject: Re: [PATCH v2 4/7] nvmem: increase the reference count of a gpio
- passed over config
-Message-ID: <202002210137.v9raLCIr%lkp@intel.com>
+Subject: Re: [RFC v2 4/4] X86: Use KVM CR pin MSRs
+Message-ID: <202002210329.pZB7NgtA%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="6c2NcOVqGQ03X4Wi"
+Content-Type: multipart/mixed; boundary="opJtzjQTFsWo+cga"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.65 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,30 +136,27 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---6c2NcOVqGQ03X4Wi
+--opJtzjQTFsWo+cga
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 CC: kbuild-all@lists.01.org
-In-Reply-To: <20200218094234.23896-5-brgl@bgdev.pl>
-References: <20200218094234.23896-5-brgl@bgdev.pl>
-TO: Bartosz Golaszewski <brgl@bgdev.pl>
-CC: Linus Walleij <linus.walleij@linaro.org>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, Khouloud Touil <ktouil@baylibre.com>, Geert Uytterhoeven <geert@linux-m68k.org>
-CC: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Bartosz Golaszewski <bgolaszewski@baylibre.com>
+In-Reply-To: <20200218215902.5655-5-john.s.andersen@intel.com>
+References: <20200218215902.5655-5-john.s.andersen@intel.com>
+TO: John Andersen <john.s.andersen@intel.com>
 
-Hi Bartosz,
+Hi John,
 
-I love your patch! Perhaps something to improve:
-
-[auto build test WARNING on gpio/for-next]
-[also build test WARNING on linus/master v5.6-rc2]
-[cannot apply to next-20200220]
+[FYI, it's a private test report for your RFC patch.]
+[auto build test ERROR on kvm/linux-next]
+[also build test ERROR on tip/auto-latest v5.6-rc2 next-20200220]
+[cannot apply to tip/x86/core]
 [if your patch is applied to the wrong git tree, please drop us a note to help
 improve the system. BTW, we also suggest to use '--base' option to specify the
 base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
 
-url:    https://github.com/0day-ci/linux/commits/Bartosz-Golaszewski/nvmem-gpio-fix-resource-management/20200220-045651
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-gpio.git for-next
+url:    https://github.com/0day-ci/linux/commits/John-Andersen/Paravirtualized-Control-Register-pinning/20200220-155307
+base:   https://git.kernel.org/pub/scm/virt/kvm/kvm.git linux-next
 config: x86_64-defconfig (attached as .config)
 compiler: clang version 11.0.0 (git://gitmirror/llvm_project 9d37f5afac4a3b9194b9001bed84f58ca8bd6c02)
 reproduce:
@@ -170,140 +166,35 @@ reproduce:
 If you fix the issue, kindly add following tag
 Reported-by: kbuild test robot <lkp@intel.com>
 
-All warnings (new ones prefixed by >>):
+All errors (new ones prefixed by >>):
 
-   drivers/nvmem/core.c:349:20: error: implicit declaration of function 'gpiod_ref' [-Werror,-Wimplicit-function-declaration]
-                   nvmem->wp_gpio = gpiod_ref(config->wp_gpio);
-                                    ^
-   drivers/nvmem/core.c:349:20: note: did you mean 'gpiod_get'?
-   include/linux/gpio/consumer.h:201:46: note: 'gpiod_get' declared here
-   static inline struct gpio_desc *__must_check gpiod_get(struct device *dev,
-                                                ^
->> drivers/nvmem/core.c:349:18: warning: incompatible integer to pointer conversion assigning to 'struct gpio_desc *' from 'int' [-Wint-conversion]
-                   nvmem->wp_gpio = gpiod_ref(config->wp_gpio);
-                                  ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 warning and 1 error generated.
+>> arch/x86/kernel/cpu/common.c:421:2: error: implicit declaration of function 'kvm_setup_paravirt_cr_pinning' [-Werror,-Wimplicit-function-declaration]
+           kvm_setup_paravirt_cr_pinning(X86_CR0_WP, cr4_pinned_bits);
+           ^
+   arch/x86/kernel/cpu/common.c:1596:2: error: implicit declaration of function 'kvm_setup_paravirt_cr_pinning' [-Werror,-Wimplicit-function-declaration]
+           kvm_setup_paravirt_cr_pinning(X86_CR0_WP, cr4_pinned_bits);
+           ^
+   2 errors generated.
 
-vim +349 drivers/nvmem/core.c
+vim +/kvm_setup_paravirt_cr_pinning +421 arch/x86/kernel/cpu/common.c
 
-   322	
-   323	/**
-   324	 * nvmem_register() - Register a nvmem device for given nvmem_config.
-   325	 * Also creates an binary entry in /sys/bus/nvmem/devices/dev-name/nvmem
-   326	 *
-   327	 * @config: nvmem device configuration with which nvmem device is created.
-   328	 *
-   329	 * Return: Will be an ERR_PTR() on error or a valid pointer to nvmem_device
-   330	 * on success.
-   331	 */
-   332	
-   333	struct nvmem_device *nvmem_register(const struct nvmem_config *config)
-   334	{
-   335		struct nvmem_device *nvmem;
-   336		int rval;
-   337	
-   338		if (!config->dev)
-   339			return ERR_PTR(-EINVAL);
-   340	
-   341		nvmem = kzalloc(sizeof(*nvmem), GFP_KERNEL);
-   342		if (!nvmem)
-   343			return ERR_PTR(-ENOMEM);
-   344	
-   345		rval  = ida_simple_get(&nvmem_ida, 0, 0, GFP_KERNEL);
-   346		if (rval < 0)
-   347			goto err_free_nvmem;
-   348		if (config->wp_gpio)
- > 349			nvmem->wp_gpio = gpiod_ref(config->wp_gpio);
-   350		else
-   351			nvmem->wp_gpio = gpiod_get_optional(config->dev, "wp",
-   352							    GPIOD_OUT_HIGH);
-   353		if (IS_ERR(nvmem->wp_gpio))
-   354			goto err_ida_remove;
-   355	
-   356	
-   357		kref_init(&nvmem->refcnt);
-   358		INIT_LIST_HEAD(&nvmem->cells);
-   359	
-   360		nvmem->id = rval;
-   361		nvmem->owner = config->owner;
-   362		if (!nvmem->owner && config->dev->driver)
-   363			nvmem->owner = config->dev->driver->owner;
-   364		nvmem->stride = config->stride ?: 1;
-   365		nvmem->word_size = config->word_size ?: 1;
-   366		nvmem->size = config->size;
-   367		nvmem->dev.type = &nvmem_provider_type;
-   368		nvmem->dev.bus = &nvmem_bus_type;
-   369		nvmem->dev.parent = config->dev;
-   370		nvmem->priv = config->priv;
-   371		nvmem->type = config->type;
-   372		nvmem->reg_read = config->reg_read;
-   373		nvmem->reg_write = config->reg_write;
-   374		if (!config->no_of_node)
-   375			nvmem->dev.of_node = config->dev->of_node;
-   376	
-   377		if (config->id == -1 && config->name) {
-   378			dev_set_name(&nvmem->dev, "%s", config->name);
-   379		} else {
-   380			dev_set_name(&nvmem->dev, "%s%d",
-   381				     config->name ? : "nvmem",
-   382				     config->name ? config->id : nvmem->id);
-   383		}
-   384	
-   385		nvmem->read_only = device_property_present(config->dev, "read-only") ||
-   386				   config->read_only || !nvmem->reg_write;
-   387	
-   388		nvmem->dev.groups = nvmem_sysfs_get_groups(nvmem, config);
-   389	
-   390		device_initialize(&nvmem->dev);
-   391	
-   392		dev_dbg(&nvmem->dev, "Registering nvmem device %s\n", config->name);
-   393	
-   394		rval = device_add(&nvmem->dev);
-   395		if (rval)
-   396			goto err_put_device;
-   397	
-   398		if (config->compat) {
-   399			rval = nvmem_sysfs_setup_compat(nvmem, config);
-   400			if (rval)
-   401				goto err_device_del;
-   402		}
-   403	
-   404		if (config->cells) {
-   405			rval = nvmem_add_cells(nvmem, config->cells, config->ncells);
-   406			if (rval)
-   407				goto err_teardown_compat;
-   408		}
-   409	
-   410		rval = nvmem_add_cells_from_table(nvmem);
-   411		if (rval)
-   412			goto err_remove_cells;
-   413	
-   414		rval = nvmem_add_cells_from_of(nvmem);
-   415		if (rval)
-   416			goto err_remove_cells;
-   417	
-   418		blocking_notifier_call_chain(&nvmem_notifier, NVMEM_ADD, nvmem);
-   419	
-   420		return nvmem;
-   421	
-   422	err_remove_cells:
-   423		nvmem_device_remove_all_cells(nvmem);
-   424	err_teardown_compat:
-   425		if (config->compat)
-   426			nvmem_sysfs_remove_compat(nvmem, config);
-   427	err_device_del:
-   428		device_del(&nvmem->dev);
-   429	err_put_device:
-   430		put_device(&nvmem->dev);
-   431	err_ida_remove:
-   432		ida_simple_remove(&nvmem_ida, nvmem->id);
-   433	err_free_nvmem:
-   434		kfree(nvmem);
-   435	
-   436		return ERR_PTR(rval);
-   437	}
-   438	EXPORT_SYMBOL_GPL(nvmem_register);
-   439	
+   407	
+   408	/*
+   409	 * Once CPU feature detection is finished (and boot params have been
+   410	 * parsed), record any of the sensitive CR bits that are set, and
+   411	 * enable CR pinning.
+   412	 */
+   413	static void __init setup_cr_pinning(void)
+   414	{
+   415		unsigned long mask;
+   416	
+   417		mask = (X86_CR4_SMEP | X86_CR4_SMAP | X86_CR4_UMIP);
+   418		cr4_pinned_bits = this_cpu_read(cpu_tlbstate.cr4) & mask;
+   419		static_key_enable(&cr_pinning.key);
+   420	
+ > 421		kvm_setup_paravirt_cr_pinning(X86_CR0_WP, cr4_pinned_bits);
+   422	}
+   423	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -312,14 +203,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002210137.v9raLCIr%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002210329.pZB7NgtA%25lkp%40intel.com.
 
---6c2NcOVqGQ03X4Wi
+--opJtzjQTFsWo+cga
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICC+wTl4AAy5jb25maWcAlDzLcty2svt8xVSySRaxJVvWdc4tLUASnEGGJGgAHI20YY2l
+H4sICA67Tl4AAy5jb25maWcAlDzLcty2svt8xVSySRaxJVvWdc4tLUASnEGGJGgAHI20YY2l
 kaN79PAZSTn2399ugI8GCCpJKmV70I13v7vBn374acFenh/vd8+3V7u7u++LL/uH/WH3vL9e
 3Nze7f93kclFJc2CZ8K8AeTi9uHl29tvH0/b05PFhzenb45+PVwdL9b7w8P+bpE+PtzcfnmB
 /rePDz/89AP8/xM03n+FoQ7/Wlzd7R6+LP7cH54AvDg+fnP05mjx85fb53+9fQt/3t8eDo+H
@@ -858,4 +749,4 @@ vkSNQy4WNa736cBmaNW0A53H6x0bdEOMYD40/Gh+NsE3UC5vPNliwSwckr2wtlFczOYeExZQ
 LCgK5jnQH/4sahckxQhhY8OIRTnLBlYESDMBXBoGdwdZxDEMWlbCAoDGqqoGjwcr8oB4J/8f
 AGiHgZ3mAQA=
 
---6c2NcOVqGQ03X4Wi--
+--opJtzjQTFsWo+cga--
