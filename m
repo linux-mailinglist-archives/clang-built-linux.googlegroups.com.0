@@ -1,104 +1,106 @@
-Return-Path: <clang-built-linux+bncBAABBRORXHZAKGQE2GRLFDI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBVWRXHZAKGQEKGTA6GA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
-	by mail.lfdr.de (Postfix) with ESMTPS id A9BE1165C75
-	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 12:08:54 +0100 (CET)
-Received: by mail-pf1-x437.google.com with SMTP id r127sf2196199pfc.11
-        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 03:08:54 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582196933; cv=pass;
+Received: from mail-qv1-xf3e.google.com (mail-qv1-xf3e.google.com [IPv6:2607:f8b0:4864:20::f3e])
+	by mail.lfdr.de (Postfix) with ESMTPS id C1B02165C76
+	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 12:09:11 +0100 (CET)
+Received: by mail-qv1-xf3e.google.com with SMTP id b8sf2292660qvw.3
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 03:09:11 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582196950; cv=pass;
         d=google.com; s=arc-20160816;
-        b=eNUoi7SAr562yEXNhHizlWpxGSLrV4CQekkKdyXnpG66Jf7ndb9VZF9ZkxPRY0c9sM
-         Ur/750cH2n+KNcugK25dwxRPlc9g+W4jWDyFaTCUSLdbMIasv0BTOSZCfLNqO7chUn8S
-         uGeaOWo6nIlyGxcIJdvvVw9cGJWUoEuBeOiYFahruvdBaqp3u/p6o+pUpCNmM1/BTRwH
-         BjFohGWTLa/38dfmIj6MxF2NpULJNZ/j88532Zcl0ygNE3aMXn1vDrSNpBKfuLK+/jCT
-         F+BBtL93AGyZrB5W0JBJKiPWaZ6woGzMWamKdWY7SBaTnseT2jyMtnQeYWaNwp5D4XFu
-         wjMg==
+        b=ounpWRAcxYDSyJ/2i9iPdlwo3trxgvZU1GgcMuTUSd8frPO8Cs39vRaFymhh/HK+MX
+         wAb/Ys80aXkKTKR1W2xZiS0UKzROeLuINXS7I19T4luFrSIYt1GlOFHzANiYWTwK0ZwX
+         E97PhHtpuOZTKjLv9Ati2bIHnV79oo9CLYNOHMqbv70E9aRmODTWDpPHkwQRIO4YY70Z
+         RDmw9ANJx2mQnZPJKeSI27qVgt/QenHa80F6L4AvXSDAZGBg0smVxFI341rHxDwG9YxU
+         R1Yov5rZFM2aTZ4Z1dQ07jg1fSfgU5kUOKe1au+GnPsEdc5AU1xI6DS73dYBKzCx9KNU
+         cEeg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:message-id:date:subject:cc:to:from
-         :dkim-filter:mime-version:sender:dkim-signature;
-        bh=wfx9Hesbu8Wb9LzcIsWxGXlDiHDuUEwSYNP9xyVC9p8=;
-        b=BRJQGNozXx8N+bITBA3esu1Tk+V/lX2AGx8jK6/dIphWiZBEhVpqZdIJ1bAzicJxmj
-         g39fvwbhFql1gv1vsd6Se7A6WPUCVqRgkoI3xJEFQQ/acYcnmkH851Rt6PtSxjobEN7C
-         TRSR5JpyiZ9xbnh1pJw050tQcJHvh6Z645E84/GCZ0XBpqaervetQbZJS1GV3dqjCE0q
-         ooUBcfbnAs59KfkA9jeDchaBdIdWdPQUVn7Q88orwvqQkYu847lm8F5iaKLemz+CgIkJ
-         bWHILbX7Hsv2O6LjaP396RtAa8l+9y4TAG+uK8K1CpjJrZcjF2pBQf771Gs8vTm45nkC
-         x8Yg==
+         :list-id:mailing-list:precedence:references:in-reply-to:message-id
+         :date:subject:cc:to:from:dkim-filter:mime-version:sender
+         :dkim-signature;
+        bh=Fh8FYW0t93GzeO98sWc8lfTHG0E8a3uFp4nYI9zcYuY=;
+        b=Ha79FzphrrNtgeYeZd5qL3X/dtHg12JzrRGn984DzZSk+VgGeuAgFDhFlKZoqB+Xgt
+         krgxc+EzVrwLU9tB99iRbsK1IB2KtcWScHEeIIS6frQLCumgQ3js7TOgK0PZACqAXqmF
+         iBEkFa6cWpQf+uvT4Nl2D5d0KNjeIAdZFi+u+XsK3ZHp+qEZSHX6UTgz5jvmUclvFpX4
+         kWCkt+LedugN329keg5qLBqGdt8ossP/9sB/Eu2ZKuHQ5DS8EsWM/+pDqpupjKzfbxaK
+         hHo8HdQ+S5XD27IgSAq23ygzC1EAXL/VL9dwF/AmrMnK9CJbQSV6eXCvIAgdahYTywMC
+         hTQg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ohxozsMk;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=0XC8q6E5;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:dkim-filter:from:to:cc:subject:date:message-id
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=wfx9Hesbu8Wb9LzcIsWxGXlDiHDuUEwSYNP9xyVC9p8=;
-        b=hVaTzKgut8fHLp+7cnwUb5nE7bRDKdD9npTMM/nHVhQJwFQSGc2d4QYXJpeeleDLcy
-         rGL2LipXEr3RufQKXRtziZAjqTEnf/3dUF16zaDYfLbfPhADwLBwt0vhSYkWr8fHMaEP
-         A9L5SFMUH2T08mNOMkziDjhW7Tw8e5GFuFUdSSsbrjnRyh+JiBvqfbFBz52mlSwOw1B4
-         to/pIz7Yif6iHlLe5bGS+T7fDU232d9QKPIayjZODAkexIVr7QbAKOw4vwgUILtZ/Sof
-         U4VoV9zrCB+WW+76PerztDlzMlub+223xpOoNeOh7qF80OLXOKHV+Ip48F82icYf0Vs2
-         dulA==
+         :in-reply-to:references:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=Fh8FYW0t93GzeO98sWc8lfTHG0E8a3uFp4nYI9zcYuY=;
+        b=e55aThsOk+C0NMymeXJePF+wFL3GZ5D7quKi9vtiBDXPgiqIJ4Yb8dr8k1KfZqYVrS
+         6s8JpFzv25Fp4oRAK+RQwZv3aVxeADUNh8rrB7IZmJheEsfSNiopCLx6HANsJ6hhW5aj
+         oYFTw3zVzbU3xEqs84qzyvXMnYfVB0E1a/nNpJpHhKB+52x7dsdRBYjaabnM1ERnsp81
+         f5Kp+o7FMaIWObN/Ls6Unqnn4/jY/QsdYVI6mwVzvQVJ3EsM+le4IKBS6BrQtGSBzTtD
+         TgMYcwIyigiZN0A/7yyViJSrRJTug+WR/I+hkdMV0zHyc5jXqvtIugvTiTYz6ioTG++z
+         YSvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:dkim-filter:from:to:cc
-         :subject:date:message-id:x-original-sender
+         :subject:date:message-id:in-reply-to:references:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=wfx9Hesbu8Wb9LzcIsWxGXlDiHDuUEwSYNP9xyVC9p8=;
-        b=WQpieLSTmLXQ1rs1v+dqlJRLWXx3ec3vS4BwO6PnuvG/AgoXxQmr7Q5m8rtEgzILZt
-         zlyYlq1mZl1s0wn/FmgvajKwmgi/BxGJyJZjD+4APPpGB5DqVc/+R1RFoYLWrU6SrByg
-         FcpF2Ftnclz5DQ+G5KSh/OcOw7ztSn80dIkuzgyUmtViHy0j8s31AuVgzCJXl5+sQltC
-         8ztapicTSbnQC4TRU5M9lBv24C/SCJsN/Pabxxi03IJkBnDtfysNmJOu/BSW2oxJ3NjF
-         IOhQK94ZJaKcWZwcm0KBOu6ylskV4iyxwVLZdL6HQxbdEPRDAqDbT5iSahaHSXw9UtEi
-         6t6Q==
+        bh=Fh8FYW0t93GzeO98sWc8lfTHG0E8a3uFp4nYI9zcYuY=;
+        b=Kqsw8Gm1hnbqQK/PTJL5TSRSJ6YIFqIOZL8XbeUUVQQFnsR+wdP87oTmIUkM2PsJOq
+         2/PPnBqdWwxUnUN4BHxjO45ddwbKZWSJobnOb5TCwrNSOU3Y1vDvSASLxolzI8b92HM0
+         Yvxrlo670ImbjZ3mqHURQpkJIBQuB6WMYPfu7Ue0Jzd4MrKU5nDJMA3eUR5XOmdqg/74
+         zDFEwv+F6P5+rnuakfVEXlkkZjwvKWnaMRtMnGGmaY4RBLCD2o6I1GAwRiOZ3yhvj6Dl
+         xB4B7hFHST1N5289Sd5quUr+JjXcq3Q+2BUC4XyFhV6sRaf1Q68CKEeMlgQC79naFPtv
+         O8kw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWxZv0oqSz+gYD2SdzZmS7oVkZepgpK4r4G73ilNo2p/XAg6gs0
-	NmgDxah+H5nYcgFxZduoOig=
-X-Google-Smtp-Source: APXvYqxYEUD8NxdY5IyWEGN8griR91Wg+qm5gvdpRNIyox2R4r6XiIR2J3X17+oxTCBD+Hf5s62Xxw==
-X-Received: by 2002:a62:7bcb:: with SMTP id w194mr32198593pfc.216.1582196933093;
-        Thu, 20 Feb 2020 03:08:53 -0800 (PST)
+X-Gm-Message-State: APjAAAULP1vGDe/NqXVYH5DrDpUIB2ZAB9fd7rkEVQ3u6/AOtIsNCVIy
+	o4UtDFBfxLfkgurB0oJXjEI=
+X-Google-Smtp-Source: APXvYqyj4BexKyoYpPvtqjnJnN9VJO79cdW3L8/A4AAYlUUnq9Z3VfokqchilA9vweskJs95unsmpQ==
+X-Received: by 2002:a05:6214:1433:: with SMTP id o19mr25428746qvx.87.1582196950709;
+        Thu, 20 Feb 2020 03:09:10 -0800 (PST)
 MIME-Version: 1.0
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:d70b:: with SMTP id w11ls8763133ply.11.gmail; Thu,
- 20 Feb 2020 03:08:52 -0800 (PST)
-X-Received: by 2002:a17:902:7c95:: with SMTP id y21mr30092066pll.186.1582196932664;
-        Thu, 20 Feb 2020 03:08:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582196932; cv=none;
+Received: by 2002:a37:a84a:: with SMTP id r71ls429102qke.0.gmail; Thu, 20 Feb
+ 2020 03:09:10 -0800 (PST)
+X-Received: by 2002:a05:620a:1037:: with SMTP id a23mr26140342qkk.82.1582196950413;
+        Thu, 20 Feb 2020 03:09:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582196950; cv=none;
         d=google.com; s=arc-20160816;
-        b=ax4IBWLi5BqMj9cebzh1owjsFkTXFulmRL9EwVbXf80ZEPbdZmeLzY8ZIOmMoU/Eku
-         qjoCO890obhwCUfJAuHp5NN0sa3ptxsnMzgXIrMSg7N/qLmR4pXdR08rWN6QTQH3/cL/
-         QkVanO1Iua46siN1kMbpdgAgvtlEl3iCFnVfyKYHIGkMtmN2KtXeHuwX69JwaCQ00E3t
-         rt+r+zRFr/7GO3+cjqGG7/a9cEWBfdToYyd87VYlwb6i+jVg1RVbt9UTBEqxmiXLRsBt
-         7YSWNn6qngugN7XqLakIVstnhNhkwD+H978KDgpx17Vat7uScajs1W+ZneBirE8+H0HK
-         9LoA==
+        b=Htyp4O6BcM/pD7wz240udZTUTH2ce4oAuvnnyqaENmE0KYWsoN+TlC2syuFZjcqt8W
+         +e9lG+UoFD77d9V+W2h1jTN6Eon8UMNJfOn7qs990HqC5VK6CL/4kDR/IBRwF8HHsLJG
+         KcPn5Mr0hDb7VL8NnKnd/40RjAtMEzSwPnVOWDi9tiYuSgtJkzB40O6NX6MnGrsYGPV3
+         CfYAKCsc71FrsLFzgSGkWdvJpVKBJMjstov4+/iYfasB9fgSnE9JL5NUooiexXEDWI3y
+         R+HaMLagG1RGEMu+UYY8hMkELyFMh55J4/NPsjlYyN/JAul+wxAU75gTtKmhMgp8RUoo
+         zvHw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=message-id:date:subject:cc:to:from:dkim-signature:dkim-filter;
-        bh=IDIlSd5PyoZKAMfckRhRo9czWMeumqnauQZkG16ECr0=;
-        b=JvgYIL2V8vF9RjRaKJHn/b2xhgO1MdUH8P7gjn82vfwiwdN0bVyr9s+Omn4oYrMcaL
-         q52VG0ceyKsisiYPD6XHLiBHRtcC1V8yGHth6eQSSDy1ILMA7hv2KKN73ZKntA7snjiB
-         6CikARF6UgW6iW5EINP+7wabDZ2HAI8P1FaQISWedhd/AJck2+EVWmRZtasKL8bgTKsu
-         J3S4+/nDWfVlYqbXrAQNJvPpHUZjAtmaicnw4K+OqvAPq97/JN1n60PRfAPMQhO64JdK
-         phuezp6K8+kzPFQGWRKxog7/GzWMwnePJcNwiGcdp1Slx0gpncXDtkwGBX7hd3QNSIbz
-         MZxA==
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :dkim-signature:dkim-filter;
+        bh=on/7DtPgewgJQ7ODuLQlJl0YcJIgV+9otF/QOdXIumQ=;
+        b=Ial1DbnsTJHdn217kxN1/gifwwM0kalJxghac2tkrR/HUHNv5cKDMhQeG5DxcOuTtP
+         vVho6U5hsDxGb2KpqJG6abe/KnZr7llSmPdBLklrCND27QiZJiKyGYIVQCSfqZ9w+fUd
+         cG/3TiJGJflQ84rg9d8LSkELFVZuRryyor7SXXY4h9qf6qn29Q1Fo/RDYjh8Q/ynRVSi
+         C1vELpFmmM/YCJfIydBkPYOCkxGwaEuJawE0FPNylHVrRW/M+5sRzpzoAuNZhKLUcjHk
+         sVdrVTG71DtUTsp7w5tpYQErRR7JKEOB874yeJkyKtxPiw6RyWEZ1YoDmgNaJGXt7zbE
+         1yXQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=ohxozsMk;
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=0XC8q6E5;
        spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Received: from conuserg-07.nifty.com (conuserg-07.nifty.com. [210.131.2.74])
-        by gmr-mx.google.com with ESMTPS id a4si61711pje.1.2020.02.20.03.08.52
+        by gmr-mx.google.com with ESMTPS id s25si198561qtc.0.2020.02.20.03.09.09
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 20 Feb 2020 03:08:52 -0800 (PST)
+        Thu, 20 Feb 2020 03:09:10 -0800 (PST)
 Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.74 as permitted sender) client-ip=210.131.2.74;
 Received: from localhost.localdomain (p14092-ipngnfx01kyoto.kyoto.ocn.ne.jp [153.142.97.92]) (authenticated)
-	by conuserg-07.nifty.com with ESMTP id 01KB8BM7031854;
-	Thu, 20 Feb 2020 20:08:12 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-07.nifty.com 01KB8BM7031854
+	by conuserg-07.nifty.com with ESMTP id 01KB8BM8031854;
+	Thu, 20 Feb 2020 20:08:16 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-07.nifty.com 01KB8BM8031854
 X-Nifty-SrcIP: [153.142.97.92]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
@@ -107,16 +109,17 @@ Cc: Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@redhat.com>,
         clang-built-linux@googlegroups.com,
         Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>,
         sparclinux@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>,
-        Andy Lutomirski <luto@kernel.org>, Borislav Petkov <bp@alien8.de>,
-        "David S. Miller" <davem@davemloft.net>,
-        "H. Peter Anvin" <hpa@zytor.com>, linux-kernel@vger.kernel.org
-Subject: [PATCH v2 1/2] sparc,x86: vdso: remove meaningless undefining CONFIG_OPTIMIZE_INLINING
-Date: Thu, 20 Feb 2020 20:08:06 +0900
-Message-Id: <20200220110807.32534-1-masahiroy@kernel.org>
+        Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>,
+        linux-kernel@vger.kernel.org
+Subject: [PATCH v2 2/2] compiler: Remove CONFIG_OPTIMIZE_INLINING entirely
+Date: Thu, 20 Feb 2020 20:08:07 +0900
+Message-Id: <20200220110807.32534-2-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20200220110807.32534-1-masahiroy@kernel.org>
+References: <20200220110807.32534-1-masahiroy@kernel.org>
 X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=ohxozsMk;       spf=softfail
+ header.i=@nifty.com header.s=dec2015msa header.b=0XC8q6E5;       spf=softfail
  (google.com: domain of transitioning masahiroy@kernel.org does not designate
  210.131.2.74 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
        dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
@@ -133,76 +136,117 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The code, #undef CONFIG_OPTIMIZE_INLINING, is not working as expected
-because <linux/compiler_types.h> is parsed before vclock_gettime.c
-since 28128c61e08e ("kconfig.h: Include compiler types to avoid missed
-struct attributes").
+Commit ac7c3e4ff401 ("compiler: enable CONFIG_OPTIMIZE_INLINING
+forcibly") made this always-on option. We released v5.4 and v5.5
+including that commit.
 
-Since then, <linux/compiler_types.h> is included really early by
-using the '-include' option. So, you cannot negate the decision of
-<linux/compiler_types.h> in this way.
-
-You can confirm it by checking the pre-processed code, like this:
-
-  $ make arch/x86/entry/vdso/vdso32/vclock_gettime.i
-
-There is no difference with/without CONFIG_CC_OPTIMIZE_FOR_SIZE.
-
-It is about two years since 28128c61e08e. Nobody has reported a
-problem (or, nobody has even noticed the fact that this code is not
-working).
-
-It is ugly and unreliable to attempt to undefine a CONFIG option from
-C files, and anyway the inlining heuristic is up to the compiler.
-
-Just remove the broken code.
+Remove the CONFIG option and clean up the code now.
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Acked-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
 ---
 
 Changes in v2:
-  - fix a type
-  - add Acked-by
+  - add Reviewed-by
 
- arch/sparc/vdso/vdso32/vclock_gettime.c     | 4 ----
- arch/x86/entry/vdso/vdso32/vclock_gettime.c | 4 ----
- 2 files changed, 8 deletions(-)
+ arch/x86/configs/i386_defconfig   |  1 -
+ arch/x86/configs/x86_64_defconfig |  1 -
+ include/linux/compiler_types.h    | 11 +----------
+ kernel/configs/tiny.config        |  1 -
+ lib/Kconfig.debug                 | 12 ------------
+ 5 files changed, 1 insertion(+), 25 deletions(-)
 
-diff --git a/arch/sparc/vdso/vdso32/vclock_gettime.c b/arch/sparc/vdso/vdso32/vclock_gettime.c
-index 026abb3b826c..d7f99e6745ea 100644
---- a/arch/sparc/vdso/vdso32/vclock_gettime.c
-+++ b/arch/sparc/vdso/vdso32/vclock_gettime.c
-@@ -4,10 +4,6 @@
- 
- #define	BUILD_VDSO32
- 
--#ifndef	CONFIG_CC_OPTIMIZE_FOR_SIZE
--#undef	CONFIG_OPTIMIZE_INLINING
--#endif
--
- #ifdef	CONFIG_SPARC64
+diff --git a/arch/x86/configs/i386_defconfig b/arch/x86/configs/i386_defconfig
+index 59ce9ed58430..d961d831c266 100644
+--- a/arch/x86/configs/i386_defconfig
++++ b/arch/x86/configs/i386_defconfig
+@@ -288,7 +288,6 @@ CONFIG_EARLY_PRINTK_DBGP=y
+ CONFIG_DEBUG_STACKOVERFLOW=y
+ # CONFIG_DEBUG_RODATA_TEST is not set
+ CONFIG_DEBUG_BOOT_PARAMS=y
+-CONFIG_OPTIMIZE_INLINING=y
+ CONFIG_SECURITY=y
+ CONFIG_SECURITY_NETWORK=y
+ CONFIG_SECURITY_SELINUX=y
+diff --git a/arch/x86/configs/x86_64_defconfig b/arch/x86/configs/x86_64_defconfig
+index 0b9654c7a05c..4826254c6140 100644
+--- a/arch/x86/configs/x86_64_defconfig
++++ b/arch/x86/configs/x86_64_defconfig
+@@ -285,7 +285,6 @@ CONFIG_EARLY_PRINTK_DBGP=y
+ CONFIG_DEBUG_STACKOVERFLOW=y
+ # CONFIG_DEBUG_RODATA_TEST is not set
+ CONFIG_DEBUG_BOOT_PARAMS=y
+-CONFIG_OPTIMIZE_INLINING=y
+ CONFIG_UNWINDER_ORC=y
+ CONFIG_SECURITY=y
+ CONFIG_SECURITY_NETWORK=y
+diff --git a/include/linux/compiler_types.h b/include/linux/compiler_types.h
+index 72393a8c1a6c..e970f97a7fcb 100644
+--- a/include/linux/compiler_types.h
++++ b/include/linux/compiler_types.h
+@@ -129,22 +129,13 @@ struct ftrace_likely_data {
+ #define __compiler_offsetof(a, b)	__builtin_offsetof(a, b)
  
  /*
-diff --git a/arch/x86/entry/vdso/vdso32/vclock_gettime.c b/arch/x86/entry/vdso/vdso32/vclock_gettime.c
-index 9242b28418d5..3c26488db94d 100644
---- a/arch/x86/entry/vdso/vdso32/vclock_gettime.c
-+++ b/arch/x86/entry/vdso/vdso32/vclock_gettime.c
-@@ -1,10 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0
- #define BUILD_VDSO32
- 
--#ifndef CONFIG_CC_OPTIMIZE_FOR_SIZE
--#undef CONFIG_OPTIMIZE_INLINING
+- * Force always-inline if the user requests it so via the .config.
+  * Prefer gnu_inline, so that extern inline functions do not emit an
+  * externally visible function. This makes extern inline behave as per gnu89
+  * semantics rather than c99. This prevents multiple symbol definition errors
+  * of extern inline functions at link time.
+  * A lot of inline functions can cause havoc with function tracing.
+- * Do not use __always_inline here, since currently it expands to inline again
+- * (which would break users of __always_inline).
+  */
+-#if !defined(CONFIG_OPTIMIZE_INLINING)
+-#define inline inline __attribute__((__always_inline__)) __gnu_inline \
+-	__inline_maybe_unused notrace
+-#else
+-#define inline inline                                    __gnu_inline \
+-	__inline_maybe_unused notrace
 -#endif
--
- #ifdef CONFIG_X86_64
++#define inline inline __gnu_inline __inline_maybe_unused notrace
  
  /*
+  * gcc provides both __inline__ and __inline as alternate spellings of
+diff --git a/kernel/configs/tiny.config b/kernel/configs/tiny.config
+index 7fa0c4ae6394..8a44b93da0f3 100644
+--- a/kernel/configs/tiny.config
++++ b/kernel/configs/tiny.config
+@@ -6,7 +6,6 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+ CONFIG_KERNEL_XZ=y
+ # CONFIG_KERNEL_LZO is not set
+ # CONFIG_KERNEL_LZ4 is not set
+-CONFIG_OPTIMIZE_INLINING=y
+ # CONFIG_SLAB is not set
+ # CONFIG_SLUB is not set
+ CONFIG_SLOB=y
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index 69def4a9df00..5abde39c3c69 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -305,18 +305,6 @@ config HEADERS_INSTALL
+ 	  user-space program samples. It is also needed by some features such
+ 	  as uapi header sanity checks.
+ 
+-config OPTIMIZE_INLINING
+-	def_bool y
+-	help
+-	  This option determines if the kernel forces gcc to inline the functions
+-	  developers have marked 'inline'. Doing so takes away freedom from gcc to
+-	  do what it thinks is best, which is desirable for the gcc 3.x series of
+-	  compilers. The gcc 4.x series have a rewritten inlining algorithm and
+-	  enabling this option will generate a smaller kernel there. Hopefully
+-	  this algorithm is so good that allowing gcc 4.x and above to make the
+-	  decision will become the default in the future. Until then this option
+-	  is there to test gcc for this.
+-
+ config DEBUG_SECTION_MISMATCH
+ 	bool "Enable full Section mismatch analysis"
+ 	help
 -- 
 2.17.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200220110807.32534-1-masahiroy%40kernel.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200220110807.32534-2-masahiroy%40kernel.org.
