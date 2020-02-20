@@ -1,47 +1,61 @@
-Return-Path: <clang-built-linux+bncBAABBS7NXDZAKGQEDJKGHVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDRZHGH43YJRBOVBXHZAKGQE3OEK65Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vk1-xa3a.google.com (mail-vk1-xa3a.google.com [IPv6:2607:f8b0:4864:20::a3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6BF17165881
-	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 08:35:40 +0100 (CET)
-Received: by mail-vk1-xa3a.google.com with SMTP id z24sf1041232vkn.0
-        for <lists+clang-built-linux@lfdr.de>; Wed, 19 Feb 2020 23:35:40 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582184139; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 83050165A1C
+	for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 10:26:18 +0100 (CET)
+Received: by mail-wm1-x337.google.com with SMTP id d4sf382250wmd.7
+        for <lists+clang-built-linux@lfdr.de>; Thu, 20 Feb 2020 01:26:18 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582190778; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hhScAHfeDcLeqUtVDe7DIhzN80bdXrhO//Dj+gbh1VwLUiIQhVRaKheQZUY2o4+d5w
-         HZ8Gylm8+pqd8UeC5thl13flxHDznyTFLpNRwagViqC0ibmBxoymHNz+6MIQ5f+vPHZy
-         s9Olkt/ak2eAHxnrox0+xxKHAwmSJDVasthkYsfr4N5lsegGBVDz4WmmHlWgEj7skfpe
-         0MbXl3g3wETXBKltBOMBuQvrB6GeKIVcF670A9j+gFbku471h3jSXRZwFf4vupMNP41x
-         9uo1TjEiI3DfiaT9MLHRJMANebHsGCsKkF0bkMGCP/70qqbtCMslvPRRlxzOBBoZ7vtc
-         ziPQ==
+        b=nlZd5tIMZics1ysZqTTCw4iVCm+Lw/Erq/lPQgcU40yIxjAAKI/Foc4qeMr+4eko4P
+         0Ua4OxLH1pd1A+snUjdmXUd+FfqzeithHNgOgocrHuOEu+5V+rcy/SQq1YtKMrwEiLZt
+         2see3SrMAFhSit+ceDvKFMXGjasvAHYjE3/SOTCbcSSOQmfPMOaewh+H+3PSdhGjNUmy
+         6tx8FI1ifRdeYrsQSjgDpeAEzpfNCC1pge9kxAetHA9GObdYdbMNX3pKQEk6JkTSD9rm
+         pymNTaKf010vlKzz1lsBpEmTL6NZfcFloYC30zSRc9CrzwVepZeQIE6uajnY6NEswUe6
+         vE4g==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=jyX9XW3w/xZ6CxWHk4ZZsV7dXl0U49VzQfYSjC9It1I=;
-        b=bPe7fdKF+Vrf8t985NHeMf4HsUcd6aiYXk08e12KzNwoPA/uQOhqHviaC1ikzn6pz5
-         V97dgincuGFoZdxGQvTCHio3l0jdmBmqW/HH/rqOyHR9yF7Ess9kwcWLdhIlBaaptLS1
-         qARFJlseyZ78SnCp565Cz4Valj0d4b1z5tXuLmWtIAHVV7K/iDtt5AGWf+Hyy0sRRzsJ
-         3B1b0NaKJtei7ySo37Apyxr8FyQBAUb4t/0uZSxD0ufX3sSnG3vDHuDB3D+paqzv80tg
-         xCSgAsAv4nZv8wI5NCqEnFe8n6X7+U+98YwkaRr0Yckg/AAUErhytt7UdfTJAB9i7mnm
-         SD8g==
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=KsBwrpwGS7gNyNd9k5naHA2JTcoqP++xm6t2pAM2OLI=;
+        b=0kwIkoilyMywAExhrWCISUPZhiAIXmb1KCc11FIorIJJvT8/w3aMti/Bl0AGJ5oW1f
+         LncKpsv21cCiHCHYkp7CVDokl6MNQbWF3ihoqGuJyB08b31gr8tmpwe4MKErjtxTNm+N
+         9gJXw0cfaBGPNVdxK6l0jy+RGFfHyv55y96Yirrb8lTHrt20IBvhBwmJ3K0C9nD34GPE
+         JTCJVNjtVkRt1xFxuqKw6xGbPGWich1WrorbL3N1FlXBe/MmmNbuAw/AsN59hDDPsuOh
+         V8MuenyHWu8Ng5Ou62H4OqpN2NWrBsQEbppvxRwFPE/mbzIvFuurEIum3sjWAEifJyHH
+         waWA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=MpOBewWN;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FRjY7eWo;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jyX9XW3w/xZ6CxWHk4ZZsV7dXl0U49VzQfYSjC9It1I=;
-        b=DDBNtsbZtD4hQ8zvSeyIgATFDsXFsoLrPdiwwPejR+8iSoH7lYSYdNeIXnXkR/o8rV
-         hwKPJVXasq5Yx1cnk958G90eu1pmQtLQmm7L2l4BoZxcW1U3DNsp2xJ3TMoiA7BoUlTl
-         wFZQqzPWsa+4mL4aR/P1u9/mWPjUtL3PfvqzyAt+qkgCfvjCLbdW3ZH8hMrZjM4iwpcq
-         4M6K8XomWQWFseA8J+pgq0HextDqxqippB3jfP2umiUgFu0ziBgrzDpZLqbwZolz8NbA
-         UCcF1ZgRI79TC66cGdwR8y4Baf0H0KpKrolq3RoaF+vwajbJwAHTOULnv3QC1bHicVxA
-         lTDw==
+        bh=KsBwrpwGS7gNyNd9k5naHA2JTcoqP++xm6t2pAM2OLI=;
+        b=Lt1FGIR7zZEBZTMaFGO7iExCBUJwmabl9yyeIw+yCPxyx1tJ6+3IPzgCYIh0mjrjUx
+         9C2yNt+CL6OyQZrZIYRnPrBA6f66sIt5swxHM8XpiFQcXs/OmvRxFa5HRxzW88KyFN6Y
+         +Xu3bRPp79YUNFtqrNBhSuqNgPaLIX5CDOO+gze11PwV+PdAv5hSXpIIve7I3HeJ7KSJ
+         beGxzEaRRs6Wv+abziIG4UnarGoslKvUXhl0BS/Qbcu2bko/9gL5Uu0e+7GdVkLvs5zt
+         hos2E+ipHm9urXV/J3kylQz1zDsJOAGhGlBji2l/mbogiZETeahgzEgmWBbxN8UzJTT0
+         P7Ig==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=KsBwrpwGS7gNyNd9k5naHA2JTcoqP++xm6t2pAM2OLI=;
+        b=s3wZCSWxyjFEC54n8pYMzAmfZFjh1WWt1kgPa/8OaznlTern2xiD4TwtZ/vd1+1XdA
+         cWxCKMHlzV74Ywhg/SOJbLe6ScfDzAn5osZCyeuShND3u0b8mOV31eTw2oZWisolGKN0
+         cbiEfY1LT4W53fd1Exhp9xbvP9eyd/Tzdea6YG6rYG0wCDlrlgnrTQFAEexaJ16IFcxy
+         /OTioh3dGHAOe/ivojmorXI6JZ55ScKdFUKLnLzHK1u9PSKaxQ9uyvoZ2UGzwFNDtNJ2
+         7g/8uw+qar3d+FBgkVhcNT9Dfm+NzFksea8ZDHUq/YttZQnXQO3NkH3uS4ijF3/srief
+         AJgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,81 +63,76 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=jyX9XW3w/xZ6CxWHk4ZZsV7dXl0U49VzQfYSjC9It1I=;
-        b=OQpVM+B+xJglZkhlAxpfwAjR57G/OyKB0DLgKxo8bzuZKGlV6oXFNo665KaIc07ytt
-         pEhZ4RPjpy9JMQX5ickcigRE35SJuLmenEX6tKpkwNPQq3xLhDjF+XsQqU+li+hrNYgu
-         1FFAKQZ61eJKTLOoWbOL+2czgZTEx4gnD5kgje82J9upzB3SrDJv8L2h6xqsVLjlKmgF
-         2str9JInt87QwsYBPMBu8xTzL+GRtC4twLsP8sRkdEH/KFVwstoOKbb7lgMBZIfdfnwY
-         e6BGdKSW3tFw2sXW15EljZsa17sQYMWwV2M+Qqe/qfR59i9Zd++cf/1Nb3G6NtRzU2r1
-         WSow==
+        bh=KsBwrpwGS7gNyNd9k5naHA2JTcoqP++xm6t2pAM2OLI=;
+        b=sYm+iPq2D6cws+0D07jUPNUDnwCB4vXR2aR6KHawmwxE+W6kaufO5/AfcvdgRQqvcj
+         8J6jEqwbf+pGRldvxBU/VWwtc1H0WXGqjoCLUNnotMXs0JvQRxLMKAyhbAyrNy/4L0qS
+         okBUMcCCFvZJGd7oMH4jYQJc/RUkt5YDlHq9/hM+Dq3PzAgqneM+NX7OIJp9+LlEHMNJ
+         R9KrN/gMuC9mD737EVu+yOlQnpLn4E6xD8YzBAzRh4s5CZPgMf/5wnkiyH4YuE67eGjq
+         dzWv975Zmd0gh4ZwXl6wvpiKZ5kIrVIzxT7jhZTY96VI18kOtXv8LEuPSY2hTu4OUmz+
+         m4NA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWu/hItVxernwJ99PLsFIaZzrFnZ80NlC9i/iVZsUgKRjGqAs1B
-	uUNuf9un6dTCqE6vUn1FTXI=
-X-Google-Smtp-Source: APXvYqwVIYzDGJXIpPSxsalDWrcN+hM5/6uRy1jc7hVHe2E+vtM0N/9w7i15JoJpz6VMp71XToX2pQ==
-X-Received: by 2002:ab0:69c7:: with SMTP id u7mr14852101uaq.111.1582184139270;
-        Wed, 19 Feb 2020 23:35:39 -0800 (PST)
+X-Gm-Message-State: APjAAAWOQNGaZruGzWEUGnwKs5xnrThIV8IpiXDrzlomMbBiZ0PY7cY3
+	CDj/mgI960rqugJo0LIVcFw=
+X-Google-Smtp-Source: APXvYqwUvmiEEMl3B+9U2RISDWtgXeBKJVZiuCiFo36MUn6tnqv77bkcM2N02TW6Utkgu9///ljcaQ==
+X-Received: by 2002:a1c:20d6:: with SMTP id g205mr3399708wmg.38.1582190778275;
+        Thu, 20 Feb 2020 01:26:18 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a67:42c1:: with SMTP id p184ls285791vsa.10.gmail; Wed, 19
- Feb 2020 23:35:39 -0800 (PST)
-X-Received: by 2002:a67:7d17:: with SMTP id y23mr16555384vsc.162.1582184138999;
-        Wed, 19 Feb 2020 23:35:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582184138; cv=none;
+Received: by 2002:a5d:65d0:: with SMTP id e16ls11178275wrw.1.gmail; Thu, 20
+ Feb 2020 01:26:17 -0800 (PST)
+X-Received: by 2002:adf:cd91:: with SMTP id q17mr41825821wrj.306.1582190777495;
+        Thu, 20 Feb 2020 01:26:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582190777; cv=none;
         d=google.com; s=arc-20160816;
-        b=B2TRU5RuKy01OWtvQj7rm/QBtafFwYwUW8tLa5c3dv8XycpJTxNAxYIrm279voDUqw
-         YQYSxfGri0X58TVS/JvlTFwsdkPBHG2gET8ILSGaboWrPmEYGiX539VnDeU7LJcaZ+Jj
-         27IIBo7LinntRfNQxuVPLf5HftNU/1cQIqKhcPM63CMpPWsI93B0T+aL3b1FYAHk0wcI
-         cvol7t/Lz4hYjoGzk/Sbtj2vUtTKZUsk2GcG+O2XWkHg30C8wBdqVM4i2cdRIfEbKGM1
-         XCq8xVFQ4e+2jEzeVazlaRUQKukHiiD/a93gTOpS8/6WqqpOs9x2rrV0jOKselJ/I7LZ
-         zBUw==
+        b=ZPuUexVZNV36ikV0nS3CQ7RmlwALdMsDOy3KmoHQHhd8R1ZI9ZBanZs/nDQKWH/wvb
+         JUQMFY0kBo40Ckha7ne4lsS4t9Z+1khe0zFhy8TIMghxYwR1m0L9QI56tdx8a7ODBknJ
+         Ev7BTQnBJittgaotK1Mwq2Ols1ZMM8AyatbrjSGKUcBstPuXLIzZ2d+E3cUppHKtymMx
+         c2hWVQl6Jvw0eH7QPWtU7yjymH7LgKu8TFH2paueQr1SOHYcnGBd8TrksNn9qHbCnIFP
+         QObLPwDzrmIeDyNt1MsYB9g2di1qRXEvrB+06jaNjYhZmFcJWsx3FSUSlgoJ++D1aFaQ
+         c5qQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=Tdfjiyh7O25hfyABcsp2evtj+O+7NFfrjvTTk3Uobvw=;
-        b=rXQlOBKFTWaQX+Qn1/uCSRc9b7rbsdRQz2UlaVBWN6DmER7sQHy3oiAH3z/HgiyNq+
-         14E9DcKijqFao3wQ+qROeZm2BLVlhs4OjpP9LSSzvcybCgo4MjWL5rpwz/lbYx6nKLGL
-         gMJYmY+vpaHM6Twd4ZNDv8F87vPR/hIBCy7J4bDjHAcyFJMa+dqDVupQd4Mofw+FVtJp
-         Cpt/2QcwnH12h5JbNE3FSyfZZoNBcBT5WeIfiKOrVoASuUHZZw3Qxw4t6Kp2wJXXk7xB
-         1XACVoMwbMDH8ozEsrpPfiy7qHRG8WhEKv9j3ityWghCuNXAeuZZDeXLPNq6n8qMOpuO
-         uvOQ==
+        bh=jWL4OlWg/ImsZ63WRta4BWWVgqBXfj6sTueyX2l3ehw=;
+        b=YUJpf9QYyc3nAZxdVzL+U8Rmi0yK6ZeAhJyShrNyIZHrWozDbW2UPhQoXp3I8Wncps
+         YyIwCmdbAQHwMA4mp4I1ckmk3kqww39iNmjC/pEZaANT2lZczXzsCI8rG6npKGdjO/zc
+         844GOYBmQM5bJxvAex4cQl2e2L9prS/wwUNRbHFcxLuKS2NwghOTL/SPWSpagMfbewvG
+         jUT6Fz5gPFDWkN8A376DTgb7MSizGVrHxt/em2t2RqA45KuwracWed2apVfr+pSjoD6B
+         vJKU22DTHLlUrShC81Yuw9FlKryez3rkZxGKLONAKB2q8eyTGQDgOKiKznZpxOVTST3Z
+         081Q==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=MpOBewWN;
-       spf=pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=ardb@kernel.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id w4si102795vse.2.2020.02.19.23.35.38
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=FRjY7eWo;
+       spf=pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lf1-x142.google.com (mail-lf1-x142.google.com. [2a00:1450:4864:20::142])
+        by gmr-mx.google.com with ESMTPS id g3si107508wrw.5.2020.02.20.01.26.17
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 19 Feb 2020 23:35:38 -0800 (PST)
-Received-SPF: pass (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id 74C742467A
-	for <clang-built-linux@googlegroups.com>; Thu, 20 Feb 2020 07:35:37 +0000 (UTC)
-Received: by mail-wm1-f51.google.com with SMTP id s10so858799wmh.3
-        for <clang-built-linux@googlegroups.com>; Wed, 19 Feb 2020 23:35:37 -0800 (PST)
-X-Received: by 2002:a1c:bc46:: with SMTP id m67mr2674003wmf.40.1582184135711;
- Wed, 19 Feb 2020 23:35:35 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Feb 2020 01:26:17 -0800 (PST)
+Received-SPF: pass (google.com: domain of miguel.ojeda.sandonis@gmail.com designates 2a00:1450:4864:20::142 as permitted sender) client-ip=2a00:1450:4864:20::142;
+Received: by mail-lf1-x142.google.com with SMTP id b15so2526267lfc.4
+        for <clang-built-linux@googlegroups.com>; Thu, 20 Feb 2020 01:26:17 -0800 (PST)
+X-Received: by 2002:ac2:4199:: with SMTP id z25mr16242179lfh.26.1582190775281;
+ Thu, 20 Feb 2020 01:26:15 -0800 (PST)
 MIME-Version: 1.0
-References: <202002192125.QSSsNaaF%lkp@intel.com> <20200220044738.GA24047@ubuntu-m2-xlarge-x86>
-In-Reply-To: <20200220044738.GA24047@ubuntu-m2-xlarge-x86>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 20 Feb 2020 08:35:24 +0100
-X-Gmail-Original-Message-ID: <CAKv+Gu-=1_Zjp69Ycxw+nNupxvP7dJGU8_KB=FLT9frpSjPFGQ@mail.gmail.com>
-Message-ID: <CAKv+Gu-=1_Zjp69Ycxw+nNupxvP7dJGU8_KB=FLT9frpSjPFGQ@mail.gmail.com>
-Subject: Re: [efi:next 40/64] drivers/firmware/efi/libstub/efi-stub-helper.c:318:3:
- warning: suggest braces around initialization of subobject
-To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: kbuild test robot <lkp@intel.com>, kbuild@lists.01.org, 
-	Nick Desaulniers <ndesaulniers@google.com>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>
+References: <20200220071140.14080-1-masahiroy@kernel.org> <20200220071140.14080-2-masahiroy@kernel.org>
+In-Reply-To: <20200220071140.14080-2-masahiroy@kernel.org>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Thu, 20 Feb 2020 10:26:04 +0100
+Message-ID: <CANiq72nWs3c2MWGTsG=zvDQ21B_=_Yaw3AhRhHDBAr2xFJwF_g@mail.gmail.com>
+Subject: Re: [PATCH 2/2] compiler: Remove CONFIG_OPTIMIZE_INLINING entirely
+To: Masahiro Yamada <masahiroy@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Ingo Molnar <mingo@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	sparclinux@vger.kernel.org, Borislav Petkov <bp@alien8.de>, "H. Peter Anvin" <hpa@zytor.com>, 
+	linux-kernel <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ardb@kernel.org
+X-Original-Sender: miguel.ojeda.sandonis@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=MpOBewWN;       spf=pass
- (google.com: domain of ardb@kernel.org designates 198.145.29.99 as permitted
- sender) smtp.mailfrom=ardb@kernel.org;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=kernel.org
+ header.i=@gmail.com header.s=20161025 header.b=FRjY7eWo;       spf=pass
+ (google.com: domain of miguel.ojeda.sandonis@gmail.com designates
+ 2a00:1450:4864:20::142 as permitted sender) smtp.mailfrom=miguel.ojeda.sandonis@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,105 +145,22 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, 20 Feb 2020 at 05:47, Nathan Chancellor
-<natechancellor@gmail.com> wrote:
+On Thu, Feb 20, 2020 at 8:12 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
 >
-> + Ard.
+> Commit ac7c3e4ff401 ("compiler: enable CONFIG_OPTIMIZE_INLINING
+> forcibly") made this always-on option. We released v5.4 and v5.5
+> including that commit.
 >
-> On Wed, Feb 19, 2020 at 09:53:35PM +0800, kbuild test robot wrote:
-> > CC: kbuild-all@lists.01.org
-> > CC: linux-efi@vger.kernel.org
-> > TO: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > tree:   https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git next
-> > head:   99cf8bd2dfc23547cf823e19dfbe229ed26d6f9f
-> > commit: bb3cad853b4c79f782d5e015bca7da621950c820 [40/64] efi/libstub: Add support for loading the initrd from a device path
-> > config: arm64-allyesconfig (attached as .config)
-> > compiler: clang version 11.0.0 (git://gitmirror/llvm_project 9d37f5afac4a3b9194b9001bed84f58ca8bd6c02)
-> > reproduce:
-> >         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-> >         chmod +x ~/bin/make.cross
-> >         git checkout bb3cad853b4c79f782d5e015bca7da621950c820
-> >         # save the attached .config to linux build tree
-> >         make.cross ARCH=arm64
-> >
-> > If you fix the issue, kindly add following tag
-> > Reported-by: kbuild test robot <lkp@intel.com>
-> >
-> > All warnings (new ones prefixed by >>):
-> >
-> > >> drivers/firmware/efi/libstub/efi-stub-helper.c:318:3: warning: suggest braces around initialization of subobject [-Wmissing-braces]
-> >                    EFI_DEV_MEDIA,
-> >                    ^~~~~~~~~~~~~~
-> >                    {
-> >    include/linux/efi.h:846:25: note: expanded from macro 'EFI_DEV_MEDIA'
-> >    #define EFI_DEV_MEDIA                   0x04
-> >                                            ^
-> >    1 warning generated.
-> >
-> > vim +318 drivers/firmware/efi/libstub/efi-stub-helper.c
-> >
-> >    302
-> >    303        /*
-> >    304         * The LINUX_EFI_INITRD_MEDIA_GUID vendor media device path below provides a way
-> >    305         * for the firmware or bootloader to expose the initrd data directly to the stub
-> >    306         * via the trivial LoadFile2 protocol, which is defined in the UEFI spec, and is
-> >    307         * very easy to implement. It is a simple Linux initrd specific conduit between
-> >    308         * kernel and firmware, allowing us to put the EFI stub (being part of the
-> >    309         * kernel) in charge of where and when to load the initrd, while leaving it up
-> >    310         * to the firmware to decide whether it needs to expose its filesystem hierarchy
-> >    311         * via EFI protocols.
-> >    312         */
-> >    313        static const struct {
-> >    314                struct efi_vendor_dev_path      vendor;
-> >    315                struct efi_generic_dev_path     end;
-> >    316        } __packed initrd_dev_path = {
-> >    317                {
-> >  > 318                        EFI_DEV_MEDIA,
-> >    319                        EFI_DEV_MEDIA_VENDOR,
-> >    320                        sizeof(struct efi_vendor_dev_path),
-> >    321                        LINUX_EFI_INITRD_MEDIA_GUID
-> >    322                }, {
-> >    323                        EFI_DEV_END_PATH,
-> >    324                        EFI_DEV_END_ENTIRE,
-> >    325                        sizeof(struct efi_generic_dev_path)
-> >    326                }
-> >    327        };
-> >    328
-> >
-> > ---
-> > 0-DAY CI Kernel Test Service, Intel Corporation
-> > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
-> >
->
-> Should it be this?
->
-> diff --git a/drivers/firmware/efi/libstub/efi-stub-helper.c b/drivers/firmware/efi/libstub/efi-stub-helper.c
-> index 618c189dd..df189bad2 100644
-> --- a/drivers/firmware/efi/libstub/efi-stub-helper.c
-> +++ b/drivers/firmware/efi/libstub/efi-stub-helper.c
-> @@ -322,9 +322,11 @@ static const struct {
->         struct efi_generic_dev_path     end;
->  } __packed initrd_dev_path = {
->         {
-> -               EFI_DEV_MEDIA,
-> -               EFI_DEV_MEDIA_VENDOR,
-> -               sizeof(struct efi_vendor_dev_path),
-> +               {
-> +                       EFI_DEV_MEDIA,
-> +                       EFI_DEV_MEDIA_VENDOR,
-> +                       sizeof(struct efi_vendor_dev_path)
-> +               },
->                 LINUX_EFI_INITRD_MEDIA_GUID
->         }, {
->                 EFI_DEV_END_PATH,
+> Remove the CONFIG option and clean up the code now.
 
-Indeed. The type in question changed definition over the course of
-development, and GCC never complained :-)
+Yes, please!
 
-Thanks.
+Reviewed-by: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+
+Cheers,
+Miguel
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKv%2BGu-%3D1_Zjp69Ycxw%2BnNupxvP7dJGU8_KB%3DFLT9frpSjPFGQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANiq72nWs3c2MWGTsG%3DzvDQ21B_%3D_Yaw3AhRhHDBAr2xFJwF_g%40mail.gmail.com.
