@@ -1,124 +1,127 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBHEOYHZAKGQE2O5OOMI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBZGDYHZAKGQEJNY5VTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103b.google.com (mail-pj1-x103b.google.com [IPv6:2607:f8b0:4864:20::103b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 08DB91688FE
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Feb 2020 22:09:50 +0100 (CET)
-Received: by mail-pj1-x103b.google.com with SMTP id m61sf1702790pjb.1
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Feb 2020 13:09:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582319388; cv=pass;
+Received: from mail-io1-xd38.google.com (mail-io1-xd38.google.com [IPv6:2607:f8b0:4864:20::d38])
+	by mail.lfdr.de (Postfix) with ESMTPS id 72A51168A31
+	for <lists+clang-built-linux@lfdr.de>; Sat, 22 Feb 2020 00:04:05 +0100 (CET)
+Received: by mail-io1-xd38.google.com with SMTP id t12sf3463101iog.12
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Feb 2020 15:04:05 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582326244; cv=pass;
         d=google.com; s=arc-20160816;
-        b=hNpMxIMNNpDnS0QnsBUwgEu5MgAvfCMo3Xkg4jCbpOza7qyxBFTsJV4df2NW5tZ3WW
-         mns5iA+TrWRhlICXcica7u6mUDuROR7D6JuWkNOmYdBp/KqG9VIrglymOil2LDdWdsHL
-         srLW8pMWg8tKTnGhu5b8dFKNe+5lwG5dRs0ZIwIuI67m5CSSsjw0TbpkCDkTkCyMPjXe
-         kAwdZWYUxpHB++5HR2+s/ocnkIgHj5BXNDjX+HYTLGa6uM+Lr1DHjwy8bmidAF0PYw80
-         g4rVR3jkuF2fPIeuTVi3BpNamsB8/X8zHussAjn5d0gOAqeTlxGPBu9YhIF6u61IzGuW
-         hhHQ==
+        b=gqZX53YHgTI9B5Pj5OckGEepHoewjpkYys5bOBACeU8ne/xIccDq247jVytV4j8HsD
+         IlnwjMrWEhLAlIGSk+rO6Plpy2cQWntRA1PquI3duksZc+XJKADkbVmLiMEUCTDGj4bB
+         IOG4QL381Ol6+cXJrAIZaOjpupGdqcgfhm1qmXv76onPr/DhT//peL6ZMq5fE4Lam+b4
+         WqZr1xavRItS8WWmJw/hLBrnWln/kcRtOwEIT6ibfoBUcUw/vASWxCbSGynP+QI+GZ7p
+         h0qMwynEnJ6W4pnUDoCal5xeKoeyEhDUyw2+agfPLzfs/EmlzyFj+sU2DL1lPv1DeTZ4
+         QEuQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=QzEQLYLPqktBotBpHOgXD68V9ESXjlhlhYG8Qva9EoI=;
-        b=FlexZ1mJwLy2jO7QliHXrEsGzgZPL0+SeXQU/WWxRh4j2oOwxYAv+cYzfFhBjUoyGS
-         27N8vGi07ZVg8+JC4FB0XtxPwmM8VM8TXcZoBk+VFFSnLusS4BXiRTv2wI4A35vQ7Rc1
-         pd7JoMnzGFMvCkqLJwQZEt9/86mPHqKyV/OghiomER8skl+1K8ArLBBAS+C+lA/74U74
-         CDGQ/0+HsvAbpFzA3HoEYstP9g9OmZTJ1oRBn7izFC87fNMRAHf0EAjfVMHTDIP3RcNW
-         Wzkb9k5D+uyalixSkSdumGQXG8BW3u5dJ9BLh3h2MA8CfsQ6cBpGTVy5nYCUQHUlBguf
-         hYdg==
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
+         :dkim-signature;
+        bh=Fm10SEBppWFq9AYBBoi9BRiA9j7nKE/STakF9oT4D8w=;
+        b=RJAxYwQ6/3PasX5Y7S3dUDFqAUfm9hUlfg9Jla2lfRls/VjSI529diEE5t0MV1JCQ1
+         PLyqBH4DJZ0uY7LFNqTzsRHOfO09WSqO/1gkJ5M39fTp3hzL+wLagHK1i0lRjE4fB8Vu
+         e0E2kF+BG9xIDza4p+v5a55Il0qltqAckZoWt6gS8DxOAKu0fbadA8+dIhKVVho8bOT0
+         dbNZ+ID3s+VjujhtfYG/Jmf40V6tnCZNPOtnSlokEtGtqqSYIvhANCcOLy3h3IHXd+bG
+         u8fmHX55ZWqxiDtvkoQ9gWQp5lMsY1pT4kIQgBhN1Rb89VCbG4I+sW9pG/jssf4A4SIK
+         GbWA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Skd5KPmL;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=Fx0JVCqf;
+       spf=neutral (google.com: 2607:f8b0:4864:20::442 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QzEQLYLPqktBotBpHOgXD68V9ESXjlhlhYG8Qva9EoI=;
-        b=de3COn9LDFPc008y+mB8iUC5SI/6CgYOqRXrF+wXZpcJ7/VVmHK2rgpCzMORCTxdZn
-         rqUybGzG5pY8KCNUrbkhzA6hL9TMACW4e1zzz1XXI3TNHdTwCWJnK6psxL5+tTvGpnMb
-         R+IQpwnxQ1/HK85l+PY2vM9eOTZX37AAlTDxIIdp/vzOUtVFhhTNEP1y3mM/ibn2rPtJ
-         zPA7qu2vB3eapEEir3k+r7GfVD80hYSmb8bozLMvbf+XzEvK/SLlDEck8V429yhoS9cu
-         LvUHT0q7ytM8VmXRSPjaEqttOLzMJY1sjwTb6z2NeFkuzD1yoNdm8ZOy5Fjv1PhHXizJ
-         iRuQ==
+        bh=Fm10SEBppWFq9AYBBoi9BRiA9j7nKE/STakF9oT4D8w=;
+        b=kCSvD4H2LyWfSq1d9qTbZ77zU5ul/fsPXzF7DQ6l9gyhnv6L2OeFRJzHsVsxiSVIs5
+         ef/NNci2t2ztHIRC5/Ulo3cTfOH9w1U/nIUt9GwAUuhkY8PLSD5AW2pQFs/GIfFRRceZ
+         hkBh5ChEGBxbCz5ADlPVSQ1Wk+JVhFoBsDGZP0pTXxurOCxv1pSmoxyxUUmbl3MCfQhK
+         TDxdJVoaeR4B6BkStI5oYHNGpyT8AU8+Ig2Y5Fmu6V0EqIHryCsP/0Uf4zj7NwEMyRoq
+         bLRoX9/ByEEuyoNIj3n9cwsx4/ss4Z+ReWD5Bj6LQ3LMEQXgKaFj/iRPneT8hzHnbdeg
+         10vA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=QzEQLYLPqktBotBpHOgXD68V9ESXjlhlhYG8Qva9EoI=;
-        b=bfxvXj0kbbvqVEb8M7XyRonHe4uF0GLrgKai7JOf8WismYY8f9/7kZSjLzNko9Ka0s
-         FlVYRNnO1VAcDwLBrN6LCUoitnhV26DlTdRagQjSFrC5avmhF+ZZL4yPKIJmlvWveJX+
-         Q9E1qsp8tfE/HPOmV2Wcyhw5dr6hnE7Li2GpkYnFUCduIi3ZJGyb7PuvuPCfzUPRrjpf
-         pklkPS3Vng+AKP3CI8d0AjFn+BYde/k6mxUcY2wCs1cV/KreU7wG7ybV1n1Uf64yN8fS
-         vH9jRq66sFtj0J19sNPqBNCA6r+w+Saq8XZX9xUynFW5hagdNj09ADp6nEYfAA4ErBNu
-         ToQg==
-X-Gm-Message-State: APjAAAWVJtGBXLOdYK4RoSVVv8UUxkR98I+qSLR0rS58XiL5PKVB/g2c
-	uMHXk2Nm1iveJyAlkKjXOuU=
-X-Google-Smtp-Source: APXvYqwhu2OWBVzTjRoy+ZqFA65d5tvncFyYRxH26tJhPEq1rGnDLbOUV/dWYXTTBmZRrZPHCXdNkg==
-X-Received: by 2002:a63:447:: with SMTP id 68mr38803689pge.97.1582319388099;
-        Fri, 21 Feb 2020 13:09:48 -0800 (PST)
+        bh=Fm10SEBppWFq9AYBBoi9BRiA9j7nKE/STakF9oT4D8w=;
+        b=Ab0Ox2U4uAGoKtY57mTpaDNA46Tl9gf4+DAfzFldWnwGNjrooBR8W8fjyKTd51IDXv
+         d6oFcmQuLTqHVYh9g345ihsa3hSZMliZZ00seiUHMiedifpF+ONAJwmdcR10Kh5GgnXZ
+         sblyKOJr7Vn2deA1jwAoJ4vNfFiJA8rrELC76dElPOPOBEumSDcJoo4scyKA140krIax
+         8VluRg2fXu8hmHeUy3h7kZGrZMC7jeXMEqRCBQdAue6ghrNHFRW/IFDon8uO29KzzG3T
+         j43YQLdfxQ6JeQfFMHh4gIZQ6pL75gqUxpORp0nlK9RK99GMnDMagwM398jie79Np01M
+         pvCQ==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAVKXFT1KzOpHWW0PodN5Pg4L6knI+zDJuDb8R/R9CjJulnmmnRt
+	3NrzV/06lqQwP48fqMOYadk=
+X-Google-Smtp-Source: APXvYqxaSRHs4B+9eQI6bLZU93pIIgCt5+HMzAhW9bBCm1sbLWtm9HXUVaDu2xhSM2F9IqkV+pvs9w==
+X-Received: by 2002:a92:1a08:: with SMTP id a8mr39022255ila.251.1582326244166;
+        Fri, 21 Feb 2020 15:04:04 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:7281:: with SMTP id d1ls1195813pll.1.gmail; Fri, 21
- Feb 2020 13:09:47 -0800 (PST)
-X-Received: by 2002:a17:90a:394d:: with SMTP id n13mr5276040pjf.1.1582319387692;
-        Fri, 21 Feb 2020 13:09:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582319387; cv=none;
+Received: by 2002:a05:6e02:f13:: with SMTP id x19ls806200ilj.0.gmail; Fri, 21
+ Feb 2020 15:04:03 -0800 (PST)
+X-Received: by 2002:a92:d609:: with SMTP id w9mr42857437ilm.46.1582326243639;
+        Fri, 21 Feb 2020 15:04:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582326243; cv=none;
         d=google.com; s=arc-20160816;
-        b=S03iVa9y1btQOI3sQZOovRHhnQQxCc5qdz+Xv2c6W6mXYgjOzXax6FCrrjwowW/sjr
-         GMynp2jaRwgJ1HI5dMNIpircf0A8vp+3vws9eqcm9k5qaqwkTayvnBsExV2RlaxAs6CP
-         7fJbkTlvoC4KXQK/V9/A2cD9UeuQxyFn1tw/qcVfRUgjYAibzQWAslAKjFD3rL6//Ckg
-         jQL9CpwEwU0uM9TtZwVBdQi0q8rgkYr1BFdEK1S7SdLjjSWyWLFK6ykhgJlxmw7xA/Xn
-         oJhMtSNvGE8Q92ZQaR+cqd6iCaRXlfJU8IUUsoKXwfAHmVQaHQKSpSM9PCGMWeQfjBE5
-         H0/Q==
+        b=Tr3WPXtJSw3QQfem/0A3HqWg+kf07fOl8ybxvot5aNihRK65fr2EpsAUOKuwqOPk3E
+         Eg/Ia1MVFm3ZodS2Raj4F4AkAw3kf17P/VG+NX3+7W3FjDW1rRjMPwDiM+Kq+NW9Oqs6
+         ktB1pH/atS8m9p3kmsE9jn7aDs1/k9h5F5/YOIoyAgyyXX7ForB9BYHRIb7XLodJBzWg
+         Ir2xe6cVDDh1jb5cds2W9nAk6py3nzHuxg6ICHxqibJo7Fx1rrVz287B1+U0b7SmaR23
+         B5Ub0jyQbF2FDsy6/Tw6j6irfSUvhWvvFH61guuu9vaKDSs+S2cxAYsjDAWLh/jM9DKg
+         xLtw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=zUPeoJQT4bo8QV8qvKihcroSkp75IgeOGG1W4e7sFl0=;
-        b=A0JnEiwvMdckSqyIIAQeaz354fIZhJXVaMxNKc8zyzQ7npFGfdThQfCUUwqRMNFKw/
-         VsuoaKN443zlKevz+ei7bRnbNZKeGZWomF2y64v8tXvv9YtvZ2AuF2RnrkBLlwhI0VYD
-         Y7dVPCZpLrP16PFK/P3bVWD++dufPk1jVLMZdGQbwHkM7LUzX8BDfVFRj37ve6EmK+i7
-         jY6lSRxFKejrm+pUeeOf27vMEYuqoYigHhWorKw4X1jyqmnSOgZyptlypu8HxYCKvhpL
-         3IIyiON9EZTDFFXjsiiMKpA6mhjvlO1hMM09MH5LO6kVFTTr0UvOsqEel/Qs9HjULxco
-         Heuw==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=NF29hzcmCZwJsjgf8ru8745pX3vnZgKxH0zgXIv1Tn4=;
+        b=gmiNljBXee958y+QA2hItnx0a120o4gsNYxobRukZRtQ5Y7po8olb6KYXEuZOTZ7sz
+         OwBXNlNw22xfIBBoATVyNEh3HcCnEMKqOGPuoBij7Hb5WlZeNX8nvIi634AOQ8rpU3Rc
+         4j9P78whuStnZL0j2JoXqaLXmn+X6agwEbww9WOkDBzYGHPFKYIoh0xr89ZxgMDzALYs
+         52iuMwF3/9LgBSgyLQgO4fsKkSg9sxr+WfsDi2JIcwn9qDCoNCSGDobsJs2SzwEj4UmQ
+         e0UTYbXQiwmCJsQ4p5WIaswTNPf09mZi1Ic+Wod4x5tBg4sw/fnEIrg9ERuJJAcMgI6a
+         KK1w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=Skd5KPmL;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id i16si139288pju.1.2020.02.21.13.09.47
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=Fx0JVCqf;
+       spf=neutral (google.com: 2607:f8b0:4864:20::442 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
+        by gmr-mx.google.com with ESMTPS id b16si222932ion.0.2020.02.21.15.04.03
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Feb 2020 13:09:47 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id j4so1615661pgi.1
-        for <clang-built-linux@googlegroups.com>; Fri, 21 Feb 2020 13:09:47 -0800 (PST)
-X-Received: by 2002:a65:6412:: with SMTP id a18mr14625753pgv.10.1582319387058;
- Fri, 21 Feb 2020 13:09:47 -0800 (PST)
-MIME-Version: 1.0
-References: <ab67c7c5a1f96af6d22240e57fc27ba766d4193d.1580943526.git.stefan@agner.ch>
- <20200205235440.GW25745@shell.armlinux.org.uk>
-In-Reply-To: <20200205235440.GW25745@shell.armlinux.org.uk>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Fri, 21 Feb 2020 13:09:36 -0800
-Message-ID: <CAKwvOdkxg8vG4FZAFJehMouUHNqXaKT+J2AWtK7mn2EXJKOE5g@mail.gmail.com>
-Subject: Re: [PATCH] ARM: kexec: drop invalid assembly argument
-To: Stefan Agner <stefan@agner.ch>
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Russell King - ARM Linux admin <linux@armlinux.org.uk>
+        Fri, 21 Feb 2020 15:04:03 -0800 (PST)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::442 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::442;
+Received: by mail-pf1-x442.google.com with SMTP id b185so2043248pfb.7
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Feb 2020 15:04:03 -0800 (PST)
+X-Received: by 2002:a63:8f1a:: with SMTP id n26mr21301988pgd.355.1582326241308;
+        Fri, 21 Feb 2020 15:04:01 -0800 (PST)
+Received: from [10.0.9.4] ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id x12sm4002496pfr.47.2020.02.21.15.04.00
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Feb 2020 15:04:00 -0800 (PST)
+Message-ID: <5e5061e0.1c69fb81.7a6cd.c82c@mx.google.com>
+Date: Fri, 21 Feb 2020 15:04:00 -0800 (PST)
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Kernel: next-20200221
+X-Kernelci-Report-Type: build
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+Subject: next/master build: 133 builds: 0 failed, 133 passed,
+ 63 warnings (next-20200221)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=Skd5KPmL;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=Fx0JVCqf;       spf=neutral (google.com: 2607:f8b0:4864:20::442 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -131,100 +134,963 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Wed, Feb 5, 2020 at 3:54 PM Russell King - ARM Linux admin
-<linux@armlinux.org.uk> wrote:
->
-> On Wed, Feb 05, 2020 at 11:59:26PM +0100, Stefan Agner wrote:
-> > The tst menomic has only a single #<const> argument in Thumb mode. There
-> > is an ARM variant which allows to write #<const> as #<byte>, #<rot>
-> > which probably is where the current syntax comes from.
-> >
-> > It seems that binutils does not care about the additional parameter.
-> > Clang however complains in Thumb2 mode:
-> > arch/arm/kernel/relocate_kernel.S:28:12: error: too many operands for
-> > instruction
-> >  tst r3,#1,0
-> >            ^
-> >
-> > Drop the unnecessary parameter. This fixes building this file in Thumb2
-> > mode with the Clang integrated assembler.
-> >
-> > Link: https://github.com/ClangBuiltLinux/linux/issues/770
-> > Signed-off-by: Stefan Agner <stefan@agner.ch>
->
-> Please drop it in the patch system, thanks.
+next/master build: 133 builds: 0 failed, 133 passed, 63 warnings (next-2020=
+0221)
 
-Hi Stefan, did you add this to the patch tracking system? Looks like a
-bunch got accepted, but I didn't see it in:
-https://www.armlinux.org.uk/developer/patches/section.php?section=20&page=132
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200221/
 
->
-> > ---
-> >  arch/arm/kernel/relocate_kernel.S | 8 ++++----
-> >  1 file changed, 4 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/arch/arm/kernel/relocate_kernel.S b/arch/arm/kernel/relocate_kernel.S
-> > index 7eaa2ae7aff5..72a08786e16e 100644
-> > --- a/arch/arm/kernel/relocate_kernel.S
-> > +++ b/arch/arm/kernel/relocate_kernel.S
-> > @@ -25,26 +25,26 @@ ENTRY(relocate_new_kernel)
-> >       ldr     r3, [r0],#4
-> >
-> >       /* Is it a destination page. Put destination address to r4 */
-> > -     tst     r3,#1,0
-> > +     tst     r3,#1
-> >       beq     1f
-> >       bic     r4,r3,#1
-> >       b       0b
-> >  1:
-> >       /* Is it an indirection page */
-> > -     tst     r3,#2,0
-> > +     tst     r3,#2
-> >       beq     1f
-> >       bic     r0,r3,#2
-> >       b       0b
-> >  1:
-> >
-> >       /* are we done ? */
-> > -     tst     r3,#4,0
-> > +     tst     r3,#4
-> >       beq     1f
-> >       b       2f
-> >
-> >  1:
-> >       /* is it source ? */
-> > -     tst     r3,#8,0
-> > +     tst     r3,#8
-> >       beq     0b
-> >       bic r3,r3,#8
-> >       mov r6,#1024
-> > --
-> > 2.25.0
-> >
-> >
-> > _______________________________________________
-> > linux-arm-kernel mailing list
-> > linux-arm-kernel@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
-> >
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTC broadband for 0.8mile line in suburbia: sync at 12.1Mbps down 622kbps up
-> According to speedtest.net: 11.9Mbps down 500kbps up
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200205235440.GW25745%40shell.armlinux.org.uk.
+Tree: next
+Branch: master
+Git Describe: next-20200221
+Git Commit: bee46b309a13ca158c99c325d0408fb2f0db207f
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 5 unique architectures
+
+Warnings Detected:
+
+arc:
+
+arm:
+    allmodconfig (gcc-8): 23 warnings
+    aspeed_g4_defconfig (gcc-8): 4 warnings
+    aspeed_g5_defconfig (gcc-8): 4 warnings
+    multi_v5_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 6 warnings
+
+i386:
+
+mips:
+    lemote2f_defconfig (gcc-8): 1 warning
+
+x86_64:
+    allmodconfig (gcc-8): 3 warnings
+    tinyconfig (gcc-8): 1 warning
+    x86_64_defconfig (gcc-8): 1 warning
 
 
+Warnings summary:
 
--- 
-Thanks,
-~Nick Desaulniers
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    5    fs/btrfs/volumes.c:7338:3: warning: ignoring return value of =E2=
+=80=98write_one_page=E2=80=99, declared with attribute warn_unused_result [=
+-Wunused-result]
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    3    WARNING: modpost: missing MODULE_LICENSE() in drivers/mmc/host/mmc=
+_hsq.o
+    1    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    drivers/soc/fsl/dpio/qbman-portal.c:869:14: warning: cast from poi=
+nter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    /tmp/ccG4C6Jy.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccG4C6Jy.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1163:warning: override: UNWINDER_GUESS changes choice stat=
+e
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdkxg8vG4FZAFJehMouUHNqXaKT%2BJ2AWtK7mn2EXJKOE5g%40mail.gmail.com.
+Section mismatches summary:
+
+    1    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 23 warnings, 0 section =
+mismatches
+
+Warnings:
+    /tmp/ccG4C6Jy.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccG4C6Jy.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    fs/btrfs/volumes.c:7338:3: warning: ignoring return value of =E2=80=98w=
+rite_one_page=E2=80=99, declared with attribute warn_unused_result [-Wunuse=
+d-result]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/soc/fsl/dpio/qbman-portal.c:869:14: warning: cast from pointer =
+to integer of different size [-Wpointer-to-int-cast]
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/mmc/host/mmc_hsq.=
+o
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/btrfs/volumes.c:7338:3: warning: ignoring return value of =E2=80=98w=
+rite_one_page=E2=80=99, declared with attribute warn_unused_result [-Wunuse=
+d-result]
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/mmc/host/mmc_hsq.=
+o
+    WARNING: modpost: missing MODULE_LICENSE() in drivers/mmc/host/mmc_hsq.=
+o
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/btrfs/volumes.c:7338:3: warning: ignoring return value of =E2=80=98w=
+rite_one_page=E2=80=99, declared with attribute warn_unused_result [-Wunuse=
+d-result]
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 4 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 4 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 =
+warnings, 0 section mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    fs/btrfs/volumes.c:7338:3: warning: ignoring return value of =E2=80=98w=
+rite_one_page=E2=80=99, declared with attribute warn_unused_result [-Wunuse=
+d-result]
+    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 bytes is =
+larger than 1024 bytes [-Wframe-larger-than=3D]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1163:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warn=
+ing, 0 section mismatches
+
+Warnings:
+    fs/btrfs/volumes.c:7338:3: warning: ignoring return value of =E2=80=98w=
+rite_one_page=E2=80=99, declared with attribute warn_unused_result [-Wunuse=
+d-result]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5e5061e0.1c69fb81.7a6cd.c82c%40mx.google.com.
