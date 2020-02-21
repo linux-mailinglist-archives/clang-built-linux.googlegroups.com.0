@@ -1,201 +1,134 @@
-Return-Path: <clang-built-linux+bncBDNYNPOAQ4GBB3GGX7ZAKGQE6T4K3IA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDXZPHUMZQCBBOOKX7ZAKGQE7FUGFPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-wr1-x439.google.com (mail-wr1-x439.google.com [IPv6:2a00:1450:4864:20::439])
-	by mail.lfdr.de (Postfix) with ESMTPS id D3D26167F8B
-	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Feb 2020 15:04:28 +0100 (CET)
-Received: by mail-wr1-x439.google.com with SMTP id a12sf1051847wrn.19
-        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Feb 2020 06:04:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582293868; cv=pass;
+Received: from mail-wm1-x337.google.com (mail-wm1-x337.google.com [IPv6:2a00:1450:4864:20::337])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8CC87167FD3
+	for <lists+clang-built-linux@lfdr.de>; Fri, 21 Feb 2020 15:12:09 +0100 (CET)
+Received: by mail-wm1-x337.google.com with SMTP id y125sf1901168wmg.1
+        for <lists+clang-built-linux@lfdr.de>; Fri, 21 Feb 2020 06:12:09 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582294329; cv=pass;
         d=google.com; s=arc-20160816;
-        b=PZqiJ3KRHUiMgv8lBF0n1CqYcfPopFRhiAh79TEpPjHBnCPuguuBFLWz5+RvEZ12/4
-         +yPuRBlWlAIoT3ZP8/YRapB+pPunRG8gkGHSGB/vsAVMDpVXo/gfmNN+Yf7piIVNt2K4
-         3BoER28BBeY7m/BrvykfS/z+XCZzSlpTc8HPXFCXCvNT9X2TshCXSRpWHgNuYqz934AH
-         HZmrTxXtmwgqhRg5yekErBSID3ypkJ8FpBcYRgwaVkalGIroYX3353tjouDBgvmQNsoy
-         g6vtcTVi0eYE028Gc9zbm4AnsFxeLi9d17m/wlfs8VqcI7/NLw+o8VcF/QxStPzoaP0v
-         GNOQ==
+        b=bLL0bLM8KQmoDRVDxenryt9rbm1XWwhsXySOakYQLvnlIgDofrTZOyc1UEDnK7yFuG
+         eH2sbiHilbLml+suSW4vctlm0klbzW8tqWSVqJf5pa/VRfRM4hsjky0FM+E5cCNIoAMo
+         HWuuO7YpVMWi5L7d72/CItOKej9Nq++bLFYdoc2tyWzidHtw00NZ/9RF/nPEs3Zodk1G
+         xfaGKsm0wkxRnZP8TA87fCO5bRNhT2VzYBUk7JoveWn1GqS+PkCYPsy9vsN7RsACpFdE
+         3dEzzeLvW6cypimCcP2rM5hw3siQDj4CLipYC5eqIMxL4agQ9YmWVpBWKYRmke3bLrlR
+         HmqA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:autocrypt:from:references
-         :cc:to:subject:sender:dkim-signature;
-        bh=0Lgs0Ivp/AKatBQl3CUDioP+fDGWTBLeRs8ijx/NcRU=;
-        b=kvMq/2g5Crmh/BGtOe9W+WwQv0JlTg+mR4ptxkT7TQ9dY5y32aJ4Cc9e0D6CuYTlY/
-         U2/u/dN9SpiuoiHZPGGDjFCNbn8xVorZJb0AqMLFDSrhCR32NLNDF7kc1UxFpPH9mW71
-         OqNdjcn4eSRSm70PQ7vjSL/BVYRJceC474I/eT2r40Al7lR7eSxP4CdrrH2t2CNBXRQ2
-         r12f56pAad1Zvb1dePBKAS0JsN7eUdVMs14Kb+ymXWFvKRc8ivRwiFMLPUS33Up0t5Rt
-         A6AY8RVTlgp8xdaSanbEmLRAaCd2SRtPE85G4SQD+EeQbQTyJp9hqWgV23U7MmY5YpYT
-         q0mw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=9WXCR4u126JsKsa6TBQUK9vdUNNJa7utKs8zMfse6Zw=;
+        b=M57Fn3LBJyh+ju8TqKY3np52Ulpn1lsy9//z9jXRNEBEqvGbk7cmK78p6qwm+zesa/
+         yQfYE2CesLk5f+5ZZg+B2Mm34hcO0rJ8PrxZK3dmA//5bpYezglzPXMF0nvl0PGC+0+Q
+         H5UwCtrkSMllslCytR52uChKlyXc29IBY4NWLZ9/xyrUan7Y1GcSRzTRNne9WTL+eQ1f
+         VIJTLGKA11kTbuy5GiiBwIBpEEHwBp8usXTcScj3vyPoPvmBVPMa9vMGHJ+SmTry8uFE
+         v107mD1vUwkPwryMx9d8JFSHYWpZ6iWRSBSI6eALXKY+dXDaD++MtO/dK5xagUcuuSyH
+         B2rA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@embeddedor.com header.s=default header.b=yXvmLqdc;
-       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.50.252 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=J1fTJoFj;
+       spf=pass (google.com: domain of tpgxyz@gmail.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=tpgxyz@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:autocrypt:message-id:date
-         :user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
+        h=sender:mime-version:references:in-reply-to:from:date:message-id
+         :subject:to:cc:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=9WXCR4u126JsKsa6TBQUK9vdUNNJa7utKs8zMfse6Zw=;
+        b=WJpaYvbr2UtqaXfsSYpkuNuhA/iLqpCeUbYsKk23lAsmp1Ag2jUslFKmTkLi/QAvyO
+         v71v9AB0/QKzQzwefqbmjKWryRqdJEc91+0Safj4Uf1ulqZqrMlqxILkOLMPUF8ZZzDx
+         /6ZiZd6zV8pJSEQ9s7VWfKNJRqnd9fz57sh7UItp37rpqO0dpOzdARsa5YCi1HK0tWth
+         FbYNQgCbTtRUEBUqIYDz4mUJH4QDU7H7qo3oRRJWuV1Z1xE1Y4zyonSlZ51I+4zvbjTG
+         o9RGh+rz5+qd7v2vAhQuNTKBXA5KnxOKuaejqt1b/p7+heDNrUxJOe5ea8ZEFk4ssQOW
+         z4IA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0Lgs0Ivp/AKatBQl3CUDioP+fDGWTBLeRs8ijx/NcRU=;
-        b=KkG34hmRQj3ijNJcAQ6aRXKAUugXZ3XydK3vPOnyFcajwjpOUWsD6zFiXWlQP+AjNL
-         SW9wIhm0s9ohU/mqdLDFR1BaUokD5XNLz4zROErJy6UqovtTr7bSKyjKBZaOO+MTVM05
-         +5pwnCSKqKkfo2AyyjODCOz2gzWOfc6XCX+J+E2AiXoop9VwkLSR1TDdA/1IzVkpkT6M
-         J1jU4ADcgNRF2DL5JovQGEGegm2RrK+4ziJe7vCSkphz/w0l1U2WBU4BfzCY0eYgx1qj
-         h36eJDbE5iFA5Dxm4TeuyD7Cd/JAalXn81teaRgUlaLNWOMbgCYuTnuH+ALdBpA+yf3V
-         RCng==
+        bh=9WXCR4u126JsKsa6TBQUK9vdUNNJa7utKs8zMfse6Zw=;
+        b=ojny3yTuw0YwK5qW4T8NtjRg/1t3jo3VWwKZ0eR6441NuZPg+fLps7+cAehtejHSxc
+         Qi9NwllOZQmHW9rjJYotVk6fcwSNRPlt0gBRgsM/5CLcgJA9+mnqxWYn6SDlO2qm7q1c
+         fBSmQXn9vyXl+2p/aw+m4cXoBTr9One3uRJ6VdG4azplwIv89O+jJne0QuKCO6A20ZJq
+         HBF201DKV9oYTLVD4AZ3TTZeFCfM18JWLGGhhsk0k9js9UhJzEtocI9HEcoZf1eDsBR3
+         FrNhxxZiVUf/ipacTUJkKjcTA3r1A5ESEUn++ZCdfS2qjlVDuge61iRclVI6kN8sqvZU
+         Dz1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:autocrypt
-         :message-id:date:user-agent:mime-version:in-reply-to
-         :content-language:x-original-sender
+        h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
+         :date:message-id:subject:to:cc:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0Lgs0Ivp/AKatBQl3CUDioP+fDGWTBLeRs8ijx/NcRU=;
-        b=kMfVkv45eBgOEV9AjNN8J/dZfqhdXvyxtSbd9SyzPsEaCNNvdeQuSFKN60PpJmNpeL
-         kP+GOujFT+6P6mpX0WPgiOic4khYt4S8hVUUeSGvpbX28573RjrOnKLCJk24Q/m+z+Zw
-         UG3P1Nh3KSuXJGfYgYVELIK5dBJm8+lL5L4ezjLq+7g6nxVVwSmMu5nGg60X+iXLR/2e
-         uc6LT2w9wt0MJR76TrXLOliDcN86yhw6xjZfYg+qAbNFsUg/q/jRLy5owuSuf/dftWm5
-         6DDq6YfJJLRve0nl6RzLhuYrNd15dAoFUHaWTkJwNnMWnHhTcXD/KAHQ434LqA8WsK1X
-         PB6g==
+        bh=9WXCR4u126JsKsa6TBQUK9vdUNNJa7utKs8zMfse6Zw=;
+        b=TUEtMswU8H4es65ToLacgBf92MtwsoG6mdT5Q5QxiizwFFzgJu42QxopEHfw7rs1aX
+         3JdM6TtfVn3//cCdrJVlIle50E+104uPfwNW3bzG1Q6lAlet6F6RLXW5wduN4/vIbWh2
+         ini7MYYKhYGiGFBql+468BrYoEc865igVAHbw1Mik/OHyg80MEOnKcwiqiO9agBRUaqs
+         rvns/S2FOeFMxMhnp5s6Jb5eQ3e+Y4xf+kSVU9o3DefZ+nd3GCKvKKGSSdsSCupbyBfy
+         +22FY6rBNf9M95SNK81EVi2gkJiN0IxMcOq/wRsc1Tlmo2zFJNajTUBHnxbA0TORN6nn
+         wvFw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUfz2CZWqy7gp3dOjzW5AdZSd5jQkti36rMzHzMNANBNwgin5wy
-	N7+xOMOIVeZhjknCp7EmXDo=
-X-Google-Smtp-Source: APXvYqwEQWPNB27U88xNe7vD3cOTH8vZQbhMfgTAlEiiyEVO65/Q26DczPvX7ZbWb+/I0mEasc8R0A==
-X-Received: by 2002:adf:e683:: with SMTP id r3mr51783691wrm.38.1582293868614;
-        Fri, 21 Feb 2020 06:04:28 -0800 (PST)
+X-Gm-Message-State: APjAAAWtvLl5Ccnpbl9+etk6Zdwr97KGub97U0TShTcKYNOXucEwB+sa
+	aHHCOIrJeGY6Q6hETiyt0hk=
+X-Google-Smtp-Source: APXvYqzHy92RFkaVr9YwZnw3vbrD0+alTjaCcBkzoC/tcAintru1Xhl62jBMqaEwL8XC2z9762g+Rw==
+X-Received: by 2002:a5d:4e0f:: with SMTP id p15mr23152731wrt.275.1582294329224;
+        Fri, 21 Feb 2020 06:12:09 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:600c:247:: with SMTP id 7ls960711wmj.3.canary-gmail;
- Fri, 21 Feb 2020 06:04:28 -0800 (PST)
-X-Received: by 2002:a1c:dfd6:: with SMTP id w205mr4193249wmg.151.1582293867441;
-        Fri, 21 Feb 2020 06:04:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582293867; cv=none;
+Received: by 2002:adf:fac2:: with SMTP id a2ls794369wrs.4.gmail; Fri, 21 Feb
+ 2020 06:12:08 -0800 (PST)
+X-Received: by 2002:adf:f406:: with SMTP id g6mr49685853wro.189.1582294328731;
+        Fri, 21 Feb 2020 06:12:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582294328; cv=none;
         d=google.com; s=arc-20160816;
-        b=Kc/t3jder3zwC4webqBhFtybUEF/e/iNbnODSlntVRLce5Dhx8IXifG8H2DIrPx0aX
-         +QbaAyn5JFr5vYsitn+I04t1GmVVfAlEIBYGho99D12Oh5tSscvcM52K2CCj5/B+7mkp
-         Otq4/Lzc66meJpNoH5yHuKDZmP6xVr/xkVR8vru9LWjCrG2R7B7pqoxyDVQtAnsJRqd2
-         Xvin/7hwTnCsVKiSryjURgrfoJPFPxN8lrMAG9HCSJL5cX7D9tf9ILW6NEPbvixGtNF7
-         wL3OACu1PPGO54F2pOrr5CtPvZMOS6w+DjRYTgiVDjlSY5ChGZNIY+Vk4IeNBz+xq+xo
-         F9vw==
+        b=rqUFSXGyILVjFmgjz9Uu4ikhc5ioP0z1w+mLGa+03aAgzRyJyz0tD2NBnH/XC9BZo4
+         d36pd9uwUUqu3Nou7nVyb1NJkyd/jvPXBG4gkFxfqmejSqZitAujGshfdU2MxppbHVJ0
+         f8ChvZLvSvwA6uyGhLBr9DBGrafXi2edOfLKB6878zXgkP0QxpGvDyjBWiquRNa+J4i+
+         F0Lvi1oaNfrHxxLrl9IEjvMD2SSSMp+umjqPuREPvXpk/9c7ILXjGX3VU8sZ8m7rEtyW
+         rKIXeM5mKwiq4Swc032nRniFahUbN+D2dqVdQbBAjUoOAI/NLp7G3EF3rJttRbc750Ip
+         98GA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:autocrypt:from:references:cc:to:subject
-         :dkim-signature;
-        bh=Kd3S+wDZNKaqq1X2AIKteF9B07kyOS/ddfYm7ZalHUs=;
-        b=zWnEZhQ9ZJTcvoJe0ihfWpL956ZjXNL140lGYTcLG2Fv4Cnnlv0ZYciq1t/j0MfW44
-         zzQEqtbufl4efk5Kk9WNBXL2Uea2SEBYdZceqzjHFzpwZBks8LxfCfhv51Zc3yqnIMJ2
-         rLCnfhtbpnoTFiGsvBPWus2VssHhFCKlIC1W+Dq3EnnOhZJL5MrFcC8B1V/TL9hlOUF8
-         OfwMI8pHk7lLt/WQTt5+9iZLqF0FJxcS5Qsgi/4PX9348+Qk3HmPpJN/W251N4WtycXD
-         bhFB2giVliPMGR9ufecoywZLOd3Ks8lUJ5WcmnnaTntLkdiyPyK8nBhQLESIWAnjwqCm
-         g0tA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=Ky68QxVHoEO7O8m6vSlHUz4VOSFWmUPZ3RdSjDmn5fM=;
+        b=eQ16gBKf5VF8K+IvuGtmpHUP9FaltCaAuYJ319Yhpn2ZEuqI0W03nI353yTcI1VfYu
+         +P5oTPe5gY3dhciFgc6LrADQdaKMwNq055c5uFP8tD9tBILEVZd0efn2xVkOf9XJVIlt
+         HN+0NnGQI3Z8zgdhW00Uk2b8ME9btaCvymjLvK3ffFy7toXK4a3bktyZjLDT8c98sFpw
+         bfATZTSTVGq2Ylyfw4Er1vO7WEZOYFFGIbAfO4QZfx889BPvl/0u/enI4eh3jeqxC+Xn
+         keIPvN6G8DhWCF7vd20WpuFZiiCpLKOe1ytL4vx6JoToN22rbro375DnMr21uDLWmIEz
+         zQjA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@embeddedor.com header.s=default header.b=yXvmLqdc;
-       spf=pass (google.com: domain of gustavo@embeddedor.com designates 192.185.50.252 as permitted sender) smtp.mailfrom=gustavo@embeddedor.com
-Received: from gateway24.websitewelcome.com (gateway24.websitewelcome.com. [192.185.50.252])
-        by gmr-mx.google.com with ESMTPS id d191si312418wmd.2.2020.02.21.06.04.26
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=J1fTJoFj;
+       spf=pass (google.com: domain of tpgxyz@gmail.com designates 2a00:1450:4864:20::129 as permitted sender) smtp.mailfrom=tpgxyz@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-lf1-x129.google.com (mail-lf1-x129.google.com. [2a00:1450:4864:20::129])
+        by gmr-mx.google.com with ESMTPS id u9si166545wri.3.2020.02.21.06.12.08
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 21 Feb 2020 06:04:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of gustavo@embeddedor.com designates 192.185.50.252 as permitted sender) client-ip=192.185.50.252;
-Received: from cm10.websitewelcome.com (cm10.websitewelcome.com [100.42.49.4])
-	by gateway24.websitewelcome.com (Postfix) with ESMTP id 74EDE2A56
-	for <clang-built-linux@googlegroups.com>; Fri, 21 Feb 2020 08:04:25 -0600 (CST)
-Received: from gator4166.hostgator.com ([108.167.133.22])
-	by cmsmtp with SMTP
-	id 58unjuKxpEfyq58unj1dCE; Fri, 21 Feb 2020 08:04:25 -0600
-X-Authority-Reason: nr=8
-Received: from [200.68.141.13] (port=8720 helo=[192.168.43.131])
-	by gator4166.hostgator.com with esmtpsa (TLSv1.2:ECDHE-RSA-AES128-GCM-SHA256:128)
-	(Exim 4.92)
-	(envelope-from <gustavo@embeddedor.com>)
-	id 1j58un-0030rB-0y; Fri, 21 Feb 2020 08:04:25 -0600
-Subject: Re: [gustavoars-linux:for-next/testing 1/1]
- ./usr/include/rdma/ib_user_verbs.h:436:34: warning: field 'base' with
- variable sized type 'struct ib_uverbs_create_cq_resp' not at the end of a
- struct or class is a GNU extension
-To: Philip Li <philip.li@intel.com>
-Cc: Nathan Chancellor <natechancellor@gmail.com>,
- kbuild test robot <lkp@intel.com>, kbuild@lists.01.org,
- Nick Desaulniers <ndesaulniers@google.com>,
- clang-built-linux@googlegroups.com
-References: <202002211103.MQuVvnUg%lkp@intel.com>
- <20200221051144.GA47760@ubuntu-m2-xlarge-x86>
- <5c39ace2-394d-30cd-1572-118cade40fe1@embeddedor.com>
- <20200221085007.GF14818@intel.com>
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-Autocrypt: addr=gustavo@embeddedor.com; keydata=
- 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
- VtSixD1uOgytAP7RWS474w==
-Message-ID: <97c34915-5e71-1e17-ada3-ef1d05dc363b@embeddedor.com>
-Date: Fri, 21 Feb 2020 08:07:05 -0600
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.4.1
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Feb 2020 06:12:08 -0800 (PST)
+Received-SPF: pass (google.com: domain of tpgxyz@gmail.com designates 2a00:1450:4864:20::129 as permitted sender) client-ip=2a00:1450:4864:20::129;
+Received: by mail-lf1-x129.google.com with SMTP id l18so1614708lfc.1
+        for <clang-built-linux@googlegroups.com>; Fri, 21 Feb 2020 06:12:08 -0800 (PST)
+X-Received: by 2002:ac2:5dc8:: with SMTP id x8mr19391114lfq.217.1582294328075;
+ Fri, 21 Feb 2020 06:12:08 -0800 (PST)
 MIME-Version: 1.0
-In-Reply-To: <20200221085007.GF14818@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - googlegroups.com
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 200.68.141.13
-X-Source-L: No
-X-Exim-ID: 1j58un-0030rB-0y
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: ([192.168.43.131]) [200.68.141.13]:8720
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 6
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
-X-Original-Sender: gustavo@embeddedor.com
+References: <CAKwvOdmB1uBx7BUOth=yXy4XNsmCvcSWjBLGtN8=UzeRQxJ8KQ@mail.gmail.com>
+In-Reply-To: <CAKwvOdmB1uBx7BUOth=yXy4XNsmCvcSWjBLGtN8=UzeRQxJ8KQ@mail.gmail.com>
+From: Tomasz Gajc <tpgxyz@gmail.com>
+Date: Fri, 21 Feb 2020 15:11:56 +0100
+Message-ID: <CAEkne-oCuAeOb9MZ-UeydcM+0p=0xT98o0OU6cw9_k5cYHhZGQ@mail.gmail.com>
+Subject: Re: OpenMandriva distributing clang built kernels
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Bernhard Rosenkraenzer <bero@lindev.ch>, clang-built-linux <clang-built-linux@googlegroups.com>
+Content-Type: multipart/alternative; boundary="0000000000005aeb7a059f169b08"
+X-Original-Sender: tpgxyz@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@embeddedor.com header.s=default header.b=yXvmLqdc;       spf=pass
- (google.com: domain of gustavo@embeddedor.com designates 192.185.50.252 as
- permitted sender) smtp.mailfrom=gustavo@embeddedor.com
+ header.i=@gmail.com header.s=20161025 header.b=J1fTJoFj;       spf=pass
+ (google.com: domain of tpgxyz@gmail.com designates 2a00:1450:4864:20::129 as
+ permitted sender) smtp.mailfrom=tpgxyz@gmail.com;       dmarc=pass (p=NONE
+ sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -208,33 +141,162 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+--0000000000005aeb7a059f169b08
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Thanks Nick.
+I must admit it would never happen without help of ClangBuiltLinux
+community, and i;m still under impression of how much of knowledge and
+effort you did put to get things working.
+
+If i may ask for credits that you could spread around others familiar with
+LLVM/clang i'd be glad.
+
+OpenMandriva as a community made a decision in 2014 to switch from gcc to
+LLVM/clang as default compiler.
+Over the past years we struggled with that task and finally achieved it by
+making almost everything to be compiled with LLVM/clang (except glibc,
+elfutils and couple of packages that are not clang friendly). We do support
+i686, x86_64, znver1, armv7hnl, aarch64 and riscv64 architectures. For all
+of these architectures we provide corss compiled toolchain so you can build
+with LLVM/clang software for i.e. aarch64 on x86_64 host.
+We also provide an automatic build farm, called ABF (
+https://abf.openmandriva.org) where you can build RPM packages and ISO
+images based on our (or yours) sources available on
+https://github.com/OpenMandrivaAssociation. Our ABF provides CLI tool
+called abf-console-client so you can work directly on our packges, send
+builds etc. Our ABF platform runs builds on distributed machines that runs
+our docker builder containers (docker pull openmandriva/builder). You may
+want to pull it and connect to ABF so you can help us with donating CPU
+cycles or make it only private build node only for you. If you want to try
+in you my want to download our Live ISO(
+https://sourceforge.net/projects/openmandriva/files/release/) or try our
+docker by running docker pull openmandriva/cooker which runs our latest
+software.
+
+Thanks again.
 
 
-On 2/21/20 02:50, Philip Li wrote:
-> On Fri, Feb 21, 2020 at 01:16:02AM -0600, Gustavo A. R. Silva wrote:
->>
->>
->> On 2/20/20 23:11, Nathan Chancellor wrote:
->>> + Gustavo, since I assume the point of that patch is to see what kind of
->>> warnings crop up?
->>>
->>
->> Precisely! Thanks, Nathan. :)
->>
->> I would have expected to get this e-mail automatically... could someone help
->> me with that? I'd really appreciate it.
-> Hi Gustavo, 0-day ci is working on this to send clang build report directly to
-> author in a few weeks.
-> 
+pt., 21 lut 2020 o 00:28 Nick Desaulniers <ndesaulniers@google.com>
+napisa=C5=82(a):
 
-Awesome. :)
+> > =E2=80=94 OpenMandriva clang compiled kernel, named kernel-release-clan=
+g. User
+> can install same version of kernel-release and kernel-release-clang for
+> comparison
+>
+> 4.1 alpha (Nov 10 2019):
+>
+> https://www.openmandriva.org/en/news/article/openmandriva-lx-4-1-alpha-av=
+ailable-for-testing
+> 4.1 beta (Jan 10 2020):
+>
+> https://www.openmandriva.org/en/news/article/openmandriva-lx-4-1-beta-ava=
+ilable-for-testing
+> 4.1-rc
+> <https://www.openmandriva.org/en/news/article/openmandriva-lx-4-1-beta-av=
+ailable-for-testing4.1-rc>
+> (Jan 28 2020):
+> https://www.openmandriva.org/en/news/article/openmandriva-lx-4-1-rc-is-ou=
+t
+> 4.1 release (Feb 1 2020):
+>
+> https://www.openmandriva.org/en/news/article/and-openmandriva-did-better-=
+omlx-4-1-final-release-is-out-now
+>
+> Congrats OpenMandriva team!
+> --
+> Thanks,
+> ~Nick Desaulniers
+>
 
-Thanks, Philip.
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/CAEkne-oCuAeOb9MZ-UeydcM%2B0p%3D0xT98o0OU6cw9_k5cYHhZGQ%4=
+0mail.gmail.com.
 
---
-Gustavo
+--0000000000005aeb7a059f169b08
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/97c34915-5e71-1e17-ada3-ef1d05dc363b%40embeddedor.com.
+<div dir=3D"ltr"><div>Thanks Nick.</div><div>I must admit it would never ha=
+ppen without help of ClangBuiltLinux community, and i;m still under impress=
+ion of how much of knowledge and effort you did put to get things working.<=
+/div><div><br></div><div>If i may ask for credits that you could spread aro=
+und others familiar with LLVM/clang i&#39;d be glad.</div><div><br></div><d=
+iv>OpenMandriva as a community made a decision in 2014 to switch from gcc t=
+o LLVM/clang as default compiler.</div><div>Over the past years we struggle=
+d with that task and finally achieved it by making almost everything to be =
+compiled with LLVM/clang (except glibc, elfutils and couple of packages tha=
+t are not clang friendly). We do support i686, x86_64, znver1, armv7hnl, aa=
+rch64 and riscv64 architectures. For all of these architectures we provide =
+corss compiled toolchain so you can build with LLVM/clang software for i.e.=
+ aarch64 on x86_64 host.</div><div>We also provide an automatic build farm,=
+ called ABF (<a href=3D"https://abf.openmandriva.org">https://abf.openmandr=
+iva.org</a>) where you can build RPM packages and ISO images based on our (=
+or yours) sources available on <a href=3D"https://github.com/OpenMandrivaAs=
+sociation">https://github.com/OpenMandrivaAssociation</a>. Our ABF provides=
+ CLI tool called abf-console-client so you can work directly on our packges=
+, send builds etc. Our ABF platform runs builds on distributed machines tha=
+t runs our docker builder containers (docker pull openmandriva/builder). Yo=
+u may want to pull it and connect to ABF so you can help us with donating C=
+PU cycles or make it only private build node only for you. If you want to t=
+ry in you my want to download our Live ISO(<a href=3D"https://sourceforge.n=
+et/projects/openmandriva/files/release/">https://sourceforge.net/projects/o=
+penmandriva/files/release/</a>) or try our docker by running docker pull op=
+enmandriva/cooker which runs our latest software. <br></div><div><br></div>=
+<div>Thanks again.<br></div><div><br></div><br><div class=3D"gmail_quote"><=
+div dir=3D"ltr" class=3D"gmail_attr">pt., 21 lut 2020 o 00:28=C2=A0Nick Des=
+aulniers &lt;<a href=3D"mailto:ndesaulniers@google.com">ndesaulniers@google=
+.com</a>&gt; napisa=C5=82(a):<br></div><blockquote class=3D"gmail_quote" st=
+yle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padd=
+ing-left:1ex">&gt; =E2=80=94 OpenMandriva clang compiled kernel, named kern=
+el-release-clang. User can install same version of kernel-release and kerne=
+l-release-clang for comparison<br>
+<br>
+4.1 alpha (Nov 10 2019):<br>
+<a href=3D"https://www.openmandriva.org/en/news/article/openmandriva-lx-4-1=
+-alpha-available-for-testing" rel=3D"noreferrer" target=3D"_blank">https://=
+www.openmandriva.org/en/news/article/openmandriva-lx-4-1-alpha-available-fo=
+r-testing</a><br>
+4.1 beta (Jan 10 2020):<br>
+<a href=3D"https://www.openmandriva.org/en/news/article/openmandriva-lx-4-1=
+-beta-available-for-testing4.1-rc" rel=3D"noreferrer" target=3D"_blank">htt=
+ps://www.openmandriva.org/en/news/article/openmandriva-lx-4-1-beta-availabl=
+e-for-testing<br>
+4.1-rc</a> (Jan 28 2020):<br>
+<a href=3D"https://www.openmandriva.org/en/news/article/openmandriva-lx-4-1=
+-rc-is-out" rel=3D"noreferrer" target=3D"_blank">https://www.openmandriva.o=
+rg/en/news/article/openmandriva-lx-4-1-rc-is-out</a><br>
+4.1 release (Feb 1 2020):<br>
+<a href=3D"https://www.openmandriva.org/en/news/article/and-openmandriva-di=
+d-better-omlx-4-1-final-release-is-out-now" rel=3D"noreferrer" target=3D"_b=
+lank">https://www.openmandriva.org/en/news/article/and-openmandriva-did-bet=
+ter-omlx-4-1-final-release-is-out-now</a><br>
+<br>
+Congrats OpenMandriva team!<br>
+-- <br>
+Thanks,<br>
+~Nick Desaulniers<br>
+</blockquote></div></div>
+
+<p></p>
+
+-- <br />
+You received this message because you are subscribed to the Google Groups &=
+quot;Clang Built Linux&quot; group.<br />
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to <a href=3D"mailto:clang-built-linux+unsubscribe@googlegroups.com">c=
+lang-built-linux+unsubscribe@googlegroups.com</a>.<br />
+To view this discussion on the web visit <a href=3D"https://groups.google.c=
+om/d/msgid/clang-built-linux/CAEkne-oCuAeOb9MZ-UeydcM%2B0p%3D0xT98o0OU6cw9_=
+k5cYHhZGQ%40mail.gmail.com?utm_medium=3Demail&utm_source=3Dfooter">https://=
+groups.google.com/d/msgid/clang-built-linux/CAEkne-oCuAeOb9MZ-UeydcM%2B0p%3=
+D0xT98o0OU6cw9_k5cYHhZGQ%40mail.gmail.com</a>.<br />
+
+--0000000000005aeb7a059f169b08--
