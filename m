@@ -1,126 +1,146 @@
-Return-Path: <clang-built-linux+bncBDVZNA4ESQGBBCE7Z7ZAKGQEQDKDMRY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC27HSOJ44LBBYXHZ7ZAKGQEWIY7LVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lj1-x238.google.com (mail-lj1-x238.google.com [IPv6:2a00:1450:4864:20::238])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1A59F16A74A
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 14:28:41 +0100 (CET)
-Received: by mail-lj1-x238.google.com with SMTP id j1sf1576597lja.3
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 05:28:41 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582550920; cv=pass;
+Received: from mail-wm1-x33b.google.com (mail-wm1-x33b.google.com [IPv6:2a00:1450:4864:20::33b])
+	by mail.lfdr.de (Postfix) with ESMTPS id 7E11A16AAA8
+	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 17:03:46 +0100 (CET)
+Received: by mail-wm1-x33b.google.com with SMTP id k21sf2541224wmi.2
+        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 08:03:46 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582560226; cv=pass;
         d=google.com; s=arc-20160816;
-        b=jGBOqusJ0auYDuckAhPgPc/8jOTE8zHyYw2FqkPvxH2Uq6Byy4/Ow5HKtRtmEKm4Z8
-         toAS39/9SRygjTM2R8urW6vFkw/+MUgqDzETh6KkGJaMr2lzoXzElFVyjkGUEZExPf6L
-         U9c6q/OsZeLY9XqliNYeL+aCHgLsNZBJiEoCgZg0Aypahsfp3nOkpmypmRXnANmS9SfU
-         dmKu/p9CHV7p/wQoOhycjsoaBBrNDM6YyBdVL1QQ6vntzvlZNIXlsJtD4ooF8s9y2DIn
-         6udY/feYexAjTqbS8xthHgNdMgOzlcHCgvjdE8aw1bk6yyiJYS3QGqDkH/3iLfa5I3Bb
-         idMw==
+        b=KS8aoK/aW+CV08LFbluyQgKlzeY7/CKuSC7Ld2/dAfYw5/KG+0S1ZeKoeENCe+hDq/
+         qmNL++ZmORGSbenfbVTonU+tx25Ug10R5SRrlv8dIedzCxkrmmbpTseEJofo5Ejt3tT6
+         wXGzTFixO4ooEk6WYWrEm0jGs+ZDMGG1nwlZQ0dZTIv1M/kQoQmHx3Pb9HBNGlCqx8ve
+         SiJojWGWobrPji4PV0S/te9efbmg0wlFBRI9jddydt+UPmEjL/bndX2VdnyOZoRmsg/o
+         QV7p1vaWTkhGENjNcHM1WHfIN9dtvFxGFTESgU5I2ozYWjuykvs3rHDR3pznMhJ6x7ds
+         Qtzw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:user-agent:references
-         :message-id:in-reply-to:subject:cc:to:from:date:sender
-         :dkim-signature;
-        bh=dkZSG54vxGyUvusXZQqSdL9eAiGpzwIBh8v8MD3RnPA=;
-        b=FR1RcTW2p0Qx4Vb0u8D8ZxtCoK5yxglSBuSxzaCDq5s/SfzdHyGG9F5S9jYq9Khe1S
-         Aem3PQ/lfvujEXBsuB/kGr8hN9xbKmh6+SUCznaTbL5Dv5Nkq9sOCVW+/EJIaxqd9hR2
-         sEY3gxo+LRSiivMhBPv5t+fN6aVuYd0fBngpesyluH0LyUwbxYVTmIgc7ItF6dyuxf+P
-         IJPLT8xPj20KLqKUc5mLA2EW3UApstV3qvdJugfSmM7KiigwGyMBR9O80VgkMByKJL7k
-         Sl5Q5vfIBDBcCOULXgN+azcmi5DFoVYr+2OmPJjZA+2atoWv8Zw21sjIFme3/+C/jSGg
-         DQPA==
+         :list-id:mailing-list:precedence:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from:sender:dkim-signature;
+        bh=VOH0ujt2/VGhJtFDabMGxcayMKnyNjemRKk6JcQMgMo=;
+        b=tEYSq0PjpdPDxrHPPEq+S43DSGcul8ajAl6xcAQZ5nSW+73edqpTOtKhYfZqoKkemK
+         0gybJzDT5HZQLpF75msJ4hF2jPzp7b3n/gmK+uGMLeG+JI++gR7mAg6KKojzKMdNrGIF
+         hsu1LmdL+ONv/knuVpOUZNsq4ectxSsAFjWxg5CkKdkzS5vp3nRsUkRJVy9Gtkglt9Lm
+         R1C+kWfIqVRpCxKxeMDZk7HOtVu/6j88K9jRwa1h1cfl/sPpedRU78cC3O7j7g8d00/7
+         fqotHFzfLNaeCv2LRsMmB4xU/tBdXKIdGWnOINNJTwPwwNv8Jit/HYyTI/yMftpPf91T
+         OBUQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=matz@suse.de
+       spf=pass (google.com: domain of david.laight@aculab.com designates 146.101.78.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:in-reply-to:message-id:references
-         :user-agent:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=dkZSG54vxGyUvusXZQqSdL9eAiGpzwIBh8v8MD3RnPA=;
-        b=rN3Cz7eaxGr+DOVlGPtt/SWQUO/7o1iGceqPzzaIpYQ+dOWOSkkQ18bBzs8yASpYPA
-         +K1Fb+XxaFH+QQJC1+SowKBBmMubE45fbhILMrqjxiHecgcZLwq+BspZqGXFJffv13q3
-         3bqP0EIALDss4TcZArs4Ukq6Gk8uVfJDfG8/v4yYr0oCF3GLZClWlJo6roFMR5uhYVGO
-         1PQg6Vg+dC/8fxJ1r5SYoh65K248ojSuXUfcLViCi6d6FwYI3w+UkeHAjKjnMFsewKZQ
-         JfF9spiBEAOUNW1k9taAQ9Z1Z+3pStbmnAFHqpr0ovvrvqzyGFuu+tUP59Jgx7MVB6Zv
-         nHyg==
+        h=sender:from:to:cc:subject:thread-topic:thread-index:date:message-id
+         :references:in-reply-to:accept-language:content-language
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=VOH0ujt2/VGhJtFDabMGxcayMKnyNjemRKk6JcQMgMo=;
+        b=gOsrJF95BPUacAC4ATF4ZwmVlOvGI6xs9volgTrXHvFQSs+qOR+Ia1ThJT0WEWlEjd
+         IYHQMBC7B/sGg4I+wBR3lJV4qPnkhsd1acIS2aygCVwbYr9lyRh3zR06Shkn04g2OiKc
+         NQjPKXMxoSHv+OohXoeaIp2pZxnkiSFUJBCe/poKVQ0yzJf9nwmcNh33dvSkYLmvNQ+t
+         XMSZ4BRIcDYUnDJO7coSJBb2rBaUEQ2vAX5fN9h2J0oYZ1bbKqmh2JLZo/CL4Kn1Vl1M
+         FzT/eR/nx+o7PpSqwknNE+x65oPDtDdwpqnD8GFx377W3qCimCQkSzf9AwsiSbw+bYaE
+         mAMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:in-reply-to
-         :message-id:references:user-agent:mime-version:x-original-sender
+        h=sender:x-gm-message-state:from:to:cc:subject:thread-topic
+         :thread-index:date:message-id:references:in-reply-to:accept-language
+         :content-language:mime-version:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=dkZSG54vxGyUvusXZQqSdL9eAiGpzwIBh8v8MD3RnPA=;
-        b=YAwNLBG677wOWSDRpcL0lXIgsSJ1cyahJ/Rce6VC8noh18wWAxttGIvc6fc+eMmVR2
-         0a2iwWRL5x58uEstTT8ejjvCCjJSFPoIhO0iXFN/hjx0G2sTpnclLN0qL6kzRwGu2c5v
-         zm+BCbqiGJQ1CySMJU3wH6Lajsc5Zt07caHeD7RBD+DpRnEf7bDrT6XzAqxL6oLW6Dm1
-         CJjQyv2bRoMC1T+8GTDuBuhQAmlx8A+1531qEEGjmrYxBFbPRe46TXbGXu2vpeTIBGIC
-         h1DsAKj58Qz5Z9xxE9FtO4jqwQqUnzOeDQBCqgHizD7XabgUzzb+Mn1A+7tLUYvItIWH
-         kJsQ==
+        bh=VOH0ujt2/VGhJtFDabMGxcayMKnyNjemRKk6JcQMgMo=;
+        b=LooJ9my1EPa+V9aYbllA1+klz5HN+d6iFCOAjkbw7OY5GI7WZxlDnkTetK8Km6xtiu
+         /+JCf2KLuPcu9lJ25C2FMrwRZDYg2CYsHMHWsoWSlf9KoDRgAQHGd2yycHlajEmkpsjR
+         NsxjDWttzUeIJgOHVoDMa3CGkL6BC3BE3ayLY1H2WkKgBCJy02lF4/+3iGsxAnm5WiYf
+         Fny0FhzHMUezaTrdgMkwmIl4XIdn89uBOCxAjf6jXhAJUun4/Ca0KYLXUWYStfNmb951
+         +4MsjihD1KKJOEmuKCSkoJJHtYT1DVH6nZKFdJC4RAJ1WQ4LhtbRF9HPP3Xzzv7afrBB
+         Pcog==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAXi4gKVoa3WNqGxlt4082uEa/TzJywvprKy0bJimK04UpehtZKZ
-	PQ/qtONwFkPQnUES702YAQM=
-X-Google-Smtp-Source: APXvYqx5dcs+QUjohwFN+1maioExiGLVqqgx51ORNcwIiea5idY3bNyxImoUaZyLOI2zHm+oPaSuRQ==
-X-Received: by 2002:a2e:9a93:: with SMTP id p19mr30630363lji.177.1582550920651;
-        Mon, 24 Feb 2020 05:28:40 -0800 (PST)
+X-Gm-Message-State: APjAAAWItYV0EswcXv5heEY8XaRP1zVZSt3H7lsIpN7vjqdqpHuFfBoD
+	clKdHIes9Q2i5TFYOybxoJY=
+X-Google-Smtp-Source: APXvYqwLsTpli1uCQ9UKYSlzM5dk+dJdj4Bx8fAJXbe4Iq+BxUABl949Wru24Ajh9VUC3WDt7co/FA==
+X-Received: by 2002:a5d:5148:: with SMTP id u8mr70746824wrt.132.1582560226202;
+        Mon, 24 Feb 2020 08:03:46 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:8790:: with SMTP id n16ls1508150lji.7.gmail; Mon, 24 Feb
- 2020 05:28:40 -0800 (PST)
-X-Received: by 2002:a2e:990d:: with SMTP id v13mr31423825lji.47.1582550920032;
-        Mon, 24 Feb 2020 05:28:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582550920; cv=none;
+Received: by 2002:a05:600c:288:: with SMTP id 8ls4935428wmk.3.gmail; Mon, 24
+ Feb 2020 08:03:45 -0800 (PST)
+X-Received: by 2002:a05:600c:21c5:: with SMTP id x5mr23434515wmj.72.1582560225669;
+        Mon, 24 Feb 2020 08:03:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582560225; cv=none;
         d=google.com; s=arc-20160816;
-        b=SH62NjrVp/yh2QyIkddYA1yjtGsQixLQ0etspZrG4W6PJspf+iiUb+33VUSKhTc3uj
-         X8CqviEUXN6TUEwqJHWMrAHQxH3bYhrPRDzmwmDXyRKa9kpFl1RMNiz8uK9OBh4Wiyl2
-         WhX5kRFOX/X2xJ+Jzxwk0SxNv8D+akeOTBEyKu2vYF6XHSoxjP2lqDy7s3rvZ6e0pjnt
-         k/Uz5YaBDqqIJsRmfdLfAJCk+kXqKYZlBb7geVVCbtxgUxTzP9IZQYMQR0WlW5DIFsTr
-         05aM5HX8lYbNDSgigt+p3EXwC08tpf/3y1ypeohJFf263QkK7qqKWtjypy3qu+EGoD+v
-         2+1Q==
+        b=FIEYHG6ueAp7AonGIgZED8gY8Yv4fz/Q0/U5z3ETnfkdu7I/5xA+AixUNj0XxeOTUi
+         XXbSSkiEBapeyI6nTCBHcTSvI5CmA1iSymoXbj7CKPZvFKB5VMsBjzgWg/Ly9NGWigYb
+         3n2GkMmsK9JV8IVH9ZYKqvSc0gxN7u3ketfMBrLRKC8AD3SNCg6A7FuW5PGHGIlAVrZK
+         CXoyEWYOc5/EdZelY+TXySaYv+fVFdDum84N+XEVzcG4Lkxgwv1JZAJPQ3wL5QfkOAF9
+         jYIEvCZgk+fqMXixURfQAZgotjlmleMdvrTZ7z8iq2eZnHtNygcEyYXjPWtuKdhL7TJp
+         tnBQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=mime-version:user-agent:references:message-id:in-reply-to:subject
-         :cc:to:from:date;
-        bh=dd7SuRdZJyeTO3NdOLqvByk5vzqCmaPx6KxBGqi0tMo=;
-        b=zTqYSGMypQRhLxZUmLaVYbhugpdHJxZxpXe/c8IK+5e+aft8Cj6742dR4r2WLgYecX
-         j1+OSPfpcQvPesPwWBIc7FpdBXLvp8H8pLPqEJW/Nj8ccDECF+ScyJiI0QvkDPgN99rX
-         +tA5tMgAeZmCKWG2TUEYOYjfVl5R7ModvJ+RInWhFGaMvk2/J5w4+O+/EOeJgnONWEoS
-         fZO4Y/ZHgZhysqtlQVLrRWzlxkno+Lw/V9faEljulPPvY5QCgwom7xde7zVoyKFCC4Qf
-         mQhtWlYC34hX/+SgHRWB80uK9So+IM/kaZj20n1t7sPGm9cW1lg7ZQtPKiiyXDacZscY
-         DsSQ==
+        h=content-transfer-encoding:mime-version:content-language
+         :accept-language:in-reply-to:references:message-id:date:thread-index
+         :thread-topic:subject:cc:to:from;
+        bh=+IUasr3t1M/edqD6LJ3XMpCzpaXdmf+2nxXzlhjqwRk=;
+        b=f61UE7exxub9hodkZJdpBF+vVp6tsXeGg9x1JwvDqb16AiGAz8SgiNbH1PKwFhAmwF
+         GI81vNAzAWKDz4pJh6f118iQ/iLHYqzNH+1m+Hvha8xwkD902CyYQly1af/FBeVlwOsa
+         I81a+5RgdtTX1ZhDjs17o6IbQ3yDwHGnXHXuQH7e3wtZFA6huIjwr8vMSaUS8cdcBkVX
+         /CN/xfmT9SwbrokzNyHwUcakbm5cUrTt9GDiNtwTiLN2M+RL+LEeh+1sU4ZJ7IFGT8zx
+         I2RsCJsKjUxrDevIzooOauM3Mz3zhy+ddh55zwX5lr9hV/Z7CflAvQeQvhQj/BE7cTHw
+         zZRA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) smtp.mailfrom=matz@suse.de
-Received: from mx2.suse.de (mx2.suse.de. [195.135.220.15])
-        by gmr-mx.google.com with ESMTPS id x5si1087039ljh.5.2020.02.24.05.28.39
+       spf=pass (google.com: domain of david.laight@aculab.com designates 146.101.78.151 as permitted sender) smtp.mailfrom=david.laight@aculab.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=aculab.com
+Received: from eu-smtp-delivery-151.mimecast.com (eu-smtp-delivery-151.mimecast.com. [146.101.78.151])
+        by gmr-mx.google.com with ESMTPS id d191si13014wmd.2.2020.02.24.08.03.45
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 24 Feb 2020 05:28:39 -0800 (PST)
-Received-SPF: pass (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted sender) client-ip=195.135.220.15;
-X-Virus-Scanned: by amavisd-new at test-mx.suse.de
-Received: from relay2.suse.de (unknown [195.135.220.254])
-	by mx2.suse.de (Postfix) with ESMTP id A9C1BAB6D;
-	Mon, 24 Feb 2020 13:28:38 +0000 (UTC)
-Date: Mon, 24 Feb 2020 13:28:36 +0000 (UTC)
-From: Michael Matz <matz@suse.de>
-To: Nick Desaulniers <ndesaulniers@google.com>
-cc: Arvind Sankar <nivedita@alum.mit.edu>, Fangrui Song <maskray@google.com>, 
-    Borislav Petkov <bp@alien8.de>, 
-    Nathan Chancellor <natechancellor@gmail.com>, 
-    Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-    "H. Peter Anvin" <hpa@zytor.com>, 
-    "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, 
-    LKML <linux-kernel@vger.kernel.org>, 
-    clang-built-linux <clang-built-linux@googlegroups.com>, 
-    Kees Cook <keescook@chromium.org>
-Subject: Re: [PATCH 2/2] x86/boot/compressed: Remove unnecessary sections
- from bzImage
-In-Reply-To: <CAKwvOdnvMS21s9gLp5nUpDAOu=c7-iWYuKTeFUq+PMhsJOKUgw@mail.gmail.com>
-Message-ID: <alpine.LSU.2.21.2002241319150.12812@wotan.suse.de>
-References: <20200109150218.16544-1-nivedita@alum.mit.edu> <20200109150218.16544-2-nivedita@alum.mit.edu> <20200222050845.GA19912@ubuntu-m2-xlarge-x86> <20200222065521.GA11284@zn.tnic> <20200222070218.GA27571@ubuntu-m2-xlarge-x86> <20200222072144.asqaxlv364s6ezbv@google.com>
- <20200222074254.GB11284@zn.tnic> <20200222162225.GA3326744@rani.riverdale.lan> <CAKwvOdnvMS21s9gLp5nUpDAOu=c7-iWYuKTeFUq+PMhsJOKUgw@mail.gmail.com>
-User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
+        Mon, 24 Feb 2020 08:03:45 -0800 (PST)
+Received-SPF: pass (google.com: domain of david.laight@aculab.com designates 146.101.78.151 as permitted sender) client-ip=146.101.78.151;
+Received: from AcuMS.aculab.com (156.67.243.126 [156.67.243.126]) (Using
+ TLS) by relay.mimecast.com with ESMTP id
+ uk-mta-165-GCRGvgq5PuayjL5fff0xdw-1; Mon, 24 Feb 2020 16:03:25 +0000
+X-MC-Unique: GCRGvgq5PuayjL5fff0xdw-1
+Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) by
+ AcuMS.aculab.com (fd9f:af1c:a25b:0:43c:695e:880f:8750) with Microsoft SMTP
+ Server (TLS) id 15.0.1347.2; Mon, 24 Feb 2020 16:03:24 +0000
+Received: from AcuMS.Aculab.com ([fe80::43c:695e:880f:8750]) by
+ AcuMS.aculab.com ([fe80::43c:695e:880f:8750%12]) with mapi id 15.00.1347.000;
+ Mon, 24 Feb 2020 16:03:24 +0000
+From: David Laight <David.Laight@ACULAB.COM>
+To: 'Ian Rogers' <irogers@google.com>, Nick Desaulniers
+	<nick.desaulniers@gmail.com>
+CC: Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar
+	<mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>, clang-built-linux
+	<clang-built-linux@googlegroups.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa
+	<jolsa@redhat.com>, Namhyung Kim <namhyung@kernel.org>, Jin Yao
+	<yao.jin@linux.intel.com>, Changbin Du <changbin.du@intel.com>, John Keeping
+	<john@metanate.com>, Song Liu <songliubraving@fb.com>, LKML
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] perf: fix -Wstring-compare
+Thread-Topic: [PATCH] perf: fix -Wstring-compare
+Thread-Index: AQHV6tcUuLM+xYY6ZEGXR+PNFoTxX6gqgYIg
+Date: Mon, 24 Feb 2020 16:03:24 +0000
+Message-ID: <dad75d5a7aa443e39dc20972d80ee83c@AcuMS.aculab.com>
+References: <20200223193456.25291-1-nick.desaulniers@gmail.com>
+ <CAP-5=fU=+uYZDb2uSFO8CTJ-Ange4Nxh4mmsOC1MS=Tedois9g@mail.gmail.com>
+In-Reply-To: <CAP-5=fU=+uYZDb2uSFO8CTJ-Ange4Nxh4mmsOC1MS=Tedois9g@mail.gmail.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [10.202.205.107]
 MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: aculab.com
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: matz@suse.de
+X-Original-Sender: david.laight@aculab.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of matz@suse.de designates 195.135.220.15 as permitted
- sender) smtp.mailfrom=matz@suse.de
+ (google.com: domain of david.laight@aculab.com designates 146.101.78.151 as
+ permitted sender) smtp.mailfrom=david.laight@aculab.com;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=aculab.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -133,60 +153,64 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-Hello,
-
-On Sat, 22 Feb 2020, Nick Desaulniers wrote:
-
-> > > > In GNU ld, it seems that .shstrtab .symtab and .strtab are special
-> > > > cased. Neither the input section description *(.shstrtab) nor *(*)
-> > > > discards .shstrtab . I feel that this is a weird case (probably even a bug)
-> > > > that lld should not implement.
-> > >
-> > > Ok, forget what the tools do for a second: why is .shstrtab special and
-> > > why would one want to keep it?
-> > >
-> > > Because one still wants to know what the section names of an object are
-> > > or other tools need it or why?
-> > >
-> > > Thx.
-> > >
-> > > --
-> > > Regards/Gruss,
-> > >     Boris.
-> > >
-> > > https://people.kernel.org/tglx/notes-about-netiquette
+From: Ian Rogers
+> Sent: 24 February 2020 05:56
+> On Sun, Feb 23, 2020 at 11:35 AM Nick Desaulniers
+> <nick.desaulniers@gmail.com> wrote:
 > >
-> > .shstrtab is required by the ELF specification. The e_shstrndx field in
-> > the ELF header is the index of .shstrtab, and each section in the
-> > section table is required to have an sh_name that points into the
-> > .shstrtab.
+> > Clang warns:
+> >
+> > util/block-info.c:298:18: error: result of comparison against a string
+> > literal is unspecified (use an explicit string comparison function
+> > instead) [-Werror,-Wstring-compare]
+> >         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
+> >                         ^  ~~~~~~~~~~~~~~~
+> > util/block-info.c:298:51: error: result of comparison against a string
+> > literal is unspecified (use an explicit string comparison function
+> > instead) [-Werror,-Wstring-compare]
+> >         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
+> >                                                          ^  ~~~~~~~~~~~~~~~
+> > util/block-info.c:298:18: error: result of comparison against a string
+> > literal is unspecified (use an explicit string
+> > comparison function instead) [-Werror,-Wstring-compare]
+> >         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
+> >                         ^  ~~~~~~~~~~~~~~~
+> > util/block-info.c:298:51: error: result of comparison against a string
+> > literal is unspecified (use an explicit string comparison function
+> > instead) [-Werror,-Wstring-compare]
+> >         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
+> >                                                          ^  ~~~~~~~~~~~~~~~
+> > util/map.c:434:15: error: result of comparison against a string literal
+> > is unspecified (use an explicit string comparison function instead)
+> > [-Werror,-Wstring-compare]
+> >                 if (srcline != SRCLINE_UNKNOWN)
+> >                             ^  ~~~~~~~~~~~~~~~
+> >
+> > Link: https://github.com/ClangBuiltLinux/linux/issues/900
+> > Signed-off-by: Nick Desaulniers <nick.desaulniers@gmail.com>
+> > ---
+> > Note: was generated off of mainline; can rebase on -next if it doesn't
+> > apply cleanly.
 > 
-> Yeah, I can see it both ways.  That `*` doesn't glob all remaining
-> sections is surprising to me, but bfd seems to be "extra helpful" in
-> not discarding sections that are required via ELF spec.
+> Looks good to me. Some more context:
+> https://clang.llvm.org/docs/DiagnosticsReference.html#wstring-compare
+> The spec says:
+> J.1 Unspecified behavior
+> The following are unspecified:
+> .. Whether two string literals result in distinct arrays (6.4.5).
 
-In a way the /DISCARD/ assignment should be thought of as applying to 
-_input_ sections (as all such section references on the RHS), not 
-necessarily to output sections.  What this then means for sections that 
-are synthesized by the link editor is less clear.  Some of them are 
-generated regardless (as you noted, e.g. the symbol table and associated 
-string sections, including section name string table), some of them are 
-suppressed, and either lead to an followup error (e.g. with .gnu.hash), or 
-to invalid output (e.g. missing .dynsym for executables simply lead to 
-segfaults when running them).
+Just change the (probable):
+#define SRCLINE_UNKNOWN "unknown"
+with
+static const char SRC_LINE_UNKNOWN[] = "unk";
 
-That's the reason for the perceived inconsistency with behaviour on '*': 
-it's application to synthesized sections.  Arguably bfd should be fixed to 
-also not discard the other essential sections (or alternatively to give an 
-error when an essential section is discarded).  The lld behaviour of e.g. 
-discarding .shstrtab (or other synthesized sections necessary for valid 
-ELF output) doesn't make much sense either, though.
+	David
 
-
-Ciao,
-Michael.
+-
+Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+Registration No: 1397386 (Wales)
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/alpine.LSU.2.21.2002241319150.12812%40wotan.suse.de.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/dad75d5a7aa443e39dc20972d80ee83c%40AcuMS.aculab.com.
