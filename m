@@ -1,127 +1,141 @@
-Return-Path: <clang-built-linux+bncBDPPFIEASMFBBZWKZXZAKGQEYZZZ6AA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCS7XUWOUULBBX6PZXZAKGQEHWKLQPA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yb1-xb3b.google.com (mail-yb1-xb3b.google.com [IPv6:2607:f8b0:4864:20::b3b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B83BA169E12
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 06:55:51 +0100 (CET)
-Received: by mail-yb1-xb3b.google.com with SMTP id b128sf4613416yba.15
-        for <lists+clang-built-linux@lfdr.de>; Sun, 23 Feb 2020 21:55:51 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582523750; cv=pass;
+Received: from mail-pf1-x437.google.com (mail-pf1-x437.google.com [IPv6:2607:f8b0:4864:20::437])
+	by mail.lfdr.de (Postfix) with ESMTPS id 31E98169E30
+	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 07:06:25 +0100 (CET)
+Received: by mail-pf1-x437.google.com with SMTP id z19sf5939579pfn.18
+        for <lists+clang-built-linux@lfdr.de>; Sun, 23 Feb 2020 22:06:25 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582524383; cv=pass;
         d=google.com; s=arc-20160816;
-        b=QAFb+l6wsFUDkD2kbLB3KauHwvMpWi3a8UKbUrTg6RzpihW1L6Xfa2NcogWvrGtnkL
-         5g2psiJnnDWSf1W0r29tC7SXUtfcjuHSHP9tk+WJfuhBjnEJ882rH3CH4dykxT7IPCxY
-         KF/6P97iMI7oEtRA8tAFigsbbrDSafGkIRbV8OBaItBicui50VpYWDytMt7/HU6u6OMJ
-         8q14eM9Y7+bKEvWFCZvEwHjqyEAPwuINb0gnRRCRpqyabtNv5bxQseiaRi1ijAiHe1dF
-         eu29wSBBKsMxga/hW4wAlW1RZHnjAp6w7l8ptKDoJgKavLvjBDEzZBu2xI4+8gYOjNu7
-         J6kg==
+        b=ECfUCkMBkqN0FB5pVgNBcR9Q4Nzf7vY/rgY2t6bah5Rt00zRTq3FTVLKst0WUgUSd3
+         M9uJwBXId7qSJsXv4sSzOpFurUNSaKrvOadzco/bzyUrGNjpl/NwP8G/2/szfg3FgSpy
+         vMT6P7yaKmiUe/kPoKgz9Pr4boL+YSOICOOFnlUW1y+pCcjI8KCZ3Z7CzIbhyMvuNJzv
+         NnE2lUIpgKWeVZxmZkoNT0+Aw4hX/aQ9nzKdC2IN2HyzDJzGeeitQSs5mmlf2O7R0mOS
+         23XTf7VhxFcz7+ArgyP8P846lf62bKJeiAnXl1j9sF/rl0j66N1s9rD/3qvb2KnbUKf8
+         bgcA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=A3VY17RwJi6dgFG9ZbnOjQXHjhug0UybwwqrMV5psVs=;
-        b=mu5bavJ66Sn2P7IfEwLSJ1zMatk38V84YwgC6Su2x1f5EqAE6v+cpZiJo1S+nNuWBW
-         8Cf5vba/djApDLuTme33kH46DPtcWJaLPwwXD1Akaz0laIsFx9KMZ0ww8WdUVNEiW3UC
-         /p5aB1Ne8d2yEXeZyB9V0hztjGObTDmHD2f27y+YokyTqkLzBY9AGc4IvYOvIzNXZaTS
-         c5CbUT27L9tFA1S4PolehkRhsTdItpqehOAjqaBeZ+2w8+me41yqDlqWjUSaHIiWvHlq
-         XVSIP6pPY7idGdOkz4UkMqHDLzgTczQSPBhXK7U3/aAVYMURBnXhMiBk6j5vUYrgsnxK
-         FyJw==
+         :list-id:mailing-list:precedence:reply-to:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:from:date:dkim-signature;
+        bh=ZcXjSUULIrFVoskdbYOO0bAiCnTK5F2i2JO/aCHDV8U=;
+        b=BUBzl/o6l22RzoBm4v/bGp1BR7IOYI0BlGkPLKVQk0pKVwnjAsZyZ35QnFc+TboLci
+         ckZQEkmRbXaTb8s+QfQOETPkfqvRfNM3lldK9xAl0J9WL5bD9MPuEAVnp+umbkiUAzBD
+         HJ0ot3vJZHlCFM86JIM6y2QdlojQvJkz2hm7jtNPRGSMM670v0JG8/yJYyvRokeMFO5B
+         2hgrtfvvz8EoIZczn2kyzi06ziKaKLhSSpUH4UwdVM2hmZxXJE/Oe2ImmmbhcgB09r9U
+         4tViSqe40BptnPUB5WFMe03fslKzsJQeXCt2md3cET4iu/YDUaoWnPzlp8NEnoD/hauF
+         Mw+A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vMtEDPiR;
-       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::c42 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Ot+AvKO5;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=maskray@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=A3VY17RwJi6dgFG9ZbnOjQXHjhug0UybwwqrMV5psVs=;
-        b=WUwJFbzitZ52rAB0J7n9WLUuid+iK4k3f6p8X3V2hS/LnAMZzf96Q5/2/OPfLW4zTI
-         SoPVlUQcKDyh88fV1pBv+Jkh+rdHkt9kFD6cg8LBnRm946VfnGT3PNmtHKsxVSYd+VgX
-         1fPYGzs953zgvubAeZKYpIZgwVCby2Axly22BfSH/o1Pgh1nGq4xSu44IpSZIzEXSXI4
-         jvJ6hoNfObr01FsZKHSX6Pqr5pH5MPs81fPmakcN2O24ZAnpac0fLdsq/irREWKNxxRh
-         mzK3+hMwpBS19b3b6+LQA+MtKQM4a23dqP9wam9bmD4Ejj/HKSg9LZ+pJ1kl9olY8Q5J
-         grFQ==
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:list-post:list-help:list-archive:list-subscribe
+         :list-unsubscribe;
+        bh=ZcXjSUULIrFVoskdbYOO0bAiCnTK5F2i2JO/aCHDV8U=;
+        b=V0ZPpA20eDiY3zch08YrJY59WqbMrOdAk+PfL2h6Qczd4FMvTUwn9rqkY2+0RBM/G4
+         YCLjXU/MtB7cqmTZBYxnDkcnDbA3/WjPqoIIXliCK+MA+AvgFutcaP9SaVb2vVo0KpRG
+         MhMT56rFjfAaQmLGDObGUiGg7ywIHGv9dURf7UFmuVirrqQdpRK92kPh69MHZsHpGdtG
+         n86u75v2l758eVdJsTPNuJYSdcVBY1tFLVEonoiGVes7RkKbAVWVyDqE4BCtBreKbXvt
+         d3pliWC0Sf0+grGWuw5oh+T27e8ku4qf9dw+W1ta5RvV9XqHkm5Gj9QWXZiiqaylz2xQ
+         dgOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:reply-to:precedence:mailing-list
          :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=A3VY17RwJi6dgFG9ZbnOjQXHjhug0UybwwqrMV5psVs=;
-        b=I+mwuMq8Hjhlj0L6QHZlf/qOBqCep/hnL101JMCfBMliF/goyBxyakGBp50lJftQLJ
-         eOKfYfM4L2cEaly0eX0qj87kwRRNj8Y37gQtzAdox89z7B2DyWdmfaJ+HhXlEF+CYGgb
-         x5JwALJB3Fk2iz69D6V2Mu1V8qis9izR3lJT/OSbWO1nYHw1HCZt34ZzX/qYtv1+x/ZO
-         /kIanxE1EPzFFQvGd9jaxkxSH42rJS5z/wkbwg2MgpJ5+f28INEqDFxcR7iSOT1jtRV1
-         2c91GOm4hcw/IctqzRkBbvaB+o2X/e/HvZNRKSLLNUh0YkYddytvOE2R9iXMxXHDvWOy
-         g3vw==
-X-Gm-Message-State: APjAAAXh7IhU0DQL88RozeFKYmoEgENYCstGci2dFpPm5Gy4qOs2TjJ/
-	zACirKhhNF/k4u/5pazCGdY=
-X-Google-Smtp-Source: APXvYqwnA8EekgNUB222E7Znm3QjqcrUwqopITPCrma84cmXfPi3bH+tZbPrlC2eCK0mU5hiYGchOg==
-X-Received: by 2002:a25:c101:: with SMTP id r1mr43278934ybf.283.1582523750420;
-        Sun, 23 Feb 2020 21:55:50 -0800 (PST)
+        bh=ZcXjSUULIrFVoskdbYOO0bAiCnTK5F2i2JO/aCHDV8U=;
+        b=WxFs30A9xhXlFdGA0N67crC5Y0pynbgc9aEX+OPm8hL0MFOMYcpC3ZO7xKBC/71t8F
+         MtdGJvK9H04LRgDH6fdEsQ+yfqTXLTGP8HuoodBIn9kKeM/H8Q9CwG4axmAt2ZASFsyk
+         3symM43m+9r/7wU9chgozroeWkWJpU0cO6UFTq8TBOxgh4/ArHxvMo3ZXIoQLhSd+BUs
+         +/AQRlDz7bGvjROWXmvylzkbojhRs7HyhZIc3VMjrb7wQSrcRTXNCwdu6VHygGm9PBkF
+         +i+qLeK8Asqmv0foqftyQHJetJvPblelG4m+oewRnz1qllbF5jQATCd/Ce8YWSeXurln
+         GzOA==
+X-Gm-Message-State: APjAAAXUsrdEO71RUpd9UOIxTkSzG93Yu0P9/tLnV/7Czy7GAEMCtuSV
+	hHfyCMNe/a38QTthRI0XeGI=
+X-Google-Smtp-Source: APXvYqwHotP3qqs32s2GDYJYOflQFxoFqDw13Tgap7Wt1Eo/2D+dij7wg6Rh5ZZBBxHKoi3QxJp5QA==
+X-Received: by 2002:a17:90a:d807:: with SMTP id a7mr19005860pjv.15.1582524383630;
+        Sun, 23 Feb 2020 22:06:23 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a25:d648:: with SMTP id n69ls1086324ybg.7.gmail; Sun, 23 Feb
- 2020 21:55:50 -0800 (PST)
-X-Received: by 2002:a25:bd85:: with SMTP id f5mr16015178ybh.274.1582523750033;
-        Sun, 23 Feb 2020 21:55:50 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582523750; cv=none;
+Received: by 2002:a62:1853:: with SMTP id 80ls2837920pfy.1.gmail; Sun, 23 Feb
+ 2020 22:06:23 -0800 (PST)
+X-Received: by 2002:a63:ce03:: with SMTP id y3mr53693310pgf.427.1582524383230;
+        Sun, 23 Feb 2020 22:06:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582524383; cv=none;
         d=google.com; s=arc-20160816;
-        b=devxO99t3qko7YvM4rDGy0CH5HYsCEWpC1vDehbX2+yJw4/2jYB78KSCyvm9RAk55W
-         e2SrFiIsEPvYMAgjWWt9M2B6FabDe4YBK08snjgFPrsl2tr/hX4w5iLc5A/lKUE9nDWP
-         iz+Biku1MnH1C8YtXHwZTUbmQQ7q2xaDzTlmEP68ZiGGUTm8snS/T7vbFfg8vnPx/k4x
-         PW98T+7VQ4ipdkWDZfmTL8VxKT0WKOTjDJQ2DQZadchnPxCssYC7mzfeIXX+MUu7CSwn
-         Az7mA3lk5VLa3GXLFmj5CTEuvy1xJ0FSFdS6+Gtk1SN0z/rz7gCxgCcS27diq8cUCsd6
-         9weA==
+        b=FYm0eLT+friZP8wwY+J71otOziX1BXY6/86yXiar6tlreO+Scl4hF5RAmwOA6VFHHf
+         IWfgp894or7V5wlo22cmhpRL25PWoj3/STHzqgwLfvVUOsjsnS7YGFqnhiMcwY8ceHWG
+         BXNGCp15SyNDu633NKUJB5b0wSiN4BJi4p0CLpdwwBprFigE5P2be2a30P47aFK5Ni1k
+         WTM0BbC3Y//ePV2Uzwevq6nPNKYtVurXZhfGjQ4RihsXvVBFNSjFWInSHXWCFP2Jb77p
+         yyZEZZcEB1wr2uSfkwnavVjNDvYDhdu5s8a1X03kuHoW3jVUvkU6mkhXgEdX/nj9vsHk
+         HF0g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=b50opdvh9jm466J7F1sa7QuBxXpc5U92ofilJPUB76Y=;
-        b=aNKvJ+GCEeMydd4c/pa/4LHIlT7Ls36ajtJi8HoVbMDcHem52RS2FafXjYuytEwSTY
-         i4feXo8dMe+ON6jLABvqvgMdoN4l60rMdkUUgqWQvDLqzBSSrBzU/vcudIszlAbpCUCm
-         yUvoyDgMO5sfnCiSkNtR2U4wG6WUodreSOiS4YOxK9bMob6Nw5+fQ2rHkhyXhT7Uw2Zh
-         +MgPaQUg6ZUlfFvVhXegs+45vybDOAWz9u+27lKLQ1D7tHZK86I24/RHp6DbxbVry7Aj
-         JvkvkkdC4AeT/sU9Y3l9C/pf3/8Dw130rakitzzMwEkGbNFViz3+/xZemv4HyEnJ7PwB
-         r7Xg==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:dkim-signature;
+        bh=OdpQqb2kq8nuRm39p8jYjh1NSdHdQem6gWj0Q4UrJjo=;
+        b=TrDoXnA5XHeHDz98dbND+XtJcgsvS7AhhVlJmqS6YjVphGbEWc5+YxjFmDnRoD3qVt
+         hqH4+m8mTXx3COqS3sS7Xitt+/2U5J6pmBAH+J/VrfH5KCdlaE7IZeNLLdhVoKCaRGvR
+         G63QYNgkxK/H8gxp81YSlZmc5N2veNSRI+L6AFE5NUWHldRvaVf8PJq7E93+LiamNVIe
+         sJJ7Vx7Lao6C/cvb8/0PvP4prr8IeuxGNKXybBbQT1Ffzip65DvZDQji+Lvnc1ngRoVB
+         +W/Otd6OIkOges51yTDz4j4p67w54futa92dB7fYtQIkspGWghrsI6/Gb2xGVEs0ZIPU
+         rprw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=vMtEDPiR;
-       spf=pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::c42 as permitted sender) smtp.mailfrom=irogers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=Ot+AvKO5;
+       spf=pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=maskray@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-yw1-xc42.google.com (mail-yw1-xc42.google.com. [2607:f8b0:4864:20::c42])
-        by gmr-mx.google.com with ESMTPS id g27si876563ybe.1.2020.02.23.21.55.50
+Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
+        by gmr-mx.google.com with ESMTPS id c13si797322pfi.3.2020.02.23.22.06.23
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Feb 2020 21:55:50 -0800 (PST)
-Received-SPF: pass (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::c42 as permitted sender) client-ip=2607:f8b0:4864:20::c42;
-Received: by mail-yw1-xc42.google.com with SMTP id l5so4737584ywd.4
-        for <clang-built-linux@googlegroups.com>; Sun, 23 Feb 2020 21:55:50 -0800 (PST)
-X-Received: by 2002:a81:3694:: with SMTP id d142mr39726193ywa.392.1582523749424;
- Sun, 23 Feb 2020 21:55:49 -0800 (PST)
+        Sun, 23 Feb 2020 22:06:23 -0800 (PST)
+Received-SPF: pass (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
+Received: by mail-pf1-x441.google.com with SMTP id s1so4783523pfh.10
+        for <clang-built-linux@googlegroups.com>; Sun, 23 Feb 2020 22:06:23 -0800 (PST)
+X-Received: by 2002:a63:e755:: with SMTP id j21mr51725951pgk.330.1582524382689;
+        Sun, 23 Feb 2020 22:06:22 -0800 (PST)
+Received: from google.com ([2620:15c:2ce:0:9efe:9f1:9267:2b27])
+        by smtp.gmail.com with ESMTPSA id z19sm10910717pfn.49.2020.02.23.22.06.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 23 Feb 2020 22:06:22 -0800 (PST)
+Date: Sun, 23 Feb 2020 22:06:18 -0800
+From: "'Fangrui Song' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+To: Kees Cook <keescook@chromium.org>,
+	Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Borislav Petkov <bp@alien8.de>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>,
+	X86 ML <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux@googlegroups.com, Michael Matz <matz@suse.de>
+Subject: Re: [PATCH] x86/boot/compressed: Fix compressed kernel linking with
+ lld
+Message-ID: <20200224060618.blsbhilbmm6b23a2@google.com>
+References: <20200222164419.GB3326744@rani.riverdale.lan>
+ <20200222171859.3594058-1-nivedita@alum.mit.edu>
+ <20200222181413.GA22627@ubuntu-m2-xlarge-x86>
+ <20200222185806.ywnqhfqmy67akfsa@google.com>
+ <20200222201715.GA3674682@rani.riverdale.lan>
+ <20200222210101.diqw4zt6lz42ekgx@google.com>
+ <CAGXu5jJQRnPQDq6ZLrtCB-i0A_+AifY2me-BinuKz7LJU8=ePQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20200223193456.25291-1-nick.desaulniers@gmail.com>
-In-Reply-To: <20200223193456.25291-1-nick.desaulniers@gmail.com>
-From: "'Ian Rogers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Sun, 23 Feb 2020 21:55:38 -0800
-Message-ID: <CAP-5=fU=+uYZDb2uSFO8CTJ-Ange4Nxh4mmsOC1MS=Tedois9g@mail.gmail.com>
-Subject: Re: [PATCH] perf: fix -Wstring-compare
-To: Nick Desaulniers <nick.desaulniers@gmail.com>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@redhat.com>, 
-	Namhyung Kim <namhyung@kernel.org>, Jin Yao <yao.jin@linux.intel.com>, 
-	Changbin Du <changbin.du@intel.com>, John Keeping <john@metanate.com>, 
-	Song Liu <songliubraving@fb.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: irogers@google.com
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Disposition: inline
+In-Reply-To: <CAGXu5jJQRnPQDq6ZLrtCB-i0A_+AifY2me-BinuKz7LJU8=ePQ@mail.gmail.com>
+X-Original-Sender: maskray@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=vMtEDPiR;       spf=pass
- (google.com: domain of irogers@google.com designates 2607:f8b0:4864:20::c42
- as permitted sender) smtp.mailfrom=irogers@google.com;       dmarc=pass
+ header.i=@google.com header.s=20161025 header.b=Ot+AvKO5;       spf=pass
+ (google.com: domain of maskray@google.com designates 2607:f8b0:4864:20::441
+ as permitted sender) smtp.mailfrom=maskray@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Ian Rogers <irogers@google.com>
-Reply-To: Ian Rogers <irogers@google.com>
+X-Original-From: Fangrui Song <maskray@google.com>
+Reply-To: Fangrui Song <maskray@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,105 +148,41 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Sun, Feb 23, 2020 at 11:35 AM Nick Desaulniers
-<nick.desaulniers@gmail.com> wrote:
+On 2020-02-23, Kees Cook wrote:
+>On Sat, Feb 22, 2020 at 1:01 PM 'Fangrui Song' via Clang Built Linux
+><clang-built-linux@googlegroups.com> wrote:
+>> https://github.com/torvalds/linux/commit/83a092cf95f28696ddc36c8add0cf03ac034897f
+>> added -Wl,--orphan-handling=warn to arch/powerpc/Makefile .
+>> x86 can follow if that is appropriate.
 >
-> Clang warns:
+>I've been playing with a series to do this, here:
 >
-> util/block-info.c:298:18: error: result of comparison against a string
-> literal is unspecified (use an explicit string comparison function
-> instead) [-Werror,-Wstring-compare]
->         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
->                         ^  ~~~~~~~~~~~~~~~
-> util/block-info.c:298:51: error: result of comparison against a string
-> literal is unspecified (use an explicit string comparison function
-> instead) [-Werror,-Wstring-compare]
->         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
->                                                          ^  ~~~~~~~~~~~~~~~
-> util/block-info.c:298:18: error: result of comparison against a string
-> literal is unspecified (use an explicit string
-> comparison function instead) [-Werror,-Wstring-compare]
->         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
->                         ^  ~~~~~~~~~~~~~~~
-> util/block-info.c:298:51: error: result of comparison against a string
-> literal is unspecified (use an explicit string comparison function
-> instead) [-Werror,-Wstring-compare]
->         if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
->                                                          ^  ~~~~~~~~~~~~~~~
-> util/map.c:434:15: error: result of comparison against a string literal
-> is unspecified (use an explicit string comparison function instead)
-> [-Werror,-Wstring-compare]
->                 if (srcline != SRCLINE_UNKNOWN)
->                             ^  ~~~~~~~~~~~~~~~
+>https://git.kernel.org/pub/scm/linux/kernel/git/kees/linux.git/log/?h=linker/orphans/x86-arm
 >
-> Link: https://github.com/ClangBuiltLinux/linux/issues/900
-> Signed-off-by: Nick Desaulniers <nick.desaulniers@gmail.com>
-> ---
-> Note: was generated off of mainline; can rebase on -next if it doesn't
-> apply cleanly.
+>There's some work to be done still...
 
-Looks good to me. Some more context:
-https://clang.llvm.org/docs/DiagnosticsReference.html#wstring-compare
-The spec says:
-J.1 Unspecified behavior
-The following are unspecified:
-.. Whether two string literals result in distinct arrays (6.4.5).
+Thanks for investigating this! There are a number of compiler options
+which can add ad-hoc sections. They may need caution.
 
->  tools/perf/builtin-diff.c    | 3 ++-
->  tools/perf/util/block-info.c | 3 ++-
->  tools/perf/util/map.c        | 2 +-
->  3 files changed, 5 insertions(+), 3 deletions(-)
->
-> diff --git a/tools/perf/builtin-diff.c b/tools/perf/builtin-diff.c
-> index f8b6ae557d8b..c03c36fde7e2 100644
-> --- a/tools/perf/builtin-diff.c
-> +++ b/tools/perf/builtin-diff.c
-> @@ -1312,7 +1312,8 @@ static int cycles_printf(struct hist_entry *he, struct hist_entry *pair,
->         end_line = map__srcline(he->ms.map, bi->sym->start + bi->end,
->                                 he->ms.sym);
->
-> -       if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
-> +       if ((strncmp(start_line, SRCLINE_UNKNOWN, strlen(SRCLINE_UNKNOWN)) != 0) &&
-> +           (strncmp(end_line, SRCLINE_UNKNOWN, strlen(SRCLINE_UNKNOWN)) != 0)) {
->                 scnprintf(buf, sizeof(buf), "[%s -> %s] %4ld",
->                           start_line, end_line, block_he->diff.cycles);
->         } else {
-> diff --git a/tools/perf/util/block-info.c b/tools/perf/util/block-info.c
-> index c4b030bf6ec2..fbbb6d640dad 100644
-> --- a/tools/perf/util/block-info.c
-> +++ b/tools/perf/util/block-info.c
-> @@ -295,7 +295,8 @@ static int block_range_entry(struct perf_hpp_fmt *fmt, struct perf_hpp *hpp,
->         end_line = map__srcline(he->ms.map, bi->sym->start + bi->end,
->                                 he->ms.sym);
->
-> -       if ((start_line != SRCLINE_UNKNOWN) && (end_line != SRCLINE_UNKNOWN)) {
-> +       if ((strncmp(start_line, SRCLINE_UNKNOWN, strlen(SRCLINE_UNKNOWN)) != 0) &&
-> +           (strncmp(end_line, SRCLINE_UNKNOWN, strlen(SRCLINE_UNKNOWN)) != 0)) {
->                 scnprintf(buf, sizeof(buf), "[%s -> %s]",
->                           start_line, end_line);
->         } else {
-> diff --git a/tools/perf/util/map.c b/tools/perf/util/map.c
-> index a08ca276098e..95428511300d 100644
-> --- a/tools/perf/util/map.c
-> +++ b/tools/perf/util/map.c
-> @@ -431,7 +431,7 @@ int map__fprintf_srcline(struct map *map, u64 addr, const char *prefix,
->
->         if (map && map->dso) {
->                 char *srcline = map__srcline(map, addr, NULL);
-> -               if (srcline != SRCLINE_UNKNOWN)
-> +               if (strncmp(srcline, SRCLINE_UNKNOWN, strlen(SRCLINE_UNKNOWN)) != 0)
->                         ret = fprintf(fp, "%s%s", prefix, srcline);
->                 free_srcline(srcline);
->         }
-> --
-> 2.17.1
->
-> --
-> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200223193456.25291-1-nick.desaulniers%40gmail.com.
+
+I just filed https://sourceware.org/bugzilla/show_bug.cgi?id=25591 "Should /DISCARD/ : { *(.symtab) *(.strtab) } work?"
+Let's see what GNU ld will do...
+
+Note that * can be refined to SHF_ALLOC sections
+(https://sourceware.org/binutils/docs/ld/Input-Section-Basics.html):
+
+   SECTIONS {
+     .text : { *(.text) }
+     /* This excludes .strtab / .symtab / .shstrtab */
+     /* https://reviews.llvm.org/D72756 implemented INPUT_SECTION_FLAGS. Not included in LLVM release/10.* */
+     /DISCARD/ : { INPUT_SECTION_FLAGS(SHF_ALLOC) *(*) }
+   }
+
+
+Just realized that this was reported as https://bugs.llvm.org/show_bug.cgi?id=44452
+Looks like we will probably close it as wontfix.
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAP-5%3DfU%3D%2BuYZDb2uSFO8CTJ-Ange4Nxh4mmsOC1MS%3DTedois9g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200224060618.blsbhilbmm6b23a2%40google.com.
