@@ -1,129 +1,135 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBTXO2DZAKGQEZJZGDUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCIO53XE7YHBBFXV2DZAKGQE2ZZLZVY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23f.google.com (mail-oi1-x23f.google.com [IPv6:2607:f8b0:4864:20::23f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 459A216B12E
-	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 21:51:28 +0100 (CET)
-Received: by mail-oi1-x23f.google.com with SMTP id 3sf4834462oij.21
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 12:51:28 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582577487; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A7C716B171
+	for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 22:05:28 +0100 (CET)
+Received: by mail-pl1-x639.google.com with SMTP id t12sf5845007plo.4
+        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 13:05:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582578326; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nZMIvmt+W4ETClVGnJ1Wa4t3ONhE70Wce4F6E8myOjDCp+ehTK8gmhyUj49GO6sKMi
-         xJwA0H5LMwWXnzjoU1TkNzzr5X9+HfTEMqRgjyUGALQrUeqQ1etIoC+o+JSFDLpCpmFs
-         +bfLHK9iMJULOKXcQWFO41GaIgRwzAhMQf8trfbRM0jyygktW1RbtwQUfotM3dKCC5dL
-         4kn2Wv9u7ug4xEiNgPMl5KvKKWn1m1hdXwHKfCSJPFirwd+gsyc9MwoYrLhJMcHhAuED
-         Kbn6ka9F9Zlk/kTNHOHShXZTX56DPV+Cgc5B4EPltlAI1tEva7UMwCwPNDQRUH73EiUd
-         sWNw==
+        b=QeiUAeZgGP9Wa+UF7K+LKV8gmJ4Wa+jWTBZThblM7mcB9kGI5UmqPMZurLnfAM4A9f
+         V35Da5GxnNU/hEmO8Mr28by3eodKTKxoGWE9hnXSGn2B4YZwOnwlewNsH5yFPYUmmh0e
+         zWDsLuGt0GyALWaPPbp2k7T/c0LdhwbQlIvfzrd6rLXBJ7/kqT56kOCAbBgFt8DRZ8+7
+         P4ae/wf0toodC4dJAYJPCVvLJlrAXCCIqgfh1QnNTgP0rFypVZi3/AaK/47lj95RWIIv
+         eh/R1kXdYh0DXzpUSKS1PF2OJo9qJlvF23pBvAPWMTXlKkBcdTSnw3t/b2FwdltqrOQt
+         wWhg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=WfFkg5VXGftQ6QxYw9YimpZJM18KNjQmuUFBaJAQxXk=;
-        b=ZqtOKZwc52V7gVUudCPMVKGXAfoT1qaLU//UD2k/tgvuT2iKJrOW5/+KVS2NXNngL3
-         KnCs3fioGHaiDDquQV78k7veG/ptvwvRT+jrX2K/ceJEurOocoq4eD3MFPRx36wQhHAQ
-         npXY8IAogBkvr+Lvrivvih6aKP8YD4hefMOBdeyA9b/3VxJvQQBY+ykY8qvPWAki/wKk
-         LmDr6mJKJz5n1nD2gxwN6AOFHScrJ/QzirV5zGvlWajGlJ+1Iuzx7UMrCPfu1w2e0/0F
-         M8bVc7jsjgdlSYPstnvBx3W+E/RIvyDan1dXcIZ2O7Si3KFYaJjuSOFlrnxGMrsL6KQH
-         b+dg==
+         :list-id:mailing-list:precedence:user-agent:in-reply-to
+         :content-disposition:mime-version:references:message-id:subject:cc
+         :to:date:from:sender:dkim-signature;
+        bh=TgcHF687bcR5KeiJsSKgX+bOxI7kCJpkRCK/rtDogso=;
+        b=bDdz1T5v1Zr6HgGJcim6UEmwbaUAmRwZw5gw48lU6EOft5X3nmkWdJ7r5mb+1ai6yn
+         2eLeG+cN2GemvvbMYnqdAu9yqwM74GW38DN5llcG4jOD7WeAdLhe3d+v4zrg1uXLF3as
+         QQ8GF/OMS+jsKIom5KwxYrjXXlstiMQinqxG+CxM982KigaA3ULZZmgC98pqW2vKlQE5
+         3ISjwxLe3Expbioq5N5cErvD7eTR1vJ+mRpRkYXL0e3qxDNaU7YuAonkUT8I/4wvisaU
+         08JfchP6PVP/vZ1pcqIwVPjE4B8Yh8+K3RNzT2kihx9nvI3flmJTQ+7Q5aEkjEkM+F5F
+         gvJg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="IU480/eX";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WrMS23gO;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=WfFkg5VXGftQ6QxYw9YimpZJM18KNjQmuUFBaJAQxXk=;
-        b=QKHc/POqka5N3aOabpOBR3BgMBQIJoMBclJSOM10FfB88S4c5wt2Vdgyx4Mcj2gZQK
-         +B/3yLvZ5qjlHWlzHGpdYvoZRkuxFIMuW98RxYAWcJQmtRIIByP0HUBnn3SN3k55s1Z/
-         epO1p/T4lRmKZJ0WXpc9Gkr+Vb/3e5pDd8NAE5kA6NHT7l94DypopWJJ1WwkDhwdSVt4
-         d9FzmcYaeVkabCo6ht3HA6Gqy0Dq/4mCFmTPNYPqFYjuPbbdmqD1onoVnEJMyb1D7Ial
-         TSyE3EU2DzVDb+CgqYDAC3kOX1DqU7aQVm9GFJG9aHBklA7LKyjyfoZv6UPYy//9UJnW
-         JAIA==
+        d=gmail.com; s=20161025;
+        h=sender:from:date:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=TgcHF687bcR5KeiJsSKgX+bOxI7kCJpkRCK/rtDogso=;
+        b=ApUxuQqyDY5BQsKCdNmGfbPoFuchI2PsMpIL8BcGLLIMrFAWQ//0e1ExXjsMHMvXpV
+         GbGHrreMt8By4t9xhQbFPaCojZNsvpdC8wP0hCiEiEsLjNppNX529x1gNh1zcRi53E37
+         OMd1Vlc1R+NlJHHioE4Wwor9hRwL/rs3X1Pw2UIwKpku7c83e939rMTXtMix1mwmtp04
+         isHKV2Y9oy5Irlc0ilZXxBuu3Uy+fdW65Cu7ySl6oY7L87PW+p8LJgpuNaGwBroVxX3j
+         p5+DsGIHOMBu8K2g4yldq6JPGLP0S848WbRtCRyrZ1BJDar840ARbNqQ73ANpdN4UwTh
+         sqIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=WfFkg5VXGftQ6QxYw9YimpZJM18KNjQmuUFBaJAQxXk=;
-        b=ALVhRq/NPbtvpaQIrsH7NOHlmmQkegvo+iDjgJDh2HizibWyacCHhfeC0G1Hx4b+74
-         f+834aWcOF0TCbkLKM5LkJ82coEs/5LMM4CzrpGs5LqZRhaC3s7SlIppCrN5u/N61IBx
-         yLP/YQnwb56bquvn/xWDcqYJLAIpshav5HepE6I4Z7aerlRSdkArZukSuoXde/kpobKT
-         +y4miRvHzev9vfdup5nCcHuKblc0vYN4O8xMKmPnqxsDk7YasuOjx2kMQ7voAw2NexYw
-         sczNijy+QBGwzwxPbWWtlb7ZfH6ccIrBMp3UKUI9pw3W2Z16Zrr4mPMoeoMq3i0Tc1Dm
-         H+RA==
-X-Gm-Message-State: APjAAAXQYunw4NdfKBGjN4NLmR9bexbRS0O4kGucWL2Yt5UyTEA6A/Ms
-	jX548hcZPu1BOgjNt98mFfM=
-X-Google-Smtp-Source: APXvYqyf53Fk3myY1tola9xCbyCyTWZ5O1sdaKszzRWjFk+CmLLfqB6+Cd2JWTmLsSqmNGb8mF4NAA==
-X-Received: by 2002:aca:3554:: with SMTP id c81mr73923oia.0.1582577486598;
-        Mon, 24 Feb 2020 12:51:26 -0800 (PST)
+        h=x-gm-message-state:sender:from:date:to:cc:subject:message-id
+         :references:mime-version:content-disposition:in-reply-to:user-agent
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=TgcHF687bcR5KeiJsSKgX+bOxI7kCJpkRCK/rtDogso=;
+        b=Kk0e/TJQmRJjoOQ6cwvOzHiZRIkdc7dr7cYnR0LZRDBQPmpkijAWENpGG6wCn3+CqC
+         PlQ5zcge9urFYmNO8CQIf119cvAkA3IVLOkfSPzn7YhS28GaU/RqU7U7U9oNJgULx5Jt
+         SvnzKqz13aLfkLIRIgBoHJrhX5SCQ8nceieRNeIBXk9Lje9cawucHRuGngE+lcNcg9O8
+         YZO1ge0k7K5Z1YfEu9wAKTruWzwO/hlS+7OvIVWc0uRZGAL6oP+K7ymGwubwLg719JWz
+         QBtE1j0aMEMfe0ErhX/sMi3c/aUQhL7B2E51npmR2nOBHGLGBdoo0NYo7x+JqipE+BXU
+         3XDw==
+X-Gm-Message-State: APjAAAV6PyBRxNH2z/OGg6J8WXexUaSFCPYEbbpYWZx9OOST02rwSdO1
+	Dp6WBsRQ+4u0ZLUvy+QHzpU=
+X-Google-Smtp-Source: APXvYqwJ56QVzfSNh083YpuM9BKViQ6gb9I7yKf79YBoFhqpsirG/VmjXAzgfMKmmJnirgfAmzYAWA==
+X-Received: by 2002:a17:90a:a416:: with SMTP id y22mr1137455pjp.114.1582578326374;
+        Mon, 24 Feb 2020 13:05:26 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:611c:: with SMTP id i28ls3294660otj.3.gmail; Mon, 24 Feb
- 2020 12:51:26 -0800 (PST)
-X-Received: by 2002:a9d:58cb:: with SMTP id s11mr42888481oth.55.1582577486190;
-        Mon, 24 Feb 2020 12:51:26 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582577486; cv=none;
+Received: by 2002:a17:902:bb88:: with SMTP id m8ls3569222pls.6.gmail; Mon, 24
+ Feb 2020 13:05:25 -0800 (PST)
+X-Received: by 2002:a17:90a:8d81:: with SMTP id d1mr1104421pjo.63.1582578325810;
+        Mon, 24 Feb 2020 13:05:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582578325; cv=none;
         d=google.com; s=arc-20160816;
-        b=beq9AwfHRSmHBycpRKjkcdaaf9IivjxYI6TSvrl2MrSuc8luDYJTok5EbxypTz/gSM
-         6QgDlLOrh2UT9AQGvkA/Dcc7kLqsWhunoyyFZ6N3GgJv2gAi+oJ8RhyShtZLhtBbbME1
-         YilyFckcruQgiMG/dNbWCcvAh+D6cFfVjzPTNc/hDEc89dsimVZCjUYlidRdcqDKHaoa
-         SiKkZ8dUVyD4BIuuhOdX2MxW+WYJwIYvA0sJDre4aHL/kbFkdMlXsUJEF4YGJME2wmxi
-         3SzLD/e+jt5CAy3oHJ9FiJ3mgbFRvmky0vfBChUMwvyKlcsSWnryxNMZf7BpxbRvl8/s
-         CACg==
+        b=1GSlb3wybBE8UWJ6fTe/eKA66Ajg6LrY87mqsDcXBeKNvGzTCQqxiypCvVYDiW7b/d
+         D/Va311DrQqQJRvN0oMiBDkYNgb9lipWWUPqcuFLUt+5aHeVV/OldSD31J4j4JBdbk8d
+         KcH94RdPUmr0mfMqgAj9s1QQVOIkaEJoWOk1ouoHTS0D7uGs3PAqIFHw9OQLyjHdFS6Y
+         AqOvG5SLXinrWLZakRHNZTgLeDCoVE2Itsy6POpA0QLcj/4njyg/lakpALJBUHWsvnNe
+         E4dWe0Wx5ZVQRViA+7mn88E42NGGxZZKOIt+ZRMoudEEFDfzyBKn6CDhqiHHEN+RsuMY
+         gGEg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=jRq4pHDxuVRc7aayKg6MpqkDQ8S3ZSOkFs6fEcDKK0o=;
-        b=H1itI2251/D9zAoKaYqVB+93FOR54XKE25jHAPMeXTttYe5Vwy4pX79S4kO4vRyxjU
-         aI/0S16vJTHEuWMF/k4Aurj8DQO6X3JjoyyxhCN5cV6bgNNjNiftN5xcfk/5rY7tU+Ua
-         zoGiAUxRx82SwfwJOwh8BNjjl5ZxMukVT0XlKMaMldTQDU7DjtLo/bvw0KXoatBnZxYi
-         fVboP7x/qFImAtPi9A05EqZ+vs0Z+VZQII61telV0KA4sOOdjW2NrwD3leN2P/YJR9L5
-         guVk3LvYmbu7qEt4k6QychUO7UDxYo4dlORMpwaBGQ87XDJfrkKPUWicYZ3PiDpFGASV
-         fvog==
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:date:from:sender:dkim-signature;
+        bh=cSmpO0UrVcE+2EXGicwP6bV9bb5FnRrk6s8yuew8veA=;
+        b=ku/4jpBWOjW9iZkTyVamkuNeGBzEzJbmhQ7F6Oa0d8QqC1RsXoJ/0Y9y90N6szp/Vt
+         cW/PFC27wHeVlWlOQE6ubCfVKxa7DEa6k1mb0q31+Re1hfm0Pqa1eiEcrUgCcaper9PJ
+         elnaHDvW7B+VOfFxFCZEuSKcx5DQEkTPT+5U+TRd9rqfcIsEkVNPgeJsLxEUX6cfwfNj
+         pMIqi86DfBvLCzp7R5LHfrK5Vi4LkM5nuwoM7amATEwft/9suH7E/UnDz50d+JWevef8
+         d/l6GjmDfSmugEemys5Qq91V83eLUtswmg1SJZLC+97hTHgmikHJZXWCGQKC7cJlqM21
+         0cEA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b="IU480/eX";
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id b2si605893oib.5.2020.02.24.12.51.26
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=WrMS23gO;
+       spf=pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=niveditas98@gmail.com
+Received: from mail-qv1-xf43.google.com (mail-qv1-xf43.google.com. [2607:f8b0:4864:20::f43])
+        by gmr-mx.google.com with ESMTPS id q19si468425pgt.0.2020.02.24.13.05.25
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Feb 2020 12:51:26 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id 6so5756468pgk.0
-        for <clang-built-linux@googlegroups.com>; Mon, 24 Feb 2020 12:51:26 -0800 (PST)
-X-Received: by 2002:a63:4e22:: with SMTP id c34mr18743179pgb.263.1582577485165;
- Mon, 24 Feb 2020 12:51:25 -0800 (PST)
+        Mon, 24 Feb 2020 13:05:25 -0800 (PST)
+Received-SPF: pass (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f43 as permitted sender) client-ip=2607:f8b0:4864:20::f43;
+Received: by mail-qv1-xf43.google.com with SMTP id g6so4759809qvy.5
+        for <clang-built-linux@googlegroups.com>; Mon, 24 Feb 2020 13:05:25 -0800 (PST)
+X-Received: by 2002:a0c:9d4f:: with SMTP id n15mr47503323qvf.194.1582578324649;
+        Mon, 24 Feb 2020 13:05:24 -0800 (PST)
+Received: from rani.riverdale.lan ([2001:470:1f07:5f3::b55f])
+        by smtp.gmail.com with ESMTPSA id a141sm6489195qkb.50.2020.02.24.13.05.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 24 Feb 2020 13:05:24 -0800 (PST)
+Sender: Arvind Sankar <niveditas98@gmail.com>
+From: Arvind Sankar <nivedita@alum.mit.edu>
+Date: Mon, 24 Feb 2020 16:05:22 -0500
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Arvind Sankar <nivedita@alum.mit.edu>, Borislav Petkov <bp@alien8.de>,
+	Nathan Chancellor <natechancellor@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Michael Matz <matz@suse.de>, Fangrui Song <maskray@google.com>,
+	Kees Cook <keescook@chromium.org>
+Subject: Re: [PATCH 1/2] arch/x86: Use -fno-asynchronous-unwind-tables to
+ suppress .eh_frame sections
+Message-ID: <20200224210522.GA409112@rani.riverdale.lan>
+References: <20200222235709.GA3786197@rani.riverdale.lan>
+ <20200223193715.83729-2-nivedita@alum.mit.edu>
+ <CAKwvOdniNba30cUX9QAZdVPg2MhjVETVgrvUUzwaHF70Dr3PrQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20200109150218.16544-1-nivedita@alum.mit.edu> <20200109150218.16544-2-nivedita@alum.mit.edu>
- <20200222050845.GA19912@ubuntu-m2-xlarge-x86> <20200222065521.GA11284@zn.tnic>
- <20200222070218.GA27571@ubuntu-m2-xlarge-x86> <20200222072144.asqaxlv364s6ezbv@google.com>
- <20200222074254.GB11284@zn.tnic> <20200222162225.GA3326744@rani.riverdale.lan>
- <CAKwvOdnvMS21s9gLp5nUpDAOu=c7-iWYuKTeFUq+PMhsJOKUgw@mail.gmail.com> <alpine.LSU.2.21.2002241319150.12812@wotan.suse.de>
-In-Reply-To: <alpine.LSU.2.21.2002241319150.12812@wotan.suse.de>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 24 Feb 2020 12:51:14 -0800
-Message-ID: <CAKwvOd=nCAyXtng1N-fvNYa=-NGD0yu+Rm6io9F1gs0FieatwA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] x86/boot/compressed: Remove unnecessary sections from bzImage
-To: Michael Matz <matz@suse.de>
-Cc: Arvind Sankar <nivedita@alum.mit.edu>, Fangrui Song <maskray@google.com>, 
-	Borislav Petkov <bp@alien8.de>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Kees Cook <keescook@chromium.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+Content-Disposition: inline
+In-Reply-To: <CAKwvOdniNba30cUX9QAZdVPg2MhjVETVgrvUUzwaHF70Dr3PrQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-Original-Sender: nivedita@alum.mit.edu
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b="IU480/eX";       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@gmail.com header.s=20161025 header.b=WrMS23gO;       spf=pass
+ (google.com: domain of niveditas98@gmail.com designates 2607:f8b0:4864:20::f43
+ as permitted sender) smtp.mailfrom=niveditas98@gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -136,67 +142,70 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Feb 24, 2020 at 5:28 AM Michael Matz <matz@suse.de> wrote:
->
-> Hello,
->
-> On Sat, 22 Feb 2020, Nick Desaulniers wrote:
->
-> > > > > In GNU ld, it seems that .shstrtab .symtab and .strtab are special
-> > > > > cased. Neither the input section description *(.shstrtab) nor *(*)
-> > > > > discards .shstrtab . I feel that this is a weird case (probably even a bug)
-> > > > > that lld should not implement.
-> > > >
-> > > > Ok, forget what the tools do for a second: why is .shstrtab special and
-> > > > why would one want to keep it?
-> > > >
-> > > > Because one still wants to know what the section names of an object are
-> > > > or other tools need it or why?
-> > > >
-> > > > Thx.
-> > > >
-> > > > --
-> > > > Regards/Gruss,
-> > > >     Boris.
-> > > >
-> > > > https://people.kernel.org/tglx/notes-about-netiquette
-> > >
-> > > .shstrtab is required by the ELF specification. The e_shstrndx field in
-> > > the ELF header is the index of .shstrtab, and each section in the
-> > > section table is required to have an sh_name that points into the
-> > > .shstrtab.
+On Mon, Feb 24, 2020 at 12:33:49PM -0800, Nick Desaulniers wrote:
+> On Sun, Feb 23, 2020 at 11:37 AM Arvind Sankar <nivedita@alum.mit.edu> wrote:
 > >
-> > Yeah, I can see it both ways.  That `*` doesn't glob all remaining
-> > sections is surprising to me, but bfd seems to be "extra helpful" in
-> > not discarding sections that are required via ELF spec.
->
-> In a way the /DISCARD/ assignment should be thought of as applying to
-> _input_ sections (as all such section references on the RHS), not
-> necessarily to output sections.  What this then means for sections that
-> are synthesized by the link editor is less clear.  Some of them are
-> generated regardless (as you noted, e.g. the symbol table and associated
-> string sections, including section name string table), some of them are
-> suppressed, and either lead to an followup error (e.g. with .gnu.hash), or
-> to invalid output (e.g. missing .dynsym for executables simply lead to
-> segfaults when running them).
->
-> That's the reason for the perceived inconsistency with behaviour on '*':
-> it's application to synthesized sections.  Arguably bfd should be fixed to
-> also not discard the other essential sections (or alternatively to give an
-> error when an essential section is discarded).  The lld behaviour of e.g.
-> discarding .shstrtab (or other synthesized sections necessary for valid
-> ELF output) doesn't make much sense either, though.
+> > While discussing a patch to discard .eh_frame from the compressed
+> > vmlinux using the linker script, Fangrui Song pointed out [1] that these
+> > sections shouldn't exist in the first place because arch/x86/Makefile
+> > uses -fno-asynchronous-unwind-tables.
+> 
+> Another benefit is that -fno-asynchronous-unwind-tables may help
+> reduce the size of .text!
+> https://stackoverflow.com/a/26302715/1027966
 
-Hi Michael, thank you for the precise feedback.  Do you have a list of
-"synthesized sections necessary for valid ELF output?" Also, could you
-point me to the documentation about `*` and its relation to
-"synthesized sections necessary for valid ELF output?"  This will help
-me file a precise bug against LLD.
--- 
-Thanks,
-~Nick Desaulniers
+Hm I don't see any change in .text size.
+> > diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> > index 98a81576213d..a1140c4ee478 100644
+> > --- a/drivers/firmware/efi/libstub/Makefile
+> > +++ b/drivers/firmware/efi/libstub/Makefile
+> > @@ -12,7 +12,8 @@ cflags-$(CONFIG_X86)          += -m$(BITS) -D__KERNEL__ -O2 \
+> >                                    -mno-mmx -mno-sse -fshort-wchar \
+> >                                    -Wno-pointer-sign \
+> >                                    $(call cc-disable-warning, address-of-packed-member) \
+> > -                                  $(call cc-disable-warning, gnu)
+> > +                                  $(call cc-disable-warning, gnu) \
+> > +                                  -fno-asynchronous-unwind-tables
+> 
+> I think we want to add this flag a little lower, line 27 has:
+> 
+> KBUILD_CFLAGS     := $(cflags-y) -DDISABLE_BRANCH_PROFILING \
+> 
+> so the `cflags-y` variable you modify in this hunk will only set
+> -fno-asynchronous-unwind-tables for CONFIG_X86, which I don't think is
+> intentional.  Though when I run
+
+It is intentional -- the other case is that we're building for ARM,
+which only filters out the regular KBUILD_CFLAGS, so adding the flag for
+it should not be necessary. The cflags for ARM are constructed by
+manipulating KBUILD_CFLAGS. Besides it may or may not want unwind
+tables. 32-bit ARM appears to have an option to enable -funwind-tables.
+
+> 
+> $ llvm-readelf -S drivers/firmware/efi/libstub/lib.a | grep eh_frame
+> 
+> after doing an x86_64 defconfig, I don't get any hits. Do you observe
+> .eh_frame sections on any of these objects in this dir? (I'm fine
+> adding it to be safe, but I'm curious why I'm not seeing any
+> .eh_frame)
+> 
+
+You mean before this patch, right? I see hits on every .o file in there
+(compiling with gcc 9.2.0).
+
+> >
+> >  # arm64 uses the full KBUILD_CFLAGS so it's necessary to explicitly
+> >  # disable the stackleak plugin
+> > --
+> > 2.24.1
+> >
+> 
+> 
+> -- 
+> Thanks,
+> ~Nick Desaulniers
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DnCAyXtng1N-fvNYa%3D-NGD0yu%2BRm6io9F1gs0FieatwA%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200224210522.GA409112%40rani.riverdale.lan.
