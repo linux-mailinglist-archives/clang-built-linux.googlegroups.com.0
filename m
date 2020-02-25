@@ -1,127 +1,133 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBB4F22HZAKGQEEB5KKNI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBAABBJOX2HZAKGQEQKKT4EA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5933016B5AA
-	for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 00:34:09 +0100 (CET)
-Received: by mail-vs1-xe3d.google.com with SMTP id j8sf937138vsm.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 15:34:09 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582587248; cv=pass;
+Received: from mail-il1-x13b.google.com (mail-il1-x13b.google.com [IPv6:2607:f8b0:4864:20::13b])
+	by mail.lfdr.de (Postfix) with ESMTPS id A419A16B6C7
+	for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 01:34:46 +0100 (CET)
+Received: by mail-il1-x13b.google.com with SMTP id z12sf21628774ilh.17
+        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 16:34:46 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582590885; cv=pass;
         d=google.com; s=arc-20160816;
-        b=aRCXGLaiKkoMk3hKQqbfC5CL1Jyob2HPls3BJ1Tj2MDA+MgJR94xnxdbtXEkzESJVA
-         vbh4cZr/j3RchM4kh6bhUx+XsFGab29BEzH7kD4OmM8qZHYXLonGOTjceMiw0z2YAo1H
-         mJ3ZqTMSF5eba1JQW1YlfZYWutbi/yRWGqDMZ+OjsvubZLKexl05VgNQYKkHzqZCuqoY
-         ImsO3ltghy/PhI9eCMHgYlHcv1KOZw8WrGNu+tMWYx7HYnUJbPZaBStClFXwXZGjt1Wi
-         lxwuVZ9eeLZgJMWi7sUOWo1b9pP/8OZXKWEneHTHWXYmiTAm5ktxN+LrQeujNZFGhDYv
-         LQuQ==
+        b=Zr2NM+sYm8bDpiDwrLkPlutSkICUHKi6ICoKwhOc/drhCLev0DCSFzNlhyUWH1FU2U
+         tCIZvnjty04EQ8rWOHUhDZHt4RB/irchnjAtWiJFDE8zKBjcLdB0SalEZWNLRcYQBOSN
+         s9ac19hYxCemCRzu3JPgrJvPfy9rAvsl9UoLDzIAKDyGt+l+pFUvtnA3M3DFgQPmUWBS
+         jyzNhrLMRd7IJN5JaHBJuG+FCiRN7SMW9w/I04h02pFPt/b9U1lRY4+QmhG2G7lCRHyJ
+         w0GB+BmmrwY2m8SAdpsSW5nav8/rpW01I2g5us2TC6/mTqzjuEaKRz/WK2RcY4I/6wz8
+         llwg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:dkim-signature;
-        bh=d/VpDqJVNnQ8SQne+CdxEb+1qUJ5iBUMlt3TK7S6//Q=;
-        b=TcKarI8YZe6aQyQsBFJoSpwKy4I7RJFWHDDYZCJne7kA1cf5yMVbSy9uYi7HcOnGJO
-         09WX3aJAWegmGm6BpEpSc3jSOAoTMhoQPULyd0qwURMaH5xP8XtE9AlhFxJwXuf08Q6t
-         dPbbNN+x5zpzsJXr9FwJ6Tu/hEGz6WhQKFiFPhyvfHAQZlHhDfYWBBxK97lAklzItz+E
-         sjDVbBg7JLWAKdJv6TzpGcIvsSdRJJeoem8YGM32Udz/QCf7G0rAYC+9Bt2hBlC6MI+d
-         M1Dx6YDVe5zNm+7km36YYTP8ypViETaJKXFhsEvoFj7poPhsxzguDymhqfrdSBnAfh9x
-         b2Kw==
+         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-filter:sender
+         :dkim-signature;
+        bh=RlnszS+Ukns8AtgFIk4S8ecwU96YDxDWIFUd/JVlxLw=;
+        b=OLwItINzIP3B+gRM4wo+NS9v85dLrTyZ37kBtaT7R6Folj8bCcoRhnXbihisKVb1qR
+         cnc0RbUz5cBS6Rvh4IzsEEpqjevnOuqCIMDgnql3m+mtSCvLZDwSs3OBKesV+gbVAZhs
+         NQ/irRNrjghbl3iqcdY/djVn8/TMWe9n70ysnwRbYJguJtoAPvxlGm42VYcAW47CBfwW
+         0FkX5SonPLS0ncJfT/HS8JKyIAsHARDioWWa5gedOLT52N4ZvUOf3IzrBAdjgsa+unSI
+         O/3Mm3OdiCvgeBXAV5M3X6P6pjLSvWZI4X4kqcVjz+NmhUee9lJA5YYQpnbYL345waNs
+         cOlw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ZH0IMObb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=MZUmed1J;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=d/VpDqJVNnQ8SQne+CdxEb+1qUJ5iBUMlt3TK7S6//Q=;
-        b=nXtSLA649pJXqPVoI/YTDfFOHQVd7Dts6pp5PYpViTw99MlKL4jf2bySDV6FBta212
-         Bx7+FpZOiC3MDnqiurZQ41mzDOtulhtRSMfKb1eFIajzIS1tVZWU8ligWTn7h9ZUpupC
-         RqlBaFHrKEEJZhOw5wDRKSgEwYgvxvGrq1Z7f+bfeFB5ZX2bmnt+W4OYjWzv6WMTRMzk
-         bTy0eG1OSJhDfVauiiI19t4LjSmTOyhBgcNNpQ0VXY3bVcgWExVAi0mP7rC7UPNQ8hmH
-         re4o2ORL6sGpTseS+MLO5XD8pLMzoz12VT3xnv3BN+2Iinxw7U7qr4SBsO0q1U6M+SAI
-         LKCg==
+        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=RlnszS+Ukns8AtgFIk4S8ecwU96YDxDWIFUd/JVlxLw=;
+        b=AT1+NrapN9oydqC4g0iCn9KcIdNBiTqpL4M3gd6ceKuuG8EWcLrPbqVAXcp37PFObO
+         zhxSs0dBGlbby7C2Js9syIz8yn5yS4GOd/N2ycmCOrgiWX+mjhZnbnHTa7RJ3xtiWTW+
+         GGHEDZe5SBo+9shnPjSXVXx3yJpASI2CsdVmFoAbQjSxhzkktj/tDhI4zcy8EYNlfFHb
+         SAQ3axT3RJZMh8fMLf2FSAXyc/CKHX6h2h/XYjOkVnJ1W+wzu3OE7TXqZHlMp8d95Hlv
+         LhZtGqRQvWGDq5fUtlrLqOIuINpsQR2B7ye2/ZitUx6ipHjcG7OBVC2yLBQcJtXsBadO
+         Fo+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+        h=sender:x-gm-message-state:dkim-filter:mime-version:references
+         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=d/VpDqJVNnQ8SQne+CdxEb+1qUJ5iBUMlt3TK7S6//Q=;
-        b=o3p7/ZSHCnCjzLuN2HV0TMeCwO+TSlfRdHUczjTfBv7waJqeqehry3UN4PTC2t26oa
-         pVs8fcIYqlSq8K11xRnQ3cjLhCUwm3OFhDwbAAP8hl9SPl0lFgq+OODTYUb5o8dgtPZN
-         eKvKgpzQvEjuTtSi/Aon+3Ib3ytDh1K0+pyzamwROr+KXzuyCEjERj+2ZXILLcTMynXJ
-         9py/b3di0L5iJ1Q3LB21E34gGAaMwWiBBMw5jsO/ZVUEEIKXl5+6kU1kgIKOO7qGQoXG
-         biLmDZF7U/wypJ/jJLq0q59+YstfxhSwBCxLmk18RkY0yf+fK96j6/omwE7R7b7BEcMA
-         Q8JA==
-X-Gm-Message-State: APjAAAVfJbcaj//brcB1vJSPJPwaVj/wOKJXqDs5qH28nHOVc2xyMQI4
-	PnjH+DOoVAp+9PTgxvBllrI=
-X-Google-Smtp-Source: APXvYqwALw6Kazc584h+/v/Iy1ZvUF1zz8VYIpvy1P5vV8DFxlwDyGBpcWuuc1qTT6B6L7WPi1WE1g==
-X-Received: by 2002:a67:6605:: with SMTP id a5mr27237737vsc.167.1582587248428;
-        Mon, 24 Feb 2020 15:34:08 -0800 (PST)
+        bh=RlnszS+Ukns8AtgFIk4S8ecwU96YDxDWIFUd/JVlxLw=;
+        b=eSUWjeBokp5YQhksNpdO4+jTWKlQMcR6xXhy4TfiTnE1Ges3j+mMaukTsEmjuxD2tc
+         0LOU5+HyraMgaxbWtjrXuKpS/RnQ/BBSjd/mU+kCsUg7+5arFiTy8f6yF2wgq1KdhHxI
+         p5JMlyiza1klSMt26uIS000P9piH/xMEa6kDTRvGiwkskWeVvTvKMx1E4rZ95BF/vRwC
+         3R+8jCtgWANfkViT1FPLe+cTaHu3+5SW5w4RSyaZ2OIo6F8cO0QOLZoirldXFmyUgJRV
+         YtWqeLR0nE3cvGriNlj0FYaKT1MkAXRmamENn3Jl/KCn7IbbDLKra3uZw8MJTBMYWhi6
+         WK6w==
+Sender: clang-built-linux@googlegroups.com
+X-Gm-Message-State: APjAAAWLKCgVY8r711Tt5pQveaSkNCyy0fCqLlMo1XV8np4GRsl6O7Ef
+	cbj+syxtVOItNuT97ZVpiww=
+X-Google-Smtp-Source: APXvYqx7e4idOPEjRX68swmHww1nrmWDfNZZegKXJPVmgmDy7SldN/vU3FyJIXxtx1+Ei70OYyMmsg==
+X-Received: by 2002:a92:d705:: with SMTP id m5mr61710756iln.76.1582590885631;
+        Mon, 24 Feb 2020 16:34:45 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9f:3752:: with SMTP id a18ls736546uae.7.gmail; Mon, 24 Feb
- 2020 15:34:08 -0800 (PST)
-X-Received: by 2002:ab0:70b6:: with SMTP id q22mr27360336ual.78.1582587248059;
-        Mon, 24 Feb 2020 15:34:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582587248; cv=none;
+Received: by 2002:a92:cb49:: with SMTP id f9ls2334182ilq.7.gmail; Mon, 24 Feb
+ 2020 16:34:45 -0800 (PST)
+X-Received: by 2002:a92:8d98:: with SMTP id w24mr64845950ill.198.1582590885252;
+        Mon, 24 Feb 2020 16:34:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582590885; cv=none;
         d=google.com; s=arc-20160816;
-        b=a4BmYawRiSkL4WxMdMdvlJC3J+dnURofRNOujNScuV/XOL/D5akDKTcPIXAhdbUzv3
-         fSAJdJexIELRvl04mY7RbVBaNCzg/bTcKwg/f4I4vMV5XdWoTEDwZHDEDPYVz6yVu7d/
-         1TrbDD2fVRyRs5FTteYAcGtLxfz4h9QTi9/SsWJ0JWkfuPx0yXFcX1c+AgMR/W94v1Ec
-         b/7fmSfPhxTKxhE1tWOwHZ28d4yaj+PJGpNNOqAAF+4ZBdQfc7b2UxAAN1ALhF2zcd1h
-         UJxwXMCzH+D9x7JhmlG2JT8m4Rj4tQb9MuGOEYEwj/IcjQKW4ISC+FdDwEwIIJopa74D
-         ReFw==
+        b=uS1kRn0L4+OmC+uunVwRW7IemNO+MREIWs5FlmEGX+brWKAt2lt9Nu9XEF/ArkGArx
+         q1/Fq14kPrLXaFy1aNdq8tBRkqgH41a7WIjxhcpPMWL5IPt2jIxVtUEYOUCr9OJkG4wu
+         khOmtazL2+3IcpzO15BQAtstKKKQgKz0EjXrv3/WJ6xhgCjkbJxa7e4sSz3p0eCIiV+i
+         xcl2A3wk9qWBO+v4AmjM//Q+OLyvozd4UfxV2MBeAqAJ0+zq2r4gZmeSear1g+6Thka9
+         YT/1TkalLok2almMTwNby36GMbPBT/AcVOhmtUIG7xGbjziDdWRnKQrnyFw1Il3jb49d
+         gKMw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=XFUwyglKUk6D3XnYFci54N4jRavS/ro7uLfU4m/GniE=;
-        b=JTLVxqB8cyDGLIV6hFRVyldNIBFzYDeB9JCjEwC1hFhIc7/uEAgbHU9qDt8bJ9Ur+q
-         A/ruD11mTSspvNR7wGNObkcCvnwHeafNzlvDEFSiYNwZabSrhVLWidF/PiEiv/v4tIsN
-         8+wd9XG86uot+DwSpVrmcRKVg2f2IDwzVVDCpV3kMVZIRBWpPDy2qANwd597wt/TbeKp
-         R9exRXhaxFfRf8mYEme2lB9nPdjzp5CVeEiAVnOY1nTEMwx0j+CmQM8OytbZNWvNgB+y
-         8rxNaoETlLlVqLSNg6dNDSuTc/2k1v/AWP+6Xum3bEGpVyYeDzmRfuprMuBKL6x2Y7PD
-         cslw==
+         :mime-version:dkim-signature:dkim-filter;
+        bh=YpOdnzakaY4kQ6Hq6dtj/GHqkEvETebfSIs9KOwQ0T8=;
+        b=VvYzrO+Mu/ModhpPdgJ3fREYOcQLG39KIBP+VYcvgvDNhEarN1PXX9SyAWIOj1ydHh
+         IHUG6/YdZBGfPN2+ZPEdaeSrFKxy54ziHDczxsoN/KlwiLOtkV1GEdv4INH9DS1eB2lY
+         Wrr8QhS6uUaPjJrRezXA3a/Zz8i3je2eeziDf5v/75/o820/l9rNO+HjUQSqPl+tF0iS
+         wiISLU/v70T+Q6VzRH5a18cUP9/hUr9C1fzzR8CEo42iw1VXwJTImvgnGMNs/VV55g70
+         8VRJdXDagi69t/s7cQ+YBBsiXl2d5kxc6WvXrDIpy9IYHv15fIzrjAe8KRFcQvT2V/lV
+         RMag==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=ZH0IMObb;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
-       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
-        by gmr-mx.google.com with ESMTPS id y126si815919vkc.5.2020.02.24.15.34.08
+       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=MZUmed1J;
+       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+Received: from conssluserg-03.nifty.com (conssluserg-03.nifty.com. [210.131.2.82])
+        by gmr-mx.google.com with ESMTPS id b16si830930ion.0.2020.02.24.16.34.44
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Feb 2020 15:34:08 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
-Received: by mail-pg1-x544.google.com with SMTP id w21so5915196pgl.9
-        for <clang-built-linux@googlegroups.com>; Mon, 24 Feb 2020 15:34:08 -0800 (PST)
-X-Received: by 2002:a62:37c7:: with SMTP id e190mr54344990pfa.165.1582587246762;
- Mon, 24 Feb 2020 15:34:06 -0800 (PST)
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 24 Feb 2020 16:34:45 -0800 (PST)
+Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.82 as permitted sender) client-ip=210.131.2.82;
+Received: from mail-vs1-f44.google.com (mail-vs1-f44.google.com [209.85.217.44]) (authenticated)
+	by conssluserg-03.nifty.com with ESMTP id 01P0YVsu005756
+	for <clang-built-linux@googlegroups.com>; Tue, 25 Feb 2020 09:34:31 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-03.nifty.com 01P0YVsu005756
+X-Nifty-SrcIP: [209.85.217.44]
+Received: by mail-vs1-f44.google.com with SMTP id a2so6931257vso.3
+        for <clang-built-linux@googlegroups.com>; Mon, 24 Feb 2020 16:34:31 -0800 (PST)
+X-Received: by 2002:a67:6485:: with SMTP id y127mr29738781vsb.54.1582590870771;
+ Mon, 24 Feb 2020 16:34:30 -0800 (PST)
 MIME-Version: 1.0
-References: <CAKwvOdn6cxm9EpB7A9kLasttPwLY2csnhqgNAdkJ6_s2DP1-HA@mail.gmail.com>
- <20200224232129.597160-3-nivedita@alum.mit.edu>
-In-Reply-To: <20200224232129.597160-3-nivedita@alum.mit.edu>
-From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Mon, 24 Feb 2020 15:33:55 -0800
-Message-ID: <CAKwvOdm1yGkYtiqHqDvi_e+jSdbp102AbPsaXG42fR4Tyw42Aw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] arch/x86: Drop unneeded linker script discard of .eh_frame
-To: Arvind Sankar <nivedita@alum.mit.edu>
-Cc: Borislav Petkov <bp@alien8.de>, Nathan Chancellor <natechancellor@gmail.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	clang-built-linux <clang-built-linux@googlegroups.com>, Michael Matz <matz@suse.de>, 
-	Fangrui Song <maskray@google.com>, Kees Cook <keescook@chromium.org>, 
-	Andy Lutomirski <luto@kernel.org>
+References: <20200224174129.2664-1-ndesaulniers@google.com>
+In-Reply-To: <20200224174129.2664-1-ndesaulniers@google.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 25 Feb 2020 09:33:54 +0900
+X-Gmail-Original-Message-ID: <CAK7LNASNsOmyqFWYtJHB4UcHAed5C_isWvMJ4MKHu0O=yUy=8w@mail.gmail.com>
+Message-ID: <CAK7LNASNsOmyqFWYtJHB4UcHAed5C_isWvMJ4MKHu0O=yUy=8w@mail.gmail.com>
+Subject: Re: [PATCH] Documentation/llvm: add documentation on building w/ Clang/LLVM
+To: Nick Desaulniers <ndesaulniers@google.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Kees Cook <keescook@chromium.org>,
+        Nathan Chancellor <natechancellor@gmail.com>,
+        Michal Marek <michal.lkml@markovi.net>,
+        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
+        "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        clang-built-linux <clang-built-linux@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: ndesaulniers@google.com
+X-Original-Sender: masahiroy@kernel.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=ZH0IMObb;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::544
- as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
- (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
-Reply-To: Nick Desaulniers <ndesaulniers@google.com>
+ header.i=@nifty.com header.s=dec2015msa header.b=MZUmed1J;       spf=softfail
+ (google.com: domain of transitioning masahiroy@kernel.org does not designate
+ 210.131.2.82 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
+       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -134,118 +140,40 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Feb 24, 2020 at 3:21 PM Arvind Sankar <nivedita@alum.mit.edu> wrote:
+On Tue, Feb 25, 2020 at 2:41 AM Nick Desaulniers
+<ndesaulniers@google.com> wrote:
 >
-> Now that we don't generate .eh_frame sections for the files in setup.elf
-> and realmode.elf, the linker scripts don't need the /DISCARD/ any more.
+> Added to kbuild documentation. Provides more official info on building
+> kernels with Clang and LLVM than our wiki.
 >
-> Remove the one in the main kernel linker script as well, since there are
-> no .eh_frame sections already, and fix up a comment referencing .eh_frame.
->
-> Update the comment in asm/dwarf2.h referring to .eh_frame so it continues
-> to make sense, as well as being more specific.
->
-> Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
-
-Thanks for cleaning up the comments.
-Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-
+> Suggested-by: Kees Cook <keescook@chromium.org>
+> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
+> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
 > ---
->  arch/x86/boot/compressed/vmlinux.lds.S | 5 -----
->  arch/x86/boot/setup.ld                 | 1 -
->  arch/x86/include/asm/dwarf2.h          | 4 ++--
->  arch/x86/kernel/vmlinux.lds.S          | 7 ++-----
->  arch/x86/realmode/rm/realmode.lds.S    | 1 -
->  5 files changed, 4 insertions(+), 14 deletions(-)
->
-> diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
-> index 469dcf800a2c..508cfa6828c5 100644
-> --- a/arch/x86/boot/compressed/vmlinux.lds.S
-> +++ b/arch/x86/boot/compressed/vmlinux.lds.S
-> @@ -73,9 +73,4 @@ SECTIONS
->  #endif
->         . = ALIGN(PAGE_SIZE);   /* keep ZO size page aligned */
->         _end = .;
-> -
-> -       /* Discard .eh_frame to save some space */
-> -       /DISCARD/ : {
-> -               *(.eh_frame)
-> -       }
->  }
-> diff --git a/arch/x86/boot/setup.ld b/arch/x86/boot/setup.ld
-> index 3da1c37c6dd5..24c95522f231 100644
-> --- a/arch/x86/boot/setup.ld
-> +++ b/arch/x86/boot/setup.ld
-> @@ -52,7 +52,6 @@ SECTIONS
->         _end = .;
->
->         /DISCARD/       : {
-> -               *(.eh_frame)
->                 *(.note*)
->         }
->
-> diff --git a/arch/x86/include/asm/dwarf2.h b/arch/x86/include/asm/dwarf2.h
-> index ae391f609840..f71a0cce9373 100644
-> --- a/arch/x86/include/asm/dwarf2.h
-> +++ b/arch/x86/include/asm/dwarf2.h
-> @@ -42,8 +42,8 @@
->          * Emit CFI data in .debug_frame sections, not .eh_frame sections.
->          * The latter we currently just discard since we don't do DWARF
->          * unwinding at runtime.  So only the offline DWARF information is
-> -        * useful to anyone.  Note we should not use this directive if
-> -        * vmlinux.lds.S gets changed so it doesn't discard .eh_frame.
-> +        * useful to anyone.  Note we should not use this directive if we
-> +        * ever decide to enable DWARF unwinding at runtime.
->          */
->         .cfi_sections .debug_frame
->  #else
-> diff --git a/arch/x86/kernel/vmlinux.lds.S b/arch/x86/kernel/vmlinux.lds.S
-> index e3296aa028fe..5cab3a29adcb 100644
-> --- a/arch/x86/kernel/vmlinux.lds.S
-> +++ b/arch/x86/kernel/vmlinux.lds.S
-> @@ -313,8 +313,8 @@ SECTIONS
->
->         . = ALIGN(8);
->         /*
-> -        * .exit.text is discard at runtime, not link time, to deal with
-> -        *  references from .altinstructions and .eh_frame
-> +        * .exit.text is discarded at runtime, not link time, to deal with
-> +        *  references from .altinstructions
->          */
->         .exit.text : AT(ADDR(.exit.text) - LOAD_OFFSET) {
->                 EXIT_TEXT
-> @@ -412,9 +412,6 @@ SECTIONS
->         DWARF_DEBUG
->
->         DISCARDS
-> -       /DISCARD/ : {
-> -               *(.eh_frame)
-> -       }
->  }
->
->
-> diff --git a/arch/x86/realmode/rm/realmode.lds.S b/arch/x86/realmode/rm/realmode.lds.S
-> index 64d135d1ee63..63aa51875ba0 100644
-> --- a/arch/x86/realmode/rm/realmode.lds.S
-> +++ b/arch/x86/realmode/rm/realmode.lds.S
-> @@ -71,7 +71,6 @@ SECTIONS
->         /DISCARD/ : {
->                 *(.note*)
->                 *(.debug*)
-> -               *(.eh_frame*)
->         }
->
->  #include "pasyms.h"
-> --
-> 2.24.1
->
 
+
+Perhaps, is it better to explicitly add it to MAINTAINERS?
+
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -4118,6 +4118,7 @@ W:        https://clangbuiltlinux.github.io/
+ B:     https://github.com/ClangBuiltLinux/linux/issues
+ C:     irc://chat.freenode.net/clangbuiltlinux
+ S:     Supported
++F:     Documentation/kbuild/llvm.rst
+ K:     \b(?i:clang|llvm)\b
+
+ CLEANCACHE API
+
+
+
+Thanks.
 
 -- 
-Thanks,
-~Nick Desaulniers
+Best Regards
+Masahiro Yamada
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOdm1yGkYtiqHqDvi_e%2BjSdbp102AbPsaXG42fR4Tyw42Aw%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNASNsOmyqFWYtJHB4UcHAed5C_isWvMJ4MKHu0O%3DyUy%3D8w%40mail.gmail.com.
