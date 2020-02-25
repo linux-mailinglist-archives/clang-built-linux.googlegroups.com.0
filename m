@@ -1,34 +1,34 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBPN32LZAKGQEFG6EXQY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBJ542LZAKGQEQXLRM4I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 527E816B863
-	for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 05:08:31 +0100 (CET)
-Received: by mail-oi1-x23e.google.com with SMTP id 199sf5403221oie.10
-        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 20:08:31 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582603709; cv=pass;
+Received: from mail-pl1-x639.google.com (mail-pl1-x639.google.com [IPv6:2607:f8b0:4864:20::639])
+	by mail.lfdr.de (Postfix) with ESMTPS id 13E6216B865
+	for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 05:10:17 +0100 (CET)
+Received: by mail-pl1-x639.google.com with SMTP id t17sf6543617plr.13
+        for <lists+clang-built-linux@lfdr.de>; Mon, 24 Feb 2020 20:10:16 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582603815; cv=pass;
         d=google.com; s=arc-20160816;
-        b=N5qlJIgBFh3D1Gn99SeP7FNmMddcBMEi9UpjdPp0yr14xoEjEJqI8IyD148slnNmMU
-         9VOJnooS3GnW8oRl9dcPssZmTKEWIzhjUBqCtG5pHSF+J0q2pPRmKmQ/FpQkSbwQpxov
-         7fZFG/rsDucYMAeNWrlPrknFTJ6r4w9CNJbFpnNuKgKH3gRKgWpmtvDBnbqCM2cLWmOy
-         1hAdaIk/K6OQTAU8efXeEuSSKiGBnyoyutF7jlI7vffolzzlwm63jSXnclu7jITZs6dN
-         MNRM7rxFTF6gVDvmYqG5cVo1GIlZb6ctiZfOpxPkn9jRcpdIUWaVQpxG1AuJvdsJqWgG
-         DOCw==
+        b=XY06jIXr1q/J3FD8+QFbw/GVKHh0JUpEGHFNHuqfw0HZ5apeIcjJDcOmfEKxSXLwJs
+         2HrQTBZ/7BD+tS6Tf9ciKSbiBwMBNpSvJhtx7Upoo8IRO/S01pv2rgOt5LXPnEkDFLFF
+         tDiwHFESVAy4zEMrvELr92PWr4DUr5j5sJKGcsOlQAjgHrPbrSyk/twHn+S1FZZp57Eq
+         FOiBFSwyF4FquJkhTumSmHbZR53/Lr6nHOKQ5NzkXD1ljzZCPbcgO9waF1AHvNBR7oRk
+         N+9Rqi8Q47JkNMSMgAj0582XDxcVWAMy+s7PQO/vUeArMezlXjyiTlDDSxFx/08/P/2p
+         ZKRw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:in-reply-to:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=+AxpUlol6N7hX7CtSwBHSXmZulSYRnouo9Bvgh79UnY=;
-        b=qtXRjOp9FiqaZet2KTJoFZmwOz9cvwkabbRvPFeaAlbOgf2qa0yv7kmRaZe3Jorcj9
-         S644k8KWRtHZvW9qITcItOV7ZMMGlpBePtG5J/9VZx8OdWEGON4ofrs22v22eybggmbX
-         UUITdoB5XgURaFBqzjsfFGUntOldm6dOhnEJ9XVd6MUybjkY0xtxX7R+RPEGv69MsSP3
-         7Zr8BMwXuIUm0NXq6SFSU0wskvy/MSBbzD8Ot4oL3DxIWhMZ7ATvSzdjNq7nuUFgexk6
-         eD9zA1Aaf4eUAtD5XclkuGnCs+zhZHzAwfL6650ZwTJhHoNCSvdqLcb9L3grFoG8tcuR
-         GL0w==
+        bh=m3AN5xHBhCJSb8mVOSlagGEpopEpoEQiZajRxa6MgCE=;
+        b=0MeUt8H/6efXhDzqmEr8rO8sxiZHo5YnKWGA5PzaHYUlXaKVOlmXc8iEjHNEDCNWuQ
+         E63BKoM5HhqWTSGIeXcS1Y6MfcPl8QD/B4YfyrM81KGUjLEYN2nH3+HH83hFZfIFB6iU
+         +rOSC8QmRFq3FmIgyR3122fmSB+MfrZU1zs9brNR8gZKVgAKJUFx6rzp3N7ednUiC2EW
+         H4HrMTfToAo2LV1Xelmyl+R27tV1PnrdssLHyeunE6FYhlDnO6BHOLHHGZV/dZBpbnAL
+         6vZwR2D/sdPP2UrtE5xcBJl9YifEEB1YbF7eDQnbnjBYO8EnCEpD3/dUfbT3r+aoOwfe
+         599g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=MXlDVQn4;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LVqXzB6A;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -36,13 +36,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+AxpUlol6N7hX7CtSwBHSXmZulSYRnouo9Bvgh79UnY=;
-        b=VzoGrmz8T+e5AVvJKiblXwLA/N90VfT02zZQLIsam9hmjFkAJucyLqaWAPMFA7vX8u
-         CDRgensDOlGFs/fe3VPh6aJqEBj77WMyRE0Nge0ceM9cI1I5GrjF6vDQEFc8hN6JHJF8
-         XUYK/Tcjl641Q4qzniOYOroS0RqxYqI/L3xwD2iWGh+azgLY2cyCYeQ0dmJmf7oJbAVv
-         BnHsJxnq1Cq5TwBS2+y21fiJAXYOoCnspFvrartKYEAZJ43JRHMH4nvg5PW6061doRVp
-         mP+aulRRmrDVAxlUveofK47f5zcLfjbMT0kL/bhqPM2BWYtZNZHHbqJhGgxI60I8si7d
-         QahQ==
+        bh=m3AN5xHBhCJSb8mVOSlagGEpopEpoEQiZajRxa6MgCE=;
+        b=sdsKk5AxDqDW2ugTVJWkUj/Xgf6/sMBu20SPFM1Lma/rLNTaqdRhVcpOnlw8Xfm3qJ
+         9Rmhu13jh5YeXNQFvIpELaTAeYjKhjFWFHEvAbrvNNYBL7PW67800JW0zvyYoTVSfHUI
+         dNzh4irbRySQs7xAtzrGoYGujKW0WKHKvrq7hQyibCQAlVbSl71WgOrprGIb8VCSs0Vv
+         TOq74YxhkeZtV1dBYeeP/d0tMY3bTZNzEoUnQa8Tc3/NfgrvY2iwbKeZvyqO39Ebku9o
+         5KC7xHn6/2zEwmKBEM/Y4wHWCL47dcTs/kI4CikvX0wxeRcnCm2EHQL0OmxCq/PyC+qd
+         AQFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -50,80 +50,85 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=+AxpUlol6N7hX7CtSwBHSXmZulSYRnouo9Bvgh79UnY=;
-        b=BBriwrXDAm1ljmE3Z3TJUNd13EmmG+Fp9Jc4yRlv31XxZ6c9gQcmJIHx6DOGke0Q/E
-         xaHAg4zIxgiqTELrYw5npkiJ7xxXBYVCZW4ufLLOgZ4BDNsRER3lZUn/m8HbelxeLKpJ
-         tBoZg985YUnayk/F73UMPlo3eILC2o1R8T1gyqGkPpB2i0yO9kuL5rAtpaePNVWYE5tz
-         oLRsy8NY5B7/XZ/eroxNjmkOGV1HDaQspM9gB74oofHHynoDHYOgjFGa5tQGb3JdVxy+
-         jBLxUE0DmG49P/9ws7iMCm1Gp/pdOlINd7DMP4mBtPWwu0y5mwS8mQ8U0AFRZOVQRws+
-         YUSQ==
+        bh=m3AN5xHBhCJSb8mVOSlagGEpopEpoEQiZajRxa6MgCE=;
+        b=U//xqIc0QY0+U0hdqPy9OK0NYsLukzkll++GvmilJOLmFLuMebM0acRtGUbAFObyDx
+         RCtAa9pnvJp/nB94kZB4c6vrd7RWi1X/XAfRzhdt/g+/IrqktSH79TeMKDhU0Jmh5kap
+         E23Mlvz262cOihqP3gJB6n4/qIrJTxv+seylRqid7ak2rxHAoQpDkV46yFmpdffq0dz8
+         i45/j70BsvPlhh65/V8tKBpsVizyzufxXssVX3wlx2flETW+KAQpGdQMeF3Qkuyv7HWz
+         aLGLq5aErq3QDEtVgIQxR87y9+R720Tr4lyxtCdnhanLAhbfrxOvrHcDB0x7qJjbXWzg
+         BGkg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVn0TpsAVT8Ztw+n6VEZygQUOgtjzcCNY/CKwyrdHFHiJk9XRZE
-	mLrRqik1IpOgRac/VqsFEYo=
-X-Google-Smtp-Source: APXvYqx+1t/v3e2P9lDTTpCRu/CmS8L06U1LVJagyG5ytD4Pmd9TxGkU+8a5Iq+p3vthS40ZOgdPmA==
-X-Received: by 2002:a9d:5885:: with SMTP id x5mr41831685otg.132.1582603709641;
-        Mon, 24 Feb 2020 20:08:29 -0800 (PST)
+X-Gm-Message-State: APjAAAWzqkRKPvqg/t9c9kxGFufeTONeYOX3mNUTnU0MNfVyOvNivP2O
+	+9UTzlkyRydZBqVreFOu25I=
+X-Google-Smtp-Source: APXvYqwCuIJy8DB6RO5ZfHsvfx/vkQeiLN4km7KD8Iql97MY4qPoOFLuPZEUx/erBL7K9vLZwm128Q==
+X-Received: by 2002:a17:90a:26ab:: with SMTP id m40mr2949181pje.42.1582603815706;
+        Mon, 24 Feb 2020 20:10:15 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a05:6808:3ae:: with SMTP id n14ls3511822oie.8.gmail; Mon, 24
- Feb 2020 20:08:29 -0800 (PST)
-X-Received: by 2002:aca:e106:: with SMTP id y6mr1976676oig.131.1582603709247;
-        Mon, 24 Feb 2020 20:08:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582603709; cv=none;
+Received: by 2002:a17:902:9a81:: with SMTP id w1ls3978274plp.2.gmail; Mon, 24
+ Feb 2020 20:10:15 -0800 (PST)
+X-Received: by 2002:a17:90a:d585:: with SMTP id v5mr2834194pju.4.1582603815282;
+        Mon, 24 Feb 2020 20:10:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582603815; cv=none;
         d=google.com; s=arc-20160816;
-        b=uQgx/cqsOpuSjvRAI+TX7w+ieEdyurDtzWsPzfyFlgbknd3LzTXXzss0EqTXnohL3D
-         DQj3oyCwfsECF+kDCAYhcPzdllRceo4xURZ056cj28Vn+EOfFIRE7y6o5TcyIYb41C8l
-         psEgRs7F8TMjGp2qrPLZPE4tlvgPgM1hMDOvfgcKeX3C4BJA+xxCoK76jl6xXbCW5EEG
-         PVIT+ZmlLtO33HizcTToTMCy3dxUJOOX8k2+Fln673Da9nfLFUZnBtYo1TfvF1Z+9VkA
-         EibmwoopOnimgjbMzKgUPTZ/O2ZRdzeNtp5bFfQLqHA01ltp5Bpk97BsPa2RxB4dDjJz
-         fezg==
+        b=hSTgea/Kp7ZDejjtktcthM7orT5Wx3j6fMkS+jhT5gYw1qRgBwqgTVlAg1cI+NZTdW
+         yebKUCat0AGLboJTiOdxfa82k166LdyD8Ti3bGvZ7QXxqaTIN/kuVzT3cSeRrBqr7rzl
+         CyLPIwqkBXSCyAw5xXcATXluOTwRbSk0tOlQja4XN8sAnVvboHhxPBaGcMcDj5rKZ7xN
+         ORUPVbF99f+v9Lyh6gs1xJMI1bRYCDekBvuRh3NanSEpekzR51riROpdWsj+bMCEUj6a
+         8oSUsZDxUiFGi8bM4TW2fh63FH+HFKwGMuVYAU7AUurSN65zxKsJTN54p9OhscZ2fkGw
+         D9Rg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:dkim-signature;
-        bh=hsmwTWPSD0szPQ7rhutWKLwR4ldbSWtt8mN+lR7f3aU=;
-        b=vtaNjIvSZ5C2Fc6G0xWc0ZfvtNy+6aUtEEh3rbkkYttI3Iyct+s2Uw4+g10BzIULQA
-         irydztmfgAytf5GZ/Mwo893NoiFTb2unSW9sANsqWMvMUBsLpt16Yht/Xa1oIHJn0m7O
-         UAvP4u6L4JclH/dFv/totbiAKfK0bUE5EU3bFcfrHIZ5qM/fgeia2U7OABF5VJofr8A/
-         OfwjeXqqjIvNZiAq/R6g60oyl6gz/08pOp9h1SH+3FkOUPvWiPf/b+atDoZNPrGENW8q
-         e9wUhJ4PlY43gtTKAeZMPY1wHw0FiUcI5HDVZDt2GjiFIdz+lV//k6Ymg/5+EKmk2yRw
-         tDqw==
+        bh=Vusshdc55krHefiBaqz9JgK7J4GXTO3PHrFYufBJIy8=;
+        b=OXShuMgv8ZpRNebyKxYB4L14UzECX+qA3PNNrZx84WpQ1OtOY2bS0+nGYq5JWi8xM4
+         zGLyP/Sq7W9BVRDsVcp/OtD/VDSHDILZEWQK0NBUP7DklqmhgcCkuBgIQ4u1oA/VVvwC
+         oqTWwEaICGjQU/5YKQnxgzMtYfDsT2KuShAk/8AFCCEQgx2XhvOVazv3x59ByHAqPGu9
+         wZZ3aLotSqEvbf2IYIbknlbTZ0ty0T331yjUwpgE7Yi6ncptpeGJOZWSORdu5zLhvmKK
+         0mETbGvMv3ULYRfXKLQbrOah7bDKp3LHa9t1jZZ4I804abUDL/gIndmFEVvBxWkHUcsW
+         SIRg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=MXlDVQn4;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=LVqXzB6A;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x441.google.com (mail-pf1-x441.google.com. [2607:f8b0:4864:20::441])
-        by gmr-mx.google.com with ESMTPS id j15si759390oii.3.2020.02.24.20.08.29
+Received: from mail-pg1-x544.google.com (mail-pg1-x544.google.com. [2607:f8b0:4864:20::544])
+        by gmr-mx.google.com with ESMTPS id d14si899262pfo.4.2020.02.24.20.10.15
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 24 Feb 2020 20:08:29 -0800 (PST)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441 as permitted sender) client-ip=2607:f8b0:4864:20::441;
-Received: by mail-pf1-x441.google.com with SMTP id x185so6474710pfc.5
-        for <clang-built-linux@googlegroups.com>; Mon, 24 Feb 2020 20:08:29 -0800 (PST)
-X-Received: by 2002:a63:b515:: with SMTP id y21mr9533512pge.148.1582603708389;
-        Mon, 24 Feb 2020 20:08:28 -0800 (PST)
+        Mon, 24 Feb 2020 20:10:15 -0800 (PST)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544 as permitted sender) client-ip=2607:f8b0:4864:20::544;
+Received: by mail-pg1-x544.google.com with SMTP id y30so6192130pga.13
+        for <clang-built-linux@googlegroups.com>; Mon, 24 Feb 2020 20:10:15 -0800 (PST)
+X-Received: by 2002:aa7:8804:: with SMTP id c4mr56003796pfo.214.1582603814922;
+        Mon, 24 Feb 2020 20:10:14 -0800 (PST)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id z27sm14758726pfj.107.2020.02.24.20.08.27
+        by smtp.gmail.com with ESMTPSA id z30sm14679470pff.131.2020.02.24.20.10.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Feb 2020 20:08:27 -0800 (PST)
-Date: Mon, 24 Feb 2020 20:08:26 -0800
+        Mon, 24 Feb 2020 20:10:14 -0800 (PST)
+Date: Mon, 24 Feb 2020 20:10:12 -0800
 From: Kees Cook <keescook@chromium.org>
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: corbet@lwn.net, masahiroy@kernel.org,
+To: Arvind Sankar <nivedita@alum.mit.edu>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+	Borislav Petkov <bp@alien8.de>,
 	Nathan Chancellor <natechancellor@gmail.com>,
-	Michal Marek <michal.lkml@markovi.net>,
-	linux-kbuild@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH] Documentation/llvm: add documentation on building w/
- Clang/LLVM
-Message-ID: <202002242003.870E5F80@keescook>
-References: <20200224174129.2664-1-ndesaulniers@google.com>
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, "H. Peter Anvin" <hpa@zytor.com>,
+	x86@kernel.org, LKML <linux-kernel@vger.kernel.org>,
+	clang-built-linux <clang-built-linux@googlegroups.com>,
+	Michael Matz <matz@suse.de>, Fangrui Song <maskray@google.com>,
+	Andy Lutomirski <luto@kernel.org>
+Subject: Re: [PATCH v2 1/2] arch/x86: Use -fno-asynchronous-unwind-tables to
+ suppress .eh_frame sections
+Message-ID: <202002242009.43E8DFD58@keescook>
+References: <CAKwvOdn6cxm9EpB7A9kLasttPwLY2csnhqgNAdkJ6_s2DP1-HA@mail.gmail.com>
+ <20200224232129.597160-2-nivedita@alum.mit.edu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
-In-Reply-To: <20200224174129.2664-1-ndesaulniers@google.com>
+In-Reply-To: <20200224232129.597160-2-nivedita@alum.mit.edu>
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=MXlDVQn4;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::441
+ header.i=@chromium.org header.s=google header.b=LVqXzB6A;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::544
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Precedence: list
@@ -138,128 +143,93 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, Feb 24, 2020 at 09:41:28AM -0800, Nick Desaulniers wrote:
-> Added to kbuild documentation. Provides more official info on building
-> kernels with Clang and LLVM than our wiki.
+On Mon, Feb 24, 2020 at 06:21:28PM -0500, Arvind Sankar wrote:
+> While discussing a patch to discard .eh_frame from the compressed
+> vmlinux using the linker script, Fangrui Song pointed out [1] that these
+> sections shouldn't exist in the first place because arch/x86/Makefile
+> uses -fno-asynchronous-unwind-tables.
 > 
-> Suggested-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
->  Documentation/kbuild/index.rst |  1 +
->  Documentation/kbuild/llvm.rst  | 80 ++++++++++++++++++++++++++++++++++
->  2 files changed, 81 insertions(+)
->  create mode 100644 Documentation/kbuild/llvm.rst
+> It turns out this is because the Makefiles used to build the compressed
+> kernel redefine KBUILD_CFLAGS, dropping this flag.
 > 
-> diff --git a/Documentation/kbuild/index.rst b/Documentation/kbuild/index.rst
-> index 0f144fad99a6..3882bd5f7728 100644
-> --- a/Documentation/kbuild/index.rst
-> +++ b/Documentation/kbuild/index.rst
-> @@ -19,6 +19,7 @@ Kernel Build System
->  
->      issues
->      reproducible-builds
-> +    llvm
->  
->  .. only::  subproject and html
->  
-> diff --git a/Documentation/kbuild/llvm.rst b/Documentation/kbuild/llvm.rst
-> new file mode 100644
-> index 000000000000..68ae022aebc0
-> --- /dev/null
-> +++ b/Documentation/kbuild/llvm.rst
-> @@ -0,0 +1,80 @@
-> +==============================
-> +Building Linux with Clang/LLVM
-> +==============================
-> +
-> +This document covers how to build the Linux kernel with Clang and LLVM
-> +utilities.
-> +
-> +About
-> +-----
-> +
-> +The Linux kernel has always traditionally been compiled with GNU toolchains
-> +such as GCC and binutils. On going work has allowed for `Clang
-> +<https://clang.llvm.org/>`_ and `LLVM <https://llvm.org/>`_ utilities to be
-> +used as viable substitutes. Distributions such as `Android
-> +<https://www.android.com/>`_, `ChromeOS
-> +<https://www.chromium.org/chromium-os>`_, and `OpenMandriva
-> +<https://www.openmandriva.org/>`_ use Clang built kernels.  `LLVM is a
-> +collection of toolchain components implemented in terms of C++ objects
-> +<https://www.aosabook.org/en/llvm.html>`_. Clang is a front-end to LLVM that
-> +supports C and the GNU C extensions required by the kernel, and is pronounced
-> +"klang," not "see-lang."
-> +
-> +Clang
-> +-----
-> +
-> +The compiler used can be swapped out via `CC=` command line argument to `make`.
-> +`CC=` should be set when selecting a config and during a build.
-> +
-> +	make CC=clang defconfig
-> +
-> +	make CC=clang
-> +
-> +Cross Compiling
-> +---------------
-> +
-> +A single Clang compiler binary will typically contain all supported backends,
-> +which can help simplify cross compiling.
-> +
-> +	ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- make CC=clang
-> +
-> +`CROSS_COMPILE` is not used to suffix the Clang compiler binary, instead
+> Add the flag to the Makefile for the compressed kernel, as well as the
+> EFI stub Makefile to fix this.
+> 
+> Also add the flag to boot/Makefile and realmode/rm/Makefile so that the
+> kernel's boot code (boot/setup.elf) and realmode trampoline
+> (realmode/rm/realmode.elf) won't be compiled with .eh_frame sections,
+> since their linker scripts also just discard it.
+> 
+> Signed-off-by: Arvind Sankar <nivedita@alum.mit.edu>
 
-s/suffix/prefix/
-
-> +`CROSS_COMPILE` is used to set a command line flag: `--target <triple>`. For
-> +example:
-> +
-> +	clang --target aarch64-linux-gnu foo.c
-> +
-> +LLVM Utilities
-> +--------------
-> +
-> +LLVM has substitutes for GNU binutils utilities. These can be invoked as
-> +additional parameters to `make`.
-> +
-> +	make CC=clang AS=clang LD=ld.lld AR=llvm-ar NM=llvm-nm STRIP=llvm-strip \\
-> +	  OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump OBJSIZE=llvm-objsize \\
-> +	  READELF=llvm-readelf HOSTCC=clang HOSTCXX=clang++ HOSTAR=llvm-ar \\
-> +	  HOSTLD=ld.lld
-> +
-> +Getting Help
-> +------------
-> +
-> +- `Website <https://clangbuiltlinux.github.io/>`_
-> +- `Mailing List <https://groups.google.com/forum/#!forum/clang-built-linux>`_: <clang-built-linux@googlegroups.com>
-> +- `Issue Tracker <https://github.com/ClangBuiltLinux/linux/issues>`_
-> +- IRC: #clangbuiltlinux on chat.freenode.net
-> +- `Telegram <https://t.me/ClangBuiltLinux>`_: @ClangBuiltLinux
-> +- `Wiki <https://github.com/ClangBuiltLinux/linux/wiki>`_
-> +- `Beginner Bugs <https://github.com/ClangBuiltLinux/linux/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22>`_
-> +
-> +Getting LLVM
-> +-------------
-> +
-> +- http://releases.llvm.org/download.html
-> +- https://github.com/llvm/llvm-project
-> +- https://llvm.org/docs/GettingStarted.html
-> +- https://llvm.org/docs/CMake.html
-> +- https://apt.llvm.org/
-> +- https://www.archlinux.org/packages/extra/x86_64/llvm/
-> +- https://github.com/ClangBuiltLinux/tc-build
-> +- https://github.com/ClangBuiltLinux/linux/wiki/Building-Clang-from-source
-> +- https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/
-
-Should this also include an update to Documentation/process/changes.rst
-with the minimum version required? (I would expect this to be "9" for Clang,
-and "11" for ld.lld.)
-
-Otherwise, yes, with Randy and Masahiro's suggestions, please consider it:
+Thanks for sorting this out. I think it's much cleaner than adding it to
+DISCARD. :)
 
 Reviewed-by: Kees Cook <keescook@chromium.org>
+
+-Kees
+
+> Suggested-By: Fangrui Song <maskray@google.com>
+> [1] https://lore.kernel.org/lkml/20200222185806.ywnqhfqmy67akfsa@google.com/
+> ---
+>  arch/x86/boot/Makefile                | 1 +
+>  arch/x86/boot/compressed/Makefile     | 1 +
+>  arch/x86/realmode/rm/Makefile         | 1 +
+>  drivers/firmware/efi/libstub/Makefile | 3 ++-
+>  4 files changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
+> index 012b82fc8617..24f011e0adf1 100644
+> --- a/arch/x86/boot/Makefile
+> +++ b/arch/x86/boot/Makefile
+> @@ -68,6 +68,7 @@ clean-files += cpustr.h
+>  KBUILD_CFLAGS	:= $(REALMODE_CFLAGS) -D_SETUP
+>  KBUILD_AFLAGS	:= $(KBUILD_CFLAGS) -D__ASSEMBLY__
+>  KBUILD_CFLAGS	+= $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
+> +KBUILD_CFLAGS	+= -fno-asynchronous-unwind-tables
+>  GCOV_PROFILE := n
+>  UBSAN_SANITIZE := n
+>  
+> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+> index 26050ae0b27e..c33111341325 100644
+> --- a/arch/x86/boot/compressed/Makefile
+> +++ b/arch/x86/boot/compressed/Makefile
+> @@ -39,6 +39,7 @@ KBUILD_CFLAGS += $(call cc-disable-warning, address-of-packed-member)
+>  KBUILD_CFLAGS += $(call cc-disable-warning, gnu)
+>  KBUILD_CFLAGS += -Wno-pointer-sign
+>  KBUILD_CFLAGS += $(call cc-option,-fmacro-prefix-map=$(srctree)/=)
+> +KBUILD_CFLAGS += -fno-asynchronous-unwind-tables
+>  
+>  KBUILD_AFLAGS  := $(KBUILD_CFLAGS) -D__ASSEMBLY__
+>  GCOV_PROFILE := n
+> diff --git a/arch/x86/realmode/rm/Makefile b/arch/x86/realmode/rm/Makefile
+> index 99b6332ba540..b11ec5d8f8ac 100644
+> --- a/arch/x86/realmode/rm/Makefile
+> +++ b/arch/x86/realmode/rm/Makefile
+> @@ -71,5 +71,6 @@ $(obj)/realmode.relocs: $(obj)/realmode.elf FORCE
+>  KBUILD_CFLAGS	:= $(REALMODE_CFLAGS) -D_SETUP -D_WAKEUP \
+>  		   -I$(srctree)/arch/x86/boot
+>  KBUILD_AFLAGS	:= $(KBUILD_CFLAGS) -D__ASSEMBLY__
+> +KBUILD_CFLAGS	+= -fno-asynchronous-unwind-tables
+>  GCOV_PROFILE := n
+>  UBSAN_SANITIZE := n
+> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> index 98a81576213d..a1140c4ee478 100644
+> --- a/drivers/firmware/efi/libstub/Makefile
+> +++ b/drivers/firmware/efi/libstub/Makefile
+> @@ -12,7 +12,8 @@ cflags-$(CONFIG_X86)		+= -m$(BITS) -D__KERNEL__ -O2 \
+>  				   -mno-mmx -mno-sse -fshort-wchar \
+>  				   -Wno-pointer-sign \
+>  				   $(call cc-disable-warning, address-of-packed-member) \
+> -				   $(call cc-disable-warning, gnu)
+> +				   $(call cc-disable-warning, gnu) \
+> +				   -fno-asynchronous-unwind-tables
+>  
+>  # arm64 uses the full KBUILD_CFLAGS so it's necessary to explicitly
+>  # disable the stackleak plugin
+> -- 
+> 2.24.1
+> 
 
 -- 
 Kees Cook
@@ -267,4 +237,4 @@ Kees Cook
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002242003.870E5F80%40keescook.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002242009.43E8DFD58%40keescook.
