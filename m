@@ -1,131 +1,124 @@
-Return-Path: <clang-built-linux+bncBDV2D5O34IDRBJ5F3LZAKGQEYF7EFJI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDM6PI5M4IFRBAXC3LZAKGQE4WVUWOI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-il1-x13c.google.com (mail-il1-x13c.google.com [IPv6:2607:f8b0:4864:20::13c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8ECBB1702F7
-	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 16:45:44 +0100 (CET)
-Received: by mail-il1-x13c.google.com with SMTP id o13sf4643875ilf.10
-        for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 07:45:44 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582731943; cv=pass;
+Received: from mail-ed1-x537.google.com (mail-ed1-x537.google.com [IPv6:2a00:1450:4864:20::537])
+	by mail.lfdr.de (Postfix) with ESMTPS id 803891706BB
+	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 18:55:14 +0100 (CET)
+Received: by mail-ed1-x537.google.com with SMTP id n12sf160533edq.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 09:55:14 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582739714; cv=pass;
         d=google.com; s=arc-20160816;
-        b=JNnl6p89eR+jPHOkbGXLAOoL3ILluZDCQUbI9o/hdbdfXhV9RhdHRfXDpE28OVvDGV
-         jSWMDLMOOCCPvN38dG3WxHqYTMjJi60dZpp9CayXIhSfh6YTN7jmX4StGDeqc+D8mifE
-         ca7X1xo1xVVBYZHVH7Bg+HxTIOhqK8eNEoCK291iaHZkH6SQip6cJsVhXX2wdiv3bLeW
-         qUGrHNmJlipNxAu6M4tLL7MsAePFqQ6QC+VVY3FRM78sIzsZfGnL3hm2i8S1EM1sFt2p
-         SgonIlrI8gVdZ6k70Bs9k2/kNwPEul5rjlvNUuWzbFJMgkK/VVYf1wQMm6mrIhRxXrns
-         MXHw==
+        b=GL4gdjbY8uZQYgiR8JADAkR2/hbfFu2tB8pU3AeoRuFh8/90xjlTeLWVQslVgyShWd
+         cyuqK/N7r6AOfoNux44SwBakW5q6izzg/00vHTrw1NlQRtO5jJTmr2naVQuH72fVVYaJ
+         toQFZz3W7DtMjqUwz2Tc84wihvIgLomrOX5xe0jv1qipFDSgalk9IOF5qHuqMwYgPzkA
+         Pp4GE2CCpcoLzQP/qLowCo08T1sx7lMF+CFT3JVdYOqQNfQonwNO8dFFe6CBIsEikIoN
+         z8+tN2H9AlfjYXkzNuYghTGI506gqx2e7xbq6tdJr2jJHyIRHIHxHfuF5DFpg6SwWyfy
+         z1cQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-language:in-reply-to
-         :mime-version:user-agent:date:message-id:from:references:cc:to
-         :subject:sender:dkim-signature;
-        bh=fH97s/8bRTZVNj0LsOn74fiskHTjKYBkE8h00WB7kIw=;
-        b=UhwcTxYznlhAoH5kP73F4qmI7K1FtJAKitsMiKYW71SQmj8wIv/Sne9iNwv/MUA2kD
-         qrw5UWZwQY2yAMd3/f9fqkdzGWxNnZis6sU3lHpdMVLqcKom0efyYQOxpPy8ZRsJUjHJ
-         +vVCvDGbNuWN2ylvG+i28XR5Flpvy+LpgBlQ/7zSFFj89M63hze4bhXT0/NuNTGDIkh/
-         NXBc0SKdntTNyFylwQuOTaS24Im6oehYbSlSJqIMRo64sdwaAv+bzJ1da9GcdS9pw0lA
-         YgEfd0m76fpH79jiCIXDZC0n2o2uACSnMgz9dgk387AlkLA3rU37JtrnbGcLD63giI/f
-         8igQ==
+         :list-id:mailing-list:precedence:mime-version:subject:message-id:to
+         :date:from:sender:dkim-signature;
+        bh=YTnM4Y5riIAnZGUlOp+ePzKwkGRAQtSQspiIqbUTWzY=;
+        b=GzqfVSOuIqjGOzugW7C7YpPXNBqCn12yDilhOqyi4wi6BlKcOjeerUS490jQ5Lrmq3
+         eFtDiG6Vwy8f+sX/PALPRlPmO/zrr3GC/H7AOowu7efLrbrllJNSQMlSt0Zh9/xWc5z3
+         TCuOnkWqbYPdVFYAhzxZrRjc/NAS0nq99UGYvsdccFZp8vz4W03FZTOl4SOpFR48y6b6
+         383hKWJlv6ssu9RGuufalfSkaQr53mvyiODGxOSaUU6MPyU2dGzvzDhT9YM1EF4vJG0G
+         lRwtQaNfrH0dAde+ULOj97kXfq1qftLSyPs9yLO99V8CVq/7kUSy+PvE1io87TLwPBgU
+         4/wQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=eNHjTAaA;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+       dkim=pass header.i=@linaro.org header.s=google header.b=iUqRRd6Y;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:subject:to:cc:references:from:message-id:date:user-agent
-         :mime-version:in-reply-to:content-language:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=fH97s/8bRTZVNj0LsOn74fiskHTjKYBkE8h00WB7kIw=;
-        b=pSRAH3/UuQwKX0PGJAsbpJbEDUo7YME8Lg7sUMb7rPf93It2FNEHEqZZCqhrfDQlPS
-         XBjUNKSZ7Pol7PV6PbUzzP4Wzj/yzb0dv7Wr/5hw8sU2u5msWueHg1VdGxO4ukm1G8li
-         aJfmyK0qnizfE4cVL2+0ar9B1Ycctu9zlyrmVYOQfUzngkTq6q1NYtoqmLBwz6OwpM0L
-         hDT1CHY6uwQXW0ufRlTwGBc9HtstvebYzqEV0BzEKfP04HxqdZnY1NAdJLOoscPd8yXf
-         ep3BpITsIL9r+tBbraldPkvxjA4VMIrZxBw3SbVVfv7Jaj7HwHd2w/5bnuADvEvtjrtj
-         srrg==
+        h=sender:from:date:to:message-id:subject:mime-version
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=YTnM4Y5riIAnZGUlOp+ePzKwkGRAQtSQspiIqbUTWzY=;
+        b=cc/WWJBlh5SQm0jyr9nHICeorX2slyPzWo+ywIaIV+e5XCr6obtzIaMQoGh9y2KMRB
+         +dFvlpMXwN5/5tmIhABUsQY5dlSpSns7Ga0MZOuEB4vQPkDjYLSWkdu95i8I4RC+mfD5
+         ZArrqEQrkU6lWJMJhg+gFpq2GmUllW2FPMFI0RPNwxLtHIohTX7y3i2Y1Mc4p6i7ttvV
+         yHiPu+fIePk1ko4dDsqNd4tAaMGV1X83O/2wH5BlJPN6RrnFzWsUwYEXgC/BSX4ZoDwH
+         pjeW83yA+gWJ/OJwFm4xRRajh9qDwd/HQakk9sTpOV8UxexQ/MaFiqi2dyJmyj9db0VY
+         8IDA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
-         :date:user-agent:mime-version:in-reply-to:content-language
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=fH97s/8bRTZVNj0LsOn74fiskHTjKYBkE8h00WB7kIw=;
-        b=eqKcHh8gyYm91zjE+WBqCbjezgufreOu/qMXFQBakJaVe9hAg1kCjloQ5Huk81xoCd
-         Ld852Bhv5xQjXrqabXAM6/X4hKnHxpLFcsW0ZUYqtWhG4un7t85mncDpwxHggfdJ7pUg
-         8EKZt+2cau5H91fgzY+jmd4196qavPbl6CcQ4HrztbUC7MpD+ATVKbhQGf1Com5Y7hU5
-         0ehnEpUnhb0gkgcLCLg3hlGQTE/QTGyWoLt2eNnu8fepAiuzk8FWrzmGdcx5EQHZICI2
-         YQjayQLz/KRf5dK0S7TZ/wAcHP0fC0UZkUOYuVbbLgj2p0+WBdJ9uuiWrCxAtY/rFsnM
-         ho2w==
+        h=sender:x-gm-message-state:from:date:to:message-id:subject
+         :mime-version:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
+         :list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=YTnM4Y5riIAnZGUlOp+ePzKwkGRAQtSQspiIqbUTWzY=;
+        b=kVBGeCGu64UeSq2tDYZ+RwncmYv5F8ptTD4Vd8FVoTL6Wkq4SHqb4diJdvoLYXm12B
+         CS/JGBky7lKw+Cb5QXNyVyJTwcX4vla3qcSS1D/z/DOwpTdX1dQsNEzxleH16d/jO6WR
+         e1l3keg1gMZrG/zFKYJpxlgV1kvVYBx2h/Tn4QCoYCGgdEflzPk+M0VDpM9M1y90L72M
+         7wjky6/5JMXzPB9X/IPXS4LwexXjHFbJijlCPzXep1hwPynAT8Mqi9a6krEDSDAbvOYv
+         eI3YLSmX2MczdTno7h3l2zlXfLis7kQMvBKKWyIDldYCREHCsnhwsrDB7Q8D8Zk43bDm
+         WZiQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAVQ+ccNz/F/lZrVJG2tfXI0xTuzZjkx6HgTn6vfi45IjM2O0mXq
-	J5sOwWMk2v7yc5z2fye+q9I=
-X-Google-Smtp-Source: APXvYqzPE3kcQYy9/zj/Reg2mJSK5W0I+04bk1ulW2/7AYy4m/h87eP+AfIbEPm7VrnX9Pi8V6dJgQ==
-X-Received: by 2002:a92:d34f:: with SMTP id a15mr5790741ilh.184.1582731943406;
-        Wed, 26 Feb 2020 07:45:43 -0800 (PST)
+X-Gm-Message-State: APjAAAXpVJjgf65fy8iVIqtKtdhl6qyYmJmAKCuKrdrs79b5LlkcI/ac
+	BTxpUQV7QovmJeKemxnjUuw=
+X-Google-Smtp-Source: APXvYqy2+Krh+uUu3B5dPmDxTTSWPd6s60by7Gj6vkLmP2Aa6SUJKbM2vyXKUJYP/76iF0vuCMiUew==
+X-Received: by 2002:a17:906:344d:: with SMTP id d13mr5822738ejb.306.1582739714192;
+        Wed, 26 Feb 2020 09:55:14 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a6b:6216:: with SMTP id f22ls733142iog.6.gmail; Wed, 26 Feb
- 2020 07:45:43 -0800 (PST)
-X-Received: by 2002:a6b:3a09:: with SMTP id h9mr5351859ioa.81.1582731942971;
-        Wed, 26 Feb 2020 07:45:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582731942; cv=none;
+Received: by 2002:aa7:c98d:: with SMTP id c13ls7400edt.0.gmail; Wed, 26 Feb
+ 2020 09:55:13 -0800 (PST)
+X-Received: by 2002:a05:6402:655:: with SMTP id u21mr555590edx.78.1582739713517;
+        Wed, 26 Feb 2020 09:55:13 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582739713; cv=none;
         d=google.com; s=arc-20160816;
-        b=tp8iIDi1e015+fEzcwHTsezOD7znyL3cQPRezTdqwrUEM9XA6ZASB6aqcmYHrPELfB
-         Juj4BAeJp137x9GBcJyfiyF/CVLgu5qyWVq4LNwOPQs6RBIXUusA+LWrmJKtJLk0Qkg+
-         B0TDRM3tQY0Mia2EW8wGN4iTKgkuK3i/gO90NY+j35TA0eiBiDOobliqrFZd+p+vTF19
-         P0XGsvTYvYcOz4hnmiEUQFB8w+5kNXwbw59SlllUvNdfB/VstUVBprWGb1P2sNeEJE8h
-         GWw2ugTfIe1XWQgnZqgIxuUOmEoyvz/DN8DozVPIxBTlRmPzIRjD0HNgoPVF34dhopt8
-         OUSA==
+        b=xQHfZPZPy1546K5sOqT7De6RdRiCaOUTGFW//+tlR+MmaEqT9YaiyIxtI+yXKW0LPu
+         MGDWWMYtTlVIg+64PsCpd15OMx/sKGnmrvK4T+CZOrRQ4fIzPH6AmyzwqPQDvlFwjUAV
+         bRjRPX1pAuYjXBku8IsDeK6+JZKR46QbsI875lduxA4SbRcBZ7pwPGHb1/lHwaZ/pcjn
+         16MoUGgs8d0ERMzXK5xLqWrrWDbeupwLnljo/m7ezUVWnwlEzP0HslqJ43Jk6gGMnoRe
+         sZlXS4h4FbSaHbvKPWpLP5NiyQ52gZLiebtHq43AxkwZdH5BzOr7amHAqj4Z7F4lmyqg
+         A1EQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:content-language:in-reply-to:mime-version
-         :user-agent:date:message-id:from:references:cc:to:subject
-         :dkim-signature;
-        bh=44++bZYwMLEcKWsWEdjH2TMBF93T+j8iNKdpvJ43O1c=;
-        b=N4DGrg7/OCmZbUPBWHNbMD1k4JWGDJwn5Q/fpANnWK8SlXi0b4rrff7y6iObMQzdWx
-         0c6e7fZUR3hca8QXbvCIG+k1GNZlW8wE/yIhzfKETtRSn1T/javKpjAY09mNUG5rA5iE
-         PWQPcGqW1nTJhAG03WxV7rEY/DGc4vmnii2X1llXNfTVYN0w+4BroExpT9H+iWbA/7lB
-         MSzspBXbDFEFF/gLpbYi9fJHmWsejVNdNY8l9J5GxuQWj6GNEE4Eks/SXz+ZlqPAkRM+
-         f892iIkvtSn63lD3m7H9w9cWyRg2jThtAZzIt0VfliTu2Dtbzo6Kz3XL/qnCT++ZhR90
-         3WoA==
+        h=mime-version:subject:message-id:to:date:from:dkim-signature;
+        bh=RfNkdXXR9BQ1pFKSU3QyGr6tIQTz3MUnaga97qvqAXc=;
+        b=Nw+G0TFWo8fa6zhXic93OE9tZYOIVgG2o4pZFYC5JH/Gl5JF3mvYlwyIenrzICzxes
+         CkAsNCPeYGQh9T3nqd/u/mk6j/qZSk3N8/uRYaZW5qqkIzS2o01B6PyszgW4y+CrWQkD
+         iNaU9a+5QbnCuBHc0UBAZip0AnHEweunB5lAPUChekZbfLBBJhzPcomvfTaJr+hKJb0i
+         93uAtyMXqigSwMsxqzSX8VwzPt2ZpiZGJEVJIuLrXny1pL0bRPV502PJDKjQOjOB5LKD
+         olm3//enV5ql5lYzNE85RMPBvRlVecbAo4bjbOX5mndkEUqJjg/8J+r2dKpPP/AliVG9
+         1GSg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@infradead.org header.s=bombadil.20170209 header.b=eNHjTAaA;
-       spf=pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
-Received: from bombadil.infradead.org (bombadil.infradead.org. [2607:7c80:54:e::133])
-        by gmr-mx.google.com with ESMTPS id p9si128923iog.5.2020.02.26.07.45.42
+       dkim=pass header.i=@linaro.org header.s=google header.b=iUqRRd6Y;
+       spf=pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) smtp.mailfrom=ci_notify@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-wr1-x443.google.com (mail-wr1-x443.google.com. [2a00:1450:4864:20::443])
+        by gmr-mx.google.com with ESMTPS id 29si20574edw.1.2020.02.26.09.55.13
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Feb 2020 07:45:42 -0800 (PST)
-Received-SPF: pass (google.com: best guess record for domain of rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) client-ip=2607:7c80:54:e::133;
-Received: from [2601:1c0:6280:3f0::19c2]
-	by bombadil.infradead.org with esmtpsa (Exim 4.92.3 #3 (Red Hat Linux))
-	id 1j6ysW-0003sn-FG; Wed, 26 Feb 2020 15:45:40 +0000
-Subject: Re: [PATCH v2] Documentation/llvm: add documentation on building w/
- Clang/LLVM
-To: Masahiro Yamada <masahiroy@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Kees Cook <keescook@chromium.org>,
- Nathan Chancellor <natechancellor@gmail.com>,
- Sedat Dilek <sedat.dilek@gmail.com>, Michal Marek <michal.lkml@markovi.net>,
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- clang-built-linux <clang-built-linux@googlegroups.com>
-References: <20200224174129.2664-1-ndesaulniers@google.com>
- <20200225210250.64366-1-ndesaulniers@google.com>
- <CAK7LNAQJuF__26R+fEsdfYH1SAJuo3-8grGQAE4htjxzEG-nqw@mail.gmail.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-Message-ID: <d70e7d82-4f08-0a30-e54b-8b0f225145df@infradead.org>
-Date: Wed, 26 Feb 2020 07:45:39 -0800
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.5.0
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2020 09:55:13 -0800 (PST)
+Received-SPF: pass (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443 as permitted sender) client-ip=2a00:1450:4864:20::443;
+Received: by mail-wr1-x443.google.com with SMTP id e8so4232129wrm.5
+        for <clang-built-linux@googlegroups.com>; Wed, 26 Feb 2020 09:55:13 -0800 (PST)
+X-Received: by 2002:adf:de10:: with SMTP id b16mr6433850wrm.145.1582739713203;
+        Wed, 26 Feb 2020 09:55:13 -0800 (PST)
+Received: from 172.17.0.4 (ci.linaro.org. [88.99.136.175])
+        by smtp.gmail.com with ESMTPSA id b10sm4106164wrw.61.2020.02.26.09.55.12
+        (version=TLS1 cipher=ECDHE-RSA-AES128-SHA bits=128/128);
+        Wed, 26 Feb 2020 09:55:12 -0800 (PST)
+From: ci_notify@linaro.org
+Date: Wed, 26 Feb 2020 17:55:11 +0000 (UTC)
+To: tcwg-validation@linaro.org, arnd@linaro.org, 
+	clang-built-linux@googlegroups.com
+Message-ID: <1934074311.4390.1582739712490.JavaMail.javamailuser@localhost>
+Subject: [CI-NOTIFY]: TCWG Bisect
+ tcwg_kernel/llvm-release-arm-next-allmodconfig - Build # 59 - Successful!
 MIME-Version: 1.0
-In-Reply-To: <CAK7LNAQJuF__26R+fEsdfYH1SAJuo3-8grGQAE4htjxzEG-nqw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Language: en-US
-X-Original-Sender: rdunlap@infradead.org
+Content-Type: multipart/mixed; 
+	boundary="----=_Part_4389_370073776.1582739711907"
+X-Jenkins-Job: TCWG Bisect tcwg_kernel/llvm-release-arm-next-allmodconfig
+X-Jenkins-Result: SUCCESS
+X-Original-Sender: ci_notify@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@infradead.org header.s=bombadil.20170209 header.b=eNHjTAaA;
-       spf=pass (google.com: best guess record for domain of
- rdunlap@infradead.org designates 2607:7c80:54:e::133 as permitted sender) smtp.mailfrom=rdunlap@infradead.org
+ header.i=@linaro.org header.s=google header.b=iUqRRd6Y;       spf=pass
+ (google.com: domain of ci_notify@linaro.org designates 2a00:1450:4864:20::443
+ as permitted sender) smtp.mailfrom=ci_notify@linaro.org;       dmarc=pass
+ (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -138,44 +131,237 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On 2/26/20 3:30 AM, Masahiro Yamada wrote:
-> Hi.
-> 
-> 
-> On Wed, Feb 26, 2020 at 6:02 AM Nick Desaulniers
-> <ndesaulniers@google.com> wrote:
->>
->> Added to kbuild documentation. Provides more official info on building
->> kernels with Clang and LLVM than our wiki.
->>
->> Suggested-by: Randy Dunlap <rdunlap@infradead.org>
->> Reviewed-by: Kees Cook <keescook@chromium.org>
->> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
->> Reviewed-by: Sedat Dilek <sedat.dilek@gmail.com>
->> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
->> ---
->> Changes V1 -> V2:
->> * s/On going/ongoing/
->> * add Randy's Suggested-by
-> 
-> 
-> I do not understand this tag update.
-> 
-> As far as I saw the review process,
-> I do not think Randy deserves to have Suggested-by
-> because he just pointed out a typo (on going -> ongoing) :
+------=_Part_4389_370073776.1582739711907
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-I agree.
+Successfully identified regression in *linux* in CI configuration tcwg_kern=
+el/llvm-release-arm-next-allmodconfig.  So far, this commit has regressed C=
+I configurations:
+ - tcwg_kernel/gnu-master-arm-next-allmodconfig
+ - tcwg_kernel/gnu-master-arm-next-allyesconfig
+ - tcwg_kernel/llvm-release-arm-next-allmodconfig
 
-> https://patchwork.kernel.org/patch/11401189/#23179575
-> 
-> (or, was there off-line activity I had missed?)
+Culprit:
+<cut>
+commit f7f3e49a0d744da16dd4e2ec4e8e707ea7f4a98f
+Author: xinhui pan <xinhui.pan@amd.com>
 
+    drm/amdgpu: Remove kfd eviction fence before release bo
+</cut>
 
--- 
-~Randy
+First few build errors in logs:
+00:05:12 make[1]: *** [__modpost] Error 1
+00:05:12 make: *** [modules] Error 2
+Configuration details:
+rr[llvm_url]=3D"https://github.com/llvm/llvm-project.git"
+rr[linux_url]=3D"https://git.kernel.org/pub/scm/linux/kernel/git/next/linux=
+-next.git"
+rr[linux_branch]=3D"c99b17ac03994525092fd66bed14b4a0c82f0b4d"
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/d70e7d82-4f08-0a30-e54b-8b0f225145df%40infradead.org.
+Results regressed to (for first_bad =3D=3D f7f3e49a0d744da16dd4e2ec4e8e707e=
+a7f4a98f)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+20110
+
+from (for last_good =3D=3D cab5dec425f19f3d4eeca0d8e073578cbed66d8d)
+reset_artifacts:
+-10
+build_llvm:
+-1
+linux_n_obj:
+27451
+linux build successful:
+all
+
+Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-=
+llvm-release-arm-next-allmodconfig/59/artifact/artifacts/build-f7f3e49a0d74=
+4da16dd4e2ec4e8e707ea7f4a98f/
+Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-=
+llvm-release-arm-next-allmodconfig/59/artifact/artifacts/build-cab5dec425f1=
+9f3d4eeca0d8e073578cbed66d8d/
+Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-rele=
+ase-arm-next-allmodconfig/59/
+
+Reproduce builds:
+<cut>
+mkdir investigate-linux-f7f3e49a0d744da16dd4e2ec4e8e707ea7f4a98f
+cd investigate-linux-f7f3e49a0d744da16dd4e2ec4e8e707ea7f4a98f
+
+git clone https://git.linaro.org/toolchain/jenkins-scripts
+
+mkdir -p artifacts/manifests
+curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcw=
+g_kernel-bisect-llvm-release-arm-next-allmodconfig/59/artifact/artifacts/ma=
+nifests/build-baseline.sh
+curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/t=
+cwg_kernel-bisect-llvm-release-arm-next-allmodconfig/59/artifact/artifacts/=
+manifests/build-parameters.sh
+curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm=
+-release-arm-next-allmodconfig/59/artifact/artifacts/test.sh
+chmod +x artifacts/test.sh
+
+# Reproduce the baseline build (build all pre-requisites)
+./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baselin=
+e.sh
+
+cd linux
+
+# Reproduce first_bad build
+git checkout --detach f7f3e49a0d744da16dd4e2ec4e8e707ea7f4a98f
+../artifacts/test.sh
+
+# Reproduce last_good build
+git checkout --detach cab5dec425f19f3d4eeca0d8e073578cbed66d8d
+../artifacts/test.sh
+
+cd ..
+</cut>
+
+History of pending regressions and results: https://git.linaro.org/toolchai=
+n/ci/base-artifacts.git/log/?h=3Dlinaro-local/ci/tcwg_kernel/llvm-release-a=
+rm-next-allmodconfig
+
+Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-ne=
+xt-allmodconfig/59/artifact/artifacts/
+Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-release-arm-ne=
+xt-allmodconfig/59/consoleText
+
+Full commit:
+<cut>
+commit f7f3e49a0d744da16dd4e2ec4e8e707ea7f4a98f
+Author: xinhui pan <xinhui.pan@amd.com>
+Date:   Tue Feb 11 11:28:34 2020 +0800
+
+    drm/amdgpu: Remove kfd eviction fence before release bo
+   =20
+    No need to trigger eviction as the memory mapping will not be used
+    anymore.
+   =20
+    All pt/pd bos share same resv, hence the same shared eviction fence.
+    Everytime page table is freed, the fence will be signled and that cuase=
+s
+    kfd unexcepted evictions.
+   =20
+    CC: Christian K=C3=B6nig <christian.koenig@amd.com>
+    CC: Felix Kuehling <felix.kuehling@amd.com>
+    CC: Alex Deucher <alexander.deucher@amd.com>
+    Acked-by: Christian K=C3=B6nig <christian.koenig@amd.com>
+    Reviewed-by: Felix Kuehling <Felix.Kuehling@amd.com>
+    Signed-off-by: xinhui pan <xinhui.pan@amd.com>
+    Signed-off-by: Alex Deucher <alexander.deucher@amd.com>
+---
+ drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h       |  1 +
+ drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c | 38 ++++++++++++++++++++=
+++++
+ drivers/gpu/drm/amd/amdgpu/amdgpu_object.c       |  5 ++++
+ 3 files changed, 44 insertions(+)
+
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h b/drivers/gpu/drm/a=
+md/amdgpu/amdgpu_amdkfd.h
+index 9e8db702d878..0ee8aae6c519 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.h
+@@ -96,6 +96,7 @@ struct amdgpu_amdkfd_fence *amdgpu_amdkfd_fence_create(u6=
+4 context,
+ 						       struct mm_struct *mm);
+ bool amdkfd_fence_check_mm(struct dma_fence *f, struct mm_struct *mm);
+ struct amdgpu_amdkfd_fence *to_amdgpu_amdkfd_fence(struct dma_fence *f);
++int amdgpu_amdkfd_remove_fence_on_pt_pd_bos(struct amdgpu_bo *bo);
+=20
+ struct amdkfd_process_info {
+ 	/* List head of all VMs that belong to a KFD process */
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c b/drivers/gpu=
+/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c
+index 66bde9e9a4c9..e1d1eed7a25f 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd_gpuvm.c
+@@ -276,6 +276,42 @@ static int amdgpu_amdkfd_remove_eviction_fence(struct =
+amdgpu_bo *bo,
+ 	return 0;
+ }
+=20
++int amdgpu_amdkfd_remove_fence_on_pt_pd_bos(struct amdgpu_bo *bo)
++{
++	struct amdgpu_bo *root =3D bo;
++	struct amdgpu_vm_bo_base *vm_bo;
++	struct amdgpu_vm *vm;
++	struct amdkfd_process_info *info;
++	struct amdgpu_amdkfd_fence *ef;
++	int ret;
++
++	/* we can always get vm_bo from root PD bo.*/
++	while (root->parent)
++		root =3D root->parent;
++
++	vm_bo =3D root->vm_bo;
++	if (!vm_bo)
++		return 0;
++
++	vm =3D vm_bo->vm;
++	if (!vm)
++		return 0;
++
++	info =3D vm->process_info;
++	if (!info || !info->eviction_fence)
++		return 0;
++
++	ef =3D container_of(dma_fence_get(&info->eviction_fence->base),
++			struct amdgpu_amdkfd_fence, base);
++
++	BUG_ON(!dma_resv_trylock(bo->tbo.base.resv));
++	ret =3D amdgpu_amdkfd_remove_eviction_fence(bo, ef);
++	dma_resv_unlock(bo->tbo.base.resv);
++
++	dma_fence_put(&ef->base);
++	return ret;
++}
++
+ static int amdgpu_amdkfd_bo_validate(struct amdgpu_bo *bo, uint32_t domain=
+,
+ 				     bool wait)
+ {
+@@ -1044,6 +1080,8 @@ void amdgpu_amdkfd_gpuvm_destroy_cb(struct amdgpu_dev=
+ice *adev,
+ 	list_del(&vm->vm_list_node);
+ 	mutex_unlock(&process_info->lock);
+=20
++	vm->process_info =3D NULL;
++
+ 	/* Release per-process resources when last compute VM is destroyed */
+ 	if (!process_info->n_vms) {
+ 		WARN_ON(!list_empty(&process_info->kfd_bo_list));
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_object.c b/drivers/gpu/drm/a=
+md/amdgpu/amdgpu_object.c
+index 65176b97401c..e4a8c424d290 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_object.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_object.c
+@@ -1307,6 +1307,11 @@ void amdgpu_bo_release_notify(struct ttm_buffer_obje=
+ct *bo)
+ 	if (abo->kfd_bo)
+ 		amdgpu_amdkfd_unreserve_memory_limit(abo);
+=20
++	/* We only remove the fence if the resv has individualized. */
++	WARN_ON_ONCE(bo->base.resv !=3D &bo->base._resv);
++	if (bo->base.resv =3D=3D &bo->base._resv)
++		amdgpu_amdkfd_remove_fence_on_pt_pd_bos(abo);
++
+ 	if (bo->mem.mem_type !=3D TTM_PL_VRAM || !bo->mem.mm_node ||
+ 	    !(abo->flags & AMDGPU_GEM_CREATE_VRAM_WIPE_ON_RELEASE))
+ 		return;
+</cut>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/1934074311.4390.1582739712490.JavaMail.javamailuser%40loc=
+alhost.
+
+------=_Part_4389_370073776.1582739711907--
