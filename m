@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBZFF27ZAKGQEK37PIYA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB4NZ27ZAKGQEKP24Z3I@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1037.google.com (mail-pj1-x1037.google.com [IPv6:2607:f8b0:4864:20::1037])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9E3C416F573
-	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 03:07:34 +0100 (CET)
-Received: by mail-pj1-x1037.google.com with SMTP id ds13sf919808pjb.6
-        for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 18:07:34 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582682853; cv=pass;
+Received: from mail-qk1-x73d.google.com (mail-qk1-x73d.google.com [IPv6:2607:f8b0:4864:20::73d])
+	by mail.lfdr.de (Postfix) with ESMTPS id B609016F5CB
+	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 03:50:26 +0100 (CET)
+Received: by mail-qk1-x73d.google.com with SMTP id o16sf1871392qkm.15
+        for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 18:50:26 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582685425; cv=pass;
         d=google.com; s=arc-20160816;
-        b=EkIKP45ZeAcQIH2z4POabCDhgg+e8sc5Neq8U8JCoeM5cUrxd6EtRC7dT5nD6PTPfO
-         CXIe0IlAKZ3A6gAFBWO2FS68tQEeM/SLv3wfJeDAvR9h5Ul0mCg6AfZJpVNlrG5ylWFP
-         dLqdDRW/569Im35TQiInYa7M0VyvtEyGYWv2piy1Ty0Tfy5WNKb1VvVvuLAa6Q1tk06K
-         4S3Li0BryKylyfAD3Ur2XXLmBTsuDYMmq2ngX79GI85syOHkYSlgnw0RhEkSt6u7VZ6J
-         51zLN5WQpy1E2rJ+sCYpSauH8zI9pixKNqFdDRpAfTYQleiGJNGp30LZVbCkvLRzVmJO
-         udFQ==
+        b=CMtFyVEeSHmivQJXXmfZs5T57q9c4B4zjUQIkRRttk9JhF4dDAL/3GKxTNkJ60MZQC
+         8dUf/xig3G10V5H1MbqoHgZ/JIlfL7ZtHXXY5rJ+e0Vu/HztDp1RjTf9ZirAMpM3Lpo6
+         vjMN3q6m5xbxweDiCXhxMLyaGdpKvtsD+BzEsq68sA9VIlVQMLQ45iATk/GViTo85sqk
+         igdRWUEoaytiz3IWXbsesChraq8jpPPp0u+ykO/iM7wbdCkrLQDqregC6Za1D1SM8hF/
+         rqYpDf2F8NUX0FhPaVK+cj3RnJ22YsqedUX8BOiW8pL2X6Yey1pRSuatsocqB9xqdiGK
+         kv0Q==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:content-disposition
          :mime-version:message-id:subject:cc:to:from:date:sender
          :dkim-signature;
-        bh=D18Zj+ZXZpGbYmblHUHeTshzBqKuWM74uDCxzRJfkK8=;
-        b=xEWuBq78o+7z3ZUWvToPX37lb+vDE+iRXDhmMxt9j1075bWhFoL/HYV/mn/p/LDk/i
-         Un5S778OZ7WXpKO8j9R3KYqAL8/icSUCkQWb11oyZCgAJfm+WWpmFZ60Qbim9CIOBUR6
-         I1Y9GGj4EEy9gsv6dNHhjta9tdLK8DYl+yQp4r/kl41LfmNaaiNQWNyKzNfYF7Jqry3k
-         ONFCizPARZC56+wqCAlB9rp3WzsfxRHWDB+s5wmD19NVybG3PPah/W5zReLILgOoVRPK
-         HxG6oR24PzocKXGecr3HVqArssgjj50FluVwmlUt9/vFxFoQFC/uA6AQuyvJOHTO8NIM
-         YZ7Q==
+        bh=/WanKpTV2e1/wvm+8fUhtrLNxiXl/ti9n5bY9EvHa1k=;
+        b=UUNC/9cMkby6TN1YwM6dBCrEmDoyblcLGZjsQEQDv5npqAFaeGc0h2HoxuJEZitexz
+         GCniUYcdwsHdxa9a2gre4t5ojsyB8Crrwyd20S4+79Anenf37qIGCl548jg29LT0NdlV
+         nhC6qCz6j5IQ2ORMQ6NjGf0J244yslcS5qihvHTTAfoxRRzr1LuBE9bv5LH+AWhbK++8
+         8m1/t7qaIZhfpIOKLCJOvzwBT8EsCvU1+idDhIwU1uQpxdziRrr2BKkd4CYCH+mOnhtG
+         uL4SFwKtr9D6w0+bc/Y3yPpWIUzlt9z9wHFUDgZyfvEqSwn4bi/TgaQOXtUl6ZUsK8av
+         vNjQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=D18Zj+ZXZpGbYmblHUHeTshzBqKuWM74uDCxzRJfkK8=;
-        b=ruRAVBH6apr2GGkDJsXS1m4sgrNKRYXAbPjzrJ77IIywamIbT3NskGdSIrlULNMPld
-         rO2gwI8R7yYK+HYlmXn770ToG+JGTkrceYd2Gzdf66afR/wFxKoF15BzIbw7HUI6eM8q
-         8LEB2Tu/UeffP1zZ+78aD/AprG/wLWUYFPcSDntAn759ezo670vCzTsin0dYECuGQUj/
-         8FAUVo49daBBumodUsdC7kGZIqmVhzEKRocLOuBcqBW2yyZrq8raYKDXF6ECVUzR5Wwn
-         E0tn9M6OWA00KBXyK4UfdeaBNtaaVYgcMWdAYcjaVZiG/WtPYqXJ2SJjgOP03HFq0TR2
-         +KDQ==
+        bh=/WanKpTV2e1/wvm+8fUhtrLNxiXl/ti9n5bY9EvHa1k=;
+        b=MBzwZXPkdtBG6b7cWyPxgKKKcHzOQXfLJdkYtnr5VMeDMnOQupx3Pj2DTlB5TNnsfW
+         9R2djVUV/hPkVjocqYUm1lU7abLuk83zY+SGkHEl0O4EY0y/3Zs/4ZosCq/PG0j9cAKW
+         ZQRpzh9/0pAuyMlM9IJ2OEL9IYPyFYD549Qt4FFtZHIM4GaiTPy8HSf1Mr3bDN0qqUOd
+         eMyXHFqBuBS8yPsYQmq1RsTBxe5VT5xH5oD9gNZ1hRunDE2erQ2e/U7MemEPfBLKOngy
+         7e5g1M23TgvyEnp+aCqOT2EZ+fmqdpy0KgB2RqsLe2RRhIadyeUvOdiA1dQRRULyQGfD
+         FPJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,79 +49,80 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=D18Zj+ZXZpGbYmblHUHeTshzBqKuWM74uDCxzRJfkK8=;
-        b=b54ponl/660M7EuWuUTyUc1rODB3ye4xox3qwD9SHAmFbU7et+q8KEl0fQgDhxa7nW
-         633Kq2fKBfvoLtjKpo53CL+/FQVUQqUtBKvMe6ld9AbWWSJjUfZfRZ2tJqmzDek5cGgZ
-         0ZtQpHYBo//VMk0nq3v3c1iUldhULWzrbhYClnuQbUtTt1Kn+/bp+cYDv62JcA2Iq16+
-         u91k0htz6anPn6muAI9oqMOh3CQYhxmemdmtHcDVHHKOxTQCUGUgZgCp74qy7TXrMwl7
-         u8r2LK2CmjcE12YAY0cq57+KnZ1LSgFSe+bQROG5OwZXy01B3s04QQU+NVXVkaKZLyg7
-         FXMQ==
+        bh=/WanKpTV2e1/wvm+8fUhtrLNxiXl/ti9n5bY9EvHa1k=;
+        b=DorxyY0+fRHKY+vKulwSK0fTEiCQ4x7Z4mBMZwjtnnzTXwVFEoWCB6ktAmAGiAwA2H
+         /6SbMsS45eYaN0aywxe2pw1CpnjWsZvHdiUQTBfqM+BpoEVC5Yt3llDEmGKdVrNTBXCB
+         AH3gpJ6FOE2YJ/yTZvSDfR83SHAx0BYwdsO/amS32MksjA1z+200UkLSobPupuiV/fzz
+         D9jK2gPgGzWBuEAwu0Xfucvtnfz4Db44Hw7cBJ6bogyJo3B8h/zi75nAM8cURiJVi8oY
+         chA5l+jQm8IFqbHBUKoPUW9JuHxHaP0SGZGwOONAK6alWPS60AoNkS6enUlh6Nfut5RD
+         aGoQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAW8FU9TDzRI1veVj55A3cdsCFoPamvtLWsDf0MGnSkQ6jTo/hC3
-	SmAREtySuCTZAhdBtl0zYQQ=
-X-Google-Smtp-Source: APXvYqyO3Ugl2WO6uMhY5ES7xmKE7E3TIKHNz4BRNlfp3t0jY/geXewU0EYVfkBNzUVAA8ZbCgZH+A==
-X-Received: by 2002:a62:f251:: with SMTP id y17mr1819205pfl.204.1582682852531;
-        Tue, 25 Feb 2020 18:07:32 -0800 (PST)
+X-Gm-Message-State: APjAAAXIwik66WYDfTJrcNLvTWDOwNSA0x91kD7mY6v4d/SIcJjlAFEt
+	X/T+6hu7ZO5dkecN79xJKD8=
+X-Google-Smtp-Source: APXvYqyoYyS66g/OBZCxmnFL+9mzw2F75heHRho3joOK/EKJ6kIFRc3pSB6eX7CNmufe1T5BAw6U2w==
+X-Received: by 2002:aed:3e6d:: with SMTP id m42mr2299972qtf.187.1582685425494;
+        Tue, 25 Feb 2020 18:50:25 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90b:344d:: with SMTP id lj13ls426929pjb.0.canary-gmail;
- Tue, 25 Feb 2020 18:07:32 -0800 (PST)
-X-Received: by 2002:a17:902:d20f:: with SMTP id t15mr1614748ply.55.1582682851960;
-        Tue, 25 Feb 2020 18:07:31 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582682851; cv=none;
+Received: by 2002:a37:6550:: with SMTP id z77ls770747qkb.10.gmail; Tue, 25 Feb
+ 2020 18:50:25 -0800 (PST)
+X-Received: by 2002:a37:494f:: with SMTP id w76mr2756503qka.309.1582685425117;
+        Tue, 25 Feb 2020 18:50:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582685425; cv=none;
         d=google.com; s=arc-20160816;
-        b=Z/sVZNfQMlRnYAJev5NbIjkC7qPzGL/RNhGTZGctr2CBgObUISmG09FnZeHhBPj7hf
-         vkXkjXrHEghYRzbaCTmKCxF4J8IoFhK+7ojuCsmps7scM0P1CO+yv7uEFhoj36KHY6i7
-         Ym+bDuVTTMOyfOgrPCsFWHV/wN4w9+92fnV4BYHOI4phmEEgGwdp8dEyPHZ31rn9b+gS
-         cNLbhyEuSYdDmUDWNFa/w2BQrGM1/SN7rkYrmDbdtHrwjkOwU+/l6IiHph5UR1qc+Ts7
-         ++S9J5mWX9ydkC3tjCLv/SblnbnMaBH4hc2SedGhXV/ekFNNskd4uJFyeORDIuAy5Ht3
-         ypIw==
+        b=M2D5PvRegD0v8PBBw2xnG0t2Zci30IJ88IOKwEDLFWyQ9+2QCZSCIz0RhOEqHV95f9
+         WLrWE37u7fOVlgD9g5Q7b7o0lEfmjwraioU0y3S0ZTS78FP4IEPjcWar9cPwcR/lcNqH
+         dmXwBnwa8ZUgtYNRSp5PAckfxrb0dbEJbGS99mh8pM5Ys6CCnvEtfp+czcvMZ7qAWsco
+         87oZPyliLALEsQn1pKWNEVwBNk95BC//oIBmlL9IrrtKCzN97jI3OJAUg/06SXImsMpm
+         GL0cdtKfE4XVlt63cNmckiR4i9USN+M6eWydfnLfTjbIMx1GbCu8/Ma9q1Y763c4qT+0
+         z94w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:content-disposition:mime-version:message-id:subject:cc
          :to:from:date;
-        bh=O1YcY7UpSgbmj8JLvM28FnrQ5bdDgbz9fwexmU5O3pM=;
-        b=u9Gvp9L6YxRReQfAVvtTj3dELaCypdj2sCrsYWpxwmanyE6yKyiqkKtTkJs8vTEI1Y
-         fd6tIa4Wy35jLIv60fe9ow5FLms2LTQYyYHTeuMmW3sLAUJJ7vBzgdH9+dKenmFS1X3r
-         nsp53fpMi8KJvuQKRL9sOH+RSqaGfcqEN7n5unWIjGSv8tM+dvtDjtyo+FyUVaFCgqxW
-         aWi6AFpbJTUXsnR0zPMbldL/795CAMEuhTdVUQWQyVGOr4rT6yhN6AKRjw8icicx3d5r
-         VWSZY2Z7NLqtSS4IQYetNDcol6YgeXcO3I2wUWQQwk5BSnMRTTx1Pnb1/LynMo8jh+HU
-         WcyA==
+        bh=ZumDkoZr8VB0sKLXX+fRbx+EgejaBi4vrbBVyXWdz4c=;
+        b=z8U4bFz9wNk3DG5xVdhdEDK+M9/gGiyveLDBeJz49T2ZqaQIL1s439oF2BMuN/tauJ
+         p6rkQSUdc33SyZ31X13IMapnVd7JOd98Ymlcyx3sgB/ln5VrpOl/NA7GZ9LaQntFPiDo
+         Dq07h0hD5B2z/AOovONASEvnffHY1LX1jtkJbbdvKRARTaQhmLeqdUR/6HcGO7LbjI6n
+         I72YYDe3DtSiiiN6bt46VEDqrFYiGh1m24M5o2LBoO3qQHhbAk2XNJyv3B03AH3mYzaT
+         AFZ62j/HzYkhbIocdQo/IUARWS/c3FN5fNuhspxwYVRmH2VPAHikeU4BWb4G1K3aHlvA
+         +qIQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga02.intel.com (mga02.intel.com. [134.134.136.20])
-        by gmr-mx.google.com with ESMTPS id n20si26050pgl.1.2020.02.25.18.07.31
+Received: from mga12.intel.com (mga12.intel.com. [192.55.52.136])
+        by gmr-mx.google.com with ESMTPS id p23si55840qkm.7.2020.02.25.18.50.24
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 25 Feb 2020 18:07:31 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted sender) client-ip=134.134.136.20;
+        Tue, 25 Feb 2020 18:50:24 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted sender) client-ip=192.55.52.136;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
 Received: from fmsmga005.fm.intel.com ([10.253.24.32])
-  by orsmga101.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Feb 2020 18:07:31 -0800
+  by fmsmga106.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 25 Feb 2020 18:50:22 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.70,486,1574150400"; 
-   d="gz'50?scan'50,208,50";a="436468567"
+   d="gz'50?scan'50,208,50";a="436478658"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga005.fm.intel.com with ESMTP; 25 Feb 2020 18:07:29 -0800
+  by fmsmga005.fm.intel.com with ESMTP; 25 Feb 2020 18:50:20 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1j6m6i-000FzA-Hw; Wed, 26 Feb 2020 10:07:28 +0800
-Date: Wed, 26 Feb 2020 10:07:04 +0800
+	id 1j6mmC-00053l-9i; Wed, 26 Feb 2020 10:50:20 +0800
+Date: Wed, 26 Feb 2020 10:49:32 +0800
 From: kbuild test robot <lkp@intel.com>
-To: Manisha Chinthapally <manisha.chinthapally@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com
-Subject: [mchinth:sep_socwatch_linux_5_6 17/32]
- drivers/platform/x86/socperf/utility.c:2:1: warning: '/*' within block
- comment
-Message-ID: <202002261002.HBuWgrSV%lkp@intel.com>
+To: Faycal Benmlih <faycal.benmlih@intel.com>
+Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
+	Manisha Chinthapally <manisha.chinthapally@intel.com>
+Subject: [mchinth:sep_socwatch_linux_5_6 19/32]
+ drivers/platform//x86/socperf/socperfdrv.c:1294:6: warning: variable
+ 'local_args' is used uninitialized whenever 'if' condition is false
+Message-ID: <202002261017.LoW5tmeD%lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="CE+1k2dSO48ffgeK"
+Content-Type: multipart/mixed; boundary="0OAP2g/MAC+5xKAE"
 Content-Disposition: inline
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.20 as permitted
+ (google.com: domain of lkp@intel.com designates 192.55.52.136 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -137,13 +138,13 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---CE+1k2dSO48ffgeK
+--0OAP2g/MAC+5xKAE
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
 tree:   https://github.com/mchinth/linux sep_socwatch_linux_5_6
 head:   34184f3283b8378250c1c30d96b47c9d4bef20e5
-commit: 25f05eee6c507a34891701d0eb6043423704472c [17/32] platform/x86: SOCPERF3 support for sep & socwatch
+commit: e97564df950c79039c7eb7868d0fb5bb06737657 [19/32] platform/x86: Use $(srctree) instead of $(src) to adapt to kbuild regression
 config: x86_64-defconfig (attached as .config)
 compiler: clang version 11.0.0 (git://gitmirror/llvm_project 7f9f027c62623bff79730cd30d1a8a534e2ddb06)
 reproduce:
@@ -154,67 +155,63 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All warnings (new ones prefixed by >>):
 
->> drivers/platform/x86/socperf/utility.c:2:1: warning: '/*' within block comment [-Wcomment]
-   /* ***********************************************************************************************
-   ^
-   drivers/platform/x86/socperf/utility.c:53:10: fatal error: 'lwpmudrv_defines.h' file not found
-   #include "lwpmudrv_defines.h"
-            ^~~~~~~~~~~~~~~~~~~~
-   1 warning and 1 error generated.
+>> drivers/platform//x86/socperf/socperfdrv.c:1294:6: warning: variable 'local_args' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+           if (arg) {
+               ^~~
+   drivers/platform//x86/socperf/socperfdrv.c:1300:12: note: uninitialized use occurs here
+                                          local_args);
+                                          ^~~~~~~~~~
+   drivers/platform//x86/socperf/socperfdrv.c:1294:2: note: remove the 'if' if its condition is always true
+           if (arg) {
+           ^~~~~~~~~
+   drivers/platform//x86/socperf/socperfdrv.c:1278:2: note: variable 'local_args' is declared here
+           IOCTL_ARGS_NODE local_args;
+           ^
+   1 warning generated.
+--
+>> drivers/platform//x86/sepdk/sep/sys64.o: warning: objtool: .text+0x0: unreachable instruction
 
-vim +2 drivers/platform/x86/socperf/utility.c
+vim +1294 drivers/platform//x86/socperf/socperfdrv.c
 
-   > 2	/* ***********************************************************************************************
-     3	 *
-     4	 * This file is provided under a dual BSD/GPLv2 license.  When using or
-     5	 * redistributing this file, you may do so under either license.
-     6	 *
-     7	 * GPL LICENSE SUMMARY
-     8	 *
-     9	 * Copyright(C) 2005-2019 Intel Corporation. All rights reserved.
-    10	 *
-    11	 * This program is free software; you can redistribute it and/or modify
-    12	 * it under the terms of version 2 of the GNU General Public License as
-    13	 * published by the Free Software Foundation.
-    14	 *
-    15	 * This program is distributed in the hope that it will be useful, but
-    16	 * WITHOUT ANY WARRANTY; without even the implied warranty of
-    17	 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    18	 * General Public License for more details.
-    19	 *
-    20	 * BSD LICENSE
-    21	 *
-    22	 * Copyright(C) 2005-2019 Intel Corporation. All rights reserved.
-    23	 *
-    24	 * Redistribution and use in source and binary forms, with or without
-    25	 * modification, are permitted provided that the following conditions
-    26	 * are met:
-    27	 *
-    28	 *   * Redistributions of source code must retain the above copyright
-    29	 *     notice, this list of conditions and the following disclaimer.
-    30	 *   * Redistributions in binary form must reproduce the above copyright
-    31	 *     notice, this list of conditions and the following disclaimer in
-    32	 *     the documentation and/or other materials provided with the
-    33	 *     distribution.
-    34	 *   * Neither the name of Intel Corporation nor the names of its
-    35	 *     contributors may be used to endorse or promote products derived
-    36	 *     from this software without specific prior written permission.
-    37	 *
-    38	 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-    39	 * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-    40	 * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-    41	 * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-    42	 * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-    43	 * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-    44	 * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-    45	 * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-    46	 * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-    47	 * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-    48	 * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    49	 * ***********************************************************************************************
-    50	 */
-    51	
-    52	
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1273  
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1274  long socperf_Device_Control(IOCTL_USE_INODE struct file *filp,
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1275  				   unsigned int cmd, unsigned long arg)
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1276  {
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1277  	int status = OS_SUCCESS;
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1278  	IOCTL_ARGS_NODE local_args;
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1279  
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1280  #if !defined(DRV_USE_UNLOCKED_IOCTL)
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1281  	SOCPERF_PRINT_DEBUG(
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1282  		"lwpmu_DeviceControl(0x%x) called on inode maj:%d, min:%d\n",
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1283  		cmd, imajor(inode), iminor(inode));
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1284  #endif
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1285  	SOCPERF_PRINT_DEBUG("type: %d, subcommand: %d\n", _IOC_TYPE(cmd),
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1286  			    _IOC_NR(cmd));
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1287  
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1288  	if (_IOC_TYPE(cmd) != LWPMU_IOC_MAGIC) {
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1289  		SOCPERF_PRINT_ERROR("Unknown IOCTL magic:%d\n", _IOC_TYPE(cmd));
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1290  		return OS_ILLEGAL_IOCTL;
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1291  	}
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1292  
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1293  	MUTEX_LOCK(ioctl_lock);
+25f05eee6c507a Manisha Chinthapally 2019-05-01 @1294  	if (arg) {
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1295  		status = copy_from_user(&local_args, (void __user *)arg,
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1296  					sizeof(IOCTL_ARGS_NODE));
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1297  	}
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1298  
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1299  	status = socperf_Service_IOCTL(IOCTL_USE_INODE filp, _IOC_NR(cmd),
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1300  				       local_args);
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1301  	MUTEX_UNLOCK(ioctl_lock);
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1302  
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1303  	return status;
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1304  }
+25f05eee6c507a Manisha Chinthapally 2019-05-01  1305  
+
+:::::: The code at line 1294 was first introduced by commit
+:::::: 25f05eee6c507a34891701d0eb6043423704472c platform/x86: SOCPERF3 support for sep & socwatch
+
+:::::: TO: Manisha Chinthapally <manisha.chinthapally@intel.com>
+:::::: CC: Manisha Chinthapally <manisha.chinthapally@intel.com>
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -223,14 +220,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002261002.HBuWgrSV%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002261017.LoW5tmeD%25lkp%40intel.com.
 
---CE+1k2dSO48ffgeK
+--0OAP2g/MAC+5xKAE
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICAfQVV4AAy5jb25maWcAlDzJdty2svv7FX2STbKIrcmKc9/RAiTBbqRJggbAHrThaUst
+H4sICOLZVV4AAy5jb25maWcAlDzJdty2svv7FX2STbKIrcmKc9/RAiTBbqRJggbAHrThaUst
 R+9q8Gu1cu2/f1UASAIgqCQ5ObYbVZhrrgJ//NePM/J6fH7cHe9vdg8P32df9k/7w+64v53d
 3T/s/2eW8VnF1YxmTL0D5OL+6fXb+28fL9vLi9mHd5fvTn453JzPlvvD0/5hlj4/3d1/eYX+
 989P//rxX/D/j9D4+BWGOvx7dvOwe/oy+3N/eAHw7PT03cm7k9lPX+6P/37/Hv58vD8cng/v
@@ -770,4 +767,4 @@ zryXqHHIxZ7G9T51bIZWTevoPF7v2CAbYgRz1/CjudkE30DhnLcLS2h7BbNwSPbC2kZxMVt4
 TBhAsaAoeKejP/xZ1C5IignCxoIRi3KWOVYESDMBXBqcu4Ms4BgGLSthAUBjVVXO48GINCDe
 yf8HqcUtPZLnAQA=
 
---CE+1k2dSO48ffgeK--
+--0OAP2g/MAC+5xKAE--
