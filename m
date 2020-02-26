@@ -1,144 +1,127 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBOEH3DZAKGQEO24CUUI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBDEZ3DZAKGQEJH2T7XI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-qk1-x73c.google.com (mail-qk1-x73c.google.com [IPv6:2607:f8b0:4864:20::73c])
-	by mail.lfdr.de (Postfix) with ESMTPS id 0645816F768
-	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 06:35:54 +0100 (CET)
-Received: by mail-qk1-x73c.google.com with SMTP id n130sf2476889qke.19
-        for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 21:35:53 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582695353; cv=pass;
+Received: from mail-vk1-xa3a.google.com (mail-vk1-xa3a.google.com [IPv6:2607:f8b0:4864:20::a3a])
+	by mail.lfdr.de (Postfix) with ESMTPS id 84AC116F7CD
+	for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 07:13:33 +0100 (CET)
+Received: by mail-vk1-xa3a.google.com with SMTP id h197sf1013127vka.5
+        for <lists+clang-built-linux@lfdr.de>; Tue, 25 Feb 2020 22:13:33 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582697612; cv=pass;
         d=google.com; s=arc-20160816;
-        b=f+QN4A4qvJS5JxkoZDdN7UPrZgBBkCxJZ3jcudkxaFIveGr39uKOUkA9btnwJQmhPQ
-         EfQ0mJ+asjC8C0taL0+Zlyc/Ddhtq93fQH/z4lgY896LVbBjpe1krMudAPcOvazCH+xw
-         LiB78YoQJQ+/F9go1V72iIzTpsGzxSA0a4ZjLsxiVixbakWc1D56ToGJ6joA2IIzXoyH
-         K0IORKFypPI64XiX+45EfK9/UU3xCvGS2h5GZSE3Q6aM2HJYzdLA7lt7oMPtCoAAnNK1
-         EgqG9yppgcHNby7CVnSqFjZSDcxyda1ZMTiROmihYnpI2m4n9vShCDYstJOM3nQxBIXs
-         Q2Ug==
+        b=T4DNAJnNLenP+WDKu3YkeWdE/8aywfDy7dO4Eqvc4iZQoXwDU3g1ON111+7o4VRJac
+         WdIYGL93yZlY1HjjynKS/uk25wKIso1A9VSM82yGmFoQEPqcq0RgiHcUJHSCEydGTiei
+         CIN6Wu688rFNLkO00WRn++htIRR8m9kU/tHR81VceheM7fJQWbD6tVforHpKBqDkbMGv
+         sGmKV3gnqAsNLR4XbcPWwjOYIILk4zdlsAs5rP1xzyRM0NGYSd8deotrEbcW+Jox3DLi
+         9Zo4sa6bgYXvp9T96JKKfsA9Gb+mdx6ocGWQqhUqjaihanY8HdihrczPA5+Rf9RVvrCh
+         C0qA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:in-reply-to:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
          :dkim-signature;
-        bh=SqASzc74FUs4xmFjbCh3SwrUyNmbGwENCwLV0CmNKhM=;
-        b=DLUVtBCDaKbGY4dvrlidLabKHeqXxgkbB90W9DaOTEwurrwYo0dn81purJWwWPT/0x
-         jXKnnx4RZY6AgLgI/Uc90ZN/16VkPg3oqy9FE+WlQCYmxoKwL+k7m4Up+QjoCBLLDXQ8
-         tvhl/ER1eBNZtMaMkta/pkFZvoyEhm5ZWQ6I3+lKvEICVc0Q3XGd1Pv3k4CktRFC0d3D
-         xlmIcZoLuO4zkwgZ4fSwQfMjsHOUbGugvg+8pRkT4QkkUqL9n95e8qjJBfV8UhpDMET+
-         INFRu9kjagpWHKfd+IrCTk9yVeIpyexPRVj+ysuKrKOHzooG5crdkmLKO3yUaWhZhw5K
-         I7SQ==
+        bh=84DgqHOumgWy8lTK2/UK5MgviBhbx/ymeDH8FeoYWwU=;
+        b=QmYBNORkMD3xi6jOeaq0TdQDu5gO6f+1dPpoihG+GX9FANvnZ4w/d0ykg+d4u11YKZ
+         WScLk12ADoccVJITGaJ+yAh+SB4AEEa0tLtf15Oie2CpaCcbTquR9nL2V4sxc2OtshHL
+         84Fe0bUEu2vwqnuMUuhSFwD7HT2lHUlrwE0ZJJPtURWMnZr85+MG3ElpWWmQidXI4QK/
+         3U4KAf/UlYfSTVEZ5YoWJJVCbpmcGFqUKoLqJhG9ECffMnjynEnXrstcgscQuDtlDKdM
+         5G2Cngb8kjnN/oZ1aRodyXnjJpTiRyFtzqLzKH1HywdFdA2dXT2+nkdEuk52cKXUISNW
+         F6/w==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=S60pJC8C;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=YZPNtZM4;
+       spf=neutral (google.com: 2607:f8b0:4864:20::641 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=SqASzc74FUs4xmFjbCh3SwrUyNmbGwENCwLV0CmNKhM=;
-        b=iegmO/IXauSS7k4zWgdixhILv7QWotFmQaCtUrYRDGFeMJikdJntbnknmRrDKvKFaa
-         pcWz3OYvPVIs9OHVLiALDKBO4QYVq3A1WMqwqxtq96Q5mgZ1+wa18XYfbkLJfDrwjI0U
-         IN8IaVmqZTZ7PSEAK4q9m2J0XiE2eqo0vt+LpTEPpIO4JEP7W4utdXSuqXCO1MOEYIo+
-         D5SIIZKnz8yP0QQRkugaY9rAgDvQyf9+0rmpKmaL9rFSepg9N8ohu27PzzO213pi6IiA
-         9f9tEWskWMSDoynVZ5euKcAQ6KjMSSrDR0YL37nHrp7vgXD1VxhZ7EF3msW/eqOqW3Nz
-         Bn+w==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=84DgqHOumgWy8lTK2/UK5MgviBhbx/ymeDH8FeoYWwU=;
+        b=akYpxPzyYFFpa9B3v91/CUxv6vJy7iLO3QnUzSKb+pSLwDDLTFP1ftawj9QGPCaOlK
+         z3dpAyfIYmaG2QgA/1Hw6jBTOYZG/+tKnLRUOCRECB6vtqKTxzBHJJSxnE0gAr1ZJHVl
+         ZkKerMai+dBTTUkkeesMeYN93J60Rmr2JXDDa5PDOHmq1GPURJwuxReM3mIy6lUljZLK
+         C/m2+oPn4y24q0azdyv6/gpec0aQxzte2OO7Jmv3BeckEV1xPb5fufv3lOgj7T/LM/gA
+         24+i5V8wlLBHY4SzjovfMF5KRD0VdDX6P+fCs2zzOZKzxQxmtByLnzD4uKj0q65deQ1n
+         QkPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=SqASzc74FUs4xmFjbCh3SwrUyNmbGwENCwLV0CmNKhM=;
-        b=n14eB7m1XeeJAJuJ/llPANn4eP1Wl/IznppUtgYyKYyO6D4QU0mEkrhybtz4bXDcQ1
-         YsNwkvmm0xTMKQlIuenR7s2VzNb39kqUPYOIwR5jSZGFf692irGM2HSrchMDWI0lr3j1
-         p+q2jic8lo6C2nYfDo0TIVOb4gnFHHd9AXyFm68NwP57oU985tSRNjJebXmTvoXS/cqN
-         9bfWgO6+BYo9T4cOIZx2e9qzS7+/ZK3qDS6WcJTdrgFYYrPaNgWKECN4ED8VAeURbXch
-         IyGOp8mAAoCCXF2X5AOT2fud0r/M1aprC2s8FNDlwvXUGATH04gnXZzbvGk4R+yzS7zY
-         EaxQ==
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=84DgqHOumgWy8lTK2/UK5MgviBhbx/ymeDH8FeoYWwU=;
+        b=t/GmyWzsHLS3uOsgwlZF14fBy0CBBs++J0bggxTiXXhqVd6ExjIOZpYIsbX1O2BxhA
+         zF3/FSud0ujz+QK08SNDVi1LOaC9mnbAGkZcu5lY3IfgcBLjFoYlpeIwSVmyF8GKFpn5
+         1Aaulz9M9B2Zq/RjjdadIPoIh9i05PDpaOiC9VS+jY8eGvVcnJawZgOCCRN2900up2Oc
+         2i/UlA6ltOAb4bbvpEj4wV06wQO/31INalqccErr1P6CAK1hYATa7DJ9iKxM5XxpgaGS
+         bq4rRrFel/WSzadPCNQLNs9mJ2ds5KlL+QrnJSoW6IeIa84PUN4WNzoW6HtnruBtQAym
+         kVOQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAUwJQ67by0jikge7chKKX1Tb42wZOM6V83aB+K1FDAFtIZaEpKx
-	f6g/QoDJVogK+lvQLoyON60=
-X-Google-Smtp-Source: APXvYqwZc59JXzK5JomvrN+x553jJr8bMK1n8J5WQbOby5ga3IdEyz/Bc1LWh+sKoAQQOVX2b65gZg==
-X-Received: by 2002:ac8:4659:: with SMTP id f25mr2973328qto.273.1582695352949;
-        Tue, 25 Feb 2020 21:35:52 -0800 (PST)
+X-Gm-Message-State: APjAAAXTpFWaLH90FQ2kg73rGljPMPwQS/zCPn1pGAYUOLeOF41LjCag
+	Bx35CDCoVKApg41uYW1GRdE=
+X-Google-Smtp-Source: APXvYqy/PdeoLdURk6Zp+eRxFr9vh3OXcGTS8HWpQuLcfGGTXC+IYCM5J5nHjEY8d1PQmH0idnStAg==
+X-Received: by 2002:a05:6102:2d5:: with SMTP id h21mr3428813vsh.174.1582697612418;
+        Tue, 25 Feb 2020 22:13:32 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a37:6550:: with SMTP id z77ls934467qkb.10.gmail; Tue, 25 Feb
- 2020 21:35:52 -0800 (PST)
-X-Received: by 2002:a05:620a:914:: with SMTP id v20mr3572133qkv.434.1582695352590;
-        Tue, 25 Feb 2020 21:35:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582695352; cv=none;
+Received: by 2002:a67:27c5:: with SMTP id n188ls260355vsn.8.gmail; Tue, 25 Feb
+ 2020 22:13:32 -0800 (PST)
+X-Received: by 2002:a67:fbcb:: with SMTP id o11mr3186498vsr.109.1582697611947;
+        Tue, 25 Feb 2020 22:13:31 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582697611; cv=none;
         d=google.com; s=arc-20160816;
-        b=F05HD6EbqqAp5xRrUHKcsOWv0b387/wk2jnFAOeOY4WZ4AmhkzYu+7g9T/9srP8+RG
-         tsljeO4dKwIAkZeGUQ0SVnH/mEwasopCxoVQXehxoKiktsHGUfqSvIJpsm3/jN76s/gc
-         ECSQceoJh4jgkGRBc91dy9HP7srhavG4VrBuVHRnxfmPsg/vf41gNWhWIv2p3XLj2ZcW
-         WIl7Th9NQtB88UlqTnJ0Nu/HiokZhoSHbtOUFU6BM6C2CH0yOEP7HmbKr/5b4xWX3IMN
-         bwF5iNQQKBEix8jUFOrn4zhqn5/bIYiaZzE0SKeXttNeuTecOpNH+JnUFvkzK9W6tNi1
-         V7rg==
+        b=SHPnCIn/FKj3tO8PLJqv8qo+Qgk3w8Tnw0oPB/wuIC8yq7rVsm3+gBVWzZTGP5EmXF
+         KyWCPxvK/wKscuTQnNc3qDU2ZNNRn9LUKoiblRXIGHc2zEX1S1tDnz/505cj3Z+PQnj8
+         NllSX9zwP6N5pR/kd2bi2Abaja9dm4qodj5pBoAEeMiuhyrZXMWB9qXexkHjiaNDUS4V
+         7xX3i2x3oo2IpBtXS7IGyNSrXexHjsAUU7oeboX1GA0EPHmAZ2jrm2k+CqvYCNspcdIP
+         WZMs2Fbe1w4r/qUlruW/WYaQm6gT4Zjf7BvuWcvlWB9F6aTBXp3K3ejwpQAtevYYjLzA
+         tV1A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:dkim-signature;
-        bh=D5/Ju2tq5be6Ks63/zLa9GYBbQxPXMVnyMNgldjudzg=;
-        b=Bbna+LOr0wroSl09k/8EfBQLqIt7lbwsr+NdCbaexjV5hirajL8xCVKub+n3ci+rOZ
-         4kqsevn9If5G4OuHAsLztsyXPeMqr6kGxDi7fWe9uALl8Z6762v2OUSPQcxTWBLPrJHX
-         Brqct13a5WlTLskMsN0bLT3nBccJBX8BEstkFrjQjATEdZjq/UFlAo3rHmTkGJcP0ONv
-         7zzW/2vb2rIVMY9GzLb1t7W+gw7GIU84eTMDrcVIFnKK2wdvK1kKelq4ovuKTD1tNsyY
-         0dcvskBurR5knEI1LJZiDkpf053y54DS2F2cLbVUQhSLo/ZcNQ1pAm4JszcRQ7+q3vQe
-         l2zg==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=BsiT7SDm4P4sq3MLLsbCJLfAnpcrtzDWAP0l5d2w4Uo=;
+        b=eQcjNKFpdjPd8QHfM0WY7eduCGcdAWCpABuEt/0T/iPghHCsfXCvpn7/EvUTg1ceWf
+         ORxB2CR1noeRUemjxd7d5gDZlXRQLE31notyoAl9VwhZ2CAsOkBiYJ43FO0XgsOYKgXs
+         tHk0ytXh1+oj/hmWFfDFziJPYNejbEjnFoY0u1kehm1va+kZNLo6X209QoSz4sZqao3X
+         MFrhyGdWjg0hmi5H+mIaN1o7BAr2nb2PcgdCD7J7r+IxxQUG0z6crZpjK9uzU/gU+sRv
+         ma6envOEsNhWTDkhrlweK0yQ/5cPqxsWWLw0Vxfxsyc0/GThfNMMtON90XdjAhq8WaZN
+         XDvA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=S60pJC8C;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) smtp.mailfrom=keescook@chromium.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x429.google.com (mail-pf1-x429.google.com. [2607:f8b0:4864:20::429])
-        by gmr-mx.google.com with ESMTPS id p23si85103qkm.7.2020.02.25.21.35.52
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=YZPNtZM4;
+       spf=neutral (google.com: 2607:f8b0:4864:20::641 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pl1-x641.google.com (mail-pl1-x641.google.com. [2607:f8b0:4864:20::641])
+        by gmr-mx.google.com with ESMTPS id t76si135968vkb.1.2020.02.25.22.13.31
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 25 Feb 2020 21:35:52 -0800 (PST)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429 as permitted sender) client-ip=2607:f8b0:4864:20::429;
-Received: by mail-pf1-x429.google.com with SMTP id 4so847258pfz.9
-        for <clang-built-linux@googlegroups.com>; Tue, 25 Feb 2020 21:35:52 -0800 (PST)
-X-Received: by 2002:a62:cf07:: with SMTP id b7mr2397497pfg.77.1582695351516;
-        Tue, 25 Feb 2020 21:35:51 -0800 (PST)
-Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id z127sm822015pgb.64.2020.02.25.21.35.50
+        Tue, 25 Feb 2020 22:13:31 -0800 (PST)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::641 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::641;
+Received: by mail-pl1-x641.google.com with SMTP id q4so864534pls.4
+        for <clang-built-linux@googlegroups.com>; Tue, 25 Feb 2020 22:13:31 -0800 (PST)
+X-Received: by 2002:a17:90a:b311:: with SMTP id d17mr3384951pjr.17.1582697607339;
+        Tue, 25 Feb 2020 22:13:27 -0800 (PST)
+Received: from [10.0.9.4] ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id l2sm1109017pgp.0.2020.02.25.22.13.25
+        for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Feb 2020 21:35:50 -0800 (PST)
-Date: Tue, 25 Feb 2020 21:35:49 -0800
-From: Kees Cook <keescook@chromium.org>
-To: Fangrui Song <maskray@google.com>
-Cc: Nick Desaulniers <ndesaulniers@google.com>,
-	Arvind Sankar <nivedita@alum.mit.edu>,
-	Borislav Petkov <bp@alien8.de>,
-	Nathan Chancellor <natechancellor@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	clang-built-linux <clang-built-linux@googlegroups.com>,
-	Michael Matz <matz@suse.de>,
-	Kristen Carlson Accardi <kristen@linux.intel.com>
-Subject: Re: --orphan-handling=warn
-Message-ID: <202002252103.B4BBF01091@keescook>
-References: <20200222072144.asqaxlv364s6ezbv@google.com>
- <20200222074254.GB11284@zn.tnic>
- <20200222162225.GA3326744@rani.riverdale.lan>
- <CAKwvOdnvMS21s9gLp5nUpDAOu=c7-iWYuKTeFUq+PMhsJOKUgw@mail.gmail.com>
- <202002242122.AA4D1B8@keescook>
- <20200225182951.GA1179890@rani.riverdale.lan>
- <202002251140.4F28F0A4F@keescook>
- <CAKwvOdnkr1W4LTm8XmTKGkSDUhSBRowLbKwJwyitDMAGLh9ywg@mail.gmail.com>
- <202002251358.EDA50C11F@keescook>
- <20200226015606.ij7wn7emuj4bfkvn@google.com>
-MIME-Version: 1.0
+        Tue, 25 Feb 2020 22:13:26 -0800 (PST)
+Message-ID: <5e560c86.1c69fb81.f6979.3f80@mx.google.com>
+Date: Tue, 25 Feb 2020 22:13:26 -0800 (PST)
 Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
-In-Reply-To: <20200226015606.ij7wn7emuj4bfkvn@google.com>
-X-Original-Sender: keescook@chromium.org
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Kernel: next-20200226
+X-Kernelci-Report-Type: build
+X-Kernelci-Tree: next
+X-Kernelci-Branch: master
+Subject: next/master build: 219 builds: 12 failed, 207 passed, 39 errors,
+ 188 warnings (next-20200226)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=S60pJC8C;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::429
- as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
- (p=NONE sp=NONE dis=NONE) header.from=chromium.org
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=YZPNtZM4;       spf=neutral (google.com: 2607:f8b0:4864:20::641 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -151,191 +134,1951 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, Feb 25, 2020 at 05:56:06PM -0800, Fangrui Song wrote:
-> > > Kees is working on a series to just be explicit about what sections
-> > > are ordered where, and what's discarded, which should better handle
-> > > incompatibilities between linkers in regards to orphan section
-> > > placement and "what does `*` mean."  Kees, that series can't come soon
-> > 
-> > So, with my series[1] applied, ld.bfd builds clean. With ld.lld, I get a
-> > TON of warnings, such as:
-> > 
-> > (.bss.rel.ro) is being placed in '.bss.rel.ro'
-> 
-> .bss.rel.ro (SHT_NOBITS) is lld specific. GNU ld does not have it. It is
-> currently used for copy relocations of symbols in read-only PT_LOAD
-> segments. If a relro section's statically relocated data is all zeros,
-> we can move the section to .bss.rel.ro
-> 
-> > (.iplt) is being placed in '.iplt'
-> > (.plt) is being placed in '.plt'
-> > (.rela.altinstr_aux) is being placed in '.rela.altinstr_aux'
-> > (.rela.altinstr_replacement) is being placed in
-> > '.rela.altinstr_replacement'
-> > (.rela.altinstructions) is being placed in '.rela.altinstructions'
-> > (.rela.apicdrivers) is being placed in '.rela.apicdrivers'
-> > (.rela__bug_table) is being placed in '.rela__bug_table'
-> > (.rela.con_initcall.init) is being placed in '.rela.init.data'
-> > (.rela.cpuidle.text) is being placed in '.rela.text'
-> > (.rela.data..cacheline_aligned) is being placed in '.rela.data'
-> > (.rela.data) is being placed in '.rela.data'
-> > (.rela.data..percpu) is being placed in '.rela.data..percpu'
-> > (.rela.data..percpu..page_aligned) is being placed in '.rela.data..percpu'
-> > ...
-> 
-> I need to figure out the exact GNU ld rule for input SHT_REL[A] retained
-> by --emit-relocs.
-> 
->   ld.bfd: warning: orphan section `.rela.meminit.text' from `arch/x86/kernel/head_64.o' being placed in section `.rela.dyn'
->   ld.bfd: warning: orphan section `.rela___ksymtab+__ctzsi2' from `arch/x86/kernel/head_64.o' being placed in section `.rela.dyn'
->   ld.bfd: warning: orphan section `.rela___ksymtab+__clzsi2' from `arch/x86/kernel/head_64.o' being placed in section `.rela.dyn'
->   ld.bfd: warning: orphan section `.rela___ksymtab+__clzdi2' from `arch/x86/kernel/head_64.o' being placed in section `.rela.dyn'
->   ld.bfd: warning: orphan section `.rela___ksymtab+__ctzdi2' from `arch/x86/kernel/head_64.o' being placed in section `.rela.dyn'
-> 
-> lld simply ignores such SHT_REL[A] when checking input section descriptions.
-> A .rela.foo relocating .foo will be named .rela.foobar if .foo is placed in .foobar
-> 
-> It makes sense for --orphan-handling= not to warn/error.
-> https://reviews.llvm.org/D75151
+next/master build: 219 builds: 12 failed, 207 passed, 39 errors, 188 warnin=
+gs (next-20200226)
 
-Awesome! I commented on the review, but just to follow up, this cuts out
-all the .rela warnings.
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200226/
 
-> 
-> > But as you can see in the /DISCARD/, these (and all the others), should
-> > be getting caught:
-> > 
-> >         /DISCARD/ : {
-> >                 *(.eh_frame)
-> > +               *(.rela.*) *(.rela_*)
-> > +               *(.rel.*) *(.rel_*)
-> > +               *(.got) *(.got.*)
-> > +               *(.igot.*) *(.iplt)
-> >         }
-> > 
-> > I don't understand what's happening here. I haven't minimized this case
-> > nor opened an lld bug yet.
-> 
-> --orphan-handling was implemented per
-> https://bugs.llvm.org/show_bug.cgi?id=34946
-> It seems the reporter did not follow up after the feature was implemented.
-> Now we have the Linux kernel case...
-> Last December I encountered another case in my company.
-> 
-> It is pretty clear that this feature is useful and we should fix it :)
-> 
-> https://reviews.llvm.org/D75149
+Tree: next
+Branch: master
+Git Describe: next-20200226
+Git Commit: f3fef7e990dae5fcd7cd8ccbd9b2a98bdb481da8
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-Also commented in the review; this removes the following:
+Build Failures Detected:
 
-... (.bss.rel.ro) is being placed in '.bss.rel.ro'
-... (.iplt) is being placed in '.iplt'
-... (.plt) is being placed in '.plt'
-... (.symtab_shndx) is being placed in '.symtab_shndx'
+arm:
+    allmodconfig: (gcc-8) FAIL
+    cm_x300_defconfig: (gcc-8) FAIL
+    em_x270_defconfig: (gcc-8) FAIL
+    eseries_pxa_defconfig: (gcc-8) FAIL
+    milbeaut_m10v_defconfig: (gcc-8) FAIL
+    moxart_defconfig: (gcc-8) FAIL
+    mv78xx0_defconfig: (gcc-8) FAIL
+    pxa_defconfig: (gcc-8) FAIL
 
-I'm now only left with:
+mips:
+    fuloong2e_defconfig: (gcc-8) FAIL
+    ip27_defconfig: (gcc-8) FAIL
+    ip32_defconfig: (gcc-8) FAIL
+    malta_kvm_defconfig: (gcc-8) FAIL
 
-ld.lld: warning: <internal>:(.symtab) is being placed in '.symtab'
-ld.lld: warning: <internal>:(.shstrtab) is being placed in '.shstrtab'
-ld.lld: warning: <internal>:(.strtab) is being placed in '.strtab'
+Errors and Warnings Detected:
 
-> > enough. ;) (I think it's intended to help "fine grain" (per function)
-> > KASLR).  More comments in the other thread.
-> 
-> > Actually, it's rather opposed to the FGKASLR series, as for that, I need
-> > some kind of linker script directive like this:
-> > 
-> > 	/PASSTHRU/ : {
-> > 		*(.text.*)
-> > 	}
-> > 
-> > Where "PASSTHRU" would create a 1-to-1 input-section to output-section
-> > with the same name, flags, etc.
-> 
-> /PASSTHRU/ sections are still handled as orphan sections?
+arc:
 
-If PASSTHRU existed, I wouldn't want them reported as orphan sections
-(since they'd be chosen). This "section" would serve two purposes:
+arm64:
+    allmodconfig (clang-8): 79 warnings
+    defconfig (clang-8): 18 warnings
 
-- remove the warning about being orphan
-- position the sections in a known location (FGKASLR needs this so that
-  it can know where the end of the all the .text.* sections actually
-  are. Right now, the correct result is effectively accidental[1].)
+arm:
+    allmodconfig (gcc-8): 1 error, 17 warnings
+    aspeed_g4_defconfig (gcc-8): 4 warnings
+    aspeed_g5_defconfig (gcc-8): 4 warnings
+    cm_x300_defconfig (gcc-8): 1 error, 2 warnings
+    em_x270_defconfig (gcc-8): 1 error, 2 warnings
+    eseries_pxa_defconfig (gcc-8): 14 errors, 12 warnings
+    milbeaut_m10v_defconfig (gcc-8): 1 error
+    moxart_defconfig (gcc-8): 2 errors, 2 warnings
+    multi_v5_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 4 warnings
+    multi_v7_defconfig (gcc-8): 5 warnings
+    mv78xx0_defconfig (gcc-8): 2 errors, 2 warnings
+    pxa_defconfig (gcc-8): 3 errors, 6 warnings
 
-[1] https://lore.kernel.org/lkml/20200205223950.1212394-7-kristen@linux.intel.com/
+i386:
 
-> Do you restrict { } to input section descriptions, not output section
-> data (https://sourceware.org/binutils/docs/ld/Output-Section-Data.html#Output-Section-Data)?
-> or symbol assignments?
+mips:
+    fuloong2e_defconfig (gcc-8): 4 errors, 2 warnings
+    ip27_defconfig (gcc-8): 2 errors, 1 warning
+    ip32_defconfig (gcc-8): 4 errors, 2 warnings
+    malta_kvm_defconfig (gcc-8): 4 errors, 2 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 1 warning
 
-I only imagine it being input section descriptions. (I imagine PASSTHRU
-being much like DISCARD -- it won't make sense to put output section
-data there either.)
+riscv:
+    rv32_defconfig (gcc-8): 6 warnings
 
-> You can ask https://sourceware.org/ml/binutils/2020-02/ whether
-> they'd like to accept the feature request:)
-> 
-> (My personal feeling is that I want to see more use cases to add the new
-> feature...)
+x86_64:
+    tinyconfig (gcc-8): 1 warning
 
-This is the only case I've got for this right now. If the "do not merge
-the orphan .text.* into .text" bug is fixed, then FGKASLR can continue
-to work "on accident", and nothing like PASSTHRU would be needed. :)
-In this case, I would have FGKASLR disable the orphan section warning,
-since it would depend on orphan handling.
+Errors summary:
 
-> > ld.bfd's handling of orphan sections named .text.* is to put them each
-> > as a separate output section, after the existing .text output section.
-> > 
-> > ld.lld's handling of orphan sections named .text.* is to put them into
-> > the .text output section.
-> 
-> Confirmed. lld can adapt. I need to do some homework...
+    3    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undef=
+ined!
+    2    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=
+=3D width of type [-Werror=3Dshift-count-overflow]
+    1    sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
+    1    sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
+    1    sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
+    1    sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
+    1    sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
+    1    sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
+    1    sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
+    1    sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
+    1    sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=98w=
+m9712_regmap_config=E2=80=99 isn=E2=80=99t known
+    1    sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712_r=
+egmap_config=E2=80=99 has initializer but incomplete type
+    1    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of fu=
+nction =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit-f=
+unction-declaration]
+    1    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of fu=
+nction =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=80=
+=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of fu=
+nction =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=80=
+=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of f=
+unction =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_in=
+it_zone=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    1    mips-linux-gnu-ld: main.c:(.init.text+0xb3c): undefined reference =
+to `initrd_start'
+    1    mips-linux-gnu-ld: main.c:(.init.text+0xb34): undefined reference =
+to `initrd_start'
+    1    mips-linux-gnu-ld: main.c:(.init.text+0xb20): undefined reference =
+to `initrd_start'
+    1    mips-linux-gnu-ld: main.c:(.init.text+0xb18): undefined reference =
+to `initrd_start'
+    1    mips-linux-gnu-ld: main.c:(.init.text+0xadc): undefined reference =
+to `initrd_end'
+    1    mips-linux-gnu-ld: main.c:(.init.text+0xabc): undefined reference =
+to `initrd_end'
+    1    mips-linux-gnu-ld: (.init.text+0xb48): undefined reference to `ini=
+trd_start'
+    1    mips-linux-gnu-ld: (.init.text+0xb40): undefined reference to `ini=
+trd_start'
+    1    mips-linux-gnu-ld: (.init.text+0xaec): undefined reference to `ini=
+trd_end'
+    1    main.c:(.init.text+0xad8): undefined reference to `initrd_end'
+    1    main.c:(.init.text+0xab8): undefined reference to `initrd_end'
+    1    drivers/clocksource/arm_arch_timer.c:72:44: error: =E2=80=98VDSO_C=
+LOCKMODE_ARCHTIMER=E2=80=99 undeclared here (not in a function); did you me=
+an =E2=80=98VDSO_CLOCKMODE_TIMENS=E2=80=99?
+    1    arm-linux-gnueabihf-ld: /home/buildslave/workspace/workspace/kerne=
+l-build@8/linux/build/../init/main.c:1002: undefined reference to `initrd_s=
+tart'
+    1    arm-linux-gnueabihf-ld: /home/buildslave/workspace/kernel-build@2/=
+linux/build/../init/main.c:1002: undefined reference to `initrd_start'
+    1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] undef=
+ined!
+    1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] undef=
+ined!
+    1    ERROR: "amdgpu_amdkfd_remove_fence_on_pt_pd_bos" [drivers/gpu/drm/=
+amd/amdgpu/amdgpu.ko] undefined!
+    1    /home/buildslave/workspace/workspace/kernel-build@8/linux/build/..=
+/init/main.c:1002: undefined reference to `initrd_end'
+    1    /home/buildslave/workspace/kernel-build@2/linux/build/../init/main=
+.c:1002: undefined reference to `initrd_end'
+    1    (.init.text+0xae8): undefined reference to `initrd_end'
 
-Awesome. If it matches bfd, then that'll be sufficient:
+Warnings summary:
 
-https://sourceware.org/binutils/docs/ld/Orphan-Sections.html
+    35   1 warning generated.
+    14   drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warni=
+ng: '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define=
+ of a different macro [-Wheader-guard]
+    10   WARNING: unmet direct dependencies detected for BOOT_CONFIG
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    8    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    8    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    8    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    8    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    8    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    6    2 warnings generated.
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    2    fs/btrfs/backref.c:394:30: warning: suggest braces around initiali=
+zation of subobject [-Wmissing-braces]
+    2    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:722:36: warning: suggest br=
+aces around initialization of subobject [-Wmissing-braces]
+    2    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2692:80=
+: warning: suggest braces around initialization of subobject [-Wmissing-bra=
+ces]
+    2    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    2    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    2    3 warnings generated.
+    1    {standard input}:141: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/codecs/wm9712.c:93:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:91:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:89:16: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:88:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:87:14: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:86:16: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:85:14: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=98=
+struct regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from inte=
+ger without a cast [-Wint-conversion]
+    1    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitia=
+lized when used within its own initialization [-Wuninitialized]
+    1    mm/shmem.c:2745:35: warning: variable 'shmem_falloc_waitq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    include/linux/kernel.h:47:25: warning: excess elements in struct i=
+nitializer
+    1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    1    fs/proc/base.c:1985:35: warning: variable 'wq' is uninitialized wh=
+en used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:464:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1    fs/nfs/dir.c:1638:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1    fs/namei.c:3213:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/namei.c:1736:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized =
+when used within its own initialization [-Wuninitialized]
+    1    fs/cifs/readdir.c:84:34: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from poi=
+nter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/scsi/lpfc/lpfc_sli.c:11910:34: warning: variable 'done_q' =
+is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/lpfc/lpfc_scsi.c:4728:34: warning: variable 'waitq' i=
+s uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: vari=
+able 'rate_idx' is used uninitialized whenever 'if' condition is false [-Ws=
+ometimes-uninitialized]
+    1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: var=
+iable 'rate_idx' is used uninitialized whenever 'if' condition is false [-W=
+sometimes-uninitialized]
+    1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: vari=
+able 'rate_idx' is used uninitialized whenever 'if' condition is false [-Ws=
+ometimes-uninitialized]
+    1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initia=
+lize the variable 'rate_idx' to silence this warning
+    1    drivers/net/usb/lan78xx.c:2659:34: warning: variable 'unlink_wakeu=
+p' is uninitialized when used within its own initialization [-Wuninitialize=
+d]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    drivers/net/ethernet/amazon/ena/ena_netdev.c:310:38: warning: sugg=
+est braces around initialization of subobject [-Wmissing-braces]
+    1    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake'=
+ is uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is unin=
+itialized when used within its own initialization [-Wuninitialized]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: wa=
+rning: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-W=
+pointer-bool-conversion]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: wa=
+rning: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wp=
+ointer-bool-conversion]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2690:53=
+: warning: suggest braces around initialization of subobject [-Wmissing-bra=
+ces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:342=
+:53: warning: suggest braces around initialization of subobject [-Wmissing-=
+braces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:116=
+:62: warning: suggest braces around initialization of subobject [-Wmissing-=
+braces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/bios_parser2.c:297:4=
+1: warning: suggest braces around initialization of subobject [-Wmissing-br=
+aces]
+    1    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:8558:4=
+3: warning: suggest braces around initialization of subobject [-Wmissing-br=
+aces]
+    1    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is =
+uninitialized when used within its own initialization [-Wuninitialized]
+    1    drivers/android/binderfs.c:657:41: warning: suggest braces around =
+initialization of subobject [-Wmissing-braces]
+    1    cc1: some warnings being treated as errors
+    1    cc1: all warnings being treated as errors
+    1    /tmp/ccVBr1Ju.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccVBr1Ju.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1166:warning: override: UNWINDER_GUESS changes choice stat=
+e
 
-Namely:
-	"If there is no output section with a matching name then new
-	 output sections will be created."
-and:
-	"... the linker attempts to place orphan sections after sections
-	 of the same attribute ..."
+Section mismatches summary:
 
-So .text.blah would end up in .text.blah but after .text (since they're
-both code).
+    1    WARNING: vmlinux.o(.text.unlikely+0x39dc): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
 
-(And as noted earlier, --unique support is needed too.)
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
 
-> > For FGKASLR (as it is currently implemented[2]), the sections need to be
-> > individually named output sections (as bfd does it). *However*, with the
-> > "warn on orphans" patch, FGKASLR's intentional orphaning will backfire
-> > (I guess the warning could be turned off, but I'd like lld to handle
-> > FGKASLR at some point.)
-> > 
-> > Note that cheating and doing the 1-to-1 mapping by handy with a 40,000
-> > entry linker script ... made ld.lld take about 15 minutes to do the
-> > final link. :(
-> 
-> Placing N orphan sections requires O(N^2) time (in both GNU ld and lld) :(
+Detailed per-defconfig build reports:
 
-Owchy. :)
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
 
-> [...]
-> Now I learned the term FGKASLR... I need to do some homework.
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnin=
+gs, 0 section mismatches
 
-Thanks for looking into this! It'll be really nice to have the orphan
-section warnings working in the kernel. And getting the ground work for
-FGKASLR ready will be nice!
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 79 warnings, 0 sect=
+ion mismatches
 
-Kristen, can I convince you that FG stands for function-granular
-instead of fine-grain? :)
+Warnings:
+    mm/shmem.c:2745:35: warning: variable 'shmem_falloc_waitq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/base.c:1985:35: warning: variable 'wq' is uninitialized when us=
+ed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized w=
+hen used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/namei.c:1736:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    fs/namei.c:3213:34: warning: variable 'wq' is uninitialized when used w=
+ithin its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/android/binderfs.c:657:41: warning: suggest braces around initi=
+alization of subobject [-Wmissing-braces]
+    1 warning generated.
+    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized when=
+ used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/cifs/readdir.c:84:34: warning: variable 'wq' is uninitialized when u=
+sed within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is uninitial=
+ized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    fs/btrfs/backref.c:394:30: warning: suggest braces around initializatio=
+n of subobject [-Wmissing-braces]
+    1 warning generated.
+    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized when =
+used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitialized=
+ when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is unini=
+tialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:722:36: warning: suggest braces =
+around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    fs/nfs/dir.c:464:34: warning: variable 'wq' is uninitialized when used =
+within its own initialization [-Wuninitialized]
+    fs/nfs/dir.c:1638:34: warning: variable 'wq' is uninitialized when used=
+ within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake' is u=
+ninitialized when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/net/ethernet/amazon/ena/ena_netdev.c:310:38: warning: suggest b=
+races around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/net/usb/lan78xx.c:2659:34: warning: variable 'unlink_wakeup' is=
+ uninitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uninitiali=
+zed when used within its own initialization [-Wuninitialized]
+    2 warnings generated.
+    drivers/scsi/lpfc/lpfc_sli.c:11910:34: warning: variable 'done_q' is un=
+initialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variable=
+ 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsomet=
+imes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initialize =
+the variable 'rate_idx' to silence this warning
+    3 warnings generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/scsi/lpfc/lpfc_scsi.c:4728:34: warning: variable 'waitq' is uni=
+nitialized when used within its own initialization [-Wuninitialized]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:8558:43: wa=
+rning: suggest braces around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/bios_parser2.c:297:41: wa=
+rning: suggest braces around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:116:62: =
+warning: suggest braces around initialization of subobject [-Wmissing-brace=
+s]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:342:53: =
+warning: suggest braces around initialization of subobject [-Wmissing-brace=
+s]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning=
+: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning=
+: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoint=
+er-bool-conversion]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2690:53: war=
+ning: suggest braces around initialization of subobject [-Wmissing-braces]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2692:80: war=
+ning: suggest braces around initialization of subobject [-Wmissing-braces]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2692:80: war=
+ning: suggest braces around initialization of subobject [-Wmissing-braces]
+    3 warnings generated.
 
--- 
-Kees Cook
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 17 warnings, 0 section m=
+ismatches
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202002252103.B4BBF01091%40keescook.
+Errors:
+    ERROR: "amdgpu_amdkfd_remove_fence_on_pt_pd_bos" [drivers/gpu/drm/amd/a=
+mdgpu/amdgpu.ko] undefined!
+
+Warnings:
+    /tmp/ccVBr1Ju.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccVBr1Ju.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from pointer =
+to integer of different size [-Wpointer-to-int-cast]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 2 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x39dc): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 18 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/btrfs/backref.c:394:30: warning: suggest braces around initializatio=
+n of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:722:36: warning: suggest braces =
+around initialization of subobject [-Wmissing-braces]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+    drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning: '=
+__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of a=
+ different macro [-Wheader-guard]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 0 warnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 2 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 14 errors, 12 warnings, =
+0 section mismatches
+
+Errors:
+    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of functio=
+n =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit-functi=
+on-declaration]
+    sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712_regmap=
+_config=E2=80=99 has initializer but incomplete type
+    sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
+    sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
+    sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
+    sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
+    sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
+    sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
+    sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
+    sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
+    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of functi=
+on =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_init_zo=
+ne=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of functio=
+n =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=80=98sn=
+d_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of functio=
+n =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=80=98sn=
+d_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=98wm9712=
+_regmap_config=E2=80=99 isn=E2=80=99t known
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    sound/soc/codecs/wm9712.c:85:14: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:86:16: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:87:14: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:88:18: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:89:16: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:91:18: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:93:18: warning: excess elements in struct ini=
+tializer
+    include/linux/kernel.h:47:25: warning: excess elements in struct initia=
+lizer
+    sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=98struc=
+t regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from integer w=
+ithout a cast [-Wint-conversion]
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 2 warnings, 0 s=
+ection mismatches
+
+Errors:
+    main.c:(.init.text+0xad8): undefined reference to `initrd_end'
+    mips-linux-gnu-ld: main.c:(.init.text+0xadc): undefined reference to `i=
+nitrd_end'
+    mips-linux-gnu-ld: main.c:(.init.text+0xb34): undefined reference to `i=
+nitrd_start'
+    mips-linux-gnu-ld: main.c:(.init.text+0xb3c): undefined reference to `i=
+nitrd_start'
+
+Warnings:
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 wa=
+rnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warning, 0 section=
+ mismatches
+
+Errors:
+    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D wi=
+dth of type [-Werror=3Dshift-count-overflow]
+    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D wi=
+dth of type [-Werror=3Dshift-count-overflow]
+
+Warnings:
+    cc1: all warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    main.c:(.init.text+0xab8): undefined reference to `initrd_end'
+    mips-linux-gnu-ld: main.c:(.init.text+0xabc): undefined reference to `i=
+nitrd_end'
+    mips-linux-gnu-ld: main.c:(.init.text+0xb18): undefined reference to `i=
+nitrd_start'
+    mips-linux-gnu-ld: main.c:(.init.text+0xb20): undefined reference to `i=
+nitrd_start'
+
+Warnings:
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 FAIL, 4 errors, 2 warnings, 0 s=
+ection mismatches
+
+Errors:
+    (.init.text+0xae8): undefined reference to `initrd_end'
+    mips-linux-gnu-ld: (.init.text+0xaec): undefined reference to `initrd_e=
+nd'
+    mips-linux-gnu-ld: (.init.text+0xb40): undefined reference to `initrd_s=
+tart'
+    mips-linux-gnu-ld: (.init.text+0xb48): undefined reference to `initrd_s=
+tart'
+
+Warnings:
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
+s, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning=
+, 0 section mismatches
+
+Warnings:
+    {standard input}:141: Warning: macro instruction expanded into multiple=
+ instructions
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0=
+ section mismatches
+
+Errors:
+    drivers/clocksource/arm_arch_timer.c:72:44: error: =E2=80=98VDSO_CLOCKM=
+ODE_ARCHTIMER=E2=80=99 undeclared here (not in a function); did you mean =
+=E2=80=98VDSO_CLOCKMODE_TIMENS=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
+ 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 secti=
+on mismatches
+
+Errors:
+    /home/buildslave/workspace/workspace/kernel-build@8/linux/build/../init=
+/main.c:1002: undefined reference to `initrd_end'
+    arm-linux-gnueabihf-ld: /home/buildslave/workspace/workspace/kernel-bui=
+ld@8/linux/build/../init/main.c:1002: undefined reference to `initrd_start'
+
+Warnings:
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 4 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 4 warnings, 0 section mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 =
+warnings, 0 section mismatches
+
+Warnings:
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 bytes is =
+larger than 1024 bytes [-Wframe-larger-than=3D]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    /home/buildslave/workspace/kernel-build@2/linux/build/../init/main.c:10=
+02: undefined reference to `initrd_end'
+    arm-linux-gnueabihf-ld: /home/buildslave/workspace/kernel-build@2/linux=
+/build/../init/main.c:1002: undefined reference to `initrd_start'
+
+Warnings:
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+    WARNING: unmet direct dependencies detected for BOOT_CONFIG
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
+section mismatches
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
+, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 3 errors, 6 warnings, 0 section =
+mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] undefined!
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
+0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
+on mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
+ection mismatches
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    .config:1166:warning: override: UNWINDER_GUESS changes choice state
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mis=
+matches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section mi=
+smatches
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
+ion mismatches
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
+ section mismatches
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
+tion mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
+n mismatches
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
+ismatches
+
+---
+For more info write to <info@kernelci.org>
+
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5e560c86.1c69fb81.f6979.3f80%40mx.google.com.
