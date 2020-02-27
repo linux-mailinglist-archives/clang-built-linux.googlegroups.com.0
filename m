@@ -1,122 +1,119 @@
-Return-Path: <clang-built-linux+bncBDYJPJO25UGBBONN4DZAKGQERUPR2DI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDYJPJO25UGBBRFO4DZAKGQEBDBAKTA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3e.google.com (mail-yw1-xc3e.google.com [IPv6:2607:f8b0:4864:20::c3e])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9BC8E17287E
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 20:21:30 +0100 (CET)
-Received: by mail-yw1-xc3e.google.com with SMTP id c125sf1035782ywf.0
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 11:21:30 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582831289; cv=pass;
+Received: from mail-ua1-x93e.google.com (mail-ua1-x93e.google.com [IPv6:2607:f8b0:4864:20::93e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 0E8C0172884
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 20:23:50 +0100 (CET)
+Received: by mail-ua1-x93e.google.com with SMTP id l31sf178351uad.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 11:23:50 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582831429; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Pp4A9YNssS5LMyKAu0HVN61vi6d7ak9KwbiJ7+7rb482oU9jnMoCzofsj6QYqBNwj1
-         d+9Grgn8dhZZ5wGIJzKlek3JW0u2z6/v9+3HasFAlvMMo8/5MDIE9fWuTSFSbAZ/NfWs
-         UtKMAsvDTehk94QVgnxMFMJP1VcRhx3Az57e5IabF7mFRY4VlDxSvbxwkvuLRlYY7BdO
-         fa6+/ULVjDtaelqa2hl6y4Ng4LUEEbv/rhgXTmeyjotd7C/RaAfN+i8cS0GrHOmD4nB5
-         dMlLhMfX17HbkEN4+dV72G0ox0CsD7+AhWD8i2deuBfDk1Wz0m71gC7yz4NIRUvqLXKM
-         GJBg==
+        b=1AtTSzn8fpWqxsFMS8b3JCbRhFbwFOMoQBfEmcSAqyR+TsQvvUfqcKhsFtiCebk7RU
+         ibRvHeiMBbNWNVmOPajrt9hZcpBHwfQvTsrv91x8LJ4JbzpJxFj39NHrKWs7F7W2kd/C
+         VIva1LWpUx9rwR9ATViJjA1g4YkfXadfQ7z0Gae5TlfUcBrKwsZDnw1hhZxCNGwGR41P
+         C7/IjCIxJsnlPQU1XHn3E90mNxpt9SJ2BxdpU0P6lUpJs66tmozXXS2V3CRorIUe+TMW
+         P/J3C7f3KajR7hcqO8x3neExYv4Ei5pgY1IRJYQ7KsK0yzIW2Js4m5BUhwxe2GsxNQlQ
+         zzrw==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:reply-to:content-transfer-encoding
-         :cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=WqcVeExD9hPgy2qlFyFuziTuVGTt1tSwY8lgNOR/P3g=;
-        b=1G2E5QR8Q//bWHNar7rTQZa8+nBFxr8WbzTNasbTd0gRaF3NJ26J7BrcQ8yW2aqlmh
-         IgPVv4rNs/3JvGTI4oJHtVPaaX03L8lIziUyYk2nJiCBBy6oh0CJP5SJ7a6O/dixe8oB
-         kYehSHI2KVRsHOQxQFs4PqvDforBTkYkAlNY8nz8dIjfQEBSNJZclV6OHwodIMyAgFX9
-         teI1YwScLJjonTlvzX3CygiY1j1pqeeozTGTK6z/xES2LUK/WryOe4InJJrwCVHX6GCm
-         WUoR3LRfxTH3cR08sD9O01kVNSGdsAxy7guoT60fnWDgayT67hucbBM8agIP2XHaEqRV
-         Cfww==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=3BfiIlBn3miHLb6oKpWrkq1ti4/nKmxFEJxF7/6RCJw=;
+        b=bn03dxtq4maaZxCpuQKql3sVnHHj7mM6Z69wykAwZym7j2WdfbGSPIJnKoLnMSROZA
+         iCGAMrrlGuaiMKezIggK0r0+R72aGWlPfKnZQyG6NkSZcr8aE9v72n4htY1Zsv3vajZW
+         WHQ0m/yHoBpEGx/hOzqltYgxceQbXDOBwwWILeUtlfK4PQ1Dy7lF/SrJfheQHy9Y352K
+         WhnghnuoC/lCBNjffOAVE3789ESKJbFkTLhDJwvKFwuUMZo9JHq4bsuamfTrjP2JbEAc
+         tMCZGjTt9CjsWfbl5rWHnlUpl5fMOpTSxx1XQ2yj/NDFUSJula2d3gXRUedfh9NdjJzL
+         rpCA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=SaY7DDdo;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cVIVPM7h;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:reply-to:precedence:mailing-list
-         :list-id:list-post:list-help:list-archive:list-subscribe
-         :list-unsubscribe;
-        bh=WqcVeExD9hPgy2qlFyFuziTuVGTt1tSwY8lgNOR/P3g=;
-        b=G4OKv571yL5XCVOFS2LWyK9P7SFZX00DGb1u1zDgEoSE04KqK/zGzFa+yx5X3oKqBO
-         L4upuBwz+KzNZzhEN0/8zECCLpx9tSRIYuc4nnLQnPQOOsyFNgJ5RimXVTy0LUdZEZcL
-         PuqU1GAG0+V86FBChMoReDqAMVm7N70kB9aiSzHvmaxZxT4Bw8MeqQ9STMv53e/wOCkH
-         d1ulHc2xEbXdqNnWFZpWme1IX/qtqla527JTVsdTRW3/HC3G3uu+yEQDJjhcL6ZkWuWc
-         qM6c6BhdbRLJukj9o6PmLSwJiU1AaJgvu1gOsdqRj7L1Q4TndLnj6rNFaSEXcn/wkeJ8
-         eLrw==
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3BfiIlBn3miHLb6oKpWrkq1ti4/nKmxFEJxF7/6RCJw=;
+        b=QJhTrMzpvX0qNrB7+63SeSp69XCEvPUt4SCAVGw1hOJm4vIACNDDvx2ZwS5ZI9zuvC
+         u9T5G4AoKQBSpDdQh8/m5JDfEgc3MPpr+V2gS0jf/yelm4M1cs0P2B62qZN45Ki1XWay
+         3VIQ4R8rSdWxNMCxApd0ROlMQGGHab8jJN0yO1O18tYqsH9TndCu3O7qSpN3Yzlqsn4N
+         8fyIHDwrwtojyEHdJjed7LWaXj0ZcUmLeX6U/f99/Bdn8paUtIc9gyZLGz6oY1lzKACe
+         HF8pIIko4Hy/Ym2nZE446pINCsHYZske8CgoXWDovK/YeMkPtW4BLHJJcTPbjZIylC3a
+         kuPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:reply-to
-         :precedence:mailing-list:list-id:x-spam-checked-in-group:list-post
-         :list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=WqcVeExD9hPgy2qlFyFuziTuVGTt1tSwY8lgNOR/P3g=;
-        b=oGJy9Fkhy6T4GZok+jBwSaFBXUWMnI/dckm5N4HQhqSfd/DNRCezrPX5x1a4TJZLT5
-         k9NSq2yqca/B63w2MBrYXfrvj1UEiOa95mYqyHv8n59kWuKYbzASLWYk0rebtDwpDmGX
-         Q+Bq3QuTx9xZufZlN2zWxq8D+mB/KKnneFo6+N5+h+kkfAiMhlEEc2d88qh9BF53b+LW
-         ykwHj1Ov2BYmiMlzVLbDL+KlADuXKUpxXihcNgLRk8nSJuMO3FgQrhl1ENkPMylR6/l3
-         ul8VOsfNui+Fx0gwxDhY5KvywxEJEVQ36GcyfvFMngbbdp3bc70B7kPwx1rHG8EHac6G
-         90ow==
-X-Gm-Message-State: APjAAAX80djj8fsirjkSuCHgatLvzwuzW8tAhkwxNEBUikR1DdXsup2H
-	SSvoawH7R4Enftmp9fC52j8=
-X-Google-Smtp-Source: APXvYqzGytjOF98nCEDnSw762zcoT5d6dm+0Qp2Kn0OWtIaP5yfrfJhGcIcCg7KJaOMzHsFiwwffrQ==
-X-Received: by 2002:a25:3b8a:: with SMTP id i132mr181569yba.313.1582831289460;
-        Thu, 27 Feb 2020 11:21:29 -0800 (PST)
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=3BfiIlBn3miHLb6oKpWrkq1ti4/nKmxFEJxF7/6RCJw=;
+        b=pEyh1scTd852oRf8k7NmuiJFFSernb8OxZ7iu/QZVfSH2rHgSITYkIA3IsXy/Dyq0f
+         pePxtC/CzQrHCM9kdJk17zLfwuLOLXiWPWdkjdgkZu6Y7mXB38gax98TPD/UNUzvMfPn
+         ncOkQIm7sjBsAg0cYOPuKBkWfr4AC+wZKLCVRzJguZM1s9O+MZlJJNxprL7CCATxqh/d
+         9sCcqL2uhddzNW1D/SOjZv4oI3YAAWAREd1G1nky3c8RNeoHfHMPRVOVFjht1eBV3aYm
+         QL6j0PK0HDpQUbQdV0vh97aXOm40oBcbiRsco7jOMWHiUuwNJrtFvPrmuhpPWZzBq84J
+         RHAg==
+X-Gm-Message-State: ANhLgQ2yUpd4yi9DUTGIXGWIuuDF2Bwlsq4w22eOiBXdxUwzBARMjsTZ
+	gCRF1HB9pwKTnaslIFuxXOk=
+X-Google-Smtp-Source: ADFU+vsJgjdAvrnBgzqYAqDxILjEIyfDiIRuLs1qgU5Yl/z/cAJXAAV1xiRSOY7INowh6OQwlX9MxA==
+X-Received: by 2002:a05:6102:3102:: with SMTP id e2mr492968vsh.179.1582831428989;
+        Thu, 27 Feb 2020 11:23:48 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:9444:: with SMTP id l65ls27368ywg.5.gmail; Thu, 27 Feb
- 2020 11:21:28 -0800 (PST)
-X-Received: by 2002:a81:460b:: with SMTP id t11mr934478ywa.446.1582831288615;
-        Thu, 27 Feb 2020 11:21:28 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582831288; cv=none;
+Received: by 2002:a67:f3d4:: with SMTP id j20ls37116vsn.4.gmail; Thu, 27 Feb
+ 2020 11:23:48 -0800 (PST)
+X-Received: by 2002:a67:f315:: with SMTP id p21mr526982vsf.39.1582831428540;
+        Thu, 27 Feb 2020 11:23:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582831428; cv=none;
         d=google.com; s=arc-20160816;
-        b=RgPV0hCEl2CLA75jHFK5a/L7Yx5uZYLtREVHfmLfgP25HRqRKppjhiZ0UapZ0yT4dw
-         Xj0l2qPAkU9ycQPeBJV1j2ofnWekqXwWSbzzxGNUTcSvEeT40H5VmlKf82HcoBesw/zG
-         2ZXsxTyb4K+ItAifm8UTODatjPeN+XDJp5AwxRm/8cORrGbV65wod1WPNINH5CubtqLk
-         IF7BnZCsfbEDgXSYRWvZ5oT+euwR5NbUNNlLI9tKBL5Ep6R7PjzRK5iphived/YHMKNI
-         KHuc73tODq8xhQ6g2BfoS+oG94HoGjrsqnZglYKYChWJMuq9B5jZlf8zI8SqPX/M/mBc
-         Dt3w==
+        b=o4ay0C0EnyUxXnaEPndG95Zy3sDa4H4a6xXMqT8UE8//KZKJOpjxf6ImTjbI75EOpP
+         Cfpk1FxkMCh0CWYjXNRTwcVvbI1wjOysvBknj4A1TtvBkGvE/zaQcMvu11z7eKzKowsu
+         UkTQbBRLCiQweT8Cx+uE4WiqVyr1BLGLLeMHuYtCmvTfE1+ea737op6Wdp4N77oSdSph
+         fXJUuVwbWsMdinf4+jKfnQN0OER9Wi3TvxPlZWa+uaWz8bFXNNtzpHCs91CpWN4ORWPI
+         8/DMoKXvqrHAP/xXMEDsA2fYF10kK02QTj/FKVm2ZbZfCEzUnaDBD5FIFf79s99cGzxx
+         mo4g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=jh0NjdMuuihPN5U4v11/qAipBq1UQnc743HRSxzhIdg=;
-        b=Uy1jr2qulp0bJra742Azw/MHVpjctftt7Ytv7xtI0Np8nM3nfz96lZOzc8VSiQ/Tl7
-         ox2leu4QwkNQUKeTi7AVJlj11hMR8f4q9blNDL29gULGLs2hik2vw9lOPZ6CBjw3gHOZ
-         IQqjIv268E/HaHTXFJ92F/0qGTA1oA38D2hU3PrAshppI1d6b3DDQvZjZRLrQKCmgjSN
-         fu23HUx7hs5B//dPm6Fb/qjp2rX7uJu3eTwGtwKFiPiGthmnKUjMYhOeGMAbJ2/22lNa
-         CT4eiUUiddpJpHZFtfa3ru28GOdlvGtYOtT+qxDuN4pSHHXSOA4JiqSAR1cXIn9Th8ht
-         pSMw==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=5VLBxYOxH3N4Qcufyfyp+VLU9c0dmbnqiXNtXhaFRak=;
+        b=hNegK3FjZ5Y2dVytJIf0FMK2Qi2ceZpekrq2YPFFcFkV0OpnjMgBIoKyDAz3QGY45Q
+         rLbUY29figv/pY+WvzfW4SR0HkscpLxVDxSJ18tWvyYrdbCJad89qbM+Kyc9n/4G2+/e
+         cpgh0jk21/0eHsx3z9PPD4KjijSonTSQdacwYciGRJLemPj4n0820GrcftmmBN/5508H
+         Fe9F4++QPBrNEx2jvPAkS1JOtqI3wA7IU3J5yUWZVicWFEj5mi2XVCNguqBuc6qC18Ji
+         YhWpAiS8x5e0LGiAaqfqnb4eVV1PU83/n1Ecrg2asz3OV0psQ4FVm7+vRTVFY8mP2wTi
+         oFxg==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@google.com header.s=20161025 header.b=SaY7DDdo;
-       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
+       dkim=pass header.i=@google.com header.s=20161025 header.b=cVIVPM7h;
+       spf=pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) smtp.mailfrom=ndesaulniers@google.com;
        dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
-Received: from mail-pf1-x443.google.com (mail-pf1-x443.google.com. [2607:f8b0:4864:20::443])
-        by gmr-mx.google.com with ESMTPS id 136si20802ybd.4.2020.02.27.11.21.28
+Received: from mail-pl1-x631.google.com (mail-pl1-x631.google.com. [2607:f8b0:4864:20::631])
+        by gmr-mx.google.com with ESMTPS id o19si48854vka.4.2020.02.27.11.23.48
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Feb 2020 11:21:28 -0800 (PST)
-Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443 as permitted sender) client-ip=2607:f8b0:4864:20::443;
-Received: by mail-pf1-x443.google.com with SMTP id b185so325962pfb.7
-        for <clang-built-linux@googlegroups.com>; Thu, 27 Feb 2020 11:21:28 -0800 (PST)
-X-Received: by 2002:a63:4d6:: with SMTP id 205mr833763pge.10.1582831284727;
- Thu, 27 Feb 2020 11:21:24 -0800 (PST)
+        Thu, 27 Feb 2020 11:23:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631 as permitted sender) client-ip=2607:f8b0:4864:20::631;
+Received: by mail-pl1-x631.google.com with SMTP id ay11so205228plb.0
+        for <clang-built-linux@googlegroups.com>; Thu, 27 Feb 2020 11:23:48 -0800 (PST)
+X-Received: by 2002:a17:90a:3745:: with SMTP id u63mr459177pjb.123.1582831427032;
+ Thu, 27 Feb 2020 11:23:47 -0800 (PST)
 MIME-Version: 1.0
-References: <5e57d0a2.1c69fb81.b44cf.2a50@mx.google.com>
-In-Reply-To: <5e57d0a2.1c69fb81.b44cf.2a50@mx.google.com>
+References: <115101724.4577.1582789797861.JavaMail.javamailuser@localhost>
+In-Reply-To: <115101724.4577.1582789797861.JavaMail.javamailuser@localhost>
 From: "'Nick Desaulniers' via Clang Built Linux" <clang-built-linux@googlegroups.com>
-Date: Thu, 27 Feb 2020 11:21:13 -0800
-Message-ID: <CAKwvOdnVh0xSrrQ=RkRSYOVHYD0-i+=E=Rsg6JjdG9=4r7BN+w@mail.gmail.com>
-Subject: Re: next/master build: 219 builds: 84 failed, 135 passed, 101 errors,
- 267 warnings (next-20200227)
-To: kernelci@groups.io
-Cc: clang-built-linux <clang-built-linux@googlegroups.com>, 
-	"kernelci.org bot" <bot@kernelci.org>
+Date: Thu, 27 Feb 2020 11:23:36 -0800
+Message-ID: <CAKwvOd=fdpFveAkg4uZB6T5kX9SCBJhrNnqVFuyF0YXHj0n+sQ@mail.gmail.com>
+Subject: Re: [CI-NOTIFY]: TCWG Bisect tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+ - Build # 76 - Successful!
+To: m.felsch@pengutronix.de
+Cc: Arnd Bergmann <arnd@linaro.org>, clang-built-linux <clang-built-linux@googlegroups.com>, 
+	CI Notify <ci_notify@linaro.org>, Maxim Kuvyrkov <maxim.kuvyrkov@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-Original-Sender: ndesaulniers@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@google.com header.s=20161025 header.b=SaY7DDdo;       spf=pass
- (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::443
+ header.i=@google.com header.s=20161025 header.b=cVIVPM7h;       spf=pass
+ (google.com: domain of ndesaulniers@google.com designates 2607:f8b0:4864:20::631
  as permitted sender) smtp.mailfrom=ndesaulniers@google.com;       dmarc=pass
  (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 X-Original-From: Nick Desaulniers <ndesaulniers@google.com>
@@ -133,2690 +130,492 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-+ KernelCI
++ Marco
 
-So it looks like this is the latest report we received. Any thoughts
-on why clang-8 is being used in the report after
-https://github.com/kernelci/kernelci-core/pull/325 was merged 2 days
-ago?  Is the deployment not continuous (ie. still has to be pushed to
-production)?
+00:02:10 drivers/pinctrl/pinctrl-da9062.c:28:10: error:
+'../gpio/gpiolib.h' file not found with <angled> include; use "quotes"
+instead
+00:02:10 #include <../gpio/gpiolib.h>
+00:02:10          ^~~~~~~~~~~~~~~~~~~
+00:02:10          "../gpio/gpiolib.h"
+00:02:10 1 error generated.
 
-On Thu, Feb 27, 2020 at 6:22 AM kernelci.org bot <bot@kernelci.org> wrote:
->
-> next/master build: 219 builds: 84 failed, 135 passed, 101 errors, 267 war=
-nings (next-20200227)
->
-> Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/=
-next-20200227/
->
-> Tree: next
-> Branch: master
-> Git Describe: next-20200227
-> Git Commit: 10569a280f259f696c0b32fc1d45866d2fd33f53
-> Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.gi=
-t
-> Built: 7 unique architectures
->
-> Build Failures Detected:
->
-> arc:
->     allnoconfig: (gcc-8) FAIL
->     axs103_defconfig: (gcc-8) FAIL
->     axs103_smp_defconfig: (gcc-8) FAIL
->     haps_hs_defconfig: (gcc-8) FAIL
->     haps_hs_smp_defconfig: (gcc-8) FAIL
->     haps_hs_smp_defconfig+kselftest: (gcc-8) FAIL
->     hsdk_defconfig: (gcc-8) FAIL
->     nsimosci_hs_defconfig: (gcc-8) FAIL
->     nsimosci_hs_smp_defconfig: (gcc-8) FAIL
->     tinyconfig: (gcc-8) FAIL
->     vdk_hs38_defconfig: (gcc-8) FAIL
->     vdk_hs38_smp_defconfig: (gcc-8) FAIL
->
-> arm:
->     cm_x300_defconfig: (gcc-8) FAIL
->     em_x270_defconfig: (gcc-8) FAIL
->     eseries_pxa_defconfig: (gcc-8) FAIL
->     pxa_defconfig: (gcc-8) FAIL
->
-> mips:
->     32r2el_defconfig: (gcc-8) FAIL
->     32r2el_defconfig+kselftest: (gcc-8) FAIL
->     allnoconfig: (gcc-8) FAIL
->     ar7_defconfig: (gcc-8) FAIL
->     ath25_defconfig: (gcc-8) FAIL
->     ath79_defconfig: (gcc-8) FAIL
->     bcm47xx_defconfig: (gcc-8) FAIL
->     bcm63xx_defconfig: (gcc-8) FAIL
->     bigsur_defconfig: (gcc-8) FAIL
->     bmips_be_defconfig: (gcc-8) FAIL
->     bmips_stb_defconfig: (gcc-8) FAIL
->     capcella_defconfig: (gcc-8) FAIL
->     cavium_octeon_defconfig: (gcc-8) FAIL
->     ci20_defconfig: (gcc-8) FAIL
->     cobalt_defconfig: (gcc-8) FAIL
->     cu1000-neo_defconfig: (gcc-8) FAIL
->     db1xxx_defconfig: (gcc-8) FAIL
->     decstation_64_defconfig: (gcc-8) FAIL
->     decstation_defconfig: (gcc-8) FAIL
->     decstation_r4k_defconfig: (gcc-8) FAIL
->     e55_defconfig: (gcc-8) FAIL
->     fuloong2e_defconfig: (gcc-8) FAIL
->     gcw0_defconfig: (gcc-8) FAIL
->     gpr_defconfig: (gcc-8) FAIL
->     ip22_defconfig: (gcc-8) FAIL
->     ip27_defconfig: (gcc-8) FAIL
->     ip28_defconfig: (gcc-8) FAIL
->     ip32_defconfig: (gcc-8) FAIL
->     jazz_defconfig: (gcc-8) FAIL
->     jmr3927_defconfig: (gcc-8) FAIL
->     lasat_defconfig: (gcc-8) FAIL
->     lemote2f_defconfig: (gcc-8) FAIL
->     loongson1b_defconfig: (gcc-8) FAIL
->     loongson1c_defconfig: (gcc-8) FAIL
->     loongson3_defconfig: (gcc-8) FAIL
->     malta_defconfig: (gcc-8) FAIL
->     malta_kvm_defconfig: (gcc-8) FAIL
->     malta_kvm_guest_defconfig: (gcc-8) FAIL
->     malta_qemu_32r6_defconfig: (gcc-8) FAIL
->     maltaaprp_defconfig: (gcc-8) FAIL
->     maltasmvp_defconfig: (gcc-8) FAIL
->     maltasmvp_eva_defconfig: (gcc-8) FAIL
->     maltaup_defconfig: (gcc-8) FAIL
->     maltaup_xpa_defconfig: (gcc-8) FAIL
->     markeins_defconfig: (gcc-8) FAIL
->     mips_paravirt_defconfig: (gcc-8) FAIL
->     mpc30x_defconfig: (gcc-8) FAIL
->     msp71xx_defconfig: (gcc-8) FAIL
->     mtx1_defconfig: (gcc-8) FAIL
->     nlm_xlp_defconfig: (gcc-8) FAIL
->     nlm_xlr_defconfig: (gcc-8) FAIL
->     omega2p_defconfig: (gcc-8) FAIL
->     pic32mzda_defconfig: (gcc-8) FAIL
->     pistachio_defconfig: (gcc-8) FAIL
->     pnx8335_stb225_defconfig: (gcc-8) FAIL
->     qi_lb60_defconfig: (gcc-8) FAIL
->     rb532_defconfig: (gcc-8) FAIL
->     rbtx49xx_defconfig: (gcc-8) FAIL
->     rm200_defconfig: (gcc-8) FAIL
->     rt305x_defconfig: (gcc-8) FAIL
->     sb1250_swarm_defconfig: (gcc-8) FAIL
->     tb0219_defconfig: (gcc-8) FAIL
->     tb0226_defconfig: (gcc-8) FAIL
->     tb0287_defconfig: (gcc-8) FAIL
->     tinyconfig: (gcc-8) FAIL
->     vocore2_defconfig: (gcc-8) FAIL
->     workpad_defconfig: (gcc-8) FAIL
->     xway_defconfig: (gcc-8) FAIL
->
-> Errors and Warnings Detected:
->
-> arc:
->     allnoconfig (gcc-8): 1 error, 1 warning
->     axs103_defconfig (gcc-8): 1 error, 1 warning
->     axs103_smp_defconfig (gcc-8): 1 error, 1 warning
->     haps_hs_defconfig (gcc-8): 1 error, 1 warning
->     haps_hs_smp_defconfig (gcc-8): 1 error, 1 warning
->     haps_hs_smp_defconfig (gcc-8): 1 error, 1 warning
->     hsdk_defconfig (gcc-8): 1 error, 1 warning
->     nsimosci_hs_defconfig (gcc-8): 1 error, 1 warning
->     nsimosci_hs_smp_defconfig (gcc-8): 1 error, 1 warning
->     tinyconfig (gcc-8): 1 error, 1 warning
->     vdk_hs38_defconfig (gcc-8): 1 error, 1 warning
->     vdk_hs38_smp_defconfig (gcc-8): 1 error, 1 warning
->
-> arm64:
->     allmodconfig (clang-8): 81 warnings
->     defconfig (clang-8): 18 warnings
->     defconfig (gcc-8): 1 warning
->     defconfig (gcc-8): 1 warning
->     defconfig (gcc-8): 1 warning
->     defconfig (gcc-8): 1 warning
->
-> arm:
->     allmodconfig (gcc-8): 21 warnings
->     aspeed_g4_defconfig (gcc-8): 4 warnings
->     aspeed_g5_defconfig (gcc-8): 4 warnings
->     cm_x300_defconfig (gcc-8): 1 error, 2 warnings
->     em_x270_defconfig (gcc-8): 1 error, 2 warnings
->     eseries_pxa_defconfig (gcc-8): 14 errors, 12 warnings
->     multi_v5_defconfig (gcc-8): 4 warnings
->     multi_v7_defconfig (gcc-8): 4 warnings
->     multi_v7_defconfig (gcc-8): 4 warnings
->     multi_v7_defconfig (gcc-8): 4 warnings
->     multi_v7_defconfig (gcc-8): 4 warnings
->     multi_v7_defconfig (gcc-8): 5 warnings
->     pxa_defconfig (gcc-8): 3 errors, 6 warnings
->
-> i386:
->
-> mips:
->     32r2el_defconfig (gcc-8): 1 error, 1 warning
->     32r2el_defconfig (gcc-8): 1 error, 1 warning
->     allnoconfig (gcc-8): 1 error, 1 warning
->     ar7_defconfig (gcc-8): 1 error, 1 warning
->     ath25_defconfig (gcc-8): 1 error, 1 warning
->     ath79_defconfig (gcc-8): 1 error, 1 warning
->     bcm47xx_defconfig (gcc-8): 1 error, 1 warning
->     bcm63xx_defconfig (gcc-8): 1 error, 1 warning
->     bigsur_defconfig (gcc-8): 1 error, 1 warning
->     bmips_be_defconfig (gcc-8): 1 error, 1 warning
->     bmips_stb_defconfig (gcc-8): 1 error, 1 warning
->     capcella_defconfig (gcc-8): 1 error, 1 warning
->     cavium_octeon_defconfig (gcc-8): 1 error, 1 warning
->     ci20_defconfig (gcc-8): 1 error, 1 warning
->     cobalt_defconfig (gcc-8): 1 error, 1 warning
->     cu1000-neo_defconfig (gcc-8): 1 error, 1 warning
->     db1xxx_defconfig (gcc-8): 1 error, 1 warning
->     decstation_64_defconfig (gcc-8): 1 error, 1 warning
->     decstation_defconfig (gcc-8): 1 error, 1 warning
->     decstation_r4k_defconfig (gcc-8): 1 error, 1 warning
->     e55_defconfig (gcc-8): 1 error, 1 warning
->     fuloong2e_defconfig (gcc-8): 1 error, 1 warning
->     gcw0_defconfig (gcc-8): 1 error, 1 warning
->     gpr_defconfig (gcc-8): 1 error, 1 warning
->     ip22_defconfig (gcc-8): 1 error, 1 warning
->     ip27_defconfig (gcc-8): 3 errors, 2 warnings
->     ip28_defconfig (gcc-8): 1 error, 1 warning
->     ip32_defconfig (gcc-8): 1 error, 1 warning
->     jazz_defconfig (gcc-8): 1 error, 1 warning
->     jmr3927_defconfig (gcc-8): 1 error, 1 warning
->     lasat_defconfig (gcc-8): 1 error, 1 warning
->     lemote2f_defconfig (gcc-8): 1 error, 1 warning
->     loongson1b_defconfig (gcc-8): 1 error, 1 warning
->     loongson1c_defconfig (gcc-8): 1 error, 1 warning
->     loongson3_defconfig (gcc-8): 1 error, 1 warning
->     malta_defconfig (gcc-8): 1 error, 1 warning
->     malta_kvm_defconfig (gcc-8): 1 error, 1 warning
->     malta_kvm_guest_defconfig (gcc-8): 1 error, 1 warning
->     malta_qemu_32r6_defconfig (gcc-8): 1 error, 1 warning
->     maltaaprp_defconfig (gcc-8): 1 error, 1 warning
->     maltasmvp_defconfig (gcc-8): 1 error, 1 warning
->     maltasmvp_eva_defconfig (gcc-8): 1 error, 1 warning
->     maltaup_defconfig (gcc-8): 1 error, 1 warning
->     maltaup_xpa_defconfig (gcc-8): 1 error, 1 warning
->     markeins_defconfig (gcc-8): 1 error, 1 warning
->     mips_paravirt_defconfig (gcc-8): 1 error, 1 warning
->     mpc30x_defconfig (gcc-8): 1 error, 1 warning
->     msp71xx_defconfig (gcc-8): 1 error, 1 warning
->     mtx1_defconfig (gcc-8): 1 error, 1 warning
->     nlm_xlp_defconfig (gcc-8): 1 error, 1 warning
->     nlm_xlr_defconfig (gcc-8): 1 error, 1 warning
->     omega2p_defconfig (gcc-8): 1 error, 1 warning
->     pic32mzda_defconfig (gcc-8): 1 error, 1 warning
->     pistachio_defconfig (gcc-8): 1 error, 1 warning
->     pnx8335_stb225_defconfig (gcc-8): 1 error, 1 warning
->     qi_lb60_defconfig (gcc-8): 1 error, 1 warning
->     rb532_defconfig (gcc-8): 1 error, 1 warning
->     rbtx49xx_defconfig (gcc-8): 1 error, 1 warning
->     rm200_defconfig (gcc-8): 1 error, 1 warning
->     rt305x_defconfig (gcc-8): 1 error, 1 warning
->     sb1250_swarm_defconfig (gcc-8): 1 error, 1 warning
->     tb0219_defconfig (gcc-8): 1 error, 1 warning
->     tb0226_defconfig (gcc-8): 1 error, 1 warning
->     tb0287_defconfig (gcc-8): 1 error, 1 warning
->     tinyconfig (gcc-8): 1 error, 1 warning
->     vocore2_defconfig (gcc-8): 1 error, 1 warning
->     workpad_defconfig (gcc-8): 1 error, 1 warning
->     xway_defconfig (gcc-8): 1 error, 1 warning
->
-> riscv:
->     rv32_defconfig (gcc-8): 6 warnings
->
-> x86_64:
->     tinyconfig (gcc-8): 1 warning
->
-> Errors summary:
->
->     80   mm/memory.c:1523:41: error: implicit declaration of function =E2=
-=80=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werr=
-or=3Dimplicit-function-declaration]
->     3    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] und=
-efined!
->     2    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count =
->=3D width of type [-Werror=3Dshift-count-overflow]
->     1    sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
->     1    sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
->     1    sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
->     1    sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
->     1    sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
->     1    sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
->     1    sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
->     1    sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct reg=
-map_config=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
->     1    sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=
-=98wm9712_regmap_config=E2=80=99 isn=E2=80=99t known
->     1    sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712=
-_regmap_config=E2=80=99 has initializer but incomplete type
->     1    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of =
-function =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit=
--function-declaration]
->     1    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of =
-function =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=
-=80=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-decl=
-aration]
->     1    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of =
-function =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=
-=80=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-decl=
-aration]
->     1    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of=
- function =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_=
-init_zone=E2=80=99? [-Werror=3Dimplicit-function-declaration]
->     1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] und=
-efined!
->     1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] und=
-efined!
->
-> Warnings summary:
->
->     81   cc1: some warnings being treated as errors
->     36   1 warning generated.
->     14   drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: war=
-ning: '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #defi=
-ne of a different macro [-Wheader-guard]
->     9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer f=
-rom integer of different size [-Wint-to-pointer-cast]
->     9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Wa=
-rning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C ad=
-dress must be less than 10-bits, got "0x40000010"
->     9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4=
-: Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bu=
-s unit address format error, expected "40000010"
->     9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Wa=
-rning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C ad=
-dress must be less than 10-bits, got "0x40000010"
->     9    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4=
-: Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bu=
-s unit address format error, expected "40000010"
->     8    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->     6    2 warnings generated.
->     4    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=
-=E2=80=99 declared =E2=80=98static=E2=80=99 but never defined [-Wunused-fun=
-ction]
->     4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer f=
-rom integer of different size [-Wint-to-pointer-cast]
->     2    fs/btrfs/backref.c:394:30: warning: suggest braces around initia=
-lization of subobject [-Wmissing-braces]
->     2    drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:722:36: warning: suggest =
-braces around initialization of subobject [-Wmissing-braces]
->     2    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2692:=
-80: warning: suggest braces around initialization of subobject [-Wmissing-b=
-races]
->     2    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
->     2    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
->     2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented=
- [-Wcpp]
->     2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented=
- [-Wcpp]
->     2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemen=
-ted [-Wcpp]
->     2    3 warnings generated.
->     1    sound/soc/codecs/wm9712.c:93:18: warning: excess elements in str=
-uct initializer
->     1    sound/soc/codecs/wm9712.c:91:18: warning: excess elements in str=
-uct initializer
->     1    sound/soc/codecs/wm9712.c:89:16: warning: excess elements in str=
-uct initializer
->     1    sound/soc/codecs/wm9712.c:88:18: warning: excess elements in str=
-uct initializer
->     1    sound/soc/codecs/wm9712.c:87:14: warning: excess elements in str=
-uct initializer
->     1    sound/soc/codecs/wm9712.c:86:16: warning: excess elements in str=
-uct initializer
->     1    sound/soc/codecs/wm9712.c:85:14: warning: excess elements in str=
-uct initializer
->     1    sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=
-=98struct regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from i=
-nteger without a cast [-Wint-conversion]
->     1    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 by=
-tes is larger than 1024 bytes [-Wframe-larger-than=3D]
->     1    net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' i=
-s uninitialized when used within its own initialization [-Wuninitialized]
->     1    net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninit=
-ialized when used within its own initialization [-Wuninitialized]
->     1    mm/shmem.c:2745:35: warning: variable 'shmem_falloc_waitq' is un=
-initialized when used within its own initialization [-Wuninitialized]
->     1    include/linux/kernel.h:47:25: warning: excess elements in struct=
- initializer
->     1    fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitia=
-lized when used within its own initialization [-Wuninitialized]
->     1    fs/proc/base.c:1985:35: warning: variable 'wq' is uninitialized =
-when used within its own initialization [-Wuninitialized]
->     1    fs/nfs/dir.c:464:34: warning: variable 'wq' is uninitialized whe=
-n used within its own initialization [-Wuninitialized]
->     1    fs/nfs/dir.c:1638:34: warning: variable 'wq' is uninitialized wh=
-en used within its own initialization [-Wuninitialized]
->     1    fs/namei.c:3213:34: warning: variable 'wq' is uninitialized when=
- used within its own initialization [-Wuninitialized]
->     1    fs/namei.c:1736:34: warning: variable 'wq' is uninitialized when=
- used within its own initialization [-Wuninitialized]
->     1    fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialize=
-d when used within its own initialization [-Wuninitialized]
->     1    fs/cifs/readdir.c:84:34: warning: variable 'wq' is uninitialized=
- when used within its own initialization [-Wuninitialized]
->     1    fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitializ=
-ed when used within its own initialization [-Wuninitialized]
->     1    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from p=
-ointer to integer of different size [-Wpointer-to-int-cast]
->     1    drivers/scsi/lpfc/lpfc_sli.c:11910:34: warning: variable 'done_q=
-' is uninitialized when used within its own initialization [-Wuninitialized=
-]
->     1    drivers/scsi/lpfc/lpfc_scsi.c:4728:34: warning: variable 'waitq'=
- is uninitialized when used within its own initialization [-Wuninitialized]
->     1    drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uni=
-nitialized when used within its own initialization [-Wuninitialized]
->     1    drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uni=
-nitialized when used within its own initialization [-Wuninitialized]
->     1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: va=
-riable 'rate_idx' is used uninitialized whenever 'if' condition is false [-=
-Wsometimes-uninitialized]
->     1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: v=
-ariable 'rate_idx' is used uninitialized whenever 'if' condition is false [=
--Wsometimes-uninitialized]
->     1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: va=
-riable 'rate_idx' is used uninitialized whenever 'if' condition is false [-=
-Wsometimes-uninitialized]
->     1    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: init=
-ialize the variable 'rate_idx' to silence this warning
->     1    drivers/net/usb/lan78xx.c:2659:34: warning: variable 'unlink_wak=
-eup' is uninitialized when used within its own initialization [-Wuninitiali=
-zed]
->     1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer t=
-o integer of different size [-Wpointer-to-int-cast]
->     1    drivers/net/ethernet/amazon/ena/ena_netdev.c:310:38: warning: su=
-ggest braces around initialization of subobject [-Wmissing-braces]
->     1    drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wak=
-e' is uninitialized when used within its own initialization [-Wuninitialize=
-d]
->     1    drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wak=
-e' is uninitialized when used within its own initialization [-Wuninitialize=
-d]
->     1    drivers/hwtracing/coresight/coresight-cti-sysfs.c:948:11: warnin=
-g: address of array 'grp->sig_types' will always evaluate to 'true' [-Wpoin=
-ter-bool-conversion]
->     1    drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is un=
-initialized when used within its own initialization [-Wuninitialized]
->     1    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: =
-warning: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [=
--Wpointer-bool-conversion]
->     1    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: =
-warning: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-=
-Wpointer-bool-conversion]
->     1    drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2690:=
-53: warning: suggest braces around initialization of subobject [-Wmissing-b=
-races]
->     1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:3=
-42:53: warning: suggest braces around initialization of subobject [-Wmissin=
-g-braces]
->     1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:1=
-16:62: warning: suggest braces around initialization of subobject [-Wmissin=
-g-braces]
->     1    drivers/gpu/drm/amd/amdgpu/../display/dc/bios/bios_parser2.c:297=
-:41: warning: suggest braces around initialization of subobject [-Wmissing-=
-braces]
->     1    drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:8558=
-:43: warning: suggest braces around initialization of subobject [-Wmissing-=
-braces]
->     1    drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' i=
-s uninitialized when used within its own initialization [-Wuninitialized]
->     1    drivers/android/binderfs.c:657:41: warning: suggest braces aroun=
-d initialization of subobject [-Wmissing-braces]
->     1    cc1: all warnings being treated as errors
->     1    /tmp/ccgeLqJj.s:18191: Warning: using r15 results in unpredictab=
-le behaviour
->     1    /tmp/ccgeLqJj.s:18119: Warning: using r15 results in unpredictab=
-le behaviour
->     1    .config:1167:warning: override: UNWINDER_GUESS changes choice st=
-ate
->
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D
->
-> Detailed per-defconfig build reports:
->
-> -------------------------------------------------------------------------=
--------
-> 32r2el_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> 32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warni=
-ng, 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 21 warnings, 0 sectio=
-n mismatches
->
-> Warnings:
->     /tmp/ccgeLqJj.s:18119: Warning: using r15 results in unpredictable be=
-haviour
->     /tmp/ccgeLqJj.s:18191: Warning: using r15 results in unpredictable be=
-haviour
->     drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to int=
-eger of different size [-Wpointer-to-int-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from i=
-nteger of different size [-Wint-to-pointer-cast]
->     drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from pointe=
-r to integer of different size [-Wpointer-to-int-cast]
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> allmodconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 81 warnings, 0 se=
-ction mismatches
->
-> Warnings:
->     fs/proc/base.c:1985:35: warning: variable 'wq' is uninitialized when =
-used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     mm/shmem.c:2745:35: warning: variable 'shmem_falloc_waitq' is uniniti=
-alized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/proc/proc_sysctl.c:705:35: warning: variable 'wq' is uninitialized=
- when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/namei.c:1736:34: warning: variable 'wq' is uninitialized when used=
- within its own initialization [-Wuninitialized]
->     fs/namei.c:3213:34: warning: variable 'wq' is uninitialized when used=
- within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     drivers/android/binderfs.c:657:41: warning: suggest braces around ini=
-tialization of subobject [-Wmissing-braces]
->     1 warning generated.
->     drivers/hwtracing/coresight/coresight-cti-sysfs.c:948:11: warning: ad=
-dress of array 'grp->sig_types' will always evaluate to 'true' [-Wpointer-b=
-ool-conversion]
->     1 warning generated.
->     fs/afs/dir_silly.c:205:34: warning: variable 'wq' is uninitialized wh=
-en used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/bluetooth/bluecard_cs.c:282:36: warning: variable 'wq' is uni=
-nitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/cifs/readdir.c:84:34: warning: variable 'wq' is uninitialized when=
- used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/gpu/host1x/syncpt.c:208:34: warning: variable 'wq' is uniniti=
-alized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     net/nfc/hci/command.c:59:34: warning: variable 'ew_wq' is uninitializ=
-ed when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/btrfs/backref.c:394:30: warning: suggest braces around initializat=
-ion of subobject [-Wmissing-braces]
->     1 warning generated.
->     net/nfc/hci/llc_shdlc.c:687:34: warning: variable 'connect_wq' is uni=
-nitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/fuse/readdir.c:161:34: warning: variable 'wq' is uninitialized whe=
-n used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     fs/nfs/dir.c:464:34: warning: variable 'wq' is uninitialized when use=
-d within its own initialization [-Wuninitialized]
->     fs/nfs/dir.c:1638:34: warning: variable 'wq' is uninitialized when us=
-ed within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:722:36: warning: suggest brace=
-s around initialization of subobject [-Wmissing-braces]
->     1 warning generated.
->     drivers/misc/mic/vop/vop_vringh.c:155:34: warning: variable 'wake' is=
- uninitialized when used within its own initialization [-Wuninitialized]
->     drivers/misc/mic/vop/vop_vringh.c:399:34: warning: variable 'wake' is=
- uninitialized when used within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     drivers/net/ethernet/amazon/ena/ena_netdev.c:310:38: warning: suggest=
- braces around initialization of subobject [-Wmissing-braces]
->     1 warning generated.
->     drivers/net/usb/lan78xx.c:2659:34: warning: variable 'unlink_wakeup' =
-is uninitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variabl=
-e 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsome=
-times-uninitialized]
->     drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variab=
-le 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsom=
-etimes-uninitialized]
->     drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variabl=
-e 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsome=
-times-uninitialized]
->     drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initializ=
-e the variable 'rate_idx' to silence this warning
->     3 warnings generated.
->     drivers/scsi/bfa/bfad_im.c:301:34: warning: variable 'wq' is uninitia=
-lized when used within its own initialization [-Wuninitialized]
->     drivers/scsi/bfa/bfad_im.c:378:34: warning: variable 'wq' is uninitia=
-lized when used within its own initialization [-Wuninitialized]
->     2 warnings generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/scsi/lpfc/lpfc_sli.c:11910:34: warning: variable 'done_q' is =
-uninitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/scsi/lpfc/lpfc_scsi.c:4728:34: warning: variable 'waitq' is u=
-ninitialized when used within its own initialization [-Wuninitialized]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/gpu/drm/amd/amdgpu/../display/amdgpu_dm/amdgpu_dm.c:8558:43: =
-warning: suggest braces around initialization of subobject [-Wmissing-brace=
-s]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:116:62=
-: warning: suggest braces around initialization of subobject [-Wmissing-bra=
-ces]
->     drivers/gpu/drm/amd/amdgpu/../display/dc/bios/command_table2.c:342:53=
-: warning: suggest braces around initialization of subobject [-Wmissing-bra=
-ces]
->     2 warnings generated.
->     drivers/gpu/drm/amd/amdgpu/../display/dc/bios/bios_parser2.c:297:41: =
-warning: suggest braces around initialization of subobject [-Wmissing-brace=
-s]
->     1 warning generated.
->     drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warni=
-ng: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpoin=
-ter-bool-conversion]
->     drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warni=
-ng: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoi=
-nter-bool-conversion]
->     2 warnings generated.
->     drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2690:53: w=
-arning: suggest braces around initialization of subobject [-Wmissing-braces=
-]
->     drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2692:80: w=
-arning: suggest braces around initialization of subobject [-Wmissing-braces=
-]
->     drivers/gpu/drm/amd/amdgpu/../display/dc/core/dc_link_dp.c:2692:80: w=
-arning: suggest braces around initialization of subobject [-Wmissing-braces=
-]
->     3 warnings generated.
->
-> -------------------------------------------------------------------------=
--------
-> allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section mi=
-smatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section m=
-ismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
->
-> -------------------------------------------------------------------------=
--------
-> allnoconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> ar7_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section=
- mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
-section mismatches
->
-> Warnings:
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
-section mismatches
->
-> Warnings:
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> ath25_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> ath79_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> axs103_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> axs103_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> bcm47xx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> bcm63xx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> bigsur_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> bmips_be_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 se=
-ction mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> bmips_stb_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> capcella_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 se=
-ction mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning,=
- 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> ci20_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> cm_x300_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 2 warnings, 0 sec=
-tion mismatches
->
-> Errors:
->     ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefine=
-d!
->
-> Warnings:
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->
-> -------------------------------------------------------------------------=
--------
-> cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> cobalt_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
-s, 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warning=
-s, 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 =
-section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> db1xxx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> decstation_64_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning,=
- 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> decstation_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 =
-section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning=
-, 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> defconfig (arm64, clang-8) =E2=80=94 PASS, 0 errors, 18 warnings, 0 secti=
-on mismatches
->
-> Warnings:
->     fs/btrfs/backref.c:394:30: warning: suggest braces around initializat=
-ion of subobject [-Wmissing-braces]
->     1 warning generated.
->     drivers/gpu/drm/sun4i/sun6i_mipi_dsi.c:722:36: warning: suggest brace=
-s around initialization of subobject [-Wmissing-braces]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->     drivers/net/ethernet/mellanox/mlx5/core/diag/rsc_dump.h:4:9: warning:=
- '__MLX5_RSC_DUMP_H' is used as a header guard here, followed by #define of=
- a different macro [-Wheader-guard]
->     1 warning generated.
->
-> -------------------------------------------------------------------------=
--------
-> defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
->
-> -------------------------------------------------------------------------=
--------
-> defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
-ismatches
->
-> Warnings:
->     kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=
-=99 declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
->
-> -------------------------------------------------------------------------=
--------
-> defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 erro=
-rs, 1 warning, 0 section mismatches
->
-> Warnings:
->     kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=
-=99 declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
->
-> -------------------------------------------------------------------------=
--------
-> defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 erro=
-rs, 1 warning, 0 section mismatches
->
-> Warnings:
->     kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=
-=99 declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
->
-> -------------------------------------------------------------------------=
--------
-> defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, =
-0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
- section mismatches
->
-> Warnings:
->     kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=
-=99 declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
->
-> -------------------------------------------------------------------------=
--------
-> dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> e55_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section=
- mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> em_x270_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 2 warnings, 0 sec=
-tion mismatches
->
-> Errors:
->     ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefine=
-d!
->
-> Warnings:
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->
-> -------------------------------------------------------------------------=
--------
-> ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 14 errors, 12 warnings=
-, 0 section mismatches
->
-> Errors:
->     sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of funct=
-ion =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit-func=
-tion-declaration]
->     sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712_regm=
-ap_config=E2=80=99 has initializer but incomplete type
->     sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
->     sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
->     sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
->     sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
->     sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
->     sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
->     sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
->     sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct regmap_c=
-onfig=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
->     sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of func=
-tion =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_init_=
-zone=E2=80=99? [-Werror=3Dimplicit-function-declaration]
->     sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of funct=
-ion =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=80=98=
-snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaratio=
-n]
->     sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of funct=
-ion =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=80=98=
-snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaratio=
-n]
->     sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=98wm97=
-12_regmap_config=E2=80=99 isn=E2=80=99t known
->
-> Warnings:
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->     sound/soc/codecs/wm9712.c:85:14: warning: excess elements in struct i=
-nitializer
->     sound/soc/codecs/wm9712.c:86:16: warning: excess elements in struct i=
-nitializer
->     sound/soc/codecs/wm9712.c:87:14: warning: excess elements in struct i=
-nitializer
->     sound/soc/codecs/wm9712.c:88:18: warning: excess elements in struct i=
-nitializer
->     sound/soc/codecs/wm9712.c:89:16: warning: excess elements in struct i=
-nitializer
->     sound/soc/codecs/wm9712.c:91:18: warning: excess elements in struct i=
-nitializer
->     sound/soc/codecs/wm9712.c:93:18: warning: excess elements in struct i=
-nitializer
->     include/linux/kernel.h:47:25: warning: excess elements in struct init=
-ializer
->     sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=98str=
-uct regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from integer=
- without a cast [-Wint-conversion]
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
->
-> -------------------------------------------------------------------------=
--------
-> footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> fuloong2e_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> gcw0_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> gpr_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section=
- mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> haps_hs_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 =
-section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 w=
-arning, 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> hsdk_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section=
- mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnin=
-gs, 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> ip22_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> ip27_defconfig (mips, gcc-8) =E2=80=94 FAIL, 3 errors, 2 warnings, 0 sect=
-ion mismatches
->
-> Errors:
->     arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D =
-width of type [-Werror=3Dshift-count-overflow]
->     arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D =
-width of type [-Werror=3Dshift-count-overflow]
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: all warnings being treated as errors
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> ip28_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> ip32_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> jazz_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> jmr3927_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> lasat_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> lemote2f_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 se=
-ction mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> loongson1b_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 =
-section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> loongson1c_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 =
-section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> loongson3_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> malta_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> malta_kvm_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warnin=
-g, 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warnin=
-g, 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> maltaaprp_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> maltasmvp_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning,=
- 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> maltaup_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0=
- section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> markeins_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 se=
-ction mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings=
-, 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning,=
- 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> mpc30x_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> msp71xx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> mtx1_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 s=
-ection mismatches
->
-> Warnings:
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 s=
-ection mismatches
->
-> Warnings:
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS,=
- 0 errors, 4 warnings, 0 section mismatches
->
-> Warnings:
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
-=94 PASS, 0 errors, 4 warnings, 0 section mismatches
->
-> Warnings:
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, =
-4 warnings, 0 section mismatches
->
-> Warnings:
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 war=
-nings, 0 section mismatches
->
-> Warnings:
->     net/sched/cls_flower.c:331:1: warning: the frame size of 1032 bytes i=
-s larger than 1024 bytes [-Wframe-larger-than=3D]
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: War=
-ning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus uni=
-t address format error, expected "40000010"
->     arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning=
- (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address=
- must be less than 10-bits, got "0x40000010"
->
-> -------------------------------------------------------------------------=
--------
-> mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
->
-> -------------------------------------------------------------------------=
--------
-> neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 =
-section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning=
-, 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> omega2p_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pic32mzda_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> pistachio_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 s=
-ection mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning=
-, 0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 3 errors, 6 warnings, 0 sectio=
-n mismatches
->
-> Errors:
->     ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] undefine=
-d!
->     ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefine=
-d!
->     ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] undefine=
-d!
->
-> Warnings:
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9705
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9713
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9705
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9712
->     WARNING: unmet direct dependencies detected for SND_SOC_WM9713
->
-> -------------------------------------------------------------------------=
--------
-> qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> qi_lb60_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> rb532_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 se=
-ction mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> rm200_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 secti=
-on mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sectio=
-n mismatches
->
-> -------------------------------------------------------------------------=
--------
-> rt305x_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
-tion mismatches
->
-> Warnings:
->     <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wc=
-pp]
->     <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [=
--Wcpp]
->     <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wc=
-pp]
->     <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wc=
-pp]
->     <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [=
--Wcpp]
->     <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wc=
-pp]
->
-> -------------------------------------------------------------------------=
--------
-> s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, =
-0 section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sec=
-tion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> tb0219_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> tb0226_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> tb0287_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sect=
-ion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0=
- section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> tinyconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section mi=
-smatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
->
-> -------------------------------------------------------------------------=
--------
-> tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
-mismatches
->
-> -------------------------------------------------------------------------=
--------
-> tinyconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
->
-> -------------------------------------------------------------------------=
--------
-> tinyconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 section mis=
-matches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
- mismatches
->
-> Warnings:
->     .config:1167:warning: override: UNWINDER_GUESS changes choice state
->
-> -------------------------------------------------------------------------=
--------
-> tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section m=
-ismatches
->
-> -------------------------------------------------------------------------=
--------
-> trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0=
- section mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 s=
-ection mismatches
->
-> -------------------------------------------------------------------------=
--------
-> vf610m4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
-ction mismatches
->
-> -------------------------------------------------------------------------=
--------
-> viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 sect=
-ion mismatches
->
-> -------------------------------------------------------------------------=
--------
-> vocore2_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings,=
- 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> workpad_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sec=
-tion mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 =
-section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 wa=
-rnings, 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 wa=
-rnings, 0 section mismatches
->
-> -------------------------------------------------------------------------=
--------
-> xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> xway_defconfig (mips, gcc-8) =E2=80=94 FAIL, 1 error, 1 warning, 0 sectio=
-n mismatches
->
-> Errors:
->     mm/memory.c:1523:41: error: implicit declaration of function =E2=80=
-=98pte_index=E2=80=99; did you mean =E2=80=98page_index=E2=80=99? [-Werror=
-=3Dimplicit-function-declaration]
->
-> Warnings:
->     cc1: some warnings being treated as errors
->
-> -------------------------------------------------------------------------=
--------
-> zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 secti=
-on mismatches
->
-> -------------------------------------------------------------------------=
--------
-> zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
- mismatches
->
+is the full error. Marco, can you please take a look? Apologies if
+this has already been reported+fixed.
+
+On Wed, Feb 26, 2020 at 11:50 PM <ci_notify@linaro.org> wrote:
+>
+> Successfully identified regression in *linux* in CI configuration tcwg_kernel/llvm-master-aarch64-next-allmodconfig.  So far, this commit has regressed CI configurations:
+>  - tcwg_kernel/gnu-master-aarch64-next-allyesconfig
+>  - tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+>
+> Culprit:
+> <cut>
+> commit 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+> Author: Marco Felsch <m.felsch@pengutronix.de>
+>
+>     pinctrl: da9062: add driver support
+> </cut>
+>
+> First few build errors in logs:
+> 00:02:10 drivers/pinctrl/pinctrl-da9062.c:28:10: error: '../gpio/gpiolib.h' file not found with <angled> include; use  instead
+> 00:02:10 make[2]: *** [drivers/pinctrl/pinctrl-da9062.o] Error 1
+> 00:02:13 make[1]: *** [drivers/pinctrl] Error 2
+> 00:12:28 make: *** [drivers] Error 2
+> Configuration details:
+> rr[llvm_url]="https://github.com/llvm/llvm-project.git"
+> rr[linux_url]="https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git"
+> rr[linux_branch]="c99b17ac03994525092fd66bed14b4a0c82f0b4d"
+>
+> Results regressed to (for first_bad == 56cc3af4e8c8eaba91b51efa6081a868adbd97c3)
+> reset_artifacts:
+> -10
+> build_llvm:
+> -1
+> linux_n_obj:
+> 19955
+>
+> from (for last_good == c93214689f0c70b6942ba1d12b8371b9fc60ae41)
+> reset_artifacts:
+> -10
+> build_llvm:
+> -1
+> linux_n_obj:
+> 27223
+> linux build successful:
+> all
+> linux boot successful:
+> boot
+>
+> Artifacts of first_bad build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/artifact/artifacts/build-56cc3af4e8c8eaba91b51efa6081a868adbd97c3/
+> Artifacts of last_good build: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/artifact/artifacts/build-c93214689f0c70b6942ba1d12b8371b9fc60ae41/
+> Build top page/logs: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/
+>
+> Reproduce builds:
+> <cut>
+> mkdir investigate-linux-56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+> cd investigate-linux-56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+>
+> git clone https://git.linaro.org/toolchain/jenkins-scripts
+>
+> mkdir -p artifacts/manifests
+> curl -o artifacts/manifests/build-baseline.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/artifact/artifacts/manifests/build-baseline.sh
+> curl -o artifacts/manifests/build-parameters.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/artifact/artifacts/manifests/build-parameters.sh
+> curl -o artifacts/test.sh https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/artifact/artifacts/test.sh
+> chmod +x artifacts/test.sh
+>
+> # Reproduce the baseline build (build all pre-requisites)
+> ./jenkins-scripts/tcwg_kernel-build.sh @@ artifacts/manifests/build-baseline.sh
+>
+> cd linux
+>
+> # Reproduce first_bad build
+> git checkout --detach 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+> ../artifacts/test.sh
+>
+> # Reproduce last_good build
+> git checkout --detach c93214689f0c70b6942ba1d12b8371b9fc60ae41
+> ../artifacts/test.sh
+>
+> cd ..
+> </cut>
+>
+> History of pending regressions and results: https://git.linaro.org/toolchain/ci/base-artifacts.git/log/?h=linaro-local/ci/tcwg_kernel/llvm-master-aarch64-next-allmodconfig
+>
+> Artifacts: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/artifact/artifacts/
+> Build log: https://ci.linaro.org/job/tcwg_kernel-bisect-llvm-master-aarch64-next-allmodconfig/76/consoleText
+>
+> Full commit:
+> <cut>
+> commit 56cc3af4e8c8eaba91b51efa6081a868adbd97c3
+> Author: Marco Felsch <m.felsch@pengutronix.de>
+> Date:   Wed Jan 8 11:47:46 2020 +0100
+>
+>     pinctrl: da9062: add driver support
+>
+>     The DA9062 is a mfd pmic device which supports 5 GPIOs. The GPIOs can
+>     be used as input, output or have a special use-case.
+>
+>     The patch adds the support for the normal input/output use-case.
+>
+>     Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+>     Link: https://lore.kernel.org/r/20200108104746.1765-4-m.felsch@pengutronix.de
+>     Reviewed-by: Adam Thomson <Adam.Thomson.Opensource@diasemi.com>
+>     Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 > ---
-> For more info write to <info@kernelci.org>
+>  MAINTAINERS                      |   1 +
+>  drivers/pinctrl/Kconfig          |  12 ++
+>  drivers/pinctrl/Makefile         |   1 +
+>  drivers/pinctrl/pinctrl-da9062.c | 300 +++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 314 insertions(+)
+>
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 408fd7c660aa..260c0c4c6e74 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -4921,6 +4921,7 @@ F:        drivers/leds/leds-da90??.c
+>  F:     drivers/mfd/da903x.c
+>  F:     drivers/mfd/da90??-*.c
+>  F:     drivers/mfd/da91??-*.c
+> +F:     drivers/pinctrl/pinctrl-da90??.c
+>  F:     drivers/power/supply/da9052-battery.c
+>  F:     drivers/power/supply/da91??-*.c
+>  F:     drivers/regulator/da903x.c
+> diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+> index df0ef69dd474..834c59950d1c 100644
+> --- a/drivers/pinctrl/Kconfig
+> +++ b/drivers/pinctrl/Kconfig
+> @@ -126,6 +126,18 @@ config PINCTRL_DA850_PUPD
+>           Driver for TI DA850/OMAP-L138/AM18XX pinconf. Used to control
+>           pullup/pulldown pin groups.
+>
+> +config PINCTRL_DA9062
+> +       tristate "Dialog Semiconductor DA9062 PMIC pinctrl and GPIO Support"
+> +       depends on MFD_DA9062
+> +       select GPIOLIB
+> +       help
+> +         The Dialog DA9062 PMIC provides multiple GPIOs that can be muxed for
+> +         different functions. This driver bundles a pinctrl driver to select the
+> +         function muxing and a GPIO driver to handle the GPIO when the GPIO
+> +         function is selected.
+> +
+> +         Say yes to enable pinctrl and GPIO support for the DA9062 PMIC.
+> +
+>  config PINCTRL_DIGICOLOR
+>         bool
+>         depends on OF && (ARCH_DIGICOLOR || COMPILE_TEST)
+> diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+> index 879f312bfb75..0b36a1cfca8a 100644
+> --- a/drivers/pinctrl/Makefile
+> +++ b/drivers/pinctrl/Makefile
+> @@ -16,6 +16,7 @@ obj-$(CONFIG_PINCTRL_AT91PIO4)        += pinctrl-at91-pio4.o
+>  obj-$(CONFIG_PINCTRL_AMD)      += pinctrl-amd.o
+>  obj-$(CONFIG_PINCTRL_BM1880)   += pinctrl-bm1880.o
+>  obj-$(CONFIG_PINCTRL_DA850_PUPD) += pinctrl-da850-pupd.o
+> +obj-$(CONFIG_PINCTRL_DA9062)   += pinctrl-da9062.o
+>  obj-$(CONFIG_PINCTRL_DIGICOLOR)        += pinctrl-digicolor.o
+>  obj-$(CONFIG_PINCTRL_FALCON)   += pinctrl-falcon.o
+>  obj-$(CONFIG_PINCTRL_GEMINI)   += pinctrl-gemini.o
+> diff --git a/drivers/pinctrl/pinctrl-da9062.c b/drivers/pinctrl/pinctrl-da9062.c
+> new file mode 100644
+> index 000000000000..f704ee0b2fd9
+> --- /dev/null
+> +++ b/drivers/pinctrl/pinctrl-da9062.c
+> @@ -0,0 +1,300 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Dialog DA9062 pinctrl and GPIO driver.
+> + * Based on DA9055 GPIO driver.
+> + *
+> + * TODO:
+> + *   - add pinmux and pinctrl support (gpio alternate mode)
+> + *
+> + * Documents:
+> + * [1] https://www.dialog-semiconductor.com/sites/default/files/da9062_datasheet_3v6.pdf
+> + *
+> + * Copyright (C) 2019 Pengutronix, Marco Felsch <kernel@pengutronix.de>
+> + */
+> +#include <linux/bits.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <linux/gpio/driver.h>
+> +
+> +#include <linux/mfd/da9062/core.h>
+> +#include <linux/mfd/da9062/registers.h>
+> +
+> +/*
+> + * We need this get the gpio_desc from a <gpio_chip,offset> tuple to decide if
+> + * the gpio is active low without a vendor specific dt-binding.
+> + */
+> +#include <../gpio/gpiolib.h>
+> +
+> +#define DA9062_TYPE(offset)            (4 * (offset % 2))
+> +#define DA9062_PIN_SHIFT(offset)       (4 * (offset % 2))
+> +#define DA9062_PIN_ALTERNATE           0x00 /* gpio alternate mode */
+> +#define DA9062_PIN_GPI                 0x01 /* gpio in */
+> +#define DA9062_PIN_GPO_OD              0x02 /* gpio out open-drain */
+> +#define DA9062_PIN_GPO_PP              0x03 /* gpio out push-pull */
+> +#define DA9062_GPIO_NUM                        5
+> +
+> +struct da9062_pctl {
+> +       struct da9062 *da9062;
+> +       struct gpio_chip gc;
+> +       unsigned int pin_config[DA9062_GPIO_NUM];
+> +};
+> +
+> +static int da9062_pctl_get_pin_mode(struct da9062_pctl *pctl,
+> +                                   unsigned int offset)
+> +{
+> +       struct regmap *regmap = pctl->da9062->regmap;
+> +       int ret, val;
+> +
+> +       ret = regmap_read(regmap, DA9062AA_GPIO_0_1 + (offset >> 1), &val);
+> +       if (ret < 0)
+> +               return ret;
+> +
+> +       val >>= DA9062_PIN_SHIFT(offset);
+> +       val &= DA9062AA_GPIO0_PIN_MASK;
+> +
+> +       return val;
+> +}
+> +
+> +static int da9062_pctl_set_pin_mode(struct da9062_pctl *pctl,
+> +                                   unsigned int offset, unsigned int mode_req)
+> +{
+> +       struct regmap *regmap = pctl->da9062->regmap;
+> +       unsigned int mode = mode_req;
+> +       unsigned int mask;
+> +       int ret;
+> +
+> +       mode &= DA9062AA_GPIO0_PIN_MASK;
+> +       mode <<= DA9062_PIN_SHIFT(offset);
+> +       mask = DA9062AA_GPIO0_PIN_MASK << DA9062_PIN_SHIFT(offset);
+> +
+> +       ret = regmap_update_bits(regmap, DA9062AA_GPIO_0_1 + (offset >> 1),
+> +                                mask, mode);
+> +       if (!ret)
+> +               pctl->pin_config[offset] = mode_req;
+> +
+> +       return ret;
+> +}
+> +
+> +static int da9062_gpio_get(struct gpio_chip *gc, unsigned int offset)
+> +{
+> +       struct da9062_pctl *pctl = gpiochip_get_data(gc);
+> +       struct regmap *regmap = pctl->da9062->regmap;
+> +       int gpio_mode, val;
+> +       int ret;
+> +
+> +       gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
+> +       if (gpio_mode < 0)
+> +               return gpio_mode;
+> +
+> +       switch (gpio_mode) {
+> +       case DA9062_PIN_ALTERNATE:
+> +               return -ENOTSUPP;
+> +       case DA9062_PIN_GPI:
+> +               ret = regmap_read(regmap, DA9062AA_STATUS_B, &val);
+> +               if (ret < 0)
+> +                       return ret;
+> +               break;
+> +       case DA9062_PIN_GPO_OD:
+> +       case DA9062_PIN_GPO_PP:
+> +               ret = regmap_read(regmap, DA9062AA_GPIO_MODE0_4, &val);
+> +               if (ret < 0)
+> +                       return ret;
+> +       }
+> +
+> +       return !!(val & BIT(offset));
+> +}
+> +
+> +static void da9062_gpio_set(struct gpio_chip *gc, unsigned int offset,
+> +                           int value)
+> +{
+> +       struct da9062_pctl *pctl = gpiochip_get_data(gc);
+> +       struct regmap *regmap = pctl->da9062->regmap;
+> +
+> +       regmap_update_bits(regmap, DA9062AA_GPIO_MODE0_4, BIT(offset),
+> +                          value << offset);
+> +}
+> +
+> +static int da9062_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
+> +{
+> +       struct da9062_pctl *pctl = gpiochip_get_data(gc);
+> +       int gpio_mode;
+> +
+> +       gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
+> +       if (gpio_mode < 0)
+> +               return gpio_mode;
+> +
+> +       switch (gpio_mode) {
+> +       case DA9062_PIN_ALTERNATE:
+> +               return -ENOTSUPP;
+> +       case DA9062_PIN_GPI:
+> +               return GPIO_LINE_DIRECTION_IN;
+> +       case DA9062_PIN_GPO_OD:
+> +       case DA9062_PIN_GPO_PP:
+> +               return GPIO_LINE_DIRECTION_OUT;
+> +       }
+> +
+> +       return -EINVAL;
+> +}
+> +
+> +static int da9062_gpio_direction_input(struct gpio_chip *gc,
+> +                                      unsigned int offset)
+> +{
+> +       struct da9062_pctl *pctl = gpiochip_get_data(gc);
+> +       struct regmap *regmap = pctl->da9062->regmap;
+> +       struct gpio_desc *desc = gpiochip_get_desc(gc, offset);
+> +       unsigned int gpi_type;
+> +       int ret;
+> +
+> +       ret = da9062_pctl_set_pin_mode(pctl, offset, DA9062_PIN_GPI);
+> +       if (ret)
+> +               return ret;
+> +
+> +       /*
+> +        * If the gpio is active low we should set it in hw too. No worries
+> +        * about gpio_get() because we read and return the gpio-level. So the
+> +        * gpiolib active_low handling is still correct.
+> +        *
+> +        * 0 - active low, 1 - active high
+> +        */
+> +       gpi_type = !gpiod_is_active_low(desc);
+> +
+> +       return regmap_update_bits(regmap, DA9062AA_GPIO_0_1 + (offset >> 1),
+> +                               DA9062AA_GPIO0_TYPE_MASK << DA9062_TYPE(offset),
+> +                               gpi_type << DA9062_TYPE(offset));
+> +}
+> +
+> +static int da9062_gpio_direction_output(struct gpio_chip *gc,
+> +                                       unsigned int offset, int value)
+> +{
+> +       struct da9062_pctl *pctl = gpiochip_get_data(gc);
+> +       unsigned int pin_config = pctl->pin_config[offset];
+> +       int ret;
+> +
+> +       ret = da9062_pctl_set_pin_mode(pctl, offset, pin_config);
+> +       if (ret)
+> +               return ret;
+> +
+> +       da9062_gpio_set(gc, offset, value);
+> +
+> +       return 0;
+> +}
+> +
+> +static int da9062_gpio_set_config(struct gpio_chip *gc, unsigned int offset,
+> +                                 unsigned long config)
+> +{
+> +       struct da9062_pctl *pctl = gpiochip_get_data(gc);
+> +       struct regmap *regmap = pctl->da9062->regmap;
+> +       int gpio_mode;
+> +
+> +       /*
+> +        * We need to meet the following restrictions [1, Figure 18]:
+> +        * - PIN_CONFIG_BIAS_PULL_DOWN -> only allowed if the pin is used as
+> +        *                                gpio input
+> +        * - PIN_CONFIG_BIAS_PULL_UP   -> only allowed if the pin is used as
+> +        *                                gpio output open-drain.
+> +        */
+> +
+> +       switch (pinconf_to_config_param(config)) {
+> +       case PIN_CONFIG_BIAS_DISABLE:
+> +               return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
+> +                                         BIT(offset), 0);
+> +       case PIN_CONFIG_BIAS_PULL_DOWN:
+> +               gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
+> +               if (gpio_mode < 0)
+> +                       return -EINVAL;
+> +               else if (gpio_mode != DA9062_PIN_GPI)
+> +                       return -ENOTSUPP;
+> +               return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
+> +                                         BIT(offset), BIT(offset));
+> +       case PIN_CONFIG_BIAS_PULL_UP:
+> +               gpio_mode = da9062_pctl_get_pin_mode(pctl, offset);
+> +               if (gpio_mode < 0)
+> +                       return -EINVAL;
+> +               else if (gpio_mode != DA9062_PIN_GPO_OD)
+> +                       return -ENOTSUPP;
+> +               return regmap_update_bits(regmap, DA9062AA_CONFIG_K,
+> +                                         BIT(offset), BIT(offset));
+> +       case PIN_CONFIG_DRIVE_OPEN_DRAIN:
+> +               return da9062_pctl_set_pin_mode(pctl, offset,
+> +                                               DA9062_PIN_GPO_OD);
+> +       case PIN_CONFIG_DRIVE_PUSH_PULL:
+> +               return da9062_pctl_set_pin_mode(pctl, offset,
+> +                                               DA9062_PIN_GPO_PP);
+> +       default:
+> +               return -ENOTSUPP;
+> +       }
+> +}
+> +
+> +static int da9062_gpio_to_irq(struct gpio_chip *gc, unsigned int offset)
+> +{
+> +       struct da9062_pctl *pctl = gpiochip_get_data(gc);
+> +       struct da9062 *da9062 = pctl->da9062;
+> +
+> +       return regmap_irq_get_virq(da9062->regmap_irq,
+> +                                  DA9062_IRQ_GPI0 + offset);
+> +}
+> +
+> +static const struct gpio_chip reference_gc = {
+> +       .owner = THIS_MODULE,
+> +       .get = da9062_gpio_get,
+> +       .set = da9062_gpio_set,
+> +       .get_direction = da9062_gpio_get_direction,
+> +       .direction_input = da9062_gpio_direction_input,
+> +       .direction_output = da9062_gpio_direction_output,
+> +       .set_config = da9062_gpio_set_config,
+> +       .to_irq = da9062_gpio_to_irq,
+> +       .can_sleep = true,
+> +       .ngpio = DA9062_GPIO_NUM,
+> +       .base = -1,
+> +};
+> +
+> +static int da9062_pctl_probe(struct platform_device *pdev)
+> +{
+> +       struct device *parent = pdev->dev.parent;
+> +       struct da9062_pctl *pctl;
+> +       int i;
+> +
+> +       pctl = devm_kzalloc(&pdev->dev, sizeof(*pctl), GFP_KERNEL);
+> +       if (!pctl)
+> +               return -ENOMEM;
+> +
+> +       pctl->da9062 = dev_get_drvdata(parent);
+> +       if (!pctl->da9062)
+> +               return -EINVAL;
+> +
+> +       if (!device_property_present(parent, "gpio-controller"))
+> +               return 0;
+> +
+> +       for (i = 0; i < ARRAY_SIZE(pctl->pin_config); i++)
+> +               pctl->pin_config[i] = DA9062_PIN_GPO_PP;
+> +
+> +       /*
+> +        * Currently the driver handles only the GPIO support. The
+> +        * pinctrl/pinmux support can be added later if needed.
+> +        */
+> +       pctl->gc = reference_gc;
+> +       pctl->gc.label = dev_name(&pdev->dev);
+> +       pctl->gc.parent = &pdev->dev;
+> +#ifdef CONFIG_OF_GPIO
+> +       pctl->gc.of_node = parent->of_node;
+> +#endif
+> +
+> +       platform_set_drvdata(pdev, pctl);
+> +
+> +       return devm_gpiochip_add_data(&pdev->dev, &pctl->gc, pctl);
+> +}
+> +
+> +static struct platform_driver da9062_pctl_driver = {
+> +       .probe = da9062_pctl_probe,
+> +       .driver = {
+> +               .name   = "da9062-gpio",
+> +       },
+> +};
+> +module_platform_driver(da9062_pctl_driver);
+> +
+> +MODULE_AUTHOR("Marco Felsch <kernel@pengutronix.de>");
+> +MODULE_DESCRIPTION("DA9062 PMIC pinctrl and GPIO Driver");
+> +MODULE_LICENSE("GPL v2");
+> +MODULE_ALIAS("platform:da9062-gpio");
+> </cut>
 >
 > --
-> You received this message because you are subscribed to the Google Groups=
- "Clang Built Linux" group.
-> To unsubscribe from this group and stop receiving emails from it, send an=
- email to clang-built-linux+unsubscribe@googlegroups.com.
-> To view this discussion on the web visit https://groups.google.com/d/msgi=
-d/clang-built-linux/5e57d0a2.1c69fb81.b44cf.2a50%40mx.google.com.
+> You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+> To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+> To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/115101724.4577.1582789797861.JavaMail.javamailuser%40localhost.
 
 
 
---=20
+-- 
 Thanks,
 ~Nick Desaulniers
 
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/CAKwvOdnVh0xSrrQ%3DRkRSYOVHYD0-i%2B%3DE%3DRsg6JjdG9%3D4r7=
-BN%2Bw%40mail.gmail.com.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAKwvOd%3DfdpFveAkg4uZB6T5kX9SCBJhrNnqVFuyF0YXHj0n%2BsQ%40mail.gmail.com.
