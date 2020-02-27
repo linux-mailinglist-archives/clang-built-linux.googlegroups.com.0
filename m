@@ -1,135 +1,133 @@
-Return-Path: <clang-built-linux+bncBAABBBX53TZAKGQEZKECQGI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDQJLKMJREOBBD4O3XZAKGQEGTMWVTI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ua1-x93f.google.com (mail-ua1-x93f.google.com [IPv6:2607:f8b0:4864:20::93f])
-	by mail.lfdr.de (Postfix) with ESMTPS id 507E3170F43
-	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 04:59:03 +0100 (CET)
-Received: by mail-ua1-x93f.google.com with SMTP id t24sf398272uap.20
-        for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 19:59:03 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582775942; cv=pass;
+Received: from mail-pg1-x53b.google.com (mail-pg1-x53b.google.com [IPv6:2607:f8b0:4864:20::53b])
+	by mail.lfdr.de (Postfix) with ESMTPS id E543A170FAF
+	for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 05:35:28 +0100 (CET)
+Received: by mail-pg1-x53b.google.com with SMTP id h2sf1122099pgr.12
+        for <lists+clang-built-linux@lfdr.de>; Wed, 26 Feb 2020 20:35:28 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582778127; cv=pass;
         d=google.com; s=arc-20160816;
-        b=Vcg0iOka1mQSfyipa5OZBrdZO2W9ov7O0jZcQtXrlBaKKxZnGtTrNpcrRGzEmAe278
-         u334UkPHR43FHYZ2opa3XqUTGDyP6cdzA/rWsWgrNyTEmzFsiyQv/MM6tNtwMi2ca6Nz
-         ahz9FmZghKSz4x2Mmqvfaqs4KSZHhkZOOMnGTmR3VICb8x4HzCwfpeN6JlVl/HOwSPtB
-         suM3BU3yad0CsKXdc5up1z3G3BeMP+ooz4dpg69oF4BmAJm1KKq3jg/B4kt+Ih1UcrmL
-         pLVnflebRaRYxToD0s4dCzeWPlnLQdrs+8GILYs8jK+rwXKx0bm/qmuRbEFtBSDR53XI
-         J8CA==
+        b=q3A75EZY/lZdq9auezKrVLxm7X+g6YZTVKHepyF26dMiFwkqTtUp6l7RcO2sKdCx23
+         V2BGgYBCeZRmrv9AG3AkX1ubVgYyHjMdkPkFhSHL4JqRragVHt3SqAVmqatBBL+mjnSp
+         F9NOhZUhzt/yJPfmjN++D4xOk2oZZBqmOHMRMTGdr+MqCHnTCh9libUQk9+1K2zMKroG
+         cM0ezjjCQAM5F3xHJxdPzUuJ49vTiBRXm0L0r8iFDUxTnnRTJQ1TtVWbGLrIWiTxj0l1
+         ud6PpB9jTaghjmJINukWgsUToCHnVrpBw1KKpNAVxKdmoYxn1VNRzypqHriNiqWewlpi
+         ZdHA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-filter:sender
-         :dkim-signature;
-        bh=iApBFrmzWPv7RXaPB9ru8fFruMP2Cgf/SpvAtQa/xpM=;
-        b=oGdDLo9kYexc2IGKvNLVnOJW+wZgvFsmkPOP7/66nFOjAR8AxwtTMsEXjXSQLaftGx
-         PV0bLWF85pPzj5Om2lgunNcvRTWkNEuzFVXy09gvpINaQ+Y7ZY/bjr8O9yor29cQhTed
-         fiS7m0GuKL0qY4OUlWK1KNwSJ/mBWlIt3s2UM3m7sIXW8Qf9YdU9gpgyJWPPWBO3hZ4C
-         3hjg2IjQLoOKhLeNZsPdjUdasZb9YhWbOfFWnE4qsHHQJdFrCxYK1Bwkt3icD0RTXTUX
-         EPE96SKDkwHx4vD3rja9efmoad3CJvTOBvR80CJcNjEO/DDnkHt2dkJNufJfF5z4Bk/8
-         ZIrQ==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=ag89gmMckbcQt6BQwnXl1lgNZwvazzSGSGv+wWNXAB4=;
+        b=Nu5dxY6AOmSI8S7CWJHMjae4YIJ3LdcIDUxmdMQigtHT1uUjf8niQ4OFdEhYRDSY1H
+         xZ/eo986WUj63j2+/hplpUMFzmeDPbbNFi8XXxSghS/lOmDg1KqO4gehzC3msIrXOGC9
+         WhuO+2CsDjyyLzzKWx1QpfYdIIMybs5zcT/84cJUg6o7uWPuNEe2ybKv3Aw5cpiuJg6l
+         qGXpWhVskoIHQXEshRhjD/U2z1DTFZKuxPwSPSGs9QC/4bW+RHWyMd8w7CXeAVluvQ3B
+         QhmdrYjNqIKcWfVzIMIAyttSZZkVTSQ54FniEsQTYeVd/UJViZV98JMVRiguFrdRdCV2
+         XuNw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=phyVR1Ua;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+       dkim=pass header.i=@linaro.org header.s=google header.b=Tae5FjrF;
+       spf=pass (google.com: domain of thara.gopinath@linaro.org designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=thara.gopinath@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:dkim-filter:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:x-original-sender
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=iApBFrmzWPv7RXaPB9ru8fFruMP2Cgf/SpvAtQa/xpM=;
-        b=qYHkjBGcykgsVb9pWHrVOZH3cXvJdm7RGumgeKi6og54/agYpHphIUdyVhvdQRoRMc
-         Ydo5gG2pXONrTY7c/CYsMFcSgnsRTZ535vPFQGFy8W5JmxC1AgrmlDRJtkTHnXw8muhs
-         wMiy8pcvzMOQLFGePrjRAWGn44aaI14DZoJIRLRbyP/6/VYYdxcelLYWMvbKJxj9xKvt
-         cK2AIWufHTsdh80rVkXjzO1v7zWL5IsoHxQemBd817+4yrJVxBYMQP390o2Y0u3nX1My
-         slQjhBRpZ2PvtBcNue+EqgaSv3fdTONBhzYhDlQH/ysbGLlfX+9qL2yGrvgSeVuHTkn1
-         yOPg==
+        bh=ag89gmMckbcQt6BQwnXl1lgNZwvazzSGSGv+wWNXAB4=;
+        b=hE4ZBt3QpM4YCjgq7acE9OJKqowXK7Dhzr6veMMdCQFY3N3T7ax3g6I2sEhaNrQeke
+         YlECO1xgMkXA+A3Iz1eq9un+q5+c2ilC8oz1Vs7UfCJsTjZPCzQGleykBdRX8107fWD2
+         OR4nP1vC4wbWsc1ttEnznIVqCtgDqqs4VXz7UN6rqexLEQ2EmsbqJMRKT6P1IbgyPktR
+         YVYcX9f4rSf/ggMP5MjHE9T9rtwplQ/VWYkb63H++g5BQ9HPqun0AUy35ciUMM0RUipE
+         kldZzY1TEtflRlvI0Z0L4vry40fUZU+PPlDg97rbSRIYFx4OVxFbMrFSaHLnLbNCOOk4
+         ruAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:dkim-filter:mime-version:references
-         :in-reply-to:from:date:message-id:subject:to:cc:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=iApBFrmzWPv7RXaPB9ru8fFruMP2Cgf/SpvAtQa/xpM=;
-        b=ueB/AJKY27v4Y9psLcRVLHof1HcQBjHVre3ZrpUN+fxRv8pQUrhGQG0YG8PBDekSRD
-         QAJOLN4zncTiyBF01GztLQIIZ4jsIFGhUJTuqjA0kmIdHr6AmzknNDktLFL58/sFmfCo
-         8cZswk8HExk/mlrqj56LcpZNZtmUQBBXrrxdFTwsASTCIOPCKOu25nppJ2n6E8FlBNxM
-         Fx6UzsQpdTUZmuFJS5ujmOmyFeHMWhAf6q4WpbwddraciiAUwX7CqAvvKRtfvuFUHl5p
-         3QFEi/0TpzWL6WT5eou3YpVkdSPnR59k6ws6dzjzNhEuUW2wBJaE0m+odf0RT/1dRSqR
-         ZvAg==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=ag89gmMckbcQt6BQwnXl1lgNZwvazzSGSGv+wWNXAB4=;
+        b=mBa/bZLGzGwlHQ4QwRAa8FuoKmpVsnqZyMfHLMnmxIoP2MuqU43RHD2UU2k0m42Nu+
+         HmQ45VoMsdopWIl2o9BcWFSZcVgeybroNFYbagT3WVS2pFpTc+sX5jHy7VUg2Zc3YQg5
+         mr4DfP1W7sOJP499i6Ypovb/0vZ14r0LB3FL+H/lB7I/kYrPjEvLOaLotLi0UcbeRFmS
+         NsHBdxyet4VbL16+UHksgq6MMWh29ZxSQ0bqyJYPV8m/Zg6IGYZVcKd25MbFlXkEl950
+         tyljX9YGObr0aX7rGkxiFVcM3/f4/nNXrWI1s6hTRLxv7ZS1wQ7LYIixYvI1ZfWS7Cnf
+         8mMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWF4sTYYtIkvETVTrTB60awzzUeSMr0EHfQVOlKuHm8oQ2wTpF9
-	ldqw+ipQN/3OprBzxAKfFAY=
-X-Google-Smtp-Source: APXvYqyefJPcFLV2dlaAyqv3wYQCuakA00g0qbgqaRQ3Vr4tudVk2J4pPultE2pf3RC5rbndqqHK9g==
-X-Received: by 2002:ab0:740e:: with SMTP id r14mr1527436uap.104.1582775942381;
-        Wed, 26 Feb 2020 19:59:02 -0800 (PST)
+X-Gm-Message-State: APjAAAWMsk0p2VXkk6XaadB5bZRrLVNNKqVmTd1E+9a1zwpMujbkMnac
+	YrO++2ZJ2KZjcPVnzlDnjqA=
+X-Google-Smtp-Source: APXvYqz1kCQAAGTgNIs8g22qbF3K8CMKP36//Q5YQSDufluJ5TRGISsS+/ABXS0AAiWHXN7dctZtSw==
+X-Received: by 2002:a17:90b:4382:: with SMTP id in2mr2813560pjb.29.1582778127406;
+        Wed, 26 Feb 2020 20:35:27 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a1f:a017:: with SMTP id j23ls71318vke.2.gmail; Wed, 26 Feb
- 2020 19:59:02 -0800 (PST)
-X-Received: by 2002:a1f:a985:: with SMTP id s127mr1488667vke.48.1582775941957;
-        Wed, 26 Feb 2020 19:59:01 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582775941; cv=none;
+Received: by 2002:aa7:8547:: with SMTP id y7ls520191pfn.10.gmail; Wed, 26 Feb
+ 2020 20:35:27 -0800 (PST)
+X-Received: by 2002:a63:d20d:: with SMTP id a13mr2276060pgg.257.1582778126937;
+        Wed, 26 Feb 2020 20:35:26 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582778126; cv=none;
         d=google.com; s=arc-20160816;
-        b=II1NkXKdap1wGo+wvDf7f6l8pzITc2yY1j8WAPuVK78sWaf+djWfpXEhvfK5R2Bc5n
-         olY1YBX3FOysvN9YDwRvyI9K0nAbzy9s5LXvJBqd048h2XFI98sfYtK1brdAN41N7ZM8
-         6RwtiORVYNITL7ORZ6kF5s7qhir/U2pVQzGHADaCC0WkwJbB5tRN+dTFxtB/wTyRRm/Q
-         6D07LaN4SKaU/zGSowXojQ//QufC0NihKSkMqoyp95dFdWq1C1xdBeAHYHbFhdVTqbLl
-         NMKeRybM6ruqWbTMnpqvN3oT+qbQxMsXtaHS+b34I2/nCVV1WUjEFSEXHRzQM/RJ5wAu
-         Qhiw==
+        b=y5/YFUcdMvJ3A4c0MJhy32KaYQWUcfhACvMs+C/NArXWGrpyqJq68gYpw12BNk57nz
+         SIxDv/vChz7huBSEIBtw1LdR/E0+9KmlZRk0hm1IzHkJdlU8rNOAWltvxz0P8+6Jf38e
+         PT41SRbk4NkuS7KxED6hhTWx12yYiXB3gox3Mwl1EHK8AlR7Hj91LPAk949fxsw+PfdU
+         BN5x2WA9d1n1ywWUfbynmAQcXvimsBJS6TaG+Kg5RGCuB+vILee3Gbx/ook0oLzB5ksD
+         gWUUpm0mOYYOoYhlSjuWCiitjnwzK02hcH4isWRqPxHNWw1jqpMStpWsTG+4dP4lroJL
+         M6dw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature:dkim-filter;
-        bh=4uYESe3IX1A8M0n72AIHavcEeKHRwHUScqFhq3hkdVY=;
-        b=M2mSaNiXOmOuOSfgslptpIi1VilSkXtALuWAw4zXZjeo8xmXcHHiY8JLVPJU5kjsw/
-         OfDgR4sIw1y3JHBVy1vya8YhW/GF4fBRi0+1q4Ha42cf1ybxlY0RSKRwmNpaWuwtwCAM
-         Itgx6xijQE3QasjNkT22g/zkCEwfX+mgk75aK3STdHLkQ5AFkW5hg78R94Yq+5AP5P0n
-         MyevOEu6YD5YuZZhhTs4IiMkTr0fomeCTN0B+HFjjSPSxSayF6Msqb9DJrlJncgr3qa+
-         hntVard+KGtaR9I5XUwZXV38L9AxuxHGL1/TqnweV9pG6KckubHfX9bptnHMt6isDaA4
-         Z1tg==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject
+         :dkim-signature;
+        bh=OL+3cu1JCIUl+EJ5jOWeX0f36hKChVAYQDiMz0iDgeo=;
+        b=ayus4HOWVo2VC3cf8HGkU1v03P62ZRdB4Xov/Sld3cAJaiV3orMpujCyHU3vm7m6Ui
+         2S33LaCVT/by32csuC1BFhHIdaMIoXlwD3JdA5kezi8PLcLrREWv/Tmt+2h/YOP0kKh6
+         /NhY/SUq16VjVXKhsuPEs85ztKQbmAahSyzAQAiSt9Jfp2OGHFGaQRpVyMAUU6flpfxS
+         Bm/P50SuOyUdTPiUAt8+tXBSIxVO9i/gbcRle7Ei+/ffgLNm0XJZjxGOCzObEjaZG082
+         lg69FuAdyejj286f+F0/Tbh4rCKj2eC5emwLcKXyGGrpgvVEYnR6AAqEAyculf5tsBHg
+         yLPA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@nifty.com header.s=dec2015msa header.b=phyVR1Ua;
-       spf=softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
-Received: from conssluserg-02.nifty.com (conssluserg-02.nifty.com. [210.131.2.81])
-        by gmr-mx.google.com with ESMTPS id 203si17107vky.2.2020.02.26.19.59.01
+       dkim=pass header.i=@linaro.org header.s=google header.b=Tae5FjrF;
+       spf=pass (google.com: domain of thara.gopinath@linaro.org designates 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=thara.gopinath@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+Received: from mail-qk1-x742.google.com (mail-qk1-x742.google.com. [2607:f8b0:4864:20::742])
+        by gmr-mx.google.com with ESMTPS id n20si85966pgl.1.2020.02.26.20.35.26
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 26 Feb 2020 19:59:01 -0800 (PST)
-Received-SPF: softfail (google.com: domain of transitioning masahiroy@kernel.org does not designate 210.131.2.81 as permitted sender) client-ip=210.131.2.81;
-Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com [209.85.221.176]) (authenticated)
-	by conssluserg-02.nifty.com with ESMTP id 01R3wfhw014711
-	for <clang-built-linux@googlegroups.com>; Thu, 27 Feb 2020 12:58:42 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-02.nifty.com 01R3wfhw014711
-X-Nifty-SrcIP: [209.85.221.176]
-Received: by mail-vk1-f176.google.com with SMTP id w4so350145vkd.5
-        for <clang-built-linux@googlegroups.com>; Wed, 26 Feb 2020 19:58:42 -0800 (PST)
-X-Received: by 2002:a1f:2f4c:: with SMTP id v73mr278752vkv.12.1582775920997;
- Wed, 26 Feb 2020 19:58:40 -0800 (PST)
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2020 20:35:26 -0800 (PST)
+Received-SPF: pass (google.com: domain of thara.gopinath@linaro.org designates 2607:f8b0:4864:20::742 as permitted sender) client-ip=2607:f8b0:4864:20::742;
+Received: by mail-qk1-x742.google.com with SMTP id m9so1943870qke.4
+        for <clang-built-linux@googlegroups.com>; Wed, 26 Feb 2020 20:35:26 -0800 (PST)
+X-Received: by 2002:a05:620a:2114:: with SMTP id l20mr3133350qkl.214.1582778125352;
+        Wed, 26 Feb 2020 20:35:25 -0800 (PST)
+Received: from [192.168.1.92] (pool-71-255-246-27.washdc.fios.verizon.net. [71.255.246.27])
+        by smtp.gmail.com with ESMTPSA id o3sm2367004qkk.87.2020.02.26.20.35.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 26 Feb 2020 20:35:24 -0800 (PST)
+Subject: Re: [peterz-queue:sched/wip-deadline 3/19]
+ kernel//sched/pelt.c:393:43: error: too many arguments to function call,
+ expected 2, have 3
+To: Peter Zijlstra <peterz@infradead.org>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+Cc: kbuild test robot <lkp@intel.com>, kbuild-all@lists.01.org,
+ clang-built-linux@googlegroups.com
+References: <202002261428.LgRaxM1P%lkp@intel.com>
+From: Thara Gopinath <thara.gopinath@linaro.org>
+Message-ID: <6374b5e6-8059-2107-1e0d-e3d47a08c4a5@linaro.org>
+Date: Wed, 26 Feb 2020 23:35:24 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.4.1
 MIME-Version: 1.0
-References: <20200225210250.64366-1-ndesaulniers@google.com> <20200226232336.252872-1-ndesaulniers@google.com>
-In-Reply-To: <20200226232336.252872-1-ndesaulniers@google.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 27 Feb 2020 12:58:04 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASGSWTO+MRAFg0XKvucSe0-y6-i0MiUoSLB4fMyFaLj0g@mail.gmail.com>
-Message-ID: <CAK7LNASGSWTO+MRAFg0XKvucSe0-y6-i0MiUoSLB4fMyFaLj0g@mail.gmail.com>
-Subject: Re: [PATCH v3] Documentation/llvm: add documentation on building w/ Clang/LLVM
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Randy Dunlap <rdunlap@infradead.org>,
-        Michal Marek <michal.lkml@markovi.net>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        clang-built-linux <clang-built-linux@googlegroups.com>,
-        Kees Cook <keescook@chromium.org>,
-        Nathan Chancellor <natechancellor@gmail.com>,
-        Sedat Dilek <sedat.dilek@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: masahiroy@kernel.org
+In-Reply-To: <202002261428.LgRaxM1P%lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-US
+X-Original-Sender: thara.gopinath@linaro.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@nifty.com header.s=dec2015msa header.b=phyVR1Ua;       spf=softfail
- (google.com: domain of transitioning masahiroy@kernel.org does not designate
- 210.131.2.81 as permitted sender) smtp.mailfrom=masahiroy@kernel.org;
-       dmarc=fail (p=NONE sp=NONE dis=NONE) header.from=kernel.org
+ header.i=@linaro.org header.s=google header.b=Tae5FjrF;       spf=pass
+ (google.com: domain of thara.gopinath@linaro.org designates
+ 2607:f8b0:4864:20::742 as permitted sender) smtp.mailfrom=thara.gopinath@linaro.org;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -142,45 +140,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Thu, Feb 27, 2020 at 8:23 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
->
-> Added to kbuild documentation. Provides more official info on building
-> kernels with Clang and LLVM than our wiki.
->
-> Suggested-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: Kees Cook <keescook@chromium.org>
-> Reviewed-by: Nathan Chancellor <natechancellor@gmail.com>
-> Reviewed-by: Sedat Dilek <sedat.dilek@gmail.com>
-> Signed-off-by: Nick Desaulniers <ndesaulniers@google.com>
-> ---
-> Changes V2 -> V3:
-> * Drop Randy's Suggested-by tag. Sorry Randy, I do appreciate the review
->   though.
-> * Add F: line to MAINTAINERS.
->
-> Changes V1 -> V2:
-> * s/On going/ongoing/
-> * add Randy's Suggested-by
-> * add Nathan and Sedat's Reviewed-by
-> * Upgrade Kees' Sugguested-by to Reviewed-by
-> * s/suffix/prefix/
 
 
-Setting aside the minimal version discussion,
-I am fine with this patch version.
+On 2/26/20 1:59 AM, kbuild test robot wrote:
+> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/peterz/queue.git sched/wip-deadline
+> head:   0467e3b09008e97dabd2373eaaa471fce23d32b4
+> commit: 15ebf004a9f97a00bd84abab23bacfad39029623 [3/19] sched/pelt: Add support to track thermal pressure
+> config: arm64-allyesconfig (attached as .config)
+> compiler: clang version 11.0.0 (git://gitmirror/llvm_project 396b7253944e927878dff2f6321efabb3aaa0f45)
+> reproduce:
+>          # FIXME the reproduce steps for clang is not ready yet
+> 
+> If you fix the issue, kindly add following tag
+> Reported-by: kbuild test robot <lkp@intel.com>
+> 
+> All errors (new ones prefixed by >>):
+> 
+>>> kernel//sched/pelt.c:393:43: error: too many arguments to function call, expected 2, have 3
+>                     ___update_load_avg(&rq->avg_thermal, 1, 1);
+>                     ~~~~~~~~~~~~~~~~~~                      ^
+>     kernel//sched/pelt.c:241:1: note: '___update_load_avg' declared here
+>     ___update_load_avg(struct sched_avg *sa, unsigned long load)
+>     ^
+>     1 error generated.
 
-I will apply it shortly.
+Hi Peter,
 
-Thanks.
+This is caused due to patch[1] from Vincent which has changed removed
+runnable load avg parameter from __update_load_avg.  The fix is quite 
+trivial and is as follows.
+
+@@ -390,7 +390,7 @@ int update_thermal_load_avg(u64 now, struct rq *rq, 
+u64 capacity)
+                                capacity,
+                                capacity,
+                                capacity)) {
+-               ___update_load_avg(&rq->avg_thermal, 1, 1);
++               ___update_load_avg(&rq->avg_thermal, 1);
+                 trace_pelt_thermal_tp(rq);
+                 return 1;
+         }
 
 
+
+How do you want me to proceed here?
+Do you want me to resend the entire series after re-basing to 
+tip/sched/core or do you just want to fix this in your branch?
+
+1. 
+https://lore.kernel.org/lkml/20200214152729.6059-4-vincent.guittot@linaro.org/
 
 -- 
-Best Regards
-Masahiro Yamada
+Warm Regards
+Thara
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CAK7LNASGSWTO%2BMRAFg0XKvucSe0-y6-i0MiUoSLB4fMyFaLj0g%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/6374b5e6-8059-2107-1e0d-e3d47a08c4a5%40linaro.org.
