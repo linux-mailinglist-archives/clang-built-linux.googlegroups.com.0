@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBX524HZAKGQEI5CZOEA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCF5XGNWYQBRBYF24HZAKGQEWNKEZ2Y@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1040.google.com (mail-pj1-x1040.google.com [IPv6:2607:f8b0:4864:20::1040])
-	by mail.lfdr.de (Postfix) with ESMTPS id DF935172D0C
-	for <lists+clang-built-linux@lfdr.de>; Fri, 28 Feb 2020 01:22:56 +0100 (CET)
-Received: by mail-pj1-x1040.google.com with SMTP id dw15sf660792pjb.2
-        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 16:22:56 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1582849375; cv=pass;
+Received: from mail-pf1-x43f.google.com (mail-pf1-x43f.google.com [IPv6:2607:f8b0:4864:20::43f])
+	by mail.lfdr.de (Postfix) with ESMTPS id E3148172D10
+	for <lists+clang-built-linux@lfdr.de>; Fri, 28 Feb 2020 01:22:57 +0100 (CET)
+Received: by mail-pf1-x43f.google.com with SMTP id a206sf741700pfa.8
+        for <lists+clang-built-linux@lfdr.de>; Thu, 27 Feb 2020 16:22:57 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1582849376; cv=pass;
         d=google.com; s=arc-20160816;
-        b=otssU3Eec3j1VZ35FisvJ/e9g3N1M3c09QagkdDbUAsUMl41th4FZpZ0Cm5YAiUGoC
-         Y+P++tK+vMSUXjCtVusrujjNkcbuAbLtELrdjsilqg39VZ2Nkt89bmvXNrM1MlhaD8xk
-         ag6gMdop4rM5yvzxPDbXRcGOM2u2QGRwiZwLzOf3y0SmmyHkVsUpYJOrCoVZ5w3PILGF
-         LFBwEmRQWz6keQbNUU6cGnrDDhgAxks5laI1cHkyRvDNIx/jMPkJbXoizc7YBkYuOdyF
-         ycNg4lkjRa2TfxRVmGffU94ms0BwFzXwyMKyqlY7VSW9awaKlBWNwbjvMQdUnW9QqUhL
-         S+eQ==
+        b=O8eubctkOnAx15+/GE8/mKc3qjrG+v7Hqg/a5PLP0wSO9i4ilHn1cl5sWhIhgBU2Hw
+         OUj1S4JSp3qtC8IIy4mZc4898jqLX2mASvX15QU5JxRRNoaO7viPs/hiQxAri+Yo4xd2
+         XZ20ikTteTSArA4459DY3I2xZnNbDvSpf3rxOuv1bE1iaOS1fdgizFRdPtw9WM5BOiI2
+         S+DHxijD3JaSFg9Wg3V8Mvhs56F37LppaX9gMNRxp6awqkwEYX4hA2BDxut0RrOcBmu4
+         Z7lEbH3pW8yiV9XzLHtrj2jGUrwZhzJ8PpqF/UeQqMbz5kM5D+KiCENe8mKXEVlQGXF9
+         78SQ==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=XV3x+234vke8QAr4OpZRpqQ3z5NjH9HM21hDZnCln7M=;
-        b=XXIWgGLfpHce3mZ86WiJdaF8FG/W1Rr1ugxOUi0zLOExnSJNQoYffOxK6oPfm/7C1x
-         ekD0MQCL8gVBCpKpo6Kl1wFX4TM+2lFs3pteG+9bXmlhhw1Cj7gVFMwbYlB3cpaEqQPh
-         v+EiXCt1N0jsPhmvsv+VtUSTU/NujGupojw2K8HYSLDN1qP7j8vA3dLomGBUiP2l8rWA
-         L5UEkHyMCE8UOeENtfukI5oWr0dIiuK2T+bYXh8MXrX5MbgQ39COqlfgD988+JXnt56u
-         sRXrNtKYutCvQwYrwZq0Uv2jwWpx/jzDWGu9jEf/FbuopFEZYrq0qw9YCbzXQ/7sS0pF
-         Hokg==
+        bh=VGlg18KyVo8qKb62ZKN2wAxT9lT3V7+F5e61nWYuW7I=;
+        b=0CFFxzIkw66+ak47JzKoGjW6pNKYuVseqgYn3B7L+InbQx0AkUyII1dkp2Ov/peFAV
+         zLSiktNskiBOmHJ5LNYxjIBxl+lKcHr8wHIlWgPLeZgNS1pBLL7eNbBWSjSvamod/g1H
+         KvKynqwvzl1hOJ4W3vQfV7+VB+xtVqj/KDOB89HbmR5d/EOIz35wg3OLDfxVh3ACzA95
+         8xIp+iwIYbIb8+3PENoIuCLOJlNPUBXdsuHe+GjP8Aon/d8FC5bypbWuhAv9Bc/hD4FS
+         ctVsQjFrI5fEb2sopScaJ9y5K9JbYbJxMxw4bHC+txxATW26S5+qljPBLq3+6FIuUXq3
+         lr+g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=SxadLoRd;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=NdpfQ9E7;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XV3x+234vke8QAr4OpZRpqQ3z5NjH9HM21hDZnCln7M=;
-        b=OWLjUlGrirj/vTZyjx/QLskgnBiozPJs1OyRhwccXk95uzKDvah1ovKqx41l2n6va7
-         BEW88JKOQkiHJvC6gydesT2vpZGHVpwVnjk6g/Byp92xmM/t/bCCgogrw8kqGCOLdeas
-         R1EPFxxK1rRyGqK+RUgl9RViwhMALvC94uwNmbS+Bpt0clQgVnNT5TsUi2UojSlL0Hmb
-         +qINXO4N5rhDThdllwAZjHJaAHTPYi7SDaq7hH3k6zkVPgeBOsxvs8zgVH0DrYKxLuPT
-         ihMBotf6aVEeY66bkQxbg9iKLz1o5GARVXA0No00waDkBRzdki3fwmuD44oeYoQ+bhyq
-         r37w==
+        bh=VGlg18KyVo8qKb62ZKN2wAxT9lT3V7+F5e61nWYuW7I=;
+        b=HVTe8DhewEkshxlBY1yEa0C3Q6rBaDxd/upWHe0tZaqeKA6MR7Zq2NHxfRa3nCosMI
+         x3Ak3cm+ngfHPwSxK1MFx3XYevOEJ5TzJwhnJlmhcdgLECHEMUtUcd9x7a9C5YzdOQh1
+         cCv5UnEdmTssgKGDKsYiQmAVnvi6rX/grSBiIcXvLM7kEIeDV6TLTJsOeqtfhwLoR881
+         JzQ6/kj/FQH4sKqy8+3hv76LjrZnzBJJGEByKksK9rrYf+VA8kAiSrLF7ZA/wMKWTp8E
+         U61eQBmhTlbwtomA/t/vbi8gwQrUQZusdtJIoYv+jUHc4jeQqsspKPjozWrdWjcWxLhk
+         NdjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -49,58 +49,58 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=XV3x+234vke8QAr4OpZRpqQ3z5NjH9HM21hDZnCln7M=;
-        b=KoUCAPZ17Qrl1NVK9S9WwxCBSbhX8zLfVoq/q26KkDQyqfKdlJ1sy6+0p5r7OOybXJ
-         RtkYhwtkgo20wR2etNT9mS/QjDIMUpvpyAujZsS2kQoMIsB9kmlB91nu8T5ZuPcH6dVx
-         BAD7E39/vGVvxUW5zjAyrShNHqrj/itabENN59p6BvLm7fQ5rk0pELX+J54mYyhsmlVD
-         aK543sNzOJ9Cr3Wvq1RgRQ5WN+vvcq2LpRQkxzNukevgcNMz51qn3GyhiLMbCLEMz5Wc
-         7eFy6N/4/nLYjGER3qQJUa6oGzfJAfv9hV+XG5bOZ1SBklwHO3iaiDnXyUnd02cflRSQ
-         +oWA==
+        bh=VGlg18KyVo8qKb62ZKN2wAxT9lT3V7+F5e61nWYuW7I=;
+        b=UzF1QoWcMBJWaLY0PBd6BrcYfiv1WcbKSkrU0N63a21pHZR47XqoX4WcahLcvZuQPd
+         MYjw+dPYnsB44GQ61vL+UIijI5DlDMa5f5ZAmp/T0p3d9F/ki+SXiX8lLYLpOtZgn1Lg
+         HRlLdjDbbXfw72arPn1xnpATXumxj+/Xblxi4d4MPHPDObs15YDiiMlUReX3AiX4FA72
+         Js4RGXcGHXHq5fl6y/dpHyhqLdwNUExAWiCIupQkxEeTjpZNhMdGVxmFkoON7nOICQlc
+         zeLACTLT3E00BGL7Eeg+gR87phYUdz3VldtK/mAPyH5wDKPu+GNI5ezb/4L0S7kg05ry
+         McEg==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: APjAAAWUvMT2X58i/2NBhtKcz0hyfQjVu23TmEQy1vuUlTNk4vuhiGNX
-	4LFLg4N2tJ84TqLDXMp1ESI=
-X-Google-Smtp-Source: APXvYqw8/UD+wuXS0V8m5IDyw0G4RZjSKBKjaPdKgSC7xY0GVC0TQ0lmmT2T4ndRIGJ0ZKun+ln9sw==
-X-Received: by 2002:a63:5826:: with SMTP id m38mr1919591pgb.191.1582849375603;
-        Thu, 27 Feb 2020 16:22:55 -0800 (PST)
+X-Gm-Message-State: APjAAAXZk1JeAM3tx/ciVe88stqdrxphIkwGuahsGEtym3FG+C4U/Byf
+	rHPYloyOXckMVhR4cwgQcSE=
+X-Google-Smtp-Source: APXvYqz3kD56qlnK1AAgq1NEFoyK54u5nuL4vEyDMCdw+KNzfo5HkJmCvqWFxvYIJ+phg2TTitfUKw==
+X-Received: by 2002:a65:62c8:: with SMTP id m8mr1879048pgv.69.1582849376578;
+        Thu, 27 Feb 2020 16:22:56 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:90a:b26:: with SMTP id 35ls296028pjq.1.gmail; Thu, 27
- Feb 2020 16:22:55 -0800 (PST)
-X-Received: by 2002:a17:90a:8685:: with SMTP id p5mr1702479pjn.92.1582849375157;
-        Thu, 27 Feb 2020 16:22:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1582849375; cv=none;
+Received: by 2002:a17:90a:ad06:: with SMTP id r6ls290780pjq.3.canary-gmail;
+ Thu, 27 Feb 2020 16:22:56 -0800 (PST)
+X-Received: by 2002:a17:90a:1697:: with SMTP id o23mr1716865pja.62.1582849376186;
+        Thu, 27 Feb 2020 16:22:56 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1582849376; cv=none;
         d=google.com; s=arc-20160816;
-        b=fMy7oqdHqN/LkUMY/N1lIjboj99veT8iJKq7gsfAA+6bYGAbylhTN44C64UT49eR+e
-         ls0JZj2GBP+6IGSOBHWp0jgfs2oLgBzb5bJYtUDO5g0iUHHnH81k1BJi7cxGSQXdCpFA
-         2junbHxPJWG8pr+0YfdIy0VfmOHDjQIZHMnb43Zu8ziAi+wctDnOHckfM3is3RvO3W0/
-         knBjYEJNYtAQJzzsWcYNAfL/GsvPOWC25uBMJf6K38xI9heGvZ+t8DmxKbt78Skp6xL3
-         QbLA9A4sp54U3+JmT79b8LDmxHVNAaGpICMcMOJGpVyfDh8lPzj+1rirc8VW68E0Y+3d
-         WUyw==
+        b=wom41V3On7QmvZ6foh5sQWzxNtwSpVZdDpc2OUgyzDJ1wjTqo+p7QplPbHdo1DlykO
+         DJk0ct7LyZm6YROlHr0+VeuhKCMLDUbedA33Wh1/mSBch+ocF6gMPRJmEnHx6fuqCkEy
+         Y7oHasDhAOEQ0dGkYB6Cji6Ip0/zZR+/iozgWaTrVvnruWN4NwlSg0MRUhyhO4iQOilc
+         mkacjTh2K0ZJoWCDkDXOAxMsCtqJY/c2K2UjpXDEfil3I8HRsSQjxMqrQQzldk5nYTGU
+         Bt0dmkoNekQpfgRozObRLPS/3El8I+pBRcsQz7g78SN8W4gW1TwdAzEXt4aH/PxbRtIr
+         /OFw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=AwIdnSLxc1IQxbb7lR9quaS2Zk4ZIexbe3LplVopvDU=;
-        b=xRI9osY5wbvWSQcjkQV5HkGHZbJRvfj6YLRQJXJ+WzwSZ/ugdKTcaV9AUNhJDFD1Se
-         iGNYCfrARkhdBTL4pXhv0mHWuG69+y/2X2LgiW9x1vEIp8APAbS425NnOlLT+79dvx5b
-         Vz/UBmj/aUaScPfURALzdjvbuTuX5KclRcH+YvEAtIHVzNHLMwT8jV6wFfxVj1FnbhGP
-         NAcblm7/JtErFM6yyE3rE/E0dVTbzEnK9t0M0Owpb98YX7HUp1S08GG1TKRc1gqCMfny
-         ggTlukpaZMBWRKDvmmyVGaO0P4uye9L3/0XTXHPS8vPqIb4KQ+pD6F/fH4lzr9jviZda
-         JW4g==
+        bh=5pMXhDd5WkHmc2Nd9+Jjb38fhh7Zetn6tk9gX3pPvjM=;
+        b=zzcyf7jYn+WeeDOwBzzF8xwqCU1mX5kfXQEYFrZCWYN63KNt9CwptaJjNTyrEkKsDj
+         k9WMKGf4jW9lwoBT3OF1P/CZvbmxQ4MZaIoyWNd94InsXYYWfjtyDnohKx2etjxEM1Ha
+         iP4lRiJU1ctBEIdSHLr3rs1PQq2/GuuZWHhyR+NjW6tl6gnT8T/K4pPz55olUDaKAff2
+         OSavEN/u26+/FWxV9rT3urvfK1i5I7FDWIDww1I7IRRAr350IwCHxYjWNNoH5doulOpW
+         CFDWNWHbNoVh0Yxt1We4+03QACEOXQ5WZfSxwAxwvQDo87USpymDoES5g+wsM14OH8+K
+         q9/w==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@chromium.org header.s=google header.b=SxadLoRd;
-       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) smtp.mailfrom=keescook@chromium.org;
+       dkim=pass header.i=@chromium.org header.s=google header.b=NdpfQ9E7;
+       spf=pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) smtp.mailfrom=keescook@chromium.org;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=chromium.org
-Received: from mail-pf1-x442.google.com (mail-pf1-x442.google.com. [2607:f8b0:4864:20::442])
-        by gmr-mx.google.com with ESMTPS id m11si53755pjb.0.2020.02.27.16.22.55
+Received: from mail-pj1-x1042.google.com (mail-pj1-x1042.google.com. [2607:f8b0:4864:20::1042])
+        by gmr-mx.google.com with ESMTPS id h2si399850pju.2.2020.02.27.16.22.56
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Feb 2020 16:22:56 -0800 (PST)
+Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042 as permitted sender) client-ip=2607:f8b0:4864:20::1042;
+Received: by mail-pj1-x1042.google.com with SMTP id q39so511508pjc.0
+        for <clang-built-linux@googlegroups.com>; Thu, 27 Feb 2020 16:22:56 -0800 (PST)
+X-Received: by 2002:a17:902:694b:: with SMTP id k11mr1375405plt.334.1582849375873;
         Thu, 27 Feb 2020 16:22:55 -0800 (PST)
-Received-SPF: pass (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442 as permitted sender) client-ip=2607:f8b0:4864:20::442;
-Received: by mail-pf1-x442.google.com with SMTP id y5so716782pfb.11
-        for <clang-built-linux@googlegroups.com>; Thu, 27 Feb 2020 16:22:55 -0800 (PST)
-X-Received: by 2002:a63:ef03:: with SMTP id u3mr1816813pgh.77.1582849374784;
-        Thu, 27 Feb 2020 16:22:54 -0800 (PST)
 Received: from www.outflux.net (smtp.outflux.net. [198.145.64.163])
-        by smtp.gmail.com with ESMTPSA id r11sm8163080pgi.9.2020.02.27.16.22.50
+        by smtp.gmail.com with ESMTPSA id 3sm8455845pfi.13.2020.02.27.16.22.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Thu, 27 Feb 2020 16:22:52 -0800 (PST)
 From: Kees Cook <keescook@chromium.org>
@@ -121,17 +121,17 @@ Cc: Kees Cook <keescook@chromium.org>,
 	linux-kbuild@vger.kernel.org,
 	clang-built-linux@googlegroups.com,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 8/9] arm/build: Warn on orphan section placement
-Date: Thu, 27 Feb 2020 16:22:43 -0800
-Message-Id: <20200228002244.15240-9-keescook@chromium.org>
+Subject: [PATCH 9/9] arm/boot: Warn on orphan section placement
+Date: Thu, 27 Feb 2020 16:22:44 -0800
+Message-Id: <20200228002244.15240-10-keescook@chromium.org>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20200228002244.15240-1-keescook@chromium.org>
 References: <20200228002244.15240-1-keescook@chromium.org>
 MIME-Version: 1.0
 X-Original-Sender: keescook@chromium.org
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@chromium.org header.s=google header.b=SxadLoRd;       spf=pass
- (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::442
+ header.i=@chromium.org header.s=google header.b=NdpfQ9E7;       spf=pass
+ (google.com: domain of keescook@chromium.org designates 2607:f8b0:4864:20::1042
  as permitted sender) smtp.mailfrom=keescook@chromium.org;       dmarc=pass
  (p=NONE sp=NONE dis=NONE) header.from=chromium.org
 Content-Type: text/plain; charset="UTF-8"
@@ -152,159 +152,83 @@ heuristics as these can vary between linkers, and may change between
 versions. All sections need to be explicitly named in the linker
 script.
 
-Specifically, this would have made a recently fixed bug very obvious:
-
-ld: warning: orphan section `.fixup' from `arch/arm/lib/copy_from_user.o' being placed in section `.fixup'
-
-Refactor linker script include file for use in standard and XIP linker
-scripts, as well as in the coming boot linker script changes. Add debug
-sections explicitly. Create ARM_COMMON_DISCARD macro with unneeded
-sections .ARM.attributes, .iplt, .rel.iplt, .igot.plt, and .modinfo.
-Create ARM_STUBS_TEXT macro with missed text stub sections .vfp11_veneer,
-and .v4_bx. Finally enable orphan section warning.
+Use common macros for debug sections, discards, and text stubs. Add
+discards for unwanted .note, and .rel sections. Finally, enable orphan
+section warning.
 
 Signed-off-by: Kees Cook <keescook@chromium.org>
 ---
- arch/arm/Makefile                             |  4 ++++
- .../arm/{kernel => include/asm}/vmlinux.lds.h | 22 ++++++++++++++-----
- arch/arm/kernel/vmlinux-xip.lds.S             |  5 ++---
- arch/arm/kernel/vmlinux.lds.S                 |  5 ++---
- 4 files changed, 25 insertions(+), 11 deletions(-)
- rename arch/arm/{kernel => include/asm}/vmlinux.lds.h (92%)
+ arch/arm/boot/compressed/Makefile      |  2 ++
+ arch/arm/boot/compressed/vmlinux.lds.S | 17 +++++++----------
+ 2 files changed, 9 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm/Makefile b/arch/arm/Makefile
-index db857d07114f..f1622bea987a 100644
---- a/arch/arm/Makefile
-+++ b/arch/arm/Makefile
-@@ -16,6 +16,10 @@ LDFLAGS_vmlinux	+= --be8
- KBUILD_LDFLAGS_MODULE	+= --be8
- endif
- 
-+# We never want expected sections to be placed heuristically by the
-+# linker. All sections should be explicitly named in the linker script.
+diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
+index da599c3a1193..7faa2b5e7e16 100644
+--- a/arch/arm/boot/compressed/Makefile
++++ b/arch/arm/boot/compressed/Makefile
+@@ -136,6 +136,8 @@ endif
+ LDFLAGS_vmlinux += --no-undefined
+ # Delete all temporary local symbols
+ LDFLAGS_vmlinux += -X
++# Report orphan sections
 +LDFLAGS_vmlinux += --orphan-handling=warn
-+
- ifeq ($(CONFIG_ARM_MODULE_PLTS),y)
- KBUILD_LDS_MODULE	+= $(srctree)/arch/arm/kernel/module.lds
- endif
-diff --git a/arch/arm/kernel/vmlinux.lds.h b/arch/arm/include/asm/vmlinux.lds.h
-similarity index 92%
-rename from arch/arm/kernel/vmlinux.lds.h
-rename to arch/arm/include/asm/vmlinux.lds.h
-index 8247bc15addc..3ae2cf2e351b 100644
---- a/arch/arm/kernel/vmlinux.lds.h
-+++ b/arch/arm/include/asm/vmlinux.lds.h
-@@ -1,4 +1,5 @@
- /* SPDX-License-Identifier: GPL-2.0 */
-+#include <asm-generic/vmlinux.lds.h>
+ # Next argument is a linker script
+ LDFLAGS_vmlinux += -T
  
- #ifdef CONFIG_HOTPLUG_CPU
- #define ARM_CPU_DISCARD(x)
-@@ -46,6 +47,13 @@
- 		*(.hyp.idmap.text)					\
- 		__hyp_idmap_text_end = .;
- 
-+#define ARM_COMMON_DISCARD						\
-+		*(.ARM.attributes)					\
-+		*(.iplt) *(.rel.iplt) *(.igot.plt)			\
-+		*(.modinfo)						\
-+		*(.discard)						\
-+		*(.discard.*)
-+
- #define ARM_DISCARD							\
- 		*(.ARM.exidx.exit.text)					\
- 		*(.ARM.extab.exit.text)					\
-@@ -58,8 +66,14 @@
- 		EXIT_CALL						\
- 		ARM_MMU_DISCARD(*(.text.fixup))				\
- 		ARM_MMU_DISCARD(*(__ex_table))				\
--		*(.discard)						\
--		*(.discard.*)
-+		ARM_COMMON_DISCARD
-+
-+#define ARM_STUBS_TEXT							\
-+		*(.gnu.warning)						\
-+		*(.glue_7t)						\
-+		*(.glue_7)						\
-+		*(.vfp11_veneer)					\
-+		*(.v4_bx)
- 
- #define ARM_TEXT							\
- 		IDMAP_TEXT						\
-@@ -74,9 +88,7 @@
- 		LOCK_TEXT						\
- 		HYPERVISOR_TEXT						\
- 		KPROBES_TEXT						\
--		*(.gnu.warning)						\
--		*(.glue_7)						\
--		*(.glue_7t)						\
-+		ARM_STUBS_TEXT						\
- 		. = ALIGN(4);						\
- 		*(.got)			/* Global offset table */	\
- 		ARM_CPU_KEEP(PROC_INFO)
-diff --git a/arch/arm/kernel/vmlinux-xip.lds.S b/arch/arm/kernel/vmlinux-xip.lds.S
-index 21b8b271c80d..8e9ac99a4335 100644
---- a/arch/arm/kernel/vmlinux-xip.lds.S
-+++ b/arch/arm/kernel/vmlinux-xip.lds.S
-@@ -9,15 +9,13 @@
- 
- #include <linux/sizes.h>
- 
--#include <asm-generic/vmlinux.lds.h>
-+#include <asm/vmlinux.lds.h>
- #include <asm/cache.h>
- #include <asm/thread_info.h>
- #include <asm/memory.h>
- #include <asm/mpu.h>
- #include <asm/page.h>
- 
--#include "vmlinux.lds.h"
--
- OUTPUT_ARCH(arm)
- ENTRY(stext)
- 
-@@ -152,6 +150,7 @@ SECTIONS
- 	_end = .;
- 
- 	STABS_DEBUG
-+	DWARF_DEBUG
- }
- 
+diff --git a/arch/arm/boot/compressed/vmlinux.lds.S b/arch/arm/boot/compressed/vmlinux.lds.S
+index fc7ed03d8b93..a6a51b5d2328 100644
+--- a/arch/arm/boot/compressed/vmlinux.lds.S
++++ b/arch/arm/boot/compressed/vmlinux.lds.S
+@@ -2,6 +2,7 @@
  /*
-diff --git a/arch/arm/kernel/vmlinux.lds.S b/arch/arm/kernel/vmlinux.lds.S
-index 319ccb10846a..f1c6f66e8e6c 100644
---- a/arch/arm/kernel/vmlinux.lds.S
-+++ b/arch/arm/kernel/vmlinux.lds.S
-@@ -8,7 +8,7 @@
- #include "vmlinux-xip.lds.S"
- #else
- 
--#include <asm-generic/vmlinux.lds.h>
+  *  Copyright (C) 2000 Russell King
+  */
 +#include <asm/vmlinux.lds.h>
- #include <asm/cache.h>
- #include <asm/thread_info.h>
- #include <asm/memory.h>
-@@ -16,8 +16,6 @@
- #include <asm/page.h>
- #include <asm/pgtable.h>
  
--#include "vmlinux.lds.h"
--
- OUTPUT_ARCH(arm)
- ENTRY(stext)
+ #ifdef CONFIG_CPU_ENDIAN_BE8
+ #define ZIMAGE_MAGIC(x) ( (((x) >> 24) & 0x000000ff) | \
+@@ -17,8 +18,11 @@ ENTRY(_start)
+ SECTIONS
+ {
+   /DISCARD/ : {
++    ARM_COMMON_DISCARD
+     *(.ARM.exidx*)
+     *(.ARM.extab*)
++    *(.note.*)
++    *(.rel.*)
+     /*
+      * Discard any r/w data - this produces a link error if we have any,
+      * which is required for PIC decompression.  Local data generates
+@@ -37,9 +41,7 @@ SECTIONS
+     *(.text)
+     *(.text.*)
+     *(.fixup)
+-    *(.gnu.warning)
+-    *(.glue_7t)
+-    *(.glue_7)
++    ARM_STUBS_TEXT
+   }
+   .table : ALIGN(4) {
+     _table_start = .;
+@@ -124,12 +126,7 @@ SECTIONS
+   PROVIDE(__pecoff_data_size = ALIGN(512) - ADDR(.data));
+   PROVIDE(__pecoff_end = ALIGN(512));
  
-@@ -151,6 +149,7 @@ SECTIONS
- 	_end = .;
- 
- 	STABS_DEBUG
-+	DWARF_DEBUG
+-  .stab 0		: { *(.stab) }
+-  .stabstr 0		: { *(.stabstr) }
+-  .stab.excl 0		: { *(.stab.excl) }
+-  .stab.exclstr 0	: { *(.stab.exclstr) }
+-  .stab.index 0		: { *(.stab.index) }
+-  .stab.indexstr 0	: { *(.stab.indexstr) }
+-  .comment 0		: { *(.comment) }
++  STABS_DEBUG
++  DWARF_DEBUG
  }
- 
- #ifdef CONFIG_STRICT_KERNEL_RWX
+ ASSERT(_edata_real == _edata, "error: zImage file size is incorrect");
 -- 
 2.20.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200228002244.15240-9-keescook%40chromium.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200228002244.15240-10-keescook%40chromium.org.
