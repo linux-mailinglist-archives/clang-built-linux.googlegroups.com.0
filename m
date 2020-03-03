@@ -1,130 +1,127 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBR7C67ZAKGQETLJGYBA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRBPV37DZAKGQEF2QC7RA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-yw1-xc3a.google.com (mail-yw1-xc3a.google.com [IPv6:2607:f8b0:4864:20::c3a])
-	by mail.lfdr.de (Postfix) with ESMTPS id E9E64176EFA
-	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Mar 2020 06:55:20 +0100 (CET)
-Received: by mail-yw1-xc3a.google.com with SMTP id q187sf3050653ywg.12
-        for <lists+clang-built-linux@lfdr.de>; Mon, 02 Mar 2020 21:55:20 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583214920; cv=pass;
+Received: from mail-oi1-x23e.google.com (mail-oi1-x23e.google.com [IPv6:2607:f8b0:4864:20::23e])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6B8071771E7
+	for <lists+clang-built-linux@lfdr.de>; Tue,  3 Mar 2020 10:05:04 +0100 (CET)
+Received: by mail-oi1-x23e.google.com with SMTP id w139sf1417966oiw.11
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Mar 2020 01:05:04 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583226303; cv=pass;
         d=google.com; s=arc-20160816;
-        b=nEzXP5QH4A3q3h+Wkr+YqdUxkmVFz+VAoiRnKGa9d4iv8Dex2mm2F+N+e04KocxSEq
-         TdOm/32zOdc/4aGyubglqh6R9IGeyJs500sO0NXkzjUts08zoQfPeNOEuBtexE6GWx9+
-         Z/kEwAERNsLj0sZsCQFjsSl4kGaGXQ8U4cQbUr7pokCWPWgvwFQfLzcwFE6+jV0mpDIr
-         wezbCNNH7G41M2Yteu9jgpvpyzvfhymGSTMT3DrUsRWrjqr2HjANxr507PjTobNChguD
-         WI+9N07s15GSPI1V9/Mabxc96EqX9MRDchNrioj8WjhW1+3OUD1ovKzQ8NTNLjotd0pe
-         IStQ==
+        b=T/goKoQbQR6HtCreC0RCEOzyQurwQl+Fa6ZUh2aRoR+6yt58AlzDBVCR8MPzO3J0XB
+         Slzk2Qjn7QtkqI3aVH4UZdXHI5vKKyLHo83Zr2ZWsBdt4qa/jO/YSNLanHcM9WtnepD9
+         ShOh7uzJrB6/HaohtyaZ0fTzUxMIVXQY/Df4efEiQClgm+uEWKv4COwWxgEV/Ky3b9o4
+         m2HtDE8nHnbXRWAyT8xBDwzGpM+1wWqLiQW3lVph6ajRjSjflhN6FWPguCpisV9OF/uj
+         hIoxJgknpUBJW4rmPATn014K69A4jI5pvijASO1PP8DmQM+e6YKH2CKojtjE5wN3uGM3
+         tCUg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
          :dkim-signature;
-        bh=0TlKo68udVfDzjnBRjUOlVVt4VCC0xJ4/8gtTRHBLtY=;
-        b=xNT3Nlpe+YC2u6LvCnLLKhxiKw5bBSbqapG/1YLkL1DqdpJAXTgZVpCnZhytSDEeIA
-         KimOYGjBftVbE9Zly9ZmnvoyShs79XbH4nLI1FUyIwQXhpVXMIpQYoj3jgGH7GLac7Fg
-         dfNDgMZXhhWncZF6RsxPr5iTq36EBBDtfoNZgneOoZgVyHendsQ4kZM2dh2PVO246e9G
-         RvgLUY1H7jpjNtJ2dvWdORVFu6AcOR5tstueOeG6yq+RtUkwTcN4ZfO37qhZ/yk9IP8R
-         QUDUA391I9FqnnOwcTzS9TVzLdOtAB8OERMBLBdPzbHlzQXokiQcrAiIxL57DaohMpmI
-         /Jvw==
+        bh=cUxF54pDPqoPUnvHoqx/wbs+8HhdTALLa0+gK8DAdUw=;
+        b=M2Gjb4uoRR5M8Q/s2Mqjc1TLFGAWWocEeJc2FngyfnHqzj4vrODjHg1Jy+BOQvwU/0
+         0r7/otv0QYoFOoHpvoYAaFc65czNQr/kF8Miaw35Srwz2EPMcmmOtRSQ6ruIpVLSis+X
+         dxOcK0k6Ep4k/n6+H2R78opR4HQBVkd7Kn1l7U0CRrYOKYccyvN5D/nCSDtMP2xmbOSp
+         VDLmXM8tC7emaMtQHG+4sPcNp5SeZNj6Y9/HX5G2F1+sgOoRI6O4KeilN3heW9TlNZsX
+         OWoghlSyyBSgg9MSOZGdd+f/BBp/JGnm+x7j8EBcJXug9kpduWPyhEMZi2m664jmLcHN
+         BpNg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=GriDaNfn;
+       spf=neutral (google.com: 2607:f8b0:4864:20::533 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=0TlKo68udVfDzjnBRjUOlVVt4VCC0xJ4/8gtTRHBLtY=;
-        b=qvJxekCKWtxssUwM5S6ixnv0nVrs3ehCqBpoumHMMYB4PSs7T+C6BwRQq96g5jVWyk
-         5S39/NYNGeyKqnEbc32GTGnDLavPfxnGqcrzZor3LQDUMM3mlgX8xUtmhEf3xkY8UQ/4
-         B514Ua6SMTN6tAv997HcerEhyE7C4lzeIL8syukTj1BJpIagBFIIAF2ED5fSLvHwnkk4
-         4PLAdOPu/D/i2XXZvoS7eECGOSerXqcfEzWR1C0HyuBa2o5hMeKot7PCWFaiYeJLqQeK
-         RqqZk1tl97aQxKvxpsc6TW2xkOrSLO1cidsDzyGiC9a/8De1K0FJUayM+bfgjYWReh3q
-         KhDw==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=cUxF54pDPqoPUnvHoqx/wbs+8HhdTALLa0+gK8DAdUw=;
+        b=phpqaZkssoHSPXqvFor3+9uX0qAtpm24ZDQZiJv68TKl80NKpf5qeCLQ202Pr6O0NU
+         y9inkOUvTLWeVlXQKbiGTQPTUivstAe7lc3kwp113x67f4vqul7FKePTXpzE6vLDtxWN
+         OInSZ7xk/0qBEFi8jf3aVu78iucjXN3ITfP8UjlWlR+gJ+MMG6drYzfquV7ki26GyGQ+
+         FUBaG5LJ9tWBfoIZxPuacNuSQpm5UaKHe158wzYauRrf+wIe6cgYIFXQyop6wgjHoYUs
+         Rptwxkgsem5j5JsWSZyx1RSgPBhlYwwXME91dJcfgM7JIO/MlGTHKxwdcRyGncix9+F5
+         Yy9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=0TlKo68udVfDzjnBRjUOlVVt4VCC0xJ4/8gtTRHBLtY=;
-        b=dSgu09oXBOr0klBg9xzxvjsJpMu6RzKJKzFpIrdAbDVhSqXNSMc+caERlIEOsLM+IP
-         usGh7J2UkS6GVztUZFYih+EFP9nFXSCxl0G6KdLOCWstech36XWOuSWbzIAiZfs+Z6ab
-         /YdK3eOiiZda3khv90JvwP8jSFJnliQrBTdV8GF0S+pEeFemoF8bJMMIyYLas3DzAZIr
-         /2lPdas82bHtbLWM8NgbiAOctiBakFEaYUYJvuGNS2tNiTCHs0/gbIDxAxvgODKRb770
-         3uKqOBUbM+HCxnMYMkmFfLP5d/MDDo1tynKap6aPeXWuXKjYSxIAPygqrylF1QwsOyGx
-         YBew==
+        bh=cUxF54pDPqoPUnvHoqx/wbs+8HhdTALLa0+gK8DAdUw=;
+        b=kmeenUgteMFRFK/JdsV9DovWYlrVT5q2iBUlCKHajZ6ulTZOYPlclvYK/sYDsi3p5a
+         gmxUPbwsb7H8DrITgFe9spTKCsHnd1EUmmTXZuGCLrW7rVAPOB6Z61kNDuoiPg/H6NuZ
+         YUHhlsTc3QWs67AkJhxQFO4KvAAkvi1svQ2cX25oSljq/AkrHlm0I1NPl43/hY3yeGq0
+         8gQaV15pS3xMmS5vP/vy29Em8mQzHUq7KbDgXUnCLSQw7oGLckJjK2bC86lBDa6DU0eD
+         r/sTdGoueunNXdY9KdyLH76bRL+AZyuAMAjkAO6n7L7n2FuW9yxfIyjLxT0j0deBFzSE
+         ZXMw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0L1QDfttXSjAkIaCPoodXTOSfuWJOTm+/N0hHNwG6Qokr7ICl0
-	6WdiDsl6Q18tk7Al763Jay8=
-X-Google-Smtp-Source: ADFU+vtocihgcUT5mXLj2D432iGp2ts5BE14+VeSKm2ilvm5gKOeO8b00VzHuLM8B5fXQgRIt3RQBA==
-X-Received: by 2002:a25:1489:: with SMTP id 131mr2661994ybu.374.1583214919825;
-        Mon, 02 Mar 2020 21:55:19 -0800 (PST)
+X-Gm-Message-State: ANhLgQ3KjfpHe1Dgz2iI5u+tQQhh5/fwQrwffU5q3ccdBP2S4mDQyFPH
+	C3rI4LtN7P7Wq5Ws0Mgs810=
+X-Google-Smtp-Source: ADFU+vvX242jS+4HVUa51EFiDRHCBcK5AOaijNCT0TVFP/+AB1DvVANK693RkdyeQldtRbrPwskwBA==
+X-Received: by 2002:a9d:6418:: with SMTP id h24mr2625149otl.172.1583226302744;
+        Tue, 03 Mar 2020 01:05:02 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a81:9444:: with SMTP id l65ls646204ywg.5.gmail; Mon, 02 Mar
- 2020 21:55:19 -0800 (PST)
-X-Received: by 2002:a81:f002:: with SMTP id p2mr3160574ywm.391.1583214919344;
-        Mon, 02 Mar 2020 21:55:19 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583214919; cv=none;
+Received: by 2002:aca:895:: with SMTP id 143ls834560oii.1.gmail; Tue, 03 Mar
+ 2020 01:05:02 -0800 (PST)
+X-Received: by 2002:aca:815:: with SMTP id 21mr1835820oii.52.1583226302144;
+        Tue, 03 Mar 2020 01:05:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583226302; cv=none;
         d=google.com; s=arc-20160816;
-        b=d/0y4vGZ2OqzKpUdTVpNa2Y6ICd0EbnZwS6drvYNakdUXwUxjZRWzAbuNqenf9/Unq
-         ecy4ea+4a+hFZA5yPp0qzqBbZLQEfvCwFjMc/ikEC2pGuzK4dOpzEOC6i1BEyN74GrdW
-         ert65YReVfoajrEH5FWUfyI+kjNZpfHSmHZki97S1cZxk1ZeUg0E8C6hXwc6hJEoFECn
-         Ocx6pwLWrSaqE3Xds0hLYvNhk37xYm2AfLxCnUbmmYo8C9zHhyvbhdanw455rIF+mQl2
-         Kd1/6w7OVk80B4Vv/TM1WdPQyMgXgHs0wiv9FneAXEK2DLnkFWJtAlJOwHGG53EYRFGu
-         CtLQ==
+        b=ReZiLl75uulPj7Xz2kePKNUmnOI1bL5nF1TRGt7jujGOAiUldEFQkZBf55Agdll1vO
+         WO5+A9tp+CV8vDyW6BF7wA1H2nssKPIXa4dnezpv/5Da4PMTnkT/RumFKtqbRjC3kTrN
+         aZN3h/xAvHf2AMOfBZjANi/lcvGq2aEMsIJLhZHmOHvt9tdd+LSDdUEHRaK/XHeMTZbm
+         uofsBdPTktGHLU57vyZ71YryLNZJX7EM6UEMXSWDmk8PpyIv+pS75tkgfVtWbVPYxTIH
+         U2eDU1JJVD0whZ9cBnPyNOpCF1GcB7WJAVILuoIYnUHoflg51zP+nzM4dtiKtcvJRD+K
+         1TGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date;
-        bh=xWpxallV03pG9j2iAYNLmqf391Q5YlHCLIJf8Z+KzSo=;
-        b=YOFMVf3McE9ojjGzbieMpSgrhXbNnFBQzqJgsDQxPzYcLNyq986wEiTUxYlQpqGbGp
-         TxuX8OkdH2WeJRDqE8aQrq5kuT+aNvu8yB/SwqfaK23CVkVCqdROyZUOtYLhXuWrFpl9
-         9SDo9JcNofbdD7DMCOBvaCqFLr3GVsYY6NCjB9w6rwhaKVfHIgGnrYCgh5zxZK/7hKoy
-         oqpwIkELGpyVbF3wevBILk1v7cX7ZyCo9KJmidgnuRa48LpXu6wX0kNP8pXiyTvk0bsS
-         8tiiZslzzRUEhnkC9lCiLp0ySByv4gh523kW3O3/RHxYBpoOsdAjByhhj3RDofaeU1sj
-         N8jA==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=eeCnrw/Fj4Xuc5bks0q8/YOiGOf80aEl0QjjTneMgjY=;
+        b=Fsd4xoKQHw+WUiagjnt1Aj0N15o2QIWFIyo+p8Ox+W9V6/majbTsOaVg3xNpSEwPcK
+         5lkpUUv+G/OhtYYhdmU4Heo9dV2PGZ5HEjGCDF/EH27TUCRFr69oWj3MgTGcGk6xYLEk
+         /odxwS2+Ci0AqUIurowAhigqAxZHNIEDVUd2qC6FJzhyxfJH2TlR5SVliw40HmLsrpy3
+         WabLAq/QK+GwCPb8HxLXzTwhMxJGsaodrnCHJU/zSF0k4vyDcYItx/skzk5kJx0Zr9w1
+         ZMJcto/JKkN0PHOCsHyuFUuQRDv8t66uicjpUyKHSTa7/l8eA2YiVBUx9isSnTSoHuGj
+         tfIQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
-        by gmr-mx.google.com with ESMTPS id 136si1027585ybd.4.2020.03.02.21.55.18
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=GriDaNfn;
+       spf=neutral (google.com: 2607:f8b0:4864:20::533 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pg1-x533.google.com (mail-pg1-x533.google.com. [2607:f8b0:4864:20::533])
+        by gmr-mx.google.com with ESMTPS id o10si585450oic.1.2020.03.03.01.05.01
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 02 Mar 2020 21:55:19 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from orsmga001.jf.intel.com ([10.7.209.18])
-  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 02 Mar 2020 21:55:17 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,510,1574150400"; 
-   d="gz'50?scan'50,208,50";a="319353245"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga001.jf.intel.com with ESMTP; 02 Mar 2020 21:55:13 -0800
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
-	(envelope-from <lkp@intel.com>)
-	id 1j90WO-000DkO-JP; Tue, 03 Mar 2020 13:55:12 +0800
-Date: Tue, 3 Mar 2020 13:54:52 +0800
-From: kbuild test robot <lkp@intel.com>
-To: Clement Leger <cleger@kalray.eu>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	0day robot <lkp@intel.com>
-Subject: [linux-review:UPDATE-20200302-182435/Clement-Leger/remoteproc-Add-elf64-support-in-elf-loader/20191005-043859
- 1/1] drivers//remoteproc/remoteproc_core.c:41:10: fatal error:
- 'remoteproc_elf_helpers.h' file not found
-Message-ID: <202003031340.hBTsfzNT%lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 03 Mar 2020 01:05:01 -0800 (PST)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::533 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::533;
+Received: by mail-pg1-x533.google.com with SMTP id u12so1226239pgb.10
+        for <clang-built-linux@googlegroups.com>; Tue, 03 Mar 2020 01:05:01 -0800 (PST)
+X-Received: by 2002:a63:ed01:: with SMTP id d1mr2900803pgi.95.1583226297408;
+        Tue, 03 Mar 2020 01:04:57 -0800 (PST)
+Received: from [10.0.9.4] ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id g18sm24045480pfi.80.2020.03.03.01.04.55
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Mar 2020 01:04:56 -0800 (PST)
+Message-ID: <5e5e1db8.1c69fb81.4c5a1.0973@mx.google.com>
+Date: Tue, 03 Mar 2020 01:04:56 -0800 (PST)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="OXfL5xGRrasGEqWY"
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Branch: master
+X-Kernelci-Kernel: next-20200303
+X-Kernelci-Report-Type: build
+X-Kernelci-Tree: next
+Subject: next/master build: 329 builds: 42 failed, 287 passed, 96 errors,
+ 1984 warnings (next-20200303)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=GriDaNfn;       spf=neutral (google.com: 2607:f8b0:4864:20::533 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,1360 +134,7145 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+next/master build: 329 builds: 42 failed, 287 passed, 96 errors, 1984 warni=
+ngs (next-20200303)
 
---OXfL5xGRrasGEqWY
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200303/
 
-tree:   https://github.com/0day-ci/linux/commits/UPDATE-20200302-182435/Clement-Leger/remoteproc-Add-elf64-support-in-elf-loader/20191005-043859
-head:   a651146ebac3c0e6cc997aa8178ddad7e1f009fd
-commit: a651146ebac3c0e6cc997aa8178ddad7e1f009fd [1/1] remoteproc: Adapt coredump to generate correct elf type
-config: x86_64-allyesconfig (attached as .config)
-compiler: clang version 11.0.0 (git://gitmirror/llvm_project 211fb91f1067ecdf7c0b8a019bcf76554d813129)
-reproduce:
-        # FIXME the reproduce steps for clang is not ready yet
+Tree: next
+Branch: master
+Git Describe: next-20200303
+Git Commit: e78aa714e3261e23c7413fd6e719820e271ff128
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-If you fix the issue, kindly add following tag
-Reported-by: kbuild test robot <lkp@intel.com>
+Build Failures Detected:
 
-All error/warnings (new ones prefixed by >>):
+arm:
+    cm_x300_defconfig: (clang-9) FAIL
+    em_x270_defconfig: (clang-9) FAIL
+    eseries_pxa_defconfig: (clang-9) FAIL
+    pxa_defconfig: (clang-9) FAIL
+    rpc_defconfig: (clang-9) FAIL
+    vf610m4_defconfig: (clang-9) FAIL
+    assabet_defconfig: (gcc-8) FAIL
+    badge4_defconfig: (gcc-8) FAIL
+    cerfcube_defconfig: (gcc-8) FAIL
+    cm_x300_defconfig: (gcc-8) FAIL
+    collie_defconfig: (gcc-8) FAIL
+    corgi_defconfig: (gcc-8) FAIL
+    ebsa110_defconfig: (gcc-8) FAIL
+    em_x270_defconfig: (gcc-8) FAIL
+    eseries_pxa_defconfig: (gcc-8) FAIL
+    footbridge_defconfig: (gcc-8) FAIL
+    h3600_defconfig: (gcc-8) FAIL
+    hackkit_defconfig: (gcc-8) FAIL
+    iop32x_defconfig: (gcc-8) FAIL
+    jornada720_defconfig: (gcc-8) FAIL
+    lart_defconfig: (gcc-8) FAIL
+    lpd270_defconfig: (gcc-8) FAIL
+    lubbock_defconfig: (gcc-8) FAIL
+    mainstone_defconfig: (gcc-8) FAIL
+    neponset_defconfig: (gcc-8) FAIL
+    netwinder_defconfig: (gcc-8) FAIL
+    pleb_defconfig: (gcc-8) FAIL
+    pxa255-idp_defconfig: (gcc-8) FAIL
+    pxa_defconfig: (gcc-8) FAIL
+    rpc_defconfig: (gcc-8) FAIL
+    s3c2410_defconfig: (gcc-8) FAIL
+    shannon_defconfig: (gcc-8) FAIL
+    simpad_defconfig: (gcc-8) FAIL
+    spear3xx_defconfig: (gcc-8) FAIL
+    spear6xx_defconfig: (gcc-8) FAIL
+    spitz_defconfig: (gcc-8) FAIL
+    tct_hammer_defconfig: (gcc-8) FAIL
+    vf610m4_defconfig: (gcc-8) FAIL
 
->> drivers//remoteproc/remoteproc_core.c:41:10: fatal error: 'remoteproc_elf_helpers.h' file not found
-   #include "remoteproc_elf_helpers.h"
-            ^~~~~~~~~~~~~~~~~~~~~~~~~~
-   1 error generated.
---
->> drivers//remoteproc/remoteproc_elf_loader.c:200:22: error: use of undeclared identifier 'class'; did you mean 'clac'?
-                   rproc->elf_class = class;
-                                      ^~~~~
-                                      clac
-   arch/x86/include/asm/smap.h:44:29: note: 'clac' declared here
-   static __always_inline void clac(void)
-                               ^
->> drivers//remoteproc/remoteproc_elf_loader.c:200:20: warning: incompatible pointer to integer conversion assigning to 'u8' (aka 'unsigned char') from 'void (void)' [-Wint-conversion]
-                   rproc->elf_class = class;
-                                    ^ ~~~~~
-   1 warning and 1 error generated.
+mips:
+    ip27_defconfig: (gcc-8) FAIL
 
-vim +41 drivers//remoteproc/remoteproc_core.c
+riscv:
+    allnoconfig: (gcc-8) FAIL
+    tinyconfig: (gcc-8) FAIL
 
-    39	
-    40	#include "remoteproc_internal.h"
-  > 41	#include "remoteproc_elf_helpers.h"
-    42	
+x86_64:
+    x86_64_defconfig+kvm_guest: (clang-9) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 5 warnings
+    axs103_smp_defconfig (gcc-8): 5 warnings
+    haps_hs_defconfig (gcc-8): 5 warnings
+    haps_hs_smp_defconfig (gcc-8): 5 warnings
+    haps_hs_smp_defconfig (gcc-8): 5 warnings
+    hsdk_defconfig (gcc-8): 5 warnings
+    nsimosci_hs_defconfig (gcc-8): 5 warnings
+    nsimosci_hs_smp_defconfig (gcc-8): 5 warnings
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 5 warnings
+    vdk_hs38_smp_defconfig (gcc-8): 5 warnings
+
+arm64:
+    allmodconfig (clang-9): 10 warnings
+    allnoconfig (gcc-8): 2 warnings
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    tinyconfig (gcc-8): 2 warnings
+
+arm:
+    allmodconfig (gcc-8): 26 warnings
+    allmodconfig (clang-9): 39 warnings
+    allnoconfig (gcc-8): 1 warning
+    am200epdkit_defconfig (gcc-8): 5 warnings
+    am200epdkit_defconfig (clang-9): 2 warnings
+    aspeed_g4_defconfig (gcc-8): 11 warnings
+    aspeed_g4_defconfig (clang-9): 11 warnings
+    aspeed_g5_defconfig (clang-9): 10 warnings
+    aspeed_g5_defconfig (gcc-8): 11 warnings
+    assabet_defconfig (gcc-8): 2 errors, 7 warnings
+    assabet_defconfig (clang-9): 7 warnings
+    at91_dt_defconfig (gcc-8): 6 warnings
+    at91_dt_defconfig (clang-9): 4 warnings
+    axm55xx_defconfig (clang-9): 6 warnings
+    axm55xx_defconfig (gcc-8): 7 warnings
+    badge4_defconfig (gcc-8): 2 errors, 7 warnings
+    badge4_defconfig (clang-9): 7 warnings
+    bcm2835_defconfig (gcc-8): 5 warnings
+    bcm2835_defconfig (clang-9): 2 warnings
+    cerfcube_defconfig (gcc-8): 2 errors, 7 warnings
+    cerfcube_defconfig (clang-9): 7 warnings
+    clps711x_defconfig (gcc-8): 5 warnings
+    clps711x_defconfig (clang-9): 2 warnings
+    cm_x2xx_defconfig (clang-9): 5 warnings
+    cm_x2xx_defconfig (gcc-8): 6 warnings
+    cm_x300_defconfig (gcc-8): 1 error, 9 warnings
+    cm_x300_defconfig (clang-9): 1 error, 9 warnings
+    cns3420vb_defconfig (gcc-8): 8 warnings
+    cns3420vb_defconfig (clang-9): 6 warnings
+    colibri_pxa270_defconfig (gcc-8): 6 warnings
+    colibri_pxa270_defconfig (clang-9): 4 warnings
+    colibri_pxa300_defconfig (gcc-8): 5 warnings
+    colibri_pxa300_defconfig (clang-9): 3 warnings
+    collie_defconfig (gcc-8): 2 errors, 6 warnings
+    collie_defconfig (clang-9): 5 warnings
+    corgi_defconfig (gcc-8): 2 errors, 6 warnings
+    corgi_defconfig (clang-9): 4 warnings
+    davinci_all_defconfig (gcc-8): 9 warnings
+    davinci_all_defconfig (clang-9): 10 warnings
+    dove_defconfig (gcc-8): 9 warnings
+    dove_defconfig (clang-9): 10 warnings
+    ebsa110_defconfig (gcc-8): 2 errors, 6 warnings
+    ebsa110_defconfig (clang-9): 5 warnings
+    efm32_defconfig (clang-9): 4 warnings
+    efm32_defconfig (gcc-8): 6 warnings
+    em_x270_defconfig (clang-9): 1 error, 9 warnings
+    em_x270_defconfig (gcc-8): 1 error, 9 warnings
+    ep93xx_defconfig (clang-9): 5 warnings
+    ep93xx_defconfig (gcc-8): 6 warnings
+    eseries_pxa_defconfig (gcc-8): 14 errors, 17 warnings
+    eseries_pxa_defconfig (clang-9): 5 errors, 5 warnings
+    exynos_defconfig (clang-9): 2 warnings
+    exynos_defconfig (gcc-8): 5 warnings
+    ezx_defconfig (gcc-8): 7 warnings
+    ezx_defconfig (clang-9): 6 warnings
+    footbridge_defconfig (clang-9): 5 warnings
+    footbridge_defconfig (gcc-8): 2 errors, 6 warnings
+    gemini_defconfig (clang-9): 2 warnings
+    gemini_defconfig (gcc-8): 5 warnings
+    h3600_defconfig (gcc-8): 2 errors, 6 warnings
+    h3600_defconfig (clang-9): 4 warnings
+    h5000_defconfig (clang-9): 3 warnings
+    h5000_defconfig (gcc-8): 5 warnings
+    hackkit_defconfig (clang-9): 7 warnings
+    hackkit_defconfig (gcc-8): 2 errors, 7 warnings
+    hisi_defconfig (clang-9): 6 warnings
+    hisi_defconfig (gcc-8): 7 warnings
+    imote2_defconfig (clang-9): 4 warnings
+    imote2_defconfig (gcc-8): 6 warnings
+    imx_v4_v5_defconfig (clang-9): 4 warnings
+    imx_v4_v5_defconfig (gcc-8): 6 warnings
+    imx_v6_v7_defconfig (gcc-8): 5 warnings
+    imx_v6_v7_defconfig (clang-9): 2 warnings
+    integrator_defconfig (gcc-8): 9 warnings
+    integrator_defconfig (clang-9): 10 warnings
+    iop32x_defconfig (clang-9): 5 warnings
+    iop32x_defconfig (gcc-8): 2 errors, 6 warnings
+    ixp4xx_defconfig (gcc-8): 6 warnings
+    ixp4xx_defconfig (clang-9): 5 warnings
+    jornada720_defconfig (clang-9): 5 warnings
+    jornada720_defconfig (gcc-8): 2 errors, 6 warnings
+    keystone_defconfig (gcc-8): 5 warnings
+    keystone_defconfig (clang-9): 2 warnings
+    lart_defconfig (clang-9): 7 warnings
+    lart_defconfig (gcc-8): 2 errors, 7 warnings
+    lpc18xx_defconfig (clang-9): 4 warnings
+    lpc18xx_defconfig (gcc-8): 6 warnings
+    lpc32xx_defconfig (clang-9): 4 warnings
+    lpc32xx_defconfig (gcc-8): 6 warnings
+    lpd270_defconfig (clang-9): 5 warnings
+    lpd270_defconfig (gcc-8): 2 errors, 6 warnings
+    lubbock_defconfig (clang-9): 5 warnings
+    lubbock_defconfig (gcc-8): 2 errors, 6 warnings
+    magician_defconfig (gcc-8): 7 warnings
+    magician_defconfig (clang-9): 6 warnings
+    mainstone_defconfig (gcc-8): 2 errors, 6 warnings
+    mainstone_defconfig (clang-9): 5 warnings
+    milbeaut_m10v_defconfig (clang-9): 12 warnings
+    milbeaut_m10v_defconfig (gcc-8): 10 warnings
+    mini2440_defconfig (clang-9): 3 warnings
+    mini2440_defconfig (gcc-8): 5 warnings
+    mmp2_defconfig (clang-9): 2 warnings
+    mmp2_defconfig (gcc-8): 5 warnings
+    moxart_defconfig (gcc-8): 6 warnings
+    moxart_defconfig (clang-9): 4 warnings
+    mps2_defconfig (gcc-8): 5 warnings
+    mps2_defconfig (clang-9): 2 warnings
+    multi_v4t_defconfig (gcc-8): 9 warnings
+    multi_v4t_defconfig (clang-9): 9 warnings
+    multi_v5_defconfig (clang-9): 6 warnings
+    multi_v5_defconfig (gcc-8): 9 warnings
+    multi_v7_defconfig (gcc-8): 9 warnings
+    multi_v7_defconfig (clang-9): 8 warnings
+    multi_v7_defconfig (gcc-8): 9 warnings
+    multi_v7_defconfig (gcc-8): 9 warnings
+    multi_v7_defconfig (gcc-8): 9 warnings
+    multi_v7_defconfig (gcc-8): 10 warnings
+    mv78xx0_defconfig (gcc-8): 6 warnings
+    mv78xx0_defconfig (clang-9): 4 warnings
+    mvebu_v5_defconfig (gcc-8): 5 warnings
+    mvebu_v5_defconfig (clang-9): 2 warnings
+    mvebu_v7_defconfig (clang-9): 2 warnings
+    mvebu_v7_defconfig (gcc-8): 5 warnings
+    mxs_defconfig (gcc-8): 5 warnings
+    mxs_defconfig (clang-9): 3 warnings
+    neponset_defconfig (gcc-8): 2 errors, 7 warnings
+    neponset_defconfig (clang-9): 7 warnings
+    netwinder_defconfig (gcc-8): 2 errors, 6 warnings
+    netwinder_defconfig (clang-9): 5 warnings
+    nhk8815_defconfig (gcc-8): 5 warnings
+    nhk8815_defconfig (clang-9): 2 warnings
+    omap1_defconfig (gcc-8): 5 warnings
+    omap1_defconfig (clang-9): 2 warnings
+    omap2plus_defconfig (gcc-8): 5 warnings
+    omap2plus_defconfig (clang-9): 2 warnings
+    orion5x_defconfig (gcc-8): 6 warnings
+    orion5x_defconfig (clang-9): 4 warnings
+    oxnas_v6_defconfig (gcc-8): 6 warnings
+    oxnas_v6_defconfig (clang-9): 6 warnings
+    palmz72_defconfig (gcc-8): 6 warnings
+    palmz72_defconfig (clang-9): 4 warnings
+    pcm027_defconfig (clang-9): 2 warnings
+    pcm027_defconfig (gcc-8): 5 warnings
+    pleb_defconfig (gcc-8): 2 errors, 7 warnings
+    pleb_defconfig (clang-9): 7 warnings
+    prima2_defconfig (gcc-8): 8 warnings
+    prima2_defconfig (clang-9): 6 warnings
+    pxa168_defconfig (gcc-8): 5 warnings
+    pxa168_defconfig (clang-9): 2 warnings
+    pxa255-idp_defconfig (gcc-8): 2 errors, 6 warnings
+    pxa255-idp_defconfig (clang-9): 5 warnings
+    pxa3xx_defconfig (gcc-8): 6 warnings
+    pxa3xx_defconfig (clang-9): 4 warnings
+    pxa910_defconfig (gcc-8): 5 warnings
+    pxa910_defconfig (clang-9): 2 warnings
+    pxa_defconfig (gcc-8): 3 errors, 20 warnings
+    pxa_defconfig (clang-9): 1 error, 26 warnings
+    qcom_defconfig (gcc-8): 5 warnings
+    qcom_defconfig (clang-9): 2 warnings
+    realview_defconfig (gcc-8): 6 warnings
+    realview_defconfig (clang-9): 4 warnings
+    rpc_defconfig (gcc-8): 2 errors, 5 warnings
+    rpc_defconfig (clang-9): 5 errors
+    s3c2410_defconfig (gcc-8): 2 errors, 7 warnings
+    s3c2410_defconfig (clang-9): 7 warnings
+    s3c6400_defconfig (clang-9): 8 warnings
+    s3c6400_defconfig (gcc-8): 9 warnings
+    s5pv210_defconfig (gcc-8): 7 warnings
+    s5pv210_defconfig (clang-9): 6 warnings
+    sama5_defconfig (gcc-8): 7 warnings
+    sama5_defconfig (clang-9): 6 warnings
+    shannon_defconfig (clang-9): 7 warnings
+    shannon_defconfig (gcc-8): 2 errors, 7 warnings
+    shmobile_defconfig (gcc-8): 5 warnings
+    shmobile_defconfig (clang-9): 2 warnings
+    simpad_defconfig (clang-9): 6 warnings
+    simpad_defconfig (gcc-8): 2 errors, 7 warnings
+    socfpga_defconfig (gcc-8): 6 warnings
+    socfpga_defconfig (clang-9): 4 warnings
+    spear13xx_defconfig (gcc-8): 5 warnings
+    spear13xx_defconfig (clang-9): 2 warnings
+    spear3xx_defconfig (clang-9): 3 warnings
+    spear3xx_defconfig (gcc-8): 2 errors, 5 warnings
+    spear6xx_defconfig (clang-9): 3 warnings
+    spear6xx_defconfig (gcc-8): 2 errors, 5 warnings
+    spitz_defconfig (gcc-8): 2 errors, 6 warnings
+    spitz_defconfig (clang-9): 4 warnings
+    stm32_defconfig (gcc-8): 8 warnings
+    stm32_defconfig (clang-9): 6 warnings
+    sunxi_defconfig (clang-9): 2 warnings
+    sunxi_defconfig (gcc-8): 5 warnings
+    tango4_defconfig (gcc-8): 5 warnings
+    tango4_defconfig (clang-9): 2 warnings
+    tct_hammer_defconfig (gcc-8): 2 errors, 5 warnings
+    tct_hammer_defconfig (clang-9): 3 warnings
+    tegra_defconfig (gcc-8): 9 warnings
+    tegra_defconfig (clang-9): 10 warnings
+    tinyconfig (gcc-8): 1 warning
+    trizeps4_defconfig (clang-9): 4 warnings
+    trizeps4_defconfig (gcc-8): 6 warnings
+    u300_defconfig (clang-9): 6 warnings
+    u300_defconfig (gcc-8): 8 warnings
+    u8500_defconfig (clang-9): 2 warnings
+    u8500_defconfig (gcc-8): 5 warnings
+    versatile_defconfig (gcc-8): 5 warnings
+    versatile_defconfig (clang-9): 3 warnings
+    vexpress_defconfig (gcc-8): 7 warnings
+    vexpress_defconfig (clang-9): 6 warnings
+    vf610m4_defconfig (gcc-8): 4 errors, 14 warnings
+    vf610m4_defconfig (clang-9): 2 errors, 8 warnings
+    viper_defconfig (gcc-8): 7 warnings
+    viper_defconfig (clang-9): 7 warnings
+    vt8500_v6_v7_defconfig (clang-9): 6 warnings
+    vt8500_v6_v7_defconfig (gcc-8): 7 warnings
+    xcep_defconfig (gcc-8): 7 warnings
+    xcep_defconfig (clang-9): 7 warnings
+    zeus_defconfig (gcc-8): 7 warnings
+    zeus_defconfig (clang-9): 7 warnings
+    zx_defconfig (clang-9): 6 warnings
+    zx_defconfig (gcc-8): 8 warnings
+
+i386:
+    allnoconfig (gcc-8): 1 warning
+    i386_defconfig (gcc-8): 30 warnings
+    i386_defconfig (gcc-8): 30 warnings
+    tinyconfig (gcc-8): 1 warning
+
+mips:
+    32r2el_defconfig (gcc-8): 6 warnings
+    32r2el_defconfig (gcc-8): 7 warnings
+    allnoconfig (gcc-8): 1 warning
+    ar7_defconfig (gcc-8): 5 warnings
+    ath25_defconfig (gcc-8): 5 warnings
+    ath79_defconfig (gcc-8): 5 warnings
+    bcm47xx_defconfig (gcc-8): 6 warnings
+    bcm63xx_defconfig (gcc-8): 5 warnings
+    bigsur_defconfig (gcc-8): 1 warning
+    bmips_be_defconfig (gcc-8): 6 warnings
+    bmips_stb_defconfig (gcc-8): 7 warnings
+    capcella_defconfig (gcc-8): 5 warnings
+    cavium_octeon_defconfig (gcc-8): 1 warning
+    ci20_defconfig (gcc-8): 5 warnings
+    cobalt_defconfig (gcc-8): 5 warnings
+    cu1000-neo_defconfig (gcc-8): 6 warnings
+    db1xxx_defconfig (gcc-8): 7 warnings
+    decstation_64_defconfig (gcc-8): 1 warning
+    decstation_defconfig (gcc-8): 5 warnings
+    decstation_r4k_defconfig (gcc-8): 5 warnings
+    e55_defconfig (gcc-8): 8 warnings
+    fuloong2e_defconfig (gcc-8): 1 warning
+    gcw0_defconfig (gcc-8): 6 warnings
+    gpr_defconfig (gcc-8): 6 warnings
+    ip22_defconfig (gcc-8): 9 warnings
+    ip27_defconfig (gcc-8): 2 errors, 1 warning
+    ip28_defconfig (gcc-8): 1 warning
+    ip32_defconfig (gcc-8): 2 warnings
+    jazz_defconfig (gcc-8): 5 warnings
+    jmr3927_defconfig (gcc-8): 5 warnings
+    lasat_defconfig (gcc-8): 5 warnings
+    lemote2f_defconfig (gcc-8): 8 warnings
+    loongson1b_defconfig (gcc-8): 5 warnings
+    loongson1c_defconfig (gcc-8): 5 warnings
+    loongson3_defconfig (gcc-8): 2 warnings
+    malta_defconfig (gcc-8): 5 warnings
+    malta_kvm_defconfig (gcc-8): 5 warnings
+    malta_kvm_guest_defconfig (gcc-8): 5 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 6 warnings
+    maltaaprp_defconfig (gcc-8): 5 warnings
+    maltasmvp_defconfig (gcc-8): 5 warnings
+    maltasmvp_eva_defconfig (gcc-8): 5 warnings
+    maltaup_defconfig (gcc-8): 5 warnings
+    maltaup_xpa_defconfig (gcc-8): 5 warnings
+    markeins_defconfig (gcc-8): 6 warnings
+    mips_paravirt_defconfig (gcc-8): 1 warning
+    mpc30x_defconfig (gcc-8): 5 warnings
+    msp71xx_defconfig (gcc-8): 6 warnings
+    mtx1_defconfig (gcc-8): 6 warnings
+    nlm_xlp_defconfig (gcc-8): 1 warning
+    nlm_xlr_defconfig (gcc-8): 5 warnings
+    omega2p_defconfig (gcc-8): 5 warnings
+    pic32mzda_defconfig (gcc-8): 8 warnings
+    pistachio_defconfig (gcc-8): 5 warnings
+    pnx8335_stb225_defconfig (gcc-8): 5 warnings
+    qi_lb60_defconfig (gcc-8): 7 warnings
+    rb532_defconfig (gcc-8): 5 warnings
+    rbtx49xx_defconfig (gcc-8): 5 warnings
+    rm200_defconfig (gcc-8): 5 warnings
+    rt305x_defconfig (gcc-8): 5 warnings
+    sb1250_swarm_defconfig (gcc-8): 1 warning
+    tb0219_defconfig (gcc-8): 5 warnings
+    tb0226_defconfig (gcc-8): 5 warnings
+    tb0287_defconfig (gcc-8): 5 warnings
+    tinyconfig (gcc-8): 1 warning
+    vocore2_defconfig (gcc-8): 5 warnings
+    workpad_defconfig (gcc-8): 5 warnings
+    xway_defconfig (gcc-8): 5 warnings
+
+riscv:
+    allnoconfig (gcc-8): 1 error
+    defconfig (gcc-8): 3 warnings
+    defconfig (gcc-8): 3 warnings
+    nommu_virt_defconfig (gcc-8): 1 warning
+    rv32_defconfig (gcc-8): 13 warnings
+    tinyconfig (gcc-8): 1 error
+
+x86_64:
+    allmodconfig (clang-9): 12 warnings
+    allmodconfig (gcc-8): 1 warning
+    allnoconfig (clang-9): 2 warnings
+    allnoconfig (gcc-8): 1 warning
+    tinyconfig (gcc-8): 2 warnings
+    x86_64_defconfig (gcc-8): 27 warnings
+    x86_64_defconfig (clang-9): 54 warnings
+    x86_64_defconfig (gcc-8): 27 warnings
+    x86_64_defconfig (gcc-8): 27 warnings
+
+Errors summary:
+
+    27   include/linux/compiler.h:394:38: error: call to =E2=80=98__compile=
+time_assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON faile=
+d: sizeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+    27   include/linux/compiler.h:394:38: error: call to =E2=80=98__compile=
+time_assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON faile=
+d: sizeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    5    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undef=
+ined!
+    2    clang: error: assembler command failed with exit code 1 (use -v to=
+ see invocation)
+    2    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=
+=E2=80=99 undeclared (first use in this function); did you mean =E2=80=98sp=
+in_lock=E2=80=99?
+    2    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=
+=3D width of type [-Werror=3Dshift-count-overflow]
+    1    sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
+    1    sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
+    1    sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
+    1    sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
+    1    sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
+    1    sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
+    1    sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
+    1    sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
+    1    sound/soc/codecs/wm9712.c:84:35: error: variable has incomplete ty=
+pe 'const struct regmap_config'
+    1    sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=98w=
+m9712_regmap_config=E2=80=99 isn=E2=80=99t known
+    1    sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712_r=
+egmap_config=E2=80=99 has initializer but incomplete type
+    1    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of fu=
+nction =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit-f=
+unction-declaration]
+    1    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of fu=
+nction 'regmap_ac97_default_volatile' [-Werror,-Wimplicit-function-declarat=
+ion]
+    1    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of fu=
+nction =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=80=
+=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of fu=
+nction 'snd_soc_component_exit_regmap' [-Werror,-Wimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of fu=
+nction =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=80=
+=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of fu=
+nction 'snd_soc_component_init_regmap' [-Werror,-Wimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of f=
+unction =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_in=
+it_zone=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    1    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of f=
+unction 'regmap_init_ac97' [-Werror,-Wimplicit-function-declaration]
+    1    drivers/usb/gadget/udc/pxa25x_udc.c:2328:11: error: invalid % esca=
+pe in inline assembly string
+    1    drivers/clocksource/timer-vf-pit.c:194:58: error: expected '}'
+    1    drivers/clocksource/timer-vf-pit.c:194: error: unterminated argume=
+nt list invoking macro "BUG_ON"
+    1    drivers/clocksource/timer-vf-pit.c:131:8: error: expected =E2=80=
+=98;=E2=80=99 at end of input
+    1    drivers/clocksource/timer-vf-pit.c:131:2: error: =E2=80=98BUG_ON=
+=E2=80=99 undeclared (first use in this function)
+    1    drivers/clocksource/timer-vf-pit.c:131:2: error: unterminated func=
+tion-like macro invocation
+    1    drivers/clocksource/timer-vf-pit.c:131:2: error: expected declarat=
+ion or statement at end of input
+    1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] undef=
+ined!
+    1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] undef=
+ined!
+    1    /tmp/main-f1ea14.s:1469: Error: selected processor does not suppor=
+t `strh r0,[r1]' in ARM mode
+    1    /tmp/main-f1ea14.s:1466: Error: selected processor does not suppor=
+t `ldrh r0,[r0]' in ARM mode
+    1    /tmp/elf-ecb937.s:49: Error: selected processor does not support `=
+ldrh r2,[r0,#18]' in ARM mode
+
+Warnings summary:
+
+    281  include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_=
+get_sensor_id=E2=80=99 defined but not used [-Wunused-function]
+    259  1 warning generated.
+    204  drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_se=
+condary=E2=80=99 defined but not used [-Wunused-function]
+    178  fs/io_uring.c:4897:10: warning: cast to pointer from integer of di=
+fferent size [-Wint-to-pointer-cast]
+    178  fs/io_uring.c:2216:17: warning: cast from pointer to integer of di=
+fferent size [-Wpointer-to-int-cast]
+    178  fs/io_uring.c:2209:27: warning: cast to pointer from integer of di=
+fferent size [-Wint-to-pointer-cast]
+    178  fs/io_uring.c:1651:27: warning: cast to pointer from integer of di=
+fferent size [-Wint-to-pointer-cast]
+    139  include/linux/thermal.h:382:12: warning: unused function 'thermal_=
+zone_of_get_sensor_id' [-Wunused-function]
+    107  drivers/char/random.c:820:13: warning: unused function 'crng_initi=
+alize_secondary' [-Wunused-function]
+    16   WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    12   3 warnings generated.
+    11   fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=
+=80=99 defined but not used [-Wunused-function]
+    11   fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=
+=99 defined but not used [-Wunused-function]
+    11   fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=
+=99 defined but not used [-Wunused-function]
+    9    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_se=
+lect' [-Wunused-function]
+    9    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_h=
+dr' [-Wunused-function]
+    9    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_ms=
+g' [-Wunused-function]
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    4    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=
+=80=99 declared =E2=80=98static=E2=80=99 but never defined [-Wunused-functi=
+on]
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    4    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    4    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    4    2 warnings generated.
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: vari=
+able 'rate_idx' is used uninitialized whenever 'if' condition is false [-Ws=
+ometimes-uninitialized]
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: var=
+iable 'rate_idx' is used uninitialized whenever 'if' condition is false [-W=
+sometimes-uninitialized]
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: vari=
+able 'rate_idx' is used uninitialized whenever 'if' condition is false [-Ws=
+ometimes-uninitialized]
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initia=
+lize the variable 'rate_idx' to silence this warning
+    3    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: wa=
+rning: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-W=
+pointer-bool-conversion]
+    3    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: wa=
+rning: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wp=
+ointer-bool-conversion]
+    2    drivers/hwtracing/coresight/coresight-cti-sysfs.c:948:11: warning:=
+ address of array 'grp->sig_types' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    2    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame s=
+ize of 1232 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=
+=3D]
+    2    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
+ version 4.6 of GCC [-W#warnings]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    2    #warning This code requires at least version 4.6 of GCC
+    1    {standard input}:141: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/codecs/wm9712.c:93:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:91:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:89:16: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:88:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:87:14: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:86:16: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:85:14: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=98=
+struct regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from inte=
+ger without a cast [-Wint-conversion]
+    1    sound/soc/codecs/cros_ec_codec.c:776:12: warning: stack frame size=
+ of 1152 bytes in function 'wov_hotword_model_put' [-Wframe-larger-than=3D]
+    1    sound/soc/amd/acp3x-rt5682-max9836.c:341:23: warning: format =E2=
+=80=98%d=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argum=
+ent 3 has type =E2=80=98long int=E2=80=99 [-Wformat=3D]
+    1    security/integrity/ima/ima_crypto.c:512:5: warning: stack frame si=
+ze of 1152 bytes in function 'ima_calc_field_array_hash' [-Wframe-larger-th=
+an=3D]
+    1    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    mm/kasan/common.o: warning: objtool: kasan_report()+0x52: call to =
+__stack_chk_fail() with UACCESS enabled
+    1    include/linux/kernel.h:47:25: warning: excess elements in struct i=
+nitializer
+    1    drivers/staging/exfat/exfat_super.c:1686:12: warning: stack frame =
+size of 1552 bytes in function 'exfat_readdir' [-Wframe-larger-than=3D]
+    1    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from poi=
+nter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/soc/fsl/dpio/dpio-service.c:476:5: warning: stack frame si=
+ze of 1072 bytes in function 'dpaa2_io_service_enqueue_multiple_desc_fq' [-=
+Wframe-larger-than=3D]
+    1    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size=
+ of 1824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-la=
+rger-than=3D]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5648 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3014:6:=
+ warning: stack frame size of 1376 bytes in function 'bw_calcs' [-Wframe-la=
+rger-than=3D]
+    1    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame s=
+ize of 1224 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=
+=3D]
+    1    drivers/crypto/inside-secure/safexcel_cipher.c:404:12: warning: st=
+ack frame size of 1136 bytes in function 'safexcel_aead_setkey' [-Wframe-la=
+rger-than=3D]
+    1    drivers/clocksource/timer-vf-pit.c:97:20: warning: =E2=80=98pit_ti=
+mer_interrupt=E2=80=99 defined but not used [-Wunused-function]
+    1    drivers/clocksource/timer-vf-pit.c:56:19: warning: =E2=80=98pit_cl=
+ocksource_init=E2=80=99 defined but not used [-Wunused-function]
+    1    drivers/clocksource/timer-vf-pit.c:131:2: warning: no return state=
+ment in function returning non-void [-Wreturn-type]
+    1    drivers/clocksource/timer-vf-pit.c:126:19: warning: =E2=80=98pit_c=
+lockevent_init=E2=80=99 defined but not used [-Wunused-function]
+    1    drivers/clocksource/timer-vf-pit.c:117:34: warning: =E2=80=98clock=
+event_pit=E2=80=99 defined but not used [-Wunused-variable]
+    1    cc1: some warnings being treated as errors
+    1    cc1: all warnings being treated as errors
+    1    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0=
+x1fa: call to memset() with UACCESS enabled
+    1    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1=
+f8: call to memset() with UACCESS enabled
+    1    /tmp/test-arm-e7f926.s:18788: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/test-arm-e7f926.s:18713: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/futex-fc75d7.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-f6b5b9.s:29023: Warning: source register same as write-=
+back base
+    1    /tmp/futex-f45025.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-f07161.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-e5d719.s:28617: Warning: source register same as write-=
+back base
+    1    /tmp/futex-e189cb.s:9057: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-da24b2.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-d40907.s:29056: Warning: source register same as write-=
+back base
+    1    /tmp/futex-c7d524.s:28858: Warning: source register same as write-=
+back base
+    1    /tmp/futex-c7a797.s:9064: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-c404b3.s:29274: Warning: source register same as write-=
+back base
+    1    /tmp/futex-b3d6d1.s:9057: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-b00935.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-8fd8e5.s:9036: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-89d908.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-86c404.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-625e54.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-625020.s:8999: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-51f850.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-4e57bd.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-49f22a.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-43a33b.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-413667.s:9080: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-3fa3a4.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-3daf74.s:9057: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-3c822e.s:9022: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-3c488c.s:28617: Warning: source register same as write-=
+back base
+    1    /tmp/futex-37dd1d.s:29243: Warning: source register same as write-=
+back base
+    1    /tmp/futex-349b2c.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-24b847.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-21ae7e.s:9250: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-1a1c3f.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-1871d3.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-167c46.s:9069: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-124f0c.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-122e27.s:29056: Warning: source register same as write-=
+back base
+    1    /tmp/futex-09299f.s:9033: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-06f9a5.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/ccKyFsbN.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccKyFsbN.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1165:warning: override: UNWINDER_GUESS changes choice stat=
+e
+    1    ...arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_fr=
+ame()+0x1ef: call to memset() with UACCESS enabled
+
+Section mismatches summary:
+
+    1    WARNING: vmlinux.o(.text.unlikely+0x39dc): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnin=
+gs, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 26 warnings, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    /tmp/ccKyFsbN.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccKyFsbN.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from pointer =
+to integer of different size [-Wpointer-to-int-cast]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 12 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    ...arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame()=
++0x1ef: call to memset() with UACCESS enabled
+    mm/kasan/common.o: warning: objtool: kasan_report()+0x52: call to __sta=
+ck_chk_fail() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0x1fa:=
+ call to memset() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1f8: c=
+all to memset() with UACCESS enabled
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variable=
+ 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsomet=
+imes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initialize =
+the variable 'rate_idx' to silence this warning
+    3 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning=
+: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning=
+: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoint=
+er-bool-conversion]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 39 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    security/integrity/ima/ima_crypto.c:512:5: warning: stack frame size of=
+ 1152 bytes in function 'ima_calc_field_array_hash' [-Wframe-larger-than=3D=
+]
+    1 warning generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    drivers/hwtracing/coresight/coresight-cti-sysfs.c:948:11: warning: addr=
+ess of array 'grp->sig_types' will always evaluate to 'true' [-Wpointer-boo=
+l-conversion]
+    1 warning generated.
+    /tmp/test-arm-e7f926.s:18713: Warning: using r15 results in unpredictab=
+le behaviour
+    /tmp/test-arm-e7f926.s:18788: Warning: using r15 results in unpredictab=
+le behaviour
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    drivers/crypto/inside-secure/safexcel_cipher.c:404:12: warning: stack f=
+rame size of 1136 bytes in function 'safexcel_aead_setkey' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    sound/soc/codecs/cros_ec_codec.c:776:12: warning: stack frame size of 1=
+152 bytes in function 'wov_hotword_model_put' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variable=
+ 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsomet=
+imes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initialize =
+the variable 'rate_idx' to silence this warning
+    3 warnings generated.
+    drivers/soc/fsl/dpio/dpio-service.c:476:5: warning: stack frame size of=
+ 1072 bytes in function 'dpaa2_io_service_enqueue_multiple_desc_fq' [-Wfram=
+e-larger-than=3D]
+    1 warning generated.
+    drivers/staging/exfat/exfat_super.c:1686:12: warning: stack frame size =
+of 1552 bytes in function 'exfat_readdir' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size of 1=
+824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3014:6: warn=
+ing: stack frame size of 1376 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5648 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning=
+: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning=
+: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoint=
+er-bool-conversion]
+    2 warnings generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 10 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/hwtracing/coresight/coresight-cti-sysfs.c:948:11: warning: addr=
+ess of array 'grp->sig_types' will always evaluate to 'true' [-Wpointer-boo=
+l-conversion]
+    1 warning generated.
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variable=
+ 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsomet=
+imes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initialize =
+the variable 'rate_idx' to silence this warning
+    3 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning=
+: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning=
+: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoint=
+er-bool-conversion]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section=
+ mismatches
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    sound/soc/amd/acp3x-rt5682-max9836.c:341:23: warning: format =E2=80=98%=
+d=E2=80=99 expects argument of type =E2=80=98int=E2=80=99, but argument 3 h=
+as type =E2=80=98long int=E2=80=99 [-Wformat=3D]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section m=
+ismatches
+
+Errors:
+    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98spin_loc=
+k=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 11 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 11 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-c7d524.s:28858: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 10 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 11 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-49f22a.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 secti=
+on mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-f6b5b9.s:29023: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-86c404.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-89d908.s:9021: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 9 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, clang-9) =E2=80=94 FAIL, 1 error, 9 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    /tmp/futex-21ae7e.s:9250: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 =
+section mismatches
+
+Warnings:
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warning=
+s, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warning=
+s, 0 section mismatches
+
+Warnings:
+    /tmp/futex-c404b3.s:29274: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 secti=
+on mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-8fd8e5.s:9036: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 10 warnings,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x39dc): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings=
+, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section mi=
+smatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 10 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    /tmp/futex-b3d6d1.s:9057: Warning: source register same as write-back b=
+ase
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, clang-9) =E2=80=94 FAIL, 1 error, 9 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    /tmp/futex-349b2c.s:9021: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 9 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-3c822e.s:9022: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 14 errors, 17 warnings, =
+0 section mismatches
+
+Errors:
+    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of functio=
+n =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit-functi=
+on-declaration]
+    sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712_regmap=
+_config=E2=80=99 has initializer but incomplete type
+    sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
+    sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
+    sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
+    sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
+    sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
+    sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
+    sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
+    sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
+    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of functi=
+on =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_init_zo=
+ne=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of functio=
+n =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=80=98sn=
+d_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of functio=
+n =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=80=98sn=
+d_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=98wm9712=
+_regmap_config=E2=80=99 isn=E2=80=99t known
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    sound/soc/codecs/wm9712.c:85:14: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:86:16: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:87:14: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:88:18: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:89:16: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:91:18: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:93:18: warning: excess elements in struct ini=
+tializer
+    include/linux/kernel.h:47:25: warning: excess elements in struct initia=
+lizer
+    sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=98struc=
+t regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from integer w=
+ithout a cast [-Wint-conversion]
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, clang-9) =E2=80=94 FAIL, 5 errors, 5 warnings, =
+0 section mismatches
+
+Errors:
+    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of functio=
+n 'regmap_ac97_default_volatile' [-Werror,-Wimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:84:35: error: variable has incomplete type 'c=
+onst struct regmap_config'
+    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of functi=
+on 'regmap_init_ac97' [-Werror,-Wimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of functio=
+n 'snd_soc_component_init_regmap' [-Werror,-Wimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of functio=
+n 'snd_soc_component_exit_regmap' [-Werror,-Wimplicit-function-declaration]
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    /tmp/futex-43a33b.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-e189cb.s:9057: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 s=
+ection mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    /tmp/futex-b00935.s:9021: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    /tmp/futex-3fa3a4.s:9021: Warning: source register same as write-back b=
+ase
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 wa=
+rnings, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 30 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 30 warning=
+s, 0 section mismatches
+
+Warnings:
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 10 warnings, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-f07161.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 secti=
+on mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 1 warning, 0 section=
+ mismatches
+
+Errors:
+    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D wi=
+dth of type [-Werror=3Dshift-count-overflow]
+    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D wi=
+dth of type [-Werror=3Dshift-count-overflow]
+
+Warnings:
+    cc1: all warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-24b847.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-1a1c3f.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 s=
+ection mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /tmp/futex-06f9a5.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 section=
+ mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-f45025.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 secti=
+on mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-fc75d7.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 se=
+ction mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-625e54.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warning=
+s, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warning=
+s, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    {standard input}:141: Warning: macro instruction expanded into multiple=
+ instructions
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 12 warning=
+s, 0 section mismatches
+
+Warnings:
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame size o=
+f 1224 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 10 warnings,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-122e27.s:29056: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 9 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-413667.s:9080: Warning: source register same as write-back b=
+ase
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 8 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame size o=
+f 1232 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 9 warnings, 0 section mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 9 warnings, 0 section mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 =
+warnings, 0 section mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 10 warn=
+ings, 0 section mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 bytes is =
+larger than 1024 bytes [-Wframe-larger-than=3D]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    /tmp/futex-37dd1d.s:29243: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-51f850.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 se=
+ction mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-3daf74.s:9057: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings=
+, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame size o=
+f 1232 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 section=
+ mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /tmp/futex-167c46.s:9069: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings=
+, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 s=
+ection mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-124f0c.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 3 errors, 20 warnings, 0 section=
+ mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] undefined!
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, clang-9) =E2=80=94 FAIL, 1 error, 26 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    drivers/usb/gadget/udc/pxa25x_udc.c:2328:11: error: invalid % escape in=
+ inline assembly string
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 5 warnings, 0 section =
+mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, clang-9) =E2=80=94 FAIL, 5 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    /tmp/elf-ecb937.s:49: Error: selected processor does not support `ldrh =
+r2,[r0,#18]' in ARM mode
+    clang: error: assembler command failed with exit code 1 (use -v to see =
+invocation)
+    /tmp/main-f1ea14.s:1466: Error: selected processor does not support `ld=
+rh r0,[r0]' in ARM mode
+    /tmp/main-f1ea14.s:1469: Error: selected processor does not support `st=
+rh r0,[r1]' in ARM mode
+    clang: error: assembler command failed with exit code 1 (use -v to see =
+invocation)
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 13 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-d40907.s:29056: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 8 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-1871d3.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 7 warnings, 0 secti=
+on mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-3c488c.s:28617: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-e5d719.s:28617: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 6 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 FAIL, 2 errors, 5 warnings, 0 s=
+ection mismatches
+
+Errors:
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7965=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__u16) !=3D sizeof_field(struct io_uring_sqe, personality)
+    include/linux/compiler.h:394:38: error: call to =E2=80=98__compiletime_=
+assert_7966=E2=80=99 declared with attribute error: BUILD_BUG_ON failed: si=
+zeof(__s32) !=3D sizeof_field(struct io_uring_sqe, splice_fd_in)
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-c7a797.s:9064: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 9 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 10 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    .config:1165:warning: override: UNWINDER_GUESS changes choice state
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
+smatches
+
+Errors:
+    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98spin_loc=
+k=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section m=
+ismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-4e57bd.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 FAIL, 4 errors, 14 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    drivers/clocksource/timer-vf-pit.c:194: error: unterminated argument li=
+st invoking macro "BUG_ON"
+    drivers/clocksource/timer-vf-pit.c:131:2: error: =E2=80=98BUG_ON=E2=80=
+=99 undeclared (first use in this function)
+    drivers/clocksource/timer-vf-pit.c:131:8: error: expected =E2=80=98;=E2=
+=80=99 at end of input
+    drivers/clocksource/timer-vf-pit.c:131:2: error: expected declaration o=
+r statement at end of input
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    drivers/clocksource/timer-vf-pit.c:131:2: warning: no return statement =
+in function returning non-void [-Wreturn-type]
+    drivers/clocksource/timer-vf-pit.c:126:19: warning: =E2=80=98pit_clocke=
+vent_init=E2=80=99 defined but not used [-Wunused-function]
+    drivers/clocksource/timer-vf-pit.c:117:34: warning: =E2=80=98clockevent=
+_pit=E2=80=99 defined but not used [-Wunused-variable]
+    drivers/clocksource/timer-vf-pit.c:97:20: warning: =E2=80=98pit_timer_i=
+nterrupt=E2=80=99 defined but not used [-Wunused-function]
+    drivers/clocksource/timer-vf-pit.c:56:19: warning: =E2=80=98pit_clockso=
+urce_init=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, clang-9) =E2=80=94 FAIL, 2 errors, 8 warnings, 0 se=
+ction mismatches
+
+Errors:
+    drivers/clocksource/timer-vf-pit.c:131:2: error: unterminated function-=
+like macro invocation
+    drivers/clocksource/timer-vf-pit.c:194:58: error: expected '}'
+
+Warnings:
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    /tmp/futex-09299f.s:9033: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 27 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 54 warnings, 0=
+ section mismatches
+
+Warnings:
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 27 war=
+nings, 0 section mismatches
+
+Warnings:
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, clang-9) =E2=80=94 FAIL, 0 errors, 0 wa=
+rnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 27 war=
+nings, 0 section mismatches
+
+Warnings:
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    /tmp/futex-625020.s:8999: Warning: source register same as write-back b=
+ase
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    include/linux/thermal.h:382:12: warning: =E2=80=98thermal_zone_of_get_s=
+ensor_id=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /tmp/futex-da24b2.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+    include/linux/thermal.h:382:12: warning: unused function 'thermal_zone_=
+of_get_sensor_id' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 section=
+ mismatches
+
+Warnings:
+    fs/io_uring.c:3423:12: warning: unused function 'io_setup_async_msg' [-=
+Wunused-function]
+    fs/io_uring.c:3656:12: warning: unused function 'io_recvmsg_copy_hdr' [=
+-Wunused-function]
+    fs/io_uring.c:3668:26: warning: unused function 'io_recv_buffer_select'=
+ [-Wunused-function]
+    3 warnings generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 8 warnings, 0 section m=
+ismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    fs/io_uring.c:1651:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2209:27: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:2216:17: warning: cast from pointer to integer of differe=
+nt size [-Wpointer-to-int-cast]
+    fs/io_uring.c:4897:10: warning: cast to pointer from integer of differe=
+nt size [-Wint-to-pointer-cast]
+    fs/io_uring.c:3668:26: warning: =E2=80=98io_recv_buffer_select=E2=80=99=
+ defined but not used [-Wunused-function]
+    fs/io_uring.c:3656:12: warning: =E2=80=98io_recvmsg_copy_hdr=E2=80=99 d=
+efined but not used [-Wunused-function]
+    fs/io_uring.c:3423:12: warning: =E2=80=98io_setup_async_msg=E2=80=99 de=
+fined but not used [-Wunused-function]
 
 ---
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+For more info write to <info@kernelci.org>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003031340.hBTsfzNT%25lkp%40intel.com.
-
---OXfL5xGRrasGEqWY
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
-
-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
-
---OXfL5xGRrasGEqWY--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5e5e1db8.1c69fb81.4c5a1.0973%40mx.google.com.
