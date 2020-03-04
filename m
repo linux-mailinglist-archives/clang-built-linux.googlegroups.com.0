@@ -1,47 +1,61 @@
-Return-Path: <clang-built-linux+bncBDLPBG4DUEARBVOD77ZAKGQENM5LHFQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDPZFQ463EFRBUXJ77ZAKGQEOPZM4MY@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-oi1-x23a.google.com (mail-oi1-x23a.google.com [IPv6:2607:f8b0:4864:20::23a])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1FF6C179673
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Mar 2020 18:13:59 +0100 (CET)
-Received: by mail-oi1-x23a.google.com with SMTP id k22sf1258549oic.5
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Mar 2020 09:13:59 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583342037; cv=pass;
+Received: from mail-wm1-x339.google.com (mail-wm1-x339.google.com [IPv6:2a00:1450:4864:20::339])
+	by mail.lfdr.de (Postfix) with ESMTPS id 8FE061797F8
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Mar 2020 19:34:58 +0100 (CET)
+Received: by mail-wm1-x339.google.com with SMTP id f207sf1176410wme.6
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Mar 2020 10:34:58 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583346898; cv=pass;
         d=google.com; s=arc-20160816;
-        b=upjC95QFwKxTQridVx8MtdDQ8mhm4y+KlO9R2xwjJ8QVmudUbyAqffTEjuD+8ShztX
-         sjMQAQdXRfW+w4ZAVI8+nX/sNAfB57Abt4bUSwVhezTe4UNXGbFSAzVa9Kf7t45K0ApL
-         r4U77IHc3N23NrRN6/CkBXShFn178JzgBW0NnSGQaXGimaQUbcWEbIS5yt+uCaO3Vuo/
-         lmRLoLvpcJF2YTaoRQhl41mE9gwRqZOLV4EpfgCuNXP6h7DSu6gpkBTVWXqQQpofxqtv
-         JV0jXX7Iu/miT4q13zI2E1iB6IH79A8zm+oKQqk2wzl2VIFsMx9ZGVGBtGb1L/Dis6qE
-         BJJQ==
+        b=QTM9nPJbCY/4m5PZSECtOabW9tUqGz+2SCLBVUchGRiAlwOufG9Ir5aFhaOvR0OaM5
+         B6poyX8eOfmaKKYH5qdiW6/ohqWCP/CBqqWVxPSHSjsqZgMYDirxRyPF3UzQUXmbSmTV
+         StlJzPHlE6qPt8soFxts2gZ7UphgGMwQvbJ10TV57yrzmOlPDqsqQDHCoA/sa5qHFgrg
+         wXg4XJdb+QtII+DHCJ3EauWJMT/v556/dyBSZ+I1ElGIaahG4KyzZJ9N1Asgnt21RjMJ
+         kwGW9sisggN/nxwE/7EVm1MzPgcFE7yAQcTkLCxJHX74vAuFYTHwsSFc8JW4hcwhYC57
+         OClA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:sender:dkim-signature;
-        bh=MuxyBJ/U1RpXDw5wZrvVDKgKSH8C7VBUScp3w4xBAjk=;
-        b=HSHnBAQgqgapA/UpdyIz8IU3r6VkXuSgOXlff7uSJUL+yBUF/G96VxQMeiEfOdxXpH
-         E0TsYalxjllDdi9EYwQh0JNmfRzrbj3wemqlGMBRjqDCdGKSlDdo/WPInX1X6M0wtRcw
-         pDA2yaxdGeO5gXfSluJRZPmTfjC4k+FimSaoGnnumJ8jUQkdJ+l7SHXqMT4xx/oLfag2
-         hCUutQItiJmDMDTTiS5cddsm3R5eu8MdHyVAh50qMNZUmUswE0E3qVrlmA2108VZ4HXR
-         hU0IXYzPuNTneGjjGMqP+jAjRCjAAb3/LOeonRm3PkqXTwDpmTvAPQO+TqMzKOmsQfLw
-         C2Zw==
+         :in-reply-to:references:mime-version:sender:dkim-signature
+         :dkim-signature;
+        bh=rVlNp+5bxdqxKE9JtW1TnOShQCebBkF+N4hyqhHcVj0=;
+        b=TsYCjdWIgHjNxG8xoDIpjD5reQaRKU7BGCnOOcJC07QUtpLMAzGs8ud1UUHGBCFhbA
+         x329sGgM9ospgoGJQ5LcSaCCfdclh7QFugJL/JSxSCPPch6R/OtacipM94nOFNfisLcE
+         9xHUu+KCslNqf3KZwSSvaUF5/wiD7MnVm0cpOPCMmHNDOhcGGsyaKolIDv/JR4jZRLBg
+         Ek8N7+sf1Lf1ju6yc9pVpW894NjXbRDKYMu1k5315zIdSbfnhFu2hK7DY0nq6lEWL5e6
+         3JTnUyvZKU2jp9TD0TP9m5I2LQppYyVw/P4SveIpvB3/OTmuVl/DxoP3KniR6S399mHB
+         E2cw==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=QYElvh60;
-       spf=pass (google.com: domain of mathieu.poirier@linaro.org designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=mathieu.poirier@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=K2zkK61c;
+       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
         h=sender:mime-version:references:in-reply-to:from:date:message-id
          :subject:to:cc:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MuxyBJ/U1RpXDw5wZrvVDKgKSH8C7VBUScp3w4xBAjk=;
-        b=GASv2a35SZi/jb1feJWoTyH/LQa2YKbkIBDumu+/iHF5RuFBdE6J1pySJbJjMC2CFC
-         7D2qBSByWyYJpJej6PlN0r7j9UzkfqxnRWNznEJJSXit5edQzzRRz7NXMmRRZd4CZKJW
-         2P5V3R/JNi54hd7VmuarAU/eKmSV1VGZzVtjSQy587ERnTJUgQQ588U54inMUlxmvjYA
-         T3v2a2eVIh2nc8bxXaRoZbBYetyaDXu9p9FLrmoMH0lOKf4h+KTywBuzIyaEsyZIU/W3
-         v6rv9WmuRKDTYRqhXVGmqu3ShHonefVdzw+Vp77Llt8ZT2J9dBvqpMphBKmKoGB77g5K
-         wkRg==
+        bh=rVlNp+5bxdqxKE9JtW1TnOShQCebBkF+N4hyqhHcVj0=;
+        b=Yr4R6DRz4bDZiNqhfla7Kf6jDfjxEOn+v8QXZGUCUXu2jTGQmxCNfpOoqSLBV0GSvV
+         DdIJWfIHB74k9C0Gpgaz2ojBTGNnhI/q/rAFQfnsjO00m8QaHojOh3QzWJwQxCZteQDM
+         yvntRmwZmqXCtrik/Uz+xpdwtuCOpaNRu2G0ilm6eG9vdPcg+RD/XWJAeFl8bgi2o7S6
+         98p2QobK5ejglG99Yvlvnvxi50BrXi2hbMrrbGemueq2UFdNVlboDroASR+iiRaVi4yc
+         miffGIk3kn+w16WX0KbtdiM8L3LPq+oUWXxwuvuSrMttg/wMF7FLRY11NMrv7KHJKNPH
+         KLlQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=rVlNp+5bxdqxKE9JtW1TnOShQCebBkF+N4hyqhHcVj0=;
+        b=KTdYXBr/wfqt/w6gibZsFwxrxFKA1uZNoPGXwZpdCB3oPXb9mmlowNHtplY+L6UeZI
+         8pjiFztwGt3/rd/AQmMP/8Gzx061ngM/1KAke44FkpMsBDYNhAO2mRuOtaZDkPN5Yr0m
+         j5VbM4b57mzXVkK63KslEgb5vZa6W0rcUzx3NG6eM2IxCoL7iiuEgwpgXlMnmCwUhiGC
+         fNs+z8+2XIF/QRJAgJjJHKuZINuDSbPeQl7r6JNHWC+3r810kTY83Kche1334C5G9WDI
+         8me7sbQF34YZrun/0jf7HTgJzGJ8AR657PRajgIzgF4kr52vSdvgHYtjpAq4Z/47h/6M
+         xRSg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:mime-version:references:in-reply-to:from
@@ -49,75 +63,77 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=MuxyBJ/U1RpXDw5wZrvVDKgKSH8C7VBUScp3w4xBAjk=;
-        b=FApQO1qrscz8wzJ8MLI0AVBxthjtAvWDk6lmmHs6TZ+vMP2ObLcaffLrOZlUKG0Cas
-         sAAXGLHovvJlnqmm3w+Yd38aDY+mjHT42ejfgliY4srZ5NtSckZijXDfSB+VCLb7r3QV
-         42iV5Qv1OCdSwtwSyx0sfZ625PyXM6V7hGI+JNsTjc1DRtUPTbrpNpM0EaOTP632dmGB
-         RQaZPxJaqTfytKaiRPbViStn7fF/rgsjmjA1naAZtZQUPFkmWhIBF2e9LAKzKO4eFWHg
-         uditx/4Z5S0G6mrCNEThjGOEziDonxpDLC55uio2Dfgasor2Vbv27ALaQ/4ChAXoGbx6
-         /jjQ==
+        bh=rVlNp+5bxdqxKE9JtW1TnOShQCebBkF+N4hyqhHcVj0=;
+        b=qpplHATVJW0VeqyFe3DpL/V2uEttH8clGOILGnwzvoUuEIMr0FPS+fTxXMRejXyccO
+         g8VBpGlbptPIzGRpcUOBiZEE5ngZybLzk25E37YRiOtpLxdlfueXsXSFl6cl+O9kRNig
+         e3QjzOlQ/o9S/+m9vXldZPwYFS99bthH07DT4QPkt/d0WChucv3NWw4Rrwj6Qjm5/DAX
+         Rv8udhFaDBxusXZpVp7cYIjbs7NE42KOc4+tJBwLLCrPeoE7hGpkp2aE5mbNdUXaPFnj
+         M3mEpMjDiOzMChW7/pp3QQkigJSy20Fzla3vkrSb0S8ojH5fpXh+1IYeJOfgsNnHCjZq
+         5xNw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1QgQNlvzmMn4omFUhL1vRzE63h5AB3iBWy31+uYna7uiZf9nxn
-	pQx1fsaSL5aS0Wvs9tuz+Sc=
-X-Google-Smtp-Source: ADFU+vtKGAek20iClrYfP624PdLnI15pNEjW4xrp/wvEpjswBPGSsWcXeiyDvb8ph/17kwMAexUJYA==
-X-Received: by 2002:a9d:6544:: with SMTP id q4mr3028615otl.269.1583342037532;
-        Wed, 04 Mar 2020 09:13:57 -0800 (PST)
+X-Gm-Message-State: ANhLgQ0jiUdTULmegENcvVQd1gz6R5RSUpOSfRIkXnovrZTwZSQsZwmd
+	d1WpN438vwAxJgXhXSs9T40=
+X-Google-Smtp-Source: ADFU+vulJFBd3VaDI5P7JotDyp7IEeznm+AeN6pQO0+VkRYcXivwUwp6Wi0hNitpEtOctXs6XIS9Hg==
+X-Received: by 2002:a05:600c:d7:: with SMTP id u23mr4914895wmm.145.1583346898327;
+        Wed, 04 Mar 2020 10:34:58 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:aca:f5d4:: with SMTP id t203ls803724oih.11.gmail; Wed, 04
- Mar 2020 09:13:57 -0800 (PST)
-X-Received: by 2002:aca:af49:: with SMTP id y70mr2543038oie.92.1583342037159;
-        Wed, 04 Mar 2020 09:13:57 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583342037; cv=none;
+Received: by 2002:a05:600c:2c03:: with SMTP id q3ls1804451wmg.0.gmail; Wed, 04
+ Mar 2020 10:34:57 -0800 (PST)
+X-Received: by 2002:a1c:dd45:: with SMTP id u66mr5130464wmg.154.1583346897757;
+        Wed, 04 Mar 2020 10:34:57 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583346897; cv=none;
         d=google.com; s=arc-20160816;
-        b=iGYoRYTctQOI+0r6BqN8RLQhqu/Af0N+ppATQdb2p65YVF88VusKU14s9stnQUlzO1
-         t4KnZmUCiiNH4utScmjHnKe0he1+I+dswjfdWK7uHgvT8WMsW2AmAjdk2OoLhdrsg/41
-         T6q71ERc0K18EvkL7VwYkksnPID2o+7b8GCKBVYa0vM7wO6ZetAVaQe5cc94uzu936GI
-         5Q5fMd5hl7iQIqBHLoUJEp00jpGLZmjcjh3fvCoPiWr1sUi2TVT17SmNtkE9YBetv9J2
-         oreLH/r2woFKbuG8m6FzvD8wxrD//fevTELqp4PnWLfgX+NPTADwFXm/LGQc+7uvcXXO
-         qWcw==
+        b=mwIMIh2ak2AlaavQMJMea1DmTsupWE81+sLb7oxZzTPsrdgkQRokVysIGtdv960n+S
+         VcymxLmoy9RSbl1am6YYQHloaToKdHzX/tN18f5bHgdjy/gnVSuZJ6BQexJ2IyxxsmCB
+         TAmyGrXLuWMW0jOqQXzrB52gTAic3EIbZeS+rUVqSzCmXYkkfnC9v9yEEQneTLvQJ0Ef
+         +eN/u5nyxDc423iIeuhFjCXJtikbXV22tP+E7sfXhatpXsZF2Rrfjil1jOCJu8UyqvZA
+         70lmWs2Ze47S+lM3V74m32dQwxeqh51NNAj5Qs0NT1z/qk6AEVU0D+I4rMkmmjjZogju
+         akCQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:dkim-signature;
-        bh=4gG3qMsij+Zo/aEE0RJ5aXLnI0RJBhpPpMw/2lBOTbU=;
-        b=rU8dogIWwO4SpTfMcYm7uzAaxbIZCpG7rl1PuD3yYoe9lCLO90EkQr11N+bysTuB6+
-         HiEBC35xFRD8tWuv/Mjlg4UkliTGX8BVgsX6HtIf2lr5aeKXJ8AC3L2jRC1a+erHjAga
-         4wD6QsklkOWW8fgQBSpushLRB9xnFHwYUpzARNwyjW5J3UKCVbhlODQN0EOB/7SOVFGK
-         9JHVstilWWjS1GUfx1i85RjWFDmK80h/FpJ6BA/e4jf0OQYOJPZaTMceGkkV2jwTivZd
-         k6QihgVKXe0Pqf+U3AdVBTA7mkS6zLYELGEbYgqcraMnfeQWUzr3V/d+JOyZJqMTMMRp
-         hohQ==
+        bh=8DRq31dVT2gcFH3XXRtqpgig/7H0t/mX4ebDUqxQJAM=;
+        b=H8ElKC743tiSjluP6Od8X0xFmqRorEyZpyRj7VknbaXIxhzWhCTGs5a+PLo25gD+fI
+         KoI5N9a0zoVYwQ/S3yGyzDpiS+TmOxMcs2mYTeZ8bciglAJfSaSFEF3Rr2XsxmpAzgGh
+         2wX9W+mVIvRJIrWPvrh+LauzPBSxn+xgtYrTNY9rLQkW/hNDJGEkT1x56uuASu6Upb8d
+         iLfKqqcqIV60jaKGUk/M1NFnE55Vh1UuA569qq0BQKF8juhO3mu+edEhEP9/Saf5RQIh
+         fCOtdqg9vrVMWU0HbslEKDj/EzUcq8iEtVUu2FxSIDNYUvulAuZ5tfRT5RYAioRdIlSC
+         9bBQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@linaro.org header.s=google header.b=QYElvh60;
-       spf=pass (google.com: domain of mathieu.poirier@linaro.org designates 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=mathieu.poirier@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
-Received: from mail-io1-xd41.google.com (mail-io1-xd41.google.com. [2607:f8b0:4864:20::d41])
-        by gmr-mx.google.com with ESMTPS id m24si76197otj.3.2020.03.04.09.13.57
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=K2zkK61c;
+       spf=pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Received: from mail-wm1-x341.google.com (mail-wm1-x341.google.com. [2a00:1450:4864:20::341])
+        by gmr-mx.google.com with ESMTPS id d14si131168wru.1.2020.03.04.10.34.57
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Mar 2020 09:13:57 -0800 (PST)
-Received-SPF: pass (google.com: domain of mathieu.poirier@linaro.org designates 2607:f8b0:4864:20::d41 as permitted sender) client-ip=2607:f8b0:4864:20::d41;
-Received: by mail-io1-xd41.google.com with SMTP id d15so3252736iog.3
-        for <clang-built-linux@googlegroups.com>; Wed, 04 Mar 2020 09:13:57 -0800 (PST)
-X-Received: by 2002:a6b:8b8c:: with SMTP id n134mr2899306iod.58.1583342036746;
- Wed, 04 Mar 2020 09:13:56 -0800 (PST)
+        Wed, 04 Mar 2020 10:34:57 -0800 (PST)
+Received-SPF: pass (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::341 as permitted sender) client-ip=2a00:1450:4864:20::341;
+Received: by mail-wm1-x341.google.com with SMTP id a25so5327618wmm.0
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Mar 2020 10:34:57 -0800 (PST)
+X-Received: by 2002:a05:600c:286:: with SMTP id 6mr4934184wmk.56.1583346897405;
+ Wed, 04 Mar 2020 10:34:57 -0800 (PST)
 MIME-Version: 1.0
-References: <20200302213402.9650-1-natechancellor@gmail.com>
-In-Reply-To: <20200302213402.9650-1-natechancellor@gmail.com>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Wed, 4 Mar 2020 10:13:45 -0700
-Message-ID: <CANLsYkz_kh2BWoVy-YervDTRWUT+p8M+-_vUrsu--WF3fjDBPQ@mail.gmail.com>
-Subject: Re: [PATCH] coresight: cti: Remove unnecessary NULL check in cti_sig_type_name
+References: <20200302224217.22590-1-natechancellor@gmail.com>
+In-Reply-To: <20200302224217.22590-1-natechancellor@gmail.com>
+From: Alex Deucher <alexdeucher@gmail.com>
+Date: Wed, 4 Mar 2020 13:34:46 -0500
+Message-ID: <CADnq5_Me3VGP=WfDuSfwC705b_XVENyn6q9SRU7=pXW-2xEdvg@mail.gmail.com>
+Subject: Re: [PATCH] drm/amd/display: Remove pointless NULL checks in dmub_psr_copy_settings
 To: Nathan Chancellor <natechancellor@gmail.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, clang-built-linux@googlegroups.com
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Alex Deucher <alexander.deucher@amd.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	"David (ChunMing) Zhou" <David1.Zhou@amd.com>, 
+	clang-built-linux <clang-built-linux@googlegroups.com>, 
+	Maling list - DRI developers <dri-devel@lists.freedesktop.org>, 
+	amd-gfx list <amd-gfx@lists.freedesktop.org>, LKML <linux-kernel@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: mathieu.poirier@linaro.org
+X-Original-Sender: alexdeucher@gmail.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@linaro.org header.s=google header.b=QYElvh60;       spf=pass
- (google.com: domain of mathieu.poirier@linaro.org designates
- 2607:f8b0:4864:20::d41 as permitted sender) smtp.mailfrom=mathieu.poirier@linaro.org;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=linaro.org
+ header.i=@gmail.com header.s=20161025 header.b=K2zkK61c;       spf=pass
+ (google.com: domain of alexdeucher@gmail.com designates 2a00:1450:4864:20::341
+ as permitted sender) smtp.mailfrom=alexdeucher@gmail.com;       dmarc=pass
+ (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,52 +146,61 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Mon, 2 Mar 2020 at 14:34, Nathan Chancellor <natechancellor@gmail.com> wrote:
+On Mon, Mar 2, 2020 at 5:43 PM Nathan Chancellor
+<natechancellor@gmail.com> wrote:
 >
 > Clang warns:
 >
-> drivers/hwtracing/coresight/coresight-cti-sysfs.c:948:11: warning:
-> address of array 'grp->sig_types' will always evaluate to 'true'
+> drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning:
+> address of 'pipe_ctx->plane_res' will always evaluate to 'true'
 > [-Wpointer-bool-conversion]
->         if (grp->sig_types) {
->         ~~  ~~~~~^~~~~~~~~
-> 1 warning generated.
+>         if (!pipe_ctx || !&pipe_ctx->plane_res || !&pipe_ctx->stream_res)
+>                          ~ ~~~~~~~~~~^~~~~~~~~
+> drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning:
+> address of 'pipe_ctx->stream_res' will always evaluate to 'true'
+> [-Wpointer-bool-conversion]
+>         if (!pipe_ctx || !&pipe_ctx->plane_res || !&pipe_ctx->stream_res)
+>                                                   ~ ~~~~~~~~~~^~~~~~~~~~
+> 2 warnings generated.
 >
-> sig_types is at the end of a struct so it cannot be NULL.
+> As long as pipe_ctx is not NULL, the address of members in this struct
+> cannot be NULL, which means these checks will always evaluate to false.
 >
-> Fixes: 85b6684eab65 ("coresight: cti: Add connection information to sysfs")
-> Link: https://github.com/ClangBuiltLinux/linux/issues/914
+> Fixes: 4c1a1335dfe0 ("drm/amd/display: Driverside changes to support PSR in DMCUB")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/915
 > Signed-off-by: Nathan Chancellor <natechancellor@gmail.com>
+
+Applied.  Thanks!
+
+Alex
+
+
 > ---
->  drivers/hwtracing/coresight/coresight-cti-sysfs.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
+>  drivers/gpu/drm/amd/display/dc/dce/dmub_psr.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> index abb7f492c2cb..214d6552b494 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> @@ -945,10 +945,8 @@ cti_sig_type_name(struct cti_trig_con *con, int used_count, bool in)
->         int idx = 0;
->         struct cti_trig_grp *grp = in ? con->con_in : con->con_out;
+> diff --git a/drivers/gpu/drm/amd/display/dc/dce/dmub_psr.c b/drivers/gpu/drm/amd/display/dc/dce/dmub_psr.c
+> index 2c932c29f1f9..a9e1c01e9d9b 100644
+> --- a/drivers/gpu/drm/amd/display/dc/dce/dmub_psr.c
+> +++ b/drivers/gpu/drm/amd/display/dc/dce/dmub_psr.c
+> @@ -144,7 +144,7 @@ static bool dmub_psr_copy_settings(struct dmub_psr *dmub,
+>                 }
+>         }
 >
-> -       if (grp->sig_types) {
-> -               if (used_count < grp->nr_sigs)
-> -                       idx = grp->sig_types[used_count];
-> -       }
-> +       if (used_count < grp->nr_sigs)
-> +               idx = grp->sig_types[used_count];
->         return sig_type_names[idx];
->  }
-
-Applied - thanks,
-Mathieu
-
+> -       if (!pipe_ctx || !&pipe_ctx->plane_res || !&pipe_ctx->stream_res)
+> +       if (!pipe_ctx)
+>                 return false;
 >
+>         // First, set the psr version
 > --
 > 2.25.1
 >
+> _______________________________________________
+> amd-gfx mailing list
+> amd-gfx@lists.freedesktop.org
+> https://lists.freedesktop.org/mailman/listinfo/amd-gfx
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CANLsYkz_kh2BWoVy-YervDTRWUT%2Bp8M%2B-_vUrsu--WF3fjDBPQ%40mail.gmail.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CADnq5_Me3VGP%3DWfDuSfwC705b_XVENyn6q9SRU7%3DpXW-2xEdvg%40mail.gmail.com.
