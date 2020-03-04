@@ -1,133 +1,123 @@
-Return-Path: <clang-built-linux+bncBDZ2FUU27AHRBOWQ7XZAKGQELWP5NSY@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCMIZB7QWENRBEV773ZAKGQEH4G3WGA@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-lf1-x139.google.com (mail-lf1-x139.google.com [IPv6:2a00:1450:4864:20::139])
-	by mail.lfdr.de (Postfix) with ESMTPS id E6CF8178C99
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Mar 2020 09:35:06 +0100 (CET)
-Received: by mail-lf1-x139.google.com with SMTP id a1sf445808lfr.16
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Mar 2020 00:35:06 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583310906; cv=pass;
+Received: from mail-yw1-xc39.google.com (mail-yw1-xc39.google.com [IPv6:2607:f8b0:4864:20::c39])
+	by mail.lfdr.de (Postfix) with ESMTPS id E9DD1179067
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Mar 2020 13:31:15 +0100 (CET)
+Received: by mail-yw1-xc39.google.com with SMTP id u140sf2133111ywf.13
+        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Mar 2020 04:31:15 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583325075; cv=pass;
         d=google.com; s=arc-20160816;
-        b=r9E3MHDNzeVYe7aW+chBg1kw6MaDBjJ5Qzf2s9hWTiNT/0INOMoBWBP9wjwIUyflhj
-         q7cnjdNJ7ypuPJVmNPCpk51mfoNbBqZxKiBCenM2qlwJW37G4nYQjwo8MiV+eLql/UW1
-         Ab0bLK0jfJ6qFzSH7BsOP3cWy/wvi7EvYaW0aWtwMj9P76phfn/G/5Q2gVGXSzLQM+CY
-         LSpa+0q8wbc1cHxRkvsJWC22hkQF+HSbA0w0pgOlDgLgaVC601LfRYN0n7sjXx6kP39x
-         btfKvJkuIgz3LJh89k7pmM1tn7/cNCpQwFeFiS3edejO7Hj5MKQ62LpMPYStXr+EfMvi
-         O8dg==
+        b=oq2o+/QlrRkPvc1uPs18f/quyC2t+w7GD+bnKLxSjoG29BbWCuss3eTe8wIy0z7QRA
+         9TQSeeGTYFEuPxSi2ogJ8lCuJjMb+xOFfyay7M1FpwaVl7rveuCsYmgg83livH0Rt2oU
+         BmLHgCB49HXD/Qb/5QnVi4YRfOKXsbh2Dc89sVXjstGYyc96iGEJ+zBKCYBFhqsP5dHB
+         MQcmmR4DtpnTsfk77Xssd4BKLY8bMlMc+9qkIvnq3D6nQei1qUohBPfSLOcUqyY8wbcH
+         ttLgjv8zxA4vzG7gEpYtKCEVRhV8D0Zvp2SmFEBygbni0JwNyOty6fcv02lh11WdVBoF
+         yF8A==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:content-transfer-encoding
-         :mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:sender:dkim-signature;
-        bh=LVOalIYnK0yPyUyJMeER2xX9eLqFL0LVSmUCI1625ZI=;
-        b=N1oZJogWF5DCODwGZ22NrPZ6cx8D9gmehOCO8X/1xeitpOjk7EWswiM1s2kNpOWYbZ
-         Lzvw8Dn3yXR/PxyL96phm+cZwn0ZQbQoX7OSl6/Sb4feJRs9vd+DeOYKPRO1Z9AJW50q
-         +mMCVWsU2hosiGZi0I4FJM15LjubK/COUK7km720z+KjUEsiknL2nqP6vEztSQNwIM5y
-         WYbenN1h8u/mjsKHnM1Di59tAh8Mph4IVhePMbJadwiYUxtFDrwMmg+B5jgSl6W1qPQ2
-         ChbvjT7mEE0XrNYATWEasL7SUqV09QHP/7/QQs7ZUZpfoY5Wwp9DpT/ehfuPK1kdajX+
-         1/4Q==
+         :list-id:mailing-list:precedence:reply-to:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:dkim-signature;
+        bh=g9tV49qMikmXM02fZdz8IgtbiGLQvfYZYLc//GPNQ3c=;
+        b=jcDGIljYuqRzq416QoDEPoVh4JUcIddUUSWjlC8knCFXhxTJqsuHIH3XW1yn1O1/68
+         8/3wJcD3ggMjw990agwNZCg/5r+gXoRQEklDPlFME0Aa6He/dj4hfPZZx01wg2t4RItV
+         jZ3Ptcw0Y+Kb6arekGWU3RVjsB2w30iJqRl5ZSZy3b/d/7WjWS/kNDZa/KHFO67Mna9d
+         BuwAsRROoxtqyjGz5XU003iKlhW1WSVObTk/Or2Dq3K3gX1jazejG4rOH+9iDRiJd4o+
+         1AMLND6LgP/Vs3ixtbA0nGlGnYn5NWXSxy9lBPoZxWqL3Keu4N9v+qji5PCRDEnyfieb
+         qMYA==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kolabnow.com header.s=dkim20160331 header.b=xyTDMquN;
-       spf=pass (google.com: domain of federico.vaga@vaga.pv.it designates 95.128.36.42 as permitted sender) smtp.mailfrom=federico.vaga@vaga.pv.it
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CaI+5g7T;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=LVOalIYnK0yPyUyJMeER2xX9eLqFL0LVSmUCI1625ZI=;
-        b=eZDLU7lCQqdzuQVa7YtUy+Zn7/i57q6pU35NO1LuiwvHWX8zkX4zqhoqsNyPSABZ9q
-         jb8kLbqzklOM67JjV3oRI4qVPmuNgTTGpBLv0/Cx9v4z8TYX+E2x8YtLtvojeQbOPtIw
-         oVCBe2u0Q16bIN1QJ/h8YiDZs8J14WXOls8gUKUNum7WmPzn7kHsmyNMBXvlZyYVIDIj
-         G1yn/gLhIzYMmA4NcFlCErnvq3L63XY/ag+sFfkyVJRbqw44UH3YmqnC1EJSrHaIUGpp
-         be5yXj011YBD/edJSgkAcLn+cI0sWC/DWm0GfcpDFo6xMKNSVWy9hO5o+zjzCgKNarNA
-         uB3A==
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc:x-original-sender:x-original-authentication-results:reply-to
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=g9tV49qMikmXM02fZdz8IgtbiGLQvfYZYLc//GPNQ3c=;
+        b=e/+M7/TfljBMSaHfTGkvF64JmRV3u1HBTL4P1HO/Jl6/vtfyl0j82uMnYekauysQBc
+         TfZVxB9CP4h3IPi9cesffvhixApNAGLxEBD69Lr8MbI7q7IyLIxwnU4v7ybZ1069X8bp
+         d/kW1NbNhSfUuITQBolHU1/0pNZl+IvO9S7dpQdZAfhY7+yRlXA4YsyWi9akjxGeIqs6
+         JnLxiLRawNUbayjW+5rGLG/iBJmmPHMVBiPaTlfiNUJ8U9M2J/K6u9W+Fs1PJgQb7Mh3
+         i0R+Oml1gl9f0eHs1sXGTQv2hY1FAJu6hj0bIe0R4tMni0a9XE7asVtl8QSSOfHfWP/N
+         enrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
-         :in-reply-to:references:mime-version:content-transfer-encoding
-         :x-original-sender:x-original-authentication-results:precedence
-         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
-         :list-archive:list-subscribe:list-unsubscribe;
-        bh=LVOalIYnK0yPyUyJMeER2xX9eLqFL0LVSmUCI1625ZI=;
-        b=nBax/vyRp3vTvlTYF1L9tGiHu8jh1OEj/yPWP5jhseEPz1WGxxbNOOZtZMuqMmjHxE
-         pqdEl1GRZI+Q8eqmEapKY9Mex+3MsM8eqHZvUgxGeadLjXQQlkEUxo8/M2EC0qXEOyu8
-         bCcgKhMxhjZ70HAoCGtGZjXjRF2yYJ6rLqPhpO8Ljlogg8wryGGMiWVHxS8vicFYJPHC
-         lElcwYmG9ew/SPqHdq0AfzCHpMioFkjjygy9R5T/XSd2LpxCpQR2a+lB64IruX4+glVv
-         eXBiPjsMjbrC1sEw6e4TKqa+JFZHwChN/baCc2noxOZjmInr9I8prm7RnhkubjdOEdvd
-         fMGQ==
-Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ1LE42wNHSfVEBaJKy5NH0GNFoz/AVaYuJKfOs+46Q/1EQlaCnw
-	KUPdmh4ZhWFBqy4kwbgJ9LQ=
-X-Google-Smtp-Source: ADFU+vtfdy4e93ssyOKFjFwtvWk2vn4DS8nOefYjisNthGUolxwsXwrv2T1zZPg0zHhfgUBXlzmLAw==
-X-Received: by 2002:a19:110:: with SMTP id 16mr1354938lfb.21.1583310906431;
-        Wed, 04 Mar 2020 00:35:06 -0800 (PST)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc:x-original-sender
+         :x-original-authentication-results:reply-to:precedence:mailing-list
+         :list-id:x-spam-checked-in-group:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=g9tV49qMikmXM02fZdz8IgtbiGLQvfYZYLc//GPNQ3c=;
+        b=ICgxwWYiBdlomEWBWKFQhD7Nw/6Xc50py6YY34FkwUGq8wiSmoot19lUk1/rifrPR/
+         yR85ecj/lDD4/c1WQwjK4iUKxT0r4KY9jmp9IMlIz8zE22LTBx9W0ldVh53Dqre+sVHM
+         hvlZMutZyymY3yS09/dW0fXy9nd01/uog+VzYqIqeuYSHc7XWE/0CzXaQlClc7RwAQUQ
+         lpgHN372i8ZJ5HKWNbDjtvBnXIUqns/3FYWlUj6uuIcPdke07QzY7HqonpnniKcb55oy
+         5xILFEqaki7qk8Z+pioZ4NSrlrLXI7i2v6c97v7Jt2g96TG13awojD/k4aEa1zZ8niO+
+         MxjA==
+X-Gm-Message-State: ANhLgQ1LdnyjCDU7e411XC4MJPNzrnd38lZcmRY1vHdgZOND0gbjA2Vk
+	tteY7odSmQhpulWF+1bV2/Q=
+X-Google-Smtp-Source: ADFU+vsYgksEX049iFUs/+YUlV3W5zHSKF9v/RPq++qXoLVYO6Xhkk1ILstIB2wyCEsT5BvEBeRkPA==
+X-Received: by 2002:a81:7903:: with SMTP id u3mr2659277ywc.259.1583325074973;
+        Wed, 04 Mar 2020 04:31:14 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a2e:b5d9:: with SMTP id g25ls209796ljn.9.gmail; Wed, 04 Mar
- 2020 00:35:05 -0800 (PST)
-X-Received: by 2002:a2e:9c86:: with SMTP id x6mr1218573lji.282.1583310905716;
-        Wed, 04 Mar 2020 00:35:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583310905; cv=none;
+Received: by 2002:a25:aae8:: with SMTP id t95ls440864ybi.8.gmail; Wed, 04 Mar
+ 2020 04:31:14 -0800 (PST)
+X-Received: by 2002:a25:a108:: with SMTP id z8mr2223275ybh.418.1583325074509;
+        Wed, 04 Mar 2020 04:31:14 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583325074; cv=none;
         d=google.com; s=arc-20160816;
-        b=MLrUdPMkIQXmGGFCeUptX1T4vE2UzXYhG7eQA28fTWnl59YqY8RsTcv70d5dUFcvxZ
-         QqQp9qEh95HYOCUNHE/AhsbpNuuvO0CvZgxxjuA4mVvxnXQQAEoFlWDa2MNXkocydv1q
-         nw7l0V/TG0JDlBSXEU5wPYbym6nv2ff9PeVU7Ap7L60LtXuLc4gvori//0z5WEdBBny1
-         Q0Kmjf7u1IjoJzztdugcvGRAP+44URCW53BSVPTQ/MZEHuVcXC8tlrg1Yycv+HBijxuK
-         HzJ9mC6qfVF+be8wguBKCG2SXytoe5P/JASh4wXvS7dJkkYIdPWTANnCpPjQ/7KBz0S/
-         aM/A==
+        b=N2xENh/kR3j8zjiI6fAhXbp3x2/xy68UQwphB7y6B/LvIjETzeEt8zb0oMf8bJBuRZ
+         MRcTwUD27uTECLdEqlw2Hl2jvmmGKtahszi65mz0lLifiC/tw0kt3DU+T93SHf7Ku3ZI
+         h5ipWxZJ0gQLTn5KXmFAZXb+RnuJVwgmhXOXgxf0zFnfTgHPUGx9rZ+PgT1PZC1HfKlO
+         EmHQ2dFPuucGuCK10kzN14gHMBD9pRRR6ssaKKZPLu/hftOdWxH4UoWHzzW2nEVPnFlA
+         ZlwoRtExKAdOPu7gm+FZBS864Tgk3ULdRm37MRn02hHM0zQV1v1kKem2FAPFm4t6y1gq
+         zGkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature;
-        bh=ARjgys6wnNKVl92ykcAcXMzpN9kzBsDWxuu6ynvn+j8=;
-        b=OPNlZJ3+O37CziifW+Lx5tcnr0XXHWmXREwX5m8jIyPCHtyikp+7NgRv5MTWUSBQQu
-         ZVN2yfJTujmvibwnqt/D1pbqfAt6R0BUzW3XApbAV0RgXwBfunC+Yk8oZ9UVU1frC6iO
-         TokIX8cmqKRXJAD30eBCLBoHlOrANKAAXOGwfNVqDlxf0Xgd0pWXKuXki1LdAJFfxKXw
-         wjZbDQrG7egNoWEGdm+ugpqWLKygpzZmRwPu+FDmVl32yfwA7TIrtaxpXGGP2QGVRg6c
-         ZLpYiaB4QcNC/m/Cu/eoHr8yvXYnDR0kFaUs+xaGX0aCuQ6Y3V+Srg1bMMWFy6rGzT4V
-         bCHA==
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=w036UPOsYzhuoZMby32GGE9YAfvIHRaTf3JXEXh3ttk=;
+        b=EI35xxExVumpFChR0Yic+ZOpVWKgRiN3nF4X6ClB26aOAv2YBZB9ZUKqMmHagXLlev
+         gloZboP6A4xhmNhWit4tymFuvmX701VDSW6SZyxDlIbxt2tHsXHkGbHsJZYH+sQdANKw
+         aT4Wbdfr7xjDiJxA3aivqjPBwx8aq+RORA6QDromrKVNAWsXNiRu94J0aEFDVbzeC2Y3
+         VWm1wNCv5B9OAFNfGcn5Re1KV6GeJjlI7AbvziXauO1hG2UJa1gmfbv1N9Kkvx0QxFNW
+         I4tiNTKCKDWBfKGlMHS2SitPcc2LRaIuI6so05n1SUftcf9tUAW7av1Hpv0doOvDY2d9
+         gQAw==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kolabnow.com header.s=dkim20160331 header.b=xyTDMquN;
-       spf=pass (google.com: domain of federico.vaga@vaga.pv.it designates 95.128.36.42 as permitted sender) smtp.mailfrom=federico.vaga@vaga.pv.it
-Received: from mx.kolabnow.com (mx.kolabnow.com. [95.128.36.42])
-        by gmr-mx.google.com with ESMTPS id p12si97361lji.1.2020.03.04.00.35.05
+       dkim=pass header.i=@google.com header.s=20161025 header.b=CaI+5g7T;
+       spf=pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f43 as permitted sender) smtp.mailfrom=dvyukov@google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Received: from mail-qv1-xf43.google.com (mail-qv1-xf43.google.com. [2607:f8b0:4864:20::f43])
+        by gmr-mx.google.com with ESMTPS id 136si119836ybd.4.2020.03.04.04.31.14
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 04 Mar 2020 00:35:05 -0800 (PST)
-Received-SPF: pass (google.com: domain of federico.vaga@vaga.pv.it designates 95.128.36.42 as permitted sender) client-ip=95.128.36.42;
-Received: from localhost (unknown [127.0.0.1])
-	by ext-mx-out001.mykolab.com (Postfix) with ESMTP id 39D165ED;
-	Wed,  4 Mar 2020 09:35:03 +0100 (CET)
-X-Virus-Scanned: amavisd-new at mykolab.com
-X-Spam-Flag: NO
-X-Spam-Score: -1.9
-X-Spam-Level: 
-X-Spam-Status: No, score=-1.9 tagged_above=-10 required=5
-	tests=[BAYES_00=-1.9] autolearn=ham autolearn_force=no
-Received: from mx.kolabnow.com ([127.0.0.1])
-	by localhost (ext-mx-out001.mykolab.com [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 93dAO4nFNplu; Wed,  4 Mar 2020 09:35:02 +0100 (CET)
-Received: from int-mx003.mykolab.com (unknown [10.9.13.3])
-	by ext-mx-out001.mykolab.com (Postfix) with ESMTPS id E0A964D1;
-	Wed,  4 Mar 2020 09:35:00 +0100 (CET)
-Received: from ext-subm002.mykolab.com (unknown [10.9.6.2])
-	by int-mx003.mykolab.com (Postfix) with ESMTPS id 89999BAF;
-	Wed,  4 Mar 2020 09:35:00 +0100 (CET)
-From: Federico Vaga <federico.vaga@vaga.pv.it>
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, clang-built-linux@googlegroups.com
-Subject: Re: [PATCH 6/9] docs: translations: it: avoid duplicate refs at programming-language.rst
-Date: Wed, 04 Mar 2020 09:34:58 +0100
-Message-ID: <1950025.KkpgXc3J7C@pcbe13614>
-In-Reply-To: <e733111f3599dff96524ad09ace5204ac6bb496b.1583250595.git.mchehab+huawei@kernel.org>
-References: <afbe367ccb7b9abcb9fab7bc5cb5e0686c105a53.1583250595.git.mchehab+huawei@kernel.org> <e733111f3599dff96524ad09ace5204ac6bb496b.1583250595.git.mchehab+huawei@kernel.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Mar 2020 04:31:14 -0800 (PST)
+Received-SPF: pass (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f43 as permitted sender) client-ip=2607:f8b0:4864:20::f43;
+Received: by mail-qv1-xf43.google.com with SMTP id e7so671729qvy.9
+        for <clang-built-linux@googlegroups.com>; Wed, 04 Mar 2020 04:31:14 -0800 (PST)
+X-Received: by 2002:ad4:58b3:: with SMTP id ea19mr1924665qvb.80.1583325073865;
+ Wed, 04 Mar 2020 04:31:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+References: <bug-206755-199747@https.bugzilla.kernel.org/>
+In-Reply-To: <bug-206755-199747@https.bugzilla.kernel.org/>
+From: "'Dmitry Vyukov' via Clang Built Linux" <clang-built-linux@googlegroups.com>
+Date: Wed, 4 Mar 2020 13:31:02 +0100
+Message-ID: <CACT4Y+YLfg7xixidfsY=TvxrHu+Y0fUdkhZB1=oU5YexEMXOxQ@mail.gmail.com>
+Subject: Re: [Bug 206755] New: KASAN: some flags are gcc-isms, not understood
+ by clang
+To: bugzilla-daemon@bugzilla.kernel.org, 
+	clang-built-linux <clang-built-linux@googlegroups.com>
+Cc: kasan-dev <kasan-dev@googlegroups.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: federico.vaga@vaga.pv.it
+X-Original-Sender: dvyukov@google.com
 X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kolabnow.com header.s=dkim20160331 header.b=xyTDMquN;
-       spf=pass (google.com: domain of federico.vaga@vaga.pv.it designates
- 95.128.36.42 as permitted sender) smtp.mailfrom=federico.vaga@vaga.pv.it
+ header.i=@google.com header.s=20161025 header.b=CaI+5g7T;       spf=pass
+ (google.com: domain of dvyukov@google.com designates 2607:f8b0:4864:20::f43
+ as permitted sender) smtp.mailfrom=dvyukov@google.com;       dmarc=pass
+ (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+X-Original-From: Dmitry Vyukov <dvyukov@google.com>
+Reply-To: Dmitry Vyukov <dvyukov@google.com>
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -140,119 +130,52 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tuesday, March 3, 2020 4:50:36 PM CET Mauro Carvalho Chehab wrote:
-> As the translations document is part of the main body, we can't
-> keep duplicated references there. So, prefix the Italian ones
-> with "it-".
->=20
-> Signed-off-by: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+On Wed, Mar 4, 2020 at 1:29 PM <bugzilla-daemon@bugzilla.kernel.org> wrote:
+>
+> https://bugzilla.kernel.org/show_bug.cgi?id=206755
+>
+>             Bug ID: 206755
+>            Summary: KASAN: some flags are gcc-isms, not understood by
+>                     clang
+>            Product: Memory Management
+>            Version: 2.5
+>     Kernel Version: ALL
+>           Hardware: All
+>                 OS: Linux
+>               Tree: Mainline
+>             Status: NEW
+>           Severity: enhancement
+>           Priority: P1
+>          Component: Sanitizers
+>           Assignee: mm_sanitizers@kernel-bugs.kernel.org
+>           Reporter: dvyukov@google.com
+>                 CC: kasan-dev@googlegroups.com
+>         Regression: No
+>
+> scripts/Makefile.kasan contains:
+>
+> CFLAGS_KASAN := $(call cc-option, -fsanitize=kernel-address \
+>                 -fasan-shadow-offset=$(KASAN_SHADOW_OFFSET) \
+>                 --param asan-stack=1 --param asan-globals=1 \
+>                 --param
+> asan-instrumentation-with-call-threshold=$(call_threshold))
+>
+> This --param is gcc-ism. Clang always had
+> asan-instrumentation-with-call-threshold flag, but it needs to be passed with
+> -mllvm or something. The same for stack instrumentation.
+>
+> There is an interesting story with -fasan-shadow-offset. Clang does not
+> understand it as well, it has asan-mapping-offset instead. However the value
+> hardcoded in clang just happens to be the right one (for now... and for
+> x86_64).
+>
+> --
+> You are receiving this mail because:
+> You are on the CC list for the bug.
 
-I thought this patch was already there, it was raised some months ago;=20
-probably I am confused I can't retrieve the thread. Anyway:
++clang-built-linux@
 
-Reviewed-by: Federico Vaga <federico.vaga@vaga.pv.it>
-
-Hopefully in the next weeks I should be able to be on duty again and fix al=
-l=20
-the issues and re-align the translation. It took a while to fix my personal=
-=20
-life :)
-
-> ---
->  .../it_IT/process/programming-language.rst    | 30 +++++++++----------
->  1 file changed, 15 insertions(+), 15 deletions(-)
->=20
-> diff --git
-> a/Documentation/translations/it_IT/process/programming-language.rst
-> b/Documentation/translations/it_IT/process/programming-language.rst index
-> f4b006395849..c4fc9d394c29 100644
-> --- a/Documentation/translations/it_IT/process/programming-language.rst
-> +++ b/Documentation/translations/it_IT/process/programming-language.rst
-> @@ -8,26 +8,26 @@
->  Linguaggio di programmazione
->  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D
->=20
-> -Il kernel =C3=A8 scritto nel linguaggio di programmazione C [c-language]=
-_.
-> -Pi=C3=B9 precisamente, il kernel viene compilato con ``gcc`` [gcc]_ usan=
-do
-> -l'opzione ``-std=3Dgnu89`` [gcc-c-dialect-options]_: il dialetto GNU
-> +Il kernel =C3=A8 scritto nel linguaggio di programmazione C [it-c-langua=
-ge]_.
-> +Pi=C3=B9 precisamente, il kernel viene compilato con ``gcc`` [it-gcc]_ u=
-sando
-> +l'opzione ``-std=3Dgnu89`` [it-gcc-c-dialect-options]_: il dialetto GNU
->  dello standard ISO C90 (con l'aggiunta di alcune funzionalit=C3=A0 da C9=
-9)
->=20
-> -Questo dialetto contiene diverse estensioni al linguaggio
-> [gnu-extensions]_, +Questo dialetto contiene diverse estensioni al
-> linguaggio [it-gnu-extensions]_, e molte di queste vengono usate
-> sistematicamente dal kernel.
->=20
->  Il kernel offre un certo livello di supporto per la compilazione con
-> ``clang`` -[clang]_ e ``icc`` [icc]_ su diverse architetture, tuttavia in
-> questo momento +[it-clang]_ e ``icc`` [it-icc]_ su diverse architetture,
-> tuttavia in questo momento il supporto non =C3=A8 completo e richiede del=
-le
-> patch aggiuntive.
->=20
->  Attributi
->  ---------
->=20
->  Una delle estensioni pi=C3=B9 comuni e usate nel kernel sono gli attribu=
-ti
-> -[gcc-attribute-syntax]_. Gli attributi permettono di aggiungere una
-> semantica, +[it-gcc-attribute-syntax]_. Gli attributi permettono di
-> aggiungere una semantica, definita dell'implementazione, alle entit=C3=A0=
- del
-> linguaggio (come le variabili, le funzioni o i tipi) senza dover fare
-> importanti modifiche sintattiche al -linguaggio stesso (come l'aggiunta d=
-i
-> nuove parole chiave) [n2049]_. +linguaggio stesso (come l'aggiunta di nuo=
-ve
-> parole chiave) [it-n2049]_.
->=20
->  In alcuni casi, gli attributi sono opzionali (ovvero un compilatore che =
-non
-> dovesse supportarli dovrebbe produrre comunque codice corretto, anche se =
-@@
-> -41,11 +41,11 @@ possono usare e/o per accorciare il codice.
->  Per maggiori informazioni consultate il file d'intestazione
->  ``include/linux/compiler_attributes.h``.
->=20
-> -.. [c-language] http://www.open-std.org/jtc1/sc22/wg14/www/standards
-> -.. [gcc] https://gcc.gnu.org
-> -.. [clang] https://clang.llvm.org
-> -.. [icc] https://software.intel.com/en-us/c-compilers
-> -.. [gcc-c-dialect-options]
-> https://gcc.gnu.org/onlinedocs/gcc/C-Dialect-Options.html -..
-> [gnu-extensions] https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html -..
-> [gcc-attribute-syntax]
-> https://gcc.gnu.org/onlinedocs/gcc/Attribute-Syntax.html -.. [n2049]
-> http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2049.pdf +..
-> [it-c-language] http://www.open-std.org/jtc1/sc22/wg14/www/standards +..
-> [it-gcc] https://gcc.gnu.org
-> +.. [it-clang] https://clang.llvm.org
-> +.. [it-icc] https://software.intel.com/en-us/c-compilers
-> +.. [it-gcc-c-dialect-options]
-> https://gcc.gnu.org/onlinedocs/gcc/C-Dialect-Options.html +..
-> [it-gnu-extensions] https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html
-> +.. [it-gcc-attribute-syntax]
-> https://gcc.gnu.org/onlinedocs/gcc/Attribute-Syntax.html +.. [it-n2049]
-> http://www.open-std.org/jtc1/sc22/wg14/www/docs/n2049.pdf
-
-
---=20
-Federico Vaga
-http://www.federicovaga.it/
-
-
---=20
-You received this message because you are subscribed to the Google Groups "=
-Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an e=
-mail to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/=
-clang-built-linux/1950025.KkpgXc3J7C%40pcbe13614.
+-- 
+You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/CACT4Y%2BYLfg7xixidfsY%3DTvxrHu%2BY0fUdkhZB1%3DoU5YexEMXOxQ%40mail.gmail.com.
