@@ -1,123 +1,123 @@
-Return-Path: <clang-built-linux+bncBCT4XGV33UIBBVH47PZAKGQEBYNYXVI@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDKMLAXVVQHBBG5X7TZAKGQE3Z4K4XQ@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ot1-x337.google.com (mail-ot1-x337.google.com [IPv6:2607:f8b0:4864:20::337])
-	by mail.lfdr.de (Postfix) with ESMTPS id C70B417875A
-	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Mar 2020 02:03:17 +0100 (CET)
-Received: by mail-ot1-x337.google.com with SMTP id t19sf128553otp.2
-        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Mar 2020 17:03:17 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583283796; cv=pass;
+Received: from mail-lf1-x138.google.com (mail-lf1-x138.google.com [IPv6:2a00:1450:4864:20::138])
+	by mail.lfdr.de (Postfix) with ESMTPS id 72CB71788F1
+	for <lists+clang-built-linux@lfdr.de>; Wed,  4 Mar 2020 04:08:12 +0100 (CET)
+Received: by mail-lf1-x138.google.com with SMTP id j204sf239003lfj.3
+        for <lists+clang-built-linux@lfdr.de>; Tue, 03 Mar 2020 19:08:12 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583291292; cv=pass;
         d=google.com; s=arc-20160816;
-        b=T26QAYay/oT0zXHgV0mG9oTxYABATFqM6WurbWei9WIvY0hFAahS4tpLaoTLt1fORM
-         vJWA4p7Y9/XMdlpc0VdKooBZFZnRBROLKJI2kfLwGs6CSmMHukmNA6fKNzekorreBB2K
-         auy4O06dkzwBGYju3Zy16+79DqHbS8v+4p3ar/kLlUz9VBBtIPhmeXkVgmt0Vy/0ducY
-         0zio29jKk75yx9TzL9SfeI+jz9ZWgG2qHo4VL7+c1uHZ+A/yHJJ2sG5LmC4ezNowyP9u
-         wsQdMmXoUwecmhUFmlKu6/VTeG+56eJJei+FgSja01iAc+yE6f9w+jEbW0mXMAu1/zFt
-         eNHg==
+        b=ytA99QjCQXABi0yYjqiAFAbE3Tmg7Wb53iWWF+utghaDHRdHjAZ32bEJvGE/Isw9PL
+         U/jsFxhU41nyest1506uAfWOv3h/gZRLpv2NrJhT+hOPZtJIjXjDwdo7p+Qc0ldoKPGy
+         jCCrY8PN/Cx2Hwf2i9tqm7ohLQuxDVCKtW9p6OIHPWLp5ceG8vQ2plRoRVrDREjq0hX5
+         hPMOCqBlIpIVFrsMbpoMh0ML+C7mXhk8XsrLz5kOjorjjCGC+G/SGZV6BllF3BlLQs+N
+         R8dwoZgiZ4BPL6I7e7B6YTtjoTwHusuDZQX53r/9Vcb3UQ6eSZjTHrQkLZ0W2rzNOJp+
+         DO5w==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:sender:dkim-signature;
-        bh=XUY0S9eL+vYoPJ11LorbGoHAHyJW0/GFvBv9PxOamhw=;
-        b=UIOjhX1MfbjjbpjXGCl5asvl+lwoh3CwpOkgqYDEk4lMlZFy04lAi18yUAou8ya2J6
-         /LiutO3UE8iMuOQ31qHGjEtnSYo+Gkf0bvwtlegzb4dOafgQSn4lHWV/8TjpfcbJz/4v
-         wbJHhh+5Iny4yrTnVkCuFFtZ2Mg/D0Eff2gp+wy+LMTxUiA9e4YCia+DsuwHxgVk4BIJ
-         retW8DbzN6IHHVkmm9y2xMi8qy2eGL7u8GXM9Peko6441sWn4mdzOIajDp8MXvvNhvuW
-         dYf1P67aVeA1lyE/FC+BZThPv7+fMjIkidsH41V78jAUSE0aUkLjQpvHr8DWXVTCoQOV
-         D52A==
+         :list-id:mailing-list:precedence:content-language:in-reply-to
+         :mime-version:user-agent:date:message-id:from:references:cc:to
+         :subject:sender:dkim-signature;
+        bh=1VvP/Q3AhO99QoIVsuf6UtFYngPeca2JERftjelSR6w=;
+        b=OIe4vgekbjJzhlY86nrS2Cjsih0m+FBz2sH279Ysd/QrvlGoxb+jgixrGMUjLtRKeR
+         d33HNZfY52otCH0vFW0lH3uPZeRKbTx23LsQsAvTXvXlYD9+5eseLxowCbQ4PcqurGzp
+         mSdfzB/M95cepd+eMME/zOABx/mcAreZTXB+nquWWNfQKKvx82pen+TbuPpBHKQ4y8sK
+         dZr/17YRw10S42LjHju/WFHIeCPEFf5jvcZmMiIPw7WTXDTIGgXYI3WbMCoyDL6naa6+
+         sDNSVJ8gLxCNDDykh/hhh2S3kE9gzx2WX+4Mgr/UY0Qp0n8pJSvXodGnyLhAqBUuV/hm
+         Q1wg==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=zvxaHgXP;
-       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
+       spf=pass (google.com: domain of yuchao0@huawei.com designates 45.249.212.190 as permitted sender) smtp.mailfrom=yuchao0@huawei.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:in-reply-to:references
-         :mime-version:x-original-sender:x-original-authentication-results
-         :precedence:mailing-list:list-id:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=XUY0S9eL+vYoPJ11LorbGoHAHyJW0/GFvBv9PxOamhw=;
-        b=joR+cKaBHpN/tEKxXcVih2XubYVPNaCvTuguFvvPPD05tyr+Tp8cLx/MfC6h5pp/am
-         1d40XRbjETRmzSvWdEgnXx+o6+L8yzZ7QYp7Lk8USNhngv+qiJHZ8/Nh7eA5WeBE/FUM
-         GTCUYq6Djs2pvP2CBe2/n/DS41n0VNEG9Fjlr9HTbNczg7JevHU57zR86F205VRNkg0N
-         efzLkdJm8jPDvinqTVbzOsjmKKoNHhFz6huCxV58xJqRhESEG4WWPXRUSPncy+P/dVs6
-         MCGmVp1vJ5MYIdAyS4dU8XU3Xly4YpsauZsMOvnmdRmsIyiFs8Egq9WzeRg9HAyeJyQu
-         J4Dw==
+        h=sender:subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:x-original-sender
+         :x-original-authentication-results:precedence:mailing-list:list-id
+         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
+        bh=1VvP/Q3AhO99QoIVsuf6UtFYngPeca2JERftjelSR6w=;
+        b=jRd4zrbyyWfe7wBrK4nfQzDFUiZti8pKje7GW9b4yy5btEFqSUZ7qI0v2FLrowrOdR
+         /Lg0Xw2PSuOWlTc3uU/GNIPDgZCrbhaMorRMzLrX2Zy52+EKk+UMIh5NGPBVEcual0Rq
+         04kisaWy/PvdsCxxUZDboS4osVxDul9y3jLnl4lae1kQ4jG0l8PLf7FfIK5GubccEMjn
+         kKWTrnMzsKdBMbZOfGBzfoJGCIaZhnGCvdlyCFFFIKUiwJSqYlfgRC83cUl9+oacVOn/
+         iBqxAgzcHG7VTlya+69U16lBPFIPZ9G72qgyjy9E2f1yTgEomovJN7ZWomT/xjjF457x
+         gqpA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :in-reply-to:references:mime-version:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :x-spam-checked-in-group:list-post:list-help:list-archive
-         :list-subscribe:list-unsubscribe;
-        bh=XUY0S9eL+vYoPJ11LorbGoHAHyJW0/GFvBv9PxOamhw=;
-        b=eMAHcFIXrcWhphH2SQKh5+fsm2RJhmHyMBWdHctmateYXW1ksEiKtGTv7dPbO6csM1
-         TGWOCuwHFuDQfHHFQQHEfJzApxOYUoICZwoXUdJcEhtxqXmfeAWi+cAVZV8hysLUDvJF
-         lwiax3l/zXa7bXEW5AnOVb2q8ulHWF59wdUwaDTIHxe25O7zyDYaa9iRWCDuyJ3i0lDV
-         Q3g5HA45fyl4yXvgGwVMOC0cNRBT7zvEL+6BN6PC6iHP3MNvoKrbm6BYBK7oQy55lyq5
-         GhyjaXWlJIK+44TrT1qWmkhyu5H/rluJHbJOHCCsUSogOevPP7bp75gOIrkYY6fT/Vui
-         ZFuQ==
+        h=sender:x-gm-message-state:subject:to:cc:references:from:message-id
+         :date:user-agent:mime-version:in-reply-to:content-language
+         :x-original-sender:x-original-authentication-results:precedence
+         :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
+         :list-archive:list-subscribe:list-unsubscribe;
+        bh=1VvP/Q3AhO99QoIVsuf6UtFYngPeca2JERftjelSR6w=;
+        b=U4lf4V4mZHZOPaDPZJ0C2gJzoD6Qc+8Uf8z6XlEhwIP9MzFxF1cvuEJ5d/TvmW0pJd
+         kOfUgSWrNGV70HVl56uiYp9gVkvCjHT6LAA7ucfAiGoLpX31xnxhMALnnjuuqOXVhswu
+         rJPSnS5T6VYZZpnehzwEr180n1+/xVZg+W8iWjvbrC6UelTQ+RJab7Y31jvGp0VleHgw
+         eRkD2Um1aWSg53WV8DpdS717safObG3n4dW87IkfG8RlQaLu3FqALlcr2ngMQfgR4Fu6
+         IPHPXLAsyComlcict+b67W1b5YcGyUeSv03U6Cq4pj2C2f5YBiMmlVx3klS4+D8EUSj6
+         RSHQ==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0HuKABKPEYx2oXqpFn0pSI35FLMP6Mkuax6s5J2f1oi2pKQpXe
-	4Vsr/Q1E630v2NkbyfTFuNs=
-X-Google-Smtp-Source: ADFU+vtD1ZXV9BlHITjGhMf08U8Py05wgzi/tQw6nFbQQUZ0HXWvaPmp+h4BaXauh416PNWDd4vGnw==
-X-Received: by 2002:aca:110f:: with SMTP id 15mr156169oir.114.1583283796340;
-        Tue, 03 Mar 2020 17:03:16 -0800 (PST)
+X-Gm-Message-State: ANhLgQ2XAVU9k+Ygg+cPkk9cYPVGJxENqYMXgjmsEDynatQ1v+3Rfu7m
+	k8JYVbmmDuxHp6PleSSCj9I=
+X-Google-Smtp-Source: ADFU+vvIrK6o/WbP9P5ZQPbkw1bi2511TzRR6RFiMV8J4TF0XUOcW7rRBPKKs5NaYcuiKlR1ZynArg==
+X-Received: by 2002:a19:5210:: with SMTP id m16mr612941lfb.118.1583291291945;
+        Tue, 03 Mar 2020 19:08:11 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a9d:7157:: with SMTP id y23ls108372otj.10.gmail; Tue, 03 Mar
- 2020 17:03:15 -0800 (PST)
-X-Received: by 2002:a9d:3c1:: with SMTP id f59mr518299otf.170.1583283795834;
-        Tue, 03 Mar 2020 17:03:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583283795; cv=none;
+Received: by 2002:a2e:97c2:: with SMTP id m2ls78057ljj.1.gmail; Tue, 03 Mar
+ 2020 19:08:11 -0800 (PST)
+X-Received: by 2002:a2e:890b:: with SMTP id d11mr592427lji.79.1583291291372;
+        Tue, 03 Mar 2020 19:08:11 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583291291; cv=none;
         d=google.com; s=arc-20160816;
-        b=rCzFkSK/cvGOpRwBhxTEknbj3Uzj0DHq1gs/dh//sN3QI3MjWkoOA3duxJ7Yffr9IV
-         A+CDytHy2Uz8IwKrR+hEY7/tmynlmOyiVslXLxKxlX+MztBACOODtUp+7uyhP9ODuFHN
-         l/Gvwc8QMtl03Jsiqvffzn+Z+mwFJUVHcL+OPVSJ7IgAcef8PWzregGmny+9n7lqeJCZ
-         ESaQS/llosIimz14Edn6kP4sO/P0h+wvQn0HPDVmWKTTgBRLriPoX/gAswnBtKjKk/xv
-         kf5XxAu0Vh+VY0//QMS8/ux1aVN2KtskKtZwmIDJ9LINfasYkE5aC/6T6brajme0Aa1o
-         x7hQ==
+        b=H8kxCWvnWt7duK4DH8ZBtw0KIDSwEnvXUarcEIaUEtedN2HqTIDLVikMsaD/fvzWtq
+         tk58C3wMmbrswE22S/AElH9Nea0WMy5dGX8GLA+YxGDBD4z14z49E4j6nRPtzxxzlhvU
+         X9+yTZpS2SDf8sgNMDOuKsgF3f2u4QwQB+fhEsjyQYytM7nxZumnYQUnv8dciFHMbU5L
+         EbHRzLUnvNqFBNz2bf21ENXah4E6AzViHF7+CWZM14hckSBbV/yqCr6uGyu2i9iPen8H
+         FXqaKxrp9rvtLQ3h+FYj6HPCJUs9H4RYNwFh9E1ghylEKJYk/ZLC4nMQTVVB4SUvYPqX
+         HwyA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:dkim-signature;
-        bh=t8PlHZksXhHnbBlOyPxbLzc6zA/2P2En5v2E9+xbQ2o=;
-        b=iNAiK3GMHrwKAyUbpavJrDe0xJIGEm+ACxmrQjqad5rQsvAmPR3QOXgOTQR+/Zbcti
-         V/NdEWJ1wNN7IrxyXWE3lQvw25gBh5ji+GiZGctbInuOOBtSRI+mMZ1IIgu/9cvGDDtE
-         Y7sqq9SUzl+d3reetaru9fu7DEFMuyEtfFBXU/YqwcmmIR5mj5bR3Od2+nrl7Scm15eq
-         Uz/TwTItUrfVY1Q7LgA1Lr4uqmdwJZzBydzcewpCUoqEfTJPgs6KzTjXLuGBdU8IclY6
-         cNCDUA19Z62yjlRrwS4pwZvHe3QIzGjJyYfRdWBRab6iK+zv7zt0l5TgjHPREAq88Fa+
-         zEpA==
+        h=content-transfer-encoding:content-language:in-reply-to:mime-version
+         :user-agent:date:message-id:from:references:cc:to:subject;
+        bh=8qHucvkEHqKKVaIh2m2W5/frYZFYrKXH1e+UU08WUns=;
+        b=Tjm0aZIwTi+ZkIK5wE49geZCAhV9twygFMJ5SjxJgDhQZkvoBsPP544uP+5khjKk3D
+         s41dqIZpYqXSfvg02g3DufbrO1/OVGVLwTwOd16yJIkkK5AZHhWKqzRdEE5jQPcbR9hx
+         ONM7bJ0TJnqUcvrt85qs0Klp1OlW5Z7Zufp3Vqw7zqIaAa7fVBgys9GUsye8JGQjSDdD
+         57ZS2sSuhpxQnIUO99sw+KpT9OGEZNThefsMkv1Xyqj1u9Lw0sF5A5sTpMBPJGE0i3le
+         7+vbmyaze60x61y/i6n7DHsCH9DvA5/yB1wXAd2kIJR2gUKEbk9SEa2CKdMeTqOg+Wno
+         7vPQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       dkim=pass header.i=@kernel.org header.s=default header.b=zvxaHgXP;
-       spf=pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) smtp.mailfrom=akpm@linux-foundation.org
-Received: from mail.kernel.org (mail.kernel.org. [198.145.29.99])
-        by gmr-mx.google.com with ESMTPS id g15si23378otq.1.2020.03.03.17.03.15
+       spf=pass (google.com: domain of yuchao0@huawei.com designates 45.249.212.190 as permitted sender) smtp.mailfrom=yuchao0@huawei.com
+Received: from huawei.com (szxga04-in.huawei.com. [45.249.212.190])
+        by gmr-mx.google.com with ESMTPS id w18si1947lji.2.2020.03.03.19.08.11
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 03 Mar 2020 17:03:15 -0800 (PST)
-Received-SPF: pass (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as permitted sender) client-ip=198.145.29.99;
-Received: from localhost.localdomain (c-73-231-172-41.hsd1.ca.comcast.net [73.231.172.41])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.kernel.org (Postfix) with ESMTPSA id B1B1820728;
-	Wed,  4 Mar 2020 01:03:14 +0000 (UTC)
-Date: Tue, 3 Mar 2020 17:03:14 -0800
-From: Andrew Morton <akpm@linux-foundation.org>
-To: kbuild test robot <lkp@intel.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com, Linux
- Memory Management List <linux-mm@kvack.org>, Mike Rapoport
- <rppt@linux.vnet.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [linux-next:master 5946/5967] arch/arm64/mm/mmu.c:827:21:
- error: incompatible pointer types passing 'pgd_t *' to parameter of type
- 'p4d_t *'
-Message-Id: <20200303170314.9a6684e8191250275b1d8bdf@linux-foundation.org>
-In-Reply-To: <202003031105.xcoYRe6W%lkp@intel.com>
-References: <202003031105.xcoYRe6W%lkp@intel.com>
-X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.31; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+        Tue, 03 Mar 2020 19:08:11 -0800 (PST)
+Received-SPF: pass (google.com: domain of yuchao0@huawei.com designates 45.249.212.190 as permitted sender) client-ip=45.249.212.190;
+Received: from DGGEMS406-HUB.china.huawei.com (unknown [172.30.72.60])
+	by Forcepoint Email with ESMTP id E5EC1EA8B3E6B6BAF3F6;
+	Wed,  4 Mar 2020 11:08:07 +0800 (CST)
+Received: from [10.134.22.195] (10.134.22.195) by smtp.huawei.com
+ (10.3.19.206) with Microsoft SMTP Server (TLS) id 14.3.439.0; Wed, 4 Mar 2020
+ 11:08:02 +0800
+Subject: Re: [PATCH v2] f2fs: compress: support zstd compress algorithm
+To: kbuild test robot <lkp@intel.com>, Chao Yu <chao@kernel.org>
+CC: <kbuild-all@lists.01.org>, <clang-built-linux@googlegroups.com>
+References: <20200303094602.50372-1-yuchao0@huawei.com>
+ <202003040907.IRHXX5zM%lkp@intel.com>
+From: Chao Yu <yuchao0@huawei.com>
+Message-ID: <b874abae-70e7-4f6c-e4b6-c154a0f2d701@huawei.com>
+Date: Wed, 4 Mar 2020 11:08:03 +0800
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101
+ Thunderbird/52.9.1
+MIME-Version: 1.0
+In-Reply-To: <202003040907.IRHXX5zM%lkp@intel.com>
 Content-Type: text/plain; charset="UTF-8"
-X-Original-Sender: akpm@linux-foundation.org
-X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
- header.i=@kernel.org header.s=default header.b=zvxaHgXP;       spf=pass
- (google.com: domain of akpm@linux-foundation.org designates 198.145.29.99 as
- permitted sender) smtp.mailfrom=akpm@linux-foundation.org
+Content-Language: en-US
+X-Originating-IP: [10.134.22.195]
+X-CFilter-Loop: Reflected
+X-Original-Sender: yuchao0@huawei.com
+X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
+ (google.com: domain of yuchao0@huawei.com designates 45.249.212.190 as
+ permitted sender) smtp.mailfrom=yuchao0@huawei.com
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -130,12 +130,29 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-On Tue, 3 Mar 2020 11:18:12 +0800 kbuild test robot <lkp@intel.com> wrote:
+Hi,
 
-> tree:   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-> head:   b56557c8e5210c25b008da636ef804b228967aa6
-> commit: 87d900aef3e229a891438c88debc533a8a1fa976 [5946/5967] arm/arm64: add support for folded p4d page tables
-> config: arm64-allyesconfig (attached as .config)
+Thanks for the report.
+
+I guess we need to apply below patches first:
+
+[PATCH 1/2] f2fs: compress: fix to call missing destroy_compress_ctx()
+[PATCH 2/2] f2fs: compress: add .{init,destroy}_decompress_ctx callback
+
+On 2020/3/4 9:00, kbuild test robot wrote:
+> Hi Chao,
+> 
+> I love your patch! Yet something to improve:
+> 
+> [auto build test ERROR on f2fs/dev-test]
+> [also build test ERROR on v5.6-rc4 next-20200303]
+> [if your patch is applied to the wrong git tree, please drop us a note to help
+> improve the system. BTW, we also suggest to use '--base' option to specify the
+> base tree in git format-patch, please see https://stackoverflow.com/a/37406982]
+> 
+> url:    https://github.com/0day-ci/linux/commits/Chao-Yu/f2fs-compress-support-zstd-compress-algorithm/20200304-020312
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs.git dev-test
+> config: x86_64-allyesconfig (attached as .config)
 > compiler: clang version 11.0.0 (git://gitmirror/llvm_project 211fb91f1067ecdf7c0b8a019bcf76554d813129)
 > reproduce:
 >         # FIXME the reproduce steps for clang is not ready yet
@@ -144,82 +161,49 @@ On Tue, 3 Mar 2020 11:18:12 +0800 kbuild test robot <lkp@intel.com> wrote:
 > Reported-by: kbuild test robot <lkp@intel.com>
 > 
 > All errors (new ones prefixed by >>):
-
-(cc Mike & Catalin)
-
-Did we already fix this? 
-arm-arm64-add-support-for-folded-p4d-page-tables-fix-fix.patch
-(http://lkml.kernel.org/r/20200302174553.GC4166275@arrakis.emea.arm.com)
-seems to be fixing a different issue?
-
-
-> >> arch/arm64/mm/mmu.c:827:21: error: incompatible pointer types passing 'pgd_t *' to parameter of type 'p4d_t *' [-Werror,-Wincompatible-pointer-types]
->                    pudp = pud_offset(pgdp, addr);
->                                      ^~~~
->    include/asm-generic/pgtable-nopud.h:45:40: note: passing argument to parameter 'p4d' here
->    static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
->                                           ^
->    arch/arm64/mm/mmu.c:955:21: error: incompatible pointer types passing 'pgd_t *' to parameter of type 'p4d_t *' [-Werror,-Wincompatible-pointer-types]
->                    pudp = pud_offset(pgdp, addr);
->                                      ^~~~
->    include/asm-generic/pgtable-nopud.h:45:40: note: passing argument to parameter 'p4d' here
->    static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
->                                           ^
->    arch/arm64/mm/mmu.c:975:20: error: incompatible pointer types passing 'pgd_t *' to parameter of type 'p4d_t *' [-Werror,-Wincompatible-pointer-types]
->            pudp = pud_offset(pgdp, 0UL);
->                              ^~~~
->    include/asm-generic/pgtable-nopud.h:45:40: note: passing argument to parameter 'p4d' here
->    static inline pud_t *pud_offset(p4d_t *p4d, unsigned long address)
->                                           ^
->    3 errors generated.
 > 
-> vim +827 arch/arm64/mm/mmu.c
+>>> fs/f2fs/compress.c:450:3: error: field designator 'init_decompress_ctx' does not refer to any field in type 'const struct f2fs_compress_ops'; did you mean 'init_compress_ctx'?
+>            .init_decompress_ctx    = zstd_init_decompress_ctx,
+>             ^~~~~~~~~~~~~~~~~~~
+>             init_compress_ctx
+>    fs/f2fs/compress.c:21:8: note: 'init_compress_ctx' declared here
+>            int (*init_compress_ctx)(struct compress_ctx *cc);
+>                  ^
+>>> fs/f2fs/compress.c:450:25: error: incompatible function pointer types initializing 'int (*)(struct compress_ctx *)' with an expression of type 'int (struct decompress_io_ctx *)' [-Werror,-Wincompatible-function-pointer-types]
+>            .init_decompress_ctx    = zstd_init_decompress_ctx,
+>                                      ^~~~~~~~~~~~~~~~~~~~~~~~
+>>> fs/f2fs/compress.c:451:3: error: field designator 'destroy_decompress_ctx' does not refer to any field in type 'const struct f2fs_compress_ops'; did you mean 'destroy_compress_ctx'?
+>            .destroy_decompress_ctx = zstd_destroy_decompress_ctx,
+>             ^~~~~~~~~~~~~~~~~~~~~~
+>             destroy_compress_ctx
+>    fs/f2fs/compress.c:22:9: note: 'destroy_compress_ctx' declared here
+>            void (*destroy_compress_ctx)(struct compress_ctx *cc);
+>                   ^
+>>> fs/f2fs/compress.c:451:28: error: incompatible function pointer types initializing 'void (*)(struct compress_ctx *)' with an expression of type 'void (struct decompress_io_ctx *)' [-Werror,-Wincompatible-function-pointer-types]
+>            .destroy_decompress_ctx = zstd_destroy_decompress_ctx,
+>                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    4 errors generated.
 > 
-> de323e651df4680 Anshuman Khandual 2020-02-13  818  
-> de323e651df4680 Anshuman Khandual 2020-02-13  819  static void unmap_hotplug_pud_range(pgd_t *pgdp, unsigned long addr,
-> de323e651df4680 Anshuman Khandual 2020-02-13  820  				    unsigned long end, bool free_mapped)
-> de323e651df4680 Anshuman Khandual 2020-02-13  821  {
-> de323e651df4680 Anshuman Khandual 2020-02-13  822  	unsigned long next;
-> de323e651df4680 Anshuman Khandual 2020-02-13  823  	pud_t *pudp, pud;
-> de323e651df4680 Anshuman Khandual 2020-02-13  824  
-> de323e651df4680 Anshuman Khandual 2020-02-13  825  	do {
-> de323e651df4680 Anshuman Khandual 2020-02-13  826  		next = pud_addr_end(addr, end);
-> de323e651df4680 Anshuman Khandual 2020-02-13 @827  		pudp = pud_offset(pgdp, addr);
-> de323e651df4680 Anshuman Khandual 2020-02-13  828  		pud = READ_ONCE(*pudp);
-> de323e651df4680 Anshuman Khandual 2020-02-13  829  		if (pud_none(pud))
-> de323e651df4680 Anshuman Khandual 2020-02-13  830  			continue;
-> de323e651df4680 Anshuman Khandual 2020-02-13  831  
-> de323e651df4680 Anshuman Khandual 2020-02-13  832  		WARN_ON(!pud_present(pud));
-> de323e651df4680 Anshuman Khandual 2020-02-13  833  		if (pud_sect(pud)) {
-> de323e651df4680 Anshuman Khandual 2020-02-13  834  			pud_clear(pudp);
-> de323e651df4680 Anshuman Khandual 2020-02-13  835  
-> de323e651df4680 Anshuman Khandual 2020-02-13  836  			/*
-> de323e651df4680 Anshuman Khandual 2020-02-13  837  			 * One TLBI should be sufficient here as the PUD_SIZE
-> de323e651df4680 Anshuman Khandual 2020-02-13  838  			 * range is mapped with a single block entry.
-> de323e651df4680 Anshuman Khandual 2020-02-13  839  			 */
-> de323e651df4680 Anshuman Khandual 2020-02-13  840  			flush_tlb_kernel_range(addr, addr + PAGE_SIZE);
-> de323e651df4680 Anshuman Khandual 2020-02-13  841  			if (free_mapped)
-> de323e651df4680 Anshuman Khandual 2020-02-13  842  				free_hotplug_page_range(pud_page(pud),
-> de323e651df4680 Anshuman Khandual 2020-02-13  843  							PUD_SIZE);
-> de323e651df4680 Anshuman Khandual 2020-02-13  844  			continue;
-> de323e651df4680 Anshuman Khandual 2020-02-13  845  		}
-> de323e651df4680 Anshuman Khandual 2020-02-13  846  		WARN_ON(!pud_table(pud));
-> de323e651df4680 Anshuman Khandual 2020-02-13  847  		unmap_hotplug_pmd_range(pudp, addr, next, free_mapped);
-> de323e651df4680 Anshuman Khandual 2020-02-13  848  	} while (addr = next, addr < end);
-> de323e651df4680 Anshuman Khandual 2020-02-13  849  }
-> de323e651df4680 Anshuman Khandual 2020-02-13  850  
+> vim +450 fs/f2fs/compress.c
 > 
-> :::::: The code at line 827 was first introduced by commit
-> :::::: de323e651df46808081eeb17268054f77932a119 arm64/mm: Enable memory hot remove
-> 
-> :::::: TO: Anshuman Khandual <anshuman.khandual@arm.com>
-> :::::: CC: Catalin Marinas <catalin.marinas@arm.com>
+>    445	
+>    446	static const struct f2fs_compress_ops f2fs_zstd_ops = {
+>    447		.init_compress_ctx	= zstd_init_compress_ctx,
+>    448		.destroy_compress_ctx	= zstd_destroy_compress_ctx,
+>    449		.compress_pages		= zstd_compress_pages,
+>  > 450		.init_decompress_ctx	= zstd_init_decompress_ctx,
+>  > 451		.destroy_decompress_ctx	= zstd_destroy_decompress_ctx,
+>    452		.decompress_pages	= zstd_decompress_pages,
+>    453	};
+>    454	#endif
+>    455	
 > 
 > ---
 > 0-DAY CI Kernel Test Service, Intel Corporation
 > https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+> 
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200303170314.9a6684e8191250275b1d8bdf%40linux-foundation.org.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/b874abae-70e7-4f6c-e4b6-c154a0f2d701%40huawei.com.
