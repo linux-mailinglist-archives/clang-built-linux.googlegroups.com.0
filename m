@@ -1,130 +1,127 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRB5GEQLZQKGQEJNAANTA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBDT6TV45WMPRB3OLQPZQKGQEV4SNGQI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x103d.google.com (mail-pj1-x103d.google.com [IPv6:2607:f8b0:4864:20::103d])
-	by mail.lfdr.de (Postfix) with ESMTPS id 037CE17A051
-	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Mar 2020 07:55:50 +0100 (CET)
-Received: by mail-pj1-x103d.google.com with SMTP id z20sf2353762pjn.3
-        for <lists+clang-built-linux@lfdr.de>; Wed, 04 Mar 2020 22:55:49 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583391348; cv=pass;
+Received: from mail-yw1-xc40.google.com (mail-yw1-xc40.google.com [IPv6:2607:f8b0:4864:20::c40])
+	by mail.lfdr.de (Postfix) with ESMTPS id 6319317A47E
+	for <lists+clang-built-linux@lfdr.de>; Thu,  5 Mar 2020 12:43:43 +0100 (CET)
+Received: by mail-yw1-xc40.google.com with SMTP id q187sf7214320ywg.12
+        for <lists+clang-built-linux@lfdr.de>; Thu, 05 Mar 2020 03:43:43 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583408622; cv=pass;
         d=google.com; s=arc-20160816;
-        b=ciU6FPG2AoL1v6zPHR9gfxM9p7YYt/0sMHpylpyOVwN9KvCiB8hKnc3mKWpNGShPCe
-         h5IgUkbmK1N2fraFW0eyx13TybLFKmsD4q/OZubU6XxRobhpxl7TJaPvUNF+gsFtEPcr
-         1c/d1xvTmBxe4jmKHuVOxAdiei0wZg1aU27MrheoJTMjhOcrgTwCizclb7caZA/ziF0a
-         SPp1scAF1pCQO6Vlt045mw0PEBg0UQU8z26dpkAz7DKWCPObLehAC0HpOl2HiJ7KJgJP
-         ANyfQ0mDpsbxjE82UOzABjDG++w9+Jov3nGNJj5QmdLY03UL/GYDx1skTLupAAIliHmQ
-         KjMg==
+        b=S59N+shcLRkya8phC7ZF/Na8YsJ7SgLkcB0qemI0TKg0OI6mXXBmMhlg1IuoG5RtPu
+         RY3HSS55fAfxKgoqfVDgxEny5o4EnLYy0XHRJ7ihfkgSaw7sXXqxTjodGIGHtsc5LXT2
+         cDlkxuwWksLdWn8s7HQ5ERb9cZ0P6DUmkTxh3nVvIjrIeOX86V4ahYe8TDy5wLNVxVOF
+         zfslFl22jOAAY40ilVKSikqLczEIuGBOY+eIKGT6FkfYBqmTHGi2/X/Sf0hYRbW0NTtZ
+         6SbdCbu06mfhWVpRRPY6L9Gq1Bzk0VpDLFlbQDcHlSDYWl/2c9bsugVBgw1MDRpl8BZh
+         1ztg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
-         :list-id:mailing-list:precedence:user-agent:content-disposition
-         :mime-version:message-id:subject:cc:to:from:date:sender
+         :list-id:mailing-list:precedence:from:to:subject
+         :content-transfer-encoding:mime-version:date:message-id:sender
          :dkim-signature;
-        bh=+MdD3TQJLMbklw7np3Uwvj903b2HaprHmyVqU0AcXUI=;
-        b=oeFYAeg40vDOkPu+7jPOLmlc+nLckkeJA0bu5ZMmIdVot+7gllvrA5v8RTNXLlw1Jq
-         kQk0O2q6hvOmdmdaIe/Zj90SBwgD4JL7FzFj3Ajd9kxpJtktsWxxfyGI1Us7zGkg6A2Q
-         iDaqk6B/mdjb0otZ7Yb8CFintyHF7Qx9ZYMzTUMIT5PgWVANmoDW/nz9lq7zXoz+ujzb
-         u7mcZOyexUEmhlde4cXzs12DetVWPScYR8cxnRDv21e3hhvzQqXeZb/ZKqgh6bHFXL0t
-         kMCb9/jpKILxXtN6q7yXo00jIWQD8ngeU9CjV9eBeXb1GcpQf+eXOc393SvXJ5lrhSmE
-         uz+g==
+        bh=QT0n6o4nNq6/th6E+AqgkUUBFQsgPppBEkvEaJqVRGE=;
+        b=gg3RmOGUjE8aTQ8388W/vi2SQO/VkRGbcVRNRUkWezjCH/blh42Cdzi39hxDljMGSL
+         BnSj9DpY9lxzhzIyGL+MGme3Pil7XsWfO4JmPm6gQVISLq4RFcHuNQX++jycpyvpUx18
+         DNeNNjuo5IdbqGHykFl0fZa2Ct/odtVDtjb0fHnF5hYYi79igDsGlie/sWW378PiPscY
+         P8QvUhJJmW2tbB7qAEtZHeCVmeusvZjXnKYubUmY72S/NJKFTuk1O51S+AYXXMkzXiVX
+         GExPsgRqZeUOpyyGQRGT7KnpmnfFlB9c/EKHQ/aY/iNiANRgIPQp/1zZXAkyK/S+URJB
+         Ne6g==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=huPSPg3B;
+       spf=neutral (google.com: 2607:f8b0:4864:20::543 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
-        h=sender:date:from:to:cc:subject:message-id:mime-version
-         :content-disposition:user-agent:x-original-sender
-         :x-original-authentication-results:precedence:mailing-list:list-id
-         :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=+MdD3TQJLMbklw7np3Uwvj903b2HaprHmyVqU0AcXUI=;
-        b=Fha2/ELSZrQ17w77TNgemy10kkxJhxzBuFSMFGXCcm1G9wF533jdIEu0K6/pH18skT
-         2cICPXPOheV6WW88Xszc7bPkHtQPMQxM3sBvCuv3WgtL9T7rU3dyWsvpax1BOYGDX56e
-         /9oLPMSq06VP6XD7mK2RSDUY3VTuwfnWcWqDPHeRCmzFmIqZQ1X7RbvOO1I+Sw8PyZfH
-         gtK4SJTL+8ZRVI57dk2k7NSGGMPG34b/WLbY1AOMdi2TUzKC2GiKCRtRuFmH3ChqYwSX
-         VAACX6mQc+K/krj/V3UGfUTOMUb/4/ZveXj8N6AUJhPB8wk7MmL/56YSgd0mnMAVa9aD
-         Me0g==
+        h=sender:message-id:date:mime-version:content-transfer-encoding
+         :subject:to:from:x-original-sender:x-original-authentication-results
+         :precedence:mailing-list:list-id:list-post:list-help:list-archive
+         :list-subscribe:list-unsubscribe;
+        bh=QT0n6o4nNq6/th6E+AqgkUUBFQsgPppBEkvEaJqVRGE=;
+        b=qMlvKOlVFZXDLE8cMTRIX/RfrYOQKjgT4sXDseuymvmFORRsZFijK7xSRrabs1iRHj
+         uRWvsbOIDexssr7EqKSklW7IMvPkXpSKgJSjlCsguylL/EoReFcd8ysRELbBkdrXC0yQ
+         5WvPeOKCNfWiPHDmYBWtsR3J0wDVQX2fBHyfMnzJTdm6F4yHtZYE91/6jNRXtPzkwLXj
+         AL+ehbcdedUb6yS/VgfmA6bc+JQ95ZVeCOhDiZzN06fIA6KSFyFRSiQsB0JryRT/Jhj0
+         ycK0nYYgXt9aLxAQY18BI6ynCv94NI6YzD9TmN4h3QGT4oOP7Lc+njghedQJ3djGrBCb
+         eqyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
-        h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
-         :mime-version:content-disposition:user-agent:x-original-sender
+        h=sender:x-gm-message-state:message-id:date:mime-version
+         :content-transfer-encoding:subject:to:from:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=+MdD3TQJLMbklw7np3Uwvj903b2HaprHmyVqU0AcXUI=;
-        b=EY5P/OmHoL4qwoKIUyPX4u/jmdA4gz7xpq2hCgUGw751oqEpgXTI4+C4XGabnJ6hdi
-         0lwlzr6QvdN2cNe6YjAfnMNzfb1dC/0WlDfUP7iFypcu/QJYMrYJWARMIi/dO5h/cH+H
-         qS2fQ3evt7rRSyTUJ1JLBmj7dzZYJ3uFDi+7Pw91FZxrWxbrVJ0jyx9XsXjfEURdTJp8
-         9Kn3uHeSu8BS7cuyvpYwzrccjFWa36J9bdUxrnjhjY2DsdBV3o30wHLpJQUUWTDaLxgp
-         UAhh4CYNLMwlEWeC7ktaj9FQoZmxtQoLK6mVNadBrS06q509gK0x6tfjSU+9RxOOS6z7
-         EZRg==
+        bh=QT0n6o4nNq6/th6E+AqgkUUBFQsgPppBEkvEaJqVRGE=;
+        b=nFwl2ocH9EZTjPKJmJ3ICk+yMkXKv9peHl479N7qokNhw7gNBl2FbauOIvfI7e81LP
+         r4jbDp5uip1GtFi7h2GR0+581LTF3UVD32uar0X81fgwObFB/4iR0WUGeFiMXV/ZiTvR
+         qBodEEsmhloSrvg1tnd+jlk4cLocEmZxhDcMlRQfE5fH/W//hCVpvwtTUmIjuBY9PL7k
+         eMBUnDl3CrWpRWjLAYZCfpJO1LT4BHVlDBfT13pUKJ9HS901TTDNQiQW+Rg8fDzpYE29
+         DApRNZ7EYhFRByperhZn/3qn8d8nxoni3SnW3Yo99Xbug4SfBlj/c20Hb0trw9Pd6vwh
+         LYDw==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ3Bthu45Ty+vtRXgqwY6RH0KweWIEG85Apav+t0JELuaWLyXKLK
-	hzf0kjEmxuvunH3ZAklGoTM=
-X-Google-Smtp-Source: ADFU+vvdN+ohJ1J7m4meGmv8NgWcoJ86AqNwcF5i7nOcNFsKicN90gXvs2GGxtX0wc9bHzNc3gicVA==
-X-Received: by 2002:aa7:85c8:: with SMTP id z8mr6831513pfn.66.1583391348213;
-        Wed, 04 Mar 2020 22:55:48 -0800 (PST)
+X-Gm-Message-State: ANhLgQ0eW4VzgM82vWc4bi0Y4S+D89HPkYGH6dcnnno6DJuRGnAcu9qu
+	ixkm5seQjyHtLZ8Z8P4zkls=
+X-Google-Smtp-Source: ADFU+vu4xCQXP1RmxjkE4y9pDbTzUgZVkm7qncN9Jm0+05dOe0x2MCwl6b6agXL1oGu1y39LYoCEEQ==
+X-Received: by 2002:a25:dcb:: with SMTP id 194mr7330647ybn.304.1583408621961;
+        Thu, 05 Mar 2020 03:43:41 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a17:902:a701:: with SMTP id w1ls633963plq.7.gmail; Wed, 04
- Mar 2020 22:55:47 -0800 (PST)
-X-Received: by 2002:a17:90a:1ae9:: with SMTP id p96mr7209354pjp.123.1583391347742;
-        Wed, 04 Mar 2020 22:55:47 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583391347; cv=none;
+Received: by 2002:a81:c304:: with SMTP id r4ls46700ywk.11.gmail; Thu, 05 Mar
+ 2020 03:43:40 -0800 (PST)
+X-Received: by 2002:a81:5ed6:: with SMTP id s205mr7779065ywb.91.1583408620782;
+        Thu, 05 Mar 2020 03:43:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583408620; cv=none;
         d=google.com; s=arc-20160816;
-        b=VPVUiAExy6XBxfeCNiUfkJa/kSkoIVaz6NDZZIp/mEflOYUFRA/2ZVV5zzMkd1dYvO
-         1X+RT0rCQrmPDdQ1y5tyu/0cwGg3nM8fJhJl5b4PYATU9x1zoEEfNBkS5YNb4Sdb/Ow7
-         B8Zx9JWCfCAtqXIiDKKJ6tyLwxmlBU10tUbNKja3Z7fv1GUaegZMu92e5/HpZd64seEc
-         2rZP5jC8lXl9iltJnm8sXKKdWmNwLgG/wlXGT6NR5Pf6u1eDQshlxF8g+0M4BBBP23Cd
-         iHc20Y0akRO24kq8BG4u15IVNxlR/AyACDuppmApXDE4iqYmraYCRxxAFNw8NZZov80y
-         hCFQ==
+        b=SODGIrzVIkNYNsjR00hnvpp05U7ia558WO0YyqSHCS7ww+yIBG1d1H4f5CxTozGu+9
+         KuAeSZw7HqU74k+lWWXhJEHci/EaEpX9VCzKb6mk1/EgZtw0KJ9NxaN9p4D3dIEB4h6m
+         nmdu9fnDrCSnJuGDulyPda8VO2jks+iQd2BahSJbiB0JCa11leREqvTz4z4GwO3U9uze
+         ViXyIosdXzk/XU224BzknS0jNuTTFFKYGklnWQqTgkUY5a3VRZNCmZCEcFgsNGtw1Qks
+         WSw6PdkwvGhpspHhDoMmVgnZo4g/64MTvi9tPo37MUUoIhkE1N5liBg6K+Guv12mKCOy
+         2oGQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
-        h=user-agent:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date;
-        bh=2qPII87EhhPuoMNluyWqOrsEkQ5EZ5N4XfJcyrt9Phg=;
-        b=lToRyn/K8lojo5s8oHhaZy6q9T4JK6b1+We7MRATR0eriuaZhcZrAWVCiVDcDbVAff
-         QJsf3LY3CcE73M3oDC3mxsNOkaM1ydT+LqWzpE0kkCnM3xZy7egxhvRX3GU3bmU1TR0j
-         d0k17uZzdmW5vjU17ou7fDaa5oGVQmBFBuwUPXXC3sGIwC3KLFHGUyX2xVomxU3KEHu/
-         6AFWqKFOXdr5zAJ1OAoh7nnrS6L0/kkfWTMgX/aU/rzCIAZk0VML8kDlkCoqxtg51Xqf
-         KZRwCaGBGmPy2/RMXKRE7DjgyxF41H7UwcgXagmBfqISgqY1UPfBJvFqbESKY850XH03
-         aFAg==
+        h=from:to:subject:content-transfer-encoding:mime-version:date
+         :message-id:dkim-signature;
+        bh=fWkiT+KyY9qrbLPWc0Aus5hh9ZHQ5WgUvvLihlFqoYQ=;
+        b=kq5WJZ9bVlMv2wsjMSB7UKRb1oXY5W93fjmJolY0Dwz20shKT2Omx3dekk1pu3j6G5
+         s8L7J44jqQmgFvdPk7xs8e/ZYyAFMGGX7gU7CAggxA+/G5xWIod50WjfMOUa/9fE1AGm
+         Qvlzc1+/mqa17sNw1eRWdWLsqltSiOggujzvll5CugTrRk4Pxegb/DCz9uVTGcqzc5ar
+         zrC24GjhRklIwEFA4DlhZZ1qOSJ/OEJDQR+3FF8Fi9WPHGqzEljjanoHDeOwszLazhy3
+         K+BzMbjyGqZTEEwtGb529bhfFYu8mWFSVc0ma5pgNM17o9gezNLp9Q64GExuL4zAEqXp
+         pXjQ==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) smtp.mailfrom=lkp@intel.com;
-       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga04.intel.com (mga04.intel.com. [192.55.52.120])
-        by gmr-mx.google.com with ESMTPS id w34si178721pga.5.2020.03.04.22.55.47
+       dkim=pass header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623 header.b=huPSPg3B;
+       spf=neutral (google.com: 2607:f8b0:4864:20::543 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
+Received: from mail-pg1-x543.google.com (mail-pg1-x543.google.com. [2607:f8b0:4864:20::543])
+        by gmr-mx.google.com with ESMTPS id s64si295070ywf.0.2020.03.05.03.43.40
         for <clang-built-linux@googlegroups.com>
-        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 04 Mar 2020 22:55:47 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted sender) client-ip=192.55.52.120;
-X-Amp-Result: UNKNOWN
-X-Amp-Original-Verdict: FILE UNKNOWN
-X-Amp-File-Uploaded: False
-Received: from fmsmga004.fm.intel.com ([10.253.24.48])
-  by fmsmga104.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 04 Mar 2020 22:55:47 -0800
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.70,517,1574150400"; 
-   d="gz'50?scan'50,208,50";a="263874442"
-Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by fmsmga004.fm.intel.com with ESMTP; 04 Mar 2020 22:55:43 -0800
-Received: from kbuild by lkp-server01 with local (Exim 4.89)
-	(envelope-from <lkp@intel.com>)
-	id 1j9kQ3-000CoV-4C; Thu, 05 Mar 2020 14:55:43 +0800
-Date: Thu, 5 Mar 2020 14:55:07 +0800
-From: kbuild test robot <lkp@intel.com>
-To: Vladis Dronov <vdronov@redhat.com>
-Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
-	0day robot <lkp@intel.com>
-Subject: [linux-review:UPDATE-20200305-050025/Vladis-Dronov/efi-fix-a-race-and-a-buffer-overflow-while-reading-efivars-via-sysfs/20200303-213252
- 1/1] drivers/firmware/efi/efivars.c:273:18: warning: variable 'size' is
- uninitialized when used here
-Message-ID: <202003051404.btQmTfBE%lkp@intel.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 05 Mar 2020 03:43:40 -0800 (PST)
+Received-SPF: neutral (google.com: 2607:f8b0:4864:20::543 is neither permitted nor denied by best guess record for domain of bot@kernelci.org) client-ip=2607:f8b0:4864:20::543;
+Received: by mail-pg1-x543.google.com with SMTP id t3so2657096pgn.1
+        for <clang-built-linux@googlegroups.com>; Thu, 05 Mar 2020 03:43:40 -0800 (PST)
+X-Received: by 2002:a62:1c45:: with SMTP id c66mr5560060pfc.67.1583408615619;
+        Thu, 05 Mar 2020 03:43:35 -0800 (PST)
+Received: from [10.0.9.4] ([52.250.1.28])
+        by smtp.gmail.com with ESMTPSA id x197sm16236372pfd.74.2020.03.05.03.43.33
+        for <clang-built-linux@googlegroups.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Mar 2020 03:43:34 -0800 (PST)
+Message-ID: <5e60e5e6.1c69fb81.1a828.9dc0@mx.google.com>
+Date: Thu, 05 Mar 2020 03:43:34 -0800 (PST)
+Content-Type: text/plain; charset="UTF-8"
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="liOOAslEiF7prFVr"
-Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-Original-Sender: lkp@intel.com
-X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.120 as permitted
- sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
- dis=NONE) header.from=intel.com
+Content-Transfer-Encoding: quoted-printable
+X-Kernelci-Branch: master
+X-Kernelci-Kernel: next-20200305
+X-Kernelci-Report-Type: build
+X-Kernelci-Tree: next
+Subject: next/master build: 329 builds: 17 failed, 312 passed, 45 errors,
+ 769 warnings (next-20200305)
+To: clang-built-linux@googlegroups.com
+From: "kernelci.org bot" <bot@kernelci.org>
+X-Original-Sender: bot@kernelci.org
+X-Original-Authentication-Results: gmr-mx.google.com;       dkim=pass
+ header.i=@kernelci-org.20150623.gappssmtp.com header.s=20150623
+ header.b=huPSPg3B;       spf=neutral (google.com: 2607:f8b0:4864:20::543 is
+ neither permitted nor denied by best guess record for domain of
+ bot@kernelci.org) smtp.mailfrom=bot@kernelci.org
 Precedence: list
 Mailing-list: list clang-built-linux@googlegroups.com; contact clang-built-linux+owners@googlegroups.com
 List-ID: <clang-built-linux.googlegroups.com>
@@ -137,1391 +134,4605 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
+next/master build: 329 builds: 17 failed, 312 passed, 45 errors, 769 warnin=
+gs (next-20200305)
 
---liOOAslEiF7prFVr
-Content-Type: text/plain; charset="UTF-8"
-Content-Disposition: inline
+Full Build Summary: https://kernelci.org/build/next/branch/master/kernel/ne=
+xt-20200305/
 
-tree:   https://github.com/0day-ci/linux/commits/UPDATE-20200305-050025/Vladis-Dronov/efi-fix-a-race-and-a-buffer-overflow-while-reading-efivars-via-sysfs/20200303-213252
-head:   7f80e2e85d418bb4c2720fb8656f6488a174ecae
-commit: 7f80e2e85d418bb4c2720fb8656f6488a174ecae [1/1] efi: fix a race and a buffer overflow while reading efivars via sysfs
-config: arm64-allyesconfig (attached as .config)
-compiler: clang version 11.0.0 (git://gitmirror/llvm_project f70e7dc17d78a83265a89158ee549f1147d7d500)
-reproduce:
-        # FIXME the reproduce steps for clang is not ready yet
+Tree: next
+Branch: master
+Git Describe: next-20200305
+Git Commit: 47466dcf84ee66a973ea7d2fca7e582fe9328932
+Git URL: git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+Built: 7 unique architectures
 
-If you fix the issue, kindly add following tag
-Reported-by: kbuild test robot <lkp@intel.com>
+Build Failures Detected:
 
-All warnings (new ones prefixed by >>):
+arm:
+    cm_x300_defconfig: (clang-9) FAIL
+    em_x270_defconfig: (clang-9) FAIL
+    eseries_pxa_defconfig: (clang-9) FAIL
+    pxa_defconfig: (clang-9) FAIL
+    rpc_defconfig: (clang-9) FAIL
+    vf610m4_defconfig: (clang-9) FAIL
+    cm_x300_defconfig: (gcc-8) FAIL
+    em_x270_defconfig: (gcc-8) FAIL
+    eseries_pxa_defconfig: (gcc-8) FAIL
+    pxa_defconfig: (gcc-8) FAIL
+    vf610m4_defconfig: (gcc-8) FAIL
 
->> drivers/firmware/efi/efivars.c:273:18: warning: variable 'size' is uninitialized when used here [-Wuninitialized]
-           var->DataSize = size;
-                           ^~~~
-   drivers/firmware/efi/efivars.c:266:13: note: initialize the variable 'size' to silence this warning
-           size_t size;
-                      ^
-                       = 0
-   1 warning generated.
+mips:
+    ip27_defconfig: (gcc-8) FAIL
 
-vim +/size +273 drivers/firmware/efi/efivars.c
+riscv:
+    allnoconfig: (gcc-8) FAIL
+    tinyconfig: (gcc-8) FAIL
 
-   259	
-   260	static ssize_t
-   261	efivar_show_raw(struct efivar_entry *entry, char *buf)
-   262	{
-   263		struct efi_variable *var = &entry->var;
-   264		struct compat_efi_variable *compat;
-   265		unsigned long datasize = sizeof(var->Data);
-   266		size_t size;
-   267		int ret;
-   268	
-   269		if (!entry || !buf)
-   270			return 0;
-   271	
-   272		ret = efivar_entry_get(entry, &var->Attributes, &datasize, var->Data);
- > 273		var->DataSize = size;
-   274		if (ret)
-   275			return -EIO;
-   276	
-   277		if (in_compat_syscall()) {
-   278			compat = (struct compat_efi_variable *)buf;
-   279	
-   280			size = sizeof(*compat);
-   281			memcpy(compat->VariableName, var->VariableName,
-   282				EFI_VAR_NAME_LEN);
-   283			memcpy(compat->Data, var->Data, sizeof(compat->Data));
-   284	
-   285			compat->VendorGuid = var->VendorGuid;
-   286			compat->DataSize = var->DataSize;
-   287			compat->Attributes = var->Attributes;
-   288		} else {
-   289			size = sizeof(*var);
-   290			memcpy(buf, var, size);
-   291		}
-   292	
-   293		return size;
-   294	}
-   295	
+x86_64:
+    allmodconfig: (clang-9) FAIL
+    x86_64_defconfig: (clang-9) FAIL
+    x86_64_defconfig+kvm_guest: (clang-9) FAIL
+
+Errors and Warnings Detected:
+
+arc:
+    allnoconfig (gcc-8): 1 warning
+    axs103_defconfig (gcc-8): 1 warning
+    axs103_smp_defconfig (gcc-8): 1 warning
+    haps_hs_defconfig (gcc-8): 1 warning
+    haps_hs_smp_defconfig (gcc-8): 1 warning
+    haps_hs_smp_defconfig (gcc-8): 1 warning
+    hsdk_defconfig (gcc-8): 1 warning
+    nsimosci_hs_defconfig (gcc-8): 1 warning
+    nsimosci_hs_smp_defconfig (gcc-8): 1 warning
+    tinyconfig (gcc-8): 1 warning
+    vdk_hs38_defconfig (gcc-8): 1 warning
+    vdk_hs38_smp_defconfig (gcc-8): 1 warning
+
+arm64:
+    allmodconfig (clang-9): 8 warnings
+    allmodconfig (gcc-8): 1 warning
+    allnoconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    tinyconfig (gcc-8): 1 warning
+
+arm:
+    allmodconfig (clang-9): 37 warnings
+    allmodconfig (gcc-8): 22 warnings
+    allnoconfig (gcc-8): 1 warning
+    am200epdkit_defconfig (clang-9): 2 warnings
+    am200epdkit_defconfig (gcc-8): 1 warning
+    aspeed_g4_defconfig (gcc-8): 5 warnings
+    aspeed_g4_defconfig (clang-9): 7 warnings
+    aspeed_g5_defconfig (clang-9): 6 warnings
+    aspeed_g5_defconfig (gcc-8): 5 warnings
+    assabet_defconfig (clang-9): 3 warnings
+    assabet_defconfig (gcc-8): 1 warning
+    at91_dt_defconfig (clang-9): 2 warnings
+    at91_dt_defconfig (gcc-8): 1 warning
+    axm55xx_defconfig (gcc-8): 1 warning
+    axm55xx_defconfig (clang-9): 2 warnings
+    badge4_defconfig (gcc-8): 1 warning
+    badge4_defconfig (clang-9): 3 warnings
+    bcm2835_defconfig (gcc-8): 1 warning
+    bcm2835_defconfig (clang-9): 2 warnings
+    cerfcube_defconfig (clang-9): 3 warnings
+    cerfcube_defconfig (gcc-8): 1 warning
+    clps711x_defconfig (clang-9): 2 warnings
+    clps711x_defconfig (gcc-8): 1 warning
+    cm_x2xx_defconfig (gcc-8): 1 warning
+    cm_x2xx_defconfig (clang-9): 3 warnings
+    cm_x300_defconfig (gcc-8): 1 error, 3 warnings
+    cm_x300_defconfig (clang-9): 1 error, 5 warnings
+    cns3420vb_defconfig (clang-9): 2 warnings
+    cns3420vb_defconfig (gcc-8): 1 warning
+    colibri_pxa270_defconfig (gcc-8): 1 warning
+    colibri_pxa270_defconfig (clang-9): 2 warnings
+    colibri_pxa300_defconfig (gcc-8): 1 warning
+    colibri_pxa300_defconfig (clang-9): 3 warnings
+    collie_defconfig (clang-9): 3 warnings
+    collie_defconfig (gcc-8): 1 warning
+    corgi_defconfig (gcc-8): 1 warning
+    corgi_defconfig (clang-9): 2 warnings
+    davinci_all_defconfig (clang-9): 2 warnings
+    davinci_all_defconfig (gcc-8): 1 warning
+    dove_defconfig (gcc-8): 1 warning
+    dove_defconfig (clang-9): 2 warnings
+    ebsa110_defconfig (clang-9): 3 warnings
+    ebsa110_defconfig (gcc-8): 1 warning
+    efm32_defconfig (clang-9): 2 warnings
+    efm32_defconfig (gcc-8): 1 warning
+    em_x270_defconfig (clang-9): 1 error, 5 warnings
+    em_x270_defconfig (gcc-8): 1 error, 3 warnings
+    ep93xx_defconfig (gcc-8): 1 warning
+    ep93xx_defconfig (clang-9): 3 warnings
+    eseries_pxa_defconfig (gcc-8): 14 errors, 13 warnings
+    eseries_pxa_defconfig (clang-9): 5 errors, 5 warnings
+    exynos_defconfig (clang-9): 2 warnings
+    exynos_defconfig (gcc-8): 1 warning
+    ezx_defconfig (clang-9): 2 warnings
+    ezx_defconfig (gcc-8): 1 warning
+    footbridge_defconfig (clang-9): 3 warnings
+    footbridge_defconfig (gcc-8): 1 warning
+    gemini_defconfig (clang-9): 2 warnings
+    gemini_defconfig (gcc-8): 1 warning
+    h3600_defconfig (clang-9): 2 warnings
+    h3600_defconfig (gcc-8): 1 warning
+    h5000_defconfig (gcc-8): 1 warning
+    h5000_defconfig (clang-9): 3 warnings
+    hackkit_defconfig (clang-9): 3 warnings
+    hackkit_defconfig (gcc-8): 1 warning
+    hisi_defconfig (clang-9): 2 warnings
+    hisi_defconfig (gcc-8): 1 warning
+    imote2_defconfig (clang-9): 2 warnings
+    imote2_defconfig (gcc-8): 1 warning
+    imx_v4_v5_defconfig (gcc-8): 1 warning
+    imx_v4_v5_defconfig (clang-9): 2 warnings
+    imx_v6_v7_defconfig (clang-9): 2 warnings
+    imx_v6_v7_defconfig (gcc-8): 1 warning
+    integrator_defconfig (clang-9): 2 warnings
+    integrator_defconfig (gcc-8): 1 warning
+    iop32x_defconfig (gcc-8): 1 warning
+    iop32x_defconfig (clang-9): 3 warnings
+    ixp4xx_defconfig (clang-9): 3 warnings
+    ixp4xx_defconfig (gcc-8): 1 warning
+    jornada720_defconfig (clang-9): 3 warnings
+    jornada720_defconfig (gcc-8): 1 warning
+    keystone_defconfig (gcc-8): 1 warning
+    keystone_defconfig (clang-9): 2 warnings
+    lart_defconfig (gcc-8): 1 warning
+    lart_defconfig (clang-9): 3 warnings
+    lpc18xx_defconfig (clang-9): 2 warnings
+    lpc18xx_defconfig (gcc-8): 1 warning
+    lpc32xx_defconfig (gcc-8): 1 warning
+    lpc32xx_defconfig (clang-9): 2 warnings
+    lpd270_defconfig (gcc-8): 1 warning
+    lpd270_defconfig (clang-9): 3 warnings
+    lubbock_defconfig (gcc-8): 1 warning
+    lubbock_defconfig (clang-9): 3 warnings
+    magician_defconfig (gcc-8): 1 warning
+    magician_defconfig (clang-9): 2 warnings
+    mainstone_defconfig (clang-9): 3 warnings
+    mainstone_defconfig (gcc-8): 1 warning
+    milbeaut_m10v_defconfig (gcc-8): 1 warning
+    milbeaut_m10v_defconfig (clang-9): 4 warnings
+    mini2440_defconfig (clang-9): 3 warnings
+    mini2440_defconfig (gcc-8): 1 warning
+    mmp2_defconfig (gcc-8): 1 warning
+    mmp2_defconfig (clang-9): 2 warnings
+    moxart_defconfig (gcc-8): 1 warning
+    moxart_defconfig (clang-9): 2 warnings
+    mps2_defconfig (clang-9): 2 warnings
+    mps2_defconfig (gcc-8): 1 warning
+    multi_v4t_defconfig (clang-9): 3 warnings
+    multi_v4t_defconfig (gcc-8): 1 warning
+    multi_v5_defconfig (gcc-8): 5 warnings
+    multi_v5_defconfig (clang-9): 6 warnings
+    multi_v7_defconfig (clang-9): 8 warnings
+    multi_v7_defconfig (gcc-8): 5 warnings
+    multi_v7_defconfig (gcc-8): 5 warnings
+    multi_v7_defconfig (gcc-8): 5 warnings
+    multi_v7_defconfig (gcc-8): 5 warnings
+    multi_v7_defconfig (gcc-8): 6 warnings
+    mv78xx0_defconfig (gcc-8): 1 warning
+    mv78xx0_defconfig (clang-9): 2 warnings
+    mvebu_v5_defconfig (gcc-8): 1 warning
+    mvebu_v5_defconfig (clang-9): 2 warnings
+    mvebu_v7_defconfig (gcc-8): 1 warning
+    mvebu_v7_defconfig (clang-9): 2 warnings
+    mxs_defconfig (gcc-8): 1 warning
+    mxs_defconfig (clang-9): 3 warnings
+    neponset_defconfig (clang-9): 3 warnings
+    neponset_defconfig (gcc-8): 1 warning
+    netwinder_defconfig (gcc-8): 1 warning
+    netwinder_defconfig (clang-9): 3 warnings
+    nhk8815_defconfig (clang-9): 2 warnings
+    nhk8815_defconfig (gcc-8): 1 warning
+    omap1_defconfig (clang-9): 5 warnings
+    omap1_defconfig (gcc-8): 1 warning
+    omap2plus_defconfig (gcc-8): 1 warning
+    omap2plus_defconfig (clang-9): 2 warnings
+    orion5x_defconfig (clang-9): 2 warnings
+    orion5x_defconfig (gcc-8): 1 warning
+    oxnas_v6_defconfig (gcc-8): 1 warning
+    oxnas_v6_defconfig (clang-9): 4 warnings
+    palmz72_defconfig (gcc-8): 1 warning
+    palmz72_defconfig (clang-9): 2 warnings
+    pcm027_defconfig (gcc-8): 1 warning
+    pcm027_defconfig (clang-9): 2 warnings
+    pleb_defconfig (gcc-8): 1 warning
+    pleb_defconfig (clang-9): 3 warnings
+    prima2_defconfig (clang-9): 2 warnings
+    prima2_defconfig (gcc-8): 1 warning
+    pxa168_defconfig (clang-9): 2 warnings
+    pxa168_defconfig (gcc-8): 1 warning
+    pxa255-idp_defconfig (gcc-8): 1 warning
+    pxa255-idp_defconfig (clang-9): 3 warnings
+    pxa3xx_defconfig (clang-9): 2 warnings
+    pxa3xx_defconfig (gcc-8): 1 warning
+    pxa910_defconfig (gcc-8): 1 warning
+    pxa910_defconfig (clang-9): 2 warnings
+    pxa_defconfig (gcc-8): 3 errors, 7 warnings
+    pxa_defconfig (clang-9): 1 error, 8 warnings
+    qcom_defconfig (clang-9): 2 warnings
+    qcom_defconfig (gcc-8): 1 warning
+    realview_defconfig (gcc-8): 1 warning
+    realview_defconfig (clang-9): 2 warnings
+    rpc_defconfig (gcc-8): 1 warning
+    rpc_defconfig (clang-9): 5 errors
+    s3c2410_defconfig (gcc-8): 1 warning
+    s3c2410_defconfig (clang-9): 3 warnings
+    s3c6400_defconfig (clang-9): 2 warnings
+    s3c6400_defconfig (gcc-8): 1 warning
+    s5pv210_defconfig (clang-9): 2 warnings
+    s5pv210_defconfig (gcc-8): 1 warning
+    sama5_defconfig (clang-9): 2 warnings
+    sama5_defconfig (gcc-8): 1 warning
+    shannon_defconfig (clang-9): 3 warnings
+    shannon_defconfig (gcc-8): 1 warning
+    shmobile_defconfig (clang-9): 2 warnings
+    shmobile_defconfig (gcc-8): 1 warning
+    simpad_defconfig (gcc-8): 1 warning
+    simpad_defconfig (clang-9): 2 warnings
+    socfpga_defconfig (gcc-8): 1 warning
+    socfpga_defconfig (clang-9): 2 warnings
+    spear13xx_defconfig (clang-9): 2 warnings
+    spear13xx_defconfig (gcc-8): 1 warning
+    spear3xx_defconfig (clang-9): 3 warnings
+    spear3xx_defconfig (gcc-8): 1 warning
+    spear6xx_defconfig (gcc-8): 1 warning
+    spear6xx_defconfig (clang-9): 3 warnings
+    spitz_defconfig (gcc-8): 1 warning
+    spitz_defconfig (clang-9): 2 warnings
+    stm32_defconfig (gcc-8): 1 warning
+    stm32_defconfig (clang-9): 2 warnings
+    sunxi_defconfig (gcc-8): 1 warning
+    sunxi_defconfig (clang-9): 2 warnings
+    tango4_defconfig (clang-9): 2 warnings
+    tango4_defconfig (gcc-8): 1 warning
+    tct_hammer_defconfig (clang-9): 3 warnings
+    tct_hammer_defconfig (gcc-8): 1 warning
+    tegra_defconfig (gcc-8): 1 warning
+    tegra_defconfig (clang-9): 2 warnings
+    tinyconfig (gcc-8): 1 warning
+    trizeps4_defconfig (clang-9): 2 warnings
+    trizeps4_defconfig (gcc-8): 1 warning
+    u300_defconfig (clang-9): 2 warnings
+    u300_defconfig (gcc-8): 1 warning
+    u8500_defconfig (gcc-8): 1 warning
+    u8500_defconfig (clang-9): 2 warnings
+    versatile_defconfig (gcc-8): 1 warning
+    versatile_defconfig (clang-9): 3 warnings
+    vexpress_defconfig (clang-9): 2 warnings
+    vexpress_defconfig (gcc-8): 1 warning
+    vf610m4_defconfig (clang-9): 2 errors, 2 warnings
+    vf610m4_defconfig (gcc-8): 4 errors, 6 warnings
+    viper_defconfig (clang-9): 3 warnings
+    viper_defconfig (gcc-8): 1 warning
+    vt8500_v6_v7_defconfig (clang-9): 2 warnings
+    vt8500_v6_v7_defconfig (gcc-8): 1 warning
+    xcep_defconfig (clang-9): 3 warnings
+    xcep_defconfig (gcc-8): 1 warning
+    zeus_defconfig (gcc-8): 1 warning
+    zeus_defconfig (clang-9): 3 warnings
+    zx_defconfig (gcc-8): 1 warning
+    zx_defconfig (clang-9): 2 warnings
+
+i386:
+    allnoconfig (gcc-8): 1 warning
+    i386_defconfig (gcc-8): 1 warning
+    i386_defconfig (gcc-8): 1 warning
+    tinyconfig (gcc-8): 1 warning
+
+mips:
+    32r2el_defconfig (gcc-8): 4 warnings
+    32r2el_defconfig (gcc-8): 5 warnings
+    allnoconfig (gcc-8): 2 warnings
+    ar7_defconfig (gcc-8): 3 warnings
+    ath25_defconfig (gcc-8): 3 warnings
+    ath79_defconfig (gcc-8): 3 warnings
+    bcm47xx_defconfig (gcc-8): 3 warnings
+    bcm63xx_defconfig (gcc-8): 2 warnings
+    bigsur_defconfig (gcc-8): 3 warnings
+    bmips_be_defconfig (gcc-8): 2 warnings
+    bmips_stb_defconfig (gcc-8): 2 warnings
+    capcella_defconfig (gcc-8): 3 warnings
+    cavium_octeon_defconfig (gcc-8): 3 warnings
+    ci20_defconfig (gcc-8): 2 warnings
+    cobalt_defconfig (gcc-8): 3 warnings
+    cu1000-neo_defconfig (gcc-8): 2 warnings
+    db1xxx_defconfig (gcc-8): 2 warnings
+    decstation_64_defconfig (gcc-8): 3 warnings
+    decstation_defconfig (gcc-8): 3 warnings
+    decstation_r4k_defconfig (gcc-8): 3 warnings
+    e55_defconfig (gcc-8): 3 warnings
+    fuloong2e_defconfig (gcc-8): 3 warnings
+    gcw0_defconfig (gcc-8): 2 warnings
+    gpr_defconfig (gcc-8): 3 warnings
+    ip22_defconfig (gcc-8): 3 warnings
+    ip27_defconfig (gcc-8): 2 errors, 2 warnings
+    ip28_defconfig (gcc-8): 3 warnings
+    ip32_defconfig (gcc-8): 3 warnings
+    jazz_defconfig (gcc-8): 3 warnings
+    jmr3927_defconfig (gcc-8): 2 warnings
+    lasat_defconfig (gcc-8): 2 warnings
+    lemote2f_defconfig (gcc-8): 3 warnings
+    loongson1b_defconfig (gcc-8): 3 warnings
+    loongson1c_defconfig (gcc-8): 3 warnings
+    loongson3_defconfig (gcc-8): 2 warnings
+    malta_defconfig (gcc-8): 3 warnings
+    malta_kvm_defconfig (gcc-8): 3 warnings
+    malta_kvm_guest_defconfig (gcc-8): 3 warnings
+    malta_qemu_32r6_defconfig (gcc-8): 4 warnings
+    maltaaprp_defconfig (gcc-8): 3 warnings
+    maltasmvp_defconfig (gcc-8): 3 warnings
+    maltasmvp_eva_defconfig (gcc-8): 3 warnings
+    maltaup_defconfig (gcc-8): 3 warnings
+    maltaup_xpa_defconfig (gcc-8): 3 warnings
+    markeins_defconfig (gcc-8): 3 warnings
+    mips_paravirt_defconfig (gcc-8): 3 warnings
+    mpc30x_defconfig (gcc-8): 3 warnings
+    msp71xx_defconfig (gcc-8): 3 warnings
+    mtx1_defconfig (gcc-8): 3 warnings
+    nlm_xlp_defconfig (gcc-8): 3 warnings
+    nlm_xlr_defconfig (gcc-8): 3 warnings
+    omega2p_defconfig (gcc-8): 2 warnings
+    pic32mzda_defconfig (gcc-8): 3 warnings
+    pistachio_defconfig (gcc-8): 3 warnings
+    pnx8335_stb225_defconfig (gcc-8): 3 warnings
+    qi_lb60_defconfig (gcc-8): 3 warnings
+    rb532_defconfig (gcc-8): 3 warnings
+    rbtx49xx_defconfig (gcc-8): 3 warnings
+    rm200_defconfig (gcc-8): 3 warnings
+    rt305x_defconfig (gcc-8): 3 warnings
+    sb1250_swarm_defconfig (gcc-8): 3 warnings
+    tb0219_defconfig (gcc-8): 3 warnings
+    tb0226_defconfig (gcc-8): 3 warnings
+    tb0287_defconfig (gcc-8): 3 warnings
+    tinyconfig (gcc-8): 2 warnings
+    vocore2_defconfig (gcc-8): 2 warnings
+    workpad_defconfig (gcc-8): 3 warnings
+    xway_defconfig (gcc-8): 3 warnings
+
+riscv:
+    allnoconfig (gcc-8): 1 error
+    defconfig (gcc-8): 1 warning
+    defconfig (gcc-8): 1 warning
+    nommu_virt_defconfig (gcc-8): 1 warning
+    rv32_defconfig (gcc-8): 7 warnings
+    tinyconfig (gcc-8): 1 error
+
+x86_64:
+    allmodconfig (clang-9): 1 error, 12 warnings
+    allmodconfig (gcc-8): 2 warnings
+    allnoconfig (clang-9): 2 warnings
+    allnoconfig (gcc-8): 1 warning
+    tinyconfig (gcc-8): 2 warnings
+    x86_64_defconfig (clang-9): 2 errors
+
+Errors summary:
+
+    5    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undef=
+ined!
+    2    clang: error: assembler command failed with exit code 1 (use -v to=
+ see invocation)
+    2    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=
+=E2=80=99 undeclared (first use in this function); did you mean =E2=80=98sp=
+in_lock=E2=80=99?
+    2    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=
+=3D width of type [-Werror=3Dshift-count-overflow]
+    1    sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
+    1    sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
+    1    sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
+    1    sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
+    1    sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
+    1    sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
+    1    sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
+    1    sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct regma=
+p_config=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
+    1    sound/soc/codecs/wm9712.c:84:35: error: variable has incomplete ty=
+pe 'const struct regmap_config'
+    1    sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=98w=
+m9712_regmap_config=E2=80=99 isn=E2=80=99t known
+    1    sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712_r=
+egmap_config=E2=80=99 has initializer but incomplete type
+    1    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of fu=
+nction =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit-f=
+unction-declaration]
+    1    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of fu=
+nction 'regmap_ac97_default_volatile' [-Werror,-Wimplicit-function-declarat=
+ion]
+    1    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of fu=
+nction =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=80=
+=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of fu=
+nction 'snd_soc_component_exit_regmap' [-Werror,-Wimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of fu=
+nction =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=80=
+=98snd_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of fu=
+nction 'snd_soc_component_init_regmap' [-Werror,-Wimplicit-function-declara=
+tion]
+    1    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of f=
+unction =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_in=
+it_zone=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    1    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of f=
+unction 'regmap_init_ac97' [-Werror,-Wimplicit-function-declaration]
+    1    ld: intel_workarounds.c:(.text+0x1a14): undefined reference to `__=
+compiletime_assert_184'
+    1    intel_workarounds.c:(.text+0x1a0f): undefined reference to `__comp=
+iletime_assert_184'
+    1    drivers/usb/gadget/udc/pxa25x_udc.c:2328:11: error: invalid % esca=
+pe in inline assembly string
+    1    drivers/clocksource/timer-vf-pit.c:194:58: error: expected '}'
+    1    drivers/clocksource/timer-vf-pit.c:194: error: unterminated argume=
+nt list invoking macro "BUG_ON"
+    1    drivers/clocksource/timer-vf-pit.c:131:8: error: expected =E2=80=
+=98;=E2=80=99 at end of input
+    1    drivers/clocksource/timer-vf-pit.c:131:2: error: =E2=80=98BUG_ON=
+=E2=80=99 undeclared (first use in this function)
+    1    drivers/clocksource/timer-vf-pit.c:131:2: error: unterminated func=
+tion-like macro invocation
+    1    drivers/clocksource/timer-vf-pit.c:131:2: error: expected declarat=
+ion or statement at end of input
+    1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] undef=
+ined!
+    1    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] undef=
+ined!
+    1    ERROR: "__compiletime_assert_184" [drivers/gpu/drm/i915/i915.ko] u=
+ndefined!
+    1    /tmp/main-453c79.s:1470: Error: selected processor does not suppor=
+t `strh r0,[r1]' in ARM mode
+    1    /tmp/main-453c79.s:1467: Error: selected processor does not suppor=
+t `ldrh r0,[r0]' in ARM mode
+    1    /tmp/elf-af6aeb.s:49: Error: selected processor does not support `=
+ldrh r2,[r0,#18]' in ARM mode
+
+Warnings summary:
+
+    204  drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_se=
+condary=E2=80=99 defined but not used [-Wunused-function]
+    124  <stdin>:1520:2: warning: #warning syscall process_madvise not impl=
+emented [-Wcpp]
+    119  1 warning generated.
+    107  drivers/char/random.c:820:13: warning: unused function 'crng_initi=
+alize_secondary' [-Wunused-function]
+    16   WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warn=
+ing (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C addr=
+ess must be less than 10-bits, got "0x40000010"
+    14   arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: =
+Warning (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus =
+unit address format error, expected "40000010"
+    9    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    4    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=
+=80=99 declared =E2=80=98static=E2=80=99 but never defined [-Wunused-functi=
+on]
+    4    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer fro=
+m integer of different size [-Wint-to-pointer-cast]
+    4    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    4    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    4    2 warnings generated.
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: vari=
+able 'rate_idx' is used uninitialized whenever 'if' condition is false [-Ws=
+ometimes-uninitialized]
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: var=
+iable 'rate_idx' is used uninitialized whenever 'if' condition is false [-W=
+sometimes-uninitialized]
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: vari=
+able 'rate_idx' is used uninitialized whenever 'if' condition is false [-Ws=
+ometimes-uninitialized]
+    3    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initia=
+lize the variable 'rate_idx' to silence this warning
+    3    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: wa=
+rning: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-W=
+pointer-bool-conversion]
+    3    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: wa=
+rning: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wp=
+ointer-bool-conversion]
+    3    3 warnings generated.
+    2    include/linux/string.h:441:9: warning: =E2=80=98__builtin_memmove=
+=E2=80=99 pointer overflow between offset 0 and size [-2, 92233720368547758=
+07] [-Warray-bounds]
+    2    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame s=
+ize of 1232 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=
+=3D]
+    2    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least=
+ version 4.6 of GCC [-W#warnings]
+    2    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [=
+-Wcpp]
+    2    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [=
+-Wcpp]
+    2    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemente=
+d [-Wcpp]
+    2    #warning This code requires at least version 4.6 of GCC
+    1    {standard input}:141: Warning: macro instruction expanded into mul=
+tiple instructions
+    1    sound/soc/codecs/wm9712.c:93:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:91:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:89:16: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:88:18: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:87:14: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:86:16: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:85:14: warning: excess elements in struc=
+t initializer
+    1    sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=98=
+struct regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from inte=
+ger without a cast [-Wint-conversion]
+    1    sound/soc/codecs/cros_ec_codec.c:776:12: warning: stack frame size=
+ of 1152 bytes in function 'wov_hotword_model_put' [-Wframe-larger-than=3D]
+    1    security/integrity/ima/ima_crypto.c:512:5: warning: stack frame si=
+ze of 1152 bytes in function 'ima_calc_field_array_hash' [-Wframe-larger-th=
+an=3D]
+    1    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 byte=
+s is larger than 1024 bytes [-Wframe-larger-than=3D]
+    1    mm/kasan/common.o: warning: objtool: kasan_report()+0x25: call to =
+report_enabled() with UACCESS enabled
+    1    mm/kasan/common.o: warning: objtool: kasan_report()+0x17: call to =
+report_enabled() with UACCESS enabled
+    1    include/linux/kernel.h:47:25: warning: excess elements in struct i=
+nitializer
+    1    drivers/staging/exfat/exfat_super.c:1686:12: warning: stack frame =
+size of 1552 bytes in function 'exfat_readdir' [-Wframe-larger-than=3D]
+    1    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from poi=
+nter to integer of different size [-Wpointer-to-int-cast]
+    1    drivers/soc/fsl/dpio/dpio-service.c:476:5: warning: stack frame si=
+ze of 1072 bytes in function 'dpaa2_io_service_enqueue_multiple_desc_fq' [-=
+Wframe-larger-than=3D]
+    1    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size=
+ of 1824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-la=
+rger-than=3D]
+    1    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to =
+integer of different size [-Wpointer-to-int-cast]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: =
+warning: stack frame size of 5648 bytes in function 'calculate_bandwidth' [=
+-Wframe-larger-than=3D]
+    1    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3014:6:=
+ warning: stack frame size of 1376 bytes in function 'bw_calcs' [-Wframe-la=
+rger-than=3D]
+    1    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame s=
+ize of 1224 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=
+=3D]
+    1    drivers/crypto/inside-secure/safexcel_cipher.c:404:12: warning: st=
+ack frame size of 1136 bytes in function 'safexcel_aead_setkey' [-Wframe-la=
+rger-than=3D]
+    1    drivers/clocksource/timer-vf-pit.c:97:20: warning: =E2=80=98pit_ti=
+mer_interrupt=E2=80=99 defined but not used [-Wunused-function]
+    1    drivers/clocksource/timer-vf-pit.c:56:19: warning: =E2=80=98pit_cl=
+ocksource_init=E2=80=99 defined but not used [-Wunused-function]
+    1    drivers/clocksource/timer-vf-pit.c:131:2: warning: no return state=
+ment in function returning non-void [-Wreturn-type]
+    1    drivers/clocksource/timer-vf-pit.c:126:19: warning: =E2=80=98pit_c=
+lockevent_init=E2=80=99 defined but not used [-Wunused-function]
+    1    drivers/clocksource/timer-vf-pit.c:117:34: warning: =E2=80=98clock=
+event_pit=E2=80=99 defined but not used [-Wunused-variable]
+    1    cc1: some warnings being treated as errors
+    1    cc1: all warnings being treated as errors
+    1    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0=
+x1fa: call to memset() with UACCESS enabled
+    1    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1=
+f8: call to memset() with UACCESS enabled
+    1    arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame=
+()+0x1ef: call to memset() with UACCESS enabled
+    1    arch/arm/mach-omap1/pm.c:656:11: warning: variable 'irq' is used u=
+ninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    1    arch/arm/mach-omap1/pm.c:611:9: note: initialize the variable 'irq=
+' to silence this warning
+    1    /tmp/test-arm-aa616f.s:18788: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/test-arm-aa616f.s:18713: Warning: using r15 results in unpred=
+ictable behaviour
+    1    /tmp/futex-fe63ca.s:9069: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-fb42d9.s:9064: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-f2560b.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-f0e7ac.s:28617: Warning: source register same as write-=
+back base
+    1    /tmp/futex-eba515.s:9057: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-e8b63e.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-e7f400.s:29243: Warning: source register same as write-=
+back base
+    1    /tmp/futex-e6a5ff.s:8999: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-dab72a.s:9057: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-d823bb.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-d75d62.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-d0d003.s:28617: Warning: source register same as write-=
+back base
+    1    /tmp/futex-b48a8e.s:28858: Warning: source register same as write-=
+back base
+    1    /tmp/futex-b0d902.s:9250: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-b00c2e.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-aeee9c.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-9d26b1.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-9ce8dd.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-9b08e7.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-97ab84.s:28918: Warning: source register same as write-=
+back base
+    1    /tmp/futex-92c559.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-8dfb36.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-8099b6.s:29056: Warning: source register same as write-=
+back base
+    1    /tmp/futex-7cf47b.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-79f8bd.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-784422.s:29023: Warning: source register same as write-=
+back base
+    1    /tmp/futex-6b503e.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-59a815.s:29274: Warning: source register same as write-=
+back base
+    1    /tmp/futex-44f1e7.s:9036: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-38280f.s:9021: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-25d7b6.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-207968.s:9085: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-1fb699.s:9049: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-19183d.s:9033: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-131c40.s:9022: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-0d32d4.s:29056: Warning: source register same as write-=
+back base
+    1    /tmp/futex-070823.s:9080: Warning: source register same as write-b=
+ack base
+    1    /tmp/futex-040390.s:9057: Warning: source register same as write-b=
+ack base
+    1    /tmp/ccBXAm56.s:18191: Warning: using r15 results in unpredictable=
+ behaviour
+    1    /tmp/ccBXAm56.s:18119: Warning: using r15 results in unpredictable=
+ behaviour
+    1    .config:1162:warning: override: UNWINDER_GUESS changes choice stat=
+e
+
+Section mismatches summary:
+
+    1    WARNING: vmlinux.o(.text.unlikely+0x39dc): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+    1    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in ref=
+erence from the function pmax_setup_memory_region() to the function .init.t=
+ext:add_memory_region()
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+Detailed per-defconfig build reports:
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+32r2el_defconfig+kselftest (mips, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnin=
+gs, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, clang-9) =E2=80=94 FAIL, 1 error, 12 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    ERROR: "__compiletime_assert_184" [drivers/gpu/drm/i915/i915.ko] undefi=
+ned!
+
+Warnings:
+    arch/x86/ia32/ia32_signal.o: warning: objtool: ia32_setup_rt_frame()+0x=
+1ef: call to memset() with UACCESS enabled
+    mm/kasan/common.o: warning: objtool: kasan_report()+0x25: call to repor=
+t_enabled() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: x32_setup_rt_frame()+0x1fa:=
+ call to memset() with UACCESS enabled
+    arch/x86/kernel/signal.o: warning: objtool: __setup_rt_frame()+0x1f8: c=
+all to memset() with UACCESS enabled
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variable=
+ 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsomet=
+imes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initialize =
+the variable 'rate_idx' to silence this warning
+    3 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning=
+: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning=
+: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoint=
+er-bool-conversion]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 8 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variable=
+ 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsomet=
+imes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initialize =
+the variable 'rate_idx' to silence this warning
+    3 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning=
+: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning=
+: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoint=
+er-bool-conversion]
+    2 warnings generated.
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    include/linux/string.h:441:9: warning: =E2=80=98__builtin_memmove=E2=80=
+=99 pointer overflow between offset 0 and size [-2, 9223372036854775807] [-=
+Warray-bounds]
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 37 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    security/integrity/ima/ima_crypto.c:512:5: warning: stack frame size of=
+ 1152 bytes in function 'ima_calc_field_array_hash' [-Wframe-larger-than=3D=
+]
+    1 warning generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    arch/arm/lib/xor-neon.c:30:2: warning: This code requires at least vers=
+ion 4.6 of GCC [-W#warnings]
+    #warning This code requires at least version 4.6 of GCC
+    1 warning generated.
+    /tmp/test-arm-aa616f.s:18713: Warning: using r15 results in unpredictab=
+le behaviour
+    /tmp/test-arm-aa616f.s:18788: Warning: using r15 results in unpredictab=
+le behaviour
+    drivers/crypto/inside-secure/safexcel_cipher.c:404:12: warning: stack f=
+rame size of 1136 bytes in function 'safexcel_aead_setkey' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    sound/soc/codecs/cros_ec_codec.c:776:12: warning: stack frame size of 1=
+152 bytes in function 'wov_hotword_model_put' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/soc/fsl/dpio/dpio-service.c:476:5: warning: stack frame size of=
+ 1072 bytes in function 'dpaa2_io_service_enqueue_multiple_desc_fq' [-Wfram=
+e-larger-than=3D]
+    1 warning generated.
+    drivers/staging/exfat/exfat_super.c:1686:12: warning: stack frame size =
+of 1552 bytes in function 'exfat_readdir' [-Wframe-larger-than=3D]
+    1 warning generated.
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:185:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:184:13: warning: variable=
+ 'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsomet=
+imes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:175:7: warning: variable =
+'rate_idx' is used uninitialized whenever 'if' condition is false [-Wsometi=
+mes-uninitialized]
+    drivers/net/wireless/ath/ath11k/debugfs_sta.c:139:13: note: initialize =
+the variable 'rate_idx' to silence this warning
+    3 warnings generated.
+    drivers/scsi/bfa/bfa_fcs_lport.c:1900:1: warning: stack frame size of 1=
+824 bytes in function 'bfa_fcs_lport_fdmi_build_rhba_pyld' [-Wframe-larger-=
+than=3D]
+    1 warning generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:3014:6: warn=
+ing: stack frame size of 1376 bytes in function 'bw_calcs' [-Wframe-larger-=
+than=3D]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/calcs/dce_calcs.c:77:13: warni=
+ng: stack frame size of 5648 bytes in function 'calculate_bandwidth' [-Wfra=
+me-larger-than=3D]
+    2 warnings generated.
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:31: warning=
+: address of 'pipe_ctx->plane_res' will always evaluate to 'true' [-Wpointe=
+r-bool-conversion]
+    drivers/gpu/drm/amd/amdgpu/../display/dc/dce/dmub_psr.c:147:56: warning=
+: address of 'pipe_ctx->stream_res' will always evaluate to 'true' [-Wpoint=
+er-bool-conversion]
+    2 warnings generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 22 warnings, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    /tmp/ccBXAm56.s:18119: Warning: using r15 results in unpredictable beha=
+viour
+    /tmp/ccBXAm56.s:18191: Warning: using r15 results in unpredictable beha=
+viour
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:114:37: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/soc/fsl/dpio/qbman-portal.c:870:14: warning: cast from pointer =
+to integer of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-octeon.c:48:3: warning: cast from pointer to integ=
+er of different size [-Wpointer-to-int-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    drivers/net/phy/mdio-cavium.h:113:48: warning: cast to pointer from int=
+eger of different size [-Wint-to-pointer-cast]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+allmodconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    mm/kasan/common.o: warning: objtool: kasan_report()+0x17: call to repor=
+t_enabled() with UACCESS enabled
+    include/linux/string.h:441:9: warning: =E2=80=98__builtin_memmove=E2=80=
+=99 pointer overflow between offset 0 and size [-2, 9223372036854775807] [-=
+Warray-bounds]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section m=
+ismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (riscv, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section m=
+ismatches
+
+Errors:
+    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98spin_loc=
+k=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+allnoconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+am200epdkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ar7_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 7 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-b48a8e.s:28858: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+aspeed_g5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-9ce8dd.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+assabet_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+at91_dt_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ath25_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ath79_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axm55xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+axs103_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+axs103_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+badge4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-784422.s:29023: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bcm2835_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+bcm47xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bcm63xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bigsur_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+bmips_be_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+bmips_stb_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+capcella_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cavium_octeon_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-207968.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cerfcube_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ci20_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+clps711x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cm_x2xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-8dfb36.s:9021: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 3 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cm_x300_defconfig (arm, clang-9) =E2=80=94 FAIL, 1 error, 5 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    /tmp/futex-b0d902.s:9250: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cns3420vb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+cobalt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa270_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warning=
+s, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+colibri_pxa300_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warning=
+s, 0 section mismatches
+
+Warnings:
+    /tmp/futex-59a815.s:29274: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-44f1e7.s:9036: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+collie_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+corgi_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+cu1000-neo_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, =
+0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+davinci_all_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+db1xxx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+decstation_64_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+decstation_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x39dc): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+decstation_r4k_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+Section mismatches:
+    WARNING: vmlinux.o(.text.unlikely+0x3684): Section mismatch in referenc=
+e from the function pmax_setup_memory_region() to the function .init.text:a=
+dd_memory_region()
+
+---------------------------------------------------------------------------=
+-----
+defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, clang-9) =E2=80=94 PASS, 0 errors, 0 warnings, 0 section =
+mismatches
+
+---------------------------------------------------------------------------=
+-----
+defconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+CONFIG_RANDOMIZE_BASE=3Dy (arm64, gcc-8) =E2=80=94 PASS, 0 errors=
+, 1 warning, 0 section mismatches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    kernel/sched/fair.c:1524:20: warning: =E2=80=98test_idle_cores=E2=80=99=
+ declared =E2=80=98static=E2=80=99 but never defined [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+defconfig+kselftest (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+dove_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+e55_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    /tmp/futex-040390.s:9057: Warning: source register same as write-back b=
+ase
+
+---------------------------------------------------------------------------=
+-----
+ebsa110_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+efm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, clang-9) =E2=80=94 FAIL, 1 error, 5 warnings, 0 sec=
+tion mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    /tmp/futex-aeee9c.s:9021: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+em_x270_defconfig (arm, gcc-8) =E2=80=94 FAIL, 1 error, 3 warnings, 0 secti=
+on mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ep93xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-131c40.s:9022: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 14 errors, 13 warnings, =
+0 section mismatches
+
+Errors:
+    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of functio=
+n =E2=80=98regmap_ac97_default_volatile=E2=80=99 [-Werror=3Dimplicit-functi=
+on-declaration]
+    sound/soc/codecs/wm9712.c:84:21: error: variable =E2=80=98wm9712_regmap=
+_config=E2=80=99 has initializer but incomplete type
+    sound/soc/codecs/wm9712.c:85:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_bits=E2=80=99
+    sound/soc/codecs/wm9712.c:86:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_stride=E2=80=99
+    sound/soc/codecs/wm9712.c:87:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98val_bits=E2=80=99
+    sound/soc/codecs/wm9712.c:88:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98max_register=E2=80=99
+    sound/soc/codecs/wm9712.c:89:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98cache_type=E2=80=99
+    sound/soc/codecs/wm9712.c:91:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98volatile_reg=E2=80=99
+    sound/soc/codecs/wm9712.c:93:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98reg_defaults=E2=80=99
+    sound/soc/codecs/wm9712.c:94:3: error: =E2=80=98const struct regmap_con=
+fig=E2=80=99 has no member named =E2=80=98num_reg_defaults=E2=80=99
+    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of functi=
+on =E2=80=98regmap_init_ac97=E2=80=99; did you mean =E2=80=98memmap_init_zo=
+ne=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of functio=
+n =E2=80=98snd_soc_component_init_regmap=E2=80=99; did you mean =E2=80=98sn=
+d_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of functio=
+n =E2=80=98snd_soc_component_exit_regmap=E2=80=99; did you mean =E2=80=98sn=
+d_soc_component_trigger=E2=80=99? [-Werror=3Dimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:84:35: error: storage size of =E2=80=98wm9712=
+_regmap_config=E2=80=99 isn=E2=80=99t known
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    sound/soc/codecs/wm9712.c:85:14: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:86:16: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:87:14: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:88:18: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:89:16: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:91:18: warning: excess elements in struct ini=
+tializer
+    sound/soc/codecs/wm9712.c:93:18: warning: excess elements in struct ini=
+tializer
+    include/linux/kernel.h:47:25: warning: excess elements in struct initia=
+lizer
+    sound/soc/codecs/wm9712.c:653:10: warning: assignment to =E2=80=98struc=
+t regmap *=E2=80=99 from =E2=80=98int=E2=80=99 makes pointer from integer w=
+ithout a cast [-Wint-conversion]
+    cc1: some warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+eseries_pxa_defconfig (arm, clang-9) =E2=80=94 FAIL, 5 errors, 5 warnings, =
+0 section mismatches
+
+Errors:
+    sound/soc/codecs/wm9712.c:80:10: error: implicit declaration of functio=
+n 'regmap_ac97_default_volatile' [-Werror,-Wimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:84:35: error: variable has incomplete type 'c=
+onst struct regmap_config'
+    sound/soc/codecs/wm9712.c:653:12: error: implicit declaration of functi=
+on 'regmap_init_ac97' [-Werror,-Wimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:662:2: error: implicit declaration of functio=
+n 'snd_soc_component_init_regmap' [-Werror,-Wimplicit-function-declaration]
+    sound/soc/codecs/wm9712.c:675:3: error: implicit declaration of functio=
+n 'snd_soc_component_exit_regmap' [-Werror,-Wimplicit-function-declaration]
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    /tmp/futex-79f8bd.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+exynos_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+ezx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-eba515.s:9057: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+footbridge_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+fuloong2e_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+gcw0_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+gemini_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+gpr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 section=
+ mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+h3600_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+h5000_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    /tmp/futex-38280f.s:9021: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-d75d62.s:9021: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+hackkit_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+haps_hs_smp_defconfig+kselftest (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 wa=
+rning, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+hisi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+hsdk_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+i386_defconfig+kselftest (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+imote2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+imx_v4_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+imx_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+integrator_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+iop32x_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-e8b63e.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+ip22_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip27_defconfig (mips, gcc-8) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D wi=
+dth of type [-Werror=3Dshift-count-overflow]
+    arch/mips/include/asm/sn/addrs.h:58:44: error: left shift count >=3D wi=
+dth of type [-Werror=3Dshift-count-overflow]
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    cc1: all warnings being treated as errors
+
+---------------------------------------------------------------------------=
+-----
+ip28_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ip32_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-92c559.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+ixp4xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+jazz_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+jmr3927_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-25d7b6.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+jornada720_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+keystone_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lart_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /tmp/futex-6b503e.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lasat_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lemote2f_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson1b_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson1c_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+loongson3_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lpc18xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpc32xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lpd270_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    /tmp/futex-d823bb.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+lubbock_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-97ab84.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+magician_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-9b08e7.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mainstone_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+malta_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_kvm_guest_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+malta_qemu_32r6_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 4 warning=
+s, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    {standard input}:141: Warning: macro instruction expanded into multiple=
+ instructions
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaaprp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltasmvp_eva_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+maltaup_xpa_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0=
+ section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+markeins_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+milbeaut_m10v_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings=
+, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame size o=
+f 1224 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-0d32d4.s:29056: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mini2440_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mips_paravirt_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings,=
+ 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mmp2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+moxart_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mpc30x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mps2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+msp71xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+mtx1_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-070823.s:9080: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+multi_v4t_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 6 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 8 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame size o=
+f 1232 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=3D]
+    1 warning generated.
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_CPU_BIG_ENDIAN=3Dy (arm, gcc-8) =E2=80=94 PASS, 0=
+ errors, 5 warnings, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_EFI=3Dy+CONFIG_ARM_LPAE=3Dy (arm, gcc-8) =E2=80=
+=94 PASS, 0 errors, 5 warnings, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+CONFIG_SMP=3Dn (arm, gcc-8) =E2=80=94 PASS, 0 errors, 5 =
+warnings, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+multi_v7_defconfig+kselftest (arm, gcc-8) =E2=80=94 PASS, 0 errors, 6 warni=
+ngs, 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    net/sched/cls_flower.c:331:1: warning: the frame size of 1032 bytes is =
+larger than 1024 bytes [-Wframe-larger-than=3D]
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:435.11-439.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:437.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@140/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:521.11-525.4: Warni=
+ng (i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10: I2C bus unit =
+address format error, expected "40000010"
+    arch/arm/boot/dts/aspeed-bmc-facebook-tiogapass.dts:523.3-30: Warning (=
+i2c_bus_reg): /ahb/apb/bus@1e78a000/i2c-bus@380/ipmb0@10:reg: I2C address m=
+ust be less than 10-bits, got "0x40000010"
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mv78xx0_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mvebu_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+mxs_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    /tmp/futex-e7f400.s:29243: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-9d26b1.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+neponset_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+netwinder_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-dab72a.s:9057: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+nhk8815_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlp_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nlm_xlr_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+nommu_virt_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+nsimosci_hs_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 5 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    arch/arm/mach-omap1/pm.c:656:11: warning: variable 'irq' is used uninit=
+ialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+    arch/arm/mach-omap1/pm.c:611:9: note: initialize the variable 'irq' to =
+silence this warning
+    1 warning generated.
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+omap1_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+omap2plus_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+omega2p_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+orion5x_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+oxnas_v6_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 4 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    drivers/firmware/efi/libstub/file.c:123:21: warning: stack frame size o=
+f 1232 bytes in function 'handle_cmdline_files' [-Wframe-larger-than=3D]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+palmz72_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pcm027_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pic32mzda_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pistachio_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pleb_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /tmp/futex-fe63ca.s:9069: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pnx8335_stb225_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings=
+, 0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+prima2_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa168_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa255-idp_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0=
+ section mismatches
+
+Warnings:
+    /tmp/futex-f2560b.s:28918: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa910_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, gcc-8) =E2=80=94 FAIL, 3 errors, 7 warnings, 0 section =
+mismatches
+
+Errors:
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9713.ko] undefined!
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9712.ko] undefined!
+    ERROR: "snd_ac97_reset" [sound/soc/codecs/snd-soc-wm9705.ko] undefined!
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+pxa_defconfig (arm, clang-9) =E2=80=94 FAIL, 1 error, 8 warnings, 0 section=
+ mismatches
+
+Errors:
+    drivers/usb/gadget/udc/pxa25x_udc.c:2328:11: error: invalid % escape in=
+ inline assembly string
+
+Warnings:
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9705
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9712
+    WARNING: unmet direct dependencies detected for SND_SOC_WM9713
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+qcom_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+qi_lb60_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rb532_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rbtx49xx_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+realview_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+rm200_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section m=
+ismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+rpc_defconfig (arm, clang-9) =E2=80=94 FAIL, 5 errors, 0 warnings, 0 sectio=
+n mismatches
+
+Errors:
+    /tmp/elf-af6aeb.s:49: Error: selected processor does not support `ldrh =
+r2,[r0,#18]' in ARM mode
+    clang: error: assembler command failed with exit code 1 (use -v to see =
+invocation)
+    /tmp/main-453c79.s:1467: Error: selected processor does not support `ld=
+rh r0,[r0]' in ARM mode
+    /tmp/main-453c79.s:1470: Error: selected processor does not support `st=
+rh r0,[r1]' in ARM mode
+    clang: error: assembler command failed with exit code 1 (use -v to see =
+invocation)
+
+---------------------------------------------------------------------------=
+-----
+rt305x_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+rv32_defconfig (riscv, gcc-8) =E2=80=94 PASS, 0 errors, 7 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:830:2: warning: #warning syscall fstat64 not implemented [-Wcpp=
+]
+    <stdin>:1127:2: warning: #warning syscall fstatat64 not implemented [-W=
+cpp]
+    <stdin>:1511:2: warning: #warning syscall clone3 not implemented [-Wcpp=
+]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s3c2410_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-8099b6.s:29056: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+s3c6400_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+s5pv210_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+sama5_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+sb1250_swarm_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, =
+0 section mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    /tmp/futex-b00c2e.s:9085: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+shannon_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+shmobile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+simpad_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+socfpga_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spear13xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-d0d003.s:28617: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spear3xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spear6xx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    /tmp/futex-f0e7ac.s:28617: Warning: source register same as write-back =
+base
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+spitz_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+stm32_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+sunxi_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+tango4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sectio=
+n mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tb0219_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tb0226_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tb0287_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0=
+ section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    /tmp/futex-fb42d9.s:9064: Warning: source register same as write-back b=
+ase
+
+---------------------------------------------------------------------------=
+-----
+tct_hammer_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 se=
+ction mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tegra_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mism=
+atches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (riscv, gcc-8) =E2=80=94 FAIL, 1 error, 0 warnings, 0 section mi=
+smatches
+
+Errors:
+    arch/riscv/kernel/stacktrace.c:78:8: error: =E2=80=98sp_in_global=E2=80=
+=99 undeclared (first use in this function); did you mean =E2=80=98spin_loc=
+k=E2=80=99?
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (arm64, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section mi=
+smatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section =
+mismatches
+
+Warnings:
+    .config:1162:warning: override: UNWINDER_GUESS changes choice state
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+tinyconfig (i386, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mis=
+matches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+trizeps4_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+u300_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+u8500_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vdk_hs38_smp_defconfig (arc, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sec=
+tion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+versatile_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 =
+section mismatches
+
+Warnings:
+    /tmp/futex-7cf47b.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 s=
+ection mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vexpress_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 sect=
+ion mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, clang-9) =E2=80=94 FAIL, 2 errors, 2 warnings, 0 se=
+ction mismatches
+
+Errors:
+    drivers/clocksource/timer-vf-pit.c:131:2: error: unterminated function-=
+like macro invocation
+    drivers/clocksource/timer-vf-pit.c:194:58: error: expected '}'
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vf610m4_defconfig (arm, gcc-8) =E2=80=94 FAIL, 4 errors, 6 warnings, 0 sect=
+ion mismatches
+
+Errors:
+    drivers/clocksource/timer-vf-pit.c:194: error: unterminated argument li=
+st invoking macro "BUG_ON"
+    drivers/clocksource/timer-vf-pit.c:131:2: error: =E2=80=98BUG_ON=E2=80=
+=99 undeclared (first use in this function)
+    drivers/clocksource/timer-vf-pit.c:131:8: error: expected =E2=80=98;=E2=
+=80=99 at end of input
+    drivers/clocksource/timer-vf-pit.c:131:2: error: expected declaration o=
+r statement at end of input
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    drivers/clocksource/timer-vf-pit.c:131:2: warning: no return statement =
+in function returning non-void [-Wreturn-type]
+    drivers/clocksource/timer-vf-pit.c:126:19: warning: =E2=80=98pit_clocke=
+vent_init=E2=80=99 defined but not used [-Wunused-function]
+    drivers/clocksource/timer-vf-pit.c:117:34: warning: =E2=80=98clockevent=
+_pit=E2=80=99 defined but not used [-Wunused-variable]
+    drivers/clocksource/timer-vf-pit.c:97:20: warning: =E2=80=98pit_timer_i=
+nterrupt=E2=80=99 defined but not used [-Wunused-function]
+    drivers/clocksource/timer-vf-pit.c:56:19: warning: =E2=80=98pit_clockso=
+urce_init=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sect=
+ion mismatches
+
+Warnings:
+    /tmp/futex-19183d.s:9033: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+viper_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vocore2_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 2 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings,=
+ 0 section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+vt8500_v6_v7_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 =
+section mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+workpad_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sec=
+tion mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warnings, 0 se=
+ction mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig (x86_64, clang-9) =E2=80=94 FAIL, 2 errors, 0 warnings, 0 =
+section mismatches
+
+Errors:
+    intel_workarounds.c:(.text+0x1a0f): undefined reference to `__compileti=
+me_assert_184'
+    ld: intel_workarounds.c:(.text+0x1a14): undefined reference to `__compi=
+letime_assert_184'
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kselftest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, gcc-8) =E2=80=94 PASS, 0 errors, 0 warn=
+ings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+x86_64_defconfig+kvm_guest (x86_64, clang-9) =E2=80=94 FAIL, 0 errors, 0 wa=
+rnings, 0 section mismatches
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+    /tmp/futex-e6a5ff.s:8999: Warning: source register same as write-back b=
+ase
+
+---------------------------------------------------------------------------=
+-----
+xcep_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+xway_defconfig (mips, gcc-8) =E2=80=94 PASS, 0 errors, 3 warnings, 0 sectio=
+n mismatches
+
+Warnings:
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+    <stdin>:1520:2: warning: #warning syscall process_madvise not implement=
+ed [-Wcpp]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section =
+mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+zeus_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 3 warnings, 0 secti=
+on mismatches
+
+Warnings:
+    /tmp/futex-1fb699.s:9049: Warning: source register same as write-back b=
+ase
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, gcc-8) =E2=80=94 PASS, 0 errors, 1 warning, 0 section mi=
+smatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: =E2=80=98crng_initialize_seconda=
+ry=E2=80=99 defined but not used [-Wunused-function]
+
+---------------------------------------------------------------------------=
+-----
+zx_defconfig (arm, clang-9) =E2=80=94 PASS, 0 errors, 2 warnings, 0 section=
+ mismatches
+
+Warnings:
+    drivers/char/random.c:820:13: warning: unused function 'crng_initialize=
+_secondary' [-Wunused-function]
+    1 warning generated.
 
 ---
-0-DAY CI Kernel Test Service, Intel Corporation
-https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
+For more info write to <info@kernelci.org>
 
--- 
-You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
-To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003051404.btQmTfBE%25lkp%40intel.com.
-
---liOOAslEiF7prFVr
-Content-Type: application/gzip
-Content-Disposition: attachment; filename=".config.gz"
-Content-Transfer-Encoding: base64
-
-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
-
---liOOAslEiF7prFVr--
+--=20
+You received this message because you are subscribed to the Google Groups "=
+Clang Built Linux" group.
+To unsubscribe from this group and stop receiving emails from it, send an e=
+mail to clang-built-linux+unsubscribe@googlegroups.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/=
+clang-built-linux/5e60e5e6.1c69fb81.1a828.9dc0%40mx.google.com.
