@@ -1,33 +1,33 @@
-Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBUFMRHZQKGQEPHHQTZA@googlegroups.com>
+Return-Path: <clang-built-linux+bncBC4LXIPCY4NRBO6IRHZQKGQEOM2JH3A@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-pj1-x1039.google.com (mail-pj1-x1039.google.com [IPv6:2607:f8b0:4864:20::1039])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1C0C417BFA4
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 14:55:30 +0100 (CET)
-Received: by mail-pj1-x1039.google.com with SMTP id gx9sf1253383pjb.4
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Mar 2020 05:55:30 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583502929; cv=pass;
+Received: from mail-vs1-xe3d.google.com (mail-vs1-xe3d.google.com [IPv6:2607:f8b0:4864:20::e3d])
+	by mail.lfdr.de (Postfix) with ESMTPS id 4588F17C0F6
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 15:54:53 +0100 (CET)
+Received: by mail-vs1-xe3d.google.com with SMTP id f5sf327822vsl.19
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Mar 2020 06:54:53 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583506492; cv=pass;
         d=google.com; s=arc-20160816;
-        b=kq0Sl3wXOUyI81CSfbsX7qx6GV8JlKbowJzmOKqUiYYqVbxjTDjCIs+HgoK2dTlPJ8
-         q67LU9Yj1U60Yv1I+g/+Fhuxlo3iRv5Dfc0HC0eNtGW2kiNIUj1C4r4U2ZEkK5Jr+qfd
-         acseDv3J1CisUCQps4d0P5WNJCybXIxJEiRB9U9Gydm/Q0HlrHHSvZVQEKYkUWZ/YvaG
-         D7BlKZqL7YWuQrYumi+NoElgHch5jjmP+75oaBULVWPbQZctY35z9P+FLxZe8LZOi6mc
-         o6tJYrc0pk2HkE4xTVpuGN+My1W+AGZBQ9GAMymrl3KGUc9mi9UUsjzj8Usz0Nnxpe6C
-         Aqzw==
+        b=ZbLlmO9fBm+Pf3NwJ4WsjNtQ/ZmjZsQwmV+PpkAqSY+E18RCevOnxnA0yK9GVuOaTg
+         fd8CjD1vi5CucFVvYMRq45RKxoWzNXjtC6XeXDPE+n10Eb6C+Koig3PryJYeqDKCCA9b
+         wUYbI1GzyAYJNs9qs37q3xzKrNJtQ7EzrWYKk6Jo7/x8m4bnnc9UNfMCy2OYsaDgoZih
+         jqjS39GRAkdI+x1p7uYUp+3gkuWO8NIaG67KNFJywJgksu7r5MLPxE6d13ERW6v6AClK
+         VpoZNTx6XHLH/BqeVxCLW7xdAomB9zbZB3Jt1hXcCAdoazhGDkdg3aMhdbVZeKSfWbhp
+         lvDA==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:user-agent:in-reply-to
          :content-disposition:mime-version:references:message-id:subject:cc
          :to:from:date:sender:dkim-signature;
-        bh=i+7hP0OigG3XqI4oi1R54Dqn83tyGm3vGcaM8q32lzM=;
-        b=BmBrg9OPzh6m1W4AjgVpA88XaiWZAE/0ZkKvBhxB2WmYRqY251bgukjso7JTT8R3TO
-         Rft5vgM4XsW3WAcSdwWxEUpanVxNTKLkhW7NRGu/0YGqmF2NnGUfwZ968PrWmkyvEhMB
-         a5pVRPIGmftUCdp85B+UDCLGP5qNJq968AlEkIiM6MpsxIIjHUJFyx0/1aOTNv//Dm7J
-         GaXb9cvOfrkubugBMdfQPDLm5vGb8fqV6BtY2VKFhFvaRBK9BWolhu+LmK8nu+VNb3Hm
-         KGfGnARJ8s7g5D7lhRc4Ry6FcTxDSAJ0GrhyZfXwaixrNqQpsj6vWvrGkEW82f9xpyYg
-         QZMQ==
+        bh=WYwQDEk3xURq1COPP+gBbeQwxEFLR1U1pCflnGzASgE=;
+        b=EzUzd7/acW8ednAvNfHNAWxRX2dTd8PW9fKp7gMqRJvqPuLNHxI9HLTpWTAQPh1VmM
+         Li3gpc6RRqF40hMGN6ere59WST0/7ImR7xaoGQ4dIJkf7j5/QUAskvDkQhPf/UvldJ6W
+         Nt1Kd/i45Y4hiL+ZdkNqDFlMKhF2aNpZb9Fxr8A04rKK7hVzA4sNYz183XJ9NOZVNVLp
+         ZJu0ZpyBN9GyqDHilPYyTptFEp8+/0WvrDFRkivQNQ5mXdgjvnZHavIv0SNeA7MQgeXu
+         koQpIXkhTfnV28fdkZtGvvpr5qeUk0+IhQMjd8XhiK8sq4Rp0j9jSHDMTpcZSlO9qupE
+         GrcQ==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=googlegroups.com; s=20161025;
@@ -35,13 +35,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :content-disposition:in-reply-to:user-agent:x-original-sender
          :x-original-authentication-results:precedence:mailing-list:list-id
          :list-post:list-help:list-archive:list-subscribe:list-unsubscribe;
-        bh=i+7hP0OigG3XqI4oi1R54Dqn83tyGm3vGcaM8q32lzM=;
-        b=Txya8Rr+088XHqYuqYjZbmV+rwq+GMHup8mUIb2ku1yhM2mnlX/9gSOBojvS9pFnxa
-         djcDJxkPv9ylTuVOqZomjNZgXU+zPftSsZRgTCRlq87JcSKsoEBsigJIhFDrmZN+I7bC
-         Dnggb0UIH1i8PVyTh//P0u004xVcRZr8aMsZiCcMGC8WPfeKC7c6FlLGOw19sJDwJ8Du
-         vbCWjTt9WgY8BMHrLyMulbBE2qWCh8wol6b+g5QBVOpVepsk9AovWxXTUhJQz1QwLVdy
-         6yRzhcWOhGcftMgMjqVEiPx8QY+ftNEEbtNoau4T8xle4d+oTTqYQab/ABCl94N1z4Ey
-         X9xg==
+        bh=WYwQDEk3xURq1COPP+gBbeQwxEFLR1U1pCflnGzASgE=;
+        b=jQ6TZRQWQW9Hrew0clcdoW8F1VgNVY+7TvVQhS2tA+vka2j47oNS9Hss1WnOsNTv6O
+         pBkhfo9Ll4XHVlbUcX1N/f9J89fVlw5IGsjtApC/xlz81tAp+bQ9cJuhpeGx4snyIC1D
+         qabh2sN7vCeCxRKNGYhGe/KDxDRkGcytaCUR1kwYglL7EDUfxS574A3QN7XTLBtDYwa+
+         Q16N7TYTnX/92tXXOjWPVBC8wOzH18RycmVwk3lyG7BBn1qHDAtyJSf0yLHi+SU0oXG4
+         xiwaJSbOLTpR9tJBqMS0bjvw5RhAgcJrf+CWbleNtf7jlny8Ioe+PUfcyQhAPXl4r/iD
+         SmKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:date:from:to:cc:subject:message-id
@@ -49,65 +49,65 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-sender:x-original-authentication-results:precedence
          :mailing-list:list-id:x-spam-checked-in-group:list-post:list-help
          :list-archive:list-subscribe:list-unsubscribe;
-        bh=i+7hP0OigG3XqI4oi1R54Dqn83tyGm3vGcaM8q32lzM=;
-        b=YDKw+YzKxzFslnGH59oYwk6a89fRfPbZ02iWuntPTsIyVjl776KMHzcZ9NPl82epbr
-         otpglMMK4GTgSGf60RTuIma4sOyueraEyP1EUTCP2rdM5VAshBYQkYCw28orYg5+/okx
-         LfY569EQN81tH+WETW+OXEI7GzBmm196yTd4kJcB5/ZxEclDjR1UkUsg23re7qhX5Zfn
-         gqyqiLnbX3ym7asut0f7K6gBJ77jN1aiCJBim2a5a3gtwWqcKpVO66kh+x9bzhicWJ7P
-         UeirExUwrVfW+dI7/73q1V9jFOK9r8nEVh0NmIevRzxwFyygmF/Y39unEy242t9RUeyw
-         oCOQ==
+        bh=WYwQDEk3xURq1COPP+gBbeQwxEFLR1U1pCflnGzASgE=;
+        b=mQ+mZ2Ad2huCJd/ZRt2VXELI1i4mJPDPo7uHn8Q6p7qqSxUEFB4K3TEm7eDs2D6kXG
+         gcHoOBA8YygSjDPx9RKNbENdxfKeMhPBZiv/CltBYXBHXEvnSPyFbpj8ONbD0A8/12Bq
+         csbRvwVj8o6bYTGgjJCaLilvlHxfn5N3dDEgELH447t/Wbo5qX8WrD4i97njL/NrGeps
+         F3PK7tn6kmjnJieTCD6aVLlArFGV4Mfg8oFoBdJp4yd5d9E5dQY2h0qNQuhJS7B3J+Oj
+         5UrW6Nad1tmmiFjPpxFsa2yz15ngpR9OPcm4cykmC6CGUL7/ZAgPuLf5f+2zt2zBNNDq
+         fsuA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0v/uDvAyIVUsfMQFCCmKZxkufZjV4URNjv0i37c1YuVqJ5GEIg
-	MsxJlXHRMfca8ThVwhu20l0=
-X-Google-Smtp-Source: ADFU+vs9r1sA4mjhbvccheRw+/u/F4clc/YVm/rIsow3SQ/SEKz+y2qYd5dm1UHYwIPVbiQWWIW+tA==
-X-Received: by 2002:a63:4e4e:: with SMTP id o14mr3461813pgl.228.1583502928285;
-        Fri, 06 Mar 2020 05:55:28 -0800 (PST)
+X-Gm-Message-State: ANhLgQ1kGhJsZa17cOB7hdMHr8HoEmPx00XK3n9Si1HUYgDNw+DgX0bW
+	qQWBoA1ZB3G2AQRVOUykZnI=
+X-Google-Smtp-Source: ADFU+vvyXFNuZgdKD8vCh3DxLmarKVnZchSudcT6YLwfnMavd7zHIx+tOaaElCgp9D5xfjz5u7xOxA==
+X-Received: by 2002:a05:6102:1148:: with SMTP id j8mr2427740vsg.56.1583506491860;
+        Fri, 06 Mar 2020 06:54:51 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a62:8744:: with SMTP id i65ls839423pfe.11.gmail; Fri, 06 Mar
- 2020 05:55:27 -0800 (PST)
-X-Received: by 2002:a65:5a8a:: with SMTP id c10mr3566028pgt.315.1583502927776;
-        Fri, 06 Mar 2020 05:55:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583502927; cv=none;
+Received: by 2002:a67:ebd0:: with SMTP id y16ls362848vso.10.gmail; Fri, 06 Mar
+ 2020 06:54:51 -0800 (PST)
+X-Received: by 2002:a67:4285:: with SMTP id p127mr1557063vsa.235.1583506491181;
+        Fri, 06 Mar 2020 06:54:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583506491; cv=none;
         d=google.com; s=arc-20160816;
-        b=pFlbn/PJnqCvVuqs8z8y2NMA7lvNHOl5cwNJcIs1UbRtmVnHsLMC+nHE/GOu5cVc/u
-         okU9h042NJKgElpYWKWEdzDAr2/u4colQHkxsljlIC4eRNg4WFbV/TLXCEwz3RkBahu8
-         kGPU2AEpa9SjzrUWaP2mViMDz4cgh0JmKCnFwR2jcivBcUI8WK5ewgh+ZR+HxaUyVA7E
-         olrhgeToc8EIPjShZJxo9LQBMpwVs5HnRvPH3dSGJj2cggEZu1WOXWbzrYqguLOL5ey0
-         jBoTC0yw5nvXhtBWFxYe9uNtpYC0fm5+mGvDju4L0VJXPjWg6QVMA/VuFedNsENAeeum
-         lIWQ==
+        b=V0dnf6UDPeiTeY8NdLlU350Pn8u4/aMtJgYhytgSOtlaZ5zo93LitL9eTS+/riwy1w
+         MA+QPYygLhUYmFspyRY1X59bXLy91SpAjwOAefxcGtW9GXTgIvyNgEAYhGVFq4BNruER
+         ug+agClwKwhfFwNtILf1pQdoirwUH78cstx4xHu0IV8NTC5CiX5t7snAnm2Llr32lPZV
+         IMP1rWOfA5Io//wFD85v17dy9eNwdRt+0AsteIgvbYp8XR4ZRULrX1U1NPgNd32r7Emk
+         Rrseu0P5hf81Vq9jVZ+gsHi7fP/adHS3V6N0bmyoKjz1otKPqwx6FfMnS0Mjwl+I6DFd
+         oxig==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date;
-        bh=Jo518GRbKUE0liObwF9dt0WTMVSwLeQJF2+nyau9NTo=;
-        b=WBed/R6jDTa/zPtmWix0tV9Xmlmyc9qsQRW4kRoob/GWE/+JC6Nnjl8k2N9g272vwK
-         FEXzqnKm5Pq+ZlEBIrC+YNE9YFVhKpufj355Eh4qzE047ATtThBGSXbUklI9UdMdRcxv
-         K44hEAnuhtOrWO4OoqvNgMWORblZx1TsA/VHt9DEguZBAYax+ED2xJvkj3avaFbJFCgU
-         wr4XXgXHAZ+DbQMMRYUKELg1mqsHd/DHM165kdVRIe1UxpHFa1SQQjLA6uRCqkh5DNl+
-         Dmggvns/8GmcfIUmh4ZBc8usO93FNVnJVjawx7LBvhcRxF0zr/NaWhlN+eUCeUSWJTnr
-         KUTA==
+        bh=xJaBZLhMw7Q72AY770fOkYXLQlIbXgipS8nwawJBTOk=;
+        b=E+88HnEqfB5qyNDrsJRtD9SYTpyEYVbw2Vh0RdyS3iTCwY5AzT9MrfjjJl2/jPG5oB
+         6fOpPHBPlEbjCZQ+EDNZ8EkEtQ8UAyKKhOtw8jnfv7vQZ0Rnw+SHtiQQDQiGwUcla2hv
+         80dqzD3VlhZz99IDT3RaV3mFbFxhdxx8GZJTVrOT3RVj9+Am/pfao7NkJJFg4M2qZyIn
+         LyWkrLFzluHCwBAIfnhIHJzFdSdxIHP3En4ODIoDoj4UPYD3cs/FfRKulN9LvmQySzM3
+         g91td5SJGewmXe2jKZhRkcasdRPT+IDMTk6ZYOZNpqnlGTCYT0VmdpKACyXEOphKUU1z
+         NiwA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
-       spf=pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) smtp.mailfrom=lkp@intel.com;
+       spf=pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) smtp.mailfrom=lkp@intel.com;
        dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=intel.com
-Received: from mga01.intel.com (mga01.intel.com. [192.55.52.88])
-        by gmr-mx.google.com with ESMTPS id y3si139437plr.1.2020.03.06.05.55.27
+Received: from mga18.intel.com (mga18.intel.com. [134.134.136.126])
+        by gmr-mx.google.com with ESMTPS id g4si92598vke.3.2020.03.06.06.54.50
         for <clang-built-linux@googlegroups.com>
         (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 06 Mar 2020 05:55:27 -0800 (PST)
-Received-SPF: pass (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted sender) client-ip=192.55.52.88;
+        Fri, 06 Mar 2020 06:54:50 -0800 (PST)
+Received-SPF: pass (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted sender) client-ip=134.134.136.126;
 X-Amp-Result: UNKNOWN
 X-Amp-Original-Verdict: FILE UNKNOWN
 X-Amp-File-Uploaded: False
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 06 Mar 2020 05:55:26 -0800
+Received: from orsmga004.jf.intel.com ([10.7.209.38])
+  by orsmga106.jf.intel.com with ESMTP/TLS/DHE-RSA-AES256-GCM-SHA384; 06 Mar 2020 06:54:49 -0800
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="5.70,522,1574150400"; 
-   d="gz'50?scan'50,208,50";a="241173229"
+   d="gz'50?scan'50,208,50";a="387842284"
 Received: from lkp-server01.sh.intel.com (HELO lkp-server01) ([10.239.97.150])
-  by orsmga003.jf.intel.com with ESMTP; 06 Mar 2020 05:55:12 -0800
+  by orsmga004.jf.intel.com with ESMTP; 06 Mar 2020 06:54:32 -0800
 Received: from kbuild by lkp-server01 with local (Exim 4.89)
 	(envelope-from <lkp@intel.com>)
-	id 1jADRX-0009gs-U5; Fri, 06 Mar 2020 21:55:11 +0800
-Date: Fri, 6 Mar 2020 21:54:37 +0800
+	id 1jAEMx-00011z-L6; Fri, 06 Mar 2020 22:54:31 +0800
+Date: Fri, 6 Mar 2020 22:54:09 +0800
 From: kbuild test robot <lkp@intel.com>
 To: Thomas Zimmermann <tzimmermann@suse.de>
 Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
@@ -138,17 +138,17 @@ Cc: kbuild-all@lists.01.org, clang-built-linux@googlegroups.com,
 	linux-mediatek@lists.infradead.org,
 	Thomas Zimmermann <tzimmermann@suse.de>,
 	linux-tegra@vger.kernel.org
-Subject: Re: [PATCH 18/22] drm/vc4: Use simple encoder
-Message-ID: <202003062111.Q1W7Y5ZF%lkp@intel.com>
-References: <20200305155950.2705-19-tzimmermann@suse.de>
+Subject: Re: [PATCH 21/22] drm/writeback: Use simple encoder
+Message-ID: <202003062217.UBMXjqih%lkp@intel.com>
+References: <20200305155950.2705-22-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="azLHFNyN32YCQGCU"
+Content-Type: multipart/mixed; boundary="M9NhX3UHpAaciwkO"
 Content-Disposition: inline
-In-Reply-To: <20200305155950.2705-19-tzimmermann@suse.de>
+In-Reply-To: <20200305155950.2705-22-tzimmermann@suse.de>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-Original-Sender: lkp@intel.com
 X-Original-Authentication-Results: gmr-mx.google.com;       spf=pass
- (google.com: domain of lkp@intel.com designates 192.55.52.88 as permitted
+ (google.com: domain of lkp@intel.com designates 134.134.136.126 as permitted
  sender) smtp.mailfrom=lkp@intel.com;       dmarc=pass (p=NONE sp=NONE
  dis=NONE) header.from=intel.com
 Precedence: list
@@ -164,7 +164,7 @@ List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegro
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
 
---azLHFNyN32YCQGCU
+--M9NhX3UHpAaciwkO
 Content-Type: text/plain; charset="UTF-8"
 Content-Disposition: inline
 
@@ -190,120 +190,108 @@ Reported-by: kbuild test robot <lkp@intel.com>
 
 All errors (new ones prefixed by >>):
 
->> drivers/gpu//drm/vc4/vc4_dpi.c:309:2: error: implicit declaration of function 'drm_simple_encoder_init' [-Werror,-Wimplicit-function-declaration]
-           drm_simple_encoder_init(drm, dpi->encoder, DRM_MODE_ENCODER_DPI);
-           ^
-   drivers/gpu//drm/vc4/vc4_dpi.c:309:2: note: did you mean 'drm_encoder_init'?
-   include/drm/drm_encoder.h:189:5: note: 'drm_encoder_init' declared here
-   int drm_encoder_init(struct drm_device *dev,
-       ^
-   1 error generated.
---
->> drivers/gpu//drm/vc4/vc4_dsi.c:1610:2: error: implicit declaration of function 'drm_simple_encoder_init' [-Werror,-Wimplicit-function-declaration]
-           drm_simple_encoder_init(drm, dsi->encoder, DRM_MODE_ENCODER_DSI);
-           ^
-   drivers/gpu//drm/vc4/vc4_dsi.c:1610:2: note: did you mean 'drm_encoder_init'?
-   include/drm/drm_encoder.h:189:5: note: 'drm_encoder_init' declared here
-   int drm_encoder_init(struct drm_device *dev,
-       ^
-   1 error generated.
---
->> drivers/gpu//drm/vc4/vc4_hdmi.c:1389:2: error: implicit declaration of function 'drm_simple_encoder_init' [-Werror,-Wimplicit-function-declaration]
-           drm_simple_encoder_init(drm, hdmi->encoder, DRM_MODE_ENCODER_TMDS);
-           ^
-   drivers/gpu//drm/vc4/vc4_hdmi.c:1389:2: note: did you mean 'drm_encoder_init'?
-   include/drm/drm_encoder.h:189:5: note: 'drm_encoder_init' declared here
-   int drm_encoder_init(struct drm_device *dev,
-       ^
-   1 error generated.
---
->> drivers/gpu//drm/vc4/vc4_vec.c:566:2: error: implicit declaration of function 'drm_simple_encoder_init' [-Werror,-Wimplicit-function-declaration]
-           drm_simple_encoder_init(drm, vec->encoder, DRM_MODE_ENCODER_TVDAC);
-           ^
-   drivers/gpu//drm/vc4/vc4_vec.c:566:2: note: did you mean 'drm_encoder_init'?
+>> drivers/gpu/drm/drm_writeback.c:191:8: error: implicit declaration of function 'drm_simple_encoder_init' [-Werror,-Wimplicit-function-declaration]
+           ret = drm_simple_encoder_init(dev, &wb_connector->encoder,
+                 ^
+   drivers/gpu/drm/drm_writeback.c:191:8: note: did you mean 'drm_encoder_init'?
    include/drm/drm_encoder.h:189:5: note: 'drm_encoder_init' declared here
    int drm_encoder_init(struct drm_device *dev,
        ^
    1 error generated.
 
-vim +/drm_simple_encoder_init +309 drivers/gpu//drm/vc4/vc4_dpi.c
+vim +/drm_simple_encoder_init +191 drivers/gpu/drm/drm_writeback.c
 
-   254	
-   255	static int vc4_dpi_bind(struct device *dev, struct device *master, void *data)
-   256	{
-   257		struct platform_device *pdev = to_platform_device(dev);
-   258		struct drm_device *drm = dev_get_drvdata(master);
-   259		struct vc4_dev *vc4 = to_vc4_dev(drm);
-   260		struct vc4_dpi *dpi;
-   261		struct vc4_dpi_encoder *vc4_dpi_encoder;
-   262		int ret;
-   263	
-   264		dpi = devm_kzalloc(dev, sizeof(*dpi), GFP_KERNEL);
-   265		if (!dpi)
-   266			return -ENOMEM;
-   267	
-   268		vc4_dpi_encoder = devm_kzalloc(dev, sizeof(*vc4_dpi_encoder),
-   269					       GFP_KERNEL);
-   270		if (!vc4_dpi_encoder)
-   271			return -ENOMEM;
-   272		vc4_dpi_encoder->base.type = VC4_ENCODER_TYPE_DPI;
-   273		vc4_dpi_encoder->dpi = dpi;
-   274		dpi->encoder = &vc4_dpi_encoder->base.base;
-   275	
-   276		dpi->pdev = pdev;
-   277		dpi->regs = vc4_ioremap_regs(pdev, 0);
-   278		if (IS_ERR(dpi->regs))
-   279			return PTR_ERR(dpi->regs);
-   280		dpi->regset.base = dpi->regs;
-   281		dpi->regset.regs = dpi_regs;
-   282		dpi->regset.nregs = ARRAY_SIZE(dpi_regs);
-   283	
-   284		if (DPI_READ(DPI_ID) != DPI_ID_VALUE) {
-   285			dev_err(dev, "Port returned 0x%08x for ID instead of 0x%08x\n",
-   286				DPI_READ(DPI_ID), DPI_ID_VALUE);
-   287			return -ENODEV;
-   288		}
-   289	
-   290		dpi->core_clock = devm_clk_get(dev, "core");
-   291		if (IS_ERR(dpi->core_clock)) {
-   292			ret = PTR_ERR(dpi->core_clock);
-   293			if (ret != -EPROBE_DEFER)
-   294				DRM_ERROR("Failed to get core clock: %d\n", ret);
-   295			return ret;
-   296		}
-   297		dpi->pixel_clock = devm_clk_get(dev, "pixel");
-   298		if (IS_ERR(dpi->pixel_clock)) {
-   299			ret = PTR_ERR(dpi->pixel_clock);
-   300			if (ret != -EPROBE_DEFER)
-   301				DRM_ERROR("Failed to get pixel clock: %d\n", ret);
-   302			return ret;
-   303		}
-   304	
-   305		ret = clk_prepare_enable(dpi->core_clock);
-   306		if (ret)
-   307			DRM_ERROR("Failed to turn on core clock: %d\n", ret);
-   308	
- > 309		drm_simple_encoder_init(drm, dpi->encoder, DRM_MODE_ENCODER_DPI);
-   310		drm_encoder_helper_add(dpi->encoder, &vc4_dpi_encoder_helper_funcs);
-   311	
-   312		ret = vc4_dpi_init_bridge(dpi);
-   313		if (ret)
-   314			goto err_destroy_encoder;
-   315	
-   316		dev_set_drvdata(dev, dpi);
-   317	
-   318		vc4->dpi = dpi;
-   319	
-   320		vc4_debugfs_add_regset32(drm, "dpi_regs", &dpi->regset);
-   321	
-   322		return 0;
-   323	
-   324	err_destroy_encoder:
-   325		drm_encoder_cleanup(dpi->encoder);
-   326		clk_disable_unprepare(dpi->core_clock);
-   327		return ret;
-   328	}
-   329	
+   149	
+   150	/**
+   151	 * drm_writeback_connector_init - Initialize a writeback connector and its properties
+   152	 * @dev: DRM device
+   153	 * @wb_connector: Writeback connector to initialize
+   154	 * @con_funcs: Connector funcs vtable
+   155	 * @enc_helper_funcs: Encoder helper funcs vtable to be used by the internal encoder
+   156	 * @formats: Array of supported pixel formats for the writeback engine
+   157	 * @n_formats: Length of the formats array
+   158	 *
+   159	 * This function creates the writeback-connector-specific properties if they
+   160	 * have not been already created, initializes the connector as
+   161	 * type DRM_MODE_CONNECTOR_WRITEBACK, and correctly initializes the property
+   162	 * values. It will also create an internal encoder associated with the
+   163	 * drm_writeback_connector and set it to use the @enc_helper_funcs vtable for
+   164	 * the encoder helper.
+   165	 *
+   166	 * Drivers should always use this function instead of drm_connector_init() to
+   167	 * set up writeback connectors.
+   168	 *
+   169	 * Returns: 0 on success, or a negative error code
+   170	 */
+   171	int drm_writeback_connector_init(struct drm_device *dev,
+   172					 struct drm_writeback_connector *wb_connector,
+   173					 const struct drm_connector_funcs *con_funcs,
+   174					 const struct drm_encoder_helper_funcs *enc_helper_funcs,
+   175					 const u32 *formats, int n_formats)
+   176	{
+   177		struct drm_property_blob *blob;
+   178		struct drm_connector *connector = &wb_connector->base;
+   179		struct drm_mode_config *config = &dev->mode_config;
+   180		int ret = create_writeback_properties(dev);
+   181	
+   182		if (ret != 0)
+   183			return ret;
+   184	
+   185		blob = drm_property_create_blob(dev, n_formats * sizeof(*formats),
+   186						formats);
+   187		if (IS_ERR(blob))
+   188			return PTR_ERR(blob);
+   189	
+   190		drm_encoder_helper_add(&wb_connector->encoder, enc_helper_funcs);
+ > 191		ret = drm_simple_encoder_init(dev, &wb_connector->encoder,
+   192					      DRM_MODE_ENCODER_VIRTUAL);
+   193		if (ret)
+   194			goto fail;
+   195	
+   196		connector->interlace_allowed = 0;
+   197	
+   198		ret = drm_connector_init(dev, connector, con_funcs,
+   199					 DRM_MODE_CONNECTOR_WRITEBACK);
+   200		if (ret)
+   201			goto connector_fail;
+   202	
+   203		ret = drm_connector_attach_encoder(connector,
+   204							&wb_connector->encoder);
+   205		if (ret)
+   206			goto attach_fail;
+   207	
+   208		INIT_LIST_HEAD(&wb_connector->job_queue);
+   209		spin_lock_init(&wb_connector->job_lock);
+   210	
+   211		wb_connector->fence_context = dma_fence_context_alloc(1);
+   212		spin_lock_init(&wb_connector->fence_lock);
+   213		snprintf(wb_connector->timeline_name,
+   214			 sizeof(wb_connector->timeline_name),
+   215			 "CONNECTOR:%d-%s", connector->base.id, connector->name);
+   216	
+   217		drm_object_attach_property(&connector->base,
+   218					   config->writeback_out_fence_ptr_property, 0);
+   219	
+   220		drm_object_attach_property(&connector->base,
+   221					   config->writeback_fb_id_property, 0);
+   222	
+   223		drm_object_attach_property(&connector->base,
+   224					   config->writeback_pixel_formats_property,
+   225					   blob->base.id);
+   226		wb_connector->pixel_formats_blob_ptr = blob;
+   227	
+   228		return 0;
+   229	
+   230	attach_fail:
+   231		drm_connector_cleanup(connector);
+   232	connector_fail:
+   233		drm_encoder_cleanup(&wb_connector->encoder);
+   234	fail:
+   235		drm_property_blob_put(blob);
+   236		return ret;
+   237	}
+   238	EXPORT_SYMBOL(drm_writeback_connector_init);
+   239	
 
 ---
 0-DAY CI Kernel Test Service, Intel Corporation
@@ -312,14 +300,14 @@ https://lists.01.org/hyperkitty/list/kbuild-all@lists.01.org
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003062111.Q1W7Y5ZF%25lkp%40intel.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/202003062217.UBMXjqih%25lkp%40intel.com.
 
---azLHFNyN32YCQGCU
+--M9NhX3UHpAaciwkO
 Content-Type: application/gzip
 Content-Disposition: attachment; filename=".config.gz"
 Content-Transfer-Encoding: base64
 
-H4sICPtNYl4AAy5jb25maWcAnDzJdhu3svv7FTzJJlnE4SRKue9oAaLRJMKeDKBJSps+tEQ5
+H4sICIhgYl4AAy5jb25maWcAnDzJdhu3svv7FTzJJlnE4SRKue9oAaLRJMKeDKBJSps+tEQ5
 etHgS0lO/Pe3CugBQKMVv5eTOGZVYS7UjP7xXz+OyNvr8+Ph9f7m8PDwbfT5+HQ8HV6Pt6O7
 +4fj/4yifJTlasQirj4AcXL/9Pb3r4fT42I+Ovuw+DD+5XQzH22Op6fjw4g+P93df36D5vfP
 T//68V/w748AfPwCPZ3+Pbp5ODx9Hn09nl4APZpMPow/jEc/fb5//fevv8Kfj/en0/Pp14eH
@@ -1205,4 +1193,4 @@ wEsOxceLESa/id2aruo8uus6I6nVCGZjw48uHHM8QwbZzQuGMAlwFnpPC3dt0zCPQREdGSiV
 JnKkP+4j6IYhKfDbHY5PTBmnIxwBO5QvgDFHP4J2gUOstpUMAQ0ZKIjQj7lHJbkVu6suF/4H
 +SLxE204AwA=
 
---azLHFNyN32YCQGCU--
+--M9NhX3UHpAaciwkO--
