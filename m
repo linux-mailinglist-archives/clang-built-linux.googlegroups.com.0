@@ -1,30 +1,30 @@
-Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBNFCRHZQKGQEXP2O2YQ@googlegroups.com>
+Return-Path: <clang-built-linux+bncBCOYZDMZ6UMRBN5CRHZQKGQE6CZK4HI@googlegroups.com>
 X-Original-To: lists+clang-built-linux@lfdr.de
 Delivered-To: lists+clang-built-linux@lfdr.de
-Received: from mail-ed1-x538.google.com (mail-ed1-x538.google.com [IPv6:2a00:1450:4864:20::538])
-	by mail.lfdr.de (Postfix) with ESMTPS id D8A3117BEBC
-	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 14:33:40 +0100 (CET)
-Received: by mail-ed1-x538.google.com with SMTP id s21sf1676632edy.3
-        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Mar 2020 05:33:40 -0800 (PST)
-ARC-Seal: i=2; a=rsa-sha256; t=1583501620; cv=pass;
+Received: from mail-wr1-x440.google.com (mail-wr1-x440.google.com [IPv6:2a00:1450:4864:20::440])
+	by mail.lfdr.de (Postfix) with ESMTPS id E1CA217BEC4
+	for <lists+clang-built-linux@lfdr.de>; Fri,  6 Mar 2020 14:33:43 +0100 (CET)
+Received: by mail-wr1-x440.google.com with SMTP id y5sf361770wrq.8
+        for <lists+clang-built-linux@lfdr.de>; Fri, 06 Mar 2020 05:33:43 -0800 (PST)
+ARC-Seal: i=2; a=rsa-sha256; t=1583501623; cv=pass;
         d=google.com; s=arc-20160816;
-        b=lZ2RphPFt8SiBPZ1iG0tghN8YX+uI4dTKsWp1+zpzdoanG+NkPKtXomdTAVckNl8/W
-         jOwr4B7L85NiwW6m9xe43a+nqoXhtBJf7jZ2bU3GCnk36iVIhQVEHCBwDKAT3h/Rpexc
-         D9PyaT260qKi4fzO11fzKIWMvJ2N8LvDTTjQmsn8554kCKX7skBemGk/6PxhNh5A9edI
-         3qqCJnXzD3RUzf8LH8GgM7jldtc3CLJLERQIjmc//rmXBNdCrjD57x6L9hzGyQX3mlKS
-         esd51Ql4LcSTK4G+cfsZQ/9pvONqPyBVHD3PlgPWkL/ndCJ+5p1OYaqR/gHket5j8q4o
-         Dwpw==
+        b=XdnmLLih1WdBzCNK0E+Vba7amklNZRDBfk2nY6toePc7Vh6oFiWxcJomechDzV+v1f
+         djIXGmStWYPfnH7v47/GOSTHXOFAcD8pJAJRCNyEVhJQHMvUPX1vCpAfWr7pnOJ3HURu
+         RwHw2/GThTygU0dTI/3MrvQQdc4Mz71MVmYp1gYv+qFQmHvubD7N8E6RatvV2vnNPQUw
+         9Agi4XDLThTf73JgIwb+cRc3HpU4N8JdrkzdsHiMv3Pqyx4GMXnjYzFzE0mjwyIlL8lw
+         vizRHVH7yvysh94qgy4+OSqz4xTL44tdjHELySge6AhUASOZW+Q5qeIax68EMXVNO+C7
+         6uPg==
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=list-unsubscribe:list-subscribe:list-archive:list-help:list-post
          :list-id:mailing-list:precedence:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:sender:dkim-signature;
-        bh=sQp6fWiDWI/IF9MP/zh4Lg+9itnJjoPUd9uLP/qw4Jg=;
-        b=ZN/Do0l1cMH+LMyOTl8BIjnDwnqw1Fisvg0jrA+C9VmnZKvTgykdPC9AtAydM5N0vX
-         fgEAtbBi3RGzhK6L3ImO7hXeh3SX8hI6eEA7toJYG39NmokMDvMElo6EzQ25WocmCdOK
-         Q8kRCradG1Ru0z7szGt0JF8dwt4J1zWVsWR+j0SjUh5qvCgSuY2hl+YCm9iZ6x6pBQBk
-         KxibnRursLzOyJQBPdLllY8+HTGyqM4JM2khtPGoi15pM8fA80sN9l/d+zRHDIiOl0Sa
-         98asO9JBqHm4PLL2TnbCCBfoYOFNxqcydGuKHVg11ei9B+dPjMjmoctjBW/Bsagzutyd
-         B1Zw==
+        bh=V5+Q5Z3qeaiTqMklAeru+cTBz2QQz8mdeKqDwdBIUyA=;
+        b=GPu06Ub0GpnSlYEWBSKXb99hk06ofedzzn+QG9MgqQAxoUxwZoeJF4AfFKFZgz4gM7
+         mnHA9/nWEPN26xkB/7xFxcde8r8ck41JgwOOABvwiBvdzJiNqe+ll+9WtqxFKXP3xudB
+         B4fJdSuWLSll5xQ3XMv93z5K9HpQVwEtQ7gU02U9IFDtzjhCKPi4Ey1uwkYi6uDeKbpt
+         ydqvWpeLoUqpNC0W/S+QX5fYlj3s/Q9k6o62XPRpwgEyFAzpebaN+Rov0zNDTNTKkkOW
+         amsOHvCYSJsvzm4k+kxsJCsrKaoyPOBII70hax0XyczKnPLpBHZDttgG7keWatOGZycS
+         J38A==
 ARC-Authentication-Results: i=2; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
@@ -33,13 +33,13 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :mime-version:x-original-sender:x-original-authentication-results
          :precedence:mailing-list:list-id:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=sQp6fWiDWI/IF9MP/zh4Lg+9itnJjoPUd9uLP/qw4Jg=;
-        b=EaPgeLv8Sr/QYFnBMpDPMCHHFD1GLdyKTh+2+ciFy9m+Bw8PDAQ3phuZIvwRvr/fnh
-         ssqfzp0bWFcBMS4BDjUQLgHQgdxI8OCHKlwDZWJje4Edl1kZowJkm0oXXuGUnkWywQq9
-         mWXWycpkW9tAC83jRbhq1j2yAw0BVYeaFH5xOEB3EjX6CpJlERbYHcZvqMFX6U/wGlf7
-         gvm1lz07ukB5j4awMzysRuM9YrvSEXsMyf2BcPzMvH7+0ZYoTpY0IxeDnfsg5uGb5UIV
-         Ny+Gc787XLEP4FPasLttmHXhgH6nZrtwExWokofJN0n3HiK5zinFgddd3Fgcl2WHP1hu
-         l3Yg==
+        bh=V5+Q5Z3qeaiTqMklAeru+cTBz2QQz8mdeKqDwdBIUyA=;
+        b=QV5TwJOYXThJOQxRX+P1N26ifunKe4m5+rb7/lWZ9c8mCSciwr02kENCa8q+elHoO4
+         wWfQI94UAc2C6OiPn3AzShS3Pia1i7CRowY+MQQL+CNy+NzZ9tKmxIsQJ+3fc/dEjw21
+         iB3xZqGuC4ozbuT519O4KZz83UOybPvthc+nQejESJTI9JKUpHzO11iNLRPxTjQ2r4nx
+         gu8I7ixBkSuqCnsdt4ppD+xi7w93YA2XlX5n04S8UQde9hyI+qeaG5ng+2HGWxND+Szj
+         AQ0kY74Ea0/8lsZpZRVedmIu4FLT54feKH5o4mNZXkNYcF2Id4zIg/LGcYU1vrO4bn3d
+         zD5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20161025;
         h=sender:x-gm-message-state:from:to:cc:subject:date:message-id
@@ -47,55 +47,55 @@ X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
          :x-original-authentication-results:precedence:mailing-list:list-id
          :x-spam-checked-in-group:list-post:list-help:list-archive
          :list-subscribe:list-unsubscribe;
-        bh=sQp6fWiDWI/IF9MP/zh4Lg+9itnJjoPUd9uLP/qw4Jg=;
-        b=JzuldVtjbwsZ0xKUHeYl+ap1caVAg1N89OAZrXAEO+XA5iB+yV8FglSt/0OybYTiN/
-         tOc7sBWy+SXZQCvdYxs0HLiqykYLfO3IwbkX2tg1IXFKOKWY4/sSxmkL2QdzBDYtdgUl
-         yTjEXE8HYpd7IN2XTpU8RPNVNHOb01VCABYtmob5atpFuKnrbaS7kRryc4g81q9uRBKv
-         f2iPR1FwGoyE7epECYa3fFr/EGq3mN2GymuUEXHhAnyBG6FD6SDGsZoOmqTI32wxjVGt
-         XtbogrOy6ZFyd14BUHpnr8CpDxMKg0UNJQsgeQ/+FOW0SmOCVmZVGKnnbya+ul3v1iUg
-         QuVg==
+        bh=V5+Q5Z3qeaiTqMklAeru+cTBz2QQz8mdeKqDwdBIUyA=;
+        b=eFi0rau//wFCQ1mJTng05Nsdopt+1/k3YTnYyhROvWo51vpEXdbfyoGRr2Un+inQtB
+         Z7NyGZzyjltXhuYOplF2gV1+McEoBJ7eCrBLBTTJ5V8WGgAyvBq2SsWJHFOXe3Cfz5bc
+         oK7cEW2MwZNHmORXDHdStNtgcxv4PbJmgZT4ATm7msQdJpVDAWMI9czVNnylmVobyBhp
+         ondfnPbIzHq/z5Y6hWgOFNApU3K4iqMaCxP+OLPXwMEHNSs+5evFANOvDWyMPCBB+bQE
+         2/7fuXCtDwQ2kUMDhIVDXorLfu+GyRFGTFZ/IQ3MO2+1oL9s4FLBgHGgfGM+wAtN+A9/
+         t2HA==
 Sender: clang-built-linux@googlegroups.com
-X-Gm-Message-State: ANhLgQ0Ur9c+GtVpX2fRKmaCrChzHMyUeDJV3ivsP7mXddGCo/ccdGHy
-	yRsr2NBYDoMbtgfmPIovmQA=
-X-Google-Smtp-Source: ADFU+vvcqzvSjHdoMZrjOvtfMV8x4++1QBnu4MpbYnI6WPJ80Gjnl/tb5nfw0YiMQEPq+tjvGhfYAw==
-X-Received: by 2002:aa7:d64e:: with SMTP id v14mr3056462edr.164.1583501620628;
-        Fri, 06 Mar 2020 05:33:40 -0800 (PST)
+X-Gm-Message-State: ANhLgQ3iE8qKSjr4ZbBTJSFpsYggLZK5n4vK61zp5GHXXFflvwUgi+pO
+	lqr/BN8t/QYRF7eYZo1pafA=
+X-Google-Smtp-Source: ADFU+vss1cDNUQSj88jWKn+4zibprLFFTSWWBCXS0cf4yCYOkNtCTCXg8YFwaZWmaIcUFx/mrvVKyA==
+X-Received: by 2002:a5d:4a41:: with SMTP id v1mr4189281wrs.205.1583501623684;
+        Fri, 06 Mar 2020 05:33:43 -0800 (PST)
 X-BeenThere: clang-built-linux@googlegroups.com
-Received: by 2002:a50:9517:: with SMTP id u23ls1159246eda.7.gmail; Fri, 06 Mar
- 2020 05:33:40 -0800 (PST)
-X-Received: by 2002:a50:c94d:: with SMTP id p13mr3261316edh.78.1583501620072;
-        Fri, 06 Mar 2020 05:33:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1583501620; cv=none;
+Received: by 2002:a5d:4441:: with SMTP id x1ls1041204wrr.4.gmail; Fri, 06 Mar
+ 2020 05:33:43 -0800 (PST)
+X-Received: by 2002:adf:fdc2:: with SMTP id i2mr4306420wrs.166.1583501623202;
+        Fri, 06 Mar 2020 05:33:43 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1583501623; cv=none;
         d=google.com; s=arc-20160816;
-        b=07NSpNjZQlItZuFLyfdHmh1aeAIvnIKN1kSWFWYdojzqXgT+p/yQR2a0UuaVoJSyN3
-         wj658J+7DJqEkf+eGLQXOf0n7fdqkMntwjNLWtKFMAnrjg9hZ2A289pDNadQULqfie/4
-         sWfT3kBMpK3nH6qIYvjF+9+hf/QhLmK5T+Gv0CoKHi95uIDVLHu+zOFg6SGZFiu5CbZ9
-         boObh3svBkTEkjtHJI2wtAtPfgjEyUnwTAq51a1CShvGcqXCg1495A+05FcbPA/3cR3m
-         LMkanW9zv8URf1qnYAgiLtcIVa0IchIYKJ2kWH/a6LmbM6BSmUMcMxeaJaPgG9xTO0b7
-         YeeQ==
+        b=RcFp0syPZfrpSAJq7w2lF8rHHG3XitU7q4UeqXmTwql1/LXLtHnyuxaXOHNUS/uX7W
+         qsqJXz0/niL8ROghN8A/QNElkJlgcp70yAjzJlsb3S5rjA5aV+4Rvo88VYp02suP2xw4
+         SKgxnRTaUlmMuRF3u/AVLt7YgiZEec8cX+tVOrQMZizocJgmg8F2Kxtih9NSt/t+WcoG
+         p1Kvhg16n+VfHljxL+YRSmKRYolVEQsmTqAod7E5kBLmAh6RZb0ZC3xZC2lA8eUPI96J
+         JZxaj3i5S3vjowDyhMSIhN+oxqmjLmf2VPSgiay6/2gxqhbs6NwHBSC9jMVWnybrn8gk
+         IvIg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from;
-        bh=cEY/++cW16u38IB6UWOggK+RWNNbLPEc3zYdZW5SRUo=;
-        b=rC2EdTMQKdHeJnUze/6tc5O+CkAChV1jl9BzNvVh94Ol/LoNwCciK+o0v5ZU4BI1iz
-         MvIIUqRpLrR7usGsHNhYICia/mTe1j7qg4Hs3S8a9ICmS3WDNf40DmzXP9Py2lxvHIbW
-         00pguk0um1Zqg2JsIffFtSEBLF26CHDB28jHhPiQUmMjQMGETXsH1g0U2HiAY5jgywlB
-         qwAJr5nHgg2AnPDmUHHNF5G5qInp7IMO0p/iKO2oU3KtXu6Ut8KxtIjt1xUQJagN4MzW
-         MGHmMAfRhOzKNABbL8t+L1PLsksdVltl4VZ1gxUx5o17OwC6fHVTyeJImuNdyad+B8Uv
-         MeqA==
+        bh=mAAhlGvY0DnAXEmTPMPHdr1Lbwi97W0NCLn/EpZRF3w=;
+        b=KiQcJu/1Zi744EKWHSgXS5PldS9ndEN2jfoT/tvIIN+iVQvpOfohxyiy7wG0raz0jU
+         eQZviO11uV/9nfK+KwZLTuzH8RpzIwlopTrSe50R6tHKw3s5o+XxuNtP9ZwRXgnFI9j2
+         ovgQJaAeq+2Ln9fnQ7uQNGVDKZXWH1R+DCFX9Anhp5d5BILdrMJ/uXRLt2cEs2/sL11w
+         AR6fhj0bWCdFIwlqhaKQTMK2dQNRWknsGrzu3E0YyXRBNZ4Eai1Clm4EnZgEe72VJ2is
+         W3xE4n6fMmzFzaMXmupyrPL6tN9LJiXVv0gdpqWlRxOP8XZyYipiH86fqBv0izzSMxqB
+         clhA==
 ARC-Authentication-Results: i=1; gmr-mx.google.com;
        spf=pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) smtp.mailfrom=vincenzo.frascino@arm.com
 Received: from foss.arm.com (foss.arm.com. [217.140.110.172])
-        by gmr-mx.google.com with ESMTP id g12si103530eje.1.2020.03.06.05.33.39
+        by gmr-mx.google.com with ESMTP id n7si75830wmc.1.2020.03.06.05.33.42
         for <clang-built-linux@googlegroups.com>;
-        Fri, 06 Mar 2020 05:33:40 -0800 (PST)
+        Fri, 06 Mar 2020 05:33:43 -0800 (PST)
 Received-SPF: pass (google.com: domain of vincenzo.frascino@arm.com designates 217.140.110.172 as permitted sender) client-ip=217.140.110.172;
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48DA231B;
-	Fri,  6 Mar 2020 05:33:39 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E0AA1063;
+	Fri,  6 Mar 2020 05:33:42 -0800 (PST)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D45D3F6CF;
-	Fri,  6 Mar 2020 05:33:36 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F30B3F6CF;
+	Fri,  6 Mar 2020 05:33:39 -0800 (PST)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -120,10 +120,10 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Dmitry Safonov <0x7f454c46@gmail.com>,
 	Andrei Vagin <avagin@openvz.org>,
 	Nick Desaulniers <ndesaulniers@google.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH v2 15/20] arm64: Introduce asm/common/arch_timer.h
-Date: Fri,  6 Mar 2020 13:32:37 +0000
-Message-Id: <20200306133242.26279-16-vincenzo.frascino@arm.com>
+	Paul Burton <paulburton@kernel.org>
+Subject: [PATCH v2 16/20] mips: vdso: Enable mips to use common headers
+Date: Fri,  6 Mar 2020 13:32:38 +0000
+Message-Id: <20200306133242.26279-17-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20200306133242.26279-1-vincenzo.frascino@arm.com>
 References: <20200306133242.26279-1-vincenzo.frascino@arm.com>
@@ -145,189 +145,106 @@ List-Subscribe: <https://groups.google.com/group/clang-built-linux/subscribe>, <
 List-Unsubscribe: <mailto:googlegroups-manage+357212215037+unsubscribe@googlegroups.com>,
  <https://groups.google.com/group/clang-built-linux/subscribe>
 
-The vDSO library should only include the necessary headers required for
-a userspace library (UAPI and a minimal set of kernel headers). To make
-this possible it is necessary to isolate from the kernel headers the
-common parts that are strictly necessary to build the library.
+Enable mips to use only the common headers in the implementation of
+the vDSO library.
 
-Introduce asm/common/arch_timer.h to contain all the arm64 specific
-code. This allows to replace the second isb() in __arch_get_hw_counter()
-with a fake dependent stack read of the counter which improves the vdso
-library peformances of ~4.5%. Below the results of vdsotest [1] ran for
-100 iterations.
-
-Before the patch:
-=================
-clock-gettime-monotonic: syscall: 771 nsec/call
-clock-gettime-monotonic:    libc: 130 nsec/call
-clock-gettime-monotonic:    vdso: 111 nsec/call
-...
-clock-gettime-realtime: syscall: 762 nsec/call
-clock-gettime-realtime:    libc: 130 nsec/call
-clock-gettime-realtime:    vdso: 111 nsec/call
-
-After the patch:
-================
-clock-gettime-monotonic: syscall: 792 nsec/call
-clock-gettime-monotonic:    libc: 124 nsec/call
-clock-gettime-monotonic:    vdso: 106 nsec/call
-...
-clock-gettime-realtime: syscall: 776 nsec/call
-clock-gettime-realtime:    libc: 124 nsec/call
-clock-gettime-realtime:    vdso: 106 nsec/call
-
-[1] https://github.com/nathanlynch/vdsotest
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
+Cc: Paul Burton <paulburton@kernel.org>
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- arch/arm64/include/asm/arch_timer.h        | 29 ++++---------------
- arch/arm64/include/asm/common/arch_timer.h | 33 ++++++++++++++++++++++
- arch/arm64/include/asm/vdso/gettimeofday.h |  7 +++--
- 3 files changed, 42 insertions(+), 27 deletions(-)
- create mode 100644 arch/arm64/include/asm/common/arch_timer.h
+ arch/mips/include/asm/common/processor.h  | 27 +++++++++++++++++++++++
+ arch/mips/include/asm/processor.h         | 16 +-------------
+ arch/mips/include/asm/vdso/gettimeofday.h |  4 ----
+ 3 files changed, 28 insertions(+), 19 deletions(-)
+ create mode 100644 arch/mips/include/asm/common/processor.h
 
-diff --git a/arch/arm64/include/asm/arch_timer.h b/arch/arm64/include/asm/arch_timer.h
-index 7ae54d7d333a..6567e20a76b2 100644
---- a/arch/arm64/include/asm/arch_timer.h
-+++ b/arch/arm64/include/asm/arch_timer.h
-@@ -164,24 +164,7 @@ static inline void arch_timer_set_cntkctl(u32 cntkctl)
- 	isb();
- }
- 
--/*
-- * Ensure that reads of the counter are treated the same as memory reads
-- * for the purposes of ordering by subsequent memory barriers.
-- *
-- * This insanity brought to you by speculative system register reads,
-- * out-of-order memory accesses, sequence locks and Thomas Gleixner.
-- *
-- * http://lists.infradead.org/pipermail/linux-arm-kernel/2019-February/631195.html
-- */
--#define arch_counter_enforce_ordering(val) do {				\
--	u64 tmp, _val = (val);						\
--									\
--	asm volatile(							\
--	"	eor	%0, %1, %1\n"					\
--	"	add	%0, sp, %0\n"					\
--	"	ldr	xzr, [%0]"					\
--	: "=r" (tmp) : "r" (_val));					\
--} while (0)
-+#include <asm/common/arch_timer.h>
- 
- static __always_inline u64 __arch_counter_get_cntpct_stable(void)
- {
-@@ -189,7 +172,7 @@ static __always_inline u64 __arch_counter_get_cntpct_stable(void)
- 
- 	isb();
- 	cnt = arch_timer_reg_read_stable(cntpct_el0);
--	arch_counter_enforce_ordering(cnt);
-+	cnt = arch_counter_enforce_ordering(cnt);
- 	return cnt;
- }
- 
-@@ -199,7 +182,7 @@ static __always_inline u64 __arch_counter_get_cntpct(void)
- 
- 	isb();
- 	cnt = read_sysreg(cntpct_el0);
--	arch_counter_enforce_ordering(cnt);
-+	cnt = arch_counter_enforce_ordering(cnt);
- 	return cnt;
- }
- 
-@@ -209,7 +192,7 @@ static __always_inline u64 __arch_counter_get_cntvct_stable(void)
- 
- 	isb();
- 	cnt = arch_timer_reg_read_stable(cntvct_el0);
--	arch_counter_enforce_ordering(cnt);
-+	cnt = arch_counter_enforce_ordering(cnt);
- 	return cnt;
- }
- 
-@@ -219,12 +202,10 @@ static __always_inline u64 __arch_counter_get_cntvct(void)
- 
- 	isb();
- 	cnt = read_sysreg(cntvct_el0);
--	arch_counter_enforce_ordering(cnt);
-+	cnt = arch_counter_enforce_ordering(cnt);
- 	return cnt;
- }
- 
--#undef arch_counter_enforce_ordering
--
- static inline int arch_timer_arch_init(void)
- {
- 	return 0;
-diff --git a/arch/arm64/include/asm/common/arch_timer.h b/arch/arm64/include/asm/common/arch_timer.h
+diff --git a/arch/mips/include/asm/common/processor.h b/arch/mips/include/asm/common/processor.h
 new file mode 100644
-index 000000000000..b11bd67a366e
+index 000000000000..d2ee5d397d2b
 --- /dev/null
-+++ b/arch/arm64/include/asm/common/arch_timer.h
-@@ -0,0 +1,33 @@
++++ b/arch/mips/include/asm/common/processor.h
+@@ -0,0 +1,27 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +/*
 + * Copyright (C) 2020 ARM Ltd.
 + */
-+#ifndef __ASM_COMMON_ARCH_TIMER_H
-+#define __ASM_COMMON_ARCH_TIMER_H
++#ifndef __ASM_COMMON_PROCESSOR_H
++#define __ASM_COMMON_PROCESSOR_H
 +
-+#include <uapi/linux/types.h>
++#ifndef __ASSEMBLY__
 +
++#ifdef CONFIG_CPU_LOONGSON64
 +/*
-+ * Ensure that reads of the counter are treated the same as memory reads
-+ * for the purposes of ordering by subsequent memory barriers.
++ * Loongson-3's SFB (Store-Fill-Buffer) may buffer writes indefinitely when a
++ * tight read loop is executed, because reads take priority over writes & the
++ * hardware (incorrectly) doesn't ensure that writes will eventually occur.
 + *
-+ * This insanity brought to you by speculative system register reads,
-+ * out-of-order memory accesses, sequence locks and Thomas Gleixner.
-+ *
-+ * http://lists.infradead.org/pipermail/linux-arm-kernel/2019-February/631195.html
-+ *
++ * Since spin loops of any kind should have a cpu_relax() in them, force an SFB
++ * flush from cpu_relax() such that any pending writes will become visible as
++ * expected.
 + */
-+static u64 arch_counter_enforce_ordering(u64 val)
-+{
-+	u64 tmp, _val = (val);
++#define cpu_relax()	smp_mb()
++#else
++#define cpu_relax()	barrier()
++#endif
 +
-+	asm volatile(
-+	"	eor	%0, %1, %1\n"
-+	"	add	%0, sp, %0\n"
-+	"	ldr	xzr, [%0]"
-+	: "=r" (tmp) : "r" (_val));
++#endif /* __ASSEMBLY__ */
 +
-+	return _val;
-+}
-+
-+#endif /* __ASM_COMMON_ARCH_TIMER_H */
-diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
-index cc3456416096..628bb3b187c4 100644
---- a/arch/arm64/include/asm/vdso/gettimeofday.h
-+++ b/arch/arm64/include/asm/vdso/gettimeofday.h
-@@ -8,6 +8,7 @@
++#endif /* __ASM_COMMON_PROCESSOR_H */
+diff --git a/arch/mips/include/asm/processor.h b/arch/mips/include/asm/processor.h
+index 7619ad319400..b7eca25e2066 100644
+--- a/arch/mips/include/asm/processor.h
++++ b/arch/mips/include/asm/processor.h
+@@ -22,6 +22,7 @@
+ #include <asm/dsemul.h>
+ #include <asm/mipsregs.h>
+ #include <asm/prefetch.h>
++#include <asm/common/processor.h>
+ 
+ /*
+  * System setup and hardware flags..
+@@ -385,21 +386,6 @@ unsigned long get_wchan(struct task_struct *p);
+ #define KSTK_ESP(tsk) (task_pt_regs(tsk)->regs[29])
+ #define KSTK_STATUS(tsk) (task_pt_regs(tsk)->cp0_status)
+ 
+-#ifdef CONFIG_CPU_LOONGSON64
+-/*
+- * Loongson-3's SFB (Store-Fill-Buffer) may buffer writes indefinitely when a
+- * tight read loop is executed, because reads take priority over writes & the
+- * hardware (incorrectly) doesn't ensure that writes will eventually occur.
+- *
+- * Since spin loops of any kind should have a cpu_relax() in them, force an SFB
+- * flush from cpu_relax() such that any pending writes will become visible as
+- * expected.
+- */
+-#define cpu_relax()	smp_mb()
+-#else
+-#define cpu_relax()	barrier()
+-#endif
+-
+ /*
+  * Return_address is a replacement for __builtin_return_address(count)
+  * which on certain architectures cannot reasonably be implemented in GCC
+diff --git a/arch/mips/include/asm/vdso/gettimeofday.h b/arch/mips/include/asm/vdso/gettimeofday.h
+index a58687e26c5d..e8ab2fafe067 100644
+--- a/arch/mips/include/asm/vdso/gettimeofday.h
++++ b/arch/mips/include/asm/vdso/gettimeofday.h
+@@ -13,12 +13,8 @@
+ 
  #ifndef __ASSEMBLY__
  
+-#include <linux/compiler.h>
+-#include <linux/time.h>
+-
+ #include <asm/vdso/vdso.h>
+ #include <asm/clocksource.h>
+-#include <asm/io.h>
  #include <asm/unistd.h>
-+#include <asm/common/arch_timer.h>
+ #include <asm/vdso.h>
  
- #define __VDSO_USE_SYSCALL		ULLONG_MAX
- 
-@@ -83,10 +84,10 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode)
- 	isb();
- 	asm volatile("mrs %0, cntvct_el0" : "=r" (res) :: "memory");
- 	/*
--	 * This isb() is required to prevent that the seq lock is
--	 * speculated.#
-+	 * arch_counter_enforce_ordering() is required to prevent that
-+	 * the seq lock is speculated.
- 	 */
--	isb();
-+	res = arch_counter_enforce_ordering(res);
- 
- 	return res;
- }
 -- 
 2.25.1
 
 -- 
 You received this message because you are subscribed to the Google Groups "Clang Built Linux" group.
 To unsubscribe from this group and stop receiving emails from it, send an email to clang-built-linux+unsubscribe@googlegroups.com.
-To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200306133242.26279-16-vincenzo.frascino%40arm.com.
+To view this discussion on the web visit https://groups.google.com/d/msgid/clang-built-linux/20200306133242.26279-17-vincenzo.frascino%40arm.com.
